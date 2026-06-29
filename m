@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65D9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733C4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:52:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3oRZ5aQ5DodvAzXjFA5ki97FOVUhhZpKpXU5ywaAli4=; b=r0v5Jf8WIgwAzPihCUhbtC2USK
-	18tw5slFCbELXbslbFfYVPXxUGscFFOjTG3w+mhbkx8zZOvunZ2iire7761cRLVSAoFWdjtCkBAk5
-	SninYvC0P+q2TjGdTf06FvaeO+DUt4CR2hD0vs7JNYYTZVq2/MFE5jg62cmg6SBx7o3VuAilqh8eD
-	jDCOoNjs34uKlx9UKVOXAFi1HKXeS9p69QgXDl9kyTeFh5sg9gfNIrtP6xYt2vZGvtRoEpH2RWsEH
-	jAEi5Z58bbPzlEvv9gCt9bdZMOITXWor1RIc4Jcmv9W/SXlmQ1DLEOI4EgS0tVzENEhoubntRjyjl
-	WpARbfZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cMcHgc36aaJU0Nr7RRyNOjEsyz6bF5/W9plziuy9uws=; b=r6tymweV+3xVuiJXfpsPXh2NJI
+	JuOafzmRSowMAkNTL695neXNtoOM0+CgYlzrYiAvfPBfYCL1jBrJrmkA05O3FdayQc1+t7w7Irqfq
+	s6ehr68Ma/L2pzTRX1F5tjpNbj2ePeXg4xwvNyED81SZzKk2TRp7qlTlPlSrhHIribsfaDaVhN5AS
+	6Y4ZFbdFYTcNVWlGD3/KE7yK3JmkiaGxRGOD+xGs2OsoClR8wOm0AlLNApowiKKJZSWBY9n7dFkCx
+	wG7hMbUpUVhttl9a97x0rF9iw0wOL8O0bU0iIMihGx5htq4O74LrYyxly0JIsiUi8b9KfvSKUoIuE
+	4S3lffDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEEV-0000000F7he-2jpj;
-	Mon, 29 Jun 2026 15:49:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weEHB-0000000F89i-039L;
+	Mon, 29 Jun 2026 15:52:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEET-0000000F7gr-3mXz
+	id 1weEH8-0000000F89L-4Bpu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:49:13 +0000
+	Mon, 29 Jun 2026 15:51:59 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 044C6600C8;
-	Mon, 29 Jun 2026 15:49:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B5851F000E9;
-	Mon, 29 Jun 2026 15:49:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 311FF600DA;
+	Mon, 29 Jun 2026 15:51:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B6211F000E9;
+	Mon, 29 Jun 2026 15:51:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782748152;
-	bh=3oRZ5aQ5DodvAzXjFA5ki97FOVUhhZpKpXU5ywaAli4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Gfd9RbvbPXsLSqP0lUEsOp3xB2xlqWLZjP7NWREY79ckJqrMOope4VRt3d6Ix8J94
-	 OdJ+JASzEoNcySOm+QD+V1ZVT5fLuuDmehE+mDfnTdNX5G1H2pr4nf5eIYvop2I9p+
-	 tKVADe4UloR6Y3ice8H54orWM72mkyELoQMe49FvP3rD+joXCGOcF5hqosPJsE7Xic
-	 qk3qkj0HQnPbKk9p0XFQKrD8rzZJthZ81ElpDeBglmpqj4RRcBfs7vrpcBdfE0XqUF
-	 ZUh1l5LkFsLS/ZVqqhJWxfevuJVkKWdox7zERSnrHG6vOddshoXaa+CPsHfy533gXY
-	 xZJD+YOBqS4MQ==
-Date: Mon, 29 Jun 2026 16:49:08 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH RFC v5 00/12] ZTE zx297520v3 clock bindings and driver
-Message-ID: <20260629-unwelcome-raking-3df3d8ff0422@spud>
-References: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
+	s=k20260515; t=1782748317;
+	bh=cMcHgc36aaJU0Nr7RRyNOjEsyz6bF5/W9plziuy9uws=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=kPocfMEUYuMNe84xZZDYWtfO4m0SOtx7s/Wp7ICcWWqoGN1zL9e+D+YdUSO/UDmwD
+	 PZzO4FMO2ScHMKS8p25Z65MJYD1ORoPTJD7nt4sGLBtxXRxW/bZQue9ECmf/HDI3iz
+	 lfnnY2V5SIv0HIb0q4NP/OPYwhG2OJai3WgC9k5JSZtsJZYVuwOU+amtlAI7xhLUBB
+	 vxwP+hpxCqI1M09qg/vVNt7mNjO3homFld20KjeBbaExljBFjfc2SC9Ssf5mysLUSn
+	 Uhb+TZZ53DLlorbdHpoUSUe0DvQCKRje6YvtsDnZKz2Kbsd64qr/57gWoTNUXnbMmO
+	 phfu3Yl2/CZwg==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ Alexander Sverdlin <alex@sverdlin.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>, 
+ Lukas Schmid <lukas.schmid@netcube.li>, 
+ =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>, 
+ Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+ Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>, 
+ Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
+In-Reply-To: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
+References: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
+Subject: Re: (subset) [PATCH v5 0/6] Add support for Baijie Helper A133
+ board
+Message-Id: <178274831392.2336627.18238595158174074345.b4-ty@kernel.org>
+Date: Mon, 29 Jun 2026 23:51:53 +0800
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="O5wSEKtGIjQONlWl"
-Content-Disposition: inline
-In-Reply-To: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---O5wSEKtGIjQONlWl
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Tue, 23 Jun 2026 22:48:12 +0200, Alexander Sverdlin wrote:
+> Baijie Helper A133 board is a development board around Baijie A133 Core
+> SBC. Features:
+> 
+> - 1/2/4GiB LPDDR4 DRAM
+> - 8/16/32GiB eMMC
+> - AXP707 PMIC
+> - USB-C OTG port in peripheral mode (via onboard hub)
+> - 2 USB 2.0 ports
+> - MicroSD slot and on-board eMMC module
+> - Gigabit Ethernet
+> - Bluetooth
+> - WiFi
+> 
+> [...]
 
-On Sun, Jun 28, 2026 at 10:58:55PM +0300, Stefan D=F6singer wrote:
-> Hi,
->=20
-> I am sending version 5 of my zx297520v3 clock patch. The major change is=
-=20
-> using regmaps rather than raw mmio to access the clocks and moving reset=
-=20
-> handling into its own mfd/aux bus driver.
->=20
-> I think the list of clocks in my driver is fairly complete; It is=20
-> certainly a lot better than what the downstream ZTE drivers have. I=20
-> deduced a lot of it by trial and error. I am sure there are some clocks=
-=20
-> missing that will need to be added to the binding later. Afaiu adding=20
-> clocks is not an issue, but removing or reordering them is an ABI break.
+Applied to sunxi/config-for-7.3 in local tree, thanks!
 
-Correct, you can add whatever you want as long as the existing defines
-do not change.
+[1/6] arm64: defconfig: Enable Allwinner LRADC input driver
+      commit: b4158103c45386ab30ba7624bee17ebf33940baa
 
-> Signed-off-by: Stefan D=F6singer <stefandoesinger@gmail.com>
-> ---
-> Changes in v5:
-> *) Use MFD instead of aux bus for top and matrix clocks
-> *) Move top and matrix bindings to soc/zte
-> *) Give USB PHY its own resets
-> *) Other localized changes are noted in the individual patches
-> - Link to v4: https://lore.kernel.org/r/20260616-zx29clk-v4-0-ca994bd22e9=
-d@gmail.com
+Best regards,
+-- 
+Chen-Yu Tsai <wens@kernel.org>
 
-Bindings seem fine to me, I'll be happy to give you some r-b tags when
-you go non-RFC. To be frank, I think you should drop them as you've got
-no significant questions here I think and you'll be taken a bt more
-seriously.
-
---O5wSEKtGIjQONlWl
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakKT9AAKCRB4tDGHoIJi
-0j1nAQC8UKToEPcgGe2lQI+bacVo1EY2NlTAV7wfcqqKDpoI9gD/XHc3WrLY3p5V
-8g0f/QWBENwoSU7VMsipqaDQhqljhAQ=
-=Nih3
------END PGP SIGNATURE-----
-
---O5wSEKtGIjQONlWl--
 
