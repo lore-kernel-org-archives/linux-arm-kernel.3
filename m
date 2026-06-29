@@ -4,93 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35849C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:07:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CBCEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bbeOSfk9uz1Wrt6J5wAea4CxiJx++/6lvqEjtpLfRco=; b=EIOmy7fm3sa2jgv00X7xRC6Bt2
-	9rZTEBllhPoAZRvhYw/rylJYaZEguKU96MhwXjVG7x3VYL+01hDiO2Z0TTSe9O4Qpu5RJ1Ijsv2Cp
-	8IZdEt1DgOfPal6ryB4EQ9M30jpB4AC/yyq/0gKgTKDWccrduIP5tLhgsfRE7eKRcnugiuvRuQTXw
-	0eVrrc3LfefyO8MUsR46rDP7a7zu4Q2xFn3UdPwg/sHFvO1pIzVuo0N/H/TD2XDxe2DJ7Fx1QDpvL
-	OzbqJu6N60G23g2iIQzKKEdlEVj2vxiXHzFukFhIsLn4h0ehI9/HJsnJbXYQKvF57MzLb71Jy+zhF
-	ubM/zTMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zlUrAIE/gSYEJZY3h51uB7asRBP7fR/tcpNsL+SJA/k=; b=VwAA83C+e2zN/x5QShb0bUn236
+	4rSDPFLoER/8CP616+nLOAFTT6SEOcwfYkk3tSO1NEERybdhCBRNAi0UJXR2SM5JVrzmg9ONN2Zzz
+	bXG4yNrrVRkjpXLfyReGOMJNzYweSy0vYn0+ypBvyf3hPskFYsIb1dXQbBj6Prgt7JxBYv1P/pidi
+	Be6J9cCj2M9ZVCnXMsr/Inx3ui9Fpv5+H/VLFxnKvms7nEhCGCYM0+iINqNMOBqecw5o6kr9A5YVt
+	qaqW+9AmAb66cQ/l6K6F1msjTBzNEIkI8Drq7iwKrKPyjnAq8BFMEzM3QmfXSVlM5ZaqOa78OrA92
+	lTakQaQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCe4-0000000EpuI-318B;
-	Mon, 29 Jun 2026 14:07:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weCfn-0000000EqMa-12BG;
+	Mon, 29 Jun 2026 14:09:19 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCe2-0000000EptE-49gy
+	id 1weCfk-0000000EqLu-0Bsb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 14:07:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9E16B43E8B
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 14:07:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8584F1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 14:07:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782742050;
-	bh=bbeOSfk9uz1Wrt6J5wAea4CxiJx++/6lvqEjtpLfRco=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=WdJgbGTuii88TFEbu6XpTlHIdAbM0xcN6YjUJQNtsS5QZsweE06dn2SWSTdr13D0g
-	 cDrsusjeeaUBCimeiqTSvi/JeSiW9AvQkX/i5ua3pgxXsZCwAFb3CIBmkFlcjrkZT3
-	 WxbCtvKerMUrNoL6ZT6mTGetEEJdTN52F+3OEcp6VUHr8oc/v6pd+DkzaqNbBXxBZA
-	 Ld517NmZ9/iIB3qfK/4FP1OCHdb2Rkgwddzfy6RLgP+atqTMDKqOOsDnjXz2TzmohL
-	 x3TvIUD56kSkRMRCMUlifT+c1/Ck/brCKHJOFU6gJ74LZtHxWG4NXK6rUQ23KkWcRX
-	 mGc+ywabfwJrA==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39ae3c76e24so17950991fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:07:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpI8y+CyJMG/MmZ400jqOrmC05YTHGXEvoD1nb9jhLP0ybN2e7ccnDsd5N6aDe62sh3DLoHNdvdo24csHzdhCSP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx844XIgJCiUmJmPxmqRrcWfCczEJ6FIop7oFjzsz++ROfxz1ue
-	gYXD2qXslGlg5rXxmLfULRCWjSpy5HHBYLRdAm8Rtoe/gXT+Ms73NobquT8f4FJ4c4YCQaYSwdx
-	eNg+GY5a6z5hLAzXlKfJ63/3YPG8dt3NGfJJAFX7jLQ==
-X-Received: by 2002:a05:651c:146c:b0:396:5d0a:765a with SMTP id
- 38308e7fff4ca-39acb8ffa66mr33873361fa.21.1782742048596; Mon, 29 Jun 2026
- 07:07:28 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 29 Jun 2026 07:07:24 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 29 Jun 2026 07:07:24 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
+	Mon, 29 Jun 2026 14:09:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lkvCVdGPpkJpsMgqo/tfg7rokEm0LS7h7fxJP2q88GuIydgQoSQshdfJbTX8QRLFAsFxPtLK9uvSl48hJHgzmfbwJYbCQsSNmWqvxdymB223Mh//fffBuF55vKUZweXO+jEdEZnZyB632gjPzhQFZyy3rbsrxjNOZDgU3vuu9ttQXST+P6akev68dIXWcm22yek6CG4fesONEb761fF0krL/hJ0+18YRepNTWMSCdif9fC5t1Fcvmg9s9UOQ6WpLlUoFz7Xs+mmNyc2XuPVObcg0wMX3zMvn30qZbvbHQfFvfp2Y35iKwuzIXxQp6RZjJxhBq2as1ZpGQvPmasHTlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zlUrAIE/gSYEJZY3h51uB7asRBP7fR/tcpNsL+SJA/k=;
+ b=MLxD2QWwFvza5Zy0RCYaGsIeRFj9nUgCw7U+vDmmrCaJlDp4hz5v4JIDvH7oflG2QLZPE4NsUeGNOmyFZWi2JnhQnUEdJtGBjqy3Wt1j1cTUOUt0Wrn4o4lk7Os2DOg3QLkxbA3iPg6UawvE7ifc4Spwz61k+6TP/2P2LZ1mhyN5NXY75ShwTHaxG26zNSzieCJ4z33auXLLJ7XT4SBlFvLOmZL1AybsObHwWiCroTBJS0hHk6s3a81y6GTpJhHUEKa+K8w6Mh2ACYI8b39GwkwHYTSyT0bCiaW5NSztD4k1oKqUrfSQqe6xVI+3Ikrje+Q6A+5KBAuPhgxXJcD2vg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zlUrAIE/gSYEJZY3h51uB7asRBP7fR/tcpNsL+SJA/k=;
+ b=M6ACQlS2avNFBlO38rbBRIq/Lpnq9A9cPlJuxA13tUbJ+20NQ8Mre1R9M+2cvVbOH54zb9EMva87ImYyFjL9w7/0srGUAdP3+AGxsqhT+E9NAZ+ZRsFc3020LvRX3Mt8S4CObDHbG+wRMuU4qyi2bI5VXNz3jOqvxBgAyPvOHVo=
+Received: from MW4PR03CA0105.namprd03.prod.outlook.com (2603:10b6:303:b7::20)
+ by DS4PR12MB9657.namprd12.prod.outlook.com (2603:10b6:8:27f::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 14:09:09 +0000
+Received: from CO1PEPF00012E84.namprd03.prod.outlook.com
+ (2603:10b6:303:b7:cafe::3) by MW4PR03CA0105.outlook.office365.com
+ (2603:10b6:303:b7::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Mon,
+ 29 Jun 2026 14:09:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CO1PEPF00012E84.mail.protection.outlook.com (10.167.249.59) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Mon, 29 Jun 2026 14:09:08 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 29 Jun
+ 2026 09:09:03 -0500
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 29 Jun
+ 2026 09:06:22 -0500
+Received: from xhdlakshmis40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Mon, 29 Jun 2026 09:06:20 -0500
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+To: Conall O'Griofa <conall.ogriofa@amd.com>, Jonathan Cameron
+	<jic23@kernel.org>, <michal.simek@amd.com>
+CC: <linux-iio@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Sai Krishna Potthuri
+	<sai.krishna.potthuri@amd.com>
+Subject: [PATCH v2] MAINTAINERS: Update Xilinx AMS driver maintainers
+Date: Mon, 29 Jun 2026 19:36:15 +0530
+Message-ID: <20260629140615.213750-1-sai.krishna.potthuri@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
- <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com> <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
-Date: Mon, 29 Jun 2026 07:07:24 -0700
-X-Gmail-Original-Message-ID: <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
-X-Gm-Features: AVVi8CfgGr0R3g5nrNxVwL-t6-jaKI4wsgAKUpj-c_HwbEC7_gerPUuikt96dHI
-Message-ID: <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF00012E84:EE_|DS4PR12MB9657:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85e445e5-ccbb-4268-0dfa-08ded5e7fcdc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|23010399003|376014|36860700016|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: dY2LEBTrJBFjsJ6qzFXQQgUpA420/gk+xV0OYcJ8O/DsTIQpRDWK5Ek83pO839wXOgboRZWI/Iv5StQuKeCZ7l3UMDzp/JF8THNYm7k4wQS3viA0jG1Gleb0WCVWNzZGtmFRydmCYWKSso/xXsbtOVaYsr+JpTU3Q2VGdnptrSHXN0pWcSGErbethkhLjWPA+QIYVhjUaZoduhQ2+mf5ydkKRLtnSK6qve+nysaOBIoJR5Vuz27JwY91CDe16d9oWIxDH+rAG/FPASM/XGbUqoYM1XwEAkiksfpMW6cq8Ype2mGcGEPqyxXORmDwhAHGQLBO9VRvPvvMvjKtYM5cwtbAyr5+IEL5NMAwubDFSuyTHf0BMonhmrSCDOtd0kj8ZV9UwWKv8wxWGvH7Tq0H+51RXsf7w0VKflJhPFz53muDSCtGgY2bp51Ab4gMlOqvNvtDgS+qIfisA+xrUC5yJFkZwNeXubrqglLj8qE9hIuVX+t7HhG4Engn71H8JYxuMOJijn1caT3a785uoYuDo05J+jdrJDTw4VOz+tipNnscGCXSoMSA9bU4zleQprqNb6NazFNZAUHhu4SAGvj1INyEddhk9St0i/VKRb7AJBGklr7PjhPW2cSRzSGWWOfUcXJnDqkAicJqH1UT4HQwyjsiHZL/F2Q92+Ps3O6SlOcny4g9kaT4omqpYHRMz0+lu8gCRs+vKgYH3YVvzSUSrQ==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(23010399003)(376014)(36860700016)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: RpRGi54n935/AaJT24OHreCusDykdMZEe3R9ek7qMPKvDasBzRF9P9vQ0zQ89jDepCB9kEY+3MZSlBoRpR7wLEDWHBeMxMTJSuiyBezlJDRvrOynop9hDLE16qI4DyIgevfdmjw8j1rrEnXCXnc7wnt4nqa8lPTxhgjtsIxdUAfHv3lsNrT8cNM05GieAGn4WDLp3919CRV7oB7d6mka7BIXKjFGjlqGhA00z9bFW1eqUkMoL6U+Z7aC201PczCDavwU27RfZwmtWQxq56uVBnbxJFDCwmUCWsth0MgFSiuwZYudOvoxbMTph6krxwcj+FxoeAxftIxkWaeSWZh57MiFAWRqNX6l1cNHaYEUh1kH2VOLMjKhKwomfmtzpLl+RQWeEsfPhMfkru6jUJtmlYldv7P5FuHbKm3CYHY/yEXT88M6QJE86NUwsTZhJ/Ay
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 14:09:08.8532
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85e445e5-ccbb-4268-0dfa-08ded5e7fcdc
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E84.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PR12MB9657
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_070916_218837_F16FF896 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,55 +124,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jun 2026 15:51:31 +0200, Geert Uytterhoeven
-<geert@linux-m68k.org> said:
-> Hi Bartosz,
->
-> Thanks for your patch!
->
-> On Mon, 29 Jun 2026 at 13:29, Bartosz Golaszewski
-> <bartosz.golaszewski@oss.qualcomm.com> wrote:
->> Describe the SGMII/SerDes PHY present on the Qualcomm sa8255p platforms.
->> This is essentially the same hardware as sa8775p rev3 but the PHY is
->> managed by firmware over SCMI.
->
-> So why can't it be reuse the DT bindings, and be compatible with
-> qcom,sa8775p-dwmac-sgmii-phy?
->
->> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
->
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
->
->> +  power-domains:
->> +    maxItems: 1
->> +
->> +  power-domain-names:
->> +    items:
->> +      - const: serdes
->
->> +examples:
->> +  - |
->> +    phy@8901000 {
->> +        compatible = "qcom,sa8255p-dwmac-sgmii-phy";
->> +        reg = <0x08901000 0xe10>;
->> +        #phy-cells = <0>;
->> +        power-domains = <&scmi7_dvfs 0>;
->> +        power-domain-names = "serdes";
->
-> Ah, this uses power-domains, while the existing bindings for
-> qcom,sa8775p-dwmac-sgmii-phy use a clock.
-> I guess the clock is the correct hardware description?
->
-> Adding to my list of examples for backing a hardware-to-SCMI remapping
-> driver...
->
+Salih Erim is no longer with AMD to maintain the Xilinx AMS driver.
+Replace Salih Erim with Sai Krishna Potthuri in the Xilinx AMS driver
+MAINTAINERS entry for continued development and maintenance of the driver.
 
-Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
-driver instead of the MAC driver where it was previously. Instead of cramming
-both HLOS and firmware handling into the same driver, I figured it makes more
-sense to have a dedicated, cleaner driver as the two share very little code (if
-any).
+Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+---
+v2:
+- Replaced Salih Erim with Sai Krishna Potthuri.
 
-Bart
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 6b4560681b51..d8591066f182 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -29458,7 +29458,7 @@ F:	include/uapi/linux/dqblk_xfs.h
+ F:	include/uapi/linux/fsmap.h
+ 
+ XILINX AMS DRIVER
+-M:	Salih Erim <salih.erim@amd.com>
++M:	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+ M:	Conall O'Griofa <conall.ogriofa@amd.com>
+ L:	linux-iio@vger.kernel.org
+ S:	Maintained
+-- 
+2.25.1
+
 
