@@ -4,79 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3802C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:48:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB426C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:49:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u/fJt3NKLlyjvcFkI8VZNqRDO7ANl8HQ8B6aLmlQAi4=; b=NsIQebvyQE6Kion5VDCrOy+Rj2
-	QyXDMi58fcahYjpLBAVttRETADCk4YrY8RY4o9Z5FzGrRXCrjKzqVYHiRxxLlSD0hegqGOe2u5rZJ
-	XGUhP+Qd0pmsDBfyq8TVY7f6LWg1CT+vRRjoUmFaF2EVkQEu77+5maRdcL/SIrU0Dqmlwhn/sa8tR
-	hxSOdLk2DzgunRMM1KMoLVlT9MOi/nbAU2cUL6MMj6czbKo1qrPF6d4WnE6iD7m4J4Zqdvz57GPLD
-	B8dbKfd5b93WCu1V776wlNxz/ro6vzuNc1tB81BH9qOYyAGJNYQ/4UqOmONO02XKyaco87su5lxmS
-	FXvAQiqA==;
+	bh=eDudAM8QJ8mlGZ+xLz/u0jrk7EBH14j1ZjojnoRSWmw=; b=hUoC+v7vDl2V4UhfuKIXeWL9zI
+	sMWASAjvIRC9TMAeeW+1Yz0p5Y2GAYf//Vxw+Za5fasvp0p4y3DUTKF/UWN+1qbAemHVzPOgMGFTd
+	46Z9gcvbZNvaJzJlA1oGclCJQyFqFSS4/gHF10eAQ7R2IiKpPNxKJDOUrK/ih04XcbOBOGoRU4Rje
+	+5h7xbJWOXqfH0K8ASwDf+5PwQmVnYxuvIsZ2A/Vl2Y47xB75tWKut+5TVMcgMbX03+u2HUiLCMO7
+	4Fl6HQS+dXaxRJC3ZOgX07cF1pa7iXJeepBHkzKkbikmioDLm1f6FvNyX7UQXbht6xEagR1mD9cTV
+	Yuf9xRNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5mD-0000000DnXd-1M1W;
-	Mon, 29 Jun 2026 06:47:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1we5oF-0000000Dnhn-2VBZ;
+	Mon, 29 Jun 2026 06:49:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5m4-0000000DnW1-2mwp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 29 Jun 2026 06:47:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=u/fJt3NKLlyjvcFkI8VZNqRDO7ANl8HQ8B6aLmlQAi4=; b=RQOUl5EWAYVMIlc8EWYwSQMO2t
-	k+XlusLCMmMyOm+Vb4ga4PW0ysENCctehaVj4Z6eKU/+RacIkRxXDxgxoz0DFjC92wq4Cn+4AGK+S
-	MAktp1llea7oYyWHCEO0k2HZ6fKfQRL4t4DItTDID/ZkvOeKgTQdax+aQNPEM80grN5eKK1j8enHU
-	5RY1+Hd7jixf2NrAMaETa7MMYRpWE3KagicNRAAzfy2APcrnFTx3ArA5iuogxeIjkLkvEzbDZbp8C
-	yEWVbZ38r8PyTl6mcH2JJPetlKORIlKcaw/REedUwdcwtzmtHAL/upTSZQKgQjHPsURjVGigbMvTq
-	gTwKzhbQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1we5m1-00000000hIb-0zpz
+	id 1we5oE-0000000DnhK-2RSr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 06:47:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2002E176B;
-	Sun, 28 Jun 2026 23:47:10 -0700 (PDT)
-Received: from [10.164.19.15] (unknown [10.164.19.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C1F03F85F;
-	Sun, 28 Jun 2026 23:47:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782715634; bh=wG+BKRCh7EswG1NnBEIJLxPGzB+YZ6gQORqGiFpNlxk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=L1ipuc6pUg//TJm2iPvJ8j4e8NZzKbVkfx4X1O65glkyl1Z6AzAdvwnb9H9muTdJO
-	 yIY6NujGnMcYEdyOgxBHRN6ZdFko2nQQ03RgGjxLf8sfQD0J/IMOFAieH7m5C84m1a
-	 DYnT2j6Lc7v4DOn1UajCixH0dkmX1SKs8MWOtFHM=
-Message-ID: <aecf8ea2-43e3-4aad-810a-120b036d8bc2@arm.com>
-Date: Mon, 29 Jun 2026 12:17:07 +0530
+	Mon, 29 Jun 2026 06:49:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3782F43DA3;
+	Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1A16BC2BCF7;
+	Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782715774;
+	bh=0gtJ2jkDHDroFd/tvTFdjs9XdlK02tL9fNLXJCMYb4c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=HgMltV/iuPgeub48WZJi5UNGtHADF4P3curFF4GXLEnc5pjZNPEZz+2Epjdt1r+7L
+	 qelftI3L2Khr/t3/49q9vmjRKEsYoFUWfN0BL6fK7xtDnt7jicE2eVjaQcU6wt9mFi
+	 QynK3Z4NxV33wPDBA6V3PP2AIBCZg9cjIRz7zeENmfNTn6BScbTgNsLwoBbmAXfRHy
+	 VBffFYCZiLixphDj2UQxzg8tXonddTlOLIGTxDU/s3o+Wq90vvdyJ6vmh+w7HnhnRd
+	 2NVFPBb4kf47+mAVxCgEDHfQh4rnMjmUE9U9hmTCZ66r6DLWW90tdfFNoEB/kMv27E
+	 CpC17bZKKRu6Q==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 12488C43327;
+	Mon, 29 Jun 2026 06:49:34 +0000 (UTC)
+From: Yu-Che Hsieh via B4 Relay <devnull+yc_hsieh.aspeedtech.com@kernel.org>
+Date: Mon, 29 Jun 2026 14:49:01 +0800
+Subject: [PATCH 4/4] ipmi: bt-bmc: Read LPC address and SerIRQ from device
+ tree
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/6] mm/vmalloc: align vm_area so vmap() can batch
- mappings
-To: Wen Jiang <jiangwenxiaomi@gmail.com>, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
- will@kernel.org, akpm@linux-foundation.org, urezki@gmail.com
-Cc: baohua@kernel.org, Xueyuan.chen21@gmail.com, rppt@kernel.org,
- david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
- ajd@linux.ibm.com, linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
- shanghaoqiang@xiaomi.com
-References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
- <20260618084726.1070022-7-jiangwen6@xiaomi.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <20260618084726.1070022-7-jiangwen6@xiaomi.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_074717_701839_132709CF 
-X-CRM114-Status: GOOD (  20.66  )
+Message-Id: <20260629-aspeed-bt-bmc-multichannel-v1-4-fc23ee337f7a@aspeedtech.com>
+References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+In-Reply-To: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
+To: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: openipmi-developer@lists.sourceforge.net, linux-kernel@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782715772; l=2682;
+ i=yc_hsieh@aspeedtech.com; s=20260629; h=from:subject:message-id;
+ bh=EF1+2Ti2wuA06NwsW+QoJlNDr5W2qvG2AEgoxOs4li0=;
+ b=D8mUNlVKBhK5Gu/mgQ8KRyUEN1CNPv03ZJ5EwBjb30X1V0G4Oa8eeCxz2irvaf9+E10wC+2xk
+ NlEhO1Jg+MeC2Jw2RoKwDKxh0eDBGNOXrLMxbmHqBpwqDkiyalK4VAY
+X-Developer-Key: i=yc_hsieh@aspeedtech.com; a=ed25519;
+ pk=kLxUeF7g6teciq79it9N3tYNgp3yCspZ+AHlYSnZ0gs=
+X-Endpoint-Received: by B4 Relay for yc_hsieh@aspeedtech.com/20260629 with
+ auth_id=844
+X-Original-From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,111 +84,98 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: yc_hsieh@aspeedtech.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
 
+The BT interface currently programs a fixed host LPC IO address and
 
-On 18/06/26 2:17 pm, Wen Jiang wrote:
-> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> 
-> Try to align the vmap virtual address to PMD_SHIFT or a
-> larger PTE mapping size hinted by the architecture, so
-> contiguous pages can be batch-mapped when setting PMD or
-> PTE entries.
-> 
-> Add __get_vm_area_node_aligned_caller() as a wrapper over
-> __get_vm_area_node() to simplify repeated calls with fixed
-> arguments.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  mm/vmalloc.c | 37 ++++++++++++++++++++++++++++++++++++-
->  1 file changed, 36 insertions(+), 1 deletion(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index fffb885cb2158..bc9fa93e2bdc6 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3628,6 +3628,41 @@ static int vmap_batched(unsigned long addr, unsigned long end,
->  	return err;
->  }
->  
-> +static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-> +		unsigned long align, unsigned long flags, const void *caller)
+SerIRQ number. This works for the existing single-channel setup, but
 
-There are 3 similar functions below __get_vm_area_node: they are __get_vm_area_caller,
-get_vm_area and get_vm_area_caller. You can put this one just below them.
+does not allow the host interface parameters to be described by firmware.
 
+Read the LPC IO address from aspeed,lpc-io-reg and the SerIRQ number
 
-> +{
-> +	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-> +			VMALLOC_START, VMALLOC_END,
-> +			NUMA_NO_NODE, GFP_KERNEL, caller);
-> +}
-> +
-> +static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-> +		unsigned long flags, const void *caller)
-> +{
-> +	struct vm_struct *vm_area;
-> +	unsigned int shift;
-> +
-> +	/* Try PMD alignment for large sizes */
+and interrupt type from aspeed,lpc-interrupts. Keep the existing IO
 
-This comment feels excessive. Can remove it.
+address, SerIRQ number, and level-low interrupt type as defaults when
 
+the properties are not present.
 
-> +	if (size >= PMD_SIZE) {
+Signed-off-by: Yu-Che Hsieh <yc_hsieh@aspeedtech.com>
+---
+ drivers/char/ipmi/bt-bmc.c | 39 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
 
-Need an arch_vmap_pmd_supported() check here.
+diff --git a/drivers/char/ipmi/bt-bmc.c b/drivers/char/ipmi/bt-bmc.c
+index 486ecc0b6815..6e1f941e63db 100644
+--- a/drivers/char/ipmi/bt-bmc.c
++++ b/drivers/char/ipmi/bt-bmc.c
+@@ -65,6 +65,12 @@ struct bt_bmc {
+ 	struct timer_list	poll_timer;
+ 	struct mutex		mutex;
+ 	atomic_t		open_count;
++	u32			io_addr;
++
++	struct {
++		u32 id;
++		u32 type;
++	} sirq;
+ };
+ 
+ static u8 bt_inb(struct bt_bmc *bt_bmc, int reg)
+@@ -429,6 +435,33 @@ static int bt_bmc_probe(struct platform_device *pdev)
+ 	mutex_init(&bt_bmc->mutex);
+ 	init_waitqueue_head(&bt_bmc->queue);
+ 
++	rc = of_property_read_u32(dev->of_node, "aspeed,lpc-io-reg",
++				  &bt_bmc->io_addr);
++	if (rc) {
++		bt_bmc->io_addr = BT_IO_BASE;
++	} else if (bt_bmc->io_addr > FIELD_MAX(BT_CR0_IO_BASE)) {
++		dev_err(dev, "invalid LPC IO address\n");
++		return -EINVAL;
++	}
++
++	rc = of_property_read_u32_array(dev->of_node, "aspeed,lpc-interrupts",
++					(u32 *)&bt_bmc->sirq, 2);
++	if (rc) {
++		bt_bmc->sirq.id = BT_IRQ;
++		bt_bmc->sirq.type = IRQ_TYPE_LEVEL_LOW;
++	} else {
++		if (bt_bmc->sirq.id > FIELD_MAX(BT_CR0_SIRQ)) {
++			dev_err(dev, "invalid SerIRQ number\n");
++			return -EINVAL;
++		}
++
++		if (bt_bmc->sirq.type != IRQ_TYPE_LEVEL_HIGH &&
++		    bt_bmc->sirq.type != IRQ_TYPE_LEVEL_LOW) {
++			dev_err(dev, "invalid SerIRQ type\n");
++			return -EINVAL;
++		}
++	}
++
+ 	bt_bmc->miscdev.minor	= MISC_DYNAMIC_MINOR;
+ 	bt_bmc->miscdev.name	= DEVICE_NAME;
+ 	bt_bmc->miscdev.fops	= &bt_bmc_fops;
+@@ -450,8 +483,10 @@ static int bt_bmc_probe(struct platform_device *pdev)
+ 		add_timer(&bt_bmc->poll_timer);
+ 	}
+ 
+-	writel(FIELD_PREP(BT_CR0_IO_BASE, BT_IO_BASE) |
+-	       FIELD_PREP(BT_CR0_SIRQ, BT_IRQ) |
++	writel(FIELD_PREP(BT_CR0_IO_BASE, bt_bmc->io_addr) |
++	       FIELD_PREP(BT_CR0_SIRQ, bt_bmc->sirq.id) |
++	       FIELD_PREP(BT_CR0_SIRQ_TYPE,
++			  bt_bmc->sirq.type == IRQ_TYPE_LEVEL_LOW ? 0 : 1) |
+ 	       BT_CR0_EN_CLR_SLV_RDP |
+ 	       BT_CR0_EN_CLR_SLV_WRP |
+ 	       BT_CR0_ENABLE_IBT,
 
+-- 
+2.34.1
 
-> +		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-> +				flags, caller);
-> +		if (vm_area)
-> +			return vm_area;
-> +	}
-> +
-> +	/* Try CONT_PTE alignment */
-
-Comment feels excessive, and again no need to mention arm64 specific stuff here.
-Just remove it.
-
-> +	shift = arch_vmap_pte_supported_shift(size);
-> +	if (shift > PAGE_SHIFT) {
-> +		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-> +				flags, caller);
-> +		if (vm_area)
-> +			return vm_area;
-> +	}
-> +
-> +	/* Fall back to page alignment */
-
-This comment can also be dropped, but I am fine either way.
-
-
-> +	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-> +}
-> +
->  /**
->   * vmap - map an array of pages into virtually contiguous space
->   * @pages: array of page pointers
-> @@ -3666,7 +3701,7 @@ void *vmap(struct page **pages, unsigned int count,
->  		return NULL;
->  
->  	size = (unsigned long)count << PAGE_SHIFT;
-> -	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-> +	area = vmap_get_aligned_vm_area(size, flags, __builtin_return_address(0));
-
-So the effect is that now we search for an aligned vm_struct unconditionally. Better
-to mention in the commit message that we do not expect any significant overhead for
-this.
-
-
->  	if (!area)
->  		return NULL;
->  
 
 
