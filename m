@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32CA9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:00:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 174CEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JO1fCQG5PwkKtjMsyUkbYJB7JtjMw8bGs1lH/7GPTdc=; b=SfVBOP1n8IBu+3g+JwxfFzrhse
-	OUcHtwjdhL4nMuZLfiUtmawZCL4GnLwJBO5x0O3fldEHYRz7pKWbGlMV6SNfQLmAK0zDi8Ir0LBUB
-	B4r28k5FmldfVW0fwbQYB60fqExHkXdDscGTtzXc3y92qeN2fFeJorU+Bi2Xt7L1L7jS2wIpz5LhS
-	iJwv3hXl3dmtaFJc2TNnVzcwEdJaFuv9FKaGpo3X/lnJH3KdA1qkrLYkrOnXM8OSEIUotBE7jOPba
-	Hfb+B++fCmgbfngU1Ia2UjAjd7nBdCRidWNKC++m+V6uB0CIVMjfa7YsyTEwd1V0p+gfzWmKq8Ajh
-	MiXGltpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8nHH4gBN/s7IeS6y/9S8TpBtfSijBrQ1/bmAkV3Z6gE=; b=Q5Eobum0n8R1opr1e7QMbBPbIf
+	xLMQS5o/CVpq6EpQ4gefFhYaKJ0X3r7DsQByIkwwT0snOZra1m253JUn8MSWoT8v8RKS9393gxE3m
+	GDhtsRDj6fE1L2UHS5TBKO+uiat3Y3mjC3IGST0w+WQETBojYQTB2NGcMQjIXV4SLauAn2htC6OAw
+	nEBmB1YxYuU6aUKjODO35gfd7BgPzjaEMJKHxbEZTxgZSRqSJbT3MAn7vppo3SbXz7dNpi27zjwWK
+	ipQXHVoHqVzKhDX+Vv83kk2VDQYI8BhQYQrLN7ImAQ33ki8nlC8mxa0A/TOvW92Ku47bQPLK4rxQf
+	9Qzid9rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDT3-0000000EzaP-2ZhG;
-	Mon, 29 Jun 2026 15:00:13 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1weDVT-0000000F07e-1LEe;
+	Mon, 29 Jun 2026 15:02:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDSz-0000000EzUK-3Ig7
+	id 1weDVS-0000000F07T-0BLy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:00:12 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-845b733e82cso2179094b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:00:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782745209; x=1783350009; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JO1fCQG5PwkKtjMsyUkbYJB7JtjMw8bGs1lH/7GPTdc=;
-        b=arW2NJ9ioGFXzw7epm2V8J6YfmoekNewsZyGoV5bOq8KBcUqcLvWJtaqyKvOif6XAu
-         Wy9JR5BoyrCIhgOsMQP2uQVndIeNxYO11OgXVnTVQjYV+B+8nnsa4dr7HSufGA+OdOeY
-         CV2WEAkyCGEYAU21sDmjyiVhjom8vzyIFBycHVpYQu/w5JybFIt7fqivu32MqQPAStsG
-         DGM6TfY6THtyej2qhSPmb3Hln0KHQ1zN4u9BS/YqkbrPm7LboZMUWvjhzXxIbiv2u/1/
-         y0jNIHB5AlbxAhDHbhagZfVPC17Ja0IjDmLTLfJ7baYfYiY5j87FlDxg8bgG9KIvGlhz
-         w76A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782745209; x=1783350009;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JO1fCQG5PwkKtjMsyUkbYJB7JtjMw8bGs1lH/7GPTdc=;
-        b=LOEpgbAwc3VDJlOxgEYgT7RGOdU/AQWmwWrj7X9Zun53D1yI0hwGDOFVKaF5Y0ciqN
-         7ecFNrU2rFZir5nlnlaRLC6umukfxhK0SrtlYfrDZ8qRXa/OPD3TYVvnyI7rl3p1BAfg
-         MgBU6MxCsWyAQuG1FosAxG6Pp9MNa8GoQxS3/sJvmz65sSRCqHl4cZKO3EhY5Nrb+V7T
-         EJwB0+E4ZkfePRSKULq0paSsb8Yy50NwHevqVz49AABTpf9yjMJNAHYPERY7PCxuJVsJ
-         wV6Ugk6wdU10W4o79sEjlYMmpCJfwuo40LjQOwKdKGeTeUEzj4pDnhLaZne+ytjKkNkp
-         099Q==
-X-Forwarded-Encrypted: i=1; AHgh+Ror2uT3m7LaZh1A7SaEDU66pUsLDZoMKi9CVlYxpqRZIQsYMTRclLT53D9L0qon1LtbG6zSD4ZeEoa6jk9AaOyT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWFTnY4OZXBrolDAiCmvPMmNSjXCOB+djb34MX+DOHb9QpTDnm
-	MDguCdYNXuK0XnJWiSku+uEbVvGDO3VR+3h2eQBnQE4vBjGqKjJNl78Q
-X-Gm-Gg: AfdE7clgAv3ho9O9pR65JxpyxFanNsht3kxgeklnTMqzUx7AzCavO3/8hpXvgun3+5O
-	DCL1Yivzcq47yZH5YBO3mU7FcSH2SR5jizyept8uZ6o14lv4SCUZv1rdJYsl4UHnlWu1bGHCUOX
-	4BEJteTmeG8geO7ME5g5l1QFQ4FFAkZYyfZvmTdvO3GnM27gi1zHkQ7HME2uMgBbqcfth6cke8l
-	nqR4gqGzF5S4r5YF15RcURXjynFF4uFIZgwfLg6YK2OH1SBX4XrAI4+uBbYx4xK7bGb9HJJ3Cfu
-	LAoHIcaQjQ+IrJOxyV/n7qILaWd+CSL1qB7Uh8Uz7CwrqqgszZL8X5yWwqgch496jCn166cArBV
-	QtNX36w24um1UaXRVO0eYLmLTvDyb+27kdfsVNeZQ7hbCkrtZPJndn7QRwRQFDxlwH3zbBm9Q1L
-	e8BNcZdU/DfrFFqDVjgPBrKaiCC2bVjPRrQtM/uGhLNipD
-X-Received: by 2002:aa7:888f:0:b0:847:8971:87bb with SMTP id d2e1a72fcca58-8479ae75cf7mr678238b3a.21.1782745208912;
-        Mon, 29 Jun 2026 08:00:08 -0700 (PDT)
-Received: from buffalo-ssd (M014013071096.v4.enabler.ne.jp. [14.13.71.96])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-845e9fa4601sm3572368b3a.6.2026.06.29.08.00.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 08:00:08 -0700 (PDT)
-From: Akari Tsuyukusa <akkun11.open@gmail.com>
-To: Yong Wu <yong.wu@mediatek.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Miles Chen <miles.chen@mediatek.com>,
-	Joerg Roedel <jroedel@suse.de>
-Cc: Akari Tsuyukusa <akkun11.open@gmail.com>,
-	iommu@lists.linux.dev (open list:MEDIATEK IOMMU DRIVER),
-	linux-mediatek@lists.infradead.org (moderated list:MEDIATEK IOMMU DRIVER),
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCH] iommu/mediatek-v1: Fix off-by-one in MT2701_LARB_NR_MAX
-Date: Mon, 29 Jun 2026 23:59:44 +0900
-Message-ID: <20260629145946.312819-1-akkun11.open@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Mon, 29 Jun 2026 15:02:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6F2396001D;
+	Mon, 29 Jun 2026 15:02:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF5641F000E9;
+	Mon, 29 Jun 2026 15:02:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782745361;
+	bh=8nHH4gBN/s7IeS6y/9S8TpBtfSijBrQ1/bmAkV3Z6gE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EgKVZsNXSvXhmSCt1BVSoodDMvOemtG6Pw16rwqHRrmg1dK6X4ggf1FRqNQX2R0ZC
+	 PKawziiOHdwf53YIsMGoxtg7qptV9jJfE2D0/6NVHg2BGfMftzhO2ESVEegipqp8zr
+	 aAIru5612INZcMIMmIwFJAg7bdXMQUfX8m730cCXmGaAWhOuSyEk7STEwoNpm6AQGz
+	 A55ZKEfZKm9+VwuPrxhYAVP/Qk7Bpks1JwJcrYMFOwOt7fo1X3QgDoK6IcibPyCz5I
+	 V8lENQTcRCYaim9Z1ABEGrnxWezJ0YDgckPUfS8E8uv9nIhz5Ll0X/e7ajIVZbgOwT
+	 B0IouTn4WLtUg==
+Date: Mon, 29 Jun 2026 16:02:35 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Icenowy Zheng <zhengxingda@iscas.ac.cn>
+Cc: Joey Lu <a0987203069@gmail.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	ychuang3@nuvoton.com, schung@nuvoton.com, yclu4@nuvoton.com,
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 1/7] dt-bindings: display: verisilicon,dc: generalize
+ for single-output variants
+Message-ID: <20260629-chevron-awhile-7cf456a768a0@spud>
+References: <20260625094449.708386-1-a0987203069@gmail.com>
+ <20260625094449.708386-2-a0987203069@gmail.com>
+ <20260625-bobbing-annotate-d1c4d6874ee2@spud>
+ <e3fe23ddbc504879bd797bbaa595d3653fa139ff.camel@iscas.ac.cn>
+ <20260626-astrology-mural-853d3860e048@wendy>
+ <c0731801729713d35f97bec40ebc21cef31b72b5.camel@iscas.ac.cn>
+ <20260626-everybody-epilogue-8fb298a54981@wendy>
+ <9456bde5059bea3aac1ed64355e3f017dd9bd3e5.camel@iscas.ac.cn>
+ <b3b7a0f8-93a8-4965-a2f3-3ca1552a25d6@gmail.com>
+ <80ae28925a67b7bee3b8873db3c113111437e717.camel@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_080009_896301_91DBDBE1 
-X-CRM114-Status: GOOD (  13.12  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="IgfcEfDUK/kmfpjk"
+Content-Disposition: inline
+In-Reply-To: <80ae28925a67b7bee3b8873db3c113111437e717.camel@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +85,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mt2701_m4u_in_larb[] array contains 4 (for LARB0 to LARB3)
-elements, meaning mt2701_m4u_to_larb() can legitimately return 3.
-The current check `if (larbid >= MT2701_LARB_NR_MAX)` incorrectly
-rejects valid LARB3 with -EINVAL.
+--IgfcEfDUK/kmfpjk
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Fix this off-by-one error by updating MT2701_LARB_NR_MAX to 4.
+On Mon, Jun 29, 2026 at 01:31:46PM +0800, Icenowy Zheng wrote:
+> > > > > > > > > +
+> > > > > > > > > +=A0=A0=A0=A0=A0=A0=A0 resets:
+> > > > > > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 minItems: 1
+> > > > > > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 maxItems: 1
+> > > > > > > > > +
+> > > > > > > > > +=A0=A0=A0=A0=A0=A0=A0 reset-names:
+> > > > > > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0 items:
+> > > > > > > > > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - const: core
+> > > > > > > > This is just maxItems: 1.
+> > > > > > > Well the implicit rules of DT binding schemas are quite
+> > > > > > > weird...
+> > > > > > I don't think it is that strange, as the binding has
+> > > > > > =A0=A0 reset-names:
+> > > > > > =A0=A0=A0=A0 items:
+> > > > > > =A0=A0=A0=A0=A0=A0 - const: core
+> > > > > > =A0=A0=A0=A0=A0=A0 - const: axi
+> > > > > > =A0=A0=A0=A0=A0=A0 - const: ahb
+> > > > > Ah does the list constraint the order of items? If it
+> > > > > constrains
+> > > > > the
+> > > > It does, yes.
+> > > > Alternatively, using an enum permits free ordering.
+> > > Ah in this case this should be converted to an enum, I think.
+> > >=20
+> > > Should I send a patch for converting it?
+> > >=20
+> > > Thanks,
+> > > Icenowy
+> > Thank you all for the detailed review and discussion, it really
+> > helped
+> > clarify the right approach.
+> >=20
+> > Since I will supply all four clocks with the same phandle for
+> > core/axi/ahb,
+> > and only one reset "core" for MA35D1, the ordering constraint in the
+> > `items` list is not a problem, "core" is already the first entry.
+> > There
+> > is no need to convert to an enum.
+> >=20
+> > Regarding the clock situation for the MA35D1: I agree with supplying
+> > all
+> > four clocks (core, axi, ahb, pix0) in the devicetree, even though the
+> > MA35D1 clock controller gates core/axi/ahb with a single bit. The DT
+> > will
+> > use the same clock phandle for core, axi, and ahb:
+> >=20
+> > =A0=A0 clocks =3D <&clk X>, <&clk X>, <&clk X>, <&pix_clk Y>;
+> > =A0=A0 clock-names =3D "core", "axi", "ahb", "pix0";
+> >=20
+> > This correctly models the hardware topology. Since all three names
+>=20
+> No, this doesn't correctly model the hardware topology -- this will
+> lead to clk_get_rate() return the rate of DC core clock when checking
+> the AXI clock rate, which is problematic because both clocks are
+> limiting the performance of the DC.
+>=20
+> > resolve
+> > to the same underlying clock node, the CCF's standard enable
+> > refcounting
+> > handles the shared gate correctly without any custom implementation
+> > needed.
+> > I will also revert the change in patch 4/7 that made axi and ahb
+> > clocks
+> > optional, since they will now always be provided in the devicetree.
+> >=20
+> > Regarding moving `resets` and `reset-names` to the top-level
+> > `required:`,
+> > I will wait for Icenowy's patch to land before sending v6 to avoid
+> > duplicating the work.
+>=20
+> The patch is sent.
+>=20
+> >=20
+> > In v6 I will update patch 1/7 with:
+> > - Update the subject to "dt-bindings: display: verisilicon,dc: add
+> > =A0=A0 support for nuvoton,ma35d1-dcu"
+> > - Lower `clocks`/`clock-names` `minItems` to 4 at the top level
+> > - Remove the `thead,th1520-dc8200` conditional block entirely
+>=20
+> I think this conditional block will still be needed, because it will
+> need to constrain the minItems to ensure all clocks / resets are
+> populated.
 
-Note that this does not cause immediate issues with the current
-mt2701.dtsi and mt7623n.dtsi because it only defines 3 LARBs:
-    mediatek,larbs = <&larb0 &larb1 &larb2>;
-Thus, larbid never reaches 3 in the existing upstream device tree.
+Correct. When the outer constraints are relaxed to deal with the new
+device the conditional block for the th1520 becomes required. Or having
+an else, but if all devices are likely to be different in terms of
+configuration specific conditional blocks is better.
 
-Fixes: de78657e16f4 ("iommu/mediatek: Fix NULL pointer dereference when printing dev_name")
-Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
----
- drivers/iommu/mtk_iommu_v1.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/iommu/mtk_iommu_v1.c b/drivers/iommu/mtk_iommu_v1.c
-index ac97dd2868d4..e907c9953142 100644
---- a/drivers/iommu/mtk_iommu_v1.c
-+++ b/drivers/iommu/mtk_iommu_v1.c
-@@ -88,7 +88,7 @@ struct dma_iommu_mapping {
- /* MTK generation one iommu HW only support 4K size mapping */
- #define MT2701_IOMMU_PAGE_SHIFT			12
- #define MT2701_IOMMU_PAGE_SIZE			(1UL << MT2701_IOMMU_PAGE_SHIFT)
--#define MT2701_LARB_NR_MAX			3
-+#define MT2701_LARB_NR_MAX			4
- 
- /*
-  * MTK m4u support 4GB iova address space, and only support 4K page
--- 
-2.54.0
+--IgfcEfDUK/kmfpjk
+Content-Type: application/pgp-signature; name=signature.asc
 
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakKJCwAKCRB4tDGHoIJi
+0h7GAQCJb5feu4xl6yYVBQwiVZOZChwL0Lr7y5z363AQ+EVV9AEAmL++SyuqhNBW
+SKNJ/viml8vWj6f91Cb4O/UlhqZT8gY=
+=uZpY
+-----END PGP SIGNATURE-----
+
+--IgfcEfDUK/kmfpjk--
 
