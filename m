@@ -4,129 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F25C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 22:24:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501F3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 22:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kFrPGxFt1W1SFlRwoTZ+luOmw/EANLjVkoZHPl0xUho=; b=3U0JJOY1wZUEXk5dc3S+BvZmLC
-	5elvidi7jEkbH5yfGAmQEuPP3+gdIo31p9h6idf+aRWUCKwEljLNYBo/q2UxxHdoDkjqHfN3CV6W3
-	wD9DytP7fifLMTXKosqEwde4aZpWeqJDiCPN+FaRbBC0B4ax0c/OByQDtXEAGuIlQrIDHCvdm3rSe
-	x5aWEARBhQ7Rw4HV7299FQRyzmicZl3v/k8K6sialJV4jXsLFXSYrE+jmCzp9zy4zK7wKv1y9Ytj3
-	JmwcNkgcmCp9vIq28HYLXaYkvIpQ5TrWSqsbH60/gN3QEXhbMT1j5Ahwmk5enIhaWuhuB/75o3bWg
-	dpke3OcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kS3acRTT/CBNi+ZYg2PxCoo7p0Wp9catNkEdE1ASaNk=; b=WNnSRXA0UrWjMRKLsEvPAX4jCn
+	E9JAmbuwZxcVTNcxkMg3o46Z3ZR95sLm8gGUSzUu5f8hZYUADaWweYRp7dqv2L27faz6tNZarI78x
+	ROhUFCmJ++gBMmPR2rq5WyYOMZESpi1Nhget3qnQhkRjDGnS067IGH76c3sO1QI4JpwRa+J+cMyWt
+	PAib7+J3NaprRh56rKhQ3hBV7DuTAXspiNnQWE1WBiETd1XgKoT92iIQacSm7iFpc3wzxI3Mk+GA+
+	SkYrRRHs1W76FYCm0bTaGOFmDITs5EKOYWaYZ72K+xm5S9N2ThTc7kDp+j7L8hguFjObOKz4EYh9y
+	Fe1J7b3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weKOb-0000000FXtV-0ti6;
-	Mon, 29 Jun 2026 22:24:05 +0000
+	id 1weKYZ-0000000FY7P-0WVk;
+	Mon, 29 Jun 2026 22:34:23 +0000
 Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weKOY-0000000FXt8-3HW8
+	id 1weKYV-0000000FY72-3rfe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 22:24:03 +0000
+	Mon, 29 Jun 2026 22:34:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VgGQ3gxYAuWqVn0rdRCs7WZHmK0XKwt5vVNTdpmkNv0B42y0lv2z8FuWUX0hz39Tewo6uBe4A9INVI5L6OG5ovhqU0WzE2G80aWsV+8nUJ7zgSIO/uZW/Cec/MGlhb1iHEu4k9tbXTk71GyUZJnP2n0NVxDRJ9zW/SeJtphArF4oem1l57QMZXR4OTIZv45RbtdaZY/EwQbn+s7H1Dwc4RFByjKXEhJ7RZJOkjxsyjhg+CruKiBAbC/rdRDk+DjetLSipyF7cHLnXwbFjrmppHwjugZd7FCVtc8TwWpIqH/714/Ygf9W2lqjHhE4gP/FzTkw3XNbPV8yfrz9K02dvQ==
+ b=vw9e1e/hZfRbzPpOlKR7hNMW364guptR7oychfJgaVD/Gb2WE12kHLjQJpfnEwBSGfKviz3NwaTXbNV1HVcPoZn3Zd+0IB5YkgLlTx0zXnI67FBGz010p18ZskDi7+g9O6tIIyA+Vc9T8mW54jAclmH+b8Sry6WDZRcgjfwb12plT+yHbMxYn5kP1d/F8PoutyEZ/a0ytftaCUjTrumqQKojgeaHMcDl30/V51TeljU/mI/ftilaKjuUMUBineNB4i0RupUuYsYml4+Z7h00pGC8KU5KLreOYrq9kCyDr5W/CSFFxyVmpPtjJWXkLYG5VgCs/MoJ2ZP7R8MmcdNPXQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6sVhf6WjP8FdRwhwRB+Khh0xvkHN9jlQeeTHKEgu41Y=;
- b=Ujnr1xa6f81bwj+6VrsDB2EbKb84xjldZ88z8mOr/nz9EHXfwCvzhwjaI0A9Nr4lkuSRqry/Da5SpwbPLs9SQbSz9iMI09cvjDRnR4VvHtukRiEGh8a08CDHpzfbPMfpNVONYROtRLLtz4Sg8dYLQ+bCDrIzCyevG7ld5jHbkWUyRHJDBCYnyiNPhj+JeMCyd8253CNlZP7J1z5gnjPlu7amcMs4Go/XoBap/yzyV2855BrGYis7TWuuhMRkTEDu4tmZZaMjuXLXNJiuqsy1d5zWjzL3BYfn3C+zzHsM5sNF9UihmONdr6dSkmsXcy78OjSblSksLE3TSWOi5IM4zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
+ bh=kS3acRTT/CBNi+ZYg2PxCoo7p0Wp9catNkEdE1ASaNk=;
+ b=cHz74Rs8l8i+84rKab2V5tTmyjN9qa+qWxiaUoLpY0zoK+wHkCl1K/erInfK5lRoGxF3j5E9B8hDv/6WrgnAiYk9IE8F/M279a3i97+QZwDMV9xro9sECKADRN0WDoAXfmHyPdM9x0ZgSHAz4OVGQ5H5112J5u3GpCR99R+DH71c1UruDIFVNXvZmGtB+faGpwd5vkf7uLq0JCIvFW/BrvVJEpE8OcaHPsvw2PuoCaIG+lkFiK7NJDhio65dE5umu4q7Ws5bDk8pjxQdPncUrojQhjFgh9Pv1GwPkiAuVW1JJ9WJHYp4pQSRlxi26fYJMvXfklETlXdEQFH5pW9Bjw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=phytec.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6sVhf6WjP8FdRwhwRB+Khh0xvkHN9jlQeeTHKEgu41Y=;
- b=temsb8YLt96lL7pAbgUs6BIUqA6cXE3vBs0zlBZ99h6GDnhg+QkgNHrPtlyyXZEOz3bMPo43VOulVHvgbZHKzRonSxDwLvZP6qzMp5ZZHlZ8xTgIGwEI9+oQONVN67pVAEjqQ3p/ybkv1uFpkqS1r/TyE2719MiiGEGGxB/eNwY4HyMeAbHYrx/0p5pdWRJwyM6fOpdJsDQ2T1v+LWIKPP0QbWXjTTHx0ivs0a6NT1mJWB2Mhf3srtVlUM18gHYxTgDURGACiK59imu1o6+s9GwcLsd4Gck4+ninEMg2kf61CWv5OHd08NNyj3mWuy0+p8MjHWtZCTiDpEX75xGLeA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMBPR04MB12311.eurprd04.prod.outlook.com (2603:10a6:20b:723::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 22:23:58 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
- 22:23:58 +0000
-Date: Mon, 29 Jun 2026 17:23:48 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>, Frank Li <Frank.Li@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH] ARM: imx: Drop obsolte stuff from common.h
-Message-ID: <akLwdOwaE2bev3P5@SMW015318>
-References: <20260623104557.1801727-2-u.kleine-koenig@baylibre.com>
- <178276752372.2498119.8965955961315145259.b4-ty@b4>
- <akLlvHMcVpXDsS9l@monoceros>
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <akLlvHMcVpXDsS9l@monoceros>
-X-ClientProxiedBy: SA1P222CA0069.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2c1::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ bh=kS3acRTT/CBNi+ZYg2PxCoo7p0Wp9catNkEdE1ASaNk=;
+ b=R7ERuMNKTwljkX7IXwLDnwsgi7OGOVgUpKenlLudHMlsvTAzMGRTzEy4nGYS6nhEdTV4PN0L2UbbjBh4TlDvAEFcOm0+5a+phldvqLPP+KLKU1Ts9lqkOBPiU0ognwVsTU+pAZSoFkYq83cy1FPBzkEWc7MvQCqQNJzpL6ex2FdqsQF+jgNkdoFmCO11Hzhrpv2G35+CZ5uC/MT3fUY9C+zV57MQ4nTqsjHhYOOyLT/oETPJXlm4gsKC9fSWRXVI62jGDLqlG8lPVHwSn/7hOLs9R46+e3WeXxdU8WC1D6OQMnCSHxuY9ApDGihTOw9Pm48DZUZQJCuD+TgCHi0N+w==
+Received: from AS9PR06CA0499.eurprd06.prod.outlook.com (2603:10a6:20b:49b::23)
+ by GVXP195MB1830.EURP195.PROD.OUTLOOK.COM (2603:10a6:150::14) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.159.16; Mon, 29 Jun 2026 22:34:12 +0000
+Received: from AMS0EPF000001B1.eurprd05.prod.outlook.com
+ (2603:10a6:20b:49b:cafe::66) by AS9PR06CA0499.outlook.office365.com
+ (2603:10a6:20b:49b::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Mon,
+ 29 Jun 2026 22:34:12 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=phytec.com;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.com discourages use of 91.26.50.189 as permitted sender)
+Received: from Postix.phytec.de (91.26.50.189) by
+ AMS0EPF000001B1.mail.protection.outlook.com (10.167.16.165) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Mon, 29 Jun 2026 22:34:11 +0000
+Received: from phytec.com (172.25.39.17) by Postix.phytec.de (172.25.0.11)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Tue, 30 Jun
+ 2026 00:34:08 +0200
+From: Nathan Morrisson <nmorrisson@phytec.com>
+To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
+CC: <afd@ti.com>, <sashiko-reviews@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>,
+	<w.egorov@phytec.de>
+Subject: [PATCH v3 1/2] dt-bindings: arm: ti: Add bindings for PHYTEC AM67x based hardware
+Date: Mon, 29 Jun 2026 15:33:52 -0700
+Message-ID: <20260629223353.1495209-1-nmorrisson@phytec.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.39.17]
+X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
+ (172.25.0.11)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMBPR04MB12311:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57095062-9c50-4cad-dd8c-08ded62d1d2b
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001B1:EE_|GVXP195MB1830:EE_
+X-MS-Office365-Filtering-Correlation-Id: b07cd807-bc27-4b83-b6a5-08ded62e8acb
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|23010399003|1800799024|22082099003|18002099003|4143699003|6133799003|56012099006|5023799004|11063799006;
-X-Microsoft-Antispam-Message-Info: 8maimJ1S4ie6TSbyLKS90Nh4i1WLnVf1UGM12slfuf0Yg7ag8bASUgh9JOq8J+pCYKgZ9LIVts5kF4K9gEVeT3zLR8e3g3jNE6Oackax6jmfCNGhg9oosdnq0LyFHhhrXTmwvOohUO9uZwpgkaXcPmIUHQBX1woCdL4Xf5n85UqmjvBZNQRj62YQadNc5eh1qZOClolUonNqcnuIwr1Bw421tg22b/ZC75/BUS8eoRXktP1vCtmWX6EvTjdPYofdGF1BP2CbQHy2SHRU7qolTSj8GEzhveF6b2jpmKkrJTUPJZPEuEdwOC994hi2ZZg2wp3xULA7pzXPpcieb2yFgKaiHKSGexRiTNxzOo32+ATLE2E+qgJ3LxZUxr2oitvyrG0B3XBBhYeawLd4OEZF9i72BHr7CRBSObsvfG3zAuONXD6NUsBN25APWghSuODHqur+B1qV2FE5tsrEf26Pnk+OvK+1KynBBlYwTzRjbg3sYUCNZYax5o7CUjxT3+g+CBs1gxncrLbfTQothtt27i4tkJE9f5wuJd9CefbfOL0cLbzSiduktgyyDZidKLrqjFJpLLN1N6UG/6NYeKaIjKCff1Vkrdj58eBvUHZLQbMlB2p34PdcGMAY1syNhkZKVFksZuMHq7GVpLL+ztwNW7YMR/SSUcEWa0r3A6OiTtE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(23010399003)(1800799024)(22082099003)(18002099003)(4143699003)(6133799003)(56012099006)(5023799004)(11063799006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700016|376014|1800799024|82310400026|23010399003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: 7LxSysIC1o6GUdxdsNQdHqEiWx2rNyahkFRCYeSMyeU7EalFNaC02Du7+eGpUcmuPGCA6ih10ix1c5C/WpPAr6LeavMU9HaFDVC6Uwr3rm5/tewXHRSLeR1EfWeaRp0xEmn8wWNnQ2Fpc4HkZnmmpxUdd3waM92oxCxdIAnSQkRl38pcDPjdEqzrQo8ar2KUhUvmOtfknOjGZowh4Whxyj0h0opZZg2orgT3AGtb3cxNnt6P+Vek60E8vS7nQWxxyqH0WnQfI0AhUhJteS0OBGz3Z/8qru1AjeUY0OwPdsmCG3xdvBK6bLFX0y7ZZCrZ/oa2yxo/u9cBbCqolBWvZnjfdqfbFhWZK/tQiZQl077kdg2RNh7wNaB1gKDxEsB4xOvph4FbTh7ZbBafnhKafoec1dXEoRgfKHe1vdCVrPklgBedNtv/02MTduvfx1dutEJlLlXRhUctTXJPpHZu3V4IzcfQinT2X+QHQrPIrgjewrk/Vs8hMJpuNR6NZUWfjMznSyCH+PXzgNKtH4Lp+qH3AHA2a56FMIUqjHGXriP49zGpqu2RXhroh0t+gC5piOBb3EGxs+fc5k2oTtbL+odff9ReS1O3tHeTZOse4wBPtW8v7KlZMOu/aTzpe4NCsUPqyycKUP4Z+lxxcKU9dNZITcWVgvtMBJmeS9+Hvq+GHmVFNBQd1SgukxK7Ba0fXJQ//wmHsjrXk4DkPEVJXQ==
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(36860700016)(376014)(1800799024)(82310400026)(23010399003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?3JCMAE9/i6hUhzaUhMirGysHyWGSpFLEnfV499v5k79raBq3yNsev6GN6x?=
- =?iso-8859-1?Q?eBhUyFle0h6mdgfOVBnjVPwsPMg7A35pUhDFwgoaACjW8znB8DxmZawlpY?=
- =?iso-8859-1?Q?lN94M8rm8WfJrtGt6WjhSo76Pnw5peB9vQ1UIv032qGv+uPRsZSjC95KQQ?=
- =?iso-8859-1?Q?2wki+2NNa8pHfASWz9TyLjoKsRB9QmGj7LgmHex/1Q0XzGylqayrLiS06J?=
- =?iso-8859-1?Q?p414BZdQQjkJk7j8GUrgn0BIBtRvyJ2eXgrJMARvThNUb8ILFPc7wdzXeg?=
- =?iso-8859-1?Q?MSTy8Z06YvWyYBm5gYuCtWFsRiFALSqRJOcoBmZittqIAfdNhKozBaoajW?=
- =?iso-8859-1?Q?lJTwYRdgau9U9vTLZ9ZtwqRl9z2Xb+J879DRqW9398dGQheeq+AX5ZBNhP?=
- =?iso-8859-1?Q?2Zq6h19/W9OPV//kvqV0JfmMbHoRPj98TDfm+EZ6/PybSIQuyAUelaGqEo?=
- =?iso-8859-1?Q?zRc8YVpIvCffBPvuk134sLvvw4aY4+UdfwQMg3Qf4Al5hLh6ph7C39u05K?=
- =?iso-8859-1?Q?NdAM+LXqyLW4FM8EqIeoqezbQ7tNaO3XWduMwHj3Y6lWJqTpHyX1vasmro?=
- =?iso-8859-1?Q?s+quHS8QOYHV9KUdAUlPPdW9C7wBeTWG+p3SyKJD8kSe+7e/38251i6r5W?=
- =?iso-8859-1?Q?GCXJgwJPuvyjwLPuFpiRN+tJAk+nSGElbLVgVz6CYRRy9acUl6SDpWyBHs?=
- =?iso-8859-1?Q?En6645Ck6JJeFdt0eHJ2nMOXHOxfi8pwAUtSnTQNS3WBEfO9b65KasDJae?=
- =?iso-8859-1?Q?h+0LUzaMrYX/Y7ZcjDDRqVg3SCek7Wsg0nNK0snefl5nctZ0O1NG1TJgz/?=
- =?iso-8859-1?Q?0klMD3wahU1MreQlvvQoef1rnzSbp7TMVROfoHIJE/7L0HB3BOOCIbXKn2?=
- =?iso-8859-1?Q?ynFoKlKWWFE1mZWnMJspSt2/GVw8xd3XLwgGTPb+8fXYNiLY9KvPPiOQuG?=
- =?iso-8859-1?Q?srxafFIWLzfOgMzF8PYWrD+KPKTcs4pU3UXSTH9PIyDBAi5a/y8fEgdQ4F?=
- =?iso-8859-1?Q?PFXkPfZSmQ+hHkYfVrPU/Ht49J/c+1OFkRxwQQ1+Z1iRw6ThbkdXRcq8fZ?=
- =?iso-8859-1?Q?hatSYT22neA5XBN5yEW0JXTfFELv/I/D1XOo0bNc7Czj0bXJGX0CxAvjM3?=
- =?iso-8859-1?Q?is2twFp5e2X9mKvN0w2DbwHch1qVFSjd49v9BJFDyxmSCwU62ufXEdzrsu?=
- =?iso-8859-1?Q?1B2XYDrgieeDITdvq9qf1xmtr0yZaijL88KHwRAcKz7r2Fil1mV8jNoPYK?=
- =?iso-8859-1?Q?IcrMFAeGIGaZoCNH5/u86cxh0U/EihOtlU6VfiEY7w6vVkzaY7aaSwFUZl?=
- =?iso-8859-1?Q?bcE4Yfc2SnVJnBfCBT3R8vahlfkxa/KEMtYbt1Kia5D0ltn/61KocmgY3d?=
- =?iso-8859-1?Q?nrEkvE2XlSfgmYWEWn6vqSd1leIroFfV1kfnMjAGH28OuQMzztVRVrRurD?=
- =?iso-8859-1?Q?6u5NbfPOYztQhy5EG+McoxHR8FUX6jFJx6uXBosIV4gqZMHws+r9XzV2Y3?=
- =?iso-8859-1?Q?h5fvAzz+6pFT0nt6VC8cgcpT/cpuL6/zNP0TwcG5Re6psQmZSNOA19k6l1?=
- =?iso-8859-1?Q?2v+qDHi4s6hAXYhVJGYx6mOt3PgJcIh+APoFfHjfuIKRFuvI1fmgZWhR2W?=
- =?iso-8859-1?Q?lUUCRnmKZWQHHuFH/Vj4w2UusutDTYYTM2yS9heFYDU0XeIfy8MX0b0+Uf?=
- =?iso-8859-1?Q?TLNE9nmE79Ebw+8whwPssYgNOxbl2YnD0Di9eQu4nR6FROrC/QHyO5xJuM?=
- =?iso-8859-1?Q?9IoucxXSyYM9DzZD2b5mGPmeB/p7Diby0JSG54R6rsfnseI3o1yc2qbbi+?=
- =?iso-8859-1?Q?l1YP0LcvTeb2a7MDWwBduXpnYaymzrs6Qzek1JRnRg8dxu+S1Mon?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57095062-9c50-4cad-dd8c-08ded62d1d2b
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 22:23:58.7126
+X-MS-Exchange-AntiSpam-MessageData-0: gbSeawoeM6anVPx2X8dUltwC4hreB3OWF+6A+oJCP4vPln8GB12GDqJ6+LlijvzBmnpXTHo+lLOYD894VOYL4vxZ5WfL2WHXtYSC3me/G3jxHmEwt6vvkwNiH017ACMebl5c0GDVJjHIcH+/pVGIhQNIPsi/py10tjuDOlAyoqaPwnXqPczc/11P5hCXbnR2MQTVxA525Hyzo9qgqqipVQihKyeoWJIOpH+qNIxBkZXjqMJRimg9ucASfdt3Sz8MSpiy8Vrk31kUa3mk539GriHeb0CxGAShHkk3yDA9wynQ3eHk6jF4yr01DPr/5adj5C0P4ohk1x7A6GhF7d5vtISHDMzWdnC9AWosGfA78JXa+mG7xpfGLHjZA/lrKNpwiKQTeJKIvylmdascEKsER5k9NSspCuhob+kCkMRbhaRF+7MchXWW19/v+tGhMoxp
+X-OriginatorOrg: phytec.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 22:34:11.8185
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7f68amrQ7/DG6vSb/QP83V0Z3LforSLbNf50qSK8jLjDs3TmgVtjtTegf+w/EwAQCOeunkdRmXkkLqL4rYNLZkbw2vwGH/2BZlxNJlYTYDnnvsVaXXTZ4Irg+oqTVvCj
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMBPR04MB12311
+X-MS-Exchange-CrossTenant-Network-Message-Id: b07cd807-bc27-4b83-b6a5-08ded62e8acb
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001B1.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXP195MB1830
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_152402_832249_9A831B04 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20260629_153420_049368_3E3A52A6 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,39 +121,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 11:39:39PM +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> Hello Frank,
->
-> On Mon, Jun 29, 2026 at 05:12:07PM -0400, Frank.Li@oss.nxp.com wrote:
-> > From: Frank Li <Frank.Li@nxp.com>
-> >
-> > On Tue, 23 Jun 2026 12:45:57 +0200, Uwe Kleine-König (The Capable Hub) wrote:
-> > > i.MX21 (and thus imx21_init_early()) is gone since v5.10-rc1 (commit
-> > > 4b563a066611 ("ARM: imx: Remove imx21 support")).
-> > >
-> > > The init_irq() functions are gone since v5.12-rc5 (commit e2c1b0ff38c9
-> > > ("ARM: imx: avic: Convert to using IRQCHIP_DECLARE")).
-> > >
-> > > And mxc_device_init() was removed for v5.10-rc1 (in commit 8485adf17a15
-> > > ("ARM: imx: Remove imx device directory")).
-> > >
-> > > [...]
-> >
-> > Applied, thanks!
-> >
-> > [1/1] ARM: imx: Drop obsolte stuff from common.h
->                            ^
-> There is an 'e' missing ---'  (i.e. s/obsolte/obsolete/).
->
-> If you want to fix-up that's great, if not, I can live with the shame
-> :-)
+Add device tree bindings for the AM67x based phyCORE-AM67x SoM and
+phyBOARD-Rigel.
 
-Fixed it.
+Signed-off-by: Nathan Morrisson <nmorrisson@phytec.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+No changes in v3
 
-Frank
->
-> Best regards
-> Uwe
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 69b5441cbf1a..ae47190d1f82 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -222,6 +222,13 @@ properties:
+               - ti,j722s-evm
+           - const: ti,j722s
+ 
++      - description: K3 AM67 SoC PHYTEC phyBOARD-Rigel
++        items:
++          - enum:
++              - phytec,am6754-phyboard-rigel
++          - const: phytec,am67-phycore-som
++          - const: ti,j722s
++
+       - description: K3 J742S2 SoC
+         items:
+           - enum:
+-- 
+2.43.0
 
 
