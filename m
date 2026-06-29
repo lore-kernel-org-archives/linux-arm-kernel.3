@@ -4,100 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A56FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:52:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A3FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 06:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rtnYJeteQp4s1E1MicQfJts/ZAxcW/7K90s6vct7pZE=; b=sTN3t5lzyHgF3gUb8tbnFm1GzT
-	Eb6ocynT8bQ5cPqY35TJESCgp3D8DwXNiQbqHpkKdj7NzJigV8kWQ4eWyfynruev3phyETyEbVQjm
-	aNK6kBVjhwrr5x5krXWmnUoC/NMw5fdAkKkYnu+DcdKt/Ch20w5af6HyfJuX1yz2gywS3O7uH8gta
-	SK2+wxF99bDug+c63vQe++ueNfv+7BXTYWlFcqYslJpGBf7Xh9Sa49LmCbr9rDksZQPaVKsuNO28m
-	XbE2EN98YkC72n4IZksUayBEEpl1XLFB0p+prr+NAEXYjCkFhbl00pvu/xcEb2vtXbk3mda1MHYnK
-	Qzb3L20Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xOux2gDggREnIc5Op1Tbz5VNmuHn30UOA4c59Lv6Txk=; b=x2b1PYwCy2gRzWBdzpp+DJqJfp
+	N+lKJLIbNcVj8qL0Gagys5gqXF7T6NnEpL/ok6sgZlMtEWVJlhIC27a0UjgXCySQCxDarnAMRWe+z
+	iwXGOrJzM+2uAhq27ia4R1+6y9jEwT46cdoOAEUcIFbuQcJkJNjLKvR8hzCzZFtP3jTsbg0Mh3xVD
+	X8L9zhd4USz4YyMjLoTA+WBdQd95ZuiPRVmWhWnxTyBU2e8maTQbjmqWYYCodXKVxULQYHlD234E0
+	ACzyhR/70gPXl5P/jP62s0W0Uy5n+gs5IqsoGVHwOERr36CyC7bg6AEOj4YYJZjEG8mK3IfgWY2NC
+	V7CjX/Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5r1-0000000DoK1-0bMl;
-	Mon, 29 Jun 2026 06:52:27 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1we5vY-0000000Dp14-3kn1;
+	Mon, 29 Jun 2026 06:57:08 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we5qy-0000000DoHF-14SQ;
-	Mon, 29 Jun 2026 06:52:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=rtnYJeteQp4s1E1MicQfJts/ZAxcW/7K90s6vct7pZE=; b=BkwvXFAQ6smfdrg/nXRoimRlhb
-	q+XJB34lgmHXEC8Gc04TJb++TYjB5dpPnCgEjvkjZATQ7nKxqtAthdlz6+NwW+CiWh+gQsbkiNzkP
-	EGtoTvfpqcFbQH76bolFuh845Qm7/6bRu9PO7FgwXPyCwYpUtkPrYeCjKMTMlHtcPvJM3QDFRjOlX
-	LRz2BpOLtYOndWFxfD1aaEb/AdT4fMIeoWG8nTU3Z2Lm8Js1iK6Kc5sKh+V+WDG4H871/gc9dpTSa
-	0Kn2N5bryTAu9rosMW5+PA0sRjn5aSD20u50kMfWVHh9LTx0osU3EMex6taYd6y4QhrzTgA/EjlR5
-	32PgrGcA==;
-Received: from sslproxy06.your-server.de ([78.46.172.3])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1we5ql-000KPh-1o;
-	Mon, 29 Jun 2026 08:52:11 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy06.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1we5qk-000Dff-0L;
-	Mon, 29 Jun 2026 08:52:10 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Jacopo Mondi <jacopo@jmondi.org>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Jimmy Su <jimmy.su@intel.com>,
- Matthias Fend <matthias.fend@emfend.at>,
- Mikhail Rudenko <mike.rudenko@gmail.com>,
- Daniel Scally <dan.scally@ideasonboard.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Michael Riesch <michael.riesch@collabora.com>,
- Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
- Sylvain Petinot <sylvain.petinot@foss.st.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Paul Elder <paul.elder@ideasonboard.com>,
- Martin Kepplinger <martin.kepplinger@puri.sm>,
- Quentin Schulz <quentin.schulz@theobroma-systems.com>,
- Tommaso Merciai <tomm.merciai@gmail.com>,
- Svyatoslav Ryhel <clamor95@gmail.com>,
- Richard Acayan <mailingradian@gmail.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Jonathan Hunter <jonathanh@nvidia.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>,
- Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
- linux@ew.tq-group.com, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org,
- Kieran Bingham <kieran.bingham@ideasonboard.com>
-Subject: Re: [PATCH v3 4/7] arm64: dts: freescale: Convert to new media orientation
- definitions
-Date: Mon, 29 Jun 2026 08:52:08 +0200
-Message-ID: <2840219.mvXUDI8C0e@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20260628-kbingham-orientation-v3-4-4ed92968aff8@ideasonboard.com>
-References: <20260628-kbingham-orientation-v3-0-4ed92968aff8@ideasonboard.com>
- <20260628-kbingham-orientation-v3-4-4ed92968aff8@ideasonboard.com>
+	id 1we5vV-0000000Dp0b-40Rb
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 06:57:07 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65T6rSuE2124846
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 06:57:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=xOux2gDggREnIc5Op1Tbz5
+	VNmuHn30UOA4c59Lv6Txk=; b=giUQhWByJkMkmkHPncSBlK/cyD2BmCue3wQBYq
+	yZhoLgsoHppyLJC0d8I3gc778X98oq2/voWWPMorovgyoPInub1k5PLB7jubcYni
+	iVzM9sjOqm0FjTVFio1Z3PEK8T8nJBL4XXMSnwwUCYUaqiOgu70Yv0XpkIVqAKih
+	O7OjsgVdo4cJc2XGG2e2CY2nnqB8bKrt88BTutjFAVOVklkyFUB3Zv17aJHDG8aX
+	1lp8hcNylwDa9s9BKceta+7wsxaTELPwnwd9yiRwumdJAs1WybZNWYxVg7So6CMO
+	76NEgYMQZvfvdVnqPvDwVPCvbtZdNnvuDBjFVvH7ILBxyicA==
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f273355yb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 06:57:03 +0000 (GMT)
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-30ed53abff8so342871eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Jun 2026 23:57:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1782716223; x=1783321023; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=xOux2gDggREnIc5Op1Tbz5VNmuHn30UOA4c59Lv6Txk=;
+        b=B44a4ErseEXffaTbgBHiROwlEw5ALvhR/wFBA4EfZ0rDB829crfIrmdIdg7XAMT3eN
+         uXFb1GoT9EpSaYnpD6mQA5AIrOr807ZNTY4zq4vc1rx22X0bhlIPdd+mWKtjxe50cVMi
+         YMo6PVbnebXNY02dmtoZKABayrmA6s8tsofdo6Dm2FssYyk1zDj7N5xyI6Ng9+Yyo2qz
+         AOw+PYC4VlzU0zJ/rhnVrNSwxCxJ0HnTvCDY5amLjei7mG7M9vG9gg9Y0IUtDMrTTgfW
+         ovNTmEw1wlW4SPyCIYWBU/crhS4anXplZsh62ku9ANSHY3e6Qx+J7kk8uTx8W/c5uxJB
+         poaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782716223; x=1783321023;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xOux2gDggREnIc5Op1Tbz5VNmuHn30UOA4c59Lv6Txk=;
+        b=S1iogJdTuPHrTLVlrNY5xuoCnqqdIqBMvNyeniaIZ3mfUFVFBqzvtQENxMYDw+7BTX
+         XwOPJ4L3i5FfQNFFRYo/MnvGYTwaXYgWZ/wDaM932cn6SiwutVFWgFuzeqP8iPgRFXzl
+         5S5/alhTsJ3thf1PK0B67jhQ3GvVdIqQe42gElu1fZtMD9iQ0EpTHCvPJaqFVDLZ8I1W
+         NsuLZb+1DJJpgk2gDeQPRdEtV9SLvoeUXAIM2B2OwUPZ36HZQ9VcKkCXkx9uwDekRX3F
+         /hx9CfFzkANZmQ/5ExmDBdLUJFdTayAYufoGLPYnZKRdBhs9zSoUUJdc99iA+A66blKg
+         LKvw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr4sln2un357u14b5UyYA5dOWyy1b4YXyskGTOnEtgbwAr3OGRG6woYsS6d6/YVBsPPZ1aLPUOJKJt8FIhIvm6y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRDcbYQ+yvcZY3lFOZ3bxRUnUpazx4Gewl2BZVKh9W6ibTjuYI
+	Jd3ZRQmraI+PcQWjcV8qm1baDlX1OIVr1AeuMw9ldbvCd+Ehs5a1QK8Pn7qUtYJOsBjCQyN6p/n
+	oovXHzF7+pqjLNgwyWgQAlx10+fSruqTiOVoDfFu1w+o02GSCAKhVyT+v5yoixLYXXomdelucOw
+	UjXg==
+X-Gm-Gg: AfdE7ckN85LpBgArk23PncDpPjqUFXTpKuDr9wkSPAyndoU64cPDho/0TMPLs6gR1p+
+	mxMFgTLhl3sQ576lg/+fTtrzRbYcYs8qQD3Vn9YkamCfbXmHaTkyp+NKg5SJxwnnO4sDxPpvv10
+	WVA1IKNKpKo2oC5/BuVdkiKxKxJd0JSaEHzvbH/BI20a5d+W6PKFhDVWV6CzDhTGZ3wlbtrW6+a
+	21TGnJ8iYHav8Pi2x6cLkcGdjIzW6qVVzqH0u3sXtJKIHrNc92Q6e5zULZEzqA11Bhk0iiy3klm
+	x7nMXci2AGA1w6tbY6s2wVX+GEpBxgPE1Mw7Fx+MGGzXnWN2V5xwKFKmKWRHiJsI0pBl8X2nuVQ
+	ES3UYTTI2yGvnQVAI5mHz3BjWkVNl6aTuKJDSH0+D0ECk61p/LZue1qPM+sHH/g==
+X-Received: by 2002:a05:7301:6003:b0:307:91f9:c1d9 with SMTP id 5a478bee46e88-30c84f77b05mr15366611eec.29.1782716222306;
+        Sun, 28 Jun 2026 23:57:02 -0700 (PDT)
+X-Received: by 2002:a05:7301:6003:b0:307:91f9:c1d9 with SMTP id 5a478bee46e88-30c84f77b05mr15366587eec.29.1782716221797;
+        Sun, 28 Jun 2026 23:57:01 -0700 (PDT)
+Received: from hu-jingyw-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30c7c52c6c2sm44995600eec.10.2026.06.28.23.57.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 28 Jun 2026 23:57:01 -0700 (PDT)
+From: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+Date: Sun, 28 Jun 2026 23:56:53 -0700
+Subject: [PATCH v2] dt-bindings: arm-smmu: qcom: Add compatible for Maili
+ SoC
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28045/Sun Jun 28 08:26:16 2026)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260628-maili-smmu-v2-1-87448a7678ec@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIADQXQmoC/02NwQ6CMBBEf4X0bAldhRRP/ofhUNpFNqEUu0I0h
+ H+34MXLJC+ZebMKxkjI4pqtIuJCTGFMAKdM2N6MD5TkEgsooCoq0NIbGkiy97Os0RUdWKVr40Q
+ aTBE7eh+ye5O4NYyyjWa0/a5I82qv9cSvED/H5aL28s9ewuXfviipJFpdtgo6Z/T5Fpjz52wGG
+ 7zPU4hm27YvrJsaD8IAAAA=
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>
+Cc: aiqun.yu@oss.qualcomm.com, tingwei.zhang@oss.qualcomm.com,
+        trilok.soni@oss.qualcomm.com, yijie.yang@oss.qualcomm.com,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+X-Mailer: b4 0.15-dev-3d134
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782716221; l=1234;
+ i=jingyi.wang@oss.qualcomm.com; s=20250911; h=from:subject:message-id;
+ bh=BtkPFNWwQb2PwuusYf/8KN3qcU9Gir40fUa8c/oqJ5I=;
+ b=QnqI2Z0FwP7IqQVq1stRSgL3Kmyg9mkoHLOBdkzpbuoDBBSGghBhnyoHaLBqYkrOJfrh+vpgx
+ a/mQgHR0MfwCp7N0ENAXOw6pmh8hAexhgtVK9oM3H0P1619SRkyGQzp
+X-Developer-Key: i=jingyi.wang@oss.qualcomm.com; a=ed25519;
+ pk=PSoHZ6KbUss3IW8FPRVMHMK0Jkkr/jV347mBYJO3iLo=
+X-Authority-Analysis: v=2.4 cv=F+FnsKhN c=1 sm=1 tr=0 ts=6a421740 cx=c_pps
+ a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=0vWZlYpcnXXQiWOWdZUA:9 a=QEXdDO2ut3YA:10
+ a=6Ab_bkdmUrQuMsNx7PHu:22
+X-Proofpoint-GUID: D4rJ5Ctg7stCWParWwwbH5foOuYwwpTb
+X-Proofpoint-ORIG-GUID: D4rJ5Ctg7stCWParWwwbH5foOuYwwpTb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI5MDA1NyBTYWx0ZWRfXySWC+hhnytlL
+ UxjJaBSBdeF/pFk+HiCOajpiAKXOCFQfkM7Dq12uXLerr9ahZSChbAR1shEuy3J7I4MnXoA1C1B
+ Hq+tL2WoW3NOYyrEWYNGRvwh8zLkSg+RqnRNqzcmp+5mI9Vl3g5G90OgUUp31LlR2y1EgYlCug7
+ eJAbz2g7iLOUt6NdrjRKHF3ofDpb+MWpRIVJUBKGfaBF2XlPdME4871ySn2/3Tgy6iWhDync7S1
+ 5/Mx+Xfvpwbrmzf83rp0/7FQJqXHkisNagycQhfF4FONHgGFX7Un6ccsZhq8x0fyy5sWJPFWVIB
+ eQd4t/pR1sPffmJT/ipYdKtMiOD2O7Dmt9RohkmLTfMhCaeysjJHSzzD5w/7YUhAFILPOTpAGgU
+ A/LEHa9M10UIXh2TITSm8A0ZWqOBBTeBjWI5nJ6AbHeUqut/aZIPdzujK4hEDEb7xuxiNL+eic2
+ 89x9O0ODOj9NTft8MZg==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI5MDA1NyBTYWx0ZWRfX1r5RFLIwe0xY
+ 0vucqcaD+2clj2nobJ/CK8dNYHU6a/me2Bbtr5JA/9f9zGRNyGOX2gGMFr7UzC+z8L9PjR1wjux
+ equ2/TXl/tVgX6101xzuWLxgIW86epA=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-29_02,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 spamscore=0 malwarescore=0 priorityscore=1501 adultscore=0
+ lowpriorityscore=0 clxscore=1015 phishscore=0 suspectscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606290057
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_235224_402944_3F286564 
-X-CRM114-Status: GOOD (  13.82  )
+X-CRM114-CacheID: sfid-20260628_235706_120265_70E40461 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,85 +160,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kieran,
+Qualcomm Maili SoC includes apps smmu that implements arm,mmu-500,
+which is used to translate device-visible virtual addresses to
+physical addresses. Add compatible for it.
 
-thanks for the patch.
+Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+---
+Changes in v2:
+- patch rebase
+- Link to v1: https://lore.kernel.org/r/20260524-maili-smmu-v1-1-ec85b12fda83@oss.qualcomm.com
+---
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Am Sonntag, 28. Juni 2026, 12:22:19 CEST schrieb Kieran Bingham:
-> The orientation property for video interface devices now has definitions
-> to prevent hardcoded integer values for the enum options.
->=20
-> Update the users throughout the freescale/NXP device trees to use the new
-> definitions.
->=20
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index a701dec2fa0a..c48e9de1a2bd 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -39,6 +39,7 @@ properties:
+               - qcom,glymur-smmu-500
+               - qcom,hawi-smmu-500
+               - qcom,kaanapali-smmu-500
++              - qcom,maili-smmu-500
+               - qcom,milos-smmu-500
+               - qcom,nord-smmu-500
+               - qcom,qcm2290-smmu-500
 
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+base-commit: 3d5670d672ae08b8c534b7beed6f57c8b44e7b43
+change-id: 20260628-maili-smmu-9ed0f2c189ad
 
-> ---
->  .../boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219.dtso      |=
- 3 ++-
->  arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi                      |=
- 3 ++-
->  2 files changed, 4 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314=
-=2Dimx219.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras3=
-14-imx219.dtso
-> index e5a2b3780215..7b44ae0f19b2 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219=
-=2Edtso
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314-imx219=
-=2Edtso
-> @@ -9,6 +9,7 @@
-> =20
->  #include <dt-bindings/gpio/gpio.h>
->  #include <dt-bindings/media/video-interfaces.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
-> =20
->  #include "imx8mp-pinfunc.h"
-> =20
-> @@ -47,7 +48,7 @@ camera@10 {
->  		VANA-supply =3D <&reg_cam>;
->  		VDIG-supply =3D <&reg_cam>;
->  		VDDL-supply =3D <&reg_cam>;
-> -		orientation =3D <2>;
-> +		orientation =3D <MEDIA_ORIENTATION_EXTERNAL>;
->  		rotation =3D <0>;
-> =20
->  		port {
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi b/arch/arm=
-64/boot/dts/freescale/imx8mq-librem5.dtsi
-> index f5d529c5baf3..178cfad93483 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mq-librem5.dtsi
-> @@ -8,6 +8,7 @@
->  #include "dt-bindings/input/input.h"
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/leds/common.h>
-> +#include <dt-bindings/media/video-interface-devices.h>
->  #include "dt-bindings/pwm/pwm.h"
->  #include "dt-bindings/usb/pd.h"
->  #include "imx8mq.dtsi"
-> @@ -1116,7 +1117,7 @@ camera_front: camera@20 {
->  		vddd-supply =3D <&reg_vcam_1v2>;
->  		vddio-supply =3D <&reg_csi_1v8>;
->  		rotation =3D <90>;
-> -		orientation =3D <0>;
-> +		orientation =3D <MEDIA_ORIENTATION_FRONT>;
-> =20
->  		port {
->  			camera1_ep: endpoint {
->=20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+Best regards,
+-- 
+Jingyi Wang <jingyi.wang@oss.qualcomm.com>
 
 
