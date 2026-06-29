@@ -4,142 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26245C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48EAFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:04:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/NhZ5wJy1LRqxbpyNv5WxkQxP9cGKNEzDf6JbFacEV8=; b=QC3PJLUD28Lg+GQmKvTXicY2Ev
-	uGt2ncq2lS1QJfUkeEexzXBr7yUpwSlH3K1k32aBvNvhd5MJMysCwv/xBAqkFsvc/3SQHp4/9Bilf
-	jw5YhJ7YYpXhOf+ARESLC7EW+OT4v3ZtoEoBRbGiO5yFlVT7z351ul7ZvPPmF3QybuViPlK4l1COn
-	ONz4dc/mo97gklRxknBPtYca1IINfMTXp/1u4nbl8k01SDAvbR1iqL6fvKfidmrhFqIbL2z8oO57U
-	6egTtT2j8ahdKYNU0QLf2OqFr8FC19sPkNs2fbDXb8oHGNv8gva5ntRObAakx+cY2FTYLLCJyMYW3
-	MG+droCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jg/Wh4RVlcGrE6Wa1eMp9aCyVAjW1OJpvCqAyR9yWrM=; b=mPRsmTJRKnm/ICeES+0sUhgNtW
+	CUYZPHYWxtBHpyzxOCeWiCS94IoDWG3Gs6vWqdV+KikdsbIDboMLoxtCOqc6kOXHRUBAlqOVNeje0
+	jExAoqaRjDWBwlCqFJfxe/8THZlRfrPSB9BP+8uYxjvjTct7XiV3v7FTd3SHhg/3RIN8EefJyLIYw
+	shB6DUxwxqA6jCiraa8NNV/haflob7oRwl/NtgkOqsYNMXp6PTjNu+sglDqXPzl+Zg0a8N4I6am08
+	nSKdAiRZ0arxStU2bxygExq0oTkm7PI7wamgqvWBs4GZ4SDASs5TFEx1ViyBGxp4C0kfLZeBzIGQX
+	vDXDBl0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEKC-0000000F8bn-2pPk;
-	Mon, 29 Jun 2026 15:55:08 +0000
-Received: from mail-westcentralusazon11013057.outbound.protection.outlook.com ([40.93.201.57] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1weESt-0000000FA2k-16MC;
+	Mon, 29 Jun 2026 16:04:07 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEK9-0000000F8bD-31oV
+	id 1weESr-0000000FA1e-1E8x
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:55:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VHyavWuNnzoQ/Zj70FYjIGhbRvWKnFhsiS56EgdM6mlo2BXn3RLLCYSNHS4+8cOG6wV09le/Wdc01DExMJo9PeqJU4jru5MONngFmPgTVTMeARUa1SfR4BQ363vT8yKjQWbozu446QvwmRmVO16cPP+I6nc8IdIu+Wp8Igix/FNNLPNxv+NPDz2jeTmN2nStFFcMy8GyC3HwHABd5K3HG7D/7HtesOL8E66B5zfL7cz72gLiuAmTlcrs/JDLnfysewzI4N84AFMwjMDTB7NOGBfjabJhrL4BtbUQTy1OjR5vpommOyi6XX7nCIdRL7gFqZ9Zd5Bch8jiS/wVKRk7ZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/NhZ5wJy1LRqxbpyNv5WxkQxP9cGKNEzDf6JbFacEV8=;
- b=P5J/KCJRBmjSozqxPbgpbxDv1UgV0fN5CQKwhjvHVTpdzKiCAbEG530g+J+H33TwsF9rrdKCVpXEwZ5rkohRFS+y15Dxr1T5sQiZNGOkaN1yig+nKwYrAA+2CkrzrNgypuXBzefWtcRi7RX7s97sUstbr1cGV9Rqv5QfTp5t+KK3g3JCmK4c4j3fMsp8Z2qYpR+76CZkkghgclOl2F5Ydh+gn11o3hP4OeNgTgsU9dU24MVi14cLV++EUz1c+k7EZKwNggy6gCswHXJQfypeLZzk28e417xOQIqMhaOLfutU1J6U7SL8j9dWm8yWE9wOdbLOofA9VOAKHcy6O5jRiw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/NhZ5wJy1LRqxbpyNv5WxkQxP9cGKNEzDf6JbFacEV8=;
- b=hvHnznApLEL7DzeUZrnmOBRrTtAF8kzVTNjN4z9PN4n6GaNqVweaR5ZqPVyvhBuekKRmNJ6zy3fszICNLcmAWCjpl5L1mTxb2Vz6fjwNLNbiAzMzrYhClNpawlHhO/ntEKCNWnGnhWGFwXEzZiS5bS+daPjGQwFLSfMyo5WoGNWgRdyAx2zVa31KO3Hi9zT1EJqxF78o5DQqpugRVOgrbvE4Urai1C93U9qjOYAWc/CnrsyFhQ9ri5LjY9ew/JG6mORe/sUx7LFR2708MytFhtpglYWegsCYvid3Ao+3fAQLFOr9Jh+cqMqK+0kWnSqXXG8LlfNARpczfVL8sUko0g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
- by DS2PR12MB9749.namprd12.prod.outlook.com (2603:10b6:8:2b9::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 15:54:58 +0000
-Received: from BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
- ([fe80::cf08:f59b:d016:c95f%4]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 15:54:58 +0000
-Message-ID: <16c7c5d4-d596-4a75-ac97-fb9d2c02c80c@nvidia.com>
-Date: Mon, 29 Jun 2026 21:24:47 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] CPPC: reduce FFH feedback-counter sampling skew on
- arm64
-To: Pengjie Zhang <zhangpengjie2@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, rafael@kernel.org, lenb@kernel.org, robert.moore@intel.com,
- beata.michalska@arm.com, zhenglifeng1@huawei.com, zhanjie9@hisilicon.com,
- cuiyunhui@bytedance.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
- linuxarm@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
- wanghuiqiang@huawei.com, xuwei5@huawei.com, lihuisong@huawei.com,
- yubowen8@huawei.com, wangzhi12@huawei.com,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
-Content-Language: en-US
-From: Sumit Gupta <sumitg@nvidia.com>
-In-Reply-To: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4P287CA0101.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:278::8) To BN9PR12MB5179.namprd12.prod.outlook.com
- (2603:10b6:408:11c::18)
+	Mon, 29 Jun 2026 16:04:06 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-806449d108aso42342287b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:04:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782749044; x=1783353844; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jg/Wh4RVlcGrE6Wa1eMp9aCyVAjW1OJpvCqAyR9yWrM=;
+        b=ROrBrZhVGavfvOSR1Q4nJ5U02t6HBn4KIZxBP9Wa+FYMJVKE+wV42Yo0om6xMdcOx6
+         CaipPNbczodbhuAL0nEDrqcP4+g7WcbZ9OzDr8DXyqM7rbubdIkxixM4kaIX6Qjl5Hmh
+         wJgybjXgYMKai0yQqjWy7agYs8cwbVByMYh35/WhM08YffsG6HU5vaoJkJd9NUVFg8+O
+         qfZIM/aH57eCU2lDnzvJC6bts9brR0fo7UTbXkX8fn5eYCd81D3e3Jfo0Qi0ZmsQ6YqX
+         p6BZQbl79942zT4VVgS6x9FnCkVoOeu0XC+7yRU3qo/9Qjal30tWG1Cm2aNw28j+H1in
+         ptlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782749044; x=1783353844;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jg/Wh4RVlcGrE6Wa1eMp9aCyVAjW1OJpvCqAyR9yWrM=;
+        b=JqQckJLY+3JqGa6ZsOvtZ3Asi5t4k0SwmqsJ4e3xHr/t/LHOpuPfsxYCwBhQqR4euv
+         FTsMOGFnfcEbjy3pESVlAu39g/OKxzXmtKsYvY03hp0psB328d2ZdofFwnxAfpd4keq0
+         bP0qpPC0MHu8z/+4QHXi7ZzqhZnHyQq3q/5q+xj8lpy69y/SwS3qct38zTWCicgUFCXM
+         NIqPX7tea7JnmWt2D/suMgCbnTcymLGT4aBPZv24CADpvLUvPlkPGD3UkuKerl5xdXFb
+         fEKGA63ayJNNOTRnVxb4NwNHaKDsd25MVa2OxEVPLYB4vusTXOlyED2v1JsimmdXkLAc
+         Xfzg==
+X-Forwarded-Encrypted: i=1; AHgh+RqvEFttZxAl+Lb9/R1+/oTG1ywz8ST7tHyQlE50GtncVYrS8svIwMcIzvhV9aoI+SuAV12lTxg9wj0zmRpt56Vj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyECuoo7fi+/wyqOwXIcnJYsxbdEJRmL3DqoFPZDbKO3RC2Z9Ig
+	qdw6MxomsvD5cRIbyrzL5OAtuFasmBWZq9KKeo0HRtOV1ecCP0WJSJkg
+X-Gm-Gg: AfdE7cljkoRrOQcpjIShxWywy0dIfRWE20lBCom8zoom2JzAxbHvC28gwyD/eL3Lfwd
+	z/GEsy7dXw2rMjCSp+Q12JKDZcuy4ez7VLPCXmMxsz7tmUYdO1OFhzRp8JNETV30n9c3Zo6jZcj
+	rbhsFmhl01d/gY++p81CPML8gmnRnKl0Giw5TCtjKfrMMa/lARZYUlqCq5lEfFMux/Bq3sGxeG9
+	R5A7gcYLs/ZkGJWgES3lgOOHYcu0zYlCDWJtX2i6y5cohe030jknQ1yEz2NKUQZbpwJgpqBBcnI
+	mhviokg9cmHL6kYqYQ8N6IzsTodE9TD+Tu9JCcO2kX72bXIQv7sV7iyJxlT+wyOMtqD31rVOcAU
+	UU91Z2I4sr+sO7AGK/n8hOkSh67Jylr4d85eVWZExcKxLwhc6Q0O3LYObSXp3QMO+QzblgBUPot
+	XnyBNrzwC0khC60ur3xSUkDSwxhA==
+X-Received: by 2002:a05:690c:6186:b0:7e1:fbf:aa7f with SMTP id 00721157ae682-810d9d0aaa9mr1518877b3.34.1782749044039;
+        Mon, 29 Jun 2026 09:04:04 -0700 (PDT)
+Received: from Dev-Null-MSI ([2a0d:3344:52ac:a808:98a4:4381:be45:536f])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-80e3ca61016sm20914017b3.32.2026.06.29.09.04.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 09:04:03 -0700 (PDT)
+From: Yousef Alhouseen <alhouseenyousef@gmail.com>
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yousef Alhouseen <alhouseenyousef@gmail.com>
+Subject: [PATCH] raspberrypi: vchiq: free recycle buffer on thread exit
+Date: Mon, 29 Jun 2026 18:03:24 +0200
+Message-ID: <20260629160324.29221-1-alhouseenyousef@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|DS2PR12MB9749:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec31e494-4d55-4e47-2509-08ded5f6c525
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|921020|18002099003|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: qw//+YAnyDskIA8HOKHIq9pYZUlPkh/x6ha/oKP2gxWX24ATMFaWXKIRcgcviRZYp6kZJh1DHdXW0ubCXHmS7QqlurhwHiuekeZxyoXW6eLSHDIyYm/yC2RRXdp4NddxwTsrOUfyiCRjvTlGNu6hsUiHE3C04srYdvW0YSVSXdOEOQuIzcCHlaaKTunkhoL14Cxh6D9NHM0zYml10uhFNnFmbTIlOhbN/FDgL5I1Z2D1xdqGSbT2rahrpH48DCrakVulSsw0vWlX+GQ4IeLcuiTOatproxliv4W8lbisy7L3QRSCBFg7efOS+WH/b+ZN1w4larjPnKfOiqP5x+qQYpSunAWycww8a8VLzbN8Y78lh2MSp7UolwyuZw8tazcuaniOhDZFABUw1ImStY1W6patbCSjubw3UHkElcMc79nHw83HUP8zmtF9eyf2WSgjM9IjrQUPfW+8YLGTCQq04JrBsziCkcKg9x0gZ4ByTjoHxSseGiBIKruOSX0QQITESWxp/Xe2VWG18vMPZr+BRR8p3Y26XwJ+XPVtS9jfUVOGZHV+8WjuV1QW8qRC//AebW04OyL5m2jCFAl9/QnV79rXfUtQKpbEAfEmLhk9zmroo42E11XkM6j0B4cGyiKCwXD/hvsHvnZRlgu3BA4DvrXEvpOHAo0L5VY2F0QLq8HEo4+UVeNPaHTIExEDGYiCEcJokhOze57rDlxYAL5ubg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(921020)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dW9PTyswb3BIdkhISjRxbzFjNWZmS1VkNGxJZEdDK3pCNmJINi9DNklGQXZB?=
- =?utf-8?B?RnJUKzlGSTlCQitGZll1bVYwWTBJdDFrQy9ibkJTeThrQnY5bER5UVZGaGxB?=
- =?utf-8?B?bnpJajhIOXBrTnhDOURLUmd2VUdCbzg2V0ovejJaTWdUT0Z2c0pnV1RMSzlS?=
- =?utf-8?B?bW02NmluMVlTTzJWZ2xLblpleEJpYXZudzZzbTNxRlEyNVUvVmR6Z1NOK3NR?=
- =?utf-8?B?RHVhU2RIMnhqYm5ZazZhWVMvT2FNMC9LNTdDRGZDWHluczg1WGY3aVpSU2Ju?=
- =?utf-8?B?eUdtY2VVZ2hCLy85cnd0eExuVjczNUpwOGZpbGN1RnU3THJhV2Z4UU1BV3Nq?=
- =?utf-8?B?ZjBlYWQwNDlyYit6SHQyS0hwYmVabHMzN2NZRUR1TXFIdmp3T1VFYjdPL0pH?=
- =?utf-8?B?ME1Mc1VIRTNNRWk1QUVmTHZzQlNWUlU4cmNML1l3a0JINkNlQ0tFWFl3aFlR?=
- =?utf-8?B?RDNuSWxvSk04Ymtlak1tWEcrUEJIWmZxNi8rVDR5dXlRb0lhd3EwUDZQeEJM?=
- =?utf-8?B?b0x5Vlc2R3Q3Vm1XSm45WnNRNHdSOUo3NVFGR2tqNDgyT0hrajNrdXhUSkV5?=
- =?utf-8?B?Q2kxSzNvSDV4K1U0b0NOWmNLc3U2MkswblNpUzZrcU9zRHRCMHV2RXZMSnRD?=
- =?utf-8?B?amlmU25xWHE4aFlIbDBGOENDZlUwQ3VoZ2JVVzFTV3BEYlJsUDlFay9naCtO?=
- =?utf-8?B?N29XTEhrMjRvRUY2YVZTTjl1MU5rcHJnZGpnYi95bm5QSmwrT0ZnVjduTzdj?=
- =?utf-8?B?RHBlMFgwWElDMFpoaWxUTldoV1VpZXV6MS8zMGRCT0JhMUVpbzFxNVdwbzhI?=
- =?utf-8?B?WkZnejdNcjdmT09LRlNlU2RIa0UyUENHMUQyNmZEemFUcy9LR0FWQkVyS3Av?=
- =?utf-8?B?NUZ4QWo4WWtGbFBYRWFmRzcrVmJKWUFzbVFZZTNLTWUydkluNndxbUY5by9v?=
- =?utf-8?B?eDZZdDgzY2RacHo2RE9rZzdrMDkxa1dTc3dhZE5SZmpSK0x2R2FRVVR1cWo1?=
- =?utf-8?B?M3FaRUc3NXpTRVlEc2J2YlpIMC9XdnFyaXl1K0xwVzhMYzNYc3BDK1RaN3l4?=
- =?utf-8?B?a2tpdUpXSnFmeHU1cWN2UDJOUGhkQjJnMjRCdzVvdFRaSG43NWZ5YnAzQnBu?=
- =?utf-8?B?djl6REZyZ2JtLzM0WDkvR2ptQUVQdUF0ZW9uRDJFeVVsSTBBR2dyU3k3Q3d1?=
- =?utf-8?B?amNvODc0YUVibVVONTZYdFdaZDg1K1RqM3RjTUFreDZNdUFvaGFOQ3JjVElM?=
- =?utf-8?B?UUY0TDNLTXNydFZsVE1DblBSRS9jNDNKdmR5WXFxUkxBaG5LaVJ0WmtnNlgx?=
- =?utf-8?B?T2dlSEh6RWU0ZFBUMXFQRjJuNjhzb3RNRG5zNEdsYldONEZCMlFCd0pFbXNJ?=
- =?utf-8?B?cXBTT1pneWRwVzludXFZTzhCQWo3TVFyc2dTelFhNlR3MU9IYUVLdkgwK0lU?=
- =?utf-8?B?OGVBWVUyYm9taGRMa0JvVmZ6UWhBL3hFYlo4N0FFUzNIL1VaZDdDTzNmT2Fv?=
- =?utf-8?B?Y2lSNCtTYjdGQnV1NzFBQmphK285U3J6NGJVcnJwdUJmdWVZRkZVVHVTZ0F5?=
- =?utf-8?B?TmxYazFHS3p6Q25Wc0JlblVCcWtpbmJQUGxhOVNlQzNjZ2lTUnN3aVAvMlBX?=
- =?utf-8?B?SGxUbzNZbWlhTUZTcjF1UGJITzFiWGhVdk0xQWdjakJvTmJHSnVuR2JReUtk?=
- =?utf-8?B?WnZrS3BvSjhVQ3BhTjVEWjdIZmtCN050L0tQZUxJdi9OTTNLdGhHV0VhK0g2?=
- =?utf-8?B?c3YxaXk2dlNKeUEwVmhYakxROFZNZnNnaTRRbzhsajJaTkFaVHJXTUVjeWR5?=
- =?utf-8?B?TjE4TjBpbWpOVjBKK2d1WCtUZURPQ3NsWXMzWUhMdE0zbm1wL2VsVHdWMFh3?=
- =?utf-8?B?WjFHR1RaWHU5OUs0dzFIUyt0MFNHRUtHUXN6RjNMdmpjN2lsZExOSk9EYVla?=
- =?utf-8?B?blJzRzBOenlzTE9OL212MmdteWJpYTYyTVlzZTExL0hqL2ZwZVFHWHpRT0VS?=
- =?utf-8?B?bWlWZVA2UEpUd21Gb1dpQVdMb0VzT2NlN01ITGl2VzY1cTZZRVF3YzZmZWhC?=
- =?utf-8?B?d2JsOWlnZzN4RUlOa0h0UzkwZ3A4M05idEpLWndiREhKY0Q4Z3dMZmp1ZmZC?=
- =?utf-8?B?ZzlqTzdlaDF1ZWpENldzSFVLdFpzakRWRGJvZEVDZFhZYjNQV3diL0pjSlQ2?=
- =?utf-8?B?MG5CaXBMK3ZSdHZ6aE9SM3JYVU1DUzhjcTIveUJ5RHZSTzhrUUx4OVdtL1lE?=
- =?utf-8?B?UmhNdkxscE1nUEVvYndBb2FWb1RpUEpmQm5EVXgwZUtHa25oVWJKMkVkT3Vl?=
- =?utf-8?Q?op0nYw2XlxcjL7VKP1?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec31e494-4d55-4e47-2509-08ded5f6c525
-X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5179.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:54:58.2422
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: K3wz0GisUb2VqLRRR3Qx2S+G/ASzf9bzGWcTdUry0P0QDlQpP8Mmd1/Qwxeq0X806s429Y2SzXWkXQWoiPnGuA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9749
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_085505_769739_EFF38D28 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20260629_090405_331610_772BFA45 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,61 +98,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+recycle_func() allocates a bitmap used while processing the free queue,
+but returns directly when remote_event_wait() fails. The normal
+kthread-stop path also exits without releasing the allocation.
 
-On 10/04/26 15:11, Pengjie Zhang wrote:
-> External email: Use caution opening links or attachments
->
->
-> The legacy CPPC feedback-counter path reads the delivered and reference
-> performance counters separately.
->
-> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
-> served through a cross-CPU counter read helper. Reading the counters
-> separately therefore widens the sampling window between them and can
-> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
-> load, the skew is observable as transient values that may exceed the
-> platform maximum, as discussed in [1] and [2].
->
-> This series adds a small generic hook for architectures that can obtain
-> both FFH feedback counters in one operation, while preserving the
-> existing per-register read path as the fallback.
->
-> Patch 1 adds the generic CPPC hook and uses it from cppc_get_perf_ctrs().
-> Patch 2 implements the hook on arm64 by sampling both AMU counters in a
-> single operation on the target CPU.
->
-> [1] https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
-> [2] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
->
-> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
->
-> Pengjie Zhang (2):
->    ACPI: CPPC: add paired FFH feedback-counter read hook
->    arm64: topology: read CPPC FFH feedback counters in one operation
->
->   arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
->   drivers/acpi/cppc_acpi.c     | 58 +++++++++++++++++++++++++---
->   include/acpi/cppc_acpi.h     |  7 ++++
->   3 files changed, 127 insertions(+), 13 deletions(-)
->
-> --
+Break out of the loop on wait errors, free the bitmap, and return the
+saved status so both the error and stop paths release the per-thread
+buffer.
 
+Signed-off-by: Yousef Alhouseen <alhouseenyousef@gmail.com>
+---
+ drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
-Hi Pengjie,
-
-Thanks for the patches.
-The series looks good to me, and it fixes the cpuinfo_cur_freq
-spikes on an NVIDIA Vera (FFH) platform.
-
-Just one nit on patch 2 (counter read order), noted there.
-
-Tested-by: Sumit Gupta <sumitg@nvidia.com>
-Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
-
-Thanks,
-Sumit
-
-
-
+diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
+index 48d6b1d74329..f8b2d4b1a30e 100644
+--- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
++++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
+@@ -2346,7 +2346,7 @@ recycle_func(void *v)
+ 	struct vchiq_shared_state *local = state->local;
+ 	u32 *found;
+ 	size_t length;
+-	int ret;
++	int ret = 0;
+ 
+ 	length = sizeof(*found) * BITSET_SIZE(VCHIQ_MAX_SERVICES);
+ 
+@@ -2358,11 +2358,12 @@ recycle_func(void *v)
+ 	while (!kthread_should_stop()) {
+ 		ret = remote_event_wait(&state->recycle_event, &local->recycle);
+ 		if (ret)
+-			return ret;
++			break;
+ 
+ 		process_free_queue(state, found, length);
+ 	}
+-	return 0;
++	kfree(found);
++	return ret;
+ }
+ 
+ /* Called by the sync thread */
+-- 
+2.54.0
 
 
