@@ -4,150 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD3FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A5CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zuCQjnIjcHcsCbC4CeSNrKK4n8UqQjP5j6wVuK5Frmw=; b=XaNKQN532lpPdCF+UaaVmrFGGL
-	bkz5nGkmcYYaZm7AWQGwYRL8YN6axR8rPV3o/sElP2uw/O3raIkOJE6SYM4Npi21pg0o8wsH+3X2U
-	NgMo7xggDm9uWV5ZNHYotdbp0Tx1zWtK12gIr53VXscNL+ixrkARCzOzjroUuJ13Af9tv3CljTXeo
-	yILb9CUcTB9YNBMoj0bNz8Yc8OvnH0kTwoY9HUMDNPgf/9n0l/zZKMqkshhbET+PxWyxLm4vX7SDZ
-	YlIXVNEjjJaNafR5fCAJBJkID2Rofge3VDaWW/gHWbPrSMh3DESa6mD24ZZsv1uQJsdtEIz9avHCs
-	RwqV92Dg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1rsMIqeUo7w/8HQ084SMthYLAbPCuimMFz6Hr3QOyaE=; b=AQMOw0TEyUeiQuN5WQ9h5EB2Mu
+	5hSeBuW/7Bx5AMpXLCRvROJtk8wAbmj9ljZWFEkCBco4RM2YqaY2jwWQLdoKfdBN3r2s5dXukPgKN
+	MgiGwQS+s218l1dAjOXqm13PLGIBm2HWI1P/wUvkfcjZpEwYDVcIgc1VwDaowV3ZjZ4alwKO+loEk
+	Xk0WiSWscCRZRHHdVOsxJmf8y/2bnQRYdWVmIesLB67zSJh6oSHvDqxNsp7jTF7qTSK73RkRTthnc
+	Yc1KS0ADRiiGQcu5P/D8WoFwXpQ67272j3l/QoA/AIo2Y8r2l1dLfj60s3vvZqLiAX2rwo7loz7Mz
+	ZO8IdgUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we639-0000000DqQx-0z1S;
-	Mon, 29 Jun 2026 07:04:59 +0000
-Received: from mail-norwayeastazon11013052.outbound.protection.outlook.com ([40.107.159.52] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1we63L-0000000DqZJ-2Vhb;
+	Mon, 29 Jun 2026 07:05:11 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we636-0000000DqNF-3ySG
+	id 1we63I-0000000DqUz-37X2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 07:04:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UNx9senVtvYifbZF3Nfbbn8vdSu3luU88gPSrK2GF8fGl41BmB9qTkRbPNNxVfrejBopvj7HiJaj1YNN3Z3+BxItNWd9w1TOyQszzAuf4+9P0fSOfNRO1klN9O036p0rGGTvlXXOJChegsQFc0SGq54AVao8dcPrSFjSAr9Ul+6Ersg/582Y7NdR6BiiWC7vx8qoS4qLBV4kD6o0tm38dUpCnJ3g+ZxhpApTf65SQI5VscmZnfb+nQu53ezZwbxw9POFx9BsbDa3XvhBohPu6HIrwDGdWnE2UxUzi1Pg35fyYo/6fCBLD+ZOHnK6oUGnRdyLbBPPrOQh9gXMgYiAXA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zuCQjnIjcHcsCbC4CeSNrKK4n8UqQjP5j6wVuK5Frmw=;
- b=hSJEjcR4jogleYhCizz+dkH/dRJR5XoLw9AiYv0dulx2EmVYw00jDqnLycixMfab2FOcGtDwRL4b6JfiU0F/8wViqbEZcn9rgTFRsdOPoANg+XT8mH6VCEcnJakuHBlFnOu6oVGy7hfjfIlNpKAuV3nAJFxWM21Tw0cko3sTC4EUSRf0+VNZMTRdzCBkSXY3Th+TlA+L52Kf5M7dkudqPakUSTF+/xwxptxPdAv3HWYrG2K8WmobZAVHKJ4vWjyIhtuq0q9luQmGtC6Wk3rC0AoNE7hseoWhaeDZUoPjiU11pXFlhhMmmEz43ucO3ba94hRbZ3jxlpmUcBUMgCrmTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zuCQjnIjcHcsCbC4CeSNrKK4n8UqQjP5j6wVuK5Frmw=;
- b=NC4wHAa+/uQ0kjiYdVvPWK4HkH/fH0dU8YV9Nz0ckdp2KnRXW4leDQ3uCrE6sbbdpMOoTZr4cu5EGkPZu0ZxVwuxtabYFPTzzNSBmYsO32Z6ST3zPx3xU3U/yhW4l/+Z/o8xNJCdtQn0DvcQI1KcLh2F0zynFh2XyIb21oTkckC9cYkELAN0ecwRLnkozckdv6ZoRpqmRfwnHO5vy81ET6Xd36QYZDGdndMztVD4Inn0yeSdu0daNwLLQ1eXcMGa8+HLwk6zvORQW+vayj9JlXQwnElW2ucDbVVdw9N4phuOx9JpIQAUMTtUY5x70rbrZWMPFA4b+xXybDXzeg3l5g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com (2603:10a6:20b:414::15)
- by AS5PR04MB9853.eurprd04.prod.outlook.com (2603:10a6:20b:672::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 07:04:50 +0000
-Received: from AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c]) by AM9PR04MB8469.eurprd04.prod.outlook.com
- ([fe80::1f31:d3d0:6150:b49c%4]) with mapi id 15.21.0159.013; Mon, 29 Jun 2026
- 07:04:50 +0000
-From: pankaj.gupta@oss.nxp.com
-Date: Mon, 29 Jun 2026 17:52:03 +0530
-Subject: [PATCH v26 7/7] arm64: dts: imx8ulp-evk: add reserved memory
- property
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260629-imx-se-if-v26-7-146446285744@nxp.com>
-References: <20260629-imx-se-if-v26-0-146446285744@nxp.com>
-In-Reply-To: <20260629-imx-se-if-v26-0-146446285744@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782735844; l=1279;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=hnPFsRK9/RoyluFDiCjFX7uqhb3SO3ctyv+6dqueb4c=;
- b=I/ycPXAOYI7YZzxpNJogVa3mvsGItSKFiwYXbKJ4dKkn+EwA4H0lMbg0NCKGOXudDg30ffrUj
- woi4OaZ3z94DEctuccKX08jEmVXgvGgV4zjUmePEmnd+WfuXVTN7Glr
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SG2PR02CA0134.apcprd02.prod.outlook.com
- (2603:1096:4:188::14) To AM9PR04MB8469.eurprd04.prod.outlook.com
- (2603:10a6:20b:414::15)
+	Mon, 29 Jun 2026 07:05:10 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 5600B4E40B45;
+	Mon, 29 Jun 2026 07:05:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2419A5FF96;
+	Mon, 29 Jun 2026 07:05:03 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8AF9B106F14DB;
+	Mon, 29 Jun 2026 09:04:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782716701; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=1rsMIqeUo7w/8HQ084SMthYLAbPCuimMFz6Hr3QOyaE=;
+	b=of/X3b2pqHw09oeoNd1OvSXDh4fwfA+/kKLRQreFdmzEqIgfhOA1Qr/ndrgAS+GDHD1foq
+	YVUwy2UDChvK8VCKa8bl8WHPu/RGbgHx65vTU8qf5QhD+0SjO+EkaJQD+PiMQRKealgon9
+	TuDtgKRkFFgrshWTzAVAX0UEKPDekcNslGvvWEwSaHcY0QSWF9ruFjP5u+SRAQ0XeASqZc
+	cYPYWionzUmVuXiJgbsoK9MfyrKHSIylnjEV4Hxv2eg1bnCcvScdtVZk2m50nfz7Mpw8Ir
+	N/mi42ewOEIx03TM2HzKhOkVMoYeeWZgwbOT1qao8LyiML3z7WV7A+3DF6KRQw==
+Message-ID: <178defc6-8e60-4b0b-b3b0-f0f2a4003b68@bootlin.com>
+Date: Mon, 29 Jun 2026 09:04:49 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8469:EE_|AS5PR04MB9853:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9a396803-231d-4c4d-b9cc-08ded5acb647
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|23010399003|7416014|1800799024|366016|11063799006|22082099003|18002099003|56012099006|921020;
-X-Microsoft-Antispam-Message-Info: DuFeq+LLRMAIP+wxR899fviWZA0sjJ/Lzi3+4azFkHm7I5/mrWACeW7PeMNoX9HKPs+798bQnegM9yLuMgeE213e2lu/aGVywyqU0m1ekRV3eHVA9y5YiwlT952MGyk9eH00p/TwFvQPUdXWOP/X1SxJKlk8ewG6fBcZSRhKZwGoCe4Ee3XXh8thl9SjDzSC9PfIR1GH/DsXkSsQNZsuxlliYGyhFLn2RGfwM+M2hLKjE3zREZyHMPjw+wuNIu75zt0j9eRflIH/mw+9f8K8Qy/o6qPxViI07QVH5j3sAE56tsgcZJ3Ezj5qXMC7iLcFiSSsdfpK0v1QvkhwWMLoyNo/dg9pFM5iUTfLepux8YSzirnD0lDj6YeENSz+l2J7LbYKVq0AS/oUMiQcE8oSpgKk3cvo3O9veWwdwTfHrjWQby+ovvdd6waCwg5jYNOkdKwwuElvgXehfe2dtJmzE5ECXtLQJjcuPGeaEE0Dl4t4G/YP3WnwzB0KY1tVIaxSd3L+PVTvm1ksFoBRFFeGn6TTYNMiScrDylJ/424dMCy9j2Zq74eh/RxyTXnE2s5yvwSSLUyuX5+ICi10hy3f6r+taiyTJ50S7I5Nw8gxDV4HLO130oKO8qQ85gJXjhemEQiohvZDpC4QVzrVrmh7ZvkLRm9NXur9i3dPIp861EumUdJw/pGI1ogBCREoQfk0D736t4ULi5bG3Jl4ZAl8TQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8469.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(23010399003)(7416014)(1800799024)(366016)(11063799006)(22082099003)(18002099003)(56012099006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?R0RNeFBINUEzRXNURmI3YWM1ZmxBYVVnVWNIZFd1SkVzd1pBYWJHQ0FuZXVm?=
- =?utf-8?B?QTk0WDA0eWhiS0tJMXNpeXNwUnkzby96U1FZdnh6WmFucjVJVU9KdThZT2Nr?=
- =?utf-8?B?R09oY2hVUCt5V1BhTlFyR3BkUVd3TWhLMTRSMS9EUVUrczM1aHpLN05reHFm?=
- =?utf-8?B?cjRCSzZIZ1c3Um5YWDJlWHVNbUwyMHNiVzZjYjRCNzBpbUtGSEptMG9aWHU1?=
- =?utf-8?B?bFp4QlRZbjAvYUVNeDl5aVBlZC9zMkUvUkpINVNWNUIyQzMvZVJSWnI5M1NI?=
- =?utf-8?B?MEhINXFSNmhRbGNteTFsQnN1cW1WeDlzN3NEeDhSOXlwOW9LYlJDRGZsWU53?=
- =?utf-8?B?b1hTVzVNNUpUYmVYVFlMV2JIOFZreDJaSHkyL3JUTVpqcGsveElsSEoxbDhl?=
- =?utf-8?B?OTZZVHhIczAraTRYNUxjMGQwLzYzRW1hNm9LU21sVmV0NDFsd1pNNCs4U3ls?=
- =?utf-8?B?bkR1a2huSGZIWjYvKy9vb0o0YjR6dUlOTnJsL21ZWDNIajhRZnRUM2ZUZFZx?=
- =?utf-8?B?a2xtKzE2TloyTVlVY29TZFhsOGJ6Mm5USEtrZ2hKUS9CYVhBUUJKWGRoNmlm?=
- =?utf-8?B?V0dGOWRnMHN5ZzRKKzc3ZUltaTY0SktLdXZWNGliQ1UrN2JmSTN2c2FFYW9M?=
- =?utf-8?B?MUxYdGE2VCsrSkhzYit2dFZwcVptMEYxVDhGdlpzT1lJdlQ2MjZZdDY4Y0JP?=
- =?utf-8?B?eHZDZjNlWUdwL2lueVZOcHpCeFJkaFdoM3NXZ3Z2b2plTDREU3B1LzRIc0pz?=
- =?utf-8?B?VGg0Ny9JbzJRWkJVdGtYRVVUdGxhRS9TNFhxVFNQNkh0RnV6TmYyK3JDajR5?=
- =?utf-8?B?ZXMvTy80UWFrTHBrd01SYVpFZ09HUmprRy9iRjRoU1p5bmc1RE12bzBwdm1a?=
- =?utf-8?B?NStWeDgxblc3SjlSRU43VHFVZ1NUbVpLV2w4VEI3ZkF6emxlU2Y1ZDNTckdC?=
- =?utf-8?B?aUlrRk50ZXR4RUtkSTNOY0c0bk5rM0p0ZDNLbGxibmNhdUpoQmZTZkFjKzFv?=
- =?utf-8?B?RGhKQjYzWDgyOGVNczk3N2hObUZWZTJTUUJieGEyUUIvYTIyckJwU1BodERa?=
- =?utf-8?B?dXJUdnUrdFBmSWFFY3MwZWowaDYxU1l4bzZxYkFDN2FKUXJCdGJrc0FqaXps?=
- =?utf-8?B?Z3FnSEtkbndvWEx5Ylk4Z2NOV3ZBL3JDYU5ZUXJBT2lXYmxLaVUrbHVIeHJP?=
- =?utf-8?B?SlgzbXQzTnF3YVovN0VXNXJJMGY4UUlGWVQyVDBMcFA4cDRZMFJoc0hXNU85?=
- =?utf-8?B?SE5uS2Z1WHRBQ3pLc29tREdwSEdrZHl1VjYwR2NPeHVWUzMvMm5IcThOMzRs?=
- =?utf-8?B?RTNoYVFGRFNpNHRsNFl6Vi9sb0wvbkd1bGgvaklxTUtPRXJJY21iUHJlbUsw?=
- =?utf-8?B?T3hLRXA0WCtvWXBVVTdBaEtucWhwWHh4bVdCMW9GWTI1VWxiVGxLVndEdHVD?=
- =?utf-8?B?MTdaOWt3b1pFdVZWbVFPbXJMckExMHZRYXJnWWxaNWp2R0t5cVFhZE5TdVNR?=
- =?utf-8?B?eU0rc1llNHBqcDVVNjhKVi9nQTFtK1QyUW9OdWlTbGpsNlhwTUxhaEhHajhL?=
- =?utf-8?B?Mi95THhTaGR1M3RMZGlUN1hlL3g2WFZpbThVekx6R0RnSkhBbUIza01jdzcz?=
- =?utf-8?B?TWZoc0Ftbnk3SUZHZzNnQkxSdDUvZzFwSWNvcG1jdlZBTTcrbFNFQVlybUI0?=
- =?utf-8?B?MUVHRklSV1FNbTV1dXloTC9wUGNPb0dNbnl5aHA1WXBqUUZad3lGR1FsVnhu?=
- =?utf-8?B?UkRhQS8rV3BjMVd5ZTJnQjdEZzAwcWxZaWdybEQwc1ZGbndEKzI1ZDNSVWNV?=
- =?utf-8?B?eGlqSlpBSlJrckdlaENZRFJkbHR4RDlYSmVTU1NibkpYamk5RkVISHVLSmdz?=
- =?utf-8?B?RlU5WG9pUVRXNkhBOEpWMDloem93ZklUSXZ3ZElZbzlEQnBid3k2eUcwTVBS?=
- =?utf-8?B?VDFkcEExRjlVZ1ZuWVBrRGowb2xIOTBocCtRYWozV2Jkb2NscWNwWnUzY0NX?=
- =?utf-8?B?Umh3WW9MYUVRQVhSWXhkeHhLQ1EwQXpMRTgvZFk1MzA0K3ZqY2FTM0ZjYjk2?=
- =?utf-8?B?VE5yUHI3MjF4R1pGSnkvdndPbkc5TXdWM3RvNDlpOXk5Vmw1TGk3RGdBOUpI?=
- =?utf-8?B?K0JkN3RrZkRudjdoRjRIM1pHeTRlTGJna0E5Tm5VUGExSXo0cGg3MDFTd3Fo?=
- =?utf-8?B?NXp1eS9JK244OHdrV1c2bnErbXdRSEhqNERKUjBVSmpxUjI3RHUxYzQ0UzVZ?=
- =?utf-8?B?dm4xeVhCcWtuMmJtOXpSeTVhTXNKbEcwa0JxNzJJUU9RSjVXeUthYi91WXZj?=
- =?utf-8?B?Y3RLaENFYjhIVlVIRE13UmRaa3Z0b1RMODF6V1c0SGdxRTdoM1dBbXNGb0R4?=
- =?utf-8?Q?dW0BGjoScrgOjtbo750tvTlxNFc1mxzcqmyBT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9a396803-231d-4c4d-b9cc-08ded5acb647
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8469.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 07:04:50.4118
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TGzTd63B0G0GoAwyqANXnSv97cdBvK6iOllNStTWtPVc4fZQUrwIPXt6yQnSoklYvtQqRLXJ4L4DF1x8vEJHRJFAx2b/FZ5gGSM8d6Eet3mCvzjsHLtfnuRssjT4Ehvi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB9853
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH net-next v8 03/12] net: phylink: add
+ phylink_release_pcs() to externally release a PCS
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
+ Saravana Kannan <saravanak@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ llvm@lists.linux.dev
+References: <20260618125752.1223-1-ansuelsmth@gmail.com>
+ <20260618125752.1223-4-ansuelsmth@gmail.com>
+ <a271385e-302d-45c7-a1df-aebd380b427b@bootlin.com>
+ <6a3fc312.6161eb1e.3441bb.c0de@mx.google.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <6a3fc312.6161eb1e.3441bb.c0de@mx.google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_000456_997265_E9CF8484 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_000509_083868_6625B26A 
+X-CRM114-Status: GOOD (  44.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,56 +94,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
+Hi Christian,
 
-Reserve 1MB of DDR memory region due to EdgeLock Enclave's hardware
-limitation restricting access to DDR addresses from 0x80000000
-to 0xafffffff.
+On 6/27/26 14:33, Christian Marangi wrote:
+> On Thu, Jun 25, 2026 at 04:13:14PM +0200, Maxime Chevallier wrote:
+>> Hello Christian,
+>>
+>> On 6/18/26 14:57, Christian Marangi wrote:
+>>> Add phylink_release_pcs() to externally release a PCS from a phylink
+>>> instance. This can be used to handle case when a single PCS needs to be
+>>> removed and the phylink instance needs to be refreshed.
+>>>
+>>> On calling phylink_release_pcs(), the PCS will be removed from the
+>>> phylink internal PCS list and the phylink supported_interfaces value is
+>>> reparsed with the remaining PCS interfaces.
+>>>
+>>> Also a phylink resolve is triggered to handle the PCS removal.
+>>>
+>>> The flag force_major_config is set to make phylink resolve reconfigure
+>>> the interface (even if it didn't change).
+>>> This is needed to handle the special case when the current PCS used
+>>> by phylink is removed and a major_config is needed to propagae the
+>>> configuration change. With this option enabled we also force mac_config
+>>> even if the PHY link is not up for the in-band case.
+>>>
+>>> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+>>> ---
+>>>  drivers/net/phy/phylink.c | 56 +++++++++++++++++++++++++++++++++++++++
+>>>  include/linux/phylink.h   |  2 ++
+>>>  2 files changed, 58 insertions(+)
+>>>
+>>> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+>>> index c38bcd43b8c8..064d6f5a06da 100644
+>>> --- a/drivers/net/phy/phylink.c
+>>> +++ b/drivers/net/phy/phylink.c
+>>> @@ -158,6 +158,8 @@ static const phy_interface_t phylink_sfp_interface_preference[] = {
+>>>  static DECLARE_PHY_INTERFACE_MASK(phylink_sfp_interfaces);
+>>>  
+>>>  static void phylink_run_resolve(struct phylink *pl);
+>>> +static void phylink_link_down(struct phylink *pl);
+>>> +static void phylink_pcs_disable(struct phylink_pcs *pcs);
+>>>  
+>>>  /**
+>>>   * phylink_set_port_modes() - set the port type modes in the ethtool mask
+>>> @@ -918,6 +920,60 @@ static void phylink_resolve_an_pause(struct phylink_link_state *state)
+>>>  	}
+>>>  }
+>>>  
+>>> +/**
+>>> + * phylink_release_pcs - Removes a PCS from the phylink PCS available list
+>>> + * @pcs: a pointer to the phylink_pcs struct to be released
+>>> + *
+>>> + * This function release a PCS from the phylink PCS available list if
+>>> + * actually in use. It also refreshes the supported interfaces of the
+>>> + * phylink instance by copying the supported interfaces from the phylink
+>>> + * conf and merging the supported interfaces of the remaining available PCS
+>>> + * in the list and trigger a resolve.
+>>> + */
+>>> +void phylink_release_pcs(struct phylink_pcs *pcs)
+>>> +{
+>>> +	struct phylink *pl;
+>>> +
+>>> +	ASSERT_RTNL();
+>>> +
+>>> +	pl = pcs->phylink;
+>>> +	if (!pl)
+>>> +		return;
+>>> +
+>>> +	mutex_lock(&pl->state_mutex);
+>>> +
+>>> +	list_del(&pcs->list);
+>>> +	pcs->phylink = NULL;
+>>> +
+>>> +	/*
+>>> +	 * Check if we are removing the PCS currently
+>>> +	 * in use by phylink. If this is the case, tear down
+>>> +	 * the link, force phylink resolve to reconfigure the
+>>> +	 * interface mode, disable the current PCS and set the
+>>> +	 * phylink PCS to NULL.
+>>> +	 */
+>>> +	if (pl->pcs == pcs) {
+>>> +		phylink_link_down(pl);
+>>> +		phylink_pcs_disable(pl->pcs);
+>>> +
+>>> +		pl->force_major_config = true;
+>>> +		pl->pcs = NULL;
+>>> +	}
+>>> +
+>>> +	mutex_unlock(&pl->state_mutex);
+>>> +
+>>> +	/* Refresh supported interfaces */
+>>> +	phy_interface_copy(pl->supported_interfaces,
+>>> +			   pl->config->supported_interfaces);
+>>> +	list_for_each_entry(pcs, &pl->pcs_list, list)
+>>> +		phy_interface_or(pl->supported_interfaces,
+>>> +				 pl->supported_interfaces,
+>>> +				 pcs->supported_interfaces);
+>>
+>> I've given more thought to that 'supported_interfaces' thing. This
+>> patchset redefines the meaning of
+>>
+>>   pl->config->supported_interfaces
+>>
+>> Currently, it's filled by the MAC driver and means "Every interface
+>> we can support, including the ones provided by PCSs that we can use
+>> with this MAC".
+>>
+>> It now becomes "Every interface we support without needing a PCS", at
+>> least the way I understand that.
+>>
+> 
+> Wait but with the current code using the OR logic, it still follows
+> "Every interface we can support...". The modes that needs a PCS are
+> specificed with the pcs_interfaces mask in phylink_config.
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+you current code is correct, I was mostly concerned about the doc
+that goes along with it :)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 5dea66c1e7aa..16399d921e04 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
- /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
- 
- /dts-v1/;
-@@ -37,6 +37,12 @@ linux,cma {
- 			linux,cma-default;
- 		};
- 
-+		ele_reserved: memory@90000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x90000000 0 0x100000>;
-+			no-map;
-+		};
-+
- 		m33_reserved: noncacheable-section@a8600000 {
- 			reg = <0 0xa8600000 0 0x1000000>;
- 			no-map;
-@@ -259,6 +265,10 @@ &usdhc0 {
- 	status = "okay";
- };
- 
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+};
-+
- &fec {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_enet>;
+So in the end, we'd have something like (simplified):
 
--- 
-2.43.0
+pl->config.supported_interfaces = RGMII_xx | SGMII | 1000BaseX
+pl->config.pcs_interfaces = SGMII | 1000BaseX
 
+pcs->supported_interface = SGMII| 1000BaseX
+
+correct ?
+
+> 
+> The late add and release operates on the phylink supported_interfaces ONLY
+> when the MAC didn't specify support for it (by removing it as only the PCS
+> will declare support for it)
+> 
+> The confusion is present because everything is validated later on
+> major_config so those supported_interfaces are just an HINT that are later
+> verified with get_caps and with the pcs_validate OPs.
+> 
+> Adding the supported_interfaces to phylink is really to keep an original
+> reference of the value. This is to address a pattern I have notice where
+> the MAC driver always OR the interfaces with the one supported by the PCS.
+> (I remember it was pointed out by Russell)
+> 
+> But I'm more than open to discussion as this is something marginal to the
+> whole implementation, I'm also questioning if this OR is actually useful to
+> anything on the nth tought on this.
+> 
+> One thing that I notice is that parsing this early with AND might be
+> problematic at phylink_create, but I still have to evaluate that.
+> 
+> My take is that would be good to have some review also on the other logic
+> as I think I reached a point where Sashiko starts to comments on more or
+> less unreal problem.
+
+True, TBH all the fwnode part is something I'm a bit less familiar with though
+so maybe someone else can browse through that.
+
+FWIW, I've tested that whole series on a board that has "legacy" PCS board
+that has mvpp2 and 2 possible PCSs, and it seems to work fine so no regressions
+there :)
+
+A side note with the "legacy" naming, I'd rather have it called "built-in" or
+something like that, I don't see a clear path to porting the existing code to
+fwnode without breaking DT compat, as it's likely we'll have to remove the PCS
+register ranges out of the MAC's range. 
+
+Thanks for this work anyway, this is great !
+
+Maxime
 
