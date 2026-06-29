@@ -4,150 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B62ACC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F08DFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eUlfXlgXPywHPdQ0QOggn86872UVQZcmxCm6e/LrYIs=; b=FMBW+thDUrRVcPC0XJwVbyNnKT
-	TvQhYw9WYadQhYEe5rxjh/PFJaFRM4ucxarVLzPDATb6v9jCXeQinjnxCnll0YkPv5FMesW3JdTW3
-	ZWlZk/xByTCb4IFTws9COBeZmPga60pO8eO1WkhJbEQ3iAt+oDP3o3dG9q++24mDjayBpBaJrc5P2
-	CtseINzpZ0gNNUJ48JRaEWJpN82l9mFW8hlwDrP2WWUdFO+Sb3poOW/96bx2KMeX2FCa6bMwkpImX
-	A1+i0z8macw7YiWY5J1FibhZtDKCRRnxXEwj7oW4erVqT5LSPC/2dMDBLXYtYBCGoxfRmkd3l/X3S
-	5FapHr8g==;
+	bh=QPyQU6+yuB09FuIkfFeAr4jLXLJolnakzFOl2Nr96m8=; b=SFw3GutuOMWG2tlB5D6xM9DR4U
+	UH6Qq54L6Oax5hobU/8imZicAVLU+UCubDUTcL6c1sp6UhW1qFwzPhgxchOXPChZ0NZQVdb3a3cyY
+	LsQAj6YKczzWYOlIsmCwe4WtW/LnxJbq/lKYeMv01bGhRwNBLQ277qZFRQMw7DY0ArzsEgOZ9CX5j
+	HYPuydUw5St8D1yZYxYQWWRmte1CUnvoCekFOaX2xeVCJmLytt/XXRwCIHdzcau4fSu/DnJLM4ppm
+	xWx7I/9GziTqxxBXZxJNbDAT7dqbQkgVjrfkZM4ev8iEjpSGPKBSBmoRqFSSWOx711W3mEHyL6tca
+	oMEylRNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weE8s-0000000F6Xe-0mnh;
-	Mon, 29 Jun 2026 15:43:26 +0000
-Received: from mail-westeuropeazon11011034.outbound.protection.outlook.com ([52.101.70.34] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1weE9Y-0000000F6iV-2caZ;
+	Mon, 29 Jun 2026 15:44:08 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weE8p-0000000F6Wj-2cEh
+	id 1weE9V-0000000F6hx-453z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:43:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YhyQvjyNAMmrR1gYVz+E/eT6D4RJ0rA1uAANVvCuOuYYLBSc0zOqACpg0JKV8+CCFCqVeR+x2nNh9tL81A6TEMCfxksEM1VdFSZH03VOQjXDHg/g0QyMxGnt8Df/i7YXh9N0IRO4TP3uK6Pc2XaQWgjuT8L8Pu8Ph3B0RfH4qIwFOfUn6XPJAnqehRmk2H738TaUlzfzBa9tQM18FHL2lg6Rr38DB5uKrJoBlKgkFy3BRNLl8B+Je+81nBXFgb7zXkYC9OuhHFbJGsK3PRP9ekKtIHT1ZdHaic09J8c+urP5rKr4rmc4eMfuSgWa9Khxb2LLQrV+h7BaqnBrO+69mA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eUlfXlgXPywHPdQ0QOggn86872UVQZcmxCm6e/LrYIs=;
- b=tqjcolLGIb/CEAHZonk3jiHrl0IfLwkMp81WIDduIUJtjTPhz/DoDzn5+ir0arOFq+EDCsif6iAeP0iHe2iINFyDrTeMbKw4ZhJQ7TD0fr4YexUOhDI2ocJA5zQB/hBfU5q67e2y0MBe2+8Ri1WTlO2vA0GZmCQh/zGtsBXzgRActEvqifszgSCnuzeCwonscBjE0Dte0l++4BUqj04fejBSCXAXsc69NEMUSaLYHREz7HHpprNzhagVVvVhTVEHjXGe8DlsUxhU4WKO+d2491QJ9c/yrtZ9p4qz2oDBwFEdsoZMjCjM8kA6dFKxzshf4mIx7FJggVARm2mKakaV5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eUlfXlgXPywHPdQ0QOggn86872UVQZcmxCm6e/LrYIs=;
- b=S/zykTuhTH17SpKkWMQtPFMuJuPXe20j9FtyL3P8b6OHDI0AN3TOQd7+bv4KV4/dldxCjZ5fRKPrglioJgzR4l1Hbq9iucGxanIG0M7KwSiW+5w7PFx0uwaUXuYmg1IuzXN3vmb/kKew9usiJPq6olHtqpvjjyCwmtbYG9cWKG+YWmccRFvAdfiNF1fc5XtCB11eholJxz935R61ORq0g/1S1nGGnhzUWKoujCQHRUZT4iqof0y2d7BqpAH9RxB25piI1l+NCFumaU2Zwneu+3W4KFoghlJomTCjoNSaHMdLdKlqUZx6ePWuyARVHs8w8TT7OKo9nmlOyklCtlTriQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB11819.eurprd04.prod.outlook.com (2603:10a6:800:2eb::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 15:43:17 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
- 15:43:17 +0000
-From: Frank.Li@oss.nxp.com
-To: Linus Walleij <linusw@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Peter Rosin <peda@lysator.liu.se>,
-	Frank Li <Frank.Li@nxp.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Haibo Chen <haibo.chen@nxp.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: Re: (subset) [PATCH v6 0/7] pinctrl: Add generic pinctrl for board-level mux chips
-Date: Mon, 29 Jun 2026 11:43:08 -0400
-Message-ID: <178274777822.2249000.12458353880909358016.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
-References: <20260504-pinctrl-mux-v6-0-8ea858ba3a5b@nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH8PR02CA0028.namprd02.prod.outlook.com
- (2603:10b6:510:2da::29) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 29 Jun 2026 15:44:07 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-8424b00710aso2495212b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:44:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1782747845; x=1783352645; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QPyQU6+yuB09FuIkfFeAr4jLXLJolnakzFOl2Nr96m8=;
+        b=lk1YrL9ES0/hz57DCvFohwkspGFoFQnMOWQ8f+10Le0xxa9CyWndmAan8toip9TIvs
+         AQK69RpzwuiyvoXJiVWjYWU1BhiQ0x25Rm4Q11JCSipNWp0OvmYsIST9QJo04Uk9SW06
+         mXjoaIELnDCR1RDG8I+u6gyAF+FkioidBKwCNFYRpoyq14O7x6SL5qaX2Cnf4TGmfhpD
+         Oz+WiT45KIWfZcbWT9XrYg+jSQBg6ZMETNCBhfZ8bEGTRMocXcl/DO2mb7bCkR6IWnL5
+         h3dMTuxczrrJh9uATW5qp62gOrytmtI9f3LnO5s9bwe9fwrOGSP4r9KG0HbT5ZYc7K01
+         kEJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782747845; x=1783352645;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=QPyQU6+yuB09FuIkfFeAr4jLXLJolnakzFOl2Nr96m8=;
+        b=k+OtwEFDnlyPZ+YBUp29c8+mcW0N5j4PWRWVMSeQjCVUYlWyFmylSY4vC9p4I/YkMY
+         CFa6FpKOGspvAK9u7uVVo04KjgS0sHmBjzeXUnN3WPnNBDi5yvOBwXj+Y0agcRckZYas
+         criKROfdeP8SZRkf238y7tzgG5HlqxtItknpyW4M0TUiYzrMUshmecl1kSiKn2zaawYy
+         NiKNZmLuP//SLFjGylP5sN/L9XMgPw5FXyDM0l0Kr+1eAT09frg8qmhSVgpH6DV5cYOC
+         jb++SRYfQF/b/n8Vrx0Ek5p2WaxOoK8Hir8xsrVBR3psveK4nR3i0ll9rO6t5zNvhTx/
+         47bw==
+X-Forwarded-Encrypted: i=1; AHgh+RqUhyD5E7vjgFR1d/hKMOOfoLdl+MwQleHxqvOSJ4SUlY84YTh7zNP7J4xS3ru81vVJhBxsuA13gmewCrz+kLaN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyueKpDS1vbV9TizLJM2tA+cH+44iAKMouIV5HklBOkVvaqVwI5
+	/OlP/lm4F6jt4lYLOWeuKL9IV5kwKUfzkCSeCCjDtiUMkFkZdQyi+GkhFAKABGh3Ykk=
+X-Gm-Gg: AfdE7cm8qSI5O8fBXudM3zPJ999deDA6NWpa9cI65WgKv1lbwdUkUZZVIexWzuJPWt7
+	8uEOxz0TfW8r+ApTQVwK5T7rhOdB12BVt94SPu9n8Q/ACc8sj/bVu8XRW6tZQwPfl3SNHhRxj53
+	P9UoysAjwMqMTuCXiOqUNwAJlvfSaLs6WhklWyIDlrVrdmOm3ZkBO6rvSU/nHaeO0I+gmABJEMp
+	pQaSeqtn056yrPyCfcXXsi7nICYTrUdvNgxrxLpSt2HAYkjAwWesy4psASs8Qtqf1AmTEcoOiFB
+	7ByEnPhSNlX22jwEH1K+T8saCFBOQtk3LVzhmLFEmDJMENqs4C00XgvxpFOLZ+WsE257b/rg47L
+	ksL18DETUSQmma0TCpFDLdZGP/hjSgWGvTc5SoUzN4ZUJQ0rZIOQGXDWvqutC96gDA3HA6pi2om
+	oOIf/eJAjhZxMbz6gHu76a3NlYYaY=
+X-Received: by 2002:a05:6a00:1a86:b0:847:1b77:6eb9 with SMTP id d2e1a72fcca58-8479eeb6872mr89527b3a.9.1782747844789;
+        Mon, 29 Jun 2026 08:44:04 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:aa83:261a:68a7:9974])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9bbcd9f5acsm73446a12.10.2026.06.29.08.44.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 08:44:04 -0700 (PDT)
+Date: Mon, 29 Jun 2026 09:44:02 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Tanmay Shah <tanmay.shah@amd.com>
+Cc: michal.simek@amd.com, andersson@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org
+Subject: Re: [PATCH] remoteproc: xlnx: refactor start & stop ops
+Message-ID: <akKSwrbbkFxNIiXu@p14s>
+References: <20260619163854.410392-1-tanmay.shah@amd.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11819:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9f078b37-5bd3-4c84-dcd8-08ded5f52348
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|19092799006|1800799024|366016|18002099003|921020|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 2EZmjWDpakhKM46qR/yTpWg6xUwOm0tFazLQzjMkADbcb2DKU0775NweBaXhAK0+thgNsqyo2zf95bIPAsLv60AIQIaGxrsMpWt0Y7BtsJsCIpfcG26/Sfwfq6SxkvUeOOQ48jgsjHMQpWh+vOXVSdwFc36Ax0qoKTw3VEm9KD7F0XIb5q7O0fCZQeAOnKSf61SMHRK9DUKQjFI6ecF7eWy2cRM5hM9emQFoXxHtBo9mnGjawLe4xTkEK9l6e5X5qI9x2YVNgLIQmK3A1/4JKSzIykaSW8kF9r78AddLm6c7bzaatsIXBfnlpG22UUzDUMhHCsvp49f4hzCyiRIzGivDkoLQuhyIgzYGSpIZXf7qpNTkdopcvhDEp02zSAAnrsTyno7QBfy+6FfKSvMsYegk+DjY+l4R10HsxzZ6DP1IKCKDo3sEDuSwuBZx48j5ulPDq/ErqnB8kwBeyVRZM6WZEQxOd6xtgnccKPL6723i5mqED+voYK8szt+Mwv4M4hEqPOKhvLpQe6I3OYWgPlztnHrM+5tzdzeF7s+MLBbk9+SRgBbkbkh8OqvOkdpVKnKxjX4Jyt6sd7SxQ3gHel1CI4U5XsB40s3VUIpZqSEKEn00o0CbW+GT9zuZA45SszsRlrjCtgWDDJa+J3+hIqTSLzHPkyTyZmpzZRuDe+JXXgHloXIaQNa6UBsNAN6gm2BJw3ebI1wG0DruVq1+8g==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(19092799006)(1800799024)(366016)(18002099003)(921020)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eFp6SEdYa08xak03RlJobkVZRTg1a0Y3QmVhVnRmcHh6RnhhK2cyKytBUXlz?=
- =?utf-8?B?RmNTQnMxZGFIRUlaM3MwYkx0UXF0NTBsZTlpZVZxT0lLS3BsVnFQWFpYZTlo?=
- =?utf-8?B?QWtSMnVhVkZYd3ByMDB2bExrSmRTRmtUeWNCYlY1OEMyRnNCTUM2b3FFRFZP?=
- =?utf-8?B?ei9MNk9NREN1alVjUUFuV3h5OVpoMmNNNGlqd210TU1VeVhxSHhMYzBuTjYv?=
- =?utf-8?B?N2N1UVVEalBKblQ5aDUxN09uZUNiaEJuQXR5VXowRFg3bmlERTh0c241YWY4?=
- =?utf-8?B?S3VUc042WWpydzhkNnd3djNEeDFTZ2ZWQXZkSE9odlNqelNkZ0hpY3d0QkRZ?=
- =?utf-8?B?SW9VYU9wNElReVRIVU5TTkZzQTZla05EYlBvUy8rZjhyVU56d0hXN2NlNkJ3?=
- =?utf-8?B?NnBPUEU0U2JRcTdrc0NLNmlpM0VESEd0NDVuS1pPSm1odGJwM3FUN1VoRjhs?=
- =?utf-8?B?M2YxMGxxai9Xemo4NXNmTnRWajdmRm5vbGQ4R2ptdWVrZWpiYXROTXAxQ3oz?=
- =?utf-8?B?U1JpMXZDWG05VVpyZ2xTSXgxcHk3YnJZckIzRFR5SWMyMVRsY0NuNGlJa1M2?=
- =?utf-8?B?TGJ1VERBTWc1V29yVmZVWjRHT3dLNlA2V004UXRIVml0V1ZvcmN2eEszbzFl?=
- =?utf-8?B?Z0xHZERDbVExMzVGSGc3a1BML2FkbUFyMVJ6dmN3eFR6S0QwTE5iSHhDSXpz?=
- =?utf-8?B?Qm9ZQWlaTklxSXhWRlFocm1zYnNMNEkybkY1QlhQMUFNWWtwUWROWktpRkRu?=
- =?utf-8?B?RTlWL3RkdVRhaUUydUlYSVFJRHlPTC96cURyUXZwT0NZVEdkK1hySTQ4VUZm?=
- =?utf-8?B?aGRJUVZ0VlEvd2Z4enRTRW1ESFg2SWkraWwrYTRuajRyckd3VkFOdFVFQzQ2?=
- =?utf-8?B?Z0g4U0I5Z2VUL0FidmVkbjIzcjE1ZWs2YVpHcXN6M3JoNENIRER2RDRTVml6?=
- =?utf-8?B?Q1BxN3hEKzJvM3FodVU1ZkoxWUJnNmc2emMvVEhTOWRZcng0cmJ4Y25TOVhv?=
- =?utf-8?B?c2Z4N2E2UjNTV055WjNJZ29lV0lxN3IvOG5QZ2U0dzViL2dkc1hycUtadXJh?=
- =?utf-8?B?YWZQR1BpVXdoYWpoaW5wWnlHNDRPbnRpcm1TN0V2eUNhemt4ejFlRUdYSG1Y?=
- =?utf-8?B?c2JYNmJIYm1laVc0ZFh4bWszQmJGV3BzWEZEZ1ZBU3VjQTV1T1lWUUh2UEt2?=
- =?utf-8?B?elV2S3FBczlUNEpJSnBhQnIvZUtrSFdLMVZCR0ZnU1J1dE1JeFN4dkE5emNt?=
- =?utf-8?B?RFVjUUVqNU5Kblo0akIrU1lIU1VxbEwwMlNNMUVGSG05RVpibEZHMGxEQTE3?=
- =?utf-8?B?Q3l3YkFMdUdQSTgrb29pUEpjNVJ5WTFtSERDMUs3ZWYybGw4eU5GNXRJa2VC?=
- =?utf-8?B?aWlJUGVHekNoeXRzQmNVQThuSzhEbWlzOHIza2pYQytCRUhoZThvVDhBaFhw?=
- =?utf-8?B?YjlyMGNoY3NvNldFRFhGNmFsSWRYQWZxU04yZGJtSmxXZmpvWmFKS0xMdWRr?=
- =?utf-8?B?bnZnbWtOMHUrbmFvL3VGNXpTRkduOWo2bU8vNEkzSUJVYzBTR2pzTDlhRkhp?=
- =?utf-8?B?emorNXBtUjk1dC9qMlk5OGgzTzg5a09pOWs3dzlCaVVkYUExbG9zS29wQlZt?=
- =?utf-8?B?cDZpOXJDdm1OUzh3STJRbW83S3poUzNRSVI4NUcwbGV6ZnZaeWEzenFxeDFJ?=
- =?utf-8?B?eVBPOTVMTVNFczR4RkNuRlZlR1RTTkozWDdnbTJNRU9FWlY3MC9QNm95SHBR?=
- =?utf-8?B?ZEswUnhGaTI1bDQxZXpsT1FvYXMraENvMzNWMlhwMXJvdVVvbVg0OXRzUXE1?=
- =?utf-8?B?Tms0dnJnakI4OFFhL1BRU3VxMTBwSHZtR2NORlJsOEtDS3pGMlEzb01xOThE?=
- =?utf-8?B?ZDJRU3NjT0hha3N4TXR4TnVpR0t5Q3JBbXdoZW5BYlRDb3E4UmhpTWtoWWJB?=
- =?utf-8?B?UDM5NHd2Ty9tQnNTYWNJZXFwUjM3VWFJRHVVSkdDSzlFdDlWMUVGUWhCMU5R?=
- =?utf-8?B?YXNlZ0dtUjJOT2FrRmZ4ZXdJRjFmUXVudVN6MGx1K0J5dG9wWm8rT3NXOWgv?=
- =?utf-8?B?dXUxV0QrWHgwQkFablJrUUVoemo5MnQxKzVhcVVVeEdPaU1XYlFEZWVOV2NX?=
- =?utf-8?B?V01zWm90bDhua3R6TThEdnpxK0F6aDJkeDNCQllpT1VvTENuK0xBZzlWTHk2?=
- =?utf-8?B?RW9jeUZiMWp5OGNlNXNpd1RBYlBVYm1hSWc1ZEwydDFHVUFaWlFOaTliZlVt?=
- =?utf-8?B?eXpLSnZrdlFxdWdLQkkya0NvNlZ5ZVJvN2ZSckFNVXFrTlNnZ3lBMDYxNzZh?=
- =?utf-8?B?RzhjWXBKcjlRVERsVWpFWGdSRU4wSnFRVjJvdGtma2J5b1ZSWjNxMHZGbE5q?=
- =?utf-8?Q?sKDlWaRmi5R01acFct85hHYUzTITl05wbzs8C?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9f078b37-5bd3-4c84-dcd8-08ded5f52348
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:43:17.0730
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oX/anZrDI/Hrqa2y8SmQjjDSGSLyrS/XolH2HR4Vfvj7PCcw0EaEQy/fD0woPBo1cCjeAZL6iyO/ul4QqY8lQy5jRYHJIu6t8paL+OPcTwjCfRj8uHsnl/m0g6rCjXVr
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11819
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260619163854.410392-1-tanmay.shah@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_084323_661242_A1543E7B 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_084406_045297_06D0CF52 
+X-CRM114-Status: GOOD (  33.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,28 +98,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Mon, 04 May 2026 19:54:34 -0400, Frank Li wrote:
-> Add a generic pinctrl binding for board-level pinmux chips that are
-> controlled through the multiplexer subsystem.
+On Fri, Jun 19, 2026 at 09:38:54AM -0700, Tanmay Shah wrote:
+> Current _start and _stop ops are implemented using various APIs from the
+> platform management firmware driver. Instead provide respective RPU
+> start and stop API in the firmware driver and move the logic to interact
+> with the PM firmware in the firmware driver. The remoteproc driver doesn't
+> need to know actual logic, but only the final result i.e. RPU start/stop
+> was success or not. This refactor keeps the remoteproc driver simple and
+> moves firmware interaction logic to the firmware driver.
 > 
-> On some boards, especially development boards, external mux chips are used
-> to switch SoC signals between different peripherals (e.g. MMC and UART).
-> The mux select lines are often driven by a GPIO expander over I2C,
-> as illustrated below:
+> Signed-off-by: Tanmay Shah <tanmay.shah@amd.com>
+> ---
+>  drivers/firmware/xilinx/zynqmp.c        | 93 +++++++++++++++++++++++++
+>  drivers/remoteproc/xlnx_r5_remoteproc.c | 68 ++----------------
+>  include/linux/firmware/xlnx-zynqmp.h    | 12 ++++
+>  3 files changed, 110 insertions(+), 63 deletions(-)
+>
+
+Applied.
+
+Thanks,
+Mathieu
+ 
+> diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
+> index af838b2dc327..f9a3a95b0638 100644
+> --- a/drivers/firmware/xilinx/zynqmp.c
+> +++ b/drivers/firmware/xilinx/zynqmp.c
+> @@ -1513,6 +1513,99 @@ int zynqmp_pm_request_wake(const u32 node,
+>  }
+>  EXPORT_SYMBOL_GPL(zynqmp_pm_request_wake);
+>  
+> +/**
+> + * zynqmp_pm_start_rpu - Boot Real-time Processing Unit (Cortex-R) on SoC
+> + *
+> + * @node: power-domains id of the core
+> + * @bootaddr: Boot address of elf
+> + *
+> + * Return: status, either success or error+reason
+> + */
+> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+> +{
+> +	enum rpu_boot_mem bootmem;
+> +	int ret;
+> +
+> +	/*
+> +	 * The exception vector pointers (EVP) refer to the base-address of
+> +	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
+> +	 * starts at the base-address and subsequent vectors are on 4-byte
+> +	 * boundaries.
+> +	 *
+> +	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
+> +	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
+> +	 *
+> +	 * Usually firmware will put Exception vectors at LOVEC.
+> +	 *
+> +	 * It is not recommend that you change the exception vector.
+> +	 * Changing the EVP to HIVEC will result in increased interrupt latency
+> +	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
+> +	 * is non-secured, then the Cortex-R5F processor cannot access the
+> +	 * HIVEC exception vectors in the OCM.
+> +	 */
+> +	bootmem = (bootaddr >= 0xFFFC0000) ?
+> +		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
+> +
+> +	pr_debug("RPU boot addr 0x%llx from %s.", bootaddr,
+> +		 bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
+> +
+> +	/* Request node before starting RPU core if new version of API is supported */
+> +	if (zynqmp_pm_feature(PM_REQUEST_NODE) > PM_API_VERSION_1) {
+> +		ret = zynqmp_pm_request_node(node,
+> +					     ZYNQMP_PM_CAPABILITY_ACCESS, 0,
+> +					     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
+> +		if (ret < 0) {
+> +			pr_err("failed to request 0x%x", node);
+> +			return ret;
+> +		}
+> +	}
+> +
+> +	ret = zynqmp_pm_request_wake(node, true,
+> +				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
+> +	if (ret)
+> +		pr_err("failed to start RPU = 0x%x\n", node);
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_start_rpu);
+> +
+> +/**
+> + * zynqmp_pm_stop_rpu - Stop Real-time Processing Unit (Cortex-R) on SoC
+> + *
+> + * @node: power-domains id of the core
+> + *
+> + * Return: status, either success or error+reason
+> + */
+> +int zynqmp_pm_stop_rpu(const u32 node)
+> +{
+> +	int ret;
+> +
+> +	/* Use release node API to stop core if new version of API is supported */
+> +	if (zynqmp_pm_feature(PM_RELEASE_NODE) > PM_API_VERSION_1) {
+> +		ret = zynqmp_pm_release_node(node);
+> +		if (ret)
+> +			pr_err("failed to stop remoteproc RPU %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	/*
+> +	 * Check expected version of EEMI call before calling it. This avoids
+> +	 * any error or warning prints from firmware as it is expected that fw
+> +	 * doesn't support it.
+> +	 */
+> +	if (zynqmp_pm_feature(PM_FORCE_POWERDOWN) != PM_API_VERSION_1) {
+> +		pr_debug("EEMI interface %d ver 1 not supported\n",
+> +			 PM_FORCE_POWERDOWN);
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	/* maintain force pwr down for backward compatibility */
+> +	ret = zynqmp_pm_force_pwrdwn(node, ZYNQMP_PM_REQUEST_ACK_BLOCKING);
+> +	if (ret)
+> +		pr_err("core force power down failed\n");
+> +	return ret;
+> +}
+> +EXPORT_SYMBOL_GPL(zynqmp_pm_stop_rpu);
+> +
+>  /**
+>   * zynqmp_pm_set_requirement() - PM call to set requirement for PM slaves
+>   * @node:		Node ID of the slave
+> diff --git a/drivers/remoteproc/xlnx_r5_remoteproc.c b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> index 3349d1877751..dcd8a93f031c 100644
+> --- a/drivers/remoteproc/xlnx_r5_remoteproc.c
+> +++ b/drivers/remoteproc/xlnx_r5_remoteproc.c
+> @@ -364,49 +364,12 @@ static void zynqmp_r5_rproc_kick(struct rproc *rproc, int vqid)
+>  static int zynqmp_r5_rproc_start(struct rproc *rproc)
+>  {
+>  	struct zynqmp_r5_core *r5_core = rproc->priv;
+> -	enum rpu_boot_mem bootmem;
+>  	int ret;
+>  
+> -	/*
+> -	 * The exception vector pointers (EVP) refer to the base-address of
+> -	 * exception vectors (for reset, IRQ, FIQ, etc). The reset-vector
+> -	 * starts at the base-address and subsequent vectors are on 4-byte
+> -	 * boundaries.
+> -	 *
+> -	 * Exception vectors can start either from 0x0000_0000 (LOVEC) or
+> -	 * from 0xFFFF_0000 (HIVEC) which is mapped in the OCM (On-Chip Memory)
+> -	 *
+> -	 * Usually firmware will put Exception vectors at LOVEC.
+> -	 *
+> -	 * It is not recommend that you change the exception vector.
+> -	 * Changing the EVP to HIVEC will result in increased interrupt latency
+> -	 * and jitter. Also, if the OCM is secured and the Cortex-R5F processor
+> -	 * is non-secured, then the Cortex-R5F processor cannot access the
+> -	 * HIVEC exception vectors in the OCM.
+> -	 */
+> -	bootmem = (rproc->bootaddr >= 0xFFFC0000) ?
+> -		   PM_RPU_BOOTMEM_HIVEC : PM_RPU_BOOTMEM_LOVEC;
+> -
+> -	dev_dbg(r5_core->dev, "RPU boot addr 0x%llx from %s.", rproc->bootaddr,
+> -		bootmem == PM_RPU_BOOTMEM_HIVEC ? "OCM" : "TCM");
+> -
+> -	/* Request node before starting RPU core if new version of API is supported */
+> -	if (zynqmp_pm_feature(PM_REQUEST_NODE) > 1) {
+> -		ret = zynqmp_pm_request_node(r5_core->pm_domain_id,
+> -					     ZYNQMP_PM_CAPABILITY_ACCESS, 0,
+> -					     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
+> -		if (ret < 0) {
+> -			dev_err(r5_core->dev, "failed to request 0x%x",
+> -				r5_core->pm_domain_id);
+> -			return ret;
+> -		}
+> -	}
+> -
+> -	ret = zynqmp_pm_request_wake(r5_core->pm_domain_id, 1,
+> -				     bootmem, ZYNQMP_PM_REQUEST_ACK_NO);
+> +	ret = zynqmp_pm_start_rpu(r5_core->pm_domain_id, rproc->bootaddr);
+>  	if (ret)
+> -		dev_err(r5_core->dev,
+> -			"failed to start RPU = 0x%x\n", r5_core->pm_domain_id);
+> +		dev_err(&rproc->dev, "failed to start RPU\n");
+> +
+>  	return ret;
+>  }
+>  
+> @@ -423,30 +386,9 @@ static int zynqmp_r5_rproc_stop(struct rproc *rproc)
+>  	struct zynqmp_r5_core *r5_core = rproc->priv;
+>  	int ret;
+>  
+> -	/* Use release node API to stop core if new version of API is supported */
+> -	if (zynqmp_pm_feature(PM_RELEASE_NODE) > 1) {
+> -		ret = zynqmp_pm_release_node(r5_core->pm_domain_id);
+> -		if (ret)
+> -			dev_err(r5_core->dev, "failed to stop remoteproc RPU %d\n", ret);
+> -		return ret;
+> -	}
+> -
+> -	/*
+> -	 * Check expected version of EEMI call before calling it. This avoids
+> -	 * any error or warning prints from firmware as it is expected that fw
+> -	 * doesn't support it.
+> -	 */
+> -	if (zynqmp_pm_feature(PM_FORCE_POWERDOWN) != 1) {
+> -		dev_dbg(r5_core->dev, "EEMI interface %d ver 1 not supported\n",
+> -			PM_FORCE_POWERDOWN);
+> -		return -EOPNOTSUPP;
+> -	}
+> -
+> -	/* maintain force pwr down for backward compatibility */
+> -	ret = zynqmp_pm_force_pwrdwn(r5_core->pm_domain_id,
+> -				     ZYNQMP_PM_REQUEST_ACK_BLOCKING);
+> +	ret = zynqmp_pm_stop_rpu(r5_core->pm_domain_id);
+>  	if (ret)
+> -		dev_err(r5_core->dev, "core force power down failed\n");
+> +		dev_err(&rproc->dev, "failed to stop RPU\n");
+>  
+>  	return ret;
+>  }
+> diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
+> index 7e27b0f7bf7e..347df66ee176 100644
+> --- a/include/linux/firmware/xlnx-zynqmp.h
+> +++ b/include/linux/firmware/xlnx-zynqmp.h
+> @@ -644,6 +644,8 @@ int zynqmp_pm_get_node_status(const u32 node, u32 *const status,
+>  			      u32 *const requirements, u32 *const usage);
+>  int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const status,
+>  				  u32 *const requirements, u32 *const usage);
+> +int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr);
+> +int zynqmp_pm_stop_rpu(const u32 node);
+>  int zynqmp_pm_set_sd_config(u32 node, enum pm_sd_config_type config, u32 value);
+>  int zynqmp_pm_set_gem_config(u32 node, enum pm_gem_config_type config,
+>  			     u32 value);
+> @@ -960,6 +962,16 @@ static inline int zynqmp_pm_get_rpu_node_status(const u32 node, u32 *const statu
+>  	return -ENODEV;
+>  }
+>  
+> +static inline int zynqmp_pm_start_rpu(const u32 node, const u64 bootaddr)
+> +{
+> +	return -ENODEV;
+> +}
+> +
+> +static inline int zynqmp_pm_stop_rpu(const u32 node)
+> +{
+> +	return -ENODEV;
+> +}
+> +
+>  static inline int zynqmp_pm_set_sd_config(u32 node,
+>  					  enum pm_sd_config_type config,
+>  					  u32 value)
 > 
-> [...]
-
-Applied, thanks!
-
-[6/7] arm64: dts: imx8mp-evk: add board-level mux for CAN2 and MICFIL
-      commit: ec5c75673cb9d4c9a2a55a70d54a6ccb254f4ba4
-[7/7] arm64: dts: imx8mp-evk: add flexcan2 overlay file
-      commit: 368eb597c6ef0263931a3922648e8c7b83cd0536
-
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+> base-commit: 721396afea31eac476d88f5db10ba111ba4b8382
+> -- 
+> 2.34.1
+> 
 
