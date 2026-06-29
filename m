@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 733C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:52:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17964C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cMcHgc36aaJU0Nr7RRyNOjEsyz6bF5/W9plziuy9uws=; b=r6tymweV+3xVuiJXfpsPXh2NJI
-	JuOafzmRSowMAkNTL695neXNtoOM0+CgYlzrYiAvfPBfYCL1jBrJrmkA05O3FdayQc1+t7w7Irqfq
-	s6ehr68Ma/L2pzTRX1F5tjpNbj2ePeXg4xwvNyED81SZzKk2TRp7qlTlPlSrhHIribsfaDaVhN5AS
-	6Y4ZFbdFYTcNVWlGD3/KE7yK3JmkiaGxRGOD+xGs2OsoClR8wOm0AlLNApowiKKJZSWBY9n7dFkCx
-	wG7hMbUpUVhttl9a97x0rF9iw0wOL8O0bU0iIMihGx5htq4O74LrYyxly0JIsiUi8b9KfvSKUoIuE
-	4S3lffDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QadHf/c4nC9yt2VwHXLTFiroUss5lFXWZ9eyxJMcwGc=; b=KdD0sbGPcOUFknLUpGr/3kpgb7
+	P/w7r1+17sAkhdEUlttFXvoOST5gy03vFljPRdF9QOb13g6fId8SEDxPl120tw8uzPBG4xgjFoh5o
+	uKRcMpdWSmUrHXvLIWcPA0euEBtQOX4RQ4MFn9u/VQFRnq4qqUY3kyu5WdAViZuOWHOsbnAPLPyT7
+	/ysJ18B2HG4yEwdvdliJHhPMrXKaxk0TnRufIzjCbhB7JpqFb5Sw+c64Zl66uqI7BOZdXtexXrmQg
+	y2QvIaEjK9LIQ8hrVZRujPXtUTwrY6vaY6DL73/uBtAYgQYv8Esr8/C53wvOkfD5ROoPZ0jPpUJGh
+	3UUBvUag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEHB-0000000F89i-039L;
-	Mon, 29 Jun 2026 15:52:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEH8-0000000F89L-4Bpu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:51:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 311FF600DA;
-	Mon, 29 Jun 2026 15:51:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B6211F000E9;
-	Mon, 29 Jun 2026 15:51:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782748317;
-	bh=cMcHgc36aaJU0Nr7RRyNOjEsyz6bF5/W9plziuy9uws=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=kPocfMEUYuMNe84xZZDYWtfO4m0SOtx7s/Wp7ICcWWqoGN1zL9e+D+YdUSO/UDmwD
-	 PZzO4FMO2ScHMKS8p25Z65MJYD1ORoPTJD7nt4sGLBtxXRxW/bZQue9ECmf/HDI3iz
-	 lfnnY2V5SIv0HIb0q4NP/OPYwhG2OJai3WgC9k5JSZtsJZYVuwOU+amtlAI7xhLUBB
-	 vxwP+hpxCqI1M09qg/vVNt7mNjO3homFld20KjeBbaExljBFjfc2SC9Ssf5mysLUSn
-	 Uhb+TZZ53DLlorbdHpoUSUe0DvQCKRje6YvtsDnZKz2Kbsd64qr/57gWoTNUXnbMmO
-	 phfu3Yl2/CZwg==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- Alexander Sverdlin <alex@sverdlin.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, Hans de Goede <hansg@kernel.org>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Andre Przywara <andre.przywara@arm.com>, Jun Yan <jerrysteve1101@gmail.com>, 
- Lukas Schmid <lukas.schmid@netcube.li>, 
- =?utf-8?q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>, 
- Eric Biggers <ebiggers@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- Luca Weiss <luca@lucaweiss.eu>, Sven Peter <sven@kernel.org>, 
- Maxime Ripard <mripard@kernel.org>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-input@vger.kernel.org
-In-Reply-To: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
-References: <20260623204824.691832-1-alexander.sverdlin@gmail.com>
-Subject: Re: (subset) [PATCH v5 0/6] Add support for Baijie Helper A133
- board
-Message-Id: <178274831392.2336627.18238595158174074345.b4-ty@kernel.org>
-Date: Mon, 29 Jun 2026 23:51:53 +0800
+	id 1weEJZ-0000000F8SD-1dd4;
+	Mon, 29 Jun 2026 15:54:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weEJW-0000000F8RT-3Qgw;
+	Mon, 29 Jun 2026 15:54:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56B93339;
+	Mon, 29 Jun 2026 08:54:19 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E9C053F673;
+	Mon, 29 Jun 2026 08:54:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782748463; bh=PEmFDKBgCksf81j7VvtfZ7vWMDUHtqYjKsy1c3eLLHc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=q1Ds7g8LQm/f/sRY3aU8CRxFBcAhXW5+3DKKrIdJnaV+H333kFK30OtA740u8lsQq
+	 2IpCqmDqJNRRLqAChO9LN4I1enJxHu5S2gEbGoT7vbXJxNI84W4Tq+RT22YtWNWJXj
+	 F2D2POYOIFlmQpXS7/BHGFY3vpHzOTb0vAudG+hU=
+Date: Mon, 29 Jun 2026 16:54:18 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Kiryl Shutsemau <kirill@shutemov.name>
+Cc: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+	Doug Anderson <dianders@chromium.org>,
+	Petr Mladek <pmladek@suse.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>,
+	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>,
+	Julien Thierry <julien.thierry.kdev@gmail.com>,
+	Lecopzer Chen <lecopzer@gmail.com>,
+	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
+Message-ID: <akKVKhOsv6EJVFv4@arm.com>
+References: <cover.1781709543.git.kas@kernel.org>
+ <aj6xvvY4AA-fQG2X@arm.com>
+ <aj7Pm5H0MN5WwhDK@thinkstation>
+ <akJsQK2iG2oZ3vYE@thinkstation>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akJsQK2iG2oZ3vYE@thinkstation>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_085427_043741_14D6010E 
+X-CRM114-Status: GOOD (  25.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +81,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jun 2026 22:48:12 +0200, Alexander Sverdlin wrote:
-> Baijie Helper A133 board is a development board around Baijie A133 Core
-> SBC. Features:
+On Mon, Jun 29, 2026 at 02:05:14PM +0100, Kiryl Shutsemau wrote:
+> On Fri, Jun 26, 2026 at 08:40:57PM +0100, Kiryl Shutsemau wrote:
+> > But I have not tried calling CPU_OFF directly, without completing the
+> > event. I assumed it is required. Will give it a try when I have time.
 > 
-> - 1/2/4GiB LPDDR4 DRAM
-> - 8/16/32GiB eMMC
-> - AXP707 PMIC
-> - USB-C OTG port in peripheral mode (via onboard hub)
-> - 2 USB 2.0 ports
-> - MicroSD slot and on-board eMMC module
-> - Gigabit Ethernet
-> - Bluetooth
-> - WiFi
+> Tried it now, and it doesn't work either -- in a more interesting way.
 > 
-> [...]
+> Calling PSCI CPU_OFF directly from the SDEI handler (event left
+> uncompleted) reproducibly breaks the kdump capture kernel, and this
+> reproduces under QEMU's TF-A, not just on Grace -- so it isn't a Grace
+> firmware quirk.
 
-Applied to sunxi/config-for-7.3 in local tree, thanks!
+I had a quick grep (with the help of claude) through the TF-A code and
+it doesn't seem to be compliant with the spec. It should subscribe to
+the PSCI CPU_OFF event and complete the SDEI but it doesn't. It seems to
+handle CPU_ON but that may not be sufficient. It only EIOs the SGI once
+the OS completed the event, which doesn't happen if you issue CPU_OFF.
 
-[1/6] arm64: defconfig: Enable Allwinner LRADC input driver
-      commit: b4158103c45386ab30ba7624bee17ebf33940baa
+> The test: a CPU wedged with interrupts masked is stopped via the SDEI
+> rung; its handler calls __cpu_try_die() instead of parking. A/B in QEMU,
+> changing only that wedged CPU's handling (everything else identical):
+> 
+>   - park it (current series):  capture kernel boots fully to a shell.
+>   - CPU_OFF from the handler:  capture kernel hangs in early boot, around
+>                                SDEI re-init, never reaches a shell.
+> 
+> Powering the PE off while its SDEI event is still active leaves EL3's
+> dispatch state dangling, and the capture kernel trips over it. Completing
+> the event first and then CPU_OFF -- what I tried originally -- silently
+> wedges EL3 on Grace instead.
+> 
+> So both routes off fail, and the CPU stays parked. The dump is complete
+> either way; only re-onlining the stopped CPU in an SMP capture kernel is
+> lost. It's a cheap QEMU repro now if anyone wants to dig into the EL3
+> side.
 
-Best regards,
+Have you tried SDEI_EVENT_COMPLETE_AND_RESUME instead? Just COMPLETE
+won't return to the kernel. We have sdei_handler_abort() to complete the
+event and, hopefully, you can continue with the CPU_OFF. It's a work
+around the TF-A non-compliance but I think this is useful even if you
+don't issue the CPU_OFF (e.g. no CPU hotplug, just the park loop).
+
 -- 
-Chen-Yu Tsai <wens@kernel.org>
-
+Catalin
 
