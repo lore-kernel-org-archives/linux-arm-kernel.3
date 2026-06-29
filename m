@@ -4,187 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F747C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:59:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C4BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 10:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=an6IvaYorx4kfjhO0rfPbQ/C3Z1yU1fJXK7mjpH3E4A=; b=ZT6vqGZZ3JSShRzvpj/wAAKWR5
-	zbnnaSq43rZyRw7+C2EQ4up+uNL/j6zdF8/WSxiigth1ZuiKE+trSb4kx+FEvNstdyMnPq0ME8elz
-	VgZ6Lp4MYRrcxHKfY6RPApI920OmKzcapnCTU6QU54QW6UnWVT7C6oN67PYvWiTzE9hPxwlKSxR+t
-	whYJ3bBItM7xjnbTdILlpy5n1FGkONILitta0Mk7E0+ZlzDEMeOXvrAzZbtnbSozj+H3un0MGXZgR
-	oW/39a9DjCcIDThJLtdoplt+8cJXdf3AtpicfPfflszklSxKz+pKV1RVkvDPx/zjBCh3F3WPn9o3m
-	uwwaULew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Of5Pseiw1Okqs/9uIvscfVnyzxtGDayQKT+Zv91rDAU=; b=OjLtY10DpHVypJNhN45lDUCxtP
+	TV2nlgdMSjCL9q0yNsog+92N5RsY3jDWaffz7BYLtyqIHJgFQklynZYQWcvMyPVDRNmdB9uQmY4vd
+	n+fiMZljtTj5Ftu2U3j2b4eRmqPBP5pIX+o1Ja4mFMsvKNvPZOF/j4jodSa9uG7n5zdjKDvoOuPcm
+	wpNVx/9gjVdWOazE8tsCF6dub1QRNUQNISbI6eMsfpUUU83p6jxRoyeuWUSQHFJpCucpXmw6ugAIy
+	U5owHud99HjmUO6jkWVp00hm8ykU20Ysy7RzQx07J6VDGp4qr2sdtv9BuKRYawVzIHUTbff1+l0QB
+	W+LB3Ypw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8m4-0000000EGxK-1uBc;
-	Mon, 29 Jun 2026 09:59:32 +0000
-Received: from mail-eastusazon11011050.outbound.protection.outlook.com ([52.101.52.50] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1we8ni-0000000EHE4-37Xm;
+	Mon, 29 Jun 2026 10:01:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8m1-0000000EGwv-0mnE
+	id 1we8ng-0000000EHDg-3qwB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 09:59:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=j6GjLhhsB0IkD3J77Zb+b3Pjus1hTfHfehsg9w7ENC3HPE/OM8odqXpEIBs+OCsbp+oKRLf8cvb/qwEPKIBaH0B4QzXeVHItDSVYDSrRNoFTyvxw+JIFPGbyJqaTqo3XxdfCt+CmXl1g8nMKFE/NN/20Z4cZ8feWUi4OOdw8uOq9x46mncUszEckkBVdhBvwhCGFurzMRFWCYBy7pPRwK9L2Fs/DJmqybzh6ZJN1QAQxmHT/JccQOsmi836lt1gJUXPs2ZqYbOmTHvJncHOz7PdnquuJ2CRyzSxpPJ9ceyv3SBzdykcFch2AjODpFSzbFmWpo0QU/YKGFmwUkWZzeg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=an6IvaYorx4kfjhO0rfPbQ/C3Z1yU1fJXK7mjpH3E4A=;
- b=McppUxTLIHDs0le3HI1kxvLAPjcYDU46cdp4r7Lsu2S8i1TNlLqc/6cerMhLuNFsgW8jLhS8hkJcLoaaxP8NF8qm0Cx5zqw/a5S8Y3VdWnR3V8sYdH6HdLcgXvVs60YRjLWWktR3VmDFbrQsVjW+4nljNWS0jKuKpIq04seQAAeAe3KL9XOsudIpu0q9jSg5FEyqXXhhhAOsqjZWkbZvzCsBdrN6gttdo/NIxnda3QVud0C9XDBLer9GetMOdQDtNVVoy/m9YCyYPyuxJusKaXJShi9wcz8s34gW66g/Sg4SG4nBevw8a5XDXqtyxODNgPMTR3WFSlmtO61vc3FNdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=an6IvaYorx4kfjhO0rfPbQ/C3Z1yU1fJXK7mjpH3E4A=;
- b=SJMvZGI+WK8u7UtvyB0pfP/ZZGQb7YBZFSsJ48imT6U8euIKzb0NO2apvqbSiLYzB9gByL2/0sSJWUBa4zhLnMtNqN9FOKijRPJ4BDBkPMSmNu4a+zlOIlTNKp14q+rEOl9rZ9jTzILBJyzt2Mw49Cc9Le3Xjyj8YJPNtQ6c5Jg=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by BL1PR12MB5753.namprd12.prod.outlook.com (2603:10b6:208:390::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.14; Mon, 29 Jun
- 2026 09:59:23 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
- 09:59:23 +0000
-Message-ID: <bfc16eac-6a4a-425c-b460-449dc1d91558@amd.com>
-Date: Mon, 29 Jun 2026 11:59:16 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] clock: versal-clk: Fix Versal NET clock binding
- and switch to CCF
-To: linux-kernel@vger.kernel.org, monstr@monstr.eu, git@amd.com
-Cc: Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
- Stephen Boyd <sboyd@kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>, kishore Manne <nava.kishore.manne@amd.com>,
- "moderated list:ARM/ZYNQ ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>
-References: <cover.1780499520.git.michal.simek@amd.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <cover.1780499520.git.michal.simek@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0029.namprd03.prod.outlook.com
- (2603:10b6:a03:33a::34) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Mon, 29 Jun 2026 10:01:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5D2EF409B5;
+	Mon, 29 Jun 2026 10:01:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3225BC19425;
+	Mon, 29 Jun 2026 10:01:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782727272;
+	bh=rbgcrkj6z95Tpqoh9xStzNsaQrUhtiLAyJIzfA0gGDg=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=DCmrBkIJINrZGTToIVDyLNBHvawuYIFgAEi4hPjA1blHBacfPjR4KKmvCG+PSxeh9
+	 hOvHVOlIaIsFPBdHlaWDTttljRYpthLJCdAg94hNUpVNRW5jO4CJ+SaczWnarKhL+t
+	 QNIkgdRv53747ZJ+24dXvnqZeWjBf50dLXfhugvKskkIw0sViGmCDDNfqKRzlfFiKc
+	 9DMpqnmgaVOBWCIY4MbwrAX66JyAcxvmq7xTr3wSIOjpVcFSH4X51+6Wxv+K0rzTac
+	 2oPlQNGXuDQTJaLvBwfdLV0eRJnBQmGteXw/KA6Q+kupswEl0jL9nWDPfRxZ0YmG2n
+	 y2plyJCUBv7tQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E9BAC43458;
+	Mon, 29 Jun 2026 10:01:12 +0000 (UTC)
+From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
+Date: Mon, 29 Jun 2026 20:01:01 +1000
+Subject: [PATCH] arm64: dts: apple: t8122: Fix I2C resources
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|BL1PR12MB5753:EE_
-X-MS-Office365-Filtering-Correlation-Id: a5779989-c5d5-4baa-e023-08ded5c5187b
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|366016|1800799024|18002099003|22082099003|11063799006|56012099006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: VaMgs4Zljj226yNBNk3B3cCp4FMMoJa48ibLOz3N/wX/y3yIqhbqCEwigKJybrbv221W2xUhjjluUQO7bgBNP1EhF21GCNbrLyoLnkdom//5CB/NjQzoOPrGXiIoQ3FB/Op8BRzn4swWRlJi31nT3aNlcprCQBHp0lCspIURbCnVlNJz8SEuGvrz8V7q2pqP+YBe961qQ+whI+bscOGXBNPg7PXMrDT7eCTDWWy9LKAlqkvOlLPjxRaiEBpl3gbrI8Y5ojxYzP7aE2JLImQD3Ww3+C0eTm1rAYN91viHZfha/9vPqCnePPI4ER1SLAtAKBU8jvELhApYrTVDEOhfdVEdy2zi0qxge/aVRI0IF1rb7ro8+UmhH2p/9ukFo6VagYUFaJvoIeYgHnuoMrjQqKXdTh0e1zZ6WWG1uPWSlkWu42iYxzptvmbY4u+WfvKBAZbO+/wiVGAtwbMg2iTKpJ+374lieFvj/nEWzQkvFf+rDiMTtT5lo1pQMNYJgK+9YXSKMUmE3CkrWTHfmNVmrZoJhxr9wzDl9ut4irB86dzTiwVlXIqJ2+SmAThRJRoH9XvV+1I6E8xSPd9FmrsHjxshYCoHWZqcxqEmWEuOU0tGvdMs0fn+s9e0XULEYcHLHw1TUJlvaKyu52BQb9B7f57CBqffjx5E2aRu4sPnx6c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(366016)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K1pqWjZIYmZsQ1hJVk1rVnltaGNKMlFHVVo4ZTBxUWVpakxvZDM0cW9iOE5I?=
- =?utf-8?B?bmJPNXEyNTU2aUs3MHJqUXllU1JlaUZBWG90S1hybVphSjhhQ3FEdDM2M0VI?=
- =?utf-8?B?VjdPSXdSNHpMMnNETXcxUkFCcnI5U2lYS3dvd1lKdHJ5QUZUZ2xLUmpzOFdH?=
- =?utf-8?B?eWwrM3dFMVlZMTdqUm9NbENQNk1VYS9FNlZiUnNjSE1vMWI0UXJzSEZhWm1K?=
- =?utf-8?B?TjZFMzJ6b1BTNGVjRXZFZXNyRzVjZktGcHV2RFRtcXpTaE0yQ1kwWVFXU2sw?=
- =?utf-8?B?SGxPZXhZSWVjNWFKNWxNcnRrQllJNGxUc0tzTTRwU1hiLzdjV1JONVZyYVA0?=
- =?utf-8?B?Q0M2RnBYRHBrS0ZQeXNhcDBsYjYyOEh2ejRNNW1GcURmWUozYUlvMjJaaWlN?=
- =?utf-8?B?N1c0UW5MSjlSVm9MeUdOY213K3RBV0h0b2d6ZGJhMjFOemE4UmduRE5LeVY4?=
- =?utf-8?B?bGI2T2x6eFkxR0RYK2pZdmJicWtocnNWQmNkTEQvbkJiNXNrQ1VvNmFoK2F6?=
- =?utf-8?B?dmhzbDJiRjBFZ2QxdmxmbjBPd1VlSlMyRlVQSUZwTEtocGNTUVpZUDVTYTc2?=
- =?utf-8?B?OGdFeXFuWUxxTTk4T2MrM21KdjB2MCtGU0swVjhHWWNqZm5YT0ZhRlE0dzdI?=
- =?utf-8?B?elU4SGJuRWxzSktpbEM2aEo2azlSajFzUnFvNTEwZEhBdEZacFlSa0sxQ0JQ?=
- =?utf-8?B?SFl2bFdrY3F0UHdHVWk3OWJRZjNkWHViRGl3bUZPcURjNFdmQitzNHF5VG5v?=
- =?utf-8?B?Sjd2RmJwaG0wd1lNZ240Rzh2TUVveWlaeFZnTUhUeXUvN3FnNFJoengxLzdm?=
- =?utf-8?B?Q2EvUkcvdEtmQ1ZzdlBtei90d1cwUWVyRWhNZU02dTVUMXh3K0dGRHZZcEdM?=
- =?utf-8?B?VGtyZUdNMGUyaDZMZGNQbWhxdFlPeFJkMXhabUNqY2Y0bER1M04wSytxZk5V?=
- =?utf-8?B?dmxDQ1BJcFcyTThuV1dJWkZ1aTBKQjh6K3VHdUIrYksyQzN0SlQ2Y2tWM2RJ?=
- =?utf-8?B?N3V4N0FWcHl2c2lBM0JnbW44bG14K0xMQmhzemdMMnBxYWdsQ2hsclZKMnFS?=
- =?utf-8?B?TUhpTEpVei9LbURZVEIzTWI4YWRWc3p4VndubzQ0WUUwOEZjbXVlNVdvTlY2?=
- =?utf-8?B?amNVSVNJR3R5ZzkzUy95Zk1aRWVuMkc4RFRCa0gxS3gxK2M5K29SOHQzNEZX?=
- =?utf-8?B?TnE0b2NoVEtKdUc4OUVZc2p1Um9IaTkxMFlBRi9kZTZQc2liajRkcktjbm1a?=
- =?utf-8?B?UUhYN0hnd1laY1k5MjArSWtLbkhPSDVhS20wZ0VIbUsyWFJpc2dydThBR0dV?=
- =?utf-8?B?bE84bXE0OXdvY0RuYS85MVNJRWJaUzA3YjRuUE9mZ2tvTEhjeU9TMnpEM3d6?=
- =?utf-8?B?R1ZQcURWbkdSeWNQakdIK1hub1VlNmdpTFBiaitpSGxHYS93T21EdC9OWGY4?=
- =?utf-8?B?cUJiSzVMUWxDcVM1YnlYK3plV1hjcnB2UFNsbzhWRnVZYVhpaXZIZncyV1No?=
- =?utf-8?B?aDhSTGdiZFY1U1JHL0QvL2hvQjJ5cTlrVk5RVjFKMXlGeVhXRHAwWDhNakF6?=
- =?utf-8?B?R3dXN1BJMmJxcWhOUGV6Qk5TWURpQ20yUWx6WFNRMGFsMVdGWTcwT0FyWnUw?=
- =?utf-8?B?VVNUUDB4alVESDVMcVl0UkhhdytqeGlvbitKVHZMUyt6VDRsTlNaRURucGIw?=
- =?utf-8?B?Z2hOUkQrVjFFWUpscldKaFBSNWMzM3lBQjE5dGlNZWRSalJUb2Q5V09FZnpj?=
- =?utf-8?B?OFd2VHl0b1JWVXVZOG41amJ3cUIveTRBWi84MFl5STVoOEt0Mi90Z3AwdGZR?=
- =?utf-8?B?cFZiYVMzQzNDNWFWMWlhZ3pMTnZDVm5IRTFtVUFTVFRLeWVpeCs3SllQU1d2?=
- =?utf-8?B?NjhHUzEvbHZPSlJSQmFsakFlK24vWjhkSGRLMVpRRHMydmQ0OFdhOHVMREkv?=
- =?utf-8?B?WFZmamZJa0lYVUhpR3NBRjJHYUVMK2JXVFZSNk80WlZCbmtVbVpXUDNWWllC?=
- =?utf-8?B?MTR2c3BUL1pROVlkSkE4d0d3ZUFmcldualFFYlV3dHVFNlcxRkNOUjRuYWVj?=
- =?utf-8?B?dWMwVHVzZ2VGbVA5aUszV0lBYjFLdDBmZURaelhGbTFYS25PbzNaNVFEUjAv?=
- =?utf-8?B?cGxET05sMW56MDRIK1VxTXpSOVNUd3RvMkRTNVFDNjJpODBqYTN0ZkFDaHJ4?=
- =?utf-8?B?bTJLSW1IU2VXTHVxaDZvUGZMZVVWUjlnVXpOSk50UlEwa3NMbkRTVDdmbWFp?=
- =?utf-8?B?VS8weVhuRjM0T3Q1SjVmL3BtWnF3eTlzUFF2ZTgvV1hRa2ZqUFE0YXJVNGJF?=
- =?utf-8?Q?uCQJSMtOBgTOzpIaNe?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a5779989-c5d5-4baa-e023-08ded5c5187b
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 09:59:23.0576
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TpHE7ll3wPaDKQVY7nKh6/3sVg4aR5YTe5YqU7dI+YYPG4Ke+KTdAozbv9y+94Qm
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5753
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_025929_331822_5999434D 
-X-CRM114-Status: GOOD (  19.95  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260629-t8122-i2c-fix-v1-1-cec044001550@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAFxCQmoC/x2MywqAIBAAfyX23IJtL+tXooPoVnux0IhA/Pek4
+ wzMJIgchCPMVYLAj0Q5fYGmrsAexu+M4goDKRrUQBPeuiFCIYubvLi1o7NT3xltHJTmClz0/1v
+ WnD8NkdvVXwAAAA==
+X-Change-ID: 20260629-t8122-i2c-fix-f37dc954a8ad
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joshua Peisach <jpeisach@ubuntu.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Michael Reeves <michael.reeves077@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782727271; l=3584;
+ i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
+ bh=hlK9MIO4eVxPvoDNzV4TiPgH3mA8+0MVI+myk5cQbdQ=;
+ b=vYF0LVjBAeCJcRh29ld6F43XBlcJxMcwpDIHly0ExE8C+l4bbcQoAmwrodt/K1BgAyA+/QP+v
+ 1coryZJwg20A0DSyZiyWQEwURtdFJQjZyyobYmlYB8v5roNUuRz/84f
+X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
+ pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
+X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
+ with auth_id=591
+X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,89 +85,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Michael Reeves <michael.reeves077@gmail.com>
+
+Correct the MMIO ranges and IRQs for T8122 I2C controllers.
+They were mistakenly incorrect in the original commit. This
+fix is required for i2c dependent hardware to function
+correctly, i.e. audio codecs.
+
+Tested on J613 (MacBook Air M3).
+
+Fixes: c65ab4905e58 ("arm64: dts: apple: Initial t8122 (M3) device trees")
+Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+---
+ arch/arm64/boot/dts/apple/t8122.dtsi | 30 +++++++++++++++---------------
+ 1 file changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
+index c6196225e96e..1ee61c5b3409 100644
+--- a/arch/arm64/boot/dts/apple/t8122.dtsi
++++ b/arch/arm64/boot/dts/apple/t8122.dtsi
+@@ -186,12 +186,12 @@ soc {
+ 		/* Required to get >32-bit DMA via DARTs */
+ 		dma-ranges = <0 0 0 0 0xffffffff 0xffffc000>;
+ 
+-		i2c0: i2c@235010000 {
++		i2c0: i2c@2a1010000 {
+ 			compatible = "apple,t8122-i2c", "apple,t8103-i2c";
+-			reg = <0x2 0x35010000 0x0 0x4000>;
++			reg = <0x2 0xa1010000 0x0 0x4000>;
+ 			clocks = <&clkref>;
+ 			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 761 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <AIC_IRQ 780 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&i2c0_pins>;
+ 			pinctrl-names = "default";
+ 			#address-cells = <0x1>;
+@@ -200,12 +200,12 @@ i2c0: i2c@235010000 {
+ 			status = "disabled";
+ 		};
+ 
+-		i2c1: i2c@235014000 {
++		i2c1: i2c@2a1014000 {
+ 			compatible = "apple,t8122-i2c", "apple,t8103-i2c";
+-			reg = <0x2 0x35014000 0x0 0x4000>;
++			reg = <0x2 0xa1014000 0x0 0x4000>;
+ 			clocks = <&clkref>;
+ 			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 762 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <AIC_IRQ 781 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&i2c1_pins>;
+ 			pinctrl-names = "default";
+ 			#address-cells = <0x1>;
+@@ -214,12 +214,12 @@ i2c1: i2c@235014000 {
+ 			status = "disabled";
+ 		};
+ 
+-		i2c2: i2c@235018000 {
++		i2c2: i2c@2a1018000 {
+ 			compatible = "apple,t8122-i2c", "apple,t8103-i2c";
+-			reg = <0x2 0x35018000 0x0 0x4000>;
++			reg = <0x2 0xa1018000 0x0 0x4000>;
+ 			clocks = <&clkref>;
+ 			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 763 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <AIC_IRQ 782 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&i2c2_pins>;
+ 			pinctrl-names = "default";
+ 			#address-cells = <0x1>;
+@@ -228,12 +228,12 @@ i2c2: i2c@235018000 {
+ 			status = "disabled";
+ 		};
+ 
+-		i2c3: i2c@23501c000 {
++		i2c3: i2c@2a101c000 {
+ 			compatible = "apple,t8122-i2c", "apple,t8103-i2c";
+-			reg = <0x2 0x3501c000 0x0 0x4000>;
++			reg = <0x2 0xa101c000 0x0 0x4000>;
+ 			clocks = <&clkref>;
+ 			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 764 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <AIC_IRQ 783 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&i2c3_pins>;
+ 			pinctrl-names = "default";
+ 			#address-cells = <0x1>;
+@@ -242,12 +242,12 @@ i2c3: i2c@23501c000 {
+ 			status = "disabled";
+ 		};
+ 
+-		i2c4: i2c@235020000 {
++		i2c4: i2c@2a1020000 {
+ 			compatible = "apple,t8122-i2c", "apple,t8103-i2c";
+-			reg = <0x2 0x35020000 0x0 0x4000>;
++			reg = <0x2 0xa1020000 0x0 0x4000>;
+ 			clocks = <&clkref>;
+ 			interrupt-parent = <&aic>;
+-			interrupts = <AIC_IRQ 765 IRQ_TYPE_LEVEL_HIGH>;
++			interrupts = <AIC_IRQ 784 IRQ_TYPE_LEVEL_HIGH>;
+ 			pinctrl-0 = <&i2c4_pins>;
+ 			pinctrl-names = "default";
+ 			#address-cells = <0x1>;
+
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260629-t8122-i2c-fix-f37dc954a8ad
+
+Best regards,
+-- 
+Michael Reeves <michael.reeves077@gmail.com>
 
 
-On 6/3/26 17:12, Michal Simek wrote:
-> This series fixes the Versal NET clock controller DT binding validation
-> and switches the platform to use the firmware-based CCF clock interface.
-> 
-> Patch 1 extracts zynqmp to own DT binding file.
-> 
-> Patch 2 restructures the if/then conditions in the versal-clk binding
-> schema so that xlnx,versal-net-clk is matched first before falling back
-> to xlnx,versal-clk. This fixes false "too long" validation errors caused
-> by both conditions matching simultaneously when the fallback compatible
-> is present. A dedicated example for the Versal NET 3-clock configuration
-> is added and all examples are split into separate blocks for independent
-> validation.
-> 
-> Patch 3 switches Versal NET from static fixed-clock definitions to the
-> firmware-based clock interface, enabling proper clock management
-> through platform firmware. DT macro headers for clocks, power domains
-> and resets are added.
-> 
-> Thanks,
-> Michal
-> 
-> Changes in v3:
-> - new patch in series
-> - New patch in series
-> - Cover change in zynqmp-firmware.yaml
-> - Move clock-cells to be the last in the example
-> - Remove comment around (Optional clock) which is obvious from schema
->    itself
-> - Move clock-cells to be the last property in the example
-> - use 2 spaces for indentation in example to follow the same style which is
->    already used
-> - Add fixed tag
-> - Remove interrupt from zynqmp-power - Versal NET is using event framework
->    instead. No interrupt is required.
-> - Remove unused GEM{0,1}_REF_{R,T}X macros
-> - Update commit message
-> - s/zynqmp/versal-net/ in subject
-> - Update copyrights
-> - Make all macro values lower case
-> - Fix guarding macro names
-> 
-> Changes in v2:
-> - New patch in series
-> - Split zynqmp-clk from versal-clk
-> - Update logic without ZynqMP part in this file and have if/else only
->    around min/maxItems
-> - use clock-<HZ> node name for fixed clocks
-> - Reuse existing versal-net-clk.dtsi file
-> 
-> Michal Simek (5):
->    dt-bindings: firmware: xilinx: Add missing example for ZynqMP
->    dt-bindings: clock: versal-clk: Fix mio_clk index range in clock-names
->      pattern
->    dt-bindings: clock: Move xlnx,zynqmp-clk to its own schema
->    dt-bindings: clock: versal-clk: Fix Versal NET clock validation
->    arm64: versal-net: Switch Versal NET to firmware clock interface
-> 
->   .../bindings/clock/xlnx,versal-clk.yaml       |  89 +----
->   .../bindings/clock/xlnx,zynqmp-clk.yaml       |  68 ++++
->   .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |  15 +-
->   .../arm64/boot/dts/xilinx/versal-net-clk.dtsi | 345 +++++++++++++-----
->   arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h  | 123 +++++++
->   .../boot/dts/xilinx/xlnx-versal-net-clk.h     |  74 ++++
->   .../boot/dts/xilinx/xlnx-versal-net-power.h   |  38 ++
->   .../boot/dts/xilinx/xlnx-versal-net-resets.h  |  53 +++
->   .../arm64/boot/dts/xilinx/xlnx-versal-power.h |  55 +++
->   .../boot/dts/xilinx/xlnx-versal-resets.h      | 106 ++++++
->   10 files changed, 795 insertions(+), 171 deletions(-)
->   create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
->   create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-clk.h
->   create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-clk.h
->   create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-power.h
->   create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-net-resets.h
->   create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-power.h
->   create mode 100644 arch/arm64/boot/dts/xilinx/xlnx-versal-resets.h
-> 
-
-Applied.
-M
 
