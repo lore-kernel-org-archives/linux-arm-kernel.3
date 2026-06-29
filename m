@@ -4,72 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36676C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:25:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 798E6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EuaEiP1R/Ld6EoN/FwVrc43DhXOZIUY3usyXo926Mcw=; b=Br5xI+cG8/nZDq
-	MdJriVou4n1nLHdkXLiZ/DauLaW2ZeVdQCDgJnMaRvvNIQ9CFQaxDqN5M/pQa3u3eCa3RkSNbCaLw
-	eaaka95zosbeLFH/IRatIDph+dwdRFrRJaS7smSXVWs4r+gdWLOxfRidL4KcNLOYMjEAfzfj8Y3OR
-	dkpWCXF1cONfjWkkQF62J07lASIYPX04boicV/JwlaWK3acV5DnkTNHMUHjlfNDC+v23M8M8fjxKX
-	qljrVRAEubECefY/CO9nHm7Pos6nwF4ZtKEpGsFBfRy8D33aOocT3t+GX0tgkPTNjyCK9qPc/nTrV
-	cK2Ky3Dqf1OvNw8bj/1g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ILlSeYrUmELWWolSwfNZrso5lXkNEFjMb7Owi96EGgA=; b=NnXhlSeoyzduK4bGQ2ourogdjz
+	9yBGAjfcuz3pck3tl2NPAVZfnyc8BjlS9Ap3Lc3ZolumBO1dMlx5JhZ/oceIIeCrVGbldzGGd6PQc
+	PK8bN9KhXhjfVCwhQQJZ3Z4IFUVv0YN5JCxJADI77kA+sepBvdUShUL5xz8goOOBTo7kBD2OHe3tS
+	tei7RdY0SmugB/x4B9Vhr6T8lL6OHdOPJFDzdnQpXkwWTfHX5+WgGNxZ2CF3XjrULCR7g9VyX275U
+	sW3f0JYU30e6+5efTUlHg+WtRB3CaQl8lL5RGTzqcUmtVA8PJjSKZ+Mcv9KpouKR7nb78xZVgnH4e
+	qOYNRuyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDrZ-0000000F3rg-03pJ;
-	Mon, 29 Jun 2026 15:25:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weDrh-0000000F3u3-0avZ;
+	Mon, 29 Jun 2026 15:25:41 +0000
+Received: from mail-swedencentralazon11013002.outbound.protection.outlook.com ([52.101.83.2] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDrX-0000000F3rW-2GKX
+	id 1weDre-0000000F3si-1k2X
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:25:31 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 11295417EC
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 15:25:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A7F1F0155C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 15:25:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782746730;
-	bh=EuaEiP1R/Ld6EoN/FwVrc43DhXOZIUY3usyXo926Mcw=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=NEaaQMMmgiu3Bi9aHlfHaIAXM4xHO2fxsd3nLwPGvb0LQbca34Sbhj2utpQT13UCR
-	 uxC2ZiOdYhwUHtZr28/r/ExV41qLjJDePbNblKiQedtsyF1Iu509vzKboVFudoJmn1
-	 0bifMfsOAVN62Z31LJlaLH+gT4E7c4KxQfFkca/TfJsKacxZ2Ei4Z3hiBgS6xwuWlF
-	 FOEqn/tiU1AgRsLsGE79j91UHJGYQJB4tFkrVFE6X1RhVahVfUotEWBMh47uPfo0P+
-	 Y8IbwL1dnhGw+iN2yi0Bz6f7q1qeDokuKnMMUuzK2gYjBrRiGsAAD7XR6LYdxvly26
-	 sRMQZMVoPt5Bg==
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-39aeb9513efso17022561fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:25:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqWfTjVch1QYQlRwozKci1x4cN4M49d4FspYY/puWVapR/k1bGw9EE2kIsBhe2SsnLoM5ELA5lytBtz4bSAFBLm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy2obyhfYonqvf7zV8JOQFY/737bIJVTVD244i6IgmE6qmaycJM
-	HRNyFV95pjLFqijoQGkbr/mdtJXPbV6HVEb70Phw4vcVVbjRRp+7dI5x+RIibzBSDCEb6lKvLOO
-	H1cDNQ/NCHF3zjWx31an2spUTFO/apu0=
-X-Received: by 2002:a2e:a988:0:b0:39b:70:e808 with SMTP id 38308e7fff4ca-39b0070f5f8mr12585631fa.35.1782746729301;
- Mon, 29 Jun 2026 08:25:29 -0700 (PDT)
+	Mon, 29 Jun 2026 15:25:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Lbx6kwpN49JkNeH4XRSVFOll4mOIKDNcAIJuwXQ1E/pRdYW9RVuOZpTWPW918CRi/Ji95x2u4N2WCVKVQ6N9VwoP6DOBW5QEuXvTknsMQjCBNhxGWQ+DCKcUnLukF0vJ68lP0o/z76KpT408Yqr+rrUjr/GPxIk3zw+rALRy4L2SwJiJfoTcxj/CRIfT6Da+6IByS+0PUDa+/eybb+7hNS/nPR6lsHZSSWbh4TjVOhXPdT6ly64DPfNkjZkYGccdfC9tqE1e9ftvprux3l0sZ4BRKMNq9Z2BtS9G6CWiVG1QDdKAvvNj6onTIoChAX4bK7koHax0Tpc/C6L0lhDptw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ILlSeYrUmELWWolSwfNZrso5lXkNEFjMb7Owi96EGgA=;
+ b=e6vcabQr4kV/lZAlp1A/0g7Sfj8DioNlPj5uJb6JTfS+DHI+6JuU4SnZYDd5I9tZow/2ytCqjT0YeLM684sDpk1R96Y65yIKeo/ssCkfwQQz0FBXdb9r5Qce7JONeowU7fRSUnby/N2HX0xZHAsIGqmTVI/HEu7E49dBn8D8pH6PsxZevedXju8IP/jmOmTCmbBEgqFS+SmzNHnkpxwdIAFltiPefaEtvQAVZT6Y99mrg4k58tED8JD3nnFDd3LrEQZECewvjH3BkOOxk6mD73h1ols4Gzrg23SlBNkJsDGTkESMZMbeq5smdNyPg/t6dFxfUKFtF4SknXCRhDzV2Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ILlSeYrUmELWWolSwfNZrso5lXkNEFjMb7Owi96EGgA=;
+ b=g1jZP8AsO62cDdw1twsN9EtrOlTNbezb0GbCOeenfO3Xpjn+BVZd8zcg2rNhtoe7E1gRci124j+KuIVgCJqYCwebruzMzdPWcC83YG32ONLMaU8ahpXxuf4qpbSgk61EZVTLZW5azx5fqMS9RFec0IjTVYKdkbbOm9q8qZqpaidK0JEsoPaxJuWxxeZS7UiR76QCujzEex3VDIjtZGg6qRSAp3W5XjUwsYZJKJdy+OXnN5DE2xdpEDEiCaFXP3Q3BcbOMv8FOp5sqM4Np/SpRIacM0SedIMFOoTqqlj8qG465OfcGW6neU4PuiPtWB7jcG6UeiOMGB/fo9UAH5GEGA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI2PR04MB10267.eurprd04.prod.outlook.com (2603:10a6:800:225::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 15:25:32 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
+ 15:25:32 +0000
+From: Frank.Li@oss.nxp.com
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: (subset) [PATCH v12 0/2] Add i.MX8ULP ISI and CSI-2 support
+Date: Mon, 29 Jun 2026 11:25:25 -0400
+Message-ID: <178274668169.2234725.13199199536463715866.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260424-csi2_imx8ulp-v12-0-da148eabc035@oss.nxp.com>
+References: <20260424-csi2_imx8ulp-v12-0-da148eabc035@oss.nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SA9P221CA0023.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:806:25::28) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-References: <20260629-a733-rtc-v2-0-7b72112784f8@baylibre.com> <20260629-a733-rtc-v2-3-7b72112784f8@baylibre.com>
-In-Reply-To: <20260629-a733-rtc-v2-3-7b72112784f8@baylibre.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Mon, 29 Jun 2026 23:25:16 +0800
-X-Gmail-Original-Message-ID: <CAGb2v67_N5WQ4GqGsn6xzivVpGDN5_GNtPXKmUMC4WTHmDyztg@mail.gmail.com>
-X-Gm-Features: AVVi8CecxM3k7I339CdtYTrFlBU6hFBOIy50N3ezSA0spmb-80bIde-G7mpTp9c
-Message-ID: <CAGb2v67_N5WQ4GqGsn6xzivVpGDN5_GNtPXKmUMC4WTHmDyztg@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] clk: sunxi-ng: sun6i-rtc: Add feature bit for IOSC calibration
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI2PR04MB10267:EE_
+X-MS-Office365-Filtering-Correlation-Id: 46a08f39-90b5-4c88-ca42-08ded5f2a8c9
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|1800799024|23010399003|366016|11063799006|22082099003|18002099003|56012099006|921020;
+X-Microsoft-Antispam-Message-Info: Wq8lxrJtMUpxqUxQ7ypCyNRkm8n/E14g8z04mDnqhV1IlshjEQ8/hfOzQG0vROQYuT2jI6A/5DJarG/Pm/K+UWes2dOTO/XT1mtLE/Er9l0vQB8fwq39F87hA9p9shjQ58cTBPz2oXQrPy46Gg4BnRYkXyIekB2ioVre15VPsp5oSxAYsnL/y57TyRLyePUk6GQkTzPSG/mmeqKvyKQ2uPdpjrojnkyqHdj/vaKc+zlTnm4eeDk/mYaZB0xEZVeUJFI41kOqVH6wkO359uec4NtOcnMc7ch4peHnh9gyidcqj03R0VqWcmFS+Z5l2T2ZGBHGmGOh9Orq+O5GokpZaaI4t6qlokTmKrhInprRqLyimqdd3rFkc+C7zJAOaCK+GySSn6rkmW5CwgrvFM48pIv8g51Mlp8A3rGJjukf2BunuccEq8Dby+RstJYQP1O6H1qeU4koFIw5vsjiiu9x9Nx7E2IVa4bNxwRd9cp885vnQOzaMjKvh59rFv4eUCn4Px7U6vSSKO5rPgAzX+mqYYv9g/DjBNR2uY5kpDg8Hgb5a5KSRhBvKQwf79WUvaSq1+ayiJRJTM2jmXORW8hSi/i+jL7mbDtCzr9lPLyOvXdfn+9aYkoV51QKqE5RljdruVmb+AHSEHotPiB0S9XflkeZs+cTLvWHWWgO/ElTO9aBphgGMafGltazuFxqUTBUlPYRrw/80mfAVmKOT1tcdQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(1800799024)(23010399003)(366016)(11063799006)(22082099003)(18002099003)(56012099006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Ykh1a20ydmE4a2RhOE5vZVkxei8ybG8yVndOeiswVVBVN0R6WGl5VWxSc1lD?=
+ =?utf-8?B?VEJGNWtYbVFDa0dIa0dqMG9yL1JXc29mT2cvY3czOGlpNDI2K0VHSmJxL2RK?=
+ =?utf-8?B?SWJYUlYyQkJXaUkrRkVEU2wyclIwMElmcnkxN01BaGt1dit6MjZPRmcxWkdz?=
+ =?utf-8?B?OXNZZFpFVmUxL1c2QnpTU0hPK0dweTJYUnFIRkxJVDlTRFJBQStVWmlXVllW?=
+ =?utf-8?B?KzJXcFBxVWRPZUUxY1V3UHJ0c1dhVjF3T2JnS1JVbHByODVDd3JIQlhEQ2lp?=
+ =?utf-8?B?ZVdhUlArQ01oeVIwNUd1RVJoYkNUWEZFeHo4YnNkdDVHQ2s0bGFGckpCRzJV?=
+ =?utf-8?B?S0NSN0YyakR5WGN6WVhKZEpCZksyY2dNK3NRbk53K2d6N0o5a3FOYkJxS1Fv?=
+ =?utf-8?B?dDhzRVhFVytBOStsankwSG9sM1huS08xRDg3dDdkRjBSSmZncDd4V0doM1ZK?=
+ =?utf-8?B?S2JGblY1Tkc1NldqcUJOanpvWVViMlVKM1JVQkR4V0poQlhCSjVIWUFQejVC?=
+ =?utf-8?B?QkxaM3JYL3VSa1NONTJTQXIrblN6MTZVRGVPRFdoelp6T0lhOHBOeFlFcTAx?=
+ =?utf-8?B?ZUpGSnpucUNKSU1WK2tpMnhWeGowUEI2V1dIZFgvQ1NjZnNEME1mcG9UcTV0?=
+ =?utf-8?B?cFdQNUxnanpxek9jc09lejBma0tvbUYzZk1HMDZyV0Y1dHZhbkJaTytnZGp0?=
+ =?utf-8?B?M2s2RVVVdkgwRysvcHRweHk4WGh4WDBJK1FNYXdYVjM4U2MxdTkyYmhXcmxF?=
+ =?utf-8?B?cnRFb2hPL3NQTy9tdnBtMFVNRjBxZlh0SlVkVnk5NzEwcStPaHF1dThoemhh?=
+ =?utf-8?B?N2RBL3JLZzBSUm9IVzZYQncyRUpOUGxGdkdTNnhjN05xTzNSRGliUklESzBD?=
+ =?utf-8?B?YnFhdjdhNDhYZFlZdENkVFZsQjkvVGx1dEVmcTlCRHB6ZWY1THZsaWFUcXJz?=
+ =?utf-8?B?aGR3YUxVL05vTTZMV3dicWhmeUlTQ3hxUkRJank0QzFXRDBwcHpTekRxdlQ4?=
+ =?utf-8?B?emRKT0VwRkhNQTNyQVBHOWNmMElxcUlSK2RmSDJyZk92Ym8yWHI0ZTlDZmlC?=
+ =?utf-8?B?VkRpTnRnVUJXbGdiREhzMS9IUitoN2E0bFp3ZDBxQUVJRVY0ekNZdTNBUHp6?=
+ =?utf-8?B?cXZMQVpTUTBXWGxoQ05jdGhYUC81bjBvek9veXJ5UnVSQ1RQTWthajd2S2ky?=
+ =?utf-8?B?My9YV3RwMzVaMUNaNys0QUhSSFR0cEgxMFoxVmMrcERTYU9WbjF6NldNRmln?=
+ =?utf-8?B?bEpmcHhDREZKY0tWUWVDeWs4ZUdQcGptcUtrdzBVaVB5RHBkYzdGRG51Tklu?=
+ =?utf-8?B?cksyK3p6ZHI4YmNBMTFVcWtVcWpENnZjdS9QendiVWZ1bUFIMVNhSEc2MXlq?=
+ =?utf-8?B?U0U2NTZYQjRibEpWSzJJUFZTbElIRjRnVkxkNG1ROGpKNjJLcyt4SVdHZm5E?=
+ =?utf-8?B?RkhiWk5mMlFPVkFjQyt5Y2hQcVF0TGtHMHo2Yi9XRXFWbEtuS05yVmVLdlhR?=
+ =?utf-8?B?SWk4blFmOXVXbkt1VTBScVRQOG5KUlQ0NDgvejRpbUtwOVFTdnk4S1JpUWl3?=
+ =?utf-8?B?eTFLMnVXejhkU3RrNHZTbXJXeGVhMXlHL2V0a2xZSE00MmJGeU1aU0dESURk?=
+ =?utf-8?B?c2xDK3RCNTBnYTFGOUJYY1hWVWJzcEFoK1VsK2huTUIvcVdXZFhtVUJ2di9l?=
+ =?utf-8?B?aENZYUNMZDI4QkZiR3E2V2lXNWFLTXF0SU9iV0Nqb0UwVWlSbzF4RGQ1U3BB?=
+ =?utf-8?B?S2Nnbm82eFZWeDBKSmMvRjBjK29ldmNxVEdOMkxqb0h4M2JjY3dqbnhreElQ?=
+ =?utf-8?B?UkwyRGtLNEI1U3VaMTdXWlM1UkdnbTNRL1BIalpoeWdmb0Y2OE4wLzBWcHFs?=
+ =?utf-8?B?ZGZLeG1NN3lGY0lWcWRXeFZOQ2NmZnpFNkZPeFFKOEUxYXg5UklQUTVuT2hL?=
+ =?utf-8?B?NTJrREtWSGhuaHR1Y245Q1V0VGgvVlYrMEJncW5RWlhoVDM3bkdFbzUvRWo1?=
+ =?utf-8?B?STUrV21HaFU0T0RPOEpBWFRLeUk5cnBTYTBqOUloSC9MVStDM0pDT0tNT3RJ?=
+ =?utf-8?B?UXk2WFpBL3BVbnE1RnNPKzJkdDVlUEhFWTl6VVZSaUNVWUlJYWpER081Z05V?=
+ =?utf-8?B?NnU5RmRBcnNDemx1aGtTR3JWWkdTRlJYamFuU0pNY3AweGlKVkNxbS9uK2Qz?=
+ =?utf-8?B?cEdrMFJnN3JaNEh6YVQ5NzBKU2RLeXhHby9SUC9zTmxzUFRESGNsYTRJM2Uy?=
+ =?utf-8?B?VW5jd2FJakNhUXpMUmdlc0R2S0t4dWY0VUk5Mi9CdTJScXZZNnpTSzJjTlA0?=
+ =?utf-8?B?anNDYVN1bXhjcXNHS1Ryc0ZJYVQwTkhVUHpFbHAxNlpBNHYxYkhJUG9zclNh?=
+ =?utf-8?Q?zrZGx4mrbbgoswjTJtXrLi0OfDN5fcZZ3vkgA?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46a08f39-90b5-4c88-ca42-08ded5f2a8c9
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:25:32.5807
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yUHBUbqaYAlux+ykXuVUIEv1tSkNde/IFeA9rI7oZI3u610Sn29rQChez2QHz+gl5MYLpNJWMBYqOtaVcab0eRrXLCTZXCZCJxzs4Ixw4ofM1FvuLF0PATkWDy3kik7S
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10267
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_082538_459899_5C6B64C1 
+X-CRM114-Status: UNSURE (   7.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +160,22 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 8:42=E2=80=AFPM Jerome Brunet <jbrunet@baylibre.com=
-> wrote:
->
-> From: Junhui Liu <junhui.liu@pigmoral.tech>
->
-> The sun6i-rtc CCU driver currently uses a global static variable to
-> denote whether calibration is supported, which makes IOSC operations
-> tightly coupled to this file.
->
-> Convert this into a feature bit to decouple the logic. This allows the
-> IOSC clock code to be moved into a shared module for reuse by other SoCs.
->
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> Signed-off-by: Jerome Brunet<jbrunet@baylibre.com>
+From: Frank Li <Frank.Li@nxp.com>
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+
+On Fri, 24 Apr 2026 14:49:49 +0800, Guoniu Zhou wrote:
+> Add support for the Image Sensing Interface (ISI) and MIPI CSI-2 receiver
+> on i.MX8ULP.
+
+Applied, thanks!
+
+[1/2] media: dt-bindings: nxp,imx8-isi: Drop fsl,blk-ctrl requirement for i.MX8ULP
+      commit: 2514a04c7455d0bbf41b3b1bfc3af2984ed6a7cc
+
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
