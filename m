@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F00DDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:00:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17E9BC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hjTuAMXIx/AHC4Os+ngJ7F3QfEWsSRVfN1l1GDaEkKw=; b=c7yZ0SSuYLbCOLsQnmm4adBBcY
-	SWZLkhiIxaSXWcifFue7fj31I0/1TZU9LpsmLHrA3BYxqaZs7F4ik81wCVYBq7qa0d9hBXDiHrO5w
-	Wx3uvbJHL4uq2UT8woBfZEkPkBnK+SiPndsf2MJFQEhTPCrStBEytn7GgNKBgnT1XgXT+d4JQHyLS
-	yeuUR3vN2Ice/TlsSkbLKQ02aF5050ziCEyeBpy2HnSTshVbJT+DmjnTwGudiF73YhKkdsA7ESktL
-	Gug+jZFG+gpZRslAvq02TORsfDOR5oQLT1ICT2vQkPtXunRmVGE5ooogBwQ6YTMlWSiWXHNLIg0Wq
-	zWG6NCCQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9PMu7i9jqAukCqBut0ms3tbp7vgIFD03aYC+2u3O0/c=; b=semdzz2gmlb20/CDCEwIWHCj6G
+	6g+aAGYd0zsjBDjAhC2cBL+qHRmS+vrbWGkgvA9IcuZTHVLXmhOaQpg/FKPEXy/upjIG3AGTdEqyV
+	14cCP/CRTozDTyKv0uwFWwhKhzFl+jaeqryBwsycIfVPwvUKBDkQHYRMXEY8L82vmEweIYAJDuK6I
+	luy/7YG7nKAzJqIew/Ey7TmG7uCgumJj4GSzF+O+KBWWquDV4+4lyUUsSROIS7XPoN4FGeoLwMpiQ
+	IPHVfM+XTHq8iw9F+OPGnTO8DBPk77R9mjdWS6z0kt4ImQdLHRlc/a4Ci8J4FbnarifENqV67eycT
+	E0QUOySQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7qj-0000000E4n7-3IMO;
+	id 1we7qj-0000000E4n3-2wgR;
 	Mon, 29 Jun 2026 09:00:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7qh-0000000E4lw-0jIg
+	id 1we7qg-0000000E4ls-3aam
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 29 Jun 2026 09:00:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90AC71A00;
-	Mon, 29 Jun 2026 02:00:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 777321758;
+	Mon, 29 Jun 2026 02:00:06 -0700 (PDT)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4CA9B3F836;
-	Mon, 29 Jun 2026 02:00:11 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 30B4F3F836;
+	Mon, 29 Jun 2026 02:00:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782723613; bh=yuWjaIMKIf5i6x1/uorLgf8zTF2UyYw+ckJ94QtfUbw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tQwftB46xpbSwDbrabUKy51NUYSladOkmrygPHaSGh/6kIcDWGPOaSUIAULRNp45T
-	 PXY+xamz2y6Zw6nvmncrh2CZmpVswbjShZ2ye79O7XGRbqIyQkOODgGHmX8o7TN12h
-	 csfh4ONP33XJ4Ph+kPfmN6C6SlhOUTwWkzUy9ouY=
+	t=1782723610; bh=whiPKvmvae7o1OrAzo5wA+nmYn03BKk8+Zyjx/B/6FY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ACo4GeAJJZhP8VWgtBUks2tMFKQXHAKfekj0vSXSSRlpd05NoNXzFDsIkbmsZbu/T
+	 ngIZ9yJQhq9WYdsB+lezM7/TYSt6vt82mpY2G43I59zKZuTQe40GFu7bLsckKtbz49
+	 YKOsIaFhZgmVDQICnJMYihEaVCICZF9dBQCHbD/o=
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -50,17 +50,15 @@ Cc: suzuki.poulose@arm.com,
 	leo.yan@arm.com,
 	jie.gan@oss.qualcomm.com,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 01/13] coresight: etm4x: fix wrong check of etm4x_sspcicrn_present()
-Date: Mon, 29 Jun 2026 09:59:54 +0100
-Message-ID: <20260629090007.1718746-2-yeoreum.yun@arm.com>
+Subject: [PATCH v8 00/13] fix several inconsistencies with sysfs configuration in etmX
+Date: Mon, 29 Jun 2026 09:59:53 +0100
+Message-ID: <20260629090007.1718746-1-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260629090007.1718746-1-yeoreum.yun@arm.com>
-References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_020015_254146_FF7D1384 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20260629_020015_083892_D8E22D90 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +73,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to Embedded Trace Macrocell Architecture Specification
-ETMv4.0 to ETM4.6 [0], TRCSSPCICR<n> is present only if all of
-the following are true:
+The current ETMx configuration via sysfs can lead to the following
+inconsistencies:
 
-  - TRCIDR4.NUMSSCC > n.
-  - TRCIDR4.NUMPC > 0b0000.
-  - TRCSSCSR<n>.PC == 0b1.
+  - If a configuration is modified via sysfs while a perf session is
+    active, the running configuration may differ between before
+    a sched-out and after a subsequent sched-in.
 
-Comment for etm4x_sspcicrn_present() is align with the specification.
-However, the check should use drvdata->nr_pe_cmp to check TRCIDR4.NUMPC
-not nr_pe.
+  - If a perf session and sysfs session tries to enable concurrently,
+    configuration from configfs could be corrupted (etm4).
 
-Link: https://developer.arm.com/documentation/ihi0064/latest/ [0]
-Fixes: f6a18f354c58 ("coresight: etm4x: Handle access to TRCSSPCICRn")
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+  - There is chance to corrupt drvdata->config if perf session tries
+    to enabled among handling cscfg_csdev_disable_active_config()
+    in etm4_disable_sysfs() (etm4).
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index 14bb31bd6a0b..1e3b0344dc00 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -93,7 +93,7 @@ static int etm4_probe_cpu(unsigned int cpu);
- static bool etm4x_sspcicrn_present(struct etmv4_drvdata *drvdata, int n)
- {
- 	return (n < drvdata->nr_ss_cmp) &&
--	       drvdata->nr_pe &&
-+	       drvdata->nr_pe_cmp &&
- 	       (drvdata->config.ss_status[n] & TRCSSCSRn_PC);
- }
- 
+To resolve these inconsistencies, the configuration should be separated into:
+
+  - active_config, which is applied configuration for the current session
+  - config, which stores the settings configured via sysfs.
+
+and apply configuration from configfs after taking a mode.
+
+Also, This patch set includes some small fixes:
+  - missing trace id release in etm4x.
+  - underflow issue for nrseqstate.
+  - wrong check in etm4x_sspcicrn_present().
+  - missing call of cscfg_csdev_disable_active_config()
+
+This patch based on coresight tree's next
+
+Patch History
+=============
+from v7 to v8:
+  - accept @Leo Yan' suggestion to handle error.
+  - small minor fixes following @Suzuki' suggestion.
+  - https://lore.kernel.org/all/20260519154812.254884-1-yeoreum.yun@arm.com/
+
+from v6 to v7:
+  - rebase on coresight/next
+  - add ETM_MAX_SEQ_TRANSITIONS define
+  - remove redundant patch relavent cpu-hotplug as coresight-pm patch
+    merged.
+  - https://lore.kernel.org/all/20260422132203.977549-1-yeoreum.yun@arm.com/
+
+from v5 to v6:
+  - fix missing of calling cscfg_csdev_disable_active_config()
+  - add rb & fixes tags.
+  - add ss_status field in etm4x_drvdata to expose STATUS and PENDING bits.
+  - https://lore.kernel.org/all/20260415165528.3369607-1-yeoreum.yun@arm.com/
+
+from v4 to v5:
+  - add rb-tag.
+  - fix underflow issue for nrseqstate.
+  - fix wrong check in etm4_sspcicrn_present().
+  - remove redundant fields on etmv4_save_state.
+  - rename caps->ss_status to ss_cmp.
+  - fix wrong location of etm4_release_trace_id.
+  - https://lore.kernel.org/all/20260413142003.3549310-1-yeoreum.yun@arm.com/
+
+from v3 to v4:
+  - change etm_drvdata->spinlock type to raw_spin_lock_t
+  - remove redundant call etmX_enable_hw() with starting_cpu() callsback.
+  - fix missing trace id release.
+  - add missing docs.
+  - https://lore.kernel.org/all/20260412175506.412301-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - fix build error for etm3x.
+  - fix checkpatch warning.
+  - https://lore.kernel.org/all/20260410074310.2693385-1-yeoreum.yun@arm.com/
+
+from v1 to v2
+  - rebased to v7.0-rc7.
+  - introduce etmX_caps structure to save etmX's capabilities.
+  - remove ss_status from etmv4_config.
+  - modify active_config after taking a mode (perf/sysfs).
+  - https://lore.kernel.org/all/20260317181705.2456271-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (13):
+  coresight: etm4x: fix wrong check of etm4x_sspcicrn_present()
+  coresight: etm4x: fix underflow for usage of (nrseqstate - 1)
+  coresight: etm4x: introduce struct etm4_caps
+  coresight: etm4x: exclude ss_status from drvdata->config
+  coresight: etm4x: remove s_ex_level from config
+  coresight: etm4x: remove redundant fields in etmv4_save_state
+  coresight: etm4x: fix leaked trace id
+  coresight: etm4x: fix inconsistencies with sysfs configuration
+  coresight: etm4x: missing cscfg_csdev_disable_active_config() in perf
+    enable
+  coresight: etm3x: change drvdata->spinlock type to raw_spin_lock_t
+  coresight: etm3x: introduce struct etm_caps
+  coresight: etm3x: fix inconsistencies with sysfs configuration
+  coresight: etm3x: remove redundant cpu online check on
+    etm_enable_sysfs()
+
+ drivers/hwtracing/coresight/coresight-etm.h   |  46 +-
+ .../coresight/coresight-etm3x-core.c          |  96 ++--
+ .../coresight/coresight-etm3x-sysfs.c         | 159 +++---
+ .../hwtracing/coresight/coresight-etm4x-cfg.c |   5 +-
+ .../coresight/coresight-etm4x-core.c          | 454 ++++++++++--------
+ .../coresight/coresight-etm4x-sysfs.c         | 204 ++++----
+ drivers/hwtracing/coresight/coresight-etm4x.h | 202 ++++----
+ 7 files changed, 639 insertions(+), 527 deletions(-)
+
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
