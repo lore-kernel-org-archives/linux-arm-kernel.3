@@ -4,136 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CAFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4820CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7H3G61ijq7+XHi73CDHVMxMTM8P0HCPp2X9yuonuEg=; b=pXMFphNPaj7lAaO6GQfGL1BSzW
-	u7Vbzfpy1M013iJlIZPH8wCSauIgbKfBrgigu0095e/w2RP8Lmr/OhhYMmvSL0NeIjhqvqNGOYv91
-	GZIltRblhfyb4tW2o6i08g7u4ziQSMvrUGH5uFWAvLAsxbhfuPaS1DK2vVYggdyT91OcglM9DiVeL
-	gYnZUuh1mM36nI9YEedWzKTnXOi8K1UZtWaxS97+G+IaMD2fIjRgs8cx2xArybNZRDvBDzIvcq9Dq
-	s9f0c5KW9KMn3/TTIKuccWRygxAaQmT1/oa1lJS042TJ75yrQ6x0gvfEvTCexAK4+8uzLeptYYJBO
-	51LArFJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RTUwvNadQrvVpwtKaon11x72JePn9X3S2cEHloyT/Hw=; b=XCXcGr4Tto84xLD/DQOLydewj4
+	W4VNqUToPvo6Oh0W+mUd+yKB7pZ1QObG3JFxZG9L8Uwn7i6VmlCeDkGFNWgA0R7+u3M2PKwK7LSqM
+	8BEyAwx+g3ieVd9kX6uXsYzyFRCZUIDX0VSVm6mHYZdStG3xb1DdiFImEaoU7cCvzj2S7hTnofKt9
+	1/oLEY/wX85zIwzwXAZD/YuK431IOHzwZpBoOJeOUxh1TSdc3RCOGZEOXg288uiw/XIomcby5y5ul
+	OqNX+9xC3Y4NivfgH1i9nQyOuTmY9oxEkDCf1BoDC4qjKDQr3v7A727zZxT9gccN7R/H7byLtVLZe
+	ZgLWrQig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDax-0000000F1YO-2mhE;
-	Mon, 29 Jun 2026 15:08:23 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1weDcF-0000000F1iq-3ZMy;
+	Mon, 29 Jun 2026 15:09:43 +0000
+Received: from mail-oa1-x34.google.com ([2001:4860:4864:20::34])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDav-0000000F1XY-41u9
+	id 1weDcD-0000000F1iL-1Qo9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:08:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kpiSfwRpkqCMF57+EqdncWLc96iXVGjwk35MmSV6skbTieRquegAiYiF6Sfe2ki7dv/v5IMLSddDhDajCHEBPECG/Lej4yJRrkHH1s9VliTd+gyGOVy2CqApel3qbdVUU3w+pxh55Pt5owTPnvMsPc8h1q++Vb1GRa4iIVxa1X4K7D2Hq1+2QBVC67+ybHi52bsU9h9g0WpnaiRvFgzPBEUaKiFCttcBvK9qlmJnq2oa44paBcX5AT8A8e56BH0q+oglc4oBJAV7zta2Qt2wyOqaGnZaOsac9CsHELPyC5W9lkKB8QQvQNi5MYohwcjc0gyIFt0D7iLpl2p0jpDG3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x7H3G61ijq7+XHi73CDHVMxMTM8P0HCPp2X9yuonuEg=;
- b=WDwY4xMBngFXb7RideS9nfMRV0P6Ou5PDBXGPn+LSQN7uIKtfhdGpmn8TRxUj+tIouRINqgaRnAA48QUuUTqhnoZTOgTCnr4E8h65LwoF47DOenAI4ctbFIeSTlxvsIIUmRXS7RkIGfKnAbvYE3W9I3rpZtYi7WBHRi7gZs6grRS0Pk4nAOuJTkH36gxqN+XFMoYRbm04QOt3znvOEaJPWxiGyADnrrmQ2e3uZSu5rksE8DuYHVtQ+h3xxwa2MXP7mh4u0fPJFTGYD2IAqxOaGDRz/kHV0ZIbHl2i2WAsG7bF5QFSN5LnubWhF4F/7QfTnC0oeivSYxfBspVQpEbnQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x7H3G61ijq7+XHi73CDHVMxMTM8P0HCPp2X9yuonuEg=;
- b=kw+FBXkQy0XS1CsJ/wP4nICiCav6kc69jZQO93qran0/YnPh3plknLuIc1Ek/RqrZ3it0hbDFsO+1kp7eLosqRfxP3IphZ/lFhy3hmSogCWpvcPe1obdrl4WODIuWziqXTCzAHH6stCVu1AAhS5BAGkUbFTKh6GNvi3Do5+pyoj3oXwb/kZdmQI7sFrqrXiDUXA9bp5uuuZjxlUFM6jhNsHdPL4FSh8IvpVfbbnBkI+1jVEAApV/OM1JPXR93BaQiRnhBlmbbJMORucNIPs1Vy0ZJ2V+oCuFTjbFFM3VkRSdwZpoaADKDS5uWen8nvhroufElX7rC5i9pZuWOoM5tA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAXPR04MB8428.eurprd04.prod.outlook.com (2603:10a6:102:1ce::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 15:08:17 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
- 15:08:17 +0000
-Date: Mon, 29 Jun 2026 10:08:05 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Christian Hemp <c.hemp@phytec.de>,
-	Stefan Riedmueller <s.riedmueller@phytec.de>,
-	Jacopo Mondi <jacopo@jmondi.org>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH 4/5] media: nxp: imx8-isi: Correct color map between V4L2
- and ISI
-Message-ID: <akKKVSKxibnRfgaQ@SMW015318>
-References: <20260629-isi-v1-0-deebfdb1b07b@oss.nxp.com>
- <20260629-isi-v1-4-deebfdb1b07b@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260629-isi-v1-4-deebfdb1b07b@oss.nxp.com>
-X-ClientProxiedBy: SA9PR13CA0100.namprd13.prod.outlook.com
- (2603:10b6:806:24::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 29 Jun 2026 15:09:42 +0000
+Received: by mail-oa1-x34.google.com with SMTP id 586e51a60fabf-4488e958486so692576fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:09:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782745780; x=1783350580; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RTUwvNadQrvVpwtKaon11x72JePn9X3S2cEHloyT/Hw=;
+        b=Z8KoK9FoJUDt3aK0onwCaoQ2uJkwZYb7wHqUQ5b4zhmsci1E4tRjQ/fjfRqQ5UIyQ0
+         TNvlct1+zltgBLoI9KF3doHOGFn2ywvHgwa6UC6ZqD71VTQY6Usf02ilvLE5qDkEX9+j
+         NnqJKirvwC4M294CWLj2615E9erYFmoVcvcFj1v52d33SbqC2yxMeVMB0WAves5R9V9Q
+         +WDKZAyImZltyGuBt/DKTfvc9LY+GpsBUPd0u0pqxYCpqIcslUiqBLYwPYtBXS4eL/yQ
+         tpd6dN7YyVV9OVR4vcWViZMUfBrU10YQRdfJjr6OLCK2ofgDvuTcYdTs8EegqcBNRA9i
+         jQiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782745780; x=1783350580;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RTUwvNadQrvVpwtKaon11x72JePn9X3S2cEHloyT/Hw=;
+        b=FmmmwqHTwdgb4xpk1iHT37nbEhoEeXqKeQNg/6AxtJjB+tmlbqNQe6315LNEGFmlkx
+         GfI8xBYRhNe91fSZndrDoUMYB2h5YfvABuMKjCunJ2mMMZ9SBKd2g4NiMtdjRQtqpXpI
+         daMlfRHHl6yQAEzYt09VnSCv3OSbenuKgO5+r9F9uSyKs4fpfpIto6wdjYiDmNaezy6E
+         iy450GGNZHc4mkjssYB5RAHSOK6rjr5BnNPbPHawrdPVuj0b4wPrvvQ7Kvs/XptxXaoY
+         fusps9gOxnId29ZbWqTu1m3P5n1WY9c82BdQx7rFTP/PiABhGGRuhwyumc2Djdegs9lo
+         9OGw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpi9NR1bSqeQFkHRiKEUloCpE4CNBQ65Lwo5f0rP8H2vVd/6ZYgdvzXO8MLofDHUEkA/ulZMp/XU6GU7OejSRae@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQWR8qBps8iyLbKBqJn+LWTgAjiB6PLTgFFbHOePn31cP6OTNj
+	9Ute3j8+9o4vXWbd8xgBGCl1ltnRVlQ0pLl+DjKQZC2TykT77AuvV785zXDOREJPXRI=
+X-Gm-Gg: AfdE7cnj26DGufLHXeymT5oC3VhbZZyesy4TSjR0u4B/Y4WBQJ370/4Ad7wbUN3e1ZZ
+	hilu2ST6F+S6kUdJZNh8NTfc8eST7eltTXGBet60j/lmS28vCoKNWpJiYMaKG5w1sX4HpO6/M6G
+	45/df3kKRASZGIoNRvlFALCcZeUMAySW7G3H2t0RUfECCiMYRyDh7igJxo6IBEnTJcTC0tJ0wyC
+	0e9k1Wl3c8bf4TPd6FVtbPFWlP7gdymdPVP2IvzmBfTNdl1qtBI45jWFjTPuy/CrvJsgUL46FuB
+	sXojuBvd8ghEOhAadPulko55U6GNLTQhsPi9w0OcX4cmQq86KvaZRKj1vHaZmeZK+4urjiAejKP
+	qp8cl6pAQiwEjlsDU+z55fXDyV4AIGr2P0UeKR9OISy4rYh3yj+qvfHOaXSkmv/duXGwqSFBDnL
+	WlUP3zuCk2xIshqvdQCOiEG+SPmhYUIJRsnHEUHcOAP1qQuFjNDxiTS7W/Dy8MNtQ=
+X-Received: by 2002:a05:6870:830a:b0:439:a524:a29d with SMTP id 586e51a60fabf-4484e87cee4mr7386130fac.1.1782745780245;
+        Mon, 29 Jun 2026 08:09:40 -0700 (PDT)
+Received: from ?IPV6:2600:8803:e7e4:500:3533:aa22:9a69:df1c? ([2600:8803:e7e4:500:3533:aa22:9a69:df1c])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-448dbee3badsm19615fac.12.2026.06.29.08.09.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Jun 2026 08:09:39 -0700 (PDT)
+Message-ID: <f759ad9b-56ef-482a-9389-85ea1e3fd7d3@baylibre.com>
+Date: Mon, 29 Jun 2026 10:09:39 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8428:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6df9b0a7-7d3b-430c-a021-08ded5f03f69
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|23010399003|19092799006|1800799024|18002099003|22082099003|11063799006|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: z73EazHhMYg3oSOIYw5ZEfuSRWQL5nddeMAf11bAXjcZRUOvhgLlaPN1jtNM5vV2MbfnhUI9cBL1obg5zuf05Oq5A+NpYHrbNGGekiQk8DOQDhDuBZE+SZdnXiUGsrPetJ7kqEozKdgbULLvh8vv3JCSKV5C39Izqmb59YNazUD776zI8JLK7jDY6pCCyyUiRVS92K4MM/12vqpGIwRi7BWCY4leZyqpwj52fjUdh3XnV8DfjDvl4jTYTwcgUEOsYynfXbtCrYTa8p6eR0YVTHLRtmqoq01pGHb6xF6+ffpbD5t/s+YYB8y5r5+/vf8H8RZNkvqFYmrpf52rTqwASXSGIgz6uPXZIbZ3RX3DY40EXKbKl7f8mnGnLnr8blhD1NXw3g62XnOIUZcFWM3ERO+1xSrQu/lEEHmguFbK8ZBfjdHUuKsbXE4S18mKSs72XCbhaeSGiaUu/YUjs3dwCY2TjjLSE0GjLWZdrLPjztq2z3aoo7ZkVqNEWu9BYiZgJFNafWrKV6WOXStlwU+ad754KOv70JViwOEcnwQHtqpC3iEXCQoSdE2sY89h+m/3dYOTc84NNMqHlQRljl47Olpd1FXd7aDP3GeoS38sOznO8/y1Ov9thPYKeeo9TF+6CX6OqM2DIMcIgVMY/x+ltXGfnFd7zJva6W9TZ0hABeg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(19092799006)(1800799024)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j0Z9xFWRIKundIkFd+tzhyJYgBLCDMuhsQqnGsZv0jNDY3Q50GMOvXk5Qcv6?=
- =?us-ascii?Q?hUJlkZTCSYAqzOzGVtUSeCEBBVgbwhEbzNoDza2a59Lb/wri5umorRE9FkaL?=
- =?us-ascii?Q?x7W/BB2iTD0hlc6gfp7yKcT1fi89J8LQxAR5N1lJ78hKa2x8JhOWcjuBwWZK?=
- =?us-ascii?Q?DZzcLmwEbc72pIHp8G0/c9gMdfBEKx3Bf4H8vqv0HqWCFZi/mKhNvQOOUlWx?=
- =?us-ascii?Q?9+7mHPdFNTYrn0QkZuWPpIMB8eJACnBFhUrmBbgEfUzL9y4+FyvO+GSnrTpl?=
- =?us-ascii?Q?fIsTAJfZCXsHFdf9Pt0EpLZh4vLJLbAZoMzXtEkLIi1cpWY8Sbg+im5UrcS/?=
- =?us-ascii?Q?RmfU43y3kPJWq22ipBkdLKtlih7vZwlnEd9CuIeWmOQzn4JSdo26kDfJ9pSv?=
- =?us-ascii?Q?Munj2XBLwZBcCGEJoFYBOc3gRa3IpQ1prcNWsolYOtOg1HW6IYlPpbqhtMFJ?=
- =?us-ascii?Q?UZoD1Cyxfsj296qYB7NQaEdzjnHihUHO2pbGZrUf6XOIx3D82hBQKQHCJ5lC?=
- =?us-ascii?Q?WS4RcahN2L/bR1nvPWtseNCdCoQi1B5JyCDLq/gZk3zACkqYvVx3NO0KxwVQ?=
- =?us-ascii?Q?xZEXhSM6sMm4691NYvw1Ve5cUya2q1H4ysCmNW2gB0a+dSQ470lPtPiUNv34?=
- =?us-ascii?Q?gKXhcKanzZCFdJenqQaPtMSKcyZqw/36Cxy4JoFLMnH1XGMS0WMGg84ccZzD?=
- =?us-ascii?Q?vVFbIRgg1E9M7E1RqE27oIwjeW9I1cHTHQtzb+7NR4vc7AbE2hSYA98XoK+4?=
- =?us-ascii?Q?VXj84mXNqmqz1ADD0a03LF2FckTn/WAbVdHgMU1OacYHXoYnFLXivOcV2Ra/?=
- =?us-ascii?Q?XOESlMIAG0lV8LfJ1zkbyCNffGDIEHUTfJJNZCgvj4dB3UFzc0i3nwGLKiDM?=
- =?us-ascii?Q?pZUytpBHMZF6gCche9DeYL8JrSV0ic0bs1C5s8vjCO37Qr2q43VgIYfz8fkU?=
- =?us-ascii?Q?ITGUPpYYtsxVu2o4Up8jVVMAHcYkC/SEPQntdLQbrKv6migKP9CZR6LiWk4z?=
- =?us-ascii?Q?HxHi1sz0QePVXN3OgRspy71gIZ2mCWzgOlx+PLJ6QxkD+9TCrqZVvVYqx2VV?=
- =?us-ascii?Q?LqdOBFmBIbel0yrKD0pQhx1s7FsqlOmZmnFoEnjRbX2VgeVRaW4LwVPwWIRP?=
- =?us-ascii?Q?lHMhpQbba/Lrc7Do1xqtcqxyZA+pSQAkGjd6IOQWgkCk415Po5u4037+zDSK?=
- =?us-ascii?Q?6EKULORMPlQ8aRzbAxlDl3LswTg/8Bhki/rAj50gh0AqwcOUakhJVo/mMag6?=
- =?us-ascii?Q?CilQDzBuEVkhxgzoNC2hwrqiK1p8vaHRc62Zy7gzcSDM2QnYt5dLwSF1VJS9?=
- =?us-ascii?Q?z+SUy0sL/1JJMwRmA9bG3eoP1OQpp1Uc086RRYJlhdJFlCSsOCNDKAWzjeW3?=
- =?us-ascii?Q?0WqSINl1xdxkVA1gDDLiBPXXFkOv37dxyxmqnkU/4JcaZGDu3FXP/VuuFGQm?=
- =?us-ascii?Q?1HTtvK/SW8sdXeMT9y7AwPMMWwwVELl3CiSai5JR81E1LVqRV9kn0qVg7ErU?=
- =?us-ascii?Q?O2A/QZuGgocOWT+abZfoCHDhL7pOnCNpJGgqwhyMQKeBFDHZHC6vFkKW9oIT?=
- =?us-ascii?Q?2dIHhjV/aRtenJ20sGvdkIKXZZDZut0FPrXFJ0HWjA+6lstJfrfGYBYboZb7?=
- =?us-ascii?Q?x4v/A5Tkwz3kKkhr6hzh5BcBHMGQcfbiIH15+NJkjejA950pNWJtqthRelwJ?=
- =?us-ascii?Q?5YjMe8U5YojtL7/WdEWkn/9QRzZ4KKtYTt2q5FVyWAotpOWzvh1Qn5nYmyw1?=
- =?us-ascii?Q?FelmMxwNZT/9ZLyeeJTjHKBLySDWCNA2zC4/gP5GxxbI6ksoImml?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6df9b0a7-7d3b-430c-a021-08ded5f03f69
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:08:16.9216
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XuCs48eCiQhvMuzTIATXF068LAL8HI26/SMT83TyuF5PWdATHmoQMLQAwcf8p31P8H9dpJnCSIbMNFxYQSt2va/EMDjmCMHdncYUDM5ria/z/Eoe504bO+XOpKyIcOdF
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8428
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] iio: adc: Add Nuvoton MA35D1 EADC driver
+To: Chi-Wen Weng <cwweng.linux@gmail.com>, jic23@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: nuno.sa@analog.com, andy@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+References: <20260625110638.38438-1-cwweng.linux@gmail.com>
+ <20260625110638.38438-3-cwweng.linux@gmail.com>
+ <66ad5723-6589-473a-91da-b13e2ba90aeb@baylibre.com>
+ <5e65eabd-699b-4587-bb38-d8ef5c6d2aaa@gmail.com>
+Content-Language: en-US
+From: David Lechner <dlechner@baylibre.com>
+In-Reply-To: <5e65eabd-699b-4587-bb38-d8ef5c6d2aaa@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_080822_027823_5EFF1AA0 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260629_080941_385055_0CA60FB6 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,42 +106,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 03:44:58PM +0800, Guoniu Zhou wrote:
+On 6/29/26 2:32 AM, Chi-Wen Weng wrote:
+> Hi David,
+> 
+> Thanks for the detailed review.
+> 
+> After looking at your comments and the other review feedback, I plan to
+> simplify v2 and limit the initial upstream driver to direct raw reads for
+> the external single-ended ADC channels.
+> 
+> In v2, I will drop the triggered buffer support, the device trigger and
+> the differential channel support for now. Buffered capture and
+> differential inputs can be added later as follow-up patches once the
+> scan sequencing, trigger model and differential pair constraints are
+> handled properly.
 
-Subject: Correct V4L2_PIX_FMT_XBGR32 mapping in m2m mode
+This is a simple/small enough driver that it would be fine to still
+keep all of those features in v2. It would still be fine to split
+them into separate patches, but you could still send them all as
+a single patch series.
 
-> Correct color map between V4L2_PIX_FMT_XBGR32 and ISI input
-> format XRGB8 when ISI works at memory to memory mode.
+> 
+> This also means that the scan buffer layout comments will no longer
+> apply to v2, since the triggered-buffer path will be removed from the
+> initial submission.
+> 
+> I will address the other driver comments in v2:
+> - drop the unused struct device pointer,
+> - remove the triggered-buffer and trigger-related Kconfig selects,
+> - switch the register access helpers to regmap,
+> - avoid forcing the external reference path unconditionally,
+> - add optional vref-supply handling,
+> - add IIO_CHAN_INFO_SCALE based on the selected reference source,
+> - use the internal reference when no vref-supply is provided,
+> - add a named macro for the sample-time field,
+> - drop the unused channel address field,
+> - drop datasheet_name from the initial driver,
+> - use device_for_each_child_node_scoped(),
+> - use devm_mutex_init(),
+> - keep only INDIO_DIRECT_MODE for the initial driver.
+> 
+> For the firmware-described channels, v2 will only accept the external
+> ADC input channels 0 to 7. The internal VBAT channel and differential
+> inputs will not be described or exposed by the initial driver.
+> 
+> Thanks,
+> Chi-Wen
+> 
+> David Lechner 於 2026/6/28 上午 04:52 寫道:
+>> On 6/25/26 6:06 AM, Chi-Wen Weng wrote:
+>>> From: Chi-Wen Weng <cwweng@nuvoton.com>
+>>>
+>>> Add an IIO driver for the Nuvoton MA35D1 Enhanced ADC controller.
+>>>
+For future reference, please don't top-post, but rather put your
+reply inline like this and trim any irrelevant context.
 
-Fix the ISI input format for the color map V4L2_PIX_FMT_XBGR32 in
-memory-to-memory mode.
-
-Frank
-
->
-> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
->  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> index 5eb448f4c26f..05b51b98344b 100644
-> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
-> @@ -151,7 +151,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
->  		.fourcc		= V4L2_PIX_FMT_XBGR32,
->  		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
->  				| MXC_ISI_VIDEO_M2M_CAP,
-> -		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
-> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
->  		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XRGB888,
->  		.mem_planes	= 1,
->  		.color_planes	= 1,
->
-> --
-> 2.34.1
->
->
 
