@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E9FC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E78EEC43638
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7qMl6JaTusMjQ71t10D/Z6xyVtqjy476HmM+ncXIDo=; b=ktM1oNTkyyQ2SzjiNd8UPAVWM3
-	MydiqRpK7W+0qguhEWBmWF6FOzRMxvWCdAvJ/fl4Xd4zwqtQttIILSWnTW/qEIKhaodDTKf67EbtE
-	87iY+M11KXbFgLte3vZGO0vS6XBUgnmTN4vrzHGSYMLz7vB70Nd5poCSAop/hIyzMGzNoY3tl0u2m
-	Gj1XTxRczIDt/oCMCrNHIkhga6ueE3R1AbQbtwnO0zwSHea2sAiqNZyatsjPY0vHHugoeVQeiy5TA
-	p/C1w9Cu3lbv+kYpv0dCbFoGbcMPQAG0tOUwpqvP+YRQowiEwF6uVUd7HaivnMPRzsMRI12LFavAM
-	P0iFZa2A==;
+	bh=RxV5fEpsJGHhE3L8vdcj3Th/5v0heJ6mrreI6jrRPh0=; b=u4Zeb8eNY8W1ms0V2C9QQV4imO
+	2BOg9aA+aMw+/M5umRlkhAsHWnJ+2YYPNxLcoaxXgn/I5Sl/0N0W9VHkoLRbzeHFpazi2eb0b8WWI
+	OLuJuqM4y3BhPetS6fL/9aw8SX1eorBCQQRULtXNiepPyIsPRUHq9SIenpzMARqWDFghB38/a2Xa4
+	bKY+TwuaVOo/Jpn+198/amhzwpusar9I+HHePuKeLW28H8AlTX3s/9+o64yVHF4nWdezdaNS+NYjz
+	aMEf0+RVYEL1OTZvv2MIv6osu7ZDmJ0lNuHw5Rv4sfnRYACq3i/k3OimCJl3iipQ430fbe36WPDgz
+	Cy4vOIeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEzi-0000000FE7a-2tKv;
-	Mon, 29 Jun 2026 16:38:02 +0000
+	id 1weEzz-0000000FEH4-49K1;
+	Mon, 29 Jun 2026 16:38:19 +0000
 Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEzf-0000000FE6V-3PN1
+	id 1weEzx-0000000FEFM-1p5M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 16:38:00 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-847968ca62fso546280b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:37:59 -0700 (PDT)
+	Mon, 29 Jun 2026 16:38:18 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-84536ecfc5bso2953480b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:38:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782751079; x=1783355879; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782751097; x=1783355897; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=y7qMl6JaTusMjQ71t10D/Z6xyVtqjy476HmM+ncXIDo=;
-        b=dZLhcGj+zqAl2fYi9N67oGx1zhBqTWiuLPloYYPfD2LZImrHkngN1rWVr9RXFDRSTl
-         wuCQk+obLQj9qn//qqrOLCxXGOJXa2DUj7oAmFE2yAPNOaBU6EICLiyb1DMvOX2ea/Ke
-         CK1HMeedhbufXwVVJkB3keqSRdcYCZkoXb9ddntczth2icFsB+5hY6MXXLXfZKr+UYLq
-         cO0FEfW3al6tR82LKytEOkXUC6OEHVOTV09NQLhn+JTEN5FsZ7T4RVI0UHwaECVZ7vHM
-         RHWk2igigKRRwzmQNrahP3l5RggFgapVYBBrOwZtzAt5Cv9kNK4RMi/zUiEkcVzUzyTc
-         MvWQ==
+        bh=RxV5fEpsJGHhE3L8vdcj3Th/5v0heJ6mrreI6jrRPh0=;
+        b=Zv+x0bZ8Dy5IGFocIIPjqfB7lsFrr7JxRJ66rMO8Xolq+Br6zYMpoYa3Ci4lMwMkQT
+         lcG+7d1WYZYaWJ/zRqNKfiBeOgFPZ/Txx9edQW3L8NtFcwTksXvQmDt0mNa+1u1XeKX4
+         kjX9zGkIH0t3U/kzDSUnEw1PXJP6sn79/SQDgXdgqyURjjZdrAiABNlne1hYFp5XKZUE
+         01n/bU6Ia+EMYG9eQL8Hyip91NVjS2JJixONuuZdh/o6vhnZOXk0mhcbMEJBcyxERrKG
+         sop8sYe8AxqUisYDrgMYOhqE/5qfdlgxEj32Th7q4JC3kuQMvpLyeu9aRZ+YzLFdIVQX
+         I+pw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782751079; x=1783355879;
+        d=1e100.net; s=20251104; t=1782751097; x=1783355897;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=y7qMl6JaTusMjQ71t10D/Z6xyVtqjy476HmM+ncXIDo=;
-        b=IIVINMQpTjAfaq3jO/ijJ5PcnSGq3bBtK0f9zFYvqEfm21rH2Apu/rAndOnAMhayr3
-         JknwC546GcIkOvn0OnwKj+XguOEZmJvvW3e343keQC5UIjmt5C8GT1rGrIXR6mDVV6AV
-         jW2Ft3z4Rhon5u6TcRUHK9GQUzwUE/kiiUUy+a0C9OZ/8+sJaW1Qo+rnVvkPRmiKYdej
-         q4jNXjvXnM9Trcmi7/jtvv84kyTCYLc/vSntljlsmrJZ5fLWZb/89xioXN5UhOxj2HHP
-         qb4oBXRRxYHSIh14xCzPwjmmNvvsOpTCwsNMa+U0hq7isadxupWtTAIfUpzxSBbrFz5w
-         POYw==
-X-Forwarded-Encrypted: i=1; AHgh+RqlA5iFTLI13lEq1kucGTYYCyK3i4aKaD79ZRHjC945JplDqm7F+lRP+fJlOlm/mpL1cc5dx5JWFQJJtkd6e9qb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsRgU72HJGZkEKX48qV5x6R5aQeno280sYNrC6CydhrzT40Kwy
-	lyA/skCj79GrW0LOal3kewhW7uHHSW7SqHJ4/I/xomRH3K7NfDxY4QQ+blQVJ1PJ
-X-Gm-Gg: AfdE7clsPz1N3gMwWajE0Qk1yurVOrM2KfPC5BaCW3sV17RtQYHd8ujUWPn48kdq92+
-	tt8Q+455yvZRZc08hx+6fJtJywCNiJ5g4+nWvlb9HF1PQP85xCuzEed77QxBszB/SlEW7KqY7SC
-	51mxzUJs1Gn11gpjwzWmsestiAgQOxWVgsU1VS+69rzyM6+Bc6V6yVkDHI++44cUIYmE9SnUPoe
-	NnJK6+XUCU3kM0ZAhfKslQrysA3w7TdCM0FRQ09At9fDtMO5BcRbz6SJrFV7mJ7fKKgK/8nl1Cl
-	7/k3mw0slYp742sSk0fjnhG2HelRpcLSOXd6hGCjAcU3Nhndc2/mbhsbvV1ITCMFJM2r7O3sH3v
-	nAWBVLclG/TIZkDWv7BRmSjKi3ELJNXStIHrZeoHg4s6ekSpC//bcvf0zb/l5jb4f7E2A0v5Xf2
-	TJAOmen2A=
-X-Received: by 2002:a05:6a00:3d55:b0:847:926c:5837 with SMTP id d2e1a72fcca58-8479efe8fcemr225164b3a.11.1782751078897;
-        Mon, 29 Jun 2026 09:37:58 -0700 (PDT)
+        bh=RxV5fEpsJGHhE3L8vdcj3Th/5v0heJ6mrreI6jrRPh0=;
+        b=BmueDj8bOKzknT3Jn0/MPPYgWBH1DRT8Nmf1SNtBQX2AD31BF5vk5ly3CbE+3NvzOY
+         QrkLVMdtDrF6/wVrf6AhYKBPnRsWMdUKec0X0zn05/PVGDTZ5oCxxrrbvzhjCjOib+mZ
+         /O5npBqa3H8S+s2QuRsFNu2QRRghzJN/WqbXe6+pu1COo5RhkHTONHo6mOFLJrFhx7iv
+         /xr5pyXelzx3MN9TkSEEYyRmVpG6RXWLZ0b5Pg7FTqhXxS/F6OyyoNTnrqcAKAjzImQp
+         jH5wO5xRx6uFYlhjtQNzWHkFU2JdUEibsSC6Q2iI/KaR9V+dQhiuay6JyoVtBfkpLkIE
+         4NFg==
+X-Forwarded-Encrypted: i=1; AHgh+Rrl7oVMkJ1zPxnPk7CUsHkZSsZBGh8VmgBg8k1xuUnP9tFH6CXdBs0eaoTqu6RCzm4JTcOoyXgTdgZiN+eZ7Rf+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvrg5QMQoSQHue1wzLpRWYph35F9MxEsmiLTS+25a6jo6Mhnf6
+	xYNyHORv4Qxfmt/Jz8FE0rbh+lbRJYx1YTlVenYYx2WMfBMcwJP4XSfC
+X-Gm-Gg: AfdE7cksXctq5h+mbkmyc8209bZhTasM6J6is7AWUepY+yeZ5RxQxOemCCVd6iAXLgt
+	1kUvSD4qg5XX5E1ArIrxEqUraJJCecAlzprnwDFx7FfjVl0Bv5ItciSxRIKIqAYb+c9fArlLOH9
+	jkb3o29KE2yAYfSq17vIXX63+uv6O412FmnXZJYWdJ83wbv0STbX05HTPe76ZokSPVW8eVa7XBb
+	pJvPXxDsLvCeZoR9L3N/yChgZsDyyCFJxyMiP9teHpuzs7Ne6SrXS3Li/eske5pgUHbi9TfkIHi
+	qUYFV7Lgsrh/n3dCiccNFL4KSm02/KquYQ9ktMgrS934R6rp20ywFg9OzxVFz+ZfwWBRfs2Zc4r
+	PwR9vb/VIbuWjuyOqY9AFF6cM/cT/eu6X3WdJkzRVN9Q2vbljDhn0D4ndEKDv2A5giXnW/Axfjs
+	bG7aFa1KM=
+X-Received: by 2002:a05:6a00:2d8c:b0:847:8504:9946 with SMTP id d2e1a72fcca58-8479f152246mr185629b3a.25.1782751096795;
+        Mon, 29 Jun 2026 09:38:16 -0700 (PDT)
 Received: from ubuntu.. ([110.9.142.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a02d41c0sm18474b3a.33.2026.06.29.09.37.55
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a02d41c0sm18474b3a.33.2026.06.29.09.38.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 09:37:58 -0700 (PDT)
+        Mon, 29 Jun 2026 09:38:16 -0700 (PDT)
 From: Sang-Heon Jeon <ekffu200098@gmail.com>
 To: rppt@kernel.org,
 	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
+	Russell King <linux@armlinux.org.uk>
 Cc: linux-mm@kvack.org,
 	Sang-Heon Jeon <ekffu200098@gmail.com>,
 	Alexander Potapenko <glider@google.com>,
@@ -83,18 +82,17 @@ Cc: linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Vincenzo Frascino <vincenzo.frascino@arm.com>
-Subject: [PATCH v2 1/8] arm64: mm: remove unreachable invalid range check in kasan_init_shadow()
-Date: Tue, 30 Jun 2026 01:37:29 +0900
-Message-ID: <20260629163736.1606688-2-ekffu200098@gmail.com>
+Subject: [PATCH v2 5/8] ARM: remove unreachable invalid range check in kasan_init()
+Date: Tue, 30 Jun 2026 01:37:33 +0900
+Message-ID: <20260629163736.1606688-6-ekffu200098@gmail.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260629163736.1606688-1-ekffu200098@gmail.com>
 References: <20260629163736.1606688-1-ekffu200098@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_093759_854609_7C942BCD 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_093817_473614_06E5DA88 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,34 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kasan_init_shadow() maps each memblock region with for_each_mem_range()
-and breaks the loop when start >= end. for_each_mem_range() never returns
-an invalid range, so start < end always.
+kasan_init() maps each memblock region with for_each_mem_range(), which
+guarantees pa_start < pa_end. Then it skips any region with
+pa_start >= arm_lowmem_limit, so pa_start < arm_lowmem_limit is guaranteed
+as well.
 
-Therefore the start >= end check is unreachable, so remove it.
+When pa_end <= arm_lowmem_limit, pa_start < pa_end means start < end, so
+the start >= end check is unreachable.
+
+When pa_end > arm_lowmem_limit, end is clamped to __va(arm_lowmem_limit),
+and pa_start < arm_lowmem_limit means start < end, so the check is
+unreachable as well.
 
 No functional change.
 
 Signed-off-by: Sang-Heon Jeon <ekffu200098@gmail.com>
-Reviewed-by: Andrey Ryabinin <ryabinin.a.a@gmail.com>
 ---
- arch/arm64/mm/kasan_init.c | 3 ---
- 1 file changed, 3 deletions(-)
+ arch/arm/mm/kasan_init.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index 3fcad956fdf7..45fbdce684c8 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -353,9 +353,6 @@ static void __init kasan_init_shadow(void)
- 		void *start = (void *)__phys_to_virt(pa_start);
- 		void *end = (void *)__phys_to_virt(pa_end);
- 
--		if (start >= end)
--			break;
+diff --git a/arch/arm/mm/kasan_init.c b/arch/arm/mm/kasan_init.c
+index c6625e808bf8..1f7c74c5df9e 100644
+--- a/arch/arm/mm/kasan_init.c
++++ b/arch/arm/mm/kasan_init.c
+@@ -262,12 +262,6 @@ void __init kasan_init(void)
+ 				&pa_start, &pa_end, &arm_lowmem_limit);
+ 			end = __va(arm_lowmem_limit);
+ 		}
+-		if (start >= end) {
+-			pr_info("Skipping invalid memory block %pa-%pa (virtual %p-%p)\n",
+-				&pa_start, &pa_end, start, end);
+-			continue;
+-		}
 -
- 		kasan_map_populate((unsigned long)kasan_mem_to_shadow(start),
- 				   (unsigned long)kasan_mem_to_shadow(end),
- 				   early_pfn_to_nid(virt_to_pfn(start)));
+ 		create_mapping(start, end);
+ 	}
+ 
 -- 
 2.43.0
 
