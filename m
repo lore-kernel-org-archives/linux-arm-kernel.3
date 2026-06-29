@@ -4,112 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADF56C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B65D9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OQSYL+rcbbMvXGkfQit/IeSyVBDzp7a1uiLZytls49o=; b=H39+aY/lZhN9g+cwU8kc4eU4J2
-	pY8IHcGX9KXwM5PaKlm5WLjRYzUk82l62OPorT4mCBdJMbYRkTGABJYcO8NqrsjNG/+W5LyiYk7xJ
-	kw3TSEY06BU5tznz0VYFf22dGqqyI81tgHYan09LrVFb2D8m2L7tV94yqd4+1o5WZIXNwYEgP3yWm
-	q6CmTIapomoblSldyaTNnnuUgvI/wZ3IbhNEXCe2l/d/MMh4l8R4zGc9GkAsWFsBomNDpHUx4BZR7
-	MVPPzw4eFCxzZfKpTBx2WLjOIMJzsxFmaezXi9qqPuePY4aQPTRiHrFyAchlCRP9qUOegl/0HCWh7
-	5If+O9MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3oRZ5aQ5DodvAzXjFA5ki97FOVUhhZpKpXU5ywaAli4=; b=r0v5Jf8WIgwAzPihCUhbtC2USK
+	18tw5slFCbELXbslbFfYVPXxUGscFFOjTG3w+mhbkx8zZOvunZ2iire7761cRLVSAoFWdjtCkBAk5
+	SninYvC0P+q2TjGdTf06FvaeO+DUt4CR2hD0vs7JNYYTZVq2/MFE5jg62cmg6SBx7o3VuAilqh8eD
+	jDCOoNjs34uKlx9UKVOXAFi1HKXeS9p69QgXDl9kyTeFh5sg9gfNIrtP6xYt2vZGvtRoEpH2RWsEH
+	jAEi5Z58bbPzlEvv9gCt9bdZMOITXWor1RIc4Jcmv9W/SXlmQ1DLEOI4EgS0tVzENEhoubntRjyjl
+	WpARbfZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEDr-0000000F7U3-1R2J;
-	Mon, 29 Jun 2026 15:48:35 +0000
-Received: from flow-b5-smtp.messagingengine.com ([202.12.124.140])
+	id 1weEEV-0000000F7he-2jpj;
+	Mon, 29 Jun 2026 15:49:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEDo-0000000F7T2-2VEk
+	id 1weEET-0000000F7gr-3mXz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:48:33 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id 7F8A013001E3;
-	Mon, 29 Jun 2026 11:48:31 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Mon, 29 Jun 2026 11:48:32 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1782748111;
-	 x=1782755311; bh=OQSYL+rcbbMvXGkfQit/IeSyVBDzp7a1uiLZytls49o=; b=
-	otExSv6CCfwgU+53OmRzfq2B2DYzwG97/7OG2yFVL9SLp2zuXWfhdL/w+7nIA4id
-	pS7hJpE+p/zM36qUEbCM1LqXAUyUGB34hT8s1CLctdvUhUl0w1ZhqpR2HIS3PV7o
-	bsnIFZBboF30NjRkOQ9UT+Q8NXhm9E13I7offTJ2aRcuG8r2Lm82KoHQohaMMwV5
-	1pog70vnywIoIEN8MJJPZBLCU4XXKtem9FHI/gOfgvqsBOGTC7GkxZFe5P2Lw2ga
-	yjsSm7K9GLJMBOqJ4k1/I3YVG3A8X1aWU9NyZdVYzw3BMgCE/ro9EeoLtAyGzeFK
-	Pl4J0bO7j6edaTVNsgNFEA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782748111; x=
-	1782755311; bh=OQSYL+rcbbMvXGkfQit/IeSyVBDzp7a1uiLZytls49o=; b=Z
-	P+OSo5yef9/cf64i9oZY96JMQWrkgDB3///chYutdOeJnhuCLMIQBthaTPJcoReA
-	A42wB43XIfLOAHZlUSZRrEWmaIkkJVPyR9ZrNj0Zg79fjHX5GNwFKh44vBnstNjs
-	+gKwPg044HSnH3p4e5kEU8/gJdXnd5J9rcJgbSl1CjuvG8G/lzCfuRrzQSuK0yFG
-	nAQ3o6X2C2t4pALrCSMONEpg+Bh0sXEMP7jMgbrh5fxsQE9kGxPzz2YGv3rx56Gv
-	vpRCb8LQ5USUCARnUKXaPOljl/bpYRFLx50FMB3vSHHH4V2/reUKPVgJULvxVire
-	Mkj0fQjdTFT7fm+9wEFeQ==
-X-ME-Sender: <xms:z5NCakeBygjeAHHHThz3dUsTnvB6AK_UVMjKz-WZKZVRr2lluk78FQ>
-    <xme:z5NCahCpYUk2lb8a1RbHVmyXeGBSy5l5DdSrmUr_uS7YYPkiTX-Ewa_wUd6Pe47oi
-    fqqLUBT-9g8HmIrQlngZpk17TUMnckWDzEtut6NIZEoxunmVuyUuWA>
-X-ME-Proxy-Cause: dmFkZTGx/zQGI8s/7q5psZd2hog4QvvLF8VyS3SEh6yndDN0NLF+SUROST5TuJaRfbYzsR
-    kRNLz+nZnLIWxTAnVDEiVI3LWMoT76m1NPebPhT28iJCWPXc0GO7oFLEPDfrdg9tfzroWb
-    HnrfV5e1jPmjz36LnDV+54JGw32aQMY40K1t7WiGcRFvXEmQH6xS4redW3l3jMN7eHVHXH
-    OMUBqc4hdT1AWM82wO5kRpwsYMYMv8K7MRSSgj1UrGhr0ZavzP88ve8YyHNE7ly6hSja/5
-    QiP/FqZsNFQZ34zbxnGfKyKytbn/wMNNFVGFjw0DXOPPa8n6XjB/fzcu7YZiP8PrvEJSOd
-    l8wa/9o9YFghE4nmtzEFNP5GHS4DgMKC4w2rG1ksKG4K1tNod94D3VEihl/RxyL9ohAzRZ
-    DV3gAxtenHg9Z5cQJzoBipUKZ9pqhmJudtox/jlSGg2Nc/v34rLMtOwqFKQfA1uoQshteX
-    Fj+AMNKhMnJ4QbvjVI2RQG1hwfF0E+t7vkI/rh/pkR03lll3huezz0P+7sfFgS0BBFEc4I
-    tgwdiyeO6AWLRMbzNKqGc2BGlgFQrUK3BgCvUK9m1iH9OEbmB8sUgFESS3o9AeJDZgiza+
-    QtMgrmbDhds3U+BZzmooK8ccK4+ZTU4CwBh9Kr050guMXdKmxiwbffVRqy2w
-X-ME-Proxy: <xmx:z5NCaqnslMw1U4x946I_QUjw_ET8HBcAAsdnOpVQMvFlVCBGjb5OEQ>
-    <xmx:z5NCatSrHaFps5ZyxX5SqaW3oWWvqcDK6TzS14FaET5Pf4npQ179sg>
-    <xmx:z5NCanXHY9GeHNVa3tjFzINJQ_mrCW-T7sCwo55oVGN2tZsh_Krxbw>
-    <xmx:z5NCars5LXs8k9icxryzzfrpvBcoTsGtWAAjyBjSc4vWQn2-iQYc8Q>
-    <xmx:z5NCarutsUgfjq0e6Ud1ZnN0qPM1Eju682i8umHuTCrQdRzm5WnqOIk6>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 215901820082; Mon, 29 Jun 2026 11:48:31 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 29 Jun 2026 15:49:13 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 044C6600C8;
+	Mon, 29 Jun 2026 15:49:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B5851F000E9;
+	Mon, 29 Jun 2026 15:49:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782748152;
+	bh=3oRZ5aQ5DodvAzXjFA5ki97FOVUhhZpKpXU5ywaAli4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Gfd9RbvbPXsLSqP0lUEsOp3xB2xlqWLZjP7NWREY79ckJqrMOope4VRt3d6Ix8J94
+	 OdJ+JASzEoNcySOm+QD+V1ZVT5fLuuDmehE+mDfnTdNX5G1H2pr4nf5eIYvop2I9p+
+	 tKVADe4UloR6Y3ice8H54orWM72mkyELoQMe49FvP3rD+joXCGOcF5hqosPJsE7Xic
+	 qk3qkj0HQnPbKk9p0XFQKrD8rzZJthZ81ElpDeBglmpqj4RRcBfs7vrpcBdfE0XqUF
+	 ZUh1l5LkFsLS/ZVqqhJWxfevuJVkKWdox7zERSnrHG6vOddshoXaa+CPsHfy533gXY
+	 xZJD+YOBqS4MQ==
+Date: Mon, 29 Jun 2026 16:49:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Stefan =?iso-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH RFC v5 00/12] ZTE zx297520v3 clock bindings and driver
+Message-ID: <20260629-unwelcome-raking-3df3d8ff0422@spud>
+References: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
 MIME-Version: 1.0
-X-ThreadId: A045QOfflcQ7
-Date: Mon, 29 Jun 2026 17:48:04 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Arnd Bergmann" <arnd@kernel.org>
-Cc: "Linus Walleij" <linusw@kernel.org>,
- "Bartosz Golaszewski" <brgl@kernel.org>,
- "Marcel Holtmann" <marcel@holtmann.org>,
- "MyungJoo Ham" <myungjoo.ham@samsung.com>,
- "Chanwoo Choi" <cw00.choi@samsung.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Andy Shevchenko" <andy@kernel.org>,
- "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Ulf Hansson" <ulfh@kernel.org>, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- dri-devel@lists.freedesktop.org, linux-i2c@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
- "linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-usb@vger.kernel.org
-Message-Id: <ff4d7043-1929-4fa1-ba5e-f28403ad6fcc@app.fastmail.com>
-In-Reply-To: <CAMuHMdXhsM4JzArRuB=A46N-Ogbn2Fans+PVJVA-hEytFq=DeQ@mail.gmail.com>
-References: <20260629135917.1308621-1-arnd@kernel.org>
- <CAMuHMdXhsM4JzArRuB=A46N-Ogbn2Fans+PVJVA-hEytFq=DeQ@mail.gmail.com>
-Subject: Re: [PATCH] [RFC] gpiolib: introduce gpio_name() helper
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_084832_699157_05E85104 
-X-CRM114-Status: GOOD (  13.28  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="O5wSEKtGIjQONlWl"
+Content-Disposition: inline
+In-Reply-To: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,52 +75,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026, at 17:29, Geert Uytterhoeven wrote:
-> On Mon, 29 Jun 2026 at 15:59, Arnd Bergmann <arnd@kernel.org> wrote:
->> From: Arnd Bergmann <arnd@arndb.de>
->>
->> Most remaining users of desc_to_gpio() only call it for printing debug
->> information.
->>
->> Replace this with a new gpiod_name() helper that returns the
->> gpio_desc->name string after checking the gpio_desc pointer.
->>
->> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
->
-> Thanks for your patch!
+--O5wSEKtGIjQONlWl
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for testing!
+On Sun, Jun 28, 2026 at 10:58:55PM +0300, Stefan D=F6singer wrote:
+> Hi,
+>=20
+> I am sending version 5 of my zx297520v3 clock patch. The major change is=
+=20
+> using regmaps rather than raw mmio to access the clocks and moving reset=
+=20
+> handling into its own mfd/aux bus driver.
+>=20
+> I think the list of clocks in my driver is fairly complete; It is=20
+> certainly a lot better than what the downstream ZTE drivers have. I=20
+> deduced a lot of it by trial and error. I am sure there are some clocks=
+=20
+> missing that will need to be added to the binding later. Afaiu adding=20
+> clocks is not an issue, but removing or reordering them is an ABI break.
 
->> --- a/drivers/gpio/gpio-aggregator.c
->> +++ b/drivers/gpio/gpio-aggregator.c
->> @@ -758,8 +758,8 @@ int gpiochip_fwd_desc_add(struct gpiochip_fwd *fwd, struct gpio_desc *desc,
->>
->>         fwd->descs[offset] = desc;
->>
->> -       dev_dbg(chip->parent, "%u => gpio %d irq %d\n", offset,
->> -               desc_to_gpio(desc), gpiod_to_irq(desc));
->> +       dev_dbg(chip->parent, "%u => gpio %s irq %d\n", offset,
->> +               gpiod_name(desc), gpiod_to_irq(desc));
->>
->>         return 0;
->>  }
->
-> Before, this printed:
->
->     gpio-aggregator gpio-aggregator.1: 0 => gpio 589 irq 188
->     gpio-aggregator gpio-aggregator.1: 1 => gpio 590 irq 189
->
-> After, this prints:
->
->     gpio-aggregator gpio-aggregator.1: 0 => gpio (null) irq 188
->     gpio-aggregator gpio-aggregator.1: 1 => gpio (null) irq 189
->
-> Same results for instantiation using sysfs or configfs[1], although
-> the latter does have optional support for specifying the name.
+Correct, you can add whatever you want as long as the existing defines
+do not change.
 
-I wonder how many of the other instances have the same problem
-then. Would it be appropriate for gpiochip_fwd_desc_add() to set
-a name itself to address this one?
+> Signed-off-by: Stefan D=F6singer <stefandoesinger@gmail.com>
+> ---
+> Changes in v5:
+> *) Use MFD instead of aux bus for top and matrix clocks
+> *) Move top and matrix bindings to soc/zte
+> *) Give USB PHY its own resets
+> *) Other localized changes are noted in the individual patches
+> - Link to v4: https://lore.kernel.org/r/20260616-zx29clk-v4-0-ca994bd22e9=
+d@gmail.com
 
-       Arnd
+Bindings seem fine to me, I'll be happy to give you some r-b tags when
+you go non-RFC. To be frank, I think you should drop them as you've got
+no significant questions here I think and you'll be taken a bt more
+seriously.
+
+--O5wSEKtGIjQONlWl
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakKT9AAKCRB4tDGHoIJi
+0j1nAQC8UKToEPcgGe2lQI+bacVo1EY2NlTAV7wfcqqKDpoI9gD/XHc3WrLY3p5V
+8g0f/QWBENwoSU7VMsipqaDQhqljhAQ=
+=Nih3
+-----END PGP SIGNATURE-----
+
+--O5wSEKtGIjQONlWl--
 
