@@ -4,85 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77520C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:28:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BD0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:30:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZvz0aou+WZ6xfcW7DezVt52N1axyhsLIrxTaxT5eWc=; b=obaol8gxvyGp4LYHABGWiWtpkh
-	06qLjevAB6texGk6u0RAjh+bg7JEFWfRfSrNP3ktZqUUiHcm7CCHDCT1sd/bk3erqWs7v+XvwMwKR
-	MTyhxP6TUK4uPn2MFZaZahIO/g2CC8tP61kpXOWY0lt9R7RjdYTZpPuAzHmka4liX5/2ng5kMrhY1
-	MAAP3zF6SRMEzkJOl5SQ8C+1wgiGJUNafT54b4cOBAT/HrfrsnM83vWqDjzBa+XEs3WCv8ospFwbw
-	A8jZe4KI+G1YYCmkOtRmf2F54PPKXoM8iw77xu9aI6XUojx1AzgcrgwCudaSdv5LxIVuJDMy6QtwX
-	CNP3Fcyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JEmazexdEjQceaq8RuFjuuddx0SGFge2E+F8Vah1LAI=; b=xCpMR3s7WiUhT6HJdukil/qpyD
+	QTUSCp7MQOK1pNGc1KGRstbrItKTTxOvzGL1I1D388JhF/5Q9qV6gc6D3RVQsM/kqpg1urIsi8G3P
+	ljkyRXKB6fH9sJBkQXCcPyNEwt9UI+FKL57n2tH4ct0TVu6xjw2WoF0FUzRKaGu4wfTt+T/GoCAhv
+	ZR5pcXe1KTLhKUST9e9ZwOtb8KNQiwVI5dgNUzpRmglS+1ROmiHHlRujCehyAneAE9cKhqoqx8Eav
+	lctjJkQBcMxC5iEdmWzEQs2DS8nSPml12+kDlHPLwLa/IaD9RXB1JxCCvhzyPZYya1escbZB3VlS/
+	n8WrwVvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6Q6-0000000DtPh-0stj;
-	Mon, 29 Jun 2026 07:28:42 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1we6RH-0000000Du9S-3lwS;
+	Mon, 29 Jun 2026 07:29:55 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6Q2-0000000DtJx-29ok
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 07:28:40 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A0E1F1A0C9B;
-	Mon, 29 Jun 2026 07:28:34 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 684445FF96;
-	Mon, 29 Jun 2026 07:28:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60445106F1504;
-	Mon, 29 Jun 2026 09:28:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782718113; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=rZvz0aou+WZ6xfcW7DezVt52N1axyhsLIrxTaxT5eWc=;
-	b=uJzRZS/e5R+g0fsbl5WTvQKTKVP43DQ+Fv4j4TKDsgOU03SLdpkMV/v/dIA5Ic3OLuSXl4
-	jStlfqA4nT5HzgjPB5OzmeZ8UOlDgwJr2ZW1jfw9G2xQjPjZSd6mFulSBLZq8aU8LG+Y58
-	jvMQi1v7a26BOOnPUZHJvRVr6+7Mq56EPv//Z1knFTFGzxgb6XV7w0Y43h94fndPuac8cj
-	n71jYXg7dbiuVaavrBCRORkBtZrSZW0aUp/s0ZRcbALbE5Zs721ShQIHjGC9SusDZsHrRR
-	Xs9sWzc5aOHJ02GwWiC5LkR19929fMNP1ZJdo4SgYzXHPDg46qqsXYoRWbrgpA==
-Message-ID: <af735626-e376-453e-b215-6d0eddd5868e@bootlin.com>
-Date: Mon, 29 Jun 2026 09:28:23 +0200
+	id 1we6RF-0000000Du8R-2RNx;
+	Mon, 29 Jun 2026 07:29:55 +0000
+X-UUID: 4e416cac738c11f1a87c2323a98e90a4-20260629
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:907641b7-04f5-4a01-97d9-06b208054f42,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:8d139912-9a7e-42e1-81ab-466f1025c889,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
+	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
+	:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4e416cac738c11f1a87c2323a98e90a4-20260629
+Received: from sdmg11.sdbg.compal.com [(10.113.168.9)] by tpecef22.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 455135195; Mon, 29 Jun 2026 15:29:47 +0800
+X-UUID: 4ad2ccaa738c11f1b328fd8a884f4420-20260629
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:1fa9fa6c-31b0-4637-8a18-3b434aa4d833,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:64f40748-b183-4e35-bd22-a1c52f713e18,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
+	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
+	:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 4ad2ccaa738c11f1b328fd8a884f4420-20260629
+Received: from sdbmbx13.tpe.compalcomm.com [(10.113.2.137)] by sdmg11.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES128-SHA 128/128)
+	with ESMTP id 160527563; Mon, 29 Jun 2026 15:29:41 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX13.tpe.compalcomm.com (10.113.2.137) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.29;
+ Mon, 29 Jun 2026 15:29:39 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::7d1b:448d:4d95:51b0]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::7d1b:448d:4d95:51b0%11]) with mapi id
+ 15.02.2562.029; Mon, 29 Jun 2026 15:29:39 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
+	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
+ Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
+	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [External Mail] Re: [PATCH v3 3/7] net: wwan: t9xx: Add control
+ DMA interface
+Thread-Topic: [External Mail] Re: [PATCH v3 3/7] net: wwan: t9xx: Add control
+ DMA interface
+Thread-Index: AQHdA/S+CwMCW7pQiESBKr0/82m1rbZVKgXn
+Date: Mon, 29 Jun 2026 07:29:39 +0000
+Message-ID: <970c47c350314cd3804cf89c782ac0f6@compal.com>
+References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
+ <20260624-t9xx_driver_v1-v3-3-73ff03f60c48@compal.com>,<dc007021-9013-47b2-b06a-fe4a50d26722@lunn.ch>
+In-Reply-To: <dc007021-9013-47b2-b06a-fe4a50d26722@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30036.005
+x-tm-as-result: No-10--8.478700-8.000000
+x-tmase-matchedrid: q6+TWfRxf4cuv++HU7VXryRFbfQbCufdN0X64jGy2db7+pncqRJfyyKW
+	8VJRcYq50d8wVypPKQLFjZEb2XXb3XkHMxUIdlxLbSejuH+Mi12dVbkPpTjx96zU/PXAxei4Rwv
+	rUDOnxbSG4JQWzp0ZirEQ0+Zqfe0ecXL3P3dqoBwKonRFsndtvW3OCu/eDpHU46a484IITvqB4k
+	+feVEvLIV5aJP42NR/UqXCEoYB+d2eLwfnJiUpL5GPSO6O5JCao4NJa7SjFsrXNxRQEjCxuVo7G
+	mCOJYd1O50T9A74HCu2FEUBwKd8yqnVdfVjtgB0tC7XpKGqhd4X0Ptm/gKnCihqD7a/0RgVmiaa
+	avfjQzE=
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--8.478700-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30036.005
+x-tm-snts-smtp: F486DDB1691634C44801D42887E841FF8D7C96BF50693F24AC5918CFE8BC784F2000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH net-next v8 03/12] net: phylink: add
- phylink_release_pcs() to externally release a PCS
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Heiner Kallweit
- <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Saravana Kannan <saravanak@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor
- <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- llvm@lists.linux.dev
-References: <20260618125752.1223-1-ansuelsmth@gmail.com>
- <20260618125752.1223-4-ansuelsmth@gmail.com>
- <a271385e-302d-45c7-a1df-aebd380b427b@bootlin.com>
- <6a3fc312.6161eb1e.3441bb.c0de@mx.google.com>
- <178defc6-8e60-4b0b-b3b0-f0f2a4003b68@bootlin.com>
- <6a421c2d.1e0bfc4f.b2eb6.06fb@mx.google.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <6a421c2d.1e0bfc4f.b2eb6.06fb@mx.google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_002838_706874_864F5358 
-X-CRM114-Status: UNSURE (   5.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_002954_003455_BC64E96F 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,26 +136,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/29/26 09:18, Christian Marangi wrote:
-
-> Nobody stops from implementing custom parser in fill_available_pcs and
-> return a PCS pointer created directly by the MAC. (In such case late and
-> release won't be needed as everything is present when phylink_create is
-> called)
-
-Ah alright :)
-
-So my only request then would be to update the phylink porting guide to at
-least point to the PCS documentation you're adding to say that the select_pcs()
-op is deprecated :
-
-https://docs.kernel.org/networking/sfp-phylink.html#rough-guide-to-converting-a-network-driver-to-sfp-phylink
-
-Thanks,
-
-Maxime
-
->
+SGkgQW5kcmV3LA0KDQo+ID4gK3N0YXRpYyBpbmxpbmUgdm9pZCBtdGtfY2xkbWFfY2xyX2JkX2Rz
+YyhzdHJ1Y3QgY2xkbWFfZHJ2X2luZm8gKmRydl9pbmZvLA0KPiA+ICsJCQkJCXN0cnVjdCBiZF9k
+c2MgKmJkX2RzY19wb29sLCBpbnQgbnJfYmRzKQ0KPg0KPiBObyBpbmxpbmUgZnVuY3Rpb25zIGlu
+IEMgZmlsZXMuIFBsZWFzZSBsZXQgdGhlIGNvbXBpbGVyIGRlY2lkZS4NCg0KV2lsbCByZW1vdmUg
+aW5saW5lIGZyb20gYWxsIHN0YXRpYyBmdW5jdGlvbnMgaW4gLmMgZmlsZXMuDQoNCj4gPiArCQli
+ZF9kc2MtPnNrYiA9IF9fZGV2X2FsbG9jX3NrYihyZXEtPmZyYWdfc2l6ZSwgR0ZQX0tFUk5FTCk7
+DQo+ID4gKwkJaWYgKCFiZF9kc2MtPnNrYikgew0KPiA+ICsJCQlkZXZfd2FybigobWRldiktPmRl
+diwgIkZhaWxlZCB0byBhbGxvYyBTS0JcbiIpOw0KPg0KPiBZb3UgbWlnaHQgd2FudCB0byByYXRl
+IGxpbWl0IHRoaXMsIGFuZCB0aGUgb3RoZXIgc2ltaWxhciBtZXNzYWdlcyBpbg0KPiB0aGUgZGF0
+YSBwYXRoLCBvdGhlcndpc2UgaXQgY291bGQgYmUgYSBET1MuDQoNCldpbGwgc3dpdGNoIHRvIGRl
+dl93YXJuX3JhdGVsaW1pdGVkKCkgZm9yIGRhdGEgcGF0aCB3YXJuaW5ncy4NCg0KPiA+ICsJfSB3
+aGlsZSAoKytjbnQgPCAxMCk7DQo+DQo+IFBsZWFzZSB1c2Ugb25lIG9mIHRoZSBoZWxwZXJzIGZy
+b20gaW9wb2xsLmguDQoNCldpbGwgcmVwbGFjZSB3aXRoIHJlYWRfcG9sbF90aW1lb3V0KCkgaW4g
+djQuDQoNCj4gPiArCQkJZGV2bV9rZnJlZSh0cmFucy0+bWRldi0+ZGV2LCBzcnZfcXVlKTsNCj4N
+Cj4gSXQgaXMgdW51c3VhbCB0byBzZWUgZGV2bV9rZnJlZSgpLiBXaHkgaXMgaXQgbmVlZGVkPw0K
+DQpXaWxsIHJlbW92ZSByZWR1bmRhbnQgZGV2bV9rZnJlZSgpIGNhbGxzIGFuZCBsZXQgZGV2cmVz
+IGhhbmRsZQ0KY2xlYW51cCBvbiBwcm9iZSBmYWlsdXJlLg0KDQo+ID4gK3N0YXRpYyB1bnNpZ25l
+ZCBpbnQgY3RybF9wb3J0X2NobF9tdHU7DQo+DQo+IElzIHRoaXMgYSBnbG9iYWwgdmFyaWFibGU/
+IFdoeSBpcyBpdCBub3QgcGFydCBvZiBwcml2Pw0KDQo+ID4gK21vZHVsZV9wYXJhbShjdHJsX3Bv
+cnRfY2hsX210dSwgdWludCwgMDY0NCk7DQo+DQo+IE5vIG1vZHVsZXMgcGFyYW1ldGVycyBwbGVh
+c2UuIElmIHRoaXMgaXMgYW4gTVRVLCB3aHkgbm90IHVzZSB0aGUNCj4gbm9ybWFsIG5ldHdvcmtp
+bmcgaW50ZXJmYWNlcyB0byBzZXQgdGhlIE1UVT8NCg0KV2lsbCByZW1vdmUgdGhlIG1vZHVsZSBw
+YXJhbWV0ZXIgZW50aXJlbHkuIFRoZSBjb250cm9sIHBvcnQgTVRVDQppcyBkZXRlcm1pbmVkIGJ5
+IHRoZSBkZXZpY2UgZHVyaW5nIGhhbmRzaGFrZS4NCg0KVGhhbmtzLg0KDQpKYWNrIFd1
 
