@@ -4,69 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC0C7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:50:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFD6C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 07:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qylp1+q58BKXjVYMlUJn3x4tvz3kf67QuXXQvLn3hVQ=; b=TYSkMOIulI95hUEe2OMS8qTkHa
-	qAZ+jqckuNyjXAk0v04CtHtsttUH2PNjBofRA3G9WhhFhvMvi0kcdjAivGdC6fLDShBfRgmH/xvAn
-	dj/IpYjrg9ixvYd5SA7i6ttEJYxkX6CSLNfxbNmqJdZRw98eaTPMze2WS/qisOWbuDkZ20icIEfNL
-	pWiCwgy8nfjHpzTgID6XXKRwYimtGKNi57LyIFAwwyUSI+lThstib3L5IQhaTN3Glh35S0vQdCnjA
-	/qhWhjY3icdiAvK+S/DoLFEcV1XqD5Y7tXLzXSW6mKnNc0Q6GlronMtLYTI+wkJCMTcKLjjK3Cple
-	eX5VHtGw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cPiVm/POc525L8s9glUzpjL+CFJkccwDY2Mj9g/KCgo=; b=awvz0qhkYbrf1KafB50Oj279+r
+	WU+Lhnc7lWfi9uCInm/5wB83rLfa0mF44M6/FwrBBNPEoJwXdPwbH3sUTVCGphPPMi0XCUNuGVce0
+	EeJxY6hSoWktnsub5T5ACWRFI8GA4SyXsFa5J5fH8Rh5rDIhDpVeRG1++v9lb1g2o9TiP2zdXMo9b
+	sbeCanuMcstk8X/kuGji806/OOUqCITqFLeRSVyxh++wMdBRDwmHlBLKLsrpFuixfnKst/aZd7qLn
+	rCv7lVhkfY+IhWMg78AXDszOHNAbGH/8BOEEeTpccMFCFhpVV03XnDe/itIbvF6Z5aKRi3x7AE7SU
+	IWHohOYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6l4-0000000Dx7Z-3JRV;
-	Mon, 29 Jun 2026 07:50:22 +0000
-Received: from dd54918.kasserver.com ([85.13.167.58])
+	id 1we6na-0000000DxGp-3HEE;
+	Mon, 29 Jun 2026 07:52:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we6l1-0000000Dx5k-30Qj
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 07:50:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=karo-electronics.de;
-	s=kas202603021246; t=1782719411;
-	bh=Qylp1+q58BKXjVYMlUJn3x4tvz3kf67QuXXQvLn3hVQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ecw7erenvWIYPBx2V7ZPPuTiP0QJvB7JeAWgS4GWnn8/503xZok/8BGzb9DeXRFBc
-	 XeC7jO4MWatNjCHC1ECcBW6XrZdV0OBa382Qs/IVNEJ5dgLX3G92WP+J1ri7YIyWer
-	 dwai6hyb94q6EmVN0GrRTOkeBo/h0lefqhkodnLOH1A79zFz1cvQTTHVYCYQsOCsz1
-	 c62YtKjIwpqQE3i0RhHvCf2yilcCcl4J95W3ejucUfo5okw7f5V89GB8iMAPWRex8x
-	 ZZ1n2IpEQXDTL/6Gfp4KBftpnC4mSJJIA2vDTx0WN8aEMFIQMHm9Gls1wkkKm9TBcP
-	 0b7q1/LHFGtGQ==
-Received: from karo-electronics.de (unknown [89.1.81.74])
-	by dd54918.kasserver.com (Postfix) with ESMTPSA id 8485F7722430;
-	Mon, 29 Jun 2026 09:50:10 +0200 (CEST)
-Date: Mon, 29 Jun 2026 09:50:09 +0200
-From: Lothar =?UTF-8?B?V2HDn21hbm4=?= <LW@KARO-electronics.de>
-To: pankaj.gupta@oss.nxp.com
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Frank
- Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- Pankaj Gupta <pankaj.gupta@nxp.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Frieder Schrempf
- <frieder.schrempf@kontron.de>, kernel test robot <lkp@intel.com>,
- sashiko-bot <sashiko-bot@kernel.org>
-Subject: Re: [PATCH v26 3/7] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Message-ID: <20260629095009.3256f956@karo-electronics.de>
-In-Reply-To: <20260629-imx-se-if-v26-3-146446285744@nxp.com>
-References: <20260629-imx-se-if-v26-0-146446285744@nxp.com>
-	<20260629-imx-se-if-v26-3-146446285744@nxp.com>
-Organization: Ka-Ro electronics GmbH
+	id 1we6nY-0000000DxFa-0x8n;
+	Mon, 29 Jun 2026 07:52:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A7179600AA;
+	Mon, 29 Jun 2026 07:52:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4FD52C2BCB8;
+	Mon, 29 Jun 2026 07:52:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782719575;
+	bh=5km4NmuYF9DScyquNyhzgnIdcqYff1K4clJTIfXF2U8=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=h0FFBMOU/GYZC6i0PCy8lSk6gzKWJOKtVOZ33jhhz/hpd9ZX0U+6G/hjRagPP0Suz
+	 FuoPp7sqD1VgDH1tk3AVeb5mEMEELSMH2EjGqnNdJizLNeNI5DXrJ8hjhwuavFu3ZG
+	 IcPuxIg4P8zszmfG6v1H0VoUHa4rYM7gUmK6Gu8jAQFBOyCuxDLYGwjP7JGW4w5GRJ
+	 q8eO2HRQ8vUrwgrO3Tw6dAFRu5R3NJWc/0V5A3RoCgmGtqPn7ruREtB3R0rfaw1UML
+	 +TlBYL2P4N6k4dxAL/BthJHaf1vXZ88cp74LMGAUx4tSINsWB13ZZl8+3eJV3Wfkcu
+	 qUiJ0SKimZhwA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 3075EC43458;
+	Mon, 29 Jun 2026 07:52:55 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Mon, 29 Jun 2026 07:52:53 +0000
+Subject: [PATCH v2] arm64: dts: amlogic: add some device nodes for A9
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Spamd-Bar: /
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_005020_219299_BB72866B 
-X-CRM114-Status: GOOD (  16.97  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260629-a9-node-v2-1-dadd3401fccb@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAFQkQmoC/2XMQQrCMBCF4auUWTuSRInElfeQLqbppB2wjSQSl
+ JK7G7t1+T8e3waZk3CGa7dB4iJZ4trCHDrwM60To4ytwShjlTUOyeEaR8YT2+B5oIt3Ctr7mTj
+ Ie5fufetZ8iumzw4X/Vv/jaJR49mEYEl5bWm40fKIk/ijjwv0tdYvVP6iHaAAAAA=
+X-Change-ID: 20260629-a9-node-3e6fceba7c90
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782719573; l=5518;
+ i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
+ bh=4hEc0Y3kJi0oLWhBei8MgVtCOquaYcl8dUAJU9UbQBo=;
+ b=DlbUk+TTjIUALWf5L5T56AOLfQA4dYtobtp6v0o1p/if76zO5DUT8ikuqbEEWI1i6OBSakAyI
+ /SelcFZcKfGAkrtrlAZ0doTeS2BxFk5/n5x+Z2zyzIqOc8UI7MlmARi
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
+ auth_id=578
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,64 +85,198 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-On Mon, 29 Jun 2026 17:51:59 +0530 pankaj.gupta@oss.nxp.com wrote:
-> From: Pankaj Gupta <pankaj.gupta@nxp.com>
->=20
-> Add MU-based communication interface for secure enclave.
->=20
-> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are
-> embedded in the SoC to support the features like HSM, SHE & V2X, using
-> message based communication interface.
->=20
-> The secure enclave FW communicates with Linux over single or multiple
-> dedicated messaging unit(MU) based interface(s).
-> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
->=20
-> For i.MX9x SoC(s) there is at least one dedicated ELE MU(s) for each
-> world - Linux(one or more) and OPTEE-OS (one or more).
->=20
-[...]
-> +	ret =3D se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
-> +				  ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ,
-> +				  true);
-> +	if (ret)
-> +		goto exit;
-[...]
-> +/* Fill a command message header with a given command ID and length in b=
-ytes. */
-> +static inline int se_fill_cmd_msg_hdr(struct se_if_priv *priv, struct se=
-_msg_hdr *hdr,
-> +				      u8 cmd, u32 len, bool is_base_api)
-> +{
-> +	hdr->tag =3D priv->if_defs->cmd_tag;
-> +	hdr->ver =3D (is_base_api) ? priv->if_defs->base_api_ver : priv->if_def=
-s->fw_api_ver;
-> +	hdr->command =3D cmd;
-> +	hdr->size =3D len >> 2;
-> +
-> +	return 0;
-> +}
->
-I don't see a point in having a function always return zero and
-implement error checks that will never be used.
+Add pinctrl and irqchip-gpio device nodes for A9 SoC.
 
-[...]
-> +static const struct of_device_id se_match[] =3D {
-> +	{ .compatible =3D "fsl,imx8ulp-se-ele-hsm", .data =3D &imx8ulp_se_ele_h=
-sm},
-> +	{ .compatible =3D "fsl,imx93-se-ele-hsm", .data =3D &imx93_se_ele_hsm},
-> +	{},
->
-Since the last entry in this array must be a NULL entry, there should be
-no comma after the {}. This will generate a compile error if (e.g. by
-patch conflict resolution) an entry is added after the end marker.
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+---
+Add pinctrl and irqchip-gpio device node for A9.
+---
+Changes in v2:
+- Reorder device node by address.
+- Link to v1: https://lore.kernel.org/r/20260629-a9-node-v1-1-42ff6a0c16ab@amlogic.com
+---
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi | 140 ++++++++++++++++++++++++++++
+ 1 file changed, 140 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+index 660c8556a864..b0e0fadeed82 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+@@ -6,6 +6,7 @@
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/pinctrl/amlogic,pinctrl.h>
+ 
+ / {
+ 	interrupt-parent = <&gic>;
+@@ -97,6 +98,95 @@ soc {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
++		apb: bus@fe000000 {
++			compatible = "simple-bus";
++			reg = <0x0 0xfe000000 0x0 0x480000>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges = <0x0 0x0 0x0 0xfe000000 0x0 0x480000>;
++
++			periphs_pinctrl: pinctrl@4000 {
++				compatible = "amlogic,pinctrl-a9";
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges = <0x0 0x0 0x0 0x4000 0x0 0x340>;
++
++				gpioz: gpio@c0 {
++					reg = <0 0xc0 0 0x20>, <0 0x18 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Z<<8) 16>;
++				};
++
++				gpiox: gpio@100 {
++					reg = <0 0x100 0 0x24>, <0 0xc 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_X<<8) 18>;
++				};
++
++				gpioh: gpio@140 {
++					reg = <0 0x140 0 0x20>, <0 0x2c 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_H<<8) 8>;
++				};
++
++				gpiom: gpio@1a0 {
++					reg = <0 0x1a0 0 0x20>, <0 0x20 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_M<<8) 8>;
++				};
++
++				gpiob: gpio@240 {
++					reg = <0 0x240 0 0x20>, <0 0x0 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_B<<8) 14>;
++				};
++
++				gpioa: gpio@280 {
++					reg = <0 0x280 0 0x24>, <0 0x40 0 0xc>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_A<<8) 20>;
++				};
++
++				gpioy: gpio@2c0 {
++					reg = <0 0x2c0 0 0x20>, <0 0x30 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_Y<<8) 10>;
++				};
++
++				gpiocc: gpio@300 {
++					reg = <0 0x300 0 0x20>, <0 0x14 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&periphs_pinctrl 0 (AMLOGIC_GPIO_CC<<8) 2>;
++				};
++			};
++
++			gpio_intc: interrupt-controller@4080 {
++				compatible = "amlogic,a9-gpio-intc",
++					     "amlogic,meson-gpio-intc";
++				reg = <0x0 0x4080 0x0 0x20>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				amlogic,channel-interrupts =
++					<10 11 12 13 14 15 16 17 18 19 20 21>;
++			};
++		};
++
+ 		gic: interrupt-controller@ff800000 {
+ 			compatible = "arm,gic-v3";
+ 			#interrupt-cells = <3>;
+@@ -114,6 +204,56 @@ aobus: bus@ffa00000 {
+ 			#size-cells = <2>;
+ 			ranges = <0x0 0x0 0x0 0xffa00000 0x0 0x100000>;
+ 
++			aobus_pinctrl: pinctrl@4000 {
++				compatible = "amlogic,pinctrl-a9";
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges = <0x0 0x0 0x0 0x4000 0x0 0x0e0>;
++
++				gpioao: gpio@1c {
++					reg = <0 0x1c 0 0x20>, <0 0x0 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_AO<<8) 13>;
++				};
++
++				gpioc: gpio@3c {
++					reg = <0 0x3c 0 0x20>, <0 0x10 0 0x4>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_C<<8) 7>;
++				};
++
++				gpiod: gpio@5c {
++					reg = <0 0x5c 0 0x24>, <0 0x8 0 0x8>;
++					reg-names = "gpio", "mux";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_D<<8) 18>;
++				};
++
++				test_n: gpio@c0 {
++					reg = <0 0xc0 0 0x20>;
++					reg-names = "gpio";
++					gpio-controller;
++					#gpio-cells = <2>;
++					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
++				};
++			};
++
++			gpio_ao_intc: interrupt-controller@4080 {
++				compatible = "amlogic,a9-gpio-ao-intc",
++					     "amlogic,meson-gpio-intc";
++				reg = <0x0 0x4080 0x0 0x34>;
++				interrupt-controller;
++				#interrupt-cells = <2>;
++				amlogic,channel-interrupts =
++					<384 385 386 387 388 389 390 391 392 393
++					394 395 396 397 398 399 400 401 402 403>;
++			};
++
+ 			uart_b: serial@1e000 {
+ 				compatible = "amlogic,a9-uart",
+ 					     "amlogic,meson-s4-uart";
+
+---
+base-commit: 3d5670d672ae08b8c534b7beed6f57c8b44e7b43
+change-id: 20260629-a9-node-3e6fceba7c90
+
+Best regards,
+-- 
+Xianwei Zhao <xianwei.zhao@amlogic.com>
 
 
-
-Lothar Wa=C3=9Fmann
 
