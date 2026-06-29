@@ -4,86 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32DCDC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 01:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02093C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 01:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7rX64/yu/OhWoqaAPGRmOa806yP0CYEXLXKtENt1Bg4=; b=pFDgxg+xyhz7CC01a3g1riT63a
-	Aqj1f5FWO1BNGPw7xrM/gpt1/vrMxNQEbikCWlocH/B0/VJe1hz15IIgTZNFF7lC9vlEupSrLXz60
-	lMv6Ar7ZwVNMrpd9Fx6Nm58AbAtNrSuoncVONHJZ7aqBOAc1Hl6knXEKQtjPVszQs00BNU/mc9wI0
-	qwpZh94U0ayb3vNNlpRBODGngNyWllx4l3GpqI78OKvMs9n2xvNaAwDHuOi1a0UBWjP97vR/RJ4JT
-	lNi/6P9xHnUGIwye6s/4whteOL0IbWtVU9DhtPAn5O5xfybSAwyOnQv8xYh0KPoGxZDlZFbHqpNNy
-	ZCCzSxTQ==;
+	bh=W782AbfO1D1R5eEJlgStJCNw/OtsvmDShB2b7uB9ZM8=; b=4XYzo9NN1fp5U/du34uvS8At7i
+	HRc3UGPNHgckEv1TYI7aDP1OvxyramKUhqEAcKSdmopTN7+ZhTjWbGOKOwmy9/cb0SZ5VzZZkZ/sM
+	TGTGb9mgNi7kPbVjMiX1WC+thE8+B8soic8ddL8mXhfuXKWSvQRYoT77rHMrB2kGtBhZ3iEuiGT39
+	Pa6tatueMalcGmJJ8KF1SLNY1BYlCRMsh4TOZq3wICtGbNzINTfHekxx6V0iViqaE0h/gBBTQe8Op
+	3Eolr2ErnmgWh5GB+yRu7Ryk8eA4Vz+wtyUQ07SR4TmB1TEz9x0ehD62nq0y70e98/o2LSKZI77bn
+	mSMRGR+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we0oU-0000000DXh8-3lhB;
-	Mon, 29 Jun 2026 01:29:30 +0000
-Received: from mail-m1085.netease.com ([154.81.10.85])
+	id 1we1BX-0000000DYPS-3PUQ;
+	Mon, 29 Jun 2026 01:53:19 +0000
+Received: from mail-m82213631.xmail.ntesmail.com ([8.221.36.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we0oR-0000000DXgH-0UmT;
-	Mon, 29 Jun 2026 01:29:29 +0000
-Received: from [172.16.12.90] (unknown [61.154.14.86])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 4413e3e2e;
-	Mon, 29 Jun 2026 09:29:10 +0800 (GMT+08:00)
-Message-ID: <56c6abb8-c127-449f-9368-12f94620c2bc@rock-chips.com>
-Date: Mon, 29 Jun 2026 09:29:08 +0800
+	id 1we1BQ-0000000DYOL-1wst;
+	Mon, 29 Jun 2026 01:53:18 +0000
+Received: from [172.16.12.74] (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 4414d26eb;
+	Mon, 29 Jun 2026 09:53:02 +0800 (GMT+08:00)
+Message-ID: <cb533b04-e550-4eb4-8a8f-6d17c3d43a48@rock-chips.com>
+Date: Mon, 29 Jun 2026 09:53:02 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 1/9] drm/bridge: Implement generic USB Type-C DP HPD
- bridge
-To: Xu Yang <xu.yang_2@oss.nxp.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>
-Cc: Chaoyi Chen <kernel@airkyi.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
- Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, Hugh Cole-Baker <sigmaris@gmail.com>,
- linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- dri-devel@lists.freedesktop.org
-References: <20260304094152.92-1-kernel@airkyi.com>
- <20260304094152.92-2-kernel@airkyi.com>
- <erx73m2ueuvbzjteadjli6aki5by4pr3hyertkkqqoqwhaa4v3@5cstmshcercx>
+Subject: Re: [PATCH v5 3/4] drm/bridge: analogix_dp: Add validation for
+ samsung,lane-count property
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andrzej.hajda@intel.com, neil.armstrong@linaro.org,
+ rfoss@kernel.org, Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, nicolas.frattaroli@collabora.com,
+ cristian.ciocaltea@collabora.com, sebastian.reichel@collabora.com,
+ dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
+ m.szyprowski@samsung.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260604085220.2862986-1-damon.ding@rock-chips.com>
+ <20260604085220.2862986-4-damon.ding@rock-chips.com>
+ <178249136513.1374898.11400378046460567437.b4-review@b4>
 Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <erx73m2ueuvbzjteadjli6aki5by4pr3hyertkkqqoqwhaa4v3@5cstmshcercx>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9f10fea08b03a7kunmf966b99e214af0
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <178249136513.1374898.11400378046460567437.b4-review@b4>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9f11147a4003a8kunm26f77d9422c470
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaSBgaVhpDH0kaHhhKTh4ZTlYVFA
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZGExMVh5DSUkaHRpOSUtLT1YVFA
 	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSE
 	pKQk1VSktLVUpCWQY+
 DKIM-Signature: a=rsa-sha256;
-	b=bc5KtQ7UrGKUA1rijDG/0B4GnAe4Tbk7iG+1XzHoKWSacIyQrLgRn/wZx/UCpNfTXWV4YMlY+zS699AajY0KFrqU8mPgVl3OdvBTceFp8y15yVHWma3EgFqkkQYhFlnRAVXl6lg8VchEaO+B6yHrFQ3CnqvDkdKPMtnFtZ92LDI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=7rX64/yu/OhWoqaAPGRmOa806yP0CYEXLXKtENt1Bg4=;
+	b=Jy7T/u28jP/+4T2VA2B9kxcFXAX9Dsq0ShxLHsURI3PTBcA0yO9T5KXoRBqEUSEuSuuttXE1GmOzP+PWv7OtI23helQrMLrSBkS5sop9hRxcLvUyMJF8AERH+JkKsMXw9cy7+oLAcg8pQYGhVPkRyg/D5ZPafYOGQAK8JHC5ptI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=W782AbfO1D1R5eEJlgStJCNw/OtsvmDShB2b7uB9ZM8=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260628_182927_753149_0C378CA8 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20260628_185313_834655_9A72A425 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,99 +82,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Xu Yang,
+Hi Luca,
 
-On 6/26/2026 7:15 PM, Xu Yang wrote:
-> On Wed, Mar 04, 2026 at 05:41:44PM +0800, Chaoyi Chen wrote:
->> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->>
->> The HPD function of Type-C DP is implemented through
->> drm_connector_oob_hotplug_event(). For embedded DP, it is required
->> that the DRM connector fwnode corresponds to the Type-C port fwnode.
->>
->> To describe the relationship between the DP controller and the Type-C
->> port device, we usually using drm_bridge to build a bridge chain.
->>
->> Now several USB-C controller drivers have already implemented the DP
->> HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
->> HPD bridge on USB-C connector port device.
->>
->> But this requires the USB-C controller driver to manually register the
->> HPD bridge. If the driver does not implement this feature, the bridge
->> will not be create.
->>
->> So this patch implements a generic DP HPD bridge based on
->> aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
->> Type-C port device containing the DP svid is registered, it will
->> create an HPD bridge for it without the need for the USB-C controller
->> driver to implement it.
->>
->> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
->> Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
->> ---
->>
->> (no changes since v14)
->>
->> Changes in v13:
->> - Only register drm dp hpd bridge for typec port altmode device.
->>
->> (no changes since v12)
->>
->> Changes in v11:
->> - Switch to using typec bus notifiers.
->>
->> (no changes since v10)
->>
->> Changes in v9:
->> - Remove the exposed DRM_AUX_HPD_BRIDGE option, and select
->> DRM_AUX_HPD_TYPEC_BRIDGE when it is available.
->> - Add more commit comment about problem background.
->>
->> Changes in v8:
->> - Merge generic DP HPD bridge into one module.
->> ---
->>
->>  drivers/gpu/drm/bridge/Kconfig                | 10 ++++
->>  drivers/gpu/drm/bridge/Makefile               |  1 +
->>  .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 49 +++++++++++++++++++
->>  3 files changed, 60 insertions(+)
->>  create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
->>
->> diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
->> index a250afd8d662..559487aa09a9 100644
->> --- a/drivers/gpu/drm/bridge/Kconfig
->> +++ b/drivers/gpu/drm/bridge/Kconfig
->> @@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
->>  	  Simple bridge that terminates the bridge chain and provides HPD
->>  	  support.
->>  
->> +if DRM_AUX_HPD_BRIDGE
->> +config DRM_AUX_HPD_TYPEC_BRIDGE
->> +	tristate
->> +	depends on TYPEC || !TYPEC
->> +	default TYPEC
->> +	help
->> +	  Simple bridge that terminates the bridge chain and provides HPD
->> +	  support. It build bridge on each USB-C connector device node.
->> +endif
->> +
+On 6/27/2026 12:29 AM, Luca Ceresoli wrote:
+> On Thu, 04 Jun 2026 16:52:19 +0800, Damon Ding <damon.ding@rock-chips.com> wrote:
 > 
-> Should CONFIG_TYPEC_DP_ALTMODE select this one? Otherwise, we need to do it
-> manually.
+> Hello Damon,
 > 
-> $ grep -nr --include=Kconfig "select DRM_AUX_HPD_BRIDGE" .
-> ./drivers/soc/qcom/Kconfig:118: select DRM_AUX_HPD_BRIDGE
-> ./drivers/usb/typec/ucsi/Kconfig:88:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
-> ./drivers/usb/typec/ucsi/Kconfig:99:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
-> ./drivers/usb/typec/tcpm/Kconfig:62:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
-> ./drivers/usb/typec/tcpm/Kconfig:85:    select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
+>>
+>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> index 7a85774aaac1..e120ef3320c1 100644
+>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+>> @@ -1261,8 +1262,11 @@ static int analogix_dp_dt_parse_pdata(struct analogix_dp_device *dp)
+>>   		 */
+>>   		of_property_read_u32(dp_node, "samsung,link-rate",
+>>   				     &video_info->max_link_rate);
+>> -		of_property_read_u32(dp_node, "samsung,lane-count",
+>> -				     &video_info->max_lane_count);
+>> +		ret = of_property_read_u32(dp_node, "samsung,lane-count",
+>> +					   &video_info->max_lane_count);
+>> +		if (ret || !drm_dp_lane_count_is_valid(video_info->max_lane_count))
+>> +			return dev_err_probe(dp->dev, ret ? ret : -EINVAL,
+>> +					     "failed to parse samsung,lane-count\n");
+> 
+> I think this report by sashiko makes sense:
+> 
+>    >  sashiko-bot@kernel.org <sashiko-bot@kernel.org>:
+>    >
+>    >  [Severity: High]
+>    >  Does this make the optional and deprecated samsung,lane-count property a
+>    >  strict requirement?
+>    >
+>    >  If samsung,lane-count is absent from the device tree, of_property_read_u32()
+>    >  returns -EINVAL. This causes the condition to evaluate to true, aborting the
+>    >  probe with an error.
+>    >
+>    >  According to the device tree bindings
+>    >  (Documentation/devicetree/bindings/display/samsung/samsung,exynos5-dp.yaml),
+>    >  this property is marked as deprecated and explicitly optional because the
+>    >  lane count can be read from the monitor. Does this patch break compatibility
+>    >  with device trees that rightfully omit this deprecated property?
+> 
+>   (via: https://patch.msgid.link/20260604090935.7FC051F00898@smtp.kernel.org)
+> 
+> Can you comment on this?
+> 
 > 
 
-That's a fair point. But based on the previous discussion, Heikki
-point out that configurations in the TYPEC subsystem should not
-select configurations from DRM.
+I was also confused about this handling at first. From commit 
+0d0abd894ead ("drm: bridge: analogix/dp: add max link rate and lane 
+count limit for RK3288"), its commit message does not explain why 
+samsung,lane-count was changed from a mandatory to optional property.
 
--- 
-Best, 
-Chaoyi
+After digging into the code flow, I found that 
+analogix_dp_full_link_train() picks the smaller value between the 
+platform-supported lane count and the lane count retrieved from sink 
+DPCD for link training. If the samsung,lane-count property is 
+missing/invalid here, link training will end up using an unexpected lane 
+count configuration.
+
+Additionally, I checked Samsung’s upstream device trees that utilize 
+this DP controller, and all of them carry the lane-count property. Based 
+on this observation, I believe restoring the strict mandatory 
+requirement for this property makes sense.
+
+Should I create an independent fix patch to revert these two properties 
+to mandatory, instead of bundling the fix in this series?
+
+Best regards,
+Damon
+
 
