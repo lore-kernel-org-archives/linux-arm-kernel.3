@@ -4,113 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673D1C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:07:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70CAFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9vWrOwyrFFvwyka/mR4Hi35HfDY4GEBo/Z52H2B2f0=; b=xgbWHRmbWYgjIjs50lfhdwwcWi
-	GAfQC1r6LZ10xpH9/6/BGUYChYxIbyAy3AqF9BZsAAo9yyLDG7aegNt3NXuEVNajcEOhe3P2eSdLD
-	Mlx2LYJ6N79OSElEiyJJ1p5+TlviqLPNsak7bBxG9LCg2Jp2ipwJgw4fC9pPsv0svpojTgaHmEUt6
-	57LLYJGt3LVpMu1WjxLAOC739mbeADnSNTxwkgDR03Kmwy/MN60D8F0wOSAyw7I1c3QERcp17m0HZ
-	tkE1PcmGgYSUrUfktO9Xt6cwbzMdQ7+67yVIHecxP+D8qre5wS7PNEe3QcnWbKp6t1Scc8FTUCy35
-	HNB88NcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x7H3G61ijq7+XHi73CDHVMxMTM8P0HCPp2X9yuonuEg=; b=pXMFphNPaj7lAaO6GQfGL1BSzW
+	u7Vbzfpy1M013iJlIZPH8wCSauIgbKfBrgigu0095e/w2RP8Lmr/OhhYMmvSL0NeIjhqvqNGOYv91
+	GZIltRblhfyb4tW2o6i08g7u4ziQSMvrUGH5uFWAvLAsxbhfuPaS1DK2vVYggdyT91OcglM9DiVeL
+	gYnZUuh1mM36nI9YEedWzKTnXOi8K1UZtWaxS97+G+IaMD2fIjRgs8cx2xArybNZRDvBDzIvcq9Dq
+	s9f0c5KW9KMn3/TTIKuccWRygxAaQmT1/oa1lJS042TJ75yrQ6x0gvfEvTCexAK4+8uzLeptYYJBO
+	51LArFJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDa9-0000000F14Q-2H6I;
-	Mon, 29 Jun 2026 15:07:33 +0000
-Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
+	id 1weDax-0000000F1YO-2mhE;
+	Mon, 29 Jun 2026 15:08:23 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDa5-0000000F10k-3TxI;
-	Mon, 29 Jun 2026 15:07:31 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 0A5B514000DE;
-	Mon, 29 Jun 2026 11:07:29 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Mon, 29 Jun 2026 11:07:29 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm3;
-	 t=1782745649; x=1782832049; bh=D9vWrOwyrFFvwyka/mR4Hi35HfDY4GEB
-	o/Z52H2B2f0=; b=wdkZzXYhM9xF3NVoN5VamSW1OYhvlLamLafxqkQKXXbSZ5WT
-	9+085Tlwk72HlW/kDI5zVOlWjVJtw5sTZ09bRMXWG6x7W2ZKRtMtBY3arD9K1cgX
-	ezgnm4PY7PjnfpIUFmlGtArXH2BW61+avixCkXDmTz3KmPRvUJUmlzCkJdEJ2Nqx
-	VX8yB8trSs6J2Dec0/ENaEK70ea3/0pfYphmYW4Nel9XYIF74lpEtNcDSiKhuNWf
-	1ZIOnuiJ1fFinRr5DSN0K9qUpcK1EdK+agp4MyiZheG2N6kaSALH8GQaQmIS3cwE
-	Oe9kFJ+SH9GO5umjrVLcV3YN3fFvtMhtwQSS/g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782745649; x=
-	1782832049; bh=D9vWrOwyrFFvwyka/mR4Hi35HfDY4GEBo/Z52H2B2f0=; b=P
-	rwLVcpF8HFvNa0lr5HchmOWjg9nMgd8wLA1eyDZRoNTxi3hyrtKahPsE7PZdxQk+
-	zrZ7DyA+J1QXJfgxHotPEvZoX+LZjuQRpEdt+0B1iZMDvpXYjGOvAzGCt4OJY03g
-	gaXArCdDf8MPWv52FBdbvOPo74Ld1NrkCWAxb/It3/e+td8MneL86ktMhI6edMBb
-	7dalOGVZXhPM0Gn/s0S7i6LYkjtDt0qWCP5n/FRgZWRnb6VECwbXA3N28oqSRnwM
-	eL/VJA3wdYcgBLvnLZvrjgLD7TaIjegxsFzPmBqAZhQnXt5ahalfgvorUHXPYyVy
-	yCdai1wdscHSyTmCW546w==
-X-ME-Sender: <xms:MIpCamBW5ONUfJmNA0_c414GEUwk9gp2gamj3BQQMO_pRpdIImzAcg>
-    <xme:MIpCanmdrs6hBJ5MQfYeB5_TGnXOJQixGxHddntDCZAxkeciHUXNAD3byg_wuge0x
-    aErjKb8vdtuvgJxpAZ2SKQ-_cCg643eLeclUNXhZaJXlWbpoVAFVyXf>
-X-ME-Received: <xmr:MIpCahTkKQVGbR1mGRaMLzJx5A-G22u4Te1ecWETyqYLG-dJ0Kc-lLGxGQCuAA>
-X-ME-Proxy-Cause: dmFkZTFF+jFibih6sYjCtDN29pN8hG7vyXduvq7D7INahhXTuqHrMfZmGUjw23i7buKHQ/
-    kag6o6kJbgtJ5K4cESZouj/B2IYhij6/5AVUOGV+oq/avmnQ4nqXCSjwQfgMRsG/ToXMio
-    mPXvFDC8qoqEhQAJB3PIQGpBXpCxX9HdKCUVfzpEZmFKfqTNNb0onLoOay49uJL57C2w/d
-    7mszIUhnfMOnB1RnV/T8sQTz9J86gK2CkjSgPcEuy37O39r/49EEo28gxF0vB0zk79Qc5X
-    YpxTmZk7XGu1Ulr/JZolHiRcm4oCL2pOjX/G1YUKb/Ovn+SXhXOclxy9Axs8svxUQi6Wrl
-    xxzjBwWdOjLU19mbjiYK6dBmWpV4Mqnj6A4hmSghw3NP5PyF1cBSvMY0ERtDtNeiL1DVHQ
-    zAS3+2Z9JuURcuTww95gkkOxunbSRbDztErxB14ESD6tfAgxg3MiLAYR0CHqYNnjbdZnpN
-    MXXVWlmlYwtYupVj9wiaHd/CCyVkjcfGjODwVePx5DPLf1ORv0FMw2ZzSnRCiqZxDRRW+B
-    N5Z3uIX3o0knIPuoTnmiWmzFycdNtZsqWGN8ARmc0wrSwRopaJ+X/eiS+0SfQbv+S+/qnH
-    ZtsVHuC0c36AazVLqZ5H+VCyeZZC+kkCayAYrSC8yPiflhQJkBFAbYRVEwWQ
-X-ME-Proxy: <xmx:MIpCarLIPjqbYUxLW_zU5nt9m7gWFShNQYr5F5tmazICohvRByq4Qg>
-    <xmx:MIpCan9t3ROqX0BFtPX49rMWEiG9apxvUbaWYfxJ46VAwi3igJJFbw>
-    <xmx:MIpCalBqjRYpHFG3JwBG-1ch1U3w2VDFhZJXVBwFqmfm_CBoD9g_AA>
-    <xmx:MIpCapooqaROGn-rI6ZQRg1vCPpfMwBZEtygfRoED0Q3pVeNNu3G7A>
-    <xmx:MYpCakMklNsS4TZqgr-wA9IILh4Gf1W3d5-yPqfKSxH4F_XWR-4BRYYb>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 29 Jun 2026 11:07:28 -0400 (EDT)
-From: Kiryl Shutsemau <kirill@shutemov.name>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Doug Anderson <dianders@chromium.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Usama Arif <usama.arif@linux.dev>,
-	Breno Leitao <leitao@debian.org>,
-	Julien Thierry <julien.thierry.kdev@gmail.com>,
-	Lecopzer Chen <lecopzer@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>,
-	kernel-team@meta.com,
-	kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCH v5 4/4] arm64: escalate smp_send_stop() to an SDEI NMI as a last resort
-Date: Mon, 29 Jun 2026 16:07:18 +0100
-Message-ID: <3032112bb2ab2d5149f2d38b97f85caf3a8bb757.1782744912.git.kas@kernel.org>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <cover.1782744912.git.kas@kernel.org>
-References: <cover.1782744912.git.kas@kernel.org>
+	id 1weDav-0000000F1XY-41u9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 15:08:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kpiSfwRpkqCMF57+EqdncWLc96iXVGjwk35MmSV6skbTieRquegAiYiF6Sfe2ki7dv/v5IMLSddDhDajCHEBPECG/Lej4yJRrkHH1s9VliTd+gyGOVy2CqApel3qbdVUU3w+pxh55Pt5owTPnvMsPc8h1q++Vb1GRa4iIVxa1X4K7D2Hq1+2QBVC67+ybHi52bsU9h9g0WpnaiRvFgzPBEUaKiFCttcBvK9qlmJnq2oa44paBcX5AT8A8e56BH0q+oglc4oBJAV7zta2Qt2wyOqaGnZaOsac9CsHELPyC5W9lkKB8QQvQNi5MYohwcjc0gyIFt0D7iLpl2p0jpDG3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x7H3G61ijq7+XHi73CDHVMxMTM8P0HCPp2X9yuonuEg=;
+ b=WDwY4xMBngFXb7RideS9nfMRV0P6Ou5PDBXGPn+LSQN7uIKtfhdGpmn8TRxUj+tIouRINqgaRnAA48QUuUTqhnoZTOgTCnr4E8h65LwoF47DOenAI4ctbFIeSTlxvsIIUmRXS7RkIGfKnAbvYE3W9I3rpZtYi7WBHRi7gZs6grRS0Pk4nAOuJTkH36gxqN+XFMoYRbm04QOt3znvOEaJPWxiGyADnrrmQ2e3uZSu5rksE8DuYHVtQ+h3xxwa2MXP7mh4u0fPJFTGYD2IAqxOaGDRz/kHV0ZIbHl2i2WAsG7bF5QFSN5LnubWhF4F/7QfTnC0oeivSYxfBspVQpEbnQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x7H3G61ijq7+XHi73CDHVMxMTM8P0HCPp2X9yuonuEg=;
+ b=kw+FBXkQy0XS1CsJ/wP4nICiCav6kc69jZQO93qran0/YnPh3plknLuIc1Ek/RqrZ3it0hbDFsO+1kp7eLosqRfxP3IphZ/lFhy3hmSogCWpvcPe1obdrl4WODIuWziqXTCzAHH6stCVu1AAhS5BAGkUbFTKh6GNvi3Do5+pyoj3oXwb/kZdmQI7sFrqrXiDUXA9bp5uuuZjxlUFM6jhNsHdPL4FSh8IvpVfbbnBkI+1jVEAApV/OM1JPXR93BaQiRnhBlmbbJMORucNIPs1Vy0ZJ2V+oCuFTjbFFM3VkRSdwZpoaADKDS5uWen8nvhroufElX7rC5i9pZuWOoM5tA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PAXPR04MB8428.eurprd04.prod.outlook.com (2603:10a6:102:1ce::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 15:08:17 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
+ 15:08:17 +0000
+Date: Mon, 29 Jun 2026 10:08:05 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Christian Hemp <c.hemp@phytec.de>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Jacopo Mondi <jacopo@jmondi.org>,
+	Dong Aisheng <aisheng.dong@nxp.com>,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH 4/5] media: nxp: imx8-isi: Correct color map between V4L2
+ and ISI
+Message-ID: <akKKVSKxibnRfgaQ@SMW015318>
+References: <20260629-isi-v1-0-deebfdb1b07b@oss.nxp.com>
+ <20260629-isi-v1-4-deebfdb1b07b@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629-isi-v1-4-deebfdb1b07b@oss.nxp.com>
+X-ClientProxiedBy: SA9PR13CA0100.namprd13.prod.outlook.com
+ (2603:10b6:806:24::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAXPR04MB8428:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6df9b0a7-7d3b-430c-a021-08ded5f03f69
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|23010399003|19092799006|1800799024|18002099003|22082099003|11063799006|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info: z73EazHhMYg3oSOIYw5ZEfuSRWQL5nddeMAf11bAXjcZRUOvhgLlaPN1jtNM5vV2MbfnhUI9cBL1obg5zuf05Oq5A+NpYHrbNGGekiQk8DOQDhDuBZE+SZdnXiUGsrPetJ7kqEozKdgbULLvh8vv3JCSKV5C39Izqmb59YNazUD776zI8JLK7jDY6pCCyyUiRVS92K4MM/12vqpGIwRi7BWCY4leZyqpwj52fjUdh3XnV8DfjDvl4jTYTwcgUEOsYynfXbtCrYTa8p6eR0YVTHLRtmqoq01pGHb6xF6+ffpbD5t/s+YYB8y5r5+/vf8H8RZNkvqFYmrpf52rTqwASXSGIgz6uPXZIbZ3RX3DY40EXKbKl7f8mnGnLnr8blhD1NXw3g62XnOIUZcFWM3ERO+1xSrQu/lEEHmguFbK8ZBfjdHUuKsbXE4S18mKSs72XCbhaeSGiaUu/YUjs3dwCY2TjjLSE0GjLWZdrLPjztq2z3aoo7ZkVqNEWu9BYiZgJFNafWrKV6WOXStlwU+ad754KOv70JViwOEcnwQHtqpC3iEXCQoSdE2sY89h+m/3dYOTc84NNMqHlQRljl47Olpd1FXd7aDP3GeoS38sOznO8/y1Ov9thPYKeeo9TF+6CX6OqM2DIMcIgVMY/x+ltXGfnFd7zJva6W9TZ0hABeg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(19092799006)(1800799024)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j0Z9xFWRIKundIkFd+tzhyJYgBLCDMuhsQqnGsZv0jNDY3Q50GMOvXk5Qcv6?=
+ =?us-ascii?Q?hUJlkZTCSYAqzOzGVtUSeCEBBVgbwhEbzNoDza2a59Lb/wri5umorRE9FkaL?=
+ =?us-ascii?Q?x7W/BB2iTD0hlc6gfp7yKcT1fi89J8LQxAR5N1lJ78hKa2x8JhOWcjuBwWZK?=
+ =?us-ascii?Q?DZzcLmwEbc72pIHp8G0/c9gMdfBEKx3Bf4H8vqv0HqWCFZi/mKhNvQOOUlWx?=
+ =?us-ascii?Q?9+7mHPdFNTYrn0QkZuWPpIMB8eJACnBFhUrmBbgEfUzL9y4+FyvO+GSnrTpl?=
+ =?us-ascii?Q?fIsTAJfZCXsHFdf9Pt0EpLZh4vLJLbAZoMzXtEkLIi1cpWY8Sbg+im5UrcS/?=
+ =?us-ascii?Q?RmfU43y3kPJWq22ipBkdLKtlih7vZwlnEd9CuIeWmOQzn4JSdo26kDfJ9pSv?=
+ =?us-ascii?Q?Munj2XBLwZBcCGEJoFYBOc3gRa3IpQ1prcNWsolYOtOg1HW6IYlPpbqhtMFJ?=
+ =?us-ascii?Q?UZoD1Cyxfsj296qYB7NQaEdzjnHihUHO2pbGZrUf6XOIx3D82hBQKQHCJ5lC?=
+ =?us-ascii?Q?WS4RcahN2L/bR1nvPWtseNCdCoQi1B5JyCDLq/gZk3zACkqYvVx3NO0KxwVQ?=
+ =?us-ascii?Q?xZEXhSM6sMm4691NYvw1Ve5cUya2q1H4ysCmNW2gB0a+dSQ470lPtPiUNv34?=
+ =?us-ascii?Q?gKXhcKanzZCFdJenqQaPtMSKcyZqw/36Cxy4JoFLMnH1XGMS0WMGg84ccZzD?=
+ =?us-ascii?Q?vVFbIRgg1E9M7E1RqE27oIwjeW9I1cHTHQtzb+7NR4vc7AbE2hSYA98XoK+4?=
+ =?us-ascii?Q?VXj84mXNqmqz1ADD0a03LF2FckTn/WAbVdHgMU1OacYHXoYnFLXivOcV2Ra/?=
+ =?us-ascii?Q?XOESlMIAG0lV8LfJ1zkbyCNffGDIEHUTfJJNZCgvj4dB3UFzc0i3nwGLKiDM?=
+ =?us-ascii?Q?pZUytpBHMZF6gCche9DeYL8JrSV0ic0bs1C5s8vjCO37Qr2q43VgIYfz8fkU?=
+ =?us-ascii?Q?ITGUPpYYtsxVu2o4Up8jVVMAHcYkC/SEPQntdLQbrKv6migKP9CZR6LiWk4z?=
+ =?us-ascii?Q?HxHi1sz0QePVXN3OgRspy71gIZ2mCWzgOlx+PLJ6QxkD+9TCrqZVvVYqx2VV?=
+ =?us-ascii?Q?LqdOBFmBIbel0yrKD0pQhx1s7FsqlOmZmnFoEnjRbX2VgeVRaW4LwVPwWIRP?=
+ =?us-ascii?Q?lHMhpQbba/Lrc7Do1xqtcqxyZA+pSQAkGjd6IOQWgkCk415Po5u4037+zDSK?=
+ =?us-ascii?Q?6EKULORMPlQ8aRzbAxlDl3LswTg/8Bhki/rAj50gh0AqwcOUakhJVo/mMag6?=
+ =?us-ascii?Q?CilQDzBuEVkhxgzoNC2hwrqiK1p8vaHRc62Zy7gzcSDM2QnYt5dLwSF1VJS9?=
+ =?us-ascii?Q?z+SUy0sL/1JJMwRmA9bG3eoP1OQpp1Uc086RRYJlhdJFlCSsOCNDKAWzjeW3?=
+ =?us-ascii?Q?0WqSINl1xdxkVA1gDDLiBPXXFkOv37dxyxmqnkU/4JcaZGDu3FXP/VuuFGQm?=
+ =?us-ascii?Q?1HTtvK/SW8sdXeMT9y7AwPMMWwwVELl3CiSai5JR81E1LVqRV9kn0qVg7ErU?=
+ =?us-ascii?Q?O2A/QZuGgocOWT+abZfoCHDhL7pOnCNpJGgqwhyMQKeBFDHZHC6vFkKW9oIT?=
+ =?us-ascii?Q?2dIHhjV/aRtenJ20sGvdkIKXZZDZut0FPrXFJ0HWjA+6lstJfrfGYBYboZb7?=
+ =?us-ascii?Q?x4v/A5Tkwz3kKkhr6hzh5BcBHMGQcfbiIH15+NJkjejA950pNWJtqthRelwJ?=
+ =?us-ascii?Q?5YjMe8U5YojtL7/WdEWkn/9QRzZ4KKtYTt2q5FVyWAotpOWzvh1Qn5nYmyw1?=
+ =?us-ascii?Q?FelmMxwNZT/9ZLyeeJTjHKBLySDWCNA2zC4/gP5GxxbI6ksoImml?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6df9b0a7-7d3b-430c-a021-08ded5f03f69
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:08:16.9216
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XuCs48eCiQhvMuzTIATXF068LAL8HI26/SMT83TyuF5PWdATHmoQMLQAwcf8p31P8H9dpJnCSIbMNFxYQSt2va/EMDjmCMHdncYUDM5ria/z/Eoe504bO+XOpKyIcOdF
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8428
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_080730_019022_6B5ADC7F 
-X-CRM114-Status: GOOD (  28.49  )
+X-CRM114-CacheID: sfid-20260629_080822_027823_5EFF1AA0 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,376 +148,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+On Mon, Jun 29, 2026 at 03:44:58PM +0800, Guoniu Zhou wrote:
 
-A CPU wedged with interrupts masked ignores the stop IPI, and without
-pseudo-NMI there is no NMI IPI to escalate to: a reboot proceeds with
-the CPU still running, and a kdump misses its registers.
+Subject: Correct V4L2_PIX_FMT_XBGR32 mapping in m2m mode
 
-Add a third rung to smp_send_stop(): once the IPI (and pseudo-NMI IPI,
-if enabled) rungs have run, signal SDEI event 0 at whatever stayed
-online. Firmware delivers it regardless of the target's DAIF, so it
-reaches a CPU a plain IPI cannot; the target acks by going offline,
-which the caller already polls for.
+> Correct color map between V4L2_PIX_FMT_XBGR32 and ISI input
+> format XRGB8 when ISI works at memory to memory mode.
 
-Fold the stop bookkeeping into one arm64_nmi_cpu_stop(regs,
-die_on_crash), shared by the stop IPI handlers, panic_smp_self_stop()
-and the SDEI handler, replacing the near-duplicate local_cpu_stop() and
-ipi_cpu_crash_stop(). @die_on_crash is the only difference: the IPI
-handlers pass true and PSCI CPU_OFF the CPU on a crash stop so a capture
-kernel can reclaim it; the SDEI handler and self-stop pass false and
-park. The SDEI park is required, not conservative -- its handler runs
-inside an SDEI event that is never completed (completing it resumes the
-wedged context), and a CPU_OFF from that unfinished-event context wedges
-EL3 on some firmware (left as a follow-up). The dump is unaffected; only
-re-onlining the CPU in an SMP capture kernel is lost.
+Fix the ISI input format for the color map V4L2_PIX_FMT_XBGR32 in
+memory-to-memory mode.
 
-Suggested-by: Douglas Anderson <dianders@chromium.org>
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
----
- arch/arm64/include/asm/nmi.h    |  24 +++++++
- arch/arm64/kernel/smp.c         | 113 +++++++++++++++++++++-----------
- drivers/firmware/Kconfig        |   2 +
- drivers/firmware/arm_sdei_nmi.c |  87 ++++++++++++++++++++++++
- 4 files changed, 188 insertions(+), 38 deletions(-)
+Frank
 
-diff --git a/arch/arm64/include/asm/nmi.h b/arch/arm64/include/asm/nmi.h
-index 9366be419d18..2e8974ff8d63 100644
---- a/arch/arm64/include/asm/nmi.h
-+++ b/arch/arm64/include/asm/nmi.h
-@@ -4,21 +4,45 @@
- 
- #include <linux/cpumask.h>
- 
-+struct pt_regs;
-+
- /*
-  * Cross-CPU NMI provider hooks, consulted by the arm64 arch code before
-  * its regular-IRQ / pseudo-NMI IPI paths. The SDEI provider in
-  * drivers/firmware/arm_sdei_nmi.c implements them when active; a future
-  * FEAT_NMI provider could slot in here too. The stubs let callers stay
-  * unconditional when ARM_SDEI_NMI is off.
-+ *
-+ * sdei_nmi_active() lets a caller test for the service before committing
-+ * to (and waiting on) the SDEI stop rung; sdei_nmi_stop_cpus() then signals
-+ * the targets, which ack by going offline.
-  */
- #ifdef CONFIG_ARM_SDEI_NMI
- bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu);
-+bool sdei_nmi_active(void);
-+void sdei_nmi_stop_cpus(const cpumask_t *mask);
- #else
- static inline bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask,
- 						      int exclude_cpu)
- {
- 	return false;
- }
-+
-+static inline bool sdei_nmi_active(void)
-+{
-+	return false;
-+}
-+
-+static inline void sdei_nmi_stop_cpus(const cpumask_t *mask) { }
- #endif
- 
-+/*
-+ * The common "stop this CPU" entry every arm64 stop path funnels through:
-+ * the regular/pseudo-NMI stop IPI handlers, panic_smp_self_stop(), and the
-+ * SDEI cross-CPU NMI handler. @die_on_crash powers the CPU off on the kdump
-+ * crash path (IPI handlers) instead of parking it (SDEI / self-stop).
-+ * Defined in arch/arm64/kernel/smp.c.
-+ */
-+void __noreturn arm64_nmi_cpu_stop(struct pt_regs *regs, bool die_on_crash);
-+
- #endif /* __ASM_NMI_H */
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index a670434a8cae..05c7007a1f4a 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -33,6 +33,7 @@
- #include <linux/kernel_stat.h>
- #include <linux/kexec.h>
- #include <linux/kgdb.h>
-+#include <linux/kprobes.h>
- #include <linux/kvm_host.h>
- #include <linux/nmi.h>
- 
-@@ -862,14 +863,62 @@ void arch_irq_work_raise(void)
- }
- #endif
- 
--static void __noreturn local_cpu_stop(unsigned int cpu)
-+/**
-+ * arm64_nmi_cpu_stop() - stop the local CPU after it is told to stop.
-+ * @regs: register state to record in the vmcore on a crash stop, or NULL for
-+ *        panic_smp_self_stop(), which has no interrupted context to save.
-+ * @die_on_crash: on the kdump crash path, power the CPU off via PSCI CPU_OFF
-+ *                (so a capture kernel can reclaim it) rather than parking it.
-+ *
-+ * The single point every arm64 stop path funnels through, keeping the
-+ * bookkeeping (mask interrupts, save the crash context, mark offline, mask
-+ * SDEI, optionally power off) in one place:
-+ *
-+ *   - the regular IPI_CPU_STOP and pseudo-NMI IPI_CPU_STOP_NMI handlers;
-+ *   - panic_smp_self_stop(), a CPU parking itself on a parallel panic();
-+ *   - the SDEI cross-CPU NMI handler (drivers/firmware/arm_sdei_nmi.c),
-+ *     which reaches CPUs the stop IPIs could not.
-+ *
-+ * The IPI stop handlers pass @die_on_crash true. The SDEI handler and
-+ * panic_smp_self_stop() pass false and only park. For SDEI that is required,
-+ * not just conservative: it runs inside an SDEI event that is deliberately
-+ * never completed (completing it has firmware resume the wedged context), and
-+ * a CPU_OFF from that not-yet-completed context wedges EL3 on some firmware --
-+ * a documented follow-up. Parking also matches this path's own fallback when
-+ * CPU_OFF is unavailable.
-+ */
-+void __noreturn arm64_nmi_cpu_stop(struct pt_regs *regs, bool die_on_crash)
- {
-+	unsigned int cpu = smp_processor_id();
-+	bool crash = IS_ENABLED(CONFIG_KEXEC_CORE) && crash_stop;
-+
-+	/*
-+	 * Use local_daif_mask() instead of local_irq_disable() to make sure
-+	 * that pseudo-NMIs are disabled. The "stop" code starts with an IRQ
-+	 * and falls back to NMI (which might be pseudo). If the IRQ finally
-+	 * goes through right as we're timing out then the NMI could interrupt
-+	 * us. It's better to prevent the NMI and let the IRQ finish since the
-+	 * pt_regs will be better.
-+	 */
-+	local_daif_mask();
-+
-+#ifdef CONFIG_KEXEC_CORE
-+	if (crash && regs)
-+		crash_save_cpu(regs, cpu);
-+#endif
-+
-+	/* the ack a stop requester (e.g. smp_send_stop()) polls for */
- 	set_cpu_online(cpu, false);
- 
--	local_daif_mask();
- 	sdei_mask_local_cpu();
-+
-+	if (crash && die_on_crash)
-+		__cpu_try_die(cpu);
-+
-+	/* just in case */
- 	cpu_park_loop();
- }
-+NOKPROBE_SYMBOL(arm64_nmi_cpu_stop);
- 
- /*
-  * We need to implement panic_smp_self_stop() for parallel panic() calls, so
-@@ -878,36 +927,7 @@ static void __noreturn local_cpu_stop(unsigned int cpu)
-  */
- void __noreturn panic_smp_self_stop(void)
- {
--	local_cpu_stop(smp_processor_id());
--}
--
--static void __noreturn ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
--{
--#ifdef CONFIG_KEXEC_CORE
--	/*
--	 * Use local_daif_mask() instead of local_irq_disable() to make sure
--	 * that pseudo-NMIs are disabled. The "crash stop" code starts with
--	 * an IRQ and falls back to NMI (which might be pseudo). If the IRQ
--	 * finally goes through right as we're timing out then the NMI could
--	 * interrupt us. It's better to prevent the NMI and let the IRQ
--	 * finish since the pt_regs will be better.
--	 */
--	local_daif_mask();
--
--	crash_save_cpu(regs, cpu);
--
--	set_cpu_online(cpu, false);
--
--	sdei_mask_local_cpu();
--
--	if (IS_ENABLED(CONFIG_HOTPLUG_CPU))
--		__cpu_try_die(cpu);
--
--	/* just in case */
--	cpu_park_loop();
--#else
--	BUG();
--#endif
-+	arm64_nmi_cpu_stop(NULL, false);
- }
- 
- static void arm64_send_ipi(const cpumask_t *mask, unsigned int nr)
-@@ -984,12 +1004,7 @@ static void do_handle_IPI(int ipinr)
- 
- 	case IPI_CPU_STOP:
- 	case IPI_CPU_STOP_NMI:
--		if (IS_ENABLED(CONFIG_KEXEC_CORE) && crash_stop) {
--			ipi_cpu_crash_stop(cpu, get_irq_regs());
--			unreachable();
--		} else {
--			local_cpu_stop(cpu);
--		}
-+		arm64_nmi_cpu_stop(get_irq_regs(), true);
- 		break;
- 
- #ifdef CONFIG_GENERIC_CLOCKEVENTS_BROADCAST
-@@ -1263,6 +1278,28 @@ void smp_send_stop(void)
- 			udelay(1);
- 	}
- 
-+	/*
-+	 * If CPUs are *still* online, try the SDEI cross-CPU NMI. Firmware
-+	 * delivers it regardless of the target's DAIF state, so it reaches
-+	 * a CPU spinning with interrupts masked, which neither rung above
-+	 * could (without pseudo-NMI there is no NMI rung at all). Allow
-+	 * 100ms: a firmware round-trip per CPU, with headroom.
-+	 */
-+	if (num_other_online_cpus() && sdei_nmi_active()) {
-+		/* re-snapshot after the rungs above took CPUs offline */
-+		smp_rmb();
-+		cpumask_copy(&mask, cpu_online_mask);
-+		cpumask_clear_cpu(smp_processor_id(), &mask);
-+
-+		pr_info("SMP: retry stop with SDEI NMI for CPUs %*pbl\n",
-+			cpumask_pr_args(&mask));
-+
-+		sdei_nmi_stop_cpus(&mask);
-+		timeout = USEC_PER_MSEC * 100;
-+		while (num_other_online_cpus() && timeout--)
-+			udelay(1);
-+	}
-+
- 	if (num_other_online_cpus()) {
- 		smp_rmb();
- 		cpumask_copy(&mask, cpu_online_mask);
-diff --git a/drivers/firmware/Kconfig b/drivers/firmware/Kconfig
-index dd47584d3b57..b5f502bd2da3 100644
---- a/drivers/firmware/Kconfig
-+++ b/drivers/firmware/Kconfig
-@@ -46,6 +46,8 @@ config ARM_SDEI_NMI
- 	    - arch_trigger_cpumask_backtrace()  (sysrq-l, RCU stalls,
- 	      hardlockup_all_cpu_backtrace, soft-lockup secondary dumps,
- 	      hung-task auxiliary dumps)
-+	    - smp_send_stop() escalation         (reboot/halt and the
-+	      panic / kdump crash stop)
- 
- 	  The driver registers a handler for the SDEI software-signalled
- 	  event (event 0) and reaches a target CPU by signalling it with
-diff --git a/drivers/firmware/arm_sdei_nmi.c b/drivers/firmware/arm_sdei_nmi.c
-index 4047fcda0bc3..038eb79e28ac 100644
---- a/drivers/firmware/arm_sdei_nmi.c
-+++ b/drivers/firmware/arm_sdei_nmi.c
-@@ -29,6 +29,11 @@
-  *     hardlockup_all_cpu_backtrace, soft-lockup/hung-task secondary
-  *     dumps all reach interrupt-masked CPUs.
-  *
-+ *   - sdei_nmi_stop_cpus() — the last rung of smp_send_stop()'s
-+ *     escalation (reboot/halt and the panic/kdump crash stop alike),
-+ *     reaching CPUs that ignored the stop IPIs; on the kdump path the
-+ *     wedged context is captured into the vmcore before the CPU parks.
-+ *
-  * Delivery uses the standard SDEI software-signalled event (event 0) and
-  * SDEI_EVENT_SIGNAL. We register a handler for event 0, enable it, and
-  * poke a target CPU with sdei_event_signal(0, mpidr): firmware makes
-@@ -59,8 +64,57 @@ static bool sdei_nmi_available;
- 
- #define SDEI_NMI_EVENT			0
- 
-+/*
-+ * Backtrace and stop both ride SDEI event 0. That is not a chosen economy:
-+ * event 0 is the only architecturally software-signalled event -- the sole
-+ * event SDEI_EVENT_SIGNAL can target at an arbitrary PE. Every other event
-+ * number is a firmware/platform interrupt-bound event, not something the
-+ * kernel can raise cross-CPU, so a dedicated "stop" event would need
-+ * firmware to define and bind it -- exactly the firmware dependency this
-+ * driver sets out to avoid.
-+ *
-+ * Sharing one event means the handler must tell a stop apart from a
-+ * backtrace. A stop is terminal and system-wide -- sdei_nmi_stop_cpus() is
-+ * only reached from smp_send_stop() (reboot/halt/panic/kdump), which never
-+ * returns -- so once a stop is requested, every later event-0 fire is a
-+ * stop too. A single write-once flag therefore carries as much as a
-+ * per-CPU mask would: sdei_nmi_stop_cpus() sets it before signalling, and
-+ * the handler reads a set flag as "stop this CPU" and a clear flag as
-+ * "backtrace" (handled by nmi_cpu_backtrace(), which self-gates on the
-+ * framework's backtrace mask). A backtrace fire that races in after a stop
-+ * has begun just stops that CPU instead -- harmless, it is going down.
-+ */
-+static bool sdei_nmi_stopping;
-+
- static int sdei_nmi_handler(u32 event, struct pt_regs *regs, void *arg)
- {
-+	/*
-+	 * No smp_rmb() pairing sdei_nmi_stop_cpus()'s dsb(ishst): the flag is
-+	 * the only shared value, and this handler runs only because firmware
-+	 * delivered the event -- a round-trip past that store -- so the read
-+	 * cannot be stale and there is no second load for a barrier to order.
-+	 */
-+	if (READ_ONCE(sdei_nmi_stopping)) {
-+		/*
-+		 * Never returns, and deliberately never completes the SDEI
-+		 * event: SDEI_EVENT_COMPLETE has firmware restore the
-+		 * interrupted context, which would land the CPU back in
-+		 * the wedged loop (or in do_idle, which BUGs at
-+		 * cpuhp_report_idle_dead once it sees itself offline).
-+		 * Returning a modified pt_regs doesn't help --
-+		 * arch/arm64/kernel/sdei.c::do_sdei_event only honours a PC
-+		 * override via its IRQ-state heuristic and otherwise hands
-+		 * EL3 its own saved-context slot back.
-+		 *
-+		 * Trade-off: EL3 retains ~one saved-context slot per parked
-+		 * CPU until the next hardware reset (~hundreds of bytes per
-+		 * CPU). Recoverability is unchanged versus an IPI-stopped
-+		 * CPU: neither comes back without a reset.
-+		 */
-+		arm64_nmi_cpu_stop(regs, false);
-+		/* unreachable */
-+	}
-+
- 	/*
- 	 * nmi_cpu_backtrace() no-ops unless this CPU's bit is set in the
- 	 * global backtrace mask (driven by nmi_trigger_cpumask_backtrace()),
-@@ -122,6 +176,39 @@ bool sdei_nmi_trigger_cpumask_backtrace(const cpumask_t *mask, int exclude_cpu)
- 	return true;
- }
- 
-+bool sdei_nmi_active(void)
-+{
-+	return sdei_nmi_available;
-+}
-+
-+/*
-+ * Last rung of the stop escalation in smp_send_stop() (see
-+ * arch/arm64/kernel/smp.c). The caller runs the regular stop IPI (and
-+ * the pseudo-NMI stop IPI, where available) first; @mask holds whatever
-+ * stayed online through those -- typically CPUs wedged with interrupts
-+ * masked, unreachable by an IPI. Mark the stop in progress and signal
-+ * event 0 at each target; a target acks by marking itself offline, which
-+ * the caller polls for. The caller has already confirmed sdei_nmi_active().
-+ */
-+void sdei_nmi_stop_cpus(const cpumask_t *mask)
-+{
-+	unsigned int cpu;
-+
-+	WRITE_ONCE(sdei_nmi_stopping, true);
-+
-+	/*
-+	 * Publish the flag before signalling. The signal goes out via an SMC
-+	 * to firmware, not a memory store, so smp_wmb() ordering is not
-+	 * enough: use dsb(ishst) to make the store globally visible before the
-+	 * SMC executes, as gic_ipi_send_mask() does for its SGI. The SDEI spec
-+	 * does not require the dispatch to order the caller's prior stores.
-+	 */
-+	dsb(ishst);
-+
-+	for_each_cpu(cpu, mask)
-+		sdei_nmi_fire(cpu);
-+}
-+
- /*
-  * device_initcall (after arch_initcall(sdei_init), so the SDEI subsystem
-  * is up): probe the firmware, register the event, and turn on the
--- 
-2.54.0
-
+>
+> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+> ---
+>  drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> index 5eb448f4c26f..05b51b98344b 100644
+> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-video.c
+> @@ -151,7 +151,7 @@ static const struct mxc_isi_format_info mxc_isi_formats[] = {
+>  		.fourcc		= V4L2_PIX_FMT_XBGR32,
+>  		.type		= MXC_ISI_VIDEO_CAP | MXC_ISI_VIDEO_M2M_OUT
+>  				| MXC_ISI_VIDEO_M2M_CAP,
+> -		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XBGR8,
+> +		.isi_in_format	= CHNL_MEM_RD_CTRL_IMG_TYPE_XRGB8,
+>  		.isi_out_format	= CHNL_IMG_CTRL_FORMAT_XRGB888,
+>  		.mem_planes	= 1,
+>  		.color_planes	= 1,
+>
+> --
+> 2.34.1
+>
+>
 
