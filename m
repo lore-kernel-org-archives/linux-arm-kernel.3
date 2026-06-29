@@ -4,69 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55749C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:34:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A600EC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 08:45:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGpv5qbqQS7ZSoDmaLAuR5/2EqiThiMa2p7f3hUe5sA=; b=Wh415KvrygDiKSRYtjysiv1941
-	5KMlKryu0H51zC8XhqPD7hXPMp+84Kj27ZngzzQf/CFPL7kMSkI6po+kGtoZBYsykYWWQ4HcCVTL/
-	ZUBvOPTUyI6wAbg27n7Yjbq/PHrM2GLe2qW4rd1Mvd7zOXCpK9MlAEBkOkIdRTXQ/EpeC3ofTg/D4
-	seth6E8iHSAxspj+FcuxXnQShVKIbatYT+q8X35dkYG3Z5lgRqGXB2oNlzPBwZzFzztr6E5+/4ek6
-	7z7pdXvmpct4ZUKlxiJ0hB5hH7N7GKKQIFxujCnkRsOuoooMPWOfh+k/niIWDhe7LeT1Rj8trR36h
-	XTdw1sZw==;
+	bh=SyP1rDr+scbd8EHqOhd2SEKwzz9Yk3yho9coNffyF3s=; b=PReOmxkEGczz0NCEmT+MbaSkYG
+	MOYZM0vonlWl2YWF4MBNi6ZWN+UpUG+2AoUDAwt4cMVA2TYSF2qg45qxtmnJ+vPJEDkkDvkFalTwt
+	CdCWR0ZjD6c5eMeNnKDW+SkU8yW7dLpVX0eDvXeEDN3GL2VGbPFCP5G8qbLgGi9f0nMPNVjDt8CQ/
+	ztVJAF/i9PyJaLj/gYpkw+A3NNs5hZzL9K/jr6D/1WOoQzrczz7Nt0CgXN4I33g+1FnPIjkWmKKT8
+	AR7T4TO/zEHodokqrNxFBqsybTvqZOFueEt1Zzy+HFoouEw2qUr0/U3Gb3YBH5rz4FXU64UOyfVjz
+	/mvt8ECA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7RP-0000000E0nj-0bSM;
-	Mon, 29 Jun 2026 08:34:07 +0000
-Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	id 1we6OS-0000000DsyN-394w;
+	Mon, 29 Jun 2026 07:27:00 +0000
+Received: from exmail3.compal.com ([59.120.207.196] helo=tpecef22.compal.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7RM-0000000E0lh-2FAl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 08:34:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=qGpv5qbqQS7ZSoDmaLAuR5/2EqiThiMa2p7f3hUe5sA=;
-	b=bc1eBkuuakI2e+0xCAO9C8iufRWXphlU95ySnEB0GneP6t5IhoA8eSkI2knUtlIxEA6Bu0EJy
-	/wideb9nKgePC+ffTCMrkPEVpzeH3Dh3QxV6iPpnsnISRE7ydoZwt3QcrVlRHaRNt8Btc+HMri3
-	S4P6EhoF6QOaozxPBgckAFI=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4gpfSV4y5hz1T4Hf;
-	Mon, 29 Jun 2026 16:23:54 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 879B1203C1;
-	Mon, 29 Jun 2026 16:32:42 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Mon, 29 Jun 2026 16:32:41 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <bigeasy@linutronix.de>, <linux@armlinux.org.uk>,
-	<rmk+kernel@armlinux.org.uk>
-CC: <arnd@arndb.de>, <clrkwllms@kernel.org>, <liaohua4@huawei.com>,
-	<lilinjie8@huawei.com>, <linusw@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rt-devel@lists.linux.dev>, <rostedt@goodmis.org>,
-	<xieyuanbin1@huawei.com>
-Subject: Re: [PATCH] ARM: enable interrupts when arm_notify_die() is handling user mode errors
-Date: Mon, 29 Jun 2026 16:31:50 +0800
-Message-ID: <20260629083150.72460-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260629075726.McX9yWi1@linutronix.de>
-References: <20260629075726.McX9yWi1@linutronix.de>
+	id 1we6OP-0000000Dsxu-2F5i;
+	Mon, 29 Jun 2026 07:26:58 +0000
+X-UUID: e5119798738b11f1a87c2323a98e90a4-20260629
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:a88dff58-80aa-4fd8-8822-6aca3768c74b,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:300c9912-9a7e-42e1-81ab-466f1025c889,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
+	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
+	:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e5119798738b11f1a87c2323a98e90a4-20260629
+Received: from sdmg12.sdbg.compal.com [(10.113.168.10)] by tpecef22.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 1505790952; Mon, 29 Jun 2026 15:26:50 +0800
+X-UUID: e216f86c738b11f1a9f9c99e036204b4-20260629
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.15,REQID:412e1593-7594-480f-8640-49ac201ef9bf,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:e276073,CLOUDID:d57df88b-c1a3-4335-bf81-c4a7f9da024d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|865|888|
+	898,TC:-5,Content:-10|0|15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:ni
+	l,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE
+	:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e216f86c738b11f1a9f9c99e036204b4-20260629
+Received: from sdbmbx12.tpe.compalcomm.com [(10.113.2.136)] by sdmg12.sdbg.compal.com
+	(envelope-from <jackbb_wu@compal.com>)
+	(Compal Mail Service with TLSv1.2 ECDHE-RSA-AES256-SHA 256/256)
+	with ESMTP id 1908956407; Mon, 29 Jun 2026 15:26:45 +0800
+Received: from SDBMBX13.tpe.compalcomm.com (10.113.2.137) by
+ SDBMBX12.tpe.compalcomm.com (10.113.2.136) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA) id 15.2.2562.29;
+ Mon, 29 Jun 2026 15:26:40 +0800
+Received: from SDBMBX13.tpe.compalcomm.com ([fe80::7d1b:448d:4d95:51b0]) by
+ SDBMBX13.tpe.compalcomm.com ([fe80::7d1b:448d:4d95:51b0%11]) with mapi id
+ 15.02.2562.029; Mon, 29 Jun 2026 15:26:40 +0800
+From: "Wu. JackBB (GSM)" <JackBB_Wu@compal.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Loic Poulain <loic.poulain@oss.qualcomm.com>, Sergey Ryazanov
+	<ryazanov.s.a@gmail.com>, Johannes Berg <johannes@sipsolutions.net>, "Andrew
+ Lunn" <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Wen-Zhi Huang <wen-zhi.huang@mediatek.com>, Shi-Wei Yeh
+	<shi-wei.yeh@mediatek.com>, Minano Tseng <Minano.tseng@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>
+Subject: RE: [External Mail] Re: [PATCH v3 2/7] net: wwan: t9xx: Add control
+ plane transaction layer
+Thread-Topic: [External Mail] Re: [PATCH v3 2/7] net: wwan: t9xx: Add control
+ plane transaction layer
+Thread-Index: AQHdA/KoG0AzoVDQmky5mWyAxH40ubZVI4cU
+Date: Mon, 29 Jun 2026 07:26:40 +0000
+Message-ID: <49939d4d682f4c1fb359973ea2cdbd00@compal.com>
+References: <20260624-t9xx_driver_v1-v3-0-73ff03f60c48@compal.com>
+ <20260624-t9xx_driver_v1-v3-2-73ff03f60c48@compal.com>,<2a90ae6b-2b6d-4340-b557-915252cc3488@lunn.ch>
+In-Reply-To: <2a90ae6b-2b6d-4340-b557-915252cc3488@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.113.2.241]
+x-tm-as-product-ver: SMEX-14.0.0.3239-9.1.2019-30036.005
+x-tm-as-result: No-10--4.183300-8.000000
+x-tmase-matchedrid: tkB2VEODQ1cuv++HU7VXryRFbfQbCufdN0X64jGy2db7+pncqRJfy2XQ
+	7TcqkNINhElhJj9TP7jAaX2MpgGS36gkniSqkpn+WZxYhPYYrMlHgZVDYg0zz4vmY1hE2VDUJQk
+	txNYzOLPtFo0/MAzmm/xu9bNQI/V0YNP5ZvfGAKupSoJx15avkdZEjr6xrP/hagCqz15rA4CvI7
+	qr7lIWqpm1ztAFUDBkjMlIlc7424OFF2q3JMLbrJGPSO6O5JCao4NJa7SjFsq4ssz2NHTRNT0wV
+	pvG2n4d28gAxP/Ts6IHvfG6dvIquv6mDCw61sljHGqZLFSL6vqvbctbyBVCOC+JND9IHIJ4kfMa
+	fuDIkC0Ich2EKbNazC40qe60KYOEZS4zlkrLF17MiA92IomI4m+o7cT3SFLw39InOc4KUjGgIAo
+	CghvZZgz+8rPHUa6xHcvjWJiii5la1X5Zxk7x/Q==
+x-tm-as-user-approved-sender: No
+x-tm-as-user-blocked-sender: No
+x-tmase-result: 10--4.183300-8.000000
+x-tmase-version: SMEX-14.0.0.3239-9.1.2019-30036.005
+x-tm-snts-smtp: BD93CB2734EF2CC9B20D2CE68070D84515D2F48398ED874D2E0ED1AAC02636F92000:8
+Content-Type: text/plain; charset="big5"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_013405_060813_68874E82 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20260629_002657_940095_D5B68CD1 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +137,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jun 2026 09:57:26 +0200, Sebastian Andrzej Siewior wrote:
-> In oops_enter() not only interrupts are disabled but also the emergency
-> mode of the console is enabled. That means all console output is written
-> via the atomic_write interface to the console as it the output happens.
-> At this point, your real-time guarantees are gone. There is no need to
-> worry about anything here since everything is lost.
->
-> Restricting it to user context is reasonable: Here you kill the task and
-> need enabled interrupts in order to send the signal.
-> For kernel threads it is not needed because the "printing" happens with
-> disabled interrupts anyway and without any buffering. Should this event
-> not end with panic() then it will kill the kernel thread and enable
-> interrupts before doing so.
-
-Thanks. So, can I take it that you agree with the first one?
-
-On Thu, 25 Jun 2026 20:26:12 +0800, Xie Yuanbin wrote:
-> ```c
-> 	if (!inf->fn(addr, ifsr | FSR_LNX_PF, regs))
-> 		return;
->
-> 	if (likely(user_mode(regs)))
-> 		local_irq_enable();
->
-> 	pr_alert("8<--- cut here ---\n");
-> ```
-> or
-> ```c
-> 	if (!inf->fn(addr, ifsr | FSR_LNX_PF, regs))
-> 		return;
->
-> 	if (likely(interrupts_enabled(regs)))
-> 		local_irq_enable();
->
-> 	pr_alert("8<--- cut here ---\n");
-> ```
+SGkgQW5kcmV3LA0KDQo+ID4gK3N0YXRpYyBpbnQgX19pbml0IG10a19jb21tb25fZHJ2X2luaXQo
+dm9pZCkNCj4gPiArew0KPiA+ICsJcmV0dXJuIDA7DQo+ID4gK30NCj4gPiArbW9kdWxlX2luaXQo
+bXRrX2NvbW1vbl9kcnZfaW5pdCk7DQo+ID4gKw0KPiA+ICtzdGF0aWMgdm9pZCBfX2V4aXQgbXRr
+X2NvbW1vbl9kcnZfZXhpdCh2b2lkKQ0KPiA+ICt7DQo+ID4gK30NCj4gPiArbW9kdWxlX2V4aXQo
+bXRrX2NvbW1vbl9kcnZfZXhpdCk7DQo+DQo+IFNpbmNlIHRoZXNlIGRvbid0IGRvIGFueXRoaW5n
+LCB0aGV5IHNob3VsZCBub3QgYmUgbmVlZGVkLg0KDQpXaWxsIG1vdmUgbW9kdWxlX2luaXQvbW9k
+dWxlX2V4aXQgdG8gdGhlIHBhdGNoIHRoYXQgZmlyc3QgYWRkcw0KY29udGVudCB0byB0aGVtIGlu
+IHY0Lg0KDQo+ID4gKwlTRVRfSFdfQklUUyhod19iaXRzLCBjaHMsIE1IQ0NJRl9SQzJFUF9FVlRf
+REVWSUNFX1JFU0VULA0KPiA+ICsJCSAgICBERVZfRVZUX0gyRF9ERVZJQ0VfUkVTRVQpOw0KPiA+
+ICsNCj4gPiArCXJldHVybiBMRTMyX1RPX1UzMihjcHVfdG9fbGUzMihod19iaXRzKSk7DQo+DQo+
+IFBsZWFzZSBkb24ndCBhZGQgd2hpdGUgc3BhY2UgbGlrZSB0aGlzLiBJIGFzc3VtZSBhIHByZXZp
+b3VzIHBhdGNoDQo+IGFkZGVkIHRoaXMgY29kZSwgc28gbW92ZSB0aGlzIHRvIHRoYXQgcGF0Y2gu
+DQoNCldpbGwgcmVtb3ZlIHRoZSBleHRyYSBibGFuayBsaW5lIGluIHY0Lg0KDQo+ID4gLQlkZXZt
+X2tmcmVlKGRldiwgbWRldik7DQo+ID4gKwltdGtfZGV2X2ZyZWUobWRldik7DQo+DQo+IFdoeSBh
+cmUgeW91IHJlbW92aW5nIGRldm1fIGNhbGxzPw0KDQptdGtfZGV2X2FsbG9jL210a19kZXZfZnJl
+ZSBhcmUgcGFpcmVkIHdyYXBwZXJzIHNvIHRoZSBjYWxsZXINCmRvZXNuJ3QgbmVlZCB0byBrbm93
+IHRoZSB1bmRlcmx5aW5nIGFsbG9jYXRpb24gbWVjaGFuaXNtLg0KVGhlIGRldm1fa2ZyZWUgaXMg
+c3RpbGwgY2FsbGVkIGluc2lkZSBtdGtfZGV2X2ZyZWUuDQoNClRoYW5rcy4NCg0KSmFjayBXdS4N
+Cg0K
 
