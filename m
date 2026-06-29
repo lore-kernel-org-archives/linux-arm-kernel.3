@@ -4,69 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17964C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26245C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QadHf/c4nC9yt2VwHXLTFiroUss5lFXWZ9eyxJMcwGc=; b=KdD0sbGPcOUFknLUpGr/3kpgb7
-	P/w7r1+17sAkhdEUlttFXvoOST5gy03vFljPRdF9QOb13g6fId8SEDxPl120tw8uzPBG4xgjFoh5o
-	uKRcMpdWSmUrHXvLIWcPA0euEBtQOX4RQ4MFn9u/VQFRnq4qqUY3kyu5WdAViZuOWHOsbnAPLPyT7
-	/ysJ18B2HG4yEwdvdliJHhPMrXKaxk0TnRufIzjCbhB7JpqFb5Sw+c64Zl66uqI7BOZdXtexXrmQg
-	y2QvIaEjK9LIQ8hrVZRujPXtUTwrY6vaY6DL73/uBtAYgQYv8Esr8/C53wvOkfD5ROoPZ0jPpUJGh
-	3UUBvUag==;
+	bh=/NhZ5wJy1LRqxbpyNv5WxkQxP9cGKNEzDf6JbFacEV8=; b=QC3PJLUD28Lg+GQmKvTXicY2Ev
+	uGt2ncq2lS1QJfUkeEexzXBr7yUpwSlH3K1k32aBvNvhd5MJMysCwv/xBAqkFsvc/3SQHp4/9Bilf
+	jw5YhJ7YYpXhOf+ARESLC7EW+OT4v3ZtoEoBRbGiO5yFlVT7z351ul7ZvPPmF3QybuViPlK4l1COn
+	ONz4dc/mo97gklRxknBPtYca1IINfMTXp/1u4nbl8k01SDAvbR1iqL6fvKfidmrhFqIbL2z8oO57U
+	6egTtT2j8ahdKYNU0QLf2OqFr8FC19sPkNs2fbDXb8oHGNv8gva5ntRObAakx+cY2FTYLLCJyMYW3
+	MG+droCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEJZ-0000000F8SD-1dd4;
-	Mon, 29 Jun 2026 15:54:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weEJW-0000000F8RT-3Qgw;
-	Mon, 29 Jun 2026 15:54:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 56B93339;
-	Mon, 29 Jun 2026 08:54:19 -0700 (PDT)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E9C053F673;
-	Mon, 29 Jun 2026 08:54:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782748463; bh=PEmFDKBgCksf81j7VvtfZ7vWMDUHtqYjKsy1c3eLLHc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=q1Ds7g8LQm/f/sRY3aU8CRxFBcAhXW5+3DKKrIdJnaV+H333kFK30OtA740u8lsQq
-	 2IpCqmDqJNRRLqAChO9LN4I1enJxHu5S2gEbGoT7vbXJxNI84W4Tq+RT22YtWNWJXj
-	 F2D2POYOIFlmQpXS7/BHGFY3vpHzOTb0vAudG+hU=
-Date: Mon, 29 Jun 2026 16:54:18 +0100
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Kiryl Shutsemau <kirill@shutemov.name>
-Cc: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Doug Anderson <dianders@chromium.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>,
-	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>,
-	Julien Thierry <julien.thierry.kdev@gmail.com>,
-	Lecopzer Chen <lecopzer@gmail.com>,
-	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <akKVKhOsv6EJVFv4@arm.com>
-References: <cover.1781709543.git.kas@kernel.org>
- <aj6xvvY4AA-fQG2X@arm.com>
- <aj7Pm5H0MN5WwhDK@thinkstation>
- <akJsQK2iG2oZ3vYE@thinkstation>
+	id 1weEKC-0000000F8bn-2pPk;
+	Mon, 29 Jun 2026 15:55:08 +0000
+Received: from mail-westcentralusazon11013057.outbound.protection.outlook.com ([40.93.201.57] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weEK9-0000000F8bD-31oV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Jun 2026 15:55:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VHyavWuNnzoQ/Zj70FYjIGhbRvWKnFhsiS56EgdM6mlo2BXn3RLLCYSNHS4+8cOG6wV09le/Wdc01DExMJo9PeqJU4jru5MONngFmPgTVTMeARUa1SfR4BQ363vT8yKjQWbozu446QvwmRmVO16cPP+I6nc8IdIu+Wp8Igix/FNNLPNxv+NPDz2jeTmN2nStFFcMy8GyC3HwHABd5K3HG7D/7HtesOL8E66B5zfL7cz72gLiuAmTlcrs/JDLnfysewzI4N84AFMwjMDTB7NOGBfjabJhrL4BtbUQTy1OjR5vpommOyi6XX7nCIdRL7gFqZ9Zd5Bch8jiS/wVKRk7ZQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=/NhZ5wJy1LRqxbpyNv5WxkQxP9cGKNEzDf6JbFacEV8=;
+ b=P5J/KCJRBmjSozqxPbgpbxDv1UgV0fN5CQKwhjvHVTpdzKiCAbEG530g+J+H33TwsF9rrdKCVpXEwZ5rkohRFS+y15Dxr1T5sQiZNGOkaN1yig+nKwYrAA+2CkrzrNgypuXBzefWtcRi7RX7s97sUstbr1cGV9Rqv5QfTp5t+KK3g3JCmK4c4j3fMsp8Z2qYpR+76CZkkghgclOl2F5Ydh+gn11o3hP4OeNgTgsU9dU24MVi14cLV++EUz1c+k7EZKwNggy6gCswHXJQfypeLZzk28e417xOQIqMhaOLfutU1J6U7SL8j9dWm8yWE9wOdbLOofA9VOAKHcy6O5jRiw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=/NhZ5wJy1LRqxbpyNv5WxkQxP9cGKNEzDf6JbFacEV8=;
+ b=hvHnznApLEL7DzeUZrnmOBRrTtAF8kzVTNjN4z9PN4n6GaNqVweaR5ZqPVyvhBuekKRmNJ6zy3fszICNLcmAWCjpl5L1mTxb2Vz6fjwNLNbiAzMzrYhClNpawlHhO/ntEKCNWnGnhWGFwXEzZiS5bS+daPjGQwFLSfMyo5WoGNWgRdyAx2zVa31KO3Hi9zT1EJqxF78o5DQqpugRVOgrbvE4Urai1C93U9qjOYAWc/CnrsyFhQ9ri5LjY9ew/JG6mORe/sUx7LFR2708MytFhtpglYWegsCYvid3Ao+3fAQLFOr9Jh+cqMqK+0kWnSqXXG8LlfNARpczfVL8sUko0g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BN9PR12MB5179.namprd12.prod.outlook.com (2603:10b6:408:11c::18)
+ by DS2PR12MB9749.namprd12.prod.outlook.com (2603:10b6:8:2b9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 15:54:58 +0000
+Received: from BN9PR12MB5179.namprd12.prod.outlook.com
+ ([fe80::cf08:f59b:d016:c95f]) by BN9PR12MB5179.namprd12.prod.outlook.com
+ ([fe80::cf08:f59b:d016:c95f%4]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
+ 15:54:58 +0000
+Message-ID: <16c7c5d4-d596-4a75-ac97-fb9d2c02c80c@nvidia.com>
+Date: Mon, 29 Jun 2026 21:24:47 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] CPPC: reduce FFH feedback-counter sampling skew on
+ arm64
+To: Pengjie Zhang <zhangpengjie2@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, rafael@kernel.org, lenb@kernel.org, robert.moore@intel.com,
+ beata.michalska@arm.com, zhenglifeng1@huawei.com, zhanjie9@hisilicon.com,
+ cuiyunhui@bytedance.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, acpica-devel@lists.linux.dev,
+ linuxarm@huawei.com, jonathan.cameron@huawei.com, prime.zeng@hisilicon.com,
+ wanghuiqiang@huawei.com, xuwei5@huawei.com, lihuisong@huawei.com,
+ yubowen8@huawei.com, wangzhi12@huawei.com,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
+Content-Language: en-US
+From: Sumit Gupta <sumitg@nvidia.com>
+In-Reply-To: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4P287CA0101.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:278::8) To BN9PR12MB5179.namprd12.prod.outlook.com
+ (2603:10b6:408:11c::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akJsQK2iG2oZ3vYE@thinkstation>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN9PR12MB5179:EE_|DS2PR12MB9749:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec31e494-4d55-4e47-2509-08ded5f6c525
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|921020|18002099003|22082099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: qw//+YAnyDskIA8HOKHIq9pYZUlPkh/x6ha/oKP2gxWX24ATMFaWXKIRcgcviRZYp6kZJh1DHdXW0ubCXHmS7QqlurhwHiuekeZxyoXW6eLSHDIyYm/yC2RRXdp4NddxwTsrOUfyiCRjvTlGNu6hsUiHE3C04srYdvW0YSVSXdOEOQuIzcCHlaaKTunkhoL14Cxh6D9NHM0zYml10uhFNnFmbTIlOhbN/FDgL5I1Z2D1xdqGSbT2rahrpH48DCrakVulSsw0vWlX+GQ4IeLcuiTOatproxliv4W8lbisy7L3QRSCBFg7efOS+WH/b+ZN1w4larjPnKfOiqP5x+qQYpSunAWycww8a8VLzbN8Y78lh2MSp7UolwyuZw8tazcuaniOhDZFABUw1ImStY1W6patbCSjubw3UHkElcMc79nHw83HUP8zmtF9eyf2WSgjM9IjrQUPfW+8YLGTCQq04JrBsziCkcKg9x0gZ4ByTjoHxSseGiBIKruOSX0QQITESWxp/Xe2VWG18vMPZr+BRR8p3Y26XwJ+XPVtS9jfUVOGZHV+8WjuV1QW8qRC//AebW04OyL5m2jCFAl9/QnV79rXfUtQKpbEAfEmLhk9zmroo42E11XkM6j0B4cGyiKCwXD/hvsHvnZRlgu3BA4DvrXEvpOHAo0L5VY2F0QLq8HEo4+UVeNPaHTIExEDGYiCEcJokhOze57rDlxYAL5ubg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR12MB5179.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(921020)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dW9PTyswb3BIdkhISjRxbzFjNWZmS1VkNGxJZEdDK3pCNmJINi9DNklGQXZB?=
+ =?utf-8?B?RnJUKzlGSTlCQitGZll1bVYwWTBJdDFrQy9ibkJTeThrQnY5bER5UVZGaGxB?=
+ =?utf-8?B?bnpJajhIOXBrTnhDOURLUmd2VUdCbzg2V0ovejJaTWdUT0Z2c0pnV1RMSzlS?=
+ =?utf-8?B?bW02NmluMVlTTzJWZ2xLblpleEJpYXZudzZzbTNxRlEyNVUvVmR6Z1NOK3NR?=
+ =?utf-8?B?RHVhU2RIMnhqYm5ZazZhWVMvT2FNMC9LNTdDRGZDWHluczg1WGY3aVpSU2Ju?=
+ =?utf-8?B?eUdtY2VVZ2hCLy85cnd0eExuVjczNUpwOGZpbGN1RnU3THJhV2Z4UU1BV3Nq?=
+ =?utf-8?B?ZjBlYWQwNDlyYit6SHQyS0hwYmVabHMzN2NZRUR1TXFIdmp3T1VFYjdPL0pH?=
+ =?utf-8?B?ME1Mc1VIRTNNRWk1QUVmTHZzQlNWUlU4cmNML1l3a0JINkNlQ0tFWFl3aFlR?=
+ =?utf-8?B?RDNuSWxvSk04Ymtlak1tWEcrUEJIWmZxNi8rVDR5dXlRb0lhd3EwUDZQeEJM?=
+ =?utf-8?B?b0x5Vlc2R3Q3Vm1XSm45WnNRNHdSOUo3NVFGR2tqNDgyT0hrajNrdXhUSkV5?=
+ =?utf-8?B?Q2kxSzNvSDV4K1U0b0NOWmNLc3U2MkswblNpUzZrcU9zRHRCMHV2RXZMSnRD?=
+ =?utf-8?B?amlmU25xWHE4aFlIbDBGOENDZlUwQ3VoZ2JVVzFTV3BEYlJsUDlFay9naCtO?=
+ =?utf-8?B?N29XTEhrMjRvRUY2YVZTTjl1MU5rcHJnZGpnYi95bm5QSmwrT0ZnVjduTzdj?=
+ =?utf-8?B?RHBlMFgwWElDMFpoaWxUTldoV1VpZXV6MS8zMGRCT0JhMUVpbzFxNVdwbzhI?=
+ =?utf-8?B?WkZnejdNcjdmT09LRlNlU2RIa0UyUENHMUQyNmZEemFUcy9LR0FWQkVyS3Av?=
+ =?utf-8?B?NUZ4QWo4WWtGbFBYRWFmRzcrVmJKWUFzbVFZZTNLTWUydkluNndxbUY5by9v?=
+ =?utf-8?B?eDZZdDgzY2RacHo2RE9rZzdrMDkxa1dTc3dhZE5SZmpSK0x2R2FRVVR1cWo1?=
+ =?utf-8?B?M3FaRUc3NXpTRVlEc2J2YlpIMC9XdnFyaXl1K0xwVzhMYzNYc3BDK1RaN3l4?=
+ =?utf-8?B?a2tpdUpXSnFmeHU1cWN2UDJOUGhkQjJnMjRCdzVvdFRaSG43NWZ5YnAzQnBu?=
+ =?utf-8?B?djl6REZyZ2JtLzM0WDkvR2ptQUVQdUF0ZW9uRDJFeVVsSTBBR2dyU3k3Q3d1?=
+ =?utf-8?B?amNvODc0YUVibVVONTZYdFdaZDg1K1RqM3RjTUFreDZNdUFvaGFOQ3JjVElM?=
+ =?utf-8?B?UUY0TDNLTXNydFZsVE1DblBSRS9jNDNKdmR5WXFxUkxBaG5LaVJ0WmtnNlgx?=
+ =?utf-8?B?T2dlSEh6RWU0ZFBUMXFQRjJuNjhzb3RNRG5zNEdsYldONEZCMlFCd0pFbXNJ?=
+ =?utf-8?B?cXBTT1pneWRwVzludXFZTzhCQWo3TVFyc2dTelFhNlR3MU9IYUVLdkgwK0lU?=
+ =?utf-8?B?OGVBWVUyYm9taGRMa0JvVmZ6UWhBL3hFYlo4N0FFUzNIL1VaZDdDTzNmT2Fv?=
+ =?utf-8?B?Y2lSNCtTYjdGQnV1NzFBQmphK285U3J6NGJVcnJwdUJmdWVZRkZVVHVTZ0F5?=
+ =?utf-8?B?TmxYazFHS3p6Q25Wc0JlblVCcWtpbmJQUGxhOVNlQzNjZ2lTUnN3aVAvMlBX?=
+ =?utf-8?B?SGxUbzNZbWlhTUZTcjF1UGJITzFiWGhVdk0xQWdjakJvTmJHSnVuR2JReUtk?=
+ =?utf-8?B?WnZrS3BvSjhVQ3BhTjVEWjdIZmtCN050L0tQZUxJdi9OTTNLdGhHV0VhK0g2?=
+ =?utf-8?B?c3YxaXk2dlNKeUEwVmhYakxROFZNZnNnaTRRbzhsajJaTkFaVHJXTUVjeWR5?=
+ =?utf-8?B?TjE4TjBpbWpOVjBKK2d1WCtUZURPQ3NsWXMzWUhMdE0zbm1wL2VsVHdWMFh3?=
+ =?utf-8?B?WjFHR1RaWHU5OUs0dzFIUyt0MFNHRUtHUXN6RjNMdmpjN2lsZExOSk9EYVla?=
+ =?utf-8?B?blJzRzBOenlzTE9OL212MmdteWJpYTYyTVlzZTExL0hqL2ZwZVFHWHpRT0VS?=
+ =?utf-8?B?bWlWZVA2UEpUd21Gb1dpQVdMb0VzT2NlN01ITGl2VzY1cTZZRVF3YzZmZWhC?=
+ =?utf-8?B?d2JsOWlnZzN4RUlOa0h0UzkwZ3A4M05idEpLWndiREhKY0Q4Z3dMZmp1ZmZC?=
+ =?utf-8?B?ZzlqTzdlaDF1ZWpENldzSFVLdFpzakRWRGJvZEVDZFhZYjNQV3diL0pjSlQ2?=
+ =?utf-8?B?MG5CaXBMK3ZSdHZ6aE9SM3JYVU1DUzhjcTIveUJ5RHZSTzhrUUx4OVdtL1lE?=
+ =?utf-8?B?UmhNdkxscE1nUEVvYndBb2FWb1RpUEpmQm5EVXgwZUtHa25oVWJKMkVkT3Vl?=
+ =?utf-8?Q?op0nYw2XlxcjL7VKP1?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec31e494-4d55-4e47-2509-08ded5f6c525
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR12MB5179.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:54:58.2422
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: K3wz0GisUb2VqLRRR3Qx2S+G/ASzf9bzGWcTdUry0P0QDlQpP8Mmd1/Qwxeq0X806s429Y2SzXWkXQWoiPnGuA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB9749
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_085427_043741_14D6010E 
-X-CRM114-Status: GOOD (  25.18  )
+X-CRM114-CacheID: sfid-20260629_085505_769739_EFF38D28 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +154,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 02:05:14PM +0100, Kiryl Shutsemau wrote:
-> On Fri, Jun 26, 2026 at 08:40:57PM +0100, Kiryl Shutsemau wrote:
-> > But I have not tried calling CPU_OFF directly, without completing the
-> > event. I assumed it is required. Will give it a try when I have time.
-> 
-> Tried it now, and it doesn't work either -- in a more interesting way.
-> 
-> Calling PSCI CPU_OFF directly from the SDEI handler (event left
-> uncompleted) reproducibly breaks the kdump capture kernel, and this
-> reproduces under QEMU's TF-A, not just on Grace -- so it isn't a Grace
-> firmware quirk.
 
-I had a quick grep (with the help of claude) through the TF-A code and
-it doesn't seem to be compliant with the spec. It should subscribe to
-the PSCI CPU_OFF event and complete the SDEI but it doesn't. It seems to
-handle CPU_ON but that may not be sufficient. It only EIOs the SGI once
-the OS completed the event, which doesn't happen if you issue CPU_OFF.
+On 10/04/26 15:11, Pengjie Zhang wrote:
+> External email: Use caution opening links or attachments
+>
+>
+> The legacy CPPC feedback-counter path reads the delivered and reference
+> performance counters separately.
+>
+> On arm64 systems using AMU-backed CPPC FFH counters, each FFH read is
+> served through a cross-CPU counter read helper. Reading the counters
+> separately therefore widens the sampling window between them and can
+> skew the delivered/reference ratio used by cpuinfo_cur_freq. Under heavy
+> load, the skew is observable as transient values that may exceed the
+> platform maximum, as discussed in [1] and [2].
+>
+> This series adds a small generic hook for architectures that can obtain
+> both FFH feedback counters in one operation, while preserving the
+> existing per-register read path as the fallback.
+>
+> Patch 1 adds the generic CPPC hook and uses it from cppc_get_perf_ctrs().
+> Patch 2 implements the hook on arm64 by sampling both AMU counters in a
+> single operation on the target CPU.
+>
+> [1] https://lore.kernel.org/all/20231025093847.3740104-4-zengheng4@huawei.com/
+> [2] https://lore.kernel.org/all/20231212072617.14756-1-lihuisong@huawei.com/
+>
+> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+>
+> Pengjie Zhang (2):
+>    ACPI: CPPC: add paired FFH feedback-counter read hook
+>    arm64: topology: read CPPC FFH feedback counters in one operation
+>
+>   arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
+>   drivers/acpi/cppc_acpi.c     | 58 +++++++++++++++++++++++++---
+>   include/acpi/cppc_acpi.h     |  7 ++++
+>   3 files changed, 127 insertions(+), 13 deletions(-)
+>
+> --
 
-> The test: a CPU wedged with interrupts masked is stopped via the SDEI
-> rung; its handler calls __cpu_try_die() instead of parking. A/B in QEMU,
-> changing only that wedged CPU's handling (everything else identical):
-> 
->   - park it (current series):  capture kernel boots fully to a shell.
->   - CPU_OFF from the handler:  capture kernel hangs in early boot, around
->                                SDEI re-init, never reaches a shell.
-> 
-> Powering the PE off while its SDEI event is still active leaves EL3's
-> dispatch state dangling, and the capture kernel trips over it. Completing
-> the event first and then CPU_OFF -- what I tried originally -- silently
-> wedges EL3 on Grace instead.
-> 
-> So both routes off fail, and the CPU stays parked. The dump is complete
-> either way; only re-onlining the stopped CPU in an SMP capture kernel is
-> lost. It's a cheap QEMU repro now if anyone wants to dig into the EL3
-> side.
 
-Have you tried SDEI_EVENT_COMPLETE_AND_RESUME instead? Just COMPLETE
-won't return to the kernel. We have sdei_handler_abort() to complete the
-event and, hopefully, you can continue with the CPU_OFF. It's a work
-around the TF-A non-compliance but I think this is useful even if you
-don't issue the CPU_OFF (e.g. no CPU hotplug, just the park loop).
+Hi Pengjie,
 
--- 
-Catalin
+Thanks for the patches.
+The series looks good to me, and it fixes the cpuinfo_cur_freq
+spikes on an NVIDIA Vera (FFH) platform.
+
+Just one nit on patch 2 (counter read order), noted there.
+
+Tested-by: Sumit Gupta <sumitg@nvidia.com>
+Reviewed-by: Sumit Gupta <sumitg@nvidia.com>
+
+Thanks,
+Sumit
+
+
+
+
 
