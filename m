@@ -4,100 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06A2BC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:36:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40480C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:36:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RsiAkF5rnsXrEzna1iMYWZla+7JEf5EC3Z4oGTp3rT8=; b=0vgQGlJT9ezJ2tgVU0KlI2nnIk
-	B8eKtIBl/rqdhpSwfqu7zBJXBPNecFX9nWQopoxsM+f7Cj4ko9IwJbEVOu0rtArLtzHqBpfLVj9tj
-	7Z4t9Ye60r91FdB9tdpyE/qJzyqbI8OhTanRLe78Z21RVzjDqGjZI+qwYpFkcOv1ZJsTSnUe3bydW
-	WJhxoSbxtNHzf1PkAGCPzQ7I6uX9XrbrDAxrZStBGHeYIwbCn7sxYEkwrzRFXtWzCDY7vQ8GcA+5z
-	8J6Pbf2Z2pWYJ5yYmBBm4ph9H/jtkFFMsqD8l/sqYKi9YRWRU2E7UcBJm3treKrNtdDLcLF8I0mE8
-	7lv6Bl3w==;
+	bh=3PSkrSvBcOj2Vfr1tOG9HdESUGrp+uU5X3MHl1xNqsM=; b=wCUvyyYIx1KBgWfyw7mzpK5Ql9
+	k3MAprlu8bZOcOM26Jx2oZCgylKxC7ba2kT/jWFPGJ4YaEpJCONtj7nrxpB2X42UKTBedfbHmRmQt
+	aCGLlvwxrzSSPbGmV8kG9/xTQj9xfAnLfFXcOGt5CDT7SHUA/vaPSPxQ2GljJku6fnsn/nFI+tAwc
+	HoWlm8CyeEtyHFAG2C20P6XfIAFi7fO/4Joj9ZdmIfaDefc98PTcgNTV0ezbaFUh8msN1xHqM6KAf
+	Gf+HL7+7gDNqBVx5W7uXUCFBJF8+4PXmSdrQ70Db9je2QQzaX6+dcv7krT9wFw/VaKr3rHPoRkO4H
+	47fQglFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weE1o-0000000F5bd-2VRE;
-	Mon, 29 Jun 2026 15:36:08 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1weE27-0000000F5fW-2y89;
+	Mon, 29 Jun 2026 15:36:27 +0000
+Received: from mail-ej1-f49.google.com ([209.85.218.49])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weE1m-0000000F5au-396I
+	id 1weE1q-0000000F5bl-21ik
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 15:36:07 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2c9d87b1f9eso9481695ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:36:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1782747365; x=1783352165; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=RsiAkF5rnsXrEzna1iMYWZla+7JEf5EC3Z4oGTp3rT8=;
-        b=DO4dqH/TYYh8HCTE1s+3HyZOMdHcTiXRf8Z9orlbaBrkkqRIgNK5eDpmdxXMsjPIPl
-         bGtfaV1RCIYyPn5E7R+3HyUkYkAXQSk9LasZ7ikzPYEaM8nZ/SKD0J9DDyC9KFyOmkZv
-         2YKedInmIzO9AxSKcJd8+1M9qp20eEzeeqoLoknuy5E9Qgeo9hQmqTv44SDwY6xTBLEN
-         mqb4oyPlmTmUPA95rBY4GYDDc7ywn4QdHZt2OVKlP8CRYJsxDwuRhzUpJD2bku44IoGX
-         3Tifhh9tU9KBgMeraR8rSLth7/pi0VByJsscfrryGSIUS/KQ9sN/RR7UStsosBeQq/K3
-         S2NA==
+	Mon, 29 Jun 2026 15:36:11 +0000
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c12758e75afso110484966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:36:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782747365; x=1783352165;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RsiAkF5rnsXrEzna1iMYWZla+7JEf5EC3Z4oGTp3rT8=;
-        b=XTiMyFoRYoKWUIY9AB/Shhtsi/p6XS/jI9bKIPYoQ1H8XL09IX3G1T/Cj6XrULafwc
-         T89PXBFIeyaSV2zsh6OoaoN9du/o6UExTgh6bV4twVEg8f7+4a+mfStj0OKYiWdS7LKM
-         IaK70ydo/wNCxjZ6zyCX6WzDCiOjnEOM7I1gWCOCjD8fk075FvrvavrPjHtMWBZtdx+8
-         GwcizZsi7+PucE0s5W1n5X5LWH+S+DldwRi77y/2OUQb67f5Wq1O10JyIz+bq6/biwh/
-         VYbgltIZcqEH48yWrxIjSl/+a3K4AD9uO6NbtQDvRiYdp68hJ/mWUrA/r1eghixtdMkM
-         ZhZQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqBCdDb7Lo11maAHhVuI63OHN9udv78En+I7kHLgvX3ClRuJY9/apY6of8poJvyEwzP7JXKbR+wFXfaNfR0LDhj@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQhuQS/fb7riN/sfCotlpVEPn6AkldrjaDeneraDlRLyPIEeay
-	stbwEwjpggp8STHyRnXSDe5Pl2K+wrDZUu5chqABLXxCcbAFaeHbgLWLKCer28UHSMo=
-X-Gm-Gg: AfdE7cnogEhChitMTHOKqmHa1lElBaQgqGfCwFwgrtRPsCG8ojGIC5GpkHqV818wS51
-	KjS/XYx0hXho/sm69AI+k2iF2TZZ5RZ+mcEam/L/0DWkYWN81jC9kZujDTqTywNBX/hiplvoQB1
-	QJP8wUxR6JJGCoED3xSoPJeZWnn4tWMXrZg1ZNRdxVRKgCz/P/NSbxZx/PTqvxOHCTr3/uY60iU
-	xAnzbALqAim8l6Chlp8E0pkpvTrbXdwFepApEbc0jipM946+q3oICePDY3gu6hmxpA/K50HwKck
-	2aayvLYrEMYtCMZ2kpgZ60HRdWVbed7YP7i2FtrX6tysQ/cgHRnl8SR/0COltdU5j/GS4iv2fpI
-	LnBN56fyNpRckKphedAgkIixwLqd2mwJPu9VohY6UgR55NBKG4LxT7jq7iPCJrCaL6vFtU0xZIH
-	ptzxWgX7djLXEsKnADoIRkoS0CIag=
-X-Received: by 2002:a17:903:2f8a:b0:2c0:b5c1:8e22 with SMTP id d9443c01a7336-2c9854b5597mr89458355ad.12.1782747364963;
-        Mon, 29 Jun 2026 08:36:04 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:aa83:261a:68a7:9974])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2c7f63d09f0sm98408955ad.56.2026.06.29.08.36.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 08:36:04 -0700 (PDT)
-Date: Mon, 29 Jun 2026 09:36:00 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Ben Levinsky <ben.levinsky@amd.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	linux-remoteproc@vger.kernel.org, Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Tanmay Shah <tanmay.shah@amd.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v3 0/5] remoteproc: cleanup shared carveout and
- resource-table helpers
-Message-ID: <akKQ4H09G2MpRVGN@p14s>
-References: <20260529021637.2077602-1-ben.levinsky@amd.com>
+        d=1e100.net; s=20251104; t=1782747368; x=1783352168;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3PSkrSvBcOj2Vfr1tOG9HdESUGrp+uU5X3MHl1xNqsM=;
+        b=dcgp3b4vPEJxCUaAJKh38p/YB0t8p/pGOPfxlfmsDps+bD37B4PlYOEchlNdBLVDp+
+         W70LaSR5nF4d/HWjy0YLRtv+/CPXu8yNyLje1cCw7726Vfyudd7lstKIhO7Gbay+Nhhh
+         oN+uQ1ebJYNwz/eoecnJlhhV1xwRzgTNbjVWVxuzsXKzJdnFO4Fa7fgaSA6ZFBKIKrAj
+         IhDA/bjVXA1/S8l3LehpBD8ze8gqcM0dhjw6mt6uWxm5bC7OtqW8LOBa8kk2xNoVfIIN
+         m8pRoluBb9SUafy2+wrBD5p93U6jAOlBI+ppXf7UPkm6kPUMquNbRhUMu/5vQBUzsmd7
+         32ng==
+X-Forwarded-Encrypted: i=1; AHgh+RqbZ5Gd0t5YxHGsZEj7tBp4N74o8BwwL7QWz/3KKE03ac525EhWVR6zvh6QjOfVqMSQL29RkvBjy+Xbuwvhgny/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1T4nivrWJQLIHf0dwh6+PyHXeZV/ig2kcQtWM3bFPpGUYi4zM
+	mIoJm/DbOY/TknZzuSQCuHWM2EG6FdB0b0CwJBdGAyRPKCAJPxYoX5RU+3HbjNd18g4=
+X-Gm-Gg: AfdE7cm22XSv0Njn6OzsmJ+2wJcaPbm0JARu6gxSxjJLa1UX8h9wCPsV0Zd1pKicffl
+	VSFpmmLSK+7hAR9diGfbnkW6HiOUpwTShKaWZqtLecnNQ/HOTN0UhyOKAV9kVgcdimf/yRwfGUy
+	QS7lAzF1Ay9f69X8JB56PmveOC15TfA8tQYlxTTnYjdv/qiQRT2cAS0xI2noYWe6vH9kXiQ3Iin
+	IYCg2vuF7C4KNjTYbkKYlrpfi8YWCAT90Wl8LfgW452V6L16DFx9bluK6H2q0KMlnSexzgEyB6Q
+	84lAhHK+2k2XnoVhPK2ZJ27ZyFjiXFaYjAV5O5uBcwMYVEDHd5Pq4M4WbZlTfWtlFdfTBqVGkLY
+	5Hw1wh26cd++MDzgXLrnxQtNW6yyGV3ycr9pNUgO5NwV4LvqosNGdclLUsQO1if9apzqDmLV/HV
+	dcCr0l1XellDAlcJaiYgaMhFPsqg3P7uz+Oqsx5gZp61WAIDqIcA==
+X-Received: by 2002:a17:907:d78a:b0:c12:4a01:3800 with SMTP id a640c23a62f3a-c124a013e79mr297012666b.19.1782747368248;
+        Mon, 29 Jun 2026 08:36:08 -0700 (PDT)
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com. [209.85.221.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c120755d053sm732557566b.15.2026.06.29.08.36.07
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Jun 2026 08:36:07 -0700 (PDT)
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-463f1165e16so3527981f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:36:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrxrqjyWQ/WDaulSRRcfnlgjz54m9L+ArimSwCaGv9sDCrexlSMFQrAe/FIWgtYPyxd3cE29uSd5FmK/H8Wjc/y@lists.infradead.org
+X-Received: by 2002:a17:907:3c8b:b0:c12:f84:85d4 with SMTP id
+ a640c23a62f3a-c120f8487bamr796791266b.24.1782746977928; Mon, 29 Jun 2026
+ 08:29:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260529021637.2077602-1-ben.levinsky@amd.com>
+References: <20260629135917.1308621-1-arnd@kernel.org>
+In-Reply-To: <20260629135917.1308621-1-arnd@kernel.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 29 Jun 2026 17:29:24 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdXhsM4JzArRuB=A46N-Ogbn2Fans+PVJVA-hEytFq=DeQ@mail.gmail.com>
+X-Gm-Features: AVVi8CfSSg4DcoB7CGCYddSfqoWpUaOwYUjpkorP-3LR7U8E7vJ9ucbePhiZLD8
+Message-ID: <CAMuHMdXhsM4JzArRuB=A46N-Ogbn2Fans+PVJVA-hEytFq=DeQ@mail.gmail.com>
+Subject: Re: [PATCH] [RFC] gpiolib: introduce gpio_name() helper
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Marcel Holtmann <marcel@holtmann.org>, MyungJoo Ham <myungjoo.ham@samsung.com>, 
+	Chanwoo Choi <cw00.choi@samsung.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Andy Shevchenko <andy@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Ulf Hansson <ulfh@kernel.org>, linux-bluetooth@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linux-i2c@vger.kernel.org, 
+	linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_083606_804417_E1852A3E 
-X-CRM114-Status: GOOD (  30.17  )
+X-CRM114-CacheID: sfid-20260629_083610_548666_080EFBF8 
+X-CRM114-Status: GOOD (  27.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,97 +102,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Applied.
+Hi Arnd,
 
-Thanks,
-Mathieu
+On Mon, 29 Jun 2026 at 15:59, Arnd Bergmann <arnd@kernel.org> wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> Most remaining users of desc_to_gpio() only call it for printing debug
+> information.
+>
+> Replace this with a new gpiod_name() helper that returns the
+> gpio_desc->name string after checking the gpio_desc pointer.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-On Thu, May 28, 2026 at 07:16:32PM -0700, Ben Levinsky wrote:
-> This series is a preparatory remoteproc cleanup split out from review of
-> the AMD BRAM-based remoteproc series.
-> 
-> During review, there was a request to move the duplicated plain
-> ioremap_wc()/iounmap() carveout callbacks into common code and to
-> factor the "missing resource table is OK" ELF parsing path into a
-> common helper as well. There was also a request to send that cleanup as
-> its own patchset first, with the AMD BRAM series respun afterwards on
-> top once this cleanup is merged.
-> 
-> This version keeps the same overall cleanup goals as v2, but reworks
-> the optional resource-table pieces based on follow-up review:
-> 
->   - reshape the optional resource-table helper in patch 4 into the thin
->     parse_fw() wrapper form suggested on the thread
->   - switch the patch 5 clients over to that helper shape directly,
->     without post-helper rproc->table_ptr checks
->   - keep the driver-local parse_fw() wrappers and their existing log
->     messages and severity choices
->   - retain as much of the existing per-driver parse_fw() logic and code
->     placement as possible while moving the missing-table handling
->     through the shared helper
-> 
-> This series now does that in five patches:
-> 
->   1. add common subsystem-private callbacks for the exact-match
->      wc-ioremap carveout case
->   2. switch the in-tree exact-match users over to those callbacks
->   3. mark carveouts mapped through the shared wc-ioremap helper as
->      iomem so the framework uses the proper I/O accessors
->   4. add a common helper for drivers that treat a missing ELF resource
->      table as optional while keeping per-driver logging decisions local
->   5. switch the matching in-tree drivers over to that helper while
->      keeping thin local parse_fw() wrappers
-> 
-> For the carveout map/unmap cleanup, this series covers the exact-match
-> users called out in review: xlnx_r5_remoteproc, rcar_rproc,
-> st_remoteproc, stm32_rproc, imx_rproc, and imx_dsp_rproc. The zynqmp R5
-> TCM mapping path is left alone because it also clears the mapped memory
-> and is not an exact match.
-> 
-> For the optional resource-table handling, this series converts
-> xlnx_r5_remoteproc, rcar_rproc, stm32_rproc, imx_rproc, and
-> imx_dsp_rproc. st_remoteproc is intentionally left unchanged because its
-> parse_fw() callback also builds carveouts and is therefore not a direct
-> match for the helper introduced here.
-> 
-> Changes in v3:
->   - rework patch 4 so the optional resource-table helper matches the
->     thin-wrapper form suggested in review
->   - note that patch 4 still triggers a checkpatch --strict warning for
->     the flow-control macro form, but that implementation follows the
->     maintainer's review suggestion for the thin parse_fw() wrapper shape
->   - update patch 5 to use that helper shape directly in the client
->     parse_fw() callbacks
->   - drop the post-helper rproc->table_ptr checks from the converted
->     drivers
->   - keep the converted parse_fw() wrappers otherwise close to their
->     existing structure and placement
->   - test xlnx_r5_remoteproc on the latest tree with firmware images
->     both with and without an ELF resource table
-> 
-> Changes in v2:
->   - split the mem->is_iomem change out into a separate patch
->   - add a common error message on ioremap_wc() failure
->   - drop logging from the optional resource-table helper
->   - keep driver-local parse_fw() wrappers to preserve per-platform
->     missing-resource-table logging policy
-> 
-> Ben Levinsky (5):
->   remoteproc: add common wc-ioremap carveout callbacks
->   remoteproc: switch exact-match drivers to wc-ioremap callbacks
->   remoteproc: mark wc-ioremap carveouts as iomem
->   remoteproc: add helper for optional ELF resource tables
->   remoteproc: switch drivers to optional resource-table helper
-> 
->  drivers/remoteproc/imx_dsp_rproc.c       | 41 +++-----------
->  drivers/remoteproc/imx_rproc.c           | 40 ++------------
->  drivers/remoteproc/rcar_rproc.c          | 41 ++------------
->  drivers/remoteproc/remoteproc_internal.h | 38 +++++++++++++
->  drivers/remoteproc/st_remoteproc.c       | 31 +----------
->  drivers/remoteproc/stm32_rproc.c         | 39 ++-----------
->  drivers/remoteproc/xlnx_r5_remoteproc.c  | 70 +++++-------------------
->  7 files changed, 73 insertions(+), 227 deletions(-)
-> 
-> -- 
-> 2.34.1
+Thanks for your patch!
+
+> Not sure if this the way we want to take this, or if the gpio name is
+> an appropriate replacement in debug printk.
+>
+> Since most of the callers of desc_to_gpio() and gpio_to_desc() are
+> otherwise in drivers that already depend on CONFIG_GPIOLIB_LEGACY and
+> include linux/gpio/legacy.h, only a handful of instances remain that
+> are otherwise in files that otherwise only use the descriptor interfaces:
+
+> --- a/drivers/gpio/gpio-aggregator.c
+> +++ b/drivers/gpio/gpio-aggregator.c
+> @@ -758,8 +758,8 @@ int gpiochip_fwd_desc_add(struct gpiochip_fwd *fwd, struct gpio_desc *desc,
+>
+>         fwd->descs[offset] = desc;
+>
+> -       dev_dbg(chip->parent, "%u => gpio %d irq %d\n", offset,
+> -               desc_to_gpio(desc), gpiod_to_irq(desc));
+> +       dev_dbg(chip->parent, "%u => gpio %s irq %d\n", offset,
+> +               gpiod_name(desc), gpiod_to_irq(desc));
+>
+>         return 0;
+>  }
+
+Before, this printed:
+
+    gpio-aggregator gpio-aggregator.1: 0 => gpio 589 irq 188
+    gpio-aggregator gpio-aggregator.1: 1 => gpio 590 irq 189
+
+After, this prints:
+
+    gpio-aggregator gpio-aggregator.1: 0 => gpio (null) irq 188
+    gpio-aggregator gpio-aggregator.1: 1 => gpio (null) irq 189
+
+Same results for instantiation using sysfs or configfs[1], although
+the latter does have optional support for specifying the name.
+
+[1] Documentation/admin-guide/gpio/gpio-aggregator.rst
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
