@@ -4,88 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE59FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:29:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A284AC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 15:29:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RXVKOfA9hd4RcZO7gsoOEE/4S45norFi3L5vJ3qAUhw=; b=KnZjPDnasHGsE8GjEQmya/58FN
-	wiw+1oGiI8xpBggfg7BwqHv66W1KGaZId1oHiCahCXFPK6xO51SSg1MB/7wGx708XD7AVwcDQecXA
-	L6j7tqAi5FwQKNkj8X63YZjCDY+/FDC7N1eJ6gfo68QHT/z1ZECJuvjyI/xySxkd3/EPJ/0IIjwyh
-	Is+n1GgfwJfAO+ZedKsfXjJHxUCxmzuPPSm4Uh8Od0QHxIkviStW7F38Xpqr+foVZT0T0cayUMsAB
-	id+DoHlzt3HvpgIhI0N9RH+Z72IBSTWZnC4S7E3kcXPOQWp5drt7eq1MEq96eZAqmURa1AhJIWnVq
-	FSAleTPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=53Q7fDvsLHfCdpxdhUVIYXmixubrZSQ008lgK//m+lE=; b=SMVW6/dKdTGeWqDSG27f2PCiP5
+	lMOxngfRvMiTXPX3L69hdqGOczNX8tyw+3QhAhU7bCs6+dmlD6juImHRFNF1VA3LG6DoxxUoS+rr5
+	1ehMlpQ4x/95EijuVOVJ5lFEl9himeBHLbyDoJe+K0+b29yysviCYYeBLU16SaIryvoH4hV0m+Fim
+	Bs2NSCV/tcDNzBASzkr9T1TRfKIbkFmC+rJUcBvGXXR3mAaS+WwMQqIlprbQAQDAgV3pVadbtbQND
+	x6tBkHqpjhUGkLwFKXZuAMp9o71Jm6JJfHSFIxkZR9yuphS0mAgJQmbdngZdoE5AeQtdktyYRplVh
+	3kQJ4ILA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDvb-0000000F4ed-1diB;
+	id 1weDvb-0000000F4eL-15yL;
 	Mon, 29 Jun 2026 15:29:43 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDvY-0000000F4dJ-1gl8
+	id 1weDvY-0000000F4dI-1KhT
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 29 Jun 2026 15:29:41 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-664a09bc459so3150562d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 08:29:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782746979; x=1783351779; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RXVKOfA9hd4RcZO7gsoOEE/4S45norFi3L5vJ3qAUhw=;
-        b=RGIm+PlyXqMzGVCe2w/zHxGsZYWBT0r+LOzNDmrE9BEzW3NtwRawa9u5huJnlH/GUF
-         MHekvMD5uliNWuk7Xc/93OWrYRsfeLGJ1gKBfnB8Pbpflav9fq1gkYBx9hcNO0PYoZ5n
-         kaDRoDlXHe59D+CuyGxEISoXGLgs26BUvhW+3xk89qswtf9MZLwxxn0WVT0joUA7zApt
-         w4cp6XLID4UoT6UdVzoos7Rdopji36ne7tqtGz28escYZrjvD+GWZOlhZf0KPtmmp9Jz
-         yGn9sqK6YCqgK6600jB9UTQkOn87WrsJK7X5tiYCA8/MW/VpCtLcLmnoF688KivUfj9Z
-         Oiug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782746979; x=1783351779;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RXVKOfA9hd4RcZO7gsoOEE/4S45norFi3L5vJ3qAUhw=;
-        b=UjZqjAEbm54gCkTmExXV/ESdprKUPGbssfaju/oX6GVztn1E9Lp+Tv5zF5z4kxpq8T
-         rXuVpTePUSznhFKowgca0cYnr6p6GHOBh8jpabVMD7HiFboj4LDf2t2TMWjqzZIy3Ko+
-         /w4zfDw5EURxksHLjeTMPUw038VX6F0Kum4AGRpokQa8sBcEhQUvcZeTLogoNCS143d3
-         8EalESC0ZAfl1GoAu9fYCBDuVtrcWn+y7gAUvSV4dJthSrrscHWRqAD7/wMKgaOC3tIW
-         mdk8K9o39fSkVUvwlvZb7bPeEVq4zhAM90z5k9WY8r6spMsizlQNqP+8AC7k1oEN63Mn
-         MKjw==
-X-Forwarded-Encrypted: i=1; AHgh+RomQc4RRyImhp+7JJQ+rFEZmZxd2cYkHD9j2K2gPJ4ACRkKzeYoPwqt6j7SAFh4k7k6oUSUdRkPhFsXcHp7a+D4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2qXQ3h000ean82tJNu2Ec8aFQXaZaoWBNKEs5xUxcfVrFgzjw
-	+mnEopIDIUECifiTf74Exs2f9N1e5W/7C80TDn08mT6xGGdY9EgoIf5N
-X-Gm-Gg: AfdE7cmNm3KVQy1r+eoHsBoHTFTMyj41FUTLb2lz53euNCxwU1L63EUgAocGvxoKPe6
-	q39RxTngvZXaLyjECvOR/YIn6dIA7MB+Wb8sjwmO0MERmrrehpQsHYW2FE3nByJ+6e3Ygp+9o0U
-	2b8E5iUOD77xCLYyMn0eoGUSEHaqTchtAkldZUgNxWaFv1F66zb7XWOwf0RCZ6dWHygKbPBEcvh
-	/WhwD4k6MkbpcdyU0e8TmUVRVukOZ+BHAcshjqb+/euPdnZPNlEq3VmAe9HthI7NmN3ccEQZ1wi
-	19VFng09YhBl8Pf/O3bUvC/Q7+gsoIAsSDURP7Ah2dVAlVNj3ZURv9X8IvAmseiPZGvUjzxfBKc
-	Hmwf1BJfcGQe9w91GCB/3wCG0CaHQnznZ+S7VosymEABGSxYNCNaa99aWxXoYzlK9Bap7WWg7ei
-	cGHeNS98nO1CgnXcDdq6kdmJLqcw==
-X-Received: by 2002:a05:690e:1c2:b0:663:1af9:a2f5 with SMTP id 956f58d0204a3-664f974fd0amr106919d50.10.1782746978730;
-        Mon, 29 Jun 2026 08:29:38 -0700 (PDT)
-Received: from Dev-Null-MSI ([2a0d:3344:52ac:a808:98a4:4381:be45:536f])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-664afe7c1dfsm4289812d50.10.2026.06.29.08.29.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 08:29:38 -0700 (PDT)
-From: Yousef Alhouseen <alhouseenyousef@gmail.com>
-To: Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Michal Simek <michal.simek@amd.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yousef Alhouseen <alhouseenyousef@gmail.com>
-Subject: [PATCH v2] misc: xilinx_sdfec: validate LDPC code register offsets
-Date: Mon, 29 Jun 2026 17:28:57 +0200
-Message-ID: <20260629152857.13553-1-alhouseenyousef@gmail.com>
-X-Mailer: git-send-email 2.54.0
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h68z1V2U163BXQ6Uq/mWPPiNxXN1cqnCdE7hoUtMFx7nUAGxVXabQ295MXRACypM7vlyifWsyfP6vit0Lz6m0uHxmtsfsi4rn7RkPR1mpff5iccKHHss4WlOU2qDJW1qZrVzJNXPJ+FIN5DNRcD8cZmOIZ+NZ5Wtyj1ES5euSJGZp4hFXDRdYLxQcM0eZKp5TpnI8AstsSJT3sr14zSXcXRo19ylgzk3oqSD0qEiAzxrenAjGXHx1sEFOQgyGYRxmla4cmT+SZqbX6Pts1phiGAC+Tjh5H49nD/BgohsFSTGcOPnfkcQXlugYwaLqo0xQ/A8gX6OAB44GP5JLLjOrQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=53Q7fDvsLHfCdpxdhUVIYXmixubrZSQ008lgK//m+lE=;
+ b=JxJP/cZCs08OcKFzRo5tB4jhr2/cldnUvVSjWNa09F5zfMn6U62BFZ5xDR4PPhFWTd4L2TaRU8HEmRvCm9IT/emjdT5U4XC9gaHr1/inCh2OopfNKgIHHz5M0zb2NsQAuSIX8DsNIhRXEb4Bg8M6alZRzLC1Oi3TEffWYUQjsiauQex60pfY8ymIgGCnfHWSKrkwgA85f5aLwoUNoPKkJHcHY+ZOtsqVIF3aCpR7tfCRD2ikkQG0JCuRICeZ/eLRTLKGBLmLoy0Lh/msSRiQpY+41NTg3yEv8hCe1yWwa1pH6d3MRX9mLTDT+tCMm7Uhkn8o/LgwyDOMx88TtuEXAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=53Q7fDvsLHfCdpxdhUVIYXmixubrZSQ008lgK//m+lE=;
+ b=TNZGYOPzRT8N6Lx+pQc5dxd3iOAsx4xtQZW74Xxo66EcpyiPRNb51ULej0aT2YmIYk4hWWEEmDKoZ9/6aDyjuWemokxBd94j6+IPvz12u35dqx0Ukbof09iiSj2cvf0+fJxW55NX1o+fLQRhq/ZQ3Zi+eYhYR0v17zL2NhzPLCL/6xfWEcilt8coVap9xuoGDreNhc28TMZlp+pCEahmbHmJkvNjmX6PVwp4vJfgYW1VrCOHjVvVe1a+WA/3zO00iz6OT4R4OfW6GrmDNWhWosChWiLhR1Dw37slQGn9llambghVcBwHWjtIDcp6y53gf7dOQsX1pJIX0/smHrUR6A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI0PR04MB11070.eurprd04.prod.outlook.com (2603:10a6:800:264::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 15:29:34 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 29 Jun 2026
+ 15:29:34 +0000
+Date: Mon, 29 Jun 2026 11:29:26 -0400
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil@kernel.org>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org
+Subject: Re: [PATCH v12 2/2] arm64: dts: imx8ulp: Add MIPI CSI-2 and ISI nodes
+Message-ID: <akKPVovk-j-gKAjz@lizhi-Precision-Tower-5810>
+References: <20260424-csi2_imx8ulp-v12-0-da148eabc035@oss.nxp.com>
+ <20260424-csi2_imx8ulp-v12-2-da148eabc035@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260424-csi2_imx8ulp-v12-2-da148eabc035@oss.nxp.com>
+X-ClientProxiedBy: SA1PR03CA0001.namprd03.prod.outlook.com
+ (2603:10b6:806:2d3::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB11070:EE_
+X-MS-Office365-Filtering-Correlation-Id: b8c62635-7909-4b85-5396-08ded5f3388e
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|23010399003|19092799006|1800799024|366016|4143699003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 0czYZSUmzppef8WFIG6DbOrsLmi85eeGHY2dqYwkgMk1tBJlED1h9+i1ivY0h3FhNXaEtZfeR9NRKc6QUQELdkeFuWNx3jWxb3NUn/f6x8+Sx8tU0WyjDLlsIi3ybg8g9G/B+Nq8pOmxUDFT243QLGRFS9tI6XZ6tskke6vFV8ldJrzLYNTW+QoNNwPYtMn8zt8nsDnlu/qlAuLyynamg6slzmNRgkWSuR8dHG9Hu+NlA+CkZ3EWYnS88d38m9uThHHpf2L4czIf8nfoSaf+69ibHcW/OygBk6rNfsGN2zaSVQOf3iibTa8filTmgrsxNcJuliqr+HdREsJ54eMGIiCaLt+uTVc+wEJk+BAKjjJ2x3RsTyUdUirOrpd6rOcOZlw0oMoK+U4jODeD7PBuE+zFVzMLW/PQp1/gM9G3wSJE5LBlGM29SU4lLh+Esg5nvk5OP+LtfMZjzZotpkDU//1oYZKiXyUOUc2RhyiUEpwPSSZwW7x4JwyQaRR43Datc+7jyVJRwJRZYRRks6B8OkBu05vHNuu8pZm7iC+ZoTEB2xYh5i487LKR0JS3aEBGTzZZtWj/xp0MVwB4za8JIFe/cf6u3eJvdk4Dfmlz6GhDXUVuzLz1tB7/MRHDCAySdRUQbYF9HfWG8diu/y6PO6StUVdNlBPHHqC5MTRToxk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(23010399003)(19092799006)(1800799024)(366016)(4143699003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?/mwmAL4roQi4WdTapljkoQDAKOWxzyzzr2RqzL3ztuLnSHGuRwM87hh94yOS?=
+ =?us-ascii?Q?onw3Azw3w2g14LmN34Wso8/Jul3SVEGzqtIGFNkD7NQz08NfQ60VJrqxpxFt?=
+ =?us-ascii?Q?5+s1MDBAumxHarlRS64zVe6Q60bNwsvZF7q7j6+XhlctLWzDUNuSjSOqwe5B?=
+ =?us-ascii?Q?kNTymk5cFYHbX9ZpMuI0afFULGnCYNmIyU4Nwp8hXGJ3yVbkN4PBOE3ly8VB?=
+ =?us-ascii?Q?aOGrIedy+PF1DPnMyJUuqJ/oH1dWD6HG3kuGYjfFkDUTPltv0QIMVF4vAG4v?=
+ =?us-ascii?Q?jntEBBfLPntLVXToB8E1J3TRPV/0kelRv2ikNJJo8SK7EgNnO8kfIxH7hYdF?=
+ =?us-ascii?Q?AIwZvL/KXDSgE163vXJmeGB+XJiMzsi9k0xXI20q9kF2J/PfJ+ZpRk3819Is?=
+ =?us-ascii?Q?gq5CvcGi0NCHkmrOLJ5yzTcLSrVrXLJSwzPx3S+dRKViBN0MATAd9ej+14Vm?=
+ =?us-ascii?Q?pxgwpzpzhTk/uAtPLGMxvPXgiAjE1D+E3me1JBQIX+Bx+C6El5raHj8+oBYp?=
+ =?us-ascii?Q?BZKvEOoBIWucJW9P5IYzN0gnZdUWKhMC6eB8ZjFX6KARiAn+076LnXR2+tPr?=
+ =?us-ascii?Q?dZS7dB68U+UoS8Ao5NuMtjLgfgFXbeyAWjPZitCZhNCRzHCAFDNmxltibuli?=
+ =?us-ascii?Q?GdXij2womtZ8Fo8nnd/wIT1Wq5IBt6bCsqJ7ANaGaOLxU98eLlx9KPfdnhH8?=
+ =?us-ascii?Q?17Bh35m2rS1UrBqpnyKHU86GPdRo970GjiO3SS26/YcFrdEEdIHpbef0MwOD?=
+ =?us-ascii?Q?8EbrxPlYbwqaUF0FUGD4viRJGH71qfvdpq3PHBjavNhdbnON+DXvePTHSRTT?=
+ =?us-ascii?Q?0aNhRULW9wzm4ypbupAXgpnnfze1Qqftqt0ps49ppDGttP4UaDF4zcjw1hTp?=
+ =?us-ascii?Q?qXJKSvZT2+zr9AJDqM+nnqF0pwSU/C+2tHzO/BdbT5kWRJonIvTMs9pOqfuQ?=
+ =?us-ascii?Q?jRDdakZle2O9SXbvRdqqYO+9tzPg89b1Lbh5usBAwQqj/aQ8OnoDR9twJpzb?=
+ =?us-ascii?Q?mucjarOnJwm2Au2sEV76Zt/NCkgt5JhcIWWqVx0myDQFfiCO6TXftYNXgw6q?=
+ =?us-ascii?Q?ukErl1FS/j9x1XQbgxiQWlodjDDELK2r1YS8f7d7YXlFv/B1mULkW/B5BOi8?=
+ =?us-ascii?Q?GcFj7v6Dw652ngsi7+78ntN4kBBpFin1qIdBTvnp/gZj3fXdm/OElO+SaEKK?=
+ =?us-ascii?Q?K8kM4VY4euOJ4kuRBSmL7EOc1dNUQ6iDHL44Uq0L8TsPBS7eo9I9vskW3VAH?=
+ =?us-ascii?Q?UzEpYU13aEPcvWJPoSm79koN1VTlhgIp0UfHx4daOn0u1z+tBZiJ05F8Ph28?=
+ =?us-ascii?Q?TYJBDMQL8EwNBjujVcJuHgyVr4JJuGvQcz9HFTQPT8MW+P2sJhKzrq920Epc?=
+ =?us-ascii?Q?Ez5HSOPhhrSzl6DKS/1G+MJTV9pO/5Dh4b/ZT1IQBqWwFCZgAr5GVR+7SMup?=
+ =?us-ascii?Q?EdFCUr6EDvZl1s9jHBL3p8jgjJDah8mjxCLIAycObqXvkLCQsMTBKDcUqz20?=
+ =?us-ascii?Q?0MhRZXED9uxNzAOT1GfkqttlTNB5d6oWOpVZukkmdhDXYOs2X22c565wvukn?=
+ =?us-ascii?Q?7VUQts2jjgBAF2KsPg3/BrI3FT2xjp14Ak3pcHpW3GJA8sbh2sA7VnVAMGDT?=
+ =?us-ascii?Q?9pHCuU7Mo25PvuVsGZ4AdVczfEh8+ZQbJwYohLvgyQra9Eer3PzWCaoHv1ts?=
+ =?us-ascii?Q?7vpb57wfAeScKtrzOqmuegNhhRvHfQVvLmajHzA73ag7QKQ9LnwZqqoLqXcv?=
+ =?us-ascii?Q?uZAIFfaHImGv3g3IhchMmpbs6fDq07VK9dCLPWGWRv4SD9vZ14s2?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b8c62635-7909-4b85-5396-08ded5f3388e
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 15:29:33.9256
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: f2mBgyT/iczUU1WF0Wtss5vYHSChaVg4eB8GiMK+Pc3OZEdGyQaECQfl8pzPRyM5GwRfvhVRADXbeTbqfiDtFqZQBs2Kqd97OzNsbKWv9eUy2E3+skZXXyUSeUWjPYXz
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_082940_451233_22563728 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20260629_082940_358423_D3872CBC 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,161 +146,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LDPC code register helpers check the target MMIO address after
-adding code_id * XSDFEC_LDPC_REG_JUMP to the register base. code_id is
-supplied through the ioctl path, so the multiplication and addition can
-wrap before the bounds check.
+On Fri, Apr 24, 2026 at 02:49:51PM +0800, Guoniu Zhou wrote:
+> The MIPI CSI-2 in the i.MX8ULP is almost identical to the version present
+> in the i.MX8QXP/QM and is routed to the ISI. Add both the MIPI CSI-2 and
+> ISI nodes, disabled by default, as they require an attached camera sensor
+> to function.
+>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+> ---
 
-Validate the code_id against the register window size before computing
-the final address, then write using the checked address.
+This part of the previous version patch should be applied. If missed
+something, please send new patch, which base on my dt64 branch.
 
-Signed-off-by: Yousef Alhouseen <alhouseenyousef@gmail.com>
----
-Changes in v2:
-- Guard against swapped high/base constants before subtracting.
-- Preserve debug output and include offset/base/high in the message.
+Frank
 
- drivers/misc/xilinx_sdfec.c | 74 +++++++++++++++++--------------------
- 1 file changed, 34 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/misc/xilinx_sdfec.c b/drivers/misc/xilinx_sdfec.c
-index 3135ba3a58ee..e73a139f3ffc 100644
---- a/drivers/misc/xilinx_sdfec.c
-+++ b/drivers/misc/xilinx_sdfec.c
-@@ -456,10 +456,25 @@ static int xsdfec_get_turbo(struct xsdfec_dev *xsdfec, void __user *arg)
- 	return err;
- }
- 
-+static int xsdfec_ldpc_reg_addr(struct xsdfec_dev *xsdfec, u32 base, u32 high,
-+				u32 offset, u32 *addr)
-+{
-+	if (high < base || offset > (high - base) / XSDFEC_LDPC_REG_JUMP) {
-+		dev_dbg(xsdfec->dev,
-+			"LDPC register offset %u outside space 0x%x-0x%x",
-+			offset, base, high);
-+		return -EINVAL;
-+	}
-+
-+	*addr = base + offset * XSDFEC_LDPC_REG_JUMP;
-+	return 0;
-+}
-+
- static int xsdfec_reg0_write(struct xsdfec_dev *xsdfec, u32 n, u32 k, u32 psize,
- 			     u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	if (n < XSDFEC_REG0_N_MIN || n > XSDFEC_REG0_N_MAX || psize == 0 ||
- 	    (n > XSDFEC_REG0_N_MUL_P * psize) || n <= k || ((n % psize) != 0)) {
-@@ -476,17 +491,11 @@ static int xsdfec_reg0_write(struct xsdfec_dev *xsdfec, u32 n, u32 k, u32 psize,
- 	k = k << XSDFEC_REG0_K_LSB;
- 	wdata = k | n;
- 
--	if (XSDFEC_LDPC_CODE_REG0_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG0_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg0 space 0x%x",
--			XSDFEC_LDPC_CODE_REG0_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG0_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG0_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG0_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
-@@ -494,6 +503,7 @@ static int xsdfec_reg1_write(struct xsdfec_dev *xsdfec, u32 psize,
- 			     u32 no_packing, u32 nm, u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	if (psize < XSDFEC_REG1_PSIZE_MIN || psize > XSDFEC_REG1_PSIZE_MAX) {
- 		dev_dbg(xsdfec->dev, "Psize is not in range");
-@@ -510,17 +520,11 @@ static int xsdfec_reg1_write(struct xsdfec_dev *xsdfec, u32 psize,
- 	nm = (nm << XSDFEC_REG1_NM_LSB) & XSDFEC_REG1_NM_MASK;
- 
- 	wdata = nm | no_packing | psize;
--	if (XSDFEC_LDPC_CODE_REG1_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG1_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg1 space 0x%x",
--			XSDFEC_LDPC_CODE_REG1_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG1_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG1_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG1_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
-@@ -529,6 +533,7 @@ static int xsdfec_reg2_write(struct xsdfec_dev *xsdfec, u32 nlayers, u32 nmqc,
- 			     u32 max_schedule, u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	if (nlayers < XSDFEC_REG2_NLAYERS_MIN ||
- 	    nlayers > XSDFEC_REG2_NLAYERS_MAX) {
-@@ -563,17 +568,11 @@ static int xsdfec_reg2_write(struct xsdfec_dev *xsdfec, u32 nlayers, u32 nmqc,
- 	wdata = (max_schedule | no_final_parity | special_qc | norm_type |
- 		 nmqc | nlayers);
- 
--	if (XSDFEC_LDPC_CODE_REG2_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG2_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg2 space 0x%x",
--			XSDFEC_LDPC_CODE_REG2_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG2_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG2_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG2_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
-@@ -581,20 +580,15 @@ static int xsdfec_reg3_write(struct xsdfec_dev *xsdfec, u8 sc_off, u8 la_off,
- 			     u16 qc_off, u32 offset)
- {
- 	u32 wdata;
-+	u32 addr;
- 
- 	wdata = ((qc_off << XSDFEC_REG3_QC_OFF_LSB) |
- 		 (la_off << XSDFEC_REG3_LA_OFF_LSB) | sc_off);
--	if (XSDFEC_LDPC_CODE_REG3_ADDR_BASE + (offset * XSDFEC_LDPC_REG_JUMP) >
--	    XSDFEC_LDPC_CODE_REG3_ADDR_HIGH) {
--		dev_dbg(xsdfec->dev, "Writing outside of LDPC reg3 space 0x%x",
--			XSDFEC_LDPC_CODE_REG3_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP));
-+	if (xsdfec_ldpc_reg_addr(xsdfec, XSDFEC_LDPC_CODE_REG3_ADDR_BASE,
-+				 XSDFEC_LDPC_CODE_REG3_ADDR_HIGH, offset,
-+				 &addr))
- 		return -EINVAL;
--	}
--	xsdfec_regwrite(xsdfec,
--			XSDFEC_LDPC_CODE_REG3_ADDR_BASE +
--				(offset * XSDFEC_LDPC_REG_JUMP),
--			wdata);
-+	xsdfec_regwrite(xsdfec, addr, wdata);
- 	return 0;
- }
- 
--- 
-2.54.0
+> Changes in v12:
+> - Swap ISI axi and apb clocks to align with dt-binding requirements
+> - Update commit message
+>
+> Changes in v11:
+> - Removed #include <dt-bindings/reset/imx8ulp-pcc-reset.h> which was
+>   deleted by Rob's dt-bindings cleanup series [2]
+> - Replaced reset macros with numeric values and added comments to
+>   document the reset indices
+>
+> Changes in v1-v10:
+> - See cover letter
+> ---
+>  arch/arm64/boot/dts/freescale/imx8ulp.dtsi | 66 ++++++++++++++++++++++++++++++
+>  1 file changed, 66 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+> index 9b5d98766512..c5cae7675ce0 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8ulp.dtsi
+> @@ -859,6 +859,72 @@ spdif: spdif@2dab0000 {
+>  				dma-names = "rx", "tx";
+>  				status = "disabled";
+>  			};
+> +
+> +			isi: isi@2dac0000 {
+> +				compatible = "fsl,imx8ulp-isi";
+> +				reg = <0x2dac0000 0x10000>;
+> +				interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
+> +				clocks = <&cgc2 IMX8ULP_CLK_LPAV_AXI_DIV>,
+> +					 <&pcc5 IMX8ULP_CLK_ISI>;
+> +				clock-names = "axi", "apb";
+> +				power-domains = <&scmi_devpd IMX8ULP_PD_ISI>;
+> +				status = "disabled";
+> +
+> +				ports {
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
+> +
+> +					port@0 {
+> +						reg = <0>;
+> +						isi_in: endpoint {
+> +							remote-endpoint = <&mipi_csi_out>;
+> +						};
+> +					};
+> +				};
+> +			};
+> +
+> +			mipi_csi: csi@2daf0000 {
+> +				compatible = "fsl,imx8ulp-mipi-csi2";
+> +				reg = <0x2daf0000 0x10000>,
+> +				      <0x2dad0000 0x10000>;
+> +				clocks = <&pcc5 IMX8ULP_CLK_CSI>,
+> +					 <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
+> +					 <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
+> +					 <&pcc5 IMX8ULP_CLK_CSI_REGS>;
+> +				clock-names = "core", "esc", "ui", "pclk";
+> +				assigned-clocks = <&pcc5 IMX8ULP_CLK_CSI>,
+> +						  <&pcc5 IMX8ULP_CLK_CSI_CLK_ESC>,
+> +						  <&pcc5 IMX8ULP_CLK_CSI_CLK_UI>,
+> +						  <&pcc5 IMX8ULP_CLK_CSI_REGS>;
+> +				assigned-clock-parents = <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV1>,
+> +							 <&cgc2 IMX8ULP_CLK_PLL4_PFD1_DIV2>,
+> +							 <&cgc2 IMX8ULP_CLK_PLL4_PFD0_DIV1>;
+> +				assigned-clock-rates = <200000000>,
+> +						       <80000000>,
+> +						       <100000000>,
+> +						       <79200000>;
+> +				power-domains = <&scmi_devpd IMX8ULP_PD_MIPI_CSI>;
+> +				resets = <&pcc5 5>,	/* PCC5_CSI_REGS_SWRST */
+> +					 <&pcc5 6>;	/* PCC5_CSI_SWRST> */
+> +				status = "disabled";
+> +
+> +				ports {
+> +					#address-cells = <1>;
+> +					#size-cells = <0>;
+> +
+> +					port@0 {
+> +						reg = <0>;
+> +					};
+> +
+> +					port@1 {
+> +						reg = <1>;
+> +
+> +						mipi_csi_out: endpoint {
+> +							remote-endpoint = <&isi_in>;
+> +						};
+> +					};
+> +				};
+> +			};
+>  		};
+>
+>  		gpiod: gpio@2e200000 {
+>
+> --
+> 2.34.1
+>
 
