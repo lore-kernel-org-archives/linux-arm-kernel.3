@@ -4,63 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00C35C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:51:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61395C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+d8r8anuMfDqDG/HAIweba5xqaFQqia2CnTwKCI/bxc=; b=R3FzZVon5uD5oJ0w5Im9Xjogu0
-	GutcBtgFdsM+2GtDLXgaOdEB05YttjC/yIRexEVN4GLLd/zGW3Iojuh+mHZgq3SGXotv7DRi3UqXa
-	dLsyo1q39+KvKgJgbFzUWg63dEh5xxhORYWma4UZfGrQm68Ho0ia2zvoYoevAu4gN3qdi2M14I2BQ
-	ssUALIFpLVdnfpBFg1hVOqjPdDYAAY7x1nXc0XM8Qgj3zurzxlQ96dwMUlbpsQ4O4mVuYrUWYOyh0
-	zelth3eC58kXjbMpKp/2k2IoFh2meR32v21jl8TQFtrdK6LPCtwH1/O/gq9vuMieQDkn3pi2hJp/H
-	+oPLB4FQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B97yP43aRaHD9LVufHney9H7VAUOs/sF14Cif0NMfY0=; b=l14K63+/+cLBTBGIuVItoduPNk
+	j+dVHW2e+CkcQPvIGgnMET8gkreEgCiprNCbdbvfrpm85/8aJU36v4axMZzjuyMOhCO50qewNgpfb
+	OrdM3hRChI8MwPiU4Qnwagfx+3VtUtKOAL2EVp1JJ35bytD++ykYAAm5lk9lCWBnzC+hzoFmB6pX4
+	4z/XUL1V4q9cs2jpyba10q6VljVxuIL2BDOGR4b89/JUL58h6LcEMYhMZyiDTz8+XL/fZ7D3FO/6V
+	Pb464en8FeozzVNhDdyEtrwOd+c9LW1rsPEgttWJqhzMQScHmRco0WPwJHOdMUDo//Sv46qnfKbc4
+	3j97iVdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7rF-0000000E5E8-2wwL;
-	Mon, 29 Jun 2026 09:00:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7r3-0000000E53h-2G0m
+	id 1we8gc-0000000EGJf-304P;
+	Mon, 29 Jun 2026 09:53:54 +0000
+Received: from mail-northeuropeazon11011041.outbound.protection.outlook.com ([52.101.65.41] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1we8ga-0000000EGIp-39Yn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 09:00:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 411971758;
-	Mon, 29 Jun 2026 02:00:32 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E26E63F836;
-	Mon, 29 Jun 2026 02:00:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782723636; bh=8EnwiIfgwlN2Y7BNtdTxzvy00l8ApsOSgyW1urhamks=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZhW3ezUlVFTcJsmsFBBxs7qZ5QOU42V8GWRix9ZbPvb3s7puqEd43XSNevE/jROKY
-	 1QVLE2jrZGro8no2IiPAloESyLnh4Zdnv+4BJCIA79zNgMcVKqwY/n7X8PvjDmJ4Tp
-	 bYEeaGAfB7EeUrYPfzBzWyMeEawHoT3ETq+KZUIo=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
+	Mon, 29 Jun 2026 09:53:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H7WQis/qVEkrEItMJZjIAOYpkozCcCWiOiRBs6cidWgeG6JWo4jrTj7h8yF4vX9WTg5MdN9f9kAxadMU5tRA7tnGkHZScdPPDNr6IIsrxghipMxKxmKgbj5Nw8IeUxCOe5RAXwYT3y+mZUek/EOU+J3qZBuGnw4xSbXzqHC+C7t70eAPGv7HaQu9NM2eJ0qrQD3aHPTuQCVjTOczmcqLJX94vkj04Gu7IgAd5MRKZmxyUjgMUEKtOHDROpti3TI2XnNyqSFa+Uy7qwrmOXrsL/Z2jL+26YkY2JZCQmoRWUF2m8wfqOvasTxwHNwlzzDrtBWx4Qgp/8nUAheO1YFsUA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B97yP43aRaHD9LVufHney9H7VAUOs/sF14Cif0NMfY0=;
+ b=KOSFMsCNBtDXxXMpsjrwk61xPaK5j7cEs/Jzl5oD42BRVTb6ka9310EtNpbiOfbQRsIzTC31gSYJzrqN2XA4kUmPRPlOZSTG/CQL9qDTGgvak+BfRCmqeWv7ykZ0ZN9LNrbLha7buGyUT8qLqGm1SECLeuPmBl4EovGNJugEt/Si4JV3cyAR0LOoCpnC00m6CbQfDM4T6B/cuFgBzvzGNCDf9QWTCP2QWsMu4vTMlRVsY5udvv2EV+aFWRyaohzWyeDkpVsYgQu65kTyMeCaEPUb/tcMng+lZeM2TZ7o7TW/AymEAQet6CQRbm/eN++lzVx0oWyaezgfVjdLO2aPqA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B97yP43aRaHD9LVufHney9H7VAUOs/sF14Cif0NMfY0=;
+ b=mPJI8Rmqbj8PTIDKtcQVhwV+1Ljvq1u4a24GvLLvJZK9PhIweWcZqf7aKPBiB5Wbl59B9wmc7O6hScOmJS79VHEPoaoEzBdRcRZjR2MJV+YhS5QEM4j61Dtbwfjj1AxO1Xbhl5KjrPMRTysZo0D0bUAK99BRrP3j9xIbv432dBweae1UurdjfqtMeBhtwBKJM1ESzI2cKwK9S04on8lD2+q5n9thS3ZZqfYGAwPKb6faU6gvpbWaCJuuDTjWc6I/urCw81C+bjtmiI0rj0uVlFkKowDBOwZoc6vTvfEJdbPBj48tRh8lwZ1HUAUdPu+XYLsTuhg2XWh+3DDYs6H8OQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ (2603:10a6:102:51c::22) by DU4PR04MB11411.eurprd04.prod.outlook.com
+ (2603:10a6:10:5ed::21) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
+ 2026 09:53:47 +0000
+Received: from PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2]) by PA6PR04MB11909.eurprd04.prod.outlook.com
+ ([fe80::a4b:fa4e:7fe7:e6a2%5]) with mapi id 15.21.0159.018; Mon, 29 Jun 2026
+ 09:53:47 +0000
+Date: Mon, 29 Jun 2026 17:48:27 +0800
+From: Bough Chen <haibo.chen@oss.nxp.com>
+To: ziniu.wang_1@oss.nxp.com
+Cc: adrian.hunter@intel.com, ulfh@kernel.org, haibo.chen@nxp.com,
+	Frank.Li@nxp.com, s.hauer@pengutronix.de, kernel@pengutronix.de,
+	festevam@gmail.com, imx@lists.linux.dev, linux-mmc@vger.kernel.org,
+	s32@nxp.com, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	mike.leach@arm.com,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com,
-	jie.gan@oss.qualcomm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 12/13] coresight: etm3x: fix inconsistencies with sysfs configuration
-Date: Mon, 29 Jun 2026 10:00:05 +0100
-Message-ID: <20260629090007.1718746-13-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260629090007.1718746-1-yeoreum.yun@arm.com>
-References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+Subject: Re: [PATCH v3 3/7] mmc: sdhci-esdhc-imx: restore pinctrl before
+ restoring ios timing on resume
+Message-ID: <20260629094827.2zpjouxjb46xpsdi@nxp.com>
+References: <20260629091954.3227151-1-ziniu.wang_1@oss.nxp.com>
+ <20260629091954.3227151-4-ziniu.wang_1@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629091954.3227151-4-ziniu.wang_1@oss.nxp.com>
+X-ClientProxiedBy: SG2P153CA0046.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::15)
+ To PA6PR04MB11909.eurprd04.prod.outlook.com (2603:10a6:102:51c::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PA6PR04MB11909:EE_|DU4PR04MB11411:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f5d475c-afb9-4ac3-78e9-08ded5c4505d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|19092799006|1800799024|366016|6133799003|22082099003|18002099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: JDL0Ht2JvvzQMOrDVzy6GyuXPMABc2KGMWbo03cqLOXGBmGlu2FYBytWRGCGsDSLhorkEcd+eYpkiLZ7ic1naXCSX/EBkAPDISf+0qd/Nx/pz19Sq28w8QpPBEJsg6Z9p8O0WBFsHSfMd8K5aZDIbBi16yXE1ZxyXUI+e7nHCX3TejdGmLNTybwfQhYzRFcvw0AW3XM/xXtyyoUYNmrIAvR+zIL1IAkbuyZs9VS8sfRmXIT0k+2bsalVriqwLrHqqXewHAgNuoT273PAQbapJVtoEql4E0XcszWlcF7JhNWr/D7QoGTlZEE1WrBo2DhIYsXDDo1PPs9ctDswV1DyRTjYv9mG/c041/XngbPOMe09EtYfjqzPDXP4Ss56De4A0vmo8WfEm+FINjY0a8GnJgCX7HYOmiYbh/VWj+6IoKrCB4s5IXYUSfkvkcoKQfqHiorep3Tgzc5VU5M+JvuwqZFZT8DxiP7Wz45wctEOfJSvLZPLaLTWqtzudrn0hMc7xQLhxjjiCz8IG9dHv6w3CLJXjsnWevwG+v6L0kdZ8I/5q0MWL9H/U81Yq2Hx+/bd8ZdEJqnQB/3m7btjF5r1XcRlqgWMqRvw2ezjQw9miAJLPiDMSKm8WxEkvuJRSVF1qbrtVfAJu5CvFSxHCfOlf97p/0rgXFV+DNyy8yZcrUQ=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR04MB11909.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(19092799006)(1800799024)(366016)(6133799003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RZnnN/t7rbYeLurwkBQFv8boMzOtWwQlwiPCAptBby39inphlbj+M6Mgs3BU?=
+ =?us-ascii?Q?ZHV4FEc/njRV2v5ffNI9dz3mf9oMjIN33SlheVoN14Ic/jkX5QVecIomzi8O?=
+ =?us-ascii?Q?tKB0xII8Td5AV5Cs4cTn1bRJ5dNZF71loHj6tJTVWPq+a+/5jCrcbi4Ui9T9?=
+ =?us-ascii?Q?mB8OfSEmrhM5ypHHIaFDF+kH+Fvewekf8DoQI1Xuk4endCR2gVBIq8jgse7x?=
+ =?us-ascii?Q?/070duwvEd+l/1NCjKAJqthgK6FVqGSQ4W9eez0hCaQTr7kgAMXbOOEJnHqY?=
+ =?us-ascii?Q?uJE84phej1mAk2NN7H5hytGF3ChXVNparLZB0V9J11lPUBLPCqqEIvjUSyYU?=
+ =?us-ascii?Q?O2KSScoHTM3SqfumLjr63rA9WGz/bS5vq+yAhacq3Pb0vwozgKxhW713Trri?=
+ =?us-ascii?Q?O/akDaSgRyl8dlDM0zQXH2Rb0RULGsLIdGUorcMR5vkrWMZkLG5BPnGPycAo?=
+ =?us-ascii?Q?Ee15f9Dlv+So3qen95Av9psKqfrw+OnFS1njXttwVnYkD8cZdraghGEVQwSE?=
+ =?us-ascii?Q?4fHvJcRdBa5X7mzVcTIYngfDZA3WFpY3kHB7hqsbFun8YZ7U7hC/+DHZqVWb?=
+ =?us-ascii?Q?ufAidsVmTIBsmPQSHamwarhX/MlcSIijEC8/4BTmEVxaHyZWKBck0XPgUTVa?=
+ =?us-ascii?Q?3untTmQFhZAJjx5hxzKQnuZNcRzjUDADmPask8XuGl8rQaDwfpn6hUjqcq4B?=
+ =?us-ascii?Q?N+jn2B5JBWIrzTvD+7uz38rN0QqWRGef3iEaE4y0DS8HKP5LEKr+7UOHMaTN?=
+ =?us-ascii?Q?6xEdFwbX2OVaUnsBAJ0MFdbkbnJA1gZH/BLh78wpoj8Ohq8Ea4HazOFXY9rM?=
+ =?us-ascii?Q?sOnswV+VMG0NuyNK6H0hVlah9qhSD050m03ZeMAAKNvwXO/1YiSxU3kY1R+V?=
+ =?us-ascii?Q?K/Ai7bCnxVjzVctT2PjArMmp7LaQM3r5yXjxRH7LCaqZygkizwcJMLr83jGc?=
+ =?us-ascii?Q?pzqXBFfamFk7jFUGld7XRTe9JtksoiSWw5d6WdnYnwQupbYTEzt9wkln+fWS?=
+ =?us-ascii?Q?mAGbdc8FxTYSSYI3tCDSHl5yF3CtLQTg6tqotnL4Q8h94TnEq3Iu1VoJ1g7+?=
+ =?us-ascii?Q?0tRxtjSiX6IKG5/E3y4RcQh0UiAYANbY2h9n3tzom3AIDQP723RpfF2v1PQk?=
+ =?us-ascii?Q?TJjrbHMt68+IJBsHkud80PeCgHExfzMQIqLBr/ZTUhS8kWD+IwHs1X2z48a2?=
+ =?us-ascii?Q?EgdcN/ft/z4dQaabvHrLjZMKc+Eivz29PnS68V5pmoRmRzA2tBbv4656eog9?=
+ =?us-ascii?Q?QQYlugJhS0o7BakKNhDBhSRe9keq1Aa5gPqy7WtVvgS2Ce/v/42AlZjt0HvB?=
+ =?us-ascii?Q?teO+eXTEjjxIC+zhxcMLLdrsyxbtxvwX230SsvJisaoyd4nZ/olBGmwLQ4rT?=
+ =?us-ascii?Q?SCPnSKns4AXrJFdbRsttLrHnuaj+B6d6rSE9GO//kLePg2zIRwpLdYbk56ij?=
+ =?us-ascii?Q?noz7PpM8dyoANYv6/U8QteELwnyimHIegTHJMEHb3c2H9nLoEQzchF5CV5al?=
+ =?us-ascii?Q?vrbztmJfce9gAdfV7aybFxHayGQVvhlnbLwWKYH0S76KiscINbRX9Fsru348?=
+ =?us-ascii?Q?jj8TzRJOMnt1xwwnV6WA9JD1PIlkkHJtoEFnRHeIJeHNmmIHyrJX/Qg4l5gh?=
+ =?us-ascii?Q?IBBsbOe2QORfEky6hTZlGFEWGtvLA/QwyibX/SXPM++i2Q1Ujl4eqRgv77Fb?=
+ =?us-ascii?Q?FwIsAZY0JNij5a0fRhZ50LrjP39HUoo5lVjaQZHfnRZ8xi7MsSESonii5yNH?=
+ =?us-ascii?Q?ScCBdOrMEHue5RRTs7kIIIuRwV0tuU9+OvfnzG5sYv+K2zqeLzTt?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f5d475c-afb9-4ac3-78e9-08ded5c4505d
+X-MS-Exchange-CrossTenant-AuthSource: PA6PR04MB11909.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 09:53:47.3133
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0xjlqLjGuz6CjpyjpaD/4WJJstbK8LJWnnh1jWyxkoAoPvfknoLkeIDDWHqHh/9Z03Ox1didGZzCasGWyFBaXz7rjGcjMrfoTRlQwDdfGNXKTwDJi+O0A7xRDkOFe9cB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11411
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_020037_656045_2C533578 
-X-CRM114-Status: GOOD (  18.95  )
+X-CRM114-CacheID: sfid-20260629_025352_794791_AB97C470 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,185 +139,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The current ETM3x configuration via sysfs can lead to the following
-inconsistencies:
+On Mon, Jun 29, 2026 at 05:19:50PM +0800, ziniu.wang_1@oss.nxp.com wrote:
+> From: Luke Wang <ziniu.wang_1@nxp.com>
+> 
+> SDIO devices such as WiFi may keep power during suspend, so the MMC
+> core skips full card re-initialization on resume and directly restores
+> the host controller's ios timing to match the card. For DDR mode,
+> pm_runtime_force_resume() sets DDR_EN before the pin configuration is
+> restored from sleep state.
+> 
+> This is related to the SoC IP integration: switching pinctrl setting
+> (changing alt from GPIO to USDHC) impacts the internal loopback path.
+> If pinctrl configures the pad to GPIO function, once DDR_EN is set, the
+> DLL delay will be fixed based on the GPIO function loopback path. When
+> the pinctrl is later changed to USDHC function, the internal loopback
+> path changes, making the original fixed sample point no longer suitable
+> for the current loopback path. This causes persistent read CRC errors on
+> subsequent data transfers.
+> 
+> SD/eMMC running in DDR mode are unaffected as they are fully
+> re-initialized from legacy timing after resume.
+> 
+> Fix this by restoring the pinctrl state based on current timing mode
+> using esdhc_change_pinstate() before pm_runtime_force_resume(). This
+> ensures the correct pin configuration (e.g., 100/200MHz for UHS modes)
+> is applied before DDR_EN is set. Only restore for non-wakeup devices
+> since wakeup devices kept their active pin state during suspend.
+> 
+> Fixes: 676a83855614 ("mmc: host: sdhci-esdhc-imx: refactor the system PM logic")
+> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
 
-  - If a configuration is modified via sysfs while a perf session is
-    active, the running configuration may differ between before
-    a sched-out and after a subsequent sched-in.
+Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
 
-To resolve these issues, separate the configuration into:
-
-  - active_config: the configuration applied to the current session
-  - config: the configuration set via sysfs
-
-Additionally:
-
-  - Since active_config and related fields are accessed only by the local CPU
-    in etm_enable/disable_sysfs_smp_call() (similar to perf enable/disable),
-    remove the lock/unlock from the sysfs enable/disable path and
-    starting/dying_cpu path except when to access config fields only.
-
-Fixes: 1925a470ce69 ("coresight: etm3x: splitting struct etm_drvdata")
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm.h   |  2 +
- .../coresight/coresight-etm3x-core.c          | 38 +++++++++----------
- 2 files changed, 21 insertions(+), 19 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-index 932bec82fb47..01f1a7f2559c 100644
---- a/drivers/hwtracing/coresight/coresight-etm.h
-+++ b/drivers/hwtracing/coresight/coresight-etm.h
-@@ -243,6 +243,7 @@ struct etm_config {
-  * @boot_enable:true if we should start tracing at boot time.
-  * @os_unlock:	true if access to management registers is allowed.
-  * @traceid:	value of the current ID for this component.
-+ * @active_config:	structure holding current running configuration parameters.
-  * @config:	structure holding configuration parameters.
-  */
- struct etm_drvdata {
-@@ -258,6 +259,7 @@ struct etm_drvdata {
- 	bool				boot_enable;
- 	bool				os_unlock;
- 	u32				traceid;
-+	struct etm_config		active_config;
- 	struct etm_config		config;
- };
- 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index ccfde9eda537..ed27e35b42ec 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -309,7 +309,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 				  struct perf_event *event)
- {
- 	const struct etm_caps *caps = &drvdata->caps;
--	struct etm_config *config = &drvdata->config;
-+	struct etm_config *config = &drvdata->active_config;
- 	struct perf_event_attr *attr = &event->attr;
- 	u8 ts_level;
- 
-@@ -368,7 +368,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	int i, rc;
- 	u32 etmcr;
- 	const struct etm_caps *caps = &drvdata->caps;
--	struct etm_config *config = &drvdata->config;
-+	struct etm_config *config = &drvdata->active_config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
- 	CS_UNLOCK(drvdata->csa.base);
-@@ -443,24 +443,30 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- struct etm_enable_arg {
- 	struct etm_drvdata *drvdata;
- 	struct coresight_path *path;
-+	struct etm_config config;
- 	int rc;
- };
- 
- static void etm_enable_sysfs_smp_call(void *info)
- {
- 	struct etm_enable_arg *arg = info;
-+	struct etm_drvdata *drvdata;
- 	struct coresight_device *csdev;
- 
- 	if (WARN_ON(!arg))
- 		return;
- 
--	csdev = arg->drvdata->csdev;
-+	drvdata = arg->drvdata;
-+	csdev = drvdata->csdev;
- 	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
- 		/* Someone is already using the tracer */
- 		arg->rc = -EBUSY;
- 		return;
- 	}
- 
-+	drvdata->active_config = arg->config;
-+	drvdata->traceid = arg->path->trace_id;
-+
- 	arg->rc = etm_enable_hw(arg->drvdata);
- 
- 	/* The tracer didn't start */
-@@ -469,6 +475,7 @@ static void etm_enable_sysfs_smp_call(void *info)
- 		return;
- 	}
- 
-+	drvdata->sticky_enable = true;
- 	csdev->path = arg->path;
- }
- 
-@@ -513,10 +520,6 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
- 	struct etm_enable_arg arg = { };
- 	int ret;
- 
--	raw_spin_lock(&drvdata->spinlock);
--
--	drvdata->traceid = path->trace_id;
--
- 	/*
- 	 * Configure the ETM only if the CPU is online.  If it isn't online
- 	 * hw configuration will take place on the local CPU during bring up.
-@@ -524,23 +527,24 @@ static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_pat
- 	if (cpu_online(drvdata->cpu)) {
- 		arg.drvdata = drvdata;
- 		arg.path = path;
-+
-+		raw_spin_lock(&drvdata->spinlock);
-+		arg.config = drvdata->config;
-+		raw_spin_unlock(&drvdata->spinlock);
-+
- 		ret = smp_call_function_single(drvdata->cpu,
- 					       etm_enable_sysfs_smp_call, &arg, 1);
- 		if (!ret)
- 			ret = arg.rc;
--		if (!ret)
--			drvdata->sticky_enable = true;
- 	} else {
- 		ret = -ENODEV;
- 	}
- 
--	if (ret)
--		etm_release_trace_id(drvdata);
--
--	raw_spin_unlock(&drvdata->spinlock);
--
- 	if (!ret)
- 		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
-+	else
-+		etm_release_trace_id(drvdata);
-+
- 	return ret;
- }
- 
-@@ -567,7 +571,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
- {
- 	int i;
- 	const struct etm_caps *caps = &drvdata->caps;
--	struct etm_config *config = &drvdata->config;
-+	struct etm_config *config = &drvdata->active_config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
- 	CS_UNLOCK(drvdata->csa.base);
-@@ -633,8 +637,6 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
- {
- 	struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	raw_spin_lock(&drvdata->spinlock);
--
- 	/*
- 	 * Executing etm_disable_hw on the cpu whose ETM is being disabled
- 	 * ensures that register writes occur when cpu is powered.
-@@ -642,8 +644,6 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
- 	smp_call_function_single(drvdata->cpu, etm_disable_sysfs_smp_call,
- 				 drvdata, 1);
- 
--	raw_spin_unlock(&drvdata->spinlock);
--
- 	/*
- 	 * we only release trace IDs when resetting sysfs.
- 	 * This permits sysfs users to read the trace ID after the trace
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+Regards
+Haibo Chen
+> ---
+>  drivers/mmc/host/sdhci-esdhc-imx.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
+> index a944351dbcdf..7fcaecdd4ec6 100644
+> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
+> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
+> @@ -2114,6 +2114,12 @@ static int sdhci_esdhc_resume(struct device *dev)
+>  	struct pltfm_imx_data *imx_data = sdhci_pltfm_priv(pltfm_host);
+>  	int ret;
+>  
+> +	if (!device_may_wakeup(dev)) {
+> +		ret = esdhc_change_pinstate(host, host->timing);
+> +		if (ret)
+> +			dev_warn(dev, "Failed to restore pinctrl state\n");
+> +	}
+> +
+>  	pm_runtime_force_resume(dev);
+>  
+>  	ret = mmc_gpio_set_cd_wake(host->mmc, false);
+> -- 
+> 2.34.1
+> 
 
