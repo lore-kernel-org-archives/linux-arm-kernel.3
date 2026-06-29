@@ -4,103 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA79C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAA31C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 13:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yDPhNjOsxEQ0DHLYZPQfDHuBKCTUhxYTzus1J/5tEMc=; b=LJWLAJ2KzChX0hq8yFBnwAHq6M
-	SxVIZQ4A3Mg0zQegYc+2cuKcFvJWXJhNXd/ID6A77s9oey9GdnyR+5L1rZbboSI2fMllPt+ZA2oU4
-	Dw54QtPE+Rj0RegpfWlGa94tgk6ST/WnN5oG3e44eVtvBm8XnO4WLaQPeTShO4qw4ZmKSUjDkE1YJ
-	vsI9v3QLK0ep7Wl3WDYSC8S6Xxwt8Ob7EhRnU40ovX4SMg3xy+nee2PAavavvhVWyFkd1tNkQlgzm
-	NRwVA6fZ5G7f+0vkVoa3QfbJnkQMPFwgyl42yTgX4YSh4Aws9397fKyFx3ONS7gT4sCjh9kDU+siS
-	vRfPnXWg==;
+	bh=Fi+aOF3X0XE+EnDA3NYao73z90dCW8BKgRHxnIWsmow=; b=Bviko4iZuB8E/koogKpm5YvJ8V
+	F4zVxSJeBdjatnE3F8Gvd8wim1xaGjAD2NSQu9P4V/f9m+9yVlr6Lr8WisjGf9eDK6GLNlFpYbURQ
+	/mvlTm4KNWIQBkHOXkveNFGK82vdbQQvmw5khweKuvZwAqTCMcQNKjSWu3utYqp8hSzOG88WkNDFe
+	2ITVcffqHHZIctCsacixpzl2SXu0bt8TlWacUT3Ntze5WHGaa3cR+zoIaQyjT/YY2f9JgM3nkcR34
+	opV4dAlKa1K/eMd7QMVjnqozsKpWwBnMaigFRLWKyvT2NfVxqUtekEqRqMlUK2lMsJNYtw6wnuc8C
+	I6Eu6BGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCUa-0000000EoTI-1HCZ;
-	Mon, 29 Jun 2026 13:57:44 +0000
-Received: from mail-qk1-f171.google.com ([209.85.222.171])
+	id 1weCUg-0000000EoXQ-25BG;
+	Mon, 29 Jun 2026 13:57:50 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weCUX-0000000EoR0-3jSQ
+	id 1weCUY-0000000EoR3-1tpR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 13:57:42 +0000
-Received: by mail-qk1-f171.google.com with SMTP id af79cd13be357-92e5b048375so43627085a.1
+	Mon, 29 Jun 2026 13:57:43 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493a440bc10so10982355e9.1
         for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 06:57:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782741460; x=1783346260; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Fi+aOF3X0XE+EnDA3NYao73z90dCW8BKgRHxnIWsmow=;
+        b=CIw77trLl3xXwjBmRuCqroLawvQO2a0bpBOJqeqBtkAKYY/JnyTvVc+qEPJ5QHxjCQ
+         GDs0ExEtUfN8SahUaS7vKgSeEhL5t55zs+SFiuoKQ5uwAVFmJgNy7FgsHfhH644DJLZc
+         IrB1Q9ViTCfE86kfHwMf1B0JLu74fdTYvT/+DtZtYy9V+HBrbOe4Ub9zhEeowyJFSou+
+         Pt02m2Jo9aMoe79yiSB6XiJ7zsaKaGXeLUE5Y5DChp2VdToBXWQqyTcBJTgeBLlwlnGq
+         wc2kHmVQRSkZGyNnYR2BjTxC3zGybVXTfIM0rOgmxUp5foKR9ALyysq1j2TfB/+CRy+m
+         ieGQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782741461; x=1783346261;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yDPhNjOsxEQ0DHLYZPQfDHuBKCTUhxYTzus1J/5tEMc=;
-        b=tBlcUb1y6seZH78zz3q8dY/LRlr0MeeL1osTTBMXbtEjw2KtRSPyRkBsAXO4wLQHR5
-         +8/xoCUu4y/R5JNW5MLsAx1H8vOn2x09JkHLRZnKEnYkJlGpKqZETbbVv9kOWZ/87jBb
-         xyjB8gZI/F9sYcrvKRKHB9jkkb2BVPQKDJYVRVqU/Ra9HxU9E+mcb68QXQgVOS0l0xzO
-         Q1nuOHlPis+9Ez1WU9QOC31ZZqIqmbnBDCpJIcPC2Y5XekdentdHyMj+ENb1e2ux4mU9
-         a8J/dluzFEQ2VnBXquwmVXfG1JlaS8qeX7VY9MtajPsy4b4o4EnOuMrLlM75fcr9hqiR
-         dkJQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9XL0UWT7scAPguLWRshI3vuaUlBnx7OssOma9gPfc6upIR2hNIe4uiOzQU5mDfxXSKqJ7hp/SYRUSBFId0sBYZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJMtWQdTVvrtRUPB3KqIQZ9Bxr8DwGBviX5YWT/gbisggotCJ4
-	0z5O/DOhQQD6rmWEndPe9owV1zIWXcYK490kt1IM0jzoMjwkRPHOQIZiEh2Zl4Q3
-X-Gm-Gg: AfdE7ck2F4E4qN5nwVJ8NsumWPlzVAWLQIKWB55JPL36WcMWndabtuOmoEvW//1r2HY
-	bGy+DmjxXOm+KdiTz8QfuRscAXO5saW7RqQz96OcFcc0h4xke1hgZ5GqluydqCSOkN65Dz1IJ3e
-	RJACvFnvc+Js32m+xcWlu//r/uLB4l8ynn3cPoo9+6/IFQpy6GSUsZFeE+qB1EdaA6STbVlm0f+
-	1sxAIIxPbyo6L8dPpW98ngG8TkZS2ilLVXVeuVhzCl2qSJu+OtA1ZeHayje89aOtr8/g2yIN2A3
-	U7DO1Kq+Zw2BjGlxT6luq+LVzwIm9fKroTVsv63BMr49QmAlplaeFXBHf6RPn8C4Smhqgu5msyn
-	BIXtGvijlUZjKHVk7ARXOPYCAbL+/SYUoZin7NBaKeVjkKiD6DLJHRl6n/8i9v7K4k4AVDFy2Ad
-	gbRiaUVlZmFd8ad2cSnzspRfYNfNeyRJaBOjLM8/5hjN72ja5nKgh4AinT1j6fsJax
-X-Received: by 2002:a05:620a:3711:b0:92b:67e6:4b6a with SMTP id af79cd13be357-92e5f3e7c8dmr144529185a.65.1782741460471;
+        d=1e100.net; s=20251104; t=1782741460; x=1783346260;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Fi+aOF3X0XE+EnDA3NYao73z90dCW8BKgRHxnIWsmow=;
+        b=gggNKw0vHhNrkYW6zQS/KRBBbHhhiMvrdXBYoijJfTehmKAoMhFmGRwiWucbfUMItw
+         7WD88Evtty/ZPsZz1MVjHk8XmuQyELRoekdskXmN+/PLRomZGPvoYDhUOTePEW8q4XuP
+         cFDWiFqtt+0Pm1dW0Kmt0lK0hY6g4Cef7FW0hIRZSaeTY/4sFGdP4sHB+D1zSsOnitHz
+         w0kIiA/WgMpjcIDcHrvsRY/PBX/nxZVvkxdAeg2qVU4WiiO8UZo8POiBHbSyvSMW1wz0
+         lxhlcj34t47qK+fgNVl8ndAzR9HMTjGOqlLyt1vrQX5b2esFLeWqhxQx6IPxnIu4+PHc
+         xnXQ==
+X-Forwarded-Encrypted: i=1; AFNElJ91swmaFDUohzkUVlv0LPKvpu1Z2rW3aetxfzKN1coBWkDMTpg4ND4L9qi4d94Xm7IvebyWPIpNScxHYDAH9xKr@lists.infradead.org
+X-Gm-Message-State: AOJu0YznC3za8l3nfvD5c7qRBOAglivKlq57yQQRJS8Q4HklHPq2aqQK
+	BQau17vyQF5uYShI1qDx4kCIv3PEg56bcVkxbPIVvZ10ivB33vdr7WP8l6a+Gf6tBxX+DSsSE0N
+	QckDS
+X-Gm-Gg: AfdE7ckNAUPFKcpV3EqfWmUF9grBgSg2qLDeOekqjs2cNpPk95JV60dozyO69yFyYn7
+	zYeeEE2BBKS+bUHgPOBr2Q9eXIaQ+ET3aYNkcjYFLdZ64d33UbvvHWztLiYMiYfN2fJ/yuol7Kw
+	hned3ccvvXFzYDW/YdHv946sPgZMrDyIVnhpVDKEanZj5nUJYsZXWoAdSXMQOA4MgIfmFzDF4hC
+	dFvH6Vho2K9uXa5Jgn9ROyGhMRzCyMixR8L97l6+sy1UujdO1Vb0tZ1SlZ/qou1i3uFHqm6M60v
+	uOUCSN1CdqpJ5a1eXVVsbjmGWtubWQVc4ggJPTjyHVQJ68o5nDgWo0Xau2WQGT0D6Dpzk2peL2d
+	fqgSJ3V8v7767LhC9QvG7Qj9Ya+Gbfl9C/QBtJ08E1oZSsMZ1dsvn9oYecx7yHiNIhy/pNeUQ8d
+	ph7i+S3lJ3vsYqHUMH8APV8fuv01z5BtLzu3Jm1fRsZQziKcRrJi/NMUOAuLXjMh+C2nSWt1oDh
+	2O1
+X-Received: by 2002:a05:600c:5290:b0:493:b7a6:3dac with SMTP id 5b1f17b1804b1-493b7a63dbdmr608125e9.33.1782741460528;
         Mon, 29 Jun 2026 06:57:40 -0700 (PDT)
-Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com. [209.85.222.172])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-925fe040904sm2094373985a.20.2026.06.29.06.57.40
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Jun 2026 06:57:40 -0700 (PDT)
-Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-9159951f05aso427961985a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 06:57:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AFNElJ/WrwbyYcZjTzqRIrqL1dKZvcsau9SDuCl4IrAgZK9oVgjMgibNjI6MjtpW9t4QWr8jEJ7webdU8B32uWv4UhvT@lists.infradead.org
-X-Received: by 2002:a05:6102:c93:b0:739:86da:7777 with SMTP id
- ada2fe7eead31-739fa951f6emr430364137.27.1782741103904; Mon, 29 Jun 2026
- 06:51:43 -0700 (PDT)
+Received: from localhost (p200300f65f47db04294e5bd34a12a699.dip0.t-ipconnect.de. [2003:f6:5f47:db04:294e:5bd3:4a12:a699])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-49268fe949csm375305105e9.5.2026.06.29.06.57.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 06:57:38 -0700 (PDT)
+Date: Mon, 29 Jun 2026 15:57:35 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 03/17] ASoC: rockchip: rockchip_sai: #include
+ <linux/platform_device.h> explicitly
+Message-ID: <akJ5lkLieSgkdfW9@monoceros>
+References: <cover.1782490566.git.u.kleine-koenig@baylibre.com>
+ <d2fe7dc85277b01526f9320ed5baab2acd29660b.1782490566.git.u.kleine-koenig@baylibre.com>
+ <8dcfcd10-4b9d-4775-9e23-3884b896a7b9@sirena.org.uk>
 MIME-Version: 1.0
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com> <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
-In-Reply-To: <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 29 Jun 2026 15:51:31 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
-X-Gm-Features: AVVi8CdHRRLXddfc63bNJYLQ9RF__6zMi6ngPMxYGYM87lHlKy_8kZoakyQBXrY
-Message-ID: <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Vinod Koul <vkoul@kernel.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Fabio Estevam <festevam@gmail.com>, Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="4sshmqzaaw52uohq"
+Content-Disposition: inline
+In-Reply-To: <8dcfcd10-4b9d-4775-9e23-3884b896a7b9@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_065741_931809_DDB004AB 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20260629_065742_500018_50E393DD 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,57 +106,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
 
-Thanks for your patch!
+--4sshmqzaaw52uohq
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 03/17] ASoC: rockchip: rockchip_sai: #include
+ <linux/platform_device.h> explicitly
+MIME-Version: 1.0
 
-On Mon, 29 Jun 2026 at 13:29, Bartosz Golaszewski
-<bartosz.golaszewski@oss.qualcomm.com> wrote:
-> Describe the SGMII/SerDes PHY present on the Qualcomm sa8255p platforms.
-> This is essentially the same hardware as sa8775p rev3 but the PHY is
-> managed by firmware over SCMI.
+Hello Mark,
 
-So why can't it be reuse the DT bindings, and be compatible with
-qcom,sa8775p-dwmac-sgmii-phy?
+On Mon, Jun 29, 2026 at 12:17:04PM +0100, Mark Brown wrote:
+> On Fri, Jun 26, 2026 at 08:00:22PM +0200, Uwe Kleine-K=F6nig (The Capable=
+ Hub) wrote:
+> > Currently that header is only included via:
+> >=20
+> > 	<sound/dmaengine_pcm.h> ->
+> > 	<sound/soc.h> ->
+> > 	<linux/platform_device.h>
+>=20
+> Acked-by: Mark Brown <broonie@kernel.org>
 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+You're too late for the Ack, this patch already is applied and part of
+v7.2.
 
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
+Best regards
+Uwe
 
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  power-domain-names:
-> +    items:
-> +      - const: serdes
+--4sshmqzaaw52uohq
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> +examples:
-> +  - |
-> +    phy@8901000 {
-> +        compatible = "qcom,sa8255p-dwmac-sgmii-phy";
-> +        reg = <0x08901000 0xe10>;
-> +        #phy-cells = <0>;
-> +        power-domains = <&scmi7_dvfs 0>;
-> +        power-domain-names = "serdes";
+-----BEGIN PGP SIGNATURE-----
 
-Ah, this uses power-domains, while the existing bindings for
-qcom,sa8775p-dwmac-sgmii-phy use a clock.
-I guess the clock is the correct hardware description?
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmpCecwACgkQj4D7WH0S
+/k4QuQf+IZ3MYAOoCiX56AcddT2ysdPwmOlVVSv/6YS6KhChCyJRk6ZSdHoDg3Qn
+xGnj118aX3gekqAPdZGK+3E7fkhwmSCRh9y3c2QgmPZlcwdJqeHrsMbthgmp4+r+
+0GSSh+LTi6ndwo1JU+dP6aUhpyGk5AuRGTvL4ZMA7yuTmVfoSAFk/UrzBqtRXfV9
+PeNnlWg92EyYbL4HQeH1S0xzB7O3KQoB4ni2q4wpQYbFSoQN+FpNRe4oNzkUlXuc
+BBZDGFl7zH8/laFhRMpvfQPxXpksv5JxWWrtgcDINgpwz3+Zm7nYtVuG7r402M8T
+mg//pdx2TidvXsmJe3CMWgTmnZlBAQ==
+=Ojc5
+-----END PGP SIGNATURE-----
 
-Adding to my list of examples for backing a hardware-to-SCMI remapping
-driver...
-
-> +    };
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+--4sshmqzaaw52uohq--
 
