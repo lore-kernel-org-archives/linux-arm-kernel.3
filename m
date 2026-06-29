@@ -4,115 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ACB3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:42:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 064CAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:43:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kvjuFyGA3loFQTiSD+RwGq2Sk/TpKKWdrDEMMqCrc1I=; b=DhnRehAexpR9H9czHhwC8N90C7
-	Y835G0M37SqdfZhT7dOwAtBoPQInqBqHF1iJydlvTlXuibQOZOlx6MjGoG8utHOLsIrRpI6Lo+fRT
-	h7LYKNcKrp9xLVNrnPYwe2mS2TsZrSRJZ/CdcEe6rvwJWf/mGbKHL4lhxKctQPDRMLPr1jGVvWdgG
-	Wepdaj1w6PWxwBCL1p+emL8lXaQ66YRFYF+GKq2YoC+Utn8Hup0wQBMf3rfYkeEbFhH42uuEoU56K
-	n/al1R2JZ8CJ7YMr9uaOzp2Av0fBSn2DP8wv4ajbSYEsYzubyCOkRPP+aRSvhvNluGO9s7QVhp6Rb
-	6h59da8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oBhbYYISpLrIPK4lF4gaoN3zx36fHWE0W6XAugBNCrk=; b=g2Pm0y1MBO0NJJhx5X45qKC28/
+	ebby21rYIs1q3PjOG6AmkBxF5MOS116waXtV1uNCO9xf4GFOlnuiDL8hZjWWHFFcotuqxLCJuMxxu
+	iQcT5NPHiXOW+b0GViltGUZmXkWahDwCVKE1vKktHhAape92s9q922h/Pk4VH9P6cy8v0fL2rPQ0T
+	HsnAt8F+LHJa26pYfYhYPKjNprkHr/msFmpsd8whOycdZaSt2RKj57SsqU51FYE2pVF2EeOPBxykq
+	8XcLmfS9JrVFBFUSNxw8lExdk0+PjA6o+hYQCdaAmFW9VXOzauZ8773faMR6QDVKTW0FsYhivnPiI
+	CekE90jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8VC-0000000ECsm-0u0t;
-	Mon, 29 Jun 2026 09:42:06 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1we8WL-0000000EDDT-23pm;
+	Mon, 29 Jun 2026 09:43:17 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we8VA-0000000ECrL-1vpN
+	id 1we8WH-0000000EDBn-28MI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 09:42:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xe8Bz+uB8yTk6+vHv/OQfv6XOwmrAoEWGCQyfV4N3gcWMNY73KvqJbUCzJZrxu0QLmbqq7ow/soaXjU6IW9LUJsV3CK+n4yFpTyVruWF6mGsNYFqW0HrupZpmfmTmKpRMobyQfGt+NeFKbd1DahvKk5PtjwbsxAemVkhI5l2J6l6oMW+jxEXPSFvPa6RXxUhKxxZuI3a8fZ8nwK0P2tuEB0LBb0CL0P/zvx2X7+RhqcfijQn4gidePBOfq+TUp7aNCJ3QyVRSkpjwgNp8Ojy9cAppECh94K9oaDOBZyUXuYD3klzYEGTOebnlGQ8HaILqQZv2pB76fTZaK8wFa9HTA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kvjuFyGA3loFQTiSD+RwGq2Sk/TpKKWdrDEMMqCrc1I=;
- b=UcEIf4UVzQ2Ekgo1zTrMsNEEzgjzR1fvraRYIoKLHzKM6uRDao4+a+pe4DOOCibZcykWG48LIHrAdJ22Jf6WeLKkcttIbp/FLRvW1kCsZFOQg1yMACUAppnferAM/WKH1TWM6aTdmAzjMrzrIVt93sA6Y20Xr9YDqRJa8b+qs4HNdYtqZHL6vkt4guv+PwxURSEiR/HI75l6jWXoBr0CE2DCrok1+H0TbR+XaAuTRRMnXUE3xgWEFekUFyW1mFphLq7u6Q4R9WZ7/w75ysZAPTuuUBpQ+0yDK78dFOu+syFhnXVaP9IvXtbrtChhFxwWwfqihbMNk+wRHiG20RUSGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kvjuFyGA3loFQTiSD+RwGq2Sk/TpKKWdrDEMMqCrc1I=;
- b=Vs3aTESy1I2DAzx04CNI/mpNHYUv6fnF3fCEH8iZdcvcGr4DRKYdRywwFsP/p7dwvVmLSR/iFy6Tvrai8TdJ363qn5zDfQISAI1liZwAr/gJ8jKLAD9Sw6ud4+NyqWj/5j9WhvgZMmFS2Rw2vvYXLlLAyiZyeCVpxDsUjpmXvp/Ymwe2FTod7ZaCj1s7xDjhXN2XAeaUe//w5EnPePwj8BJzT2cOv7FMG1oVGci7Y437sH/AZOe5hHHRR4Lg+FquIaFOEMRzt7TI3V4jfiP2WTkIv/4w3W3z2MjhGYFDHZg5nqaOsx2AEwrr8nFDJYFhZm3Fk0RRqwaa4ufosGr/GQ==
-Received: from MW4PR03CA0266.namprd03.prod.outlook.com (2603:10b6:303:b4::31)
- by EAYPR12MB999157.namprd12.prod.outlook.com (2603:10b6:303:2bf::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Mon, 29 Jun
- 2026 09:41:57 +0000
-Received: from SJ1PEPF00001CE8.namprd03.prod.outlook.com
- (2603:10b6:303:b4:cafe::65) by MW4PR03CA0266.outlook.office365.com
- (2603:10b6:303:b4::31) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Mon,
- 29 Jun 2026 09:41:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ1PEPF00001CE8.mail.protection.outlook.com (10.167.242.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Mon, 29 Jun 2026 09:41:57 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 29 Jun
- 2026 02:41:40 -0700
-Received: from NV-2Y5XW94.nvidia.com (10.126.230.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 29 Jun
- 2026 02:41:37 -0700
-From: Shameer Kolothum <skolothumtho@nvidia.com>
-To: <iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <nicolinc@nvidia.com>, <jgg@ziepe.ca>, <joro@8bytes.org>,
-	<will@kernel.org>, <robin.murphy@arm.com>, <nathanc@nvidia.com>,
-	<mochs@nvidia.com>, <skolothumtho@nvidia.com>
-Subject: [PATCH v3 2/2] iommu/tegra241-cmdqv: Fix CMD_SYNC use-after-free on teardown
-Date: Mon, 29 Jun 2026 10:41:06 +0100
-Message-ID: <20260629094106.251694-3-skolothumtho@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260629094106.251694-1-skolothumtho@nvidia.com>
-References: <20260629094106.251694-1-skolothumtho@nvidia.com>
+	Mon, 29 Jun 2026 09:43:16 +0000
+Received: by chaosmail.tech (Postfix) id 793011CB983;
+	Mon, 29 Jun 2026 09:43:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1782726187;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=oBhbYYISpLrIPK4lF4gaoN3zx36fHWE0W6XAugBNCrk=;
+	b=qMFhtldVvg7tSNSE+uKpg20xCQN+OrOt/FY8tRyLwSRcIuh3pvJHTMyr35XMx/rzIKy7vn
+	VnmbcfvAik90s9Q0TfKF8jD1SHtyr1FLKfBQn9XQik6KnUNYQmYcTFcPh6oLI1P6zs9WYk
+	rv8c+wNUhXDBPKpgYoDRlsXbrejECFM=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Mon, 29 Jun 2026 11:42:42 +0200
+Subject: [PATCH v3] power: supply: macsmc: Support macOS 27 SMC firmware
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.126.230.37]
-X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE8:EE_|EAYPR12MB999157:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6dee5643-4244-4906-c9f0-08ded5c2a96b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700016|82310400026|1800799024|23010399003|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: tS74KIfyWB+lh7Y0OX0vGfxCyPASxyv7YvgoTthayCXXNkaUvsvpflma7r2KYeYcZDlBqKjWnA7wk4IRoWJZo6RAia/sDJbjXGL1By25fYOiwFKLI3ZUQhL9gT9f9dFfoVAlPfWnwEIaAMlCxpkCj/Neha9RtIPck6kXRiCdAEZ5BpVmotPtfo40pn9fMFJ8nrfc9Z48nslQcvV2IRBurfTyVnelZDTc5VRi4419qkcgnfySkZkbczmJPq0R/o2eSDdAbTSEmy0p01py4EAhzlzXULocuU99ZwcMHZa9XTKqn1ndBvBkxhgLgtA+HAmLFhil/4wUZBp1kOhDdbYSehhhz9KTePvvQ20Vbu3TAURQdB3qywO6BHh2NUd8+OFp1L5ychU/hj17yfFRiyDMIC1Kyg7UEdZhbw5eptIlOlfQvr4N54qr1E74aYnvPky0ciWZKfQPjI6at2vyg+vugScVUWBArG37TnT8QTZZbc9/y6wHB71yCOoGBJ2AmWwFMJ4UzVCqZNgkXB5aHmCjFzzaWBAuxMDen7eQGxLzDLHhCULkWeuxHvuOkCR0UGtkbdwRnFA0b03zVdJXy9WgyvAnDUkz03eysLy8B1/RPeja7p4IZS4GNLSTLD/Gv9C7vqkXcSsdDYQrRgLoclMSb9z3tTYTvG5Ljqrzci0CBv219auJGfxATby3XOvUnpp8XS0rcDEzcEVGHZZMfo/AxQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(36860700016)(82310400026)(1800799024)(23010399003)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 922d4TRnzLvp1xvfBDmxqhL0r/qe8MvhkCoWzKSV1AihPeLg+3h17ZP32OQNcPAKKrTZSvTlcNDGtgFFh5AmpF++Uz8Uz6LNXCwRyh7IsTHnWwnn05w4I72XU7zuyGoWqhSP7FtR2aVyZF3wAVD5gNuqSwig5XDGKaMh+2VcEkplG7WjqF7/6rGG17Q+VnvGRkL2il+tImPzM9MiOileUsjXEdzYiWfVPwpnxQhZC3I1sk3GlhGIgAR8JO1U828MM3Jj5qXTTuD0d5KbrFu49Axe8geLupaSPnxKlT5fVRCuP97alMKEnouNr3uXAo1bVIJL6J4PVsN/g01SXERs4LvWqq+a5VQYN/EIlbB7h8T3lqtazmLN5I3aR2QxACM8KpzUFe6tUVyIJ4Cg8lihs6srYJ+dQVie+JNQ6K2fdcbUIFPMuvMII+OFUH+W3gGM
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Jun 2026 09:41:57.4612
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6dee5643-4244-4906-c9f0-08ded5c2a96b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE8.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: EAYPR12MB999157
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260629-gate-power-v3-1-8428ab93f389@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22OzQ7CIBAGX6XhLAbWBNST72E88LO0GG0bQNQ0f
+ XehXjR6nOSb2Z1IxOAxkn0zkYDZRz/0BTarhphO9S1SbwsTYCCY4Jy2KiEdhzsGapyVIKxhVjp
+ ShDGg848ldjy9Od70GU2qhbrofExDeC7XMq+7v+HMKadbJUACZ1th5KH8MsSr8pd1QtORWs/w6
+ cOXD8W3KIXRO60luh9/nucXXyNCu/sAAAA=
+X-Change-ID: 20260611-gate-power-cfd726dc0d7f
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Sebastian Reichel <sre@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Joshua Peisach <jpeisach@ubuntu.com>, stable@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782726186; l=4571;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=sqKFDbIEcCs2cvx/DTq3eUOzdy0v/552i0lfDimwwZE=;
+ b=rAhW13ZQ4HEXnm44sK/vEYVcG2oDhiUbPESwy2G5RRIbCUbMuvLHz1NLGVk56y0zwnvS8yodm
+ MhLGnNtNmmhC9QU2PDJ8upyBNA2Xar8vAA0vo3VggqD6cLw+NpmC4YF
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_024204_510738_3B1B7999 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260629_024314_027466_B8E22109 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,128 +80,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_smmu_impl_remove() is registered as a devres action in
-arm_smmu_impl_probe(), before arm_smmu_init_queues() allocates
-smmu->cmdq.q.base. On a devres unwind, whether a failed probe or an
-unbind, the queue is freed first and arm_smmu_impl_remove() then runs
-tegra241_cmdqv_remove_vintf(), whose VINTF deinit issues a CMD_SYNC on
-the freed memory.
+The SMC firmware included in macOS 27 changed the size of BCF0 key from
+4 to 1 bytes. This key is used for indicating that battery state is
+critically low.
 
-Observed during testing with a QEMU hack that makes the VCMDQ fail to
-enable, so the impl reset fails and probe aborts into the devres unwind:
-
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: failed to enable, STATUS=0x00000000
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: GERRORN=0x0, GERROR=0x4, CONS=0x0
- platform NVDA200C:00: tegra241_cmdqv: VINTF0: VCMDQ0/LVCMDQ0: uncleared error detected, resetting
- arm-smmu-v3 arm-smmu-v3.0.auto: failed to reset impl
- arm-smmu-v3 arm-smmu-v3.0.auto: probe with driver arm-smmu-v3 failed with error -110
- Unable to handle kernel paging request at virtual address ffff8000891e0098
- ...
- Internal error: Oops: 0000000096000047 [#1] SMP
- ...
- Call trace:
-  arm_smmu_cmdq_issue_cmdlist+0x320/0x6fc (P)
-  tegra241_vcmdq_hw_deinit+0x98/0x168
-  tegra241_vintf_hw_deinit+0x5c/0x1b0
-  tegra241_cmdqv_remove_vintf+0x34/0xec
-  tegra241_cmdqv_remove+0x40/0x9c
-  arm_smmu_impl_remove+0x20/0x30
-  devm_action_release+0x14/0x20
-  devres_release_all+0xa8/0x110
-  device_unbind_cleanup+0x18/0x84
-  really_probe+0x1f0/0x29c
-
-Drop the VINTF deinit from tegra241_cmdqv_remove_vintf() so the unwind no
-longer touches the freed queue. Quiesce the VINTFs earlier instead. Add a
-device_disable() impl op and run it from arm_smmu_disable_action() while
-the CMDQ is still up. That handles a live unbind. A failed reset is already
-handled because tegra241_vintf_hw_init() deinits the VINTF on its own error
-path. tegra241_cmdqv_remove_vintf() is also used by the iommufd viommu
-destroy path, so quiesce there too.
-
-Fixes: 4dc0d12474f9 ("iommu/tegra241-cmdqv: Add user-space use support")
+Reviewed-by: Sven Peter <sven@kernel.org>
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
+Reviewed-by: Janne Grunau <j@jannau.net>
 Cc: stable@vger.kernel.org
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Signed-off-by: Shameer Kolothum <skolothumtho@nvidia.com>
+Fixes: 0ebf821cf6c7 ("power: supply: Add macsmc-power driver for Apple Silicon")
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h    |  1 +
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c    |  2 ++
- drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c | 15 +++++++++++++--
- 3 files changed, 16 insertions(+), 2 deletions(-)
+Changes in v3:
+- Minor style fixes
+- R-b tags and Cc stable
+- Rebase on 7.2
+- Link to v2: https://patch.msgid.link/20260612-gate-power-v2-1-de76cb9bb7ef@chaosmail.tech
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index c909c9a88538..1c4877ada1ee 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -871,6 +871,7 @@ struct arm_smmu_strtab_cfg {
+Changes in v2:
+- Addressing review feedback
+- Link to v1: https://patch.msgid.link/20260611-gate-power-v1-1-8a62721086c7@chaosmail.tech
+---
+ drivers/power/supply/macsmc-power.c | 36 +++++++++++++++++++++++++++++++++---
+ 1 file changed, 33 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/power/supply/macsmc-power.c b/drivers/power/supply/macsmc-power.c
+index ced07f71e0a8..a357e50f81f2 100644
+--- a/drivers/power/supply/macsmc-power.c
++++ b/drivers/power/supply/macsmc-power.c
+@@ -86,6 +86,7 @@ struct macsmc_power {
+ 	bool has_ch0i; /* Force discharge (Older firmware) */
+ 	bool has_ch0c; /* Inhibit charge (Older firmware) */
+ 	bool has_chte; /* Inhibit charge (Modern firmware) */
++	bool bcf0_1byte; /* Battery critical key is 1 byte (Modern firmware) */
  
- struct arm_smmu_impl_ops {
- 	int (*device_reset)(struct arm_smmu_device *smmu);
-+	void (*device_disable)(struct arm_smmu_device *smmu);
- 	void (*device_remove)(struct arm_smmu_device *smmu);
- 	int (*init_structures)(struct arm_smmu_device *smmu);
- 	struct arm_smmu_cmdq *(*get_secondary_cmdq)(
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 8f366671bce7..f44911d310ad 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4740,6 +4740,8 @@ static void arm_smmu_disable_action(void *data)
- {
- 	struct arm_smmu_device *smmu = data;
- 
-+	if (smmu->impl_ops && smmu->impl_ops->device_disable)
-+		smmu->impl_ops->device_disable(smmu);
- 	arm_smmu_device_disable(smmu);
+ 	u8 num_cells;
+ 	int nominal_voltage_mv;
+@@ -273,6 +274,20 @@ static int macsmc_battery_get_date(const char *s, int *out)
+ 	return 0;
  }
  
-diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-index 67be62a6e764..aaf9ce38bd93 100644
---- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
-@@ -761,8 +761,6 @@ static void tegra241_cmdqv_remove_vintf(struct tegra241_cmdqv *cmdqv, u16 idx)
- 	struct tegra241_vintf *vintf = cmdqv->vintfs[idx];
- 	u16 lidx;
- 
--	tegra241_vintf_hw_deinit(vintf);
--
- 	/* Remove LVCMDQ resources */
- 	for (lidx = 0; lidx < vintf->cmdqv->num_lvcmdqs_per_vintf; lidx++)
- 		if (vintf->lvcmdqs[lidx])
-@@ -779,6 +777,17 @@ static void tegra241_cmdqv_remove_vintf(struct tegra241_cmdqv *cmdqv, u16 idx)
- 	}
- }
- 
-+static void tegra241_cmdqv_hw_disable(struct arm_smmu_device *smmu)
++static int macsmc_battery_read_bcf0(struct macsmc_power *power, u32 *val)
 +{
-+	struct tegra241_cmdqv *cmdqv =
-+		container_of(smmu, struct tegra241_cmdqv, smmu);
-+	u16 idx;
++	u8 tval = 0;
++	int ret;
 +
-+	for (idx = 0; idx < cmdqv->num_vintfs; idx++)
-+		if (cmdqv->vintfs[idx])
-+			tegra241_vintf_hw_deinit(cmdqv->vintfs[idx]);
++	if (power->bcf0_1byte) {
++		ret = apple_smc_read_u8(power->smc, SMC_KEY(BCF0), &tval);
++		*val = tval;
++		return ret;
++	}
++
++	return apple_smc_read_u32(power->smc, SMC_KEY(BCF0), val);
 +}
 +
- static void tegra241_cmdqv_remove(struct arm_smmu_device *smmu)
+ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
  {
- 	struct tegra241_cmdqv *cmdqv =
-@@ -844,6 +853,7 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
- 	/* For in-kernel use */
- 	.get_secondary_cmdq = tegra241_cmdqv_get_cmdq,
- 	.device_reset = tegra241_cmdqv_hw_reset,
-+	.device_disable = tegra241_cmdqv_hw_disable,
- 	.device_remove = tegra241_cmdqv_remove,
- 	/* For user-space use */
- 	.hw_info = tegra241_cmdqv_hw_info,
-@@ -1152,6 +1162,7 @@ static void tegra241_cmdqv_destroy_vintf_user(struct iommufd_viommu *viommu)
- 	if (vintf->mmap_offset)
- 		iommufd_viommu_destroy_mmap(&vintf->vsmmu.core,
- 					    vintf->mmap_offset);
-+	tegra241_vintf_hw_deinit(vintf);
- 	tegra241_cmdqv_remove_vintf(vintf->cmdqv, vintf->idx);
- }
+ 	bool flag;
+@@ -280,7 +295,7 @@ static int macsmc_battery_get_capacity_level(struct macsmc_power *power)
+ 	int ret;
  
--- 
-2.43.0
+ 	/* Check for emergency shutdown condition */
+-	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val) >= 0 && val)
++	if (macsmc_battery_read_bcf0(power, &val) >= 0 && val)
+ 		return POWER_SUPPLY_CAPACITY_LEVEL_CRITICAL;
+ 
+ 	/* Check AC status for whether we could boot in this state */
+@@ -577,7 +592,7 @@ static void macsmc_power_critical_work(struct work_struct *wrk)
+ 	 * Check if SMC flagged the battery as empty.
+ 	 * We trigger a graceful shutdown to let the OS save data.
+ 	 */
+-	if (apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &bcf0) == 0 && bcf0 != 0) {
++	if (macsmc_battery_read_bcf0(power, &bcf0) == 0 && bcf0 != 0) {
+ 		power->orderly_shutdown_triggered = true;
+ 		dev_crit(power->dev, "Battery critical (empty flag set). Triggering orderly shutdown.\n");
+ 		orderly_poweroff(true);
+@@ -616,6 +631,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 	struct device *dev = &pdev->dev;
+ 	struct apple_smc *smc = dev_get_drvdata(pdev->dev.parent);
+ 	struct power_supply_config psy_cfg = {};
++	struct apple_smc_key_info info;
+ 	struct macsmc_power *power;
+ 	bool has_battery = false;
+ 	bool has_ac_adapter = false;
+@@ -714,6 +730,20 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		if (apple_smc_key_exists(smc, SMC_KEY(CH0I)))
+ 			power->has_ch0i = true;
+ 
++		ret = apple_smc_get_key_info(power->smc, SMC_KEY(BCF0), &info);
++		if (ret) {
++			dev_err(&pdev->dev, "Failed to determine BCF0 key size\n");
++			return ret;
++		}
++		if (info.size == 1)
++			power->bcf0_1byte = true;
++		else if (info.size == 4)
++			power->bcf0_1byte = false;
++		else {
++			dev_err(&pdev->dev, "Unexpected BCF0 key size %d\n", info.size);
++			return -EIO;
++		}
++
+ 		/* Reset "Optimised Battery Charging" flags to default state */
+ 		if (power->has_chte)
+ 			apple_smc_write_u32(smc, SMC_KEY(CHTE), 0);
+@@ -766,7 +796,7 @@ static int macsmc_power_probe(struct platform_device *pdev)
+ 		power->nominal_voltage_mv = MACSMC_NOMINAL_CELL_VOLTAGE_MV * power->num_cells;
+ 
+ 		/* Enable critical shutdown notifications by reading status once */
+-		apple_smc_read_u32(power->smc, SMC_KEY(BCF0), &val32);
++		macsmc_battery_read_bcf0(power, &val32);
+ 
+ 		psy_cfg.drv_data = power;
+ 		power->batt = devm_power_supply_register(dev, &power->batt_desc, &psy_cfg);
+
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260611-gate-power-cfd726dc0d7f
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
 
