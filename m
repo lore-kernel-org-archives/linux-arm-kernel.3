@@ -4,76 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10949C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECD4C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 14:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
-	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lep4LmAF5hW0njOyVIejDi6DzfWQMyzshFxJ/msGNv4=; b=v1y/DY0VcVYjad
-	rAxk0La3dyPxW4HND34qaWCR/aCvE7v/gmnVD23sdzw+gxo5WnLfY878yKC7uz0Xy4RPToWg67wbB
-	2GVidhqzRly+BJg90DvzI9IgiJWHaoBShQNIwzjP1M0aIWX9wcnaPuJw/yV3/zNB06HxiU5HNwviQ
-	nzvrpmAXdWDCIt8nRl+LIC3RoH7Y/NE/pGeC7+q6ouTZnryHavizgqSonpx5kz9HYQcdoCxPVw+9d
-	DPmQKJiEaEzjKMM5jNrv+hbeekWgfFLvPot05Qq+TXiuz3ES8yvYgRvJy8jUSPcFTTdd4abySWVxN
-	ojnewSOf+o+klLeBURQw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dxUOAz6v2DLB3pQ+3w7XXOipI1QUqCU4OXtQP9bfoow=; b=uBuZQs2XWKCj6dLGYxxNojikGU
+	9r0zNOz+6n8rvMpcEy4sf5kqt9RqXePIGClnbvKBLxuhJxTqacyWi43Hi2IkBISK44vQBpMUjscmb
+	3WqpcZ8rM7iNAJhd7TceSa7f3tsOJFGbnL2AeOtKQms/+MPALf3+L6nR1A+UtDrfw2Pwg4WHe0k7d
+	EMjzeMkAhaG9gyYJokzAV/oorb7D/6e16MWYd6w0lu6nkVJLmogob05/99YjidZATww+LSGNT7xNZ
+	RgUsB9A5RNZnpnQP09M529yFGCnqPMFitJJwaFOj1yEUzuaqbK9BbpA2/xKaKD2P4TeK+lwfYEcjh
+	ukPU/muQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDIJ-0000000Eway-0cqP;
-	Mon, 29 Jun 2026 14:49:07 +0000
+	id 1weDIS-0000000Ewkw-3cC4;
+	Mon, 29 Jun 2026 14:49:16 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weDIH-0000000EwZQ-1T1v
+	id 1weDII-0000000EwaG-39dl
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 29 Jun 2026 14:49:05 +0000
+	Mon, 29 Jun 2026 14:49:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Lep4LmAF5hW0njOyVIejDi6DzfWQMyzshFxJ/msGNv4=; b=AZrv9kHntx1oL2nL1s7BnQTqsd
-	H1Vn9+gthW3Rse2VKob3ukm3kiWFWbAoI40q4ryXwwr4dMYpaVK1MPp74lXERRUkh7IV9B6QlUYm4
-	KoRDof2D5byPEpFOB+tuQSQKynb3WadrU4EJhgN+EChBWU2mSNVJsx/GJM7QcsZgIhPCbDyKnqFeX
-	eAOIJ6g8VW7WKGiE08EzxxM2B3HrBlXE+aexKxQrEOSyy/MvaSzFS6irQsvTDrykGFx/3fUFTZCTh
-	+x6k7RuhOLhoyL+Yt9Qbw22985UY/bcrZFoThvXkqZcFQe1nPcMFLr3WYOmTbIxK02x2LP3JZcoO2
-	lpyu/bcg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weDIC-000000018Un-1mEj
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=dxUOAz6v2DLB3pQ+3w7XXOipI1QUqCU4OXtQP9bfoow=; b=XpM9pyuzBTP5Tk0qlKee8NSYBH
+	zRsywrboVVHPBMZQWsgjEqp9nyOSP/B4w6MJmClI3546vyKlX6xAzX2qjF53MQF24JYEnZ14esy2B
+	fzo5OFOOzPsouiKXr9dptT8vabdIZ0xa07uh20xs7Krgez8jCir9Q5kKSo4QQTLmU57qQpyZpgIAM
+	iUE+WfVh1d+G9t+j//ZHyqghEQV15oFthupxxsdd2IvmqWoz1U/PwKM+1b/0g6TiWtv1ZCauZuOkl
+	FOpQwoovt4uIy0fMp7tewpS9jDCsG3VsnSevYAmkADrVGrzzMHC6mvDWXnUbBZC26H5OIG5eRBj+f
+	520tMzkQ==;
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weDID-000000018UY-3BxN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 14:49:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E776176C;
-	Mon, 29 Jun 2026 07:48:53 -0700 (PDT)
-Received: from [10.2.213.21] (unknown [10.2.213.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BE2EA3F905;
-	Mon, 29 Jun 2026 07:48:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782744538; bh=VQxN3epaeo87AFiZLJaScP/kZ0bA/N58Z8JIH0iQ8zU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ulZQxHknD4wTMdPz3Qdel6MlMeyCGdVS0RQEb43om+HLVf1wBQPygFKcf84ClLEBj
-	 S6F7z2Gwv7CFteLxPdwDPGdmxE78xwkzPCW2t+Pdta3H58DXihbKTUmZC3oSRAzJeZ
-	 Z0E/0u7w8F4urd0YUex0iIn3nLneRavd9rnPIRuY=
-Message-ID: <feb4296b-66ad-4119-b53d-015e0957efca@arm.com>
-Date: Mon, 29 Jun 2026 15:48:33 +0100
+	Mon, 29 Jun 2026 14:49:05 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65TAT4Xh2646955
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 14:48:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	dxUOAz6v2DLB3pQ+3w7XXOipI1QUqCU4OXtQP9bfoow=; b=H6uAJrPmvSmWcB34
+	usS88T/Q0eKB2k3PInmaPfU+i976qDNDwSNegVEB/60KEP5HjppOioy6UcEkSYhb
+	f+/FvJAmwJILDWyIo4ZnkAAT9SaFqV4um6CB8Gmccpbh169rzoVUKy/9OFZTVR0P
+	uDBzEsbvQuFwrt5bW0ccq7TCCIuj6uFyDS26wKop6NhSZzIB/b0sfi8xPeZkj7Ya
+	MTZDsq7ZH+Ml+w84VwNKdB3CcmLbwnPJeBLmTaG4qX3RSMSbxlkkPxuZCvFuIoXZ
+	Y9TkuMtsO1YV7rO+OVTN8aexMO0hfC0kj35n6g4lWbeSY+YeaeSaaFUsDaGG/ikR
+	4xFdlQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f3m4tsu88-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 14:48:56 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-92ac0a54110so562244585a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 07:48:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1782744536; x=1783349336; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dxUOAz6v2DLB3pQ+3w7XXOipI1QUqCU4OXtQP9bfoow=;
+        b=g4tnzGhLbgL9C9UCApLxHNKINg7u03H4GhKsY+lsXjdPfPnCcjyKJg6Lz4oUxRVvIy
+         WhvzbIura9wJ/Z8q6+RxQ+XxWkUkqbQVrqnDovmhzGn6yDhWlwpZ+F/hdXBBcWwlO5sV
+         aJ4H8NSUTb9U8/wPM5YhS5dbxJB2qc+awiiV0JN22fS3GkNfxmdNXH/f+TKnJojpyegt
+         NumsGT0xVOrVBdFt3gxZSmQ9MPeAu2DRbSQyLF1ecZCSd/8rKNY38UOwMspkUN58Hj3Q
+         cpgiHVc9QfmtoG4GRPSqNShYE7OHAaeHFKhI7Q5VWZey3SNVeHJEEIXg1myHKmVyg/Ad
+         Y0ow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782744536; x=1783349336;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=dxUOAz6v2DLB3pQ+3w7XXOipI1QUqCU4OXtQP9bfoow=;
+        b=KHsnjgoAZk+xoiLp8sumBHOwB7JRQuHmdxu8YhHiR/HBDCq+E+aKaNhf73uCpCIQ1m
+         D5v/fsGzraI3+E92iATw9BJV74uu3tnTjcOtZvpzMfTkuLHmiaCiErWp/zEUbHeQa7MG
+         9w8GssxYd86za6lVMwM+e1I7pbRgnJO7y3gE+Nln2uZO3dWrxIDq/GeQXaFizqahp1s/
+         gYVB1udjfks0L5VMXwz/IZwaKF8/gl36jAVujKSrHYz00hkw4hbl6cP8EyGU1W8AijAs
+         C8lc9agPEAU6nTL3JLFdeWOk8Rzt9rE4vUxLP+dPgYeUfiR2h0Nh9ic+kc1q95lW2uQP
+         Tvjw==
+X-Forwarded-Encrypted: i=1; AFNElJ8vU2r5HVJKKuAR6HO/ThOftTGpLNDJ49wtkGjZsH/xNujczy8Ce2uvvtexrR7bkAu/6Qm29gQYQokmEWBkfpqa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQI9m9x98UscTUSEUKIOeysmEN40ry/jEvJPeNeYFk+vnT4Vil
+	8tsWdnokDukjEmRQB0GE0ukvBXP1q8g4UJyfdIWbe3izo6z6i1sC+VP3LRw6zcj0wNUe4gMNtDj
+	6olQpFmRBxZhII/IuyZiubhF+cUQzq0m2scvVyKk7HUHYUO2YTML565XOk2VaMLPXkV/BJ3NIHW
+	iV3Q==
+X-Gm-Gg: AfdE7ck/hZ2OhsNboUs1FwZk6W8eJdKKM7ZEz8bRSneswiEF1LYISFDF4CP7k5/9IjC
+	BcMywAOxWg00L6o1VIvJtQ4Wo1GDSrJnTdSjRsC9wxMnqj+VWV1fcWC1djpcMt0G3aP/HjkA1Sn
+	ZMV/eVNf5zzkSC2WVv4vGufT1PK8ir6Z4HvycAK6SrIXaF8BODETgbUOievl4851HRrvhSvkl+p
+	qXQ5LgkzpRtyYxgHaxiWgG5+wlkvvXwpdFBLuRQygQRu3uJvgbIinumdEltxv0ykTE9XjZ8qy8F
+	W66NXY1rBjzdwkTnEiFrPTsJPbAMCYhjpV4c1iIcdC1M7sdJOH0sGDugSYFRTABA05N0MLY+uNd
+	bIpJkKOjtiT5CdreyrG5zQQfxl7OYZGVOwRMCCNZwKiHFrx3AE0rSw9VRUAHnuIyHORW9rNNXgA
+	==
+X-Received: by 2002:a05:620a:454b:b0:92e:5a5c:6582 with SMTP id af79cd13be357-92e5a5c673bmr275403585a.73.1782744535384;
+        Mon, 29 Jun 2026 07:48:55 -0700 (PDT)
+X-Received: by 2002:a05:620a:454b:b0:92e:5a5c:6582 with SMTP id af79cd13be357-92e5a5c673bmr275397685a.73.1782744534816;
+        Mon, 29 Jun 2026 07:48:54 -0700 (PDT)
+Received: from yongmou2.ap.qualcomm.com (Global_NAT1_IAD_FW.qualcomm.com. [129.46.232.65])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-926004ab49csm2087974385a.34.2026.06.29.07.48.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 07:48:54 -0700 (PDT)
+From: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+Date: Mon, 29 Jun 2026 22:48:06 +0800
+Subject: [PATCH 4/5] drm/msm/dp: report IRQ_HPD as an IRQ-only notification
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v15 07/11] arm64: syscall: Introduce
- syscall_exit_to_user_mode_work()
-To: Jinjie Ruan <ruanjinjie@huawei.com>, mark.rutland@arm.com
-References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
- <20260511092103.1974980-8-ruanjinjie@huawei.com>
- <768cc347-c42f-411d-90c3-bfaa39afeaf7@arm.com>
- <83aed271-5f28-4f30-a800-b94192cb06a6@huawei.com>
-From: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Content-Language: en-US, en-GB, fr
-Organization: Arm Ltd.
-In-Reply-To: <83aed271-5f28-4f30-a800-b94192cb06a6@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260629-msm-dp-msttypec-v1-4-646a10256233@oss.qualcomm.com>
+References: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
+In-Reply-To: <20260629-msm-dp-msttypec-v1-0-646a10256233@oss.qualcomm.com>
+To: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org,
+        Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782744487; l=3483;
+ i=yongxing.mou@oss.qualcomm.com; s=20250910; h=from:subject:message-id;
+ bh=TY/Ycd0Pv0UYVXHobfUENPm0aoX/GRTId1HfFoGzN1Y=;
+ b=AweWrHKC11A5BUtjWFtmRQjNIxUkW7uePMZ5PMNnbD77GSRS7TqPFahMkouslMZ1c+wEOjpym
+ c2STxLMOEvRCcfMVC2RaEefZcMBHE71VDmHjWjqIJ+WHqFr7aOTLrQH
+X-Developer-Key: i=yongxing.mou@oss.qualcomm.com; a=ed25519;
+ pk=rAy5J1eP+V7OXqH5FJ7ngMCtUrnHhut30ZTldOj52UM=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjI5MDEyMyBTYWx0ZWRfX/Z72CVooyomE
+ jUiSh8q0vGMxK1zUERxsuNv/NJdUpCb6owBxZeAVCMOLFLoTIynGHWBS+VyeogI9VrmYgwcmprO
+ Zpbz960GV/aIGbn/r9g442IZ5Mv57lYsXTfn4uXH9e7l4xV3dT5ns/mmhYcbww+7zYl+0+GQyDw
+ +lAuBtFKUV2yiH0rx9nyY+eSYxoliddWFHgVzZL57wFH/P4Ml4bzG7GraGwWRWX86Lau+/c8m1N
+ QvNJ1P/tjNAh/MyhSIGsMPSobf6FgqENzpCWrhl5CPhfIkNzXpViGMa+qAhI8ElzEp3QHRL1NHf
+ 6ace5uz4T4omvKLC28d4Gyky5EmNxMjOGCIprkhuirgFoicsp8Q6+HZ8TPl3Kww2IYISWrGmWYx
+ uBsaWcYqzs0y4Rv0uabKufJrBNMiTEjljGefNpLjgnzRW7C8AF78kcjyHPeRqC98LF1f1/SXkeX
+ +gbPNm5ET6rK14itE6w==
+X-Authority-Analysis: v=2.4 cv=R58z39RX c=1 sm=1 tr=0 ts=6a4285d8 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=C3Dk8TwHQYyIj7nOf9RCJw==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=MqOh_s_JX8DWAqdrIDMA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjI5MDEyMyBTYWx0ZWRfXxFMfKU1nyPlw
+ mjBwiLoJlsZsE0eaJVfRsAnHyFWRBKSZd+jjm+n8lHXT5en7ulwEX5BSbAhxfqo1BF9xQElXmGL
+ FsDUB4nlueJxjaDe094JXIUmkR68rGM=
+X-Proofpoint-ORIG-GUID: KDZxVXdyWXl2I6_8qkIQ8cToSLY8h4BR
+X-Proofpoint-GUID: KDZxVXdyWXl2I6_8qkIQ8cToSLY8h4BR
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-29_03,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 suspectscore=0 phishscore=0 clxscore=1015
+ adultscore=0 malwarescore=0 priorityscore=1501 bulkscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606290123
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_154901_205466_1DF8C34D 
-X-CRM114-Status: GOOD (  43.04  )
+X-CRM114-CacheID: sfid-20260629_154902_312510_41BAD00F 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,248 +190,94 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: peterz@infradead.org, catalin.marinas@arm.com, oleg@redhat.com, song@kernel.org, will@kernel.org, kees@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, ldv@strace.io, linux-arm-kernel@lists.infradead.org, wad@chromium.org, yeoreum.yun@arm.com, linux-kernel@vger.kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, linusw@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/06/2026 10:18, Jinjie Ruan wrote:
+MST reuses the SST connector bridge to propagate HPD IRQ events through
+the bridge chain.
 
-> On 6/24/2026 10:37 PM, Ada Couprie Diaz wrote:
->> On 11/05/2026 10:20, Jinjie Ruan wrote:
->>> Refactor the system call exit path to align with the generic entry
->>> framework. This consolidates thread flag checking, rseq handling, and
->>> syscall tracing into a structure that mirrors the generic
->>> syscall_exit_to_user_mode_work() implementation.
->>>
->>> [Rationale]
->>> The generic entry code employs a hierarchical approach for
->>> syscall exit work:
->>>
->>> 1. syscall_exit_to_user_mode_work(): The entry point that handles
->>>      rseq and checks if further exit work (tracing/audit) is required.
->>>
->>> 2. syscall_exit_work(): Performs the actual tracing, auditing, and
->>>      ptrace reporting.
->>>
->>> [Changes]
->>> - Rename and Encapsulate: Rename syscall_trace_exit() to
->>>     syscall_exit_work() and make it static, as it is now an internal
->>>     helper for the exit path.
->>>
->>> - New Entry Point: Implement syscall_exit_to_user_mode_work() to
->>>     replace the manual flag-reading logic in el0_svc_common(). This
->>>     function now encapsulates the rseq_syscall() call and the
->>>     conditional execution of syscall_exit_work().
->>>
->>> - Simplify el0_svc_common(): Remove the complex conditional checks
->>>     for tracing and CONFIG_DEBUG_RSEQ at the end of the syscall path,
->>>     delegating this responsibility to the new helper.
->> It is indeed simpler, however to me there are two changes to the behaviour,
->> which are not called out (apologies if I missed some prior discussion
->> when I looked for some) :
->> 1. As pointed by the removed comment, in mainline we *always* trace on exit
->>     if we traced on entry. This is why there are two `has_syscall_work()`
->> checks
->>     on exit, with a re-read of the flags after syscall execution in between.
->>     This change only checks once on exit after updating the flags, so if
->>     there was work on entry but the flags got cleared, it *won't* trace
->> on exit.
->>     Is this desired ? Can this change of behaviour have an impact ?
-> Hi, Ada,
->
-> After rework, `syscall_exit_to_user_mode_work()` will be executed
-> unconditionally, regardless of whether the conditions below evaluate to
-> true or false. [...]
+For IRQ_HPD notifications there is no connector state transition to
+report. Use connector_status_unknown together with
+DRM_CONNECTOR_DP_IRQ_HPD so that the bridge connector framework treats
+them as IRQ-only notifications and forwards them without modifying
+connector state.
 
-Hi Jinjie,
+The DP driver handles IRQ_HPD events based on
+DRM_CONNECTOR_DP_IRQ_HPD rather than connector status transitions.
 
-Indeed, my worry was about the actual work in 
-`syscall_exit_to_user_mode_work()`
-being gated by a different truth table, but it makes sense now, I will 
-detail below.
-> [...] You can see how this is handled in the finer-grained
-> refactoring split which will be shown in v16.
-I have seen that you just posted v16, thanks for splitting things up a 
-bit more !
->
-> 	if (!has_syscall_work(flags) && !IS_ENABLED(CONFIG_DEBUG_RSEQ))
->
->>> - Helper Migration: Move has_syscall_work() to asm/syscall.h
->>>     to allow its reuse across ptrace.c and syscall.c.
->>>
->>> - Clean up RSEQ: Remove the explicit IS_ENABLED(CONFIG_DEBUG_RSEQ)
->>>     check in the caller, as rseq_syscall() is already a no-op when the
->>>     config is disabled.
->> 2. `rseq_syscall()` is indeed a no-op, but removing the explicit check here
->>     does change the behaviour : in mainline we *always* trace on exit if
->>     `CONFIG_DEBUG_RSEQ` is enabled, bypassing the `has_syscall_work()`
->> check.
->>     This change does not bypass the `has_syscall_work()` check if
->>     `CONFIG_DEBUG_RSEQ` is enabled, so there might be a change of behaviour.
->>     Same questions as above : is this change desired ? Can it have an
->> impact ?
-> This should not introduce any functional changes.
->
-> Except for "audit", the internal code execution of
-> `syscall_trace_exit()` is gated by the "_TIF_SYSCALL_TRACEPOINT,
-> _TIF_SYSCALL_TRACE, or _TIF_SINGLESTEP" TIF flags.
->
-> And gating audit_syscall_exit() behind `_TIF_SYSCALL_AUDIT` introduces
-> no functional changes.
->
-> The `SYSCALL_AUDIT` flag and its context are
-> statically allocated via audit_alloc() at fork and only freed via
-> audit_free() at do_exit(). Since the flag remains persistent and static
-> throughout syscall execution, checking the `_TIF_SYSCALL_AUDIT` flag is
-> completely equivalent to evaluating audit_context() in
-> audit_syscall_exit().
-Thank you for the additional details : I did miss that 
-`audit_syscall_exit()`
-did its own check internally for `SYSCALL_WORK_SYSCALL_AUDIT`, which
-is part of `SYSCALL_WORK_{ENTRY,EXIT}`, so this indeed does not change
-the behaviour.
+Signed-off-by: Yongxing Mou <yongxing.mou@oss.qualcomm.com>
+---
+ drivers/gpu/drm/msm/dp/dp_display.c   | 22 +++++++++-------------
+ drivers/soc/qcom/pmic_glink_altmode.c | 14 +++++++++-----
+ 2 files changed, 18 insertions(+), 18 deletions(-)
 
-As you moved `rseq_debug_syscall_return()` outside of `syscall_exit_work()`,
-it will indeed always be executed (potentially being no-op),
-which removes the need for the removed check and does not change
-the actual behaviour, because the rest of `syscall_trace_exit()` used
-the exit TIFs as well anyway, as far as I understand.
+diff --git a/drivers/gpu/drm/msm/dp/dp_display.c b/drivers/gpu/drm/msm/dp/dp_display.c
+index bc93b566fbca..4ee391cc7165 100644
+--- a/drivers/gpu/drm/msm/dp/dp_display.c
++++ b/drivers/gpu/drm/msm/dp/dp_display.c
+@@ -1119,14 +1119,10 @@ static irqreturn_t msm_dp_display_irq_thread(int irq, void *dev_id)
+ 		drm_bridge_hpd_notify(dp->msm_dp_display.bridge,
+ 				      connector_status_connected);
+ 
+-	/* Send HPD as connected and distinguish it in the notifier */
+-	if (hpd_isr_status & DP_DP_IRQ_HPD_INT_MASK) {
+-		if (dp->msm_dp_display.mst_active)
+-			msm_dp_irq_hpd_handle(dp);
+-		else
+-			drm_bridge_hpd_notify(dp->msm_dp_display.bridge,
+-					      connector_status_connected);
+-	}
++	if (hpd_isr_status & DP_DP_IRQ_HPD_INT_MASK)
++		drm_bridge_hpd_notify_extra(dp->msm_dp_display.bridge,
++					    connector_status_unknown,
++					    DRM_CONNECTOR_DP_IRQ_HPD);
+ 
+ 	ret = IRQ_HANDLED;
+ 
+@@ -1781,11 +1777,11 @@ void msm_dp_bridge_hpd_notify(struct drm_bridge *bridge,
+ 	drm_dbg_dp(dp->drm_dev, "type=%d link hpd_link_status=0x%x, status=%d\n",
+ 		   msm_dp_display->connector_type, hpd_link_status, status);
+ 
+-	if (status == connector_status_connected) {
+-		if (hpd_link_status == ISR_IRQ_HPD_PULSE_COUNT ||
+-		    extra_status == DRM_CONNECTOR_DP_IRQ_HPD) {
+-			msm_dp_irq_hpd_handle(dp);
+-		} else if (hpd_link_status == ISR_HPD_REPLUG_COUNT) {
++	if (extra_status == DRM_CONNECTOR_DP_IRQ_HPD ||
++	    hpd_link_status == ISR_IRQ_HPD_PULSE_COUNT) {
++		msm_dp_irq_hpd_handle(dp);
++	} else if (status == connector_status_connected) {
++		if (hpd_link_status == ISR_HPD_REPLUG_COUNT) {
+ 			msm_dp_hpd_unplug_handle(dp);
+ 			msm_dp_hpd_plug_handle(dp);
+ 		} else {
+diff --git a/drivers/soc/qcom/pmic_glink_altmode.c b/drivers/soc/qcom/pmic_glink_altmode.c
+index 946eb20b8f83..28ab8cbb5ef9 100644
+--- a/drivers/soc/qcom/pmic_glink_altmode.c
++++ b/drivers/soc/qcom/pmic_glink_altmode.c
+@@ -373,11 +373,15 @@ static void pmic_glink_altmode_worker(struct work_struct *work)
+ 		else
+ 			conn_status = connector_status_disconnected;
+ 
+-		drm_aux_hpd_bridge_notify_extra(&alt_port->bridge->dev,
+-						conn_status,
+-						alt_port->hpd_irq ?
+-						DRM_CONNECTOR_DP_IRQ_HPD :
+-						DRM_CONNECTOR_NO_EXTRA_STATUS);
++		if (alt_port->hpd_irq) {
++			drm_aux_hpd_bridge_notify_extra(&alt_port->bridge->dev,
++							connector_status_unknown,
++							DRM_CONNECTOR_DP_IRQ_HPD);
++		} else {
++			drm_aux_hpd_bridge_notify_extra(&alt_port->bridge->dev,
++							conn_status,
++							DRM_CONNECTOR_NO_EXTRA_STATUS);
++		}
+ 	} else if (alt_port->mux_ctrl == MUX_CTRL_STATE_TUNNELING) {
+ 		if (alt_port->svid == USB_TYPEC_TBT_SID)
+ 			pmic_glink_altmode_enable_tbt(altmode, alt_port);
 
-> I probably moved too fast with this refactoring. I'll split this into
-> smaller, more granular steps in v16 to make the logic clearer and easier
-> to follow."
-There were a bit more subtleties than I expected, so I think it is good
-to have split it in more self-contained patches !
->> I understand that the change is to align with the generic entry, but it
->> seems
->> like this could have an impact that I do not really understand, so I prefer
->> asking !
->>
->> Apart from the above everything looks OK to me, but I'd like
->> some confirmation that the change of behaviours either do not exist or
->> are OK !
-> Thank you for the review.
->
->> Thanks,
->> Ada
->>
->>> Cc: Mark Rutland <mark.rutland@arm.com>
->>> Cc: Will Deacon <will@kernel.org>
->>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>> Reviewed-by: Linus Walleij <linusw@kernel.org>
->>> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
->>> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
->>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->>> ---
->>> v15
->>> - Make syscall_exit_to_user_mode_work() __always_inline to keep
->>>     the fast-path performance as Sashiko pointed out.
->>> ---
->>>    arch/arm64/include/asm/syscall.h | 18 +++++++++++++++++-
->>>    arch/arm64/kernel/ptrace.c       |  5 +----
->>>    arch/arm64/kernel/syscall.c      | 20 +-------------------
->>>    3 files changed, 19 insertions(+), 24 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/
->>> asm/syscall.h
->>> index 30b203ef156b..b331e09b937f 100644
->>> --- a/arch/arm64/include/asm/syscall.h
->>> +++ b/arch/arm64/include/asm/syscall.h
->>> @@ -8,6 +8,7 @@
->>>    #include <uapi/linux/audit.h>
->>>    #include <linux/compat.h>
->>>    #include <linux/err.h>
->>> +#include <linux/rseq.h>
->>>      typedef long (*syscall_fn_t)(const struct pt_regs *regs);
->>>    @@ -121,6 +122,21 @@ static inline int syscall_get_arch(struct
->>> task_struct *task)
->>>    }
->>>      int syscall_trace_enter(struct pt_regs *regs, unsigned long flags);
->>> -void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
->>> +void syscall_exit_work(struct pt_regs *regs, unsigned long flags);
->>> +
->>> +static inline bool has_syscall_work(unsigned long flags)
->>> +{
->>> +    return unlikely(flags & _TIF_SYSCALL_WORK);
->>> +}
->>> +
->>> +static __always_inline void syscall_exit_to_user_mode_work(struct
->>> pt_regs *regs)
->>> +{
->>> +    unsigned long flags = read_thread_flags();
->>              ^-- This only reflects the post-syscall flags
->>
->>> +
->>> +    rseq_syscall(regs);
->>> +
->>> +    if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
->>> +        syscall_exit_work(regs, flags);
->>> +}
->>>      #endif    /* __ASM_SYSCALL_H */
->>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
->>> index 15a45eeb56da..256aa20377e1 100644
->>> --- a/arch/arm64/kernel/ptrace.c
->>> +++ b/arch/arm64/kernel/ptrace.c
->>> @@ -28,7 +28,6 @@
->>>    #include <linux/hw_breakpoint.h>
->>>    #include <linux/regset.h>
->>>    #include <linux/elf.h>
->>> -#include <linux/rseq.h>
->>>      #include <asm/compat.h>
->>>    #include <asm/cpufeature.h>
->>> @@ -2454,10 +2453,8 @@ int syscall_trace_enter(struct pt_regs *regs,
->>> unsigned long flags)
->>>        return syscall;
->>>    }
->>>    -void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
->>> +void syscall_exit_work(struct pt_regs *regs, unsigned long flags)
->>>    {
->>> -    rseq_syscall(regs);
->>> -
->>>        audit_syscall_exit(regs);
->>       ^-- This was always called if entry had work or CONFIG_DEBUG_RSEQ
->> was enabled,
->>           which is not the case anymore (same for the rest of the function)
-> As explained above, thank you!
->
->>>          if (flags & _TIF_SYSCALL_TRACEPOINT)
->>> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
->>> index f6f87b042995..dac7bcc4bbdf 100644
->>> --- a/arch/arm64/kernel/syscall.c
->>> +++ b/arch/arm64/kernel/syscall.c
->>> @@ -54,11 +54,6 @@ static void invoke_syscall(struct pt_regs *regs,
->>> unsigned int scno,
->>>        syscall_set_return_value(current, regs, 0, ret);
->>>    }
->>>    -static inline bool has_syscall_work(unsigned long flags)
->>> -{
->>> -    return unlikely(flags & _TIF_SYSCALL_WORK);
->>> -}
->>> -
->>>    static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->>>                   const syscall_fn_t syscall_table[])
->>>    {
->>> @@ -120,21 +115,8 @@ static void el0_svc_common(struct pt_regs *regs,
->>> int scno, int sc_nr,
->>>        }
->>>          invoke_syscall(regs, scno, sc_nr, syscall_table);
->>> -
->>> -    /*
->>> -     * The tracing status may have changed under our feet, so we have to
->>> -     * check again. However, if we were tracing entry, then we always
->>> trace
->>> -     * exit regardless, as the old entry assembly did.
->>> -     */
->>> -    if (!has_syscall_work(flags) && !IS_ENABLED(CONFIG_DEBUG_RSEQ)) {
->>                        ^-- We always traced exit if CONFIG_DEBUG_RSEQ is
->> enabled
->>           ^-- `flags` is unchanged since entry, and exit was always
->> traced if there was work.
-> As explained above, thank you!
->
-> Best regards,
-> Jinjie
-Thanks again for the additional details !
-Kind regards,
-Ada
+-- 
+2.43.0
+
 
