@@ -4,63 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2ED0C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86827C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 09:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pZzFWi9UXZxjJ9dK75Dfo9/oEbNPq6pdMEJcY1t0OpU=; b=v5rQZnE+eW1ipDsyiym0yI+nYX
-	RaS9CRB3KA1fwHeZXjoCEOKq7EmVnnMssyhc0YM+gqIwWabwdempIrb5zSUQ2b7aVE2ol3yH7gTBk
-	SEnyDweCyDwuHykT0MdLGMqtpZFCE69oa/2gIXO28i9JE5D6nWD7T7GFFZZhz2uXz12DYG3sEbWTy
-	IFtSpgMsX+BfOImHce73Cp/dLrgVUnKF7ZQPQBoXnxcw+EiPd0HJQ0qBsMEv+6ZiiPz+HD/KUu5QX
-	T+8cHFTk+5r/tt7ftwdNfjq3m5R/LGWnlIoLSadv51OZDyodzH11MYLAL326gyYgo+4Gi0IvZhLS5
-	QxoldXKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BovyFstc80MYHmYyIZVG50kULX+1YfHlAuIHPTiI6jk=; b=YVx/sI/jvq3prUTtYw9tD33pY3
+	h+M8MpDrFLeF2wzyGKm7TqJtZeyjLqwO08cykTCSAQbSxyU9OpzCmjTjPMwTQ3Kex+YH87nOIDM1q
+	PTRxk2j2/fzclOScZVMQzQa/TYakjw/ntEVo0ZJaU5HZbBN3jBSVnvPfEpTYN+4c/2UMVZytWzy8F
+	nAblBx9vTj/V7VWk8LimJ3ZyBnkKIjnStwyeMDD0SG+kyO6utEGw/0rKFeKjrbKu2+Q7bjDXEPtyN
+	WG25Yl+9ufi/FLYHrPZ9nGWEEcHY8pfqp53p5HzR2D6zqFb9PfkunD9BtwJIKO6NGfSKQIs6byX7P
+	9J8MBCIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7rF-0000000E5Df-2MH2;
-	Mon, 29 Jun 2026 09:00:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1we7r1-0000000E517-0SGT
+	id 1we6Fw-0000000DsJk-0TWZ;
+	Mon, 29 Jun 2026 07:18:12 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1we6Ft-0000000DsIv-2mdn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 09:00:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19A871A00;
-	Mon, 29 Jun 2026 02:00:30 -0700 (PDT)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.2.213.3])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C7D0E3F836;
-	Mon, 29 Jun 2026 02:00:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782723634; bh=Dm/tGx9bg0bRHmYLAOZ1HhXPYJboiJL/epJbOyFPF6w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pb+FJWfwCyDuJHwA8KQ5c/n+1yoghsSD56U31maHwZudy+h1qIeapzvy+tab1IvPS
-	 sCf+jLVMWRVADZARDrCaW0WzG3+W2t0p4QQQkAVSPER0AM33gmgPTfizZ+KITJUt5B
-	 YJOUnF7E9sdv/MkvmUjXBjWmZu5vxrBJu3J8oHzo=
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: suzuki.poulose@arm.com,
-	mike.leach@arm.com,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	leo.yan@arm.com,
-	jie.gan@oss.qualcomm.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v8 11/13] coresight: etm3x: introduce struct etm_caps
-Date: Mon, 29 Jun 2026 10:00:04 +0100
-Message-ID: <20260629090007.1718746-12-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260629090007.1718746-1-yeoreum.yun@arm.com>
-References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+	Mon, 29 Jun 2026 07:18:10 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47122683cf3so593890f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 00:18:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782717487; x=1783322287; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=BovyFstc80MYHmYyIZVG50kULX+1YfHlAuIHPTiI6jk=;
+        b=ji/DDkcjLeGT3bbSFLg0GiU/DJRiHPqUbulMD7lALkB5YtPik51qHY1/yRd8l30GaP
+         iV0uqDsp9DsW7XP6582oLyDCNfsigY3JQng/aL0I4631Efl63+FKm8FH2wdxbkSEnjla
+         AcnIdF3XB0k/2/MqhfTf1P7XcV++DuTgN7D0HDRNzdXuZ+PwlrSe+Kn+UAQ7VoPPPDk6
+         oRjI2Jcq6T3QbIjehtvJsWnIarDYDS8n72iw5tvUVGO+ymuJL8zl3plCK8wXDq845LoK
+         aCiY0KkwGpADkL81EmweYeJs1CyCj6UAx+XZ1tNjHnEG7BuMrA8Fmgj7zBEm5zTJpbKk
+         Civg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782717487; x=1783322287;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BovyFstc80MYHmYyIZVG50kULX+1YfHlAuIHPTiI6jk=;
+        b=E7rGdwYM6EoaN5Ls30tpgpoa4kDwEvvCV9O99BVsNytnagy8+ZZ18MkBTNaefPv6Pk
+         m76zESDwfKTk62mL16vDk26lGua5Md5AaUjqNaT2EWL8OFwOoqTVY4JkxQIdq99PsjK5
+         thG+V6FXr+YrNWAymUUNrV/OwqynpMiqI8RwzlNMCgilPysZrLNr//MWaMSVYs8zhGTy
+         CF2dFBDVwbR7aEu9wQxB3k2QSAxXb5PMifFYOWtGhtD63tU/vMO690hRCn/3H31+UyiV
+         4pqguH+Yfn0CghlnBkVC3rLw17Y0C9KYBQeb1lI5Ueo7cWpVEAVncZuXWBGua/bDk/5V
+         oHRQ==
+X-Forwarded-Encrypted: i=1; AHgh+RoqjoMI8zGp54U4KGU5Y0yK0suZ4QHlDiYIbXNHp/dQNYH4qyQtk2tLdnIsSCEKciTscPe6OXPS/TzrE8XXb0rQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRYXmb+/uawAJYO5jf+E4ZzGYnAIlKSrOxj7dSXMA+H99Jl2Si
+	zlGcq3bhndOaSXFM1KRCV31Q4R1Df3xht7/oUaiL9Yjh/tdWSEMSC1PqZo5CsRe2
+X-Gm-Gg: AfdE7clx0sYjco5RuHnctTynUQCFSdMXOZsR12bos7DWiYrSP+DkJLwBj1O2l4VB/iW
+	lhbPJhsqXAD4pVQ9Jq/RxKE+XUWlVIiu9YFqNic9dU69ZanyTWi8qUCohX9W6rPUbR1W7tM5cGm
+	R+842jrByY0DNaBhMNy+28T0I7IumOM3sfNa86c85iF5lZoOQl+FAod4Ip6vHt9luMgCDVJ47rx
+	TUV1sWwOaMi04Zrhu1b+d3qqjwGPXA3K/n/3kNHV99nP/XOu42HVoJigksWYXXi23xiVsZMpagp
+	0J8AxxaIVHM9vgqxJsexB1ki7w00a6r83Pr5YY4d+Lez3vJ5alwUN/FiCan+HaRHCOJuqlBHojw
+	79auLIRUlk+6VQiIOKmiCHe2XKZQq6lCtXLi9EkP6QjTXTlo97JcDP2vcSrbOggYtBTXTVPzxht
+	MP1/Hh0DQ86iVGXXGH1h6NM8pDUO7pxihJAiwk+HUmooSdkHqLwjlvKJsunxxgMVFeDbo=
+X-Received: by 2002:a5d:6a48:0:b0:46d:32:3340 with SMTP id ffacd0b85a97d-46fb8d93892mr12284633f8f.36.1782717486707;
+        Mon, 29 Jun 2026 00:18:06 -0700 (PDT)
+Received: from Ansuel-XPS. (host-80-183-219-152.pool80183.interbusiness.it. [80.183.219.152])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47290ed4377sm13297042f8f.37.2026.06.29.00.18.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 00:18:05 -0700 (PDT)
+Message-ID: <6a421c2d.1e0bfc4f.b2eb6.06fb@mx.google.com>
+X-Google-Original-Message-ID: <akIcKbA8zsoalq-G@Ansuel-XPS.>
+Date: Mon, 29 Jun 2026 09:18:01 +0200
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Saravana Kannan <saravanak@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
+Subject: Re: [RFC PATCH net-next v8 03/12] net: phylink: add
+ phylink_release_pcs() to externally release a PCS
+References: <20260618125752.1223-1-ansuelsmth@gmail.com>
+ <20260618125752.1223-4-ansuelsmth@gmail.com>
+ <a271385e-302d-45c7-a1df-aebd380b427b@bootlin.com>
+ <6a3fc312.6161eb1e.3441bb.c0de@mx.google.com>
+ <178defc6-8e60-4b0b-b3b0-f0f2a4003b68@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <178defc6-8e60-4b0b-b3b0-f0f2a4003b68@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_020035_281118_8EDC73E3 
-X-CRM114-Status: GOOD (  23.85  )
+X-CRM114-CacheID: sfid-20260629_001809_746186_60202A89 
+X-CRM114-Status: GOOD (  65.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,359 +122,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce struct etm_caps to describe ETMv3 capabilities
-and move capabilities information into it.
+On Mon, Jun 29, 2026 at 09:04:49AM +0200, Maxime Chevallier wrote:
+> Hi Christian,
+> 
+> On 6/27/26 14:33, Christian Marangi wrote:
+> > On Thu, Jun 25, 2026 at 04:13:14PM +0200, Maxime Chevallier wrote:
+> >> Hello Christian,
+> >>
+> >> On 6/18/26 14:57, Christian Marangi wrote:
+> >>> Add phylink_release_pcs() to externally release a PCS from a phylink
+> >>> instance. This can be used to handle case when a single PCS needs to be
+> >>> removed and the phylink instance needs to be refreshed.
+> >>>
+> >>> On calling phylink_release_pcs(), the PCS will be removed from the
+> >>> phylink internal PCS list and the phylink supported_interfaces value is
+> >>> reparsed with the remaining PCS interfaces.
+> >>>
+> >>> Also a phylink resolve is triggered to handle the PCS removal.
+> >>>
+> >>> The flag force_major_config is set to make phylink resolve reconfigure
+> >>> the interface (even if it didn't change).
+> >>> This is needed to handle the special case when the current PCS used
+> >>> by phylink is removed and a major_config is needed to propagae the
+> >>> configuration change. With this option enabled we also force mac_config
+> >>> even if the PHY link is not up for the in-band case.
+> >>>
+> >>> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> >>> ---
+> >>>  drivers/net/phy/phylink.c | 56 +++++++++++++++++++++++++++++++++++++++
+> >>>  include/linux/phylink.h   |  2 ++
+> >>>  2 files changed, 58 insertions(+)
+> >>>
+> >>> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> >>> index c38bcd43b8c8..064d6f5a06da 100644
+> >>> --- a/drivers/net/phy/phylink.c
+> >>> +++ b/drivers/net/phy/phylink.c
+> >>> @@ -158,6 +158,8 @@ static const phy_interface_t phylink_sfp_interface_preference[] = {
+> >>>  static DECLARE_PHY_INTERFACE_MASK(phylink_sfp_interfaces);
+> >>>  
+> >>>  static void phylink_run_resolve(struct phylink *pl);
+> >>> +static void phylink_link_down(struct phylink *pl);
+> >>> +static void phylink_pcs_disable(struct phylink_pcs *pcs);
+> >>>  
+> >>>  /**
+> >>>   * phylink_set_port_modes() - set the port type modes in the ethtool mask
+> >>> @@ -918,6 +920,60 @@ static void phylink_resolve_an_pause(struct phylink_link_state *state)
+> >>>  	}
+> >>>  }
+> >>>  
+> >>> +/**
+> >>> + * phylink_release_pcs - Removes a PCS from the phylink PCS available list
+> >>> + * @pcs: a pointer to the phylink_pcs struct to be released
+> >>> + *
+> >>> + * This function release a PCS from the phylink PCS available list if
+> >>> + * actually in use. It also refreshes the supported interfaces of the
+> >>> + * phylink instance by copying the supported interfaces from the phylink
+> >>> + * conf and merging the supported interfaces of the remaining available PCS
+> >>> + * in the list and trigger a resolve.
+> >>> + */
+> >>> +void phylink_release_pcs(struct phylink_pcs *pcs)
+> >>> +{
+> >>> +	struct phylink *pl;
+> >>> +
+> >>> +	ASSERT_RTNL();
+> >>> +
+> >>> +	pl = pcs->phylink;
+> >>> +	if (!pl)
+> >>> +		return;
+> >>> +
+> >>> +	mutex_lock(&pl->state_mutex);
+> >>> +
+> >>> +	list_del(&pcs->list);
+> >>> +	pcs->phylink = NULL;
+> >>> +
+> >>> +	/*
+> >>> +	 * Check if we are removing the PCS currently
+> >>> +	 * in use by phylink. If this is the case, tear down
+> >>> +	 * the link, force phylink resolve to reconfigure the
+> >>> +	 * interface mode, disable the current PCS and set the
+> >>> +	 * phylink PCS to NULL.
+> >>> +	 */
+> >>> +	if (pl->pcs == pcs) {
+> >>> +		phylink_link_down(pl);
+> >>> +		phylink_pcs_disable(pl->pcs);
+> >>> +
+> >>> +		pl->force_major_config = true;
+> >>> +		pl->pcs = NULL;
+> >>> +	}
+> >>> +
+> >>> +	mutex_unlock(&pl->state_mutex);
+> >>> +
+> >>> +	/* Refresh supported interfaces */
+> >>> +	phy_interface_copy(pl->supported_interfaces,
+> >>> +			   pl->config->supported_interfaces);
+> >>> +	list_for_each_entry(pcs, &pl->pcs_list, list)
+> >>> +		phy_interface_or(pl->supported_interfaces,
+> >>> +				 pl->supported_interfaces,
+> >>> +				 pcs->supported_interfaces);
+> >>
+> >> I've given more thought to that 'supported_interfaces' thing. This
+> >> patchset redefines the meaning of
+> >>
+> >>   pl->config->supported_interfaces
+> >>
+> >> Currently, it's filled by the MAC driver and means "Every interface
+> >> we can support, including the ones provided by PCSs that we can use
+> >> with this MAC".
+> >>
+> >> It now becomes "Every interface we support without needing a PCS", at
+> >> least the way I understand that.
+> >>
+> > 
+> > Wait but with the current code using the OR logic, it still follows
+> > "Every interface we can support...". The modes that needs a PCS are
+> > specificed with the pcs_interfaces mask in phylink_config.
+> 
+> you current code is correct, I was mostly concerned about the doc
+> that goes along with it :)
 
-Since drvdata->etmccr and drvdata->etmccer are used to check
-whether it supports fifofull logic and timestamping,
-remove etmccr and etmccer field from drvdata and add relevant fields
-in etm_caps structure.
+Oh yep thanks, I will update also that entry. Also maybe check the .rst
+introduced and tell me if something is confusing or badly described.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- drivers/hwtracing/coresight/coresight-etm.h   | 42 ++++++++++++-------
- .../coresight/coresight-etm3x-core.c          | 39 ++++++++++-------
- .../coresight/coresight-etm3x-sysfs.c         | 29 ++++++++-----
- 3 files changed, 67 insertions(+), 43 deletions(-)
+> 
+> So in the end, we'd have something like (simplified):
+> 
+> pl->config.supported_interfaces = RGMII_xx | SGMII | 1000BaseX
+> pl->config.pcs_interfaces = SGMII | 1000BaseX
+> 
+> pcs->supported_interface = SGMII| 1000BaseX
+> 
+> correct ?
+> 
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-index 40f20daded4f..932bec82fb47 100644
---- a/drivers/hwtracing/coresight/coresight-etm.h
-+++ b/drivers/hwtracing/coresight/coresight-etm.h
-@@ -140,6 +140,30 @@
- 				 ETM_ADD_COMP_0		|	\
- 				 ETM_EVENT_NOT_A)
- 
-+/**
-+ * struct etm_caps - specifics ETM capabilities
-+ * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-+ * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-+ * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-+ * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-+ * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-+ * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-+ * @fifofull:	FIFOFULL logic is present.
-+ * @timestamp:	Timestamping is implemented.
-+ * @retstack:	Return stack is implemented.
-+ */
-+struct etm_caps {
-+	int	port_size;
-+	u8	nr_addr_cmp;
-+	u8	nr_cntr;
-+	u8	nr_ext_inp;
-+	u8	nr_ext_out;
-+	u8	nr_ctxid_cmp;
-+	bool	fifofull : 1;
-+	bool	timestamp : 1;
-+	bool	retstack : 1;
-+};
-+
- /**
-  * struct etm_config - configuration information related to an ETM
-  * @mode:	controls various modes supported by this ETM/PTM.
-@@ -212,19 +236,12 @@ struct etm_config {
-  * @csdev:	component vitals needed by the framework.
-  * @spinlock:	only one at a time pls.
-  * @cpu:	the cpu this component is affined to.
-- * @port_size:	port size as reported by ETMCR bit 4-6 and 21.
-  * @arch:	ETM/PTM version number.
-+ * @caps:	ETM capabilities.
-  * @use_cpu14:	true if management registers need to be accessed via CP14.
-  * @sticky_enable: true if ETM base configuration has been done.
-  * @boot_enable:true if we should start tracing at boot time.
-  * @os_unlock:	true if access to management registers is allowed.
-- * @nr_addr_cmp:Number of pairs of address comparators as found in ETMCCR.
-- * @nr_cntr:	Number of counters as found in ETMCCR bit 13-15.
-- * @nr_ext_inp:	Number of external input as found in ETMCCR bit 17-19.
-- * @nr_ext_out:	Number of external output as found in ETMCCR bit 20-22.
-- * @nr_ctxid_cmp: Number of contextID comparators as found in ETMCCR bit 24-25.
-- * @etmccr:	value of register ETMCCR.
-- * @etmccer:	value of register ETMCCER.
-  * @traceid:	value of the current ID for this component.
-  * @config:	structure holding configuration parameters.
-  */
-@@ -234,19 +251,12 @@ struct etm_drvdata {
- 	struct coresight_device		*csdev;
- 	raw_spinlock_t			spinlock;
- 	int				cpu;
--	int				port_size;
- 	u8				arch;
-+	struct etm_caps			caps;
- 	bool				use_cp14;
- 	bool				sticky_enable;
- 	bool				boot_enable;
- 	bool				os_unlock;
--	u8				nr_addr_cmp;
--	u8				nr_cntr;
--	u8				nr_ext_inp;
--	u8				nr_ext_out;
--	u8				nr_ctxid_cmp;
--	u32				etmccr;
--	u32				etmccer;
- 	u32				traceid;
- 	struct etm_config		config;
- };
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index 60fdd87fb25d..ccfde9eda537 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -308,6 +308,7 @@ void etm_config_trace_mode(struct etm_config *config)
- static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 				  struct perf_event *event)
- {
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	struct perf_event_attr *attr = &event->attr;
- 	u8 ts_level;
-@@ -356,8 +357,7 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	 * has ret stack) on the same SoC. So only enable when it can be honored
- 	 * - trace will still continue normally otherwise.
- 	 */
--	if (ATTR_CFG_GET_FLD(attr, retstack) &&
--	    (drvdata->etmccer & ETMCCER_RETSTACK))
-+	if (ATTR_CFG_GET_FLD(attr, retstack) && (caps->retstack))
- 		config->ctrl |= ETMCR_RETURN_STACK;
- 
- 	return 0;
-@@ -367,6 +367,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- {
- 	int i, rc;
- 	u32 etmcr;
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
-@@ -388,7 +389,7 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etmcr = etm_readl(drvdata, ETMCR);
- 	/* Clear setting from a previous run if need be */
- 	etmcr &= ~ETM3X_SUPPORTED_OPTIONS;
--	etmcr |= drvdata->port_size;
-+	etmcr |= caps->port_size;
- 	etmcr |= ETMCR_ETM_EN;
- 	etm_writel(drvdata, config->ctrl | etmcr, ETMCR);
- 	etm_writel(drvdata, config->trigger_event, ETMTRIGGER);
-@@ -396,11 +397,11 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_writel(drvdata, config->enable_event, ETMTEEVR);
- 	etm_writel(drvdata, config->enable_ctrl1, ETMTECR1);
- 	etm_writel(drvdata, config->fifofull_level, ETMFFLR);
--	for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-+	for (i = 0; i < caps->nr_addr_cmp; i++) {
- 		etm_writel(drvdata, config->addr_val[i], ETMACVRn(i));
- 		etm_writel(drvdata, config->addr_acctype[i], ETMACTRn(i));
- 	}
--	for (i = 0; i < drvdata->nr_cntr; i++) {
-+	for (i = 0; i < caps->nr_cntr; i++) {
- 		etm_writel(drvdata, config->cntr_rld_val[i], ETMCNTRLDVRn(i));
- 		etm_writel(drvdata, config->cntr_event[i], ETMCNTENRn(i));
- 		etm_writel(drvdata, config->cntr_rld_event[i],
-@@ -414,9 +415,9 @@ static int etm_enable_hw(struct etm_drvdata *drvdata)
- 	etm_writel(drvdata, config->seq_32_event, ETMSQ32EVR);
- 	etm_writel(drvdata, config->seq_13_event, ETMSQ13EVR);
- 	etm_writel(drvdata, config->seq_curr_state, ETMSQR);
--	for (i = 0; i < drvdata->nr_ext_out; i++)
-+	for (i = 0; i < caps->nr_ext_out; i++)
- 		etm_writel(drvdata, ETM_DEFAULT_EVENT_VAL, ETMEXTOUTEVRn(i));
--	for (i = 0; i < drvdata->nr_ctxid_cmp; i++)
-+	for (i = 0; i < caps->nr_ctxid_cmp; i++)
- 		etm_writel(drvdata, config->ctxid_pid[i], ETMCIDCVRn(i));
- 	etm_writel(drvdata, config->ctxid_mask, ETMCIDCMR);
- 	etm_writel(drvdata, config->sync_freq, ETMSYNCFR);
-@@ -565,6 +566,7 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
- static void etm_disable_hw(struct etm_drvdata *drvdata)
- {
- 	int i;
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 	struct coresight_device *csdev = drvdata->csdev;
- 
-@@ -574,7 +576,7 @@ static void etm_disable_hw(struct etm_drvdata *drvdata)
- 	/* Read back sequencer and counters for post trace analysis */
- 	config->seq_curr_state = (etm_readl(drvdata, ETMSQR) & ETM_SQR_MASK);
- 
--	for (i = 0; i < drvdata->nr_cntr; i++)
-+	for (i = 0; i < caps->nr_cntr; i++)
- 		config->cntr_val[i] = etm_readl(drvdata, ETMCNTVRn(i));
- 
- 	etm_set_pwrdwn(drvdata);
-@@ -720,7 +722,9 @@ static void etm_init_arch_data(void *info)
- {
- 	u32 etmidr;
- 	u32 etmccr;
-+	u32 etmccer;
- 	struct etm_drvdata *drvdata = info;
-+	struct etm_caps *caps = &drvdata->caps;
- 
- 	/* Make sure all registers are accessible */
- 	etm_os_unlock(drvdata);
-@@ -745,16 +749,19 @@ static void etm_init_arch_data(void *info)
- 	/* Find all capabilities */
- 	etmidr = etm_readl(drvdata, ETMIDR);
- 	drvdata->arch = BMVAL(etmidr, 4, 11);
--	drvdata->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-+	caps->port_size = etm_readl(drvdata, ETMCR) & PORT_SIZE_MASK;
-+
-+	etmccer = etm_readl(drvdata, ETMCCER);
-+	caps->timestamp = !!(etmccer & ETMCCER_TIMESTAMP);
-+	caps->retstack = !!(etmccer & ETMCCER_RETSTACK);
- 
--	drvdata->etmccer = etm_readl(drvdata, ETMCCER);
- 	etmccr = etm_readl(drvdata, ETMCCR);
--	drvdata->etmccr = etmccr;
--	drvdata->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
--	drvdata->nr_cntr = BMVAL(etmccr, 13, 15);
--	drvdata->nr_ext_inp = BMVAL(etmccr, 17, 19);
--	drvdata->nr_ext_out = BMVAL(etmccr, 20, 22);
--	drvdata->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
-+	caps->fifofull = !!(etmccr & ETMCCR_FIFOFULL);
-+	caps->nr_addr_cmp = BMVAL(etmccr, 0, 3) * 2;
-+	caps->nr_cntr = BMVAL(etmccr, 13, 15);
-+	caps->nr_ext_inp = BMVAL(etmccr, 17, 19);
-+	caps->nr_ext_out = BMVAL(etmccr, 20, 22);
-+	caps->nr_ctxid_cmp = BMVAL(etmccr, 24, 25);
- 
- 	coresight_clear_self_claim_tag_unlocked(&drvdata->csa);
- 	etm_set_pwrdwn(drvdata);
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index 42b12c33516b..f7330d830e21 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -15,8 +15,9 @@ static ssize_t nr_addr_cmp_show(struct device *dev,
- {
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 
--	val = drvdata->nr_addr_cmp;
-+	val = caps->nr_addr_cmp;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_addr_cmp);
-@@ -25,8 +26,9 @@ static ssize_t nr_cntr_show(struct device *dev,
- 			    struct device_attribute *attr, char *buf)
- {	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 
--	val = drvdata->nr_cntr;
-+	val = caps->nr_cntr;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_cntr);
-@@ -37,7 +39,7 @@ static ssize_t nr_ctxid_cmp_show(struct device *dev,
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 
--	val = drvdata->nr_ctxid_cmp;
-+	val = drvdata->caps.nr_ctxid_cmp;
- 	return sprintf(buf, "%#lx\n", val);
- }
- static DEVICE_ATTR_RO(nr_ctxid_cmp);
-@@ -80,7 +82,7 @@ static ssize_t reset_store(struct device *dev,
- 		memset(config, 0, sizeof(struct etm_config));
- 		config->mode = ETM_MODE_EXCLUDE;
- 		config->trigger_event = ETM_DEFAULT_EVENT_VAL;
--		for (i = 0; i < drvdata->nr_addr_cmp; i++) {
-+		for (i = 0; i < drvdata->caps.nr_addr_cmp; i++) {
- 			config->addr_type[i] = ETM_ADDR_TYPE_NONE;
- 		}
- 
-@@ -111,6 +113,7 @@ static ssize_t mode_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
-@@ -131,7 +134,7 @@ static ssize_t mode_store(struct device *dev,
- 		config->ctrl &= ~ETMCR_CYC_ACC;
- 
- 	if (config->mode & ETM_MODE_STALL) {
--		if (!(drvdata->etmccr & ETMCCR_FIFOFULL)) {
-+		if (!caps->fifofull) {
- 			dev_warn(dev, "stall mode not supported\n");
- 			ret = -EINVAL;
- 			goto err_unlock;
-@@ -141,7 +144,7 @@ static ssize_t mode_store(struct device *dev,
- 		config->ctrl &= ~ETMCR_STALL_MODE;
- 
- 	if (config->mode & ETM_MODE_TIMESTAMP) {
--		if (!(drvdata->etmccer & ETMCCER_TIMESTAMP)) {
-+		if (!caps->timestamp) {
- 			dev_warn(dev, "timestamp not supported\n");
- 			ret = -EINVAL;
- 			goto err_unlock;
-@@ -286,13 +289,14 @@ static ssize_t addr_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_addr_cmp)
-+	if (val >= caps->nr_addr_cmp)
- 		return -EINVAL;
- 
- 	/*
-@@ -589,13 +593,14 @@ static ssize_t cntr_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_cntr)
-+	if (val >= caps->nr_cntr)
- 		return -EINVAL;
- 	/*
- 	 * Use spinlock to ensure index doesn't change while it gets
-@@ -720,18 +725,19 @@ static ssize_t cntr_val_show(struct device *dev,
- 	int i, ret = 0;
- 	u32 val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	if (!coresight_get_mode(drvdata->csdev)) {
- 		raw_spin_lock(&drvdata->spinlock);
--		for (i = 0; i < drvdata->nr_cntr; i++)
-+		for (i = 0; i < caps->nr_cntr; i++)
- 			ret += sprintf(buf, "counter %d: %x\n",
- 				       i, config->cntr_val[i]);
- 		raw_spin_unlock(&drvdata->spinlock);
- 		return ret;
- 	}
- 
--	for (i = 0; i < drvdata->nr_cntr; i++) {
-+	for (i = 0; i < caps->nr_cntr; i++) {
- 		val = etm_readl(drvdata, ETMCNTVRn(i));
- 		ret += sprintf(buf, "counter %d: %x\n", i, val);
- 	}
-@@ -999,13 +1005,14 @@ static ssize_t ctxid_idx_store(struct device *dev,
- 	int ret;
- 	unsigned long val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	const struct etm_caps *caps = &drvdata->caps;
- 	struct etm_config *config = &drvdata->config;
- 
- 	ret = kstrtoul(buf, 16, &val);
- 	if (ret)
- 		return ret;
- 
--	if (val >= drvdata->nr_ctxid_cmp)
-+	if (val >= caps->nr_ctxid_cmp)
- 		return -EINVAL;
- 
- 	/*
+Correct. phylink_config describing that for SGMII and 1000BaseX a PCS is
+required and the related PCS declaring support for those modes.
+
+Code will skip searching for a PCS for RGMII.
+
+> > 
+> > The late add and release operates on the phylink supported_interfaces ONLY
+> > when the MAC didn't specify support for it (by removing it as only the PCS
+> > will declare support for it)
+> > 
+> > The confusion is present because everything is validated later on
+> > major_config so those supported_interfaces are just an HINT that are later
+> > verified with get_caps and with the pcs_validate OPs.
+> > 
+> > Adding the supported_interfaces to phylink is really to keep an original
+> > reference of the value. This is to address a pattern I have notice where
+> > the MAC driver always OR the interfaces with the one supported by the PCS.
+> > (I remember it was pointed out by Russell)
+> > 
+> > But I'm more than open to discussion as this is something marginal to the
+> > whole implementation, I'm also questioning if this OR is actually useful to
+> > anything on the nth tought on this.
+> > 
+> > One thing that I notice is that parsing this early with AND might be
+> > problematic at phylink_create, but I still have to evaluate that.
+> > 
+> > My take is that would be good to have some review also on the other logic
+> > as I think I reached a point where Sashiko starts to comments on more or
+> > less unreal problem.
+> 
+> True, TBH all the fwnode part is something I'm a bit less familiar with though
+> so maybe someone else can browse through that.
+> 
+> FWIW, I've tested that whole series on a board that has "legacy" PCS board
+> that has mvpp2 and 2 possible PCSs, and it seems to work fine so no regressions
+> there :)
+> 
+> A side note with the "legacy" naming, I'd rather have it called "built-in" or
+> something like that, I don't see a clear path to porting the existing code to
+> fwnode without breaking DT compat, as it's likely we'll have to remove the PCS
+> register ranges out of the MAC's range. 
+
+I think also built-in might be confusing as a SoC might have a PCS built-in
+but just as a separate device on a different register map.
+
+A better description might be "externally-managed" but that is very long...
+
+Also the use of fwnode and DT is just to reference them and use the normal
+helper but the implementation is liberal on custom implementation for the
+current code.
+
+Everything is around the pcs_interface mask, num_possible_pcs and the
+fill_available_pcs.
+
+Nobody stops from implementing custom parser in fill_available_pcs and
+return a PCS pointer created directly by the MAC. (In such case late and
+release won't be needed as everything is present when phylink_create is
+called)
+
+On OpenWrt we migrated every SoC that used ""exotic"" pcs reference (Qcom,
+Realtek, MTK, Airoha) but I don't have a board that used something like the
+'pcs' property.
+
+> 
+> Thanks for this work anyway, this is great !
+> 
+> Maxime
+
 -- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
-
+	Ansuel
 
