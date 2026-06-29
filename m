@@ -4,86 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48EAFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:04:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 241E4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Jun 2026 16:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jg/Wh4RVlcGrE6Wa1eMp9aCyVAjW1OJpvCqAyR9yWrM=; b=mPRsmTJRKnm/ICeES+0sUhgNtW
-	CUYZPHYWxtBHpyzxOCeWiCS94IoDWG3Gs6vWqdV+KikdsbIDboMLoxtCOqc6kOXHRUBAlqOVNeje0
-	jExAoqaRjDWBwlCqFJfxe/8THZlRfrPSB9BP+8uYxjvjTct7XiV3v7FTd3SHhg/3RIN8EefJyLIYw
-	shB6DUxwxqA6jCiraa8NNV/haflob7oRwl/NtgkOqsYNMXp6PTjNu+sglDqXPzl+Zg0a8N4I6am08
-	nSKdAiRZ0arxStU2bxygExq0oTkm7PI7wamgqvWBs4GZ4SDASs5TFEx1ViyBGxp4C0kfLZeBzIGQX
-	vDXDBl0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JEjXI5ld7Y55/QqO5968kb9+2z9CP3Ygxw7dHEqom5Q=; b=o5fUPucLpY6AToF/rCr/pCdREC
+	9iWVaq4rrz/9E4fYfTcNNuIXEuwqcIaZiTIz0h5M6pWCZ0O+kYgpEFDISkhJ+rjbmXEXpeiQLKEFF
+	JpZNdosHtURlbgCY+A5h2gt2CSdD1YGp9bDKhdfUKwLKhgCPoaZNu8f5K51UaQ1ntFq4+uQHq5KVI
+	qUzYLhRURzWhi5CKA6QIYd6dkvrdgnaawC8TQOLhn9UTzJF6fiXcgvS/Ifgi0K0i+XR9Vkm8OvS7P
+	x/LSOl+B+P0/ElaivPWT+ZWVEul5eppmwBMhOL+RbCZs1c7D8yLr7wdXxl3XIc24/PJTbmjtSQCEX
+	Gdq9z+ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weESt-0000000FA2k-16MC;
-	Mon, 29 Jun 2026 16:04:07 +0000
-Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
+	id 1weETx-0000000FAF6-2jtt;
+	Mon, 29 Jun 2026 16:05:13 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weESr-0000000FA1e-1E8x
+	id 1weETu-0000000FAEe-2rZz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Jun 2026 16:04:06 +0000
-Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-806449d108aso42342287b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 09:04:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782749044; x=1783353844; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jg/Wh4RVlcGrE6Wa1eMp9aCyVAjW1OJpvCqAyR9yWrM=;
-        b=ROrBrZhVGavfvOSR1Q4nJ5U02t6HBn4KIZxBP9Wa+FYMJVKE+wV42Yo0om6xMdcOx6
-         CaipPNbczodbhuAL0nEDrqcP4+g7WcbZ9OzDr8DXyqM7rbubdIkxixM4kaIX6Qjl5Hmh
-         wJgybjXgYMKai0yQqjWy7agYs8cwbVByMYh35/WhM08YffsG6HU5vaoJkJd9NUVFg8+O
-         qfZIM/aH57eCU2lDnzvJC6bts9brR0fo7UTbXkX8fn5eYCd81D3e3Jfo0Qi0ZmsQ6YqX
-         p6BZQbl79942zT4VVgS6x9FnCkVoOeu0XC+7yRU3qo/9Qjal30tWG1Cm2aNw28j+H1in
-         ptlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782749044; x=1783353844;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jg/Wh4RVlcGrE6Wa1eMp9aCyVAjW1OJpvCqAyR9yWrM=;
-        b=JqQckJLY+3JqGa6ZsOvtZ3Asi5t4k0SwmqsJ4e3xHr/t/LHOpuPfsxYCwBhQqR4euv
-         FTsMOGFnfcEbjy3pESVlAu39g/OKxzXmtKsYvY03hp0psB328d2ZdofFwnxAfpd4keq0
-         bP0qpPC0MHu8z/+4QHXi7ZzqhZnHyQq3q/5q+xj8lpy69y/SwS3qct38zTWCicgUFCXM
-         NIqPX7tea7JnmWt2D/suMgCbnTcymLGT4aBPZv24CADpvLUvPlkPGD3UkuKerl5xdXFb
-         fEKGA63ayJNNOTRnVxb4NwNHaKDsd25MVa2OxEVPLYB4vusTXOlyED2v1JsimmdXkLAc
-         Xfzg==
-X-Forwarded-Encrypted: i=1; AHgh+RqvEFttZxAl+Lb9/R1+/oTG1ywz8ST7tHyQlE50GtncVYrS8svIwMcIzvhV9aoI+SuAV12lTxg9wj0zmRpt56Vj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyECuoo7fi+/wyqOwXIcnJYsxbdEJRmL3DqoFPZDbKO3RC2Z9Ig
-	qdw6MxomsvD5cRIbyrzL5OAtuFasmBWZq9KKeo0HRtOV1ecCP0WJSJkg
-X-Gm-Gg: AfdE7cljkoRrOQcpjIShxWywy0dIfRWE20lBCom8zoom2JzAxbHvC28gwyD/eL3Lfwd
-	z/GEsy7dXw2rMjCSp+Q12JKDZcuy4ez7VLPCXmMxsz7tmUYdO1OFhzRp8JNETV30n9c3Zo6jZcj
-	rbhsFmhl01d/gY++p81CPML8gmnRnKl0Giw5TCtjKfrMMa/lARZYUlqCq5lEfFMux/Bq3sGxeG9
-	R5A7gcYLs/ZkGJWgES3lgOOHYcu0zYlCDWJtX2i6y5cohe030jknQ1yEz2NKUQZbpwJgpqBBcnI
-	mhviokg9cmHL6kYqYQ8N6IzsTodE9TD+Tu9JCcO2kX72bXIQv7sV7iyJxlT+wyOMtqD31rVOcAU
-	UU91Z2I4sr+sO7AGK/n8hOkSh67Jylr4d85eVWZExcKxLwhc6Q0O3LYObSXp3QMO+QzblgBUPot
-	XnyBNrzwC0khC60ur3xSUkDSwxhA==
-X-Received: by 2002:a05:690c:6186:b0:7e1:fbf:aa7f with SMTP id 00721157ae682-810d9d0aaa9mr1518877b3.34.1782749044039;
-        Mon, 29 Jun 2026 09:04:04 -0700 (PDT)
-Received: from Dev-Null-MSI ([2a0d:3344:52ac:a808:98a4:4381:be45:536f])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-80e3ca61016sm20914017b3.32.2026.06.29.09.04.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 09:04:03 -0700 (PDT)
-From: Yousef Alhouseen <alhouseenyousef@gmail.com>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yousef Alhouseen <alhouseenyousef@gmail.com>
-Subject: [PATCH] raspberrypi: vchiq: free recycle buffer on thread exit
-Date: Mon, 29 Jun 2026 18:03:24 +0200
-Message-ID: <20260629160324.29221-1-alhouseenyousef@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	Mon, 29 Jun 2026 16:05:12 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1014FC6B3A9;
+	Mon, 29 Jun 2026 16:05:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CC0055FF96;
+	Mon, 29 Jun 2026 16:05:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5043D106F1820;
+	Mon, 29 Jun 2026 18:04:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782749105; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references:autocrypt;
+	bh=JEjXI5ld7Y55/QqO5968kb9+2z9CP3Ygxw7dHEqom5Q=;
+	b=ZR26Xpj/h2bjGnEy0rXxSf8ycA92obShxrsaA50vA52kd8FsTZE7hKWfj45lwvmZ0vpUD+
+	CpUIgwZajjKpABmCqVzPtvHNToTYZULmlCgJYH50mOCHNklr/7EFWhOaikdFBh4Asl8OyU
+	ch7IkaMi7YQgKppWdOiA9MnUOIFrKhNQ/8iVMwky19S30P9iMhDCVsHpzHaMYDQioTGKdE
+	4Qt14sxoTHE31GtL7MuzaQVQmQQGxXKg9k/haUnxCq1MCHxk2Vl9MQvubsKjWKosHUr+pL
+	zTWVID89XRmUAVM8XXdJQ+NDg2WpDuH7fDRsVGlLBIroIO52qb4o5+WJWqRxkw==
+Message-ID: <31477953aace52bb6594461e82ddf99493af2329.camel@bootlin.com>
+Subject: Re: [PATCH v5 0/5] Add support for AAEON SRG-IMX8P MCU
+From: Thomas Perrot <thomas.perrot@bootlin.com>
+To: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij	 <linusw@kernel.org>, Bartosz
+ Golaszewski <brgl@kernel.org>, Shawn Guo	 <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+ <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
+ =?ISO-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Lee Jones	 <lee@kernel.org>
+Cc: "thomas.perrot@bootlin.com" <thomas.perrot@bootlin.com>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miquel Raynal
+ <miquel.raynal@bootlin.com>, Krzysztof Kozlowski
+ <krzysztof.kozlowski@oss.qualcomm.com>, Conor Dooley
+ <conor.dooley@microchip.com>,  Bartosz Golaszewski
+ <bartosz.golaszewski@oss.qualcomm.com>
+Date: Mon, 29 Jun 2026 18:04:59 +0200
+In-Reply-To: <b4396f57-3501-4e89-9cf3-8dc5d7cad9b7@roeck-us.net>
+References: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
+							 <b4396f57-3501-4e89-9cf3-8dc5d7cad9b7@roeck-us.net>
+Autocrypt: addr=thomas.perrot@bootlin.com; prefer-encrypt=mutual;
+ keydata=mQGNBF+/ZOUBDAC2DghCjZvmgYcve02OG7dGZ7Iy58uEwne3LB7w7nRwdAxKw7ZaiVqwY
+ O+yNGVi+GVx7oA6Wn4pv46z+QDRLQiq6OseuXhkSGCg7U/yBCUq12B/GRGO1Qt2Qi1mJJT1s+1qZ5
+ Gxv6Nypz9qKVn94GM2bR1hXBga0t87vBpebThOHmX5d/0dqIcVxRCM7onNb0dDyRoVgLS5rBhQzrL
+ CMrJaCy39xZUy0J1SOlH4Mgk6EhJIPYY4wlzikGX6urg+Tc9EjGd78ry0e0p5U5qgjFR5QGJDy1Gn
+ U3CfwbT9sowdCASDbQDUoltlv2iWJCLa0xl97KVchCa0pr7HKbFA3J5SLKqFYUBCkFL+5WudYlz2n
+ XxiUgyviMQxyK+ij66kEi6/2zFDAecd43pHV7790ptqZBC3Jc67Emj7Vo3ShX6RXPPxxbeCTOF2uk
+ I45aJ9XcVFH/MFE96NjXj8uahnIsiTPyuCUoJu8tj7TSQyue874qJqVQvqlFyt2aZYJZ8ruq8AEQE
+ AAbQpVGhvbWFzIFBlcnJvdCA8dGhvbWFzLnBlcnJvdEBib290bGluLmNvbT6JAc4EEwEIADgCGwMF
+ CwkIBwIGFQoJCAsCBBYCAwECHgECF4AWIQSHQHfGpqMKIwOoEiGfwAsFcf4K7QUCX79mdwAKCRCfw
+ AsFcf4K7fhbC/wP0kSl6id2E/K3+UdXk6CLMVRbCFLCREzQs5WFpQ6l/I0WGOamhrOgegdszheiVF
+ orlUP8d37XSpFAqydhKGaN78V5Dps0Wmwm4lIlS4MtQXJtSLUHXDJLIZLW0pw8tiPLKsd1o/yDkXE
+ dnpsjJTRG6SdDSHnyOB2/gh4p+yTaLytFdARk/r4/P26+L+FiH0fFl+RnBt19LPklfKgeDc7GwIif
+ ja+nIWpp3W23DAUuI6xduEut25Q89yu7Ci8CliLfAiLy9bIGjBQWU2Y+1/j/7KuPj6VbBsZWLTZY0
+ hUmpJSTnWAqc9SMsNxo7NSQuddgviz5e2tqucaRqxP02FGzNa8U4NAKdWaXrlHG5Dglj9XH0DK+SH
+ +c96qqFewYD8VPQ6XAGxQcXbrtJmiMor1R2DfziispLRvJcfYs8xqabbCtoS3ouXB9XRi8hn7A2kh
+ ME1ryS+Oh63JshXHnw6bmjCpVd/p+fGLIGU6A47pJOpviKR4jEO84pl2ejtDZ3Tc=
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-yncApkmTxr+3zEDpopn/"
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_090405_331610_772BFA45 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20260629_090510_914386_B5396B5C 
+X-CRM114-Status: GOOD (  13.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,48 +107,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-recycle_func() allocates a bitmap used while processing the free queue,
-but returns directly when remote_event_wait() fails. The normal
-kthread-stop path also exits without releasing the allocation.
 
-Break out of the loop on wait errors, free the bitmap, and return the
-saved status so both the error and stop paths release the per-thread
-buffer.
+--=-yncApkmTxr+3zEDpopn/
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Signed-off-by: Yousef Alhouseen <alhouseenyousef@gmail.com>
----
- drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Hello Guenter,
 
-diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-index 48d6b1d74329..f8b2d4b1a30e 100644
---- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-+++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_core.c
-@@ -2346,7 +2346,7 @@ recycle_func(void *v)
- 	struct vchiq_shared_state *local = state->local;
- 	u32 *found;
- 	size_t length;
--	int ret;
-+	int ret = 0;
- 
- 	length = sizeof(*found) * BITSET_SIZE(VCHIQ_MAX_SERVICES);
- 
-@@ -2358,11 +2358,12 @@ recycle_func(void *v)
- 	while (!kthread_should_stop()) {
- 		ret = remote_event_wait(&state->recycle_event, &local->recycle);
- 		if (ret)
--			return ret;
-+			break;
- 
- 		process_free_queue(state, found, length);
- 	}
--	return 0;
-+	kfree(found);
-+	return ret;
- }
- 
- /* Called by the sync thread */
--- 
-2.54.0
+On Sat, 2026-04-11 at 17:12 -0700, Guenter Roeck wrote:
+> snip
+>=20
+> Sashiko has some interesting feedback that might be worth looking
+> into.
+>=20
+> https://sashiko.dev/#/patchset/20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98=
+bd481668%40bootlin.com
+>=20
 
+Thanks for the pointer. I went through all findings and addressed the
+  valid ones in v6:
+
+  MFD driver:
+   - Set I2C_M_DMA_SAFE on all i2c_msg flags. The buffers were already
+     heap-allocated for DMA safety but the flag was missing, which
+     would have caused unnecessary bounce-buffering by the host driver.
+   - Add select REGMAP to config MFD_AAEON_MCU
+   - "Kconfig COMPILE_TEST link failure": I2C || COMPILE_TEST lets
+     MFD_AAEON_MCU=3Dy even when I2C=3Dm (tristate OR caps to y), which
+     would fail to link since i2c_transfer(), only exist when I2C
+     itself is built in. Will drop the COMPILE_TEST escape and just use
+     depends on I2C, matching the other I2C MFD drivers in this file.
+
+  GPIO driver:
+   - Replace __set_bit/__clear_bit/__assign_bit with their atomic
+     counterparts. gpiolib does not serialize across pins, so
+     concurrent direction changes on different pins could race on the
+     shared bitmaps.
+   - Reverse the order in aaeon_mcu_gpio_config_output_cmd(): write the
+     output value first, then switch the pin to output mode, to avoid a
+     potential glitch if the previously latched value differs.
+   - Add MODULE_ALIAS("platform:aaeon-mcu-gpio") for udev auto-loading.
+
+  Watchdog driver:
+   - Add WDIOF_SETTIMEOUT and watchdog_init_timeout() so the software
+     timeout is configurable via ioctl, DT timeout-sec, or the
+     watchdog_timeout boot parameter. This also addresses the concern
+     you raised about the hardcoded 240s timeout.
+   - Add watchdog_stop_on_reboot() so the MCU watchdog is stopped
+     during system shutdown, preventing a spurious reset from the
+     external MCU.
+   - Add MODULE_ALIAS("platform:aaeon-mcu-wdt") for udev auto-loading.
+
+  The following findings were considered false positives:
+
+   - "Heap buffer overflow during bulk writes": with reg_bits=3D16 and
+     val_bits=3D8, regcache_sync() calls _regmap_write() per register, so
+     the write callback always receives exactly 3 bytes (2 reg + 1
+val).
+     No bulk path reaches the custom bus callback.
+
+   - "Stack DMA violation in read path": val_buf comes from regmap's
+own
+     heap-allocated work_buf, not a stack pointer, so DMA safety is
+     guaranteed by the regmap core.
+
+   - "I2C interleaving race": Concurrent access from child drivers
+     (GPIO and watchdog) is serialized by regmap's internal mutex,
+     which is held for the entire bus transaction ; both i2c_transfer()
+     calls complete under that lock before another caller can enter.
+
+   - "Missing PM suspend/resume callbacks": the watchdog core already
+     handles this via watchdog_pm_ops, which calls wdt->ops->stop() on
+     system suspend.
+
+Kind regards,
+Thomas
+
+
+> Guenter
+>=20
+
+--=20
+Thomas Perrot, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
+--=-yncApkmTxr+3zEDpopn/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iQGzBAABCAAdFiEEh0B3xqajCiMDqBIhn8ALBXH+Cu0FAmpCl6sACgkQn8ALBXH+
+Cu3gtwv/WZRg+KDlEazT/qmm8H0EzbCYvvDakncblFOk6oJq75kaC7outXtOGBPs
+RK5rwW7VB2GP37sLS2vrA+JhrJ4gUgY53HnLtpgZhYgV5q449bqqb/8VGSBFYvw/
+CBdvzUlHzP4zA6fxilChd6n8LVFAvxNLMe+wzm5iq8Q5687omtSQG6/Z1DDy/RHo
+B8xahs7i3PGGPoWD3TQXKptPBfMBuZHZb391TGsWs4dmG7JLi1QTM1Z30NBRY3ov
+CQfyzsvn44wcFZosCgWBVtM8n6UZZrIpuUtq/EbRFnk7UzdNB7Tv025plUbXJbRV
+cuKEFUs1DaW7Rlv4DL6Q2sV0DeoLYM24/7Tac7txF4D+8Caqd4u8QPtlqpWmzMfI
+HbHdcQB3sIkbGvVn4wNxmzKNgGqjOUs+p/UqwVhb7w9B7W7DxuH5gTswBWBo2X9O
+vx+YKBejGUw52tqYkAedq8Xi+KwwFwWI5oP2wa/cOmP4YHn1jabk0DCIGmlKfxlj
+hKzlP3Xi
+=aAXr
+-----END PGP SIGNATURE-----
+
+--=-yncApkmTxr+3zEDpopn/--
 
