@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC9AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A47C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:37:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EX8TNYvslZtJPYuWpXeoVUNPdf0UzXSGqa9C/8J1VLE=; b=UAY7jKPFr1QlQus913rZqwF4xR
-	GfUP3y2hzjT9t6bcSEYm0+EWPOEPZu9bj/4GPQPiTcQNEcaR00gDcEXQHUn0yZje76aRgx+sFF0Sd
-	R8RYsqNUV0zBcylNVwDdVK8BoYpcY7hOGbrtfqLtKG83uNuF611kLLra2Vk2m2Xm0uuDIn9gqgIfx
-	DJ3kIkk1y0mXyI9Myhf/vldJ86a90s5tuY/mwUfKEF0NlPhTj/wFGltZoOi9SnxJWxu5sWClJVJdA
-	vd5N2glGlyiTiBW8uLScIfcXleihSQjm9KX3bUyeRoc8aGbvnrV7eRnYSmy4f2WUq5MDzco9YQPhd
-	v6JdtAqA==;
+	bh=kYmrzxOEPvT3OyP0vhJQ5SKhqNCV3WJuMUtDoWrL/7Q=; b=i3ipl+1jNiUwQWMjLHvJLP1zRt
+	MXc7kB7Mchx0/qGVIRVGpoSElamoF1qx7nc32sZLSFluOOluYxF8becxhfafN2OQYuKpAcZ7YcBsi
+	HldNeYmEPno6zbwtjYCT/wmGRS1zcCsB/ESyzshUC2zeZJYR4+/pdSqx+UZU6IazMtyjIZGR1y+HR
+	CputQppcecn5ojg+w4jJGubdAa7kRgdyFfWm467NR+pjF/kva4k6d9FWgWiS0sFBJGzhlXBcbeAvI
+	IYvg7DbbwUd7aCfuSGCmzB/tnfUM5pGv1e7o6T6K95hFpcaZRCALt4oiIC/5qeCUEOXUKkTSvTgk9
+	M8L9Y2BA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT05-0000000G6xH-215v;
-	Tue, 30 Jun 2026 07:35:21 +0000
+	id 1weT2F-0000000G76V-35FP;
+	Tue, 30 Jun 2026 07:37:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT02-0000000G6wX-0kYW
+	id 1weT2D-0000000G768-1vaT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:35:19 +0000
+	Tue, 30 Jun 2026 07:37:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EBDC22D9;
-	Tue, 30 Jun 2026 00:35:10 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 78FA522D9;
+	Tue, 30 Jun 2026 00:37:27 -0700 (PDT)
 Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4483F3F836;
-	Tue, 30 Jun 2026 00:35:08 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 520DC3F836;
+	Tue, 30 Jun 2026 00:37:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782804914; bh=0taVGT1m4jf8+Bd5/fvY49UWd51JJF0GPZjMsn5vOUw=;
+	t=1782805051; bh=BN8eiYGkiyP6NpiAY3OQR1hcH4Jl3rwH7rluJn1WxMM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oLTfMik4Sv9mAkGsjjAf+7Vw1YD65vPjYpiOO3eGivwLAIwZEOqZbFzuzd+SthVgY
-	 4DZsFldgSMW0BIm8uAG1typFraDU8wUL2m8mY3apZUbABO0JI7DWl03d1yxkjK4JVY
-	 KxYC9wZpnXlleUIJyHY1t/26eMymZHQbTBDKcMw4=
-Date: Tue, 30 Jun 2026 09:34:59 +0200
+	b=pBy091Hnfvv9l9mGlh0rKR/O/KLHwrySnnYrWgsKBCmu8d5WQ7YnVf/ly4RhFOTs6
+	 asY+FaAV4h5C7VgAuTJf64k4sKcr4SbVGTDF8zkxqpWR+owxJxbNrIUh/qDjocXf6x
+	 nDMmvgtjP4i3CXUyFvpqW7e06TVNLLaA7Yl15CxE=
+Date: Tue, 30 Jun 2026 09:37:24 +0200
 From: Beata Michalska <beata.michalska@arm.com>
 To: Pengjie Zhang <zhangpengjie2@huawei.com>
 Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
@@ -51,18 +51,17 @@ Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
 	prime.zeng@hisilicon.com, wanghuiqiang@huawei.com,
 	xuwei5@huawei.com, lihuisong@huawei.com, yubowen8@huawei.com,
 	wangzhi12@huawei.com
-Subject: Re: [PATCH 2/2] arm64: topology: read CPPC FFH feedback counters in
- one operation
-Message-ID: <akNxo5HzHARnrCT1@arm.com>
+Subject: Re: [PATCH 1/2] ACPI: CPPC: add paired FFH feedback-counter read hook
+Message-ID: <akNyNKSGf5yKwtwN@arm.com>
 References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
- <20260410094145.4132082-3-zhangpengjie2@huawei.com>
+ <20260410094145.4132082-2-zhangpengjie2@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260410094145.4132082-3-zhangpengjie2@huawei.com>
+In-Reply-To: <20260410094145.4132082-2-zhangpengjie2@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_003518_383393_FB5F54EC 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20260630_003733_594737_CB622F03 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,117 +76,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 05:41:45PM +0800, Pengjie Zhang wrote:
-> arm64 implements CPPC FFH feedback-counter reads using AMU counters.
-> Because those counters must be sampled on the target CPU, reading the
-> delivered and reference counters separately widens the observation window
-> between them.
+Gonna be a bit picky with wording so do bear with me ...
+
+On Fri, Apr 10, 2026 at 05:41:44PM +0800, Pengjie Zhang wrote:
+> cppc_get_perf_ctrs() reads the delivered and reference performance
+> counters one at a time.
 > 
-> Implement the paired FFH feedback-counter read hook on arm64 and sample
-> both AMU counters together before decoding the requested CPC register
-> values.
-> 
-> Also factor the FFH bitfield extraction logic into a helper and reuse
-> it from the existing single-counter FFH read path.
+> Allow architectures to provide both FFH feedback counters in one
+> operation when that either narrows the sampling window or avoids extra
+> cross-CPU reads. Add a small FFH-specific hook for that case and fall
+> back to the existing per-register reads when unsupported.
 > 
 > Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
 > ---
->  arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
->  1 file changed, 67 insertions(+), 8 deletions(-)
+>  drivers/acpi/cppc_acpi.c | 58 ++++++++++++++++++++++++++++++++++++----
+>  include/acpi/cppc_acpi.h |  7 +++++
+>  2 files changed, 60 insertions(+), 5 deletions(-)
 > 
-> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-> index b32f13358fbb..b90a767b2a1f 100644
-> --- a/arch/arm64/kernel/topology.c
-> +++ b/arch/arm64/kernel/topology.c
-> @@ -50,6 +50,16 @@ struct amu_cntr_sample {
->  	unsigned long	last_scale_update;
->  };
->  
-> +struct amu_ffh_ctrs {
-> +	u64 corecnt;
-> +	u64 constcnt;
-> +};
-> +
-> +enum cpc_ffh_ctr_id {
-> +	CPC_FFH_CTR_CORE  = 0x0,
-> +	CPC_FFH_CTR_CONST = 0x1,
-> +};
-> +
-Those should probably go under the #ifdef CONFIG_ACPI_CPPC_LIB section.
->  static DEFINE_PER_CPU_SHARED_ALIGNED(struct amu_cntr_sample, cpu_amu_samples);
->  
->  void update_freq_counters_refs(void)
-> @@ -397,7 +407,7 @@ static void cpu_read_constcnt(void *val)
+> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+> index 2e91c5a97761..7b3e8b0597dc 100644
+> --- a/drivers/acpi/cppc_acpi.c
+> +++ b/drivers/acpi/cppc_acpi.c
+> @@ -988,6 +988,23 @@ int __weak cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val)
+>  	return -ENOTSUPP;
 >  }
 >  
->  static inline
-> -int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
-> +int counters_read_on_cpu(int cpu, smp_call_func_t func, void *val)
->  {
->  	/*
->  	 * Abort call on counterless CPU.
-> @@ -447,24 +457,73 @@ bool cpc_ffh_supported(void)
->  	return true;
+> +/**
+> + * cpc_read_ffh_fb_ctrs() - Read FFH feedback counters together
+> + * @cpunum:	CPU number to read
+This reads bit awkward. Target CPU maybe ?
+> + * @reg1:	first CPPC register information
+> + * @val1:	place holder for first return value
+> + * @reg2:	second CPPC register information
+> + * @val2:	place holder for second return value
+> + *
+> + * Return: 0 for success and error code
+0 on success, error code otherwise ?
+> + */
+> +int __weak cpc_read_ffh_fb_ctrs(int cpunum, struct cpc_reg *reg1,
+> +				u64 *val1, struct cpc_reg *reg2, u64 *val2)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+> +
+> +
+>  /**
+>   * cpc_write_ffh() - Write FFH register
+>   * @cpunum:	CPU number to write
+> @@ -1504,6 +1521,40 @@ bool cppc_perf_ctrs_in_pcc(void)
 >  }
+>  EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc);
 >  
-> +static void amu_read_core_const_ctrs(void *val)
+> +static int cppc_read_perf_fb_ctrs(int cpunum,
+> +				  struct cpc_register_resource *delivered_reg,
+> +				  struct cpc_register_resource *reference_reg,
+> +				  u64 *delivered, u64 *reference)
+The signature here differs from cpc_read_ffh_fb_ctrs.
+It's not an issue but it might be good idea to stay consistent maybe ?
+Also ... was about to suggest to stick to either perf_ctrs or feedback_ctrs
+in naming but it seems the is no clear pattern  withint the file
+...
 > +{
-> +	struct amu_ffh_ctrs *ctrs = val;
-> +
-> +	cpu_read_constcnt(&ctrs->constcnt);
-> +	cpu_read_corecnt(&ctrs->corecnt);
-> +}
-> +
-> +static u64 cpc_ffh_extract_bits(const struct cpc_reg *reg, u64 val)
-> +{
-> +	val &= GENMASK_ULL(reg->bit_offset + reg->bit_width - 1,
-> +			   reg->bit_offset);
-> +	val >>= reg->bit_offset;
-> +
-> +	return val;
-> +}
-> +
-> +static bool cpc_ffh_ctr_value(const struct cpc_reg *reg,
-> +			      const struct amu_ffh_ctrs *ctrs, u64 *val)
-> +{
-> +	switch ((u64)reg->address) {
-> +	case CPC_FFH_CTR_CORE:
-> +		*val = ctrs->corecnt;
-> +		break;
-> +	case CPC_FFH_CTR_CONST:
-> +		*val = ctrs->constcnt;
-> +		break;
-> +	default:
-> +		return false;
-> +	}
-> +
-> +	*val = cpc_ffh_extract_bits(reg, *val);
-> +	return true;
-> +}
-> +
-> +int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
-> +			 struct cpc_reg *reg2, u64 *val2)
-> +{
-> +	struct amu_ffh_ctrs ctrs;
 > +	int ret;
 > +
-> +	ret = counters_read_on_cpu(cpu, amu_read_core_const_ctrs, &ctrs);
+> +	/*
+> +	 * For FFH feedback counters, try a paired read first to reduce
+> +	 * sampling skew between delivered and reference counters. Fall
+> +	 * back to the existing per-register reads if unsupported.
+> +	 */
+> +	if (CPC_IN_FFH(delivered_reg) && CPC_IN_FFH(reference_reg)) {
+> +		ret = cpc_read_ffh_fb_ctrs(cpunum,
+> +					&delivered_reg->cpc_entry.reg, delivered,
+> +					&reference_reg->cpc_entry.reg, reference);
+> +		if (!ret)
+> +			return 0;
+> +
+> +		if (ret != -EOPNOTSUPP)
+> +			return ret;
+Shouldn't this one be enough ? Don't think you need the first condition.
+> +	}
+> +
+> +	ret = cpc_read(cpunum, delivered_reg, delivered);
 > +	if (ret)
 > +		return ret;
 > +
-> +	if (!cpc_ffh_ctr_value(reg1, &ctrs, val1) ||
-> +	    !cpc_ffh_ctr_value(reg2, &ctrs, val2))
-> +		return -EOPNOTSUPP;
-Right, so there might be an issues with that:
-If you return EOPNOTSUPP here, that would trigger reading the registers again,
-this time one by one. Is that intentional ?
-Also counters_read_on_cpu might also return EOPNOTSUPP, in which case trying
-again to read the counters is pointless.
+> +	ret = cpc_read(cpunum, reference_reg, reference);
+> +	if (ret)
+> +		return ret;
+As you are not doing anything with 'ret' this could just be:
+	ret = cpc_read(cpunum, delivered_reg, delivered);
+	if (ret) return ret;
+	return cpc_read(cpunum, reference_reg, reference);
 
-I'm not entirely sure I understand the condition itself though.
-This will fail if either of the requested registers in not really expected.
-And that should probably be verified upfront ?
-
+Though that's minor.
 
 ---
 BR
@@ -196,31 +177,48 @@ Beata
 > +	return 0;
 > +}
 > +
->  int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
->  {
->  	int ret = -EOPNOTSUPP;
->  
->  	switch ((u64)reg->address) {
-> -	case 0x0:
-> +	case CPC_FFH_CTR_CORE:
->  		ret = counters_read_on_cpu(cpu, cpu_read_corecnt, val);
->  		break;
-> -	case 0x1:
-> +	case CPC_FFH_CTR_CONST:
->  		ret = counters_read_on_cpu(cpu, cpu_read_constcnt, val);
->  		break;
+>  /**
+>   * cppc_get_perf_ctrs - Read a CPU's performance feedback counters.
+>   * @cpunum: CPU from which to read counters.
+> @@ -1547,11 +1598,8 @@ int cppc_get_perf_ctrs(int cpunum, struct cppc_perf_fb_ctrs *perf_fb_ctrs)
+>  		}
 >  	}
 >  
-> -	if (!ret) {
-> -		*val &= GENMASK_ULL(reg->bit_offset + reg->bit_width - 1,
-> -				    reg->bit_offset);
-> -		*val >>= reg->bit_offset;
-> -	}
-> +	if (!ret)
-> +		*val = cpc_ffh_extract_bits(reg, *val);
+> -	ret = cpc_read(cpunum, delivered_reg, &delivered);
+> -	if (ret)
+> -		goto out_err;
+> -
+> -	ret = cpc_read(cpunum, reference_reg, &reference);
+> +	ret = cppc_read_perf_fb_ctrs(cpunum, delivered_reg, reference_reg,
+> +				     &delivered, &reference);
+>  	if (ret)
+>  		goto out_err;
 >  
->  	return ret;
+> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
+> index d1f02ceec4f9..006b42dbbd4b 100644
+> --- a/include/acpi/cppc_acpi.h
+> +++ b/include/acpi/cppc_acpi.h
+> @@ -172,6 +172,8 @@ extern int cppc_get_transition_latency(int cpu);
+>  extern bool cpc_ffh_supported(void);
+>  extern bool cpc_supported_by_cpu(void);
+>  extern int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val);
+> +extern int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
+> +				struct cpc_reg *reg2, u64 *val2);
+>  extern int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val);
+>  extern int cppc_get_epp_perf(int cpunum, u64 *epp_perf);
+>  extern int cppc_set_epp_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls, bool enable);
+> @@ -246,6 +248,11 @@ static inline int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val)
+>  {
+>  	return -EOPNOTSUPP;
 >  }
+> +static inline int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
+> +				       struct cpc_reg *reg2, u64 *val2)
+> +{
+> +	return -EOPNOTSUPP;
+> +}
+>  static inline int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val)
+>  {
+>  	return -EOPNOTSUPP;
 > -- 
 > 2.33.0
 > 
