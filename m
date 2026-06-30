@@ -4,71 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E1A7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45413C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:13:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wkvT66lJpDRdyEaoJbT/7KZo9MPl7om0PLqvxc7ob+g=; b=b59Ww+SVaWxUthIWXSNvMNZ359
-	NHjuzS0lY8wWuQnVH+U8bMVZsQtya0xAScdJvnA337r2Jt3zxIwjb3jlS3wk4pUxYSEoRl6Cuem5D
-	kJffEh6mLriD5zNJDQ/rjt1JqZ/VjZz8ecy6TuOvuyIVm0zbfDG6+XOpSwqzYH7i+5KMHHdVKItWi
-	eMKklaTREF0calzroKqpVP25jnoUszRUv4j0Ssu1DI0qis+4tbtQUh1klyGkFjHIlIhqsJLbVXeRW
-	2hokLsAnlH/C6XSMQynFvmmw8SLLL1FNq88swhtM7Rfe1wzmyFoalU4W++zSLh5ckgNLSjtPd+Hgi
-	s4Exr0wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+7BtfpmCB9jzu/4IcIChuJIJxT1z4DKx5Tki1W6ULw0=; b=i9CArVLbiZS7lVE5pslVGfTC8p
+	5z/dfmSKpVGiQzhkynPg9NXb7LzFmUBwe5jGTLqU2CRgozKiaIxX4zkTbhHx93sBXVfl6+QbPeUg2
+	jqQkNoszBEvaNhxgX3qqv03zu5dr+S+icq2jk33TGdQzOYQ2ih5a8p+qo1gmvr264nbhZouKIN59n
+	kNTPRvwLCW0BDXLX7dHX1MUO4qY4TX8CSxdXrmMN38keC4rGknTRM0hZnnphDAgdSYc5M9pMi3YGt
+	Jfx/2CZN5FFWATQXLZGkdajlGsHnBBg48NtTzD9P0dVA4kklNT2wUpA29dzcsZk1HHA4y1sNcSWlc
+	cCxN4Qrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYGj-0000000H8Bm-3doT;
-	Tue, 30 Jun 2026 13:12:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weXow-0000000H1c4-13Cc;
+	Tue, 30 Jun 2026 12:44:10 +0000
+Received: from mail-japanwestazon11022086.outbound.protection.outlook.com ([40.107.75.86] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYGh-0000000H8BZ-3r0p
+	id 1weXor-0000000H1Zt-1tlH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:12:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 24418401C0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 13:12:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0883D1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 13:12:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782825171;
-	bh=wkvT66lJpDRdyEaoJbT/7KZo9MPl7om0PLqvxc7ob+g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MlQs4G54c13BOoDjbRqfk9JXS0zYvoN2PTMHw2l9DzIt3rhp0u/NLUxXtRzfj0SMk
-	 r248yRej4n8zNz5ghiy1dms0tnbjYQUG4bYLHhG6wCqW+RTP1eFw5TJZKWyQkxJBBe
-	 lE+jSuWGKJS5Vu8R7jGIlwotqdpoGkzlI+f9KEDueRCjVLIwJ02WWEicb44pTVWJZP
-	 PpTy6IhpTI91585rq/dKUbVYvxW4aLqfxO4kLfghjVmsDS0DRNWPgKtr4vgn+i4Wkt
-	 qdkodsqKJpYB54dq5rTckejtiUpGJZm0bCpO7hL6nEESxBJESjAwkKjBWEds7ev3Cb
-	 lNwK33IGbkvNA==
-Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeb2df5cc1so2159306e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:12:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrPyW0Ps3zDOEb78aLF/wJboyCaA3e/BCIO4JOJQxByE66GWv2A0+ooRxS4iuBsuxD8xPbD7j0SGNYyRsuIFq6i@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8U8/jypHMLaHlnzfPR4lWBs22mCLaiBCKwfIswx5Wucj52ZuR
-	nwpio6e7JTwU+UsT2jTgw3JQqFjJBrelKMIrly9dvqNnNCP5mMFpPIw4XrLtDY0TI2Y//gupjtg
-	MpIftbC7KlgG+Px6AEzUJY1HTeoXZ5U0=
-X-Received: by 2002:ac2:4f04:0:b0:5ae:ba3e:a6f6 with SMTP id
- 2adb3069b0e04-5aec10a566bmr209261e87.4.1782825169836; Tue, 30 Jun 2026
- 06:12:49 -0700 (PDT)
+	Tue, 30 Jun 2026 12:44:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iKAZmnQ8fw6P/9uQt54KNsTsz/DgDiIiWY1Km1TbZjS3Ndz9JJOTSbKa1wcRqUmUcq4Ntf7orgdVpqGgqVBpgfEcnhMkbgeRRttWfpod9d5m3cbCkAi1H/4l7udqIld6kleeKzBDKNvQnS/VxYN3CAVEY85q0+0Skn3EYilwh5ya0TG7A9DfI+WJqVFC3opbtIKQZDFGR6DhC0CSgvXeudOFgMczI2koXI17iZ/1db0e298RRBzKlmtlDK2zCU3FelLWNG5rXuiPDeU1PMyA9A0TTQCmBzHl6imXgjsso+cqNgNDCXiGvIFyb3MXk6iMIZcFtDa25Pgj2YMvfkrqxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+7BtfpmCB9jzu/4IcIChuJIJxT1z4DKx5Tki1W6ULw0=;
+ b=luGzNBcVoqFKVAErOk0cuH/eBLI2sDzNeSRbPj/S0EH4oc7+mJ/vfTHjJljL3IBSZBlLCv0flLsLs4tUASK4vgGZN015E/FiKiONad2VoPlTTZknQVTYX+XzgG7mSiRCX9pKBpQsRVjI9eTFqQULf4FcnSY3VMp7H+28YoLX1geraazlZ2gkbc9G5i826mPCovLv/j0cpFKm2XpsbtcMkxRbor6ZTYPootdn3UZNcFft+KbLzTUt+68+piJtEcQB0M59vmS9j/wbhGQ4lFKY374qUDE0MBjsV9TvjnszEoi7zHBa3+ER9B9nDxsf+7OLJ29gUDcY7MOrkqGY3gV+yQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
+ dkim=pass header.d=cixtech.com; arc=none
+Received: from KL1PR06MB6236.apcprd06.prod.outlook.com (2603:1096:820:d7::11)
+ by SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 12:43:50 +0000
+Received: from KL1PR06MB6236.apcprd06.prod.outlook.com
+ ([fe80::2c9b:c257:fe54:16e7]) by KL1PR06MB6236.apcprd06.prod.outlook.com
+ ([fe80::2c9b:c257:fe54:16e7%5]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
+ 12:43:50 +0000
+From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"bmasney@redhat.com" <bmasney@redhat.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>
+CC: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v7 3/4] reset: cix: add sky1 audss auxiliary reset driver
+Thread-Topic: [PATCH v7 3/4] reset: cix: add sky1 audss auxiliary reset driver
+Thread-Index: AQHdB6fHRT9Vl1gjkUu7XQ+5t4R8iLZW2PSAgAAz0oA=
+Date: Tue, 30 Jun 2026 12:43:50 +0000
+Message-ID: <KL1PR06MB6236F541873C25ABBE178CA582F72@KL1PR06MB6236.apcprd06.prod.outlook.com>
+References: <20260629091500.52540-1-joakim.zhang@cixtech.com>
+	 <20260629091500.52540-4-joakim.zhang@cixtech.com>
+ <90ecf77e16c17f0ac46b2996be58110fc01c2e08.camel@pengutronix.de>
+In-Reply-To: <90ecf77e16c17f0ac46b2996be58110fc01c2e08.camel@pengutronix.de>
+Accept-Language: zh-CN, en-US
+Content-Language: zh-CN
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cixtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: KL1PR06MB6236:EE_|SEYPR06MB5134:EE_
+x-ms-office365-filtering-correlation-id: 594f8450-c8b7-48de-2da7-08ded6a53c50
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|56012099006|4143699003|18002099003|22082099003|38070700021;
+x-microsoft-antispam-message-info: mZNcUd6GHMGiZAd2lAMroPbYOIkxZgvq5yiBa4BzsJcfGD+ADizKxjxJCoQGTnzZyz4iNcN9ijM2UKuZUiWIsfwgtND+9zpV1nq6ccY6LVmiCc8x/8knt0TtxE7tLhWljJw2TK3pKVWgDZEom0FnHqr+oPy1BB5m8D9idlasSNZCyxpysl5tKRdr1d0pgGopiemebQjqdAYYKFbsmUVfq8ko1imRZXnzZKrUNuT2pgSisjW0oIkn5PYkWYLG5B7eg0HXevOoE7t0gRmhWQk1Hn7Jca9awaH6XGRRN+GtNQMYkEKkd33yOmEfSIor8fKCt84hIteQwuUHaohsguEBZgKElvS1Z0mWlnnl6NWC6nGYtx8GUnbQPyO4OcjqoJ6XBsI5VEbL6aJowgbHMpxcfWECjSAjXFztSXv0lmcTBokkTptZ3vTWQYWS3lDJmCUulZ0Xz+Y8LyVz6vsxV9R/I9piu1x5wt8X1zA3OFWfCXe1HgZ4KgXiyaD00294wKOX/YN0UBq5BFaDsbDVcJRVLQNTiSa5UOmYAnz+qbYP6kVml3c5cgq3xhlM7ZN6SbVxaZS97YnztBnrlzRLOlNh0lXSbMrxNzk4yO2t0nGY7Q0fIBVKsXb6K9wx54hBfnH3vgadlS3Yt6LxNBuFvj9pZvt5z53tO/aOostPgQj9APOg9zxgwiCEYG0kBbZIrs6+j8sDEqKqRrJwj9aAEhj8WA==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR06MB6236.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(56012099006)(4143699003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WHhEeDRGakEvOGhPcVVJbUIvS1FyK3FPS0FBd3R6NW5iN2tPbEsvK2UyT0J6?=
+ =?utf-8?B?bElVNkRKdDFXc2dNMUlyZERoL1RUWVYyc2NXSTBsSXNyWmJWUmZhVG50V3po?=
+ =?utf-8?B?MklBRXZ3OW8ySjJ0VHFaQVZKeVoweS9sM1Blb1l0bkJ1T3k5a0svYVFSMms2?=
+ =?utf-8?B?cHFtQWxoRzkxK1YzZGtzODNUSWdkNE9vdXdzT25QSU5LUEVaYW5vOTlpem1v?=
+ =?utf-8?B?N0tiYUhuclhQaUVYNmRPYm4wRTFXUWVkZlVLQ1Y0RTNhakpndWY3dTBDbmts?=
+ =?utf-8?B?NDllSU5LTzdzR1RzRjFEZlNnSmNRK29JNE00QTdNbzJnRWJhQktJRW04bXkz?=
+ =?utf-8?B?WGN6OGozZm0rVVJlN1VzbnZYa0I0ajBXMmVGdkZrQzFWMTM4S1NPT1g1aEhO?=
+ =?utf-8?B?bDU2UFpIaWF1NENvT0tyVllSclR3OHVJczBvWXpXZzQ3cHpGN2x3VDQ0T2Qz?=
+ =?utf-8?B?NktrWHFQVDJXTEI5amdibnFaZEpsR1hhSGxDUm1ORlNtZ3AxcmM5NWsrQXBZ?=
+ =?utf-8?B?QStndm4xRGE2V2l6MEFPK01PQmFKNzZMM0dSTmduTnVVaWZ5elgva2FSTEJp?=
+ =?utf-8?B?Rm9PSTJvbXNlMVFoWitXRlZ0bzEwbitBeEdHR2N6bU9yYndCOWZvbjVqQVdp?=
+ =?utf-8?B?VS9tZGVrejJiUkZzZEV0S2xOWDJ5NGFkMU02OGJhL25DNWdOWTNteFUxQkls?=
+ =?utf-8?B?VXF5ejN0QVVGMUNERSs4L28xaWZVZ2k5MzErejBBU1VMNzdMbmdXUGo1YWs0?=
+ =?utf-8?B?VWNUaXZpQ0lML0EzaEpib2xxcGJyMUdHaXZIenF0cFdmMzBFRkZsd015WmZH?=
+ =?utf-8?B?cEJvMWhsOXJEM0w0UjFCQTZIb3M2N1VzUEdDRHkwaTJQVjN4Zzg2MGRuWVlR?=
+ =?utf-8?B?N2thYW5wVVltQnJwd1I1ZmN5OEN5eVRXUE1uM3c5d3dIVnJQTU5ROUF1dnY1?=
+ =?utf-8?B?b1FpR1FCY3F6QjVNc3I3eGtCa3V6dFhjTDZWTVBiWStvWmNCNDVlUzByNUxX?=
+ =?utf-8?B?bEUxZTFHaGdMYy9PMDZvU0ZqTnFPMjF1MjRlQ3hKN0xMd3hVbUlUdDhLbmJ5?=
+ =?utf-8?B?Z05hb25SYlZ4UGQ2SWE0aHJ1N3gvMG9NY0pqa0hBcTlRRlFQMlpiUm9QR2lX?=
+ =?utf-8?B?L1pmNnpRM01rUlRKRS9Ua0lCQkhXYllmZk50SkpDMTV3Z0oyQTIxK3Q3b0o5?=
+ =?utf-8?B?Tk1teHg0MDZxYjBTOWlIVDBmUHA0WnZZVzJVSlBZTTZPdzNZT1ZoUU92anlj?=
+ =?utf-8?B?M1dJUE5nUW83bGFwRFFTR1FsWURUVUlMSWtrQ1QvSTNlTWpEZ0VwdXJsaUlY?=
+ =?utf-8?B?VnpmRHJYUkw1TUNlRzhFUDgweW9FQXBJRWQzY0lzOVlsWkVVY1VndTN0ME1Z?=
+ =?utf-8?B?cXNub3RpNHI5Vk84Q0dxRURadHVDaGRCTzR1ZDd0VTY1M0JBbjl5Y0hjeUFY?=
+ =?utf-8?B?UHk4QnpHN2dBd3VFbVhmcHFZNG9uS1lqZjdCVjRXRGlObGJOUVhoS09pQWhn?=
+ =?utf-8?B?VXFDcDA5aS9Pd3Y3eDJVYmI4V1B4bGU2WlNUSFBWUUpvYWJtU0VmdlUweFN5?=
+ =?utf-8?B?dDdCWjF3aTN0Q3JMLzlmUXlTYmoyUngrc3lwVzg5MmV2L1pMb2RueVBLVGdk?=
+ =?utf-8?B?VCtuQUhNQlpSV0FlMzZxSHF0QlJ3MnBkVEc4MU5GZitITnN0ZXhweWZjNFUv?=
+ =?utf-8?B?VC9HSmRrdjQ1ZlZ3elZyM0tzcXhLQW0wallTeE9CMWtrSlFMU3NzdlJlY05p?=
+ =?utf-8?B?SE1DMDU0MTcxcExBOTlHbnNWWE82SUVuVGhIMlNjRURuQXdKSUpwY3dYWVVp?=
+ =?utf-8?B?RThXRnpCNkNub2pudHBkQU42Lzh5cG5WOXR0Nm13eEQ4NWdoaFJtQ2JNN25t?=
+ =?utf-8?B?TjJsbzFzMURITFV0dXY5dGlrSWdycktVMk9DYWhaQnVNWjdmQ2FON0swVXpX?=
+ =?utf-8?B?VEtKWmJCWEx3dGpMMjVqbGR6UWNDTDh4aG8vM3NhSUVvWno2NjlLQ3ZxcEIx?=
+ =?utf-8?B?dnZVcmZZZTdvai91ejR0OGZRcEtQaklqZFlzeGRzdWNHczV2S2pkZU9rbmFG?=
+ =?utf-8?B?NmN3NzM4REZXTE9hZUh4dURjbTZDNDZVZzh1VXZ6aDJxMERLRTFNSUNReWE4?=
+ =?utf-8?B?QzBTcEY5V2c1L2Y5RkFxM3JEZVY3STIxL28zTHd1MEp4enR6MExqMjRhcEtW?=
+ =?utf-8?B?YzBwT0xTcWNNU3RJN2dmMlhja2xwbWxFZ1QvemtCVG8xdFNKQTBFd3hEMVJZ?=
+ =?utf-8?B?ZzZ4Q2llWVd5d2tOc1RxSGVCS1BmR0VqcXZIUjgrdERib0VwOFVMU3BYUUpX?=
+ =?utf-8?B?UmtncXpzVEdEWVdYcXI0b1J2ZldnaXRRUytzYlFETVdYWkZRa3UvQT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20260622092335.1166876-1-eleanor.lin@realtek.com> <20260622092335.1166876-4-eleanor.lin@realtek.com>
-In-Reply-To: <20260622092335.1166876-4-eleanor.lin@realtek.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 30 Jun 2026 14:12:36 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=xa-8E8Uon5mXgA=XHTUpc3h4DNi-jUevq5ibWyL3YGA@mail.gmail.com>
-X-Gm-Features: AVVi8Cd0rzQDD94BIMNrdHy8q6vTCtb9F3B8vRr2O64rvi7iNBdl6YLUyoEX4Ss
-Message-ID: <CAD++jL=xa-8E8Uon5mXgA=XHTUpc3h4DNi-jUevq5ibWyL3YGA@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] gpio: realtek: Add driver for Realtek DHC RTD1625 SoC
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	afaerber@suse.com, mwalle@kernel.org, andriy.shevchenko@intel.com, 
-	tychang@realtek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com, 
-	stanley_chang@realtek.com, james.tai@realtek.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR06MB6236.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 594f8450-c8b7-48de-2da7-08ded6a53c50
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2026 12:43:50.2401
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8+Z+3vGp7iwfWnMQ7g3x3htU6BD9fnwrPe/niARepxvXy0VVq8ocvlvdQYs5DXSatKV7bz4vNJZkjjIvtVzaobG56GNqIU391jM5S502Nz4=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5134
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_054405_504621_05C27DE7 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,131 +151,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yu-Chun,
-
-thanks for your patch!
-
-On Mon, Jun 22, 2026 at 10:33=E2=80=AFAM Yu-Chun Lin <eleanor.lin@realtek.c=
-om> wrote:
-
-> From: Tzuyi Chang <tychang@realtek.com>
->
-> Add support for the GPIO controller found on Realtek DHC RTD1625 SoCs.
->
-> Unlike the existing Realtek GPIO driver (drivers/gpio/gpio-rtd.c),
-> which manages pins via shared bank registers, the RTD1625 introduces
-> a per-pin register architecture. Each GPIO line now has its own
-> dedicated 32-bit control register to manage configuration independently,
-> including direction, output value, input value, interrupt enable, and
-> debounce. Therefore, this distinct hardware design requires a separate
-> driver.
->
-> Additionally, the RTD1625 GPIO controller has a specific hardware quirk:
-> it fires both 'assert' and 'de-assert' interrupts simultaneously on any
-> edge toggle. To handle this, we utilize the polarity register to route
-> the requested edge (rising/falling) to the 'assert' IRQ line. The driver
-> then filters out the unwanted 'de-assert' interrupt in the IRQ handler
-> and pre-clears edge interrupts to prevent interrupt storms caused by
-> unhandled dropped interrupts.
->
-> Interrupt support is optional for this device, matching the dt-bindings.
-> If the interrupts property is not provided, the driver simply skips IRQ
-> initialization and operates purely as a basic GPIO controller.
->
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: Tzuyi Chang <tychang@realtek.com>
-> Co-developed-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-(...)
-> +static void rtd1625_gpio_irq_handle(struct irq_desc *desc)
-> +{
-> +       unsigned int (*get_reg_offset)(struct rtd1625_gpio *gpio, unsigne=
-d int offset);
-> +       struct rtd1625_gpio *data =3D irq_desc_get_handler_data(desc);
-> +       struct irq_domain *domain =3D data->gpio_chip.irq.domain;
-> +       struct irq_chip *chip =3D irq_desc_get_chip(desc);
-> +       unsigned int irq =3D irq_desc_get_irq(desc);
-> +       unsigned long status;
-> +       unsigned int reg_offset, i, j;
-> +       unsigned int girq;
-
-So this
-
-> +       irq_hw_number_t hwirq;
-> +       u32 irq_type;
-> +
-> +       if (irq =3D=3D data->irqs[RTD1625_IRQ_ASSERT])
-> +               get_reg_offset =3D &rtd1625_gpio_gpa_offset;
-> +       else if (irq =3D=3D data->irqs[RTD1625_IRQ_DEASSERT])
-> +               get_reg_offset =3D &rtd1625_gpio_gpda_offset;
-> +       else if (irq =3D=3D data->irqs[2])
-> +               get_reg_offset =3D &rtd1625_gpio_level_offset;
-> +       else
-> +               return;
-> +
-> +       chained_irq_enter(chip, desc);
-> +
-> +       for (i =3D 0; i < data->info->num_gpios; i +=3D 32) {
-> +               reg_offset =3D get_reg_offset(data, i);
-> +               status =3D readl_relaxed(data->irq_base + reg_offset);
-> +
-> +               /*
-> +                * Hardware quirk: The controller fires both "assert" and=
- "de-assert"
-> +                * interrupts simultaneously on any edge toggle.
-> +                * We must pre-clear edge interrupts here. If we drop an =
-unwanted
-> +                * de-assert interrupt below, it will never reach the IRQ=
- core
-> +                * (generic_handle_domain_irq), meaning ->irq_ack() won't=
- be called.
-> +                * Failing to clear it here leads to an interrupt storm.
-> +                */
-> +               if (irq !=3D data->irqs[RTD1625_IRQ_LEVEL])
-> +                       writel_relaxed(status, data->irq_base + reg_offse=
-t);
-> +
-> +               for_each_set_bit(j, &status, 32) {
-> +                       hwirq =3D i + j;
-> +                       girq =3D irq_find_mapping(domain, hwirq);
-> +                       irq_type =3D irq_get_trigger_type(girq);
-
-Just
-irq_type =3D irq_get_trigger_type(irq_find_mapping(domain, hwirq));
-
-Drop the intermediate variable.
-
-> +static void rtd1625_gpio_ack_irq(struct irq_data *d)
-> +{
-> +       struct rtd1625_gpio *data =3D irq_data_get_irq_chip_data(d);
-> +       irq_hw_number_t hwirq =3D irqd_to_hwirq(d);
-> +       u32 irq_type =3D irqd_get_trigger_type(d);
-> +       u32 bit_mask =3D BIT(hwirq % 32);
-
-This is a clear sign that your GPIOs and IRQs should be three-cell
-(bank and offset) since they clearly have one each a separate
-status bit in this register.
-
-> +static void rtd1625_gpio_enable_edge_irq(struct rtd1625_gpio *data, irq_=
-hw_number_t hwirq)
-> +{
-> +       int gpda_reg_offset =3D rtd1625_gpio_gpda_offset(data, hwirq);
-> +       int gpa_reg_offset =3D rtd1625_gpio_gpa_offset(data, hwirq);
-> +       u32 clr_mask =3D BIT(hwirq % 32);
-
-Same here.
-
-> +static int rtd1625_gpio_setup_irq(struct platform_device *pdev, struct r=
-td1625_gpio *data)
-> +{
-> +       struct gpio_irq_chip *irq_chip;
-
-This is a super-confusing name for this variable.
-
-It is called irq_chip but it's not struct irq_chip at all.
-
-Call this girq like all other drivers.
-
-Yours,
-Linus Walleij
+SGkNCg0KPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBQaGlsaXBwIFphYmVs
+IDxwLnphYmVsQHBlbmd1dHJvbml4LmRlPg0KPiBTZW50OiBUdWVzZGF5LCBKdW5lIDMwLCAyMDI2
+IDU6MzggUE0NCj4gVG86IEpvYWtpbSBaaGFuZyA8am9ha2ltLnpoYW5nQGNpeHRlY2guY29tPjsg
+bXR1cnF1ZXR0ZUBiYXlsaWJyZS5jb207DQo+IHNib3lkQGtlcm5lbC5vcmc7IGJtYXNuZXlAcmVk
+aGF0LmNvbTsgcm9iaEBrZXJuZWwub3JnOw0KPiBrcnprK2R0QGtlcm5lbC5vcmc7IGNvbm9yK2R0
+QGtlcm5lbC5vcmcNCj4gQ2M6IGNpeC1rZXJuZWwtdXBzdHJlYW0gPGNpeC1rZXJuZWwtdXBzdHJl
+YW1AY2l4dGVjaC5jb20+OyBsaW51eC0NCj4gY2xrQHZnZXIua2VybmVsLm9yZzsgZGV2aWNldHJl
+ZUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4
+LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZw0KPiBTdWJqZWN0OiBSZTogW1BBVENIIHY3
+IDMvNF0gcmVzZXQ6IGNpeDogYWRkIHNreTEgYXVkc3MgYXV4aWxpYXJ5IHJlc2V0IGRyaXZlcg0K
+PiANCj4gRVhURVJOQUwgRU1BSUwNCj4gDQo+IENBVVRJT046IFN1c3BpY2lvdXMgRW1haWwgZnJv
+bSB1bnVzdWFsIGRvbWFpbi4NCj4gDQo+IE9uIE1vLCAyMDI2LTA2LTI5IGF0IDE3OjE0ICswODAw
+LCBqb2FraW0uemhhbmdAY2l4dGVjaC5jb20gd3JvdGU6DQo+ID4gRnJvbTogSm9ha2ltIFpoYW5n
+IDxqb2FraW0uemhhbmdAY2l4dGVjaC5jb20+DQo+ID4NCj4gPiBBZGQgYW4gYXV4aWxpYXJ5IHJl
+c2V0IGNvbnRyb2xsZXIgZHJpdmVyIGZvciB0aGUgQVVEU1MgQ1JVLiBTaXh0ZWVuDQo+ID4gc29m
+dHdhcmUgcmVzZXQgbGluZXMgZm9yIGF1ZGlvIHN1YnN5c3RlbSBwZXJpcGhlcmFscyBhcmUgY29u
+dHJvbGxlZA0KPiA+IHRocm91Z2ggb25lIHJlZ2lzdGVyIGluIHRoZSBDUlUgcmVnaXN0ZXIgbWFw
+Lg0KPiA+DQo+ID4gVGhlIGRyaXZlciBpcyBjcmVhdGVkIGJ5IHRoZSBBVURTUyBjbG9jayBwbGF0
+Zm9ybSBkcml2ZXIgYW5kIHJlZ2lzdGVycw0KPiA+IHRoZSByZXNldCBjb250cm9sbGVyIG9uIHRo
+ZSBDUlUgZGV2aWNlIG5vZGUuDQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBKb2FraW0gWmhhbmcg
+PGpvYWtpbS56aGFuZ0BjaXh0ZWNoLmNvbT4NCj4gPiAtLS0NCj4gPiAgZHJpdmVycy9yZXNldC9L
+Y29uZmlnICAgICAgICAgICAgfCAgMTQgKysrKw0KPiA+ICBkcml2ZXJzL3Jlc2V0L01ha2VmaWxl
+ICAgICAgICAgICB8ICAgMSArDQo+ID4gIGRyaXZlcnMvcmVzZXQvcmVzZXQtc2t5MS1hdWRzcy5j
+IHwgMTM3DQo+ID4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKw0KPiA+ICAzIGZpbGVz
+IGNoYW5nZWQsIDE1MiBpbnNlcnRpb25zKCspDQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2
+ZXJzL3Jlc2V0L3Jlc2V0LXNreTEtYXVkc3MuYw0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
+cnMvcmVzZXQvS2NvbmZpZyBiL2RyaXZlcnMvcmVzZXQvS2NvbmZpZyBpbmRleA0KPiA+IGQwMDll
+YjA4NDlhMy4uZjc0ODU5YjI5MmFlIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvcmVzZXQvS2Nv
+bmZpZw0KPiA+ICsrKyBiL2RyaXZlcnMvcmVzZXQvS2NvbmZpZw0KPiA+IEBAIC0zMDAsNiArMzAw
+LDIwIEBAIGNvbmZpZyBSRVNFVF9TS1kxDQo+ID4gICAgICAgaGVscA0KPiA+ICAgICAgICAgVGhp
+cyBlbmFibGVzIHRoZSByZXNldCBjb250cm9sbGVyIGZvciBDaXggU2t5MS4NCj4gPg0KPiA+ICtj
+b25maWcgUkVTRVRfU0tZMV9BVURTUw0KPiA+ICsgICAgIHRyaXN0YXRlICJDaXggU2t5MSBBdWRp
+byBTdWJzeXN0ZW0gcmVzZXQgY29udHJvbGxlciINCj4gPiArICAgICBkZXBlbmRzIG9uIEFSQ0hf
+Q0lYIHx8IENPTVBJTEVfVEVTVA0KPiA+ICsgICAgIHNlbGVjdCBBVVhJTElBUllfQlVTDQo+ID4g
+KyAgICAgc2VsZWN0IFJFR01BUF9NTUlPDQo+IA0KPiBUaGlzIGRyaXZlciBkb2Vzbid0IG5lZWQg
+UkVHTUFQX01NSU8gaXRzZWxmLCBpdCBqdXN0IGluaGVyaXRzIGl0cyBwYXJlbnQncw0KPiByZWdt
+YXAuDQpEcm9wcGVkLg0KDQpUaGFua3MsDQpKb2FraW0NCg==
 
