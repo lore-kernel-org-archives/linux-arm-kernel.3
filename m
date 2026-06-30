@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7C8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:28:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67D12C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=; b=d+LM0hJ612CYi+F5rkHruCGIbO
-	LaibuhbxA+ozX/eP0lkbZSZf5ckeDky+ROgUdLYf9CQ5RfeX2Wcaxt6zfWU59FYnTaj6sL6Z8MEGT
-	O4AVuk3A5WL0+5QYEAKYIgIOnL0vWHfGZIynQ4IyYUf8RuEdVOga38V7ID8jIQ5qO+p9qhCFTRgub
-	AN/O7nLI4r3lUH21P8IBr2xduuTKfw2siHv2pcDnbuIGIWkTZQUnHCKOcPKvT7sRXf7qe3uvvG/TG
-	8/LyhOGojrb3Ns8FmkMQ20fTh5HBmsdW4woeq08nsTl3jvo2z0KIOZO+jI4e9l9p7v9GXoy3EjM/J
-	ZfQwiAww==;
+	bh=+b12GfQ8In3o4ovjul5sBZbhYkFtSmsBEzRp61e6vmg=; b=hTXNhLt4AC8thtDgr9MfkwHsKs
+	Tbz+IzAfN381FYg11lDer97ZzG17FXi341iH1Edo7sTJZ5tAczFygbCMY1xM0UFO8gLAnoKHkbC4o
+	5uhmAKQl71xieW1395H8b0Dj026jVxLR3VxHtDvPMzvvZpyu9OmNwN43Qvl08tS6wncA05mEB5RnG
+	qFc7BOsFZe/t+WRIesbpiCYzWVnyctNAgycNn8c3TiQKVkPhTCIT9o0BZQcsPCz6Bs+YfYeKAUdyP
+	YUNv99kAUH6EQ9qNwUiL/ZPz5y9fpjYNCbje6xZTyFiAL3pVWwulADObwJVNzfnEW5rAhA2PY8AHC
+	2d9Dp8yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUl0-0000000GQaa-0SYW;
-	Tue, 30 Jun 2026 09:27:54 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1weUlf-0000000GR7G-12jO;
+	Tue, 30 Jun 2026 09:28:35 +0000
+Received: from mx.adeep.su ([185.250.0.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUk7-0000000GPgU-3cR8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:27:01 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-4720d22c94aso2151490f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 02:26:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1782811618; x=1783416418; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=;
-        b=DYJiC5lNfrNBzL5ZTvvqaKULU5IrDHBD+etSZNYsq/+l5k3ZgdNNwSA6gF+LZwTDWH
-         IrzIBsULJ7i6E7jdLPSu3BKBvn4sGhl5lGol4p0dFlIh13E5R3dEbhkmwlbQj4KH0gNv
-         GW56LF9kIVSe5TntjdncNzJQSvjaQqnnDOIvI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782811618; x=1783416418;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Q8e2F85Jk42cknJBTKAisusI5iJFywDQWX2RRkkLus4=;
-        b=YaK6lZS+AqIMi3IzBRCQu7ZET+gAh80EBb/5Ggl98w1N5vw7qbrowtILE6Q7DN1PNv
-         8HDeKQ+ye8ZQ3a5RtrD8VgOOC83N6OeSn3SIKLvO/XAg2ypn8qrcFcs0kzhT8XgUVnK+
-         UFocI2JSa3Xa8jCMzbpBJj3OdETVGWOntB0DMNbug/9TWRDDhXxa1Fbw2wR9v6Ph6/y+
-         bfJ1LLONciGcbOWfjdlJNc87fUAVzc3wPVyfhoXLUasBhzUCMhxlzp7zS3HOrpmSFtcX
-         ccxw8fZBbWJzfr2nkH+NXmMahjh3BQYo+GivLK5mpH8UwuXhQ7q0TsU3fPuomsw1xFPB
-         I/tw==
-X-Forwarded-Encrypted: i=1; AHgh+RqEc+QLsexFosmMvwJPY//hzH+OfdRaDTBYqTy++bQS05zKxtFU3xuXHB3ubkGzVUVJuyrDobkGdIHe2UXreeE0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEjD9py6ASQKqnqEKwKwvuce5Mp9O3hsKiJawByd1FEBgZcUXj
-	c535pcXvjH6Jxz1jC6A18HOr3WwRyv2l+r9LWAwJ2J81w0prjOEvfGBIV+ObalPloyY=
-X-Gm-Gg: AfdE7ckhaqBbZKCgrUFqhi0Hne+TijiBGCx7lFC2e0hHhIIoBDoKvNyGUDHu+o75ag+
-	he+NI30pB394K8EA7QVzf0UjVojHFVL0Gua7KaprSVtRtjDuKtyWWRWqL59LkS3o3Kj27YiUYyc
-	MAjwvSOhxjyCyu2/vOEiKniS3Wbq3qLQnnRtC30yx2fmbMNg734FI8pwwhRnX6r3xA9ujDy/5pm
-	DxQkjUaKx+s/8JzdT7uAPD8yfse3xjZP745h1IYIg+iD9Qs4N3SobEZJ4RlC0BxJKP4rv7OEEB7
-	ZxUQhpeLj4Ude8bBF7GRjEJlBAqGeBpvkf4WCD8FFa0Jt8EcIiisgU+CEilX52g6wog23Tu43wm
-	2YC+RpXWwC4QKWFdtohSmqBIE+1IXiPIkhf077suJHvn5pT0c0tkByMVr3DyUgN2JBcuQPcf+uE
-	stBIR0dqnHlD512fFoJZvdhV0MEbhhjzyUdrTQXEgfsR1UXCGpi+Saf9OOsOZIBngJdxLnzDuyB
-	+xk7eOHZA1cRBczZ8SJfHjG2AtEN5O95l//M1gz8wfYdEdyBbyfCNmTpOxrZvsk8zX3VsiX91Mu
-	8+2m2/A0LHsuTQ==
-X-Received: by 2002:a05:6000:468f:b0:472:8343:7f5b with SMTP id ffacd0b85a97d-47550da01acmr2998787f8f.17.1782811618024;
-        Tue, 30 Jun 2026 02:26:58 -0700 (PDT)
-Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-82-48-44-238.retail.telecomitalia.it. [82.48.44.238])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47567a6f0ddsm5669083f8f.37.2026.06.30.02.26.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 02:26:57 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	francesco.utel@engicam.com,
-	michael@amarulasolutions.com,
-	domenico.acri@engicam.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v6 12/16] arm64: dts: st: add spi1 pins for stm32mp25
-Date: Tue, 30 Jun 2026 11:24:41 +0200
-Message-ID: <20260630092628.1695560-13-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260630092628.1695560-1-dario.binacchi@amarulasolutions.com>
-References: <20260630092628.1695560-1-dario.binacchi@amarulasolutions.com>
+	id 1weUlT-0000000GQyb-2biT;
+	Tue, 30 Jun 2026 09:28:27 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0200C1CB1C0;
+	Tue, 30 Jun 2026 12:20:24 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baodeep.com; s=dkim;
+	t=1782811230; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=+b12GfQ8In3o4ovjul5sBZbhYkFtSmsBEzRp61e6vmg=;
+	b=c41trpg9FwCyH/Bhr0WpgflKpMSuo4ZMhShALqn7X/iaJeIVZ25Pee4Mgph7HO8HwfXQ0o
+	OpVm+We7kMtlm6TX2Bvg8cenRxUXl/daSYdhhas7CmpED9goK6paeKeiCiCAkO2T/gk+Bx
+	9/W/mOfO/EuqEn3DYSuxFOhoojF+MPldKOyiL3d98bn2j5Ll353kIFNY2qmjpjlHzj0oBb
+	9raO6C0WxXUdWFf1Fh127vdvGLBPOLVMkjRuqvi8d5W4nZPZlu7TG7Tu0oca3W5r+LM+9E
+	Mhs0G7LCI+zG5UwKJ7TFp9ynjIC9ewBN5n/fTb3GWuMWoQfGelD2XnSN1h3DIg==
+Message-ID: <1877bda5-8724-4de8-8898-a7730344bdc9@baodeep.com>
+Date: Tue, 30 Jun 2026 12:20:08 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] gpio: shared-proxy: always serialize with a
+ sleeping mutex
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>,
+ Diederik de Haas <diederik@cknow-tech.com>, linux-gpio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Linus Walleij <linusw@kernel.org>
+References: <20260625115718.1678991-1-v@baodeep.com>
+ <20260625115718.1678991-2-v@baodeep.com>
+ <CAMRc=McgB0gYfvE1KMXkNFnMgx6ahKoMFb2pi0_AF03m4BDk_g@mail.gmail.com>
+Content-Language: ru
+From: Viacheslav <v@baodeep.com>
+In-Reply-To: <CAMRc=McgB0gYfvE1KMXkNFnMgx6ahKoMFb2pi0_AF03m4BDk_g@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_022659_916861_DB741C0B 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20260630_022823_891944_91F39D19 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,52 +77,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the spi1 pins used on MicroGEA-STM32MP257-RMM board.
+Hi!
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
----
+29.06.2026 20:06, Bartosz Golaszewski wrote:
+> On Thu, 25 Jun 2026 13:57:17 +0200, Viacheslav Bocharov <v@baodeep.com> said:
+>> The shared GPIO descriptor used either a mutex or a spinlock, chosen at
+>> runtime from the underlying chip's can_sleep:
+>>
 
-(no changes since v1)
+... snip ...
 
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+>>
+>> @@ -32,7 +34,7 @@ gpio_shared_proxy_set_unlocked(struct gpio_shared_proxy_data *proxy,
+> 
+> I was about to apply it but then realized that it can be simplified further.
+> The set_func() argument in gpio_shared_proxy_set_unlocked() is no longer
+> needed and can be replaced with a direct call to gpiod_set_value_cansleep().
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-index c816a6aece47..4e570e2e5157 100644
---- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
-@@ -702,6 +702,30 @@ pins {
- 		};
- 	};
- 
-+	/omit-if-no-ref/
-+	spi1_pins_a: spi1-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 6, AF3)>, /* SPI1_SCK */
-+				 <STM32_PINMUX('I', 5, AF3)>; /* SPI1_MOSI */
-+			drive-push-pull;
-+			bias-disable;
-+			slew-rate = <1>;
-+		};
-+		pins2 {
-+			pinmux = <STM32_PINMUX('F', 12, AF3)>; /* SPI1_MISO */
-+			bias-disable;
-+		};
-+	};
-+
-+	/omit-if-no-ref/
-+	spi1_sleep_pins_a: spi1-sleep-0 {
-+		pins1 {
-+			pinmux = <STM32_PINMUX('G', 6, ANALOG)>, /* SPI1_SCK */
-+				 <STM32_PINMUX('I', 5, ANALOG)>, /* SPI1_MOSI */
-+				 <STM32_PINMUX('F', 12, ANALOG)>; /* SPI1_MISO */
-+		};
-+	};
-+
- 	/omit-if-no-ref/
- 	spi3_pins_a: spi3-0 {
- 		pins1 {
--- 
-2.43.0
+Good catch! This would even remove the extra fuss with the GPIO state.
 
+> Would you mind sending a v3 with that included?
+
+Yes, I'll prepare the updates and send v3.
+
+> 
+> Thanks,
+> Bartosz
+
+
+Best regards,
+Viacheslav
 
