@@ -4,138 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CCE6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3660C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qbXlLovb4H6Gdc9uKHB/7utx5WZwtewrEyKBzVtoB50=; b=UpL8sOLDyc/4Jj4+5VGJyfwhQS
-	jTVowfWzE7T3adXtPOYcTfnuxvmq+l3x2X7NyXD2pHO2Waw5PyjoT5G0QW2YpNI1fullETHdw4D0k
-	hBCHcub2aU1l0j9p/mAJ+fjsiBCchsDDNkRGVDfBTuIAHT/S5F0YUqy/QsKe8CS+eZGzChBFhY6Jk
-	EM2aI1N5oyatagdS96Uo23b6TCeTv39pYTOwgEi+Qrgk1v/3irHp9f5DibqpmffB1MB62BbrczlX8
-	zL3MpRhoCB3bhoPgF0xthr4AS/GPK8J0i3ajOQdDAn1wsrOvruLRSCJWIMO5msjZz34FPmVr5f1OZ
-	njZZCcoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tql1m+bGQMDRHYhvNQkD5BUwGzZqgpkkLLwEUbCEnPw=; b=G21yi48L5wasZKXbYx5TVA/uO+
+	ASQORJmHi8zrFn1Pf4iLm71GIybb6k2jpOoX4GbZeMhxP32Da+3DA61/ZYN57iLIElCquiyQSk0O2
+	sFJycfdgGF/7tSvATWONJLZi+O5gFjUlDiD3ORKZdmTtXc29f9ZDH2xvDvzRISHp8PHVeJ/qg98f7
+	mMxWAqjf9tAu6Q1RSasM0VA4gE0DbeZc6JzHgwVL/XRIGz9vE7OYv5erX2acCil6hVAn0oq42krdQ
+	iv+wicuLVvHQKYNFHgJxwA9fd5Pvqisl6+afcGi4Cmc9ju3hHbxagcP446Bc6J+roUPi7YFYCtIMB
+	Grg0OkMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYYs-0000000HAiQ-3NFw;
-	Tue, 30 Jun 2026 13:31:38 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYYk-0000000HAYO-0t5P
+	id 1weYgB-0000000HBU0-0fqU;
+	Tue, 30 Jun 2026 13:39:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weYg8-0000000HBTP-3k5f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:31:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fdQcP5UxkU1qTZJ9Kp/ZYzyRxfJCY9GRiwYdhil8ExR+ccPTmecLjTrMP5rbVlUm5M8kkv37bM00oHfd7IaPsJUSJBAMSRSptPUBoiyZl3ThcHjrGelKQ6Sf2T+8L7dAqB/F+cQkbnBit8ERBgRZ0C/g+nysmaZRK3uDAxSmfNKvi+8urPUYOylc3wKyZYoqS2AKioQ7uaJ8x4/jkHbKXbvWkm/Sb9KzTEaUJI1IAIbD1i5rGJG4MzuwQhTvbC6mUigS5uzIHyGSiW9rr7TNlKaZeEa2P4w0EvpU+lbTyWTuLw1twL7KAHtQkKV9daFBpFGyLnElCzI4ZDRpRqICMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qbXlLovb4H6Gdc9uKHB/7utx5WZwtewrEyKBzVtoB50=;
- b=HYJjY4OBV+fv6SFJWILmS9iCenyAfuqkksc/LEe0pp+NLAlGTdN/g0tT4UitA6ipvNG2OAJCKLwpu/m9aIhIlab8sDPBvKuVd/PlpfemeRlP+pWHqZOAoAJgOrGoBpTBbdJc04Jkw6k5CBLd1zg1Id6IOJyZv3cXuVIsvcUYEQIzbYG8Ke0xWtA1IqI8ypIGFiOUg7A/PCCzQSpD7V1F/0RRYiK/wUJrqoROdXEwdhm9lem8eIA21naWHjc9KBP9KBMJcoA2ylWEafQ9YMTd0jzZpIhHKkzWtJ2dj0aCC5Xbxpwskin/+upYgTil9HY7wuA4zXMbgDXu5mUVg6ESdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qbXlLovb4H6Gdc9uKHB/7utx5WZwtewrEyKBzVtoB50=;
- b=NPS0pjgbJUvlaIJijqnT74UQl+djnpmIMmRe0grkdMm4CkJ0SeZuZ6z7dKu+MlRw+jFZfBGrHfV8ykIxSVTLy+5GALmQRaq27u7CcvIjvAPsI6J43lRw81/AZnia9UiudMrxaM3BK6DN+q39Bnnsjt4wJ5K71rTZAlEZuBKZCbKCdeVxQhidmOYxgg5M2Q4MdL34QI/E6MUJ5nqu8Gem+5xHKXVWgYCnTIUPi40EvF2EC3rytjm8hD7yGpAHI/ImRt4spfi/ZQ+br0K3Yz1x2wLUL/BdFcQ60Zu1XmZaktSno9v/M6KyeesyAYRELeJr77fVu9Fk0Qk31PKYA1XitQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by PH0PR03MB6955.namprd03.prod.outlook.com (2603:10b6:510:172::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 13:31:11 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
- 13:31:11 +0000
-From: muhammad.nazim.amirul.nazle.asmade@altera.com
-To: dinguyen@kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: rmk+kernel@armlinux.org.uk,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	robh@kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] arm64: dts: socfpga: agilex5: Add SoCDK TSN Config2 board
-Date: Tue, 30 Jun 2026 06:31:07 -0700
-Message-ID: <20260630133108.27244-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR13CA0163.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::18) To SJ0PR03MB6964.namprd03.prod.outlook.com
- (2603:10b6:a03:432::18)
+	Tue, 30 Jun 2026 13:39:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0409219F6;
+	Tue, 30 Jun 2026 06:39:01 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7744E3F673;
+	Tue, 30 Jun 2026 06:39:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782826745; bh=C/TZ3bGh+kkFpicAEOzK4d4McZW2dZtSMkIyUAEDH+8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lpTYVAAVE4xXlwuOd4iTzsrHrSktagKHLideDJ29Cp/OTEx7F89i4qrF3Zgw2O77e
+	 bFiTJNwQ51ykkQXPsy4bfoeyamhhrJLaJhlH/KMSaDouxXGEvZnoQpuRfa4VkdYDL9
+	 Iexs6eNKXtXt6Qq81VdQWpTcmxJAkbQr+lLKlV6E=
+Date: Tue, 30 Jun 2026 14:38:59 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>, Ard Biesheuvel <ardb@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3] ARM: entry: expand comment in __switch_to
+Message-ID: <akPG841symlzalh-@J2N7QTR9R3.cambridge.arm.com>
+References: <20260630-comments-in-switch-to-v3-1-87a946a3fddd@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|PH0PR03MB6955:EE_
-X-MS-Office365-Filtering-Correlation-Id: dcd68589-d105-456b-d096-08ded6abd9c2
-X-MS-Exchange-AtpMessageProperties: SA
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|23010399003|55112099003|6133799003|22082099003|11063799006|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: SaUnW4cDPJntbX4RB3Sqtil75RRNviQPtVCVGQccuckM76Lb3qbZUQjCmxpC/sW1obcsdtOEpO1iTNWwQ9F9A5KtlM842Ce/S4P0aXDfd0Xr6Ehs913fGfDNueKMD92BOYkyBX3t9pwNsOOTJWQOn+qvUeCHn6QYjXEozZ9yvV/zcHcPtrHC0qZNDvUigXqeliJRzPbVYBM6WbvWXHvRNa65D6lOuDM3irtT4H8zvFuzqbS75s02RY065G1Q51fc/ajUR9YV1xn/fMjzUXpiKkwHt1c8YkgXeZFYElgYKps1Uc7R6KgGpXMgls5J8kDQcBGmlYtgBFZQ0DKoq6cmNEBrRqrRsFmspQczUyt1DJ3Wht4HDHSqlYnXOldQ+jA4eR/RFnrfdowuzSBPp6JcwcPFGIPpdVzXDNCzjm3QKPE7j890xtV9hXSpwhN7FM+V0GpB6LsEjxuMgLM+hrWM5GwENvIOHwS79ZJtkNrkPWY1/loCE4mXK5P908Pv1k1dDP1pB90q/Akl/JF/pM6iOjU/jhAyUcU5y0XID+FmPdPEmPNwTrg59P/Z9RIrwxL4Zy5FpBuA0GRwXTdDIgTEMz6Z7xw4UH95yfIiajkj10CZWZTRT80an04JsS47w96s1k6WDj35uEXXjLiPGecrfjpWHmjL6F3YxT9sI+VBoNA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(23010399003)(55112099003)(6133799003)(22082099003)(11063799006)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vK04y0P+amQ20U97TKXazpva5MSENAf0/t1SDSoq4He2wfLcfEUBAYFmip4G?=
- =?us-ascii?Q?0algSExyA2o10ckOXBU3cHeggCv4sVefLRmhTGvEPIg5Nun9j4b800YkrEpd?=
- =?us-ascii?Q?77y70fq0UQVbh4fvjYUPNh6qY6uR8yUqyP8Dz8ZNXbWhq6R6oYnTpYOnxPqR?=
- =?us-ascii?Q?BccIinw++xGBy5ryJHcdsFQaiM4Sx7oFKbhlBQKL3ycAcPqR27dnEYBiqmgw?=
- =?us-ascii?Q?unpuM4nAfGOxl2NqPOrt0Xrp3dT+jIhAAZut8ZrtnnIUghF9v9NQUj8bMilM?=
- =?us-ascii?Q?rJzeKF+AIH3UtHkOK3zDFYqflWEG2UB1qv0UccFrkdFQhL+cG+Y5xkUKirby?=
- =?us-ascii?Q?JjKJTl5CyTSUaggG/8KXBYbwrCfkfxzwHcwW/1fUm9ra1+gB0WscnnjwbAb3?=
- =?us-ascii?Q?t9kiPZE8meoeVJ6XAwwFMei1S6+qJqoZWivgvKCt6D1I6vCeqlD90T1YFrlt?=
- =?us-ascii?Q?CnQ4A0MWLE7zX8tVF0DnUWcl8Eh4IAar4K38eRJlUBU+R4nnU2lM96ai2awh?=
- =?us-ascii?Q?lGvVEkO3RxZe5qIoxNEDspmCHE6/SjcZ7iCw8L0si998yExXHQmk+UgSecRR?=
- =?us-ascii?Q?hJ1xCAh4ymqTyLFK6egULOKkg0E/Imr+aVX0HYYhR9H8ZJuf32hrkOdvo/Zv?=
- =?us-ascii?Q?x+K/hD7piK0/glyVdmbXhz7JmiSeyWjnGwIS2l/AkPc/5Sj7iQvhKQwG247w?=
- =?us-ascii?Q?T66BouDMv6kLzuT9cOCVqGeMIiOdv6mkaj71XXbF/u3RKXKz7eFA/UeFM2AJ?=
- =?us-ascii?Q?9BtycQJX9rayzz007t3Lno2MZ8ov700hPIWeXxCAau/zeDqAcSaxQ22poc5G?=
- =?us-ascii?Q?LbIgiHyLHk2c98GFGTW/WzShmUqPMw6d7VvXGQpuCa0gC08vLW9DhxKAqc/G?=
- =?us-ascii?Q?w80u1iQa5d/zUu9wYIEh4az2WjZlNVz04doF5sMNqAc7Mp/B1ujhtReG9Ufo?=
- =?us-ascii?Q?srpAL6BjAFV3Afo+XtoN8pAmxEo6p+frTxsK25N739tSICbrFjH7FjbubMBQ?=
- =?us-ascii?Q?IsSysVSbewq9uL4VDywZjYl20hvva/wUyqURoZzL1V9p7eZQw/Dx5SdsFwN3?=
- =?us-ascii?Q?/shaP6skCULX/s9muNO/moM8SA9NH+ySc0ykpUbyNoc/pUbDpNfsm7l1ND+L?=
- =?us-ascii?Q?yTbcckkm/S4xzoZbPsimqH+KtKKVm/GYAfsAVYA0Tad5e5zoj97bB3YuPh94?=
- =?us-ascii?Q?AI0/dEqgOYgryE0iKoIJRsZY1i81FOoCbTFsSLAkhWWD+ShnkcMkcryp/rlm?=
- =?us-ascii?Q?jUk1u8IJC3YfsBom8j9XXQoI8MSmHXeoWF8CoTJaVAw0Qa9GaPdJN0BTD4pT?=
- =?us-ascii?Q?15cNmXopnPBXd79WK4v5zzKYH0Kb/R2a/L02DPJkFXRScDJF4XxOS9hHHFh7?=
- =?us-ascii?Q?wz09gI0Gy43vZFOHgtOzl1Ju4Xxhoqb0L4eXXoPiIFlCdrQZ3eT9nmq5zz07?=
- =?us-ascii?Q?9Y3U78agDbONqPO8BPyDWNpOjPoBPkO6b6UT31JS0hHVEDM3of1u8rJdaoMQ?=
- =?us-ascii?Q?96/vU4mWbQUytPdfoPkGWtUMadcvIzDPB0QHn2Pdnns0uWZnMpABlIH0HHC7?=
- =?us-ascii?Q?JDQmxqwIBQBHpKUI1zY+CbLrnIgYUsJvz4+ASzHoEZB2zZxepp1mgEDSd6FW?=
- =?us-ascii?Q?dpEuUMSMl4uxDTBtWi3VVJIdB00e2vtYVJ9HYhHe9YR29Y0jd0A6orZJeoZc?=
- =?us-ascii?Q?gE4KvdsJcl8kiufcJPdGsZg29ocZImnMLGnSHkutAP6arA2z1dF5denImfDt?=
- =?us-ascii?Q?w7TbezWaoIs0pG6qXeda1smzf3pI2sCGTYZJABJaMET9Y8Mj5e4jIghZOsYJ?=
-X-MS-Exchange-AntiSpam-MessageData-1: oinD/mptHUTLrA==
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dcd68589-d105-456b-d096-08ded6abd9c2
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 13:31:11.5980
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Yv8MPrMUhzVbFAG46/VTn1vsouKzd7BR3sSvBLXuC63EozAeAIFoQt5B9CAdKkWLOz+OjQzc82UKFRrkJDLRmroFK62iTEQYkQXIryEI7Pv2EhZEyCbwkgIrB7n46oXeOPW38EL8JP8tXvLH6Whkig==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR03MB6955
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260630-comments-in-switch-to-v3-1-87a946a3fddd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_063130_293856_55178616 
-X-CRM114-Status: GOOD (  16.17  )
+X-CRM114-CacheID: sfid-20260630_063908_998348_AFE1DC39 
+X-CRM114-Status: GOOD (  26.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,181 +68,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+On Tue, Jun 30, 2026 at 11:38:55AM +0200, Linus Walleij wrote:
+> From: Linus Walleij <linus.walleij@linaro.org>
+> 
+> As per discussion between the developers in the mail thread
+> linked, expand the comment in __switch_to so that readers
+> of the code understand what is going on.
+> 
+> Link: https://lore.kernel.org/linux-arm-kernel/ZxDh9biUbf9W8gNN@J2N7QTR9R3/
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+> Acked-by: Mark Rutland <mark.rutland@arm.com>
+> ---
+> Changes in v3:
+> - EDITME: describe what is new in this series revision.
+> - EDITME: use bulletpoints and terse descriptions.
+> - Link to v2: https://lore.kernel.org/r/20251216-comments-in-switch-to-v2-1-190d8741db14@kernel.org
 
-Add device tree for the Intel SoCFPGA Agilex5 SoCDK TSN Config2 board
-variant. This configuration enables gmac1 as a TSN port alongside
-the standard gmac2 Ethernet port.
+Looks like you might have forgotten something here. ;)
 
-The TSN port (gmac1) uses GMII internally in the MAC but connects to an
-RGMII PHY. The mac-mode property is set to "gmii" to reflect the
-MAC-side interface, while phy-mode is set to "rgmii" for the PHY-side
-interface.
+This looks good to me, so I reckon you should drop it into Russell's
+patch tracker:
 
-Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
----
- arch/arm64/boot/dts/intel/Makefile            |   3 +-
- .../intel/socfpga_agilex5_socdk_tsn_cfg2.dts  | 133 ++++++++++++++++++
- 2 files changed, 135 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_tsn_cfg2.dts
+  https://www.armlinux.org.uk/developer/patches/
 
-diff --git a/arch/arm64/boot/dts/intel/Makefile b/arch/arm64/boot/dts/intel/Makefile
-index 270c70fdf084..fc7ba2c6384b 100644
---- a/arch/arm64/boot/dts/intel/Makefile
-+++ b/arch/arm64/boot/dts/intel/Makefile
-@@ -4,10 +4,11 @@ dtb-$(CONFIG_ARCH_INTEL_SOCFPGA) += socfpga_agilex_n6000.dtb \
- 				socfpga_agilex_socdk_emmc.dtb \
- 				socfpga_agilex_socdk_nand.dtb \
- 				socfpga_agilex3_socdk.dtb \
--				socfpga_agilex5_socdk.dtb \
-+			socfpga_agilex5_socdk.dtb \
- 				socfpga_agilex5_socdk_013b.dtb \
- 				socfpga_agilex5_socdk_modular.dtb \
- 				socfpga_agilex5_socdk_nand.dtb \
-+				socfpga_agilex5_socdk_tsn_cfg2.dtb \
- 				socfpga_agilex72_socdk.dtb \
- 				socfpga_agilex7m_socdk.dtb \
- 				socfpga_n5x_socdk.dtb
-diff --git a/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_tsn_cfg2.dts b/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_tsn_cfg2.dts
-new file mode 100644
-index 000000000000..f84f41a647ae
---- /dev/null
-+++ b/arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_tsn_cfg2.dts
-@@ -0,0 +1,133 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2026, Altera Corporation
-+ */
-+#include "socfpga_agilex5.dtsi"
-+
-+/ {
-+	model = "SoCFPGA Agilex5 SoCDK TSN Config2";
-+	compatible = "intel,socfpga-agilex5-socdk-tsn-cfg2", "intel,socfpga-agilex5";
-+
-+	aliases {
-+		serial0 = &uart0;
-+		ethernet1 = &gmac1;
-+		ethernet2 = &gmac2;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			label = "hps_led0";
-+			gpios = <&porta 11 GPIO_ACTIVE_HIGH>;
-+		};
-+
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		/* We expect the bootloader to fill in the reg */
-+		reg = <0x0 0x80000000 0x0 0x0>;
-+	};
-+};
-+
-+&gpio0 {
-+	status = "okay";
-+};
-+
-+&gpio1 {
-+	status = "okay";
-+};
-+
-+/*
-+ * gmac1 is the TSN port. The MAC operates in GMII mode internally
-+ * while the PHY-side interface is RGMII, so mac-mode and phy-mode differ.
-+ */
-+&gmac1 {
-+	status = "okay";
-+	phy-mode = "rgmii"; /* TX/RX clock delays provided by Agilex5 I/O hardware */
-+	mac-mode = "gmii";
-+	phy-handle = <&emac1_phy0>;
-+	max-frame-size = <9000>;
-+
-+	mdio0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "snps,dwmac-mdio";
-+
-+		emac1_phy0: ethernet-phy@0 {
-+			reg = <0>;
-+		};
-+	};
-+};
-+
-+&gmac2 {
-+	status = "okay";
-+	phy-mode = "rgmii"; /* TX/RX clock delays provided by Agilex5 I/O hardware */
-+	phy-handle = <&emac2_phy0>;
-+	max-frame-size = <9000>;
-+
-+	mdio0 {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "snps,dwmac-mdio";
-+
-+		emac2_phy0: ethernet-phy@0 {
-+			reg = <0>;
-+		};
-+	};
-+};
-+
-+&osc1 {
-+	clock-frequency = <25000000>;
-+};
-+
-+&qspi {
-+	status = "okay";
-+	flash@0 {
-+		compatible = "micron,mt25qu02g", "jedec,spi-nor";
-+		reg = <0>;
-+		spi-max-frequency = <100000000>;
-+		m25p,fast-read;
-+		cdns,read-delay = <2>;
-+		cdns,tshsl-ns = <50>;
-+		cdns,tsd2d-ns = <50>;
-+		cdns,tchsh-ns = <4>;
-+		cdns,tslch-ns = <4>;
-+		spi-tx-bus-width = <4>;
-+		spi-rx-bus-width = <4>;
-+
-+		partitions {
-+			compatible = "fixed-partitions";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			qspi_boot: partition@0 {
-+				label = "u-boot";
-+				reg = <0x0 0x04200000>;
-+			};
-+
-+			root: partition@4200000 {
-+				label = "root";
-+				reg = <0x04200000 0x0be00000>;
-+			};
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	status = "okay";
-+};
-+
-+&usb0 {
-+	status = "okay";
-+	disable-over-current;
-+};
-+
-+&watchdog0 {
-+	status = "okay";
-+};
--- 
-2.43.7
+Mark.
 
+> 
+> Changes in v2:
+> - Rebased on v6.19-rc1
+> - Link to v1: https://lore.kernel.org/r/20241028-comments-in-switch-to-v1-0-7280d09671a8@linaro.org
+> ---
+>  arch/arm/kernel/entry-armv.S | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+> index a3d050ce9b79..2d2ea3ca880c 100644
+> --- a/arch/arm/kernel/entry-armv.S
+> +++ b/arch/arm/kernel/entry-armv.S
+> @@ -557,9 +557,16 @@ ENTRY(__switch_to)
+>  	ldmia	r4, {r4 - sl, fp, ip, lr}	@ Load all regs saved previously
+>  #ifdef CONFIG_VMAP_STACK
+>  	@
+> -	@ Do a dummy read from the new stack while running from the old one so
+> -	@ that we can rely on do_translation_fault() to fix up any stale PMD
+> -	@ entries covering the vmalloc region.
+> +	@ For a non-lazy mm switch, check_vmalloc_seq() has ensured that
+> +	@ that the active mm's page tables have mappings for the prev
+> +	@ task's stack and the next task's stack.
+> +	@
+> +	@ For a lazy mm switch the active mm's page tables have mappings
+> +	@ for the prev task's stack but might not have mappings for the
+> +	@ new task's stack. Do a dummy read from the new stack while
+> +	@ running from the old stack so that we can rely on
+> +	@ do_translation_fault() to populate missing PMD entries covering the
+> +	@ new task's stack in the old task's page tables.
+>  	@
+>  	ldr	r2, [ip]
+>  #ifdef CONFIG_KASAN_VMALLOC
+> 
+> ---
+> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+> change-id: 20241028-comments-in-switch-to-0e24480e8495
+> 
+> Best regards,
+> --  
+> Linus Walleij <linusw@kernel.org>
+> 
 
