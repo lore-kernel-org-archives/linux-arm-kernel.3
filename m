@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A12C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:09:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E2FC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B5CJTk2TlD92UoezyHqsHilXeiTs4Pq4ZgYFgjk1fNM=; b=Jthi7kWbTLtSOPNFalfJAiSJMP
-	5Fp1B1L1L4ndcfD0FSrD2QYI1WSU6paBW5pSBjAZn/l5Phe0r60v6nH0PjvWAMb8eTbyol+orv/0X
-	6rR7Jsa1mZWuahnRfjfCKiTcO+9IbXttwtzxoiRkEPG8sudxJF2fMadQvkGXrWTGu3B2EUTD630XH
-	26Fbvd76UHrjatPvy6GnVQmK9kwGBHvcAl1Tadn1kwxQ63EXXijQxOLIw5oBgouNd5Yj7kVz/qAqB
-	xjNfRgdnqRKQ9OswqPu8QMwOUZVnYW4/AroU0uvI5gklaLExsoZzlkoHaOU/QcoYjK1BbDCs8jAVl
-	s7U9Rsdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KL2Qh3JlwcMGBS2Xp+GdGwlsEo7x8Qy6c5ebOhuRvXM=; b=dyMVdu8AC2GXIYqZU2JtL+gLTn
+	xv1oUW4bDe6CstRl9aRW8nT1ALTG4GUuF+jQmmSkCGSKg7//0pe8r0L393VaYDjavS2pX/ndM1xy6
+	MC1XGjXGSjYyariHE0UbtIaw1jhSB8YXBDonA46zKHDzlgE6bw5ALRwunFZ2+0VBkqY0MZgw37DEe
+	gK/8+xArG7Bm2Fy9kYdTq9XrpIQWRP4l6j99pjMDuqbYOFDJo2Nlr4AT1G9qbJJ15HP8UU/Sc+aRh
+	V7gFejPzcJgLvWz6jj9SVTY9rnmvCzXUY9gQZcRnXhRWwYw8rWXDC9UzOrA/wj4EWQTQlparpzT6b
+	1n1eK9pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webxp-0000000HY0u-2PUj;
-	Tue, 30 Jun 2026 17:09:37 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webxn-0000000HY0E-1DUF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 17:09:36 +0000
-Received: from thinkpad-p16sg1.corp.microsoft.com (unknown [20.236.11.42])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 606FD20B716C;
-	Tue, 30 Jun 2026 10:09:32 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 606FD20B716C
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1782839372;
-	bh=B5CJTk2TlD92UoezyHqsHilXeiTs4Pq4ZgYFgjk1fNM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lqMj+EEx6yimT5SdLBxPpYjQVeixzMgWJxE3inL7BSg7A8SIwXJw9/SY3hMdm+e2F
-	 B4YadK9ITH+eLe9c7LsalSb5FNRP8fJJGvoWAnL+APrr3XphmWzeBv2nRpYtGgU0/5
-	 H4Po029v5P7HCLxZZkL5nAHTbp9PT+RnE384lSTY=
-From: Shyam Saini <shyamsaini@linux.microsoft.com>
-To: shyamsaini@linux.microsoft.com,
-	ardb@kernel.org,
-	catalin.marinas@arm.com,
-	david@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	will@kernel.org
-Cc: akpm@linux-foundation.org,
-	bboscaccy@linux.microsoft.com,
-	bp@alien8.de,
-	dapeng1.mi@linux.intel.com,
-	ebiggers@kernel.org,
-	elver@google.com,
-	enelsonmoore@gmail.com,
-	feng.tang@linux.alibaba.com,
-	gpiccoli@igalia.com,
-	kees@kernel.org,
-	kuba@kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	lirongqing@baidu.com,
-	peterz@infradead.org,
-	rdunlap@infradead.org,
-	rppt@kernel.org,
-	tgopinath@linux.microsoft.com,
-	tony.luck@intel.com
-Subject: Re: [RFC v2 PATCH] reserve_mem: add support for static memory
-Date: Tue, 30 Jun 2026 10:09:11 -0700
-Message-ID: <20260630170911.43521-1-shyamsaini@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <aj6SqipC/dIN01iN@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
-References: <aj6SqipC/dIN01iN@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+	id 1wec2R-0000000HYLj-0EAp;
+	Tue, 30 Jun 2026 17:14:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wec2P-0000000HYLX-35Kt;
+	Tue, 30 Jun 2026 17:14:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C5294600FC;
+	Tue, 30 Jun 2026 17:14:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174F41F000E9;
+	Tue, 30 Jun 2026 17:14:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782839659;
+	bh=KL2Qh3JlwcMGBS2Xp+GdGwlsEo7x8Qy6c5ebOhuRvXM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=IPckqt5KA/8jJBh7o3E+1zaKIw3HHmP0Ha8iqh3DNz08lMmyrAat4Vqsxk0vWlUNZ
+	 1Fpq3CaHT/CFIjtL9EPMhkIX5gzwu7lVyA+UqJExC605cULzigG4TS1jkZ2dIhOmpb
+	 xgAV39foJ9AsEwpyj9kthoRrfiiH6Jnxw2wUczMdKaAhCIoLT/Z7T4O2ndYD8KXXQD
+	 ybf/cRNQXFOgEo9kAf72EQ1cHVj8QoIKWezWdQe/9qspbW2xnJegWoxi9Shc8plDSB
+	 tG7jiR5WFggpbeB9mUZe/MBfAfFo19emmPLxN1Tbdq3QsLKbquJxgLft3tpJ7uSfQu
+	 gSRHUQq/7hudg==
+Date: Tue, 30 Jun 2026 18:14:11 +0100
+From: Conor Dooley <conor@kernel.org>
+To: lizhi2@eswincomputing.com
+Cc: devicetree@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, netdev@vger.kernel.org,
+	pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
+	pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maxime.chevallier@bootlin.com, ningyu@eswincomputing.com,
+	linmin@eswincomputing.com, pinkesh.vaghela@einfochips.com,
+	pritesh.patel@einfochips.com, weishangjuan@eswincomputing.com,
+	horms@kernel.org, lee@kernel.org, wens@kernel.org
+Subject: Re: [PATCH net-next v9 2/6] dt-bindings: ethernet: eswin: add
+ EIC7700 eth1 RX clock inversion variant
+Message-ID: <20260630-kennel-depict-ad1572381eb1@spud>
+References: <20260630063123.1118-1-lizhi2@eswincomputing.com>
+ <20260630063239.1158-1-lizhi2@eswincomputing.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_100935_383817_87924326 
-X-CRM114-Status: GOOD (  35.20  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FV9cckqVldztFxpL"
+Content-Disposition: inline
+In-Reply-To: <20260630063239.1158-1-lizhi2@eswincomputing.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,79 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Everyone,
+--FV9cckqVldztFxpL
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> On 25 Jun 2026 11:37, Mike Rapoport wrote:
-> > Hi Shyam,
-> > 
-> > On Wed, Jun 24, 2026 at 06:22:33PM -0700, Shyam Saini wrote:
-> > > On 21 Jun 2026 13:36, Mike Rapoport wrote:
-> > > > On Thu, Jun 18, 2026 at 11:23:31PM -0700, Shyam Saini wrote:
-> > > > > reserve_mem relies on dynamic memory allocation, this limits the
-> > > > > usecase where memory is required to be preserved across the boots.
-> > > > > Eg: ramoops memory reservation on ACPI platforms
-> > > > >
-> > > > > So add support to pass a pre-determined static address and reserve
-> > > > > memory at a specified location. This enables use case like ramoops
-> > > > > on ACPI platforms to reliably access ramoops region with previous
-> > > > > boot logs.
-> > > > > 
-> > > > > Also skip the parsing of <align> when static address is passed.
-> > > > > 
-> > > > > Example syntax for static address
-> > > > >  reserve_mem=4M@0x1E0000000:oops
-> > > > 
-> > > > reserve_mem is best effort by design because such hacks as well as memmap=
-> > > > cannot guarantee this memory is actually free.
-> > > > 
-> > > > If you want to preserve ramoops reliably, use KHO with reserve_mem.
-> > > > The first kernel will allocate memory, this memory will be preserved by KHO
-> > > > and could be picked up by the second kernel.
-> > > 
-> > > ok, On ARM64 DTS systems, we can reserve ramoops memory in the device tree during
-> > > the warm reboot.
-> > 
-> > The cc list actually implied x86 ;-)
-> > Added arm64 folks now.
-> 
-> Thanks for adding ARM folks, I had just included whatever get_maintainer script
-> suggested, sorry. 
-> > > For an equivalent ARM64 ACPI platform, what is the recommended way to reserve
-> > > and preserve that memory across the boots? 
-> > 
-> > I don't think it exists, but a command line option (be it memmap= or
-> > reserve_mem=) does not seem the right way to me.
-> > 
-> > Most of the arguments that were made against adding memmap= to arm64 [1]
-> > apply here.
-> > 
-> > If kexec is an option, KHO provides a reliable way to preserve memory
-> > across boots.
-> > 
-> > If kexec is not an option, we should look for a generic way to specify
-> > something like DT's reserved_mem for ACPI/EFI systems.
-> > 
-> > [1] https://lkml.kernel.org/lkml/20201118063314.22940-1-song.bao.hua@hisilicon.com/T/
-> > 
-> Well, kexec is one of the option for my use case, it also requires
-> memory reservation during warm reboot, I think memory can be reserved in
-> the firmware but this will create a dependency on firmware for Linux
-> reservation.
-> 
-> It would be great to have a in kernel memory reservation mechanism for
-> ARM64 ACPI platforms. I believe some other use cases like PMEM
-> reservation would also benefit from this.
->
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Following up on this, As Mike pointed that reserve_mem is best effort
-reservation mechanism, so what is the recommended reliable Linux
-mechanism, if any, to reserve a predetermined memory range during
-early boot on ARM64/ACPI platforms for warm boot scenarios? KHO is
-one option, but I'm specifically looking for a solution that preserves
-the region across warm reboots.
+--FV9cckqVldztFxpL
+Content-Type: application/pgp-signature; name=signature.asc
 
-Please let me know.
+-----BEGIN PGP SIGNATURE-----
 
-Thanks,
-Shyam
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakP5YwAKCRB4tDGHoIJi
+0ivXAP9PZtCkBxkZG5rl5e4zSoQMTxB0Fq9zhsdUTq8V3Tq5uQEA12mNGB1ngWZw
+6ygV3Z3Xn/OI2pRFvtxK/25tHcy3xws=
+=1Xpo
+-----END PGP SIGNATURE-----
+
+--FV9cckqVldztFxpL--
 
