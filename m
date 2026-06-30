@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F40C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEBEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lbxl0m8dqRUdntFCeSkz7F0AJMXtxFhisKlarvi54bA=; b=B2VCpTMYlL5lvCaCOFJ/QM0ua6
-	yKYlcA0LhvqJgv7bFzzND4a6MAH+CH2NgraH2U0MDrjrcQzFzK82M0+ZHzxvc4Ka5pZppEbuxKzBD
-	4D20SyXOxCbsJ4PtqVzwhc8kGybeZejtxD9txS2FJR7tlvZc4sMhIRgSE/NUSNUpQQjWUIoDKU79V
-	5wUr5tEwpDmcJSFZGZMKzRAyrhsiVNoDAIXoFk4x1H5NrYBTPjy5MBsn3J4xMU4NYpML109aQ4w9L
-	JMZ2kQUjeFZuGhcOPoISQRBr1JlXzdGiWfFTAS6vzBMOQAU1bdZb0UG0FhL0rkX4Jaqv/1TCTsaD1
-	pOJBrn0Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RhTaGTqXn+vEjpea1Rvo2RPETqMhHuTMxdNXRudSe/o=; b=0PVhWTTI2/dvOEpeAXU9DBrJBA
+	f/k0SEYeHhrxLFJpNbkwhjj8LDHxbJPsVwh82PcFziYLmPwLysgJ4+TKKs+xij/i+10KusZok1z6g
+	drOwr9+0prgQ///eXl1vwfwpkltieBcMAftbvl4m/o4EOz1t1wGe8iCHMZHdqSZtXz87r4Upi4P/H
+	mgadg+BjwjUx95XZ85N2VAVzhWziGBxRvvYBHGH0RN/kqZXwqXunXrnXkTplc0sx5XLzDtS0Xx4cZ
+	lb6jDuxwmOPXqxxly2H2cG2QAKMDaV9Ou/TEG+m2F42E4Hfg1eZI3D0q1hJXCRTpffuexE1gZSUCJ
+	sb2K13sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzL-0000000H4dZ-3h6r;
-	Tue, 30 Jun 2026 12:54:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weYtx-0000000HDQy-0Q4v;
+	Tue, 30 Jun 2026 13:53:25 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzD-0000000H4Vy-0yCL
+	id 1weYtt-0000000HDQd-3j6q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:54:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A699B601C1;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 518C6C2BCB9;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782824086;
-	bh=eaYasJGTo79RPD26c3SmYtaVMbARHDwN7ZlMRtFRy80=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=KIshjdurzygOiSAA/GvHTJXfy3H/APETCZFWf18Pu9Ch5pg7KMpOesCBdK/klTt5K
-	 kq2iW3DtPFP0fx2nTBdHEExEoq63oAwrywRuipa3SD1v8TsvJ7N6jL2MLbabHWyVBF
-	 BwB6IXm9bdDBnOFPJC7gKz9BQsvPfKweUikzXZJpSMeeZLXm0bKQf1ImXq+ZZhvnOs
-	 HUXrIOiRy7yHtA06qvpxKB1DAPS/aCivxnC+tfw7sr6ci0IY/2wA0zKlhoaoB6LN4/
-	 RDXBigpTDqaCWSWts9dXxArbUSq2yUEPivJDps7KgQE8glsGvYVemmorQdLnTcVdUk
-	 NknIxDbO25tTA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 37BD8C43458;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Subject: [PATCH 00/10] Add support for Apple Silicon DockChannel internal
- keyboards
-Date: Tue, 30 Jun 2026 22:54:28 +1000
-Message-Id: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+	Tue, 30 Jun 2026 13:53:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 137A74E40BB1;
+	Tue, 30 Jun 2026 13:53:18 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D366E6025A;
+	Tue, 30 Jun 2026 13:53:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 497B2106F1F70;
+	Tue, 30 Jun 2026 15:53:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782827596; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=RhTaGTqXn+vEjpea1Rvo2RPETqMhHuTMxdNXRudSe/o=;
+	b=D9wSGRVypx8zxy3QgxOSR130crVvBYKWZNsLuy/RRFjJLeBg3BQdLPUaFDY/5R0BEEX9b/
+	5A498attBVzR2DG8XO4BBKQhrgBmpkrufZKVvC17sTbYl25xqGrwVMva8scfhu1g5eo3en
+	bKFmtNpANcqA/VRIGpxxTH/VCWjJL7xFzq4LhFyPwkXz61w8AQ64UJTt54okI1zw2yC75g
+	F1oDoH6AdfPL3JSbHuMapXSt20ZBqstdc1hWTxEbPCvi5NU8atITi4occfoghLZTVDBFDL
+	see8UI6kPDopLHpL55kTSDUp3FS+dxAhszlwDryseybhNk13Kvdp0Neyz/GkJA==
+Message-ID: <563ac947-0c5d-47ee-aedc-66baf4d32648@bootlin.com>
+Date: Tue, 30 Jun 2026 15:53:10 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm64: dts/net: stmmac: Add Agilex5 SoCDK TSN Config2
+ board support
+To: muhammad.nazim.amirul.nazle.asmade@altera.com, dinguyen@kernel.org
+Cc: rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org, conor+dt@kernel.org,
+ robh@kernel.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAIS8Q2oC/x3MQQqEMAxA0atI1ga0OAW9iriINZkJai2tiCLe3
- TLLt/j/hsRROUFX3BD50KSbz6jLAtyP/JdRp2wwlbGVNS1SCAvjugec+Ro3ihOKelqwrd34ISv
- SiIOch8ii53/dD8/zAmGZkaZqAAAA
-X-Change-ID: 20260629-apple-mtp-keyboard-final-91cb5a6ff4fc
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
- Benjamin Tissoires <bentiss@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- iommu@lists.linux.dev, linux-input@vger.kernel.org, 
- Michael Reeves <michael.reeves077@gmail.com>, 
- Sasha Finkelstein <k@chaosmail.tech>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=4257;
- i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
- bh=eaYasJGTo79RPD26c3SmYtaVMbARHDwN7ZlMRtFRy80=;
- b=ebb+Ox7p7yerFmB6WM6BevtFuS599DpSgn+0BYEpLRvDsyJzPxX79VG1SimhfsFSzFufv39RH
- 1MfaeC0Z5VqBHIkyXTsZMKjyTFM2B/TdyGIBue7F8/vJ4hhkvFAE/xe
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
- with auth_id=591
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_065322_079632_969C16C3 
+X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +78,32 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces support for the internal keyboards on Apple
-Silicon M2 and M3 MacBook models.
+Hi,
 
-On these platforms, built-in input devices are managed by a dedicated
-coprocessor running an RTKit-based operating system. Communication
-between this coprocessor and the main processor is carried out over a
-low-latency hardware byte FIFO interface called DockChannel.
+On 6/30/26 15:31, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
+> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+> 
+> The Intel SoCFPGA Agilex5 SoCDK TSN Config2 board uses a dual-port
+> Ethernet setup where gmac1 (TSN port) operates with different MAC-side
+> and PHY-side interface modes: GMII internally in the MAC, and RGMII
+> towards the PHY.
 
-To support this input path, the series introduces a few new components:
-- An apple-dockchannel mailbox driver to handle the low-level
-  byte-stream FIFO.
-- A DockChannel HID transport driver (apple-hid) that boots the
-  coprocessor using the RTKit framework and encapsulates the HID
-  protocol over the mailbox.
-- Minor additions to the apple-rtkit and hid-apple drivers to support
-  the TraceKit endpoint and integrate the keyboards into the existing
-  input-quirks framework.
-- Devicetree bindings and DTS updates to describe the nodes on M2 and
-  M3 laptops.
+There's the same behaviour on Gen5, e.g. CycloneV where we have the
+"EMAC splitter". Based on wether or not we have that splitter in DT,
+we override the INTF_SEL bits to set GMII as the MAC output, the splitter
+converting that to RGMII/SGMII.
 
-The transport driver is based on an original out-of-tree implementation
-by Hector Martin, but it has been significantly rewritten for upstream
-inclusion to use the standard Linux mailbox framework and align better
-with upstream HID design patterns and reduce reliance on hacks.
+Is there something similar on this AgileX5 version by any chance, for
+which we could reuse the logic ?
 
-While the coprocessor manages both the keyboard and the trackpad, this
-series only enables keyboard support. The keyboard can be initialised
-without loading external firmware, whereas the trackpad requires
-firmware. Trackpad support will be submitted in a subsequent series
-once these base transport layers are established.
+I know that on CycloneV you also need to adjust that GMII -> RGMII/SGMII
+splitter whenever the speed changes, is that different on agileX5 ? have
+you tested 10/100Mbps ?
 
-Tested on: MacBook Air M3 (J613).
+Thanks,
 
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
----
-Michael Reeves (9):
-      dt-bindings: mailbox: Add Apple t8122 ASC mailbox
-      dt-bindings: mailbox: apple: Add DockChannel mailbox
-      dt-bindings: iommu: apple,dart: Add t8122 compatible
-      dt-bindings: input: apple: Add DockChannel HID transport
-      mailbox: apple: Add DockChannel FIFO controller
-      HID: apple: Add support for DockChannel HID keyboards
-      HID: apple: Add DockChannel HID transport driver
-      arm64: dts: apple: Add MTP DockChannel HID nodes
-      arm64: dts: apple: Enable DockChannel HID on M2 and M3 laptops
-
-Sasha Finkelstein (1):
-      soc: apple: rtkit: Add tracekit endpoint
-
- .../bindings/input/apple,dockchannel-hid.yaml      |   91 ++
- .../devicetree/bindings/iommu/apple,dart.yaml      |    4 +-
- .../bindings/mailbox/apple,dockchannel.yaml        |   75 ++
- .../devicetree/bindings/mailbox/apple,mailbox.yaml |    1 +
- MAINTAINERS                                        |    5 +
- arch/arm64/boot/dts/apple/t602x-die0.dtsi          |   46 +
- arch/arm64/boot/dts/apple/t602x-j414-j416.dtsi     |   25 +
- arch/arm64/boot/dts/apple/t8112-j413.dts           |   20 +
- arch/arm64/boot/dts/apple/t8112-j415.dts           |   20 +
- arch/arm64/boot/dts/apple/t8112-j493.dts           |   22 +-
- arch/arm64/boot/dts/apple/t8112.dtsi               |   46 +
- arch/arm64/boot/dts/apple/t8122-j504.dts           |   22 +
- arch/arm64/boot/dts/apple/t8122-j613.dts           |   23 +
- arch/arm64/boot/dts/apple/t8122-j615.dts           |   23 +
- arch/arm64/boot/dts/apple/t8122.dtsi               |   47 +
- drivers/hid/Kconfig                                |    2 +
- drivers/hid/Makefile                               |    2 +
- drivers/hid/dockchannel/Kconfig                    |   15 +
- drivers/hid/dockchannel/Makefile                   |    3 +
- drivers/hid/dockchannel/apple-hid.c                | 1130 ++++++++++++++++++++
- drivers/hid/hid-apple.c                            |  139 ++-
- drivers/mailbox/Kconfig                            |   12 +
- drivers/mailbox/Makefile                           |    2 +
- drivers/mailbox/apple-dockchannel.c                |  380 +++++++
- drivers/soc/apple/rtkit.c                          |    2 +
- include/linux/hid.h                                |    1 +
- include/linux/mailbox/apple-dockchannel.h          |   29 +
- 27 files changed, 2139 insertions(+), 48 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260629-apple-mtp-keyboard-final-91cb5a6ff4fc
-
-Best regards,
---  
-Michael Reeves <michael.reeves077@gmail.com>
-
-
+Maxime
 
