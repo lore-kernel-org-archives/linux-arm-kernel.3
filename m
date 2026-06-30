@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18760C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:21:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A29BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/cSGQxcB2p2Gyuq3R/odzpGEXeoQPr+VuqI6gIHS/2M=; b=PLkbGw9CogUkiN7jDdyKwo4qC6
-	XDkXWLL2kjGKz9faOWvVHseKdHXuilqSJaIMrZQ1V16/9Sxfw0rp2ZqHfmq5u/LoGwj6hNPiw4Rc+
-	6Ut6SdHzgeQbgxX84NpOJFLzZLQyCrUCXcQzeJHEdIjig9NzU6Zu/rtvcZFeHlUbrcI/7OsZfDfp7
-	aqwSTkabv8GMcaJR7g0FCdNvJJS+YI4pd0yBcoHBYszJxsCwJDtnpj2u2zuEM95MnjQx4jaFoXy5Y
-	9BbM1aEU+I3cLZh5aJIGbO1AZOjB3ov6OepANK5J8RtlwkYR7wUiwpdaphJiuOSajHa6mcYDcp4nc
-	rkfsIrgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gpbg59u+AYIGDPBnIaQAhFCoviFDbrlVPztu2dqbtmo=; b=q7+FJ/OdAdqv+jxgDTnz6aixMf
+	Qlw+nroqGPObMgm2fMJKmwOSwQS0vNPpq361+WzpICoHw8cfqMXx+TTsjm24s6j+U2yNxCF7/KNaO
+	ZpOUSd0Lb4Uou4CELzvhkikh2CAcSiwAXR4nvDsMeh3e6PmhUAUG9jWXKXDUtNY0BjiKUVxyygtg1
+	uoFSVU7UhnTFbPXXO4RNoTplqfWcTt6HLv6HUTlZlHV2o5dRStAFH8ICz9rM+tvr+SUuwn7hmikZ5
+	z6i8LQl2SNixM79axxFNhIzt9LwrdiGQFp5/PKrvLuL1FH6vb/dc9MvDpmYBmoG7lL/h7wMPCeb9q
+	4okc0d6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUQb-0000000GLFZ-1b1c;
-	Tue, 30 Jun 2026 09:06:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weUhj-0000000GOKs-3oIJ;
+	Tue, 30 Jun 2026 09:24:31 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUQT-0000000GLBo-1oa3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:06:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B576A60125;
-	Tue, 30 Jun 2026 09:06:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 903271F00A3E;
-	Tue, 30 Jun 2026 09:06:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782810400;
-	bh=/cSGQxcB2p2Gyuq3R/odzpGEXeoQPr+VuqI6gIHS/2M=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=UG44LBcd68DmNg7+gsm6bM0OQ33wtz++vT2QmPOpV6Tk5VU2FlxadwFTxzf6SB64p
-	 nl8NBFykrcsDqQTOKGurH2Hr33vT5cyzA1oEeBiXAL4T5gCOFP11xcKPTlJ7BDK1hl
-	 IMLQxDXtMFmZcMYrtUfhUjaal0hbpF7vfHU/oQn1Jo5m1JXrVzuYELU7skoVCGeS5J
-	 jgqfy9n3xfOtQJWoSJipkrJuEEwEBWa2jG5MDHh8BCYf/ES0eQL8DqajAT6p4HvRzv
-	 Kl5vXobi/Hoa7Tvwml2qkGYkqVHbM/Yu4R0xdxMm2pOU5QSE8w39XJ6ieBHyy/9PKe
-	 R5y8s5S7l0eRw==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 30 Jun 2026 10:05:59 +0100
-Subject: [PATCH 3/9] firmware: arm_scmi: Clean up channels on setup failure
+	id 1weUhh-0000000GOK6-0EMR;
+	Tue, 30 Jun 2026 09:24:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1782811469; x=1814347469;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=MAR7dBMvboAZsq8wqndsRj8+f2jQFua2iR0ewa1tL7c=;
+  b=RrTK5d2w1AmWNuQWOzC/8ERb8OGF+W5kdYok63VMTqNiW1z/4FkbLstl
+   BJdsJBdVGR1OECgzhl2vz1tVvAwWrGT2cahpJwRZ+1jjTTHkhjCL1/C6G
+   RufZvmUY6UDYzmpEj8WtNEJj9abs1yUzKysSMhlmbbHU0RDxcSXEgnBTX
+   MEIOqsXRJisSj5PvpTzpDHgSyZMjYtRFVtYEuNVgX/+ZeVuX8tHk2xuQm
+   QyOtApNu2dG9JT6TXw3hjZz04e2YqL46azN0xWLBM79oB+d7wIIyGomCg
+   OIplOm7YL9esnnZKz94oDIvncWMOyYdQx2v9bWNMOzH5zJDhRGyu38EeK
+   g==;
+X-CSE-ConnectionGUID: h08U4A3ST1ap5TG9w0Nndw==
+X-CSE-MsgGUID: 854853ThQGG7lQfDPj9ddw==
+X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
+   d="scan'208";a="291266459"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 02:24:27 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.43; Tue, 30 Jun 2026 02:24:26 -0700
+Received: from che-ll-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 30 Jun 2026 02:24:18 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <pratyush@kernel.org>, <mwalle@kernel.org>,
+	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
+	<richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <srini@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
+	<arnd@arndb.de>, <michael@walle.cc>, <linux-mtd@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
+CC: Manikandan Muralidharan <manikandan.m@microchip.com>
+Subject: [PATCH v4 0/7] Read MAC address from SST vendor specific SFDP region
+Date: Tue, 30 Jun 2026 14:53:59 +0530
+Message-ID: <20260630092406.150587-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-scmi_core_fixes-v1-3-f932c1e51992@kernel.org>
-References: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
-In-Reply-To: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, Sashiko <sashiko-bot@kernel.org>, 
- Sudeep Holla <sudeep.holla@kernel.org>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_022429_294563_D99C10EC 
+X-CRM114-Status: GOOD (  14.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +88,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_channels_setup() can fail after the common BASE channel or earlier
-protocol channels have already been registered in the TX/RX IDRs.
+Some Microchip/SST QSPI flashes (e.g. the SST26VF064BEUI) are factory
+programmed with globally unique, write-protected EUI-48 and EUI-64
+identifiers stored in a vendor-specific SFDP parameter table. On boards
+that have no on-board EEPROM (sama5d27_wlsom1, sama5d29 curiosity,
+sam9x75 curiosity) this is a reliable source for an Ethernet MAC address,
+instead of relying on a U-Boot-provided or random address.
 
-Route this failure through the existing channel cleanup label so the
-transport channels, transport devices and IDR state created before the
-failure are released before the probe error path frees the SCMI instance
-ID.
+This v4 reworks the approach into a generic NVMEM framework with no vendor
+code in the SPI NOR core:
+ - The SPI NOR core now exposes the entire SFDP as a generic read-only
+   NVMEM device, rooted at a new "sfdp" child node of the flash.
+ - A new NVMEM layout driver (drivers/nvmem/layouts/) locates the
+   Microchip vendor parameter table at runtime and presents the EUI-48 as
+   a "mac-address" cell.
+ - Arbitrary parameters can be read with a standard fixed-layout
+   (known offset) or with an nvmem-layout parser (location discovered at runtime).
 
-Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/driver.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Changes in v4:
+ - Rework per v3 review: remove the vendor-specific SFDP handling from the
+   SPI NOR core; expose the whole SFDP as a generic read-only NVMEM device
+   and move the EUI extraction into an nvmem-layout driver.
+ - Introduce a new nvmem-layout driver to discover the vendor-table location
+   at runtime; no offset hardcoded in the device tree.
+ - Describe the SFDP via a dedicated "sfdp" subnode (compatible
+   "jedec,sfdp"), which also resolves the v3 dtbs_check "Unevaluated
+   properties ('nvmem-layout')" warning.
+ - Reverse the stored EUI bytes into canonical MAC order.
+ - Enable the layout in sama5_defconfig.
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index b9ba566fc759..861087b2920e 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3262,7 +3262,7 @@ static int scmi_probe(struct platform_device *pdev)
- 	ret = scmi_channels_setup(info);
- 	if (ret) {
- 		err_str = "failed to setup channels\n";
--		goto clear_ida;
-+		goto clear_txrx_setup;
- 	}
- 
- 	ret = bus_register_notifier(&scmi_bus_type, &info->bus_nb);
-@@ -3377,7 +3377,6 @@ static int scmi_probe(struct platform_device *pdev)
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
- clear_txrx_setup:
- 	scmi_cleanup_txrx_channels(info);
--clear_ida:
- 	ida_free(&scmi_id, info->id);
- 
- out_err:
+ Changes in v3:
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+   binding in sama5d27_wlsom1
+ - 3/3 - add nvmem-layout in qspi node for EUI48 MAC Address and nvmem cell
+   properties for macb node in sama5d27_wlsom1
 
+Changes in v2:
+ - 1/3 - parse the SST vendor table, read and store the addresses
+  into a resource - managed space. Register the addresses
+  into NVMEM framework
+ - 2/3 - add support to update the QSPI partition into 'fixed-partition'
+  binding
+
+v3: https://lore.kernel.org/linux-arm-kernel/20250521070336.402202-1-manikandan.m@microchip.com/
+
+Manikandan Muralidharan (7):
+  dt-bindings: mtd: jedec,spi-nor: allow the SFDP to be exposed via
+    NVMEM
+  dt-bindings: nvmem: layouts: add Microchip/SST SFDP EUI layout
+  mtd: spi-nor: sfdp: expose the SFDP as a read-only NVMEM device
+  nvmem: layouts: add Microchip/SST SFDP EUI layout driver
+  ARM: dts: microchip: sama5d27_wlsom1: use fixed-partitions for QSPI
+    flash
+  ARM: dts: microchip: sama5d27_wlsom1: read MAC address from QSPI SFDP
+  ARM: configs: sama5: enable Microchip/SST SFDP EUI NVMEM layout
+
+ .../bindings/mtd/jedec,spi-nor.yaml           |  18 ++
+ .../layouts/microchip,sst26vf-sfdp-eui.yaml   |  60 ++++++
+ .../bindings/nvmem/layouts/nvmem-layout.yaml  |   1 +
+ MAINTAINERS                                   |   6 +
+ .../dts/microchip/at91-sama5d27_wlsom1.dtsi   |  61 +++---
+ .../dts/microchip/at91-sama5d27_wlsom1_ek.dts |   2 +
+ arch/arm/configs/sama5_defconfig              |   1 +
+ drivers/mtd/spi-nor/core.c                    |   5 +
+ drivers/mtd/spi-nor/core.h                    |   1 +
+ drivers/mtd/spi-nor/sfdp.c                    |  83 ++++++++
+ drivers/nvmem/layouts/Kconfig                 |  10 +
+ drivers/nvmem/layouts/Makefile                |   1 +
+ drivers/nvmem/layouts/sst26vf-sfdp-eui.c      | 182 ++++++++++++++++++
+ 13 files changed, 409 insertions(+), 22 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/nvmem/layouts/microchip,sst26vf-sfdp-eui.yaml
+ create mode 100644 drivers/nvmem/layouts/sst26vf-sfdp-eui.c
+
+
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
 -- 
 2.43.0
 
