@@ -4,134 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44D6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:25:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE334C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qkxqnxawZAg1SGSCnT4v6xXere40vHhVb9+dIzeD4h8=; b=cs4DspoAoWmgYSqVd/JiXEpciU
-	kARjn51b2poYXxRlvfOvwpOh2We6tlgcnRGlvzEmJIllm2/RqG9zWJLg9aoPPU5RZoRIJeVaheXpg
-	EoymxFhQaHJwCusCT+9Y9RBm35q9FodAd0IQtRg2x83yQ1IOtt25Pj80HbcNpJRbJFJ8aaU46RNXn
-	nfS/zX7q2aGurkD/RlkrwH+IrYukOJijR60EYYTKbJAAvXN1rziUsL0XDItiRPyNynNBQyhnbgO+6
-	QWlA2O6rTJMPue8TSoG1ipWlNsUqBWVdFO+XHzhHjtIMOi9NISd7r4l5VG9ZeSrT4UGRU9pCzEUXm
-	wlSl8dVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ac1w5UDndWpfCVQuaUsP7m+pP7PCwbr3gsBFVFw2qGA=; b=v8meZ5waBzo1HyW39Fg3SEn95/
+	rT5hFfo3F1u3N4wYyKbd5Txmu11LhYb3SYyxiyernYyUM3v6c/VdyXHvHc5Oh4ika6N+Wy5YTO/Ap
+	Urz6jHN+SHWTDI9ga3cBG/mnmcHxEALeptIr5D3Xe8l5uJIVIixIAU3WNi5CGqDSB+KriCiV2K2wW
+	lStemZcrHCNN3HFTGaXNMZCiVMr7tK5UElA+Kb7ZbCvVw6u9001w70sjtjr4o/2g0X4xJUmI8tgtz
+	2Ln2u2jwfqA4nPONykjiEZW4AXbUFuZgHRHxnfcQ/RrdMMJQSZTVMtiwiuwoxL8T/l7lAM+JrVvOG
+	lAT7r4XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYSl-0000000H9hH-0yTH;
-	Tue, 30 Jun 2026 13:25:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weYWO-0000000HACp-0lhl;
+	Tue, 30 Jun 2026 13:29:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYSc-0000000H9f6-2Eek;
-	Tue, 30 Jun 2026 13:25:10 +0000
+	id 1weYWM-0000000HACS-0lTQ;
+	Tue, 30 Jun 2026 13:29:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7C907601DF;
-	Tue, 30 Jun 2026 13:25:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89AC71F000E9;
-	Tue, 30 Jun 2026 13:24:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E9941413E3;
+	Tue, 30 Jun 2026 13:29:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 105D11F000E9;
+	Tue, 30 Jun 2026 13:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782825909;
-	bh=qkxqnxawZAg1SGSCnT4v6xXere40vHhVb9+dIzeD4h8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=H88tuu+pvs7E67DlX4qSnxt4ru1hYhsMRoLsG+qdTMLO1ck3Buu5oC51mdjsRE+2R
-	 L9U+vSQ189XiGOt/3yfavF6Ce5DXp2e28HK0HA1EMJTuD2+pH9IOCrZZUH6qGIUyLj
-	 0WJd4E9hrVPbby9qw1ntboLPp7KMKgf2GFuZFOxM8t//V6SSFOG/epIOtsx9mhqYUj
-	 ybqU7oGEtce/fRVTSytmY0SorWDyGdH7arRgjwtihKx4xH/ZadDGxl5RZQMx/V3WQQ
-	 AGh6n1z/xHS6ccsxur6nvxboNayYBJeRcYBbMmDxpqy5n36C9SGq+KKVPzuFjrOuMz
-	 UO45LggHCRSjA==
-Message-ID: <cd407dd0-1d09-465b-94e7-8a413dd95909@kernel.org>
-Date: Tue, 30 Jun 2026 15:24:52 +0200
+	s=k20260515; t=1782826141;
+	bh=ac1w5UDndWpfCVQuaUsP7m+pP7PCwbr3gsBFVFw2qGA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QKmCj9qbPK0we9uPiMzsH/1QI6avTbJheXUhzVhwkeaYfI+Jpd3HS4x2mbeB0dwYn
+	 d8w/RNPjSGg1L53htA99jxAztPNEoxgurte9Ag5XBLdJWWnV6pfG1EK1qEySHdavGc
+	 ngO2XsQhNwQBud6rWIBkjjZGZvfYKPDjXo9OPJZ77+7lInP4qC6tu8kNDBlWOCoQzs
+	 9Fa24EWY9G8HarZsR3tucNx7Kw+HzhBCAUZGAWMRaH6vbicVMmsu16Kk2c6l9peDWy
+	 TATPkcMk7V/VBzym6rD71QDQlndxoibjFncQuW9RyKVxpgnzkHkRqA2B+Z9WKIaJRp
+	 S3lJH2JULnXDg==
+Date: Tue, 30 Jun 2026 14:28:53 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Bui Duc Phuc <phucduc.bui@gmail.com>
+Cc: Herve Codina <herve.codina@bootlin.com>, Takashi Iwai <tiwai@suse.com>,
+	Nick Li <nick.li@foursemi.com>,
+	Support Opensource <support.opensource@diasemi.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
+	Oder Chiou <oder_chiou@realtek.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	u.kleine-koenig@baylibre.com, Zhang Yi <zhangyi@everest-semi.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 09/27] ASoC: codecs: idt821034: Use guard() for mutex
+ locks
+Message-ID: <f5ab965a-9640-4df0-8108-7877f34b6950@sirena.org.uk>
+References: <20260630063449.503996-1-phucduc.bui@gmail.com>
+ <20260630063449.503996-10-phucduc.bui@gmail.com>
+ <20260630092821.650c30ec@bootlin.com>
+ <CAABR9nG5Wo1Wb+2_T6dR+6XTw8Vs9awSpQrSZ+k6=jp_ogoGCw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-To: Vinod Koul <vkoul@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
- Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Drew Fustini
- <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
- linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
- imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
- linux-riscv@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
- <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
- <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
- <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
- <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
- <akOZFIowVvprnAMf@vaman>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <akOZFIowVvprnAMf@vaman>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="YvGUs531CHtahqis"
+Content-Disposition: inline
+In-Reply-To: <CAABR9nG5Wo1Wb+2_T6dR+6XTw8Vs9awSpQrSZ+k6=jp_ogoGCw@mail.gmail.com>
+X-Cookie: Air is water with holes in it.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,28 +94,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/06/2026 12:23, Vinod Koul wrote:
-> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
->>> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
->>> driver instead of the MAC driver where it was previously. Instead of cramming
->>> both HLOS and firmware handling into the same driver, I figured it makes more
->>> sense to have a dedicated, cleaner driver as the two share very little code (if
->>> any).
->>
->> I think you are mixing up DT bindings and driver implementation?
-> 
-> Should the bindings change if we have different driver and firmware
-> implementations? Isn't binding supposed to be agnostic of
-> implementations..?
 
+--YvGUs531CHtahqis
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-I did not follow earlier discussions, so I do not know Russell
-arguments, but in general it's true that driver choices should not
-influence binding decisions. IOW, you need to figure out which real
-device is part of power domain and add the power-domains to that device
-node (that device).
+On Tue, Jun 30, 2026 at 04:14:33PM +0700, Bui Duc Phuc wrote:
+> On Tue, Jun 30, 2026 at 2:28=E2=80=AFPM Herve Codina <herve.codina@bootli=
+n.com> wrote:
+> >
+> > Hi,
 
+Please delete unneeded context from mails when replying.  Doing this
+makes it much easier to find your reply in the message, helping ensure
+it won't be missed by people scrolling through the irrelevant quoted
+material.
 
-Best regards,
-Krzysztof
+--YvGUs531CHtahqis
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpDxJQACgkQJNaLcl1U
+h9DhNQf/XmcvwsWjntcyq28UDoJfIndKAZ0IelWf8Emc+uAmXZNPOWpTM0uqDZes
+/u7MDWAJqUVrhYSkVnpJHeqxagbMgkx8LTWcL9BnkPiUdZCLvpEdsUFp/JUQv6pO
+G8cTLXcjn6emBGCu8fhDirNEMVIAc9OU2Sck85rDBWPz2TCNklkyQs4/7OJCLFcL
+zMkFBQviyoWI3SmaGdbyfEBaC9bKtnapaXKXHNaf34EBXup36NEgzi5akVxGZ1Au
+ZLbaF0yTkzZ1amPpEz3/apXiNcqeqX4XkBDT7VrtCHCEWwL5opd3/Y/JPPy6zeZP
+iOKnlSkh2KUc6XIBbcGg+ofuL0J8+w==
+=Bcef
+-----END PGP SIGNATURE-----
+
+--YvGUs531CHtahqis--
 
