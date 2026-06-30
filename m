@@ -4,159 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C2BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:43:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F6AC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:45:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=; b=OvipWnFWyyP3mRx3FTh7/1FHYk
-	40NLPcBaOjeJ3djU52A5dNRmbPq5FzsteALGS8hscD7yueH5BT9+ufiCMJFAIVGd6NSTzHbks1Dzs
-	bdYkBfC+kzPUEx2TRrvzVU2s04s9Cc5DOmgZa0os1NK9AAogFBUN2XGSECGlU2Bky59w7UAWw75D0
-	ro+JfKslwK2T/v4pQuzWV1mpUrG2W2K4RMmrmJU1qm1837OsaO41M/j9w3ASgrtH7GjgOGMSCFGK4
-	bvuryQnPYgOPzrSG74dziW2RMjYipI5i+qIFEg+XPV3jOOHldBbxcR8ZQ51FUBF6vZKUMBMsrUyOP
-	csIR7s3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m+PZGB57ahz3sODbypiApN0HEPYwZYKH8OdF45jRLoA=; b=Wn7RoO02pdXt+91f+eFNBdZwHc
+	snR7TmHXh/F0s1br3WMZWqZx4APz7IX031oSeNGhPMVuvSYV2QxksIPtAKy2m+dd+zsHBmI21OT1z
+	+x+NK/6PgCFKEWbNqaXMhbfEcmqLaYemVMOa2WqVppeyJQBNcOP0G+1Sg2oZwZROyX+ajqhLwn+UN
+	3QXFqCGtctkcZH1f8wOiqvMi4x5ZqKHWX4PCyTDXlb5/dC7YtXt7oI40sG5RW+qbmbdvvxhOoq0Nn
+	7pwyd+DAgrsajoEUL7dVEekpl4i0+VVhRZEp0I/dvrnanJfv60Z4pD4gxVAd6IjJc4u6+jgPlJ7ag
+	7YkW8xhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weU3Q-0000000GHsx-0ND9;
-	Tue, 30 Jun 2026 08:42:52 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1weU5f-0000000GICH-3a6h;
+	Tue, 30 Jun 2026 08:45:11 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weU3N-0000000GHrs-3A1g
+	id 1weU5c-0000000GIBS-3ryi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 08:42:50 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65U6CLk21087220
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:42:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=; b=G/U1rECpO9DXIczc
-	CdXXJFxo6nXualylOUdw7K1x8kiqi4NTIjROD9KbTKEQB3Fb84vvHR+lZKNXLhnz
-	Am+N7X37E3xzbWuIAdNENwNweVMEl6QUrackh78/W96Fx+Ch8Fs7WTaBmZ582ncM
-	4WR7Fcu+sg/OthS15mHy6Mg/wTomMuQCDOU6wlhv8LzQBk/62fmN01zVefx6aoRb
-	7p4/hTsibd4zwX1Mp2nnKtIRYtNFgu1L8cF89NCWBUjtDny+jnKl2H35Yr96kjnI
-	nwoEw2QqFq8zoLQdXbyAgEo3gAbVIyYWhTKIgKUll4eeve4SyKaodgRa2wgh6Xas
-	7LLxVw==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f3qhacta7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:42:47 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c85a298cd62so2410325a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 01:42:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782808967; x=1783413767; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=;
-        b=bXNWhzO5iDDGIs+P0AWpeuIJD7+EEbAeDE95fzcLGVH/e4JnGQe8swJmpWyqVYw7Et
-         ZpoxmbepQkWWhTxQ7nE0GNq+rQnJ/sHu6gfIHMP2Fo1qLwjWNns3B7TGf+zwuilx8jw5
-         aWO5VhcjIjdWescjrlzJPGEINeVFjQRF9E20jDDvWbBRqRwU7i//uoU+GSYFMicJUViG
-         3UILBSdeWreXwTXT51ST1A1Nv7zfwaZQ2NVwJH3QeAoW2pYsy++fxt8u6u34Z2r9cRp9
-         8yjvpi4twR6nWg95XF4ixFjVUPg6y9ZkV2K+tAnszMZPTJAYJcp65Z6wXxQnTEmmq9dv
-         u6cA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782808967; x=1783413767;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=;
-        b=hrTKS29LNKhycAip3UPpB4r/RK7FDnOxU4YrLtBqUVetcr0p93nw5WDk2QDjSDU6Mp
-         xg8Kfrai0F10EJVuVTM8zJqd/MYAcFmSthnIA6iy5Buo8IaiXdOislClx2yXCur/Sxes
-         xY/BpSO1b1fOXbA8RNNiIKuSGrHYNInMkKKOVBKfyQkaiU376WvuHLfZHMLRfW8u/QLQ
-         64HSo5n9U9P+a2/6UpUYZ2ZxMgMC4mC8UkkXcvMgOZ7fJ7+6GiwckLaeTM+AeT1+aoxV
-         z14O1MSmrS0OIMdpwte6xxhdILubnAECQLnlt1JBsEJx76K3ew0Y/b/l1lzOfrrNeO6n
-         LEaQ==
-X-Forwarded-Encrypted: i=1; AFNElJ9wD73aj3XZjseTcZogEw/FRroBIpCB5bLMPR+EoLR6k+8o/9UibDDV5zOUfkpTNIAVTudVkKK2uhtx3IhO564G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1lB09WBFRletto7kB1tfxwQP6M9CJc2LLuDn+f3vdTzOtBfUD
-	rZBg0F4uJU3gSTYHwGLulPur8N3JqZfa+oaWFEObebOsPBXCG2R5UZQokv2iSWTLzQeSJNaIM1D
-	SAFNhLYaEM+BEWzWOqAOXZO3rnikLea7J/SwSn09/SRWO0NUzlXX9pb6GL3wZywpG8BNNlR0mwB
-	bbEQ==
-X-Gm-Gg: AfdE7cmZrJ6htu+hensf3S9Me7IjtYHDVRW+jYLtM5M+luKMJaSuJpzGaxEv9XKLB8L
-	QSwGpbZzQk/9RimvtxbE0Mj90NxFO38fwNwvh1KnvNqGqyyTG6gWxlWiM/S2RBcEUpFnlhkpKx/
-	wnCFMnfOgvkmBzbYqYVmWXwyIWZk7oDOcI8C6/c6OIMPa2emvwt1HKk3FInY2cbK3lveS6ewRV1
-	s6WnckPfIXXfIxK7TlZhtiqsOJhkBDJBK4wP0nzHlLXeob6N+gRA/Snl0FClw3fVIAPlO8fFyWf
-	VlxgQF2eM3pvk8cSU4a2gcuwNDkBmxskOXHVKmL/7Pk0WtVcGL6R5MJARMYWvoCYKlRbTUq/LoL
-	QfGVzPWkbRK2+XU924Go1FXn0LgMS6JpwISAuEOshl9t0qxPT8UgeX+GKZwYkRxcbJ5lcxh22z3
-	Y=
-X-Received: by 2002:a05:6a21:398:b0:3bf:a543:e7f5 with SMTP id adf61e73a8af0-3bfc50664e7mr2352349637.3.1782808966658;
-        Tue, 30 Jun 2026 01:42:46 -0700 (PDT)
-X-Received: by 2002:a05:6a21:398:b0:3bf:a543:e7f5 with SMTP id adf61e73a8af0-3bfc50664e7mr2352319637.3.1782808966200;
-        Tue, 30 Jun 2026 01:42:46 -0700 (PDT)
-Received: from [10.133.33.20] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9bbf95c04fsm1124404a12.21.2026.06.30.01.42.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jun 2026 01:42:45 -0700 (PDT)
-Message-ID: <37017aa2-e18c-4568-a37c-d13964cbb418@oss.qualcomm.com>
-Date: Tue, 30 Jun 2026 16:42:39 +0800
+	Tue, 30 Jun 2026 08:45:10 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id CEB042006B4;
+	Tue, 30 Jun 2026 10:45:06 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1weU5a-005Ns1-2Q;
+	Tue, 30 Jun 2026 10:45:06 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1weU5a-000000004al-2ntK;
+	Tue, 30 Jun 2026 10:45:06 +0200
+Message-ID: <d2a9a7b75795650728e7467c4904bfdabd00b0c8.camel@pengutronix.de>
+Subject: Re: [PATCH RFC v5 11/12] reset: zte: Add a zx297520v3 reset driver
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Stefan =?ISO-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>,  Michael
+ Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
+ Herring <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Brian Masney	 <bmasney@redhat.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Date: Tue, 30 Jun 2026 10:45:06 +0200
+In-Reply-To: <20260628-zx29clk-v5-11-79ff044e4192@gmail.com>
+References: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
+	 <20260628-zx29clk-v5-11-79ff044e4192@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: kaanapali: fix traceNoC probe
- issue
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org
-References: <20260624151610.GC575984@e132581.arm.com>
- <a13fb65c-726b-4c99-b741-29040c4564d0@oss.qualcomm.com>
- <20260625085643.GD575984@e132581.arm.com>
- <065853f5-b11b-4316-814e-202f07acb6ea@oss.qualcomm.com>
- <20260626103015.GE575984@e132581.arm.com>
- <c1ac3ab4-f214-4947-b42f-cbc635be6bbb@oss.qualcomm.com>
- <20260626154949.GA1812158@e132581.arm.com>
- <9432df20-08bf-4134-b4b9-e6b5d618af81@oss.qualcomm.com>
- <20260629142848.GB1812158@e132581.arm.com>
- <adb45638-1787-45cd-b4fd-d957323cc608@oss.qualcomm.com>
- <20260630081021.GD1812158@e132581.arm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260630081021.GD1812158@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: A6MB6LvvNFRnuHAUL5gggn6-boJ3RuCq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDA3NyBTYWx0ZWRfX/iQ2TS87M2PB
- r6JuCesEfpBmmKUXpKg6IZy+ccqSkhbdhiA2kkwkge9hmzjV/6TWUMQmf44wHR8gumj61aVkcJy
- XYpCr2CpJcmBFeiBDOp38ZlHSqkRWVYjCV2pJP6zOReVvNuQDCvFpHV7KY0bI2qahh07mYiVfeU
- Nx6rLXIC1XwFm/Byauzk8plIvKrZj6srdmH/S4e3stVyibxzCh97e5GCY/zL1kYYskfdbIMpPoZ
- PZU2ZzD0nUK3NO9YqpqU/hp241ySEgdZxzq2TxTVVStYOrtFWl41xoi1ptiZ+Ao0hPPxmnfUEda
- vST78iacGXxB/pA04L8dmgTUblICIew5TFLlkJKSODLjXk5Dg0ZAFXeL58p8wOL2N8mhcoKFpK8
- 4vMjvATpfEweUlU1/fgSgHYs6nTAogKTxNA4BFIF9fQWxQSfCwuswebwqW+iMg7ZyDzKmFPR56I
- Vc3603YyI/KYoO8BNYA==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDA3NyBTYWx0ZWRfXxEKw4qnhlpx8
- Jf8UvuH28JBPj6IPVPWBqW/QIHdw470FAQ/gKmRAw9A+ZiqK4ni0yZ6pIRqFgAD5VN6D01vge7s
- eXMJcf0kJjiThha3ieDaxH02B5zd6fI=
-X-Authority-Analysis: v=2.4 cv=O9UJeh9W c=1 sm=1 tr=0 ts=6a438187 cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
- a=9NUdbc6MOnRMJlQJ6ZEA:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-ORIG-GUID: A6MB6LvvNFRnuHAUL5gggn6-boJ3RuCq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-30_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
- phishscore=0 malwarescore=0 priorityscore=1501 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606300077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_014249_918511_7758AD84 
-X-CRM114-Status: GOOD (  27.22  )
+X-CRM114-CacheID: sfid-20260630_014509_121028_58FEB0D1 
+X-CRM114-Status: GOOD (  28.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,60 +75,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On So, 2026-06-28 at 22:59 +0300, Stefan D=C3=B6singer wrote:
+> This drives the MFD child devices created by the zx297520v3-crm driver
+> as well as the aux device created by the zx297520v3-lspclk driver.
+>=20
+> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
+>=20
+> ---
+>=20
+> v5:
+> Make top and matrix MFD children instead of aux devices
 
-Hi Leo,
+Why? What is the difference between top/matrix and lsp here?
 
-On 6/30/2026 4:10 PM, Leo Yan wrote:
-> Hi Jie,
-> 
-> On Tue, Jun 30, 2026 at 09:03:52AM +0800, Jie Gan wrote:
-> 
-> [...]
-> 
->>>     - How can you guarantee that a interconnect TraceNoC will never
->>>       require ATID in the future?
-> 
->>  From a hardware perspective, there is no fundamental difference between an
->> itnoc and an AG TraceNoC. They use the same TraceNoC hardware implementation
->> and share the same AMBA bus type. The distinction is purely functional: an
->> itnoc is used for local trace aggregation within a subsystem, whereas an AG
->> TraceNoC serves as the top-level aggregation point for the SoC.
-> 
-> I'm still not convinced that adding "arm,primecell-periphid" is the
-> right approach.
-> 
+Couldn't you just keep all three as aux devices and remove the
+platform_device boilerplate half of the driver?
 
-I agree we shouldn't need to add arm,primecell-periphid for the AMBA 
-bus, as the hardware provides the necessary registers to read the 
-peripheral ID. I used it as a temporary workaround to resolve the issue, 
-but I believe that solution is not correct.
 
->  From the description above, I'd expect either the hardware to expose
-> bits in a register to distinguish these two module types, or as I
-> suggested earlier, to use a DT property to indicate the module type (or
-> whether ATID is required).
-> 
+[...]
+> diff --git a/drivers/reset/reset-zte-zx297520v3.c b/drivers/reset/reset-z=
+te-zx297520v3.c
+> new file mode 100644
+> index 000000000000..8ef434904230
+> --- /dev/null
+> +++ b/drivers/reset/reset-zte-zx297520v3.c
+> @@ -0,0 +1,274 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Stefan D=C3=B6singer
+> + */
+> +#include <dt-bindings/reset/zte,zx297520v3-reset.h>
+> +#include <linux/reset-controller.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/auxiliary_bus.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/regmap.h>
+> +#include <linux/iopoll.h>
 
-I wanna distinguish the aggregator traceNoC and interconnect traceNoC, 
-even probe with platform driver, but the existing compatible is too 
-specific to the interconnect traceNoC device(coresight-itnoc), that's 
-why I didnt try the DT property proposal.
+Looks like this is not needed anymore.
 
-> Or have you tried to detect the last tnoc on a path and allocate ID for
-> it? (You can retrieve csdev->path).
+> +/* Most devices on the zx297520v3 SoC have one reset bit per clock line.=
+ As a rule of thumb, the
+> + * lower bit disconnects the device from the bus, similarly to turning o=
+ff PCLK - registers read 0
+> + * or hang indefinitely. Unlike PCLK, this reset may have a lingering ef=
+fect after deasserting.
+> + * E.g. timers will be disabled, but retain their counter value.
+> + *
+> + * The other bit resets the actual device registers.
+> + *
+> + * For some devices, e.g. GMAC, the reset bits behave in the same way: T=
+hey disconnect the device
+> + * and registers will have their default state after deasserting. For de=
+vices that have both reset
+> + * bits, both need to be deasserted for the device to function.
+> + */
+> +struct zte_reset_reg {
+> +	u32 mask;
+> +	u16 reg;
+> +};
+> +
+> +struct zte_reset_info {
+> +	const struct zte_reset_reg *resets;
+> +	unsigned int num;
+> +};
+> +
+> +struct zte_reset {
+> +	struct reset_controller_dev rcdev;
+> +	struct regmap *map;
+> +	const struct zte_reset_reg *resets;
+> +};
+> +
+> +static inline struct zte_reset *to_zte_reset(struct reset_controller_dev=
+ *rcdev)
+> +{
+> +	return container_of(rcdev, struct zte_reset, rcdev);
+> +}
+> +
+> +static int zx29_rst_assert(struct reset_controller_dev *rcdev, unsigned =
+long id)
+> +{
+> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
+> +
+> +	return regmap_clear_bits(rst->map, rst->resets[id].reg, rst->resets[id]=
+.mask);
+> +}
+> +
+> +static int zx29_rst_deassert(struct reset_controller_dev *rcdev, unsigne=
+d long id)
+> +{
+> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
+> +
+> +	return regmap_set_bits(rst->map, rst->resets[id].reg, rst->resets[id].m=
+ask);
+> +}
+> +
+> +static int zx29_rst_status(struct reset_controller_dev *rcdev, unsigned =
+long id)
+> +{
+> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
+> +	int res;
+> +
+> +	res =3D regmap_test_bits(rst->map, rst->resets[id].reg, rst->resets[id]=
+.mask);
 
-As Suzuki mentioned in the other thread, I think it would be better to 
-add separate compatibles in the of_match_table to distinguish between 
-Aggregator TraceNoC and Interconnect TraceNoC when probing with the 
-platform driver. This would allow us to allocate an ATID only for 
-Aggregator TraceNoC during probe, which is consistent with our original 
-design.
+The correct thing to do here would be to only check the reset bit.
 
-Thanks,
-Jie
+This happens to work anyway because we always set reset and isolation
+bits together, but maybe this warrants a comment.
 
-> 
-> Thanks,
-> Leo
+I assume the registers just read back the value that was set.
 
+> +	if (res < 0)
+> +		return res;
+> +
+> +	return !res;
+> +}
+> +
+[...]
+> +static int reset_zx297520v3_common_probe(struct device *dev,
+> +					 struct device_node *of_node,
+> +					 const struct zte_reset_info *drv_info)
+> +{
+> +	struct zte_reset *rst;
+> +
+> +	rst =3D devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
+> +	if (!rst)
+> +		return -ENOMEM;
+> +
+> +	rst->resets =3D drv_info->resets;
+> +	rst->rcdev.owner =3D THIS_MODULE;
+> +	rst->rcdev.nr_resets =3D drv_info->num;
+> +	rst->rcdev.ops =3D &zx29_rst_ops;
+> +	rst->rcdev.of_node =3D of_node;
+> +	rst->rcdev.dev =3D dev;
+> +
+> +	rst->map =3D device_node_to_regmap(of_node);
+> +	if (IS_ERR(rst->map))
+> +		return dev_err_probe(dev, PTR_ERR(rst->map), "Cannot get parent syscon=
+ regmap\n");
+> +
+> +	return devm_reset_controller_register(dev, &rst->rcdev);
+> +
+
+Unnecessary blank line.
+
+> +}
+> +
+> +static int reset_zx297520v3_aux_probe(struct auxiliary_device *adev,
+> +				      const struct auxiliary_device_id *id)
+> +{
+> +	return reset_zx297520v3_common_probe(&adev->dev, adev->dev.of_node,
+> +					     (const struct zte_reset_info *)id->driver_data);
+> +}
+> +
+> +static int reset_zx297520v3_top_probe(struct platform_device *pdev)
+> +{
+> +	return reset_zx297520v3_common_probe(&pdev->dev, pdev->dev.parent->of_n=
+ode,
+> +					     &zx297520v3_top_info);
+> +}
+> +
+> +static struct platform_driver reset_zx297520v3_top =3D {
+> +	.probe =3D reset_zx297520v3_top_probe,
+> +	.driver =3D {
+> +		.name =3D "zx297520v3-toprst",
+> +	},
+> +};
+> +
+> +static int reset_zx297520v3_matrix_probe(struct platform_device *pdev)
+> +{
+> +	return reset_zx297520v3_common_probe(&pdev->dev, pdev->dev.parent->of_n=
+ode,
+> +					     &zx297520v3_matrix_info);
+> +}
+> +
+> +static struct platform_driver reset_zx297520v3_matrix =3D {
+> +	.probe =3D reset_zx297520v3_matrix_probe,
+> +	.driver =3D {
+> +		.name =3D "zx297520v3-matrixrst",
+> +	},
+> +};
+> +
+> +static const struct auxiliary_device_id reset_zx297520v3_ids[] =3D {
+> +	{
+> +		.name =3D "clk_zte.zx297520v3_lsprst",
+> +		.driver_data =3D (kernel_ulong_t)&zx297520v3_lsp_info,
+> +	},
+> +	{ },
+> +};
+> +MODULE_DEVICE_TABLE(auxiliary, reset_zx297520v3_ids);
+> +
+> +static struct auxiliary_driver reset_zx297520v3_auxdrv =3D {
+> +	.name =3D "zx297520v3_lsp_reset",
+> +	.id_table =3D reset_zx297520v3_ids,
+> +	.probe =3D reset_zx297520v3_aux_probe,
+> +};
+> +
+> +static struct platform_driver * const reset_zx297520v3_mfddrv[] =3D {
+> +	&reset_zx297520v3_top,
+> +	&reset_zx297520v3_matrix,
+> +};
+> +
+> +static int __init reset_zx297520v3_init(void)
+> +{
+> +	int res;
+> +
+> +	res =3D auxiliary_driver_register(&reset_zx297520v3_auxdrv);
+> +	if (res)
+> +		return res;
+> +
+> +	res =3D platform_register_drivers(reset_zx297520v3_mfddrv,
+> +					ARRAY_SIZE(reset_zx297520v3_mfddrv));
+> +	if (res)
+> +		auxiliary_driver_unregister(&reset_zx297520v3_auxdrv);
+> +
+> +	return res;
+> +}
+> +
+> +static void __exit reset_zx297520v3_exit(void)
+> +{
+> +	platform_unregister_drivers(reset_zx297520v3_mfddrv,
+> +				    ARRAY_SIZE(reset_zx297520v3_mfddrv));
+> +	auxiliary_driver_unregister(&reset_zx297520v3_auxdrv);
+> +}
+> +
+> +module_init(reset_zx297520v3_init);
+> +module_exit(reset_zx297520v3_exit);
+
+That's too much boilerplate given I don't understand the benefit of
+using platform_device for top/matrix resets yet.
+
+regards
+Philipp
 
