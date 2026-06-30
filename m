@@ -4,116 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD6BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 21:03:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55421C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 21:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q7JoXzPTuey5MTxrK590E54YxP0efCGYmeHmx7RdAY0=; b=rN8DXJCF7RQ6bPefI8GYOTGGqc
-	Ex3Z0AOdGB2Dz/VoJ2OgZljlbzPUoPHK/ztjNQEyVC1w0nt0K/FAb6Q67EzEnc9VgwLqEZbadjKFC
-	dShFCXDwb72GuvTx+Gz3w/Uvz4lHhzzbTNwMSvTk8GUBvdcy5RY5AJsZtfCZED+3gATC0wqoDixH7
-	nCuVcCicE8xwFeeBAmn4B79sXswCVptYYgLR++KzPtAs+bCK9/unpqzCr887PCUPsUT4IdDU+g5TO
-	Uc2K2nadKsia3wn9HvhkFpNwptw5HmnxCOLrdqfm1N1XGEKMKNtzLFl9qzp+Vz5zCAL5ngqlEMMMi
-	kLSV1SUg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kfP/+/XzENqIHs8vBadMsBN8LHk8zW+7QrwYcaSOfQs=; b=lPxlmUGlU/N59HRZYS9wEdwogs
+	tsQqXbE6zoHgyM3jmzWovYdGOXRvp12qQ/yYoIZ+cTfgXcII/HSA7R8htWW1A+ZklS+yTgI47C8h6
+	1V+bdrumoOSoXH47QpVYHjDWnE47m+TOrdHRL/kyiiL9MDaijJWfDbCKK618tquargmEtrL5BXkxk
+	HW53Ag2LAAQrxK673YJJRC7jTMs1OiI1ocoMf2WdoPCpihnn1SQavSUrJmH2nlcndnAV1TbDnQfFB
+	KiVCA9zZAlMTWmjlzI1xqT3B5D//D4q7PsbTv5D96dzxIRfAc2UjrIUoPehfLvsWB4CbBPvRe6fDu
+	0mq6k8SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wefcF-00000000DO9-3yEl;
-	Tue, 30 Jun 2026 21:03:36 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1wegCM-00000000GJV-2mXM;
+	Tue, 30 Jun 2026 21:40:54 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wefcA-00000000DMe-2PEn
+	id 1wegCK-00000000GIb-18Or
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 21:03:32 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5aeb2bc82ccso3500961e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 14:03:29 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782853408; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NV1778EY+8oIK8jDA9ijCiNlLs2D/49vs4Y304CgOA4yQilTCai/XQF/CuY9yRfxyJ
-         Ftn0kMfrH2WVnM4wvb+7whUQMNbCWyHmb8QE+4wyTACR46407jbc4gkyY4VAVLJZuWfz
-         qy8C6nkNoi89FF6zHccLxC05Wff4xiztmegHISNV3BeUcFSc1JT3MXQudDDo1CZV4biL
-         tUt0HXrZVNYF1EoK2ybBaXX2pmGSjaaW1eChMmxlbm+6dkav0/5ZRfmKRbpS0FNMDufw
-         C3eQ59lZEcUQRV61Q7Hz6Oicw7ZKiZT6lgKFyitBJyjLXUMeW1ZZ/Q3Z+0xd5M62ayuc
-         uauw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=q7JoXzPTuey5MTxrK590E54YxP0efCGYmeHmx7RdAY0=;
-        fh=Me47hmH2WAq6RMMQnxlIoCYmHouWoFXylzwtqDvWFiU=;
-        b=o/6fsv5GsGYpeoidwM3xhnjXipSNqnCvgbBPs6TiWko/l2W/zbEmvnQNFQANwRuvAS
-         DstjFrdG9afVrvPpYXipWhPR9OsXLs9HAG8tpDRXF4FtLRCSeg+pMvW1hthS4+Kgq2Su
-         BG7+2f3L7cs8/zveUdxxNaC2H7F/DlQarmo2sKblTT7mdm6jaW0u+yxeSISdN0ESTOxY
-         fsj1GB1CS8C+vsdp7PC1dtLUXpnr+pvdoJPdYIb0qMXwmxEnqKiBVtqhov5l8OK4IBRz
-         Pm+9W7T1qXOOfzCnpzEHHjEPktOwPxOhd4gEz0DR1RC7GLWEFDNWZN6rd2oSh+8lw6nM
-         7LSQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 30 Jun 2026 21:40:53 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-92e53230b82so223035385a.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 14:40:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782853408; x=1783458208; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=q7JoXzPTuey5MTxrK590E54YxP0efCGYmeHmx7RdAY0=;
-        b=sNvxy3mlrxmGLBcEnW13bOdxYrZ/FNKoETClAf5cfB4JANT8s/9UmQ2Y9KgQsmVDF8
-         lsVMT7xcLwtqwyVvOV2udAGGTtkLiJfkPtuQPfYpbaRNxFQoG0mX6XRPCv6hjXdH9+c3
-         pjlfHTNACB35v0nS5aOcqZOBYtG1/xbaUqSmCIHF3t4ybW0/EaHZmsV3MyHB76SZs9+z
-         4Zwhbuz931pB/xsp6U4JtRFMwcv2iA9xzpM8L/QzLgALQSMtxfIa1w64I0f/TClJn/wm
-         vL6UnIrIpVC+g/TkeNFIALGZeX+Kkj7mo0LuAqdYW1f8X0zFQLaqlE3HJvS7Y9cvhN0S
-         rPPQ==
+        d=gmail.com; s=20251104; t=1782855651; x=1783460451; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kfP/+/XzENqIHs8vBadMsBN8LHk8zW+7QrwYcaSOfQs=;
+        b=k3z7UVjbyIiBpu1oUyWmPUwkvj4/rg0Y96L1rELN9AoCEW5W2kXTgEVOdynXAzxQME
+         jUbVGXsQ1edupW6t4NIL/N81qM3akcbLx1Azwib6ltX2qfyfgqNKcehScGnIv4UhSJDy
+         Qk+LbZ3bEHDphzlPJGQtpF7UJZee2wOBvj6Nw0gDVoVOFRYuJE6oZWuD5I691JTHybgz
+         9GE5TP3VUiOp1Lk8g6YMrbv0rVcnfaZIzjp8FoowDk2v5pQlkPn7Cz1fT2AjFbLfrNgH
+         2FJqjQF8Aa9GnP91159N3nD391ZI5nIDG2R+hQfYGs90jDqHkqueT6GYlzwG5W5t+cec
+         iDwA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782853408; x=1783458208;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=q7JoXzPTuey5MTxrK590E54YxP0efCGYmeHmx7RdAY0=;
-        b=qU22MsGQHuCZL9HoV0siGAOJnnMOjZpWtMzlxECKPOSELD9oJszfjEW0gW2njjKFen
-         XzzFrxQA9HWJ0IhHl61L6BU5LNQhouKO4UeJarf3jd/HVZ7pK+1eaF83wa4MNalBS3k0
-         NcCqKychPmyUNjy1rz92lvOml8VOUTf4fiW2/+9GrnnYr1t4wId6oxtQlSVLCVfh7myt
-         SaOjIw9Jn36GeHia5oAuCkjA2m6wlVCriX+ESO4Ug7OVnOwINmWaOISO75NJJAmmmdYB
-         nNv6vHaL/cadVQm9YeKUxHJFPNzyQxKVkuyah+lGRqgehyKwtqedaVQCOqXOn12LhN8p
-         ptWA==
-X-Forwarded-Encrypted: i=1; AHgh+RpC1P/9TABgGgX0BtdnDPHu5jX7E0ifXEeMdHyoMRrZMeEqM5VFWbbq8oNYpkSQP1gsrojxqGTZjBDMof1K86/E@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFQviISztSV5eezwzJ0X63Lh9LQ0s8fcESXyRKcmQcDsXJcrfY
-	sFXM11LSnLHFaBn26xy6Bp9B5Th1kmrkLjXkDpzn7OVzFAL8tm7D17iYks5Ag24joLLvg8rbRfV
-	QboWRkgeaoxYp+HY46EHkk78JSKE5YwE=
-X-Gm-Gg: AfdE7cnT6lvDb+EAebLk+EXWEVhDTmiWUhuXeu4jFO9Uxa0EN218ylMCQm71ay4MZSC
-	ux9zQd6565lKnt8rozCkDLRB10OKtmdxEaXImCs2A6ys+E/gIvFozxH6c6dy+9EZ2+pwLErwKxz
-	oNOIsQ0q5ZkEeBJ9haCj36dkOZOvtpL/r4+RVJhW+BIMtpVyEXGqD6GGpdwtrhVZlkzd0Ga2bjl
-	eYDnAJkVdm2R6ZW6YQx2zAZjB82nX3izSN/3pumUdcPiWputHoZsUnGVcQY0hbi/+biXj0FKyrK
-	X7nGelmyRoXF/o5OaKy9SHsfAnV770uEzIvF9mZ9w0SsaA5yMYRt9rPXbGmxI+np3sHDjp6F6BL
-	sJ1LvbS7kdzDJYh2J0bRl5YOyues=
-X-Received: by 2002:a05:6512:618c:b0:5ae:a9ec:9fc4 with SMTP id
- 2adb3069b0e04-5aebdbc70a5mr1360054e87.63.1782853408064; Tue, 30 Jun 2026
- 14:03:28 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782855651; x=1783460451;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kfP/+/XzENqIHs8vBadMsBN8LHk8zW+7QrwYcaSOfQs=;
+        b=Af0kZH4A7e8hrnri+pNBdGjTJaI73pw8H0dRhwNWvX+yGFG2GKBXtdwbyVYhDmTgcf
+         YGy+eQ59wOFS43FeVLMhFRABfN2iIH1Z8aSztKnAUHCerOqwtpYlJI7vAQSF21X6WyHD
+         MAJ/JtPRjlr/u/0RD+KywE1ZZfA+QUBN5xJ+Bbo2vON/ccehVhbQ1cMqGTaOmSUiudyx
+         +noZJBh2o/h9DnGyKsY18FxZXfboRqKMJ2RnlgPVBmloY01Wh3OPxf2PgLnttAxHpl+A
+         qnaexiN7ByyVPIyazKuRfCjS+INIeJsESaEVtY6jds2xkILwSe1gZQFYrN3iyP4QW2qq
+         3bDw==
+X-Gm-Message-State: AOJu0YzICjyKkfq+tZQptszKn68ZzSAaTJmL3o4quReXH9U3ayhrb1q7
+	59RtYUkFNYM1ls/b2tSqr7K7xQA90K8y8G0+fUaLFxAEhwvB0mtWIvur
+X-Gm-Gg: AfdE7cmFM+0FWDY5rTe3C5CIUoXry0/c0iFlajzIAXD0e/BB/WT9uBEK379jfcuQlZV
+	3p1qHjfsO8C++ePI2p7LBHqCH/hZSA91RDNF2oYtuNU63a3Oz1KqV7AHqRJVJJMoGK/+AAOV1BQ
+	fRTRTSFXvS4MHMEkCnNs+GfVvw6ZNMM1My31WoQ0GoIAiK1RXj7iwnBEXB+7nZOtkv/cH8mWeJA
+	WVRBcq6Nv6H66zUlO/yxhPVSD35OaObLKPfkNeMpJXMz1BUPjPUjz4EsU6TVneKbgdBTgMl/c1a
+	ZoRgLfLWdrd25FHysEFOOp5EvtaHCfJY9/ABP5eZLQGd9caTgAK1sHlOVf+Pj8N+QHpgma1uvEB
+	pmjQGErHlP7tS3AsrmT9eYMxbvEvh87sQZmm1OtzwQtWxtqAfFke1FqgeyHIvmf4KR7Sqxw47D9
+	RwMvZN1uCTgwPXqGzKk3smrIwNJP7qdf6QEf8OCnju
+X-Received: by 2002:a05:620a:1a01:b0:921:83c6:f948 with SMTP id af79cd13be357-92e6249fe05mr848255185a.6.1782855650630;
+        Tue, 30 Jun 2026 14:40:50 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-92e6213bc35sm341819685a.1.2026.06.30.14.40.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 14:40:50 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	linux-serial@vger.kernel.org,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] serial: ma35d1: Fix OF node reference leaks in console init
+Date: Tue, 30 Jun 2026 17:40:43 -0400
+Message-ID: <20260630214043.1887351-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20260427051746.954704-1-rosenp@gmail.com> <ajRmlyx_AEGybykL@soda.int.kasm.eu>
- <CAKxU2N-gfH8Tq29-j2MArogLZuO7JEqtN5LNPVygJzrAERa3cg@mail.gmail.com>
- <ajSDtsJCmYnMNJSD@parmesan.int.kasm.eu> <DJCNDEE8JMPL.1DL49X1EUDFCE@gmail.com>
- <173df064-f373-4cce-b35f-e52f728be263@leemhuis.info>
-In-Reply-To: <173df064-f373-4cce-b35f-e52f728be263@leemhuis.info>
-From: Rosen Penev <rosenp@gmail.com>
-Date: Tue, 30 Jun 2026 14:03:13 -0700
-X-Gm-Features: AVVi8CdKSeWNxVJXoQWTYXgaetJpdvlliSZ-GmhRr-ByVwdKSQxkvdocgc7yH_E
-Message-ID: <CAKxU2N9hw6bUNA+rZC_jfZVzi7bMXe96jzLWdL9F3P4=rYnmUQ@mail.gmail.com>
-Subject: Re: [PATCH wireless-next] wifi: mt76: fix of_get_mac_address error handling
-To: Thorsten Leemhuis <regressions@leemhuis.info>
-Cc: Felix Fietkau <nbd@nbd.name>, linux-wireless@vger.kernel.org, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>, 
-	Tobias Klausmann <klausman@schwarzvogel.de>, Klara Modin <klarasmodin@gmail.com>, 
-	Linux kernel regressions list <regressions@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_140330_707074_B8E74952 
-X-CRM114-Status: GOOD (  26.85  )
+X-CRM114-CacheID: sfid-20260630_144052_391704_8661D49D 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,72 +99,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 5:18=E2=80=AFAM Thorsten Leemhuis
-<regressions@leemhuis.info> wrote:
->
-> On 6/19/26 03:50, Rosen Penev wrote:
-> > On Thu Jun 18, 2026 at 4:51 PM PDT, Klara Modin wrote:
-> >> On 2026-06-18 16:01:45 -0700, Rosen Penev wrote:
-> >>> On Thu, Jun 18, 2026 at 2:47=E2=80=AFPM Klara Modin <klarasmodin@gmai=
-l.com> wrote:
-> >>>> On 2026-04-26 22:17:46 -0700, Rosen Penev wrote:
-> >>>>> Check return value instead of is_valid_ether_addr. The latter is ha=
-ndled
-> >>>>> by the former.
-> >>>>>
-> >>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> >>>>> [...]
-> >>>>>>>> Recently I have started to see randomized MAC-addresses on my
-> x86 laptop
-> >>>> with a MT7922 and the above message printed in the kernel log. I hav=
-e
-> >>>> CONFIG_OF turned on, but since this is an ACPI system the device is =
-not
-> >>>> described by any device tree and the earlier of_get_mac_address() li=
-kely
-> >>>> fails with -ENODEV. Looking at the !CONFIG_OF stub for
-> >>>> of_get_mac_address it always returns -ENODEV, meaning this will alwa=
-ys
-> >>>> randomize the mac in that case too.
-> >>
-> >>> IIRC, the normal device_get_mac_address supports nvmem now. Does that
-> >>> fix your use case?
-> >>
-> >> I tried this:
-> >> [...]
-> >> but I still get a random MAC.
-> > Then the original patch should be reverted. Unfortunate that it doesn't
-> > workq
->
-> Happens, no worries, but seems nobody submitted such a revert yet since
-> you posted that. Unless I'm missing something -- if so, please do not
-> hesitate to tell me!
->
-> But if no revert is in the works, could you please submit one, given
-> that it was your change that cause the problem?
-https://lore.kernel.org/linux-wireless/20260630210215.400379-1-rosenp@gmail=
-.com/T/#u
->
-> Side note: Tobias (now CCed) ran into the same problem, too:
-> https://lore.kernel.org/all/30a90714-02d8-45f2-a7f1-4cfe0627d50b@skade.lo=
-cal/
->
-> Makes me wonder if more people are affected by this and if we should try
-> to mainline the revert rather sooner than later.
->
-> Ciao, Thorsten
->
-> >>>>
-> >>>> Reverting this patch fixes the issue and the correct MAC address is
-> >>>> used. I'm not sure if there is any case where of_get_mac_addres() co=
-uld
-> >>>> fail in a way that results in a valid MAC address but it seems unlik=
-ely
-> >>>> to me.
-> >>>>
-> >>>> Regards,
-> >>>> Klara Modin
-> >
-> >
->
+ma35d1serial_console_init_port() stores matching UART device nodes in
+ma35d1serial_uart_nodes[] with an extra of_node_get() so that console
+setup can later read the "reg" property.  However, the stored references
+are never released after console setup has finished using them.
+
+Drop the stored node reference after ma35d1serial_console_setup() reads
+the "reg" property, and clear the array slot to avoid leaving a stale
+pointer behind.  Also release the iterator reference before breaking out
+of for_each_matching_node(), since the normal iterator advance will not
+run in that path.
+
+Fixes: 930cbf92db01 ("tty: serial: Add Nuvoton ma35d1 serial driver support")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ drivers/tty/serial/ma35d1_serial.c | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
+index 285b0fe41a86..920fe7ff5083 100644
+--- a/drivers/tty/serial/ma35d1_serial.c
++++ b/drivers/tty/serial/ma35d1_serial.c
+@@ -608,8 +608,14 @@ static int __init ma35d1serial_console_setup(struct console *co, char *options)
+ 	if (!np || !p)
+ 		return -ENODEV;
+ 
+-	if (of_property_read_u32_array(np, "reg", val32, ARRAY_SIZE(val32)) != 0)
++	if (of_property_read_u32_array(np, "reg", val32, ARRAY_SIZE(val32)) != 0) {
++		of_node_put(np);
++		ma35d1serial_uart_nodes[co->index] = NULL;
+ 		return -EINVAL;
++	}
++
++	of_node_put(np);
++	ma35d1serial_uart_nodes[co->index] = NULL;
+ 
+ 	p->port.iobase = val32[1];
+ 	p->port.membase = ioremap(p->port.iobase, MA35_UART_REG_SIZE);
+@@ -648,8 +654,10 @@ static void ma35d1serial_console_init_port(void)
+ 			of_node_get(np);
+ 			ma35d1serial_uart_nodes[i] = np;
+ 			i++;
+-			if (i == MA35_UART_NR)
++			if (i == MA35_UART_NR) {
++				of_node_put(np);
+ 				break;
++			}
+ 		}
+ 	}
+ }
+-- 
+2.43.0
+
 
