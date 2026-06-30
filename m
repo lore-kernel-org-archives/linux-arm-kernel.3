@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AECC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:34:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E38AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ewpUf4cNOvt9d0UUmC8hZbJDc1XmG2sBxDSs3hf5Ac=; b=HXxqPGjFD5eyCFyklB2IIvNZoQ
-	Owv+/sRer0rPzOdxdtFWHmMVLwr5VYvsubo6Xq5pVup2d/YGbq33/C+8Ieag9ctd2OiCZ0gR8s6Bx
-	4b0cpjHYEAwSuaLMN1Lo21oyZydLyWmOZHiy6KCLRLANz2EjEugc6x4kXr93Z0JXYGPQat+rq3JS0
-	YDOcp8oF/Ut7uUuK3Nrm/69FljuYhR0GZooeG98hmvjEbMfTOj1nxs892HTqDlzR5l11A3Y1rLfLz
-	XWG0T2AlfZc1QykRHCaky5Gb7mq/dqiyXuNh0M9wqX4ThXaPL6qNmfqqGXrYeLWUpDQxMIhs4ydq0
-	DB2zgyYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=493enOlPSgfL8Xi3QDIl1rddbYGRJGRVQ1cUt/F2sHc=; b=k3wo80LHsxLIL0eQfBCQHP4Mcu
+	8nE1uAHsrXX3XJv6GOVjMAdQoRf7CkUwHFj+AxpxeTfqugWeY+p/nFet3WBg511jo42wNg9VAckas
+	X64QQOdhH58//ExGjC/Nhr6VRiSpJhw2uQOByTxPpkmrLVNX1i5rMAhTQO2KZ6Vt8jprJVfIB2IAW
+	95psFCBKezt4i9OyijC876wVts4m1uzimh83y4k+scvLuBa1MZtKLYdmJMDRToJ/LunGh6kED2BMm
+	Nfeuam/N1gzrHyPF8JblMfAv6o0ZmaJOP1FNxEMplMguv8xJpHwXWDNx3R17FrDzcQb2TqEeDlnxg
+	fjFx3bTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWjK-0000000GrPf-3ULo;
-	Tue, 30 Jun 2026 11:34:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weX1V-0000000GtHk-3sio;
+	Tue, 30 Jun 2026 11:53:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWjJ-0000000GrPX-34qM
+	id 1weX1U-0000000GtHR-2uaW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 11:34:17 +0000
+	Tue, 30 Jun 2026 11:53:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0CCFB408B1;
-	Tue, 30 Jun 2026 11:34:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1070A1F000E9;
-	Tue, 30 Jun 2026 11:34:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A3C643E33
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 11:53:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F6071F00A3A
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 11:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782819256;
-	bh=9ewpUf4cNOvt9d0UUmC8hZbJDc1XmG2sBxDSs3hf5Ac=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=bP5lOibsywM0z0kYIuPgcMctuls7Wc8cuV6rpo6h9xoL/qFdCtDV0QEf4OnT3goU8
-	 aX1GV+F4rgt7BKiMrSznJXKmXepiYPjrpAhF46V1wBdIz5u1cdbj01xfVPSHTW+1Nk
-	 XCcIbBnYP/s4mPrXGyDuzsn8hNZc04w59T5aeLUHR7HEWZz+ABa8r+drFZMfkaEai1
-	 3UXRtAhHr1ecB8z4Tt4ikaS2ifKOua2ZDJugtltbh928rUgjA0H4nHDHr0h/Wu82gA
-	 exuVqh7N4OZlmPeWYJ9TjyH5pfBPJXesCzc3tDo09Ok4QlFkW+ny5/MZzL+uFGhy8m
-	 FLacHYjHZC+2w==
-Date: Tue, 30 Jun 2026 17:04:12 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Hongling Zeng <zenghongling@kylinos.cn>
-Cc: Frank.Li@kernel.org, wens@kernel.org, jernej.skrabec@gmail.com,
-	samuel@sholland.org, mripard@kernel.org, arnd@arndb.de,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	zhongling0719@126.com, Frank Li <Frank.li@oss.nxp.com>
-Subject: Re: [PATCH v4] dmaengine: sun6i-dma: Fix memory leak in
- sun6i_dma_terminate_all
-Message-ID: <akOptOSkd7o0Vivk@vaman>
-References: <20260618020609.1155962-1-zenghongling@kylinos.cn>
+	s=k20260515; t=1782820384;
+	bh=493enOlPSgfL8Xi3QDIl1rddbYGRJGRVQ1cUt/F2sHc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=lrlJJAyQZ3DwijrvkQSaLW/aK3tq35nYYm/c5Fotxi0Uq/sxm/MTtkXjQNgg0Fgxp
+	 KeYk1xrd8xyH45/0n3famjiuhyGtB6ePQFrOG+P4ANJc9Ou8bDFFyq+PNnitfddnlu
+	 nn8vBTyx8KO13fiCz1xG/2id40eL/RmVJCjK3vGEmGii8y2HbrdEeYthuisNvkEIXh
+	 CCCVjANnb6ziEZe65ted0H7vtlp+DAVwnUfFYjeCgc3a3U6n7+/78RExC2z3Wm3HG3
+	 7kx01Gi09g0a+U5y8Tp+vSCr7ClStQFBUwDMXbdFuGNBF84FtfwlnzLaY2irwtKLJ8
+	 R7rE517rnSYuw==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-39b26e2ad5eso2436871fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 04:53:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoW4k+WV34M93XaiyiPiwDZcJSoILBRbOSRfQYlKi9nZT9wcZ83JFN0B0E5EKzlh+xOGSTWtvz5TRUeJR3x/FLk@lists.infradead.org
+X-Gm-Message-State: AOJu0YydU48QnmCSz/odNurXec5odCMAOnXyPZfOtZnTnVBznnB9YN/0
+	vOYiw/W4XxBTynZunbxFSHZGd7/iQ71m8gh3SFVcqbErRux26XiohmRaR9898CuNYqNyqNdOQ9b
+	OREMmy+03CrVC5I1CcbS6sgPiI6MJDgo=
+X-Received: by 2002:a05:6512:15a3:b0:5ae:afec:8afb with SMTP id
+ 2adb3069b0e04-5aebdbdd0bfmr741396e87.48.1782820382868; Tue, 30 Jun 2026
+ 04:53:02 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260618020609.1155962-1-zenghongling@kylinos.cn>
+References: <20260616-pinctrl-fix-v1-0-621036e45c7c@aspeedtech.com>
+In-Reply-To: <20260616-pinctrl-fix-v1-0-621036e45c7c@aspeedtech.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 30 Jun 2026 12:52:49 +0100
+X-Gmail-Original-Message-ID: <CAD++jLm3-5BP+1E_DLTZvEPd1ugMZrXiOjM+Gqnn9Ri+uNWuPw@mail.gmail.com>
+X-Gm-Features: AVVi8Ccukh9jeKMJzDntWFmdET_gKKyPu4vZydSTvGPFTsmFqpaNo79r5YLA3x4
+Message-ID: <CAD++jLm3-5BP+1E_DLTZvEPd1ugMZrXiOjM+Gqnn9Ri+uNWuPw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] pinctrl: aspeed: Make AST2700 SoC1 JTAG master TRST optional
+To: Billy Tsai <billy_tsai@aspeedtech.com>
+Cc: Andrew Jeffery <andrew@codeconstruct.com.au>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,73 +82,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18-06-26, 10:06, Hongling Zeng wrote:
-> When terminating DMA transfers, active descriptors are not properly
-> reclaimed. Only cyclic descriptors were handled, leaving non-cyclic
-> descriptors and their LLI chains to be permanently leaked.
-> 
-> Fix by using vchan_terminate_vdesc() which handles both cyclic and
-> non-cyclic descriptors by adding them to desc_terminated queue for
-> proper cleanup.
-> 
-> Add pchan->desc != pchan->done check to prevent double-adding completed
-> descriptors, which would corrupt the list.
+On Tue, Jun 16, 2026 at 4:30=E2=80=AFAM Billy Tsai <billy_tsai@aspeedtech.c=
+om> wrote:
 
-Thanks for the patch. Please consider revising the subject which should
-describe the changes in the patch and not the fix/issue.
+> The JTAGM1 pin group of the AST2700 SoC1 includes ball D12, which
+> carries the TRST signal. TRST is an optional signal for a JTAG master:
+> designs that do not wire it may need the D12 ball for other functions,
+> but with TRST embedded in the group they cannot use the JTAG master at
+> all.
+>
+> Split D12 into a new JTAGM1TRST group under the existing JTAGM1
+> function, so TRST is only muxed when a board explicitly requests it.
+> Patch 1 adds the new group to the device tree binding and patch 2
+> splits the group in the driver.
+>
+> Note that this changes the meaning of the existing JTAGM1 group: boards
+> that do use TRST now need to select both the JTAGM1 and JTAGM1TRST
+> groups.
+>
+> Signed-off-by: Billy Tsai <billy_tsai@aspeedtech.com>
 
-A better one would be "fix reclaim descriptors while terminating"
+Patches applied!
 
-> 
-> Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-> Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
-> Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-> Suggested-by: Frank Li <Frank.li@oss.nxp.com>
-> 
-> ---
->  Change in v2;
->  -Add pchan->desc != pchan->done check to prevent race condition
->   where completed descriptors could be double-added to desc_completed
->   list, causing list corruption
-> ---
->  Change in v3:
->  -Fix by using vchan_terminate_vdesc() as suggested by Frank Li
-> ---
->  Change in v4:
->  -Correct the commit message
-> ---
->  drivers/dma/sun6i-dma.c | 13 +++++--------
->  1 file changed, 5 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-> index 7a79f346250a..134ae840f176 100644
-> --- a/drivers/dma/sun6i-dma.c
-> +++ b/drivers/dma/sun6i-dma.c
-> @@ -946,16 +946,13 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
->  
->  	spin_lock_irqsave(&vchan->vc.lock, flags);
->  
-> -	if (vchan->cyclic) {
-> -		vchan->cyclic = false;
-> -		if (pchan && pchan->desc) {
-> -			struct virt_dma_desc *vd = &pchan->desc->vd;
-> -			struct virt_dma_chan *vc = &vchan->vc;
-> -
-> -			list_add_tail(&vd->node, &vc->desc_completed);
-> -		}
-> +	if (pchan && pchan->desc && pchan->desc != pchan->done) {
-> +		struct virt_dma_desc *vd = &pchan->desc->vd;
-> +		
-> +		vchan_terminate_vdesc(vd);
->  	}
->  
-> +	vchan->cyclic = false;
->  	vchan_get_all_descriptors(&vchan->vc, &head);
->  
->  	if (pchan) {
-> -- 
-> 2.25.1
-
--- 
-~Vinod
+Yours,
+Linus Walleij
 
