@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4988C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:15:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19EEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:19:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zoCexdF8WAmj/A/cB9RD+x/uZadpQsC20Zx9sVby7Zs=; b=XsRoCPHZK+vRpFt7yVWiCZpqFw
-	EhYi2yUuF5galbpGf+3LYkRAcKm7uTMJYC0ztB5H20bZa7qe2nxrf/hTD2pkI5aYw0g4uD6ba3My8
-	TR+6APfDcl836yO8AR4MILPUObl29neXv9J0TzpL53Cg/iB0vMJEvUMvAPDw4jspsLK4y7P1o2Z64
-	WBjy8MqTC4S1Y+yP+loPO9bDvc3HJfl5VSpQ2LdnhEfy0Mrhpfb1b3sak6G4w6+FINsJK72LodPG2
-	byycX6dqjWOyvdj22NRH8XxN/bZU/+V8KcaR7mCY/Bwi+MGmzkHmLQpNzx74CmQwEk9nyTpTp4t/C
-	V223m48Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pxfuQK0/LO5goJEcowNYBVg9zB9o21O16uM3ARXCVbg=; b=1/Xx926Guj/bR0ZWsS0RfsC3qE
+	W/+gKDtYZfEob5fDBzxzrSOvIqgM+Ia5rIl1l/za6akW2ePM9+1b2HWin8aFVNFXYYVggfs0rwR2p
+	I4NhzXT7BwLeiS6bPVQ8E4zgESTISlMjJvg+xzqIrM3CF8yLURWATBngssESumegXZA9HgL8cHwzV
+	CVKDCT+bHHHz/C+G/GReZlpKhTtCFyeBlqcZBofwPBMeHHqKDTydy0O7plR1LzE4DLcr32w+gcFoU
+	gF6+Jl+3s/SNuu3uwapUCjT0Jdr+4KFAfFsV7uEzjMAuxDjBbqfsvY280NmSYIWKcMMNI5ZGZ7eYh
+	K8MsTogA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wec3H-0000000HYY4-1CQU;
-	Tue, 30 Jun 2026 17:15:15 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wec3C-0000000HYXA-2M8D
+	id 1wec7E-0000000HYoE-3CgZ;
+	Tue, 30 Jun 2026 17:19:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wec7B-0000000HYns-3JVz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 17:15:13 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E5824165B;
-	Tue, 30 Jun 2026 17:15:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1BC21F000E9;
-	Tue, 30 Jun 2026 17:15:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782839709;
-	bh=zoCexdF8WAmj/A/cB9RD+x/uZadpQsC20Zx9sVby7Zs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=G4V3OQDK4LuGRepnI0nswNLNa/lKuAhTlsiY4H/ai3sTir+w0BkplZkG/88C1YjoE
-	 Ffdpg1MXKDTALoy7fWJHkV5zrAGmDMuCfZ4r3rU2LIGF2RAMIENOXc2420muOJmZQl
-	 wcYv8eysEx7vayF4lhA/q/SJt0VpKuDjgVWrVwzWfQDvkeIX6icpH0FEFRrq97NAbn
-	 uFtuWna5TSOULIZpfJCPupO92fBNo3m+AUaPlt7Bij+TgXJQb88ndD9BPaTwXxg6kc
-	 QPfxJokhSoTAtT2/0X9552Zd+fvO7iA5LXtk52p63kzZaqPP6LAp1VHVA34bI9L5Ph
-	 84iUzCm7/+6mQ==
-Date: Tue, 30 Jun 2026 18:15:05 +0100
-From: Conor Dooley <conor@kernel.org>
-To: YC Hsieh <yc_hsieh@aspeedtech.com>
-Cc: Corey Minyard <corey@minyard.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	"openipmi-developer@lists.sourceforge.net" <openipmi-developer@lists.sourceforge.net>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>
-Subject: Re: [PATCH 3/4] dt-bindings: ipmi: Add optional LPC properties to
- ASPEED BT devices
-Message-ID: <20260630-privatize-flap-8b01761853eb@spud>
-References: <20260629-aspeed-bt-bmc-multichannel-v1-0-fc23ee337f7a@aspeedtech.com>
- <20260629-aspeed-bt-bmc-multichannel-v1-3-fc23ee337f7a@aspeedtech.com>
- <20260629-bogus-vocation-db32e55a595f@spud>
- <TY0PR06MB6855F690BCCCA45172F3F0AD93F72@TY0PR06MB6855.apcprd06.prod.outlook.com>
+	Tue, 30 Jun 2026 17:19:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80366302A;
+	Tue, 30 Jun 2026 10:19:11 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA8F93F66F;
+	Tue, 30 Jun 2026 10:19:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782839955; bh=aazyiOP5gAY0bGpQA8a3lTuATbta7rr4eQjJ8XAQf3Q=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Jjk8ATcJ/w4lQ2tQuYzbPDUWPKAvdrvCuZPd0MuwQFPa6Xl1hy6DH++N0pV1P9m+f
+	 5d9nE7JFlgLUZGnzlF8YRqgMBaujBQ//Vn3nB1O3zYaLLmzdB9Xpmkf6rnW9sTJYG9
+	 Hp+DDsFHjmc1R83uBUDzYElhivgIw5vK3F9ZanQg=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Kees Cook <kees@kernel.org>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v2 05/13] KVM: arm64: Detect (via ACPI) and initialize HACDBSIRQ
+Date: Tue, 30 Jun 2026 18:19:08 +0100
+Message-ID: <akP6jAargbR5jUUu@LeoBrasDK>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <akPoyAGX5_ankwWD@kernel.org>
+References: <20260629111820.1873540-1-leo.bras@arm.com> <20260629111820.1873540-6-leo.bras@arm.com> <akKpxDulRN7zDrgM@kernel.org> <akPXqZQBKET1SyvN@LeoBrasDK> <akPoyAGX5_ankwWD@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GgAjwmP4KtDGuBGB"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <TY0PR06MB6855F690BCCCA45172F3F0AD93F72@TY0PR06MB6855.apcprd06.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_101917_927779_3EC1D86D 
+X-CRM114-Status: GOOD (  43.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +105,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---GgAjwmP4KtDGuBGB
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Tue, Jun 30, 2026 at 09:03:20AM -0700, Oliver Upton wrote:
+> On Tue, Jun 30, 2026 at 03:50:17PM +0100, Leonardo Bras wrote:
+> > On Mon, Jun 29, 2026 at 10:22:12AM -0700, Oliver Upton wrote:
+> > > If we need to initialize the IRQ I'd really like to see device tree
+> > > bindings for HACDBSIRQ as well. Pretty much any system us plebs can get
+> > > our hands on is gonna be DT anyway.
+> > 
+> > Agree. I started out with ACPI because that's what the main target is, as 
+> > dirty-logging is focused in Live Migration, which is usually more 
+> > appreciated in the server space, which generally uses ACPI.
+> > 
+> > I spoke to some people, and I could not hear of anyone releasing a product 
+> > based in DT that would implement this yet, so I postponed the DT 
+> > enablement.
+> 
+> Nested virt is always a good example. In some distant future KVM could
+> expose FEAT_HACDBS to the L1 hypervisor, and the VMM may be using DT
+> instead of ACPI (like kvmtool).
 
-On Tue, Jun 30, 2026 at 02:24:52AM +0000, YC Hsieh wrote:
+Oh, good point.
 
-> ************* Email Confidentiality Notice ********************
-> =E5=85=8D=E8=B2=AC=E8=81=B2=E6=98=8E:
-> =E6=9C=AC=E4=BF=A1=E4=BB=B6(=E6=88=96=E5=85=B6=E9=99=84=E4=BB=B6)=E5=8F=
-=AF=E8=83=BD=E5=8C=85=E5=90=AB=E6=A9=9F=E5=AF=86=E8=B3=87=E8=A8=8A=EF=BC=8C=
-=E4=B8=A6=E5=8F=97=E6=B3=95=E5=BE=8B=E4=BF=9D=E8=AD=B7=E3=80=82=E5=A6=82 =
-=E5=8F=B0=E7=AB=AF=E9=9D=9E=E6=8C=87=E5=AE=9A=E4=B9=8B=E6=94=B6=E4=BB=B6=E8=
-=80=85=EF=BC=8C=E8=AB=8B=E4=BB=A5=E9=9B=BB=E5=AD=90=E9=83=B5=E4=BB=B6=E9=80=
-=9A=E7=9F=A5=E6=9C=AC=E9=9B=BB=E5=AD=90=E9=83=B5=E4=BB=B6=E4=B9=8B=E7=99=BC=
-=E9=80=81=E8=80=85, =E4=B8=A6=E8=AB=8B=E7=AB=8B=E5=8D=B3=E5=88=AA=E9=99=A4=
-=E6=9C=AC=E9=9B=BB=E5=AD=90=E9=83=B5=E4=BB=B6=E5=8F=8A=E5=85=B6=E9=99=84=E4=
-=BB=B6=E5=92=8C=E9=8A=B7=E6=AF=80=E6=89=80=E6=9C=89=E8=A4=87=E5=8D=B0=E4=BB=
-=B6=E3=80=82=E8=AC=9D=E8=AC=9D=E6=82=A8=E7=9A=84=E5=90=88=E4=BD=9C!
-> =E4=BF=A1=E9=A9=8A=E7=A7=91=E6=8A=80=E4=BB=A5=E8=AA=A0=E4=BF=A1=E6=AD=A3=
-=E7=9B=B4=E5=8E=9F=E5=89=87=E6=B0=B8=E7=BA=8C=E7=B6=93=E7=87=9F=E4=BC=81=E6=
-=A5=AD=EF=BC=8C=E4=B8=A6=E5=B7=B2=E5=A7=94=E7=94=B1=E7=AC=AC=E4=B8=89=E6=96=
-=B9=E5=85=AC=E6=AD=A3=E5=96=AE=E4=BD=8D=E5=8B=A4=E6=A5=AD=E7=9C=BE=E4=BF=A1=
-=E5=8F=8A=E4=BF=A1=E9=A9=8A=E7=A7=91=E6=8A=80=E7=8D=A8=E7=AB=8B=E8=91=A3=E4=
-=BA=8B=E4=BE=86=E7=AE=A1=E7=90=86=E5=8C=BF=E5=90=8D=E8=88=89=E5=A0=B1=E7=B3=
-=BB=E7=B5=B1=EF=BC=8C=E5=A6=82=E5=90=84=E5=80=8B=E5=88=A9=E5=AE=B3=E9=97=9C=
-=E4=BF=82=E4=BA=BA=E7=AD=89=E6=9C=89=E7=99=BC=E7=8F=BE=E4=BB=BB=E4=BD=95=E9=
-=81=95=E6=B3=95=E5=8F=8A=E9=81=95=E5=8F=8D=E5=85=AC=E5=8F=B8=E5=BE=9E=E6=A5=
-=AD=E9=81=93=E5=BE=B7=E3=80=81=E9=81=95=E5=8F=8D=E6=B3=95=E4=BB=A4=E6=B3=95=
-=E8=A6=8F=E5=8F=8A=E5=B0=88=E6=A5=AD=E6=BA=96=E5=89=87=E3=80=81=E4=BA=A6=E6=
-=88=96=E9=9C=B8=E5=87=8C=E5=8F=8A=E9=81=95=E5=8F=8D=E6=80=A7=E5=88=A5=E5=B9=
-=B3=E7=AD=89=E4=B9=8B=E6=83=85=E4=BA=8B=EF=BC=8C=E8=AB=8B=E7=9B=B4=E6=8E=A5=
-=E9=80=8F=E9=81=8E=E4=BB=A5=E4=B8=8B=E5=8F=AF=E9=81=B8=E6=93=87=E5=8C=BF=E5=
-=90=8D=E4=B9=8B=E8=88=89=E5=A0=B1=E7=B3=BB=E7=B5=B1=E8=88=89=E5=A0=B1=EF=BC=
-=8C=E5=86=8D=E6=AC=A1=E6=84=9F=E8=AC=9D=E6=82=A8=E5=8D=94=E5=8A=A9=E4=BF=A1=
-=E9=A9=8A=E6=8C=81=E7=BA=8C=E9=82=81=E5=90=91=E6=B0=B8=E7=BA=8C=E7=B6=93=E7=
-=87=9F=E3=80=82=E4=BF=A1=E9=A9=8A=E7=A7=91=E6=8A=80=E8=88=89=E5=A0=B1=E7=B6=
-=B2=E7=AB=99=E9=80=A3=E7=B5=90=EF=BC=9Ahttps://secure.conductwatch.com/aspe=
-edtech/
->=20
-> DISCLAIMER:
-> This message (and any attachments) may contain legally privileged and/or =
-other confidential information. If you have received it in error, please no=
-tify the sender by reply e-mail and immediately delete the e-mail and any a=
-ttachments without copying or disclosing the contents. Thank you.
-> ASPEED Technology is committed to sustainable business practices based on=
- integrity and honesty principles. In order to ensure that all information =
-can be openly and transparently communicated, a third-party independent org=
-anization, Deloitte and ASPEED Technology's independent directors, have bee=
-n entrusted to manage the anonymous reporting system. If any stakeholders d=
-iscover any illegal activities, violations of the company's professional et=
-hics, infringements of laws and regulations, or incidents of bullying and g=
-ender inequality, please directly report through the anonymous reporting sy=
-stem provided below. We thank you for your assistance in helping ASPEED Tec=
-hnology continue its journey towards sustainable operations: https://secure=
-=2Econductwatch.com/aspeedtech/
+> 
+> > > 
+> > > > +static irqreturn_t hacdbsirq_handler(int irq, void *pcpu)
+> > > > +{
+> > > > +	u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
+> > > > +	unsigned long err = FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons);
+> > > > +
+> > > > +	switch (err) {
+> > > > +	case HACDBSCONS_EL2_ERR_REASON_NOF:
+> > > > +		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+> > > > +		break;
+> > > > +	case HACDBSCONS_EL2_ERR_REASON_IPAHACF:
+> > > > +		/* When size not a power of two >= 4k, exit with reserved TTLW */
+> > > > +		int index = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
+> > > > +
+> > > > +		if (index >= this_cpu_read(hacdbs_pcp.size)) {
+> > > > +			this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+> > > > +			break;
+> > > > +		}
+> > > > +		fallthrough;
+> > > > +	case HACDBSCONS_EL2_ERR_REASON_STRUCTF:
+> > > > +	case HACDBSCONS_EL2_ERR_REASON_IPAF:
+> > > > +		this_cpu_write(hacdbs_pcp.status, HACDBS_ERROR);
+> > > > +		break;
+> > > > +	}
+> > > > +
+> > > > +	return IRQ_HANDLED;
+> > > > +}
+> > > 
+> > > I have a pretty extreme distaste for creating a state machine between
+> > > the callsite and the IRQ handler. The callsite should poll HACDBS for
+> > > completion. The thread has nothing better to do anyway.
+> > 
+> > Well, there is one argument it could just wait and save some energy, but I 
+> > agree it is not relevant in server space.
+> 
+> I wouldn't suggest polling in a tight loop :) I'd say use something like
+> __mdelay() to get the core into a low-power state w/o using a naked WFI.
+> In fact, that already uses WFxT under the hood.
 
-Sort this out, it's not compatible with mailing lists.
+Awesome!
 
---GgAjwmP4KtDGuBGB
-Content-Type: application/pgp-signature; name=signature.asc
+> 
+> > The main reason I did this is 
+> > because I am planning on later doing an improved version of this that would 
+> > clean the dirty-bit *while* running the guest, and having the IRQ is needed 
+> > for exiting guest so we can notify userspace the cleaning is done. So I 
+> > laid the HACDBSIRQ infra here so we don't have both polling and IRQ options 
+> > happening. 
+> > 
+> > That idea would require us to add new API (a return value for 'cleaned'), 
+> > and also a new flag for the clean ioctl. We also need the VMM to 
+> > implement that, but then we get a proper cpu usage of cleaning time.
+> >
+> > I wanted to start with a backwards compatible version, and do the above 
+> > idea once I put my hands in hardware that implements HACDBS, so I can 
+> > properly measure how much performance we get on above strategy.
+> > 
+> > What do you think?
+> 
+> Yeah, I'd want to see some extremely compelling performance numbers for
+> this approach before considering it, alongside the necessary VMM patches
+> to actually activate it.
+> 
+> Seems likely to me that the VMM will want the background thread back
+> ASAP that calls the clean ioctl so you'll need to work out how to cope
+> with idle vCPUs in that case.
 
------BEGIN PGP SIGNATURE-----
+Fair point, HACDBS should be disabled if the vcpu gets scheduled-out, so we 
+would need to be sure the vcpus stay scheduled, or the cleaning may take 
+too long.
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakP5mQAKCRB4tDGHoIJi
-0sANAQDA/60UmVrLczKv6SoSmrQAAFOoThdWuBLoAD3P9T2y1QEA2X+Byuamqo3I
-lYXK5bHUCYUvg75FNp5lunAzcWGfVwE=
-=8JpS
------END PGP SIGNATURE-----
+> 
+> Even still, with this hypothetical approach I'd expect KVM to inspect
+> the HACDBS state on every exit. The IRQ is just a convenient kick back
+> out to the main KVM_RUN loop.
 
---GgAjwmP4KtDGuBGB--
+Got it. Will use the HACDBSCONS register instead to get that info on 
+stopping.
+
+Thanks!
+Leo
 
