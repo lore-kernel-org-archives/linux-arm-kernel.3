@@ -4,124 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B09FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47768C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:25:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uEJMrWD0UMiWZwUum+CyPdGGjt9SIXdRcE6bWkTdYc=; b=MIXb85HcPibL7VQQdE25udaNWc
-	bsUYp9hfbv0wBW8yDatPpTF7A3Hedhenu+bGa3u9LY8vgv7ikbSLEoEbbzS1NPPH235rp4XvlcmrV
-	R5479vfV7VPoyk6BlFBaN73/3T0We9+c8swQXXd9Wga2niEpdn1V58zgVfwkZvG99Hg6Rdb3hMsMm
-	nKVLI1d210M/Bfyt3/EFqvtQZtCux93oRUPo2/p0afskNpV3bAmCQKdJLyhF3zCesCx0RnZQRzNvY
-	144G367/5SkVPOZyUowITjsKMYqQJM1xjWhUjFi/We809KwXeog/dKYLZKfXMS9qxXpy9kcYMZoWJ
-	FimXAJCA==;
+	bh=LTrA9g5qo+wGJ1gI/ApiYTCUbrzQgSfo23idl+HlRRg=; b=BUd/KqZP1ZMaZKGqHB0V7d95wA
+	jJ6/kFIOo/ZcUBauWN4p7UZXCxtmSCBLKRpysP3v5SVZzDxLKvA0ppALWIHxkX346G+VyUqmZHiJG
+	M7oxZYdHtorl2MUqO43aGNoYOnBXwQnQphZFWN3fbzcz5pIRgIJjEPBDSd93V11Tz5Z8PQmnTj53H
+	kaeDkrjPzUz8GSWPxfsZXK+zCUBOx1HYmqGgAo0V7KUcV7/F+szef9ECJFrx9jK5IEkqEeA0zdzRh
+	/8b4al3oO0tBd9sBC+2oJDVdRm4td565F3GsKfqcMWSUdbYve9FFNbTE1DLA06RG2A7wg85TIJ8NC
+	SUqswFMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wee5V-000000007Pl-0S12;
-	Tue, 30 Jun 2026 19:25:41 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wee5c-000000007Rg-1817;
+	Tue, 30 Jun 2026 19:25:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wee5G-000000007Or-2MX6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 19:25:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ukjLkoH3isgiXrLLIQxrjHbvTTrDy8vvDxXm0lnTnDDPxS7xdz7QHA4swU6xvay+/5RFUlp9c7o0yCUI1Qzrt94ZQh36/6yrx1HwfGwM06IzffR/tB4mU9YpEJn84eo+hQVWgS/gQr6AvyX4CkIw/hI/6TYHJgTh2PjuEN2zVq/YZwnG7DtsiNZatjnXNNNYMoCoDOFBzU7WgvaQtXfUfFYUrvnBmIZvhhwOs/tFFkhh3R7R2uCwAPw0gttSYM46CX73yvZR04F0fjHHeScz9FoiATmm90HtnzA8Qo3/ROaTTw6Gfx4N9RdZRwK0+kj6BKA0lGuDThURnHiLTijANA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7uEJMrWD0UMiWZwUum+CyPdGGjt9SIXdRcE6bWkTdYc=;
- b=xAxrF0LUUlfd+dv3zFLPJWbu7T7sWgOioI6ki7ShuipunCtRu3/QVZxgHPNETqHSJwwKXVjS6EiPWge/ElvNMhaNtBFJrRjxIvDYPuYMXB5zBwkFf0Z0bGMf9i3zmapsXJHVCJF6jIoTg2JwZkUr6HA5x7LANXQ3hSLRUXY2+sEEP7KRLSMiGMYE1UQQQ1VVu47vp+bgIqQoodTmbsRvZ9bPxj+P7orUS/4yW2L2vY8knja6YSwbuhDT0Mc6x9VZhzXtdo5/GEMM9kfVxXHMKPF7oGxx6lvXy/YUOnCvk84NvTwb0Serac0uYmnYlHfagKoHRY9cM+TvokwFPe7OPw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7uEJMrWD0UMiWZwUum+CyPdGGjt9SIXdRcE6bWkTdYc=;
- b=UTarTolHUJlqDkQrKU4GaRnbwKS5pgKS31mb2CAKoRTx38XIN89tp2kRHFJAztKbvnNyob5rbGDLbvxwG8DK3e+sfO9kA+7lJYObb0JvKWqaVSt2lwZEYZxkLQplA7PWDSaKxgZyX+0zxAoAUzurEpp6tLnlo14/g5XjsN2rxzyI6O772ZCpYeOd5mBSKLYasK4QBsdOv3jkZr3aI0GCUPZpF42nc0cGVlcFyZ52y97W9tZafj09zXV3DeiiBH+LyGg15uCpyFNyCuR4oOJZKBVnp1TcilnpOH7YXuOyDqweztfAxcd8h2vFULgjVrs32eK45jRtcehSluxRPbDm5w==
-Received: from CH0PR03CA0298.namprd03.prod.outlook.com (2603:10b6:610:e6::33)
- by CY8PR12MB8267.namprd12.prod.outlook.com (2603:10b6:930:7c::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Tue, 30 Jun
- 2026 19:25:16 +0000
-Received: from CH3PEPF0000000F.namprd04.prod.outlook.com
- (2603:10b6:610:e6:cafe::27) by CH0PR03CA0298.outlook.office365.com
- (2603:10b6:610:e6::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Tue,
- 30 Jun 2026 19:25:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- CH3PEPF0000000F.mail.protection.outlook.com (10.167.244.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 19:25:16 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Jun
- 2026 12:24:59 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Jun
- 2026 12:24:58 -0700
-Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 30 Jun 2026 12:24:57 -0700
-Date: Tue, 30 Jun 2026 12:24:58 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Pranjal Shrivastava <praan@google.com>, Mostafa Saleh
-	<smostafa@google.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
-Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Message-ID: <akQYCgLWv4fs7GAg@nvidia.com>
-References: <cover.1782799827.git.nicolinc@nvidia.com>
- <akPB6l-fuJUcg4a2@google.com>
- <akPX_N0P2EcI_jbV@google.com>
- <akPhuF9pAWaBXzpi@google.com>
- <akQLURkLA-bZ9dAk@google.com>
- <20260630190819.GG7481@nvidia.com>
+	id 1wee5a-000000007RF-345r;
+	Tue, 30 Jun 2026 19:25:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 19F5E437F8;
+	Tue, 30 Jun 2026 19:25:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F731F000E9;
+	Tue, 30 Jun 2026 19:25:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782847546;
+	bh=LTrA9g5qo+wGJ1gI/ApiYTCUbrzQgSfo23idl+HlRRg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ZL83Ybq49JV55XfuhdylUTFvAhxCS0TvJxx2mxr9NC5FsSU5OYl+ErsanMZ/c0gxW
+	 ZcaxRI3FDnpwDC5EQPI3HmnxbLf2dLd3g5mXtzXf6obKzXNiujZOAY5ZkA4N6FwHFy
+	 nAv1VdmT+WWIqCbkmzbHmky6vb/spnpUX3pcBi0xFmcgYfGJVvrT1LNW1aTUu0Hnkm
+	 ZMQc6dkuE/DPt39sILJbGPf2BXQS4e+8iLCJvFTTJMT1hlDTahCXX8QOGz5rE2r6cs
+	 PnHLkRsR2AC5URHagRma3NG4HBdt5umcRVo4jsqQIHo1Eu6cwjyaTbZjkEM2rbjXRl
+	 KeI0Ee5XAaS+A==
+Date: Tue, 30 Jun 2026 14:25:45 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Gerald Loacker <gerald.loacker@wolfvision.net>
+Cc: Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, Vinod Koul <vkoul@kernel.org>,
+	devicetree@vger.kernel.org, Heiko Stuebner <heiko@sntech.de>,
+	linux-phy@lists.infradead.org
+Subject: Re: [PATCH v3 2/3] dt-bindings: phy: rockchip-inno-csi-dphy: add
+ rockchip,clk-lane-phase property
+Message-ID: <178284754478.82737.4770095981342524898.robh@kernel.org>
+References: <20260630-feature-mipi-csi-dphy-4k60-v3-0-176792ab71fa@wolfvision.net>
+ <20260630-feature-mipi-csi-dphy-4k60-v3-2-176792ab71fa@wolfvision.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260630190819.GG7481@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0000000F:EE_|CY8PR12MB8267:EE_
-X-MS-Office365-Filtering-Correlation-Id: a959c263-d134-44dd-9525-08ded6dd50a7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|82310400026|36860700016|1800799024|13003099007|18002099003|22082099003|20046099003|11063799006|56012099006|4143699003|6133799003;
-X-Microsoft-Antispam-Message-Info: 8smg1bM6EEIGTo4iPua3NJqHuFpEBBbCDwkisI3tV+dNYsYfYlnfPtO/GJoGC2/+qN9kjh+2lbZ2Z3xHt04Cop95LaNbXrfhe8CKYzhGym747Rn9GOQIDS7QqDqEsL7jwK2aZ3SdqGKjBtLSzj0MfKFslnutcUg1Wk3U1f3XWyZVms9IR/J3PV/rF5QN1at3fBjpBficaw+8sAnOUvWFvDBOV2JA59bjKzS+fWZcwu4xvNO5aPE5bY6Ox9GYNKD3XNPK/CStkwajaOLkiFL+qnP1lQ7s667hRd6a2J5JhnpcLr9yp/zEx6jalB2ZIh3Zc4LcOmDXo0pHpV8LI34hxmSPj//R7r/cOlvwM2vrlTWUxIksCvZ8Rju0nmJD/BWADfpqygLh8yllSkg9yzSJ5Gx+nmlH6BhJg9wZy5cuSjx8DqbJDJZ3EYHH7eEWQpjlcz7DJyI4esmfWU+5PC2slJu2L2kVmVZUXnTyUlGB0ejNP3l/MjhdL2cAD59HzliE5OAO8L9t0sTTfucyUMYBi0dQ6QQAufr7btO6bZxDazyt/QglTyxwiKs9tv7wieUJlOK3lC8uJ61ORyi6r70R23fCwdVGEfVdSkyTUBymfFoHu+tPLDzKKl+O1w/Pac6qaujmvihC5J5IHrMERySxxo7VBEXfqq889SqVUfhkRSzJSGcCGPqzlPdriv3IB2isf5UX83BoCbQbiSlS3x2qFw==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(82310400026)(36860700016)(1800799024)(13003099007)(18002099003)(22082099003)(20046099003)(11063799006)(56012099006)(4143699003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 3tD1AUINm11GzvrVykByft1KRUCP5J8ZBIF955aVUb+wD1JpkM6riO29GmIQCiyRa1q2OyKVP4aVNI95if8GRALIR55Xbq+ElmZf0VrfSPhtAbtjDVX7KMP3Dw0xRwfkOFEeyo9f40QBHT+KxkxEktbRgONPXQ3RfcfrwDj1ysJJRbRuH+v8UhNo1GCVFeEETgN30uy/JLBBPU3jDGhpp/5u5rbzTU2WeZ5d5lXgvp+O88BI7C6f+cISVIyiCUgi2ACbKgQTNOkcDEfhqX1mRr5KpLY4XXazlp7o/TIS0L9dHimIDXXiGTU/RKk6li0TXcKigaKF42J8bLCS4YbFw4HTve7IZRvRcqcB3hafk5Evtpef5jztPGZacuEdGfSWNcvNSlWbwXc+dG9KGQy+IVFLSGP/w67sEeDxU1gY56kx456DbaxOFPeA95uH+ShT
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 19:25:16.0914
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a959c263-d134-44dd-9525-08ded6dd50a7
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8267
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_122529_002826_4A0E8A03 
-X-CRM114-Status: GOOD (  21.37  )
+In-Reply-To: <20260630-feature-mipi-csi-dphy-4k60-v3-2-176792ab71fa@wolfvision.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,34 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 04:08:19PM -0300, Jason Gunthorpe wrote:
-> On Tue, Jun 30, 2026 at 06:30:41PM +0000, Pranjal Shrivastava wrote:
-> > > As I mentioned above in the previous
-> > > reply I am not sure I understand what situation leads into this, when
-> > > does a device trigger SError to the system vs when not which is observed
-> > > as an event in that case.
-> > 
-> > Ack. I see what you mean now.. How does a DMA fault raise an SError? 
+
+On Tue, 30 Jun 2026 09:48:25 +0200, Gerald Loacker wrote:
+> Add support for the optional rockchip,clk-lane-phase device tree property
+> to allow board-specific tuning of the clock lane sampling phase for
+> improved signal integrity across supported data rates.
 > 
-> As I gave an example to Robin if the unhandled failure escalates into
-> RAS emergency unplugging CXL memory then the system is going to
-> explode when kdump touches that CXL memory as part of the dumping. It
-> is not quite so simple that a DMA abort is triggering SError.
+> Signed-off-by: Gerald Loacker <gerald.loacker@wolfvision.net>
+> ---
+>  .../devicetree/bindings/phy/rockchip-inno-csi-dphy.yaml        | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
 
-Here is link to that email:
-https://lore.kernel.org/all/20260416172005.GB761338@nvidia.com/
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> I don't know exactly the sequence of events that lead up to the kdump
-> kernel crashing (I imagine it is hard to debug that one), but it is
-> something related to the new kernel not participating in the RAS and
-> the RAS flow escalating to something fatal.
-
-Here is the original bug report:
- - kernel boots into a crash kernel
- - crash kernel hits OOM do to insufficient reserved memory and
-   panics
- - PCIe errors are observed during this failure flow
-
-Thanks
-Nicolin
 
