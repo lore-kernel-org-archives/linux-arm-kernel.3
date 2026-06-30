@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49691C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 22:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F44C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 22:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TTcVu3N5A2qxImNE8jx0tO9sA0vxx21QZu6VSH0wmU4=; b=h5r15NDmqfgjBnW3k2D0UwkyVN
-	37eFLF3J507YpGCQOcRirmVMyMCIxAXhcaqZuxhu3HegucwjLeKhhrwVCV8RemtDP61LP0uWEIIHM
-	58Ax6sBwTZZj7Hdfzj0hOxiY5EJsrEJTXOC32+PvHXkKXvQ92ehTbhOLQvlaC5ybNeIwT/Cw3P9xm
-	BjoGEkY3z+n0h/qEcRo94XqYc8fgNw9JFfP0Cyl2WEhrbmI1W4xedYYHTvyO7b/eGFg5dhZHX3yR2
-	UZ/Cr/6rmc9qVf8EBn5HwK3dAqhR++Q31m3qBFqIb5GLJv7ymzSAXNBnaWmx4k1lXbDbn+FmwqftR
-	JWvW+8HA==;
+	bh=5xJeaRAiKHKbp/aAstXnsYKTpc6E8XcGidN9PLbZJKo=; b=heYI5XxJUVKHLVDIUYmEhYZjf9
+	n3UYwYq2pQKW6SgJnu6lP5oF+g7AYCvAbmlAqgardNV9yN45dKCEDwHchAZWQh6VywLc0YOKlw6sE
+	Xm/Q7WYFUqUu4j1aCjHj8xPmHQ88/N9H1pRHyE0riMxWWR2YtROl5Ks1pgZO8QTlkbUgESdp1A23n
+	xjkzZw+U/nFNRLD7WClNiPwDAt6RjDcPMTJuuVXtguAufSyLi4vHqgfuf7AfmVFlpHvWD06LHlqPV
+	GiALwOP1ZE29yBuRrlLKRQLpcKsp/8OmDh7ydC6ooXY8GoscOwZpRRodCtEV7QpRImEBg7xc0kdZl
+	OvLgFqUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wegvW-00000000J9x-0qQL;
-	Tue, 30 Jun 2026 22:27:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wegz6-00000000JPE-2lMy;
+	Tue, 30 Jun 2026 22:31:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wegvT-00000000J70-2fjG
+	id 1wegz5-00000000JOs-1Vai
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 22:27:32 +0000
+	Tue, 30 Jun 2026 22:31:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 806C443E6C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:27:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 641571F0155C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:27:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0D4FD438CE
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:31:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5D361F00A3E
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782858450;
-	bh=TTcVu3N5A2qxImNE8jx0tO9sA0vxx21QZu6VSH0wmU4=;
+	s=k20260515; t=1782858674;
+	bh=5xJeaRAiKHKbp/aAstXnsYKTpc6E8XcGidN9PLbZJKo=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=a3nZipE5rJA5y3N4Pt43hJP+a36yVR5xrcMfyXU20kSXL/EMJ9K0p232l6Wre9wwp
-	 XZGaTAaW+es9sgk2ARLIAXeZYTEfZEKo5NkLTX00wcwnR0btmfhuX2qmDgsgRcXS/Q
-	 BaQDKyMcLqkohVenN5e9fDl+zIbBLwde996RnNIGz3h3eKEQE15LGapkSZsv9IMD0m
-	 Iqoina2XyIvqZEumLIqhlDlgyvjWqtUVlH/1DwkhbLX9mv9yy2rvdW7YtvW9bGvLLU
-	 x9VHYe8+Vd4Yjn/Rs6RW4nQMcWgQ6Jl5XlPCKLmcmP5L7dbjrZpWPH2Edj+0omjQhI
-	 Ur0N2LFTC6dYA==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aebfa21c62so1179836e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 15:27:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RppN/I7cQZ5pFuNmN/KGigiXxayxS7e0NlYs8KACru0nR+NtqibGTOu2SvAvnBnMEEJq/pbWGBXyG54BCXaL9Cl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUAQmwxQJItl1+EilO7g7xqd5X5lsYSZColaP/DcXQnQwOmnFG
-	C3IYeqFohVBgkhwo0bPd/CW1blkmoSnmd7hxNB7NWVtbyWJbRFR83xCiZroBiokqk39aeFFoBOB
-	OqfkbAj4v9i7QZmuhyv6s98tIq7ShyWg=
-X-Received: by 2002:ac2:4bd0:0:b0:5ae:a2b5:3ae3 with SMTP id
- 2adb3069b0e04-5aebdbb32bdmr1526007e87.29.1782858449161; Tue, 30 Jun 2026
- 15:27:29 -0700 (PDT)
+	b=bGKRFsSnQ0ajrm4CcAykDKHJt3WXV60tezDU/gKxVw5+MNudBSpWLQRT5SpDxo5h1
+	 LmUYi4rg6YE4jgz3m3o69xY9gmDswalYy+dy2XG3MSIgVs1XWHLTN1BnZSkQ2ZNXXk
+	 KBUJ5GKJQB/Z9KQvjCBIv0nn1dicJJoysGeF2ayUCue28nV3h7jbHUbZ61kSsQ0vVa
+	 I2wsuS0nTlWofc+BgkEOUZ69I79aJmTC9TDApEqAkAHM7BG3PGMDk+Ft1EQPfh9ix0
+	 NVquT1p+BjfYrFTQqUV8xLudOPmBD5IrCM4PXxyK4cdnKh0sSRa1ZE6M86sb1SVBHc
+	 kdAZT8/cFewyA==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5aeae350e0aso3733597e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 15:31:14 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rq2MchlO6FLLc3Df2QKIX7l4HaqI5D73UIkSGYBTIgceH+904W5t9Bl3EbLeQMx0AInBBTlzE/MvxxnYj2x4nfi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwitZS37Ydsus1Iv7ti0R0HZqYLxVDAkMQo0E72AGzh6lA34REQ
+	X7mSJPTVa6DS7j/EGVMhPjZDG+mfrJH26DO9amZ26tty+0x6LvypX1/jz/LJaZM4Z+La7GVq4S1
+	rgiEO6pKQhFpA4gb1Jz2bFaL5xcg0+G8=
+X-Received: by 2002:a05:6512:1389:b0:5ae:c286:c54e with SMTP id
+ 2adb3069b0e04-5aec286c65bmr321902e87.47.1782858673751; Tue, 30 Jun 2026
+ 15:31:13 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260630092406.150587-1-manikandan.m@microchip.com> <20260630092406.150587-6-manikandan.m@microchip.com>
-In-Reply-To: <20260630092406.150587-6-manikandan.m@microchip.com>
+References: <20260625115718.1678991-1-v@baodeep.com> <20260625115718.1678991-2-v@baodeep.com>
+ <CAMRc=MfpXEFreGynUtAJfvW+27OgKiTOEZvkddt5U0+QG4cYeQ@mail.gmail.com>
+In-Reply-To: <CAMRc=MfpXEFreGynUtAJfvW+27OgKiTOEZvkddt5U0+QG4cYeQ@mail.gmail.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 1 Jul 2026 00:27:17 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmURCUfQNoTgLeTRtxfoWxgyPcmHv6rJpmB1gXWFL+NGA@mail.gmail.com>
-X-Gm-Features: AVVi8CfX0Qclfl00TlhG9NPtI9hB9ExKc-14XAFH9ZzPrWiRzE1N9YyLdRCBq80
-Message-ID: <CAD++jLmURCUfQNoTgLeTRtxfoWxgyPcmHv6rJpmB1gXWFL+NGA@mail.gmail.com>
-Subject: Re: [PATCH v4 5/7] ARM: dts: microchip: sama5d27_wlsom1: use
- fixed-partitions for QSPI flash
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Cc: pratyush@kernel.org, mwalle@kernel.org, takahiro.kuwano@infineon.com, 
-	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, srini@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, linux@armlinux.org.uk, richardcochran@gmail.com, 
-	arnd@arndb.de, michael@walle.cc, linux-mtd@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Date: Wed, 1 Jul 2026 00:31:01 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmX-6bQeYnFz1RY2pZYO6M-WTKusknXLC7qBwKSJD3sFg@mail.gmail.com>
+X-Gm-Features: AVVi8CeD_JGR0lMhBhRY5S2FOUVA0y7Fr83_izAzoDl2Cf1SkECqUOqmnWip8_E
+Message-ID: <CAD++jLmX-6bQeYnFz1RY2pZYO6M-WTKusknXLC7qBwKSJD3sFg@mail.gmail.com>
+Subject: Re: [PATCH v2 1/2] gpio: shared-proxy: always serialize with a
+ sleeping mutex
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Viacheslav Bocharov <v@baodeep.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Diederik de Haas <diederik@cknow-tech.com>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -86,17 +86,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 11:26=E2=80=AFAM Manikandan Muralidharan
-<manikandan.m@microchip.com> wrote:
+On Fri, Jun 26, 2026 at 5:02=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.or=
+g> wrote:
 
-> Move the QSPI flash partitions under a "partitions" node with the
-> "fixed-partitions" compatible, as required by the current MTD partition
-> binding, instead of declaring them as direct children of the flash node.
-> No functional change.
->
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> This looks good to me. Linus: do you want me to take patch 2/2 as well? I=
+'ll
+> send it for v7.2-rc2.
 
-Reviewed-by: Linus Walleij <linusw@kernel.org>
+Yep that's the best, I'll add my tag.
 
 Yours,
 Linus Walleij
