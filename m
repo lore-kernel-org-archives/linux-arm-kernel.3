@@ -4,62 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA9B4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 16:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0688BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 16:20:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FDAfDvzy+acD3YqGoCYl3nzfWw0aFuZI5HDAO/z/8Ls=; b=BQMUnZ03CtRF2GVPKioKjqUz61
-	Z2vhoQG+MCeaJEuKdZmu8T7K3zW4aAPq13Epkms9wYRjn2YatoxL04Lz83MJqEqUjCQQEztY7x1on
-	OLdqZPX2l7KVEkwiSRKuiOnbba1EnTqyX7vMwCKy9UivLpCKdUB3HKpg+EqR7+CJPUQUMbCWKEyxR
-	vzGn/Bf+iZ+dQ2ByH/zEJlrW2G5NAK7vJ/ipISxGvSrmKJReYk+OqWc08jcOPiYlw0Dqv2sRbhBJh
-	BftfwKeF5kERtPmkEwQgdtzSxKF4Mnk/8+j9Z/LKcQeV2JHnOtDW+LFNk8ifZs8kGrxqGOupeKO9B
-	5e46WinA==;
+	bh=8A0RebGIzxFLjnV9Jou5cTZnWsJdzZkfM6ilJIlDo2I=; b=0pI1wnoEFB8+cBnrbYjepwy3q3
+	DFFwG9c+3GgFF0MP7fnjgIvXXJRuoV5Kl6FPQjoJUm11vHZLhUXn++c+tyYMHPu/egmPV+BNgfpFk
+	F0AFCazis8iDWvcBF0IKQIezHrQY71eWgT3Hm56VItHiWnjcCDgk7QLV4A8m6OrTaTk5C4DJgaL3a
+	1789oaJgPxO1dAR3BG5GGSP4SrXZaHRjhlLr06UZ0RnXfLjLOnPt5PssyphB78FGww8sqNvAu5UN2
+	9QC0b24ZYo00FB7IDFeUmalVjoeLyNz+O1ZJoAO6BVBmEM7XQRly296mxYS7r67RBOgSM9/yuUWll
+	kqtA+IAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webAz-0000000HSWZ-1e51;
-	Tue, 30 Jun 2026 16:19:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1webCQ-0000000HSmE-05N3;
+	Tue, 30 Jun 2026 16:20:38 +0000
+Received: from mail-northeuropeazon11011003.outbound.protection.outlook.com ([52.101.65.3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webAx-0000000HSWI-3J94;
-	Tue, 30 Jun 2026 16:19:07 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E9594600BB;
-	Tue, 30 Jun 2026 16:19:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 225DE1F000E9;
-	Tue, 30 Jun 2026 16:19:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782836346;
-	bh=FDAfDvzy+acD3YqGoCYl3nzfWw0aFuZI5HDAO/z/8Ls=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dFMxDZlMqRC2l4zAdEBFqRtXe5dgSQad0ZKT667f+b5JkT936qjRqYBzNi8PGaV39
-	 aga/92P65RtpH4zIWKsanhoEE3pnHuAKDbPvMUmteiE/UCNhKF59yDzSqe1/07CwgZ
-	 OOUgyA6vRmD2dT+HidcZeXW5lKOQpPkLkJ8xyMjhmXNMNtFXfYu3YXwPrSt7XpHikM
-	 JKggfQ8MrIQgX+OzxAjsZcP6s7CW4WswRhfWWG5U/Y99PP3o/TUrRTEagfAaU2iqwS
-	 lXK/ofqL4AXYTOwQYoIsYCM+NmqXgowST3VyO4y/sOTgyefYpQDvpD9SlOWXRw2gKM
-	 UvQTCTkMiQxsA==
-Date: Tue, 30 Jun 2026 18:19:04 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net] net: airoha: fix max receive size configuration
-Message-ID: <akPseKb8X7Q8nTg3@lore-desk>
-References: <20260625-airoha-fix-rx-max-len-v1-1-45b9b827358d@kernel.org>
- <94901706-e7f3-4ff7-9b19-9965f593e228@redhat.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gbI4hZHtB9TsjBtv"
+	id 1webCN-0000000HSlX-343p
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 16:20:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qebuTjSK1MkCsmNCmfCFNnXANmZdehntGVWanIh11pZAiO1VoPTHlVQqliUDOXO7UwI3vIFfu06SzZI85lBlZiVrCt4bAu5fEwOdmrl1TzHLHoyLITSyc49SBvS8GZnJqycj0yHfb4n062p98Slve4sJwqp5FXw9ZyVL/jhdA6pm1Il7kSPUiseADCnUZ3kmGD+N61FKZ2R5SdV2bdpKKSY2uqEzFfdquhMMi7Q94/EnqFLXqMJWziARyQljNX3j/06WBYnfTKYI7gCmBVj1V3H313SVGNUq+Z1mD3TmXv5MT1gM6Q7vYpR8t26/xxb1LY+CLI/F4sP3uPB1hxNZ5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8A0RebGIzxFLjnV9Jou5cTZnWsJdzZkfM6ilJIlDo2I=;
+ b=xQJVTYVuio0L+eB1eEerfTcbXqL5DyxpjHPGAzroX175GGwbgdPXmxoB4nufnuhaX9B3ghW9w6AMxKwawkgT5wyUxjpaz24RGErga9ZCWBnoBfq9YQeCG1ObIgHKXL582I1geyCo2LDCknkBR1V9CR1C6aeuauVqBUWRDkQzwGrHtioiDMplejJqeRbrmZEJLKPiT8sphwm13echxsUtD70rVFO88gZWQbKC3zeb4h3X4VdAIMZgYsxTsxLkv2KHa6PBSEsJyCGOpfSFnQ+yz5EQhIeUhwZZZGnBp2QQVZNQInOp2AkfuV0yrHU0KB+yfXvZuA78zoSzGnMgzMK9Ow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8A0RebGIzxFLjnV9Jou5cTZnWsJdzZkfM6ilJIlDo2I=;
+ b=b8o/2yzfGjgVdRIb8d+dnJOMvE23VA/pFYwu9ToLFJ2q7XrDe21C4CsjHVCtLqeg2QEDLXPmj2WtfXVsjTt40BtDGCQVyktJZYBSKcdAH7Srjj5qooaexQuze2/vbMtgtoMHe710J12wSWazMM3dkeOPrGYS2Ga6JNFUSrmI8nb4ri4QjMT390GrWQxWk5Uqprl1KSkqU5DM5LOamlihMvwW1MiRFXIVJ3V4TqqYEiIrKANAV/UDpmzGw3RYvRUDRHH2cBzbHJuSxTaqdHTqAMXZ7A2fyzmosCIuBJR4oTR3M+D4Ytx15gZrlWvYcw8uegzwbHoTTIwchcY4Tmw98Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB7198.eurprd04.prod.outlook.com (2603:10a6:800:126::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 16:20:30 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 30 Jun 2026
+ 16:20:30 +0000
+Date: Tue, 30 Jun 2026 11:20:20 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Guoniu Zhou <guoniu.zhou@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
+	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: (subset) [PATCH v5 0/2] media: nxp: imx8-isi: Add virtual
+ channel and frame descriptor support
+Message-ID: <akPsxPgLNgu3YsEV@SMW015318>
+References: <20260521-isi_vc-v5-0-a38eb4fcd58e@oss.nxp.com>
+ <178276214766.2429861.1950641421457268519.b4-ty@b4>
+ <20260629202302.GK3054459@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <94901706-e7f3-4ff7-9b19-9965f593e228@redhat.com>
+In-Reply-To: <20260629202302.GK3054459@killaraus.ideasonboard.com>
+X-ClientProxiedBy: PH7P220CA0167.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:33b::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7198:EE_
+X-MS-Office365-Filtering-Correlation-Id: 41edb826-9642-4036-a9c1-08ded6c38088
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|23010399003|1800799024|18002099003|22082099003|11063799006|4143699003|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: /nZaWIPJe9OOwrAytcSMYf0c2NBSdrZABPXv/LUtn1KjlnpZPQVKx6uqXXluSbLnA7HFAdgE1iAFqpnogshh3whLN3ya8DFbc+lwRRLF2azC96jRtNYkwug7pErrVUh09Pz45t3sOHcaxaqQUprRDtXbn3cMJfeNRMSXILmqv+eZY8pThRh89DZfctEvKDgI0Y+62zNGTz13U2V8pYZZ612diKKnRj5BUycPDhx+8DNb2aJZZkylppvJSmjMq0EUB2JGkISGGEDOoZbZG+gLxbCToMK7vpoteVwY0BtFYVIzI0gHbCypgAUeYjKe993N28wLPmS3IH2NmntxkdSZGgZS1KVPy0spKa1QXBl8lrlE9NGIpuJ551L03t1+bMXjwPio0USost60/ztm8K6Y2cCkiV+KnoFS2dQ75ebRBghgb3Zfay6VnwtBMsW6cRSy8hAD6wu1g6Mdl2NRDVEUvbvE8PCUFMGaF76/OYR+1CWRWbjhIER/INxu0oDSgPyiTTSfHLBbyVuCX8g8EybxC9DXd/N6+RQ+s56O8R/sovHNde71SYuqteQDU7x7xI9p8kyWhfwdeMdZ+HhUTyoInStOrOgo1dBbdTHSKadLaetHWd20ie2KyXFxchwk8TLWqnV0rMDhaXtMzvS1JPoF44krs8BxNl7J/O8H+50Xwlc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(23010399003)(1800799024)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MPn/pjPgl548lEuoV+W7TL3UkX2CUK32K6v5Zc88+vbS26+d+HCG9Oz8b/Xy?=
+ =?us-ascii?Q?kgYRFip6jvaTkp6zJ38XTv8dwBhygqUfnUBqmnhRNZfU0slSr0xoiYRjTE72?=
+ =?us-ascii?Q?zIqV+Yhvx9rehQK7LXEq1Ie0iI7TGjkyqc1Z0G6Epbmw1qlE0w1VOv38CKD0?=
+ =?us-ascii?Q?u/R3fpFCJIq01uVwf9V+7oFEaO2sq7bcTEz4Pzp5fHudZsuwwz/rOTvpSPK4?=
+ =?us-ascii?Q?KqtFUWI11nDPXt7xMlyyke8Yo/saJKJdaRBOr74wtrQIdKkdIp0I//Sj8zeX?=
+ =?us-ascii?Q?8tyiQT+kQFTHDufwpgU8R77QUy6ZifVFFMuVp4HA0gbcTfeRzfsAa0StRSEa?=
+ =?us-ascii?Q?bxok28A0/WUL1qVRx9K7NlVrEEzBQTRoiri8aLqTMz8d3yJZ0VmnDUxQ8ZLG?=
+ =?us-ascii?Q?1MnNrv2BOguYMBciUkIQx5wLQpnFZ2dzaFh7jjE+22JrDaNnKGuZMn89jwyK?=
+ =?us-ascii?Q?o79W0Q+Vb9XRUCwqYF7BX30LNhglgMi6uEnEcbrf4200q2j1Q99xzZBcAnxM?=
+ =?us-ascii?Q?OZj3CUjUBEUH6B8ds2t7I+lxMjI6G5O4dWil9Z8czB8qRDr2EqpbrYtkCjHT?=
+ =?us-ascii?Q?4G60lun2zwSB32Ucxv1LjCd7Aa8C1p+AzIKRaCN2JHZ9OsQzrlDNIa2Bp6yM?=
+ =?us-ascii?Q?IjFe4eyCHgXGO2FLSDqsjdqHlsG3exC79HdzmiHRcoX0IyTNPNz/VSv2F43X?=
+ =?us-ascii?Q?yaHQ1AjB0nPDz9icdz6A9zG7wuzhmFz2GfsbrS8MJOS3VzNk5lkbRsP6SFk/?=
+ =?us-ascii?Q?MuRG89DcUgoWm5iMPbcQ260vsRb3lCzam3gLKkFc8NRYtbwqQII2fs3e9+SH?=
+ =?us-ascii?Q?GyNQnFUFjfkBDelAHxCw9E/5+aOJM7ffW4hSRQSJTSa30kCNEdKjKJkcxrw2?=
+ =?us-ascii?Q?tFmu5CO018kJhTjGfo3ETZPCoF/7KmjOtxPAfuB/HRV/rvh5jsKo6p2yjfc5?=
+ =?us-ascii?Q?HmVkezWGRAoR3P0KE6uVVTCgXefo4LAL6GqDJmgIhgDHhiu0CPmHAa5/DCDI?=
+ =?us-ascii?Q?HMOr7h9tytHSkba18QrjzEtcvZhwhZeUdjKYD6dQWi0oZ6BlBlYxANkWTtV4?=
+ =?us-ascii?Q?IP0UnKTn/mBcXCXw9IFxcIrFCJY/N/ns30sMTHGcsJdUnzlJBqNPs6Gc9esf?=
+ =?us-ascii?Q?NCKYfg1rrT6X43GLeD+OG4x1Ddce94QzWqcDTLUrhBCtJaQgP2EMrn6m0cd3?=
+ =?us-ascii?Q?9IT9v2b0GBErhVH8VxzhORIUdehaYmuGU5iumpJSOF8MDne6di0skkCN2vPf?=
+ =?us-ascii?Q?JBL/aP0U3+own8hEcT2cue6MarPwV88dlEwU3u3qBMKY12U6y5FhIaJE8CRz?=
+ =?us-ascii?Q?ClIc21AURzxUjiq7fNoNRnWb7jP8RBUEGFrbKX0or9zs5OKDUNqpgoHaVPdV?=
+ =?us-ascii?Q?iczvoRzGjCBZtjuQqvhAU8WGwvzzJL6ArVvwoCA1sr04MzNEB9FPVnm+TFCQ?=
+ =?us-ascii?Q?Bdb4+0bL8BkPSldZPkNRE+AHTuQyLHQ0dR3lbmWwXJNcpIusOGManQIns7pz?=
+ =?us-ascii?Q?NkSVsIsbDaO4agv0hwg/dphCb/tJzteaDboVyJzgSq2hbD7HHEO/a/3cba82?=
+ =?us-ascii?Q?eWG0dAJ5nEMV0DRGYJqTX1Czn4lWtUGbatulVzfEE2UYUEE67m3RAFrVm/i7?=
+ =?us-ascii?Q?xw/41zH1aGtXCMrKBSfLjg8aLAqZGkA2DmYgkZTK92dZ8t8Njbs7wtc/EhVU?=
+ =?us-ascii?Q?U4gb5xmesmX2rAlmunzHCbjTp17LdeBqUUBOehm3007lmE3EeQOPzgntN8tQ?=
+ =?us-ascii?Q?tzI8FBlevKj3Kgnka5c7SzwkWqOODv9wg1nlv7I6Dja8lfZBkdpe?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 41edb826-9642-4036-a9c1-08ded6c38088
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 16:20:30.0223
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: erTpsdqs2pptiQwqjRsEnJoGtqRPbwFZZMqvCkik8+lj73ziPZCAqoKlbAM6qu7NKypuuKA2aq2djKdE6iwH/DLq2LKaw+GASUMoCaRBVeXQt1utMcuy4wVkbJz0aET5
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7198
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_092035_780761_9EC507EA 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,55 +145,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Jun 29, 2026 at 11:23:02PM +0300, Laurent Pinchart wrote:
+> On Mon, Jun 29, 2026 at 03:42:31PM -0400, Frank.Li@oss.nxp.com wrote:
+> > From: Frank Li <Frank.Li@nxp.com>
+> >
+> >
+> > On Thu, 21 May 2026 17:10:03 +0800, Guoniu Zhou wrote:
+> > > This patch series enhances the i.MX ISI driver's with virtual channel
+> > > support and adds frame descriptor capabilities to the crossbar subdevice.
+> >
+> > Applied, thanks!
+> >
+> > [1/2] media: imx8-isi: crossbar: Add get_frame_desc operation
+> >       commit: 3e15a3510908c990ee352aa206d5f9c23d4b216e
+>
+> Is this a mistake ? Patch 1/2 has no R-b tag, and you're not listed as
+> maintainer for this driver.
 
---gbI4hZHtB9TsjBtv
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sorry, I missed checking Maintainer files, in media summit, agree on I pick
+imx's media drivers, but forget finalize the file\dir list. Can you help
+summery which files\dir I should take care?
 
-On Jun 30, Paolo Abeni wrote:
-> On 6/25/26 8:49 AM, Lorenzo Bianconi wrote:
-> > Set the GDM maximum receive size to AIROHA_MAX_RX_SIZE unconditionally
-> > during hardware initialization instead of updating it according to the
-> > configured MTU. This avoids dropping incoming frames that exceed the
-> > current MTU but could still be processed by the networking stack, which
-> > is able to fragment the reply on the TX side (e.g. ICMP echo requests).
-> > Move the per-port MTU configuration to the PPE egress path where it
-> > belongs, and set the tx frame size running airoha_ppe_set_xmit_frame_si=
-ze()
-> > to dynamically track the maximum MTU across running interfaces sharing
-> > the same PPE instance.
-> > Fix the PPE MTU register addressing to pack two port entries per
-> > register word and add WAN_MTU0 configuration for non-LAN GDM devices.
-> >=20
-> > Fixes: 54d989d58d2a ("net: airoha: Move min/max packet len configuratio=
-n in airoha_dev_open()")
-> > Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
->=20
-> PW bot is on holiday, no automated notifications for a while.
+If you have concern about this patch, I can drop it.
 
-It's too hot even for the bot :)
+Frank
 
-Regards,
-Lorenzo
 
->=20
-> Applied, thanks!
->=20
-> /P
->=20
-
---gbI4hZHtB9TsjBtv
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCakPseAAKCRA6cBh0uS2t
-rH1JAPoDbzhL1nA8oMVHk3V1xDwDjGNcTmfsB+ewrnQo6LhQHQD/RauHvWeHPwKj
-BvwMcM9wg/++9wq6uGSMBPxT36uh1gM=
-=LZi/
------END PGP SIGNATURE-----
-
---gbI4hZHtB9TsjBtv--
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
