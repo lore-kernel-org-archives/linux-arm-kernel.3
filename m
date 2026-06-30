@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ECC5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 10:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F148AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 10:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wubwNYnRxbbJb5iwummV8vvrrP0RpUNviFPSyRr144w=; b=sk+Kml598QG5/k1ONgUTirPmMx
-	0V/RAJpO+PPz8G5Np+HjtMV+q81gsl+oA/L5swJ7ry+ICNOpa7/OZfY6bgo+wytk3h613IrYZdgWT
-	hOH++5ZOHgjQRbf0hm5uT4Z9dNOACpFKb+MWqMTscaCrnXJDnlTwPIIo4YY5l5zL4cba8Phgr6m93
-	vHLS+lLNWSMkXvW81PbIlQYUq90znNBjdjVAcM/XZGmMdHFAOOm/90dbuGSEmwzqKpRw1HyDN7gPA
-	oo2P/HUwuPYYepO1icjAiNS7tZ1H3D5gCzWtjbT3w0vtr5Ke3I7PWqVK4YWc2FLRmv0gESy/HBjWB
-	9X1eprnQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MlMb5zPXUX4woYeZVRLy6YT/2hgcV3iro1eZZxfNI+g=; b=GXsu0pzKuiSMWUEfTmjuvFFjZZ
+	AHgu2dGI2Ji2ZNf+bS92NYEnkGZMZoCKag4c9e483JPq6c9r/l/1UOmU/emD630le8j8j8AgN1EZm
+	Qy9pORIcJUblaAWaj7JikhYBSAYKNPOHKmE/fd65bUC/wp6bGRBNmJA+pT0uNZGYyhL8cCDvgy4cL
+	Y4CIex7uG28fGy2AppvH220/3K7g3fdZ9eN2/cIIZ0O9hAlRkAX4NlJd3WiJJB3y/sMNdkPzcXErM
+	H8aGjqrJHzK+BEX7/GA0u+YGTpz8IboursOvuDwldhE2JI+pjCnUChOtZ477XZ8BS6vv2RrhbD7pf
+	abh8ky6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVWK-0000000GbOb-0sdh;
-	Tue, 30 Jun 2026 10:16:48 +0000
-Received: from mx.adeep.su ([185.250.0.168])
+	id 1weVYi-0000000GbuZ-3hXg;
+	Tue, 30 Jun 2026 10:19:16 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVWG-0000000GbLx-2GAi;
-	Tue, 30 Jun 2026 10:16:46 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0A8C21CD232;
-	Tue, 30 Jun 2026 13:16:34 +0300 (MSK)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=baodeep.com; s=dkim;
-	t=1782814602; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=wubwNYnRxbbJb5iwummV8vvrrP0RpUNviFPSyRr144w=;
-	b=CPeInz/PD9TfYK5P2xBKbWzAuQ9Pn0cbTUo9LrCjhuQh3OZBirifZDmplUpkVHG7460bLY
-	jpz9ZcannzFXFYkvrvVKT4znbrFaWqptJM3ELVrI4mgRTSZYdcp0jmxu4RZFmDls3qMyZB
-	CYggGjJo8BGctjyd3eNkVwOu+Qxqsj7LjQ31CvHHEjL3RnXZoULbvpFml4LWY8CIjyQQXZ
-	Z/KdYPV8HPNUW95gFahDnR8ElRhHO6wNp8D1lWZE0QQIBwtk0HkGfs28PFdZi3znxnOdjz
-	6gzT6LJ1j3zhxZ+6iz2s7zXZDerH324yotiuIIj5OKpXFVzJdaZcXEMpl5TTug==
-From: Viacheslav Bocharov <v@baodeep.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	linux-gpio@vger.kernel.org,
+	id 1weVYe-0000000GbsV-36x4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 10:19:16 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782814748;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=MlMb5zPXUX4woYeZVRLy6YT/2hgcV3iro1eZZxfNI+g=;
+	b=rhl39RgSg7lnKmjtlU7vzEKfDxvQCc7L4CnzS+L91cymc3+Ul0+kX9JPYE4BNSJuTzC0C8
+	gbq33AYKCso2rWzDIOxxKN+0a1aNWwGMLqB2IWAJhkkZuWMi4ANxiPkdpH/geU3rCIB9Nf
+	UfUN9vqMXeshqgO+2S6pceSO+cWNjTE=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-crypto@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] pinctrl: meson: restore non-sleeping GPIO access
-Date: Tue, 30 Jun 2026 13:15:45 +0300
-Message-ID: <20260630101545.800625-3-v@baodeep.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260630101545.800625-1-v@baodeep.com>
-References: <20260630101545.800625-1-v@baodeep.com>
+Subject: [PATCH RESEND] hwrng: atmel - drop __maybe_unused from atmel_trng_pm_ops
+Date: Tue, 30 Jun 2026 12:18:01 +0200
+Message-ID: <20260630101801.684164-3-thorsten.blum@linux.dev>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=971; i=thorsten.blum@linux.dev; h=from:subject; bh=pcsuBUJx09l9FL78SknJ7UiH2glyj5fmomEjAfqDvVI=; b=owGbwMvMwCUWt7pQ4caZUj3G02pJDFnO0286xHYWsGryv5ixuGbjt21P/506ZMWRts79Zmyn6 dK7OmfVOkpZGMS4GGTFFFkezPoxw7e0pnKTScROmDmsTCBDGLg4BWAibUcZGZry4lq3MfxJcbnK 4C9uGrraaXnenNtXXlvU/WWbUvzRxoWRYb5iyWuN8FNLmK+cnjorI6rQ3SWi8eKCo1dOZSp8O6u ZywIA
+X-Developer-Key: i=thorsten.blum@linux.dev; a=openpgp; fpr=1D60735E8AEF3BE473B69D84733678FD8DFEEAD4
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_031644_755207_6D00C00C 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20260630_031912_990209_0AB09DE5 
+X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 28f240683871 ("pinctrl: meson: mark the GPIO controller as
-sleeping") set gpio_chip.can_sleep = true to work around
-gpio-shared-proxy holding a spinlock across a sleeping pinctrl config
-path. That locking bug is now fixed in the shared-proxy itself ("gpio:
-shared-proxy: always serialize with a sleeping mutex"), so the
-controller-wide workaround is no longer needed; the meson GPIO
-controller does not sleep.
+Since atmel_trng_driver keeps atmel_trng_pm_ops referenced and pm_ptr()
+uses IS_ENABLED(), which allows the compiler to optimize away unused
+variables, drop the redundant __maybe_unused annotation.
 
-meson_gpio_get/set/direction_* access MMIO through regmap. The
-regmap_mmio bus uses fast I/O (spinlock) locking, so these value
-callbacks do not contain sleeping operations. Since gpio_chip.can_sleep
-describes the get/set value path, restore can_sleep = false.
-
-Marking the controller sleeping also broke atomic value consumers such
-as w1-gpio (1-Wire bitbang): w1_io.c runs its read time slot under
-local_irq_save() and uses the non-cansleep gpiod_set_value() /
-gpiod_get_value(), which with can_sleep=true trigger WARN_ON(can_sleep)
-in gpiolib on every transferred bit (from w1_gpio_write_bit() /
-w1_gpio_read_bit() via w1_reset_bus() and w1_search()). The printk and
-stack dump inside the IRQs-off, microsecond-scale time slot destroy the
-bit timing, so reset/presence detection and ROM search fail: the bus
-master registers but w1_master_slave_count stays at 0 and no devices
-are found. Verified on an Amlogic A113X board (DS18B20 on GPIOA_14):
-with can_sleep restored to false the warnings are gone and the sensor
-is detected and read again.
-
-This must not be applied or backported without the shared-proxy locking
-fix above; otherwise the original Khadas VIM3 splat returns on boards
-that genuinely share a meson GPIO.
-
-Fixes: 28f240683871 ("pinctrl: meson: mark the GPIO controller as sleeping")
-Link: https://lore.kernel.org/all/20260105150509.56537-1-bartosz.golaszewski@oss.qualcomm.com/
-Signed-off-by: Viacheslav Bocharov <v@baodeep.com>
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
 ---
- drivers/pinctrl/meson/pinctrl-meson.c | 2 +-
+ drivers/char/hw_random/atmel-rng.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/pinctrl/meson/pinctrl-meson.c b/drivers/pinctrl/meson/pinctrl-meson.c
-index 4507dc8b5563..18295b15ecd9 100644
---- a/drivers/pinctrl/meson/pinctrl-meson.c
-+++ b/drivers/pinctrl/meson/pinctrl-meson.c
-@@ -619,7 +619,7 @@ static int meson_gpiolib_register(struct meson_pinctrl *pc)
- 	pc->chip.set = meson_gpio_set;
- 	pc->chip.base = -1;
- 	pc->chip.ngpio = pc->data->num_pins;
--	pc->chip.can_sleep = true;
-+	pc->chip.can_sleep = false;
+diff --git a/drivers/char/hw_random/atmel-rng.c b/drivers/char/hw_random/atmel-rng.c
+index 6ed24be3481d..10082add0886 100644
+--- a/drivers/char/hw_random/atmel-rng.c
++++ b/drivers/char/hw_random/atmel-rng.c
+@@ -186,7 +186,7 @@ static int __maybe_unused atmel_trng_runtime_resume(struct device *dev)
+ 	return atmel_trng_init(trng);
+ }
  
- 	ret = gpiochip_add_data(&pc->chip, pc);
- 	if (ret) {
--- 
-2.54.0
-
+-static const struct dev_pm_ops __maybe_unused atmel_trng_pm_ops = {
++static const struct dev_pm_ops atmel_trng_pm_ops = {
+ 	SET_RUNTIME_PM_OPS(atmel_trng_runtime_suspend,
+ 			   atmel_trng_runtime_resume, NULL)
+ 	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend,
 
