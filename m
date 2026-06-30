@@ -4,139 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45413C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73EA3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7BtfpmCB9jzu/4IcIChuJIJxT1z4DKx5Tki1W6ULw0=; b=i9CArVLbiZS7lVE5pslVGfTC8p
-	5z/dfmSKpVGiQzhkynPg9NXb7LzFmUBwe5jGTLqU2CRgozKiaIxX4zkTbhHx93sBXVfl6+QbPeUg2
-	jqQkNoszBEvaNhxgX3qqv03zu5dr+S+icq2jk33TGdQzOYQ2ih5a8p+qo1gmvr264nbhZouKIN59n
-	kNTPRvwLCW0BDXLX7dHX1MUO4qY4TX8CSxdXrmMN38keC4rGknTRM0hZnnphDAgdSYc5M9pMi3YGt
-	Jfx/2CZN5FFWATQXLZGkdajlGsHnBBg48NtTzD9P0dVA4kklNT2wUpA29dzcsZk1HHA4y1sNcSWlc
-	cCxN4Qrg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yjSoJBvJKILoWxGW4BnSZ7sbQwLUesbS/KBqY026Ezc=; b=tVSr9XUaFEXWL56dfHp98p21Nq
+	wGM6TA3+q6z/REh89so9Fr0zrvKuw0yA3EjhivDRoxLmZDeEqOdeow0Y0rspbM96N510rijPqLwDV
+	X+LofE6rEGMYixNFawMJ2d9EqHxxsH9vRmg24VHI5rQnHqFYRIxh/teA1mcP8YVH8U5FCQOitpGzG
+	joFJ1mp9snT38GPd2xyznh/+SS+ZyLL09tr+7SfH2FGtLpXK4APqZY22t4bclPH00McagtQi/Oq1J
+	j4gUAiq4gqegHTLe1AfsSybn9ZcSh1uanXgcHkJQiyj1GrpfiOxa5VMLGC+DQEro26DVovwNp36RC
+	WeCBCqlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXow-0000000H1c4-13Cc;
-	Tue, 30 Jun 2026 12:44:10 +0000
-Received: from mail-japanwestazon11022086.outbound.protection.outlook.com ([40.107.75.86] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1weXzM-0000000H4et-1iUu;
+	Tue, 30 Jun 2026 12:54:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXor-0000000H1Zt-1tlH
+	id 1weXzD-0000000H4WF-1tnQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:44:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iKAZmnQ8fw6P/9uQt54KNsTsz/DgDiIiWY1Km1TbZjS3Ndz9JJOTSbKa1wcRqUmUcq4Ntf7orgdVpqGgqVBpgfEcnhMkbgeRRttWfpod9d5m3cbCkAi1H/4l7udqIld6kleeKzBDKNvQnS/VxYN3CAVEY85q0+0Skn3EYilwh5ya0TG7A9DfI+WJqVFC3opbtIKQZDFGR6DhC0CSgvXeudOFgMczI2koXI17iZ/1db0e298RRBzKlmtlDK2zCU3FelLWNG5rXuiPDeU1PMyA9A0TTQCmBzHl6imXgjsso+cqNgNDCXiGvIFyb3MXk6iMIZcFtDa25Pgj2YMvfkrqxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+7BtfpmCB9jzu/4IcIChuJIJxT1z4DKx5Tki1W6ULw0=;
- b=luGzNBcVoqFKVAErOk0cuH/eBLI2sDzNeSRbPj/S0EH4oc7+mJ/vfTHjJljL3IBSZBlLCv0flLsLs4tUASK4vgGZN015E/FiKiONad2VoPlTTZknQVTYX+XzgG7mSiRCX9pKBpQsRVjI9eTFqQULf4FcnSY3VMp7H+28YoLX1geraazlZ2gkbc9G5i826mPCovLv/j0cpFKm2XpsbtcMkxRbor6ZTYPootdn3UZNcFft+KbLzTUt+68+piJtEcQB0M59vmS9j/wbhGQ4lFKY374qUDE0MBjsV9TvjnszEoi7zHBa3+ER9B9nDxsf+7OLJ29gUDcY7MOrkqGY3gV+yQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cixtech.com; dmarc=pass action=none header.from=cixtech.com;
- dkim=pass header.d=cixtech.com; arc=none
-Received: from KL1PR06MB6236.apcprd06.prod.outlook.com (2603:1096:820:d7::11)
- by SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 12:43:50 +0000
-Received: from KL1PR06MB6236.apcprd06.prod.outlook.com
- ([fe80::2c9b:c257:fe54:16e7]) by KL1PR06MB6236.apcprd06.prod.outlook.com
- ([fe80::2c9b:c257:fe54:16e7%5]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
- 12:43:50 +0000
-From: "Joakim  Zhang" <joakim.zhang@cixtech.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, "mturquette@baylibre.com"
-	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
-	"bmasney@redhat.com" <bmasney@redhat.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>
-CC: cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v7 3/4] reset: cix: add sky1 audss auxiliary reset driver
-Thread-Topic: [PATCH v7 3/4] reset: cix: add sky1 audss auxiliary reset driver
-Thread-Index: AQHdB6fHRT9Vl1gjkUu7XQ+5t4R8iLZW2PSAgAAz0oA=
-Date: Tue, 30 Jun 2026 12:43:50 +0000
-Message-ID: <KL1PR06MB6236F541873C25ABBE178CA582F72@KL1PR06MB6236.apcprd06.prod.outlook.com>
-References: <20260629091500.52540-1-joakim.zhang@cixtech.com>
-	 <20260629091500.52540-4-joakim.zhang@cixtech.com>
- <90ecf77e16c17f0ac46b2996be58110fc01c2e08.camel@pengutronix.de>
-In-Reply-To: <90ecf77e16c17f0ac46b2996be58110fc01c2e08.camel@pengutronix.de>
-Accept-Language: zh-CN, en-US
-Content-Language: zh-CN
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cixtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: KL1PR06MB6236:EE_|SEYPR06MB5134:EE_
-x-ms-office365-filtering-correlation-id: 594f8450-c8b7-48de-2da7-08ded6a53c50
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|56012099006|4143699003|18002099003|22082099003|38070700021;
-x-microsoft-antispam-message-info: mZNcUd6GHMGiZAd2lAMroPbYOIkxZgvq5yiBa4BzsJcfGD+ADizKxjxJCoQGTnzZyz4iNcN9ijM2UKuZUiWIsfwgtND+9zpV1nq6ccY6LVmiCc8x/8knt0TtxE7tLhWljJw2TK3pKVWgDZEom0FnHqr+oPy1BB5m8D9idlasSNZCyxpysl5tKRdr1d0pgGopiemebQjqdAYYKFbsmUVfq8ko1imRZXnzZKrUNuT2pgSisjW0oIkn5PYkWYLG5B7eg0HXevOoE7t0gRmhWQk1Hn7Jca9awaH6XGRRN+GtNQMYkEKkd33yOmEfSIor8fKCt84hIteQwuUHaohsguEBZgKElvS1Z0mWlnnl6NWC6nGYtx8GUnbQPyO4OcjqoJ6XBsI5VEbL6aJowgbHMpxcfWECjSAjXFztSXv0lmcTBokkTptZ3vTWQYWS3lDJmCUulZ0Xz+Y8LyVz6vsxV9R/I9piu1x5wt8X1zA3OFWfCXe1HgZ4KgXiyaD00294wKOX/YN0UBq5BFaDsbDVcJRVLQNTiSa5UOmYAnz+qbYP6kVml3c5cgq3xhlM7ZN6SbVxaZS97YnztBnrlzRLOlNh0lXSbMrxNzk4yO2t0nGY7Q0fIBVKsXb6K9wx54hBfnH3vgadlS3Yt6LxNBuFvj9pZvt5z53tO/aOostPgQj9APOg9zxgwiCEYG0kBbZIrs6+j8sDEqKqRrJwj9aAEhj8WA==
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR06MB6236.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(56012099006)(4143699003)(18002099003)(22082099003)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?WHhEeDRGakEvOGhPcVVJbUIvS1FyK3FPS0FBd3R6NW5iN2tPbEsvK2UyT0J6?=
- =?utf-8?B?bElVNkRKdDFXc2dNMUlyZERoL1RUWVYyc2NXSTBsSXNyWmJWUmZhVG50V3po?=
- =?utf-8?B?MklBRXZ3OW8ySjJ0VHFaQVZKeVoweS9sM1Blb1l0bkJ1T3k5a0svYVFSMms2?=
- =?utf-8?B?cHFtQWxoRzkxK1YzZGtzODNUSWdkNE9vdXdzT25QSU5LUEVaYW5vOTlpem1v?=
- =?utf-8?B?N0tiYUhuclhQaUVYNmRPYm4wRTFXUWVkZlVLQ1Y0RTNhakpndWY3dTBDbmts?=
- =?utf-8?B?NDllSU5LTzdzR1RzRjFEZlNnSmNRK29JNE00QTdNbzJnRWJhQktJRW04bXkz?=
- =?utf-8?B?WGN6OGozZm0rVVJlN1VzbnZYa0I0ajBXMmVGdkZrQzFWMTM4S1NPT1g1aEhO?=
- =?utf-8?B?bDU2UFpIaWF1NENvT0tyVllSclR3OHVJczBvWXpXZzQ3cHpGN2x3VDQ0T2Qz?=
- =?utf-8?B?NktrWHFQVDJXTEI5amdibnFaZEpsR1hhSGxDUm1ORlNtZ3AxcmM5NWsrQXBZ?=
- =?utf-8?B?QStndm4xRGE2V2l6MEFPK01PQmFKNzZMM0dSTmduTnVVaWZ5elgva2FSTEJp?=
- =?utf-8?B?Rm9PSTJvbXNlMVFoWitXRlZ0bzEwbitBeEdHR2N6bU9yYndCOWZvbjVqQVdp?=
- =?utf-8?B?VS9tZGVrejJiUkZzZEV0S2xOWDJ5NGFkMU02OGJhL25DNWdOWTNteFUxQkls?=
- =?utf-8?B?VXF5ejN0QVVGMUNERSs4L28xaWZVZ2k5MzErejBBU1VMNzdMbmdXUGo1YWs0?=
- =?utf-8?B?VWNUaXZpQ0lML0EzaEpib2xxcGJyMUdHaXZIenF0cFdmMzBFRkZsd015WmZH?=
- =?utf-8?B?cEJvMWhsOXJEM0w0UjFCQTZIb3M2N1VzUEdDRHkwaTJQVjN4Zzg2MGRuWVlR?=
- =?utf-8?B?N2thYW5wVVltQnJwd1I1ZmN5OEN5eVRXUE1uM3c5d3dIVnJQTU5ROUF1dnY1?=
- =?utf-8?B?b1FpR1FCY3F6QjVNc3I3eGtCa3V6dFhjTDZWTVBiWStvWmNCNDVlUzByNUxX?=
- =?utf-8?B?bEUxZTFHaGdMYy9PMDZvU0ZqTnFPMjF1MjRlQ3hKN0xMd3hVbUlUdDhLbmJ5?=
- =?utf-8?B?Z05hb25SYlZ4UGQ2SWE0aHJ1N3gvMG9NY0pqa0hBcTlRRlFQMlpiUm9QR2lX?=
- =?utf-8?B?L1pmNnpRM01rUlRKRS9Ua0lCQkhXYllmZk50SkpDMTV3Z0oyQTIxK3Q3b0o5?=
- =?utf-8?B?Tk1teHg0MDZxYjBTOWlIVDBmUHA0WnZZVzJVSlBZTTZPdzNZT1ZoUU92anlj?=
- =?utf-8?B?M1dJUE5nUW83bGFwRFFTR1FsWURUVUlMSWtrQ1QvSTNlTWpEZ0VwdXJsaUlY?=
- =?utf-8?B?VnpmRHJYUkw1TUNlRzhFUDgweW9FQXBJRWQzY0lzOVlsWkVVY1VndTN0ME1Z?=
- =?utf-8?B?cXNub3RpNHI5Vk84Q0dxRURadHVDaGRCTzR1ZDd0VTY1M0JBbjl5Y0hjeUFY?=
- =?utf-8?B?UHk4QnpHN2dBd3VFbVhmcHFZNG9uS1lqZjdCVjRXRGlObGJOUVhoS09pQWhn?=
- =?utf-8?B?VXFDcDA5aS9Pd3Y3eDJVYmI4V1B4bGU2WlNUSFBWUUpvYWJtU0VmdlUweFN5?=
- =?utf-8?B?dDdCWjF3aTN0Q3JMLzlmUXlTYmoyUngrc3lwVzg5MmV2L1pMb2RueVBLVGdk?=
- =?utf-8?B?VCtuQUhNQlpSV0FlMzZxSHF0QlJ3MnBkVEc4MU5GZitITnN0ZXhweWZjNFUv?=
- =?utf-8?B?VC9HSmRrdjQ1ZlZ3elZyM0tzcXhLQW0wallTeE9CMWtrSlFMU3NzdlJlY05p?=
- =?utf-8?B?SE1DMDU0MTcxcExBOTlHbnNWWE82SUVuVGhIMlNjRURuQXdKSUpwY3dYWVVp?=
- =?utf-8?B?RThXRnpCNkNub2pudHBkQU42Lzh5cG5WOXR0Nm13eEQ4NWdoaFJtQ2JNN25t?=
- =?utf-8?B?TjJsbzFzMURITFV0dXY5dGlrSWdycktVMk9DYWhaQnVNWjdmQ2FON0swVXpX?=
- =?utf-8?B?VEtKWmJCWEx3dGpMMjVqbGR6UWNDTDh4aG8vM3NhSUVvWno2NjlLQ3ZxcEIx?=
- =?utf-8?B?dnZVcmZZZTdvai91ejR0OGZRcEtQaklqZFlzeGRzdWNHczV2S2pkZU9rbmFG?=
- =?utf-8?B?NmN3NzM4REZXTE9hZUh4dURjbTZDNDZVZzh1VXZ6aDJxMERLRTFNSUNReWE4?=
- =?utf-8?B?QzBTcEY5V2c1L2Y5RkFxM3JEZVY3STIxL28zTHd1MEp4enR6MExqMjRhcEtW?=
- =?utf-8?B?YzBwT0xTcWNNU3RJN2dmMlhja2xwbWxFZ1QvemtCVG8xdFNKQTBFd3hEMVJZ?=
- =?utf-8?B?ZzZ4Q2llWVd5d2tOc1RxSGVCS1BmR0VqcXZIUjgrdERib0VwOFVMU3BYUUpX?=
- =?utf-8?B?UmtncXpzVEdEWVdYcXI0b1J2ZldnaXRRUytzYlFETVdYWkZRa3UvQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	Tue, 30 Jun 2026 12:54:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C44A443FA3;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 922BFC32781;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782824086;
+	bh=JjSBcUsCIWijnP1RO/tcdaxQskqlpD+6f8guQj7iid0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=FlfjgDsO8EJjz5AQp5YkXaFaihiQmqOomg2ZTs5wjWwD2dkRA62/QhJBT4+NqD0mt
+	 gjRSx5dG/uJbw7kohaoKJIfZ6DpOBAC6ifDyvpeL9nJQmXPPlya8wpR4KXjjNNRlUP
+	 1Of35pmSDWuqP2Xr36sZq+SyND732eBKD65xRhQjyqjlFIH9/e54nS4zH/J8ZG0O8N
+	 xt8/JkCcNZGw1KGfTghi8zUBbjiVSTSyQgZ6QOxLS9dhsKGJFQ9VUE0jdbmieNBGpb
+	 rwb6PnjNBsyqN6W03qumOzCPZJBWz2lUm9bpRuJJstZVI1Ge/h0A7bfXVgkMy6nbc0
+	 BGKHaQHQsgu4A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 885A1C43602;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
+Date: Tue, 30 Jun 2026 22:54:33 +1000
+Subject: [PATCH 05/10] mailbox: apple: Add DockChannel FIFO controller
 MIME-Version: 1.0
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR06MB6236.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 594f8450-c8b7-48de-2da7-08ded6a53c50
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2026 12:43:50.2401
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 8+Z+3vGp7iwfWnMQ7g3x3htU6BD9fnwrPe/niARepxvXy0VVq8ocvlvdQYs5DXSatKV7bz4vNJZkjjIvtVzaobG56GNqIU391jM5S502Nz4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR06MB5134
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_054405_504621_05C27DE7 
-X-CRM114-Status: GOOD (  20.84  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260630-apple-mtp-keyboard-final-v1-5-506d936a1707@gmail.com>
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+ Benjamin Tissoires <bentiss@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ iommu@lists.linux.dev, linux-input@vger.kernel.org, 
+ Michael Reeves <michael.reeves077@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=14145;
+ i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
+ bh=kYpCmYxQZoBs0BJjHZBNv8MenqrnGTiSP5cTeGdpidA=;
+ b=0FvdcrzK3mg5Ru5nq6JH6A1tZy3CLwyElGoIHQU/n7uzv8kbUf4nI+PUxINrLRlCPBP+kjAfX
+ WufSI/1C+J6DsGyS45WmCjJpQrtmetAtx+AXmhOdBgnwgmqxy1L+i6C
+X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
+ pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
+X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
+ with auth_id=591
+X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,44 +88,515 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkNCg0KPiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBQaGlsaXBwIFphYmVs
-IDxwLnphYmVsQHBlbmd1dHJvbml4LmRlPg0KPiBTZW50OiBUdWVzZGF5LCBKdW5lIDMwLCAyMDI2
-IDU6MzggUE0NCj4gVG86IEpvYWtpbSBaaGFuZyA8am9ha2ltLnpoYW5nQGNpeHRlY2guY29tPjsg
-bXR1cnF1ZXR0ZUBiYXlsaWJyZS5jb207DQo+IHNib3lkQGtlcm5lbC5vcmc7IGJtYXNuZXlAcmVk
-aGF0LmNvbTsgcm9iaEBrZXJuZWwub3JnOw0KPiBrcnprK2R0QGtlcm5lbC5vcmc7IGNvbm9yK2R0
-QGtlcm5lbC5vcmcNCj4gQ2M6IGNpeC1rZXJuZWwtdXBzdHJlYW0gPGNpeC1rZXJuZWwtdXBzdHJl
-YW1AY2l4dGVjaC5jb20+OyBsaW51eC0NCj4gY2xrQHZnZXIua2VybmVsLm9yZzsgZGV2aWNldHJl
-ZUB2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5vcmc7DQo+IGxpbnV4
-LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZw0KPiBTdWJqZWN0OiBSZTogW1BBVENIIHY3
-IDMvNF0gcmVzZXQ6IGNpeDogYWRkIHNreTEgYXVkc3MgYXV4aWxpYXJ5IHJlc2V0IGRyaXZlcg0K
-PiANCj4gRVhURVJOQUwgRU1BSUwNCj4gDQo+IENBVVRJT046IFN1c3BpY2lvdXMgRW1haWwgZnJv
-bSB1bnVzdWFsIGRvbWFpbi4NCj4gDQo+IE9uIE1vLCAyMDI2LTA2LTI5IGF0IDE3OjE0ICswODAw
-LCBqb2FraW0uemhhbmdAY2l4dGVjaC5jb20gd3JvdGU6DQo+ID4gRnJvbTogSm9ha2ltIFpoYW5n
-IDxqb2FraW0uemhhbmdAY2l4dGVjaC5jb20+DQo+ID4NCj4gPiBBZGQgYW4gYXV4aWxpYXJ5IHJl
-c2V0IGNvbnRyb2xsZXIgZHJpdmVyIGZvciB0aGUgQVVEU1MgQ1JVLiBTaXh0ZWVuDQo+ID4gc29m
-dHdhcmUgcmVzZXQgbGluZXMgZm9yIGF1ZGlvIHN1YnN5c3RlbSBwZXJpcGhlcmFscyBhcmUgY29u
-dHJvbGxlZA0KPiA+IHRocm91Z2ggb25lIHJlZ2lzdGVyIGluIHRoZSBDUlUgcmVnaXN0ZXIgbWFw
-Lg0KPiA+DQo+ID4gVGhlIGRyaXZlciBpcyBjcmVhdGVkIGJ5IHRoZSBBVURTUyBjbG9jayBwbGF0
-Zm9ybSBkcml2ZXIgYW5kIHJlZ2lzdGVycw0KPiA+IHRoZSByZXNldCBjb250cm9sbGVyIG9uIHRo
-ZSBDUlUgZGV2aWNlIG5vZGUuDQo+ID4NCj4gPiBTaWduZWQtb2ZmLWJ5OiBKb2FraW0gWmhhbmcg
-PGpvYWtpbS56aGFuZ0BjaXh0ZWNoLmNvbT4NCj4gPiAtLS0NCj4gPiAgZHJpdmVycy9yZXNldC9L
-Y29uZmlnICAgICAgICAgICAgfCAgMTQgKysrKw0KPiA+ICBkcml2ZXJzL3Jlc2V0L01ha2VmaWxl
-ICAgICAgICAgICB8ICAgMSArDQo+ID4gIGRyaXZlcnMvcmVzZXQvcmVzZXQtc2t5MS1hdWRzcy5j
-IHwgMTM3DQo+ID4gKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKw0KPiA+ICAzIGZpbGVz
-IGNoYW5nZWQsIDE1MiBpbnNlcnRpb25zKCspDQo+ID4gIGNyZWF0ZSBtb2RlIDEwMDY0NCBkcml2
-ZXJzL3Jlc2V0L3Jlc2V0LXNreTEtYXVkc3MuYw0KPiA+DQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZl
-cnMvcmVzZXQvS2NvbmZpZyBiL2RyaXZlcnMvcmVzZXQvS2NvbmZpZyBpbmRleA0KPiA+IGQwMDll
-YjA4NDlhMy4uZjc0ODU5YjI5MmFlIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvcmVzZXQvS2Nv
-bmZpZw0KPiA+ICsrKyBiL2RyaXZlcnMvcmVzZXQvS2NvbmZpZw0KPiA+IEBAIC0zMDAsNiArMzAw
-LDIwIEBAIGNvbmZpZyBSRVNFVF9TS1kxDQo+ID4gICAgICAgaGVscA0KPiA+ICAgICAgICAgVGhp
-cyBlbmFibGVzIHRoZSByZXNldCBjb250cm9sbGVyIGZvciBDaXggU2t5MS4NCj4gPg0KPiA+ICtj
-b25maWcgUkVTRVRfU0tZMV9BVURTUw0KPiA+ICsgICAgIHRyaXN0YXRlICJDaXggU2t5MSBBdWRp
-byBTdWJzeXN0ZW0gcmVzZXQgY29udHJvbGxlciINCj4gPiArICAgICBkZXBlbmRzIG9uIEFSQ0hf
-Q0lYIHx8IENPTVBJTEVfVEVTVA0KPiA+ICsgICAgIHNlbGVjdCBBVVhJTElBUllfQlVTDQo+ID4g
-KyAgICAgc2VsZWN0IFJFR01BUF9NTUlPDQo+IA0KPiBUaGlzIGRyaXZlciBkb2Vzbid0IG5lZWQg
-UkVHTUFQX01NSU8gaXRzZWxmLCBpdCBqdXN0IGluaGVyaXRzIGl0cyBwYXJlbnQncw0KPiByZWdt
-YXAuDQpEcm9wcGVkLg0KDQpUaGFua3MsDQpKb2FraW0NCg==
+From: Michael Reeves <michael.reeves077@gmail.com>
+
+DockChannel is a hardware FIFO used by Apple coprocessors for
+low-latency byte-stream communication with the AP.
+
+Add a mailbox controller that preallocates RX storage, tracks IRQ
+enable state in software, and reports TX completion from the TX-empty
+interrupt.
+
+Reject messages larger than the FIFO and return -EBUSY while the
+previous message is still pending. This keeps the provider usable for
+future small-message clients such as serial transports without a TX
+worker.
+
+Co-developed-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+---
+ MAINTAINERS                               |   2 +
+ drivers/mailbox/Kconfig                   |  12 +
+ drivers/mailbox/Makefile                  |   2 +
+ drivers/mailbox/apple-dockchannel.c       | 380 ++++++++++++++++++++++++++++++
+ include/linux/mailbox/apple-dockchannel.h |  29 +++
+ 5 files changed, 425 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 1f3c2cdb6e19..ed68452c0ad6 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2628,6 +2628,7 @@ F:	drivers/input/touchscreen/apple_z2.c
+ F:	drivers/iommu/apple-dart.c
+ F:	drivers/iommu/io-pgtable-dart.c
+ F:	drivers/irqchip/irq-apple-aic.c
++F:	drivers/mailbox/apple-dockchannel.c
+ F:	drivers/mfd/macsmc.c
+ F:	drivers/nvme/host/apple.c
+ F:	drivers/nvmem/apple-efuses.c
+@@ -2646,6 +2647,7 @@ F:	drivers/video/backlight/apple_dwi_bl.c
+ F:	drivers/watchdog/apple_wdt.c
+ F:	include/dt-bindings/interrupt-controller/apple-aic.h
+ F:	include/dt-bindings/pinctrl/apple.h
++F:	include/linux/mailbox/apple-dockchannel.h
+ F:	include/linux/mfd/macsmc.h
+ F:	include/linux/soc/apple/*
+ F:	include/uapi/drm/asahi_drm.h
+diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+index 3062ee352f78..f1af76d19f1e 100644
+--- a/drivers/mailbox/Kconfig
++++ b/drivers/mailbox/Kconfig
+@@ -36,6 +36,18 @@ config ARM_MHU_V3
+ 	  that provides different means of transports: supported extensions
+ 	  will be discovered and possibly managed at probe-time.
+ 
++config APPLE_DOCKCHANNEL
++	tristate "Apple DockChannel FIFO mailbox"
++	depends on ARCH_APPLE || COMPILE_TEST
++	depends on HAS_IOMEM
++	depends on OF
++	help
++	  DockChannel is a hardware FIFO used on Apple Silicon SoCs for
++	  communication between the application processor and co-processors.
++	  This driver exposes DockChannel FIFOs through the mailbox framework.
++
++	  Say Y here if you have an M2 or later Apple MacBook.
++
+ config AST2700_MBOX
+ 	tristate "ASPEED AST2700 IPC driver"
+ 	depends on ARCH_ASPEED || COMPILE_TEST
+diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+index 944d8ea39f34..4f3405064269 100644
+--- a/drivers/mailbox/Makefile
++++ b/drivers/mailbox/Makefile
+@@ -11,6 +11,8 @@ obj-$(CONFIG_ARM_MHU_V2)	+= arm_mhuv2.o
+ 
+ obj-$(CONFIG_ARM_MHU_V3)	+= arm_mhuv3.o
+ 
++obj-$(CONFIG_APPLE_DOCKCHANNEL)	+= apple-dockchannel.o
++
+ obj-$(CONFIG_AST2700_MBOX)	+= ast2700-mailbox.o
+ 
+ obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
+diff --git a/drivers/mailbox/apple-dockchannel.c b/drivers/mailbox/apple-dockchannel.c
+new file mode 100644
+index 000000000000..bae183db1307
+--- /dev/null
++++ b/drivers/mailbox/apple-dockchannel.c
+@@ -0,0 +1,380 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple DockChannel mailbox controller
++ *
++ * Copyright The Asahi Linux Contributors
++ *
++ * DockChannel is a byte FIFO used by Apple co-processors. This driver exposes a
++ * single FIFO pair as a Linux mailbox channel and moves payload bytes with PIO.
++ * There is no DMA involved, so relaxed MMIO accessors are sufficient for the
++ * FIFO accesses themselves.
++ */
++
++#include <linux/device.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/mailbox/apple-dockchannel.h>
++#include <linux/mailbox_controller.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
++#include <linux/spinlock.h>
++#include <linux/unaligned.h>
++
++#define APPLE_DOCKCHANNEL_FIFO_SIZE	0x800
++
++#define IRQ_MASK			0x0
++#define IRQ_FLAG			0x4
++
++#define IRQ_TX				BIT(2)
++#define IRQ_RX				BIT(3)
++
++#define CONFIG_TX_THRESH		0x0
++#define CONFIG_RX_THRESH		0x4
++
++#define DATA_TX8			0x4
++#define DATA_TX32			0x10
++#define DATA_TX_FREE			0x14
++#define DATA_RX8			0x1c
++#define DATA_RX32			0x28
++#define DATA_RX_COUNT			0x2c
++
++struct apple_dockchannel {
++	struct device *dev;
++	struct mbox_controller controller;
++	struct mbox_chan chan;
++
++	void __iomem *irq_base;
++	void __iomem *config_base;
++	void __iomem *data_base;
++	int irq;
++
++	spinlock_t lock; /* protects IRQ mask and TX state */
++	u32 irq_mask;
++
++	const u8 *tx_buf;
++	size_t tx_len;
++	size_t tx_pos;
++	bool tx_active;
++
++	u8 rx_buf[APPLE_DOCKCHANNEL_FIFO_SIZE];
++};
++
++static void apple_dockchannel_irq_update(struct apple_dockchannel *dc,
++					 u32 bits, bool enable)
++{
++	if (enable)
++		dc->irq_mask |= bits;
++	else
++		dc->irq_mask &= ~bits;
++	writel_relaxed(dc->irq_mask, dc->irq_base + IRQ_MASK);
++}
++
++static void apple_dockchannel_irq_enable(struct apple_dockchannel *dc, u32 bits)
++{
++	/*
++	 * IRQ_FLAG is write-to-clear. Clear stale latched flags before
++	 * unmasking so the next interrupt reflects current FIFO state.
++	 */
++	writel_relaxed(bits, dc->irq_base + IRQ_FLAG);
++	apple_dockchannel_irq_update(dc, bits, true);
++}
++
++static void apple_dockchannel_irq_disable(struct apple_dockchannel *dc, u32 bits)
++{
++	apple_dockchannel_irq_update(dc, bits, false);
++}
++
++static bool apple_dockchannel_tx_empty(struct apple_dockchannel *dc)
++{
++	return readl_relaxed(dc->data_base + DATA_TX_FREE) ==
++	       APPLE_DOCKCHANNEL_FIFO_SIZE;
++}
++
++static void apple_dockchannel_write_pending(struct apple_dockchannel *dc)
++{
++	size_t left = dc->tx_len - dc->tx_pos;
++	const u8 *p = dc->tx_buf + dc->tx_pos;
++
++	while (left) {
++		size_t avail;
++		size_t block;
++
++		avail = readl_relaxed(dc->data_base + DATA_TX_FREE);
++		if (!avail)
++			break;
++
++		block = min(left, avail);
++
++		while (block >= sizeof(u32)) {
++			writel_relaxed(get_unaligned_le32(p),
++				       dc->data_base + DATA_TX32);
++			p += sizeof(u32);
++			left -= sizeof(u32);
++			block -= sizeof(u32);
++		}
++
++		while (block) {
++			writeb_relaxed(*p++, dc->data_base + DATA_TX8);
++			left--;
++			block--;
++		}
++	}
++
++	dc->tx_pos = dc->tx_len - left;
++}
++
++static void apple_dockchannel_read(struct apple_dockchannel *dc, void *buf,
++				   size_t count)
++{
++	u8 *p = buf;
++	size_t left = count;
++
++	while (left >= sizeof(u32)) {
++		put_unaligned_le32(readl_relaxed(dc->data_base + DATA_RX32), p);
++		p += sizeof(u32);
++		left -= sizeof(u32);
++	}
++
++	while (left) {
++		/*
++		 * The byte FIFO register returns the byte in bits [15:8] on
++		 * these instances.
++		 */
++		*p++ = readl_relaxed(dc->data_base + DATA_RX8) >> 8;
++		left--;
++	}
++}
++
++static int apple_dockchannel_send_data(struct mbox_chan *chan, void *data)
++{
++	struct apple_dockchannel *dc = chan->con_priv;
++	struct apple_dockchannel_msg *msg = data;
++	unsigned long flags;
++
++	if (!msg || !msg->data || !msg->len)
++		return -EINVAL;
++
++	if (msg->len > APPLE_DOCKCHANNEL_FIFO_SIZE)
++		return -EMSGSIZE;
++
++	spin_lock_irqsave(&dc->lock, flags);
++
++	if (dc->tx_active || !apple_dockchannel_tx_empty(dc)) {
++		spin_unlock_irqrestore(&dc->lock, flags);
++		return -EBUSY;
++	}
++
++	dc->tx_buf = msg->data;
++	dc->tx_len = msg->len;
++	dc->tx_pos = 0;
++	dc->tx_active = true;
++
++	apple_dockchannel_write_pending(dc);
++	writel_relaxed(APPLE_DOCKCHANNEL_FIFO_SIZE,
++		       dc->config_base + CONFIG_TX_THRESH);
++	apple_dockchannel_irq_enable(dc, IRQ_TX);
++
++	spin_unlock_irqrestore(&dc->lock, flags);
++
++	return 0;
++}
++
++static int apple_dockchannel_startup(struct mbox_chan *chan)
++{
++	struct apple_dockchannel *dc = chan->con_priv;
++	unsigned long flags;
++
++	spin_lock_irqsave(&dc->lock, flags);
++	/*
++	 * The mailbox framework has no per-client RX threshold. Use byte
++	 * granularity because UART-style DockChannel clients require it.
++	 */
++	writel_relaxed(1, dc->config_base + CONFIG_RX_THRESH);
++	apple_dockchannel_irq_enable(dc, IRQ_RX);
++	spin_unlock_irqrestore(&dc->lock, flags);
++
++	enable_irq(dc->irq);
++
++	return 0;
++}
++
++static void apple_dockchannel_shutdown(struct mbox_chan *chan)
++{
++	struct apple_dockchannel *dc = chan->con_priv;
++	unsigned long flags;
++
++	disable_irq(dc->irq);
++
++	spin_lock_irqsave(&dc->lock, flags);
++	apple_dockchannel_irq_disable(dc, IRQ_TX | IRQ_RX);
++	dc->tx_active = false;
++	spin_unlock_irqrestore(&dc->lock, flags);
++}
++
++static const struct mbox_chan_ops apple_dockchannel_mbox_ops = {
++	.send_data = apple_dockchannel_send_data,
++	.startup = apple_dockchannel_startup,
++	.shutdown = apple_dockchannel_shutdown,
++};
++
++static irqreturn_t apple_dockchannel_irq(int irq, void *data)
++{
++	struct apple_dockchannel *dc = data;
++	u32 flags;
++	u32 pending;
++	bool tx_done = false;
++
++	flags = readl_relaxed(dc->irq_base + IRQ_FLAG);
++
++	spin_lock(&dc->lock);
++
++	pending = flags & dc->irq_mask & (IRQ_TX | IRQ_RX);
++	if (!pending)
++		goto out_unlock_none;
++
++	if (pending & IRQ_TX) {
++		if (apple_dockchannel_tx_empty(dc)) {
++			apple_dockchannel_irq_disable(dc, IRQ_TX);
++			tx_done = dc->tx_active;
++			dc->tx_active = false;
++		} else {
++			pending &= ~IRQ_TX;
++		}
++	}
++
++	writel_relaxed(pending, dc->irq_base + IRQ_FLAG);
++
++	spin_unlock(&dc->lock);
++
++	if (tx_done)
++		mbox_chan_txdone(&dc->chan, 0);
++
++	if (pending & IRQ_RX)
++		return IRQ_WAKE_THREAD;
++
++	if (pending)
++		return IRQ_HANDLED;
++
++	return IRQ_NONE;
++
++out_unlock_none:
++	spin_unlock(&dc->lock);
++
++	if (flags & (IRQ_TX | IRQ_RX))
++		writel_relaxed(flags & (IRQ_TX | IRQ_RX),
++			       dc->irq_base + IRQ_FLAG);
++
++	return IRQ_NONE;
++}
++
++static irqreturn_t apple_dockchannel_irq_thread(int irq, void *data)
++{
++	struct apple_dockchannel *dc = data;
++
++	for (;;) {
++		struct apple_dockchannel_msg msg;
++		size_t avail;
++
++		avail = readl_relaxed(dc->data_base + DATA_RX_COUNT);
++		if (!avail)
++			break;
++
++		avail = min_t(size_t, avail, APPLE_DOCKCHANNEL_FIFO_SIZE);
++
++		apple_dockchannel_read(dc, dc->rx_buf, avail);
++
++		msg.data = dc->rx_buf;
++		msg.len = avail;
++		mbox_chan_received_data(&dc->chan, &msg);
++	}
++
++	return IRQ_HANDLED;
++}
++
++static struct mbox_chan *
++apple_dockchannel_of_xlate(struct mbox_controller *mbox,
++			   const struct of_phandle_args *spec)
++{
++	if (spec->args_count != 0)
++		return ERR_PTR(-EINVAL);
++
++	return &mbox->chans[0];
++}
++
++static int apple_dockchannel_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct apple_dockchannel *dc;
++	int ret;
++
++	dc = devm_kzalloc(dev, sizeof(*dc), GFP_KERNEL);
++	if (!dc)
++		return -ENOMEM;
++
++	dc->dev = dev;
++	spin_lock_init(&dc->lock);
++	platform_set_drvdata(pdev, dc);
++
++	dc->irq_base = devm_platform_ioremap_resource_byname(pdev, "irq");
++	if (IS_ERR(dc->irq_base))
++		return PTR_ERR(dc->irq_base);
++
++	dc->config_base = devm_platform_ioremap_resource_byname(pdev, "config");
++	if (IS_ERR(dc->config_base))
++		return PTR_ERR(dc->config_base);
++
++	dc->data_base = devm_platform_ioremap_resource_byname(pdev, "data");
++	if (IS_ERR(dc->data_base))
++		return PTR_ERR(dc->data_base);
++
++	writel_relaxed(0, dc->irq_base + IRQ_MASK);
++	writel_relaxed(~0, dc->irq_base + IRQ_FLAG);
++
++	dc->irq = platform_get_irq(pdev, 0);
++	if (dc->irq < 0)
++		return dc->irq;
++
++	ret = devm_request_threaded_irq(dev, dc->irq, apple_dockchannel_irq,
++					apple_dockchannel_irq_thread, IRQF_ONESHOT,
++					dev_name(dev), dc);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to request IRQ\n");
++
++	disable_irq(dc->irq);
++
++	dc->chan.con_priv = dc;
++	dc->controller.dev = dev;
++	dc->controller.ops = &apple_dockchannel_mbox_ops;
++	dc->controller.chans = &dc->chan;
++	dc->controller.num_chans = 1;
++	dc->controller.txdone_irq = true;
++	dc->controller.of_xlate = apple_dockchannel_of_xlate;
++
++	ret = devm_mbox_controller_register(dev, &dc->controller);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to register mailbox\n");
++
++	return 0;
++}
++
++static const struct of_device_id apple_dockchannel_of_match[] = {
++	{ .compatible = "apple,t8122-dockchannel" },
++	{ .compatible = "apple,t8112-dockchannel" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, apple_dockchannel_of_match);
++
++static struct platform_driver apple_dockchannel_driver = {
++	.driver = {
++		.name = "apple-dockchannel",
++		.of_match_table = apple_dockchannel_of_match,
++	},
++	.probe = apple_dockchannel_probe,
++};
++module_platform_driver(apple_dockchannel_driver);
++
++MODULE_DESCRIPTION("Apple DockChannel mailbox controller");
++MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
++MODULE_AUTHOR("Michael Reeves <michael.reeves077@gmail.com>");
++MODULE_LICENSE("Dual MIT/GPL");
+diff --git a/include/linux/mailbox/apple-dockchannel.h b/include/linux/mailbox/apple-dockchannel.h
+new file mode 100644
+index 000000000000..04d2fc44f12f
+--- /dev/null
++++ b/include/linux/mailbox/apple-dockchannel.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
++/*
++ * Apple DockChannel mailbox message format.
++ *
++ * Copyright The Asahi Linux Contributors
++ */
++
++#ifndef _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_
++#define _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_
++
++#include <linux/types.h>
++
++/**
++ * struct apple_dockchannel_msg - DockChannel mailbox payload
++ * @data: Pointer to the byte stream payload
++ * @len: Number of payload bytes
++ *
++ * For TX, @data must remain valid until mbox_send_message() completes or the
++ * client receives tx_done in non-blocking mode.
++ *
++ * For RX, @data is owned by the controller and is valid only for the duration
++ * of the rx_callback.
++ */
++struct apple_dockchannel_msg {
++	void *data;
++	size_t len;
++};
++
++#endif /* _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_ */
+
+-- 
+2.51.2
+
+
 
