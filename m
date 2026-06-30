@@ -4,66 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1ECC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 14:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7925C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 14:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FrOy3rj9ErYPsJBF3jjZifi/JmWhngje4d+c3PkjfiI=; b=cujFw9ZUvPkCWZz2x804d+R78L
-	Xyw7DpRvApDGJsftBDulpeDUndgp+7cF+U0N+QHCaiGZbqsLDhuXhVvmyu7KvOanNMFWA6paAxTP3
-	yGpZ+vNpRRCkItLx/6/BIyMKI6hxKfA8VisWnRjlzT11q+GcDq2yZaB99/EBZYUkzAUNvMhkJiz/L
-	hqAAkCs4ChMSowIB0mzEnb61L780OX8QXjAuIy/rjUZtsPekqAnu6h24pZQwcH2+daXO5iSwK/Qj/
-	osGVE8Q0XeZzhWCkDHKSpj8keboMNI/GX98tgdZEOYRzC3kCLleQfFDwbns1XpSQnPieX6Rias7EE
-	y2uOOhQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4CRYNR9Ttoh0UYPPqJCwS1F8n+aIWGEk/01ZuGpVa3s=; b=vb/nHxtEln6++pzpFu5BGcYS+y
+	KDqUQs2D9owiDO2SCs1NKGS4xMyvEFG6tbECX2XDFq58u9SUk33ZLHYaQqAApC+W8fMl5z0ocr7os
+	hXKftSeIl4w7+LySwVsUHt+4p/Ea5tk4zCRCFqDrEM26RyprvM0hn3TDi4XzdDQ0E692I7+1GMsaF
+	UcgrURSUw5Ge3VoxA7fWKSLCRq+MnM34ZJ7g+G6hcvFyFe/JUmyMmHbQLp4iT2ah0pRy+2EOPjXAG
+	sqWDWAyY69HrBDfHmD06L+hnLCFrBm68xLLBTsoEYDirFg7Gzi2VyeV07Z7TgPChqOnUREfA53TWP
+	BITUKMww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weZrj-0000000HJFH-0IoJ;
-	Tue, 30 Jun 2026 14:55:11 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weZrh-0000000HJEn-0uuH;
-	Tue, 30 Jun 2026 14:55:09 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E8D860018;
-	Tue, 30 Jun 2026 14:55:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73DB41F00A3E;
-	Tue, 30 Jun 2026 14:54:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782831307;
-	bh=FrOy3rj9ErYPsJBF3jjZifi/JmWhngje4d+c3PkjfiI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oKfVzFZ6b/XSsHTT24iTlGuILVTem1fiPHNzbqfkkfEvgofuYcLnT0ZBgbClmJSyU
-	 1Lje1eKxqCR4srhyHKb8b43TaGt/wOdQZXmv9MCfqI/QaKY0Sm3heWK7BVrIeOZDzf
-	 P2zz/ZVNqH0yjYGkLQQLLiGvp654MVGM2V4RrpCvRDYfrZqeDqSFpN1iBK/jQBipio
-	 GzOMvwzGE77O+3r4MhfmAyJvycRC+cbAkpZPfltFgLx+L3FcsZRkJbecwAdR5VffFu
-	 7XRMQ3++8oaFXaRC4M35PtNbbbb3CmOuL7Rrw8sLRlduulgMHMNmiiOglxx3k9yzNS
-	 XQhqm13RH8Dug==
-Date: Tue, 30 Jun 2026 16:54:52 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jianjun Wang <jianjun.wang@mediatek.com>, 
-	linux-pci@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/4] dt-bindings: PCI: mediatek-gen3: Split Airoha
- schema and document 2-lanes
-Message-ID: <alqqddz52csz4pcbiilfca7a47x6jsazf2um4ydwiqq6ejrgz4@4qhkbj4k5i5s>
-References: <20260627121450.3529133-1-ansuelsmth@gmail.com>
- <20260627121450.3529133-4-ansuelsmth@gmail.com>
+	id 1weZwD-0000000HJl2-3z3F;
+	Tue, 30 Jun 2026 14:59:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weZwB-0000000HJkY-1cyy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 14:59:48 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C16AA2ED2;
+	Tue, 30 Jun 2026 07:59:39 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E80AC3F85F;
+	Tue, 30 Jun 2026 07:59:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782831584; bh=s11YEqzWft1tMdlJPiB2W7vs7l5bLF21YT3ZIu1q1fo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=QAh7VUMLz0gaatGTkF83GDTHj8tDFYdvhjNQ8/PZSXWCDXESa0cG9CO8wFAhIKoo2
+	 iI3B/BBV7c/hKe6QaRvi29cphCgZZKNbPzpTfMVNx2hjIR4bCo/no+dFvKocMPMM0z
+	 SCejECN+/EyqVdKCWo33DfCy9Bcs5y50cOBRBW0g=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Kees Cook <kees@kernel.org>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v2 06/13] KVM: arm64: dirty_bit: Add base FEAT_HACDBS cleaning routine
+Date: Tue, 30 Jun 2026 15:59:38 +0100
+Message-ID: <akPZ2bnh3k6ZZgYx@LeoBrasDK>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <akKtKH8O5hngLenm@kernel.org>
+References: <20260629111820.1873540-1-leo.bras@arm.com> <20260629111820.1873540-7-leo.bras@arm.com> <akKtKH8O5hngLenm@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260627121450.3529133-4-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_075947_504305_001BF820 
+X-CRM114-Status: GOOD (  37.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,257 +105,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 27, 2026 at 02:14:44PM +0200, Christian Marangi wrote:
-> To permit proper documentation of required property to support PCIe
-> configured for 2-lanes mode, split the Airoha schema part from the
-> mediatek-gen3 schema to a dedicated schema.
+On Mon, Jun 29, 2026 at 10:36:40AM -0700, Oliver Upton wrote:
+> On Mon, Jun 29, 2026 at 12:17:54PM +0100, Leonardo Bras wrote:
+> > Introduce the basic cleaning routine that is going to be used for both
+> > dirty-bitmap and dirty-ring routines.
+> > 
+> > It sets the required registers with the input buffer, and wait for
+> > HACDBSIRQ to happen, which means either the task is done, or there was some
+> > error during processing.
+> > 
+> > It is ran with preemption disabled, as a task being scheduled in could
+> > change the translation registers used by HACDBS and end up corrupting the
+> > current dirty-bit tracking and the sched-in task's S2 pagetables.
+> > 
+> > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> > ---
+> >  arch/arm64/kvm/dirty_bit.c | 81 ++++++++++++++++++++++++++++++++++++++
+> >  1 file changed, 81 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/dirty_bit.c b/arch/arm64/kvm/dirty_bit.c
+> > index 789da8712b1b..e4283828b780 100644
+> > --- a/arch/arm64/kvm/dirty_bit.c
+> > +++ b/arch/arm64/kvm/dirty_bit.c
+> > @@ -1,36 +1,117 @@
+> >  // SPDX-License-Identifier: GPL-2.0-only
+> >  /*
+> >   * Copyright (C) 2026 ARM Ltd.
+> >   * Author: Leonardo Bras <leo.bras@arm.com>
+> >   */
+> >  
+> >  #include <asm/kvm_dirty_bit.h>
+> > +#include <asm/kvm_mmu.h>
+> >  #include <linux/kconfig.h>
+> >  #include <linux/acpi.h>
+> >  
+> >  DEFINE_PER_CPU(struct hacdbs, hacdbs_pcp) = {
+> >  	.status = HACDBS_OFF,
+> >  	.size = 0,
+> >  };
+> >  
+> >  /* HDBSS entry field definitions */
+> >  #define HDBSS_ENTRY_VALID BIT(0)
+> >  #define HDBSS_ENTRY_TTWL_SHIFT (1)
+> >  #define HDBSS_ENTRY_TTWL_MASK (GENMASK(3, 1))
+> >  #define HDBSS_ENTRY_TTWL(x) \
+> >  	(((x) << HDBSS_ENTRY_TTWL_SHIFT) & HDBSS_ENTRY_TTWL_MASK)
+> >  #define HDBSS_ENTRY_TTWL_RESV HDBSS_ENTRY_TTWL(-4)
+> >  #define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
+> >  
+> >  static __ro_after_init int hacdbsirq = -1;
+> >  
+> > +static void hacdbs_start(u64 *hw_entries, int size)
+> > +{
+> > +	u64 br;
+> > +	/* Each entry is 8 bytes */
+> > +	int size_b = size * sizeof(hw_entries[0]);
+> > +	int size_p2 = max(roundup_pow_of_two(size_b), PAGE_SIZE);
+> > +
+> > +	/* If not using the full size of the array, put a stop entry at the end */
+> > +	if (size_b < size_p2)
+> > +		hw_entries[size] = HDBSS_ENTRY_VALID | HDBSS_ENTRY_TTWL_RESV;
+> > +
+> > +	sysreg_clear_set_s(SYS_HACDBSCONS_EL2,
+> > +			   HACDBSCONS_EL2_ERR_REASON | HACDBSCONS_EL2_INDEX, 0);
+> > +
+> > +	br = (virt_to_phys(hw_entries) & HACDBSBR_EL2_BADDR_MASK) |
+> > +	     FIELD_PREP(HACDBSBR_EL2_SZ, ilog2(size_p2) - 12) |
+> > +	     FIELD_PREP(HACDBSBR_EL2_EN, 1);
+> > +
+> > +	this_cpu_write(hacdbs_pcp.status, HACDBS_RUNNING);
+> > +	this_cpu_write(hacdbs_pcp.size, size);
+> > +	write_sysreg_s(br, SYS_HACDBSBR_EL2);
+> > +	isb();
+> > +}
+> > +
+> > +static int hacdbs_stop(void)
+> > +{
+> > +	write_sysreg_s(0, SYS_HACDBSBR_EL2);
+> > +	isb();
+> > +
+> > +	if (this_cpu_read(hacdbs_pcp.status) == HACDBS_ERROR) {
+> > +		/* In case of error, HACDBSCONS_EL2.INDEX should point the faulty entry */
+> > +		u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
+> > +		int idx = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
+> > +
+> > +		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+> > +
+> > +		return idx;
+> > +	}
+> > +
+> > +	return this_cpu_read(hacdbs_pcp.size);
+> > +}
+> > +
+> > +/*
+> > + * Clears dirty-bits for an array of pages (hw_entries) using HACDBS
+> > + * Returns the number of items cleaned from the array. If returns value < size,
+> > + *	there was an error in the processing.
+> > + */
+> > +static int dirty_bit_clear(struct kvm *kvm, u64 *hw_entries, int size)
+> > +{
+> > +	u64 hcr_el2;
+> > +	int ret;
+> > +
+> > +	preempt_disable();
+> > +
+> > +	hcr_el2 = read_sysreg(HCR_EL2);
+> > +	write_sysreg(hcr_el2 | HCR_EL2_VM, HCR_EL2);
 > 
-> A PCIe configured for 2-lanes mode require an additional reg for the
-> secondary PCIe to be configured and the airoha,scu phandle to correctly
-> configure the PCIe MUX.
+> sysreg_clear_set_hcr(). I'm pretty sure all the speculative AT errata
+> depend on HCR_EL2.VM being set _after_ the stage-2 MMU has been loaded.
 > 
-> Rework the mediatek-gen3 schema to drop any redundant constraint previsouly
-> introduced for Airoha PCIe properties.
+
+So, move this to after __load_stage2()?
+ok
+
+> > +	__load_stage2(&kvm->arch.mmu);
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  .../bindings/pci/airoha,en7581-pcie.yaml      | 251 ++++++++++++++++++
->  .../bindings/pci/mediatek-pcie-gen3.yaml      |  77 +-----
->  2 files changed, 256 insertions(+), 72 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
+> Pretty sure you need an ISB here to ensure loading the MMU is ordered
+> with enabling HACDBS.
+>
+
+does not __load_stage2() have an isb() here?
+In any case, will add an isb() after sysreg_clear_set_hcr(), which should 
+come after __load_stage2() IIUC.
+
+
+ 
+> > +	hacdbs_start(hw_entries, size);
+> > +
+> > +	do {
+> > +		wfi();
+> > +	} while (this_cpu_read(hacdbs_pcp.status) == HACDBS_RUNNING);
 > 
-> diff --git a/Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml b/Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
-> new file mode 100644
-> index 000000000000..c690ba7f207c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pci/airoha,en7581-pcie.yaml
-> @@ -0,0 +1,251 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pci/airoha,en7581-pcie.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Gen3 PCIe controller on Airoha SoCs
-> +
-> +maintainers:
-> +  - Christian Marangi <ansuelsmth@gmail.com>
-> +
-> +description: |+
-> +  PCIe Gen3 MAC controller for Airoha SoCs, it supports Gen3 speed
-> +  and compatible with Gen2, Gen1 speed.
-> +
-> +  This PCIe controller supports up to 256 MSI vectors, the MSI hardware
-> +  block diagram is as follows:
-> +
-> +                    +-----+
-> +                    | GIC |
-> +                    +-----+
-> +                       ^
-> +                       |
-> +                   port->irq
-> +                       |
-> +               +-+-+-+-+-+-+-+-+
-> +               |0|1|2|3|4|5|6|7| (PCIe intc)
-> +               +-+-+-+-+-+-+-+-+
-> +                ^ ^           ^
-> +                | |    ...    |
-> +        +-------+ +------+    +-----------+
-> +        |                |                |
-> +  +-+-+---+--+--+  +-+-+---+--+--+  +-+-+---+--+--+
-> +  |0|1|...|30|31|  |0|1|...|30|31|  |0|1|...|30|31| (MSI sets)
-> +  +-+-+---+--+--+  +-+-+---+--+--+  +-+-+---+--+--+
-> +   ^ ^      ^  ^    ^ ^      ^  ^    ^ ^      ^  ^
-> +   | |      |  |    | |      |  |    | |      |  |  (MSI vectors)
-> +   | |      |  |    | |      |  |    | |      |  |
-> +
-> +    (MSI SET0)       (MSI SET1)  ...   (MSI SET7)
-> +
-> +  With 256 MSI vectors supported, the MSI vectors are composed of 8 sets,
-> +  each set has its own address for MSI message, and supports 32 MSI vectors
-> +  to generate interrupt.
-> +
-> +properties:
-> +  compatible:
-> +    const: airoha,en7581-pcie
-> +
-> +  reg:
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    minItems: 1
-> +    maxItems: 2
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  ranges:
-> +    minItems: 1
-> +    maxItems: 8
+> This is exactly why I said you should just poll hardware instead. It is
+> entirely possible that the IRQ arrives before you WFI.
 
-8 entries? Really?
+It should be fine with WFIT, though, right?
 
-> +
-> +  iommu-map:
-> +    maxItems: 1
-> +
-> +  iommu-map-mask:
-> +    const: 0
+I understand the reason in pooling, and even done some workaround in 
+pooling for getting this to run in the model. 
 
-Why these iommu properties are not present in the example?
+Based on the previous reply, do you think I should only use polling for 
+now, and implement the IRQ later?
 
-> +
-> +  resets:
-> +    minItems: 1
-> +    maxItems: 4
-> +
-> +  reset-names:
-> +    minItems: 1
-> +    maxItems: 4
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    items:
-> +      - const: sys-ck
+> 
+> > +	ret = hacdbs_stop();
+> > +
+> > +	write_sysreg(hcr_el2, HCR_EL2);
+> 
+> write_sysreg_hcr()
 
-sys-clk?
+Sure!
 
-> +
-> +  phys:
-> +    maxItems: 1
-> +
-> +  phy-names:
-> +    items:
-> +      - const: pcie-phy
-
-If there is going to be only one PHY, then I think you can drop the phy-names
-property.
-
-> +
-> +  num-lanes:
-> +    enum: [1, 2]
-> +
-> +  mediatek,pbus-csr:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to pbus-csr syscon
-> +          - description: offset of pbus-csr base address register
-> +          - description: offset of pbus-csr base address mask register
-> +    description:
-> +      Phandle with two arguments to the syscon node used to detect if
-> +      a given address is accessible on PCIe controller.
-> +
-> +  airoha,scu:
-> +    $ref: /schemas/types.yaml#/definitions/phandle-array
-> +    items:
-> +      - items:
-> +          - description: phandle to airoha SCU syscon
-> +    description:
-> +      Phandle to SCU syscon to configure PCIe MUX for 2 lines support.
-> +
-> +  '#interrupt-cells':
-> +    const: 1
-> +
-> +  interrupt-controller:
-> +    description: Interrupt controller node for handling legacy PCI interrupts.
-
-s/legacy/INTx
-
-> +    type: object
-> +    properties:
-> +      '#address-cells':
-> +        const: 0
-> +      '#interrupt-cells':
-> +        const: 1
-> +      interrupt-controller: true
-> +
-> +    required:
-> +      - '#address-cells'
-> +      - '#interrupt-cells'
-> +      - interrupt-controller
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - ranges
-> +  - clocks
-> +  - clock-names
-> +  - '#interrupt-cells'
-> +  - interrupt-controller
-> +
-> +allOf:
-> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
-> +  - if:
-> +      properties:
-> +        num-lanes:
-> +          const: 2
-> +    then:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-> +
-> +        reg-names:
-> +          items:
-> +            - const: pcie-mac
-> +            - const: sec-pcie-mac
-> +
-> +        resets:
-> +          minItems: 4
-> +
-> +        reset-names:
-> +          items:
-> +            - const: phy-lane0
-> +            - const: phy-lane1
-> +            - const: perstout
-> +            - const: sec-perstout
-> +
-> +      required:
-> +        - airoha,scu
-> +
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
-> +
-> +        reg-names:
-> +          items:
-> +            - const: pcie-mac
-> +
-> +        resets:
-> +          minItems: 2
-> +          maxItems: 3
-> +
-> +        reset-names:
-> +          minItems: 2
-> +          items:
-> +            - enum: [ phy-lane0, phy-lane1, phy-lane2 ]
-> +            - enum: [ phy-lane1, perstout ]
-> +            - const: phy-lane2
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    bus {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-
-You can drop bus node.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Thanks for reviewing!
+Leo
 
