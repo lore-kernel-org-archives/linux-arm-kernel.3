@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E691C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:38:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A5AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=p6+QzKXcRNoqQlHz7+u9sgV6eaPwE3xJHdlR/zl3wUs=; b=KpkBMCmaTw5wLJ58AXQAhg6YB3
-	DFMZAVKy2FrW0aOqsNtuzUoGg9s06IeGVQm8gZl7oRrltZsdf8A03D2X1d0axeB0FuIzDvFCYypTq
-	PuTgBgz5qG7RL2aYmaKs0AsbynFrSsZZLidn5LSHtNJOkcSeOyod7R9U20y7i7rrApbMeUp8u/GOa
-	l2+EKoexl5VGsuy8/sw1Hwu0Xvp/jn2RYVbGSMrr7ZE6hWcA9snHQGnxZF1AlS+TDhVAfKLqFPnwS
-	4fjGR1Qawy2DN6VxyIs8nIEMHfE7KQTuC1gG7y4NZGRhpuZgYBdWx3RmD1wAOk3yh3akn0r5LFAna
-	ymWa3G5w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ybEb7LoBEbAkKTzDnRy615rGgqf44SIjqzv0pe3EObI=; b=09cF8O+23NNtbyiLI+InCdGSCA
+	QLibbt5/DWGAlianEMPYcdhRqXeJjVg2tSrJJ2VLxUU/MNklnPoeWwLBXo4TtJN0MRLaD+PLKxMTu
+	4u72gpH/i0FdjR/E0psWf8oys7JI4cNvIkqfsjX13SF78NWrpAAinNz4BwiiveHA3k7V2jfEupFsg
+	NFFGkuYKw3aZ/14YzOl7rEdaT4dpiVfoNi+dfCjDoaxXhu7372sCIW/RiMLxauC4gapMfnLF2ZpRH
+	KWNjIFBAKbKhqI+p+GJDPr4p73NoDZhqVa2tNPcDLnPiXy9APi/RjoEywSDaYw9GCgwOinIhlAq86
+	j9n7V7AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaXn-0000000HO4y-2RAA;
-	Tue, 30 Jun 2026 15:38:39 +0000
-Received: from mail-pz2-x01.google.com ([2607:f8b0:4864:3b::1])
+	id 1weaXz-0000000HO9u-3Y4Z;
+	Tue, 30 Jun 2026 15:38:51 +0000
+Received: from mail-pg1-x543.google.com ([2607:f8b0:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaXl-0000000HO3v-0OPL
+	id 1weaXv-0000000HO7h-31s3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 15:38:38 +0000
-Received: by mail-pz2-x01.google.com with SMTP id 41be03b00d2f7-c8c1ebd68a1so315401a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:38:36 -0700 (PDT)
+	Tue, 30 Jun 2026 15:38:50 +0000
+Received: by mail-pg1-x543.google.com with SMTP id 41be03b00d2f7-c9aea40d799so838298a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:38:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782833916; x=1783438716; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=p6+QzKXcRNoqQlHz7+u9sgV6eaPwE3xJHdlR/zl3wUs=;
-        b=oRtF2phSO+ENTwvozlHxzaP6p3JHzAI5pI8K3zTtWNYcoawTR64SR+sgDbbg9I8jJg
-         XUZDyBq+vQAGYXxRP54LA1UMd4bW69CRJDqnFLBbvfuhXv8ct/D19NS8nrQUobKuxUue
-         7fQhSGC4L3L4E5iT/wZpFYEtLOi+Q+hfZlf4XzFOZgApwwVikkZriXTeT7a+McRyt7g8
-         NCfryJsf9bvSc+7+FkONTB8A4miTR49bNTGMiPUw0sYdly+LZkeykNJA65DxZublpx6O
-         eguui98BicofUL/50gHu6bwAZgXk+xCaL7uL52bvtDCGil1sWhUigCrEqMA0u2VpuL3z
-         iytg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782833916; x=1783438716;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1782833927; x=1783438727; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=p6+QzKXcRNoqQlHz7+u9sgV6eaPwE3xJHdlR/zl3wUs=;
-        b=Zwkjw4H8p2SEpOdkVEh0ZWFa/Hh6E+N14CpKpimbwYCYf4VUQXklUfCYtcBxerh7t8
-         y4Whn1+RjtFXXNS7vryVzrtLfCSKHAp4JEIBpflmS6D7zx/xdeCBqfa8TcJj+aulBj1x
-         WrPDTE8Ma6GhVivJVvSmBo9jqdO9uGkGVQnl95oYdKPQPM6HepR0R4qszLmXJ+jMJRzM
-         XUQ+3zUOjBKc4DyrK10T7lQgt0vbxk2RNj41RKXtAWr+z6ecI1Fxqo5eQoS7q8w6yLEy
-         AHJ3Agzbt90RlHm5jN/942H/Fyl7o6Tdq8OGWrVAF8bo3l31/d44TmybneGV8ePkP2RI
-         6LnA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro2HzfWHcts4Aowsg/n9/DJsx0c5LX+jdI3d1s2K8NbOB5YUcSxH+DlHJEzhJy5GSbcD/OQF+Xv/u6QhABSSzVo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyw+FfvFlobjUodbvRniuBibike7mfIKPTV3yn10NOYBzb+mmLV
-	O7Nm4xeEcPkGLuyvjh/3CelN2yjF1BxWgb3vex436BiDjM2/dQ+GTZZ7vE3F9S7WU4L4Xw==
-X-Gm-Gg: AfdE7ckZa0IID0B5vqyojjEcqWEaXji8KZOi2JzpDb0V2ZdFRRGpQHwpBEbbF8ptpj6
-	lAQUYVZypMq0iTTvd/odGOHYZpjtaV6e0PXlr7sGgVKhctFVcAG9QvrKpb5rm7ewEWBruP8B+XE
-	zH63w3P50mQAuj99VT4buFaUbhNLUnYX6ZIk/3NNZ/eUesGZ05N7qxQz+EECi3PY+HOMpWlvs0f
-	uw1+xyG13ta/JPY4OfNq25xjWgLyM1kGjakk2ESxUeverwUEfdqym4u1T/y0SphT0Dwfu/dKlJG
-	iHdYvIfG7zh3CvPXiawks1A91uMli/yIYoCUuVGWX5LGyoNAY46z8RARysbxm8F0Vf7mKERCUHX
-	7S3R1OLezxRmjqxXFo35SSVdIEx++fULKeBjJTUPZqVmyH5vskCMz+ox+5YIXR2xRpQuhXsmy/O
-	oYgxeygrF/t9w=
-X-Received: by 2002:a05:6a00:174b:b0:842:5a8d:3035 with SMTP id d2e1a72fcca58-8479eee483amr3328451b3a.22.1782833915487;
-        Tue, 30 Jun 2026 08:38:35 -0700 (PDT)
+        bh=ybEb7LoBEbAkKTzDnRy615rGgqf44SIjqzv0pe3EObI=;
+        b=LXa2RfN8m0cJnTE+Ncol/j3hFDfpUdfWdd5hR27+cMmPwFkZT7k3vr9aeXMqC2Jr9m
+         ZDdQRYrATbF+vtzeXb2gMtdGQF9LsjYSFHl0iWhAOhpVJ+WNVrTQNFsVvwWhrfVl7RZN
+         SLjE0OHiGsfyt8wQhKjG8vUy5KYYfi6lXtN2RSwo9DXNLOBfHbbJ03ujSFeEX/6FTwmy
+         PFQWzjcc6gutmu4oeU5r2UyzuYCZ0Jw/wueZSO4IpenL5oD9JUdVUIRgaogh6B+/ZGUQ
+         LuWuHvpefXJ6SiskXkCKrKV9dWTDP5wa/T97WQBo0IPE4M/BmaB+WEMd+YUTh5ig4U0Z
+         czjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782833927; x=1783438727;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ybEb7LoBEbAkKTzDnRy615rGgqf44SIjqzv0pe3EObI=;
+        b=HHPx4Gsvb5guUC28tH1CCyFHe2mZtlCDJRaXS2jwE9IJsh0QAVfkvQxRd8aONwK72w
+         tVPmmEtdFWmWiIpe5ZQZnHPY3WyGarmp7PpJk6cpb35g8x6xnq2G+E9zrrFnC3Te2DPj
+         KuzaEfzbX/7GEJVZG7geXjTn2Fpq/5+Fu+/B6c9CZxVycry7Jy/HSbGk3RYDsi12RWvg
+         SUgM47iJfEig6mWkZqLJT5tEijkz3mEEHx2AyC7+ip04j2GFc2x1UFCiz/E1347dnqyg
+         dnzi8hSiC5UlXk2GYhyoVAzzW3MkGixIlp1/mEEriXZqxvYtLjiFDSLPpgW6OvTWUBED
+         BbyA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0D2JvotZHvOy5NIuqtE7u8rcsP84Vk1tYdEiskkQe38tpjU3c/SrDTtP1CacC7y4vST36LWc8+SDc0AimSsuJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YziSK6j0ots8SnSKIQSBs8ML4fSNp9bPZ4ZP5Uwe3C29jFrzvYQ
+	C9ICQaMkinq+o1l03y+eYtu7We+KsgbMsJGyZkvPi5HNQVvAdK/CxVto
+X-Gm-Gg: AfdE7clvlu9egCqHNk3Y6P1Rk1AgXrlog5JRUvafQR5gqAPzSV89SJCW7gZjOEerV2U
+	fypj9BSlb+fph77Oq5LcOUmfNBfKcccGMLVS3YsTffCvh9WwgR5qvA7wWYFPxVP2QKSRrD0x8mq
+	dV4S1KGyLIPDT/FX7sdHahx+Eovbn8OJvi0IK19YQLfNGmR++rVW4/2GtiALspaPOyqll3c4uxU
+	sUE+YZyYLFPuR93LvR21v/uR6TGHTg8tE8Nzgwa0265xGTDAJMI9eZ4dHCJeGUjjU63s8Efmc7z
+	Wo67nY98Hl3IUNap/zFUcRXaz7QB8vFZop2niFAGUVGM93JwRDn9uGC5bZduvnOi4PbrO/HUAU0
+	bs0xvnI89yrsCgxCxBXnUXdWyRD2FSeQZwMWKulXQWo5gf6X3kMiB1EmaXK99G7l6hNcqRxdGwX
+	INuqfnSkJY78A=
+X-Received: by 2002:a05:6a00:6c84:b0:847:84a1:9782 with SMTP id d2e1a72fcca58-8479eed7996mr3558289b3a.26.1782833926590;
+        Tue, 30 Jun 2026 08:38:46 -0700 (PDT)
 Received: from server.lan ([150.230.217.250])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a03cb50esm2413695b3a.60.2026.06.30.08.38.31
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a03cb50esm2413695b3a.60.2026.06.30.08.38.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 08:38:34 -0700 (PDT)
+        Tue, 30 Jun 2026 08:38:46 -0700 (PDT)
 From: Coia Prant <coiaprant@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,16 +81,18 @@ Cc: devicetree@vger.kernel.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH v2 0/3] Add devicetree for the Graperain G3568 v2
-Date: Tue, 30 Jun 2026 23:38:07 +0800
-Message-ID: <20260630153810.3574714-2-coiaprant@gmail.com>
+Subject: [PATCH v2 1/3] dt-bindings: vendor-prefixes: Add graperain
+Date: Tue, 30 Jun 2026 23:38:09 +0800
+Message-ID: <20260630153810.3574714-4-coiaprant@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260630153810.3574714-2-coiaprant@gmail.com>
+References: <20260630153810.3574714-2-coiaprant@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_083837_135248_2FFFD091 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20260630_083848_568323_C8E87DEB 
+X-CRM114-Status: UNSURE (   9.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changes in v2:
-- Fix trailing whitespaces and other formatting issues.
+Add graperain to the vendor prefixes.
 
-Notes/Unchanged from v1:
-- ADC keys have been verified with evtest and works fine; kept unchanged.
-- The 'regulator-off-in-suspend' property for vqmmc-supply is retained.
-  This is a known issue shared by most similar boards and should be
-   addressed globally later.
+Link: https://www.graperain.cn/ (China)
+Link: https://www.graperain.com/ (Global)
 
-Planned future changes (to be both with the similar X3568 v4 board series):
-- Replace the legacy 'gpio' label with 'gpios'.
-- Add the Bluetooth UART child node.
+Signed-off-by: Coia Prant <coiaprant@gmail.com>
+---
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Coia Prant (3):
-  dt-bindings: vendor-prefixes: Add graperain
-  dt-bindings: arm: rockchip: Add Graperain G3568 series
-  arm64: dts: rockchip: Add devicetree for the Graperain G3568 v2
-
- .../devicetree/bindings/arm/rockchip.yaml     |   6 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rockchip/rk3568-graperain-g3568-v2.dts    | 894 ++++++++++++++++++
- 4 files changed, 903 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts
-
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f368e7c..641a37c0debc9 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -682,6 +682,8 @@ patternProperties:
+     description: Goramo Gorecki
+   "^gplus,.*":
+     description: GPLUS
++  "^graperain,.*":
++    description: Shenzhen Graperain Technology Co., Ltd.
+   "^grinn,.*":
+     description: Grinn
+   "^grmn,.*":
 -- 
 2.47.3
 
