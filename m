@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B4CC43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A66C43638
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PCyMh43KAa5ny7YL55MfFbLIOiESoCodPP8ctS5uRKw=; b=W8Ps49Hm0M7V3anFJdLEudvvB6
-	260IZuNF8HSKhZSSnsfHhBg9QL5EUkw0/jpau1t1qx0zxojWOYp8NjmFoYiR+hzZ3xgLKQDuvu9Tg
-	3XyjM5L2CHas6HDrbqQEf5X/zQwQk3HXxRTmxKVEEY6wzoBBbme4ynTDeq+MxxJoDDg9DF65vI4/o
-	43M+jb6rbIn7Yq71eMqUbsHCfPkOMMRco8bvY4Oln8WluVqkHgy/TsCy51PhvVxd+1JEHmTTQaK1+
-	LpTTNa1xEReuiewn2VrfpIxvjymaI1NTwOXy7VKCLfiM9kRCbHHxUoBuJ+Kpk+mTJTfoJu38mTpR4
-	f2r6mwVw==;
+	bh=k5aZJB0vZSYvItduSg8JK5BLXyxwMN3PBtjbWn1svCs=; b=fXMV/3DpjkIbMVtPJisN1mho2g
+	/blL5vqP3VuMB8X7mkwFh0p1lSJWV39l/2p1jhTyLgGj2Wotoqd2HLzvapPhz4T9jMc0dTjllnscM
+	MEJvh7AY8aZNqjSpj2WE82MsUJ0E3y0ix+povxJWkmGXTeM8MelpfBA7YdB9UC19POEalHakBpD1O
+	YW5L0sRyE2p+yJkVW2fQolyLm+a0dOchLAxttU622ElHtcLQsNP2xmYzNwxvgkifi+BJXoz7ZoK5h
+	XdpKOXBKmLAWhyoqkQF7D8twSwnpik8RfcvS4ggAqa0oRHWQaYpFtZdis4VUdOJmAM47vWPxNAfp8
+	LJ0Nf/ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXwL-0000000H32A-07Cu;
+	id 1weXwL-0000000H32V-0e9J;
 	Tue, 30 Jun 2026 12:51:49 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXw8-0000000H2ty-2Q5s
+	id 1weXw7-0000000H2t4-2e38
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 30 Jun 2026 12:51:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 056C34E40BB0;
-	Tue, 30 Jun 2026 12:51:35 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 43AC64E40BAE;
+	Tue, 30 Jun 2026 12:51:33 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C5E7F6025A;
-	Tue, 30 Jun 2026 12:51:34 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 216A0106F1EA1;
-	Tue, 30 Jun 2026 14:51:32 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0EDDE6025A;
+	Tue, 30 Jun 2026 12:51:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8DE95106F1E9E;
+	Tue, 30 Jun 2026 14:51:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782823893; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1782823891; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=PCyMh43KAa5ny7YL55MfFbLIOiESoCodPP8ctS5uRKw=;
-	b=OrFRyNq7k6JXTPu9CRvoOI0wnN0U2KgE4mr2ZBr/Tka3m93vKHZJbJMepL4EygTNojXs/o
-	E0WxQwC3ckFZD2G6QulGh5dpT/LMAa1u8AK0BA1i9Av0mauiwLbaiay+U+QlzSFX0Sn4qe
-	2CZyHu5/HVEDXBi0g1qmMFMjaarxkymk6nTYH0LYp4YJSMNDPWS2+IbGtEa6glulxhc23J
-	A5UagkhcmLtkCVKCRzSLfs1zV8xiHesFhwi3Kc4OdqIuKL6CpjwT6zZ+OLMNSVay0S4oz6
-	OMYRnlKih4p4XqJXV6i+ZLryVgUVjr+RNo4LgUt32hEm1rYMqy69wUapw0cJjQ==
+	bh=k5aZJB0vZSYvItduSg8JK5BLXyxwMN3PBtjbWn1svCs=;
+	b=Hd3gtQ0Bq83EbJmL8jDNALi3O4VLAtmcZKiFsZXFUB49ZmUcFFqqTUh7khj5UkE2ddMWMe
+	gBJt61YtzfF35Tvwf3oVqgrOjhzw67Zg3pl/GpDTHDdCTk5okJcKf49YCPgl5c7JlI4p3b
+	XOzhAQ5K+oJDi311/i50ciEpnfVyx9dJkhaJHmAMGsxCOyCAoAs72y+yUJ+s7dtLSrYgu0
+	QtYI5+Lu8TG5OhInFnwAOJc5GyRQVqaG6rBKBRpFsAz9Xb+jUWcnQpxnxqbgpxdU8Zlo7H
+	MNNP9O8tXcQ4nuRgWfhbxH51j2xlwRKDMJbUEUhnAOSOrsrbP6HnwXSboKA+Cg==
 From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Tue, 30 Jun 2026 14:51:13 +0200
-Subject: [PATCH v6 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
+Date: Tue, 30 Jun 2026 14:51:12 +0200
+Subject: [PATCH v6 2/5] dt-bindings: mfd: Add AAEON embedded controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260630-dev-b4-aaeon-mcu-driver-v6-3-d66b5fcbd2f0@bootlin.com>
+Message-Id: <20260630-dev-b4-aaeon-mcu-driver-v6-2-d66b5fcbd2f0@bootlin.com>
 References: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
 In-Reply-To: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,12 +67,13 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  Miquel Raynal <miquel.raynal@bootlin.com>, 
- "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+ "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_055136_916505_C13E74B9 
-X-CRM114-Status: GOOD (  26.84  )
+X-CRM114-CacheID: sfid-20260630_055135_820638_8CDD1EB3 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,342 +88,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8P
-embedded controller. This driver provides the core I2C communication
-interface and registers child devices (GPIO and watchdog controllers).
+Add device tree binding documentation for the AAEON embedded controller
+(MCU). This microcontroller is found on AAEON embedded boards, it is
+connected via I2C and provides GPIO control and a watchdog timer.
 
-The driver implements a custom regmap bus over I2C to match the MCU's
-fixed 3-byte command format [opcode, arg, value]. Register addresses
-are encoded as 16-bit values (opcode << 8 | arg) using the
-AAEON_MCU_REG() macro defined in the shared header. The regmap
-instance is shared with child drivers via dev_get_regmap(). Concurrent
-I2C accesses from child drivers are serialized by regmap's built-in
-locking.
-
-I2C transfers use heap-allocated DMA-safe buffers rather than
-stack-allocated ones, as required by I2C controllers that perform DMA.
-
-Regmap caching is enabled (REGCACHE_MAPLE) with a volatile_reg
-callback that marks GPIO input read registers (opcode 0x72) and the
-watchdog status register (opcode 0x63, arg 0x02) as volatile. All
-other registers written by the driver (GPIO direction,
-GPO state, watchdog control) are stable and can be safely cached.
-
-Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 ---
- MAINTAINERS                   |   2 +
- drivers/mfd/Kconfig           |  11 +++
- drivers/mfd/Makefile          |   1 +
- drivers/mfd/aaeon-mcu.c       | 205 ++++++++++++++++++++++++++++++++++++++++++
- include/linux/mfd/aaeon-mcu.h |  40 +++++++++
- 5 files changed, 259 insertions(+)
+ .../bindings/mfd/aaeon,srg-imx8p-mcu.yaml          | 67 ++++++++++++++++++++++
+ MAINTAINERS                                        |  6 ++
+ 2 files changed, 73 insertions(+)
 
+diff --git a/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml b/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+new file mode 100644
+index 000000000000..034fb7b42551
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+@@ -0,0 +1,67 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/aaeon,srg-imx8p-mcu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: AAEON Embedded Controller
++
++maintainers:
++  - Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++  - Thomas Perrot <thomas.perrot@bootlin.com>
++
++description:
++  AAEON embeds a microcontroller on Standard RISC Gateway with ARM i.MX8M Plus
++  Quad-Core boards providing GPIO control and watchdog timer.
++
++  This MCU is connected via I2C bus.
++
++  Its GPIO controller provides 7 GPOs and 12 GPIOs.
++
++  Its watchdog has a fixed maximum hardware heartbeat of 25 seconds and supports
++  a timeout of 240 seconds through automatic pinging.
++  The timeout is not programmable and cannot be changed via device tree properties.
++
++properties:
++  compatible:
++    const: aaeon,srg-imx8p-mcu
++
++  reg:
++    maxItems: 1
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 2
++
++  gpio-line-names:
++    minItems: 1
++    maxItems: 19
++
++required:
++  - compatible
++  - reg
++  - gpio-controller
++  - "#gpio-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c {
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      embedded-controller@62 {
++        compatible = "aaeon,srg-imx8p-mcu";
++        reg = <0x62>;
++
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-line-names = "gpo-1", "gpo-2", "gpo-3", "gpo-4",
++                          "gpo-5", "gpo-6", "gpo-7",
++                          "gpio-1", "gpio-2", "gpio-3", "gpio-4",
++                          "gpio-5", "gpio-6", "gpio-7", "gpio-8",
++                          "gpio-9", "gpio-10", "gpio-11", "gpio-12";
++      };
++    };
 diff --git a/MAINTAINERS b/MAINTAINERS
-index ea9d55f76f35..f91b6a1826d0 100644
+index c9e416ba74c6..ea9d55f76f35 100644
 --- a/MAINTAINERS
 +++ b/MAINTAINERS
-@@ -191,6 +191,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
- R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
-+F:	drivers/mfd/aaeon-mcu.c
-+F:	include/linux/mfd/aaeon-mcu.h
+@@ -186,6 +186,12 @@ W:	http://www.adaptec.com/
+ F:	Documentation/scsi/aacraid.rst
+ F:	drivers/scsi/aacraid/
  
++AAEON SRG-IMX8P CONTROLLER MFD DRIVER
++M:	Thomas Perrot <thomas.perrot@bootlin.com>
++R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
++
  AAEON UPBOARD FPGA MFD DRIVER
  M:	Thomas Richard <thomas.richard@bootlin.com>
-diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-index aace5766b38a..ed5169c7a683 100644
---- a/drivers/mfd/Kconfig
-+++ b/drivers/mfd/Kconfig
-@@ -1561,6 +1561,17 @@ config ABX500_CORE
- 	  remain unchanged when IC changes. Binding of the functions to
- 	  actual register access is done by the IC core driver.
- 
-+config MFD_AAEON_MCU
-+	tristate "Aaeon SRG-IMX8P MCU Driver"
-+	depends on I2C
-+	select MFD_CORE
-+    select REGMAP
-+	help
-+	  Select this option to enable support for the Aaeon SRG-IMX8P
-+	  onboard microcontroller (MCU). This driver provides the core
-+	  functionality to communicate with the MCU over I2C. The MCU
-+	  provides GPIO and watchdog functionality.
-+
- config AB8500_CORE
- 	bool "ST-Ericsson AB8500 Mixed Signal Power Management chip"
- 	depends on ABX500_CORE && MFD_DB8500_PRCMU
-diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-index e75e8045c28a..34db5b033584 100644
---- a/drivers/mfd/Makefile
-+++ b/drivers/mfd/Makefile
-@@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+= 88pm860x.o
- obj-$(CONFIG_MFD_88PM800)	+= 88pm800.o 88pm80x.o
- obj-$(CONFIG_MFD_88PM805)	+= 88pm805.o 88pm80x.o
- obj-$(CONFIG_MFD_88PM886_PMIC)	+= 88pm886.o
-+obj-$(CONFIG_MFD_AAEON_MCU)	+= aaeon-mcu.o
- obj-$(CONFIG_MFD_ACT8945A)	+= act8945a.o
- obj-$(CONFIG_MFD_SM501)		+= sm501.o
- obj-$(CONFIG_ARCH_BCM2835)	+= bcm2835-pm.o
-diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
-new file mode 100644
-index 000000000000..306aaac1bd60
---- /dev/null
-+++ b/drivers/mfd/aaeon-mcu.c
-@@ -0,0 +1,205 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Aaeon MCU driver
-+ *
-+ * Copyright (C) 2026 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-+ */
-+
-+#include <linux/err.h>
-+#include <linux/i2c.h>
-+#include <linux/mfd/aaeon-mcu.h>
-+#include <linux/mfd/core.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/slab.h>
-+
-+struct aaeon_mcu {
-+	struct i2c_client *client;
-+	u8 *cmd;      /* DMA-safe 3-byte write buffer [opcode, arg, value] */
-+	u8 *response; /* DMA-safe 1-byte read buffer for MCU acknowledgment */
-+};
-+
-+static const struct mfd_cell aaeon_mcu_devs[] = {
-+	MFD_CELL_BASIC("aaeon-mcu-wdt", NULL, NULL, 0, 0),
-+	MFD_CELL_BASIC("aaeon-mcu-gpio", NULL, NULL, 0, 0),
-+};
-+
-+/* Number of bytes in a MCU command: [opcode, arg, value] */
-+#define AAEON_MCU_CMD_LEN      3
-+
-+/*
-+ * Custom regmap bus for the Aaeon MCU I2C protocol.
-+ *
-+ * The MCU uses a fixed 3-byte command format [opcode, arg, value] followed
-+ * by a 1-byte response. It requires a STOP condition between the command
-+ * write and the response read, so two separate i2c_transfer() calls are
-+ * issued.  The regmap lock serialises concurrent accesses from the GPIO
-+ * and watchdog child drivers.
-+ *
-+ * Register addresses are encoded as a 16-bit big-endian value where the
-+ * high byte is the opcode and the low byte is the argument, matching the
-+ * wire layout produced by regmap for reg_bits=16.
-+ */
-+
-+static int aaeon_mcu_regmap_write(void *context, const void *data, size_t count)
-+{
-+	struct aaeon_mcu *mcu = context;
-+	struct i2c_client *client = mcu->client;
-+	struct i2c_msg write_msg;
-+	/* The MCU always sends a response byte after each command; discard it. */
-+	struct i2c_msg response_msg;
-+	int ret;
-+
-+	memcpy(mcu->cmd, data, count);
-+
-+	write_msg.addr  = client->addr;
-+	write_msg.flags = I2C_M_DMA_SAFE;
-+	write_msg.buf   = mcu->cmd;
-+	write_msg.len   = count;
-+
-+	response_msg.addr  = client->addr;
-+	response_msg.flags = I2C_M_RD | I2C_M_DMA_SAFE;
-+	response_msg.buf   = mcu->response;
-+	response_msg.len   = 1;
-+
-+	ret = i2c_transfer(client->adapter, &write_msg, 1);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != 1)
-+		return -EIO;
-+
-+	ret = i2c_transfer(client->adapter, &response_msg, 1);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != 1)
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+static int aaeon_mcu_regmap_read(void *context, const void *reg_buf,
-+				 size_t reg_size, void *val_buf, size_t val_size)
-+{
-+	struct aaeon_mcu *mcu = context;
-+	struct i2c_client *client = mcu->client;
-+	struct i2c_msg write_msg;
-+	struct i2c_msg read_msg;
-+	int ret;
-+
-+	/*
-+	 * reg_buf holds the 2-byte big-endian register address [opcode, arg].
-+	 * Append a trailing 0x00 to form the full 3-byte MCU command.
-+	 */
-+	mcu->cmd[0] = ((u8 *)reg_buf)[0];
-+	mcu->cmd[1] = ((u8 *)reg_buf)[1];
-+	mcu->cmd[2] = 0x00;
-+
-+	write_msg.addr  = client->addr;
-+	write_msg.flags = I2C_M_DMA_SAFE;
-+	write_msg.buf   = mcu->cmd;
-+	write_msg.len   = AAEON_MCU_CMD_LEN;
-+
-+	read_msg.addr  = client->addr;
-+	read_msg.flags = I2C_M_RD | I2C_M_DMA_SAFE;
-+	read_msg.buf   = val_buf;
-+	read_msg.len   = val_size;
-+
-+	ret = i2c_transfer(client->adapter, &write_msg, 1);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != 1)
-+		return -EIO;
-+
-+	ret = i2c_transfer(client->adapter, &read_msg, 1);
-+	if (ret < 0)
-+		return ret;
-+	if (ret != 1)
-+		return -EIO;
-+
-+	return 0;
-+}
-+
-+static const struct regmap_bus aaeon_mcu_regmap_bus = {
-+	.write = aaeon_mcu_regmap_write,
-+	.read  = aaeon_mcu_regmap_read,
-+};
-+
-+static bool aaeon_mcu_volatile_reg(struct device *dev, unsigned int reg)
-+{
-+	/*
-+	 * GPIO input registers are driven by external signals and can change
-+	 * at any time without CPU involvement, always read from hardware.
-+	 *
-+	 * The watchdog status register reflects hardware state and can change
-+	 * autonomously.
-+	 *
-+	 * All other registers are written by the driver and their values are
-+	 * stable, so they can be safely cached.
-+	 */
-+	if ((reg >> 8) == AAEON_MCU_READ_GPIO_OPCODE)
-+		return true;
-+	if (reg == AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT_OPCODE, 0x02))
-+		return true;
-+	return false;
-+}
-+
-+static const struct regmap_config aaeon_mcu_regmap_config = {
-+	.reg_bits          = 16,
-+	.val_bits          = 8,
-+	.reg_format_endian = REGMAP_ENDIAN_BIG,
-+	.max_register      = AAEON_MCU_MAX_REGISTER,
-+	.volatile_reg      = aaeon_mcu_volatile_reg,
-+	.cache_type        = REGCACHE_MAPLE,
-+};
-+
-+static int aaeon_mcu_probe(struct i2c_client *client)
-+{
-+	struct aaeon_mcu *ddata;
-+	struct regmap *regmap;
-+
-+	ddata = devm_kzalloc(&client->dev, sizeof(*ddata), GFP_KERNEL);
-+	if (!ddata)
-+		return -ENOMEM;
-+
-+	ddata->client = client;
-+
-+	ddata->cmd = devm_kzalloc(&client->dev, AAEON_MCU_CMD_LEN * sizeof(*ddata->cmd),
-+				   GFP_KERNEL);
-+	if (!ddata->cmd)
-+		return -ENOMEM;
-+
-+	ddata->response = devm_kzalloc(&client->dev, sizeof(*ddata->response), GFP_KERNEL);
-+	if (!ddata->response)
-+		return -ENOMEM;
-+
-+	regmap = devm_regmap_init(&client->dev, &aaeon_mcu_regmap_bus,
-+				  ddata, &aaeon_mcu_regmap_config);
-+	if (IS_ERR(regmap))
-+		return dev_err_probe(&client->dev, PTR_ERR(regmap),
-+				     "failed to initialize regmap\n");
-+
-+	return devm_mfd_add_devices(&client->dev, PLATFORM_DEVID_AUTO,
-+				    aaeon_mcu_devs, ARRAY_SIZE(aaeon_mcu_devs),
-+				    NULL, 0, NULL);
-+}
-+
-+static const struct of_device_id aaeon_mcu_of_match[] = {
-+	{ .compatible = "aaeon,srg-imx8p-mcu" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
-+
-+static struct i2c_driver aaeon_mcu_driver = {
-+	.driver = {
-+		.name = "aaeon-mcu",
-+		.of_match_table = aaeon_mcu_of_match,
-+	},
-+	.probe = aaeon_mcu_probe,
-+};
-+module_i2c_driver(aaeon_mcu_driver);
-+
-+MODULE_DESCRIPTION("Aaeon MCU Driver");
-+MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
-+MODULE_LICENSE("GPL");
-diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.h
-new file mode 100644
-index 000000000000..3a1aeec85d60
---- /dev/null
-+++ b/include/linux/mfd/aaeon-mcu.h
-@@ -0,0 +1,40 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Aaeon MCU driver definitions
-+ *
-+ * Copyright (C) 2026 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-+ */
-+
-+#ifndef __LINUX_MFD_AAEON_MCU_H
-+#define __LINUX_MFD_AAEON_MCU_H
-+
-+/*
-+ * MCU register address: the high byte is the command opcode, the low
-+ * byte is the argument.  This matches the 3-byte wire format
-+ * [opcode, arg, value] used by the MCU I2C protocol.
-+ */
-+#define AAEON_MCU_REG(op, arg)		(((op) << 8) | (arg))
-+
-+/*
-+ * Opcode for GPIO input reads. These registers are volatile, their values
-+ * are driven by external signals and can change without CPU involvement.
-+ * Used by the MFD driver's volatile_reg callback to bypass the regmap cache.
-+ */
-+#define AAEON_MCU_READ_GPIO_OPCODE	0x72
-+
-+/*
-+ * Opcode for watchdog control and status commands.
-+ * The status register (arg=0x02) reflects hardware state and is volatile.
-+ */
-+#define AAEON_MCU_CONTROL_WDT_OPCODE	0x63
-+
-+/*
-+ * Highest register address in the MCU register map.
-+ * The WRITE_GPIO opcode (0x77) with the highest GPIO argument (0x0B = 11,
-+ * i.e. MAX_GPIOS - 1) produces the largest encoded address.
-+ */
-+#define AAEON_MCU_MAX_REGISTER		AAEON_MCU_REG(0x77, 0x0B)
-+
-+#endif /* __LINUX_MFD_AAEON_MCU_H */
+ S:	Maintained
 
 -- 
 2.54.0
