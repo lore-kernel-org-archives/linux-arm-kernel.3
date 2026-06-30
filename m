@@ -4,103 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD41C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:26:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65008C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:29:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1bqSNLp+qQsVX3BAAadfhxaNGAEBIWXi+sLidcTkBSs=; b=JfFfGCwp5Ip9rxCXuyhym0DTNy
-	gPlPX711CjNLWVF4jfVKGF/CA6cVOlM6O10F6E3GD6xXO//WS2UDgCI5aQ8fNDoLxZn+ct3Ndh5Al
-	xH78oUNmjg8Ak7CgnMQzHdLWEuKVduOOiwYSYgNgkIjLwTnUYAZ3GrvF/oN+1+EZA++lkOjmvYGxZ
-	mUDoxyGJB7b4vn5plPtZR5beMsPhMIGOU2tQpuU+eH9Fsj7jCQpI7FfUkgFHlkRb/8rESRuLq4G2K
-	xjnIYneBm8H2FiW6XbWJz1EcLMwO1Nlq92KjsN9S3CcMD3yB7dZX2nv+d49y4Zo91d8HsbB55jhjy
-	qwQiKAHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3Rb0Ef+Nf1YtY4j4F8zC7NfH2dCUfsIn5CcdUB7JqlQ=; b=gWfoWL0yXw+fYiVvisSdvS1XW0
+	qsNZyPm4E35q4hcZySQMtDRlarGUsblPmXTFU2dyyi2XmGTImWJi2Vx0tSYPKWbo3rNGxeFTCUGz7
+	wKbwmHwMgSTBhnHmT6mmFQpSW9F3esDAvoBQwVuACnwTvGtMv09SvGkTcdtX7yZrInmrmlt88s9Ob
+	s7O+ZD5g3rSYOSiNA20XCGXJUisMgzT1kjG5F7STQa/9bCGf1BwDaIOGQhdNunXbMAtCxbvn2F6Tv
+	ZjYmHaTS0UxZDWstEibFYOfJNCflJ7GB+SDRjYOrBJcStZb0DjUs2MiOE5Hdf7pA7XZeMlRVUEu1H
+	PHPPsh9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wecEP-0000000HZHa-2alk;
-	Tue, 30 Jun 2026 17:26:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wecEJ-0000000HZHR-38tK
+	id 1wecHC-0000000HZQG-089W;
+	Tue, 30 Jun 2026 17:29:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wecH8-0000000HZPT-3Pyn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 17:26:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 18E0E600FC;
-	Tue, 30 Jun 2026 17:26:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 277811F000E9;
-	Tue, 30 Jun 2026 17:26:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782840398;
-	bh=1bqSNLp+qQsVX3BAAadfhxaNGAEBIWXi+sLidcTkBSs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=K/XE45qCzcM2UoiG5YxhHHuC4FKattTfgpfE60unBJW5np+URqGm1xgkTWp/W412Y
-	 3qAp/XXS2fyP9AtNSPCI8sVdUxAcW52M1UGRXvCpxIpXRQdq69YctV97JWQuV+ErU6
-	 1oqYr6G07lhGzsp6p2rmtDz2t2lvUcfttwrzUbN3pP91Th9K3ao9FfJxVlvb5moLEY
-	 nkkpD6Na9qn2bscCAk0C0cioPl6r/byy7pvp5TXYrA2qh9y9DO5LcUgJuFbuGx501F
-	 0pBM2iv1GPCvkOZIHE9YSHp/dpnP/zqxpsO9K5SALjZ4Iu2O9yzml4YG8wOLneEc/v
-	 hxTehSNAiRzeQ==
-Message-ID: <39213ee4-4424-46fd-9e8c-12e2f2e02b50@kernel.org>
-Date: Tue, 30 Jun 2026 19:26:32 +0200
+	Tue, 30 Jun 2026 17:29:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25CEB302A;
+	Tue, 30 Jun 2026 10:29:27 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C6AD3F66F;
+	Tue, 30 Jun 2026 10:29:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782840571; bh=VKGtFUtXFPmQKOp08+8IbmZPIhctQgVXf8xxiHMm5/A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=qvFvKd943Rdp80y1UjR8ZmfJoGd3tSimt2mogakWGvSBpqRBQeakJ0jV8BKGD3sG5
+	 qpdkJfM8PYz3EJE0ipCzWHHzUSLmArqyj1vm3+bOp7MBgB+FrW4mV76U6hSn+5OpCF
+	 uQwQyLnb81FafZRnW9zwWJGo2tAUd6YdQqy3K09w=
+Date: Tue, 30 Jun 2026 18:29:29 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Yiqi Sun <sunyiqixm@gmail.com>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rmk+kernel@armlinux.org.uk,
+	ruanjinjie@huawei.com, kees@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v2] arm64: ptrace: use live x0 for seccomp and audit
+ after ptrace
+Message-ID: <akP8-ddTn9bhIDEW@arm.com>
+References: <20260529065444.1336608-1-sunyiqixm@gmail.com>
+ <2f435bab0d61d0bf8fbaa54203525aae8e8f5371.1782384161.git.sunyiqixm@gmail.com>
+ <akJuljttiQoki3sq@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] memory: atmel-ebi: unwind SMC clock on probe failures
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260616151757.32322-1-pengpeng@iscas.ac.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260616151757.32322-1-pengpeng@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akJuljttiQoki3sq@willie-the-truck>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_102934_944385_060AC566 
+X-CRM114-Status: GOOD (  52.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,24 +72,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16/06/2026 17:17, Pengpeng Hou wrote:
->  	reg_cells += val;
-> @@ -603,11 +605,23 @@ static int atmel_ebi_probe(struct platform_device *pdev)
->  
->  			ret = atmel_ebi_dev_disable(ebi, child);
->  			if (ret)
-> -				return ret;
-> +				goto err_disable_smc_clk;
->  		}
->  	}
->  
-> -	return of_platform_populate(np, NULL, NULL, dev);
-> +	ret = of_platform_populate(np, NULL, NULL, dev);
-> +	if (ret) {
-> +		of_platform_depopulate(dev);
+Hi Will,
 
-Why do we need to depopulate when populate returned with an error?
+On Mon, Jun 29, 2026 at 02:09:42PM +0100, Will Deacon wrote:
+> On Thu, Jun 25, 2026 at 06:45:02PM +0800, Yiqi Sun wrote:
+> > On arm64, seccomp obtains syscall arguments via
+> > syscall_get_arguments(), where arg0 is currently read from
+> > regs->orig_x0. audit_syscall_entry() in syscall_trace_enter() also
+> > takes arg0 from regs->orig_x0. However, the syscall wrapper consumes
+> > live arguments from regs->regs[0..5].
+> > 
+> > A ptracer can modify x0 on syscall-enter stop before seccomp and audit
+> > run, but cannot update orig_x0 through the native syscall-stop
+> > interface. This can leave seccomp and audit checking stale arg0 while
+> > the syscall executes with updated live x0.
+> > 
+> > Make both paths read arg0 from regs->regs[0], matching the actual
+> > dispatch arguments and keeping seccomp and audit aligned after ptrace
+> > updates.
+> > 
+> > Fixes: f27bb139c387 ("arm64: Miscellaneous library functions")
+> > Signed-off-by: Yiqi Sun <sunyiqixm@gmail.com>
+> > ---
+> > Changes in v2:
+> > - Also switch the arm64 audit entry path to use live x0
+> > - Clarify the orig_x0 synchronization comment in syscall_set_arguments()
+> > ---
+> >  arch/arm64/include/asm/syscall.h | 7 +++----
+> >  arch/arm64/kernel/ptrace.c       | 2 +-
+> >  2 files changed, 4 insertions(+), 5 deletions(-)
+> 
+> Sashiko has pointed out some issues with this patch that look legitimate
+> to me:
+> 
+> https://sashiko.dev/#/patchset/2f435bab0d61d0bf8fbaa54203525aae8e8f5371.1782384161.git.sunyiqixm@gmail.com
+> 
+> Specifically, we don't appear to handle NO_SYSCALL properly and the
+> syscall-exit stop is now going to see the return code instead of the
+> syscall number.
 
-Best regards,
-Krzysztof
+Yes, good points from Sashiko.
+
+> Looking at this more broadly, it looks like orig_x0 is used for three
+> different cases:
+
+At least the reported problem is real, the seccomp/audit code needs to
+see the values the tracer modified and, IIUC, that's the behaviour x86
+implements (it doesn't even clobber the arguments with the return
+value). Unlike arm64, powerpc, arm32 expose orig_* to the ptrace
+interface. We can't extend the user_pt_regs structure but we could
+expose a new structure via ptrace.
+
+> 1. syscall restarting:
+> 			We restore from orig_x0, which should hold the
+> 			original value passed by userspace.
+
+Yes, we definitely need the orig_x0 since regs[0] was clobbered by the
+return value.
+
+> 2. syscall_get_arguments():
+> 			This must work correctly vs syscall_set_arguments()
+> 			(returning the latest set x0) but also
+> 			syscall_get_return_value() (so we need to
+> 			distinguish the return value and the argument
+> 			somehow).
+
+syscall_set_arguments() also updates orig_x0. W.r.t.
+syscall_set_return_value(), it sets regs[0] which also matches what
+syscall_get_return_value() reads. But yes, mismatch with the above.
+
+> 3. syscall_rollback():
+> 			Seccomp wants to restore the original values
+> 			passed by userspace.
+
+The "original values" comment is slightly misleading and just restoring
+orig_x0 won't help with the other args anyway. x86 doesn't roll back any
+arguments, it just uses the tracer's new values if they've been set via
+syscall_trace_enter(). We do the same if the arguments are set via
+syscall_set_arguments() since it updates orig_x0 but not if the tracer
+did a gpr_set(). I don't think we can safely update orig_x0 via
+gpr_set() since it has no idea whether it's in a syscall or not, may
+mess up syscall restarting. Interestingly, riscv's SC_RISCV_REGS_TO_ARGS
+uses orig_a0, a0 is always the return value even for gpr_get/set(). If
+they want to change the syscall arguments, it's only possible via
+PTRACE_SET_SYSCALL_INFO.
+
+> So (1) and (3) look to require the same behaviour, but (2) wants
+> something different because it needs to reflect changes made via
+> syscall_set_arguments().
+> 
+> The bodge we have for (2) today is that syscall_set_arguments() updates
+> orig_x0, but I think that breaks (1) and (2) which is the underlying
+> problem you're facing here.
+
+I think the reason (1) needs orig_x0 is because regs[0] was clobbered by
+the return value. For (3), orig_x0 and regs[0] are mostly in sync on
+this path other than the NO_SYSCALL case where el0_svc_common() sets
+regs[0] to -ENOSYS early, before we even reach a tracer.
+
+> I haven't yet figured out the right way to fix this, but I'd be interested
+> to hear from others. I think the starting point would be removing orig_x0
+> from syscall_{get,set}_arguments() altogether so that it accurately
+> represents the initial value passed by userspace.
+
+I thought this might be a cleaner way forward but it's pretty messed up.
+Depending on when syscall_get_arguments() is called, it needs different
+things: we have seccomp before syscall and regs[0] would do but also
+collect_syscall() at the end of a syscall and regs[0] has been clobbered
+with the return value.
+
+I also looked at replacing orig_x0 (or its meaning) with a ret_x0 and
+only update it on the ERET to user but it breaks the ABI since a tracer
+may expect to see the syscall return value in regs[0] on the exit path.
+
+I think we need to keep orig_x0 as our original arg0 throughout the
+kernel and just fix the tracer path to sync it on the syscall entry. It
+doesn't unclutter the code but it shouldn't break the ABI either (unless
+someone relied on the ptrace change x0 and not being noticed by
+seccomp). Something like below:
+
+----------------8<-----------------------------
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 4d08598e2891..cd21b301e154 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2417,6 +2417,18 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 		ret = report_syscall_entry(regs);
+ 		if (ret || (flags & _TIF_SYSCALL_EMU))
+ 			return NO_SYSCALL;
++		/*
++		 * Keep orig_x0 authoritative so that seccomp (via
++		 * syscall_get_arguments()), audit and the restart path all
++		 * see the same first argument the syscall is dispatched with,
++		 * even if it has been updated by a tracer. Skip this for
++		 * NO_SYSCALL (set either by the user or the tracer) as
++		 * regs[0] holds the return value (see the comment in
++		 * el0_svc_common()). For compat, orig_r0 is provided directly
++		 * through GPR index 17.
++		 */
++		if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
++			regs->orig_x0 = regs->regs[0];
+ 	}
+ 
+ 	/* Do the secure computing after ptrace; failures should be fast. */
+----------------8<-----------------------------
+
+If we want to change the ABI, we could do like riscv and only set the
+arguments via PTRACE_SET_SYSCALL_INFO while the GPR ptrace accesses
+whatever is in regs[0] - either the original arg or the return value. I
+think they changed this inadvertently in 2023 when they moved to the
+generic syscall.
+
+We could also introduce NT_ARM_ORIG_X0 but on its own it feels a bit
+weird for a tracer to know when the kernel may use orig_x0 or regs[0].
+
+So quick hack above if it works, otherwise we need to look into change
+the ABI and hoping no-one notices ;).
+
+-- 
+Catalin
 
