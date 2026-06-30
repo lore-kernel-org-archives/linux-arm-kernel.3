@@ -4,90 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCFD5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 03:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7D3BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 04:29:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=piLhSl9xbxhGuA9PKqA38eEpjthF9cVZD+Z8+JAT6z4=; b=id5naJRXL48jgrRXSsk3q1xnY/
-	ta2r87XS3+2KDztaGdpBEWgpDM1lVmW8mcSwZSUETGbJ3ho58vWeW4yMibd4W7ZucXGe7mxyEnec/
-	wMjgwPK9VqJYMtUgkcYJkatjn8nr8Fu/nrwivm4sb0b+kCEtHC07ldwSQvtN6Gpe2rS/Kc/as7seM
-	F13AQFNmXWNbZ7m51QThqkZq19IGziM2ZeWFVamV+DOKwCJ1TwweMQShYeSGaRAw3PloIdz/3PEjL
-	9ZjrOSKrEjnfGBfcj1E9ZwUhkSbSglPCxxkQJl1aSeIKie4ijTF4ouq+wmuZYuZjEavt8Up2DpE5s
-	qeavhehA==;
+	bh=xJKT55bm34PbDyZKSs2QdqQluEMDHDryBLZVBk7djFA=; b=hSFrVP2KtM9pjUrXw4/QyQpAcx
+	smVNF/8NVI2TRD7ZNwLc5wTWavPvnsIGBnf88i9okVq1jJYoIRqa7R00MhB2il+/+YgotKIcwD09P
+	Tf4Cd+ZUAbG5ucwrjPaPlTminP66AJc7IzqlTwqOYq15zK02XJ3KHQLm+AcLaINL0Mi8pKFQ0lE/f
+	Rxy5l9dz5ngvW747vvyrPJZ67H9bQp7eW5GSmS+kzD9aXCq3pbkXa1hirdVu6zMLB/F4QWlcUOXlC
+	JjLpfOtRH/RrMmpH1mFqY9zqCO7XDXonYig0H+UdP2tdD7HhlH0ABXfoGsY3GqnLg+q5qK5m2ZbbG
+	GcEo1YxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wePXc-0000000Fl5a-172W;
-	Tue, 30 Jun 2026 03:53:44 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1weQ5J-0000000Fm16-1uaz;
+	Tue, 30 Jun 2026 04:28:33 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wePXX-0000000Fl4G-1U94
+	id 1weQ59-0000000Fm0b-3pwz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 03:53:43 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260630035329epoutp02571d216d0836769c5155f8761a53874f~9v4Xduyaa3239032390epoutp02S
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 03:53:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260630035329epoutp02571d216d0836769c5155f8761a53874f~9v4Xduyaa3239032390epoutp02S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1782791609;
-	bh=piLhSl9xbxhGuA9PKqA38eEpjthF9cVZD+Z8+JAT6z4=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=bW7CwIwVa6VqDmtwk5H12vzp18ProctCyU2cjzm4CglhYIehHv81hTMXrFT1gUw8J
-	 1CrSlEaNwokfpJl5lZoHy9e2NydaoSeJTOFoWhv251dorMkD/KyjylGV2+tdnb2VnX
-	 BYdJ9hho2PBoAvJNqiERdwLhuMFcOLnqgF1aSp8g=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20260630035328epcas5p20b91cf93730893d57a8304742eb23b88~9v4Waurrl0440104401epcas5p28;
-	Tue, 30 Jun 2026 03:53:28 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.89]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4gq8Pz0H02z6B9m7; Tue, 30 Jun
-	2026 03:53:27 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260630035326epcas5p232c12f841f9ed8fa8fe81e8aa7eb45bb~9v4U1d5RT0440104401epcas5p20;
-	Tue, 30 Jun 2026 03:53:26 +0000 (GMT)
-Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260630035324epsmtip178af641e049abbee3867634497dbd7e8~9v4SqM4BV2049720497epsmtip1_;
-	Tue, 30 Jun 2026 03:53:23 +0000 (GMT)
-From: "Alim Akhtar" <alim.akhtar@samsung.com>
-To: "'Peter Griffin'" <peter.griffin@linaro.org>, "'Denzeel Oliva'"
-	<wachiturroxd150@gmail.com>
-Cc: "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Sylwester Nawrocki'"
-	<s.nawrocki@samsung.com>, "'Chanwoo Choi'" <cw00.choi@samsung.com>,
-	"'Michael Turquette'" <mturquette@baylibre.com>, "'Stephen Boyd'"
-	<sboyd@kernel.org>, "'Brian Masney'" <bmasney@redhat.com>, "'Rob	Herring'"
-	<robh@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-In-Reply-To: <CADrjBPpNQd6WgwVo-a3Mz74d1EptPm9D9BisLEmoFRsdUb3izw@mail.gmail.com>
-Subject: RE: [PATCH v3 3/3] clk: samsung: exynos990: Fix PERIS gate clock
- parents
-Date: Tue, 30 Jun 2026 09:23:21 +0530
-Message-ID: <0f1e01dd0844$01190c40$034b24c0$@samsung.com>
+	Tue, 30 Jun 2026 04:28:32 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2c825c88744so24680125ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 21:28:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782793703; x=1783398503; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xJKT55bm34PbDyZKSs2QdqQluEMDHDryBLZVBk7djFA=;
+        b=BLZezVRxGQBgSthbH+t2e8FJcTU+4NIkJZz5YYQDqyKw46zwqpi7JpsPn7Z0iVoCz5
+         OljjoPLGrT2bbamO2mDilDwrKqJojw9hHiCbUphrRD2q43tz0FdG5C5ClWEpsaHfVvog
+         FtKVETaKNQ9fHigdXEugmivt15J/7/RHYOLBfQqLpKmAFcghv3AysDVKAmQo+J6mPwhF
+         JIT3U3sLgRP1btXeP0nGVU/spzbHgKvXoAoQzeLSFITn8V/i+wAfb60UYauZuJEBZ31E
+         PTvEOQ+hVvjcfySh87JcKrvcfi8kByvdKGwMJDnqoeDvhKRZj+bJImAGC1/P4LT4jbSL
+         1hpw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782793703; x=1783398503;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xJKT55bm34PbDyZKSs2QdqQluEMDHDryBLZVBk7djFA=;
+        b=g4FJI/CwKozVNH1XIdJ+pk7XlSAMPV9iTzaTil+oAUcrPTaMYroLKv1zMPTJmR0luC
+         KFgom2XfrDzxU/xkYzYmW+t8KrL3rHYSylg0F/LsZU6rvBAPLpuF49/Dmb4S/4T4Ir9C
+         bWT0osaHM5yfnzECd5ywYL+VZUuK0yPStd8D7yDsuPxnZw44m/ASnfOkYhPwLNhr0ces
+         kN19u43PxW3a8OpSdH+0w/fHE1xA0eVi783o3c02oXnivsZYdeVd0ndLONvQvNviNuSJ
+         MtssGi2yR+0B+7kTsBldgaKT5IxiUPXv2ZFqmBp953Nbf67ze7aau+q/P/eDf46mSPUi
+         pHCQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrDjVHY+kxE/LBQ+/aludfGDY2JQ9sOmsew2ca1bd6ooWfyssLTc+iedwSSOOau8XQWgWHzLmNvOMYFrI+sJkzV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzv2VXBBBzRRp/mbTwF4tWanF4vPGT/saATXozWYSeQFKG7MmpC
+	nAfkpD1cVf6feC2AwaFrUKbidtHGvV/Rh33nqaWBtRxXHNjgv2iHS5OI
+X-Gm-Gg: AfdE7clNK/I15P3RQgqaFUB4l49VyGEGjztssE7J09sdK3Sbry3a6hf4oufqm8HWQ7r
+	e8dXIWfNuW9Iqz9yLK/CmL7E1HWhfI3xsxRVQU/W1vJZs+PY0GXTLDYhBuKdDlIMkmHeTpQ9FOY
+	o4zKWx/uzgb/m3sfsC6w5Pv8pQXaUZbpsHQI13NMse6YuW2CdCROldjP1zdhDC4FF07tCQqMDH+
+	vGM/kIWB6JzjqirPaMTjUjMXWbsA0t8tYP6N7XKeu/2lurX977mjF6pee6TiGSU0/utU01HHoju
+	s6ZKjuKmuVH3pteo//dSIIxDJ2npqY0b0CoRagX0bvLiDvj4yYQEuN2S9N23FM3pb16tsvUB+jK
+	Wy4GRxX/ZJh2XnCmvpWz8BvhwfwxCpoxHg9+vrs0PTzwneez7YEkQDMMIZofVo2Y/5Hx72qHulu
+	KoNwmEtT7op6t2VgY6+dJpLkBJKimyWFSyMrzX9JstKgIVACQtgB1qMakJvu3cqmCJ
+X-Received: by 2002:a17:903:291:b0:2c1:e426:70f4 with SMTP id d9443c01a7336-2ca2e71453bmr14983255ad.23.1782793702521;
+        Mon, 29 Jun 2026 21:28:22 -0700 (PDT)
+Received: from [172.19.1.42] (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca37a70812sm5085795ad.16.2026.06.29.21.28.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Jun 2026 21:28:21 -0700 (PDT)
+Message-ID: <7ab78656-3413-4230-8214-8cecaaf62735@gmail.com>
+Date: Tue, 30 Jun 2026 12:28:19 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQEx4sfAWwy4gnk+MuXqAo8FFpNhngGTah19AjUYwH4DLBf1wbd1Fhhg
-Content-Language: en-us
-X-CMS-MailID: 20260630035326epcas5p232c12f841f9ed8fa8fe81e8aa7eb45bb
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-543,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20260629123246epcas5p2aab9da9ef417274bb0b70f74c386f7b4
-References: <20260613-exynos990-peris-fix-v3-v3-0-2b230db78ae4@gmail.com>
-	<20260613-exynos990-peris-fix-v3-v3-3-2b230db78ae4@gmail.com>
-	<CGME20260629123246epcas5p2aab9da9ef417274bb0b70f74c386f7b4@epcas5p2.samsung.com>
-	<CADrjBPpNQd6WgwVo-a3Mz74d1EptPm9D9BisLEmoFRsdUb3izw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] iio: adc: Add Nuvoton MA35D1 EADC driver
+To: David Lechner <dlechner@baylibre.com>, jic23@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: nuno.sa@analog.com, andy@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, cwweng@nuvoton.com
+References: <20260625110638.38438-1-cwweng.linux@gmail.com>
+ <20260625110638.38438-3-cwweng.linux@gmail.com>
+ <66ad5723-6589-473a-91da-b13e2ba90aeb@baylibre.com>
+ <5e65eabd-699b-4587-bb38-d8ef5c6d2aaa@gmail.com>
+ <f759ad9b-56ef-482a-9389-85ea1e3fd7d3@baylibre.com>
+Content-Language: en-US
+From: Chi-Wen Weng <cwweng.linux@gmail.com>
+In-Reply-To: <f759ad9b-56ef-482a-9389-85ea1e3fd7d3@baylibre.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_205340_057699_84C73A77 
-X-CRM114-Status: GOOD (  16.25  )
+X-CRM114-CacheID: sfid-20260629_212823_959760_D4174E16 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,56 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi David,
 
+Thanks for the clarification, and sorry for top-posting. I will reply
+inline and trim the irrelevant context next time.
 
-> -----Original Message-----
-> From: Peter Griffin <peter.griffin=40linaro.org>
-> Sent: Monday, June 29, 2026 6:02 PM
-> To: Denzeel Oliva <wachiturroxd150=40gmail.com>
-> Cc: Krzysztof Kozlowski <krzk=40kernel.org>; Sylwester Nawrocki
-> <s.nawrocki=40samsung.com>; Chanwoo Choi <cw00.choi=40samsung.com>;
-> Alim Akhtar <alim.akhtar=40samsung.com>; Michael Turquette
-> <mturquette=40baylibre.com>; Stephen Boyd <sboyd=40kernel.org>; Brian
-> Masney <bmasney=40redhat.com>; Rob Herring <robh=40kernel.org>; Conor
-> Dooley <conor+dt=40kernel.org>; linux-samsung-soc=40vger.kernel.org; linu=
-x-
-> clk=40vger.kernel.org; devicetree=40vger.kernel.org; linux-arm-
-> kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org
-> Subject: Re: =5BPATCH v3 3/3=5D clk: samsung: exynos990: Fix PERIS gate c=
-lock
-> parents
->=20
-> Hi Krysztof & Denzeel,
->=20
-> On Sat, 13 Jun 2026 at 13:36, Denzeel Oliva <wachiturroxd150=40gmail.com>
-> wrote:
-> >
-> > Correct eight PERIS gate clock parents to match the hardware clock
-> > tree and reorder the GIC mux parents so mout_peris_bus_user is the
-> > default source.
-> >
-> > Signed-off-by: Denzeel Oliva <wachiturroxd150=40gmail.com>
-> > ---
->=20
-> Reviewed-by: Peter Griffin <peter.griffin=40linaro.org>
->=20
-> =40Krysztof: I was thinking, maybe we should establish a new rule/best
-> practice for Samsung clock upstream submissions whereby patch
-> contributors should link to the downstream cal-if code for the SoC after =
-the --
-> - line. That would make reviewing the patches' correctness a bit easier, =
-as the
-> downstream cal-if code would be readily available to the reviewer.
->=20
-We can leave this choice to the reviewer if they want to refer to downstrea=
-m cal-if code.
+ > This is a simple/small enough driver that it would be fine to still
+ > keep all of those features in v2. It would still be fine to split
+ > them into separate patches, but you could still send them all as
+ > a single patch series.
 
-Regards
-Alim
+Understood. I will keep the driver as a single driver patch in v2, but I
+will keep the features in the patch and fix the issues raised during
+review instead of dropping them only to reduce the initial scope.
 
-> regards,
->=20
-> Peter
->=20
+For v2, I will keep direct reads, differential channels and triggered
+buffer support in the driver patch. DMA support will still not be used by
+the driver yet, although the binding will describe the optional DMA
+property as discussed in the binding review.
+
+I will address the driver comments in v2, including:
+- use regmap for register access and update_bits,
+- add optional vref-supply handling and avoid forcing the external
+   reference path unconditionally,
+- add IIO_CHAN_INFO_SCALE based on the selected reference source,
+- handle differential channels with the proper hardware constraints and
+   signed output handling,
+- fix the buffered scan sequencing so samples are read only after the
+   requested scan has completed,
+- avoid an unpaced software re-triggering loop,
+- use IIO_DECLARE_BUFFER_WITH_TS() for the scan buffer,
+- use the new scan_type.format field,
+- drop datasheet_name,
+- use device_for_each_child_node_scoped(),
+- use devm_mutex_init(),
+- remove the unused struct device pointer and other cleanup items.
+
+Thanks,
+Chi-Wen
 
 
