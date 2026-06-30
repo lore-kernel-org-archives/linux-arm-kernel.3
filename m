@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0143CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 23:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F49CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 23:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nJ0p6I+XWHcdzHTYTdQzvWsk4iQLdC8UOrlgSr+ISxk=; b=XPzG7jeQmsQpib2q/O+mfRmOko
-	QEdZIqkwNHijJdyUI/2U495YHHV7J0veJVDmdW9VtCbACToBnZ3w6ZmHVI0rINGvOJLDvS+34RzG3
-	jY7ozXLBmsFAL2ZpYfGDAvALoH8lGneypMuVN4ujAxsio1XFNVY8BXwq6+dK7TMdTR5HqpG90X9sB
-	sNfLkp3T8cPWTpC786ExCERtW2NWc2eh+1FzZlXsRbn3AzbS0Sf5TAwleZzKLreJFjslJv9Clhsxd
-	XJtVCjXOKko7uAoTxwI+Q7S4pFtPdo5l+XqMld79SW62s3UyVcv0niVuJ947yGrLU3AvQ403ae53F
-	tRgcnL9A==;
+	bh=TaUmh35sxDvqnamEeZFXqUgtr3RL3GsntqnPFMBABso=; b=KBfLU8iF5o8zH4PVsUn3xRFQfX
+	2dnFRNXOSWZzj/tbXx02oWWEXaOblAhMHcANq3wAiy4kRqtcTvIipwOMR0xvODAjg7NADFh/3dpl4
+	wF8T6vW4Np8VGy0FLUGsxGyMUfmJzBcz3RQjWzEo9qEyqNTxLYrZcJ3zPrGojjnzoHfUWO+zIGCBx
+	jLFYVjJSPfAwy5/RRJxOfEzbsDsNTdjmACse6EDKgYWo5z/i5ZMInN33tky0yznFryv3mdrba3oUt
+	3u29fB2QgQD+40i0VgY2zTZLA6QCCC/WnaOI4M2bsL8I+y9TQGJIj1TevG3JskrgQSFMGFFX+Zfc0
+	+f0XNdJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weiGX-00000000NYC-1Row;
-	Tue, 30 Jun 2026 23:53:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weiKh-00000000O1x-0GsW;
+	Tue, 30 Jun 2026 23:57:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weiGV-00000000NY3-2pim
+	id 1weiKe-00000000O1e-3LxI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 23:53:19 +0000
+	Tue, 30 Jun 2026 23:57:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C7097600AB;
-	Tue, 30 Jun 2026 23:53:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 020CA1F00A3A;
-	Tue, 30 Jun 2026 23:53:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FA73414A0;
+	Tue, 30 Jun 2026 23:57:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6335F1F000E9;
+	Tue, 30 Jun 2026 23:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782863598;
-	bh=nJ0p6I+XWHcdzHTYTdQzvWsk4iQLdC8UOrlgSr+ISxk=;
+	s=k20260515; t=1782863856;
+	bh=TaUmh35sxDvqnamEeZFXqUgtr3RL3GsntqnPFMBABso=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dtvzx3QEU3ga8Y4lGN+M7dTdEmQb6G8/Q3lne1hP0DJGrfAU7xuLN+qJzipWdZAVj
-	 hpMtH1jeyPl4weso8VHVj83ZoXZJhYNM/j7Xd+wuLV2gvl8kk196+KcswRvERDxgd8
-	 iYE1VkU/Ztb41Fhr8g3ULbagZQB+xIxkGs+nGLWfhZw/4XMCtyurTHUPJlj609tJf2
-	 pFp0YCf4+NGQbvEDGBwz6xCr6O2KYMLudXshInXtc7SG4eaKYHO1zJUOQ7L651L24L
-	 0jyoUMdd+COm1eBzU2nIt+cR9y8oe2SAzABneusKrQTndTJaNdsKi/q4RvItGEwXVQ
-	 oqYuSYVLkFTTw==
-Date: Tue, 30 Jun 2026 16:53:16 -0700
+	b=djzz9z6MaeeZ2zZWqEaUCyi3XnoC9wIGRb23nUT0LAMSA3FQm+D6f97gsGsR2QAkD
+	 LN27vCbG7SEVGF8A6vjBihlYrSU1tQAaIoVIpwhtAyPcvXu8riZiHsq6buApzZLLpg
+	 y8qzqalREwXjSRq/H73PBssqV06FXQ79ftZXRGPZVjVm7ehTOfTfKhZaVLYD1rs61N
+	 MJIK5vLD6hqtdsEnyex9msev7FufS6vShwmViONIuVyVfgtqrhMDhc4ek/LvL/N7SO
+	 x2lzclSQOCpYkNgnfu0I7Ys5D3JfeZJF0rzmOUxnKdz7hVNg9hrBCICrX0CPooe2CP
+	 TidhJfIXAgpMg==
+Date: Tue, 30 Jun 2026 16:57:34 -0700
 From: Namhyung Kim <namhyung@kernel.org>
 To: Leo Yan <leo.yan@arm.com>
 Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
@@ -60,7 +60,7 @@ Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	coresight@lists.linaro.org, linux-perf-users@vger.kernel.org,
 	Leo Yan <leo.yan@linux.dev>
 Subject: Re: [PATCH v10 0/9] perf cs-etm: Support thread stack and callchain
-Message-ID: <akRW7P-4UyfXz5GB@google.com>
+Message-ID: <akRX7gwfDh01AD4-@google.com>
 References: <20260617-b4-arm_cs_callchain_support_v1-v10-0-e8b6e5d63db5@arm.com>
  <akMPoLNBbAEyNU64@google.com>
  <20260630082310.GE1812158@e132581.arm.com>
@@ -93,11 +93,8 @@ On Tue, Jun 30, 2026 at 09:23:10AM +0100, Leo Yan wrote:
 > > some remaining comments from Sashiko.
 > 
 > I prefer to merge this series.
-> 
-> Sashiko reported several critical issues in the common code, they are on
-> my to-do list.
 
-I see, I'll merge this and looking forward to seeing more fixes.
+Hmm.. it's not applying anymore..  Please rebase.
 
 Thanks,
 Namhyung
