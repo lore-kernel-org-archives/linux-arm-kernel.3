@@ -4,54 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B690C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9328C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:55:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5DQYrySeDkkLQiiwQzAAdjLQ+owinBNaixbR+g1tqE=; b=nPZSfCzi903vSfI2Q0zy3F/xEe
-	e7BEZfWKEsc30ipH6DQ0xj4wHw1mAu6dpj+pyk5mImNq01bVgWEmFj9hgRKK2I8jZWTEpCjcGcZcz
-	lksYupNnuitDShUBi9QImxThU3aq+VaQj/5qzxefegKlz2iXARgIQi5GsRPyP7tQzEbsxFT/xTLu/
-	CuytbK50xpCm2oMqmjRf78yoHoHYgOfrBzje+G5KqH8bVhzaUMJar4XAlv+7F4mon6D3dSLph8WIO
-	2tWRJfe1hEVo6rRYSv+kDJtTzEXO8LA6Zk48GEEnrQl3qW0C7veGJSEnlW/s42ySFS87C76yEvGGa
-	R54oEy+Q==;
+	bh=t3hcCnQgnNXHo74E0+Sozbeb7RqKBm+BzYUnIzzZpUk=; b=R5tZiX7mn7Jp4+C684NRGgVg25
+	iOBaTe3TkLgJN0pPsP6RpR3oVZCQ4jaYSMebewfzCklSu2jMios5zhLRgDAfnx6r8crOjckbXhEc4
+	4GKs2iKI+WQ0eiCRTjrGftKeyEwJTDYe8tkqU43ZpAWrN+6w+6wjkJoaF+Op0iES8tHmDIDC12yjJ
+	bU8N3x+OPZIkNDnTocQkYLcKY3AUURt9jK15v7+/rp//bWa5f/Igpw+LIVPPP4C/knPVzGbvHMBaV
+	XUYnO8FjqFMIv9ldhymtSMJZoeZsmCYFi4/kBzztUAJ8kG+s0saPx7047JU3s9vvlfOeESZD4wGTJ
+	KDL27+8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzK-0000000H4cF-3gD6;
-	Tue, 30 Jun 2026 12:54:54 +0000
+	id 1weXzM-0000000H4eF-0Rpb;
+	Tue, 30 Jun 2026 12:54:56 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzC-0000000H4Vu-3Mk8
+	id 1weXzD-0000000H4WW-1g1e
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:54:46 +0000
+	Tue, 30 Jun 2026 12:54:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8F48A43CEE;
+	by sea.source.kernel.org (Postfix) with ESMTP id B562243F98;
 	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 5C51CC2BCC7;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7F526C4AF0D;
 	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1782824086;
-	bh=v5K8YIOQSM4pcHUmb0+gBEqEMmgttu3NrEpZewiOH7k=;
+	bh=ofT9+j5+38wC3ohGcRL3g+6NUmTh2utIOvaD/eO4TF8=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=lMJtJWsLzUcDLEVPamBva2P15vIXr6oDES9ANs6QAxxnrglPRE2MTsajK/KUDz9sc
-	 2W0LVUg2HbDas259NOZ/62IRFtHNZYklGQA3yN6nbVAUpDbUpST8UNz5s6yznc3JPA
-	 aCNpEQD5vwRPPOCTabYh0qhtVNMHr74zu5b6Yo5PP1B55rUKJJqPke/gl/wfwflCvQ
-	 q3SRkBcegYykpsxvj+xt4ZIdRqcBey/54tjcMO1ptXILozzFfcoqdLqfhS6M+MigKk
-	 3cnCfPrTCcZ+VxP1fqdkuGDCJX8rKL3tqIWdonhzRbYWw+sthpwuM2z/CrcHVgWP6U
-	 qcgsrjlswmiYA==
+	b=bMywBnyemN36RoPhEemCNKf/dyoahgCi9bwVlMvRKKwq6dTeyXM9ob/L/c/lPON4S
+	 hmVrvp8rEvYokwpiLXh2rPuCpAV+XHGU9HQYHmL+yg7PKgBymnVS5tECrlR1gxWYAr
+	 5yFdeTA/cO9cy99HMspaRCwlGL933jpTai+ZfS3mGcfnqxcFGzEu0YTeUEjsagKpqS
+	 QXk8jR5sJJs6ncip5uayeKJkFkNSBODrefhK5zihAZ5Pi5P35Qpwc+empZceMBCqdL
+	 IAjHZodYI+asz8OLETwTADZ+P9Jxn5p0g3IOy6rth29c16G7wH3ZY6ZYgh2AH0N/9e
+	 5DQ+qgjwXRNHw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 47405C43602;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 76F38C43458;
 	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
 From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Tue, 30 Jun 2026 22:54:29 +1000
-Subject: [PATCH 01/10] dt-bindings: mailbox: Add Apple t8122 ASC mailbox
+Date: Tue, 30 Jun 2026 22:54:32 +1000
+Subject: [PATCH 04/10] dt-bindings: input: apple: Add DockChannel HID
+ transport
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-apple-mtp-keyboard-final-v1-1-506d936a1707@gmail.com>
+Message-Id: <20260630-apple-mtp-keyboard-final-v1-4-506d936a1707@gmail.com>
 References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
 In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -67,11 +68,11 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  iommu@lists.linux.dev, linux-input@vger.kernel.org, 
  Michael Reeves <michael.reeves077@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=1027;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=3901;
  i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
- bh=NwNyyVWwfMGwXyyxkslAk52mQZkXJnBNHg2CHXQEQ4E=;
- b=CK7aMG4Z4oGnQhA3PjnKecoI+wEIKEftwtDJ0ZlWJ5B07dBzEvYZDDfqij4ju+7c5A6BbCZQt
- 9KrMNVXDe0YAL4cotqDbFqmlvSNrK6wuclH5S/Qy5TS1RuJLKDGYP5o
+ bh=S+mJ7/0W8yggglspV7mBGvZpocgLQ5/14vlk/i1q+EE=;
+ b=kvnAjnNdsJMkbhDfx6ggwVclKX6UNdtvslL6PgSX5VfGVa+W8FQ7uZQuvrQ1zINfACt6W6h3V
+ iukHyN9YO1BCIuVAMwl8S5q+rX7wb4xI0Gj4oggqMX5z4yJZxKtSMB+
 X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
  pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
 X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
@@ -94,29 +95,128 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Reeves <michael.reeves077@gmail.com>
 
-The ASC mailbox on t8122 is compatible with the v4 mailbox block used
-by other Apple Silicon SoCs.
+Apple internal keyboards and trackpads behind MTP are exposed through a
+DockChannel HID transport.
 
-Document the t8122 compatible in the v4 mailbox section so M3 device
-trees can describe their coprocessor mailboxes.
+Add the client binding tying together the RTKit ASC mailbox,
+DockChannel mailbox, and MTP DART. The keyboard child can provide the
+HID country code used by hid-apple to distinguish layout variants.
 
 Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 ---
- Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../bindings/input/apple,dockchannel-hid.yaml      | 91 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 92 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml b/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-index 28985cc62c25..946c909c6922 100644
---- a/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-+++ b/Documentation/devicetree/bindings/mailbox/apple,mailbox.yaml
-@@ -30,6 +30,7 @@ properties:
-           - enum:
-               - apple,t8103-asc-mailbox
-               - apple,t8112-asc-mailbox
-+              - apple,t8122-asc-mailbox
-               - apple,t6000-asc-mailbox
-               - apple,t6020-asc-mailbox
-           - const: apple,asc-mailbox-v4
+diff --git a/Documentation/devicetree/bindings/input/apple,dockchannel-hid.yaml b/Documentation/devicetree/bindings/input/apple,dockchannel-hid.yaml
+new file mode 100644
+index 000000000000..dbba4fc38971
+--- /dev/null
++++ b/Documentation/devicetree/bindings/input/apple,dockchannel-hid.yaml
+@@ -0,0 +1,91 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/input/apple,dockchannel-hid.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Apple DockChannel HID Transport
++
++maintainers:
++  - Michael Reeves <michael.reeves077@gmail.com>
++
++description:
++  HID transport for keyboard and trackpad devices connected via the
++  DockChannel FIFO mailbox on Apple Silicon SoCs. The endpoint includes a
++  small RTKit coprocessor called MTP which must be booted before the HID
++  transport becomes available.
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - const: apple,t8112-dockchannel-hid
++      - items:
++          - enum:
++              - apple,t6020-dockchannel-hid
++              - apple,t8122-dockchannel-hid
++          - const: apple,t8112-dockchannel-hid
++
++  reg:
++    items:
++      - description: Coprocessor ASC registers
++      - description: Coprocessor SRAM/mailbox registers
++
++  reg-names:
++    items:
++      - const: coproc-asc
++      - const: coproc-sram
++
++  mboxes:
++    items:
++      - description: ASC mailbox used for RTKit control
++      - description: DockChannel FIFO mailbox used for HID packets
++
++  mbox-names:
++    items:
++      - const: asc
++      - const: dockchannel
++
++  iommus:
++    maxItems: 1
++
++  keyboard:
++    type: object
++    properties:
++      hid-country-code:
++        $ref: /schemas/types.yaml#/definitions/uint32
++        description:
++          HID country code for the keyboard layout variant.
++
++    additionalProperties: false
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - mboxes
++  - mbox-names
++  - iommus
++
++additionalProperties: false
++
++examples:
++  - |
++    soc {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        hid@24e400000 {
++            compatible = "apple,t8112-dockchannel-hid";
++            reg = <0x2 0x4e400000 0x0 0x4000>,
++                  <0x2 0x4ec00000 0x0 0x100000>;
++            reg-names = "coproc-asc", "coproc-sram";
++            mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
++            mbox-names = "asc", "dockchannel";
++            iommus = <&mtp_dart 1>;
++
++            keyboard {
++                hid-country-code = <0>;
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 741974f0f326..1f3c2cdb6e19 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2589,6 +2589,7 @@ F:	Documentation/devicetree/bindings/gpio/apple,smc-gpio.yaml
+ F:	Documentation/devicetree/bindings/gpu/apple,agx.yaml
+ F:	Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml
+ F:	Documentation/devicetree/bindings/i2c/apple,i2c.yaml
++F:	Documentation/devicetree/bindings/input/apple,dockchannel-hid.yaml
+ F:	Documentation/devicetree/bindings/input/touchscreen/apple,z2-multitouch.yaml
+ F:	Documentation/devicetree/bindings/interrupt-controller/apple,*
+ F:	Documentation/devicetree/bindings/iommu/apple,dart.yaml
 
 -- 
 2.51.2
