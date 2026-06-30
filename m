@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D98C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 01:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD743C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 01:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okOmr0t7RA98sStpJAac9VxUn6tLvqxzMwMqZfIuluc=; b=QAyLC9HVFxHzrUoHSQNDRiwFz2
-	WLrrfMMHRwQeicKBI0KsfdNpR/HHOlR134VYy3S2Lvr1rJNoi+wfR4jU25OVszL5x+t9C611nfWV0
-	MKZN5PtYIw3IqlsbcWz9VDNdLC0WFy45ixG8D0HDvrYIRm5R2XBqdo5XBf7Xly3SK6hOkrlQ1DmwT
-	w4hU8nfPHoBml0vWpkOQsDVMIXmXL4Ft7g6WX6PTeVm531PWj0qLusfX9xFFBbOclW30QGEapHfuu
-	5v0dOnzwV9s5q4WPdiqtrkcmjWaWMqmXQDomZN3cZTLxlG+FZCAuCj8BCx0Q4FBdKw05AkieMBMq8
-	Ak6X3jyA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZMntIY/oIRlFlSwXUFg7FvdarFRfsXqKfjADcyhhzcM=; b=IAGxRiREUqT10DX9Fg46og9ygB
+	veH8cCBHwBS47De6kif12rn/idByasG+DSKF0HLAn5aP4Cb7zifwn4m4QiQYuIEKpnJ3bnyDAEVLa
+	Oe8rDy1gGJ2TXTPJfRkBnpeyCtiCBTbyn+Cj/5V6tRftZrC0drHP+aRjJ9WUPJ6M+cVOuS7OGTVck
+	jS+xwkBiGUlCmUzZ2cTMHi0iU9iBllZxthP2mFp7gD/P0jfTGc2rvYFHJNptxC7L4rVm+5sXTlIT4
+	5x5XI51VkRL4qL1M0DcrN9Y39UCnQHjj+kH9CoOc5NVqkCi/gJ1V6u4JRD3NgE5Cwl7+JWxKukqGG
+	9hff32pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weNAL-0000000FeUB-0drK;
-	Tue, 30 Jun 2026 01:21:33 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1weNCM-0000000FeqD-1z4L;
+	Tue, 30 Jun 2026 01:23:38 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weNAE-0000000FeR7-3Acq
+	id 1weNCK-0000000FepO-0QoW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 01:21:27 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-845c92bc464so2346265b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 18:21:26 -0700 (PDT)
+	Tue, 30 Jun 2026 01:23:37 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c9f44ddf26so6869905ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 18:23:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782782486; x=1783387286; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=okOmr0t7RA98sStpJAac9VxUn6tLvqxzMwMqZfIuluc=;
-        b=WzC0RktukHAWifat0pUmSQnwiTtOxjPLQAPjMuAn3tFw03BPnGUvkIRSu1ZoLcOp01
-         yvxSuZj70jlBwSjqdHoWDjs6Y87TtSq6ghK7Vuh4zWb5QfEo63+rsNeg4mefPPRXJNH3
-         lB7QfWmed8TosQ4UvHBKECd6RtyrdKwt3jmoHdZrV8lkxh3l7zs3Gqw8crTuunFYrpkB
-         lfSoc455t2tQZHw6TzU9e65ai5Y5hVEyByRrIBSZkiQItQshbwl7IC3AEbfpJ6B3KhaW
-         lIBOeOJD81kS9aBxWrefiKrcZ8SIttnjyDQhpInrgahrS/mh4N1YHbOGWz5xExxTfzzR
-         Y2aw==
+        d=gmail.com; s=20251104; t=1782782615; x=1783387415; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZMntIY/oIRlFlSwXUFg7FvdarFRfsXqKfjADcyhhzcM=;
+        b=rwVMHIjaJmJ8P88hS1Qg85bF0YrB631+H2HJdJaePYdhcKRREmZ1Swj6nAQOhV+R59
+         GS2izM5CPscHd9fuFACrjSKaYy84jaluLM8P7ZypchZVCBeYbTVFrztozpheMu8Hbq71
+         qPwt+vuqzRGrnvpi0t44Zcsw2aJOmBAT823GFtvd2F31vnjSqhQvZiFrmnT//f36binl
+         1uySiBEUwUk6R5ObQ90eT3+IFT0gx4mwyKNGvL50obP1C3az92ItbJvE4ZZUegUrpcyo
+         Xj3AUtJdvfSKv+6YFYR+fDbMHXf5IYcqYiI7v4dJ4leTBTqPkAO0hse8N+mPnvbAOd+N
+         j18A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782782486; x=1783387286;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=okOmr0t7RA98sStpJAac9VxUn6tLvqxzMwMqZfIuluc=;
-        b=KwAnewQiTxTbKNTyGgCQ1NixVLWIvwwAeCvk3G+hxlPkT6vKbgANPJKY6cT+FBRGp9
-         Hh2P3TsmOnwKTsMvX7uOiKAZCWojaFH0kuGNZiU51N57mGiaJHEZm8LRTKWeB9Nss6u1
-         +xSYWj0EU8rdF4Cf7YswnyK7XnRRh65YklJc1ApZVYBQve5pNOfXQBSY7g1izAQa89IP
-         d+JmNMUGpwcs50WY/oTvgGB81Xdo9g9NY0zMTAjDl7eyj8BnkYmQxDnJ936ZGkBxiWyX
-         5TEkQ3MdBmqzFmzOnq/PAzh/nYtOKylM4Ytwxi2PYzFke2BJn6nuws2ttT7UB1mjrl2O
-         3ZEQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rod6552XamupW19K5uSogF6mDwp5uEDfS7xsqjCW3z5C8ckI85Y64SOQMw1zdMey6io8s5ax+5G4vLmp1lx/M4X@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaVJ86G6jzkaTmeTRhmkrnbUbz83r9cOD2m1NsLFEkqozT3ZDq
-	dpOzvT/tFrCUHG5Qeduc5AEBAXtQBg4f0Ujxq0FnqLGWpXusn8uRwgcl
-X-Gm-Gg: AfdE7clKQC7qZpHe4Zf3XyuciWJUIDNZ3GweJRHyoKq4tOWuPdrDUmEeYNfNg5+1/4J
-	UH3n1Ty4s3OrajkWBf14cLN7FKzyAvJcn6jYwTqm6CMCl6R33ijLOaW7PGUzvlGLeB4Rz175CiI
-	bGBUF9Q3NZwe7xR5GuvkC0w0qOkanH8cz/HpI4CqiJlXi4xoVPLEhFn+saG0Ae7frrPcM3FFNsQ
-	CPX3xsvIjx6l87jjDki4undYMammVMZ+D6hq8jEecR0hqhfZ2MtH1NE7pmAPh2Gw9ub4Orx0yR6
-	WObNEGZXuQqDptkSOPtl53eayrdpQMGhLdMc13g70xgNOf7+uL+hZoceBL5LJZEEsZIlxOeL9bm
-	+6oWdzBN3/SPbbal3c4ZE2mV+dgfhoiZpwzC5QDOAsHgaoA9dmhsOZpV6brd+jP45ZoLZ4bv3RV
-	3EB81X9g6MZ//CH65G6mMv4lLCYL9IJ8H1bFBlqxYgO3CFL5lllP5XY6R5dhsfXTm3x9NGU7Y=
-X-Received: by 2002:a05:6a00:21cf:b0:847:9351:16d1 with SMTP id d2e1a72fcca58-8479f22aa06mr1116256b3a.30.1782782485795;
-        Mon, 29 Jun 2026 18:21:25 -0700 (PDT)
-Received: from localhost.localdomain (60-250-196-139.hinet-ip.hinet.net. [60.250.196.139])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a03778basm654503b3a.49.2026.06.29.18.21.23
+        d=1e100.net; s=20251104; t=1782782615; x=1783387415;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZMntIY/oIRlFlSwXUFg7FvdarFRfsXqKfjADcyhhzcM=;
+        b=kta63JIr1KOgBBopA3kyyMCTMCoV2JyTzc3eoSlDnjrwewQffi/5ijxX6/6hOKXR7b
+         vTpeuYikkByQrrOhgjR6CEE5MjCIoXvY1xaGf7RBOgH98teBaKQfB28OfU1xYbmGs4ge
+         75LyScEkf0pQ48dDY/fC8IvFXA72eh6Mk5GyjAw82DU1GnZh5UmPk0IFQu9vC/sAKftm
+         3h2oVwWSMF0Qo3xIXc+ZlL9T3lbmc13dUyOUnhGoCpA8EcLaWRk2pKe0K4ICI/LCRWo5
+         P3KgoIyhi6z3l3puENawLLuAAj94Ese/3ysPG7yG5ip/sRtDDNMjWW5yqs1bEqx28qAa
+         MEJQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpQMpmAJPWzO7FSPTIxGz2TkNIoAwUPDa2TwfJBfnS2PL8GAbXYpHW5I3d8R5WjuiAIvBT9q35aclTqejnmp7wz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzkI3zbg1nDLikVGkWj+Js1HNUcI/CU0ZWcTrhGFj1FupxEG355
+	lHEchRGicmyW6XOO7MeTyHz/k1hj2ZAHJ1VNteEXwOTHEMdODKWEJm4M
+X-Gm-Gg: AfdE7cmTJU32yeL8rHU/VgzsjXL69vzdDZUp7/8R0lZdcAZUF7638o5fllKsNNpVSdS
+	zFFzGknUTUglZk9AI2Msl/idlvpQZMWmW//bJynNp6e+J9K6OEsg9MiuT2+ZNWa7BzuzPkGYUTj
+	wdeHKrPNoemGHZT+oZVG3edNqIHX645bCxWcTRl8v2A/Wog5YQ+i3jynhMKvNNd/2IYSVIOf39b
+	Ep3jIEQLKidU7uUZHaDF0e/tQ2vL4KUbiTRpGLrTBeEIpwiQ0zOx3NkX5XE2uJJx6YSkcgJzy5j
+	3aUK1Y/kY/hV/skEzZ9bC8lwKtjZiRKhL3wkr+Dgzt7cUdFIk5eiFH7gaRgBaDL8yLrm/4tlzL2
+	rXwSCiOx/hhQJ24h69tN/wImgC7cOKJJAqsmwy+Z9zo+chnxD2pq/WaS29LgLbn4hfVCUTrt2Js
+	gYNeOczcSehJg1mC4s01rgl3xe3zCLAeKN19nHHlaC8otNWmvRq+ABbAJn6mklMok66poH2xplb
+	L5ppvWPpAqYVegTUnQz
+X-Received: by 2002:a17:902:dac5:b0:2c9:d8c6:1dc3 with SMTP id d9443c01a7336-2ca2d3eb9b1mr11411705ad.0.1782782614641;
+        Mon, 29 Jun 2026 18:23:34 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca382c5c48sm2440165ad.78.2026.06.29.18.23.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Jun 2026 18:21:25 -0700 (PDT)
-From: Zi-Yu Chen <zychennvt@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>
-Cc: Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Zi-Yu Chen <zychennvt@gmail.com>
-Subject: [PATCH v5 3/3] arm64: dts: nuvoton: Add I2C nodes for MA35D1 SoC
-Date: Tue, 30 Jun 2026 09:21:06 +0800
-Message-Id: <20260630012106.3616821-4-zychennvt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260630012106.3616821-1-zychennvt@gmail.com>
-References: <20260630012106.3616821-1-zychennvt@gmail.com>
+        Mon, 29 Jun 2026 18:23:33 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: linux-mtd@lists.infradead.org
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Microchip (AT91) SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH] mtd: rawnand: atmel: use struct_size
+Date: Mon, 29 Jun 2026 18:23:32 -0700
+Message-ID: <20260630012332.1471829-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_182126_799584_7FBE849A 
-X-CRM114-Status: GOOD (  10.89  )
+X-CRM114-CacheID: sfid-20260629_182336_143802_F2804E69 
+X-CRM114-Status: GOOD (  11.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,139 +102,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add I2C controller nodes to the MA35D1 SoC dtsi file.
-Also, enable the I2C2 interface on the MA35D1 SOM board and
-configure its pinctrl to allow communication with the onboard
-NAU8822 audio codec
+The comment above makes it clear that this is a single element for
+legacy handling. Clarify that with struct_size and avoid manual pointer
+math.
 
-Signed-off-by: Zi-Yu Chen <zychennvt@gmail.com>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
 ---
- .../boot/dts/nuvoton/ma35d1-som-256m.dts      | 20 ++++++
- arch/arm64/boot/dts/nuvoton/ma35d1.dtsi       | 72 +++++++++++++++++++
- 2 files changed, 92 insertions(+)
+ drivers/mtd/nand/raw/atmel/nand-controller.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-index a029b660e8dc..1ffe41c03f3d 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1-som-256m.dts
-@@ -57,6 +57,18 @@ &clk {
- 			   "integer";
- };
+diff --git a/drivers/mtd/nand/raw/atmel/nand-controller.c b/drivers/mtd/nand/raw/atmel/nand-controller.c
+index e7fdf532c5fe..8a19408abb63 100644
+--- a/drivers/mtd/nand/raw/atmel/nand-controller.c
++++ b/drivers/mtd/nand/raw/atmel/nand-controller.c
+@@ -1799,8 +1799,7 @@ atmel_nand_controller_legacy_add_nands(struct atmel_nand_controller *nc)
+ 	 * Legacy bindings only allow connecting a single NAND with a unique CS
+ 	 * line to the controller.
+ 	 */
+-	nand = devm_kzalloc(nc->dev, sizeof(*nand) + sizeof(*nand->cs),
+-			    GFP_KERNEL);
++	nand = devm_kzalloc(nc->dev, struct_size(nand, cs, 1), GFP_KERNEL);
+ 	if (!nand)
+ 		return -ENOMEM;
  
-+&i2c2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c2>;
-+
-+	nau8822: nau8822@1a {
-+		compatible = "nuvoton,nau8822";
-+		reg = <0x1a> ;
-+		nuvoton,spk-btl;
-+	};
-+};
-+
- &pinctrl {
- 	uart-grp {
- 		pinctrl_uart0: uart0-pins {
-@@ -100,6 +112,14 @@ pinctrl_uart16: uart16-pins {
- 			power-source = <1>;
- 		};
- 	};
-+
-+	i2c-grp {
-+		pinctrl_i2c2: i2c2-pins {
-+			nuvoton,pins = <1 8 4>,
-+				       <1 9 4>;
-+			bias-disable;
-+		};
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-index 7228ad4735b5..28488889f564 100644
---- a/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-+++ b/arch/arm64/boot/dts/nuvoton/ma35d1.dtsi
-@@ -372,6 +372,78 @@ uart15: serial@407f0000 {
- 			status = "disabled";
- 		};
- 
-+		i2c0: i2c@40800000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40800000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 13 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C0_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C0>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c1: i2c@40810000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40810000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C1_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c2: i2c@40820000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40820000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 97 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C2_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C2>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c3: i2c@40830000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40830000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 98 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C3_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C3>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c4: i2c@40840000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40840000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C4_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C4>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c5: i2c@40850000 {
-+			compatible = "nuvoton,ma35d1-i2c";
-+			reg = <0x0 0x40850000 0x0 0x1000>;
-+			interrupts = <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&clk I2C5_GATE>;
-+			clock-frequency = <100000>;
-+			resets = <&sys MA35D1_RESET_I2C5>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
- 		uart16: serial@40880000 {
- 			compatible = "nuvoton,ma35d1-uart";
- 			reg = <0x0 0x40880000 0x0 0x100>;
 -- 
-2.34.1
+2.54.0
 
 
