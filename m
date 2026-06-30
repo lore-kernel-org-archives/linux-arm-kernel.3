@@ -4,58 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC79C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:39:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEEBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:39:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S6M91utBDyER/aDTBiMUHXasRniYlvJ/pyD2pTrwayk=; b=Z5YsOiwOwk8lm8/EUSJIRFd8iL
-	b+oaZOsKLRSNNeIyBLOF552MkrA1O3G772mnlbDvLYiEWJKgRC2ufqFkPxe8YgpCV+Z1reGM80Ruf
-	y6/fRAcfOSIABDaK0kde5560XyOrQakU1M3lS2z+5LYWFDiY1T/3bIbPV9ryt7Q9y/6yafTdudpxA
-	cQrDvAQjM8bkVtscg6/j+zJaFd8um6tr5cpa8s79TufaRpo+DxQfjcrTlwWxRKx9zt8xuWsUKUMd2
-	t7R5ewIvNCeIpeTcGXeoX8dMIIJ04KPSguZ9kkEJNJnfssTtWD0DhDiylfAfb286PZYem+d6wtlQf
-	n/U0oDhg==;
+	bh=qJlJzdmoKaPgYs3XkyTM2uOkRwW778HSxBnDi52Vm7M=; b=4GlGrr7FX1SJEwi8IdY7WyfonQ
+	dPkqOt+HDcPwPtAIgBGOad5EyJCn3BDSbCkDgRlXTDBjwg4iY+aVsT/5zPXgjcYK4RiEyPRpredoc
+	Q9d+tzavAwyATqT96qyXpdIL8isRJojjMF4Ir1YX+dVyc4FoUhqipucOC6X2kfQE5ri7xH9Ua+Dbj
+	/mr8hzz1aSrsB4Pre2xgoNMHmqk5nTgLMHUFWNCKZqs9886/HzsEuoODG3iOwRpm/oRN4QG1mWdw/
+	Wr2rQ+2ABJ0Khj2+DQcNe8NRsvp8VeyNKdHCASvSl6whr9CCUYbh/5DgBtp+zzCCRQ1SxRHO/iflr
+	ifbZlV4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3R-0000000G7KQ-2Zm2;
-	Tue, 30 Jun 2026 07:38:49 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1weT3x-0000000G7jT-3uQO;
+	Tue, 30 Jun 2026 07:39:21 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3J-0000000G7Er-24Uj
+	id 1weT3R-0000000G7Je-2WC4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 30 Jun 2026 07:38:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=qJlJzdmoKaPgYs3XkyTM2uOkRwW778HSxBnDi52Vm7M=; b=i3DsDos6YiWazBFzkFevyiRu/M
+	Y/PlNxjqooC9I24okIRB1s49w4aD1MYBZ9a5rpIAg52h+OrKZIoN5ibHHETEvAJhcUCqmet6tmDmM
+	ThLWZ+NLc6EjupuVtxxzLiFjFs+ILaTwWrawCX6w51vNAQ0LQobH1rRxr7pz16WzqZhYKM0qx87Mk
+	nfZOeONwmtj64viAZjM1ef+8LCkqCIo2A0tVuCb7y8VaNO+nP3LDiAoOvKfKFBCdibbaNA5zeKow6
+	2hO0pu5QQ9/APsOI4UOmL5Zghl2l8lBPxOx1/R28N7DSLCC9gsJpwSAM//4YXz7z0kAA1dGGj69YB
+	aJDpl3xw==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weT3N-00000001c61-3qu9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:38:45 +0000
+	Tue, 30 Jun 2026 07:38:47 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782805117;
+	s=2020; t=1782805121;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=S6M91utBDyER/aDTBiMUHXasRniYlvJ/pyD2pTrwayk=;
-	b=duF4/mQYT5hX6gEHw8dMuRJJo2OIBeQFDn5XWX2fk7Z3ISsbZOA8FSLj9v2JCtnNso3IrQ
-	2ZANMF7hOH/up3rX7dqHPd1sG9vJvHOUgU1Gc2guMVNYJ9Kkrh8Y5USQCgV16/iMHmUR2e
-	zuV6hUjsUKOCMO3woVkdVsqjn4biPEM7zL8Oee2eB9vNe/HpOUEi8dEY4g5z9QE5+VCQ3O
-	NS8dEp1YJxkTo8mERydkkRUNFXNYVU6DL3BTh100oS4LlRrEaMKwvqKI4QoI96SrQyy3tf
-	3a/7TCIPYqTEuiIWerP5P5hrnk2yK/k0DD0jcCHD4b5ZJf4FZdTzDe+B+oMfIQ==
+	bh=qJlJzdmoKaPgYs3XkyTM2uOkRwW778HSxBnDi52Vm7M=;
+	b=0r1pz1IRmEhdi1svwnFqxKbPu7TzeFCZMZpxFJJtm4Jp369U/2CcU9knvHDp5DNRtK59Vl
+	f0O5a5AudG+1wHY6G2DO/HgF+Zwgj2MdpHfs3kqaSlKLvdI3LXqT/KYhjhkJ3elJUHz/zY
+	UxTfh2NHPeWR8MdqxAtAn8W/b8+JVdQnKHQqcwY5dSdx1NT03FF0MRas7ucBqCcFp+VsiA
+	hJnfJ7XcnUH4QCWHhZAPKgwBx5wsr+8VMqXBiByLydBjTyMEvDJnP4ANdCpAeHpyuOIur/
+	LyvxxLBvn3OPf5g1yHh0ChqIntL6X4nxNSqfja7pnMPZ2mDv9JgwUFIuRX/F6g==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782805117;
+	s=2020e; t=1782805121;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=S6M91utBDyER/aDTBiMUHXasRniYlvJ/pyD2pTrwayk=;
-	b=u4mle6I4bI3ZXtqPrEkvjfUQYZBLbkncMssz1fQpgdGYNQXy3ywpK7odOmEw5AVrKcK3ec
-	rb6OaJiMs2XtzBAg==
-Date: Tue, 30 Jun 2026 09:38:30 +0200
-Subject: [PATCH v2 1/9] time: Respect COMPAT_32BIT_TIME for old time type
- functions
+	bh=qJlJzdmoKaPgYs3XkyTM2uOkRwW778HSxBnDi52Vm7M=;
+	b=dKF5P0SH7UeBCiEd4D0aAsr0LulQkFMW+XNL13e04TGw0dDaT9TShwqRXWOUV8Z5QFOTHZ
+	CMq+r1b8UtedgFCw==
+Date: Tue, 30 Jun 2026 09:38:36 +0200
+Subject: [PATCH v2 7/9] MIPS: VDSO: Respect COMPAT_32BIT_TIME
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260630-vdso-compat_32bit_time-v2-1-520d194640dd@linutronix.de>
+Message-Id: <20260630-vdso-compat_32bit_time-v2-7-520d194640dd@linutronix.de>
 References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
 In-Reply-To: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
@@ -76,16 +90,17 @@ Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
  linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
  Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
  sparclinux@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=4359;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=1716;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=I0ELZhoYhq+LtWILvEK7psoB2pGAmCGtbLQ0fZb65NY=;
- b=lKA+JCeWX+SJ7DzYMd60wozWzPqzhbOUH6o+Db6m7VKmveoGRrNH+JYFCw8hjKwqFs3A4FGuz
- C9lPF1/nufrA5wH6XkTdI0/vczjSKBfYsJNkCCfz6HTQGadj6Ihxem5
+ bh=Y3HmBsDyRXYMBklzibJJx8Xw8D+NzjIxpzvmQa5/92I=;
+ b=pvdSGJwi0a8pc2utGGLPCI1gG+1BwWkeRAfn5FRxIp4bwh/fT2JRVhxqz22oPde4hijoOrZD3
+ nigKZNlG9AJATsm5boBYD8nY2NsJK+JPbqfBa4ZvhYg+mi3+dC54V5I
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_003841_825630_6856909D 
-X-CRM114-Status: GOOD (  14.84  )
+X-CRM114-CacheID: sfid-20260630_083846_178283_DD342D7A 
+X-CRM114-Status: UNSURE (   9.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,134 +115,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "old" time types use 32-bit seconds which are not y2038-safe.
-Respect COMPAT_32BIT_TIME for functions using those types.
-time(), stime() and gettimeofday() are disabled completely.
+If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
+provide any 32-bit time related functionality. This is the intended
+effect of the kconfig option and also the fallback system calls would
+also not be implemented.
 
-settimeofday() is kept as it is required to do the initial timewarping
-after boot. However the 'tv' argument will be rejected.
+Currently the kconfig option does not affect the gettimeofday() syscall,
+so also keep that in the vDSO.
 
-Link: https://lore.kernel.org/lkml/e9487ebe-3730-438a-9c23-e45f75986ecc@app.fastmail.com/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- kernel/sys_ni.c    |  4 ++++
- kernel/time/time.c | 24 ++++++++++++++++++++----
- 2 files changed, 24 insertions(+), 4 deletions(-)
+ arch/mips/vdso/vdso.lds.S      | 2 ++
+ arch/mips/vdso/vgettimeofday.c | 3 +++
+ 2 files changed, 5 insertions(+)
 
-diff --git a/kernel/sys_ni.c b/kernel/sys_ni.c
-index add3032da16f..c8be0abaa407 100644
---- a/kernel/sys_ni.c
-+++ b/kernel/sys_ni.c
-@@ -351,6 +351,10 @@ COND_SYSCALL(ppoll_time32);
- COND_SYSCALL_COMPAT(ppoll_time32);
- COND_SYSCALL(utimensat_time32);
- COND_SYSCALL(clock_adjtime32);
-+COND_SYSCALL(gettimeofday);
-+COND_SYSCALL_COMPAT(gettimeofday);
-+COND_SYSCALL(time);
-+COND_SYSCALL(stime);
- 
- /*
-  * The syscalls below are not found in include/uapi/asm-generic/unistd.h
-diff --git a/kernel/time/time.c b/kernel/time/time.c
-index 0dd63a91e7c5..0b7aa432bc76 100644
---- a/kernel/time/time.c
-+++ b/kernel/time/time.c
-@@ -43,6 +43,12 @@
- #include <generated/timeconst.h>
- #include "timekeeping.h"
- 
-+#if defined(CONFIG_64BIT) || defined(CONFIG_COMPAT_32BIT_TIME)
-+#define __WANT_OLD_TIME_TYPE_SYSCALL 1
+diff --git a/arch/mips/vdso/vdso.lds.S b/arch/mips/vdso/vdso.lds.S
+index 278ab6444e98..b11ee493c67f 100644
+--- a/arch/mips/vdso/vdso.lds.S
++++ b/arch/mips/vdso/vdso.lds.S
+@@ -97,9 +97,11 @@ VERSION
+ 	LINUX_2.6 {
+ #ifdef CONFIG_GENERIC_GETTIMEOFDAY
+ 	global:
++#if _MIPS_SIM == _MIPS_SIM_ABI64 || defined(CONFIG_COMPAT_32BIT_TIME)
+ 		__vdso_clock_gettime;
+ 		__vdso_gettimeofday;
+ 		__vdso_clock_getres;
 +#endif
+ #if _MIPS_SIM != _MIPS_SIM_ABI64
+ 		__vdso_clock_gettime64;
+ 		__vdso_clock_getres_time64;
+diff --git a/arch/mips/vdso/vgettimeofday.c b/arch/mips/vdso/vgettimeofday.c
+index 00f9fcfc327e..a1fb06b8973e 100644
+--- a/arch/mips/vdso/vgettimeofday.c
++++ b/arch/mips/vdso/vgettimeofday.c
+@@ -12,6 +12,8 @@
+ #include <vdso/gettime.h>
+ 
+ #if _MIPS_SIM != _MIPS_SIM_ABI64
 +
-+static_assert(sizeof(__kernel_old_time_t) == 8 ? IS_ENABLED(__WANT_OLD_TIME_TYPE_SYSCALL) : true);
-+
- /*
-  * The timezone where the local system is located.  Used as a default by some
-  * programs who obtain this value by using gettimeofday.
-@@ -51,7 +57,7 @@ struct timezone sys_tz;
- 
- EXPORT_SYMBOL(sys_tz);
- 
--#ifdef __ARCH_WANT_SYS_TIME
-+#if defined(__ARCH_WANT_SYS_TIME) && defined(__WANT_OLD_TIME_TYPE_SYSCALL)
- 
- /*
-  * sys_time() can be implemented in user-level using
-@@ -96,7 +102,7 @@ SYSCALL_DEFINE1(stime, __kernel_old_time_t __user *, tptr)
- 	return 0;
- }
- 
--#endif /* __ARCH_WANT_SYS_TIME */
-+#endif /* __ARCH_WANT_SYS_TIME && __WANT_OLD_TIME_TYPE_SYSCALL */
- 
- #ifdef CONFIG_COMPAT_32BIT_TIME
- #ifdef __ARCH_WANT_SYS_TIME32
-@@ -137,6 +143,7 @@ SYSCALL_DEFINE1(stime32, old_time32_t __user *, tptr)
- #endif /* __ARCH_WANT_SYS_TIME32 */
- #endif
- 
-+#ifdef __WANT_OLD_TIME_TYPE_SYSCALL
- SYSCALL_DEFINE2(gettimeofday, struct __kernel_old_timeval __user *, tv,
- 		struct timezone __user *, tz)
- {
-@@ -154,6 +161,7 @@ SYSCALL_DEFINE2(gettimeofday, struct __kernel_old_timeval __user *, tv,
- 	}
- 	return 0;
- }
-+#endif /* __WANT_OLD_TIME_TYPE_SYSCALL */
- 
- /*
-  * In case for some reason the CMOS clock has not already been running
-@@ -203,6 +211,9 @@ SYSCALL_DEFINE2(settimeofday, struct __kernel_old_timeval __user *, tv,
- 	struct timezone new_tz;
- 
- 	if (tv) {
-+		if (!IS_ENABLED(__WANT_OLD_TIME_TYPE_SYSCALL))
-+			return -EINVAL;
-+
- 		if (get_user(new_ts.tv_sec, &tv->tv_sec) ||
- 		    get_user(new_ts.tv_nsec, &tv->tv_usec))
- 			return -EFAULT;
-@@ -220,7 +231,7 @@ SYSCALL_DEFINE2(settimeofday, struct __kernel_old_timeval __user *, tv,
- 	return do_sys_settimeofday64(tv ? &new_ts : NULL, tz ? &new_tz : NULL);
- }
- 
--#ifdef CONFIG_COMPAT
 +#ifdef CONFIG_COMPAT_32BIT_TIME
- COMPAT_SYSCALL_DEFINE2(gettimeofday, struct old_timeval32 __user *, tv,
- 		       struct timezone __user *, tz)
+ int __vdso_clock_gettime(clockid_t clock,
+ 			 struct old_timespec32 *ts)
  {
-@@ -239,7 +250,9 @@ COMPAT_SYSCALL_DEFINE2(gettimeofday, struct old_timeval32 __user *, tv,
- 
- 	return 0;
+@@ -29,6 +31,7 @@ int __vdso_clock_getres(clockid_t clock_id,
+ {
+ 	return __cvdso_clock_getres_time32(clock_id, res);
  }
 +#endif /* CONFIG_COMPAT_32BIT_TIME */
  
-+#ifdef CONFIG_COMPAT
- COMPAT_SYSCALL_DEFINE2(settimeofday, struct old_timeval32 __user *, tv,
- 		       struct timezone __user *, tz)
- {
-@@ -247,6 +260,9 @@ COMPAT_SYSCALL_DEFINE2(settimeofday, struct old_timeval32 __user *, tv,
- 	struct timezone new_tz;
- 
- 	if (tv) {
-+		if (!IS_ENABLED(__WANT_OLD_TIME_TYPE_SYSCALL))
-+			return -EINVAL;
-+
- 		if (get_user(new_ts.tv_sec, &tv->tv_sec) ||
- 		    get_user(new_ts.tv_nsec, &tv->tv_usec))
- 			return -EFAULT;
-@@ -263,7 +279,7 @@ COMPAT_SYSCALL_DEFINE2(settimeofday, struct old_timeval32 __user *, tv,
- 
- 	return do_sys_settimeofday64(tv ? &new_ts : NULL, tz ? &new_tz : NULL);
- }
--#endif
-+#endif /* CONFIG_COMPAT */
- 
- #ifdef CONFIG_64BIT
- SYSCALL_DEFINE1(adjtimex, struct __kernel_timex __user *, txc_p)
+ int __vdso_clock_gettime64(clockid_t clock,
+ 			   struct __kernel_timespec *ts)
 
 -- 
 2.55.0
