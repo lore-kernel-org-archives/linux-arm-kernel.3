@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2C8C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE981C43327
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 10:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kMc7IH1jEIo7aTQO6+OKWeTUOGgdg0YUEMVyYCucVMQ=; b=G6j/FRKNdcpnIoR6RHH10pYjEY
-	03yQtfnHn15VHyRRW3siXwKhkQnaotIQqYFgbW9Gpb6ZkspIrBBJLZKSexpR9l+oDFlkFUw9HK7se
-	nZApC8/ypzrpybcYuXkGRG4NnUNdEecV540nOk1h5B4rnyhBtHPpzGoPoBzmCjjzWRiAGLuOTejD0
-	ChpPCmZ7V4SCNL0T806ZHOrBib+D5JBpSdpucf9rW5JQzjrEZ2uHDKV6To3alO859N6xH5QsdLLpo
-	uXABfQo1WrS6ZkYwRId/wCBTOwKA5xMRaFpHQ9r8uXiI5h7WwfL1GFNQurMlQ+sNG3XFO9yCWiVkC
-	N0ZC5ayw==;
+	bh=KsJ5Z8DyAJvdmrOoxOJ7TrWR7XLa3prh+sP2FotAqRo=; b=uOq8k0L5v6VLFbjmvNkaORqP1p
+	/hj0vzAYQLLJ1DUSgXn3jT5npF7EwS4EUVbfJkAwEnWu6K7jkQaflen//NULaOFgXI3chRroDJrAq
+	46MdHRMbvTZNHkjiCzM5NMbcQYYh3sI06M0NlBQN0QvMvNwO4BUoYx1L++s3Q7MMpUmLOQCeJIyuG
+	JGnfHI3TivtwTJS7ITzDA7n1Dcj0EIiFMXtJGeMUOBE3B+B03NrDijtQIHlsQoqNsrnHFPqJEPOGA
+	2HdBzcJeL7vwqMd8STEBIurUPg/RorNqlqMqhBzE3XIWrEqbmlVJfOaM7QxkTBgpTN9IKcAdbleIQ
+	G2Jils1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVat-0000000GcIK-1Skc;
+	id 1weVat-0000000GcIj-20Ue;
 	Tue, 30 Jun 2026 10:21:31 +0000
-Received: from mail-lj1-x24a.google.com ([2a00:1450:4864:20::24a])
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVan-0000000GcF7-2psY
+	id 1weVap-0000000GcG4-1g2c
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 10:21:26 +0000
-Received: by mail-lj1-x24a.google.com with SMTP id 38308e7fff4ca-399919e637bso22664581fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 03:21:24 -0700 (PDT)
+	Tue, 30 Jun 2026 10:21:28 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-493a6135742so26625395e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 03:21:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782814883; x=1783419683; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782814885; x=1783419685; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kMc7IH1jEIo7aTQO6+OKWeTUOGgdg0YUEMVyYCucVMQ=;
-        b=jdmvTpOe6Tb6VV6jHKWkdL3TJQmyD9c+YHPglCGV6UZ5o7S9uM2NAplAQhuILr73KK
-         mj2F3qCf+QD+iwYBuDdh3LrlBIenRriRMP2bTFgiSo/0iwPimo/KEZmWYouBAQA4e6ib
-         k944OC8s4Ym394mlOiXJsAwYUgHSbH+9JZz8XkIHQpFypXOeQnMGNDxxJtuW8G5QnUH2
-         LeYoaERGN35QK5Ugc0yLbsUJmV0yDEHtgGfuHCm6XzE8GktIrsCQK/9XvyneNwPpdHcs
-         qfaeC59U0QGtYbDcp92Q5sF20iKVnivGXxrLT/nwYtTHmYNreSbyGa9/2fUdppTWxwRJ
-         pMhg==
+        bh=KsJ5Z8DyAJvdmrOoxOJ7TrWR7XLa3prh+sP2FotAqRo=;
+        b=RdZt8OfcYD8gWW1ERq/L3ul7Ypm9hxB15D6JEO4uVmGXJ/mf4PLYMGZr51A3aw5KCo
+         qUNz4RtzLJ+y5mnfdDnQbw9Gu30A5oKI9InKpKH9PJm1dK5NhnWrOK2TC6wsDQKdRoN+
+         yhhGwzPg/uHE5uGCoMWAFlr1ZuS8IS+4rrkzunzxbu2pDISH5tTqhOfF2ZWWK2ZAzr9Y
+         nTebnTWmoPeSkWH0O0C5n2gFlY46H5kAtLuixCpWBnX/m9IHg3QxvAxJDgWKm0oEAMwh
+         rcU1NQPoiQDH8Xnb7nvIU4NR51GuGZDTnKrdqsM3p1pclvOQLAUjXY09SILnBha29ZZR
+         Iv+g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782814883; x=1783419683;
+        d=1e100.net; s=20251104; t=1782814885; x=1783419685;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kMc7IH1jEIo7aTQO6+OKWeTUOGgdg0YUEMVyYCucVMQ=;
-        b=WKjEEQmaGl9v4R4EbIOoMT9pi6oumjvA3sRDuhoMJQX+ddyipNeRS1EDnIU1cGqeJb
-         wDGO2RmVQ9YaGGvMt0LNlgU8QfZOZVMMWFVPBZVbippp5w6Zj+h9ciwWJbTTF8PWhcs/
-         PYQ7qdJmJSHVgL2Cx7+oMt64WcpGNMyfobVhA3+sq+s25cp8VAVOyKKL+BOiPpo+Ahyz
-         694wKX4sxu8wr9gHVtoQB2we2z3GFAEbRb888PAMm+iWSvz1QxTQJ3B0yhk+zoHuERsb
-         dZJ0ZIWLKp/hXgvHmDGCBR8nE/YZAiVavdmjkWItviiCCeVripNDjmoMmmegYquK0Y6g
-         NE+A==
-X-Forwarded-Encrypted: i=1; AHgh+Rp3DoCEIlO2f1kR8xkL9I0dVr/i5XqYoYOML9wZlJDmHQfddLN3MFNBI/2tpShIaexwZF1S4r0axpktmP8a4k/f@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwDItm+odx2fYgg6h6NFE8u6D6zEu4yuMcO6mlohmqRb2eV+K4
-	RiYvGB8ZAJovjoqmc9U/s8jtCOszJa6INPkZ8gggfVoUXALwLvutGWOQKbtxJQdP38Rwe/puu82
-	37p0ZbberSADHmoMEwzzvp06n/xk6ZA==
-X-Received: from ljvg16-n1.prod.google.com ([2002:a05:651c:2550:10b0:39b:23be:9b9d])
+        bh=KsJ5Z8DyAJvdmrOoxOJ7TrWR7XLa3prh+sP2FotAqRo=;
+        b=KdFxenXNW+rhqArMvDoW+MFwIgv2d3oIpJ8jML7sosqyjrFw1nB88Q8FOW/40puult
+         y/UUJio09MTp7aP5uwG7Nyrle5Yd2U6FzpjFfYRMgV8z7N37Zxx1VoRPuwuFuu8dgYKm
+         T8sI3fWHrq4v6EVTB57HmfhJOJ6KLpfXdUJrWdR3v7Ougi78t1PugYYJJ8Mm7BVJXW9u
+         HvuLYkCYS3tICJKjWNhGAp4HDKdcEvyu1MEY1G9+Cqy7+Tsnaerei+nBohs3fVCm0ENy
+         H/zR4FXvZbFvbpienx8Wk8DtCigo9x/lNQ7MeznHWxN8scKw9qWEzYBXCd4/N1gtOL5R
+         +W5A==
+X-Forwarded-Encrypted: i=1; AFNElJ+IqSxCn4IoDP+S7wScofBySF8aDCREwqTzrxI+GmhTmBYk2R4QCns0FvHUFxsGQ/Q21idNGwnOOWhP87Gi1cO2@lists.infradead.org
+X-Gm-Message-State: AOJu0YxB4mjaN5yQqnTObVd/uYPUOBjgAyNNbp2tSJaFYvOCnNeRSwXC
+	xx0AJnS4uZD/4QzWU/h/I7AsL3jE4kFPnjdPIL2hXf0Jq16k98xhfxSPC4UTy3b40tmHoR1NzU4
+	o5Db+VRz9zpwJ1AOOjaoWUyhkyaVSOA==
+X-Received: from wmcn17-n1.prod.google.com ([2002:a05:600c:c0d1:10b0:493:b636:4efb])
  (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:651c:1603:b0:39b:f64:1af3 with SMTP id 38308e7fff4ca-39b28d2233fmr386661fa.8.1782814882959;
- Tue, 30 Jun 2026 03:21:22 -0700 (PDT)
-Date: Tue, 30 Jun 2026 10:20:55 +0000
+ 2002:a05:600c:6218:b0:493:a7fd:15d6 with SMTP id 5b1f17b1804b1-493b8289c5fmr47379145e9.9.1782814885168;
+ Tue, 30 Jun 2026 03:21:25 -0700 (PDT)
+Date: Tue, 30 Jun 2026 10:20:56 +0000
 In-Reply-To: <20260630102058.3219867-2-sebastianene@google.com>
 Mime-Version: 1.0
 References: <20260630102058.3219867-2-sebastianene@google.com>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260630102058.3219867-4-sebastianene@google.com>
-Subject: [PATCH v8 2/6] firmware: arm_ffa: Fix Endpoint Memory Access
- Descriptor offset calculation
+Message-ID: <20260630102058.3219867-5-sebastianene@google.com>
+Subject: [PATCH v8 3/6] KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
 From: Sebastian Ene <sebastianene@google.com>
 To: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org, 
 	will@kernel.org
@@ -79,8 +78,8 @@ Cc: jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev,
 	yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_032125_735710_41BCCD98 
-X-CRM114-Status: GOOD (  13.40  )
+X-CRM114-CacheID: sfid-20260630_032127_485872_2BC2CB74 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,83 +94,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the descriptor's `ep_mem_offset` to calculate the start of the endpoint
-memory access array and to comply with the FF-A spec instead of defaulting
-to `sizeof(struct ffa_mem_region)`.
-This requires moving `ffa_mem_region_additional_setup()` earlier in the setup
-flow.
-Also, add sanity checks to ensure the calculated descriptor offsets do not
-exceed `max_fragsize`.
+From: Mostafa Saleh <smostafa@google.com>
 
-Fixes: 113580530ee7 ("firmware: arm_ffa: Update memory descriptor to support v1.1 format")
-Reviewed-by: Sudeep Holla <sudeep.holla@kernel.org>
+Sashiko (locally) reports out of bound write possiblity if SPMD
+returns an invalid data.
+
+While SPMD is considered trusted, pKVM does some basic checks,
+for offset to be less than or equal len.
+
+However, that is incorrect as even if the offset is smaller than
+len pKVM can still access out of bound memory in the next
+ffa_host_unshare_ranges().
+
+Split this check into 2:
+1- Check that the fixed portion of the descriptor fits.
+2- After getting reg, check the variable array size addr_range_cnt
+   fits.
+
+Also, drop the WARN_ONs as that will panic the kernel and in the
+next checks there are no WARNs, so that makes it consistent.
+
+Fixes: 0a9f15fd5674 ("KVM: arm64: pkvm: Add support for fragmented FF-A descriptors")
 Signed-off-by: Mostafa Saleh <smostafa@google.com>
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
 Signed-off-by: Sebastian Ene <sebastianene@google.com>
 ---
- drivers/firmware/arm_ffa/driver.c | 20 +++++++++++++++-----
- include/linux/arm_ffa.h           |  2 +-
- 2 files changed, 16 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/ffa.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/firmware/arm_ffa/driver.c b/drivers/firmware/arm_ffa/driver.c
-index 01301213896a..7c1b747797b4 100644
---- a/drivers/firmware/arm_ffa/driver.c
-+++ b/drivers/firmware/arm_ffa/driver.c
-@@ -713,19 +713,30 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
- 	struct ffa_composite_mem_region *composite;
- 	struct ffa_mem_region_addr_range *constituents;
- 	struct ffa_mem_region_attributes *ep_mem_access;
--	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg);
-+	u32 idx, frag_len, length, buf_sz = 0, num_entries = sg_nents(args->sg), ep_offset;
-+	u32 emad_end, emad_size = ffa_emad_size_get(drv_info->version);
- 
- 	mem_region->tag = args->tag;
- 	mem_region->flags = args->flags;
- 	mem_region->sender_id = drv_info->vm_id;
- 	mem_region->attributes = ffa_memory_attributes_get(func_id);
-+
-+	ffa_mem_region_additional_setup(drv_info->version, mem_region);
- 	composite_offset = ffa_mem_desc_offset(buffer, args->nattrs,
- 					       drv_info->version);
-+	if (composite_offset + sizeof(*composite) > max_fragsize)
-+		return -ENXIO;
- 
- 	for (idx = 0; idx < args->nattrs; idx++) {
--		ep_mem_access = buffer +
--			ffa_mem_desc_offset(buffer, idx, drv_info->version);
--		memset(ep_mem_access, 0, ffa_emad_size_get(drv_info->version));
-+		ep_offset = ffa_mem_desc_offset(buffer, idx, drv_info->version);
-+		if (check_add_overflow(ep_offset, emad_size, &emad_end))
-+			return -ENXIO;
-+
-+		if (emad_end > max_fragsize)
-+			return -ENXIO;
-+
-+		ep_mem_access = buffer + ep_offset;
-+		memset(ep_mem_access, 0, emad_size);
- 		ep_mem_access->receiver = args->attrs[idx].receiver;
- 		ep_mem_access->attrs = args->attrs[idx].attrs;
- 		ep_mem_access->composite_off = composite_offset;
-@@ -735,7 +746,6 @@ ffa_setup_and_transmit(u32 func_id, void *buffer, u32 max_fragsize,
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 1af722771178..2d211661952e 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -607,8 +607,8 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 	 * check that we end up with something that doesn't look _completely_
+ 	 * bogus.
+ 	 */
+-	if (WARN_ON(offset > len ||
+-		    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE)) {
++	if (offset + CONSTITUENTS_OFFSET(0) > len ||
++	    fraglen > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+ 		ret = FFA_RET_ABORTED;
+ 		ffa_rx_release(res);
+ 		goto out_unlock;
+@@ -636,11 +636,17 @@ static void do_ffa_mem_reclaim(struct arm_smccc_1_2_regs *res,
+ 		ffa_rx_release(res);
  	}
- 	mem_region->handle = 0;
- 	mem_region->ep_count = args->nattrs;
--	ffa_mem_region_additional_setup(drv_info->version, mem_region);
  
- 	composite = buffer + composite_offset;
- 	composite->total_pg_cnt = ffa_get_num_pages_sg(args->sg);
-diff --git a/include/linux/arm_ffa.h b/include/linux/arm_ffa.h
-index 17eca3dfc59e..033c630b271b 100644
---- a/include/linux/arm_ffa.h
-+++ b/include/linux/arm_ffa.h
-@@ -445,7 +445,7 @@ ffa_mem_desc_offset(struct ffa_mem_region *buf, int count, u32 ffa_version)
- 	if (!FFA_MEM_REGION_HAS_EP_MEM_OFFSET(ffa_version))
- 		offset += offsetof(struct ffa_mem_region, ep_mem_offset);
- 	else
--		offset += sizeof(struct ffa_mem_region);
-+		offset += buf->ep_mem_offset;
++	reg = (void *)buf + offset;
++	if (offset + CONSTITUENTS_OFFSET(reg->addr_range_cnt) > len) {
++		ret = FFA_RET_ABORTED;
++		ffa_rx_release(res);
++		goto out_unlock;
++	}
++
+ 	ffa_mem_reclaim(res, handle_lo, handle_hi, flags);
+ 	if (res->a0 != FFA_SUCCESS)
+ 		goto out_unlock;
  
- 	return offset;
- }
+-	reg = (void *)buf + offset;
+ 	/* If the SPMD was happy, then we should be too. */
+ 	WARN_ON(ffa_host_unshare_ranges(reg->constituents,
+ 					reg->addr_range_cnt));
 -- 
 2.55.0.rc0.799.gd6f94ed593-goog
 
