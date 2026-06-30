@@ -4,87 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22EB7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:36:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C2BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:43:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iUQ6jFSMVNPMzb38d677yAeg1LprsENzvRHiBxMRE/A=; b=vUFhJqt4FEj9aPLsRKxFZxM1ZV
-	VTHzT5ZCmReuMZqOtz9gkAHfucpL0blsFOFS0Q22xU7SDnYAK1h5YYRbTsa98CG0W5CBg1kZ8srYi
-	WFMtozdbLVY+Pok4kiHBTq2kOTJg1brnM2h7tbzUxVHXlEDMZdKMmRdZfxy/vS2BCqvjjpC1KteeM
-	BOk8o1zAuBVblu6PbBkmvSKXN0iWUN6YG1IVPrSP10nF8kPGAPt5PQmk+JupZPKXFMNbWJSFnnp4E
-	aJtOH5tu03+4RHiCuDvMgbadmTnB89sCegfCB4/Bsb5KwgdHE8Symns2/wUdV7kt2ivJ6SGlCh0ic
-	96FbRfiQ==;
+	bh=t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=; b=OvipWnFWyyP3mRx3FTh7/1FHYk
+	40NLPcBaOjeJ3djU52A5dNRmbPq5FzsteALGS8hscD7yueH5BT9+ufiCMJFAIVGd6NSTzHbks1Dzs
+	bdYkBfC+kzPUEx2TRrvzVU2s04s9Cc5DOmgZa0os1NK9AAogFBUN2XGSECGlU2Bky59w7UAWw75D0
+	ro+JfKslwK2T/v4pQuzWV1mpUrG2W2K4RMmrmJU1qm1837OsaO41M/j9w3ASgrtH7GjgOGMSCFGK4
+	bvuryQnPYgOPzrSG74dziW2RMjYipI5i+qIFEg+XPV3jOOHldBbxcR8ZQ51FUBF6vZKUMBMsrUyOP
+	csIR7s3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3S-0000000G7L9-00PF;
-	Tue, 30 Jun 2026 07:38:50 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1weU3Q-0000000GHsx-0ND9;
+	Tue, 30 Jun 2026 08:42:52 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3M-0000000G7GM-3TIf
+	id 1weU3N-0000000GHrs-3A1g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:38:46 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782805120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iUQ6jFSMVNPMzb38d677yAeg1LprsENzvRHiBxMRE/A=;
-	b=azx0VF9BBEtAr6ThA3DX8ZuDyV7033nYYJNIAmDBN8Lp3/iyYMAoRv79U/JPQ46Dk1olVO
-	WciQTdIzt0q+ph5qD4attfn0fiqCz5uLvmivbJVUKu0pE95/F4YtFHhpamzIg/msfr+Llp
-	qFEwW7fEPEfv1C4xZDTTPLEivZi7dGUrZXnmiqW2tBLGGWm3sBhWKFsk7mB3XvsB1OpKOx
-	aVTuT14dju5xMOQqEA1gJiM1BO2QhEb7DEsHT30dsHNr0xOt+9WsHkyi3jDg27QQVVtHis
-	C8EwyuswDoQxqLYV62IgEHIObYywWlv4n6BXxgtI4USncweQo6NAcLostoKIqw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782805120;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iUQ6jFSMVNPMzb38d677yAeg1LprsENzvRHiBxMRE/A=;
-	b=9987Z3GTA/PZJ9Vl1M6iHdMwE8mQRNdoTRRjeakAY3fSlZgniuuu21uWmsb6Tp/5SN60S/
-	Ik1kFTcFqNdv5GCw==
-Date: Tue, 30 Jun 2026 09:38:34 +0200
-Subject: [PATCH v2 5/9] ARM: VDSO: Respect COMPAT_32BIT_TIME
+	Tue, 30 Jun 2026 08:42:50 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65U6CLk21087220
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:42:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=; b=G/U1rECpO9DXIczc
+	CdXXJFxo6nXualylOUdw7K1x8kiqi4NTIjROD9KbTKEQB3Fb84vvHR+lZKNXLhnz
+	Am+N7X37E3xzbWuIAdNENwNweVMEl6QUrackh78/W96Fx+Ch8Fs7WTaBmZ582ncM
+	4WR7Fcu+sg/OthS15mHy6Mg/wTomMuQCDOU6wlhv8LzQBk/62fmN01zVefx6aoRb
+	7p4/hTsibd4zwX1Mp2nnKtIRYtNFgu1L8cF89NCWBUjtDny+jnKl2H35Yr96kjnI
+	nwoEw2QqFq8zoLQdXbyAgEo3gAbVIyYWhTKIgKUll4eeve4SyKaodgRa2wgh6Xas
+	7LLxVw==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f3qhacta7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:42:47 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c85a298cd62so2410325a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 01:42:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1782808967; x=1783413767; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=;
+        b=bXNWhzO5iDDGIs+P0AWpeuIJD7+EEbAeDE95fzcLGVH/e4JnGQe8swJmpWyqVYw7Et
+         ZpoxmbepQkWWhTxQ7nE0GNq+rQnJ/sHu6gfIHMP2Fo1qLwjWNns3B7TGf+zwuilx8jw5
+         aWO5VhcjIjdWescjrlzJPGEINeVFjQRF9E20jDDvWbBRqRwU7i//uoU+GSYFMicJUViG
+         3UILBSdeWreXwTXT51ST1A1Nv7zfwaZQ2NVwJH3QeAoW2pYsy++fxt8u6u34Z2r9cRp9
+         8yjvpi4twR6nWg95XF4ixFjVUPg6y9ZkV2K+tAnszMZPTJAYJcp65Z6wXxQnTEmmq9dv
+         u6cA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782808967; x=1783413767;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=t3PkPp9OpJEAmf4QS2hFOkoU+Rq0Ib3wE4adA5BkKIA=;
+        b=hrTKS29LNKhycAip3UPpB4r/RK7FDnOxU4YrLtBqUVetcr0p93nw5WDk2QDjSDU6Mp
+         xg8Kfrai0F10EJVuVTM8zJqd/MYAcFmSthnIA6iy5Buo8IaiXdOislClx2yXCur/Sxes
+         xY/BpSO1b1fOXbA8RNNiIKuSGrHYNInMkKKOVBKfyQkaiU376WvuHLfZHMLRfW8u/QLQ
+         64HSo5n9U9P+a2/6UpUYZ2ZxMgMC4mC8UkkXcvMgOZ7fJ7+6GiwckLaeTM+AeT1+aoxV
+         z14O1MSmrS0OIMdpwte6xxhdILubnAECQLnlt1JBsEJx76K3ew0Y/b/l1lzOfrrNeO6n
+         LEaQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9wD73aj3XZjseTcZogEw/FRroBIpCB5bLMPR+EoLR6k+8o/9UibDDV5zOUfkpTNIAVTudVkKK2uhtx3IhO564G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1lB09WBFRletto7kB1tfxwQP6M9CJc2LLuDn+f3vdTzOtBfUD
+	rZBg0F4uJU3gSTYHwGLulPur8N3JqZfa+oaWFEObebOsPBXCG2R5UZQokv2iSWTLzQeSJNaIM1D
+	SAFNhLYaEM+BEWzWOqAOXZO3rnikLea7J/SwSn09/SRWO0NUzlXX9pb6GL3wZywpG8BNNlR0mwB
+	bbEQ==
+X-Gm-Gg: AfdE7cmZrJ6htu+hensf3S9Me7IjtYHDVRW+jYLtM5M+luKMJaSuJpzGaxEv9XKLB8L
+	QSwGpbZzQk/9RimvtxbE0Mj90NxFO38fwNwvh1KnvNqGqyyTG6gWxlWiM/S2RBcEUpFnlhkpKx/
+	wnCFMnfOgvkmBzbYqYVmWXwyIWZk7oDOcI8C6/c6OIMPa2emvwt1HKk3FInY2cbK3lveS6ewRV1
+	s6WnckPfIXXfIxK7TlZhtiqsOJhkBDJBK4wP0nzHlLXeob6N+gRA/Snl0FClw3fVIAPlO8fFyWf
+	VlxgQF2eM3pvk8cSU4a2gcuwNDkBmxskOXHVKmL/7Pk0WtVcGL6R5MJARMYWvoCYKlRbTUq/LoL
+	QfGVzPWkbRK2+XU924Go1FXn0LgMS6JpwISAuEOshl9t0qxPT8UgeX+GKZwYkRxcbJ5lcxh22z3
+	Y=
+X-Received: by 2002:a05:6a21:398:b0:3bf:a543:e7f5 with SMTP id adf61e73a8af0-3bfc50664e7mr2352349637.3.1782808966658;
+        Tue, 30 Jun 2026 01:42:46 -0700 (PDT)
+X-Received: by 2002:a05:6a21:398:b0:3bf:a543:e7f5 with SMTP id adf61e73a8af0-3bfc50664e7mr2352319637.3.1782808966200;
+        Tue, 30 Jun 2026 01:42:46 -0700 (PDT)
+Received: from [10.133.33.20] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9bbf95c04fsm1124404a12.21.2026.06.30.01.42.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Jun 2026 01:42:45 -0700 (PDT)
+Message-ID: <37017aa2-e18c-4568-a37c-d13964cbb418@oss.qualcomm.com>
+Date: Tue, 30 Jun 2026 16:42:39 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260630-vdso-compat_32bit_time-v2-5-520d194640dd@linutronix.de>
-References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
-In-Reply-To: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
- "H. Peter Anvin" <hpa@zytor.com>, Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Madhavan Srinivasan <maddy@linux.ibm.com>, 
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, 
- Andreas Larsson <andreas@gaisler.com>
-Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
- Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
- sparclinux@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=2321;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=T7+Paogn085sgV9ELgz2TiMuWvOL8lCxlSvp1JXazDE=;
- b=PTy781XLM2JNi0R38FXtorGsAFXddDqIMmPeoQy7XdGWCfhypPS/ubgzDzcAGa/pbyA/i7DT7
- YjBmN0yfLKvBx0D/ixlkCFqITJ+WN73NzmdTvcbFjUarFsLbYGcUeOl
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: qcom: kaanapali: fix traceNoC probe
+ issue
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260624151610.GC575984@e132581.arm.com>
+ <a13fb65c-726b-4c99-b741-29040c4564d0@oss.qualcomm.com>
+ <20260625085643.GD575984@e132581.arm.com>
+ <065853f5-b11b-4316-814e-202f07acb6ea@oss.qualcomm.com>
+ <20260626103015.GE575984@e132581.arm.com>
+ <c1ac3ab4-f214-4947-b42f-cbc635be6bbb@oss.qualcomm.com>
+ <20260626154949.GA1812158@e132581.arm.com>
+ <9432df20-08bf-4134-b4b9-e6b5d618af81@oss.qualcomm.com>
+ <20260629142848.GB1812158@e132581.arm.com>
+ <adb45638-1787-45cd-b4fd-d957323cc608@oss.qualcomm.com>
+ <20260630081021.GD1812158@e132581.arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260630081021.GD1812158@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: A6MB6LvvNFRnuHAUL5gggn6-boJ3RuCq
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDA3NyBTYWx0ZWRfX/iQ2TS87M2PB
+ r6JuCesEfpBmmKUXpKg6IZy+ccqSkhbdhiA2kkwkge9hmzjV/6TWUMQmf44wHR8gumj61aVkcJy
+ XYpCr2CpJcmBFeiBDOp38ZlHSqkRWVYjCV2pJP6zOReVvNuQDCvFpHV7KY0bI2qahh07mYiVfeU
+ Nx6rLXIC1XwFm/Byauzk8plIvKrZj6srdmH/S4e3stVyibxzCh97e5GCY/zL1kYYskfdbIMpPoZ
+ PZU2ZzD0nUK3NO9YqpqU/hp241ySEgdZxzq2TxTVVStYOrtFWl41xoi1ptiZ+Ao0hPPxmnfUEda
+ vST78iacGXxB/pA04L8dmgTUblICIew5TFLlkJKSODLjXk5Dg0ZAFXeL58p8wOL2N8mhcoKFpK8
+ 4vMjvATpfEweUlU1/fgSgHYs6nTAogKTxNA4BFIF9fQWxQSfCwuswebwqW+iMg7ZyDzKmFPR56I
+ Vc3603YyI/KYoO8BNYA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDA3NyBTYWx0ZWRfXxEKw4qnhlpx8
+ Jf8UvuH28JBPj6IPVPWBqW/QIHdw470FAQ/gKmRAw9A+ZiqK4ni0yZ6pIRqFgAD5VN6D01vge7s
+ eXMJcf0kJjiThha3ieDaxH02B5zd6fI=
+X-Authority-Analysis: v=2.4 cv=O9UJeh9W c=1 sm=1 tr=0 ts=6a438187 cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22
+ a=9NUdbc6MOnRMJlQJ6ZEA:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-ORIG-GUID: A6MB6LvvNFRnuHAUL5gggn6-boJ3RuCq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-30_02,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 bulkscore=0 adultscore=0 impostorscore=0 lowpriorityscore=0
+ phishscore=0 malwarescore=0 priorityscore=1501 clxscore=1015 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606300077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_003845_305138_5CFDA2BA 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20260630_014249_918511_7758AD84 
+X-CRM114-Status: GOOD (  27.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,79 +171,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
-provide any 32-bit time related functionality. This is the intended
-effect of the kconfig option and also the fallback system calls would
-also not be implemented.
 
-Currently the kconfig option does not affect the gettimeofday() syscall,
-so also keep that in the vDSO.
+Hi Leo,
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/arm/vdso/vdso.lds.S      |  2 ++
- arch/arm/vdso/vgettimeofday.c | 14 ++++++++------
- 2 files changed, 10 insertions(+), 6 deletions(-)
+On 6/30/2026 4:10 PM, Leo Yan wrote:
+> Hi Jie,
+> 
+> On Tue, Jun 30, 2026 at 09:03:52AM +0800, Jie Gan wrote:
+> 
+> [...]
+> 
+>>>     - How can you guarantee that a interconnect TraceNoC will never
+>>>       require ATID in the future?
+> 
+>>  From a hardware perspective, there is no fundamental difference between an
+>> itnoc and an AG TraceNoC. They use the same TraceNoC hardware implementation
+>> and share the same AMBA bus type. The distinction is purely functional: an
+>> itnoc is used for local trace aggregation within a subsystem, whereas an AG
+>> TraceNoC serves as the top-level aggregation point for the SoC.
+> 
+> I'm still not convinced that adding "arm,primecell-periphid" is the
+> right approach.
+> 
 
-diff --git a/arch/arm/vdso/vdso.lds.S b/arch/arm/vdso/vdso.lds.S
-index 74d8d8bc8a40..e61038c0195a 100644
---- a/arch/arm/vdso/vdso.lds.S
-+++ b/arch/arm/vdso/vdso.lds.S
-@@ -70,9 +70,11 @@ VERSION
- {
- 	LINUX_2.6 {
- 	global:
-+#ifdef CONFIG_COMPAT_32BIT_TIME
- 		__vdso_clock_gettime;
- 		__vdso_gettimeofday;
- 		__vdso_clock_getres;
-+#endif /* CONFIG_COMPAT_32BIT_TIME */
- 		__vdso_clock_gettime64;
- 		__vdso_clock_getres_time64;
- 	local: *;
-diff --git a/arch/arm/vdso/vgettimeofday.c b/arch/arm/vdso/vgettimeofday.c
-index f7a2f5dc2fdc..3eebeddbfd18 100644
---- a/arch/arm/vdso/vgettimeofday.c
-+++ b/arch/arm/vdso/vgettimeofday.c
-@@ -10,16 +10,17 @@
- #include <asm/unwind.h>
- #include <vdso/gettime.h>
- 
-+#ifdef CONFIG_COMPAT_32BIT_TIME
- int __vdso_clock_gettime(clockid_t clock,
- 			 struct old_timespec32 *ts)
- {
- 	return __cvdso_clock_gettime32(clock, ts);
- }
- 
--int __vdso_clock_gettime64(clockid_t clock,
--			   struct __kernel_timespec *ts)
-+int __vdso_clock_getres(clockid_t clock_id,
-+			struct old_timespec32 *res)
- {
--	return __cvdso_clock_gettime(clock, ts);
-+	return __cvdso_clock_getres_time32(clock_id, res);
- }
- 
- int __vdso_gettimeofday(struct __kernel_old_timeval *tv,
-@@ -27,11 +28,12 @@ int __vdso_gettimeofday(struct __kernel_old_timeval *tv,
- {
- 	return __cvdso_gettimeofday(tv, tz);
- }
-+#endif /* CONFIG_COMPAT_32BIT_TIME */
- 
--int __vdso_clock_getres(clockid_t clock_id,
--			struct old_timespec32 *res)
-+int __vdso_clock_gettime64(clockid_t clock,
-+			   struct __kernel_timespec *ts)
- {
--	return __cvdso_clock_getres_time32(clock_id, res);
-+	return __cvdso_clock_gettime(clock, ts);
- }
- 
- int __vdso_clock_getres_time64(clockid_t clock_id, struct __kernel_timespec *res)
+I agree we shouldn't need to add arm,primecell-periphid for the AMBA 
+bus, as the hardware provides the necessary registers to read the 
+peripheral ID. I used it as a temporary workaround to resolve the issue, 
+but I believe that solution is not correct.
 
--- 
-2.55.0
+>  From the description above, I'd expect either the hardware to expose
+> bits in a register to distinguish these two module types, or as I
+> suggested earlier, to use a DT property to indicate the module type (or
+> whether ATID is required).
+> 
+
+I wanna distinguish the aggregator traceNoC and interconnect traceNoC, 
+even probe with platform driver, but the existing compatible is too 
+specific to the interconnect traceNoC device(coresight-itnoc), that's 
+why I didnt try the DT property proposal.
+
+> Or have you tried to detect the last tnoc on a path and allocate ID for
+> it? (You can retrieve csdev->path).
+
+As Suzuki mentioned in the other thread, I think it would be better to 
+add separate compatibles in the of_match_table to distinguish between 
+Aggregator TraceNoC and Interconnect TraceNoC when probing with the 
+platform driver. This would allow us to allocate an ATID only for 
+Aggregator TraceNoC during probe, which is consistent with our original 
+design.
+
+Thanks,
+Jie
+
+> 
+> Thanks,
+> Leo
 
 
