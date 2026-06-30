@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A6EC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:12:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45F06C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QH4CGcHXNBmFngO/ExCQQw5Ov2BJP074AhE1cKCVPCA=; b=qBgVexKFBeWGnigrHv84r0IwKZ
-	0cjVfpjSXn/OoWirZkftv3M4WFLwiE1hgtcBi/qMNrgx6sj8Dl4T/gM0/mJnYv6bdiW3pqgIQY/DE
-	cpbxehT6+0uIz7fKIiDA9/iJhtLsoCycjN+YfTZAPdsNZKVAQJ9iMaWuail8ZWCZaCpsIZHn/ioe6
-	jLsh1a7ytEWBwdr+179bT9G63BPSR4jKIL+xCxrLk+U75hklBZ8znfDfWKny6U1fJeqVkaRZJMSw1
-	Trz9l7sub8EK8zsiXBJY1vQ2XUnJ2XA1sLi3l9Oc6XaVKuYG51C+x7SFW5uOHV3z8m2hQEjJZ1iOQ
-	a/1TRHUw==;
+	bh=M83njLRgDWo9HchPv8kCC6c+xifLr9LeFMIrCAqugJM=; b=aEhIJuLemDkPingaP7osYKxGlm
+	RkqTvWqDe5S7JkfGjFOD/570a5Y/FN4XCR085UGAj5I74IX/0wnXTa5hm8FpdsKdODHhuBDCjfPuZ
+	EGy55gUJvGitVYeApMdOOqv6wQAWIKwUzATksSDVJ3pNAkT58ae/6Rcw7+5dFUHbiJ08thvi93862
+	ino8Tfp2CuPTmf3owgLvoRCXFRJQQtsq8mOrCMId6wF9F961INtlHPfiumV3FtC72+JEf7jERUKam
+	8ik+UHSMvtP2B7/zSvVHHaOQvqewbp1Hhvk17/XL0SI8TfQ0D14IB+IQq3TMpgNkAbf/M1s2GZwTZ
+	ZcS7Q/Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXK8-0000000GwpV-2gif;
-	Tue, 30 Jun 2026 12:12:21 +0000
-Received: from mgamail.intel.com ([198.175.65.15])
+	id 1weXOL-0000000GxYy-1t5f;
+	Tue, 30 Jun 2026 12:16:41 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXK6-0000000Gwn3-0Qx0
+	id 1weXOJ-0000000GxYP-1EMS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:12:19 +0000
+	Tue, 30 Jun 2026 12:16:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782821539; x=1814357539;
+  t=1782821799; x=1814357799;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=1L1Wf90eUreqxVia02nbtpsp46qa1tSbDPiKkspanxE=;
-  b=alOTqUJQctZQznojtSgR4ntg9iBdFAitC2swC3atmxoJIrc5ndJq0qbs
-   sRw8lflltAUAtRVT7yYRW4ZcqqXWo+18zaYldE2WubjNVPe1QEvOo5Ziq
-   jLNLQ5nSbEYhoAyPQgn3If2SzyC8c82/rF53O4ESEEXa+f4b4ZdkkkGo8
-   yrG3LXXyxdfPn9DG5tAoU8nUTVGmoL+lmlX6SG+eUbsZgcBYPZu4Gk8c2
-   mfEfhYIsGqYGe+XWLacUw45GHwJkZfro4HamSof3JJxoec2i7TkxwZ7Qh
-   MEnNHW8jVM6vw9067+OQM32T/5tXl5mGUuCwG9GqWbFIineCQPrB83vIv
-   g==;
-X-CSE-ConnectionGUID: dDkAfDJbRQKuebgwjDcheA==
-X-CSE-MsgGUID: 4zB+5TqtR0ia0ukdHmBlmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11832"; a="87215142"
+  bh=VmtYJeyjTF+nW+MqqASSDf26xTqsmBZJhwKzsP7qfPA=;
+  b=STD34L9T4RflfiP/F7gR6vn+LvUVqoeTv/JPQfuk9JNYtNZck7elfs0f
+   nM6juxjIWI7ox4ldCnAEoym+ispPz1enUJFvd7wnvc2C1DT67RUqn5R9a
+   njcD8s30JoyEoiD5WChlk3tL9DlcS3/HhCLUGoxnjfP0JL83TBzWDm3oM
+   WsS5pHm6jhQ4xGwvWMFwMSxssU8vZqzKAMY2Ch/atc5p68YAmxux7L7Sx
+   Lv5Qlls1yJmYgC/aBxN/eHXGDi91nQSj+1H+MersKeZ8jHXbeFg4ljnDX
+   Pg9Va5AF/dJFqa/hrl6zdAeVSOCjVq92O1j4G6y03nQITrGP4r9QRbDVK
+   Q==;
+X-CSE-ConnectionGUID: FmhYdmoMQvKIwl7auYgdPA==
+X-CSE-MsgGUID: JZ7Vj+xARQGuF+UCPT9hVQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11832"; a="82521280"
 X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
-   d="scan'208";a="87215142"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 05:12:18 -0700
-X-CSE-ConnectionGUID: e9Lq9jYXS82f6jnbPm0cww==
-X-CSE-MsgGUID: XZ09lzFXT/CFBp5EHYEUUw==
+   d="scan'208";a="82521280"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 05:16:39 -0700
+X-CSE-ConnectionGUID: dJEhJRdtTxqOgFFYZ+iaZg==
+X-CSE-MsgGUID: yA1VguZ+QZukmHFHt/ditg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
-   d="scan'208";a="290376670"
+   d="scan'208";a="276531891"
 Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.96])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 05:12:12 -0700
-Date: Tue, 30 Jun 2026 15:12:09 +0300
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 05:16:33 -0700
+Date: Tue, 30 Jun 2026 15:16:31 +0300
 From: Andy Shevchenko <andriy.shevchenko@intel.com>
 To: Varshini Rajendran <varshini.rajendran@microchip.com>
 Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
@@ -68,21 +68,20 @@ Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
 	duje@dujemihanovic.xyz, linux-iio@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 02/13] iio: adc: at91-sama5d2_adc: use cleanup.h for
- NVMEM buffer
-Message-ID: <akOymRWOi5xOsrog@ashevche-desk.local>
+Subject: Re: [PATCH v3 03/13] iio: adc: at91-sama5d2_adc: rework temp
+ calibration layout handling
+Message-ID: <akOzn9ci3FPCtqqo@ashevche-desk.local>
 References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
- <20260630093603.38663-3-varshini.rajendran@microchip.com>
+ <20260630093603.38663-4-varshini.rajendran@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260630093603.38663-3-varshini.rajendran@microchip.com>
+In-Reply-To: <20260630093603.38663-4-varshini.rajendran@microchip.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
  krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_051218_199935_B6BBD1FD 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260630_051639_341330_3CA6D92E 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,16 +96,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 03:05:52PM +0530, Varshini Rajendran wrote:
-> Use __free(kfree) cleanup helper for the NVMEM data buffer in
-> at91_adc_temp_sensor_init() to simplify error handling paths.
+On Tue, Jun 30, 2026 at 03:05:53PM +0530, Varshini Rajendran wrote:
+> Extend support to handle different temperature calibration layouts.
 > 
-> Since __free(kfree) requires a valid kfree-able pointer (not an
-> ERR_PTR), store nvmem_cell_read() result in a temporary void pointer
-> first, check for errors, then assign to the managed buffer.
+> Add a temperature calibration data layout structure to describe indexes
+> of the factors P1, P4, P6, tag, minimum length of the packet and the
+> scaling factors for P1 (mul, div) which are SoC-specific instead of the
+> older non scalable id structure. This helps handle the differences in the
+> same function flow and prepare the calibration data to be applied. Add
+> additional condition to validate the calibration data read from the
+> NVMEM cell using the TAG of the packet.
 
-LGTM,
-Reviewed-by: Andy Shevchenko <andriy.shevchenko@intel.com>
+...
+
+>  /**
+>   * struct at91_adc_platform - at91-sama5d2 platform information struct
+>   * @layout:		pointer to the reg layout struct
+
+>   * @oversampling_avail_no: number of available oversampling values
+>   * @chan_realbits:	realbits for registered channels
+>   * @temp_chan:		temperature channel index
+> + * @temp_calib_layout:  temperature calibration packet layout
+
+This uses spaces instead of tab(s).
+
+>   * @temp_sensor:	temperature sensor supported
+>   */
+
+...
+
+> +	layout = st->soc_info.platform->temp_calib_layout;
+> +	if (!layout || !layout->p1_div)
+
+Technically speaking the !layout condition rather means -ENODEV.
+
+> +		return -EINVAL;
+
+...
+
+> +	clb->p1 *= layout->p1_mul;
+> +	clb->p1 /= layout->p1_div;
+
+So, p1 can be defined in layout as struct u32_fract.
 
 -- 
 With Best Regards,
