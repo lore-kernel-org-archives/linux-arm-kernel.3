@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A514AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 01:54:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D81DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 01:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:References:
+	In-Reply-To:Cc:To:From:Subject:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f4KG/X8MV7QZrgKJunvYu/eMHjk3xLJnP6aj383Xw5Y=; b=0p07yUHBqXNJO6WpzHJ2jZJljd
-	sXy7rOBDHJbimakST7aGGV8BTXqpqztiKFFtk/eEMUYVE0p77lIeSSA4uZ6SeAzB+R+pvRBBQ6IuU
-	OtR2n/2ijUAMTywFmfVcHQtQOY4Zjb6GoNPaGxt3lOEjA1PqHJnpapV6zmMs7y8JSfmnrV1RYnmnw
-	EJIPRxY/igfA1M/tHSWNLE0cFMbeqk0akc6A4tjER8kaSClcfd7Ba3HPfd1+pe8RJ83pgCtfsMfUt
-	gF+78ARe4x6huuAnrRlvz9QFAMEd0U76/i8u59FoxMIpjvKu4uflSjxD+LBLnnt1W+hlqXPp5eRy4
-	TJ8SiKpA==;
+	bh=0P7LDjhqWjIbgOLzCEZQr2Bj9BM7s9iDecmTLikIjF4=; b=eZSxmJDAqvBxZklzH+Vc2izC5y
+	KmlzQx2oYsiRZnnmiDBsO6tfkWusMsKUlh1sepxG4ggxgPa8YnvXCyrd5mN06042/jUpDvXmkXQxu
+	solLEdxfN6weKlyEYIAViUmWoSHlLf5oXdxN827p58AOFeWAs3v+UnBVKSObzCUojmjYu3vOJo7/v
+	l5NgMF4vALWWxpFVDSpRWu1p03LU5LX+2j2GbwBQxWO1jzygmC/+YZU4TkAbUfcfFm2fPo693+8rb
+	hiZdny5/OxzzK1IpH3HOTeJJuznjzXl522zGcShoVEf1Pu64fqlvgjijZPXtmMsShisztt4TMs3p7
+	6jhNJZ/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weN1b-0000000Fdgr-24QE;
-	Tue, 30 Jun 2026 01:12:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weNgS-0000000FgPq-25N6;
+	Tue, 30 Jun 2026 01:54:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weN1Z-0000000Fdgi-3mIJ
+	id 1weNgQ-0000000FgPc-2sKR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 01:12:29 +0000
+	Tue, 30 Jun 2026 01:54:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 591B7600C3;
-	Tue, 30 Jun 2026 01:12:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D8E51F000E9;
-	Tue, 30 Jun 2026 01:12:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F2C641A6E;
+	Tue, 30 Jun 2026 01:54:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46DE21F000E9;
+	Tue, 30 Jun 2026 01:54:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782781949;
-	bh=f4KG/X8MV7QZrgKJunvYu/eMHjk3xLJnP6aj383Xw5Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=hKBIQYHy9ClqCroiLhVPj/iYZ9jX+pmLL3fkbu4rZTRY36gntSHQrWj8lZiI+Rvif
-	 5Fz3prlNEe6Wr6dnpFtVMFjuDzUcQSXAftL4fdj8P21ooE08n2vQTmX5pRuzHfeL1W
-	 XwmNSJfJICCCktG0kna7FsdFKktj22DuRF4rXEEMfC44Z8bSGQAbNF/j2A/dohrn23
-	 ZdItA1jPk0MU9gqGaERIDOQyr4L3z3m/h/twdJaJvGEncmMpSDbS8PqIKdxVcLbMob
-	 wpYrjAq+eTSjAQcjE/6VfzTIZd86aUFMimvUlbO3FJSDMY5yhSyfI+/usYW8ryxL8z
-	 sY7d2RY7WLpyQ==
-Date: Mon, 29 Jun 2026 18:12:27 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: David Carlier <devnexen@gmail.com>
-Cc: danishanwar@ti.com, rogerq@kernel.org, andrew+netdev@lunn.ch,
- netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- pabeni@redhat.com, horms@kernel.org, m-malladi@ti.com, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, ast@kernel.org,
- daniel@iogearbox.net, bpf@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH net v3] net: ti: icssg-prueth: fix XDP_TX from the
- AF_XDP zero-copy RX path
-Message-ID: <20260629181227.4418d953@kernel.org>
-In-Reply-To: <20260625063121.24746-1-devnexen@gmail.com>
-References: <20260625063121.24746-1-devnexen@gmail.com>
+	s=k20260515; t=1782784482;
+	bh=0P7LDjhqWjIbgOLzCEZQr2Bj9BM7s9iDecmTLikIjF4=;
+	h=Subject:From:To:Cc:In-Reply-To:References:Date;
+	b=PelMRxBinaeKwK2rdKTqnmS20mRH6eqBM84foSu3gkZ5/33w4IDI77u8i+7+g3V/D
+	 jm28xXjv/RwJgy2+J25YisEBnr9QGfJ/a7wJ7EaKPKjiyp35m2HV54h7vVsjdOzlZq
+	 yiE860Z3u5KyJN8cx4UXlU4WaqV6xzB52Wn7O88/qFqbcnzfZ2jktt0XX7Fo3G696t
+	 UhF1QWrEspNJCjTV4Eftpo/YESYuDEwPLE92HiRv6aXiJ8MenLJJhkwnccFcNWm3ab
+	 ++jgrG/kXVN9Jl9uWaSyr0BQ1jbJ2cOSa7paGKvoE4M3bQYX1EWZ9ICezEiBV9786T
+	 KiVOzfG129X/A==
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] kbuild: Use --force-group-allocation when linking
+ modules
+From: Nathan Chancellor <nathan@kernel.org>
+To: Petr Pavlu <petr.pavlu@suse.com>
+Cc: Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nsc@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Peter Collingbourne <pcc@google.com>, 
+ Sami Tolvanen <samitolvanen@google.com>, Daniel Gomez <da.gomez@kernel.org>, 
+ Luis Chamberlain <mcgrof@kernel.org>, Aaron Tomlin <atomlin@atomlin.com>, 
+ linux-kbuild@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-modules@vger.kernel.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260612133139.1919042-1-petr.pavlu@suse.com>
+References: <20260612133139.1919042-1-petr.pavlu@suse.com>
+Date: Mon, 29 Jun 2026 18:54:32 -0700
+Message-Id: <178278447248.3414597.4179963162938722029.b4-review@b4>
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=646; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=bn1LHd3OHhBk6/yvIpNvhrFt/UF7RlbjeVCHu7MJ0Fs=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDFnOivc2SgQrKE9U764zNLx9iHdi0uHFbodu3+P5vclsn
+ 2DkfWGXjlIWBjEuBlkxRZbqx6rHDQ3nnGW8cWoSzBxWJpAhDFycAjCRUwGMDAtNCifmRh+b9ThJ
+ sFvJ6/Kq2kXCd7cyJu1i3bpisvicaUkMfzje8c8PzvBZ/XhfydatPlqrNwZ8FGVJnxumt77vZ/P
+ JPD4A
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,13 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Jun 2026 07:31:21 +0100 David Carlier wrote:
-> +	PRUETH_SWDATA_XDPF_TX,
+On Fri, 12 Jun 2026 15:31:37 +0200, Petr Pavlu <petr.pavlu@suse.com> wrote:
+> Specific code, such as outlined KASAN checks, may be placed in
+> COMDAT-deduplicated sections. When linking modules as relocatable files,
+> the linker by default preserves such groups, potentially leaving multiple
+> copies in the resulting modules and unnecessary group metadata.
+> 
+> Use --force-group-allocation to have the linker resolve the COMDAT groups
+> and place their members as regular sections. The option is available from
+> ld.bfd 2.29 and ld.lld 19.1.0.
+> 
+> [...]
 
-Sorry for the naming nit on v3 but XDPF_TX is ambiguous, I spent
-a bunch of time digging thru the driver. It should really be called
-XDPF_LOCAL or some such to indicate that the frame originates locally.
-XDPF_TX is ambiguous.
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
+
 -- 
-pw-bot: cr
+Cheers,
+Nathan
+
 
