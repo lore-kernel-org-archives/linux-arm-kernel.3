@@ -4,133 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0688BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 16:20:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F512C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 16:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8A0RebGIzxFLjnV9Jou5cTZnWsJdzZkfM6ilJIlDo2I=; b=0pI1wnoEFB8+cBnrbYjepwy3q3
-	DFFwG9c+3GgFF0MP7fnjgIvXXJRuoV5Kl6FPQjoJUm11vHZLhUXn++c+tyYMHPu/egmPV+BNgfpFk
-	F0AFCazis8iDWvcBF0IKQIezHrQY71eWgT3Hm56VItHiWnjcCDgk7QLV4A8m6OrTaTk5C4DJgaL3a
-	1789oaJgPxO1dAR3BG5GGSP4SrXZaHRjhlLr06UZ0RnXfLjLOnPt5PssyphB78FGww8sqNvAu5UN2
-	9QC0b24ZYo00FB7IDFeUmalVjoeLyNz+O1ZJoAO6BVBmEM7XQRly296mxYS7r67RBOgSM9/yuUWll
-	kqtA+IAg==;
+	bh=sslHSl9vky2DIRPZzDKqYfXMiyTPmeA8uuP0XK5gK7k=; b=ZDJkvDuI5yUygRy3eOVv7K6S1m
+	jeas7UBANPqmJXRZIINGlJL1pPA/5FojtAjtJDc/P1Mm0GHPXeBRhA0FLziHk+GIlEQ/+8aH4nHhl
+	+9xhetAMZJF28gorc+FxDlEOvHhhFcmHwcb8C/6hun/gCkYgjYOPoeDMFNcv7bjul6Dugr6CdIkl+
+	kZZhO4mO8d8ID6Wdp0XsuZ5uhAJPb/m2z/y8kXuoRM+KUpxJpLYfuVpYbOo4NUNuT/xJ0eccaoeje
+	f1ROO6HutO/hd1l+G71mFmBB+bozLXISAYrvcvzTl1pALJSemufTT+ODuaR8p2ISiWQoGLx/5sRDW
+	9qKRURnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webCQ-0000000HSmE-05N3;
-	Tue, 30 Jun 2026 16:20:38 +0000
-Received: from mail-northeuropeazon11011003.outbound.protection.outlook.com ([52.101.65.3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1webE9-0000000HSv8-1SVb;
+	Tue, 30 Jun 2026 16:22:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webCN-0000000HSlX-343p
+	id 1webE7-0000000HSv1-3uOO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 16:20:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qebuTjSK1MkCsmNCmfCFNnXANmZdehntGVWanIh11pZAiO1VoPTHlVQqliUDOXO7UwI3vIFfu06SzZI85lBlZiVrCt4bAu5fEwOdmrl1TzHLHoyLITSyc49SBvS8GZnJqycj0yHfb4n062p98Slve4sJwqp5FXw9ZyVL/jhdA6pm1Il7kSPUiseADCnUZ3kmGD+N61FKZ2R5SdV2bdpKKSY2uqEzFfdquhMMi7Q94/EnqFLXqMJWziARyQljNX3j/06WBYnfTKYI7gCmBVj1V3H313SVGNUq+Z1mD3TmXv5MT1gM6Q7vYpR8t26/xxb1LY+CLI/F4sP3uPB1hxNZ5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8A0RebGIzxFLjnV9Jou5cTZnWsJdzZkfM6ilJIlDo2I=;
- b=xQJVTYVuio0L+eB1eEerfTcbXqL5DyxpjHPGAzroX175GGwbgdPXmxoB4nufnuhaX9B3ghW9w6AMxKwawkgT5wyUxjpaz24RGErga9ZCWBnoBfq9YQeCG1ObIgHKXL582I1geyCo2LDCknkBR1V9CR1C6aeuauVqBUWRDkQzwGrHtioiDMplejJqeRbrmZEJLKPiT8sphwm13echxsUtD70rVFO88gZWQbKC3zeb4h3X4VdAIMZgYsxTsxLkv2KHa6PBSEsJyCGOpfSFnQ+yz5EQhIeUhwZZZGnBp2QQVZNQInOp2AkfuV0yrHU0KB+yfXvZuA78zoSzGnMgzMK9Ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8A0RebGIzxFLjnV9Jou5cTZnWsJdzZkfM6ilJIlDo2I=;
- b=b8o/2yzfGjgVdRIb8d+dnJOMvE23VA/pFYwu9ToLFJ2q7XrDe21C4CsjHVCtLqeg2QEDLXPmj2WtfXVsjTt40BtDGCQVyktJZYBSKcdAH7Srjj5qooaexQuze2/vbMtgtoMHe710J12wSWazMM3dkeOPrGYS2Ga6JNFUSrmI8nb4ri4QjMT390GrWQxWk5Uqprl1KSkqU5DM5LOamlihMvwW1MiRFXIVJ3V4TqqYEiIrKANAV/UDpmzGw3RYvRUDRHH2cBzbHJuSxTaqdHTqAMXZ7A2fyzmosCIuBJR4oTR3M+D4Ytx15gZrlWvYcw8uegzwbHoTTIwchcY4Tmw98Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI1PR04MB7198.eurprd04.prod.outlook.com (2603:10a6:800:126::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 16:20:30 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 30 Jun 2026
- 16:20:30 +0000
-Date: Tue, 30 Jun 2026 11:20:20 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Guoniu Zhou <guoniu.zhou@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: (subset) [PATCH v5 0/2] media: nxp: imx8-isi: Add virtual
- channel and frame descriptor support
-Message-ID: <akPsxPgLNgu3YsEV@SMW015318>
-References: <20260521-isi_vc-v5-0-a38eb4fcd58e@oss.nxp.com>
- <178276214766.2429861.1950641421457268519.b4-ty@b4>
- <20260629202302.GK3054459@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260629202302.GK3054459@killaraus.ideasonboard.com>
-X-ClientProxiedBy: PH7P220CA0167.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:33b::9) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 30 Jun 2026 16:22:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AEBD642E5A;
+	Tue, 30 Jun 2026 16:22:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E8681F000E9;
+	Tue, 30 Jun 2026 16:22:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782836543;
+	bh=sslHSl9vky2DIRPZzDKqYfXMiyTPmeA8uuP0XK5gK7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=dul5b6bcSmqXLVoo6tIeMdmES/vM+PkaSomaF+A3lC8ejOh+Po+qF6DKRh7QRQ2qj
+	 RNt5b/KsKki68SFNDJku6wPb9CW+ZISWaf0sLRJDquJs7b1haH+BphobIlZQ/XsrxK
+	 7E3ztX8E7Fe4NBFIGjf/w9wLbnZk4d6dZkciTmjJWFaotbV52J/Fblih8ggVQ3AfyZ
+	 w9Ki3HlFWs5/xZeCkmZ2vLV+jhuhzcM6fttlAUrOL/P1tLzQNNB3zopW6CYS3jjrCV
+	 y7Wuixcf3Ctz91L2/ZgKY6aqX969OGCbE8ZsQQCg3RbEHpHi0Lejl3t7SC7x1470r5
+	 Bsvt3p8kOJEYw==
+Date: Tue, 30 Jun 2026 18:22:09 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-pci@vger.kernel.org, 
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] PCI: rcar-gen4: Configure AXIINTC if iMSI-RX not
+ used
+Message-ID: <ck6i6tdw4ngde6vmtamfrvryg47ixycpmd74ny5hpzury5ekpr@ibgrw7o6uewj>
+References: <20260618220427.14325-1-marek.vasut+renesas@mailbox.org>
+ <20260618220427.14325-2-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7198:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41edb826-9642-4036-a9c1-08ded6c38088
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|376014|23010399003|1800799024|18002099003|22082099003|11063799006|4143699003|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: /nZaWIPJe9OOwrAytcSMYf0c2NBSdrZABPXv/LUtn1KjlnpZPQVKx6uqXXluSbLnA7HFAdgE1iAFqpnogshh3whLN3ya8DFbc+lwRRLF2azC96jRtNYkwug7pErrVUh09Pz45t3sOHcaxaqQUprRDtXbn3cMJfeNRMSXILmqv+eZY8pThRh89DZfctEvKDgI0Y+62zNGTz13U2V8pYZZ612diKKnRj5BUycPDhx+8DNb2aJZZkylppvJSmjMq0EUB2JGkISGGEDOoZbZG+gLxbCToMK7vpoteVwY0BtFYVIzI0gHbCypgAUeYjKe993N28wLPmS3IH2NmntxkdSZGgZS1KVPy0spKa1QXBl8lrlE9NGIpuJ551L03t1+bMXjwPio0USost60/ztm8K6Y2cCkiV+KnoFS2dQ75ebRBghgb3Zfay6VnwtBMsW6cRSy8hAD6wu1g6Mdl2NRDVEUvbvE8PCUFMGaF76/OYR+1CWRWbjhIER/INxu0oDSgPyiTTSfHLBbyVuCX8g8EybxC9DXd/N6+RQ+s56O8R/sovHNde71SYuqteQDU7x7xI9p8kyWhfwdeMdZ+HhUTyoInStOrOgo1dBbdTHSKadLaetHWd20ie2KyXFxchwk8TLWqnV0rMDhaXtMzvS1JPoF44krs8BxNl7J/O8H+50Xwlc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(23010399003)(1800799024)(18002099003)(22082099003)(11063799006)(4143699003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?MPn/pjPgl548lEuoV+W7TL3UkX2CUK32K6v5Zc88+vbS26+d+HCG9Oz8b/Xy?=
- =?us-ascii?Q?kgYRFip6jvaTkp6zJ38XTv8dwBhygqUfnUBqmnhRNZfU0slSr0xoiYRjTE72?=
- =?us-ascii?Q?zIqV+Yhvx9rehQK7LXEq1Ie0iI7TGjkyqc1Z0G6Epbmw1qlE0w1VOv38CKD0?=
- =?us-ascii?Q?u/R3fpFCJIq01uVwf9V+7oFEaO2sq7bcTEz4Pzp5fHudZsuwwz/rOTvpSPK4?=
- =?us-ascii?Q?KqtFUWI11nDPXt7xMlyyke8Yo/saJKJdaRBOr74wtrQIdKkdIp0I//Sj8zeX?=
- =?us-ascii?Q?8tyiQT+kQFTHDufwpgU8R77QUy6ZifVFFMuVp4HA0gbcTfeRzfsAa0StRSEa?=
- =?us-ascii?Q?bxok28A0/WUL1qVRx9K7NlVrEEzBQTRoiri8aLqTMz8d3yJZ0VmnDUxQ8ZLG?=
- =?us-ascii?Q?1MnNrv2BOguYMBciUkIQx5wLQpnFZ2dzaFh7jjE+22JrDaNnKGuZMn89jwyK?=
- =?us-ascii?Q?o79W0Q+Vb9XRUCwqYF7BX30LNhglgMi6uEnEcbrf4200q2j1Q99xzZBcAnxM?=
- =?us-ascii?Q?OZj3CUjUBEUH6B8ds2t7I+lxMjI6G5O4dWil9Z8czB8qRDr2EqpbrYtkCjHT?=
- =?us-ascii?Q?4G60lun2zwSB32Ucxv1LjCd7Aa8C1p+AzIKRaCN2JHZ9OsQzrlDNIa2Bp6yM?=
- =?us-ascii?Q?IjFe4eyCHgXGO2FLSDqsjdqHlsG3exC79HdzmiHRcoX0IyTNPNz/VSv2F43X?=
- =?us-ascii?Q?yaHQ1AjB0nPDz9icdz6A9zG7wuzhmFz2GfsbrS8MJOS3VzNk5lkbRsP6SFk/?=
- =?us-ascii?Q?MuRG89DcUgoWm5iMPbcQ260vsRb3lCzam3gLKkFc8NRYtbwqQII2fs3e9+SH?=
- =?us-ascii?Q?GyNQnFUFjfkBDelAHxCw9E/5+aOJM7ffW4hSRQSJTSa30kCNEdKjKJkcxrw2?=
- =?us-ascii?Q?tFmu5CO018kJhTjGfo3ETZPCoF/7KmjOtxPAfuB/HRV/rvh5jsKo6p2yjfc5?=
- =?us-ascii?Q?HmVkezWGRAoR3P0KE6uVVTCgXefo4LAL6GqDJmgIhgDHhiu0CPmHAa5/DCDI?=
- =?us-ascii?Q?HMOr7h9tytHSkba18QrjzEtcvZhwhZeUdjKYD6dQWi0oZ6BlBlYxANkWTtV4?=
- =?us-ascii?Q?IP0UnKTn/mBcXCXw9IFxcIrFCJY/N/ns30sMTHGcsJdUnzlJBqNPs6Gc9esf?=
- =?us-ascii?Q?NCKYfg1rrT6X43GLeD+OG4x1Ddce94QzWqcDTLUrhBCtJaQgP2EMrn6m0cd3?=
- =?us-ascii?Q?9IT9v2b0GBErhVH8VxzhORIUdehaYmuGU5iumpJSOF8MDne6di0skkCN2vPf?=
- =?us-ascii?Q?JBL/aP0U3+own8hEcT2cue6MarPwV88dlEwU3u3qBMKY12U6y5FhIaJE8CRz?=
- =?us-ascii?Q?ClIc21AURzxUjiq7fNoNRnWb7jP8RBUEGFrbKX0or9zs5OKDUNqpgoHaVPdV?=
- =?us-ascii?Q?iczvoRzGjCBZtjuQqvhAU8WGwvzzJL6ArVvwoCA1sr04MzNEB9FPVnm+TFCQ?=
- =?us-ascii?Q?Bdb4+0bL8BkPSldZPkNRE+AHTuQyLHQ0dR3lbmWwXJNcpIusOGManQIns7pz?=
- =?us-ascii?Q?NkSVsIsbDaO4agv0hwg/dphCb/tJzteaDboVyJzgSq2hbD7HHEO/a/3cba82?=
- =?us-ascii?Q?eWG0dAJ5nEMV0DRGYJqTX1Czn4lWtUGbatulVzfEE2UYUEE67m3RAFrVm/i7?=
- =?us-ascii?Q?xw/41zH1aGtXCMrKBSfLjg8aLAqZGkA2DmYgkZTK92dZ8t8Njbs7wtc/EhVU?=
- =?us-ascii?Q?U4gb5xmesmX2rAlmunzHCbjTp17LdeBqUUBOehm3007lmE3EeQOPzgntN8tQ?=
- =?us-ascii?Q?tzI8FBlevKj3Kgnka5c7SzwkWqOODv9wg1nlv7I6Dja8lfZBkdpe?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41edb826-9642-4036-a9c1-08ded6c38088
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 16:20:30.0223
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: erTpsdqs2pptiQwqjRsEnJoGtqRPbwFZZMqvCkik8+lj73ziPZCAqoKlbAM6qu7NKypuuKA2aq2djKdE6iwH/DLq2LKaw+GASUMoCaRBVeXQt1utMcuy4wVkbJz0aET5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7198
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_092035_780761_9EC507EA 
-X-CRM114-Status: GOOD (  14.13  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260618220427.14325-2-marek.vasut+renesas@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,35 +77,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 11:23:02PM +0300, Laurent Pinchart wrote:
-> On Mon, Jun 29, 2026 at 03:42:31PM -0400, Frank.Li@oss.nxp.com wrote:
-> > From: Frank Li <Frank.Li@nxp.com>
-> >
-> >
-> > On Thu, 21 May 2026 17:10:03 +0800, Guoniu Zhou wrote:
-> > > This patch series enhances the i.MX ISI driver's with virtual channel
-> > > support and adds frame descriptor capabilities to the crossbar subdevice.
-> >
-> > Applied, thanks!
-> >
-> > [1/2] media: imx8-isi: crossbar: Add get_frame_desc operation
-> >       commit: 3e15a3510908c990ee352aa206d5f9c23d4b216e
->
-> Is this a mistake ? Patch 1/2 has no R-b tag, and you're not listed as
-> maintainer for this driver.
+On Fri, Jun 19, 2026 at 12:01:59AM +0200, Marek Vasut wrote:
+> In case MSI are enabled, but DWC built-in iMSI-RX is not in use, the
+> MSI are handled via GIC ITS. Configure all controller MSI registers
+> fully.
+> 
+> Set or clear MSI capability register MSICAP0 MSI enable MSIE bit and
+> PCIe Interrupt Status 0 Enable register PCIEINTSTS0EN MSI interrupt
+> enable MSI_CTRL_INT bit according to MSI enable state, set both bits
+> if MSI are enabled, clear both bits if MSI are disabled.
+> 
+> If MSI are disabled, or MSI are enabled and iMSI-RX is used, then
+> deconfigure AXIINTCADDR and AXIINTCCONT to 0, which disables any
+> pass through of MSI TLPs onto the AXI bus and then further into
+> GIC ITS translation registers.
+> 
+> If MSI are enabled and iMSI-RX is not used, the configure AXIINTCADDR
+> with target address of GIC ITS translation registers, and configure
+> AXIINTCCONT to enable MSI TLP pass through onto AXI bus and into the
+> GIC ITS. This specific configuration allows handling of MSI via the
+> GIC ITS instead of integrated iMSI-RX.
+> 
+> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Sorry, I missed checking Maintainer files, in media summit, agree on I pick
-imx's media drivers, but forget finalize the file\dir list. Can you help
-summery which files\dir I should take care?
+Same as patch 3, SoB chain is broken. Rest LGTM!
 
-If you have concern about this patch, I can drop it.
+- Mani
 
-Frank
+> ---
+> NOTE: This would not be possible without prior work from Shimoda-san
+> ---
+> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+> Cc: Bjorn Helgaas <bhelgaas@google.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Manivannan Sadhasivam <mani@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Cc: devicetree@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-doc@vger.kernel.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-pci@vger.kernel.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> V2: Pull GITS_TRANSLATER address from DT, which also fixes missing +0x40
+>     offset of the GITS_TRANSLATER register
+> ---
+>  drivers/pci/controller/dwc/pcie-rcar-gen4.c | 118 +++++++++++++++++++-
+>  1 file changed, 113 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-rcar-gen4.c b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+> index 8b03c42f8c84c..6300ab4dc38b3 100644
+> --- a/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+> +++ b/drivers/pci/controller/dwc/pcie-rcar-gen4.c
+> @@ -13,8 +13,11 @@
+>  #include <linux/interrupt.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+> +#include <linux/irqchip/arm-gic-v3.h>
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+> +#include <linux/of_address.h>
+> +#include <linux/of_irq.h>
+>  #include <linux/pci.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+> @@ -31,6 +34,10 @@
+>  #define DEVICE_TYPE_RC		BIT(4)
+>  #define BIFUR_MOD_SET_ON	BIT(0)
+>  
+> +/* MSI Capability */
+> +#define MSICAP0			0x0050
+> +#define MSICAP0_MSIE		BIT(16)
+> +
+>  /* PCIe Interrupt Status 0 */
+>  #define PCIEINTSTS0		0x0084
+>  
+> @@ -55,6 +62,14 @@
+>  #define APP_HOLD_PHY_RST	BIT(16)
+>  #define APP_LTSSM_ENABLE	BIT(0)
+>  
+> +/* INTC address */
+> +#define AXIINTCADDR		0x0a00
+> +
+> +/* INTC control & mask */
+> +#define AXIINTCCONT		0x0a04
+> +#define INTC_EN			BIT(31)
+> +#define INTC_MASK		GENMASK(11, 2)
+> +
+>  /* PCIe Power Management Control */
+>  #define PCIEPWRMNGCTRL		0x0070
+>  #define APP_CLK_REQ_N		BIT(11)
+> @@ -305,13 +320,103 @@ static struct rcar_gen4_pcie *rcar_gen4_pcie_alloc(struct platform_device *pdev)
+>  	return rcar;
+>  }
+>  
+> +static int rcar_gen4_pcie_host_msi_addr(struct dw_pcie_rp *pp, u32 *msi_addr)
+> +{
+> +	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
+> +	struct device_node *msi_node = NULL;
+> +	struct device *dev = dw->dev;
+> +	struct resource res;
+> +	u64 addr;
+> +	int ret;
+> +
+> +	/*
+> +	 * Either the "msi-parent" or the "msi-map" phandle needs to exist
+> +	 * to obtain the MSI node.
+> +	 */
+> +	of_msi_xlate(dev, &msi_node, 0);
+> +	if (!msi_node)
+> +		return -ENODEV;
+> +
+> +	/* Check if "msi-parent" or the "msi-map" points to ARM GICv3 ITS. */
+> +	if (!of_device_is_compatible(msi_node, "arm,gic-v3-its"))
+> +		return dev_err_probe(dev, -ENODEV, "Compatible MSI controller not found\n");
+> +
+> +	/* Derive GITS_TRANSLATER address from GICv3 */
+> +	ret = of_address_to_resource(msi_node, 0, &res);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "MSI controller resources not obtained\n");
+> +
+> +	addr = res.start + GITS_TRANSLATER;
+> +	if (addr >= SZ_4G)
+> +		return dev_err_probe(dev, -EINVAL, "MSI controller address above 32bit range\n");
+> +
+> +	*msi_addr = addr;
+> +	return 0;
+> +}
+> +
+> +static int rcar_gen4_pcie_host_msi_init(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
+> +	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
+> +	u32 val;
+> +	int ret;
+> +
+> +	/* Make sure MSICAP0 MSIE is configured. */
+> +	val = dw_pcie_readl_dbi(dw, MSICAP0);
+> +	if (pci_msi_enabled())
+> +		val |= MSICAP0_MSIE;
+> +	else
+> +		val &= ~MSICAP0_MSIE;
+> +	dw_pcie_writel_dbi(dw, MSICAP0, val);
+> +
+> +	if (!pci_msi_enabled() || pp->use_imsi_rx) {
+> +		/* Clear AXIINTC mapping. */
+> +		writel(0, rcar->base + AXIINTCADDR);
+> +		writel(0, rcar->base + AXIINTCCONT);
+> +	} else {
+> +		ret = rcar_gen4_pcie_host_msi_addr(pp, &val);
+> +		if (ret)
+> +			goto err;
+> +
+> +		/* Point AXIINTC to GIC ITS and enable. */
+> +		writel(val, rcar->base + AXIINTCADDR);
+> +		writel(INTC_EN | INTC_MASK, rcar->base + AXIINTCCONT);
+> +	}
+> +
+> +	/* Configure MSI interrupt signal */
+> +	val = readl(rcar->base + PCIEINTSTS0EN);
+> +	if (pci_msi_enabled())
+> +		val |= MSI_CTRL_INT;
+> +	else
+> +		val &= ~MSI_CTRL_INT;
+> +	writel(val, rcar->base + PCIEINTSTS0EN);
+> +
+> +	return 0;
+> +
+> +err:
+> +	/* Deconfigure MSICAP0 MSIE. */
+> +	val = dw_pcie_readl_dbi(dw, MSICAP0);
+> +	val &= ~MSICAP0_MSIE;
+> +	dw_pcie_writel_dbi(dw, MSICAP0, val);
+> +
+> +	/* Clear AXIINTC mapping. */
+> +	writel(0, rcar->base + AXIINTCADDR);
+> +	writel(0, rcar->base + AXIINTCCONT);
+> +
+> +	/* Deconfigure MSI interrupt signal */
+> +	val = readl(rcar->base + PCIEINTSTS0EN);
+> +	val &= ~MSI_CTRL_INT;
+> +	writel(val, rcar->base + PCIEINTSTS0EN);
+> +
+> +	return ret;
+> +}
+> +
+>  /* Host mode */
+>  static int rcar_gen4_pcie_host_init(struct dw_pcie_rp *pp)
+>  {
+>  	struct dw_pcie *dw = to_dw_pcie_from_pp(pp);
+>  	struct rcar_gen4_pcie *rcar = to_rcar_gen4_pcie(dw);
+>  	int ret;
+> -	u32 val;
+>  
+>  	gpiod_set_value_cansleep(dw->pe_rst, 1);
+>  
+> @@ -328,16 +433,19 @@ static int rcar_gen4_pcie_host_init(struct dw_pcie_rp *pp)
+>  	dw_pcie_writel_dbi2(dw, PCI_BASE_ADDRESS_0, 0x0);
+>  	dw_pcie_writel_dbi2(dw, PCI_BASE_ADDRESS_1, 0x0);
+>  
+> -	/* Enable MSI interrupt signal */
+> -	val = readl(rcar->base + PCIEINTSTS0EN);
+> -	val |= MSI_CTRL_INT;
+> -	writel(val, rcar->base + PCIEINTSTS0EN);
+> +	ret = rcar_gen4_pcie_host_msi_init(pp);
+> +	if (ret)
+> +		goto err;
+>  
+>  	msleep(PCIE_T_PVPERL_MS);	/* pe_rst requires 100msec delay */
+>  
+>  	gpiod_set_value_cansleep(dw->pe_rst, 0);
+>  
+>  	return 0;
+> +
+> +err:
+> +	rcar_gen4_pcie_common_deinit(rcar);
+> +	return ret;
+>  }
+>  
+>  static void rcar_gen4_pcie_host_deinit(struct dw_pcie_rp *pp)
+> -- 
+> 2.53.0
+> 
 
-
->
-> --
-> Regards,
->
-> Laurent Pinchart
+-- 
+மணிவண்ணன் சதாசிவம்
 
