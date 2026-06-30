@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D251C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ABA9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:08:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rgDggtVEtYObapQpluEEQ6g99iE79btQV0FhFQe1sHU=; b=uZXBXz3oF8baGInxlTWzZxjT3d
-	7fPnjOt0wW8TS0QVaOwtfuF/WwoYQZGYfzfvve3vYD3vqh8kTPU6/eP8zwhRujSKPfqbFMrOnjkCk
-	aenUUcCPTV8m803zolDWJGePhQps6nmuywPhse6MPLCcjv7lODgopc3gSr+zkOzGy77XkauqYPLx2
-	da6qMxjnIRWstJgaAzqqm6eWfp8wFEh32xEl0Th7EDqFkhDPC44YLkC0PYYfs0ck4zXGZ6FobgIXQ
-	Qt4e+DT3lH9gUJTMob2zVJQK03LlIsyCFJ2uDwo4LcHuTShLpsnr/oqU1Nv/T5ziUIbjUOfhxJ09k
-	ZifDidEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z6j0F+xqCQECDY9wnaqI3d2SI54fqdn+nhFSDa4vOUo=; b=DT/KjZhyTuhRHTbekD2pMF/6G2
+	C3nPoGSFMRvwZvceZVzprDlFjt936sNE+F9VZwibHQ8qOEnBZ3VodAbq4USWHrAK18wZQHTwoiJNz
+	tFlSAtzR3yshJYo+oMF1g/FnUeTBdjMMYt012D6w5jtyBkO6G8CNwFjXhQwoGVToK2bJo62aMQV3A
+	YIjz/zaGtrVHm77H+mNBTw2jpSv9jiEnbOtenHgPuxud/iTKMFkbWwPU0D2oJcFKoWuR+pmMfRXTF
+	zIgAsDODp4i4osWH2mW+2V4OVbBEe/57BqZLWnIU3de/mEDlRfeMdz5+DexEqQo2362uZACZwe1PA
+	41rWidCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzO-0000000H4iL-0XFV;
-	Tue, 30 Jun 2026 12:54:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weYCE-0000000H7qO-11u9;
+	Tue, 30 Jun 2026 13:08:14 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzD-0000000H4WF-3H5q
+	id 1weYCB-0000000H7pP-0qe5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:54:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 024B943EFE;
-	Tue, 30 Jun 2026 12:54:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id D6DF7C2BCFD;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782824086;
-	bh=B+M1c9uJ0chHs8xGwOJC+Qw9PdHQ9Wy7xFVF2lqJQl4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=b2CDKdZGLq+c4n/5wwxxT3rXvpx7zJYt6vyiF0VJvL1P81NigYKDDcIjt3HIUChav
-	 49578cJNS0MlrgaZ/O9xnYGdx2sF4qRjt4ZQxDSTGlRnS5JW8P4LzIxV1zHemMhaaD
-	 4H3rymYh/MOfTbqkBHGo+fOy9YruraRLlYdRmOFIrP3rkehV+934/sHM4ut2OJPJM9
-	 2Zvnb+7uPYSQ+yq8CrNhBllhvnbdBjcx8X95gUL0IrJH+WBOdzAGg0Z0Otvgw1eCX6
-	 X+U6VIqPQRddiW/K82Q8zBPa0a9BF7KyFCXpxkuuCvQZFvjJHg7Ph052DvpasjuOPI
-	 Lgi5mw1L7RLdw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id CFC36C43458;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Tue, 30 Jun 2026 22:54:37 +1000
-Subject: [PATCH 09/10] arm64: dts: apple: Add MTP DockChannel HID nodes
+	Tue, 30 Jun 2026 13:08:13 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-845e47133c9so201016b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:08:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782824890; x=1783429690; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Z6j0F+xqCQECDY9wnaqI3d2SI54fqdn+nhFSDa4vOUo=;
+        b=aJxKSvyPyKM1dqqAI9J3mLkh11v2jXKCpovBSbE/5v2023wkdvDtasFDxYjRlcd0At
+         a5hUjkuD562iZp6WIBnWwESuihgYNAidL96lqiD7R+KuULCVxiDPz2uXnjeZaMGd1Grr
+         fqU8IMq1ev/53o8AJkxlHr+0mB7QbPqfVHiEZqye2jqIt36sgv21MbbSPNg0KsPhHyBN
+         P4hHY/fjj4i4d5NQnln991j5XBAT9hqsdYDtpk+it+lU9m97y4uASAUsO3hrjbgXjn6R
+         nG3iV5HhwKTQKoEmOmpI437IMpyO21Cab9DSlUpPIqJGVmrmCYfEu8Kw0QErFqKfwScU
+         GY5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782824890; x=1783429690;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Z6j0F+xqCQECDY9wnaqI3d2SI54fqdn+nhFSDa4vOUo=;
+        b=oj8kiyTDvouiDdgqmAgsZkc5FtPsSdTNU2ujueOuIhPSveMxKQTN4voyqs0UkprmhP
+         wZcHg47yik32MWjbXZZ9PYcvd3tMuCZpfr5tErxVTRTpaDG2hiesZD72cNEpqAy6nSc1
+         trgM5DWyVu/Ar314XZQLBec2OYg3oF/u4Io2BQTM8H6gAvXpXZZ8JXIppCJryITLvJ+k
+         KXwVUz7eVFGOIQVx3GwWBmEGV3F17PVCrfSjiJmEAVKrrHK9H8lUPuevttvOauw0Y6CY
+         mp4hxGrvN/2sSdjdFZ4X4RLrFWhlBoSxlxIbRfG7fhwWAOXHgerSt36996LZ0q++4QvU
+         g15w==
+X-Forwarded-Encrypted: i=1; AHgh+RrMBghqL4rSYu8FlFKeF6LZGxAQ6cI5t6/iJbOd+1EAnRjBGSAYDfP5d8Zwd72bXo8NFZkDE68f/ZAV4aVg6HNB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHQMQfCR52wRt4/1BUD92GOMP1pBEaC23yA4yvQ8e9dOum6kEn
+	GQwh2tvEDK0A2Cuq0iatWa8X3QTbu5q/a+fJzYO6vmtOvJ4FGQyZv1ZB
+X-Gm-Gg: AfdE7clT7FT8HFlAUhwW/urCC/pVcJJ6o6jZpbBJ5z2tY3HulGoxAt4iWuAXiOQc1zx
+	b7+S8OUPaASQhUQ3FllhIpYw0FsFnc7JFB4y2eV+P2dDMl/dN+KGZQz9aW7wzb5Qe0FCzg92CEK
+	aDVoIhEO2EzxsA8BuQ1diE2zEQRWW3WDxJ4r+Od5wrZ5aElSg1YgDC2brg1eg8aCoaL+jK9A6Mq
+	QUeXB1N4gRs2p/oaiNnSI+yDZOjGtsgPzv2CcwMPLw1KQgPdE21FwZPTaTk5ee7cjXucfJjZGez
+	yoPQnRk+LwQ+ifoozwAtqYVW5wkDRlPWMj21gAG1klc2i3Pf+ktAs83IHoLa8YYZQey0fDwqc4j
+	8/ez4vYND0b9i1IxMTwiNgJRLWXlA78oJkO1z2S6xvyDl4V4c/Q16/Zuk/eD5205e2cI91oGefc
+	F0GxD7gAFUDYgUpsnJ6f587Dvy8/THCLEByoP6Ow==
+X-Received: by 2002:a05:6a00:85a3:b0:842:dd4:d9e2 with SMTP id d2e1a72fcca58-847a7ed202dmr1140309b3a.0.1782824889921;
+        Tue, 30 Jun 2026 06:08:09 -0700 (PDT)
+Received: from x1c ([2405:9800:b670:b64b:1b46:470e:6375:45a7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a03a6fd5sm1991541b3a.57.2026.06.30.06.08.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 06:08:09 -0700 (PDT)
+From: Tharit Tangkijwanichakul <tharitt97@gmail.com>
+To: tomi.valkeinen@ideasonboard.com,
+	kernel-list@raspberrypi.com,
+	mchehab@kernel.org,
+	linux-media@vger.kernel.org
+Cc: florian.fainelli@broadcom.com,
+	bcm-kernel-feedback-list@broadcom.com,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	linux-kernel-mentees@lists.linux.dev,
+	Tharit Tangkijwanichakul <tharitt97@gmail.com>
+Subject: [PATCH] media: raspberrypi: rp1-cfe: acquire state_lock in cfe_start_streaming()
+Date: Tue, 30 Jun 2026 20:07:56 +0700
+Message-ID: <20260630130756.28744-1-tharitt97@gmail.com>
+X-Mailer: git-send-email 2.53.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-apple-mtp-keyboard-final-v1-9-506d936a1707@gmail.com>
-References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
-In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
- Benjamin Tissoires <bentiss@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- iommu@lists.linux.dev, linux-input@vger.kernel.org, 
- Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=6768;
- i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
- bh=bMwqHA+Egy8OA2vhAFSY5t62oYeUho9ZB0NPCjtkjoI=;
- b=PguWqSaT4+ksTgvbKhxg8jxpkvQ1bdIqmorWcBIGRWuyt9Yf22sPwdVtn6OWDD0FQV22T1CpK
- 8YSeNGIIi81B417YM/EHCuSBcorSLyWiC1AHqedenxvjoQ3mHSQ2WNB
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
- with auth_id=591
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_060811_241579_EDB91233 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,202 +102,57 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Reeves <michael.reeves077@gmail.com>
+cfe_start_streaming() modifies shared device state without holding
+state_lock. The driver exposes multiple video nodes backed by
+a single cfe_device. While one node runs cfe_start_streaming(),
+another node's cfe_buffer_queue() may read the node state via
+test_all_nodes() under state_lock to decide whether to schedule a job.
+Another case is when node->fs_count is read by the interrupt handler
+in cfe_sof_isr().  Modifying this state without state_lock races
+against those readers.
 
-Add disabled MTP nodes for the Apple SoCs used by M2 and M3 systems.
+The counterpart cfe_stop_streaming() already takes state_lock around its
+state modification. Fix cfe_start_streaming() to do the same.
 
-Each instance describes the RTKit ASC mailbox, MTP DART, DockChannel
-mailbox, and DockChannel HID client. Board files can enable them on
-machines that route internal input through MTP.
+Found by code inspection.
 
-Co-developed-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
+Fixes: 6edb685abb2a ("media: raspberrypi: Add support for RP1-CFE")
+Signed-off-by: Tharit Tangkijwanichakul <tharitt97@gmail.com>
 ---
- arch/arm64/boot/dts/apple/t602x-die0.dtsi | 46 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi      | 46 ++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8122.dtsi      | 47 +++++++++++++++++++++++++++++++
- 3 files changed, 139 insertions(+)
+ drivers/media/platform/raspberrypi/rp1-cfe/cfe.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-index 8622ddea7b44..edc73682fd22 100644
---- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-@@ -150,6 +150,52 @@ pinctrl_smc: pinctrl@2a2820000 {
- 				<AIC_IRQ 0 857 IRQ_TYPE_LEVEL_HIGH>;
- 	};
+diff --git a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+index 8375ed3e9..d8ea71830 100644
+--- a/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
++++ b/drivers/media/platform/raspberrypi/rp1-cfe/cfe.c
+@@ -1151,6 +1151,7 @@ static int cfe_start_streaming(struct vb2_queue *vq, unsigned int count)
+ 	struct v4l2_subdev_state *state;
+ 	struct v4l2_subdev_route *route;
+ 	s64 link_freq;
++	unsigned long flags;
+ 	int ret;
  
-+	mtp_mbox: mbox@2a9408000 {
-+		compatible = "apple,t6020-asc-mailbox", "apple,asc-mailbox-v4";
-+		reg = <0x2 0xa9408000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 693 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 694 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 695 IRQ_TYPE_LEVEL_HIGH>,
-+			     <AIC_IRQ 0 696 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "send-empty", "send-not-empty",
-+				  "recv-empty", "recv-not-empty";
-+		#mbox-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	mtp_dart: iommu@2a9808000 {
-+		compatible = "apple,t6020-dart", "apple,t8110-dart";
-+		reg = <0x2 0xa9808000 0x0 0x4000>;
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 676 IRQ_TYPE_LEVEL_HIGH>;
-+		#iommu-cells = <1>;
-+		status = "disabled";
-+	};
-+
-+	mtp_dockchannel: mailbox@2a9b14000 {
-+		compatible = "apple,t6020-dockchannel", "apple,t8112-dockchannel";
-+		reg = <0x2 0xa9b14000 0x0 0x4000>,
-+		      <0x2 0xa9b30000 0x0 0x4000>,
-+		      <0x2 0xa9b34000 0x0 0x4000>;
-+		reg-names = "irq", "config", "data";
-+		interrupt-parent = <&aic>;
-+		interrupts = <AIC_IRQ 0 677 IRQ_TYPE_LEVEL_HIGH>;
-+		#mbox-cells = <0>;
-+		status = "disabled";
-+	};
-+
-+	mtp_hid: hid@2a9400000 {
-+		compatible = "apple,t6020-dockchannel-hid", "apple,t8112-dockchannel-hid";
-+		reg = <0x2 0xa9400000 0x0 0x4000>,
-+		      <0x2 0xa9c00000 0x0 0x100000>;
-+		reg-names = "coproc-asc", "coproc-sram";
-+		mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+		mbox-names = "asc", "dockchannel";
-+		iommus = <&mtp_dart 1>;
-+		status = "disabled";
-+	};
-+
- 	sio_dart: iommu@39b008000 {
- 		compatible = "apple,t6020-dart", "apple,t8110-dart";
- 		reg = <0x3 0x9b008000 0x0 0x8000>;
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 85c47422d4e8..8411828c0772 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -983,6 +983,52 @@ pinctrl_aop: pinctrl@24a820000 {
- 				     <AIC_IRQ 307 IRQ_TYPE_LEVEL_HIGH>;
- 		};
+ 	cfe_dbg(cfe, "%s: [%s]\n", __func__, node_desc[node->id].name);
+@@ -1184,9 +1185,11 @@ static int cfe_start_streaming(struct vb2_queue *vq, unsigned int count)
  
-+		mtp_mbox: mbox@24e408000 {
-+			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x2 0x4e408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 864 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 865 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 866 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 867 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+					  "recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dart: iommu@24e808000 {
-+			compatible = "apple,t8110-dart";
-+			reg = <0x2 0x4e808000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 848 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dockchannel: mailbox@24eb14000 {
-+			compatible = "apple,t8112-dockchannel";
-+			reg = <0x2 0x4eb14000 0x0 0x4000>,
-+			      <0x2 0x4eb30000 0x0 0x4000>,
-+			      <0x2 0x4eb34000 0x0 0x4000>;
-+			reg-names = "irq", "config", "data";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 850 IRQ_TYPE_LEVEL_HIGH>;
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_hid: hid@24e400000 {
-+			compatible = "apple,t8112-dockchannel-hid";
-+			reg = <0x2 0x4e400000 0x0 0x4000>,
-+			      <0x2 0x4ec00000 0x0 0x100000>;
-+			reg-names = "coproc-asc", "coproc-sram";
-+			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+			mbox-names = "asc", "dockchannel";
-+			iommus = <&mtp_dart 1>;
-+			status = "disabled";
-+		};
-+
- 		ans_mbox: mbox@277408000 {
- 			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
- 			reg = <0x2 0x77408000 0x0 0x4000>;
-diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
-index c6196225e96e..ec1f47d15ec9 100644
---- a/arch/arm64/boot/dts/apple/t8122.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8122.dtsi
-@@ -438,6 +438,53 @@ pinctrl_aop: pinctrl@2f4824000 {
- 				     <AIC_IRQ 351 IRQ_TYPE_LEVEL_HIGH>,
- 				     <AIC_IRQ 352 IRQ_TYPE_LEVEL_HIGH>;
- 		};
-+
-+		mtp_mbox: mbox@2fa408000 {
-+			compatible = "apple,t8122-asc-mailbox", "apple,asc-mailbox-v4";
-+			reg = <0x2 0xfa408000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 838 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 839 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 840 IRQ_TYPE_LEVEL_HIGH>,
-+				     <AIC_IRQ 841 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "send-empty", "send-not-empty",
-+					  "recv-empty", "recv-not-empty";
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dart: iommu@2fa808000 {
-+			compatible = "apple,t8122-dart", "apple,t8110-dart";
-+			reg = <0x2 0xfa808000 0x0 0x4000>;
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 822 IRQ_TYPE_LEVEL_HIGH>;
-+			#iommu-cells = <1>;
-+			status = "disabled";
-+		};
-+
-+		mtp_dockchannel: mailbox@2fab14000 {
-+			compatible = "apple,t8122-dockchannel", "apple,t8112-dockchannel";
-+			reg = <0x2 0xfab14000 0x0 0x4000>,
-+			      <0x2 0xfab30000 0x0 0x4000>,
-+			      <0x2 0xfab34000 0x0 0x4000>;
-+			reg-names = "irq", "config", "data";
-+			interrupt-parent = <&aic>;
-+			interrupts = <AIC_IRQ 824 IRQ_TYPE_LEVEL_HIGH>;
-+			#mbox-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		mtp_hid: hid@2fa400000 {
-+			compatible = "apple,t8122-dockchannel-hid",
-+				     "apple,t8112-dockchannel-hid";
-+			reg = <0x2 0xfa400000 0x0 0x4000>,
-+			      <0x2 0xfac00000 0x0 0x100000>;
-+			reg-names = "coproc-asc", "coproc-sram";
-+			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
-+			mbox-names = "asc", "dockchannel";
-+			iommus = <&mtp_dart 1>;
-+			status = "disabled";
-+		};
- 	};
- };
+ 	state = v4l2_subdev_lock_and_get_active_state(&cfe->csi2.sd);
  
++	spin_lock_irqsave(&cfe->state_lock, flags);
+ 	clear_state(cfe, FS_INT | FE_INT, node->id);
+ 	set_state(cfe, NODE_STREAMING, node->id);
+ 	node->fs_count = 0;
++	spin_unlock_irqrestore(&cfe->state_lock, flags);
+ 
+ 	ret = cfe_start_channel(node);
+ 	if (ret)
 
+base-commit: 06cb687a5132fcffe624c0070576ab852ac6b568
+prerequisite-patch-id: 4c010e20cdeb611d14546bc729b513f959e25afd
 -- 
-2.51.2
-
+2.53.0
 
 
