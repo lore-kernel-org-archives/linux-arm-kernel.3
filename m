@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3EFC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9ACC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8eNIJQnRMK2SdmmUofdTI44ZDndAOS8N0eRrZb61g0Q=; b=a7uspd4SQl834dHTzmVkuxzKw0
-	+MJImMG2seEta3vxXt6+AG5chXSSuWawOsn/dddCmk/zYAfyU7RcrSm7dn7qo1YBM1u1IT2p5v80A
-	mbabSJ1fpca4S35ajYJ3hrFn2sBxLYNdx9fQ4E2daTwvRiXtrGybsC4hHQDP9ba3P2UZFJtVaWQ1W
-	NDd6PF+b7bCmoYGi6YYSQgJ6KabkvS6672t8agyEiWeGcE3p0RvQ4ZrmUH6YQ8aP32poYq9BHLf/X
-	l7mryH0fRgWFT0nszZ4OOElkrb2lp7Ald9cjFGs1PJkac/PcoqN9ShhR8/Bv2uq/x7En4z7CzZr+t
-	rDXbB2/A==;
+	bh=weGolSbdA7OP6EvHvm4+CdGLpzTlp7bfL85xlugRMfE=; b=pc68hiUNDA/twllt/LrlLZfa/W
+	FZb6rw1DlAjklrA0wRN3uPZOmD6rHCZHiKrweJxcg8XKtLAsSzmrWD0wwhoOqWoPMzR4+DPEaEwlu
+	Afe+/PFEL7g75AKx3i5obcPYgeNzOe3CyimLZTDx4EBfbNemEtYtu8QJdfJ1zUvjtXEOwLTqYgbVz
+	HkLL5Uw9fHZmgwQnlLHmZvaPHNKN6qAzTCDt47J3sJ28RgthlUn+m63hkmgiF9sl3qByljZEuZVlS
+	z0qB92aBaMEH7z12Xw3SP594Kg7BTtnCqvE1p/2lu8eGA3P0pFie5OPI+3zpEyMYU1cFn/q3XRli6
+	NLxsEU+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYv5-0000000HDeu-2SWF;
-	Tue, 30 Jun 2026 13:54:35 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1weYxB-0000000HE0V-3sMl;
+	Tue, 30 Jun 2026 13:56:45 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYv1-0000000HDdk-3zMI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:54:33 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5aeb8c19017so2540563e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:54:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782827667; x=1783432467; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=8eNIJQnRMK2SdmmUofdTI44ZDndAOS8N0eRrZb61g0Q=;
-        b=D2+rQf7ghE2CLayOL7h8QHVugiEtgXpyaUfkDDTjYloPtHTuo+YjW2iIm4rJGRuegl
-         0DDnbmOtPN9R8FrVKe5X/hFba0PHlqHVPCTIPziTHs/KRrK+ZgRNG08EC1vDZ3as5vT2
-         pll8OR0cjmXqxhrufWlwuNVnnKeU/cMk4gBn7mvCySC3izFtnnWjRPj0uvjNQ/WVjnRm
-         5fChRSXnx4fDKDJz2p0w603sLLEzzk2RNaFyKqWAKVCMGJOfszbV8oq1lWbx0uVtWbac
-         PeqRh3D6wgCGaZuYRXpyiB1mixRnXHxTCZrCnn5vwQTX0zYj1lP9EaKBjRRBAybVHcRF
-         h68g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782827667; x=1783432467;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=8eNIJQnRMK2SdmmUofdTI44ZDndAOS8N0eRrZb61g0Q=;
-        b=XqGkxLYeZWJl2Vte5x0qZ4L8iRxYLIAxjqfFVjqzU86ni4GPP5KTfFQdKl+4jByau1
-         LAzl79XWZZFRUxzE/610pw6flYNVCycGRXsqSVlaamUbEf56/jNuxjBji5C9uGnEGKW4
-         tNaF74YXPkK/IZbnUf7rOHP2Pc26xRj0WRH31eh63m0cGKU3Qpr+HQ04asm/a1nw6a+V
-         p9GWVuglSV65f82LMDHphOzJvEwxjmwx+28kofxownKhS0GI297N6jxfTek0/lrbqkEw
-         BOPLqhCSahkltSulAe6/tL/tNl3sD++MwPgLcKdbz+Sfk7hFkK4Qm/HYFM5kHRUwnmMY
-         G9EQ==
-X-Forwarded-Encrypted: i=1; AHgh+RqtCjtjEMEgmrp+wloIAIAC0ZgrBU3H9VfXEyFx8R6jwEwlG5GE9VrQR8Rg4MNbQ5jrBV2ZfwNRbwbp7d7P9rzR@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUbpFOegYgg6RpMfTN8sBaq5qL3iDt1VjQy+k1znBWdTDatnS0
-	V1rJKrstjDCKw42UPX861cKXmsD+6mxx28i5ce6eZM+tiFMRYS0bRBvz
-X-Gm-Gg: AfdE7clRL6HTr30a3fDwjTitQNTXrHqQehVJDghJ548u0C81+MiyvPDCwTnkWT/HopN
-	XIIklmxeJa6qisAPOor/qyK0goNL7rov9FMy+cZcsaYFfjJyxAwT+qol+r/iKci79X6dRLSvCyd
-	lCnigRrtjKmUnoO6DjdSRuGMTVpClSPF7A3zNaDz3k9v18umf5MLxNuLWG0g/72oyJoKQn5g3BW
-	0z7h8i9oROwm8Z7yLTH9JVoSOQJ8Y1xyEIMOKUa5rc9gryXoIz9Nxkw5WVJ+DmobPeS+xnkqa61
-	8x1jrb/L/bOFsEPXOo+EEbISPRi/UHZCwJw3E9jnJ18pEqQsqOzI+6azg+WMR2835yyCrdXax9t
-	SNVUNvy5CW94EMZ140uKY7LWvrTBaAro8nk7Pot29yqM89/MMTcRW2Q==
-X-Received: by 2002:a05:6512:3410:b0:5ae:bf5c:bdc5 with SMTP id 2adb3069b0e04-5aebf5cbec4mr644835e87.52.1782827666670;
-        Tue, 30 Jun 2026 06:54:26 -0700 (PDT)
-Received: from milan ([2001:9b1:d5a0:a500::24b])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aebe344f03sm593321e87.30.2026.06.30.06.54.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 06:54:26 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@milan>
-Date: Tue, 30 Jun 2026 15:54:24 +0200
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	urezki@gmail.com, baohua@kernel.org, Xueyuan.chen21@gmail.com,
-	dev.jain@arm.com, rppt@kernel.org, david@kernel.org,
-	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com,
-	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com,
-	shanghaoqiang@xiaomi.com
-Subject: Re: [PATCH v4 5/6] mm/vmalloc: map contiguous pages in batches for
- vmap() if possible
-Message-ID: <akPKkOt_GNbAbyN5@milan>
-References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
- <20260618084726.1070022-6-jiangwen6@xiaomi.com>
+	id 1weYx9-0000000HDyW-1IoE;
+	Tue, 30 Jun 2026 13:56:44 +0000
+Date: Tue, 30 Jun 2026 15:56:32 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782827796;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=weGolSbdA7OP6EvHvm4+CdGLpzTlp7bfL85xlugRMfE=;
+	b=0rb3NqkgCzFv6dbBuCuwXzrZKSBa9njLgZ96iT/WN43BeeKU3gr7MEpntPp3hzITKwsmuY
+	VRnpSAkMk4n25hUGcfgk5hEB8A5vlKZJxXYw2qZ2ZDH2nL4vILUyUYbjcbOk7i1WaPCrFG
+	YqegR+OEwAsQh+3ZtZbOvmUbYG6PrSShi2JKYJf/to8ygpc7GO1vniz6Ce3+/YhTI5Ox9w
+	Axm575H+QFTgVpiSceVMLzAd4Xdlxztidtq6oDovgYQB6BbDet1bss/O4obc1jQKxnaNWU
+	65+gwQggwkCl4iqgWoj1Em/YqCKfnsFIySkurNFaJMtpLBvrpA7SpUsTTfV/MQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782827796;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=weGolSbdA7OP6EvHvm4+CdGLpzTlp7bfL85xlugRMfE=;
+	b=AHHvtVMRcbJ8NFESLjJ5OP0fWjOj4UyyFmEdYuob9ujo1w8bqGZtuNYhkwxgkZVUVoIh4Z
+	ZqP9vst7URTmScDw==
+From: Gregor Herburger <gregor.herburger@linutronix.de>
+To: Conor Dooley <conor@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Eric Anholt <eric@anholt.net>, Stefan Wahren <wahrenst@gmx.net>, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/4] dt-bindings: raspberrypi,bcm2835-firmware: Include
+ 'reboot-mode.yaml'
+Message-ID: <qgoblikagfbcmbqoryw4ajfa6qyx3wpj4qfeuuntima542qlkq@evebdvjaxern>
+References: <20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de>
+ <20260626-rpi-tryboot-v1-2-490b1c4c4970@linutronix.de>
+ <20260626-quaking-shove-fcc9d8057ae0@spud>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260618084726.1070022-6-jiangwen6@xiaomi.com>
+In-Reply-To: <20260626-quaking-shove-fcc9d8057ae0@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_065432_029249_5EED2022 
-X-CRM114-Status: GOOD (  26.87  )
+X-CRM114-CacheID: sfid-20260630_065643_528498_4253FAFC 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,144 +85,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 04:47:25PM +0800, Wen Jiang wrote:
-> From: "Barry Song (Xiaomi)" <baohua@kernel.org>
-> 
-> In many cases, the pages passed to vmap() may include high-order
-> pages. For example, the systemheap often allocates pages in descending
-> order: order 8, then 4, then 0. Currently, vmap() iterates over every
-> page individuallyâ€”even pages inside a high-order block are handled
-> one by one.
-> 
-> This patch detects physically contiguous pages (regardless of whether
-> they are compound or non-compound) by scanning with
-> num_pages_contiguous(), and maps them as a single contiguous block
-> whenever possible. The mapping order is determined by taking the
-> minimum of the contiguous page count and the pfn alignment, allowing
-> graceful degradation when pfn alignment is less than the contiguous
-> range.
-> 
-> Pages with the same page_shift are coalesced and mapped via
-> vmap_pages_range_noflush_walk() to avoid page table rewalk.
-> 
-> As users typically allocate memory in descending orders (e.g.
-> 8 â†’ 4 â†’ 0), once an order-0 page is encountered, we stop scanning
-> for contiguous pages since subsequent pages are likely order-0 as well.
-> 
-> Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-> Co-developed-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-> Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
-> ---
->  mm/vmalloc.c | 87 ++++++++++++++++++++++++++++++++++++++++++++++++++--
->  1 file changed, 85 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-> index 253e017130e09..fffb885cb2158 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -3545,6 +3545,89 @@ void vunmap(const void *addr)
->  }
->  EXPORT_SYMBOL(vunmap);
->  
-> +static inline unsigned int vm_shift(pgprot_t prot, unsigned long size)
-> +{
-> +	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE)
-> +		return PMD_SHIFT;
-> +
-> +	return arch_vmap_pte_supported_shift(size);
-> +}
-> +
-> +static inline int get_vmap_batch_order(struct page **pages,
-> +		pgprot_t prot, unsigned int max_steps, unsigned int idx)
-> +{
-> +	unsigned int nr_contig;
-> +	int order;
-> +
-> +	if (!IS_ENABLED(CONFIG_HAVE_ARCH_HUGE_VMAP))
-> +		return 0;
-> +
-> +	nr_contig = num_pages_contiguous(&pages[idx], max_steps);
-> +	if (nr_contig < 2)
-> +		return 0;
-> +
-> +	order = ilog2(nr_contig);
-> +
-> +	/* Limit order by pfn alignment */
-> +	order = min_t(int, order, __ffs(page_to_pfn(pages[idx])));
-> +
-> +	if (vm_shift(prot, PAGE_SIZE << order) == PAGE_SHIFT)
-> +		return 0;
-> +
-> +	return order;
-> +}
-> +
-> +static int vmap_batched(unsigned long addr, unsigned long end,
-> +		pgprot_t prot, struct page **pages)
-> +{
-> +	unsigned int count = (end - addr) >> PAGE_SHIFT;
-> +	unsigned int prev_shift = 0, idx = 0;
-> +	unsigned long start = addr, map_addr = addr;
-> +	int err;
-> +
-> +	err = kmsan_vmap_pages_range_noflush(addr, end, prot, pages,
-> +						PAGE_SHIFT, GFP_KERNEL);
-> +	if (err)
-> +		goto out;
-> +
-> +	for (unsigned int i = 0; i < count; ) {
-> +		unsigned int shift = PAGE_SHIFT +
-> +			get_vmap_batch_order(pages, prot, count - i, i);
-> +
-> +		if (!i)
-> +			prev_shift = shift;
-> +
-> +		if (shift != prev_shift) {
-> +			err = vmap_pages_range_noflush_walk(map_addr, addr,
-> +					prot, pages + idx, prev_shift);
-> +			if (err)
-> +				goto out;
-> +			prev_shift = shift;
-> +			map_addr = addr;
-> +			idx = i;
-> +		}
-> +
-> +		/*
-> +		 * Once small pages are encountered, the remaining pages
-> +		 * are likely small as well.
-> +		 */
-> +		if (shift == PAGE_SHIFT)
-> +			break;
-> +
-> +		addr += 1UL << shift;
-> +		i += 1U << (shift - PAGE_SHIFT);
-> +	}
-> +
-> +	/* Remaining */
-> +	if (map_addr < end)
-> +		err = vmap_pages_range_noflush_walk(map_addr, end,
-> +				prot, pages + idx, prev_shift);
-> +
-> +out:
-> +	flush_cache_vmap(start, end);
-> +	return err;
-> +}
-> +
->  /**
->   * vmap - map an array of pages into virtually contiguous space
->   * @pages: array of page pointers
-> @@ -3588,8 +3671,8 @@ void *vmap(struct page **pages, unsigned int count,
->  		return NULL;
->  
->  	addr = (unsigned long)area->addr;
-> -	if (vmap_pages_range(addr, addr + size, pgprot_nx(prot),
-> -				pages, PAGE_SHIFT) < 0) {
-> +	if (vmap_batched(addr, addr + size, pgprot_nx(prot),
-> +				pages) < 0) {
->
-Better naming? vmap_pages_range_batched()?
+Hi Conor,
 
---
-Uladzislau Rezki
+On Fri, Jun 26, 2026 at 04:57:35PM +0100, Conor Dooley wrote:
+> On Fri, Jun 26, 2026 at 09:35:05AM +0200, Gregor Herburger wrote:
+> > The Raspberry Pi firmware allows to set a reboot mode called tryboot
+> > that allows to try booting from a different partition to allow updating
+> > of the boot partition. Allow reboot mode properties by referencing the
+> > reboot-mode schema.
+> > 
+> > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
+> > ---
+> >  .../devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml    | 5 ++++-
+> >  1 file changed, 4 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> > index 983ea80eaec97..30b490e0d9fb3 100644
+> > --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> > +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+> > @@ -133,11 +133,14 @@ properties:
+> >      required:
+> >        - compatible
+> >  
+> > +allOf:
+> > +  - $ref: /schemas/power/reset/reboot-mode.yaml#
+> > +
+> >  required:
+> >    - compatible
+> >    - mboxes
+> >  
+> > -additionalProperties: false
+> > +unevaluatedProperties: false
+> 
+> I think you should keep additionalProperties: false and add
+> mode-normal: true
+> mode-tryboot: true
+> 
+> (I don't know if the latter works though, you may need to have a $ref to
+> uint32-array).
+> 
+> What you've done permits freeform reboot modes, but I think only normal
+> and tryboot are valid?
+
+Ah yes good point. I do think it should be restricted to
+'mode-{normal,tryboot}'. 
+
+Sashiko also suggested to set maxItems to 1 and I think that is a good idea as
+well, because afaik the firmware only accepts a 32bit value for the reboot flag.
+The $ref to uin32 is not needed that is already enforced by the
+patternProperties "^mode-.*$": in reboot-mode.yaml.
+
+Therefore I will add the following (and keep additionalProperties: false):
+
+properties:
+...
+
+  mode-normal:
+    maxItems: 1
+
+  mode-tryboot:
+    maxItems: 1
+
+allOf:
+  - $ref: /schemas/power/reset/reboot-mode.yaml#
+
+
+I will do some more testing and send a v2 later.
+
+Regards
+-- 
+Gregor Herburger
+Linutronix GmbH | Bahnhofstrasse 3 | D-88690 Uhldingen-Mühlhofen
+Phone: +49 7556 25 999 35; Fax.: +49 7556 25 999 99
+
+Hinweise zum Datenschutz finden Sie hier (Informations on data privacy 
+can be found here): https://linutronix.de/legal/data-protection.php
+
+Linutronix GmbH | Firmensitz (Registered Office): Uhldingen-Mühlhofen | 
+Registergericht (Registration Court): Amtsgericht Freiburg i.Br., HRB700 
+806 | Geschäftsführer (Managing Directors): Dr. Wilfried Wessner, 
+Katharina Kopp, Alexander Gieringer
 
