@@ -4,63 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F6AC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:45:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5007DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m+PZGB57ahz3sODbypiApN0HEPYwZYKH8OdF45jRLoA=; b=Wn7RoO02pdXt+91f+eFNBdZwHc
-	snR7TmHXh/F0s1br3WMZWqZx4APz7IX031oSeNGhPMVuvSYV2QxksIPtAKy2m+dd+zsHBmI21OT1z
-	+x+NK/6PgCFKEWbNqaXMhbfEcmqLaYemVMOa2WqVppeyJQBNcOP0G+1Sg2oZwZROyX+ajqhLwn+UN
-	3QXFqCGtctkcZH1f8wOiqvMi4x5ZqKHWX4PCyTDXlb5/dC7YtXt7oI40sG5RW+qbmbdvvxhOoq0Nn
-	7pwyd+DAgrsajoEUL7dVEekpl4i0+VVhRZEp0I/dvrnanJfv60Z4pD4gxVAd6IjJc4u6+jgPlJ7ag
-	7YkW8xhw==;
+	bh=2QDs7p8/Xz3WWuXQy2Gd1QNRcYz9tg+di8ISRSUsTm4=; b=qsFQMWg4Bih4qdKbaNoIhnQlEM
+	9LzqrYYeEY2Ei6iSbcuXJ3RZ1ivhwo9sUDs3UO/aqUXFpG9dH6vKJz+hxuGI++JaafEywBRGcxXI4
+	owUQjOXJEohGtZyLQ1tPfn8cGnfJ/Bk7qZyBQawQ/O4pqMtAvGxv655SzjiBsVhU1qg5HxqvfdSKR
+	ZT7CZDnkjYaLSzhm4vtHbB5GdjHDSWCDOiR5A0zfdZQE9BqqjviLWehfAO/ryb1tpnghmQ3w7Nxkc
+	FI9/Fr/zEdB07R0lMjZnIao5WP0fQkdh7IQlXBYTEua+tPukfsvRN7DejF/GGdA8SHSgs8OmHvj6B
+	RKD+2spg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weU5f-0000000GICH-3a6h;
-	Tue, 30 Jun 2026 08:45:11 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+	id 1weU68-0000000GIIq-0LaH;
+	Tue, 30 Jun 2026 08:45:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weU5c-0000000GIBS-3ryi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 08:45:10 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id CEB042006B4;
-	Tue, 30 Jun 2026 10:45:06 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1weU5a-005Ns1-2Q;
-	Tue, 30 Jun 2026 10:45:06 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1weU5a-000000004al-2ntK;
-	Tue, 30 Jun 2026 10:45:06 +0200
-Message-ID: <d2a9a7b75795650728e7467c4904bfdabd00b0c8.camel@pengutronix.de>
-Subject: Re: [PATCH RFC v5 11/12] reset: zte: Add a zx297520v3 reset driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Stefan =?ISO-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>,  Michael
- Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob
- Herring <robh@kernel.org>,  Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Brian Masney	 <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Tue, 30 Jun 2026 10:45:06 +0200
-In-Reply-To: <20260628-zx29clk-v5-11-79ff044e4192@gmail.com>
-References: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
-	 <20260628-zx29clk-v5-11-79ff044e4192@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	id 1weU66-0000000GII4-2xIf;
+	Tue, 30 Jun 2026 08:45:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=2QDs7p8/Xz3WWuXQy2Gd1QNRcYz9tg+di8ISRSUsTm4=; b=BOTdGUILSIncJOj3iK+AGkWolo
+	sfmMtwhakGT7sTmvhmqYCbRhGVyIH93qX21TrpFz+tUa/HKmNmkoCetOFxSFhs3uTqI1/vGsWZo6L
+	bzCPrjd9++pvG5xNFM0TQ1GsCkvXSSnBrEjoFU4trnDfSEzQLL7FHPaD1Dwxdt47+uy0dnJ+EQy8/
+	gB/l5630HOooGDPXIIjUf+xxdjeXMXvr9fvyWK0bzay8usZSqPTAwWbBbi90D/BEngxaiy1IPY3pb
+	Arjb8P/1xSdZjr3qsr1ycVfH6YBaarkPNq0pwgvgT1pljY3hA8azZYKQZvbTmQwQdLGFOQX1Z2rHW
+	CRFlVesA==;
+Received: from mail.netfilter.org ([217.70.190.124])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weU60-00000001fnh-3kVX;
+	Tue, 30 Jun 2026 08:45:36 +0000
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 7B7476019C;
+	Tue, 30 Jun 2026 10:45:28 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1782809128;
+	bh=2QDs7p8/Xz3WWuXQy2Gd1QNRcYz9tg+di8ISRSUsTm4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nIr3D04DQLaD3VEweCFcD8bAzLB9Sl/otEDmhxRtRCmCNg6UZu2BraOttxuCB4JjT
+	 avuVGtmT8XalBIQAmnTtLDX5J55yPos9H13ACWCs0qUcMZ6dArTLHKO6YwBzpN3S9S
+	 o9wuW8B2U/1+mSiv5zGQq8ngt0YaHRNIdTh9cdrWYUCtVVuvpOIA1IjdLJ9HKcMSmr
+	 xAgSuxARDNG032H5+cvRHSIaRJ0qAIPYj/kCSb7pQmhV7DZ+fSTR2pffNRQgwodbwb
+	 XwOLSrAF1oel/uY8RvUEQ2rhNL9QBPbV093oDVGXWTpPKJf3F9a2wQT7NDyuqK1Q/o
+	 IVuSOBQN2VrPw==
+Date: Tue, 30 Jun 2026 10:45:24 +0200
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: Daniel Pawlik <pawlik.dan@gmail.com>
+Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org, fw@strlen.de,
+	phil@nwl.cc, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	andrew+netdev@lunn.ch, razor@blackwall.org, idosch@nvidia.com,
+	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+	bridge@lists.linux.dev, coreteam@netfilter.org,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, rchen14b@gmail.com,
+	lorenzo@kernel.org
+Subject: Re: [PATCH v2 0/5] netfilter: nf_flow_table_path: L2 bridge offload
+Message-ID: <akOCJI-2kAAwOQzz@chamomile>
+References: <20260630065735.3341614-1-pawlik.dan@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260630065735.3341614-1-pawlik.dan@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_014509_121028_58FEB0D1 
-X-CRM114-Status: GOOD (  28.26  )
+X-CRM114-CacheID: sfid-20260630_094533_995174_CBBB94C7 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,237 +89,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On So, 2026-06-28 at 22:59 +0300, Stefan D=C3=B6singer wrote:
-> This drives the MFD child devices created by the zx297520v3-crm driver
-> as well as the aux device created by the zx297520v3-lspclk driver.
->=20
-> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->=20
-> ---
->=20
-> v5:
-> Make top and matrix MFD children instead of aux devices
+Hi,
 
-Why? What is the difference between top/matrix and lsp here?
+On Tue, Jun 30, 2026 at 08:57:30AM +0200, Daniel Pawlik wrote:
+> This series adds L2 bridge offload support to nft_flow_offload, allowing
+> bridged IPv4/IPv6 flows to be accelerated by the flowtable fast path
+> without requiring L3 routing.
+> 
+> Background
+> ----------
+> Hardware flow offload engines (e.g. MediaTek PPE) can accelerate bridged
+> traffic but require that nft_flow_offload detect and handle bridged flows
+> differently from routed ones: no routing table lookup, MAC addresses from
+> the Ethernet header, and VLAN context pre-populated from the bridge port.
+> 
+> v2: Fix missing Returns: tags in kernel-doc comments for the three new
+>     bridge helpers (br_fdb_has_forwarding_entry_rcu,
+>     br_vlan_get_offload_info_rcu, br_vlan_is_enabled_rcu).
+> 
+> Patches
+> -------
+> 1/5  net: export __dev_fill_forward_path
+>      Refactors dev_fill_forward_path() to expose __dev_fill_forward_path()
+>      which accepts a caller-supplied net_device_path_ctx, needed to
+>      pre-populate VLAN state before the forward path walk.
+> 
+> 2/5  net: bridge: add flow offload helpers
+>      Adds br_fdb_has_forwarding_entry_rcu(), br_vlan_get_offload_info_rcu()
+>      and br_vlan_is_enabled_rcu() to expose bridge state to nft_flow_offload
+>      without requiring inclusion of net/bridge/br_private.h.
+> 
+> 3/5  netfilter: nf_flow_table_path: add L2 bridge offload
+>      Core of the series. Adds nft_flow_offload_is_bridging() detection,
+>      nft_flow_route_bridging() which avoids nf_route() (fails for
+>      bridged-only subnets), MAC/VLAN pre-population for bridged flows,
+>      and a dst leak fix. nft_flow_route() becomes a thin dispatcher.
+> 
+> 4/5  netfilter: nf_flow_table_path: handle DEV_PATH_MTK_WDMA in path info
+>      Fixes zero-source-MAC in PPE entries when a bridged flow traverses
+>      MT7996/MT7915 WiFi WDMA hardware.
+> 
+> 5/5  netfilter: nf_flow_table_path: add VLAN passthrough support
+>      Records VLAN encap info for passthrough-mode bridge ports so hardware
+>      offload entries include the correct VLAN tag.
+> 
+> Rebase note
+> -----------
+> Originally developed against OpenWrt pending-6.18 patches by Ryan Chen
+> <rchen14b@gmail.com> and Bo-Cun Chen <bc-bocun.chen@mediatek.com>.
+> Rebased to current upstream: path discovery infrastructure moved to
+> nf_flow_table_path.c in commit 93d7a7ed0734 ("netfilter: flowtable: move
+> path discovery infrastructure to its own file"), so all netfilter changes
+> now land in that file rather than nft_flow_offload.c.
+> 
+> How to enable bridge offload
+> -----------------------------
+> 1. Load kmod-br-netfilter so that bridged IP traffic traverses the
+>    netfilter forward chain.
+> 
+> 2. Enable netfilter hooks on the bridge:
+>      echo 1 > /sys/class/net/<br>/bridge/nf_call_iptables
+>      echo 1 > /sys/class/net/<br>/bridge/nf_call_ip6tables
 
-Couldn't you just keep all three as aux devices and remove the
-platform_device boilerplate half of the driver?
+This requires br_netfilter which is a no go.
 
+Sorry, but we should really target at the native nf_conntrack_bridge
+support.
 
-[...]
-> diff --git a/drivers/reset/reset-zte-zx297520v3.c b/drivers/reset/reset-z=
-te-zx297520v3.c
-> new file mode 100644
-> index 000000000000..8ef434904230
-> --- /dev/null
-> +++ b/drivers/reset/reset-zte-zx297520v3.c
-> @@ -0,0 +1,274 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Stefan D=C3=B6singer
-> + */
-> +#include <dt-bindings/reset/zte,zx297520v3-reset.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/auxiliary_bus.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/regmap.h>
-> +#include <linux/iopoll.h>
+> 3. Register bridge member interfaces in the nft flowtable:
+>      table inet filter {
+>          flowtable f {
+>              hook ingress priority filter
+>              devices = { eth0, wlan0 }
+>          }
+>          chain forward {
+>              type filter hook forward priority filter
+>              meta l4proto { tcp, udp } flow add @f
+>          }
+>      }
 
-Looks like this is not needed anymore.
+Yes, but br_netfilter makes no sense for nftables.
 
-> +/* Most devices on the zx297520v3 SoC have one reset bit per clock line.=
- As a rule of thumb, the
-> + * lower bit disconnects the device from the bus, similarly to turning o=
-ff PCLK - registers read 0
-> + * or hang indefinitely. Unlike PCLK, this reset may have a lingering ef=
-fect after deasserting.
-> + * E.g. timers will be disabled, but retain their counter value.
-> + *
-> + * The other bit resets the actual device registers.
-> + *
-> + * For some devices, e.g. GMAC, the reset bits behave in the same way: T=
-hey disconnect the device
-> + * and registers will have their default state after deasserting. For de=
-vices that have both reset
-> + * bits, both need to be deasserted for the device to function.
-> + */
-> +struct zte_reset_reg {
-> +	u32 mask;
-> +	u16 reg;
-> +};
-> +
-> +struct zte_reset_info {
-> +	const struct zte_reset_reg *resets;
-> +	unsigned int num;
-> +};
-> +
-> +struct zte_reset {
-> +	struct reset_controller_dev rcdev;
-> +	struct regmap *map;
-> +	const struct zte_reset_reg *resets;
-> +};
-> +
-> +static inline struct zte_reset *to_zte_reset(struct reset_controller_dev=
- *rcdev)
-> +{
-> +	return container_of(rcdev, struct zte_reset, rcdev);
-> +}
-> +
-> +static int zx29_rst_assert(struct reset_controller_dev *rcdev, unsigned =
-long id)
-> +{
-> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
-> +
-> +	return regmap_clear_bits(rst->map, rst->resets[id].reg, rst->resets[id]=
-.mask);
-> +}
-> +
-> +static int zx29_rst_deassert(struct reset_controller_dev *rcdev, unsigne=
-d long id)
-> +{
-> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
-> +
-> +	return regmap_set_bits(rst->map, rst->resets[id].reg, rst->resets[id].m=
-ask);
-> +}
-> +
-> +static int zx29_rst_status(struct reset_controller_dev *rcdev, unsigned =
-long id)
-> +{
-> +	struct zte_reset *rst =3D to_zte_reset(rcdev);
-> +	int res;
-> +
-> +	res =3D regmap_test_bits(rst->map, rst->resets[id].reg, rst->resets[id]=
-.mask);
+br_netfilter was made to fill gap at the time ebtables was lagging a
+lot behind iptables in terms of features. And getting ebtables on pair
+with iptables in functionality was not feasible either, because it
+required many new extensions that were specific of the bridge family,
+which probably was not a big deal, but it also required to get
+the ebtables command line tool on pair with iptables userspace, which
+has received more development attention/effort that the bridge tool.
 
-The correct thing to do here would be to only check the reset bit.
+All of this does not stand true anymore with nftables, where the
+bridge family capabilities are at pair with the inet families.
 
-This happens to work anyway because we always set reset and isolation
-bits together, but maybe this warrants a comment.
-
-I assume the registers just read back the value that was set.
-
-> +	if (res < 0)
-> +		return res;
-> +
-> +	return !res;
-> +}
-> +
-[...]
-> +static int reset_zx297520v3_common_probe(struct device *dev,
-> +					 struct device_node *of_node,
-> +					 const struct zte_reset_info *drv_info)
-> +{
-> +	struct zte_reset *rst;
-> +
-> +	rst =3D devm_kzalloc(dev, sizeof(*rst), GFP_KERNEL);
-> +	if (!rst)
-> +		return -ENOMEM;
-> +
-> +	rst->resets =3D drv_info->resets;
-> +	rst->rcdev.owner =3D THIS_MODULE;
-> +	rst->rcdev.nr_resets =3D drv_info->num;
-> +	rst->rcdev.ops =3D &zx29_rst_ops;
-> +	rst->rcdev.of_node =3D of_node;
-> +	rst->rcdev.dev =3D dev;
-> +
-> +	rst->map =3D device_node_to_regmap(of_node);
-> +	if (IS_ERR(rst->map))
-> +		return dev_err_probe(dev, PTR_ERR(rst->map), "Cannot get parent syscon=
- regmap\n");
-> +
-> +	return devm_reset_controller_register(dev, &rst->rcdev);
-> +
-
-Unnecessary blank line.
-
-> +}
-> +
-> +static int reset_zx297520v3_aux_probe(struct auxiliary_device *adev,
-> +				      const struct auxiliary_device_id *id)
-> +{
-> +	return reset_zx297520v3_common_probe(&adev->dev, adev->dev.of_node,
-> +					     (const struct zte_reset_info *)id->driver_data);
-> +}
-> +
-> +static int reset_zx297520v3_top_probe(struct platform_device *pdev)
-> +{
-> +	return reset_zx297520v3_common_probe(&pdev->dev, pdev->dev.parent->of_n=
-ode,
-> +					     &zx297520v3_top_info);
-> +}
-> +
-> +static struct platform_driver reset_zx297520v3_top =3D {
-> +	.probe =3D reset_zx297520v3_top_probe,
-> +	.driver =3D {
-> +		.name =3D "zx297520v3-toprst",
-> +	},
-> +};
-> +
-> +static int reset_zx297520v3_matrix_probe(struct platform_device *pdev)
-> +{
-> +	return reset_zx297520v3_common_probe(&pdev->dev, pdev->dev.parent->of_n=
-ode,
-> +					     &zx297520v3_matrix_info);
-> +}
-> +
-> +static struct platform_driver reset_zx297520v3_matrix =3D {
-> +	.probe =3D reset_zx297520v3_matrix_probe,
-> +	.driver =3D {
-> +		.name =3D "zx297520v3-matrixrst",
-> +	},
-> +};
-> +
-> +static const struct auxiliary_device_id reset_zx297520v3_ids[] =3D {
-> +	{
-> +		.name =3D "clk_zte.zx297520v3_lsprst",
-> +		.driver_data =3D (kernel_ulong_t)&zx297520v3_lsp_info,
-> +	},
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(auxiliary, reset_zx297520v3_ids);
-> +
-> +static struct auxiliary_driver reset_zx297520v3_auxdrv =3D {
-> +	.name =3D "zx297520v3_lsp_reset",
-> +	.id_table =3D reset_zx297520v3_ids,
-> +	.probe =3D reset_zx297520v3_aux_probe,
-> +};
-> +
-> +static struct platform_driver * const reset_zx297520v3_mfddrv[] =3D {
-> +	&reset_zx297520v3_top,
-> +	&reset_zx297520v3_matrix,
-> +};
-> +
-> +static int __init reset_zx297520v3_init(void)
-> +{
-> +	int res;
-> +
-> +	res =3D auxiliary_driver_register(&reset_zx297520v3_auxdrv);
-> +	if (res)
-> +		return res;
-> +
-> +	res =3D platform_register_drivers(reset_zx297520v3_mfddrv,
-> +					ARRAY_SIZE(reset_zx297520v3_mfddrv));
-> +	if (res)
-> +		auxiliary_driver_unregister(&reset_zx297520v3_auxdrv);
-> +
-> +	return res;
-> +}
-> +
-> +static void __exit reset_zx297520v3_exit(void)
-> +{
-> +	platform_unregister_drivers(reset_zx297520v3_mfddrv,
-> +				    ARRAY_SIZE(reset_zx297520v3_mfddrv));
-> +	auxiliary_driver_unregister(&reset_zx297520v3_auxdrv);
-> +}
-> +
-> +module_init(reset_zx297520v3_init);
-> +module_exit(reset_zx297520v3_exit);
-
-That's too much boilerplate given I don't understand the benefit of
-using platform_device for top/matrix resets yet.
-
-regards
-Philipp
+I am looking now at the native flowtable bridge support, I will get
+back to you with updates.
 
