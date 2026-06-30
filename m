@@ -4,97 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D86AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:44:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71916C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PTgTBVx6F2sw1dT8/Wpsaw/p93LgkfWgt2++tnwdsew=; b=G/5dWKlVQMAtaZQBSgFsNCBjSO
-	UiocJP+Fe85u1V9ed5MCeKXBodDjRRVma3VEDEsmoVjLh6eeJ3nXXUm6CSJcs5GfasCCUu7GZea9Q
-	ZCzV5vCIstJffDW2BssRnaId2fRgfKiVflB15uwVkQEZw3uHLFsF+Lb2IkJGFQLLflCheOcjyNuSr
-	CXUCg4vayAh7g0AHQKtIZI2mK/NUPFR4nLp56HZixn+8VrUD9k+Y3JmTpxBUyp9bI4P1HrV0WvIpI
-	0a+QmkaUCURmoTsqLy5na0vNRfdjh0j9/sM9Jwwl0Nd4SZhlqDX80bTGUP3mQGhZrV3ng7Z0yLAEe
-	UAFe5DBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6lTkuJtbThV57Tf5WWEoPXOogHAi7+jN4q+aTmy7jjI=; b=XwDBx7hRgnO2GaWzZ+ZnSqUNkI
+	7/Dins/a/z/UqWXB5tDk+S/odhDmXb+JY7Ck9YFu8zhHKX570HtUcxygjfgVEOSS5egQvRP/4RhVe
+	AvBww1ahaTa1kvl6/q1UWJR9JYMTnkeezXBSDYTqLQdYlEUzN42fuk97I8c7kObyl6S/oT5K1wUTz
+	L27EsHQ47+kYDL1ipvb/loKH+LXH6GiRK2o0mQOROtFBk15aaAZ2s0CDbPmOWTK5uGV15ZOGmlZM+
+	1waJsRdV8646fVwYPIgi39HzG6/W+h5cRr5vP1vgkJrnYiGhPMl4dZ1zjpIhdzhajv+xOUsemH+OD
+	d/ByfkEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYlD-0000000HC9M-34v4;
-	Tue, 30 Jun 2026 13:44:23 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weYrj-0000000HDDO-3HLB;
+	Tue, 30 Jun 2026 13:51:07 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYlA-0000000HC87-2Apc
+	id 1weYrh-0000000HDCX-2cfU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:44:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DE9ED43FF2
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 13:44:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6DEE1F01568
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 13:44:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782827059;
-	bh=PTgTBVx6F2sw1dT8/Wpsaw/p93LgkfWgt2++tnwdsew=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=YXMCdVpntJnB93OzkvUVDbtYFd5zhX6pWrdfMuh2JCwfvuYS4n1e7MUgDjDc7Ox4t
-	 s6th2MipiElRnWHqws9n7L/cj9offTB/GKb3qsHlugOAtLecitT0cneyhDagFiS6B1
-	 2OMwTRqTEtXpBfNywSUPHXLxwqAqhoTI5AmZNel9mDUAg0RznYYyBhcXxVje6V7rBB
-	 kMQkHkNLoixA4SJRMtRN8KNDkTVz14wg5vSiv4Va/CllGVLgpz17B+G6SY4lQ6N32l
-	 JCjx0VVRdj91MSRW5CMXNffi/RGslJBYsxhbcNyVHWF7xY8WhqIbBdFW68U1fhhwTV
-	 tCC/dXQCAbdrg==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-5aebfa21c62so605277e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:44:19 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrE0FCet+E9jI1wL6Kl7plvWgWsrSngxFD55vFfp9MzMmdqTbsQJC56iKdjnr7WNiWpCIKvjy8gE3/RFV0vdCw+@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe+BzBIu9CBnmPY/n9u+DzzTOb4oNPGVDndddYgiV8UeM7zStM
-	xz5VWCMjOP175j5tFsESoUsIcc50etQNOVgQyzwO6fTYa9LpkOZZ8Yn+f2qU57yj+QZ/T0ZrQZG
-	SiztXNqz2GOitkJkaa8GUCxX0NS7ieY43dp6OoM78Dg==
-X-Received: by 2002:a05:6512:247:b0:5ae:b36c:81c7 with SMTP id
- 2adb3069b0e04-5aebdbd6a94mr630626e87.35.1782827058195; Tue, 30 Jun 2026
- 06:44:18 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 30 Jun 2026 06:44:16 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 30 Jun 2026 06:44:16 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <akOZFIowVvprnAMf@vaman>
+	Tue, 30 Jun 2026 13:51:06 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c9e89fded0so21706475ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:51:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782827465; cv=none;
+        d=google.com; s=arc-20260327;
+        b=A12WXA7xluI2+OxWPe/B3dLbX4oCla+s5PWe26JJ1OZ8yvnNHwj7jaWVJddqaigcQf
+         /zoRvNh2TmK/RUrLMYlkz5y2nFB8P+bQVvamhaeRcZoSC64/ctQ2KHr0H6yKqlYyW0d7
+         KzfRklu+j3r/czhdOfFTM5qtcVo5cTducySyxTBGZs8L/9x2/B1gwumJ2NDZJBVKhlUq
+         VrdncT/mD7XFi0NXXqBIEbFs46l+D/lJncEpB6ybszazw12WWHoNgtWmCTCnsAshhJ43
+         Y6mTKo39U+hslntlF9uXe4XCurjx/u7VcHLkY0jaYkhuBe9JPgQcQfTmkCf1WSMY03mg
+         RlVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6lTkuJtbThV57Tf5WWEoPXOogHAi7+jN4q+aTmy7jjI=;
+        fh=UWuImj8qG6lrGV9ze3GUwSFrVn7PJq8ho9MnYsNEPcc=;
+        b=ArDpK/CcD+qTvdpyS38MjMrl38qsqW4s/z3p39roiJd7R66P+i7QnvoAOqxPTPcXHn
+         zDrFSDZKxFOf+w4nwZn3Cdr4RndNE/eyuaJeugncIXwkUwOirNL8q6U7Fkgb+eBbej0h
+         Mgi9YFb8Na6p0qxwsU33EnOtbW9q80dAt0e3xHuo1QhIV0r2SayPgH5t2GgM5u4SetGl
+         x6rlvEwDBeiq/67/ML4MPou19kT64Wh1cfuu1NPcwr/JWHuwfT4Rg2qaiaGdHemCSpbr
+         ZjDrm/WwQwEa+JxwfvpAhIL/xb/9hNZ/SXUuWUUw1hgfy5kXOzLu1q+FQ9GGqHOzHMUM
+         9yUA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782827465; x=1783432265; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6lTkuJtbThV57Tf5WWEoPXOogHAi7+jN4q+aTmy7jjI=;
+        b=DJtAoLt27ujmP8HhvpWWDlgPHhV1dp8Xh9HJ0GW7wMKhIpZo8KobCNCUfCF0b0j7Lx
+         1s8/K4U32ektm3VzcGSWvOK2bgW+nAwpWDsFVnHkD5JfRw8XkLqvmuMDKSlkExzwpZSK
+         ehdC/qXwO6P5Cpvx2Cxs45Yzlh6OwyoLlU3ueYp+ad/3yILFqJRvmVJ0+1ZKwqwHtSwy
+         HHHVPRJonRTOdSjoEsYfXCVjU8GW05cWaoI5oXRDurUJgDxZ0ysI/EQR3cB8gjRwQXGO
+         8ePdqAyVQBaRdrPbg1icpjS8bLZYUH+4PPUx0/E+FfSfVns4stBybQhIOveUwXtNv1hN
+         zl8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782827465; x=1783432265;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=6lTkuJtbThV57Tf5WWEoPXOogHAi7+jN4q+aTmy7jjI=;
+        b=h6Rcp1GEI5MgMQQ2mv3/rc2fC/aeJc+t4FT2+SNu2wuZzSoKEsvHyrNMeLCmZyoPyn
+         HXa7gMp+v1CQRu3WD1ABKOcsOhCGt8Ttx54jPR+evOyxuwm7WER81bYisjYNnvGJ7O87
+         +m9wsvhc0HAZIM+vcifWi4Y4cIpZ2I1VcrPycIoh3W8YcltIFdGtvnSslyIqDSB+csk9
+         K4dwVlUkx/tFats+QFDNMMcREaV65Zejj2ooCa++M/ApIiUEB6AzGEqRCph+UxNZi+RS
+         E3LMKATGzLrzOy+Jam9/ZD4kIG3ENiatH2wShTTXqUmyAJVJNFQKZg7F8o3vhYsf48MB
+         AICg==
+X-Forwarded-Encrypted: i=1; AHgh+RpoOc4209fvhP8GWDHxaN3SgvqPU3+2NPmwic87qkMjvLnC4SPGlboCbkrdQKdyX5DgThEvBDQwFXswypHZCkJY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnJZI6qZP45wYk957tge2468CN0rQ/SBbbq23MLUwJSTyGucps
+	6LhKW4n5uJjfnE5AiwgKLsJ+aHHbPpGzOwusTLP2angRsG4i6yM+Fr7tFJx1jtXmhgo4ft2mrDa
+	FPX7pCLatixxc5CFET6Jnh6OWSsecmkU=
+X-Gm-Gg: AfdE7cn9/1QV8A5qzcdKCZVsfkiPcO17GxQj/jS0B9dLzxDo7HubXwzw0NAqNPO8tMp
+	W82eeR6z3pEXzJKNu7cCb7AgJjCIVyPqhT3Ze8Il0lihawQEgpw/1Yvx5c2+61KSArJ/qYG6JrI
+	/MzUIVDP3xvcsfeO2jtW3Khgl/sBPYPxPdrc9spGsypvc1Qq1W4RfXj2d/i5Lov4mHH2oOwgyR+
+	kuoM1D0UAY0+FQJWxm5mBPWlwJouGhGgZ+6oY9Q8gwBEvydTiSo+vApqtsE5c858pJRs+L0+n2N
+	5ZYoFj15g7dAJe+SUSnLeXX/KKu+MohNOhM6NQNdjOZtlJusYiWJDfwxoB0KMQ==
+X-Received: by 2002:a17:902:e947:b0:2c9:c517:d078 with SMTP id
+ d9443c01a7336-2ca2ea32743mr30876155ad.36.1782827464698; Tue, 30 Jun 2026
+ 06:51:04 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
- <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
- <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
- <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
- <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com> <akOZFIowVvprnAMf@vaman>
-Date: Tue, 30 Jun 2026 06:44:16 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MfgAB8bc6PD-6jw_KR0uNBfH+PO2XtCeL1SUF2nCiT0xg@mail.gmail.com>
-X-Gm-Features: AVVi8CeqiAShkPsoXNMgDMxOo0pT0xgKjAcbHHtz1YU8sQeDIyMdI3B6eTWFAXU
-Message-ID: <CAMRc=MfgAB8bc6PD-6jw_KR0uNBfH+PO2XtCeL1SUF2nCiT0xg@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
-	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
-	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
-	Christophe Roullier <christophe.roullier@foss.st.com>, Radu Rendec <rrendec@redhat.com>, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
-	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
-	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
-	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260630063449.503996-1-phucduc.bui@gmail.com>
+ <20260630063449.503996-10-phucduc.bui@gmail.com> <20260630092821.650c30ec@bootlin.com>
+ <CAABR9nG5Wo1Wb+2_T6dR+6XTw8Vs9awSpQrSZ+k6=jp_ogoGCw@mail.gmail.com> <f5ab965a-9640-4df0-8108-7877f34b6950@sirena.org.uk>
+In-Reply-To: <f5ab965a-9640-4df0-8108-7877f34b6950@sirena.org.uk>
+From: Bui Duc Phuc <phucduc.bui@gmail.com>
+Date: Tue, 30 Jun 2026 20:50:53 +0700
+X-Gm-Features: AVVi8Cc6YVwHmJJJBcmL6xlBLsZj8Ul3JarMT_3ATDvT8NUt9u8sy29ELCp0KAM
+Message-ID: <CAABR9nGGTRTWTSDmzZ4OcXmQ1zmWgnm8yPN5vM1DFLyn=AgwOA@mail.gmail.com>
+Subject: Re: [PATCH 09/27] ASoC: codecs: idt821034: Use guard() for mutex locks
+To: Mark Brown <broonie@kernel.org>
+Cc: Herve Codina <herve.codina@bootlin.com>, Takashi Iwai <tiwai@suse.com>, 
+	Nick Li <nick.li@foursemi.com>, Support Opensource <support.opensource@diasemi.com>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+	Srinivas Kandagatla <srini@kernel.org>, Charles Keepax <ckeepax@opensource.cirrus.com>, 
+	Richard Fitzgerald <rf@opensource.cirrus.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, 
+	Sen Wang <sen@ti.com>, Oder Chiou <oder_chiou@realtek.com>, Linus Walleij <linusw@kernel.org>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, u.kleine-koenig@baylibre.com, 
+	Zhang Yi <zhangyi@everest-semi.com>, Marco Crivellari <marco.crivellari@suse.com>, 
+	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>, Arnd Bergmann <arnd@arndb.de>, 
+	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_065105_659420_32F2533B 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,26 +132,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
-> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
->> > Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
->> > driver instead of the MAC driver where it was previously. Instead of cramming
->> > both HLOS and firmware handling into the same driver, I figured it makes more
->> > sense to have a dedicated, cleaner driver as the two share very little code (if
->> > any).
->>
->> I think you are mixing up DT bindings and driver implementation?
->
-> Should the bindings change if we have different driver and firmware
-> implementations? Isn't binding supposed to be agnostic of
-> implementations..?
->
+On Tue, Jun 30, 2026 at 8:29=E2=80=AFPM Mark Brown <broonie@kernel.org> wro=
+te:
+> Please delete unneeded context from mails when replying.  Doing this
+> makes it much easier to find your reply in the message, helping ensure
+> it won't be missed by people scrolling through the irrelevant quoted
+> material.
 
-The way sa8255p implements SCMI is with SMC exclusively but - since even base
-support is not yet upstream -  maybe it would be possible to expose SCMI clocks
-like some platforms do and reuse the same binding.
+Got it. I'll make sure to trim the unneeded context in my future replies.
+Thanks for the reminder!
 
-Would it make sense?
-
-Bart
+Best regards,
+Phuc
 
