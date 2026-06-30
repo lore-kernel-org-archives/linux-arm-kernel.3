@@ -4,117 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD4AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 06:17:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFADC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 06:22:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfYZbo4qVvls6tfxGKmEfWS68q9+A6W60QAnida8ujI=; b=gB8xtRTC826S8zG6/YtCwjzY2/
-	f8r7gFkQ02b+Tx+hIuEXVNgklR70rvwiNOsixFlJkit4IHPkGQPWbZH2T8pGFMikcIQl4T+51jNgj
-	LisshPi+A+us1PrP+NRGiCpbj1/mQ/S1M8u7MUv42XBd58KYohCI4Qel6igyfopOk1mfgvlNPXCis
-	juWpimE/+L61AEixUbZ/tUbMhXOecN6BY/JfiAgPGJgLppV4QilJjFe4Sik/eOicrWAAZr6Qi7PFJ
-	bsdTYG+U75XC7/O2pQGrm2Fz7XvfuOWg/zpSJJ/Gb3HQPsf8j+vMiapMm5whwXlRxh46zpv8ECr3y
-	yDa/BWIg==;
+	bh=N9sVQgkbOfiThVXjaJ4LhvYdhIVzMO8gt6AUByFIZ+A=; b=H8/pb8x7o2SRK4mHyZEDT6VQb+
+	jciVx6vHPVYhwmIPvLQJZ9Wg5+JDU/JLy2IjCAryRnu+ewEYE/NrsYPzK+4QZpCATWsPA1wgSWVpY
+	6Q1wBMB93xA2gAD/3uHDwPLo58UtB1VZjvr26nEmCwkdRDz/D2y70Tyf/08g7CBjuKD6QepOFJg4o
+	7ATrnsu3UKn/0Yanv2K5WNGqJ43ysptuv8hxBJ3vxT7lv5mXiUFcFa2g8bm/cemkVy1VEYM5KD5Ly
+	Ury1H3k+pyIh3Y2AYY1vxAnD4bAZebkR92RUDl9Nq6kADlZ4V6ciA/6BwBOyBRwRQciuCUseP6ttC
+	RsvZWprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weRm1-0000000Ftp5-2Mm6;
-	Tue, 30 Jun 2026 06:16:45 +0000
-Received: from mail-centralusazon11011026.outbound.protection.outlook.com ([52.101.62.26] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1weRrO-0000000FvV8-3MuB;
+	Tue, 30 Jun 2026 06:22:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weRlg-0000000Ftam-2QWI
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 06:16:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jbsW5db5Z6NZIgOsWpxApEGe0VO6YmI4RsVDDOOCSKfCb9a3FGwCHu3EvNin3n60U5+8Mk4bQTol7nkepK8FJkvRDQUyO3NvFWjawkET7ua4GTuwCQK6DCp26e9ypvPtoIvCa/y+gnyH+T4GvH0ucZ2NcrqEZcm/ReZNyEzQNUD5PYMSWA+eRN8sgNn6hlI4tttylTfHvG3OICYyXrBofFR8lqaUMK1a6dkOpZ7t5QzT8Qs36XyBA4cp++k9FUEeHPsuNb38QAxSOmuxlmx0Vm8qxBhc2Tqbeu3tuiMWyv7zMygkt29gb5qEDl9EeeEedehGC4sqJ37W/+V5Nvh6Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jfYZbo4qVvls6tfxGKmEfWS68q9+A6W60QAnida8ujI=;
- b=eIOy7rnhj7XQGir8G4WEQd92qG93UeXI58v504c1492/OKNiWEq06xsxx6NoZPPM6XtEZ7hla9zbV8jd3PUfiWtmlNwc5mmRo/dRquNZkoWEJhcJWdSw8AqZHn5+sD/8nPd77jF/yLk1woBPTshkrpZ9eBac7qq2y7StKsUSb+Da4H6z2Wlcd6hyaVz3xHJj9vlMcfMZVyB3BORkbbKG8k62vEDWSNbUgy38venzWZJw4xiAY7E/xj+CoJKMBezPM+lu4OJ4/sMOsaBizWe6q0+ZWC58dOHX8pqSO41OaFa97f5qYCAMEpZBsIWAB1aqYL1zH2Sg5T5bTejzfVj4uA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jfYZbo4qVvls6tfxGKmEfWS68q9+A6W60QAnida8ujI=;
- b=dlgljKYEx9i1ESmKqXO3oMqTdhNyBOS4bpzdvkNgvVWqs20ImvZgvYUW9wnAHZCB44ZR4G/NtpHnZh+56RTsQstluOHTgvAre/22wio8fLE7TxxiIXk2aRdCHDKSFN4Awblqx3/ze7+OE4tMQBHtWgokV/iQ96u5fYCSGIBTxqOLI+1XipXhM6DKFe6X721IpHVy8bpls7lKYPAA0ZPI5LFU5zezq2dZ3UhbiN8u7pyAC77+jB2hCJXTyBiFYkTU/uku9anbAVgSRnPeIX7bh0COuFUfflUt5p4qZTUCpC5hlvQGSr2qWeaoEizbYlPeZOXRh7AzlwwEeLY/TtzvSg==
-Received: from SA9PR10CA0030.namprd10.prod.outlook.com (2603:10b6:806:a7::35)
- by DM6PR12MB4106.namprd12.prod.outlook.com (2603:10b6:5:221::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 06:16:18 +0000
-Received: from SA2PEPF000015CB.namprd03.prod.outlook.com
- (2603:10b6:806:a7:cafe::d) by SA9PR10CA0030.outlook.office365.com
- (2603:10b6:806:a7::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Tue,
- 30 Jun 2026 06:16:17 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SA2PEPF000015CB.mail.protection.outlook.com (10.167.241.201) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 06:16:17 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 29 Jun
- 2026 23:16:02 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 29 Jun
- 2026 23:16:02 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 29 Jun 2026 23:16:01 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
-CC: <joro@8bytes.org>, <praan@google.com>, <kees@kernel.org>,
-	<baolu.lu@linux.intel.com>, <kevin.tian@intel.com>,
-	<miko.lenczewski@arm.com>, <smostafa@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
-Subject: [PATCH rc v7 7/7] iommu/arm-smmu-v3: Detect ARM_SMMU_OPT_KDUMP_ADOPT in probe()
-Date: Mon, 29 Jun 2026 23:15:40 -0700
-Message-ID: <702d43bee205cf4970a249762d5aea6e4101987e.1782799827.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1782799827.git.nicolinc@nvidia.com>
-References: <cover.1782799827.git.nicolinc@nvidia.com>
+	id 1weRrN-0000000FvUl-0vJU;
+	Tue, 30 Jun 2026 06:22:17 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 74CB6600FC;
+	Tue, 30 Jun 2026 06:22:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 104AE1F00A3D;
+	Tue, 30 Jun 2026 06:22:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782800536;
+	bh=N9sVQgkbOfiThVXjaJ4LhvYdhIVzMO8gt6AUByFIZ+A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AOZ2LkPOc1zEjYkhUJx3UNTNuuEhwi49bJW/wbpqOxehVX0NXldS2cksO6+5BDz8S
+	 ajDZINz25hbuju7xg3VCbe9rcxWDLnh/t9k+gfAy6/pc5w33jp3/7gUwM1WtH56He7
+	 L3+YTagsWAuUr7sYFxA71KUM9PfooG/zUWR9m43vXDnJ44Ciwz7b+B4Y7aTS/LYGkz
+	 A7wGLJQSRio8RG9qcBYJY1uiNh39b9rhIQlHJWHpV2swSr5fLolrBjBOG0pBWMqLVD
+	 ESKXDXPIjRwBgxXixc83JDgWFhQUs4wtd0LIvrvZZvSCyu1ZRj+fPHMm1ouVI7DIkw
+	 S/xAG+302oaMw==
+Date: Tue, 30 Jun 2026 08:22:12 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Vinod Koul <vkoul@kernel.org>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, 
+	Romain Gantois <romain.gantois@bootlin.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org, 
+	imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
+ PHY on sa8255p
+Message-ID: <20260630-exuberant-dramatic-bustard-068bf8@quoll>
+References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
+ <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF000015CB:EE_|DM6PR12MB4106:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc0d9dce-c418-409a-0bc9-08ded66f18da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|7416014|1800799024|23010399003|82310400026|22082099003|18002099003|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: uhS9H1ccaEkuKgJq+RuITAv+Or60HnKQxiz24cFnMwnd8ak1eqH33KJc482rLA94sHX8gOPV03dw4MlEEeITKp4F40XbxwEXgB2PXGsmt0EyCyrk3picy9WkFrg1rLdL+NmTt4+JjSwcPlNdOsXwp15AgaZEcAvUydI2so7/P7nB/KfXfRaXWnK6byIUU0CkHe3kiDuYBsH9FhmAsBBP5MXo19B7vyOYKckngdbj7Lsd20FQ4dls55LoZcwE9plEXPjaS8IkYExfn1HEIpqcCMHH3pZ3FEqL4dJh6u1smdI/U1IsC8t+nrwfqAlVk1vvrY/lDvJenH3Tc2ovPMO4vnH761aOaDpo3qemvPnESZlrDS0cVEkHfpZqb+/Q3k3Ha/H+zIWMgl7aWSdqrNxoR6dzx1QynJ7QPLoz5KocAZGgMyuJ/4R0iRO+D47MGYCTgIfGuLze1x0/qm13VoFO8D1xWytvAJvQ08Jmf1+G18BTlCAscaO/IPxO/kKJyNkGLaY1l3SKgkJWxtbs/ewLjGiVQZ1FcbxdprsPbdZz7h37XsjI1eH37XGCaJ1DhbA5FwVn4TWZBTBQzISsCcKTmT0B3+4HSQ/45ssjjEN0D7ZwH4+jKXfmzwAZDZvyx7yT8ofv6VsXh5qp7grrvuOhqmDbZjFfU3lD7XhGn0loDRc8KdlMrUxa/MFSNfwTPR4tfdjDGskUNnste7lYKqcLyQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(376014)(7416014)(1800799024)(23010399003)(82310400026)(22082099003)(18002099003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: 4kmetoDjT6vcnutjk/gV8Zn1zMqmvaDXzR3yNzjBzvAoCbltBPe31ai+svz48MPO5O5x2yBa+ve76PcZiDzi40jGjKIrxnV2C1aLLV1Nm7OBF1Y/1ow8fj92bMmVdyuN2OudwYdXcaDkjU/1TlkrVDdPZyWShTJWt8aWHtDHCuRZJnt+sJmjvXik7ne3tlIGo8Bbqk7PEyVp6eNz+M664q3BllLrF4DQ5AeKTWvfpPc0MAxsqRuIfe6YjKPidNKLjy1MYRDsHWOXDytZ+V17YCwHuqmJNaxyr3jusLJ6UxmHf9f94C3m0AAotD8RVgGBgGKkLAU02tgGiazkaBgiOb3EqxoQN2UShNnLrpL1zYQ7z9MzH2h84p3wb47Ov7VAcerHaDgglikqVJeXlc8XZK14lA+2KLWAn9fvy2QS6tbYUuVAmyIokZRD1stN37Ra
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 06:16:17.8331
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc0d9dce-c418-409a-0bc9-08ded66f18da
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CB.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4106
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_231624_638114_B18CC810 
-X-CRM114-Status: GOOD (  12.45  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,75 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_smmu_device_hw_probe() runs before arm_smmu_init_structures(), so it's
-natural to decide whether the kdump kernel must adopt the crashed kernel's
-stream table.
+On Mon, Jun 29, 2026 at 01:28:47PM +0200, Bartosz Golaszewski wrote:
+> Describe the SGMII/SerDes PHY present on the Qualcomm sa8255p platforms.
+> This is essentially the same hardware as sa8775p rev3 but the PHY is
+> managed by firmware over SCMI.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> ---
+>  .../bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml | 51 ++++++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..4cea6926d1c28872ea7b7aad53088dbbcb74fa99
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml
+> @@ -0,0 +1,51 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/qcom,sa8255p-dwmac-sgmii-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Qualcomm SerDes/SGMII ethernet PHY controller (firmware managed)
+> +
+> +maintainers:
+> +  - Bartosz Golaszewski <brgl@kernel.org>
+> +
+> +description:
+> +  The SerDes PHY sits between the MAC and the external PHY and provides
+> +  separate Rx Tx lines.
+> +
+> +properties:
+> +  compatible:
+> +    const: qcom,sa8255p-dwmac-sgmii-phy
+> +
+> +  reg:
+> +    items:
+> +      - description: serdes
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  power-domain-names:
+> +    items:
+> +      - const: serdes
 
-Given that memremap is used to adopt the old stream table, set this option
-only on a coherent SMMU.
+Drop names. Not useful if it repeats the device block name.
 
-And make sure SMMU isn't in Service Failure Mode.
+With this:
 
-Fixes: b63b3439b856 ("iommu/arm-smmu-v3: Abort all transactions if SMMU is enabled in kdump kernel")
-Cc: stable@vger.kernel.org # v6.12+
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 31 +++++++++++++++++++++
- 1 file changed, 31 insertions(+)
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 822ab73161969..bca9395b6a1ef 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -5280,6 +5280,33 @@ static void arm_smmu_get_httu(struct arm_smmu_device *smmu, u32 reg)
- 			  hw_features, fw_features);
- }
- 
-+static void arm_smmu_device_hw_probe_kdump(struct arm_smmu_device *smmu)
-+{
-+	u32 gerror, gerrorn, active;
-+
-+	/* No adoption if SMMU is disabled (i.e., there is no in-flight DMA) */
-+	if (!(readl_relaxed(smmu->base + ARM_SMMU_CR0) & CR0_SMMUEN))
-+		return;
-+
-+	/* For now, only support a coherent SMMU that works with MEMREMAP_WB */
-+	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY)) {
-+		dev_warn(smmu->dev,
-+			 "kdump: non-coherent SMMU unsupported; reset to block all DMAs\n");
-+		return;
-+	}
-+
-+	gerror = readl_relaxed(smmu->base + ARM_SMMU_GERROR);
-+	gerrorn = readl_relaxed(smmu->base + ARM_SMMU_GERRORN);
-+	active = gerror ^ gerrorn;
-+	if (active & GERROR_SFM_ERR) {
-+		dev_warn(smmu->dev,
-+			 "kdump: SMMU in Service Failure Mode, must reset\n");
-+		return;
-+	}
-+
-+	smmu->options |= ARM_SMMU_OPT_KDUMP_ADOPT;
-+}
-+
- static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- {
- 	u32 reg;
-@@ -5494,6 +5521,10 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
- 
- 	dev_info(smmu->dev, "oas %lu-bit (features 0x%08x)\n",
- 		 smmu->oas, smmu->features);
-+
-+	if (is_kdump_kernel())
-+		arm_smmu_device_hw_probe_kdump(smmu);
-+
- 	return 0;
- }
- 
--- 
-2.43.0
+Best regards,
+Krzysztof
 
 
