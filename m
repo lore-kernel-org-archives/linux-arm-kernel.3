@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABEBEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C0AAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RhTaGTqXn+vEjpea1Rvo2RPETqMhHuTMxdNXRudSe/o=; b=0PVhWTTI2/dvOEpeAXU9DBrJBA
-	f/k0SEYeHhrxLFJpNbkwhjj8LDHxbJPsVwh82PcFziYLmPwLysgJ4+TKKs+xij/i+10KusZok1z6g
-	drOwr9+0prgQ///eXl1vwfwpkltieBcMAftbvl4m/o4EOz1t1wGe8iCHMZHdqSZtXz87r4Upi4P/H
-	mgadg+BjwjUx95XZ85N2VAVzhWziGBxRvvYBHGH0RN/kqZXwqXunXrnXkTplc0sx5XLzDtS0Xx4cZ
-	lb6jDuxwmOPXqxxly2H2cG2QAKMDaV9Ou/TEG+m2F42E4Hfg1eZI3D0q1hJXCRTpffuexE1gZSUCJ
-	sb2K13sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L8auU58LgAXdY4hWCl6wHaE8gXHNNTt7g9BcuB3xl/A=; b=JbEscPZOyrlokQWDqC1uemgCXg
+	iJ3xyunoY6TQs6ipCrrYLwhJAJITddO2+mV0NRWrEMySIxzbwBw4uoWeq40LXiFOvd/etj8T83WlC
+	QWCDtqLtouZT5CzZx+T0yr7pNw4d4Akj0cKzKk/JbgQcc3HfnBngsk7hh15wagdeB9DcE5uZsuL6m
+	urAM0FbKfBzwvsAnjhlzYwZ8hbh76IJQLAd1VoW7f9TH64YicGrw14jlJM0Fmsm1DeFwpqa16quop
+	fvZn88SbsP9r2nZlU06hzmmq10HxBRVtCgO/nkIHypCKQivrkJ8TYZUF6pr1OuGIfgZYwQrBd2Q7m
+	5GoDcXTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYtx-0000000HDQy-0Q4v;
-	Tue, 30 Jun 2026 13:53:25 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1weYuA-0000000HDSw-0vJe;
+	Tue, 30 Jun 2026 13:53:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYtt-0000000HDQd-3j6q
+	id 1weYu9-0000000HDSm-2E22
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:53:23 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 137A74E40BB1;
-	Tue, 30 Jun 2026 13:53:18 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D366E6025A;
-	Tue, 30 Jun 2026 13:53:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 497B2106F1F70;
-	Tue, 30 Jun 2026 15:53:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782827596; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=RhTaGTqXn+vEjpea1Rvo2RPETqMhHuTMxdNXRudSe/o=;
-	b=D9wSGRVypx8zxy3QgxOSR130crVvBYKWZNsLuy/RRFjJLeBg3BQdLPUaFDY/5R0BEEX9b/
-	5A498attBVzR2DG8XO4BBKQhrgBmpkrufZKVvC17sTbYl25xqGrwVMva8scfhu1g5eo3en
-	bKFmtNpANcqA/VRIGpxxTH/VCWjJL7xFzq4LhFyPwkXz61w8AQ64UJTt54okI1zw2yC75g
-	F1oDoH6AdfPL3JSbHuMapXSt20ZBqstdc1hWTxEbPCvi5NU8atITi4occfoghLZTVDBFDL
-	see8UI6kPDopLHpL55kTSDUp3FS+dxAhszlwDryseybhNk13Kvdp0Neyz/GkJA==
-Message-ID: <563ac947-0c5d-47ee-aedc-66baf4d32648@bootlin.com>
-Date: Tue, 30 Jun 2026 15:53:10 +0200
+	Tue, 30 Jun 2026 13:53:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id F1F6841092;
+	Tue, 30 Jun 2026 13:53:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E12051F000E9;
+	Tue, 30 Jun 2026 13:53:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782827616;
+	bh=L8auU58LgAXdY4hWCl6wHaE8gXHNNTt7g9BcuB3xl/A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OB3f2+qOmRlqlAGoNAuNbUTF/wGc94sX4j0dhQaK0hp4KClwPMcoDtyij1m4QI+uw
+	 7UIMIErKIwNYqmN/5ZFXwBHFquX/hrqbfTO0wriPqz0XN3WMC9syVtKDWc5PD93URW
+	 hON1xtFS5ALZ8eo0xAUfiEDad5rGxYTsiHIqfykre4fvR4ZN8N4m4u3hYvyAG1x/S2
+	 ttGmquaYzMsPbQr5aIP7Xr/ab3feOSwb6L0EF9HWA+JpTQeMy3qjy4zFwuWG5Y4+yT
+	 dt07mdNe0B/F8Ec6PqL/wvDdCLLqe+balCtUx+FBmjNUn4AAc6hH1Xdeqnv4YMyMC7
+	 Uwlc2bAjlkqzg==
+Date: Tue, 30 Jun 2026 14:53:31 +0100
+From: Will Deacon <will@kernel.org>
+To: Shanker Donthineni <sdonthineni@nvidia.com>
+Cc: Vladimir Murzin <vladimir.murzin@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Rutland <mark.rutland@arm.com>, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, Vikram Sethi <vsethi@nvidia.com>,
+	Jason Sequeira <jsequeira@nvidia.com>
+Subject: Re: [PATCH v4 0/2] arm64: errata: NVIDIA Olympus device store/load
+ ordering
+Message-ID: <akPKWxYxDvLGVfQx@willie-the-truck>
+References: <20260625182425.3194066-1-sdonthineni@nvidia.com>
+ <381fb71c-0a2c-4dec-98a3-56ad88e190c6@arm.com>
+ <ba15e106-9066-4e55-be2f-6767a32e123d@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: dts/net: stmmac: Add Agilex5 SoCDK TSN Config2
- board support
-To: muhammad.nazim.amirul.nazle.asmade@altera.com, dinguyen@kernel.org
-Cc: rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org, conor+dt@kernel.org,
- robh@kernel.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_065322_079632_969C16C3 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ba15e106-9066-4e55-be2f-6767a32e123d@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On 6/30/26 15:31, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
+On Mon, Jun 29, 2026 at 06:08:37PM -0500, Shanker Donthineni wrote:
+> On 6/29/2026 5:45 AM, Vladimir Murzin wrote:
+> > That's interesting. With the way the patch set is structured, it
+> > now looks like:
+> > 
+> > 1. Fix the erratum, but cause a performance regression.
+> > 2. Restore the performance regression and (re)apply the erratum
+> >     workaround.
+> > 
+> > Would it make sense to avoid introducing the performance
+> > regression in the first place by structuring the patch set
+> > slightly differently?
+> > 
+> > 1. (Re)introduce arm64 memset_io()/memcpy_toio().
+> > 2. Fix the erratum once for all
+> > 
+> > What do you reckon?
 > 
-> The Intel SoCFPGA Agilex5 SoCDK TSN Config2 board uses a dual-port
-> Ethernet setup where gmac1 (TSN port) operates with different MAC-side
-> and PHY-side interface modes: GMII internally in the MAC, and RGMII
-> towards the PHY.
+> Yes, that ordering makes sense.
+> 
+> I can restructure v5 so that patch 1 introduces the arm64 memset_{to}io()
+> implementations while preserving the existing behavior. Patch 2 will
+> then add the complete erratum workaround, including the conditional
+> trailing DMB for those block-write helpers. This avoids introducing
+> the intermediate performance regression and keeps each commit
+> independently usable.
+> 
+> Will and Catalin, could you please share your thoughts on this approach?
 
-There's the same behaviour on Gen5, e.g. CycloneV where we have the
-"EMAC splitter". Based on wether or not we have that splitter in DT,
-we override the INTF_SEL bits to set GMII as the MAC output, the splitter
-converting that to RGMII/SGMII.
+tbh, I think I'm ok with the current ordering. The second patch is purely
+a performance thing for affected CPUs, so doesn't strictly need to be
+applied or backported for functional correctness afaict.
 
-Is there something similar on this AgileX5 version by any chance, for
-which we could reuse the logic ?
-
-I know that on CycloneV you also need to adjust that GMII -> RGMII/SGMII
-splitter whenever the speed changes, is that different on agileX5 ? have
-you tested 10/100Mbps ?
-
-Thanks,
-
-Maxime
+Will
 
