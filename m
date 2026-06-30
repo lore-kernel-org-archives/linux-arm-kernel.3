@@ -4,143 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A31B5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B4BC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 11:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+cD/qdB4qLo7t24V1HoY2mhI5/c5P8R7KcWgHdIvodg=; b=MaDv7vasqr++WVm5AzpUj7NQFp
-	2nmmVf8ED0khcYwx87WGyZqlDMqtbIIwDeq+nOaU7SY8vdxqNlHMooBnq0kFjjTgw8sVor8eTQT6E
-	mEYOI7PkEGHvuzZV1CcT3bszCuKhyRCRoKLAECJNmiOBsnwVvdZLpDysnJgOORs87Hjuz2dPhbTO4
-	qotYQznqMrCk5QDBHYngwTXoCAga5tuihDhRBTur7sm2PjwM5dlfM7f6hTuTmKLHmfV/S6Kimah1p
-	Ff1r3pcAhWSIu0bhz2h7cs2Rk5hE9LLep5V201Blfnt7cformzyJ0FN9XhO3nX8rfB1m8gTouCpAx
-	FFuxikeg==;
+	bh=J8SvJGTZ2u1IZwFhcs3i7c0fEcalkO1dVS/ZfeJcwRI=; b=Wd1iCOzxpbTPdL+Z/lC3crMRK+
+	m86Wt7abN7foC8QXw12swGqWwXOSQLnDPCXLp9vHHMJH2+W5IXvPrcF6neGlvcufFuj1Zdxkhm5iF
+	6aVj55qmqVCB2MFygekp6OpzxvwoA2aWrrumMkQV4K1kaMLcyxd9hmYV5ti2RR7w3B/Ypdeoolv/D
+	YXmEhrRqPAcdk6F7D8X6Bxrv8ZUVnOdjlUm/BKSDBvEPIQFxjXzGSSi0ipUrqnr2iAZMJfKJYXJh9
+	Fh6I9lpUlczjbUK1hqgLGr12dWzdt0g7mBVm1bi38cmRkehypyeikGF7f/Yk0Cyvjd7Gz93+LXRJS
+	EnfM6HSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWeC-0000000GqXj-0C5x;
-	Tue, 30 Jun 2026 11:29:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1weWfO-0000000Gqrb-2Eu6;
+	Tue, 30 Jun 2026 11:30:14 +0000
+Received: from relay.yourmailgateway.de ([188.68.63.98])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weWe8-0000000GqWH-3XNi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 11:28:58 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65U9mx761613472
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 11:28:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	+cD/qdB4qLo7t24V1HoY2mhI5/c5P8R7KcWgHdIvodg=; b=jIvI+h5dau62FnVJ
-	+ceUeR3pIvghdyQb72ZrWn3ExB2KV7pko6NOewt0MuaLC/5682f/9U1HBRyDNClc
-	vfOcsbkdj3QXDxc2KG2XS1eS/6v7KGkb3JTZNhjD38868jBp8OHdT93MZjshhmCJ
-	cx3H2Qeu3/rn7o1/DCJBIPFSINj+JKiPfQpNA5jNOV+7T5oSB1mXlinNSrV6RouU
-	mR1RkgGKjlZRVAkiHJ/kBjSagsQ5/21TU8QDKwZhUrnDJ32D/A659lCfYmribO4q
-	q0afVARwI8CHWCAtX2IrJYXZqTvPX/LeQMLj9nZe7oYC317TBUYpjm7Gocq3ebhO
-	sMu58Q==
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f3x1cukja-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 11:28:55 +0000 (GMT)
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30ca3374c6aso11886678eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 04:28:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782818935; x=1783423735; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+cD/qdB4qLo7t24V1HoY2mhI5/c5P8R7KcWgHdIvodg=;
-        b=RoXZbhMucFrw++mSp8CU/khuC+SKmtflLR9yN13tUminqXT2xgShfGFdm6P4UnpOup
-         j5mu/F/KYGHcrZdc+jozVP9O9ABsKHiNg4p4g332iNMAYaolXs8IxmpCuHfpXb8z9Dqs
-         n8oB9KuehzyIso4Op4OoAOHPzSAHSRQXxPcLuVaYeOOkBtH6IW5/19zlSVg1uou3C3az
-         MksBvU0nHAkEtOKnF+2FVI1VZITwnzkAywaq+T/Gea8KvcusQlZaj8BQPb4AO4lhuFp4
-         /LyhitPPki2MuzWhrT+A4xPVJinclVqD2ajy0++rficnL7YjVvp/cNStPrDpAwCjxRG6
-         AgVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782818935; x=1783423735;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=+cD/qdB4qLo7t24V1HoY2mhI5/c5P8R7KcWgHdIvodg=;
-        b=NlYFdTJx7CmiACOuIEoj3hkUBnYP+Pv7xdAojZmNWqc7dw/AdrSu5OUjU4OhDYNvaQ
-         awc1onBmBYFtNpoUKa/oP5aAkBfvahD65VxlAsldoc9VQwOS880jFE6wylRAXNfE6Sd8
-         MqaO8PiHa5EUk1SdywcNZgbQJJiNfyAD5R4Ftlce0Ct0eShSDkY9Vxje6YJ5EJRMCFiD
-         LrEuyttLlJBZ90L/3bNQXYbbZnS5JQBZy9y97qGLEI5xqe5srwWvrIlsZlzlHW73BwbS
-         Exec7XAJ6GYFuwcOZgo4c63MUA1qeIqI4IzmBfqv/gElyMCUBt+v9jTJiaiXEpb0IjHm
-         tKRA==
-X-Forwarded-Encrypted: i=1; AHgh+RpNE/DMzZcqBslxE1T1hyGIBs63xaIo5yj71ABPrheCaYyHjjvdyYstWxwng0ooZOtllQRpTU/sNv2jQuvh1xuU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwqMNgo+bMqc58a2WVnBXgArYrFa9pseZ7XIKLOPk9xDe1/6paW
-	v7hY4R3kMoq4x6eBDR+e0bfNO5EM1Pfibm1r7YNkZ0ge46sZ8qStRZ4Di27O91CJ/Z0UF6iaTaY
-	LictaQbpg9JS0f+bH4aqb+dfqx6jgCt1QUogQBX+FYFR93ydCIMGWK76ZeF6tKBgJhVNJnkqjDJ
-	naXg==
-X-Gm-Gg: AfdE7cnk1GlU68OUgEK3cPBKH9p7lfSwRH/WJVoy1i01QiKVwNi+0lL/uY20b1CIVNy
-	X4jexe0H/5eRA7IbdHfsDVEpZ78VJDJPV102/LQxAopOUuVJJCg9tMSl6bU2EZOJJqMIUy37bY+
-	VtXc3s8g/11kLKGzR0q826S2L/7RBIT+b+cC+bFot9AEJseLQyIij50miCWl4zOB5FSdN1Lv4c8
-	0+4caANiYA7d1sb4XfagpR67/ptfIXtpzDvbexnpJAXINJQ+6T6vnblt+NPPyr4UTireJVXMs/5
-	htNsBzjHcDQTVAvhC9cti8QhaNo46pFQ5gRTgFLfdNeKAhZNNo91b/h4SO5QPYFTR2aRqQJIA1E
-	W0I6fqmAFAVJxSDhHChKuDwwCHIXX
-X-Received: by 2002:a05:7300:4303:b0:30b:ab02:9e52 with SMTP id 5a478bee46e88-30ee13d61demr2319263eec.30.1782818934566;
-        Tue, 30 Jun 2026 04:28:54 -0700 (PDT)
-X-Received: by 2002:a05:7300:4303:b0:30b:ab02:9e52 with SMTP id 5a478bee46e88-30ee13d61demr2319229eec.30.1782818934035;
-        Tue, 30 Jun 2026 04:28:54 -0700 (PDT)
-Received: from QCOM-IvKeorbwK5.na.qualcomm.com ([120.56.202.7])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ee3264f52sm7541784eec.28.2026.06.30.04.28.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 04:28:53 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Yue Wang <yue.wang@Amlogic.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Kevin Hilman <khilman@baylibre.com>,
-        Jerome Brunet <jbrunet@baylibre.com>,
-        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-        Remi Pommarel <repk@triplefau.lt>,
-        Ronald Claveau <linux-kernel-dev@aliel.fr>
-Cc: linux-pci@vger.kernel.org, linux-amlogic@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260616-fix-meson-pcie-reset-gpio-v1-1-fca404b4c8be@aliel.fr>
-References: <20260616-fix-meson-pcie-reset-gpio-v1-1-fca404b4c8be@aliel.fr>
-Subject: Re: [PATCH] PCI: dwc: meson: Fix reset GPIO initial state
-Message-Id: <178281892763.291682.17352622719357029190.b4-ty@b4>
-Date: Tue, 30 Jun 2026 13:28:47 +0200
+	id 1weWfL-0000000GqoS-3xN0;
+	Tue, 30 Jun 2026 11:30:13 +0000
+Received: from mors-relay-2501.netcup.net (localhost [127.0.0.1])
+	by mors-relay-2501.netcup.net (Postfix) with ESMTPS id 4gqLXt10tcz68bK;
+	Tue, 30 Jun 2026 13:30:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1782819006;
+	bh=bND4nmC52SsdVbchgWHn53BVqAbA6/MYoTfwdivb9iU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=is9Pq9ItxwkIslCPKQiyVXINTZo2e0qhaFUi1k0wqbGfVvVQ8DLphx7r6ho4fyQ+E
+	 R14uV3uADzX76+1OH1LNcHYeQB2IXH1CBTniT9ByFBamngmPxO4bI3IeBv4Hh9+Qos
+	 TSt+b+iS0TrUZBuVypc9JpRldu4aEq6tifHYMbRU/qo1sO6KXZmKoa93AlC0WCwSM+
+	 2F39VWLk0ffi0bw5oOH/5t/x+85csWB1rV/qjnhKCVXRLU6p/aWgsu8ODS4D1J4VCC
+	 Ie3lCsaclNsmDD1XXGT9KOIYjn9/3lhwlZIwqm1cJiSbsidlDIZUUpCWlvW8FsDYe/
+	 C9sFaJITwyWig==
+Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-2501.netcup.net (Postfix) with ESMTPS id 4gqLXt0H1jz4xLr;
+	Tue, 30 Jun 2026 13:30:06 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4gqLXf19t2z8tZB;
+	Tue, 30 Jun 2026 13:29:54 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 2DA965FC41;
+	Tue, 30 Jun 2026 13:29:53 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <b143b62e-ca11-4f00-ad60-f71ae55213b9@leemhuis.info>
+Date: Tue, 30 Jun 2026 13:29:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.15.2
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDEwNSBTYWx0ZWRfX7W5OIuxi6vG1
- EUkgl2HAOsH4EolZwV/dhfykvNXwOKlobcZr4PwrvhGlWoOnvzuy6PQyo2dvQcbDTAElv/Hp+Eg
- VetmNSmS0lPh+/fVul7PIMjDyPwR4KsdlQFcqT5LFEC9rcPg1rxrVXkt88H19Yw2vG3Vrpm4BK8
- BjfrYNoN6M9as1Zm/+bVGj8ttY54tUXw8i8CqsGqAgLJUNbUovOaOjDDjBwnspL8QfL7E4rdBX2
- rqRxwRGGuBxpyEVRHpDFNFFuANHNk2Z7IAo4Vf1OGKpeqTV3fHRQahxyx9aTuBoMew725fp7EWV
- VDydwORqxvbKjt7ZIOBtVuBWcrrYGamorTrKKbruNDzTNqEU+4rgPumSr381JHexrv/BNiAmjIU
- VyyJ7HT/ZgzeUqTGjJMfvHVrLYJJ7mRZzIj/l8OdK5/C/r55cxAvr6qY9swicLlibhUYuRcBRF9
- w7EdXioJyg7DUQtVHBQ==
-X-Proofpoint-ORIG-GUID: n0ZoHstlrS5MzydqnkNW5k3YAE0dioSa
-X-Proofpoint-GUID: n0ZoHstlrS5MzydqnkNW5k3YAE0dioSa
-X-Authority-Analysis: v=2.4 cv=ftfsol4f c=1 sm=1 tr=0 ts=6a43a877 cx=c_pps
- a=Uww141gWH0fZj/3QKPojxA==:117 a=d0NiXODO0fVjScRmrPHHeg==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=NGquYU0cblXHf0KasdsA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=PxkB5W3o20Ba91AHUih5:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDEwNSBTYWx0ZWRfX777heJe3ifh7
- 55mgojFuJ00i1XpK8zI+C8DQi9V6Iu2MLS5Nq+ueYMwuI2tWUkcGWbMGVS5ns2bLtpir1F+8ROW
- 6uRCQPvMLsCERNWox7OnH9HV9e5Cz2A=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-30_03,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 spamscore=0 clxscore=1015 malwarescore=0
- phishscore=0 impostorscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606300105
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] wifi: mt76: add wcid publish check in mt76_sta_add
+To: Jiajia Liu <liujiajia@kylinos.cn>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Leon Yen <leon.yen@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260528033814.46418-1-liujiajia@kylinos.cn>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+X-Enigmail-Draft-Status: N11222
+Autocrypt: addr=linux@leemhuis.info; keydata=
+ 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 MEK4
+In-Reply-To: <20260528033814.46418-1-liujiajia@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-PPP-Message-ID: <178281899374.842439.7183806903184206113@mxe9fb.netcup.net>
+X-NC-CID: kHJGrrkTMORIpTtCI7QdXFhTPxpnjuYc1xCuYWft9J8OiKDCI30=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_042857_007263_4996A3AA 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260630_043012_311843_58526816 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,26 +138,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 16 Jun 2026 09:07:25 +0200, Ronald Claveau wrote:
-> Commit 4d3186a525b3 ("PCI: amlogic: Fix reset assertion via gpio
-> descriptor") inverted the reset assertion logic to use proper gpio
-> descriptor semantics, and moved the polarity configuration to the
-> device tree as GPIO_ACTIVE_LOW. However, the initial GPIO state
-> "GPIOD_OUT_LOW" was not updated accordingly.
+On 5/28/26 05:38, Jiajia Liu wrote:
+> Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_add
+> to avoid reinitializing the wcid->poll_list.
 > 
-> Change GPIOD_OUT_LOW to GPIOD_OUT_HIGH to get the right behaviour.
+> Found dev->sta_poll_list corruption when using mt7925 and 7.1-rc4.
+
+Jiajia Liu, Felox: given that the problem seems to be in 7.1, should we
+ask the stable team to pick this regression fix up, as this change was
+mainlined (as 20b126920a259d ("wifi: mt76: add wcid publish check in
+mt76_sta_add") [v7.2-rc1]), but lacks both a Fixes and a Stable tag?
+
+Ciao, Thorsten
+
+> According to the corruption information, prev->next was changed to itself.
 > 
-> [...]
-
-Applied, thanks!
-
-[1/1] PCI: dwc: meson: Fix reset GPIO initial state
-      commit: 702c89eec25a10932bed074cb9adf0fcfcb6652c
-
-Best regards,
--- 
-மணிவண்ணன் சதாசிவம்
-
+> wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8b:e2
+> wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=84:9e:56:9c:7e:6b)
+> wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
+>  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
+> list_add corruption. prev->next should be next (ffff8c808a7488f8), but was ffff8c80958a7040. (prev=ffff8c80958a7040).
+> 
+>  mt76_wcid_add_poll+0x95/0xd0 [mt76]
+>  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
+>  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
+>  mt76_dma_rx_poll+0x50d/0x790 [mt76]
+>  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
+> 
+> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
+> ---
+> 
+> Changes in v2:
+>   - use dev->wcid table instead of adding MT_WCID_FLAG_DRV_PUBLSH for
+>     wcid publish check suggested by Sean
+>   - subject and commit message update
+> 
+> ---
+>  drivers/net/wireless/mediatek/mt76/mac80211.c | 15 ++++++++++++---
+>  1 file changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
+> index 4ae5e4715a9c..b78b4cd206e0 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+> @@ -1576,6 +1576,7 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
+>  {
+>  	struct mt76_wcid *wcid = (struct mt76_wcid *)sta->drv_priv;
+>  	struct mt76_dev *dev = phy->dev;
+> +	struct mt76_wcid *published;
+>  	int ret;
+>  	int i;
+>  
+> @@ -1595,11 +1596,19 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
+>  		mtxq->wcid = wcid->idx;
+>  	}
+>  
+> -	ewma_signal_init(&wcid->rssi);
+> -	rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+> +	published = rcu_dereference_protected(dev->wcid[wcid->idx],
+> +					      lockdep_is_held(&dev->mutex));
+> +	if (published != wcid) {
+> +		WARN_ON_ONCE(published);
+> +		ewma_signal_init(&wcid->rssi);
+> +		rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+> +		mt76_wcid_init(wcid, phy->band_idx);
+> +	} else {
+> +		wcid->phy_idx = phy->band_idx;
+> +	}
+> +
+>  	phy->num_sta++;
+>  
+> -	mt76_wcid_init(wcid, phy->band_idx);
+>  out:
+>  	mutex_unlock(&dev->mutex);
+>  
 
 
