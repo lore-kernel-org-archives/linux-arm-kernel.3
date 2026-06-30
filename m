@@ -4,60 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1D4C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:40:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBC1C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3WZwEHEb85ZkRCrbpTyDX+sXwXVVXCmTst5tFt0WoU=; b=NW29RH3ajPZiYd5LgCNlxixemV
-	fJYXZnc0ahPZ+oNQ3Mrmhg+Edr77l2ZD91BOw6l/XqNVKTeg7M44I4ZQ2t/lZcGvYXyL2rXCrbkqJ
-	HEj+6GEwsn0kdmCh5crU0lIJktLHphPsECz4IWzmGLKQgI6oIpTgpnqBhmfFnxCkMhHKrgjPMDZup
-	5n8LbyQR+8vUH2zMlMDU/6n2m5b3yzyUqT4qrbfnh1stwV8/mJatiD015VT5Ic+CjRpI6JzV1VpGl
-	vw6z+CYOh/nQjJ9M0U6BIxi+2pYtRD5RRCaP74ijlRWaMkdy4qmlElAqbWlVusK+8M74WuXBqHyRJ
-	PUT1YedA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zt77Lbtsncie1+AFWqr0tPcSeJdAyekHoPRmDpf4Y2c=; b=Z2y5Cb+DtOJOkGLDd4ovhp2cW/
+	OMyp9vVefP6LNT3cGZgCucS8pFsvb2ppgs7lYvJ1Al5pkPtLm2tGiIA/Q0KZEyMx/4C0Dg+/E554y
+	hSOc1ahg/Z0arMX+H7aE3SPSunnkYh0nxTdwPiU+Ju/sOrM+IGmbN+LnpaCNZx6d4h22d18ixWhNX
+	rUb4wqWsr6Zh8pLuy8s5mBXCjWdhZHCSaC5aPzFMHUQCXrhFTHU8D6/4gl7QDbhMDPW2evJx6rjpl
+	WXimqOatXL1GmqrVZ88xstK5BlggroSRFO5DTrjq+25lrlt8O36sjqpt76CKBG78PthP6k2FSTk3X
+	h91FQ3Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUxN-0000000GTu9-2U7B;
-	Tue, 30 Jun 2026 09:40:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weUza-0000000GUAf-3yBl;
+	Tue, 30 Jun 2026 09:42:58 +0000
+Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUxL-0000000GTte-3z9h
+	id 1weUzX-0000000GU9x-2BV3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:40:39 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B0ECA4347E;
-	Tue, 30 Jun 2026 09:40:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640781F00A3A;
-	Tue, 30 Jun 2026 09:40:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782812439;
-	bh=k3WZwEHEb85ZkRCrbpTyDX+sXwXVVXCmTst5tFt0WoU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=HC1tDAtQwTeLR20Q7tlypDNUahVsP6GoZML8KiCmjS2Bbh1qXa6ZdIRxfB/xxZPql
-	 Ct35gO4cqBYt/+KBr7UwSf1MfTgcosVRAZDwBOnVa4wEKEzMm2ofFvia7O1L/Qo8HS
-	 sGQFBpwGoTAO3ihceg7QTAkfbS/Mjy1vPUbVjH0JZ+xL23POZtDcAIm/EhA4w+dQR5
-	 YxBDeKrc28Yc2ku/mE5ellBt4mkpcQc7jbzdY/EqQSamuSr1JucNh8b71x2uU3ZxFM
-	 1sehHBhcBEDMwsroKZ1ZKWFnW9wW7NwAUTmgka3RFRt2hN+gsc7fi14uV/I18eAd1o
-	 5/XOfsgW4Bdgg==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Sudeep Holla <sudeep.holla@kernel.org>,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] firmware: arm_scmi: Grammar s/may needed/may be needed/
-Date: Tue, 30 Jun 2026 10:40:35 +0100
-Message-ID: <178281184461.1094562.13812254750966468739.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <5180d04abfb8e3074a321e2eb73bacfdd61c30c5.1780499850.git.geert+renesas@glider.be>
-References: <5180d04abfb8e3074a321e2eb73bacfdd61c30c5.1780499850.git.geert+renesas@glider.be>
+	Tue, 30 Jun 2026 09:42:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FmYPTkhrCoH2JkiGaREz9NW0CbAN1t0oDEZzIETAyrro3+UTDvIW3321j4DEiYQe7qbKW4P0ZImJoWonm2eZJg0/pZtJHJsdL+WE1CkzZRvPMIhdrvyJYhnW+oAESiP2ImpW9cvW95hAY93MkbiFagihny1iQlMwLskg0FYYJrcJlypJF5xXzthb4zPFq4MtfXSinveDGYIusX0u1mh0KY0RMfzI5j1Jj4RtGkuDEOcilKCEjMEykpgpxonC+UVl9BHIVAtj5fgthWteD07FypZHWaD5ArJduMht+7mhqPvP996XpCVhlWAgGGTYUZSdo4XRDTs9VMcZqY6/YaQi2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zt77Lbtsncie1+AFWqr0tPcSeJdAyekHoPRmDpf4Y2c=;
+ b=jx2OcuBN6lkkQtckVuIu1rLlu/LoLFxootvxOmxrcqfOCEcDcdIlCZtR2FzCJr+D41i0R4brnY90IpelDqP+3prdts9wuoGd8HGuN/zyybdvxl2Su5Htb+RHh1xSwxdMSLdmu5YWy99kjamaystSBq9Y+raH/LD/Jb6kWlSVDabct3OyUFUq5AveuP7otE8o8z12GrOvUiBTWEHkwQ44+OnCAdvoLqALFM0JGc1nbJCGTjic1Y7ukfiMO3h3r6AzZJsRyyUAwGYRrqNfohdQAI/lEqwx4hpwjXyLyOxgkbO/Quqt8OSPqkSUoP3bU4qXYhyHTnvXuwmIQWtYP5V3QQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zt77Lbtsncie1+AFWqr0tPcSeJdAyekHoPRmDpf4Y2c=;
+ b=LiGwf6h8e/QrnFr/jsXPDQekn7V+ePCxGzF96r+8C68rXQO2K82x8Zfv5bmb8xq8BB2uN8XhDYijdaspVegxhuDRIo8byNl063pZKxVLPZg5ii3OebvOBdNkVX0rbqH54m6rwTI7weifDeBFSL846MDJm6q09mXKf2EjCwl45Xids36bWWxrSra3rmSngUaHaocFx9yziVcldF0CywbNJZk//CK59g1yzDf4CPSsiE0tCJiEbv3ivF5Qq6Frg2+jh9y3GDHfr3OwNT4VmRtmTrCQ62p7UiQbwDlBC/tWTAJLHSQUQjpYLnVrgicfROD08/QuMVPdrcj3fc8+Vos+sA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
+ by IA0PR12MB7700.namprd12.prod.outlook.com (2603:10b6:208:430::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 09:42:47 +0000
+Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
+ ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
+ 09:42:47 +0000
+Message-ID: <3c714ae3-8f62-4785-9f61-ba9899fd70d8@nvidia.com>
+Date: Tue, 30 Jun 2026 10:42:34 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 12/17] arm64: dts: nvidia: Add EL2 virtual timer
+ interrupt
+To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Mark Rutland
+ <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Ge Gordon <gordon.ge@bst.ai>,
+ BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Lars Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Thierry Reding <thierry.reding@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
+ <afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
+ <eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>,
+ Shawn Lin <shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>,
+ Michal Simek <michal.simek@amd.com>
+References: <20260523140242.586031-1-maz@kernel.org>
+ <20260523140242.586031-13-maz@kernel.org>
+From: Jon Hunter <jonathanh@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <20260523140242.586031-13-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P123CA0482.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:1a8::19) To SJ1PR12MB6051.namprd12.prod.outlook.com
+ (2603:10b6:a03:48a::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|IA0PR12MB7700:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfbdd434-1c28-41d0-b7e7-08ded68bf120
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|56012099006|22082099003|4143699003|11063799006|18002099003;
+X-Microsoft-Antispam-Message-Info: 1vYksPvq+pPyufTPmJ/8reBSOt1O3WpVvJsgtkA/NMbcdh9liSxmbcrh+UFfleOZi5Zyu5AM0feyigswrOSns0uWvl7L7BEn2g5fHlakMn5ynwbZjoHbZGsxTBgF9cfMOVUSR0QEhJaF8QSMVJe9I8vpmZreAhM3LHW0J6nMiqQvSU0WG26x/gIrhU+E6+mM4P39/23O7ASFgmHVW7SuPNG24AqfyCXNfd5LaURNxYk0T9UYueTkv1C74ekFbMWolE7IOmxw5fsSYUQHh1jrEshaY4qvAS3w/wXqobXOkFZcgnbb/qn84EC+mHwqh3cCL+FAw1+B3maSOfi/nlFl1isbnJNULZ01MQgAVyt7r7Qh1NEQtmaO7V9oMkh42iW0Ol6Ch98ojwCOOLVAR3v0YicyEAKaPq8UDAtAaDH5N19lDeO7DraaF9fAhtcS9GQl7hKKuayG8FbceGpbSde5jmfZoqhH8C0XA/mF0Y6m2xdCuZQS4xgHk20jcV/SWOmg4iuhEcHWmVayATqc/jRwc0vvf3oPy50htPo0YKN+s7SKY3pFLqwB4lj9xVzHrKmoM/wjtUQshkJyudU7o7Pbaosh9AVMCn9woicoKbGgZaHmj+B+M62OP9UJvtu3682lAHNtDmSFHWm5vDLHsBMIW/DfIuLzmHukpKQ2JKBRxxY=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(56012099006)(22082099003)(4143699003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bUhzemJnQVFjK0RtYWpXVlVmVFRxc3MyOVQyWWlrb2ZlaHZCaFNFRUY3RUpp?=
+ =?utf-8?B?TmM5VkZkZkZYRW8zY0w4VUM2VmQwVVBEcXFoSzFxdlN6VEJ0d0NFWmlDQnRV?=
+ =?utf-8?B?V1Q5dG41V2N2cENRNGM3c0FLMS9wTVR1SlVURDdPcWNleXo0YnZBeWZNVVRO?=
+ =?utf-8?B?Zk9XTWdyZmZFdjRXMVd4ZDJsNHdFektQVFhwVVRDQTkrZjJEMGtJcnBIVnJV?=
+ =?utf-8?B?bmFZSWttSXJRSG5NZSt5UkMyN3BGU2NnQXF6T0NQYlBwTFE0a3B1SHl4dTVu?=
+ =?utf-8?B?TlZMWFBZaHpHZTAzUk1lN1dwWTNOa0QwWXBoYjYrYUhOWU0wczZnOXlwK1dk?=
+ =?utf-8?B?VUt1UWdkKzNxTmhGb3pNMkZacGxKVGZpdkRkamtGV1lZYXF3Vlc3TVlYbjV4?=
+ =?utf-8?B?eEVjOG1vU3VzVWU5cUNNR213dWxUM2hvSHVJWitWM1RvQW9lMnp2Z1FhUTZO?=
+ =?utf-8?B?Mjc1RFZOU2Nib1hEVFI0aFNGWFV4dHV6elJYYk5IRVhSQkdBcEtmd2VmTWlp?=
+ =?utf-8?B?ZHJWVUdBMWtnKzJtcVFjQTV2eUFGTmE5aXZMdXczTFVYTDcyVGpaMDZqcHUz?=
+ =?utf-8?B?WG92aUt0Wmc2ZHdzZXNCdCtYUHMvMnh1eHdTd25YbXg3N1hQQVFiclIvUVhH?=
+ =?utf-8?B?MEgvV1pBN21BMzc5ZmZySzlKMEZXcnRzaERQV0xXdENaQ1lQTSt0WVkrWE1h?=
+ =?utf-8?B?a3hhdjVvWkNLUXE5cnlCZU1pVFJZaHRQMkloMVlUY1dNZW5kd3hZUkg4dWFE?=
+ =?utf-8?B?dFNpZ2FqZThQNS9WbXRkSGNnOXpVS0RGR1lKZVA1RkF5L2F4TXk2UXNnTllH?=
+ =?utf-8?B?YkgzcVBRSVdQalcvZFk5b3hiNENGdEJSRW5mR2tDK2VrN2FqU01jSU5BL0JP?=
+ =?utf-8?B?UVZLRFZIcmFJS1VYK1cxRFV5My9NVHFaYmFDNloyMkFSMVN2N1FXMDg1cWd3?=
+ =?utf-8?B?VzVXQTJJV3hCVm5mMnpTcWM5OGlFdHlidzROZE9lQkJqcFR3bUV3R2UwWHRo?=
+ =?utf-8?B?WjNFTFo0TFIyNm5NUmtQdXlwSXBPdDFpajk4NzVyVWh3MEk1ankzN01Zc3ZM?=
+ =?utf-8?B?S1p2NDViMStnSmVEcjVPWWJyZVFiQUhWMFZaTjlETUY3VGJBa2Y4S3FuOVRK?=
+ =?utf-8?B?dk5OeFRJSEVWQVVyWFVUdzcrMk1RRjBBYTZodDdaK3E1S0xaUkhJbysxaVJx?=
+ =?utf-8?B?dTg0ZWJZbTlVLzYwS0NQYkwwaWVPaGJ6Uy9tMFpHNFpWaWd4NTU2YWpjYW0w?=
+ =?utf-8?B?V1JUL211R0RBc3dKYmprL1hSV3NiSEtDQmYzcEtXYzVLS2hNM0hOUDRjN0Jy?=
+ =?utf-8?B?ZHRNMWVhalN5VHRLK3BrWG1XZ3BVbnhMSEVmSk1JTEpQOXpPOVUxdGpweGFl?=
+ =?utf-8?B?dmo0NWJ6YlZVT2E3RGJDU3VMdGhPVGV2QkRRSy9uMnhxVnVEWTJSSzF4cTRE?=
+ =?utf-8?B?WU5oRkNQcUxzbGRyZVpkU2xYaTlPb09UQkpKbERBNkNLWkdkM1pudkwwckxh?=
+ =?utf-8?B?eGlaRDJESDFRbm01bnNsNnVTTm5jZ1NsL2RjSWd5WjQ3QXk5dmYyYWtnQjN4?=
+ =?utf-8?B?RDlPZWg2dUFNV3RlNTFHclNpTUVHNmFpdnp4Q3ljSkhoNWh2Si9qNXByaFZz?=
+ =?utf-8?B?a3JXY1JFS0tzekhJM0VCTVc3VEFVaGE3RlZBM3huMmxFYzFkb01uMmwzTDFT?=
+ =?utf-8?B?VExMK3ZnVUt6Y3Z0blFubkM0ZFF0ZUs4ZWZGQ2ZSSEN4eDJKUVNlNHI0b25Z?=
+ =?utf-8?B?eG9rcFUxclF4b2wyR0Y0eHdacVY3dVdGbHliMEVjcVZIcjA5R3pmSndhOFhX?=
+ =?utf-8?B?L21idW9oZHl4a0VEeis0MTAyTVpyd1FDODN1SnBRcnRkNENHVGs4UEdVNnE0?=
+ =?utf-8?B?a2hDTDhpMHFZYnJiUmh1QzRKZFZZZXA0NFBQUmQ3WWk5M0RHbkkzKzRmQmds?=
+ =?utf-8?B?WkMwQlJFb3FiQWZkaytlR2diamw0TnBObGVodEVPWFNXTUhpSHc0WkxPNXdR?=
+ =?utf-8?B?UERZaThLUEtOcEZCQlhNVTZ1aW1xOFdtRzJuV0tkQVJ5ODVEU3FCMkdHOVZk?=
+ =?utf-8?B?cENKVTZkazEya2Qwc0Z3YVNmWE5xTDQvZG1zanRCN3dwQWxWV09GdnBwa2hv?=
+ =?utf-8?B?RTRrc3pLYy93M0VkT2JabFl1RnNVZUIrNVd1dVhKZnBHNnRvSkN1WEM3Uk5m?=
+ =?utf-8?B?bDVqVlNwTktLdFVDak1kUE1KblU0NGE2K3BNNnRVK2JKQnhUSFduZmtlK1R5?=
+ =?utf-8?B?ck9kbzhVVXVrd1krMG5RVFI4T2I2ZjIxSHFWdStpdDE3SnFOKzVVVG1SR2JF?=
+ =?utf-8?B?ekVEbHp6UC8rQWtTL3BCY2h0dmtGK2p2YUxrMFVuOC9oTVBlSS9MQT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfbdd434-1c28-41d0-b7e7-08ded68bf120
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 09:42:46.9674
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OM1SJlOgXEZwOPBlIKwwqnKCNam7lrhcZ8daLNGm7JL0/ArjudpUcqwWUauvLeo7PIUDFvU9ioc0W6q7hYL4ZA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7700
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_024255_566522_FD605A51 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,15 +180,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Jun 2026 17:17:51 +0200, Geert Uytterhoeven wrote:
-> Fix grammar in the help text for the ARM_SCMI_POWER_CONTROL symbol.
+Hi Marc,
 
-Applied to sudeep.holla/linux (for-next/scmi/fixes), thanks!
+On 23/05/2026 15:02, Marc Zyngier wrote:
+> The ARMv8.2 based CPUs used in a number of nvidia SoCs are missing
+> the EL2 virtual timer interrupt. Add it.
+> 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>   arch/arm64/boot/dts/nvidia/tegra194.dtsi | 2 ++
+>   arch/arm64/boot/dts/nvidia/tegra234.dtsi | 3 ++-
+>   2 files changed, 4 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/nvidia/tegra194.dtsi b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+> index 849694f751d90..45cc180ac9973 100644
+> --- a/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+> +++ b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
+> @@ -3163,6 +3163,8 @@ timer {
+>   			     <GIC_PPI 11
+>   				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+>   			     <GIC_PPI 10
+> +				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 12
+>   				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+>   		interrupt-parent = <&gic>;
+>   		always-on;
+> diff --git a/arch/arm64/boot/dts/nvidia/tegra234.dtsi b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+> index 04a95b6658caa..ab9813f9ba30c 100644
+> --- a/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+> +++ b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
+> @@ -5872,7 +5872,8 @@ timer {
+>   		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+>   			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+>   			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
+> +			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
+>   		interrupt-parent = <&gic>;
+>   		always-on;
+>   	};
 
-[1/1] firmware: arm_scmi: Grammar s/may needed/may be needed/
-      https://git.kernel.org/sudeep.holla/c/05e5ffde9b666
+Sorry for the delay. I gave this a test because I observed the warning 
+that was added on the Tegra194 and Tegra234 platforms. This change fixes 
+the warning for Tegra234, but on Tegra194 the platforms I tested hang on 
+boot. It appears to be similar to the issue that Marek saw on his 
+platforms and so I am wondering if Tegra194 also doesn't have this wired up?
+
+Was there any resolution to the issue reported by Marek?
+
+FYI, the Tegra194 SoC has the 'NVIDIA Carmel ARM v8.2' CPUs [0].
+
+Jon
+
+[0] 
+https://www.nvidia.com/en-gb/autonomous-machines/embedded-systems/jetson-xavier-series/ 
+
+
 -- 
-Regards,
-Sudeep
+nvpublic
 
 
