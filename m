@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA233C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3853FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1fPFrDZ9NhL5N/9RJ6igZAPje/KpsEjFsCfMVm5Oic=; b=BTb4r9tyZ5sjX9nHK/uxy+oNAI
-	HZJxwwzrGuC1dG6IPhzFQS+IXnomD/IcsLj2SF+sr1X1Ig2oh/BsargiwHsYM53AjU2YkH+qenWb9
-	efkyXPE7IIljjSmr2YMP6cdxIBFr1hMX4tTjh9TodcMpvhP+dZPEYcfeDb3y8nistzvugHWYKR43u
-	jvhmRAC4yvSaESWz0ymtBh9FiKnjBPY1S9q1A54YY7R+YUuy2ZIE7vbVFRUqgXq5CAE5FAxUiy/N8
-	TgT0Y3s6w5j0vNB3IQXaBmslC71J8rQv9FcmsFS6Limn2ADz2O66KTAN6aS2bunVHi10X6ddrSZwj
-	xMDYfc4A==;
+	bh=CKdtDTaecC+HUonkVnwkzk/WVKXHYxo/bin0q3mo6cI=; b=esZb0HdnPS0uoJtyDrxAfEp5D4
+	szUzdn/dnH6KWuHMUO+SgVMFsEyVyLLCsKHBvByXQHgDrwUDvx/bPvIzXP9umu8+8vhe3vb4otYPb
+	kFpvW4SXtSdDrGX6ZCqdkaG0lkL5gz/HXwDxDkobprvfsqxJqWs9k2oYN41+sa0cA6AbvpEBrRUZI
+	SvPFZSGVckY8gW1jVTavd8lxOIBmEkPbiIbTWx6dUAivCIN/X5P9BseRMd7pT4Tmqf3kicNaxRH0w
+	u4EpDZeFf4Gxj+r5KaWN+VBOSyireFGtSltrDxEta7FVbn2J0ADIs6v36VM+69uhPGM3uFI+SkdYf
+	eoHZluhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webqM-0000000HXBv-1Id4;
-	Tue, 30 Jun 2026 17:01:54 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1webtg-0000000HXQE-3kJu;
+	Tue, 30 Jun 2026 17:05:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webqK-0000000HXBk-3Rby;
-	Tue, 30 Jun 2026 17:01:52 +0000
+	id 1webtf-0000000HXQ4-3b6L;
+	Tue, 30 Jun 2026 17:05:19 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DE3F43C1F;
-	Tue, 30 Jun 2026 17:01:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6FE1F00A3F;
-	Tue, 30 Jun 2026 17:01:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3FE4540B6E;
+	Tue, 30 Jun 2026 17:05:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A30F1F000E9;
+	Tue, 30 Jun 2026 17:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782838912;
-	bh=r1fPFrDZ9NhL5N/9RJ6igZAPje/KpsEjFsCfMVm5Oic=;
+	s=k20260515; t=1782839119;
+	bh=CKdtDTaecC+HUonkVnwkzk/WVKXHYxo/bin0q3mo6cI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=IquSNYx4CxMUC+vKE+lrEekfi8VHNUEUW0gQnl27gVgl7J6Z4CeupqbtYTtpw8FG0
-	 DkKfZPdrUZBG0ghDfPk+Gpu9n+W7SCEsPCVi2f3z7X2T2hlN5bAbcZjHzZewapI1+2
-	 tUP/ppMPb+9ousSo86UHxO9zvVSe6RNeeaWmGGw8djErdVP9d0YlSegLn6YG0wCQS5
-	 5+2nIMhjqP+0DGrJxXokAq2Q6VebdrQhSqBJjkzwgInSgNGLgCC0QFr0ReyMxaGzbU
-	 hFZJ+e3H8oZgrXpxqKT6xQ5cXBaebJNUbdPd5A3yAok7n4hDk9XRx1TTJDPAfW+ocY
-	 2FLlVP1YusxkA==
-Date: Tue, 30 Jun 2026 18:01:47 +0100
+	b=QWhGdiLk9DzqF3DaLu1vpSJ7yQJrFmB8W/+Sa1OCPTqCdKtpqn0ssYGwuSeOduNO2
+	 oLzCLIqwjsR9Bi9LLwl/KQz2AXp3sh9zCP8Ve6JfO9JKcOQiN7bWYsOHjzlYIaHR18
+	 uKLhH1ujQ6yREHvpEPuN2e/+2FwBKhH1C/O6BK/13sZks5Ngfkgi9r/gomicPxtDVo
+	 GDGehdTp1d5BZlALab2CBT1er8cyxoYYWKR/4A7R76mOYJ3OoYzfSr1/n7yPUTifLw
+	 puKZ+uQQJSP07LMxeUI/QNmdRrgE7Ng494kFEpgw3hKJatwdbB8VLhRbVw4VZUWtyX
+	 Z2epO6g5EwFyg==
+Date: Tue, 30 Jun 2026 18:05:14 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Gregor Herburger <gregor.herburger@linutronix.de>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	linux-rpi-kernel@lists.infradead.org,
+To: Gokul Praveen <g-praveen@ti.com>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/4] dt-bindings: raspberrypi,bcm2835-firmware: Include
- 'reboot-mode.yaml'
-Message-ID: <20260630-galleria-monorail-bf3b4f6c7a25@spud>
-References: <20260626-rpi-tryboot-v1-0-490b1c4c4970@linutronix.de>
- <20260626-rpi-tryboot-v1-2-490b1c4c4970@linutronix.de>
- <20260626-quaking-shove-fcc9d8057ae0@spud>
- <qgoblikagfbcmbqoryw4ajfa6qyx3wpj4qfeuuntima542qlkq@evebdvjaxern>
+	linux-phy@lists.infradead.org, neil.armstrong@linaro.org, nm@ti.com,
+	robh@kernel.org, sjakhade@cadence.com, kristo@kernel.org,
+	vigneshr@ti.com, vkoul@kernel.org, yamonkar@cadence.com
+Subject: Re: [PATCH v3 net-next 2/2] dt-bindings: phy: cadence-torrent:
+ Update property values to support 3 clocks
+Message-ID: <20260630-chowder-unpleased-162d2c891ead@spud>
+References: <20260630134324.61085-1-g-praveen@ti.com>
+ <20260630134324.61085-3-g-praveen@ti.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nr/V2KaeEBWBPf17"
+	protocol="application/pgp-signature"; boundary="claZfrcYDscXuJ3R"
 Content-Disposition: inline
-In-Reply-To: <qgoblikagfbcmbqoryw4ajfa6qyx3wpj4qfeuuntima542qlkq@evebdvjaxern>
+In-Reply-To: <20260630134324.61085-3-g-praveen@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,99 +73,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nr/V2KaeEBWBPf17
+--claZfrcYDscXuJ3R
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Jun 30, 2026 at 03:56:32PM +0200, Gregor Herburger wrote:
-> Hi Conor,
+On Tue, Jun 30, 2026 at 07:13:24PM +0530, Gokul Praveen wrote:
+> Update maxItems value of "clocks" property to 3 as description of
+> this parameter already indicates 3 clocks(refclk,pll1_refclk(optional)
+> and phy_en_refclk(optional))
 >=20
-> On Fri, Jun 26, 2026 at 04:57:35PM +0100, Conor Dooley wrote:
-> > On Fri, Jun 26, 2026 at 09:35:05AM +0200, Gregor Herburger wrote:
-> > > The Raspberry Pi firmware allows to set a reboot mode called tryboot
-> > > that allows to try booting from a different partition to allow updati=
-ng
-> > > of the boot partition. Allow reboot mode properties by referencing the
-> > > reboot-mode schema.
-> > >=20
-> > > Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
-> > > ---
-> > >  .../devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml   =
- | 5 ++++-
-> > >  1 file changed, 4 insertions(+), 1 deletion(-)
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bc=
-m2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi=
-,bcm2835-firmware.yaml
-> > > index 983ea80eaec97..30b490e0d9fb3 100644
-> > > --- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-f=
-irmware.yaml
-> > > +++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-f=
-irmware.yaml
-> > > @@ -133,11 +133,14 @@ properties:
-> > >      required:
-> > >        - compatible
-> > > =20
-> > > +allOf:
-> > > +  - $ref: /schemas/power/reset/reboot-mode.yaml#
-> > > +
-> > >  required:
-> > >    - compatible
-> > >    - mboxes
-> > > =20
-> > > -additionalProperties: false
-> > > +unevaluatedProperties: false
-> >=20
-> > I think you should keep additionalProperties: false and add
-> > mode-normal: true
-> > mode-tryboot: true
-> >=20
-> > (I don't know if the latter works though, you may need to have a $ref to
-> > uint32-array).
-> >=20
-> > What you've done permits freeform reboot modes, but I think only normal
-> > and tryboot are valid?
+> Update the "clock-names" property as well with the 3 clocks.
 >=20
-> Ah yes good point. I do think it should be restricted to
-> 'mode-{normal,tryboot}'.=20
+> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+> ---
+>  .../devicetree/bindings/phy/phy-cadence-torrent.yaml          | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >=20
-> Sashiko also suggested to set maxItems to 1 and I think that is a good id=
-ea as
-> well, because afaik the firmware only accepts a 32bit value for the reboo=
-t flag.
-> The $ref to uin32 is not needed that is already enforced by the
-> patternProperties "^mode-.*$": in reboot-mode.yaml.
->=20
-> Therefore I will add the following (and keep additionalProperties: false):
->=20
-> properties:
-> ...
->=20
->   mode-normal:
->     maxItems: 1
->=20
->   mode-tryboot:
->     maxItems: 1
->=20
-> allOf:
->   - $ref: /schemas/power/reset/reboot-mode.yaml#
->=20
->=20
-> I will do some more testing and send a v2 later.
+> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.ya=
+ml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> index 9af39b33646a..54fe78da297a 100644
+> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> @@ -34,7 +34,7 @@ properties:
+> =20
+>    clocks:
+>      minItems: 1
+> -    maxItems: 2
+> +    maxItems: 3
+>      description:
+>        PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for =
+PLL1).
+>        pll1_refclk is optional and used for multi-protocol configurations=
+ requiring
+> @@ -47,7 +47,7 @@ properties:
+>      minItems: 1
+>      items:
+>        - const: refclk
+> -      - enum: [ pll1_refclk, phy_en_refclk ]
+> +      - enum: [refclk, pll1_refclk, phy_en_refclk ]
 
-Cool, sounds good to me.
+This does not do what you want it to do, I would think, since it means
+you can only have two clock names.
 
---nr/V2KaeEBWBPf17
+Additionally, please restrict 3 clocks to only whatever new TI device
+actually has 3 clocks.
+
+pw-bot: changes-requested
+
+Thanks,
+Conor.
+
+> =20
+>    reg:
+>      minItems: 1
+> --=20
+> 2.34.1
+>=20
+
+--claZfrcYDscXuJ3R
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakP2ewAKCRB4tDGHoIJi
-0tjSAP9JKMAbY3EfCZuyJTIoiA2kkQtFs91Hj5L7Qd2Ub1cFXwD7BAd+zepdemEz
-lzDLgaPXEn4Kt442IPX7QNtBaROagQ0=
-=aKzA
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakP3SgAKCRB4tDGHoIJi
+0mY1AQDA1BtEt2XQX/AY8otmFWna4lcOAOS4LCkehrqayL71ygEArP3hoqxqdl54
+tnTH5YezNgF9fglzhsf8H1wpoHH5nwI=
+=Og3T
 -----END PGP SIGNATURE-----
 
---nr/V2KaeEBWBPf17--
+--claZfrcYDscXuJ3R--
 
