@@ -4,170 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED31C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C6CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoZ9p1j9Uc1k4M2iiZs2YNn+MPIqgBBLH+5SceAxMT8=; b=rxuFS03meg2kZ7IkvJhpX5QFkM
-	6utdnUglRLKlLlTFD3dDn8mWz6ziVQ8oTN126pqg0rW5ULemlAonK+THrMJC26jTAV4DE95mJZ0Z9
-	uNXMBe6iQJB8WJSmXeqjbxpZWi38XpACZDl1GU8Pne+l/qd9Fzod1WfoxRZzpjVmTQmFW/+xGbZS4
-	E4oPsqv98xNGuCaJa5ZC2h+WCqR44eC5fdcGBrFM+2hKFhLDsP3vM8TRxWv04wXjhfOcNPatO3DDS
-	rntvbu4UhbP5pXTU+VmtA50kSFzp5bwJ6yAtKgGDyzMl9l+qOkBvKXcotDm2HdAQx2aeUo3X5qKZt
-	lL/ktGEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LlKzPg19q9e2Gdbh8JVXe+cxB934h6FFCKt4x5J53+U=; b=gWAduHxuKWNJs1wedDpHcHO2i3
+	nb/I3F8F8/M+htA6t4mN7FTD2/LCIDHhqIgTjNUDmPmAoYVHokDScxpu6xPYNFIf/SXt/w8RT/qjx
+	WPW3GR+4e6xanOT3uSz7TSapKVwK0BYoUJuJrez5IPLWn4OWsdv1x964reKLBxkhSpa5kDdZpoHmV
+	bAcLsHUjaa1euR67MZ3NIA3o12mMclmwIXhZaEPGgSTYZDkMZR+u4taqhQMfSlSR7B5Ts+nXy88bb
+	YgQpeCC8GYP3At/xYpzdxpAJEs+1rwFApwuy0a78mNTZk6xSxW9ajrLOZ4cFKZ4f8SEigWWh8y1iG
+	8DsMgzbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXHa-0000000Gvr8-1OQf;
-	Tue, 30 Jun 2026 12:09:42 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1weXIw-0000000Gw9X-32XA;
+	Tue, 30 Jun 2026 12:11:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXHX-0000000Gvps-3tFx
+	id 1weXIv-0000000Gw9E-2Cw2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:09:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mmm8wyG+mhtb+pez88hD7I62wzgwSGNoHsq06oOndaaMVarbIoGJ3sNElFtuqcAjhP9zU0eXk7huYfdGXXFiDo+6yVUfcGZk4nSgZAL+lpVYhocWkdGJIzuvGAKMUGO8kB6JPmHmjXOcuWJGnsK+YfIGncoEgqVUHG6Oi9zHX4t2/iQIm0UTju+JoiB9/1CpeXbSq+8KwOEbmoN4cXU5fNekkvpYOyMcMw/YQi04fOPVdB0JyxzCkkQwv6mYZ4RFopNUVkIHWHNttLz4A4T5uNkbX4EmNW0YZB10rEUkVcKlEbPbODvQoPGS2SFDRnXzRVgPXN4xwZKBo8eB0mCTYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WoZ9p1j9Uc1k4M2iiZs2YNn+MPIqgBBLH+5SceAxMT8=;
- b=ujJ3YPcMAGU7ymQDkQq+jWNbRAYs8amR8JA388A4t1q+kKAbtZ6tioXm1mlc/1P8rR9bjelT47P1NsqCm7aXVEXPoDaAWQut/158SmgYpBdzjr8LIM7FgB6P97xFcPPIltGm65n/pWayGj7l2c6Se/LNTjGc2uw/40AsyJFc/VWgKmjMXFUYmWotronjBajI5Y8xzqaBZPiRBdr9x8xhTMLcv6TurrSxr2wdmCbfny6GyDzO2UxVlx37/oZp7paqs0rxy3Vw+Qvp1mv2CxPgRExoxgsYPgl7Lu1U+x7YXzFlSwR1lFZTZMu289NmH8/+heNioCHNXMyzQ5IFez3XZg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WoZ9p1j9Uc1k4M2iiZs2YNn+MPIqgBBLH+5SceAxMT8=;
- b=fQ6et/Rl40LNU2HsFB9NVK8P6s2PA43bj2WmMMKZKjgmn8N1HFlh4S9SJ0+nBzARa84IkG4RF5FraOb5oAM/o7xc8pdsuhOxRwIBhB+XfrECVPHg3ngURUlACf3vfDeIDz4heB5N61mcOHglQWLbqgqsnlvCrFSGm1bDqPp2oD+IZ2JilNJInAxQ2P8oqW51EEWYgbH7vqSt//lV1UeXJkuBPv0T7sz3Bvgm1wQ1u80WFtjdCyU+zQCIPk8W4Iau1nroi7vGcbvn+hm09YkDWrGMOqRBzNNSfJGu+aHN+g3ebLdwZYm8vadeDgfpJD0+QqykMsyJnRwZXkhhX7vtBQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
- by SA1PR12MB8699.namprd12.prod.outlook.com (2603:10b6:806:389::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 12:09:31 +0000
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
- 12:09:31 +0000
-Message-ID: <00da7fd4-68a4-4a92-b4a1-600b5a2b72f4@nvidia.com>
-Date: Tue, 30 Jun 2026 13:09:20 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/17] arm64: dts: nvidia: Add EL2 virtual timer
- interrupt
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Ge Gordon <gordon.ge@bst.ai>,
- BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Lars Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
- <eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Lin <shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Michal Simek <michal.simek@amd.com>
-References: <20260523140242.586031-1-maz@kernel.org>
- <20260523140242.586031-13-maz@kernel.org>
- <3c714ae3-8f62-4785-9f61-ba9899fd70d8@nvidia.com>
- <86wlvgpacz.wl-maz@kernel.org>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <86wlvgpacz.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0572.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:276::22) To SJ1PR12MB6051.namprd12.prod.outlook.com
- (2603:10b6:a03:48a::18)
+	Tue, 30 Jun 2026 12:11:05 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 00803600FF
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 12:11:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD9291F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 12:11:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782821464;
+	bh=LlKzPg19q9e2Gdbh8JVXe+cxB934h6FFCKt4x5J53+U=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=L5u7gC15217FP42jNRkdZlGnyZX2bgEt4eFCQcJ99qR8yfCcWsESGjkGHTG8Mvp37
+	 hGSw/oVRSXSEBjniG8GyeVutSuwycJOjXkV5O5rNY6ysM5uK9nsP+GZJqFRUCN7gEi
+	 X0555pMw/kbVxRLJqbnWqvmcfSwThLdS/4LyUPTkrErdILChw7313PVmkXahrv/mHB
+	 p901xREZMeE1Js4wnFumWyuXj6BuWRMb87RQJ39ESxJTkMydRfBUAHESKeeDlfyZvs
+	 ob0gf7e7DnVrLQ9Ymuo10HdHoKfiH7MaSuXQ/DJOysoWKzCtLGtVHdSvRsrjulKwLZ
+	 mqX+WzZqXqD1w==
+Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39af6402933so30915721fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 05:11:04 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RomG6K8/45lcaFryliVW3CTn/ppnnt7/PDtJWzZ3K3Qy8WUwWkQ14Cr1ShfVSSTgT389JkvH/Tm6Bvc25wsCX2i@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzBI7E5B/pTqehMIXV8MkHPDLb2pZbcu9yoOsdryYYndZtGnv0
+	bZ/BJSEn3+yGxaK15fts0KMnVbgNQYe8wgk/2IwZbSpd7cbvi62Qu2X4BTj0bPtSfAlRa+w4XvU
+	ft9VzfwH0CdjyRKtz/WOxijjPU0+nQ0A=
+X-Received: by 2002:a05:6512:251:b0:5aa:6aba:76f8 with SMTP id
+ 2adb3069b0e04-5aebdbbd837mr608304e87.30.1782821463509; Tue, 30 Jun 2026
+ 05:11:03 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|SA1PR12MB8699:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8baa65b2-3042-4a88-0a94-08ded6a070e9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|7416014|376014|1800799024|22082099003|18002099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: ENXOA7ci6QXEXHVdlkUE6pulKhSqmpI3MHTCRazR8sOa9vViGTuNu38w7TPQQlJD/XcxAGFq2C2pdev8Va6qf+PyPI10ccwr+9NuT3lH1ilFRFedalxyX8pmmkfxC2oNcCjtdTiCv0SKyPdHOHPKtUfrwsRqweJbNCtYH7qRLhWMyrXNyy7RzDWVE8K8lnJEn/4ef+i+WaN5tsQohd6FxQVyfKuQ0fo0HjYnUlloz+O0PoZWolBBhWzYYtqIO3Gtu2CS+N1yTXqL5VsygoTuj6sssMypmlU8L6qOMfsJUo95ODAhNSyXe6b+fpnzsj2jcEcr2uskcwj2M+HoLP7vFm9d+/VYh7JRsQ4vHttmvAyRUgggcOJeDYKTfPjg4dAi1cwmBWEqMckXwzFlQtTHHzJeaKljpgFCbAPkyVNawFmpu2pnV5fyQ5WaS8jHg2NYjkn841YP990uBlJ2b953ghjeTnASl1+BxxlUYJjzuYomOVdNgGKgzV8dj0OSqDMtfY8LKPcv/3MLySEpCLzSXjGdrIZXbDyfCVSSJpewfCLv1IlHbsP4T7lqJlnUQ5DDlf8fdtojI8UIlmXPwmURZCmzVitBxW2pe40goxpST/ZXP7FHwfwURni7565MVr5Y0D334igdGfxWnbOr6Kk3quZNKL/2XKIPOpAA37zKm4c=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(7416014)(376014)(1800799024)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OEkvYUx1c0tiNzFhd3RDbWtJc05JWVovRHpHLzFKYUE3YkdXY3NqNGFLZSs1?=
- =?utf-8?B?NnpIN0pKUFhWSm12YVBQT0hRMFJtRHo5VU1qQ3EzK3VzR0EvZEptUEsxWHBq?=
- =?utf-8?B?K0pIRzhJZmlIZi9vNmt6UzA2bkFSMlI3cjF3bWVBUEl0eGVVdllXSGlvNVBh?=
- =?utf-8?B?RkRnRm81cE91VE5jN2FSUUY1YXd1WGprc2dURkMwTXUzTUlMZjU1Vm5hSDNu?=
- =?utf-8?B?N0M1dHFaVFNpQXdGSG8xWkw1TGpyc3BzYUV5M0Y5ckYxazdiek5aN3RYd05n?=
- =?utf-8?B?L3Bzc2xJNmk5SU5IN2c1UXNQUlFUSmtnZEhWb2FnMk1mK1d1NW9iQUQzTEF1?=
- =?utf-8?B?d0V2VXJrMXR1UHAzb2ZKT2kzazIveUs2cXlFU1NRYjF4UXQ0eVBoSkYwN3la?=
- =?utf-8?B?V0gvcFJNaU43NWVVU1hkenRWd2ZKZ1lTbjlWM3NHRWs4OHhxMlRKS3ZIZ2w4?=
- =?utf-8?B?Ni9PNEp5THpTRUg1MXFVUWFyb3hvWWJnd3FvTjVCbGE1dlZMWEdFZGFKcHdt?=
- =?utf-8?B?QnJFclNHd09MZlYvY2xVZWFDZ3NCSitDMm1ydTV0NjhpcHNmMmhFTnkvT0hl?=
- =?utf-8?B?TEIvUFJWbmVjVFV2bGsxREFKT2tmdENmenRPSkk3QXFiTU1ITk1jZ09UNi8v?=
- =?utf-8?B?SmhBeEc4UUVBK2p3bUw3QXpFUWxYTk1MTlRTQ1BCdTBQMHZQWi84OG1oL0pF?=
- =?utf-8?B?SHlQTDBrbnU4aWVza0k1T2xvNnBHTTJZOUgwTDdzME84MnNFVlVIRmZpQ2RN?=
- =?utf-8?B?bGJEd2FBTXlZeWFzS1puTjlHN3lMUFBoRGM5MUpGYTZPa01xM2swK1VTTnlR?=
- =?utf-8?B?dlZSdHdTSHZIeEpQeDNiZ1VhQklVbmFDSEVleUNQODQzZERESHdZOHU5VGh1?=
- =?utf-8?B?c2hCcTFvNDNERzk2RWdWZ0M2SGc1UmdBdGJUalZjT01hL0RUWnNua0g3YmxN?=
- =?utf-8?B?anhBQWQ5RnFDYStmSjhOMTlndXZrM0swM3dPUU9nNjBJVGRuamdFc3h6VDAx?=
- =?utf-8?B?T20rczVqcGg4RS9XREdueUtGOXRITE9zcFkwSTkyanZDK0FRTlZ6Q2RBV0x1?=
- =?utf-8?B?VmVzRVRheWphTkdzVm9NVnRpS3JxY2ZYOG9PaDE4elFVZEFrZmlEb0JxUE1V?=
- =?utf-8?B?R0JnL0hhWlJzTmgrdGlGd1ViTzU2dkZNUHVBRUg1R05qK0Mvcm5JZjlublpr?=
- =?utf-8?B?MW1qN3Y0bGtRR3hHbFdoUGV1NGE0UjBBNVNpcjFsbXVORWJ1Rk5wMmxBUDNs?=
- =?utf-8?B?OXZLWjlpVFNldzA4ejlaMFpFaWozeFZxckp0aHVmdzV6azkwcnpyalJxam9a?=
- =?utf-8?B?cWF3dlBPWUVrQ1l1SWVYbGdQeVpNeVVpR01SN2p2VW8vR3FZMElBMEFUQ1Yv?=
- =?utf-8?B?b09RZmFGdG5iK3VoQ2RwTVhQdkdEMU9HRkRvay9yTDc3b3ZNazJHVXpseC9H?=
- =?utf-8?B?SEs5cUVwekpyRWJ5c2s5WkI0V0poT1BSVXR2UWxqbCtSMWxpK3FFQUpPT3ZK?=
- =?utf-8?B?SzJTR0k4dll5YnJDQUpoS1NLT1RlZm4ySnVMWURIUHhwQWo5YXhYekNEdzg3?=
- =?utf-8?B?RWQ2OTBBYUZlQThEMXlMbStLYjYrZ2lSRlNQcU9XdVI0QjkrVG9wOS9admlj?=
- =?utf-8?B?eVNDOUJVZStaUjJpTitQVlMxQ1hudit4NTFvVjRLc0Z5OXh1MGlMNEFFM2tD?=
- =?utf-8?B?bE5nclJ5YUNQK1pyMi9GUnN4QUlNUHE3U3Z1YkxnL0ZkMDVkUnpxME5iTVhV?=
- =?utf-8?B?VEVGT1lKT0hlTnJxbCtYUzg1QWwrY1pHU2s1a01Nc284a2dmLzFrRndNQVhk?=
- =?utf-8?B?RFBhVEMrdG1mVjBHOVAxTUVOYkRFZmpWdzFOZzNXZTBJZ3AzOEQyU0R1YnNr?=
- =?utf-8?B?VjVjbnlJbXdoN3llcFozSmQyRjlJaGN0L0JMU3Z4WXpXdHlIOWVEVk1Hb0RS?=
- =?utf-8?B?OERTMjYwWFhxazZaREhOWWY4VzhuU0pCSnJzTFgrVFM4enI1Uk1YdHlCaHJ0?=
- =?utf-8?B?OWZaazVLd3h6TlhDbU96d0VPWnNmRmtPSUxaVHdYcENycnBNeGhWR1AyMlF3?=
- =?utf-8?B?L3pYSmw5YTFoc2JOT1FYSGlqVnpEZFJMWVRTeDV5NDVMQWtYMG1Od3NjMXVj?=
- =?utf-8?B?MTRFanFENmxRZDNnVlJVazExWXY5NnJQMlJCUEptNERxeGVqSElPa3VsWk5R?=
- =?utf-8?B?cmFubGFTUVdpOGF0UjFIWDRibVd1NmZiekl6MFRXcGc2SmRZMjBZN29PUXF1?=
- =?utf-8?B?L1lDN3laR1pUL0QzMHJObnArakJiTzFmanlNWUVlL1hDaVBhWTNlUjZORitl?=
- =?utf-8?B?aXcyWmpGMHRHUGV0WXRlYmNIN2x1bUpkSnVyZThwUzdqemR6MnpRQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8baa65b2-3042-4a88-0a94-08ded6a070e9
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 12:09:31.5417
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jkRtO/qkz7kZoO6E8FSkHx5lqbVdLVu1KUjxK0O+t5vwB8sTovvRtnCiwlJF4WnuprV5OxYbw9D6DaWCERAnHg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8699
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_050939_978166_37E9F5CA 
-X-CRM114-Status: GOOD (  26.57  )
+References: <20260617220451.15298-1-daniel@dragonzap.com>
+In-Reply-To: <20260617220451.15298-1-daniel@dragonzap.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 30 Jun 2026 13:10:51 +0100
+X-Gmail-Original-Message-ID: <CAD++jLm3gY=vMdbZ6Ep=9g8RhLu2=cgj64QYi4DZdfXK_wdPsw@mail.gmail.com>
+X-Gm-Features: AVVi8CdvBjKnXgZXbX-XFU1uvMDAmDnQyRuTcGalVAa5xmjbxsVhewZ7HUZKW9g
+Message-ID: <CAD++jLm3gY=vMdbZ6Ep=9g8RhLu2=cgj64QYi4DZdfXK_wdPsw@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: bcm2835: Don't remove an unregistered GPIO chip
+To: Daniel McCarthy <daniel@dragonzap.com>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, linux-gpio@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,51 +81,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Wed, Jun 17, 2026 at 11:05=E2=80=AFPM Daniel McCarthy <daniel@dragonzap.=
+com> wrote:
 
-On 30/06/2026 11:54, Marc Zyngier wrote:
+> If the devm_pinctrl_register() function fails,
+> bcm2835_pinctrl_probe() calls gpiochip_remove()
+> before gpiochip_add_data() has registered the GPIO chip.
+>
+> This means that upon failure the gpio_chip.gpiodev
+>  is NULL resulting in a null pointer dereference
+> inside the gpiochip_remove() function.
+>
+> Remove the unnecessary function call to gpiochip_remove().
+> No GPIO cleanup is required because the GPIO chip
+> has not yet been registered. Without this change there
+> is potential for a kernel panic upon registration failure
+>
+> Fixes: 266423e60ea1 ("pinctrl: bcm2835: Change init order for gpio hogs")
+> Signed-off-by: Daniel McCarthy <daniel@dragonzap.com>
 
-...
+Patch applied as nonurgent fix.
 
->> Sorry for the delay. I gave this a test because I observed the warning
->> that was added on the Tegra194 and Tegra234 platforms. This change
->> fixes the warning for Tegra234, but on Tegra194 the platforms I tested
->> hang on boot. It appears to be similar to the issue that Marek saw on
->> his platforms and so I am wondering if Tegra194 also doesn't have this
->> wired up?
-> 
-> I think you are in a better position than me to find out. It also
-> could be a firmware issue not making the PPI a Group-1 interrupt, and
-> therefore not allow Linux to configure the interrupt.
-
-Yes absolutely. I will see what I can find out.
-
->> Was there any resolution to the issue reported by Marek?
->>
->> FYI, the Tegra194 SoC has the 'NVIDIA Carmel ARM v8.2' CPUs [0].
-> 
-> There is no resolution so far. Florian was going to check what the
-> deal is with the Broadcom-related systems, but hasn't come back with
-> an answer yet.
-> 
-> The possibilities are as follows:
-> 
-> - remove the interrupt for the EL2 virtual timer and live with the
->    warning
-> 
-> - add a patch such as [1], which should document the reason why this
->    is now working (and fallback to the EL2 physical timer)
-> 
-> I'm happy either way, as long as we know exactly what we are dealing
-> with on each affected platform.
-
-I would like to get the warning fixed for Tegra234. Do you want to split 
-that part out of your patch and then I can test and we can at least fix 
-for that device while I see whats up with Tegra194?
-
-Jon
-
--- 
-nvpublic
-
+Yours,
+Linus Walleij
 
