@@ -4,82 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B214C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:28:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D95C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eOZmL/ZJF5PXVjklkVc8tdOX8zn3v66j7gUpnXwBMhg=; b=vD3JPT5oGWVXN/cfioE/qhGoIr
-	+lC7Jxchj2f4M4HaNPdWljHO23Bt4sKCZC7hBV+pgXRIJcRuvMiYXPvI+77pBTNynR03hO2rHR/gr
-	dVSNx3CX37Ma9JhlGXSL/Ea+Vw5cfs2a/lJLHsWM6c1feDvoIphARsWgEcQSmo8zWmBi1Aq11POWb
-	bj6fDRnZXL2jetjVtcKpSxg83vU7C3XyM+YzS74LaRIyEAhlga6pLlcof7egj1WRfCYx4kLqg8UXJ
-	olPtF/9qFQaAFrcaPp/dOxSVuMxuGBCqaHz6VodtM4hJ05habGeoSL8gdHAvEGYbYVGXomaDTsVKg
-	LU/cAXAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sVMUpXXrRzZ4nFpENyTUFcUQRrUbM9ZVKruk5kuzPkU=; b=YxDfcwlurrE9idWqon5llGBKrd
+	UVKz2csSSH6jNs1HF4updWX1PFMEJFpaVyFZUJPlVBTBJmEkcOqq9FpO4pWR7WGhyvsnP5SGsxYLP
+	CVGDcV/71DP4vWWnMnsT/OZOTMpkDpqCLRJiqlO5JeZD92A4MYGgRteCQaFwS/YUO+QhWyuogj1I4
+	GygjyTBwGAz3KCvjS07S8QYrSpWCAQqhk0czuMCdvI6xvrrt4GQevwsdliu359cAbrNXPVKb890ns
+	iwvcQmcouLeRjJ45efROKriGpo9itLaEAB6nqANCA2kqsHeO0Ot3JkCtx7ty0GkEi8o4ccugGIEzD
+	xVi4fCzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weSte-0000000G69y-3zFX;
-	Tue, 30 Jun 2026 07:28:42 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1weSu0-0000000G6Fs-0jqP;
+	Tue, 30 Jun 2026 07:29:04 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weStc-0000000G68g-0nEg
+	id 1weStx-0000000G6Eh-3Lc2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:28:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 0C78DC5CD4C;
-	Tue, 30 Jun 2026 07:28:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8F20560233;
-	Tue, 30 Jun 2026 07:28:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8717E106F1C5E;
-	Tue, 30 Jun 2026 09:28:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782804516; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=eOZmL/ZJF5PXVjklkVc8tdOX8zn3v66j7gUpnXwBMhg=;
-	b=tSh8o5EXJRoEvFUH6ROnUDpliRhoQOuyFThGBrwMz5o+Uaev3sXnLLUFJfgN2KXDmlhafH
-	xV/ryJcugRS3EQmEPltw+d3e2PK7DmkmT4G9XguWKGY0bo7yRfyh9SXh0EBLNFxF/rvDlI
-	NtTdKRdfaM2v0thCtXBlM16Y8UGnSysZ1mS6ViaPsWeyuZKbsaZ2PZ0dQT6+GS4l6jqD7a
-	dHBhIoUSpE2Mi+hqqD9X9se27YimKgaL6+xmb/kFHcB0Dhsg8wj6s/BHsKQRI4WTuNik7w
-	VM2g65RwO6ApWeZLs7d9AtEXBf8878QwBZynGzSr7dSc2yGSYKPIitXXjZhVnA==
-Date: Tue, 30 Jun 2026 09:28:21 +0200
-From: Herve Codina <herve.codina@bootlin.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>, Nick Li
- <nick.li@foursemi.com>, Support Opensource
- <support.opensource@diasemi.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Jaroslav Kysela <perex@perex.cz>, Srinivas Kandagatla <srini@kernel.org>,
- Charles Keepax <ckeepax@opensource.cirrus.com>, Richard Fitzgerald
- <rf@opensource.cirrus.com>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>, Baojun Xu
- <baojun.xu@ti.com>, Sen Wang <sen@ti.com>, Oder Chiou
- <oder_chiou@realtek.com>, Linus Walleij <linusw@kernel.org>, Kuninori
- Morimoto <kuninori.morimoto.gx@renesas.com>, u.kleine-koenig@baylibre.com,
- Zhang Yi <zhangyi@everest-semi.com>, Marco Crivellari
- <marco.crivellari@suse.com>, Kees Cook <kees@kernel.org>, HyeongJun An
- <sammiee5311@gmail.com>, Arnd Bergmann <arnd@arndb.de>, Qianfeng Rong
- <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org,
- linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
- linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 09/27] ASoC: codecs: idt821034: Use guard() for mutex
- locks
-Message-ID: <20260630092821.650c30ec@bootlin.com>
-In-Reply-To: <20260630063449.503996-10-phucduc.bui@gmail.com>
-References: <20260630063449.503996-1-phucduc.bui@gmail.com>
-	<20260630063449.503996-10-phucduc.bui@gmail.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-redhat-linux-gnu)
+	Tue, 30 Jun 2026 07:29:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U9zDriMOWBU+FgVAPOB/FScCaw/JbrdbXDe/AhEv92m29hrl41tXxxYBHd3w1YKsiGRane7cEoQudLKiw3GmDKjMYmP820pbb7MmHyDVhxYuI6A/ygjbKKvf1bJ/PR9XuF0bqzk+qUgGm/u0PyQ3qUhoDAI64E2AMOFc/S7niJt4ExaNdnv11ziCftibGpQDxqeneuiY+aFbOTRxwtNpZk36cBKCLueiCjz+GUFFJJO7ZAQlE+VcB/fQL2tzQAs9ymBq+sS2ZVtOR8NCMs9HhdQnQrRV7KuaOq342sEDYiQCgnx+ffF1+80ogrDzGXqgg4PhzhXCrAbds01xAunKxA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sVMUpXXrRzZ4nFpENyTUFcUQRrUbM9ZVKruk5kuzPkU=;
+ b=Cvcb2FAd+xizEwvIQCQo7ZO7ono95tQZ7a0CuwS1ZwIzB1QVzWsM/o78gP+blqM2dWuwxuHY87jFKwxizALYBGFhgHvXYAe/pASZSUUqM3e3Ka0ay9SgN2DOTKwgjCjIvu0GWqQtLBhnEixSwARUvT2COsS2rmJUZbnQN8Bm2NXr52URTTPCkp8N3RnWlf8Ng8FHqAMYCTBB/aSsha+xl+fLO18wxGvzXpu7GQ/cazwQ3kwtMqQDulzK2Ea8YQCaTuokM48nE+TRX/R4+d1GzPMek7R0P9QffFLulfqD9pwRgaT9L1eayPdtAP2hzLtJDGd5GLyMsvbCtb/LNckW9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sVMUpXXrRzZ4nFpENyTUFcUQRrUbM9ZVKruk5kuzPkU=;
+ b=E6jB4CgWi6bmSovni9EBU9m42HDmfRMjSFStZruDubH6JPREEreKixq3/fORO4unRmrif7XNOyzQphbMGeEny8eS0XlZDOjXPvs8D/jYwXiVSlBcvhyMrkTQmAygvqSXItYBBBczMlohMdNsO5NvZXU058tOta6S8Iru43nPFzM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
+ by SA1PR12MB6947.namprd12.prod.outlook.com (2603:10b6:806:24e::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Tue, 30 Jun
+ 2026 07:28:47 +0000
+Received: from CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
+ ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
+ 07:28:47 +0000
+Message-ID: <99d3ff5d-27d5-414c-b291-49426643e821@amd.com>
+Date: Tue, 30 Jun 2026 12:58:37 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] dmaengine: zynqmp_dma: fix kernel doc for
+ zynqmp_dma_remove()
+To: Golla Nagendra <nagendra.golla@amd.com>, vkoul@kernel.org,
+ Frank.Li@kernel.org, michal.simek@amd.com, abin.joseph@amd.com,
+ kees@kernel.org, ptsm@linux.microsoft.com, sakari.ailus@linux.intel.com,
+ radhey.shyam.pandey@amd.com, u.kleine-koenig@pengutronix.de
+Cc: git@amd.com, dmaengine@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260630064844.705173-1-nagendra.golla@amd.com>
+ <20260630064844.705173-3-nagendra.golla@amd.com>
+Content-Language: en-US
+From: "Pandey, Radhey Shyam" <radheys@amd.com>
+In-Reply-To: <20260630064844.705173-3-nagendra.golla@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN5P287CA0036.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:263::10) To CY1PR12MB9697.namprd12.prod.outlook.com
+ (2603:10b6:930:107::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|SA1PR12MB6947:EE_
+X-MS-Office365-Filtering-Correlation-Id: c3b5061a-a829-41f4-eed7-08ded6793904
+X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|4143699003|11063799006|56012099006|22082099003|18002099003|921020;
+X-Microsoft-Antispam-Message-Info: UkzGurQHxM4hTgnjtySoohlcD3dkLcPqkw3Qp9DKMSo8YKcx3R/Z+Wd0DaW9DomuPvMwmRCAA5IoXqSy6Qt4YQ4Uq4IiGmqd3N49Bb89npVu/DQkl9JvTifLaVFDjcnbwtLwbyEcGTdpjr3uo2vs+oEnp/vu+ZcHcr1J+cEyX3v8qvE1rseSoMaV27C6qnUYbKVc2EPLUa7jyR7C5pCA1jt3sJN2U+jH0W2kvxVMXCqrS2WUiDeIfYqv/Thr2yGi7Z1KYIxkKfo6mEq93nJLU5bmSWL2sN/GiGXweBvpi8i3aO+sNl66eaW1HwCL69cwe9nPi6iEijnVsytTzF4f25M5H7kWfFnNKZS8WDndtyhBZ7qxGovBu2CtrVoOAFN8/cJCycNwilEbTM4tpPEcl92Q2uEG7VXQbF7dD3C08UBGU5inMntVIeskBfOLHMMlQK8SRBBfW6qLZHvpNhnPZ9NHelvMbBgMTWmlinhTBPWTPiNJWdGmNDo3DTELPEznCG21JgUdCNIx/0Vv4b6HVQkRzZrbFqWSpwtCIrJFN+s11qhml6hc1NaXLCA2T9jTCWL5kInCYb/bD3mxEPuV/ikMp4/zfPV25+IyB2gGlpU/1TsHMsyrIUghLs53kd39MP6SICvz1APU0+l3Vs+xLnUq252Z6cEDbJYiOSRQ3qZCm7WZV+LVqYYQAgh9XpbTq9zPYAITTVJOT8ltBuWtQQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(4143699003)(11063799006)(56012099006)(22082099003)(18002099003)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cFhTTVdRQkNVbVlNK0lzb25GVHF6VXdUMVZlTDhiYkxQMmoxMWFPK1RFQjdF?=
+ =?utf-8?B?eUtEQmxHanVDSkRlbDAzZ1FHL1hpejVYZ3pSUVlZUUJwcEs2ZC9XSml3OXk3?=
+ =?utf-8?B?c25JWmorS0ZtRkdSWW1Sa0x6eTFsNDdNWG4waGVzOWNIM2Vvc3V2NW1ydTZR?=
+ =?utf-8?B?RzRXWjdzT0xpL2ZFNCtGTEVoKzlGZEJ0OXFIV0xkSXdGTzFHelZiSEFFS281?=
+ =?utf-8?B?VHVPYWQrUWQxUDNwOWtuOS9ONnJiWGlQcGVTN2RmcnYxeXEwTlgvSjdGbU9z?=
+ =?utf-8?B?M3ZTbnpoYVliamhtTEZneU85OG01SXVtbjQ5V2xrcks3ZWtVYTBkdVZKdDYx?=
+ =?utf-8?B?eHpwMGtBQ3NRV1BZanlRUDhOcGVRWTJRdlRkdjYzUU43d0lqblFDZFJZbi9o?=
+ =?utf-8?B?QS9XVG1BNTdyV2phbTVhbnI3cWFWQUxCdXRla0ZYYzZwZ1hzV2QxZkZoWUdK?=
+ =?utf-8?B?cGFsa3pMYlN6bXlKaHNjYkkxelgzenpXQ05OZThGRmNBV3dtakR6cXAreC9k?=
+ =?utf-8?B?UlV2TFJJZE9UUUhNKy9aVHJDV0ZPL0ExbkM4WGQ4NEpLdk4yVzJEUnMzbHd4?=
+ =?utf-8?B?WUpZUm1TaVNQVCs5R0N5a0w5K0FvVnRMZzJoY1B5U3BwRm03MElldDdSWnQz?=
+ =?utf-8?B?VDAvYzM4T2M0Smp0aDZhOWVxK0l6RTIwMnk4WmpWSHltQWpoU2ZKOE1HeWF4?=
+ =?utf-8?B?K2ZpMFQ0enVhQXNZNU54Q0ZnYXNZTWpkN2tDSHk2TWFGeFZrUG93a2F1ZHZE?=
+ =?utf-8?B?dUNETzdZcTQ2alRDa1pONXZMUTlNc1BTLzdwTDNONTlzdkJBUTJ6RDVtLzIz?=
+ =?utf-8?B?YlhDR2xJOU9lOXBGbmNSVnBKZkREMUdManpwWFMyWTZ0eDgvQTU3U2t1Z2pj?=
+ =?utf-8?B?Q2ZDdnU4VGV0ZlZRNS9XazJhbFNLS2dZeUVQeDFSYXFuSUVJZ0lVWlRaN1RM?=
+ =?utf-8?B?TWs1SEU5N3I1eTNkREhnaGdCNnJkOHFmTGN1TWJhR2taV3dXeTAyQXUwQmVC?=
+ =?utf-8?B?dzB2VG1XOUpjclpzdWdPM01OSi9rNllIbFkyVU5qQlpueTVCcHUrY1R0QWNk?=
+ =?utf-8?B?d1lMdFdybFBWVVEwWmlkR2loRHZ3OVF2WEhoZ20yWnZLc3JPeU85Zks5c2w5?=
+ =?utf-8?B?SFF0SWs3WjkxallEem81elVBVlgydnQzTVVvQlVURUs2eGNBeVJDdWhIL25N?=
+ =?utf-8?B?Um9PbzdERkpaMzV6V2NBNXZYSUsrV29BR0Q1Smx5ZFVZWEdRS0RVSnJTYi9y?=
+ =?utf-8?B?MlhDdDRHdTRBZUZSSU5GT2RnYlZ5djlUb2FzUTlyaXQrSUxXeThBazFDdmw1?=
+ =?utf-8?B?SHNCNm1ySHl3d1pOS1lzMHVoMHBLbGlHNG1RbEJ5WEdpUCtvNGZIRElpSFZW?=
+ =?utf-8?B?NmdUTGRVZW9saGl1QmdwUG9PWE15UkZydTdjMGVKaXd3cXlPZVUva1BUa212?=
+ =?utf-8?B?em04SWIwZ1ZLV3hLVi82b1lQWm1tMTlyN1l4bjVLZVZLdlpTZzRzOTJhQlJl?=
+ =?utf-8?B?TUNLUTlZNEd2dmpnQ09KYkxnTlpLVm5uams5MWlLZGlSNUxMNDlIRUJSVnRB?=
+ =?utf-8?B?Q21JOTlhWDczdjRYaXU3UENPeW5hOG56K25UR2QrWkdVQ2NaazViZzl3WGI1?=
+ =?utf-8?B?YXJwaVVMd21YK1RtSFJ0dE1wamsyQi9CQlJVUk9vU2ZaRkVrWkxYRnB1bXV4?=
+ =?utf-8?B?VjF2NXFuMGtUZGVQQTgwM0ZkWm9ocTBXN3dhUjcwZGFOSENiWXI3N0ZsWndv?=
+ =?utf-8?B?RDNYN2F1NEVlbTRWQ2RSTkhFS2M1VjJyRmZzZk1SdXJteXFHQWNOK1B0VDJG?=
+ =?utf-8?B?TU9oTnhCcUh0SkpJeXhQTllUVmpaaTd0d1h5dGNKWDVZdEZaSVlsU2piN2xF?=
+ =?utf-8?B?NCs0ZEVMcHVNa016UXEzdU5hVUxMLzZsSStsalNEL3Y5bUNFcUJYTytRZmwz?=
+ =?utf-8?B?U3hqdU1SUmRsN3dFQzhobHpnNFFhSXIvRUx5QkZQZk9XNlgzRE4vc1lKY0xW?=
+ =?utf-8?B?Um80Y3ZmRnJsRnZ2MWUwMVZvQ3c0dEFtRVluS3lRblhLS1NsVnZGSEcvOHVy?=
+ =?utf-8?B?c21NQlBLeUo1YW1NN0F3NGRvTTh2VytWM0pHTGxGbm1HbTcrZmVuU0Z2b2tP?=
+ =?utf-8?B?bitmZnBwamhmRFRJNFpISEMzZFNwb0VoNFcvN1l3d1Fkc2R1cWV4RDR6YXdU?=
+ =?utf-8?B?VjVlSUZITzVtUlpWNzNKMHl3RlNFUGdQcHhiQ2FubWtFRUxZOTRqc1laOTQr?=
+ =?utf-8?B?R2JieFY1RGdOVnMzRVJuR01DTm9YeW9PaXZWWThMcnh5MEUrZzJvRFFPWXNw?=
+ =?utf-8?B?aGZSNVBvUkJNcjYvd3FVTFZhaG5KTDB6SU5wZzFGM0lzUVlWRCs1Zz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c3b5061a-a829-41f4-eed7-08ded6793904
+X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 07:28:47.0089
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: xIaVZTogzzfhCGjNJAbUCRZX5/3Bwd3UtOuc9jOzanXgKFxZr47TeML4a4zJ7eL8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6947
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_002840_401559_8E44D774 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20260630_002901_840026_80520B00 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,306 +151,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, 30 Jun 2026 13:34:31 +0700
-phucduc.bui@gmail.com wrote:
-
-> From: bui duc phuc <phucduc.bui@gmail.com>
+On 6/30/2026 12:18 PM, Golla Nagendra wrote:
+> The zynqmp_dma_remove() function was converted from returning int to
+> void, but the kernel doc comment was not updated to reflect this change.
+> Remove the stale "Return: Always '0'" documentation that no longer
+> applies to the void function.
 > 
-> Clean up the code using guard() for mutex locks.
-> Merely code refactoring, and no behavior change.
-> 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
+> Fixes: b1c50ac25425 ("dmaengine: xilinx: zynqmp_dma: Convert to platform remove callback returning void")
+> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
 > ---
->  sound/soc/codecs/idt821034.c | 121 +++++++++++++++--------------------
->  1 file changed, 51 insertions(+), 70 deletions(-)
+
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Thanks!
+
+>   drivers/dma/xilinx/zynqmp_dma.c | 2 --
+>   1 file changed, 2 deletions(-)
 > 
-> diff --git a/sound/soc/codecs/idt821034.c b/sound/soc/codecs/idt821034.c
-> index 084090ccef77..078de6c9c395 100644
-> --- a/sound/soc/codecs/idt821034.c
-> +++ b/sound/soc/codecs/idt821034.c
-> @@ -6,6 +6,7 @@
->  //
->  // Author: Herve Codina <herve.codina@bootlin.com>
->  
-> +#include <linux/cleanup.h>
->  #include <linux/bitrev.h>
->  #include <linux/gpio/driver.h>
->  #include <linux/module.h>
-
-Alphabetic order. Move <linux/cleanup.h> after <linux/bitrev.h>.
-
-...
-
-> @@ -456,7 +457,7 @@ static int idt821034_kctrl_gain_put(struct snd_kcontrol *kcontrol,
->  
->  	ch = IDT821034_ID_GET_CHAN(mc->reg);
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	if (IDT821034_ID_IS_OUT(mc->reg)) {
->  		amp = &idt821034->amps.ch[ch].amp_out;
-> @@ -466,21 +467,18 @@ static int idt821034_kctrl_gain_put(struct snd_kcontrol *kcontrol,
->  		gain_type = IDT821034_GAIN_TX;
->  	}
->  
-> -	if (amp->gain == val) {
-> -		ret = 0;
-> -		goto end;
-> -	}
-> +	if (amp->gain == val)
-> +		return 0;
->  
->  	if (!amp->is_muted) {
->  		ret = idt821034_set_gain_channel(idt821034, ch, gain_type, val);
->  		if (ret)
-> -			goto end;
-> +			return ret;
->  	}
->  
->  	amp->gain = val;
->  	ret = 1; /* The value changed */
-> -end:
-> -	mutex_unlock(&idt821034->mutex);
-> +
->  	return ret;
-
-Instead of
-	ret = 1; /* The value changed */
-	return ret;
-
-Call directly
-	return 1; /* The value changed */
-
->  }
-
-...
-> @@ -521,7 +519,7 @@ static int idt821034_kctrl_mute_put(struct snd_kcontrol *kcontrol,
->  	ch = IDT821034_ID_GET_CHAN(id);
->  	is_mute = !ucontrol->value.integer.value[0];
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	if (IDT821034_ID_IS_OUT(id)) {
->  		amp = &idt821034->amps.ch[ch].amp_out;
-> @@ -531,20 +529,17 @@ static int idt821034_kctrl_mute_put(struct snd_kcontrol *kcontrol,
->  		gain_type = IDT821034_GAIN_TX;
->  	}
->  
-> -	if (amp->is_muted == is_mute) {
-> -		ret = 0;
-> -		goto end;
-> -	}
-> +	if (amp->is_muted == is_mute)
-> +		return 0;
->  
->  	ret = idt821034_set_gain_channel(idt821034, ch, gain_type,
->  					 is_mute ? 0 : amp->gain);
->  	if (ret)
-> -		goto end;
-> +		return ret;
->  
->  	amp->is_muted = is_mute;
->  	ret = 1; /* The value changed */
-> -end:
-> -	mutex_unlock(&idt821034->mutex);
-> +
->  	return ret;
-
-Instead of
-	ret = 1; /* The value changed */
-	return ret;
-
-Call directly
-	return 1; /* The value changed */
-
->  }
->  
-> @@ -629,7 +624,7 @@ static int idt821034_power_event(struct snd_soc_dapm_widget *w,
->  	ch = IDT821034_ID_GET_CHAN(id);
->  	mask = IDT821034_ID_IS_OUT(id) ? IDT821034_CONF_PWRUP_RX : IDT821034_CONF_PWRUP_TX;
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	power = idt821034_get_channel_power(idt821034, ch);
->  	if (SND_SOC_DAPM_EVENT_ON(event))
-> @@ -638,8 +633,6 @@ static int idt821034_power_event(struct snd_soc_dapm_widget *w,
->  		power &= ~mask;
->  	ret = idt821034_set_channel_power(idt821034, ch, power);
->  
-> -	mutex_unlock(&idt821034->mutex);
-> -
->  	return ret;
-
-Instead of
-	ret = idt821034_set_channel_power(idt821034, ch, power);
-	return ret;
-
-return directly:
-
-	return idt821034_set_channel_power(idt821034, ch, power);
-
-and remove the 'ret' variable (no more used)
-
->  }
->  
-
-...
-> @@ -771,7 +764,7 @@ static int idt821034_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
->  	u8 conf;
->  	int ret;
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	conf = idt821034_get_codec_conf(idt821034);
->  
-> @@ -785,12 +778,10 @@ static int idt821034_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
->  	default:
->  		dev_err(dai->dev, "Unsupported DAI format 0x%x\n",
->  			fmt & SND_SOC_DAIFMT_FORMAT_MASK);
-> -		ret = -EINVAL;
-> -		goto end;
-> +		return -EINVAL;
->  	}
->  	ret = idt821034_set_codec_conf(idt821034, conf);
-> -end:
-> -	mutex_unlock(&idt821034->mutex);
-> +
->  	return ret;
-
-Instead of
-	ret = idt821034_set_codec_conf(idt821034, conf);
-	return ret;
-
-return directly:
-	return idt821034_set_codec_conf(idt821034, conf);
-
-and remove the 'ret' variable.
-
->  }
->  
-> @@ -802,7 +793,7 @@ static int idt821034_dai_hw_params(struct snd_pcm_substream *substream,
->  	u8 conf;
->  	int ret;
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	conf = idt821034_get_codec_conf(idt821034);
->  
-> @@ -816,12 +807,10 @@ static int idt821034_dai_hw_params(struct snd_pcm_substream *substream,
->  	default:
->  		dev_err(dai->dev, "Unsupported PCM format 0x%x\n",
->  			params_format(params));
-> -		ret = -EINVAL;
-> -		goto end;
-> +		return -EINVAL;
->  	}
->  	ret = idt821034_set_codec_conf(idt821034, conf);
-> -end:
-> -	mutex_unlock(&idt821034->mutex);
-> +
->  	return ret;
-
-Idem here:
-	return idt821034_set_codec_conf(idt821034, conf);
-
-and remove 'ret'.
-
-
->  }
->  
-> @@ -897,11 +886,11 @@ static int idt821034_reset_audio(struct idt821034 *idt821034)
->  	int ret;
->  	u8 i;
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	ret = idt821034_set_codec_conf(idt821034, 0);
->  	if (ret)
-> -		goto end;
-> +		return ret;
->  
->  	for (i = 0; i < IDT821034_NB_CHANNEL; i++) {
->  		idt821034->amps.ch[i].amp_out.gain = IDT821034_GAIN_OUT_INIT_RAW;
-> @@ -909,23 +898,22 @@ static int idt821034_reset_audio(struct idt821034 *idt821034)
->  		ret = idt821034_set_gain_channel(idt821034, i, IDT821034_GAIN_RX,
->  						 idt821034->amps.ch[i].amp_out.gain);
->  		if (ret)
-> -			goto end;
-> +			return ret;
->  
->  		idt821034->amps.ch[i].amp_in.gain = IDT821034_GAIN_IN_INIT_RAW;
->  		idt821034->amps.ch[i].amp_in.is_muted = false;
->  		ret = idt821034_set_gain_channel(idt821034, i, IDT821034_GAIN_TX,
->  						 idt821034->amps.ch[i].amp_in.gain);
->  		if (ret)
-> -			goto end;
-> +			return ret;
->  
->  		ret = idt821034_set_channel_power(idt821034, i, 0);
->  		if (ret)
-> -			goto end;
-> +			return ret;
->  	}
->  
->  	ret = 0;
-> -end:
-> -	mutex_unlock(&idt821034->mutex);
-> +
->  	return ret;
-
-Instead of
-	ret = 0;
-	return ret;
-
-return directly
-	return 0;
-
->  }
->  
-...
-
->  
-> @@ -1079,23 +1061,22 @@ static int idt821034_reset_gpio(struct idt821034 *idt821034)
->  	int ret;
->  	u8 i;
->  
-> -	mutex_lock(&idt821034->mutex);
-> +	guard(mutex)(&idt821034->mutex);
->  
->  	/* IO0 and IO1 as input for all channels and output IO set to 0 */
->  	for (i = 0; i < IDT821034_NB_CHANNEL; i++) {
->  		ret = idt821034_set_slic_conf(idt821034, i,
->  					      IDT821034_SLIC_IO1_IN | IDT821034_SLIC_IO0_IN);
->  		if (ret)
-> -			goto end;
-> +			return ret;
->  
->  		ret = idt821034_write_slic_raw(idt821034, i, 0);
->  		if (ret)
-> -			goto end;
-> +			return ret;
->  
->  	}
->  	ret = 0;
-> -end:
-> -	mutex_unlock(&idt821034->mutex);
-> +
->  	return ret;
-
-return 0;
-
->  }
->  
-
-Best regards,
-Hervé
+> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
+> index 26f097db593d..ba6604dd7153 100644
+> --- a/drivers/dma/xilinx/zynqmp_dma.c
+> +++ b/drivers/dma/xilinx/zynqmp_dma.c
+> @@ -1177,8 +1177,6 @@ static int zynqmp_dma_probe(struct platform_device *pdev)
+>   /**
+>    * zynqmp_dma_remove - Driver remove function
+>    * @pdev: Pointer to the platform_device structure
+> - *
+> - * Return: Always '0'
+>    */
+>   static void zynqmp_dma_remove(struct platform_device *pdev)
+>   {
 
 
