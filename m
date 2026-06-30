@@ -4,56 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3660C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89DBAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tql1m+bGQMDRHYhvNQkD5BUwGzZqgpkkLLwEUbCEnPw=; b=G21yi48L5wasZKXbYx5TVA/uO+
-	ASQORJmHi8zrFn1Pf4iLm71GIybb6k2jpOoX4GbZeMhxP32Da+3DA61/ZYN57iLIElCquiyQSk0O2
-	sFJycfdgGF/7tSvATWONJLZi+O5gFjUlDiD3ORKZdmTtXc29f9ZDH2xvDvzRISHp8PHVeJ/qg98f7
-	mMxWAqjf9tAu6Q1RSasM0VA4gE0DbeZc6JzHgwVL/XRIGz9vE7OYv5erX2acCil6hVAn0oq42krdQ
-	iv+wicuLVvHQKYNFHgJxwA9fd5Pvqisl6+afcGi4Cmc9ju3hHbxagcP446Bc6J+roUPi7YFYCtIMB
-	Grg0OkMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1S6bWwjFBo5Xa+HjUZ32P5iQHl6oakQlX84F8q/+L7A=; b=SJk1h7a1sowR+d58HjlV8Kf9oZ
+	GUdmSWyCBcbVDAGKQhrxtivYqpdgeR5knz7E4Uc6eX/DSTtEePf/weIU+0JQ6xu7kSbpDEXzcTq86
+	KSOiWhS6jLxZfZrFRtoXX9jMDeFOUNj+HPg2Vb4y3TmY9zvFM344Fx+yhb0QO+RfhTCaBUiQtU4Rw
+	LorgPKfo5ejqs+TFxnxLt90EFhV7zZS38EIOqKczy7q+t1m91PqxZqxIuvnuXHiThhnOs/bvfOoZc
+	96EmxR5E4E0BZ4YiYmagTEs0WC2m7FYbjgjYI57pMiJT85JEpTvGlVMDChpCcox/yjCBm40BY1GhN
+	l9tpBuiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYgB-0000000HBU0-0fqU;
-	Tue, 30 Jun 2026 13:39:11 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYg8-0000000HBTP-3k5f
+	id 1weYiv-0000000HBnM-28hC;
+	Tue, 30 Jun 2026 13:42:01 +0000
+Received: from chaosmail.tech ([77.81.229.115])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weYis-0000000HBmA-1qN4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:39:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0409219F6;
-	Tue, 30 Jun 2026 06:39:01 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7744E3F673;
-	Tue, 30 Jun 2026 06:39:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782826745; bh=C/TZ3bGh+kkFpicAEOzK4d4McZW2dZtSMkIyUAEDH+8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lpTYVAAVE4xXlwuOd4iTzsrHrSktagKHLideDJ29Cp/OTEx7F89i4qrF3Zgw2O77e
-	 bFiTJNwQ51ykkQXPsy4bfoeyamhhrJLaJhlH/KMSaDouxXGEvZnoQpuRfa4VkdYDL9
-	 Iexs6eNKXtXt6Qq81VdQWpTcmxJAkbQr+lLKlV6E=
-Date: Tue, 30 Jun 2026 14:38:59 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>, Ard Biesheuvel <ardb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3] ARM: entry: expand comment in __switch_to
-Message-ID: <akPG841symlzalh-@J2N7QTR9R3.cambridge.arm.com>
-References: <20260630-comments-in-switch-to-v3-1-87a946a3fddd@kernel.org>
+	Tue, 30 Jun 2026 13:42:00 +0000
+Received: by chaosmail.tech (Postfix) id 4A48A1CB983;
+	Tue, 30 Jun 2026 13:41:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1782826912;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1S6bWwjFBo5Xa+HjUZ32P5iQHl6oakQlX84F8q/+L7A=;
+	b=ftdTP7rUoUwCQTyNR4WfJCWeqW4KuYAEwjXvp7tFTaHoc/ZotEQ0kGlByzVec3EPs4091e
+	NJHaVyqd2O70rIvJcKamQq+XAkh5F8cXI1BU4FUB16QRaSDTCHKAQLeRcHhNvlplbR+n6x
+	Z8E+uh4Js6RtD/DHMcFQHD5kGn+1t+w=
+Content-Type: text/plain;
+	charset=us-ascii
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630-comments-in-switch-to-v3-1-87a946a3fddd@kernel.org>
+Subject: Re: [PATCH 07/10] HID: apple: Add support for DockChannel HID
+ keyboards
+From: Sasha Finkelstein <k@chaosmail.tech>
+In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-7-506d936a1707@gmail.com>
+Date: Tue, 30 Jun 2026 15:41:40 +0200
+Cc: Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>,
+ Neal Gompa <neal@gompa.dev>,
+ Jassi Brar <jassisinghbrar@gmail.com>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Hector Martin <marcan@marcan.st>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Jiri Kosina <jikos@kernel.org>,
+ Benjamin Tissoires <bentiss@kernel.org>,
+ asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org,
+ iommu@lists.linux.dev,
+ linux-input@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <B22C8EFD-DEDE-49C1-AD8E-BAEB5C91B6A6@chaosmail.tech>
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+ <20260630-apple-mtp-keyboard-final-v1-7-506d936a1707@gmail.com>
+To: michael.reeves077@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_063908_998348_AFE1DC39 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20260630_064158_943080_0314D179 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,71 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 11:38:55AM +0200, Linus Walleij wrote:
-> From: Linus Walleij <linus.walleij@linaro.org>
-> 
-> As per discussion between the developers in the mail thread
-> linked, expand the comment in __switch_to so that readers
-> of the code understand what is going on.
-> 
-> Link: https://lore.kernel.org/linux-arm-kernel/ZxDh9biUbf9W8gNN@J2N7QTR9R3/
-> Suggested-by: Mark Rutland <mark.rutland@arm.com>
-> Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
-> Acked-by: Mark Rutland <mark.rutland@arm.com>
-> ---
-> Changes in v3:
-> - EDITME: describe what is new in this series revision.
-> - EDITME: use bulletpoints and terse descriptions.
-> - Link to v2: https://lore.kernel.org/r/20251216-comments-in-switch-to-v2-1-190d8741db14@kernel.org
 
-Looks like you might have forgotten something here. ;)
+> On Jun 30, 2026, at 14:54, Michael Reeves via B4 Relay =
+<devnull+michael.reeves077.gmail.com@kernel.org> wrote:
+>=20
+> @@ -659,6 +669,7 @@ static void apple_battery_timer_tick(struct =
+timer_list *t)
+> /*
+>  * MacBook JIS keyboard has wrong logical maximum
+>  * Magic Keyboard JIS has wrong logical maximum
+> + * Internal DockChannel keyboards can advertise oversized report =
+sizes
+>  */
+> static const __u8 *apple_report_fixup(struct hid_device *hdev, __u8 =
+*rdesc,
+> unsigned int *rsize)
+> @@ -699,6 +710,27 @@ static const __u8 *apple_report_fixup(struct =
+hid_device *hdev, __u8 *rdesc,
+> rdesc[3] =3D 0x06;
+> }
+>=20
+> + if (apple_is_dockchannel_keyboard(hdev) && *rsize >=3D 5) {
+> + int i;
+> +
+> + for (i =3D 0; i <=3D *rsize - 5; i++) {
+> + if (rdesc[i] =3D=3D 0x76 && rdesc[i + 1] =3D=3D 0x00 &&
+> +    rdesc[i + 2] =3D=3D 0x40 && rdesc[i + 3] =3D=3D 0x95) {
+> + u8 count =3D rdesc[i + 4];
+> +
+> + if (count > 0 && count < 32) {
+> + hid_info(hdev,
+> + "fixing up DockChannel report size\n");
+> + rdesc[i] =3D 0x75;
+> + rdesc[i + 1] =3D 0x08;
+> + rdesc[i + 2] =3D 0x96;
+> + rdesc[i + 3] =3D 0x00;
+> + rdesc[i + 4] =3D count * 8;
+> + }
+> + }
+> + }
+> + }
+> +
+> return rdesc;
+> }
+>=20
 
-This looks good to me, so I reckon you should drop it into Russell's
-patch tracker:
+It looks like this section is duplicated in the following commit (8).=20
+Is that correct?
 
-  https://www.armlinux.org.uk/developer/patches/
 
-Mark.
-
-> 
-> Changes in v2:
-> - Rebased on v6.19-rc1
-> - Link to v1: https://lore.kernel.org/r/20241028-comments-in-switch-to-v1-0-7280d09671a8@linaro.org
-> ---
->  arch/arm/kernel/entry-armv.S | 13 ++++++++++---
->  1 file changed, 10 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
-> index a3d050ce9b79..2d2ea3ca880c 100644
-> --- a/arch/arm/kernel/entry-armv.S
-> +++ b/arch/arm/kernel/entry-armv.S
-> @@ -557,9 +557,16 @@ ENTRY(__switch_to)
->  	ldmia	r4, {r4 - sl, fp, ip, lr}	@ Load all regs saved previously
->  #ifdef CONFIG_VMAP_STACK
->  	@
-> -	@ Do a dummy read from the new stack while running from the old one so
-> -	@ that we can rely on do_translation_fault() to fix up any stale PMD
-> -	@ entries covering the vmalloc region.
-> +	@ For a non-lazy mm switch, check_vmalloc_seq() has ensured that
-> +	@ that the active mm's page tables have mappings for the prev
-> +	@ task's stack and the next task's stack.
-> +	@
-> +	@ For a lazy mm switch the active mm's page tables have mappings
-> +	@ for the prev task's stack but might not have mappings for the
-> +	@ new task's stack. Do a dummy read from the new stack while
-> +	@ running from the old stack so that we can rely on
-> +	@ do_translation_fault() to populate missing PMD entries covering the
-> +	@ new task's stack in the old task's page tables.
->  	@
->  	ldr	r2, [ip]
->  #ifdef CONFIG_KASAN_VMALLOC
-> 
-> ---
-> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-> change-id: 20241028-comments-in-switch-to-0e24480e8495
-> 
-> Best regards,
-> --  
-> Linus Walleij <linusw@kernel.org>
-> 
 
