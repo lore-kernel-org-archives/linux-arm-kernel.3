@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C46C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 23:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86075C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 23:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CDxLsxVfkbLQRPgtf4a2DPhGbS7uctNKj95MDtbkTX0=; b=Y50Aka/blzhj3Mmt4hoYwjGvcV
-	TCOdy7kYcN1WA/GNmKWyvDSvWzWB+aNDlvteZozcs4Uhkjjz++X6HPnFJZ7LqzvaJKb6gnigwoQGU
-	IGD60z8v8S+obepksbBf5M3ku5zZGo4oFTYyMNtzz5cLILs+25nFM2DA77wpAGSf4eUXlS+qHwJkm
-	sw60OJog06Lv4NRMUVMpWGNPr01EchgvWGaC8dLhZVhsMpeOYHOjj3v43vkNGsHwAR8mLN5+47Zvq
-	yhfj43y5DxuGom0RHUYdQDC06oPV5OdFLZmGv9kuEiLag9VOM/wH4cPwxvc/aRAyCd5VXyqkDhsv/
-	V1oiRepg==;
+	bh=wBl+6WzSpT/r8VJbJjcUsnvI61cG+nFbsKW3MvqaIPA=; b=br4gbO2LTT8lmhOrRXU7mk/4lj
+	pOtUBOAlWbuZ6rPTA8ufjSYpeG6a9Jmco1WGOp5rou7Bgkna1Z2tW6cuot+3jx5uFD3A/nbpvGPFJ
+	Oe7aB3EIeG7H2MK9ewmwYdCz3Bh92P2YQvT/FO8wtbGZvg6M95irLO1l7NY8yqSyMEzoNFpQ7asgH
+	e0LxcMlOag6VC/0dhVt7aGyrautlwuDyMVDxOsOYccFV/BUcgklZbde5A/Caf3v7sHzwuUEOKza33
+	oxL7T48qGKFub7iVR+705Jh9Aqvn505W6c66wA8UBJGSD7qhrOoBQ2kknnd9YCgK3dUlLCH4OAfET
+	me/+wt7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wehzi-00000000MTN-2Ikc;
-	Tue, 30 Jun 2026 23:35:58 +0000
+	id 1wei0L-00000000MXm-0aqU;
+	Tue, 30 Jun 2026 23:36:37 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wehze-00000000MTE-46lu;
-	Tue, 30 Jun 2026 23:35:55 +0000
+	id 1wehzq-00000000MUt-46V9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 23:36:07 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5883D40958;
-	Tue, 30 Jun 2026 23:35:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D01571F00A3D;
-	Tue, 30 Jun 2026 23:35:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B14DC41ABF;
+	Tue, 30 Jun 2026 23:36:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F591F000E9;
+	Tue, 30 Jun 2026 23:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782862554;
-	bh=CDxLsxVfkbLQRPgtf4a2DPhGbS7uctNKj95MDtbkTX0=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=YHeE4Nt4OYOz2we9Rp9rScfov5rGKj3gUpPEQFQ8IPMUjRv7Ci6rx8zn734AAIN+r
-	 yOPDSFZrif2MwowNRiJ1xB+vcjdRqZrxsM1s26sxRv2d+8IKqsVhBjnjziINO57VvS
-	 CPuJNT+8vmSL3ru7a/7L3UqTpXAfodL6EG47/lMZuW35zNZ/8UKIHNr6gIuqphMO0s
-	 wgWU5/5lmlS+l25UuTkTQR6V2CQSRyA/bPybolc7NI6q3JKK+ftnYZcOTLw9zaK6EF
-	 w3fGM/0zc09wzSI2Nl0wFYIJ7+B1ryfN+TkKReZFWJQ4wkgmqYEIJX3OR0UARvCZ40
-	 HRGYXgV8uPdcQ==
-From: Namhyung Kim <namhyung@kernel.org>
-To: peterz@infradead.org, mingo@redhat.com, acme@kernel.org, 
- Chun-Tse Shao <ctshao@google.com>
-Cc: alexander.shishkin@linux.intel.com, jolsa@kernel.org, 
- irogers@google.com, adrian.hunter@intel.com, james.clark@linaro.org, 
- afaerber@suse.de, mani@kernel.org, dapeng1.mi@linux.intel.com, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-actions@lists.infradead.org
-In-Reply-To: <20260609215046.2391903-1-ctshao@google.com>
-References: <20260609215046.2391903-1-ctshao@google.com>
-Subject: Re: [PATCH v1 0/6] perf vendor events intel: update
-Message-Id: <178286255381.2863034.8189687610180090122.b4-ty@kernel.org>
-Date: Tue, 30 Jun 2026 16:35:53 -0700
+	s=k20260515; t=1782862566;
+	bh=wBl+6WzSpT/r8VJbJjcUsnvI61cG+nFbsKW3MvqaIPA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=Y91pGPX3csjh9S5RSRf2qGRuH0GGevE+5z2x7tzXgzctOziJ9PewIRILeDbKTAUjO
+	 LSXKLM4ACsC7lmlQ6oFPsISYp17vUPSgnCROtv8ECQlrc9HdP0w3++kRSxIHRXg2el
+	 SD3A64CwFOQ5wsCQP6MJ/wnGyVe9oFZfObmZMpBJZnY9GnSawTGaT36pLIbufkwI1i
+	 HOf91n4H0tob12xZj2HRD3nWP9nJEaGo204ZBij3mbO7Ni1p3Ep4hLr4+0bOH2kOQQ
+	 SeF4FHogn7gtSxm+dx4xf5AEvFZjrWRXLIjH91PEGJhR27xNfwrL+4E7Bvrn0g0sqz
+	 K8xzoQ1V/5sJg==
+Date: Wed, 1 Jul 2026 00:36:00 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: Varshini Rajendran <varshini.rajendran@microchip.com>
+Cc: <ehristev@kernel.org>, <dlechner@baylibre.com>, <nuno.sa@analog.com>,
+ <andy@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+ <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+ <alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+ <srini@kernel.org>, <marcelo.schmitt@analog.com>,
+ <jorge.marques@analog.com>, <mazziesaccount@gmail.com>,
+ <Jonathan.Santos@analog.com>, <jishnu.prakash@oss.qualcomm.com>,
+ <antoniu.miclaus@analog.com>, <duje@dujemihanovic.xyz>,
+ <linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 02/13] iio: adc: at91-sama5d2_adc: use cleanup.h for
+ NVMEM buffer
+Message-ID: <20260701003600.2a238c20@jic23-huawei>
+In-Reply-To: <20260630093603.38663-3-varshini.rajendran@microchip.com>
+References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
+	<20260630093603.38663-3-varshini.rajendran@microchip.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-c04d2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,19 +79,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 09 Jun 2026 14:50:39 -0700, Chun-Tse Shao wrote:
-> Sync with the latest perfmon events from:
-> https://github.com/intel/perfmon
-> by running the script:
-> https://github.com/intel/perfmon/blob/main/scripts/create_perf_json.py
-> and copying the resulting json and mapfile.csv changes into the perf
-> tree.
+On Tue, 30 Jun 2026 15:05:52 +0530
+Varshini Rajendran <varshini.rajendran@microchip.com> wrote:
+
+> Use __free(kfree) cleanup helper for the NVMEM data buffer in
+> at91_adc_temp_sensor_init() to simplify error handling paths.
 > 
-> [...]
-Applied to perf-tools-next, thanks!
+> Since __free(kfree) requires a valid kfree-able pointer (not an
 
-Best regards,
-Namhyung
+Does it require a a kfree-able pointer?
+Definition is:
+DEFINE_FREE(kfree, void *, if (!IS_ERR_OR_NULL(_T)) kfree(_T))
 
+Some of these DEFINE_FREE() uses did change to be more resilient
+to errors so maybe you have an old kernel?
+
+> ERR_PTR), store nvmem_cell_read() result in a temporary void pointer
+> first, check for errors, then assign to the managed buffer.
+> 
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+> ---
+>  drivers/iio/adc/at91-sama5d2_adc.c | 21 +++++++++++----------
+>  1 file changed, 11 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
+> index 255970b2e747..5015c234289e 100644
+> --- a/drivers/iio/adc/at91-sama5d2_adc.c
+> +++ b/drivers/iio/adc/at91-sama5d2_adc.c
+> @@ -2251,9 +2251,10 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+>  {
+>  	struct at91_adc_temp_sensor_clb *clb = &st->soc_info.temp_sensor_clb;
+>  	struct nvmem_cell *temp_calib;
+> -	u32 *buf;
+> +	u32 *buf __free(kfree) = NULL;
+This breaks the 'rule' about having the destructor defined right next to the
+destructor (IIRC there is guidance on this in cleanup.h comments).  Linus is
+very keen on this always being done and doesn't like the = NULL pattern at all
+(I agree but easier to blame the chief Penguin ;)
+
+Given the argument for this seems to be wrong anyway, just define and assign
+in one line below.
+
+
+> +	void *cell_data;
+>  	size_t len;
+> -	int ret = 0;
+> +	int ret;
+>  
+>  	if (!st->soc_info.platform->temp_sensor)
+>  		return 0;
+> @@ -2267,16 +2268,18 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+>  		return ret;
+>  	}
+>  
+> -	buf = nvmem_cell_read(temp_calib, &len);
+
+	
+
+> +	cell_data = nvmem_cell_read(temp_calib, &len);
+>  	nvmem_cell_put(temp_calib);
+
+This dance with nvmem_cell_put being called before the error check
+seems like another place a cleanup.h trick is useful.
+
+Can we have a DEFINE_FREE() for nvmem_cell_put()  I don't think
+ti will matter if we hold that reference for the scope of the rest
+of this function - but do check that!
+
+With that in place, you can just do
+	u32 *buf __free(kfree) = nvmem_cell_read(temp_calib, &len);
+	if (IS_ERR(buf))
+		return dev_err_probe(dev, PTR_ERR(buf),
+				     "Failed to read calibration data");
+	
+	}
+> -	if (IS_ERR(buf)) {
+> +	if (IS_ERR(cell_data)) {
+>  		dev_err(dev, "Failed to read calibration data!\n");
+> -		return PTR_ERR(buf);
+> +		return PTR_ERR(cell_data);
+>  	}
+> +
+> +	buf = cell_data;
+
+> +
+>  	if (len < AT91_ADC_TS_CLB_IDX_MAX * 4) {
+>  		dev_err(dev, "Invalid calibration data!\n");
+> -		ret = -EINVAL;
+> -		goto free_buf;
+> +		return -EINVAL;
+>  	}
+>  
+>  	/* Store calibration data for later use. */
+> @@ -2289,9 +2292,7 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+>  	 */
+>  	clb->p1 = clb->p1 * 1000;
+>  
+> -free_buf:
+> -	kfree(buf);
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  static int at91_adc_probe(struct platform_device *pdev)
 
 
