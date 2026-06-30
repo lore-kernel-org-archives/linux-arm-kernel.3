@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19EEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD41C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 17:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pxfuQK0/LO5goJEcowNYBVg9zB9o21O16uM3ARXCVbg=; b=1/Xx926Guj/bR0ZWsS0RfsC3qE
-	W/+gKDtYZfEob5fDBzxzrSOvIqgM+Ia5rIl1l/za6akW2ePM9+1b2HWin8aFVNFXYYVggfs0rwR2p
-	I4NhzXT7BwLeiS6bPVQ8E4zgESTISlMjJvg+xzqIrM3CF8yLURWATBngssESumegXZA9HgL8cHwzV
-	CVKDCT+bHHHz/C+G/GReZlpKhTtCFyeBlqcZBofwPBMeHHqKDTydy0O7plR1LzE4DLcr32w+gcFoU
-	gF6+Jl+3s/SNuu3uwapUCjT0Jdr+4KFAfFsV7uEzjMAuxDjBbqfsvY280NmSYIWKcMMNI5ZGZ7eYh
-	K8MsTogA==;
+	bh=1bqSNLp+qQsVX3BAAadfhxaNGAEBIWXi+sLidcTkBSs=; b=JfFfGCwp5Ip9rxCXuyhym0DTNy
+	gPlPX711CjNLWVF4jfVKGF/CA6cVOlM6O10F6E3GD6xXO//WS2UDgCI5aQ8fNDoLxZn+ct3Ndh5Al
+	xH78oUNmjg8Ak7CgnMQzHdLWEuKVduOOiwYSYgNgkIjLwTnUYAZ3GrvF/oN+1+EZA++lkOjmvYGxZ
+	mUDoxyGJB7b4vn5plPtZR5beMsPhMIGOU2tQpuU+eH9Fsj7jCQpI7FfUkgFHlkRb/8rESRuLq4G2K
+	xjnIYneBm8H2FiW6XbWJz1EcLMwO1Nlq92KjsN9S3CcMD3yB7dZX2nv+d49y4Zo91d8HsbB55jhjy
+	qwQiKAHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wec7E-0000000HYoE-3CgZ;
-	Tue, 30 Jun 2026 17:19:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wec7B-0000000HYns-3JVz
+	id 1wecEP-0000000HZHa-2alk;
+	Tue, 30 Jun 2026 17:26:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wecEJ-0000000HZHR-38tK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 17:19:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 80366302A;
-	Tue, 30 Jun 2026 10:19:11 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA8F93F66F;
-	Tue, 30 Jun 2026 10:19:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782839955; bh=aazyiOP5gAY0bGpQA8a3lTuATbta7rr4eQjJ8XAQf3Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Jjk8ATcJ/w4lQ2tQuYzbPDUWPKAvdrvCuZPd0MuwQFPa6Xl1hy6DH++N0pV1P9m+f
-	 5d9nE7JFlgLUZGnzlF8YRqgMBaujBQ//Vn3nB1O3zYaLLmzdB9Xpmkf6rnW9sTJYG9
-	 Hp+DDsFHjmc1R83uBUDzYElhivgIw5vK3F9ZanQg=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Saket Dumbre <saket.dumbre@intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Chengwen Feng <fengchengwen@huawei.com>,
-	Kees Cook <kees@kernel.org>,
-	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	James Morse <james.morse@arm.com>,
-	Zeng Heng <zengheng4@huawei.com>,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
-	Thomas Huth <thuth@redhat.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Fuad Tabba <tabba@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Tian Zheng <zhengtian10@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev,
-	kvm@vger.kernel.org
-Subject: Re: [PATCH v2 05/13] KVM: arm64: Detect (via ACPI) and initialize HACDBSIRQ
-Date: Tue, 30 Jun 2026 18:19:08 +0100
-Message-ID: <akP6jAargbR5jUUu@LeoBrasDK>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <akPoyAGX5_ankwWD@kernel.org>
-References: <20260629111820.1873540-1-leo.bras@arm.com> <20260629111820.1873540-6-leo.bras@arm.com> <akKpxDulRN7zDrgM@kernel.org> <akPXqZQBKET1SyvN@LeoBrasDK> <akPoyAGX5_ankwWD@kernel.org>
+	Tue, 30 Jun 2026 17:26:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 18E0E600FC;
+	Tue, 30 Jun 2026 17:26:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 277811F000E9;
+	Tue, 30 Jun 2026 17:26:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782840398;
+	bh=1bqSNLp+qQsVX3BAAadfhxaNGAEBIWXi+sLidcTkBSs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=K/XE45qCzcM2UoiG5YxhHHuC4FKattTfgpfE60unBJW5np+URqGm1xgkTWp/W412Y
+	 3qAp/XXS2fyP9AtNSPCI8sVdUxAcW52M1UGRXvCpxIpXRQdq69YctV97JWQuV+ErU6
+	 1oqYr6G07lhGzsp6p2rmtDz2t2lvUcfttwrzUbN3pP91Th9K3ao9FfJxVlvb5moLEY
+	 nkkpD6Na9qn2bscCAk0C0cioPl6r/byy7pvp5TXYrA2qh9y9DO5LcUgJuFbuGx501F
+	 0pBM2iv1GPCvkOZIHE9YSHp/dpnP/zqxpsO9K5SALjZ4Iu2O9yzml4YG8wOLneEc/v
+	 hxTehSNAiRzeQ==
+Message-ID: <39213ee4-4424-46fd-9e8c-12e2f2e02b50@kernel.org>
+Date: Tue, 30 Jun 2026 19:26:32 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_101917_927779_3EC1D86D 
-X-CRM114-Status: GOOD (  43.21  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] memory: atmel-ebi: unwind SMC clock on probe failures
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260616151757.32322-1-pengpeng@iscas.ac.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <20260616151757.32322-1-pengpeng@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,107 +115,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 09:03:20AM -0700, Oliver Upton wrote:
-> On Tue, Jun 30, 2026 at 03:50:17PM +0100, Leonardo Bras wrote:
-> > On Mon, Jun 29, 2026 at 10:22:12AM -0700, Oliver Upton wrote:
-> > > If we need to initialize the IRQ I'd really like to see device tree
-> > > bindings for HACDBSIRQ as well. Pretty much any system us plebs can get
-> > > our hands on is gonna be DT anyway.
-> > 
-> > Agree. I started out with ACPI because that's what the main target is, as 
-> > dirty-logging is focused in Live Migration, which is usually more 
-> > appreciated in the server space, which generally uses ACPI.
-> > 
-> > I spoke to some people, and I could not hear of anyone releasing a product 
-> > based in DT that would implement this yet, so I postponed the DT 
-> > enablement.
-> 
-> Nested virt is always a good example. In some distant future KVM could
-> expose FEAT_HACDBS to the L1 hypervisor, and the VMM may be using DT
-> instead of ACPI (like kvmtool).
+On 16/06/2026 17:17, Pengpeng Hou wrote:
+>  	reg_cells += val;
+> @@ -603,11 +605,23 @@ static int atmel_ebi_probe(struct platform_device *pdev)
+>  
+>  			ret = atmel_ebi_dev_disable(ebi, child);
+>  			if (ret)
+> -				return ret;
+> +				goto err_disable_smc_clk;
+>  		}
+>  	}
+>  
+> -	return of_platform_populate(np, NULL, NULL, dev);
+> +	ret = of_platform_populate(np, NULL, NULL, dev);
+> +	if (ret) {
+> +		of_platform_depopulate(dev);
 
-Oh, good point.
+Why do we need to depopulate when populate returned with an error?
 
-> 
-> > > 
-> > > > +static irqreturn_t hacdbsirq_handler(int irq, void *pcpu)
-> > > > +{
-> > > > +	u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
-> > > > +	unsigned long err = FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons);
-> > > > +
-> > > > +	switch (err) {
-> > > > +	case HACDBSCONS_EL2_ERR_REASON_NOF:
-> > > > +		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
-> > > > +		break;
-> > > > +	case HACDBSCONS_EL2_ERR_REASON_IPAHACF:
-> > > > +		/* When size not a power of two >= 4k, exit with reserved TTLW */
-> > > > +		int index = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
-> > > > +
-> > > > +		if (index >= this_cpu_read(hacdbs_pcp.size)) {
-> > > > +			this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
-> > > > +			break;
-> > > > +		}
-> > > > +		fallthrough;
-> > > > +	case HACDBSCONS_EL2_ERR_REASON_STRUCTF:
-> > > > +	case HACDBSCONS_EL2_ERR_REASON_IPAF:
-> > > > +		this_cpu_write(hacdbs_pcp.status, HACDBS_ERROR);
-> > > > +		break;
-> > > > +	}
-> > > > +
-> > > > +	return IRQ_HANDLED;
-> > > > +}
-> > > 
-> > > I have a pretty extreme distaste for creating a state machine between
-> > > the callsite and the IRQ handler. The callsite should poll HACDBS for
-> > > completion. The thread has nothing better to do anyway.
-> > 
-> > Well, there is one argument it could just wait and save some energy, but I 
-> > agree it is not relevant in server space.
-> 
-> I wouldn't suggest polling in a tight loop :) I'd say use something like
-> __mdelay() to get the core into a low-power state w/o using a naked WFI.
-> In fact, that already uses WFxT under the hood.
-
-Awesome!
-
-> 
-> > The main reason I did this is 
-> > because I am planning on later doing an improved version of this that would 
-> > clean the dirty-bit *while* running the guest, and having the IRQ is needed 
-> > for exiting guest so we can notify userspace the cleaning is done. So I 
-> > laid the HACDBSIRQ infra here so we don't have both polling and IRQ options 
-> > happening. 
-> > 
-> > That idea would require us to add new API (a return value for 'cleaned'), 
-> > and also a new flag for the clean ioctl. We also need the VMM to 
-> > implement that, but then we get a proper cpu usage of cleaning time.
-> >
-> > I wanted to start with a backwards compatible version, and do the above 
-> > idea once I put my hands in hardware that implements HACDBS, so I can 
-> > properly measure how much performance we get on above strategy.
-> > 
-> > What do you think?
-> 
-> Yeah, I'd want to see some extremely compelling performance numbers for
-> this approach before considering it, alongside the necessary VMM patches
-> to actually activate it.
-> 
-> Seems likely to me that the VMM will want the background thread back
-> ASAP that calls the clean ioctl so you'll need to work out how to cope
-> with idle vCPUs in that case.
-
-Fair point, HACDBS should be disabled if the vcpu gets scheduled-out, so we 
-would need to be sure the vcpus stay scheduled, or the cleaning may take 
-too long.
-
-> 
-> Even still, with this hypothetical approach I'd expect KVM to inspect
-> the HACDBS state on every exit. The IRQ is just a convenient kick back
-> out to the main KVM_RUN loop.
-
-Got it. Will use the HACDBSCONS register instead to get that info on 
-stopping.
-
-Thanks!
-Leo
+Best regards,
+Krzysztof
 
