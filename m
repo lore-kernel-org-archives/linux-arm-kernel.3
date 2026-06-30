@@ -4,92 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46A51C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9692C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:02:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LNxVJGEMAXRCpSTfvSk7rdKi0pYQo3rQCK08bwqgoOk=; b=HaISx1XdF6zj9drwsXLgclB+sn
-	QCouACm/MxsvrH0KBqw4rrA1477wgzJHjGNFSFZNv8GQc53v6OyPR4lG/WeNPXRiSap3wcRTnCyiW
-	3W/iHvVXpBebvL7b2B8vTp02EDFPIRaEXhT4kCUTK9HqBuu9UU4cdvOSFjMPLkoWAOIWUvEOQzkbi
-	KPOYL0qnVxpGO9CVVb3Erha2X4uRZMPWQnA8iAUMgSQpHDgblpJw09XyRh8U6e4kOJ9VTgtWq0jC3
-	AhVJ4miTLxYEVwgcxO0IHBW1FkAG1j2m+/AoavpNfW6spexf96FywIns4F+ep5+YiXrVgHxpxd+ej
-	43azxLkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oxk6ktef0CtcpkX9OEzR0N5hQPdE1diNEHXY7SV+68M=; b=m7WX74y/12EZ1lJwdpoQXB7NZS
+	0W8k+rCmdzlXko3svwl5EErTEiqoO9vIYdKX5mQwD8lOB+JT7ebdrw9QhcUWj/IAoNSlqZnc9jUxY
+	Vo8dw7hRRdtJumeqh52hadq2dvKdLxv6B4MVwF3JvRYVpQWNXwKOjUlmcGWYCnDyxT3GWjXX9XNi/
+	A6aTppHNppUuB+MhVrCfXk98voezTS+h+OqZ+6t0l4PxW3qYsrC4wnXdPfmoMjokW145IOSojGYQ/
+	dUUjF/b4RXx2050bGS6iCvHmK0EFApZGkdj6jjFfIrSSMlU5XiOLvcXKY95N2UhQ5bQg0m7nwCQsg
+	1OgwFlkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weshO-00000001Os9-0nBl;
-	Wed, 01 Jul 2026 11:01:46 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wesiP-00000001PCk-0rLv;
+	Wed, 01 Jul 2026 11:02:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weshL-00000001OrH-387f;
-	Wed, 01 Jul 2026 11:01:45 +0000
-Date: Wed, 1 Jul 2026 13:01:39 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782903701;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LNxVJGEMAXRCpSTfvSk7rdKi0pYQo3rQCK08bwqgoOk=;
-	b=3HifUbZ21ScKQtWF6SIw5j3fCUEdR+xRpgI6ZiVs3+DcPllGZA8Ji94V+XUdwDrNcM/7ij
-	+H8qYhqLmRVhTFU9Xbty5DTZ8XxGKDqRxQxL1vTqr6BEMw6zmurDnk/JsaoKxSXYAcjN1F
-	6Uzt7JsgKFkfst0NWwo8OmJzzjDn+oVuzb9b+HlGgbTb3HddAJsW7TEB+3Wy+xPQgTAZW4
-	rSQ74uPNXSFR1hJkaQBX03oVNJspPKuqg0v9yXuMEiJZy1/UuO/gMZkPv3oZJ8hom+tEGH
-	PvfGbzUklh8YNbdEj41qDzenKHO+aXOoCmp6dRiLzh0hagRlV5ggtMdszJWLcA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782903701;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LNxVJGEMAXRCpSTfvSk7rdKi0pYQo3rQCK08bwqgoOk=;
-	b=LJJCbaRz0pqf6PD4GbhO2SME6PRZyX4Kho1+qmiOyaUmczMK9UnqGhmiZqX5vxb5Za35B/
-	Y1Mq4Y/RXRZ4NvBg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [PATCH v5 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-Message-ID: <20260701110139.z8WokGYM@linutronix.de>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
- <20260701075714.GP48970@noisy.programming.kicks-ass.net>
- <20260701084150.GNOeboLw@linutronix.de>
+	id 1wesiN-00000001PBb-2Zav;
+	Wed, 01 Jul 2026 11:02:47 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B2BC43D50;
+	Wed,  1 Jul 2026 11:02:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49A11F000E9;
+	Wed,  1 Jul 2026 11:02:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782903767;
+	bh=oxk6ktef0CtcpkX9OEzR0N5hQPdE1diNEHXY7SV+68M=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=ZmsE07005kHFibUaDJe2OI9QNMYtKgqf1WfHojOhD7o26Xa+oTaVbH6eX05ziEa1O
+	 n2xljvNPURuy7LXvvkpCHeB7TJMme35Qshby2Q5AsEOiA6OniMFRNIRCiObUoPBbTK
+	 RDuN8kR0iRAvh31abrFdzu84vQjQ+syLk4uTCZ7ckV7BEwXYX58yP0mhEgUu+mKk4X
+	 UP1i42NIxEUENCV0cymC/LTkZ2oBnPOb5h1ri02USnK1EKODRajZW5wZ6Dbz477sRI
+	 i0iqgzyE6PlS3AXHhQDvbwgJ8mpzEhWByERnQb6zj0ZEckXucYFgEYZEMMqxiF7Flo
+	 Y4SminheQF4WQ==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, 
+ Woodrow Douglass <wdouglass@carnegierobotics.com>, 
+ Michael Hennerich <michael.hennerich@analog.com>, 
+ Support Opensource <support.opensource@diasemi.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Andrei Simion <andrei.simion@microchip.com>, 
+ Saravanan Sekar <sravanhome@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jagan Teki <jagan@amarulasolutions.com>, Icenowy Zheng <icenowy@aosc.io>, 
+ Alexis Czezar Torreno <alexisczezar.torreno@analog.com>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig_=28The_Capable_Hub=29?= <u.kleine-koenig@baylibre.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <cover.1782827697.git.u.kleine-koenig@baylibre.com>
+References: <cover.1782827697.git.u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH v4 0/3] regulator: Rework i2c_device_id initialisation
+Message-Id: <178285924112.12243.6143940055220497340.b4-ty@b4>
+Date: Tue, 30 Jun 2026 23:40:41 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260701084150.GNOeboLw@linutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_040144_062172_B398697A 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1522; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=Se8qvSnLyHP7PFMUp7FvEWErFUDObH56rpra7K5A4IU=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqRPPSkuOjyGJnC2onBkCSeSpvaMwcJclIilDAU
+ MSbZC7ZbL+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakTz0gAKCRAk1otyXVSH
+ 0NWXB/9W0gSges1rte4PrGSwpKauYIdmOSbe2NOTmDKfZmGK8VTaOVGe55uBVK9mCwNJxUP/RVi
+ KNLawM9pdiX8G373DtyTrGM9+5xwydpWx2thMXS01Ty+f0XyVp2U8R8psHLxbtw7dwcw33fw1rL
+ b8gGXUuGZshCQAPwS1C7x+EH1h9ckZGtzKPBsIjFs8ltK8dic/cNGblxTZ1J1hBhP4oKzEqBWwO
+ CQuLQtr8lhoEkWBmOjFfGk496jB6K0DrDPK0hk1Qy4NqBJbNV0d2oadZpdTUfUQio+rAqekfhLh
+ ZFrquoKSgTUbdh+OQD3aJ2tDR6tkLs3QFYUzLIgv4mMvzAs0
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +92,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2026-07-01 10:41:55 [+0200], To Peter Zijlstra wrote:
-> This makes it go away at no extra price but yeah let me boot a big box
-> and see.
+On Tue, 30 Jun 2026 16:01:06 +0200, Uwe Kleine-König (The Capable Hub) wrote:
+> regulator: Rework i2c_device_id initialisation
+> 
+> Hello,
+> 
+> changes since v2
+> (https://lore.kernel.org/lkml/cover.1781888370.git.u.kleine-koenig@baylibre.com):
+> 
+> [...]
 
-as-is:
-|$ ./perf bench futex hash -f 1 -t 1 -r 10 -b 0
-| # Running 'futex/hash' benchmark:
-| Run summary [PID 3588]: 1 threads, each operating on 1 [private] futexes =
-for 10 secs.
-|=20
-| [thread  0] futex: 0x5555e5ad4740 [ 6449632 ops/sec ]
-|=20
-| Averaged 6449632 operations/sec (+- 0,00%), total secs =3D 10
-| Futex hashing: global hash
+Applied to
 
-roughly that area, repeated runs usually change the last three digits.
-Patched:
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-7.3
 
-| $ ./perf bench futex hash -f 1 -t 1 -r 10 -b 0
-| # Running 'futex/hash' benchmark:
-| Run summary [PID 2375]: 1 threads, each operating on 1 [private] futexes =
-for 10 secs.
-|
-| [thread  0] futex: 0x5585ddebd740 [ 6532004 ops/sec ]
-|
-| Averaged 6532004 operations/sec (+- 0,00%), total secs =3D 10
-| Futex hashing: global hash
+Thanks!
 
-for private hash there is change within the noise area for -b 8192.
+[1/3] regulator: Drop unused i2c driver data
+      https://git.kernel.org/broonie/regulator/c/3ac69e3cb288
+[2/3] regulator: Use named initializers for arrays of i2c_device_data
+      https://git.kernel.org/broonie/regulator/c/8e74b2db5867
+[3/3] regulator: Improve style of i2c_device_id arrays
+      https://git.kernel.org/broonie/regulator/c/2924fa8381ee
 
-So we have here +1.28% ops/sec. Not ground breaking, not bad either.
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
 
-With more threads:
-| $ ./perf bench futex hash  -r 30 -b 0
-| # Running 'futex/hash' benchmark:
-| Run summary [PID 2424]: 144 threads, each operating on 1024 [private] fut=
-exes for 30 secs.
-|=20
-| [thread  0] futexes: 0x556f3a3387c0 ... 0x556f3a3397bc [ 2104422 ops/sec ]
-=E2=80=A6
-| [thread 143] futexes: 0x556f3a3d9660 ... 0x556f3a3da65c [ 2105480 ops/sec=
- ]
-|=20
-| Averaged 2111486 operations/sec (+- 0,03%), total secs =3D 30
-| Futex hashing: global hash
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
 
-To:
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
 
-| $ ./perf bench futex hash  -r 30 -b 0         =20
-| # Running 'futex/hash' benchmark:                                        =
-                     =20
-| Run summary [PID 2723]: 144 threads, each operating on 1024 [private] fut=
-exes for 30 secs.
-|
-|[thread  0] futexes: 0x560a09e487c0 ... 0x560a09e497bc [ 2135688 ops/sec ]
-=E2=80=A6
-|[thread 143] futexes: 0x560a09ee9660 ... 0x560a09eea65c [ 2137668 ops/sec ]
-|
-| Averaged 2139685 operations/sec (+- 0,03%), total secs =3D 30
-| Futex hashing: global hash
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
-+1.34%. Again, not ground breaking but still visible. And the memory
-savings.
+Thanks,
+Mark
 
-That is btw, 7.2-rc1 on a Intel(R) Xeon(R) CPU E7-8890 v3 (4 NUMA
-nodes).
-
-Sebastian
 
