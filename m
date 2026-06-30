@@ -4,173 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F8F0C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81660C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6d9GoL2Cwba4zKt6lgX+OEUKmVmYsV6rK0N9Cwpp5A=; b=m86pIuaBJEjIIR0/djD80IRdsB
-	TMrtQX8dZkC54kqtYBOSyK9d1PTH9rn8+7fOpGie+nAe1V75D1/LyzG/s1y5Ev3K4mx99VmbTmQCP
-	KMg06cAXxjy2kEWSiKokp2amSm1daYauvM7t+kuMUdNy/IGiOXNg8O9m9MxuMmXCooGX7tLwZf3m1
-	ymCT4Zq5y3zxVj3TYrP1eYMmeVXRdXNC6WKnE53zdGiscAOfLSjC3W9kJW9xqKQqBJ2fh51thXZqy
-	CqONx47ruF6hl7nHGmtsPmbflU4alqZppQMXD2T01fijKcmCA2EMWIvnXJ4lQ83NghfDA1qAy5vio
-	G36/GWnA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dpeFXhV4Pw0wk1JPopUpgr4/oRK7CGjNZ/FePo/8uZw=; b=1/Pv1z4Zm8y2dw8jsxQ20CESt/
+	LhLG6663HZxYEvO/9iGX1v38H0EF/NObuRYVTR1u3LMbGWJj06kqbyfn2QW0Hvyg9BLpMNxnhqUFN
+	n1ARWUM9oBe4LtbK0iSwEBmI73xGDwVcyX1RXJjKF+VJkMn6QWOfkvcIxuHeNdU/Okn5x+A3vA+VM
+	QxJyBzHCVcQqAq6WCMTt32nQV+U6mpMwDWPgjx2v8AKgIwVrHD6YKd+za+2Kdfvw8a2k/i83aWJQY
+	tmmQ4jxLbGjkQPNPE/c+A2oFAMIWY+h0tVSdRMzb+CX6mSLVBrDa42CDpPZKRVTKDquaINE1F3oF7
+	ivJ6TJtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXbq-0000000GzL7-1EFL;
-	Tue, 30 Jun 2026 12:30:38 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1weXgD-0000000Gzva-3xDx;
+	Tue, 30 Jun 2026 12:35:09 +0000
+Received: from mail-dy1-x132f.google.com ([2607:f8b0:4864:20::132f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXbn-0000000GzKJ-3V3j
+	id 1weXgB-0000000GzuM-0pkb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:30:37 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65UBAoit676857;
-	Tue, 30 Jun 2026 07:30:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=d6d9GoL2Cwba4zKt6lgX+OEUKmVmYsV6rK0N9Cwpp
-	5A=; b=bs2iV1f6acC9A2B+V4NebiB/lbq2FfSNj/n0KVHd8YsN+lgUFImFz0L9n
-	6+b2dBX114YOkJ+S3wUhNjkvxu7IhMLVM7u7WADqTyRwXkwB4Ox2qVUhH0H7nVvN
-	TA+WhGoapeMVyFk6RTYZOHG5umAgGP4VvLVe+0EPM9dNAaIc759KL4q7i8TAswpr
-	8YIVxmpdNe0EOnQakxfMQGc58IKOGEY/VXVQagdfV3ekktQUhATEAkxAaiJ/VNyM
-	9kQUvY1spQOqTXF8NV0uw3QuV9iQJT0NjfJ1gd+rQxDTk5icPwTJYXa0jz/1PQjc
-	gYzyB0nO5qvsA/RPbe4JZ0iF1AyjQ==
-Received: from sj2pr03cu001.outbound.protection.outlook.com (mail-westusazon11012057.outbound.protection.outlook.com [52.101.43.57])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f4cpvrb25-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 30 Jun 2026 07:30:31 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PaCRMckbfQJyHv3UXsKtfq4A9PvLu8jCAZXdPHvwrHnE8xjCROsfcW+CjEBtGQ/6MIH/yFh8QBIlcIZse0vB5l9vV5NTWU4L7EN/jhxZulKKuXYZ13yfVcSc3FdOae61pW9TlKCuQpw7kMAAXUaaj7Bvr2SyMo0wIGLnQqDq91EQew/KHjCNaYhA4AOgTMRmiBUK4BnijKpUlcf5MsRtbC8InDN/hYBwtHE6SN7zQ1r9cVvOh/Tk09kNyG0mnQbOyjblBS108hsjiMYEdTFwlwtV7yNyZ8m424LSfdxjmv5KOGrRCz520tFrV/S3XQgsptWp+xH7WbtagwQ+OskO7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d6d9GoL2Cwba4zKt6lgX+OEUKmVmYsV6rK0N9Cwpp5A=;
- b=iXuZQzDb4PYZBLjjIQFHU65tNbrxV+OZdi5ixcgJxEMa/Yth/Y8JIYb4yZYinmq+u+mltf78kSHEDrsm1BWNX/GNc2TNRtRWfTq6Y3ht/rvcJ0c3EpU7ylIufqVJ+Vtg6Viq8sAHabBGJppL2uEpQS/pfdDv/LHxric5i+cQgjjy+oQS2R2wGa+2k8VHToB9nL7p/Idj4CCxp73hSHLsIRWPzjenKwggqgPyS8V/vz09+tkvJiy4B7CQGKCPsGDHBGlu0Go3PlHnOxVf+YBZKZaN4vAr5JeJqOS081V5cPkxdNKAYENdEo75FgqDFzOC+/wJH0AoNVod7MmaoZ0xvA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d6d9GoL2Cwba4zKt6lgX+OEUKmVmYsV6rK0N9Cwpp5A=;
- b=sQJ8jcAQKVFhu5TOAhPoUQmhedoGIbPL5Hs6Eb93n/Nv23xJZPTjTysltl9YttfTEg2WFPtcC2n5vLch35xBu4Wsbt6Q3E4P/v2ozqZNk1EupzcU8mIrf8NOre0jN9po75KOFQzrrN0n/rBjKkGEr1HlSNTQYh+7fmcJ8M4SVfE=
-Received: from SA0PR11CA0182.namprd11.prod.outlook.com (2603:10b6:806:1bc::7)
- by PH0PR10MB4631.namprd10.prod.outlook.com (2603:10b6:510:41::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Tue, 30 Jun
- 2026 12:30:29 +0000
-Received: from SN1PEPF000397B5.namprd05.prod.outlook.com
- (2603:10b6:806:1bc:cafe::81) by SA0PR11CA0182.outlook.office365.com
- (2603:10b6:806:1bc::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Tue, 30
- Jun 2026 12:30:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SN1PEPF000397B5.mail.protection.outlook.com (10.167.248.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 12:30:29 +0000
-Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 30 Jun
- 2026 07:30:29 -0500
-Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 30 Jun
- 2026 07:30:29 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 30 Jun 2026 07:30:29 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232] (may be forged))
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65UCUTQJ3055883;
-	Tue, 30 Jun 2026 07:30:29 -0500
-Date: Tue, 30 Jun 2026 07:30:29 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Rosen Penev <rosenp@gmail.com>
-CC: <dmaengine@vger.kernel.org>, Peter Ujfalusi <peter.ujfalusi@gmail.com>,
-        Vignesh R <vigneshr@ti.com>, Vinod Koul <vkoul@kernel.org>,
-        Frank Li
-	<Frank.Li@kernel.org>, Tero Kristo <kristo@kernel.org>,
-        Santosh Shilimkar
-	<ssantosh@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva"
-	<gustavoars@kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCHv2] firmware: ti_sci: simplify resource allocation
-Message-ID: <20260630123029.ozveska7eoenci3s@unturned>
-References: <20260504031209.618949-1-rosenp@gmail.com>
- <20260506110910.su2s6ncsi2xfdiwm@pureblood>
- <CAKxU2N8PUdxo54oHtcroqe+Q88k0obxPg_9OCRsNsoOwvcS25Q@mail.gmail.com>
+	Tue, 30 Jun 2026 12:35:08 +0000
+Received: by mail-dy1-x132f.google.com with SMTP id 5a478bee46e88-30bf132969bso6449067eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 05:35:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782822906; x=1783427706; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dpeFXhV4Pw0wk1JPopUpgr4/oRK7CGjNZ/FePo/8uZw=;
+        b=ECHToqZs3atoC0x/IOx+7/O9keWumcilHKmGNy8hgMt0JAXs9USwABpLgzpXByzBWm
+         48zwUAsv1PnxIBTJKGY/aAtrmtMk+d5ZZ18Cl1JKZI5X3Cu+kYV/UwiNzG23nEKoSeYw
+         45rcUsKmt7WFdX0g2Ij7m81OU56UElbDn/ZbFxaob/SDqiDI1I1zkD9mQQLI5vnxkD6a
+         MMbArbux5cCg59XCjuFbHGohapf9XEqjMQkXPjjTqQsJecbNzYlrCCDGhqUHOm3P+r0J
+         4lRXGiBy4z3wxK2yJkJNpespC2GlmAT0L5W5pFun/GiaKenkneagx6DuainDklQSni/G
+         Wk/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782822906; x=1783427706;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dpeFXhV4Pw0wk1JPopUpgr4/oRK7CGjNZ/FePo/8uZw=;
+        b=qh9H/KdI867VCazm3Kf6t5GxGmQ1LLo/o/s8sfBwFZ8affj97FeOvxU2fw0b6hBTFy
+         ieUpZNNS/XhWKtVE8tWXVNcNK/u5iTiFsb1rs/yhYplO0g5r8pCxGJCER8YYybGkI4EB
+         RoYZHRQtVbIg8PwSguTN4qgC5IzzGYJk2CIE2A3JOxDcR79xOrVYuuE45iGsR7pEc//o
+         12auWxJOkyxCAIOimQCnTIvzS78AXK1bEFyiU0ZHSbr6IKmnJw2t0Se/xMeCPMTxjDlh
+         aw3vY+P4glz2feomHMMqTOxqov0IMgf4jX0VLpWgSXyCUAkxHcjZd/TqU3PjKTg7Jrt4
+         YXLg==
+X-Forwarded-Encrypted: i=1; AHgh+RoobZ2C2Iz7a93b5d3emXTOw4szlmwH4Xm9j03PseYyyl/99hoV5KGHoWhCNyBJ52HmVs77RO1p2KdYCnQiqArW@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywp3vcqCWvFPRAJACe44CkRIpD42dCoFcCYwuShSYcjZIFkdH0F
+	Yf0jVE7IgHsP/MeD8/SLzYR7EajNBR80+6eJTHpFnGb8twx1z5ROQN/U
+X-Gm-Gg: AfdE7ck0//c/roYaRCH4KW0HEJwE2t+D8w/76fIU1+jxGpTznJNH0ag1QxC8+b+cGz6
+	xixlw+T0l42bZGspTfmzAEyPVQpvEq1ykNIp4B9zd2GypgAiWmLOPsMnDdGI+SFGv40dgOjTx7u
+	wssGo8YJemPdcgkp9R9q0vQ9Q0YHhRqCa6DVTKoQ7tiieZjNll8nalJA1BMrZKqNQBU8DPayWhj
+	cOTiR/XBmiWRXByzDtuO8cXfMjMSqUg0AG4bSW49VlyDNsjGBjh4R1lUzYvTQyP/UQbOYTeqAdD
+	jt00KTSmEjLKFiiYe4IcUS/Wh2K/k8IGBslCIGzMVHXO9k4v+Jb9aoTGqPYLb5hi82GxjZQVbQF
+	J/nlinZ8gzFVMH8KnSOSRz+PqBHcF46I5PTF9bn7bcIf2c+iHgZsCLXbDTHV1yEvFF6XGipXb4/
+	wjOTQWAb6vq7UtyF+E1Q==
+X-Received: by 2002:a05:7300:724d:b0:30e:d6ca:61a2 with SMTP id 5a478bee46e88-30ef09f6f70mr235729eec.35.1782822905746;
+        Tue, 30 Jun 2026 05:35:05 -0700 (PDT)
+Received: from ahmi-PC.. ([2401:4900:88f6:ed7a:33b0:ccdb:e58a:b126])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ee327cea7sm8743218eec.31.2026.06.30.05.35.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 05:35:05 -0700 (PDT)
+From: Narasimharao Vadlamudi <ahmisaranrao@gmail.com>
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	linux-media@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Narasimharao Vadlamudi <ahmisaranrao@gmail.com>
+Subject: [PATCH] media: pisp_be: Propagate platform_get_irq() errors
+Date: Tue, 30 Jun 2026 18:04:52 +0530
+Message-ID: <20260630123452.14226-1-ahmisaranrao@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKxU2N8PUdxo54oHtcroqe+Q88k0obxPg_9OCRsNsoOwvcS25Q@mail.gmail.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF000397B5:EE_|PH0PR10MB4631:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6287067-4c4f-4aa2-e635-08ded6a35f20
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|23010399003|1800799024|376014|18002099003|22082099003|4143699003|56012099006;
-X-Microsoft-Antispam-Message-Info: ER+IewTJFiqXNnBougqfSr8Saj9TN38WjrH1PwY5OmFlSeVXuzqUvLVkgi/0sCL7Mqp+Lknel+PLEO8NvkkWdRJs+88tINXiEZBpji1Wrw9+J2p8V0GuhZbU4dBXsV5eoduYMebs0X7NiQ6pzqDfu/HIEzQiUYBcBtRIERjyzmkC5TussZ7r2+JcHhtOKSVmltMkb9UW7IZCWCzX26v5b6ZsuCJoZmb1lQ1eAGpwxWSUqVEGhk+SLpuclpxxhciIuHfdR2jKoslZJNUph9IyOnVoiWJBWWYW75L9raiLE4v5mca2wFVnyg8Q7y6anFtvy+KIjLvACjx/X5RsN2XahxXw9JXERP/lUdxNH/EZ2YizEHnOa7qbrRqT9ZEqc+ksktvCbly8jauCv2166FtQp55494f1E2b0cbBCNketTzdCY6eRWQwpDlRq6QunS7vZs0aRU6NRfZkFebHdvBNKtqxxgskoGWGSdwthN/+7Hl3xywyaLvJ/ryvNJI4XfoSQ9Sjg6pjqrNbIoDJgZ/kBlRXInpl/AAHriVkFo4uTBWwTJ/mefQPy93DZKpPVwvT3yZcLH9dom8J+wZ9mYNYputva9BIa06nQMg9NxC06LFs4CC7jlaNPtOoE/stVRYscs7gI/MXt1Z/Z7yOb0Sbzfg==
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(23010399003)(1800799024)(376014)(18002099003)(22082099003)(4143699003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: iDiusGzsgOekt0q6eRBejNHUnA/1pHjSghzfzvS7TzfWKCdkUtpLutcB5X15ioyskbmuyiL80uTCRqW+d45uFpk9VkNzqj6Vv2qHSRkqphnkpaLIpCqscwQo029bYwXxCyNNGET12qCp7XAoA9YafiKyTYw5jhVsoL3Fq8bUFxva59WYSFDKAHgUpLzGNmjKisudGdUfkBdDoD4sdGc7i2d49tLU/1JBpCCMJuXGkBodjE9gsL+3fh8uurXlasgxat0gRvFGhV1PhIgJ5QKd0VfHB+mO1FAS+S4eg958VTg4hiKIYcepx4QdnUyoJWOQjut+lFIYTGYhd7n4uzwY+Iq2jfCG+ZgNdh7oV4S4jujXJe6LepD8TnXW1egQ7sTfdXbm8XZlolOrf4JYIvqK7/5FlPq4iT8KTGMVfJ2NNDhsGcS5MU2njtAZlX0Z3Ktx
-X-Exchange-RoutingPolicyChecked: eHpkXLVlWYJwiUKQm4XC8M3DEjanElFi0rvuKf7f+tSd8h2SAPRlT1HlKdLTQJmWMLuOc3v6/haKQoDsgyqmfdcJ1UNUaV9NX4odYSD9bumpalw/lLwUlPfrQryb/tuZAY5SotxK61rlCH2BukrDHHhYlGVUcr2PvjTQcYIJSnjmjnDAqo+xJNzK3zh99nymevtY6bsEGea1p2vWBvyZb/tkaao8Uz8dIsuKr7vYhT3SCNONPA7H/F5crddmtAU0S+D1ynXB9ZRkPleMzk43WSNXg41njSj3L5vAloliA+Gke/zM6Od9gD3XMrcrEjk6n+e2MFVgVQvWm8Oxke1PLQ==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 12:30:29.6439
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6287067-4c4f-4aa2-e635-08ded6a35f20
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397B5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB4631
-X-Authority-Analysis: v=2.4 cv=c6abhx9l c=1 sm=1 tr=0 ts=6a43b6e7 cx=c_pps
- a=Y/Y9x3HtMOqQL+YbCjVQEg==:117 a=f+v6EHfkeJbVwR46tk4DMg==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10
- a=s63m1ICgrNkA:10 a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Z8NIEmU8O1QQgoT56wFK:22 a=fPAWb5peG099m5CrUpKH:22 a=VwQbUJbxAAAA:8
- a=pGLkceISAAAA:8 a=sozttTNsAAAA:8 a=P6EMeZrB4Hkf_tHIvukA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDExNiBTYWx0ZWRfX3oW38DbELDzQ
- rnAnbYhsUvXvjVDZpYV0JirWFl18ijm/0efMGfNdVy4gpSJdakac9zv6UdpyHuGgZoHhZh8++d0
- OSBVg1b9HLI9AUtvdd+xYpsYjPtCwVg=
-X-Proofpoint-GUID: AUJbHr8712Ya2Z3BhOcOGjXC0wxnXKBb
-X-Proofpoint-ORIG-GUID: AUJbHr8712Ya2Z3BhOcOGjXC0wxnXKBb
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDExNiBTYWx0ZWRfXyV+HUHAns43D
- pKjy10ptW/V/KEdoOPgLY6Iu2uE99j+Qbez2dsCa3j2EqKeqJUrZOx4I1zzEfDY8QL61kq2RWEC
- bK0EE2NXN3GMnYzvmRSK9eMTNUvzLd2Q4qoyajg+QzdLVhlvjrXa+Cd0HuUAGTjxQ9jdBjakszd
- wapLQhxHq39xxXQSCBF5JS7id/qgbhIy77+U96I1r95kCUAKhr6xPRDN/GdhcvGRJsABBxUyzag
- /Y1dqOLbul8pxzS/YnPMimMJl+PGsyoGTSkQ87XIru2QFBjwNjsoq4K1dKBNy2c7gJQXz2wBoie
- 1HQW2ZZu7Uvphotti3db8uwgV+z3NT0y8/y/q0TVlwL9apMKEZH+Hv4jWK4U0E+LZd6qWmo4HDk
- y1VZrabLTZJGs71zh1d0ABW1Dv0Zl87CnVabZpSCfwaaqHPeFe4yJOhBfA8k8gKeueE3fC2tEsf
- 3kuJJlCeSmDrfSKEqnA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-30_03,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 suspectscore=0
- adultscore=0 malwarescore=0 bulkscore=0 clxscore=1011 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606300116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_053036_119589_B5831F27 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20260630_053507_233653_E9CB2F79 
+X-CRM114-Status: GOOD (  14.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,21 +102,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18:42-20260629, Rosen Penev wrote:
-> On Wed, May 6, 2026 at 4:09 AM Nishanth Menon <nm@ti.com> wrote:
-> >
-> > For some reason, replying drops the CC list. manually added them in.
-> Found the issue:
-> 
-> https://lore.kernel.org/lkml/20260630014129.1548147-1-rosenp@gmail.com/T/#u
+platform_get_irq() returns a non-zero IRQ number on success and a
+negative error code on failure. The driver currently returns -EINVAL
+for all failures, which loses useful errors such as -EPROBE_DEFER.
 
+Return the error from platform_get_irq() directly.
 
-Please repost with additionally CC LAKML and the TISCI maintainers for
-the patch, this would go through my tree.
+Fixes: 12187bd5d4f8 ("media: raspberrypi: Add support for PiSP BE")
+Signed-off-by: Narasimharao Vadlamudi <ahmisaranrao@gmail.com>
+---
+ drivers/media/platform/raspberrypi/pisp_be/pisp_be.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+index d60d92d2ffa1..06644d10ace0 100644
+--- a/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
++++ b/drivers/media/platform/raspberrypi/pisp_be/pisp_be.c
+@@ -1703,8 +1703,8 @@ static int pispbe_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	pispbe->irq = platform_get_irq(pdev, 0);
+-	if (pispbe->irq <= 0)
+-		return -EINVAL;
++	if (pispbe->irq < 0)
++		return pispbe->irq;
+ 
+ 	ret = devm_request_irq(&pdev->dev, pispbe->irq, pispbe_isr, 0,
+ 			       PISPBE_NAME, pispbe);
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.43.0
+
 
