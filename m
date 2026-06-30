@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F42C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:16:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 848BDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:17:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aBg35UbhV6mbQWeCQ9pQpDL4bAnyZsscC2WQYIptGg4=; b=xU9m6oeYflOR0rjfkPuarRrKvG
-	WKrr1wi030XL+Uj11/SN67oSvS7fZvVM8DZc2cN778Fprk1e3dT+pJT3ch4NEAsdmcGA4N69QoRRz
-	ZZ6cJuOfv1pKcNQbObTAM4oCMaXxyq4w//W412lUxMSoFSkEpu/wpIi4vLjgLLPJcHuFXrQ724YSa
-	symRHsooBCOhlyhNZUFfPmnmKk+iYB7bFUw8cka9oqUEqSW4fdhi0p8/p6MOi7gfriN9N/1dHHbL9
-	CJ+GXqw0ldJAuN2Z3zTPm5FtwQhsChDAslY0Xtxam6BODLOnRCRegAKaUZHbQ3NEu/J7Xmnw/L+Vb
-	XmNYYsxg==;
+	bh=YwHMq7p19d3jSouCHJ4j3qBlM/4kJJ+u5pW4Si9872U=; b=TtTfgU3kc6uhxpMeP/Rfn2yF73
+	TNWV1Dy0YMK0IfBCZc9BMpkUZkGbx5dw7oPDfRhm1+FRIxzItY5u9a+8OK2cT+nvC6KIUXj2qKAGw
+	de7LNhXI6j1YOpExeCGlQCNXnj5ow1vAb0VKSllzXMgQC0wmww+D6qB7SD897mRdcb8zJyWRsGH8b
+	0HSqp+X4Q65C+jpobubeHpssSNf3krGw/jidDB7EKk7d0cNcApFLzIFXFfNwxN4/vWcTGeqJ8gG4F
+	DUyB3pHJZeotjtd3UYzhtksvEBXONYfTFT07Rdb98cVE9HUFru/9yy8RsD+5r48OLPzoURclInQ2U
+	GrCRVf1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUaB-0000000GNXG-3cyF;
-	Tue, 30 Jun 2026 09:16:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUa9-0000000GNWk-3hky
+	id 1weUQb-0000000GLFV-1DV6;
+	Tue, 30 Jun 2026 09:06:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weUQS-0000000GLAj-0txV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:16:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 68EE12C1C;
-	Tue, 30 Jun 2026 02:16:36 -0700 (PDT)
-Received: from [10.57.81.132] (unknown [10.57.81.132])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F30143FAFB;
-	Tue, 30 Jun 2026 02:16:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782811000; bh=pOGqr+6YjRRrGfqyTm37l0BuFHy9XPuCtkGh7B9Kr+0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=OhlBURWGxQqcbV6J2ZjbPLWqe0+OO9mHDyY8RjjqBPKuIiYpX91UGBHlnRLA2voBR
-	 ZGfe8UhEF+CVHnpiOUhkK+Si+HmROlqhNQzZWseJfpnlDEHoIShP9UCusiuqoiShd4
-	 QVu9mycDBfqeZmeTAPiDcXgKfSZGryWFP031nXt4=
-Message-ID: <e4f98e9d-9f02-46d3-90ff-22ec711ba85b@arm.com>
-Date: Tue, 30 Jun 2026 11:16:27 +0200
+	Tue, 30 Jun 2026 09:06:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7982860008;
+	Tue, 30 Jun 2026 09:06:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 552271F000E9;
+	Tue, 30 Jun 2026 09:06:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782810399;
+	bh=YwHMq7p19d3jSouCHJ4j3qBlM/4kJJ+u5pW4Si9872U=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=NNpw9I+IpgyIaUQbk+igml7ADndDvf01cu8zzYVrXIUM5MuHsQkycbOMGrMX8klrV
+	 rChgd8/xaZe5No4BzxhGev//jPuEbgLeM1lqs/1v3ZSIbfZWr4NDW3tiiswo7HezT9
+	 DB2XoJI6dMREXxydB5LXV0to3BTgkcaylkKFO8MlPZhkpUzgOi1NDkD5u+4Ih0hhMq
+	 x7Am4sWTT9avHKurboNZ3iUzj6aAIieN+7ItCwxQvUP0wsu79ZZP2u+5DsqJGPCVQW
+	 XgqUGXya1DYisq17mfEn69ApcuJ/oysWJ5t0unL4AagTjgsnFhZjprGy9ll5isvFIr
+	 EZ3zxSesFMcVw==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Tue, 30 Jun 2026 10:05:58 +0100
+Subject: [PATCH 2/9] firmware: arm_scmi: Fix transport device teardown
+ lookup
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v8 05/24] arm64: Implement asm/kpkeys.h using POE
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- linux-hardening@vger.kernel.org
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Andy Lutomirski <luto@kernel.org>, Catalin Marinas
- <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
- Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>,
- Rick Edgecombe <rick.p.edgecombe@intel.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>
-References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
- <20260526-kpkeys-v8-5-eaaacdacc67c@arm.com>
- <f8507ad6-761c-4073-85ae-bddb2a07d660@kernel.org>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <f8507ad6-761c-4073-85ae-bddb2a07d660@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_021642_015774_8D418774 
-X-CRM114-Status: GOOD (  29.17  )
+Message-Id: <20260630-scmi_core_fixes-v1-2-f932c1e51992@kernel.org>
+References: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
+In-Reply-To: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>, 
+ Sudeep Holla <sudeep.holla@kernel.org>, Sashiko <sashiko-bot@kernel.org>, 
+ Sudeep Holla <sudeep.holla@kernel.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,130 +71,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/06/2026 15:35, David Hildenbrand (Arm) wrote:
-> On 5/26/26 13:15, Kevin Brodsky wrote:
->> Implement the kpkeys interface if CONFIG_ARM64_POE is enabled.
->> The permissions for KPKEYS_PKEY_DEFAULT (pkey 0) are set to RWX as
->> this pkey is also used for code mappings.
->>
->> To allow <asm/kpkeys.h> to be included from assembly, also add
->> appropriate #ifdef's to <asm/por.h>.
->>
->> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> ---
->>  arch/arm64/include/asm/kpkeys.h | 59 +++++++++++++++++++++++++++++++++++++++++
->>  arch/arm64/include/asm/por.h    |  4 +++
->>  2 files changed, 63 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/kpkeys.h b/arch/arm64/include/asm/kpkeys.h
->> new file mode 100644
->> index 000000000000..4dbfeb3dfcfe
->> --- /dev/null
->> +++ b/arch/arm64/include/asm/kpkeys.h
->> @@ -0,0 +1,59 @@
->> +/* SPDX-License-Identifier: GPL-2.0-only */
->> +#ifndef __ASM_KPKEYS_H
->> +#define __ASM_KPKEYS_H
->> +
->> +#include <asm/barrier.h>
->> +#include <asm/cpufeature.h>
->> +#include <asm/por.h>
->> +
->> +#include <asm-generic/kpkeys.h>
->> +
->> +/*
->> + * Equivalent to por_set_kpkeys_context(0, KPKEYS_CTX_DEFAULT), but can also be
->> + * used in assembly.
->> + */
->> +#define POR_EL1_INIT	POR_ELx_PERM_PREP(KPKEYS_PKEY_DEFAULT, POE_RWX)
-> Okay, this matches
->
-> #define POR_EL0_INIT		POR_ELx_PERM_PREP(0, POE_RWX)
->
-> Is there a good reason we need KPKEYS_PKEY_DEFAULT at all (and not similarly
-> just hardcode it to 0)?
+SCMI transport devices are deliberately excluded from normal SCMI bus
+matching so protocol drivers cannot bind to the internal transport
+children. However, scmi_device_destroy() uses the same protocol/name
+lookup to find devices that must be unregistered during channel teardown.
 
-I did wonder about that. As per the discussion on patch 1 I don't see
-that value ever changing, so I'm fine with hardcoding 0 if that feels
-more consistent/intuitive.
+Split the match helper so driver matching still skips transport devices,
+while explicit child lookup can find them for teardown. Use a shared
+transport-device name prefix macro for both matching and name generation.
 
-> Just wondering, because apparently we didn't care about adding an indicator for
-> user space pkey 0.
+Since transport-device names are derived from direction and protocol ID,
+reject duplicate protocol channel setup before creating or finding a
+transport device. This prevents malformed firmware with duplicate
+protocol child nodes from reusing an existing transport device and then
+destroying it when the duplicate IDR insertion fails.
 
-It's never too late to add a constant for userspace as well, but of
-course since it's been ABI for so long the value isn't going to change.
+Fixes: 9593804c44c2 ("firmware: arm_scmi: Exclude transport devices from bus matching")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/bus.c    | 22 +++++++++++++++++-----
+ drivers/firmware/arm_scmi/common.h |  2 ++
+ drivers/firmware/arm_scmi/driver.c |  5 ++++-
+ 3 files changed, 23 insertions(+), 6 deletions(-)
 
->> +
->> +#ifndef __ASSEMBLY__
->> +
->> +static inline bool arch_supports_kpkeys(void)
->> +{
->> +	return system_supports_poe();
->> +}
->> +
->> +#ifdef CONFIG_ARM64_POE
->> +
->> +static inline u64 por_set_kpkeys_context(u64 por, int ctx)
->> +{
->> +	por = por_elx_set_pkey_perms(por, KPKEYS_PKEY_DEFAULT, POE_RWX);
->> +
->> +	return por;
-> Why not
->
-> return por_elx_set_pkey_perms(por, KPKEYS_PKEY_DEFAULT, POE_RWX);
->
-> ?
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index f643a1f0e282..d4beefa4234f 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -201,21 +201,33 @@ scmi_protocol_table_unregister(const struct scmi_device_id *id_table)
+ 		scmi_protocol_device_unrequest(entry);
+ }
+ 
+-static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
+-				      const struct scmi_device_id *id_table)
++static bool scmi_device_is_transport(const struct scmi_device *scmi_dev)
++{
++	return !strncmp(scmi_dev->name, SCMI_TRANSPORT_DEVNAME_PREFIX,
++			strlen(SCMI_TRANSPORT_DEVNAME_PREFIX));
++}
++
++static int __scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
++					const struct scmi_device_id *id_table,
++					bool skip_transport)
+ {
+ 	if (!id_table || !id_table->name)
+ 		return 0;
+ 
+-	/* Always skip transport devices from matching */
+ 	for (; id_table->protocol_id && id_table->name; id_table++)
+ 		if (id_table->protocol_id == scmi_dev->protocol_id &&
+-		    strncmp(scmi_dev->name, "__scmi_transport_device", 23) &&
++		    !(skip_transport && scmi_device_is_transport(scmi_dev)) &&
+ 		    !strcmp(id_table->name, scmi_dev->name))
+ 			return 1;
+ 	return 0;
+ }
+ 
++static int scmi_dev_match_by_id_table(struct scmi_device *scmi_dev,
++				      const struct scmi_device_id *id_table)
++{
++	return __scmi_dev_match_by_id_table(scmi_dev, id_table, true);
++}
++
+ static int scmi_dev_match_id(struct scmi_device *scmi_dev,
+ 			     const struct scmi_driver *scmi_drv)
+ {
+@@ -235,7 +247,7 @@ static int scmi_match_by_id_table(struct device *dev, const void *data)
+ 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
+ 	const struct scmi_device_id *id_table = data;
+ 
+-	return scmi_dev_match_by_id_table(scmi_dev, id_table);
++	return __scmi_dev_match_by_id_table(scmi_dev, id_table, false);
+ }
+ 
+ static struct scmi_device *scmi_child_dev_find(struct device *parent,
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index b9723c105fc1..fe8c22cfb9f7 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -34,6 +34,8 @@
+ 
+ #define SCMI_SHMEM_MAX_PAYLOAD_SIZE	104
+ 
++#define SCMI_TRANSPORT_DEVNAME_PREFIX	"__scmi_transport_device"
++
+ enum scmi_error_codes {
+ 	SCMI_SUCCESS = 0,	/* Success */
+ 	SCMI_ERR_SUPPORT = -1,	/* Not supported */
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index b9245238e293..b9ba566fc759 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2751,6 +2751,9 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 	idx = tx ? 0 : 1;
+ 	idr = tx ? &info->tx_idr : &info->rx_idr;
+ 
++	if (idr_find(idr, prot_id))
++		return -EEXIST;
++
+ 	if (!info->desc->ops->chan_available(of_node, idx)) {
+ 		cinfo = idr_find(idr, SCMI_PROTOCOL_BASE);
+ 		if (unlikely(!cinfo)) /* Possible only if platform has no Rx */
+@@ -2768,7 +2771,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 	cinfo->no_completion_irq = info->desc->no_completion_irq;
+ 
+ 	/* Create a unique name for this transport device */
+-	snprintf(name, 32, "__scmi_transport_device_%s_%02X",
++	snprintf(name, sizeof(name), SCMI_TRANSPORT_DEVNAME_PREFIX "_%s_%02X",
+ 		 idx ? "rx" : "tx", prot_id);
+ 	/* Create a uniquely named, dedicated transport device for this chan */
+ 	tdev = scmi_device_create(of_node, info->dev, prot_id, name);
 
-Because of patch 17, I wanted to minimise the diff. Happy to change it
-if that feels less surprising.
+-- 
+2.43.0
 
-> In light of API discussions, it would be nicer if arch_kpkeys_set_context()
-> would just return the old context. But that would mean that restoring the
-> context would require another read_sysreg_s(SYS_POR_EL1);
-
-Correct, that's what I wanted to avoid.
-
-> So instead of returning magic register values, that should be wrapped in some
-> arch state struct as mentioned as reply to a previous patch.
-
-Agreed.
-
->> +}
->> +
->> +static __always_inline void __kpkeys_set_pkey_reg_nosync(u64 pkey_reg)
->> +{
->> +	write_sysreg_s(pkey_reg, SYS_POR_EL1);
->> +}
->> +
->> +static __always_inline u64 arch_kpkeys_set_context(int ctx)
->> +{
->> +	u64 prev_por = read_sysreg_s(SYS_POR_EL1);
->> +	u64 new_por = por_set_kpkeys_context(prev_por, ctx);
-> Both can be const.
-
-Sure.
-
-> But maybe you just use a single "por" variable.
-
-Not sure how? prev_por is returned and new_por is based on its value.
-
->> +
->> +	__kpkeys_set_pkey_reg_nosync(new_por);
->> +	isb();
->> +
->> +	return prev_por;
->> +}
->> +
->> +static __always_inline void arch_kpkeys_restore_pkey_reg(u64 pkey_reg)
->> +{
->> +	__kpkeys_set_pkey_reg_nosync(pkey_reg);
->> +	isb();
-> Why is that isb() for both callers outside of the function? Do you expect
-> another user that doesn't need the isb?
-
-Outside of __kpkeys_set_pkey_reg_nosync() that is? That function is also
-used by patch 22, which doesn't want the ISB because we already have an
-ISB somewhere else. The naming follows that of __set_pte_nosync().
-
-- Kevin
 
