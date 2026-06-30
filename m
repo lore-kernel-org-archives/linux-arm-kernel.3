@@ -4,91 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A1BEC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41F7C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gqx06CAYLEB8rHXrCtO44BhZRf0Xxn31Jsv5lIP8hF0=; b=uozXwj5xH7L8vciWkyFm/X4YdU
-	FlBEPQGx9j0wH7E3tmBYPX6rDqZlUhwsIx2YFnsmxeRYjKN6eUtIs5pGIvBfjecOUPgBBLxuOvg0V
-	wQMjOgC9/tdl4RLs/GwsHHqvOopRvVyOyUv31F8v1uo45dHbI6XVTdePZTjBE1GT3j2zFRJMhFxBF
-	BemMW1iZjftpgd5Q9O9Hd8bcnWt5pXlCSbetqKmi84km+r20ORxl6xW/GrxRJXioJ8SufOyWi58s/
-	buhJGl8Uljf1N9S079OxRRKwIHRSDc2WHLfxVmpk3ygbLCKefFpSWr1P0MyLjW50jwYgFC2P8lhrs
-	mQMiboyg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Y4vxuq1hsWIzJHmUQ5gpCbPTMUFi5om9JE3+vStt6zc=; b=Bj4fFiq2A8BexF
+	AQrU/NOqMsC2nBrQA24rCA35wAZ1g7mhK7vV6qaaNMvJVfunMpiprA7XXOpH+CBUE+3Li9lgDNAjk
+	vWhLtZPdUmERbO0PQcT2r+XrTjjDjaKFlVio9CJvegB7RIgskfMtfAEJglKe9zKjjqqx4u9Wza4KT
+	H7dPzuYwXg0AkpR7zWw39Lu63eN4fmFtusN7PEIyTjfB331xRQrp2oCy3o5QXQAHe2a9sZGgi83Ug
+	2BTjD1vM9xCVy4IPxOjQJ+/SWwT4xkg8XE7Ov+4WHCdljnQqND4OeOwlrkF4QdR/lJ+1A+XfwVCzh
+	7APPO7R2JydX60Y+MTew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXvt-0000000H2pS-167L;
-	Tue, 30 Jun 2026 12:51:21 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1weXwA-0000000H2vp-3haV;
+	Tue, 30 Jun 2026 12:51:38 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXvq-0000000H2lM-0TMo
+	id 1weXw4-0000000H2rY-09tv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:51:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
-	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=Gqx06CAYLEB8rHXrCtO44BhZRf0Xxn31Jsv5lIP8hF0=; b=hlX4Xwm+QUp2+Ns8PgxCrAZuxV
-	RZ/Bipo9rXHHL5pGfQRmRHcr0Xj825vclkmKjLbAaS3sg55JOynqC3yUu/boCJFpMaCZuNrK7GWou
-	sy8MPtx21Viugso00raxsGqTH/FGF/hm8dEBGEStuRsz9Osx+7TPSlDvHpm6pZNYEmmw2ruICR7jp
-	Yc0gSoDisL8VUrolvWK1dqD05KMMQc1hYYKNFlETUBhIF3A1bYZH7ajXkzusWNgQnH0hI+go0kXBL
-	nmXcEpzBvUzD/CcFRWooWRfMSfGQHTEwwRO6fKAIg7SY7C9JpOO0UHIfp8EovGnf3AwZ0ED1XRo3/
-	mtXVaUCw==;
-Received: from [115.246.246.98] (port=58869 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <parvathi@couthit.com>)
-	id 1weXv6-00000006qlQ-2QRU;
-	Tue, 30 Jun 2026 08:50:33 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	danishanwar@ti.com,
-	parvathi@couthit.com,
-	rogerq@kernel.org,
-	pmohan@couthit.com,
-	afd@ti.com,
-	basharath@couthit.com,
-	arnd@arndb.de
-Cc: linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v2 0/3] Introduce HSR/PRP HW offload support for PRU-ICSSM Ethernet driver
-Date: Tue, 30 Jun 2026 18:16:13 +0530
-Message-ID: <20260630124958.894360-1-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 30 Jun 2026 12:51:34 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D02AF1A0D5A;
+	Tue, 30 Jun 2026 12:51:28 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A0D7B6025A;
+	Tue, 30 Jun 2026 12:51:28 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 55F4E106F1E97;
+	Tue, 30 Jun 2026 14:51:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782823887; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=Y4vxuq1hsWIzJHmUQ5gpCbPTMUFi5om9JE3+vStt6zc=;
+	b=Ol53ycHTwafFTsJ0jZuZC4mvH6xvLp5KPZGNOSnvgIW3KU74ZEuhiYbzABdmSfR1Gd0OU5
+	mopW01mzA1bKH57thL2n0SKrd3Mh8FxotIuM2vtkYfdvI7lw0pBF1Ung05CtgtqwB1Ej2h
+	Gj/noj0x7EHg4saiIHS5xTsw/LNctdT3wxa0QP1QNYaZPCYLASbgY2PWFXONbYvbxLXZUz
+	Z4sTqnun5JJ53gh/J7fLsvoQDM8U8kQkfk+QuJonrBT4x/Xs0IxAsonSXE4NP2UhzvPDWU
+	srCoI5+/0TIw3+9zxp+pn5lbg/WsjB8/eAhb5l1J3r9DURbEvbchGvXHtGn+xw==
+From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Subject: [PATCH v6 0/5] Add support for AAEON SRG-IMX8P MCU
+Date: Tue, 30 Jun 2026 14:51:10 +0200
+Message-Id: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4XQ3UoDMRAF4FcpuTaSyV+zXvke4kUmmdiA3Ui2B
+ qXsu5stSinL1sszMN8Z5swmqpkm9rQ7s0otT7mMPdiHHQsHP74Rz7FnJoU0IAF4pMZRc++pjPw
+ YPnmsuVHlJMgNhEn7hKxvf1RK+esiv7z2fMjTqdTvS1GDZfq/2YALbgZMHtAHldQzlnJ6z+NjK
+ Mel5FeQ9wWL0RoMjhLIG2G5q8m/W6wAqbYl2aUh6SAEJjQB15K6SlLckVSXhIdBKyn21oe1pK+
+ Sknpb0l3q/xYAMen9oNeSuUpauG3JLFIcHEbtwFp3K83z/AO2BVRzKgIAAA==
+X-Change-ID: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_055118_243735_29BF7BA7 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20260630_055132_230596_3655751B 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,311 +93,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This patch series introduces support for the AAEON SRG-IMX8P embedded
+controller (MCU). The MCU is connected via I2C and provides GPIO and
+watchdog functionality for the SRG-IMX8P board.
+
+The series includes:
+- Device tree binding for the MFD driver
+- MFD driver that serves as the core driver for the MCU
+- GPIO driver implementing the GPIO functionality
+- Watchdog driver for system monitoring
+- MAINTAINERS entry for the new drivers
+
+The drivers follow the standard Linux kernel subsystem patterns, with
+the MFD driver registering the sub-devices (GPIO and watchdog) which
+are then handled by their respective subsystem drivers.
+
+Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+---
+Changes in v6:
+- mfd: rename local variable to ddata in probe
+- mfd: fix driver name from "aaeon_mcu" to "aaeon-mcu"
+- mfd: set I2C_M_DMA_SAFE on all i2c_msg flags so the host driver
+  skips bounce-buffering the heap-allocated DMA-safe buffers
+- mfd: drop COMPILE_TEST
+- gpio: replace __set/__clear/__assign_bit with atomic set_bit/
+  clear_bit/assign_bit to fix potential races on shared bitmaps
+- gpio: write output value before switching pin to output mode to
+  avoid a potential glitch on direction_output
+- gpio: add MODULE_ALIAS("platform:aaeon-mcu-gpio")
+- watchdog: add WDIOF_SETTIMEOUT and watchdog_init_timeout() so the
+  software timeout is configurable via ioctl, DT timeout-sec or
+  the watchdog_timeout boot parameter
+- watchdog: add watchdog_stop_on_reboot() to prevent a spurious
+  reset from the external MCU during system shutdown
+- watchdog: add MODULE_ALIAS("platform:aaeon-mcu-wdt")
+- Link to v5: https://lore.kernel.org/r/20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com
+
+Changes in v5:
+- mfd: use heap-allocated DMA-safe buffers for I2C transfers, replacing
+  stack-allocated buffers in the regmap bus callbacks
+- mfd: switch from REGCACHE_NONE to REGCACHE_MAPLE; add volatile_reg
+  callback marking GPIO input read registers (opcode 0x72) as volatile;
+  add max_register
+- mfd: use PLATFORM_DEVID_AUTO instead of PLATFORM_DEVID_NONE
+- mfd: use MFD_CELL_BASIC() macro for cell definitions
+- mfd: use dev_err_probe() for regmap initialization error
+- Link to v4: https://lore.kernel.org/r/20260324-dev-b4-aaeon-mcu-driver-v4-0-afb011df4794@bootlin.com
+
+Changes in v4:
+- mfd: switch to a custom regmap bus; remove aaeon_mcu_i2c_xfer() and the aaeon_mcu_dev struct
+- mfd: locking delegated to regmap's built-in mutex; drop explicit mutex
+- mfd: remove firmware version reading at probe time
+- gpio, watchdog: use regmap_read()/regmap_write() via dev_get_regmap()
+- include: replace aaeon_mcu_i2c_xfer() declaration with AAEON_MCU_REG() macro
+- dt-bindings: remove unused label from example node
+- Link to v3: https://lore.kernel.org/r/20260203-dev-b4-aaeon-mcu-driver-v3-0-0a19432076ac@bootlin.com
+
+Changes in v3:
+- Renamed SRG-IMX8PL to SRG-IMX8P
+- dt-bindings: add gpio-controller properties as required
+- mfd: move struct aaeon_mcu_dev from header to .c file (private)
+- mfd: use guard(mutex) and devm_mutex_init() for cleanup
+- mfd: firmware version log changed to dev_dbg()
+- mfd: add select MFD_CORE to Kconfig
+- Kconfig: add || COMPILE_TEST to all three drivers
+- watchdog: add comments explaining hardware timeout and WDOG_HW_RUNNING
+- watchdog: remove unused platform_set_drvdata()
+- watchdog: add a function to query the status
+- Link to v2: https://lore.kernel.org/r/20260123-dev-b4-aaeon-mcu-driver-v2-0-9f4c00bfb5cb@bootlin.com
+
+Changes in v2:
+- Fold GPIO and watchdog bindings into MFD binding
+- Drop OF_GPIO dependency in GPIO Kconfig
+- Use __set_bit/__clear_bit/__assign_bit instead of atomic variants
+- Various driver cleanups and improvements
+- Link to v1: https://lore.kernel.org/r/20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com
+
+---
+Thomas Perrot (Schneider Electric) (5):
+      dt-bindings: vendor-prefixes: Add AAEON vendor prefix
+      dt-bindings: mfd: Add AAEON embedded controller
+      mfd: aaeon: Add SRG-IMX8P MCU driver
+      gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+      watchdog: aaeon: Add watchdog driver for SRG-IMX8P MCU
+
+ .../bindings/mfd/aaeon,srg-imx8p-mcu.yaml          |  67 ++++++
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ MAINTAINERS                                        |  10 +
+ drivers/gpio/Kconfig                               |   9 +
+ drivers/gpio/Makefile                              |   1 +
+ drivers/gpio/gpio-aaeon-mcu.c                      | 230 +++++++++++++++++++++
+ drivers/mfd/Kconfig                                |  11 +
+ drivers/mfd/Makefile                               |   1 +
+ drivers/mfd/aaeon-mcu.c                            | 205 ++++++++++++++++++
+ drivers/watchdog/Kconfig                           |  10 +
+ drivers/watchdog/Makefile                          |   1 +
+ drivers/watchdog/aaeon_mcu_wdt.c                   | 144 +++++++++++++
+ include/linux/mfd/aaeon-mcu.h                      |  40 ++++
+ 13 files changed, 731 insertions(+)
+---
+base-commit: d358e5254674b70f34c847715ca509e46eb81e6f
+change-id: 20251211-dev-b4-aaeon-mcu-driver-e0e89ebf4afb
 
-This series introduces HSR and PRP protocol HW offload support for ICSSM-Prueth driver.
-HW offload support for HSR/PRP is implemented using dedicated HSR/PRP firmware running
-on 2 PRU cores(PRU-ICSS) as a "DAN" available in AM57xx, AM437x and AM335x.
-
-The following features are offloaded to HW in case of HSR and PRP:
-1. L2 forwarding of a HSR frame via traditional store and forward or via cut-through (only for HSR)
-2. Transmit frame duplication is offloaded to HW
-3. Tag removal on the receive is offloaded to HW
-4. Redundant duplicate packet discard on the receive is also offloaded to HW
-
-In HW offload mode, redundant tag insertion in the transmit path will be still done by HSR driver
-and firmware updates the LAN information available in the tag on the fly when PRU is transmitting
-frame in that respective LAN.
-
-HSR Test Setup:
---------------
-
-     ___________           ______________           ___________
-    |           | Link AB |              | Link BC |           |
-  __|   AM57*   |_________|AM57/AM43/AM33|_________|   AM57*   |___
- |  | Station A |         |   Station B  |         | Station C |   |
- |  |___________|         |______________|         |___________|   |
- |                                                                 |
- |_________________________________________________________________|
-                            Link CA
-
-Steps to switch to HSR forward offload mode:
--------------------------------------------------
-Example assuming eth1, eth2 ports of ICSSM on AM57x, AM437x and AM335x EVM's
-
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Set matching MAC addresses on both slave interfaces
-      ip link set eth1 address <mac-addr>
-      ip link set eth2 address <mac-addr>
-
-  3) Enable HSR offload for both interfaces
-      ethtool -K eth1 hsr-fwd-offload on
-      ethtool -K eth1 hsr-dup-offload on
-      ethtool -K eth1 hsr-tag-rm-offload on
-
-      ethtool -K eth2 hsr-fwd-offload on
-      ethtool -K eth2 hsr-dup-offload on
-      ethtool -K eth2 hsr-tag-rm-offload on
-
-  4) Create HSR interface and add slave interfaces to it
-      ip link add name hsr0 type hsr slave1 eth1 slave2 eth2 \
-    supervision 45 version 1
-
-  5) Add IP address to the HSR interface
-      ip addr add <IP_ADDR>/24 dev hsr0
-
-  6) Bring up the HSR interface
-      ip link set hsr0 up
-
-  7) Bring up the both slave ports
-      ip link set eth1 up
-      ip link set eth2 up
-
-Switching back to default mode:
---------------------------------
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Delete HSR interface
-      ip link delete hsr0
-
-  3) Disable HSR port-to-port offloading mode, packet duplication
-      ethtool -K eth1 hsr-fwd-offload off
-      ethtool -K eth1 hsr-dup-offload off
-      ethtool -K eth1 hsr-tag-rm-offload off
-
-      ethtool -K eth2 hsr-fwd-offload off
-      ethtool -K eth2 hsr-dup-offload off
-      ethtool -K eth2 hsr-tag-rm-offload off
-
-Testing the port-to-port frame forward offload feature:
--------------------------------------------------------
-  1) Connect the LAN cables as shown in the test setup.
-  2) Configure Station A and Station C in HSR non-offload mode.
-  3) Configure Station B is HSR offload mode.
-  4) Since HSR is a redundancy protocol, disconnect cable "Link CA",
-     to ensure frames from Station A reach Station C only through
-     Station B.
-  5) Run iperf3 Server on Station C and client on station A.
-  7) Check the CPU usage on Station B.
-
-CPU usage report on Station B using mpstat when running UDP iperf3:
--------------------------------------------------------------------
-
-AM57xx
-------
-
-  1) Non-Offload case
-  -------------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.00    0.00    0.00    0.00    0.00   10.41    0.00    0.00   89.59
-    0    0.00    0.00    0.00    0.00    0.00   20.88    0.00    0.00   79.12
-    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.00    0.00    0.10    0.00    0.00    0.73    0.00    0.00   99.17
-    0    0.00    0.00    0.20    0.00    0.00    1.46    0.00    0.00   98.34
-    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
-
-AM437x
-------
-
-  1) Non-Offload case
-  -------------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.30    0.00    0.80    0.00    0.00   35.19    0.00    0.00   63.72
-    0    0.30    0.00    0.80    0.00    0.00   35.19    0.00    0.00   63.72
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.10    0.00    0.31    0.10    0.00    1.74    0.00    0.00   97.75
-    0    0.10    0.00    0.31    0.10    0.00    1.74    0.00    0.00   97.75
-
-AM335x
-------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.30    0.00    1.10    0.00    0.00   90.32    0.00    0.00    8.28
-    0    0.30    0.00    1.10    0.00    0.00   90.32    0.00    0.00    8.28
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
-  all    0.43    0.00    3.61    0.00    0.00   13.28    0.00    0.00   82.68
-    0    0.43    0.00    3.61    0.00    0.00   13.28    0.00    0.00   82.68
-
-PRP Test Setup:
----------------
-
-     _________________        LAN-A        __________________
-    |                 |eth1-----------eth1|                  |
-    | AM57/AM437/AM335|                   | AM57/AM437/AM335 |
-    |    station A    |eth2-----------eth2|    station B     |
-    |_________________|       LAN-B       |__________________|
-
-Steps to switch to PRP offload mode:
-------------------------------------
-Example assuming eth1, eth2 ports of ICSSM on AM57x, AM437x and AM335x EVM's
-
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Set matching MAC addresses on both slave interfaces
-      ip link set eth1 address <mac-addr>
-      ip link set eth2 address <mac-addr>
-
-  3) Enable PRP offload for both interfaces
-      ethtool -K eth1 hsr-dup-offload on
-      ethtool -K eth1 hsr-tag-rm-offload on
-
-      ethtool -K eth2 hsr-dup-offload on
-      ethtool -K eth2 hsr-tag-rm-offload on
-
-  4) Create PRP interface and add slave interfaces to it
-      ip link add name prp0 type hsr slave1 eth1 slave2 eth2 \
-    supervision 45 proto 1
-
-  5) Add IP address to the PRP interface
-      ip addr add <IP_ADDR>/24 dev prp0
-
-  6) Bring up the PRP interface
-      ip link set prp0 up
-
-  7) Bring up the both slave ports
-      ip link set eth1 up
-      ip link set eth2 up
-
-Switching back to default mode:
---------------------------------
-  1) Bring down both slave interfaces
-      ip link set eth1 down
-      ip link set eth2 down
-
-  2) Delete PRP interface
-      ip link delete prp0
-
-  3) Disable PRP offloading mode
-      ethtool -K eth1 hsr-dup-offload off
-      ethtool -K eth1 hsr-tag-rm-offload off
-
-      ethtool -K eth2 hsr-dup-offload off
-      ethtool -K eth2 hsr-tag-rm-offload off
-
-Testing the PRP offload feature:
---------------------------------
-  1) Connect eth1 of Station A to eth1 of Station B (LAN-A).
-     Connect eth2 of Station A to eth2 of Station B (LAN-B).
-  2) Configure Station A in PRP non-offload mode.
-  3) Configure Station B in PRP offload mode.
-  4) Run iperf3 Server on Station B and client on Station A.
-  5) Check the CPU usage on Station B.
-  6) Disconnect LAN-B cable to verify Station A frames still reach
-     Station B over LAN-A with no traffic interruption.
-  7) Reconnect LAN-B and disconnect LAN-A, verify the same.
-
-CPU usage report on Station B using mpstat when running UDP iperf3:
--------------------------------------------------------------------
-
-AM57x
------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys  %iowait    %irq   %soft  %steal  %guest   %idle
-  all    2.04    0.00   18.85    0.00     0.00   27.83    0.00    0.00   51.27
-    0    1.80    0.00   21.56    0.00     0.00   54.89    0.00    0.00   21.76
-    1    2.29    0.00   16.14    0.00     0.00    0.80    0.00    0.00   80.78
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys  %iowait    %irq   %soft  %steal  %guest   %idle
-  all    2.79    0.00   18.36    0.00     0.00   18.16    0.00    0.00   60.68
-    0    3.89    0.00   22.16    0.00     0.00   36.13    0.00    0.00   37.82
-    1    1.69    0.00   14.56    0.00     0.00    0.20    0.00    0.00   83.55
-
-AM437x
-------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys   %iowait  %irq   %soft    %steal  %guest   %idle
-  all    5.68    0.00    43.27   0.00    0.00    43.57    0.00     0.00    7.48
-    0    5.68    0.00    43.27   0.00    0.00    43.57    0.00     0.00    7.48
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys   %iowait  %irq   %soft    %steal  %guest   %idle
-  all    6.39    0.00    42.86   0.00    0.00   32.57    0.00      0.00   18.18
-    0    6.39    0.00    42.86   0.00    0.00   32.57    0.00      0.00   18.18
-
-AM335x
-------
-
-  1) Non Offload case
-  -------------------
-  CPU    %usr   %nice    %sys    %iowait  %irq   %soft    %steal  %guest   %idle
-  all    2.29    0.00    14.04    0.00    0.00    75.50    0.00    0.00    8.17
-    0    2.29    0.00    14.04    0.00    0.00    75.50    0.00    0.00    8.17
-
-  2) Offload case
-  ---------------
-  CPU    %usr   %nice    %sys    %iowait  %irq   %soft    %steal  %guest   %idle
-  all    5.70    0.00    48.50    0.00    0.00    29.00    0.00    0.00    16.80
-    0    5.70    0.00    48.50    0.00    0.00    29.00    0.00    0.00    16.80
-
-Note:
-  hsr-tag-rm-offload and hsr-dup-offload are tightly coupled in the firmware implementation.
-  They both need to be enabled / disabled together and hsr-tag-ins-offload is unsupported.
-
-This is the v2 of the patch series [v1]. This version of the patchset addresses the
-comments made on [v1] of the series.
-
-Changes from v1 to v2 :
-
-*) Fixed all applicable issues, except for the false positives flagged by the AI review
-on sashiko.dev.
-*) Addressed Jakub Kicinski comments on patch 3 of the series.
-*) Rebased the series on latest net-next.
-
-[v1] https://lore.kernel.org/all/20260611123636.376577-1-parvathi@couthit.com/
-
-Thanks and Regards,
-Parvathi.
-
-Roger Quadros (3):
-  net: ti: icssm-prueth: Add HSR and PRP HW offload mode support for
-    AM57xx, AM437x and AM335x
-  net: ti: icssm-prueth: Add priority based RX IRQ handlers
-  net: ti: icssm-prueth: Support duplicate HW offload feature for HSR
-    and PRP
-
- drivers/net/ethernet/ti/Makefile              |   2 +-
- .../ethernet/ti/icssm/icssm_lre_firmware.h    | 141 ++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 728 ++++++++++++++++--
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  73 +-
- .../ethernet/ti/icssm/icssm_prueth_common.c   | 283 +++++++
- .../net/ethernet/ti/icssm/icssm_prueth_lre.c  | 224 ++++++
- .../net/ethernet/ti/icssm/icssm_prueth_lre.h  |  19 +
- .../ethernet/ti/icssm/icssm_prueth_switch.c   | 310 +++++++-
- .../ethernet/ti/icssm/icssm_prueth_switch.h   |   1 +
- drivers/net/ethernet/ti/icssm/icssm_switch.h  |  35 +-
- 10 files changed, 1749 insertions(+), 67 deletions(-)
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_lre_firmware.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_lre.h
-
+Best regards,
 -- 
-2.43.0
+Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 
 
