@@ -4,77 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4AFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:16:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5659CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1qagP0VuISi0UOXqphEC64UCJS1rYEuCpGZ+HrzWmK8=; b=ka4cdhdKuyOgwZPpeT0o1kn5nW
-	JYu7zhAVb3feKty6en6jDlOtc/LDjiN+EaU6KFjzdgKgS706GqvK/U+CJM4E0yVWGzt806gcwwaxI
-	DecKeFcCLXPAhuNjEG02kIXNP2iPzMFGHGVQEUeGipNxJaTyj+TOBkWbAiTnnMOVRKpmSDxtpRUgw
-	RWa3Mszf9EbVhCOdjdIJYbHLZVgb6PIYjDq5OHaXsszV/w3NAMWdyU5QUbmTUq/kBBS0+p8+t4hbJ
-	9+fIjLiBZK/JTfikd8s83gBzFXpDRhNOyIY8pZb9WRsdTFJhQ1JPMFy5E0vpSVKamoln81I0XP/Ip
-	EaU6l5ig==;
+	bh=rgjwVdw/2f/R8g0IOrUVxokMD0ga5Bc0eQVVG555Fmc=; b=eNV9B6Fca3wZt5WrFJ8Jj046M/
+	KcEr/f8uyhh8z+n9KbI17AYE2ATwEKNz1b8zmr0R9KUn2QqOUtljyeOF4PT/HeJ/EKE2FxdcXGG7Y
+	ergnZ1fGUuH9/V/+0+5IztiRf/BDGC021NAQHeReyHKS5tPOdAX9egsWcEhUeiBalz69oXeM+7n3x
+	3eZB62+DZCon3xirZlxwbp8Di8fjroLSYaI9LFqgFFXiygaE+uK33kE/hG+s9tUBxevvAOt5oxX1u
+	CFvKr/sGSKPYJvNKuY0yz2RAzcuFMlSb8lwUy+s8sayX2fi9upXgnDEKMuj37+AHCgLYC5VIOZCVx
+	AiMgsfgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wedvs-000000006cO-3gfw;
-	Tue, 30 Jun 2026 19:15:53 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wee2Q-0000000070e-1VAh;
+	Tue, 30 Jun 2026 19:22:30 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wedvp-000000006bx-1Hmd;
-	Tue, 30 Jun 2026 19:15:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1782846932; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=O3eJ1En/l9r2mDqOFLIxD267cRY9zriaeO74GfZ6YClSvSR+yp+31StrsNE5ll4CHdH/wX00frO5sXGD6rH/zSvyS1KNzhzJSnn6xXQ+u63Cgo/mCbqJ57wpu50N1oafYLjhOm3aEdR1cIy60W+1ZNP3j8Yj1u5833ek7Lywe9A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1782846932; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=1qagP0VuISi0UOXqphEC64UCJS1rYEuCpGZ+HrzWmK8=; 
-	b=LUdOVPOY11Mr+fl4wSwar9giH8+XUDU/7D4Vuae2BF0zQqVPb5irb37bdETm8cHv76a0cLvpHCZg3mhvOdJ+1frpEyljiJDN9IZHEzf1FyBXQjet6gSOaxkf7i9S7KqawSeLGOJRyPKRgJvBkTLwpeXnr3C2TRbbWzdqK7l366M=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782846932;
-	s=zmail2048; d=rong.moe; i=i@rong.moe;
-	h=Date:Date:From:From:To:To:CC:Subject:Subject:In-Reply-To:References:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
-	bh=1qagP0VuISi0UOXqphEC64UCJS1rYEuCpGZ+HrzWmK8=;
-	b=WKdlm2zYjWv5uWW9qnDQTh9z34SpI6+w5yRv78MPN9oW1AWAwK1yqWOD3hBwbb0D
-	PFXcLD5Epg5tr0xjHWfQOBuv4bNTuWT6A2+tm6oqTAdsgpXQT5Xbjsd8Mg+eQ7H3z2X
-	tIcaf+AvRcwbdi2w2MEgX1FkFKJ+JndHaNkwRLkucZf3/GYHCdYTnu2u3knbJAGqMVN
-	bne78IRVMI3zJnsP28CRxCTee95JtrjB06LFWTcn8Ja6XgP1kFpAQ54AcBnhMa6S4n4
-	F0i61y0/n9ObNFou24Zh2kI1pGI/IJNbAOSzy9Epj4uj3b6tTnr6F4ZHKFEdW3EVW+W
-	Cnwd/JSIzQ==
-Received: by mx.zohomail.com with SMTPS id 1782846928874810.0972195254349;
-	Tue, 30 Jun 2026 12:15:28 -0700 (PDT)
-Date: Wed, 01 Jul 2026 03:15:19 +0800
-From: Rong Zhang <i@rong.moe>
-To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-CC: Marcel Holtmann <marcel@holtmann.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
- =?UTF-8?B?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
- =?UTF-8?B?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
- =?UTF-8?B?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_Bluetooth=3A_Properly_disable_remo?=
- =?US-ASCII?Q?te_wakeup_for_MT7922/MT7925_on_Ryzen_platform?=
-User-Agent: Thunderbird for Android
-In-Reply-To: <CABBYNZLhqQF-V8sJORwMW2C_4FxFY+pkAK=cSDg4aeWJYfiJrA@mail.gmail.com>
-References: <20260629-btmtk-ryzen-remote-wakeup-v1-1-1d2f1cee6d22@rong.moe> <CABBYNZLhqQF-V8sJORwMW2C_4FxFY+pkAK=cSDg4aeWJYfiJrA@mail.gmail.com>
-Message-ID: <7410991C-F48D-4D58-8F27-0DFCB27E81FF@rong.moe>
+	id 1wee2N-000000006zH-2YQP
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 19:22:29 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id B517C240104
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 21:22:21 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1782847341; bh=rgjwVdw/2f/R8g0IOrUVxokMD0ga5Bc0eQVVG555Fmc=;
+	h=From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
+	b=oOLgsgIZi4IdjAzkjhQn3nyAV3HAEp2jGBReD+IYW3eSJwmGTE+IBLE3MU8nxdH7/
+	 YMLo0Q2akfmUAxydla6meQ/CZufxZE93RFpKED7B27CJq+QXoU7iy8TFPJPtQVs4D9
+	 VsyofZEiX6cCKXeAJPBMnLdCR3bcD9lH31HL1W6tVJQiyxas0zq5nnCYvq4uGE4877
+	 nkpFTjVkKV45twcEKtSXrBaVetrKtuQvW0mao9tbF44jCfyYscZdWPPnTHp+wVL7iG
+	 QU5n/LyNWnf1fHN5XJ2bmUgw54wLlBZpi8mkW/vmDMvTVK7xDuo6QPE/X5SZL+jIpT
+	 jGA/vvQtvqaUg==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4gqY1m1MnVz9rxD;
+	Tue, 30 Jun 2026 21:22:20 +0200 (CEST)
+From: Markus Probst <markus.probst@posteo.de>
+Date: Tue, 30 Jun 2026 19:22:21 +0000
+Subject: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-ZohoMailClient: External
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+In-Reply-To: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
+ Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Markus Probst <markus.probst@posteo.de>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3977;
+ i=markus.probst@posteo.de; h=from:subject:message-id;
+ bh=iaAF+yS936aMUd2uo2ERhF4xGvZqCHabIEA/vQVk0Kw=;
+ b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqRBdqXhgSYQ1G0bopxHbsIuyeWtyg/MBsZTTdf
+ 45ajFXDTO2JAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCakQXahsUgAAAAAAEAA5t
+ YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9Iv/xAAtmzNsqZ4vd/U9yb6fnuvE0OUx2FSk6q
+ JXb2Vxdyfz7KcUoszlul4uvlrhilvBkGE8KK354Sgf8Chpbe8YpBdtgQ4X1P8IgSh68ZKNw+a/8
+ z6Fu4qUhm3hhUDC1jY2qy9ytPR3Y+FFHZfxxMtuwi4sHF3F6FwwCHXEVhAAe+oJWAq/1mbGNvQ0
+ tRWFtVuGIomUo/iRtVJHi04FOxZXQ0CNZBBTGLdH0pl31t52hITTss5gvXU9PYCpY2YM8TDXSHn
+ +e6WBfYpYXJjX14L8svGmx1dpfhghclfK7xvCalzzm7lrbtRrH69QoVpYq3zCc9BqKzbxziOth8
+ xNkNPuNjARR/Oz19IFE+ud14gLdXQWBZpICXzmcueFzH2ioQUSWDzs/HazTA6lENe73mk2jd2LL
+ N08cRMrafMkD+LGcuX4q1UFFB7CXI24jhnhiJnn3rB8cFQZV6ULS+X8TLKDuQfwBJjL7aeCUW8D
+ iNC3gwtLt8VhqGKcFTAXrjkugysHs/MnYOvHQhxZbDbFsn0uh04X6CWPhzraGZDfgkhGhnNdnHR
+ gG0moiXumuCnOH3v9exAVMaVsHUYItMpD37BOIgmPEz5Sj5UHgsot63dI3TtcudoDxLkOI/JLMa
+ UtLSCdeX2n0dxO/hCSw2nTtWc1VQhyjWrJrp6fs7rYcedsBvaG5A=
+X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
+ fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+  keydata=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
+  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_121541_394186_13E70978 
-X-CRM114-Status: GOOD (  28.29  )
+X-CRM114-CacheID: sfid-20260630_122227_957997_7F735802 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,229 +138,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luiz,
+Synology NAS devices use the output pin for interrupt signal 1 to wake up
+the system.
 
-=E4=BA=8E 2026=E5=B9=B47=E6=9C=881=E6=97=A5 GMT+08:00 02:13:39=EF=BC=8CLui=
-z Augusto von Dentz <luiz=2Edentz@gmail=2Ecom> =E5=86=99=E9=81=93=EF=BC=9A
->Hi Rong,
->
->On Mon, Jun 29, 2026 at 11:28=E2=80=AFAM Rong Zhang <i@rong=2Emoe> wrote:
->>
->> It is reported that a remote wakeup could cause MT7922/MT7925's btusb
->> interface completely unresponsive=2E Resetting the xHCI root hub doesn'=
-t
->> help at all, and recovering from such a state needs a power cycle=2E
->>
->> All reports seen to be relevant to Ryzen-based laptops=2E These NICs ar=
-e
->> usually used as OEM components thanks to some sort of reference designs=
-=2E
->>
->> Their popularity on other platforms is unclear=2E While there is still =
-a
->> chance that the quirk may exist on other platforms, be cautious and onl=
-y
->> apply the quirk on AMD platforms for the time being=2E
->>
->> Meanwhile, though device_set_wakeup_capable(false) is the correct fix
->> for other NICs with fake remote wakeup capabilities, doing so for
->> MT7922/MT7925 effectively prevents it from being used as wakeup
->> sources as per userspace requests=2E Hence, return -EBUSY on runtime
->> suspend to prevent the interface from being autosuspended while it's
->> still opened, which has the same effect as
->> device_set_wakeup_capable(false), since disabling remote wakeup simply
->> causes the USB core to gate runtime autosuspend as well due to
->> needs_remote_wakeup =3D=3D 1=2E The interface can be safely autosuspend=
-ed as
->> long as remote wakeup is disabled, i=2Ee=2E, after closing the HCI devi=
-ce=2E
->>
->> Specifically, the interface may still take the advantage of remote
->> wakeup in order to wake up the system from sleep if userspace has
->> enabled it as a wakeup source=2E
->>
->> Fixes: e31d761628ad ("Bluetooth: btmtk: Disable remote wakeup for MT792=
-2/MT7925")
->> Signed-off-by: Rong Zhang <i@rong=2Emoe>
->> ---
->>  drivers/bluetooth/btmtk=2Ec | 10 ---------
->>  drivers/bluetooth/btusb=2Ec | 57 +++++++++++++++++++++++++++++++++++++=
-++++++----
->>  2 files changed, 53 insertions(+), 14 deletions(-)
->>
->> diff --git a/drivers/bluetooth/btmtk=2Ec b/drivers/bluetooth/btmtk=2Ec
->> index 02a96342e964=2E=2E4614434dd57b 100644
->> --- a/drivers/bluetooth/btmtk=2Ec
->> +++ b/drivers/bluetooth/btmtk=2Ec
->> @@ -1381,16 +1381,6 @@ int btmtk_usb_setup(struct hci_dev *hdev)
->>                 break;
->>         case 0x7922:
->>         case 0x7925:
->> -               /*
->> -                * A remote wakeup could cause the device completely un=
-responsive, and
->> -                * recovering from such a state needs a power cycle=2E
->> -                *
->> -                * Since the remote wakeup capability is super broken, =
-just disable it
->> -                * to get rid of the troubles=2E The device can still b=
-e autosuspended
->> -                * when the bluetooth interface is closed=2E
->> -                */
->> -               device_set_wakeup_capable(&btmtk_data->udev->dev, false=
-);
->> -               fallthrough;
->>         case 0x7961:
->>         case 0x7902:
->>         case 0x6639:
->> diff --git a/drivers/bluetooth/btusb=2Ec b/drivers/bluetooth/btusb=2Ec
->> index 08c0a99a62c5=2E=2E023ae782f41a 100644
->> --- a/drivers/bluetooth/btusb=2Ec
->> +++ b/drivers/bluetooth/btusb=2Ec
->> @@ -6,6 +6,7 @@
->>   *  Copyright (C) 2005-2008  Marcel Holtmann <marcel@holtmann=2Eorg>
->>   */
->>
->> +#include <linux/cpufeature=2Eh>
->>  #include <linux/dmi=2Eh>
->>  #include <linux/module=2Eh>
->>  #include <linux/usb=2Eh>
->> @@ -957,6 +958,7 @@ struct qca_dump_info {
->>  #define BTUSB_USE_ALT3_FOR_WBS 15
->>  #define BTUSB_ALT6_CONTINUOUS_TX       16
->>  #define BTUSB_HW_SSR_ACTIVE    17
->> +#define BTUSB_WAKEUP_BROKEN    18
->>
->>  struct btusb_data {
->>         struct hci_dev       *hdev;
->> @@ -2936,10 +2938,20 @@ static int btusb_send_frame_mtk(struct hci_dev =
-*hdev, struct sk_buff *skb)
->>         }
->>  }
->>
->> +static inline bool platform_is_ryzen(void)
->> +{
->> +#ifdef CONFIG_X86
->> +       return boot_cpu_has(X86_FEATURE_ZEN);
->> +#else
->> +       return false;
->> +#endif
->> +}
->> +
->>  static int btusb_mtk_setup(struct hci_dev *hdev)
->>  {
->>         struct btusb_data *data =3D hci_get_drvdata(hdev);
->>         struct btmtk_data *btmtk_data =3D hci_get_priv(hdev);
->> +       int err;
->>
->>         /* MediaTek WMT vendor cmd requiring below USB resources to
->>          * complete the handshake=2E
->> @@ -2956,7 +2968,29 @@ static int btusb_mtk_setup(struct hci_dev *hdev)
->>                 btusb_mtk_claim_iso_intf(data);
->>         }
->>
->> -       return btmtk_usb_setup(hdev);
->> +       err =3D btmtk_usb_setup(hdev);
->> +       if (err)
->> +               return err;
->> +
->> +       switch (btmtk_data->dev_id) {
->> +       case 0x7922:
->> +       case 0x7925:
->> +               /*
->> +                * All reports seen to be relevant to Ryzen-based lapto=
-ps=2E These
->> +                * NICs are usually used as OEM components thanks to so=
-me sort
->> +                * of reference designs=2E
->> +                *
->> +                * Their popularity on other platforms is unclear=2E Wh=
-ile there
->> +                * is still a chance that the quirk may exist on other
->> +                * platforms, be cautious and only apply the quirk on A=
-MD
->> +                * platforms for the time being=2E
->> +                */
->
->Is this going to be a reliable way to detect if wakeup is broken or
->not? Since USB is a bus capable of hotplug, this check would block not
->only internal/built-in controllers with the above IDs but also those
->plugged via external ports if the CPU happens to be of the ZEN
->familly=2E
+Move devicetree bindings for sii,s35390a into its own file.
+Add sii,wakealarm-output-pin property to enable the use of the output
+pin for interrupt signal 1 for the wake alarm, which makes it possible to
+set an wake alarm on Synology NAS devices.
 
-Hmm, it seems that we can detect the device's position by comparing its pa=
-rent and its bus=2E We can additionally make it further by checking against=
- the root hub's VID=2E In this manner we should be able to drop the boot_cp=
-u_has() check too=2E
+Signed-off-by: Markus Probst <markus.probst@posteo.de>
+---
+ .../devicetree/bindings/rtc/sii,s35390a.yaml       | 54 ++++++++++++++++++++++
+ .../devicetree/bindings/rtc/trivial-rtc.yaml       |  3 --
+ MAINTAINERS                                        |  1 +
+ include/dt-bindings/rtc/s35390a.h                  |  9 ++++
+ 4 files changed, 64 insertions(+), 3 deletions(-)
 
-I will try and send a v2=2E
+diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+new file mode 100644
+index 000000000000..31a578673870
+--- /dev/null
++++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: S-35390A 2-WIRE REAL-TIME CLOCK
++
++maintainers:
++  - Alexandre Belloni <alexandre.belloni@bootlin.com>
++
++description:
++  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
++  very low current consumption in the wide range of operation voltage.
++
++allOf:
++  - $ref: rtc.yaml#
++
++properties:
++  compatible:
++    const: sii,s35390a
++
++  reg:
++    maxItems: 1
++
++  sii,wakealarm-output-pin:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    enum: [1, 2]
++    description: |
++      The output pin to wake up the system.
++      Default will use the output pin for interrupt signal 2.
++        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signal 1
++        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signal 2
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/rtc/s35390a.h>
++
++    i2c {
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        rtc: rtc@30 {
++            compatible = "sii,s35390a";
++            reg = <0x30>;
++            sii,wakealarm-output-pin = <S35390A_OUTPUT_PIN_INT2>;
++        };
++    };
+diff --git a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+index f4d0eed98a08..7b3f682ef4d5 100644
+--- a/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
++++ b/Documentation/devicetree/bindings/rtc/trivial-rtc.yaml
+@@ -81,8 +81,6 @@ properties:
+       - ricoh,rv5c386
+       # I2C bus SERIAL INTERFACE REAL-TIME CLOCK IC
+       - ricoh,rv5c387a
+-      # 2-wire CMOS real-time clock
+-      - sii,s35390a
+       # ST SPEAr Real-time Clock
+       - st,spear600-rtc
+       # VIA/Wondermedia VT8500 Real-time Clock
+@@ -105,5 +103,4 @@ required:
+   - reg
+ 
+ additionalProperties: false
+-
+ ...
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 15011f5752a9..46a19a0873e0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -22690,6 +22690,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/abelloni/linux.git
+ F:	Documentation/admin-guide/rtc.rst
+ F:	Documentation/devicetree/bindings/rtc/
+ F:	drivers/rtc/
++F:	include/dt-bindings/rtc/
+ F:	include/linux/rtc.h
+ F:	include/linux/rtc/
+ F:	include/uapi/linux/rtc.h
+diff --git a/include/dt-bindings/rtc/s35390a.h b/include/dt-bindings/rtc/s35390a.h
+new file mode 100644
+index 000000000000..bd99db118d31
+--- /dev/null
++++ b/include/dt-bindings/rtc/s35390a.h
+@@ -0,0 +1,9 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause) */
++
++#ifndef __DT_BINDINGS_RTC_S35390A_H
++#define __DT_BINDINGS_RTC_S35390A_H
++
++#define S35390A_OUTPUT_PIN_INT1	1
++#define S35390A_OUTPUT_PIN_INT2	2
++
++#endif /* __DT_BINDINGS_RTC_S35390A_H */
 
-Thanks,
-Rong
+-- 
+2.54.0
 
->
->> +               if (platform_is_ryzen())
->> +                       set_bit(BTUSB_WAKEUP_BROKEN, &data->flags);
->> +               break;
->> +       }
->> +
->> +       return 0;
->>  }
->>
->>  static int btusb_mtk_shutdown(struct hci_dev *hdev)
->> @@ -4532,11 +4566,26 @@ static int btusb_suspend(struct usb_interface *=
-intf, pm_message_t message)
->>
->>         BT_DBG("intf %p", intf);
->>
->> -       /* Don't auto-suspend if there are connections or discovery in
->> -        * progress; external suspend calls shall never fail=2E
->> +       /*
->> +        * It is reported that remote wakeup events could sometimes cau=
-se some
->> +        * adapters completely unresponsive=2E Resetting the xHCI root =
-hub doesn't
->> +        * help at all, and recovering from such a state needs a power =
-cycle=2E
->> +        * Since disabling remote wakeup simply causes the USB core to =
-gate
->> +        * runtime autosuspend as well due to needs_remote_wakeup =3D=
-=3D 1, let's do
->> +        * this ourselves to make our life easier=2E The interface can =
-be safely
->> +        * autosuspended as long as remote wakeup is disabled, i=2Ee=2E=
-, after
->> +        * closing the HCI device=2E
->> +        *
->> +        * Don't auto-suspend if there are connections or discovery in =
-progress=2E
->> +        *
->> +        * External suspend calls shall never fail=2E Specifically, a d=
-evice with
->> +        * broken remote wakeup may still take the advantage of remote =
-wakeup in
->> +        * order to wake up the system from sleep if userspace has enab=
-led it as
->> +        * a wakeup source=2E
->>          */
->>         if (PMSG_IS_AUTO(message) &&
->> -           (hci_conn_count(data->hdev) || hci_discovery_active(data->h=
-dev)))
->> +           ((test_bit(BTUSB_WAKEUP_BROKEN, &data->flags) && data->intf=
-->needs_remote_wakeup) ||
->> +            hci_conn_count(data->hdev) || hci_discovery_active(data->h=
-dev)))
->>                 return -EBUSY;
->>
->>         if (data->suspend_count++)
->>
->> ---
->> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
->> change-id: 230ba8c9-btmtk-ryzen-remote-wakeup-055a407682ef
->>
->> Thanks,
->> Rong
->>
->
->
 
