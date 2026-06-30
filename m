@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438FCC43327
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2882C44502
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 16:44:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,29 +12,43 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hc28g7vpWVux2YAwXkS9a5h14xHv2zGqzwm/FemriIM=; b=ubO3heRnON9lV0wYA6C2lR0XjY
-	9OCU9BZyH0QZCfbqJdDPiwstM0XdgCbjQhjnsLwImIrcvQOP0EqQwBBp8/l25uZP1vsLj1Mwa8G/z
-	aG2DdXMoMUjEqThlS6RQfoZpSzm6OieEXPuy8WryY52GEYrx03NX4txgYwpFGHDYNlVWNg0KchO7Z
-	MTlLzAj4ydD76Gz5ZfxjQRuzWJbjkh4a5PUjvL7bB2oJKUNvV0qzdEhnR6uTndWDD40DYRMXc63lA
-	m61Cz1wXJrJejr8n55T9iL4MLHUfjt9z5Kc4QN8lRCrGYCk9D/T3IC/WVW2PX1L0jL1rebFQxceZ4
-	3AW8VPQQ==;
+	bh=vOa+mdayT91izHVqX1UV1GEgdTHLPH6ORjFi0tHHBv0=; b=Ixxye1RDVZuXL9mOgdTFRjUiUS
+	ND4eOiLK0QnQMHluGIxqHXAi2kObbsRW6dqNSDmSR9g9YD3T3eh6SarqYudrYBTE9oqAKMD+wPDrZ
+	4oRPF6SOkTONGEk9bS3PedyhB8TpF5PWi8uzj1P9zIiOsAUGDLe9eVUMbzorsKVpHZODPMd32NyXY
+	1X6E84jbFzykfIT1FYTba5PTHXGDr8sN0AY4oFGeK/J19o8dUdK9MjriFnzQaf2c8viWTeoxuSkcw
+	cWwoK9WMyAwGr5dMcqLcYaeRHSivZiiXjH/rXso+GOBYvYoCyprx/PrCaFcVfZcYlbSnmihZeDHuW
+	AivieIzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webZ7-0000000HVPg-1pAZ;
-	Tue, 30 Jun 2026 16:44:05 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1webZ8-0000000HVSl-2I0P;
+	Tue, 30 Jun 2026 16:44:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1webYx-0000000HVKq-2LAV;
-	Tue, 30 Jun 2026 16:43:56 +0000
+	id 1webZ3-0000000HVOg-0IyH;
+	Tue, 30 Jun 2026 16:44:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=vOa+mdayT91izHVqX1UV1GEgdTHLPH6ORjFi0tHHBv0=; b=dGGaYZgrhV1zummDrVOCaDk78H
+	Bk74aQg223lrNPg8bUn9U7+IyToxjdhshGz5IYqvg2F4mZKQlKdtUOpcIgWAdJ/wmthR1L8icVEPd
+	Ur2KUmHFqOgsXQNikzYZXfKcuK95rhtDKztauUGNABEGyhPP5bJVRFTaq4T3ZGZhVOZHMzO5zT2gY
+	vj6LtTlxsyt7bttfpUjpTzqgwyu/q3uDQCJpqPmrFpfx2JXIjnr4HEETWhBRouZUBTN9Egc7oXkl9
+	zxxceOyAElSA1qXi/YDAyAGvfag9VjNXpwT3v6lCWK8NNwz13osQuf1ylSSlHPnWTaCmtU4UW1i5m
+	rfGdNb3g==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1webYz-000000024SZ-0hIk;
+	Tue, 30 Jun 2026 16:43:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
 	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=Hc28g7vpWVux2YAwXkS9a5h14xHv2zGqzwm/FemriIM=; b=JdHD6w+Wqy9VksFAbRDbEizRds
-	HcOoPowR5rNidLnnN2fynfvv8gWrSZrK57jkirfXvLhDFx4FADGvS+NTrnFDjEa72a1/GoWW1Vyh+
-	67Z0oEurLs7ilhxNXpKd2nHj9dn93elW+L2XeogBA9KlrCIHfmVD1zycy0qgEgxt/PJt2Uh1o0bU9
-	I8vAeObhCmU/YFI6PXu/zOtdp7HSEcOJQp/ALx2KqF0bwg/uf1a+C0aD+QvAEbHuldlezjFPrxKDI
-	BLnv3YmiysKYjFB6ISXD6akkE8l/xVV3NDH0UrKtmxVAKRTGWKTa4J+fC9GY1/ce1cw+fOmw1mnuw
-	nZSrTpyw==;
+	bh=vOa+mdayT91izHVqX1UV1GEgdTHLPH6ORjFi0tHHBv0=; b=j7niABot65FEcsVCf15loxOqUF
+	geyqCezj7k36DCt6kV06vZQycUNiwspL1MLfN9LT4A8HqyxcjV9+gvyCAgUr+2bsr3pVFrp0OChUB
+	Aupi6lCeMRkOA9pUNGjbprECGtnVFjRJnn556FxqqzAPNkGUkOhl+0CUEoDQi0GkVjY8sDgTrPjhm
+	DE73j4M9c8f3g22i431xwAW8xcfhOxV2C41geAQ6Z+HLbmvw64e8ju94ErenGKW7K6CWzVEEJ/crm
+	lcWrtSAutyhFmVb8kQU5yKhhdarFqJplOki9cZEr/jeyVfguh+m1rEsrD63SURAVo+hKoeIpJPh/f
+	IhcFB3Vw==;
 From: Heiko Stuebner <heiko@sntech.de>
 To: mkl@pengutronix.de,
 	mailhol@kernel.org
@@ -52,17 +66,18 @@ Cc: kernel@pengutronix.de,
 	quentin.schulz@cherry.de,
 	zhangqing@rock-chips.com,
 	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH 2/6] can: rockchip-canfd: add support for the RK3588 variant
-Date: Tue, 30 Jun 2026 18:43:32 +0200
-Message-ID: <20260630164336.3444550-3-heiko@sntech.de>
+Subject: [PATCH 1/6] dt-bindings: can: rockchip_canfd: add compatible for the RK3588 variant
+Date: Tue, 30 Jun 2026 18:43:31 +0200
+Message-ID: <20260630164336.3444550-2-heiko@sntech.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260630164336.3444550-1-heiko@sntech.de>
 References: <20260630164336.3444550-1-heiko@sntech.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_094355_601197_B9F792CA 
-X-CRM114-Status: GOOD (  13.49  )
+X-CRM114-CacheID: sfid-20260630_174357_488376_AA771854 
+X-CRM114-Status: UNSURE (   8.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,68 +94,26 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-The RK3588 SoC uses a variant of this controller.
-
-From the start it does not claim to support can-fd in any part of the
-documentation, so it seems that is still broken.
-
-Further errata will be enabled in subsequent patches, with more
-in-depth explanation.
+The RK3588 uses a variant of the CAN(-FD) controller introduced at first
+with the RK3568 SoC.
 
 Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 ---
- drivers/net/can/rockchip/rockchip_canfd-core.c | 11 +++++++++++
- drivers/net/can/rockchip/rockchip_canfd.h      |  1 +
- 2 files changed, 12 insertions(+)
+ .../devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml     | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 29de0c01e4ed..707f387e7cf4 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -50,6 +50,12 @@ static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
- 		RKCANFD_QUIRK_CANFD_BROKEN,
- };
+diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
+index a077c0330013..02211ea3ec41 100644
+--- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
++++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
+@@ -20,6 +20,7 @@ properties:
+       - items:
+           - const: rockchip,rk3568v3-canfd
+           - const: rockchip,rk3568v2-canfd
++      - const: rockchip,rk3588-canfd
  
-+static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3588 = {
-+	.model = RKCANFD_MODEL_RK3588,
-+	.quirks =  /* Possibly more errata */
-+		RKCANFD_QUIRK_CANFD_BROKEN,
-+};
-+
- static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
- {
- 	switch (model) {
-@@ -57,6 +63,8 @@ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
- 		return "rk3568v2";
- 	case RKCANFD_MODEL_RK3568V3:
- 		return "rk3568v3";
-+	case RKCANFD_MODEL_RK3588:
-+		return "rk3588";
- 	}
- 
- 	return "<unknown>";
-@@ -846,6 +854,9 @@ static const struct of_device_id rkcanfd_of_match[] = {
- 	}, {
- 		.compatible = "rockchip,rk3568v3-canfd",
- 		.data = &rkcanfd_devtype_data_rk3568v3,
-+	}, {
-+		.compatible = "rockchip,rk3588-canfd",
-+		.data = &rkcanfd_devtype_data_rk3588,
- 	}, {
- 		/* sentinel */
- 	},
-diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
-index 93131c7d7f54..92566822e141 100644
---- a/drivers/net/can/rockchip/rockchip_canfd.h
-+++ b/drivers/net/can/rockchip/rockchip_canfd.h
-@@ -434,6 +434,7 @@
- enum rkcanfd_model {
- 	RKCANFD_MODEL_RK3568V2 = 0x35682,
- 	RKCANFD_MODEL_RK3568V3 = 0x35683,
-+	RKCANFD_MODEL_RK3588 = 0x3588,
- };
- 
- struct rkcanfd_devtype_data {
+   reg:
+     maxItems: 1
 -- 
 2.47.3
 
