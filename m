@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16C7AC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051BEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:37:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NiHgJ8uDhV+0/EqZ/cuRtogSIPYJ12/MDcRYNoF+F9I=; b=dqhlMTM9ElZjvLIbrEWRWzR70z
-	lk5mdloHmCRnD0FZyINK/nRCtOV49qyBJTC1dgltB7g6F23jRqRz/yAP3SJYjuCx4AV65hwtJ+sD9
-	WY+wiTrz0HBcZkDZa1nAHfHL/7u679VaEuxkYQKCGohcwSMoJ2uM22Nh2WkaOMX5CIR2AyKXRfPqg
-	O9nli+HmVZuTxGWKO6LSjEOg158HIWrygM0H5a/BRnfaTvkCYr7dPK5240jS3zxmOU8L9yiez2fJW
-	3EmGT2rhGxboBophtpSpcVNtx5xIQkDQ64ad8lYAOlvhHwSGBfZobhQFFPOql/zWnPwhvPSfBAoc7
-	3vVaaB9A==;
+	bh=xaqSWVbXa2bKeZEXxVBemtuodfX3LuJ6YwpwK/1QboI=; b=MT2HQT+QuspuMkyRmZqxeNpwik
+	Hybvmq0EOXu4glCjZ+WidsojcF5XFWniKAvlPczMcu1oI53/CXFat4chypGTGfHmJCqw79W/tyFLr
+	LddCczDBKvdR5HSEkdpSxb59fmAcXyUdNJsGxqsVlQ0+M1LBBVi9qnQvT/JE3LS4KfbBvGLhWHkRI
+	pridsAIoSlOU4I0g7AK9nD6j5AXGQSYKJZY/NWe77m+3GSDSP4g7M6w57Rw9wJCs5+umFtIjmyOWQ
+	IbfuS4ZPkJVbB4t/CJrTfLiYVjDF+R67FxRTJadCdtrctAiGyRAXpp1jrjQVV10S6BoFZS/5oDN9h
+	x/arCiDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUtt-0000000GSPo-2Efz;
-	Tue, 30 Jun 2026 09:37:05 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1weUu1-0000000GSTk-2fRq;
+	Tue, 30 Jun 2026 09:37:13 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUtq-0000000GSOL-2RGO
+	id 1weUtz-0000000GSSX-3aCA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:37:03 +0000
+	Tue, 30 Jun 2026 09:37:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782812223; x=1814348223;
+  t=1782812231; x=1814348231;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=b2HE2/l9IrpGvkPLNtqbKq6IrgROI2wKPVDiGDKGxTU=;
-  b=07X5LiZSEDl4U/t0ZxepwYLyXpj1FV2ORiEm0Mq1cBM43RbkYvWb3feV
-   IW6uDKZhObwBlW7xoAxE79EG3rw+pkn0JxDhsmkvNp1NHQ83x2WporDNn
-   qFZXm/9qdoVXV8rYS+5WTgWvgk4wkVKUNnBm1a4hRsq9RnPDhaMKZ5UQD
-   gfm6+qUEKAnQ208sgcaS7k4wB5I5Xe/Qm1n+dnhK5/Ts++JOBaHy1cE2v
-   qK+gpls379rtUsGUJWWVe6tU/a9WQ5uNzCaznRaC0/IQ+V9QfgB5YQh5A
-   2ybez0TV3Gg/9teyL5csPLnN9iSJMdzrlTzMFC+j+GN4pWnqf9qo6Ndpv
-   Q==;
-X-CSE-ConnectionGUID: ke3uW/xuQkuIIzeAFFBFjw==
-X-CSE-MsgGUID: qDgVRIxdS7WTrMiyOUgiuQ==
+  bh=HWjobEVV/DWB+4/iozjTvLRIIlCBYW8DxiEGCxnBV0o=;
+  b=hFBZAE+WjRvrZJru+6CyXNXjiMZfWmHzk6SlhCpcsiqzyLgBNYRsgtdQ
+   KzcKg2WaK0xuu2Ouq9JYOY01/PAmjbC49hTDsVy9wj5QrqAN1BE8h3cVO
+   Mg+/Ct+b1/AfmFu2TZcDe+oG5BhNNG8t5I7z+PeQzRFaG9AaB2wP8JzIW
+   2hB8XFihy14iVqoXYpf2zpfsrf/2epSAaQ1k3b02We8su9P28HMVbTjMe
+   WFpxb8ls9lRXfUeLGfl/KqidtuQUz4qBIu3G9NWyht04t47xe4MvgRRgr
+   67rqHspf4/S6nt8+Qs/hZ+vxmQcbhoKKI+8Q4pPiLTqkd71QEW7ClBXvS
+   g==;
+X-CSE-ConnectionGUID: mOt5XWgTSauewdfaDrJZsg==
+X-CSE-MsgGUID: YU5tEAK9RcKIeSfUHSQw1g==
 X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
-   d="scan'208";a="291266929"
+   d="scan'208";a="59032660"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Jun 2026 02:37:02 -0700
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 30 Jun 2026 02:37:10 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 30 Jun 2026 02:37:01 -0700
+ 15.1.2507.58; Tue, 30 Jun 2026 02:37:10 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 30 Jun 2026 02:36:52 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 30 Jun 2026 02:37:01 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -65,9 +65,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<duje@dujemihanovic.xyz>, <varshini.rajendran@microchip.com>,
 	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 02/13] iio: adc: at91-sama5d2_adc: use cleanup.h for NVMEM buffer
-Date: Tue, 30 Jun 2026 15:05:52 +0530
-Message-ID: <20260630093603.38663-3-varshini.rajendran@microchip.com>
+Subject: [PATCH v3 03/13] iio: adc: at91-sama5d2_adc: rework temp calibration layout handling
+Date: Tue, 30 Jun 2026 15:05:53 +0530
+Message-ID: <20260630093603.38663-4-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260630093603.38663-1-varshini.rajendran@microchip.com>
 References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_023702_629211_797B2CCD 
-X-CRM114-Status: GOOD (  14.22  )
+X-CRM114-CacheID: sfid-20260630_023711_956295_F3670166 
+X-CRM114-Status: GOOD (  20.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,70 +91,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use __free(kfree) cleanup helper for the NVMEM data buffer in
-at91_adc_temp_sensor_init() to simplify error handling paths.
+Extend support to handle different temperature calibration layouts.
 
-Since __free(kfree) requires a valid kfree-able pointer (not an
-ERR_PTR), store nvmem_cell_read() result in a temporary void pointer
-first, check for errors, then assign to the managed buffer.
+Add a temperature calibration data layout structure to describe indexes
+of the factors P1, P4, P6, tag, minimum length of the packet and the
+scaling factors for P1 (mul, div) which are SoC-specific instead of the
+older non scalable id structure. This helps handle the differences in the
+same function flow and prepare the calibration data to be applied. Add
+additional condition to validate the calibration data read from the
+NVMEM cell using the TAG of the packet.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- drivers/iio/adc/at91-sama5d2_adc.c | 21 +++++++++++----------
- 1 file changed, 11 insertions(+), 10 deletions(-)
+ drivers/iio/adc/at91-sama5d2_adc.c | 67 ++++++++++++++++++++++--------
+ 1 file changed, 49 insertions(+), 18 deletions(-)
 
 diff --git a/drivers/iio/adc/at91-sama5d2_adc.c b/drivers/iio/adc/at91-sama5d2_adc.c
-index 255970b2e747..5015c234289e 100644
+index 5015c234289e..2a25165bc874 100644
 --- a/drivers/iio/adc/at91-sama5d2_adc.c
 +++ b/drivers/iio/adc/at91-sama5d2_adc.c
-@@ -2251,9 +2251,10 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+@@ -445,6 +445,29 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+ #define at91_adc_writel(st, reg, val)					\
+ 	writel_relaxed(val, (st)->base + (st)->soc_info.platform->layout->reg)
+ 
++/* Temperature calibration tag "ACST" in ASCII */
++#define AT91_TEMP_CALIB_TAG_ACST	0x41435354
++
++/**
++ * struct at91_adc_temp_calib_layout - temperature calibration packet layout
++ * @tag_idx:	index of Packet tag in the NVMEM cell buffer
++ * @p1_idx:	index of FT1_TEMP, equivalent to P1 in the NVMEM cell buffer
++ * @p4_idx:	index of FT1_VPAT, equivalent to P4 in the NVMEM cell buffer
++ * @p6_idx:	index of FT2_VBG, equivalent to P6 in the NVMEM cell buffer
++ * @min_len:	minimum number of u32 words expected in the NVMEM cell buffer
++ * @p1_mul:	multiplier applied to P1 to convert to millicelcius
++ * @p1_div:	divider applied to P1 to convert to millicelcius
++ */
++struct at91_adc_temp_calib_layout {
++	unsigned int tag_idx;
++	unsigned int p1_idx;
++	unsigned int p4_idx;
++	unsigned int p6_idx;
++	unsigned int min_len;
++	unsigned int p1_mul;
++	unsigned int p1_div;
++};
++
+ /**
+  * struct at91_adc_platform - at91-sama5d2 platform information struct
+  * @layout:		pointer to the reg layout struct
+@@ -463,6 +486,7 @@ static const struct at91_adc_reg_layout sama7g5_layout = {
+  * @oversampling_avail_no: number of available oversampling values
+  * @chan_realbits:	realbits for registered channels
+  * @temp_chan:		temperature channel index
++ * @temp_calib_layout:  temperature calibration packet layout
+  * @temp_sensor:	temperature sensor supported
+  */
+ struct at91_adc_platform {
+@@ -480,6 +504,7 @@ struct at91_adc_platform {
+ 	unsigned int				oversampling_avail_no;
+ 	unsigned int				chan_realbits;
+ 	unsigned int				temp_chan;
++	const struct at91_adc_temp_calib_layout	*temp_calib_layout;
+ 	bool					temp_sensor;
+ };
+ 
+@@ -496,18 +521,14 @@ struct at91_adc_temp_sensor_clb {
+ 	u32 p6;
+ };
+ 
+-/**
+- * enum at91_adc_ts_clb_idx - calibration indexes in NVMEM buffer
+- * @AT91_ADC_TS_CLB_IDX_P1: index for P1
+- * @AT91_ADC_TS_CLB_IDX_P4: index for P4
+- * @AT91_ADC_TS_CLB_IDX_P6: index for P6
+- * @AT91_ADC_TS_CLB_IDX_MAX: max index for temperature calibration packet in OTP
+- */
+-enum at91_adc_ts_clb_idx {
+-	AT91_ADC_TS_CLB_IDX_P1 = 2,
+-	AT91_ADC_TS_CLB_IDX_P4 = 5,
+-	AT91_ADC_TS_CLB_IDX_P6 = 7,
+-	AT91_ADC_TS_CLB_IDX_MAX = 19,
++static const struct at91_adc_temp_calib_layout sama7g5_temp_calib = {
++	.tag_idx = 1,
++	.p1_idx = 2,
++	.p4_idx = 5,
++	.p6_idx = 7,
++	.min_len = 19,
++	.p1_mul = 1000,
++	.p1_div = 1,
+ };
+ 
+ /* Temperature sensor calibration - Vtemp voltage sensitivity to temperature. */
+@@ -745,6 +766,7 @@ static const struct at91_adc_platform sama7g5_platform = {
+ 	.chan_realbits = 16,
+ 	.temp_sensor = true,
+ 	.temp_chan = AT91_SAMA7G5_ADC_TEMP_CHANNEL,
++	.temp_calib_layout = &sama7g5_temp_calib,
+ };
+ 
+ static int at91_adc_chan_xlate(struct iio_dev *indio_dev, int chan)
+@@ -2250,6 +2272,7 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+ 				     struct device *dev)
  {
  	struct at91_adc_temp_sensor_clb *clb = &st->soc_info.temp_sensor_clb;
++	const struct at91_adc_temp_calib_layout *layout;
  	struct nvmem_cell *temp_calib;
--	u32 *buf;
-+	u32 *buf __free(kfree) = NULL;
-+	void *cell_data;
- 	size_t len;
--	int ret = 0;
-+	int ret;
- 
+ 	u32 *buf __free(kfree) = NULL;
+ 	void *cell_data;
+@@ -2259,6 +2282,10 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
  	if (!st->soc_info.platform->temp_sensor)
  		return 0;
-@@ -2267,16 +2268,18 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
- 		return ret;
- 	}
  
--	buf = nvmem_cell_read(temp_calib, &len);
-+	cell_data = nvmem_cell_read(temp_calib, &len);
- 	nvmem_cell_put(temp_calib);
--	if (IS_ERR(buf)) {
-+	if (IS_ERR(cell_data)) {
- 		dev_err(dev, "Failed to read calibration data!\n");
--		return PTR_ERR(buf);
-+		return PTR_ERR(cell_data);
- 	}
-+
-+	buf = cell_data;
-+
- 	if (len < AT91_ADC_TS_CLB_IDX_MAX * 4) {
- 		dev_err(dev, "Invalid calibration data!\n");
--		ret = -EINVAL;
--		goto free_buf;
++	layout = st->soc_info.platform->temp_calib_layout;
++	if (!layout || !layout->p1_div)
 +		return -EINVAL;
++
+ 	/* Get the calibration data from NVMEM. */
+ 	temp_calib = nvmem_cell_get(dev, "temperature_calib");
+ 	if (IS_ERR(temp_calib)) {
+@@ -2277,20 +2304,24 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+ 
+ 	buf = cell_data;
+ 
+-	if (len < AT91_ADC_TS_CLB_IDX_MAX * 4) {
++	if (len < layout->min_len * sizeof(*buf) ||
++	    buf[layout->tag_idx] != AT91_TEMP_CALIB_TAG_ACST) {
+ 		dev_err(dev, "Invalid calibration data!\n");
+ 		return -EINVAL;
  	}
  
  	/* Store calibration data for later use. */
-@@ -2289,9 +2292,7 @@ static int at91_adc_temp_sensor_init(struct at91_adc_state *st,
+-	clb->p1 = buf[AT91_ADC_TS_CLB_IDX_P1];
+-	clb->p4 = buf[AT91_ADC_TS_CLB_IDX_P4];
+-	clb->p6 = buf[AT91_ADC_TS_CLB_IDX_P6];
++	clb->p1 = buf[layout->p1_idx];
++	clb->p4 = buf[layout->p4_idx];
++	clb->p6 = buf[layout->p6_idx];
+ 
+ 	/*
+-	 * We prepare here the conversion to milli to avoid doing it on hotpath.
++	 * Here we prepare the conversion to milli to avoid doing it on hotpath.
++	 * The p1 value is multiplied and divided with a scaling factor as per
++	 * the SoC storage format described by per-platform calibration layout.
  	 */
- 	clb->p1 = clb->p1 * 1000;
+-	clb->p1 = clb->p1 * 1000;
++	clb->p1 *= layout->p1_mul;
++	clb->p1 /= layout->p1_div;
  
--free_buf:
--	kfree(buf);
--	return ret;
-+	return 0;
+ 	return 0;
  }
- 
- static int at91_adc_probe(struct platform_device *pdev)
 -- 
 2.34.1
 
