@@ -4,65 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80843C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:53:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFACC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 20:02:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LXRxFbi1rHNU7GbafqaihoCDwM1y7YKAsLY1yaGEPbY=; b=FmhuKDQUrBOPgPIWisP0qqO/ah
-	AUNgTSSjNELQ9uxgyaDzwgvm1tZ/lAqzV3z/88+szKybX3vQ+Ns5K3jUW5n+JYNJfGGtTMcCbrVtd
-	FpK9Ob0sNOqsHJxqXWxW4/zNUH6JSGdYtSRgZQH1Em+47Kv/ia/I24C7tZ8VUorVUOkV9ToH1c7Hj
-	c9J45f8tXW3IdqB1CSiKcOKkQh5ndCy5kPLGpbasySan0aeh7/vdCPgtQubhHmT5IL80t94Pao0iw
-	XbtilCWefVInHIkqOeDCKuR6HWKzkPp207ropWfobqm1R3DbouUj597jgjzMN4OJkrFWtfKiK4ucl
-	nNn3YUgg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PqYwf5Ub7H9RImvha677RgfRRKhB24bI7dgvnJ7lt7Q=; b=tbf4BlkMrwoOOY7r9vVfaOyLdS
+	wAfDO4bHrwVfTUI7UotgGIR5PyydkK1ag05UISBkFD2Y4FcOpeDF0ZNIlzpb94L/hf57zmgVJ+IY3
+	DsRA8jpiskitvSbJE+4uVO89DKD8oAjDunszkRolws6yaXlXpjZNrSn09GkthU8FGNMF4Vu5LbwJR
+	Dqc6wGE61n6KtkKuor0JnpF1ooSejO79lcvFTRKwqgzJm44OIW3P+/A0q9TTcFtQ34nCjD6aGhavv
+	7aX2qOQvTYbDZYixcvtaTG4XN0QM0dFoDaP1fwNcQEBTCM5d3Mc1P5urZVCm1HDZNZImPqtg8ZI3V
+	5qsAg6sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weeWJ-0000000092v-1eKi;
-	Tue, 30 Jun 2026 19:53:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weeeu-000000009ne-349P;
+	Tue, 30 Jun 2026 20:02:16 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weeWH-0000000092L-2G8k
+	id 1weees-000000009nC-13Bb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 19:53:21 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A637600FC;
-	Tue, 30 Jun 2026 19:53:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E8731F000E9;
-	Tue, 30 Jun 2026 19:53:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782849200;
-	bh=LXRxFbi1rHNU7GbafqaihoCDwM1y7YKAsLY1yaGEPbY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=j8bysIMbzvXmdKPX76RwD72APahTsxjBcVRALpKR9ix/1ivBdJD16BHUPrYRtqs9z
-	 nEvIIBNBaYuhBW9hu4SYrBLt4Y5umONwcWicaQzvku6VTUEa/czI1CR55zLYCfL830
-	 64FDP9ixwyz4y012ZdZoTVr0crdxDSUZG2M48yPtiJduV7gtmApxw62BKyxTKncV44
-	 3+TgcmYFn66Lx6+ee5/kNbdSoG+/aIfZvQEta2d9NM5s1QAFV6hdngGSF5ATcQynMk
-	 k8YVT8EPm9cU8b2pL9VI9wgcZ0JQGwGByfUtzryk2BrQNwrcJ5PfssTheyXZDhF0cJ
-	 bPewcAZS2tarA==
-Date: Tue, 30 Jun 2026 15:53:18 -0400
-From: Steven Rostedt <rostedt@kernel.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: David Carlier <devnexen@gmail.com>, linux-kernel@vger.kernel.org, Masami
- Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Andrew Morton
- <akpm@linux-foundation.org>, "Vineeth Pillai (Google)"
- <vineeth@bitbyteword.org>, Peter Zijlstra <peterz@infradead.org>, Linux ARM
- <linux-arm-kernel@lists.infradead.org>, Linux-Renesas
- <linux-renesas-soc@vger.kernel.org>
-Subject: Re: [for-next][PATCH 04/15] tracepoint: Add lockdep
- rcu_is_watching() check to trace_##name##_enabled()
-Message-ID: <20260630155318.7db20990@gandalf.local.home>
-In-Reply-To: <CAMuHMdXud_RpWag_hFqa2ByBGRxg6KnxGL1ObCWZrpTsk3TfAw@mail.gmail.com>
-References: <20260522143508.298439732@kernel.org>
-	<20260522143525.551205135@kernel.org>
-	<CAMuHMdXud_RpWag_hFqa2ByBGRxg6KnxGL1ObCWZrpTsk3TfAw@mail.gmail.com>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Tue, 30 Jun 2026 20:02:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1782849730;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PqYwf5Ub7H9RImvha677RgfRRKhB24bI7dgvnJ7lt7Q=;
+	b=EpwZ4qOMJHsa+xknZ8x+oAZs3aEI8THSkxXyqqLmm6ZTgM8crwEvKw6s3xaTlKlJORQ17c
+	dQL0/bwgJQyXqVSNI+qaLn2utGa15ZGkfnmHCd0TgddVAN9yjdCnyXuujJsTM0ckVkS6Aw
+	j3l8K8VGmc7XW6DEvTYqaAxZL898W74=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-201-kq3kZmxvO5Go6VomiM3zpQ-1; Tue,
+ 30 Jun 2026 16:02:08 -0400
+X-MC-Unique: kq3kZmxvO5Go6VomiM3zpQ-1
+X-Mimecast-MFC-AGG-ID: kq3kZmxvO5Go6VomiM3zpQ_1782849727
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4CC75184A090;
+	Tue, 30 Jun 2026 20:02:07 +0000 (UTC)
+Received: from [172.20.74.181] (unknown [10.30.45.123])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 41AD11955D86;
+	Tue, 30 Jun 2026 20:02:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.2.0-rc1,
+ upstream-arm-next, ff4c5a0d)
+Date: Tue, 30 Jun 2026 20:02:06 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Message-Id: <82344.126063016020802183@us-mta-201.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: axMpSYA4WBZN3BS1ROQP5ksZN4QbHGiuiAYKlODLVeY_1782849727
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_130214_471133_00A98DC3 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,44 +84,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 19:39:02 +0200
-Geert Uytterhoeven <geert@linux-m68k.org> wrote:
+Hi, we tested your kernel and here are the results:
 
-> Other Renesas ARM32 platforms I tried (R-Mobile A1, RZ/A1H, RZ/A2M)
-> are unafffected, perhaps because they are not SMP?
-> All Renesas ARM64 platforms I tried (R-Car Gen3/4) are also unaffected.
-> 
-> Reverting the commit fixes the issue.
-> 
-> Do you have a clue?
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
-Yes, it means the code was buggy before the commit. The commit will trigger
-warnings in places that have issues. Before the commit, the buggy code was
-never caught.
+Tested-by: CKI Project <cki-project@redhat.com>
 
-It's like enabling KASAN and finding code that has use-after-free.
-Disabling KASAN is not the fix.
+Kernel information:
+    Commit message: arm64/mm: Optimize TLB flush in unmap_hotplug_[pmd|pud]=
+_range()
 
-Tracepoints are managed by using RCU. There's places that RCU is turned
-off, meaning a tracepoint in one of those locations can be triggered when
-RCU is not active which may have a use-after-free semantic when the
-tracepoint is enabled.
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2640930305
 
-Tracepoints hidden by trace_#tracepoint#_enabled() are not caught when RCU
-is disabled and the tracepoint is not active. This commit makes these
-locations trigger even when the tracepoint is not active.
 
-One way to find out if this is an existing bug or not, could you enable the
-preemptirq tracepoints and run the tests again with the commit reverted?
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
 
-  echo 1 >  /sys/kernel/tracing/events/preemptirq/enable
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
 
-This will enable the events that are hidden without the commit. If it
-triggers when enabled, it shows the commit found a bug.
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
-If you get the same errors, the bug isn't with the commit in question, it's
-with the tracepoints being called during suspend/resume. We will need to
-fix that if that's the case.
-
--- Steve
 
