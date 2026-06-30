@@ -4,164 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9062BC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D70BC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCMIJRsRzjlZpYofvhN33meP83W9N4cRLSSNzva0XEc=; b=cQt5Bgk4vaZjLKTppcmgMGCXE+
-	T09QgKtf5xBeS66QvfaBeQq377TaN2bhGSnQYSdHwLZEdUF4Z5wAzSp+Sf6DRMoxG8vM+ugLNPWSn
-	ErbTcd72asdnZGq7eYK1iZVM57w4ANenopP9+gfvUVhjql/jc+kiVVO2ErQspsYBQSpMABgjLa/yu
-	hyaGYBMdDxxH9ggy8o24Z2S25cuMx2S2Har7voHLKrQ2ycJr9T4fQf6M+2+/aa/RRKxXGrlvHdvb7
-	VY8TxrJP5aFqU5Awi4VkZWxPtzRHzBhH4ZgC+hEmYbYsFKLm/RXyEnMn0WiaV+jykjRkKt+/kA57R
-	xVfSrNVQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r7GZzqWqKzIryiPQ20rzYH5fss0EHkLdsxXQ+MCLDJ4=; b=428KNrVophB64wiTfges5I43BR
+	xIG7zCSI7Z0SRTBL1oVFi1fx53Qy5ZiKIlPUkZgdoWRk05RBbkP+F+7NvrOWYtSRnHveO+NyZE5/r
+	IV/F6bSryZkpEkQaVkjvcaZUlGizYfsEVoF5r5a8ca31ulp+TpSc+Nc9AQZq1Xkt44KwR92URz9BW
+	+DKPBsGljHmYEelEetuChLNYOZjkQpXT/mFati3xeUOABX8xQAHHUdCtdTEL1kEDZii7AZGS62gEr
+	hYdTNSQn6WIzBtXghNkC4YwJMy7/q1rj/R1NoNGIhlTkwaUl0QJiTW3sMeFq33QBr1gJTNa/oG+LH
+	DUQV/+Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzB-0000000H4V4-34OY;
-	Tue, 30 Jun 2026 12:54:45 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1weXzL-0000000H4cy-0bW3;
+	Tue, 30 Jun 2026 12:54:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXyp-0000000H46a-0wBn
+	id 1weXzD-0000000H4WF-0rGx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:54:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uViHjOTLP7S9Ni9wmHiKSQnhR+7SCas+usUcOi8qKNUE04zxk/cScVe4y3AdMZ3UgPdjKapG0SPxKseZ+6HCWPfYO+3XS0oy4xYmFzYsvXQQ1SektXJHUdrnkNJTp9zb3Gkb8RkdKyizaq+tINnPZ8tXM8JN97pcv+ONh2djPSPx81HotKYZhKunEHWrYZgSQfl6AvXGP+J6NEXHsdVXusx4bT6+GLcWzqq0WHCGyIMnijrMW9V8CVEwpiDnkqqqLmWDGQO6bX2R2Jxw/LIVZsawnqMNv6vLBuV4QiRUr1G0fP438zwuWHR41yW46GTh/bK5TtGlmf+k6plj1VmtBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yCMIJRsRzjlZpYofvhN33meP83W9N4cRLSSNzva0XEc=;
- b=iTeqX9h3lGa7Y2MwOAiNhh5i/fIoCmJzLxtA94tZmB0ljyt3tEQh1sSXyIJITOmW1a0VCRb3BwFysB+Jw5/cxV7oj6xHzrt59V/DqPfv4Il8pW+xUr4qcDiDE12ut56bvcSENfhwswrP6X8H+F2RNQkDaRA1RM+ZKtYPJdrMAyb+uAsTM0cDrpUS54/u1fZhbShm5CUp40D+4eJHderzMpIjEy7m0QnCuMRvZOgfNenT41OntNx+zFoUkb1wj1AvNWiUjFr/w0K49lYKiu5YsLKVOxoMM/VmRWF1GbbdkkDzh5V45dpOC2dYDJVh+/5yymQyjA44tzU3/OQZsiN97g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yCMIJRsRzjlZpYofvhN33meP83W9N4cRLSSNzva0XEc=;
- b=sJfkCa5I4dTK5tGFgpiFluZRpm1S3y9Bjv+3C1XH8/9Ygf+SoHxncdcSKWlGWn+YpAzfbLza7iAtNh7dDRayovzlwwvbQ9u7Fhja8GNTYJjVtDOjn/rjp/u5TzALzmJf4lTOGaRGs/gC2llzvk7RE84nmZgOD0tKlOZ2YYGszniU7fEpNXECSlIrKT8y69ap4FMw3sjRJQhBOoxhkbwmoWYnt0bGzqCK4AE+Vgk2nZiG6leuwpVSCagdMKmEkLYW1iwl0TxMLoMp9l7G3ldl1+SQrcEeK+xptotMLsSjLQi3GUODqGjAWEMY6qbbrZBqSdLQXfq0CpuUKwZk74FZXQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by VI2PR04MB10883.eurprd04.prod.outlook.com (2603:10a6:800:27f::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 12:54:14 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
- 12:54:13 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>,
-	Lee Jones <lee@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>
-Cc: Alberto Ruiz <aruizrui@redhat.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	devicetree@vger.kernel.org,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: [PATCH v12 6/6] arm64: dts: s32g: describe GPIO and EIRQ resources in SIUL2 pinctrl node
-Date: Tue, 30 Jun 2026 14:54:03 +0200
-Message-Id: <20260630125403.546375-7-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0062.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:ce::19) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	Tue, 30 Jun 2026 12:54:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A63E643F86;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7388AC4AF0B;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782824086;
+	bh=9XzjbYaBUsoOWcEt/akYK3mjOrj4my2NJLQ/VEcsXjI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=nqMUR/eaOrw3tQzjrTkePZdxnmA3cdkEfwtNNFztLjJx9Kal+Hmp6orqbU3rdgJje
+	 obRCLNr2M3YowCTQ/rKp3v8KOfbJzvchNndNRoYiLwmekhTGWng47aqBox1GMAOwdd
+	 SV91RWaoehiffquNq/9D8XgTwUrG5YIfwnaGTEL8DrxqogGAX4Cy0DXbdrBmjQ61s1
+	 mYoe0Tc0oqEhgp/ick4CYTaUjZopwCt8bZ3NTp17H99g5+7HURza537kSGujwfNfZU
+	 kFIkxdM7gZw4ZsQCq9W5QSvHyXVzM6bJlSsIqzz4OwmpzojjbTrBt/Cr/sTl8eK6IT
+	 VtZcx9RK6r4MQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 651CBC43327;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
+Date: Tue, 30 Jun 2026 22:54:31 +1000
+Subject: [PATCH 03/10] dt-bindings: iommu: apple,dart: Add t8122 compatible
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|VI2PR04MB10883:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ce07e45-10c7-4056-2e01-08ded6a6afee
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|19092799006|921020|3023799007|22082099003|18002099003|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: kJXuOhmkU0vhzHKpaMyh0XB5bgxbawtQ1ZDTr8hDT8fEu2vrC1+hAzCeBWi50yyHJZN1SaEpf2zQN+Kn2KaLcu75/dafOXSM5kCVowH8HvJHdfqkRNUlWX0ZEKSQXMSiv5aC3DBxqJg/qQ/oUGhe5hQhit1REmx6UPXn2Mb9RSLMVWSaYvpb7oDoan3X95BMuzDzR+QfvlPXSTBmpFc8rWCZDibiEHcWeARnv2FO/6I+Z2g/2peQ0DQOpfJJZ9mZSSnE5lgk7AtFk9nYB3cWo0Gf+eDFz9j+IY8eLvJDHswabSFt+s3otvYuU97c5vIP/BFr8rnZaO4TG1vk/cBmujR5q/vvKCZ9x3AUhihV+cYh1ihdGqh+u+UlGIPTqFOMTNniYgDsYl8PN5ZJA/Yh30vCLrX/PStC/Fx15xWV3bSX8RkLvPEincnw83XUEymg8a6bsxVTqjoTpTxdl9n1SDBXBUNfr1izpEVl25Jfkuhz5yg6rEfaMh1d7jAgUot7ouY9NaxA/9UkKRe/LCvF6ozKI6LrabhB5u6e9SHjBpkoBN6OwxbYfKMFB/4hkNi6tg1pxnhTSlm9lkMfUGzBfZSN81UgaxnoVDGN0rY1iKd+3h/89aWPCQ5um0JTd3KjDxIrmu+Te7qhmOhwJS3VxKShnFMbhy6qPdsEL9y2c7qUTW3BXQSLCINd6ZDC3jfRmuiuS/BeWxuFfEK37cFdVA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(19092799006)(921020)(3023799007)(22082099003)(18002099003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Q2U5T1NaWnNydkVYeUoybmEyZ0owL1JWc0QrcDYvSGZqd1hTMW4xRzFKd2xH?=
- =?utf-8?B?Mks2eHNsMm1kRWRYamFzeFNjM2MvdTF0VFVMZTNhZmNKWTdORjJFaUhuS2oz?=
- =?utf-8?B?Nzl5VWovSGtVRS9vZ3pEb1B5Q3FFRjltanRLaGdOMHdoNUkyS1puSlVMTHZV?=
- =?utf-8?B?b29nVGM0MzVFdWF5YTBtZUI0enVuRFdmZ0s1VG1QbHhsNWFITVRTNUVsRm9j?=
- =?utf-8?B?TGRBYUxycmNVditoWmM0eWtPNmRRTHUyUGl2YVluNjRBRFpSNGQyc0c5STh0?=
- =?utf-8?B?YkdSKzYzcTZzK1B4QlhWbXZlT3Q0WiswTXYveWl2MjBrNFVwOHR6NHErcVA1?=
- =?utf-8?B?SjhEeFRWeXVqTGRQNkhvSTFmei9mM0RNVmxXdm9RSFRKVG5CSzJUK2NqdkNL?=
- =?utf-8?B?SEdMSGVhRmE3NDZzVEZuTFVOQ2I3bUNxK0REY0paOS9jcEtQeFo3dFVXaGc1?=
- =?utf-8?B?Vi9LaU1TL3V5WWJUZjJHdnVWTVp0L2ZNcnBCR0JYcWt4dXZxenpyVWNZV0Zt?=
- =?utf-8?B?b0ljc2RXVGVHSmdtUlR1MWJmdnhxL3IwdjhlLzJNb2RsYVNVNTR6MDl6RzE0?=
- =?utf-8?B?VVVHdUlOQnZUNVNwc2UxTkRrdlZDSC9QZHpnSnBxWUNSdytkRFJNQXRrdDA4?=
- =?utf-8?B?KzNhUmM0UjYzNHdpWnpOcVVYcktsSnJ6UnQ3eGxEVnNJQmRBaXhicEJxdHZE?=
- =?utf-8?B?Q2x6L2FVS2h1b3NFRXJBVnA1RjJwaHpDMHZQVnVZQ281OGZYZUJ6aUxFTUlX?=
- =?utf-8?B?V1gzdlJFSXNDbDZNellGNDU0bEVhcUExbVlKdlVDU1BPUS84SmZGSEpEZnRs?=
- =?utf-8?B?b2t6TVp1bzdVWkZJSisrRmNJY09UU1pERUpEaEp0NjFOMVRnYUVIVWpFNlpv?=
- =?utf-8?B?ME11V0R5Nmo4Ni93ZFRnajlSRU5CU1AxTlNYNjNUUDBEZXpCMUlSaVV3bHQz?=
- =?utf-8?B?NnEraW9FNERUZCtwWldRNTdseTA0dHFpMzQyaEN3NnlvY29ad0NsWGxEeWVE?=
- =?utf-8?B?Y2c2RW0zVzY3cTk3MUtUS0tKRThQK3pHVkszRHVIOW1aUXlZSXp2R1JSdVRN?=
- =?utf-8?B?U0ZCMExVWVNmL2Y0c0dhbER4cjIvSGw0S3pheHZFUlZZWG1tNnc2MmRSM3Rt?=
- =?utf-8?B?Q29raFQ0TVpuVDd5VnRFWnRTblorZm4xcUtSdlFRbmZaSlRVYk5GenI2YjdN?=
- =?utf-8?B?U1Z6SmtXeU5tSTNYejZqS0lRd1hoWncxamozNDdZN3ZLV1RKQXd2emxWSXI5?=
- =?utf-8?B?ek1uL3hBU2JNMjBnTjZsUGo0MXdjOGV3OXBTenFYYWhreng3U2JoNDBncTZm?=
- =?utf-8?B?NW1WNmFGMjFaRFZqdzMzQ3FHS3Bmbk8vdmN0cVMrZEhLNXYxNjZUcmdJdThw?=
- =?utf-8?B?N1ZuYTdsSnNJUUZVZHNldUdhdnp4SzRmQUhzNVVseDVDU09nd3NLSGdsWVlk?=
- =?utf-8?B?QXlqZlBFeGI2TEJzeVRyZnM5d1VFSmlGdzN5R3k3OC9kYVA5UDVCMDdFQ1Az?=
- =?utf-8?B?K0g3T01DL2YvbHJGZ292RHdLSkVnV09UcjNtTHhLdktQWTVMaTRFVm9WRDdZ?=
- =?utf-8?B?T0ljOHlweDA1d0s4aGpnanp5WUg3L0RzOVN0OWRYbk1sdjI3N3hhQW9ScmJL?=
- =?utf-8?B?TjZXNE5VMHQ4RUtrbVZaQ0Uycm43SnZtek9VM00xKzArdGJJSFNQc013djhR?=
- =?utf-8?B?RTVSajNRL1dFUDhsS1FhVGNDMVI3OVVXTGE0QVVQYnp1K3dRd3JSWkViZnE2?=
- =?utf-8?B?dmZXTFdsTXcrOGVwRXNySk01U0ZJUlQyWnQxRGtPdTYxQUhJK3FFRnJQdEFR?=
- =?utf-8?B?a3BsQ1pZWnN2ZFVZeDdtRTlsN0FnQ3A4blFOTk55OHlEVWk0UnhnUG5YbU1Q?=
- =?utf-8?B?YW8rNE9OU3FwaTRZT3EzNEVWcGhaZldBL3kwc1duWGROazgveXpidHYza3dM?=
- =?utf-8?B?TmlnQ2FoalhDUWF3RDd6VzdDNSszejR4VzRpTjhuYTgzWldUbWlTTFd3aFJE?=
- =?utf-8?B?S2VtQWd4bmR3a3JWclNUbkVqcm9wdDFpSXBubmZFd0tKSlNyQkgyMmVYUWFV?=
- =?utf-8?B?SG83VjRVOWVPei9ZYXVSTlF0cVBpb3YxUnNuVFlXQngyakFLSyt6Y2FyNjhN?=
- =?utf-8?B?WDc5d2o1MTRUWjB2ZzJpd1BMRkNmczRFcDhCQ0ZGdmE1dldLSytQeUtJTlI5?=
- =?utf-8?B?MDkycUVyTXhVVjJLYU1vWXBwL2ZpUUZMUjZ3clZ5NXZoY3BsV1M1andVSUhJ?=
- =?utf-8?B?Y3ZMSUJ2TXUwdWhZb2xYbTMzZEhpQXlCVXFSMXhBYWZ3WUk3eGlERjNtUUth?=
- =?utf-8?B?STQ4V0U0R3JhN0Y3QWRuaWlmNjRlUWhidVR3WHM4a3RGR0NPKy9pbm8vNmdD?=
- =?utf-8?Q?zdl/QYU118Fm/vtSX7LZ530xApfV/7BREhGVf?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ce07e45-10c7-4056-2e01-08ded6a6afee
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 12:54:13.8790
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: th5jSKmKLgCqmyA3ewGdFenmei97SB+iAMhCp5SrI3+65yeZapBiE1IhsV+KcH+DgZEaPMrnAD/BeoN8EoZLBiBVrMB9+Aw9FyWL2Fe1vKYmJUmSjVdYdkoALz0+2va2
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10883
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_055423_264875_919D05A2 
-X-CRM114-Status: GOOD (  13.28  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260630-apple-mtp-keyboard-final-v1-3-506d936a1707@gmail.com>
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+ Benjamin Tissoires <bentiss@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ iommu@lists.linux.dev, linux-input@vger.kernel.org, 
+ Michael Reeves <michael.reeves077@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=963;
+ i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
+ bh=y5JWfMxBJX2xwts+wGq01XJ6a6fA14G/VbJw916yMm0=;
+ b=5iqh2NsfbrvbnnFMBUjNQ9JMWqmwkDS68TKoS3s6ZKyEuN8ohJJ4u5+rkTGBiNHhfR+95Ekiq
+ ojKHCJikfWADnyTu62aZ30rMoFM5bYbdIPtKbGM4A7trN7HTSRd2pBQ
+X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
+ pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
+X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
+ with auth_id=591
+X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,101 +88,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the SIUL2 pinctrl node to describe the additional register
-ranges and DT properties used by the updated SIUL2 driver.
+From: Michael Reeves <michael.reeves077@gmail.com>
 
-Besides the MSCR and IMCR ranges used for pinmux and pin
-configuration, the SIUL2 block also provides PGPDO and
-PGPDI registers for GPIO output and input operations,
-as well as an EIRQ register window for external interrupt configuration.
+The MTP block on t8122 has its own DART instance for coprocessor DMA.
 
-The driver supports both legacy pinctrl-only DTs and
-extended DTs with GPIO and IRQ.
+Document the t8122 compatible with the existing t8110 fallback because
+the programming model is shared.
 
-Reflect these resources in the SIUL2 pinctrl node by adding:
-  - the PGPDO and PGPDI register ranges
-  - the EIRQ register range
-  - gpio-controller, #gpio-cells and gpio-ranges
-  - interrupt-controller, #interrupt-cells and interrupts
-
-Keep the hardware description aligned with the updated SIUL2
-driver, where pinctrl, GPIO data access and the EIRQ register
-block are described under the same device node.
-
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 ---
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 21 ++++++++++++++++++++-
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 21 ++++++++++++++++++++-
- 2 files changed, 40 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/iommu/apple,dart.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 809019ea0e29..8dc0c5d9f368 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -135,7 +135,26 @@ pinctrl: pinctrl@4009c240 {
- 				/* IMCR119-IMCR397 registers on siul2_1 */
- 			      <0x44010c1c 0x45c>,
- 				/* IMCR430-IMCR495 registers on siul2_1 */
--			      <0x440110f8 0x108>;
-+			      <0x440110f8 0x108>,
-+				/* PGPDO registers on siul2_0 */
-+			      <0x4009d700 0x10>,
-+				/* PGPDI registers on siul2_0 */
-+			      <0x4009d740 0x10>,
-+				/* PGPDO registers on siul2_1 */
-+			      <0x44011700 0x18>,
-+				/* PGPDI registers on siul2_1 */
-+			      <0x44011740 0x18>,
-+				/* EIRQ window: DISR0..IFEER0 */
-+			      <0x44010010 0x34>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&pinctrl 0 0 102>,
-+					<&pinctrl 112 112 79>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
+diff --git a/Documentation/devicetree/bindings/iommu/apple,dart.yaml b/Documentation/devicetree/bindings/iommu/apple,dart.yaml
+index 47ec7fa52c3a..e179199dbd3b 100644
+--- a/Documentation/devicetree/bindings/iommu/apple,dart.yaml
++++ b/Documentation/devicetree/bindings/iommu/apple,dart.yaml
+@@ -29,7 +29,9 @@ properties:
+           - apple,t8110-dart
+           - apple,t6000-dart
+       - items:
+-          - const: apple,t6020-dart
++          - enum:
++              - apple,t6020-dart
++              - apple,t8122-dart
+           - const: apple,t8110-dart
  
- 			jtag_pins: jtag-pins {
- 				jtag-grp0 {
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index 22e80fc03f9c..129d6ad8e5c6 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -193,7 +193,26 @@ pinctrl: pinctrl@4009c240 {
- 				/* IMCR119-IMCR397 registers on siul2_1 */
- 			      <0x44010c1c 0x45c>,
- 				/* IMCR430-IMCR495 registers on siul2_1 */
--			      <0x440110f8 0x108>;
-+			      <0x440110f8 0x108>,
-+				/* PGPDO registers on siul2_0 */
-+			      <0x4009d700 0x10>,
-+				/* PGPDI registers on siul2_0 */
-+			      <0x4009d740 0x10>,
-+				/* PGPDO registers on siul2_1 */
-+			      <0x44011700 0x18>,
-+				/* PGPDI registers on siul2_1 */
-+			      <0x44011740 0x18>,
-+				/* EIRQ window: DISR0..IFEER0 */
-+			      <0x44010010 0x34>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&pinctrl 0 0 102>,
-+					<&pinctrl 112 112 79>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
- 
- 			jtag_pins: jtag-pins {
- 				jtag-grp0 {
+   reg:
+
 -- 
-2.34.1
+2.51.2
+
 
 
