@@ -4,84 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B1A6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CADC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2a3b5p9dXW8xDs6N43urtooM//9nuIAlbzejMFuCGo=; b=VHTug9nkj6TMeusEJFkI0qg3oK
-	uUzE93HGzSoYjx1ZDJaCI27gZRNL+x3rXNCihSmhk0OnHSmyF3b/vR/rclN4nJ9dfzgHkXRuDuziS
-	cVRWkjbBhMTjKkpZLtzcXj9fFwYe2tfkAaK9rsJj73ulc7ao2jnYfTacYzQM9+rwGOCo4vWh5MiXP
-	MiF0CupQIH096lBX9OVV2+o+pXBktXkkMky2sSlU0hB3ARVwYsLPreeGAvh1eqCIMckAj2GRWWw5k
-	u7R1HMkACrTEY06MzgfFgwrgMsga/CZpsCbhdGyI10cgrtTGlLD0pXGrnlSpduPfCW9NPFFYDJQJm
-	84A7lDCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ImMF75uw+G81X/bY4WiM7PdcvUhiHwX5vfkmovFcjO4=; b=gIYyrOWikOkNrCKLeTxmqP1uJR
+	a+yS/DDy8yRfQxeaHTd/wgX7ASMFGUGKG4Ep4ALFILhunPwcVjV+fUfxJkNODpOBQ6iu71w3MmQD5
+	/DXeufr3zDNpVpt8qOpzlTS9r9aazLt5/9jc9ZvJ66TGOud9cwAxxUJPGIG/GiKcafMUJbqw3RmHz
+	WjHX+I9Q6+b2UaPaqG1X2c5GbL7yJoEVsDvIq1a2fabczfJS8oDJ2w0V8qNGy855WJULfGuoeHGTz
+	IE/0Os6aU3sp20aUGsdtvNJ1jU29SXYwgPeVUtxxa/CTAIOFLbFI1+d/M2pURbScmPLpycQuNW0RG
+	SuTZPHuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXPo-0000000Gxsz-3Gcc;
-	Tue, 30 Jun 2026 12:18:12 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1weXPu-0000000Gxv7-3g37;
+	Tue, 30 Jun 2026 12:18:21 +0000
+Received: from relay.yourmailgateway.de ([188.68.63.166])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXPl-0000000GxsL-3qUH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:18:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782821890; x=1814357890;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=L6xp0DTy9IxxrWFDObsUK7MAMrgrWXdOPmbbvUmwO7U=;
-  b=EDpfygE/O4OTau6UPILamTlY126TvQxPYcOlNnSVqutvLv78JdZ8Ejp4
-   qjVAvyYk6kKaJ91+qTjdRC4XHqbLjWzDfGBDs/M9UuavzulpfDROTQva9
-   GkvcOhA7nblq7w3LtC5Af3ZukDQDr8Rk8vadJd3koszCKlH2YpHiPVud8
-   94cgSEkUIURCen06rGlVoJ+iO/a0esbARi6cEYLvy0WXMqDT9YLS8chjn
-   +ExYvaRFd7B6zwPFt+8C6MVkKYiLZEXCLSJioDf1cQGcK0QgQYy2wD1DI
-   97afpFGPrbACObgo8PA+VaPO41j8ch7JXKU/v8orss/YvR2LpTiTiOSgb
-   Q==;
-X-CSE-ConnectionGUID: kjTqnaExQsGS4p7hwQqO7w==
-X-CSE-MsgGUID: JBhmPLK5QFqDXeevVJLn6w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11832"; a="106325480"
-X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
-   d="scan'208";a="106325480"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 05:18:09 -0700
-X-CSE-ConnectionGUID: W0felgykRje2Q5K6ZMNsyA==
-X-CSE-MsgGUID: XVi5LnrERTuYihhS0ukT+g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
-   d="scan'208";a="282312161"
-Received: from kniemiec-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.96])
-  by orviesa002-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 05:18:04 -0700
-Date: Tue, 30 Jun 2026 15:18:01 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Varshini Rajendran <varshini.rajendran@microchip.com>
-Cc: ehristev@kernel.org, jic23@kernel.org, dlechner@baylibre.com,
-	nuno.sa@analog.com, andy@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, srini@kernel.org,
-	marcelo.schmitt@analog.com, jorge.marques@analog.com,
-	mazziesaccount@gmail.com, Jonathan.Santos@analog.com,
-	jishnu.prakash@oss.qualcomm.com, antoniu.miclaus@analog.com,
-	duje@dujemihanovic.xyz, linux-iio@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/13] iio: adc: at91-sama5d2_adc: adapt the driver
- for sama7d65
-Message-ID: <akOz-Q7Hvxbyzbl7@ashevche-desk.local>
-References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
- <20260630093603.38663-5-varshini.rajendran@microchip.com>
+	id 1weXPr-0000000GxtH-0ovd;
+	Tue, 30 Jun 2026 12:18:17 +0000
+Received: from mors-relay-8202.netcup.net (localhost [127.0.0.1])
+	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4gqMbj6xCPz41HZ;
+	Tue, 30 Jun 2026 14:17:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1782821858;
+	bh=BpwuphocXYevRit1ClmG1CfXi7L38DAgRk4wITc6+Ns=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aRNscDFsL6qBnLrFZ4zc9Orw+fUJYxzOQNAPtzZfV8TfgFg1TSViysFI/kEwqae1B
+	 Svq63kSeKChXtyBDbCz30Gtji6ek/fWOnhTZfFZd+qwtbT0II5in1EuwnxKRt9rLmS
+	 k5iSt6K01B9qccOXb1sBAO5/MdCswrvm/cu1iomXBM+U8/XChnZgCDwJQZrNdteqIZ
+	 vBdqu95k570cKTdhWZkd1nzwrCtt7TiPHJ9MQYU3CXV07GM7uCJe7+h6uMktj64MEI
+	 L7Lfh0yMaNOktJfGy1IymH18xhslJez8V860JzftTpgJW3qrAR3ULSjI+BsmtA1W9V
+	 KgEh5UYVZKv3A==
+Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-8202.netcup.net (Postfix) with ESMTPS id 4gqMbY5bd0z3xhV;
+	Tue, 30 Jun 2026 14:17:29 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4gqMbV70mBz8tb3;
+	Tue, 30 Jun 2026 14:17:26 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id BA1B25F961;
+	Tue, 30 Jun 2026 14:17:25 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <173df064-f373-4cce-b35f-e52f728be263@leemhuis.info>
+Date: Tue, 30 Jun 2026 14:17:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630093603.38663-5-varshini.rajendran@microchip.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH wireless-next] wifi: mt76: fix of_get_mac_address error
+ handling
+To: Rosen Penev <rosenp@gmail.com>, Felix Fietkau <nbd@nbd.name>
+Cc: linux-wireless@vger.kernel.org, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
+ Sean Wang <sean.wang@mediatek.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support"
+ <linux-mediatek@lists.infradead.org>,
+ Tobias Klausmann <klausman@schwarzvogel.de>,
+ Klara Modin <klarasmodin@gmail.com>,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260427051746.954704-1-rosenp@gmail.com>
+ <ajRmlyx_AEGybykL@soda.int.kasm.eu>
+ <CAKxU2N-gfH8Tq29-j2MArogLZuO7JEqtN5LNPVygJzrAERa3cg@mail.gmail.com>
+ <ajSDtsJCmYnMNJSD@parmesan.int.kasm.eu>
+ <DJCNDEE8JMPL.1DL49X1EUDFCE@gmail.com>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+X-Enigmail-Draft-Status: N11222
+Autocrypt: addr=linux@leemhuis.info; keydata=
+ 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 MEK4
+In-Reply-To: <DJCNDEE8JMPL.1DL49X1EUDFCE@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-PPP-Message-ID: <178282184634.1121394.13787131785166675291@mxe9fb.netcup.net>
+X-Rspamd-Server: rspamd-worker-8404
+X-Rspamd-Queue-Id: BA1B25F961
+X-NC-CID: dauv+6SHUg8f+sTb+5NAFrUSplXnN2iU3ySVkhwlkYqYaOolX/Y=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_051809_994227_EF7DC436 
-X-CRM114-Status: GOOD (  12.70  )
+X-CRM114-CacheID: sfid-20260630_051815_548587_EAA598AA 
+X-CRM114-Status: GOOD (  18.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,39 +150,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 03:05:54PM +0530, Varshini Rajendran wrote:
-> Add support for sama7d65 ADC. The differences are highlighted with the
-> compatible. The calibration data layout is the main difference.
+On 6/19/26 03:50, Rosen Penev wrote:
+> On Thu Jun 18, 2026 at 4:51 PM PDT, Klara Modin wrote:
+>> On 2026-06-18 16:01:45 -0700, Rosen Penev wrote:
+>>> On Thu, Jun 18, 2026 at 2:47 PM Klara Modin <klarasmodin@gmail.com> wrote:
+>>>> On 2026-04-26 22:17:46 -0700, Rosen Penev wrote:
+>>>>> Check return value instead of is_valid_ether_addr. The latter is handled
+>>>>> by the former.
+>>>>>
+>>>>> Signed-off-by: Rosen Penev <rosenp@gmail.com>
+>>>>> [...]
+>>>>>>>> Recently I have started to see randomized MAC-addresses on my
+x86 laptop
+>>>> with a MT7922 and the above message printed in the kernel log. I have
+>>>> CONFIG_OF turned on, but since this is an ACPI system the device is not
+>>>> described by any device tree and the earlier of_get_mac_address() likely
+>>>> fails with -ENODEV. Looking at the !CONFIG_OF stub for
+>>>> of_get_mac_address it always returns -ENODEV, meaning this will always
+>>>> randomize the mac in that case too.
+>>
+>>> IIRC, the normal device_get_mac_address supports nvmem now. Does that
+>>> fix your use case?
+>>
+>> I tried this:
+>> [...]
+>> but I still get a random MAC.
+> Then the original patch should be reverted. Unfortunate that it doesn't
+> workq
+
+Happens, no worries, but seems nobody submitted such a revert yet since
+you posted that. Unless I'm missing something -- if so, please do not
+hesitate to tell me!
+
+But if no revert is in the works, could you please submit one, given
+that it was your change that cause the problem?
+
+Side note: Tobias (now CCed) ran into the same problem, too:
+https://lore.kernel.org/all/30a90714-02d8-45f2-a7f1-4cfe0627d50b@skade.local/
+
+Makes me wonder if more people are affected by this and if we should try
+to mainline the revert rather sooner than later.
+
+Ciao, Thorsten
+
+>>>>
+>>>> Reverting this patch fixes the issue and the correct MAC address is
+>>>> used. I'm not sure if there is any case where of_get_mac_addres() could
+>>>> fail in a way that results in a valid MAC address but it seems unlikely
+>>>> to me.
+>>>>
+>>>> Regards,
+>>>> Klara Modin
 > 
-> Update Kconfig help text to mention SAMA7 SoC family support.
-
-...
-
-> +static const struct at91_adc_platform sama7d65_platform = {
-> +	.layout = &sama7g5_layout,
-> +	.adc_channels = &at91_sama7g5_adc_channels,
-> +	.nr_channels = AT91_SAMA7G5_SINGLE_CHAN_CNT +
-> +		       AT91_SAMA7G5_DIFF_CHAN_CNT +
-> +		       AT91_SAMA7G5_TEMP_CHAN_CNT,
-> +	.max_channels = ARRAY_SIZE(at91_sama7g5_adc_channels),
-> +	.max_index = AT91_SAMA7G5_MAX_CHAN_IDX,
-> +	.hw_trig_cnt = AT91_SAMA7G5_HW_TRIG_CNT,
-> +	.osr_mask = GENMASK(18, 16),
-> +	.oversampling_avail = { 1, 4, 16, 64, 256, },
-
-In this case the inner trailing comma is not needed (because everything is on
-the same line).
-
-> +	.oversampling_avail_no = 5,
-> +	.chan_realbits = 16,
-> +	.temp_sensor = true,
-> +	.temp_chan = AT91_SAMA7G5_ADC_TEMP_CHANNEL,
-> +	.temp_calib_layout = &sama7d65_temp_calib,
-> +};
-
--- 
-With Best Regards,
-Andy Shevchenko
-
+> 
 
 
