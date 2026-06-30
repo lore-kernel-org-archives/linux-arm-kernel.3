@@ -4,69 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C6CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:11:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AA5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LlKzPg19q9e2Gdbh8JVXe+cxB934h6FFCKt4x5J53+U=; b=gWAduHxuKWNJs1wedDpHcHO2i3
-	nb/I3F8F8/M+htA6t4mN7FTD2/LCIDHhqIgTjNUDmPmAoYVHokDScxpu6xPYNFIf/SXt/w8RT/qjx
-	WPW3GR+4e6xanOT3uSz7TSapKVwK0BYoUJuJrez5IPLWn4OWsdv1x964reKLBxkhSpa5kDdZpoHmV
-	bAcLsHUjaa1euR67MZ3NIA3o12mMclmwIXhZaEPGgSTYZDkMZR+u4taqhQMfSlSR7B5Ts+nXy88bb
-	YgQpeCC8GYP3At/xYpzdxpAJEs+1rwFApwuy0a78mNTZk6xSxW9ajrLOZ4cFKZ4f8SEigWWh8y1iG
-	8DsMgzbw==;
+	bh=JoMpHI+v3QIGfniTDahJIqxAc7jJqXNEy+d4NZscNrs=; b=dYECac0CPo4vlJ2zR5qfjSm4BO
+	1z7hk01FJNktdH8omY1RT4l89D22CuXyxjGPtzuRKXD2iGq17W9pDeep5ELGScLvmT4IZpO878KFB
+	DHrwI/4KOgrfg2KhIjr5RZML5b0ovNTxdMDsBPV2YL9Y+UG4AjW2Muzb39GDwkJYEr3aMGOUs6By/
+	mCL+I1PeXxw9VMrgVQec+SBwfevsDoLHTNKefZ6Xz9SCeyGkt/8Z18i1Rucfw0i4qdYa7XqHVgcrW
+	JtknxLcoMEe24q+2yLpUVkndGKrUF7AW0739xb/FQdT5ifqeIiKu2Wro+kFMK985vh5WFhLA5LsNh
+	cVbN6R+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXIw-0000000Gw9X-32XA;
-	Tue, 30 Jun 2026 12:11:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXIv-0000000Gw9E-2Cw2
+	id 1weXJK-0000000GwHn-4BBj;
+	Tue, 30 Jun 2026 12:11:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weXJI-0000000GwGo-3287
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:11:05 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 00803600FF
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 12:11:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD9291F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 12:11:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782821464;
-	bh=LlKzPg19q9e2Gdbh8JVXe+cxB934h6FFCKt4x5J53+U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=L5u7gC15217FP42jNRkdZlGnyZX2bgEt4eFCQcJ99qR8yfCcWsESGjkGHTG8Mvp37
-	 hGSw/oVRSXSEBjniG8GyeVutSuwycJOjXkV5O5rNY6ysM5uK9nsP+GZJqFRUCN7gEi
-	 X0555pMw/kbVxRLJqbnWqvmcfSwThLdS/4LyUPTkrErdILChw7313PVmkXahrv/mHB
-	 p901xREZMeE1Js4wnFumWyuXj6BuWRMb87RQJ39ESxJTkMydRfBUAHESKeeDlfyZvs
-	 ob0gf7e7DnVrLQ9Ymuo10HdHoKfiH7MaSuXQ/DJOysoWKzCtLGtVHdSvRsrjulKwLZ
-	 mqX+WzZqXqD1w==
-Received: by mail-lj1-f176.google.com with SMTP id 38308e7fff4ca-39af6402933so30915721fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 05:11:04 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RomG6K8/45lcaFryliVW3CTn/ppnnt7/PDtJWzZ3K3Qy8WUwWkQ14Cr1ShfVSSTgT389JkvH/Tm6Bvc25wsCX2i@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzBI7E5B/pTqehMIXV8MkHPDLb2pZbcu9yoOsdryYYndZtGnv0
-	bZ/BJSEn3+yGxaK15fts0KMnVbgNQYe8wgk/2IwZbSpd7cbvi62Qu2X4BTj0bPtSfAlRa+w4XvU
-	ft9VzfwH0CdjyRKtz/WOxijjPU0+nQ0A=
-X-Received: by 2002:a05:6512:251:b0:5aa:6aba:76f8 with SMTP id
- 2adb3069b0e04-5aebdbbd837mr608304e87.30.1782821463509; Tue, 30 Jun 2026
- 05:11:03 -0700 (PDT)
-MIME-Version: 1.0
-References: <20260617220451.15298-1-daniel@dragonzap.com>
-In-Reply-To: <20260617220451.15298-1-daniel@dragonzap.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 30 Jun 2026 13:10:51 +0100
-X-Gmail-Original-Message-ID: <CAD++jLm3gY=vMdbZ6Ep=9g8RhLu2=cgj64QYi4DZdfXK_wdPsw@mail.gmail.com>
-X-Gm-Features: AVVi8CdvBjKnXgZXbX-XFU1uvMDAmDnQyRuTcGalVAa5xmjbxsVhewZ7HUZKW9g
-Message-ID: <CAD++jLm3gY=vMdbZ6Ep=9g8RhLu2=cgj64QYi4DZdfXK_wdPsw@mail.gmail.com>
-Subject: Re: [PATCH] pinctrl: bcm2835: Don't remove an unregistered GPIO chip
-To: Daniel McCarthy <daniel@dragonzap.com>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, linux-gpio@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	Tue, 30 Jun 2026 12:11:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5D3C62EC5;
+	Tue, 30 Jun 2026 05:11:23 -0700 (PDT)
+Received: from workstation-e142269.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A49383F905;
+	Tue, 30 Jun 2026 05:11:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782821487; bh=1n3qO4tevriGd8jkJz2HrHo3ryYalBTuCbFEYqo0xRY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KmqaPz0IcdrkYoO7v6PppquU5yL1vJhZEtjmmAPv5k1di8nLjevBDBZiK/Y1RP/SF
+	 UfHqDMRFATbBIXdImZmXVKnwquc552Uh1d2QGmMuJE2sIjMNs/WG3KctmWQor9WYPF
+	 FKqthm+5zjl3GBM/bL3Ye/RIcuNh6W5auKdptX18=
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Wei-Lin Chang <weilin.chang@arm.com>
+Subject: [PATCH v2 2/6] KVM: arm64: ptdump: Undo making the ptdump code mmu aware
+Date: Tue, 30 Jun 2026 13:10:01 +0100
+Message-ID: <20260630121005.1130996-3-weilin.chang@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260630121005.1130996-1-weilin.chang@arm.com>
+References: <20260630121005.1130996-1-weilin.chang@arm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_051128_858361_18AE5521 
+X-CRM114-Status: GOOD (  15.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,27 +80,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 17, 2026 at 11:05=E2=80=AFPM Daniel McCarthy <daniel@dragonzap.=
-com> wrote:
+Commit 204f7c018d76 ("KVM: arm64: ptdump: Make KVM ptdump code s2 mmu
+aware") changed the ptdump code from storing the kvm pointer to storing
+the mmu pointer, in order to reuse code for shadow ptdumps.
 
-> If the devm_pinctrl_register() function fails,
-> bcm2835_pinctrl_probe() calls gpiochip_remove()
-> before gpiochip_add_data() has registered the GPIO chip.
->
-> This means that upon failure the gpio_chip.gpiodev
->  is NULL resulting in a null pointer dereference
-> inside the gpiochip_remove() function.
->
-> Remove the unnecessary function call to gpiochip_remove().
-> No GPIO cleanup is required because the GPIO chip
-> has not yet been registered. Without this change there
-> is potential for a kernel panic upon registration failure
->
-> Fixes: 266423e60ea1 ("pinctrl: bcm2835: Change init order for gpio hogs")
-> Signed-off-by: Daniel McCarthy <daniel@dragonzap.com>
+This turned out to be buggy as the nested mmus can be freed before the
+last access to the ptdump files. To prepare for a new implementation of
+the shadow ptdumps which solves this problem, revert the effects of the
+commit to avoid this UAF.
 
-Patch applied as nonurgent fix.
+Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+---
+ arch/arm64/kvm/ptdump.c | 32 +++++++++++++++-----------------
+ 1 file changed, 15 insertions(+), 17 deletions(-)
 
-Yours,
-Linus Walleij
+diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+index 7c32f1f7772c..d5aa9eff08d1 100644
+--- a/arch/arm64/kvm/ptdump.c
++++ b/arch/arm64/kvm/ptdump.c
+@@ -19,7 +19,7 @@
+ #define KVM_PGTABLE_MAX_LEVELS	(KVM_PGTABLE_LAST_LEVEL + 1)
+ 
+ struct kvm_ptdump_guest_state {
+-	struct kvm_s2_mmu	*mmu;
++	struct kvm		*kvm;
+ 	struct ptdump_pg_state	parser_state;
+ 	struct addr_marker	ipa_marker[MARKERS_LEN];
+ 	struct ptdump_pg_level	level[KVM_PGTABLE_MAX_LEVELS];
+@@ -112,10 +112,10 @@ static int kvm_ptdump_build_levels(struct ptdump_pg_level *level, u32 start_lvl)
+ 	return 0;
+ }
+ 
+-static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu *mmu)
++static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
+ {
+ 	struct kvm_ptdump_guest_state *st;
+-	struct kvm_pgtable *pgtable = mmu->pgt;
++	struct kvm_pgtable *pgtable = kvm->arch.mmu.pgt;
+ 	int ret;
+ 
+ 	st = kzalloc_obj(struct kvm_ptdump_guest_state, GFP_KERNEL_ACCOUNT);
+@@ -131,7 +131,7 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm_s2_mmu
+ 	st->ipa_marker[0].name		= "Guest IPA";
+ 	st->ipa_marker[1].start_address = BIT(pgtable->ia_bits);
+ 
+-	st->mmu				= mmu;
++	st->kvm				= kvm;
+ 	return st;
+ }
+ 
+@@ -139,8 +139,8 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+ {
+ 	int ret;
+ 	struct kvm_ptdump_guest_state *st = m->private;
+-	struct kvm_s2_mmu *mmu = st->mmu;
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
++	struct kvm *kvm = st->kvm;
++	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
+ 	struct kvm_pgtable_walker walker = (struct kvm_pgtable_walker) {
+ 		.cb	= kvm_ptdump_visitor,
+ 		.arg	= &st->parser_state,
+@@ -163,15 +163,14 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+ 
+ static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+ {
+-	struct kvm_s2_mmu *mmu = m->i_private;
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
++	struct kvm *kvm = m->i_private;
+ 	struct kvm_ptdump_guest_state *st;
+ 	int ret;
+ 
+ 	if (!kvm_get_kvm_safe(kvm))
+ 		return -ENOENT;
+ 
+-	st = kvm_ptdump_parser_create(mmu);
++	st = kvm_ptdump_parser_create(kvm);
+ 	if (IS_ERR(st)) {
+ 		ret = PTR_ERR(st);
+ 		goto err_with_kvm_ref;
+@@ -189,7 +188,7 @@ static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+ 
+ static int kvm_ptdump_guest_close(struct inode *m, struct file *file)
+ {
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(m->i_private);
++	struct kvm *kvm = m->i_private;
+ 	void *st = ((struct seq_file *)file->private_data)->private;
+ 
+ 	kfree(st);
+@@ -224,15 +223,14 @@ static int kvm_pgtable_levels_show(struct seq_file *m, void *unused)
+ static int kvm_pgtable_debugfs_open(struct inode *m, struct file *file,
+ 				    int (*show)(struct seq_file *, void *))
+ {
+-	struct kvm_s2_mmu *mmu = m->i_private;
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(mmu);
++	struct kvm *kvm = m->i_private;
+ 	struct kvm_pgtable *pgtable;
+ 	int ret;
+ 
+ 	if (!kvm_get_kvm_safe(kvm))
+ 		return -ENOENT;
+ 
+-	pgtable = mmu->pgt;
++	pgtable = kvm->arch.mmu.pgt;
+ 
+ 	ret = single_open(file, show, pgtable);
+ 	if (ret < 0)
+@@ -252,7 +250,7 @@ static int kvm_pgtable_levels_open(struct inode *m, struct file *file)
+ 
+ static int kvm_pgtable_debugfs_close(struct inode *m, struct file *file)
+ {
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(m->i_private);
++	struct kvm *kvm = m->i_private;
+ 
+ 	kvm_put_kvm(kvm);
+ 	return single_release(m, file);
+@@ -275,11 +273,11 @@ static const struct file_operations kvm_pgtable_levels_fops = {
+ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+ {
+ 	debugfs_create_file("stage2_page_tables", 0400, kvm->debugfs_dentry,
+-			    &kvm->arch.mmu, &kvm_ptdump_guest_fops);
++			    kvm, &kvm_ptdump_guest_fops);
+ 	debugfs_create_file("ipa_range", 0400, kvm->debugfs_dentry,
+-			    &kvm->arch.mmu, &kvm_pgtable_range_fops);
++			    kvm, &kvm_pgtable_range_fops);
+ 	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+-			    &kvm->arch.mmu, &kvm_pgtable_levels_fops);
++			    kvm, &kvm_pgtable_levels_fops);
+ 	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+ 		kvm->arch.debugfs_nv_dentry = debugfs_create_dir("nested", kvm->debugfs_dentry);
+ }
+-- 
+2.43.0
+
 
