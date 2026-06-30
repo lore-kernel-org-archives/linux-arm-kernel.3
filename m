@@ -4,111 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B69AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 14:49:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 122DFC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 14:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BAHFXtMiFS3SQCPXfcc6nAkzBIK1JQ7gQg2BRXU7Bfc=; b=BoQxJ+yzbiUiy2f32v/+wkWWrl
-	gFDDOvP3OjcgeSdt3xcYcMJUiGazZ+oBUn7KgntRZMViUyfgYVVB80OtDlwL1G/zaAvPjDC+5NK41
-	CKKqVyveHdpvvGSVax1UFAFxKKfkgPYHUtYhR6q+5wy0TBvieR9Qr7hQyslOZTzCJQkSIprC3m8B9
-	gIFiUJmkhU8zghQBF9kAgq0oEq7GB44UYpSOgH8pO4Wy7wCK+DkTX6lAOrIejUb4qd4cQo0+Zu87X
-	BPV/MF7bxbMFvELsuTBEtB+33IZ5wfjiiqbLt57llIrKzXxWnx+hZ2Rc/7YgyXLsVQKIZsyrGAS9v
-	IqrsKB6g==;
+	bh=MIYmKH9WVPFu1g1xwUin2jx6GqbH0tjFsWZDL7mkaAo=; b=D2fJsX0OitzWt3iH2M86OVKLGz
+	LjJkSt0vdd7vPV2vzaQP870bXaFJvO4lqgvSzNrbTbcnPjKnZJA3N4KjD91+Q3H5fcVvWkaMy2zZ7
+	3GPOR5+1LiMGAQRRsqsyRNaIWBfGkJzrA0WxoS/TYg6S+/6tpfnGvJ3UmoHaAgbeX50VIvWwJGnKb
+	IRwfkgv8zPirG8Y8wL7SLnTlMGB7RogaPzxR3BDmWTBF4J8zn/2WS5EYJrcQwGNy6EL+3OsoiipPL
+	zR75F2D8JLQSUjlQNvbwmyw4F2DQdRVemmNNZhn2XuuYmZmVVAmjRziGWNP71lYB5higcINmIwvT6
+	xTQelZ+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weZmS-0000000HIpc-0jMi;
-	Tue, 30 Jun 2026 14:49:44 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weZmO-0000000HIpH-3CYp
+	id 1weZnH-0000000HItr-1JiI;
+	Tue, 30 Jun 2026 14:50:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weZnE-0000000HItB-0fRW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 14:49:43 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5aeb17c2564so1928334e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:49:39 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782830978; cv=none;
-        d=google.com; s=arc-20260327;
-        b=pzbfZeJjRtME19XXqLoGmYXpzYhBol165igE9wQ54wHjRjg2w2WLczZC7Iw+UR/eUb
-         HPIlg2xVfAOeqDhoZDBmuzixAkkUgB1hapGqRaDOKmsGnM/UQiM1GHgcmWxAmYGQPVz3
-         Fsxv/+vIZsxu11AXb8egnjvz75cqm0eHCt4jHbDF9SontHmGKTGeOVARzNCUAd6j3qej
-         mqTlLipwDwI0Nk8U1yAEK4nIj8Mtz0mHdftZQ+DFufEW3julIgPkE7aYvg0c0Odjlncu
-         6KkcxvCSSEp5oQLbDWEqtMUIzH9RcDbJToYXz5tU0RE3WrbJj8ftuokSs9yOSyv8shTC
-         9uOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BAHFXtMiFS3SQCPXfcc6nAkzBIK1JQ7gQg2BRXU7Bfc=;
-        fh=Uf8LF13WdbzHVQ2uB5atgBuIob57VcqAGoUJf4Mfnq4=;
-        b=OlwRkD9XqfdH/o/WBx7VHLgYyl7tBaGc3jcx7oBWE/EKnm9Cw5pRUCPXtsn6fA4Ng1
-         3fjnoCXIhTJYZAl1uauFMTR5gMQuvt+FvIaNKaIQ840LEqw6d5C4kIQ5jQqNcU1aK+8E
-         Cgn328rx7i8JLFxCy/XNhMSCjejpub/TBNTZIa4CFkLOgwghtQnzdon+jT6m086dpRJl
-         ZXnh1r3HEbOxE+59wJX0RBeJAJyAJjpMAdU7er3oPJ4GEWNnAT4uqzAgsYogKVHmhVVU
-         uJ2lZDtgrsk7esOZ2kIKGTS18PzyJ5Fz7hXDy0995gZg5QXfKmib3tZdYWnjEME0V6Ya
-         HI2Q==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782830978; x=1783435778; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BAHFXtMiFS3SQCPXfcc6nAkzBIK1JQ7gQg2BRXU7Bfc=;
-        b=ggDvML0IgUUD4xb3QTjFLlUifvV+pm0nIOY3juZ2JLvCwXMla8aQnd8VvvbrCEiGZl
-         7hzh4zW8j9C7e0FGmmSKGK/BQUxwBobPM3p7AeVltKDiq5ChlWJaBa61oXPKhmjMSsxC
-         BPgGiLck/upfLbgPe1RlLaWNJFcr1oSOsAIhwmIaHsHzdy2wMhth/ofHO8RQSV5kxZiD
-         aHm2UI/5k6ncWFax8BV8H3tjnSGDvKqRDEFxAnYbOV7cbl6KRkvHezUDjiN3QEG5UY5w
-         T1W06zpDGPu6bQqvS74aHJKJWO1ylUOOvxAxsIJ2tUJQt7crHfbbRquhq0SsFZfkVy6q
-         M6ZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782830978; x=1783435778;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BAHFXtMiFS3SQCPXfcc6nAkzBIK1JQ7gQg2BRXU7Bfc=;
-        b=iFs9ybHL8GJlE/u9IXXJLvQtItwuPXt8bz/5sBBGcr0dgE4afA37KJenRO2fXuRcjz
-         c64BlFVmLhTHd7uhUeyEp1y52Rc3mumgTpDa2SDTYOOT/OVo0/OGI0YB4htKNbT5Wn2o
-         LJansBDZFJ0D2AWfJ79KB2BrL672boLVMqWeKUcvc77L+UOxDduiNKh2f9Rkn4HDwEb+
-         B3Fr+A5AsHzcQaTU4u8E0Hk9CHugrYcVxg24UiyCXHwBU4ikO2UpjvS6QsXP5L6nmNo6
-         X12d4k5u80UY9tmxPlnflUVvBAhnxh6ScAfTZq7kX5pq6jKm46YF3SLCc2Ns2PmiAb+4
-         HStA==
-X-Forwarded-Encrypted: i=1; AHgh+Ro7QgvTVBCgXLWooVToIHcDSlKDcCkuVvocLv3XkL5PQDRnM05YdalcxzJOhNuiqDFa4tRPtoF0PBHs3CqrieaB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzk/zDOjMPzxEkRoMQFrczPDXWlS7+s6mLN14JF/Jv589sfHkZS
-	EpIZ+aetD+ZtLlCUFO+OLPtO7f3raF64RhqusFfnuY01kTu63rPPBCg6qJ8JliEbomnlDi+fsPD
-	sKigkN9OwOXSlUw4AXd8jbygAEg21M4U=
-X-Gm-Gg: AfdE7clbd9HJz5ivtD8wbWaxCuSgwdhqviEWH8zojnGKSCoaOxK+yyli/HrfB49nLpe
-	wOj1WOR3YZey7nD8UdeljE3eqbVuMhzbzd1Ih/eU0nXSZGHsam2E+PrBs8PTxuIxRVkYQIXbsJS
-	NnK1T1a8+pduPcTn46RB2xkys6MTk1ialPZouHnrDreiwLeIZXzo2/yMxFNdg7dbnAS8pOZXb2u
-	+E1YzApE7W0bisJ+6JZQuUZqjnf+wWI7TEg2j0T40uFq1UkPLEZPGgg5qG7DnlmAdeBvLsvDGHZ
-	0RQfA5QGw8nA6KhOLtQa4+jdJE0zsOsQdRGzxlWtTJG8fSIPGldd8ZYTGEUy/dLoQVRF5HbVmgt
-	VKiUHnhHRrexvcfceyOvN
-X-Received: by 2002:a05:6512:640e:b0:5ae:b6cf:2869 with SMTP id
- 2adb3069b0e04-5aebdb9485emr981524e87.23.1782830977995; Tue, 30 Jun 2026
- 07:49:37 -0700 (PDT)
+	Tue, 30 Jun 2026 14:50:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 44C282ED2;
+	Tue, 30 Jun 2026 07:50:24 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A158A3F85F;
+	Tue, 30 Jun 2026 07:50:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782831028; bh=FmGcRpgqVH1Jyet3amoELywEs1aHDjFjiXmR4Ai9K98=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DEus4bOrMtPLgrSAGt0EtnVJSrPt183sUxeCw5swqIK7G/W+bDiUNlIa/ENsn1q9S
+	 Ix+mwplKNj5DpeBcrAHKKzV8K/1MCOx6g4fV2IBjAXx7Kuo0F4lJTHOlnrbbqtsCKY
+	 2dyl9M0CURgvFIFZVqY/6Inv2dcOymDf4jQSKr4o=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Saket Dumbre <saket.dumbre@intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Chengwen Feng <fengchengwen@huawei.com>,
+	Kees Cook <kees@kernel.org>,
+	=?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Zeng Heng <zengheng4@huawei.com>,
+	mrigendrachaubey <mrigendra.chaubey@gmail.com>,
+	Thomas Huth <thuth@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Fuad Tabba <tabba@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Tian Zheng <zhengtian10@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-acpi@vger.kernel.org,
+	acpica-devel@lists.linux.dev,
+	kvm@vger.kernel.org
+Subject: Re: [PATCH v2 05/13] KVM: arm64: Detect (via ACPI) and initialize HACDBSIRQ
+Date: Tue, 30 Jun 2026 15:50:17 +0100
+Message-ID: <akPXqZQBKET1SyvN@LeoBrasDK>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <akKpxDulRN7zDrgM@kernel.org>
+References: <20260629111820.1873540-1-leo.bras@arm.com> <20260629111820.1873540-6-leo.bras@arm.com> <akKpxDulRN7zDrgM@kernel.org>
 MIME-Version: 1.0
-References: <aj5KJEIsTl6IK0nX@gmail.com>
-In-Reply-To: <aj5KJEIsTl6IK0nX@gmail.com>
-From: Jason Xing <kerneljasonxing@gmail.com>
-Date: Tue, 30 Jun 2026 22:49:00 +0800
-X-Gm-Features: AVVi8CeNolHc0bWFWi94se6V_El3cArCALeJfgf0e7sVp8JXgJSa3XDzBUrtcNM
-Message-ID: <CAL+tcoA6=_paEdqWaY7-VHdBeAxEFeMCfTECAEGv3C6ZqFUNSw@mail.gmail.com>
-Subject: Re: [ANNOUNCEMENT] LPC 2026: System Monitoring and Observability Microconference
-To: Breno Leitao <leitao@debian.org>
-Cc: linux-acpi@vger.kernel.org, linux-hwmon@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel-team@meta.com, 
-	linux-mm@kvack.org, iipeace5@gmail.com, gavinguo@igalia.com, 
-	linux@jordanrome.com, amscanne@meta.com, sj@kernel.org, gpiccoli@igalia.com, 
-	Daniel Gomez <da.gomez@kernel.org>, mfo@igalia.com, platform-driver-x86@vger.kernel.org, 
-	acpica-devel@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_074940_845290_9C2C3B49 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20260630_075032_467364_ADE8711D 
+X-CRM114-Status: GOOD (  33.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,53 +105,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jun 26, 2026 at 5:56=E2=80=AFPM Breno Leitao <leitao@debian.org> wr=
-ote:
->
-> We are pleased to announce the Call for Proposals (CFP) for another
-> edition of  System Monitoring and Observability Microconference, this
-> time at the 2026 Linux Plumbers Conference (LPC), taking place in
-> Prague, Czechia, from Oct 5-7, 2026.
->
->   https://lpc.events/event/20/sessions/262/
->
-> This microconference provides a valuable forum for key engineering areas
-> such as:
->
->    - Kernel Health and Runtime Monitoring
->    - Hardware Integration and Error Detection
->    - Correlation of Issues (crashes, stalls, bugs)
->    - Virtualization Stack Monitoring
->    - Memory Management Monitoring and Observability
->    - Anomaly Detection Algorithms for System Behavior
->    - Automated Analysis, Remediation and post mortem analyzes
->
-> The purpose of each talk is to share challenges and discuss potential
-> improvements. Sessions will last 20 to 30 minutes and aim to encourage
-> brainstorming and open dialogue about ongoing issues rather than
-> delivering immediate solutions.
->
-> The conference acts as both a knowledge-sharing platform and a strategic
-> venue for guiding the future of kernel technologies to better meet the
-> demands of large-scale infrastructure.
->
-> We invite you to submit your proposals here:
->         https://lpc.events/event/20/abstracts/
->
-> Please select track "Linux System Monitoring and Observability MC"
+On Mon, Jun 29, 2026 at 10:22:12AM -0700, Oliver Upton wrote:
+> On Mon, Jun 29, 2026 at 12:17:53PM +0100, Leonardo Bras wrote:
+> > Find via ACPI [1] the Id for HACDBSIRQ, initialize it as a per-cpu IRQ
+> > and make sure any cpu able to run virtualization has it active.
+> > 
+> > Introduce a per-cpu structure used by the HACDBSIRQ handler to keep track
+> > of entries size and the status of HACDBS. Size is used to detect end of
+> > processing in case the number of entries being processed is different of
+> > the supported entries size.
+> > 
+> > Status may look easily replaceable by checking HACDBS registers now, but
+> > will make the OFF/IDLE detection easier in next patches.
+> > 
+> > Signed-off-by: Leonardo Bras <leo.bras@arm.com>
+> > 
+> > [1] https://github.com/tianocore/edk2/issues/12409
+> 
+> Reference the ACPI specification instead please.
 
-A kind reminder: at the bottom of the page [1], please click the
-'Submit new abstract' button so that you will be able to quickly
-submit a new proposal. (Admittedly, it's a bit easy to miss the entry
-especially for the newcomers)
+It's not accepted yet, unfortunately. I commented that into the cover 
+letter, but forgot to add it here.
 
-If you have any questions/suggestions/problems, please do not hesitate
-to contact Breno or me.
+> Any link you want to
+> include in a changelog should use the Link: footer, the linkage to the
+> inline citation will be obvious.
 
-Again, proposals are greatly appreciated :)
+Sure, will remember that in the future.
 
-[1]: https://lpc.events/event/20/abstracts/
+> 
+> If we need to initialize the IRQ I'd really like to see device tree
+> bindings for HACDBSIRQ as well. Pretty much any system us plebs can get
+> our hands on is gonna be DT anyway.
 
-Thanks,
-Jason
+Agree. I started out with ACPI because that's what the main target is, as 
+dirty-logging is focused in Live Migration, which is usually more 
+appreciated in the server space, which generally uses ACPI.
+
+I spoke to some people, and I could not hear of anyone releasing a product 
+based in DT that would implement this yet, so I postponed the DT 
+enablement.
+
+> 
+> > +static irqreturn_t hacdbsirq_handler(int irq, void *pcpu)
+> > +{
+> > +	u64 cons = read_sysreg_s(SYS_HACDBSCONS_EL2);
+> > +	unsigned long err = FIELD_GET(HACDBSCONS_EL2_ERR_REASON, cons);
+> > +
+> > +	switch (err) {
+> > +	case HACDBSCONS_EL2_ERR_REASON_NOF:
+> > +		this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+> > +		break;
+> > +	case HACDBSCONS_EL2_ERR_REASON_IPAHACF:
+> > +		/* When size not a power of two >= 4k, exit with reserved TTLW */
+> > +		int index = FIELD_GET(HACDBSCONS_EL2_INDEX, cons);
+> > +
+> > +		if (index >= this_cpu_read(hacdbs_pcp.size)) {
+> > +			this_cpu_write(hacdbs_pcp.status, HACDBS_IDLE);
+> > +			break;
+> > +		}
+> > +		fallthrough;
+> > +	case HACDBSCONS_EL2_ERR_REASON_STRUCTF:
+> > +	case HACDBSCONS_EL2_ERR_REASON_IPAF:
+> > +		this_cpu_write(hacdbs_pcp.status, HACDBS_ERROR);
+> > +		break;
+> > +	}
+> > +
+> > +	return IRQ_HANDLED;
+> > +}
+> 
+> I have a pretty extreme distaste for creating a state machine between
+> the callsite and the IRQ handler. The callsite should poll HACDBS for
+> completion. The thread has nothing better to do anyway.
+
+Well, there is one argument it could just wait and save some energy, but I 
+agree it is not relevant in server space. The main reason I did this is 
+because I am planning on later doing an improved version of this that would 
+clean the dirty-bit *while* running the guest, and having the IRQ is needed 
+for exiting guest so we can notify userspace the cleaning is done. So I 
+laid the HACDBSIRQ infra here so we don't have both polling and IRQ options 
+happening. 
+
+That idea would require us to add new API (a return value for 'cleaned'), 
+and also a new flag for the clean ioctl. We also need the VMM to 
+implement that, but then we get a proper cpu usage of cleaning time.
+
+I wanted to start with a backwards compatible version, and do the above 
+idea once I put my hands in hardware that implements HACDBS, so I can 
+properly measure how much performance we get on above strategy.
+
+What do you think?
+
+Thanks!
+Leo
+
+  
 
