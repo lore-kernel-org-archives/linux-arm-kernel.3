@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27408C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:38:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B69C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=49b+VXCxmro9BHRqIbpB73cpW+ifavFKNlI59aS8jyg=; b=3cRBiOvoYichBqeJWFXi8mlhOo
-	xbT/UmE3zZIHnNYwLfdQEaZiIjQtaA2CNyVJ3ipwKJJcjmjYHxjHARX5njZKqCeElsxOnOZsfqkfO
-	JIrGeb1zdPphPccGde6wV060+lqZJ7U6Nmnzh2p/cpDklwzEvY/7nzM/VQ8afngeQe16par/UBGoP
-	IC41D+p1ayMl8b8ckxn19QPZ5yVrmaG0l5mKTVcgW7IzGYfVoibrCu8nE+gdTKMpoqZcJpjujSIuV
-	0ZeY1B3Wv2ADUP2y4g2qoF2jGVBDbwOA2hYaI2rA3H6NQECMrROR0zI36v/XHwLHO321UPZd04w6U
-	cswMu+Rw==;
+	bh=973hvFhmA6EQ8TSnCub2tyOJ33ZAcnM/D6BL+sCkWW8=; b=Qk0UHOpDlDkNYhmgROKUGf9pwj
+	58QMJYh1n8hH9qVrk5W0xXr3mtVHday53rn8O6Bmna00RpPpIWPWIX9pubbha68hs9EJ2UoMOKM+G
+	q+JJcDn0g/3oA3O8p80l3uUFSLKBjhASJnNHkbGUf1LaVNayl21fxqTJ+cHR1zbKwBgeOhdw4fsyt
+	C4GXwALyPII613oKlATViHcm2lWLSr555ps++ZhoicibuWGfLGpgcSodgX0g/e1NQSwlENbAm8hOk
+	0VIE4B6vK2A49xWY91aU3fELTahbWUTdsfuNUWYrtAluRrC7G8765+W/bPW4T9REd4sNVUgvhoR6S
+	YmwDECuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUuo-0000000GSvl-47ET;
+	id 1weUuo-0000000GSvP-3Vqi;
 	Tue, 30 Jun 2026 09:38:02 +0000
-Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUum-0000000GSt5-1fh5
+	id 1weUui-0000000GSrA-2Hqi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:38:02 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id DA89D2006B4;
-	Tue, 30 Jun 2026 11:37:57 +0200 (CEST)
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1weUuj-005OHq-2d;
-	Tue, 30 Jun 2026 11:37:57 +0200
-Received: from pza by lupine with local (Exim 4.98.2)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1weUuj-000000006lu-33Ue;
-	Tue, 30 Jun 2026 11:37:57 +0200
-Message-ID: <90ecf77e16c17f0ac46b2996be58110fc01c2e08.camel@pengutronix.de>
-Subject: Re: [PATCH v7 3/4] reset: cix: add sky1 audss auxiliary reset driver
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: joakim.zhang@cixtech.com, mturquette@baylibre.com, sboyd@kernel.org, 
-	bmasney@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Date: Tue, 30 Jun 2026 11:37:57 +0200
-In-Reply-To: <20260629091500.52540-4-joakim.zhang@cixtech.com>
-References: <20260629091500.52540-1-joakim.zhang@cixtech.com>
-	 <20260629091500.52540-4-joakim.zhang@cixtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Tue, 30 Jun 2026 09:38:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1782812276; x=1814348276;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=VYa8ctdp7N3lTNfwD0/Ow13u6f6KsP6v25kYxxUXsQU=;
+  b=pt6OTVoUCoboe0wHFnLBM+Iuqv78I5o+DsM+B5faaUWOMBblKYyxCIkW
+   rCMzjGZYmW8HK0KCDqFlreM5hQebMUCCX6+m/+QTrXNyiw0g5F/EsLnwJ
+   NEAUu3aMY6xXVdHRG394KyK7KfSFhluug+fPac3vJAzV0PiuHUBR74f+a
+   Ezer0Xud3kZeJk1dhThKuOouHszsXU8fAVbxNthtESKVTlZvL+vB9/nCC
+   2Je8AM0dqwxOXlbgNKs3x9xsDMN00AaT+xvdJIpM4W6rwBkUEqAvwe8Ke
+   4qnPp5QAWwK1PL5E7p3HzEqRDYcvs7at08AC2lK6TWSn/awsOxjNEXnHs
+   A==;
+X-CSE-ConnectionGUID: r7IxPp4ATMyUQX/fgWZgwQ==
+X-CSE-MsgGUID: mG5scDYFQJCBfGSDZZww/w==
+X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
+   d="scan'208";a="59032695"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 02:37:55 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.43; Tue, 30 Jun 2026 02:37:55 -0700
+Received: from che-ll-i67070.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 30 Jun 2026 02:37:46 -0700
+From: Varshini Rajendran <varshini.rajendran@microchip.com>
+To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
+	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<srini@kernel.org>, <marcelo.schmitt@analog.com>, <jorge.marques@analog.com>,
+	<mazziesaccount@gmail.com>, <Jonathan.Santos@analog.com>,
+	<jishnu.prakash@oss.qualcomm.com>, <antoniu.miclaus@analog.com>,
+	<duje@dujemihanovic.xyz>, <varshini.rajendran@microchip.com>,
+	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v3 08/13] ARM: dts: microchip: sama7d65: Add ADC node
+Date: Tue, 30 Jun 2026 15:05:58 +0530
+Message-ID: <20260630093603.38663-9-varshini.rajendran@microchip.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260630093603.38663-1-varshini.rajendran@microchip.com>
+References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_023800_594241_EF0155A9 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20260630_023756_648418_7B524ED5 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mo, 2026-06-29 at 17:14 +0800, joakim.zhang@cixtech.com wrote:
-> From: Joakim Zhang <joakim.zhang@cixtech.com>
->=20
-> Add an auxiliary reset controller driver for the AUDSS CRU. Sixteen
-> software reset lines for audio subsystem peripherals are controlled
-> through one register in the CRU register map.
->=20
-> The driver is created by the AUDSS clock platform driver and registers
-> the reset controller on the CRU device node.
->=20
-> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
-> ---
->  drivers/reset/Kconfig            |  14 ++++
->  drivers/reset/Makefile           |   1 +
->  drivers/reset/reset-sky1-audss.c | 137 +++++++++++++++++++++++++++++++
->  3 files changed, 152 insertions(+)
->  create mode 100644 drivers/reset/reset-sky1-audss.c
->=20
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index d009eb0849a3..f74859b292ae 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -300,6 +300,20 @@ config RESET_SKY1
->  	help
->  	  This enables the reset controller for Cix Sky1.
-> =20
-> +config RESET_SKY1_AUDSS
-> +	tristate "Cix Sky1 Audio Subsystem reset controller"
-> +	depends on ARCH_CIX || COMPILE_TEST
-> +	select AUXILIARY_BUS
-> +	select REGMAP_MMIO
+Add node for the ADC controller in sama7d65 SoC. Add the vddout25 fixed
+regulator node which provides the 2.5V reference voltage for the ADC.
 
-This driver doesn't need REGMAP_MMIO itself, it just inherits its
-parent's regmap.=20
+Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+---
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 29 +++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-regards
-Philipp
+diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+index 94d49e20dc79..ba775459a816 100644
+--- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
++++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/clock/at91.h>
+ #include <dt-bindings/dma/at91.h>
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/iio/adc/at91-sama5d2_adc.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/mfd/at91-usart.h>
+@@ -95,6 +96,16 @@ slow_xtal: clock-slowxtal {
+ 		};
+ 	};
+ 
++	vddout25: fixed-regulator-vddout25 {
++		compatible = "regulator-fixed";
++
++		regulator-name = "VDDOUT25";
++		regulator-min-microvolt = <2500000>;
++		regulator-max-microvolt = <2500000>;
++		regulator-boot-on;
++		status = "disabled";
++	};
++
+ 	ns_sram: sram@100000 {
+ 		compatible = "mmio-sram";
+ 		reg = <0x100000 0x20000>;
+@@ -296,6 +307,24 @@ can4: can@e0838000 {
+ 			status = "disabled";
+ 		};
+ 
++		adc: adc@e1000000 {
++			compatible = "microchip,sama7d65-adc";
++			reg = <0xe1000000 0x200>;
++			interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&pmc PMC_TYPE_GCK 25>;
++			assigned-clocks = <&pmc PMC_TYPE_GCK 25>;
++			assigned-clock-rates = <100000000>;
++			clock-names = "adc_clk";
++			dmas = <&dma0 AT91_XDMAC_DT_PERID(0)>;
++			dma-names = "rx";
++			atmel,min-sample-rate-hz = <200000>;
++			atmel,max-sample-rate-hz = <20000000>;
++			atmel,trigger-edge-type = <IRQ_TYPE_EDGE_RISING>;
++			atmel,startup-time-ms = <4>;
++			#io-channel-cells = <1>;
++			status = "disabled";
++		};
++
+ 		dma2: dma-controller@e1200000 {
+ 			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
+ 			reg = <0xe1200000 0x1000>;
+-- 
+2.34.1
+
 
