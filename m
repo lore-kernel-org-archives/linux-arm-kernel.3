@@ -4,83 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4845EC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 10:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E39EC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 10:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b11GVtladPRwtAnrqyMBKjVI7QEbzNXpHeXS1BWCw8Q=; b=lVP+JSySfxDpPExxN7EfTdYLxx
-	dqRmyZN2prNRLuENgK/x8qsR/uq1XFr3pIcQ9y1PdqL32yPnw33M7EMPhofNVnQHACiuLHkZ/j4TU
-	NLKH5kdz9seb/nJCw0S8De15W5rAKzBsIdj63WMcUZotmxcYcEp9Usgn3PtgWgtSmdaPQlc+52FCK
-	/qHm9+dwzSKv7KSdvsFEz8a2c17nv3D2lAas6Qx8nzNYQj1399Vb1JbCqV2AKBwTvF2IJkmlSsMEl
-	wrqfLRvS3UqGuOw5YKPJdipN0KoipmpMkq6RrBboz1lcE58LKFLNs7id0qRGST48QKzTEiuOP9Lwg
-	h/p56wKw==;
+	bh=7eQrlr1iqvdXSCnGA9eKw5Pz71hnIxvtQ5reJnEwINc=; b=RNWIp+reTZZWkKKjj8jy53SPKB
+	U2E3MzsrHckVckpRCWnC2e1CkB/n56m011tJCLWtfRWsKQPI4eM28W1hoKA7OZqRUh5hloorVo5Lv
+	UwPfreVpfBwUlp2KBevn/3fn2o655glNJc6MhVT9o06Co3Wbdbh0yyb0h/17fpvYL2etvHQY3mIiv
+	I656NMqL+I1Z3s3dOAo0ORz3vWALBqWaG/USnIzmydlhIBS1zNclQhLk2s7b0o6W54cO91xSSrnVS
+	p8cuj3HkFYgFpNsZ2vO4ekGcYRK0YfB3dTQCKHgrN6OxKCB2PswE8S0Ui9T6PPWEfFuyq/BG9O51t
+	nwj/yEnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVb7-0000000GcRv-3zUJ;
-	Tue, 30 Jun 2026 10:21:45 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1weVcT-0000000GczU-1H6x;
+	Tue, 30 Jun 2026 10:23:09 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVaw-0000000GcJy-0Dvo
+	id 1weVcR-0000000Gcxx-19Mn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 10:21:35 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4926596eebcso28796635e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 03:21:33 -0700 (PDT)
+	Tue, 30 Jun 2026 10:23:08 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493b8d92a4eso33925e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 03:23:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782814892; x=1783419692; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=b11GVtladPRwtAnrqyMBKjVI7QEbzNXpHeXS1BWCw8Q=;
-        b=ePGdsV0z+OzVEbpnJoPM31T2ArzL2livFYhGAJAH4GcFIPBBPFMUArRvsDb7dQMBPr
-         ZhmYHneykL8/LtbRvjEWvab04+6CnRRqt6gYQD4jsHofrqLQtLlUaQX5Z5uN+SBf2Cww
-         4WnhTN7APpJST52V+6ZlPeCLtU8RdSP1yj+Quno46wAXAG6JVYVY5FmXLuJewRr7MWvi
-         Hcd9Dsd8xVYmoiw+wqVl349K0y/qPWoZp+lDz0lPKxjALXz7PXf/jDAM+HemFHvu1r1b
-         pC0H7FAK8hHJXyXhvIhd+Fw8xr8E74IiUYDRUbWhqtwZa+pQXESei3sQ3YwEaU+kjESf
-         FkKw==
+        d=google.com; s=20251104; t=1782814984; x=1783419784; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7eQrlr1iqvdXSCnGA9eKw5Pz71hnIxvtQ5reJnEwINc=;
+        b=HFdtjhBOv1Gr/XoHFfp5Uu57WSMJPuvITA/sWxQ5UytCicyhhJXPv3tw57ei4I7Zz9
+         +PvNytn9V+nyor1Xbz/VOTUxEKyBf77vKqA1bLVz41LbOnT1SlYoClPm55vfEAnm42W8
+         bJORbpqquw9nqd4EyJxt/mFZRHR00miDdZmLmhw/MPvqNCWTw9B6/0ONKsWJUBXbznCH
+         AL9PDg5MKON3338c94HmgHQ3a5hj+aS817wAaGHgqezOZ42bcFeuGe2KbdarXVK+5TQT
+         8iGcqvOnAhJcw3JMV6TOVgZnDa8WsKO9fmHHOObi309ZT6IPf0K3UWT22QnBApgBkdZx
+         g5HQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782814892; x=1783419692;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=b11GVtladPRwtAnrqyMBKjVI7QEbzNXpHeXS1BWCw8Q=;
-        b=fy1PVtcgBrcfODlXfjedfVYVVnLcgjGwTF9GaV0xt6mZC/+aZtqzfKojvwjYppwRJA
-         6A07mgfpdXgcgffwSQk+p8D5ShAASS/njBoronViJhnKpTago1Uzaryx5/gUDH/jA9YS
-         54KR+nXaIjMl8720I76HvUjrSY1VV8MGXqLTfEsC1xJVhsnPVIILPaABHfXejmRRZWg2
-         qoCKaIOIYlitUi0GKcxZyRRT9EcyHhGeKGoUJJj1PTIDuhQ1YGcKbN9E39ziTPjvGkQA
-         Ljvo1F54s89kXBUFaySL8KdXW4Bkzu3nmdm6e6jIw63BNfhZ9BZjSD/q3VydnWRS2+Fj
-         HOQg==
-X-Forwarded-Encrypted: i=1; AFNElJ+6uUf2Pk2GWkkB5HqdmSBvkh0QVqWidNrVPvPcm/8j4ZjdYY+b87lf3NA/ko2pede4bYjMLHlFwCH2SwZJlQ4d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz5I+X2EtqtXWIXYa0QSi7ES4081Y2nL9kZ6jzRrzUk8P0NuHDa
-	zmCFh9KuzXL1udyvM1o+/JAyvZ9lc+jIKz8ecEjd7ZRAqHKDd5VaI+ulpp3BwjzPaB/lrVYyRTP
-	tCrdHmHFWQgh4kE3QZ6DLxM4dJJf/bg==
-X-Received: from wrbdt17.prod.google.com ([2002:a05:6000:d11:b0:470:f736:b5d4])
- (user=sebastianene job=prod-delivery.src-stubby-dispatcher) by
- 2002:a7b:cd15:0:b0:493:bd4f:510 with SMTP id 5b1f17b1804b1-493bd4f0530mr3477925e9.19.1782814891385;
- Tue, 30 Jun 2026 03:21:31 -0700 (PDT)
-Date: Tue, 30 Jun 2026 10:20:59 +0000
-In-Reply-To: <20260630102058.3219867-2-sebastianene@google.com>
-Mime-Version: 1.0
-References: <20260630102058.3219867-2-sebastianene@google.com>
-X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
-Message-ID: <20260630102058.3219867-8-sebastianene@google.com>
-Subject: [PATCH v8 6/6] KVM: arm64: Zero out the stack initialized data in the
- FFA handler
-From: Sebastian Ene <sebastianene@google.com>
-To: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org, 
-	will@kernel.org
-Cc: jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	android-kvm@google.com, maz@kernel.org, mrigendra.chaubey@gmail.com, 
-	op-tee@lists.trustedfirmware.org, perlarsen@google.com, 
-	sebastianene@google.com, seiden@linux.ibm.com, smostafa@google.com, 
-	sumit.garg@kernel.org, suzuki.poulose@arm.com, vdonnefort@google.com, 
-	yuzenghui@huawei.com, Sashiko AI <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20251104; t=1782814984; x=1783419784;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7eQrlr1iqvdXSCnGA9eKw5Pz71hnIxvtQ5reJnEwINc=;
+        b=kbvrc96qZe+S6QjZiWX1/ZQ/qndNm1WzGK+PKfNpg5t0OsmjtCfMYeKAi66Ak23Rkp
+         qdAu7nd+gyUv1UrYgR3RFrFcmwF4QaSDJZ939/J9DJzMDwQgmMuL5OaODvktWy8Ty8E+
+         HzwjDbx1c/FJGRGtqkrXZsYt0p2saxjDMXPvR8HrNbsw8PfDxpewmBo6Vzs16LNKPzyM
+         VHYrpTZmXsvjxVAdBBpkc1WsVujyTbOXG4Ez7RuZojzYJoL5osolAUn2N8OfBU+8VYCT
+         GcOKXMwEyuS1e4byLNXApG5a2Z68HmqCGANpblHpJtSsjC7udsNEmaB3FNt6LpE0tnMb
+         EDGg==
+X-Forwarded-Encrypted: i=1; AFNElJ9QK3IGZJG1Lm5BpLHp5ijAmhrvnG3HUPJYfIb/pzTzusgtvoyxDlcc7R4uNey80q54rbK0iHpxr9gwRR2UHWJL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfHL9UrOUytp36j0l4K+q92hnN4UqR22vRrc1FlL9KK0DlToWq
+	QJjX43XRYaGL+xJ8bH+uC3Nqk2l5X5dgMXlEvBn8f8MfU9i371CYG9+4+TbAa8o8Nw==
+X-Gm-Gg: AfdE7cn/ZnGqX/H8FQWWz6oWGbQTk6m7I4WJaE0f+oaA1NT8DYPrwAn1VnoeBP0bSDQ
+	ri4ctThhl4X8+mxaf3N4r1QeqFJdEdY3xXU1bjTuuP7hhOVOoLu/3cIU/zfrIt5f5iUViXTRcLd
+	uNhwHaLeslmeQ/qKcpR1it0wqYZiRiyzvXZA74nlaxx/zKwcxp6YzdsGv5cFJPkODu+27edZ1j1
+	zHF26BGp6hlm794CqCmvkjom/Hbo4Z5to/wuPfWAOYbOjiySTQ3mg6VczDmUoT+5ib8LZPY+E02
+	Es1QgUq8wujghUSNOTEzQAlGlLX7zJmGlDIviq4PSXxUbl6g4CYgRzYcmi4kbW7N93HBWqXE8YD
+	wZB/QoiMMMZpIZcbWh8sMNpYQ1yILWBNIoRIpXLZ4l6lfVLwy81Lv42u8tSxztqPRntuBuk8+Fb
+	qZxL5KxQdiNZStf8PkdhfV313N7cZLpG/4AKZUbf2gQCB9r4C1oA1r8BvQ5v7Xyw==
+X-Received: by 2002:a05:600c:4314:b0:493:b86f:c913 with SMTP id 5b1f17b1804b1-493bd77921amr14605e9.1.1782814984019;
+        Tue, 30 Jun 2026 03:23:04 -0700 (PDT)
+Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493b8cd8bccsm63196105e9.8.2026.06.30.03.23.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 03:23:03 -0700 (PDT)
+Date: Tue, 30 Jun 2026 10:22:59 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: Vincent Donnefort <vdonnefort@google.com>, catalin.marinas@arm.com,
+	oupton@kernel.org, sudeep.holla@kernel.org, will@kernel.org,
+	jens.wiklander@linaro.org, joey.gouly@arm.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	maz@kernel.org, mrigendra.chaubey@gmail.com,
+	op-tee@lists.trustedfirmware.org, perlarsen@google.com,
+	seiden@linux.ibm.com, sumit.garg@kernel.org, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com
+Subject: Re: [PATCH v7 6/7] KVM: arm64: Ensure FFA ranges are page aligned
+Message-ID: <akOZAwBn0JkbyzX4@google.com>
+References: <20260617145130.3729015-1-sebastianene@google.com>
+ <20260617145130.3729015-7-sebastianene@google.com>
+ <ajQmN-UQD3uJJddJ@google.com>
+ <akORop8Z9Levu9Sr@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akORop8Z9Levu9Sr@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_032134_102406_6B87C6F7 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20260630_032307_327374_04316B7D 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,37 +109,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't leak hypervisor stack data when using the FFA_VERSION call.
-When the compiler doesn't support -ftrivial-auto-var-init=zero option
-we need to zero out the stack initialized variable before returning data
-to the host caller.
+> Hey Vincent,
+> 
+> > I failed to parse this 
+> > 
+> > But I see 
+> > 
+> > /* The base IPA of the constituent memory region, aligned to 4 kiB */ 
+> > 
+> > So it sounds fair to prevent oversharing when PAGE_SIZE > 4KiB
+> > 
+> 
+> I think the problem is when you have a mismatch between FFA_PAGE_SIZE
+> and the system PAGE_SIZE. We expect a fixed FFA_PAGE_SIZE of 4kb and
+> this is enforced by :
+> https://elixir.bootlin.com/linux/v7.1.2/source/arch/arm64/kvm/hyp/nvhe/ffa.c#L761
+> 
+> if FFA_PAGE_SIZE = 4kb and PAGE_SIZE = 16kb you can end up annotating more pages with FF-A then
+> needed when the range->address is unaligned.
+> 
+> It took me a while to understand this so I guess it is better to rephrase the commit msg.
 
-Closes:
-https://lore.kernel.org/all/20260616160016.C62C81F000E9@smtp.kernel.org/
+The problem here is that we only check alignment for size and not
+the address.
+And the code later (__pkvm_host_unshare_ffa()) uses pfn which
+truncates the extra bits.
+So, in case we have an unaligned address and an aligned the size, it
+will round down the address while the actual size spans an extra page.
 
-Reported-by: Sashiko AI <sashiko-bot@kernel.org>
-Fixes: c9c012625e12 ("KVM: arm64: Trap FFA_VERSION host call in pKVM")
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Link: https://lore.kernel.org/all/20260616160016.C62C81F000E9@smtp.kernel.org/
-Signed-off-by: Sebastian Ene <sebastianene@google.com>
----
- arch/arm64/kvm/hyp/nvhe/ffa.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+For example if base = 0xFFF and size = 0x1000. pKVM will share
+(0-0x1000) while the actual range spans till 0x1FFF causing FFA
+to access an extra page that was not shared by pKVM.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index bb01d8f83056..7407bc4b547a 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -881,7 +881,7 @@ static void do_ffa_part_get(struct arm_smccc_1_2_regs *res,
- 
- bool kvm_host_ffa_handler(struct kvm_cpu_context *host_ctxt, u32 func_id)
- {
--	struct arm_smccc_1_2_regs res;
-+	struct arm_smccc_1_2_regs res = {0};
- 
- 	/*
- 	 * There's no way we can tell what a non-standard SMC call might
--- 
-2.55.0.rc0.799.gd6f94ed593-goog
+Thanks,
+Mostafa
+
 
 
