@@ -4,107 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC102C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:47:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D8DCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:51:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQe8Kzpi5zKkGpS1jrsB4DkAVR4aqJvq98FWiufr3as=; b=H5xxt6aKq4LAYF0jWMPZF/F3EQ
-	QMrPpcicKudQz6Au30jgPwNM31uckVOq+ljxuEd9/dJEDJ2fU6FruvbkIiNmVnePjk6rcmGQyz4gM
-	sW/XMr0X7rosLxlC8lqC13pAz7wVwjkd1EhQRV1C0DEZ4jaceJnn3XdC7rWI/1se0BDvgv0FVgrE3
-	7uZSWY+HVqlxtKYHb0ArNI21RM3k6YuGyOl4B1XmkWyG7Omh+Z83Lyu4QYX6HRafHZ2qFVHMBSuaK
-	BCLKGqYJUMI5+AeMI4HK5+FCkbRG31DkivUHkA6Ei78dhRZlVQMVIdElHPEpOLyLS1+NPmzWb55ue
-	ebUShkjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RtSqH+WqtZAB5cklSCb440iNsoDcg75bAXjvEoBq+ok=; b=MT2c7wShYoBcAZ3JMlPUcxLtFt
+	ojY/oSozTYW1m/+hV17xT4lpknxVWsmIrCE+hCOz6Nv8iQAaWErZq1IjPVKeFjAYv50WkgSIGZtl5
+	pYuSingQ9HKvjyBVqPEC0CXJ2zNVTiv6AOK2B2FCy7HCmBy/PNtNtfa8EDfpKL3gSxWblsOLUj2GG
+	S9f1B+UXwMIt6H24CTG5AwRgTsoFkRbMVtI6v7x6WIaIHLNqTWqeqKYASMtilNOCwPvi5+UV1sJs+
+	hkQO6mfAXMw9alixg4wfT02NKXO0IXrbNAhVIusX1TjHRux7q9Kv+Q36mzIDQaoqpLB0hC7+uKV5p
+	qYRbKJsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weV3h-0000000GVQi-2CUb;
-	Tue, 30 Jun 2026 09:47:13 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1weV86-0000000GX0h-43OY;
+	Tue, 30 Jun 2026 09:51:46 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weV3Z-0000000GVK9-49eE
+	id 1weV81-0000000GWzC-10jW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:47:07 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-4728c12ba97so1800515f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 02:47:05 -0700 (PDT)
+	Tue, 30 Jun 2026 09:51:43 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4926e5803e5so40655e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 02:51:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782812824; x=1783417624; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BQe8Kzpi5zKkGpS1jrsB4DkAVR4aqJvq98FWiufr3as=;
-        b=XQ07keSFafgwWlR02LaicAoL1UpM5WnwXsW8hC4t+90eeOaFzlDOtuhXOUVsbsWCDX
-         U1VyHFdJ5PUfRcNjZNQGSbaUn6UBDv1VISCLFImyiv2+4rP20EB80Q1cpxOYJ0vUPmDy
-         /dd8DnhQ+672kG7emSVSrE1XkoL2FbAr69PlVknCrEEZi8pTc8vvDMJ4QuE/Uy+546tU
-         wn9c3m7j7RNWvYtR5W7+vEaw1ocd56VNYfZOdvXXwoJ8GdRHkRZ82lagzccZyMrF9nlH
-         6UBgifdZNtjGAjcdBCPirpWdf65s10hVxtEAxvJ2493R5no/HCFJcPNA5sGyCSSw8t1J
-         SMqA==
+        d=google.com; s=20251104; t=1782813098; x=1783417898; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RtSqH+WqtZAB5cklSCb440iNsoDcg75bAXjvEoBq+ok=;
+        b=sZ3eF22D3bQGLla1Et4Dh7i4QrEJI+YaCoKsQewGPP6FNdWd6lH/LBHRID1w7d50Xz
+         wQX5MZS0UERGwuO5Kaewgm4eEFGQlm4/Rl1+z+O2zudw6kP87p/n9qD8GkSe5jMQ236s
+         voYzc1aEVOhG6V8VFSVK9fdJhWIB7Vz60FIyWAwkUiLMEiNWNWaruUnARj2k9oHEcVRn
+         cYGW4InN8RnPo60A5d8wlKRw1wjzUuGPxlZ+IEnznGJsQO/gSPcRtr4b1jierBX+kKPw
+         WWJBrVOzmfN26pvIaT2Xy6xn3gxHDm1OHUR9+GcsZMo47wq4RjeRJ8ZjfTpycRd8GBp5
+         vgEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782812824; x=1783417624;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BQe8Kzpi5zKkGpS1jrsB4DkAVR4aqJvq98FWiufr3as=;
-        b=nKiNDFL8sW6Q2Vg6Xp52wogikb3Ao/0blTD6MVX1lSka9/voJzVCFtNBpnG/mmHE17
-         KJItLU2tPW3aMZqX7BOd73tcunA+Y7nIbw7RLeHJnDjsJcJxPxMH6AnxUVSZJF8mbJy3
-         cMPAs1SGQFbrzV4ntojH/VcjxlCgKZwHMLSOzM+cKYMwej6LwldvpVsnAaFCjn2OP87v
-         zy6Pwa7j6qvDx1gezNoaUL1h6jwlrY7Eta0+3rxTSrgQqvZZmz+n+UrMk6XxYxPX1c6q
-         yhhx4UBTQQQAfyRMvknDnNOxBdEXt5CcTzYGWpeMh9QtUiWjuoILQj4+58rY3zWrZ+xl
-         1ULA==
-X-Forwarded-Encrypted: i=1; AHgh+RqEhe50UMRtazDLb6pVfx/P7OcQh+SP/qXUq1897MV9LepsO3iRknSy6HGwnT6ojn9xHqD1K8vYB9FSa1++CuAO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzObEKwboaycTsMmujEKnq+64WHONsAk/LKFQXUrOYCzJuQSWu/
-	daiYLueQp48SNUIYA7aRx7j2ZfByc6tCNqJ6wRsaLCEWbzYY3WlA3W3q
-X-Gm-Gg: AfdE7ckgOtAvxb2D1/Klac6U0eJzQZSmrgnbfAJMh8cEIes6TUwBOVL8s1VGy6psPTX
-	hA3nhAUwfA3/UxUeP35rhm44AjqovoK2kFv0XIGS6sDQ8MzjD7pU2zLo347b7jOpH/26JrhOwfh
-	KUf+dhmB0hi3LDZEw/HgeD2e540c410mYzYZYcbS3SBn1CyfLVwYlEZHHq0Z0LciXTzyprlNymA
-	LQ4Wobm0r7nGV0ldYGe1cR9HVwD9oy2i+sJ97H7RGDf0zNJgeCyu8fMZOpngFjTVms6igdrWgWW
-	voIjrTjoMp3OO+RnMsBRm7kqFwkr8guSrAjdRHJ27fknojnzPj3g+HQ527MPDIp28cIYf2EY3cR
-	9EZfsg55VsNkisVLS4gymKnvFNXWpNipw958QYmRgP9tTHqxCAWT3TrYiGGEqspQW3nmX0Dq6/2
-	3To8beOjhLOUR5Bvr6XClQ6ExZoxkJLFR3JY2oMwMi9rMbMxY8aQ6n3of40MrmxjISeSjRLY3Rs
-	EYVmQD+Iw0y+37RDRJPQn37jg==
-X-Received: by 2002:adf:e002:0:10b0:472:c426:2ce9 with SMTP id ffacd0b85a97d-47550caaebcmr2798600f8f.12.1782812823817;
-        Tue, 30 Jun 2026 02:47:03 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4756778f015sm6552725f8f.31.2026.06.30.02.47.02
+        d=1e100.net; s=20251104; t=1782813098; x=1783417898;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RtSqH+WqtZAB5cklSCb440iNsoDcg75bAXjvEoBq+ok=;
+        b=dgNh2yRnJStqe4gw5jhevMtNIH+WI05+cpIR7lLxf4ER9JUWyRry0rQuIWQZPmP44a
+         gjZ0a+/CYQ7aTGLmwL7xewDfd7RiavJ57BwTHHyyht/y68cB5BcgItZBKhLWQx87qjxX
+         FFNEvdujELrmXYg370pwimuS3/gGyBJvzljDyMOCXzgcTZeMZPq6GkETNWVy30OTQIsQ
+         +s3IR7OEGE+PifFiKM/0io94g+1kH3QGiUX28uJbklJlasMxPO+7QVv8yrwdsPdHtkl2
+         7ulUXvIJMW6P0ewg7VBoE0sdVx3FR45bNSv/oW22ipUQ/dlnvKE537DDKLKKVurznuw8
+         MQfQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/vlEXHAl5DCYHFd5xJg0sSHD5kFu27NOs4zJhcW56Mh/AmdGAj9iQmKylp0kfabfDFH/S7fiBfOySDiaKq+m66@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9QTSw3ZCxB0VCwGgA1nQoVXsz1VE7gJMAuxQ2cUMOmMv3kTzz
+	2nNxP6IAIAPVSt+EMZIS9iPDN04lKxobENfmujucIYv5LJPz5LhifQcrxQnCaYM8nw==
+X-Gm-Gg: AfdE7cna5cWyknmjyHe8oV2GyTc/QAl0WdkWXRvkXXxTyWTlyzdywHRy/YzvJpLpeYx
+	FaV21fai1V+WwBOMYK8w8vfiJr+Ye2nTXOGeYQWg7Sg8qSIQ1qbMfXCkoUTB3AEe9xazHYgRTwE
+	Fm2UeCjGRT5kxy2PEEtFxRwM60ZAaCQWzmK7RYxxYAlXgvRXl4dOn4SB1eYu+XN9DTOH77vFygc
+	KcQne46s31VWtmK01JNn3v371RpyT+2dj/wL0/KaesV6ddEDEitRLY0JhRzbER69NA/+lOq2ENX
+	+ZMPJa7GKZkesFOnqCmJbp2d4ldgebGql1IqTA/14mk/6yHsX0U81+z/JSDJndIP9IlSwhrnqXw
+	2zGAwDJcoogS+8VKO6Ee+L1/5bXFWVNzYoq6k5ExxSpRSq09nJ60EdKrZZm7MUaie71JnlTcxNl
+	2uUF3LGgiY8MmkvaJD9JL50yrD1M/Gp1DJhzweQ7mwQnOh5UzW582VCADiQ6M=
+X-Received: by 2002:a05:600c:58d0:b0:493:adf3:d892 with SMTP id 5b1f17b1804b1-493bd76f95emr1505e9.3.1782813096603;
+        Tue, 30 Jun 2026 02:51:36 -0700 (PDT)
+Received: from google.com (143.11.148.146.bc.googleusercontent.com. [146.148.11.143])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493bb4f174esm22907135e9.2.2026.06.30.02.51.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 02:47:03 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: [PATCH v1 2/3] arm64: dts: freescale: Add support for Variscite VAR-SOM-MX8 QuadMax
-Date: Tue, 30 Jun 2026 11:46:55 +0200
-Message-ID: <69727b6a39f9ebfc00d7896377a8b24191926bea.1782812572.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1782812572.git.stefano.r@variscite.com>
-References: <cover.1782812572.git.stefano.r@variscite.com>
+        Tue, 30 Jun 2026 02:51:36 -0700 (PDT)
+Date: Tue, 30 Jun 2026 09:51:30 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org,
+	will@kernel.org, jens.wiklander@linaro.org, joey.gouly@arm.com,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, android-kvm@google.com,
+	maz@kernel.org, mrigendra.chaubey@gmail.com,
+	op-tee@lists.trustedfirmware.org, perlarsen@google.com,
+	seiden@linux.ibm.com, smostafa@google.com, sumit.garg@kernel.org,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
+Subject: Re: [PATCH v7 6/7] KVM: arm64: Ensure FFA ranges are page aligned
+Message-ID: <akORop8Z9Levu9Sr@google.com>
+References: <20260617145130.3729015-1-sebastianene@google.com>
+ <20260617145130.3729015-7-sebastianene@google.com>
+ <ajQmN-UQD3uJJddJ@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ajQmN-UQD3uJJddJ@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_024706_201251_0AB6BAFB 
-X-CRM114-Status: GOOD (  17.61  )
+X-CRM114-CacheID: sfid-20260630_025141_348111_808A0F12 
+X-CRM114-Status: GOOD (  31.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,567 +107,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+On Thu, Jun 18, 2026 at 06:09:11PM +0100, Vincent Donnefort wrote:
+> On Wed, Jun 17, 2026 at 02:51:29PM +0000, Sebastian Ene wrote:
+> > From: Mostafa Saleh <smostafa@google.com>
+> > 
+> > At the moment we only check that the size of the range is page
+> > aligned, and truncate the address to the page boundary.
+> > This make an assumption that TZ will do the same.
+> > 
+> > However, it might decide to use the extra offset of the neighbour
+> > page at the end, which is valid under FFA if NS is using larger
+> > page size.
+> 
 
-Add device tree support for the Variscite VAR-SOM-MX8 QuadMax
-system on module.
-This SOM is designed to be used with various carrier boards.
+Hey Vincent,
 
-The module includes:
-- NXP i.MX8 QuadMax MPU processor
-- Up to 8GB of LPDDR4 memory
-- Up to 128GB of eMMC storage memory
-- Integrated 10/100/1000 Mbps Ethernet Transceiver
-- Codec audio WM8904
-- WIFI6 dual-band 802.11ax/ac/a/b/g/n with optional 802.15.4 and Bluetooth
+> I failed to parse this 
+> 
+> But I see 
+> 
+> /* The base IPA of the constituent memory region, aligned to 4 kiB */ 
+> 
+> So it sounds fair to prevent oversharing when PAGE_SIZE > 4KiB
+> 
 
-Only SOM-specific peripherals are enabled by default. Carrier board
-specific interfaces are left disabled to be enabled in the respective
-carrier board device trees.
+I think the problem is when you have a mismatch between FFA_PAGE_SIZE
+and the system PAGE_SIZE. We expect a fixed FFA_PAGE_SIZE of 4kb and
+this is enforced by :
+https://elixir.bootlin.com/linux/v7.1.2/source/arch/arm64/kvm/hyp/nvhe/ffa.c#L761
 
-Link: https://variscite.com/system-on-module-som/i-mx-8/i-mx-8-quadmax-quadplus/var-som-mx8/
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../boot/dts/freescale/imx8qm-var-som.dtsi    | 529 ++++++++++++++++++
- 1 file changed, 529 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
+if FFA_PAGE_SIZE = 4kb and PAGE_SIZE = 16kb you can end up annotating more pages with FF-A then
+needed when the range->address is unaligned.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
-new file mode 100644
-index 000000000000..2ffc32ddbf51
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-var-som.dtsi
-@@ -0,0 +1,529 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Common dtsi for Variscite VAR-SOM-MX8
-+ *
-+ * Link: https://variscite.com/system-on-module-som/i-mx-8/i-mx-8-quadmax-quadplus/var-som-mx8/
-+ *
-+ * Copyright (C) 2026 Variscite Ltd. - https://www.variscite.com/
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx8qm.dtsi"
-+
-+/ {
-+	model = "Variscite i.MX8QM VAR-SOM-MX8 Module";
-+	compatible = "variscite,var-som-imx8qm", "fsl,imx8qm";
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x00000000 0x80000000 0 0x40000000>;
-+	};
-+
-+	reg_audio_supply: regulator-3p3v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "wm8904-supply";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_phy_vddio: regulator-phy-vddio {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vddio-1v8";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+	};
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		vdev0vring0: memory@90000000 {
-+			reg = <0 0x90000000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: memory@90008000 {
-+			reg = <0 0x90008000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring0: memory@90010000 {
-+			reg = <0 0x90010000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev1vring1: memory@90018000 {
-+			reg = <0 0x90018000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		rsc_table0: memory@900ff000 {
-+			reg = <0 0x900ff000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		vdev2vring0: memory@90100000 {
-+			reg = <0 0x90100000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev2vring1: memory@90108000 {
-+			reg = <0 0x90108000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev3vring0: memory@90110000 {
-+			reg = <0 0x90110000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		vdev3vring1: memory@90118000 {
-+			reg = <0 0x90118000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		rsc_table1: memory@901ff000 {
-+			reg = <0 0x901ff000 0 0x1000>;
-+			no-map;
-+		};
-+
-+		vdevbuffer: memory@90400000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x90400000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		dsp_reserved: memory@92400000 {
-+			reg = <0 0x92400000 0 0x1000000>;
-+			no-map;
-+		};
-+
-+		dsp_vdev0vring0: memory@942f0000 {
-+			reg = <0 0x942f0000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		dsp_vdev0vring1: memory@942f8000 {
-+			reg = <0 0x942f8000 0 0x8000>;
-+			no-map;
-+		};
-+
-+		dsp_vdev0buffer: memory@94300000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x94300000 0 0x100000>;
-+			no-map;
-+		};
-+
-+		/* global autoconfigured region for contiguous allocations */
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0xc0000000 0 0x3c000000>;
-+			size = <0 0x3c000000>;
-+			linux,cma-default;
-+			reusable;
-+		};
-+	};
-+
-+	sound-wm8904 {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,bitclock-master = <&codec_dai>;
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,frame-master = <&codec_dai>;
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "wm8904-audio";
-+		simple-audio-card,routing =
-+			"Headphone Jack", "HPOUTL",
-+			"Headphone Jack", "HPOUTR",
-+			"IN2L", "Line In Jack",
-+			"IN2R", "Line In Jack",
-+			"IN1L", "Microphone Jack",
-+			"IN1R", "Microphone Jack";
-+		simple-audio-card,widgets =
-+			"Microphone", "Microphone Jack",
-+			"Headphone", "Headphone Jack",
-+			"Line", "Line In Jack";
-+
-+		codec_dai: simple-audio-card,codec {
-+			sound-dai = <&wm8904>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&esai0>;
-+		};
-+	};
-+};
-+
-+&acm {
-+	status = "okay";
-+};
-+
-+&asrc0 {
-+	fsl,asrc-rate  = <48000>;
-+	status = "okay";
-+};
-+
-+&asrc1 {
-+	fsl,asrc-rate = <48000>;
-+	status = "okay";
-+};
-+
-+&cm41_intmux {
-+	status = "okay";
-+};
-+
-+&esai0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_esai0>;
-+	#sound-dai-cells = <0>;
-+	assigned-clocks = <&acm IMX_ADMA_ACM_ESAI0_MCLK_SEL>,
-+			<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-+			<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-+			<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-+			<&esai0_lpcg 0>;
-+	assigned-clock-parents = <&aud_pll_div0_lpcg 0>;
-+	assigned-clock-rates = <0>, <786432000>, <49152000>, <24576000>, <49152000>;
-+	status = "okay";
-+};
-+
-+&fec1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_fec1>;
-+	/*
-+	 * The required RGMII TX and RX 2ns delays are implemented directly
-+	 * in hardware via passive delay elements on the SOM PCB.
-+	 * No delay configuration is needed in software via PHY driver.
-+	 */
-+	phy-mode = "rgmii";
-+	phy-handle = <&ethphy0>;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		ethphy0: ethernet-phy@4 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <4>;
-+			reset-gpios = <&lsio_gpio2 28 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <20000>;
-+			vddio-supply = <&reg_phy_vddio>;
-+		};
-+	};
-+};
-+
-+&gpio0_mipi_csi0 {
-+	status = "disabled";
-+};
-+
-+&gpio0_mipi_csi1 {
-+	status = "disabled";
-+};
-+
-+&i2c0 {
-+	clock-frequency = <100000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_i2c0>;
-+	status = "okay";
-+
-+	wm8904: codec@1a {
-+		compatible = "wlf,wm8904";
-+		reg = <0x1a>;
-+		#sound-dai-cells = <0>;
-+		clocks = <&mclkout0_lpcg 0>;
-+		clock-names = "mclk";
-+		assigned-clocks = <&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_PLL>,
-+				<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_SLV_BUS>,
-+				<&clk IMX_SC_R_AUDIO_PLL_0 IMX_SC_PM_CLK_MST_BUS>,
-+				<&mclkout0_lpcg 0>;
-+		assigned-clock-rates = <786432000>, <49152000>, <12288000>, <12288000>;
-+		AVDD-supply = <&reg_audio_supply>;
-+		CPVDD-supply = <&reg_audio_supply>;
-+		DBVDD-supply = <&reg_audio_supply>;
-+		DCVDD-supply = <&reg_audio_supply>;
-+		MICVDD-supply = <&reg_audio_supply>;
-+		wlf,drc-cfg-names = "default", "peaklimiter", "tradition",
-+				    "soft", "music";
-+		/*
-+		 * Config registers per name, respectively:
-+		 * KNEE_IP = 0,   KNEE_OP = 0,     HI_COMP = 1,   LO_COMP = 1
-+		 * KNEE_IP = -24, KNEE_OP = -6,    HI_COMP = 1/4, LO_COMP = 1
-+		 * KNEE_IP = -42, KNEE_OP = -3,    HI_COMP = 0,   LO_COMP = 1
-+		 * KNEE_IP = -45, KNEE_OP = -9,    HI_COMP = 1/8, LO_COMP = 1
-+		 * KNEE_IP = -30, KNEE_OP = -10.5, HI_COMP = 1/4, LO_COMP = 1
-+		 */
-+		wlf,drc-cfg-regs = /bits/ 16 <0x01af 0x3248 0x0000 0x0000>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x0408>,
-+				   /bits/ 16 <0x04af 0x324b 0x0028 0x0704>,
-+				   /bits/ 16 <0x04af 0x324b 0x0018 0x078c>,
-+				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
-+		/* GPIO1 = DMIC_CLK, don't touch others */
-+		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
-+	};
-+};
-+
-+/* Bluetooth */
-+&lpuart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lpuart1>;
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&mu_m0{
-+	status = "okay";
-+};
-+
-+&mu1_m0{
-+	status = "okay";
-+};
-+
-+&mu2_m0{
-+	status = "okay";
-+};
-+
-+&rtc {
-+	status = "disabled";
-+};
-+
-+&sai6 {
-+	assigned-clocks = <&acm IMX_ADMA_ACM_SAI6_MCLK_SEL>,
-+			<&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-+			<&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-+			<&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-+			<&sai6_lpcg 0>;
-+	assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
-+	assigned-clock-rates = <0>, <786432000>, <98304000>, <24576000>, <98304000>;
-+	fsl,sai-asynchronous;
-+	status = "okay";
-+};
-+
-+&sai7 {
-+	assigned-clocks = <&acm IMX_ADMA_ACM_SAI7_MCLK_SEL>,
-+			<&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_PLL>,
-+			<&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_SLV_BUS>,
-+			<&clk IMX_SC_R_AUDIO_PLL_1 IMX_SC_PM_CLK_MST_BUS>,
-+			<&sai7_lpcg 0>;
-+	assigned-clock-parents = <&aud_pll_div1_lpcg 0>;
-+	assigned-clock-rates = <0>, <786432000>, <98304000>, <24576000>, <98304000>;
-+	fsl,sai-asynchronous;
-+	status = "okay";
-+};
-+
-+&thermal_zones {
-+	pmic-thermal {
-+		polling-delay-passive = <250>;
-+		polling-delay = <2000>;
-+		thermal-sensors = <&tsens IMX_SC_R_PMIC_0>;
-+		trips {
-+			pmic_alert0: trip0 {
-+				temperature = <110000>;
-+				hysteresis = <2000>;
-+				type = "passive";
-+			};
-+			pmic_crit0: trip1 {
-+				temperature = <125000>;
-+				hysteresis = <2000>;
-+				type = "critical";
-+			};
-+		};
-+		cooling-maps {
-+			map0 {
-+				trip = <&pmic_alert0>;
-+				cooling-device = <&A53_0 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						 <&A53_1 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						 <&A53_2 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>,
-+						 <&A53_3 THERMAL_NO_LIMIT THERMAL_NO_LIMIT>;
-+			};
-+		};
-+	};
-+};
-+
-+/* eMMC */
-+&usdhc1 {
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	bus-width = <8>;
-+	non-removable;
-+	status = "okay";
-+};
-+
-+/* WIFI */
-+&usdhc3 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc3>, <&pinctrl_wifi>;
-+	pinctrl-1 = <&pinctrl_usdhc3_100mhz>, <&pinctrl_wifi>;
-+	pinctrl-2 = <&pinctrl_usdhc3_200mhz>, <&pinctrl_wifi>;
-+	bus-width = <4>;
-+	status = "okay";
-+
-+	brcmf: wifi@1 {
-+		compatible = "brcm,bcm4329-fmac";
-+		reg = <1>;
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_hog>;
-+
-+	pinctrl_esai0: esai0grp {
-+		fsl,pins = <
-+			IMX8QM_ESAI0_FSR_AUD_ESAI0_FSR				0xc6000040
-+			IMX8QM_ESAI0_FST_AUD_ESAI0_FST				0xc6000040
-+			IMX8QM_ESAI0_SCKR_AUD_ESAI0_SCKR			0xc6000040
-+			IMX8QM_ESAI0_SCKT_AUD_ESAI0_SCKT			0xc6000040
-+			IMX8QM_ESAI0_TX0_AUD_ESAI0_TX0				0xc6000040
-+			IMX8QM_ESAI0_TX5_RX0_AUD_ESAI0_TX5_RX0			0xc6000040
-+			IMX8QM_MCLK_OUT0_AUD_ESAI0_TX_HF_CLK			0xc600004c
-+		>;
-+	};
-+
-+	pinctrl_fec1: fec1grp {
-+		fsl,pins = <
-+			IMX8QM_ENET0_MDC_CONN_ENET0_MDC				0x06000048
-+			IMX8QM_ENET0_MDIO_CONN_ENET0_MDIO			0x06000048
-+			IMX8QM_ENET0_RGMII_TX_CTL_CONN_ENET0_RGMII_TX_CTL	0x06000048
-+			IMX8QM_ENET0_RGMII_TXC_CONN_ENET0_RGMII_TXC		0x06000048
-+			IMX8QM_ENET0_RGMII_TXD0_CONN_ENET0_RGMII_TXD0		0x06000048
-+			IMX8QM_ENET0_RGMII_TXD1_CONN_ENET0_RGMII_TXD1		0x06000048
-+			IMX8QM_ENET0_RGMII_TXD2_CONN_ENET0_RGMII_TXD2		0x06000048
-+			IMX8QM_ENET0_RGMII_TXD3_CONN_ENET0_RGMII_TXD3		0x06000048
-+			IMX8QM_ENET0_RGMII_RXC_CONN_ENET0_RGMII_RXC		0x06000048
-+			IMX8QM_ENET0_RGMII_RX_CTL_CONN_ENET0_RGMII_RX_CTL	0x06000048
-+			IMX8QM_ENET0_RGMII_RXD0_CONN_ENET0_RGMII_RXD0		0x06000048
-+			IMX8QM_ENET0_RGMII_RXD1_CONN_ENET0_RGMII_RXD1		0x06000048
-+			IMX8QM_ENET0_RGMII_RXD2_CONN_ENET0_RGMII_RXD2		0x06000048
-+			IMX8QM_ENET0_RGMII_RXD3_CONN_ENET0_RGMII_RXD3		0x06000048
-+			IMX8QM_ESAI0_TX2_RX3_LSIO_GPIO2_IO28			0x06000028
-+			IMX8QM_ESAI0_TX4_RX1_LSIO_GPIO2_IO30			0x06000048
-+		>;
-+	};
-+
-+	pinctrl_hog: hoggrp {
-+		fsl,pins = <
-+			IMX8QM_ESAI1_FSR_LSIO_GPIO2_IO04			0x00000041
-+			IMX8QM_ESAI1_FST_LSIO_GPIO2_IO05			0x00000041
-+			IMX8QM_ESAI1_SCKR_LSIO_GPIO2_IO06			0x00000041
-+			IMX8QM_ESAI1_SCKT_LSIO_GPIO2_IO07			0x00000041
-+			IMX8QM_SPDIF0_EXT_CLK_LSIO_GPIO2_IO16			0x00000041
-+		>;
-+	};
-+
-+	pinctrl_i2c0: i2c0grp {
-+		fsl,pins = <
-+			IMX8QM_HDMI_TX0_TS_SCL_DMA_I2C0_SCL			0xc6000020
-+			IMX8QM_HDMI_TX0_TS_SDA_DMA_I2C0_SDA			0xc6000020
-+		>;
-+	};
-+
-+	pinctrl_lpuart1: lpuart1grp {
-+		fsl,pins = <
-+			IMX8QM_UART1_RX_DMA_UART1_RX				0x06000020
-+			IMX8QM_UART1_TX_DMA_UART1_TX				0x06000020
-+			IMX8QM_UART1_CTS_B_DMA_UART1_RTS_B			0x06000020
-+			IMX8QM_UART1_RTS_B_DMA_UART1_CTS_B			0x06000020
-+		>;
-+	};
-+
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			IMX8QM_EMMC0_CLK_CONN_EMMC0_CLK				0x06000041
-+			IMX8QM_EMMC0_CMD_CONN_EMMC0_CMD				0x00000021
-+			IMX8QM_EMMC0_DATA0_CONN_EMMC0_DATA0			0x00000021
-+			IMX8QM_EMMC0_DATA1_CONN_EMMC0_DATA1			0x00000021
-+			IMX8QM_EMMC0_DATA2_CONN_EMMC0_DATA2			0x00000021
-+			IMX8QM_EMMC0_DATA3_CONN_EMMC0_DATA3			0x00000021
-+			IMX8QM_EMMC0_DATA4_CONN_EMMC0_DATA4			0x00000021
-+			IMX8QM_EMMC0_DATA5_CONN_EMMC0_DATA5			0x00000021
-+			IMX8QM_EMMC0_DATA6_CONN_EMMC0_DATA6			0x00000021
-+			IMX8QM_EMMC0_DATA7_CONN_EMMC0_DATA7			0x00000021
-+			IMX8QM_EMMC0_STROBE_CONN_EMMC0_STROBE			0x06000041
-+			IMX8QM_EMMC0_RESET_B_CONN_EMMC0_RESET_B			0x00000021
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			IMX8QM_EMMC0_CLK_CONN_EMMC0_CLK				0x06000040
-+			IMX8QM_EMMC0_CMD_CONN_EMMC0_CMD				0x00000020
-+			IMX8QM_EMMC0_DATA0_CONN_EMMC0_DATA0			0x00000020
-+			IMX8QM_EMMC0_DATA1_CONN_EMMC0_DATA1			0x00000020
-+			IMX8QM_EMMC0_DATA2_CONN_EMMC0_DATA2			0x00000020
-+			IMX8QM_EMMC0_DATA3_CONN_EMMC0_DATA3			0x00000020
-+			IMX8QM_EMMC0_DATA4_CONN_EMMC0_DATA4			0x00000020
-+			IMX8QM_EMMC0_DATA5_CONN_EMMC0_DATA5			0x00000020
-+			IMX8QM_EMMC0_DATA6_CONN_EMMC0_DATA6			0x00000020
-+			IMX8QM_EMMC0_DATA7_CONN_EMMC0_DATA7			0x00000020
-+			IMX8QM_EMMC0_STROBE_CONN_EMMC0_STROBE			0x06000040
-+			IMX8QM_EMMC0_RESET_B_CONN_EMMC0_RESET_B			0x00000020
-+		>;
-+	};
-+
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			IMX8QM_EMMC0_CLK_CONN_EMMC0_CLK				0x06000040
-+			IMX8QM_EMMC0_CMD_CONN_EMMC0_CMD				0x00000020
-+			IMX8QM_EMMC0_DATA0_CONN_EMMC0_DATA0			0x00000020
-+			IMX8QM_EMMC0_DATA1_CONN_EMMC0_DATA1			0x00000020
-+			IMX8QM_EMMC0_DATA2_CONN_EMMC0_DATA2			0x00000020
-+			IMX8QM_EMMC0_DATA3_CONN_EMMC0_DATA3			0x00000020
-+			IMX8QM_EMMC0_DATA4_CONN_EMMC0_DATA4			0x00000020
-+			IMX8QM_EMMC0_DATA5_CONN_EMMC0_DATA5			0x00000020
-+			IMX8QM_EMMC0_DATA6_CONN_EMMC0_DATA6			0x00000020
-+			IMX8QM_EMMC0_DATA7_CONN_EMMC0_DATA7			0x00000020
-+			IMX8QM_EMMC0_STROBE_CONN_EMMC0_STROBE			0x06000040
-+			IMX8QM_EMMC0_RESET_B_CONN_EMMC0_RESET_B			0x00000020
-+		>;
-+	};
-+
-+	pinctrl_usdhc3: usdhc3grp {
-+		fsl,pins = <
-+			IMX8QM_USDHC2_CLK_CONN_USDHC2_CLK			0x06000041
-+			IMX8QM_USDHC2_CMD_CONN_USDHC2_CMD			0x00000021
-+			IMX8QM_USDHC2_DATA0_CONN_USDHC2_DATA0			0x00000021
-+			IMX8QM_USDHC2_DATA1_CONN_USDHC2_DATA1			0x00000021
-+			IMX8QM_USDHC2_DATA2_CONN_USDHC2_DATA2			0x00000021
-+			IMX8QM_USDHC2_DATA3_CONN_USDHC2_DATA3			0x00000021
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_100mhz: usdhc3100mhzgrp {
-+		fsl,pins = <
-+			IMX8QM_USDHC2_CLK_CONN_USDHC2_CLK			0x06000040
-+			IMX8QM_USDHC2_CMD_CONN_USDHC2_CMD			0x00000020
-+			IMX8QM_USDHC2_DATA0_CONN_USDHC2_DATA0			0x00000020
-+			IMX8QM_USDHC2_DATA1_CONN_USDHC2_DATA1			0x00000020
-+			IMX8QM_USDHC2_DATA2_CONN_USDHC2_DATA2			0x00000020
-+			IMX8QM_USDHC2_DATA3_CONN_USDHC2_DATA3			0x00000020
-+		>;
-+	};
-+
-+	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
-+		fsl,pins = <
-+			IMX8QM_USDHC2_CLK_CONN_USDHC2_CLK			0x06000040
-+			IMX8QM_USDHC2_CMD_CONN_USDHC2_CMD			0x00000020
-+			IMX8QM_USDHC2_DATA0_CONN_USDHC2_DATA0			0x00000020
-+			IMX8QM_USDHC2_DATA1_CONN_USDHC2_DATA1			0x00000020
-+			IMX8QM_USDHC2_DATA2_CONN_USDHC2_DATA2			0x00000020
-+			IMX8QM_USDHC2_DATA3_CONN_USDHC2_DATA3			0x00000020
-+		>;
-+	};
-+
-+	pinctrl_wifi: wifigrp {
-+		fsl,pins = <
-+			IMX8QM_SCU_GPIO0_07_SCU_DSC_RTC_CLOCK_OUTPUT_32K	0xc600004c
-+			IMX8QM_SCU_GPIO0_03_LSIO_GPIO0_IO31			0x06000021
-+			IMX8QM_SCU_GPIO0_02_LSIO_GPIO0_IO30			0x00000021
-+			IMX8QM_QSPI1A_DATA0_LSIO_GPIO4_IO26			0x00000021
-+		>;
-+	};
-+};
--- 
-2.47.3
+It took me a while to understand this so I guess it is better to rephrase the commit msg.
 
+> > 
+> > Harden this check by also checking that the base address is aligned
+> > and reject it otherwise.
+> > 
+> > Fixes: 436090001776 ("KVM: arm64: Handle FFA_MEM_SHARE calls from the host")
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> 
+> Perhaps the commit description needs some improvement.
+> 
+> The rest looks good.
+> 
+> Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+> 
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/ffa.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > index 1a2abd0154c6..d7c5701d0584 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> > @@ -352,7 +352,7 @@ static u32 __ffa_host_share_ranges(struct ffa_mem_region_addr_range *ranges,
+> >  		u64 sz = (u64)range->pg_cnt * FFA_PAGE_SIZE;
+> >  		u64 pfn = hyp_phys_to_pfn(range->address);
+> >  
+> > -		if (!PAGE_ALIGNED(sz))
+> > +		if (!PAGE_ALIGNED(sz | range->address))
+> >  			break;
+> >  
+> >  		if (__pkvm_host_share_ffa(pfn, sz / PAGE_SIZE))
+> > @@ -372,7 +372,7 @@ static u32 __ffa_host_unshare_ranges(struct ffa_mem_region_addr_range *ranges,
+> >  		u64 sz = (u64)range->pg_cnt * FFA_PAGE_SIZE;
+> >  		u64 pfn = hyp_phys_to_pfn(range->address);
+> >  
+> > -		if (!PAGE_ALIGNED(sz))
+> > +		if (!PAGE_ALIGNED(sz | range->address))
+> >  			break;
+> >  
+> >  		if (__pkvm_host_unshare_ffa(pfn, sz / PAGE_SIZE))
+> > -- 
+> > 2.54.0.1136.gdb2ca164c4-goog
+> > 
+
+Thanks,
+Sebastian
 
