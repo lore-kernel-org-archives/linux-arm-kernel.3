@@ -4,59 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55821C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:07:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25104C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:11:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2R7MMcV3mmk0nBdIgoUyC/wqlhfh+hr+iLk2fd0g8uI=; b=13e3hTPhjnTlClN4hDFz+NMjAz
-	B57c2rivARW3S9ercxwVg5QcfnpwcVKmSgdpScpg8758ZDqay6Its0sOUd9iOdfZCnzHMpNqqVrmb
-	eO6X6NKxT51hsP+4OdvScrcRjZV6/2QkpZrBCjVF15Wi1Q2fGLd/ZKrp+RrleH7nXQMXC+atBjWwX
-	pvhbgxeGJlOWEhXqfxOxqdQR4ZOmbQE0oiEauZ3jbFgmofq3fnjPsuRbkNX2XTkWxQTUkxnocxEX/
-	XUQwUulBNnauCvk1qg8AF342IrvrawXRbCcq9ntVmpovFnfcbgqSVC+ITly5HHC9+XYbVEvXdBzB/
-	R5JFyonQ==;
+	bh=b3mOfrJH916cwXqr+ZvwGijVGpltGH97Y0po0aXz5kQ=; b=QK64CQuBHgjjo1fAtk35gKH4Vc
+	GFfLFZs6nLnLHlQSIb0q0MR324Xh4j1uRZuzWPRHOLUExbn1BM/deq/TiH2UrXgOxUc+I5Kd0kKLO
+	JDJ2BkBD2yhjDNnWXcg/zz0dk3L3PhmHLBIrZR+5GzVtM0rmAjb98+S/CI0XnEAXRaf8Kmji/EUQ+
+	PWr/qSYNqM9y2AwDfdQj/N8UuWvreVRCOUHyDdAxMvwwZwj3OozJUQ+yL3EbjtSMzYArSGst3TkK5
+	+JJUMb3+9zbPkUkie0LbM0/NIBDDb6ezyD27Jobn8kG0BD1NjNBpy3ArlrA4qCxtfaVw7t9hB7K9C
+	xrj5+V1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUQc-0000000GLIm-3n3n;
-	Tue, 30 Jun 2026 09:06:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUQa-0000000GLF8-1C0L
+	id 1weUVM-0000000GMSi-37wV;
+	Tue, 30 Jun 2026 09:11:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weUVJ-0000000GMRo-2Ens
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:06:48 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 026FA43B9C;
-	Tue, 30 Jun 2026 09:06:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A23C1F00A3D;
-	Tue, 30 Jun 2026 09:06:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782810407;
-	bh=2R7MMcV3mmk0nBdIgoUyC/wqlhfh+hr+iLk2fd0g8uI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=KehSzWwztNFdYmmy7LLAAsUJ66s11dvMePZ21Ttdq1F0e/liwU7zxhVZgFVmadluW
-	 25K+qEvTZEl2+9DyxIif5F3wDqZdH6wMwsle9EDZeboF/z81Yhwy9qnDr17/YYVUTN
-	 qM9FyzoFXNYttGvJoNIceRphQ7Uaxed+uysPzOMmBK5pmsq9oy3M+Hzw7rqQ1Gxv1r
-	 S8JJpZxUq2CC7JqriOpFJ3//wUqYE4wT/IDycX9YAN1yFzR18HDcHyfjM8WDkOYmfv
-	 T/5t57DOxk0vQ7szrrAjfoa5kIxw0npp5KqPEvtJFhHo/Oc3XNvSNoWI3SU+xRb/p8
-	 oUs1FgW3PefLw==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 30 Jun 2026 10:06:05 +0100
-Subject: [PATCH 9/9] firmware: arm_scmi: Protect device request lookup with
- RCU
+	Tue, 30 Jun 2026 09:11:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDF6F2C1C;
+	Tue, 30 Jun 2026 02:11:33 -0700 (PDT)
+Received: from [10.57.81.132] (unknown [10.57.81.132])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B07BD3FAFB;
+	Tue, 30 Jun 2026 02:11:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782810698; bh=Fp0iKtIQ8WSu99tEd8oJ9ZJXm1jtTIlwqw7RjhGDc+g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=hAZ/XGAW6u+JKDyTjbV6aaMnWKHnBmN3C6nhJhtMaxQUv8mY4WutOy1CIUH1h5PaP
+	 P/y6MGDQDKu+Z19IQ0YpQlt8bdC9TQbsdY9hXxRS0fUKaQ9OtMPJ/oObIJO74x36xf
+	 UBWKMVwAmj18UEiY9Kpxmydd0hlAYSLfzTocchLg=
+Message-ID: <94cadab5-41c9-4127-aef3-14cb25415363@arm.com>
+Date: Tue, 30 Jun 2026 11:11:23 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-scmi_core_fixes-v1-9-f932c1e51992@kernel.org>
-References: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
-In-Reply-To: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>, 
- Sudeep Holla <sudeep.holla@kernel.org>, Sashiko <sashiko-bot@kernel.org>, 
- Sudeep Holla <sudeep.holla@kernel.org>
-X-Mailer: b4 0.15.2
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v8 01/24] mm: Introduce kpkeys
+To: "David Hildenbrand (Arm)" <david@kernel.org>,
+ Linus Walleij <linusw@kernel.org>
+Cc: linux-hardening@vger.kernel.org, Andrew Morton
+ <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Ira Weiny <ira.weiny@intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Matthew Wilcox <willy@infradead.org>, Maxwell Bland <mbland@motorola.com>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Vlastimil Babka <vbabka@kernel.org>,
+ Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-mm@kvack.org, x86@kernel.org, Lorenzo Stoakes <ljs@kernel.org>,
+ Thomas Gleixner <tglx@kernel.org>
+References: <20260526-kpkeys-v8-0-eaaacdacc67c@arm.com>
+ <20260526-kpkeys-v8-1-eaaacdacc67c@arm.com>
+ <70f4dcdf-c45f-47d3-91df-a7897bd86ff4@kernel.org>
+ <CAD++jL=km9hqTuTMFUhyx_QPuMEwWqmnUVQtPtMXnp8paHH1_A@mail.gmail.com>
+ <9b11b0c0-dfc7-45ba-934e-19cd053e5635@kernel.org>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <9b11b0c0-dfc7-45ba-934e-19cd053e5635@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_021141_645943_40310136 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,45 +91,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI device request notifier looks up protocol OF nodes from the
-active_protocols IDR. The IDR lookup can run concurrently with protocol
-activation while probe is still registering protocols and creating their
-SCMI devices.
+On 22/06/2026 20:38, David Hildenbrand (Arm) wrote:
+> On 6/18/26 15:22, Linus Walleij wrote:
+>> On Tue, Jun 16, 2026 at 5:19 PM David Hildenbrand (Arm)
+>> <david@kernel.org> wrote:
+>>
+>>> Looking at this, and wondering about "why do we get registers involved in this
+>>> API" I would probably have an interface like:
+>>>
+>>>         arch_kpkeys_enter_context()
+>>>         arch_kpkeys_leave_context()
+>>>
+>>> Whereby you return a "struct kpkeys_state" or sth like that.
+>> This is close to what I was looking for as well.
+> Cool :)
 
-Wrap the lookup in an RCU read-side critical section as required by the
-IDR API for lockless readers.
+That's probably what I was looking for too, without knowing it!
 
-Fixes: 53b8c25df708 ("firmware: arm_scmi: Add common notifier helpers")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/driver.c | 3 +++
- 1 file changed, 3 insertions(+)
+>> enter/leave makes the code look more like generic entry.
+>>
+>> Passing some kind of state cookie around is inevitable in
+>> this design and IIUC Kevin argued that it would be inefficient
+>> (another level of abstraction) as opposed to just hammering
+>> in the context we want, where we want it.
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 6df0fe055d64..a575e661f1e2 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -33,6 +33,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/processor.h>
-+#include <linux/rcupdate.h>
- #include <linux/refcount.h>
- #include <linux/slab.h>
- #include <linux/xarray.h>
-@@ -2957,7 +2958,9 @@ static int scmi_device_request_notifier(struct notifier_block *nb,
- 	struct scmi_device_id *id_table = data;
- 	struct scmi_info *info = req_nb_to_scmi_info(nb);
- 
-+	rcu_read_lock();
- 	np = idr_find(&info->active_protocols, id_table->protocol_id);
-+	rcu_read_unlock();
- 	if (!np)
- 		return NOTIFY_DONE;
- 
+I must have misunderstood what you meant in your previous comments, I
+don't have a concern with performance here.
 
--- 
-2.43.0
+>>
+>> But I think the compiler will optimize that out by constant
+>> propagation if the backing architecture implementation is
+>> simple.
+> Yes, it should be wrapped somehow. I don't think this will be a problem
+> performance-wise that cannot be solved differently.
+>
+> Returning an u64 ("register") here is really arm64-sepcific and should be
+> abstracted.
 
+Agreed. All this looks very much like the new lazy MMU API, and doing
+something along the same lines seems perfectly reasonable.
+
+- Kevin
 
