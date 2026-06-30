@@ -4,125 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E41C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B09FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T0kNAdohQK0MQTdo+yXKpflnXa9nQ4nl0a7dVhmSO+w=; b=Xn1jtT7mHCHi4sRSncWtL+iYgF
-	Z1N3AsP04U/fR0aMYyJrlHwsOnyztu7FqbnFl+VZBTFrXJNchRS7aPSK9M4H3UI5UniwQf3ISyY9L
-	FU9sGQACUaqF/CGYsivLXtEZaxvCEBbVCcdW4h2ZzPlXcl5fQf2MI+oQGDezmeooV7FRefkNbSNjD
-	Yc29QwGUVIAZiFG7vx5f6nLCAHreSU1vaUkBkYnOID+wTBlRFtEi38DJQARhlo5561FzQCny/wV71
-	Cf1znJoDUFIxLfpUf5b/p/f0IwCbGLxTjsHW/CdzLENKdMhZYwBf8XieMRC8JEJCzdk+uXJVQ4axf
-	m0cq/KXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7uEJMrWD0UMiWZwUum+CyPdGGjt9SIXdRcE6bWkTdYc=; b=MIXb85HcPibL7VQQdE25udaNWc
+	bsUYp9hfbv0wBW8yDatPpTF7A3Hedhenu+bGa3u9LY8vgv7ikbSLEoEbbzS1NPPH235rp4XvlcmrV
+	R5479vfV7VPoyk6BlFBaN73/3T0We9+c8swQXXd9Wga2niEpdn1V58zgVfwkZvG99Hg6Rdb3hMsMm
+	nKVLI1d210M/Bfyt3/EFqvtQZtCux93oRUPo2/p0afskNpV3bAmCQKdJLyhF3zCesCx0RnZQRzNvY
+	144G367/5SkVPOZyUowITjsKMYqQJM1xjWhUjFi/We809KwXeog/dKYLZKfXMS9qxXpy9kcYMZoWJ
+	FimXAJCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wee2g-0000000075E-13ii;
-	Tue, 30 Jun 2026 19:22:46 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1wee5V-000000007Pl-0S12;
+	Tue, 30 Jun 2026 19:25:41 +0000
+Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wee2O-000000006zL-2vbV
+	id 1wee5G-000000007Or-2MX6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 19:22:30 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 0DE90240028
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 21:22:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1782847344; bh=T0kNAdohQK0MQTdo+yXKpflnXa9nQ4nl0a7dVhmSO+w=;
-	h=From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:To:Cc:Autocrypt:OpenPGP:From;
-	b=GvVU7mDnYiJwm4dh6e1K8dVkGBSPcwJ+7JPc0Y474VjoN/xMFYvwsc0yEC/uuBXIj
-	 xI4gi1s18bChZmstkqeFW2kFK4DF8sLU4kJVqTlO22A5sJeeeN7UaG7H0w1TdPS+ZS
-	 bfpf9XerX8MDsL+Uwzc/QabZgMWtZfkQXi2DE+erMH3xIIH0dsT/2FDs5+Nxw7HYGX
-	 nCtQNrqwru2qPQYE21G7PzhDot2nDdqIbuIl4kWkiSHP4/SWsEqUy1R+sXxsuk+MGE
-	 Ggs2LHLd6bPeN//vKNj40WEDL2FM0OrC4RgJi6QR1RvBHEVrwZetE5UnL8TRpkAwmc
-	 6JjSeurk6KuAA==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4gqY1p439Gz9rxD;
-	Tue, 30 Jun 2026 21:22:22 +0200 (CEST)
-From: Markus Probst <markus.probst@posteo.de>
-Date: Tue, 30 Jun 2026 19:22:23 +0000
-Subject: [PATCH 3/3] rtc: s35390a: make use of interrupt signal 1
+	Tue, 30 Jun 2026 19:25:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ukjLkoH3isgiXrLLIQxrjHbvTTrDy8vvDxXm0lnTnDDPxS7xdz7QHA4swU6xvay+/5RFUlp9c7o0yCUI1Qzrt94ZQh36/6yrx1HwfGwM06IzffR/tB4mU9YpEJn84eo+hQVWgS/gQr6AvyX4CkIw/hI/6TYHJgTh2PjuEN2zVq/YZwnG7DtsiNZatjnXNNNYMoCoDOFBzU7WgvaQtXfUfFYUrvnBmIZvhhwOs/tFFkhh3R7R2uCwAPw0gttSYM46CX73yvZR04F0fjHHeScz9FoiATmm90HtnzA8Qo3/ROaTTw6Gfx4N9RdZRwK0+kj6BKA0lGuDThURnHiLTijANA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=7uEJMrWD0UMiWZwUum+CyPdGGjt9SIXdRcE6bWkTdYc=;
+ b=xAxrF0LUUlfd+dv3zFLPJWbu7T7sWgOioI6ki7ShuipunCtRu3/QVZxgHPNETqHSJwwKXVjS6EiPWge/ElvNMhaNtBFJrRjxIvDYPuYMXB5zBwkFf0Z0bGMf9i3zmapsXJHVCJF6jIoTg2JwZkUr6HA5x7LANXQ3hSLRUXY2+sEEP7KRLSMiGMYE1UQQQ1VVu47vp+bgIqQoodTmbsRvZ9bPxj+P7orUS/4yW2L2vY8knja6YSwbuhDT0Mc6x9VZhzXtdo5/GEMM9kfVxXHMKPF7oGxx6lvXy/YUOnCvk84NvTwb0Serac0uYmnYlHfagKoHRY9cM+TvokwFPe7OPw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=7uEJMrWD0UMiWZwUum+CyPdGGjt9SIXdRcE6bWkTdYc=;
+ b=UTarTolHUJlqDkQrKU4GaRnbwKS5pgKS31mb2CAKoRTx38XIN89tp2kRHFJAztKbvnNyob5rbGDLbvxwG8DK3e+sfO9kA+7lJYObb0JvKWqaVSt2lwZEYZxkLQplA7PWDSaKxgZyX+0zxAoAUzurEpp6tLnlo14/g5XjsN2rxzyI6O772ZCpYeOd5mBSKLYasK4QBsdOv3jkZr3aI0GCUPZpF42nc0cGVlcFyZ52y97W9tZafj09zXV3DeiiBH+LyGg15uCpyFNyCuR4oOJZKBVnp1TcilnpOH7YXuOyDqweztfAxcd8h2vFULgjVrs32eK45jRtcehSluxRPbDm5w==
+Received: from CH0PR03CA0298.namprd03.prod.outlook.com (2603:10b6:610:e6::33)
+ by CY8PR12MB8267.namprd12.prod.outlook.com (2603:10b6:930:7c::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Tue, 30 Jun
+ 2026 19:25:16 +0000
+Received: from CH3PEPF0000000F.namprd04.prod.outlook.com
+ (2603:10b6:610:e6:cafe::27) by CH0PR03CA0298.outlook.office365.com
+ (2603:10b6:610:e6::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Tue,
+ 30 Jun 2026 19:25:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CH3PEPF0000000F.mail.protection.outlook.com (10.167.244.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 19:25:16 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Jun
+ 2026 12:24:59 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Jun
+ 2026 12:24:58 -0700
+Received: from nvidia.com (10.127.8.9) by mail.nvidia.com (10.129.68.8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 30 Jun 2026 12:24:57 -0700
+Date: Tue, 30 Jun 2026 12:24:58 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Pranjal Shrivastava <praan@google.com>, Mostafa Saleh
+	<smostafa@google.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
+Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <akQYCgLWv4fs7GAg@nvidia.com>
+References: <cover.1782799827.git.nicolinc@nvidia.com>
+ <akPB6l-fuJUcg4a2@google.com>
+ <akPX_N0P2EcI_jbV@google.com>
+ <akPhuF9pAWaBXzpi@google.com>
+ <akQLURkLA-bZ9dAk@google.com>
+ <20260630190819.GG7481@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-rtc_s35390a_int1-v1-3-1b2239e16be2@posteo.de>
-References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
-In-Reply-To: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <uwe@kleine-koenig.org>, 
- Andrew Lunn <andrew@lunn.ch>, Gregory Clement <gregory.clement@bootlin.com>, 
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Markus Probst <markus.probst@posteo.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6288;
- i=markus.probst@posteo.de; h=from:subject:message-id;
- bh=M+XvosyzJ8TSi5AvxNpLv/Ixt1HoXNLEnKfRvMPN5ls=;
- b=owEBiQJ2/ZANAwAIATR2H/jnrUPSAcsmYgBqRBdq4r5I7SJGXtgvlz/5Jul6ZryOS+ycez+Om
- OAcJ7jMps+JAk8EAAEIADkWIQSCdBjE9KxY53IwxHM0dh/4561D0gUCakQXahsUgAAAAAAEAA5t
- YW51MiwyLjUrMS4xMiwyLDIACgkQNHYf+OetQ9KIJg//Wjr6jFrX3Divd6scYKyAGTe5H7gHahA
- HbTBV4KCNtsZzntGHb8FTIEq3Rh/hO2yF+cPVSCoVz/8ugjHHTe6Wk4kIrWHfIQM/kAska6q/qm
- gDVMLtoIUH3UXQL5ZDIiWcrzP5kTVRXykAZ4yTwtm8lh+TC+3A2Oz0946zAQL6RJnrhBM6n4kGO
- NL9LpOFXdoKd1Jfa15GaHz+Yj6g7y7yULG3FXPjEPjYLSwI2YPkX12Xpr2i40T36W/9f949wtxG
- VLLq89BqFj09LrshGHf+XQ1xIErTcGGmsHCsYppR10GdBiY5wpoZ+2xPHvQQ6VfGZCsCzYZ7o6N
- WrKThTKHNV56O5vpQv6VI1HDfQQ1Ai4Avo+MTxNlOxymDX6IeHsWvImuZVFS8O5goFGW6P4SeQw
- Im/8IrqZJl7eOV7WV96lMzP8DuLLNSYU9K4Fhi0Q8Jr6lp9ZTUi9B/RWZVJWKmx70N4Eqp97LgR
- djP6XH5HwFqtIC0eB2uWaMn+LRv3BxfVkLjN6ibCU4BOptQgD59PDeo+he3qrCRtYzsJKNoCJFv
- TIcyRzs0FTaVL9LpC/jO0kldfbwQheAKLF07Q0h3/3sG23WILFPof11OgCUiNH/uXfuo5neb+mG
- v2t8/2QzFZX9kiWLm6h2ZImN020Lk/NBXLVvKi8HUQwUcb5pLrI0=
-X-Developer-Key: i=markus.probst@posteo.de; a=openpgp;
- fpr=827418C4F4AC58E77230C47334761FF8E7AD43D2
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
-  keydata=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
-  aBeNN4ijKZchBXHPgVx+YtWRHfcm4l8=
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260630190819.GG7481@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PEPF0000000F:EE_|CY8PR12MB8267:EE_
+X-MS-Office365-Filtering-Correlation-Id: a959c263-d134-44dd-9525-08ded6dd50a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|82310400026|36860700016|1800799024|13003099007|18002099003|22082099003|20046099003|11063799006|56012099006|4143699003|6133799003;
+X-Microsoft-Antispam-Message-Info: 8smg1bM6EEIGTo4iPua3NJqHuFpEBBbCDwkisI3tV+dNYsYfYlnfPtO/GJoGC2/+qN9kjh+2lbZ2Z3xHt04Cop95LaNbXrfhe8CKYzhGym747Rn9GOQIDS7QqDqEsL7jwK2aZ3SdqGKjBtLSzj0MfKFslnutcUg1Wk3U1f3XWyZVms9IR/J3PV/rF5QN1at3fBjpBficaw+8sAnOUvWFvDBOV2JA59bjKzS+fWZcwu4xvNO5aPE5bY6Ox9GYNKD3XNPK/CStkwajaOLkiFL+qnP1lQ7s667hRd6a2J5JhnpcLr9yp/zEx6jalB2ZIh3Zc4LcOmDXo0pHpV8LI34hxmSPj//R7r/cOlvwM2vrlTWUxIksCvZ8Rju0nmJD/BWADfpqygLh8yllSkg9yzSJ5Gx+nmlH6BhJg9wZy5cuSjx8DqbJDJZ3EYHH7eEWQpjlcz7DJyI4esmfWU+5PC2slJu2L2kVmVZUXnTyUlGB0ejNP3l/MjhdL2cAD59HzliE5OAO8L9t0sTTfucyUMYBi0dQ6QQAufr7btO6bZxDazyt/QglTyxwiKs9tv7wieUJlOK3lC8uJ61ORyi6r70R23fCwdVGEfVdSkyTUBymfFoHu+tPLDzKKl+O1w/Pac6qaujmvihC5J5IHrMERySxxo7VBEXfqq889SqVUfhkRSzJSGcCGPqzlPdriv3IB2isf5UX83BoCbQbiSlS3x2qFw==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(82310400026)(36860700016)(1800799024)(13003099007)(18002099003)(22082099003)(20046099003)(11063799006)(56012099006)(4143699003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 3tD1AUINm11GzvrVykByft1KRUCP5J8ZBIF955aVUb+wD1JpkM6riO29GmIQCiyRa1q2OyKVP4aVNI95if8GRALIR55Xbq+ElmZf0VrfSPhtAbtjDVX7KMP3Dw0xRwfkOFEeyo9f40QBHT+KxkxEktbRgONPXQ3RfcfrwDj1ysJJRbRuH+v8UhNo1GCVFeEETgN30uy/JLBBPU3jDGhpp/5u5rbzTU2WeZ5d5lXgvp+O88BI7C6f+cISVIyiCUgi2ACbKgQTNOkcDEfhqX1mRr5KpLY4XXazlp7o/TIS0L9dHimIDXXiGTU/RKk6li0TXcKigaKF42J8bLCS4YbFw4HTve7IZRvRcqcB3hafk5Evtpef5jztPGZacuEdGfSWNcvNSlWbwXc+dG9KGQy+IVFLSGP/w67sEeDxU1gY56kx456DbaxOFPeA95uH+ShT
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 19:25:16.0914
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a959c263-d134-44dd-9525-08ded6dd50a7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF0000000F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8267
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_122229_047471_1153E13C 
-X-CRM114-Status: GOOD (  18.51  )
+X-CRM114-CacheID: sfid-20260630_122529_002826_4A0E8A03 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,193 +136,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If configured, use output pin for interrupt signal 1 for the wake alarm.
+On Tue, Jun 30, 2026 at 04:08:19PM -0300, Jason Gunthorpe wrote:
+> On Tue, Jun 30, 2026 at 06:30:41PM +0000, Pranjal Shrivastava wrote:
+> > > As I mentioned above in the previous
+> > > reply I am not sure I understand what situation leads into this, when
+> > > does a device trigger SError to the system vs when not which is observed
+> > > as an event in that case.
+> > 
+> > Ack. I see what you mean now.. How does a DMA fault raise an SError? 
+> 
+> As I gave an example to Robin if the unhandled failure escalates into
+> RAS emergency unplugging CXL memory then the system is going to
+> explode when kdump touches that CXL memory as part of the dumping. It
+> is not quite so simple that a DMA abort is triggering SError.
 
-Successfully Tested on a Synology DS923+.
+Here is link to that email:
+https://lore.kernel.org/all/20260416172005.GB761338@nvidia.com/
 
-Signed-off-by: Markus Probst <markus.probst@posteo.de>
----
- drivers/rtc/rtc-s35390a.c | 61 +++++++++++++++++++++++++++++++++++++----------
- 1 file changed, 49 insertions(+), 12 deletions(-)
+> I don't know exactly the sequence of events that lead up to the kdump
+> kernel crashing (I imagine it is hard to debug that one), but it is
+> something related to the new kernel not participating in the RAS and
+> the RAS flow escalating to something fatal.
 
-diff --git a/drivers/rtc/rtc-s35390a.c b/drivers/rtc/rtc-s35390a.c
-index 4cfe7034c516..6875bf039cbf 100644
---- a/drivers/rtc/rtc-s35390a.c
-+++ b/drivers/rtc/rtc-s35390a.c
-@@ -12,11 +12,13 @@
- #include <linux/bcd.h>
- #include <linux/slab.h>
- #include <linux/delay.h>
-+#include <dt-bindings/rtc/s35390a.h>
- 
- #define S35390A_CMD_STATUS1	0
- #define S35390A_CMD_STATUS2	1
- #define S35390A_CMD_TIME1	2
- #define S35390A_CMD_TIME2	3
-+#define S35390A_CMD_INT1_REG1	4
- #define S35390A_CMD_INT2_REG1	5
- #define S35390A_CMD_FREE_REG    7
- 
-@@ -36,6 +38,7 @@
- #define S35390A_FLAG_POC	BIT(0)
- #define S35390A_FLAG_BLD	BIT(1)
- #define S35390A_FLAG_INT2	BIT(2)
-+#define S35390A_FLAG_INT1	BIT(3)
- #define S35390A_FLAG_24H	BIT(6)
- #define S35390A_FLAG_RESET	BIT(7)
- 
-@@ -50,6 +53,14 @@
- #define S35390A_INT2_MODE_FREQ		BIT(3) /* INT2FE */
- #define S35390A_INT2_MODE_PMIN		(BIT(3) | BIT(2)) /* INT2FE | INT2ME */
- 
-+/* INT1 pin output mode */
-+#define S35390A_INT1_MODE_MASK		0xE0
-+#define S35390A_INT1_MODE_NOINTR	0x00
-+#define S35390A_INT1_MODE_ALARM		BIT(5) /* INT1AE */
-+#define S35390A_INT1_MODE_PMIN_EDG	BIT(6) /* INT1ME */
-+#define S35390A_INT1_MODE_FREQ		BIT(7) /* INT1FE */
-+#define S35390A_INT1_MODE_PMIN		(BIT(7) | BIT(6)) /* INT1FE | INT1ME */
-+
- static const struct i2c_device_id s35390a_id[] = {
- 	{ .name = "s35390a" },
- 	{ }
-@@ -65,6 +76,7 @@ MODULE_DEVICE_TABLE(of, s35390a_of_match);
- struct s35390a {
- 	struct i2c_client *client[8];
- 	int twentyfourhour;
-+	bool wakealarm_use_int1;
- };
- 
- static int s35390a_set_reg(struct s35390a *s35390a, int reg, u8  *buf, int len)
-@@ -275,7 +287,7 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 	struct i2c_client *client = to_i2c_client(dev);
- 	struct s35390a *s35390a = i2c_get_clientdata(client);
- 	u8 buf[3], sts = 0;
--	int err, i;
-+	int err, i, reg;
- 
- 	dev_dbg(&client->dev, "%s: alm is secs=%d, mins=%d, hours=%d mday=%d, "\
- 		"mon=%d, year=%d, wday=%d\n", __func__, alm->time.tm_sec,
-@@ -293,9 +305,13 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 		return err;
- 
- 	if (alm->enabled)
--		sts = S35390A_INT2_MODE_ALARM;
-+		sts = s35390a->wakealarm_use_int1
-+			? S35390A_INT1_MODE_ALARM
-+			: S35390A_INT2_MODE_ALARM;
- 	else
--		sts = S35390A_INT2_MODE_NOINTR;
-+		sts = s35390a->wakealarm_use_int1
-+			? S35390A_INT1_MODE_NOINTR
-+			: S35390A_INT2_MODE_NOINTR;
- 
- 	/* set interrupt mode*/
- 	err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
-@@ -317,8 +333,11 @@ static int s35390a_rtc_set_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 	for (i = 0; i < 3; ++i)
- 		buf[i] = bitrev8(buf[i]);
- 
--	err = s35390a_set_reg(s35390a, S35390A_CMD_INT2_REG1, buf,
--								sizeof(buf));
-+	reg = s35390a->wakealarm_use_int1
-+		? S35390A_CMD_INT1_REG1
-+		: S35390A_CMD_INT2_REG1;
-+
-+	err = s35390a_set_reg(s35390a, reg, buf, sizeof(buf));
- 
- 	return err;
- }
-@@ -328,13 +347,21 @@ static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 	struct i2c_client *client = to_i2c_client(dev);
- 	struct s35390a *s35390a = i2c_get_clientdata(client);
- 	u8 buf[3], sts;
--	int i, err;
-+	int i, err, reg, mask, mode;
- 
- 	err = s35390a_get_reg(s35390a, S35390A_CMD_STATUS2, &sts, sizeof(sts));
- 	if (err < 0)
- 		return err;
- 
--	if ((sts & S35390A_INT2_MODE_MASK) != S35390A_INT2_MODE_ALARM) {
-+	mask = s35390a->wakealarm_use_int1
-+		? S35390A_INT1_MODE_MASK
-+		: S35390A_INT2_MODE_MASK;
-+
-+	mode = s35390a->wakealarm_use_int1
-+		? S35390A_INT1_MODE_ALARM
-+		: S35390A_INT2_MODE_ALARM;
-+
-+	if ((sts & mask) != mode) {
- 		/*
- 		 * When the alarm isn't enabled, the register to configure
- 		 * the alarm time isn't accessible.
-@@ -345,7 +372,11 @@ static int s35390a_rtc_read_alarm(struct device *dev, struct rtc_wkalrm *alm)
- 		alm->enabled = 1;
- 	}
- 
--	err = s35390a_get_reg(s35390a, S35390A_CMD_INT2_REG1, buf, sizeof(buf));
-+	reg = s35390a->wakealarm_use_int1
-+		? S35390A_CMD_INT1_REG1
-+		: S35390A_CMD_INT2_REG1;
-+
-+	err = s35390a_get_reg(s35390a, reg, buf, sizeof(buf));
- 	if (err < 0)
- 		return err;
- 
-@@ -437,10 +468,10 @@ static int s35390a_nvmem_write(void *priv, unsigned int offset, void *val,
- static int s35390a_probe(struct i2c_client *client)
- {
- 	int err, err_read;
--	unsigned int i;
-+	unsigned int i, wakealarm_output_pin = 0;
- 	struct s35390a *s35390a;
- 	struct rtc_device *rtc;
--	u8 buf, status1;
-+	u8 buf, status1, flag;
- 	struct device *dev = &client->dev;
- 	struct nvmem_config nvmem_cfg = {
- 		.name = "s35390a_nvram",
-@@ -452,6 +483,9 @@ static int s35390a_probe(struct i2c_client *client)
- 		.reg_write = s35390a_nvmem_write,
- 	};
- 
-+	fwnode_property_read_u32(dev->fwnode, "sii,wakealarm-output-pin",
-+				 &wakealarm_output_pin);
-+
- 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
- 		return -ENODEV;
- 
-@@ -460,6 +494,7 @@ static int s35390a_probe(struct i2c_client *client)
- 		return -ENOMEM;
- 
- 	s35390a->client[0] = client;
-+	s35390a->wakealarm_use_int1 = wakealarm_output_pin == S35390A_OUTPUT_PIN_INT1;
- 	i2c_set_clientdata(client, s35390a);
- 
- 	/* This chip uses multiple addresses, use dummy devices for them */
-@@ -489,7 +524,9 @@ static int s35390a_probe(struct i2c_client *client)
- 	else
- 		s35390a->twentyfourhour = 0;
- 
--	if (status1 & S35390A_FLAG_INT2) {
-+	flag = s35390a->wakealarm_use_int1 ? S35390A_FLAG_INT1 : S35390A_FLAG_INT2;
-+
-+	if (status1 & flag) {
- 		/* disable alarm (and maybe test mode) */
- 		buf = 0;
- 		err = s35390a_set_reg(s35390a, S35390A_CMD_STATUS2, &buf, 1);
-@@ -514,7 +551,7 @@ static int s35390a_probe(struct i2c_client *client)
- 	set_bit(RTC_FEATURE_ALARM_RES_MINUTE, rtc->features);
- 	clear_bit(RTC_FEATURE_UPDATE_INTERRUPT, rtc->features);
- 
--	if (status1 & S35390A_FLAG_INT2)
-+	if (status1 & flag)
- 		rtc_update_irq(rtc, 1, RTC_AF);
- 
- 	nvmem_cfg.priv = s35390a;
+Here is the original bug report:
+ - kernel boots into a crash kernel
+ - crash kernel hits OOM do to insufficient reserved memory and
+   panics
+ - PCIe errors are observed during this failure flow
 
--- 
-2.54.0
-
+Thanks
+Nicolin
 
