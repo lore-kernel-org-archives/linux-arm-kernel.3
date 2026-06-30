@@ -4,124 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2768C43638
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E13FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:49:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kilHQAUiYtCIXGoXTLzkG+QFNETPWES64QJavnYCw8Q=; b=XWnvTBKubGhCkzPWOy1LhpqA7k
-	G/wbXbdih57M72WyAYcfBLK9pCFtmETD0dYHJLDqOZLJiiXWtCboSTvlRqBFJClDQUa4qtv7REnCz
-	kcM+Op9UgfdzOREUyhl6TFP4VziobgsyyjemvAse+njoY/uS/bl84ZVUmWpaY04LVV3IUREqH/qVz
-	mUubvnBtr4EdB/D18h7/txbPAYi2p53NnEoXriYMNnOuQEVU7FzSUHPa54kTUiLkXo+6w+fK7wWVV
-	f+T5K4dP/DWQnG43zhh7Zd/eWwnIjFhGXlAkp76ZmJUdqzl8iVCP+6n6iTr50vRpQsH/hEmoTrqI3
-	VM4rFcZw==;
+	bh=ldRiNBCOJWyFngcj13VgJQfJt1BIcjx0qrIGck3hjtY=; b=49KGu2JU8uo/A53bdbBqQyIeis
+	a/r0eFeklMYeWBT0dHKGH7YTXhmSjIUw9ozPg9RggGu8jaXcZCdWCIiBt1h7Kiv3WgSjp0RFNW7r5
+	HmxMXojlP1wpQXtS3/Ss7rVAlWx8HtubtZyXURtLcOfPuraX7GQ9ZKD5mG54fHOzkxgfxtDFKCOuM
+	VJqkYR5ZzHUY0Lp5tkUPqhpkxoApWSJt3/u/Bk62E4h2ob9YFPIUgM1QXKN1XntSweddpkoh3KjN7
+	JjcRkfNYi3OMj7WT/5MM4hfIQuImlCY+dF+Y544mrO1059L5EOJR/hEeEGWth1rxO+cKCuo0GfxHo
+	06czLP0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTDg-0000000GBF3-0zfA;
-	Tue, 30 Jun 2026 07:49:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weTDh-0000000GBGQ-2PUg;
+	Tue, 30 Jun 2026 07:49:25 +0000
+Received: from mail-westeuropeazon11011002.outbound.protection.outlook.com ([52.101.70.2] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTDG-0000000GATH-41Sn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 30 Jun 2026 07:49:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=kilHQAUiYtCIXGoXTLzkG+QFNETPWES64QJavnYCw8Q=; b=Qit+AsWSVple84+iO0k79UM8Fz
-	HBZ2tu/PQw7zpy+h4xkqe5OCy4mY/w8KicRYyvrfpgcuIqGaDtQbj6YR7OyMQ60hp3PdXBS1kQ4S6
-	5w7n56gCIgP49/2NVRZixCYmknYIldL4/xzcfRn6mbC+xecLS/7la/DJnpwPZndaU+ALJDWwOECTq
-	b3EA1Tor30pvn6W2dG7ljYtBkQIn5SNk+SdQk4NsvT3hdFwvMIgHojWg7/TTALfT9SsowqN1mN8lb
-	Pu5ytlrjTe76fImyNOAugBEQEumLhQEvezWh0h7UzJ0Lzt8U2Im+yezgwexCPtq/56ytn8PPZIp/S
-	v3UZH6MQ==;
-Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weTDB-00000001cqe-1hSt
+	id 1weTDF-0000000GAPC-2Nam
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:48:57 +0000
-Received: by mail-pj2-x04.google.com with SMTP id d9443c01a7336-2c99784b434so2273875ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 00:48:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782805731; x=1783410531; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kilHQAUiYtCIXGoXTLzkG+QFNETPWES64QJavnYCw8Q=;
-        b=Lxa3SNLewfjO1XWJBqKFQQAD+AD3/E18whJvgN/xGrbdPwTASdXJwiXHSP35YSqv00
-         pT5FLKLDQUEgygiJTtGJl9UvOuDnTz0Kgiux5x+E7lWwZU4tbjr3JHsOuC4wpJMVMBKX
-         zAi9dHNOKWrM7Qa72WowRkzpSlcstIWrMXSLV0u/7TJAKhs0B8c5uBOa2DxoHoTq88tR
-         +bmwdZaUew2XBwS8ZsTXlLF3wdjVjnilBKErPP2S2mmzXCGpW4aUH0thzsDRInhyvnRq
-         XbEjTnqNGhNxhf0LbvnvmLlHPKNzRsxs1s/exgazcnSqMG1ewH6Fa4bZcnOHYPACGVJd
-         vusg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782805731; x=1783410531;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=kilHQAUiYtCIXGoXTLzkG+QFNETPWES64QJavnYCw8Q=;
-        b=a/jZc3qfrpNaNPV+HTeJvbFBjJQnX39MvrIRH7f02tovs8A5fscKR/SPHWEhm3EJLw
-         1qCrP+okL3QCnMlXsnsH3X80Y0vs451QmCpmyQHg32d46zYHP1wAZ2JjtKsfOPfh2jsl
-         ctxk4teiv7/N6kZap0WXDTWNVLhuNIWFGAjaxffo1+CsiNcY8bobtldSHCjQjbozKDXy
-         WhP7iSR2lGqUuoScvzZsQjVewayTrlOmuIPeFwt6lDnyEkyt2d5f0gCz9NDxO6CEx0+W
-         y0B2aLW79jVc52hOZbq2De8OKMmpaayBDcHSjKyvTozFKenGBTQ/mYuxhwFmk+cdiScF
-         kWnA==
-X-Forwarded-Encrypted: i=1; AHgh+RoTwnayXIE3qdMp2fsfuGoN6M7DFTyWoSHsex0ViZ4q3fhKCDhiB5bo+C/ZaiZFciPyXwdaO9rvpD/B4snjWGWq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5Evop8T/euHoINzCWtRREzyUHlDCq+3WllWgvl/SG8GKCk7Za
-	u8T33B0BV5gSgDBXC+xSuln/TgDvYtI2EaY7FGkG4Ce1G+YsqrIYNO0P
-X-Gm-Gg: AfdE7ck1yNkQpZIuUzm4nTb9DGer2mKCp2i33ZNApNmCIOPF9LS8oxwxjqv89Arfo6L
-	Mi6RSbUbAtsY8l09ZgOCYrGW7iuSooSHu1cceof/WO+LQi0zuD6LYKI1ZX+x2i+VeV7QrLmylV1
-	g5eZCXvCmghs4Bd8wevUKucqut45wCCxCLq0uedg+kFfPR3N65jpyy8P0Mv8wWuBHknlHgBP3Ji
-	E1VUc7h6FAkSm8UG9Ao+PBnXpvA/NIL3j60ZC3XkJv5uHnyBPr2N1xJrTSepNE0RbS8GWoG8kg2
-	Jf8huguH4KWN3Nx4fHxc2attZKWedktPOQrGXdfZzRBuF6dJ/eSKd7o1ym1HqR9b2HxmBpCx235
-	fnyowEetfloAt6U8L3KqSwA9qBvKwyhzUYNmXFlmAMCKXb6zGA1BOL8bwaGaoqSdQoDjys6ipUv
-	8xxjxEEyppYxm3zmLrvw0/v/3N/A==
-X-Received: by 2002:a17:902:dad1:b0:2c9:d55d:2d3 with SMTP id d9443c01a7336-2ca2d55dedbmr19212325ad.15.1782805731371;
-        Tue, 30 Jun 2026 00:48:51 -0700 (PDT)
-Received: from intel.company.local ([210.184.73.204])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca382a2d3dsm7821045ad.55.2026.06.30.00.48.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 00:48:50 -0700 (PDT)
-From: Wandun Chen <chenwandun1@gmail.com>
-To: chenhuacai@kernel.org,
-	kernel@xen0n.name,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	robh@kernel.org,
-	saravanak@kernel.org,
-	bhe@redhat.com,
-	rppt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	Tue, 30 Jun 2026 07:49:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jMBuqure5bm5sOg6732aXqC00Tvm4eOzE1of2VqzmYxOONcLnhfbwkOtqv4GkbA7bO28xmpXYt/+WluQOJyUw84YmbhX8fOGGRtZc0ft3DvDJUxp3jJAHiPim/KV/iHBJynpUctoDrQ6K4F+CmPCBoX5aqwbvf8r0IK5XtNSXHAy4q6Yt44yhJvvL7XJ/Ya0ruuEIHl7GptZINbXslymEjtbTQcclsv6zB5mK0sWoqPPZE+MR9cvkc/dzGNKUwh05boCFEA9Cd879a7Sika1iSKIA987aBvUW+Qdlr6PG4uEceU8UW6Qcowbei8P4Ujkq0IQ3V8qqjNr+cTT6kUrgQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ldRiNBCOJWyFngcj13VgJQfJt1BIcjx0qrIGck3hjtY=;
+ b=sIwTFZRHYH0oJz71pD7pGGlKnrP7EdviNCFIbzV4islDXbL24KMs5Yvkuox/CMWEayzcK46f9Wex9kOCdknkWgdpnIpxxajvSsQBQHGc3nVefPTyidpZav9PaXmRPkCMi9VLckkXn6QcPo/zewoss44J/vEjAR6g7dlGbqtSH77AW3ZxFwq7NOmLewBdQnM66P7xTZadllmrj6habRZLDr/GlCZEd+zYtdrGxsuR2ldW10pZLn/voMuJljAPkpmPMXTRM19QAy1k0gLKmL13AkzkdwJ+9jDcWvrXLWV3lo92yHosMPzIAya7cS+z47EktQXA+qNPyZBWhBm2MHzFvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ldRiNBCOJWyFngcj13VgJQfJt1BIcjx0qrIGck3hjtY=;
+ b=E1rCX5tQzGcGlq8fGvrfzTDiH5hjw1fvfNZRRT/xdrRmANIh8RYthHfey7v7CRkAbAxnWHzljOOlvUCUVTTG4LlvSCpra3NvnC15S3/L2nBClg+/d3pPa/D9Iw6qc08B8pymX56EUU/zaW/EdGpIWkvfCNgx3QE9NLU1P/Lk6iCBqHItmK0okuHZYXBTf9vc8PHe96ihtDnGm09y18/GyPMlUvTl4Pj+EFqUSKmRv9+lMnYyA7cmsb16y9dz7OiR/2VOOnwxz8j16jE6j46fRpZFRo6gKQiHQiZ2NerMTLR2lAxe8QaOH0P+5dZeFsMvR1HGh1aYkbcKXgBxBqz8QA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
+ by DU0PR04MB9561.eurprd04.prod.outlook.com (2603:10a6:10:312::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 07:48:51 +0000
+Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
+ ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
+ ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
+ 07:48:51 +0000
+From: wei.fang@oss.nxp.com
+To: claudiu.manoil@nxp.com,
+	vladimir.oltean@nxp.com,
+	xiaoning.wang@nxp.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux@armlinux.org.uk,
+	wei.fang@nxp.com,
+	chleroy@kernel.org
+Cc: imx@lists.linux.dev,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	kexec@lists.infradead.org,
-	iommu@lists.linux.dev,
-	zhaomeijing@lixiang.com
-Cc: catalin.marinas@arm.com,
-	will@kernel.org,
-	alex@ghiti.fr,
-	akpm@linux-foundation.org,
-	pasha.tatashin@soleen.com,
-	pratyush@kernel.org,
-	ruirui.yang@linux.dev,
-	m.szyprowski@samsung.com,
-	robin.murphy@arm.com
-Subject: [PATCH v4 08/10] arm64: kdump: exclude non-dumpable reserved memory regions from vmcore
-Date: Tue, 30 Jun 2026 15:47:12 +0800
-Message-ID: <20260630074715.4126796-9-chenwandun1@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260630074715.4126796-1-chenwandun1@gmail.com>
-References: <20260630074715.4126796-1-chenwandun1@gmail.com>
-MIME-Version: 1.0
+	linuxppc-dev@lists.ozlabs.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next 03/14] net: enetc: convert ndo_set_rx_mode() to ndo_set_rx_mode_async()
+Date: Tue, 30 Jun 2026 15:20:25 +0800
+Message-Id: <20260630072036.382761-4-wei.fang@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260630072036.382761-1-wei.fang@oss.nxp.com>
+References: <20260630072036.382761-1-wei.fang@oss.nxp.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0036.apcprd02.prod.outlook.com
+ (2603:1096:4:195::15) To VE1PR04MB7216.eurprd04.prod.outlook.com
+ (2603:10a6:800:1b0::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|DU0PR04MB9561:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9dec691b-4ecf-444a-9cf0-08ded67c0705
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|19092799006|921020|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: EX7hTWjZFPggv2YMKp0Z7nclDizfWQ0+Ol+aU8taHv0V3iKbRI28+04+t0gE2Nz2H6xdC5pOndm9E79foZRc5g7TnyXh9FprYDD6T8IsN7ViHLn6HF2eZPLJoa6EPOEjnd2K9U48eKGLZCCzdbI6VaTNo6YPr91cQQHrJWX48yFeDWBQpVLQU62uJccTu+mwq43xBZ49gVsLghlutO3833ls32xbLogRtkr1aTHy3ONi1BgfYOd3pVpn6KeeCA/LuDm6wEEvVVroSWepRNb6u1j+gHgFjxU0o+B7jf96qERHmCnVXJ49es420slImjkFXuBNVrsJwG0FPhHeY1edmKiDQmLB3oNE1V8B3M4AnI8aPIa5n1SrFzY0fwZz40+PEIb1DnY+WdqIGAHUbCtlexH0LvqP2XOXo/iqnldxYnfbEzLDTlU8Z8byh6NLasZixCto1PCRmA6GnxKAvuUwfG2khZk+NHLVVAdL/R5wTmkvX1eVtmc1jd3JYEEdRnmVrQdKAV+rmg95ODaMUivnRcG0AETATX8G0X6NpIi2voxnTAJ9yW3EEOOU3/tA9zePy5ydxeDeton56ij35Z95WvGiYGW/b/aIUR+b732LQ65ZNI50VygcxiW9EonPbRi3mmlhiXICgXTKK+JEnoJ18PoauwvQ3LD3Qc1w1oRT6DeYWHtJ4tMrIUtpGk6Kq755B+QoVXey4U8bYQFSkaf6JQ==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(19092799006)(921020)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Fd30cYcM+3+BB1LMoNIUoqKA8vferQWnQGt9haJi6JSK/u8gCYige9CEead0?=
+ =?us-ascii?Q?/N7DtwnsE2ppGp2lrovXi/i0lQ1ego3s0HxBkHvZOHlZD5ORZhuj3twv5pCo?=
+ =?us-ascii?Q?yhjCexSv0K4eSQIaqhz4jaSn3dSwL17uCtjf6IREPU/NW7dIrV25RgA2/CgR?=
+ =?us-ascii?Q?MtPO6RUCZKLkXla5U2XAPMO95nhfC8SR/iF6KPt/mJsWSNK3VZ4Kt5Kbe8H+?=
+ =?us-ascii?Q?/DGdVmYtNHKWkJHTku8TbbOQaUqNGmXwREPfZAkxTzXtG37rMIMaBeKf9Zqw?=
+ =?us-ascii?Q?oAwO5WYLEw8Dl8MN5GNHl74xrOcvdj5sfDQzbw+3bprfCSkL+gneeWXZ+Ixh?=
+ =?us-ascii?Q?rxf2GTtbOk1uiqP5gKqSLOCSHJb8vNHl6ojdSGZVIdSnkIHZIsLNR+4+JraK?=
+ =?us-ascii?Q?qUVx8tyC5xhnK0B0T7zhcTT9L+SgejrraX7a621zEJBeYu9lS7LHn9iifkfb?=
+ =?us-ascii?Q?PZBhZut9//kdHZZ5ZUBsNTj9mJX1gkc/QPBMxHh2EXLT9sdvLVrOOxfrVziz?=
+ =?us-ascii?Q?2ewM5g9beHN9pzAPm5MJaDflz6YBdZFgZZpPH5//wuXN3Kcl0lSMUaZvHl30?=
+ =?us-ascii?Q?BjdUVYDUqrP84Ymz14o7r/z5taoc8jNdGEvxOZAUUUnuHzir+r+VnLAfyktv?=
+ =?us-ascii?Q?LY7NNsNXqM+Xxxl4fF6YfxX/M3Hnw6/tbBbX0+fVDC42btiGhEBx6xKAMxOx?=
+ =?us-ascii?Q?W8ZhOLeTPGZ552ZPIlhd7aJe/24Xy0CVps95Tw7F/4uKZ7ccJfjYDT9tK4HM?=
+ =?us-ascii?Q?xsQ1xGzUyR9D5QEspyydrj3B/6eb1OzneRYGZ0XRrGIEQsdXw73ymjC/ocQc?=
+ =?us-ascii?Q?OcH9uwoKB2iPKhK90HG+wYM99b9Om7qYvrOpmkUQKt0S7ghkr3UGvMv9bOWS?=
+ =?us-ascii?Q?4hsJxvAGbhWGPNcvwjwRQlKOTwheIAY775T8us7oNHTR0fa4z1ifNFJo/XAu?=
+ =?us-ascii?Q?M31nNeZSv4txoa69JYAWwJUrg2SZ2uprqBkOkyahSzqWnxWwkaw2RUXWQN5b?=
+ =?us-ascii?Q?CiB7/0aStrH4TIa8Okfl2FKUx/9pOzq2oqsBkG2Rc1xiv37Z+jagglTcbUJ3?=
+ =?us-ascii?Q?Ktn9C9atyCLo1/xCSk6t2GT8q1MtVAbzlAmmsv7+m+SLRfnyh7XYeOMGUeE5?=
+ =?us-ascii?Q?moX5mmH1RLeS6CHUOoj6/u81Bc0ag+rWBoYf9gGRP7YU4bn2XpPm6vygFrbt?=
+ =?us-ascii?Q?D/wyb1dnkO4ISotKmwbaC7hKY+kilC+8x3eqrn+WkidBXFamJbx/NoudUlAy?=
+ =?us-ascii?Q?jrcV+Pm7kfbLNfV2IIg3AODviyx1l921wnmpsJs2qJinuGtkutGyS0Bdr9C9?=
+ =?us-ascii?Q?fAfShkKqIzcUYZ6kWLrOcnyYIQ08/Dgj7tojBKjpQ6Z7O1FKHuJDaoVdSQzo?=
+ =?us-ascii?Q?/RUvTYWXtMHmXczP4D4MHP4JY50gtfH9cuY0NXX12Nolk/LHgNWrJci6q2Qa?=
+ =?us-ascii?Q?KdzHjVWUngVPq+w5u60n5tZ482nIRqGY3axu2ttOQiabfTYFKpcOLFQ8vs55?=
+ =?us-ascii?Q?F/kdeQvNwQF4HDQY0LbeEcmp9T5KeWH2/riYt+ar8IQCA0PkdixA4Afpgrx4?=
+ =?us-ascii?Q?dwKQpEnR1zaV1ckgJ0fHpkapflJU9QEbdAcV9QeaewBPhUlBXcJSLZd/TH5y?=
+ =?us-ascii?Q?z6nfWtkhdbHuA0JXV9bB+5iBSco6SVoC6UW0ng2zFcpELctwz9MaxIlMCv61?=
+ =?us-ascii?Q?/ZHRtdjt6v2qK1eWeOUEbYFSWsVjM+M8ZRq7m3AbkLCQlIXoIDM++kO9+0Tf?=
+ =?us-ascii?Q?ueMpXjumYMECLpLmzlKY4tCnAy2lUEUuRMTkuLia8kPtJyUpB5Ui?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9dec691b-4ecf-444a-9cf0-08ded67c0705
+X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 07:48:51.8052
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ChK2gCbkWoIjA2CP418pGX39TZLQQ09RgVl2jG190UdgsdnxBnMGBcc+/IjYff1kZ6zxbjy4qyK11+unmNNJHdBldL/4E7O6nP4YNIe0vA2vZk201w9WpwRpcFjidRew
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9561
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_084855_428460_A9A9FB41 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20260630_004857_790101_6BA55EEB 
+X-CRM114-Status: GOOD (  19.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,56 +149,343 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wandun Chen <chenwandun@lixiang.com>
+From: Wei Fang <wei.fang@nxp.com>
 
-Reserved memory regions are excluded from vmcore by default unless
-marked dumpable. Honor the dumpable flag to filter out device firmware
-regions (e.g., GPU, DSP, modem) reserved via device tree, since they
-typically contain data not useful for kernel crash analysis and can
-significantly increase vmcore size.
+The current ndo_set_rx_mode() is called under netif_addr_lock spinlock
+with BHs disabled, which prevents drivers from sleeping. To work around
+this limitation, the enetc driver uses a dedicated workqueue to defer
+MAC address list updates to a sleepable context.
 
-Use of_reserved_mem_kdump_exclude() to perform the exclusion, and
-pre-size the crash_mem array via of_reserved_mem_kdump_nr_ranges().
+Since commit 3554b4345d85 ("net: introduce ndo_set_rx_mode_async and
+netdev_rx_mode_work") introduced the ndo_set_rx_mode_async() callback,
+drivers can now handle address list updates directly in a sleepable
+context.
 
-Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
-Tested-by: Meijing Zhao <zhaomeijing@lixiang.com>
-Acked-by: Will Deacon <will@kernel.org>
+Therefore, convert the enetc driver to use ndo_set_rx_mode_async() and
+remove the dedicated workqueue and the deferred work item accordingly.
+
+Signed-off-by: Wei Fang <wei.fang@nxp.com>
 ---
- arch/arm64/kernel/machine_kexec_file.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/net/ethernet/freescale/enetc/enetc.h  |   2 -
+ .../net/ethernet/freescale/enetc/enetc4_pf.c  | 178 ++++++------------
+ 2 files changed, 58 insertions(+), 122 deletions(-)
 
-diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
-index e31fabed378a..1d65320c6ba4 100644
---- a/arch/arm64/kernel/machine_kexec_file.c
-+++ b/arch/arm64/kernel/machine_kexec_file.c
-@@ -17,6 +17,7 @@
- #include <linux/memblock.h>
- #include <linux/of.h>
- #include <linux/of_fdt.h>
-+#include <linux/of_reserved_mem.h>
- #include <linux/slab.h>
- #include <linux/string.h>
- #include <linux/types.h>
-@@ -51,6 +52,7 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 	nr_ranges = 2; /* for exclusion of crashkernel region */
- 	for_each_mem_range(i, &start, &end)
- 		nr_ranges++;
-+	nr_ranges += of_reserved_mem_kdump_nr_ranges();
+diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
+index 04a5dd5ea6c7..06a9f1ee0970 100644
+--- a/drivers/net/ethernet/freescale/enetc/enetc.h
++++ b/drivers/net/ethernet/freescale/enetc/enetc.h
+@@ -324,8 +324,6 @@ struct enetc_si {
+ 	const struct enetc_drvdata *drvdata;
+ 	const struct enetc_si_ops *ops;
  
- 	cmem = kmalloc_flex(*cmem, ranges, nr_ranges);
- 	if (!cmem)
-@@ -75,6 +77,10 @@ static int prepare_elf_headers(void **addr, unsigned long *sz)
- 			goto out;
+-	struct workqueue_struct *workqueue;
+-	struct work_struct rx_mode_task;
+ 	struct dentry *debugfs_root;
+ 	struct enetc_msg_swbd msg; /* Only valid for VSI */
+ };
+diff --git a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+index 48a74db90ed5..a02b01753ff2 100644
+--- a/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
++++ b/drivers/net/ethernet/freescale/enetc/enetc4_pf.c
+@@ -101,24 +101,23 @@ static void enetc4_pf_clear_maft_entries(struct enetc_pf *pf)
+ }
+ 
+ static int enetc4_pf_add_maft_entries(struct enetc_pf *pf,
+-				      struct enetc_mac_addr *mac,
+-				      int mac_cnt)
++				      struct netdev_hw_addr_list *uc)
+ {
+ 	struct maft_entry_data maft = {};
++	struct netdev_hw_addr *ha;
+ 	u16 si_bit = BIT(0);
+-	int i, err;
++	int err;
+ 
+ 	maft.cfge.si_bitmap = cpu_to_le16(si_bit);
+-	for (i = 0; i < mac_cnt; i++) {
+-		ether_addr_copy(maft.keye.mac_addr, mac[i].addr);
+-		err = ntmp_maft_add_entry(&pf->si->ntmp_user, i, &maft);
+-		if (unlikely(err)) {
+-			pf->num_mfe = i;
++	netdev_hw_addr_list_for_each(ha, uc) {
++		ether_addr_copy(maft.keye.mac_addr, ha->addr);
++		err = ntmp_maft_add_entry(&pf->si->ntmp_user, pf->num_mfe,
++					  &maft);
++		if (unlikely(err))
+ 			goto clear_maft_entries;
+-		}
+-	}
+ 
+-	pf->num_mfe = mac_cnt;
++		pf->num_mfe++;
++	}
+ 
+ 	return 0;
+ 
+@@ -128,23 +127,29 @@ static int enetc4_pf_add_maft_entries(struct enetc_pf *pf,
+ 	return  err;
+ }
+ 
+-static int enetc4_pf_set_uc_exact_filter(struct enetc_pf *pf)
++static void enetc4_pf_set_uc_hash_filter(struct enetc_pf *pf,
++					 struct netdev_hw_addr_list *uc)
+ {
+-	int max_num_mfe = pf->caps.mac_filter_num;
+-	struct enetc_mac_filter mac_filter = {};
+-	struct net_device *ndev = pf->si->ndev;
+-	struct enetc_mac_addr *mac_tbl;
+-	struct enetc_si *si = pf->si;
++	struct enetc_mac_filter *mac_filter = &pf->mac_filter[UC];
+ 	struct netdev_hw_addr *ha;
+-	int i = 0, err;
+-	int mac_cnt;
+ 	u64 hash;
+ 
+-	netif_addr_lock_bh(ndev);
++	enetc_reset_mac_addr_filter(mac_filter);
++	netdev_hw_addr_list_for_each(ha, uc)
++		enetc_add_mac_addr_ht_filter(mac_filter, ha->addr);
++
++	bitmap_to_arr64(&hash, mac_filter->mac_hash_table,
++			ENETC_MADDR_HASH_TBL_SZ);
++	enetc_set_si_uc_hash_filter(pf->si, 0, hash);
++}
++
++static int enetc4_pf_set_uc_exact_filter(struct enetc_pf *pf,
++					 struct netdev_hw_addr_list *uc)
++{
++	int mac_cnt = netdev_hw_addr_list_count(uc);
++	struct enetc_si *si = pf->si;
+ 
+-	mac_cnt = netdev_uc_count(ndev);
+ 	if (!mac_cnt) {
+-		netif_addr_unlock_bh(ndev);
+ 		/* clear both MAC hash and exact filters */
+ 		enetc_set_si_uc_hash_filter(si, 0, 0);
+ 		enetc4_pf_clear_maft_entries(pf);
+@@ -152,79 +157,42 @@ static int enetc4_pf_set_uc_exact_filter(struct enetc_pf *pf)
+ 		return 0;
  	}
  
-+	ret = of_reserved_mem_kdump_exclude(cmem);
-+	if (ret)
-+		goto out;
-+
- 	ret = crash_prepare_elf64_headers(cmem, true, addr, sz);
+-	if (mac_cnt > max_num_mfe) {
+-		err = -ENOSPC;
+-		goto unlock_netif_addr;
+-	}
+-
+-	mac_tbl = kzalloc_objs(*mac_tbl, mac_cnt, GFP_ATOMIC);
+-	if (!mac_tbl) {
+-		err = -ENOMEM;
+-		goto unlock_netif_addr;
+-	}
+-
+-	netdev_for_each_uc_addr(ha, ndev) {
+-		enetc_add_mac_addr_ht_filter(&mac_filter, ha->addr);
+-		ether_addr_copy(mac_tbl[i++].addr, ha->addr);
+-	}
+-
+-	netif_addr_unlock_bh(ndev);
++	if (mac_cnt > pf->caps.mac_filter_num)
++		return -ENOSPC;
  
- out:
+ 	/* Set temporary unicast hash filters in case of Rx loss when
+ 	 * updating MAC address filter table
+ 	 */
+-	bitmap_to_arr64(&hash, mac_filter.mac_hash_table,
+-			ENETC_MADDR_HASH_TBL_SZ);
+-	enetc_set_si_uc_hash_filter(si, 0, hash);
++	enetc4_pf_set_uc_hash_filter(pf, uc);
+ 	enetc4_pf_clear_maft_entries(pf);
+ 
+-	if (!enetc4_pf_add_maft_entries(pf, mac_tbl, i))
++	if (!enetc4_pf_add_maft_entries(pf, uc)) {
++		enetc_reset_mac_addr_filter(&pf->mac_filter[UC]);
+ 		enetc_set_si_uc_hash_filter(si, 0, 0);
+-
+-	kfree(mac_tbl);
++	}
+ 
+ 	return 0;
+-
+-unlock_netif_addr:
+-	netif_addr_unlock_bh(ndev);
+-
+-	return err;
+ }
+ 
+-static void enetc4_pf_set_mac_hash_filter(struct enetc_pf *pf, int type)
++static void enetc4_pf_set_mc_hash_filter(struct enetc_pf *pf,
++					 struct netdev_hw_addr_list *mc)
+ {
+-	struct net_device *ndev = pf->si->ndev;
+-	struct enetc_mac_filter *mac_filter;
+-	struct enetc_si *si = pf->si;
++	struct enetc_mac_filter *mac_filter = &pf->mac_filter[MC];
+ 	struct netdev_hw_addr *ha;
+ 	u64 hash;
+ 
+-	netif_addr_lock_bh(ndev);
+-	if (type & ENETC_MAC_FILTER_TYPE_UC) {
+-		mac_filter = &pf->mac_filter[UC];
+-		enetc_reset_mac_addr_filter(mac_filter);
+-		netdev_for_each_uc_addr(ha, ndev)
+-			enetc_add_mac_addr_ht_filter(mac_filter, ha->addr);
+-
+-		bitmap_to_arr64(&hash, mac_filter->mac_hash_table,
+-				ENETC_MADDR_HASH_TBL_SZ);
+-		enetc_set_si_uc_hash_filter(si, 0, hash);
+-	}
++	enetc_reset_mac_addr_filter(mac_filter);
++	netdev_hw_addr_list_for_each(ha, mc)
++		enetc_add_mac_addr_ht_filter(mac_filter, ha->addr);
+ 
+-	if (type & ENETC_MAC_FILTER_TYPE_MC) {
+-		mac_filter = &pf->mac_filter[MC];
+-		enetc_reset_mac_addr_filter(mac_filter);
+-		netdev_for_each_mc_addr(ha, ndev)
+-			enetc_add_mac_addr_ht_filter(mac_filter, ha->addr);
+-
+-		bitmap_to_arr64(&hash, mac_filter->mac_hash_table,
+-				ENETC_MADDR_HASH_TBL_SZ);
+-		enetc_set_si_mc_hash_filter(si, 0, hash);
+-	}
+-	netif_addr_unlock_bh(ndev);
++	bitmap_to_arr64(&hash, mac_filter->mac_hash_table,
++			ENETC_MADDR_HASH_TBL_SZ);
++	enetc_set_si_mc_hash_filter(pf->si, 0, hash);
+ }
+ 
+-static void enetc4_pf_set_mac_filter(struct enetc_pf *pf, int type)
++static void enetc4_pf_set_mac_filter(struct enetc_pf *pf, int type,
++				     struct netdev_hw_addr_list *uc,
++				     struct netdev_hw_addr_list *mc)
+ {
+ 	/* Currently, the MAC address filter table (MAFT) only has 4 entries,
+ 	 * and multiple multicast addresses for filtering will be configured
+@@ -232,15 +200,16 @@ static void enetc4_pf_set_mac_filter(struct enetc_pf *pf, int type)
+ 	 * unicast filtering. If the number of unicast addresses exceeds the
+ 	 * table capacity, the MAC hash filter will be used.
+ 	 */
+-	if (type & ENETC_MAC_FILTER_TYPE_UC && enetc4_pf_set_uc_exact_filter(pf)) {
++	if (type & ENETC_MAC_FILTER_TYPE_UC &&
++	    enetc4_pf_set_uc_exact_filter(pf, uc)) {
+ 		/* Fall back to the MAC hash filter */
+-		enetc4_pf_set_mac_hash_filter(pf, ENETC_MAC_FILTER_TYPE_UC);
++		enetc4_pf_set_uc_hash_filter(pf, uc);
+ 		/* Clear the old MAC exact filter */
+ 		enetc4_pf_clear_maft_entries(pf);
+ 	}
+ 
+ 	if (type & ENETC_MAC_FILTER_TYPE_MC)
+-		enetc4_pf_set_mac_hash_filter(pf, ENETC_MAC_FILTER_TYPE_MC);
++		enetc4_pf_set_mc_hash_filter(pf, mc);
+ }
+ 
+ static const struct enetc_pf_ops enetc4_pf_ops = {
+@@ -467,17 +436,17 @@ static void enetc4_pf_free(struct enetc_pf *pf)
+ 	enetc4_free_ntmp_user(pf->si);
+ }
+ 
+-static void enetc4_psi_do_set_rx_mode(struct work_struct *work)
++static int enetc4_pf_set_rx_mode(struct net_device *ndev,
++				 struct netdev_hw_addr_list *uc,
++				 struct netdev_hw_addr_list *mc)
+ {
+-	struct enetc_si *si = container_of(work, struct enetc_si, rx_mode_task);
+-	struct enetc_pf *pf = enetc_si_priv(si);
+-	struct net_device *ndev = si->ndev;
++	struct enetc_ndev_priv *priv = netdev_priv(ndev);
++	struct enetc_pf *pf = enetc_si_priv(priv->si);
++	struct enetc_si *si = priv->si;
+ 	bool uc_promisc = false;
+ 	bool mc_promisc = false;
+ 	int type = 0;
+ 
+-	rtnl_lock();
+-
+ 	if (ndev->flags & IFF_PROMISC) {
+ 		uc_promisc = true;
+ 		mc_promisc = true;
+@@ -500,17 +469,9 @@ static void enetc4_psi_do_set_rx_mode(struct work_struct *work)
+ 		enetc_set_si_mc_hash_filter(si, 0, 0);
+ 
+ 	/* Set new MAC filter */
+-	enetc4_pf_set_mac_filter(pf, type);
+-
+-	rtnl_unlock();
+-}
++	enetc4_pf_set_mac_filter(pf, type, uc, mc);
+ 
+-static void enetc4_pf_set_rx_mode(struct net_device *ndev)
+-{
+-	struct enetc_ndev_priv *priv = netdev_priv(ndev);
+-	struct enetc_si *si = priv->si;
+-
+-	queue_work(si->workqueue, &si->rx_mode_task);
++	return 0;
+ }
+ 
+ static int enetc4_pf_set_features(struct net_device *ndev,
+@@ -540,7 +501,7 @@ static const struct net_device_ops enetc4_ndev_ops = {
+ 	.ndo_start_xmit		= enetc_xmit,
+ 	.ndo_get_stats		= enetc_get_stats,
+ 	.ndo_set_mac_address	= enetc_pf_set_mac_addr,
+-	.ndo_set_rx_mode	= enetc4_pf_set_rx_mode,
++	.ndo_set_rx_mode_async	= enetc4_pf_set_rx_mode,
+ 	.ndo_set_features	= enetc4_pf_set_features,
+ 	.ndo_vlan_rx_add_vid	= enetc_vlan_rx_add_vid,
+ 	.ndo_vlan_rx_kill_vid	= enetc_vlan_rx_del_vid,
+@@ -983,19 +944,6 @@ static void enetc4_link_deinit(struct enetc_ndev_priv *priv)
+ 	enetc_mdiobus_destroy(pf);
+ }
+ 
+-static int enetc4_psi_wq_task_init(struct enetc_si *si)
+-{
+-	char wq_name[24];
+-
+-	INIT_WORK(&si->rx_mode_task, enetc4_psi_do_set_rx_mode);
+-	snprintf(wq_name, sizeof(wq_name), "enetc-%s", pci_name(si->pdev));
+-	si->workqueue = create_singlethread_workqueue(wq_name);
+-	if (!si->workqueue)
+-		return -ENOMEM;
+-
+-	return 0;
+-}
+-
+ static int enetc4_pf_netdev_create(struct enetc_si *si)
+ {
+ 	struct device *dev = &si->pdev->dev;
+@@ -1036,12 +984,6 @@ static int enetc4_pf_netdev_create(struct enetc_si *si)
+ 	if (err)
+ 		goto err_link_init;
+ 
+-	err = enetc4_psi_wq_task_init(si);
+-	if (err) {
+-		dev_err(dev, "Failed to init workqueue\n");
+-		goto err_wq_init;
+-	}
+-
+ 	err = register_netdev(ndev);
+ 	if (err) {
+ 		dev_err(dev, "Failed to register netdev\n");
+@@ -1051,8 +993,6 @@ static int enetc4_pf_netdev_create(struct enetc_si *si)
+ 	return 0;
+ 
+ err_reg_netdev:
+-	destroy_workqueue(si->workqueue);
+-err_wq_init:
+ 	enetc4_link_deinit(priv);
+ err_link_init:
+ 	enetc_free_msix(priv);
+@@ -1070,8 +1010,6 @@ static void enetc4_pf_netdev_destroy(struct enetc_si *si)
+ 	struct net_device *ndev = si->ndev;
+ 
+ 	unregister_netdev(ndev);
+-	cancel_work(&si->rx_mode_task);
+-	destroy_workqueue(si->workqueue);
+ 	enetc4_link_deinit(priv);
+ 	enetc_free_msix(priv);
+ 	free_netdev(ndev);
 -- 
-2.43.0
+2.34.1
 
 
