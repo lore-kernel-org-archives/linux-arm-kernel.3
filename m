@@ -4,162 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD681C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1F3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=w2OsffPaljUnfIc1R39qtDTAEk/xnYvtAcFLQWkHKg4=; b=sjvSZdcrGE12n0EL8ihGGFrqYJ
-	mp3yER+eHCdP56UqQ/v9GthTqFNYoGYm7a0adV6y2lgQhEJGgR5NXVVkVwoB9eLKEUcY6Dix4NFHB
-	KPa+pftbRz0EF4hv441o6d8LK6TNQvNESPvaTJFacs2ZgV/zzEaWjj8bAqORl4VdAkZ5EWuH2v65O
-	kV6umA99JBc/BHcohUufqw/pmvN5YM8/7q5lrdMumAQpjpboeA81s1cXtbnqxN6szpjL2/DwVxd1H
-	h1b8yb5oC6gA0ln9MeOXPN0OOPCcbsse2Ni/hBdR7gJ6lzplMtSuLGqE5sCIrenW8kBKr1dncDNgB
-	mTi0TXpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rM6OvZZe13aVxpDsb1hvvGn8Q17YnmVIbt+aAcb9Ak8=; b=0x0PUltpwSRbW9sSniaig9SF1C
+	X8ty+SGFelJlgMm3ReaGNK1VzbmTvovzo688HJtjFuo3KkmsuFbszP40iqX8OlbflCPJ0Z6vzvqtg
+	b6noEWoWbEXk8fX6CynYiV3JrYoCgRlYFurrRJ4ZeyUxk01Eo254p87YQSBij9R1jEwQ71rPieSRg
+	Y08/XiRv43LwCfmvViUhp1vYNS1RgZHVSrsT5DB6m3DWkT7heO0KW2vL+OYqCn+uFRGkERcDAMnA5
+	MTiyP9DEmScQu1vIYZNkAs3UVrhf2QRdt5tuV8QpTsBDyqqQ8Rl5g7UY1nESpA3K5J/7+bYooDKcE
+	quZAqHfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wea63-0000000HLJs-0P5u;
-	Tue, 30 Jun 2026 15:09:59 +0000
-Received: from mx0a-0002e601.pphosted.com ([148.163.150.75])
+	id 1wea9v-0000000HLaC-3D1L;
+	Tue, 30 Jun 2026 15:13:59 +0000
+Received: from mail-northcentralusazon11013004.outbound.protection.outlook.com ([40.107.201.4] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wea5z-0000000HLJN-1zUi
+	id 1wea9t-0000000HLZo-33i3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 15:09:57 +0000
-Received: from pps.filterd (m0384305.ppops.net [127.0.0.1])
-	by m0384305.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 65UEdQdV804568;
-	Tue, 30 Jun 2026 10:09:53 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=proofpoint-05-2026; bh=w2OsffPaljUnf
-	Ic1R39qtDTAEk/xnYvtAcFLQWkHKg4=; b=nF1noUCoy2yK9gh+qiXkbqgorGS1L
-	4HOVlJcsibla897ew1xZYd6p9zr+EDr4nhgMuJF9MdqzOaX8Mse65D9v65K2Fzqa
-	Y8hDftGxzo142D1BCwbtvGZ+9uy5zE0C/uEzIcg8OoQu3p0z9ikqryqC8mC57QAE
-	3CZZE9N62+eP3BxfEij1QrSbXCe7v4XbwzPcjztmHWB5k/Pkn8yhEzr89dJqhrwB
-	nrj4fXyMkJy3h+IsqHK/2+bHY9xXIz1RTzhbQIRaHo4oEC7a9FsfQJCszBIEzjVt
-	7SA5aMapubgfBleRsIuf8nVvYD/0kBb+H6U2AZavkMLsdG3gTVKqn7fYA==
-Received: from ch4pr04cu002.outbound.protection.outlook.com (mail-northcentralusazon11013043.outbound.protection.outlook.com [40.107.201.43])
-	by m0384305.ppops.net (PPS) with ESMTPS id 4f4cqj9bq6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 30 Jun 2026 10:09:52 -0500 (CDT)
+	Tue, 30 Jun 2026 15:13:58 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JwYNDbpfkI1XiGhUVkaY//o/Vj6OtKkLi1gG1qK+MjmuMwzqO+gAtnKvzQyoLSDgAlTjiffIfZxi+V366a5ggrtsclNipAfimQofNt8Lxv/NlYF3G2kILOWIFAiBD7Na/y29zBafMH1MxDgjI+GlMDE2frgkZYRJhUrPdCdU/btlIEmbtTdtO9/CcQo9XoEQ3DlF0VeXxar1GrXJijDlhd76Jc9aWiP07OQe/curMKB2t4hUVPeS0gOQJVCO3zFry0YEsx9Ud5sZ1I1XWIDi1yYiYDxOSMA5mzsSTPO1Ep9NI1wOkFuYfOeQIssY5rxMcmFPj5tjDxh86wH2100/RQ==
+ b=N/0tgSTS6LoammThCaIJ1VzrjSIJ2+QQIf9wFpP11avZggp45AkZVcIHkhIy3RVwIr7NHXmZokHNZa9UmihmuX746QoNX5nSdOyY8KMnVpumifhw/GCRF5egam0SA9KQaIhXU4aD4cWRiDhAb46UaXIiuygGNIxYlu8OKlNjukycVCuWyf2RWEx/NidjB0e6Reb4yuraXLDcxTmV/scNAwtc4CMVsWg8rZI8ejBomlJF//GOm7VxMe2XboQjG7o2Aix8C3CRTVxFJD3tp0rzLDF9HAizr+cONEy9BHDMZMyNTTj41QDP4xWF0XQN8TO4tfGdMOesezgP8YPIleC8Og==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=w2OsffPaljUnfIc1R39qtDTAEk/xnYvtAcFLQWkHKg4=;
- b=rqhon5GksvLaNRi7Cf5WgSaUaPIxh50MMkjTdt0XKmGH2rydo84BV+9NbaG2jnY+/pg9R9/+n96z4CsT2pYb0CcHUOy31aoP72/3za++9Kyi98KWAKjFR/T1NYZymGaVOmRBXSsaxtMLB4p6SiNYDtDIaEIjzE2ss2XAWXfu0UhvTdHOaEiCKqd68TI8xXkUmYN23jno6j5ztM+Gdb4uXUGAflFLpseueacABTXfGDurUFCJStZZCq/bX5kOy9KdE8djwkTmCYxEqjtQ5/Vxl5p70XWv08CAbC+6tWV/iKkHPlaNUv6lm/eS2/yJp+E7IgWynXRc3zbyfbRZ6Ljnqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=rM6OvZZe13aVxpDsb1hvvGn8Q17YnmVIbt+aAcb9Ak8=;
+ b=cvOqc88K5UD50eNnjrgo99Q5EXis/6TB5T60YxG2j84iWosg+VXsFWUDJa0scX0pKDIxukBJvIyacCzT1bx8m8/Ao+1s5F2MCSf6A1gSDVcqYqKMEb7FPRjO00ka9XFa9jb7aQ70Ci3YUFb/tjqHoGXHQBwS4C9pTyu5NLjRnzntFwQoXClh+7tj6umhV+vKuIz4ZPGNoZ15Zx7REhiaHF/Vfh7A7nUjByJ7JwJ9DCvvhA2BTqURkscAirZJBI2zJX0t0d3zKNx2lrJadiWubIg746xsJNUVkbiHGKbrc459jB8b5GlqPKnKdJ+0/eOXyH8WloD4hnIp1vbs+5+Uhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=w2OsffPaljUnfIc1R39qtDTAEk/xnYvtAcFLQWkHKg4=;
- b=uzFazhnOgVBJBshg3+JxmqUE8Y4EjeUAJ+kfuymh3QAUwgPdnUl2TYrAcc4fbMHZyf5LAs/nSzxp39hyiwfuvQ4IByyRj86CGk+XtNHpW5uJqipPMpMKrx5J2d4U7G/XKxKLTRAEZP/XYEyMDw0YOZAhhqWG9JUzUXMybrozhRg=
-Received: from MW4PR04CA0325.namprd04.prod.outlook.com (2603:10b6:303:82::30)
- by PH0PR10MB6983.namprd10.prod.outlook.com (2603:10b6:510:286::21) with
+ bh=rM6OvZZe13aVxpDsb1hvvGn8Q17YnmVIbt+aAcb9Ak8=;
+ b=pAiVVpo7qR9KenlbOr9hwk6kyjjjSWCRUhVIcZ9t5Nu3czxFpjTc9xg/JHhwF1367tClPFx8JGTUWHtXhzZ5syGOaDW6PAJF9WZUjTrJ+079VCyTaanT2WFzAC9b/br/zjCb3S+xIl0SGVXl8D7E7bHhHhFR4en8Ox7dtikF9H8v2GncgtZFuGrS5K+1HBypYUtw3y7wpGvqzhpYyAMjhXnyFjH5Mza18F9IY9mTz8xEOc5ZmhltMy6hI+QnjzfZn1LPVQl3Dfe7q4mtMXaGNLM8OLV1adXTMFUNYgrwYvvfw/U542rn0gPE6K4mp0rS/he4ez8GYBIbi3yfvJnixQ==
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by DS0PR03MB7608.namprd03.prod.outlook.com (2603:10b6:8:200::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 15:09:47 +0000
-Received: from CO1PEPF00012E64.namprd05.prod.outlook.com
- (2603:10b6:303:82:cafe::1c) by MW4PR04CA0325.outlook.office365.com
- (2603:10b6:303:82::30) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Tue, 30
- Jun 2026 15:09:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- CO1PEPF00012E64.mail.protection.outlook.com (10.167.249.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 15:09:47 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 30 Jun
- 2026 10:09:46 -0500
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Tue, 30 Jun
- 2026 10:09:46 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Tue, 30 Jun 2026 10:09:46 -0500
-Received: from localhost (ula0502350.dhcp.ti.com [10.24.52.241])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 65UF9ju93334084;
-	Tue, 30 Jun 2026 10:09:45 -0500
-From: Paresh Bhagat <p-bhagat@ti.com>
-To: <nm@ti.com>, <vigneshr@ti.com>
-CC: <praneeth@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <v-singh1@ti.com>, <bb@ti.com>,
-        <u-kumar1@ti.com>, <anshuld@ti.com>
-Subject: [PATCH] arm64: dts: ti: Rename DM firmware reserved memory nodes
-Date: Tue, 30 Jun 2026 20:39:19 +0530
-Message-ID: <20260630150919.457160-1-p-bhagat@ti.com>
-X-Mailer: git-send-email 2.34.1
+ 2026 15:13:53 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
+ 15:13:52 +0000
+From: "Nazle Asmade, Muhammad Nazim Amirul"
+	<muhammad.nazim.amirul.nazle.asmade@altera.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, Andrew Lunn
+	<andrew@lunn.ch>
+CC: "dinguyen@kernel.org" <dinguyen@kernel.org>, "rmk+kernel@armlinux.org.uk"
+	<rmk+kernel@armlinux.org.uk>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 3/3] net: stmmac: dwmac-socfpga: Add mac-mode DT property
+ support
+Thread-Topic: [PATCH 3/3] net: stmmac: dwmac-socfpga: Add mac-mode DT property
+ support
+Thread-Index: AQHdCJS3s6rWWjcH10Ox3xzcAVXL37ZXISCAgAAAjQCAABNGgA==
+Date: Tue, 30 Jun 2026 15:13:52 +0000
+Message-ID: <b6c52ac8-32dc-4a58-83ec-ef600b306448@altera.com>
+References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <20260630133108.27244-4-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <4c285993-978c-4d9e-a8c5-c3b36baa6840@lunn.ch>
+ <7c57bb08-b72d-44bf-be44-f1bcb2aa9a84@bootlin.com>
+In-Reply-To: <7c57bb08-b72d-44bf-be44-f1bcb2aa9a84@bootlin.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR03MB6964:EE_|DS0PR03MB7608:EE_
+x-ms-office365-filtering-correlation-id: e6df01fb-555a-4406-598e-08ded6ba3241
+x-ms-exchange-atpmessageproperties: SA
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|38070700021|3023799007|55112099003|22082099003|18002099003|56012099006|11063799006|5023799004|4143699003;
+x-microsoft-antispam-message-info: qg9lg0y4zAPzXJK5Z0M1TBJX5OoLNh1nXOPRqhYI4jJdCydoFTfD519CgSUSgy9tByaf1Y+hEcOMAmWNBkQXlI4dXHRUifshZIG1hSTxrEBjU1zJiy2yi0IDNx+5XhdIBF6q2x7WEM+jihSEuYFezVg80feGsPOZ/2l61rtHb0rYF6UScLcv78L1myATDhosmm/5CLV9Bn9OtvHtHLoa7SCx/D8HrXu81WSk9k9Wf0I8DrxQwmG0aJS1FTenoGLVp7+lzWiipeWehEdwNDoNDjXmNMH9D0lKW3VufJzaaubVIbclT1Rn8dwmtRq+oN2v4BtA9wqWy21P443ZHr/wSyxlYzFtzcPtgNzEREsIhRTPmymJa1jk6RcQ07rP4y8YkPIhu5nNju4RSJvRSj5XFaoB00hO1mWXpss3jnfXvguFdNEEL54M83hOSia/X13PB0G0+9Qz7FlMAenCWqCtnUXeEt+9DgQYy83dWLvhIqMiQps6Ff2EhgNX3g/hKifNLqmMuvduZJtJiC5p+nbCKpNqBehIBdcLWLnO7XV18tjW8KZkdMWwICiWMKPW1xDSMyv5FGUiXP/ECAdRfgQfIqLGqt5rNgMp2B0aZwmN1ocOPccbvCewEi+w/zon1dA6QcZR7ybchvO4AnQEo1GC6A7yT/57ed9/cJakAFdeLo6AByBWGONrQAKtZczGvXGtvcXqfZxq3TD2XC6j1WNN3fa3LeawPLbJ6q9WluAU5Ig=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(38070700021)(3023799007)(55112099003)(22082099003)(18002099003)(56012099006)(11063799006)(5023799004)(4143699003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 2
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?eGNkQ3YzNjVQYVR4VExnaGo4WWtzYUlyTDQrTkFMK3pYQTAzRHdwSnlnVThZ?=
+ =?utf-8?B?NWxpLzJSdktwUW83VlpBUElseHJFMjVmU0IwZE9NbytNUkVtT002QmlONXU4?=
+ =?utf-8?B?R2hyTlltKy9IQ2Fxcko0WC9oN1B4Ykp6YlBiZVlqWFJmc3FQRmhqL3ArUVVF?=
+ =?utf-8?B?U3gvM2pqZHVybzVoSHNLb1VzbHNPT2FkZWtuNzBtZUZ1OTRnVVlmWDd6eEth?=
+ =?utf-8?B?V1p0RzJjeHhqT0d0Q1ZETndRQUROOVZSZEtpemFtT1pTT2VwdkVza25CajBp?=
+ =?utf-8?B?Zm1seHFrcWZMeDV6NHlXY1F4Mlk1UmU2empUWkVHZnVOUDZGeGw4dlk1TDdD?=
+ =?utf-8?B?eG1aZkpiRFFPVmFGMVo1Vm9TV1Q2bHIvcUtLaVhBaHhlckliTDVFU0EzVi9z?=
+ =?utf-8?B?SDhNQ0dleVNOMGhOK0w0SUZhcjlpY2gwZW40SS9CVCtsREVISHlRRmF3T2o4?=
+ =?utf-8?B?ZHEwaUdiQnRsODF5N2JTVkFTa1NMb0VPdjRSV01GdjE3RDY3UUtYcFo4bTBI?=
+ =?utf-8?B?Vkx5cG93UFVlei9FSnRxU3AvczJiK2FrVzdYNkd5aFNTWE5rNGtmRkg3WGRj?=
+ =?utf-8?B?RllrWWZGMTY5cVl5dXFEMGFvcXFQdkhXWWV2TzN0bEJXZ043cVd2Nis3OXVo?=
+ =?utf-8?B?R2xWU0JPdWZ2TWJGeTZUaUFYa3QrNmNKOElkZW9PZ0F1NjBnSWVYdnh2MDcr?=
+ =?utf-8?B?VE5JWE16NlFCM2lZaUt5ckVXTVZTZUlUbHFDZVBnNEpkSW5xMjdaL0RmWm51?=
+ =?utf-8?B?ek1LSklta3E0czZKQm9sdzBOZm5IM0haL2l6NVZ2VDQ2cEwveEVUZXJLRSsw?=
+ =?utf-8?B?TzR0dDFuSnExYUF6RG5MbTZRSktzck9qV2RDSUNSKzJkSlN5UHdBSCswL1BS?=
+ =?utf-8?B?M1o5VkZxald3TjdHdWQ0LzNneUxjeEhnWVd3bVJIeWl5cmVLL1pUVHRvMEFF?=
+ =?utf-8?B?ZXArUWZFWU5sZHBuck85blFndGdOVVg2TGtmMHV1aGN4SXcvMnFXNWowQVZC?=
+ =?utf-8?B?UUZtbkN4YWllUnVoUjJxbmlSZmxzcUUrMy9lRksydXViUC9JTnJSZ21tcVVN?=
+ =?utf-8?B?VzJOYm5CVnd0ZnBodmlRZVpURHVBRkpLWTU0NlZZR0cvNGJLbUZjZ08wS2Qw?=
+ =?utf-8?B?cWNLQzRNaFcyN0FJQ3JNZ2VkRGVpTkk3THFXekMyS05YZkt2aHYycFozc3p3?=
+ =?utf-8?B?aEtTdFc5VDFOZHlrM29Hc0t5QXpnNktTdGdDa1ovaCtmZDhuM3RGSlI3Um5W?=
+ =?utf-8?B?OUdPaVpjQXFJOFZIYm1MLzU4c2Uva2JkYkFLcHNEWVhzRkhWenRmQXFqd3dM?=
+ =?utf-8?B?TFFIOG1TY2ZXRTU1VGw4M0d0NFFOczFZdzg4TjVSeDVsbHVIcGpnVk8xYnRQ?=
+ =?utf-8?B?T0tZc0t3cHR4RFlmcFhmb21BYkd0MGIwcjVneU52aEJvc01zZG83K2VLSEIx?=
+ =?utf-8?B?Y21hcExhVWJ6REFzc2V4eW8vcDVSRm9UYzhOdHdGd29TNWRpcWlHVmxhNlgy?=
+ =?utf-8?B?dWx5VE0vM3N3M2E4a2N5amVkV29BbUJqbWFIWGVaWitySFJET3pJc3Y5Yzhx?=
+ =?utf-8?B?NksvWWxZa1dkV3Z2VTdKOThDaWExbGhFaW9EZHlGUkNaUzBRSy9CYnczbGdC?=
+ =?utf-8?B?WkdWdlZnbFhWUE1sM3VsRVA3clpYOS9OdkZvTTVocFJZbFMzOE5pQ1A1UXBM?=
+ =?utf-8?B?UzBmbExpNFNyYWhmSStKeC83Qmpkdm5OSXFoMjVPV3d3cnAxZFpZOThHdkhv?=
+ =?utf-8?B?QkxGQy9XS291THhvSG4xcEIrNXhVOUtjYW1DZDlLaTZHb0lraFdyWFUzOVlh?=
+ =?utf-8?B?TGhuM2wxcGZ4eHprc1pUNDZTYzRMUXhPT3RTV0xxbUxMUXYvN0V6M0M3ZVBJ?=
+ =?utf-8?B?WDNyVmRsbDMyUE45TGI3SnNpVS9WTko3V3pLYTFjVWRaajZXdGRVVS9jWmpS?=
+ =?utf-8?B?NVQ2R0Urc2dDU3IxOTdxS1J6L1VBTU9KMXpKOTBkS0RUV3dzSzd5ZGVQMVZo?=
+ =?utf-8?B?bTBnMVdoQUNJM3BqWFBYRUt4OG5BWnpmUTJyMnNEaVZ0cjJWaXVUZGFsWFFC?=
+ =?utf-8?B?OHhkdVNjWjZMRnRYUWVJcHd6OFlkV29ReVpRaTJHNnFSS0VLcUVwVDBHSlRM?=
+ =?utf-8?B?Nmd0TzNwMzRGOTh2SkJtVlI3emxPRXlkeXkyMkRrbTJIWEJoTFNFZlY0QlZq?=
+ =?utf-8?B?SjN0bjlKWFNxd1N1SGdqcEROcE5BMitHa1l5RWszZ0UyckV0emhFUUJKY2FH?=
+ =?utf-8?B?dmgxWDNIaTVtYnRBSUEwN3FMV25zT0Vlb2dQY2NsZ1I3ODNJYnI0cTVqMXls?=
+ =?utf-8?B?cWN3Q0RPcmIrQ2w1bmdWa3hWdlZlM1pmaXNaZitBZWRSNU05UEIyeXJxL1Bj?=
+ =?utf-8?Q?RJcmqWIsNzNg60E1FDuHYbs/mW0mi1CmWj/qk0SpI1On7?=
+x-ms-exchange-antispam-messagedata-1: 440uBHAw5j41wQ==
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <8BB63A304284094B954DDAF4881019C9@namprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E64:EE_|PH0PR10MB6983:EE_
-X-MS-Office365-Filtering-Correlation-Id: c14159b7-7814-459a-b0a4-08ded6b99fdf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|18002099003|56012099006;
-X-Microsoft-Antispam-Message-Info: /Q6kijAyLjmbGaK/wAJQI0ocXyT3ZZKcWr5/6zSNVAJTK34lMuEnkhyjWAOwdZaDPAKqU4jF2S0ic0IkQNeQ9uwyyKx8EfgmPglsIlVGfBePGTngI6Y0EFYIcvyfqd1VGZDz+huOzKyOlArQ+B8QAqPNrSx0d+wdmZphw8+DqDdNJtNDMifeyZTT9vGGvk19JPdrs+upuEgMC3E6dQyG107yQWuHKTLga+TFpAV1+TdNWrVKLs/SP01/nQQ1CKL8AUjOPPtnGUDWzBt20c5+SLwBT4wFzJJhBmCDkPr009+3tE8KDijSx2EgAg+D1Fbbe29QIewH+7daiJetA85mRMrCuLBcUd6FGwWSLYA5dJMirORlrDurAeaqqZhEJK+HYIDisNdcoKceHb6gPAUg2VLFaJGS7qE9nkyQMmLmmwwkDTlrVtCNWEvZStBK9b20SpCpzmXhJ1Skbf/YzrLehaf8c7VsPZI0rg9S2OL9HFLmqyTJ10aIGpEnMKZyQDaS/LGmsveuqL35XC0iucvg29ynYSBKVQpUoglYyLyIVDVeay9tkVSrMo6cJsbXXhBW2JbuH8lPcXL/CSOVf+Q+HFlcjaaIBMuCf5xTaz7jWcPJh05wdK0iI1YGsQWnG1lw1ucF9AObKBRX96i3P/ORODU5t6l/lmkOXiB/iEsp63gtUvds7D2YLBYu0WzcdT5CaXrOgBB3CjKlNkPrwueGgw==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(18002099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: pXn4ozeM+E6ymD+4zeif5pr2/XyGZMxtncd0VD6qrJ/EzkAAJuh3996lM5NAV/P7VQ40BKMPAu98gXdcvQXbvXGnWzQ1/zdjGfzGI3pTzKNcM5/ejamxs/1Td52oFHNbHnGe0oZKjOFqaj8Aq2E88BeFIKOPBUla7y/vu0KWayVOabMMCqKf5wgKZ7oGKbwwSpRkdUO6EZ4fjKFT7NkKy1qXxFnkCSyB3Vxg44U1UK3C8XknJdJqWfzN9tKFEkc/14XsDmODmMsNJBuqFi/zEBQsjgRftEDPNuIh70p7fXb9f0pAaDwvC3Z7GUiygzz6QCTofsg7p+RbNj5cesAQhKe6Zq9/PmNxy+ttXuSfBJeaDrqKlVu6qMePOdzkcetM0SoEh71ySaZ/OQ90zX6Caw+qJF5xr0XSZMXw+BoLcw4Qd8bCeiQVOrl+8mAmEg34
-X-Exchange-RoutingPolicyChecked: q7IOhWcZSwdb148DkSwEFRuN9Ecz/qYl1po9A4O54WVo5KLQVkX1NLdgHNm01VjYLllBoowWSUKR+xLpYZAQZdpiw4z/AnxbM40QwvP2qExJ4uubMLEg4OUt1Oc49Pjk/6UJDY1y8JFoc4EeOZ/UnlNmOwEb7ca74zBnd3DFKGWwD8RTMOupVO8XazzScFke9Gc/9lqdgMXhWTb5X13j4OLBbq8InHncyZRtJQ1h92xnAzXqcKEeodab409DmAfnP2NOrNB1JYJzVWd2lGQtV2gSBtn0uEGLYDyzEEbzKGqBANSiVMgQKETNyiDhemlcFvw7qJ29GzRNCkxOWNI3pA==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 15:09:47.1342
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e6df01fb-555a-4406-598e-08ded6ba3241
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2026 15:13:52.8541
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c14159b7-7814-459a-b0a4-08ded6b99fdf
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E64.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR10MB6983
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDE0MiBTYWx0ZWRfX/Qdt3EJEdNph
- jbf/nO5KT8lPh71gLTctHFvfOY9fa6arX5y5nMjG3ofs2wJNhthF+IrVS1nKdMUYBusF6ZOVKxl
- 0J3d6KH7DDp/QVKeB/CNGFR7778cVXB/jcWWIYYpUH1ra5txWmMr9qxkMZawpD3Hyyc5YQQo3zN
- OETbTdhCUBfj0uEmZ/GKp7lnSjmUaOaLtwPdSmbXS4kq7IQ3Tt8tIVKZINzzAIzHmfnapygNXdq
- I6YSc2/2B6GSH3EVef9BGw9mAHvqLTM2V5/9X9QSG4PeARoP4ERQDemmXCXUUc82U+SrLPI4ccD
- NT027PIrJjdxy9kkx6RVIaywxmuemO/0fAEpIoox2jxAh5EgFQG/+L6b4A7FgcZ7FN9Zef0V/5p
- JyVDJU2FPJqOB6gw8VTmem7aUNBpribg/lIWcb17SBNePNSmJiCRoMEJ5GdlDVmW3Jg14nfFYqF
- +fb0vfSz7D6FxiKPhVg==
-X-Proofpoint-GUID: BIZ9P9NesbUUzlyIXN80s5HrQ8OrdWiR
-X-Proofpoint-ORIG-GUID: BIZ9P9NesbUUzlyIXN80s5HrQ8OrdWiR
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDE0MiBTYWx0ZWRfXwFJ+Ppsku2R0
- FCUE5l2p5/2UaNO9txYQBHNjTfS6qlnu+U65XExEFxgd9de2FeqgxOCBKctcSyd0w9xRhzPxubd
- AkL4pX6QK9bAur+DC5VJqvgAzEPoUjY=
-X-Authority-Analysis: v=2.4 cv=M5N97Sws c=1 sm=1 tr=0 ts=6a43dc40 cx=c_pps
- a=+LMkLzjU88PdHoliF3eHPQ==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=FelO9ux0wxsA:10 a=s63m1ICgrNkA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=taLDd7a_hP9WKsMzeGRc:22 a=sozttTNsAAAA:8 a=fv5Xb4zugy-HeHZQE2EA:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-30_04,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 bulkscore=0 clxscore=1011 suspectscore=0
- impostorscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2606300142
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: K+SEvwCKYEMdX4y21k5NBH2z8PrSqPSYjL9Bd20GYAMZEGfjnZ8r+kwHkpXQ8tGO/LigvYkgtr0NSRllK3zycwlaPBEpALYBL0RzDPus1M8QInrijxuxFWybPrIPMzd/EpkuCy24bkcXAYRbh++0VA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR03MB7608
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_080955_520186_F7B592D4 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20260630_081357_789953_B2643AE4 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,361 +167,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename DM reserved memory nodes for K3 devices.
-
-Example:
-memory@xxxxxxxx -> to dm@xxxxxxxx
-
-This allows U-Boot to identify and resize these regions using
-fdt_fixup_reserved_memory() as done for TFA and optee.
-
-Also drop unnecessary bootph-pre-ram property from AM62D2.
-
-Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
----
- arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi         | 2 +-
- arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts        | 2 +-
- arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi              | 2 +-
- arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi           | 2 +-
- arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi        | 2 +-
- arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                 | 2 +-
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts                | 3 +--
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi             | 2 +-
- arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                 | 2 +-
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi           | 2 +-
- arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi          | 2 +-
- arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi      | 2 +-
- arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts          | 2 +-
- arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi         | 2 +-
- arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi              | 2 +-
- arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi              | 2 +-
- arch/arm64/boot/dts/ti/k3-am69-sk.dts                   | 2 +-
- arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi             | 2 +-
- arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts      | 2 +-
- arch/arm64/boot/dts/ti/k3-j721e-sk.dts                  | 2 +-
- arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi             | 2 +-
- arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi            | 2 +-
- arch/arm64/boot/dts/ti/k3-j722s-evm.dts                 | 2 +-
- arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi | 2 +-
- 24 files changed, 24 insertions(+), 25 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-index 3baa653257bb..40148a37e294 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-@@ -65,7 +65,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9db00000 {
-+		wkup_r5fss0_core0_memory_region: dm@9db00000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9db00000 0x00 0xc00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-index 7a4cffc27bda..90380bd8bb77 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62-pocketbeagle2.dts
-@@ -72,7 +72,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9db00000 {
-+		wkup_r5fss0_core0_memory_region: dm@9db00000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9db00000 0x00 0xc00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-index e97b2b047d10..ef2afcc51578 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-verdin.dtsi
-@@ -212,7 +212,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9db00000 {
-+		wkup_r5fss0_core0_memory_region: dm@9db00000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9db00000 0x00 0xc00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi b/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
-index 72288678cd01..c71297a6a818 100644
---- a/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am625-tqma62xx.dtsi
-@@ -55,7 +55,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9db00000 {
-+		wkup_r5fss0_core0_memory_region: dm@9db00000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9db00000 0x00 0xc00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-index de4048a3564b..7af3c2ddeb22 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
-@@ -65,7 +65,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9c900000 {
-+		wkup_r5fss0_core0_memory_region: dm@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-index 821a9705bb7d..83743a79ee60 100644
---- a/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62a7-sk.dts
-@@ -59,7 +59,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9c900000 {
-+		wkup_r5fss0_core0_memory_region: dm@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index f5ceb6a1b5de..b06f0da35141 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -65,11 +65,10 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9c900000 {
-+		wkup_r5fss0_core0_memory_region: dm@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0xf00000>;
- 			no-map;
--			bootph-pre-ram;
- 		};
- 
- 		secure_ddr: optee@9e800000 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index 7ee894d59113..1688b003740f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -168,7 +168,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9c900000 {
-+		wkup_r5fss0_core0_memory_region: dm@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0x01e00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-index b770ed82be9d..a570d764ee3f 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
-@@ -55,7 +55,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9c900000 {
-+		wkup_r5fss0_core0_memory_region: dm@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-index fc5a3942cde0..48fa66ec08c1 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-@@ -69,7 +69,7 @@ wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
-+		wkup_r5fss0_core0_memory_region: dm@9c900000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9c900000 0x00 0x01e00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-index ab9e58c2d225..03787bd4b857 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi
-@@ -56,7 +56,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9da00000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@9db00000 {
-+		wkup_r5fss0_core0_memory_region: dm@9db00000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0x9db00000 0x00 0xc00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-index f3ee73e64d69..78b4e5d61dfc 100644
---- a/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am65-iot2050-common.dtsi
-@@ -53,7 +53,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0 0xa0100000 0 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-index 5255e04b9ac7..f0353cb2e508 100644
---- a/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am67a-beagley-ai.dts
-@@ -56,7 +56,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@a0100000 {
-+		wkup_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
-index ab87767419fe..be581f03d1f8 100644
---- a/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
-@@ -55,7 +55,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi b/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi
-index 6a6dc816b658..d49ab30658aa 100644
---- a/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am68-sk-som.dtsi
-@@ -33,7 +33,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi b/arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi
-index 5119baf62a4c..78b0b3214665 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am69-aquila.dtsi
-@@ -110,7 +110,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-am69-sk.dts b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-index e56772a334c5..a7c362dff589 100644
---- a/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am69-sk.dts
-@@ -55,7 +55,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-index 5a8c2e707fde..cb41743d8f74 100644
---- a/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j7200-som-p0.dtsi
-@@ -35,7 +35,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-index 8040b6528c18..4a569b50f51a 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-beagleboneai64.dts
-@@ -57,7 +57,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-index 689ba2ff81f7..3a3eed8d9a9e 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-sk.dts
-@@ -54,7 +54,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi
-index c8073ee634b7..e6da4dbd91a6 100644
---- a/arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721e-som-p0.dtsi
-@@ -35,7 +35,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
-index a19e535f4946..3efca08c3ae7 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi
-@@ -37,7 +37,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-index e66330c71593..faf1dfbb53e1 100644
---- a/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-j722s-evm.dts
-@@ -58,7 +58,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		wkup_r5fss0_core0_memory_region: memory@a0100000 {
-+		wkup_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
-diff --git a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-index ff3a85cbc524..b2b04ef9bcaa 100644
---- a/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j784s4-j742s2-evm-common.dtsi
-@@ -41,7 +41,7 @@ mcu_r5fss0_core0_dma_memory_region: memory@a0000000 {
- 			no-map;
- 		};
- 
--		mcu_r5fss0_core0_memory_region: memory@a0100000 {
-+		mcu_r5fss0_core0_memory_region: dm@a0100000 {
- 			compatible = "shared-dma-pool";
- 			reg = <0x00 0xa0100000 0x00 0xf00000>;
- 			no-map;
--- 
-2.34.1
-
+T24gMzAvNi8yMDI2IDEwOjA0IHBtLCBNYXhpbWUgQ2hldmFsbGllciB3cm90ZToNCj4gT24gNi8z
+MC8yNiAxNjowMiwgQW5kcmV3IEx1bm4gd3JvdGU6DQo+PiBPbiBUdWUsIEp1biAzMCwgMjAyNiBh
+dCAwNjozMTowOEFNIC0wNzAwLCBtdWhhbW1hZC5uYXppbS5hbWlydWwubmF6bGUuYXNtYWRlQGFs
+dGVyYS5jb20gd3JvdGU6DQo+Pj4gRnJvbTogTmF6aW0gQW1pcnVsIDxtdWhhbW1hZC5uYXppbS5h
+bWlydWwubmF6bGUuYXNtYWRlQGFsdGVyYS5jb20+DQo+Pj4NCj4+PiBSdXNzZWxsIEtpbmcncyBj
+b21taXQgZGU2OTZjNjNjMWRjICgibmV0OiBzdG1tYWM6IHNvY2ZwZ2E6IGNvbnZlcnQgdG8NCj4+
+PiB1c2UgcGh5X2ludGVyZmFjZSIpIHJlcGxhY2VkIG1hY19pbnRlcmZhY2Ugd2l0aCBwaHlfaW50
+ZXJmYWNlIGluDQo+Pj4gc29jZnBnYV9nZXRfcGxhdF9waHltb2RlKCksIG5vdGluZyB0aGF0IG5v
+IHVwc3RyZWFtIERUUyBmaWxlcyBzZXQgdGhlDQo+Pj4gIm1hYy1tb2RlIiBwcm9wZXJ0eSwgbWFr
+aW5nIHRoZSB0d28gdmFsdWVzIGlkZW50aWNhbC4NCj4+Pg0KPj4+IFRoZSBBZ2lsZXg1IFNvQ0RL
+IFRTTiBDb25maWcyIGJvYXJkIGlzIGFuIGV4Y2VwdGlvbjogaXRzIGdtYWMxIFRTTg0KPj4+IHBv
+cnQgdXNlcyBHTUlJIGludGVybmFsbHkgaW4gdGhlIE1BQyB3aGlsZSB0aGUgUEhZLXNpZGUgaW50
+ZXJmYWNlIGlzDQo+Pj4gUkdNSUksIHNvIG1hYy1tb2RlIGFuZCBwaHktbW9kZSBkaWZmZXIuDQo+
+Pg0KPj4gTWF5YmUgeW91IG5lZWQgdG8gcmVwcmVzZW50IHRoZSBoYXJkd2FyZSBibG9jayB3aGlj
+aCBtYWdpY2FsbHkNCj4+IGNvbnZlcnRzIEdNSUkgdG8gUkdNSUkgaW4gRFQ/DQo+IA0KPiBZZWFo
+IHRoYXQncyB3aGF0IHdlIGhhdmUgb24gQ3ljbG9uZVYsIGFuZCB3ZSBmb3JjZSB0aGUgSU5URl9T
+RUwgdG8gR01JSSBpZiB0aGF0DQo+IEhXIGJsb2NrIGlzIHByZXNlbnQuIEkgd29uZGVyIGlmIHRo
+ZXJlJ3MgdGhlIHNhbWUgb24gYWdpbGVYNSA/DQoNCkhpIE1heGltZSwgQW5kcmV3DQoNClllcywg
+QWdpbGV4NSBoYXMgdGhlIHNhbWUgY29uY2VwdC4gVGhlIEdNSUktdG8tUkdNSUkgY29udmVydGVy
+IGlzIGEgDQpRdWFydHVzIHNvZnQgSVAgaW5zdGFudGlhdGVkIGluIHRoZSBGUEdBIGZhYnJpYyDi
+gJQgZXF1aXZhbGVudCB0byB0aGUgDQpDeWNsb25lViBFTUFDIHNwbGl0dGVyLiBUaGUgWEdNQUMg
+b3V0cHV0cyBHTUlJIHNpZ25hbHMgdG8gdGhlIEZQR0EgDQpmYWJyaWMsIHRoZSBzb2Z0IElQIGNv
+bnZlcnRzIHRoZW0gdG8gUkdNSUksIGFuZCB0aGUgUkdNSUkgc2lnbmFscyB0aGVuIA0KZ28gdGhy
+b3VnaCB0aGUgRlBHQSBIVklPIHBpbnMgdG8gdGhlIGV4dGVybmFsIE1hcnZlbGwgODhFMTUxMiBQ
+SFkuDQoNCkJSLA0KTmF6aW0+DQo+Pg0KPj4gCSBBbmRyZXcNCj4gDQoNCg==
 
