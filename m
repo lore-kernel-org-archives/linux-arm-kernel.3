@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A75C43638
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84C1C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oLMUk/yMfaiFPgFvnWmAECoPJREoyyvTC7Prat1r96I=; b=vu5vA91XeJwk60R/A1U/z43RdD
-	/MCvoms+nXiUJKmMnurkFrL/vejTBarQPCzGAWbTvm1fbMrlxXnsO+NzLR2OnIbb+sVezV6xWjwGH
-	miG2AwxejDkcGUET6R9HaC7njkoM9SBVzHsPQDhwDNNFhMQFv8/bzQ7rVM1fRTJvewepj8Oj9lQda
-	TOSgf8dZ0Dp6kB0dj+V71j/+LXpbqb7hMeSuytS5hiyxULcMgq/zYJw2EvxlkX9RrHTN8YFRfB0CL
-	ZZMLIzZqQ+6uMa5+0n4uSRgPj74FZaus7feUZVQ/FtiXT/lXa8OlAutv8QXdyxfeMHDCwoB7677e+
-	lg071MxQ==;
+	bh=GVID/t0qaW7VypBPiJtjpPrhFqRi5Mo116w2nu1OqvI=; b=n2tlmjDL47qYVX//M5gYP3aQFt
+	EXU5PKL0OBCowCBLDZBcvvMf1b0YgXrcDGfg+x0DFkt8F8l/HD1+sc1/Al5EpId2BIhWUzDa+8gpI
+	cy5WeL/Gf41wWSOvnT4GXSlyKmBN3seIpAlmH8S1V2GSO6IBAsPArlrytaHBS5cIDo/N5d1ZWvv3r
+	a9XCVdDTUotqHP2GftK+z+k7dxZ9ZE/IfvVj6506slRLso2hlHR0XHYjYVhjxfOnXmt/iVRpzEanE
+	L+yJWFEnguaRhXsBX8bzeeIUdffImMkV+5WqdnbIampdYR/IsA2EH70sVz5lPl038fqx94oeS7uEn
+	VSC+SNVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3S-0000000G7Lr-1TCL;
-	Tue, 30 Jun 2026 07:38:50 +0000
+	id 1weT3R-0000000G7Ji-1QeB;
+	Tue, 30 Jun 2026 07:38:49 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3M-0000000G7GL-36a9
+	id 1weT3J-0000000G7Es-2owd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:38:47 +0000
+	Tue, 30 Jun 2026 07:38:44 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782805120;
+	s=2020; t=1782805118;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=oLMUk/yMfaiFPgFvnWmAECoPJREoyyvTC7Prat1r96I=;
-	b=xs3x1Pjfbw+jtif4Ux4gwzmNi2TjSpFeP32XnxHtpcaiTGGWWK4YG681PAUV4GVZVphAob
-	ASLgA1yUtGspkWLkqezV8XVVXZUA0rCGRoxIhhg8Fbxe6Vs/b+klMFiPT462lzYGS4IQZk
-	HkGajj9Utoc6znjfXxr5UFHEuuFZfTRvFAtHEgwRq8U7lojgogT11LVugHkZwoxdEF37kD
-	kIffFQ9SVTSrSHuwMJItnP1eBmnBxHF/+Vg/0WtVZdmO0qpb8TKBU6tCKRYSooMiqM9BxY
-	p4VmT9F9Pgw6zSA1GjdJHXWn57yAJt3V2S+GXmm2Hc+cpBIw6+O+HlJNnQFY5A==
+	bh=GVID/t0qaW7VypBPiJtjpPrhFqRi5Mo116w2nu1OqvI=;
+	b=RbOA0FabMmwkH0ETPAqTm8Bkw+WY1YFlatQVCCczvntdUcP234tEMqb+9zMZT7CFk9/8gW
+	UuRXrafcY1XD6hMcJBWy2VOEraSpm7/OreDOBrkRKgEr7TfJfji6QLUuhjXuCO/aANZUmL
+	9hJlG6dj3PbWk623bqWdKsqX99138cZp1utC2bMBA6zbnyxkFqlkgNTpUqGDm/HBGBWpj2
+	vXauaKNypXTtGKEtuwDfjnu0S2Xm/fV7HHheM7qrzc6OSBs21IdeRattIObztMsOtaNpeJ
+	sweB4YV6GMk6LUoXkW3lGrl+esFVDdKw37/5sw+Vd5ld6Lv8Z6g65o/nTv1a6w==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782805120;
+	s=2020e; t=1782805118;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=oLMUk/yMfaiFPgFvnWmAECoPJREoyyvTC7Prat1r96I=;
-	b=qx+W8f38ofF6zICatvj4+srW01mOicSd7rnKy8/FWbLY87uzG2hELauTTgO0SEPrlTVfBu
-	EY2d+CQszihi7/Dg==
-Date: Tue, 30 Jun 2026 09:38:35 +0200
-Subject: [PATCH v2 6/9] powerpc/vdso: Respect COMPAT_32BIT_TIME
+	bh=GVID/t0qaW7VypBPiJtjpPrhFqRi5Mo116w2nu1OqvI=;
+	b=M/J6OBdNY+/auBdTuVPbjXT7fKuYYOmlFPuYgS/s/BNuPXvfW62YNCL1QgeLo6+SGpE65T
+	1Bo0NxBSKbe/VKCw==
+Date: Tue, 30 Jun 2026 09:38:31 +0200
+Subject: [PATCH v2 2/9] vdso/gettimeofday: Validate system call existence
+ for time() and gettimeofday()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260630-vdso-compat_32bit_time-v2-6-520d194640dd@linutronix.de>
+Message-Id: <20260630-vdso-compat_32bit_time-v2-2-520d194640dd@linutronix.de>
 References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
 In-Reply-To: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
@@ -75,16 +76,16 @@ Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
  linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
  Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
  sparclinux@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=4909;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=1284;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=Qhpx3Xfl+Ro99botE5UEjPE2/tscRuOVBD2UN2HjYfQ=;
- b=Z4VF7j04jCTsakdoKCOJkmqBAxMXn2DHpuXL9IVEvSButRpRVsO8befWXpECQWvou78n05wvE
- p6JjNeW6LPcDKDGX4ph/GO4igdXofpwIXMEY78R8YaQcfyhSrZxTvHM
+ bh=6IjQwZ36LCC2tu6Rbkgy6M8Qe+F80ooiDk/V0b5/cPg=;
+ b=MvautCTPrf+MHg7V1Qyx6eZ2mFaotGr1QoK7VQAj1+oc+8OwJcD4eLwKPNP2/NGjXDj3pLlon
+ XRdROlWK9goDBywLWyspXabx3LLpZsa9yMN0f8yBMirgFFiywsPaDWU
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_003845_369515_1D458269 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20260630_003841_849114_55719EF6 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,143 +100,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
-provide any 32-bit time related functionality. This is the intended
-effect of the kconfig option and also the fallback system calls would
-also not be implemented.
+Not all architectures have the system calls for time() and
+gettimeofday(). When the system call is missing, the vDSO function
+should also not be present.
 
-Currently the kconfig option does not affect the gettimeofday() syscall,
-so also keep that in the vDSO.
+Validate that.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- arch/powerpc/kernel/vdso/gettimeofday.S  |  8 ++++++++
- arch/powerpc/kernel/vdso/vdso32.lds.S    | 10 ++++++----
- arch/powerpc/kernel/vdso/vgettimeofday.c | 16 ++++++++++------
- 3 files changed, 24 insertions(+), 10 deletions(-)
+ lib/vdso/gettimeofday.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/arch/powerpc/kernel/vdso/gettimeofday.S b/arch/powerpc/kernel/vdso/gettimeofday.S
-index 1c8e51691bf8..c635cd1e77be 100644
---- a/arch/powerpc/kernel/vdso/gettimeofday.S
-+++ b/arch/powerpc/kernel/vdso/gettimeofday.S
-@@ -67,9 +67,11 @@
-  * int __kernel_gettimeofday(struct timeval *tv, struct timezone *tz);
-  *
-  */
-+#if defined(__powerpc64__) || defined(CONFIG_COMPAT_32BIT_TIME)
- V_FUNCTION_BEGIN(__kernel_gettimeofday)
- 	cvdso_call __c_kernel_gettimeofday
- V_FUNCTION_END(__kernel_gettimeofday)
-+#endif
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index e0f289d3d110..b8c1fc85eb74 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -12,6 +12,8 @@
+ #include <vdso/time32.h>
+ #include <vdso/time64.h>
  
- /*
-  * Exact prototype of clock_gettime()
-@@ -77,9 +79,11 @@ V_FUNCTION_END(__kernel_gettimeofday)
-  * int __kernel_clock_gettime(clockid_t clock_id, struct timespec *tp);
-  *
-  */
-+#if defined(__powerpc64__) || defined(CONFIG_COMPAT_32BIT_TIME)
- V_FUNCTION_BEGIN(__kernel_clock_gettime)
- 	cvdso_call __c_kernel_clock_gettime
- V_FUNCTION_END(__kernel_clock_gettime)
-+#endif
- 
- /*
-  * Exact prototype of clock_gettime64()
-@@ -99,9 +103,11 @@ V_FUNCTION_END(__kernel_clock_gettime64)
-  * int __kernel_clock_getres(clockid_t clock_id, struct timespec *res);
-  *
-  */
-+#if defined(__powerpc64__) || defined(CONFIG_COMPAT_32BIT_TIME)
- V_FUNCTION_BEGIN(__kernel_clock_getres)
- 	cvdso_call __c_kernel_clock_getres
- V_FUNCTION_END(__kernel_clock_getres)
-+#endif
- 
- /*
-  * Exact prototype of clock_getres_time64()
-@@ -122,6 +128,8 @@ V_FUNCTION_END(__kernel_clock_getres_time64)
-  * time_t time(time *t);
-  *
-  */
-+#if defined(__powerpc64__) || defined(CONFIG_COMPAT_32BIT_TIME)
- V_FUNCTION_BEGIN(__kernel_time)
- 	cvdso_call __c_kernel_time call_time=1
- V_FUNCTION_END(__kernel_time)
-+#endif
-diff --git a/arch/powerpc/kernel/vdso/vdso32.lds.S b/arch/powerpc/kernel/vdso/vdso32.lds.S
-index 3f384a2526ae..876c965b827d 100644
---- a/arch/powerpc/kernel/vdso/vdso32.lds.S
-+++ b/arch/powerpc/kernel/vdso/vdso32.lds.S
-@@ -119,13 +119,15 @@ VERSION
- {
- 	VDSO_VERSION_STRING {
- 	global:
--		__kernel_get_syscall_map;
--		__kernel_gettimeofday;
-+#ifdef CONFIG_COMPAT_32BIT_TIME
- 		__kernel_clock_gettime;
--		__kernel_clock_gettime64;
- 		__kernel_clock_getres;
--		__kernel_clock_getres_time64;
-+		__kernel_gettimeofday;
- 		__kernel_time;
-+#endif /* CONFIG_COMPAT_32BIT_TIME */
-+		__kernel_get_syscall_map;
-+		__kernel_clock_gettime64;
-+		__kernel_clock_getres_time64;
- 		__kernel_get_tbfreq;
- 		__kernel_sync_dicache;
- 		__kernel_sigtramp32;
-diff --git a/arch/powerpc/kernel/vdso/vgettimeofday.c b/arch/powerpc/kernel/vdso/vgettimeofday.c
-index 3c194e1ab562..4b712fb01a3f 100644
---- a/arch/powerpc/kernel/vdso/vgettimeofday.c
-+++ b/arch/powerpc/kernel/vdso/vgettimeofday.c
-@@ -18,23 +18,25 @@ int __c_kernel_clock_getres(clockid_t clock_id, struct __kernel_timespec *res,
- 	return __cvdso_clock_getres_data(vd, clock_id, res);
- }
- #else
-+#ifdef CONFIG_COMPAT_32BIT_TIME
- int __c_kernel_clock_gettime(clockid_t clock, struct old_timespec32 *ts,
- 			     const struct vdso_time_data *vd)
- {
- 	return __cvdso_clock_gettime32_data(vd, clock, ts);
- }
- 
--int __c_kernel_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts,
--			       const struct vdso_time_data *vd)
--{
--	return __cvdso_clock_gettime_data(vd, clock, ts);
--}
--
- int __c_kernel_clock_getres(clockid_t clock_id, struct old_timespec32 *res,
- 			    const struct vdso_time_data *vd)
- {
- 	return __cvdso_clock_getres_time32_data(vd, clock_id, res);
- }
-+#endif /* CONFIG_COMPAT_32BIT_TIME */
++#include <uapi/linux/unistd.h>
 +
-+int __c_kernel_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts,
-+			       const struct vdso_time_data *vd)
-+{
-+	return __cvdso_clock_gettime_data(vd, clock, ts);
-+}
- 
- int __c_kernel_clock_getres_time64(clockid_t clock_id, struct __kernel_timespec *res,
- 				   const struct vdso_time_data *vd)
-@@ -43,6 +45,7 @@ int __c_kernel_clock_getres_time64(clockid_t clock_id, struct __kernel_timespec
- }
- #endif
- 
-+#if defined(__powerpc64__) || defined(CONFIG_COMPAT_32BIT_TIME)
- int __c_kernel_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz,
- 			    const struct vdso_time_data *vd)
+ /*
+  * The generic vDSO implementation requires that gettimeofday.h
+  * provides:
+@@ -348,6 +350,10 @@ __cvdso_gettimeofday_data(const struct vdso_time_data *vd,
  {
-@@ -53,3 +56,4 @@ __kernel_old_time_t __c_kernel_time(__kernel_old_time_t *time, const struct vdso
- {
- 	return __cvdso_time_data(vd, time);
- }
+ 	const struct vdso_clock *vc = vd->clock_data;
+ 
++#ifndef __NR_gettimeofday
++	BUILD_BUG();
 +#endif
++
+ 	if (likely(tv != NULL)) {
+ 		struct __kernel_timespec ts;
+ 
+@@ -382,6 +388,10 @@ __cvdso_time_data(const struct vdso_time_data *vd, __kernel_old_time_t *time)
+ 	const struct vdso_clock *vc = vd->clock_data;
+ 	__kernel_old_time_t t;
+ 
++#ifndef __NR_time
++	BUILD_BUG();
++#endif
++
+ 	if (vdso_is_timens_clock(vc)) {
+ 		vd = vdso_timens_data(vd);
+ 		vc = vd->clock_data;
 
 -- 
 2.55.0
