@@ -4,76 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8AC2C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE62CC44502
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lVAUH31TwQ/sj2+VyRcPyx4LbdMW01PvRrT0MN5uVHs=; b=TbwS99HMFqYVaI9IAf3+NsxTo9
-	F+mJ4OA/IagGf/+e5ytpYihbTWW6dq0t3VRfpDWVhQ7T79+92QAhpMeL78Qs4xSs4C7OZ8/sSsGkm
-	dAoJte3lD7FuAcsRR9gMLntI+/hoPAIOGxKZlVuPLahZPUu0Z3QRIwiu/2UObQ7sudYPc5bnZNKY1
-	r1pf7CLClAz0WgVF8w5W+rKj0rpuMc8TYtV8eM5BiHsIERxGA+LZU7ak85UsWjfg2/HVJ2qOSjOGr
-	NZ9qzEs5IiFMolRy/c7KUBtzEZ8Hvs3VYNQ8dfrban/i/eGLnT6Hvc7lr4n6ixZmiqN98HW3mmes9
-	Be2tEuMw==;
+	bh=kb0sFCemfBMjVcrb5YdRQGujXPc3280q/X/OZ8KnR5c=; b=oJzGrKruvsJJsEgmVLYeHfNHip
+	FwLdr8kPE0Tpzkcpl2N3rta7Jq59GcNa9EmwLs9m1t8TBrOssOGQ8wInCWBBsQB+95u0mW5vyYMjT
+	g4hBjuKq92maau8wtfspsPD2wOz37rrJcKoZsFpXZT4QtZEbi+w82V66kcAzL5pD3gUQzcLSXuprt
+	0BT1MbXUP8S0Z4KZAtQeJDJDzveBg9W7Rsm3nllYW2jrt9TGASEDwiMvYZe7NLrWSc28HVKWugpa0
+	+sNsTcAUKML8Pb4h7ygRuNprGthfMSEjSM/X0YTLm1jkw+fDqcTnmupZiaF00FxmPJ11MlU32Jbq5
+	g4BPlD8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXwL-0000000H32v-1SCI;
+	id 1weXwL-0000000H33a-2lqZ;
 	Tue, 30 Jun 2026 12:51:49 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXwB-0000000H2vK-0so5
+	id 1weXwF-0000000H2mZ-3Od6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:51:40 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id A628F4E40BB1;
-	Tue, 30 Jun 2026 12:51:37 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 70A036025A;
-	Tue, 30 Jun 2026 12:51:37 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 01B82106F1E97;
-	Tue, 30 Jun 2026 14:51:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782823895; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=lVAUH31TwQ/sj2+VyRcPyx4LbdMW01PvRrT0MN5uVHs=;
-	b=f+VY/61hS56ni7d4fxrhldtGLXEiKHphKLBf63Evh8Pneqjz4i0BEX/iz8uisjX/djlm7X
-	Awf7LDPlQrC9Hl52Li2fLk59JZN7d9C01hiBO8zLqwauHsPvxeaOnIrwEePgue/I5f2FPc
-	YXfgL7GMoOYrA6drV9Sh6tU8MwwH0a02YZ1Qw5HZTd2JGoqkW2labjEk0YQ8TH6mMuK1K7
-	79T8IRCh4aocqpMWCyVDdDEpF5LxDt0/D7qYfzTd8kTGfudvN0gYuDJz84UqOPef6oBvvH
-	P5MM28e/UJZxTj0zvwg0Bl+Ka+gU7gpy4rlF08DbwyHc0nje/AO3yJMlGQDhCw==
-From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Tue, 30 Jun 2026 14:51:14 +0200
-Subject: [PATCH v6 4/5] gpio: aaeon: Add GPIO driver for SRG-IMX8P MCU
+	Tue, 30 Jun 2026 12:51:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=kb0sFCemfBMjVcrb5YdRQGujXPc3280q/X/OZ8KnR5c=; b=Oz85Bj6phMNecddkWYxd5T4NkK
+	jI+U88Y69xzvfmBXzapSacetq8gHd26zTJkM1hGrWu5AV25T5Kne5WskDP/sXbC6qrxZNQFFEQSQB
+	WjjryTJvtSXDYztcdF7D2zCZxL9SQ2IbdE/jWnUcXjLHkq1z6HMnAlkDQwPtrYRi2VDVliETWjpVu
+	vYh2jJGIiExorNfLD3LrqfI+2em+NtA/XS6XA3Gv0n2xn8YQmFbB5Is5SQntRsvCes5ULG8+tkVQ7
+	4SY7tEXP7ID0z2qW88HCcked2jHTJ11TmveMG+ju+LzfEdE0qPTjzL4akmB3RZS7szWSyLunlITx5
+	6ZnKV4Zw==;
+Received: from [115.246.246.98] (port=58869 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.4)
+	(envelope-from <parvathi@couthit.com>)
+	id 1weXvY-00000006qlQ-1mPo;
+	Tue, 30 Jun 2026 08:51:00 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	danishanwar@ti.com,
+	parvathi@couthit.com,
+	rogerq@kernel.org,
+	pmohan@couthit.com,
+	afd@ti.com,
+	basharath@couthit.com,
+	arnd@arndb.de
+Cc: linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	pratheesh@ti.com,
+	j-rameshbabu@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	m-malladi@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com
+Subject: [PATCH net-next v2 2/3] net: ti: icssm-prueth: Add priority based RX IRQ handlers
+Date: Tue, 30 Jun 2026 18:16:15 +0530
+Message-ID: <20260630124958.894360-3-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260630124958.894360-1-parvathi@couthit.com>
+References: <20260630124958.894360-1-parvathi@couthit.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260630-dev-b4-aaeon-mcu-driver-v6-4-d66b5fcbd2f0@bootlin.com>
-References: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
-In-Reply-To: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
- Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, 
- =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
- Wim Van Sebroeck <wim@linux-watchdog.org>, 
- Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Miquel Raynal <miquel.raynal@bootlin.com>, 
- "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_055139_559856_F171A024 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20260630_055144_587068_8C26F83B 
+X-CRM114-Status: GOOD (  27.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,310 +105,698 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add GPIO driver for the Aaeon SRG-IMX8P embedded controller. This
-driver supports 7 GPO (General Purpose Output) pins and 12 GPIO pins
-that can be configured as inputs or outputs.
+From: Roger Quadros <rogerq@ti.com>
 
-The driver implements proper state management for GPO pins (which are
-output-only) and full direction control for GPIO pins. During probe,
-all pins are reset to a known state (GPOs low, GPIOs as inputs) to
-prevent undefined behavior across system reboots, as the MCU does not
-reset GPIO states on soft reboot.
+This patch adds support for priority based interrupt handling for the STP/
+RSTP Switch, HSR and PRP protocols along with extra logic to address first
+come first served to avoid port dominance.
 
-Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+In RSTP switch, HSR, and PRP modes the host port can receive frames from
+any one of PRU ports. Servicing RX interrupts in arrival order does not
+guarantee the frames are delivered to the stack in wire-arrival order due
+to port dominance.
+
+In order to achieve that, each PRU records an IEP (Industrial Ethernet
+Peripheral) arrival HW timestamp into the receive buffer and pass this
+information to driver. The driver will read the RX HW timestamp from frame
+and process the frame which has arrived first among the two ports, giving
+the stack wire-arrival ordering.
+
+Dual-EMAC mode continues to use per-port interrupts.
+
+Signed-off-by: Roger Quadros <rogerq@ti.com>
+Signed-off-by: Andrew F. Davis <afd@ti.com>
+Signed-off-by: Basharath Hussain Khaja <basharath@couthit.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
 ---
- MAINTAINERS                   |   1 +
- drivers/gpio/Kconfig          |   9 ++
- drivers/gpio/Makefile         |   1 +
- drivers/gpio/gpio-aaeon-mcu.c | 230 ++++++++++++++++++++++++++++++++++++++++++
- 4 files changed, 241 insertions(+)
+ drivers/net/ethernet/ti/Makefile              |   2 +-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 139 ++++++++-
+ drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  30 ++
+ .../ethernet/ti/icssm/icssm_prueth_common.c   | 286 ++++++++++++++++++
+ .../net/ethernet/ti/icssm/icssm_prueth_lre.c  |  13 +
+ 5 files changed, 458 insertions(+), 12 deletions(-)
+ create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index f91b6a1826d0..2538f8c4bc14 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -191,6 +191,7 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
- R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
-+F:	drivers/gpio/gpio-aaeon-mcu.c
- F:	drivers/mfd/aaeon-mcu.c
- F:	include/linux/mfd/aaeon-mcu.h
+diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
+index e4a10d60e1a6..b6651fe73afd 100644
+--- a/drivers/net/ethernet/ti/Makefile
++++ b/drivers/net/ethernet/ti/Makefile
+@@ -4,7 +4,7 @@
+ #
  
-diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-index c74da29253e8..4b37b5a15958 100644
---- a/drivers/gpio/Kconfig
-+++ b/drivers/gpio/Kconfig
-@@ -157,6 +157,15 @@ config GPIO_74XX_MMIO
- 	    8 bits:	74244 (Input), 74273 (Output)
- 	    16 bits:	741624 (Input), 7416374 (Output)
+ obj-$(CONFIG_TI_PRUETH) += icssm-prueth.o
+-icssm-prueth-y := icssm/icssm_prueth.o icssm/icssm_prueth_switch.o icssm/icssm_switchdev.o icssm/icssm_prueth_lre.o
++icssm-prueth-y := icssm/icssm_prueth.o icssm/icssm_prueth_switch.o icssm/icssm_switchdev.o icssm/icssm_prueth_lre.o icssm/icssm_prueth_common.o
  
-+config GPIO_AAEON_MCU
-+	tristate "Aaeon MCU GPIO support"
-+	depends on MFD_AAEON_MCU
-+	help
-+	  Select this option to enable GPIO support for the Aaeon SRG-IMX8P
-+	  onboard MCU. This driver provides access to GPIO pins and GPO
-+	  (General Purpose Output) pins controlled by the microcontroller.
-+	  The driver handles both input and output configuration.
+ ti-cpsw-common-y += cpsw-common.o davinci_cpdma.o
+ ti-cpsw-priv-y += cpsw_priv.o cpsw_ethtool.o
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+index c01edac8f0b7..2ab78a98f856 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+@@ -44,7 +44,21 @@
+ #define NETIF_PRUETH_LRE_OFFLOAD_FEATURES       (NETIF_F_HW_HSR_FWD | \
+ 						 NETIF_F_HW_HSR_TAG_RM)
+ 
+-static const struct prueth_fw_offsets fw_offsets_v2_1;
++/* ICSSM (v2.1) - supports 64-bit IEP counter.
++ * Firmware stores packet timestamps using lower 32 bits
++ * which wraps at 0xffffffff.
++ */
++static const struct prueth_fw_offsets fw_offsets_v2_1 = {
++	.iep_wrap = 0xffffffff,
++};
 +
- config GPIO_ALTERA
- 	tristate "Altera GPIO"
- 	select GPIOLIB_IRQCHIP
-diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-index 2421a8fd3733..1ba6318bc558 100644
---- a/drivers/gpio/Makefile
-+++ b/drivers/gpio/Makefile
-@@ -29,6 +29,7 @@ obj-$(CONFIG_GPIO_104_IDI_48)		+= gpio-104-idi-48.o
- obj-$(CONFIG_GPIO_104_IDIO_16)		+= gpio-104-idio-16.o
- obj-$(CONFIG_GPIO_74X164)		+= gpio-74x164.o
- obj-$(CONFIG_GPIO_74XX_MMIO)		+= gpio-74xx-mmio.o
-+obj-$(CONFIG_GPIO_AAEON_MCU)		+= gpio-aaeon-mcu.o
- obj-$(CONFIG_GPIO_ADNP)			+= gpio-adnp.o
- obj-$(CONFIG_GPIO_ADP5520)		+= gpio-adp5520.o
- obj-$(CONFIG_GPIO_ADP5585)		+= gpio-adp5585.o
-diff --git a/drivers/gpio/gpio-aaeon-mcu.c b/drivers/gpio/gpio-aaeon-mcu.c
++/* ICSSM (v1.0) - supports 32-bit IEP counter, which resets the
++ * counter every one second (nanosecond resolution).
++ */
++static const struct prueth_fw_offsets fw_offsets_v1_0 = {
++	.iep_wrap = NSEC_PER_SEC,
++};
++
+ static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
+ {
+ 	/* Set Multicast filter control and table offsets */
+@@ -1094,11 +1108,25 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
+ 			goto iep_exit;
+ 	}
+ 
+-	ret = icssm_emac_request_irqs(emac);
+-	if (ret)
+-		goto rproc_shutdown;
++	if (PRUETH_IS_EMAC(prueth)) {
++		napi_enable(&emac->napi);
++	} else {
++		if (!prueth->emac_configured &&
++		    (PRUETH_IS_SWITCH(prueth) || prueth_is_lre(prueth))) {
++			napi_enable(&prueth->napi_hpq);
++			napi_enable(&prueth->napi_lpq);
++		}
++	}
+ 
+-	napi_enable(&emac->napi);
++	/* In switch and LRE modes the shared HPQ/LPQ IRQs are used,
++	 * register them here and reuse for both modes.
++	 */
++	if (PRUETH_IS_EMAC(prueth))
++		ret = icssm_emac_request_irqs(emac);
++	else
++		ret = icssm_prueth_common_request_irqs(emac);
++	if (ret)
++		goto disable_napi;
+ 
+ 	/* start PHY */
+ 	phy_start(emac->phydev);
+@@ -1115,7 +1143,17 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
+ 
+ 	return 0;
+ 
+-rproc_shutdown:
++disable_napi:
++	if (PRUETH_IS_EMAC(prueth)) {
++		napi_disable(&emac->napi);
++	} else {
++		if (!prueth->emac_configured &&
++		    (PRUETH_IS_SWITCH(prueth) || prueth_is_lre(prueth))) {
++			napi_disable(&prueth->napi_lpq);
++			napi_disable(&prueth->napi_hpq);
++		}
++	}
++
+ 	if (!PRUETH_IS_EMAC(prueth))
+ 		icssm_prueth_sw_shutdown_prus(emac, ndev);
+ 	else
+@@ -1150,12 +1188,26 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
+ 	/* disable the mac port */
+ 	icssm_prueth_port_enable(emac, false);
+ 
++	netif_stop_queue(ndev);
++
+ 	/* stop PHY */
+ 	phy_stop(emac->phydev);
+ 
+-	napi_disable(&emac->napi);
+ 	hrtimer_cancel(&emac->tx_hrtimer);
+ 
++	if (PRUETH_IS_EMAC(prueth)) {
++		napi_disable(&emac->napi);
++		free_irq(emac->rx_irq, ndev);
++	} else {
++		if (!prueth->emac_configured &&
++		    (PRUETH_IS_SWITCH(prueth) || prueth_is_lre(prueth))) {
++			napi_disable(&prueth->napi_lpq);
++			napi_disable(&prueth->napi_hpq);
++		}
++		/* Free IRQs on last port before halting PRU */
++		icssm_prueth_common_free_irqs(emac);
++	}
++
+ 	/* stop the PRU */
+ 	if (!PRUETH_IS_EMAC(prueth))
+ 		icssm_prueth_sw_shutdown_prus(emac, ndev);
+@@ -1165,9 +1217,6 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
+ 	if (prueth_is_lre(prueth))
+ 		icssm_prueth_lre_cleanup(prueth);
+ 
+-	/* free rx interrupts */
+-	free_irq(emac->rx_irq, ndev);
+-
+ 	/* free memory related to sw */
+ 	icssm_prueth_free_memory(emac->prueth);
+ 
+@@ -1767,9 +1816,25 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+ 
+ 	netif_napi_add(ndev, &emac->napi, icssm_emac_napi_poll);
+ 
++	if ((prueth->support_lre || fw_data->support_switch) &&
++	    emac->port_id == PRUETH_PORT_MII0) {
++		netif_napi_add(ndev, &prueth->napi_hpq,
++			       icssm_prueth_lre_napi_poll_hpq);
++		netif_napi_add(ndev, &prueth->napi_lpq,
++			       icssm_prueth_lre_napi_poll_lpq);
++	}
++
+ 	hrtimer_setup(&emac->tx_hrtimer, &icssm_emac_tx_timer_callback,
+ 		      CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
+ 
++	if ((prueth->support_lre || fw_data->support_switch) &&
++	    emac->port_id == PRUETH_PORT_MII0) {
++		prueth->hp->ndev = ndev;
++		prueth->hp->priority = 0;
++		prueth->lp->ndev = ndev;
++		prueth->lp->priority = 1;
++	}
++
+ 	return 0;
+ free:
+ 	emac->ndev = NULL;
+@@ -1781,6 +1846,7 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
+ static void icssm_prueth_netdev_exit(struct prueth *prueth,
+ 				     struct device_node *eth_node)
+ {
++	const struct prueth_private_data *fw_data = prueth->fw_data;
+ 	struct prueth_emac *emac;
+ 	enum prueth_mac mac;
+ 
+@@ -1795,6 +1861,13 @@ static void icssm_prueth_netdev_exit(struct prueth *prueth,
+ 	phy_disconnect(emac->phydev);
+ 
+ 	netif_napi_del(&emac->napi);
++
++	if ((prueth->support_lre || fw_data->support_switch) &&
++	    emac->port_id == PRUETH_PORT_MII0) {
++		netif_napi_del(&prueth->napi_hpq);
++		netif_napi_del(&prueth->napi_lpq);
++	}
++
+ 	prueth->emac[mac] = NULL;
+ }
+ 
+@@ -2094,7 +2167,13 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 	platform_set_drvdata(pdev, prueth);
+ 	prueth->dev = dev;
+ 	prueth->fw_data = device_get_match_data(dev);
+-	prueth->fw_offsets = fw_offsets_v2_1;
++
++	if (prueth->fw_data->fw_rev == FW_REV_V1_0)
++		prueth->fw_offsets = fw_offsets_v1_0;
++	else if (prueth->fw_data->fw_rev == FW_REV_V2_1)
++		prueth->fw_offsets = fw_offsets_v2_1;
++	else
++		return -EINVAL;
+ 
+ 	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
+ 	if (!eth_ports_node)
+@@ -2249,6 +2328,41 @@ static int icssm_prueth_probe(struct platform_device *pdev)
+ 	if (has_lre && (!eth0_node || !eth1_node))
+ 		has_lre = false;
+ 
++	/* Switch and LRE share HPQ/LPQ IRQs across both ports,
++	 * allocate the shared priority structures once here
++	 */
++	if (prueth->fw_data->support_switch || has_lre) {
++		prueth->hp = devm_kzalloc(dev,
++					  sizeof(struct prueth_ndev_priority),
++					  GFP_KERNEL);
++		if (!prueth->hp) {
++			ret = -ENOMEM;
++			goto free_pool;
++		}
++		prueth->lp = devm_kzalloc(dev,
++					  sizeof(struct prueth_ndev_priority),
++					  GFP_KERNEL);
++		if (!prueth->lp) {
++			ret = -ENOMEM;
++			goto free_pool;
++		}
++
++		prueth->rx_lpq_irq = of_irq_get_byname(np, "rx_lp");
++		if (prueth->rx_lpq_irq < 0) {
++			ret = prueth->rx_lpq_irq;
++			if (ret != -EPROBE_DEFER)
++				dev_err(prueth->dev, "could not get rx_lp irq\n");
++			goto free_pool;
++		}
++		prueth->rx_hpq_irq = of_irq_get_byname(np, "rx_hp");
++		if (prueth->rx_hpq_irq < 0) {
++			ret = prueth->rx_hpq_irq;
++			if (ret != -EPROBE_DEFER)
++				dev_err(prueth->dev, "could not get rx_hp irq\n");
++			goto free_pool;
++		}
++	}
++
+ 	prueth->support_lre = has_lre;
+ 	spin_lock_init(&prueth->addr_lock);
+ 	/* setup netdev interfaces */
+@@ -2489,6 +2603,7 @@ static struct prueth_private_data am335x_prueth_pdata = {
+ 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
+ 			"ti-pruss/am335x-pru1-prusw-fw.elf",
+ 	},
++	.fw_rev = FW_REV_V1_0,
+ 	.support_lre = true,
+ 	.support_switch = true,
+ };
+@@ -2516,6 +2631,7 @@ static struct prueth_private_data am437x_prueth_pdata = {
+ 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
+ 			"ti-pruss/am437x-pru1-prusw-fw.elf",
+ 	},
++	.fw_rev = FW_REV_V1_0,
+ 	.support_lre = true,
+ 	.support_switch = true,
+ };
+@@ -2544,6 +2660,7 @@ static struct prueth_private_data am57xx_prueth_pdata = {
+ 			"ti-pruss/am57xx-pru1-prusw-fw.elf",
+ 
+ 	},
++	.fw_rev = FW_REV_V2_1,
+ 	.support_lre = true,
+ 	.support_switch = true,
+ };
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+index a5d5bcd08bcd..4edd6cf300f3 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
+@@ -179,11 +179,22 @@ enum prueth_mem {
+ 	PRUETH_MEM_MAX,
+ };
+ 
++/* PRU firmware revision */
++enum fw_revision {
++	FW_REV_INVALID = 0,
++	FW_REV_V1_0,
++	FW_REV_V2_1
++};
++
+ /* Firmware offsets/size information */
+ struct prueth_fw_offsets {
+ 	u32 mc_ctrl_offset;
+ 	u32 mc_filter_mask;
+ 	u32 mc_filter_tbl;
++	/* IEP wrap is used in the rx packet ordering logic and
++	 * is different for ICSSM v1.0 vs 2.1
++	 */
++	u32 iep_wrap;
+ };
+ 
+ enum pruss_device {
+@@ -197,12 +208,14 @@ enum pruss_device {
+  * struct prueth_private_data - PRU Ethernet private data
+  * @driver_data: PRU Ethernet device name
+  * @fw_pru: firmware names to be used for PRUSS ethernet usecases
++ * @fw_rev: Firmware revision identifier
+  * @support_switch: boolean to indicate if switch is enabled
+  * @support_lre: boolean to indicate if LRE is enabled
+  */
+ struct prueth_private_data {
+ 	enum pruss_device driver_data;
+ 	const struct prueth_firmware fw_pru[PRUSS_NUM_PRUS];
++	enum fw_revision fw_rev;
+ 	bool support_switch;
+ 	bool support_lre;
+ };
+@@ -255,6 +268,11 @@ struct prueth_emac {
+ 	int offload_fwd_mark;
+ };
+ 
++struct prueth_ndev_priority {
++	struct net_device *ndev;
++	int priority;
++};
++
+ struct prueth {
+ 	struct device *dev;
+ 	struct pruss *pruss;
+@@ -270,6 +288,12 @@ struct prueth {
+ 	struct device_node *eth_node[PRUETH_NUM_MACS];
+ 	struct prueth_emac *emac[PRUETH_NUM_MACS];
+ 	struct net_device *registered_netdevs[PRUETH_NUM_MACS];
++	struct prueth_ndev_priority *hp, *lp;
++	/* NAPI for lp and hp queue scans */
++	struct napi_struct napi_lpq;
++	struct napi_struct napi_hpq;
++	int rx_lpq_irq;
++	int rx_hpq_irq;
+ 
+ 	bool support_lre;
+ 	unsigned int tbl_check_mask;
+@@ -303,6 +327,12 @@ void icssm_emac_mc_filter_bin_allow(struct prueth_emac *emac, u8 hash);
+ void icssm_emac_mc_filter_bin_disallow(struct prueth_emac *emac, u8 hash);
+ u8 icssm_emac_get_mc_hash(u8 *mac, u8 *mask);
+ 
++int icssm_prueth_lre_napi_poll_lpq(struct napi_struct *napi, int budget);
++int icssm_prueth_lre_napi_poll_hpq(struct napi_struct *napi, int budget);
++
++int icssm_prueth_common_request_irqs(struct prueth_emac *emac);
++void icssm_prueth_common_free_irqs(struct prueth_emac *emac);
++
+ static inline bool prueth_is_lre(struct prueth *prueth)
+ {
+ 	return PRUETH_IS_HSR(prueth) || PRUETH_IS_PRP(prueth);
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
 new file mode 100644
-index 000000000000..a9e048c865f5
+index 000000000000..50269a5e915b
 --- /dev/null
-+++ b/drivers/gpio/gpio-aaeon-mcu.c
-@@ -0,0 +1,230 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Aaeon MCU GPIO driver
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
+@@ -0,0 +1,286 @@
++// SPDX-License-Identifier: GPL-2.0
++/* Texas Instruments ICSSM Ethernet Driver
 + *
-+ * Copyright (C) 2026 Bootlin
-+ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-+ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
++ * Copyright (C) 2018-2022 Texas Instruments Incorporated - https://www.ti.com/
++ *
 + */
 +
-+#include <linux/bitops.h>
-+#include <linux/gpio/driver.h>
-+#include <linux/mfd/aaeon-mcu.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
++#include <linux/kernel.h>
++#include <linux/string.h>
++#include <linux/if_vlan.h>
 +
-+#define AAEON_MCU_CONFIG_GPIO_INPUT	0x69
-+#define AAEON_MCU_CONFIG_GPIO_OUTPUT	0x6F
-+#define AAEON_MCU_READ_GPIO		0x72
-+#define AAEON_MCU_WRITE_GPIO		0x77
++#include "icssm_prueth.h"
++#include "icssm_prueth_switch.h"
 +
-+#define AAEON_MCU_CONTROL_GPO		0x6C
-+
-+#define MAX_GPIOS	12
-+#define MAX_GPOS	7
-+
-+struct aaeon_mcu_gpio {
-+	struct gpio_chip gc;
-+	struct regmap *regmap;
-+	DECLARE_BITMAP(dir_in, MAX_GPOS + MAX_GPIOS);
-+	DECLARE_BITMAP(gpo_state, MAX_GPOS);
-+};
-+
-+static int aaeon_mcu_gpio_config_input_cmd(struct aaeon_mcu_gpio *data,
-+					   unsigned int offset)
++static int icssm_prueth_common_emac_rx_packets(struct prueth_emac *emac,
++					       int quota, u8 qid1, u8 qid2)
 +{
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_CONFIG_GPIO_INPUT, offset - 7),
-+			    0);
-+}
++	u16 bd_rd_ptr, bd_wr_ptr, update_rd_ptr, bd_rd_ptr_o, bd_wr_ptr_o;
++	const struct prueth_queue_info *rxqueue, *rxqueue_o, *rxqueue_p;
++	struct net_device_stats *ndevstats, *ndevstats_o, *ndevstats_p;
++	struct prueth_queue_desc __iomem *queue_desc, *queue_desc_o;
++	struct prueth_packet_info pkt_info, pkt_info_o, *pkt_info_p;
++	u32 rd_buf_desc, rd_buf_desc_o, pkt_ts, pkt_ts_o, iep_wrap;
++	int ret, used = 0, port, port0_q_empty, port1_q_empty;
++	struct prueth_emac *emac_p, *other_emac;
++	void __iomem *shared_ram, *ocmc_ram;
++	u8 overflow_cnt, overflow_cnt_o;
++	u16 *bd_rd_ptr_p, *bd_wr_ptr_p;
++	struct prueth *prueth;
 +
-+static int aaeon_mcu_gpo_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
-+{
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_CONTROL_GPO, offset + 1),
-+			    !!value);
-+}
++	prueth = emac->prueth;
++	ocmc_ram = prueth->mem[PRUETH_MEM_OCMC].va;
++	shared_ram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++	other_emac = prueth->emac[(emac->port_id == PRUETH_PORT_MII0) ?
++			PRUETH_PORT_MII1 - 1 : PRUETH_PORT_MII0 - 1];
++	ndevstats = &emac->ndev->stats;
++	ndevstats_o = &other_emac->ndev->stats;
 +
-+static int aaeon_mcu_gpio_direction_input(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	int ret;
++	iep_wrap = prueth->fw_offsets.iep_wrap;
++	/* search host queues for packets */
++	queue_desc = emac->rx_queue_descs + qid1;
++	queue_desc_o = other_emac->rx_queue_descs + qid2;
 +
-+	if (offset < MAX_GPOS) {
-+		dev_err(gc->parent,
-+			"offset %d is a GPO (output-only) pin, cannot be configured as input\n",
-+			offset);
-+		return -EOPNOTSUPP;
-+	}
++	rxqueue = &sw_queue_infos[PRUETH_PORT_HOST][qid1];
++	rxqueue_o = &sw_queue_infos[PRUETH_PORT_HOST][qid2];
 +
-+	ret = aaeon_mcu_gpio_config_input_cmd(data, offset);
-+	if (ret < 0)
-+		return ret;
-+
-+	set_bit(offset, data->dir_in);
-+
-+	return 0;
-+}
-+
-+static int aaeon_mcu_gpio_config_output_cmd(struct aaeon_mcu_gpio *data,
-+					    unsigned int offset,
-+					    int value)
-+{
-+	int ret;
-+
-+	ret = regmap_write(data->regmap,
-+			   AAEON_MCU_REG(AAEON_MCU_WRITE_GPIO, offset - 7),
-+			   !!value);
-+	if (ret < 0)
-+		return ret;
-+
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_CONFIG_GPIO_OUTPUT, offset - 7),
-+			    0);
-+}
-+
-+static int aaeon_mcu_gpio_direction_output(struct gpio_chip *gc, unsigned int offset, int value)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	int ret;
-+
-+	if (offset < MAX_GPOS) {
-+		ret = aaeon_mcu_gpo_set_cmd(data, offset, value);
-+		if (ret)
-+			return ret;
-+		assign_bit(offset, data->gpo_state, value);
++	/* skip Rx if budget is 0 */
++	if (!quota)
 +		return 0;
++
++	overflow_cnt = readb(&queue_desc->overflow_cnt);
++	overflow_cnt_o = readb(&queue_desc_o->overflow_cnt);
++
++	if (overflow_cnt > 0) {
++		emac->ndev->stats.rx_over_errors += overflow_cnt;
++		writeb(0, &queue_desc->overflow_cnt);
++	}
++	if (overflow_cnt_o > 0) {
++		other_emac->ndev->stats.rx_over_errors += overflow_cnt_o;
++		writeb(0, &queue_desc_o->overflow_cnt);
 +	}
 +
-+	ret = aaeon_mcu_gpio_config_output_cmd(data, offset, value);
-+	if (ret < 0)
-+		return ret;
++	bd_rd_ptr = readw(&queue_desc->rd_ptr);
++	bd_wr_ptr = readw(&queue_desc->wr_ptr);
 +
-+	clear_bit(offset, data->dir_in);
++	bd_rd_ptr_o = readw(&queue_desc_o->rd_ptr);
++	bd_wr_ptr_o = readw(&queue_desc_o->wr_ptr);
++
++	port0_q_empty = (bd_rd_ptr == bd_wr_ptr);
++	port1_q_empty = (bd_rd_ptr_o == bd_wr_ptr_o);
++
++	while (!port0_q_empty || !port1_q_empty) {
++		rd_buf_desc = readl(shared_ram + bd_rd_ptr);
++		rd_buf_desc_o = readl(shared_ram + bd_rd_ptr_o);
++
++		icssm_parse_packet_info(prueth, rd_buf_desc, &pkt_info);
++		icssm_parse_packet_info(prueth, rd_buf_desc_o, &pkt_info_o);
++
++		pkt_ts = readl(ocmc_ram + ICSS_LRE_TIMESTAMP_ARRAY_OFFSET +
++			       bd_rd_ptr - SRAM_START_OFFSET);
++		pkt_ts_o = readl(ocmc_ram + ICSS_LRE_TIMESTAMP_ARRAY_OFFSET +
++				 bd_rd_ptr_o - SRAM_START_OFFSET);
++
++		if (!port0_q_empty && !port1_q_empty) {
++			/* Both ports have a pending frame, pick the
++			 * earlier one by comparing timestamps and
++			 * account for wraparound.
++			 */
++			if (pkt_ts > pkt_ts_o)
++				port = (pkt_ts - pkt_ts_o) > (iep_wrap / 2) ?
++					0 : 1;
++			else
++				port = (pkt_ts_o - pkt_ts) > (iep_wrap / 2) ?
++					1 : 0;
++
++		} else if (!port0_q_empty) {
++			/* Packet(s) in port0 queue only */
++			port = 0;
++		} else {
++			/* Packet(s) in port1 queue only */
++			port = 1;
++		}
++
++		/* Select correct data structures for queue/packet selected */
++		if (port == 0) {
++			pkt_info_p = &pkt_info;
++			bd_wr_ptr_p = &bd_wr_ptr;
++			bd_rd_ptr_p = &bd_rd_ptr;
++			emac_p = emac;
++			ndevstats_p = ndevstats;
++			rxqueue_p = rxqueue;
++		} else {
++			pkt_info_p = &pkt_info_o;
++			bd_wr_ptr_p = &bd_wr_ptr_o;
++			bd_rd_ptr_p = &bd_rd_ptr_o;
++			emac_p = other_emac;
++			ndevstats_p = ndevstats_o;
++			rxqueue_p = rxqueue_o;
++		}
++
++		if ((*pkt_info_p).length < EMAC_MIN_PKTLEN) {
++			/* Undersized frame: firmware should have filtered
++			 * these before they reach the host queue. Advance
++			 * the read pointer to skip it.
++			 */
++			update_rd_ptr = *bd_wr_ptr_p;
++			ndevstats_p->rx_length_errors++;
++		} else if ((*pkt_info_p).length > EMAC_MAX_FRM_SUPPORT) {
++			/* Oversized frame: firmware should have filtered
++			 * these before they reach the host queue. Advance
++			 * the read pointer to skip it.
++			 */
++			update_rd_ptr = *bd_wr_ptr_p;
++			ndevstats_p->rx_length_errors++;
++		} else {
++			update_rd_ptr = *bd_rd_ptr_p;
++			ret = icssm_emac_rx_packet(emac_p, &update_rd_ptr,
++						   pkt_info_p, rxqueue_p);
++			if (ret)
++				return used;
++
++			used++;
++		}
++
++		/* Zero the BD after consuming it, a misaligned rd_ptr
++		 * would otherwise mistake stale data for a valid incoming
++		 * frame.
++		 */
++		if (port == 0) {
++			writel(0, shared_ram + bd_rd_ptr);
++			writew(update_rd_ptr, &queue_desc->rd_ptr);
++			bd_rd_ptr = update_rd_ptr;
++		} else {
++			writel(0, shared_ram + bd_rd_ptr_o);
++			writew(update_rd_ptr, &queue_desc_o->rd_ptr);
++			bd_rd_ptr_o = update_rd_ptr;
++		}
++
++		port0_q_empty = (bd_rd_ptr == bd_wr_ptr) ? 1 : 0;
++		port1_q_empty = (bd_rd_ptr_o == bd_wr_ptr_o) ? 1 : 0;
++
++		if (used >= quota)
++			return used;
++	}
++
++	return used;
++}
++
++int icssm_prueth_lre_napi_poll_lpq(struct napi_struct *napi, int budget)
++{
++	struct prueth_emac *emac;
++	struct net_device *ndev;
++	struct prueth *prueth;
++	int num_rx_packets;
++	u8 qid1, qid2;
++
++	prueth = container_of(napi, struct prueth, napi_lpq);
++	ndev = prueth->lp->ndev;
++	emac = netdev_priv(ndev);
++	qid1 = PRUETH_QUEUE2;
++	qid2 = PRUETH_QUEUE4;
++
++	num_rx_packets = icssm_prueth_common_emac_rx_packets(emac, budget,
++							     qid1, qid2);
++	if (num_rx_packets < budget && napi_complete_done(napi, num_rx_packets))
++		enable_irq(prueth->rx_lpq_irq);
++
++	return num_rx_packets;
++}
++
++int icssm_prueth_lre_napi_poll_hpq(struct napi_struct *napi, int budget)
++{
++	struct prueth_emac *emac;
++	struct net_device *ndev;
++	struct prueth *prueth;
++	int num_rx_packets;
++	u8 qid1, qid2;
++
++	prueth = container_of(napi, struct prueth, napi_hpq);
++	ndev = prueth->hp->ndev;
++	emac = netdev_priv(ndev);
++	qid1 = PRUETH_QUEUE1;
++	qid2 = PRUETH_QUEUE3;
++
++	num_rx_packets = icssm_prueth_common_emac_rx_packets(emac, budget,
++							     qid1, qid2);
++	if (num_rx_packets < budget && napi_complete_done(napi, num_rx_packets))
++		enable_irq(prueth->rx_hpq_irq);
++
++	return num_rx_packets;
++}
++
++static irqreturn_t icssm_prueth_common_emac_rx_hardirq(int irq, void *dev_id)
++{
++	struct prueth_ndev_priority *ndev_prio;
++	struct prueth_emac *emac;
++	struct net_device *ndev;
++	struct prueth *prueth;
++
++	ndev_prio = (struct prueth_ndev_priority *)dev_id;
++	ndev = ndev_prio->ndev;
++	emac = netdev_priv(ndev);
++	prueth = emac->prueth;
++
++	/* disable Rx system event */
++	if (ndev_prio->priority == 1) {
++		disable_irq_nosync(prueth->rx_lpq_irq);
++		napi_schedule(&prueth->napi_lpq);
++	} else {
++		disable_irq_nosync(prueth->rx_hpq_irq);
++		napi_schedule(&prueth->napi_hpq);
++	}
++
++	return IRQ_HANDLED;
++}
++
++int icssm_prueth_common_request_irqs(struct prueth_emac *emac)
++{
++	struct prueth *prueth = emac->prueth;
++	int ret;
++
++	/* Request irq when first port is initialized */
++	if (prueth->emac_configured)
++		return 0;
++
++	ret = request_irq(prueth->rx_hpq_irq,
++			  icssm_prueth_common_emac_rx_hardirq,
++			  IRQF_TRIGGER_HIGH, "eth_hp_int", prueth->hp);
++	if (ret) {
++		netdev_err(emac->ndev, "unable to request RX HPQ IRQ\n");
++		return ret;
++	}
++
++	ret = request_irq(prueth->rx_lpq_irq,
++			  icssm_prueth_common_emac_rx_hardirq,
++			  IRQF_TRIGGER_HIGH, "eth_lp_int", prueth->lp);
++	if (ret) {
++		netdev_err(emac->ndev, "unable to request RX LPQ IRQ\n");
++		goto free_rx_hpq_irq;
++	}
 +
 +	return 0;
++
++free_rx_hpq_irq:
++	free_irq(prueth->rx_hpq_irq, prueth->hp);
++
++	return ret;
 +}
 +
-+static int aaeon_mcu_gpio_get_direction(struct gpio_chip *gc, unsigned int offset)
++/**
++ * icssm_prueth_common_free_irqs - free irq
++ *
++ * @emac: EMAC data structure
++ *
++ */
++void icssm_prueth_common_free_irqs(struct prueth_emac *emac)
 +{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
++	struct prueth *prueth = emac->prueth;
 +
-+	return test_bit(offset, data->dir_in) ?
-+		GPIO_LINE_DIRECTION_IN : GPIO_LINE_DIRECTION_OUT;
++	/* HSR/PRP: free irqs when last port is down */
++	if (prueth->emac_configured)
++		return;
++
++	free_irq(prueth->rx_lpq_irq, prueth->lp);
++	free_irq(prueth->rx_hpq_irq, prueth->hp);
++}
+diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
+index 6276dd1e8bb1..239542101943 100644
+--- a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
++++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
+@@ -152,6 +152,14 @@ static void icssm_prueth_lre_protocol_init(struct prueth *prueth)
+ 	       dram1 + ICSS_LRE_SUP_ADDR_LOW);
+ }
+ 
++static void icssm_prueth_lre_config_packet_timestamping(struct prueth *prueth)
++{
++	void __iomem *sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++
++	writeb(1, sram + ICSS_LRE_PRIORITY_INTRS_STATUS_OFFSET);
++	writeb(1, sram + ICSS_LRE_TIMESTAMP_PKTS_STATUS_OFFSET);
 +}
 +
-+static int aaeon_mcu_gpio_get(struct gpio_chip *gc, unsigned int offset)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	unsigned int rsp;
-+	int ret;
-+
-+	if (offset < MAX_GPOS)
-+		return test_bit(offset, data->gpo_state);
-+
-+	ret = regmap_read(data->regmap,
-+			  AAEON_MCU_REG(AAEON_MCU_READ_GPIO, offset - 7),
-+			  &rsp);
-+	if (ret < 0)
-+		return ret;
-+
-+	return rsp;
-+}
-+
-+static int aaeon_mcu_gpio_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
-+{
-+	return regmap_write(data->regmap,
-+			    AAEON_MCU_REG(AAEON_MCU_WRITE_GPIO, offset - 7),
-+			    !!value);
-+}
-+
-+static int aaeon_mcu_gpio_set(struct gpio_chip *gc, unsigned int offset,
-+			      int value)
-+{
-+	struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-+	int ret;
-+
-+	if (offset >= MAX_GPOS)
-+		return aaeon_mcu_gpio_set_cmd(data, offset, value);
-+
-+	ret = aaeon_mcu_gpo_set_cmd(data, offset, value);
-+	if (ret)
-+		return ret;
-+	assign_bit(offset, data->gpo_state, value);
-+	return 0;
-+}
-+
-+static const struct gpio_chip aaeon_mcu_chip = {
-+	.label			= "gpio-aaeon-mcu",
-+	.owner			= THIS_MODULE,
-+	.get_direction		= aaeon_mcu_gpio_get_direction,
-+	.direction_input	= aaeon_mcu_gpio_direction_input,
-+	.direction_output	= aaeon_mcu_gpio_direction_output,
-+	.get			= aaeon_mcu_gpio_get,
-+	.set			= aaeon_mcu_gpio_set,
-+	.base			= -1,
-+	.ngpio			= MAX_GPOS + MAX_GPIOS,
-+	.can_sleep		= true,
-+};
-+
-+static void aaeon_mcu_gpio_reset(struct aaeon_mcu_gpio *data, struct device *dev)
-+{
-+	unsigned int i;
-+	int ret;
-+
-+	/* Reset all GPOs */
-+	for (i = 0; i < MAX_GPOS; i++) {
-+		ret = aaeon_mcu_gpo_set_cmd(data, i, 0);
-+		if (ret < 0)
-+			dev_warn(dev, "Failed to reset GPO %u state: %d\n", i, ret);
-+		clear_bit(i, data->dir_in);
-+	}
-+
-+	/* Reset all GPIOs */
-+	for (i = MAX_GPOS; i < MAX_GPOS + MAX_GPIOS; i++) {
-+		ret = aaeon_mcu_gpio_config_input_cmd(data, i);
-+		if (ret < 0)
-+			dev_warn(dev, "Failed to reset GPIO %u state: %d\n", i, ret);
-+		set_bit(i, data->dir_in);
-+	}
-+}
-+
-+static int aaeon_mcu_gpio_probe(struct platform_device *pdev)
-+{
-+	struct aaeon_mcu_gpio *data;
-+
-+	data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
-+	if (!data)
-+		return -ENOMEM;
-+
-+	data->regmap = dev_get_regmap(pdev->dev.parent, NULL);
-+	if (!data->regmap)
-+		return -ENODEV;
-+
-+	data->gc = aaeon_mcu_chip;
-+	data->gc.parent = pdev->dev.parent;
-+
-+	/*
-+	 * Reset all GPIO states to a known configuration. The MCU does not
-+	 * reset GPIO state on soft reboot, only on power cycle (hard reboot).
-+	 * Without this reset, GPIOs would retain their previous state across
-+	 * reboots, which could lead to unexpected behavior.
+ static enum hrtimer_restart icssm_prueth_lre_timer(struct hrtimer *timer)
+ {
+ 	struct prueth *prueth;
+@@ -202,6 +210,11 @@ void icssm_prueth_lre_config(struct prueth *prueth)
+ 	icssm_prueth_lre_init(prueth);
+ 	icssm_prueth_lre_dbg_init(prueth);
+ 	icssm_prueth_lre_protocol_init(prueth);
++	/* Enable per-packet timestamping so the driver can order
++	 * received frames by arrival time across the two slave ports.
 +	 */
-+	aaeon_mcu_gpio_reset(data, &pdev->dev);
++	icssm_prueth_lre_config_packet_timestamping(prueth);
 +
-+	return devm_gpiochip_add_data(&pdev->dev, &data->gc, data);
-+}
-+
-+static struct platform_driver aaeon_mcu_gpio_driver = {
-+	.driver = {
-+		.name = "aaeon-mcu-gpio",
-+	},
-+	.probe = aaeon_mcu_gpio_probe,
-+};
-+module_platform_driver(aaeon_mcu_gpio_driver);
-+
-+MODULE_ALIAS("platform:aaeon-mcu-gpio");
-+MODULE_DESCRIPTION("GPIO interface for Aaeon MCU");
-+MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
-+MODULE_LICENSE("GPL");
-
+ }
+ 
+ void icssm_prueth_lre_cleanup(struct prueth *prueth)
 -- 
-2.54.0
+2.43.0
 
 
