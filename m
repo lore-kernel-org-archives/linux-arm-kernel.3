@@ -4,72 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDBFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E42B3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x56Pt80l7vEIHB3QHUtNi8HkIWEoiB9UTmfQ7Zpg0a4=; b=tAtE1y6p1tciKBhoJTZFGgrACQ
-	pG+Aad74lI44qmEQjEOkjB9BKf7nEhArceU2adxLXUm51OdUsiYHzvkH9HUEkC1e9OssbWdtjHFoZ
-	1at2PMhQmIP4Rt2yk5aqMtdXE22c8VYOXf3iJlf2hDJmnZXpu2g6MSIppJM0qxGU/h9aatv7qq/cF
-	3JvNiAo6Gi8dV5yhx4GjsNduupvz/5uqFPxfcLWyRDpGUhLf10uC9P8eyWImjiOQX8z+5F9NMys4d
-	bLQ0/TvME0kpgxiDLqZCobJ3iFbLYl7OE8xQc8GLCydda4STQdz8/zvxrFcFgTnHDTp4UuKGDRDvg
-	AkTeYmzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lMFOK57Iz7WMkmkcRIKxg4m8SX0OyWW/vWHhXqpi1uY=; b=Fwj2LI4e5UnXAs5dqlQGO4d24T
+	9FKXKRS0csKHEu4loryWMwtHVpIu3QNJjk2zcJKMU1jguLncMbuVdhuib/zIQWqO7tk0nrT8iNvq6
+	EJc6XFU9f5XhZcurD8SkHGTE9hxk/WDLj20ia9880XUg8IhLmFiCrKDhvNjwYkeY6s0KBalLJQIjf
+	ezzWtf0td1tozoTgiolh3Uc39miOXu/8qNeCJ8z61wW5aKbRjglVBO2sdO52mZoNvTbTeNUzXJCBB
+	LoO5PWjyYUhf+Oc3DqGyK9sgaUvj1NU95+sDKRoFYdgBePh31t1BihiREa96WyP4SJPyXkR7Q1ROF
+	/dDA+b9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYLj-0000000H8dS-1bzr;
-	Tue, 30 Jun 2026 13:18:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weYM0-0000000H8iF-0ATX;
+	Tue, 30 Jun 2026 13:18:20 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYLV-0000000H8bh-3PV7
+	id 1weYLJ-0000000H8b6-2yC8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:17:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 45DFB601F0
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 13:17:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECDFD1F01560
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 13:17:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782825469;
-	bh=x56Pt80l7vEIHB3QHUtNi8HkIWEoiB9UTmfQ7Zpg0a4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=OxwsS6XOVVi6xS/NMEzxnmZ3K0ByzFjRO4VA9oj9hZfIC921uKeF4/cCoar7+RH/h
-	 OKYLA2xml7rXOxgoWspQdQADG+VFW+zWQdCoKZ7a2JeEEFDJel3Xpru3ZqT5tiXw7a
-	 OM1rlOlvXmvZJ9J6Iw+rq+k0+k+qMDykkA42BW8W7lSmlPeq0HBZ1SJ02pJDINZLcS
-	 fxX82/fp2zOyW2XxSaW43DGppZQjqiiWLhaDOelScrEpRAT1W9oxai+TaTUfwfuKmi
-	 XzpQSzxio/giiLP3LeFTRS1NZrEWe8U8MkA+BwR3k4XhDGOVkUPnobypnGyUWmHak3
-	 DFThktgx7hQCg==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5aea0fff535so4659178e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:17:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rowx2NhkRhoBWlD6AN/n6pYrXJCERblFsRmEveQa+7sYI1OMQvgsyeesKiKLXzHbPvWAKDIdaC3o/It6fOofcxV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/tUcDzTjHuKyx1ylIWElJ6s2e9gHfjgn4rjlMfOiU0arREpq9
-	qSWmgQNzDOlddF+mLMn3Hj6R3LbAQwDQxvTCE743grL1VhJS4JPrT3L3b4bOiEmTTv50wZ0E8D1
-	DRrjCa9IiBhyG7YCoXI96Gfl1lo4YZQs=
-X-Received: by 2002:a05:6512:1189:b0:5ae:ba0d:7097 with SMTP id
- 2adb3069b0e04-5aebdb9aca0mr1136620e87.21.1782825467698; Tue, 30 Jun 2026
- 06:17:47 -0700 (PDT)
+	Tue, 30 Jun 2026 13:18:09 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-49242f97da7so51405e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:17:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782825456; x=1783430256; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lMFOK57Iz7WMkmkcRIKxg4m8SX0OyWW/vWHhXqpi1uY=;
+        b=fdDMdF15z4KSL63IbWVjlcBWRijlwIT60MeMO/C09DYHGVXFIl4mWCM53HaLd/opEw
+         fHA02oZIfiCaSKUs7W78ejhodp9pDFbf/TVKeOcKa2dQEDuTpCHNvDTvG9Vf3EhIYu7g
+         GXWPPiSgGQpDJsB9vhKZ2ukJuCwleqAScbdc2hubgDJ2KVPhzYzKkuSMrVIu2WzSovlM
+         cIZiQyk2fIFp5v3FQyH6IpTyNP62BmpL2SsISj4nfNEcVVH4G+ImRwpUyDJX3Us9XAVw
+         x0/Pz4b+H28LYtiGPKCD/G0ifODE5Cn4auyBHwArA8++IP00MxKmWr1wYWPzmgp5bdo9
+         UNhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782825456; x=1783430256;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lMFOK57Iz7WMkmkcRIKxg4m8SX0OyWW/vWHhXqpi1uY=;
+        b=WLlxwa9iORlbkRRsYylFLUGiB7qk9NdlQg6WN2C4F7MACrdQpR9llG1VtMpHtu+Kh4
+         neN0RJ+SEYE/oEHA/9AtuwMlWNNRmB5xmDuVlpkbp/z7TNPef6SsTaijLccR0tVQL1nQ
+         iJ2CyHMkZgp1aX2LF3APLTJPx9FYBXB5b7q0cAHr9d97JDrRESFfmu3/wIjkCMdT/kvM
+         MpuzltOHjZlNvQ5ntXxlF8fUNnzeiuWKdrthPkNyt7hWEf2RjxwI73ylyFOF29mfCBGi
+         n8K9Kt1ZiJQ4ZT1xxeui8B7zmpADcx63xgI6xeT+AsfVcNiQfJIa5QvnP44UocmY/b23
+         9yIg==
+X-Forwarded-Encrypted: i=1; AFNElJ806yH2se7TmkMdYoawIn8oK/OPwXBTT6mPqhN+N1knwF3WOG++TVqs0oiKDpu4qhDupIdIvzkZOZwzPWx9Bdwy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2/K4TCDOrLtVvOEo3CdcMzhYEAKDeMxniBZzxoNmIU9xPj2xy
+	X8tautR8mDnzr5y+tcjPqeLUDPHonur6sEp17nxWIEtPncM6NQHV8ucOuM+jvYyIaA==
+X-Gm-Gg: AfdE7cmHjtk05JAfXpkWNImnCglJ3Y6IcKO3CuSrJ8CU2nRrF2Uzg1M4ueMGAMmPkCf
+	s8WRRdEB83kUsu7F4vMecXaH2Z2QBXubyO8R4I7+scYt1nK5iA13Wx9ex5q/GtFfCS0opPp0MAP
+	Ws2r+OQU+LP1If7N+Yx2w2bVP6M0L/JR+8oiDotiGgKSsfNfrOCQ9qKrvHhAjdwupDtgP9qIJob
+	OM9NyVpXa4muSi8ZpRocMhrXjEyki3usTXG3a2C0BSSlz3TojwzpmImSBZ2UOzvRclosXo4eWRy
+	54vVKZqyECs/RVLuKxJXDMrMhXITPZ1bONF59tWmG2X2NR/F//mRrJSoP1ayAZYUuvTATIAOaZl
+	8O96sp1BBCML9xeDYtKCIuf/nyIW8xXPRE8lnBcTG87D6QKrbJVXRHl467LJZFazbK5LERMu5SS
+	G8WSgcen+lYIlxfoDGC3s+vH+Y5+BAwgZsk3iG8FqhLtyES67LAfc=
+X-Received: by 2002:a05:600c:638f:b0:493:ae5f:d29f with SMTP id 5b1f17b1804b1-493bde0d921mr57485e9.3.1782825455000;
+        Tue, 30 Jun 2026 06:17:35 -0700 (PDT)
+Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493b8d0496csm63329035e9.10.2026.06.30.06.17.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 06:17:33 -0700 (PDT)
+Date: Tue, 30 Jun 2026 13:17:30 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	praan@google.com, kees@kernel.org, baolu.lu@linux.intel.com,
+	kevin.tian@intel.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	jamien@nvidia.com
+Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <akPB6l-fuJUcg4a2@google.com>
+References: <cover.1782799827.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-References: <20260622092335.1166876-1-eleanor.lin@realtek.com> <20260622092335.1166876-2-eleanor.lin@realtek.com>
-In-Reply-To: <20260622092335.1166876-2-eleanor.lin@realtek.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 30 Jun 2026 14:17:34 +0100
-X-Gmail-Original-Message-ID: <CAD++jL=6pqEA0-vs_J57MnhmLmLwrTj7-syOL8E7PLYW-vUBvg@mail.gmail.com>
-X-Gm-Features: AVVi8CdwgtcknNrciI5bYwSnH2bFysjttC1zWzWDoBamu5PfRAkvToiEh8EArtE
-Message-ID: <CAD++jL=6pqEA0-vs_J57MnhmLmLwrTj7-syOL8E7PLYW-vUBvg@mail.gmail.com>
-Subject: Re: [PATCH v4 1/4] dt-bindings: gpio: realtek: Add realtek,rtd1625-gpio
-To: Yu-Chun Lin <eleanor.lin@realtek.com>
-Cc: brgl@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	afaerber@suse.com, mwalle@kernel.org, andriy.shevchenko@intel.com, 
-	tychang@realtek.com, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-realtek-soc@lists.infradead.org, cy.huang@realtek.com, 
-	stanley_chang@realtek.com, james.tai@realtek.com, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1782799827.git.nicolinc@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_061737_988172_86A5AE24 
+X-CRM114-Status: GOOD (  32.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +104,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yu-Chun,
+On Mon, Jun 29, 2026 at 11:15:33PM -0700, Nicolin Chen wrote:
+> When transitioning to a kdump kernel, the primary kernel might have crashed
+> while endpoint devices were actively bus-mastering DMA. Currently, the SMMU
+> driver aggressively resets the hardware during probe by clearing CR0_SMMUEN
+> and setting the Global Bypass Attribute (GBPA) to ABORT.
+> 
+> In a kdump scenario, this aggressive reset is highly destructive:
+> a) If GBPA is set to ABORT, in-flight DMA will be aborted, generating fatal
+>    PCIe AER or SErrors that may panic the kdump kernel
 
-thanks for your patch!
+Can you please clarify more on those errors, what conditions will
+trigger that?
+For example, patch 4 disables the EVTQ to avoid events as there might
+be a lot, why are they not fatal also?
 
-On Mon, Jun 22, 2026 at 10:33=E2=80=AFAM Yu-Chun Lin <eleanor.lin@realtek.c=
-om> wrote:
+> b) If GBPA is set to BYPASS, in-flight DMA targeting some IOVAs will bypass
+>    the SMMU and corrupt the physical memory at those 1:1 mapped IOVAs.
+> 
+> To safely absorb in-flight DMA, the kdump kernel must leave SMMUEN=1 intact
+> and avoid modifying STRTAB_BASE. This allows HW to continue translating in-
+> flight DMA using the crashed kernel's page tables until the endpoint device
+> drivers probe and quiesce their respective hardware.
+> 
+> However, the ARM SMMUv3 architecture specification states that updating the
+> SMMU_STRTAB_BASE register while SMMUEN == 1 is UNPREDICTABLE or ignored.
+> 
+> This leaves a kdump kernel no choice but to adopt the stream table from the
+> crashed kernel.
 
-> From: Tzuyi Chang <tychang@realtek.com>
->
-> Add the device tree bindings for the Realtek DHC (Digital Home Center)
-> RTD1625 GPIO controllers.
->
-> The RTD1625 GPIO controller features a per-pin register architecture
-> that differs significantly from previous generations. It utilizes
-> separate register blocks for GPIO configuration and interrupt control.
->
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Tzuyi Chang <tychang@realtek.com>
-> Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-(...)
+In many cases the patches assume that the CDs/STE might be corrupted,
+but still attempt to retrieve them with some validation
+(log2size/split...)
+However, the base address might be broken, TLBs state is unknown...
 
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 2
-> +
-> +  gpio-ranges: true
-> +
-> +  gpio-controller: true
-> +
-> +  "#gpio-cells":
-> +    const: 2
+IMO, although that might improve the status quo, there are still
+heuristics, in addition to noticeable complexity to transition the
+stream tables. I wonder if FW can deal with AER in that case before
+booting the kdump kernel.
 
-After looking at the driver I must challenge this binding.
+Thanks,
+Mostafa
 
-Your driver is full of (offset % 32) and even (offset % 32) *4 to just
-work around the fact that the hardware inherently has 32-pin banks.
-
-Instead of using twocell GPIO and irqs, just use threecell, interrupt-cells
-and gpio-cells 3.
-
-First cell is bank, second cell is offset inside each bank.
-
-For Linux specifically there are helpers for dealing with this in gpiolib,
-and further you will be able to use the GPIO_GENERIC library,
-while this is beside the point for the binding itself.
-
-Yours,
-Linus Walleij
+> 
+> In this series:
+>  - Introduce an ARM_SMMU_OPT_KDUMP_ADOPT
+>  - Skip SMMUEN and STRTAB_BASE resets in arm_smmu_device_reset()
+>  - Skip EVENTQ/PRIQ setup including interrupts and their handlers
+>  - Memremap the crashed kernel's stream tables into the kdump kernel [*]
+>  - Defer any default domain attachment to retain STEs until device drivers
+>    explicitly request it.
+> 
+> [*] For verification reasons, this series only fixes coherent SMMUs.
+> 
+> For non-ARM_SMMU_OPT_KDUMP_ADOPT cases, keep a status quo since the commit
+> 3f54c447df34f ("iommu/arm-smmu-v3: Don't disable SMMU in kdump kernel"):
+> full reset followed by driver-initiated reattach, potentially rejecting any
+> in-flight DMA.
+> 
+> Note that the series requires Jason's work that was merged in v6.12: commit
+> 85196f54743d ("iommu/arm-smmu-v3: Reorganize struct arm_smmu_strtab_cfg").
+> I have a backported version that is verified with a v6.8 kernel. I can send
+> if we see a strong need after this version is accepted.
+> 
+> This is on Github:
+> https://github.com/nicolinc/iommufd/commits/smmuv3_kdump-v7
+> 
+> Changelog
+> v7
+>  * Rebase v7.2-rc1
+>  * Add Reviewed-by from Pranjal
+>  * Reword the linear stream table adoption comment
+>  * Use dev_dbg for the stream table adoption message
+>  * Document why the lazy L2 adoption uses devm_memremap()
+>  * Drop redundant FEAT_COHERENCY checks in the adopt functions
+>  * Use feature bit instead of STRTAB_BASE_CFG in adopt cleanup
+>  * Skip CR0_ATSCHK update in adopt mode to retain the crashed policy
+>  * Restore FEAT_2_LVL_STRTAB if the cleanup action fails to register
+> v6
+>  https://lore.kernel.org/all/cover.1779265413.git.nicolinc@nvidia.com/
+>  * Rebase v7.1-rc3
+>  * Add Reviewed-by from Jason
+>  * Replace dma_addr_t with phys_addr_t
+>  * Drop arm_smmu_kdump_phys_is_corrupted()
+>  * Skip threaded IRQ handlers for EVTQ and PRIQ
+>  * Bypass arm_smmu_rmr_install_bypass_ste() in kdump case
+>  * Drop devm_ for adopt-time allocations; set up cleanup function via
+>    devm_add_action_or_reset()
+> v5
+>  https://lore.kernel.org/all/cover.1778416609.git.nicolinc@nvidia.com/
+>  * Add Reviewed-by from Kevin
+>  * Drop READ_ONCE on lazy-attach L1 read
+>  * Split "Skip EVTQ/PRIQ setup" into two patches
+>  * Tighten kdump probe comment and dev_warn message
+>  * Use MEM + BUSY in arm_smmu_kdump_phys_is_corrupted
+> v4
+>  https://lore.kernel.org/all/cover.1777446969.git.nicolinc@nvidia.com/
+>  * Rebase v7.1-rc1
+>  * s/arm_smmu_adopt/arm_smmu_kdump_adopt
+>  * Revert alloc/memremap/fmt on fallback
+>  * Reorder patches to avoid bisect regression
+>  * Use IRQ_NONE for spurious evtq/priq entries
+>  * Cap linear log2size by kdump's allocation bound
+>  * Defer clearing FEAT_2_LVL_STRTAB on linear adopt
+>  * Add arm_smmu_kdump_phys_is_corrupted() validation
+>  * Defer l2 stream table memremap till master inserts
+>  * Re-validate L1 desc on master insert with READ_ONCE
+> v3
+>  https://lore.kernel.org/all/cover.1777150307.git.nicolinc@nvidia.com/
+>  * s/OPT_KDUMP/OPT_KDUMP_ADOPT
+>  * Do not adopt if GERROR_SFM_ERR
+>  * Retain CR0_ATSCHK beside CR0_SMMUEN
+>  * Clear latched GERROR bits (e.g. CMDQ_ERR)
+>  * Assert ARM_SMMU_FEAT_COHERENCY in adopt functions
+>  * Add STE.Cfg check in arm_smmu_is_attach_deferred()
+>  * Fix validations on return codes from devm_memremap()
+>  * Sanitize crashed kernel register values in adopt functions
+>  * Drop unnecessary l2ptrs guard in arm_smmu_is_attach_deferred()
+>  * Don't enable PRIQ/EVTQ irqs and guard the irq functions for combined
+>    irq cases
+> v2
+>  https://lore.kernel.org/all/cover.1776286352.git.nicolinc@nvidia.com/
+>  * Add warning in non-coherent SMMU cases
+>  * Keep eventq/priq disabled vs. enabling-and-disabling-later
+>  * Check KDUMP option in the beginning of arm_smmu_device_reset()
+>  * Validate STRTAB format matches HW capability instead of forcing flags
+> v1:
+>  https://lore.kernel.org/all/cover.1775763475.git.nicolinc@nvidia.com/
+> 
+> Nicolin Chen (7):
+>   iommu/arm-smmu-v3: Add arm_smmu_kdump_adopt_strtab() for kdump
+>   iommu/arm-smmu-v3: Implement is_attach_deferred() for kdump
+>   iommu/arm-smmu-v3: Do not enable EVTQ/PRIQ interrupts in kdump kernel
+>   iommu/arm-smmu-v3: Skip EVTQ/PRIQ setup in kdump kernel
+>   iommu/arm-smmu-v3: Retain CR0_SMMUEN during kdump device reset
+>   iommu/arm-smmu-v3: Skip RMR bypass for kdump adoption
+>   iommu/arm-smmu-v3: Detect ARM_SMMU_OPT_KDUMP_ADOPT in probe()
+> 
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |   1 +
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 467 ++++++++++++++++++--
+>  2 files changed, 422 insertions(+), 46 deletions(-)
+> 
+> -- 
+> 2.43.0
+> 
 
