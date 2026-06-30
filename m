@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFACC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 20:02:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A36CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 20:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PqYwf5Ub7H9RImvha677RgfRRKhB24bI7dgvnJ7lt7Q=; b=tbf4BlkMrwoOOY7r9vVfaOyLdS
-	wAfDO4bHrwVfTUI7UotgGIR5PyydkK1ag05UISBkFD2Y4FcOpeDF0ZNIlzpb94L/hf57zmgVJ+IY3
-	DsRA8jpiskitvSbJE+4uVO89DKD8oAjDunszkRolws6yaXlXpjZNrSn09GkthU8FGNMF4Vu5LbwJR
-	Dqc6wGE61n6KtkKuor0JnpF1ooSejO79lcvFTRKwqgzJm44OIW3P+/A0q9TTcFtQ34nCjD6aGhavv
-	7aX2qOQvTYbDZYixcvtaTG4XN0QM0dFoDaP1fwNcQEBTCM5d3Mc1P5urZVCm1HDZNZImPqtg8ZI3V
-	5qsAg6sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=PZYf4Vwez8GJq9I3WvAYOkbLhk26eGFt/+e8TLUuyHw=; b=aGi7uVb16zfgoo
+	mkXrMUyCmjfW7C8+ztjhMD3Y4eEx3ByNaNMb58uRhyhMxuS4B5KcT2F0OsgCCSmaqNPXGnFaWk3XP
+	VxSAcI3rtoR7WLYEELfE4ilmvGauTolQJmZYpioO16qtqUNStV/NL4obVJTbht1t0vsHrWJA+vA07
+	kVTFC6ZbaeKrdH62tO9jYNQMZElIxvWzSMRzL3psEIGMEWVlW6QdmcA17VnP2+TTDEcm+8VLwyhr4
+	fzy7nFSnelpfFhFCPEc4jgKZg67+bA+CmaHi8L79Zfc0r1weOFzeXFpVstp56NyW1qn4Y4NWRgApD
+	sHTshN0JL0b96ciSO/rQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weeeu-000000009ne-349P;
-	Tue, 30 Jun 2026 20:02:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1weeqF-00000000AN5-30Wh;
+	Tue, 30 Jun 2026 20:13:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weees-000000009nC-13Bb
+	id 1weeqE-00000000AMx-1iEr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 20:02:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1782849730;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=PqYwf5Ub7H9RImvha677RgfRRKhB24bI7dgvnJ7lt7Q=;
-	b=EpwZ4qOMJHsa+xknZ8x+oAZs3aEI8THSkxXyqqLmm6ZTgM8crwEvKw6s3xaTlKlJORQ17c
-	dQL0/bwgJQyXqVSNI+qaLn2utGa15ZGkfnmHCd0TgddVAN9yjdCnyXuujJsTM0ckVkS6Aw
-	j3l8K8VGmc7XW6DEvTYqaAxZL898W74=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-201-kq3kZmxvO5Go6VomiM3zpQ-1; Tue,
- 30 Jun 2026 16:02:08 -0400
-X-MC-Unique: kq3kZmxvO5Go6VomiM3zpQ-1
-X-Mimecast-MFC-AGG-ID: kq3kZmxvO5Go6VomiM3zpQ_1782849727
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4CC75184A090;
-	Tue, 30 Jun 2026 20:02:07 +0000 (UTC)
-Received: from [172.20.74.181] (unknown [10.30.45.123])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 41AD11955D86;
-	Tue, 30 Jun 2026 20:02:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.2.0-rc1,
- upstream-arm-next, ff4c5a0d)
-Date: Tue, 30 Jun 2026 20:02:06 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Tue, 30 Jun 2026 20:13:58 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F238D60120;
+	Tue, 30 Jun 2026 20:13:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 725461F000E9;
+	Tue, 30 Jun 2026 20:13:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782850436;
+	bh=PZYf4Vwez8GJq9I3WvAYOkbLhk26eGFt/+e8TLUuyHw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To;
+	b=lhIeJz3JM3MkT3jBMvoqFKIRXj5FP1wYrEj3ZP7Vrox3COPzDuXJ3H2ApcqemT6C5
+	 slYah7vEgTxLHPww06byXICKKx6ktkXyNpJ6tLQQyWs5Om/6FC1xuo4AUWTLr36eR6
+	 aizxrASoQDiTyzlnpi+zJWBplWpp2cQl5KqVCrF75ZrkJ3ecD8EyEYmszYrCQ6g0jz
+	 P7CNaQFyBKvv6frhy2SfwOKi1YzanVJLE0GMsL2JAENxq4vOjCQXOrBsE8xOFBRRy+
+	 POjUiwzfWlRiaIjwr5E/X8/vn8e1EcHCdmv2Hgz7qnYKHw0xGmGD2+QIQQ7mdR9iki
+	 n/rXaVx23zhhQ==
+Date: Tue, 30 Jun 2026 15:13:55 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>,
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>,
+	linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Thierry Reding <treding@nvidia.com>
+Subject: Re: [PATCH v7 1/4] dt-bindings: pci: Strictly distinguish C0 from
+ C1-C5
+Message-ID: <20260630201355.GA233513@bhelgaas>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <82344.126063016020802183@us-mta-201.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: axMpSYA4WBZN3BS1ROQP5ksZN4QbHGiuiAYKlODLVeY_1782849727
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_130214_471133_00A98DC3 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260617-tegra264-pcie-v7-1-eae7ae964629@nvidia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,39 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Wed, Jun 17, 2026 at 06:01:28PM +0200, Thierry Reding wrote:
+> From: Thierry Reding <treding@nvidia.com>
+> 
+> Instead of using the ECAM registers as the first entry, strictly make a
+> distinction between C0 and C1-C5. This is needed because otherwise the
+> unit address doesn't match the first "reg" entry. We also cannot change
+> the ordering of these nodes to follow the ECAM addresses because that
+> would put them outside of their "control bus" hierarchy since the ECAM
+> address space is a global one outside of any of the control busses.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Can you make the subject line a little more specific?  Something like:
 
-Tested-by: CKI Project <cki-project@redhat.com>
+  dt-bindings: PCI: tegra264: Strictly ...
 
-Kernel information:
-    Commit message: arm64/mm: Optimize TLB flush in unmap_hotplug_[pmd|pud]=
-_range()
+would match the history of
+Documentation/devicetree/bindings/pci/nvidia*
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2640930305
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+We can do while merging if there's no v8.
 
