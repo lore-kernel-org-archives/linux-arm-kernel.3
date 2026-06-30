@@ -4,131 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28476C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:08:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FB8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:14:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
 	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNzNowTZmvpOzqxaLLIdSXl0tVijP8DFPyrnqLyHFlg=; b=de0bXSU/+4DuiaDmVjB6n9xH8x
-	M6L2chZl3eaY5QZaBJOdsDtzT4HK4rx4CyO8KE5KwfS5ukByu32v1nY0622hltRQdFDP0/HE1lf19
-	aYCOEvN+OEjQD/U0FTGBnMO08iCEXhYe170g1M9niHfvNPJh9++Wza0kIODb5OGQLQF2FwNfIkIwn
-	n+iZ3GaYdUUv9pbEN2smJ9e2XI02C8u3M4+3L5vESwcHE1Uf9TycgEcOK6Perj4bqOlpLJxrEpFP6
-	zS9LbxoeJDirf/iM2Z8j8f6sMyr/rv+PD4v6vjL8UQUxp5Folu0dvL7+T6yT4CcjpuwBf0N9t2umu
-	CniNrVOA==;
+	bh=AFIAhGsRYfvYI7/ZjMGWZLtYo3mclXkaptiFLvD5wtY=; b=icsQodiwA8lwhyHpROSSGrV/bJ
+	tiwLgGSDjST/8LsyXMHO/FEloKNAwOwvp8bXS1zFCzHchYvv1doG64OfBZeDtYfJdEyBDw0Xsa+WP
+	JQ1LUiqHto0Ow7b4jHZfYEIAbwUuCh88Hf6arvyUA5gVnMJJI9npeK6iMc4sBVvkqXdbb79xukRlo
+	U6pfZEUZqxJX4xE3EHzJFT8OA8ze15J/W5I1bcROM2Jwmt6g6ZxrM12y3w5Gg0uF2s9kJ16T32/X3
+	yQbu547kvtkuJPWWIxKq6DdX6Ekqv83B4OOBuiMs8VgF02H6ZbU4cG3OrFGfdiyDlyr4NGPkFTajg
+	fc8iRziw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wedow-000000005kZ-38ME;
-	Tue, 30 Jun 2026 19:08:34 +0000
-Received: from mail-westus3azon11011031.outbound.protection.outlook.com ([40.107.208.31] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wedu5-000000006Ri-2je3;
+	Tue, 30 Jun 2026 19:13:53 +0000
+Received: from mail-westeuropeazon11011050.outbound.protection.outlook.com ([52.101.70.50] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wedou-000000005kE-3rSw
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 19:08:34 +0000
+	id 1wedty-000000006Qn-2XLi;
+	Tue, 30 Jun 2026 19:13:51 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MKNd+zNT6z+tWYYc9ZQWvKJIppF3RKwWiGFRGb8OR7PWNH1o4x0Sg2lkKziL6mEiuGdPdNDzehO/Nt0pLCvp9P0CLiRPXX4WIO+P9QQ/ROFaRVZnSyiL7YdDdf1/KWeV6wX0Ow/jatvYbM4f3geciGJvIruAYiXSXJQmv5z5oA2Im2p9JnO+uUR1LLXck7JuZ3X7wQalCgD/zDn3J/i7nXRs6oyqBKXBGGKxHSO8Tb+7LX5K6lqBNZVP2H2FWZkARJAH5AEjA1KUUIOsjj4Sb3Os8j5kLLl3W3UGWMMWLNl4F6JFe3Nx/zzxd95nwd+2DM2DFbB5A9AyIv0dfsN4qg==
+ b=JgYCiP7oCrfuNEY1zlKefbCFgh6fRaYUpQmMLCb/XjYFiMttemdWc7zuE3cAnwMPbGgmLazeO6uCZgkSDCP4pGKXMPBroSpnFSYnfy1t9B7QgwK4paUpGWaakCBZiJkg1zBs+peAF0bTKMsyQGo44Kh/ID2mCjRQDggpgqV7H403CB0NGfPsiPFvnOPpab784XJ1/CdWsAVYTIgYOas3JyfGSwDMYNzJL32GHpDQEDRgFehFLvHGtHlAUF4a5CkRm4QFrKLxyP7m5V+z3/FEjjqRgoTd0B0Ml/6HRWvdiFDR9EaNxhYHBQ9sRxX589Yiznj4Muta3k3i/YBq7GrqQg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pNzNowTZmvpOzqxaLLIdSXl0tVijP8DFPyrnqLyHFlg=;
- b=LqCBtbqPAHMZeRYVIevW2+v0l4uFh0MdvoniCzeD+C55rTdi8YC2gwU3JSRqnBZtN8BOf3Sq3kVSczW55D97iPs8NK6EaV4igIiwxp5TeFe0u/tWGjOveekSRC5VpvttCg8o3qoM4pmYMhkhpBA8Hy7ILPVb2rn7cpnxj2U1B5qM8rMiFvWcBkjkOE3pXFlHqzNxgIJEKMO9ex7pHOe/ZfiJXBz2I1ECRB+pEUuTxk34IlcXXW39OUucY3oVodg/CJ1PIvUGoVBEbnS2/wc/oOiBmI8VBSkZVvo2a3cpBWSy/zzTTYDhD8nlwbfsRWESyWv3EaTSyUfvjIoyouWLTw==
+ bh=AFIAhGsRYfvYI7/ZjMGWZLtYo3mclXkaptiFLvD5wtY=;
+ b=gUJtq8WQiC5IQSDjp9Ly97PwQA3zLCswMhTYTYyUosL2EgJkqv1hFkyXeFHV8+xZozby3uSWG8wnrOkdcWn6y1NModcu2M4rpMbW5K1/x1I3DRJFXaw1u1d3Xdb8VoRvhD1j/BLe/lHFzmoMX/9mTLpN7yf/2hMKZPVuGlRKYsoYsBmE/sa6KeEqVopCynS86GXXQQrnCoUu0jP3nQ3LbeAsxM7fVA+5fMsgT+LUWL/onXOXnDO6VEEggvljW9KAsL4St+T62pv1C4eblZjJWcnQOmgz1UyZ6aefwcTbx13rANTPz1v4IVEQXIE48/B++XGOV0zJZ2+DpWehqUi+Dw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pNzNowTZmvpOzqxaLLIdSXl0tVijP8DFPyrnqLyHFlg=;
- b=MxKtgRdPAaNeMu99oIOidTKm0xvBnTcXSFSwri4N+DrDdxGfIBEeRHggZOcv2F+6/26tlMjpBJl8jBUZUDF9GleJJdkcL4DdsGPXHoHQzmb/8yQDIP7Zlox6jn04xnVNtfdKEvBxYG4pMYaAHFIWDj/hN9mcW0ijJvxWMu+X1jHVXsg9v4vxh4GCm+F2T7dPI/gEgTE+WmtMoauf6OBeDmTGTfXi0kkmPOzmNxVUR3y2oJ01t1VQXLiHvjLuBehXrqeCXgwjwBQEWRvkuZF9M4J2eCXviu73MMIE7cBsUy0rwo9KPa0lKiDQr82tY4A9EjhDUBtKmX78lVKOCGNsOg==
+ bh=AFIAhGsRYfvYI7/ZjMGWZLtYo3mclXkaptiFLvD5wtY=;
+ b=BNsbdD+UzbG+y1+7fNinNgvoVqCM0S49+ZTjisE67ln8ssO7+1fwnpnpSrULA3WL9yR5ph5NURXEvhuMCj81yYS9GumO6aWlFDcULWmi4JindRSTRkPfN9tOXYCGlLmwzyZmfaHk4JZoGEvEPHPfEDJ3+KjvTcg5g6EEm4nZvwssAG0DgN1QXDjthwpukq0b7bC9geJMiZ3jM4lRKOntBZOO+AMipTAw0hhEX12RxjBi9Z0uX1Gt2XWnfZxX7YFlSfOkiCmPa/U2hargvrHiERobqzLDGa2qh4MMjL+Yt+kMKZGF3dIrQCoWNp7nccG0JOtqGzTetyiPisjp+24enA==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by IA0PR12MB8896.namprd12.prod.outlook.com (2603:10b6:208:493::17) with
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DUZPR04MB9981.eurprd04.prod.outlook.com (2603:10a6:10:4d8::20) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 19:08:20 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
- 19:08:20 +0000
-Date: Tue, 30 Jun 2026 16:08:19 -0300
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Pranjal Shrivastava <praan@google.com>
-Cc: Mostafa Saleh <smostafa@google.com>, Nicolin Chen <nicolinc@nvidia.com>,
-	will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, jamien@nvidia.com
-Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Message-ID: <20260630190819.GG7481@nvidia.com>
-References: <cover.1782799827.git.nicolinc@nvidia.com>
- <akPB6l-fuJUcg4a2@google.com>
- <akPX_N0P2EcI_jbV@google.com>
- <akPhuF9pAWaBXzpi@google.com>
- <akQLURkLA-bZ9dAk@google.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Tue, 30 Jun
+ 2026 19:13:41 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 30 Jun 2026
+ 19:13:41 +0000
+Date: Tue, 30 Jun 2026 14:13:33 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Xu Yang <xu.yang_2@oss.nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
+	linux-phy@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v5 5/5] phy: fsl-imx8mq-usb: keep PHY power domain
+ runtime always-on for i.MX8MP
+Message-ID: <akQVXYu27qG-SobS@SMW015318>
+References: <20260630-imx8mp-usb-phy-improvement-v5-0-25d616403844@nxp.com>
+ <20260630-imx8mp-usb-phy-improvement-v5-5-25d616403844@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <akQLURkLA-bZ9dAk@google.com>
-X-ClientProxiedBy: YT4P288CA0015.CANP288.PROD.OUTLOOK.COM
- (2603:10b6:b01:d4::15) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+In-Reply-To: <20260630-imx8mp-usb-phy-improvement-v5-5-25d616403844@nxp.com>
+X-ClientProxiedBy: SA0PR11CA0021.namprd11.prod.outlook.com
+ (2603:10b6:806:d3::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|IA0PR12MB8896:EE_
-X-MS-Office365-Filtering-Correlation-Id: cf56889c-1ae8-4730-4e10-08ded6daf2fe
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUZPR04MB9981:EE_
+X-MS-Office365-Filtering-Correlation-Id: 959af54e-8d73-4e22-4508-08ded6dbb287
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|7416014|376014|366016|20046099003|56012099006|22082099003|4143699003|18002099003|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: Jx9f5eiLHLZuHjJygw+IjtSnREhqGkYgWPrhP3pSoXW21i3uCyW8JTadpu0ZpKc8DSviViuOTjVu+XHnL8koGBSHhVO+WFcS8EB6/K6MgdJPofiaVg17nomYcny1G2IPaEDYH/EXffWj51IO47eV0SMuJkiLzOz8R8Vw65MhJjQN4kbvsNJ93z/SzpBXMM0hyHhE4Fk2BScdwJoGMeqljaCfw5ziM1BYKmhpvOo7IE28CeVWOJva6Wx3XxhO0mrwP+dGTOtnZQUCC0btD4QwJOjtjhNoj44+1MOw5MTPVQ4doKfCVJKJQ9psHN9EFfvKw0r85/3OtfzBO7vq9C3ItuQ0aYT00cK0Zqw36spq3+vXbJJIe2NSuCgDqOisXeGL84awm0RuDCejjshnjmnTi59Yxq1ogtGVpwnRcAQJ9KLBuaPWgEO7z3MuAMvavxKwIxaw3UczL5eOKW5o4OzuByvw42fmJrjKj20tzyR2Tb+F6McnWtkqR23lMKkB0JPvb51TmOiNNcBY6CE7xxLD74QkeMokiXPutibnxvoOIq6phgVvUbebstI28MnGWHN4gvX4LFXQVOJi63xBA5H1EryMcuT6NgQjvoF4dK5t3tfvLnKP30An8ODVRq5fLhMEG2hDqxXGdcZuFhIPt+OVdxnUHChZ8uTmB7Bcd4wSYig=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(7416014)(376014)(366016)(20046099003)(56012099006)(22082099003)(4143699003)(18002099003)(11063799006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|23010399003|22082099003|18002099003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: GyP5AiWaMMksa1Cm7l7K9dWDlylwiyarWT8cK7dmm0Jmh2NpUpClu3PNx9wfwqvj57GKxumUJPcAyjhsV1DWhdZCtPJp3X1gdjG/NIS80q6UXWIKUkdwOu9HiZNlapcd+rTMaGsu8aPr/WsiMbzjnl0H85lWbe5pCYXHNBY/CQG112tS3N1O4aBYljXBCUlLMUfNI6WBMWOxfKuL1smDKkvfwi2n3p/rheauAdTpJUy4rCmVrFiGUUpYgMiLdtbfC7seSN4ZpX6lVmQAywHs9VG8w8767GB3hQMW0MEBK9FSmUkB772nVRW4x23woIYcgFTQ364xbNi1WGHhaltX7/JzzuwiiRQKg/61px5Mq+TO6q6g/Vq3f7iiSi7H8M0Pi2aCLVvI0pILGUPkV2+SpxGtPwI22OqrebfSKYdz+BCU1yO0JlSh/v7qwJoE2fYozhHtOLLLYs6C/H77EaPD4AMTk41lnkpy3TJt3/bvDo0vLhuBzKGK36whXdiV73NDGwETSETqOLIKbYclp45AVxwhr8Hn0iYoiY6CD96rn8QpWGKpSDKb7OUxqQmVrC5fWtYsstggecGa4wJfV3jGO7X+lXvVVXsm1ZNKgkhg4aPrB01+ELTBVSWg+jtKEorEafsihk3nw87dq3hnta0F21zUORRjHGaFZ0XF4Zm9yoE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(23010399003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aGFKT47yrHDd2x2dbVrcPzqsFPouGY0PJ5LccBvBhLtBCjXdSkv0IGACnUSS?=
- =?us-ascii?Q?3czXryv9/8CUj/FVLxrFUsqSLR9eccdcdU9z/WhZeZ97gebWAX7FSRCWi06f?=
- =?us-ascii?Q?oGRrlHLOvYJb6Y7uwKouFJ4YwCXLYvpQnkD3PO7iHQCQD7rkgwvsr1CuKPmz?=
- =?us-ascii?Q?2R9ajQ17WKTNFd2l4uhPBbHQbg4M1nM42BzayaAfgESzFH7zzI34sLFfgxHK?=
- =?us-ascii?Q?oEWZCXQvYOotGSrIxmP5Mlxdz14eVpIVzhxabOm4mfjqF8xXfzYXlHNJQKTO?=
- =?us-ascii?Q?yW1CvDZEAI325j/kfG+Lut9fqfVIVozZhTIi3/S9CJtSBtG2L4yURSh1vkaf?=
- =?us-ascii?Q?K/1sjaJ9HM7ZMSHPushI615yIudiQJBfPTaaENysy1HkpWcgelbnJzSH1dqh?=
- =?us-ascii?Q?RmAuEgxLkT157tSkj0Fc0H+LnFkjrz6A7h0j4/ZxboOfSWIfdDPCiqFtL09f?=
- =?us-ascii?Q?9XwnNkWe9oD1OChsA41bfrgcIbutjSPgY1wqWsvBhdVey8/L+MOCc6JaQMAC?=
- =?us-ascii?Q?hJVtnyhcxOGkv/R9ES47ZunKswjaMMh7QbFWvkBWhIv3a0sdqy3Z4wRRm+Sk?=
- =?us-ascii?Q?L33PiCXc6JFlqo0rKQSMmkEthl2EV1V0tTdHPl+yx+7yeAxcm7hcV5Q5UO2C?=
- =?us-ascii?Q?eTwDdi2fjooLUoAIf4laJ7tX6l0tzCyR79vPGdkiYfeMlqVV3j9jifxr4pV6?=
- =?us-ascii?Q?YFRCMguJqEb+i9w6gh3IbVUf8G3nbh97nTuj2cmR1eZp1HDZabwkGEOYYqvQ?=
- =?us-ascii?Q?2J/OA+ac+UNZTWnmTVNhMBDzr2Z4RHtwrJqyIQwvZxXbbSWv7Wg99CJik0iZ?=
- =?us-ascii?Q?hMdnqev/KUCPhrCzojynRrlrFizZF7PkuNLabyoRsqfzpHQrl5DzgTCbi95L?=
- =?us-ascii?Q?W+fLAqEbW+xMiPWsXyFuUuGPh0htxGA4KG/9p9PH1IjAokO7hgr53N6PypS1?=
- =?us-ascii?Q?e5qgf6KCeTF7Ogc/AD624v9gvXZaqZ2qgOgoJt6HM6wznFes6I8j1OTKnlgY?=
- =?us-ascii?Q?um10banbKMrBQdBnBSrfVaU6zQgfPdjX+l+9+BbhbWiTvvFzCZn64fu5EXNJ?=
- =?us-ascii?Q?5czTGN/hHriCVfKop9HzH3WwqGP9b+8HQu7jYAd7wgBNlRrINV/JBZWCUe5S?=
- =?us-ascii?Q?9ES09O5r5iKWAlew1JilinhOk5364G6RpsVaOu5NPFZf/7zOrYsJSX9exnFo?=
- =?us-ascii?Q?yQZm/U2bvh0VzfP3y6VsI3J0VWW2XAh+622Ue9SnkxJ3slnMOb6rwRxpyfJi?=
- =?us-ascii?Q?RgyoH+uFK2+PXPa0p0iS/NrfmJHRwTAA5hfeolFIHwHC8pyLzpZ3Ho1MbAdC?=
- =?us-ascii?Q?JEdOXVjS/ahqX+wsCRTJQhXakNmK5JPOnzRBjF+Oa2Gjc85vepvU02r2wzvW?=
- =?us-ascii?Q?9kPUn6lm3vuApuZsKvwYxAaTo716cZzcRGSuozOaarQT0GK6C7PbZVFZOLFs?=
- =?us-ascii?Q?HoD1ewye6HgwWAWMZZ+Yy34fb3awZINKleksWOlL8GZ2boPdDj8R9H0VI0UU?=
- =?us-ascii?Q?UiPl7KvY9QxbkcwK+Bxs0cws8x5mn+peVoNTnB27PBRwWmUaN/vw1sM37lvU?=
- =?us-ascii?Q?CteP9SxxBdcIBy+vRM2QVgeRmPgE9Sm8GAfcMnAEY+BtMVyKRZFDQ2MM2Z3j?=
- =?us-ascii?Q?LLwphdyiYR6O+nxcJ4yEAckknDgJm2ZXI+wpNoE4fL16bVzHqCjSIBR/5D8+?=
- =?us-ascii?Q?eZxcncoHE3QEM4n254l8N7z6vhXGHi8yWe9IPX5O9sv9Cv2K?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cf56889c-1ae8-4730-4e10-08ded6daf2fe
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?19CRXGQ+AmzvJWJOvj9gfSL81d+cGfX8DiZPam6begLrBfTJ5F3o3RzrTdY5?=
+ =?us-ascii?Q?kn9EnOsUdxj2HIHsRji9H5uW8UkcA42znkc92gG9+jVqmuH7PFjo93k5BNTn?=
+ =?us-ascii?Q?p41NzJzICycecZxGePofd0S+8Sn8fV4x6c0I+rhHZG4LF4r3fq4nBcprCwGS?=
+ =?us-ascii?Q?P8IHCXF6SwnrV/mlp+c/zLrTuaYB3K0sXgmXP0maRq9Z0w2bA62//tsgRUNC?=
+ =?us-ascii?Q?FKwQ9nPdPnx7XDft2FGaJjU29ftdH3UGKBTElXTnhGSF4FoioF7ziACDyyen?=
+ =?us-ascii?Q?LZ3RKi90cIKzq39BDsetad3YVSoN4gRr3M9wQR/KjP0idPAynmP4wTWI49hB?=
+ =?us-ascii?Q?xMelAdny5qDjYlzsogROuu5z7hDIplxDNqqanLf4LzFEGY9iwkuvKidtBj/D?=
+ =?us-ascii?Q?bq27a+kJtY0cFMxIMyhY42A5cPj1nU7hFI6CY0M+gpZQh1wCFgs6yRj28L/D?=
+ =?us-ascii?Q?CmHcBsQwuZVlko+0eTH/KrQ2iaItJLzQSgS7FKAWdEKpHgt1+zmitM/9/xeJ?=
+ =?us-ascii?Q?SA5oapTHjofvKbwu5Qkj6nLVq+LZntXLfZ7QabNDYA8RNNeNxBZnBfU+9Oem?=
+ =?us-ascii?Q?S/aFBLeclyK74ZqJEEknUz7kHl/3LXAnD0uJKbxHNvAet0X4ZF57LnArfWou?=
+ =?us-ascii?Q?BWOcv/D3AgEfegkGox03dWV0QHZTOQjVce0O2sg7Xciw3EBntDrQxL+0bjPx?=
+ =?us-ascii?Q?HmAo//Cm5PLADPJgcoxlm6bfMBftPxeq7898kb5X1D3nIoyzqrOWTznYyx/m?=
+ =?us-ascii?Q?g3hWUXqa3cD2gi36HnpV2qBeJbRahX6ixT+l7NGnHt1v460CpEX0ZIVukVWe?=
+ =?us-ascii?Q?XtRYY340tr0HOdIU2mo9sS090o9cfR8xMyZ5s+lQJTT+U1wkuiu18kp5Qz2X?=
+ =?us-ascii?Q?iwPs7H8SMT4cd92riq4d9701i/40nY1i2qzDI28LX/960/DABC9m8328tE0b?=
+ =?us-ascii?Q?M56KkgnaE1vkleUGI+p7iz5fLn/dj9ZB6KI1nvP/py1TIslh9B89Nz/3cvYK?=
+ =?us-ascii?Q?D/+SFGnzcDpzlV6zmOOjHiwTrymeSCrE8CZ8VwBJoz8I+WiL17D/i8XaWeUL?=
+ =?us-ascii?Q?+qiahuh6sRCOGQu0ot+Iyg3DcVvwgnBqgoxk9R+iaqeiyHEyyrYrT4hhfN/j?=
+ =?us-ascii?Q?KqhQGAU3/DiflEbrJFQLRa/DtFG+jb+bjvaWPLhkMVoFyuKtb4bwIQExph5L?=
+ =?us-ascii?Q?pU8hE7YX5EvqU/D8onjhiPXFHNHxlCkPSUqXOU9OyW4HGOft25ACd/O221p5?=
+ =?us-ascii?Q?npOBjFKtVAdc73rSqJHYniASh+nbNt9kwwir9IzNGI3HGZnLqUxmN1w4t7DD?=
+ =?us-ascii?Q?FdJh7owfxRCisUBRiN51M8S+rkXdpluysznvv3vWA5JEtw30JwzFXGvsaiYg?=
+ =?us-ascii?Q?3YjfcXTtsJZ05l4aZPqVyV4t46IqJk4wrTGIoTVdx1iOxnfmp5bE5+p1Krk/?=
+ =?us-ascii?Q?NKKXGyXLoLcUT56XglPBOatkKWvb4t5zwRX175NulTu2KbiMDN9iRtsKDlGm?=
+ =?us-ascii?Q?urw0fOch1VoXNuqBu4eL3ZrlHBy+mOhVV0WPJ5MpU1CjGPqVZfcqcvrFeLsm?=
+ =?us-ascii?Q?GsQFCaT8GW3D8xbYth7H442LtvVyb/5S3hRHCRvRApGhWTcfJUcHoZk7Cyz5?=
+ =?us-ascii?Q?zhFMvRee4E+TKUEBt/BsajWw1hh6bgFeU9Mi5RKY+swiWKMWyvOsr7uhH4Xy?=
+ =?us-ascii?Q?4dVzX4ZFbbdHsCEvJakD+1UBkBR1dsNgBcGYtbi3S8EPQ3kw7pD53MxmybQd?=
+ =?us-ascii?Q?7ZochGEv52kU2DlNsWQqG2hFUqVKKqvp5zvPRAGRCmc9b3s9qGAT?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 959af54e-8d73-4e22-4508-08ded6dbb287
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 19:08:20.2979
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 19:13:41.7693
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: SMJIjPg9dCqcIf9bM8ZY9n8RU3CZsf6zkCqtGfdnhi0PsUFf/8mb7J+ltLcVCZQ4
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8896
+X-MS-Exchange-CrossTenant-UserPrincipalName: /oiSixa5GTQS/2Qth9W02O2bHZ9XumTMVndI6iUj5pyFLQdDdg5mHLKzf+/pTb07R84iGR6uCqw+cB/W0a6dkDG+3WnJdaW/uFYOTxai/XcgIvBSC8/kWeMWsBmZEUI7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9981
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_120832_983585_746819AC 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20260630_121346_651392_F29BC8BB 
+X-CRM114-Status: GOOD (  22.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,23 +142,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 06:30:41PM +0000, Pranjal Shrivastava wrote:
-> > As I mentioned above in the previous
-> > reply I am not sure I understand what situation leads into this, when
-> > does a device trigger SError to the system vs when not which is observed
-> > as an event in that case.
-> 
-> Ack. I see what you mean now.. How does a DMA fault raise an SError? 
+On Tue, Jun 30, 2026 at 06:11:32PM +0800, Xu Yang wrote:
+> From: Xu Yang <xu.yang_2@nxp.com>
+>
+> On i.MX8MP, the USB PHY has a dedicated power domain that was previously
+> never powered off at runtime. With the introduction of runtime PM support,
+> the power domain will be powered off if the device is runtime suspended,
+> which breaks USB wakeup functionality.
+>
+> To preserve wakeup functionality, mark the PHY power domain as runtime
+> always-on for i.MX8MP platform. To limit the behavior to i.MX8MP, add a
+> new imx95_usb_phy_ops for i.MX95 and introduce usb_phy_is_imx8mp() helper
+> to identify i.MX8MP PHY instance.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+>
+> ---
+> Changes in v5:
+>  - no changes
+> Changes in v4:
+>  - no changes
+> Changes in v3:
+>  - new patch
+> ---
+>  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 18 +++++++++++++++++-
+>  1 file changed, 17 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> index 4949ec78d304..c9741b532663 100644
+> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/of.h>
+>  #include <linux/phy/phy.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+>  #include <linux/regulator/consumer.h>
+>  #include <linux/regmap.h>
+> @@ -660,13 +661,20 @@ static const struct phy_ops imx8mp_usb_phy_ops = {
+>  	.owner		= THIS_MODULE,
+>  };
+>
+> +static const struct phy_ops imx95_usb_phy_ops = {
+> +	.init		= imx8mp_usb_phy_init,
+> +	.power_on	= imx8mq_phy_power_on,
+> +	.power_off	= imx8mq_phy_power_off,
+> +	.owner		= THIS_MODULE,
+> +};
+> +
+>  static const struct of_device_id imx8mq_usb_phy_of_match[] = {
+>  	{.compatible = "fsl,imx8mq-usb-phy",
+>  	 .data = &imx8mq_usb_phy_ops,},
+>  	{.compatible = "fsl,imx8mp-usb-phy",
+>  	 .data = &imx8mp_usb_phy_ops,},
+>  	{.compatible = "fsl,imx95-usb-phy",
+> -	 .data = &imx8mp_usb_phy_ops,},
+> +	 .data = &imx95_usb_phy_ops,},
+>  	{ }
+>  };
+>  MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
+> @@ -679,6 +687,11 @@ static const struct regmap_config imx_cr_regmap_config = {
+>  	.max_register = 0x7,
+>  };
+>
+> +static bool usb_phy_is_imx8mp(const void *data)
+> +{
+> +	return data == &imx8mp_usb_phy_ops;
+> +}
+> +
 
-As I gave an example to Robin if the unhandled failure escalates into
-RAS emergency unplugging CXL memory then the system is going to
-explode when kdump touches that CXL memory as part of the dumping. It
-is not quite so simple that a DMA abort is triggering SError.
+It is not good direct use drvdata as it.
 
-I don't know exactly the sequence of events that lead up to the kdump
-kernel crashing (I imagine it is hard to debug that one), but it is
-something related to the new kernel not participating in the RAS and
-the RAS flow escalating to something fatal.
+Can you add new drvdata
 
-Jason
+drvdata
+{
+	phy_ops ops;
+	bool always_on;
+}
+
+in follow probe check
+
+if (always_on)
+	...
+
+it is more extendable in future.
+
+Frank
+>  static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+>  {
+>  	struct phy_provider *phy_provider;
+> @@ -721,6 +734,9 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+>  	if (!phy_ops)
+>  		return -EINVAL;
+>
+> +	if (usb_phy_is_imx8mp(phy_ops))
+> +		dev_pm_genpd_rpm_always_on(dev, true);
+> +
+>  	imx_phy->phy = devm_phy_create(dev, NULL, phy_ops);
+>  	if (IS_ERR(imx_phy->phy))
+>  		return PTR_ERR(imx_phy->phy);
+>
+> --
+> 2.34.1
+>
+>
 
