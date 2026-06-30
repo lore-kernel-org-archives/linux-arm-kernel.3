@@ -4,168 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCBC1C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:43:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93974C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:44:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zt77Lbtsncie1+AFWqr0tPcSeJdAyekHoPRmDpf4Y2c=; b=Z2y5Cb+DtOJOkGLDd4ovhp2cW/
-	OMyp9vVefP6LNT3cGZgCucS8pFsvb2ppgs7lYvJ1Al5pkPtLm2tGiIA/Q0KZEyMx/4C0Dg+/E554y
-	hSOc1ahg/Z0arMX+H7aE3SPSunnkYh0nxTdwPiU+Ju/sOrM+IGmbN+LnpaCNZx6d4h22d18ixWhNX
-	rUb4wqWsr6Zh8pLuy8s5mBXCjWdhZHCSaC5aPzFMHUQCXrhFTHU8D6/4gl7QDbhMDPW2evJx6rjpl
-	WXimqOatXL1GmqrVZ88xstK5BlggroSRFO5DTrjq+25lrlt8O36sjqpt76CKBG78PthP6k2FSTk3X
-	h91FQ3Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9Lo43FKv0UzNv+DqheKNJ0v2vJAyWuHFwECjygzQOw=; b=JvLM85vRoPvurPoSiDRXGR0PeI
+	NVJP+NGT//PfNRZSwKqGsPmbZN4cJQS1xXJqKq/0FUI+/ZdDrsdRDAfA2xasJ4EL81RUF3uGpE6xN
+	NscSGCAJF4eFlXpOiaIbv4DhL4BhqkGjREqGLVNYZAnAdcUAeGsE1bwaC3T0z7Fb1hedI3WT2dBNx
+	8ZBzv3pcXv3MGbgpHZ2BIC6LXjIcGf1uWy76ET4EsQyGGVXXMBCuKa+wlD7kGWmCxO94fNKIlMsAR
+	DijGmG9WvaiE08GNwAXqbW3x6Yed+/9OmsFKltG0zceyDt4/2bz5n8524qTLCk7uZedXyy5MSU1te
+	Yz5Jk6Xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUza-0000000GUAf-3yBl;
-	Tue, 30 Jun 2026 09:42:58 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1weUku-0000000GQVH-3KaK;
+	Tue, 30 Jun 2026 09:27:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUzX-0000000GU9x-2BV3
+	id 1weUk9-0000000GPjF-3ZME
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 30 Jun 2026 09:27:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=T9Lo43FKv0UzNv+DqheKNJ0v2vJAyWuHFwECjygzQOw=; b=Ouyk4aYrUKocQwn6FlL1+HVvRB
+	AV9DWmUjoODgkUHQPYj9Mgu5pMnNRZHchKbto9YFH5+Jnh7spJsE4y0Xj+rOw7xd+k366ElNj4t42
+	z0OH4jSzSCO0Obxevot9Zb5VQOiT4jj82HcZDxvxn3lNwPoXdcoAqTIwswZDosy2eRkkLnyo/6F2E
+	oVDmcrWBFxbi09sKoP9mKUm3k5pUZsKbEjda5evkL0vJ6xonEe+HMYxIsgYW+FU8gDdAj2kXB6Nih
+	jLI9zejSHCL4jn8+JxNSPxlrX6fWBD/WZ0MIda5tm1khsjklE226amcEepUyDA0HOZeCdgJ71AFZx
+	T4rhnmAw==;
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weUk2-00000001hxg-0YIi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:42:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FmYPTkhrCoH2JkiGaREz9NW0CbAN1t0oDEZzIETAyrro3+UTDvIW3321j4DEiYQe7qbKW4P0ZImJoWonm2eZJg0/pZtJHJsdL+WE1CkzZRvPMIhdrvyJYhnW+oAESiP2ImpW9cvW95hAY93MkbiFagihny1iQlMwLskg0FYYJrcJlypJF5xXzthb4zPFq4MtfXSinveDGYIusX0u1mh0KY0RMfzI5j1Jj4RtGkuDEOcilKCEjMEykpgpxonC+UVl9BHIVAtj5fgthWteD07FypZHWaD5ArJduMht+7mhqPvP996XpCVhlWAgGGTYUZSdo4XRDTs9VMcZqY6/YaQi2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zt77Lbtsncie1+AFWqr0tPcSeJdAyekHoPRmDpf4Y2c=;
- b=jx2OcuBN6lkkQtckVuIu1rLlu/LoLFxootvxOmxrcqfOCEcDcdIlCZtR2FzCJr+D41i0R4brnY90IpelDqP+3prdts9wuoGd8HGuN/zyybdvxl2Su5Htb+RHh1xSwxdMSLdmu5YWy99kjamaystSBq9Y+raH/LD/Jb6kWlSVDabct3OyUFUq5AveuP7otE8o8z12GrOvUiBTWEHkwQ44+OnCAdvoLqALFM0JGc1nbJCGTjic1Y7ukfiMO3h3r6AzZJsRyyUAwGYRrqNfohdQAI/lEqwx4hpwjXyLyOxgkbO/Quqt8OSPqkSUoP3bU4qXYhyHTnvXuwmIQWtYP5V3QQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zt77Lbtsncie1+AFWqr0tPcSeJdAyekHoPRmDpf4Y2c=;
- b=LiGwf6h8e/QrnFr/jsXPDQekn7V+ePCxGzF96r+8C68rXQO2K82x8Zfv5bmb8xq8BB2uN8XhDYijdaspVegxhuDRIo8byNl063pZKxVLPZg5ii3OebvOBdNkVX0rbqH54m6rwTI7weifDeBFSL846MDJm6q09mXKf2EjCwl45Xids36bWWxrSra3rmSngUaHaocFx9yziVcldF0CywbNJZk//CK59g1yzDf4CPSsiE0tCJiEbv3ivF5Qq6Frg2+jh9y3GDHfr3OwNT4VmRtmTrCQ62p7UiQbwDlBC/tWTAJLHSQUQjpYLnVrgicfROD08/QuMVPdrcj3fc8+Vos+sA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com (2603:10b6:a03:48a::18)
- by IA0PR12MB7700.namprd12.prod.outlook.com (2603:10b6:208:430::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 09:42:47 +0000
-Received: from SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9]) by SJ1PR12MB6051.namprd12.prod.outlook.com
- ([fe80::96e1:b300:7b78:d3a9%4]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
- 09:42:47 +0000
-Message-ID: <3c714ae3-8f62-4785-9f61-ba9899fd70d8@nvidia.com>
-Date: Tue, 30 Jun 2026 10:42:34 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 12/17] arm64: dts: nvidia: Add EL2 virtual timer
- interrupt
-To: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Daniel Lezcano <daniel.lezcano@kernel.org>,
- Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Ge Gordon <gordon.ge@bst.ai>,
- BST Linux Kernel Upstream Group <bst-upstream@bstai.top>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Lars Persson <lars.persson@axis.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Dinh Nguyen <dinguyen@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Thierry Reding <thierry.reding@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, =?UTF-8?Q?Andreas_F=C3=A4rber?=
- <afaerber@suse.de>, =?UTF-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
- <eleanor.lin@realtek.com>, Heiko Stuebner <heiko@sntech.de>,
- Shawn Lin <shawn.lin@rock-chips.com>, Orson Zhai <orsonzhai@gmail.com>,
- Baolin Wang <baolin.wang@linux.alibaba.com>,
- Michal Simek <michal.simek@amd.com>
-References: <20260523140242.586031-1-maz@kernel.org>
- <20260523140242.586031-13-maz@kernel.org>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <20260523140242.586031-13-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0482.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a8::19) To SJ1PR12MB6051.namprd12.prod.outlook.com
- (2603:10b6:a03:48a::18)
+	Tue, 30 Jun 2026 09:26:56 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-4720f3bf164so216768f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 02:26:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amarulasolutions.com; s=google; t=1782811612; x=1783416412; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=T9Lo43FKv0UzNv+DqheKNJ0v2vJAyWuHFwECjygzQOw=;
+        b=gvpQmOxlDbx2ha3ZVRY90mh7Asc4Zv0+T/iG+juoH6fcmvCsKzSQhPP3oLig7vhmlp
+         +uxUHMUYISsjYjL64p16l0V9h3PgGcsKOs2cBBg1/IIHbWcSeUdON5wIGaOkqIUWHoM6
+         1jC0784YSSRcb9CukaTykGgYlhFBQotCuH794=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782811612; x=1783416412;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=T9Lo43FKv0UzNv+DqheKNJ0v2vJAyWuHFwECjygzQOw=;
+        b=iwrUr9c3YRa7EtmxWxFZT2qozPslsMdOV+t8MKjsxaWx3t4LdfxvQmV/jtlfHNDKCq
+         S/53Zb4e6xSXesl/duJqFpxCzI60thFVVNEp4T1ThcE/zIWzRroBMdt7YbXzlrC4kH9U
+         ra0KNUefNamQn1lXLRep/ss7nBscnB4iZAyb4U1+Va4C3AZyTt1/SE58sGkFFI4ORIRw
+         K6OeGf2JHQtrwXK2DP4mipGkizEMzscrUR+ZYGTfIWaxN8STWgnzS4Qd0BZ31nfNK2vv
+         AuRYDVLnRKrosvYMbkPC0XkpB/CFcG8kWXh4jHCJ0pCOWlTLkruPOLpgAJ2ly6u9pVN3
+         pTCA==
+X-Forwarded-Encrypted: i=1; AHgh+Ro+UuTmqTU13xhgwWGivOXKVJt7whieuQQGH/0ffdQK65v6oMFF2T7jnosFSKHg0fyAMbJ1LSUW2GxDOQTfUWLO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwA1fw9oX/UAe2N1axnPrPBDhzdwe1g0PYtZnoQU0zjV04rjT0J
+	e/YV+xgVjnAa/V/WWv2p4grcc/rc/xIM5Wh+XmmUCXxKxVo3B/oj46T9d+UY97fE/Ns=
+X-Gm-Gg: AfdE7cl7WyjAbGv/pQS8zge9xaIUu2yFuBUvhB3+09647WrCI88+PN2DOMZXaTkNpAg
+	3H4UgIjkL9B2lbF3pYUN9UgCk0PKfesYC35aRqtDlFb6E2OhOIS4wcuzZ7KPKJzXawydqAlD/eX
+	DVljT5FCIf3qUi+Mk4uzJYrYvfU7aklnKeye33Tfp9TF9OIXY+jXjYV3TtrcJuQDs4rC94DaHC3
+	dcc6tI+fNGRw7TTgO/VLZqR87Bj1ZnDsV42wjINAnsd8VKe23p8FkZYs9hs9XdvbvZ5cTE4YLe4
+	P82z7OP3p2MNihM1pYsaTRzIN6P681oKIUAoYFAQq4wXq35+kb+oViGExKINg1pNCTbBu64t+Cj
+	mjKzsfCkP4SRnOOkN76jJcxRCEP8Djg9Ldm0LZa85/vwLWumQK2qSfzX+JnpDaJjLONnjSzDeWz
+	qZ+72gtWB7pwq3GKrWhb3wLH2SofFTcFG0UiWXGtzxT+ox0sWqyUU6la8yk4Z60tdsiIfZOaMpO
+	zg79YMPAW2UgxB1x1ASfY9WbLPV6tk7W36U+aBhShb/Vj/ecNVz+yyVI/3/8Ig/pkmM/RpidrtQ
+	ZZAKblII2sKGXA==
+X-Received: by 2002:a05:6000:2dc8:b0:474:c3a5:4132 with SMTP id ffacd0b85a97d-475de54e0c8mr1597205f8f.9.1782811612406;
+        Tue, 30 Jun 2026 02:26:52 -0700 (PDT)
+Received: from dario-ThinkPad-P14s-Gen-5.homenet.telecomitalia.it (host-82-48-44-238.retail.telecomitalia.it. [82.48.44.238])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47567a6f0ddsm5669083f8f.37.2026.06.30.02.26.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 02:26:52 -0700 (PDT)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-amarula@amarulasolutions.com,
+	francesco.utel@engicam.com,
+	michael@amarulasolutions.com,
+	domenico.acri@engicam.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v6 10/16] arm64: dts: st: add sai1 pins for stm32mp25
+Date: Tue, 30 Jun 2026 11:24:39 +0200
+Message-ID: <20260630092628.1695560-11-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260630092628.1695560-1-dario.binacchi@amarulasolutions.com>
+References: <20260630092628.1695560-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PR12MB6051:EE_|IA0PR12MB7700:EE_
-X-MS-Office365-Filtering-Correlation-Id: bfbdd434-1c28-41d0-b7e7-08ded68bf120
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|56012099006|22082099003|4143699003|11063799006|18002099003;
-X-Microsoft-Antispam-Message-Info: 1vYksPvq+pPyufTPmJ/8reBSOt1O3WpVvJsgtkA/NMbcdh9liSxmbcrh+UFfleOZi5Zyu5AM0feyigswrOSns0uWvl7L7BEn2g5fHlakMn5ynwbZjoHbZGsxTBgF9cfMOVUSR0QEhJaF8QSMVJe9I8vpmZreAhM3LHW0J6nMiqQvSU0WG26x/gIrhU+E6+mM4P39/23O7ASFgmHVW7SuPNG24AqfyCXNfd5LaURNxYk0T9UYueTkv1C74ekFbMWolE7IOmxw5fsSYUQHh1jrEshaY4qvAS3w/wXqobXOkFZcgnbb/qn84EC+mHwqh3cCL+FAw1+B3maSOfi/nlFl1isbnJNULZ01MQgAVyt7r7Qh1NEQtmaO7V9oMkh42iW0Ol6Ch98ojwCOOLVAR3v0YicyEAKaPq8UDAtAaDH5N19lDeO7DraaF9fAhtcS9GQl7hKKuayG8FbceGpbSde5jmfZoqhH8C0XA/mF0Y6m2xdCuZQS4xgHk20jcV/SWOmg4iuhEcHWmVayATqc/jRwc0vvf3oPy50htPo0YKN+s7SKY3pFLqwB4lj9xVzHrKmoM/wjtUQshkJyudU7o7Pbaosh9AVMCn9woicoKbGgZaHmj+B+M62OP9UJvtu3682lAHNtDmSFHWm5vDLHsBMIW/DfIuLzmHukpKQ2JKBRxxY=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ1PR12MB6051.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(56012099006)(22082099003)(4143699003)(11063799006)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bUhzemJnQVFjK0RtYWpXVlVmVFRxc3MyOVQyWWlrb2ZlaHZCaFNFRUY3RUpp?=
- =?utf-8?B?TmM5VkZkZkZYRW8zY0w4VUM2VmQwVVBEcXFoSzFxdlN6VEJ0d0NFWmlDQnRV?=
- =?utf-8?B?V1Q5dG41V2N2cENRNGM3c0FLMS9wTVR1SlVURDdPcWNleXo0YnZBeWZNVVRO?=
- =?utf-8?B?Zk9XTWdyZmZFdjRXMVd4ZDJsNHdFektQVFhwVVRDQTkrZjJEMGtJcnBIVnJV?=
- =?utf-8?B?bmFZSWttSXJRSG5NZSt5UkMyN3BGU2NnQXF6T0NQYlBwTFE0a3B1SHl4dTVu?=
- =?utf-8?B?TlZMWFBZaHpHZTAzUk1lN1dwWTNOa0QwWXBoYjYrYUhOWU0wczZnOXlwK1dk?=
- =?utf-8?B?VUt1UWdkKzNxTmhGb3pNMkZacGxKVGZpdkRkamtGV1lZYXF3Vlc3TVlYbjV4?=
- =?utf-8?B?eEVjOG1vU3VzVWU5cUNNR213dWxUM2hvSHVJWitWM1RvQW9lMnp2Z1FhUTZO?=
- =?utf-8?B?Mjc1RFZOU2Nib1hEVFI0aFNGWFV4dHV6elJYYk5IRVhSQkdBcEtmd2VmTWlp?=
- =?utf-8?B?ZHJWVUdBMWtnKzJtcVFjQTV2eUFGTmE5aXZMdXczTFVYTDcyVGpaMDZqcHUz?=
- =?utf-8?B?WG92aUt0Wmc2ZHdzZXNCdCtYUHMvMnh1eHdTd25YbXg3N1hQQVFiclIvUVhH?=
- =?utf-8?B?MEgvV1pBN21BMzc5ZmZySzlKMEZXcnRzaERQV0xXdENaQ1lQTSt0WVkrWE1h?=
- =?utf-8?B?a3hhdjVvWkNLUXE5cnlCZU1pVFJZaHRQMkloMVlUY1dNZW5kd3hZUkg4dWFE?=
- =?utf-8?B?dFNpZ2FqZThQNS9WbXRkSGNnOXpVS0RGR1lKZVA1RkF5L2F4TXk2UXNnTllH?=
- =?utf-8?B?YkgzcVBRSVdQalcvZFk5b3hiNENGdEJSRW5mR2tDK2VrN2FqU01jSU5BL0JP?=
- =?utf-8?B?UVZLRFZIcmFJS1VYK1cxRFV5My9NVHFaYmFDNloyMkFSMVN2N1FXMDg1cWd3?=
- =?utf-8?B?VzVXQTJJV3hCVm5mMnpTcWM5OGlFdHlidzROZE9lQkJqcFR3bUV3R2UwWHRo?=
- =?utf-8?B?WjNFTFo0TFIyNm5NUmtQdXlwSXBPdDFpajk4NzVyVWh3MEk1ankzN01Zc3ZM?=
- =?utf-8?B?S1p2NDViMStnSmVEcjVPWWJyZVFiQUhWMFZaTjlETUY3VGJBa2Y4S3FuOVRK?=
- =?utf-8?B?dk5OeFRJSEVWQVVyWFVUdzcrMk1RRjBBYTZodDdaK3E1S0xaUkhJbysxaVJx?=
- =?utf-8?B?dTg0ZWJZbTlVLzYwS0NQYkwwaWVPaGJ6Uy9tMFpHNFpWaWd4NTU2YWpjYW0w?=
- =?utf-8?B?V1JUL211R0RBc3dKYmprL1hSV3NiSEtDQmYzcEtXYzVLS2hNM0hOUDRjN0Jy?=
- =?utf-8?B?ZHRNMWVhalN5VHRLK3BrWG1XZ3BVbnhMSEVmSk1JTEpQOXpPOVUxdGpweGFl?=
- =?utf-8?B?dmo0NWJ6YlZVT2E3RGJDU3VMdGhPVGV2QkRRSy9uMnhxVnVEWTJSSzF4cTRE?=
- =?utf-8?B?WU5oRkNQcUxzbGRyZVpkU2xYaTlPb09UQkpKbERBNkNLWkdkM1pudkwwckxh?=
- =?utf-8?B?eGlaRDJESDFRbm01bnNsNnVTTm5jZ1NsL2RjSWd5WjQ3QXk5dmYyYWtnQjN4?=
- =?utf-8?B?RDlPZWg2dUFNV3RlNTFHclNpTUVHNmFpdnp4Q3ljSkhoNWh2Si9qNXByaFZz?=
- =?utf-8?B?a3JXY1JFS0tzekhJM0VCTVc3VEFVaGE3RlZBM3huMmxFYzFkb01uMmwzTDFT?=
- =?utf-8?B?VExMK3ZnVUt6Y3Z0blFubkM0ZFF0ZUs4ZWZGQ2ZSSEN4eDJKUVNlNHI0b25Z?=
- =?utf-8?B?eG9rcFUxclF4b2wyR0Y0eHdacVY3dVdGbHliMEVjcVZIcjA5R3pmSndhOFhX?=
- =?utf-8?B?L21idW9oZHl4a0VEeis0MTAyTVpyd1FDODN1SnBRcnRkNENHVGs4UEdVNnE0?=
- =?utf-8?B?a2hDTDhpMHFZYnJiUmh1QzRKZFZZZXA0NFBQUmQ3WWk5M0RHbkkzKzRmQmds?=
- =?utf-8?B?WkMwQlJFb3FiQWZkaytlR2diamw0TnBObGVodEVPWFNXTUhpSHc0WkxPNXdR?=
- =?utf-8?B?UERZaThLUEtOcEZCQlhNVTZ1aW1xOFdtRzJuV0tkQVJ5ODVEU3FCMkdHOVZk?=
- =?utf-8?B?cENKVTZkazEya2Qwc0Z3YVNmWE5xTDQvZG1zanRCN3dwQWxWV09GdnBwa2hv?=
- =?utf-8?B?RTRrc3pLYy93M0VkT2JabFl1RnNVZUIrNVd1dVhKZnBHNnRvSkN1WEM3Uk5m?=
- =?utf-8?B?bDVqVlNwTktLdFVDak1kUE1KblU0NGE2K3BNNnRVK2JKQnhUSFduZmtlK1R5?=
- =?utf-8?B?ck9kbzhVVXVrd1krMG5RVFI4T2I2ZjIxSHFWdStpdDE3SnFOKzVVVG1SR2JF?=
- =?utf-8?B?ekVEbHp6UC8rQWtTL3BCY2h0dmtGK2p2YUxrMFVuOC9oTVBlSS9MQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bfbdd434-1c28-41d0-b7e7-08ded68bf120
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PR12MB6051.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 09:42:46.9674
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OM1SJlOgXEZwOPBlIKwwqnKCNam7lrhcZ8daLNGm7JL0/ArjudpUcqwWUauvLeo7PIUDFvU9ioc0W6q7hYL4ZA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB7700
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_024255_566522_FD605A51 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20260630_102654_586207_EB446E14 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,63 +123,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Add the sai1 pins used on MicroGEA-STM32MP257-RMM board.
 
-On 23/05/2026 15:02, Marc Zyngier wrote:
-> The ARMv8.2 based CPUs used in a number of nvidia SoCs are missing
-> the EL2 virtual timer interrupt. Add it.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->   arch/arm64/boot/dts/nvidia/tegra194.dtsi | 2 ++
->   arch/arm64/boot/dts/nvidia/tegra234.dtsi | 3 ++-
->   2 files changed, 4 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/nvidia/tegra194.dtsi b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
-> index 849694f751d90..45cc180ac9973 100644
-> --- a/arch/arm64/boot/dts/nvidia/tegra194.dtsi
-> +++ b/arch/arm64/boot/dts/nvidia/tegra194.dtsi
-> @@ -3163,6 +3163,8 @@ timer {
->   			     <GIC_PPI 11
->   				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 10
-> +				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 12
->   				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
->   		interrupt-parent = <&gic>;
->   		always-on;
-> diff --git a/arch/arm64/boot/dts/nvidia/tegra234.dtsi b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
-> index 04a95b6658caa..ab9813f9ba30c 100644
-> --- a/arch/arm64/boot/dts/nvidia/tegra234.dtsi
-> +++ b/arch/arm64/boot/dts/nvidia/tegra234.dtsi
-> @@ -5872,7 +5872,8 @@ timer {
->   		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
->   			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> -			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
-> +			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
-> +			     <GIC_PPI 12 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>;
->   		interrupt-parent = <&gic>;
->   		always-on;
->   	};
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+---
 
-Sorry for the delay. I gave this a test because I observed the warning 
-that was added on the Tegra194 and Tegra234 platforms. This change fixes 
-the warning for Tegra234, but on Tegra194 the platforms I tested hang on 
-boot. It appears to be similar to the issue that Marek saw on his 
-platforms and so I am wondering if Tegra194 also doesn't have this wired up?
+(no changes since v1)
 
-Was there any resolution to the issue reported by Marek?
+ arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-FYI, the Tegra194 SoC has the 'NVIDIA Carmel ARM v8.2' CPUs [0].
-
-Jon
-
-[0] 
-https://www.nvidia.com/en-gb/autonomous-machines/embedded-systems/jetson-xavier-series/ 
-
-
+diff --git a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+index 695c9d771853..002fbc724b9d 100644
+--- a/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi
+@@ -520,6 +520,51 @@ pins {
+ 		};
+ 	};
+ 
++	/omit-if-no-ref/
++	sai1a_pins_a: sai1a-0 {
++		pins1 {
++			pinmux = <STM32_PINMUX('D', 9, AF3)>, /* SAI1_SD_A */
++				 <STM32_PINMUX('D', 8, AF3)>, /* SAI1_FS_A */
++				 <STM32_PINMUX('D', 10, AF3)>; /* SAI1_SCK_A */
++			bias-disable;
++			drive-push-pull;
++			slew-rate = <1>;
++		};
++		pins2 {
++			pinmux = <STM32_PINMUX('D', 11, AF3)>; /* SAI1_MCLK_A */
++			bias-disable;
++			drive-push-pull;
++			slew-rate = <2>;
++		};
++	};
++
++	/omit-if-no-ref/
++	sai1a_sleep_pins_a: sai1a-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('D', 9, ANALOG)>, /* SAI1_SD_A */
++				 <STM32_PINMUX('D', 8, ANALOG)>, /* SAI1_FS_A */
++				 <STM32_PINMUX('D', 10, ANALOG)>, /* SAI1_SCK_A */
++				 <STM32_PINMUX('D', 11, ANALOG)>; /* SAI1_MCLK_A */
++		};
++	};
++
++	/omit-if-no-ref/
++	sai1b_pins_a: sai1b-0 {
++		pins {
++			pinmux = <STM32_PINMUX('D', 4, AF4)>; /* SAI1_SD_B */
++			bias-disable;
++			drive-push-pull;
++			slew-rate = <0>;
++		};
++	};
++
++	/omit-if-no-ref/
++	sai1b_sleep_pins_a: sai1b-sleep-0 {
++		pins {
++			pinmux = <STM32_PINMUX('D', 4, ANALOG)>; /* SAI1_SD_B */
++		};
++	};
++
+ 	/omit-if-no-ref/
+ 	sdmmc1_b4_pins_a: sdmmc1-b4-0 {
+ 		pins1 {
 -- 
-nvpublic
+2.43.0
 
 
