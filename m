@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8406C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:06:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0EA8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HX1nHvlk3c1+dgVJ4v3uKemvU735Z6kr6zZ67avlLqY=; b=plye5TUTGVx7W9E4BOlMRcPO7z
-	CmqsPj5Iav9KB3pzIVhA1eMdQlk+h0bIylZVRj/L5nVGuMCFIdOwCnBIy/CVfHchDmEvSNtIfvF4X
-	b7L9kUJ2nNIRNoc7mRYtrtpH5P/4UFtwaFO4LTq2o+YQIfVlLwZLWl9WMFAhl743KpIppXJEaemGq
-	C9RyHGjpuie17cp914Fxz8Rk5YjqCTJzotUIVy01o7dIBKlay9dqIDrvNZJnSFswjoR69VU5RW6q+
-	Q93yfrW5q/DRWcqecTIcq5F7Wu28kmXje3Gwww0oGlr9Wec4t9nqsbNooylFF1VAJ1n62gYvgGWPM
-	tSl9DItg==;
+	bh=xsC7twIJ3ucnfIY/XQ0lBk229dOSIqHl6m5TjxkfYO4=; b=aoR97IBZgU2jaomL3DvfS+g86W
+	6aJAFigq96B7yq+zkBdthdBrouyjoXLyNZVtbjT2ymzavGCvCAl9BL9Kx2lTcPHWD3L03xLhDhSY2
+	KGo8CrBuV6vNnZrN5ciQ3HUQuzc1oUqb4VQ5YPv2hiChIK9gCmdPzK40vqf7SRCaURtTk7E6YdZXX
+	p1uuFXm9NdAFhvtSFnvK/I+amr9HPIkV3QRBWHWzn3Z9Hd3mMVrmH+z6z7Kd7Q/HCH4EtD50DXWXA
+	TiwN0WbwgdLqfl/3B4p4KaqWts7cRwoXwMlsOK1MO9uk+Xz2cFWDA2pmQ7CMvqIl2oTw8+iqA0XPF
+	oCeK3a2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUQb-0000000GLGg-3Ijo;
+	id 1weUQc-0000000GLHu-2hMK;
 	Tue, 30 Jun 2026 09:06:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUQW-0000000GLDk-4B6t
+	id 1weUQX-0000000GLEA-3Gjl
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 30 Jun 2026 09:06:45 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 722F160008;
+	by sea.source.kernel.org (Postfix) with ESMTP id 80D9143B9C;
+	Tue, 30 Jun 2026 09:06:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88CEE1F000E9;
 	Tue, 30 Jun 2026 09:06:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DC1D1F00A3A;
-	Tue, 30 Jun 2026 09:06:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782810404;
-	bh=HX1nHvlk3c1+dgVJ4v3uKemvU735Z6kr6zZ67avlLqY=;
+	s=k20260515; t=1782810405;
+	bh=xsC7twIJ3ucnfIY/XQ0lBk229dOSIqHl6m5TjxkfYO4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=I6ENtvzL6mKerxs3s0GmPXar3Dvn5z6Y/6x8tizjniMcko7B3RTaSTqMzebpGDsEQ
-	 IhiK+7z6/cIwWBd+aztR19TwneFo6n/TR8dNft2IT8wVu0U+cGHup/jKbFd50244mV
-	 Pvj+Sd85unMObaL0QcnGgZ2aJWFjwrpljdKdQZsapmXbwaJ+kDYddyIi6chYZAmMUV
-	 1Vv466DCGjMlFq29E6ZqD/ZHLi5yPelNJcy3AeUm6UAzGw5DX9LcCRzB6XpUVrd6Cu
-	 DKXK7f/a/XB+i46CAVKbWuwutzVa6hfOBQ1AYYFmYEksmoyrgnFikCg/rOTxQElcLw
-	 btsikdOiMpu6Q==
+	b=TRaQIIslnyP56XHlxJLrKlhDRclwQcw9V4XZD/AqW6HZVvWJ5VfKkh/5Z9AR5Z0+Z
+	 iPvqjPOS55ANIy+4jBkf2zb5VFXAuY0hoXCQE6i5P2tywM+qpORfASlYZftEZDvJwL
+	 gZzqGs0anZzydpK8amo6MZSlMDPDFD7TLMvzMKeRuRTkPIpyUnWF62EeNdxHnznKil
+	 mqODjDTZrvxZRhUAPQjsyFx+K31bVw8bQEq6xy853Me4QXIp8r8+PAwKbmgwJ2hYlx
+	 KuFhAs/eyaQBTaGMykn/S20NEjWUP39TcFDu5EiAYIP7sw70LMilHvOkii7gdACjmm
+	 HVpNCrOfliAlg==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Tue, 30 Jun 2026 10:06:02 +0100
-Subject: [PATCH 6/9] firmware: arm_scmi: Unregister device notifier before
- IDR teardown
+Date: Tue, 30 Jun 2026 10:06:03 +0100
+Subject: [PATCH 7/9] firmware: arm_scmi: Unwind TX receiver mailbox setup
+ failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-scmi_core_fixes-v1-6-f932c1e51992@kernel.org>
+Message-Id: <20260630-scmi_core_fixes-v1-7-f932c1e51992@kernel.org>
 References: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
 In-Reply-To: <20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -71,44 +71,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The requested-devices notifier looks up protocol fwnodes from the
-active_protocols IDR. During remove, unregister the notifier before
-releasing and destroying active_protocols so no notifier callback can race
-with the IDR teardown.
+mailbox_chan_setup() can request an additional unidirectional TX
+receiver channel after successfully acquiring the primary channel. If
+that second request fails, the function returns immediately and leaves
+the primary channel allocated.
 
-Keep the bus notifier registered until after the protocol state is torn
-down, matching the existing remove ordering for SCMI bus users.
+Unwind the primary mailbox channel before returning the error so probe
+deferral or other setup failures do not leave the channel busy for later
+probe attempts.
 
-Fixes: 53b8c25df708 ("firmware: arm_scmi: Add common notifier helpers")
+Fixes: 9f68ff79ec2c ("firmware: arm_scmi: Add support for unidirectional mailbox channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/transports/mailbox.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 4b369b003003..6df0fe055d64 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3402,6 +3402,9 @@ static void scmi_remove(struct platform_device *pdev)
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index ae0f67e6cc45..44d45ce838e5 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -225,9 +225,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		smbox->chan_receiver = mbox_request_channel(cl, a2p_rx_chan);
+ 		if (IS_ERR(smbox->chan_receiver)) {
+ 			ret = PTR_ERR(smbox->chan_receiver);
++			smbox->chan_receiver = NULL;
+ 			if (ret != -EPROBE_DEFER)
+ 				dev_err(cdev, "failed to request SCMI Tx Receiver mailbox\n");
+-			return ret;
++			goto err_free_chan;
+ 		}
+ 	}
  
- 	scmi_notification_exit(&info->handle);
+@@ -246,6 +247,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 	mutex_init(&smbox->chan_lock);
  
-+	blocking_notifier_chain_unregister(&scmi_requested_devices_nh,
-+					   &info->dev_req_nb);
+ 	return 0;
 +
- 	mutex_lock(&info->protocols_mtx);
- 	idr_destroy(&info->protocols);
- 	mutex_unlock(&info->protocols_mtx);
-@@ -3410,8 +3413,6 @@ static void scmi_remove(struct platform_device *pdev)
- 		of_node_put(child);
- 	idr_destroy(&info->active_protocols);
++err_free_chan:
++	mbox_free_channel(smbox->chan);
++	return ret;
+ }
  
--	blocking_notifier_chain_unregister(&scmi_requested_devices_nh,
--					   &info->dev_req_nb);
- 	bus_unregister_notifier(&scmi_bus_type, &info->bus_nb);
- 
- 	/* Safe to free channels since no more users */
+ static int mailbox_chan_free(int id, void *p, void *data)
 
 -- 
 2.43.0
