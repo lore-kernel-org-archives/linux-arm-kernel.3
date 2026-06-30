@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85441C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4FF3C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQQWytKMqO5uSXbWa5w5Wy3w3EiEBtUO5hKFXhyNXV4=; b=3WBa2k+6SKqRGIY+eLbzwnZAU5
-	2ehQaTkJX+cSMvWrvAh/rNCVEhoCIikD4WcCCpy8D2n0FDOwGW2Adzh+I2dnpy4GP1abrhKkrMD16
-	T6r7bw9cKCDElQCIzTo6ka+r1pfbRLSmc4lv+kIHo6Ee82EEfltZ5E5FT9fQE0w8D6KT2LYo+7JmO
-	bHzUUu7gwi5LC2abK3Pn+u96T88IEYrJqNomXWUso3PLTPdNvBkT23KmmzhNNwyo3xxaYbViqW9Zz
-	WOF9S0Smcz3Tm1/8Acn1S7andvtPl0s+v3ZDzCJMwvj7I3kL519UaBeBaQLSQGK+uWmsa9vNbeeJc
-	vfANkTkg==;
+	bh=pRvchszo0nQt/Xjvizm3xNardmGDX4zYQCWhb6sGWm4=; b=1Fn7hPedNOU6W7icH3cSfk7gua
+	i6GoxhU/JWzz7UXkFE15W8J7T8iiwWhahY3eRNXfhphWh8abXkm7q0H4XMzxVKMFsmNMZxnLWxdx3
+	OOwe+uJm0ZFuCXvJIBVkMUPEentFWEzltWKLneO8Vl5PG1HQIg41VCKgDnjuJRm+s6o4ICWjfsUyu
+	SuMU4FgG/YjvhkO9FYdDdsYiptd8HoCyfnKl6Q73e4I4GRgomJSGwXiSNwJBVZP7chsxxxevTC5N4
+	4oaPyDYL8kCTPdb9WhEaZE+Vy9J+qoZtKIvlBvx9Cf3uZzT/OMDI98X6jhOabd14IMX9zQD6mSVqt
+	9diNBU6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weahJ-0000000HPRh-0Xnp;
-	Tue, 30 Jun 2026 15:48:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weaht-0000000HPXy-18M7;
+	Tue, 30 Jun 2026 15:49:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weahH-0000000HPRO-2EOw;
-	Tue, 30 Jun 2026 15:48:27 +0000
+	id 1weahq-0000000HPXW-1NME
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 15:49:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC6C4416E6;
-	Tue, 30 Jun 2026 15:48:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D77C1F000E9;
-	Tue, 30 Jun 2026 15:48:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 67E6560018;
+	Tue, 30 Jun 2026 15:49:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C05B1F000E9;
+	Tue, 30 Jun 2026 15:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782834506;
-	bh=JQQWytKMqO5uSXbWa5w5Wy3w3EiEBtUO5hKFXhyNXV4=;
+	s=k20260515; t=1782834541;
+	bh=pRvchszo0nQt/Xjvizm3xNardmGDX4zYQCWhb6sGWm4=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=W+Ms0C2byRfA+1+AtN2ozjrmC61dFMYOhCAJSVUbmtJqRNJTE/1qtSVNHF6HAd03m
-	 ZKmFAxqHZjnkWaA9ylV1KGUEWs5JYPGbWFGURCJaBrR2xblGK81/GK5xoAMPfzEMlR
-	 AYYhAPmXL5bg+0JHySwxu7+W2MxDpwGXLIUIpfcSLTWCL9Jo1YugvSaQ4PYk6lq73p
-	 TiyonAlcem5E8QLU8CLvr6ieSvN5asegvAFLrf+MZSUNH9fY+7Zw36Zb4Q9jWfwDRE
-	 DGBRcWJamf0IQFdsrgOQP3uL5E54lBazRj5Iw1yLYstrFuRikmUgfyoYh6Z/4Qt1d7
-	 KD6Xk0DN1tlEQ==
+	b=BYWPeRN/yAk1EE8Vh1jkKDr+ETZAMjiYcgrfIZ/OUZF0XTDYhsJuk4imqTp9Nnxzr
+	 EMuMVTsfRr+OkyEW/BvTa2yGeLKUcLKLx9mUSEYWWGAG2U45ccRpJDUeZLbOigyO+5
+	 UTmDSJCLNBmn6b6QRa663hg0QmsgvmquJr5PPkBA6u6h3mlQyxdrhkdx18DW1S+MhA
+	 hN1PuyMCh9M3SPrL68brDaKfjApKzM50jvfmGIpvl9fzUcaoUTCSGCHyjaJSUjuGxZ
+	 6z6CxmPtuhWXMCxbyDFrHIAaMrUrD3pkROqPnVtPhFK+jvRNRVVZRRwfXrgvmdjuKM
+	 z3eoijOJgt3+Q==
 From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Valerio Setti <vsetti@baylibre.com>
-Cc: linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-In-Reply-To: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
-References: <20260610-reshape-aiu-as-axg-v2-0-cac3663a8b51@baylibre.com>
-Subject: Re: [PATCH v2 0/4] ASoC: meson: aiu: align I2S design to the AXG
- one
-Message-Id: <178281883580.79320.9513861965919531043.b4-ty@b4>
-Date: Tue, 30 Jun 2026 12:27:15 +0100
+To: Jiawen Liu <1298662399@qq.com>
+Cc: cl634@andestech.com, william.zhang@broadcom.com, 
+ kursad.oney@broadcom.com, jonas.gorski@gmail.com, 
+ bcm-kernel-feedback-list@broadcom.com, anand.gore@broadcom.com, 
+ f.fainelli@gmail.com, rafal@milecki.pl, olteanv@gmail.com, han.xu@nxp.com, 
+ haibo.chen@nxp.com, yogeshgaur.83@gmail.com, linux-spi@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev
+In-Reply-To: <tencent_306FA547FD68D10EE4B2AE9C132060F12F06@qq.com>
+References: <tencent_306FA547FD68D10EE4B2AE9C132060F12F06@qq.com>
+Subject: Re: [PATCH 1/4] spi: atcspi200: return error from failed
+ controller suspend
+Message-Id: <178281951147.79320.2850287290547638465.b4-ty@b4>
+Date: Tue, 30 Jun 2026 12:38:31 +0100
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1792; i=broonie@kernel.org;
- h=from:subject:message-id; bh=Si+E3s4qppWTB6ni9DSp/tjVMvC93mvOM5rCE7Utk4A=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqQ+VHrVGJt3FuRWmbHlIMPXlTBW1uLgpfBBIEw
- CRjy3kMvEmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakPlRwAKCRAk1otyXVSH
- 0NJ/B/oDh9A0+VrQUsPuCDcGmHS6Zd7L0jpIaKl70smdU2Mlhwi5fdWRQrHaXUZrgc0tlFYlk99
- 897m+31GfKXo+EacHNNohQsMgv2mhFrCHE/fFjn3aGlIhfnCgMVdQ6Vder9f6WGa42IZ1Sz3Sfx
- UBUezbMLTgvpspl+swflaDFuP3w9ZFHQm0JOs4pXcCJtLCd7t7LjTxCDjTUBNfxflCWxdgjKDCJ
- PKzmSxPwyVSM6FlNyfTixfTBe9UxGOMAhexR+LM3snVMZvND+nJdznqEuo8juFTn8VwjSxfwUKg
- iVnONIjgALLc1jL/QmxAWwzsftwWcLa8e6KQSrsadEdWO1bq
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1493; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=C3JSY7LsM258ERdXIoF3eG96fX8fD7qObUt5ovIpD+8=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqQ+VpiPuVzxpAvS84L65zppHxOvbxCK8c5TCwA
+ NFj8w3hn4aJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakPlaQAKCRAk1otyXVSH
+ 0J5jB/4peKxomewjfJZCS8MkQQ8Xw/hCWmsvdbjnbe8zsMwT5r+kdffG7v1bV1H0Nw7ZOQ7/0am
+ rPGpfMbGydlaDFzRa0D7QogQL2oWbF/djJ/Ag9y+t5wUBF3syAIEZ+CrmVBozRe4CCQkkm5ddJ9
+ CyTNuZYGSyO7Py7KW2ygzFDZOGKq5jCg2Fb70g0M/n25yZKJEdejH3Ie8kfXqXbDjpial21WiXk
+ rKyMHuGcJwMjkyoQWB3ff0Xdc8xTGnG0nW3Qanq/0F1iXGvuNJXNNLjs4ozSKHZQtQiAuKaPFV1
+ Sz78MKsJYk1u14bBspBi/S9XCFiuMGD1tVDKM1EUs3wjyBRr
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -85,30 +86,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Jun 2026 23:29:24 +0200, Valerio Setti wrote:
-> ASoC: meson: aiu: align I2S design to the AXG one
-> 
-> The goal of this series is to reshape Amlogic GX's AIU implementation for
-> I2S to let it follow the same design as in AXG's TDM. Keeping the same
-> design allows for unifying the two platform implementations in the future
-> and it also allows for an easy addition of I2S input.
-> 
-> [...]
+On Sat, 20 Jun 2026 12:39:28 +0400, Jiawen Liu wrote:
+> spi: atcspi200: return error from failed controller suspend
 
 Applied to
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-7.3
 
 Thanks!
 
-[1/4] ASoC: meson: gx: add gx-formatter and gx-interface
-      https://git.kernel.org/broonie/sound/c/a295be8d6210
-[2/4] ASoC: meson: aiu-encoder-i2s: prepare for multiple streams
-      https://git.kernel.org/broonie/sound/c/9335117a221a
-[3/4] ASoC: meson: aiu: introduce I2S output formatter
-      https://git.kernel.org/broonie/sound/c/2cbb32d8dce0
-[4/4] ASoC: meson: aiu: use aiu-formatter-i2s to format I2S output data
-      https://git.kernel.org/broonie/sound/c/83b83024cdbf
+[1/4] spi: atcspi200: return error from failed controller suspend
+      https://git.kernel.org/broonie/spi/c/f4b14e67baff
+[2/4] spi: bcmbca-hsspi: return error from failed controller suspend
+      https://git.kernel.org/broonie/spi/c/faa878d4805c
+[3/4] spi: fsl-dspi: clean up after failed suspend and resume
+      https://git.kernel.org/broonie/spi/c/2543355f3da5
+[4/4] spi: nxp-fspi: disable runtime PM on probe failures
+      https://git.kernel.org/broonie/spi/c/5d14285d60ba
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent to Linus during
