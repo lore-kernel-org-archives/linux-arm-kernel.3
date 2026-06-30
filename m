@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F61AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:38:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDF7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:38:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NdrwOPwwg5sl/G/VlKLy2BfD96hcOiYwx38KP81p2To=; b=mgwJMYML5l6xMe
-	kZajDSFY8iL1FN6/0Ykb56caAsOG8R8bM2RnnT31PCbn7wTfeoWuWrERy8Lc465Fk3WvA+0+7z2RU
-	ZRDNlr11XxLmPWketSN3DA+nfZlxEJgOuGxk3h6MhtHYHI+ZeL+0KtbNPbMp/Nik9vLfve6Nj1ALq
-	rqU+heSTuaVgQJveXJoLdIkCoedQnAiMbsOq0/cQ2Pb+TrkXpiJ2ky8KULXG4sM0n9HQvb6MhE2Mk
-	RI4yd2xi2i/xaVVUHz0LlJtpYDFfzaiPld5hxg0cldqBE2MOQ4RT+ggMAj12vzYtIF5HxxaRaIhdP
-	2/d576YlY25ilNcaBkVA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WgU1XNPY0vIUYdQ/FaYaRLqUo4Ff/LB/v3f+zOEPBiQ=; b=jUOQxGNbNS2J0hS/2ar3MMufIR
+	mn/jf2ePPG7xEI4l57HgopTjqsaMoFEIfjJf2CU3CCsrpYfYbfSrHRloImYQtV+lew/jeB75c/T4j
+	p2rw7g2nCtkzxV0ek6RWuB55yHnZoPUyefcCj/tEmY1RBHTIV2pR4NdOIybPEnFpseVD2H0nd3d5S
+	pATQEH/4DCrulQJYHHzob6kcyQ4bR250cky2Kgp+1aZm3Fj0xUBuSxVk7A4PzuEcx7jex+gT77Bv5
+	00AI7qKMVIxpGfrh8K96meaC6xtMsM0UcBKVTekcdvOf++hbgUSlO6wt/vC7DEEx2+cgZSy0RQaLw
+	btIjE4WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3L-0000000G7GO-4Br8;
-	Tue, 30 Jun 2026 07:38:44 +0000
+	id 1weT3R-0000000G7Ju-1ruN;
+	Tue, 30 Jun 2026 07:38:49 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weT3J-0000000G7Eq-1UbK
+	id 1weT3K-0000000G7Et-0Qhf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:38:43 +0000
+	Tue, 30 Jun 2026 07:38:44 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782805117;
+	s=2020; t=1782805119;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=NdrwOPwwg5sl/G/VlKLy2BfD96hcOiYwx38KP81p2To=;
-	b=eOCI/CT9Al8F9+zzbCaSRdLDNuKZdO0uWTKoB2tZnMKpW1yRESHHgZD76EC03YhgbvMlmi
-	C/n2LhQNqFCMC/bxvchp20eA9IqpSqZDnBvD0VhQ3jrlrliiSBJK8TN9LGDK3c7+oUCUyH
-	JQHBtevBRk+3re8OHUO/TRxNx/+CQrdChPFl1jCUdTrl7YimwZ87ITGoC7febatJzajsny
-	jxXixUhadxsuYrlw+AoXiXfzMWLHxR+n4MXrkfjQy6UmrrFpIkIR6VulXnsXF5xEKJTkZV
-	JkefOTZCE6s85sFs5lbc8HYEZ/jFZqxqDfzv1zm2+ctf23qBxLCLRwxs8w4bbg==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WgU1XNPY0vIUYdQ/FaYaRLqUo4Ff/LB/v3f+zOEPBiQ=;
+	b=h+IH3bIb4hWPAsWvZ9L+T8/HyGFJ0+d2m1BDfA9jlQQqd7hcgQaruHtYDaXdtqMVXigWW1
+	9P6ghnGQNfIi9lg1IbgL2IPYfthldRToINTF0IQbuhnP26EZtQOuaD2c3LLwNWSWgjgP11
+	QvG0SJ5Pb9tOXQj90FzhQQa9fNqa3P25ETnLRbVEJ/f5D894D+zlmc3lXSc1PcSWbsYY5y
+	yai7jrcbn6iRKfSCtixhTz+LejYbyNQX3Vjo3mcKZ5pCUDDLbj+NFGzAVRjNC1UhdYxQDV
+	hdkzd/OyQpC7nfwW/+UnxBb7t5JrRy5/QlV1kG/2xLN9H9AlQPLk/p7fV6MvTw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782805117;
+	s=2020e; t=1782805119;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=NdrwOPwwg5sl/G/VlKLy2BfD96hcOiYwx38KP81p2To=;
-	b=Btvx2I53nZX8nXAICG9CUa/B6i7cJ363iMeh2cME3M8TJhPuIOpoqqppMxRTzXXToY8W+x
-	ya7jeQWHyt9zVQBQ==
-Subject: [PATCH v2 0/9] vDSO: Respect COMPAT_32BIT_TIME
-Date: Tue, 30 Jun 2026 09:38:29 +0200
-Message-Id: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WgU1XNPY0vIUYdQ/FaYaRLqUo4Ff/LB/v3f+zOEPBiQ=;
+	b=F9dovyTgsQ94qzEBBtODBH6sasghBtq0x8pMwb559L+KL31pipNar8eEoVI8R8PXToRPCD
+	iH5xgFeGgMybUQBw==
+Date: Tue, 30 Jun 2026 09:38:32 +0200
+Subject: [PATCH v2 3/9] x86/vdso: Respect COMPAT_32BIT_TIME
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQqDMBAFf0VybkqygcT21P8oIlHXulATSdJgE
- f+9qT33OANv3sYiBsLIrtXGAmaK5F0BOFWsn6x7IKehMAMBWkipeB6i572fF5taBR2lNtGMHGt
- RG63wYrRlZbwEHGk9wvem8EQx+fA+frL82l8SwPxLZskFV6OAWlvT2V7dnuReKXhH63lA1uz7/
- gHqMwZqwAAAAA==
-X-Change-ID: 20260113-vdso-compat_32bit_time-e808763e976a
+Message-Id: <20260630-vdso-compat_32bit_time-v2-3-520d194640dd@linutronix.de>
+References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
+In-Reply-To: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
  Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
  Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
@@ -76,16 +75,16 @@ Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
  linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
  Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
  sparclinux@vger.kernel.org
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=3999;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782805116; l=3352;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=m2BcXDvYAEp5y0PpYqR0UFKrjTCsaqAcLwRl/QjXAqE=;
- b=MmLqPk6DUhP7wmz102JYzJAuqPgG4TQxTMFC0bnmH6DgjsgVPzlCAJG/20f/m5qxrZq2ldo9i
- GdipLSy/PXsD0YkIipY0BiFwCqtAP78WuzVzlQnXVwNuMroRwsWymi+
+ bh=5A3ufT/BlAl4IMY/Ptlcs79bMJADg0kjD64uZGVIocg=;
+ b=PzY+KudQ5YnvlX0RMo1JjTVOXOGayc171Vg7wV3AE9FjYs8epGJlmnq56c01HywzI2H8jpNZ9
+ fSfaOYKxkeiDOtUbZXvBhCoJb+KXXreeoSjmohCrORyvtYjO9ZiZAoM
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_003841_535387_C0077D52 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20260630_003842_281259_188C8FD9 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,90 +107,90 @@ also not be implemented.
 Currently the kconfig option does not affect the gettimeofday() syscall,
 so also keep that in the vDSO.
 
-I also tried to introduce some helpers to avoid much of the ifdeffery,
-but due to the high variance in the architecture-specific glue code
-these would need to handle they ended up being worse than the current
-proposal.
-
-As a side-effect this will make the self-tests more reliable,
-as there is now always a matching syscall available for each vDSO function.
-
-clock_gettime_time64() was only introduced in v6.19, so libc implementations
-are likely not using it yet.
-
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
-Changes in v2:
-- Also handle SPARC.
-- Drop MIPS cleanup patches.
-- Also handle gettimeofday().
-- Add more static validations.
-- Rebase on v7.2-rc1.
-- Link to v1: https://lore.kernel.org/r/20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de
-
-To: Andy Lutomirski <luto@kernel.org>
-To: Thomas Gleixner <tglx@kernel.org>
-To: Ingo Molnar <mingo@redhat.com>
-To: Borislav Petkov <bp@alien8.de>
-To: Dave Hansen <dave.hansen@linux.intel.com>
-To: x86@kernel.org
-To: H. Peter Anvin <hpa@zytor.com>
-To: Russell King <linux@armlinux.org.uk>
-To: Catalin Marinas <catalin.marinas@arm.com>
-To: Will Deacon <will@kernel.org>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>
-To: Michael Ellerman <mpe@ellerman.id.au>
-To: Nicholas Piggin <npiggin@gmail.com>
-To: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-To: Vincenzo Frascino <vincenzo.frascino@arm.com>
-To: John Stultz <jstultz@google.com>
-To: Stephen Boyd <sboyd@kernel.org>
-To: "David S. Miller" <davem@davemloft.net>
-To: Andreas Larsson <andreas@gaisler.com>
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linuxppc-dev@lists.ozlabs.org
-Cc: linux-mips@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-api@vger.kernel.org
-Cc: sparclinux@vger.kernel.org
-
----
-Thomas Weißschuh (9):
-      time: Respect COMPAT_32BIT_TIME for old time type functions
-      vdso/gettimeofday: Validate system call existence for time() and gettimeofday()
-      x86/vdso: Respect COMPAT_32BIT_TIME
-      arm64: vdso32: Respect COMPAT_32BIT_TIME
-      ARM: VDSO: Respect COMPAT_32BIT_TIME
-      powerpc/vdso: Respect COMPAT_32BIT_TIME
-      MIPS: VDSO: Respect COMPAT_32BIT_TIME
-      sparc: vdso: Respect COMPAT_32BIT_TIME
-      vdso/gettimeofday: Verify COMPAT_32BIT_TIME interactions
-
- arch/arm/vdso/vdso.lds.S                    |  2 ++
- arch/arm/vdso/vgettimeofday.c               | 14 ++++++++------
- arch/arm64/kernel/vdso32/vdso.lds.S         |  2 ++
- arch/arm64/kernel/vdso32/vgettimeofday.c    | 14 ++++++++------
- arch/mips/vdso/vdso.lds.S                   |  2 ++
- arch/mips/vdso/vgettimeofday.c              |  3 +++
- arch/powerpc/kernel/vdso/gettimeofday.S     |  8 ++++++++
- arch/powerpc/kernel/vdso/vdso32.lds.S       | 10 ++++++----
- arch/powerpc/kernel/vdso/vgettimeofday.c    | 16 ++++++++++------
- arch/sparc/vdso/vclock_gettime.c            |  4 ++++
- arch/sparc/vdso/vdso32/vdso32.lds.S         |  6 ++++--
  arch/x86/entry/vdso/common/vclock_gettime.c | 20 ++++++++++++--------
  arch/x86/entry/vdso/vdso32/vdso32.lds.S     |  2 ++
- kernel/sys_ni.c                             |  4 ++++
- kernel/time/time.c                          | 24 ++++++++++++++++++++----
- lib/vdso/gettimeofday.c                     | 20 ++++++++++++++++++++
- 16 files changed, 115 insertions(+), 36 deletions(-)
----
-base-commit: e6da2429169af9b33f3629b69905d89bb5ee9e64
-change-id: 20260113-vdso-compat_32bit_time-e808763e976a
+ 2 files changed, 14 insertions(+), 8 deletions(-)
 
-Best regards,
---  
-Thomas Weißschuh (Schneider Electric) <thomas.weissschuh@linutronix.de>
+diff --git a/arch/x86/entry/vdso/common/vclock_gettime.c b/arch/x86/entry/vdso/common/vclock_gettime.c
+index 57066f346b3f..304dbd1f9db4 100644
+--- a/arch/x86/entry/vdso/common/vclock_gettime.c
++++ b/arch/x86/entry/vdso/common/vclock_gettime.c
+@@ -15,6 +15,7 @@
+ 
+ #include "lib/vdso/gettimeofday.c"
+ 
++#if defined(__x86_64__) || defined(CONFIG_COMPAT_32BIT_TIME)
+ int __vdso_gettimeofday(struct __kernel_old_timeval *tv, struct timezone *tz)
+ {
+ 	return __cvdso_gettimeofday(tv, tz);
+@@ -29,6 +30,7 @@ __kernel_old_time_t __vdso_time(__kernel_old_time_t *t)
+ }
+ 
+ __kernel_old_time_t time(__kernel_old_time_t *t)	__attribute__((weak, alias("__vdso_time")));
++#endif /* CONFIG_COMPAT_32BIT_TIME */
+ 
+ 
+ #if defined(CONFIG_X86_64) && !defined(BUILD_VDSO32_64)
+@@ -51,6 +53,7 @@ int clock_getres(clockid_t, struct __kernel_timespec *)
+ 
+ #else
+ /* i386 only */
++#ifdef CONFIG_COMPAT_32BIT_TIME
+ int __vdso_clock_gettime(clockid_t clock, struct old_timespec32 *ts)
+ {
+ 	return __cvdso_clock_gettime32(clock, ts);
+@@ -59,14 +62,6 @@ int __vdso_clock_gettime(clockid_t clock, struct old_timespec32 *ts)
+ int clock_gettime(clockid_t, struct old_timespec32 *)
+ 	__attribute__((weak, alias("__vdso_clock_gettime")));
+ 
+-int __vdso_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts)
+-{
+-	return __cvdso_clock_gettime(clock, ts);
+-}
+-
+-int clock_gettime64(clockid_t, struct __kernel_timespec *)
+-	__attribute__((weak, alias("__vdso_clock_gettime64")));
+-
+ int __vdso_clock_getres(clockid_t clock, struct old_timespec32 *res)
+ {
+ 	return __cvdso_clock_getres_time32(clock, res);
+@@ -74,6 +69,15 @@ int __vdso_clock_getres(clockid_t clock, struct old_timespec32 *res)
+ 
+ int clock_getres(clockid_t, struct old_timespec32 *)
+ 	__attribute__((weak, alias("__vdso_clock_getres")));
++#endif /* CONFIG_COMPAT_32BIT_TIME */
++
++int __vdso_clock_gettime64(clockid_t clock, struct __kernel_timespec *ts)
++{
++	return __cvdso_clock_gettime(clock, ts);
++}
++
++int clock_gettime64(clockid_t, struct __kernel_timespec *)
++	__attribute__((weak, alias("__vdso_clock_gettime64")));
+ 
+ int __vdso_clock_getres_time64(clockid_t clock, struct __kernel_timespec *ts)
+ {
+diff --git a/arch/x86/entry/vdso/vdso32/vdso32.lds.S b/arch/x86/entry/vdso/vdso32/vdso32.lds.S
+index cee8f7f9fe80..00629192db56 100644
+--- a/arch/x86/entry/vdso/vdso32/vdso32.lds.S
++++ b/arch/x86/entry/vdso/vdso32/vdso32.lds.S
+@@ -23,10 +23,12 @@ VERSION
+ {
+ 	LINUX_2.6 {
+ 	global:
++#ifdef CONFIG_COMPAT_32BIT_TIME
+ 		__vdso_clock_gettime;
+ 		__vdso_gettimeofday;
+ 		__vdso_time;
+ 		__vdso_clock_getres;
++#endif /* CONFIG_COMPAT_32BIT_TIME */
+ 		__vdso_clock_gettime64;
+ 		__vdso_clock_getres_time64;
+ 		__vdso_getcpu;
+
+-- 
+2.55.0
 
 
