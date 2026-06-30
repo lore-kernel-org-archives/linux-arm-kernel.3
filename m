@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B69C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:38:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC77C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 09:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=973hvFhmA6EQ8TSnCub2tyOJ33ZAcnM/D6BL+sCkWW8=; b=Qk0UHOpDlDkNYhmgROKUGf9pwj
-	58QMJYh1n8hH9qVrk5W0xXr3mtVHday53rn8O6Bmna00RpPpIWPWIX9pubbha68hs9EJ2UoMOKM+G
-	q+JJcDn0g/3oA3O8p80l3uUFSLKBjhASJnNHkbGUf1LaVNayl21fxqTJ+cHR1zbKwBgeOhdw4fsyt
-	C4GXwALyPII613oKlATViHcm2lWLSr555ps++ZhoicibuWGfLGpgcSodgX0g/e1NQSwlENbAm8hOk
-	0VIE4B6vK2A49xWY91aU3fELTahbWUTdsfuNUWYrtAluRrC7G8765+W/bPW4T9REd4sNVUgvhoR6S
-	YmwDECuQ==;
+	bh=2a1mnDATU3rjNwrWQnwosxfWi/qt8kzSdDv1SrAIjcE=; b=IqQ4p9l5CsHz7cYU1t8OP+C/sn
+	KyhqwQ0f9+ukyngKJK0GKg/TVs6AzRJbIBIUdczHTVxUSI+OPAsU9caGQXG4ac7Ut7suk5tXMqKEc
+	QNO8jQ2+daZnCAQtt/mQOBWnlqEdAM9zVWcQ00g48/46lrTifKjRmlJPlVmWLKwGqebcFCDpC7HoZ
+	xeZOxd546SsNOOb1yj+a6L1Vy+BBxXZGyhp20t+sat0OKCVtWhrXS7S8dFYtvVvVCuOuokvmMbyx6
+	szAI/zpJAZoZTax23rDchqxECzI3wSmd4QuFWJqKelkgTmovN/5Qwy2jMm2/XZTeax/PNokoCvTVJ
+	JBd9IO4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUuo-0000000GSvP-3Vqi;
-	Tue, 30 Jun 2026 09:38:02 +0000
+	id 1weUv0-0000000GT5g-0Z5o;
+	Tue, 30 Jun 2026 09:38:14 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weUui-0000000GSrA-2Hqi
+	id 1weUuq-0000000GSxR-3ULO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 09:38:01 +0000
+	Tue, 30 Jun 2026 09:38:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1782812276; x=1814348276;
+  t=1782812284; x=1814348284;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=VYa8ctdp7N3lTNfwD0/Ow13u6f6KsP6v25kYxxUXsQU=;
-  b=pt6OTVoUCoboe0wHFnLBM+Iuqv78I5o+DsM+B5faaUWOMBblKYyxCIkW
-   rCMzjGZYmW8HK0KCDqFlreM5hQebMUCCX6+m/+QTrXNyiw0g5F/EsLnwJ
-   NEAUu3aMY6xXVdHRG394KyK7KfSFhluug+fPac3vJAzV0PiuHUBR74f+a
-   Ezer0Xud3kZeJk1dhThKuOouHszsXU8fAVbxNthtESKVTlZvL+vB9/nCC
-   2Je8AM0dqwxOXlbgNKs3x9xsDMN00AaT+xvdJIpM4W6rwBkUEqAvwe8Ke
-   4qnPp5QAWwK1PL5E7p3HzEqRDYcvs7at08AC2lK6TWSn/awsOxjNEXnHs
-   A==;
-X-CSE-ConnectionGUID: r7IxPp4ATMyUQX/fgWZgwQ==
-X-CSE-MsgGUID: mG5scDYFQJCBfGSDZZww/w==
+  bh=vyyTTSbuj5h3Q9OgBsXCtnnt+Yw0U/fLWgoQLk2IQLk=;
+  b=shgLOXZEZxI9ybM/8X/VoOE7dECSoQgkR9PDUXej0SxhpAkIQIkcle1u
+   28rpG1Z7yIC4R0jurzotaRR0LeQHTW/xqUcUE3/9ZcESEixaCpcTSs8rv
+   Ub0FswnEzApJ8wtpQvzovwDrc+WSs5Gbd1dLJqepdzawZgHFeDDXDzCas
+   EjzHbABuLNYjVRctQXLGlIBk9+TfQxM/VK7/z30pyvGIPUhTtHh6QYQFZ
+   UR3ewxULhe73VW6I70IP4cCCWY0ArNNPPdIj8npxf9dfHmB5AiYZGr4ea
+   dzjag7neG9Uk//bR4X7wt5GlrBUAZwIKV2BYcwS0huSP1K8B0p5MaKAmj
+   Q==;
+X-CSE-ConnectionGUID: lmxtWMPfT9qZ8eisWbDhNg==
+X-CSE-MsgGUID: 4ZgRZ3I9Sl2FVcUhaLvleA==
 X-IronPort-AV: E=Sophos;i="6.24,233,1774335600"; 
-   d="scan'208";a="59032695"
+   d="scan'208";a="227053725"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 02:37:55 -0700
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Jun 2026 02:38:03 -0700
 Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
  chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.43; Tue, 30 Jun 2026 02:37:55 -0700
+ 15.2.2562.43; Tue, 30 Jun 2026 02:38:03 -0700
 Received: from che-ll-i67070.microchip.com (10.10.85.11) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Tue, 30 Jun 2026 02:37:46 -0700
+ 15.1.2507.58 via Frontend Transport; Tue, 30 Jun 2026 02:37:55 -0700
 From: Varshini Rajendran <varshini.rajendran@microchip.com>
 To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<nuno.sa@analog.com>, <andy@kernel.org>, <robh@kernel.org>,
@@ -65,9 +65,9 @@ To: <ehristev@kernel.org>, <jic23@kernel.org>, <dlechner@baylibre.com>,
 	<duje@dujemihanovic.xyz>, <varshini.rajendran@microchip.com>,
 	<linux-iio@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v3 08/13] ARM: dts: microchip: sama7d65: Add ADC node
-Date: Tue, 30 Jun 2026 15:05:58 +0530
-Message-ID: <20260630093603.38663-9-varshini.rajendran@microchip.com>
+Subject: [PATCH v3 09/13] ARM: dts: microchip: sama7d65_curiosity: Enable ADC, DVFS
+Date: Tue, 30 Jun 2026 15:05:59 +0530
+Message-ID: <20260630093603.38663-10-varshini.rajendran@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260630093603.38663-1-varshini.rajendran@microchip.com>
 References: <20260630093603.38663-1-varshini.rajendran@microchip.com>
@@ -75,8 +75,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_023756_648418_7B524ED5 
-X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-CacheID: sfid-20260630_023804_953548_FEE86345 
+X-CRM114-Status: UNSURE (   9.57  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,68 +92,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add node for the ADC controller in sama7d65 SoC. Add the vddout25 fixed
-regulator node which provides the 2.5V reference voltage for the ADC.
+Add regulator, pinmux and enable ADC for sama7d65 curiosity. Add
+cpu-supply regulator for DVFS.
 
 Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
 ---
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 29 +++++++++++++++++++++++
- 1 file changed, 29 insertions(+)
+ .../dts/microchip/at91-sama7d65_curiosity.dts | 27 +++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index 94d49e20dc79..ba775459a816 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -11,6 +11,7 @@
- #include <dt-bindings/clock/at91.h>
- #include <dt-bindings/dma/at91.h>
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/iio/adc/at91-sama5d2_adc.h>
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/mfd/at91-usart.h>
-@@ -95,6 +96,16 @@ slow_xtal: clock-slowxtal {
- 		};
+diff --git a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+index 927c27260b6c..c2d1e5308170 100644
+--- a/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
++++ b/arch/arm/boot/dts/microchip/at91-sama7d65_curiosity.dts
+@@ -79,6 +79,14 @@ reg_5v: regulator-5v {
  	};
+ };
  
-+	vddout25: fixed-regulator-vddout25 {
-+		compatible = "regulator-fixed";
++&adc {
++	vddana-supply = <&vddout25>;
++	vref-supply = <&vddout25>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_adc_default &pinctrl_adtrg_default>;
++	status = "okay";
++};
 +
-+		regulator-name = "VDDOUT25";
-+		regulator-min-microvolt = <2500000>;
-+		regulator-max-microvolt = <2500000>;
-+		regulator-boot-on;
-+		status = "disabled";
+ &can1 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_can1_default>;
+@@ -97,6 +105,10 @@ &can3 {
+ 	status = "okay";
+ };
+ 
++&cpu0 {
++	cpu-supply = <&vddcpu>;
++};
++
+ &dma0 {
+ 	status = "okay";
+ };
+@@ -334,6 +346,16 @@ &main_xtal {
+ };
+ 
+ &pioa {
++	pinctrl_adc_default: adc-default {
++		pinmux = <PIN_PC5__GPIO>;
++		bias-disable;
 +	};
 +
- 	ns_sram: sram@100000 {
- 		compatible = "mmio-sram";
- 		reg = <0x100000 0x20000>;
-@@ -296,6 +307,24 @@ can4: can@e0838000 {
- 			status = "disabled";
- 		};
- 
-+		adc: adc@e1000000 {
-+			compatible = "microchip,sama7d65-adc";
-+			reg = <0xe1000000 0x200>;
-+			interrupts = <GIC_SPI 25 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&pmc PMC_TYPE_GCK 25>;
-+			assigned-clocks = <&pmc PMC_TYPE_GCK 25>;
-+			assigned-clock-rates = <100000000>;
-+			clock-names = "adc_clk";
-+			dmas = <&dma0 AT91_XDMAC_DT_PERID(0)>;
-+			dma-names = "rx";
-+			atmel,min-sample-rate-hz = <200000>;
-+			atmel,max-sample-rate-hz = <20000000>;
-+			atmel,trigger-edge-type = <IRQ_TYPE_EDGE_RISING>;
-+			atmel,startup-time-ms = <4>;
-+			#io-channel-cells = <1>;
-+			status = "disabled";
-+		};
++	pinctrl_adtrg_default: adtrg-default {
++		pinmux = <PIN_PB7__ADTRG>;
++		bias-pull-up;
++	};
 +
- 		dma2: dma-controller@e1200000 {
- 			compatible = "microchip,sama7d65-dma", "microchip,sama7g5-dma";
- 			reg = <0xe1200000 0x1000>;
+ 	pinctrl_can1_default: can1-default {
+ 		pinmux = <PIN_PD10__CANTX1>,
+ 			 <PIN_PD11__CANRX1>;
+@@ -457,3 +479,8 @@ input@0 {
+ &slow_xtal {
+ 	clock-frequency = <32768>;
+ };
++
++&vddout25 {
++	vin-supply = <&vdd_3v3>;
++	status = "okay";
++};
 -- 
 2.34.1
 
