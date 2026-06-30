@@ -4,76 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEC55C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 06:48:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C377C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 06:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GmOeYBnH+pucvx3tPfeJ0XPPeaBlbElUu+Q/ZIKymgM=; b=w2IwLL56jInF3TInMLDixrTDXL
-	iasCV3ttChyeDbU1XvDdG/TIYhn5Uz/CzM9IDCJDOjHMRJ0OQPPwTyjixubJgdns7/qhP4uK4Ch+F
-	Buf/VY/AESVTHPgqa4WwkltKCqDxLjKjNxbajTJQAjPIXqITsq9VKKJyRMQi6WeUeyY2G3c7xuoxs
-	jRcAgqY8Y4N4wSY/6KUChb8Jahe63E6uI/ijlIaxvxWzWCGRWXAGmvORFdDukrhpE6+UEFChCzok6
-	A7LgEyiEA2hR7xhwkPDU5Hxe7Uh0NI01vI0getk+V0HjTBT4dqyLyoSkP+twi7sogc63FwSTauWOT
-	okhfS/DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=56cHm0MCr6/D6vU1O+UAlPt7PTHvhWzW4st2G7dYe8Q=; b=MVzJNx/ZbW7+vdwgmDbrnMU/V/
+	NqPAGeIFwnmsZcYm/CffgKDzzpgK1OvKKvT1vUtHwoyC/cNbz1vOL9XaFlctYvYSApAbBAr+2TB5U
+	CIAYplQbUna/cpAdTXPbft84VU8LMgMYEiF8tBlWh/bSM22K60HyqbblcurJesS2s4l4vboqPp2cJ
+	4a1dbrWjAbR4A2I2cwwF8Ssqmu1loYUJYVFzxLozP3voHTRtT5IG2d2Q+RhB1liuT76one1dENUR/
+	Ugji8lLAPhDqUnSFGlpIIfkgqk8NQsZVc46jCEplA3nj5nchfLU7xw+LLPwFHDlzgBLYIYfut+v52
+	i2vdpoUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weSGW-0000000G1oE-2Hvg;
-	Tue, 30 Jun 2026 06:48:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weSHI-0000000G1yJ-3rXu;
+	Tue, 30 Jun 2026 06:49:04 +0000
+Received: from mail-westusazon11010024.outbound.protection.outlook.com ([52.101.85.24] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weSGV-0000000G1nx-0WcK
+	id 1weSHG-0000000G1xr-0IMg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 06:48:15 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9711F43ED4
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:48:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ADD01F00A3A
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 06:48:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782802094;
-	bh=GmOeYBnH+pucvx3tPfeJ0XPPeaBlbElUu+Q/ZIKymgM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gQbUHPxhEiH2raHpZIN6oBRl9E+1UD3QUNT2Fw4BPeFQ+WDHDN+zFU6PwALsNMK05
-	 2WjNlTS+FoMmA2fr/tFjj4GhPIvIc9cC2METu1pc6GLfvit78DT+DLQV/gs1JE0hbt
-	 fgb31zwcDdQo31BoonXIRM6Fq/apx7UcxVtwwsvPyNwkqB88Yh/LevTtxWfRLdoZMZ
-	 rGXNGVVtUgJi44UaN8zODBgy2aNOsaQGrrILL7pUJP5D7qUzL9mSiRR3za3IxR1s/f
-	 4WmaLujPY3xb+FTws1zpYt90YJaXS77LpBoqsRjCJKuubo6YxPtNvlspKmDadlCY35
-	 LSZgNK5KCJ5eg==
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-475881b9a4bso453611f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 23:48:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqaOoAVomtosn41gJbxBusizOY/8jCGqxzhN7+CfRO3WNv5ciwiHM3/g+9K80J125hz7Nqr+9JgFkIZqGpJ/l95@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv0AjV8Otze+3wlB7TrvVy5DAe9QoO32jfTs/malBXIFQKFktH
-	e0ZTqBS4oaS4pfy4w2VPv6FgzCzhcw187nDEOGXvOTrvPoqOtURiyNJjDo/bjdt7pqcNRrP99S5
-	SLSJKW2LoxY850zskcTLaIh3ZlAoec5U=
-X-Received: by 2002:a5d:5d06:0:b0:475:f100:3600 with SMTP id
- ffacd0b85a97d-475f100372fmr683383f8f.61.1782802093102; Mon, 29 Jun 2026
- 23:48:13 -0700 (PDT)
+	Tue, 30 Jun 2026 06:49:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QY/xXemQO1LJCJxHtMmBUA2IqTaGOMxo5bd4ObKvg7Fa0Myzjc5nk7bbcwurfAZigFoVV5wDtZWjEvn73L9632rqcDwtE/yQgsL3iWI7iEFYM0Ac+qSKb3G96dGcJNKNRpi6hT80CXo1plhGXij6hkxtwLGkEyOeM6eHrXRVEB+LrPPL/qYfSlx20Qe8lHZG+PnTZpAtFOGrA1a6fIf2WgwU/yZ1omQjZNVQZLH7Bw6Q1B8CAlypsDAxesgGhRR+7RwCVs/w9yjsrjFr3DybSgY1n1B0Uhd8ajrrkMr3wpGHNAFk8jezNVc8oquirDQfksW/QdCxbhj8HLpIfpdTKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=56cHm0MCr6/D6vU1O+UAlPt7PTHvhWzW4st2G7dYe8Q=;
+ b=pQacfm+tTxAL8SliJfzahfeJYR6CrzsNwSbPsGYdq9Bm1+KFcrUPdDyTtP5ld/UndPiWJqA5ZvyNQL2bQJVtP0A1lGLI5T9LGQ8I5qn0WXCdfsAFpFwJ/2oWoS2BsHI6vCjuSIR45bNsdFzlZGA89MwEEcb6IF5CEbXT5dpCoqcqPG0IKPobm4/RvPHkmZzPP++uz5oF5KjHUQdXCNx/Peo/s0UmJv0iH5fwXImF4MYYgbJZZVUcM/eQvMdCqh+38DhCVxqn6yfOwi9eXkvgQ67E6R2by9pOz7/nkPziAw2F3P86qS6jFlfC3LkzJlvL+jhPMTCZ39or63iPKT2NBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=56cHm0MCr6/D6vU1O+UAlPt7PTHvhWzW4st2G7dYe8Q=;
+ b=B2V/koj667VmgxDhTjt77+0F0EWHYxZ8Kk5RJrJgVPdVhA0XFIpxPyc4zkt2n2JqoeIo5A+IqxdRLeXIgPgCBzU+wwNoLMBBV5PpmjQiR/Ss4iSuzN3BAymB9msBbneeGeksO3eXrZGanTwqqXnHrX9lToOy6XR1NJrVSiMp7lQ=
+Received: from PH7P220CA0099.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32d::23)
+ by IA1PR12MB6331.namprd12.prod.outlook.com (2603:10b6:208:3e3::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 06:48:55 +0000
+Received: from SA2PEPF000015CD.namprd03.prod.outlook.com
+ (2603:10b6:510:32d:cafe::a0) by PH7P220CA0099.outlook.office365.com
+ (2603:10b6:510:32d::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Tue, 30
+ Jun 2026 06:48:55 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SA2PEPF000015CD.mail.protection.outlook.com (10.167.241.203) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Tue, 30 Jun 2026 06:48:54 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 30 Jun
+ 2026 01:48:54 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Tue, 30 Jun
+ 2026 01:48:53 -0500
+Received: from xhdlc220353.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Tue, 30 Jun 2026 01:48:49 -0500
+From: Golla Nagendra <nagendra.golla@amd.com>
+To: <vkoul@kernel.org>, <Frank.Li@kernel.org>, <michal.simek@amd.com>,
+	<nagendra.golla@amd.com>, <abin.joseph@amd.com>, <kees@kernel.org>,
+	<ptsm@linux.microsoft.com>, <sakari.ailus@linux.intel.com>,
+	<radhey.shyam.pandey@amd.com>, <u.kleine-koenig@pengutronix.de>
+CC: <git@amd.com>, <dmaengine@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH 0/2] dmaengine: zynqmp_dma: fix race between runtime PM and device removal
+Date: Tue, 30 Jun 2026 12:18:42 +0530
+Message-ID: <20260630064844.705173-1-nagendra.golla@amd.com>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
-References: <20260630045531.3939-1-kprateek.nayak@amd.com> <20260630045531.3939-5-kprateek.nayak@amd.com>
-In-Reply-To: <20260630045531.3939-5-kprateek.nayak@amd.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Tue, 30 Jun 2026 14:47:57 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTTi3EJj7NrOEZ0GF21VxfyUFujnaGbRmLuYy1_YcPkbDw@mail.gmail.com>
-X-Gm-Features: AVVi8Cc9p7eoaCe7f58H6IC6apx1iBlYENd1M3Ce4o3oou9E96K3mWDK4f0IxWE
-Message-ID: <CAJF2gTTi3EJj7NrOEZ0GF21VxfyUFujnaGbRmLuYy1_YcPkbDw@mail.gmail.com>
-Subject: Re: [PATCH v5 4/8] riscv/runtime-const: Replace open-coded
- placeholder with RUNTIME_MAGIC
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Darren Hart <dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>, 
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Samuel Holland <samuel.holland@sifive.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-s390@vger.kernel.org, Alexandre Ghiti <alex@ghiti.fr>, 
-	Jisheng Zhang <jszhang@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA2PEPF000015CD:EE_|IA1PR12MB6331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 439ffcab-6f8c-4341-d621-08ded673a70a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|376014|82310400026|1800799024|921020|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: 129Tcf07USHzotsK2yg8P03CMcxSVRuiKk10QOxYwyAEi8cQWBRxlqTYXnHgJIYTX2pgmb4SfsJD22YhFzNbGE46Goaf//ulB8cml804EP2pOZzw36EIcXq5qMk1WRcNZhE4S7ULgLf7It5ArLmKMK1IHADkKNzMItYLjx+6SBy7+lqDerIOKDGHxdA8toEOTsbppWUSCKKVb5rV8r7+HgXe9xFBjyoKtgFwke+m+dPQ95w0hxmGlIAp8p/kqxxsRXFO2w/SZlv4et1Sh7bJ5o7vdmEFy+Zbp+SKuupQglC+7Ea+da4tQOBBDYcVTbm+o59Tb+zVdo5xDdkGN9wo6nd9gIL2nikrGBZwEg7nfQ8h+LYfk5lpCw6vNjqjfQSp9esq9Vun/qj9Ij7KMSIqdrnwLS5SAM+v9d9UPm4WqapVNv61y2KEXPKPtJe7QPL8R+WK6o5ytfwRm9XKJYZzjqP52FgThgSpDVjjA6SSvj93ce/zcI7eA2iKKFA2kkuAWiP3fFGObwIUJ2yEVt7Nr8XBWuTMTEM2WCGnYmXCwS0+4ySOJ2VTwjV+XpaiB2Da3JKhzMUFi3SILPoz/KOf+YQeSjR+IZqEulitU48oU+gqE3HqYzZhJvvbZndGXAeymNZMsVmy/DXRoAPdx8AUgpcKcWanpFstSPHWsV0SeWkNAdp9iLiHn9xR5Fj4iljmZZXO6Xhjuy7FKfOFjAAU5uK4paeTU8RIUkqL3SsdvOslegKvTKDEcit3wwAyrQTw
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(82310400026)(1800799024)(921020)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: V0q7muEkvgKrIY9wejTw9rbVuGCFZt64lNdTPyT/Pd5xPYO1WLxxYTwQlWnfHI5AVL9yb07OQVPJ5EAoAcrwcKNHrg3ivTqNcwWpwvEhrmPYhddWLlheYDOf9JdUz4GKFHRArVMg+IOpsoeoEVJFZcWvextSy4G3JBd+DkCkJXxq85u0a8RmUfJMZLa+i//ZD5ipx1PFszfR/JxwJWYHIT9nnplm6z28c4vsbbmLjcyBPirVsOi20J0zmc09jMptRcm9EKQU1ut/maLVGFxPd5/P0sfyAkHUcLJ1GPpoXfARCk5z4rlqR8wFge/SKEe0lEA73wrHiGR895rxQ2KzKZNyFc2ugtGoc8GoY2NyuOVKZL1rbCxqmWKUvX4/T5okEk7LuA4+ED5Ea2lA1SU64APfwAOC5Kb90diyv5pVY91L8uGyaYRLCX7YamhgLlSe
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 06:48:54.4647
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 439ffcab-6f8c-4341-d621-08ded673a70a
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF000015CD.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6331
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260629_234902_108525_042A6765 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,88 +126,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 12:57=E2=80=AFPM K Prateek Nayak <kprateek.nayak@am=
-d.com> wrote:
->
-> Define the placeholder used for lui + addi[w] patching sequence as
-> RUNTIME_MAGIC and use that instead of open coding the constants in the
-> inline assembly.
->
-> No functional changes intended.
->
-> Suggested-by: Guo Ren <guoren@kernel.org>
-> Reviewed-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Tested-by: Charlie Jenkins <thecharlesjenkins@gmail.com>
-> Signed-off-by: K Prateek Nayak <kprateek.nayak@amd.com>
-> ---
-> changelog v4..v5:
->
-> o Collected tags from Charlie (Thanks a ton!)
-> ---
->  arch/riscv/include/asm/runtime-const.h | 38 ++++++++++++++------------
->  1 file changed, 20 insertions(+), 18 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/=
-asm/runtime-const.h
-> index 900db0a103d05..1ce02605d2e43 100644
-> --- a/arch/riscv/include/asm/runtime-const.h
-> +++ b/arch/riscv/include/asm/runtime-const.h
-> @@ -15,21 +15,23 @@
->
->  #include <linux/uaccess.h>
->
-> +#define RUNTIME_MAGIC __ASM_STR(0x89ABCDEF)
-> +
->  #ifdef CONFIG_32BIT
-> -#define runtime_const_ptr(sym)                                 \
-> -({                                                             \
-> -       typeof(sym) __ret;                                      \
-> -       asm_inline(".option push\n\t"                           \
-> -               ".option norvc\n\t"                             \
-> -               "1:\t"                                          \
-> -               "lui    %[__ret],0x89abd\n\t"                   \
-> -               "addi   %[__ret],%[__ret],-0x211\n\t"           \
-> -               ".option pop\n\t"                               \
-> -               ".pushsection runtime_ptr_" #sym ",\"a\"\n\t"   \
-> -               ".long 1b - .\n\t"                              \
-> -               ".popsection"                                   \
-> -               : [__ret] "=3Dr" (__ret));                        \
-> -       __ret;                                                  \
-> +#define runtime_const_ptr(sym)                                         \
-> +({                                                                     \
-> +       typeof(sym) __ret;                                              \
-> +       asm_inline(".option push\n\t"                                   \
-> +               ".option norvc\n\t"                                     \
-> +               "1:\t"                                                  \
-> +               "lui    %[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"          \
-> +               "addi   %[__ret],%[__ret], %%lo(" RUNTIME_MAGIC ")\n\t" \
-> +               ".option pop\n\t"                                       \
-> +               ".pushsection runtime_ptr_" #sym ",\"a\"\n\t"           \
-> +               ".long 1b - .\n\t"                                      \
-> +               ".popsection"                                           \
-> +               : [__ret] "=3Dr" (__ret));                               =
- \
-> +       __ret;                                                          \
->  })
->  #else
->  /*
-> @@ -46,10 +48,10 @@
->         ".option push\n\t"                                      \
->         ".option norvc\n\t"                                     \
->         "1:\t"                                                  \
-> -       "lui    %[__ret],0x89abd\n\t"                           \
-> -       "lui    %[__tmp],0x1234\n\t"                            \
-> -       "addiw  %[__ret],%[__ret],-0x211\n\t"                   \
-> -       "addiw  %[__tmp],%[__tmp],0x567\n\t"                    \
-> +       "lui    %[__ret], %%hi(" RUNTIME_MAGIC ")\n\t"          \
-> +       "lui    %[__tmp], %%hi(" RUNTIME_MAGIC ")\n\t"          \
-> +       "addiw  %[__ret],%[__ret], %%lo(" RUNTIME_MAGIC ")\n\t" \
-> +       "addiw  %[__tmp],%[__tmp], %%lo(" RUNTIME_MAGIC ")\n\t" \
-LGTM!
+This patch series addresses two issues in the zynqmp_dma_remove() function:
+ 
+1. Fix the race condition between runtime PM and device removal where
+   pm_runtime_disable() was called after the power state check, leaving
+   a window for the runtime PM framework to change state unexpectedly.
+ 
+2. Update the stale kernel doc comment that still references a return
+   value after the function was converted to return void.
 
-Reviewed-by: Guo Ren <guoren@kernel.org>
 
---=20
-Best Regards
- Guo Ren
+
+Golla Nagendra (2):
+  dmaengine: zynqmp_dma: fix race between runtime PM and device removal
+  dmaengine: zynqmp_dma: fix kernel doc for zynqmp_dma_remove()
+
+ drivers/dma/xilinx/zynqmp_dma.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+-- 
+2.49.1
+
 
