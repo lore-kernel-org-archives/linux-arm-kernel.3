@@ -4,69 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91252C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:03:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFFF4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q1CnJZuzdqRqrXbQOY1KrOxkKiVRaNwQ5PMPSeSwmyQ=; b=yVxDz+ffi+8c67lbFcuysTSnxL
-	IVKCFT9DFIPltGfFUOSeqbnvjzSJzV03MdrGmJZcktWGXq/13L9CWBpMDEazyif/Bp3B8HZRpj8am
-	TDidn9Q9mBJxnI/Zntfmb+xUGQuXs7Xp7Oos5CFV0dv9yea02tPS7HbnEmtDHhlwkx+zbx9IzweJ6
-	1ODN9NpZioq0OWSH1nfmy8aM12qMEdKx7/serAklkDum4k4EaGGYFgh5czbmpqsPMdJJiXmAN+M2a
-	a/X7zeBFp8y7OzfJ3JVKJjoBiKs+zjAWdMKlcRYGduPxDMEShG4zycLzSy3JQRZL2Uw3XJpU9xUok
-	60RCYSkg==;
+	bh=ZorUo4cafeR1VKyKQnK5K8oVhGDT9NdMgRqFl48JWOI=; b=jP9BefjcvXaraq10LnA7PtH0SY
+	G+Dg76kF0SdLpLzuBCqU10IVaOvLIe/VG5suOlFmac2pI+pwn2/aBGnSTPzfoMxfLh8geAXNVjPEV
+	JLk05ribgDUrl1nyyB+npjU+dVTXLYXKgkqv3yaMBcf3XfbQAG/A2gkG6/sdxqkhcQS9hzz4DHO+f
+	/qcfmagFPguJig3CgcUO809Owqx6Wfx7S1CkrKOtfal8gc+mN15c0fjvStH5kZWRJZCb2U40Tx1Le
+	AXvL+kNMryEmm6HMwFx2sHaAT8Z6rl1u7LG4mRre8ME760tJZIfjLP5NzUXhJCPRNiaEOWTXJPzbx
+	Pm8Z3UUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTRb-0000000GEZb-3Dn6;
-	Tue, 30 Jun 2026 08:03:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weTUW-0000000GEiV-0lsE;
+	Tue, 30 Jun 2026 08:06:48 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTRZ-0000000GEZT-32mF
+	id 1weTUS-0000000GEhY-1KuJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 08:03:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE79260103;
-	Tue, 30 Jun 2026 08:03:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BDBA1F00A3A;
-	Tue, 30 Jun 2026 08:03:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782806624;
-	bh=Q1CnJZuzdqRqrXbQOY1KrOxkKiVRaNwQ5PMPSeSwmyQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=HI3p9o8LsCtg6Srxj8v1lfZCk6daGvVh4kE8F5nwWfIMOKRq4572HagmqtEjc+n2t
-	 l7Rf+zleSiwbvT45g0Zy9nL6w/1ABCza3NiFj52uitO1Z3roYtmrCv3iTo2tIauVlX
-	 YFgHFer7oSshsLGLEauzupjGuP9C4vrfC0FW/74LV7tJJdIbG4MGov/ismJEQ6+mB0
-	 1BUF1Obqf1Q229PeFVCSDsCu6QbJuFykJ1+Ax0MnEGakmfNCgJXf0GJ4PZPXUOTIqE
-	 1/OdKUY6EjQ6jrdo89pZTB8TD8eWtN2sgU7FaYgngb7WBODd4p5XdWiNaNKNNB7v/D
-	 etEm6GbRArB+Q==
-Date: Tue, 30 Jun 2026 10:03:31 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Thierry Reding <thierry.reding@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
-	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
-	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
-	Manikanta Maddireddy <mmaddireddy@nvidia.com>
-Subject: Re: [PATCH v7 3/4] PCI: tegra: Add Tegra264 support
-Message-ID: <23rcfdnhnjhdlhiw6eclxap2tk6j5ni7qkfsd3fkfmucvjemie@fvf4j5earp47>
-References: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
- <20260617-tegra264-pcie-v7-3-eae7ae964629@nvidia.com>
- <slfaxyt6p5mwsqmxvmriy6npilpjhjxv5ruegj4hnivj6zufkl@o6adjy5jmzfy>
- <aju3jokcWR5DzPrv@orome>
+	Tue, 30 Jun 2026 08:06:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PO434zV3Fso1/m1Fo+R7jjZh4Q3LCEvX9sLxtgsOkXRRpuWvbS78VrqxSRVKDUGElY6nQCodfjrbcLddd+b/ltGZB8FqxTuCP6hDYA02tK6+0w/0XYjVu2qdyl8kkJqiG6Biz7P6jKqgA7yEkzBouHdc2EbmwJd8ePHYN+dLDmzTYsILKPXFvcbDyNx0IHN8TrJDr164LL7vDLFZ1+tka04MvBLxniyhPQehOt52IbRlCftPQCdarjgRaIvCob6IH//sHMP6f8oVJxXWWvr4i2OB2g3ws86sHSbiBsw4c+xWtbHbsUiPCAWJDgAH7IMa7uBaj46qdhO38YAnyBJv+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZorUo4cafeR1VKyKQnK5K8oVhGDT9NdMgRqFl48JWOI=;
+ b=utUcJeAib1obw9ID2Bg2cYN5KjV9K1aPgGv2hIgT4rP7EmO6mzJIXFKcMgpyDzoU881KLvxE8hHimfcosqO/pDgpvDgaQWXpTmACpQKpjmLPQ1VSMSNAV+zmSaA8aJsfDRITOa/1lvRzUK02quY4Jt0M+4d1pt1lNVNRtrum6cp0ufgLg+YNK+qFGFZw4qMTzW4rYGDTjLLdvxkpzww67/tjV6ZPhsjvARvierKpk9QEzvUHm/gpJ71WTNYvWrgZDDBF1r0nGV+ywOO71pQy+PXnR6Vgs635yViD5Tt2lwmdNzAcDQC8vmKV6qtv6vz1Jem03tyY3CeRfakMV1vVBw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZorUo4cafeR1VKyKQnK5K8oVhGDT9NdMgRqFl48JWOI=;
+ b=V7ErLCCQ+8FpKmUMGIDdRaZhGyjlZiO02hHqp3tgwqBZnnyJtkLzoG/VEuVX3/MDjp/g65s9LTJDvNK7HxDNgiytrt5C13Mx86gJkDfPathmq5wLw85zebVHSdgTlJWzHVPVFWq48c2V0eJ89K9RekQTtQROyjgGizxbnoNGh+HQcgRoUCrPxjWC1T7MeyqicB6M5et/Iln8CMdwftU5be2LC6cZPzM3o3PJkPmH24loUUFYi3StE9uHM4zSSqIQDGAplSfxByKypiOEk+tPu7o3e89CkukjSWiqOEPL8UkzESc7HKsi7v5FwO1XEQh5TCD+54gyxTH+l3pYmsBqTA==
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by MIYPR04MB12550.eurprd04.prod.outlook.com (2603:10a6:290:7c::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 08:06:37 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%5]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
+ 08:06:37 +0000
+From: "Chancel Liu (OSS)" <chancel.liu@oss.nxp.com>
+To: Rob Herring <robh@kernel.org>, "Chancel Liu (OSS)"
+	<chancel.liu@oss.nxp.com>
+CC: "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, Frank Li <frank.li@nxp.com>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v2 1/4] dt-bindings: connector: Add fsl,aud-io-slot
+ binding
+Thread-Topic: [PATCH v2 1/4] dt-bindings: connector: Add fsl,aud-io-slot
+ binding
+Thread-Index: AQHdB5uUKIQPeD/sYE6PuzzdCDde6LZViFuAgAExLCA=
+Date: Tue, 30 Jun 2026 08:06:37 +0000
+Message-ID: <AM9PR04MB8353AC7DF91C5F73C34019E0E3F72@AM9PR04MB8353.eurprd04.prod.outlook.com>
+References: <20260629074734.3643227-1-chancel.liu@oss.nxp.com>
+ <20260629074734.3643227-2-chancel.liu@oss.nxp.com>
+ <20260629133253.GA2593312-robh@kernel.org>
+In-Reply-To: <20260629133253.GA2593312-robh@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AM9PR04MB8353:EE_|MIYPR04MB12550:EE_
+x-ms-office365-filtering-correlation-id: c82f2735-01e0-4964-c034-08ded67e8271
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|23010399003|7416014|3023799007|6133799003|22082099003|18002099003|38070700021|4143699003|56012099006|11063799006;
+x-microsoft-antispam-message-info: MEByRVuYHot60A8uqUIhO1In4WxHAwLSByHVju+kEKBq1rcRNzlfYPXpiOdCNb5pr3vseJrfJMNCwWFll85C0uC9jaG7n7mjX2LTjSJ/mhUfwep2KhoobgK856GDtswQGysMhJ7c5WPMxEYR4qwVDfVqrtC/ivpnw8u0iLYEpfDh98/m82JpZUbLwKGTMloo1ZTjOspG0aPYOF9o29HG9Dykv1dCPJqSgohla+n6ktDxKJ1P5RibZolfR3ZdPHDX8pXmSik6rjg60UAU920NRexJ5bOvECX78OALyd5Iur8lv9v9Ww5lZXnZkb0GveOd0/+X8Iuo8kWZdasjkUoiWtY4KFi2bKP3iV0yRZ+BJQv4qFKk6Jn1isva4mbTErm3Y1TDJPXilgSMUlgo973owLZk3w8UmQjbIlwa3MDSNE3DdiYAOOCtZNGSITBrP/+cMdDZoe6wZopIPI4GOAYsSqQz65a9B5/0LPiTsgU3EGPhbHYBx9legXfiSs27RBan+5+7ikEFOsXLy4CamyQlwWiEfTKZvyP1TAYnKdy0vSTDDd1RiMSdZZdVDX/mtfWR+oH0pcAhTwSWpuTOhF3ihQUe3doAlQUJIAtZeuKnJYLd1tylaVw6qxT1blqO2frvW2EdVh+iKoPN23yBtDOpoGO9BXh75iJmVTS+w7yMARo=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(23010399003)(7416014)(3023799007)(6133799003)(22082099003)(18002099003)(38070700021)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?iuPETG7N5Yu5A/tVt6qDPqBCc5piz0hnMNubRAaASb7YOzLCD/Dd7cJvFs/F?=
+ =?us-ascii?Q?x0E/9QRjR8Gcl4Y8hEdR4Ij00Y+1FYli5EPtrVwl/jhHO8sUX79eDQBY7ELq?=
+ =?us-ascii?Q?NEUL2ymIop8oOzSsZFY4ZPn+U1MP2Y8EA17N9WXy55MNcTp3/qyCUGrlsLze?=
+ =?us-ascii?Q?sb+ACwqCgsxySobSn+S1USyDQYgTyBv9TbPH4KkNFFlsE4PzvUrVimkMCCu5?=
+ =?us-ascii?Q?HdwcRqXZrlei8mXzm8+l1xnZZkI9fyFpP1Xta9kXVxf7GgNi1Sf3WjRd34N0?=
+ =?us-ascii?Q?Bc4sqNcMhfZVk9BgmxQiXvfFhP9dliXuia4WPPpjlCMeGDRAKudoyhO4TNU7?=
+ =?us-ascii?Q?UQpYFY0UW9NFinMP8s9KJqnf9OGjQPRklqdP8yhfZBAVto0C1U4kGDoVowiR?=
+ =?us-ascii?Q?lZlmSNPurcG2wJcOo+H1f+3cP/nNAFQPuGm4TO5+RjRwfJyXNzLnpLJ4OxgT?=
+ =?us-ascii?Q?RGY2fyXUDiTwez4BluqezkgCS43jRRbvc5EsxaTXAqI2NgSYCoi7ubgVJb+2?=
+ =?us-ascii?Q?ktewSiSUOBMnvuRQcL2ZjGyAA7JGAeZj6GpjshvgHKgcG6FN4ZFGpMIzxdqY?=
+ =?us-ascii?Q?W1tKLlP5ly/TRm3aw0LJlDiL4K3ugGFihkMjsIqacA1HlzLn99Khz3e6Mlhl?=
+ =?us-ascii?Q?w3kZnKeUgGrHLqGntbdH7VEi/P94hhTwuiYwiD8ZJJErz67yFLaO48dTkF56?=
+ =?us-ascii?Q?pk9iKrkemMB4ctIhe8hYcQKzdxtmZtr8EOfvccm8qV8cNM+iFF3yk5M8jD3V?=
+ =?us-ascii?Q?Z4Staf+9OWDVQ9hQquNRhU1vG+9YFh5Q/6Xmh9uDqrdN2LBbL1CQR/7ZAEJx?=
+ =?us-ascii?Q?K1aLtoRuMgQBmtRVNTh+VHXXH3y60C7qVD2V9UM549YBZn1r0+EQT0wy+pAK?=
+ =?us-ascii?Q?Hopg/Jk9bHX/Sm0pw6RX881O7IL2eHehNWRNGCswe0AAbpy4XfzQG429/3ZF?=
+ =?us-ascii?Q?B4pC0hOcSoApTNtigHlHpDe2qA43FpBRBaWFLcUa1vo7+IVoIHY9GuHw5gE8?=
+ =?us-ascii?Q?Za+A485joRE6ezsszfXGN9t8hW67uULhLHDHcs2MjI+l+t3lzyeyVOEUmVzX?=
+ =?us-ascii?Q?pPRBDNSaQecRBOHhTYfEuo534CbD8pgdjdOJ6zA8Mt1pLGb+0SDbEdfyomxc?=
+ =?us-ascii?Q?tr7Pv7cx2KygeBgrwTcXYFBGX/hBIpOrTm3iNuAGmvNsNh9BrZGYEXOBYmzg?=
+ =?us-ascii?Q?GUTkH1x2HR5mpdy23Wun1HzQGR8ppn6VpdG2YTEEI0ob2sOnb+/8TQZZCr8I?=
+ =?us-ascii?Q?Kq79S2ST+i8+Z/S4OGP/u+46L8xrx78X7w+0zgGV190vBPDKMhJ90eqX9q0V?=
+ =?us-ascii?Q?hSDjF7OP1Vmfu1z51CttwwNvWMw1ziqRNhZCxkUCBK4cVvIv9ZzFg+G5TvOP?=
+ =?us-ascii?Q?eEmWnKafjaHt/tPjYQnz5Bs96FEipdfsAeTqpplVp6yiwoHBQuxxMAsM6+L5?=
+ =?us-ascii?Q?NrQWRFUFaajJ8Yxzf6N7fb5c8KN84eqhLAEfnZRgBYvo1fA2NtMYu2TGiUIi?=
+ =?us-ascii?Q?k0vW5NAtA2r89L4IamcnDdXZjlNUSPUofpkVo6Fbr3IHkjavfXWJlJIobHiU?=
+ =?us-ascii?Q?bFkFLyKQsk6OzCOK70EtaID9w735tC3NAvE4uD4A7GX3qvgtoaOuy3Mgpv4L?=
+ =?us-ascii?Q?oMGkrqwtQqvKrKU7lMzCLvKw9AVRRz9Q0PuOGuBuIQLlJsCKAVUDa9h6IKLn?=
+ =?us-ascii?Q?CsMkptSSNGIssQy8yfpB4CwQ5KC+U0WEMYDgEXgtlWTZoDp6llM7xlnDItbf?=
+ =?us-ascii?Q?pZb6Ddgx9w=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aju3jokcWR5DzPrv@orome>
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c82f2735-01e0-4964-c034-08ded67e8271
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Jun 2026 08:06:37.5384
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ye+V7uM+wxuHGJsDfbVfLXMmJRKJ/hcWe8WXWtezIh5kThZds7puHIm9Hn4QeYTzqLyJFjAXzJhhllWkRQnu/g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MIYPR04MB12550
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_010644_364804_34A7D6D1 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,202 +150,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 02:35:04PM +0200, Thierry Reding wrote:
+> > From: Chancel Liu <chancel.liu@nxp.com>
+> >
+> > The NXP AUD-IO slot represents a physically present I/O connector on
+> > the base board. It acts as a nexus that exposes a constrained set of
+> > I/O resources, such as GPIOs, clocks and interrupts, through fixed
+> > electrical wiring. All actual hardware providers reside on the base
+> > board. The connector node only defines index-based mappings to those
+> > providers.
+> >
+> > This connector type is present on i.MX95 19x19 EVK and i.MX952 EVK,
+> > where it is used to attach the IMX-AUD-IO audio expansion card[1]. The
+> > same add-on board can be reused across different base boards that
+> > carry this connector.
+> >
+> > [1]https://www.nxp.com/part/IMX-AUD-IO
+> >
+> > Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+> > ---
+> >  .../bindings/connector/fsl,aud-io-slot.yaml   | 113 ++++++++++++++++++
+> >  1 file changed, 113 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> > b/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> > new file mode 100644
+> > index 000000000000..5085574d221b
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/connector/fsl,aud-io-slot.yaml
+> > @@ -0,0 +1,113 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/connector/fsl,aud-io-slot.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: NXP AUD-IO Slot
+> > +
+> > +maintainers:
+> > +  - Frank Li <Frank.li@nxp.com>
+> > +  - Chancel Liu <chancel.liu@nxp.com>
+> > +
+> > +description:
+> > +  The NXP AUD-IO slot represents a physically present I/O connector
+> > +on
+> > +  the base board. It acts as a nexus that exposes a constrained set
+> > +of
+> > +  I/O resources, such as GPIOs, clocks and interrupts, through fixed
+> > +  electrical wiring. All actual hardware providers reside on the base
+> > +  board. The connector node only defines index-based mappings to
+> > +those
+> > +  providers. This connector type is present on i.MX95 19x19 EVK and
+> > +  i.MX952 EVK, where it is used to attach the IMX-AUD-IO expansion
+> card.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    oneOf:
+> > +      - items:
+> > +          - enum:
+> > +              - fsl,imx952-evk-aud-io
+> > +          - const: fsl,imx95-19x19-evk-aud-io
+> > +      - const: fsl,imx95-19x19-evk-aud-io
+> > +
+> > +  gpio-controller: true
+> > +
+> > +  '#gpio-cells':
+> > +    const: 2
+> > +
+> > +  gpio-map:
+> > +    minItems: 1
+> > +    maxItems: 32
+>=20
+> You don't know how many GPIOs are on the connector?
+>
 
-[...]
+Understood. I used a loose upper bound here, which is wrong. I will
+constrain gpio-map to the exact number of GPIOs on the connector.
+=20
+> > +
+> > +  gpio-map-mask:
+> > +    items:
+> > +      - const: 0xffff
+> > +      - const: 0x0
+> > +
+> > +  gpio-map-pass-thru:
+> > +    items:
+> > +      - const: 0x0
+> > +      - const: 0x1
+> > +
+> > +  '#clock-cells':
+> > +    const: 1
+> > +
+> > +  clock-map:
+> > +    minItems: 1
+> > +    maxItems: 16
+>=20
+> You don't know how many clocks are on the connector?
+>
 
-> > So not hotplug support? Also, you do not want the driver to error out? I'm
-> > wondering what's the use then?
-> 
-> Hotplug is supported via pciehp. We skip probing the host bridge if no
-> link was detected because there's simply nothing attached to the port,
-> otherwise the link would've come up.
-> 
-> pcie->link_up is slightly misleading because it actually means something
-> along the lines of "link could be up at some point", either during probe
-> or after some hotplug event later on. It is only ever false if there's
-> no link during probe and hotplug isn't supported at all.
-> 
+Same here.
 
-Ok. But if you skip pci_host_probe() then Root Port won't be enumerated at all.
-I think that would give a false indication to the user. Typically, Root Port
-would get enumerated during probe even if there are no devices atttached and
-once the device gets attached, pciehp will enumerate the device.
+> > +
+> > +  clock-map-mask:
+> > +    items:
+> > +      - const: 0xff
+>=20
+> > +
+> > +  clock-map-pass-thru: true
+>=20
+> The purpose of this property (for GPIO) was to pass thru flag cells which
+> are standardized. That's not the case for clocks.
+>
 
-> > > +
-> > > +	err = pci_host_probe(bridge);
-> > > +	if (err < 0) {
-> > > +		dev_err_probe(dev, err, "failed to register host\n");
-> > > +		goto free_ecam;
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +
-> > > +free_ecam:
-> > 
-> > Nit: Prefix 'err' for the labels.
-> 
-> I don't see any benefit of adding a prefix. Seems pretty redundant, but
-> I also don't feel too strongly about it, so I can add it.
-> 
+Agreed. I will drop clock-map-pass-thru.
 
-People tend to use goto labels to do skip some steps also. So if the error
-conditions are prefixed with 'err_' it helps to differentiate between them.
+> Anyways, these properties need to be defined in dtschema first.
+>=20
+> Rob
 
-> > > +	pci_ecam_free(pcie->cfg);
-> > > +put_pm:
-> > > +	pm_runtime_put_sync(dev);
-> > > +put_bpmp:
-> > > +	tegra_bpmp_put(pcie->bpmp);
-> > > +
-> > > +	return err;
-> > > +}
-> > > +
-> > > +static void tegra264_pcie_remove(struct platform_device *pdev)
-> > > +{
-> > > +	struct tegra264_pcie *pcie = platform_get_drvdata(pdev);
-> > > +
-> > > +	/*
-> > > +	 * If we undo tegra264_pcie_init() then link goes down and need
-> > > +	 * controller reset to bring up the link again. Remove intention is
-> > > +	 * to clean up the root bridge and re-enumerate during bind.
-> > 
-> > But the controller will be consuming power even if PCIe is not used. Do you
-> > really want that? Can't tegra264_pcie_init() handle the initialization? I'm
-> > wondering how tegra264_pcie_deinit() in tegra264_pcie_suspend() works then.
-> 
-> I had to clarify this with the PCI team and they indicated that
-> tegra264_pcie_deinit() is actually useless and maybe even harmful. The
-> reason is that there's a processor on these boards (BPMP) that takes
-> care of power sequencing and it will automatically take the PCI links
-> to L2 on suspend and assert PERST#.
-> 
+Yes. As noted in the cover letter, this series depends on Miquel
+Raynal's clock nexus binding/core support:
+https://lore.kernel.org/all/20260327-schneider-v7-0-rc1-crypto-v1-10-5e6ff7=
+853994@bootlin.com/
 
-Then why are you calling tegra264_pcie_deinit() in tegra264_pcie_suspend()? If
-tegra264_pcie_deinit() is harmful, then calling it during suspend should also
-be, right?
+This series is intended to be applied only after the clock nexus binding
+and core support are available.
 
-Or tegra264_pcie_deinit() has to be paired with BPMP doing its own power
-sequencing?
-
-Not a big deal, but it just feels weird to see suspend() and remove() doing
-different things.
-
-> Another reason why we don't want to reset the entire controller is that
-> it is already set up during early boot by UEFI and the kernel driver
-> does not redo the entire initialization.
-> 
-
-So tegra264_pcie_init() is not the full initialization? If so, is it sufficient
-during resume()?
-
-> So yes, I think a little bit of power consumption is the compromise that
-> we will have to live with. In the bigger picture it's probably not going
-> to be noticeable in most cases, and given that these are embedded
-> platforms we'll likely see fixed configurations most of the time and the
-> case where we remove the PCIe host controller will not be common.
-> 
-
-Fair enough.
-
-> > > +	 */
-> > > +	pci_lock_rescan_remove();
-> > > +	pci_stop_root_bus(pcie->bridge->bus);
-> > > +	pci_remove_root_bus(pcie->bridge->bus);
-> > > +	pci_unlock_rescan_remove();
-> > > +
-> > > +	pm_runtime_put_sync(&pdev->dev);
-> > > +	tegra_bpmp_put(pcie->bpmp);
-> > > +	pci_ecam_free(pcie->cfg);
-> > > +}
-> > > +
-> > > +static int tegra264_pcie_suspend(struct device *dev)
-> > > +{
-> > > +	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
-> > > +	int err;
-> > > +
-> > > +	tegra264_pcie_deinit(pcie);
-> > > +
-> > > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
-> > > +		err = enable_irq_wake(pcie->wake_irq);
-> > > +		if (err < 0)
-> > > +			dev_err(dev, "failed to enable wake IRQ: %pe\n",
-> > > +				ERR_PTR(err));
-> > > +	}
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > > +static int tegra264_pcie_resume(struct device *dev)
-> > > +{
-> > > +	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
-> > > +	int err;
-> > > +
-> > > +	err = pinctrl_pm_select_default_state(dev);
-> > > +	if (err < 0)
-> > > +		dev_err(dev, "failed to configure sideband pins: %pe\n",
-> > > +			ERR_PTR(err));
-> > 
-> > Please remind me if you justified this manual pinctrl handling before.
-> 
-> This is just regular pinctrl PM boilerplate. There's plenty of other
-> drivers where we do this, too. We want this because some of the pins
-> get configured to non-default states on boot/resume, so doing this
-> here ensures they are muxed correctly.
-> 
-
-But pinctrl core should already be doing it for you, no?
-
-> > > +
-> > > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
-> > > +		err = disable_irq_wake(pcie->wake_irq);
-> > > +		if (err < 0)
-> > > +			dev_err(dev, "failed to disable wake IRQ: %pe\n",
-> > > +				ERR_PTR(err));
-> > > +	}
-> > > +
-> > > +	if (pcie->link_up == false)
-> > > +		return 0;
-> > 
-> > How is this possible? If 'pcie->link_up' was 'false' during probe(), then it is
-> > going to stay until tegra264_pcie_init() is called below.
-> 
-> Yes, this keeps confusing me, too. The purpose of this is to skip
-> initialization if we've already determined during probe that there is
-> never going to be a link.
-
-But you are calling tegra264_pcie_deinit() during tegra264_pcie_suspend()
-unconditionally. So even if 'pcie->link_up' was false, the controller needs to
-be initialized (atleast partially), right? Because, you are calling
-tegra264_pcie_init() during probe() before 'pcie->link_up' check.
-
-> link_up will be false if and only if there was
-> no link during probe and we don't expect there ever will be a link
-> because there is no hotplug support.
-> 
-
-But above you said that this controller supports hotplug. Which one of the
-statement is true?
-
-> Maybe a different name for link_up could help here? maybe_link_up
-> perhaps? I don't know if that's any clearer, but I also couldn't come up
-> with a better name.
-> 
-> Or maybe we should split this into two booleans, since we're essentially
-> trying to use one boolean to track a tristate. What we want to know is
-> if a link is truly up and if the controller should be kept powered for
-> the case where hotplug is supported.
-> 
-> I suppose we could do:
-> 
-> 	bool link_up; /* track the link state */
-> 	bool supports_hotplug; /* track whether port is hotpluggable */
-> 
-
-Based on what criteria you'll set 'supports_hotplug' flag?
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+Regards,=20
+Chancel Liu
 
