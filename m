@@ -4,130 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FB8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:14:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF4AFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 19:16:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AFIAhGsRYfvYI7/ZjMGWZLtYo3mclXkaptiFLvD5wtY=; b=icsQodiwA8lwhyHpROSSGrV/bJ
-	tiwLgGSDjST/8LsyXMHO/FEloKNAwOwvp8bXS1zFCzHchYvv1doG64OfBZeDtYfJdEyBDw0Xsa+WP
-	JQ1LUiqHto0Ow7b4jHZfYEIAbwUuCh88Hf6arvyUA5gVnMJJI9npeK6iMc4sBVvkqXdbb79xukRlo
-	U6pfZEUZqxJX4xE3EHzJFT8OA8ze15J/W5I1bcROM2Jwmt6g6ZxrM12y3w5Gg0uF2s9kJ16T32/X3
-	yQbu547kvtkuJPWWIxKq6DdX6Ekqv83B4OOBuiMs8VgF02H6ZbU4cG3OrFGfdiyDlyr4NGPkFTajg
-	fc8iRziw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1qagP0VuISi0UOXqphEC64UCJS1rYEuCpGZ+HrzWmK8=; b=ka4cdhdKuyOgwZPpeT0o1kn5nW
+	JYu7zhAVb3feKty6en6jDlOtc/LDjiN+EaU6KFjzdgKgS706GqvK/U+CJM4E0yVWGzt806gcwwaxI
+	DecKeFcCLXPAhuNjEG02kIXNP2iPzMFGHGVQEUeGipNxJaTyj+TOBkWbAiTnnMOVRKpmSDxtpRUgw
+	RWa3Mszf9EbVhCOdjdIJYbHLZVgb6PIYjDq5OHaXsszV/w3NAMWdyU5QUbmTUq/kBBS0+p8+t4hbJ
+	9+fIjLiBZK/JTfikd8s83gBzFXpDRhNOyIY8pZb9WRsdTFJhQ1JPMFy5E0vpSVKamoln81I0XP/Ip
+	EaU6l5ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wedu5-000000006Ri-2je3;
-	Tue, 30 Jun 2026 19:13:53 +0000
-Received: from mail-westeuropeazon11011050.outbound.protection.outlook.com ([52.101.70.50] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wedvs-000000006cO-3gfw;
+	Tue, 30 Jun 2026 19:15:53 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wedty-000000006Qn-2XLi;
-	Tue, 30 Jun 2026 19:13:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JgYCiP7oCrfuNEY1zlKefbCFgh6fRaYUpQmMLCb/XjYFiMttemdWc7zuE3cAnwMPbGgmLazeO6uCZgkSDCP4pGKXMPBroSpnFSYnfy1t9B7QgwK4paUpGWaakCBZiJkg1zBs+peAF0bTKMsyQGo44Kh/ID2mCjRQDggpgqV7H403CB0NGfPsiPFvnOPpab784XJ1/CdWsAVYTIgYOas3JyfGSwDMYNzJL32GHpDQEDRgFehFLvHGtHlAUF4a5CkRm4QFrKLxyP7m5V+z3/FEjjqRgoTd0B0Ml/6HRWvdiFDR9EaNxhYHBQ9sRxX589Yiznj4Muta3k3i/YBq7GrqQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AFIAhGsRYfvYI7/ZjMGWZLtYo3mclXkaptiFLvD5wtY=;
- b=gUJtq8WQiC5IQSDjp9Ly97PwQA3zLCswMhTYTYyUosL2EgJkqv1hFkyXeFHV8+xZozby3uSWG8wnrOkdcWn6y1NModcu2M4rpMbW5K1/x1I3DRJFXaw1u1d3Xdb8VoRvhD1j/BLe/lHFzmoMX/9mTLpN7yf/2hMKZPVuGlRKYsoYsBmE/sa6KeEqVopCynS86GXXQQrnCoUu0jP3nQ3LbeAsxM7fVA+5fMsgT+LUWL/onXOXnDO6VEEggvljW9KAsL4St+T62pv1C4eblZjJWcnQOmgz1UyZ6aefwcTbx13rANTPz1v4IVEQXIE48/B++XGOV0zJZ2+DpWehqUi+Dw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AFIAhGsRYfvYI7/ZjMGWZLtYo3mclXkaptiFLvD5wtY=;
- b=BNsbdD+UzbG+y1+7fNinNgvoVqCM0S49+ZTjisE67ln8ssO7+1fwnpnpSrULA3WL9yR5ph5NURXEvhuMCj81yYS9GumO6aWlFDcULWmi4JindRSTRkPfN9tOXYCGlLmwzyZmfaHk4JZoGEvEPHPfEDJ3+KjvTcg5g6EEm4nZvwssAG0DgN1QXDjthwpukq0b7bC9geJMiZ3jM4lRKOntBZOO+AMipTAw0hhEX12RxjBi9Z0uX1Gt2XWnfZxX7YFlSfOkiCmPa/U2hargvrHiERobqzLDGa2qh4MMjL+Yt+kMKZGF3dIrQCoWNp7nccG0JOtqGzTetyiPisjp+24enA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DUZPR04MB9981.eurprd04.prod.outlook.com (2603:10a6:10:4d8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Tue, 30 Jun
- 2026 19:13:41 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 30 Jun 2026
- 19:13:41 +0000
-Date: Tue, 30 Jun 2026 14:13:33 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Xu Yang <xu.yang_2@oss.nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Jun Li <jun.li@nxp.com>,
-	linux-phy@lists.infradead.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v5 5/5] phy: fsl-imx8mq-usb: keep PHY power domain
- runtime always-on for i.MX8MP
-Message-ID: <akQVXYu27qG-SobS@SMW015318>
-References: <20260630-imx8mp-usb-phy-improvement-v5-0-25d616403844@nxp.com>
- <20260630-imx8mp-usb-phy-improvement-v5-5-25d616403844@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630-imx8mp-usb-phy-improvement-v5-5-25d616403844@nxp.com>
-X-ClientProxiedBy: SA0PR11CA0021.namprd11.prod.outlook.com
- (2603:10b6:806:d3::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wedvp-000000006bx-1Hmd;
+	Tue, 30 Jun 2026 19:15:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1782846932; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=O3eJ1En/l9r2mDqOFLIxD267cRY9zriaeO74GfZ6YClSvSR+yp+31StrsNE5ll4CHdH/wX00frO5sXGD6rH/zSvyS1KNzhzJSnn6xXQ+u63Cgo/mCbqJ57wpu50N1oafYLjhOm3aEdR1cIy60W+1ZNP3j8Yj1u5833ek7Lywe9A=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1782846932; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=1qagP0VuISi0UOXqphEC64UCJS1rYEuCpGZ+HrzWmK8=; 
+	b=LUdOVPOY11Mr+fl4wSwar9giH8+XUDU/7D4Vuae2BF0zQqVPb5irb37bdETm8cHv76a0cLvpHCZg3mhvOdJ+1frpEyljiJDN9IZHEzf1FyBXQjet6gSOaxkf7i9S7KqawSeLGOJRyPKRgJvBkTLwpeXnr3C2TRbbWzdqK7l366M=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=rong.moe;
+	spf=pass  smtp.mailfrom=i@rong.moe;
+	dmarc=pass header.from=<i@rong.moe>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782846932;
+	s=zmail2048; d=rong.moe; i=i@rong.moe;
+	h=Date:Date:From:From:To:To:CC:Subject:Subject:In-Reply-To:References:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
+	bh=1qagP0VuISi0UOXqphEC64UCJS1rYEuCpGZ+HrzWmK8=;
+	b=WKdlm2zYjWv5uWW9qnDQTh9z34SpI6+w5yRv78MPN9oW1AWAwK1yqWOD3hBwbb0D
+	PFXcLD5Epg5tr0xjHWfQOBuv4bNTuWT6A2+tm6oqTAdsgpXQT5Xbjsd8Mg+eQ7H3z2X
+	tIcaf+AvRcwbdi2w2MEgX1FkFKJ+JndHaNkwRLkucZf3/GYHCdYTnu2u3knbJAGqMVN
+	bne78IRVMI3zJnsP28CRxCTee95JtrjB06LFWTcn8Ja6XgP1kFpAQ54AcBnhMa6S4n4
+	F0i61y0/n9ObNFou24Zh2kI1pGI/IJNbAOSzy9Epj4uj3b6tTnr6F4ZHKFEdW3EVW+W
+	Cnwd/JSIzQ==
+Received: by mx.zohomail.com with SMTPS id 1782846928874810.0972195254349;
+	Tue, 30 Jun 2026 12:15:28 -0700 (PDT)
+Date: Wed, 01 Jul 2026 03:15:19 +0800
+From: Rong Zhang <i@rong.moe>
+To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+CC: Marcel Holtmann <marcel@holtmann.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+ =?UTF-8?B?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
+ =?UTF-8?B?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
+ =?UTF-8?B?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
+ linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH=5D_Bluetooth=3A_Properly_disable_remo?=
+ =?US-ASCII?Q?te_wakeup_for_MT7922/MT7925_on_Ryzen_platform?=
+User-Agent: Thunderbird for Android
+In-Reply-To: <CABBYNZLhqQF-V8sJORwMW2C_4FxFY+pkAK=cSDg4aeWJYfiJrA@mail.gmail.com>
+References: <20260629-btmtk-ryzen-remote-wakeup-v1-1-1d2f1cee6d22@rong.moe> <CABBYNZLhqQF-V8sJORwMW2C_4FxFY+pkAK=cSDg4aeWJYfiJrA@mail.gmail.com>
+Message-ID: <7410991C-F48D-4D58-8F27-0DFCB27E81FF@rong.moe>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DUZPR04MB9981:EE_
-X-MS-Office365-Filtering-Correlation-Id: 959af54e-8d73-4e22-4508-08ded6dbb287
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016|19092799006|23010399003|22082099003|18002099003|56012099006|4143699003|11063799006;
-X-Microsoft-Antispam-Message-Info: GyP5AiWaMMksa1Cm7l7K9dWDlylwiyarWT8cK7dmm0Jmh2NpUpClu3PNx9wfwqvj57GKxumUJPcAyjhsV1DWhdZCtPJp3X1gdjG/NIS80q6UXWIKUkdwOu9HiZNlapcd+rTMaGsu8aPr/WsiMbzjnl0H85lWbe5pCYXHNBY/CQG112tS3N1O4aBYljXBCUlLMUfNI6WBMWOxfKuL1smDKkvfwi2n3p/rheauAdTpJUy4rCmVrFiGUUpYgMiLdtbfC7seSN4ZpX6lVmQAywHs9VG8w8767GB3hQMW0MEBK9FSmUkB772nVRW4x23woIYcgFTQ364xbNi1WGHhaltX7/JzzuwiiRQKg/61px5Mq+TO6q6g/Vq3f7iiSi7H8M0Pi2aCLVvI0pILGUPkV2+SpxGtPwI22OqrebfSKYdz+BCU1yO0JlSh/v7qwJoE2fYozhHtOLLLYs6C/H77EaPD4AMTk41lnkpy3TJt3/bvDo0vLhuBzKGK36whXdiV73NDGwETSETqOLIKbYclp45AVxwhr8Hn0iYoiY6CD96rn8QpWGKpSDKb7OUxqQmVrC5fWtYsstggecGa4wJfV3jGO7X+lXvVVXsm1ZNKgkhg4aPrB01+ELTBVSWg+jtKEorEafsihk3nw87dq3hnta0F21zUORRjHGaFZ0XF4Zm9yoE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(19092799006)(23010399003)(22082099003)(18002099003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?19CRXGQ+AmzvJWJOvj9gfSL81d+cGfX8DiZPam6begLrBfTJ5F3o3RzrTdY5?=
- =?us-ascii?Q?kn9EnOsUdxj2HIHsRji9H5uW8UkcA42znkc92gG9+jVqmuH7PFjo93k5BNTn?=
- =?us-ascii?Q?p41NzJzICycecZxGePofd0S+8Sn8fV4x6c0I+rhHZG4LF4r3fq4nBcprCwGS?=
- =?us-ascii?Q?P8IHCXF6SwnrV/mlp+c/zLrTuaYB3K0sXgmXP0maRq9Z0w2bA62//tsgRUNC?=
- =?us-ascii?Q?FKwQ9nPdPnx7XDft2FGaJjU29ftdH3UGKBTElXTnhGSF4FoioF7ziACDyyen?=
- =?us-ascii?Q?LZ3RKi90cIKzq39BDsetad3YVSoN4gRr3M9wQR/KjP0idPAynmP4wTWI49hB?=
- =?us-ascii?Q?xMelAdny5qDjYlzsogROuu5z7hDIplxDNqqanLf4LzFEGY9iwkuvKidtBj/D?=
- =?us-ascii?Q?bq27a+kJtY0cFMxIMyhY42A5cPj1nU7hFI6CY0M+gpZQh1wCFgs6yRj28L/D?=
- =?us-ascii?Q?CmHcBsQwuZVlko+0eTH/KrQ2iaItJLzQSgS7FKAWdEKpHgt1+zmitM/9/xeJ?=
- =?us-ascii?Q?SA5oapTHjofvKbwu5Qkj6nLVq+LZntXLfZ7QabNDYA8RNNeNxBZnBfU+9Oem?=
- =?us-ascii?Q?S/aFBLeclyK74ZqJEEknUz7kHl/3LXAnD0uJKbxHNvAet0X4ZF57LnArfWou?=
- =?us-ascii?Q?BWOcv/D3AgEfegkGox03dWV0QHZTOQjVce0O2sg7Xciw3EBntDrQxL+0bjPx?=
- =?us-ascii?Q?HmAo//Cm5PLADPJgcoxlm6bfMBftPxeq7898kb5X1D3nIoyzqrOWTznYyx/m?=
- =?us-ascii?Q?g3hWUXqa3cD2gi36HnpV2qBeJbRahX6ixT+l7NGnHt1v460CpEX0ZIVukVWe?=
- =?us-ascii?Q?XtRYY340tr0HOdIU2mo9sS090o9cfR8xMyZ5s+lQJTT+U1wkuiu18kp5Qz2X?=
- =?us-ascii?Q?iwPs7H8SMT4cd92riq4d9701i/40nY1i2qzDI28LX/960/DABC9m8328tE0b?=
- =?us-ascii?Q?M56KkgnaE1vkleUGI+p7iz5fLn/dj9ZB6KI1nvP/py1TIslh9B89Nz/3cvYK?=
- =?us-ascii?Q?D/+SFGnzcDpzlV6zmOOjHiwTrymeSCrE8CZ8VwBJoz8I+WiL17D/i8XaWeUL?=
- =?us-ascii?Q?+qiahuh6sRCOGQu0ot+Iyg3DcVvwgnBqgoxk9R+iaqeiyHEyyrYrT4hhfN/j?=
- =?us-ascii?Q?KqhQGAU3/DiflEbrJFQLRa/DtFG+jb+bjvaWPLhkMVoFyuKtb4bwIQExph5L?=
- =?us-ascii?Q?pU8hE7YX5EvqU/D8onjhiPXFHNHxlCkPSUqXOU9OyW4HGOft25ACd/O221p5?=
- =?us-ascii?Q?npOBjFKtVAdc73rSqJHYniASh+nbNt9kwwir9IzNGI3HGZnLqUxmN1w4t7DD?=
- =?us-ascii?Q?FdJh7owfxRCisUBRiN51M8S+rkXdpluysznvv3vWA5JEtw30JwzFXGvsaiYg?=
- =?us-ascii?Q?3YjfcXTtsJZ05l4aZPqVyV4t46IqJk4wrTGIoTVdx1iOxnfmp5bE5+p1Krk/?=
- =?us-ascii?Q?NKKXGyXLoLcUT56XglPBOatkKWvb4t5zwRX175NulTu2KbiMDN9iRtsKDlGm?=
- =?us-ascii?Q?urw0fOch1VoXNuqBu4eL3ZrlHBy+mOhVV0WPJ5MpU1CjGPqVZfcqcvrFeLsm?=
- =?us-ascii?Q?GsQFCaT8GW3D8xbYth7H442LtvVyb/5S3hRHCRvRApGhWTcfJUcHoZk7Cyz5?=
- =?us-ascii?Q?zhFMvRee4E+TKUEBt/BsajWw1hh6bgFeU9Mi5RKY+swiWKMWyvOsr7uhH4Xy?=
- =?us-ascii?Q?4dVzX4ZFbbdHsCEvJakD+1UBkBR1dsNgBcGYtbi3S8EPQ3kw7pD53MxmybQd?=
- =?us-ascii?Q?7ZochGEv52kU2DlNsWQqG2hFUqVKKqvp5zvPRAGRCmc9b3s9qGAT?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 959af54e-8d73-4e22-4508-08ded6dbb287
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 19:13:41.7693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /oiSixa5GTQS/2Qth9W02O2bHZ9XumTMVndI6iUj5pyFLQdDdg5mHLKzf+/pTb07R84iGR6uCqw+cB/W0a6dkDG+3WnJdaW/uFYOTxai/XcgIvBSC8/kWeMWsBmZEUI7
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9981
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_121346_651392_F29BC8BB 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20260630_121541_394186_13E70978 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,110 +89,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 06:11:32PM +0800, Xu Yang wrote:
-> From: Xu Yang <xu.yang_2@nxp.com>
->
-> On i.MX8MP, the USB PHY has a dedicated power domain that was previously
-> never powered off at runtime. With the introduction of runtime PM support,
-> the power domain will be powered off if the device is runtime suspended,
-> which breaks USB wakeup functionality.
->
-> To preserve wakeup functionality, mark the PHY power domain as runtime
-> always-on for i.MX8MP platform. To limit the behavior to i.MX8MP, add a
-> new imx95_usb_phy_ops for i.MX95 and introduce usb_phy_is_imx8mp() helper
-> to identify i.MX8MP PHY instance.
->
-> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
->
-> ---
-> Changes in v5:
->  - no changes
-> Changes in v4:
->  - no changes
-> Changes in v3:
->  - new patch
-> ---
->  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 18 +++++++++++++++++-
->  1 file changed, 17 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> index 4949ec78d304..c9741b532663 100644
-> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-> @@ -9,6 +9,7 @@
->  #include <linux/of.h>
->  #include <linux/phy/phy.h>
->  #include <linux/platform_device.h>
-> +#include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
->  #include <linux/regulator/consumer.h>
->  #include <linux/regmap.h>
-> @@ -660,13 +661,20 @@ static const struct phy_ops imx8mp_usb_phy_ops = {
->  	.owner		= THIS_MODULE,
->  };
->
-> +static const struct phy_ops imx95_usb_phy_ops = {
-> +	.init		= imx8mp_usb_phy_init,
-> +	.power_on	= imx8mq_phy_power_on,
-> +	.power_off	= imx8mq_phy_power_off,
-> +	.owner		= THIS_MODULE,
-> +};
-> +
->  static const struct of_device_id imx8mq_usb_phy_of_match[] = {
->  	{.compatible = "fsl,imx8mq-usb-phy",
->  	 .data = &imx8mq_usb_phy_ops,},
->  	{.compatible = "fsl,imx8mp-usb-phy",
->  	 .data = &imx8mp_usb_phy_ops,},
->  	{.compatible = "fsl,imx95-usb-phy",
-> -	 .data = &imx8mp_usb_phy_ops,},
-> +	 .data = &imx95_usb_phy_ops,},
->  	{ }
->  };
->  MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
-> @@ -679,6 +687,11 @@ static const struct regmap_config imx_cr_regmap_config = {
->  	.max_register = 0x7,
->  };
->
-> +static bool usb_phy_is_imx8mp(const void *data)
-> +{
-> +	return data == &imx8mp_usb_phy_ops;
-> +}
-> +
+Hi Luiz,
 
-It is not good direct use drvdata as it.
-
-Can you add new drvdata
-
-drvdata
-{
-	phy_ops ops;
-	bool always_on;
-}
-
-in follow probe check
-
-if (always_on)
-	...
-
-it is more extendable in future.
-
-Frank
->  static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  {
->  	struct phy_provider *phy_provider;
-> @@ -721,6 +734,9 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
->  	if (!phy_ops)
->  		return -EINVAL;
+=E4=BA=8E 2026=E5=B9=B47=E6=9C=881=E6=97=A5 GMT+08:00 02:13:39=EF=BC=8CLui=
+z Augusto von Dentz <luiz=2Edentz@gmail=2Ecom> =E5=86=99=E9=81=93=EF=BC=9A
+>Hi Rong,
 >
-> +	if (usb_phy_is_imx8mp(phy_ops))
-> +		dev_pm_genpd_rpm_always_on(dev, true);
-> +
->  	imx_phy->phy = devm_phy_create(dev, NULL, phy_ops);
->  	if (IS_ERR(imx_phy->phy))
->  		return PTR_ERR(imx_phy->phy);
+>On Mon, Jun 29, 2026 at 11:28=E2=80=AFAM Rong Zhang <i@rong=2Emoe> wrote:
+>>
+>> It is reported that a remote wakeup could cause MT7922/MT7925's btusb
+>> interface completely unresponsive=2E Resetting the xHCI root hub doesn'=
+t
+>> help at all, and recovering from such a state needs a power cycle=2E
+>>
+>> All reports seen to be relevant to Ryzen-based laptops=2E These NICs ar=
+e
+>> usually used as OEM components thanks to some sort of reference designs=
+=2E
+>>
+>> Their popularity on other platforms is unclear=2E While there is still =
+a
+>> chance that the quirk may exist on other platforms, be cautious and onl=
+y
+>> apply the quirk on AMD platforms for the time being=2E
+>>
+>> Meanwhile, though device_set_wakeup_capable(false) is the correct fix
+>> for other NICs with fake remote wakeup capabilities, doing so for
+>> MT7922/MT7925 effectively prevents it from being used as wakeup
+>> sources as per userspace requests=2E Hence, return -EBUSY on runtime
+>> suspend to prevent the interface from being autosuspended while it's
+>> still opened, which has the same effect as
+>> device_set_wakeup_capable(false), since disabling remote wakeup simply
+>> causes the USB core to gate runtime autosuspend as well due to
+>> needs_remote_wakeup =3D=3D 1=2E The interface can be safely autosuspend=
+ed as
+>> long as remote wakeup is disabled, i=2Ee=2E, after closing the HCI devi=
+ce=2E
+>>
+>> Specifically, the interface may still take the advantage of remote
+>> wakeup in order to wake up the system from sleep if userspace has
+>> enabled it as a wakeup source=2E
+>>
+>> Fixes: e31d761628ad ("Bluetooth: btmtk: Disable remote wakeup for MT792=
+2/MT7925")
+>> Signed-off-by: Rong Zhang <i@rong=2Emoe>
+>> ---
+>>  drivers/bluetooth/btmtk=2Ec | 10 ---------
+>>  drivers/bluetooth/btusb=2Ec | 57 +++++++++++++++++++++++++++++++++++++=
+++++++----
+>>  2 files changed, 53 insertions(+), 14 deletions(-)
+>>
+>> diff --git a/drivers/bluetooth/btmtk=2Ec b/drivers/bluetooth/btmtk=2Ec
+>> index 02a96342e964=2E=2E4614434dd57b 100644
+>> --- a/drivers/bluetooth/btmtk=2Ec
+>> +++ b/drivers/bluetooth/btmtk=2Ec
+>> @@ -1381,16 +1381,6 @@ int btmtk_usb_setup(struct hci_dev *hdev)
+>>                 break;
+>>         case 0x7922:
+>>         case 0x7925:
+>> -               /*
+>> -                * A remote wakeup could cause the device completely un=
+responsive, and
+>> -                * recovering from such a state needs a power cycle=2E
+>> -                *
+>> -                * Since the remote wakeup capability is super broken, =
+just disable it
+>> -                * to get rid of the troubles=2E The device can still b=
+e autosuspended
+>> -                * when the bluetooth interface is closed=2E
+>> -                */
+>> -               device_set_wakeup_capable(&btmtk_data->udev->dev, false=
+);
+>> -               fallthrough;
+>>         case 0x7961:
+>>         case 0x7902:
+>>         case 0x6639:
+>> diff --git a/drivers/bluetooth/btusb=2Ec b/drivers/bluetooth/btusb=2Ec
+>> index 08c0a99a62c5=2E=2E023ae782f41a 100644
+>> --- a/drivers/bluetooth/btusb=2Ec
+>> +++ b/drivers/bluetooth/btusb=2Ec
+>> @@ -6,6 +6,7 @@
+>>   *  Copyright (C) 2005-2008  Marcel Holtmann <marcel@holtmann=2Eorg>
+>>   */
+>>
+>> +#include <linux/cpufeature=2Eh>
+>>  #include <linux/dmi=2Eh>
+>>  #include <linux/module=2Eh>
+>>  #include <linux/usb=2Eh>
+>> @@ -957,6 +958,7 @@ struct qca_dump_info {
+>>  #define BTUSB_USE_ALT3_FOR_WBS 15
+>>  #define BTUSB_ALT6_CONTINUOUS_TX       16
+>>  #define BTUSB_HW_SSR_ACTIVE    17
+>> +#define BTUSB_WAKEUP_BROKEN    18
+>>
+>>  struct btusb_data {
+>>         struct hci_dev       *hdev;
+>> @@ -2936,10 +2938,20 @@ static int btusb_send_frame_mtk(struct hci_dev =
+*hdev, struct sk_buff *skb)
+>>         }
+>>  }
+>>
+>> +static inline bool platform_is_ryzen(void)
+>> +{
+>> +#ifdef CONFIG_X86
+>> +       return boot_cpu_has(X86_FEATURE_ZEN);
+>> +#else
+>> +       return false;
+>> +#endif
+>> +}
+>> +
+>>  static int btusb_mtk_setup(struct hci_dev *hdev)
+>>  {
+>>         struct btusb_data *data =3D hci_get_drvdata(hdev);
+>>         struct btmtk_data *btmtk_data =3D hci_get_priv(hdev);
+>> +       int err;
+>>
+>>         /* MediaTek WMT vendor cmd requiring below USB resources to
+>>          * complete the handshake=2E
+>> @@ -2956,7 +2968,29 @@ static int btusb_mtk_setup(struct hci_dev *hdev)
+>>                 btusb_mtk_claim_iso_intf(data);
+>>         }
+>>
+>> -       return btmtk_usb_setup(hdev);
+>> +       err =3D btmtk_usb_setup(hdev);
+>> +       if (err)
+>> +               return err;
+>> +
+>> +       switch (btmtk_data->dev_id) {
+>> +       case 0x7922:
+>> +       case 0x7925:
+>> +               /*
+>> +                * All reports seen to be relevant to Ryzen-based lapto=
+ps=2E These
+>> +                * NICs are usually used as OEM components thanks to so=
+me sort
+>> +                * of reference designs=2E
+>> +                *
+>> +                * Their popularity on other platforms is unclear=2E Wh=
+ile there
+>> +                * is still a chance that the quirk may exist on other
+>> +                * platforms, be cautious and only apply the quirk on A=
+MD
+>> +                * platforms for the time being=2E
+>> +                */
 >
-> --
-> 2.34.1
+>Is this going to be a reliable way to detect if wakeup is broken or
+>not? Since USB is a bus capable of hotplug, this check would block not
+>only internal/built-in controllers with the above IDs but also those
+>plugged via external ports if the CPU happens to be of the ZEN
+>familly=2E
+
+Hmm, it seems that we can detect the device's position by comparing its pa=
+rent and its bus=2E We can additionally make it further by checking against=
+ the root hub's VID=2E In this manner we should be able to drop the boot_cp=
+u_has() check too=2E
+
+I will try and send a v2=2E
+
+Thanks,
+Rong
+
+>
+>> +               if (platform_is_ryzen())
+>> +                       set_bit(BTUSB_WAKEUP_BROKEN, &data->flags);
+>> +               break;
+>> +       }
+>> +
+>> +       return 0;
+>>  }
+>>
+>>  static int btusb_mtk_shutdown(struct hci_dev *hdev)
+>> @@ -4532,11 +4566,26 @@ static int btusb_suspend(struct usb_interface *=
+intf, pm_message_t message)
+>>
+>>         BT_DBG("intf %p", intf);
+>>
+>> -       /* Don't auto-suspend if there are connections or discovery in
+>> -        * progress; external suspend calls shall never fail=2E
+>> +       /*
+>> +        * It is reported that remote wakeup events could sometimes cau=
+se some
+>> +        * adapters completely unresponsive=2E Resetting the xHCI root =
+hub doesn't
+>> +        * help at all, and recovering from such a state needs a power =
+cycle=2E
+>> +        * Since disabling remote wakeup simply causes the USB core to =
+gate
+>> +        * runtime autosuspend as well due to needs_remote_wakeup =3D=
+=3D 1, let's do
+>> +        * this ourselves to make our life easier=2E The interface can =
+be safely
+>> +        * autosuspended as long as remote wakeup is disabled, i=2Ee=2E=
+, after
+>> +        * closing the HCI device=2E
+>> +        *
+>> +        * Don't auto-suspend if there are connections or discovery in =
+progress=2E
+>> +        *
+>> +        * External suspend calls shall never fail=2E Specifically, a d=
+evice with
+>> +        * broken remote wakeup may still take the advantage of remote =
+wakeup in
+>> +        * order to wake up the system from sleep if userspace has enab=
+led it as
+>> +        * a wakeup source=2E
+>>          */
+>>         if (PMSG_IS_AUTO(message) &&
+>> -           (hci_conn_count(data->hdev) || hci_discovery_active(data->h=
+dev)))
+>> +           ((test_bit(BTUSB_WAKEUP_BROKEN, &data->flags) && data->intf=
+->needs_remote_wakeup) ||
+>> +            hci_conn_count(data->hdev) || hci_discovery_active(data->h=
+dev)))
+>>                 return -EBUSY;
+>>
+>>         if (data->suspend_count++)
+>>
+>> ---
+>> base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+>> change-id: 230ba8c9-btmtk-ryzen-remote-wakeup-055a407682ef
+>>
+>> Thanks,
+>> Rong
+>>
 >
 >
 
