@@ -4,82 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8076C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:47:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9180C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0vA91JCy6e3U4Zy4A7u6z+5xLKwz9OO6mJyFAEDjWo=; b=DVdC8g7quZ3zK+yVWq/C74wM1N
-	lRULaLv6fWYuh311Xlw+nkSQXovc9kOjwQRAeaKnEB3+1I5haa92grwOp8tnczsZvV73kLUs9UIYO
-	Jik2p1S0gJjI2U4rzdxCMEfYbw6Cj/EJQc0FeEaRiVZZnJROYElifv0Bg4sCDKQKSgTmFOP4g9dcr
-	BNuvW7vYbRTMhjYue7SGSIoMAAhQ/hD/ZU3IkYD2iMh6wRb4nTeGcd5nEnBEa4H9/U7DXltQ9hUQm
-	LHt46loKGLIuAuVgGz2sJVe2+NzPW+Cu3zG8G/yfq341umGDbhJW6vGdzDtj4CJ3A9MNz5uM3ymuD
-	H52gqMeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D1eYeJpEHCAPY9Qi4Hjh6YOaoS1rocMPAJ4EFRgZ7L8=; b=P9VPG2o2X0ej4EUIk1Nc8R/fwZ
+	rdBZK4qZs0BynYK7ajLPRD/W0pUMNSluzMb6suG6jEJ+MGmjZBUsfaJ5+CRjn6MKpAYqj+fDrTZey
+	0FdV2ztvFvCDhbtf15BId7oL2FYMt1fYA/LrxrlzIyKjO+jipfjQw+QPZBQpQGNGnb6t1HfEDnR9Z
+	Bt9G5/ezgUwaWQa6je+VDjXclzbsDea+hnkvm2beqOcc5xSRmwEWjtn/AWW82hYdq2OpjBDnXtFkp
+	/Rr87lxrDtCkpDZZNO05R9Fvfeb3/XjMFsSR/PcJSmB7wMayU7RqyQ+5rtEItLoNr2QyY0fZVZswP
+	pdsaAiIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTBn-0000000G994-0WlE;
-	Tue, 30 Jun 2026 07:47:27 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weTC4-0000000G9G0-1JQg;
+	Tue, 30 Jun 2026 07:47:44 +0000
+Received: from mail-pj1-x1042.google.com ([2607:f8b0:4864:20::1042])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTBl-0000000G98j-3j49
+	id 1weTC0-0000000G9E5-0525
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:47:25 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4DC3543EE1
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:47:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D1551F0155C
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:47:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782805645;
-	bh=D0vA91JCy6e3U4Zy4A7u6z+5xLKwz9OO6mJyFAEDjWo=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=X5JY/iSBvE5bIvOcIm0YQO9+bwx9WFalRg8XAdM/Dy7q/Oxzbe5Lkdbglu5fv0OUK
-	 fJYCmcrcJ4/g5E3FdwKdBPnaotBLNmXbb9CFrnUr/E7ro+IoDK0sXIOJqsF5jzvDxC
-	 u+4wKW4E9nCYz3WkKxgbil4glsu3fn7RvqeVrNXIkyRolwRwMM1hkhdCyiD3jWHJYw
-	 kwCPOdcOxX8X4XTiAtrhb54ePGhfALetVicbqlcx76vjApOHgz18CZe3D6FHPSjES6
-	 9AjqebUwzzoVRWUFStflre7HZDVvMAmy1dTZPWhBVKqjyv1iE3P3xynnO7atbg0hPR
-	 0bEvjEPk8WHxQ==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-39b011ae0b4so18009861fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 00:47:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoYoo2HXAt3CBDM6vWx/BHrV5inXuzojwEOJ0WD3kL6Rx0EiF8+8/aBya1mEry+Dhf6x1Z++c7E1w+K1ocW+L+h@lists.infradead.org
-X-Gm-Message-State: AOJu0Yys0p3/NI3ZJkVDmKAcpO6WLpzX0q3D7PfHKpuQiPzFgEeFg8FZ
-	0jQ7io+wPAxLVJImVMFGF9eU4rloDZOtPFjhlvdZ7TNdkLtFF0044KwPK1wcnlk3vH7hyteAK9j
-	gGy/5lKhIyP0+8qQwXrPIh4Qz1E/vSyzy2Pfk88aEmA==
-X-Received: by 2002:a05:651c:50a:b0:39b:695:32a3 with SMTP id
- 38308e7fff4ca-39b1ddd1aa2mr5206931fa.13.1782805643902; Tue, 30 Jun 2026
- 00:47:23 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 30 Jun 2026 00:47:22 -0700
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Tue, 30 Jun 2026 00:47:22 -0700
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <31477953aace52bb6594461e82ddf99493af2329.camel@bootlin.com>
+	Tue, 30 Jun 2026 07:47:42 +0000
+Received: by mail-pj1-x1042.google.com with SMTP id 98e67ed59e1d1-37d70036426so1870527a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 00:47:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782805659; x=1783410459; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D1eYeJpEHCAPY9Qi4Hjh6YOaoS1rocMPAJ4EFRgZ7L8=;
+        b=T1wSBuc6g2j0NttgVPFu6Jp0dmBuMD+XRqQTk7l+VY8jsXNfUJ3hlviPxU8Ct0G2Ad
+         psOLcavGd1g21/gEusyNj2gLPZUzQE2mD3jMbbdmndAt+du1SygmSoNpY1bjnzhChcpe
+         tsJ+CdNIlXePb2hvIqWC/4Rv8ym4+vh4qosIxfuOhOpRkl67BNHQmTMo03uzmYMgsMgj
+         AvRmjmOhY/7U8AwsIn0Vl/MIMh2dU4oepyohJ/q/p5mh52KCN+v6ElXcjefQeRdAPvl+
+         PELofXxnenmTXcjhZevynqNgGCKfKDmHyiY6Ag8gsES3hA9ci4u3qzHHLtG4dviVTWpf
+         S7SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782805659; x=1783410459;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D1eYeJpEHCAPY9Qi4Hjh6YOaoS1rocMPAJ4EFRgZ7L8=;
+        b=ApSmvZ2lEZCM6d7dVtMY7HtTKCsFQJBwty6xeqp31hElpvld/auOlNcf610b7B2bgS
+         S6AbOewytrovYZWO1JajLaW8CPKzswW+Ly8P1fdoKfEaSsUE+UxzpeRWTce3vbFXZyWd
+         Na1N8AAv4UpmkKr+QgggIvqMkDHr8N8BEm8vCc6AzxtjyQ316zHb2g6TlIg2mUw8oZNH
+         s+iQTOcIrk+C9cHeB9Gb5fe6cVLPMJmexwCyJyruprsv1R4TYQoiWSAbpGTjwVfaz8/Q
+         DNZ4bgXyVyEcq9i9DFGhkgaOeirIkr/76nANj177UrGawdrz8TT5NuH03Rsz090vf0Js
+         lU8Q==
+X-Forwarded-Encrypted: i=1; AHgh+RphUAf1xq30QlKj9OCv1F76gU9V1hdnm8NFS0whMFjB6B9t/KKzUF+xQRcbPzzAfsKsCiohNpL2vtR22t7voZRv@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHo91Fgfwbd0mGMoGe/nrLcjPFo/nIsW29SiX+G8qoJdWpwzdb
+	uCzieJkliSbgqrqiVgBpY1/lqkJgg/NKAqlldk14A7MUo1NnK3aKlkF3
+X-Gm-Gg: AfdE7cmwrBonCBkgaBPd+TjliCdkckijRkL8bwOFed2SDzHX4Ttqnv1eTjOlRLI+mL8
+	x5MhFYH+vpsSKQd3Dn1MdiZWzlxBPWtqpkuuTUac9aurk6rgnOftv/XO9rNzZ2oUKLHKGsOrAC5
+	r52Ym+wyMq3du5OKhgqX9zHzD5hL2U7bGo2+rNhxyIoIHv3NjMBoaMHenz3uLT/YbMCbOdQizBg
+	radwXcV36Pk6cOrVujc0KvuGLFlhcixhj5i0dKLMNOp2+Gbf2XrfdW/weP3zsfy27VxojVZI7bP
+	2xnfds1DLdXlz7L/7+h7oaHIKftEaXRQWHyGkaZN/tTt6W2kEY7AsoFyDVM/ROK201WI9IJYaTX
+	WImmue45/3D4ujBQqZRY+ckSMqzQ2NopLNOF7WgUFaFYnPZ1SSjU76ySptBeHcALAzIEikTKHZS
+	aeSycDDyjTgXClwHZXpdaYHHYhuQ==
+X-Received: by 2002:a17:902:d58f:b0:2c9:fa31:850c with SMTP id d9443c01a7336-2ca2ea33e96mr19629385ad.39.1782805659205;
+        Tue, 30 Jun 2026 00:47:39 -0700 (PDT)
+Received: from intel.company.local ([210.184.73.204])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca382a2d3dsm7821045ad.55.2026.06.30.00.47.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 00:47:38 -0700 (PDT)
+From: Wandun Chen <chenwandun1@gmail.com>
+To: chenhuacai@kernel.org,
+	kernel@xen0n.name,
+	pjw@kernel.org,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	robh@kernel.org,
+	saravanak@kernel.org,
+	bhe@redhat.com,
+	rppt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	kexec@lists.infradead.org,
+	iommu@lists.linux.dev,
+	zhaomeijing@lixiang.com
+Cc: catalin.marinas@arm.com,
+	will@kernel.org,
+	alex@ghiti.fr,
+	akpm@linux-foundation.org,
+	pasha.tatashin@soleen.com,
+	pratyush@kernel.org,
+	ruirui.yang@linux.dev,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com
+Subject: [PATCH v4 01/10] kexec/crash: provide crash_exclude_mem_range() stub when CONFIG_CRASH_DUMP=n
+Date: Tue, 30 Jun 2026 15:47:05 +0800
+Message-ID: <20260630074715.4126796-2-chenwandun1@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260630074715.4126796-1-chenwandun1@gmail.com>
+References: <20260630074715.4126796-1-chenwandun1@gmail.com>
 MIME-Version: 1.0
-References: <20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668@bootlin.com>
-							 <b4396f57-3501-4e89-9cf3-8dc5d7cad9b7@roeck-us.net> <31477953aace52bb6594461e82ddf99493af2329.camel@bootlin.com>
-Date: Tue, 30 Jun 2026 00:47:22 -0700
-X-Gmail-Original-Message-ID: <CAMRc=MdJJnRTOSEecqpX-EddJRAzWc_1a-cg3wrW8m0jR2Fihw@mail.gmail.com>
-X-Gm-Features: AVVi8CeaJi7AWd-H-Al7farjl69e4bGemX_zfvWwe4vajt3tOcP7qfQEh_ha7H0
-Message-ID: <CAMRc=MdJJnRTOSEecqpX-EddJRAzWc_1a-cg3wrW8m0jR2Fihw@mail.gmail.com>
-Subject: Re: [PATCH v5 0/5] Add support for AAEON SRG-IMX8P MCU
-To: Thomas Perrot <thomas.perrot@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
-	Conor Dooley <conor.dooley@microchip.com>, 
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Lee Jones <lee@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_004740_062261_78ED81AC 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,24 +122,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jun 2026 18:04:59 +0200, Thomas Perrot
-<thomas.perrot@bootlin.com> said:
-> Hello Guenter,
->
-> On Sat, 2026-04-11 at 17:12 -0700, Guenter Roeck wrote:
->> snip
->>
->> Sashiko has some interesting feedback that might be worth looking
->> into.
->>
->> https://sashiko.dev/#/patchset/20260408-dev-b4-aaeon-mcu-driver-v5-0-ad98bd481668%40bootlin.com
->>
->
-> Thanks for the pointer. I went through all findings and addressed the
->   valid ones in v6:
->
+From: Wandun Chen <chenwandun@lixiang.com>
 
-Did I miss anything? I don't see the v6 neither in my inbox nor on lore.
+Prepare for an upcoming change that excludes non-dumpable reserved
+regions from the kdump vmcore and will call crash_exclude_mem_range()
+from generic, non-arch code.
 
-Bart
+No functional change.
+
+Signed-off-by: Wandun Chen <chenwandun@lixiang.com>
+---
+ include/linux/crash_core.h | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/include/linux/crash_core.h b/include/linux/crash_core.h
+index c1dee3f971a9..0033d4777648 100644
+--- a/include/linux/crash_core.h
++++ b/include/linux/crash_core.h
+@@ -87,6 +87,12 @@ static inline int kexec_should_crash(struct task_struct *p) { return 0; }
+ static inline int kexec_crash_loaded(void) { return 0; }
+ static inline void crash_save_cpu(struct pt_regs *regs, int cpu) {};
+ static inline int kimage_crash_copy_vmcoreinfo(struct kimage *image) { return 0; };
++static inline int crash_exclude_mem_range(struct crash_mem *mem,
++					  unsigned long long mstart,
++					  unsigned long long mend)
++{
++	return 0;
++}
+ #endif /* CONFIG_CRASH_DUMP*/
+ 
+ #ifdef CONFIG_CRASH_DM_CRYPT
+-- 
+2.43.0
+
 
