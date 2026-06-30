@@ -4,79 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73EA3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:13:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C4FC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:17:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yjSoJBvJKILoWxGW4BnSZ7sbQwLUesbS/KBqY026Ezc=; b=tVSr9XUaFEXWL56dfHp98p21Nq
-	wGM6TA3+q6z/REh89so9Fr0zrvKuw0yA3EjhivDRoxLmZDeEqOdeow0Y0rspbM96N510rijPqLwDV
-	X+LofE6rEGMYixNFawMJ2d9EqHxxsH9vRmg24VHI5rQnHqFYRIxh/teA1mcP8YVH8U5FCQOitpGzG
-	joFJ1mp9snT38GPd2xyznh/+SS+ZyLL09tr+7SfH2FGtLpXK4APqZY22t4bclPH00McagtQi/Oq1J
-	j4gUAiq4gqegHTLe1AfsSybn9ZcSh1uanXgcHkJQiyj1GrpfiOxa5VMLGC+DQEro26DVovwNp36RC
-	WeCBCqlg==;
+	bh=4LdR2VibH2njnBU1uMocI4RPYCENH1tmdqLS48/1hGo=; b=sfB0qfaMvip/MK16H9J7SSnyqz
+	oRxaWx1pbcERILtRf7aTIxv/TOaabHd1h2Vz0LYBxOe/SfcvGCgGEvaX50pAMNATheGalQsx0YYgN
+	2/udxCfcYP/bcWgPwwD2DO6j8eodBZXuDrzlNiFW12VeJtzNKAcbD3Gus0ujGHXoiyQTlObgK+451
+	6eF4Uj6VceZ4MTeVIURF1GJnOF6HhLnJUWZW1JpbjPSs0VK/P8IBtpHcbZSA9QNOILFk0DnXRHzgS
+	eprklUZZIgIHhk9piyG0i7Ei2A4emtNDoX0wYvbCtQsiUpQHLTxbUy5pW5f8YuE6TCbHvgaKUBw0G
+	uTJKcPEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzM-0000000H4et-1iUu;
-	Tue, 30 Jun 2026 12:54:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weYLD-0000000H8Zy-3XWe;
+	Tue, 30 Jun 2026 13:17:31 +0000
+Received: from fout-a2-smtp.messagingengine.com ([103.168.172.145])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXzD-0000000H4WF-1tnQ
+	id 1weYLB-0000000H8ZQ-0F9E
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:54:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C44A443FA3;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 922BFC32781;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1782824086;
-	bh=JjSBcUsCIWijnP1RO/tcdaxQskqlpD+6f8guQj7iid0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=FlfjgDsO8EJjz5AQp5YkXaFaihiQmqOomg2ZTs5wjWwD2dkRA62/QhJBT4+NqD0mt
-	 gjRSx5dG/uJbw7kohaoKJIfZ6DpOBAC6ifDyvpeL9nJQmXPPlya8wpR4KXjjNNRlUP
-	 1Of35pmSDWuqP2Xr36sZq+SyND732eBKD65xRhQjyqjlFIH9/e54nS4zH/J8ZG0O8N
-	 xt8/JkCcNZGw1KGfTghi8zUBbjiVSTSyQgZ6QOxLS9dhsKGJFQ9VUE0jdbmieNBGpb
-	 rwb6PnjNBsyqN6W03qumOzCPZJBWz2lUm9bpRuJJstZVI1Ge/h0A7bfXVgkMy6nbc0
-	 BGKHaQHQsgu4A==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 885A1C43602;
-	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
-From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
-Date: Tue, 30 Jun 2026 22:54:33 +1000
-Subject: [PATCH 05/10] mailbox: apple: Add DockChannel FIFO controller
+	Tue, 30 Jun 2026 13:17:30 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id B019FEC00B6;
+	Tue, 30 Jun 2026 09:17:27 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Tue, 30 Jun 2026 09:17:27 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1782825447;
+	 x=1782911847; bh=4LdR2VibH2njnBU1uMocI4RPYCENH1tmdqLS48/1hGo=; b=
+	WISo7c+kpKV/nDh5yqQVPHu+c6g1rKFZM6Dae3bT2ElcSB32bHiHAi3sDJyNG2j5
+	77ogskDL11g6tnQKg2CksDeaNZt0Bc9iRHF9JKbsM/Bra65ApmNTmgSWPNCgMkYI
+	yMvyRQfOPT/8pUEcScN/jF1vH70x5ntGIeifFsoU0QdsLGHQFP7dfq0s/e8jXIAK
+	Ty5HAF7AGOusNNLI2h89cTnfQsI3VBQEhLYV0zujPtxQ7nyoJXhl/LCIWdxsbmiP
+	2chi6r8nAEc7eU7v487lw992yjmjfOmo8gTeArcMZQXj+x4PVPbpvmpaoc0Clyre
+	OzRIaSeSqhRGdO7MEImG0w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782825447; x=
+	1782911847; bh=4LdR2VibH2njnBU1uMocI4RPYCENH1tmdqLS48/1hGo=; b=R
+	zmWZ+ZshVCb8nMtSffsknxV+SylqMf3qhC3YgzZF6QD9djKhoDQQesAdbdgENJ12
+	doHte+3Of3YE2nwuDq/rz93rYg8KuDttuWi1NkGq4wYCagNjiQOg37GCmy861Swq
+	cXQFNZMwzAhRjRe5jECnjqD07xFI2pNgIsfhMhBevux3kxi/nF9kM70RLyCZAwty
+	T+cWzfNkkFYdVGifENXXTZ1PHKIivwIjjMmrQmAuTXWVOY3iNOEezwEmgXELFBaK
+	sxkCmkgKULqYSedZ7/CzCkKmcnXUpDZLWXZbv/klqIhy60CnfhnMBl8M7/pHcAbR
+	rTq2MqfnJJ5JFfZI67HIg==
+X-ME-Sender: <xms:5sFDavS71utmq9yzuWzZsNDxBe71ZnZrxkkGEyBmFxbsxJ4cn7I10g>
+    <xme:5sFDarkSyg9Li02US6EG-qUs51lbo0df0ElbnJafdL9a196f9RbDmnybEF_ebM5QI
+    wBVdljj0l5T2xs6B8oG_lSX8Q1MgBudnD73Ad0IuUVxyya0uDrXIw>
+X-ME-Proxy-Cause: dmFkZTF+NSnu+XaOspE2EihAi3NXS0A1r/m8N6lhdEMhD0xW2+drSOkZ9tBmgDcRwUzvdo
+    fbt9CkRI6f0YJAVEYT0rbp/vQpJri2O9Sm8bYbXkc6i7B6SllqtSf5YBNdpvpzOMVdXPHo
+    o7N5gCjwFrRUJXZ3ks3+akis0HfacElviYZrR1oqy5QCkPBJ4J1s44pu8+qfLZ1vz4dWkp
+    zrp7A/wycXK65nL/2bNbmldrKAgL0uveO8Bj2e3Fjbc5bgFxzQ29X3dG6Ye/+jqlnpzPqc
+    +SiDsZb9ec8Jq4g7MzCHMaoVbk3jxvjn3s80dBpd0ge/BOmK5cKZZ2RVuxIN2QABFXBfmG
+    5kGcc8bX8B8F3Ckx66skCWUtb5d3A4quZ/B7La/HXlANAvu1G+JPQ1QN11mKKTOC1oR29z
+    iJKln3+yTtbSsT/GJJ44BaLKFukCfdNW9YjOxuD4jMEIjG4VdKtC6lLKbOCw3M6hnEpVjM
+    V+eQwt8ala5H2xQv9bfHqm1JOCdBsUcMto9OhOW9mrsZtjTpqDoF/1Ni+XcK4wdThLNSi4
+    3Gk8MDuK3sI7umIyHFlZP1Yki2GFoSx5jnurMr/h4Hp7OLKjlS4EeMqREWoc3jSpXPWJJZ
+    JXlWfmDjBH66SygB3F3PK3FtPAnhI4f56UvXC0MtkBTIUNbT2qQTSX+1Nf8g
+X-ME-Proxy: <xmx:5sFDaqQcINTUh7B0nwmgxo9m0oJWuch2SY5GtFFIpxf_TLExRFAFNg>
+    <xmx:5sFDaibJjF4RD04j7mFk3FUHKtqvddnNvah6NSdg8Jmb-DlaE5N_Og>
+    <xmx:5sFDanV3y3vIyOk_QBnSyKd1xsVYg7wYLjV7lXf_iqMYiEuB1I9Eiw>
+    <xmx:5sFDanXuVsgENA-PnojmDfkGI3iOqFr6uC5y4PlJV88_NqV8t1-LRQ>
+    <xmx:58FDaoyuiRZyNi3pfjiAdFEgVVf5SFfYa7o-Jjr-fZmj6n6f8IqCoDxN>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id CD88C182007E; Tue, 30 Jun 2026 09:17:26 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-apple-mtp-keyboard-final-v1-5-506d936a1707@gmail.com>
-References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
-In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
- "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
- Benjamin Tissoires <bentiss@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- iommu@lists.linux.dev, linux-input@vger.kernel.org, 
- Michael Reeves <michael.reeves077@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=14145;
- i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
- bh=kYpCmYxQZoBs0BJjHZBNv8MenqrnGTiSP5cTeGdpidA=;
- b=0FvdcrzK3mg5Ru5nq6JH6A1tZy3CLwyElGoIHQU/n7uzv8kbUf4nI+PUxINrLRlCPBP+kjAfX
- WufSI/1C+J6DsGyS45WmCjJpQrtmetAtx+AXmhOdBgnwgmqxy1L+i6C
-X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
- pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
-X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
- with auth_id=591
-X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
+X-ThreadId: ALm-NtMBapr3
+Date: Tue, 30 Jun 2026 15:16:45 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Andy Lutomirski" <luto@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>,
+ "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, "Russell King" <linux@armlinux.org.uk>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>,
+ "Madhavan Srinivasan" <maddy@linux.ibm.com>,
+ "Michael Ellerman" <mpe@ellerman.id.au>,
+ "Nicholas Piggin" <npiggin@gmail.com>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "John Stultz" <jstultz@google.com>, "Stephen Boyd" <sboyd@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>,
+ "Andreas Larsson" <andreas@gaisler.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
+ linux-api@vger.kernel.org, sparclinux@vger.kernel.org
+Message-Id: <965a922e-e7f2-4399-8c63-a5f4bbd6b338@app.fastmail.com>
+In-Reply-To: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
+References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
+Subject: Re: [PATCH v2 0/9] vDSO: Respect COMPAT_32BIT_TIME
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_061729_161578_89F5DA6B 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,515 +120,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Reeves <michael.reeves077@gmail.com>
+On Tue, Jun 30, 2026, at 09:38, Thomas Wei=C3=9Fschuh wrote:
+> If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
+> provide any 32-bit time related functionality. This is the intended
+> effect of the kconfig option and also the fallback system calls would
+> also not be implemented.
+>
+> Currently the kconfig option does not affect the gettimeofday() syscal=
+l,
+> so also keep that in the vDSO.
+>
+> I also tried to introduce some helpers to avoid much of the ifdeffery,
+> but due to the high variance in the architecture-specific glue code
+> these would need to handle they ended up being worse than the current
+> proposal.
+>
+> As a side-effect this will make the self-tests more reliable,
+> as there is now always a matching syscall available for each vDSO func=
+tion.
+>
+> clock_gettime_time64() was only introduced in v6.19, so libc implement=
+ations
 
-DockChannel is a hardware FIFO used by Apple coprocessors for
-low-latency byte-stream communication with the AP.
+   ^ clock_getres_time64()
 
-Add a mailbox controller that preallocates RX storage, tracks IRQ
-enable state in software, and reports TX completion from the TX-empty
-interrupt.
+> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+> ---
 
-Reject messages larger than the FIFO and return -EBUSY while the
-previous message is still pending. This keeps the provider usable for
-future small-message clients such as serial transports without a TX
-worker.
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
-Co-developed-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
----
- MAINTAINERS                               |   2 +
- drivers/mailbox/Kconfig                   |  12 +
- drivers/mailbox/Makefile                  |   2 +
- drivers/mailbox/apple-dockchannel.c       | 380 ++++++++++++++++++++++++++++++
- include/linux/mailbox/apple-dockchannel.h |  29 +++
- 5 files changed, 425 insertions(+)
+once we have consensus on my patch 1/9 comment. Thanks for
+continuing this work!
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 1f3c2cdb6e19..ed68452c0ad6 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2628,6 +2628,7 @@ F:	drivers/input/touchscreen/apple_z2.c
- F:	drivers/iommu/apple-dart.c
- F:	drivers/iommu/io-pgtable-dart.c
- F:	drivers/irqchip/irq-apple-aic.c
-+F:	drivers/mailbox/apple-dockchannel.c
- F:	drivers/mfd/macsmc.c
- F:	drivers/nvme/host/apple.c
- F:	drivers/nvmem/apple-efuses.c
-@@ -2646,6 +2647,7 @@ F:	drivers/video/backlight/apple_dwi_bl.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
- F:	include/dt-bindings/pinctrl/apple.h
-+F:	include/linux/mailbox/apple-dockchannel.h
- F:	include/linux/mfd/macsmc.h
- F:	include/linux/soc/apple/*
- F:	include/uapi/drm/asahi_drm.h
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index 3062ee352f78..f1af76d19f1e 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -36,6 +36,18 @@ config ARM_MHU_V3
- 	  that provides different means of transports: supported extensions
- 	  will be discovered and possibly managed at probe-time.
- 
-+config APPLE_DOCKCHANNEL
-+	tristate "Apple DockChannel FIFO mailbox"
-+	depends on ARCH_APPLE || COMPILE_TEST
-+	depends on HAS_IOMEM
-+	depends on OF
-+	help
-+	  DockChannel is a hardware FIFO used on Apple Silicon SoCs for
-+	  communication between the application processor and co-processors.
-+	  This driver exposes DockChannel FIFOs through the mailbox framework.
-+
-+	  Say Y here if you have an M2 or later Apple MacBook.
-+
- config AST2700_MBOX
- 	tristate "ASPEED AST2700 IPC driver"
- 	depends on ARCH_ASPEED || COMPILE_TEST
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 944d8ea39f34..4f3405064269 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -11,6 +11,8 @@ obj-$(CONFIG_ARM_MHU_V2)	+= arm_mhuv2.o
- 
- obj-$(CONFIG_ARM_MHU_V3)	+= arm_mhuv3.o
- 
-+obj-$(CONFIG_APPLE_DOCKCHANNEL)	+= apple-dockchannel.o
-+
- obj-$(CONFIG_AST2700_MBOX)	+= ast2700-mailbox.o
- 
- obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
-diff --git a/drivers/mailbox/apple-dockchannel.c b/drivers/mailbox/apple-dockchannel.c
-new file mode 100644
-index 000000000000..bae183db1307
---- /dev/null
-+++ b/drivers/mailbox/apple-dockchannel.c
-@@ -0,0 +1,380 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Apple DockChannel mailbox controller
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ *
-+ * DockChannel is a byte FIFO used by Apple co-processors. This driver exposes a
-+ * single FIFO pair as a Linux mailbox channel and moves payload bytes with PIO.
-+ * There is no DMA involved, so relaxed MMIO accessors are sufficient for the
-+ * FIFO accesses themselves.
-+ */
-+
-+#include <linux/device.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/mailbox/apple-dockchannel.h>
-+#include <linux/mailbox_controller.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/spinlock.h>
-+#include <linux/unaligned.h>
-+
-+#define APPLE_DOCKCHANNEL_FIFO_SIZE	0x800
-+
-+#define IRQ_MASK			0x0
-+#define IRQ_FLAG			0x4
-+
-+#define IRQ_TX				BIT(2)
-+#define IRQ_RX				BIT(3)
-+
-+#define CONFIG_TX_THRESH		0x0
-+#define CONFIG_RX_THRESH		0x4
-+
-+#define DATA_TX8			0x4
-+#define DATA_TX32			0x10
-+#define DATA_TX_FREE			0x14
-+#define DATA_RX8			0x1c
-+#define DATA_RX32			0x28
-+#define DATA_RX_COUNT			0x2c
-+
-+struct apple_dockchannel {
-+	struct device *dev;
-+	struct mbox_controller controller;
-+	struct mbox_chan chan;
-+
-+	void __iomem *irq_base;
-+	void __iomem *config_base;
-+	void __iomem *data_base;
-+	int irq;
-+
-+	spinlock_t lock; /* protects IRQ mask and TX state */
-+	u32 irq_mask;
-+
-+	const u8 *tx_buf;
-+	size_t tx_len;
-+	size_t tx_pos;
-+	bool tx_active;
-+
-+	u8 rx_buf[APPLE_DOCKCHANNEL_FIFO_SIZE];
-+};
-+
-+static void apple_dockchannel_irq_update(struct apple_dockchannel *dc,
-+					 u32 bits, bool enable)
-+{
-+	if (enable)
-+		dc->irq_mask |= bits;
-+	else
-+		dc->irq_mask &= ~bits;
-+	writel_relaxed(dc->irq_mask, dc->irq_base + IRQ_MASK);
-+}
-+
-+static void apple_dockchannel_irq_enable(struct apple_dockchannel *dc, u32 bits)
-+{
-+	/*
-+	 * IRQ_FLAG is write-to-clear. Clear stale latched flags before
-+	 * unmasking so the next interrupt reflects current FIFO state.
-+	 */
-+	writel_relaxed(bits, dc->irq_base + IRQ_FLAG);
-+	apple_dockchannel_irq_update(dc, bits, true);
-+}
-+
-+static void apple_dockchannel_irq_disable(struct apple_dockchannel *dc, u32 bits)
-+{
-+	apple_dockchannel_irq_update(dc, bits, false);
-+}
-+
-+static bool apple_dockchannel_tx_empty(struct apple_dockchannel *dc)
-+{
-+	return readl_relaxed(dc->data_base + DATA_TX_FREE) ==
-+	       APPLE_DOCKCHANNEL_FIFO_SIZE;
-+}
-+
-+static void apple_dockchannel_write_pending(struct apple_dockchannel *dc)
-+{
-+	size_t left = dc->tx_len - dc->tx_pos;
-+	const u8 *p = dc->tx_buf + dc->tx_pos;
-+
-+	while (left) {
-+		size_t avail;
-+		size_t block;
-+
-+		avail = readl_relaxed(dc->data_base + DATA_TX_FREE);
-+		if (!avail)
-+			break;
-+
-+		block = min(left, avail);
-+
-+		while (block >= sizeof(u32)) {
-+			writel_relaxed(get_unaligned_le32(p),
-+				       dc->data_base + DATA_TX32);
-+			p += sizeof(u32);
-+			left -= sizeof(u32);
-+			block -= sizeof(u32);
-+		}
-+
-+		while (block) {
-+			writeb_relaxed(*p++, dc->data_base + DATA_TX8);
-+			left--;
-+			block--;
-+		}
-+	}
-+
-+	dc->tx_pos = dc->tx_len - left;
-+}
-+
-+static void apple_dockchannel_read(struct apple_dockchannel *dc, void *buf,
-+				   size_t count)
-+{
-+	u8 *p = buf;
-+	size_t left = count;
-+
-+	while (left >= sizeof(u32)) {
-+		put_unaligned_le32(readl_relaxed(dc->data_base + DATA_RX32), p);
-+		p += sizeof(u32);
-+		left -= sizeof(u32);
-+	}
-+
-+	while (left) {
-+		/*
-+		 * The byte FIFO register returns the byte in bits [15:8] on
-+		 * these instances.
-+		 */
-+		*p++ = readl_relaxed(dc->data_base + DATA_RX8) >> 8;
-+		left--;
-+	}
-+}
-+
-+static int apple_dockchannel_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct apple_dockchannel *dc = chan->con_priv;
-+	struct apple_dockchannel_msg *msg = data;
-+	unsigned long flags;
-+
-+	if (!msg || !msg->data || !msg->len)
-+		return -EINVAL;
-+
-+	if (msg->len > APPLE_DOCKCHANNEL_FIFO_SIZE)
-+		return -EMSGSIZE;
-+
-+	spin_lock_irqsave(&dc->lock, flags);
-+
-+	if (dc->tx_active || !apple_dockchannel_tx_empty(dc)) {
-+		spin_unlock_irqrestore(&dc->lock, flags);
-+		return -EBUSY;
-+	}
-+
-+	dc->tx_buf = msg->data;
-+	dc->tx_len = msg->len;
-+	dc->tx_pos = 0;
-+	dc->tx_active = true;
-+
-+	apple_dockchannel_write_pending(dc);
-+	writel_relaxed(APPLE_DOCKCHANNEL_FIFO_SIZE,
-+		       dc->config_base + CONFIG_TX_THRESH);
-+	apple_dockchannel_irq_enable(dc, IRQ_TX);
-+
-+	spin_unlock_irqrestore(&dc->lock, flags);
-+
-+	return 0;
-+}
-+
-+static int apple_dockchannel_startup(struct mbox_chan *chan)
-+{
-+	struct apple_dockchannel *dc = chan->con_priv;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&dc->lock, flags);
-+	/*
-+	 * The mailbox framework has no per-client RX threshold. Use byte
-+	 * granularity because UART-style DockChannel clients require it.
-+	 */
-+	writel_relaxed(1, dc->config_base + CONFIG_RX_THRESH);
-+	apple_dockchannel_irq_enable(dc, IRQ_RX);
-+	spin_unlock_irqrestore(&dc->lock, flags);
-+
-+	enable_irq(dc->irq);
-+
-+	return 0;
-+}
-+
-+static void apple_dockchannel_shutdown(struct mbox_chan *chan)
-+{
-+	struct apple_dockchannel *dc = chan->con_priv;
-+	unsigned long flags;
-+
-+	disable_irq(dc->irq);
-+
-+	spin_lock_irqsave(&dc->lock, flags);
-+	apple_dockchannel_irq_disable(dc, IRQ_TX | IRQ_RX);
-+	dc->tx_active = false;
-+	spin_unlock_irqrestore(&dc->lock, flags);
-+}
-+
-+static const struct mbox_chan_ops apple_dockchannel_mbox_ops = {
-+	.send_data = apple_dockchannel_send_data,
-+	.startup = apple_dockchannel_startup,
-+	.shutdown = apple_dockchannel_shutdown,
-+};
-+
-+static irqreturn_t apple_dockchannel_irq(int irq, void *data)
-+{
-+	struct apple_dockchannel *dc = data;
-+	u32 flags;
-+	u32 pending;
-+	bool tx_done = false;
-+
-+	flags = readl_relaxed(dc->irq_base + IRQ_FLAG);
-+
-+	spin_lock(&dc->lock);
-+
-+	pending = flags & dc->irq_mask & (IRQ_TX | IRQ_RX);
-+	if (!pending)
-+		goto out_unlock_none;
-+
-+	if (pending & IRQ_TX) {
-+		if (apple_dockchannel_tx_empty(dc)) {
-+			apple_dockchannel_irq_disable(dc, IRQ_TX);
-+			tx_done = dc->tx_active;
-+			dc->tx_active = false;
-+		} else {
-+			pending &= ~IRQ_TX;
-+		}
-+	}
-+
-+	writel_relaxed(pending, dc->irq_base + IRQ_FLAG);
-+
-+	spin_unlock(&dc->lock);
-+
-+	if (tx_done)
-+		mbox_chan_txdone(&dc->chan, 0);
-+
-+	if (pending & IRQ_RX)
-+		return IRQ_WAKE_THREAD;
-+
-+	if (pending)
-+		return IRQ_HANDLED;
-+
-+	return IRQ_NONE;
-+
-+out_unlock_none:
-+	spin_unlock(&dc->lock);
-+
-+	if (flags & (IRQ_TX | IRQ_RX))
-+		writel_relaxed(flags & (IRQ_TX | IRQ_RX),
-+			       dc->irq_base + IRQ_FLAG);
-+
-+	return IRQ_NONE;
-+}
-+
-+static irqreturn_t apple_dockchannel_irq_thread(int irq, void *data)
-+{
-+	struct apple_dockchannel *dc = data;
-+
-+	for (;;) {
-+		struct apple_dockchannel_msg msg;
-+		size_t avail;
-+
-+		avail = readl_relaxed(dc->data_base + DATA_RX_COUNT);
-+		if (!avail)
-+			break;
-+
-+		avail = min_t(size_t, avail, APPLE_DOCKCHANNEL_FIFO_SIZE);
-+
-+		apple_dockchannel_read(dc, dc->rx_buf, avail);
-+
-+		msg.data = dc->rx_buf;
-+		msg.len = avail;
-+		mbox_chan_received_data(&dc->chan, &msg);
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static struct mbox_chan *
-+apple_dockchannel_of_xlate(struct mbox_controller *mbox,
-+			   const struct of_phandle_args *spec)
-+{
-+	if (spec->args_count != 0)
-+		return ERR_PTR(-EINVAL);
-+
-+	return &mbox->chans[0];
-+}
-+
-+static int apple_dockchannel_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct apple_dockchannel *dc;
-+	int ret;
-+
-+	dc = devm_kzalloc(dev, sizeof(*dc), GFP_KERNEL);
-+	if (!dc)
-+		return -ENOMEM;
-+
-+	dc->dev = dev;
-+	spin_lock_init(&dc->lock);
-+	platform_set_drvdata(pdev, dc);
-+
-+	dc->irq_base = devm_platform_ioremap_resource_byname(pdev, "irq");
-+	if (IS_ERR(dc->irq_base))
-+		return PTR_ERR(dc->irq_base);
-+
-+	dc->config_base = devm_platform_ioremap_resource_byname(pdev, "config");
-+	if (IS_ERR(dc->config_base))
-+		return PTR_ERR(dc->config_base);
-+
-+	dc->data_base = devm_platform_ioremap_resource_byname(pdev, "data");
-+	if (IS_ERR(dc->data_base))
-+		return PTR_ERR(dc->data_base);
-+
-+	writel_relaxed(0, dc->irq_base + IRQ_MASK);
-+	writel_relaxed(~0, dc->irq_base + IRQ_FLAG);
-+
-+	dc->irq = platform_get_irq(pdev, 0);
-+	if (dc->irq < 0)
-+		return dc->irq;
-+
-+	ret = devm_request_threaded_irq(dev, dc->irq, apple_dockchannel_irq,
-+					apple_dockchannel_irq_thread, IRQF_ONESHOT,
-+					dev_name(dev), dc);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to request IRQ\n");
-+
-+	disable_irq(dc->irq);
-+
-+	dc->chan.con_priv = dc;
-+	dc->controller.dev = dev;
-+	dc->controller.ops = &apple_dockchannel_mbox_ops;
-+	dc->controller.chans = &dc->chan;
-+	dc->controller.num_chans = 1;
-+	dc->controller.txdone_irq = true;
-+	dc->controller.of_xlate = apple_dockchannel_of_xlate;
-+
-+	ret = devm_mbox_controller_register(dev, &dc->controller);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to register mailbox\n");
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id apple_dockchannel_of_match[] = {
-+	{ .compatible = "apple,t8122-dockchannel" },
-+	{ .compatible = "apple,t8112-dockchannel" },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, apple_dockchannel_of_match);
-+
-+static struct platform_driver apple_dockchannel_driver = {
-+	.driver = {
-+		.name = "apple-dockchannel",
-+		.of_match_table = apple_dockchannel_of_match,
-+	},
-+	.probe = apple_dockchannel_probe,
-+};
-+module_platform_driver(apple_dockchannel_driver);
-+
-+MODULE_DESCRIPTION("Apple DockChannel mailbox controller");
-+MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
-+MODULE_AUTHOR("Michael Reeves <michael.reeves077@gmail.com>");
-+MODULE_LICENSE("Dual MIT/GPL");
-diff --git a/include/linux/mailbox/apple-dockchannel.h b/include/linux/mailbox/apple-dockchannel.h
-new file mode 100644
-index 000000000000..04d2fc44f12f
---- /dev/null
-+++ b/include/linux/mailbox/apple-dockchannel.h
-@@ -0,0 +1,29 @@
-+/* SPDX-License-Identifier: GPL-2.0-only OR MIT */
-+/*
-+ * Apple DockChannel mailbox message format.
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
-+
-+#ifndef _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_
-+#define _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_
-+
-+#include <linux/types.h>
-+
-+/**
-+ * struct apple_dockchannel_msg - DockChannel mailbox payload
-+ * @data: Pointer to the byte stream payload
-+ * @len: Number of payload bytes
-+ *
-+ * For TX, @data must remain valid until mbox_send_message() completes or the
-+ * client receives tx_done in non-blocking mode.
-+ *
-+ * For RX, @data is owned by the controller and is valid only for the duration
-+ * of the rx_callback.
-+ */
-+struct apple_dockchannel_msg {
-+	void *data;
-+	size_t len;
-+};
-+
-+#endif /* _LINUX_MAILBOX_APPLE_DOCKCHANNEL_H_ */
-
--- 
-2.51.2
-
-
+      Arnd
 
