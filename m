@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 030EFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D251C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:03:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y5cNoPvRhwfLpIKM6ae8tR08xr5Dl3OmT2QfMWtQrLI=; b=kkyCrKLrbEhWH0jO2SHkuUiOzx
-	lfrRSlnWPDRf13ObDgqvjLpuRNvepHte1r3WrqluHGvV5tcIxCpt7EBcHU97QyBIwkMMqprEXCe41
-	TY/yE7tPAJZbUFiM3qjEt3TxK4k4uWQJ3t8d0J7O/SiXGX1Ig9646F9YcOPB+ovAvT+K86Fnxc9Fp
-	lLaGcrZ84czXgClzyGUVVz92ZKP98GZOhs9qE5hIGptkA4o+ZX2ZUrH4DIWqS8FpWdAKbmZhVt99B
-	ql9lqxSw3kKkJNLSvqkaYSVItq1FneoFZUkAbmyPDS3YOPgkLkJw5QoJPhOmQHY7FnbLpu9kiYGKt
-	cR7xrC+Q==;
+	bh=rgDggtVEtYObapQpluEEQ6g99iE79btQV0FhFQe1sHU=; b=uZXBXz3oF8baGInxlTWzZxjT3d
+	7fPnjOt0wW8TS0QVaOwtfuF/WwoYQZGYfzfvve3vYD3vqh8kTPU6/eP8zwhRujSKPfqbFMrOnjkCk
+	aenUUcCPTV8m803zolDWJGePhQps6nmuywPhse6MPLCcjv7lODgopc3gSr+zkOzGy77XkauqYPLx2
+	da6qMxjnIRWstJgaAzqqm6eWfp8wFEh32xEl0Th7EDqFkhDPC44YLkC0PYYfs0ck4zXGZ6FobgIXQ
+	Qt4e+DT3lH9gUJTMob2zVJQK03LlIsyCFJ2uDwo4LcHuTShLpsnr/oqU1Nv/T5ziUIbjUOfhxJ09k
+	ZifDidEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weY5u-0000000H6uW-1y2y;
-	Tue, 30 Jun 2026 13:01:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weY5n-0000000H6rb-1wGm
+	id 1weXzO-0000000H4iL-0XFV;
+	Tue, 30 Jun 2026 12:54:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weXzD-0000000H4WF-3H5q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 13:01:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 982E82ED2;
-	Tue, 30 Jun 2026 06:01:29 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C569B3F905;
-	Tue, 30 Jun 2026 06:01:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782824494; bh=kq2w50c2u6bD7KF6gETrdsfnJ9vCOBcPVpF7JOs8C4Q=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BcyVjUD7Zqw9f1gmXonNnPoLC2XgU9+u4I7VT3HEIzngKYYL9tAaSB6DAS1ZLUyHo
-	 hogigEt6GPWKcuQz4G+C1TUboLa927T4KbZOi5cDhry+UMhhZQ6sqxrqumm0OkS/wn
-	 GXEbxToNjzPi05ut7ZYZiIq3XakQ4eEGxf4XQrnM=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	zeev@amazon.com,
-	blakgeof@amazon.com,
-	avivb@amazon.com,
-	ilkka@os.amperecomputing.com
-Subject: [PATCH v6 2/2] perf/arm-cmn: Add workarounds for CMN-S3 on Graviton5
-Date: Tue, 30 Jun 2026 14:01:18 +0100
-Message-ID: <e9340d3a4385e6f1a6e80bda944a3ba6435472b6.1782824005.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
-In-Reply-To: <cover.1782824005.git.robin.murphy@arm.com>
-References: <cover.1782824005.git.robin.murphy@arm.com>
+	Tue, 30 Jun 2026 12:54:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 024B943EFE;
+	Tue, 30 Jun 2026 12:54:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D6DF7C2BCFD;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782824086;
+	bh=B+M1c9uJ0chHs8xGwOJC+Qw9PdHQ9Wy7xFVF2lqJQl4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=b2CDKdZGLq+c4n/5wwxxT3rXvpx7zJYt6vyiF0VJvL1P81NigYKDDcIjt3HIUChav
+	 49578cJNS0MlrgaZ/O9xnYGdx2sF4qRjt4ZQxDSTGlRnS5JW8P4LzIxV1zHemMhaaD
+	 4H3rymYh/MOfTbqkBHGo+fOy9YruraRLlYdRmOFIrP3rkehV+934/sHM4ut2OJPJM9
+	 2Zvnb+7uPYSQ+yq8CrNhBllhvnbdBjcx8X95gUL0IrJH+WBOdzAGg0Z0Otvgw1eCX6
+	 X+U6VIqPQRddiW/K82Q8zBPa0a9BF7KyFCXpxkuuCvQZFvjJHg7Ph052DvpasjuOPI
+	 Lgi5mw1L7RLdw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id CFC36C43458;
+	Tue, 30 Jun 2026 12:54:46 +0000 (UTC)
+From: Michael Reeves via B4 Relay <devnull+michael.reeves077.gmail.com@kernel.org>
+Date: Tue, 30 Jun 2026 22:54:37 +1000
+Subject: [PATCH 09/10] arm64: dts: apple: Add MTP DockChannel HID nodes
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_060135_600511_87DE2856 
-X-CRM114-Status: GOOD (  16.43  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260630-apple-mtp-keyboard-final-v1-9-506d936a1707@gmail.com>
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+In-Reply-To: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Jassi Brar <jassisinghbrar@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Hector Martin <marcan@marcan.st>, 
+ "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jiri Kosina <jikos@kernel.org>, 
+ Benjamin Tissoires <bentiss@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ iommu@lists.linux.dev, linux-input@vger.kernel.org, 
+ Michael Reeves <michael.reeves077@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782824083; l=6768;
+ i=michael.reeves077@gmail.com; s=20260105; h=from:subject:message-id;
+ bh=bMwqHA+Egy8OA2vhAFSY5t62oYeUho9ZB0NPCjtkjoI=;
+ b=PguWqSaT4+ksTgvbKhxg8jxpkvQ1bdIqmorWcBIGRWuyt9Yf22sPwdVtn6OWDD0FQV22T1CpK
+ 8YSeNGIIi81B417YM/EHCuSBcorSLyWiC1AHqedenxvjoQ3mHSQ2WNB
+X-Developer-Key: i=michael.reeves077@gmail.com; a=ed25519;
+ pk=QIrgWBGCm3LG0YYc6MLCDkwuVXLTGGooVBdWX/KhSiU=
+X-Endpoint-Received: by B4 Relay for michael.reeves077@gmail.com/20260105
+ with auth_id=591
+X-Original-From: Michael Reeves <michael.reeves077@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,124 +88,202 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: michael.reeves077@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Aviv Bakal <avivb@amazon.com>
+From: Michael Reeves <michael.reeves077@gmail.com>
 
-Graviton5 uses a customised CMN-S3 implementation where certain
-discovery registers report zeroed fields. Add the following workarounds:
+Add disabled MTP nodes for the Apple SoCs used by M2 and M3 systems.
 
- - Introduce a dedicated ACPI HID to identify the Graviton5 CMN variant.
- - Derive the DTC domain from the XP node ID, since the unit info
-   register reports it as zero.
- - Set the DTC logical ID from the XP's logical ID, since the node info
-   register's logical ID field is also zeroed.
+Each instance describes the RTKit ASC mailbox, MTP DART, DockChannel
+mailbox, and DockChannel HID client. Board files can enable them on
+machines that route internal input through MTP.
 
-Signed-off-by: Aviv Bakal <avivb@amazon.com>
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
-Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Co-developed-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Signed-off-by: Michael Reeves <michael.reeves077@gmail.com>
 ---
+ arch/arm64/boot/dts/apple/t602x-die0.dtsi | 46 ++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi      | 46 ++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8122.dtsi      | 47 +++++++++++++++++++++++++++++++
+ 3 files changed, 139 insertions(+)
 
-v6: No change
-
- drivers/perf/arm-cmn.c | 32 +++++++++++++++++++++++++++++++-
- 1 file changed, 31 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/perf/arm-cmn.c b/drivers/perf/arm-cmn.c
-index 9392838408ff..50402bc4a21d 100644
---- a/drivers/perf/arm-cmn.c
-+++ b/drivers/perf/arm-cmn.c
-@@ -31,7 +31,8 @@
- #define CMN_CHILD_NODE_ADDR		GENMASK(29, 0)
- #define CMN_CHILD_NODE_EXTERNAL		BIT(31)
+diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
+index 8622ddea7b44..edc73682fd22 100644
+--- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
+@@ -150,6 +150,52 @@ pinctrl_smc: pinctrl@2a2820000 {
+ 				<AIC_IRQ 0 857 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
--#define CMN_MAX_DIMENSION		12
-+/* Some implementations use a mesh larger than the architectural max of 12 */
-+#define CMN_MAX_DIMENSION		14
- #define CMN_MAX_XPS			(CMN_MAX_DIMENSION * CMN_MAX_DIMENSION)
- #define CMN_MAX_DTMS			(CMN_MAX_XPS + (CMN_MAX_DIMENSION - 1) * 4)
++	mtp_mbox: mbox@2a9408000 {
++		compatible = "apple,t6020-asc-mailbox", "apple,asc-mailbox-v4";
++		reg = <0x2 0xa9408000 0x0 0x4000>;
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ 0 693 IRQ_TYPE_LEVEL_HIGH>,
++			     <AIC_IRQ 0 694 IRQ_TYPE_LEVEL_HIGH>,
++			     <AIC_IRQ 0 695 IRQ_TYPE_LEVEL_HIGH>,
++			     <AIC_IRQ 0 696 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "send-empty", "send-not-empty",
++				  "recv-empty", "recv-not-empty";
++		#mbox-cells = <0>;
++		status = "disabled";
++	};
++
++	mtp_dart: iommu@2a9808000 {
++		compatible = "apple,t6020-dart", "apple,t8110-dart";
++		reg = <0x2 0xa9808000 0x0 0x4000>;
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ 0 676 IRQ_TYPE_LEVEL_HIGH>;
++		#iommu-cells = <1>;
++		status = "disabled";
++	};
++
++	mtp_dockchannel: mailbox@2a9b14000 {
++		compatible = "apple,t6020-dockchannel", "apple,t8112-dockchannel";
++		reg = <0x2 0xa9b14000 0x0 0x4000>,
++		      <0x2 0xa9b30000 0x0 0x4000>,
++		      <0x2 0xa9b34000 0x0 0x4000>;
++		reg-names = "irq", "config", "data";
++		interrupt-parent = <&aic>;
++		interrupts = <AIC_IRQ 0 677 IRQ_TYPE_LEVEL_HIGH>;
++		#mbox-cells = <0>;
++		status = "disabled";
++	};
++
++	mtp_hid: hid@2a9400000 {
++		compatible = "apple,t6020-dockchannel-hid", "apple,t8112-dockchannel-hid";
++		reg = <0x2 0xa9400000 0x0 0x4000>,
++		      <0x2 0xa9c00000 0x0 0x100000>;
++		reg-names = "coproc-asc", "coproc-sram";
++		mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
++		mbox-names = "asc", "dockchannel";
++		iommus = <&mtp_dart 1>;
++		status = "disabled";
++	};
++
+ 	sio_dart: iommu@39b008000 {
+ 		compatible = "apple,t6020-dart", "apple,t8110-dart";
+ 		reg = <0x3 0x9b008000 0x0 0x8000>;
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 85c47422d4e8..8411828c0772 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -983,6 +983,52 @@ pinctrl_aop: pinctrl@24a820000 {
+ 				     <AIC_IRQ 307 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
  
-@@ -215,6 +216,8 @@ enum cmn_part {
- 	PART_CMN700 = 0x43c,
- 	PART_CI700 = 0x43a,
- 	PART_CMN_S3 = 0x43e,
-+	/* Synthetic part number, overridden to PART_CMN_S3 during discovery */
-+	PART_GRAVITON5 = 0xa5,
++		mtp_mbox: mbox@24e408000 {
++			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
++			reg = <0x2 0x4e408000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 864 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 865 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 866 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 867 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "send-empty", "send-not-empty",
++					  "recv-empty", "recv-not-empty";
++			#mbox-cells = <0>;
++			status = "disabled";
++		};
++
++		mtp_dart: iommu@24e808000 {
++			compatible = "apple,t8110-dart";
++			reg = <0x2 0x4e808000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 848 IRQ_TYPE_LEVEL_HIGH>;
++			#iommu-cells = <1>;
++			status = "disabled";
++		};
++
++		mtp_dockchannel: mailbox@24eb14000 {
++			compatible = "apple,t8112-dockchannel";
++			reg = <0x2 0x4eb14000 0x0 0x4000>,
++			      <0x2 0x4eb30000 0x0 0x4000>,
++			      <0x2 0x4eb34000 0x0 0x4000>;
++			reg-names = "irq", "config", "data";
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 850 IRQ_TYPE_LEVEL_HIGH>;
++			#mbox-cells = <0>;
++			status = "disabled";
++		};
++
++		mtp_hid: hid@24e400000 {
++			compatible = "apple,t8112-dockchannel-hid";
++			reg = <0x2 0x4e400000 0x0 0x4000>,
++			      <0x2 0x4ec00000 0x0 0x100000>;
++			reg-names = "coproc-asc", "coproc-sram";
++			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
++			mbox-names = "asc", "dockchannel";
++			iommus = <&mtp_dart 1>;
++			status = "disabled";
++		};
++
+ 		ans_mbox: mbox@277408000 {
+ 			compatible = "apple,t8112-asc-mailbox", "apple,asc-mailbox-v4";
+ 			reg = <0x2 0x77408000 0x0 0x4000>;
+diff --git a/arch/arm64/boot/dts/apple/t8122.dtsi b/arch/arm64/boot/dts/apple/t8122.dtsi
+index c6196225e96e..ec1f47d15ec9 100644
+--- a/arch/arm64/boot/dts/apple/t8122.dtsi
++++ b/arch/arm64/boot/dts/apple/t8122.dtsi
+@@ -438,6 +438,53 @@ pinctrl_aop: pinctrl@2f4824000 {
+ 				     <AIC_IRQ 351 IRQ_TYPE_LEVEL_HIGH>,
+ 				     <AIC_IRQ 352 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
++
++		mtp_mbox: mbox@2fa408000 {
++			compatible = "apple,t8122-asc-mailbox", "apple,asc-mailbox-v4";
++			reg = <0x2 0xfa408000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 838 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 839 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 840 IRQ_TYPE_LEVEL_HIGH>,
++				     <AIC_IRQ 841 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "send-empty", "send-not-empty",
++					  "recv-empty", "recv-not-empty";
++			#mbox-cells = <0>;
++			status = "disabled";
++		};
++
++		mtp_dart: iommu@2fa808000 {
++			compatible = "apple,t8122-dart", "apple,t8110-dart";
++			reg = <0x2 0xfa808000 0x0 0x4000>;
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 822 IRQ_TYPE_LEVEL_HIGH>;
++			#iommu-cells = <1>;
++			status = "disabled";
++		};
++
++		mtp_dockchannel: mailbox@2fab14000 {
++			compatible = "apple,t8122-dockchannel", "apple,t8112-dockchannel";
++			reg = <0x2 0xfab14000 0x0 0x4000>,
++			      <0x2 0xfab30000 0x0 0x4000>,
++			      <0x2 0xfab34000 0x0 0x4000>;
++			reg-names = "irq", "config", "data";
++			interrupt-parent = <&aic>;
++			interrupts = <AIC_IRQ 824 IRQ_TYPE_LEVEL_HIGH>;
++			#mbox-cells = <0>;
++			status = "disabled";
++		};
++
++		mtp_hid: hid@2fa400000 {
++			compatible = "apple,t8122-dockchannel-hid",
++				     "apple,t8112-dockchannel-hid";
++			reg = <0x2 0xfa400000 0x0 0x4000>,
++			      <0x2 0xfac00000 0x0 0x100000>;
++			reg-names = "coproc-asc", "coproc-sram";
++			mboxes = <&mtp_mbox>, <&mtp_dockchannel>;
++			mbox-names = "asc", "dockchannel";
++			iommus = <&mtp_dart 1>;
++			status = "disabled";
++		};
+ 	};
  };
  
- /* CMN-600 r0px shouldn't exist in silicon, thankfully */
-@@ -2253,6 +2256,18 @@ static unsigned int arm_cmn_dtc_domain(struct arm_cmn *cmn, void __iomem *xp_reg
- 	return FIELD_GET(CMN_DTM_UNIT_INFO_DTC_DOMAIN, readl_relaxed(xp_region + offset));
- }
- 
-+static unsigned int arm_cmn_graviton5_dtc_domain(u16 xp_id)
-+{
-+	unsigned int x = (xp_id >> 7) & 0xf;
-+	unsigned int y = (xp_id >> 3) & 0xf;
-+
-+	/*
-+	 * The unit info register reads as zero; derive the DTC domain from
-+	 * the XP's mesh coordinates over the 10x14 mesh.
-+	 */
-+	return (x / 5) + (y / 7) * 2;
-+}
-+
- static void arm_cmn_init_node_info(struct arm_cmn *cmn, u32 offset, struct arm_cmn_node *node)
- {
- 	int level;
-@@ -2298,6 +2313,7 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	u64 reg;
- 	int i, j;
- 	size_t sz;
-+	bool graviton5_workaround = false;
- 
- 	arm_cmn_init_node_info(cmn, rgn_offset, &cfg);
- 	if (cfg.type != CMN_TYPE_CFG)
-@@ -2308,6 +2324,13 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 	reg = readq_relaxed(cfg_region + CMN_CFGM_PERIPH_ID_01);
- 	part = FIELD_GET(CMN_CFGM_PID0_PART_0, reg);
- 	part |= FIELD_GET(CMN_CFGM_PID1_PART_1, reg) << 8;
-+
-+	/* Graviton5 has a customised CMN-S3 which needs some fixups */
-+	if (cmn->part == PART_GRAVITON5) {
-+		cmn->part = PART_CMN_S3;
-+		graviton5_workaround = true;
-+	}
-+
- 	/* 600AE is close enough that it's not really worth more complexity */
- 	if (part == PART_CMN600AE)
- 		part = PART_CMN600;
-@@ -2397,6 +2420,8 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 		if (cmn->part == PART_CMN600)
- 			xp->dtc = -1;
-+		else if (graviton5_workaround)
-+			xp->dtc = arm_cmn_graviton5_dtc_domain(xp->id);
- 		else
- 			xp->dtc = arm_cmn_dtc_domain(cmn, xp_region);
- 
-@@ -2475,6 +2500,10 @@ static int arm_cmn_discover(struct arm_cmn *cmn, unsigned int rgn_offset)
- 
- 			switch (dn->type) {
- 			case CMN_TYPE_DTC:
-+				if (graviton5_workaround) {
-+					/* Node info logical ID is zeroed; use the XP's */
-+					dn->logid = xp->logid;
-+				}
- 				cmn->num_dtcs++;
- 				dn++;
- 				break;
-@@ -2690,6 +2719,7 @@ static const struct acpi_device_id arm_cmn_acpi_match[] = {
- 	{ "ARMHC650" },
- 	{ "ARMHC700" },
- 	{ "ARMHC003" },
-+	{ "AMZN0070", PART_GRAVITON5 },
- 	{}
- };
- MODULE_DEVICE_TABLE(acpi, arm_cmn_acpi_match);
+
 -- 
-2.54.0.dirty
+2.51.2
+
 
 
