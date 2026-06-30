@@ -4,93 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E39AC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69B4CC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 12:51:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dyIOrbkQoXvlrQuLMNUOip4O3gWjdaY+8gLr+WndPfg=; b=h3bU0sfKMyutxQ4vjxsNAUeWFO
-	76xcjZWtUHszZxj0ZMukYR1LNVUBASQHPiGKg9/xSIPu35IOg13W2h8WD4zrWynT6tyIfwAjZ/2pH
-	R/1VMfsc5RQSZl8JeMXvM67NKhpBlocEKeOVlBLs5elJBZGEknFGhdiUy/tLiwA5Ch7olAXzEuvdq
-	k6XNwxFQSjGXlNut05vD2Top58l2vIrIYbteeZo6eQjf3epsglenhkjWNLdBBMAZ9QpD6aMpF+03l
-	CQs464YV8K4/eLFuO7JABL5x5Z9EqQEZE/LLNN4W7ZuT00rC8kD3S12zqHuwweI3fudzLNGSp6dR0
-	p4yZ66ag==;
+	bh=PCyMh43KAa5ny7YL55MfFbLIOiESoCodPP8ctS5uRKw=; b=W8Ps49Hm0M7V3anFJdLEudvvB6
+	260IZuNF8HSKhZSSnsfHhBg9QL5EUkw0/jpau1t1qx0zxojWOYp8NjmFoYiR+hzZ3xgLKQDuvu9Tg
+	3XyjM5L2CHas6HDrbqQEf5X/zQwQk3HXxRTmxKVEEY6wzoBBbme4ynTDeq+MxxJoDDg9DF65vI4/o
+	43M+jb6rbIn7Yq71eMqUbsHCfPkOMMRco8bvY4Oln8WluVqkHgy/TsCy51PhvVxd+1JEHmTTQaK1+
+	LpTTNa1xEReuiewn2VrfpIxvjymaI1NTwOXy7VKCLfiM9kRCbHHxUoBuJ+Kpk+mTJTfoJu38mTpR4
+	f2r6mwVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXw5-0000000H2sj-1dnX;
-	Tue, 30 Jun 2026 12:51:33 +0000
-Received: from server.couthit.com ([162.240.164.96])
+	id 1weXwL-0000000H32A-07Cu;
+	Tue, 30 Jun 2026 12:51:49 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weXw1-0000000H2mE-41Zl
+	id 1weXw8-0000000H2ty-2Q5s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 12:51:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=dyIOrbkQoXvlrQuLMNUOip4O3gWjdaY+8gLr+WndPfg=; b=S6iCOPsp4zyXgvr1N3Y+mo6ATa
-	EJ9I/tq4NF3RgBXtcfJ6CNKwAsB0JbdQq/sWr/5U3DSXOEdQjmdxkrt/SI1JG/1TxiL9Dfv/0Rk5+
-	UwxPbWYSwyntX76O2rNA109sKdcKyXJOQUtW2L4zd2RNJAqaRPB7wSwhrK6y+y/5wb2vJnFzqxkVU
-	J885Yrm0Bgrmqagnj3ID2Y/UHJKv4iUqxd08TJ/EnpDo2sS3lERLydMi+p4h2jNE8Zv6jiw9zQ96C
-	K8F5ZmWtEYJRaVyw3IcQQQCRRO/Et/dW77OmOR6+WLP/7mLY0Z5x1j9QGMxvPQ4w2hIfyCDCPxFUY
-	m7Mpjptg==;
-Received: from [115.246.246.98] (port=58869 helo=cypher.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.4)
-	(envelope-from <parvathi@couthit.com>)
-	id 1weXvK-00000006qlQ-07bD;
-	Tue, 30 Jun 2026 08:50:47 -0400
-From: Parvathi Pudi <parvathi@couthit.com>
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	danishanwar@ti.com,
-	parvathi@couthit.com,
-	rogerq@kernel.org,
-	pmohan@couthit.com,
-	afd@ti.com,
-	basharath@couthit.com,
-	arnd@arndb.de
-Cc: linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com
-Subject: [PATCH net-next v2 1/3] net: ti: icssm-prueth: Add HSR and PRP HW offload mode support for AM57xx, AM437x and AM335x
-Date: Tue, 30 Jun 2026 18:16:14 +0530
-Message-ID: <20260630124958.894360-2-parvathi@couthit.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260630124958.894360-1-parvathi@couthit.com>
-References: <20260630124958.894360-1-parvathi@couthit.com>
+	Tue, 30 Jun 2026 12:51:38 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 056C34E40BB0;
+	Tue, 30 Jun 2026 12:51:35 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id C5E7F6025A;
+	Tue, 30 Jun 2026 12:51:34 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 216A0106F1EA1;
+	Tue, 30 Jun 2026 14:51:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782823893; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=PCyMh43KAa5ny7YL55MfFbLIOiESoCodPP8ctS5uRKw=;
+	b=OrFRyNq7k6JXTPu9CRvoOI0wnN0U2KgE4mr2ZBr/Tka3m93vKHZJbJMepL4EygTNojXs/o
+	E0WxQwC3ckFZD2G6QulGh5dpT/LMAa1u8AK0BA1i9Av0mauiwLbaiay+U+QlzSFX0Sn4qe
+	2CZyHu5/HVEDXBi0g1qmMFMjaarxkymk6nTYH0LYp4YJSMNDPWS2+IbGtEa6glulxhc23J
+	A5UagkhcmLtkCVKCRzSLfs1zV8xiHesFhwi3Kc4OdqIuKL6CpjwT6zZ+OLMNSVay0S4oz6
+	OMYRnlKih4p4XqJXV6i+ZLryVgUVjr+RNo4LgUt32hEm1rYMqy69wUapw0cJjQ==
+From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Date: Tue, 30 Jun 2026 14:51:13 +0200
+Subject: [PATCH v6 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
-X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Message-Id: <20260630-dev-b4-aaeon-mcu-driver-v6-3-d66b5fcbd2f0@bootlin.com>
+References: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
+In-Reply-To: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ =?utf-8?q?J=C3=A9r=C3=A9mie_Dautheribes?= <jeremie.dautheribes@bootlin.com>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_055130_084315_B2F84366 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20260630_055136_916505_C13E74B9 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,1271 +87,344 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@ti.com>
+Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8P
+embedded controller. This driver provides the core I2C communication
+interface and registers child devices (GPIO and watchdog controllers).
 
-The PRU-ICSS subsystem on AM335x, AM437x and AM57xx SoCs supports dedicated
-firmware implementing the IEC 62439-3 redundancy protocols: HSR and PRP.
-Extend the ICSSM PRUETH driver to enable these operating modes in addition
-to the existing dual-EMAC and RSTP switch configurations.
+The driver implements a custom regmap bus over I2C to match the MCU's
+fixed 3-byte command format [opcode, arg, value]. Register addresses
+are encoded as 16-bit values (opcode << 8 | arg) using the
+AAEON_MCU_REG() macro defined in the shared header. The regmap
+instance is shared with child drivers via dev_get_regmap(). Concurrent
+I2C accesses from child drivers are serialized by regmap's built-in
+locking.
 
-In both HSR and PRP modes, the two PRU Ethernet ports operate as LRE (Link
-Redundancy Entity) slave ports, while the host port acts as the master.
-In case of HW offload mode, Frame duplicate detection/discard for both HSR
-and PRP and L2 forwarding in case of HSR are handled entirely by firmware
-within the PRU cores.
+I2C transfers use heap-allocated DMA-safe buffers rather than
+stack-allocated ones, as required by I2C controllers that perform DMA.
 
-For HSR, frames received on one PRU port are forwarded to the host and to
-the peer PRU port (store-and-forward or cut-through), providing a redundant
-ring path. For PRP, any one of the PRU port forwards received frames to the
-host after firmware discards the duplicates.
+Regmap caching is enabled (REGCACHE_MAPLE) with a volatile_reg
+callback that marks GPIO input read registers (opcode 0x72) and the
+watchdog status register (opcode 0x63, arg 0x02) as volatile. All
+other registers written by the driver (GPIO direction,
+GPO state, watchdog control) are stable and can be safely cached.
 
-The PRU-ICSS subsystem loads the Dual EMAC firmware by default. To enable
-HSR or PRP functionality, the firmware must be changed accordingly. The
-required reconfiguration steps are detailed below.
-
-To switch from dual-EMAC to HSR (example: eth2 and eth3 as slave raw
-ports):
-
-$ ip link set eth2 down && ip link set eth3 down
-$ ip link set eth2 address <mac-addr>
-$ ip link set eth3 address <mac-addr>
-$ ethtool -K eth2 hsr-tag-rm-offload on
-$ ethtool -K eth2 hsr-fwd-offload on
-$ ethtool -K eth2 hsr-dup-offload on
-$ ethtool -K eth3 hsr-tag-rm-offload on
-$ ethtool -K eth3 hsr-fwd-offload on
-$ ethtool -K eth3 hsr-dup-offload on
-$ ip link add name hsr0 type hsr slave1 eth2 slave2 eth3 supervison 45
-  version 1
-$ ip link set eth2 up
-$ ip link set eth3 up
-
-To switch from dual-EMAC to PRP (example: eth2 and eth3 as slave raw
-ports):
-
-$ ip link set eth2 down && ip link set eth3 down
-$ ip link set eth2 address <mac-addr>
-$ ip link set eth3 address <mac-addr>
-$ ethtool -K eth2 hsr-tag-rm-offload on
-$ ethtool -K eth2 hsr-dup-offload on
-$ ethtool -K eth3 hsr-tag-rm-offload on
-$ ethtool -K eth3 hsr-dup-offload on
-$ ip link add name prp0 type hsr slave1 eth2 slave2 eth3 supervision 45
-  proto 1
-$ ip link set eth2 up
-$ ip link set eth3 up
-
-To revert back to dual-EMAC:
-
-$ ip link set eth2 down && ip link set eth3 down
-$ ip link delete hsr0 or prp0
-$ ethtool -K eth2 hsr-tag-rm-offload off
-$ ethtool -K eth2 hsr-fwd-offload off
-$ ethtool -K eth2 hsr-dup-offload off
-$ ethtool -K eth3 hsr-tag-rm-offload off
-$ ethtool -K eth3 hsr-fwd-offload off
-$ ethtool -K eth3 hsr-dup-offload off
-
-Signed-off-by: Roger Quadros <rogerq@ti.com>
-Signed-off-by: Andrew F. Davis <afd@ti.com>
-Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 ---
- drivers/net/ethernet/ti/Makefile              |   2 +-
- .../ethernet/ti/icssm/icssm_lre_firmware.h    | 141 +++++++
- drivers/net/ethernet/ti/icssm/icssm_prueth.c  | 367 ++++++++++++++++--
- drivers/net/ethernet/ti/icssm/icssm_prueth.h  |  32 +-
- .../net/ethernet/ti/icssm/icssm_prueth_lre.c  | 211 ++++++++++
- .../net/ethernet/ti/icssm/icssm_prueth_lre.h  |  19 +
- 6 files changed, 748 insertions(+), 24 deletions(-)
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_lre_firmware.h
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
- create mode 100644 drivers/net/ethernet/ti/icssm/icssm_prueth_lre.h
+ MAINTAINERS                   |   2 +
+ drivers/mfd/Kconfig           |  11 +++
+ drivers/mfd/Makefile          |   1 +
+ drivers/mfd/aaeon-mcu.c       | 205 ++++++++++++++++++++++++++++++++++++++++++
+ include/linux/mfd/aaeon-mcu.h |  40 +++++++++
+ 5 files changed, 259 insertions(+)
 
-diff --git a/drivers/net/ethernet/ti/Makefile b/drivers/net/ethernet/ti/Makefile
-index f4276c9a7762..e4a10d60e1a6 100644
---- a/drivers/net/ethernet/ti/Makefile
-+++ b/drivers/net/ethernet/ti/Makefile
-@@ -4,7 +4,7 @@
- #
+diff --git a/MAINTAINERS b/MAINTAINERS
+index ea9d55f76f35..f91b6a1826d0 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -191,6 +191,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
+ R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
++F:	drivers/mfd/aaeon-mcu.c
++F:	include/linux/mfd/aaeon-mcu.h
  
- obj-$(CONFIG_TI_PRUETH) += icssm-prueth.o
--icssm-prueth-y := icssm/icssm_prueth.o icssm/icssm_prueth_switch.o icssm/icssm_switchdev.o
-+icssm-prueth-y := icssm/icssm_prueth.o icssm/icssm_prueth_switch.o icssm/icssm_switchdev.o icssm/icssm_prueth_lre.o
+ AAEON UPBOARD FPGA MFD DRIVER
+ M:	Thomas Richard <thomas.richard@bootlin.com>
+diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
+index aace5766b38a..ed5169c7a683 100644
+--- a/drivers/mfd/Kconfig
++++ b/drivers/mfd/Kconfig
+@@ -1561,6 +1561,17 @@ config ABX500_CORE
+ 	  remain unchanged when IC changes. Binding of the functions to
+ 	  actual register access is done by the IC core driver.
  
- ti-cpsw-common-y += cpsw-common.o davinci_cpdma.o
- ti-cpsw-priv-y += cpsw_priv.o cpsw_ethtool.o
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_lre_firmware.h b/drivers/net/ethernet/ti/icssm/icssm_lre_firmware.h
++config MFD_AAEON_MCU
++	tristate "Aaeon SRG-IMX8P MCU Driver"
++	depends on I2C
++	select MFD_CORE
++    select REGMAP
++	help
++	  Select this option to enable support for the Aaeon SRG-IMX8P
++	  onboard microcontroller (MCU). This driver provides the core
++	  functionality to communicate with the MCU over I2C. The MCU
++	  provides GPIO and watchdog functionality.
++
+ config AB8500_CORE
+ 	bool "ST-Ericsson AB8500 Mixed Signal Power Management chip"
+ 	depends on ABX500_CORE && MFD_DB8500_PRCMU
+diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
+index e75e8045c28a..34db5b033584 100644
+--- a/drivers/mfd/Makefile
++++ b/drivers/mfd/Makefile
+@@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+= 88pm860x.o
+ obj-$(CONFIG_MFD_88PM800)	+= 88pm800.o 88pm80x.o
+ obj-$(CONFIG_MFD_88PM805)	+= 88pm805.o 88pm80x.o
+ obj-$(CONFIG_MFD_88PM886_PMIC)	+= 88pm886.o
++obj-$(CONFIG_MFD_AAEON_MCU)	+= aaeon-mcu.o
+ obj-$(CONFIG_MFD_ACT8945A)	+= act8945a.o
+ obj-$(CONFIG_MFD_SM501)		+= sm501.o
+ obj-$(CONFIG_ARCH_BCM2835)	+= bcm2835-pm.o
+diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
 new file mode 100644
-index 000000000000..b5ab0ec87c5f
+index 000000000000..306aaac1bd60
 --- /dev/null
-+++ b/drivers/net/ethernet/ti/icssm/icssm_lre_firmware.h
-@@ -0,0 +1,141 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (C) 2017-2020 Texas Instruments Incorporated - http://www.ti.com */
-+#ifndef __ICSS_LRE_FIRMWARE_H
-+#define __ICSS_LRE_FIRMWARE_H
-+
-+#define ICSS_LRE_HSR_MODE_OFFSET		0x1E76
-+#define ICSS_LRE_MODEH				0x01
-+
-+/* PRU0 DMEM */
-+#define ICSS_LRE_DBG_START			0x1E00
-+
-+#define ICSS_LRE_DUPLICATE_HOST_TABLE		0x0200
-+
-+/* PRU1 DMEM */
-+#define ICSS_LRE_DUPLICATE_PORT_TABLE_PRU0	0x0200
-+#define ICSS_LRE_DUPLICATE_PORT_TABLE_PRU1	0x0E00
-+
-+/* Size and setup (N and M) of duplicate host table */
-+#define ICSS_LRE_DUPLICATE_HOST_TABLE_SIZE	0x1C08
-+/* Size and setup (N and M) of duplicate port table (HSR Only) */
-+#define ICSS_LRE_DUPLICATE_PORT_TABLE_SIZE	0x1C1C
-+/* Time after which an entry is removed from the duplicate
-+ * table (10 ms resolution)
-+ */
-+#define ICSS_LRE_DUPLI_FORGET_TIME		0x1C24
-+/* Time interval to check the port duplicate table */
-+#define ICSS_LRE_DUPLI_PORT_CHECK_RESO		0x1C2C
-+/* Time interval to check the host duplicate table */
-+#define ICSS_LRE_DUPLI_HOST_CHECK_RESO		0x1C30
-+/* NodeTable | Host | Port */
-+#define ICSS_LRE_HOST_TIMER_CHECK_FLAGS		0x1C38
-+/* Arbitration flag for the host duplicate table */
-+#define ICSS_LRE_HOST_DUPLICATE_ARBITRATION	0x1C3C
-+/* Supervision address in LRE */
-+#define ICSS_LRE_SUP_ADDR			0x1C4C
-+#define ICSS_LRE_SUP_ADDR_LOW			0x1C50
-+
-+/* Time in TimeTicks (1/100s) */
-+#define ICSS_LRE_DUPLICATE_FORGET_TIME_400_MS	40
-+#define ICSS_LRE_NODE_FORGET_TIME_60000_MS	6000
-+#define ICSS_LRE_MAX_FORGET_TIME		0xFFDF
-+
-+#define ICSS_LRE_DUPLICATE_PORT_TABLE_DMEM_SIZE	0x0C00
-+#define ICSS_LRE_DUPLICATE_HOST_TABLE_DMEM_SIZE	0x1800
-+#define ICSS_LRE_STATS_DMEM_SIZE		0x0080
-+#define ICSS_LRE_DEBUG_COUNTER_DMEM_SIZE	0x0050
-+
-+#define ICSS_LRE_DUPLICATE_HOST_TABLE_SIZE_INIT	0x800004 /* N = 128, M = 4 */
-+#define ICSS_LRE_DUPLICATE_PORT_TABLE_SIZE_INIT	0x400004 /* N = 64, M = 4 */
-+#define ICSS_LRE_MASTER_SLAVE_BUSY_BITS_CLEAR	0x0
-+#define ICSS_LRE_TABLE_CHECK_RESOLUTION_10_MS	0xA
-+#define ICSS_LRE_SUP_ADDRESS_INIT_OCTETS_HIGH	0x4E1501
-+#define ICSS_LRE_SUP_ADDRESS_INIT_OCTETS_LOW	0x1
-+
-+/* SHARED RAM */
-+
-+/* 8 bytes of VLAN PCP to RX QUEUE MAPPING */
-+#define ICSS_LRE_QUEUE_2_PCP_MAP_OFFSET		0x124
-+#define ICSS_LRE_START				0x140
-+
-+/* Count of HSR/PRP tagged frames successfully transmitted on port A/B */
-+#define ICSS_LRE_CNT_TX_A			(ICSS_LRE_START + 4)
-+#define ICSS_LRE_DUPLICATE_DISCARD		(ICSS_LRE_START + 104)
-+#define ICSS_LRE_TRANSPARENT_RECEPTION		(ICSS_LRE_START + 108)
-+#define ICSS_LRE_CNT_NODES			(ICSS_LRE_START + 52)
-+
-+/* SRAM */
-+#define ICSS_LRE_IEC62439_CONST_DUPLICATE_ACCEPT		0x01
-+#define ICSS_LRE_IEC62439_CONST_DUPLICATE_DISCARD		0x02
-+#define ICSS_LRE_IEC62439_CONST_TRANSP_RECEPTION_REMOVE_RCT	0x01
-+#define ICSS_LRE_IEC62439_CONST_TRANSP_RECEPTION_PASS_RCT	0x02
-+
-+/* Enable/disable interrupts for high/low priority instead of per port.
-+ * 0 = disabled (default), 1 = enabled
-+ */
-+#define ICSS_LRE_PRIORITY_INTRS_STATUS_OFFSET	0x1FAA
-+/* Enable/disable timestamping of packets. 0 = disabled (default) 1 = enabled */
-+#define ICSS_LRE_TIMESTAMP_PKTS_STATUS_OFFSET	0x1FAB
-+#define ICSS_LRE_TIMESTAMP_ARRAY_OFFSET		0xC200
-+
-+/* HOST_TIMER_CHECK_FLAGS bits */
-+#define ICSS_LRE_HOST_TIMER_NODE_TABLE_CHECK_BIT	BIT(0)
-+#define ICSS_LRE_HOST_TIMER_NODE_TABLE_CLEAR_BIT	BIT(4)
-+#define ICSS_LRE_HOST_TIMER_HOST_TABLE_CHECK_BIT	BIT(8)
-+#define ICSS_LRE_HOST_TIMER_P1_TABLE_CHECK_BIT		BIT(16)
-+#define ICSS_LRE_HOST_TIMER_P2_TABLE_CHECK_BIT		BIT(24)
-+#define ICSS_LRE_HOST_TIMER_PORT_TABLE_CHECK_BITS \
-+			(ICSS_LRE_HOST_TIMER_P1_TABLE_CHECK_BIT | \
-+			 ICSS_LRE_HOST_TIMER_P2_TABLE_CHECK_BIT)
-+
-+/* PRU1 DMEM */
-+/* Node table offsets are different for AM3/4 vs AM57/K2G, set by firmware */
-+#define ICSS_LRE_V1_0_HASH_MASK                 0x3F
-+#define ICSS_LRE_V1_0_INDEX_ARRAY_NT            0x60
-+#define ICSS_LRE_V1_0_BIN_ARRAY                 0x1A00
-+#define ICSS_LRE_V1_0_NODE_TABLE_NEW            0x1FC0
-+#define ICSS_LRE_V1_0_INDEX_ARRAY_LOC           PRUETH_MEM_DRAM0
-+#define ICSS_LRE_V1_0_BIN_ARRAY_LOC             PRUETH_MEM_DRAM0
-+#define ICSS_LRE_V1_0_NODE_TABLE_LOC            PRUETH_MEM_SHARED_RAM
-+#define ICSS_LRE_V1_0_INDEX_TBL_MAX_ENTRIES     64
-+#define ICSS_LRE_V1_0_BIN_TBL_MAX_ENTRIES       128
-+#define ICSS_LRE_V1_0_NODE_TBL_MAX_ENTRIES      128
-+
-+#define ICSS_LRE_V2_1_HASH_MASK                 0xFF
-+#define ICSS_LRE_V2_1_INDEX_ARRAY_NT            0x3000
-+#define ICSS_LRE_V2_1_BIN_ARRAY \
-+	(ICSS_LRE_V2_1_INDEX_ARRAY_NT + \
-+	(ICSS_LRE_V2_1_INDEX_TBL_MAX_ENTRIES * 6))
-+#define ICSS_LRE_V2_1_NODE_TABLE_NEW \
-+	(ICSS_LRE_V2_1_BIN_ARRAY + \
-+	(ICSS_LRE_V2_1_BIN_TBL_MAX_ENTRIES * 8))
-+#define ICSS_LRE_V2_1_INDEX_ARRAY_LOC           PRUETH_MEM_SHARED_RAM
-+#define ICSS_LRE_V2_1_BIN_ARRAY_LOC             PRUETH_MEM_SHARED_RAM
-+#define ICSS_LRE_V2_1_NODE_TABLE_LOC            PRUETH_MEM_SHARED_RAM
-+#define ICSS_LRE_V2_1_INDEX_TBL_MAX_ENTRIES     256
-+#define ICSS_LRE_V2_1_BIN_TBL_MAX_ENTRIES       256
-+#define ICSS_LRE_V2_1_NODE_TBL_MAX_ENTRIES      256
-+
-+#define ICSS_LRE_NODE_FREE			0x10
-+#define ICSS_LRE_NODE_TAKEN			0x01
-+#define ICSS_LRE_NT_REM_NODE_TYPE_MASK		0x1F
-+#define ICSS_LRE_NT_REM_NODE_TYPE_SHIFT		0x00
-+
-+#define ICSS_LRE_NT_REM_NODE_TYPE_SANA		0x01
-+#define ICSS_LRE_NT_REM_NODE_TYPE_SANB		0x02
-+#define ICSS_LRE_NT_REM_NODE_TYPE_SANAB		0x03
-+#define ICSS_LRE_NT_REM_NODE_TYPE_DAN		0x04
-+#define ICSS_LRE_NT_REM_NODE_TYPE_REDBOX	0x08
-+#define ICSS_LRE_NT_REM_NODE_TYPE_VDAN		0x10
-+
-+#define ICSS_LRE_NT_REM_NODE_HSR_BIT		0x20 /* if set node is HSR */
-+
-+#define ICSS_LRE_NT_REM_NODE_DUP_MASK		0xC0
-+#define ICSS_LRE_NT_REM_NODE_DUP_SHIFT		0x06
-+
-+/* Node entry duplicate type: DupAccept */
-+#define ICSS_LRE_NT_REM_NODE_DUP_ACCEPT		0x40
-+/* Node entry duplicate type: DupDiscard */
-+#define ICSS_LRE_NT_REM_NODE_DUP_DISCARD	0x80
-+
-+#endif /* __ICSS_LRE_FIRMWARE_H */
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-index b7e94244355a..c01edac8f0b7 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-@@ -30,6 +30,7 @@
- 
- #include "icssm_prueth.h"
- #include "icssm_prueth_switch.h"
-+#include "icssm_prueth_lre.h"
- #include "icssm_vlan_mcast_filter_mmap.h"
- #include "../icssg/icssg_mii_rt.h"
- #include "../icssg/icss_iep.h"
-@@ -40,6 +41,30 @@
- #define TX_CLK_DELAY_100M	0x6
- #define HR_TIMER_TX_DELAY_US	100
- 
-+#define NETIF_PRUETH_LRE_OFFLOAD_FEATURES       (NETIF_F_HW_HSR_FWD | \
-+						 NETIF_F_HW_HSR_TAG_RM)
-+
-+static const struct prueth_fw_offsets fw_offsets_v2_1;
-+static void icssm_prueth_set_fw_offsets(struct prueth *prueth)
-+{
-+	/* Set Multicast filter control and table offsets */
-+	if (PRUETH_IS_EMAC(prueth) || PRUETH_IS_SWITCH(prueth)) {
-+		prueth->fw_offsets.mc_ctrl_offset  =
-+			ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET;
-+		prueth->fw_offsets.mc_filter_mask =
-+			ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET;
-+		prueth->fw_offsets.mc_filter_tbl =
-+			ICSS_EMAC_FW_MULTICAST_FILTER_TABLE;
-+	} else {
-+		prueth->fw_offsets.mc_ctrl_offset  =
-+			ICSS_LRE_FW_MULTICAST_TABLE_SEARCH_OP_CONTROL_BIT;
-+		prueth->fw_offsets.mc_filter_mask =
-+			ICSS_LRE_FW_MULTICAST_FILTER_MASK;
-+		prueth->fw_offsets.mc_filter_tbl =
-+			ICSS_LRE_FW_MULTICAST_FILTER_TABLE;
-+	}
-+}
-+
- static void icssm_prueth_write_reg(struct prueth *prueth,
- 				   enum prueth_mem region,
- 				   unsigned int reg, u32 val)
-@@ -309,12 +334,15 @@ static void icssm_prueth_hostinit(struct prueth *prueth)
- 	icssm_prueth_mii_init(prueth);
- }
- 
--/* This function initialize the driver in EMAC mode
-+/* Initialize the driver in EMAC, HSR or PRP mode
-  * based on eth_type
-  */
- static void icssm_prueth_init_ethernet_mode(struct prueth *prueth)
- {
-+	icssm_prueth_set_fw_offsets(prueth);
- 	icssm_prueth_hostinit(prueth);
-+	if (prueth_is_lre(prueth))
-+		icssm_prueth_lre_config(prueth);
- }
- 
- static void icssm_prueth_port_enable(struct prueth_emac *emac, bool enable)
-@@ -564,7 +592,7 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
- 	}
- 
- 	pkt_block_size = DIV_ROUND_UP(pktlen, ICSS_BLOCK_SIZE);
--	if (pkt_block_size > free_blocks) /* out of queue space */
-+	if (pkt_block_size >= free_blocks) /* out of queue space */
- 		return -ENOBUFS;
- 
- 	/* calculate end BD address post write */
-@@ -609,6 +637,9 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
-        /* update first buffer descriptor */
- 	wr_buf_desc = (pktlen << PRUETH_BD_LENGTH_SHIFT) &
- 		       PRUETH_BD_LENGTH_MASK;
-+	if (PRUETH_IS_HSR(prueth))
-+		wr_buf_desc |= BIT(PRUETH_BD_HSR_FRAME_SHIFT);
-+
- 	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
- 	if (!PRUETH_IS_EMAC(prueth))
- 		writel(wr_buf_desc, sram + readw(&queue_desc->wr_ptr));
-@@ -627,6 +658,12 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
- void icssm_parse_packet_info(struct prueth *prueth, u32 buffer_descriptor,
- 			     struct prueth_packet_info *pkt_info)
- {
-+	if (prueth_is_lre(prueth))
-+		pkt_info->start_offset = !!(buffer_descriptor &
-+					    PRUETH_BD_START_FLAG_MASK);
-+	else
-+		pkt_info->start_offset = false;
-+
- 	pkt_info->port = (buffer_descriptor & PRUETH_BD_PORT_MASK) >>
- 			 PRUETH_BD_PORT_SHIFT;
- 	pkt_info->length = (buffer_descriptor & PRUETH_BD_LENGTH_MASK) >>
-@@ -661,10 +698,14 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 	unsigned int actual_pkt_len;
- 	bool buffer_wrapped = false;
- 	void *src_addr, *dst_addr;
-+	u16 start_offset = 0;
- 	struct sk_buff *skb;
- 	int pkt_block_size;
- 	void *ocmc_ram;
- 
-+	if (PRUETH_IS_HSR(emac->prueth))
-+		start_offset = (pkt_info->start_offset ?
-+				ICSSM_LRE_TAG_SIZE : 0);
- 	/* the PRU firmware deals mostly in pointers already
- 	 * offset into ram, we would like to deal in indexes
- 	 * within the queue we are working with for code
-@@ -687,7 +728,8 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 	/* calculate new pointer in ram */
- 	*bd_rd_ptr = rxqueue->buffer_desc_offset + (update_block * BD_SIZE);
- 
--	actual_pkt_len = pkt_info->length;
-+	/* Exclude the HSR tag bytes already stripped by firmware, if any. */
-+	actual_pkt_len = pkt_info->length - start_offset;
- 
- 	/* Allocate a socket buffer for this packet */
- 	skb = netdev_alloc_skb_ip_align(ndev, actual_pkt_len);
-@@ -707,6 +749,7 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 	 */
- 	src_addr = ocmc_ram + rxqueue->buffer_offset +
- 		   (read_block * ICSS_BLOCK_SIZE);
-+	src_addr += start_offset;
- 
- 	/* Copy the data from PRU buffers(OCMC) to socket buffer(DRAM) */
- 	if (buffer_wrapped) { /* wrapped around buffer */
-@@ -720,6 +763,9 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 		if (pkt_info->length < bytes)
- 			bytes = pkt_info->length;
- 
-+		/* If applicable, account for the HSR tag removed */
-+		bytes -= start_offset;
-+
- 		/* copy non-wrapped part */
- 		memcpy(dst_addr, src_addr, bytes);
- 
-@@ -741,6 +787,12 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- 			icssm_prueth_sw_learn_fdb(emac, skb->data + ETH_ALEN);
- 	}
- 
-+	/* For PRP, the RCT trailer is at the frame tail, exclude it from
-+	 * the length to avoid passing it up the stack.
-+	 */
-+	if (PRUETH_IS_PRP(emac->prueth) && pkt_info->start_offset)
-+		actual_pkt_len -= ICSSM_LRE_TAG_SIZE;
-+
- 	skb_put(skb, actual_pkt_len);
- 
- 	/* send packet up the stack */
-@@ -804,13 +856,12 @@ static int icssm_emac_rx_packets(struct prueth_emac *emac, int budget)
- 			rd_buf_desc = readl(shared_ram + bd_rd_ptr);
- 			icssm_parse_packet_info(prueth, rd_buf_desc, &pkt_info);
- 
--			if (pkt_info.length <= 0) {
--				/* a packet length of zero will cause us to
--				 * never move the read pointer ahead, locking
--				 * the driver, so we manually have to move it
--				 * to the write pointer, discarding all
--				 * remaining packets in this queue. This should
--				 * never happen.
-+			if (pkt_info.length < EMAC_MIN_PKTLEN) {
-+				/* if the packet is too small we skip it but we
-+				 * still need to move the read pointer ahead
-+				 * and assume something is wrong with the read
-+				 * pointer as the firmware should be filtering
-+				 * these packets
- 				 */
- 				update_rd_ptr = bd_wr_ptr;
- 				emac->stats.rx_length_errors++;
-@@ -912,6 +963,25 @@ static int icssm_emac_request_irqs(struct prueth_emac *emac)
- 	return ret;
- }
- 
-+static int icssm_emac_sanitize_feature_flags(struct prueth_emac *emac)
-+{
-+	netdev_features_t request_lre;
-+
-+	request_lre = emac->ndev->features & NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
-+
-+	if (prueth_is_lre(emac->prueth) && !request_lre) {
-+		netdev_err(emac->ndev, "Error: Turn ON HSR offload\n");
-+		return -EINVAL;
-+	}
-+
-+	if (!prueth_is_lre(emac->prueth) && request_lre) {
-+		netdev_err(emac->ndev, "Error: Turn OFF HSR offload\n");
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
- /* Function to free memory related to sw */
- static void icssm_prueth_free_memory(struct prueth *prueth)
- {
-@@ -978,18 +1048,28 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 	/* set h/w MAC as user might have re-configured */
- 	ether_addr_copy(emac->mac_addr, ndev->dev_addr);
- 
-+	ret = icssm_emac_sanitize_feature_flags(emac);
-+	if (ret)
-+		return ret;
-+
- 	if (!prueth->emac_configured)
- 		icssm_prueth_init_ethernet_mode(prueth);
- 
- 	/* reset and start PRU firmware */
--	if (PRUETH_IS_SWITCH(prueth)) {
-+	if (!PRUETH_IS_EMAC(prueth)) {
-+		/* Switch, HSR and PRP protocols share same queue structure */
- 		ret = icssm_prueth_sw_emac_config(emac);
- 		if (ret)
--			return ret;
-+			goto free_hrtimer;
- 
--		ret = icssm_prueth_sw_init_fdb_table(prueth);
--		if (ret)
--			return ret;
-+		if (PRUETH_IS_SWITCH(prueth)) {
-+			ret = icssm_prueth_sw_init_fdb_table(prueth);
-+			if (ret)
-+				goto free_hrtimer;
-+		} else {
-+			/* LRE mode: set up duplicate-table check flags */
-+			icssm_prueth_lre_config_check_flags(prueth);
-+		}
- 	} else {
- 		icssm_prueth_emac_config(emac);
- 	}
-@@ -1046,6 +1126,9 @@ static int icssm_emac_ndo_open(struct net_device *ndev)
- 		icss_iep_exit(prueth->iep);
- free_mem:
- 	icssm_prueth_free_memory(emac->prueth);
-+free_hrtimer:
-+	if (prueth_is_lre(prueth) && !prueth->emac_configured)
-+		icssm_prueth_lre_cleanup(prueth);
- 	return ret;
- }
- 
-@@ -1079,6 +1162,9 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
- 	else
- 		rproc_shutdown(emac->pru);
- 
-+	if (prueth_is_lre(prueth))
-+		icssm_prueth_lre_cleanup(prueth);
-+
- 	/* free rx interrupts */
- 	free_irq(emac->rx_irq, ndev);
- 
-@@ -1122,7 +1208,8 @@ static int icssm_prueth_change_mode(struct prueth *prueth,
- 		}
- 	}
- 
--	if (mode == PRUSS_ETHTYPE_EMAC || mode == PRUSS_ETHTYPE_SWITCH) {
-+	if (mode == PRUSS_ETHTYPE_EMAC || mode == PRUSS_ETHTYPE_SWITCH ||
-+	    mode == PRUSS_ETHTYPE_HSR || mode == PRUSS_ETHTYPE_PRP) {
- 		prueth->eth_type = mode;
- 	} else {
- 		dev_err(prueth->dev, "unknown mode\n");
-@@ -1266,11 +1353,16 @@ static void icssm_emac_mc_filter_ctrl(struct prueth_emac *emac, bool enable)
- {
- 	struct prueth *prueth = emac->prueth;
- 	void __iomem *mc_filter_ctrl;
-+	u32 mc_ctrl_offset;
- 	void __iomem *ram;
- 	u32 reg;
- 
- 	ram = prueth->mem[emac->dram].va;
--	mc_filter_ctrl = ram + ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_OFFSET;
-+	if (prueth_is_lre(prueth))
-+		ram = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	mc_ctrl_offset = prueth->fw_offsets.mc_ctrl_offset;
-+	mc_filter_ctrl = ram + mc_ctrl_offset;
- 
- 	if (enable)
- 		reg = ICSS_EMAC_FW_MULTICAST_FILTER_CTRL_ENABLED;
-@@ -1289,7 +1381,10 @@ static void icssm_emac_mc_filter_reset(struct prueth_emac *emac)
- 	void __iomem *ram;
- 
- 	ram = prueth->mem[emac->dram].va;
--	mc_filter_tbl_base = ICSS_EMAC_FW_MULTICAST_FILTER_TABLE;
-+	if (prueth_is_lre(prueth))
-+		ram = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	mc_filter_tbl_base = prueth->fw_offsets.mc_filter_tbl;
- 
- 	mc_filter_tbl = ram + mc_filter_tbl_base;
- 	memset_io(mc_filter_tbl, 0, ICSS_EMAC_FW_MULTICAST_TABLE_SIZE_BYTES);
-@@ -1302,11 +1397,16 @@ static void icssm_emac_mc_filter_hashmask
- {
- 	struct prueth *prueth = emac->prueth;
- 	void __iomem *mc_filter_mask;
-+	u32 mc_filter_mask_base;
- 	void __iomem *ram;
- 
- 	ram = prueth->mem[emac->dram].va;
-+	if (prueth_is_lre(prueth))
-+		ram = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	mc_filter_mask_base = prueth->fw_offsets.mc_filter_mask;
- 
--	mc_filter_mask = ram + ICSS_EMAC_FW_MULTICAST_FILTER_MASK_OFFSET;
-+	mc_filter_mask = ram + mc_filter_mask_base;
- 	memcpy_toio(mc_filter_mask, mask,
- 		    ICSS_EMAC_FW_MULTICAST_FILTER_MASK_SIZE_BYTES);
- }
-@@ -1316,11 +1416,16 @@ static void icssm_emac_mc_filter_bin_update(struct prueth_emac *emac, u8 hash,
- {
- 	struct prueth *prueth = emac->prueth;
- 	void __iomem *mc_filter_tbl;
-+	u32 mc_filter_tbl_base;
- 	void __iomem *ram;
- 
- 	ram = prueth->mem[emac->dram].va;
-+	if (prueth_is_lre(prueth))
-+		ram = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	mc_filter_tbl_base = prueth->fw_offsets.mc_filter_tbl;
- 
--	mc_filter_tbl = ram + ICSS_EMAC_FW_MULTICAST_FILTER_TABLE;
-+	mc_filter_tbl = ram + mc_filter_tbl_base;
- 	writeb(val, mc_filter_tbl + hash);
- }
- 
-@@ -1360,6 +1465,8 @@ static void icssm_emac_ndo_set_rx_mode(struct net_device *ndev)
- {
- 	struct prueth_emac *emac = netdev_priv(ndev);
- 	bool promisc = ndev->flags & IFF_PROMISC;
-+	/* Spinlock for multicast filter table */
-+	spinlock_t *mc_filter_tbl_lock;
- 	struct netdev_hw_addr *ha;
- 	struct prueth *prueth;
- 	unsigned long flags;
-@@ -1371,8 +1478,13 @@ static void icssm_emac_ndo_set_rx_mode(struct net_device *ndev)
- 	sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
- 	reg = readl(sram + EMAC_PROMISCUOUS_MODE_OFFSET);
- 
-+	if (prueth_is_lre(prueth))
-+		mc_filter_tbl_lock = &prueth->addr_lock;
-+	else
-+		mc_filter_tbl_lock = &emac->addr_lock;
-+
- 	/* It is a shared table. So lock the access */
--	spin_lock_irqsave(&emac->addr_lock, flags);
-+	spin_lock_irqsave(mc_filter_tbl_lock, flags);
- 
- 	/* Disable and reset multicast filter, allows allmulti */
- 	icssm_emac_mc_filter_ctrl(emac, false);
-@@ -1429,15 +1541,73 @@ static void icssm_emac_ndo_set_rx_mode(struct net_device *ndev)
- 	}
- 
- unlock:
--	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+	spin_unlock_irqrestore(mc_filter_tbl_lock, flags);
-+}
-+
-+/**
-+ * icssm_emac_ndo_set_features - Configure HSR/PRP offload features
-+ * @ndev: network device
-+ * @features: Requested feature set
++++ b/drivers/mfd/aaeon-mcu.c
+@@ -0,0 +1,205 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Aaeon MCU driver
 + *
-+ * Called by ethtool -K to configure HSR/PRP offload features. The request
-+ * is rejected if this interface or its paired interface is running.
-+ *
-+ * Return: 0 on success, -EINVAL or -EBUSY on error.
++ * Copyright (C) 2026 Bootlin
++ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
 + */
-+static int icssm_emac_ndo_set_features(struct net_device *ndev,
-+				       netdev_features_t features)
-+{
-+	struct prueth_emac *emac, *other_emac;
-+	netdev_features_t have, wanted;
-+	struct prueth *prueth;
-+	bool change_request;
-+	int ret = -EBUSY;
 +
-+	emac = netdev_priv(ndev);
-+	prueth = emac->prueth;
-+	/* MAC instance index starts from 0. So index by port_id - 1 */
-+	other_emac = emac->prueth->emac[(emac->port_id == PRUETH_PORT_MII0) ?
-+				PRUETH_PORT_MII1 - 1 : PRUETH_PORT_MII0 - 1];
-+	wanted = features & NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
-+	have = ndev->features & NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
-+	change_request = ((wanted ^ have) != 0);
++#include <linux/err.h>
++#include <linux/i2c.h>
++#include <linux/mfd/aaeon-mcu.h>
++#include <linux/mfd/core.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++#include <linux/slab.h>
 +
-+	if (!prueth->fw_data->support_lre)
-+		return 0;
-+
-+	if (PRUETH_IS_SWITCH(prueth)) {
-+		/* LRE offload cannot be enabled in switch mode, remove the
-+		 * bridge first to revert to EMAC mode.
-+		 */
-+		netdev_err(ndev,
-+			   "Switch to HSR/PRP not allowed\n");
-+		return -EINVAL;
-+	}
-+
-+	if (netif_running(ndev) && change_request) {
-+		netdev_err(ndev,
-+			   "Can't change feature when device runs\n");
-+		return ret;
-+	}
-+
-+	if (other_emac && netif_running(other_emac->ndev) && change_request) {
-+		netdev_err(ndev,
-+			   "Can't change feature when other device runs\n");
-+		return ret;
-+	}
-+
-+	return 0;
- }
- 
- static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_open = icssm_emac_ndo_open,
- 	.ndo_stop = icssm_emac_ndo_stop,
- 	.ndo_start_xmit = icssm_emac_ndo_start_xmit,
-+	.ndo_set_mac_address = eth_mac_addr,
-+	.ndo_validate_addr = eth_validate_addr,
- 	.ndo_get_stats64 = icssm_emac_ndo_get_stats64,
- 	.ndo_set_rx_mode = icssm_emac_ndo_set_rx_mode,
-+	.ndo_set_features = icssm_emac_ndo_set_features,
- };
- 
- /* get emac_port corresponding to eth_node name */
-@@ -1589,6 +1759,9 @@ static int icssm_prueth_netdev_init(struct prueth *prueth,
- 		ndev->hw_features |= NETIF_F_HW_L2FW_DOFFLOAD;
- 	}
- 
-+	if (prueth->support_lre)
-+		ndev->hw_features |= NETIF_PRUETH_LRE_OFFLOAD_FEATURES;
-+
- 	ndev->dev.of_node = eth_node;
- 	ndev->netdev_ops = &emac_netdev_ops;
- 
-@@ -1741,6 +1914,105 @@ static int icssm_prueth_ndev_port_unlink(struct net_device *ndev)
- 	return ret;
- }
- 
-+static int icssm_prueth_hsr_port_link(struct net_device *ndev,
-+				      struct net_device *hsr_ndev)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+	enum pruss_ethtype mode;
-+	enum hsr_version ver;
-+	unsigned long flags;
-+	u8 all_slaves;
-+	int ret = 0;
-+
-+	if (PRUETH_IS_SWITCH(prueth))
-+		return -EOPNOTSUPP;
-+
-+	hsr_get_version(hsr_ndev, &ver);
-+
-+	if (ver == HSR_V1)
-+		mode = PRUSS_ETHTYPE_HSR;
-+	else if (ver == PRP_V1)
-+		mode = PRUSS_ETHTYPE_PRP;
-+	else
-+		return -EOPNOTSUPP;
-+
-+	all_slaves = BIT(PRUETH_PORT_MII0) | BIT(PRUETH_PORT_MII1);
-+
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	if (!prueth->hsr_members) {
-+		prueth->hsr_dev = hsr_ndev;
-+	} else {
-+		/* Adding the port to a second bridge is not supported */
-+		if (prueth->hsr_dev != hsr_ndev) {
-+			spin_unlock_irqrestore(&emac->addr_lock, flags);
-+			return -EOPNOTSUPP;
-+		}
-+	}
-+
-+	prueth->hsr_members |= BIT(emac->port_id);
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+
-+	if (!prueth_is_lre(prueth) && prueth->hsr_members == all_slaves) {
-+		ret = icssm_prueth_change_mode(prueth, mode);
-+		if (ret < 0) {
-+			dev_err(prueth->dev, "Failed to enable %s mode\n",
-+				(mode == PRUSS_ETHTYPE_HSR) ?
-+				"HSR" : "PRP");
-+			goto free_hsr;
-+		} else {
-+			dev_info(prueth->dev,
-+				 "TI PRU ethernet now in %s mode\n",
-+				 (mode == PRUSS_ETHTYPE_HSR) ?
-+				 "HSR" : "PRP");
-+		}
-+	}
-+
-+	return 0;
-+
-+free_hsr:
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	prueth->hsr_dev = NULL;
-+	prueth->hsr_members &= ~BIT(emac->port_id);
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+	return ret;
-+}
-+
-+static int icssm_prueth_hsr_port_unlink(struct net_device *ndev)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+	struct prueth *prueth = emac->prueth;
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	prueth->hsr_members &= ~BIT(emac->port_id);
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+
-+	if (prueth_is_lre(prueth) && !prueth->hsr_members) {
-+		ret = icssm_prueth_change_mode(prueth, PRUSS_ETHTYPE_EMAC);
-+		if (ret < 0) {
-+			dev_err(prueth->dev, "Failed to enable dual EMAC mode\n");
-+			return ret;
-+		}
-+	}
-+
-+	spin_lock_irqsave(&emac->addr_lock, flags);
-+
-+	if (!prueth->hsr_members)
-+		prueth->hsr_dev = NULL;
-+
-+	spin_unlock_irqrestore(&emac->addr_lock, flags);
-+
-+	return 0;
-+}
-+
- static int icssm_prueth_ndev_event(struct notifier_block *unused,
- 				   unsigned long event, void *ptr)
- {
-@@ -1754,6 +2026,17 @@ static int icssm_prueth_ndev_event(struct notifier_block *unused,
- 	switch (event) {
- 	case NETDEV_CHANGEUPPER:
- 		info = ptr;
-+		if (is_hsr_master(info->upper_dev)) {
-+			if (info->linking) {
-+				if (ndev->features &
-+				    NETIF_PRUETH_LRE_OFFLOAD_FEATURES)
-+					ret = icssm_prueth_hsr_port_link
-+						(ndev, info->upper_dev);
-+			} else {
-+				ret = icssm_prueth_hsr_port_unlink(ndev);
-+			}
-+		}
-+
- 		if (netif_is_bridge_master(info->upper_dev)) {
- 			if (info->linking)
- 				ret = icssm_prueth_ndev_port_link
-@@ -1796,6 +2079,7 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np;
- 	struct prueth *prueth;
-+	bool has_lre = false;
- 	struct pruss *pruss;
- 	int i, ret;
- 
-@@ -1810,6 +2094,7 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, prueth);
- 	prueth->dev = dev;
- 	prueth->fw_data = device_get_match_data(dev);
-+	prueth->fw_offsets = fw_offsets_v2_1;
- 
- 	eth_ports_node = of_get_child_by_name(np, "ethernet-ports");
- 	if (!eth_ports_node)
-@@ -1955,6 +2240,17 @@ static int icssm_prueth_probe(struct platform_device *pdev)
- 		prueth->mem[PRUETH_MEM_OCMC].va,
- 		prueth->mem[PRUETH_MEM_OCMC].size);
- 
-+	if (IS_ENABLED(CONFIG_HSR) && prueth->fw_data->support_lre)
-+		has_lre = true;
-+
-+	/* LRE requires both ethernet nodes to be present in
-+	 * DT, otherwise clear the support flag
-+	 */
-+	if (has_lre && (!eth0_node || !eth1_node))
-+		has_lre = false;
-+
-+	prueth->support_lre = has_lre;
-+	spin_lock_init(&prueth->addr_lock);
- 	/* setup netdev interfaces */
- 	if (eth0_node) {
- 		ret = icssm_prueth_netdev_init(prueth, eth0_node);
-@@ -2176,15 +2472,24 @@ static struct prueth_private_data am335x_prueth_pdata = {
- 	.fw_pru[PRUSS_PRU0] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am335x-pru0-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_HSR] =
-+			"ti-pruss/am335x-pru0-pruhsr-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_PRP] =
-+			"ti-pruss/am335x-pru0-pruprp-fw.elf",
- 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
- 			"ti-pruss/am335x-pru0-prusw-fw.elf",
- 	},
- 	.fw_pru[PRUSS_PRU1] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am335x-pru1-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_HSR] =
-+			"ti-pruss/am335x-pru1-pruhsr-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_PRP] =
-+			"ti-pruss/am335x-pru1-pruprp-fw.elf",
- 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
- 			"ti-pruss/am335x-pru1-prusw-fw.elf",
- 	},
-+	.support_lre = true,
- 	.support_switch = true,
- };
- 
-@@ -2194,15 +2499,24 @@ static struct prueth_private_data am437x_prueth_pdata = {
- 	.fw_pru[PRUSS_PRU0] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am437x-pru0-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_HSR] =
-+			"ti-pruss/am437x-pru0-pruhsr-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_PRP] =
-+			"ti-pruss/am437x-pru0-pruprp-fw.elf",
- 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
- 			"ti-pruss/am437x-pru0-prusw-fw.elf",
- 	},
- 	.fw_pru[PRUSS_PRU1] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am437x-pru1-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_HSR] =
-+			"ti-pruss/am437x-pru1-pruhsr-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_PRP] =
-+			"ti-pruss/am437x-pru1-pruprp-fw.elf",
- 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
- 			"ti-pruss/am437x-pru1-prusw-fw.elf",
- 	},
-+	.support_lre = true,
- 	.support_switch = true,
- };
- 
-@@ -2212,16 +2526,25 @@ static struct prueth_private_data am57xx_prueth_pdata = {
- 	.fw_pru[PRUSS_PRU0] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am57xx-pru0-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_HSR] =
-+			"ti-pruss/am57xx-pru0-pruhsr-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_PRP] =
-+			"ti-pruss/am57xx-pru0-pruprp-fw.elf",
- 	.fw_name[PRUSS_ETHTYPE_SWITCH] =
- 			"ti-pruss/am57xx-pru0-prusw-fw.elf",
- 	},
- 	.fw_pru[PRUSS_PRU1] = {
- 		.fw_name[PRUSS_ETHTYPE_EMAC] =
- 			"ti-pruss/am57xx-pru1-prueth-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_HSR] =
-+			"ti-pruss/am57xx-pru1-pruhsr-fw.elf",
-+		.fw_name[PRUSS_ETHTYPE_PRP] =
-+			"ti-pruss/am57xx-pru1-pruprp-fw.elf",
- 		.fw_name[PRUSS_ETHTYPE_SWITCH] =
- 			"ti-pruss/am57xx-pru1-prusw-fw.elf",
- 
- 	},
-+	.support_lre = true,
- 	.support_switch = true,
- };
- 
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.h b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-index d5b49b462c24..a5d5bcd08bcd 100644
---- a/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.h
-@@ -16,13 +16,17 @@
- #include "icssm_switch.h"
- #include "icssm_prueth_ptp.h"
- #include "icssm_prueth_fdb_tbl.h"
-+#include "icssm_lre_firmware.h"
- 
- /* ICSSM size of redundancy tag */
- #define ICSSM_LRE_TAG_SIZE	6
- 
-+#define PRUETH_TIMER_MS (10)
-+
- /* PRUSS local memory map */
- #define ICSS_LOCAL_SHARED_RAM	0x00010000
- #define EMAC_MAX_PKTLEN		(ETH_HLEN + VLAN_HLEN + ETH_DATA_LEN)
-+#define EMAC_MIN_PKTLEN		ETH_ZLEN
- /* Below macro is for 1528 Byte Frame support, to Allow even with
-  * Redundancy tag
-  */
-@@ -42,6 +46,8 @@ enum pruss_ethtype {
- 
- #define PRUETH_IS_EMAC(p)	((p)->eth_type == PRUSS_ETHTYPE_EMAC)
- #define PRUETH_IS_SWITCH(p)	((p)->eth_type == PRUSS_ETHTYPE_SWITCH)
-+#define PRUETH_IS_HSR(p)	((p)->eth_type == PRUSS_ETHTYPE_HSR)
-+#define PRUETH_IS_PRP(p)	((p)->eth_type == PRUSS_ETHTYPE_PRP)
- 
- /**
-  * struct prueth_queue_desc - Queue descriptor
-@@ -86,6 +92,7 @@ struct prueth_queue_info {
- 
- /**
-  * struct prueth_packet_info - Info about a packet in buffer
-+ * @start_offset: true if frame carries an HSR/PRP start offset
-  * @shadow: this packet is stored in the collision queue
-  * @port: port packet is on
-  * @length: length of packet
-@@ -96,6 +103,7 @@ struct prueth_queue_info {
-  * @timestamp: Specifies if timestamp is appended to the packet
-  */
- struct prueth_packet_info {
-+	bool start_offset;
- 	bool shadow;
- 	unsigned int port;
- 	unsigned int length;
-@@ -171,6 +179,13 @@ enum prueth_mem {
- 	PRUETH_MEM_MAX,
- };
- 
-+/* Firmware offsets/size information */
-+struct prueth_fw_offsets {
-+	u32 mc_ctrl_offset;
-+	u32 mc_filter_mask;
-+	u32 mc_filter_tbl;
++struct aaeon_mcu {
++	struct i2c_client *client;
++	u8 *cmd;      /* DMA-safe 3-byte write buffer [opcode, arg, value] */
++	u8 *response; /* DMA-safe 1-byte read buffer for MCU acknowledgment */
 +};
 +
- enum pruss_device {
- 	PRUSS_AM57XX = 0,
- 	PRUSS_AM43XX,
-@@ -183,11 +198,13 @@ enum pruss_device {
-  * @driver_data: PRU Ethernet device name
-  * @fw_pru: firmware names to be used for PRUSS ethernet usecases
-  * @support_switch: boolean to indicate if switch is enabled
-+ * @support_lre: boolean to indicate if LRE is enabled
-  */
- struct prueth_private_data {
- 	enum pruss_device driver_data;
- 	const struct prueth_firmware fw_pru[PRUSS_NUM_PRUS];
- 	bool support_switch;
-+	bool support_lre;
- };
- 
- struct prueth_emac_stats {
-@@ -248,13 +265,20 @@ struct prueth {
- 	struct icss_iep *iep;
- 
- 	const struct prueth_private_data *fw_data;
--	struct prueth_fw_offsets *fw_offsets;
-+	struct prueth_fw_offsets fw_offsets;
- 
- 	struct device_node *eth_node[PRUETH_NUM_MACS];
- 	struct prueth_emac *emac[PRUETH_NUM_MACS];
- 	struct net_device *registered_netdevs[PRUETH_NUM_MACS];
- 
-+	bool support_lre;
-+	unsigned int tbl_check_mask;
-+	struct hrtimer tbl_check_timer;
-+	/* serialize access to LRE VLAN/MC filter table */
-+	spinlock_t addr_lock;
-+
- 	struct net_device *hw_bridge_dev;
-+	struct net_device *hsr_dev;
- 	struct fdb_tbl *fdb_tbl;
- 
- 	struct notifier_block prueth_netdevice_nb;
-@@ -264,6 +288,7 @@ struct prueth {
- 	unsigned int eth_type;
- 	size_t ocmc_ram_size;
- 	u8 emac_configured;
-+	u8 hsr_members;
- 	u8 br_members;
- };
- 
-@@ -277,4 +302,9 @@ int icssm_emac_rx_packet(struct prueth_emac *emac, u16 *bd_rd_ptr,
- void icssm_emac_mc_filter_bin_allow(struct prueth_emac *emac, u8 hash);
- void icssm_emac_mc_filter_bin_disallow(struct prueth_emac *emac, u8 hash);
- u8 icssm_emac_get_mc_hash(u8 *mac, u8 *mask);
-+
-+static inline bool prueth_is_lre(struct prueth *prueth)
-+{
-+	return PRUETH_IS_HSR(prueth) || PRUETH_IS_PRP(prueth);
-+}
- #endif /* __NET_TI_PRUETH_H */
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
-new file mode 100644
-index 000000000000..6276dd1e8bb1
---- /dev/null
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
-@@ -0,0 +1,211 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+/* Texas Instruments PRUETH hsr/prp Link Redundancy Entity (LRE) Driver.
-+ *
-+ * Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
-+ */
-+
-+#include <linux/kernel.h>
-+#include <linux/string.h>
-+
-+#include "icssm_lre_firmware.h"
-+#include "icssm_prueth_lre.h"
-+#include "icssm_prueth.h"
-+#include "icssm_prueth_switch.h"
-+
-+void icssm_prueth_lre_config_check_flags(struct prueth *prueth)
-+{
-+	void __iomem *dram1 = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	/* HSR/PRP: initialize check table when first port is up */
-+	if (prueth->emac_configured)
-+		return;
-+
-+	prueth->tbl_check_mask = ICSS_LRE_HOST_TIMER_HOST_TABLE_CHECK_BIT;
-+	if (PRUETH_IS_HSR(prueth))
-+		prueth->tbl_check_mask |=
-+			ICSS_LRE_HOST_TIMER_PORT_TABLE_CHECK_BITS;
-+	writel(prueth->tbl_check_mask, dram1 + ICSS_LRE_HOST_TIMER_CHECK_FLAGS);
-+}
-+
-+/* A group of PCPs are mapped to a Queue. This is the size of firmware
-+ * array in shared memory
-+ */
-+#define PCP_GROUP_TO_QUEUE_MAP_SIZE	4
-+
-+/* PRU firmware default PCP to priority Queue map for ingress & egress
-+ *
-+ * At ingress to Host
-+ * ==================
-+ * byte 0 => PRU 1, PCP 0-3 => Q3
-+ * byte 1 => PRU 1, PCP 4-7 => Q2
-+ * byte 2 => PRU 0, PCP 0-3 => Q1
-+ * byte 3 => PRU 0, PCP 4-7 => Q0
-+ *
-+ * At egress to wire/network on PRU-0 and PRU-1
-+ * ============================================
-+ * byte 0 => Host, PCP 0-3 => Q3
-+ * byte 1 => Host, PCP 4-7 => Q2
-+ *
-+ * PRU-0
-+ * -----
-+ * byte 2 => PRU-1, PCP 0-3 => Q1
-+ * byte 3 => PRU-1, PCP 4-7 => Q0
-+ *
-+ * PRU-1
-+ * -----
-+ * byte 2 => PRU-0, PCP 0-3 => Q1
-+ * byte 3 => PRU-0, PCP 4-7 => Q0
-+ *
-+ * queue names below are named 1 based. i.e PRUETH_QUEUE1 is Q0,
-+ * PRUETH_QUEUE2 is Q1 and so forth. Firmware convention is that
-+ * a lower queue number has higher priority than a higher queue
-+ * number.
-+ */
-+static u8 fw_pcp_default_priority_queue_map[PCP_GROUP_TO_QUEUE_MAP_SIZE] = {
-+	/* port 2 or PRU 1 */
-+	PRUETH_QUEUE4, PRUETH_QUEUE3,
-+	/* port 1 or PRU 0 */
-+	PRUETH_QUEUE2, PRUETH_QUEUE1,
++static const struct mfd_cell aaeon_mcu_devs[] = {
++	MFD_CELL_BASIC("aaeon-mcu-wdt", NULL, NULL, 0, 0),
++	MFD_CELL_BASIC("aaeon-mcu-gpio", NULL, NULL, 0, 0),
 +};
 +
-+static void icssm_prueth_lre_pcp_queue_map_config(struct prueth *prueth)
-+{
-+	void __iomem *sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
++/* Number of bytes in a MCU command: [opcode, arg, value] */
++#define AAEON_MCU_CMD_LEN      3
 +
-+	memcpy_toio(sram + ICSS_LRE_QUEUE_2_PCP_MAP_OFFSET,
-+		    &fw_pcp_default_priority_queue_map[0],
-+		    PCP_GROUP_TO_QUEUE_MAP_SIZE);
-+}
-+
-+static void icssm_prueth_lre_host_table_init(struct prueth *prueth)
-+{
-+	void __iomem *dram0 = prueth->mem[PRUETH_MEM_DRAM0].va;
-+	void __iomem *dram1 = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	memset_io(dram0 + ICSS_LRE_DUPLICATE_HOST_TABLE, 0,
-+		  ICSS_LRE_DUPLICATE_HOST_TABLE_DMEM_SIZE);
-+
-+	writel(ICSS_LRE_DUPLICATE_HOST_TABLE_SIZE_INIT,
-+	       dram1 + ICSS_LRE_DUPLICATE_HOST_TABLE_SIZE);
-+
-+	writel(ICSS_LRE_TABLE_CHECK_RESOLUTION_10_MS,
-+	       dram1 + ICSS_LRE_DUPLI_HOST_CHECK_RESO);
-+
-+	writel(ICSS_LRE_MASTER_SLAVE_BUSY_BITS_CLEAR,
-+	       dram1 + ICSS_LRE_HOST_DUPLICATE_ARBITRATION);
-+}
-+
-+static void icssm_prueth_lre_port_table_init(struct prueth *prueth)
-+{
-+	void __iomem *dram1 = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	if (PRUETH_IS_HSR(prueth)) {
-+		memset_io(dram1 + ICSS_LRE_DUPLICATE_PORT_TABLE_PRU0, 0,
-+			  ICSS_LRE_DUPLICATE_PORT_TABLE_DMEM_SIZE);
-+		memset_io(dram1 + ICSS_LRE_DUPLICATE_PORT_TABLE_PRU1, 0,
-+			  ICSS_LRE_DUPLICATE_PORT_TABLE_DMEM_SIZE);
-+
-+		writel(ICSS_LRE_DUPLICATE_PORT_TABLE_SIZE_INIT,
-+		       dram1 + ICSS_LRE_DUPLICATE_PORT_TABLE_SIZE);
-+	} else {
-+		writel(0, dram1 + ICSS_LRE_DUPLICATE_PORT_TABLE_SIZE);
-+	}
-+
-+	writel(ICSS_LRE_TABLE_CHECK_RESOLUTION_10_MS,
-+	       dram1 + ICSS_LRE_DUPLI_PORT_CHECK_RESO);
-+}
-+
-+static void icssm_prueth_lre_init(struct prueth *prueth)
-+{
-+	void __iomem *sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-+
-+	memset_io(sram + ICSS_LRE_START, 0, ICSS_LRE_STATS_DMEM_SIZE);
-+
-+	writel(ICSS_LRE_IEC62439_CONST_DUPLICATE_DISCARD,
-+	       sram + ICSS_LRE_DUPLICATE_DISCARD);
-+	writel(ICSS_LRE_IEC62439_CONST_TRANSP_RECEPTION_REMOVE_RCT,
-+	       sram + ICSS_LRE_TRANSPARENT_RECEPTION);
-+}
-+
-+static void icssm_prueth_lre_dbg_init(struct prueth *prueth)
-+{
-+	void __iomem *dram0 = prueth->mem[PRUETH_MEM_DRAM0].va;
-+
-+	memset_io(dram0 + ICSS_LRE_DBG_START, 0,
-+		  ICSS_LRE_DEBUG_COUNTER_DMEM_SIZE);
-+}
-+
-+static void icssm_prueth_lre_protocol_init(struct prueth *prueth)
-+{
-+	void __iomem *dram0 = prueth->mem[PRUETH_MEM_DRAM0].va;
-+	void __iomem *dram1 = prueth->mem[PRUETH_MEM_DRAM1].va;
-+
-+	if (PRUETH_IS_HSR(prueth))
-+		writew(ICSS_LRE_MODEH, dram0 + ICSS_LRE_HSR_MODE_OFFSET);
-+
-+	writel(ICSS_LRE_DUPLICATE_FORGET_TIME_400_MS,
-+	       dram1 + ICSS_LRE_DUPLI_FORGET_TIME);
-+	writel(ICSS_LRE_SUP_ADDRESS_INIT_OCTETS_HIGH,
-+	       dram1 + ICSS_LRE_SUP_ADDR);
-+	writel(ICSS_LRE_SUP_ADDRESS_INIT_OCTETS_LOW,
-+	       dram1 + ICSS_LRE_SUP_ADDR_LOW);
-+}
-+
-+static enum hrtimer_restart icssm_prueth_lre_timer(struct hrtimer *timer)
-+{
-+	struct prueth *prueth;
-+	unsigned int timeout;
-+	void __iomem *dram;
-+
-+	prueth = container_of(timer, struct prueth, tbl_check_timer);
-+	dram = prueth->mem[PRUETH_MEM_DRAM1].va;
-+	timeout = PRUETH_TIMER_MS;
-+
-+	hrtimer_forward_now(timer, ms_to_ktime(timeout));
-+	if (prueth->emac_configured !=
-+	    (BIT(PRUETH_PORT_MII0) | BIT(PRUETH_PORT_MII1)))
-+		return HRTIMER_RESTART;
-+
-+	/* Set the flags for duplicate tables so the firmware checks and
-+	 * updates them every 10 milliseconds.
-+	 */
-+	writel(prueth->tbl_check_mask, dram + ICSS_LRE_HOST_TIMER_CHECK_FLAGS);
-+
-+	return HRTIMER_RESTART;
-+}
-+
-+static void icssm_prueth_lre_init_timer(struct prueth *prueth)
-+{
-+	hrtimer_setup(&prueth->tbl_check_timer, &icssm_prueth_lre_timer,
-+		      CLOCK_MONOTONIC, HRTIMER_MODE_REL);
-+}
-+
-+static void icssm_prueth_lre_start_timer(struct prueth *prueth)
-+{
-+	unsigned int timeout = PRUETH_TIMER_MS;
-+
-+	if (hrtimer_active(&prueth->tbl_check_timer))
-+		return;
-+
-+	hrtimer_start(&prueth->tbl_check_timer, ms_to_ktime(timeout),
-+		      HRTIMER_MODE_REL);
-+}
-+
-+void icssm_prueth_lre_config(struct prueth *prueth)
-+{
-+	icssm_prueth_lre_init_timer(prueth);
-+	icssm_prueth_lre_start_timer(prueth);
-+	icssm_prueth_lre_pcp_queue_map_config(prueth);
-+	icssm_prueth_lre_host_table_init(prueth);
-+	icssm_prueth_lre_port_table_init(prueth);
-+	icssm_prueth_lre_init(prueth);
-+	icssm_prueth_lre_dbg_init(prueth);
-+	icssm_prueth_lre_protocol_init(prueth);
-+}
-+
-+void icssm_prueth_lre_cleanup(struct prueth *prueth)
-+{
-+	if (hrtimer_active(&prueth->tbl_check_timer))
-+		hrtimer_cancel(&prueth->tbl_check_timer);
-+}
-diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.h b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.h
-new file mode 100644
-index 000000000000..0fe4d1ae5823
---- /dev/null
-+++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/* Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com
++/*
++ * Custom regmap bus for the Aaeon MCU I2C protocol.
++ *
++ * The MCU uses a fixed 3-byte command format [opcode, arg, value] followed
++ * by a 1-byte response. It requires a STOP condition between the command
++ * write and the response read, so two separate i2c_transfer() calls are
++ * issued.  The regmap lock serialises concurrent accesses from the GPIO
++ * and watchdog child drivers.
++ *
++ * Register addresses are encoded as a 16-bit big-endian value where the
++ * high byte is the opcode and the low byte is the argument, matching the
++ * wire layout produced by regmap for reg_bits=16.
 + */
 +
-+#ifndef __NET_TI_PRUETH_LRE_H
-+#define __NET_TI_PRUETH_LRE_H
++static int aaeon_mcu_regmap_write(void *context, const void *data, size_t count)
++{
++	struct aaeon_mcu *mcu = context;
++	struct i2c_client *client = mcu->client;
++	struct i2c_msg write_msg;
++	/* The MCU always sends a response byte after each command; discard it. */
++	struct i2c_msg response_msg;
++	int ret;
 +
-+#include <linux/etherdevice.h>
-+#include <linux/interrupt.h>
-+#include <linux/if_vlan.h>
++	memcpy(mcu->cmd, data, count);
 +
-+#include "icssm_prueth.h"
-+#include "icssm_lre_firmware.h"
++	write_msg.addr  = client->addr;
++	write_msg.flags = I2C_M_DMA_SAFE;
++	write_msg.buf   = mcu->cmd;
++	write_msg.len   = count;
 +
-+void icssm_prueth_lre_config(struct prueth *prueth);
-+void icssm_prueth_lre_cleanup(struct prueth *prueth);
-+void icssm_prueth_lre_config_check_flags(struct prueth *prueth);
++	response_msg.addr  = client->addr;
++	response_msg.flags = I2C_M_RD | I2C_M_DMA_SAFE;
++	response_msg.buf   = mcu->response;
++	response_msg.len   = 1;
 +
-+#endif /* __NET_TI_PRUETH_LRE_H */
++	ret = i2c_transfer(client->adapter, &write_msg, 1);
++	if (ret < 0)
++		return ret;
++	if (ret != 1)
++		return -EIO;
++
++	ret = i2c_transfer(client->adapter, &response_msg, 1);
++	if (ret < 0)
++		return ret;
++	if (ret != 1)
++		return -EIO;
++
++	return 0;
++}
++
++static int aaeon_mcu_regmap_read(void *context, const void *reg_buf,
++				 size_t reg_size, void *val_buf, size_t val_size)
++{
++	struct aaeon_mcu *mcu = context;
++	struct i2c_client *client = mcu->client;
++	struct i2c_msg write_msg;
++	struct i2c_msg read_msg;
++	int ret;
++
++	/*
++	 * reg_buf holds the 2-byte big-endian register address [opcode, arg].
++	 * Append a trailing 0x00 to form the full 3-byte MCU command.
++	 */
++	mcu->cmd[0] = ((u8 *)reg_buf)[0];
++	mcu->cmd[1] = ((u8 *)reg_buf)[1];
++	mcu->cmd[2] = 0x00;
++
++	write_msg.addr  = client->addr;
++	write_msg.flags = I2C_M_DMA_SAFE;
++	write_msg.buf   = mcu->cmd;
++	write_msg.len   = AAEON_MCU_CMD_LEN;
++
++	read_msg.addr  = client->addr;
++	read_msg.flags = I2C_M_RD | I2C_M_DMA_SAFE;
++	read_msg.buf   = val_buf;
++	read_msg.len   = val_size;
++
++	ret = i2c_transfer(client->adapter, &write_msg, 1);
++	if (ret < 0)
++		return ret;
++	if (ret != 1)
++		return -EIO;
++
++	ret = i2c_transfer(client->adapter, &read_msg, 1);
++	if (ret < 0)
++		return ret;
++	if (ret != 1)
++		return -EIO;
++
++	return 0;
++}
++
++static const struct regmap_bus aaeon_mcu_regmap_bus = {
++	.write = aaeon_mcu_regmap_write,
++	.read  = aaeon_mcu_regmap_read,
++};
++
++static bool aaeon_mcu_volatile_reg(struct device *dev, unsigned int reg)
++{
++	/*
++	 * GPIO input registers are driven by external signals and can change
++	 * at any time without CPU involvement, always read from hardware.
++	 *
++	 * The watchdog status register reflects hardware state and can change
++	 * autonomously.
++	 *
++	 * All other registers are written by the driver and their values are
++	 * stable, so they can be safely cached.
++	 */
++	if ((reg >> 8) == AAEON_MCU_READ_GPIO_OPCODE)
++		return true;
++	if (reg == AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT_OPCODE, 0x02))
++		return true;
++	return false;
++}
++
++static const struct regmap_config aaeon_mcu_regmap_config = {
++	.reg_bits          = 16,
++	.val_bits          = 8,
++	.reg_format_endian = REGMAP_ENDIAN_BIG,
++	.max_register      = AAEON_MCU_MAX_REGISTER,
++	.volatile_reg      = aaeon_mcu_volatile_reg,
++	.cache_type        = REGCACHE_MAPLE,
++};
++
++static int aaeon_mcu_probe(struct i2c_client *client)
++{
++	struct aaeon_mcu *ddata;
++	struct regmap *regmap;
++
++	ddata = devm_kzalloc(&client->dev, sizeof(*ddata), GFP_KERNEL);
++	if (!ddata)
++		return -ENOMEM;
++
++	ddata->client = client;
++
++	ddata->cmd = devm_kzalloc(&client->dev, AAEON_MCU_CMD_LEN * sizeof(*ddata->cmd),
++				   GFP_KERNEL);
++	if (!ddata->cmd)
++		return -ENOMEM;
++
++	ddata->response = devm_kzalloc(&client->dev, sizeof(*ddata->response), GFP_KERNEL);
++	if (!ddata->response)
++		return -ENOMEM;
++
++	regmap = devm_regmap_init(&client->dev, &aaeon_mcu_regmap_bus,
++				  ddata, &aaeon_mcu_regmap_config);
++	if (IS_ERR(regmap))
++		return dev_err_probe(&client->dev, PTR_ERR(regmap),
++				     "failed to initialize regmap\n");
++
++	return devm_mfd_add_devices(&client->dev, PLATFORM_DEVID_AUTO,
++				    aaeon_mcu_devs, ARRAY_SIZE(aaeon_mcu_devs),
++				    NULL, 0, NULL);
++}
++
++static const struct of_device_id aaeon_mcu_of_match[] = {
++	{ .compatible = "aaeon,srg-imx8p-mcu" },
++	{},
++};
++MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
++
++static struct i2c_driver aaeon_mcu_driver = {
++	.driver = {
++		.name = "aaeon-mcu",
++		.of_match_table = aaeon_mcu_of_match,
++	},
++	.probe = aaeon_mcu_probe,
++};
++module_i2c_driver(aaeon_mcu_driver);
++
++MODULE_DESCRIPTION("Aaeon MCU Driver");
++MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
++MODULE_LICENSE("GPL");
+diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.h
+new file mode 100644
+index 000000000000..3a1aeec85d60
+--- /dev/null
++++ b/include/linux/mfd/aaeon-mcu.h
+@@ -0,0 +1,40 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++/*
++ * Aaeon MCU driver definitions
++ *
++ * Copyright (C) 2026 Bootlin
++ * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++ * Author: Thomas Perrot <thomas.perrot@bootlin.com>
++ */
++
++#ifndef __LINUX_MFD_AAEON_MCU_H
++#define __LINUX_MFD_AAEON_MCU_H
++
++/*
++ * MCU register address: the high byte is the command opcode, the low
++ * byte is the argument.  This matches the 3-byte wire format
++ * [opcode, arg, value] used by the MCU I2C protocol.
++ */
++#define AAEON_MCU_REG(op, arg)		(((op) << 8) | (arg))
++
++/*
++ * Opcode for GPIO input reads. These registers are volatile, their values
++ * are driven by external signals and can change without CPU involvement.
++ * Used by the MFD driver's volatile_reg callback to bypass the regmap cache.
++ */
++#define AAEON_MCU_READ_GPIO_OPCODE	0x72
++
++/*
++ * Opcode for watchdog control and status commands.
++ * The status register (arg=0x02) reflects hardware state and is volatile.
++ */
++#define AAEON_MCU_CONTROL_WDT_OPCODE	0x63
++
++/*
++ * Highest register address in the MCU register map.
++ * The WRITE_GPIO opcode (0x77) with the highest GPIO argument (0x0B = 11,
++ * i.e. MAX_GPIOS - 1) produces the largest encoded address.
++ */
++#define AAEON_MCU_MAX_REGISTER		AAEON_MCU_REG(0x77, 0x0B)
++
++#endif /* __LINUX_MFD_AAEON_MCU_H */
+
 -- 
-2.43.0
+2.54.0
 
 
