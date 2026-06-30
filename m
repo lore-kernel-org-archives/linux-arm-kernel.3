@@ -4,102 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3FDC2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Aug 2026 02:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFA2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 01:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+1ymEvJrHT6jMKxrOcndPKlvHyWzoiSIEsONq571lkk=; b=jZYpJtaaPe8YbS
-	dTW7KNwV4pHSyYG9KO1JMLFvDYiEtddGon7sN7zco2ZPQOrGoM23WpA1tcptQ7xwEEO0AIAo0enJg
-	0BuMMQROI1zTiCHi7+NIXpbfdMjkWCCsi9/IMYGEvrdBQ9W2BN5MP1bGHkaaj8Y9Yk0UiOhFPjI+x
-	hM0WThggcKgAl4/EBTr+uCg0RRrPjRvcVodRQYpu3DQSgG5+8/FLNK1+kVaBF1+chaizK1n5egNEy
-	3prt3Q4sZe18XKQY5X/VVyFJqYIGJ36jMXrs75mZCwlmpNOrKRKVJMNoWzeD//XHrrqqx7tL9l7Py
-	6MFFCej68Jci/Q+3KN1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+chNJkaxkb+6yp2ClCCdQny6Z296FnDe7g4ZtG0EO+E=; b=btG3udWbtus/vBMgc64I3ZBl+n
+	vNcMMPtpeNIj3fpJ2bPLffJjstO1YRSqwg1i88as1P8Q972ZWUJ8ZVfW8Y2IbQXAdtCeVyx8oGe01
+	WUvSNjI3TUjP6khhMgV66f/sqMJHSlWYCMj2EMfEfnAJi+JBBU+qKCV8aGQHGJmeug/mccrtvvzR0
+	bWXUMXcNd0ALke2Wwv5zzDP4JfdEMz91LwbPL3K/wyodZj1DmIvpcyUso9vjgtENINQUYXTe46ZTG
+	hitdtBOUuduf+bqVPZZRCPAXidriUbcF7/vs4/fL7Bi3inTER+XpBTHXGkpPJn/AZh0PpO3eYV7eQ
+	ERbcTlXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRMu-000000037Kb-0diS;
-	Wed, 05 Aug 2026 02:28:32 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1weNRa-0000000FfTh-0Jfh;
+	Tue, 30 Jun 2026 01:39:22 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wrRMr-000000037Im-2LMy
+	id 1weNRY-0000000FfT9-1Nx5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Aug 2026 02:28:31 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7ebd88be784so359844a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Aug 2026 19:28:29 -0700 (PDT)
+	Tue, 30 Jun 2026 01:39:21 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-847a5528b33so38301b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 18:39:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1785896908; x=1786501708; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=+1ymEvJrHT6jMKxrOcndPKlvHyWzoiSIEsONq571lkk=;
-        b=KnRxfNbjcDJ3ob2N6GoV54vWZ0g/1BhxSe/Y3pcUztIgNSn/dIeuv+qaKqjQGK3gME
-         Vv+IFymB++3Ia9ZwCrVTIc4EWefWUo5Lu2qJXr9B0S2Q5xdZfXaN+yDzdipW6NmBL9f8
-         KjeWhaPShu/NRuv6hNtsYClFqM3FrbFZfPyKKShCINWRwV9GDmQDo3cO2VZijxuvB1kb
-         5pyCqxUKTLLp/7zF/cL9NSYpDyclR7X0Ktj6eedK7lVhVoDRX34HU9SNb9Ju96QwD3Ts
-         V5LhHwX0spXiN4iXhSzqKw8kKo468/RMD7S/imeEEGKnY3nnkMTaBgWKxZ67mkq5cGC0
-         Ospg==
+        d=gmail.com; s=20251104; t=1782783559; x=1783388359; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+chNJkaxkb+6yp2ClCCdQny6Z296FnDe7g4ZtG0EO+E=;
+        b=i7cRW8F3VaSAXuF659NowyVSgO2g+HaTSfJJFDpm9m9gnLz5MCCTEknkgF/9GZUOif
+         lp0l6IYXONlJnA3DWTeTGL4ZIzKepvsXjj9tK9D91LsFjC0XzN3mdukRx87ccUvFI7Z0
+         kWQf+R+zVb85QQqugF54rxNzOVbgJ78o4NtgbWW2h55HsP6s6L3MsfrIc/tl+TbuhAKe
+         tIswRm+4zo6hgbLRTwwqm8PxU6U3eT4MToovOPp7Av7qy7NZEnEShOCphunjH2DsMHEq
+         p7+6O01781FkorV0B6FJ9jTpmy4YTju6XqiTaF3uiqvQ/SaXtpOAB22CuFAxm9x2/OgN
+         9TLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1785896908; x=1786501708;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+1ymEvJrHT6jMKxrOcndPKlvHyWzoiSIEsONq571lkk=;
-        b=OWmuHqXgFWd+u3v1zOGwO3bnUypHv+vuCGvsGO0+KlVXwiM1cuLtGG7VUZA32I6Lgd
-         hxXfBfx11GiiK8oiX2AbRweQvC2YGpBPPS2YiaiwW4zZL3O9tam/OBwRRLCbnn5mwZrW
-         RM9KUbLyCBQ1/JXIelf3gPT0KPpbOHf2RQ7wqDsbzhWlMh74vkWt9gOTDMcPK2guPwpA
-         W5Dwm73MSHPICMoaeG7mNKKeiZKZPi8LiFWZumhWkPMxDLZCmWL7lNeoZuwUwdFOYmyS
-         jLcrI9DzNUvqWh3N6f3gACuj2NVgdazKvZNlq4fs8ml7epjN+UQ1OgikRZcXq5Z7ih6T
-         4mzQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rq7iXEJoHrw+UU7+SOLTlbZ6AcWy88kHzJJggfuVDEnGc66URNRqjJHvtzcUq3FYE8Gf24X8gF2eXcfyoEe7SOX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4rtj0w4LupfrE/kg0U5vh6UsqtbPwJj1ZyNI+jP1ZAJOQ4gP0
-	TZOIOYXFT+BLfGtW3Cp1RUz9Pz1nkQaKZprDAMyVHLvYlqXIV2oOO9KD
-X-Gm-Gg: AR+sD13d0g5bo72SAi11Q+y2BpIFDCKf4j85xE6zinTj4lRL+Kid5cfeLWDLjh93d2Z
-	swq5byTSvLZpDzdtA2+MIL6B1vNEFlqellaqMnViEkBcN9X7NzfJcVU1vof4CK0RXAJ9NhXIesA
-	o8LqlAp6TByyaZxLePXrurXh30pqSs89xUESSA1TIp5g00Zjyz1nbNU9jXibpSfRyP6gvliXCmT
-	ZB/YgSazE7wh3CQZPihd4CEgVBxK9EzjaZ2MXlPdz/xmz2vIKaqm30MJfn/78m7IWOGL197wGd4
-	LaGNYQpV7ahvH11eq9J3rSUHY24/sKud4XgB6Afp33Zvv+qf8/ddyAoDXsCi5pOZfu7oqw8lUOj
-	mmBaEnOe9eCUGDbQxFY+aFgCTgSIFTkNIshUEvy4UWKR/KDLwib5fhUCHQwa0OSvQOSKowfFZt2
-	iMRKDPoDmBXlUoSCg1wUxrzJIyRu0Aer4O+deAvsbeRfrdTQ8/OH6sSQquzGNQym+i6Ss9+rjh5
-	JDAsZr2NUkV3ze0HSVvIIn3YaOtMhToqk7wAXSHizxOS6j/5FEb9R/4dFaBO/h/wHI/j/F9RrvK
-	N5JmaHM4iM2OOcJowYNJ4G0LpHJKvyJ4FJog1Nvt7UyY1MPlCqxEHTr3XZf+JaJxtPQYGGfNp6s
-	0+Kg1xVWSChkDbt7M
-X-Received: by 2002:a05:6830:258c:b0:7e9:e288:2b60 with SMTP id 46e09a7af769-7f1e5c13d31mr2587945a34.1.1785896908242;
-        Tue, 04 Aug 2026 19:28:28 -0700 (PDT)
-Received: from [127.0.1.1] (184-96-154-59.hlrn.qwest.net. [184.96.154.59])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7f1df565d37sm2078153a34.16.2026.08.04.19.28.26
+        d=1e100.net; s=20251104; t=1782783559; x=1783388359;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+chNJkaxkb+6yp2ClCCdQny6Z296FnDe7g4ZtG0EO+E=;
+        b=pVDkFQNXtlaC3U+9JsgSkDt/cSrBRObgniYDMc6nZiAasObkfuHEDGYr6s0g1FqdJ7
+         9I97XO3OKJ9RptA+QfiHJJnLn60gzzikZXQ2dwli9L0uDRmOdtLdAS9VPC9+WPP4P38e
+         HAoS5/n9OY7B9z2PnUhKdpI0fIMtdEZC3vgTAD14HLXewUF+yYbTN202dpwlnP1xSXnA
+         yPeFEtsraFh2+KS/ZP9ZloA+/KQdDSIWoqy4ZmwVf9TiqFCpG0U0pq/SSI5zit45LrXa
+         UuVqEqSSOXQXgikypt5Q48iV8JcuqiRsspnp7W7nUgXgFWahT7dZgpi7W3rlKAiU42qk
+         Hcmg==
+X-Forwarded-Encrypted: i=1; AHgh+RrPjcEpp3aBRdegFHdSfvWjOIZNPWhzDmY5kKubcTqJ8b5DU4fRkWIUhECLL+z0qjz0me6O56pxla9xXU5NugfQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB+Au/r9WGA7Yg7BXUx2BsPQKDHKrZAqvQOj3CdsOkD/JMLnYX
+	qEcEVZgN/JObmh3sMY2W0OtSdLsOQM6TQR6V5fWcXb2XDKCEW5xai4Iq
+X-Gm-Gg: AfdE7ck3Zkv188oCV1aXzOXvzFdZL6z3zekQ6CqWVMWXCD5MljvfbPFB8C4NMtxw8Lz
+	/npjnmh28fIzh0qPy4QN65BYlCWB2CajElP0AQcPJjMTHrlaGz0s2GcqKWLLdJv/AMqB9+8eBMu
+	gJnqXb9ZHKZVpOrZF4YrsSKzkSgHpJJ2deGaOVdgM0unF6d/xbZrPYwpN67b8e1tz2ZNYf41+2w
+	f6exUaglXsyoFRoQLf2upuNgb+d62zDELNGjSp1Sbf5Hpm2KgGDLlsyuxZ/wTYwVsJrSlzSWWq1
+	E1ad/IH2vV6+dWkvM7MraAruM034RNh5M6HGKK0zy0nzz2h6G1gmK156i40n/kHQ4pSu8VgwfE5
+	J0kvVLo+RqKl+LvjY2l+/acGSQ1sV9qh+2DykZ8y5yIjpmfTDsEqpiaM5R31pqYNlAlQG6a/T2c
+	0ziHxqBCpncjvyy/8MGpItVHNPVeAJwh11purB8qvrtSmRSwdpXGS8w0IrauT5Bx+wFm0lV/qCn
+	mrgFJTMSg==
+X-Received: by 2002:a05:6a00:44ca:b0:847:77ae:8845 with SMTP id d2e1a72fcca58-8479f2701b7mr1301770b3a.44.1782783559292;
+        Mon, 29 Jun 2026 18:39:19 -0700 (PDT)
+Received: from ryzen.lan ([2601:644:8000:7a86::e34])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8479ff89fe5sm692853b3a.5.2026.06.29.18.39.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Aug 2026 19:28:27 -0700 (PDT)
-From: James Hilliard <james.hilliard1@gmail.com>
-Subject: [PATCH net-next v2 0/8] net: phy: add X-Powers AC200/AC300 EPHY
- support
-Date: Tue, 04 Aug 2026 20:26:58 -0600
-Message-Id: <20260804-submit-acx00-of-dynamic-v1-v2-0-3eef49ff1d8c@gmail.com>
+        Mon, 29 Jun 2026 18:39:18 -0700 (PDT)
+From: Rosen Penev <rosenp@gmail.com>
+To: dmaengine@vger.kernel.org
+Cc: Vignesh Raghavendra <vigneshr@ti.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Frank Li <Frank.Li@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-kernel@vger.kernel.org (open list),
+	linux-arm-kernel@lists.infradead.org (moderated list:TEXAS INSTRUMENTS' SYSTEM CONTROL INTERFACE (TI...),
+	linux-hardening@vger.kernel.org (open list:KERNEL HARDENING (not covered by other areas):Keyword:\b__counted_by(_le|_be|_ptr)?\b)
+Subject: [PATCHv2] dmaengine: k3-udma: simplify resource allocation
+Date: Mon, 29 Jun 2026 18:39:17 -0700
+Message-ID: <20260630013917.1537819-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42OSw7CMAxEr4K8xigNHwEr7oG6CI4LRiSBJK1aV
- b07oXAApNmMZvw8IySOwgmOixEid5Ik+GL0cgF0M/7KKLZ40Erv1F5pTO3FSUZDvVIYGrSDN04
- IuwoPG6MsVdtG7zUUwDNyI/0MP4PnjJ77DPU3KZw7U/6wf93Ir7b8z9+DT+0mKYc4zOO6asb8s
- 6NIoTLbNdkD64rodHVGHisKDuppmt5lRCtG9QAAAA==
-X-Change-ID: 20260802-submit-acx00-of-dynamic-v1-94a0dc15f282
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, mfd@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260804_192829_662533_A7BDEEE8 
-X-CRM114-Status: GOOD (  20.53  )
+X-CRM114-CacheID: sfid-20260629_183920_411408_8FA89A09 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,140 +105,462 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This revision deliberately limits the series to the common PHY and the
-two package-specific control paths. It does not contain runtime Device
-Tree selection, generic MDIO reconfiguration, LEDs, interrupts,
-Wake-on-LAN, statistics, EDPD or PHY-autonomous EEE.
+Use a flexible array member to combine allocations.
 
-The AC200 and AC300 MDIO link endpoints report the same Clause 22 PHY
-identifier and use a compatible link-side paged register layout. Neither
-endpoint is accessible until its package-specific control path has
-initialized it. AC200 uses registers in its I2C MFD regmap, while AC300
-exposes a separate non-PHY Clause 22 control device.
+Add __counted_by for extra runtime analysis.
 
-Keep those transport-specific resources in separate control drivers and
-share only a small private operations interface with the common PHY
-driver. A board described by this series references exactly one enabled
-control device. The PHY driver creates a managed device link to that
-provider, powers the link block before accessing it, and passes the PHY
-address and MAC-selected interface mode to the provider.
+Fixup ti_sci as that also breaks with the header change.
 
-This split is independent of CONFIG_OF_DYNAMIC. The initial series uses
-only fixed descriptions and has no Dynamic MDIO dependency. A separate
-development branch can later use bit 0 of the same configuration field
-for runtime selection without changing the binding or provider interface
-or duplicating the common PHY code.
-
-The series adds:
-
-  - a minimal AC200 MFD core and AC200 EPHY control child;
-  - the AC300 non-PHY MDIO control driver; and
-  - the shared AC200/AC300 PHY driver with basic link operation, package
-    calibration, power sequencing and vendor analog initialization.
-
-The reduced v2 series was built and boot-tested on an H616 system with
-an AC300 package. The raw SID bytes at offset 0x2c were 0x06 0x05, making
-the packed two-bit configuration field 0b01: AC300 with normal calibration
-tuning. The driver validated that value against the fixed AC300 provider,
-bound at MDIO address 0, negotiated a 100 Mbps full-duplex link and passed
-network traffic.
-
-The H616 EMAC1 support has been split into an independent series. Board
-Device Trees and defconfig updates will follow after the driver and
-binding interfaces settle. That later H616 integration will use the
-Allwinner H616 PWM controller as the companion input clock; this code
-series neither applies on nor builds against the PWM series.
-
-The AC200 portions build on earlier work by Jernej Skrabec and Andre
-Przywara:
-
-  https://github.com/jernejsk/linux-1/commits/ac200-v4
-
-Public AC200 and AC300 documentation is linked from:
-
-  https://linux-sunxi.org/AC200
-
-The AC200 parent schema references the EPHY-control schema in patch 1.
-The AC200 control driver needs the MFD core, so those patches need to be
-kept together or placed on an immutable branch. The AC300 control driver
-and common PHY driver have no link-time dependency on the AC200 backend.
-
-Assisted-by: OpenAI Codex (gpt-5.6-sol, max)
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+Reviewed-by: Nishanth Menon <nm@ti.com>
 ---
-Changes v1 -> v2:
-  - split H616 EMAC1, board Device Trees and defconfig into independent
-    series
-  - remove Dynamic MDIO changes and runtime Device Tree provider
-    selection; require exactly one enabled provider
-  - remove the PHY-autonomous EEE dependency and keep Intelligent EEE
-    disabled
-  - defer LEDs, interrupts, Wake-on-LAN, statistics and EDPD to separate
-    feature patches
-  - make the MAC-provided phydev->interface the sole interface-mode
-    source
-  - retain separate AC200 and AC300 control drivers behind a minimal
-    private operations structure
-  - retain the two-bit package-configuration cell, validate its
-    variant bit against the fixed provider and use its AC300 tuning bit
-  - reduce the initial AC200 MFD core to the common regmap, supplies,
-    clock, reset and EPHY child
-  - leave package LED pads disabled in the basic control drivers
-  - Link to v1:
-    https://patch.msgid.link/20260802-submit-acx00-of-dynamic-v1-v1-0-0a53cd9e21cc@gmail.com
+ v2: rename to k3-udma and add reviewed by for the ti_sci portion.
+ drivers/dma/ti/k3-udma.c               | 180 +++++++++++++------------
+ drivers/firmware/ti_sci.c              |   7 +-
+ include/linux/soc/ti/ti_sci_protocol.h |   2 +-
+ 3 files changed, 98 insertions(+), 91 deletions(-)
 
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@google.com>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: James Hilliard <james.hilliard1@gmail.com>
-To: Lee Jones <lee@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: netdev@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: mfd@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-
----
-James Hilliard (8):
-      dt-bindings: net: x-powers: add AC200 EPHY control
-      dt-bindings: mfd: x-powers: add AC200
-      mfd: add X-Powers AC200 support
-      net: phy: add X-Powers AC200 EPHY control driver
-      dt-bindings: net: x-powers: add AC300 EPHY control
-      net: phy: add X-Powers AC300 EPHY control driver
-      dt-bindings: net: x-powers: add AC200/AC300 EPHY
-      net: phy: add X-Powers AC200/AC300 EPHY driver
-
- .../devicetree/bindings/mfd/x-powers,ac200.yaml    |  77 +++
- .../bindings/net/x-powers,ac200-ephy-ctl.yaml      |  39 ++
- .../bindings/net/x-powers,ac300-ephy-ctl.yaml      |  70 +++
- .../bindings/net/x-powers,acx00-ephy.yaml          | 117 +++++
- drivers/mfd/Kconfig                                |  12 +
- drivers/mfd/Makefile                               |   1 +
- drivers/mfd/ac200.c                                | 207 ++++++++
- drivers/net/phy/Kconfig                            |  27 +
- drivers/net/phy/Makefile                           |   3 +
- drivers/net/phy/xpowers-ac200-ctl.c                | 294 +++++++++++
- drivers/net/phy/xpowers-ac300-ctl.c                | 423 ++++++++++++++++
- drivers/net/phy/xpowers-acx00.c                    | 544 +++++++++++++++++++++
- drivers/net/phy/xpowers-acx00.h                    |  17 +
- 13 files changed, 1831 insertions(+)
----
-base-commit: b16bab325801c7be004222cad0ae296aa5982e79
-change-id: 20260802-submit-acx00-of-dynamic-v1-94a0dc15f282
-
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
+diff --git a/drivers/dma/ti/k3-udma.c b/drivers/dma/ti/k3-udma.c
+index 1cf158eb7bdb..2480d22466f5 100644
+--- a/drivers/dma/ti/k3-udma.c
++++ b/drivers/dma/ti/k3-udma.c
+@@ -4584,9 +4584,10 @@ static int udma_setup_resources(struct udma_dev *ud)
+ {
+ 	int ret, i, j;
+ 	struct device *dev = ud->dev;
+-	struct ti_sci_resource *rm_res, irq_res;
++	struct ti_sci_resource *rm_res, *irq_res;
+ 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+ 	u32 cap3;
++	u16 sets;
+ 
+ 	/* Set up the throughput level start indexes */
+ 	cap3 = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
+@@ -4664,64 +4665,67 @@ static int udma_setup_resources(struct udma_dev *ud)
+ 	rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
+ 	if (IS_ERR(rm_res)) {
+ 		bitmap_zero(ud->tchan_map, ud->tchan_cnt);
+-		irq_res.sets = 1;
++		sets = 1;
+ 	} else {
+ 		bitmap_fill(ud->tchan_map, ud->tchan_cnt);
+ 		for (i = 0; i < rm_res->sets; i++)
+ 			udma_mark_resource_ranges(ud, ud->tchan_map,
+ 						  &rm_res->desc[i], "tchan");
+-		irq_res.sets = rm_res->sets;
++		sets = rm_res->sets;
+ 	}
+ 
+ 	/* rchan and matching default flow ranges */
+ 	rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
+ 	if (IS_ERR(rm_res)) {
+ 		bitmap_zero(ud->rchan_map, ud->rchan_cnt);
+-		irq_res.sets++;
++		sets++;
+ 	} else {
+ 		bitmap_fill(ud->rchan_map, ud->rchan_cnt);
+ 		for (i = 0; i < rm_res->sets; i++)
+ 			udma_mark_resource_ranges(ud, ud->rchan_map,
+ 						  &rm_res->desc[i], "rchan");
+-		irq_res.sets += rm_res->sets;
++		sets += rm_res->sets;
+ 	}
+ 
+-	irq_res.desc = kzalloc_objs(*irq_res.desc, irq_res.sets);
+-	if (!irq_res.desc)
++	irq_res = kzalloc_flex(*irq_res, desc, sets);
++	if (!irq_res)
+ 		return -ENOMEM;
++
++	irq_res->sets = sets;
++
+ 	rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
+ 	if (IS_ERR(rm_res)) {
+-		irq_res.desc[0].start = 0;
+-		irq_res.desc[0].num = ud->tchan_cnt;
++		irq_res->desc[0].start = 0;
++		irq_res->desc[0].num = ud->tchan_cnt;
+ 		i = 1;
+ 	} else {
+ 		for (i = 0; i < rm_res->sets; i++) {
+-			irq_res.desc[i].start = rm_res->desc[i].start;
+-			irq_res.desc[i].num = rm_res->desc[i].num;
+-			irq_res.desc[i].start_sec = rm_res->desc[i].start_sec;
+-			irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
++			irq_res->desc[i].start = rm_res->desc[i].start;
++			irq_res->desc[i].num = rm_res->desc[i].num;
++			irq_res->desc[i].start_sec = rm_res->desc[i].start_sec;
++			irq_res->desc[i].num_sec = rm_res->desc[i].num_sec;
+ 		}
+ 	}
+ 	rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
+ 	if (IS_ERR(rm_res)) {
+-		irq_res.desc[i].start = 0;
+-		irq_res.desc[i].num = ud->rchan_cnt;
++		irq_res->desc[i].start = 0;
++		irq_res->desc[i].num = ud->rchan_cnt;
+ 	} else {
+ 		for (j = 0; j < rm_res->sets; j++, i++) {
+ 			if (rm_res->desc[j].num) {
+-				irq_res.desc[i].start = rm_res->desc[j].start +
++				irq_res->desc[i].start = rm_res->desc[j].start +
+ 						ud->soc_data->oes.udma_rchan;
+-				irq_res.desc[i].num = rm_res->desc[j].num;
++				irq_res->desc[i].num = rm_res->desc[j].num;
+ 			}
+ 			if (rm_res->desc[j].num_sec) {
+-				irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
++				irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
+ 						ud->soc_data->oes.udma_rchan;
+-				irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
++				irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
+ 			}
+ 		}
+ 	}
+-	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
+-	kfree(irq_res.desc);
++	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, irq_res);
++	kfree(irq_res);
+ 	if (ret) {
+ 		dev_err(ud->dev, "Failed to allocate MSI interrupts\n");
+ 		return ret;
+@@ -4746,9 +4750,10 @@ static int bcdma_setup_resources(struct udma_dev *ud)
+ {
+ 	int ret, i, j;
+ 	struct device *dev = ud->dev;
+-	struct ti_sci_resource *rm_res, irq_res;
++	struct ti_sci_resource *rm_res, *irq_res;
+ 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+ 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
++	u16 sets;
+ 	u32 cap;
+ 
+ 	/* Set up the throughput level start indexes */
+@@ -4828,21 +4833,21 @@ static int bcdma_setup_resources(struct udma_dev *ud)
+ 						    (char *)range_names[i]);
+ 	}
+ 
+-	irq_res.sets = 0;
++	sets = 0;
+ 
+ 	/* bchan ranges */
+ 	if (ud->bchan_cnt) {
+ 		rm_res = tisci_rm->rm_ranges[RM_RANGE_BCHAN];
+ 		if (IS_ERR(rm_res)) {
+ 			bitmap_zero(ud->bchan_map, ud->bchan_cnt);
+-			irq_res.sets++;
++			sets++;
+ 		} else {
+ 			bitmap_fill(ud->bchan_map, ud->bchan_cnt);
+ 			for (i = 0; i < rm_res->sets; i++)
+ 				udma_mark_resource_ranges(ud, ud->bchan_map,
+ 							  &rm_res->desc[i],
+ 							  "bchan");
+-			irq_res.sets += rm_res->sets;
++			sets += rm_res->sets;
+ 		}
+ 	}
+ 
+@@ -4851,14 +4856,14 @@ static int bcdma_setup_resources(struct udma_dev *ud)
+ 		rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
+ 		if (IS_ERR(rm_res)) {
+ 			bitmap_zero(ud->tchan_map, ud->tchan_cnt);
+-			irq_res.sets += 2;
++			sets += 2;
+ 		} else {
+ 			bitmap_fill(ud->tchan_map, ud->tchan_cnt);
+ 			for (i = 0; i < rm_res->sets; i++)
+ 				udma_mark_resource_ranges(ud, ud->tchan_map,
+ 							  &rm_res->desc[i],
+ 							  "tchan");
+-			irq_res.sets += rm_res->sets * 2;
++			sets += rm_res->sets * 2;
+ 		}
+ 	}
+ 
+@@ -4867,36 +4872,39 @@ static int bcdma_setup_resources(struct udma_dev *ud)
+ 		rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
+ 		if (IS_ERR(rm_res)) {
+ 			bitmap_zero(ud->rchan_map, ud->rchan_cnt);
+-			irq_res.sets += 2;
++			sets += 2;
+ 		} else {
+ 			bitmap_fill(ud->rchan_map, ud->rchan_cnt);
+ 			for (i = 0; i < rm_res->sets; i++)
+ 				udma_mark_resource_ranges(ud, ud->rchan_map,
+ 							  &rm_res->desc[i],
+ 							  "rchan");
+-			irq_res.sets += rm_res->sets * 2;
++			sets += rm_res->sets * 2;
+ 		}
+ 	}
+ 
+-	irq_res.desc = kzalloc_objs(*irq_res.desc, irq_res.sets);
+-	if (!irq_res.desc)
++	irq_res = kzalloc_flex(*irq_res, desc, sets);
++	if (!irq_res)
+ 		return -ENOMEM;
++
++	irq_res->sets = sets;
++
+ 	if (ud->bchan_cnt) {
+ 		rm_res = tisci_rm->rm_ranges[RM_RANGE_BCHAN];
+ 		if (IS_ERR(rm_res)) {
+-			irq_res.desc[0].start = oes->bcdma_bchan_ring;
+-			irq_res.desc[0].num = ud->bchan_cnt;
++			irq_res->desc[0].start = oes->bcdma_bchan_ring;
++			irq_res->desc[0].num = ud->bchan_cnt;
+ 			i = 1;
+ 		} else {
+ 			for (i = 0; i < rm_res->sets; i++) {
+-				irq_res.desc[i].start = rm_res->desc[i].start +
++				irq_res->desc[i].start = rm_res->desc[i].start +
+ 							oes->bcdma_bchan_ring;
+-				irq_res.desc[i].num = rm_res->desc[i].num;
++				irq_res->desc[i].num = rm_res->desc[i].num;
+ 
+ 				if (rm_res->desc[i].num_sec) {
+-					irq_res.desc[i].start_sec = rm_res->desc[i].start_sec +
++					irq_res->desc[i].start_sec = rm_res->desc[i].start_sec +
+ 									oes->bcdma_bchan_ring;
+-					irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
++					irq_res->desc[i].num_sec = rm_res->desc[i].num_sec;
+ 				}
+ 			}
+ 		}
+@@ -4907,28 +4915,28 @@ static int bcdma_setup_resources(struct udma_dev *ud)
+ 	if (ud->tchan_cnt) {
+ 		rm_res = tisci_rm->rm_ranges[RM_RANGE_TCHAN];
+ 		if (IS_ERR(rm_res)) {
+-			irq_res.desc[i].start = oes->bcdma_tchan_data;
+-			irq_res.desc[i].num = ud->tchan_cnt;
+-			irq_res.desc[i + 1].start = oes->bcdma_tchan_ring;
+-			irq_res.desc[i + 1].num = ud->tchan_cnt;
++			irq_res->desc[i].start = oes->bcdma_tchan_data;
++			irq_res->desc[i].num = ud->tchan_cnt;
++			irq_res->desc[i + 1].start = oes->bcdma_tchan_ring;
++			irq_res->desc[i + 1].num = ud->tchan_cnt;
+ 			i += 2;
+ 		} else {
+ 			for (j = 0; j < rm_res->sets; j++, i += 2) {
+-				irq_res.desc[i].start = rm_res->desc[j].start +
++				irq_res->desc[i].start = rm_res->desc[j].start +
+ 							oes->bcdma_tchan_data;
+-				irq_res.desc[i].num = rm_res->desc[j].num;
++				irq_res->desc[i].num = rm_res->desc[j].num;
+ 
+-				irq_res.desc[i + 1].start = rm_res->desc[j].start +
++				irq_res->desc[i + 1].start = rm_res->desc[j].start +
+ 							oes->bcdma_tchan_ring;
+-				irq_res.desc[i + 1].num = rm_res->desc[j].num;
++				irq_res->desc[i + 1].num = rm_res->desc[j].num;
+ 
+ 				if (rm_res->desc[j].num_sec) {
+-					irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
++					irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
+ 									oes->bcdma_tchan_data;
+-					irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
+-					irq_res.desc[i + 1].start_sec = rm_res->desc[j].start_sec +
++					irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
++					irq_res->desc[i + 1].start_sec = rm_res->desc[j].start_sec +
+ 									oes->bcdma_tchan_ring;
+-					irq_res.desc[i + 1].num_sec = rm_res->desc[j].num_sec;
++					irq_res->desc[i + 1].num_sec = rm_res->desc[j].num_sec;
+ 				}
+ 			}
+ 		}
+@@ -4936,35 +4944,35 @@ static int bcdma_setup_resources(struct udma_dev *ud)
+ 	if (ud->rchan_cnt) {
+ 		rm_res = tisci_rm->rm_ranges[RM_RANGE_RCHAN];
+ 		if (IS_ERR(rm_res)) {
+-			irq_res.desc[i].start = oes->bcdma_rchan_data;
+-			irq_res.desc[i].num = ud->rchan_cnt;
+-			irq_res.desc[i + 1].start = oes->bcdma_rchan_ring;
+-			irq_res.desc[i + 1].num = ud->rchan_cnt;
++			irq_res->desc[i].start = oes->bcdma_rchan_data;
++			irq_res->desc[i].num = ud->rchan_cnt;
++			irq_res->desc[i + 1].start = oes->bcdma_rchan_ring;
++			irq_res->desc[i + 1].num = ud->rchan_cnt;
+ 			i += 2;
+ 		} else {
+ 			for (j = 0; j < rm_res->sets; j++, i += 2) {
+-				irq_res.desc[i].start = rm_res->desc[j].start +
++				irq_res->desc[i].start = rm_res->desc[j].start +
+ 							oes->bcdma_rchan_data;
+-				irq_res.desc[i].num = rm_res->desc[j].num;
++				irq_res->desc[i].num = rm_res->desc[j].num;
+ 
+-				irq_res.desc[i + 1].start = rm_res->desc[j].start +
++				irq_res->desc[i + 1].start = rm_res->desc[j].start +
+ 							oes->bcdma_rchan_ring;
+-				irq_res.desc[i + 1].num = rm_res->desc[j].num;
++				irq_res->desc[i + 1].num = rm_res->desc[j].num;
+ 
+ 				if (rm_res->desc[j].num_sec) {
+-					irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
++					irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
+ 									oes->bcdma_rchan_data;
+-					irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
+-					irq_res.desc[i + 1].start_sec = rm_res->desc[j].start_sec +
++					irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
++					irq_res->desc[i + 1].start_sec = rm_res->desc[j].start_sec +
+ 									oes->bcdma_rchan_ring;
+-					irq_res.desc[i + 1].num_sec = rm_res->desc[j].num_sec;
++					irq_res->desc[i + 1].num_sec = rm_res->desc[j].num_sec;
+ 				}
+ 			}
+ 		}
+ 	}
+ 
+-	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
+-	kfree(irq_res.desc);
++	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, irq_res);
++	kfree(irq_res);
+ 	if (ret) {
+ 		dev_err(ud->dev, "Failed to allocate MSI interrupts\n");
+ 		return ret;
+@@ -4977,10 +4985,11 @@ static int pktdma_setup_resources(struct udma_dev *ud)
+ {
+ 	int ret, i, j;
+ 	struct device *dev = ud->dev;
+-	struct ti_sci_resource *rm_res, irq_res;
++	struct ti_sci_resource *rm_res, *irq_res;
+ 	struct udma_tisci_rm *tisci_rm = &ud->tisci_rm;
+ 	const struct udma_oes_offsets *oes = &ud->soc_data->oes;
+ 	u32 cap3;
++	u16 sets;
+ 
+ 	/* Set up the throughput level start indexes */
+ 	cap3 = udma_read(ud->mmrs[MMR_GCFG], 0x2c);
+@@ -5057,13 +5066,13 @@ static int pktdma_setup_resources(struct udma_dev *ud)
+ 	if (IS_ERR(rm_res)) {
+ 		/* all rflows are assigned exclusively to Linux */
+ 		bitmap_zero(ud->rflow_in_use, ud->rflow_cnt);
+-		irq_res.sets = 1;
++		sets = 1;
+ 	} else {
+ 		bitmap_fill(ud->rflow_in_use, ud->rflow_cnt);
+ 		for (i = 0; i < rm_res->sets; i++)
+ 			udma_mark_resource_ranges(ud, ud->rflow_in_use,
+ 						  &rm_res->desc[i], "rflow");
+-		irq_res.sets = rm_res->sets;
++		sets = rm_res->sets;
+ 	}
+ 
+ 	/* tflow ranges */
+@@ -5071,55 +5080,58 @@ static int pktdma_setup_resources(struct udma_dev *ud)
+ 	if (IS_ERR(rm_res)) {
+ 		/* all tflows are assigned exclusively to Linux */
+ 		bitmap_zero(ud->tflow_map, ud->tflow_cnt);
+-		irq_res.sets++;
++		sets++;
+ 	} else {
+ 		bitmap_fill(ud->tflow_map, ud->tflow_cnt);
+ 		for (i = 0; i < rm_res->sets; i++)
+ 			udma_mark_resource_ranges(ud, ud->tflow_map,
+ 						  &rm_res->desc[i], "tflow");
+-		irq_res.sets += rm_res->sets;
++		sets += rm_res->sets;
+ 	}
+ 
+-	irq_res.desc = kzalloc_objs(*irq_res.desc, irq_res.sets);
+-	if (!irq_res.desc)
++	irq_res = kzalloc_flex(*irq_res, desc, sets);
++	if (!irq_res)
+ 		return -ENOMEM;
++
++	irq_res->sets = sets;
++
+ 	rm_res = tisci_rm->rm_ranges[RM_RANGE_TFLOW];
+ 	if (IS_ERR(rm_res)) {
+-		irq_res.desc[0].start = oes->pktdma_tchan_flow;
+-		irq_res.desc[0].num = ud->tflow_cnt;
++		irq_res->desc[0].start = oes->pktdma_tchan_flow;
++		irq_res->desc[0].num = ud->tflow_cnt;
+ 		i = 1;
+ 	} else {
+ 		for (i = 0; i < rm_res->sets; i++) {
+-			irq_res.desc[i].start = rm_res->desc[i].start +
++			irq_res->desc[i].start = rm_res->desc[i].start +
+ 						oes->pktdma_tchan_flow;
+-			irq_res.desc[i].num = rm_res->desc[i].num;
++			irq_res->desc[i].num = rm_res->desc[i].num;
+ 
+ 			if (rm_res->desc[i].num_sec) {
+-				irq_res.desc[i].start_sec = rm_res->desc[i].start_sec +
++				irq_res->desc[i].start_sec = rm_res->desc[i].start_sec +
+ 								oes->pktdma_tchan_flow;
+-				irq_res.desc[i].num_sec = rm_res->desc[i].num_sec;
++				irq_res->desc[i].num_sec = rm_res->desc[i].num_sec;
+ 			}
+ 		}
+ 	}
+ 	rm_res = tisci_rm->rm_ranges[RM_RANGE_RFLOW];
+ 	if (IS_ERR(rm_res)) {
+-		irq_res.desc[i].start = oes->pktdma_rchan_flow;
+-		irq_res.desc[i].num = ud->rflow_cnt;
++		irq_res->desc[i].start = oes->pktdma_rchan_flow;
++		irq_res->desc[i].num = ud->rflow_cnt;
+ 	} else {
+ 		for (j = 0; j < rm_res->sets; j++, i++) {
+-			irq_res.desc[i].start = rm_res->desc[j].start +
++			irq_res->desc[i].start = rm_res->desc[j].start +
+ 						oes->pktdma_rchan_flow;
+-			irq_res.desc[i].num = rm_res->desc[j].num;
++			irq_res->desc[i].num = rm_res->desc[j].num;
+ 
+ 			if (rm_res->desc[j].num_sec) {
+-				irq_res.desc[i].start_sec = rm_res->desc[j].start_sec +
++				irq_res->desc[i].start_sec = rm_res->desc[j].start_sec +
+ 								oes->pktdma_rchan_flow;
+-				irq_res.desc[i].num_sec = rm_res->desc[j].num_sec;
++				irq_res->desc[i].num_sec = rm_res->desc[j].num_sec;
+ 			}
+ 		}
+ 	}
+-	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, &irq_res);
+-	kfree(irq_res.desc);
++	ret = ti_sci_inta_msi_domain_alloc_irqs(ud->dev, irq_res);
++	kfree(irq_res);
+ 	if (ret) {
+ 		dev_err(ud->dev, "Failed to allocate MSI interrupts\n");
+ 		return ret;
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index 590a464403c5..ef23d732e083 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -3693,16 +3693,11 @@ devm_ti_sci_get_resource_sets(const struct ti_sci_handle *handle,
+ 	bool valid_set = false;
+ 	int i, ret, res_count;
+ 
+-	res = devm_kzalloc(dev, sizeof(*res), GFP_KERNEL);
++	res = devm_kzalloc(dev, struct_size(res, desc, sets), GFP_KERNEL);
+ 	if (!res)
+ 		return ERR_PTR(-ENOMEM);
+ 
+ 	res->sets = sets;
+-	res->desc = devm_kcalloc(dev, res->sets, sizeof(*res->desc),
+-				 GFP_KERNEL);
+-	if (!res->desc)
+-		return ERR_PTR(-ENOMEM);
+-
+ 	for (i = 0; i < res->sets; i++) {
+ 		ret = handle->ops.rm_core_ops.get_range(handle, dev_id,
+ 							sub_types[i],
+diff --git a/include/linux/soc/ti/ti_sci_protocol.h b/include/linux/soc/ti/ti_sci_protocol.h
+index fd104b666836..7632bb11c862 100644
+--- a/include/linux/soc/ti/ti_sci_protocol.h
++++ b/include/linux/soc/ti/ti_sci_protocol.h
+@@ -599,7 +599,7 @@ struct ti_sci_handle {
+ struct ti_sci_resource {
+ 	u16 sets;
+ 	raw_spinlock_t lock;
+-	struct ti_sci_resource_desc *desc;
++	struct ti_sci_resource_desc desc[] __counted_by(sets);
+ };
+ 
+ #if IS_ENABLED(CONFIG_TI_SCI_PROTOCOL)
+-- 
+2.54.0
 
 
