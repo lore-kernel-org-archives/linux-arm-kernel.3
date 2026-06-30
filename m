@@ -4,102 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A47C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 14:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19C04C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 14:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2tQoFP/3mK7wnbIpYFRSkYpoksOckdle3t5G8xRcShM=; b=PhF41fPES4EWj2V1udFJtOWQVG
-	/2t4vBracZ0NpE12zhGzehzc5D55vUjA2cATpNNFHgvYpxxOkPMamWEfDSLFb93JVu16ZyJs8AA6Y
-	IPk/fa/zRwVGXLdCRrnRiNTY4NJVZXhyo0uCavQ2kNziQngX+bHbPyxKJI85Ku5iTvMjlA6a0j1+3
-	jMQf0Vl3hYrjLfp7VEQxeZFA01TsPKbH5j4zoHhTImNyrc/vPEQfjTDqycoQbwU6/8atPIpGnwBzA
-	7x9q3etSDYvYLyB+kCN+UqhntUx5/GzxCX+Qz8yla2jB6jbdCoeZY9o/hpGqrTcAxIRWqtHrts7ba
-	GTtz7srw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LGt/jVunNdiuTF9CeeIY4kTWF7I8j+mwn+w7wJk+cOo=; b=IQL3gJpJ0Qx3nvn+X7ZWNXupxp
+	N9FJIuBxGV0XCblXkLK8WApJzlsZRY9dgOiEukZ1C2fTufhZLTsW4pGK81JC3f/snjF+BP0RCuG7D
+	hHCW5Th2V6P+u08Ez2FovhahJ6r2gO3d2QYFhR/MliIN0kCFDCw8yZNr9u+OZ5N0q6/TXZ+3q30iV
+	0WbbxMCpVdrCKKPqzdct5Ip5CN2ln0l+QngSHPu7diGpfahI1HVWa+z6pwxuYhWwAFgTUlCuh4c3x
+	jv4zaFStYu6BYpmSmDqHr/KMhOHMX09b76TC7lSP4zBxA6i7lyHFBkLC55+UzMlAV1Uqp8Q46nLT5
+	N+hGEu0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weZ4F-0000000HF9B-1hvu;
-	Tue, 30 Jun 2026 14:04:03 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1weZ4K-0000000HFCG-2ZIw;
+	Tue, 30 Jun 2026 14:04:08 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weZ45-0000000HF6J-3WPh
+	id 1weZ4D-0000000HF7Z-43KA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 14:03:56 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4939a809b24so29949705e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:03:53 -0700 (PDT)
+	Tue, 30 Jun 2026 14:04:03 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65U9mrB81542070
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 14:03:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LGt/jVunNdiuTF9CeeIY4kTWF7I8j+mwn+w7wJk+cOo=; b=FGvGLwrYQwb0wTLS
+	Z7JvOlsgO0GP294YGQUWXMPOV9SQTnVhfYHluhNk0Wwz718qWtwD+LbPR3RIaO2Z
+	/DrgzXqnZykuY5S8OWJFpE69CkxQq7SgXnWGaACmV4WHiQPuy0KG5aWs89ijZem8
+	qvDbZOAPwmAZGRnS1frDotFS5V8JnSKUJzbQWMTXJCV64YeK11g7mm5Xm8e/B2ST
+	j9mcDfqKR9Q7dlUe0BEM73bHP5yaxw6+2JniS8nDIi7cBbi0tYSLhBjtWqMZ0urO
+	/cgqY4TTo88BLrAlPrSt/fpatRnNfo7TJyxpFYHsSUFoPWdZ0omiRALqpBQuhG7a
+	TZny1g==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f44v4jtsp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 14:03:59 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-37fef645b85so1777481a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:03:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782828232; x=1783433032; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=2tQoFP/3mK7wnbIpYFRSkYpoksOckdle3t5G8xRcShM=;
-        b=SNSkuQKlBmvlK1pMAuHg2vLDFzytjWL2QHdRikbMMgxvGBqeOARtgBiamiCGAmeupf
-         vWcM2q/01g4Bn3pJjXIdy5KKJKPZuzJROOrQ6WxiDZft0SXzpIqBafwEgqPjignlhadt
-         ctrRmVRBM7Fbfiw2z9A01JcEnVsDQnUZT0I3j+rgRg2heskGvJVOGpg1RNbHdA4v8s87
-         ZXCCIzocsEKbLLUAmOe1gWl3xJrnS7WMR83cqsXKO6CjyagJiiBPNoDmabGSLe1Mgtrb
-         F4YRMEYGQNcv0IUIzE/VTrOdORW2WMOcIk+b0/dO2isD0ME0ACrlbedFEwNZSexYZnNY
-         1L+A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782828232; x=1783433032;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1782828239; x=1783433039; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=2tQoFP/3mK7wnbIpYFRSkYpoksOckdle3t5G8xRcShM=;
-        b=aXcIkA+dx0ow6+uDJRdSHL6kuyCHtkIcVoy97z1n5w2+ZRIINnzNHh/XdSPQXPH+fT
-         +7yv8H2yPU8/F0/EAtuNAXX1KJO8dMJzxDo5OhBMrC7rvtExbLIYvCZlpjuxjUJe3PXN
-         wSDsuhQ7Adsb6/7/7e5e1pWV8JjyOcStXldNaEPHvVxZ4VCoIX1c9s9GDXoKfifRFtZf
-         xc5RR1AaP6K38dkF39hzTSMRVHidyk1gc7dS4q3jgj25j6fPeMD4X50idarJSO/OsbRt
-         OHX7t3F78yGCJ4yBn7rndegmQLfGFr52bLLKoKrw5myfGN5wh3GFQOBjJtocWb0GEnNf
-         Cyug==
-X-Forwarded-Encrypted: i=1; AFNElJ8IcnOvmWTIoMIIvigjOPDHPpuv/Z5LhcUmucOfI3hs68gDC9RTJNIbJltj9JXxMxC4y0NiXNcUQr5wLppgyL0w@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG75yR1d0Fm7f/+W1IXjc7PZNQj1RVzNa9QgoxXrgLTc+ENGA6
-	BO5LjCYg2SWRgGqW+97Wja2qLJIZvCAyd1akRVd1WmWt6UyuWPAjKR9dlmK6T88W3CA=
-X-Gm-Gg: AfdE7ck+2MscrRajcdeRCGz4nG6WiMyAfg9vSoYJtFtm8zDUon9g8cB3xhrCPkf0qbp
-	W97F8MKKRa4WxBXwvfnn2W7TlETBc/uiqnAZeckN5i6Vhy9u2yOK52nFPZdJ34ZVMtx2eQGZ+LR
-	RR3VoJ4hF4NUAcQMbThJdOCN7BsqWIzWITNtGk27Q9kKtP1DcF/QyelE8M2oiUfKNN5tINQVFAG
-	Wn05zKB7KRjL82nzbVL1XT6lyVk4n3sYoRBGz4Y65G1C+jl86fmTyOeoGlNAKMKyCfDdgxhZ9yY
-	6RKSEtNp4yrdZjzYYCFquwgTyQq5xZVKFeiMvKlfWIG2QePaQtT7cZJfq1n88ZyRtG/+HsYDPrP
-	pdM4k66zLhBWqXcFB/hZNNyK6wjc+w7Irax2WCPw+EVYS1y2OevbrgFhTLB8dAmIaHUXiMjLO81
-	9R6efXYrnWP7+oFm2JadwqVFxZv75+151SnzZkf/IyFEsEqjosF1JByZOfJoXDTPMEMnbTvU24G
-	o2wKCZpVfUNLSM=
-X-Received: by 2002:a05:600c:8b34:b0:492:4668:27b5 with SMTP id 5b1f17b1804b1-493bda58201mr11176775e9.6.1782828231880;
-        Tue, 30 Jun 2026 07:03:51 -0700 (PDT)
-Received: from localhost (p200300f65f47db042a9b551def0a6b94.dip0.t-ipconnect.de. [2003:f6:5f47:db04:2a9b:551d:ef0a:6b94])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-493b8cd2a3esm78215815e9.4.2026.06.30.07.03.49
+        bh=LGt/jVunNdiuTF9CeeIY4kTWF7I8j+mwn+w7wJk+cOo=;
+        b=HuKJnJxXaVDZyA+1e/bEVrjnqmX/To/Ref2sDGhL85yGlC+dEXgr94dXCNVRxhscEv
+         jdwwK7TNsbJzD/8kWO3rTse29twcVIo9zgUdiYJtUM1v+ar35sJLccko/kIvUstLWIv5
+         z+UWcE3fspCiBy8/ImJgLHpnbHT2+YoQOAbalDrCTsI8OY5by/Tp32PMLOrlIY70y1A8
+         e6NmlH2v/mxA/qxyDSQTg2JahRVo0lf0JuJtv7mNBHo0ewzjlpdPColgXCAJoW0nBTFl
+         mSesbJKXxKZOyczoT2ERsa9RBkGc/for9DPHETrzF4IO1oiC7IhW0NaiqcDo61W0Qy/t
+         Ppyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782828239; x=1783433039;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=LGt/jVunNdiuTF9CeeIY4kTWF7I8j+mwn+w7wJk+cOo=;
+        b=k7I8QGFad/cdeSZF0NmdMWQD74k2OJwkQaW+e6gaunEcV18DoWECmir8Z2PInORyzs
+         1p2mhPx2O4OPyKh6YUbdrZBRHBuz7zogjF1A0uHESnzxTuZyywVMSJMTTRE/Vdu1ZcZs
+         1pL3s4bG3rNQDx1I5d5Za8C7ZcIAivUxipTGs+YHj1TYiNXUFPiXYe+pzj4HJRF30xH2
+         KKNHJwE8cVPkbL8GAbtnwMGyxKtU/X59ASt8OLAwVASWvsB9V+JwnGk5Bi0SUJt1ATUi
+         x3uDziIdIaV55TOKmEFErUorOcbiYnlUxlK1MWn1kyUWWT1zPNVSpQQz1Z8/ao8yAj/L
+         Utlw==
+X-Forwarded-Encrypted: i=1; AHgh+RphYDgwYXACzNuQC/codiMNqbwpRMeVhRXyuI5BvQnsnPiqbKjpFPksP6Qx+QA3S35T+wRHnfkq9Awf/VXr2bK2@lists.infradead.org
+X-Gm-Message-State: AOJu0YztpeLO9cqQtO6Lq5Nuy9ZlUInC2KSU9j0AFMq/Qr7T2l+XEVaU
+	WxW/c6wXiqDQQaTLUqSOOzSBcStLf2h8NqFf2oTC0xAlc+IzMWzzKw3Fe6mBa1EdjCsaD8zsWiS
+	w2jr48qMqURfitnEH7oaGpXTBmER3RoMZgXGjETSyenqT7sDkpeMdr3ledGgYjn/xc+43pHS+iY
+	mHTA==
+X-Gm-Gg: AfdE7cknuiPmzRPlFogEW3OVQDk+Ez68Xx8ttAneSoYHcM6E/wnXxWS77WokXu03P+v
+	aV9sccD2FYk+k2yHPBo1hu0qM4IY3l9i5nX/VxCRNMmnKNlbnW26xyxr8GSMQruo/82CgoEuL0b
+	rsR9m7tuu+Q5Ai9dtvSUghkTMVEhjKw6vsp8FgIlcyz8yFcfISzTGW5JPy2RwiDjelPP/OCU1e2
+	sr3p6sTBRxaWkwXxzjAcrAmzlV4JsdsDJnKGXbUEdvHidVOdaLAr1Wlp8o9ACeRw9wXlt9AqamM
+	dtynS8k5g+9UIbwClC7VNhMRdxGaLz0b1N/e2W+tfdDk3gvEjz/+KyxVuiK9a2lP8sG51ZBODOG
+	2wuqAzlecT2j7FY0bOkmYr0z/SU145gvU2Zoc9qw=
+X-Received: by 2002:a17:90b:4a51:b0:37c:18e0:90dc with SMTP id 98e67ed59e1d1-38052733442mr2797969a91.16.1782828238906;
+        Tue, 30 Jun 2026 07:03:58 -0700 (PDT)
+X-Received: by 2002:a17:90b:4a51:b0:37c:18e0:90dc with SMTP id 98e67ed59e1d1-38052733442mr2797918a91.16.1782828238391;
+        Tue, 30 Jun 2026 07:03:58 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:a2d4:ac8b:bb21:2661])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493be171501sm1600495e9.15.2026.06.30.07.03.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 07:03:50 -0700 (PDT)
-From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
-To: Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Woodrow Douglass <wdouglass@carnegierobotics.com>,
-	Michael Hennerich <michael.hennerich@analog.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Andrei Simion <andrei.simion@microchip.com>,
-	Saravanan Sekar <sravanhome@gmail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Jagan Teki <jagan@amarulasolutions.com>,
-	Icenowy Zheng <icenowy@aosc.io>,
-	Alexis Czezar Torreno <alexisczezar.torreno@analog.com>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v4 0/3] regulator: Rework i2c_device_id initialisation
-Date: Tue, 30 Jun 2026 16:01:06 +0200
-Message-ID: <cover.1782827697.git.u.kleine-koenig@baylibre.com>
+        Tue, 30 Jun 2026 07:03:56 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Viacheslav Bocharov <v@baodeep.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Marek Szyprowski <m.szyprowski@samsung.com>,
+        Robin Murphy <robin.murphy@arm.com>,
+        Diederik de Haas <diederik@cknow-tech.com>, linux-gpio@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v3 0/2] gpio: fix sleeping-in-atomic in shared-proxy; restore meson non-sleeping
+Date: Tue, 30 Jun 2026 16:03:52 +0200
+Message-ID: <178282813039.20935.7644113033947538749.b4-ty@oss.qualcomm.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260630101545.800625-1-v@baodeep.com>
+References: <20260630101545.800625-1-v@baodeep.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3273; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=83a/MkmrHfjorOirVbbU46DfC5PP/+YNhl2WVzEkxQ0=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqQ8wjXh28OkIBNlK6ESzk2ZoTzd35sqKX8watZ MSYmkn2SfOJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCakPMIwAKCRCPgPtYfRL+ ToTTCACDMq56H2QnBMfIjJOf2V1bMX/QO2ByPArT7OXAoncqtKRUaoMDJK1mqI7rZHtX/9TVDkR sJ35SMm8o//R2DLkrZlc7xpH+bZi18AMQUXuwz8q+vApGRZ89XY7T8fCjSuGvhkoIX+W/ji6n2f 2LNs9hBn0ZRmNzZleHoI0k7m/yxzw+s/9xNbg3dDMgcu4Gf+XNWGYjXeVTvxPGMJGqqxC4vgVmS IvTOvkQ4tjL69LLf+KbRcgFUj672h3H/Z0x3mPH7uQmjHnhFsqPifW4VYKvpFEbnRJjXOJN3WHM CZX67q/+j9SASP6N2/yB3rTltWrEg+cdUg5WFyzHBiYV5gyX
-X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: rqd-8ct7dvAoZCWRfuLVVvS6u2k55YA8
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDEzMiBTYWx0ZWRfX+kfJLEEfo54k
+ UJ97HN2uFGKlYTw6qFIpmNLc3ifVhjzsF1/tcL5izDOi8L4W74jdVNkExTWw8VHDblIAvMcnLfb
+ hlyiMa005UZOmLIoyIRi4PSrrlhVBf0=
+X-Authority-Analysis: v=2.4 cv=JI0LdcKb c=1 sm=1 tr=0 ts=6a43cccf cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=W7lOHgCGKF-i3LWV3W4A:9 a=QEXdDO2ut3YA:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22
+X-Proofpoint-ORIG-GUID: rqd-8ct7dvAoZCWRfuLVVvS6u2k55YA8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDEzMiBTYWx0ZWRfX7RdcEsDGSrXN
+ GbrSRGEIlVsWd2CyRlqt/dqMKX84SbERhvexQBtV/PyiO2olNOr1aJ68QVDcA9QAHlo3dHYpKlb
+ BFaBgcRqRgPm8Mjc84C1Y5ncomLYYFQoHsqmZpF+f4peAkWVYD1Z0ISqMq7UD7CJkL5j+Wci6HD
+ VeMmzdbfbcU9oox645kozGoP5unCmRG9KbAHjcj9JCC5ErjiXBvt6nb0b3kVTtWoVAmEh/lJp2D
+ 1SCuh++2K2BJL3w8cUoEeEFVXvhmMY6RCj27Eak8uv/tci2+HKiUBgR0mXOSYtoO0XU2mFJ9xxQ
+ jfdDelAqz6asGK2SgEgN8LO9eLEmOu0H0L/1u3pVoy0PaUqnXcogg7GZvAqYtfjLfFp5wQvKEAQ
+ hyGzeXPWmFC6/9NPLI4MU0u3Rr/cZ7apaNYZRFM6DJl4r0yRje/pSg9L27xrWYhJHTleQ3MEKfh
+ 8YsekotZek3xB3U0LEA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-30_03,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 impostorscore=0 lowpriorityscore=0
+ spamscore=0 bulkscore=0 suspectscore=0 malwarescore=0 phishscore=0
+ adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2606300132
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_070354_025285_721CFA0F 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260630_070402_644026_6E5ACD03 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,80 +156,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-changes since v2
-(https://lore.kernel.org/lkml/cover.1781888370.git.u.kleine-koenig@baylibre.com):
+On Tue, 30 Jun 2026 13:15:43 +0300, Viacheslav Bocharov wrote:
+> gpio-shared-proxy chooses its descriptor lock (mutex vs spinlock) from
+> the underlying chip's can_sleep, but under that lock it calls config and
+> direction ops that reach sleeping pinctrl paths. On a controller with
+> non-sleeping MMIO value ops the lock is a spinlock, so a sleeping call
+> runs from atomic context:
+> 
+>   BUG: sleeping function called from invalid context
+>     ... pinctrl_gpio_set_config <- gpiochip_generic_config
+>     <- gpio_shared_proxy_set_config (voting spinlock held)
+>     <- ... <- mmc_pwrseq_simple_probe
+> 
+> [...]
 
- - rebase to next/master
-   This fixes a merge conflict and also shifts a bit which drivers are
-   adapted in the different patches
- - patch #3 is new
+There are no build-time dependencies between this and 2/2 so let me queue this
+for fixes on its own and Linus W can take 2/2.
 
-Best regards
-Uwe
+[1/2] gpio: shared-proxy: always serialize with a sleeping mutex
+      https://git.kernel.org/brgl/c/efecde8a254d1f207b75c5ebcfba2c51f4c771d9
 
-Uwe Kleine-König (The Capable Hub) (3):
-  regulator: Drop unused i2c driver data
-  regulator: Use named initializers for arrays of i2c_device_data
-  regulator: Improve style of i2c_device_id arrays
-
- drivers/regulator/88pg86x.c            |  4 ++--
- drivers/regulator/act8865-regulator.c  |  2 +-
- drivers/regulator/ad5398.c             |  4 ++--
- drivers/regulator/adp5055-regulator.c  |  4 ++--
- drivers/regulator/aw37503-regulator.c  |  4 ++--
- drivers/regulator/da9121-regulator.c   | 20 ++++++++++----------
- drivers/regulator/da9210-regulator.c   |  4 ++--
- drivers/regulator/da9211-regulator.c   | 18 +++++++++---------
- drivers/regulator/fan53880.c           |  4 ++--
- drivers/regulator/isl6271a-regulator.c |  2 +-
- drivers/regulator/isl9305.c            |  4 ++--
- drivers/regulator/lp3971.c             |  2 +-
- drivers/regulator/lp3972.c             |  2 +-
- drivers/regulator/lp872x.c             |  4 ++--
- drivers/regulator/lp8755.c             |  4 ++--
- drivers/regulator/ltc3589.c            |  6 +++---
- drivers/regulator/ltc3676.c            |  2 +-
- drivers/regulator/max1586.c            |  2 +-
- drivers/regulator/max20086-regulator.c |  8 ++++----
- drivers/regulator/max20411-regulator.c |  2 +-
- drivers/regulator/max77503-regulator.c |  2 +-
- drivers/regulator/max77675-regulator.c |  2 +-
- drivers/regulator/max77826-regulator.c |  2 +-
- drivers/regulator/max77838-regulator.c |  2 +-
- drivers/regulator/max77857-regulator.c |  8 ++++----
- drivers/regulator/max8649.c            |  2 +-
- drivers/regulator/max8893.c            |  2 +-
- drivers/regulator/max8952.c            |  2 +-
- drivers/regulator/max8973-regulator.c  |  6 +++---
- drivers/regulator/mcp16502.c           |  2 +-
- drivers/regulator/mp5416.c             |  6 +++---
- drivers/regulator/mp8859.c             |  4 ++--
- drivers/regulator/mp886x.c             |  6 +++---
- drivers/regulator/mpq7920.c            |  4 ++--
- drivers/regulator/mt6311-regulator.c   |  4 ++--
- drivers/regulator/pf530x-regulator.c   |  8 ++++----
- drivers/regulator/pf8x00-regulator.c   |  8 ++++----
- drivers/regulator/pv88060-regulator.c  |  4 ++--
- drivers/regulator/pv88080-regulator.c  |  8 ++++----
- drivers/regulator/pv88090-regulator.c  |  4 ++--
- drivers/regulator/sgm3804-regulator.c  |  2 +-
- drivers/regulator/slg51000-regulator.c |  4 ++--
- drivers/regulator/sy8106a-regulator.c  |  2 +-
- drivers/regulator/sy8824x.c            |  8 ++++----
- drivers/regulator/sy8827n.c            |  4 ++--
- drivers/regulator/tps51632-regulator.c |  4 ++--
- drivers/regulator/tps62360-regulator.c | 10 +++++-----
- drivers/regulator/tps6286x-regulator.c | 10 +++++-----
- drivers/regulator/tps6287x-regulator.c | 10 +++++-----
- drivers/regulator/tps65023-regulator.c |  6 +++---
- drivers/regulator/tps65132-regulator.c |  4 ++--
- 51 files changed, 126 insertions(+), 126 deletions(-)
-
-
-base-commit: 7de6ae9e12207ec146f2f3f1e58d1a99317e88bc
+Best regards,
 -- 
-2.47.3
-
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
