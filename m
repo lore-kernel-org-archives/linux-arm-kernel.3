@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38827C43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05AA5C43458
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 10:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,53 +12,52 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iASwOkjVCJPflYYww7d1iIHlcjwya6lSvQT+/sPCet8=; b=pGMlXXdOUxqY0ISZq1wOMArsOE
-	UMVrv7R7A/dEPSTJslTG/1fF5jA4Hfhw1RY3ApXJs7d/NSlM/SbXIVGZptXVPfimJKj/66A5KTHdI
-	4HpBSFwe+ZPsvHZopLob+dZhlMwaO7UtwEhZ6v1lT6tUMvpqg5RILXDeVc10OiTvio08+CCrfYAZ7
-	zFH3eksLz2sK8UeGJ3Dz39q+UHQgunjr4eEJ9cCLSwwdDbEEt9D84yYOOrVqLh+aZaIgGUv8bLA3w
-	B3a7ijOqN0q++3qKT37gg4ITFBTdI197Y0Anvegi0mpOPYzeVFj4vzGe9dmKy9FB2l5R/xl7gfBCm
-	UckfdfIQ==;
+	bh=0CqZnL9CQ4jPYPhgOFbpXYmhcadN12tUT6BLqWKdyDE=; b=DI0dIR354/1By5rVEY2rKB1AFr
+	5aZ5E4dbtul0PJP4RanPJNBbMWybBP1Bvu600NUmgkD9vTLqczLpWLhsa01QxIRDsjY3o2xduoU2f
+	w1IcEhDEnuFSpA0bEQWxKDgei1kTN7ZGPlosx+KBQ2qEKhryC/X7prG8jYW4jm3gnSMuXnnoV3Q5S
+	Fpz3cN48BBFxUsoahxW5GIN65klACWME7LPuh6lSBZNs5Y3jpqkMoxSYvO6i7H2k/qmuKvhwCVOLi
+	Zcbnib2/kHD0WeUnQOPuJq1GZErutLs6yw8/jiWsYIhWoVciHkiTI+LvEoMEJl/VgV1HYyY8MH4Cv
+	xaTqPPQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVOn-0000000Ga8m-1IZs;
-	Tue, 30 Jun 2026 10:09:01 +0000
-Received: from mail-westeuropeazon11013056.outbound.protection.outlook.com ([52.101.72.56] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1weVOm-0000000Ga7b-2B4K;
+	Tue, 30 Jun 2026 10:09:00 +0000
+Received: from mail-swedencentralazon11013061.outbound.protection.outlook.com ([52.101.83.61] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weVOh-0000000Ga47-0bR8;
-	Tue, 30 Jun 2026 10:08:56 +0000
+	id 1weVOX-0000000GZvN-1pta;
+	Tue, 30 Jun 2026 10:08:46 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uTsL/6FDatGUvSpk/0C/KEr0oQNNxgf4exS25pZd/zzXB4up/ZRfm+2tQAF93L6asqs1R3Pr06wpUi9dOtV/L4AeGDG3CX1Z7YdRlLklrmgdPIEXTkWMWlehxEEz++hj9gGs/sBOkuOrvFleBEE1/BIT8NSnSUgSPA2ya2BkCmEZfINiomAlHBvZxIAIQJySD6d81A82YeJmi2xMNZN2j70CzZAJVNPsHrBhyF3meZzCv8rCZVtGhfJwCCq2miiOt6plQZQ773W6R5ioiTaHoL9shhXmD7o5TPuiranOLTpa+swxYGOkEyY+2dtP0YihevUc0kWzS84JBXee4jvz/g==
+ b=cvLb3T4MN8NMZhVHNIc7VeVDXQQ6EhHVjytEsnJCro/ARN4UKF3BxycxkD/a2RowoP18I2CVA65RTgzVAmq2BeoybVs7wZsXHqEsMPXxA/dWnm88S/iVz2S/tRcnfGvaTmcorOBQiJLTGrDtRy//XFRg3zgqnQj8tLr9pSBjPQ2IeVGtKlVPYBAfHTDsh2onGS60qhjkXnXMIslxpVg/EJuQD1cQW1vMjz3l0mxtKMsf2lz20p7Q2hN8ehTZUlGtG2V/fVQl2hAcylkAP2mkM2Dw+ybFCCtc9NHVbOczDclJHpi7VwBvcwWyFl94ghUGGDOf12LV5l9Ndcv9tBfi6g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iASwOkjVCJPflYYww7d1iIHlcjwya6lSvQT+/sPCet8=;
- b=k6CiSuQYeJuBF9f7fpL+dAqCuIAfBEXCgbEjdw+q6fu3tCvD6Dmu+KhD2/dZ5Pf+rg3GRDxoe7/cPjqR2E8ab3HhC+rm13BQ01oePkLJtoGdjxxidd5SwXLkT3IWIoCLXaUeGAL0ihPhiMiYjOAKIGbbt5DtxUXvSxTAchNTakMZlPLJPeun6zwemij6d9S+p5WpxjBwFYKoloXH9tmiJ0gWEHVinfFrqEf7Wg2HiiQs3Gyh9rAdx5A8laCRhIAERmFGxDts/JZPHD/xYVCZz/SvV5hRke3w7Z0s73aqA3aXH40q8GiUULa8AaHZL2GUbLPqH8MH25vmDrqmjOHH8A==
+ bh=0CqZnL9CQ4jPYPhgOFbpXYmhcadN12tUT6BLqWKdyDE=;
+ b=OKQ29V9n7K5qXiVskHl057UVRRoxuZHr2MopDfIb/TV2poQ3JeX8C6QcwQmiQvKCW6GVPoorYu2txUSlSqlBItBqTevTdM62ByZEmJS6UrRW5ecJaQ597aV0nJ0fkx8ODt/ECeIsd+TYVzvNHTqVE4qF0NNVmyDu6XDJkO4F31vSTUWegzC/KgGneUCt+Dcw+V04Kg4c20JFhk9BCXjNpq/Y9BWSJzk2KMZrdclSRvRds7NRqAuNKn64av44j5mpFKbUMonE1sGXnlffBM+QcA5QBbb/hFTGFiYBmDRued640phe5DLTOEsG46efdsofH5R3E/u/+cQ9DlCpjdzwCA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iASwOkjVCJPflYYww7d1iIHlcjwya6lSvQT+/sPCet8=;
- b=UZT2qQs2dHaud9ovltXK6s6z8hiAAGfPqnImKYtvVTyyz86FKsg8m0CdNZ0WiX5yB7vvEgAjN4IA+FwQ4TvkoZOERuD5XoGK6wGRlz2ITGxTV1cKgMANJG4C9wcHgsN+6vnO8F4oe3hqONMrjdskgnegRczBeOFGXbtugxVX5/69RgcfGGrYftefCaGG0XTi0bqisAl8jm8NS2SYus+XyUNWCP9TWEQBSiOCBQ+23o1yaJ8uKBTqk0LXlhv4bWNhKv/UTy6WQKT4LsNDJJTN6O0smQ7EY9JAjWmQbtpek7TNIwArSYn/psl1zR417l0TtI1gicZ6ji7ll6u1j8YCHw==
+ bh=0CqZnL9CQ4jPYPhgOFbpXYmhcadN12tUT6BLqWKdyDE=;
+ b=tymqCfPNwLX0QGu7u17P8aBz2TuuZAw/CQIBFV9oK5fJaVWUJHfZtWWCnuYnIGb6Wa24UOhT0VAQ9iDlakCNs3rd9UMwSfmlOqnBIOvOtJje0TEg9rW2/ZguTDhOGrkBL5lpqFwtrQ6iZsMuFoi4AmasxtAW9CRvZlg0Fdh06iTTTUiQ/CPx+rBWlTG1BjB9dZqnJEE0gpLm106R9EvzdwJWFejYQoRN4X3Dfrc65JcMnY/63iFffnNTWKhhnMQ4DidQ8eJQ26OZCRqgC2/afmtHEClrZxyQuiLDAeUWjxmrmPsepCSHVHf8efa3eqEo0tnyPn4mk47K5JuKnHHJqw==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from PAXPR04MB9422.eurprd04.prod.outlook.com (2603:10a6:102:2b4::21)
  by GV1PR04MB10991.eurprd04.prod.outlook.com (2603:10a6:150:206::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 10:08:49 +0000
+ 2026 10:08:38 +0000
 Received: from PAXPR04MB9422.eurprd04.prod.outlook.com
  ([fe80::54e:28bf:aa85:d25d]) by PAXPR04MB9422.eurprd04.prod.outlook.com
  ([fe80::54e:28bf:aa85:d25d%4]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
- 10:08:49 +0000
+ 10:08:38 +0000
 From: Xu Yang <xu.yang_2@oss.nxp.com>
-Date: Tue, 30 Jun 2026 18:11:32 +0800
-Subject: [PATCH v5 5/5] phy: fsl-imx8mq-usb: keep PHY power domain runtime
- always-on for i.MX8MP
+Date: Tue, 30 Jun 2026 18:11:30 +0800
+Subject: [PATCH v5 3/5] phy: fsl-imx8mq-usb: add runtime PM support
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260630-imx8mp-usb-phy-improvement-v5-5-25d616403844@nxp.com>
+Message-Id: <20260630-imx8mp-usb-phy-improvement-v5-3-25d616403844@nxp.com>
 References: <20260630-imx8mp-usb-phy-improvement-v5-0-25d616403844@nxp.com>
 In-Reply-To: <20260630-imx8mp-usb-phy-improvement-v5-0-25d616403844@nxp.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -70,80 +69,80 @@ Cc: linux-phy@lists.infradead.org, imx@lists.linux.dev,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Xu Yang <xu.yang_2@nxp.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782814305; l=2617;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782814305; l=4800;
  i=xu.yang_2@nxp.com; s=20250815; h=from:subject:message-id;
- bh=JKu8DXnOWmkloCSTmr6yfLcHIsED0rv46aK1FmJGTWc=;
- b=iczVn/BEl58Sg7BJSds6wMq/+jHIpw8j1rwiiuhY5X9ltvDZxd7aOYyI6Hh8WCgLswbSiG+Wb
- aHhfTQOjQv1AO0ktnbCAH2tjTgLAKq1VNUqTuz7EEJp9Zcy6NqdtoNn
+ bh=izaxospJoiT/+YAo1N7NZOcOjtRsSv2ClLgWKBV8UgE=;
+ b=dUZmOcl8pBKdcoKjB08147sTARvVfRV7e4NeT159KWw34uvsyxp1v/VzpAl61KYDJdRr94mEd
+ 6tpGResGQf+Azo+ivxByppDtdMS+h1klIRlPr09VzlVF2+LnomejZUi
 X-Developer-Key: i=xu.yang_2@nxp.com; a=ed25519;
  pk=5c2HwftfKxFlMJboUe40+xawMtfnp5F8iEiv5CiKS+4=
-X-ClientProxiedBy: MA5P287CA0033.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:17a::16) To PAXPR04MB9422.eurprd04.prod.outlook.com
+X-ClientProxiedBy: MA5P287CA0285.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:221::8) To PAXPR04MB9422.eurprd04.prod.outlook.com
  (2603:10a6:102:2b4::21)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PAXPR04MB9422:EE_|GV1PR04MB10991:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4ba750de-2597-47ce-f990-08ded68f945a
+X-MS-Office365-Filtering-Correlation-Id: a0811f75-28ac-4800-5d51-08ded68f8d98
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|23010399003|19092799006|1800799024|22082099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: rnTzhcgycvAg1PviMHrl2q7KFCBMGZNscRdKwZsGTwcAm3SRjR+0ndPumO4f0K2UAkY754ke4Q5J9oMxMhoGzI9rNWhL3f2duptAuSIegsEhWSZ/Mh7Z4MPLIDZfcKsXp564zkFjta9t+zjhZIigHzqBX5D2gsJ71ETxpyiouf7QRUaCYAcs97Grydh/CwM4zLAkmkGpFjCnfNBARbtJFFRt8eir/v8NoFfIw9Pn3ikS2lv0yyj/HtSn5UUptmpJHPaJ+ZwVzYY2Go5URtVzpmN0U5dR6sAr6KRirZdbf4f5DW4HJoExcKwr98RC4yJyxm8jv6N9UPnX11kNiXzKS85q/6MmeezeWAPmBBiWIlN/VG/j9mNxsQuXhj9DMd347M3AWsnNUy1bQoVRqcSTmFuX6QGZRFk5UnRonHIMUb4ACotKPR2HojiE6fjFQR8bQMQr6bEqpE/kW/RV0yTqcV40d9/ILiPAV7wjgsGmMa8W3TsYpvqNf0kbz/TF33gkkEXx4q5dsrfq1Tl494U6NU/P5yD9EB2NkluUerBPKuF+1wNJpZg/trI/UDlDezCD8CoKlGCbZRK9hmiQCko6+JiptXe710Nvz4vth3DkIXfKYhXKgi7xDKkPaJw3c/GtdxMTs6jXSZCo0KfYXDH8NdOGDZVVYPd4Uo58Wn8+c5Q=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(19092799006)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|23010399003|19092799006|1800799024|22082099003|18002099003|11063799006|56012099006|3023799007;
+X-Microsoft-Antispam-Message-Info: 4jKM/JgqaJ2dYXtJzzFBJbVqU/iLUC9Of+4bIIfZjVTAjSBzn/m4/GfMQu7dXBbuiTfx+IG9KrwoqosR+2uYmtqI/jmRVeRzY98tEr5khgJO13nCgxSafs9w7BURUZYEV0xohaOcJKCh3u61HwYyocaOI0mVp59vF3xWTE6ZRtlqDa6dHuzXRyChUz0E0bUj85udQc0oMlEmVRs6jWteqXCG8weIpy/h5Hx34pJwT3o0+IuPw3z46RiCafkoz3L8gwakRw9DrBv8cBytz8grfctddI1F8z0CIvGble31sfzzFTfEQtGKYS8Bo6GEUQMNmRycxUTuQ1hb558oLAgame/WfNJssA71OwuXBQt46NvL3DZ/uEW4Ot2GVP/CNsQTriYe28VPgo5AQAcMo4u/IXjYngAEr5qcY0U7NJVQqj3EMLdm6KxTZNRy7A7hOT/Kenyl+RvPVxWai4Hx94ekmESnnWQUVCjSbKDHk0lw7v955DkL/J8fE9VssmYQiV058j/hx85zovu0F1SP9RPQ1B8ONuCb7S+YdznSe1lYXsqs889Nc+wy7vgtHc60bDrVGkuzp+b2Fk8C4fqjltUlQ8JVEMA1mPrQBtpwNRJXHyEsKTY5MpUKnhLFHhGsIKUq4DcbPLMSk539lyfshnPaKwt1ZYDCOv7T/Z3pCcTV69g=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9422.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(23010399003)(19092799006)(1800799024)(22082099003)(18002099003)(11063799006)(56012099006)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MWRydk0ya0luSUNJZlVMVXk4Y01WakpBT285L2lVb1dGc3lOR01hd3pQOXk3?=
- =?utf-8?B?YlRrTFpDaFREN1VPYXJoU2pUVWdhcVJtelFtVExIanFvaXVWSm1Xcmo5U2Ny?=
- =?utf-8?B?Y0MrT1g5Z1lJNzA4ODVnbng2S0ZNVklRcHNXdE9JdWpXQVZtd0RwYmlzS29W?=
- =?utf-8?B?dVMxL2l2WkdlZUZzeXlFYUpweS9KdzFEU25BWURQY2tsVWtDaUNySjRjWDZu?=
- =?utf-8?B?eVJGZDBDdzViQmgwc0lBNVRGdGpCMVpwYTJNalVyQU9KNmN1bU54dWs4RndY?=
- =?utf-8?B?RFRJZ2JuREVWZ21DWEorKzZqMVNSSWxIY2NHazQwSkRNRjlaQmtvaTg3Vldx?=
- =?utf-8?B?dlN4NmwxL0JKaFZYclM3K0MyWllHOVZwcEFHc1JMOFRYTUZkWmFjZEtqSTNU?=
- =?utf-8?B?T1RZQ1hsMTZCaktwU3gwSFNrK1BhdFBoeW14cnRzQjhYb2g3NEFya1ZuVHNn?=
- =?utf-8?B?RkhkMnJCc3Q5MDRUWE1Zdlc3L2dHNzZlUTlORFY0MjBoeEdCRm1zYmFJZ2Np?=
- =?utf-8?B?dExoMCtuVlI4TTY1eG83NUwxdjU1bzVTMEUzZkFnN2EveS9JOUZ4UUZRVFFX?=
- =?utf-8?B?STFwQ3lCcWlVL2syTTFFaDNqSUQzTGkwYVZuR0t0VzdWUnVwaGxtalU1RUoy?=
- =?utf-8?B?azlQTHljN1A1b0FKWUtqSUlORjRLbG9GOFJqRVFIV2Y0TjJMZG9udFNFMks0?=
- =?utf-8?B?SFgxcHA1MkoyS2M2WDcvYlhxb2FBTWVuK3ZoZG11eG40MnlVT0ZhNGw2MnJt?=
- =?utf-8?B?eXNMdTJuRlJOSExGeTljK3o0NUc2NnlNWFJjOGhQYVZlKzJZazlCSFk1OTg0?=
- =?utf-8?B?MWZxQ0RoSHNqcDB5cllFRmJQZmZRb2NxcnF5VTFFZ2s4T1pidjJpcWZxUGg3?=
- =?utf-8?B?SFdiT0NSMVAxZVVFMU9Zc25UODI3c1Brd1IvelVoN0pacUlqTlFJaTZ2MkIx?=
- =?utf-8?B?SDVzTGRub1ZSRTRJZmVvcU50T204dXFxRFJSSWk3TEtpTXUzNVlKLzFvUkl6?=
- =?utf-8?B?ZDdmcytEcXhReHJTTzNFWklmbytLSjdNOXFPL0t0Sm95ZVh2MHJqby9PQVBB?=
- =?utf-8?B?dEtkUDFiMEtEU283THpobllBS3BLUmNxSTBIVlJaMGdqa1N1Yng2VUFOUTJK?=
- =?utf-8?B?RXRGZ2dtTnpiV0piSGpHdy9TTlllYWhkelVpbGlXYlpKRjQ2S0pmZFMwNElt?=
- =?utf-8?B?RzVySUw4Sk9YdXgxRUtnVVFrTUEzdTZRdzZ4TzdrSFFYUlhhWnR1TFZoK1k5?=
- =?utf-8?B?OG5USlJZdTFVMjJOUXZTT1ZIVytONWkzeVB3YWMwWlh0MDNheVM1aHVUVVJa?=
- =?utf-8?B?My92SEFVQS9iODFTVW1jYWk4Vm8zanFCemV2ZEhUZzNoYVJxSUlRN2UwVnJE?=
- =?utf-8?B?NCtjVzQrWk5YVFA3d0hTcGs5TGxtcXhoWENEUit2dzAyQXdxazdvV0NVQ1Fs?=
- =?utf-8?B?RlF3dStISGhFcFQzS0NlWnNadmsrMGdCem9mbFBkTTlwQk5rUW5sdDMwSGMz?=
- =?utf-8?B?QmMwNzczaHM4VWhUeXBscHFvT2RQMURHSm5nRmQ5YlNNWTBBajBDV3U5Ukp6?=
- =?utf-8?B?N3FCV21aMldwcWNaRlhpem9WbDdoaVZiN2kzdjQzN2Y5L3FsaGNxazJUNFlQ?=
- =?utf-8?B?OGRXTjJVRVdaRE1haWhhcDZOL2lXS2xqc3hlZnVrc3JPYTVxRmpwVjluT0RM?=
- =?utf-8?B?WVRYL0M5cUpLN0JsZ0gvaFg5ZmlZUlExdWRKU0prOFpIT1B3OU9vSFZJazNu?=
- =?utf-8?B?RDVYb2IzUTdoUlVueThqZnFPbHFwQXdXNkZYWnVaL3hRQm9UTzNQSVR3V1hm?=
- =?utf-8?B?M1VOTWZBbDJLaFJxd00yeVpSTFpsWDNNL0gvTG9uQ0ViRXJRQnpVVWpESXBr?=
- =?utf-8?B?SGtYZXdIeHp0elNjd0JObEx0emlsa1M5SmhNcjE1cTc3T29nUVdJYnlibXM2?=
- =?utf-8?B?UEVBL3NEM09mSkJ0b0NjNGlGMkE5a3pTL2toSFFtN3FHN0tFRUtqc2tEMnZ2?=
- =?utf-8?B?d2FCWXJGeDVzZnRSai9uMXA4ajVyNXh4MGZ1aUdORUxYVldMMVRmODNVcFQy?=
- =?utf-8?B?N0xuNG9OdXI4cXRWSHd2M05LQWphSGFreWYrdkRxMTUzdk1TVzF2NldCWTlv?=
- =?utf-8?B?TElLYU0vNmQ2bUcyT2JBcmxtZkxML1RqaS9haTZUeW9XZ3lTOGx3c202VDFH?=
- =?utf-8?B?OWZJU25uV0VXU3NlazRuSE51SVFTaEQyaTd3bkVVNWVuaVNlY0t4eTJoYk84?=
- =?utf-8?B?UEU5bktXTHd1QmpxaUZtSUl3dW5ncDQ2WHRBUittRy9ZdFUwR1I3cTJuOTF6?=
- =?utf-8?B?Z3ROcXMxMGRidlVNT2xwM3pVT1RVNFV1UUM5Wnc4bmExREdyWC96NVRPZWhi?=
- =?utf-8?Q?VuE+1STHy27bP5t5aF9r+UIPD9uNdTCcBsGx/?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QmJzcXBmaE9BZGZpUlp2VVlWbDZnNFJIZlBBWGJkc0VYb3hXT3FVeklXOFV2?=
+ =?utf-8?B?TjBmYUQyanFUYWk0NE9aTC8vdWE5eFVkWGJUeXhhVGZtUkdNSmZOVVN0RFRQ?=
+ =?utf-8?B?VnhaTVlNRnFjb3d4ZjZKb3VaTjgwSFpKTkVhUWRGTkdlL3FISzl3YjZMVjBP?=
+ =?utf-8?B?TjVQSy9KTzRqUXNmTlZKVWI5QzI4bk5HcFNFYkN2dXFzRnBNNENKRFlJZ2kz?=
+ =?utf-8?B?UE9pT0M3MmMvb3ZtUWFIbTRPWFMwS29yVVN4Sy81bzJ6dmE1OXVINmVHQmxl?=
+ =?utf-8?B?Z1FxcUU5THZrMkdOWWlVUy9CVU50b2Z2SFZKKzRKclpCb0w1SXFCRUtZQWRN?=
+ =?utf-8?B?S2dBc0h4K2VYbkJNbUZueUxkUHBNbmhhTDN2emVZeU4xN1puVmdnWWpkOGYw?=
+ =?utf-8?B?Nkl2a1VNMlJIVGRXK2hVZUE0UGJaNFBjREhrQU5LdFFtbHorSzYyTzRtZlh1?=
+ =?utf-8?B?dWlsTlBBZkpZRW03RU14RTRwd0JaQlRXTlpJLzdlenpRUTVJaU0xaVd3QkRV?=
+ =?utf-8?B?dlE4a28ycWxlVnZRdHh2Rzkzb202RmlOQm1oZDdEWnFFUTJKd2FiUFBocjhY?=
+ =?utf-8?B?MHYyU1REKzhEZ2lBRGhvRU5xeTI4em1kUWhVMVRNNGRGaWJ1RDJqdXdRT2RU?=
+ =?utf-8?B?N2QyclZ2ZWxpbmtua2RJVUMvQnV0Zk04VXM0OXhIaDZ4anBhU1h2ZU9sZ1pk?=
+ =?utf-8?B?TVZWMUlTbG1DQ3FUcG5vWTJNVS9jditQK1JqTFE5MGU3OTFBSGxnTE5WOXhx?=
+ =?utf-8?B?NWw0WDNVTEh1bUNVMkt5bTVmdjlZL05wQlE2eWYva0grMllyVjkxdXgzUmVm?=
+ =?utf-8?B?andtakdBUHlPNE02anNsMDF2SjZNK2xZUEF3T3NhRXl6K1hoOUxDaVlrWGZN?=
+ =?utf-8?B?b2RZcCtjNHJlWThYbUZyYkVITEhCeEVVajBJbmF6UnlHTEcwQzJuSlhPelNl?=
+ =?utf-8?B?d2FGaVlvQUh4Vzl0empFQjBzNTA3ZjA1dk05dENjSHVRaGxJZ0xib2EwSzBP?=
+ =?utf-8?B?RmtzTnNrRnQyVG1iQWxmT091aklyQnBqQWx1U1A0YlJHU0NUQ29TQ0RkeitV?=
+ =?utf-8?B?c1hNY1ZINEg2RDR6T1pQbGQvc1h6U0ZVTHJ6SjFJZ2JnYlhteDFaMXpMaHd0?=
+ =?utf-8?B?cnFEQUljWDVsR1BLWFRGZWJ0VmlXdld3ZTR5VlVMYTlBZEloaUVpYVFzV0tU?=
+ =?utf-8?B?OU1aeDZkNXF1V1VmUTBlcS9UYUNZYytTeENoOG1ZQmJWOTJjcjNDRHJvdkVD?=
+ =?utf-8?B?WUpHNzNJRWlldDRaaDFyd0Q5MnZ0SElBRzR0MW0zRWtOOUZxWnY3U202aVdv?=
+ =?utf-8?B?M1FUM3hUVFB2dzdTN1dFUklRS3FPZzRFVjBiTDhyWU9TWFdOVFRIMXdqUmFM?=
+ =?utf-8?B?TDd6d0V2SVphRXNPRDlYb3E2N2t2eDRUeS95NTNWeVVVZy9WMkk3b0k2alU2?=
+ =?utf-8?B?Z1dRa0xmYlo2OUpkVXVkQ2JNUk9DTlpxVmU2Y051RERBWVlTaFpjNTlrT2FW?=
+ =?utf-8?B?VTMvcU41Njk3NXVRTVFKQ1RaU0d5MEVHa2t3dEJ3UGRmY0ZOS1VhNHY3VmVP?=
+ =?utf-8?B?OWNSazF1NlQvcllRbkJkVFBFYkVVaWF5K3ZXL0g1WExlMEs5Y2JBQ0xnSCtu?=
+ =?utf-8?B?dWdnT0dOS28zZjJxUXJMT0NkVjZrM0xxOGRyOG1WL1drZVZOM0R1Y29sMGZE?=
+ =?utf-8?B?REh1U2pCMFZqUzhiSUFOTC9VODZENmkzVGszbEEvSXFwUisycGIyY1NoNTdB?=
+ =?utf-8?B?THZBVEdJWXVmQnZyZU8weUUvaXBsQ2p6dHJaMS9DaWlDTk9veFl2Y240c001?=
+ =?utf-8?B?K2RkYjJ0TmhLckxuWmNPTERKUXZjRG1ZUlhaaFo1ek1EYmp3eGhjQWNiZmJO?=
+ =?utf-8?B?UDN6UkNKWlM5MTRxZGFQZ3B3VDBFbDRMQ0xqRUZZRGZvSE01dDBtM3QrVTVC?=
+ =?utf-8?B?UGFONVlmWWhDV3l1NWg5TnQ3Q2lldGJkdXNoNjJWby8xWnhIdUN3Y1BBMjNQ?=
+ =?utf-8?B?T1lDcGRtbUo5cTBrS1dUanJ0SFpYb2tnR0tOWUQwNGtUbWlhdEtsd0tHWFRI?=
+ =?utf-8?B?VEZUNlVUZVBmNzg1LzU3RnVrVGtEUXJreENnZnRNa3BSQVJiZjd0QVppYndm?=
+ =?utf-8?B?ZXoxclZnTUtrUXpMU2hkb21rL2YvcEgrMkpBVVhKaHB2d3VpeGNFY3hnbDZY?=
+ =?utf-8?B?dkZsT1NxTDBUZm9CbC8vSEtwQzBJRE9nT2RMVlVCblRtSzhlZld4cjcxVkVr?=
+ =?utf-8?B?dVBQazJ3QmthZmNSQzZ0R2tUdmM5TWppVmRGUTNHSlQwNVQwOWJnZmRJTG52?=
+ =?utf-8?B?ZWRWcEZHaHlVbWpDSnhtc3BRWEJZZFJWNW00dUYwRzU4WHQ4OVlCak9kL05l?=
+ =?utf-8?Q?9VzUcZaTDJl+PdPGjPk/j6cD3SKiuC3RV3BvE?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4ba750de-2597-47ce-f990-08ded68f945a
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0811f75-28ac-4800-5d51-08ded68f8d98
 X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9422.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 10:08:49.3458
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 10:08:38.1975
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: wgIAm7rXYRcQtrItful+8WCimjHamr+P9SmtOA+vwDanum94O5oCEtk/d5X6DbFx9LSLoEPUF6UMplcUwn3ep4MuSFkd7VeCZBsD/cLdjLumaHG2G6GlhQFeM0W5GCw4
+X-MS-Exchange-CrossTenant-UserPrincipalName: dQwN7/mQQER8RAoqgBT40tVEiSO5gB0KHzyHa2IfTyiLc/PzFFdQj3vG7MAujbJGOs4tYlQo0Cpi0okhYVYAh5sUjJa1MvrdILux5gCowim7LQ3yEocjbs9ErJfUs0Qz
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10991
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_030855_196963_872C8B0D 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20260630_030845_791046_8154BAD9 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,85 +159,167 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xu Yang <xu.yang_2@nxp.com>
 
-On i.MX8MP, the USB PHY has a dedicated power domain that was previously
-never powered off at runtime. With the introduction of runtime PM support,
-the power domain will be powered off if the device is runtime suspended,
-which breaks USB wakeup functionality.
+Add runtime PM to ensure the PHY is properly powered and clocked during
+register access, preventing potential system hangs.
 
-To preserve wakeup functionality, mark the PHY power domain as runtime
-always-on for i.MX8MP platform. To limit the behavior to i.MX8MP, add a
-new imx95_usb_phy_ops for i.MX95 and introduce usb_phy_is_imx8mp() helper
-to identify i.MX8MP PHY instance.
+It guards register access in the following scenarios:
+- PHY operations: init() and power_on/off() callbacks are guarded by
+  phy core
+- Type-C orientation switching when PHY/Controller are suspended which
+  needs explicitly care
+- Future PHY control port register regmap debugfs access
 
 Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
 ---
 Changes in v5:
- - no changes
+ - use non-devm PM runtime callback to correctly enable/disable clocks
+   when unbind the device
 Changes in v4:
- - no changes
+ - replace guard() with PM_RUNTIME_ACQUIRE()
 Changes in v3:
  - new patch
 ---
- drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 18 +++++++++++++++++-
- 1 file changed, 17 insertions(+), 1 deletion(-)
+ drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 64 +++++++++++++++++++++---------
+ 1 file changed, 45 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
-index 4949ec78d304..c9741b532663 100644
+index 3a5788c609e1..9d1dd0e7352e 100644
 --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
 +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
 @@ -9,6 +9,7 @@
  #include <linux/of.h>
  #include <linux/phy/phy.h>
  #include <linux/platform_device.h>
-+#include <linux/pm_domain.h>
- #include <linux/pm_runtime.h>
++#include <linux/pm_runtime.h>
  #include <linux/regulator/consumer.h>
- #include <linux/regmap.h>
-@@ -660,13 +661,20 @@ static const struct phy_ops imx8mp_usb_phy_ops = {
- 	.owner		= THIS_MODULE,
- };
+ #include <linux/usb/typec_mux.h>
  
-+static const struct phy_ops imx95_usb_phy_ops = {
-+	.init		= imx8mp_usb_phy_init,
-+	.power_on	= imx8mq_phy_power_on,
-+	.power_off	= imx8mq_phy_power_off,
-+	.owner		= THIS_MODULE,
-+};
-+
- static const struct of_device_id imx8mq_usb_phy_of_match[] = {
- 	{.compatible = "fsl,imx8mq-usb-phy",
- 	 .data = &imx8mq_usb_phy_ops,},
- 	{.compatible = "fsl,imx8mp-usb-phy",
- 	 .data = &imx8mp_usb_phy_ops,},
- 	{.compatible = "fsl,imx95-usb-phy",
--	 .data = &imx8mp_usb_phy_ops,},
-+	 .data = &imx95_usb_phy_ops,},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, imx8mq_usb_phy_of_match);
-@@ -679,6 +687,11 @@ static const struct regmap_config imx_cr_regmap_config = {
- 	.max_register = 0x7,
- };
- 
-+static bool usb_phy_is_imx8mp(const void *data)
-+{
-+	return data == &imx8mp_usb_phy_ops;
-+}
-+
- static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+@@ -136,17 +137,15 @@ static int tca_blk_typec_switch_set(struct typec_switch_dev *sw,
  {
- 	struct phy_provider *phy_provider;
-@@ -721,6 +734,9 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+ 	struct imx8mq_usb_phy *imx_phy = typec_switch_get_drvdata(sw);
+ 	struct tca_blk *tca = imx_phy->tca;
+-	int ret;
+ 
+ 	if (tca->orientation == orientation)
+ 		return 0;
+ 
+-	ret = clk_prepare_enable(imx_phy->clk);
+-	if (ret)
+-		return ret;
++	PM_RUNTIME_ACQUIRE(&imx_phy->phy->dev, pm);
++	if (PM_RUNTIME_ACQUIRE_ERR(&pm))
++		return -ENXIO;
+ 
+ 	tca_blk_orientation_set(tca, orientation);
+-	clk_disable_unprepare(imx_phy->clk);
+ 
+ 	return 0;
+ }
+@@ -620,16 +619,6 @@ static int imx8mq_phy_power_on(struct phy *phy)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = clk_prepare_enable(imx_phy->clk);
+-	if (ret)
+-		return ret;
+-
+-	ret = clk_prepare_enable(imx_phy->alt_clk);
+-	if (ret) {
+-		clk_disable_unprepare(imx_phy->clk);
+-		return ret;
+-	}
+-
+ 	/* Disable rx term override */
+ 	value = readl(imx_phy->base + PHY_CTRL6);
+ 	value &= ~PHY_CTRL6_RXTERM_OVERRIDE_SEL;
+@@ -648,8 +637,6 @@ static int imx8mq_phy_power_off(struct phy *phy)
+ 	value |= PHY_CTRL6_RXTERM_OVERRIDE_SEL;
+ 	writel(value, imx_phy->base + PHY_CTRL6);
+ 
+-	clk_disable_unprepare(imx_phy->alt_clk);
+-	clk_disable_unprepare(imx_phy->clk);
+ 	regulator_disable(imx_phy->vbus);
+ 
+ 	return 0;
+@@ -693,13 +680,13 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, imx_phy);
+ 
+-	imx_phy->clk = devm_clk_get(dev, "phy");
++	imx_phy->clk = devm_clk_get_enabled(dev, "phy");
+ 	if (IS_ERR(imx_phy->clk)) {
+ 		dev_err(dev, "failed to get imx8mq usb phy clock\n");
+ 		return PTR_ERR(imx_phy->clk);
+ 	}
+ 
+-	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
++	imx_phy->alt_clk = devm_clk_get_optional_enabled(dev, "alt");
+ 	if (IS_ERR(imx_phy->alt_clk))
+ 		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
+ 				    "Failed to get alt clk\n");
+@@ -708,6 +695,9 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+ 	if (IS_ERR(imx_phy->base))
+ 		return PTR_ERR(imx_phy->base);
+ 
++	pm_runtime_set_active(dev);
++	pm_runtime_enable(dev);
++
+ 	phy_ops = of_device_get_match_data(dev);
  	if (!phy_ops)
  		return -EINVAL;
+@@ -737,15 +727,51 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
  
-+	if (usb_phy_is_imx8mp(phy_ops))
-+		dev_pm_genpd_rpm_always_on(dev, true);
+ static void imx8mq_usb_phy_remove(struct platform_device *pdev)
+ {
++	struct device *dev = &pdev->dev;
 +
- 	imx_phy->phy = devm_phy_create(dev, NULL, phy_ops);
- 	if (IS_ERR(imx_phy->phy))
- 		return PTR_ERR(imx_phy->phy);
++	pm_runtime_get_sync(dev);
++	pm_runtime_disable(dev);
++	pm_runtime_put_noidle(dev);
++}
++
++static int imx8mq_usb_phy_runtime_suspend(struct device *dev)
++{
++	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(imx_phy->alt_clk);
++	clk_disable_unprepare(imx_phy->clk);
++
++	return 0;
++}
++
++static int imx8mq_usb_phy_runtime_resume(struct device *dev)
++{
++	struct imx8mq_usb_phy *imx_phy = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_prepare_enable(imx_phy->clk);
++	if (ret)
++		return ret;
+ 
++	ret = clk_prepare_enable(imx_phy->alt_clk);
++	if (ret) {
++		clk_disable_unprepare(imx_phy->clk);
++		return ret;
++	}
++
++	return 0;
+ }
+ 
++static DEFINE_RUNTIME_DEV_PM_OPS(imx8mq_usb_phy_pm_ops, imx8mq_usb_phy_runtime_suspend,
++				 imx8mq_usb_phy_runtime_resume, NULL);
++
+ static struct platform_driver imx8mq_usb_phy_driver = {
+ 	.probe	= imx8mq_usb_phy_probe,
+ 	.remove = imx8mq_usb_phy_remove,
+ 	.driver = {
+ 		.name	= "imx8mq-usb-phy",
+ 		.of_match_table	= imx8mq_usb_phy_of_match,
++		.pm = pm_ptr(&imx8mq_usb_phy_pm_ops),
+ 		.suppress_bind_attrs = true,
+ 	}
+ };
 
 -- 
 2.34.1
