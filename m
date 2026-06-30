@@ -4,134 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC839C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 02:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A800C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 02:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rLhjcB2WqeT5iJksRei1J1Ctm6hA3No6Kvf5FjGA7B8=; b=Biaz3pHdKJEnApgOfH6J7C9M1a
-	SuNJWW3+MZDVWOKauwJK5TYmMI5GE29+Q51n5SsPA6KaKPWvMxzoDSPwL9XX9zLD0B8OMdd9p6LJY
-	NaqqXrZc/J0eEjjRVO2dLHLEBTHVQ8hQvGI0sm/DNv39M0+7iQyzjeuiwSFDixRs1undiB+O6Crcu
-	rZAisSXVdZ3Oj4nKuns7BEf0E/fgoRbtYFx4HS+A8+Xp/NmECGPj5jWENqsZYjHvH8oyKdGYUkwh7
-	CBsZiXGX8Xy8g7q2q7Ovb4XCPUOM6KUwj5VWic6mu0qiso8dG+tZpwDj1e2i4jd59fDosX/1A3Yjr
-	P4phM9rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=roUf/zuvB6EYzKdWEjz0GHQvKg6pHRTjmrvxGeJquGQ=; b=yyvtK3/Cb3o9JN5lP8TWjfRjTv
+	t/ddXuWFrTIktlia5PAUq7xN5C91+7eNmVJvL6KcFj4hzAGKLKwyYVCteSN6AatZpR0sBRBHZC2ht
+	CViX1H6Rx806pIxE9hlujccutcXBbEPajNK8LW47EPekyD3R2/wAvlys3osJLlAYBEKSTMrUnb4d0
+	BlmOSScsOsb6whZ4IR6iRpuoK2EAUZCmFzzqdcobu3LFWTa8mZ9G3Z7phx1mwfkbwkoMiY259E9/0
+	vn7IjRjafuu+oyaL3SLJ1QsR7Aa2RWbAB2rgovCfJT86zBgj4UWfVpp7AiaTCTDN8SP4fREXjQAxV
+	iuttnXrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weOEb-0000000Fhwg-4Alu;
-	Tue, 30 Jun 2026 02:30:01 +0000
-Received: from mail-westeuropeazon11013005.outbound.protection.outlook.com ([52.101.72.5] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1weOKC-0000000FiIY-3PFd;
+	Tue, 30 Jun 2026 02:35:48 +0000
+Received: from [216.200.240.184] (helo=mailgw01.mediatek.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weOEU-0000000Fhuu-3uJk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 02:29:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eDEj21zvHWPLb+BS5CFplc4gOU+UoHJ/nuZh5DSWA9yGrg0vxytRs02olT8NPFSXDOQiP1FNF1701VaXeGJul3ppvlVvqPxDDifpE0i1S54xAhO2hhEmVFrzbzpZRNjbdMYNRC4JZSp0ZKVwipJrMWFLlWcXOvq8ZUjE1ydECzfuidxKK2ZWndPJNlwjtIyfl6mr5JhZy34xSWhP3R/S13IwwuiahEHwhKFRrqX/wpAn7C2DpM3lfmtFo8KFaG9QrpoWf6T93izxI91v+q51noFhzc5ihbBMCpe3gAmG0sESo8go/i4Sa5t2tHnUu6RC6l3Cff7Kg6Aw6sMoqw2/Cw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rLhjcB2WqeT5iJksRei1J1Ctm6hA3No6Kvf5FjGA7B8=;
- b=Nd7UNDvKuxEa2du5x/h2JKpaa9pyXcwf9N5PkygkhuoVP/Wu8HIUTf64y/1oXK/g06TRyDNXZx4z8QJpGfMsB8DWcrz41sEb+d3mywhZQ+B/gqR2MIOS3XlADWrTYPz8H/vyMEKCq9Whn0RzTNMcxjDuIIDcMJGDgKWYeGQcdexwoQT3bOCJUgFjCNeBE+PJyY3h7paFDCPXMagT/KxnmtODjUPNJzlyJbsCthw5/M+kHsOHa3uTYFLMZuhTas2+JYKJRKSbo2XvCgqH9WCI86ud6FIWFgdfXlbNNlSwIHz7ETVfqt/Lr3Z8TEgdukxwIOcr69ylkS0Pg+QFUBOBYg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rLhjcB2WqeT5iJksRei1J1Ctm6hA3No6Kvf5FjGA7B8=;
- b=ZTUdHisHmQWFMexIg6fWipT72q9YcgGSN7xj8JtBEwKVAiiNO9GTHWmIxC9E1iVeDWT1BeDty7EUtnCB6Iu6kY5syOYz0oIHibx1oV2x389rlBNHMJsxPMUOCIfqbAhprvvKIMa/bJFMu46KwSnYsGxWICI2zPs+rlXMBfOUmfathLhI7llIyYbKmTrDh1nA2NPqzWapWD1a0ToFeEFWsAN4ljmJzo1u/N/45/VLZqYPyHi1LhvxlHDwArgvsV9MnDCM5JSjApnglTqvGKy/na0oRpq1XzeZ8Y/RXfcAIylFIX4lkOGrWmmQwc7IlPs5QkCc/2EOEUe45LKNQWWXwg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by DB9PR04MB11661.eurprd04.prod.outlook.com (2603:10a6:10:60f::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Tue, 30 Jun
- 2026 02:29:52 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
- 02:29:52 +0000
-From: hongxing.zhu@oss.nxp.com
-To: sherry.sun@nxp.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	frank.li@nxp.com,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com
-Cc: kernel@pengutronix.de,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v5 2/2] arm64: dts: imx943-evk: Add Root Port node and according properties
-Date: Tue, 30 Jun 2026 10:30:06 +0800
-Message-Id: <20260630023006.3247578-2-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260630023006.3247578-1-hongxing.zhu@oss.nxp.com>
-References: <20260630023006.3247578-1-hongxing.zhu@oss.nxp.com>
+	id 1weOKA-0000000FiHx-0YFo;
+	Tue, 30 Jun 2026 02:35:47 +0000
+X-UUID: 607960be742c11f1afed4741b24580c9-20260629
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=roUf/zuvB6EYzKdWEjz0GHQvKg6pHRTjmrvxGeJquGQ=;
+	b=UTxYgOo8+DKdBRGUkC3/T+MFxh6zOnDiQlpfKCFkQYAsONkqlfoPj8k+DWUZSGVWrLAr0sF4FMrazm7Bp0OVi0LfNeDCapGwrsz6iYOGGidQhWnokL+ZziCCQTWvpLE7AuZAi0sQBzlujzyZVSh1B1Y/k0I+PMF86iWoWbYsXS8=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.17,REQID:a94a205d-73e9-41f9-9a43-72baeeeaf0f0,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:d497b38,CLOUDID:5c87e26f-49ea-4ec0-9464-9dd6a9cdc4ef,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 607960be742c11f1afed4741b24580c9-20260629
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw01.mediatek.com
+	(envelope-from <shiming.cheng@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 359347101; Mon, 29 Jun 2026 19:35:37 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS14N2.mediatek.inc (172.21.101.76) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Tue, 30 Jun 2026 10:35:34 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Tue, 30 Jun 2026 10:35:33 +0800
+From: Shiming Cheng <shiming.cheng@mediatek.com>
+To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
+	<daniel.zahka@gmail.com>, <alice@isovalent.com>, <sd@queasysnail.net>,
+	<eilaimemedsnaimel@gmail.com>, <imv4bel@gmail.com>, <nbd@nbd.name>,
+	<dsahern@kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: <stable@vger.kernel.org>, <lena.wang@mediatek.com>,
+	<shiming.cheng@mediatek.com>
+Subject: [PATCH v3] Subject: [PATCH] net: gro: fix double aggregation of flush-marked skbs
+Date: Tue, 30 Jun 2026 10:35:02 +0800
+Message-ID: <20260630023512.26927-1-shiming.cheng@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: SI2P153CA0023.APCP153.PROD.OUTLOOK.COM (2603:1096:4:190::6)
- To PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|DB9PR04MB11661:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5cc84f7-31b0-46cb-682b-08ded64f7746
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|7416014|376014|19092799006|22082099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: G0tvfrp88R4pwNLCwcn2S8qwBaK1vLRbdtdsOe2dPO72IxaKfC4i2588sFcvLqLbtRsTzs80chBMXK1fD0aWrKZlWZ6HIr56rYDJqohnZ3jk40GGvkUsmxPzbfzGj9CvwG/a3EXp6Cos9aN9gLjk0udh5HQUQzpuJ3qiIq+Yk/SQ1UwrI8AhNLFsnjyEqSAxIvlh2alEbZIlt5+hxMsjSax/0PpPV5cwAAlf1rPByRUu/kPtH+lXh9M+0dOItke/bMoEu7uAQgf28mNFV48YmhzqWz8JEAl8Jp5uzxnTnSpc5lBe3BKRabUbeVLwUA/yJkaDAVjEAWD70KD+HpTHY6g03u45v+nznvRbVJcLPtIjU2aMJn/+3JI+eExgDqYk5fEovPHlBPE6Awm7jd9iW3DJoyLz109ZxhVlz0wC+f7X3jQdhW/k9ds23y2/V3Vp1QVTPcB7objsijtnElczxvu0GM3evfIgoMgttuBmXIZZ1+kR/SQAwdNfHmMHqk/Wnrxg0toNvsVd555KCL0AL0Mw3pbSdo82N8MOd7IUsQQtsl/vECbOUxPShu2aXwjpzwuwcScZa0vhFaJs9RsfzL66KaOlBr6dF1z4ut6S6A6BkRN4BWhzWvYqqDpOUoRTSuMO5QLVMmFp8vOQFxydoQ8x+l1SlV+Bh614YBTa3eU=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(7416014)(376014)(19092799006)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fjEs8Lk4HsMrXvRdt4BP5SU5xPKz6x5DodGsan9VPIlrPAuQoOamfTsEhjF7?=
- =?us-ascii?Q?MK3uOand8KGkW4r663W0AepIiewD2Zz3+KjFK7zLA0fMAe5w4b1LqQU6UZzH?=
- =?us-ascii?Q?ZZIm5jApDD15WdxH9wJmt6xQkrv9MWbrTDslqlRqWSQMZHvH2rtnCTMqmsJf?=
- =?us-ascii?Q?ejOIezU3hx5PNROBiFO/jOTLEUlL5oPJvQgOeB84j9EcQV5i6ATGLYjAd6V4?=
- =?us-ascii?Q?rwmLb5QsPb7pxM0Ge4tpKEoNuNO/gmmx5iTBpFiSBSigzCpzhXpYYQ6uYLey?=
- =?us-ascii?Q?2da2odEthOyl+LLOBPe/9IRCvTZmDe23JHp4H6s5E+PxAfML41P3GQDWsXa7?=
- =?us-ascii?Q?AIa4hT9ZBKqzvAJs5wLrMtXpd0UMVc8Ht8gc6LiYgt1OAJIhuJ2bu1MjAKBb?=
- =?us-ascii?Q?STw2egiDHjn3zujHu09/Kz9KEHeuT922DHu6Z6JlT1fKxOD7OYWdn+kSRj60?=
- =?us-ascii?Q?riti2k9hlsPlw7KgAmadISjyoUznCdDVLyQfaplqQQUgPBSY7Oe9AjK/Xht4?=
- =?us-ascii?Q?j7Cr9PjR+wVHssXlWDCy1wQb2IJs9QsTG0d/QaCgcCcBQN0vMNybnLV7/zOg?=
- =?us-ascii?Q?MnXe1SNNSOfVQCDEsISLJHMUGDXG08jUTPN+Aq4vUv4xEBGzHCYFIBE2Oqw7?=
- =?us-ascii?Q?sTuqHptWkXde3AvxDaJN0Q6TrnCu6xnmkaWCkeH9/u3JzntmWzvD5HbHZTjU?=
- =?us-ascii?Q?Q9mMDjeqzgoNfGtEw90gTyzuDlHtCqymCOcqLRRDIK32Lbk/Ro3QkgVfajl1?=
- =?us-ascii?Q?C401WbZmT42PuziBAosrjByuAOzDAuhsxY5ArLLysUne3i2yHoEy/5nJi5wf?=
- =?us-ascii?Q?m+UUJ17XLgbfRQWAtJLE8FdiIdt+qv+oQACT3tY0wpB11/VKl3JRncFsBQmO?=
- =?us-ascii?Q?+x2BWCxLYI90mbJssLgOy50AJaT4VPhgcnPSm3R4lT889eyDygLf+Q3Ep6IK?=
- =?us-ascii?Q?2bo8WQhPHKREuXV4biDSjsTmLD5hUZUaz1QPvvkUFTMu+xWM8Y4adxmNj3T8?=
- =?us-ascii?Q?yQfWxAGvID/abKa3SoLXbbFNOQqLOxB+Eb81SnHqb/GNj35jv0YCs6zAC5Mh?=
- =?us-ascii?Q?yxJ8wjAvxdCX7j8UGDjH97a84Q37xM2y9l2TnRMtDbf25CpAN2i8fMOzOEEG?=
- =?us-ascii?Q?fYgSHcC1LiQOP2dLqT+O9t37zawJ2KTG/JvSRORX3p4XZYZ0QoHnXjfR+jXP?=
- =?us-ascii?Q?yNEGB3U1QB5Dc2GrQSGNp+8VPKjliEY+FMxGRlHV72EGpXs297zDyGPNI9jC?=
- =?us-ascii?Q?kyg4vgF1H/byBYRyzfhRFmW+HF/dvco55KWkkcBN/EP/Gqx3JveU1CYkuLPZ?=
- =?us-ascii?Q?vYV++3XZchyiLHuaIlea9Nv7t+h5VWJG9Ugpl4JHwGsbqLuwOmjCwthLeX2m?=
- =?us-ascii?Q?7IWvMOscRbEi3fCM+yNVjmo7yFPw0unGohszg/7CZBHjzQJUOh69pEwxGVsT?=
- =?us-ascii?Q?3m6xjBVxK7QhGbBKHef3ymv0QRBmicsSCM8R1vYJ5IVFPxNKthfp3Yo4i3yT?=
- =?us-ascii?Q?/xXaqzVZrPWGmNfCdO2EmYR8QTodQU2fd2Dtyo1byAbrNARuUA9Yv5trojnx?=
- =?us-ascii?Q?Ffa3Zy7rw3KaZ7ivkwY82I5MYBII2V4Hw6UpHl5flW9qejqIPS+5pSdYWvSL?=
- =?us-ascii?Q?8ThhsPzlXPznLlpTwGu47XK4msoGJ4tQrYAddEwKw4ay7dSaRFUDTOzWrXUm?=
- =?us-ascii?Q?9zxRJgXjzQiQ5DubNji5BjoclXZwL97DN5f+K/vCTuZHvMrjkpwqxDwGgMAv?=
- =?us-ascii?Q?VJh/+NtJnZHLmSomjdIA3T235zhWm/Osi4WX4O6rvvmcSOFwtvNN?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5cc84f7-31b0-46cb-682b-08ded64f7746
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 02:29:52.6647
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eXeHUtEq1EeYszz5KAFwYdG7dTrpwW3bae0ZMBez0KcAznnCnEEmTdGz5QE+Qz5qdAqE76YJO/5BbC+TFpcm3PXMRTdztlcV8NOKP1E+XuDoAKc46LxLxZSdeDPxovEi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB11661
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_192954_977076_491D8011 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_193546_197882_1DA9ECBB 
+X-CRM114-Status: GOOD (  13.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,62 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+The new skb_gro_receive_list() function is missing a critical safety check
+present in the legacy skb_gro_receive() path. Specifically, it does not
+validate NAPI_GRO_CB(skb)->flush before allowing packet aggregation.
 
-Since describing the PCIe PERST# property under Host Bridge node is now
-deprecated, it is recommended to add it to the Root Port node, so
-creating the Root Port node and add the reset-gpios property in Root
-Port.
-Move the regulator to Root Port nodes as well, because that the PCI
-pwrctrl framework had been integrated into pci-imx6 driver.
+This allows already-GRO'd packets with existing frag_list to be
+re-aggregated into a new GRO session, corrupting the frag_list chain
+structure. When skb_segment() attempts to unpack these malformed packets,
+it encounters invalid state and triggers a kernel panic.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-Reviewed-by: Sherry Sun <sherry.sun@nxp.com>
+Scenario (Tethering/Device forwarding):
+  1. Driver: Generated aggregated packet P1 via LRO with frag_list
+  2. Dev A: Receives aggregated fraglist packet and flush flag set
+  3. Dev A: Re-enters GRO, skb_gro_receive_list() is called
+  4. Missing flush check allows re-aggregation despite flush flag
+  5. Frag_list chain becomes corrupted (loops or dangling refs)
+  6. Dev B: TX path calls skb_segment(), crashes on corrupted frag_list
+
+Root cause in skb_segment():
+  The check at line ~4891:
+    if (hsize <= 0 && i >= nfrags && skb_headlen(list_skb) &&
+        (skb_headlen(list_skb) == len || sg)) {
+
+  When frag_list is corrupted by double aggregation, when list_skb is
+  a NULL pointer from skb->next, skb_headlen(list_skb) dereference
+  NULL/corrupted pointers occurs.
+
+Call Trace:
+ skb_headlen(NULL skb)
+ skb_segment
+ tcp_gso_segment
+ tcp4_gso_segment
+ inet_gso_segment
+ skb_mac_gso_segment
+ __skb_gso_segment
+ skb_gso_segment
+ validate_xmit_skb
+ validate_xmit_skb_list
+ sch_direct_xmit
+ qdisc_restart
+ __qdisc_run
+ qdisc_run
+ net_tx_action
+
+Fix: Add NAPI_GRO_CB(skb)->flush validation to the early-return check in
+skb_gro_receive_list(), matching the defensive programming pattern of
+skb_gro_receive().
+
+Fixes: 8928756d53d5 ("net: add fraglist GRO/GSO support")
+Cc: stable@vger.kernel.org
+Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
 ---
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 14 ++++++++++----
- 1 file changed, 10 insertions(+), 4 deletions(-)
+ net/core/gro.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-index 7cfd424689507..674410e541cba 100644
---- a/arch/arm64/boot/dts/freescale/imx943-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -1034,12 +1034,15 @@ &pcie0 {
- 		 <&pcie_ref_clk>;
- 	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
- 		      "ref", "extref";
--	reset-gpio = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
--	vpcie3v3aux-supply = <&reg_m2_wlan>;
- 	supports-clkreq;
- 	status = "okay";
- };
+diff --git a/net/core/gro.c b/net/core/gro.c
+index 35f2f708f010..076247c1e662 100644
+--- a/net/core/gro.c
++++ b/net/core/gro.c
+@@ -229,7 +229,8 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
  
-+&pcie0_port0 {
-+	reset-gpios = <&pcal6416_i2c3_u46 3 GPIO_ACTIVE_LOW>;
-+	vpcie3v3aux-supply = <&reg_m2_wlan>;
-+};
-+
- &pcie0_ep {
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	pinctrl-names = "default";
-@@ -1058,12 +1061,15 @@ &pcie1 {
- 		 <&pcie_ref_clk>;
- 	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux",
- 		      "ref", "extref";
--	reset-gpio = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
--	vpcie3v3aux-supply = <&reg_slot_pwr>;
- 	supports-clkreq;
- 	status = "okay";
- };
+ int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
+ {
+-	if (unlikely(p->len + skb->len >= 65536))
++	if (unlikely(p->len + skb->len >= 65536 ||
++		     NAPI_GRO_CB(skb)->flush))
+ 		return -E2BIG;
  
-+&pcie1_port0 {
-+	reset-gpios = <&pcal6416_i2c3_u46 1 GPIO_ACTIVE_LOW>;
-+	vpcie3v3aux-supply = <&reg_slot_pwr>;
-+};
-+
- &pcie1_ep {
- 	pinctrl-0 = <&pinctrl_pcie1>;
- 	pinctrl-names = "default";
+ 	if (!pskb_may_pull(skb, skb_gro_offset(skb))) {
 -- 
-2.34.1
+2.45.2
 
 
