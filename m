@@ -4,82 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE334C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0D73C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 13:31:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ac1w5UDndWpfCVQuaUsP7m+pP7PCwbr3gsBFVFw2qGA=; b=v8meZ5waBzo1HyW39Fg3SEn95/
-	rT5hFfo3F1u3N4wYyKbd5Txmu11LhYb3SYyxiyernYyUM3v6c/VdyXHvHc5Oh4ika6N+Wy5YTO/Ap
-	Urz6jHN+SHWTDI9ga3cBG/mnmcHxEALeptIr5D3Xe8l5uJIVIixIAU3WNi5CGqDSB+KriCiV2K2wW
-	lStemZcrHCNN3HFTGaXNMZCiVMr7tK5UElA+Kb7ZbCvVw6u9001w70sjtjr4o/2g0X4xJUmI8tgtz
-	2Ln2u2jwfqA4nPONykjiEZW4AXbUFuZgHRHxnfcQ/RrdMMJQSZTVMtiwiuwoxL8T/l7lAM+JrVvOG
-	lAT7r4XQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=egb+qkBBsK0jKpGGkevqNSZWERHgAMVA1ALsW8FN87o=; b=3TX1hbf2C2A3cmvr+x4G0KbN6C
+	xCai8HmwmY/7JYMKgTnkvKsNWAHfTL+2wAurA8ZUQRs++JBoALGxPSq7eTRDfi7lO/eI2xQjYX3S4
+	ge+1IN5jRFke7VKLzEA9gxDxkyNaZzEIOZNc3w2IszmpYTcCuxGhE77XrrG/ijqtdpY2DASGpvbfs
+	sFSIkLVCzom5SV+mO3G45tTOZCLmk0h61SuMQ/M0I2i62H15gOCtXRJXOg0gWl9rvfUClNBKcF5xV
+	Fo6smlvFaAe6KKxWtJfZADt75Nw7mdsuTV4AWX2ZtPxJB2Er695izKGaEe9/nqTFHmw0H90OV/ogY
+	l/2JvhYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYWO-0000000HACp-0lhl;
-	Tue, 30 Jun 2026 13:29:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1weYYa-0000000HAZV-3JvC;
+	Tue, 30 Jun 2026 13:31:20 +0000
+Received: from mail-southcentralusazon11011031.outbound.protection.outlook.com ([40.93.194.31] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weYWM-0000000HACS-0lTQ;
-	Tue, 30 Jun 2026 13:29:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9941413E3;
-	Tue, 30 Jun 2026 13:29:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 105D11F000E9;
-	Tue, 30 Jun 2026 13:28:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782826141;
-	bh=ac1w5UDndWpfCVQuaUsP7m+pP7PCwbr3gsBFVFw2qGA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QKmCj9qbPK0we9uPiMzsH/1QI6avTbJheXUhzVhwkeaYfI+Jpd3HS4x2mbeB0dwYn
-	 d8w/RNPjSGg1L53htA99jxAztPNEoxgurte9Ag5XBLdJWWnV6pfG1EK1qEySHdavGc
-	 ngO2XsQhNwQBud6rWIBkjjZGZvfYKPDjXo9OPJZ77+7lInP4qC6tu8kNDBlWOCoQzs
-	 9Fa24EWY9G8HarZsR3tucNx7Kw+HzhBCAUZGAWMRaH6vbicVMmsu16Kk2c6l9peDWy
-	 TATPkcMk7V/VBzym6rD71QDQlndxoibjFncQuW9RyKVxpgnzkHkRqA2B+Z9WKIaJRp
-	 S3lJH2JULnXDg==
-Date: Tue, 30 Jun 2026 14:28:53 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Bui Duc Phuc <phucduc.bui@gmail.com>
-Cc: Herve Codina <herve.codina@bootlin.com>, Takashi Iwai <tiwai@suse.com>,
-	Nick Li <nick.li@foursemi.com>,
-	Support Opensource <support.opensource@diasemi.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>,
-	Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-	Oder Chiou <oder_chiou@realtek.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	u.kleine-koenig@baylibre.com, Zhang Yi <zhangyi@everest-semi.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Qianfeng Rong <rongqianfeng@vivo.com>, linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org, patches@opensource.cirrus.com,
-	linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 09/27] ASoC: codecs: idt821034: Use guard() for mutex
- locks
-Message-ID: <f5ab965a-9640-4df0-8108-7877f34b6950@sirena.org.uk>
-References: <20260630063449.503996-1-phucduc.bui@gmail.com>
- <20260630063449.503996-10-phucduc.bui@gmail.com>
- <20260630092821.650c30ec@bootlin.com>
- <CAABR9nG5Wo1Wb+2_T6dR+6XTw8Vs9awSpQrSZ+k6=jp_ogoGCw@mail.gmail.com>
+	id 1weYYU-0000000HAWc-4171
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 13:31:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xFcY7DZF4GU8V5Uwv7K+QZVaRPzRKB9HG592V0ifXxHUCiRxuWnQ6I+HB+pkdg61YenSeMmKb6bKiwF5VGixO+2yJSW0vPDCvHZhnj9qa+z1+CO6e6urip+xq77kPMyt3n3RcQyfFhKLv0JGmmBK2OV8pZ+OboRlghFT7uSsFwoRT2jYH9fXFiR6fWSglopZiQyN1PjfCFprq9t5rXr25+RqeWUZn4cNduV8oHxge/DUJDLggU1yTrKWb61ODssNSVev/O8MX46KQJtt7itFRfRnMAUtFuuoGk6Gb3aAv5Bm5upzcU5KGMtuoj5mjdVjRZXPW4kBIHpMlyRcB7ZTyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=egb+qkBBsK0jKpGGkevqNSZWERHgAMVA1ALsW8FN87o=;
+ b=AI8DAdWEK9EP6Yd5l9dXrHs+5IykrnGfAxTwUbFYC9QCkZxv/mPCYw0Gb+cawXncYLWeSoEM8O0me48ONCr2aEVgEDUZvcqHtIjvaLLuXQ4kU+m+YrRhCPuFjwjrmt2BvjR19krUIOM1wdJfvp5fJGjnbw33TeW2H2yIjn/y0v8WTML6LiQvAASgn+7p+qMlZvzkCgxa9oBiFftz6jajWCXWdQSX1V3DjJAlttiIb3F2hlGS0uSJk+n70WPLD+Hc0IIJZIbE1Og9iDaFcLbBTRCKOl5z81pk/qGEKbbwa1c75/EjpAfOPHXLx7TQmykHuo1MhdPcMFYM1PNH3nE3FQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=egb+qkBBsK0jKpGGkevqNSZWERHgAMVA1ALsW8FN87o=;
+ b=YXQSIt2hED7yxoR521SImMUTO/yqDpmn2KwsE3JLPFLrkky9VehidqwowlSPyDc2CGm+CwRZUEhgfOO+yIx0n1JX+zPUT/VV/x+CxvlZaJaOnnM/HUmCiUUGG12DznS1gmLqciBScQTzieGD0b2UIYMx8vrmM1zzHjUTlgWhnMGI3eFM9i2GTl/booYqhITF84okR5biAUD1z3/C0zI9cgRXLIYX8FOQbIXIqPPGDk0pJeW/R2NLh57fYIDcjpH0mAC2GFVCboUmSlZ06N8UrCiVFLMOVrLVuZKVn39EKqxqerYVYZIgmsG4+OBtynH3Sy2xILAZMkJQu0o94f2new==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by IA1PR03MB8216.namprd03.prod.outlook.com (2603:10b6:208:5b2::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
+ 2026 13:31:10 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
+ 13:31:10 +0000
+From: muhammad.nazim.amirul.nazle.asmade@altera.com
+To: dinguyen@kernel.org,
+	maxime.chevallier@bootlin.com
+Cc: rmk+kernel@armlinux.org.uk,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	robh@kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/3] arm64: dts/net: stmmac: Add Agilex5 SoCDK TSN Config2 board support
+Date: Tue, 30 Jun 2026 06:31:05 -0700
+Message-ID: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+X-Mailer: git-send-email 2.43.7
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR13CA0163.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c7::18) To SJ0PR03MB6964.namprd03.prod.outlook.com
+ (2603:10b6:a03:432::18)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="YvGUs531CHtahqis"
-Content-Disposition: inline
-In-Reply-To: <CAABR9nG5Wo1Wb+2_T6dR+6XTw8Vs9awSpQrSZ+k6=jp_ogoGCw@mail.gmail.com>
-X-Cookie: Air is water with holes in it.
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ0PR03MB6964:EE_|IA1PR03MB8216:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0b2a124f-dc12-4dfc-5130-08ded6abd8be
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|23010399003|376014|18002099003|56012099006|11063799006|55112099003;
+X-Microsoft-Antispam-Message-Info: N+M5xnRsbr+O+iXpLh2cAlZcGVszQqR29xrXewvVMaNOzU/yh7uC3PQ9zNl/K7I0Yn/AyOSBgJd3XG1llhJxPji4/l6hhaPlMyYCtFvFOkt1Rbq9UTDIR6P/tOaWEOvOzSNg2BY+CmiUwOlVuhTcvhGbKw2bFGGFuUwbt807/TxDR7/W6M2m0+zk/kV9ZrJ0+KyLxzeuOsAAML+Fg5n9F/dGnH3ReFkAt2/xuWzPAadSLDh0EdDZzeb1qRkLJ0haP+0QMd8SlYXBN7u6ZnvgiN2BIWPipaydpLIun1ywJK+NB98lOWfk2rz7fsEouo57hOIMfNi43yKrMoeLB1bIlE+Q2JkmeE9weKR+yJx1vrrfMAYAG91Tvdg6z2oXzbpnMuq6RjbK1tXeFAS+bfN722UsNgXszGi/Ym+z+C6ULeEjoYzg0BIzpyBH+tljKk0BFINqnd11nQBpRQrSBO4RAfcv8PGyEjUEj6QSdCl/SjqP+f7PyuYOaiu8kroSXb/b3OaJvReaqS/9wvpS9PFlXYimRuoJLDAYk631QLxCSafzOufvALBExCXrIVg16i9HqTZwR93OFhHStMtHfRXYc0ROuguglRuggCOA7Ez8y2w4Ef3S4dmgTu7YEE+dZGsDLLRHKVSmT8MGz42Kw06QpfePC3olnSYFgsZwPU8hL9w=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(23010399003)(376014)(18002099003)(56012099006)(11063799006)(55112099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fvIC0kiNBhwYdzqM89PesF1aeDM1bxX1NenpOM66tKvyAl5p4MIgOUUG8VUJ?=
+ =?us-ascii?Q?kiJ/sXz15Jc4DqkE2A3iz4YRcU18xPBrK60bcFBgt65huHoG/mMEyfFHVuS4?=
+ =?us-ascii?Q?Vl6czIkuAhkN5xY6LHTj/iHEEwV7dguDasiH96AsRJf0QXftrysEXiunI3Il?=
+ =?us-ascii?Q?+ypVVmQ6MWoSeQv85jwBqeo5RuVqLikAH167hDb5yaLhmhPI5vuDJ8v581PJ?=
+ =?us-ascii?Q?kltYbA5lpchcP98efRgsPnFJ9PyfLQYD+4a7wbnleos+V1Nvxz/RkykPWvGt?=
+ =?us-ascii?Q?Y7rDMKl47iG5ZRliEz+CyxXILUGSppokxTNtHq0otZPO0WQRsdrVjNideLHb?=
+ =?us-ascii?Q?DTlNiR6vvo1dmRVXB6qse7SY99s4LHdXrzKBaMlcgguC7uaNOJkQk9xC9fSB?=
+ =?us-ascii?Q?R+GeaPTdD13+CEtp7ioRm7g9BROMvkp+yNJwHI2h7rRrtKuWapVLl40avQkf?=
+ =?us-ascii?Q?zXBrez5lnwq4WCp/X7goQfaNNCn+g4MFt0ymFNa4IH3B3eeehkIO/KQOrYXF?=
+ =?us-ascii?Q?mq9mkeuOrQ6PyVApiFKDTKEh71fCMsP1P44ZbbpKGxvWw9b7cxa4p6BuVo17?=
+ =?us-ascii?Q?p6iv2tjqYDjhpLUIWYgMazeI6EhjkGxkELQIsP++j4FuTzek9T/aOSzo0Ly3?=
+ =?us-ascii?Q?9L2ZFWhp0W8zuHuh9PNCx/2zTPboyMwx9zeNQpw0QI4IOJuysyih//xm5Y33?=
+ =?us-ascii?Q?SFJ6InujoQKAcR40c2XA+A1fRxyml9gWtg6pVFvTZiMGweNfuKKrHau/InrD?=
+ =?us-ascii?Q?qWBA39IMJSC0+9B5P1cMsnTCWIOWuW++UizHs/ZP8KNFfBhWpLZqQqA27ijv?=
+ =?us-ascii?Q?pP7fQXkAMSrzfUqkYSFq1Km/Hu0eUIUkjtN6gr0waJPgCaWbK9TxfxBW6hit?=
+ =?us-ascii?Q?MlCXmnElqLepdJFZcNGigkYq+LuymSV1GNjb9BCAur8KzdTqNvdkkLUq9LDF?=
+ =?us-ascii?Q?UISLMb56C7k32zpvXZL8b2wx4OnwpP+kfps26UaQVrHyQ3hHZVY9bHRMdySw?=
+ =?us-ascii?Q?8R6rgdEDhalu2HXR4g3BRDsZjwoiAIrDLZAJbGn1wVNi9Nv/PhB5bN2BP2qB?=
+ =?us-ascii?Q?c6NxpxfjAcaqGMiwuHEXGP/ZQceRWll70vK9nVe7qxRkoPpYmCa/eiQ725z6?=
+ =?us-ascii?Q?37uYRk0QS/Nudj+pnynAvMEjR/c572ZWvfOwb3v69sVR3L5S5f7VFfTM3TX5?=
+ =?us-ascii?Q?ziejNfNt3K0UB/SuNoUIMInXhAuiQAb6Wiih+vAQxTbAS+6PS2W8S1FmfMKA?=
+ =?us-ascii?Q?kMU0O3TFJHLY6mrpy0WaDuNymDHHoCHVqt1qd3Xb+yO9HFySGNYzgbdeEg4e?=
+ =?us-ascii?Q?gojz8H73tEqfceMue+y51H6pC2TPZwOvUhqE3Tsu6b1RLN7b4XfK0GBrvcs0?=
+ =?us-ascii?Q?5+ttlQs6C8GZK3pCXdMt73ziO8aqJJPjDmrCz00nzW1j36UArHochF0JkPMK?=
+ =?us-ascii?Q?BZX5NN3twsH0NwcI6AqBt3TzrmfXOGF7WaqkKPVkrN/BU8aGBKl/fWQh0y0z?=
+ =?us-ascii?Q?lSE4QWma5gToulIpEeeYx0mJtPZKu8O0nh6UTqsKF7E4khBVWv6SR/2nQhJR?=
+ =?us-ascii?Q?f8nHeCZA7Jy8ZLrucCiiGj5VMKjkPGAexeBOIB6AaVowmWBCu+D7FjKClgmb?=
+ =?us-ascii?Q?KBt9giWgsAJUn8cBb4raWq5AmHEakqNCnujiJVMK0gWpHN0Rp9NfdVbiLIcN?=
+ =?us-ascii?Q?onjoIkQ7L2fKDV8ViAZgNOGzozWl8NhVS80+DNj3xqyULgX0EbpqyuCsqIKY?=
+ =?us-ascii?Q?rhAtu19G7LR6zdj97C0WnU+sCth69kZYpnKZ6A+VuvqSqRbkF2zjxTg6rZK3?=
+X-MS-Exchange-AntiSpam-MessageData-1: nV6J1qFhv3Apzg==
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0b2a124f-dc12-4dfc-5130-08ded6abd8be
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 13:31:09.9871
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4hwJq2eY1WvZAPDvo9jwvzlyPaWwzKdrQi7wzdyZTzvsl9KMlWnDj1YOFlv8F3gkHExYWOktxViQWQ7iUpsFFhMqN0MVQS8VC3fqF5U16GN6n1mMVWoKfp21r0AOxfQIUtMadnYYE1B/YW+9E5Tfyg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR03MB8216
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260630_063115_028191_7BEDB622 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,37 +148,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
 
---YvGUs531CHtahqis
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+The Intel SoCFPGA Agilex5 SoCDK TSN Config2 board uses a dual-port
+Ethernet setup where gmac1 (TSN port) operates with different MAC-side
+and PHY-side interface modes: GMII internally in the MAC, and RGMII
+towards the PHY.
 
-On Tue, Jun 30, 2026 at 04:14:33PM +0700, Bui Duc Phuc wrote:
-> On Tue, Jun 30, 2026 at 2:28=E2=80=AFPM Herve Codina <herve.codina@bootli=
-n.com> wrote:
-> >
-> > Hi,
+Russell King's commit de696c63c1dc ("net: stmmac: socfpga: convert to
+use phy_interface") replaced mac_interface with phy_interface in
+socfpga_get_plat_phymode(), correctly noting that no upstream DTS files
+set the "mac-mode" property at the time. However, the Agilex5 SoCDK
+TSN Config2 board requires mac-mode and phy-mode to differ, causing
+ping failures when the MAC is configured with RGMII instead of GMII.
 
-Please delete unneeded context from mails when replying.  Doing this
-makes it much easier to find your reply in the message, helping ensure
-it won't be missed by people scrolling through the irrelevant quoted
-material.
+This series fixes the issue in three steps:
 
---YvGUs531CHtahqis
-Content-Type: application/pgp-signature; name="signature.asc"
+  Patch 1 (dt-bindings): Add the compatible string for the new board
+  variant to Documentation/devicetree/bindings/arm/altera.yaml.
 
------BEGIN PGP SIGNATURE-----
+  Patch 2 (dts): Add the device tree source for the Agilex5 SoCDK
+  TSN Config2 board, enabling gmac1 with mac-mode = "gmii" alongside
+  the standard gmac2 port.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpDxJQACgkQJNaLcl1U
-h9DhNQf/XmcvwsWjntcyq28UDoJfIndKAZ0IelWf8Emc+uAmXZNPOWpTM0uqDZes
-/u7MDWAJqUVrhYSkVnpJHeqxagbMgkx8LTWcL9BnkPiUdZCLvpEdsUFp/JUQv6pO
-G8cTLXcjn6emBGCu8fhDirNEMVIAc9OU2Sck85rDBWPz2TCNklkyQs4/7OJCLFcL
-zMkFBQviyoWI3SmaGdbyfEBaC9bKtnapaXKXHNaf34EBXup36NEgzi5akVxGZ1Au
-ZLbaF0yTkzZ1amPpEz3/apXiNcqeqX4XkBDT7VrtCHCEWwL5opd3/Y/JPPy6zeZP
-iOKnlSkh2KUc6XIBbcGg+ofuL0J8+w==
-=Bcef
------END PGP SIGNATURE-----
+  Patch 3 (driver): Restore mac_interface support in dwmac-socfpga by
+  reading the optional "mac-mode" DT property. When absent, it falls
+  back to phy_interface, preserving existing behaviour for all other
+  boards.
 
---YvGUs531CHtahqis--
+Note: Patches 1 and 2 target Dinh Nguyen's SoCFPGA tree
+(git://git.kernel.org/pub/scm/linux/kernel/git/dinguyen/linux.git).
+Patch 3 targets net-next.
+
+Nazim Amirul (3):
+  dt-bindings: arm: altera: Add Agilex5 SoCDK TSN Config2 board
+  arm64: dts: socfpga: agilex5: Add SoCDK TSN Config2 board
+  net: stmmac: dwmac-socfpga: Add mac-mode DT property support
+
+ Documentation/devicetree/bindings/arm/altera.yaml            |   1 +
+ arch/arm64/boot/dts/intel/Makefile                           |   9 +-
+ arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_tsn_cfg2.dts | 133 ++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c          |  23 ++-
+ 4 files changed, 162 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/intel/socfpga_agilex5_socdk_tsn_cfg2.dts
+
+-- 
+2.43.7
+
 
