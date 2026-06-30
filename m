@@ -4,148 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBE38C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:01:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91252C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 08:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IswBlb2AzqPmlcHDIkKH8P06/OkA5QrfAQpG7ms3Yg0=; b=yzNOwmX4KnPmnjcLIfohRQ6eDP
-	Pk1OOer+bZ4S7RpLMkrywMoEn5smQ8l+jsop++DyJArOMQA/f1kvAvMNJBXuMsh7QStHlVsLoiCDR
-	q60/B/WBgh03JXl/cR7MA0EJQwGqDZ4vsEh0C/yM9rV8oRMJbKluoaQ3pdkyNH9HiuHL9Vj5oRHjv
-	FodI84BFCgbzgxh6WO+CbGhjVZITL/ljWydVEimmty+ttqJBLcC7s7mdlwOGqAfJ8+PJaIPTr/Bpk
-	+K6hpDfmK1zFZeofjyZIT3YmYw+zMBNKppYYrvutq6J0nM5CAEgv6mkxoF7SUUfqvjgDgg7X5uMPn
-	P6USdL/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q1CnJZuzdqRqrXbQOY1KrOxkKiVRaNwQ5PMPSeSwmyQ=; b=yVxDz+ffi+8c67lbFcuysTSnxL
+	IVKCFT9DFIPltGfFUOSeqbnvjzSJzV03MdrGmJZcktWGXq/13L9CWBpMDEazyif/Bp3B8HZRpj8am
+	TDidn9Q9mBJxnI/Zntfmb+xUGQuXs7Xp7Oos5CFV0dv9yea02tPS7HbnEmtDHhlwkx+zbx9IzweJ6
+	1ODN9NpZioq0OWSH1nfmy8aM12qMEdKx7/serAklkDum4k4EaGGYFgh5czbmpqsPMdJJiXmAN+M2a
+	a/X7zeBFp8y7OzfJ3JVKJjoBiKs+zjAWdMKlcRYGduPxDMEShG4zycLzSy3JQRZL2Uw3XJpU9xUok
+	60RCYSkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTPZ-0000000GEPs-1qXV;
-	Tue, 30 Jun 2026 08:01:41 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1weTRb-0000000GEZb-3Dn6;
+	Tue, 30 Jun 2026 08:03:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTPX-0000000GEPN-0MNo
+	id 1weTRZ-0000000GEZT-32mF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 08:01:40 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65U6CHEv1030621
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:01:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IswBlb2AzqPmlcHDIkKH8P06/OkA5QrfAQpG7ms3Yg0=; b=BmeaAAvrms5eqOmg
-	W+Vm4pbG8ytGREDBf7XDsDVHNLsWl1UasWjr1y4eugEcs8IWbhO2z+GYX5TesBWd
-	9cWRbuOHDncliYAH9kpgN1HHh42DviBt0pRQ4tGPsh33c4b/y4pG6+jv7XFF6Lr/
-	uLr8vW7mImeRJjXGz7Krmhlef5u6XLYYmLp1GtpbzDJ62Kq6RqfPzUP66tHB4Dfw
-	H8tX3PDkiR+kWbmHPVSJgwcMsNDCtOwbrsu72Ix6V+L+/GIa2MCUHZ5ydl4AP5dC
-	+tQ8c2ZUeHq2VODRHDOzZjLoTvac9QYLVqlRnQ/s1x6KYPGSgxu0gelXmPDgSLIX
-	mi4eLQ==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f44wp180b-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 08:01:37 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-847a483ea41so495664b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 01:01:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782806497; x=1783411297; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IswBlb2AzqPmlcHDIkKH8P06/OkA5QrfAQpG7ms3Yg0=;
-        b=TYw130ZqAzgUEVu4TLLwYdWsQrtwUz0bFVvewiqdYRbY+EaA6/tfRy6Iz+gj57zCEp
-         buhqkn9XgPj8N7U9V+/2NjNUl4Ux8ZJRGm3FzrkVwKCssr8ff4P0qZ4czGBry+/WXBVs
-         VQ+Jik0M9GhQ1RZ7r4c6WrcRTyw3l9D6kONRtiCH9X29iwu4FjXsEbmrb35Z5T2G+7B4
-         e3vkegm5LviQ3PYcwf5w+BzARD3oNmuaGzPgcx7s/WW0gi/i9d3C+ecQYpkFJiI9B3wj
-         SEiuOy0BSWckTot4XhtQK4DF6jq8dYUYb2lcyNCRhI5blRsL9/1FV1s3rAE53ZJLVrOK
-         CYDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782806497; x=1783411297;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IswBlb2AzqPmlcHDIkKH8P06/OkA5QrfAQpG7ms3Yg0=;
-        b=DNY/q5m0xs4AQQlQWWiWs6BE9iwnwsO2UAtY6FgXKeWOkzTXTu+U7eFxwwTrIRmzDa
-         5L6zdINOW/ZWbTarA6jsPG+7/UgDoRdo/oIFCOt06OFR/Q9iufmGH13F47RIPee/bmJR
-         VkBkhM7x4kjHEavxKt9X75uHGdlcfATMPy1nvhslXgGgxeYP9tzwHfgsaWUKN7zHL6ak
-         ZYh/GhBx/hawKu1/ATZKmPdcr1Gbxl+YRP7GecaqhhxwK2YARfgFJHOqcwOl3I7X/x3c
-         gEEutdm4JjWWqwW+Sc9J0SyYpu9fwdN+Q43fsNViiPMzsy0xzKP8HQt08Dk1nyHO203O
-         0zbg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq7DOfxwKOwYv8Fn2QZOv/xQyI5tz4lqLssq/yzngbHYF+ZoyjP/KT+Z+ddsJfzRVeWJriaILIV9w9mEHbW7cd2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxZtyElfw9AyYUSWPR03YEM/tZp2+A1/isWI3zMGcAwszfu5lGT
-	8Jq56MbBJDqrMmsH1v4YHRSKz1P0ujXGLArCByc6HTy0/R4wmDiub4ycEyKkZxxPEcqUi6/Ylmw
-	xfs9IdT6cs/ythq+JgInXWpic48m4/cKFPCR37JD06RG79xPlzeM7IW7SXxP2KxvtBkg+Mw1hNr
-	Zr+Q==
-X-Gm-Gg: AfdE7cm6zlVWhr07FX6q0RLtnPJycV/2Um/2EMyU5/rHPnRcHG+AVoGbb0aOut2KrUZ
-	F8EUWckTVtk58ZwNEDZxlXTXSbagHJzlr71VQryFb/gtXesScTmNISEe9WJoi9QLWKkC7wSai68
-	P86nZ/IFMAUSqlM0vHG+4etUA7J3CUUnnkcnq8fFrQoVngmUh/nAMRmBrcceyVm2pVjD/rAPl0b
-	jeHavPlIbDxB/o9dPVIM4dchncOOxqW5NC6il9H88Nf0INnLyMG/zRgfK1usdF04eAVC4o9z2dw
-	lPvHwdKrr3U2QZ6mFRNbLtIElD6izp+yzt91wF5B5H7oDfx1HumEGlU61JQVJfTNBeSIuhdrOx8
-	6Wa6uFamnttteTqFNw4TOlkKU23xbhdpRqeK1FnpeNhB1QMOEO+aWpoXzdEOhB5PnII827oE5vH
-	Di7wCen4Y=
-X-Received: by 2002:aa7:9307:0:b0:845:df5c:2567 with SMTP id d2e1a72fcca58-847a82501afmr606111b3a.25.1782806497003;
-        Tue, 30 Jun 2026 01:01:37 -0700 (PDT)
-X-Received: by 2002:aa7:9307:0:b0:845:df5c:2567 with SMTP id d2e1a72fcca58-847a82501afmr606054b3a.25.1782806496280;
-        Tue, 30 Jun 2026 01:01:36 -0700 (PDT)
-Received: from [10.133.33.239] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a03cd5c2sm1384983b3a.61.2026.06.30.01.01.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jun 2026 01:01:35 -0700 (PDT)
-Message-ID: <33ee63e5-c1df-47b6-bde1-4fe6b037878a@oss.qualcomm.com>
-Date: Tue, 30 Jun 2026 16:01:17 +0800
+	Tue, 30 Jun 2026 08:03:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CE79260103;
+	Tue, 30 Jun 2026 08:03:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BDBA1F00A3A;
+	Tue, 30 Jun 2026 08:03:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782806624;
+	bh=Q1CnJZuzdqRqrXbQOY1KrOxkKiVRaNwQ5PMPSeSwmyQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=HI3p9o8LsCtg6Srxj8v1lfZCk6daGvVh4kE8F5nwWfIMOKRq4572HagmqtEjc+n2t
+	 l7Rf+zleSiwbvT45g0Zy9nL6w/1ABCza3NiFj52uitO1Z3roYtmrCv3iTo2tIauVlX
+	 YFgHFer7oSshsLGLEauzupjGuP9C4vrfC0FW/74LV7tJJdIbG4MGov/ismJEQ6+mB0
+	 1BUF1Obqf1Q229PeFVCSDsCu6QbJuFykJ1+Ax0MnEGakmfNCgJXf0GJ4PZPXUOTIqE
+	 1/OdKUY6EjQ6jrdo89pZTB8TD8eWtN2sgU7FaYgngb7WBODd4p5XdWiNaNKNNB7v/D
+	 etEm6GbRArB+Q==
+Date: Tue, 30 Jun 2026 10:03:31 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Thierry Reding <thierry.reding@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Karthikeyan Mitran <m.karthikeyan@mobiveil.co.in>, 
+	Hou Zhiqiang <Zhiqiang.Hou@nxp.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	Pali =?utf-8?B?Um9ow6Fy?= <pali@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+	Kevin Xie <kevin.xie@starfivetech.com>, Aksh Garg <a-garg7@ti.com>, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-tegra@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Thierry Reding <treding@nvidia.com>, 
+	Manikanta Maddireddy <mmaddireddy@nvidia.com>
+Subject: Re: [PATCH v7 3/4] PCI: tegra: Add Tegra264 support
+Message-ID: <23rcfdnhnjhdlhiw6eclxap2tk6j5ni7qkfsd3fkfmucvjemie@fvf4j5earp47>
+References: <20260617-tegra264-pcie-v7-0-eae7ae964629@nvidia.com>
+ <20260617-tegra264-pcie-v7-3-eae7ae964629@nvidia.com>
+ <slfaxyt6p5mwsqmxvmriy6npilpjhjxv5ruegj4hnivj6zufkl@o6adjy5jmzfy>
+ <aju3jokcWR5DzPrv@orome>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 0/7] Provide support for Trigger Generation Unit
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Greg KH <gregkh@linuxfoundation.org>,
-        Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: andersson@kernel.org, alexander.shishkin@linux.intel.com,
-        mike.leach@linaro.org, konrad.dybcio@oss.qualcomm.com,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org
-References: <20260417073336.2712426-1-songwei.chai@oss.qualcomm.com>
- <48c6abce-c492-46a6-84ef-3074983e817c@oss.qualcomm.com>
- <a36a1ed3-5194-465c-b029-0404e0f2bcee@oss.qualcomm.com>
- <2026062959-distaste-launder-e253@gregkh>
- <c09d70e1-edd6-41a8-8ab3-db353bb6f8eb@oss.qualcomm.com>
- <ce9a2121-8f7e-4ac2-8795-5ee602966e74@arm.com>
-Content-Language: en-US
-From: "Songwei.Chai" <songwei.chai@oss.qualcomm.com>
-In-Reply-To: <ce9a2121-8f7e-4ac2-8795-5ee602966e74@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: _HIvzpXvpo6sebfWN-0UU1QZOZYpEfDo
-X-Authority-Analysis: v=2.4 cv=AtDeGu9P c=1 sm=1 tr=0 ts=6a4377e1 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=fWFuU9I0zHhLgkhYlfEA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-ORIG-GUID: _HIvzpXvpo6sebfWN-0UU1QZOZYpEfDo
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDA2OSBTYWx0ZWRfX8jkO13HAlzDJ
- Sgxa1yahqsRN23I0nSr+iNub5f7VlNlI/EfnaK11gCjk2nclnt/DMJogKDtd3BUlB+T4ab7Ujng
- Usqra+B51NBPEaeCrSIEYETbvugaBfxaeCYzHo8wyDIBAPIghoI/7akMxAoOtW6i0pCHITgaPAg
- wGZb2cfiT29HYsQtVSeJWIOBq/XalojhNcxAIR10Rji/AysSZVpHl/gUtikjIRdzIPNiV33RyB3
- Kcc9glRUrUsmXDjnA0zKHTbcfSN5WGxYZedivoj2mLRIWMZToaeAP8sXmqJm84VPpugx9JgX6U9
- iyn/3XrzOKXCS3XGx6W2rwyPkwBxIYuh/C+OSGQn4jCjnZVY6/f/wi+qMBqzlXWBI5b/pdKbOSe
- l7a+HQV/SPbkIjrLvOwudFWggmfhxLTQskVTK6lz5aSVQNfT4HbhxB4mytuAE1Vou0HpFtpulsE
- i1NTc0VPemvalcpwBzw==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDA2OSBTYWx0ZWRfX+BvEgQhFzioA
- kFdsDCWj1SPHlWyaEEON7X2jvpFwlirgCDnIVtH/drlLd9eYxiqid6piSSCmlETpueTvMuTTfda
- Z0Eypc/t1TJDHzhEn8/wqaqCEGR6J3g=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-30_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 lowpriorityscore=0 phishscore=0 bulkscore=0
- impostorscore=0 suspectscore=0 priorityscore=1501 adultscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606300069
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_010139_130546_53DFD610 
-X-CRM114-Status: GOOD (  27.69  )
+In-Reply-To: <aju3jokcWR5DzPrv@orome>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,98 +81,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 24, 2026 at 02:35:04PM +0200, Thierry Reding wrote:
 
-On 6/29/2026 6:44 PM, Suzuki K Poulose wrote:
-> Hello,
->
-> On 29/06/2026 11:17, Songwei.Chai wrote:
->>
->> On 6/29/2026 12:22 PM, Greg KH wrote:
->>> On Mon, Jun 29, 2026 at 11:03:33AM +0800, Songwei.Chai wrote:
->>>> Hi Greg & Alexander,
->>>>
->>>> Apologies for interrupting again.
->>>>
->>>> As the TGU hardware plays an important role in Qualcomm tracing 
->>>> design, I
->>>> would greatly appreciate it if you could kindly take some time to 
->>>> review
->>>> this at your earliest convenience.
->>> The merge window _just_ closed, please give us a chance to catch up.
->>>
->>> Also, why us?  Surely you have other reviewers for this code, right?
->>
->> Hi Greg,
->>
->> Understood, thanks for letting us know.
->>
->> Regarding your question: since this introduces a new 
->> drivers/hwtracing/ qcom directory, there is no existing maintainer 
->> for it.
->> Given your scope (and Alexander's), we believe you are the most 
->> relevant reviewers.
->>
->> The reason for creating the qcom directory is as follows:
->>
->> /We previously tried to upstream this driver under drivers/hwtracing/ 
->> coresight,/
->> /but it was not accepted as it is considered Qualcomm-specific and 
->> not tightly/
->> /coupled with the CoreSight subsystem. Based on this feedback, we are 
->
-> Some clarification here: This device is not CoreSight  so we denied
-> keeping this under drivers/hwtracing/coresight/ - Not because it is 
-> Qualcomm specific. We have TPDM, TPDA, TnoC devices under the coresight
-> subsystem, which are all Qualcomm specific for e.g.
->
-> That said, there are other drivers in drivers/hwtracing/ which I usually
-> merge and push to Greg, after some reviews/acks from the respective
-> people (e.g., PTT HiSilicon PCIe Tune and Trace).
->
-> But, your proposal was that there were other maintainers for your new 
-> subtree and you were going to push this via ,linux-arm-msm ? to which I
-> didn't have any objections.
->
-> That said, I am fine with pushing this to Greg via the CoreSight pull
-> requests (similar to Hisilicon PTT driver), but would need someone to
-> Maintain/Review the driver (with entries in MAINTAINERS, similar to
-> PTT).
->
->
-> Thoughts ?
-Hi Suzuki,
+[...]
 
-Thank you for your constructive feedback in helping us move this patch 
-forward.
-As the owner of this driver, together with Jie Gan (who has extensive 
-review experience), we will be responsible for the maintenance and 
-review going forward.
-The MAINTAINERS update will be included in the next TGU release.
+> > So not hotplug support? Also, you do not want the driver to error out? I'm
+> > wondering what's the use then?
+> 
+> Hotplug is supported via pciehp. We skip probing the host bridge if no
+> link was detected because there's simply nothing attached to the port,
+> otherwise the link would've come up.
+> 
+> pcie->link_up is slightly misleading because it actually means something
+> along the lines of "link could be up at some point", either during probe
+> or after some hotplug event later on. It is only ever false if there's
+> no link during probe and hotplug isn't supported at all.
+> 
 
-Feel free to share any additional comments.
+Ok. But if you skip pci_host_probe() then Root Port won't be enumerated at all.
+I think that would give a false indication to the user. Typically, Root Port
+would get enumerated during probe even if there are no devices atttached and
+once the device gets attached, pciehp will enumerate the device.
 
-Thanks,
-Songwei
->
-> Kind regards
-> Suzuki
->
->
->
->> exploring/
->> /a dedicated drivers/hwtracing/qcom directory, similar to intel_th, 
->> to better/
->> /support this and future Qualcomm hwtracing drivers./
->>
->> More details can be found in “[PATCH v14 0/7] -- Why we are proposing 
->> this”.
->>
->> Thanks,
->> Songwei
->>
->>>
->>> thanks,
->>>
->>> greg k-h
->
+> > > +
+> > > +	err = pci_host_probe(bridge);
+> > > +	if (err < 0) {
+> > > +		dev_err_probe(dev, err, "failed to register host\n");
+> > > +		goto free_ecam;
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +
+> > > +free_ecam:
+> > 
+> > Nit: Prefix 'err' for the labels.
+> 
+> I don't see any benefit of adding a prefix. Seems pretty redundant, but
+> I also don't feel too strongly about it, so I can add it.
+> 
+
+People tend to use goto labels to do skip some steps also. So if the error
+conditions are prefixed with 'err_' it helps to differentiate between them.
+
+> > > +	pci_ecam_free(pcie->cfg);
+> > > +put_pm:
+> > > +	pm_runtime_put_sync(dev);
+> > > +put_bpmp:
+> > > +	tegra_bpmp_put(pcie->bpmp);
+> > > +
+> > > +	return err;
+> > > +}
+> > > +
+> > > +static void tegra264_pcie_remove(struct platform_device *pdev)
+> > > +{
+> > > +	struct tegra264_pcie *pcie = platform_get_drvdata(pdev);
+> > > +
+> > > +	/*
+> > > +	 * If we undo tegra264_pcie_init() then link goes down and need
+> > > +	 * controller reset to bring up the link again. Remove intention is
+> > > +	 * to clean up the root bridge and re-enumerate during bind.
+> > 
+> > But the controller will be consuming power even if PCIe is not used. Do you
+> > really want that? Can't tegra264_pcie_init() handle the initialization? I'm
+> > wondering how tegra264_pcie_deinit() in tegra264_pcie_suspend() works then.
+> 
+> I had to clarify this with the PCI team and they indicated that
+> tegra264_pcie_deinit() is actually useless and maybe even harmful. The
+> reason is that there's a processor on these boards (BPMP) that takes
+> care of power sequencing and it will automatically take the PCI links
+> to L2 on suspend and assert PERST#.
+> 
+
+Then why are you calling tegra264_pcie_deinit() in tegra264_pcie_suspend()? If
+tegra264_pcie_deinit() is harmful, then calling it during suspend should also
+be, right?
+
+Or tegra264_pcie_deinit() has to be paired with BPMP doing its own power
+sequencing?
+
+Not a big deal, but it just feels weird to see suspend() and remove() doing
+different things.
+
+> Another reason why we don't want to reset the entire controller is that
+> it is already set up during early boot by UEFI and the kernel driver
+> does not redo the entire initialization.
+> 
+
+So tegra264_pcie_init() is not the full initialization? If so, is it sufficient
+during resume()?
+
+> So yes, I think a little bit of power consumption is the compromise that
+> we will have to live with. In the bigger picture it's probably not going
+> to be noticeable in most cases, and given that these are embedded
+> platforms we'll likely see fixed configurations most of the time and the
+> case where we remove the PCIe host controller will not be common.
+> 
+
+Fair enough.
+
+> > > +	 */
+> > > +	pci_lock_rescan_remove();
+> > > +	pci_stop_root_bus(pcie->bridge->bus);
+> > > +	pci_remove_root_bus(pcie->bridge->bus);
+> > > +	pci_unlock_rescan_remove();
+> > > +
+> > > +	pm_runtime_put_sync(&pdev->dev);
+> > > +	tegra_bpmp_put(pcie->bpmp);
+> > > +	pci_ecam_free(pcie->cfg);
+> > > +}
+> > > +
+> > > +static int tegra264_pcie_suspend(struct device *dev)
+> > > +{
+> > > +	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
+> > > +	int err;
+> > > +
+> > > +	tegra264_pcie_deinit(pcie);
+> > > +
+> > > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
+> > > +		err = enable_irq_wake(pcie->wake_irq);
+> > > +		if (err < 0)
+> > > +			dev_err(dev, "failed to enable wake IRQ: %pe\n",
+> > > +				ERR_PTR(err));
+> > > +	}
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > > +static int tegra264_pcie_resume(struct device *dev)
+> > > +{
+> > > +	struct tegra264_pcie *pcie = dev_get_drvdata(dev);
+> > > +	int err;
+> > > +
+> > > +	err = pinctrl_pm_select_default_state(dev);
+> > > +	if (err < 0)
+> > > +		dev_err(dev, "failed to configure sideband pins: %pe\n",
+> > > +			ERR_PTR(err));
+> > 
+> > Please remind me if you justified this manual pinctrl handling before.
+> 
+> This is just regular pinctrl PM boilerplate. There's plenty of other
+> drivers where we do this, too. We want this because some of the pins
+> get configured to non-default states on boot/resume, so doing this
+> here ensures they are muxed correctly.
+> 
+
+But pinctrl core should already be doing it for you, no?
+
+> > > +
+> > > +	if (pcie->wake_gpio && device_may_wakeup(dev)) {
+> > > +		err = disable_irq_wake(pcie->wake_irq);
+> > > +		if (err < 0)
+> > > +			dev_err(dev, "failed to disable wake IRQ: %pe\n",
+> > > +				ERR_PTR(err));
+> > > +	}
+> > > +
+> > > +	if (pcie->link_up == false)
+> > > +		return 0;
+> > 
+> > How is this possible? If 'pcie->link_up' was 'false' during probe(), then it is
+> > going to stay until tegra264_pcie_init() is called below.
+> 
+> Yes, this keeps confusing me, too. The purpose of this is to skip
+> initialization if we've already determined during probe that there is
+> never going to be a link.
+
+But you are calling tegra264_pcie_deinit() during tegra264_pcie_suspend()
+unconditionally. So even if 'pcie->link_up' was false, the controller needs to
+be initialized (atleast partially), right? Because, you are calling
+tegra264_pcie_init() during probe() before 'pcie->link_up' check.
+
+> link_up will be false if and only if there was
+> no link during probe and we don't expect there ever will be a link
+> because there is no hotplug support.
+> 
+
+But above you said that this controller supports hotplug. Which one of the
+statement is true?
+
+> Maybe a different name for link_up could help here? maybe_link_up
+> perhaps? I don't know if that's any clearer, but I also couldn't come up
+> with a better name.
+> 
+> Or maybe we should split this into two booleans, since we're essentially
+> trying to use one boolean to track a tristate. What we want to know is
+> if a link is truly up and if the controller should be kept powered for
+> the case where hotplug is supported.
+> 
+> I suppose we could do:
+> 
+> 	bool link_up; /* track the link state */
+> 	bool supports_hotplug; /* track whether port is hotpluggable */
+> 
+
+Based on what criteria you'll set 'supports_hotplug' flag?
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
