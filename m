@@ -4,146 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915F9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04763C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 15:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KJdzUIZDuZiOo/p1ZlDv5v8yOS+mF6BuS0iPUhtWFF8=; b=P/hjesuiag2LQNr3GRa2mEbShl
-	WbUfz7u3DC2QwB+fT80xh3sPso7rQaLsFWJZdcP8B+OQmm2ofkx80YJZ0mMBSCEaHIVeU9ogNXBnv
-	h2OOX64DNEMvC/BFJgyDHtrUClUsOYfxWNSnn8yN00sziHIk7i+ll1yNrzYlDN54DQMtuF6Q6Ry/k
-	GcJSRKFLoazRriQS0B/oEZdvdc7Sb1ncDjZJF72xTTEn7G+M1dMgLQ65xFnc5vmH8mQ54NVmKU7iv
-	yNk35S0iAggbIZ45sFLD2mUL/2XojL/z3XqLSckJ2HIQh/ro8LV6QWyiitS1n/UxwPC+N7Ys3pvBx
-	ozYWXmxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IG0h16TPXM/brEFoRwskxJmKMoE8Kp3fTWZsdFNMAH8=; b=xRrpNroGnNCkd8h7mfRcfJiSjy
+	u9Asy7ksriugvcfj1t5RIXrib30CRCnsewRIDN1QRHbwuONeL/tLhKVk0uDy9tmvSLr5DWpPswv34
+	EIHRWaTw66j/zsH9uISgZTloPOI58f9wHcrfZBloCQuI+7cihApIll3mvKb2ycJkVIfCn7AYpGXJr
+	Vk9xKNKPVqhCQUomgdfXXMYcf/8fMS2ghHOlCp3NV0LgvgT1pvO2x3MUT7RmYRjjKr7bR9iCWMF7Y
+	otkYfhfJUhpUhKcS25EV00GeMP8t+Q1/ceFn8Tx5AeBd+bAWXa/PLMY4bxNX9gntrbkQeHpDQgaIR
+	JNgguwEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaIU-0000000HMeq-2YgJ;
-	Tue, 30 Jun 2026 15:22:50 +0000
-Received: from mail-swedencentralazon11013054.outbound.protection.outlook.com ([52.101.83.54] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1weZIL-0000000HGTJ-3eS2;
+	Tue, 30 Jun 2026 14:18:37 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weaIR-0000000HMeV-1E26
+	id 1weZID-0000000HGS9-0k0s
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 15:22:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MM7AKqcdDUWpaIuTYezhAf0rzUG66S7N+IzVz6y2jZrTDbFLRpMeCj6Wn/OZo7XHnArEO9rYq6X9DLswG24rARJgH8ktYxItyWqd59ZdrByCMF938ELbajwyrTqvKmI6BAQa9M7udZi2OWy5j6rbb2Xq1Fc3GOuMHXA2k6y2bZzBIEqe3do8IFYsne10ooO0v89GUHSbzoogSxd2lIQXuztyXtWRMmxFT5WEA74Ifxmyvdr7882y1PTvZi1ZV7c2H/pGGk0xGJ7riaPZDjfIXI0LeEBiYeRkK/fBQWKT04i43k4Kcub79iymn4hRF2/UUFfJ2ydtN24izIxBcDxNWg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KJdzUIZDuZiOo/p1ZlDv5v8yOS+mF6BuS0iPUhtWFF8=;
- b=j+HRuH2nii4gGms9pSgM6BFtdO3QED45slLy5uMvkAT4mVW2WmTiOX+3sh+Te2KY+eBj4cglCDiyYxOhguRiw0pjBnzqnDAq9/610hlct9QHOoTljXl0FyQXedop1FMsYXFs+u+JuNP4+ZDWk1SvjrNjIzPOXpRSx94kEHJ17W7UL10hqLo/Keb3YWM95JJLy2lwsIyNuflr7Mky5jF2QWDmfdK88kRnx2sqblZhthyQtf/bK7k8gVqP9XuoJ1MqQnvqW3PST418ys99Ckvldzs/heJsFtwBq+iTXvlIkRif3qZSMSeBkUoA1B6yhVKrv8/xYiisbpkpI5fPo0V26A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KJdzUIZDuZiOo/p1ZlDv5v8yOS+mF6BuS0iPUhtWFF8=;
- b=Dffs03QDHrvsLNrz5VI+mFam9ajRFOaGj5dgv6iykrZOCkjClJ7MtjDGLi2YcyeeG9v5aOLedASwn9ehHWlM4k75VFSXnMpgV1IzevN1Dob0IZ3GSd3j8Z5i6t5Ypz9vhjhuazkqBNOV8uo168VCtHfJWHj4girCgb+SKSlwDHx0AhGjcusWPnO96jrJt81yCaHbI90G1wnK9EAvjUWYC8TnOICvdl8xLVLAYDpgm3q7Sk/gfN7Fmve1go2XWVthmDSZqdTI9dSBmFlJnxRHKy9+Ct/MVRMb843MjZelXKydr3pimvNmAkARh7zhG4o8ac1Tu6GoqVEptLMgEhwxCg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by FRWPR04MB11284.eurprd04.prod.outlook.com (2603:10a6:d10:19e::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 15:22:39 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Tue, 30 Jun 2026
- 15:22:39 +0000
-Date: Tue, 30 Jun 2026 10:22:25 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>,
-	Larisa Grigore <larisa.grigore@nxp.com>, Lee Jones <lee@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org,
-	Enric Balletbo <eballetb@redhat.com>,
-	Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Vincent Guittot <vincent.guittot@linaro.org>
-Subject: Re: [PATCH v12 2/6] pinctrl: s32cc: remove inline specifiers
-Message-ID: <akPfMWrGlVMoFBCZ@SMW015318>
-References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com>
- <20260630125403.546375-3-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630125403.546375-3-khristineandreea.barbulescu@oss.nxp.com>
-X-ClientProxiedBy: PH8PR20CA0002.namprd20.prod.outlook.com
- (2603:10b6:510:23c::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Tue, 30 Jun 2026 14:18:37 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65UEDHLZ2149104
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 14:18:28 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IG0h16TPXM/brEFoRwskxJmKMoE8Kp3fTWZsdFNMAH8=; b=BmyoA9RvOmEyPSGz
+	4DdeycYqRg5PCw4Sxn8ZYj5d67/KDrOpCaGBDY7TZ6s+x+WiyiRV5ePHES5IeqAK
+	iL/+cW5LWLx0rzSbXefMMWSHzBSI5/IOPq53z8xX3tPJna3JcK6LjNBY7bg2y02W
+	oFJA+JjUPagK07YIJMMFCeoStdq9cTIDDQttRK5oFLySxr10PgFXYz7FmSNRfDfv
+	sdmrYhSaQ5SpRlduvX6+DHOce0hqZxJV/ZC/MM843ibdoKzmO+WJ29Bv1o93F4jP
+	OBn6Hu+ZqZ/NcLUMXU4xtxQ0MuNoEEjTvB5d7Z3xxODCim5c4aiadSyvKaR7lQzu
+	/yyDoQ==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f44wp2w86-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 14:18:28 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-30c011c7cb9so12800984eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:18:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1782829108; x=1783433908; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IG0h16TPXM/brEFoRwskxJmKMoE8Kp3fTWZsdFNMAH8=;
+        b=J+v5rW2W3EfT8T8O950zRjNZCrWc8ovUk7tk26w4NcQmHULbJ3mx9JvQKCr0t9qT1S
+         2PfFI5j9LMO142T1R5FVOJzNe7L4xGmluRw5Manz0wLFPx4p0YDjAa5rI6iDsI1mnhw4
+         S4dKylzD1UqV3GArLupzkLazPtIH/Xd4G72y416ZlL57sUsFQ+T1tv5pBmwWtuBeIIVM
+         W0OxpcQwu2+iERcAsmiQtbN/6vYtn72PceCJ43ur1V4gF5AW5WWiXIYACGHXSJvtH9C5
+         CfYudloNtJEaG9SACT9Hbz4nTKm8/As4AZTRpzNC2FUNtNxY2LYoKp6IDzU23+hta1z/
+         sS2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782829108; x=1783433908;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IG0h16TPXM/brEFoRwskxJmKMoE8Kp3fTWZsdFNMAH8=;
+        b=Sgai3nns3eY7U+PRB3V0DQtUB8WEygr8Hq+H/LkX+5s1S91p54RkQ5cJTk+0w7lZ9W
+         CKXgRTN/cm6DrYI7QmOooycasXv63IyHNsYX6kCK7rmmOYtyKxrWbWVdoBT/1lEsfiiB
+         pwJjIblXfEcYTfMD6CMFmk3TeoSgQjxhyspATrx/jscmvj+dqnqUmMHddCwbW61b3sz/
+         OXFIxpA/m4MI1Ozi6FNj44z9igBuhvYa+kbkT3XEG1uPwtb3WgtrZ0gcV0QPXBtsxNC8
+         /5ZrzRVyATS4mXLr0VIzZGR0b3UVPPyBwLPqXFykR4c7xpBraTd6FLWzVT29BoRGY+9g
+         0b1w==
+X-Forwarded-Encrypted: i=1; AHgh+RoAur8bcTVu/TMraagnV85H87NQqzfKtXWgyEUBzS/gvKdngJYKGhrRJO3WKZLay4uURYsFukLCX1ktr58XYCwh@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxk9B8eu6hsJuvA5bDUH6qMlz8yVyImlq/nf1yusxa/VRBV+2Xg
+	LF/x4tRHYdQ5caFiN5Pdi00dSfz5jBfPM2wdK57/1EihqZxCAdoOIDEOV2tsKY0NTf09GiW/iBj
+	CY3wuJh8qN0Rn7KmWuM8LkDoz/trLkZHn6NdtWjM87eWHqbZ8TL4L0kfQ6t/H9h9MT7RwfyUAsM
+	DPnVGHYO9xww==
+X-Gm-Gg: AfdE7ckHjHiPk+mmRrOyr9g8mp11TW6Sijofm0OFqbrG53El+LCSRy75v2kkDWCmYij
+	5xr3JlikAoVafcVTNtiOuqn3xsEAuNHYBI85qL8OHt9a6dPfinZ2+cf7n4qpE8U7uFju7kCmpKf
+	ZUXy4lSfAroqMx1uStBCnzz0fA79J9x4w61tyydnWtLYvTvJ5I+KDs1HOvaiQgH3yWncYCK3C2a
+	1LMAK8yZNI8l8dQ85OyEvxXMETjFRBt5HWtKwDdEX5k96CHwgorAo3aBMbImlfLyfjPnmoevGRx
+	3RwO2avzytycMPaLvV4MbPXt2L34fJV0IiMR0Xoref9N9OeMs6ZpCuSWt4Bp8B7RDPW4aQhHpgG
+	dqdQiEe4QnGVj6Kbmra2ov6Yhz27Nmw==
+X-Received: by 2002:a05:7300:f691:b0:30e:c1df:4592 with SMTP id 5a478bee46e88-30ee149bf8fmr3700861eec.34.1782829107801;
+        Tue, 30 Jun 2026 07:18:27 -0700 (PDT)
+X-Received: by 2002:a05:7300:f691:b0:30e:c1df:4592 with SMTP id 5a478bee46e88-30ee149bf8fmr3700817eec.34.1782829107056;
+        Tue, 30 Jun 2026 07:18:27 -0700 (PDT)
+Received: from QCOM-IvKeorbwK5.na.qualcomm.com ([120.60.61.127])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ee3170ef9sm13888083eec.16.2026.06.30.07.18.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 07:18:25 -0700 (PDT)
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+X-Google-Original-From: Manivannan Sadhasivam <mani@kernel.org>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de,
+        lpieralisi@kernel.org, kwilczynski@kernel.org, s.hauer@pengutronix.de,
+        kernel@pengutronix.de, festevam@gmail.com, hongxing.zhu@oss.nxp.com
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        devicetree@vger.kernel.org, imx@lists.linux.dev,
+        linux-kernel@vger.kernel.org
+In-Reply-To: <20260618092100.3669556-1-hongxing.zhu@oss.nxp.com>
+References: <20260618092100.3669556-1-hongxing.zhu@oss.nxp.com>
+Subject: Re: (subset) [PATCH v7 0/3] Add root port reset to support link
+ recovery
+Message-Id: <178282909958.294720.13302580439189608628.b4-ty@b4>
+Date: Tue, 30 Jun 2026 16:18:19 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|FRWPR04MB11284:EE_
-X-MS-Office365-Filtering-Correlation-Id: d00feeb7-cc07-4967-9280-08ded6bb6ba8
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|23010399003|19092799006|1800799024|18002099003|22082099003|4143699003|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: GxhQzIFbRA+2QDp7HmYNmqh4JMc0YNfXCOzgsxS+2sWJ3xKORL4G3xclBcnlEwFefiCo9B1Yern24IiYgic2ivraz+ZhaPKuDNu3ayVOHksmAK2A+5kCsyEOqik0haVjqhZPA/kj64DbJC+3Tf/uFz0+J3UNYE1dBPKY0XhtoGx0aSCZz3r5obMxWaXPjWsaYdPEQm492gxxRsWWtXdDBFCDelk9Nmz9KGm3W24Hwj01ur0JtyikuE+L8rres8s9kzemgfp1QJKqQmp2Ott8tWj2Yl84XlpPriqEPQ89jBLB8HXw4VKw+dmh2lG0RC71mMZ1hREOBmlVqoj49uvXLroaj9x5Zk3D+pqkAQZDN5Yt8LCju/TQE8e2+xoNWwtE/njfv9xf8Hznm4u3/NzT4feC7dN7oH/lBbKUegw5zmsy+XTd3OTMAPyHgA7VbEJ9dW7FrAVvXIHgg7YV4H8Cw7lv2omo/8nALWK8b65ZUdydKZz12oXTPOPztJHM+ddoBWWVbGmTti8Y0HR+OxnaNxRthLKo6F81X8rAfXApZQ26UeExUpRgeWjMYK6dBdOL0azxZCjzo0Hqv9+rz+vL0tEXvL287SijM2HuzG6XPC/Ey+psuZL7WRblN9dOeqHrp6d4au5wRgh5H/ZYS1gHtWddYtefE3fYb7xVq1v/S8I=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(19092799006)(1800799024)(18002099003)(22082099003)(4143699003)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Z7kJ4E19H6cN22PGPUmbkOg039LyfHkZZhiNpqVzA/AcmsUZnLJk/Siz+GFj?=
- =?us-ascii?Q?YCsrdcpwFt7tTEsP0kBz8fh+/eh3vminRL58rXz8GPY/ybP+RVbs2fYAVHWM?=
- =?us-ascii?Q?5TBNKQ36yK+FM6DR0BjOrR5sBd261lvvd/5d6T4++uYZCOsApc70SgN5nJVT?=
- =?us-ascii?Q?3aEKQ13UOEn5l98SNL1LqEMYl8b9O29g3HrsSXirJmHug7B53VkoV2tWl6OX?=
- =?us-ascii?Q?vDp9nd/v+Ec9Rm2XnZh6y5PVRtZFRNN4tILrCvMRNS4MD/tT0dGqapg7JD8r?=
- =?us-ascii?Q?59VW6mQh67QsRJq+IYLrIM8YAa+5ArkcVfflOXTEwhStXoB097uALEBkMMzH?=
- =?us-ascii?Q?xJ8ncOlbhh/Tindi/HHW+MavLzSxsxzOhu8XrA9VLbVLVxkbx00JraCDxBw7?=
- =?us-ascii?Q?d0Wd2+9xlWJV4csriSlw5498HN98EeAC9SuOkGeP/OwFXlOep2lYDxoYIyVi?=
- =?us-ascii?Q?E5fm/m48nYDH7fhA2kmzSnlWb79GMoAHav4Q4EGaq7kcia6ro7ymM+9+tiEo?=
- =?us-ascii?Q?KtsdJZlnDkwzfMKAT3eD3wcBILi9YZUnofDAyHoy1jmVRRRVlQQbuGoqrNQ1?=
- =?us-ascii?Q?zHeE9rSsp39guwSrFF4KPY1dYN+eYgZ9g6oYRRP/6VEpEvfPQ6i7s3ObP2+c?=
- =?us-ascii?Q?FJDQQK76dzWPd5XG4muywNuxK6MqA6Q+TxRvVjEJeE4v6mFLC5FJZ09cKlCO?=
- =?us-ascii?Q?3wW2aS8+wgdzBcW/Im1IKzhcE11PZJio3lXGzxpiYXp+CkfZqEyMpPMYSsKH?=
- =?us-ascii?Q?ZJnQd64JtJGiCrHiN5s+AwPkXe5ibDuejXsoHZAXGg+AlKQBWXNLr587FYN0?=
- =?us-ascii?Q?gzlXL8GWEycqAVTqMHgovTG7c9Vs/kqMFj7zm21fYYOTpHNPQlR0/v3l6TQM?=
- =?us-ascii?Q?B4M5Xr0IOZ835pZi8ZLMTV0tTTWxG36IttrLxhK4rMI0gFzamnpjcdrfDefM?=
- =?us-ascii?Q?Zvl54LJbyjYUi8/P3mNLP6yDa5020tks8Eg0ZNBX7oWlp+X0hEBvVl+IGpil?=
- =?us-ascii?Q?0ML4pEA4X7nzivML3eAats3yuRMbUWeDcoZJJ5UuagnMQ6OmHUALb/KDgeXr?=
- =?us-ascii?Q?R4qdb9xIe8TRoO0WE1u2t6Z4Vyg5OS+8TGJ9L1uK6ciPjMeH4HMANhjLte6O?=
- =?us-ascii?Q?R4bKk1Vny+jZwApOdcdjDK0lM7hMwFCMa+rko7m9EEuclkyCCeIUfc+6hb2i?=
- =?us-ascii?Q?0SGRFvWnj1d8yNso8qdW3cDE1iEYQU40DLRuBrtMTB9NFOPK8NCVBA5UnyhH?=
- =?us-ascii?Q?bmRC60lppHtvw85WSw4OxFclGeMQZUtF4VsRkI7ScdVlJ4ZvUZKuoGaIO46t?=
- =?us-ascii?Q?S75KjRyZ+BJGf072sq8PTFi/rRp3rbGSVDeE+3wuoIq522wJuuLV4bPkpx/A?=
- =?us-ascii?Q?6uiipvcvavWDECDTCugVYsmmJoFpz6ac5C9v0IqQQfh2yZTgt1dEdyDSRNXv?=
- =?us-ascii?Q?+YigmW3HIHbqf3Tpjp5oebn4IiIDs+qSmST3NG3JpxN8N7vvC/RDNkSyqclR?=
- =?us-ascii?Q?FbY21uRJkstFumYEzi8pWugDFnT2WT4tDPCD+uAVqZ6SoZlnDFDUXIOD5tSu?=
- =?us-ascii?Q?dVsf7Mnp6dF8HJu0bPuMxwKNYDmVly25MdVh6/yUvd2Gx9ichdS2e0A7Ok8h?=
- =?us-ascii?Q?EPy8lcukNAXpHuvD4FIuMp+bJEP10+B7DFFJ2q85/lk8RIuvXRTRfGEEY3IG?=
- =?us-ascii?Q?ok64iuKxELaMaM5WA2c5ri0z9ok7LpAfcAsR/QgPl2NADk8afoIiI1DT7jIe?=
- =?us-ascii?Q?afTbOmedjZPepjDbgnB+QtuxFJxZ/qfLvA3+QS/ZIOM0ds/7xRBL?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d00feeb7-cc07-4967-9280-08ded6bb6ba8
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 15:22:38.9826
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XTpRk4xi+l1surL5ZH2s/+ViryOksBVNnin04zHC5VhmaXPdkVxL03vUFWchb6VhV9TOaSSA39qYH4cKx0QL1oUgmIBtXEGkh5jsRZKCLdycNZUpx6j+OeEUlBV5+UPY
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11284
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15.2
+X-Proofpoint-GUID: Jc5MaWoW4Qu_aTll2emVQYDkLdFyR6Ge
+X-Authority-Analysis: v=2.4 cv=AtDeGu9P c=1 sm=1 tr=0 ts=6a43d034 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=H7IkG6lIOHbWVTtTQWLpKw==:17
+ a=IkcTkHD0fZMA:10 a=FelO9ux0wxsA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=8AirrxEcAAAA:8 a=ccIQWBWPPgp-iIgOqYMA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=bBxd6f-gb0O0v-kibOvt:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-ORIG-GUID: Jc5MaWoW4Qu_aTll2emVQYDkLdFyR6Ge
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjMwMDEzMyBTYWx0ZWRfX4gG27ixKPBUe
+ wTtIAVPkfnrXkbclYGiqvSO8z2aaEbI6O9i/5XgsgO5U36XtanmoQ9hzQvVXyqT7zPRiAD/VTlD
+ /puiD4n1amg2rLLoze+Y8QERNzsWHPLxk2vYo2c2u9BQT6DG9tKbmywMJs8wnPTrzVUkZH8xc08
+ 175RDvQ0bb9rZloGn3llMgXL6F9oPmGCNb1g2Ugmxga7IEggm00pEEOdzqLBRvdIBa/Wcv/1mze
+ 3vzEtLpc9hTxwDe5Fq7dNSeAdXrrKh+hfx7XDLjOXIbY+4oHbrY67r5LMcU4jPnWTBO3x50QKIW
+ bs5uha1q0pL6b7+fZqm6t4vXx4RMsRshlq5n7Yz4dCzTZWZpKcYl7B9As/vzmy6OdEJqmmj/Qer
+ JCztGyE881OOJBxy/HIUdsBYV3Z1GbtZHzFXV4VVxmlJO9UfujSEdoBPgtaMime2/2nBG0tFXEE
+ OzGvgOvVXeLD2LT+q6g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNjMwMDEzMyBTYWx0ZWRfX4Z63D0bIcLPr
+ 5c4rRNj6pDKifO3NDEjNSvUcCh2nMyx+GtOxGIkmvDmpAqPh2CpYk7damDK8XDPmKLpvF2+l0ou
+ HEQMMxAmeA9crFcW9TC/+Zqd47X+Pyk=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-30_04,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 lowpriorityscore=0 phishscore=0 bulkscore=0
+ impostorscore=0 suspectscore=0 priorityscore=1501 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2606300133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_082247_337996_E8F09220 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20260630_071829_220169_C55C9835 
+X-CRM114-Status: GOOD (  12.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,72 +152,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 02:53:59PM +0200, Khristine Andreea Barbulescu wrote:
-> Remove unnecessary inline specifiers from static functions.
->
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
-> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-> ---
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+On Thu, 18 Jun 2026 17:20:57 +0800, hongxing.zhu@oss.nxp.com wrote:
+> Based on the following patch-set[1] issued by Mani.
+> Add support for resetting the Root Port for i.MX PCIe to enable link recovery.
+> 
+> [1] [PATCH v8 0/5] PCI: Add support for resetting the Root Ports in a platform specific way
+> 
+> PCIe links can go down due to various unexpected circumstances. This patch series
+> adds root port reset support for link recovery on i.MX PCIe controllers when the
+> optional "intr" interrupt is present.
+> 
+> [...]
 
->  drivers/pinctrl/nxp/pinctrl-s32cc.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/pinctrl/nxp/pinctrl-s32cc.c b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> index 2a32df932d8a..8c5ec6a76a1f 100644
-> --- a/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> +++ b/drivers/pinctrl/nxp/pinctrl-s32cc.c
-> @@ -131,13 +131,13 @@ s32_get_region(struct pinctrl_dev *pctldev, unsigned int pin)
->  	return NULL;
->  }
->
-> -static inline int s32_check_pin(struct pinctrl_dev *pctldev,
-> -				unsigned int pin)
-> +static int s32_check_pin(struct pinctrl_dev *pctldev,
-> +			 unsigned int pin)
->  {
->  	return s32_get_region(pctldev, pin) ? 0 : -EINVAL;
->  }
->
-> -static inline int s32_regmap_read(struct pinctrl_dev *pctldev,
-> +static int s32_regmap_read(struct pinctrl_dev *pctldev,
->  			   unsigned int pin, unsigned int *val)
->  {
->  	struct s32_pinctrl_mem_region *region;
-> @@ -153,7 +153,7 @@ static inline int s32_regmap_read(struct pinctrl_dev *pctldev,
->  	return regmap_read(region->map, offset, val);
->  }
->
-> -static inline int s32_regmap_write(struct pinctrl_dev *pctldev,
-> +static int s32_regmap_write(struct pinctrl_dev *pctldev,
->  			    unsigned int pin,
->  			    unsigned int val)
->  {
-> @@ -171,7 +171,7 @@ static inline int s32_regmap_write(struct pinctrl_dev *pctldev,
->
->  }
->
-> -static inline int s32_regmap_update(struct pinctrl_dev *pctldev, unsigned int pin,
-> +static int s32_regmap_update(struct pinctrl_dev *pctldev, unsigned int pin,
->  			     unsigned int mask, unsigned int val)
->  {
->  	struct s32_pinctrl_mem_region *region;
-> @@ -484,8 +484,8 @@ static int s32_get_slew_regval(int arg)
->  	return -EINVAL;
->  }
->
-> -static inline void s32_pin_set_pull(enum pin_config_param param,
-> -				   unsigned int *mask, unsigned int *config)
-> +static void s32_pin_set_pull(enum pin_config_param param,
-> +			     unsigned int *mask, unsigned int *config)
->  {
->  	switch (param) {
->  	case PIN_CONFIG_BIAS_DISABLE:
-> --
-> 2.34.1
->
->
+Applied, thanks!
+
+[1/3] dt-bindings: imx6q-pcie: Add optional intr/aer/pme interrupts for i.MX95
+      commit: 7186ac21201a9a408ae80fcbb9c985c959b3febc
+
+Best regards,
+-- 
+மணிவண்ணன் சதாசிவம்
+
+
 
