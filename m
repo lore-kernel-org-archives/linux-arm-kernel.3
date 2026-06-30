@@ -4,139 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B9BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:22:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DB8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:24:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LpQAtNj71NDO1JRIwOq38nHWYW7kk2seEhp+YO/dj/s=; b=jzi249GLZ69dHsMIjHIJm4unNh
-	Jbod89o/suRls9z2Qco+NqXAOVvrolSLKS54amvMvQpyV5ERERHzPGykohro8I5LSldiMsI1CBtFf
-	U3tGvfHrq+gSbII0mvyghc4MGg9F0h4O3Q3nZVjlrgyXoNd6FJNFuX2bjnupaNtWw/QspspX+ne66
-	9ykjRYqPrkxfNiVlH20n//x4Cwl+wQnVdM7/mkW7Y03FDL6j4e3mWhybzPZfOAn5QomFWjepjcl48
-	pWjlyLLeRYs9vDDEq8eVACuFxYRHjddNd5w0Cv+FaS6XAl7OrTx4SIg9x/eCIoXGiiuWp5wnfAdVS
-	U+bohWkw==;
+	bh=FL0SLwfXlT7L+oOMsLkMNmEaeLRGVGRS0w0AOzU0THw=; b=xJmeUJDFUPwkcVFEodq2el9Cfz
+	giRqfJJ3+uOBqFX1ykoLGe7G3Tkr9Ggv84hf5Eiv4sxE7NE+dKUQdx5e7YuRsfIkLrZxB12G8Ad/Q
+	A62dSG9Jyn9HLtYlQ8gazFINjvLQO1su8SiHffVyuXUA6zEOWaBEMU70ukLagVvlHoled/jkC362V
+	+iRk6Kl2268Ma0KNo3C6S3Ao8lDcKSyN0zJgR+3RVM/cQAy69EZCE1h6aN0sZABgv3BG8JhKrDoVH
+	AniVjd4fKJX52KlX4dSLoZ8W/nlUJTxzj8Dq6IzhEvfeJJ7rqE4gEngsLHvIHF7zaOMBLN2xZwPfh
+	FUQhgZ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weSnO-0000000G5ek-0lAc;
-	Tue, 30 Jun 2026 07:22:14 +0000
-Received: from mail-westusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c001::5] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1weSpS-0000000G5sC-2AHe;
+	Tue, 30 Jun 2026 07:24:22 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weSnL-0000000G5eN-26YH
+	id 1weSpR-0000000G5s6-2jP8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:22:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WS0wmry7Py2+1k3/lvC21izHI+iZHdFPawS3X5HTOqcUw9d+KC2yLwKu0AFli4MgLr0DM5mg4qdsl6m0kdDFo1z7nmILPWiOygs4ATM9+/m26lbqwU8IgJr9IKh5vBqt8mpHjvAkDwIpQ3iDDCvuKAKgsaQUWb513DNwHTrvszK+7s+ObWIQzOglzW407YGiUX4xFmkTjOdhYZqxKLb9WcMLae0qLLGdnrQhFu7D2+7/Wjs6SEpgo8Ug0+Zafn5dlxul/Y2MhJ4YtjmSt8icfPFjxTxrryhxeKIv9otFW1RTiJI0Q9M6M9v+CXLpXZ8/AGqFhrraRsUcYwobXwXfzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LpQAtNj71NDO1JRIwOq38nHWYW7kk2seEhp+YO/dj/s=;
- b=WJx02umi7BzBtfWq/XkCdYwS02lyDxGEeyIvjbhXIUImiE4VEyV+tR21L5CRbBVyS+ZXwVpamhT3CMup7oK1ZCKaG99Q8iJsiheWQlgH4PVSLHkoSwTXcfTfHQMkZiuJyjSYWYqH0XU3PgKsFVHMgEI4qt+uVggQp5so73De15qHAt+DqvdjU4T549DYVlvHJesqEA3str68/maowWlOCyDbFlJFI9X4YSQ/3kiMwq1kTsjrEPys5QhwW3FEnsW+0K7UfmilNoHGqP+sDrBayvgYj2O2xH4hu8HbMf0Om8g7wVld4DTVcXPLWRVk1ORiP/8mECHPrsHSkDV7zocZ7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LpQAtNj71NDO1JRIwOq38nHWYW7kk2seEhp+YO/dj/s=;
- b=jlDrJPJ8ppbtyeIYdlXB/T5EJHL4n2yn6slr1b6p/RC++4O5OOXTUjbtAHSCqX8p2aHFpjN5TaDVdRztQY3XpMIg3JUOZKeOeNCD/8mpFqSLv4nl3J7owGAIBjfZtfdoz6pVxXy6CYXJSAO3qpvMEn9hW1icIxE1FP/pc3bmxMY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com (2603:10b6:930:107::6)
- by SA1PR12MB6947.namprd12.prod.outlook.com (2603:10b6:806:24e::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.16; Tue, 30 Jun
- 2026 07:21:59 +0000
-Received: from CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d]) by CY1PR12MB9697.namprd12.prod.outlook.com
- ([fe80::3a41:55a0:8203:596d%5]) with mapi id 15.21.0181.008; Tue, 30 Jun 2026
- 07:21:59 +0000
-Message-ID: <46cea045-3e41-4cf3-b1bc-8a010d0022e6@amd.com>
-Date: Tue, 30 Jun 2026 12:51:51 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dmaengine: zynqmp_dma: fix race between runtime PM
- and device removal
-To: Golla Nagendra <nagendra.golla@amd.com>, vkoul@kernel.org,
- Frank.Li@kernel.org, michal.simek@amd.com, abin.joseph@amd.com,
- kees@kernel.org, ptsm@linux.microsoft.com, sakari.ailus@linux.intel.com,
- radhey.shyam.pandey@amd.com, u.kleine-koenig@pengutronix.de
-Cc: git@amd.com, dmaengine@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260630064844.705173-1-nagendra.golla@amd.com>
- <20260630064844.705173-2-nagendra.golla@amd.com>
-Content-Language: en-US
-From: "Pandey, Radhey Shyam" <radheys@amd.com>
-In-Reply-To: <20260630064844.705173-2-nagendra.golla@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN5P287CA0029.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:263::11) To CY1PR12MB9697.namprd12.prod.outlook.com
- (2603:10b6:930:107::6)
+	Tue, 30 Jun 2026 07:24:21 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C56A760008;
+	Tue, 30 Jun 2026 07:24:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 084F81F000E9;
+	Tue, 30 Jun 2026 07:24:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782804260;
+	bh=FL0SLwfXlT7L+oOMsLkMNmEaeLRGVGRS0w0AOzU0THw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cmQAdiHpPL3ydZ6Op4olnnbcfAimXfAgdq5sVrz7ImVtTKi2QvvoYh5a15SQDVKpS
+	 mlU4S6PT+c8N6SNeYen5dKjLFpR/eIAHQAPb8TSd6iWk4R4zj2cIdjdwpLGdeTF2Xc
+	 yUBc29xjS0d6iUuB0Q9WOOxDCqVwBQnkv03DvnqbE059urMTaTZ/BTAI+1pNtj7fsF
+	 TCdXnZx+qLutQuTKq7e6W7eu4KwnUk2cc8fgrPaQm6j4q12IfU9o8wD9vvkfKdqozW
+	 HtPX3k8QUI+NxjQ81fnty4ESvLbg1yGbwYYFSiWiB21MciL7nMeGOxTz29pP0ozQmN
+	 hfo/iYrS5r71g==
+Date: Tue, 30 Jun 2026 09:24:09 +0200
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+Cc: hongxing.zhu@nxp.com, l.stach@pengutronix.de, Frank.Li@nxp.com, 
+	bhelgaas@google.com, lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, will@kernel.org, 
+	"Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>, imx@lists.linux.dev, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, sherry.sun@nxp.com
+Subject: Re: [PATCH V2 0/2] PCI: imx6: Improve PERST# fallback logic
+Message-ID: <wj7dtqwadw4mletyq2s2an3g74acpmvvnkbogsdztgb27s2lul@i6ogmrnbd6to>
+References: <20260525065443.2338629-1-sherry.sun@oss.nxp.com>
+ <178280401285.286395.10401291228239552702.b4-ty@b4>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY1PR12MB9697:EE_|SA1PR12MB6947:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1948601a-50b6-441e-8c37-08ded6784614
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|22082099003|921020|18002099003|11063799006|56012099006|4143699003;
-X-Microsoft-Antispam-Message-Info: GxoiTiYe3swlsgA3sIQmhkcmPPMs1Gd749T3bxM+b/rGhYtvNNEuiop7lmstDdXp6qjQvdNnaQWK8mJb6oW2hKY5QTT2L2iOJFWsemARpXQ6lceszZYKT8Hb6XcgeOb32uw7MtGQYVr9obdm4v4zxZarT8zaNu2um59QeuqT2wovUzOyNae11Gh0hSmJNlT2kwbMsylEuDf7QwQfMgI2eMaI7ggCZ3unOOUxw9EIf4ev8juRifnXbqrbsh54oaWJl1v20HgDEiWEzvI/fsk1DjlreAqIILGzspxhcLW3gtUbEkr5y9jc+KKwsN2TC+zdhM5JQEXAgoI66zUi6/eh13nUHKbEymyedLYpUJqtxulbnSRSpGavC+aWaqgQXJAzY2Umuy6lOiNw+cNMljJvQyWYCaBUDu2B6n7j1mhuOZWTkIAZxUdhR/V36rpuS9hjjTZbL/mvsa+TBTtvp0/m5/2t4xjOWwZh2TfBsJfIYPQ3ycTQUkjaxu/rpXVh8Zsm/Lf9f+35aHrjaKFtIjK4tpqjJw6t+CmNAAtPJY245g1Wf967Dd4pZoJpULNYs1c6eHQvaNSdhjzTFXZRr9qpY/eT/TOLvl6Sppmpko2Gv+DsaiXQNW3vZcgJhrY0+2Nimb0oIbGXOzLplr4Hl5xmKKuPOTsKRwmQOicaL9BiOgoF69sNTC7FuVjF4y9divmG47P4liD2m1YCluUP/ozB+A==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CY1PR12MB9697.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(22082099003)(921020)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aHNjeEVXQU41Q05aYWxvK1oxRFVWbVpBT3VKSnZEcTJib2c3YXZzSEIrc0ZH?=
- =?utf-8?B?RnUxK0JseXRUSkJNbXhtRnFkMmdUL3dncm5md2JBcVdSTGdFdGlMa0lrelU4?=
- =?utf-8?B?a05JYmdCNzBBMU00RnZ5Q3laTEVTUGVabWJCaXRkSHltNml6MWNtNzVlQWwr?=
- =?utf-8?B?dWJjajBuRjMrZzRYWWNWTFcybW03Q2FUdFJOdk5GNC9WZzNUUTE3VFZDeDZU?=
- =?utf-8?B?OS9BM004QVhBNnovMFVtLzNhcnExKzYwRUVqN1QvYmtDRGIyVnhpNGlBenVC?=
- =?utf-8?B?OW96UU51Y3QrRU8rdUdEVEhFRWNIMjc4TDZCUDR6eTRJTDl4a0EzSklQNWhv?=
- =?utf-8?B?NTdBcFFQTmk3ZjVVa3dsdTM2aWNHRDJsNFh6S09ZVGFTZEFGRDV0T0IzTDNK?=
- =?utf-8?B?RU1mR0g5MDFrbzhRTnhJOEFDcm5LTGZEdHdXL2szWUVJOS8xNGV1SzBLV3dT?=
- =?utf-8?B?RW1DRStwdHVwYURhVFphVlhSZUJwV1Z5TDZEQzVPOUd3SEptTUR1V3Z4RWFv?=
- =?utf-8?B?ZVVvcnFlNThuNGpveU9PSEw3S2sxRmJNcnZ6Z1ZCNmdpRml0UUszb2hWR0FG?=
- =?utf-8?B?SlVicXpGbXVmMnpzN3YyWlJjM2xwZkwzM0RXbUJMRlFyUG9RblVGZlJ0ZkVY?=
- =?utf-8?B?aXh0cGdqMmY3RjVUYUFwZUNqOVJ4eG9jU21IYmZLTHcyck54am5pc2FrZFZt?=
- =?utf-8?B?Q0JpVnF5ZVg5SUJPY3kxdUZVNWxJVHFIRFhmVTFOQTNHSHJZaS9JT1A3Mzlk?=
- =?utf-8?B?OVdBZDgxUFpydzdyTkcvZW95cDlhb25LVHdYZ0dtblBqR2ZUNG9pQTZzUlZC?=
- =?utf-8?B?a2ppZzJINlBvZEFxOG9wdWx3enJVNE5sVnA3Z0pLOGZBZ3BMblh4MytyZEpV?=
- =?utf-8?B?ODkwSkFIQ1ROamRzRnExZ01DeTJQdTM3VDR5RGtnOFVsTk5PbkQxRmIzd2dq?=
- =?utf-8?B?MHRXaU10dXNjeVNpSFFsaytqbnJ2cUEwcDU1aXpPSEJPb2V6M2QwZlFBQnAy?=
- =?utf-8?B?bW5xS3cwaEM2UU5tbFZ5MDVCZkh4Rm5jTHMwTUsrYk1qTzRndjZ0QkRQdlpm?=
- =?utf-8?B?d3U0Y2U5TDFpeVUvWDY3enFaSHFBQmVIcGx2RENaN3VaRk5VUkVPK285Y0h0?=
- =?utf-8?B?ZWwwMld1anhkVkVIUytjSUs5RFVKeGNtaE5LRzhFcEhzb3lHcnphZSsxd3Bs?=
- =?utf-8?B?bjBaSUpqMWhJL1JqZlA3d0gxaXB1VzdHK0k3aVozUEMxek5GNWp5U2NRSXAx?=
- =?utf-8?B?bkk3dDRvU2lUd0hRRjlTaWl5aXFrYVQ4NGZlcm5PT2xqaCtXOHBmaG1GSDY1?=
- =?utf-8?B?VUFTMmUzdE5BcWRVSU0veEpEcTlQZGhEL1JOdTJwQ1NDTSt2WjIzN21GNGVn?=
- =?utf-8?B?VXQzOXhMaHdkZXhmZ3RGckY4Y3BZSnV4RGZMTkdHblE2TVlkcWZ4WWxsRlVt?=
- =?utf-8?B?eXdocVJzektaNWM1TWpZUmJDSnVWcW1QYk15akNSOXB5ZVJrL0orcEhaTUlO?=
- =?utf-8?B?WnhZS09sN2ltU1RTdCsyWkM5cFJ0RzlRa0NhVU5tcUVscEVtSE5uQ1gzS05v?=
- =?utf-8?B?UytMZ1ViN2tJbjZkd0ZDK3E4alF5OVF3Q2p1WG1HODA5WlBpdDR5WTRlTjQx?=
- =?utf-8?B?QytxeU1ZUURtcThvenRJbUQxN0IxZnhxZTBZTjQ5cFVwcFhGNkxLc3c3Zkdm?=
- =?utf-8?B?MDRlcjUrMUZEWjFRVjVySTVzcUR6NklWMXptMmc2UExqQ0xxN0JHMnhwRytX?=
- =?utf-8?B?VEtVRzJCcTkrWEVJb2lZY1J0bW1MN2J1R1czcVBZR3k5TDUyY293S1NRNTRO?=
- =?utf-8?B?ZzZkQllNcEZmYS9vbzJBb3NxaDExbGQrUTNKbHNzQjB6eGZBb0ovVGF1WFQy?=
- =?utf-8?B?eUlpbHRRVmkzdmtQWitZeDJIN3NXSDVlaEFnemxpTEMzVEU1NUgvK2Vyajkz?=
- =?utf-8?B?NjlnQmtXdlpvdGlhVWJPQWhhTUhmM3B4RldWWjRqUjdkUkc4WFYrUFNOK2hy?=
- =?utf-8?B?Q2tTL3JwMXNtWUY0WXdYVVNjQVFFNTYwa3ZPOFFucnVxYi9iZXhDczhxS3pC?=
- =?utf-8?B?eFFwRWpjaENTdkRQUkV0UXoreGJsSW1VVkNtTi9DRDUyZTVTazBCUERYd1FK?=
- =?utf-8?B?eFdOd05UbmczU0hJUTgvSGtGNkRNd245VVl4UElrZEJWY0JZQWs0alo3ZGRX?=
- =?utf-8?B?eE9WOGIvbzJIejhDL3lpanliTXI2L2ViNm1RbG1HcHJHOVY3TmZrZ1VlaUtS?=
- =?utf-8?B?K01QYkdacXVLamRGRWMxaE1LV1lVTTlYclNhbzRrVU45WEh2cGoveEg4Sllj?=
- =?utf-8?B?aGhFay9FL1Uwc2c4bVliOUoyQklSZi9FVVpNb01xdldNd1JTcXZqZz09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1948601a-50b6-441e-8c37-08ded6784614
-X-MS-Exchange-CrossTenant-AuthSource: CY1PR12MB9697.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 07:21:59.4373
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oRGNXlKDTgSyF+zmJpgXJISOdWRhWbRNskJZCMvxdAQyuhp/XkRBpmPicmqgAhaG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6947
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_002211_588202_78B04C9C 
-X-CRM114-Status: GOOD (  15.88  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <178280401285.286395.10401291228239552702.b4-ty@b4>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,39 +73,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> In zynqmp_dma_remove(), runtime PM was disabled only after checking
-> state and doing a manual suspend. This can race with runtime PM in the
-> remove/unbind (rmmod) path.
+On Tue, Jun 30, 2026 at 09:20:12AM +0200, Manivannan Sadhasivam wrote:
 > 
-> Disable runtime PM first, then suspend only if the device is not already
-> suspended. To prevent any further runtime PM transitions.
+> On Mon, 25 May 2026 14:54:41 +0800, Sherry Sun (OSS) wrote:
+> > From: Sherry Sun <sherry.sun@nxp.com>
+> > 
+> > The pci_host_common_parse_port() shouldn't decide whether to fall back
+> > to the legacy RC-level binding by checking for "reset-gpios/reset-gpio"
+> > properties on the RC node and returning -ENODEV. That's a policy
+> > decision belongs to the caller, not this common helper.
+> > 
+> > [...]
 > 
-> Fixes: 72dd8b2914b5 ("dmaengine: zynqmp_dma: Add shutdown operation support")
-> Co-developed-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> Signed-off-by: Prasanna Kumar T S M <ptsm@linux.microsoft.com>
-> Signed-off-by: Golla Nagendra <nagendra.golla@amd.com>
+> Applied, thanks!
+> 
+> [1/2] PCI: host-generic: Simplify return value handling in pci_host_common_parse_port(s)
+>       commit: 4b523544008aa70cda4b34c0589bbe47172c2637
+> [2/2] PCI: imx6: Add imx_pcie_perst_found() to inspect the parsed result
+>       (no commit info)
+> 
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Thanks!
-> ---
->   drivers/dma/xilinx/zynqmp_dma.c | 4 ++--
->   1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/dma/xilinx/zynqmp_dma.c b/drivers/dma/xilinx/zynqmp_dma.c
-> index 1402331f7ef5..26f097db593d 100644
-> --- a/drivers/dma/xilinx/zynqmp_dma.c
-> +++ b/drivers/dma/xilinx/zynqmp_dma.c
-> @@ -1188,9 +1188,9 @@ static void zynqmp_dma_remove(struct platform_device *pdev)
->   	dma_async_device_unregister(&zdev->common);
->   
->   	zynqmp_dma_chan_remove(zdev->chan);
-> -	if (pm_runtime_active(zdev->dev))
-> -		zynqmp_dma_runtime_suspend(zdev->dev);
->   	pm_runtime_disable(zdev->dev);
-> +	if (!pm_runtime_status_suspended(zdev->dev))
-> +		zynqmp_dma_runtime_suspend(zdev->dev);
->   }
->   
->   static const struct of_device_id zynqmp_dma_of_match[] = {
+I've squashed patch 2 with 1 to avoid bisectability issue pointed out by Sashiko
+and rewrote the subject/description as well.
 
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
