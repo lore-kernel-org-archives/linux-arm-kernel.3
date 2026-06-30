@@ -4,93 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEA5FC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 06:35:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A473C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 06:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YgXaIOSQ9inYJqPz78tOgzQLBpoDf1nNjCK/swfzPos=; b=zzMbS0wntPLhcx6JYVUi/f8QDx
-	JsTAannz381veyEi+XL+4fcXgnsYCi+AAipdSmxhCp8XxSKUpCVFxD/QSXbFeg1FYLAba/1ifyhpa
-	wI7h3Ycf96Y4R/PM+PkaletWlA45APkPaKn7ytVsUtgtcbOkc4+1MV1huj1cwGGONOkrbz+tCMMnX
-	TXs/qxtFSUFgxugDXpJnZd2gSB+GXcA7HM9c9jiWiaoC4CCR8teZ22PQuWxv3mDxLY+ROrNeA+MsM
-	EckPVSyutm5b4MAawug5abpJoGvCp64MN4DbIIep18Tt4hwNVnxpZ/XOfe4r+Rnhua5vtGmSYkqSA
-	9milgo/A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=syBpKBFGjGejGwg1BjAhn4n5QdMB5B8yOZv838BwUKA=; b=DaAnojb/wZQf14j/zvfvnsfkMS
+	WNnfKM5iFkXGL3IP7AzAUmJD5z84Nd8khpRVq5S2M4cBbFs+aUVDFphi9adhgZEK5RZ1v9lONppV7
+	t6baxfgLBhbhAuoV2kIClkF3mj8DjgpBf92oKkI2FPQv/1uSCzTU3pp5TCdDngyMTYuL61xUSzPJo
+	B1KDNTbIe8gZry7WqSlLjZvuFojwTyIHGJHgkXnuIS7F8bCPFpS9AfqXlb0qP+bT8dNPi+Lv52MsI
+	jeD+VSGE6NIpwQd3wA9VZi499G/NZjhXf+R/5zqqCm1PrbbSdqUHRYVGkXSJcy3Sus2QyZlbJFQWz
+	xYoFXEIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weS3l-0000000FxYc-1crw;
-	Tue, 30 Jun 2026 06:35:05 +0000
-Received: from mail.eswincomputing.com ([123.124.195.78])
+	id 1weS3q-0000000FxdZ-3Tc3;
+	Tue, 30 Jun 2026 06:35:10 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weS3h-0000000FxVT-2EW1;
-	Tue, 30 Jun 2026 06:35:03 +0000
-Received: from E0004057DT.eswin.cn (unknown [10.11.96.26])
-	by app2 (Coremail) with SMTP id TQJkCgA3S56IY0NqcRwwAA--.53065S2;
-	Tue, 30 Jun 2026 14:34:49 +0800 (CST)
-From: lizhi2@eswincomputing.com
-To: devicetree@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	rmk+kernel@armlinux.org.uk,
-	pjw@kernel.org,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
+	id 1weS3n-0000000FxaU-2k3Z
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Jun 2026 06:35:09 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c85d4b4245aso2438643a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Jun 2026 23:35:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782801306; x=1783406106; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=syBpKBFGjGejGwg1BjAhn4n5QdMB5B8yOZv838BwUKA=;
+        b=fkUud+b6nla82mxvRV99da7vHiix4FWxRmtgtICooKKUUV35bohvy99ZyoxfLRr/Ok
+         Ka54VW5aBfI0ck6bTjztkQ1d4Y7qjKj10RVplMq5Nqd0m+MP05EhGUqHAk2zpHsyHSEo
+         gwLnoUgZ5z3ycJkCUllXFiWZyjSKrAT7ZfWqghgeud3XuQRK+sMZCoTSSZ2p102OdnUq
+         /e8mntX+OJd81WiB2f3vPlYVLNeq+oB0QJddv2+/rdgzYOII8kD4FF7ctEYVavF2f25L
+         8/7u2fkNsmRpdMOVXbJ56hnBMW6a3Hnqgblocx7uDEJJEJ+mDSjfzP58RIJUXK6LflVg
+         LTMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782801306; x=1783406106;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=syBpKBFGjGejGwg1BjAhn4n5QdMB5B8yOZv838BwUKA=;
+        b=rAX8d3wt4C5kQC/EhJgezfa1MTmVHK85p8U00VRWHkFkPffM0cTeVeQ7zGX5USnEha
+         HjIP3Vxe0U1srIQ8HXdjD4l+C2sRUor3X47RPVI/TKgwveOWAQVC4cc7Z577p/BCN3gi
+         eH1HzjpRXvPFZHJwBdotmDBisXgaXphqh/I1zn9cnHMmTz3LTCzI1aOGMsXzkvqBg9q/
+         akWH9enK6RCEXQyzTShzw9FKoby39HUqTc5yTEqxPMu+LG11BPctlDrirBIZuBFE6/XF
+         rMjmD81/zFOwGkv6gAH6utKOtoZir3r4gBcLX/Qcq4deWtAma76sh1JuBEeWz/htA1R8
+         OQSA==
+X-Forwarded-Encrypted: i=1; AHgh+RqVmdh+9nEOMP7IZWPBTkuhT8O6JF4z9LqAxqtXD+yMtDcpuiC4gwHpqiL53X7l9wjn0dy8zE9ESMf9PiQg6h4T@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywh3jwJY5YPIJCd3YTVxO71Xsn9wo2eEulJGNHWQ5UHPCf8Q9cL
+	BKH4zCBJIQvWxg44WZkrA2eOOdCvvIgpfVG6SptavpZBT0FCOtQeJmHq
+X-Gm-Gg: AfdE7ckFWWwN/raT4HLn+xlzeHRiUYTBBDBg8tLm4PPPoP7ZMJ6y5z2kgS3keqT987f
+	s6dqb4Kg8niJ/uheVS2zqy72UoNnf7qVciBE/HTTSRZ3l77EcIzXOU0RZvjJbB2hfMFVZE5Znic
+	1Q0LRPUlCJf7whjkdFNX9UTn49FlmWLPJ0SirR4USgXYzsqqkwewqH8cDwAJRT0FKQgcYwzm3Ux
+	BjSHZVIB6TGN775ZuSBF+d/xUerFMacgRAnDaG0nRGDgu2AWXWoavxzCyQtCzRhQ+m5S7FN4jpz
+	iHPpSUD0Z5JHJDZ49SF/ViBgnEkuY5NREwU4MiEunnfKBgmDfZcZUhdwO/YDPEzeQi1F7h5yf/r
+	wN+OSHOHTFKiW6DnIKOHcqrQPeBAIztNJgdUz/3chVFOF32m0PGYyXF18ziMB71fPUbiy8pSs4S
+	usA2oe1VWGHtPiy7kLDR3igSRztmUs8VSgktwIlzEhTqrWDaUE5fCa+cuLFg==
+X-Received: by 2002:a05:6a00:b481:b0:845:e44c:2e5 with SMTP id d2e1a72fcca58-8479f109b70mr1989863b3a.22.1782801306377;
+        Mon, 29 Jun 2026 23:35:06 -0700 (PDT)
+Received: from phuc-desktop.. ([183.91.15.56])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847a02cd237sm1165061b3a.32.2026.06.29.23.34.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Jun 2026 23:35:06 -0700 (PDT)
+From: phucduc.bui@gmail.com
+To: Mark Brown <broonie@kernel.org>,
+	Takashi Iwai <tiwai@suse.com>,
+	Nick Li <nick.li@foursemi.com>,
+	Herve Codina <herve.codina@bootlin.com>
+Cc: Support Opensource <support.opensource@diasemi.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Charles Keepax <ckeepax@opensource.cirrus.com>,
+	Richard Fitzgerald <rf@opensource.cirrus.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Shenghao Ding <shenghao-ding@ti.com>,
+	Kevin Lu <kevin-lu@ti.com>,
+	Baojun Xu <baojun.xu@ti.com>,
+	Sen Wang <sen@ti.com>,
+	Oder Chiou <oder_chiou@realtek.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	u.kleine-koenig@baylibre.com,
+	Zhang Yi <zhangyi@everest-semi.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Kees Cook <kees@kernel.org>,
+	HyeongJun An <sammiee5311@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Qianfeng Rong <rongqianfeng@vivo.com>,
+	linux-sound@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	maxime.chevallier@bootlin.com
-Cc: ningyu@eswincomputing.com,
-	linmin@eswincomputing.com,
-	pinkesh.vaghela@einfochips.com,
-	pritesh.patel@einfochips.com,
-	weishangjuan@eswincomputing.com,
-	horms@kernel.org,
-	lee@kernel.org,
-	wens@kernel.org,
-	Zhi Li <lizhi2@eswincomputing.com>
-Subject: [PATCH net-next v9 6/6] riscv: dts: eswin: eic7700-hifive-premier-p550: enable Ethernet controller
-Date: Tue, 30 Jun 2026 14:34:45 +0800
-Message-ID: <20260630063445.1226-1-lizhi2@eswincomputing.com>
-X-Mailer: git-send-email 2.52.0.windows.1
-In-Reply-To: <20260630063123.1118-1-lizhi2@eswincomputing.com>
-References: <20260630063123.1118-1-lizhi2@eswincomputing.com>
+	patches@opensource.cirrus.com,
+	linux-mediatek@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bui duc phuc <phucduc.bui@gmail.com>
+Subject: [PATCH 00/27] ASoC: codecs: Use guard() for mutex & spin locks
+Date: Tue, 30 Jun 2026 13:34:22 +0700
+Message-ID: <20260630063449.503996-1-phucduc.bui@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: TQJkCgA3S56IY0NqcRwwAA--.53065S2
-X-Coremail-Antispam: 1UD129KBjvJXoW3Jw4xJF43WFyUKF4DXF43ZFb_yoWfGryUpa
-	13urZ3Jr4kZFWSvw4jvF40yFZrGa1kKFykurnrtFy8Jw1v9FnYkw1jqry5XF1DZrWrXw13
-	XFnrJ34IyF1Iy3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBG14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
-	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JF0_Jw1lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lw4CEc2x0rVAKj4xxMxkF7I0En4kS14v26r4a6rW5MxkIecxEwVCm-wCF04
-	k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18
-	MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr4
-	1lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr1j6F4U
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRQ6p9UUUUU=
-X-CM-SenderInfo: xol2xx2s6h245lqf0zpsxwx03jof0z/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260629_233502_077176_8D2B802E 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260629_233507_902789_F21446DD 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,416 +125,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhi Li <lizhi2@eswincomputing.com>
+From: bui duc phuc <phucduc.bui@gmail.com>
 
-Enable the on-board Gigabit Ethernet controller on the
-HiFive Premier P550 development board.
+Hi all,
 
-This patch is included only to provide the DTS context for reviewing the
-binding and driver changes in this series.
+This series converts mutex and spinlock handling in ASoC codec drivers
+to use the guard() and scoped_guard() helpers.
 
-The upstream DTS series will be submitted separately after the binding
-and driver changes are finalized.
+This is part 2 of a larger 78-patch conversion series. Part 1 (24
+patches) has already been posted, while this series contains the next
+27 patches to keep the review manageable.
 
-Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
----
- .../dts/eswin/eic7700-hifive-premier-p550.dts | 240 ++++++++++++++++++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 105 ++++++++
- 2 files changed, 345 insertions(+)
+https://lore.kernel.org/all/20260617103235.449609-1-phucduc.bui@gmail.com/
 
-diff --git a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-index 131ed1fc6b2e..9d37bafdd1b2 100644
---- a/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-+++ b/arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
-@@ -13,11 +13,251 @@ / {
- 
- 	aliases {
- 		serial0 = &uart0;
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
- 	};
- 
- 	chosen {
- 		stdout-path = "serial0:115200n8";
- 	};
-+
-+	vcc_1v8: regulator-1v8 {
-+		 compatible = "regulator-fixed";
-+		 regulator-name = "vcc1v8";
-+		 regulator-always-on;
-+		 regulator-boot-on;
-+		 regulator-min-microvolt = <1800000>;
-+		 regulator-max-microvolt = <1800000>;
-+	 };
-+};
-+
-+&xtal {
-+	clock-frequency = <24000000>;
-+	clock-output-names = "xtal24m";
-+};
-+
-+&pinctrl {
-+	status = "okay";
-+	vrgmii-supply = <&vcc_1v8>;
-+
-+	pinctrl_gpio0: gpio0-grp {
-+		gpio0-pins {
-+			pins = "gpio0";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio5: gpio5-grp {
-+		gpio5-pins {
-+			pins = "gpio5";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio11: gpio11-grp {
-+		gpio11-pins {
-+			pins = "gpio11";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio14: gpio14-grp {
-+		gpio14-pins {
-+			pins = "mode_set1";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio15: gpio15-grp {
-+		gpio15-pins {
-+			pins = "mode_set2";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio28: gpio28-grp {
-+		gpio28-pins {
-+			pins = "gpio28";
-+			function = "gpio";
-+			input-enable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio43: gpio43-grp {
-+		gpio43-pins {
-+			pins = "usb1_pwren";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio71: gpio71-grp {
-+		gpio71-pins {
-+			pins = "mipi_csi0_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio74: gpio74-grp {
-+		gpio74-pins {
-+			pins = "mipi_csi1_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio76: gpio76-grp {
-+		gpio76-pins {
-+			pins = "mipi_csi2_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio77: gpio77-grp {
-+		gpio77-pins {
-+			pins = "mipi_csi2_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio79: gpio79-grp {
-+		gpio79-pins {
-+			pins = "mipi_csi3_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio80: gpio80-grp {
-+		gpio80-pins {
-+			pins = "mipi_csi3_xhs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio82: gpio82-grp {
-+		gpio82-pins {
-+			pins = "mipi_csi4_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio84: gpio84-grp {
-+		gpio84-pins {
-+			pins = "mipi_csi4_mclk";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio85: gpio85-grp {
-+		gpio85-pins {
-+			pins = "mipi_csi5_xvs";
-+			function = "gpio";
-+			input-disable;
-+			bias-pull-up;
-+		};
-+	};
-+
-+	pinctrl_gpio94: gpio94-grp {
-+		gpio94-pins {
-+			pins = "s_mode";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio106: gpio106-grp {
-+		gpio106-pins {
-+			pins = "gpio106";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+
-+	pinctrl_gpio111: gpio111-grp {
-+		gpio111-pins {
-+			pins = "gpio111";
-+			function = "gpio";
-+			input-disable;
-+			bias-disable;
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	phy-handle = <&gmac0_phy0>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio106>;
-+	rx-internal-delay-ps = <20>;
-+	tx-internal-delay-ps = <100>;
-+	status = "okay";
-+};
-+
-+&gmac0_mdio {
-+	gmac0_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 10 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
-+};
-+
-+&gmac1 {
-+	phy-handle = <&gmac1_phy0>;
-+	/*
-+	 * The MAC silicon unconditionally introduces an ~2 ns TX clock-to-data
-+	 * skew (MAC-side TX internal delay). The PHY provides the standard
-+	 * ~2 ns RX internal delay. The driver additionally inverts the RX
-+	 * clock at 1000 Mb/s to correct a silicon RX sampling timing issue.
-+	 * phy-mode is "rgmii-id": TX delay from the MAC silicon, RX delay
-+	 * from the PHY.
-+	 */
-+	phy-mode = "rgmii-id";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_gpio111>;
-+	rx-internal-delay-ps = <200>;
-+	tx-internal-delay-ps = <2200>;
-+	status = "okay";
-+};
-+
-+&gmac1_mdio {
-+	gmac1_phy0: ethernet-phy@0 {
-+		compatible = "ethernet-phy-id001c.c916";
-+		reg = <0>;
-+		reset-gpios = <&gpioD 15 GPIO_ACTIVE_LOW>;
-+		reset-assert-us = <10000>;
-+		reset-deassert-us = <80000>;
-+	};
- };
- 
- &uart0 {
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-index c3ed93008bca..041ecc5cb007 100644
---- a/arch/riscv/boot/dts/eswin/eic7700.dtsi
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -5,6 +5,9 @@
- 
- /dts-v1/;
- 
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/reset/eswin,eic7700-reset.h>
-+
- / {
- 	#address-cells = <2>;
- 	#size-cells = <2>;
-@@ -202,6 +205,11 @@ pmu {
- 				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
- 	};
- 
-+	xtal: clock-24m {
-+		compatible = "fixed-clock";
-+		#clock-cells = <0>;
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		ranges;
-@@ -245,6 +253,85 @@ plic: interrupt-controller@c000000 {
- 			#interrupt-cells = <1>;
- 		};
- 
-+		hsp: bus@0 {
-+			compatible = "simple-pm-bus";
-+			ranges = <0x0 0x50400000 0x0 0x50400000 0x0 0xa0000>;
-+			clocks = <&clk 171>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+
-+			hsp_sp_csr: hsp-sp-top-csr@50440000 {
-+				compatible = "eswin,eic7700-syscfg", "syscon";
-+				reg = <0x0 0x50440000 0x0 0x2000>;
-+			};
-+
-+			gmac0: ethernet@50400000 {
-+				compatible = "eswin,eic7700-qos-eth",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50400000 0x0 0x10000>;
-+				interrupts = <61>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 193>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH0_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x100 0x108 0x118 0x114 0x11c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac0>;
-+				status = "disabled";
-+
-+				gmac0_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac0: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+
-+			gmac1: ethernet@50410000 {
-+				compatible = "eswin,eic7700-qos-eth-clk-inversion",
-+					     "snps,dwmac-5.20";
-+				reg = <0x0 0x50410000 0x0 0x10000>;
-+				interrupts = <70>;
-+				interrupt-names = "macirq";
-+				clocks = <&clk 186>,
-+					 <&clk 171>,
-+					 <&clk 40>,
-+					 <&clk 194>;
-+				clock-names = "axi", "cfg", "stmmaceth", "tx";
-+				resets = <&reset EIC7700_RESET_HSP_ETH1_ARST>;
-+				reset-names = "stmmaceth";
-+				eswin,hsp-sp-csr = <&hsp_sp_csr 0x200 0x208 0x218 0x214 0x21c>;
-+				snps,aal;
-+				snps,fixed-burst;
-+				snps,tso;
-+				snps,axi-config = <&stmmac_axi_setup_gmac1>;
-+				status = "disabled";
-+
-+				gmac1_mdio: mdio {
-+					compatible = "snps,dwmac-mdio";
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+				};
-+
-+				stmmac_axi_setup_gmac1: stmmac-axi-config {
-+					snps,blen = <0 0 0 0 16 8 4>;
-+					snps,rd_osr_lmt = <2>;
-+					snps,wr_osr_lmt = <2>;
-+				};
-+			};
-+		};
-+
- 		uart0: serial@50900000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x0 0x50900000 0x0 0x10000>;
-@@ -341,5 +428,23 @@ gpioD: gpio-port@3 {
- 				#gpio-cells = <2>;
- 			};
- 		};
-+
-+		pinctrl: pinctrl@51600080 {
-+			compatible = "eswin,eic7700-pinctrl";
-+			reg = <0x0 0x51600080 0x0 0x1fff80>;
-+		};
-+
-+		clk: clock-controller@51828000 {
-+			compatible = "eswin,eic7700-clock";
-+			reg = <0x0 0x51828000 0x0 0x300>;
-+			clocks = <&xtal>;
-+			#clock-cells = <1>;
-+		};
-+
-+		reset: reset-controller@51828300 {
-+			compatible = "eswin,eic7700-reset";
-+			reg = <0x0 0x51828300 0x0 0x200>;
-+			#reset-cells = <1>;
-+		};
- 	};
- };
+The changes are purely refactoring and have no functional impact.
+
+Compile-tested only.
+
+Best regards,
+Phuc
+
+bui duc phuc (27):
+  ASoC: codecs: da7213: Use guard() for mutex locks
+  ASoC: codecs: da7219: Use guard() for mutex locks
+  ASoC: codecs: es8316: Use guard() for mutex locks
+  ASoC: codecs: es8326: Use guard() for mutex locks
+  ASoC: codecs: es9356: Use guard() for mutex locks
+  ASoC: codecs: fs210x: Use guard() for mutex locks
+  ASoC: codecs: hdac_hdmi: Use guard() for mutex locks
+  ASoC: codecs: hdmi-codec: Use guard() for mutex locks
+  ASoC: codecs: idt821034: Use guard() for mutex locks
+  ASoC: codecs: lpass-macro: Use guard() for mutex locks
+  ASoC: codecs: madera: Use guard() for mutex locks
+  ASoC: codecs: max98095: Use guard() for mutex locks
+  ASoC: codecs: mt6359-accdet: Use guard() for mutex locks
+  ASoC: codecs: pcm512x: Use guard() for mutex locks
+  ASoC: codecs: pcm6240: Use guard() for mutex locks
+  ASoC: codecs: peb2466: Use guard() for mutex locks
+  ASoC: codecs: rt5514-spi: Use guard() for mutex locks
+  ASoC: codecs: rt5645: Use guard() for mutex locks
+  ASoC: codecs: rt5665: Use guard() for mutex locks
+  ASoC: codecs: rt5668: Use guard() for mutex locks
+  ASoC: codecs: rt5677: Use guard() for mutex locks
+  ASoC: codecs: rt5682: Use guard() for mutex locks
+  ASoC: codecs: rt700: Use guard() for mutex locks
+  ASoC: codecs: rt711: Use guard() for mutex locks
+  ASoC: codecs: rt712: Use guard() for mutex locks
+  ASoC: codecs: rt721: Use guard() for mutex locks
+  ASoC: codecs: rt722: Use guard() for mutex locks
+
+ sound/soc/codecs/da7213.c             |  37 ++----
+ sound/soc/codecs/da7219.c             |  55 +++------
+ sound/soc/codecs/es8316.c             |  31 +++--
+ sound/soc/codecs/es8326.c             |  30 +++--
+ sound/soc/codecs/es9356.c             |  29 ++---
+ sound/soc/codecs/fs210x.c             |  87 +++++---------
+ sound/soc/codecs/hdac_hdmi.c          | 117 +++++++++----------
+ sound/soc/codecs/hdmi-codec.c         |  15 +--
+ sound/soc/codecs/idt821034.c          | 121 ++++++++-----------
+ sound/soc/codecs/lpass-macro-common.c |  12 +-
+ sound/soc/codecs/madera.c             |  32 ++----
+ sound/soc/codecs/max98095.c           |  35 +++---
+ sound/soc/codecs/mt6359-accdet.c      |  13 +--
+ sound/soc/codecs/pcm512x.c            |  19 +--
+ sound/soc/codecs/pcm6240.c            |  25 ++--
+ sound/soc/codecs/peb2466.c            |  16 +--
+ sound/soc/codecs/rt5514-spi.c         |  21 ++--
+ sound/soc/codecs/rt5645.c             | 160 +++++++++++++-------------
+ sound/soc/codecs/rt5665.c             |  15 ++-
+ sound/soc/codecs/rt5668.c             |  10 +-
+ sound/soc/codecs/rt5677-spi.c         |  36 +++---
+ sound/soc/codecs/rt5677.c             |  75 ++++++------
+ sound/soc/codecs/rt5682-sdw.c         |  24 ++--
+ sound/soc/codecs/rt5682.c             |   5 +-
+ sound/soc/codecs/rt5682s.c            |  17 +--
+ sound/soc/codecs/rt700-sdw.c          |  14 +--
+ sound/soc/codecs/rt711-sdca-sdw.c     |  30 ++---
+ sound/soc/codecs/rt711-sdca.c         |   8 +-
+ sound/soc/codecs/rt711-sdw.c          |  24 ++--
+ sound/soc/codecs/rt711.c              |  46 ++++----
+ sound/soc/codecs/rt712-sdca-sdw.c     |  30 ++---
+ sound/soc/codecs/rt712-sdca.c         |   8 +-
+ sound/soc/codecs/rt721-sdca-sdw.c     |  29 ++---
+ sound/soc/codecs/rt721-sdca.c         |   5 +-
+ sound/soc/codecs/rt722-sdca-sdw.c     |  29 ++---
+ sound/soc/codecs/rt722-sdca.c         |   4 +-
+ 36 files changed, 557 insertions(+), 707 deletions(-)
+
 -- 
-2.25.1
+2.43.0
 
 
