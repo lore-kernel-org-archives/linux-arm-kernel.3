@@ -4,152 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8C9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFCEC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Jun 2026 07:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ry3dFK71fybVUZimY1nsp69jg29Ugxd+1zZFlEL6aes=; b=zMnLPhCPScmePgac2sFzpTgn0z
-	wKHHi6F8puj8FKwitJjbA3apnurQV9YWrUTsPGV/FyWegUY805RZFXeWwDzeHMrOE2WHU6wHrFp9I
-	OoP1Nc3bNPeZYfHTJH2d2zOouvZsg0i+b8rgV/NGNq572LgGLrBZxJ/lhtqDWM8vw3fuDMlf4Jr7O
-	Qggl3KJ6IlxyOEK4oTuKxSl3i3PJ1HGtCqg7On6dSPbFJzppxjoY3lcgiiG/RtDpnHre2s/viH2VV
-	YJ26Gucoiw0np8NnqTixDNst7ZMR9kyOkruc+Gb16Cx8VGTrenzcKRgPe0b13VpM9k08RVSOxJ3dx
-	a6wH9Z9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QLk1TuOjiNPuCpTV4xCdDTaOjHQTK3QruyZKcZY7x1Q=; b=TYHQ5wm+Ers3zES1QaRKSZ3i3h
+	egdtQoPJ6n5hsmSOcOSiK1dG5kCHC9an1YLDEYa8GsYD0ktgjvJn/CnJ0S8FX7d5EF7CZ2ZOS/lPD
+	VOMFL+F5xrW4iCL05RbK9uxFxwxxfkovAUfxlCT+5g319fEiurejJA9MJKI82/ZNdyicOtvdM4fo8
+	ATjl0BsuBDgDz+nMzZnNDkVdzXoIvoQc0m1tLRr3TiRaO+/3GGq7UhVYawVYw0zUHqu1uJp/g8Ntu
+	+WywXAIg3NPF7zRa93TdouM+iWY4a7xuZk+bH1GSORJsE8QEHYQUJeOQv99gqOM4MC6uUlaW1zkDD
+	h62pTUxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTFA-0000000GCkS-1TKj;
-	Tue, 30 Jun 2026 07:50:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weTI0-0000000GDMo-2VDX;
+	Tue, 30 Jun 2026 07:53:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weTEf-0000000GCYz-3vTN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 30 Jun 2026 07:50:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ry3dFK71fybVUZimY1nsp69jg29Ugxd+1zZFlEL6aes=; b=IMcqGh7KauOs5BgzS1DKl+mq5U
-	YKM55QxaMMon7A6u4z0R9dNrv5ZKRIuI/LJSCLd/C++nbKZr3B/8p2VHW8Pkipt5UHsA3UC5pmJwm
-	yKY4E5d27HTJV1cGFrAOZ4qVhCd1pqxNo/2p3wsiw47C4rP0jh8LToUt8C8TrRU4asLfljt26x7ia
-	3jhYaGbpVbQLUOHhHljoMm59ijA95JnZa9F/L68rGTPX63SJzziB8aBTet5plsKHZtgp3mrMJ3ruN
-	r/pfgqll5X+xjzgyPMHfalGxLg64zPjoUDw2y+HGyDn+k1TK7PBkPzV48Q8XTgXBDY7YQmrSgPtbC
-	94jwdlcg==;
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weTEZ-00000001cyE-2uR6
+	id 1weTHz-0000000GDMK-0mcH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Jun 2026 07:50:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OdMXKv/C/O+j0khx38TEpPSJfU7MskMvyzf5eoq7Oudk4u+MxHEuhNRMB9uHVLKL6FMEHGCv1hK7pt9dUsmWh6F7e3uWsVRWhH4cNNPKbMaai4856PW6I7JRt9lZKiSp9Jk+q8Ngh/PkK6rGJ5x+tdXT70/nvLlYNEQlSRkMSgmWGapqlYeKSdkjK1KyieHuxZ1KkFGOrEaFr3TFz5j6clIueVxGseMZ6fgZ9I6lGTnlKZaZwOTWGa7bGVENkKqQ3p5PXNAICUhzjV1hWQyb/tWbedzyxiOfplJ45wvr/YtkaGOALWFNP0RwO7pm4kU1RX362c7/Y8odTUK9QBHbMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ry3dFK71fybVUZimY1nsp69jg29Ugxd+1zZFlEL6aes=;
- b=HKsDPeUC9Xk5BFuGsOsovsdvvYmvHzydnat3+IMPY26v885UC/KSYVI9Z+e6eDdVegDcnzQMs6zC6NMSD2k21iC/DHQVhURgSgGd3MxSsV+hDQvoializLMZNMiSTVnTGHczXPWR5oraYkAWcVFndixjrhV+MvQhHiGhY2ninV4+8PmEv2ZdUgnE/XucVJiqoReNIRQT3CTs7KrIDDgx7x/AUX+LgK6zg4VijvpD82iqVYvqOC2b+/B63kWz019zaoDZcCDTntULE/tWnk90YY6GLYrGcsZ2RFzqQiXqDR5gU/Q0VYa658JQCCSQ9TNbto0qPFOUlU8uuXnRp0pZeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ry3dFK71fybVUZimY1nsp69jg29Ugxd+1zZFlEL6aes=;
- b=RA2VNf03yRKC8WBPiyp4qNPMa8HiZS+Wp2XGx2Bnhza/PZmRfuc7lDtXDrzoVNcFI8K4iTCBXMNYjl2rYA7cG92cLUM8pde0VgCY6SzEDnS5kuzA0AftEaEZMQ3r8l0ZdnVvxvMzxAVDVzF6s3o0FhVF7JdQfnQTOSonm2aBBYgFOifmY5bsOIuTEi1Q1Mi4IL+kxaY28GI9GdOjJJyHsaLundSVa2nNPLe6CjR3oehWeb7Tw6soksYrtYwSZrrLQpvj3rnaSj/iohyu4lCP8AssBUMJrfprnxfXXXFNOfyFuT/Mu3rtAgRF6jsX5qCwHODny+1cWxdN0o7OYsTLwg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
- by DU0PR04MB9561.eurprd04.prod.outlook.com (2603:10a6:10:312::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Tue, 30 Jun
- 2026 07:49:36 +0000
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0159.018; Tue, 30 Jun 2026
- 07:49:36 +0000
-From: wei.fang@oss.nxp.com
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux@armlinux.org.uk,
-	wei.fang@nxp.com,
-	chleroy@kernel.org
-Cc: imx@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next 10/14] net: enetc: refactor SI VLAN promiscuous mode configuration
-Date: Tue, 30 Jun 2026 15:20:32 +0800
-Message-Id: <20260630072036.382761-11-wei.fang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260630072036.382761-1-wei.fang@oss.nxp.com>
-References: <20260630072036.382761-1-wei.fang@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR01CA0196.apcprd01.prod.exchangelabs.com
- (2603:1096:4:189::23) To VE1PR04MB7216.eurprd04.prod.outlook.com
- (2603:10a6:800:1b0::22)
+	Tue, 30 Jun 2026 07:53:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A745943EE6
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:53:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 871A41F00A3D
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 07:53:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782806030;
+	bh=QLk1TuOjiNPuCpTV4xCdDTaOjHQTK3QruyZKcZY7x1Q=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=SzEeikn298ntM12mqrr6eeAuWBznUx8HGeKI8OO6J1rAXqZe+DG8eH3kpdxS2Qwc/
+	 BEgTe/7fHp8h71X6sCGG3fIihS5C6QKcHYkMaNYrgPUk3rcaSPmJDnw8ZoM5yrlTQE
+	 KvW3inqTRly1yX4cupxJ6KIIy4QWzwTYakuwLMqpuMM/p2OaqREIyxEYDMqln50mnE
+	 C1NSCn+lHyKd79yClTWWWIpGeXloq0qHFR7J5NJc/x4YvTZ2+1E8CMWE8qqPT9V+G8
+	 G9xFlM4DvUB/S9Qvyumv8uzp49Hn1jyEjfrRcGIK8Lu7u5c1SmS6vDV9TdRuWHIBZh
+	 32YpQJymIWJ5Q==
+Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-39b19e7d6fcso8747001fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 00:53:50 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro5yBCR2OOV/Pvt3iKCLYeSsiDw/cANWfz4WLCC0OHgLE8flDz5sTpGixLDun7Skqz2CBqxH8JDjnObyHJF+PjU@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpAQIuhN6TDrZaY3jAk5H5aYGVAjJD9MRKXH/fTXNpLDc6B3jl
+	VJmCoUt95TW24EcKoKVDMPDIJI1oClTckkHwCZ02lzn2qaFK29FKTXrMG+lnawiWT1mFCr65JH/
+	F2Pw8PQTiMqr0RBeDsgp6KVcg7VyCqSp/WuW8UjJwpA==
+X-Received: by 2002:a05:651c:2203:b0:39b:d0:e992 with SMTP id
+ 38308e7fff4ca-39b1da26188mr5158341fa.4.1782806029201; Tue, 30 Jun 2026
+ 00:53:49 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 30 Jun 2026 00:53:46 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 30 Jun 2026 00:53:46 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260629132633.1300009-1-arnd@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|DU0PR04MB9561:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3a6be60b-6254-4746-8f17-08ded67c21ac
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|23010399003|19092799006|1800799024|22082099003|18002099003|11063799006|5023799004|56012099006|921020|6133799003;
-X-Microsoft-Antispam-Message-Info: VCyjj8F7PK0K9dNZBfg9qpm/4OR72tMaLLaVVIAy5AaQuGXvENXjbOIKdsej10Re1jz2qsTkMWwJLUIfRyGbWYgmtYP5Jer005fA3SSr2mxIajD7HcAT6QWll1/Y2+4NarX+r6N3rHcyUJvveZFR7wQmPW/4QyBMcNxtYCh6O0jQzgja9wZsT2QlkuxSumON83cNPvFksnvy6GLPFy+SWoAZZotIJPxW0mE7ezAnX+BoWy9oQvBtv2+R+XMM5JjKUUUmmEtKMEHX5PELZCK7YYUiEaY8i6QpdI3oMvRRw+WOOPrz8zwwJTClxkoCFyqKF58pxtIJks1jhu4uwM92jv4/wzyYOLmKD00Ab5euU01N3wBHReoFpKKrKlJKOnvcFPw2rBn+nx48hlD8eoW8WaaxD+yI/H2sKnIQjItLKrj1Am+8wlqf58M6gpQylu6Spm1pz1TyJOWXC2r7pPU+89IsBEMSdWTBKwpZi6oeX9KbT4a2q7FRD7O6yycsAF13OB6y25X19HsU9Ds9wcLAWCCRQO4bQP2KSY5tk18zJ33YvVjiD5ijMzoFiyiv8wU3BIbVwtMs4dq0qm72tOs/1BIx6nj3i4zmWvlfP5T6SHODPLiUtnXad4UMlPjOUsQuFx94fTpnwHuWP53xsK+1CphAFXFyTQv0WkKhFnf0kD/YoVGvNYO1irh3jamQa4tIF/62XZa+XQaFuJzIYJLaLw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(23010399003)(19092799006)(1800799024)(22082099003)(18002099003)(11063799006)(5023799004)(56012099006)(921020)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vUpvc1ZDCppoguZBQhcFCeRfpRFnmrT7nsRSMiC6owrd94J1S4q2WbZuLhjR?=
- =?us-ascii?Q?s4xPUwGJl/pyY4+RUKORttCBUWQ7hQjgZwyqpGW8cIHNCPwel5EL4golHRcg?=
- =?us-ascii?Q?Mw+IqlRhs4ZLfEKdK+DoxU2lUjD8q6qDR0l3IAU91zfT/6uthn6Hhe5cOeqZ?=
- =?us-ascii?Q?C1JDsL5Pnl93ujhTNo581qfuEn579n8w6FanfMnIOeRfQuagbsSk2lY06fud?=
- =?us-ascii?Q?1TtL9ZLAZ/0zHs3UEnZO+LeegetjwUYeZa+/MowrZQkECQbMZQNXuJywj2D1?=
- =?us-ascii?Q?cWPKCJrSzyyXZpSzRq1PqlTB+i/jC5zMthDmaU4keGt0DYeIvh6VcM/mhHAw?=
- =?us-ascii?Q?BEES3yPRbxBctpSgaWJdk7O7HnmO5+eYitNu4sylhlva/ht/WIDFB3qo1PTy?=
- =?us-ascii?Q?4ailKEOIF58fRQzlhFH96frozNwX7RgIhUfHeRvbvPMhRg7MYgnCJIQYqLsN?=
- =?us-ascii?Q?sCCpNtSTKpAc1bwxj3RrwX8ubetfgebiL2rKzahZCj53xzqex5FeOADM5tUi?=
- =?us-ascii?Q?SSvsCGz/m85sFaXW07qzLhMCYaSvb1UsGdGbOHU0pGLgd/6k8NQ8WHtJOJWZ?=
- =?us-ascii?Q?XOBANrN/UszfG0GSO803Sia5kTnCSG3SdZoazlVi6gO0vPqb0D3rYlm5v7nq?=
- =?us-ascii?Q?uB8qC56Cy8eGrIm5yOecdVjIAw/1ZJ6ZFizSADCdQvGtMuUk6JETl9MOd3it?=
- =?us-ascii?Q?Ip2K1lgywDrX2FmWbVG1r9X7eO9y48cRwEawzKgrSX3dJfBbZ36+CCowJVKl?=
- =?us-ascii?Q?8Rut8jt7aiO8CR3PJh4IVgRawyGJyqf8UNczzDFdfMgmgtfe5/nAxGT7Ti47?=
- =?us-ascii?Q?CrxCrFhamGq5Xkw0pjR1ZMx6z20oogGUKotGklaIytYXq5VcKgYKYSxMRwgJ?=
- =?us-ascii?Q?hTY8cOa2CuTGNT3iU8l6Gc+o7YG3wNzoV+6WzpS3e3ZPX0DTmmcm1ZDFxsVn?=
- =?us-ascii?Q?qhC9nqYdHzePTJh59sIjH+6NfBhWaCETM+CF5sg5PKoN8/3lGBW8Hq9+RAFz?=
- =?us-ascii?Q?rG2t/yi8hZLC/1wRR6TTvF8Ta9/5dJDcvF4hq/UwCiGZiV4F9ySIff0EL44b?=
- =?us-ascii?Q?ccGLDQWjPdAzCR+akB0Kj7xFy/OVvQwPvDPDcOcTtLkl/1vW67QbEgzZUggJ?=
- =?us-ascii?Q?T6N6iHMlniQvsPHxgxUdcMUPO+sO1p22f3utyvTMW4/FIgry92VqcQhGHxSk?=
- =?us-ascii?Q?GUVbQyI3gJVym1xPfrUdTdXFC8P1/FF8agFwgdX1/BnsjTk1CLpeu5Z0cyFW?=
- =?us-ascii?Q?D8rgqtrq2phpObM4pzuiYQenolQ6HfS/Ga30wJH9Tgq37nsnPMf+Uqs4j5GT?=
- =?us-ascii?Q?IgNeJlSnb/2YZuPvil/PwI/GywJwUo4jHIDH2i82GGuIgHPGly4tYBBirepX?=
- =?us-ascii?Q?hAaFcBFyHd6I/P/fCt731NtCg6DiWPSI2uZl3shAzDeESCpa2geWPA7hM5rv?=
- =?us-ascii?Q?IioFiYrItMKOznvOSBqM/MFoXNCJC1wpIHfSQ9H5zGZ/FrMfg6933VtxaVQY?=
- =?us-ascii?Q?XW/d17ADBsOH6gb5cqXrK1h1GgnFMvD3pZHG9F3ViQkI0iFLf4RQJKX4ykbu?=
- =?us-ascii?Q?d2okWhvEIhYvXDOp8J2IvLaWH7QSeQ+BwD3kDVxoeYtucNDcrO9tETZUlBQ+?=
- =?us-ascii?Q?uD6klXqEh6vFSg7TdAHqWQzs8VJIKOiEKZjrUx6JDJshvd5dwDpedsahlPBx?=
- =?us-ascii?Q?nVIzZVf9q8KjcjW5TOoL6lNlK+EBbzl6YohEP22lluf4Z9IVCi5OxHuFmKOO?=
- =?us-ascii?Q?Jn31WMkufeUtDQNayun8eGMJa+hJ3WgJsjn6q+iLppCYuou2U7pF?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3a6be60b-6254-4746-8f17-08ded67c21ac
-X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jun 2026 07:49:36.3696
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: I27MAOMyQZHRrvvUnizTmJ8qyWKnKYjKU+yXPwUE15Cx0wiIJLaKithHh21FCzEx5xzsrnxzAmlL9ZGqCc5CWziyJ/i7YgdCnNGEdPHNTFZhGx6b0o9YM3qhZpXogiL9
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9561
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_085020_132351_FB003F50 
-X-CRM114-Status: GOOD (  15.85  )
+References: <20260629132633.1300009-1-arnd@kernel.org>
+Date: Tue, 30 Jun 2026 00:53:46 -0700
+X-Gmail-Original-Message-ID: <CAMRc=McnpZK+XeMcVfrBeh8SWa44UsVSJD0GJ1pXYhiFqzdpaQ@mail.gmail.com>
+X-Gm-Features: AVVi8CcPrvp2PMd39-Ep5NDuNXP5lZT9A5toOBbKSjeAVmB0_7rIggX2JLATmJ0
+Message-ID: <CAMRc=McnpZK+XeMcVfrBeh8SWa44UsVSJD0GJ1pXYhiFqzdpaQ@mail.gmail.com>
+Subject: Re: [PATCH 00/13] treewide: replace linux/gpio.h
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+	Gregory Clement <gregory.clement@bootlin.com>, Frank Li <Frank.Li@nxp.com>, 
+	Robert Jarzmik <robert.jarzmik@free.fr>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Greg Ungerer <gerg@linux-m68k.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Hauke Mehrtens <hauke@hauke-m.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Linus Walleij <linusw@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Dominik Brodowski <linux@dominikbrodowski.net>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-sh@vger.kernel.org, linux-input@vger.kernel.org, 
+	linux-media@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,126 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Wei Fang <wei.fang@nxp.com>
+On Mon, 29 Jun 2026 15:26:20 +0200, Arnd Bergmann <arnd@kernel.org> said:
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The linux/gpio.h header used to be the global definition for the gpio
+> interfaces, with 1100 users back in linux-3.17. In linux-7.2, only about
+> 130 of those remain, so this series cleans out the rest.
+>
+> In each subsystem, we can replace the header either with
+> linux/gpio/consumer.h for users of the modern gpio descriptor interface,
+> or linux/gpio/legacy.h for the few remaining users of the old number
+> based interface.
+>
+> All patches in this series can get applied independently, so my
+> preference would be for each subsystem maintainer to apply these
+> directly, with the rest going into the gpio tree at some point.
+>
+> The final patch here obviously needs to wait for all the others
+> to get merged first.
+>
+>       Arnd
 
-Since a PCI FLR (Function Level Reset) is performed during probe, and
-the hardware enables VLAN promiscuous mode for all SIs by default after
-reset, there is no need to explicitly set it in enetc_configure_port().
-Remove the redundant initialization of vlan_promisc_simap and the call
-to enetc_set_vlan_promisc() from enetc_configure_port().
+Thanks for doing this Arnd!
 
-Remove the enetc_set_vlan_promisc(), enetc_enable_si_vlan_promisc() and
-enetc_disable_si_vlan_promisc() functions, and introduce a new unified
-function enetc_set_si_vlan_promisc() to enable or disable VLAN
-promiscuous mode for a specific SI. This simplifies the logic and makes
-the interface more straightforward.
+For the series:
 
-As ENETC V4 only changes the address offset of PSIPVMR register compared
-to V1 without any functional difference, enetc_set_si_vlan_promisc() can
-be moved to enetc_pf_common.c in the future with minor adjustments to be
-reused by the ENETC V4 driver
-
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
- .../net/ethernet/freescale/enetc/enetc_hw.h   |  5 ++-
- .../net/ethernet/freescale/enetc/enetc_pf.c   | 35 +++++++------------
- .../net/ethernet/freescale/enetc/enetc_pf.h   |  1 -
- 3 files changed, 14 insertions(+), 27 deletions(-)
-
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_hw.h b/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-index 66bfda60da9c..16da732dc5de 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_hw.h
-@@ -185,9 +185,8 @@ enum enetc_bdr_type {TX, RX};
- #define  PSIPMMR_SI_MAC_MP(n)	BIT((n) + 16)
- 
- #define ENETC_PSIPVMR		0x001c
--#define ENETC_VLAN_PROMISC_MAP_ALL	0x7
--#define ENETC_PSIPVMR_SET_VP(simap)	((simap) & 0x7)
--#define ENETC_PSIPVMR_SET_VUTA(simap)	(((simap) & 0x7) << 16)
-+#define  PSIPVMR_SI_VLAN_P(n)	BIT(n) /* n = SI index */
-+
- #define ENETC_PSIPMAR0(n)	(0x0100 + (n) * 0x8) /* n = SI index */
- #define ENETC_PSIPMAR1(n)	(0x0104 + (n) * 0x8)
- #define ENETC_PVCLCTR		0x0208
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_pf.c b/drivers/net/ethernet/freescale/enetc/enetc_pf.c
-index db2a800a7aaf..096ccb35508c 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_pf.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_pf.c
-@@ -42,24 +42,20 @@ static void enetc_pf_destroy_pcs(struct phylink_pcs *pcs)
- 	lynx_pcs_destroy(pcs);
- }
- 
--static void enetc_set_vlan_promisc(struct enetc_hw *hw, char si_map)
-+static void enetc_set_si_vlan_promisc(struct enetc_si *si, int si_id,
-+				      bool promisc)
- {
--	u32 val = enetc_port_rd(hw, ENETC_PSIPVMR);
-+	struct enetc_hw *hw = &si->hw;
-+	u32 val;
- 
--	val &= ~ENETC_PSIPVMR_SET_VP(ENETC_VLAN_PROMISC_MAP_ALL);
--	enetc_port_wr(hw, ENETC_PSIPVMR, ENETC_PSIPVMR_SET_VP(si_map) | val);
--}
-+	val = enetc_port_rd(hw, ENETC_PSIPVMR);
- 
--static void enetc_enable_si_vlan_promisc(struct enetc_pf *pf, int si_idx)
--{
--	pf->vlan_promisc_simap |= BIT(si_idx);
--	enetc_set_vlan_promisc(&pf->si->hw, pf->vlan_promisc_simap);
--}
-+	if (promisc)
-+		val |= PSIPVMR_SI_VLAN_P(si_id);
-+	else
-+		val &= ~PSIPVMR_SI_VLAN_P(si_id);
- 
--static void enetc_disable_si_vlan_promisc(struct enetc_pf *pf, int si_idx)
--{
--	pf->vlan_promisc_simap &= ~BIT(si_idx);
--	enetc_set_vlan_promisc(&pf->si->hw, pf->vlan_promisc_simap);
-+	enetc_port_wr(hw, ENETC_PSIPVMR, val);
- }
- 
- static void enetc_set_isol_vlan(struct enetc_hw *hw, int si, u16 vlan, u8 qos)
-@@ -442,10 +438,6 @@ static void enetc_configure_port(struct enetc_pf *pf)
- 	/* split up RFS entries */
- 	enetc_port_assign_rfs_entries(pf->si);
- 
--	/* enforce VLAN promisc mode for all SIs */
--	pf->vlan_promisc_simap = ENETC_VLAN_PROMISC_MAP_ALL;
--	enetc_set_vlan_promisc(hw, pf->vlan_promisc_simap);
--
- 	enetc_port_wr(hw, ENETC_PSIPMMR, 0);
- 
- 	/* enable port */
-@@ -466,12 +458,9 @@ static int enetc_pf_set_features(struct net_device *ndev,
- 	}
- 
- 	if (changed & NETIF_F_HW_VLAN_CTAG_FILTER) {
--		struct enetc_pf *pf = enetc_si_priv(priv->si);
-+		bool promisc = !(features & NETIF_F_HW_VLAN_CTAG_FILTER);
- 
--		if (!!(features & NETIF_F_HW_VLAN_CTAG_FILTER))
--			enetc_disable_si_vlan_promisc(pf, 0);
--		else
--			enetc_enable_si_vlan_promisc(pf, 0);
-+		enetc_set_si_vlan_promisc(priv->si, 0, promisc);
- 	}
- 
- 	if (changed & NETIF_F_LOOPBACK)
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_pf.h b/drivers/net/ethernet/freescale/enetc/enetc_pf.h
-index 6f15f9ea1664..574ab4e76d8b 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_pf.h
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_pf.h
-@@ -46,7 +46,6 @@ struct enetc_pf {
- 	struct work_struct msg_task;
- 	char msg_int_name[ENETC_INT_NAME_MAX];
- 
--	char vlan_promisc_simap; /* bitmap of SIs in VLAN promisc mode */
- 	DECLARE_BITMAP(vlan_ht_filter, ENETC_VLAN_HT_SIZE);
- 	DECLARE_BITMAP(active_vlans, VLAN_N_VID);
- 
--- 
-2.34.1
-
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
