@@ -4,119 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14DBC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 22:48:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60ADC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=; b=3/cUOE78KtlVMfVs+ut3bcXKdR
-	w0l7zgtIrGabqB2MQKQ+dJJUQmOirBWI9XzpFZGPfGA8dAKsD1qiG6RVUeGC4/0BIUd6CK9yii+ql
-	HI1p3nOtxMFyJyjXOrrK8gQDngf8Ki7Bo9juyrj/vHkquzHsXsWfHAhnRk9v4Xtasr6o35XpOfu4S
-	VQ95AFxQCjk36PplkW4q0Dll0Pie9BnbZhoVORFK3L8dB9WTD/zMKPiTzjYnv257ueLeA4CiIVS29
-	U2QNMjabk1k5825cVevM9ZszYJ4BcGbGHhQjhzX9K4FK8Gz9PGQMfeXoB4fmFdViPxucpRcLO0AXg
-	wPMPHb0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hiKmqO0wNrjJu7zzb5rGyi5QeG0KP1hAbxpV1oyAAlE=; b=CW10nEDa1Y2CBJk/i8+AWKm7l9
+	+zLt7VzMpPOEZxJohmTY3bs/aStQyVv8W7tNfmY4FCiQv14/UajB5fsHB817r0P63ukCVnhXgmKcP
+	8iT/9Ehcq2Kb0JKszgNUTSV2X7zPMnfbxm64JDJHByATPZnI2tGQbZgzbmkMur+TPnfSMDypiuJWw
+	fjYL3ajEiGsVc9AFVhLYVjNIuRQ3sopnDJfo8quATRiZsoLCJa2Tgiy3Sk4gDCPfVJJy9wJL3dpXi
+	QokpANqstwqBdYPJY0EBqVnFm9gFKKljf2FP5i36jnu0IRXLkEGA23ZFvVu3mRtdaf2MO6EJBP2zD
+	lle5NI2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf3jV-000000037Zk-37Oi;
-	Wed, 01 Jul 2026 22:48:41 +0000
-Received: from mail-qv2-x01.google.com ([2607:f8b0:4864:33::1])
+	id 1wf4H7-000000038xE-14Fl;
+	Wed, 01 Jul 2026 23:23:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf3jS-000000037ZG-1sSK
+	id 1wf4H5-000000038x5-3gB1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 22:48:39 +0000
-Received: by mail-qv2-x01.google.com with SMTP id 6a1803df08f44-8ef118ead8eso6705326d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 15:48:37 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782946117; cv=none;
-        d=google.com; s=arc-20260327;
-        b=RwGuHxQMinVI1p8qA1PY5+IbfFUoVZzVAAUrgt34Xm/bgewSAoKtX8GWvjMo3/LeFT
-         BHev5b2+eG23tV+a6TCsAI3lzFodOVtk1XuUgewQwXQokrmItfLtqe749XQSd1hv9n5u
-         W6pborOLtlv7z2j1irXRHVptZCP2mmgK09ULkGjqa6sKzc6K2w0CmHBkvOYNSG0qXd9Q
-         BN5Mn/XDSLYPChJ2Se+/jG7waUTEs9axA87rNLEcoTT/f1ifUS9ZToGsI6toVUvj4jr3
-         eIJ+UJhmJelgb/+z/9qmajw7YgOPWh5duRowNIBnN07lkX99LN3sllXFpaNSYhAU4hHG
-         R6yw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=;
-        fh=1HEoYVEKA3/4GwbvrYTnPadyX3tWB4S4oJHb1j/Y6ig=;
-        b=oC8f74BCEIskufuSCZLI+kMiNHLi2ahaVrU77wZrz2E6nB1zTXavds84Qq7GK2+N8O
-         i0OeR9x+LTA9vqOWgb35mKdyZZUat/XoP2Lhp3A7xSfa11emxMZy5sAyx/aWybTdiY1a
-         5gcCpeDd59JYlolb08PA1yuXugQVn+SAdfEdGePHKf/A3e7TzzuR4uhUw25k7F+hS89N
-         EiOfTcZPSKzPXhbG33aSQ1wNr49SdViSBhoEIWlyRqLzbgIalxtP+9x78MZFkLqVZCua
-         k80tuw5feMVRl+esTvKYWTnFj5Y51ksSalR+87Gf12pXutUBNso5m1T7TSlLeBcednhg
-         +oyQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782946117; x=1783550917; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=;
-        b=jEwo30ctFxgSxvOEx6RkkOCo7ZjFiuP2rwlUeRWozjkl45Ia2ArFUgax3YBFVDMIWo
-         ktXR0JOhzI95wPJnSjRqTi3tV+t63YcRB8vxiUTbQ6aex/VnBYKzs/nkXNLDr9Wse7m5
-         JjmC2Cu0/mOd+X/Bj7iB6H5DQ6h7Gj4JSsn5VnAJbjm9TNP1VfAWqXJnccYCCK4E84Ag
-         2akCHye2CP6VZKKd8JznIhONPUMEewGXVO3GVM1naWcmPOUInl8JOh4PYAevl1k312YP
-         NTrTZUTUF9C0EF91iIOLUZ+21gjVNjIBOmbagseBkpOpVHd6unc8ttLKwc9b6R95wBqX
-         xL3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782946117; x=1783550917;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=;
-        b=H2u6fsyMgDKtFiY+xZWSDnn+Ym6H2uU2fDZJASf7X5rntJrfCpmhs49sliy+llyzlo
-         bZQ2YDkaDw5eIhQ8a1NGkJ+pIcU4V1TWEYalnQfd2WDGaQ/WM+m39jsPZIS8Rn43I2mu
-         CmvO6NTgLEe6n/iBGKff/zX43CalyvelTZqYBvRVMoE/oMw9MaVGiTgYpZzWT2hYncTD
-         0NR+GSl926irB3R1a/fd3wLt+qC4p7zYP1t53Z9mbcunw09f7sfQtM6ypLl3jDsx318t
-         p5eg7xmaMxM6x5cFeeIZIlKIgp5V1hid6r8Gz/N7fkXWq1HHSSrPl2iREWEN9czrXCf4
-         SqTg==
-X-Gm-Message-State: AOJu0Yy6YHVeweuRBI3hTqjcK3MjqFBW4GySI3DdFVPDKeZk24IeOSHr
-	sXeOuKlRUUaUMAaZchI4AGjQ1yd7d9zLbw2dtqC492cgMaMCvzWJE8ed5kVZopEMqFE5SywoP6S
-	xcZO1DnSbAG0HF7GKxKqGdpcLrNxJZ2U=
-X-Gm-Gg: AfdE7cl2pFEARtImkuWiM6SmJQiwkGxJ7Vs0D4kBssBmKxxKSbxvdnnicc7F6nst7kM
-	L4WD2FGj1tIoRC8aa9ZRxBhX+rIkNMS9hxBW+wY1pniJUkBz23BSfjPadq0p5TwrQTsErmSV+Qw
-	uktKxhdWPZ8ygvIpH3T7sUsFc7NS87+c8VL31nNTjX95zsbHKdSR9CD1dqwDshZhjvuTddglJ8c
-	ngj9rKyssa1Ggy+x67M6mQrAB/d+3Y2zgNkGFEf6SU2vXgH956liiCND0S9cKUKRgLaMtSQKOtA
-	eAJnV1LD1Eqx7lJ23m6qi4t7eUgULPjaySLtgb8WinMWNHZEqrUIs+lgRw==
-X-Received: by 2002:a05:6214:3d0f:b0:8dd:d13a:8c84 with SMTP id
- 6a1803df08f44-8f4214a1f72mr39935196d6.8.1782946117029; Wed, 01 Jul 2026
- 15:48:37 -0700 (PDT)
+	Wed, 01 Jul 2026 23:23:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4BE1343241;
+	Wed,  1 Jul 2026 23:23:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 076651F000E9;
+	Wed,  1 Jul 2026 23:23:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782948203;
+	bh=hiKmqO0wNrjJu7zzb5rGyi5QeG0KP1hAbxpV1oyAAlE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aYWMuWjTlBwaME+x1eFSgn+qz2xUyBupMvSmK+RxOlCo3VhCvVTCNWw7Pbhta2G6S
+	 vhnTm9ONyh2F7530Zd9GZFgrHkTBNbUCSJGVfe3bgnOTyXL746UtovbEKzL8cp8YBl
+	 DNp8gCYtzVL2yrbTy0lFZFUUlzncCkOK9l2wTKQvXOUaEK8Qc7bXze/znzBF/y/0Hy
+	 akIizP07KoORUuOhhkQJ6gfRSon37f7Q7oAJdHu0F7xuAFQajfGpzVXsbaxyWt0sTU
+	 v3GnLxXouW6CcrzBBZ2YUnGAWiBNO8XJYP3y/qWbFwsy1PN1U2ugbp7URnBPcGdnEv
+	 Hw9JJ4NdkGRZg==
+Date: Wed, 1 Jul 2026 16:23:21 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
+Message-ID: <akWhad3U5VNjWzxu@kernel.org>
+References: <20260701204342.2654385-1-coltonlewis@google.com>
 MIME-Version: 1.0
-References: <20260701212353.2196041-1-arnd@kernel.org> <20260701212353.2196041-12-arnd@kernel.org>
-In-Reply-To: <20260701212353.2196041-12-arnd@kernel.org>
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Wed, 1 Jul 2026 15:48:26 -0700
-X-Gm-Features: AVVi8Cepw8-jeERBXP5uzrp7v2GBj31ta-VoNMboVTSNdDufrAM_yNfN295JHb0
-Message-ID: <CADkSEUgm4Bse0x0K355iuLVJJM-mgeZAxg4xywgH1nYxnU-d4A@mail.gmail.com>
-Subject: Re: [PATCH v2 11/19] ARM: mark ARCH_DOVE as deprecated
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Ard Biesheuvel <ardb@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Daniel Mack <daniel@zonque.org>, Frank Li <Frank.Li@nxp.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
-	"Jeremy J. Peper" <jeremy@jeremypeper.com>, Kristoffer Ericson <kristoffer.ericson@gmail.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Ralph Siemsen <ralph.siemsen@linaro.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Russell King <linux@armlinux.org.uk>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stefan Agner <stefan@agner.ch>, 
-	Stefan Wiehler <stefan.wiehler@nokia.com>, Tony Lindgren <tony@atomide.com>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_154838_551933_4F63F351 
-X-CRM114-Status: GOOD (  24.02  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701204342.2654385-1-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,52 +75,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 1, 2026 at 2:25=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
-e:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> The Marvell Armada 510 (Dove) platform is supported both as devicetree
-> and atags/boardfile variants, with varying degrees of hardware support.
->
-> Russell was the last known user of the board file version, and there
-> are very few users overall. Unless Russell still needs this variant,
-> let's remove after the next LTS kernel, leaving the CONFIG_MACH_DOVE
-> variant with devicetree.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm/mach-dove/Kconfig | 8 ++++++--
->  1 file changed, 6 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/mach-dove/Kconfig b/arch/arm/mach-dove/Kconfig
-> index 996888ffcfe7..f547120e223e 100644
-> --- a/arch/arm/mach-dove/Kconfig
-> +++ b/arch/arm/mach-dove/Kconfig
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0
->  menuconfig ARCH_DOVE
-> -       bool "Marvell Dove" if ARCH_MULTI_V7
-> +       bool "Marvell Dove (DEPRECATED)" if ARCH_MULTI_V7
->         depends on ATAGS
->         select CPU_PJ4
->         select GPIOLIB
-> @@ -11,7 +11,11 @@ menuconfig ARCH_DOVE
->         select PM_GENERIC_DOMAINS if PM
->         select PCI_QUIRKS if PCI
->         help
-> -         Support for the Marvell Dove SoC 88AP510
-> +         Support for the Marvell Dove SoC 88AP510 using board files.
-> +
-> +         Support for this machine will be removed in early 2027, unless
-> +         there is a strong reason to keep it. Users should migrate to
-> +         the devicetree-enabled version (CONFIG_MACH_DOVE) instead.
->
->  if ARCH_DOVE
->
-> --
-> 2.39.5
->
+The subject prefix should be "[PATCH 6.6 0/5]" so people know right up
+front where this is going.
 
-Reviewed-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
+> This series backports VHE CPU boot fixes to the 6.6.y stable branch.
+> 
+> These fixes are already present in the 6.12.y stable branch (and
+> newer), but are missing in 6.6.y. They are required to enable booting
+> L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
+
+It's a bit worse than this. The architecture retroactively made
+FEAT_E2H0 an optional feature, there are now implementations in the wild
+that do not support the feature.
+
+> Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
+> incorrectly configured (because it misses VHE-only detection or early
+> initialization), causing early boot hangs/trap loops.
+> 
+> Conflict resolutions:
+> - Patch 4 (KVM: arm64: Initialize HCR_EL2.E2H early) had conflicts in
+>   arch/arm64/kvm/hyp/nvhe/hyp-init.S due to differences in state
+>   initialization. Resolved by extracting EL2 state initialization into
+>   __kvm_init_el2_state.
+> - Patch 5 (arm64: Revamp HCR_EL2.E2H RES1 detection) had conflicts in
+>   arch/arm64/include/asm/el2_setup.h. Resolved by using raw msr hcr_el2
+>   instead of the missing msr_hcr_el2 macro.
+> 
+> 
+> Marc Zyngier (4):
+>   arm64: sysreg: Add layout for ID_AA64MMFR4_EL1
+>   arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is
+>     negative
+>   arm64: Fix early handling of FEAT_E2H0 not being implemented
+>   arm64: Revamp HCR_EL2.E2H RES1 detection
+> 
+> Mark Rutland (1):
+>   KVM: arm64: Initialize HCR_EL2.E2H early
+> 
+>  arch/arm64/include/asm/el2_setup.h | 52 ++++++++++++++++++++++++++++++
+>  arch/arm64/kernel/head.S           | 17 +++-------
+>  arch/arm64/kvm/hyp/nvhe/hyp-init.S | 16 +++++++--
+>  arch/arm64/tools/sysreg            | 37 +++++++++++++++++++++
+>  4 files changed, 107 insertions(+), 15 deletions(-)
+> 
+> 
+> base-commit: d1cfde2d5d15be14123bdd1689162bd27f995a90
+> --
+> 2.55.0.rc2.803.g1fd1e6609c-goog
+> 
 
