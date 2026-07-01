@@ -4,106 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEE4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C07C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:56:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xSBML2lf7smJCG24FWNKYYpKDN0LSQzwJKW+lnhg58k=; b=3cmYs89dGnaJ/c3xPAg3nWOsD2
-	hUeClfoAlaOR+6gSDGWBLUZIZZlKOptm0qU44Ku8/kVwO9wxjpXvuYrHXdr3J/gETcfg7BMCdddzs
-	RewFKrZKG0d7S+IDJyq7jyPXrYMvzYlEi3ht6Vk8fx3XzBEara1WEeTVlHhbA0i0mUmSyyFCozjO/
-	YLN3/FFqmrKJIkpOFu2WfqKAMk4AtsyR9+T32HFu+ikRsbjqvfGJKYY6cvBR4UyPuwhJwQ/wsJyzw
-	7ud0a4ADOlEMR+OBoKxY7zOlOyXUYHg3JQNwtAhK6Bce1IJasHBsguqv4Xfem/sa3fJ3YzgsO3FW+
-	2pRYv9jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R0xQROUgY3USVrZRoxRpR+tcCXdEqbd2n35d9Jl/Ms0=; b=kex4GvPnGt1rKLlp2v7PkUnwAI
+	xRkvHwukSF5KbN7MHe/0fggwAFVsRv8aVyg3/9ELpPocMPJTeHjKk65BmmkXM5YrNePo0ZZkwOOLZ
+	MYRVcl4O+P70sxba2YfTgHftMmIoNGTmd1UssdvL1jbWQaFqZZLlohRO3wLJ5bshBHT5Xq3vXJyz2
+	262yDsUTQ6W2nXQ0sa+yiT5kNxL/Jg419Qx0p0tKRGoTLuxFrvcZ8NIDEbjpwCgVty1UY9nfHPId6
+	G7a/OeSc/miJQWZ1MeRrckPAvuHDfTC7vXZ1DmqsFuEmZgDDDy+hjzdLxPy4pMYZXSL2UXWlBcgix
+	9ae06ppQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesbM-00000001NVz-0sw0;
-	Wed, 01 Jul 2026 10:55:32 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1wescY-00000001NnB-1Ki4;
+	Wed, 01 Jul 2026 10:56:46 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesbI-00000001NUi-44h5;
-	Wed, 01 Jul 2026 10:55:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1782903329; x=1814439329;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=ZjS6liPi1NdySjNIcGtNItMWzhUoGpTQ0kusW/xwebI=;
-  b=RTtxY3kHH/HqrLn0kJRURsRtbxPLB7EPKRrDICJAx2ZU/mXyOE+fVEbM
-   NKv12Ky4OMJjCTRqegGRYqmMQTxEJtaOJx2igkvxbEB6wJ+uRrMcfQ6YW
-   kb9uOTSQJmZe5dXr3YWp29Fj7l0xlgLtzDJb8jGb0dAdyW8mqJRAyEg4h
-   2NLtIyUhW4FfiGJjfowRsL2ZCVV81AiU4RFbilQtzdU2NFFxQzGZq7chS
-   A/dVTX88J0W3VQAJLieqLEVCFx7xmn9ooccgAU9ChRT8Yws/K2VdM6tOm
-   HnUsvbY9M+FzKCcJXWb+vysO4e91u+D9X36Ifh/+5kDa4N0BTEKCEF/6I
-   Q==;
-X-CSE-ConnectionGUID: srJ2MJLMQeq3/uCsdWD29w==
-X-CSE-MsgGUID: PfBVcLC7TXOH9TDHYzMfZg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11833"; a="106422866"
-X-IronPort-AV: E=Sophos;i="6.25,141,1779174000"; 
-   d="scan'208";a="106422866"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2026 03:55:20 -0700
-X-CSE-ConnectionGUID: ci0GyTkQQvCRryiMH+9o2g==
-X-CSE-MsgGUID: GVB/dza0RKCoTJodXYYUyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,141,1779174000"; 
-   d="scan'208";a="252114244"
-Received: from conormcd-mobl2.ger.corp.intel.com (HELO localhost) ([10.245.244.65])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2026 03:55:14 -0700
-Date: Wed, 1 Jul 2026 13:55:11 +0300
-From: Andy Shevchenko <andriy.shevchenko@intel.com>
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Michael Walle <mwalle@kernel.org>, Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"afaerber@suse.com" <afaerber@suse.com>,
-	"wbg@kernel.org" <wbg@kernel.org>,
-	"mathieu.dubois-briand@bootlin.com" <mathieu.dubois-briand@bootlin.com>,
-	"lars@metafoo.de" <lars@metafoo.de>,
-	"Michael.Hennerich@analog.com" <Michael.Hennerich@analog.com>,
-	"jic23@kernel.org" <jic23@kernel.org>,
-	"nuno.sa@analog.com" <nuno.sa@analog.com>,
-	"andy@kernel.org" <andy@kernel.org>,
-	"dlechner@baylibre.com" <dlechner@baylibre.com>,
-	=?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>,
-	"linux-iio@vger.kernel.org" <linux-iio@vger.kernel.org>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	Stanley =?utf-8?B?Q2hhbmdb5piM6IKy5b63XQ==?= <stanley_chang@realtek.com>,
-	James Tai =?utf-8?B?W+aItOW/l+WzsF0=?= <james.tai@realtek.com>,
-	Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
- accessor
-Message-ID: <akTyDzdrt949VnWK@ashevche-desk.local>
-References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
- <20260512033317.1602537-3-eleanor.lin@realtek.com>
- <agMM9soiqpG-TRSb@ashevche-desk.local>
- <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
- <ah92oEavMu4QRn8y@ashevche-desk.local>
- <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com>
- <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
- <CAD++jLncD2ZjH3aedOkGNYP3FyZ=i7Pb0OcKKZKuMOPGNjM_nQ@mail.gmail.com>
- <DJN3PDTPJ3L6.24P71OQFB6C98@kernel.org>
- <CAHp75VeTp4eYQ4QBoeH2VyVhUivxNn1CaC9jskmeg-1zTAOYLQ@mail.gmail.com>
+	id 1wescU-00000001NlL-3Y75
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 10:56:45 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=R0xQROUgY3USVrZRoxRpR+tcCXdEqbd2n35d9Jl/Ms0=;
+	b=jVAQhVdn0fHFYNTsr5P+ASorHGa/BtzV9+gxe/BkYOLGPco0c9rweTFqgy/qXPpempwPWyWHr
+	F3PkbOSoRe8/QPVVUV6xRowpdATn8In4hR/uQhdDoBiQ0HK75ZYsS/s6mG2wExYbdcIh+slIjk2
+	1hFBzayGRAtpXyQKBWbaE9k=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gqxXz5shGzLmBl;
+	Wed,  1 Jul 2026 18:47:15 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 896B340565;
+	Wed,  1 Jul 2026 18:56:25 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 1 Jul
+ 2026 18:56:24 +0800
+Message-ID: <737355ec-7e0c-434b-b41d-201d08d1d020@huawei.com>
+Date: Wed, 1 Jul 2026 18:56:23 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: topology: read CPPC FFH feedback counters in
+ one operation
+To: Sumit Gupta <sumitg@nvidia.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <rafael@kernel.org>, <lenb@kernel.org>,
+	<robert.moore@intel.com>, <beata.michalska@arm.com>,
+	<zhenglifeng1@huawei.com>, <zhanjie9@hisilicon.com>,
+	<cuiyunhui@bytedance.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>, <xuwei5@huawei.com>,
+	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <wangzhi12@huawei.com>,
+	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
+References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
+ <20260410094145.4132082-3-zhangpengjie2@huawei.com>
+ <56a1e8bf-41b1-40cf-a943-79cce84a774e@nvidia.com>
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+In-Reply-To: <56a1e8bf-41b1-40cf-a943-79cce84a774e@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHp75VeTp4eYQ4QBoeH2VyVhUivxNn1CaC9jskmeg-1zTAOYLQ@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_035529_094916_705907E9 
-X-CRM114-Status: GOOD (  25.24  )
+X-CRM114-CacheID: sfid-20260701_035643_510497_3E5C7665 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +88,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 01:01:10PM +0300, Andy Shevchenko wrote:
-> On Wed, Jul 1, 2026 at 11:44 AM Michael Walle <mwalle@kernel.org> wrote:
-> > On Fri Jun 19, 2026 at 11:08 PM CEST, Linus Walleij wrote:
-> > > On Mon, Jun 8, 2026 at 4:41 PM Michael Walle <mwalle@kernel.org> wrote:
-> > >
-> > >> >>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot retrieve the
-> > >> >>> gpio_chip instantiated inside gpio-regmap.c to fulfill these requirements in our
-> > >> >>> map() function.
-> > >>
-> > >> Why is gpiochip_irq_reqres() called in the first place? Isn't that
-> > >> only called if the irq handling is set up via gc->irq.chip and not
-> > >> via gpiochip_irqchip_add_domain() like in gpio-regmap?
-> > >
-> > > Not really, the gpiochip_irq_reqres() is called to mark that a
-> > > GPIO line is used for IRQ, so the gpiolib cannot turn this
-> > > GPIO into an output line, gpiod_direction_out() will fail
-> > > on lines used for IRQ. So it's a failsafe.
-> > >
-> > > You can live without it of course, but then you don't get
-> > > this failsafe.
-> >
-> > Thanks for the explanation! So did I make a mistake years ago by
-> > adding the gpiochip_irqchip_add_domain(), see commit 6a45b0e2589f
-> > ("gpiolib: Introduce gpiochip_irqchip_add_domain()")
-> >
-> > As Yu-Chun found, gpiochip_irq_reqres() expect the irq chip data
-> > to be a gpio_chip, which isn't the case (in general) for an
-> > externally allocated domain, is it?
-> 
-> So the whole issue comes from the fact that the IRQ chip is not marked
-> as immutable. For immutable IRQ chips (which all GPIO provides should
-> have) there is no such issue to begin with, id est there is no
-> gpiochip_irq_reqres() callback assigned (and respective _relres).
 
-Ah, for immutable chips we put either custom ones or
-GPIOCHIP_IRQ_RESOURCE_HELPERS which actually refers to those callbacks.
+On 6/29/2026 11:27 PM, Sumit Gupta wrote:
+>
+> On 10/04/26 15:11, Pengjie Zhang wrote:
+>> External email: Use caution opening links or attachments
+>>
+>>
+>> arm64 implements CPPC FFH feedback-counter reads using AMU counters.
+>> Because those counters must be sampled on the target CPU, reading the
+>> delivered and reference counters separately widens the observation 
+>> window
+>> between them.
+>>
+>> Implement the paired FFH feedback-counter read hook on arm64 and sample
+>> both AMU counters together before decoding the requested CPC register
+>> values.
+>>
+>> Also factor the FFH bitfield extraction logic into a helper and reuse
+>> it from the existing single-counter FFH read path.
+>>
+>> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+>> ---
+>>   arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
+>>   1 file changed, 67 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+>> index b32f13358fbb..b90a767b2a1f 100644
+>> --- a/arch/arm64/kernel/topology.c
+>> +++ b/arch/arm64/kernel/topology.c
+>> @@ -50,6 +50,16 @@ struct amu_cntr_sample {
+>>          unsigned long   last_scale_update;
+>>   };
+>>
+>> +struct amu_ffh_ctrs {
+>> +       u64 corecnt;
+>> +       u64 constcnt;
+>> +};
+>> +
+>> +enum cpc_ffh_ctr_id {
+>> +       CPC_FFH_CTR_CORE  = 0x0,
+>> +       CPC_FFH_CTR_CONST = 0x1,
+>> +};
+>> +
+>>   static DEFINE_PER_CPU_SHARED_ALIGNED(struct amu_cntr_sample, 
+>> cpu_amu_samples);
+>>
+>>   void update_freq_counters_refs(void)
+>> @@ -397,7 +407,7 @@ static void cpu_read_constcnt(void *val)
+>>   }
+>>
+>>   static inline
+>> -int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
+>> +int counters_read_on_cpu(int cpu, smp_call_func_t func, void *val)
+>>   {
+>>          /*
+>>           * Abort call on counterless CPU.
+>> @@ -447,24 +457,73 @@ bool cpc_ffh_supported(void)
+>>          return true;
+>>   }
+>>
+>> +static void amu_read_core_const_ctrs(void *val)
+>> +{
+>> +       struct amu_ffh_ctrs *ctrs = val;
+>> +
+>> +       cpu_read_constcnt(&ctrs->constcnt);
+>> +       cpu_read_corecnt(&ctrs->corecnt);
+>> +}
+>
+> Any reason to flip the order?
+> Harmless as they are read back to back, but better to add a comment
+> if it's intentional.
+>
+> Thanks,
+> Sumit
+> ....
+>
+Hi Sumit，
 
-So, if the domain is external, it should also provide irq_request_resources
-and release callbacks. In the custom case we can wrap gpiochip_reqres_irq()
-and gpiochip_relres_irq() respectively.
+Thanks for taking the time to review and test.
+The cpu_read_constcnt() function includes the conditional check
+this_cpu_has_cap(ARM64_WORKAROUND_2457168), which incurs a latency of
+6–12 nanoseconds on the our platform.
+If cpu_read_corecnt() is called prior to cpu_read_constcnt(), it will
+widen the sampling interval between the corecnt and constcnt counter
+readings. To address this, we have adjusted the call order:
+cpu_read_constcnt() is executed first, followed by cpu_read_corecnt().
+I will add comments later.
 
-But we need to have a struct gpio_chip pointer for them. And note, the
-IRQ chip data can be anything in that case, so it's not a requirement.
-
--- 
-With Best Regards,
-Andy Shevchenko
+Thanks,
+   Pengjie
 
 
+>
+>
 
