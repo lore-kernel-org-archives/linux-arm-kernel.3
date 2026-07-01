@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B465CC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1FB8C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:48:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tphBelM3OpoRDnS0cz/tlkI5Y11yJVN2jJKRfJqazDM=; b=g4eCNbhIPKbEdd9BkGMqf5tWX9
-	O9SUnlmqTikZ2DWTZzqv5ZUmNI7fAIuLIAGsczb+TiunP15btoctAsHhgSeVZ6pMQFtmvT1NB/DyH
-	R5nwI6l2Iq8Due0PsINXRKkxN2aOEHMhqFuBzwJi+bAZgB2cUwXxKidpAvyEzdB+4ctkM87vucvr7
-	ItkeSqAuMGgsZmB1mtIovtJyE7aSGc8uCRoBAe0PAGbzypbZu7JRLicSjBOP153hCBRc8b5/q5Zjq
-	fah1qlnKe0ZKR+cyoKukHv719g3nOIij6yk+d2rgQyWn64OlY1e0Bk4qgwRiZ9NhL7ZctLiGvaAxJ
-	lm7GmF5A==;
+	bh=6lNDvIQ7jr/5I8vOfe3/aTA/gi15hpihcfMyZ4YJxSo=; b=kj94UqceyIt4r0ZOxZ4dF7OpWT
+	xCm08CpghHl/C0YHChqfHyqNI0iYobK7VH/fTcGGy2TJpEzrETU6n0Pw4iQbBPqNeWx4BPZvrfWR2
+	m9cj2TMfjZTvxi19KNypiSk+CodfmKeZ6GKHYNt6CqUD+NPvZt+FuOuRijCIAk9ct+i/aFqgUqo+2
+	/L3DRObEx4ZTSK/BGCWd0FwwE+yT1IEyjrMqoJQbpinOCckx1HiCA6rEpXK1BuRA7JbU9HyjDUOdG
+	Bqp5aj8cEeU2CUjQUBO55CBhC0c17/fNqQmvvOMk5eUSRZdfkdZXFhO/882Xdzl86EPLEZTZxcfv9
+	Azq5Ogjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZXb-00000006OX3-1FOx;
-	Fri, 03 Jul 2026 08:46:31 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZXU-00000006OJh-47CK
+	id 1wfZZ1-00000006PRa-09zf;
+	Fri, 03 Jul 2026 08:47:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfZYy-00000006PQw-0ejb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:46:26 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493b77b150aso2269455e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 01:46:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783068383; x=1783673183; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=tphBelM3OpoRDnS0cz/tlkI5Y11yJVN2jJKRfJqazDM=;
-        b=j5wRuCSO3bZp1aUcb6VxOX0/gVajsjBr+0ANMUQvr5ON/LcK4XYEeRVaCVgHsvPd1L
-         zkw4Kf/fgnqG6blK2XHqkaCu28zT0qvtXQKHSpwMYU61fBxX+Y7gzYVrLDblnh+QXyxY
-         PrYdkgc28qN2qS02Tr09UxYjHkAm00pVO/n4FtiYtUtUgUFbozOetffnOS9cZL+xiwTC
-         o0wT+Wb+9sxqbgAnb+VY3S4ENGKWMqHchRX5SiZmVLzn5WF8YvedO1eQ4Mrtod9wMvE4
-         gnUaFk/xONyxCqjWpv92VF9uBQz2+NLY3bj5vg+64X+DHHfWiS9YoaRctfKIkqlyvvT8
-         JqMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783068383; x=1783673183;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tphBelM3OpoRDnS0cz/tlkI5Y11yJVN2jJKRfJqazDM=;
-        b=LzgiMwNp4w11TP9iOsDSwqZubL3N/WlRvQg/YyUsoAamtNjTSa3+ha5DeXcbuNCEVo
-         U03sR3RzO9/uHbF1A2jpgKq1AnC3kfg+Qw6cuVly96od6Hdjdw3LPukPSX7pOGrzpaJd
-         ke6ZxmxrQcYdPlDj/hyCfjAo/hA4TEGnpW5as5VrOspmOHHJbaYYXWg3ryvlWNWDIoZY
-         qfRmT/pOy2E5MjQdT/zfnkE/XjFgOnJemj7Im+EGjeJmihkPUf1b3Pp6nHcK5+Gbpzca
-         +/Du4e6Y1NxDWYU3yGjlzcuKIvYwkveGoGRNRzasKaHzaBOqKOYPisljQI85P4I4jk3e
-         MP9w==
-X-Forwarded-Encrypted: i=1; AFNElJ/1h5km0GuiYlVMNebNTBih4/CzLmhHmLJU15jkWM35oD4UNbZMe/lGf1BLl0mrbzelDd41XYqoiYYvEN1gGxkg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOT3v/5cw5gvKCHDCieSU1VT3i8jDkk8OgBQefejF2P/XLH12o
-	SVMos5bPZhqPnDL70IrgbI8GPcbJ3cE9T8JOFdOPei2lUk/hcwKP7H7b
-X-Gm-Gg: AfdE7clXMnHFCk6pAU/l9V37ynt52j3M8chi96KIOUCFT8FPQCJyXjb/O8pBpnEoyEe
-	aq6Jm45t2H782wakITZzGkjYeEirEl+WlRzacBh7gF0XbKZoeDFtRnFWLjhcUiNULa7FF+31Uln
-	EZOGkgo6HiJUfXG326fuXwTyW5gbkVuvX4czKfA1dM7F7/P0p42jDlWZ67b3c6btjilWXCbszQv
-	KnP1QFt2nbVGvEMNQjz2yud+WlDXzigk0BVJY1G9R91xqbf+OKsa8yNWeVDihzWXRO5HPUX5IUo
-	svc6/mDCC32bojU+dSysx+DRYDKovaVEkA5X6D7MEHhiDy7rTJHpIlfYTybmQqy8cnwmZkr2XpP
-	eCWeslVOOFCOod73o3pWxXEPJ8ta5iwuL+XbJ/FFXYSwortRzntFFWXXabS87U8nNcf3oYPqk4+
-	KU25YN4tW54HWI0fxgY5IkobAzRpNEsiavVxQYc82nhPIbMMDgSjWhrFXjNFpupcL/myg4PIcBC
-	hxW3tOtY7f1XJjhK+Jo//FR3A==
-X-Received: by 2002:a05:600c:4206:b0:490:e913:656a with SMTP id 5b1f17b1804b1-493c3cf0d3emr72946345e9.27.1783068383286;
-        Fri, 03 Jul 2026 01:46:23 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cfb6f199sm6335505e9.3.2026.07.03.01.46.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 01:46:22 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v1 14/15] arm64: dts: imx8mn-var-som-symphony: enable PWM1
-Date: Fri,  3 Jul 2026 10:46:01 +0200
-Message-ID: <e20d78ff8e242d3aa938776d435162cfdb7b1d66.1783067947.git.stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1783067947.git.stefano.r@variscite.com>
-References: <cover.1783067947.git.stefano.r@variscite.com>
+	Fri, 03 Jul 2026 08:47:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 173D71F60;
+	Fri,  3 Jul 2026 01:47:51 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.73.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 838AB3F905;
+	Fri,  3 Jul 2026 01:47:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783068475; bh=NpBlximhQAzmFuW3CbHn1JpI2uwh8kzm6k5+vboRqUE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=W1IwFSYrEGjHolem5ODtotNpxmIVDuvNmasOo0DB4mk02ya/vhK2hqF5pDAqkyJPY
+	 f7Nz8dcjGapUxlgcFQ2ecuhpIfwuUM3rWrriheS9EfeTle7rARIatAguCVWbGI/GRL
+	 IqNb48GIqNV0t1PszcjooZmlYIA/1mxJEsEUK8GI=
+Message-ID: <717a2f77-7caa-4cf5-acd5-c2f86686e34e@arm.com>
+Date: Wed, 1 Jul 2026 21:06:26 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 04/15] arm_mpam: propagate MSC read errors for
+ mpam_msc_read_mbwu_l()
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-5-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260702162229.4008659-5-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_014625_229994_4130C9EE 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20260703_014756_237185_A61F20BA 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,47 +82,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Hi Andre,
 
-Enable PWM1 on the Symphony carrier board and add the corresponding
-pinctrl configuration.
+On 7/2/26 17:22, Andre Przywara wrote:
+> Allow the mpam_msc_read_mbwu_l() function to return an error, and
+> propagate read errors from the lower level up.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c | 13 ++++++++++---
+>  1 file changed, 10 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 011d1e3544d7..1d06902fb970 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -1106,6 +1106,7 @@ static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+>  
+>  static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../boot/dts/freescale/imx8mn-var-som-symphony.dts   | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Now that your changing the other helpers to return an error and pass a
+pointer to hold the register value it would seem more consistent for
+this call to follow the same pattern.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-index ddd4651b35d7..2afb5b438b68 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-@@ -217,6 +217,12 @@ &i2c4 {
- 	status = "okay";
- };
- 
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_pwm1>;
-+	status = "okay";
-+};
-+
- /* Header */
- &uart1 {
- 	pinctrl-names = "default";
-@@ -310,6 +316,12 @@ MX8MN_IOMUXC_GPIO1_IO11_GPIO1_IO11	0x16
- 		>;
- 	};
- 
-+	pinctrl_pwm1: pwm1grp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SPDIF_EXT_CLK_PWM1_OUT	0x06
-+		>;
-+	};
-+
- 	pinctrl_reg_usdhc2_vmmc: regusdhc2vmmcgrp {
- 		fsl,pins = <
- 			MX8MN_IOMUXC_SAI2_RXC_GPIO4_IO22	0x41
--- 
-2.47.3
+Thanks,
+
+Ben
+
+>  {
+> +	int ret;
+>  	int retry = 3;
+>  	u32 mbwu_l_low;
+>  	u32 mbwu_l_high1, mbwu_l_high2;
+> @@ -1115,11 +1116,17 @@ static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
+>  	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
+>  	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+>  
+> -	__mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
+> +	ret = __mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
+> +	if (ret)
+> +		return MSMON___L_NRDY;
+> +
+>  	do {
+>  		mbwu_l_high1 = mbwu_l_high2;
+> -		__mpam_read_reg(msc, MSMON_MBWU_L, &mbwu_l_low);
+> -		__mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
+> +		ret = __mpam_read_reg(msc, MSMON_MBWU_L, &mbwu_l_low);
+> +		if (!ret)
+> +			ret = __mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
+> +		if (ret)
+> +			return MSMON___L_NRDY;
+>  
+>  		retry--;
+>  	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
 
 
