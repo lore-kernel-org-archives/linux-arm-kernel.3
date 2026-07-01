@@ -4,79 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA33FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CCEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/DM/66IxG6H5+aMKt+sKt9p3RikIgCQIbSSM3rpOE8=; b=v/URJrGBjBWBaaxBPiQWHA4j+t
-	J6mIS3wbkmWG5z8VeXoqDtYgiocnG67J81f0WFMVrhnloZGnvUbye+wfZPm0Ux5dMGKONoIGR6czl
-	8zN8cgSKlM1qalY92V2UbJZ+XYpv8iY6Yd1VTRQ0Y0QLq36+RDgGQktynmodmH6Y11yU+1L67WC3W
-	ZbL/z4Fc0ALR+VM9X8mRbYcnGcezENn6MO2ay8k3NmuBRVZb0KEETkfq30OOqXoOBwUJCm0rVZdFz
-	9XrLIlax1Qzn84Xdwc2x7atzXM5A+abwrhqCnFM7CJzAS2ZxhacRWypDeMc/W811JH6pQZmq+YaDo
-	v0NXaBmg==;
+	bh=tHD2yVEHzdy8DLtJ2/nbdi1VySk42Z1vfw6pJpAFCkI=; b=ZZyCoMhz4x+Xnh14cOOMF4RIcV
+	KkJFlgDlXxdT+TFK3pLd6b+D23g815N5DNRaYu5MOWBmg851xkaUbLhv2WS3gX3W1VHMhylQ8PV9U
+	hEA0RJJskFyoXp3GDNJUTImo4Gkng9iVSrq6Quxst/I2o3mLNu1RTjKynD4lMZrNiKLTUfFrssHPr
+	jlT1tmwsBVbMN9sCjkPgyl2fwsl6KYIVxw43Ut+mJhhvVIJwh+mxdwmt1AW+2bDoBm+/QzC4YtR1E
+	GtEs84+8PPpQGR/YhvfYChUJ5jgQynyqpQlYxRdxynEHA4usVTG8EoZ7QJgUdBXxsHInOS06ShOCw
+	vOIbupsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepeo-00000000wQ8-1dhb;
-	Wed, 01 Jul 2026 07:46:54 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1wepfP-00000000wfn-39Cg;
+	Wed, 01 Jul 2026 07:47:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepem-00000000wMa-0Pid;
-	Wed, 01 Jul 2026 07:46:53 +0000
-X-UUID: 03a8495e752111f1acbe4559397dec65-20260701
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=Y/DM/66IxG6H5+aMKt+sKt9p3RikIgCQIbSSM3rpOE8=;
-	b=juhRkUF2O4ReRe8u0i9w0KZF4R/vsK8J1FF4Qo5dFH7U1rIp3kKT0D7wvwP/ldJby0yaFJYsSPWk+5s8uAs1m7HUrDATpK88hUVl5WI44Ziq3y1V9J+pCL8bglx/NEU3bnsVtk6HgjopEEvactcNZROXTggI9T2yngG9Hlu9e38=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:0ea8387f-a321-4293-b736-2a92f7e2cf9f,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:d497b38,CLOUDID:ae682a04-3795-4a90-800e-68e9393a343e,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|136|836|865|888|898,TC:-5,Content:0|
-	15|50|99,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 03a8495e752111f1acbe4559397dec65-20260701
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw02.mediatek.com
-	(envelope-from <congcong.yao@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1733863929; Wed, 01 Jul 2026 00:46:48 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Wed, 1 Jul 2026 15:46:45 +0800
-Received: from gcnsap21.gcn.mediatek.inc (10.17.81.22) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Wed, 1 Jul 2026 15:46:44 +0800
-From: Congcong Yao <Congcong.Yao@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>, Rob
- Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<jarried.lin@mediatek.com>, <vince-wl.liu@mediatek.com>,
-	<justin.yeh@mediatek.com>, Zhengnan Chen <zhengnan.chen@mediatek.com>,
-	Congcong Yao <congcong.yao@mediatek.com>
-Subject: [PATCH v3 2/2] memory: mtk-smi: Add mt8189 support
-Date: Wed, 1 Jul 2026 15:44:47 +0800
-Message-ID: <20260701074533.175803-3-Congcong.Yao@mediatek.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260701074533.175803-1-Congcong.Yao@mediatek.com>
-References: <20260701074533.175803-1-Congcong.Yao@mediatek.com>
+	id 1wepfO-00000000wfV-27YQ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 07:47:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B7EEE601D6
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:47:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FCD31F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:47:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782892049;
+	bh=tHD2yVEHzdy8DLtJ2/nbdi1VySk42Z1vfw6pJpAFCkI=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=h82x9az808hfj76bX1Jwefwe1HGwMiLTYRyd6c4VCcLZHxsTgSb+wcy89/cSftH9D
+	 dciBvozWO+CyVd16PUmy6KIJaiEBSDtu6CBHhe0aYZ/OWUgsCujdYPf6NK9OVl/BzA
+	 EpwIgaCpgceo7sPvfk8znHmJ+7h87SdcxACsx9GV9R7DtWljXBsfYObqkX/cpL+CEZ
+	 qnNewlfLC/P6seXHIACHaIcArCSlVN7mHLnTWQbWYy36WQdLYV1W8ue8VG0CoP0xSw
+	 ETFdSNLQQ5vqcnrJgndEE1aqB69xkWjAGIKHZdubQyNhiOCsPH0bncOCuYX9DH7/H/
+	 FeaCxWjbDSYFw==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39b26e2ad5eso3316771fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:47:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqdRu9+nFqqBhNsoaALVE7PLWAc3VaSXYhJ3FkLc+JNvHbOEUb+PVZvbRKh+++4+K+uqncexTn/gn7+tGFxkvCB@lists.infradead.org
+X-Gm-Message-State: AOJu0Yypm3grhfTS1p1RDXZnuAwyxrR377VVASJt8QP5B5KWPRbnnI9D
+	axEFgFFJPCV8TCVZJdi29iPlXtfqG4BUJJgJObs58gE1eSmHmwqxRd0Q19cRbsPoScnLpcHkYCU
+	eAE9mTcnWSmKu7l1FdwNdz/gzBCg6kmDiwMgjbG9MOw==
+X-Received: by 2002:a2e:9a91:0:b0:396:7026:ad8d with SMTP id
+ 38308e7fff4ca-39b33fc828bmr866001fa.13.1782892048227; Wed, 01 Jul 2026
+ 00:47:28 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Jul 2026 03:47:26 -0400
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Jul 2026 03:47:26 -0400
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260630125403.546375-5-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_004652_146925_1AA92BD7 
-X-CRM114-Status: GOOD (  11.50  )
+References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com> <20260630125403.546375-5-khristineandreea.barbulescu@oss.nxp.com>
+Date: Wed, 1 Jul 2026 03:47:26 -0400
+X-Gmail-Original-Message-ID: <CAMRc=MdknO+isf8BJGZG+VBiJZPC3J99DHcvdevQS5B1f1WHuQ@mail.gmail.com>
+X-Gm-Features: AVVi8Ceyeil22X60y3yZsNCxMt7k2roX0DVloL4hTxIC87YuEmy8U3T4_KiZNnI
+Message-ID: <CAMRc=MdknO+isf8BJGZG+VBiJZPC3J99DHcvdevQS5B1f1WHuQ@mail.gmail.com>
+Subject: Re: [PATCH v12 4/6] dt-bindings: pinctrl: s32g2-siul2: describe GPIO
+ and EIRQ resources
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,103 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Zhengnan Chen <zhengnan.chen@mediatek.com>
+On Tue, 30 Jun 2026 14:54:01 +0200, Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> said:
+> Extend the S32G2 SIUL2 pinctrl binding to describe the GPIO data and
+> external interrupt resources present in the same SIUL2 hardware block.
+>
+> Besides the MSCR and IMCR registers used for pin multiplexing and pad
+> configuration, SIUL2 also contains PGPDO and PGPDI registers
+> for GPIO data and EIRQ registers for external interrupt control.
+>
+> Add GPIO controller properties because the SIUL2 block also provides
+> GPIO functionality, and gpio-ranges are needed to describe the
+> mapping between GPIO lines and pin controller pins.
+>
+> Document the interrupt controller properties. The SIUL2 block
+> contains EIRQ hardware as part of the same register space. IRQ support
+> itself will be added in a follow-up patch series.
+>
+> Update the example accordingly to show the complete SIUL2 register
+> layout, including the GPIO data and EIRQ register windows.
+>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+> ---
 
-Add the necessary platform data and ostdl setting to enable support
-for mt8189 smi.
-
-Signed-off-by: Zhengnan Chen <zhengnan.chen@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Reviewed-by: Yong Wu <yong.wu@mediatek.com>
-Signed-off-by: Congcong Yao <congcong.yao@mediatek.com>
----
- drivers/memory/mtk-smi.c | 44 ++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
-
-diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
-index aaeba8ab211e..f2d5462af681 100644
---- a/drivers/memory/mtk-smi.c
-+++ b/drivers/memory/mtk-smi.c
-@@ -401,6 +401,30 @@ static const u8 mtk_smi_larb_mt8188_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[25] = {0x01},
- };
- 
-+static const u8 mtk_smi_larb_mt8189_ostd[][SMI_LARB_PORT_NR_MAX] = {
-+	[0] = {0x8, 0x20, 0x20, 0x20, 0x20, 0x20, 0x10, 0x0,},
-+	[1] = {0x8, 0x20, 0x20, 0x20, 0x20, 0x20, 0x10, 0x0,},
-+	[2] = {0x7, 0x7, 0x4, 0x4, 0x0, 0x0, 0x2, 0x2, 0x7, 0x7, 0x0,},
-+	[4] = {0x2F, 0x1E, 0x9, 0x1, 0x1, 0x1, 0x1, 0x2, 0x2, 0x5, 0x1, 0x17,},
-+	[7] = {0x20, 0x2, 0x1, 0x1, 0x1, 0x4, 0x2, 0x1, 0x1, 0x2, 0x3, 0x2,
-+	       0xA, 0xF, 0x4, 0x6, 0x5, 0x1,},
-+	[9] = {0x6, 0x3, 0xC, 0x6, 0x1, 0x4, 0x3, 0x1, 0x2, 0x4, 0x5, 0x2,
-+	       0x4, 0x2, 0x3, 0xB, 0x1, 0x4, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-+	       0x1, 0x1,},
-+	[11] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-+		0x1, 0x1, 0x1, 0xB, 0x1, 0x4, 0x6, 0x5, 0x6, 0x1, 0x5, 0x2,
-+		0x9, 0x5,},
-+	[13] = {0x2, 0x8, 0x8, 0x8, 0x4, 0x4, 0x4, 0x4, 0x4, 0xE, 0x4, 0x1,
-+		0x6, 0x6, 0x2,},
-+	[14] = {0x1, 0x1, 0x1, 0x20, 0xE, 0x4, 0x8, 0x8, 0x6, 0x4,},
-+	[16] = {0x1E, 0xC, 0x2, 0x8, 0xE, 0x2, 0x1E, 0x10, 0x4, 0x2, 0x2, 0x2,
-+		0x2, 0x2, 0x4, 0x2, 0x4,},
-+	[17] = {0x1E, 0xC, 0x2, 0x8, 0xE, 0x2, 0x1E, 0x10, 0x4, 0x2, 0x2, 0x2,
-+		0x2, 0x2, 0x4, 0x2, 0x4,},
-+	[19] = {0x2, 0x1, 0x3, 0x1,},
-+	[20] = {0x7, 0x7, 0x3, 0x3, 0x1, 0x1,},
-+};
-+
- static const u8 mtk_smi_larb_mt8192_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[0] = {0x2, 0x2, 0x28, 0xa, 0xc, 0x28,},
- 	[1] = {0x2, 0x2, 0x18, 0x18, 0x18, 0xa, 0xc, 0x28,},
-@@ -533,6 +557,13 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
- 	.ostd		            = mtk_smi_larb_mt8188_ostd,
- };
- 
-+static const struct mtk_smi_larb_gen mtk_smi_larb_mt8189 = {
-+	.config_port                = mtk_smi_larb_config_port_gen2_general,
-+	.flags_general	            = MTK_SMI_FLAG_THRT_UPDATE | MTK_SMI_FLAG_SW_FLAG |
-+				      MTK_SMI_FLAG_SLEEP_CTL | MTK_SMI_FLAG_CFG_PORT_SEC_CTL,
-+	.ostd		            = mtk_smi_larb_mt8189_ostd,
-+};
-+
- static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 = {
- 	.config_port                = mtk_smi_larb_config_port_gen2_general,
- 	.ostd			    = mtk_smi_larb_mt8192_ostd,
-@@ -556,6 +587,7 @@ static const struct of_device_id mtk_smi_larb_of_ids[] = {
- 	{.compatible = "mediatek,mt8183-smi-larb", .data = &mtk_smi_larb_mt8183},
- 	{.compatible = "mediatek,mt8186-smi-larb", .data = &mtk_smi_larb_mt8186},
- 	{.compatible = "mediatek,mt8188-smi-larb", .data = &mtk_smi_larb_mt8188},
-+	{.compatible = "mediatek,mt8189-smi-larb", .data = &mtk_smi_larb_mt8189},
- 	{.compatible = "mediatek,mt8192-smi-larb", .data = &mtk_smi_larb_mt8192},
- 	{.compatible = "mediatek,mt8195-smi-larb", .data = &mtk_smi_larb_mt8195},
- 	{}
-@@ -808,6 +840,16 @@ static const struct mtk_smi_common_plat mtk_smi_common_mt8188_vpp = {
- 	.init     = mtk_smi_common_mt8195_init,
- };
- 
-+static const struct mtk_smi_common_plat mtk_smi_common_mt8189 = {
-+	.type     = MTK_SMI_GEN2,
-+	.bus_sel  = F_MMU1_LARB(1) | F_MMU1_LARB(3) | F_MMU1_LARB(5) |
-+		    F_MMU1_LARB(7),
-+};
-+
-+static const struct mtk_smi_common_plat mtk_smi_sub_common_mt8189 = {
-+	.type     = MTK_SMI_GEN2_SUB_COMM,
-+};
-+
- static const struct mtk_smi_common_plat mtk_smi_common_mt8192 = {
- 	.type     = MTK_SMI_GEN2,
- 	.has_gals = true,
-@@ -852,6 +894,8 @@ static const struct of_device_id mtk_smi_common_of_ids[] = {
- 	{.compatible = "mediatek,mt8186-smi-common", .data = &mtk_smi_common_mt8186},
- 	{.compatible = "mediatek,mt8188-smi-common-vdo", .data = &mtk_smi_common_mt8188_vdo},
- 	{.compatible = "mediatek,mt8188-smi-common-vpp", .data = &mtk_smi_common_mt8188_vpp},
-+	{.compatible = "mediatek,mt8189-smi-common", .data = &mtk_smi_common_mt8189},
-+	{.compatible = "mediatek,mt8189-smi-sub-common", .data = &mtk_smi_sub_common_mt8189},
- 	{.compatible = "mediatek,mt8192-smi-common", .data = &mtk_smi_common_mt8192},
- 	{.compatible = "mediatek,mt8195-smi-common-vdo", .data = &mtk_smi_common_mt8195_vdo},
- 	{.compatible = "mediatek,mt8195-smi-common-vpp", .data = &mtk_smi_common_mt8195_vpp},
--- 
-2.43.0
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
