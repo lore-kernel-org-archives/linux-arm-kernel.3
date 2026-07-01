@@ -4,88 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F286C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 02:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B2B4C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 02:21:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOC4a4hB83XJuIh9Jdf10Z71bUUVibpbqo4gSEZbfDY=; b=lstkFhyPyb7Adt8orKgPD18BkS
-	3IjEVO6y2avS8x+tjqEZgAZQpL7ZSQr2XX18/WaHIwkDImS+JefQRTqqN1j12Q/fPhT+GUJhwBZJ5
-	9eU0MYATJa7xL22t76y4ZqN9eJA5qSy0zKE5v70KpE8a+gD/r8Adpr/hliAdbceBS79tRufeb44dw
-	nj2K2kF58LbfXEPblCISs0aO1IQXfmlOl8co3f3xm+qy0udej/CpgcG0SbEieCMHSDHTITKxQpOSC
-	Io5z4e6vzt5hboIqDb2J+xOvRqD4U7MOFx3D2LAsoJyayzUNXb84wMTF926KTMdAZWmfPmF751QSG
-	FMGeW3gA==;
+	bh=KVpx3D2dTt3gY5Di+me3oJwpEzAIa9twzHrPwHK2adY=; b=AHZEycM3NAvNFijmZd891Ks9FF
+	Zj7quv9s2KbukQzn5+cHBO3OEWahbg7FgP9yZE73Vu8AkCsBVIvcMJgHgEDD0HfqkMLbRlVn5uM6t
+	S8LnMAsNG7/uei6ORw+uOF/ePcrmKwE4Vo2MNC/m/xTlawF1nz65frpeXoOzpeWEF1lZyl1rf8taN
+	4vyglKjTEcGk6B35AKiyMTmyxOFrGNp6i0s8oxWWMZl1FzYsDW0yLpZWiJqpM59cPJBoY9AEAEK/A
+	74MLDjPDY9FhQAIMWFHyCGRaBkDQT9TZ+J4wqECstIdcg10U18GaEDPrX8pCjxtFTUYHysX7EPbWP
+	HNR6+AXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wekU9-00000000W9Y-2ZCC;
-	Wed, 01 Jul 2026 02:15:33 +0000
-Received: from esa8.hc1455-7.c3s2.iphmx.com ([139.138.61.253])
+	id 1wekZp-00000000WQ9-1Pps;
+	Wed, 01 Jul 2026 02:21:25 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wekU5-00000000W96-2R1o
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 02:15:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1782872131; x=1814408131;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Pw/JDUXvjVK+3QrfI9yFi2jVw+bIU28wBw3FXCmitUA=;
-  b=PYmXlZhuhs/OeLLl+OZOdGUmlpKqEl0rgvQq9vAGVEDG2Vfewr8Aocm2
-   OjUyXfVaMes60FTwKz4SEKpyrVCKKeypmqkd6C02DzBwQmPfMRzgaEr3S
-   PPwMIlFe/gR7nEFKNFGeXgGXMqHq/xsIsKUYhSBZUB5+C9f6OarBk+S5e
-   nY0KALCpLD8/x1ReFW5XqYksAV0exUB+N4cyKo3GsYJaCGRGzvmlI5DsB
-   q3tragZPtFN/y5PeGEYWNnxEj4/Ox4CWi3p58mzhX9EG5VoB+bI02i5Ow
-   gyJfojYe+VSRqe3IAOB/HLt1V5Xt1wl/3lBLzDPkXxlEAuMmFFIa1rTIx
-   A==;
-X-CSE-ConnectionGUID: LDJl6E3sTumH1+ooTH+EsA==
-X-CSE-MsgGUID: BKexsoSPTLuwS8eRu1R8jQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11833"; a="233846967"
-X-IronPort-AV: E=Sophos;i="6.24,235,1774278000"; 
-   d="scan'208";a="233846967"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2026 11:15:27 +0900
-Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 94948CA4D
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 02:15:25 +0000 (UTC)
-Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 4D80F103C302
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 02:15:25 +0000 (UTC)
-Received: from FCCLS0092175.localdomain (unknown [10.8.91.60])
-	by az2nlsmom3.fujitsu.com (Postfix) with SMTP id BF254100A6C3;
-	Wed,  1 Jul 2026 02:15:16 +0000 (UTC)
-Date: Wed, 1 Jul 2026 11:15:15 +0900
-From: Kohei Enju <enju.kohei@fujitsu.com>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
-	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 00/44] arm64: Support for Arm CCA in KVM
-Message-ID: <akR0eX0nCumIgnlh@FCCLS0092175.localdomain>
-References: <20260513131757.116630-1-steven.price@arm.com>
+	id 1wekZm-00000000WPk-1TmV;
+	Wed, 01 Jul 2026 02:21:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=skTTzGlqO5uWJgGe8DI2q2RULtiIwZ4d1TdAK3hDCWwlVJ8B8auo72Xt2VseE5NXrqvWAHViMf7Ee/tuE1aQcG25bk7ef24zClfAzwh5hnWtzHowRxMYNBKvdKY/65cpAnop3gDlOqq4z0mejATkGqtSctj26nohkCoZOLASij/7cnZv9j8AE5FHegMUlBJx9PBU2cHVvIGv6BDPI/0eBfMTIhBqm6zhVxERzywF0LwuJqgVbf7ssrs/dogbZiCbyfIcP+HMUxchfo2Jbc9uJL0aFlEx/EXUqm5i+0cUnLmj84TvCPGTR9h9MnjlJpWvakQkrkaJzV1L+5aZKfdLHw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KVpx3D2dTt3gY5Di+me3oJwpEzAIa9twzHrPwHK2adY=;
+ b=N0IDifGW5/bv29BWPsm21tBuWhOtHkjA+FX/ry5gZnR8hKvB01G872hB0y80ewURrJcEG9cmhihNLuD5SeKX5TVO1rAc1fXsUvec+rpP0vHuID+fskjE51fcCNSeWqqXxCXybAyHkOzosyHNbnbFo2oGdSfiEvwTh39rnwThhbstI3JiCi6JB0m3oIfDjOEX59Dxoc/vEHb0C4gYwfQtlmFFQIvSEaiMczMhBxZ/mmho9+vckqKjMC1+m1PFdkso4D4agl8Fw7iyiIzEMuyevEzc/wvT98xHNNbrzNlWuH8tuGu/s+SOxn8rGlg5FYMWIWVNwrGuKndJi69bcXoLcQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KVpx3D2dTt3gY5Di+me3oJwpEzAIa9twzHrPwHK2adY=;
+ b=ENOqmLO4RPASFidJzfCFsvZlYEh2LkYgJoeeEmAHq0gW6bpLqOhic/y2jN7/MTyE4BWNNbS2cG2ajSGzXsTPqrE22fjXhSYIZOkPjAA/4Pxb2B5G/lrMjWnmhTbbAFGX6RmB+NqiOSaIqwd0++Dfa/2TKab0LNozPTUAt2C3FlePYHPYN1EebcJYIGFHMVL9DFSsPwS7F6/76LKrN+Givqg4gu2CwmGCUeJHE+2i1+F9YYfTJ9+k/vwnYDL8ad4RuHx+1Fa+E4wGCkvp7F5DLpbVW9g7Q8QjsPIf/wuTMMyVD5R9Xo0UNne9AufaJItSKMSzW/46yIGQKJ+p44Fdlw==
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ (2603:10a6:800:315::13) by GV1PR04MB10249.eurprd04.prod.outlook.com
+ (2603:10a6:150:1a4::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
+ 02:21:16 +0000
+Received: from VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994]) by VI0PR04MB12114.eurprd04.prod.outlook.com
+ ([fe80::feda:fd0e:147f:f994%6]) with mapi id 15.21.0159.015; Wed, 1 Jul 2026
+ 02:21:16 +0000
+From: Sherry Sun <sherry.sun@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, "Sherry Sun (OSS)"
+	<sherry.sun@oss.nxp.com>
+CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, Frank Li
+	<frank.li@nxp.com>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>, "festevam@gmail.com"
+	<festevam@gmail.com>, Amitkumar Karwar <amitkumar.karwar@nxp.com>, Neeraj
+ Sanjay Kale <neeraj.sanjaykale@nxp.com>, "marcel@holtmann.org"
+	<marcel@holtmann.org>, "luiz.dentz@gmail.com" <luiz.dentz@gmail.com>,
+	Hongxing Zhu <hongxing.zhu@nxp.com>, "l.stach@pengutronix.de"
+	<l.stach@pengutronix.de>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>, "mani@kernel.org"
+	<mani@kernel.org>, "bhelgaas@google.com" <bhelgaas@google.com>,
+	"brgl@kernel.org" <brgl@kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-bluetooth@vger.kernel.org"
+	<linux-bluetooth@vger.kernel.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+Subject: RE: [PATCH V4 2/8] PCI: imx6: Add skip_pwrctrl_off flag support
+Thread-Topic: [PATCH V4 2/8] PCI: imx6: Add skip_pwrctrl_off flag support
+Thread-Index: AQHdCHt7ZtufP9paOka/NN6tH1jSBbZXXuUAgACNUMA=
+Date: Wed, 1 Jul 2026 02:21:16 +0000
+Message-ID: <VI0PR04MB121141AC93FED7F245122F9AA92F62@VI0PR04MB12114.eurprd04.prod.outlook.com>
+References: <20260630103139.3823329-3-sherry.sun@oss.nxp.com>
+ <20260630174316.GA162203@bhelgaas>
+In-Reply-To: <20260630174316.GA162203@bhelgaas>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI0PR04MB12114:EE_|GV1PR04MB10249:EE_
+x-ms-office365-filtering-correlation-id: 2559b76d-dee6-42ab-5861-08ded7176df2
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|376014|366016|1800799024|38070700021|4143699003|56012099006|11063799006|18002099003|22082099003;
+x-microsoft-antispam-message-info: LWKoV+tuPkr34VlX9uB2MhBx+MUEJHF9Ssd8JXBDvb4TpvCo8z1qvY+ycUmTTGY942IZM7PHmgriwaRx3TQndQ/Ljd084bvz8L8Z0kxGrGItEfTC/5OY24vKeGuXmKulfAyzLdLlRP2U6fViG9Ck+6V1Vo2C2KVruof/naz0UwylYskykv2sL5d2L4tyExYUZU/e7VmIPfFUdJ9Eb5BTuxtOsKhjCgqRg3oho/u04AN78b+JtlWJu9uHz/ZM8cBsu/qryV9/kKsb/UCGJY0135XQjCV+aGcNJd8yFXtq0hvmyDT5wwFB7iA36kWBEp/Q2muWWy0NZb7qXIwWaOQmDKy4CcBaEm9pZ+LEcRlllsfE1LDOpIrSClGTwvNDufPAPJjd5ub106P1q3ABpCevqAoiomTaort3VlrthvPgFo0tf4ueTCawB3jIR1OIWXb5Zzn6qdheQpIkUibD4aFvmsEe4gkOEwz9DViDAMFqPUzJNif/VxYDZW5j+CbTacs1oqSuZvk0SrNkAKrvOwL4cR+7lfSox7cb+8VuXMKzUi1U/o+7MjK/hp/2NrQn93KXnTPLQl6gZzagaBB9cnpgT6x82nY6dZRDOhNdANHoztjX4bCrvvOQSUK18r4OPiwa4yIxEpAtVHSnTWepB0sOjSUNGGsf3LJTy062CT59WaiXDNfb95Ip0uvN9+TAoYLJrLXz3dz3NYsUNqkDaQHy5mv4bCjj2wK1K1RY3y/wXyM=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI0PR04MB12114.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(376014)(366016)(1800799024)(38070700021)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?slF+iUfc3VjSAXthN9Mujid7qzfJ1tNUkA/3WyHnbYNBBBs3ZUpZalERTA9C?=
+ =?us-ascii?Q?f4E1bueFq4c5LEiZxvwxHyB6tEnOdi1aER0S1ouc9UTT2Jzf99uU9B/nioU5?=
+ =?us-ascii?Q?zn2HztkBVRqdrpD42qSDPGQbeieX11u2UF1wSxpz4F+UXcwsFA+T9vqnWb8v?=
+ =?us-ascii?Q?2kR0Hq1aSeo21lI++NJRjmwU6iYch8LBNCahUWSZnH5LXGIDQ2h6kXNXocdG?=
+ =?us-ascii?Q?b281QweDXj20FmHFiD80r76k+P15I5N1eQKTRJVCpwPMv1JDzN41Z8Sap6cd?=
+ =?us-ascii?Q?l1JDhWuiSL4s4Q45UyNt8tUnwh6pUNwv2q7kL9/zpkIBwi9ejk3awpmkXsPW?=
+ =?us-ascii?Q?6B4lCmMCOzq1GwpxISAPgjdpl9NoDMvcrw0OLi4p5NgaZv91KXIcLs0vflyw?=
+ =?us-ascii?Q?JaHZUqhI0ttSrRYotP8jM94MKMdOfXp93m63JOGV/XuTIp52D8VdvkYONiXq?=
+ =?us-ascii?Q?C/sN44Qe41/ReBoLli7kYIu+X40YlB8woN4Ji7mCJuZEeuI6pHfCmeg7fHMi?=
+ =?us-ascii?Q?6Oo78CPJZMfzKcZynUJ/C8nGFjHQtg5irFBqa4kHND4LqoQM8RTYWw61qrer?=
+ =?us-ascii?Q?wwC1jL/OlxGVd6BejLLbd6OJHyIMaZQvflqvGwOOPwnZFZD4+zFJd6I/t7ZO?=
+ =?us-ascii?Q?bhYqasskpGYC1C/sfBiBfekTraNt2LOKNt/PVLWBcwN6qZ2RbJftpdVABRNG?=
+ =?us-ascii?Q?RjHkos4bG/3tLVwORbEQSOIeD5MkBaJGm+vQgDtc/B9qjT4/OuR3tB5Gl13H?=
+ =?us-ascii?Q?PLAh6q2gxh4yLeSLr7PRAVtF8LiE/6p0H1LSpL7QiAw85wcms9tus2NyIBBl?=
+ =?us-ascii?Q?4eKxXrPU7YWfgyphB3xKqcEq8wOdgUpjnf+A4PdWyjjYqk7wO5VwQeAxmpg7?=
+ =?us-ascii?Q?sELuUge56CBoyTqICJKYQ1N8eRBGWAF3vHT8A97f7uKoV/yHB1XySqPzn7Wx?=
+ =?us-ascii?Q?ckUhTwyfd2uzCk8uLmW3fl6Ae0NOJwW5gd5sONpOmlPJ/H4DmZpBoYWjuejD?=
+ =?us-ascii?Q?2d9qgfmR/5hJyfi6jOi2Z2GEF0zR3lsSY3yz4yP9lGkRqtj9MWN7Fgqk61I+?=
+ =?us-ascii?Q?78FWSACW0FkSW5L5AUBYXhw/4IdB/1zaX5nEVJjTSnwDoryeOaLStojzS++9?=
+ =?us-ascii?Q?SwOtjYIOBgAzqva1CseLDj+5jqqHVDtbJuw04+iV5Q4L2n2fT7FQ/EqzELbZ?=
+ =?us-ascii?Q?Zu6JkRt5vOTndD5DjUh9MeNnG9DLgNxqOwdksmqSFXtby8RZkK2BUj0p9+kk?=
+ =?us-ascii?Q?Ms8qmV64lqOEs4HXQgripL3Fvm7Qt1D/phiX/DBIiHia2APOJEKoUEiF/9wU?=
+ =?us-ascii?Q?bUYOK3UbCnhuialb5smIuYiRj8a5OwXsgbTbp7E077RAf8oUAq7PDu4CIpLx?=
+ =?us-ascii?Q?iiad6jS8smZ8ZqXW0sIpwKtW2CRLEingBf4XGYJZKgUZ33gHSnlAlBTbQMdG?=
+ =?us-ascii?Q?Ln04wPnY4HunMGMsgD4C1KiOlVaFY/CDtrUZGJ0oZqozAuJY7c6YUgpy9FFn?=
+ =?us-ascii?Q?v+xiIxyUvN2q6gZgwpgd+hNIopE1X7YxkFRhHxe4Rp8iveYFv7QA3qoz4IJ8?=
+ =?us-ascii?Q?x/k457anlO/SiM1iUgk9cO+yHMtQs2wXDTOTgKToTQpUeEiCW1isNjm4wznE?=
+ =?us-ascii?Q?03oGveBvYroQkVYXng2nSYeTLV5mZt/VYIALAHrDMP53/UatqghtO8BFvQQX?=
+ =?us-ascii?Q?8w47aRn2jdBPGHb9S6GugOCB+JAokyjz7j1yAQmWoQ9LqMgr?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI0PR04MB12114.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2559b76d-dee6-42ab-5861-08ded7176df2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 02:21:16.1416
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: YgYBljh8EuRWFZ9MNqnyb74WS6FxbIR560FfpGSA6cmtAt+VXQYc/czgu3Y9SQ3/7pmzPO7bhIku1XhxFdnDPg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10249
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_191530_207263_13CD01D3 
-X-CRM114-Status: GOOD (  40.44  )
+X-CRM114-CacheID: sfid-20260630_192122_449348_719D3D26 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,109 +155,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/13 14:17, Steven Price wrote:
-> This series adds support for running protected VMs using KVM under the
-> Arm Confidential Compute Architecture (CCA).
-> 
-> This is rebased on v7.1-rc1, but still targets RMM v2.0-bet1[1].
-> 
-> The major updates from v13 remain but have been more fully implemented:
-> the RMM uses the host's page size, range based RMI APIs mean we don't
-> have to break everything down to base page sizes, the GIC state is
-> passed via system registers, and the uAPI has been simplified.
-> 
-> The main changes since v13 are:
-> 
->  * The RMI definitions and wrappers have been fully updated for RMM
->    v2.0-bet1. In particular the temporary RMM v1.0 SMC compatibility
->    patch has been dropped.
-> 
->  * The PSCI completion ioctl has been removed. RMM v2.0-bet1 still
->    requires the host to provide the target REC for PSCI calls which
->    name another vCPU, but KVM now performs the RMI PSCI completion
->    automatically before entering the REC again. Userspace no longer
->    needs to issue KVM_ARM_VCPU_RMI_PSCI_COMPLETE. A future spec should
->    remove the need for the host to provide the MPIDR mapping.
-> 
->  * The generic RMI init, RMM configuration, GPT setup,
->    delegate/undelegate helpers and SRO infrastructure have moved out of
->    KVM into arch/arm64/kernel/rmi.c. RMI is expected to be used by
->    features outside KVM, so this code should be available even when KVM
->    is not built.
-> 
->  * RMI_GRANULE_TRACKING_GET has been updated to work on a range, this
->    allows it to work when the region is not aligned to the tracking
->    size. Solves the problem reported by Mathieu[2].
-> 
->  * SRO support has been moved earlier in the series and improved. It
->    provides a cleaner way for the host to provide the RMM with the extra
->    memory it requires. However support is still incomplete where the
->    TF-RMM code does not yet implement it. This is noted by FIXMEs in the
->    code.
-> 
->  * The ARM VM type encoding has been reworked to coexist with the
->    upstream pKVM KVM_VM_TYPE_ARM_PROTECTED bit.
-> 
->  * The private-memory documentation now notes that arm64 uses
->    KVM_CAP_MEMORY_ATTRIBUTES.
-> 
->  * PMU support is dropped for now. It will be added later in a separate
->    series. Similarly for selecting the hash algorithm and RPV.
+> Subject: Re: [PATCH V4 2/8] PCI: imx6: Add skip_pwrctrl_off flag support
+>=20
+> [+cc Mediatek folks]
+>=20
+> On Tue, Jun 30, 2026 at 06:31:33PM +0800, Sherry Sun (OSS) wrote:
+> > From: Sherry Sun <sherry.sun@nxp.com>
+> >
+> > Use dw_pcie_rp::skip_pwrctrl_off to avoid powering off devices during
+> > suspend to preserve wakeup capability of the devices and also not to
+> > power on the devices in the init path.
+>=20
+> Only pci-imx6.c, pcie-qcom.c, and pcie-mediatek-gen3.c use pci-pwrctrl.  =
+pcie-
+> qcom.c already has similar skip_pwrctrl_off checks, but pcie-mediatek-gen=
+3.c
+> does not.  Does it need them?
 
-Hi Steven,
+I think that's depends on if the controller have the usercases such as M.2 =
+keyE
+connector without auxiliary power and required to support PCIe L2 link stat=
+e
+and wake-up mechanisms.
 
-Is there any plan to add support for selecting the MEC policy (shared or
-private)? We have been working on adding support for this on top of your
-series. If this is not already in the works, we may upstream our
-implementation later.
-
-Thanks,
-Kohei
-
-> 
-> There are also the usual rebase updates and smaller fixes, including
-> changes to the RMM v2.0-bet1 range APIs, removal of REC auxiliary
-> granule handling, fixes to the address range descriptor encoding, and
-> cleanups around realm stage-2 teardown.
-> 
-> Stateful RMI Operations
-> -----------------------
-> 
-> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
-> the RMM to complete an operation over several SMC calls while requesting
-> or returning memory to the host. This allows interrupts to be handled in
-> the middle of an operation and lets the RMM dynamically allocate memory
-> for internal tracking purposes. For example, RMI_REC_CREATE no longer
-> needs auxiliary granules to be provided up front, and can instead
-> request memory during the operation.
-> 
-> This series includes the generic SRO infrastructure in
-> arch/arm64/kernel/rmi.c and uses it for REC create/destroy. The other
-> cases are not yet used by TF-RMM and a future revision will be needed to
-> finish those paths in Linux.
-> 
-> This series is based on v7.1-rc1. It is also available as a git
-> repository:
-> 
-> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v14
-> 
-> Work in progress changes for kvmtool are available from the git
-> repository below:
-> 
-> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v12
-> 
-> The TF-RMM has not yet merged the RMM v2.0 support, so you will need to
-> use a branch with RMM v2.0-bet1 support. At the time of writing the
-> following branch is being used:
-> 
-> https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_2
-> (tested on commit 3340667a291a)
-> 
-> There is a kvm-unit-test branch which has been updated to support the
-> attestation used in RMMv2.0 available here:
-> 
-> https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca cca/v4
-> 
-> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
-> [2] https://lore.kernel.org/all/acrj-cKphy4hJsEG@p14s/
+Best Regards
+Sherry
 
