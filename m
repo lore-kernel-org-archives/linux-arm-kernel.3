@@ -4,114 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A300C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:25:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6592C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VxEq/S494Z5PbRo663SR5Dd2jfwNSj1QIO3Pt6Fy5pw=; b=Vd1cE2BfAlm2igm5TauTo02DvI
-	BY0nwTB5u8++zWG5Kb0T4xIFHqQVTqKA5jO8/QSDulX0Qu8wFF4VVTzALslYFo5YYketmbbbwAAPl
-	HCl+5Ce+dYM7S+3b+aipBrWl/YE0M2QYikTHCPsNf0+lL2sTIsFONLbX0+5cge6Cx4jGm0ojiFIIo
-	3T8VsB5pzAdQb5gKlkWri6nGc+JZasbnoYrB3j7TJTBReWyvzyusgASYpU/WFcLAKGu8OzGxmfxJc
-	J5ycutbNEFLLDxCjJVODRnp5wYd1Iq0/Np/kOA5BDWmJXBwcyiIgmQUiUExYYr748FL4wttLLbJho
-	LVr8HfXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A5ZmUhI4lGBrijj+WNtqGtqeoK5QeoNNW0ruug9fc60=; b=1HhBHthmZDQ1tB/Djq9NVUUHNh
+	MpkC9SSrG64UsbK+7U2voctS8L4bppGnHSAxoaBt0NC+kwWIK7srA2olCPf23/gubqtTdMetV/GlT
+	G3MIxCBQgm8qOTQydHbM1Xl5M8AKCUCXfeEuuaqgMJVeQFPWU8c4Q0+iTz4ARtCKDkAbl2NvV489P
+	BaTETK5vbziUWh6MAg+n9z00QfvO9CYOavdz6RWmbg56hqkjMqIhNQI0Ry9T/wDEceB906b/rKFqw
+	uCoqHs22WSIRJPnMAjtT52CdVsZuVlYYYF68J0amuaT1Ri4WhsSwGXd8HGoSO9T2k61rWy+vuQ6Cp
+	WqFoHONw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuwo-00000002At6-1GqJ;
-	Wed, 01 Jul 2026 13:25:50 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1wev1Z-00000002BSi-3oQn;
+	Wed, 01 Jul 2026 13:30:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuwl-00000002AsM-0YQA
+	id 1wev1W-00000002BST-3ar1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 13:25:49 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id 78932240104
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 15:25:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1782912342; bh=VxEq/S494Z5PbRo663SR5Dd2jfwNSj1QIO3Pt6Fy5pw=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=KOnh0HogLDcANJ6lTCZfT7PJNzL/xDxBIIxhHtWtTpjlVTRL3BSQa8/mR9dh56ScP
-	 Vzxz+O2fbLCXciVvbu10ICs0WCehoslUc5TXR/B9if4cK7NuW/N3gzSdqDwaKfYzKY
-	 pAhvTmKkJxERZIXiBmuvkMXu77YYauqziGDnZhBj1rsM8PZywe9lz21y1mJwml7BEf
-	 ptG0V1t/EWlQ17LPHAqnKBQXXzCVq9r1eXoGn9mN3fq+vPK5XJjpP0axyecez+1q2V
-	 ZnJjyXOtL+PyiggtHilWeUdTz5vMrYurXZA3EnxxNGWv0oZHZeoRBdGqusMaBMC4b+
-	 aTvuZWSZUDWBg==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4gr13m2Pn5z6ty8;
-	Wed,  1 Jul 2026 15:25:40 +0200 (CEST)
-Message-ID: <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
-Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
- property for S35390A
-From: Markus Probst <markus.probst@posteo.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
-	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
-	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
-	 <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 01 Jul 2026 13:25:41 +0000
-In-Reply-To: <20260701-bronze-jaguar-of-perfection-028bac@quoll>
-References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
-	 <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
-	 <20260701-bronze-jaguar-of-perfection-028bac@quoll>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-Y0mVF0q2Sx3qDWBOxLMy"
+	Wed, 01 Jul 2026 13:30:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5001340272;
+	Wed,  1 Jul 2026 13:30:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128DC1F000E9;
+	Wed,  1 Jul 2026 13:30:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782912642;
+	bh=A5ZmUhI4lGBrijj+WNtqGtqeoK5QeoNNW0ruug9fc60=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=je9UZWT+wuT+sTNUvVgqw3NOS4v+DMNpfirm04gvG57bmytGksEKU3th/tPZwfU94
+	 6Cj4IRuaEYe1HzeSNtxJ6cPuTO/D5I8T0aitOjZN6XsbcfCVdJqfcG5ZMvVpC2QfE+
+	 OWDRge7BWt4ZC09PudmO9upREu3p9rg14O0qt7BWszynUI6OqMlmNdESlTifxjMSxo
+	 NUsolddCbDzqQmgLE2lU3sh8bvBsLFClwAmrBGshjKRdDgxE+MUFxh6ra6XF6lyhC9
+	 NYdY4tZS4CLRSbV30BimOIwMtKBrC92NBTuoPsJE5QfuODxCBVaFVA3OmNEZtTYWIA
+	 gsNPreUi4hjFA==
+Message-ID: <0f05e07a-57ab-4ae6-8274-c9c496ca60c2@kernel.org>
+Date: Wed, 1 Jul 2026 15:30:31 +0200
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_062547_771051_52FA5AED 
-X-CRM114-Status: GOOD (  24.45  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/5] dt-bindings: arm: coresight-tnoc: Add standalone
+ qcom,coresight-agtnoc compatible
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+ Abel Vesa <abel.vesa@oss.qualcomm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
+ Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+ Abel Vesa <abelvesa@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260701-fix-tracenoc-probe-issue-v4-0-aefab449a470@oss.qualcomm.com>
+ <20260701-fix-tracenoc-probe-issue-v4-1-aefab449a470@oss.qualcomm.com>
+ <20260701-stirring-piculet-of-vastness-a361e5@quoll>
+ <4117c406-0d75-4eb1-842e-1d346b7fbf99@oss.qualcomm.com>
+ <9aa63427-ba41-436d-ab19-a533082d336a@kernel.org>
+ <62ac6887-1551-490b-b42b-2661d7152734@oss.qualcomm.com>
+ <7838f7c3-0f38-4e93-a9c1-88f387e78ca9@oss.qualcomm.com>
+ <d4669b9e-bf07-42dd-95c5-792e358c505e@oss.qualcomm.com>
+ <12709ff6-bb42-4d3b-9f9d-e327cd8d89cb@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <12709ff6-bb42-4d3b-9f9d-e327cd8d89cb@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,113 +135,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 01/07/2026 15:09, Konrad Dybcio wrote:
+> On 7/1/26 2:54 PM, Jie Gan wrote:
+>>
+>>
+>> On 7/1/2026 7:02 PM, Konrad Dybcio wrote:
+>>> On 7/1/26 9:31 AM, Jie Gan wrote:
+>>>>
+>>>>
+>>>> On 7/1/2026 3:26 PM, Krzysztof Kozlowski wrote:
+>>>>> On 01/07/2026 09:16, Jie Gan wrote:
+>>>>>>
+>>>>>>
+>>>>>> On 7/1/2026 2:57 PM, Krzysztof Kozlowski wrote:
+>>>>>>> On Wed, Jul 01, 2026 at 09:53:41AM +0800, Jie Gan wrote:
+>>>>>>>> The TNOC compatible previously only allowed the two-string AMBA form
+>>>>>>>> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
+>>>>>>>> AMBA bus.
+>>>>>>>>
+>>>>>>>> Convert the compatible to a oneOf and add a standalone
+>>>>>>>> "qcom,coresight-agtnoc" compatible alongside the existing AMBA form. The
+>>>>>>>> standalone string carries no "arm,primecell" entry, so the device is
+>>>>>>>> created on the platform bus instead of the AMBA bus.
+>>>
+>>> [...]
+>>>
+>>>>>> AMBA primecell identification. The purpose of the new compatible is to
+>>>>>> clearly distinguish this platform-specific case from the standard
+>>>>>> AMBA-based implementation. Or shall I re-use the existing compatible
+>>>>>> "qcom,coresight-tnoc" as platform standalone compatible?
+>>>>>>
+>>>>>> We already have a similar pattern for the interconnect TraceNoC device,
+>>>>>> which uses the platform-specific compatible string qcom,coresight-itnoc.
+>>>>> I do not see there a fake, duplicated compatible for the same device.
+>>>>> Can you elaborate how is that relevant?
+>>>>
+>>>> Will fix it by removing AMBA related description.
+>>>>
+>>>> Shall I update the clock name from apb_pclk to apb as a platform device?
+>>>
+>>> Why?
+>>
+>> For the previous platform devices, we got comments to add the clock-name with "apb" instead of "apb_pclk".
+>>
+>> Please check the qcom,coresight-ctcu.yaml and qcom,coresight-itnoc.yaml
+> 
+> Well, if you need to break the bindings already, might as well on
+> the grounds of choosing a saner ("clock names shouldn't include _clk")
+> name.. Not sure if Krzysztof will like it
 
---=-Y0mVF0q2Sx3qDWBOxLMy
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+I miss the rationale for doing the change, why exactly this binding
+should have clocks corrected.
 
-On Wed, 2026-07-01 at 09:35 +0200, Krzysztof Kozlowski wrote:
-> On Tue, Jun 30, 2026 at 07:22:21PM +0000, Markus Probst wrote:
-> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
-up
-> > the system.
-> >=20
-> > Move devicetree bindings for sii,s35390a into its own file.
-> > Add sii,wakealarm-output-pin property to enable the use of the output
-> > pin for interrupt signal 1 for the wake alarm, which makes it possible =
-to
-> > set an wake alarm on Synology NAS devices.
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > ---
-> >  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 54 ++++++++++++++=
-++++++++
-> >  .../devicetree/bindings/rtc/trivial-rtc.yaml       |  3 --
-> >  MAINTAINERS                                        |  1 +
-> >  include/dt-bindings/rtc/s35390a.h                  |  9 ++++
-> >  4 files changed, 64 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/D=
-ocumentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > new file mode 100644
-> > index 000000000000..31a578673870
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > @@ -0,0 +1,54 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: S-35390A 2-WIRE REAL-TIME CLOCK
-> > +
-> > +maintainers:
-> > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
->=20
-> This should be someone caring about this hardware.
-He does have the majority of commits on this driver (excluding merge
-commits and commits not exclusive to this driver), although most of
-them are pretty tiny.
-
-Who would you suggest instead?
->=20
-> > +
-> > +description:
-> > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with=
- the
-> > +  very low current consumption in the wide range of operation voltage.
-> > +
-> > +allOf:
-> > +  - $ref: rtc.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: sii,s35390a
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  sii,wakealarm-output-pin:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    enum: [1, 2]
-> > +    description: |
-> > +      The output pin to wake up the system.
-> > +      Default will use the output pin for interrupt signal 2.
-> > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signal 1
-> > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signal 2
->=20
-> Does that mean device generates the interrupts?
-Yes.
-
-Thanks
-- Markus Probst
-
->=20
-> Best regards,
-> Krzysztof
-
---=-Y0mVF0q2Sx3qDWBOxLMy
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpFFT4bFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSF9QQAIlTW2RitdXOXXdYqEfk
-gbi0hd5i1sym518x5IFnTKhoNfTK3T1sRGdCwHcYFNq/0irFoR8/1YqVrxgDNFk0
-v/iWAn5C/nRGtEEQZdjvUppCLNuoAI+QRvIt4k5IburQvSvxUPPT8ECBSAiIK4EV
-PP3JRa3iXzkJ8Q1NFnuH6RPvLmy39c83MPyX4z3U8UtZ+HfNLGEs16r7qbVe8P4I
-15WtPSbL9Swc3lSoXkg0qbEXvM1OXFNSlsMxoOb8H6k7/kX0o6lciod+22z94793
-KY7ld20AOGLoKhuYakfVHIl2tvKcv/0wZjc+hF8BvOyx9fTryaqTpHPz1dthJnZh
-6UW02DpAgFoBjlX+lp8ertDYQjLufEHLeL1rOGyGqYpFNpWd86pYTSDSuI6Gr00s
-8i1Rt758ZPOTwCZzqb/dZxnQzMDcttVr/UYxIILxTLNQvYQbAbsgkxW1/wvnokXl
-wNVcxkM/mKYpjGYcv1YC/58VOhCvZpMjNr1GqB9U61Wl72PsWAXJ0bgmOC1bC5mH
-7Z9rqCiPvUMix+u+jqc/O9ULvV3F2vOUVEA4cG0mE8ApIbqaDOvFXiI7pCZlHVq5
-5q2roctL6f0VtHKh0JKNQiac97LYACaEL3gEueC2ZH2FOU2io9/gmSWoAmec3BBz
-keH8uBR9oM7tSDmKPOpSyupZ
-=oQ4z
------END PGP SIGNATURE-----
-
---=-Y0mVF0q2Sx3qDWBOxLMy--
+Best regards,
+Krzysztof
 
