@@ -4,100 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65249C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 05:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B25C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 05:48:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A2dYl0OUyzZ06MfTi9YwzB+RT+fpto3AMtLt5rd0qn0=; b=G4ylzMzV5PL0YRT8HpupLoSnPp
-	eipxRHEjXAvgiCYqyPoJmYCYrrT4453owvE41wJA2nXtC9lz7iBSfQlih6oV5peKlKlIsr6ApUK7T
-	ktNz6r2oMfNh2FQ6sKQ3OBgTiXpmhZ+3ow8vfdJz1+onSknNIuStIljOAUOxPh4oJObyMHTcjz1ln
-	bX7lAgUvMkGEv2mKx80B6yP/TqrF9Do33VzA4yxCt9mVunGlb+7C54LxsmyobPIPSLItUwH7bAMP5
-	1qtC47yjyn9SCEo/nUB1YkGxYyELIB9eB7tvOE1APf9Y8pTJNj6m+ojhVDLqUtfdBG9Wf592PbqSD
-	7BkjwZlg==;
+	bh=O6xbzpfwgYUtwGh6OVTjg0pM5p2w7pTevIQ6kY/2ozs=; b=NGh+NmKziVy6iLmdvjqL8vP6iW
+	6/e8ReN0qsJL0gNqoXVJlQbap6IgojOp5zXiLmVEMa3j083876iKxKjarPQUzixVSJZY1YMWpYL5+
+	yFp+jmwN+x11nWZEF2ZIT7n0nudzRxj3DIgrmjdluHTQcTfSUzuSG9IS+ydQJDUCyBL/D0wof0FCz
+	U7r/qGjujHcp99lUiTFgFwgJScmVOrhtuclYJ0x9qt6rSuT3VJOvPN245/sATo169sVNy8GerMhx1
+	Ydo68coMsVaKZzMprSZd/Gtv/SkZMQbhOd2gVbqfFWfKJ+CgUneSD3OtB2xY8zYzCLouZubC36xE6
+	UYd2pNPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wennX-00000000hWw-3w8r;
-	Wed, 01 Jul 2026 05:47:47 +0000
-Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
+	id 1wenoa-00000000hfG-0Til;
+	Wed, 01 Jul 2026 05:48:52 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wennV-00000000hWU-2M8U
+	id 1wenoY-00000000heq-1cTi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 05:47:46 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-664ce3000e6so194393d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:47:45 -0700 (PDT)
+	Wed, 01 Jul 2026 05:48:51 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-664cb440f9eso288379d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:48:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782884864; x=1783489664; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1782884929; x=1783489729; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=A2dYl0OUyzZ06MfTi9YwzB+RT+fpto3AMtLt5rd0qn0=;
-        b=gYZclWG8hcsJnCm75kmCf6MXc8zMervsGp9aiRNOxjZCcrsIoGA15ccpc46Ojs5eqc
-         tj1fN4Pcfy7Pff/snrrcHMb58mLUBtYV9gIK3gku7fpriK0WkvQZRf4XP9jbSZKTvmZh
-         OFVcIf28pu4jQ3DqOzeXZskfymQe3AInGnULoHRYVv5Hpkk2sE47hugWSmaExZTsdQRp
-         otcM39AH0KEKkh/fVinhSBQ+1fkSDp+0LTQu8RpNkW37jxa3L6GOxM7RZs8UOtE3nkRv
-         cXMpBnDOuir/Az5cziVDnG3RGLiErkgj9Seeoy7r2k3/O9oIu9UU14qpt598YpZ3Vt7R
-         A+mw==
+        bh=O6xbzpfwgYUtwGh6OVTjg0pM5p2w7pTevIQ6kY/2ozs=;
+        b=qWsqojBKY9XAp9fvJZ//IlAjpZglIRnzYjEzH3fI+zhAO3zIVpZjCUUwtttIPR9h8d
+         tUsqMxLLZgsCqgLJxJPwrtzi68tHJMLFWSocrYNPxd9Nundv1EOuHPs15D7SRXY77KVd
+         UKsjefdqUJqBALhw5gMhkNChkcc3ZyRfL49IMhL9WgMmd+Az/So2H6gIVV7ww09ywNxy
+         GjBFRO0Gjdn9qs4NkiqOMdv/Ddpw7SlKfiruizMgn3TDEgE1q7G4LjBZbnJheH5JAeGE
+         t7dmQNinXQk3F1haI6iGl84gJUyAwPMD3OZ0S1eVgAlf6WuU0Ow9HpBvlQ4OkniF8D/W
+         tISw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782884864; x=1783489664;
+        d=1e100.net; s=20251104; t=1782884929; x=1783489729;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=A2dYl0OUyzZ06MfTi9YwzB+RT+fpto3AMtLt5rd0qn0=;
-        b=BUgfp1zq/FpDBHadqjcY+/rN2P+L4ORQcMvaYl0Y0BGbklzNEExPi+Z6JZRolC7upO
-         TOVuh4rduQfkiH6Aw72Iz7mURIKRaeCcACpZR8lB9tmPOrYc5PBjixVJl1LGiJ/Z9O9N
-         s37PU/k/nlZKc1GXPI7H13TUn7E/5lNKptm5uKKSU8CJuftdb07VJaUISvExOmgmhflO
-         Xp/hc5/LxlXT7Rj9+Bj6dm17lf4Cd0MyM4uivlIauHcZEjcxbfDsOWVTTm/DeN2ycmJJ
-         3TW9/PyJ1CnROFq98yGEE7VH7ftw1S16jZMYdQyufG62EtUIhPRMRSWh7OwRG2hATLK9
-         xS9w==
-X-Forwarded-Encrypted: i=1; AHgh+RpLGUTv30UgR49eChyqbhvDWY7Uo5AsJbk28hiLGRJfFLcsSKDLa665RVed7kQIwLR4Y+dnp67dbe3TI9dHG/qX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuUBqnJ5A+dHgLbuKgOvhAePz/CTwPralLONBjFMWA0Z6SIEgd
-	TgeAuojN1+fWu439HXVeC1nD057NSS45IkLdJAQsR18UIlcmyPJ7xGbY
-X-Gm-Gg: AfdE7clvcRO2KqLaM28qGDk2fRJfVPRPxoHuA9/Z43lEa5x6Q2Xo2cdMz5FJyC/YfdZ
-	EJSRzOHaLa57P9Uh45woRkc1ACEfDRvGX3o3/vaN2voOol4zqV++I0EphkHUl6bpBfyWokTCTR8
-	er0ZlG0BP9OLjsLh7KBP7pOkRtG5ZqjBlkbh56speQP14oJSFY+wzR2mLfjeBk44+XF6Dq83TRm
-	a4pfVoX2FUhNX58WL19pKJCBisdGIxfSTYjN7Yy2IrEqxU9RZGKUDzgzafpeO8rff+ssKxcxjBS
-	qeczui3+L2pkSyZ2pbmpIivTKpmRJhUT5xqYCxzBVqrPSlOsHYxTX5aEZ+OiAEsKqv85Mt/1q3U
-	pPq081y80n2ugYggnioiO4gLk4AdXw9TVC+q5U1NwexaD1n+0/kPizy++ZmF+pdA7QGdEJP0btJ
-	fierstQaK8mESu/JMisQi0CC755ZpAdCzrMjBLaI72GZVO5qpjM7wyg8t6RhP5
-X-Received: by 2002:a05:690e:bcd:b0:664:d899:e3a9 with SMTP id 956f58d0204a3-665219a787dmr223821d50.20.1782884864130;
-        Tue, 30 Jun 2026 22:47:44 -0700 (PDT)
+        bh=O6xbzpfwgYUtwGh6OVTjg0pM5p2w7pTevIQ6kY/2ozs=;
+        b=V5dPAiqFsOYWv6+O+xjDXaOpxICNuhGUtBLTppt8zS90vVpST6/3Ud5MYevegCaTyO
+         LEovRobSNj0O6VD7ZDNtKTK0svggKF+W6qncwgaNAu7gM0N5AKk+g7nAaAQvKCa/gZ7O
+         HhMAYyqD+czRapmOK+hs0Z3QQQtq0adDp1IDvzBNzwUguAhCuHPVLc/vRVW3P3xovfGO
+         imZyO5hPXthip2a3eLKBU0X4+h2ShMj7K8tDJC8XoSDdkGch5+M5H6NnIoOv/3bgmj/2
+         NIkfciZ6F2yUyOcdn0w8aqmiHQqAtyWAQVuAlMi0KK2sZKLv2hw5c7WBFDdNSZb9PymQ
+         W7Jg==
+X-Forwarded-Encrypted: i=1; AHgh+RrzsLl/y3siUl8xsyVcW3g9sCgJB9yWnBFVu2tIG4XBY3sHJr3WKUkwiTXXI9y+qtx7ame8ttBGO88cK1UVxhKK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrGE7NOiA4LxZ0QhgdysihaLcfFrK/6qwz562iTZ/jvhVxYQ3D
+	Y7c/CBkqvPhse3z5K059sYpf5/kG/1RBCIdtzNzYMhEFX7R/OOGL/JCM
+X-Gm-Gg: AfdE7cmbXbI1ukaPdFsBd+HmNo+36LWfnQKaRGx45hMm/8qrecxRz9ZsvKTvmNO7nkm
+	U5mEL8qogKmARP2oFEZcJcZNzm7l2QjKmrZaNUaW8ZEIdE0bBDNE4G0mfPz/3knagT2d2fmHk9j
+	xT/C9BYo9LdwPk5bTeZWVcZITG0EtkQn368nkqIDAf7RbxoH8qZQqAAcjvNtKnUHT39GUhTQEzz
+	CLqFUZS9TjJPEIgHEUvZPIykdNXPbwBAehPi3t7Okpe7KynXxmai2knNvhS9u8fvye5LKY7YoeJ
+	qzazEZTxOcbmtJZDn6w5vGxzRtXKlMG9/CcUagsBiPwiWmRpG1Bh8iipQcI6/9AOtsJhyHl5duW
+	6yWixyozxDRaduqB9JbVqTvWX2/NJ3Sb1pLVG50g+HVYBBglEJ/McPQYqY6inUzypNKcXnjyIn+
+	+oCP2ShCENAE0/UQD+sVOm57jS5p6Dm7Na1us2okEJlQujOpcSjy469yLtEfLx
+X-Received: by 2002:a05:690e:150f:b0:664:c7b0:f655 with SMTP id 956f58d0204a3-66521ae384fmr205145d50.53.1782884929334;
+        Tue, 30 Jun 2026 22:48:49 -0700 (PDT)
 Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6650163752bsm1836441d50.16.2026.06.30.22.47.41
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-665000c8152sm1920856d50.0.2026.06.30.22.48.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 22:47:43 -0700 (PDT)
+        Tue, 30 Jun 2026 22:48:48 -0700 (PDT)
 From: Enzo Adriano <enzo.adriano.code@gmail.com>
-To: Yuanshen Cao <alex.caoys@gmail.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Cc: conor+dt@kernel.org,
-	mripard@kernel.org,
-	krzk+dt@kernel.org,
-	robh@kernel.org,
-	samuel@sholland.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	Frank.Li@kernel.org,
-	vkoul@kernel.org,
-	dmaengine@vger.kernel.org,
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v3 1/5] dmaengine: sun6i-dma: Refactor to support A733 interrupt and register handling
-Date: Wed,  1 Jul 2026 01:47:01 -0400
-Message-ID: <20260701054701.3961908-1-enzo.adriano.code@gmail.com>
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 0/6] clk: sun6i-rtc: Add support for Allwinner A733 SoC
+Date: Wed,  1 Jul 2026 01:47:44 -0400
+Message-ID: <20260701054744.3962458-1-enzo.adriano.code@gmail.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <akQuefaUpt6OPNSo@b82beb281c41>
-References: <20260622-sun60i-a733-dma-v3-0-f697ef296cbc@gmail.com> <20260622-sun60i-a733-dma-v3-1-f697ef296cbc@gmail.com> <20260629003505.18f0053d@ryzen.lan> <akQuefaUpt6OPNSo@b82beb281c41>
+In-Reply-To: <20260629-a733-rtc-v2-0-7b72112784f8@baylibre.com>
+References: <20260629-a733-rtc-v2-0-7b72112784f8@baylibre.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_224745_651540_7BA70C08 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20260630_224850_484929_FFD0CF6A 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,42 +113,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yuanshen, Andre,
+Hi Jerome,
 
-I applied the v3 series locally on top of dc59e4fea9d8. The
-series applied cleanly, the focused DMA binding check passed, and
-a focused drivers/dma/sun6i-dma.o build passed. I have not done a
-hardware DMA runtime test, so this is only static review plus
-build/schema validation.
+Thanks for reworking the A733 RTC support.
 
-On the IRQ accessor shape, I think Andre's data-driven direction is
-a good fit for the enable/status register differences. The
-A733-specific values look like data: enable offset 0x134, status
-offset 0x138, stride 0x40. A small helper using cfg offsets/stride
-would keep the call sites readable without needing per-compatible
-read/write accessors. I would keep dump_com_regs separate unless
-there is a clean table-driven way to express the genuinely different
-dump layout.
+I ran v2 on a Radxa Cubie A7S. This is local validation evidence
+only, not a hardware Tested-by.
 
-While comparing this with the public Sun60iw2 BSP, I think the same
-respin should also fix the interrupt channel decode path that Sashiko
-pointed out. The series encodes the interrupt register as:
+For the A7S integration test, I stacked the series with the currently
+visible public A733 CCU/PRCM v1 and pinctrl v1 prerequisites. Focused
+RTC binding validation, targeted RTC/clk builds, and a Cubie A7S DTB
+build all pass, and focused CHECK_DTBS=y shows no RTC, main CCU, or
+R-CCU findings. The remaining findings in that base are unrelated
+A733-wide schema gaps.
 
-  irq_reg = pchan->idx / sdev->cfg->num_channels_per_reg;
-  irq_offset = pchan->idx % sdev->cfg->num_channels_per_reg;
+On A7S hardware the artifact boots cleanly to shell and the RTC driver
+probes and registers as rtc0. While the board stays powered, RTC read,
+write, and a short readback all work correctly; the readback advances
+as expected.
 
-but the interrupt handler still decodes with:
+I am deliberately not adding a Tested-by. The RTC value does not
+survive a full power removal on this board: the published Cubie A7S
+V1.10 schematic exposes the PMIC BKUPBAT pin but does not show a
+connected backup battery or supercap path, and Radxa's A7S
+documentation describes no populated RTC backup battery interface. So
+I can confirm the driver is runtime-functional while powered, but I
+cannot honestly attest cold-power persistence on this board.
 
-  pchan = sdev->pchans + j;
-
-For A733, num_channels_per_reg is 1, so j is always 0 and each IRQ
-status register would map back to pchans[0]. The public Sun60iw2 BSP
-uses the inverse mapping:
-
-  pchan = sdev->pchans + (i * sdev->cfg->channum_per_reg + j);
-
-That matches the encode path and looks like the shape needed here as
-well. The register-loop bounds probably want the same treatment:
-derive the number of IRQ status registers from the real channel count,
-not from an implicitly exact division.
+Happy to rerun only the persistence phase if a valid VRTC/BKUPBAT
+backup supply is identified or fitted.
 
