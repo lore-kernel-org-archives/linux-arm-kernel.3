@@ -4,116 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F083C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ED01C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:46:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h6G6oRgORHVYJo/knBtQJKa5dpje2k0WnY1iIjqH1yE=; b=hh0HuHK3505fm7irkh4hSsyyOp
-	1GsUD0uRRwrrtlJDowaTrANYVd8ppnia13rnizjAOZuSct4OTLrFQAZCj44tRIi15vN/u8fpbL/uT
-	u/OCAx6CJjR7BV2X+leSInutZ5hDAq7iDAHUaeIWkB4fqbnFpqscNNzpXLBBvHenVVIKRU9ltuXrL
-	ECriu1GHSwb13JipmDQaCWDGmXa4L+UfLshNJxgTOGEXTNTsESqUekRcFGcYN76ww1S15DDpFk39x
-	WaoZCnQNTuKuaPUvTyOBsXiyWPWhib4veDaKPx/wxglJ680mSuZKY2HF/GDGaPAP8jjG0JQTapwgx
-	pJY7kAIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BH3aXRPDtZZz9bN5AoHSMjbqzIj/NyvWxAh/Zcap9hc=; b=k/YqIR06wkT/sg5oZi8WG5NIND
+	9RjGcONuN5yYTA2pA2etkexstrXbt9LKB3G7Qj0KsPz5At9KM9pfYzcJoS+qkizg1k0j8R0C9WFYO
+	WNTTimJ8/9peKsAguyhX6ffGLJtTjBFiERKhtrncLRP5B9SoR5yUNpB+2ZIps8qvWob8cs+i2nNeq
+	e8YpmmR3ph/lUjcgeX5bdFKHFj/cF3q4x3OT3RsTuHXtNn+OJ42utmlPQazm5Ga0dnLEU98u6LILt
+	of03dMeApiGtY/Ay+FsZwzy/+Nm8h601p2Zxy3z7Hr18I6u9G9RIcmCMuZJ4mJfu03P3Wh6bf93/w
+	NsMR5mvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wey1p-00000002ZEm-0qSg;
-	Wed, 01 Jul 2026 16:43:13 +0000
-Received: from mout02.posteo.de ([185.67.36.66])
+	id 1wey57-00000002Zez-2vsy;
+	Wed, 01 Jul 2026 16:46:37 +0000
+Received: from mail-pj2-x01.google.com ([2607:f8b0:4864:39::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wey1n-00000002ZDw-1Zev
+	id 1wey54-00000002Ze3-46fh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:43:12 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout02.posteo.de (Postfix) with ESMTPS id C0AB9240101
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 18:43:07 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1782924187; bh=h6G6oRgORHVYJo/knBtQJKa5dpje2k0WnY1iIjqH1yE=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=rsuRhl3D5asDldg1wXWaNCrYv2yQ/vpElg+E7UsU8Pzf6vVNNb1y8eO9GfIJWBcxK
-	 l3XayJyMKN7lW58TgP1xaH1S2pjJ3VpA51h7hxDFYjBGDr2/rbBjJB/g0jQJmPLZIB
-	 KxYucZpBn6PTc/Vu5/yF2yH1x1dsvIBDc4UONMp2F4B/PBulGjoCKt8UV1xp3Mfqu5
-	 53f50UhZ4sTUkxmUE/Qb4TCKdsNufgZCzPzSPu5IWieGi7UbXItjuqzuMeNMr/s7jd
-	 NPnkQzlnMH+L2WmQ3/rITS/xj7qePTulR10Y6ygeYAk2r3Uk8OCbHWT480yHdlubx+
-	 pP9+gGa+rHzpw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4gr5RY3WfGz6tvq;
-	Wed,  1 Jul 2026 18:43:05 +0200 (CEST)
-Message-ID: <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
-Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
- property for S35390A
-From: Markus Probst <markus.probst@posteo.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
-	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
-	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
-	 <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 01 Jul 2026 16:43:07 +0000
-In-Reply-To: <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
-References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
-	 <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
-	 <20260701-bronze-jaguar-of-perfection-028bac@quoll>
-	 <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
-	 <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-nC+OGHgEd8Indof71zb6"
+	Wed, 01 Jul 2026 16:46:36 +0000
+Received: by mail-pj2-x01.google.com with SMTP id d9443c01a7336-2c9afadd78eso2759985ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 09:46:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782924394; x=1783529194; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BH3aXRPDtZZz9bN5AoHSMjbqzIj/NyvWxAh/Zcap9hc=;
+        b=a2wKkcyPCVPnEOUyzQOP6lM9GnxOh8dr1jwbJ+au9h7vmYvHerl19o9f76H16okzbF
+         f1h1gbvIQP0TPVfRXmMmE4Slwc0EBolX8U92GEEYUkGIULYffgsuPfLKuj+imcKenpIi
+         gVXrwb1ub8S81DkEkIKBS7psHazV32rJ1K37h6xhaCZODmVkWFD7zVNRbP/8jIMFgI8b
+         QwF4mGA7jcQ0/LhVcP3HfF8FM1+8lfUya6ioA9znEtjBgcBFMefsClimPIXBAQYD+wOo
+         YSEOqk5dQXGlAk5f2oHJw+N3mqh1P3YG61OLpYgl/QtlmPoIYIsFO1ahXBtkMuVZOLhY
+         Dq+A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782924394; x=1783529194;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BH3aXRPDtZZz9bN5AoHSMjbqzIj/NyvWxAh/Zcap9hc=;
+        b=oxvo5aPtjtq8ZjgNZUvXSIr4QL8VtNwGmIQeJpai+LjHzSrDnGr7GOeZGZsPu6XiD4
+         i0TVcPQ/zEAC+asrViio1R8S8+0MFdNv6DVualAay0fTY3OMEUOblHFk2eB2qgg4W7qL
+         fnjSg4ZKyWcY3bma7/Cirj9wNwbVY2anlYkhK9KQcIdl2oHXri/72WNBmiIHyPhLshCi
+         buKTQnO1uSgfFYcGXBep3OtPbHFJA96zTEHPF8FZZyR3anAwyv5RtnQVdwkkUwyUQ5Nu
+         JsYvVyZO4WRB0N5NOoJCuc3UpxlNz8/Artp4EAEeNYastNOfQWZ6E/2lZeFgulKt573y
+         VyjQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqccfHuPS1RbrJAdRa1MSFcPQvC+7cXuziDiQDNQ0Atryx3GNLcnkGPj6OcirKATPGHSNle02RdbpJYXWjDVK2u@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpCXNtUjrcFKd8USsyJ5KKhuXstCW0HxliSFVzeoTcGeg8kKx1
+	IerifG8M309ZSig/NlcPSdxwVO1hxF3YA7ta1piAv7/Y1VCCmbPjDNLO
+X-Gm-Gg: AfdE7ck9GezvJoZNtAcuHQZD36JB5uMs3i/mWsvcNPaaP0bBYdoyJ0uxNf0DGi75Lv/
+	20cpkR+y+He5zIzIdLT93Mb5QllJ2dlXFPW9gwCeDHPeQ9XTUgWs+X81ckGLvwX0nT+J0m3R07x
+	thzP64cenkUzUgcq3FgLE4Y9XCXZm4zAO9USbIi/9+LtLoUl9UEH6A54/M6EKhBkXzioWEYrlsG
+	JdPdEUoCIcTqXoqpLmgpxa8OTq4mMQuZfIRW3KbNEEasE6BPms4zwo2p6BlfUu2LcC2KQqZOikY
+	yvzNsPD8uUOWeBuyBbNYP4xDWY+Kpdhz6QSjUr5AINy5IHe4KjKA6GQ4HShfr/Z2w7Se3R+3e7t
+	qLUAHpJbAsoABm+CxtK9CYl0jJgw6a45wpY7MIxD417vXjJO9q52zLMW5a5EfC3BI075vBr94rU
+	IpUjc51tCntaw=
+X-Received: by 2002:a17:903:19ed:b0:2ca:594f:feb8 with SMTP id d9443c01a7336-2ca7e942459mr25214065ad.47.1782924393632;
+        Wed, 01 Jul 2026 09:46:33 -0700 (PDT)
+Received: from server.lan ([150.230.217.250])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca9a911f4csm985015ad.29.2026.07.01.09.46.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 09:46:33 -0700 (PDT)
+From: Coia Prant <coiaprant@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Jonas Karlman <jonas@kwiboo.se>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Coia Prant <coiaprant@gmail.com>
+Subject: [PATCH v3 0/3] Add devicetree for the Graperain G3568 v2
+Date: Thu,  2 Jul 2026 00:45:41 +0800
+Message-ID: <20260701164543.3967388-3-coiaprant@gmail.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094311_720492_D7A43CD5 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20260701_094635_008279_51FD08C0 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,96 +104,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Changes in v2:
+- Fix trailing whitespaces and other formatting issues.
 
---=-nC+OGHgEd8Indof71zb6
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Changes in v3:
+- Picked up Acked-by tag for patch 1.
+- Fixed text wrapping in the commit message of patch 2.
+- Replace the legacy 'gpio' label with 'gpios'.
+- Add the Bluetooth UART child node.
 
-On Wed, 2026-07-01 at 17:14 +0200, Krzysztof Kozlowski wrote:
-> On 01/07/2026 15:25, Markus Probst wrote:
-> > > > +
-> > > > +maintainers:
-> > > > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
-> > >=20
-> > > This should be someone caring about this hardware.
-> > He does have the majority of commits on this driver (excluding merge
-> > commits and commits not exclusive to this driver), although most of
-> > them are pretty tiny.
-> >=20
-> > Who would you suggest instead?
->=20
-> Someone adding features for this driver, maybe driver maintainers. But
-> if Alexandre is fine, you can leave him.
->=20
-> > >=20
-> > > > +
-> > > > +description:
-> > > > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates =
-with the
-> > > > +  very low current consumption in the wide range of operation volt=
-age.
-> > > > +
-> > > > +allOf:
-> > > > +  - $ref: rtc.yaml#
-> > > > +
-> > > > +properties:
-> > > > +  compatible:
-> > > > +    const: sii,s35390a
-> > > > +
-> > > > +  reg:
-> > > > +    maxItems: 1
-> > > > +
-> > > > +  sii,wakealarm-output-pin:
-> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > +    enum: [1, 2]
-> > > > +    description: |
-> > > > +      The output pin to wake up the system.
-> > > > +      Default will use the output pin for interrupt signal 2.
-> > > > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signa=
-l 1
-> > > > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signa=
-l 2
-> > >=20
-> > > Does that mean device generates the interrupts?
-> > Yes.
-> >=20
->=20
->=20
-> Then I think you miss interrupts property.
-=46rom what I can tell the line is used to generate a system wakeup
-event.
+Notes/Unchanged from v1:
+- ADC keys have been verified with evtest and works fine; kept unchanged.
+- The 'regulator-off-in-suspend' property for vqmmc-supply is retained.
+  This is a known issue shared by most similar boards and should be
+   addressed globally later.
+---
+Coia Prant (3):
+  dt-bindings: vendor-prefixes: Add graperain
+  dt-bindings: arm: rockchip: Add Graperain G3568 series
+  arm64: dts: rockchip: Add devicetree for the Graperain G3568 v2
 
-There would be no obvious benefit of connecting it to an interrupt
-controller, so this property would be obsolete?
+ .../devicetree/bindings/arm/rockchip.yaml     |   6 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../rockchip/rk3568-graperain-g3568-v2.dts    | 931 ++++++++++++++++++
+ 4 files changed, 940 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts
 
-Thanks
-- Markus Probst
+-- 
+2.47.3
 
->=20
-> Best regards,
-> Krzysztof
-
---=-nC+OGHgEd8Indof71zb6
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpFQ4cbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSFI8P/3g9wc/GMAAirV36quML
-+9GQDRlBJXSizRsPFYQAjN9Qi3KS3SOK3g+EMCdzOl7WoIc8f/lP2x1qtL5w1vus
-6MH+CjY9OmWeQPSenS8wjEjwxyEhUGMPZdsfOz/Tr17wxf9+G3NKogTOYDZ03Bli
-iH+mjDH+ZXFtsm3ZBaTzqkEWjmeCi+OIVHf0hMCWCqEtWFBFVwIaFLtO8YsaOQui
-6+nf5Yz1AHWi5qhVNpnXXA48Zr0n+tz/gz80b7BrNS/p62fJFPxtE43yN6sAT+Ad
-QZOEblmA1hlM+l6Ptjvg8H+zOsxyExvp1GXORnwX3YQaoKNxp8j5/evGjDCSUsem
-IxghOTDcT8UukAnc043EtlhN20t5i7DRj8CvRZ3Z4vLcTatc16bfuffqnzGtSGlO
-y9+3Pk0+42rw/1TgviNtmlVeSLh17h5GUWekO/vtOa0kt6J/Vg0HEx53xkpPSr/5
-8m26hdaOv7qCgcNg4iDIVoVuhRhIfzLlqTWlvgrKiuIXbXbs6LD53VqD8q9ifJM+
-rnjcl+Tpavi6iI7BOg+3gOO/tSpXF92S4O6hyR4h678q3kqq+VRX+PrK6L7PRf56
-GZ/ngn+UM41wGxpNz39i81LKwcjthvHJDxj9okl28drlux9Tc/Q10URNJWgMtEmn
-ROYB9Z0HEt6kJWAo1zMBL/Ym
-=9wxf
------END PGP SIGNATURE-----
-
---=-nC+OGHgEd8Indof71zb6--
 
