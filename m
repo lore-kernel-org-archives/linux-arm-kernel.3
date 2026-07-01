@@ -4,73 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0FFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3DDC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zD18+lkGRBa7PBn3KUgw8H34IY/4vfNxffrrLBFg6Ek=; b=mT/qWaoXSJ3h8uOsouTFpDvMU8
-	ythpajsgMkHfnX/g6TxWkmt/PiNsgXr/sxyqNcpzlGPrAM0fpD/PxnYmXpTbwM8HcKB8sTJA9PiRj
-	efjSmAKAA4kJwbudSA/+vGRNmwk5UloBMEZdHblEH85e1DhyNEFdRS8Uy3VjbODuTwQyO5/2my8I3
-	uQYMuqd3dq/ClaMVovz83yBLSgjv1dFLAB7tZzg3H9uECzAhM7eq9+RvZS/nLCrzBou/fzaU7Vl7f
-	i61tP7MHU/Z4K1XXl6ejiNiZ5gA6cIOuR18vUDsxkQ1WjWwXQ5x70c2OQawQZi7srZNTeeObIlLCz
-	45DZLTZw==;
+	bh=vUd8aZYMR6nCW/a4VGgxXJpZ9DjCATYCWh/HUQX1mu8=; b=IBMqzfrmaHJbKTeKNAVQxGx9fY
+	g/L+aSWfHP/oFRW9hUJrDbEadww63+Yh0sIiOEEV3jpYdUkSONGN/UqriGU+AuVuMWWfR1tJU/nAR
+	YiC5FGoCGRlYFuPbVJ0mp4+C+xvW9g7zwlfh3SIlLbJWv5xDmKNUsnQhMCnHy09T4a/ebURx3Mmb4
+	FtbVTJIzhldBHZVZj0gXrvSCOvGDcSjzixKkZGok1RWznpxk1LBoFMsYtlwdUyV2aClhQQ0FfPyVg
+	KZdR6OIsqR9Bl2rophNIjbCYTt03rTX6LcVRbeH8jNswXoZJqHP9tEKIQ22sGqoxlesyAH7rpM1tC
+	RAfm+jyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBz-00000002beX-3SFc;
-	Wed, 01 Jul 2026 16:53:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBv-00000002bVX-1lv1
+	id 1weuFP-000000021Mb-0idn;
+	Wed, 01 Jul 2026 12:40:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weuFN-000000021Jr-1aKr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 12:40:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=vUd8aZYMR6nCW/a4VGgxXJpZ9DjCATYCWh/HUQX1mu8=; b=Oqxq7irfw6Yc5Zq4IxSNRehdbs
+	uFiRuBjSm4ieHanKOktEt2TFrxTvF7RjttttC+I2kZZzM+1wkHwIiXl2hsG0oYCiRNLd55OyrE7Go
+	x7zNrKu1uErzpbS2nwRABCRFWxs+n7fp/fP4SvFQerU3ylQzMyEz5oRhFQn25073ld+AYMie8JifF
+	0bKvZm/ruKJiWVoCC6zlf7dRBkq1HFOhpQ+LGF7K5jq7MghXusq+bciZdXhv1kmxZFE1j2wDGKS5f
+	bzUBxKBO1Lqz010zSJMCY/sUvgS4CbI7+OgBrWIhuoc9nyzLs/Kg/cxB1Km2NFb7ceSKhu6fVcQQm
+	p5vR1sAg==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weuFK-00000002lbx-0V6Z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:53:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA608497;
-	Wed,  1 Jul 2026 09:53:33 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CAA03F915;
-	Wed,  1 Jul 2026 09:53:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782924818; bh=syaa6eFKfMvHb+WPeFcB+nipqUZfcz72zdt4OYpzGNw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HWXZPMYgcP9CLNOhOwaipS4bVmmpgdymeFijqlqMS6lIUMDXLKrsAKOJlDSKYY2wI
-	 sSC5jm3E5EyRkM3SytL+CUSGoV8LlJ2Y3m5X7jmVqX/6Yz4c0qst/OfT+op1plCIt0
-	 jG938f6F9VUVsQNnUWgAVJa7ccWWD+GOmhWTE2F0=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Bradley Morgan <include@grrlz.net>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] KVM: arm64: skip pKVM cache flushes for non cacheable mappings
-Date: Wed,  1 Jul 2026 17:53:34 +0100
-Message-ID: <akVGDoI9FltrVduP@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net>
-References: <20260624160028.15591-1-include@grrlz.net> <20260624160028.15591-2-include@grrlz.net> <akU64YK5dqcWGdCD@LeoBrasDK> <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net>
+	Wed, 01 Jul 2026 12:40:56 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b779003fso3019325e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 05:40:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782909652; x=1783514452; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vUd8aZYMR6nCW/a4VGgxXJpZ9DjCATYCWh/HUQX1mu8=;
+        b=aIR08VtqsoNT2IdfzbMYNhZ1iewgEwUfgRdb4+/061qi33CpuJaB7Wz+uNQNrqnmh6
+         8lLMjW8TmjAFbgnjgQTC6X/tmKPB+5EQIvjhU5srmbM5N2pAQHJW7To84LCJkFy3U1cr
+         bOBgaKeYd0DwbwlmPn3n2LzUMuf2up26MA0vBrHzwlGEA/Js6MQifsTauPyOP+KNPBuW
+         5MwXgC1gKplrQ81Vimu6K+RQ7QrLTvCqXy7UVoz8gKgN5Y9I0Erf4c4XgeajWPL/4V9H
+         D6NYQC227X3CVceahal/lcRZ8usRRqO5dXwESkM/k4jLxJfkneA1l5XVmqxAZ+OLSGqs
+         p+/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782909652; x=1783514452;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vUd8aZYMR6nCW/a4VGgxXJpZ9DjCATYCWh/HUQX1mu8=;
+        b=LSCqEBzQQUvD89FNqq0tNUEoKI/UbEliyoid8jsVOZY3zn10G5F+cLbA3r1CdDLzIr
+         hyMGr0FwjHCZM8tfmD1l3anlwN74CKtAqFcMaxwPOU/RqM+o4rgNOEo5yeh1aQyVMleV
+         CH0hIuyNWGvdQa1UyANVlZVxUB/zVEQt5uDk7Iyx2FYbOA0JWVOJL6JsvAn463JH2aDH
+         4eOAQTBmcGMJLv5SNZhrOCfCz3k52/pVmuqCW7hXvnUUh9FsBTLLOeqPyP18Yoiz3OSY
+         IUEJlVHLmT/rP62rXiPwxzISIwoiMnoNdh6xG3fO1FgVPMoix2aWDdU1OSooovTnvfzA
+         UvSw==
+X-Forwarded-Encrypted: i=1; AFNElJ9FDKbXxJaOtJvUcmeDhnx8mQrfldbiMz17WSZid8PRZWEbMEWv7hU8rRzzQLdRXxs5zLAagcYRHmFR8yFtn5i7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYSXcJId/UD9oe2kYr3AX3fi22TKqyw3pLk68jE1U8u8gno2TH
+	cKhEoOv47wIzWQ2juCEJd0hLYiyrqEZal2OEf7ALGgEUg9qUyaACST10Da27Q3Dymjk=
+X-Gm-Gg: AfdE7clYce6CWWRSMvDKo3/CkdB/TlOQJ70bIwtXRrRVGSyuHKdYt4NZoR1s0JdDPYC
+	bddK/K+B2yfM1v7lVLSAkaUEsKzzdVe/K5mfBhxYhhBf8Cy0ffdTTTbh5OogU06h/ZPbgnqD6nm
+	xyHia+qRSOGHR2PcCEG/UXa7mqLV4JAYF9zAejicJZw/bAVKH6aQg+lOQuosMlwuI7J9EW7dhBQ
+	OVOwtKQiSKIboVT6cYtxiL017Brs5PLtzpbUDJwXcYLl2MiWBdkgmwEVr3YufMtMOKjW54hXEzT
+	FDQuObLFBumriTZXRi4IUqzOa9UTrEAomIYiVRFdaiktvJBqdTpG2ns6Q1D0MK3t6Kj32VCB6ww
+	Cfu+kif98eNRdtii64KZ3dmtLZL5XAdElVi4KtfKI9Opm54R0wiofXHZPgPfnayJSwrRSbhKRCB
+	AUhmTixz2OVg==
+X-Received: by 2002:a05:600c:8217:b0:493:bc88:ddcf with SMTP id 5b1f17b1804b1-493c2b7d9a3mr23202485e9.23.1782909652226;
+        Wed, 01 Jul 2026 05:40:52 -0700 (PDT)
+Received: from localhost ([2001:4090:a246:8638:a73d:f626:6582:90ca])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493be810c02sm80288265e9.11.2026.07.01.05.40.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 05:40:51 -0700 (PDT)
+From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+Date: Wed, 01 Jul 2026 14:39:16 +0200
+Subject: [PATCH v7 04/11] arm64: dts: ti: k3-am62p-verdin: Fix wkup R5F
+ memory region size
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-topic-am62a-ioddr-dt-v6-19-v7-4-e9db8b16821a@baylibre.com>
+References: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
+In-Reply-To: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, 
+ Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, 
+ Beleswar Padhi <b-padhi@ti.com>, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
+ Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
+ "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1495; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=/H8+FLcymjurbPJq5XVqqAaQz7MleqM2bK1XAD+GdZM=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhixXrsmaO8KOHNtu/6Oz3l9j+5fWI7q2rOo2byw4Y/+7b
+ enPbVPvKGVhEONikBVTZOlMDE37L7/zWPKiZZth5rAygQxh4OIUgInoRDD8jz9kzMYkF3uKd+Zi
+ 4Y28O69bhSbumfZw4yru0KIHd+ReZzMy3NnoZu0Q9mJBwXoTR46CmMP9La3a+XXeDElHnfa3BLi
+ yAgA=
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_095339_564710_D98A48FA 
-X-CRM114-Status: GOOD (  30.32  )
+X-CRM114-CacheID: sfid-20260701_134054_417855_F970482B 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,193 +139,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 05:40:46PM +0100, Bradley Morgan wrote:
-> On July 1, 2026 5:05:53 PM GMT+01:00, Leonardo Bras <leo.bras@arm.com>
-> wrote:
-> >On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
-> >> pKVM keeps its own mapping list for stage 2 operations. Its flush path
-> >> uses that list directly, so it lost the PTE attribute check done by the
-> >> generic stage 2 walker.
-> >> 
-> >> Record whether a mapping is cacheable and skip cache maintenance for
-> >> mappings that are not cacheable.
-> >> 
-> >> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
-> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
-> >> ---
-> >>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
-> >>  1 file changed, 41 insertions(+), 10 deletions(-)
-> >> 
-> >> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> >> index 428723b1b0f5..ca6e823028c2 100644
-> >> --- a/arch/arm64/kvm/pkvm.c
-> >> +++ b/arch/arm64/kvm/pkvm.c
-> >> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping
-> >*m)
-> >>  	return m->gfn * PAGE_SIZE;
-> >>  }
-> >>  
-> >> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
-> >> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
-> >
-> >Out of curiosity here, why do you choose to use bit 48 here instead of, 
-> >let's say, bit 63?
-> >
-> >(I know it makes absolutely no difference to inner working here, as there 
-> >should probably not be 2^48 pages in one mapping.)
-> >
-> >Thanks!
-> >Leo
-> 
-> 
-> sup Leo, here's a quote from maz 
+The wkup_r5fss0_core0_memory_region was reserved with
+0x01e00000 but the MCU SDK linker for the wkup R5F firmware on
+AM62P defines the DM code/data DDR footprint differently:
 
-Hi Bradley,
+    /* DDR for DM R5F code/data [ size 27 MiB + 396 KB ] */
+    DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B63000
 
-> 
-> "This thing is already big enough, let's not add a bool right in the
-> middle (use pahole to find out why this is bad).
+which results in an end at 0x9e608000. For this memory region which
+starts at 0x9c900000 this means a length of:
 
-I suppose you proposed to add a bool into a struct, maybe?
-It would screw the struct alignment.
+    0x9e608000 - 0x9c900000 = 0x1d08000
 
-> Given that nr_pages
-> is for a range, and that the minimum page size uses 12 bits, the
-> largest number of pages you can have here is 56-12=48 bit wide. That's
-> another 16 bits worth of flags you can use."
+Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62px-sk/wkup-r5fss0-0_freertos/ti-arm-clang/linker.cmd
+Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
+Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Humm, makes sense.
-And since he mentions 16 bits worth of flags, you start by using the 48th 
-bit. Ok, got your rationale.
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 7ee894d59113aa727d41b7ecd6b2bc7e12760823..8a5ff5c457579c7b1be7157d235fd4b4e5c6af11 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -170,7 +170,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+ 
+ 		wkup_r5fss0_core0_memory_region: memory@9c900000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x01e00000>;
++			reg = <0x00 0x9c900000 0x00 0x01d08000>;
+ 			no-map;
+ 		};
+ 	};
 
-(I would possibly start with the 63, though, but that's more on personal 
-taste)
+-- 
+2.53.0
 
-> 
-> this should just clarify things, any questions, feel more than free to ask!
-> 
-> (btw V4 is coming soon)
-
-Thanks!
-Leo
-
-> 
-> >> +
-> >> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
-> >> +{
-> >> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> >> +}
-> >> +
-> >> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
-> >> +{
-> >> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
-> >> +}
-> >> +
-> >> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64
-> >nr_pages,
-> >> +				      bool cacheable)
-> >> +{
-> >> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
-> >> +
-> >> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> >> +	if (cacheable)
-> >> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
-> >> +}
-> >> +
-> >>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
-> >>  {
-> >> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
-> >> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
-> >>  }
-> >>  
-> >>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
-> >> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct
-> >kvm_pgtable *pgt, u64 start, u64
-> >>  			continue;
-> >>  
-> >>  		page = pfn_to_page(mapping->pfn);
-> >> -		WARN_ON_ONCE(mapping->nr_pages != 1);
-> >> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
-> >>  		unpin_user_pages_dirty_lock(&page, 1, true);
-> >>  		account_locked_vm(kvm->mm, 1, false);
-> >>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> >> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct
-> >kvm_pgtable *pgt, u64 start, u64
-> >>  
-> >>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
-> >>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
-> >> -					mapping->nr_pages);
-> >> +					pkvm_mapping_nr_pages(mapping));
-> >>  		if (WARN_ON(ret))
-> >>  			return ret;
-> >>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> >> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
-> >u64 addr, u64 size,
-> >>  		 * permission faults are handled in the relax_perms() path.
-> >>  		 */
-> >>  		if (mapping) {
-> >> -			if (size == (mapping->nr_pages * PAGE_SIZE))
-> >> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
-> >>  				return -EAGAIN;
-> >>  
-> >>  			/*
-> >> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
-> >u64 addr, u64 size,
-> >>  	swap(mapping, cache->mapping);
-> >>  	mapping->gfn = gfn;
-> >>  	mapping->pfn = pfn;
-> >> -	mapping->nr_pages = size / PAGE_SIZE;
-> >> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
-> >> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
-> >> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
-> >>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
-> >>  
-> >>  	return ret;
-> >> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable
-> >*pgt, u64 addr, u64 size)
-> >>  	lockdep_assert_held(&kvm->mmu_lock);
-> >>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> >>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
-> >> -					mapping->nr_pages);
-> >> +					pkvm_mapping_nr_pages(mapping));
-> >>  		if (WARN_ON(ret))
-> >>  			break;
-> >>  	}
-> >> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable
-> >*pgt, u64 addr, u64 size)
-> >>  	struct pkvm_mapping *mapping;
-> >>  
-> >>  	lockdep_assert_held(&kvm->mmu_lock);
-> >> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> >> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> >> +		if (!pkvm_mapping_is_cacheable(mapping))
-> >> +			continue;
-> >> +
-> >>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
-> >> -					  PAGE_SIZE * mapping->nr_pages);
-> >> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
-> >> +	}
-> >>  
-> >>  	return 0;
-> >>  }
-> >> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct
-> >kvm_pgtable *pgt, u64 addr, u64
-> >>  
-> >>  	lockdep_assert_held(&kvm->mmu_lock);
-> >>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> >> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
-> >> -					   mapping->nr_pages, mkold);
-> >> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
-> >> +					   handle, mapping->gfn,
-> >> +					   pkvm_mapping_nr_pages(mapping),
-> >> +					   mkold);
-> >>  
-> >>  	return young;
-> >>  }
-> >> -- 
-> >> 2.53.0
-> >> 
-> >
-> 
-> Thanks!
 
