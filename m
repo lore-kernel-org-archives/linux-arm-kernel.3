@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AAACC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9685C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+ci+x4l7rGyX9PL16Opy1ybmCZaX0NHOsnDWtrHzkaw=; b=PySMO5l6GUnv5pz2zd0fwWtRDE
-	UPHc7nrylTL9kozkfaFnHcZlmLcxrP/Kza0Wm2wkxKY+Pvsvd9wyzSYLIMMEiWWKWkJCZ2crRLJhA
-	nSEy6t7zR81NraZsX67cVLZPQBNX0r8PUfHWhhP17m+146PkJ3fmSc06ftuKSZQfL9FJ1aryEetX4
-	TSf3poIo7MH6d1fGMjjtEVG+xdVgBXRB69WDCRqz0jMDv8zpg6nCOUPhd/nZrI4X77c9NimO02qRd
-	SlRbqxE748JLOVpAHqCiwe53AhuiawsJX112HS6Ju5tPneB3ApM6vf9aAGFezQ1nP2kd/oIv2w6Z/
-	J3I2gHcQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jJ6tsnmBRz/hsTQh4Sb7k5o+yIZQ6PVu+mDfujcWFm4=; b=KvgZdJ8X3uj+Lx4xNaWOg+YBr7
+	crmKRxT9JdKi0qDi8HwFg0gx8IX6HEEW5Z+KlAH3FsRJyAuMPbdWT8IiJe1BcDhfA5MurB35DC2Lw
+	23cKUbqnnpO/qmw5ISmagGvVacewAEQejejCrDJf0NbU2VB/jopW0wfQ4AzewhdTFp9ajybg3dqRw
+	gfqj5fFDx3yE7XkW5HgeUC+pGvyZeln2SlhNQo27hsmcTFxhwgMYq/vRUJPcvldPsuD9fRnOJLv0e
+	gfYjybGzPkZZDDRwznJKj+BZO3KxLqaoQ6diYoQMeeNnwITSAke/q0IMMf5ZG7Yv399glEaljF7lP
+	x7cmnRtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexFr-00000002Rer-3Y0m;
-	Wed, 01 Jul 2026 15:53:39 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1wetvJ-00000001qre-1E47;
+	Wed, 01 Jul 2026 12:20:13 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexFp-00000002Rdf-37ua
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 15:53:38 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-4629051c946so623951f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 08:53:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782921216; x=1783526016; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+ci+x4l7rGyX9PL16Opy1ybmCZaX0NHOsnDWtrHzkaw=;
-        b=XQ0LCp51wZnEDNyYoc9Cah4ddbRS/aYZyVQT+jfCaONV60ssud0RVnOmYjoqvEzju+
-         WoLKtI7RXvXlhBojRndqPQbX9T4hjaiCcEcBiNF0GuVbKnjexBuEBJa+yCRnEbxKiAUG
-         Tt+tgdtQ5urroseHA+AEA3ZMEOpthv/OvxwcDdZnVRWz733ojJ9PkuwHr8dizWPogCLO
-         m7KeulR+f+XS85t2CQOXMJ4YvGzgLwkqC3tRe+mddGuCkfzc8pEdzd5cNVeVOMFQZzz3
-         Q/GDgay11aNFAAnfNZrV2uwu397x/hxChMdxFUiD2QjCzA/bX3fsZmFCYMPuCKbo/E1L
-         ooNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782921216; x=1783526016;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+ci+x4l7rGyX9PL16Opy1ybmCZaX0NHOsnDWtrHzkaw=;
-        b=ZF2qq2ZykW0uiJH4Gms1BUOxYkIVpKudWpV/knrGowerIzlY9b9DnXMOhYDz8+UAUY
-         /OwtgwbXs4xge82fIfPmC5WemZf3dvq0cSQiLV9BJSMXhmq+XNOWvk9+u7i8LZw/O1H+
-         lJH8wZkmt5UG1iU8d6Nhc9LhaMYdUmxAq35CsYUT8IZ2nkcXVV/0J4PvptBrXgDproEV
-         IdUVTPW+xt2EGzAdYxKeYOw4KMfBveWANif7UOkYwOyl/3rd0hAVEI/PCR0E+5oQOmW0
-         aeltTEQEZSvrsbptPSmOz9zUEjPCPUW0qGe3B16D1LsdhGgtGOctE6wQNrW0inlWxGcU
-         ZpLA==
-X-Forwarded-Encrypted: i=1; AHgh+RpWYe7MHTXDtJo8kE51Fbn7OTYELKZfV+IONgmE4DiDDh66p9COdaL11FQkZ7y/rZ5HbrA5HYg8bV5Zsy8A0lzd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEp3TUvhgp9QL2XmxuyisN2tsliBP0edmwntCSjuzp1X2uQZBF
-	TsZbbA/RaTEhyCPU7riaP1aWUHNPZnEystauVE+UaVXnXXZHKVRRVFFt
-X-Gm-Gg: AfdE7cmsDUiKSV9nsc0P+gY9LwXCNmIB1wEGhvtsTUFljO8jl7Irfl9in/tMGIfIB+f
-	vy3dF+Hgwxri4xKht81DTYhWGdYrb35ODX9r1rzYENMJII+yhJEwXAKnhRM6x7jAdqFpARg1VuX
-	xOKHZhsPtZaoeU+b81UQjaEKHwBY/FHgqJmPc4AB8PiwKmBImBmgE1OMIL8TkZahahjp2hVNQUQ
-	f6SNWHfrol4Lgq/QqXFm7nrf2bVop3S/0C1wNIs8jt/4ZqzGoW1TC7kWxMkO+jl6KkaDDd+mr1o
-	kUPqSs6kl7fzRyC85X0GCvh29/vRInns6fTok0VzNqoaYUkIqayTzvjX0rcwtkVLoeXM8SN4+PS
-	BMSOl8PWUIARsnBETK1+OlOh8jPcFEqjpHNEWPHja/XpHWzZmsqTR6cZ6jkvh1XRZZY9TxNu3lO
-	mXGqQW+mgwRaERMPpgMi2MJxFdlFoHTdPfxhrKoh4suXRUmnS7aGV1SaOoFfBQ8PF3BAdluuk9W
-	wOG6Fyh0LCJSXX5Zs1buzAZdg==
-X-Received: by 2002:a05:6000:61e:b0:473:1e79:87e6 with SMTP id ffacd0b85a97d-477437a9a5fmr3750786f8f.3.1782921215516;
-        Wed, 01 Jul 2026 08:53:35 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-477db3db964sm803715f8f.8.2026.07.01.08.53.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 08:53:35 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
+	id 1wetv8-00000001qMR-3kbG;
+	Wed, 01 Jul 2026 12:20:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908400;
+	bh=WGAafdWOIfMzNhN/V18aCOnizDiRaE5jntwYSQ24jBk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PN5yEqYeULjIIYyAwgYbB5BNyehHrOngDbSi0/p/oPY1PpPv6kbhvOyQNVHh97Qug
+	 QIU9ijr+R/JxJmZyrFajQS5qKmBKITWMGP7EAbHNr6IW8kgtwKFuJNhn4qpayZqfER
+	 klbMzlKPin8Wx77VaqTeHwHqeDoOulY3EL/Evhiph1HzQamoK8GE3ecLdq46cbPVR4
+	 XEzJoMz7tfAHzwNimGKl3rMwD+mErtNHnXsibIJf8EXvAqELYJ4q9Tfctqe55NO4sc
+	 ISh0o6AUrRazIJ98gethSzQdhG/q8cjHFMLDNH8fGT22/GZtnkVgC4fzuBziAD4V57
+	 y2r3IiGiTNqqw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6158B17E0909;
+	Wed,  1 Jul 2026 14:19:59 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Herfurtner <alexander.h@variscite.com>
-Subject: [PATCH v1 1/1] arm64: dts: imx95-var-dart: wm8904: Add INL1 as DMICDAT1
-Date: Wed,  1 Jul 2026 17:53:08 +0200
-Message-ID: <20260701155308.40612-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH 06/10] drm/mediatek: mtk_dsi: Add support for MT8189
+Date: Wed,  1 Jul 2026 14:19:46 +0200
+Message-ID: <20260701121950.19454-7-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701121950.19454-1-angelogioacchino.delregno@collabora.com>
+References: <20260701121950.19454-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_085337_788916_0A6A7477 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20260701_052003_161019_C1876485 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,35 +90,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+Add support for the DSI IP found in the MT8189 SoC: this one is
+similar to the IPs found in the most recent already supported SoCs
+with the only difference being that it supports a higher link rate
+of 2.5Gbps instead of 1.5Gbps.
 
-On the DART-MX95 platform, INL1/DMICDAT1 is used as the DMIC data line.
+To support the higher rate, add a new "max_link_rate_mbps" member
+to the mtk_dsi_driver_data, assign the correct one to all of the
+supported SoCs, other than to the newly introduced MT8189, and
+use it in the .mode_valid() callback in place of the hardcoded
+1.5Gbps value.
 
-Add the wlf,in1l-as-dmicdat1 property to reflect this configuration.
-This enables the internal MUX to switch between the ADC and DMIC as the
-capture input.
+Since .mode_valid() is supposed to run just for resolution changes
+the link rate was expressed in Mbps and gets multiplied on the fly
+to save some bits.
 
-Co-developed-by: Alexander Herfurtner <alexander.h@variscite.com>
-Signed-off-by: Alexander Herfurtner <alexander.h@variscite.com>
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 26 +++++++++++++++++++++++++-
+ 1 file changed, 25 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
-index a20fadacaa6d..d43270a1d907 100644
---- a/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
-@@ -158,6 +158,8 @@ wm8904: audio-codec@1a {
- 				   /bits/ 16 <0x04af 0x324b 0x0010 0x050e>;
- 		/* GPIO1 = DMIC_CLK, don't touch others */
- 		wlf,gpio-cfg = <0x0018>, <0xffff>, <0xffff>, <0xffff>;
-+		/* DMIC is connected to IN1L */
-+		wlf,in1l-as-dmicdat1;
- 	};
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index 37c34413130b..ba96c12a8ceb 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -235,6 +235,8 @@ struct mtk_dsi_driver_data {
+ 	const u16 *reg_main;
+ 	const u16 *reg_adv;
+ 
++	const u16 max_link_rate_mbps;
++
+ 	bool has_size_ctl;
+ 	bool cmdq_long_packet_ctl;
+ 	bool support_per_frame_lp;
+@@ -1066,13 +1068,20 @@ mtk_dsi_bridge_mode_valid(struct drm_bridge *bridge,
+ 			  const struct drm_display_mode *mode)
+ {
+ 	struct mtk_dsi *dsi = bridge_to_dsi(bridge);
++	const struct mtk_dsi_driver_data *data = dsi->driver_data;
++	u64 wanted_link_rate, max_link_rate;
+ 	int bpp;
+ 
+ 	bpp = mipi_dsi_pixel_format_to_bpp(dsi->format);
+ 	if (bpp < 0)
+ 		return MODE_ERROR;
+ 
+-	if (mode->clock * bpp / dsi->lanes > 1500000)
++	wanted_link_rate = mode->clock * bpp;
++	max_link_rate = data->max_link_rate_mbps;
++	max_link_rate *= dsi->lanes;
++	max_link_rate *= KILO;
++
++	if (wanted_link_rate > max_link_rate)
+ 		return MODE_CLOCK_HIGH;
+ 
+ 	if (dsi->dsc) {
+@@ -1499,28 +1508,42 @@ static void mtk_dsi_remove(struct platform_device *pdev)
+ static const struct mtk_dsi_driver_data mt8173_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8173,
++	.max_link_rate_mbps = 1500,
  };
  
+ static const struct mtk_dsi_driver_data mt2701_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt2701,
++	.max_link_rate_mbps = 1500,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8183_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8183,
++	.max_link_rate_mbps = 1500,
+ 	.has_size_ctl = true,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8186_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 1500,
+ 	.has_size_ctl = true,
+ };
+ 
+ static const struct mtk_dsi_driver_data mt8188_dsi_driver_data = {
+ 	.reg_main = mtk_dsi_regs_main_v1,
+ 	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 1500,
++	.has_size_ctl = true,
++	.cmdq_long_packet_ctl = true,
++	.support_per_frame_lp = true,
++};
++
++static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
++	.reg_main = mtk_dsi_regs_main_v1,
++	.reg_adv = mtk_dsi_regs_mt8186,
++	.max_link_rate_mbps = 2500,
+ 	.has_size_ctl = true,
+ 	.cmdq_long_packet_ctl = true,
+ 	.support_per_frame_lp = true,
+@@ -1532,6 +1555,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
+ 	{ .compatible = "mediatek,mt8183-dsi", .data = &mt8183_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
++	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
 -- 
-2.47.3
+2.54.0
 
 
