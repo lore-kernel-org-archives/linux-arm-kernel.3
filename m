@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A8B8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B2CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:25:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhWl/U8KLapLF8jZpCzb0eK4W+iXSV9Vy9h9O8ccSmU=; b=rckJ9POmxMCbW43ApAvUKV35UA
-	dNjZn0C4Wh7RqfeLEPhygk4heg4YdsypziUPccxe70biTVjtJ1ze5OnCYYdqYeKMLQO7oX5inxRem
-	10JmRTrUXVebBUz4ZgzccK51gJz4YpgDEAVtu48dCOmCp+ga8v9T/8T3w/BX4FzEbNNkWT1iLJf29
-	w/B2Bp066Lsre35y5mDKsQGdACPTcok4p5KtiykXSfE4eYs/qh1Ycu6HeGL+xz6tW0RVLmyYrVv8D
-	Wn4B2RuDcaylu8U6dLvTVyKbAfu3baoe2Irlc7EAdJSjqXx6fis/oXdbbPoEUg2MXOAK0QHxX1FUI
-	wFHuyvdg==;
+	bh=wlayQOEl2KZTkzmBCwJs/YLxYkgF9FY4O+U8iZIcOt8=; b=PIfAa8pkCeGJ+OwefO3yQw+b+3
+	tlOY+KNGrzMMMlFHGX1UJhkRsUBNM7LG+nz5BnCRCpcGvRd+z9+5Dxw3eJhAPAtNgudsNbO/Z2MC1
+	wjD1+HE8Yj+7IzspInbnGdJoxbQABv4DRvTQWKAle73neag2+UgWsUXyVaaHtmIEo4cdeFl+qhQ8v
+	l+RP33fmNi6XkhBk4/AmMXrSMfs3gsSCBtxbPocsDEUHzZRuXKWZk9K7X/HnlGs3NMfHleAwUnsdz
+	xvSuKGDaC+7nGj2hZIgyMS6jpLN2LAQ3jlvSPqmpIQUNlsDTXC4BQo6lbabtus2fLXYFqnxZ0C8kL
+	fzTKxdpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2Qw-000000032QD-0Xwz;
-	Wed, 01 Jul 2026 21:25:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wf2R3-000000032Ud-1AUb;
+	Wed, 01 Jul 2026 21:25:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2Qv-000000032Ox-0fXs
+	id 1wf2R2-000000032U4-1E9B
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 21:25:25 +0000
+	Wed, 01 Jul 2026 21:25:32 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9916660103;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E9D5418CC;
+	Wed,  1 Jul 2026 21:25:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9E2D1F000E9;
 	Wed,  1 Jul 2026 21:25:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07CBB1F00A3D;
-	Wed,  1 Jul 2026 21:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782941124;
-	bh=dhWl/U8KLapLF8jZpCzb0eK4W+iXSV9Vy9h9O8ccSmU=;
+	s=k20260515; t=1782941131;
+	bh=wlayQOEl2KZTkzmBCwJs/YLxYkgF9FY4O+U8iZIcOt8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=aNimZ8F/YuIc2DVF01SN6cTaO/JeHNh4IT13ON1ElNZ3EBC1sAEZRQ4/fwf7tIndi
-	 8MPADAtxyF7Z62PezwydnUnGoWVRE+4CTxNrLP8LpN7iB5EF+rtNfD4kjlGh1vMkBv
-	 JKk1dM4DOYd5T5VyazWaRFvaXoB1euiR6UMKWGnnnkZ1a/9V2CdvogcXO1UgFv8LKe
-	 xAOjLhzxxk6V4VUBMXAuWGWCzw5byj62N1cSA2NYQXa8c0s7eewb3q8lY46VNJ0G7o
-	 NxuQVCLyhfpqc0BEjLyyZbXWwRrBxtcRBxH1nZ6zWXNH3uIU9jUYtjQdkM2c/QXYqQ
-	 lKPfgdj7x7YrQ==
+	b=grs2EkX0EEzX86/S44iVTmiUw/jk2hbNJMEGEJCJVKoaHyA+Iu0aR/4yv7eDkUg5a
+	 nIVTHUgGUwgZGrjh5by8y2+zc7Cw3b6kDfiDeyh1GNtvW85cGAYEEYbyXIIsHzl3qK
+	 /130aRuLFvtszDMkblUqumfJbzSQ9UU6+r8KRdN7sJpNQr7lF80PJtk3M9/qqsfLCj
+	 FPKucqqkU3xftK3SgRunQtOjNkf/J4oTPBwvvI2UUV/KUPAt3fvKzybK0+EMJgHBcQ
+	 Q3Af7Be2XVscl5KLq56Y6gULJjv9lcRMuAvjx1DMqG8gOXXZp8uVP2laIpXu5WijXp
+	 nJ68BXcB1bX6w==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	soc@lists.linux.dev
@@ -77,11 +77,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Stefan Wiehler <stefan.wiehler@nokia.com>,
 	Tony Lindgren <tony@atomide.com>,
 	Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: [PATCH v2 09/19] ARM: update FPE_NWFPE help text
-Date: Wed,  1 Jul 2026 23:23:43 +0200
-Message-Id: <20260701212353.2196041-10-arnd@kernel.org>
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v2 10/19] ARM: mark IWMMXT as deprecated
+Date: Wed,  1 Jul 2026 23:23:44 +0200
+Message-Id: <20260701212353.2196041-11-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260701212353.2196041-1-arnd@kernel.org>
 References: <20260701212353.2196041-1-arnd@kernel.org>
@@ -103,46 +102,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-The help text is seriously outdated and predates the introduction of
-VFP floating point units that were available as early as some ARM926
-based systems.
+With no remaining users and support getting removed from future compilers,
+there seems little point in keeping iwmmxt around much longer.
 
-Change the help text to reflect that this is now a legacy feature
-and that it will go away along with OABI support in the future.
+On the other hand, the iwmmxt support in the kernel rarely gets in the
+way, so there is little cost, so set a removal date of early 2027 for
+the moment. If anyone is still using this, it can be extended as long
+there is binutils support.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/Kconfig | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+ arch/arm/Kconfig | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
 
 diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 48937e70d55a..1f02183cff13 100644
+index 1f02183cff13..e2bdf2591c10 100644
 --- a/arch/arm/Kconfig
 +++ b/arch/arm/Kconfig
-@@ -1651,16 +1651,16 @@ menu "Floating point emulation"
- comment "At least one emulation must be selected"
+@@ -513,13 +513,21 @@ config PLAT_VERSATILE
+ source "arch/arm/mm/Kconfig"
  
- config FPE_NWFPE
--	bool "NWFPE math emulation"
-+	bool "NWFPE math emulation (DEPRECATED)"
- 	depends on (!AEABI || OABI_COMPAT) && !THUMB2_KERNEL
+ config IWMMXT
+-	bool "Enable iWMMXt support"
+-	depends on CPU_XSCALE || CPU_XSC3 || CPU_MOHAWK
+-	default y if PXA27x || PXA3xx || ARCH_MMP
++	bool "Enable iWMMXt support (DEPRECATED)"
++	depends on PXA27x || PXA3xx || ARCH_MMP
  	help
- 	  Say Y to include the NWFPE floating point emulator in the kernel.
--	  This is necessary to run most binaries. Linux does not currently
--	  support floating point hardware so you need to say Y here even if
--	  your machine has an FPA or floating point co-processor podule.
+ 	  Enable support for iWMMXt context switching at run time if
+ 	  running on a CPU that supports it.
  
--	  You may say N here if you are going to load the Acorn FPEmulator
--	  early in the bootup.
-+	  This is only used on OABI userspace binaries, either using a
-+	  pure OABI (!CONFIG_AEABI) kernel, or the OABI emulation.
++	  Machines that actually support this feature are very rare,
++	  and support is deprecated in new gcc-14.  While there were a
++	  few applications that used this in the past, none are known
++	  to still do so.
 +
-+	  Support for NWFPE will be removed in the future when OABI
-+	  support is removed.
- 
- config FPE_NWFPE_XP
- 	bool "Support extended precision"
++	  If you use this, please send a patch to remove the
++	  deprecation, otherwise this will be removed in early
++	  2027.
++
+ if !MMU
+ source "arch/arm/Kconfig-nommu"
+ endif
 -- 
 2.39.5
 
