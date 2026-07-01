@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEDE8C44502
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C521CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FShFSBar2e4LM7uO/40Qd7kb3xOrWO4j2ojR50S1ZIE=; b=WA5vuMICyL0xvwLpXalwObTj88
-	WBSkpCrwebb16mz4ld+fEFisj90SIazhZ5DhENxxm8gA3dWERQcN6HAvyuQmRnMjT9TeYIi6aXwN4
-	34ypsw++YSsQMupvsVqNVcpvgh1LWJmyZZanheOFYigLIX2Uh1ctsZ5+DQRi5wejWo6RNOEgeBopd
-	8g9SYSYQjhlJRXvDnxrOyPboJIhAKINYBOJ/A++4eyVbH7nWLj7h9f3xyaeD44WEGCirB99Vn5mRl
-	wZ10WQBujL6zIzyvMLdQDtFmH7mcDd9adKwnk570mraJWMOSdU5HtIaQe1weYqc5B0H5t331U53TD
-	ygsFmEAg==;
+	bh=iTNCFFEs2iGrZea7nEKA00hMwnPy96cYNAUqB/qqLg4=; b=ZMrQLf6yzRQLvwjxJV7nlc2ghB
+	e47vxzDwh8pusCvdxrZ85hvRv9PcjfZgOIprPvbi1sYP4ApeT0IhrWWHlFQ99P4zHB0GcxPgnL2jY
+	kJlNB68YcHDhUTl1DTtat0ZT9+DTmEtj6ib3XDHsvUaImy4kqkpVYhzcjFGwCOgP/JJvAjk0FDhbq
+	3Oj1TWF6QPJdzlEhF09TpNL8e5xZCxdb+AEWGlP8bKdmn2O4MjbnT93wf/FCXPraBqyYumnQJC8Rc
+	T4i6LwBs/MMg2ak36duP3mCnsX3wG87nRS5+3zZX1cXbAmI5ov1Wq8NU9VaClxWgwfMMqs3qod2Kk
+	taq48Wzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoxT-00000000r65-1KIL;
-	Wed, 01 Jul 2026 07:02:07 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.47])
+	id 1weoxU-00000000r6t-1nVV;
+	Wed, 01 Jul 2026 07:02:08 +0000
+Received: from out203-205-221-221.mail.qq.com ([203.205.221.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoxL-00000000r2k-0UP2
+	id 1weoxO-00000000r32-20x4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 07:02:03 +0000
+	Wed, 01 Jul 2026 07:02:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1782889317; bh=FShFSBar2e4LM7uO/40Qd7kb3xOrWO4j2ojR50S1ZIE=;
+	t=1782889320; bh=iTNCFFEs2iGrZea7nEKA00hMwnPy96cYNAUqB/qqLg4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=wIuDB3N1QKDzKxqvdvOSZlIuCX/0fRRVO+AWwbPsraxxKupXz5m0d7aiurzV0VL0x
-	 4Oh8FgVzia5+yVtux7dFLO2UPmK2qY7lNzrIL5q92KMtKzqqLJ0ulQWrYeswjnVrpd
-	 FV3BI53YeI4aVvUQ5536yVkgjZKoXSSvUiHsoEpw=
+	b=tw5+h5jLMj4FlnVA3WQsliDBM0Ka6TOw4Ew3WMieIomx1Ya6o08Cs/RTC6OhlMYxp
+	 sSD4MXT5TbPe0DrtfM7InjzFhIina7dRam3lSu/hYFn0t6FyC0DwM1gap3j0lemfgB
+	 QdqON3P+6G4RHV13O7CK7gPDF9ECnWoRahs6rgDk=
 Received: from localhost.localdomain ([2409:8d20:2a:1b57:9e54:40ff:fe02:3f0f])
 	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
 	id 71832C3; Wed, 01 Jul 2026 15:01:49 +0800
-X-QQ-mid: xmsmtpt1782889312ts72e70l2
-Message-ID: <tencent_83A61C9A79199D04CC118A8026C435BFB907@qq.com>
-X-QQ-XMAILINFO: NwdNTztrVPAhWG/Ary8iIcgmz746y/a+3zoJp7nCqTD9tf1OdnigiabLGRksUa
-	 CoALf6Q8iPt2i3x4D0ul9kBYkgnnfA4MvQbBfj3hfBaxx6JzIJpgNc5fniq30N0q4YD1hNSrITNZ
-	 FLqpkTGWL7WpfiqDWlUryCU4t8zhIl2Pz925IVRjJxb6QEWe286xYkmSfAzN/ecJTbLqPXj471jM
-	 cXoHfegvO2xhMw+Ir8cFUO/ASvkzKyTpPAKHn0nzxQNY1UcgsMcXGM+spgICj83emfpGzpKTDxNQ
-	 rSEuOL/LNQLhz/XFboJbhF22F9dbxFZYE0tbhDT4kCIfOfmyWpcyMW35eY+kFxQEE6hbADIFCT7M
-	 sK3MX6uYHMlctw2lPJoxCCDPBzNMEcVeR08BkmqqtpaZnHDpYvKjGLwz4IlR7abAsSdUq0Z0B3j9
-	 tq5GSUmlzR10wShQkTYQ6MfupHVn6jDzGDcbcurkanr01wqGJ2CQZ+EAdt16JJiOZHH+n6qPgrD4
-	 SPR5/wWqPhwFE4tI6nW9EoNVnZkS2gNFgD6lSb8jYwnxvKuLP5b1Y9gvAIhNDUBuVvVXSkp5/fq7
-	 KBPrqrwfvCond3ugQDzmaHiyHfBHWGhULIyou6hBIW+S7UgLlYHXn9pvc3zNw3q4BoMq6S3OLrrB
-	 apOwlZdDrtax8wiovZkbO3V6lF/6Q6lb9tPnFU4NiBRjuCctKgjRKU7rmwyQg4KrSKTAu1hIv/MV
-	 urfICn9+0c4xmX/3l/bHht8ShzUZwALgNbcBBUpZRvfTnvHXUgDpu/63Cd5EJqfmatcjSudrKE/s
-	 rbilbHK1r89PpCBro3c843TDmg/lrPtaoujs5fsddNf6C4YOXO/6EaDP3rWvB/bEUO2hKLDyuxWV
-	 0EOJgm04RNs7DJksG0mpHYRkxxhQ4Dltp5lnevkPCqUgfySLxrWoSBGkTIGVGw+3DoF/Duh0KVqI
-	 2BDc1ZVHxL6dm48aV6hYMdtb6B/Y8HQUVVLm7UzY4XzaEggZmGSXd09N0JTn3T5fHZ/Xj4nGK331
-	 p3TgsIvw7WZFpKl11VJrYAXwsd5gG60B2pRTr1uy8gkvG8IDTmf+gNhtlcistjxJqJ30+u2aMAFs
-	 loBDSSniwbc1ryTFsIgpF2sOaCYtOKweSwYm7T56sREcVbiZhEgOtYNnBnyEz3eL+gori5
+X-QQ-mid: xmsmtpt1782889315t0ovgzw9f
+Message-ID: <tencent_124D6134EB32480979234201E688087E5408@qq.com>
+X-QQ-XMAILINFO: NMSHCeFjyxDuJyOcEZyRIEj8z1sx5U1ZetymqAG5YHWbiV5LeUywewE9i1OrBU
+	 5oBAg/d1T8HJPUmew87jmkl4KYj4qB1tWUQxLqlOjA5Oa3mHckkTBxYbSkRN4r2FcgOpTMUU39ME
+	 9R0OFeWxXQinEdqFbcoWqr83Xqptzrn2Et11Kbb5RVgDJvFD+r7OPdzc/QzE3DyNKRlmAcSNxTHM
+	 nAJP2xXylhNGGFooKgjCyHyGlzx3iGBQ8oJhZ3dVEqQ0V8msdJvu/UujuJIaD21s5Y7fWMHCZuut
+	 MHYwdyakE/hAAhFCvSF5QDCudua1oRm8st299/PlN7JoavwjJNQbmaSHYIRFs5OVqOgR6K/TT5+E
+	 V5xWlsUFeFoV4zwpHR6J0adgYV79isOhV3l1n8MJKqlU/kahT7URE0QLxST+3zGmh/IQ36evaUQj
+	 D/6tYg+qF/Pn5e1i/2YEBVk6wJEsqGiCD/d4vi7pWD68z8rhDnvlJ635o96ikgCkBxznWgeHCJyN
+	 PK1UScr8uI7AoHFDaavxDOzcrUNxwFf/ZTtpw0aZ367H4Zm5O4PZEHaNG2ZtIF2L2AMON/YzCytF
+	 zw+2Vj/Muyi6Ymbr8xlWBa6OfMP2iA8cNPCJxtfEIREA4HzF/YA1Zo2xddjlNTP09CncuQJVWJPB
+	 trjLZ4RfXX0CRfbgmU52gK7MqsxsuYecNhEb7m8M2TUBAl/VodxzBWj4j3caSN/XTZLXCTNIIdd+
+	 587F3GIbqVvV04CIwPtRVrAKwN+G7QTRCRIc3hlx9XxTSSYm8rpedvA3c2sjO1WHKXC6c6mLVN4U
+	 9uOgXvv6mP/ruGhHGCuFNOb++Gz/GCsVE5DmeyjiRgeSwNO2zek57hiVO3Mop9bsrDv0FME/OYtf
+	 RLHrspHvHiKB89cONO0rFBaCf/LTwIDyJdDjldg7IxozFYY9J+7QLwkmlVRmM5HQyvdaK878hRAS
+	 lzzUp4+vD0MHmAq3S3s6hEfQAFr2DQg0KGkedwMsFGHW4LnuBruIThwpOgRzhenJuu0A9JceRkZX
+	 2Neld3MDV7LCiZQovXnUuckz73+aq65A3yvoW0LglNJLT9LnlpIqqRsGUgfRGeMu2zwuFjevFkXl
+	 DE8cyDKLPibdHIQNp73yVdD/hQEsNrUKvyyCFCJuHzN6oQ02Y=
 X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
 From: 1579567540@qq.com
 To: Marc Kleine-Budde <mkl@pengutronix.de>,
@@ -69,18 +69,17 @@ Cc: Vincent Mailhol <mailhol@kernel.org>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	luch00 <1579567540@qq.com>
-Subject: [PATCH 1/3] dt-bindings: can: rockchip: add rk3588v2 CAN-FD compatible
-Date: Wed,  1 Jul 2026 15:01:26 +0800
-X-OQ-MSGID: <20260701070128.2096267-2-1579567540@qq.com>
+Subject: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
+Date: Wed,  1 Jul 2026 15:01:27 +0800
+X-OQ-MSGID: <20260701070128.2096267-3-1579567540@qq.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260701070128.2096267-1-1579567540@qq.com>
 References: <20260701070128.2096267-1-1579567540@qq.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_000200_398051_8401989E 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_000203_736675_8EBC939C 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +96,124 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: luch00 <1579567540@qq.com>
 
-The RK3588 CAN-FD controller uses the same DT properties as the
-existing Rockchip CAN-FD blocks, so extend the current schema with a
-SoC-specific rockchip,rk3588v2-canfd compatible instead of creating a
-new binding file.
+Add support for the RK3588v2 CAN-FD controller by introducing a
+dedicated model ID and OF match entry.
 
-Keep RK3588v2 as its own compatible rather than an rk3568v2 fallback.
-Driver support uses separate match data and the RX FIFO count field
-layout differs from rk3568v2, so a dedicated compatible is the safer
-description.
+The block is closely related to the existing RK3568 variants, but it
+cannot reuse their match data unchanged. In particular, RK3588v2
+encodes RX_FIFO_CNT in bits 7:5 instead of 6:4, so the RX path needs
+SoC-specific handling.
+
+Validation on RK3588v2 also shows that its observed errata profile does
+not fully match rk3568v2/rk3568v3, so keep a dedicated devtype for this
+variant instead of relying on an rk3568 fallback.
 
 Signed-off-by: luch00 <1579567540@qq.com>
 ---
- .../devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml     | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/can/rockchip/rockchip_canfd-core.c | 14 ++++++++++++++
+ drivers/net/can/rockchip/rockchip_canfd-rx.c   |  5 ++++-
+ drivers/net/can/rockchip/rockchip_canfd.h      | 12 +++++++++++-
+ 3 files changed, 29 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-index a077c0330..aa31ec78e 100644
---- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-+++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-@@ -17,6 +17,7 @@ properties:
-   compatible:
-     oneOf:
-       - const: rockchip,rk3568v2-canfd
-+      - const: rockchip,rk3588v2-canfd
-       - items:
-           - const: rockchip,rk3568v3-canfd
-           - const: rockchip,rk3568v2-canfd
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 29de0c01e..3c2480785 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -50,6 +50,15 @@ static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3568v3 = {
+ 		RKCANFD_QUIRK_CANFD_BROKEN,
+ };
+ 
++/* Tests on the rk3588v2 reproduce Erratum 5, but not
++ * Erratum 6 or the special CAN-FD frames that trigger Error Interrupts
++ * on rk3568v2/rk3568v3.
++ */
++static const struct rkcanfd_devtype_data rkcanfd_devtype_data_rk3588v2 = {
++	.model = RKCANFD_MODEL_RK3588V2,
++	.quirks = RKCANFD_QUIRK_RK3568_ERRATUM_5,
++};
++
+ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
+ {
+ 	switch (model) {
+@@ -57,6 +66,8 @@ static const char *__rkcanfd_get_model_str(enum rkcanfd_model model)
+ 		return "rk3568v2";
+ 	case RKCANFD_MODEL_RK3568V3:
+ 		return "rk3568v3";
++	case RKCANFD_MODEL_RK3588V2:
++		return "rk3588v2";
+ 	}
+ 
+ 	return "<unknown>";
+@@ -846,6 +857,9 @@ static const struct of_device_id rkcanfd_of_match[] = {
+ 	}, {
+ 		.compatible = "rockchip,rk3568v3-canfd",
+ 		.data = &rkcanfd_devtype_data_rk3568v3,
++	}, {
++		.compatible = "rockchip,rk3588v2-canfd",
++		.data = &rkcanfd_devtype_data_rk3588v2,
+ 	}, {
+ 		/* sentinel */
+ 	},
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+index 475c0409e..fe64db373 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
+@@ -281,7 +281,10 @@ rkcanfd_rx_fifo_get_len(const struct rkcanfd_priv *priv)
+ {
+ 	const u32 reg = rkcanfd_read(priv, RKCANFD_REG_RX_FIFO_CTRL);
+ 
+-	return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT, reg);
++	if (priv->devtype_data.model == RKCANFD_MODEL_RK3588V2)
++		return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3588, reg);
++
++	return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3568, reg);
+ }
+ 
+ int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv)
+diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/can/rockchip/rockchip_canfd.h
+index 93131c7d7..f6105b904 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd.h
++++ b/drivers/net/can/rockchip/rockchip_canfd.h
+@@ -214,7 +214,8 @@
+ #define RKCANFD_REG_TXEVENT_FIFO_CTRL_TXE_FIFO_ENABLE BIT(0)
+ 
+ #define RKCANFD_REG_RX_FIFO_CTRL 0x118
+-#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT GENMASK(6, 4)
++#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3568 GENMASK(6, 4)
++#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3588 GENMASK(7, 5)
+ #define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_FULL_WATERMARK GENMASK(3, 1)
+ #define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_ENABLE BIT(0)
+ 
+@@ -331,6 +332,11 @@
+  * rarely with the standard clock of 300 MHz, but almost immediately
+  * at 80 MHz.
+  *
++ * Test on the rk3588v2 shows the same empty FIFO condition.
++ * In that setup rx_fifo_empty_errors increments when the bus
++ * transitions from idle to high CAN-FD load and stops growing once
++ * the bus reaches a steady state.
++ *
+  * To workaround this problem, check for empty FIFO with
+  * rkcanfd_fifo_header_empty() in rkcanfd_handle_rx_int_one() and exit
+  * early.
+@@ -424,6 +430,9 @@
+  *     cansequence -rv -i 1
+  *
+  * - TX starvation after repeated Bus-Off
++ *   Tests on the rk3588v2 show the same problem. In a
++ *   10-cycle Bus-Off recovery test, 9 cycles failed to send after the
++ *   controller restarted.
+  *   To reproduce:
+  *   host:
+  *     sleep 3 && cangen can0 -I2 -Li -Di -p10 -g 0.0
+@@ -434,6 +443,7 @@
+ enum rkcanfd_model {
+ 	RKCANFD_MODEL_RK3568V2 = 0x35682,
+ 	RKCANFD_MODEL_RK3568V3 = 0x35683,
++	RKCANFD_MODEL_RK3588V2 = 0x35882,
+ };
+ 
+ struct rkcanfd_devtype_data {
 -- 
 2.34.1
 
