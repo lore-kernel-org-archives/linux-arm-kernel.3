@@ -4,52 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00D20C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81143C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J39JVSNGXJpdzuOq+RIp//N+DWfqOcAORCVjVe8sA8s=; b=5AYexgPSun0AGd3BCALdcE8n80
-	rS1FtPkF/wtj+2dE9J4LSmeXH/tUmVkCK8/qpIzVDMagPi6alYuFboDbFdlHMQC/rEyCg29y93vQr
-	sHmGvbEfRG9G6ngUKu3jrCRxa5vpJ4tfJZvrrmmzgoimXFw6hiojSC6IJ50HZaH57pe6mrV1jIYv7
-	KgOafIdwqH6QnVp/seSMlv0LvoodXL/gjhaPE+UvjCqwz3+NYBIFxKG6jDMaj38ZHK4akQ0jRH3AL
-	dEbj2NNxW8o7HlRdCeh+Ze96oq8ugUv0y6h+FL2wlgq8NNcGxB3SiPFh6VSGUTQrxUCX/sqhrVyEO
-	JksIXB7Q==;
+	bh=CmURJGKyPn0JgrNmwf4SYMMqDt9LmRUrF76Cop3HxCI=; b=W8nDG7yeBkYPxERaqclraOMgMR
+	XDZKeXogQa3QF9I4p+vSehoXg7TW3d/xdAa7YeBKA77DcUuRSiPBdF4QNflO4zFztoY3jVCAa5bI6
+	XtMBmLikWD7DkWQBtQTFqySdhFhZ5lH02tci3Lmu0svP4nmWme2rIyEywy/UPKrZntMXCQoOdn6Of
+	fps+D0+MimvNcky2x9l1+/lhtj1zsK0KiV36uizcTop8Ds1wNBwglFCyNH5HMbGXtDOiX5oToMmu/
+	XIoUymQX37tZaFr2svH6fY2G3p3mR/79yoZ9O9SPftUMxm3QMhPJaI4IarF8nh68GZIC1B86rsLPi
+	ZygjtStw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuj6-0000000281b-35gs;
-	Wed, 01 Jul 2026 13:11:40 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1weujC-000000028Gz-0W7x;
+	Wed, 01 Jul 2026 13:11:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuiz-000000027kn-1TwS;
-	Wed, 01 Jul 2026 13:11:35 +0000
+	id 1weuj6-000000027y4-3I8N;
+	Wed, 01 Jul 2026 13:11:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=CmURJGKyPn0JgrNmwf4SYMMqDt9LmRUrF76Cop3HxCI=; b=VUfm9efKzfnKfyhqgfzQ+OigSg
+	6/NuDvM+o7qKFPsUAKiSfPNl/JaWcgPR8gJA/BxE6sQ8wm/MVSG6M6pjBZKcpozYkUaNNN6I8321n
+	kotLl4ux+CI19lC7aA7OGDDgUYTRHOFM451Vf7OA+ysXbV9r/8wCKsXIU0I2xkPyRH6YYQgtSNVIK
+	SJt1M22Su7h3DjKFXy71ZgCvDy83goYeOr6ip2xNqNhvw/ccoe3cSy9er/W1xRA6smFhiYjlSsipZ
+	lkZXDe+lu3Zyfc7drIGXMPXV/sgZbxeaa64330PcQQouFLKRuqRyeEZvjkj/Z36dhX9+cYDtTwWs5
+	LzjwXpNQ==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weuj3-00000002oJr-1prf;
+	Wed, 01 Jul 2026 13:11:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782911491;
-	bh=VizwCM+hDplfjmbntbcucyABDJKY5/A9WedcG2u+Zo0=;
+	s=mail; t=1782911493;
+	bh=tl2Bm0OngYQBYKfq8pq+ytKW+E2uhlObl46ywyfnL6E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Fed/GUOyze5k3fUCn4BXeVCo0A2yhZdZuNiaZ3661DY7R9DX5N2dnYznzCnV/iAYy
-	 0mq4ROJO72nEyfoPjSGXna4Qk07aVYc2iBx2xKigb398fIowGVsCDvx4MENoAhP/5e
-	 MHjBoHbqfX3EC4QhmJV5KTCuix1lgwt4U7fJiWcG2JCoK8G5ji3/qYshLUfivUWCmZ
-	 SQkRXEDehyYAdlPqm8uhJhYZeTE9HwfydZz9dlup6qjcA4Amz/Wqzq9olVc292QIao
-	 U0iEJv+r560thhAEC8ndKfiQPEl9CFpzZSYMtdlINpgwN8sLNNpW8TCrhAKA8GRClN
-	 M1N03a0Y7xJ3A==
+	b=ZqijRjco7+9yyQgZtJGGaXIHyYhoDE4fOQYm0VcCSMxqU3gJ+SH1prP12WLkcuY41
+	 rpI57QpC2S5ULzAiSH9JyyojrscEDOnL3tFGy+Kv4YV7tN2hD3Wbb0M69OdrNziBjh
+	 2MYtNoYsjKFb6Y941Qna62Cu3vturBwIBQOa5mv21x1kVm3U0uWxwrFkc4/wTkTOJY
+	 ShOG2xkKdpB1+e5+RzDeYnZn9vBqWblc2NX7vYy4k7jjhacrCVRLjoxRZVHBqtnPLM
+	 wyNGIF8KeH4cjTnAup52Vj1JoxNpgoMpLTSaUz6JlU+Bfc3JBegGiWu5y9vs69bPg3
+	 IikILlURdxH1g==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2FE3017E35D6;
-	Wed,  1 Jul 2026 15:11:30 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7FEC17E35E4;
+	Wed,  1 Jul 2026 15:11:32 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 01 Jul 2026 15:11:15 +0200
-Subject: [PATCH 10/15] clk: mediatek: Add MT8189 bus clock support
+Date: Wed, 01 Jul 2026 15:11:17 +0200
+Subject: [PATCH 12/15] clk: mediatek: Add MT8189 dvfsrc clock support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-mt8189-clocks-system-base-v1-10-2b048feea50a@collabora.com>
+Message-Id: <20260701-mt8189-clocks-system-base-v1-12-2b048feea50a@collabora.com>
 References: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
 In-Reply-To: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -68,16 +82,16 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=12220;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=4468;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=VizwCM+hDplfjmbntbcucyABDJKY5/A9WedcG2u+Zo0=;
- b=aDaNkcXLNx5UrSDorWgbdrsMZ6Sp3CpSXujBUt6q4MpXX9mN1FMIaXZP4P7ycH06Jj8dRCJue
- 2m+recml6e4D08cC2F83gcMzmRzKN00L5kLZ7krdywhvIXRyNnjyrOA
+ bh=tl2Bm0OngYQBYKfq8pq+ytKW+E2uhlObl46ywyfnL6E=;
+ b=ovbAJw/uUYWoO9He46eDbnjLqgTPD662YQEoNOWyBv/8Sn8Txkdp706/3N8dwFJzPC41n7M1E
+ Qbs20dANCDbC4RAxrSlaXsFzLjgYTXKY16lezGNN/Vk1sERvO3vkmNC
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_061133_702553_48A785B2 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20260701_141137_662942_762B944B 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,9 +106,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 bus clock controller,
-which provides clock gate control for infra/peri IPs
-(such as spi, uart, msdc, flashif ...).
+Add support for the MT8189 dvfsrc clock controller,
+which provides clock gate control for dram dvfs.
 
 Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
 Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
@@ -102,51 +115,50 @@ Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/clk/mediatek/Kconfig          |  11 ++
- drivers/clk/mediatek/Makefile         |   1 +
- drivers/clk/mediatek/clk-mt8189-bus.c | 200 ++++++++++++++++++++++++++++++++++
- 3 files changed, 212 insertions(+)
+ drivers/clk/mediatek/Kconfig             | 10 ++++++
+ drivers/clk/mediatek/Makefile            |  1 +
+ drivers/clk/mediatek/clk-mt8189-dvfsrc.c | 58 ++++++++++++++++++++++++++++++++
+ 3 files changed, 69 insertions(+)
 
 diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index f67dfb6cd019..8eba45f05968 100644
+index 635b0109ec07..245d3b83b5d3 100644
 --- a/drivers/clk/mediatek/Kconfig
 +++ b/drivers/clk/mediatek/Kconfig
-@@ -828,6 +828,17 @@ config COMMON_CLK_MT8189
- 	  with the MediaTek MT8189 hardware capabilities, providing efficient management of
- 	  clock speeds and power consumption.
+@@ -849,6 +849,16 @@ config COMMON_CLK_MT8189_DBGAO
+ 	  vcore debug system clocks. If you want to control its clocks, say Y or M
+ 	  to include this driver in your kernel build.
  
-+config COMMON_CLK_MT8189_BUS
-+	tristate "Clock driver for MediaTek MT8189 bus"
++config COMMON_CLK_MT8189_DVFSRC
++	tristate "Clock driver for MediaTek MT8189 dvfsrc"
 +	depends on COMMON_CLK_MT8189
 +	default COMMON_CLK_MT8189
 +	help
-+	  Enable this configuration option to support the clock framework for
-+	  MediaTek MT8189 SoC bus clocks. It includes the necessary clock
-+	  management for bus-related peripherals and interconnects within the
-+	  MT8189 chipset, ensuring that all bus-related components receive the
-+	  correct clock signals for optimal performance.
++	  Enable this to support the clock management for the dvfsrc
++	  on MediaTek MT8189 SoCs. This includes enabling and disabling
++	  vcore dvfs clocks. If you want to control its clocks, say Y or M
++	  to include this driver in your kernel build.
 +
  config COMMON_CLK_MT8192
  	tristate "Clock driver for MediaTek MT8192"
  	depends on ARM64 || COMPILE_TEST
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index d9279b237b7b..aabfb42cb1b2 100644
+index 6ab6df7ebf2a..4dbfc9ac83ba 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
-@@ -125,6 +125,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
- obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
- obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
+@@ -127,6 +127,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o
  				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
-+obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
++obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-bus.c b/drivers/clk/mediatek/clk-mt8189-bus.c
+diff --git a/drivers/clk/mediatek/clk-mt8189-dvfsrc.c b/drivers/clk/mediatek/clk-mt8189-dvfsrc.c
 new file mode 100644
-index 000000000000..494f25e85d11
+index 000000000000..37b81dc0b882
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-bus.c
-@@ -0,0 +1,200 @@
++++ b/drivers/clk/mediatek/clk-mt8189-dvfsrc.c
+@@ -0,0 +1,58 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025-2026 MediaTek Inc.
@@ -167,185 +179,43 @@ index 000000000000..494f25e85d11
 +
 +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
 +
-+static const struct mtk_gate_regs ifrao0_cg_regs = {
-+	.set_ofs = 0x80,
-+	.clr_ofs = 0x84,
-+	.sta_ofs = 0x90,
++static const struct mtk_gate_regs dvfsrc_top_cg_regs = {
++	.set_ofs = 0x0,
++	.clr_ofs = 0x0,
++	.sta_ofs = 0x0,
 +};
 +
-+static const struct mtk_gate_regs ifrao1_cg_regs = {
-+	.set_ofs = 0x88,
-+	.clr_ofs = 0x8c,
-+	.sta_ofs = 0x94,
++#define GATE_DVFSRC_TOP_FLAGS(_id, _name, _parent, _shift, _flags)		\
++	GATE_MTK_FLAGS(_id, _name, _parent, &dvfsrc_top_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_no_setclr_inv, _flags)
++
++static const struct mtk_gate dvfsrc_top_clks[] = {
++	GATE_DVFSRC_TOP_FLAGS(CLK_DVFSRC_TOP_DVFSRC_EN, "dvfsrc_dvfsrc_en",
++			      "clk26m", 0, CLK_IS_CRITICAL),
 +};
 +
-+static const struct mtk_gate_regs ifrao2_cg_regs = {
-+	.set_ofs = 0xa4,
-+	.clr_ofs = 0xa8,
-+	.sta_ofs = 0xac,
++static const struct mtk_clk_desc dvfsrc_top_mcd = {
++	.clks = dvfsrc_top_clks,
++	.num_clks = ARRAY_SIZE(dvfsrc_top_clks),
 +};
 +
-+#define GATE_IFRAO0(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &ifrao0_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+#define GATE_IFRAO1(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &ifrao1_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+#define GATE_IFRAO2(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &ifrao2_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+static const struct mtk_gate ifrao_clks[] = {
-+	/* IFRAO0 */
-+	GATE_IFRAO0(CLK_IFRAO_CQ_DMA_FPC, "ifrao_dma", "ap2con", 28),
-+	/* IFRAO1 */
-+	GATE_IFRAO1(CLK_IFRAO_DEBUGSYS, "ifrao_debugsys", "axi_sel", 24),
-+	GATE_IFRAO1(CLK_IFRAO_DBG_TRACE, "ifrao_dbg_trace", "axi_sel", 29),
-+	/* IFRAO2 */
-+	GATE_IFRAO2(CLK_IFRAO_CQ_DMA, "ifrao_cq_dma", "axi_sel", 27),
-+};
-+
-+static const struct mtk_clk_desc ifrao_mcd = {
-+	.clks = ifrao_clks,
-+	.num_clks = ARRAY_SIZE(ifrao_clks),
-+};
-+
-+static const struct mtk_gate_regs perao0_cg_regs = {
-+	.set_ofs = 0x24,
-+	.clr_ofs = 0x28,
-+	.sta_ofs = 0x10,
-+};
-+
-+static const struct mtk_gate_regs perao1_cg_regs = {
-+	.set_ofs = 0x2c,
-+	.clr_ofs = 0x30,
-+	.sta_ofs = 0x14,
-+};
-+
-+static const struct mtk_gate_regs perao2_cg_regs = {
-+	.set_ofs = 0x34,
-+	.clr_ofs = 0x38,
-+	.sta_ofs = 0x18,
-+};
-+
-+#define GATE_PERAO0(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &perao0_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+#define GATE_PERAO1(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &perao1_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+#define GATE_PERAO2(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &perao2_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+static const struct mtk_gate perao_clks[] = {
-+	/* PERAO0 */
-+	GATE_PERAO0(CLK_PERAO_UART0, "perao_uart0", "uart_sel", 0),
-+	GATE_PERAO0(CLK_PERAO_UART1, "perao_uart1", "uart_sel", 1),
-+	GATE_PERAO0(CLK_PERAO_UART2, "perao_uart2", "uart_sel", 2),
-+	GATE_PERAO0(CLK_PERAO_UART3, "perao_uart3", "uart_sel", 3),
-+	GATE_PERAO0(CLK_PERAO_PWM_H, "perao_pwm_h", "axi_peri_sel", 4),
-+	GATE_PERAO0(CLK_PERAO_PWM_B, "perao_pwm_b", "pwm_sel", 5),
-+	GATE_PERAO0(CLK_PERAO_PWM_FB1, "perao_pwm_fb1", "pwm_sel", 6),
-+	GATE_PERAO0(CLK_PERAO_PWM_FB2, "perao_pwm_fb2", "pwm_sel", 7),
-+	GATE_PERAO0(CLK_PERAO_PWM_FB3, "perao_pwm_fb3", "pwm_sel", 8),
-+	GATE_PERAO0(CLK_PERAO_PWM_FB4, "perao_pwm_fb4", "pwm_sel", 9),
-+	GATE_PERAO0(CLK_PERAO_DISP_PWM0, "perao_disp_pwm0", "disp_pwm_sel", 10),
-+	GATE_PERAO0(CLK_PERAO_DISP_PWM1, "perao_disp_pwm1", "disp_pwm_sel", 11),
-+	GATE_PERAO0(CLK_PERAO_SPI0_B, "perao_spi0_b", "spi0_sel", 12),
-+	GATE_PERAO0(CLK_PERAO_SPI1_B, "perao_spi1_b", "spi1_sel", 13),
-+	GATE_PERAO0(CLK_PERAO_SPI2_B, "perao_spi2_b", "spi2_sel", 14),
-+	GATE_PERAO0(CLK_PERAO_SPI3_B, "perao_spi3_b", "spi3_sel", 15),
-+	GATE_PERAO0(CLK_PERAO_SPI4_B, "perao_spi4_b", "spi4_sel", 16),
-+	GATE_PERAO0(CLK_PERAO_SPI5_B, "perao_spi5_b", "spi5_sel", 17),
-+	GATE_PERAO0(CLK_PERAO_SPI0_H, "perao_spi0_h", "axi_peri_sel", 18),
-+	GATE_PERAO0(CLK_PERAO_SPI1_H, "perao_spi1_h", "axi_peri_sel", 19),
-+	GATE_PERAO0(CLK_PERAO_SPI2_H, "perao_spi2_h", "axi_peri_sel", 20),
-+	GATE_PERAO0(CLK_PERAO_SPI3_H, "perao_spi3_h", "axi_peri_sel", 21),
-+	GATE_PERAO0(CLK_PERAO_SPI4_H, "perao_spi4_h", "axi_peri_sel", 22),
-+	GATE_PERAO0(CLK_PERAO_SPI5_H, "perao_spi5_h", "axi_peri_sel", 23),
-+	GATE_PERAO0(CLK_PERAO_AXI, "perao_axi", "mem_sub_peri_sel", 24),
-+	GATE_PERAO0(CLK_PERAO_AHB_APB, "perao_ahb_apb", "axi_peri_sel", 25),
-+	GATE_PERAO0(CLK_PERAO_TL, "perao_tl", "pcie_mac_tl_sel", 26),
-+	GATE_PERAO0(CLK_PERAO_REF, "perao_ref", "pcie_f26m", 27),
-+	GATE_PERAO0(CLK_PERAO_I2C, "perao_i2c", "axi_peri_sel", 28),
-+	GATE_PERAO0(CLK_PERAO_DMA_B, "perao_dma_b", "axi_peri_sel", 29),
-+	/* PERAO1 */
-+	GATE_PERAO1(CLK_PERAO_SSUSB0_REF, "perao_ssusb0_ref", "usb2_26m_p0_en", 1),
-+	GATE_PERAO1(CLK_PERAO_SSUSB0_FRMCNT, "perao_ssusb0_frmcnt", "fmcnt_p0_en", 2),
-+	GATE_PERAO1(CLK_PERAO_SSUSB0_SYS, "perao_ssusb0_sys", "usb_p0_sel", 4),
-+	GATE_PERAO1(CLK_PERAO_SSUSB0_XHCI, "perao_ssusb0_xhci", "ssusb_xhci_p0_sel", 5),
-+	GATE_PERAO1(CLK_PERAO_SSUSB0_F, "perao_ssusb0_f", "axi_peri_sel", 6),
-+	GATE_PERAO1(CLK_PERAO_SSUSB0_H, "perao_ssusb0_h", "axi_peri_sel", 7),
-+	GATE_PERAO1(CLK_PERAO_SSUSB1_REF, "perao_ssusb1_ref", "usb2_26m_p1_en", 8),
-+	GATE_PERAO1(CLK_PERAO_SSUSB1_FRMCNT, "perao_ssusb1_frmcnt", "fmcnt_p1_en", 9),
-+	GATE_PERAO1(CLK_PERAO_SSUSB1_SYS, "perao_ssusb1_sys", "usb_p1_sel", 11),
-+	GATE_PERAO1(CLK_PERAO_SSUSB1_XHCI, "perao_ssusb1_xhci", "ssusb_xhci_p1_sel", 12),
-+	GATE_PERAO1(CLK_PERAO_SSUSB1_F, "perao_ssusb1_f", "axi_peri_sel", 13),
-+	GATE_PERAO1(CLK_PERAO_SSUSB1_H, "perao_ssusb1_h", "axi_peri_sel", 14),
-+	GATE_PERAO1(CLK_PERAO_SSUSB2_REF, "perao_ssusb2_ref", "usb2_26m_p2_en", 15),
-+	GATE_PERAO1(CLK_PERAO_SSUSB2_FRMCNT, "perao_ssusb2_frmcnt", "fmcnt_p2_en", 16),
-+	GATE_PERAO1(CLK_PERAO_SSUSB2_SYS, "perao_ssusb2_sys", "usb_p2_sel", 18),
-+	GATE_PERAO1(CLK_PERAO_SSUSB2_XHCI, "perao_ssusb2_xhci", "ssusb_xhci_p2_sel", 19),
-+	GATE_PERAO1(CLK_PERAO_SSUSB2_F, "perao_ssusb2_f", "axi_peri_sel", 20),
-+	GATE_PERAO1(CLK_PERAO_SSUSB2_H, "perao_ssusb2_h", "axi_peri_sel", 21),
-+	GATE_PERAO1(CLK_PERAO_SSUSB3_REF, "perao_ssusb3_ref", "usb2_26m_p3_en", 23),
-+	GATE_PERAO1(CLK_PERAO_SSUSB3_FRMCNT, "perao_ssusb3_frmcnt", "fmcnt_p3_en", 24),
-+	GATE_PERAO1(CLK_PERAO_SSUSB3_SYS, "perao_ssusb3_sys", "usb_p3_sel", 26),
-+	GATE_PERAO1(CLK_PERAO_SSUSB3_XHCI, "perao_ssusb3_xhci", "ssusb_xhci_p3_sel", 27),
-+	GATE_PERAO1(CLK_PERAO_SSUSB3_F, "perao_ssusb3_f", "axi_peri_sel", 28),
-+	GATE_PERAO1(CLK_PERAO_SSUSB3_H, "perao_ssusb3_h", "axi_peri_sel", 29),
-+	/* PERAO2 */
-+	GATE_PERAO2(CLK_PERAO_SSUSB4_REF, "perao_ssusb4_ref", "usb2_26m_p4_en", 0),
-+	GATE_PERAO2(CLK_PERAO_SSUSB4_FRMCNT, "perao_ssusb4_frmcnt", "fmcnt_p4_en", 1),
-+	GATE_PERAO2(CLK_PERAO_SSUSB4_SYS, "perao_ssusb4_sys", "usb_p4_sel", 3),
-+	GATE_PERAO2(CLK_PERAO_SSUSB4_XHCI, "perao_ssusb4_xhci", "ssusb_xhci_p4_sel", 4),
-+	GATE_PERAO2(CLK_PERAO_SSUSB4_F, "perao_ssusb4_f", "axi_peri_sel", 5),
-+	GATE_PERAO2(CLK_PERAO_SSUSB4_H, "perao_ssusb4_h", "axi_peri_sel", 6),
-+	GATE_PERAO2(CLK_PERAO_MSDC0, "perao_msdc0", "msdc50_0_sel", 7),
-+	GATE_PERAO2(CLK_PERAO_MSDC0_H, "perao_msdc0_h", "msdc5hclk_sel", 8),
-+	GATE_PERAO2(CLK_PERAO_MSDC0_FAES, "perao_msdc0_faes", "aes_msdcfde_sel", 9),
-+	GATE_PERAO2(CLK_PERAO_MSDC0_MST_F, "perao_msdc0_mst_f", "axi_peri_sel", 10),
-+	GATE_PERAO2(CLK_PERAO_MSDC0_SLV_H, "perao_msdc0_slv_h", "axi_peri_sel", 11),
-+	GATE_PERAO2(CLK_PERAO_MSDC1, "perao_msdc1", "msdc30_1_sel", 12),
-+	GATE_PERAO2(CLK_PERAO_MSDC1_H, "perao_msdc1_h", "msdc30_1_h_sel", 13),
-+	GATE_PERAO2(CLK_PERAO_MSDC1_MST_F, "perao_msdc1_mst_f", "axi_peri_sel", 14),
-+	GATE_PERAO2(CLK_PERAO_MSDC1_SLV_H, "perao_msdc1_slv_h", "axi_peri_sel", 15),
-+	GATE_PERAO2(CLK_PERAO_MSDC2, "perao_msdc2", "msdc30_2_sel", 16),
-+	GATE_PERAO2(CLK_PERAO_MSDC2_H, "perao_msdc2_h", "msdc30_2_h_sel", 17),
-+	GATE_PERAO2(CLK_PERAO_MSDC2_MST_F, "perao_msdc2_mst_f", "axi_peri_sel", 18),
-+	GATE_PERAO2(CLK_PERAO_MSDC2_SLV_H, "perao_msdc2_slv_h", "axi_peri_sel", 19),
-+	GATE_PERAO2(CLK_PERAO_SFLASH, "perao_sflash", "sflash_sel", 20),
-+	GATE_PERAO2(CLK_PERAO_SFLASH_F, "perao_sflash_f", "axi_peri_sel", 21),
-+	GATE_PERAO2(CLK_PERAO_SFLASH_H, "perao_sflash_h", "axi_peri_sel", 22),
-+	GATE_PERAO2(CLK_PERAO_SFLASH_P, "perao_sflash_p", "axi_peri_sel", 23),
-+	GATE_PERAO2(CLK_PERAO_AUDIO0, "perao_audio0", "axi_peri_sel", 24),
-+	GATE_PERAO2(CLK_PERAO_AUDIO1, "perao_audio1", "axi_peri_sel", 25),
-+	GATE_PERAO2(CLK_PERAO_AUDIO2, "perao_audio2", "aud_intbus_sel", 26),
-+	GATE_PERAO2(CLK_PERAO_AUXADC_26M, "perao_auxadc_26m", "clk26m", 27),
-+};
-+
-+static const struct mtk_clk_desc perao_mcd = {
-+	.clks = perao_clks,
-+	.num_clks = ARRAY_SIZE(perao_clks),
-+};
-+
-+static const struct of_device_id of_match_clk_mt8189_bus[] = {
-+	{ .compatible = "mediatek,mt8189-infra-ao", .data = &ifrao_mcd },
-+	{ .compatible = "mediatek,mt8189-peri-ao", .data = &perao_mcd },
++static const struct of_device_id of_match_clk_mt8189_dvfsrc[] = {
++	{ .compatible = "mediatek,mt8189-dvfsrc-top", .data = &dvfsrc_top_mcd },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_bus);
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_dvfsrc);
 +
-+static struct platform_driver clk_mt8189_bus_drv = {
++static struct platform_driver clk_mt8189_dvfsrc_drv = {
 +	.probe = mtk_clk_simple_probe,
 +	.remove = mtk_clk_simple_remove,
 +	.driver = {
-+		.name = "clk-mt8189-bus",
-+		.of_match_table = of_match_clk_mt8189_bus,
++		.name = "clk-mt8189-dvfsrc",
++		.of_match_table = of_match_clk_mt8189_dvfsrc,
 +	},
 +};
-+module_platform_driver(clk_mt8189_bus_drv);
++module_platform_driver(clk_mt8189_dvfsrc_drv);
 +
-+MODULE_DESCRIPTION("MediaTek MT8189 bus/peripheral clocks driver");
++MODULE_DESCRIPTION("MediaTek MT8189 dvfsrc clocks driver");
 +MODULE_LICENSE("GPL");
 
 -- 
