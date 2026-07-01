@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3608DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:37:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39FF2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0/k6NP1CONPA6mIbLeBum3L61m4KS18+AQvqwmp8abM=; b=htwcFWeR1Ljy2gJV/xOogZjPK1
-	VcXGS9N/1ih8ldsWOXRPfm2HFVJAbZPY1Yk+l1YlsVbm5JXaTULgwokj+z3C0GlHxF8FPWyoxSNqk
-	QGhk/ja/yRqRh7IabD/YHv78+DRu00PUgo0iAojhiIypiYldwxeIjEF0P43j4GAxok3QBciAMHpTx
-	aGTfr1ztOZp5DSz7Ma26iuMLLPqVD2hz4tJciuqrPh+Q77cMy6DmLx2VlLHluhZlXCqEb2X0osotm
-	i1qrNYYFZ9pzRLLcUK+NWGyh5h4h8vN5HXR1/bnTy2Rij71bH9+Rr4oOAhBT5CepvOuIm9bveKK4j
-	7SRsW/kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rSWmX0kQ7YNHrjZ2YbLddpKfrNsTtdpWudEaccQc1TI=; b=KBpTlVWkcLWlLONO3qUP52uTmk
+	p2uYBweLFgjFWn7aRmnFcPA2/2QE8chOYSWKbFIYtxz+SZ1F2RjStO+mQIgRbxEp7T2mGptpRBlsg
+	raf/AypXFR9ud/oHx1dl1GUEJdlenLGlvsVUBwKlKxKecuvPtifJVjijV7LC6Rhj7kU2tSGumnSFz
+	K5reeNPZ0XCvHivOizfchyHu706kELHOjq3hY6X4P8GgH0taR1GpAL24bgN9X15GRF3SfJHvoDEIc
+	ma/JGVNySjrj0hpmPZjuJbjNAgweypCReXyh0FCllk8tdPGnBbRGDCHJIbqOtDFi3IVnehYDoK1cO
+	TGkVI3oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wex01-00000002PT6-39Le;
-	Wed, 01 Jul 2026 15:37:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wetwW-00000001uLz-3HZz;
+	Wed, 01 Jul 2026 12:21:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wewzz-00000002PSi-1UrA;
-	Wed, 01 Jul 2026 15:37:16 +0000
+	id 1wetwE-00000001teP-0DDw;
+	Wed, 01 Jul 2026 12:21:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=rSWmX0kQ7YNHrjZ2YbLddpKfrNsTtdpWudEaccQc1TI=; b=RPfTIrQQz949+6UsahrtxLF9e9
+	VRGqHycQkd7f72UbxYL9qdHJomUnZNepGgtvRVkmE3r23/4psKsX3vTyaXa7B+bJSeGyyNj4iZgAj
+	YJlN/4iEfJsWRq2+D1Y+iUe010XzDfvvvht0Qb8e2O79AQPvZfq55jwQrBYv72babeLuyZITbevJa
+	wEegI66I+XThHTyyFRl9nxsr5TVmdax37JbQQwckVjLUxJxRYZk3doaRPN4osLIyukRQ4AR9fV5w/
+	DTCoEKV+hGmesIXnADCjrKDIlb+gD4l/UHBDj0/E/7FOvJ9wB82nYB5n7eMOQUDWNGnR4JV8n4zcW
+	AUq5Dbjw==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetwB-00000002jc7-0Z1D;
+	Wed, 01 Jul 2026 12:21:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782920232;
-	bh=B2XyVL7QuZTHg/QCA4ERiK9bSp3FRiqNCvgt9Ow2ZVM=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ZsR7GGxQRS+K6ITU00OcjTBndc0C7IbFsE7CU8t/s4x4wsTpimz8V9BkdekluR86l
-	 PhFHwjUMtxHfdE9/ts0zjTnkp2pUbyCItWGkK5nBVPNW0/mPrTLVH0pOz8jmQEZTE7
-	 Jg0bgORrQT3+8c+QiYWgwig7H7Tgs4eqFxK9Z3ri2WGYZh9jJRPr4y6TO5rKzI1rxM
-	 rvvNWg4Qa3HdoSjOB9u1JjULbIjlrvQcfa3DJzW0jUdp56ZPEh5T+X9kSYmeZrQThf
-	 iG3H5prtdW0AWgNLwvbHYzigOvwFjcEJtSZBxaqlgxfzGYOHtU9h+Oar9QCkPxtKKV
-	 W35OUKwQ+yrjA==
-Received: from yukiji.home (unknown [100.64.0.131])
+	s=mail; t=1782908465;
+	bh=Dy+SzR29alcYD0tjn94WwKFgkpZ6fJbjcTNqeKHItxg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DN+xBgy2JNjCzbNJER4/ZI9EBpz9DDQHZurgO2WIxsPwVNr+tLUCH8Moej5Yarnnf
+	 sjS0n052W1zI4Tkir99GukEp1BbOK+ZEXL4gscxglHyKVIDnqkXpxF7vRXBUohLl8m
+	 i1ops6bKlUj5m0NRSQoH69R8/nvJjFE7+54vQoMY7XrfPtO0ItsvPTLBqn0df6OckO
+	 L6R+H7BSQmwkvE0EzV9h6VrEPZNX2WN6n7cfsNKli//dr6+3e2vr5KltGIELi3jCqg
+	 PafySA6esN0hL4Os35/V59Fvxr2/nwwugHQ01Z1oO+8/qFCGwNUeVgbOsIAxVHI8Cw
+	 uHGTlt532GfNw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C51D717E0432;
-	Wed,  1 Jul 2026 17:37:11 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 01 Jul 2026 17:36:49 +0200
-Subject: [PATCH] dt-bindings: phy: mediatek,tphy: Add support for MT8189
- SoC
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0DBB717E0CA2;
+	Wed,  1 Jul 2026 14:21:05 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH 04/42] drm/mediatek: Move mtk_ddp_comp_type enumeration to mtk-mmsys.h
+Date: Wed,  1 Jul 2026 14:20:19 +0200
+Message-ID: <20260701122057.19648-5-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-mt8189-dt-bindings-tphy-v1-1-5848a2be8303@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQ6DIBBFr0Jm3UlAW6pexbgAmeosQAu0sTHev
- USX7yf/vR0SRaYEndgh0pcTL6GAugkYZxMmQnaFoZKVlk+p0OdGNS26jJaD4zAlzOv8w7vVWlF
- tWnpIKO810ou309wPF0d6f0ogXyNYkwjHxXvOnQi0ZTwjupYwHMcfb4JeIpoAAAA=
-X-Change-ID: 20260701-mt8189-dt-bindings-tphy-4b661e3a9e50
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782920231; l=1052;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=B2XyVL7QuZTHg/QCA4ERiK9bSp3FRiqNCvgt9Ow2ZVM=;
- b=tYvNgQLRRhU0C6Mq2zqKSPuBUtv6H016NPf0CmvwYW6Ejy3fZHF9iyT/E70wJUS8INuSEPCMY
- t3sGUZ6Yyd4B6QuzRwA6L7pTAun4Kxr/gr5XjLWn7Kt9lFmirYLf8HF
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_083715_552013_42D575A3 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_132107_462694_E5B42199 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,33 +103,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a compatible string for the MediaTek MT8189 SoC, that integrates a
-MediaTek generic T-PHY version 3.
+In preparation for a major refactoring of MMSYS, MUTEX and of
+mediatek-drm, move the mtk_ddp_comp_type enumeration to the
+mtk-mmsys.h header, as this will be shared between multiple
+MediaTek multimedia related drivers.
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- Documentation/devicetree/bindings/phy/mediatek,tphy.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.h | 25 ------------------
+ include/linux/soc/mediatek/mtk-mmsys.h  | 34 +++++++++++++++++++++++++
+ 2 files changed, 34 insertions(+), 25 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
-index ff5c77ef1176..8b240cfd537d 100644
---- a/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
-+++ b/Documentation/devicetree/bindings/phy/mediatek,tphy.yaml
-@@ -90,6 +90,7 @@ properties:
-       - items:
-           - enum:
-               - mediatek,mt8188-tphy
-+              - mediatek,mt8189-tphy
-               - mediatek,mt8195-tphy
-           - const: mediatek,generic-tphy-v3
-       - const: mediatek,mt2701-u3phy
-
----
-base-commit: ba7c57499e5999aeae8dd4f954eb2600589d80aa
-change-id: 20260701-mt8189-dt-bindings-tphy-4b661e3a9e50
-
-Best regards,
+diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
+index 99bf1e1015da..bbc66072fe6b 100644
+--- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
++++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
+@@ -22,31 +22,6 @@ struct mtk_plane_state;
+ struct drm_crtc_state;
+ struct drm_dsc_config;
+ 
+-enum mtk_ddp_comp_type {
+-	MTK_DISP_AAL,
+-	MTK_DISP_BLS,
+-	MTK_DISP_CCORR,
+-	MTK_DISP_COLOR,
+-	MTK_DISP_DITHER,
+-	MTK_DISP_DSC,
+-	MTK_DISP_GAMMA,
+-	MTK_DISP_MERGE,
+-	MTK_DISP_MUTEX,
+-	MTK_DISP_OD,
+-	MTK_DISP_OVL,
+-	MTK_DISP_OVL_2L,
+-	MTK_DISP_OVL_ADAPTOR,
+-	MTK_DISP_POSTMASK,
+-	MTK_DISP_PWM,
+-	MTK_DISP_RDMA,
+-	MTK_DISP_UFOE,
+-	MTK_DISP_WDMA,
+-	MTK_DPI,
+-	MTK_DP_INTF,
+-	MTK_DSI,
+-	MTK_DDP_COMP_TYPE_MAX,
+-};
+-
+ struct mtk_ddp_comp;
+ struct cmdq_pkt;
+ struct mtk_ddp_comp_funcs {
+diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
+index 4885b065b849..3ddfdeac658d 100644
+--- a/include/linux/soc/mediatek/mtk-mmsys.h
++++ b/include/linux/soc/mediatek/mtk-mmsys.h
+@@ -84,6 +84,40 @@ enum mtk_ddp_comp_id {
+ 	DDP_COMPONENT_ID_MAX,
+ };
+ 
++enum mtk_ddp_comp_type {
++	/* DISP Components */
++	MTK_DISP_AAL,
++	MTK_DISP_BLS,
++	MTK_DISP_CCORR,
++	MTK_DISP_COLOR,
++	MTK_DISP_DITHER,
++	MTK_DISP_DSC,
++	MTK_DISP_ETHDR_MIXER,
++	MTK_DISP_GAMMA,
++	MTK_DISP_MERGE,
++	MTK_DISP_MUTEX,
++	MTK_DISP_OD,
++	MTK_DISP_OVL,
++	MTK_DISP_OVL_2L,
++	MTK_DISP_OVL_ADAPTOR,
++	MTK_DISP_PADDING,
++	MTK_DISP_POSTMASK,
++	MTK_DISP_PWM,
++	MTK_DISP_RDMA,
++	MTK_DISP_UFOE,
++	MTK_DISP_WDMA,
++
++	/* MDP Components */
++	MTK_DISP_MDP_RDMA,
++
++	/* Keep Display outputs at the end for readability */
++	MTK_DPI,
++	MTK_DP_INTF,
++	MTK_DSI,
++
++	MTK_DDP_COMP_TYPE_MAX
++};
++
+ void mtk_mmsys_ddp_connect(struct device *dev,
+ 			   enum mtk_ddp_comp_id cur,
+ 			   enum mtk_ddp_comp_id next);
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+2.54.0
 
 
