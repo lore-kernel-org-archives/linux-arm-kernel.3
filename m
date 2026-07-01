@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F75C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 349AAC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 19:24:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9u4pmteNiZYFsZdE5aO2Vb1vL6vq7YhBb/NzlG505K0=; b=k0gLO5kHd+EBk/ZQ6y687khUUe
-	S2bi03EpNrSd24ljq1Kz2vMqU06W4tRDCeR+Vl/OvuUyWO8g9ax31olMtL6LCPHx9VCtug/giju/l
-	E6/bhTIh3SpEjEpLYa028zK1LkhAkpIZ8PhvIMiqmXVlOpxSQ5nnFadmaaqzf4qUMtELvLYPfeTKD
-	7WNZMYXidTWbiu98GN6498eLhAC3wdS31QigzcLG21/dX58LkdyygAUMBXDpUiaica2qKKE//ZogP
-	cuR0v0bAbd8quC32uVNHa9MUMFUq5JhlRP5TPH5wDI/q5RdBffJFrm/KTd9CYP9HLlUbWrkzvEA6k
-	G6YCXq6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ApOH0P25anaf8G9Ri8bIsKw129Af3l9xDMyuv0tC9qM=; b=pZ5BLSns2I/ohJWo8+iP50j77C
+	bhchbNtUw7+7Sh8pH5SmmcB0peB66ufTJk6Xk4vL2TxI0d1s2Rxp+hBZ9r6OXJTWLvDbtzXEUhB+B
+	YfZYOYprv3iB02UTcGUdAM7ky6Ut0DgmkGzqmRjqtypfRMnpHiS0VcMSFouVZgn/F0p7s0rB66hyK
+	WwkdmRGp241P28+p2xZzcLjdzp1FxRLBPhtzpxZzE/42DM3E/VtclByPeq5Mdl5lo0CYkzJ5n8FC2
+	k6UQAWuRMyGYbfyUZccmmIPGE/fduN4VwUxNXS5Bi2F9vi+xA6qeLdxPKXAoRTSXKxzT813yHt2Sp
+	Ly7ZNq8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf01T-00000002rci-1hSo;
-	Wed, 01 Jul 2026 18:50:59 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1wf0Y1-00000002tfl-0Wij;
+	Wed, 01 Jul 2026 19:24:37 +0000
+Received: from confino.investici.org ([2a11:7980:1::2:0])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf01Q-00000002rbk-2od6
+	id 1wf0Xy-00000002te8-00mj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 18:50:58 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1782931843;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9u4pmteNiZYFsZdE5aO2Vb1vL6vq7YhBb/NzlG505K0=;
-	b=I0/ovo7nLUuCM6+HSchB9d0K3LcYYcf3K8TthQG7aQpr5LnmCvFP34F/FZSgY9GxC0kYXA
-	sGJ9ghp4p8qMP/aZdwg+SNcwTk0V4F+uo94vUO0zPQUh2bFBHEwsGol2V73RkJ6JG4EqZZ
-	rDZ0avqpfpIQD2dhrbzgC+Zwx5DzaVeszi2tY7IsOUCCAeJdpcsJHabYI31A0VR0xy9j3+
-	XpCmlFLe7eSs2T2cIymWx09fJ4W7koYHxQXcbI3GMlMNJ6lly0m8hTbOJOtulfsMlcau6m
-	CBH9s4rHl3bVRBMmtuIRwMgJ2aCroYuzyEa+FMs6hKI2UQT2fr35EgoGnAmj7Q==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 01 Jul 2026 20:50:16 +0200
-Message-Id: <DJNGKXB1O3FN.SHBNQSJO8MN0@cknow-tech.com>
-Cc: <kernel@collabora.com>, <linux-phy@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- =?utf-8?q?Thomas_Niederpr=C3=BCm?= <dubito@online.de>, "Simon Wright"
- <simon@symple.nz>, "Sashiko" <sashiko-bot@kernel.org>
-Subject: Re: [PATCH v4 0/8] phy: rockchip: samsung-hdptx: Clock fixes and
- API transition cleanups
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Vinod Koul"
- <vkoul@kernel.org>, "Neil Armstrong" <neil.armstrong@linaro.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "Algea Cao" <algea.cao@rock-chips.com>,
- "Dmitry Baryshkov" <lumag@kernel.org>
-References: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
-In-Reply-To: <20260612-hdptx-clk-fixes-v4-0-ce5e1d456cda@collabora.com>
-X-Migadu-Flow: FLOW_OUT
+	Wed, 01 Jul 2026 19:24:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1782933869;
+	bh=ApOH0P25anaf8G9Ri8bIsKw129Af3l9xDMyuv0tC9qM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=IOwZNiFZdBWwBCt2IuZiSddeTU0g11S2tUIJJKy9YTY23EeaxgvxYCMGyhRNOIAUy
+	 jC/bANTXx7vvqa+HEHEC0GBj0nsmUDBP/XbZ5mGDFFopDYS9KfSRB0HQIjcsnVFCpt
+	 QwLnMqJ+VeVLnsoPZI1r5bkJuCaOfan43oU3N8pQ=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4gr91n0gF0z115b;
+	Wed, 01 Jul 2026 19:24:29 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4gr91l0mrkz112N;
+	Wed, 01 Jul 2026 19:24:27 +0000 (UTC)
+From: Bradley Morgan <include@grrlz.net>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Bradley Morgan <include@grrlz.net>
+Subject: [PATCH v4] KVM: arm64: Record whether pKVM stage 2 mapping is cacheable
+Date: Wed,  1 Jul 2026 19:24:28 +0000
+Message-ID: <20260701192428.17430-1-include@grrlz.net>
+X-Mailer: git-send-email 2.53.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_115056_998317_682831F5 
-X-CRM114-Status: GOOD (  24.85  )
+X-CRM114-CacheID: sfid-20260701_122434_505861_1D2D6AED 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,95 +77,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+pKVM keeps its own mapping list for stage 2 operations. Its flush path
+uses that list directly, so it lost the PTE attribute check done by the
+generic stage 2 walker.
 
-On Fri Jun 12, 2026 at 1:46 AM CEST, Cristian Ciocaltea wrote:
-> This series provides a set of bug fixes and cleanups for the Rockchip
-> Samsung HDPTX PHY driver.
->
-> The first part of the series addresses clock rate calculation and
-> synchronization issues.  Specifically, it fixes edge cases where the PHY
-> PLL is pre-programmed by an external component (like a bootloader) or
-> when changing the color depth (bpc) while keeping the modeline constant.
-> Because the Common Clock Framework .set_rate() callback might not be
-> invoked if the pixel clock remains unchanged, this previously led to
-> out-of-sync states between CCF and the actual HDMI PHY configuration.
->
-> The second part focuses on code cleanups and modernizing the register
-> access.  Now that dw_hdmi_qp driver has fully switched to using
-> phy_configure(), we can drop the deprecated TMDS rate setup workarounds
-> and the restrict_rate_change flag logic.  Finally, it refactors the
-> driver to consistently use standard bitfield macros.
+Record whether a mapping is cacheable and skip cache maintenance for
+mappings that are not cacheable.
 
-I built a 7.2-rc1 based kernel with this patch set and used that on my
-NanoPC-T6 LTS connected to my 4K TV. The kernel also has the HDMI 2.0 patch
-set, so I can get 4K@60 with it. When I then tried to switch to 10bpc with
-``modetest -M rockchip -w 86:'max bpc':10`` nothing happened.
-But that's expected as my TV only supports HDMI 2.0 and not HDMI 2.1.
+Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+Signed-off-by: Bradley Morgan <include@grrlz.net>
+---
+Changes since V3:
+- addressed some review :)
 
-When I add ``video=3DHDMI-A-1:1920x1080@60`` to the kernel command line, th=
-en it
-starts up with 10bpc and I can change to 8bpc and back to 10bpc.
-So feel free to add my
+ arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 41 insertions(+), 10 deletions(-)
 
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>  # NanoPC-T6 LTS
-
-Cheers,
-  Diederik
-
->
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
-> Changes in v4:
-> - Added new patches to address new findings from Sashiko:
->   * Prevent divide-by-zero when computing clk rate
->   * Fix rate recalculation for 3.2GHz FRL
-> - Updated patch "Consistently use bitfield macros" to handle a few more
->   bit operations
-> - Link to v3: https://patch.msgid.link/20260611-hdptx-clk-fixes-v3-0-67b1=
-b0c00e16@collabora.com
->
-> Changes in v3:
-> - Replaced div_u64() with DIV_ROUND_CLOSEST_ULL() in Patch 1 (Sashiko)
-> - Fixed theoretical usage_count unbalanced issue in Patch 2 (Sashiko)
-> - Rebased series onto latest phy/next
-> - Link to v2: https://patch.msgid.link/20260511-hdptx-clk-fixes-v2-0-664e=
-41379cab@collabora.com
->
-> Changes in v2:
-> - Collected Tested-by tags from Thomas and Simon
-> - Fixed a typo in commit description of patch 1
-> - Added a comment in patch 2 explaining why PLL config errors are
->   ignored for rk_hdptx_phy_consumer_get()
-> - Added a missed FIELD_GET conversion for lcpll_hw.pms_sdiv in patch 6
-> - Rebased onto latest phy/fixes
-> - Link to v1: https://lore.kernel.org/r/20260227-hdptx-clk-fixes-v1-0-f99=
-8f2762d0f@collabora.com
->
-> ---
-> Cristian Ciocaltea (8):
->       phy: rockchip: samsung-hdptx: Fix rate recalculation for high bpc
->       phy: rockchip: samsung-hdptx: Prevent divide-by-zero when computing=
- clk rate
->       phy: rockchip: samsung-hdptx: Fix rate recalculation for 3.2GHz FRL
->       phy: rockchip: samsung-hdptx: Handle uncommitted PHY config changes
->       phy: rockchip: samsung-hdptx: Drop TMDS rate setup workaround
->       phy: rockchip: samsung-hdptx: Drop restrict_rate_change handling
->       phy: rockchip: samsung-hdptx: Simplify GRF access with FIELD_PREP_W=
-M16()
->       phy: rockchip: samsung-hdptx: Consistently use bitfield macros
->
->  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 266 +++++++++++-----=
-------
->  1 file changed, 130 insertions(+), 136 deletions(-)
-> ---
-> base-commit: 293e19f416fa3f233a2fb013258f7abcb39ad6ed
-> change-id: 20260227-hdptx-clk-fixes-47426632f862
->
->
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 053e4f733e4b..6d1cad890c7e 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
+ 	return m->gfn * PAGE_SIZE;
+ }
+ 
++#define PKVM_MAPPING_NR_PAGES_MASK     GENMASK_ULL(47, 0)
++#define PKVM_MAPPING_NC                        BIT_ULL(48)
++
++static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
++{
++	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
++}
++
++static bool pkvm_mapping_is_nc(struct pkvm_mapping *m)
++{
++	return m->nr_pages & PKVM_MAPPING_NC;
++}
++
++static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64 nr_pages,
++				      bool nc)
++{
++	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
++
++	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
++	if (nc)
++		m->nr_pages |= PKVM_MAPPING_NC;
++}
++
+ static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
+ {
+-	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
++	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
+ }
+ 
+ INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
+@@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
+ 			continue;
+ 
+ 		page = pfn_to_page(mapping->pfn);
+-		WARN_ON_ONCE(mapping->nr_pages != 1);
++	       WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
+ 		unpin_user_pages_dirty_lock(&page, 1, true);
+ 		account_locked_vm(current->mm, 1, false);
+ 		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+@@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
+ 
+ 	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+-					mapping->nr_pages);
++				       pkvm_mapping_nr_pages(mapping));
+ 		if (WARN_ON(ret))
+ 			return ret;
+ 		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+@@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 		 * permission faults are handled in the relax_perms() path.
+ 		 */
+ 		if (mapping) {
+-			if (size == (mapping->nr_pages * PAGE_SIZE))
++			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
+ 				return -EAGAIN;
+ 
+ 			/*
+@@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	swap(mapping, cache->mapping);
+ 	mapping->gfn = gfn;
+ 	mapping->pfn = pfn;
+-	mapping->nr_pages = size / PAGE_SIZE;
++	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
++				  (prot & (KVM_PGTABLE_PROT_DEVICE |
++					   KVM_PGTABLE_PROT_NORMAL_NC)));
+ 	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+ 
+ 	return ret;
+@@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	lockdep_assert_held(&kvm->mmu_lock);
+ 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+-					mapping->nr_pages);
++				       pkvm_mapping_nr_pages(mapping));
+ 		if (WARN_ON(ret))
+ 			break;
+ 	}
+@@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	struct pkvm_mapping *mapping;
+ 
+ 	lockdep_assert_held(&kvm->mmu_lock);
+-	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
++	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
++		if (pkvm_mapping_is_nc(mapping))
++			continue;
++
+ 		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+-					  PAGE_SIZE * mapping->nr_pages);
++					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
++	}
+ 
+ 	return 0;
+ }
+@@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
+ 
+ 	lockdep_assert_held(&kvm->mmu_lock);
+ 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+-		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+-					   mapping->nr_pages, mkold);
++		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
++					   handle, mapping->gfn,
++					   pkvm_mapping_nr_pages(mapping),
++					   mkold);
+ 
+ 	return young;
+ }
+-- 
+2.53.0
 
 
