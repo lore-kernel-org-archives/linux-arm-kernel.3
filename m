@@ -4,91 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208DBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 20:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6AF7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 20:43:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VtpSn/6kLzzI0fPKRwZyJeSOYrsZvfNjFJIskyKdEpo=; b=30yZzubyUov1ZQaEB/CPMjhNdJ
-	r4D54IUA8WsJf56J1RFehKo2BvxvrfKQBj6Va6iYZVav4EgAQcQbDP1z0ASTZekVYc89+fyMo61Lj
-	BWCDDvRn1EDSrHV0/cw4Z8Ystw3GGAwz1P/a8RIqgy9Fb++xIJD1qNJXqxLuchP2CqYtDTLt7pafk
-	O9UeCX5lCSDyTv2DNAXaOBHPRSNSn0HLIydk2iLTzzYLK13NqvVa59XQqzCtrZdJ/nx9hX0qAmDao
-	RUpL+elIyDH7Ws6wxVIl98Ru7GmAVxT0VxSP846lCAbi99+Yf5jfhhSgm9H+HfFAYZVcj1+Du7+71
-	B4zZP3RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LgbAV7Db884sdO2wBFSay1l144nmKC6A4dcsE5Jnxg8=; b=B0xpDMDHD2JHFh51U+jFxOiJig
+	BKRURXRFOvJ+Vl+Qs7mAAvyocc9Xc6i0dpxvhd6MnhdUlaApuS9UMd6cwf0cu1VNcDcTtmNVBTnMs
+	IxleQpHn95I74A6uX8Eb7xfE33RQY/834sCZ8jb2wmWHwcrKmDuIIq76AOtU8x4ldONyfLZW6jynZ
+	C5OLtUIGBPJBGvWfBJyBtLAfDcsaEdr4SSxhcylyDspVoyKQJpSCS54YOjAkc8eYRKuOqgv9ZfqLq
+	uaofKZ925GBAdlOh5bZY6Stdr0E/JkWRTgnvFKW1bYZfxHJe2HFKHK+bCmA7Os8LeLumZGfQCvuNq
+	SC3XyRtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1jA-00000002yk9-2w47;
-	Wed, 01 Jul 2026 20:40:12 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1wf1me-00000002zFx-131Y;
+	Wed, 01 Jul 2026 20:43:48 +0000
+Received: from mail-oi1-x249.google.com ([2607:f8b0:4864:20::249])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1j7-00000002ygi-2f7K
+	id 1wf1mb-00000002zEd-106H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 20:40:11 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4grBj000HTz9vCg;
-	Wed,  1 Jul 2026 22:40:04 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782938404;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VtpSn/6kLzzI0fPKRwZyJeSOYrsZvfNjFJIskyKdEpo=;
-	b=hII4/v+XyEcgBjsJqnzuHz0HIfc4v0uYbbAlpM5N153KSZ7Lxmql9zyIIHLsDmagEl4DC/
-	if9b66JJf0/AH7wAOPjDXpSFowfn4y87SXarGE+JYdtTv62Dp/RHunryEDS+cBkzxNddRs
-	JPXXS2sPTc3GtKmFhA2o7+05Lf5Z+Ydv/isVB3YXllRj666UfqkkpAPVEW7x/3nGwJgvpY
-	D0VsEnCBEuash+NvG/kSNoO5jWVZ4JQx5PKIbOpqqSctdTgOaYpGeMq9F5uVBEzfPOTBRs
-	Q3E70VLCAfeoVSurWSQHjr1yKranyyezlKiBFn7ktuxL18lscXLR7AGULWyvNQ==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782938401;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VtpSn/6kLzzI0fPKRwZyJeSOYrsZvfNjFJIskyKdEpo=;
-	b=a4No3Vxi9tIK7D0IhxJV+jG8cxgBv3D8HUGYfF3nazBl5OfRDJtCsB1ncVfoxp60NrV/7l
-	WOHhnb4VyE9P5QHy9O+fJRGwbeYiTmQAHwljDyyZUlF0HhO+yXoPi0f0Ol7gK7xuXqsbaG
-	r9mDUSMAnr0M4ngg9Jz3sZC7ooVbZVjE46/BZh8FZ8nDbjoTCtcoKhbmBIfLikjE5/FJd9
-	elQVUgA7daKpL1bOBWjva6c9dMSHla725LHVnyPFnHZs3AElC+HJCSBGJ1ViB/BS+KEHkB
-	nvDFADkY+mSx/za3u+Pja8KuQIAmjKnum1zfAxS58/EpTMc81XSaksXBVZp+vA==
-To: linux-pci@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v3 5/5] arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes
-Date: Wed,  1 Jul 2026 22:37:48 +0200
-Message-ID: <20260701203918.63189-6-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
-References: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 8cf0f4f9360d4fef111
-X-MBO-RS-META: xjw591x7ki7wibk4dthfs8mczz8eraxw
+	Wed, 01 Jul 2026 20:43:46 +0000
+Received: by mail-oi1-x249.google.com with SMTP id 5614622812f47-495b0cf250dso1046486b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 13:43:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782938624; x=1783543424; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=LgbAV7Db884sdO2wBFSay1l144nmKC6A4dcsE5Jnxg8=;
+        b=BgYx5FCO9y/f39XJtEUvkC1KXtpFYIknDlxGHl87s7v5HaAIS2J8i7Zh1F9KTeSAZ0
+         6AMg5Ds87JTlwwqesdwAI2Oyu5eKb7JMK+/6XaHFirMHHv61Xr4PZwQkDv6kLoej5h2C
+         2YWzvOEHGYRCqkCK2fFHyi4SMvBTxxXR/XkGfig65n3OPMNBxT7Gi+PA3FuhSc20iyhb
+         +W19WUJQRIUwMzdjhJJF4T9zjvlshlqWrIrb+wHhrpylKY96UvdHIFvkECwq0ru8y7Pp
+         a+HsKSXe4LR+bsEQOj0FddIP0zp0VBLP4mjs4KJEFjEW2P7kcasMC8j5DKDIm5E/X0TD
+         if9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782938624; x=1783543424;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LgbAV7Db884sdO2wBFSay1l144nmKC6A4dcsE5Jnxg8=;
+        b=aXZlVCHtx32ugzYoLuH9ec1wxZy0dL77IAKdZiXI7dcPUzxYm81f03q2VJrpkVwXSl
+         9/vmaqD5mA01AU9+BqLbyhLFG5dkmxk+IH5XWhB1yMlpCxWrJNrv1Ezp2Ue9RitJ0YRh
+         cbDF3oom0udIFuAMzOayMmmNiJOG9Rd0AYdnH2x5UXo1SDl7qDxMwhSFPt7AEPLmPN1Q
+         /upMEk0A2HJmZgeeOX1Y0ApyT7xxbmRWQOKyQo7116RCJvgHtd00JKTysuoneQAFz/wA
+         JUUujXZPhAgo4pn3dynsJpAn/3ttGAk75f2irP6+H2ByZQN1ydQiJ0vV8FDhhF8Z1rM5
+         aELQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9HKcsRpe2HFJ/x4oEZHmkAoy/ZFSW4soRrcQWFgZbSYYqTYrC+9Umvh2Djh2lIpF3yNPE+QYT5UmtXsPH3iF3m@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD3AP8er8GBxYmudsAXrQf4qUTr0LfvdikpJVC7PFUo91sA+/s
+	VJzLkX2gZ6UJfopBPsnHjJP/gCK8mWP1fHUZlAJ49r4Ygl26XHG0BdRpN+gwlNUC98mjrjbAa2w
+	alfsxbFArA/N5v+vguaym1To3Fg==
+X-Received: from jablt3.prod.google.com ([2002:a05:6638:ac03:b0:5e7:3fde:8787])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:10d2:b0:496:b7c:274b with SMTP id 5614622812f47-4960edef744mr2368951b6e.19.1782938623414;
+ Wed, 01 Jul 2026 13:43:43 -0700 (PDT)
+Date: Wed,  1 Jul 2026 20:43:37 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
+Message-ID: <20260701204342.2654385-1-coltonlewis@google.com>
+Subject: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
+From: Colton Lewis <coltonlewis@google.com>
+To: stable@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Mingwei Zhang <mizhang@google.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_134009_835712_512F922D 
-X-CRM114-Status: GOOD (  12.40  )
+X-CRM114-CacheID: sfid-20260701_134345_306769_5B6FBFC9 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,125 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC implements GIC600 with GICv3 ITS and PCIe host mode on this
-SoC can use it. Add GIC ITS node into GIC node, update interrupt-map
-and add msi-map into PCIe controller node.
+This series backports VHE CPU boot fixes to the 6.6.y stable branch.
 
-The GIC ITS does have master interface to issue transactions to RAM.
-The interface does support cacheable transactions, however, it does
-not support shareable attribute, because the AXI port signals are tied
-to inactive in this implementation. Therefore, add "dma-noncoherent"
-DT property into the GIC ITS subnode.
+These fixes are already present in the 6.12.y stable branch (and
+newer), but are missing in 6.6.y. They are required to enable booting
+L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
 
-The GIC redistributor does not have cacheable/shareable, therefore
-add "dma-noncoherent" DT property into the GIC node.
+Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
+incorrectly configured (because it misses VHE-only detection or early
+initialization), causing early boot hangs/trap loops.
 
-Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-NOTE: This would not be possible without prior work from Shimoda-san
-      https://lore.kernel.org/all/20240214052144.1966569-1-yoshihiro.shimoda.uh@renesas.com/
----
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-pci@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: No change
-V3: Add Co-developed-by to credit Shimoda-san
----
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 31 ++++++++++++++++-------
- 1 file changed, 22 insertions(+), 9 deletions(-)
+Conflict resolutions:
+- Patch 4 (KVM: arm64: Initialize HCR_EL2.E2H early) had conflicts in
+  arch/arm64/kvm/hyp/nvhe/hyp-init.S due to differences in state
+  initialization. Resolved by extracting EL2 state initialization into
+  __kvm_init_el2_state.
+- Patch 5 (arm64: Revamp HCR_EL2.E2H RES1 detection) had conflicts in
+  arch/arm64/include/asm/el2_setup.h. Resolved by using raw msr hcr_el2
+  instead of the missing msr_hcr_el2 macro.
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-index c25642a620db8..dba46499b5e9c 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-@@ -809,6 +809,7 @@ pciec0: pcie@e65d0000 {
- 			resets = <&cpg 624>;
- 			reset-names = "pwr";
- 			max-link-speed = <4>;
-+			msi-parent = <&its>;
- 			num-lanes = <2>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -819,10 +820,10 @@ pciec0: pcie@e65d0000 {
- 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0 0 0 1 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 2 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 3 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 2 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 3 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 4 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
- 			snps,enable-cdm-check;
- 			status = "disabled";
- 
-@@ -856,6 +857,7 @@ pciec1: pcie@e65d8000 {
- 			resets = <&cpg 625>;
- 			reset-names = "pwr";
- 			max-link-speed = <4>;
-+			msi-parent = <&its>;
- 			num-lanes = <2>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -866,10 +868,10 @@ pciec1: pcie@e65d8000 {
- 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0 0 0 1 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 2 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 3 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 4 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 2 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 3 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 4 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
- 			snps,enable-cdm-check;
- 			status = "disabled";
- 
-@@ -2148,11 +2150,22 @@ ipmmu_mm: iommu@eefc0000 {
- 		gic: interrupt-controller@f1000000 {
- 			compatible = "arm,gic-v3";
- 			#interrupt-cells = <3>;
--			#address-cells = <0>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
- 			interrupt-controller;
- 			reg = <0x0 0xf1000000 0 0x20000>,
- 			      <0x0 0xf1060000 0 0x110000>;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			dma-noncoherent;
-+
-+			ranges = <0x0 0x0 0x0 0xf1000000 0x0 0x200000>;
-+
-+			its: msi-controller@40000 {
-+				compatible = "arm,gic-v3-its";
-+				reg = <0x0 0x40000 0x0 0x20000>;
-+				dma-noncoherent;
-+				msi-controller;
-+			};
- 		};
- 
- 		gpu: gpu@fd000000 {
--- 
-2.53.0
 
+Marc Zyngier (4):
+  arm64: sysreg: Add layout for ID_AA64MMFR4_EL1
+  arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is
+    negative
+  arm64: Fix early handling of FEAT_E2H0 not being implemented
+  arm64: Revamp HCR_EL2.E2H RES1 detection
+
+Mark Rutland (1):
+  KVM: arm64: Initialize HCR_EL2.E2H early
+
+ arch/arm64/include/asm/el2_setup.h | 52 ++++++++++++++++++++++++++++++
+ arch/arm64/kernel/head.S           | 17 +++-------
+ arch/arm64/kvm/hyp/nvhe/hyp-init.S | 16 +++++++--
+ arch/arm64/tools/sysreg            | 37 +++++++++++++++++++++
+ 4 files changed, 107 insertions(+), 15 deletions(-)
+
+
+base-commit: d1cfde2d5d15be14123bdd1689162bd27f995a90
+--
+2.55.0.rc2.803.g1fd1e6609c-goog
 
