@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548AEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 312FFC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:48:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8bnW4aRchUEMVnjaS3sJtvhYx7e7VZaYZUym5ODbnk8=; b=X/xxkVpEmqRFQvFCrV7N3/z32W
-	ZZj541UKjnaYmObLG/0Hf094EeZGcrElohzbxWF3n786z8VPAKGLTj/kker/9bna4w9LMYfWPIf3+
-	VmI/i6gPj6xhHyv99QYY0Cc/tBYIRbIxZ3CyE4Y6tjq7FwybLUg2/TE0+atIUCaIJfnfHpt5xgnNa
-	fbnzFFR3cz0ivV+LLn5iIil/ebPCBvHBswUEOxSInsw2sSrt3CNR0KmeiN+qQIaytOdcfAnFLySi1
-	GobhnVJgsESQq6QsqlbFoIvaA77LRef3OJBLgP7r1IgG4LwhFGqgQ6BfO9+8IMqRzji7T6zOrLDmh
-	EmZry5HQ==;
+	bh=ZjmKzXbjKhCHmtx2rpBPlFTDcxKMT/ZJGQfdrok6APM=; b=Qbz1MuhIyfdzSBw1S1sKOQhh43
+	sRvhmRc3ovq25oxvXPmUsjbZtEaa+3tJziua0sg8PNp8/BM00X/6q1w2vEaXV8yItFhejaSY9enKN
+	pFJIZDCjabGSNaM4t4hT3QmFeEGTeyql8B9dstnslIDKixSrrpEN0sk3lx0dG0vvxdJLz3KBkX+dp
+	lHO1gXqSPAh5Rgf4vX2aPinDK1462X41KGRRpGcm691D4i1GMHdY15b8M2BeQpdUtCR/o6tJzZj2r
+	ha29illcKzUmtWUMXppsQIAoyg8FrPmysW2wPm5Nnq/3QmpPwEgml8450SMXFzhzjX4Fy+JbKbwJA
+	A7WUrE/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqc3-000000014io-2nNR;
-	Wed, 01 Jul 2026 08:48:07 +0000
+	id 1weqc5-000000014mU-3YFn;
+	Wed, 01 Jul 2026 08:48:09 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqc0-000000014e6-1Y5J
+	id 1weqc4-000000014hI-08Nq
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 08:48:04 +0000
+	Wed, 01 Jul 2026 08:48:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=8bnW4aRchUEMVnjaS3sJtvhYx7e7VZaYZUym5ODbnk8=; b=dhe5v52xC12O1Qzfb+3zR7wKeY
-	SSf3DXioAGpaDiISGpXK6J8SC+jo65mdTarDv48uDDs3rT8BEDEV4HMENY8tfeDX6KUad+Vwspx5A
-	CpWhTJ79MlJ46u2FUXYS6jm++AxGJA/k+GjTjOrp/i3ChMJ4Xh7N1kNJqLkqxnVVEJGDC7ZySabPv
-	1i8ueXZ9qg1qRn8HlTbKrubcp/+cQme/TRDnj32PL1GZh2tFyPxrDziHp+eNu96RfDu9uFdDRvR9w
-	dqhMWCyYojWiUXSDrROmNr5hkO/bixiPm3o9laLWOBgaxN1MGKtpNJHtXZCwhM7L4jQbZpNteVvCN
-	YnfSkeqQ==;
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	bh=ZjmKzXbjKhCHmtx2rpBPlFTDcxKMT/ZJGQfdrok6APM=; b=k4kjigmqqjVTFtLa7bxABPtyvd
+	kzI/yUgvIfpwlIqm4wlZXUS6+2NgAaMgsdOiwzAJPo4R81goyb00SjtIk2bnHlsuMk5qwhgcb0qot
+	4TD+qYrC2/U1j1RfzW6ZhGYRlBgRI3vLmAxbgTR2U43ugz3DxBnmePUNmcSRk2QKXf0X84IaPkogD
+	8unMmfLTSSdAV13Ke+tRYTsva/H8Il5BFNAXVjj+ICvY9xsmfphrTYTlUMOBzbzhKSH+qz9wDE5U5
+	6H1gSo3NWuCJqEAccK6IJF2Yo+Aj5etDlGGThQBg+y5Jca4fY0TPOkMQ4m21/kcwnhn3Jow4Pdxbd
+	SgeDSY1g==;
+Received: from out-183.mta0.migadu.com ([2001:41d0:1004:224b::b7])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weqbw-00000002WcE-1SWL
+	id 1weqbz-00000002Wdj-41Ld
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 08:48:03 +0000
+	Wed, 01 Jul 2026 08:48:06 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782895678;
+	t=1782895682;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8bnW4aRchUEMVnjaS3sJtvhYx7e7VZaYZUym5ODbnk8=;
-	b=sLWDqQwBf+App3Pu7RHBlkjSnfaG2rRct/pqV+ERk3rbG4LZOhOR4spFpRL+8i/aJrIm7m
-	J7hX2zImAVjM5dunqvNXhbt6+5T/hp3lNklFu/pVjvvDAPwuISEyk3Xudw2mqCmFvqiWAT
-	bO7+HZKS7QkzcWfUd4DKAXUO4MjJ0BM=
+	bh=ZjmKzXbjKhCHmtx2rpBPlFTDcxKMT/ZJGQfdrok6APM=;
+	b=TZpcz/tcDmgNJpbk7rVVRQHfOFwQW1XD7YhpKNQbMVr5YJt86zC+sxz0Bv0bDS3d/1WmRl
+	xW/uV5oKqa00tdOT23dKcxzdNXF++T2lHwsf+v8/jv3EQqa9+l5EOjq4Jo/MzVaP7Af+X8
+	lZS874teHyhoBmwM7KH6CtfCLG5riGs=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Wed, 01 Jul 2026 01:46:55 -0700
-Subject: [PATCH v8 07/22] dt-bindings: riscv: add Smcntrpmf ISA extension
- description
+Date: Wed, 01 Jul 2026 01:46:56 -0700
+Subject: [PATCH v8 08/22] RISC-V: Add Sscfg extension CSR definition
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-counter_delegation-v8-7-7909f863a645@meta.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260701-counter_delegation-v8-8-7909f863a645@meta.com>
 References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -75,8 +74,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094800_480490_78EF126E 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20260701_094804_679064_20AB18BC 
+X-CRM114-Status: UNSURE (   9.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -92,33 +91,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@rivosinc.com>
+From: Kaiwen Xue <kaiwenx@rivosinc.com>
 
-Add the description for Smcntrpmf ISA extension
+This adds the scountinhibit CSR definition and S-mode accessible hpmevent
+bits defined by smcdeleg/ssccfg. scountinhibit allows S-mode to start/stop
+counters directly from S-mode without invoking SBI calls to M-mode. It is
+also used to figure out the counters delegated to S-mode by the M-mode as
+well.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Signed-off-by: Kaiwen Xue <kaiwenx@rivosinc.com>
+Reviewed-by: Clément Léger <cleger@rivosinc.com>
 ---
- Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/include/asm/csr.h | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
-index 15cf0e2ee3ed..2493766e956d 100644
---- a/Documentation/devicetree/bindings/riscv/extensions.yaml
-+++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
-@@ -181,6 +181,12 @@ properties:
-             changes to interrupts as frozen at commit ccbddab ("Merge pull
-             request #42 from riscv/jhauser-2023-RC4") of riscv-aia.
- 
-+        - const: smcntrpmf
-+          description: |
-+            The standard Smcntrpmf machine-level extension for the machine mode
-+            to enable privilege mode filtering for cycle and instret counters as
-+            ratified in the 20240326 version of the privileged ISA specification.
+diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
+index b4551a6cf7cb..a3b24b88e401 100644
+--- a/arch/riscv/include/asm/csr.h
++++ b/arch/riscv/include/asm/csr.h
+@@ -241,6 +241,23 @@
+ #define SMSTATEEN0_HSENVCFG		(_ULL(1) << SMSTATEEN0_HSENVCFG_SHIFT)
+ #define SMSTATEEN0_SSTATEEN0_SHIFT	63
+ #define SMSTATEEN0_SSTATEEN0		(_ULL(1) << SMSTATEEN0_SSTATEEN0_SHIFT)
++/* HPMEVENT bits. These are accessible in S-mode via Smcdeleg/Ssccfg */
++#define HPMEVENT_OF			(BIT_ULL(63))
++#define HPMEVENT_MINH			(BIT_ULL(62))
++#define HPMEVENT_SINH			(BIT_ULL(61))
++#define HPMEVENT_UINH			(BIT_ULL(60))
++#define HPMEVENT_VSINH			(BIT_ULL(59))
++#define HPMEVENT_VUINH			(BIT_ULL(58))
++#ifndef CONFIG_64BIT
++#define HPMEVENTH_OF			(BIT(31))
++#define HPMEVENTH_MINH			(BIT(30))
++#define HPMEVENTH_SINH			(BIT(29))
++#define HPMEVENTH_UINH			(BIT(28))
++#define HPMEVENTH_VSINH			(BIT(27))
++#define HPMEVENTH_VUINH			(BIT(26))
++#endif
 +
-         - const: smcsrind
-           description: |
-             The standard Smcsrind machine-level extension extends the
++#define SISELECT_SSCCFG_BASE		0x40
+ 
+ /* mseccfg bits */
+ #define MSECCFG_PMM			ENVCFG_PMM
+@@ -322,6 +339,7 @@
+ #define CSR_SCOUNTEREN		0x106
+ #define CSR_SENVCFG		0x10a
+ #define CSR_SSTATEEN0		0x10c
++#define CSR_SCOUNTINHIBIT	0x120
+ #define CSR_SSCRATCH		0x140
+ #define CSR_SEPC		0x141
+ #define CSR_SCAUSE		0x142
 
 -- 
 2.53.0-Meta
