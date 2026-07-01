@@ -4,91 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46574C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980A5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kU9EDwtysvUbHDPXdbcgIU7SqfLkn5gQbGF2GbXa7pY=; b=wxokuK9+9wKBvtQ86LqRSOLP4W
-	0HCkY1hKZ4YRi01xyXB9ucZ7vWpkEUmge4rnUn5bGGg1EX+QPAqrd0tu0Tszq5RfKopVrOmdXgzLl
-	/Fp7j3AvT7l8TIT21hl0YayTxYWh2hs5kGgbxp+q0L+lWuee3C6ZlxBXJ6TtoBieYMRjv8fLYl2X3
-	uogrdF+SWY83AAUKMwDEMIUqJbmvz0DieD69UiS5ZJ5Xlvx+f4GROV8vIbaocZSRqVpNpF/09GBfc
-	7i/aIfgwiDwRyjQB0Snuvt1iBYh7C77BDRUMehdPtvzP+06uAQ6ScnizAZ4DDFVnjeYEfxf0FBnOi
-	MXjioJDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CjDwefjv1AyM6E5mlH5FqnsJuTuUDUpYfBrPdP92PPw=; b=SzhuqORyVqvOj24iVF/Sck2eqf
+	GJfFTlCPsNKUqEHA9dK1HVoxon6GcvumoJNQw6m5Zsn27PXcwZAERwfLaE47GCvJeoA9GWz2lGew5
+	mhCOuLIfxzewJqVyhKJzjr8/xFwXlSDafQgD3WLt4LgajVfkt24oKdHYIzzyXGq50w40bFGWZWJry
+	CHxDslGV+tdsdLzivIbcXu8RvJ7yZa1Dl/bo+Phpnj5D/hsK4/LdVWejQ7LGeEar++h1fuwCdW/C7
+	GoRFsP7HfYHhOwjrlhU6W6p3IYcghAWpvyplAHeM+xT/Skg6La0boifLtOZUQ4InzMm0tJk4bcr2W
+	Jgq8pfqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4TG-000000039rE-2oCJ;
-	Wed, 01 Jul 2026 23:35:58 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wf4cm-00000003Eum-0lxv;
+	Wed, 01 Jul 2026 23:45:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4TA-000000039k1-3hbS;
-	Wed, 01 Jul 2026 23:35:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782948949;
-	bh=ou2OeHe9NiTPGYgMcRzTUBwKmURTgL5/azZ1wBtlGvM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=JopCORWts1/zBZAshpM5FlhwVl4pX5v5Db4QkTN6TlZbCkMZ0VLNNIpKzAbcGztV3
-	 L51fx3v3suDxc5R86qB4Z4PAx3YG2o965+Q8DAfIYEPNO9aTunF66rie6gDfX1ZRhG
-	 I1rmcfNTSNbTOFhy8wRS68dZZhCuFjI2kBQZHOGaX8f0+urJdEI4Qi5iNLdBRdhBpT
-	 TIh1gQUBnhlw6XCvzaefimI41p/oAvk+xqDL0+cVQSzeW0IpIoKWDougby73SxnPJr
-	 Nvd91IFrWCkaf1zhoC31+wdP5ONRTjAd9ane6S4vTgnzQ+Tb7gq7o790w8GBw3MxiC
-	 /+oIM5cGhRv+w==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 037AB17E0FAA;
-	Thu,  2 Jul 2026 01:35:49 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id B093C48002F; Thu, 02 Jul 2026 01:35:48 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 02 Jul 2026 01:35:41 +0200
-Subject: [PATCH v9 03/38] phy: rockchip: usbdp: Do not lose USB3 PHY status
+	id 1wf4ck-00000003Eu7-0mam
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 23:45:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2C4F43674;
+	Wed,  1 Jul 2026 23:45:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7379C1F000E9;
+	Wed,  1 Jul 2026 23:45:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782949545;
+	bh=CjDwefjv1AyM6E5mlH5FqnsJuTuUDUpYfBrPdP92PPw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FFU227dB/thlEfqyQeBLjjYcz78UnSO2U27UwZJj9qRALcl0SZVeUJ2cYh9N24eSe
+	 UOUb0mIsVvaSU0QOEpfk4PzmFzIlfRtfnGL2Iqs+LF5mB9Y/JMQLMRydkVmdlsrDcp
+	 HwmApjgNK0D3VOeyBWoe2Kz/N6u9KOgYAZqkPkZKGseuhY745VDyvLO64XrbqIC3lo
+	 WICLgo+SK+6peCB8HVzbsx93uzYKuUXtupqQ7Xmv2v8Hxmp2oEOVLfVlKbuC8BEPNH
+	 b+p0Hw4xWWSFXBf9uDg5wvh9Hi+tn/uhxGgaLsPu7ACr/brXnUTjV0LgFfano2sA9D
+	 8gpvFQD29zDgQ==
+Date: Wed, 1 Jul 2026 16:45:44 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Mark Rutland <mark.rutland@arm.com>,
+	Ahmed Genidi <ahmed.genidi@arm.com>,
+	Ben Horgan <ben.horgan@arm.com>, Leo Yan <leo.yan@arm.com>
+Subject: Re: [PATCH 4/5] KVM: arm64: Initialize HCR_EL2.E2H early
+Message-ID: <akWmqLQ31UvRLCxt@kernel.org>
+References: <20260701204342.2654385-1-coltonlewis@google.com>
+ <20260701204342.2654385-5-coltonlewis@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-rockchip-usbdp-cleanup-v9-3-e31efbb62d2e@collabora.com>
-References: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
-In-Reply-To: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1409;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=ou2OeHe9NiTPGYgMcRzTUBwKmURTgL5/azZ1wBtlGvM=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpFpFPWvCILXhPZhf42ixcVhNrM3hmuvuk7y
- 691Ps/bIwJBRIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqRaRTAAoJENju1/PI
- O/qa50IP/1b2y0pmWi1VxXN5PMzVct1/97+k3BAP6RFtVpo2zuqJpShP8iEj9LwGlUbT4BQUyrg
- lNnydIMFhfER15s5wp/uAf6zRyqGd5vn+nYJIYBM1yHzIyWlxH94aoLoi58Ftuc5VrTfhOexGhd
- DXvkjKS7u9frTNXv5FdPvlNDc10Wsxjv4Grhbwz9dUUUVUqZuVROn5WzcMT42gO1Ix16moJHDp2
- EU0POFjg15qchk3AmKC/kKwzq0b+ISfPKM8/i3OXKHq9i6aaKZhLeT3/CZiEz45iPrTicz2c209
- Bm9PZ0QlFomLNnRUUXtVXmhxA9sI0FpPW2BdEB2u6ZGRCsyaARvug1oTIqSViHhsojvyW8RA2pp
- Whmua5LjFQixIsGft1KTmWwxi4/XcoSsTQ4MzP+nmH62E8qODeVy15M//Og29F67cWxROiC/P+a
- 3dx25HIY/B+55YMoTdjcstLJ8Old14xbyregNmR8EmgbTIBQWWT4/DNYRXAoGazCmhEPk/ZwuuB
- 7TntmV3ilfhyJMXObweukVWZUFX15sg6vAlDQ1F1kFbnu63XLRa60X0OmoKG6YAj0UOkeI2IBgO
- mCL6EqkEtSYheV74dFsoUhkyKYzQqNJkjJk2C2UCL9Y+9UMWBjzSc6TWxnDdiT7UUEWlxdTZXJ8
- XlrXialq+wJ4Ee1JNLsEsvA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_163553_077499_83DD2876 
-X-CRM114-Status: GOOD (  12.83  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701204342.2654385-5-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +78,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-By default (i.e. without manually enabling runtime PM) DWC3 requests the
-USB3 PHY once and keeps it enabled all the time. When DisplayPort is
-being requested later on, a mode change is needed. This re-initializes
-the PHY. During re-initialization the status variable has incorrectly
-been cleared, which means the tracking information for USB3 is lost.
+On Wed, Jul 01, 2026 at 08:43:41PM +0000, Colton Lewis wrote:
+> From: Mark Rutland <mark.rutland@arm.com>
+> 
+> [ Upstream commit 7a68b55ff39b0d2dcd92ee241b12b23a7e03c621 ]
+> 
+> On CPUs without FEAT_E2H0, HCR_EL2.E2H is RES1, but may reset to an
+> UNKNOWN value out of reset and consequently may not read as 1 unless it
+> has been explicitly initialized.
+> 
+> We handled this for the head.S boot code in commits:
+> 
+>   3944382fa6f22b54 ("arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is negative")
+>   b3320142f3db9b3f ("arm64: Fix early handling of FEAT_E2H0 not being implemented")
+> 
+> Unfortunately, we forgot to apply a similar fix to the KVM PSCI entry
+> points used when relaying CPU_ON, CPU_SUSPEND, and SYSTEM SUSPEND. When
+> KVM is entered via these entry points, the value of HCR_EL2.E2H may be
+> consumed before it has been initialized (e.g. by the 'init_el2_state'
+> macro).
+> 
+> Initialize HCR_EL2.E2H early in these paths such that it can be consumed
+> reliably. The existing code in head.S is factored out into a new
+> 'init_el2_hcr' macro, and this is used in the __kvm_hyp_init_cpu()
+> function common to all the relevant PSCI entry points.
+> 
+> For clarity, I've tweaked the assembly used to check whether
+> ID_AA64MMFR4_EL1.E2H0 is negative. The bitfield is extracted as a signed
+> value, and this is checked with a signed-greater-or-equal (GE) comparison.
+> 
+> As the hyp code will reconfigure HCR_EL2 later in ___kvm_hyp_init(), all
+> bits other than E2H are initialized to zero in __kvm_hyp_init_cpu().
+> 
+> Fixes: 3944382fa6f22b54 ("arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is negative")
+> Fixes: b3320142f3db9b3f ("arm64: Fix early handling of FEAT_E2H0 not being implemented")
+> Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+> Cc: Ahmed Genidi <ahmed.genidi@arm.com>
+> Cc: Ben Horgan <ben.horgan@arm.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Leo Yan <leo.yan@arm.com>
+> Cc: Marc Zyngier <maz@kernel.org>
+> Cc: Oliver Upton <oliver.upton@linux.dev>
+> Cc: Will Deacon <will@kernel.org>
+> Link: https://lore.kernel.org/r/20250227180526.1204723-2-mark.rutland@arm.com
+> [maz: fixed LT->GE thinko]
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> [ Backport: Resolved conflict in arch/arm64/kvm/hyp/nvhe/hyp-init.S
+>   by extracting EL2 state initialization into __kvm_init_el2_state
+>   and calling it after HCR setup. ]
+> ---
+>  arch/arm64/include/asm/el2_setup.h | 26 ++++++++++++++++++++++++++
+>  arch/arm64/kernel/head.S           | 19 +------------------
+>  arch/arm64/kvm/hyp/nvhe/hyp-init.S | 16 +++++++++++++---
+>  3 files changed, 40 insertions(+), 21 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
+> index b7afaa026842b..3498dc5d02c18 100644
+> --- a/arch/arm64/include/asm/el2_setup.h
+> +++ b/arch/arm64/include/asm/el2_setup.h
+> @@ -16,6 +16,32 @@
+>  #include <asm/sysreg.h>
+>  #include <linux/irqchip/arm-gic-v3.h>
+>  
+> +.macro init_el2_hcr	val
+> +	mov_q	x0, \val
+> +
+> +	/*
+> +	 * Compliant CPUs advertise their VHE-onlyness with
+> +	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
+> +	 * can reset into an UNKNOWN state and might not read as 1 until it has
+> +	 * been initialized explicitly.
+> +	 *
+> +	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
+> +	 * don't advertise it (they predate this relaxation).
+> +	 *
+> +	 * Initalize HCR_EL2.E2H so that later code can rely upon HCR_EL2.E2H
+> +	 * indicating whether the CPU is running in E2H mode.
+> +	 */
+> +	mrs_s	x1, SYS_ID_AA64MMFR4_EL1
+> +	sbfx	x1, x1, #ID_AA64MMFR4_EL1_E2H0_SHIFT, #ID_AA64MMFR4_EL1_E2H0_WIDTH
+> +	cmp	x1, #0
+> +	b.ge	.LnVHE_\@
+> +
+> +	orr	x0, x0, #HCR_E2H
+> +.LnVHE_\@:
+> +	msr	hcr_el2, x0
+> +	isb
+> +.endm
+> +
+>  .macro __init_el2_sctlr
+>  	mov_q	x0, INIT_SCTLR_EL2_MMU_OFF
+>  	msr	sctlr_el2, x0
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index e0e710b36da37..ff7769821166a 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -575,25 +575,8 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+>  	msr	sctlr_el2, x0
+>  	isb
+>  0:
+> -	mov_q	x0, HCR_HOST_NVHE_FLAGS
+> -
+> -	/*
+> -	 * Compliant CPUs advertise their VHE-onlyness with
+> -	 * ID_AA64MMFR4_EL1.E2H0 < 0. HCR_EL2.E2H can be
+> -	 * RES1 in that case. Publish the E2H bit early so that
+> -	 * it can be picked up by the init_el2_state macro.
+> -	 *
+> -	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
+> -	 * don't advertise it (they predate this relaxation).
+> -	 */
+> -	mrs_s	x1, SYS_ID_AA64MMFR4_EL1
+> -	tbz	x1, #(ID_AA64MMFR4_EL1_E2H0_SHIFT + ID_AA64MMFR4_EL1_E2H0_WIDTH - 1), 1f
+> -
+> -	orr	x0, x0, #HCR_E2H
+> -1:
+> -	msr	hcr_el2, x0
+> -	isb
+>  
+> +	init_el2_hcr	HCR_HOST_NVHE_FLAGS
+>  	init_el2_state
+>  
+>  	/* Hypervisor stub */
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-init.S b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> index 1cc06e6797bda..a08363b9b10fd 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-init.S
+> @@ -75,6 +75,16 @@ __do_hyp_init:
+>  	eret
+>  SYM_CODE_END(__kvm_hyp_init)
+>  
+> +/*
+> + * Initialize EL2 CPU state to sane values.
+> + *
+> + * HCR_EL2.E2H must have been initialized already.
+> + */
+> +SYM_CODE_START_LOCAL(__kvm_init_el2_state)
+> +	init_el2_state				// Clobbers x0..x2
+> +	finalise_el2_state
+> +	ret
+> +SYM_CODE_END(__kvm_init_el2_state)
+>  /*
+>   * Initialize the hypervisor in EL2.
+>   *
+> @@ -202,9 +212,9 @@ SYM_CODE_START_LOCAL(__kvm_hyp_init_cpu)
+>  
+>  2:	msr	SPsel, #1			// We want to use SP_EL{1,2}
+>  
+> -	/* Initialize EL2 CPU state to sane values. */
+> -	init_el2_state				// Clobbers x0..x2
+> -	finalise_el2_state
+> +	init_el2_hcr	0
+> +
+> +	bl	__kvm_init_el2_state
 
-This is not an immediate problem, since the DP side keeps the PHY
-enabled. But once DP is toggled off, the whole PHY will be disabled.
-This is a problem, because the USB side still needs it powered.
+Please don't churn unrelated code. Leave everything where it is and make
+sure init_el2_hcr is done before the others.
 
-Fix things by not clearing the status flags.
-
-Fixes: 2f70bbddeb45 ("phy: rockchip: add usbdp combo phy driver")
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index a5ffdf7a6e76..12dfdd470a78 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -1008,7 +1008,6 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
- 			rk_udphy_u3_port_disable(udphy, false);
- 		udphy->mode_change = false;
- 	} else if (udphy->mode_change) {
--		udphy->status = UDPHY_MODE_NONE;
- 		if (udphy->mode == UDPHY_MODE_DP)
- 			rk_udphy_u3_port_disable(udphy, true);
- 
-
--- 
-2.53.0
-
+Thanks,
+Oliver
 
