@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BD2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B01FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZI9SE4AQdyvqDpYBmfVnwDD8EKkT0UcJcxbBK5m+Pw0=; b=IW/cC2JhISM3cbiw2/XBJ7Cu7g
-	bETjioK9sFULZ0/5mEt8NYbuhrv2ApGJcdiy857HT8xLSRyci5IzzvbTtEnVJq2vCXUS6AvQjKP8q
-	7F+OToAxjKZwB2L5tna5SXcupQyBYg4OkCGbvAC+5RMhgTLxpndelaKZ1j4Z6nHqweMYMrC3Y1nyP
-	Pk4y+o7pFRLLav66w//3ir5ndlsg6rOC/pmAxb/hmuXBmJBZxQFKbEnXNAHs4arGZ2MvaiVbKjqM4
-	wT+Qe0brxPPPrbP1al445BLzIk/WopPrgq+TlS0XbgA2lPw2Q3BbITWTN9MOweWZEMZNB5i5LjWr8
-	TjVQxNFA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Ydx47S+8hLe5C1ynBhLgl8bYfakXCGpIrz8h9G44Uk=; b=QRxNHW/4teMAMJjDYBjTQhQsfy
+	onBUyMGUec4g0boZaNbljsuh+zZPM08Dyb5HIHxu+rdN0tvRfv02dOknxEgAiSFn6v5YZivX3ZYhs
+	QU2JPvGeWbJcxjzBN3heRNjo7lBPDRPU/hGC+ipULjhrnlYp9LggjyKKQnrpNCExdv0ltOBsPCHEP
+	SkK0xESuIJs/7h7TIIlG/661tjOcoeHPQqnOOwNWdxXcq85m/LgcFnmi7dDWOAnD6hjCRJsysFxq5
+	vVeToD++fFjseT4shuatQUKB5CBZxTjxsSj74xRPfvccDRZ/PyntMR+cgaFk9+SLg3JoVw87d8CGc
+	PhPLeIiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZCF-00000006MGf-2t0l;
-	Fri, 03 Jul 2026 08:24:27 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZCC-00000006MGE-1xna
+	id 1wfZPv-00000006NFf-3UfT;
+	Fri, 03 Jul 2026 08:38:35 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfZPr-00000006NEx-2JDw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:24:25 +0000
-Date: Fri, 3 Jul 2026 10:24:18 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783067059;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ZI9SE4AQdyvqDpYBmfVnwDD8EKkT0UcJcxbBK5m+Pw0=;
-	b=ta/6ZojDa3IXYeNZRJDp7XN1G910he5p7od6lYPGjH149qv2iPCEIdM80pz57ymgYC4Wmz
-	4y7XlkLnh8vuOMQET9yZvCxTZ9wxGkh96z+RcNkqtR3qRljoaZdfFiAVqyNVEJFo0iaJ1O
-	lqP2IsD9zrxB4fmCRTRrvhZBdyUL0YUZxTPQo3W3NhKre2pj5rdcwa9zqAksW253QF7Uee
-	47J4vSYuTLEwI5BCKCUerROIc2dnhLAcEgjJN2KgUUaRSSsSE1d6VoecpG4M+eUtOH3PNg
-	yGdeTVtAXO0yy6J2m56p3ed0zQq6GMZawvy8+IL0eE06Ra2xcXF1PFKN2EZnsA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783067059;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ZI9SE4AQdyvqDpYBmfVnwDD8EKkT0UcJcxbBK5m+Pw0=;
-	b=KRvot/dx2A9c2NPWXFKb/2LEK2QOX0LnKaSHNAuXtVvkyG4bKyj49OuFyErTkZ5HQyCQgw
-	U/xlQF4ybFYTTSBw==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Steven Rostedt <rostedt@goodmis.org>, Peng Fan <peng.fan@nxp.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Subject: [PATCH v4] remoteproc: imx_rproc: Invoke the callback directly
-Message-ID: <20260703-imx_mbox_rproc-v4-1-67b10560a861@linutronix.de>
+	Fri, 03 Jul 2026 08:38:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E09051476;
+	Fri,  3 Jul 2026 01:38:24 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.73.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 796F73F905;
+	Fri,  3 Jul 2026 01:38:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783067909; bh=KcfAyjvfIggeRPUgM5kQPKdIyZKtYOy5nlDTfsdQLwM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=GVNmKlA2lu3JViMT/eyKZ0Fyi70W3QFFyZVhNf0Jiw+O7ybwekm2eWKH7waeumEgv
+	 WOvthIC+BYMk3E/wuZ/vqkdx+65WWp7KhMHvYo0nL652grpVgQ9lay7FkmEy3JhZbc
+	 FvNwCqN4CcZ4ae2nRYYOH9w3NHp4RfF19M9jqbdw=
+Message-ID: <029910c3-e90f-4a35-8b01-4d3ff548deea@arm.com>
+Date: Wed, 1 Jul 2026 20:56:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-X-B4-Tracking: v=1; b=H4sIAJZvR2oC/3XOTW7DIBAF4KtYrEvETwA7q9wjqiIMQzNSbRJwk
- KvIdy91FomadvlGb76ZG8mQEDLZNTeSoGDGONawfWuIO9nxAyj6molgQjMlOorDfBz6OB/TOUV
- HjVdcBGV1MC2pS+cEAecVPLzfc4LLtbrTfUh6m4G6OAw47ZpiNpz89E6Yp5i+1j8KX4v/nSycM
- tq3ITipgXNQ+08cr1OKI84bDytXxIPQTL4QohKWMdV5J3vd2b8I+URw80LIShjTbVvOhYfgfhP
- LsnwDN15qOl4BAAA=
-X-Change-ID: 20260529-imx_mbox_rproc-7d512f5a6f78
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 02/15] arm_mpam: propagate MSC read errors for wrapper
+ functions
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-3-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260702162229.4008659-3-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_012424_654625_299CF02A 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20260703_013831_728749_AFC7B4D8 
+X-CRM114-Status: GOOD (  20.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,141 +82,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-mailbox driver moved the callback invocation into the threaded
-IRQ handler. This means the callback is invoked in preemptible context
-and there is no need to schedule the kworker for the
-imx_rproc_notified_idr_cb() invocation.
+Hi Andre,
 
-This was tested with the rpmsg-tty driver on imx93.
+On 7/2/26 17:22, Andre Przywara wrote:
+> Allow the wrapper functions for IDR and ESR accesses to return an
+> error, and propagate read errors from the lower level up.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c | 51 +++++++++++++++++++++++-----------
+>  1 file changed, 35 insertions(+), 16 deletions(-)
+> 
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index df14b4513382..ce8738adb6ff 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -247,27 +247,34 @@ static bool mpam_msc_check_aidr(struct mpam_msc *msc)
+>  	return true;
+>  }
+>  
+> -static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+> +static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
+>  {
+>  	u32 idr_high = 0, idr_low;
+> +	int ret;
+>  
+>  	lockdep_assert_held(&msc->part_sel_lock);
+>  
+> -	mpam_read_partsel_reg(msc, IDR, &idr_low);
+> -	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+> -		mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+> +	ret = mpam_read_partsel_reg(msc, IDR, &idr_low);
+> +	if (!ret && FIELD_GET(MPAMF_IDR_EXT, idr_low))
+> +		ret = mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+>  
+> -	return ((u64)idr_high << 32) | idr_low;
+> +	if (!ret)
+> +		*res = ((u64)idr_high << 32) | idr_low;
+> +
+> +	return ret;
+>  }
 
-Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
-callback directly.
+Why does the pattern here, use of !ret rather than early return, differ
+from the one you've used in mpam_msc_read_esr()?
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
-v3=E2=80=A6v4: https://lore.kernel.org/r/20260617-imx_mbox_rproc-v3-0-77948=
-112defc@linutronix.de
-  - The mailbox bits are part of v7.2-rc1. This is just a repost of the
-    imx_rproc driver which is left.
+Thanks,
 
-v2=E2=80=A6v3: https://lore.kernel.org/r/20260603-imx_mbox_rproc-v2-0-a0059=
-dc3b69a@linutronix.de
-  - Forward the error in imx_mu_generic_tx() to the caller (new patch
-    #1)
-  - Extend the patch description a bit for for "Start splitting the IRQ
-    handler" to briefly explain why callbacks are moved to the threaded
-    handler.
-  - Drop imx_mu_con_priv::pending. The primary handler wakes its
-    threaded handler. Once the handler is woken, the pending flag must
-    be set and there is no need to set/ clear it.
-  - Avoid the double clk_disable_unprepare() if
-    devm_mbox_controller_register() fails.
+Ben
 
-v1=E2=80=A6v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc=
-36e11e5@linutronix.de
-  - Using correct register to enable RXDB event.
-  - Update commit description for the "threaded interrupt", "unmasks the
-    interrupt" =3D> "masks the interrupt event".
-  - Add a shutdown field so that the interrupt does not unmask the
-    interrupt if it has been already disabled because the channel is
-    about to be shutdown.  A possible race mentioned by sashiko.
-  - Use devm_pm_runtime_enable(). This should avoid a possible race
-    sashiko mentioned.
-  - Use devm_of_platform_populate().
----
- drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
- 1 file changed, 1 insertion(+), 32 deletions(-)
-
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 7662ebd9d2f49..e18ae33a5cf85 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -24,7 +24,6 @@
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
- #include <linux/scmi_imx_protocol.h>
--#include <linux/workqueue.h>
-=20
- #include "imx_rproc.h"
- #include "remoteproc_internal.h"
-@@ -115,8 +114,6 @@ struct imx_rproc {
- 	struct mbox_client		cl;
- 	struct mbox_chan		*tx_ch;
- 	struct mbox_chan		*rx_ch;
--	struct work_struct		rproc_work;
--	struct workqueue_struct		*workqueue;
- 	void __iomem			*rsc_table;
- 	struct imx_sc_ipc		*ipc_handle;
- 	struct notifier_block		rproc_nb;
-@@ -892,21 +889,11 @@ static int imx_rproc_notified_idr_cb(int id, void *pt=
-r, void *data)
- 	return 0;
- }
-=20
--static void imx_rproc_vq_work(struct work_struct *work)
--{
--	struct imx_rproc *priv =3D container_of(work, struct imx_rproc,
--					      rproc_work);
--	struct rproc *rproc =3D priv->rproc;
--
--	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
--}
--
- static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
- {
- 	struct rproc *rproc =3D dev_get_drvdata(cl->dev);
--	struct imx_rproc *priv =3D rproc->priv;
-=20
--	queue_work(priv->workqueue, &priv->rproc_work);
-+	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
- }
-=20
- static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
-@@ -1271,13 +1258,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_=
-data *data)
- 	return NOTIFY_DONE;
- }
-=20
--static void imx_rproc_destroy_workqueue(void *data)
--{
--	struct workqueue_struct *workqueue =3D data;
--
--	destroy_workqueue(workqueue);
--}
--
- static int imx_rproc_probe(struct platform_device *pdev)
- {
- 	struct device *dev =3D &pdev->dev;
-@@ -1305,17 +1285,6 @@ static int imx_rproc_probe(struct platform_device *p=
-dev)
- 		priv->ops =3D dcfg->ops;
-=20
- 	dev_set_drvdata(dev, rproc);
--	priv->workqueue =3D create_workqueue(dev_name(dev));
--	if (!priv->workqueue) {
--		dev_err(dev, "cannot create workqueue\n");
--		return -ENOMEM;
--	}
--
--	ret =3D devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->=
-workqueue);
--	if (ret)
--		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue act=
-ion\n");
--
--	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
-=20
- 	ret =3D imx_rproc_xtr_mbox_init(rproc, true);
- 	if (ret)
-
----
-base-commit: b3f94b2b3f3e51ab880a51fc6510e1dafba654ed
-change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
-
-Best regards,
---=20
-Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+>  
+> -static void mpam_msc_clear_esr(struct mpam_msc *msc)
+> +static int mpam_msc_clear_esr(struct mpam_msc *msc)
+>  {
+>  	u32 esr_low;
+> +	int ret;
+>  
+> -	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	if (ret)
+> +		return ret;
+>  
+>  	if (!esr_low)
+> -		return;
+> +		return 0;
+>  
+>  	/*
+>  	 * Clearing the high/low bits of MPAMF_ESR can not be atomic.
+> @@ -277,18 +284,30 @@ static void mpam_msc_clear_esr(struct mpam_msc *msc)
+>  	 */
+>  	if (msc->has_extd_esr)
+>  		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+> +
+>  	__mpam_write_reg(msc, MPAMF_ESR, 0);
+> +
+> +	return 0;
+>  }
+>  
+> -static u64 mpam_msc_read_esr(struct mpam_msc *msc)
+> +static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
+>  {
+>  	u32 esr_high = 0, esr_low;
+> +	int ret;
+>  
+> -	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> -	if (msc->has_extd_esr)
+> -		__mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
+> +	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (msc->has_extd_esr) {
+> +		ret = __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+> -	return ((u64)esr_high << 32) | esr_low;
+> +	*res = ((u64)esr_high << 32) | esr_low;
+> +
+> +	return 0;
+>  }
+>  
+>  static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
+> @@ -993,7 +1012,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  
+>  	/* Grab an IDR value to find out how many RIS there are */
+>  	mutex_lock(&msc->part_sel_lock);
+> -	idr = mpam_msc_read_idr(msc);
+> +	mpam_msc_read_idr(msc, &idr);
+>  	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
+>  
+>  	mutex_unlock(&msc->part_sel_lock);
+> @@ -1009,7 +1028,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>  	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+>  		mutex_lock(&msc->part_sel_lock);
+>  		__mpam_part_sel(ris_idx, 0, msc);
+> -		idr = mpam_msc_read_idr(msc);
+> +		mpam_msc_read_idr(msc, &idr);
+>  		mutex_unlock(&msc->part_sel_lock);
+>  
+>  		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+> @@ -2492,7 +2511,7 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>  					   &msc->accessibility)))
+>  		return IRQ_NONE;
+>  
+> -	reg = mpam_msc_read_esr(msc);
+> +	mpam_msc_read_esr(msc, &reg);
+>  
+>  	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+>  	if (!errcode)
 
 
