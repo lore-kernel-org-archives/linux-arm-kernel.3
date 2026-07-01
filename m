@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7452AC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FDDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S/hf+q9b0Imft89tr7ZBqATJk9FmRe3I1tT3paesQfw=; b=N1344n0/UVmDuOdqTByueXUKnB
-	aa4P0TMqcBPuOGbfsArztAHfmSBfhseIC/BDBPrLbSAiQPpdXpF2D6EuI6poDJoL0umBPgqIG6T2L
-	qo4R4iDKGMp8/SGCxuLrYlGjE8jogi22B8qDlu0bVdea+Y+q1fC15kJGU1rVWSJgfCeesmapuRc9r
-	twS/q/eIMy25wrNFFA/gWrT+6QN1MkCJcp4Qx+g12OqJDSOlZbG4quW8U9qNV4UcxWTOHLrXnEndl
-	gkkitNTYP9tlXVJ9qTmmAwVht0/s6q5ar+PX3TzzpFRI3g7VRLJrns1bLL1mTTAWe8zfvq1sCakFI
-	eKPQK4aA==;
+	bh=OEPXdGuWQWFYTexOfPAGOf7p20zH9EXp0M53nJvEN18=; b=C419nxO1PVhE1belTThWyOcyWs
+	H7+Hcc5Mb7zEtyGunlxZ7+TTqV9Diw+dN2Zb1MF2Zd+i11Hntu5ECd4ekuCI1cjTesrnWgK/gPeCe
+	1OtbjqzaMzxJBsJA6IUcnymkN6lOjhNZzH47jdV7KQ+BWb9Te6CeAWml+ZuKIOKpvG9inCZ3Psqfc
+	0JJBEzE8J+hmwFhSor06h6VEFCLTSiD476QUqrxEM3GfQAI+j6YLQSylt+AWb1+pxRT+HEFpEFwVK
+	q6yLBFBjUhHpuHUk0hWrneIfZ9A2y/I8uN0zKbKFaYLromHZZFgQBkx1jcZw9Ltu/6rVLxdyCysRB
+	I6aUyOkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetxl-00000001yCV-3u8i;
-	Wed, 01 Jul 2026 12:22:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wetwG-00000001tmw-3I6X;
+	Wed, 01 Jul 2026 12:21:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetxg-00000001xqU-1wc9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 12:22:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=S/hf+q9b0Imft89tr7ZBqATJk9FmRe3I1tT3paesQfw=; b=hqniTJo9l97WPUSlVzEXFVTp2/
-	ELePwGBgW1HmdZUvHJrXhkyFXL/B3VzzUfQLDZWCtc1wvnThSpczAbulna92WRNlbvkadvUzUQhAz
-	9QugwyrbcIH5ukacOxwkZWcPL3uQ6rQyhWrm3ubBG5rOs2N2URK8xCknaaDjte8sQr+GWzOGYIB+3
-	H4P18PRKDhEdFumiL5Gm7ZnFoONWQ5pi5VMrsWMRasQg+njaV4o7aJ8TMsmOc6m9QoWaIbxDB0+Sc
-	TweD8GeLOuWa2DX54BntoAPbktPda3CGs+q8Iwgg8esCOxPcgNl45EwhpdZbdB7M3UjljlypKlDll
-	KUlvFm4Q==;
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetxZ-00000002k1j-3fRy
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 12:22:39 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=S/hf+q9b0Imft89tr7ZBqATJk9FmRe3I1tT3paesQfw=;
-	b=xhhPRLKApC1ymyEUY24zz+xLOawyLVoBkhRJmtUi1b/Em0d7SEFcndducAFvVeRZ32AyKx4MG
-	Hr3IwQpojMuZ+5AsbcULwmdjJF3WWkfo/LJRBo4cgLUXUVHuKMoAqzzX0Cv8hJI2/B6LxkidA2m
-	RlvwxoIk5TJe+7bltpy+nkk=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gqzRR0g5Tz1cyT2;
-	Wed,  1 Jul 2026 20:12:35 +0800 (CST)
-Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
-	by mail.maildlp.com (Postfix) with ESMTPS id 68A0440580;
-	Wed,  1 Jul 2026 20:21:43 +0800 (CST)
-Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
- (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 1 Jul
- 2026 20:21:42 +0800
-Message-ID: <20631d1e-b7a0-4270-a69c-e07c420b1505@huawei.com>
-Date: Wed, 1 Jul 2026 20:21:41 +0800
+	id 1wetvy-00000001srD-2sTk;
+	Wed, 01 Jul 2026 12:21:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908452;
+	bh=knL125EqyeDrxGL3Ld+yoYxozWxizbjazjQr+Cmfeww=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=J9AwQjsRjbU+eOAh5iRR3sAr+iiBXCt944cwy3yqYQeus2HgH1dvBLmfxuvG874Oh
+	 5/rIavH3IYSPgKEvRrreXsWhp4qaj7HKFStCQXj1yCrDSzp3J0C3ttQOHGp7CnqXF1
+	 VLXu8o6BUJsU9egdpFa4o4QWbxLqB9tZMpTLQ48EzQLgJh83r6oo6hvDP45Sp35rxC
+	 4gBjxcp4WqhWOlFS8rT84GHKkGOhgDC8pG3vPbCh0za/C/jcFnmyVucp+Y32HEPT0T
+	 XqZ2WQj9BnpJOPzooTYilY/1+Hc0u+6YGhW2V0Mtx4S03jbFMml41jpCZBMip1p/FU
+	 3G4C5ZxF2hZ2Q==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA5E317E0FAA;
+	Wed,  1 Jul 2026 14:20:50 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	andi.shyti@kernel.org,
+	djakov@kernel.org,
+	broonie@kernel.org,
+	jitao.shi@mediatek.com,
+	ck.hu@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH 4/6] soc: mediatek: mtk-mutex: Add new functions to add/remove triggers
+Date: Wed,  1 Jul 2026 14:20:41 +0200
+Message-ID: <20260701122043.19612-5-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: topology: read CPPC FFH feedback counters in
- one operation
-To: Beata Michalska <beata.michalska@arm.com>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
-	<lenb@kernel.org>, <robert.moore@intel.com>, <zhenglifeng1@huawei.com>,
-	<zhanjie9@hisilicon.com>, <sumitg@nvidia.com>, <cuiyunhui@bytedance.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
-	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>, <xuwei5@huawei.com>,
-	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <wangzhi12@huawei.com>
-References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
- <20260410094145.4132082-3-zhangpengjie2@huawei.com>
- <akNxo5HzHARnrCT1@arm.com>
-From: Pengjie Zhang <zhangpengjie2@huawei.com>
-In-Reply-To: <akNxo5HzHARnrCT1@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.121.62]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemr200004.china.huawei.com (7.202.195.241)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132236_234669_1FD0CBB5 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20260701_052054_964929_994AB509 
+X-CRM114-Status: GOOD (  14.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,188 +97,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add new mtk_mutex_add_trigger() and mtk_mutex_remove_trigger() to
+replace, in the near future, their older style equivalents such as
+mtk_mutex_add_comp() and mtk_mutex_remove_comp() for the Display
+Controller related MuteX triggers.
 
-On 6/30/2026 3:34 PM, Beata Michalska wrote:
-> On Fri, Apr 10, 2026 at 05:41:45PM +0800, Pengjie Zhang wrote:
->> arm64 implements CPPC FFH feedback-counter reads using AMU counters.
->> Because those counters must be sampled on the target CPU, reading the
->> delivered and reference counters separately widens the observation window
->> between them.
->>
->> Implement the paired FFH feedback-counter read hook on arm64 and sample
->> both AMU counters together before decoding the requested CPC register
->> values.
->>
->> Also factor the FFH bitfield extraction logic into a helper and reuse
->> it from the existing single-counter FFH read path.
->>
->> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
->> ---
->>   arch/arm64/kernel/topology.c | 75 ++++++++++++++++++++++++++++++++----
->>   1 file changed, 67 insertions(+), 8 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
->> index b32f13358fbb..b90a767b2a1f 100644
->> --- a/arch/arm64/kernel/topology.c
->> +++ b/arch/arm64/kernel/topology.c
->> @@ -50,6 +50,16 @@ struct amu_cntr_sample {
->>   	unsigned long	last_scale_update;
->>   };
->>   
->> +struct amu_ffh_ctrs {
->> +	u64 corecnt;
->> +	u64 constcnt;
->> +};
->> +
->> +enum cpc_ffh_ctr_id {
->> +	CPC_FFH_CTR_CORE  = 0x0,
->> +	CPC_FFH_CTR_CONST = 0x1,
->> +};
->> +
-> Those should probably go under the #ifdef CONFIG_ACPI_CPPC_LIB section.
+The same functions will be used to also replace the Media Data
+Path 3 (MDP3) specific mtk_mutex_write_mod(), unifying the MuteX
+handling across all of the currently supported multimedia-related
+drivers for MediaTek SoCs.
 
-yes
+While at it, this also takes into account the upcoming refactoring
+of mtk_mmsys and mediatek-drm, which are about to migrate to a new
+Component "Type -> Hardware ID" mapping, by adding a new function
+parameter "hw_inst_id" to support that.
 
->>   static DEFINE_PER_CPU_SHARED_ALIGNED(struct amu_cntr_sample, cpu_amu_samples);
->>   
->>   void update_freq_counters_refs(void)
->> @@ -397,7 +407,7 @@ static void cpu_read_constcnt(void *val)
->>   }
->>   
->>   static inline
->> -int counters_read_on_cpu(int cpu, smp_call_func_t func, u64 *val)
->> +int counters_read_on_cpu(int cpu, smp_call_func_t func, void *val)
->>   {
->>   	/*
->>   	 * Abort call on counterless CPU.
->> @@ -447,24 +457,73 @@ bool cpc_ffh_supported(void)
->>   	return true;
->>   }
->>   
->> +static void amu_read_core_const_ctrs(void *val)
->> +{
->> +	struct amu_ffh_ctrs *ctrs = val;
->> +
->> +	cpu_read_constcnt(&ctrs->constcnt);
->> +	cpu_read_corecnt(&ctrs->corecnt);
->> +}
->> +
->> +static u64 cpc_ffh_extract_bits(const struct cpc_reg *reg, u64 val)
->> +{
->> +	val &= GENMASK_ULL(reg->bit_offset + reg->bit_width - 1,
->> +			   reg->bit_offset);
->> +	val >>= reg->bit_offset;
->> +
->> +	return val;
->> +}
->> +
->> +static bool cpc_ffh_ctr_value(const struct cpc_reg *reg,
->> +			      const struct amu_ffh_ctrs *ctrs, u64 *val)
->> +{
->> +	switch ((u64)reg->address) {
->> +	case CPC_FFH_CTR_CORE:
->> +		*val = ctrs->corecnt;
->> +		break;
->> +	case CPC_FFH_CTR_CONST:
->> +		*val = ctrs->constcnt;
->> +		break;
->> +	default:
->> +		return false;
->> +	}
->> +
->> +	*val = cpc_ffh_extract_bits(reg, *val);
->> +	return true;
->> +}
->> +
->> +int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
->> +			 struct cpc_reg *reg2, u64 *val2)
->> +{
->> +	struct amu_ffh_ctrs ctrs;
->> +	int ret;
->> +
->> +	ret = counters_read_on_cpu(cpu, amu_read_core_const_ctrs, &ctrs);
->> +	if (ret)
->> +		return ret;
->> +
->> +	if (!cpc_ffh_ctr_value(reg1, &ctrs, val1) ||
->> +	    !cpc_ffh_ctr_value(reg2, &ctrs, val2))
->> +		return -EOPNOTSUPP;
-> Right, so there might be an issues with that:
-> If you return EOPNOTSUPP here, that would trigger reading the registers again,
-> this time one by one. Is that intentional ?
-> Also counters_read_on_cpu might also return EOPNOTSUPP, in which case trying
-> again to read the counters is pointless.
->
-> I'm not entirely sure I understand the condition itself though.
-> This will fail if either of the requested registers in not really expected.
-> And that should probably be verified upfront ?
->
->
-> ---
-> BR
-> Beata
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/soc/mediatek/mtk-mutex.c       | 60 ++++++++++++++++++++++++++
+ include/linux/soc/mediatek/mtk-mutex.h |  6 +++
+ 2 files changed, 66 insertions(+)
 
-Right. The following code may be more appropriate.
+diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
+index 6ffdcb673ae9..28715b07e668 100644
+--- a/drivers/soc/mediatek/mtk-mutex.c
++++ b/drivers/soc/mediatek/mtk-mutex.c
+@@ -960,6 +960,65 @@ void mtk_mutex_unprepare(struct mtk_mutex *mutex)
+ }
+ EXPORT_SYMBOL_GPL(mtk_mutex_unprepare);
+ 
++static enum mtk_mutex_sof_id mtk_mutex_get_sof_trig(enum mtk_ddp_comp_type type,
++						    unsigned int hw_inst_id)
++{
++	switch (type) {
++	case MTK_DISP_DSI:
++		return MUTEX_SOF_DSI0 + hw_inst_id;
++	case MTK_DISP_DPI:
++		return MUTEX_SOF_DPI0 + hw_inst_id;
++	case MTK_DISP_DP_INTF:
++		return MUTEX_SOF_DP_INTF0 + hw_inst_id;
++	default:
++		break;
++	}
++
++	return DDP_MUTEX_SOF_MAX;
++}
++
++void mtk_mutex_add_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
++			   unsigned int hw_inst_id, unsigned int mtx_trig_id)
++{
++	struct mtk_mutex_ctx *ctx = container_of(mutex, struct mtk_mutex_ctx, mutex[mutex->id]);
++	enum mtk_mutex_sof_id sof_id = mtk_mutex_get_sof_trig(type, hw_inst_id);
++	const u32 offset = DISP_REG_MUTEX_MOD(ctx, mtx_trig_id, mutex->id);
++	u32 val;
++
++	if (sof_id < DDP_MUTEX_SOF_MAX) {
++		const u32 sof_offset = DISP_REG_MUTEX_SOF(ctx->data->mutex_sof_reg, mutex->id);
++
++		writel(ctx->data->mutex_sof[sof_id], ctx->regs + sof_offset);
++		return;
++	}
++
++	val = readl(ctx->regs + offset);
++	writel(val | BIT(mtx_trig_id % 32), ctx->regs + offset);
++}
++EXPORT_SYMBOL_NS_GPL(mtk_mutex_add_trigger, "MTK_MUTEX");
++
++void mtk_mutex_remove_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
++			      unsigned int hw_inst_id, unsigned int mtx_trig_id)
++{
++	struct mtk_mutex_ctx *ctx = container_of(mutex, struct mtk_mutex_ctx, mutex[mutex->id]);
++	enum mtk_mutex_sof_id sof_id = mtk_mutex_get_sof_trig(type, hw_inst_id);
++	const u32 offset = DISP_REG_MUTEX_MOD(ctx, mtx_trig_id, mutex->id);
++	u32 val;
++
++	if (sof_id < DDP_MUTEX_SOF_MAX) {
++		const u32 sof_offset = DISP_REG_MUTEX_SOF(ctx->data->mutex_sof_reg, mutex->id);
++
++		val = readl(ctx->regs + sof_offset);
++		writel(val & ~ctx->data->mutex_sof[sof_id], ctx->regs + sof_offset);
++		return;
++	}
++
++	val = readl(ctx->regs + offset);
++	writel(val & ~BIT(mtx_trig_id % 32), ctx->regs + offset);
++}
++EXPORT_SYMBOL_NS_GPL(mtk_mutex_remove_trigger, "MTK_MUTEX");
++
++/* TODO: Legacy - Scheduled for removal */
+ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
+ 			enum mtk_ddp_comp_id id)
+ {
+@@ -1011,6 +1070,7 @@ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
+ }
+ EXPORT_SYMBOL_GPL(mtk_mutex_add_comp);
+ 
++/* TODO: Legacy - Scheduled for removal */
+ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
+ 			   enum mtk_ddp_comp_id id)
+ {
+diff --git a/include/linux/soc/mediatek/mtk-mutex.h b/include/linux/soc/mediatek/mtk-mutex.h
+index 635218e3ac68..5368206dd62c 100644
+--- a/include/linux/soc/mediatek/mtk-mutex.h
++++ b/include/linux/soc/mediatek/mtk-mutex.h
+@@ -67,16 +67,22 @@ enum mtk_mutex_sof_index {
+ 	MUTEX_SOF_IDX_MAX		/* ALWAYS keep at the end */
+ };
+ 
++enum mtk_ddp_comp_type;
++
+ struct mtk_mutex *mtk_mutex_get(struct device *dev);
+ int mtk_mutex_prepare(struct mtk_mutex *mutex);
+ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
+ 			enum mtk_ddp_comp_id id);
++void mtk_mutex_add_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
++			   unsigned int hw_inst_id, unsigned int mtx_trig_id);
+ void mtk_mutex_enable(struct mtk_mutex *mutex);
+ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex,
+ 			     void *pkt);
+ void mtk_mutex_disable(struct mtk_mutex *mutex);
+ void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
+ 			   enum mtk_ddp_comp_id id);
++void mtk_mutex_remove_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
++			      unsigned int hw_inst_id, unsigned int mtx_trig_id);
+ void mtk_mutex_unprepare(struct mtk_mutex *mutex);
+ void mtk_mutex_put(struct mtk_mutex *mutex);
+ void mtk_mutex_acquire(struct mtk_mutex *mutex);
+-- 
+2.54.0
 
-static bool is_valid_cpc_ffh_reg(const struct cpc_reg *reg)
-{
-     return reg->address == CPC_FFH_CTR_CORE ||
-         reg->address == CPC_FFH_CTR_CONST;
-}
-
-int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
-              struct cpc_reg *reg2, u64 *val2)
-{
-     struct amu_ffh_ctrs ctrs;
-     int ret;
-
-     if (!is_valid_cpc_ffh_reg(reg1) || !is_valid_cpc_ffh_reg(reg2))
-         return -EINVAL;
-
-     ret = counters_read_on_cpu(cpu, amu_read_core_const_ctrs, &ctrs);
-     if (ret)
-         return ret == -EOPNOTSUPP ? -ENODEV : ret;
-
-     cpc_ffh_ctr_value(reg1, &ctrs, val1);
-     cpc_ffh_ctr_value(reg2, &ctrs, val2);
-
-     return 0;
-}
-
-thanks,
-
-    Pengjie
-
->> +
->> +	return 0;
->> +}
->> +
->>   int cpc_read_ffh(int cpu, struct cpc_reg *reg, u64 *val)
->>   {
->>   	int ret = -EOPNOTSUPP;
->>   
->>   	switch ((u64)reg->address) {
->> -	case 0x0:
->> +	case CPC_FFH_CTR_CORE:
->>   		ret = counters_read_on_cpu(cpu, cpu_read_corecnt, val);
->>   		break;
->> -	case 0x1:
->> +	case CPC_FFH_CTR_CONST:
->>   		ret = counters_read_on_cpu(cpu, cpu_read_constcnt, val);
->>   		break;
->>   	}
->>   
->> -	if (!ret) {
->> -		*val &= GENMASK_ULL(reg->bit_offset + reg->bit_width - 1,
->> -				    reg->bit_offset);
->> -		*val >>= reg->bit_offset;
->> -	}
->> +	if (!ret)
->> +		*val = cpc_ffh_extract_bits(reg, *val);
->>   
->>   	return ret;
->>   }
->> -- 
->> 2.33.0
->>
 
