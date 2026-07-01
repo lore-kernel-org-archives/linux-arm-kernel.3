@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2043AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A910CC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:32:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TxdCNTqf6d+Y4shcMaMr3pq1OuzXv0QnwA/NEcqw9rg=; b=e4Veu7s92ohizEejVG3FcnfvRT
-	96b6IURM9HWGypi8N6FNVI1DBIap45l/kLXfg1wnTV198BwKwVh6uIXZdAswZ1RJq0UazhKGfuiQf
-	mut142zNRzpr2q83FehYzlvWtt/kfrE8YK8tgeAQ9+pj8VT55BtDsN7NnJIIvP8S+iVfvP1z6Pm4g
-	914+37kF3SlBhMAYpE/ZpAtjIbp88kvE2HaWdZQzzheJAlENVyG0HoC+IGIGo3lGv6je3Pj2M+XW2
-	aPYaJEYl5Xocdqhe8QSnZ1MYKlsttTggyXUjpeLl6fWJ/2o3i9w8dxawRWxFqxnEZYej2IX7PSOS6
-	33QG7s8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=54H8ja6qkwc+zSll+xVZzhQ87dmwI3XRpSBDJRGLWNs=; b=uILiIUVFP5f1QlT+ulYNuLGNy2
+	R1UIwCewK76zloeWCWnQ5XdpCSsq88o3RpWEJnMPkJodx5S/O4bID4/6NDYLPWpuEc/PwXr5W27Vh
+	HR4kgqzIQPtNB154ciZDaqEPR1ss/fbuRGekZYCtCyeTBUf0W4kTgZ5A3rKkg//lqVTN6qqkUTduX
+	TFWTk/3CJKRzJq1jxEukgrkTSj5JPwimWjX+Ara8u08nUCnHckJuGVIE+Tj93RY/Y68k40p6lk0Ws
+	2TrpjNtExS1DYJJ1u+2pym8Y/wqvhSiUWKxvQpM4EkoG0R2qe6zqcfGXjd/de9fTrRnO9WKdf4zKw
+	NVZ1Zccw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetw5-00000001tIk-0nkq;
-	Wed, 01 Jul 2026 12:21:01 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wev2p-00000002Bfk-0ifn;
+	Wed, 01 Jul 2026 13:32:03 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvv-00000001sid-20h3;
-	Wed, 01 Jul 2026 12:20:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=TxdCNTqf6d+Y4shcMaMr3pq1OuzXv0QnwA/NEcqw9rg=; b=cZGlgNNkrwLxlSu7GO+1nOs8h/
-	Txho9CcOsZEDqi7tTMhfhaqOkCXr46Cy1fCnnAZA9P0SDGjd+zR91be2OnPcXRaKLvoy4Fd8QH/yA
-	vRIz1uT9/CnTYdvSklhJfdqGk7GJLevgK6c81P6m3RjP+SdwnI17PDqdPbM612cyPYdzx0eLnKDuT
-	eTMR9rbpwc/wWM7jtqq0vgO188QzFBi6Bpu4kLx9xSsScMtrC8/LUs7h/7IrT4hoZT75xbTqM5Ath
-	yLmj7qRZBuU8ybcVE86HqBds5TDDO/4tLBObF95poNrBMcgt0TEIYErO/vFioN3D9vgFS0U61jhck
-	co+7+OKw==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvs-00000006akq-0k8a;
-	Wed, 01 Jul 2026 12:20:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908446;
-	bh=m6sJ153mTEtGqqARntkJHomU856d72WMcKy3EMNBfdA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=UdHzJ3oKReCUM8CMjgYobeK2cYD0xqTaw9zVy9oOW3jjlQ8dli3+zy7x6/FrKbNIC
-	 F6DKQVvkx8hl8FMqpY7/7MNEpwFaEVOu+XvIFD13MRWW9hGQ30sRRZf2faShcOZNTP
-	 6uZdv4d2uYiO0PKtTI7QQF58ZuT1hIK1MGl9uqbAPr4h2mFz6FwBjzLtbycO+Xh1Qe
-	 zI2xEsMa1XUDENfAEOWl3tUuFbQr6sczfbOixO6NQ1lJqRZFQcjZNe2TugkBhQw0h3
-	 SEHLwpCkJBG8XMMDbCar3ZE7CT/31SzfVT9rVc9fvOIMmdw6wq2rnVwLvy46dWmMxZ
-	 NoBlTHgqlhLhA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BC1D817E0857;
-	Wed,  1 Jul 2026 14:20:45 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	andi.shyti@kernel.org,
-	djakov@kernel.org,
-	broonie@kernel.org,
-	jitao.shi@mediatek.com,
-	ck.hu@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH 0/6] MediaTek MMSYS/Mute-X new-style part 1
-Date: Wed,  1 Jul 2026 14:20:37 +0200
-Message-ID: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
+	id 1wev2j-00000002Bco-3Kld
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 13:32:01 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-472a14c9965so557020f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 06:31:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1782912714; x=1783517514; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=54H8ja6qkwc+zSll+xVZzhQ87dmwI3XRpSBDJRGLWNs=;
+        b=JK14S8Q0810G40ahOg6hJ/tkRF2JCio4Pjxa8qEy5Acd0yJ78qh0cKy0tj4Ne8W1lb
+         fJ3SvTQj1w8tK4rYwDeKAifPL3M+zmczutd0qAzw4vmEUBCnEoI6SnjIuG38PElx6xMr
+         sYRkgxrCDYla99q1H++BW4iLLE14J6UEcu56sjygfc6s+lu2V+LUZk60ZwmBN66zQ8cP
+         wjxz2eCl7wmqRQ62YeLNYGUMTMGLDxx/vq7C+Ln+Ea9RKYc4Uh1tzZ5i5e396dOktm8i
+         xD0C2gpaMslcdOEdcLjgQGZmJiU6EEx5MHk0ymJS9XdKxAAzKTuYxfkYxi//Js0sroaS
+         jI9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782912714; x=1783517514;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=54H8ja6qkwc+zSll+xVZzhQ87dmwI3XRpSBDJRGLWNs=;
+        b=FSVkFfBd6W/u0/aGpc76xQhddzckhTJDlSGB5u2gxOXSEZjW5wy6g+LdjST8RXri0f
+         ca+023nJsZSZU5mFuonlkRq7nVRsiijdeTsB4tPeJVBWNqfc+6c2y3lEIQkHulWwtf7x
+         PO/quiX0asWnfDElKotG3yI5jFfBoZVWyX8fcBlS4jUOp6ARGYgsUVOGwhOdfaBPvQYh
+         +zIIM0Lb/VDdABIDHhwwQKflIq1zrVC2hweq5M0rlp5Sqm7Mlf+yljlvpXG7aT4Trk5W
+         oP4nH9aIOrlqc6uFrb0/ocmWiz8C4O7dYa7800vIg2I7l/Ex3LYvfjhksRhYInskUu5o
+         5dww==
+X-Forwarded-Encrypted: i=1; AHgh+RpuaQMZ0sSiJ1QAagrZJ8qfJn+sO3jlIoB8YtErw6cKTnEz2omzgedqHANXmMj7zw/jau5wpLpwwUS0rY7wiJOl@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTh05ika9erednOaI7U+0LgUfLWLU0a9Y7kMuLu6goSxsGoOQT
+	xDS0hUN8duGqDhHVYvG3qegnqmUPYCPH/O/McLQ8OWxqLZBgnzNpp/iOeIRKZcX0xQ==
+X-Gm-Gg: AfdE7cnVZeb5owllfPESUYFqzHsY4v/BmQZ+I0F1c6X53mhnUVGrs4Jimd2/AXaENmK
+	oHJcmMbSb52oRNkxhd41A+d4WWArMzT/3iI8Dvq6lBOv/ts/FfjZhAzF2gI53ek+u+Bl/XfoarE
+	3PgzavdoPzY3KJAOLjDJ4CVp02GoPkqcfITed/ZUDDzNNt3YzArPjvVn2cXquRat9QPRAj0B6iY
+	9YFJUJtfTDLNUQCCMuRXo3tm8FpnBxeymB8TlCAe+3CxyS2jJa8rYCq2c4ziO34H8yNQEiCN6Sn
+	ERLsAZatV+fljkszMNqFcHxKg74fROShvtNb0wW9PX7/fq5BUXFgp7xzxtVx+43FrvdJK3V3nz+
+	XwESwM+tbGEXq44hogKYcOhiRkWAZhe1868g0aOn8Akwbup5eIhZ5zDVndIekQ5gqbt2Nb3dwvK
+	dyQf5u98n5Pa63B/NFrFNiHWCUQvO8SLOQQ3Q6vCaubWJF2reeG0dIjulALSXLKA==
+X-Received: by 2002:a05:6000:29db:b0:475:f0c2:5b02 with SMTP id ffacd0b85a97d-4775b45b05emr2137424f8f.56.1782912713855;
+        Wed, 01 Jul 2026 06:31:53 -0700 (PDT)
+Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-475641e4542sm18270184f8f.10.2026.07.01.06.31.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 06:31:52 -0700 (PDT)
+Date: Wed, 1 Jul 2026 14:31:49 +0100
+From: Vincent Donnefort <vdonnefort@google.com>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] KVM: arm64: skip pKVM cache flushes for non
+ cacheable mappings
+Message-ID: <akUWxY_irosuTF4L@google.com>
+References: <20260624160028.15591-1-include@grrlz.net>
+ <20260624160028.15591-2-include@grrlz.net>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260624160028.15591-2-include@grrlz.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132048_442871_30746AA1 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20260701_063157_862803_02177784 
+X-CRM114-Status: GOOD (  26.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,106 +108,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series part 1 of a huge restructuring of the entire multimedia
-part of MediaTek SoCs, especially mediatek-drm, and contains only a
-set of changes that don't require any simultaneous updates in the
-mediatek-drm driver.
+On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
+> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+> uses that list directly, so it lost the PTE attribute check done by the
+> generic stage 2 walker.
+> 
+> Record whether a mapping is cacheable and skip cache maintenance for
+> mappings that are not cacheable.
+> 
+> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> ---
+>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
+>  1 file changed, 41 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 428723b1b0f5..ca6e823028c2 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
+>  	return m->gfn * PAGE_SIZE;
+>  }
+>  
+> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
+> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
 
-This adds support for correctly advertising the MediaTek Mute-X IP
-as a source of trigger signals (because that's what it is), hence
-for adding #trigger-source-cells in the Mute-X devicetree node and
-for specifying a Mute-X trigger-source in all of the MTK Display
-Controller components supporting or requiring one, as previously
-it was kind of hacked up as a static array in the Mute-X driver,
-for both MDP and DISP components, which is, well, depending on the
-point of view, actually wrong.
+Probably better to make it "_NC". Protected VMs only support cacheable and they
+also use struct pkvm_mapping. 
 
-Moreover, this goes on with the first part for a rework of MediaTek
-MMSYS, which is a requirement for the upcoming huge restructuring
-of the mediatek-drm driver; this starts adding boilerplate required
-for setting up MMSYS entries with decoupling of "component type" to
-"component instance number".
+> +
+> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
+> +{
+> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> +}
+> +
+> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
+> +{
+> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
+> +}
+> +
+> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64 nr_pages,
+> +				      bool cacheable)
+> +{
+> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
+> +
+> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> +	if (cacheable)
+> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
+> +}
+> +
+>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
+>  {
+> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
+> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
+>  }
 
-As of now, all of the components in MediaTek DRM, hence also in the
-MMSYS driver, are thrown in a catch-all enumeration that does not
-make any distinction between Type-Instance relationship, and it is
-like so (mock-up names ahead):
+Perhaps using a bitfield would heavily simplify this code?
 
-DISPLAY_DITHER0
-DISPLAY_DITHER1
-DISPLAY_DSI0
-DISPLAY_DSI1
+struct pkvm_mapping {
+  ...
+  u64 nr_pages : 63
+  u64 flags : 1
+}
 
-... and so on.
+Or alternatively, could just make nr_pages u32 and flags u32. nr_pages will not
+exceed PMD_SIZE / PAGE_SIZE, which is at worst 8192 on 64K systems.
 
-Since the number of components is now becoming uncontrollably large,
-the catch-all enumeration poses a big issue as the mediatek-drm driver
-is allocating a huge array that will be only half full (optimistically,
-because usually it's way less than half full) and with repeated ops
-assignment for each and every instance of the very same Sub-IP,
-effectively treating every instance of a Sub-IP like it is completely
-different from one another (for example, like DSI0 and DSI1 are as
-different as DITHER0 and DSI1).
-
-This has to change. It had to change months ago, but now it has become
-not only a maintenance burden, but also a... (sorry) big mess.
-
-And well, that... especially looking forward to add support for newer
-SoCs, using even more components in one pipeline, and using different
-and newer components (of new types...), making the catch-all enum to
-grow of another ~20 entries or more.
-
-So, this is PART 1 of this huge restructuring, which will impact many
-drivers, including soc/mediatek's mutex and mmsys, most of drm/mediatek
-and, in the future, also media/mediatek/mtk-mdp3 (and eventually its
-firmwareless implementation which, for components handling, will be
-as complicated as mediatek-drm and, without this restructuring, would
-be yet another boulder).
-
-AngeloGioacchino Del Regno (6):
-  dt-bindings: soc: mediatek: mutex: Improve title and description
-  dt-bindings: soc: mediatek: mutex: Allow #trigger-source-cells
-  dt-bindings: display: mediatek: Allow trigger-sources on relevant HW
-  soc: mediatek: mtk-mutex: Add new functions to add/remove triggers
-  soc: mediatek: mtk-mmsys: Rework routes to specify component ID
-  soc: mediatek: mtk-mmsys: Use MMSYS_ROUTE() in default routing table
-
- .../display/mediatek/mediatek,aal.yaml        |   3 +
- .../display/mediatek/mediatek,ccorr.yaml      |   3 +
- .../display/mediatek/mediatek,color.yaml      |   3 +
- .../display/mediatek/mediatek,dither.yaml     |   3 +
- .../display/mediatek/mediatek,dp.yaml         |   3 +
- .../display/mediatek/mediatek,dpi.yaml        |   3 +
- .../display/mediatek/mediatek,dsc.yaml        |   3 +
- .../display/mediatek/mediatek,dsi.yaml        |   3 +
- .../display/mediatek/mediatek,ethdr.yaml      |   3 +
- .../display/mediatek/mediatek,gamma.yaml      |   3 +
- .../display/mediatek/mediatek,merge.yaml      |   3 +
- .../display/mediatek/mediatek,od.yaml         |   3 +
- .../display/mediatek/mediatek,ovl-2l.yaml     |   3 +
- .../display/mediatek/mediatek,ovl.yaml        |   3 +
- .../display/mediatek/mediatek,padding.yaml    |   3 +
- .../display/mediatek/mediatek,postmask.yaml   |   3 +
- .../display/mediatek/mediatek,rdma.yaml       |   3 +
- .../display/mediatek/mediatek,split.yaml      |   3 +
- .../display/mediatek/mediatek,ufoe.yaml       |   3 +
- .../display/mediatek/mediatek,wdma.yaml       |   3 +
- .../bindings/soc/mediatek/mediatek,mutex.yaml |  21 +-
- drivers/soc/mediatek/mt6893-mmsys.h           |  34 +-
- drivers/soc/mediatek/mt8167-mmsys.h           |  21 +-
- drivers/soc/mediatek/mt8173-mmsys.h           |  28 +-
- drivers/soc/mediatek/mt8183-mmsys.h           |  14 +-
- drivers/soc/mediatek/mt8186-mmsys.h           |  22 +-
- drivers/soc/mediatek/mt8188-mmsys.h           |  78 ++---
- drivers/soc/mediatek/mt8192-mmsys.h           |  20 +-
- drivers/soc/mediatek/mt8195-mmsys.h           | 181 +++++------
- drivers/soc/mediatek/mt8365-mmsys.h           |  20 +-
- drivers/soc/mediatek/mtk-mmsys.h              | 299 ++++++++----------
- drivers/soc/mediatek/mtk-mutex.c              |  60 ++++
- include/linux/soc/mediatek/mtk-mutex.h        |   6 +
- 33 files changed, 474 insertions(+), 390 deletions(-)
-
--- 
-2.54.0
-
+>  
+>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
+> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
+>  			continue;
+>  
+>  		page = pfn_to_page(mapping->pfn);
+> -		WARN_ON_ONCE(mapping->nr_pages != 1);
+> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
+>  		unpin_user_pages_dirty_lock(&page, 1, true);
+>  		account_locked_vm(kvm->mm, 1, false);
+>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
+>  
+>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+> -					mapping->nr_pages);
+> +					pkvm_mapping_nr_pages(mapping));
+>  		if (WARN_ON(ret))
+>  			return ret;
+>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  		 * permission faults are handled in the relax_perms() path.
+>  		 */
+>  		if (mapping) {
+> -			if (size == (mapping->nr_pages * PAGE_SIZE))
+> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
+>  				return -EAGAIN;
+>  
+>  			/*
+> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  	swap(mapping, cache->mapping);
+>  	mapping->gfn = gfn;
+>  	mapping->pfn = pfn;
+> -	mapping->nr_pages = size / PAGE_SIZE;
+> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
+> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
+> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
+>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+>  
+>  	return ret;
+> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	lockdep_assert_held(&kvm->mmu_lock);
+>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+> -					mapping->nr_pages);
+> +					pkvm_mapping_nr_pages(mapping));
+>  		if (WARN_ON(ret))
+>  			break;
+>  	}
+> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	struct pkvm_mapping *mapping;
+>  
+>  	lockdep_assert_held(&kvm->mmu_lock);
+> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+> +		if (!pkvm_mapping_is_cacheable(mapping))
+> +			continue;
+> +
+>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+> -					  PAGE_SIZE * mapping->nr_pages);
+> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
+>  
+>  	lockdep_assert_held(&kvm->mmu_lock);
+>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+> -					   mapping->nr_pages, mkold);
+> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
+> +					   handle, mapping->gfn,
+> +					   pkvm_mapping_nr_pages(mapping),
+> +					   mkold);
+>  
+>  	return young;
+>  }
+> -- 
+> 2.53.0
+> 
 
