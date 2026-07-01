@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021B2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:00:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FDDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qsT7JqqZ198yjPzV9FmstL+QoXATo9JfcrAOb77a4SA=; b=UlNuYvtMgIu5gu82r0V7jDiU2f
-	g9Ft609hvn4PR2AUc70AaN/WxgDWtDFiU/O9feMayfR8nRpwqlNpAoa54rqCi2R2dlPF56NkUnJg7
-	AZrE+vL1YOw5lF59qb1g8i9SKUz9Jx4wTCwdU2WVaJ2x2FAiGaqG+0Biy0TGprp7p2UJNUs25ebqY
-	cKpBnqOXSf791UCJndYHHH/fBOeD5c5gq7Jd59b2eA+7npvD+3IYDIILb3iR3PfZnb5vGeXFbxjo4
-	+xWUsoMSdvYSwcwOU6F+RAYMRPBnQlp5Hq4KMEIxYIeDapmOpFX8bjiQF2rLALnrrnJ14ssRKF+ym
-	G8LQPWsg==;
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QR9RBoB1Xmuk4gv9Ndt2VcbKJ9ZdwkH84K6Kq+4ROVI=; b=eeqKtfbCDGkANGw2itRrD1OOQf
+	Nz2DT8YUAdHx532wiqg/ZMbrb0H8ZENg1ugVvOiZ6hQIM4LQB2MdUXpOnFaTGqknYJNBKyeAwcf/j
+	GVXA7KQIzBwx8GeajDqrbupDEJKp5lLHlOVTutOvUHF6nTwAk+WaAOvuqtOK3XXMuWuIxL+2b+4zt
+	/hHJwDyYllVgch5dwuDuArxdNmb8vL8lynXmk3Q5GRzqsrWa+26xB/xsJtdiwI2EJ8yipXBRSgZbd
+	+M5hjQAvJbGcc53h/I63Ub0LJLf+2S+hdHr/UOT8Xd/naaIfA8vO1E+FouvAbUWMLleR4mEsYwOTB
+	R/N1Hd+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoF7-00000000mZZ-35Ou;
-	Wed, 01 Jul 2026 06:16:17 +0000
-Received: from relay.yourmailgateway.de ([188.68.61.103])
+	id 1weoxN-00000000r3N-0ORW;
+	Wed, 01 Jul 2026 07:02:01 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.47])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoF4-00000000mYy-3a97;
-	Wed, 01 Jul 2026 06:16:16 +0000
-Received: from mors-relay-8403.netcup.net (localhost [127.0.0.1])
-	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gqqXC5GYNz8F0Z;
-	Wed,  1 Jul 2026 08:16:11 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1782886571;
-	bh=rp90KJFs22SyjGf2Hk3J7Q7l91PBQxjIILxn6RvvY+M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=g4zUQNpfJa61aEi2tVmdwfjBlUEOaHTBD6TeHnpae3Gauuf3u499YLSwlxzx607z5
-	 fxczv1T92tXpFjMgoZtRFJ/ik7KovZRl69bmFf0VQjxI+PV9EBEWruVWkc8N39LkwM
-	 YA+G4JVW8J9reLpC8yKaWc9D0ZrLMwmOybv8i+mpqz+hvFGFz/H4oIIKqvnWogy4Lc
-	 LCmwFml4B2ny64ZREkUfyKU3SYMFCytAdHYuFEQW9evW4cBMRBT6eFHZ9jV1LeXFq2
-	 slmwUl9P2YWY4PbcSqGwYsLJCKFqEnE35SNCr1YgSOoM9QnXIKxAx7VhEUB9K9tAVT
-	 7PL3R6rd9+fNQ==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gqqXC4Y7Pz8F0W;
-	Wed,  1 Jul 2026 08:16:11 +0200 (CEST)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4gqqXB0S2bz8sb0;
-	Wed,  1 Jul 2026 08:16:10 +0200 (CEST)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 79E145F961;
-	Wed,  1 Jul 2026 08:16:08 +0200 (CEST)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <dc7657b2-e3d5-4777-af52-1169fe743761@leemhuis.info>
-Date: Wed, 1 Jul 2026 08:16:07 +0200
+	id 1weoxI-00000000r2O-3nYt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 07:02:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1782889313; bh=QR9RBoB1Xmuk4gv9Ndt2VcbKJ9ZdwkH84K6Kq+4ROVI=;
+	h=From:To:Cc:Subject:Date;
+	b=FxeBYoB6puju4Hin+GuVVFvY0evwWhdzBR3P/8SBqH/gxVmwmgcia7CXogCppqSi9
+	 4KjUue0uxR+TXGl7ZFGShRAX2lKJQG4RRSnKYrHkiISO7b3tY4+3a0DhJEm5DXCaio
+	 aW4PMbsRBhBUqfq9/ojnUAuJxybx60Mp/esYVKxQ=
+Received: from localhost.localdomain ([2409:8d20:2a:1b57:9e54:40ff:fe02:3f0f])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id 71832C3; Wed, 01 Jul 2026 15:01:49 +0800
+X-QQ-mid: xmsmtpt1782889309t62leqei9
+Message-ID: <tencent_1A4614039A100DFD8A9AE2692865FE126009@qq.com>
+X-QQ-XMAILINFO: MQAOa38Yz/8/h5mNRBixUf9sGBvjbDPTpGQYlPe1/W7Je2YVdByg9DNAmYCwnu
+	 z1/Zxh4RpOppC3m6mSnmBWZc5sgV5oqdxMUxPWGscfEQ9nWr3S4nvGUI/24nXv0hzAJ/531B9K36
+	 roUixxW5N3vrXCTqW9TW9rJcH2kHkw8gGJBS03gtvLir0ls9hs0J/mL4GJaaAw92TqLYW1OYXX3Y
+	 IG3DMEhfjE/vikZrt6sxYSDKQVZ1I2aVKsgKZgePGAdhdUWP9/7A4UgiiEA4k8dJWKPmuRx3Ce+J
+	 V+1vH4tlPCcVMuJ1uuXOC75eMduywjiZ9nYvu6hXorjieuM+5p7jrhkEP7bIW62yx4jX30ROQkbG
+	 RlNqz9OFSbpaiVenuZEVaumQwB+L0SjhIiu7Mi+4Q8IRh4LHg0w/sSv+rADFVQi5Xp3ZG6My0gJE
+	 1TSd14IW/YQgnDqtwweogZWZNssn1LSzHofdhC6ZqRz3Y/9foxitDdJNxayK5yRe4pRxPfhA/lAE
+	 +rg70fBZcBIIlKX76DfekzDNZVN+wyQV56t3JrfRuoQQGjynJqmCnhlguDScea/eqmEzW7ki0n40
+	 OBdGTsZCAmVHIahs9pP5Yegx9xs54xY/oPF4YTzhTdYgc8s8uoYfTAWHtUpXqZKzvUMGFfwjCjLv
+	 NCI3RrU4obRgkZGqp57FVB6Vbp6UbmQpR7KQCVntf5PQgvEhA0DW5RTyfcMdv5BPAhhT59fR81oJ
+	 snOCZPlvw1dF38VRZ1/YyJBgBXMpC+pta5I3yBtYpuYeJjH+WWBv1juRNAGsb7AXVV7W1BnJ20zh
+	 Ws2GbDnx+dUzu+8My8RkkH9cZEdM/jXsmhUofoqO16AUf0xXLCZCr2isoJTfLALYeR5aWYyGqjU0
+	 xRC7J9FRtapIgEAwfY+XzyPYVZPzc5NSCYEBGO2TM0Z3siwt+s3hrVFwAydsQsd598WeclGD0E2h
+	 VVj5D3OEa4AKo+PUXD27ZM6daxN0kzD+iqb6+pO4BRCy9TQ2RF14VKZUh1bxSlP9lzdxG/W2xUkm
+	 AuPA31ZcCycKTHttoYgvyoB+Abtsj66Z+zOpDm7KO/5Oiiy/7cxIlB9pClCEG+QDML8aUpeEaPht
+	 HGMt4b
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+From: 1579567540@qq.com
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	linux-can@vger.kernel.org
+Cc: Vincent Mailhol <mailhol@kernel.org>,
+	kernel@pengutronix.de,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	luch00 <1579567540@qq.com>
+Subject: [PATCH 0/3] can: rockchip: add RK3588 CAN-FD support
+Date: Wed,  1 Jul 2026 15:01:25 +0800
+X-OQ-MSGID: <20260701070128.2096267-1-1579567540@qq.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] wifi: mt76: add wcid publish check in mt76_sta_add
-To: "stable@vger.kernel.org" <stable@vger.kernel.org>,
- Greg KH <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Jiajia Liu <liujiajia@kylinos.cn>, Ryder Lee <ryder.lee@mediatek.com>,
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Leon Yen
- <leon.yen@mediatek.com>, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org,
- Linux kernel regressions list <regressions@lists.linux.dev>
-References: <20260528033814.46418-1-liujiajia@kylinos.cn>
- <b143b62e-ca11-4f00-ad60-f71ae55213b9@leemhuis.info>
- <akSoHk-BozrpWPmZ@nature>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <akSoHk-BozrpWPmZ@nature>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-PPP-Message-ID: <178288656922.3967521.14789663261680188235@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 79E145F961
-X-NC-CID: l2BgsPYJ/4KD2mWJhuqWjAbXGGXHzUV2LTla55HtmwPtd8pnV9s=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_231615_357399_2E5FF0F5 
-X-CRM114-Status: GOOD (  18.30  )
+X-CRM114-CacheID: sfid-20260701_000157_265266_9F799216 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +92,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 07:39, Jiajia Liu wrote:
-> On Tue, Jun 30, 2026 at 01:29:51PM +0200, Thorsten Leemhuis wrote:
->> On 5/28/26 05:38, Jiajia Liu wrote:
->>> Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_add
->>> to avoid reinitializing the wcid->poll_list.
->>>
->>> Found dev->sta_poll_list corruption when using mt7925 and 7.1-rc4.
->>
->> Jiajia Liu, Felox:
+From: luch00 <1579567540@qq.com>
 
-BTW: @Felix, sorry for the typo!
+Add initial support for the RK3588v2 CAN-FD controller.
 
->> given that the problem seems to be in 7.1, should we
->> ask the stable team to pick this regression fix up, as this change was
->> mainlined (as 20b126920a259d ("wifi: mt76: add wcid publish check in
->> mt76_sta_add") [v7.2-rc1]), but lacks both a Fixes and a Stable tag?
-> 
-> Yes. It seems to be related to cbf5e61da660 ("wifi: mt76: initialize
-> more wcid fields mt76_wcid_init") [v6.14-rc1]. But I didn't reproduce
-> when I checked it out and tested. So Fixes was not added.
+RK3588 integrates three CAN-FD controllers that are closely related to
+the existing Rockchip CAN-FD IP already supported in the kernel, but
+they cannot reuse the rk3568v2 description unchanged.
 
-In that case:
+This series therefore:
 
-@Stable team, you you please pick up 20b126920a259d ("wifi: mt76: add
-wcid publish check in mt76_sta_add") [v7.2-rc1] for 7.1? It lacks a
-fixes tag and the problem might be older, but I saw two reports about
-this with 7.1-rc -- so it seems some recent change made that problem
-more likely to occur, so it might be good to fix it at least in 7.1.y.
+- extends the existing Rockchip CAN-FD binding with the
+  rockchip,rk3588v2-canfd compatible
+- adds a dedicated RK3588v2 match entry and devtype in the driver
+- describes the three CAN-FD controller nodes in rk3588-base.dtsi
 
-Ciao, Thorsten
+The dedicated driver data is needed because RK3588v2 encodes
+RX_FIFO_CNT in bits 7:5 instead of 6:4. Runtime validation on RK3588v2
+also showed that its observed errata profile differs from rk3568v2 and
+rk3568v3, so using a fallback compatible would be misleading.
 
->>> According to the corruption information, prev->next was changed to itself.
->>>
->>> wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8b:e2
->>> wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=84:9e:56:9c:7e:6b)
->>> wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
->>>  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
->>> list_add corruption. prev->next should be next (ffff8c808a7488f8), but was ffff8c80958a7040. (prev=ffff8c80958a7040).
->>>
->>>  mt76_wcid_add_poll+0x95/0xd0 [mt76]
->>>  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
->>>  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
->>>  mt76_dma_rx_poll+0x50d/0x790 [mt76]
->>>  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
->>>
->>> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
->>> ---
->>>
->>> Changes in v2:
->>>   - use dev->wcid table instead of adding MT_WCID_FLAG_DRV_PUBLSH for
->>>     wcid publish check suggested by Sean
->>>   - subject and commit message update
->>>
->>> ---
->>>  drivers/net/wireless/mediatek/mt76/mac80211.c | 15 ++++++++++++---
->>>  1 file changed, 12 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
->>> index 4ae5e4715a9c..b78b4cd206e0 100644
->>> --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
->>> +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
->>> @@ -1576,6 +1576,7 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
->>>  {
->>>  	struct mt76_wcid *wcid = (struct mt76_wcid *)sta->drv_priv;
->>>  	struct mt76_dev *dev = phy->dev;
->>> +	struct mt76_wcid *published;
->>>  	int ret;
->>>  	int i;
->>>  
->>> @@ -1595,11 +1596,19 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
->>>  		mtxq->wcid = wcid->idx;
->>>  	}
->>>  
->>> -	ewma_signal_init(&wcid->rssi);
->>> -	rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
->>> +	published = rcu_dereference_protected(dev->wcid[wcid->idx],
->>> +					      lockdep_is_held(&dev->mutex));
->>> +	if (published != wcid) {
->>> +		WARN_ON_ONCE(published);
->>> +		ewma_signal_init(&wcid->rssi);
->>> +		rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
->>> +		mt76_wcid_init(wcid, phy->band_idx);
->>> +	} else {
->>> +		wcid->phy_idx = phy->band_idx;
->>> +	}
->>> +
->>>  	phy->num_sta++;
->>>  
->>> -	mt76_wcid_init(wcid, phy->band_idx);
->>>  out:
->>>  	mutex_unlock(&dev->mutex);
->>>
+Tested on an embedfire,rk3588-lubancat-5io board with can0/can1
+directly connected. Runtime testing used a 198 MHz CAN clock, nominal
+bitrate 500 kbit/s, data bitrate 1 Mbit/s, and included stress and
+error-path coverage for the existing Rockchip errata handling.
+
+luch00 (3):
+  dt-bindings: can: rockchip: add rk3588v2 CAN-FD compatible
+  can: rockchip: add RK3588 CAN-FD support
+  arm64: dts: rockchip: add CAN-FD nodes for RK3588
+
+ .../net/can/rockchip,rk3568v2-canfd.yaml      |  1 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 39 +++++++++++++++++++
+ .../net/can/rockchip/rockchip_canfd-core.c    | 14 +++++++
+ drivers/net/can/rockchip/rockchip_canfd-rx.c  |  5 ++-
+ drivers/net/can/rockchip/rockchip_canfd.h     | 12 +++++-
+ 5 files changed, 69 insertions(+), 2 deletions(-)
+
+-- 
+2.34.1
 
 
