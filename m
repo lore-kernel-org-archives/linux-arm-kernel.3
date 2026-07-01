@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60ADC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E46C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:30:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hiKmqO0wNrjJu7zzb5rGyi5QeG0KP1hAbxpV1oyAAlE=; b=CW10nEDa1Y2CBJk/i8+AWKm7l9
-	+zLt7VzMpPOEZxJohmTY3bs/aStQyVv8W7tNfmY4FCiQv14/UajB5fsHB817r0P63ukCVnhXgmKcP
-	8iT/9Ehcq2Kb0JKszgNUTSV2X7zPMnfbxm64JDJHByATPZnI2tGQbZgzbmkMur+TPnfSMDypiuJWw
-	fjYL3ajEiGsVc9AFVhLYVjNIuRQ3sopnDJfo8quATRiZsoLCJa2Tgiy3Sk4gDCPfVJJy9wJL3dpXi
-	QokpANqstwqBdYPJY0EBqVnFm9gFKKljf2FP5i36jnu0IRXLkEGA23ZFvVu3mRtdaf2MO6EJBP2zD
-	lle5NI2g==;
+	bh=bArU32dZH6f5UF8IuQnAtSTa5QhA69SwqVteecUtE6o=; b=1V+e6Zo2BW/Q/knfw5ReecKiTp
+	B9PkToHhTTOLcPt0YppMlrzmnSIgtCvmjjVbK31uPSyntc0B+X1oEtMu1INalOMDF55LRktxLN5uF
+	CoMAUgGQ5IAaTg1nvrN1ZvcwM/c0SEuz48PNfXiqi0F3X1NJr0fcDIA7ZckStvnamdyJ8p/Q69QiJ
+	4JQwRkget8FM3L83rNNeWQPxGjfKxq4kPkw66KOuSP2dqtoas/CrjnJDNLUwvE2le0/EAWiBNYCnG
+	s2RbxOLPbsDEEr1YeHenJR8eSQ5Lruax9qDMRKN4XgcSMD/sCV3NhuKoNArP51NSk5uTqpIOpTaFy
+	xumEIvhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4H7-000000038xE-14Fl;
-	Wed, 01 Jul 2026 23:23:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wf4Nb-000000039Pm-49w9;
+	Wed, 01 Jul 2026 23:30:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4H5-000000038x5-3gB1
+	id 1wf4Na-000000039PY-2LtR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 23:23:23 +0000
+	Wed, 01 Jul 2026 23:30:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BE1343241;
-	Wed,  1 Jul 2026 23:23:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 076651F000E9;
-	Wed,  1 Jul 2026 23:23:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A38A06001D;
+	Wed,  1 Jul 2026 23:30:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32D4C1F000E9;
+	Wed,  1 Jul 2026 23:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782948203;
-	bh=hiKmqO0wNrjJu7zzb5rGyi5QeG0KP1hAbxpV1oyAAlE=;
+	s=k20260515; t=1782948605;
+	bh=bArU32dZH6f5UF8IuQnAtSTa5QhA69SwqVteecUtE6o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aYWMuWjTlBwaME+x1eFSgn+qz2xUyBupMvSmK+RxOlCo3VhCvVTCNWw7Pbhta2G6S
-	 vhnTm9ONyh2F7530Zd9GZFgrHkTBNbUCSJGVfe3bgnOTyXL746UtovbEKzL8cp8YBl
-	 DNp8gCYtzVL2yrbTy0lFZFUUlzncCkOK9l2wTKQvXOUaEK8Qc7bXze/znzBF/y/0Hy
-	 akIizP07KoORUuOhhkQJ6gfRSon37f7Q7oAJdHu0F7xuAFQajfGpzVXsbaxyWt0sTU
-	 v3GnLxXouW6CcrzBBZ2YUnGAWiBNO8XJYP3y/qWbFwsy1PN1U2ugbp7URnBPcGdnEv
-	 Hw9JJ4NdkGRZg==
-Date: Wed, 1 Jul 2026 16:23:21 -0700
+	b=eBEnYSsCxJdg72eWOKTR5Rv0bJWUTRCZU9fOfcmDJxaSt+7zbmJ2FNXB8eR8dt1KS
+	 iZL4lw4FbGX/6pTZRtNO9mfjU3tmDP5DP/G0EuRPuPLqdZ2dxDjZzNckB0Hqi7po2L
+	 7kHtHs/lYGymzDEbci+Alz3QtLPrmL9QNdiMOOU8LKaMW/2bqjmoTYJaNbP9bsII9h
+	 d0ZALwM40qqeANKijTiJoDE0miHVC9cHQ+T2SE7yMxDC4X3/OkP9HWA06AJ18flJJV
+	 4SSxqvJgEb3xCpFy9Q7dUzbdsJhP5R1MNcoHEvvLN7P9QYcBjCNl3pPBX0RtsyQEv0
+	 3AxOE+Cl+dR1A==
+Date: Wed, 1 Jul 2026 16:30:04 -0700
 From: Oliver Upton <oupton@kernel.org>
 To: Colton Lewis <coltonlewis@google.com>
 Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
@@ -54,13 +54,15 @@ Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
 	Mingwei Zhang <mizhang@google.com>,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
-Message-ID: <akWhad3U5VNjWzxu@kernel.org>
+Subject: Re: [PATCH 2/5] arm64: Treat HCR_EL2.E2H as RES1 when
+ ID_AA64MMFR4_EL1.E2H0 is negative
+Message-ID: <akWi_E_tQPzhlfc-@kernel.org>
 References: <20260701204342.2654385-1-coltonlewis@google.com>
+ <20260701204342.2654385-3-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260701204342.2654385-1-coltonlewis@google.com>
+In-Reply-To: <20260701204342.2654385-3-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,53 +77,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The subject prefix should be "[PATCH 6.6 0/5]" so people know right up
-front where this is going.
+On Wed, Jul 01, 2026 at 08:43:39PM +0000, Colton Lewis wrote:
+> From: Marc Zyngier <maz@kernel.org>
+> 
+> [ Upstream commit 3944382fa6f22b54bc3624c9657b98ec34b5ba59 ]
 
-On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
-> This series backports VHE CPU boot fixes to the 6.6.y stable branch.
-> 
-> These fixes are already present in the 6.12.y stable branch (and
-> newer), but are missing in 6.6.y. They are required to enable booting
-> L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
+What is this? I have the commit in question as
 
-It's a bit worse than this. The architecture retroactively made
-FEAT_E2H0 an optional feature, there are now implementations in the wild
-that do not support the feature.
+3944382fa6f22b54fd399632b1af92c28123979b
 
-> Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
-> incorrectly configured (because it misses VHE-only detection or early
-> initialization), causing early boot hangs/trap loops.
+> For CPUs that have ID_AA64MMFR4_EL1.E2H0 as negative, it is important
+> to avoid the boot path that sets HCR_EL2.E2H=0. Fortunately, we
+> already have this path to cope with fruity CPUs.
 > 
-> Conflict resolutions:
-> - Patch 4 (KVM: arm64: Initialize HCR_EL2.E2H early) had conflicts in
->   arch/arm64/kvm/hyp/nvhe/hyp-init.S due to differences in state
->   initialization. Resolved by extracting EL2 state initialization into
->   __kvm_init_el2_state.
-> - Patch 5 (arm64: Revamp HCR_EL2.E2H RES1 detection) had conflicts in
->   arch/arm64/include/asm/el2_setup.h. Resolved by using raw msr hcr_el2
->   instead of the missing msr_hcr_el2 macro.
+> Tweak init_el2 to look at ID_AA64MMFR4_EL1.E2H0 first.
 > 
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+> Link: https://lore.kernel.org/r/20240122181344.258974-8-maz@kernel.org
+> Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+> ---
+>  arch/arm64/kernel/head.S | 23 +++++++++++++++--------
+>  1 file changed, 15 insertions(+), 8 deletions(-)
 > 
-> Marc Zyngier (4):
->   arm64: sysreg: Add layout for ID_AA64MMFR4_EL1
->   arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is
->     negative
->   arm64: Fix early handling of FEAT_E2H0 not being implemented
->   arm64: Revamp HCR_EL2.E2H RES1 detection
-> 
-> Mark Rutland (1):
->   KVM: arm64: Initialize HCR_EL2.E2H early
-> 
->  arch/arm64/include/asm/el2_setup.h | 52 ++++++++++++++++++++++++++++++
->  arch/arm64/kernel/head.S           | 17 +++-------
->  arch/arm64/kvm/hyp/nvhe/hyp-init.S | 16 +++++++--
->  arch/arm64/tools/sysreg            | 37 +++++++++++++++++++++
->  4 files changed, 107 insertions(+), 15 deletions(-)
-> 
-> 
-> base-commit: d1cfde2d5d15be14123bdd1689162bd27f995a90
-> --
+> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+> index 6517bf2644a08..e32c8dd0b17a7 100644
+> --- a/arch/arm64/kernel/head.S
+> +++ b/arch/arm64/kernel/head.S
+> @@ -589,25 +589,32 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+>  	mov_q	x1, INIT_SCTLR_EL1_MMU_OFF
+>  
+>  	/*
+> -	 * Fruity CPUs seem to have HCR_EL2.E2H set to RES1,
+> -	 * making it impossible to start in nVHE mode. Is that
+> -	 * compliant with the architecture? Absolutely not!
+> +	 * Compliant CPUs advertise their VHE-onlyness with
+> +	 * ID_AA64MMFR4_EL1.E2H0 < 0. HCR_EL2.E2H can be
+> +	 * RES1 in that case.
+> +	 *
+> +	 * Fruity CPUs seem to have HCR_EL2.E2H set to RES1, but
+> +	 * don't advertise it (they predate this relaxation).
+>  	 */
+> +	mrs_s	x0, SYS_ID_AA64MMFR4_EL1
+> +	ubfx	x0, x0, #ID_AA64MMFR4_EL1_E2H0_SHIFT, #ID_AA64MMFR4_EL1_E2H0_WIDTH
+> +	tbnz	x0, #(ID_AA64MMFR4_EL1_E2H0_SHIFT + ID_AA64MMFR4_EL1_E2H0_WIDTH - 1), 1f
+> +
+>  	mrs	x0, hcr_el2
+>  	and	x0, x0, #HCR_E2H
+> -	cbz	x0, 1f
+> -
+> +	cbz	x0, 2f
+> +1:
+>  	/* Set a sane SCTLR_EL1, the VHE way */
+>  	pre_disable_mmu_workaround
+>  	msr_s	SYS_SCTLR_EL12, x1
+>  	mov	x2, #BOOT_CPU_FLAG_E2H
+> -	b	2f
+> +	b	3f
+>  
+> -1:
+> +2:
+>  	pre_disable_mmu_workaround
+>  	msr	sctlr_el1, x1
+>  	mov	x2, xzr
+> -2:
+> +3:
+>  	__init_el2_nvhe_prepare_eret
+>  
+>  	mov	w0, #BOOT_CPU_MODE_EL2
+> -- 
 > 2.55.0.rc2.803.g1fd1e6609c-goog
+> 
 > 
 
