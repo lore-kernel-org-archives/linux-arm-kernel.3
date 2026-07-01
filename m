@@ -4,97 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00649C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C6CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uZv8XIyCEDj1PPhX50CCe0ZUegv+LfPwHdWDtTqa3ic=; b=sLBVhf2OsCi2yEQ0o7fMNwuQ6e
-	1e5iQb9f3hHlbaXzjP2aQrJqHeCAdQ7ju3kR35JYhYHoD293pDAkKVDMgoXb18191lz+IDOUFPZcp
-	9lgptpRYz8+RdHOxEpOQF/XnwY/tPV7mOrdinaKAjOVYzKR9lahegiOo5UaMZ9Pa5Jkkiofy2fFaM
-	jMgAEt2lcOLnmBiK4jxUF8QR0mmnAgdl6IyK9wLS9FDP5CyBcEL+seJ6K7jECgjTk2dNGsno3GZqK
-	PoetLBDLKz7EUltWvDJDeDXPENbfclA/Sj/edjRZi/gZPqW/KzUfY/LoxnambasqqzATqMJ20Kvny
-	+BBs92eg==;
+	bh=ITer+kkk4mMSsWxMyfWrD36+FmvMAHde/cCZgcgLMa8=; b=os0ikupVsWh+LzQfvUfLpUXZth
+	BMaNa7MeiTXbwZ6e5pv2qN9ZgtZRdZdE/Ig+Rsb+Oxylr6pYtF39CccZ1qUCo20KhRYpUOrbXs98z
+	QayKvIeujJwlGl8pIjivx3+Dotn8p/KsZu/17chtRiquYC7Ys6Qcs/fIvFZLLzOQjJo7+rNkX0+LS
+	aQlIEX06qWa0D8B7Ocgip2lVy/zkDH/7TsCkwHLIs7p7xrPdJxk03Q8JPwVuuPBOnFoQYSODRhs1v
+	hClafzAFELidXGiUOGIb3ttMGvMUvjXSsUkycYOLypjrXaJX+QF0jC5w+B8RYPU53+sf2dWXGyt2a
+	XNhs1GEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvt-00000001seJ-3WBi;
-	Wed, 01 Jul 2026 12:20:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wew2N-00000002ItO-1RZ6;
+	Wed, 01 Jul 2026 14:35:39 +0000
+Received: from mail-yx1-xb133.google.com ([2607:f8b0:4864:20::b133])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvl-00000001sAq-2lda;
-	Wed, 01 Jul 2026 12:20:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=uZv8XIyCEDj1PPhX50CCe0ZUegv+LfPwHdWDtTqa3ic=; b=Ogx+qEfvUR5y0oUss+bpw4LtYH
-	Dh076y4DaHvG7N4OhsDZPqth6Fgy9Oxx8WLxn3++RdDCD/RqBcTfIRZ8h32ucB4cWdD0kpK/n9oFI
-	f/h4DCjvsoIf4f8vCdgvcfiIxPEfmmqjtGOLg+AnsjqRonsCLMXO9FgNRbDFQL2urEvRTxHjYjson
-	0JZhufIc9R6JdZ7le6v5u702pxO6zAg/6BCwWuQBxifIdhJWIHoLZQFMUzDkQCyYo4vjYdmuPUxEn
-	MzixZhpAK9jfigPsYpitISBmzL6AcJM/eBFkuYEjj4dd8++ym9dEwZ2ieUOSeFGpQisov9yICmhPH
-	MlU0I2Yg==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvh-00000006agC-2wyJ;
-	Wed, 01 Jul 2026 12:20:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908436;
-	bh=5qrR17bDP11PF0Y+AWGupsl3Ns6N2I8PqUxjSFIFbA0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=e2kPL7MnT2+MWveBSV0kY0rYIVauYSqzQ6zmGgJAnbd76UlhZ2PxS2PvZBSa4rkHg
-	 xHy5g6sN41ZRPZBWxQbKqSXoZxkB6Wassddep/2xT/ZGUxsDS+OX/JcZyE9tLRvzOq
-	 sVe+HrxgXEyN2M4FT43cFh8e5oJsVb5q+eYDVGaa35ELmScxxscZmB9Z0+WqRXjOoH
-	 Ph/Ffs2zieRN1L7knpO03t/GxLuHQlIaTVhara3PXQhNc9tLMDpT8//J6wnrxX7WiN
-	 /c85/rKFf09TXBpv+OLh4XZTdSoOYT5FkmhP1mVCRcao3eG64xPU9edt0esiBXrsJ/
-	 OTVW0FESC9YTQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0671B17E0857;
-	Wed,  1 Jul 2026 14:20:34 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	granquet@baylibre.com,
-	rex-bc.chen@mediatek.com,
-	dmitry.osipenko@collabora.com,
-	ck.hu@mediatek.com,
-	amergnat@baylibre.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH 07/11] drm/mediatek: mtk_dp: Add support for PHY from devicetree
-Date: Wed,  1 Jul 2026 14:20:20 +0200
-Message-ID: <20260701122024.19557-8-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
+	id 1wew2K-00000002Isu-3Ml0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 14:35:37 +0000
+Received: by mail-yx1-xb133.google.com with SMTP id 956f58d0204a3-664ae993e4bso665947d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 07:35:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782916535; cv=none;
+        d=google.com; s=arc-20260327;
+        b=IN36tJFG7Xn+uVwhPlzdXB4SVTWmydrqNXA0ghNfjzH8VymhdfT/Nj3qCW+XomMW4H
+         zp6VAT2neFIgQlFh1nNqxswcfng4RFJPYASvCPxxdjzlrG56ccNZ4slu4PaKO1v+jiLA
+         Xl3mUqgyrGDejLqc7oaMlpXORkriy2ZlS4/XOy61P8NkPthm7cg+qTlANEdjNNdcCpoz
+         ClRG1NWjvXMIMdDjwYsq+ptdfb647pv0UL0AlGaYBS8bhcNhRb6LHEnhvMFg7jaUm1ES
+         9Iy9cM/iIfShwJSeWqo2Y50GuNnsFWbqTR7SfmjFwqDiqfVdjhqEf2KRwXlv6IiYJ8rk
+         V5ew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ITer+kkk4mMSsWxMyfWrD36+FmvMAHde/cCZgcgLMa8=;
+        fh=DCKOWv7u540E2/wP1WF14n+i+e0dI9zVRHeBwVo4wxU=;
+        b=svLUOBVrlqFV7rWPrMaeDnuY0aWHcDxwtXtQvrWLO5zlYA4b2e2dicZ1OPoVnQViCA
+         /UU008GTRe2v/Ks04T6Pf4F3MpA9YGyw3TP9rJ/Fl4Ok9SsbN6D+bfKoOTq4qK0Fyspo
+         1o3vzS6Dqz1+LQNCd3jv/ate6YN9vjk4hw8HklB6omxHLPLFd17wud1kksY4Wb7jf/67
+         CLPodudh5a7nOyj+mojfOBIS9ILYs91xkSDJvLWI7OKO0yr5lR8T8Yt0XeF3okZkvJkA
+         KVdMQizUU1+ke2Z5pVmRDez8ai8PHHy6/lbS5BXNBI9wwF3PJFu71Pk4Gqb4tWlKT2Jl
+         98QA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782916535; x=1783521335; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ITer+kkk4mMSsWxMyfWrD36+FmvMAHde/cCZgcgLMa8=;
+        b=QW6bdKeBGu4PrG/Jc2HmBCPq+ZvLAfE9AlFLmuuI2k43X3OAEfXD5jn43gd7U0d21h
+         P7eZDCGo0X/rg7EcPJGgEKsG5FPeXh4Ng1e37yYv9FHwyOB1WgpjM9toYPGxN81bbA+y
+         DtXCyrIM/S/im6WhGeQOrgBLUdRugkZ8U2M584ykUBcnBM8KRr8axGu0K5p1j75yY7iE
+         Jr51tnVkocEGZc/DdVNeGgIB+7Be3mATMIpZb3EeP8HZwzVWE2OnN6RLlkp3gv3vpSwl
+         lB8EfYbO/+kNhHKxoUD/FG53jEe1Dw4OEZcEY2egEPuG2TyZIkQyzELQ585J7kuGpyVe
+         qsPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782916535; x=1783521335;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ITer+kkk4mMSsWxMyfWrD36+FmvMAHde/cCZgcgLMa8=;
+        b=WECJQd+U0jWGUL4of21d5BmiQS8SkDbAB0xQbnEY6sXG9A5f0ytEz+uYX7NroJJY8c
+         2sjuREKH3oCKnK9qPr7i5MIj23C2Gh2nIJV+jxQK/CZ13aBCRsfqKW1QS2xuHj7nei99
+         IFGU/cG3JlFF90HWG8d+meigu2hwe1I8sf1yNGla6TS+vflidgPcvMHFoIKkeLLLuwIh
+         jVBpYdyK3iPzpb1Q+sheTCxKRrZsBVRlLqqO/BolWlX0gTLObmZ1VPI4kXfb3NNB8GdC
+         K/bpijuC/5R8mGUEypW2p1DZjtA+uZNOHSJEa4mrI8TSl+X9NWbSUhe3IuDGXBftD0IE
+         +6nQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqkRDuyal1f69d6EvG+U08JG2OxOaeNnTT/kHK6ZzdAXAT1G+gpld5usDQWBO6xGpUyuA4MFhRrSPvdlTATPxR6@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpUT1hLB0XxGdVZgrzttK/9yKEbI8QXD3P3cNaRpBzqXgrXaWH
+	3Ekl+W5kN/uMDh2tVTARyK5feVHebJAi1AVTDtxbCoR3jI8vQ2sToueQKIDv8WjSHOBils1KHZk
+	C24DTj3fLHEwUYwG7IhVuZeckAT3EkZg=
+X-Gm-Gg: AfdE7ckHfeLs9sv7V5Va9neX+PftMlQgAUao0CV5gvq3hh98PXWTEKQ2VXr70F2saie
+	Hk4KiFOIRzjKO0/8NTEOv2D3sRi2rv+pzjVlWNO6LTVRcdhMe4DHw3tCE18XK2bZDaZVnV7E8AY
+	XLPbGH8AS5MOvkBcRqi52GM3dm2AvhtrSmE0UTVMHaxuSUeQinUn3xVY8UdfUwFRYMpjreGw+if
+	VIYo5BPNIOiBRN+iWS3rrfCAzR555ZZAoTPG9CdujRPfOJIAjdf3ypvKmsk7JVEJ5cNtycWExtH
+	4qjJE8HmLd/WKtAvUwOEPZP+KHNvkhAkA/skd6dq0uPzP37TSMouUKO/G4jlxw==
+X-Received: by 2002:a05:690e:400a:b0:664:d5ff:2845 with SMTP id
+ 956f58d0204a3-66507a15364mr5289486d50.19.1782916535159; Wed, 01 Jul 2026
+ 07:35:35 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20260630-apple-mtp-keyboard-final-v1-0-506d936a1707@gmail.com>
+ <20260630-apple-mtp-keyboard-final-v1-2-506d936a1707@gmail.com> <20260630-tattling-pacify-3b990261b8b5@spud>
+In-Reply-To: <20260630-tattling-pacify-3b990261b8b5@spud>
+From: Michael Reeves <michael.reeves077@gmail.com>
+Date: Thu, 2 Jul 2026 00:35:23 +1000
+X-Gm-Features: AVVi8Cfa1dzp-N-jQ1tztDZshofJ1mjnAsJpK28Uy4QoNy9Qd76BAukQRwwA8nI
+Message-ID: <CANpmGNtq96uJzbPRLyDG9Qq3hPVGA3yspk0-ezAdD9PUzj0gMA@mail.gmail.com>
+Subject: Re: [PATCH 02/10] dt-bindings: mailbox: apple: Add DockChannel mailbox
+To: Conor Dooley <conor@kernel.org>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+	Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Hector Martin <marcan@marcan.st>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
+	Robin Murphy <robin.murphy@arm.com>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	Jiri Kosina <jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, asahi@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-input@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132037_968500_24DEE9A8 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20260701_073536_868790_86BE11C3 
+X-CRM114-Status: GOOD (  10.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,124 +124,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for specifying `phys` in devicetree to pass handle
-to the DisplayPort PHY.
-
-In order to retain compatibility with older devicetrees, check if
-`phys` was specified: if not, initialize the regmap_mmio with the
-legacy configuration and register the mediatek-dp-phy platform
-device from this driver, and get the PHY calibration data.
-
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 50 ++++++++++++++++++++++++++-----
- 1 file changed, 43 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 3b5348ab487d..bf3a4b15f3ec 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -426,6 +426,15 @@ static const struct regmap_config mtk_dp_regmap_legacy_config = {
- 	.name = "mtk-dp-registers",
- };
- 
-+static const struct regmap_config mtk_dp_regmap_config = {
-+	.reg_bits = 32,
-+	.val_bits = 32,
-+	.reg_stride = 4,
-+	.max_register = SEC_OFFSET + 0x90,
-+	.name = "mtk-dp-registers",
-+};
-+
-+
- static struct mtk_dp *mtk_dp_from_bridge(struct drm_bridge *b)
- {
- 	return container_of(b, struct mtk_dp, bridge);
-@@ -1298,7 +1307,13 @@ static int mtk_dp_phy_configure(struct mtk_dp *mtk_dp,
- 	if (ret)
- 		return ret;
- 
--	mtk_dp_set_calibration_data(mtk_dp);
-+	/*
-+	 * For legacy, deprecated strategy, set partial PHY calibration here.
-+	 * New-style will set all PHY calibrations with phy ops instead.
-+	 */
-+	if (mtk_dp->phy_dev)
-+		mtk_dp_set_calibration_data(mtk_dp);
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
- 			   DP_PWR_STATE_BANDGAP_TPLL_LANE, DP_PWR_STATE_MASK);
- 
-@@ -2132,8 +2147,9 @@ static int mtk_dp_wait_hpd_asserted(struct drm_dp_aux *mtk_aux, unsigned long wa
- static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
- 			   struct platform_device *pdev)
- {
--	struct device_node *endpoint;
-+	const struct regmap_config *regmap_cfg;
- 	struct device *dev = &pdev->dev;
-+	struct device_node *endpoint;
- 	int ret;
- 	void __iomem *base;
- 	u32 linkrate;
-@@ -2143,7 +2159,12 @@ static int mtk_dp_dt_parse(struct mtk_dp *mtk_dp,
- 	if (IS_ERR(base))
- 		return PTR_ERR(base);
- 
--	mtk_dp->regs = devm_regmap_init_mmio(dev, base, &mtk_dp_regmap_legacy_config);
-+	if (!mtk_dp->legacy_regoff)
-+		regmap_cfg = &mtk_dp_regmap_config;
-+	else
-+		regmap_cfg = &mtk_dp_regmap_legacy_config;
-+
-+	mtk_dp->regs = devm_regmap_init_mmio(dev, base, regmap_cfg);
- 	if (IS_ERR(mtk_dp->regs))
- 		return PTR_ERR(mtk_dp->regs);
- 
-@@ -2769,6 +2790,7 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- 				     "Failed to add phy unregister devm action");
- 	}
- 
-+	/* PHY calibration data is in mtk_dp only for legacy devicetree */
- 	mtk_dp_get_calibration_data(mtk_dp);
- 
- 	mtk_dp->phy = devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
-@@ -2821,7 +2843,12 @@ static int mtk_dp_probe(struct platform_device *pdev)
- 
- 	mtk_dp->dev = dev;
- 	mtk_dp->data = (struct mtk_dp_data *)of_device_get_match_data(dev);
--	mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
-+
-+	/* Prefer PHY from devicetree - if not found, this is legacy */
-+	if (of_property_present(dev->of_node, "phys"))
-+		mtk_dp->legacy_regoff = 0;
-+	else
-+		mtk_dp->legacy_regoff = MTK_DP_TOP_OFFSET_LEGACY;
- 
- 	ret = mtk_dp_dt_parse(mtk_dp, pdev);
- 	if (ret)
-@@ -2872,9 +2899,18 @@ static int mtk_dp_probe(struct platform_device *pdev)
- 					     "Failed to register audio driver\n");
- 	}
- 
--	ret = mtk_dp_register_phy(mtk_dp);
--	if (ret)
--		return ret;
-+	if (!mtk_dp->legacy_regoff) {
-+		mtk_dp->phy = devm_phy_get(dev, NULL);
-+		if (IS_ERR(mtk_dp->phy))
-+			return dev_err_probe(dev, PTR_ERR(mtk_dp->phy),
-+					     "Failed to get phy\n");
-+
-+		mtk_dp->phy_dev = NULL;
-+	} else {
-+		ret = mtk_dp_register_phy(mtk_dp);
-+		if (ret)
-+			return ret;
-+	}
- 
- 	mtk_dp->bridge.of_node = dev->of_node;
- 	mtk_dp->bridge.type = mtk_dp->data->bridge_type;
--- 
-2.54.0
-
+On Wed, Jul 1, 2026 at 3:07=E2=80=AFAM Conor Dooley <conor@kernel.org> wrot=
+e:
+[...]
+> > +++ b/Documentation/devicetree/bindings/mailbox/apple,dockchannel.yaml
+>
+> Please name this file matching the t8112 compatible (since that's your
+> fallback).
+> Otherwise, this looks good.
+> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+>
+> pw-bot: changes-requested
+Thank you, will change the name in v2.
 
