@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B7BC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED8B0C4450A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UyDXms99eTd7032G7jvn8+11Yj1aiXgFu+J2wSs8MWM=; b=0c0WaAaWLzch+9n49l05JYu5au
-	ik0KNZdggMrivWVDeHMQTVyACldmblU1iuk+lLskCbiAGV7OtQSYNJDXmekBmT/fVJJ5JGkJTtv0m
-	58G/3WLebxg1t41OCLTXHfXdvi0cbIrGUE9lar4qV8MGV++GLES8mctQHA19K4/60fdGJX0EhwI72
-	fV3GDHHKloj9RfBt2A0RVVOcJGxR/2904brr49X9AM2IaXQhhUJo6TyODjDsY57woPEuqMrajUNMC
-	FMIb2X3DZaIPmi2YCeHrW7r/hl0NpQO4l8BGio1HsHYVIJB3jdETwMNIxLRB9OmijF8wOSnQKDi/T
-	ivzMBTKQ==;
+	bh=4AmfdBxsxsx8VoGVQIwKIcmXP/Y7YLgYtpzqyS8/zu8=; b=iGMOdmm+9FgdK3b4Le42vcbarf
+	Gxo8Or0+WbSk3X+av4Z5OpU7rtXQ/XlGbSRK4gEHbv3BBjknYbYF/Cjo1HY5bR9B6zd85cdTW40Bu
+	PMrxfAdI1gdVg5bLHZ0wjfHX2y/3wVBC4nvXiOnfukAbFqUuQ4ffPsrjq1ovV2mVWLb70f4+gYNu1
+	HW4rxwpdVlTQFPc+fomdO9B0EgoAJvFb4qwHya6CrBmdXZsOBJEFKzGkBPiOoCm8gRcYptxYKFlMj
+	eq2q3a3lRwbsgVquh9Tm66iF4LgX7QIuDvvaT591ob8sK/LFEn+YfexWRo4cxrJ1+ZWAhd9pwAo0W
+	+sqqTNnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetxJ-00000001wgH-1QL8;
-	Wed, 01 Jul 2026 12:22:19 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wetwj-00000001uvM-3M6A;
+	Wed, 01 Jul 2026 12:21:41 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwr-00000001vG0-2Zch;
-	Wed, 01 Jul 2026 12:21:49 +0000
+	id 1wetwN-00000001tz8-3vTo;
+	Wed, 01 Jul 2026 12:21:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=UyDXms99eTd7032G7jvn8+11Yj1aiXgFu+J2wSs8MWM=; b=ujF4mjDUAshinRSzZhUIAgDBXR
-	NeGvTB7dpxZWVNJdVaJrPbIv+4mHIdsh13mO+w1AIsfI0kXE3DgapRyGTcpzFcH/jw5xzB0JQdwqg
-	OxziBcKaO2wIFsSUZ9yOhzRIFvlMjKsfCz9s+fmJ/AiJRV35024t3mZsHgC32vUhvaeSqiOSTipEX
-	AHpnVAD6337sLOfMkFzmk7rqqwYfqmIvBizUEMPnPawxCMJQ62GMfx7cj4v6Vs/totjIO5SUL3fDE
-	BOKLbGejMlrfWcBwldLLybk9vWmHOYPkAlZFhWojAavsWEwTTPMUie3lkDwCqZzCUc7gVZNCq+eib
-	9dcXh5Tw==;
+	bh=4AmfdBxsxsx8VoGVQIwKIcmXP/Y7YLgYtpzqyS8/zu8=; b=o8Z5UkPYkzFV1+csk3j/NyHl8B
+	eiMQXfYMNyfTPicOn4ov42TPpC7mIaXvaNVRx9A/V7XIzM4+u5pIUbT9wXYA/dZF7IGiDcK7D3t9N
+	VoUc0DPo8bI+6FCCfI11Sw9/5RDiX5+EuvOzszgnbI6RrKsBN7Zmb6HXL6FXFeMA0gRteHZEb4tVx
+	sEpE4d4xRtus8B3zO82rzOGL6oAIhL3KbaMOQPUi0O/AZeAY9F4k3KuxBevc+yw/pCT31xbEaT+uw
+	MCjrFD11rwqq7odeGzqlrGl/ITVpfkWG0p1obLnn1y/UKJRbsqB9oQ5QEkJDYvwyhP79zHr82v7j6
+	99bo0v5w==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwo-00000006b0q-0ZyJ;
-	Wed, 01 Jul 2026 12:21:48 +0000
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetwK-00000002jhB-3gdH;
+	Wed, 01 Jul 2026 12:21:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908504;
-	bh=BletofGxTLJKLtOCpRi+bIeuCm9Svwd3CTzjPRNS3zs=;
+	s=mail; t=1782908475;
+	bh=mMyLP2GYTQNnr1XZrBVFtgpfdgzbMHQ/dtJ1biBSgEA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=f/FSdYijfGUmt0/hjbGg38KesEluMgbvlg7gpLIRdltr09Kna6h27IwH1IGW0+Smr
-	 HSfQ52Znb37OtzM64K+zSGhV5SEPxIBrEL2ouZxrZNjPzxNNM8WE4DtuLpeDL8tv5R
-	 J3mMbwPIXmO6CGF4Zjs7z05Lznb4g1hHbAYW06m4GPuJfBch7dbJWL6bsHtIGC4yAb
-	 2zMrX2TjcQUW9i/RY0Jk+ElxlU/6E8EsZmvJYZEgQbE9bx5T05zE2ZSOeRg2qteDXE
-	 pKE7P1AmPFlUtoSkNAyo8Q8oEx+ZPvt/6+vyuDrUweda9jXqqiknVj3LiOsFLHxUWz
-	 M0N+FDDAlHuXQ==
+	b=jbMHAOMGfKuh5k7vSvWKh4dAKtQaDOr62WjeLML951PVl3Cw29BtgyCOCiSvQkNOn
+	 PmSEEM+z3GKNOyhBTc3WArR8He21Bzy7CE1y5+lc8AIU3tldBkLA6pPwcHYBcq9GLv
+	 vaypIrg8D9frb1wLSFhJF/FEnfAWEu4aZ2+EAhwt6KkcuNU51hhH4nPZxrgSxpgQf3
+	 JoYu3UU37jBDgR/oU85EqxMdnpUvDe84snNjAm7kG3BnlPAv9HCHsI6jpmcJIXVpNo
+	 ZsmYt1q19faI7mNyKS5o7De/Vp0EjgOKB6upCyyNjXNEDcSKp0RprSJJvIkBGhPQc4
+	 rqqtZPzri0nbg==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 22C7B17E35D6;
-	Wed,  1 Jul 2026 14:21:44 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0FBA917E0857;
+	Wed,  1 Jul 2026 14:21:14 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -78,17 +78,17 @@ Cc: p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com,
 	kernel@collabora.com
-Subject: [PATCH 32/42] drm/mediatek: mtk_crtc: Dynamically find suitable CRTC DMA device
-Date: Wed,  1 Jul 2026 14:20:47 +0200
-Message-ID: <20260701122057.19648-33-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 11/42] drm/mediatek: Add support for MuteX trigger-sources parsing
+Date: Wed,  1 Jul 2026 14:20:26 +0200
+Message-ID: <20260701122057.19648-12-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132146_419950_A922D253 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20260701_132117_168802_D4D012BB 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,125 +103,833 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that the vblank and config components are being dynamically
-selected, the only hardcoded strategy that is left is selecting
-a DMA device for a CRTC that is being created.
+Add support for getting the Mute-X trigger source ID from the
+devicetree of each component requiring one.
 
-In order to support pipelines including an embedded multimedia
-controller (like MDP3) chained with the display controller and
-pipelines chaining multiple display controllers together, stop
-assuming that the first component in the pipeline is suited to
-do DMA operations and implement support to dynamically find not
-only a suitable DMA device, but also the best one.
+In order to retain compatibility with older devicetrees that are
+not specifying one, add a hardcoded table of Mute-X IDs in the
+mtk_drm_legacy code, and inject all of the hardcoded identifiers
+during initialization in mtk_drm_drv if the MediaTek Mute-X node
+does not have #trigger-source-cells as this implies that the
+driver is surely dealing with an old devicetree.
 
-This finds the first device that provides DMA and the first one
-that is also behind an IOMMU.
-
-The criteria for selecting the best device is to prefer a DMA
-device behind an IOMMU; if not found, the first DMA capable
-one is selected instead.
+While at it, also migrate the mtk_disp_ovl_adaptor registration
+mechanism to mtk_drm_legacy and change its platform data to get
+a struct mtk_drm_private instead of mmsys_dev: this is done in
+order to get a handle to the MuteX node in OVL_ADAPTOR, which
+purpose is to get the legacy trigger IDs through, again, tables
+in mtk_drm_legacy.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_crtc.c | 68 ++++++++++++++++++++++++-----
- 1 file changed, 56 insertions(+), 12 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c       |  19 +
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.h       |   2 +
+ .../gpu/drm/mediatek/mtk_disp_ovl_adaptor.c   |  17 +-
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c        |  28 +-
+ drivers/gpu/drm/mediatek/mtk_drm_legacy.c     | 567 ++++++++++++++++++
+ drivers/gpu/drm/mediatek/mtk_drm_legacy.h     |   8 +
+ 6 files changed, 621 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
-index ee23a50cf4d1..3f70d11270e9 100644
---- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-+++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-@@ -1131,6 +1131,60 @@ struct device *mtk_crtc_dma_dev_get(struct drm_crtc *crtc)
- 	return mtk_crtc->dma_dev;
+diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+index b0d38646ca03..f45588ae7342 100644
+--- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
++++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
+@@ -604,6 +604,21 @@ static void mtk_ddp_comp_clk_put(void *_clk)
+ 	clk_put(clk);
  }
  
-+static int mtk_crtc_find_suitable_dma_dev(struct mtk_drm_private *priv,
-+					  struct mtk_crtc *mtk_crtc,
-+					  const struct mtk_drm_path_definition *path)
++int mtk_ddp_comp_get_mutex_trigger(struct device_node *node, unsigned int index)
 +{
-+	struct mtk_ddp_comp *dma_comp = NULL, *dma_comp_mmu = NULL;
-+	int i;
++	struct fwnode_reference_args mutex_trigger;
++	int ret;
 +
-+	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
-+		const struct mtk_drm_comp_definition *cdef = path[i].comp;
-+		struct mtk_ddp_comp *comp;
++	ret = fwnode_property_get_reference_args(of_fwnode_handle(node),
++						 "trigger-sources",
++						 "#trigger-source-cells",
++						 0, index, &mutex_trigger);
++	if (ret < 0)
++		return ret;
 +
-+		comp = mtk_ddp_comp_find_by_id(&priv->hlist,
-+					       cdef->type, cdef->inst_id);
-+		if (!comp)
-+			continue;
++	return mutex_trigger.args[0];
++}
 +
-+		/*
-+		 * Check if this is a legacy OVL_ADAPTOR component and, if so, this
-+		 * has to forcefully be the DMA device for this CRTC: assign it to
-+		 * dma_comp_mmu to force that.
-+		 */
-+		if (comp->type == MTK_DISP_OVL_ADAPTOR) {
-+			dma_comp_mmu = comp;
-+			break;
-+		}
+ static bool mtk_ddp_comp_is_backlight_comp(enum mtk_ddp_comp_type type)
+ {
+ 	return type == MTK_DISP_BLS || type == MTK_DISP_PWM;
+@@ -696,6 +711,10 @@ int mtk_ddp_comp_init(struct device *dev, struct device_node *node,
+ 	if (ret)
+ 		return ret;
+ 
++	ret = mtk_ddp_comp_get_mutex_trigger(node, 0);
++	if (ret >= 0)
++		comp->mtx_trig_id = ret;
 +
-+		if (!comp->dev || !comp->dev->of_node)
-+			continue;
+ 	/* If there's no external driver for this component, allocate and init now */
+ 	if (mtk_ddp_comp_is_internal_comp(type) || mtk_ddp_comp_is_backlight_comp(type)) {
+ 		ret = mtk_ddp_comp_init_internal_comp(dev, comp->dev);
+diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
+index 76a2b649516d..5206445b7157 100644
+--- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
++++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
+@@ -81,6 +81,7 @@ struct mtk_ddp_comp {
+ 	struct device *dev;
+ 	int irq;
+ 	unsigned int id;
++	u8 mtx_trig_id;
+ 	int encoder_index;
+ 	const struct mtk_ddp_comp_funcs *funcs;
+ 
+@@ -360,6 +361,7 @@ int mtk_find_possible_crtcs(struct drm_device *drm, struct device *dev);
+ int mtk_ddp_comp_init(struct device *dev, struct device_node *node,
+ 		      struct mtk_drm_comp_list *hlist,
+ 		      unsigned int comp_id);
++int mtk_ddp_comp_get_mutex_trigger(struct device_node *node, unsigned int index);
+ enum mtk_ddp_comp_type mtk_ddp_comp_get_type(unsigned int comp_id);
+ void mtk_ddp_write(struct cmdq_pkt *cmdq_pkt, unsigned int value,
+ 		   struct cmdq_client_reg *cmdq_reg, void __iomem *regs,
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+index c0af3e3b51d5..ed9a2e35ba8a 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+@@ -20,6 +20,7 @@
+ #include "mtk_ddp_comp.h"
+ #include "mtk_disp_drv.h"
+ #include "mtk_drm_drv.h"
++#include "mtk_drm_legacy.h"
+ #include "mtk_ethdr.h"
+ 
+ #define MTK_OVL_ADAPTOR_RDMA_MAX_WIDTH 1920
+@@ -68,6 +69,7 @@ struct ovl_adaptor_comp_match {
+ struct mtk_disp_ovl_adaptor {
+ 	struct device *ovl_adaptor_comp[OVL_ADAPTOR_ID_MAX];
+ 	struct device *mmsys_dev;
++	u8 mtx_trig_ids[OVL_ADAPTOR_ID_MAX];
+ 	bool children_bound;
+ };
+ 
+@@ -534,7 +536,8 @@ static void ovl_adaptor_put_device(void *_dev)
+ 	put_device(dev);
+ }
+ 
+-static int ovl_adaptor_comp_init(struct device *dev, struct component_match **match)
++static int ovl_adaptor_comp_init(struct device *dev, struct device_node *mutex_node,
++				 struct component_match **match)
+ {
+ 	struct mtk_disp_ovl_adaptor *priv = dev_get_drvdata(dev);
+ 	struct device_node *parent;
+@@ -544,7 +547,9 @@ static int ovl_adaptor_comp_init(struct device *dev, struct component_match **ma
+ 
+ 	for_each_child_of_node_scoped(parent, node) {
+ 		enum mtk_ovl_adaptor_comp_type type;
++		enum mtk_ddp_comp_id ddp_type;
+ 		int id, ret;
++		u8 mtx_id;
+ 
+ 		ret = ovl_adaptor_of_get_ddp_comp_type(node, &type);
+ 		if (ret)
+@@ -563,6 +568,10 @@ static int ovl_adaptor_comp_init(struct device *dev, struct component_match **ma
+ 			continue;
+ 		}
+ 
++		ddp_type = comp_matches[id].comp_id;
++		mtx_id = mtk_drm_legacy_get_ovl_adaptor_mutex_trig_id(ddp_type,
++								      mutex_node);
 +
-+		/* Find the first device provides DMA... */
-+		if (!dma_comp) {
-+			if (of_property_present(comp->dev->of_node, "#dma-cells"))
-+				dma_comp = comp;
-+		}
-+
-+		/* ...and check if that device is also behind an IOMMU */
-+		if (!of_property_present(comp->dev->of_node, "iommus"))
-+			continue;
-+
-+		/* If a device behind IOMMU is found, this is the best outcome */
-+		dma_comp_mmu = comp;
-+		break;
+ 		comp_pdev = of_find_device_by_node(node);
+ 		if (!comp_pdev)
+ 			return -EPROBE_DEFER;
+@@ -573,6 +582,7 @@ static int ovl_adaptor_comp_init(struct device *dev, struct component_match **ma
+ 			return ret;
+ 
+ 		priv->ovl_adaptor_comp[id] = &comp_pdev->dev;
++		priv->mtx_trig_ids[id] = mtx_id;
+ 
+ 		drm_of_component_match_add(dev, match, component_compare_of, node);
+ 		dev_dbg(dev, "Adding component match for %pOF\n", node);
+@@ -634,6 +644,7 @@ static const struct component_master_ops mtk_disp_ovl_adaptor_master_ops = {
+ 
+ static int mtk_disp_ovl_adaptor_probe(struct platform_device *pdev)
+ {
++	struct mtk_drm_private *drm_private = pdev->dev.platform_data;
+ 	struct mtk_disp_ovl_adaptor *priv;
+ 	struct device *dev = &pdev->dev;
+ 	struct component_match *match = NULL;
+@@ -645,11 +656,11 @@ static int mtk_disp_ovl_adaptor_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, priv);
+ 
+-	ret = ovl_adaptor_comp_init(dev, &match);
++	ret = ovl_adaptor_comp_init(dev, drm_private->mutex_node, &match);
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	priv->mmsys_dev = pdev->dev.platform_data;
++	priv->mmsys_dev = drm_private->mmsys_dev;
+ 
+ 	component_master_add_with_match(dev, &mtk_disp_ovl_adaptor_master_ops, match);
+ 
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index 1396cbc65627..cdff5edd09da 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -409,11 +409,6 @@ static const struct drm_driver mtk_drm_driver = {
+ 	.minor = DRIVER_MINOR,
+ };
+ 
+-static int compare_dev(struct device *dev, void *data)
+-{
+-	return dev == (struct device *)data;
+-}
+-
+ static int mtk_drm_bind(struct device *dev)
+ {
+ 	struct mtk_drm_private *private = dev_get_drvdata(dev);
+@@ -856,7 +851,6 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 	struct mtk_mmsys_driver_data *mtk_drm_data;
+ 	struct device_node *node;
+ 	struct component_match *match = NULL;
+-	struct platform_device *ovl_adaptor;
+ 	int ret;
+ 	int i;
+ 
+@@ -904,17 +898,6 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 	if (!private->all_drm_private)
+ 		return -ENOMEM;
+ 
+-	/* Bringup ovl_adaptor */
+-	if (mtk_drm_find_mmsys_comp(private, DDP_COMPONENT_DRM_OVL_ADAPTOR)) {
+-		ovl_adaptor = platform_device_register_data(dev, "mediatek-disp-ovl-adaptor",
+-							    PLATFORM_DEVID_AUTO,
+-							    (void *)private->mmsys_dev,
+-							    sizeof(*private->mmsys_dev));
+-		mtk_ddp_comp_init(&ovl_adaptor->dev, NULL, &private->hlist,
+-				  DDP_COMPONENT_DRM_OVL_ADAPTOR);
+-		component_match_add(dev, &match, compare_dev, &ovl_adaptor->dev);
+-	}
+-
+ 	/* Iterate over sibling DISP function blocks */
+ 	for_each_child_of_node(phandle->parent, node) {
+ 		enum mtk_ddp_comp_type comp_type;
+@@ -979,6 +962,17 @@ static int mtk_drm_probe(struct platform_device *pdev)
+ 		goto err_node;
+ 	}
+ 
++	/* If mtk-mutex is not a trigger source, this is an old devicetree */
++	if (!of_property_present(private->mutex_node, "#trigger-source-cells")) {
++		ret = mtk_drm_legacy_inject_mutex_trig_ids(&private->hlist, private->mutex_node);
++		if (ret)
++			return ret;
 +	}
 +
-+	if (dma_comp_mmu)
-+		mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp_mmu);
-+	else if (dma_comp)
-+		mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
-+	else
-+		return -EINVAL;
++	/* Bringup ovl_adaptor */
++	if (mtk_drm_find_mmsys_comp(private, DDP_COMPONENT_DRM_OVL_ADAPTOR))
++		mtk_drm_legacy_ovl_adaptor_probe(dev, private, &match);
++
+ 	pm_runtime_enable(dev);
+ 
+ 	platform_set_drvdata(pdev, private);
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_legacy.c b/drivers/gpu/drm/mediatek/mtk_drm_legacy.c
+index 623e510de9ff..d6e3ab7e08ba 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_legacy.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_legacy.c
+@@ -29,9 +29,224 @@
+  * added to this file.
+  */
+ 
++#include <linux/component.h>
++#include <linux/of.h>
++
+ #include "mtk_drm_drv.h"
+ #include "mtk_drm_legacy.h"
+ 
++#define MT2701_MUTEX_MOD_DISP_OVL		3
++#define MT2701_MUTEX_MOD_DISP_WDMA		6
++#define MT2701_MUTEX_MOD_DISP_COLOR		7
++#define MT2701_MUTEX_MOD_DISP_BLS		9
++#define MT2701_MUTEX_MOD_DISP_RDMA0		10
++#define MT2701_MUTEX_MOD_DISP_RDMA1		12
++
++#define MT2712_MUTEX_MOD_DISP_PWM2		10
++#define MT2712_MUTEX_MOD_DISP_OVL0		11
++#define MT2712_MUTEX_MOD_DISP_OVL1		12
++#define MT2712_MUTEX_MOD_DISP_RDMA0		13
++#define MT2712_MUTEX_MOD_DISP_RDMA1		14
++#define MT2712_MUTEX_MOD_DISP_RDMA2		15
++#define MT2712_MUTEX_MOD_DISP_WDMA0		16
++#define MT2712_MUTEX_MOD_DISP_WDMA1		17
++#define MT2712_MUTEX_MOD_DISP_COLOR0		18
++#define MT2712_MUTEX_MOD_DISP_COLOR1		19
++#define MT2712_MUTEX_MOD_DISP_AAL0		20
++#define MT2712_MUTEX_MOD_DISP_UFOE		22
++#define MT2712_MUTEX_MOD_DISP_PWM0		23
++#define MT2712_MUTEX_MOD_DISP_PWM1		24
++#define MT2712_MUTEX_MOD_DISP_OD0		25
++#define MT2712_MUTEX_MOD2_DISP_AAL1		33
++#define MT2712_MUTEX_MOD2_DISP_OD1		34
++
++#define MT6893_MUTEX_MOD_DISP_OVL0		0
++#define MT6893_MUTEX_MOD_DISP_OVL0_2L		1
++#define MT6893_MUTEX_MOD_DISP_RDMA0		2
++#define MT6893_MUTEX_MOD_DISP_WDMA0		3
++#define MT6893_MUTEX_MOD_DISP_COLOR0		4
++#define MT6893_MUTEX_MOD_DISP_CCORR0		5
++#define MT6893_MUTEX_MOD_DISP_AAL0		6
++#define MT6893_MUTEX_MOD_DISP_GAMMA0		7
++#define MT6893_MUTEX_MOD_DISP_DITHER0		8
++#define MT6893_MUTEX_MOD_DISP_DSI0		9
++#define MT6893_MUTEX_MOD_DISP_PWM0		11
++#define MT6893_MUTEX_MOD_DISP_OVL1		12
++#define MT6893_MUTEX_MOD_DISP_OVL1_2L		13
++#define MT6893_MUTEX_MOD_DISP_RDMA1		14
++#define MT6893_MUTEX_MOD_DISP_WDMA1		15
++#define MT6893_MUTEX_MOD_DISP_COLOR1		16
++#define MT6893_MUTEX_MOD_DISP_AAL1		18
++#define MT6893_MUTEX_MOD_DISP_DITHER1		20
++#define MT6893_MUTEX_MOD_DISP_DSI1		21
++#define MT6893_MUTEX_MOD_DISP_OVL2		23
++#define MT6893_MUTEX_MOD_DISP_POSTMASK0		25
++#define MT6893_MUTEX_MOD_DISP_MERGE0		27
++#define MT6893_MUTEX_MOD_DISP_MERGE1		28
++#define MT6893_MUTEX_MOD_DISP_DSC0		29
++#define MT6893_MUTEX_MOD_DISP_DP		31
++#define MT6893_MUTEX_MOD_DISP_RDMA4		34
++
++#define MT8167_MUTEX_MOD_DISP_PWM		1
++#define MT8167_MUTEX_MOD_DISP_OVL0		6
++#define MT8167_MUTEX_MOD_DISP_OVL1		7
++#define MT8167_MUTEX_MOD_DISP_RDMA0		8
++#define MT8167_MUTEX_MOD_DISP_RDMA1		9
++#define MT8167_MUTEX_MOD_DISP_WDMA0		10
++#define MT8167_MUTEX_MOD_DISP_CCORR		11
++#define MT8167_MUTEX_MOD_DISP_COLOR		12
++#define MT8167_MUTEX_MOD_DISP_AAL		13
++#define MT8167_MUTEX_MOD_DISP_GAMMA		14
++#define MT8167_MUTEX_MOD_DISP_DITHER		15
++#define MT8167_MUTEX_MOD_DISP_UFOE		16
++
++#define MT8173_MUTEX_MOD_DISP_OVL0		11
++#define MT8173_MUTEX_MOD_DISP_OVL1		12
++#define MT8173_MUTEX_MOD_DISP_RDMA0		13
++#define MT8173_MUTEX_MOD_DISP_RDMA1		14
++#define MT8173_MUTEX_MOD_DISP_RDMA2		15
++#define MT8173_MUTEX_MOD_DISP_WDMA0		16
++#define MT8173_MUTEX_MOD_DISP_WDMA1		17
++#define MT8173_MUTEX_MOD_DISP_COLOR0		18
++#define MT8173_MUTEX_MOD_DISP_COLOR1		19
++#define MT8173_MUTEX_MOD_DISP_AAL		20
++#define MT8173_MUTEX_MOD_DISP_GAMMA		21
++#define MT8173_MUTEX_MOD_DISP_UFOE		22
++#define MT8173_MUTEX_MOD_DISP_PWM0		23
++#define MT8173_MUTEX_MOD_DISP_PWM1		24
++#define MT8173_MUTEX_MOD_DISP_OD		25
++
++#define MT8183_MUTEX_MOD_DISP_RDMA0		0
++#define MT8183_MUTEX_MOD_DISP_RDMA1		1
++#define MT8183_MUTEX_MOD_DISP_OVL0		9
++#define MT8183_MUTEX_MOD_DISP_OVL0_2L		10
++#define MT8183_MUTEX_MOD_DISP_OVL1_2L		11
++#define MT8183_MUTEX_MOD_DISP_WDMA0		12
++#define MT8183_MUTEX_MOD_DISP_COLOR0		13
++#define MT8183_MUTEX_MOD_DISP_CCORR0		14
++#define MT8183_MUTEX_MOD_DISP_AAL0		15
++#define MT8183_MUTEX_MOD_DISP_GAMMA0		16
++#define MT8183_MUTEX_MOD_DISP_DITHER0		17
++
++#define MT8186_MUTEX_MOD_DISP_OVL0		0
++#define MT8186_MUTEX_MOD_DISP_OVL0_2L		1
++#define MT8186_MUTEX_MOD_DISP_RDMA0		2
++#define MT8186_MUTEX_MOD_DISP_COLOR0		4
++#define MT8186_MUTEX_MOD_DISP_CCORR0		5
++#define MT8186_MUTEX_MOD_DISP_AAL0		7
++#define MT8186_MUTEX_MOD_DISP_GAMMA0		8
++#define MT8186_MUTEX_MOD_DISP_POSTMASK0		9
++#define MT8186_MUTEX_MOD_DISP_DITHER0		10
++#define MT8186_MUTEX_MOD_DISP_RDMA1		17
++
++#define MT8188_MUTEX_MOD_DISP_OVL0		0
++#define MT8188_MUTEX_MOD_DISP_WDMA0		1
++#define MT8188_MUTEX_MOD_DISP_RDMA0		2
++#define MT8188_MUTEX_MOD_DISP_COLOR0		3
++#define MT8188_MUTEX_MOD_DISP_CCORR0		4
++#define MT8188_MUTEX_MOD_DISP_AAL0		5
++#define MT8188_MUTEX_MOD_DISP_GAMMA0		6
++#define MT8188_MUTEX_MOD_DISP_DITHER0		7
++#define MT8188_MUTEX_MOD_DISP_DSI0		8
++#define MT8188_MUTEX_MOD_DISP_DSC_WRAP0_CORE0	9
++#define MT8188_MUTEX_MOD_DISP_VPP_MERGE		20
++#define MT8188_MUTEX_MOD_DISP_DP_INTF0		21
++#define MT8188_MUTEX_MOD_DISP_POSTMASK0		24
++#define MT8188_MUTEX_MOD2_DISP_PWM0		33
++
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA0	0
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA1	1
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA2	2
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA3	3
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA4	4
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA5	5
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA6	6
++#define MT8188_MUTEX_MOD_DISP1_MDP_RDMA7	7
++#define MT8188_MUTEX_MOD_DISP1_PADDING0		8
++#define MT8188_MUTEX_MOD_DISP1_PADDING1		9
++#define MT8188_MUTEX_MOD_DISP1_PADDING2		10
++#define MT8188_MUTEX_MOD_DISP1_PADDING3		11
++#define MT8188_MUTEX_MOD_DISP1_PADDING4		12
++#define MT8188_MUTEX_MOD_DISP1_PADDING5		13
++#define MT8188_MUTEX_MOD_DISP1_PADDING6		14
++#define MT8188_MUTEX_MOD_DISP1_PADDING7		15
++#define MT8188_MUTEX_MOD_DISP1_VPP_MERGE0	20
++#define MT8188_MUTEX_MOD_DISP1_VPP_MERGE1	21
++#define MT8188_MUTEX_MOD_DISP1_VPP_MERGE2	22
++#define MT8188_MUTEX_MOD_DISP1_VPP_MERGE3	23
++#define MT8188_MUTEX_MOD_DISP1_VPP_MERGE4	24
++#define MT8188_MUTEX_MOD_DISP1_DISP_MIXER	30
++#define MT8188_MUTEX_MOD_DISP1_DPI1		38
++#define MT8188_MUTEX_MOD_DISP1_DP_INTF1		39
++
++#define MT8192_MUTEX_MOD_DISP_OVL0		0
++#define MT8192_MUTEX_MOD_DISP_OVL0_2L		1
++#define MT8192_MUTEX_MOD_DISP_RDMA0		2
++#define MT8192_MUTEX_MOD_DISP_COLOR0		4
++#define MT8192_MUTEX_MOD_DISP_CCORR0		5
++#define MT8192_MUTEX_MOD_DISP_AAL0		6
++#define MT8192_MUTEX_MOD_DISP_GAMMA0		7
++#define MT8192_MUTEX_MOD_DISP_POSTMASK0		8
++#define MT8192_MUTEX_MOD_DISP_DITHER0		9
++#define MT8192_MUTEX_MOD_DISP_OVL2_2L		16
++#define MT8192_MUTEX_MOD_DISP_RDMA4		17
++
++#define MT8195_MUTEX_MOD_DISP_OVL0		0
++#define MT8195_MUTEX_MOD_DISP_WDMA0		1
++#define MT8195_MUTEX_MOD_DISP_RDMA0		2
++#define MT8195_MUTEX_MOD_DISP_COLOR0		3
++#define MT8195_MUTEX_MOD_DISP_CCORR0		4
++#define MT8195_MUTEX_MOD_DISP_AAL0		5
++#define MT8195_MUTEX_MOD_DISP_GAMMA0		6
++#define MT8195_MUTEX_MOD_DISP_DITHER0		7
++#define MT8195_MUTEX_MOD_DISP_DSI0		8
++#define MT8195_MUTEX_MOD_DISP_DSC_WRAP0_CORE0	9
++#define MT8195_MUTEX_MOD_DISP_VPP_MERGE		20
++#define MT8195_MUTEX_MOD_DISP_DP_INTF0		21
++#define MT8195_MUTEX_MOD_DISP_PWM0		27
++
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA0	0
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA1	1
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA2	2
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA3	3
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA4	4
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA5	5
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA6	6
++#define MT8195_MUTEX_MOD_DISP1_MDP_RDMA7	7
++#define MT8195_MUTEX_MOD_DISP1_VPP_MERGE0	8
++#define MT8195_MUTEX_MOD_DISP1_VPP_MERGE1	9
++#define MT8195_MUTEX_MOD_DISP1_VPP_MERGE2	10
++#define MT8195_MUTEX_MOD_DISP1_VPP_MERGE3	11
++#define MT8195_MUTEX_MOD_DISP1_VPP_MERGE4	12
++#define MT8195_MUTEX_MOD_DISP1_DISP_MIXER	18
++#define MT8195_MUTEX_MOD_DISP1_DPI0		25
++#define MT8195_MUTEX_MOD_DISP1_DPI1		26
++#define MT8195_MUTEX_MOD_DISP1_DP_INTF0		27
++
++#define MT8365_MUTEX_MOD_DISP_OVL0		7
++#define MT8365_MUTEX_MOD_DISP_OVL0_2L		8
++#define MT8365_MUTEX_MOD_DISP_RDMA0		9
++#define MT8365_MUTEX_MOD_DISP_RDMA1		10
++#define MT8365_MUTEX_MOD_DISP_WDMA0		11
++#define MT8365_MUTEX_MOD_DISP_COLOR0		12
++#define MT8365_MUTEX_MOD_DISP_CCORR		13
++#define MT8365_MUTEX_MOD_DISP_AAL		14
++#define MT8365_MUTEX_MOD_DISP_GAMMA		15
++#define MT8365_MUTEX_MOD_DISP_DITHER		16
++#define MT8365_MUTEX_MOD_DISP_DSI0		17
++#define MT8365_MUTEX_MOD_DISP_PWM0		20
++#define MT8365_MUTEX_MOD_DISP_DPI0		22
++
++struct mtk_drm_legacy_mtx_pairs {
++	struct mtk_drm_comp_definition comp;
++	u8 mtx_trig_id;
++};
++
++struct mtk_drm_legacy_mtx_data {
++	const struct mtk_drm_legacy_mtx_pairs *pairs;
++	u8 num_pairs;
++};
++
+ static const struct mtk_drm_comp_definition mt2701_mtk_ddp_main[] = {
+ 	{ DDP_COMPONENT_OVL0 },
+ 	{ DDP_COMPONENT_RDMA0 },
+@@ -307,3 +522,355 @@ struct mtk_drm_path_definition mt8195_vdo1_legacy_paths[MAX_CRTC] = {
+ 		.len = ARRAY_SIZE(mt8195_mtk_ddp_ext),
+ 	},
+ };
++
++static const struct mtk_drm_legacy_mtx_pairs mt2701_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_BLS }, MT2701_MUTEX_MOD_DISP_BLS },
++	{ { DDP_COMPONENT_COLOR0 }, MT2701_MUTEX_MOD_DISP_COLOR },
++	{ { DDP_COMPONENT_OVL0 }, MT2701_MUTEX_MOD_DISP_OVL },
++	{ { DDP_COMPONENT_RDMA0 }, MT2701_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT2701_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_WDMA0 }, MT2701_MUTEX_MOD_DISP_WDMA },
++};
++
++const struct mtk_drm_legacy_mtx_data mt2701_legacy_mtx_data = {
++	.pairs = mt2701_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt2701_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt2712_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT2712_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_AAL1 }, MT2712_MUTEX_MOD2_DISP_AAL1 },
++	{ { DDP_COMPONENT_COLOR0 }, MT2712_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_COLOR1 }, MT2712_MUTEX_MOD_DISP_COLOR1 },
++	{ { DDP_COMPONENT_OD0 }, MT2712_MUTEX_MOD_DISP_OD0 },
++	{ { DDP_COMPONENT_OD1 }, MT2712_MUTEX_MOD2_DISP_OD1 },
++	{ { DDP_COMPONENT_OVL0 }, MT2712_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL1 }, MT2712_MUTEX_MOD_DISP_OVL1 },
++	{ { DDP_COMPONENT_PWM0 }, MT2712_MUTEX_MOD_DISP_PWM0 },
++	{ { DDP_COMPONENT_PWM1 }, MT2712_MUTEX_MOD_DISP_PWM1 },
++	{ { DDP_COMPONENT_PWM2 }, MT2712_MUTEX_MOD_DISP_PWM2 },
++	{ { DDP_COMPONENT_RDMA0 }, MT2712_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT2712_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_RDMA2 }, MT2712_MUTEX_MOD_DISP_RDMA2 },
++	{ { DDP_COMPONENT_UFOE }, MT2712_MUTEX_MOD_DISP_UFOE },
++	{ { DDP_COMPONENT_WDMA0 }, MT2712_MUTEX_MOD_DISP_WDMA0 },
++	{ { DDP_COMPONENT_WDMA1 }, MT2712_MUTEX_MOD_DISP_WDMA1 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt2712_legacy_mtx_data = {
++	.pairs = mt2712_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt2712_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt6893_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT6893_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_AAL1 }, MT6893_MUTEX_MOD_DISP_AAL1 },
++	{ { DDP_COMPONENT_CCORR }, MT6893_MUTEX_MOD_DISP_CCORR0 },
++	{ { DDP_COMPONENT_COLOR0 }, MT6893_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_COLOR1 }, MT6893_MUTEX_MOD_DISP_COLOR1 },
++	{ { DDP_COMPONENT_DITHER0 }, MT6893_MUTEX_MOD_DISP_DITHER0 },
++	{ { DDP_COMPONENT_DITHER1 }, MT6893_MUTEX_MOD_DISP_DITHER1 },
++	{ { DDP_COMPONENT_DP_INTF0 }, MT6893_MUTEX_MOD_DISP_DP },
++	{ { DDP_COMPONENT_DSC0 }, MT6893_MUTEX_MOD_DISP_DSC0 },
++	{ { DDP_COMPONENT_DSI0 }, MT6893_MUTEX_MOD_DISP_DSI0 },
++	{ { DDP_COMPONENT_DSI1 }, MT6893_MUTEX_MOD_DISP_DSI1 },
++	{ { DDP_COMPONENT_GAMMA }, MT6893_MUTEX_MOD_DISP_GAMMA0 },
++	{ { DDP_COMPONENT_MERGE1 }, MT6893_MUTEX_MOD_DISP_MERGE1 },
++	{ { DDP_COMPONENT_OVL0 }, MT6893_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL1 }, MT6893_MUTEX_MOD_DISP_OVL1 },
++	{ { DDP_COMPONENT_OVL_2L0 }, MT6893_MUTEX_MOD_DISP_OVL0_2L },
++	{ { DDP_COMPONENT_OVL_2L1 }, MT6893_MUTEX_MOD_DISP_OVL1_2L },
++	{ { DDP_COMPONENT_OVL_2L2 }, MT6893_MUTEX_MOD_DISP_OVL2 },
++	{ { DDP_COMPONENT_POSTMASK0 }, MT6893_MUTEX_MOD_DISP_POSTMASK0 },
++	{ { DDP_COMPONENT_PWM0 }, MT6893_MUTEX_MOD_DISP_PWM0 },
++	{ { DDP_COMPONENT_RDMA0 }, MT6893_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT6893_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_RDMA4 }, MT6893_MUTEX_MOD_DISP_RDMA4 },
++	{ { DDP_COMPONENT_WDMA0 }, MT6893_MUTEX_MOD_DISP_WDMA0 },
++	{ { DDP_COMPONENT_WDMA1 }, MT6893_MUTEX_MOD_DISP_WDMA1 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt6893_legacy_mtx_data = {
++	.pairs = mt6893_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt6893_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8167_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT8167_MUTEX_MOD_DISP_AAL },
++	{ { DDP_COMPONENT_CCORR }, MT8167_MUTEX_MOD_DISP_CCORR },
++	{ { DDP_COMPONENT_COLOR0 }, MT8167_MUTEX_MOD_DISP_COLOR },
++	{ { DDP_COMPONENT_DITHER0 }, MT8167_MUTEX_MOD_DISP_DITHER },
++	{ { DDP_COMPONENT_GAMMA }, MT8167_MUTEX_MOD_DISP_GAMMA },
++	{ { DDP_COMPONENT_OVL0 }, MT8167_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL1 }, MT8167_MUTEX_MOD_DISP_OVL1 },
++	{ { DDP_COMPONENT_PWM0 }, MT8167_MUTEX_MOD_DISP_PWM },
++	{ { DDP_COMPONENT_RDMA0 }, MT8167_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT8167_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_UFOE }, MT8167_MUTEX_MOD_DISP_UFOE },
++	{ { DDP_COMPONENT_WDMA0 }, MT8167_MUTEX_MOD_DISP_WDMA0 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8167_legacy_mtx_data = {
++	.pairs = mt8167_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8167_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8173_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT8173_MUTEX_MOD_DISP_AAL },
++	{ { DDP_COMPONENT_COLOR0 }, MT8173_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_COLOR1 }, MT8173_MUTEX_MOD_DISP_COLOR1 },
++	{ { DDP_COMPONENT_GAMMA }, MT8173_MUTEX_MOD_DISP_GAMMA },
++	{ { DDP_COMPONENT_OD0 }, MT8173_MUTEX_MOD_DISP_OD },
++	{ { DDP_COMPONENT_OVL0 }, MT8173_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL1 }, MT8173_MUTEX_MOD_DISP_OVL1 },
++	{ { DDP_COMPONENT_PWM0 }, MT8173_MUTEX_MOD_DISP_PWM0 },
++	{ { DDP_COMPONENT_PWM1 }, MT8173_MUTEX_MOD_DISP_PWM1 },
++	{ { DDP_COMPONENT_RDMA0 }, MT8173_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT8173_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_RDMA2 }, MT8173_MUTEX_MOD_DISP_RDMA2 },
++	{ { DDP_COMPONENT_UFOE }, MT8173_MUTEX_MOD_DISP_UFOE },
++	{ { DDP_COMPONENT_WDMA0 }, MT8173_MUTEX_MOD_DISP_WDMA0 },
++	{ { DDP_COMPONENT_WDMA1 }, MT8173_MUTEX_MOD_DISP_WDMA1 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8173_legacy_mtx_data = {
++	.pairs = mt8173_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8173_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8183_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT8183_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_CCORR }, MT8183_MUTEX_MOD_DISP_CCORR0 },
++	{ { DDP_COMPONENT_COLOR0 }, MT8183_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_DITHER0 }, MT8183_MUTEX_MOD_DISP_DITHER0 },
++	{ { DDP_COMPONENT_GAMMA }, MT8183_MUTEX_MOD_DISP_GAMMA0 },
++	{ { DDP_COMPONENT_OVL0 }, MT8183_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL_2L0 }, MT8183_MUTEX_MOD_DISP_OVL0_2L },
++	{ { DDP_COMPONENT_OVL_2L1 }, MT8183_MUTEX_MOD_DISP_OVL1_2L },
++	{ { DDP_COMPONENT_RDMA0 }, MT8183_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT8183_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_WDMA0 }, MT8183_MUTEX_MOD_DISP_WDMA0 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8183_legacy_mtx_data = {
++	.pairs = mt8183_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8183_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8186_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT8186_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_CCORR }, MT8186_MUTEX_MOD_DISP_CCORR0 },
++	{ { DDP_COMPONENT_COLOR0 }, MT8186_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_DITHER0 }, MT8186_MUTEX_MOD_DISP_DITHER0 },
++	{ { DDP_COMPONENT_GAMMA }, MT8186_MUTEX_MOD_DISP_GAMMA0 },
++	{ { DDP_COMPONENT_OVL0 }, MT8186_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL_2L0 }, MT8186_MUTEX_MOD_DISP_OVL0_2L },
++	{ { DDP_COMPONENT_POSTMASK0 }, MT8186_MUTEX_MOD_DISP_POSTMASK0 },
++	{ { DDP_COMPONENT_RDMA0 }, MT8186_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT8186_MUTEX_MOD_DISP_RDMA1 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8186_legacy_mtx_data = {
++	.pairs = mt8186_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8186_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8188_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_OVL0 }, MT8188_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_WDMA0 }, MT8188_MUTEX_MOD_DISP_WDMA0 },
++	{ { DDP_COMPONENT_RDMA0 }, MT8188_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_COLOR0 }, MT8188_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_CCORR }, MT8188_MUTEX_MOD_DISP_CCORR0 },
++	{ { DDP_COMPONENT_AAL0 }, MT8188_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_GAMMA }, MT8188_MUTEX_MOD_DISP_GAMMA0 },
++	{ { DDP_COMPONENT_POSTMASK0 }, MT8188_MUTEX_MOD_DISP_POSTMASK0 },
++	{ { DDP_COMPONENT_DITHER0 }, MT8188_MUTEX_MOD_DISP_DITHER0 },
++	{ { DDP_COMPONENT_MERGE0 }, MT8188_MUTEX_MOD_DISP_VPP_MERGE },
++	{ { DDP_COMPONENT_DSC0 }, MT8188_MUTEX_MOD_DISP_DSC_WRAP0_CORE0 },
++	{ { DDP_COMPONENT_DSI0 }, MT8188_MUTEX_MOD_DISP_DSI0 },
++	{ { DDP_COMPONENT_PWM0 }, MT8188_MUTEX_MOD2_DISP_PWM0 },
++	{ { DDP_COMPONENT_DP_INTF0 }, MT8188_MUTEX_MOD_DISP_DP_INTF0 },
++	{ { DDP_COMPONENT_DP_INTF1 }, MT8188_MUTEX_MOD_DISP1_DP_INTF1 },
++	{ { DDP_COMPONENT_DPI1 }, MT8188_MUTEX_MOD_DISP1_DPI1 },
++	{ { DDP_COMPONENT_ETHDR_MIXER }, MT8188_MUTEX_MOD_DISP1_DISP_MIXER },
++	{ { DDP_COMPONENT_MDP_RDMA0 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA0 },
++	{ { DDP_COMPONENT_MDP_RDMA1 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA1 },
++	{ { DDP_COMPONENT_MDP_RDMA2 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA2 },
++	{ { DDP_COMPONENT_MDP_RDMA3 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA3 },
++	{ { DDP_COMPONENT_MDP_RDMA4 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA4 },
++	{ { DDP_COMPONENT_MDP_RDMA5 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA5 },
++	{ { DDP_COMPONENT_MDP_RDMA6 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA6 },
++	{ { DDP_COMPONENT_MDP_RDMA7 }, MT8188_MUTEX_MOD_DISP1_MDP_RDMA7 },
++	{ { DDP_COMPONENT_PADDING0 }, MT8188_MUTEX_MOD_DISP1_PADDING0 },
++	{ { DDP_COMPONENT_PADDING1 }, MT8188_MUTEX_MOD_DISP1_PADDING1 },
++	{ { DDP_COMPONENT_PADDING2 }, MT8188_MUTEX_MOD_DISP1_PADDING2 },
++	{ { DDP_COMPONENT_PADDING3 }, MT8188_MUTEX_MOD_DISP1_PADDING3 },
++	{ { DDP_COMPONENT_PADDING4 }, MT8188_MUTEX_MOD_DISP1_PADDING4 },
++	{ { DDP_COMPONENT_PADDING5 }, MT8188_MUTEX_MOD_DISP1_PADDING5 },
++	{ { DDP_COMPONENT_PADDING6 }, MT8188_MUTEX_MOD_DISP1_PADDING6 },
++	{ { DDP_COMPONENT_PADDING7 }, MT8188_MUTEX_MOD_DISP1_PADDING7 },
++	{ { DDP_COMPONENT_MERGE1 }, MT8188_MUTEX_MOD_DISP1_VPP_MERGE0 },
++	{ { DDP_COMPONENT_MERGE2 }, MT8188_MUTEX_MOD_DISP1_VPP_MERGE1 },
++	{ { DDP_COMPONENT_MERGE3 }, MT8188_MUTEX_MOD_DISP1_VPP_MERGE2 },
++	{ { DDP_COMPONENT_MERGE4 }, MT8188_MUTEX_MOD_DISP1_VPP_MERGE3 },
++	{ { DDP_COMPONENT_MERGE5 }, MT8188_MUTEX_MOD_DISP1_VPP_MERGE4 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8188_legacy_mtx_data = {
++	.pairs = mt8188_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8188_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8192_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT8192_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_CCORR }, MT8192_MUTEX_MOD_DISP_CCORR0 },
++	{ { DDP_COMPONENT_COLOR0 }, MT8192_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_DITHER0 }, MT8192_MUTEX_MOD_DISP_DITHER0 },
++	{ { DDP_COMPONENT_GAMMA }, MT8192_MUTEX_MOD_DISP_GAMMA0 },
++	{ { DDP_COMPONENT_POSTMASK0 }, MT8192_MUTEX_MOD_DISP_POSTMASK0 },
++	{ { DDP_COMPONENT_OVL0 }, MT8192_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL_2L0 }, MT8192_MUTEX_MOD_DISP_OVL0_2L },
++	{ { DDP_COMPONENT_OVL_2L2 }, MT8192_MUTEX_MOD_DISP_OVL2_2L },
++	{ { DDP_COMPONENT_RDMA0 }, MT8192_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA4 }, MT8192_MUTEX_MOD_DISP_RDMA4 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8192_legacy_mtx_data = {
++	.pairs = mt8192_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8192_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8195_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_OVL0 }, MT8195_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_WDMA0 }, MT8195_MUTEX_MOD_DISP_WDMA0 },
++	{ { DDP_COMPONENT_RDMA0 }, MT8195_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_COLOR0 }, MT8195_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_CCORR }, MT8195_MUTEX_MOD_DISP_CCORR0 },
++	{ { DDP_COMPONENT_AAL0 }, MT8195_MUTEX_MOD_DISP_AAL0 },
++	{ { DDP_COMPONENT_GAMMA }, MT8195_MUTEX_MOD_DISP_GAMMA0 },
++	{ { DDP_COMPONENT_DITHER0 }, MT8195_MUTEX_MOD_DISP_DITHER0 },
++	{ { DDP_COMPONENT_MERGE0 }, MT8195_MUTEX_MOD_DISP_VPP_MERGE },
++	{ { DDP_COMPONENT_DSC0 }, MT8195_MUTEX_MOD_DISP_DSC_WRAP0_CORE0 },
++	{ { DDP_COMPONENT_DSI0 }, MT8195_MUTEX_MOD_DISP_DSI0 },
++	{ { DDP_COMPONENT_PWM0 }, MT8195_MUTEX_MOD_DISP_PWM0 },
++	{ { DDP_COMPONENT_DP_INTF0 }, MT8195_MUTEX_MOD_DISP_DP_INTF0 },
++	{ { DDP_COMPONENT_MDP_RDMA0 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA0 },
++	{ { DDP_COMPONENT_MDP_RDMA1 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA1 },
++	{ { DDP_COMPONENT_MDP_RDMA2 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA2 },
++	{ { DDP_COMPONENT_MDP_RDMA3 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA3 },
++	{ { DDP_COMPONENT_MDP_RDMA4 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA4 },
++	{ { DDP_COMPONENT_MDP_RDMA5 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA5 },
++	{ { DDP_COMPONENT_MDP_RDMA6 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA6 },
++	{ { DDP_COMPONENT_MDP_RDMA7 }, MT8195_MUTEX_MOD_DISP1_MDP_RDMA7 },
++	{ { DDP_COMPONENT_MERGE1 }, MT8195_MUTEX_MOD_DISP1_VPP_MERGE0 },
++	{ { DDP_COMPONENT_MERGE2 }, MT8195_MUTEX_MOD_DISP1_VPP_MERGE1 },
++	{ { DDP_COMPONENT_MERGE3 }, MT8195_MUTEX_MOD_DISP1_VPP_MERGE2 },
++	{ { DDP_COMPONENT_MERGE4 }, MT8195_MUTEX_MOD_DISP1_VPP_MERGE3 },
++	{ { DDP_COMPONENT_ETHDR_MIXER }, MT8195_MUTEX_MOD_DISP1_DISP_MIXER },
++	{ { DDP_COMPONENT_MERGE5 }, MT8195_MUTEX_MOD_DISP1_VPP_MERGE4 },
++	{ { DDP_COMPONENT_DP_INTF1 }, MT8195_MUTEX_MOD_DISP1_DP_INTF0 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8195_legacy_mtx_data = {
++	.pairs = mt8195_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8195_legacy_mtx_trig_ids)
++};
++
++static const struct mtk_drm_legacy_mtx_pairs mt8365_legacy_mtx_trig_ids[] = {
++	{ { DDP_COMPONENT_AAL0 }, MT8365_MUTEX_MOD_DISP_AAL },
++	{ { DDP_COMPONENT_CCORR }, MT8365_MUTEX_MOD_DISP_CCORR },
++	{ { DDP_COMPONENT_COLOR0 }, MT8365_MUTEX_MOD_DISP_COLOR0 },
++	{ { DDP_COMPONENT_DITHER0 }, MT8365_MUTEX_MOD_DISP_DITHER },
++	{ { DDP_COMPONENT_DPI0 }, MT8365_MUTEX_MOD_DISP_DPI0 },
++	{ { DDP_COMPONENT_DSI0 }, MT8365_MUTEX_MOD_DISP_DSI0 },
++	{ { DDP_COMPONENT_GAMMA }, MT8365_MUTEX_MOD_DISP_GAMMA },
++	{ { DDP_COMPONENT_OVL0 }, MT8365_MUTEX_MOD_DISP_OVL0 },
++	{ { DDP_COMPONENT_OVL_2L0 }, MT8365_MUTEX_MOD_DISP_OVL0_2L },
++	{ { DDP_COMPONENT_PWM0 }, MT8365_MUTEX_MOD_DISP_PWM0 },
++	{ { DDP_COMPONENT_RDMA0 }, MT8365_MUTEX_MOD_DISP_RDMA0 },
++	{ { DDP_COMPONENT_RDMA1 }, MT8365_MUTEX_MOD_DISP_RDMA1 },
++	{ { DDP_COMPONENT_WDMA0 }, MT8365_MUTEX_MOD_DISP_WDMA0 },
++};
++
++const struct mtk_drm_legacy_mtx_data mt8365_legacy_mtx_data = {
++	.pairs = mt8365_legacy_mtx_trig_ids,
++	.num_pairs = ARRAY_SIZE(mt8365_legacy_mtx_trig_ids)
++};
++
++static const struct of_device_id mtk_drm_legacy_mtk_mutex_match[] = {
++	{ .compatible = "mediatek,mt2701-disp-mutex", .data = &mt2701_legacy_mtx_data },
++	{ .compatible = "mediatek,mt2712-disp-mutex", .data = &mt2712_legacy_mtx_data },
++	{ .compatible = "mediatek,mt6795-disp-mutex", .data = &mt8173_legacy_mtx_data },
++	{ .compatible = "mediatek.mt6893-disp-mutex", .data = &mt6893_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8167-disp-mutex", .data = &mt8167_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8173-disp-mutex", .data = &mt8173_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8183-disp-mutex", .data = &mt8183_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8186-disp-mutex", .data = &mt8186_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8188-disp-mutex", .data = &mt8188_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8192-disp-mutex", .data = &mt8192_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8195-disp-mutex", .data = &mt8195_legacy_mtx_data },
++	{ .compatible = "mediatek,mt8365-disp-mutex", .data = &mt8365_legacy_mtx_data },
++	{ /* sentinel */ },
++};
++
++int mtk_drm_legacy_inject_mutex_trig_ids(struct mtk_drm_comp_list *hlist,
++					 struct device_node *mutex_node)
++{
++	struct mtk_drm_legacy_mtx_data *data;
++	const struct of_device_id *of_id;
++	struct mtk_ddp_comp *ddp_comp;
++	int i;
++
++	of_id = of_match_node(mtk_drm_legacy_mtk_mutex_match, mutex_node);
++	if (!of_id)
++		return -ENODEV;
++
++	data = (struct mtk_drm_legacy_mtx_data *)of_id->data;
++
++	for (i = 0; i < data->num_pairs; i++) {
++		const struct mtk_drm_comp_definition *comp = &data->pairs[i].comp;
++
++		hash_for_each_possible(hlist->ddp_list, ddp_comp, lnode, comp->type)
++			ddp_comp->mtx_trig_id = data->pairs[i].mtx_trig_id;
++	}
 +
 +	return 0;
 +}
 +
- int mtk_crtc_create(struct drm_device *drm_dev,
- 		    enum mtk_crtc_path path_sel, int priv_data_index,
- 		    const struct mtk_drm_route *conn_routes,
-@@ -1139,7 +1193,6 @@ int mtk_crtc_create(struct drm_device *drm_dev,
- 	struct mtk_drm_private *priv = drm_dev->dev_private;
- 	const struct mtk_drm_path_definition *output_path;
- 	struct device *dev = drm_dev->dev;
--	struct mtk_ddp_comp *dma_comp;
- 	struct mtk_crtc *mtk_crtc;
- 	unsigned int num_comp_planes = 0;
- 	unsigned int max_comp_stages = 0;
-@@ -1309,20 +1362,11 @@ int mtk_crtc_create(struct drm_device *drm_dev,
- 	dev_dbg(dev, "Found %u layers composed by maximum of %u stage(s) each.\n",
- 		mtk_crtc->hwlayer_nr, max_comp_stages);
++u8 mtk_drm_legacy_get_ovl_adaptor_mutex_trig_id(enum mtk_ddp_comp_id ddp_type,
++						struct device_node *mutex_node)
++{
++	struct mtk_drm_legacy_mtx_data *data;
++	const struct of_device_id *of_id;
++	int i;
++
++	of_id = of_match_node(mtk_drm_legacy_mtk_mutex_match, mutex_node);
++	if (!of_id)
++		return 0;
++
++	data = (struct mtk_drm_legacy_mtx_data *)of_id->data;
++
++	for (i = 0; i < data->num_pairs; i++) {
++		const struct mtk_drm_comp_definition *comp = &data->pairs[i].comp;
++
++		if (ddp_type != comp->type)
++			continue;
++
++		return data->pairs[i].mtx_trig_id;
++	}
++
++	return 0;
++}
++
++void mtk_drm_legacy_ovl_adaptor_probe(struct device *dev, struct mtk_drm_private *priv,
++				      struct component_match **match)
++{
++	struct platform_device *ovl_adaptor;
++
++	ovl_adaptor = platform_device_register_data(dev, "mediatek-disp-ovl-adaptor",
++						    PLATFORM_DEVID_AUTO,
++						    (void *)priv, sizeof(*priv));
++
++	mtk_ddp_comp_init(&ovl_adaptor->dev, NULL, &priv->hlist, DDP_COMPONENT_DRM_OVL_ADAPTOR);
++	component_match_add(dev, match, component_compare_dev, &ovl_adaptor->dev);
++}
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_legacy.h b/drivers/gpu/drm/mediatek/mtk_drm_legacy.h
+index a87741ec0dcd..45bcf2674628 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_legacy.h
++++ b/drivers/gpu/drm/mediatek/mtk_drm_legacy.h
+@@ -25,4 +25,12 @@ extern struct mtk_drm_path_definition mt8192_legacy_paths[];
+ extern struct mtk_drm_path_definition mt8195_vdo0_legacy_paths[];
+ extern struct mtk_drm_path_definition mt8195_vdo1_legacy_paths[];
  
--	/*
--	 * Default to use the first component as the dma dev.
--	 * In the case of ovl_adaptor sub driver, it needs to use the
--	 * dma_dev_get function to get representative dma dev.
--	 */
--	dma_comp = mtk_ddp_comp_find_by_id(&priv->hlist,
--					   output_path->comp[0].type,
--					   output_path->comp[0].inst_id);
--	if (dma_comp == NULL) {
-+	ret = mtk_crtc_find_suitable_dma_dev(priv, mtk_crtc, output_path);
-+	if (ret) {
- 		dev_err(dev, "Could not find appropriate DMA device!\n");
- 		return -EINVAL;
- 	}
--
--	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
- 	dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
- 
- 	ret = mtk_crtc_init(drm_dev, mtk_crtc, crtc_i);
++int mtk_drm_legacy_inject_mutex_trig_ids(struct mtk_drm_comp_list *hlist,
++					 struct device_node *mutex_node);
++u8 mtk_drm_legacy_get_ovl_adaptor_mutex_trig_id(enum mtk_ddp_comp_id ddp_type,
++						struct device_node *mutex_node);
++
++void mtk_drm_legacy_ovl_adaptor_probe(struct device *dev, struct mtk_drm_private *priv,
++				      struct component_match **match);
++
+ #endif /* MTK_DRM_LEGACY_H */
 -- 
 2.54.0
 
