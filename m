@@ -4,89 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28B7AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:37:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B241C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:41:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oiRBiC71AJTilv2l5S+MEmJPfyr+FMJMiueTJaFZmOA=; b=SfzpUCCX/MWCQvIL61LUWRnrqm
-	iLKlqf1+NeOJAFHaL9umWjtJ8j8R/5q0QIfcISHJspVsy7loviQLYDrHrFNz18cXFRfRcds9UJQDI
-	x5Myyx+QVu0YzmXYTm0UeWnzZanjPzTW2IlCMM4xm1+oF25WMCVqM3Fn/PgZeupQJNipJh/rIdmTS
-	P8Tgc2VN+xiRW5pF9SXn4L+NwMcebgCL5WnVZ/yuwNdIPfqIPEZm4gHOvhf5eiEwNhB+w/O+gITl+
-	ep82T+rF98dAYm3kEO7pXfyBIhDAYXDjgM6kGwChnYLxb44zPOjk+H2fuDjKuuQQFzMFzMExxfBNQ
-	e14F6D5g==;
+	bh=IcvXr+XpwcXIl5fM8xKi3PUr+V6+uleNHzT41cgqWTE=; b=VnRya5IloX7+TnQAHGyw2o35EP
+	4LLycAumXoTFdyzW9w9k4sxoN/RhyBOv6ZzG7b1yD1+CtMKheAWnPTh0y26bhV079iOPO74lXz3xP
+	/bljHLqE7UIeazz+8gM1UasKrrpmcaJFSknKN1qL64GelvL0irpIS0wnMbHVCkb7jwLlLtgaUF0a6
+	EPQYNclm8AEVDhRWopa27HGJBBbD/9dALB7/iVf/nj8QLmMARcs+LLOcazoDNGINTnFN34eChqqoj
+	K7ZgYt2Fu+/WPOh+jqHTa5GJyCibe+nKJt3nNVsXx8jnzCPpwkx6RzvoxmMKEjlfNHE2AM6f7kebj
+	oBq+3AMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvm-00000001sEk-0ZWO;
-	Wed, 01 Jul 2026 12:20:42 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wexzc-00000002Ypi-31AO;
+	Wed, 01 Jul 2026 16:40:56 +0000
+Received: from devianza.investici.org ([198.167.222.108])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvZ-00000001ra9-07Kl;
-	Wed, 01 Jul 2026 12:20:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=oiRBiC71AJTilv2l5S+MEmJPfyr+FMJMiueTJaFZmOA=; b=qxSOFrlZZE2PUltz4YQnzwxsue
-	+2I9ADui2UJMXZcsL2c608SDDprMkMlzfIxvnHhW6t6QZjXpbYYNcVp/2HmwUw3IaaRvoTVfog7IE
-	D8uAlCcGLEe3c64i+Rt+1Ihm8qZBCZTW4MlOpVEBAT8tNsS03VB2p5ZuxWdcHaflmM9PQJ0bR9OuX
-	yZKHov6BVD068Y0wmG5doSXhvuRObwYO45Z80jf/yR0sRLztUjRgDBRH91xokRZotNxmzRLqpP1y8
-	3k3M5YgFD2bqx6J5hetj8Lu6DVK4YDU1zAJBaVGOFKygHzoBWHX5b48G3Von67AMmnY5GLHypykWq
-	cbL2aL+w==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvP-00000006aYJ-1TWn;
-	Wed, 01 Jul 2026 12:20:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908417;
-	bh=3xaFVtB+sdmI4U8DTkJvH4kHZiMSV8phaSXhpZ/6ybk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oR3U6+qvJvnxvweoNtdQ082mX9WW9RtmOMwPnF6m2VO/g8CTfarJ3ao9jnYBRAtXX
-	 wk5WTMwXmKfYkvKTvnQYNhHAYUwdt3S++rqhOo2wT4qdB+DSRnJAu+PLkifjN09r1V
-	 nPK/UJm+DPwVkZbK8doDBTu7RPfx2d/LJqVhBnm8AWch9Rg9hehxDtmeljTFoOkG8E
-	 LIQ+hcgXcsFIkP2sKnP8OpTDDwSeKyHeRB8D9bUIBjnd+l4syHap57GmjzefeAuDCT
-	 1blqqsY14pixbE4qqYytWqdxY02rngtWiTsLKcfbIxQhDEO0AaaGwp2AHZ8nNclFfy
-	 cBQo+ccR6tlIg==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A1C5417E1583;
-	Wed,  1 Jul 2026 14:20:16 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunfeng.yun@mediatek.com
-Cc: vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	justin.yeh@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH 07/12] phy: phy-mtk-dp: Support setting volt swing and preemphasis values
-Date: Wed,  1 Jul 2026 14:20:03 +0200
-Message-ID: <20260701122008.19509-8-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
+	id 1wexzZ-00000002Yoa-0ncS
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 16:40:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1782924046;
+	bh=IcvXr+XpwcXIl5fM8xKi3PUr+V6+uleNHzT41cgqWTE=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=Qbik0ukNjGB++p4equLZMSRRUn+XKS96t0Di/dLpuQMEzCIvVMlr8z9HO0d/e8MId
+	 wY1AsOv2KhBBpfs88sRmRKEXBFlMlY4z2xDPYfE88rS+8Dy1dEb2o6ZkpcOP640uIQ
+	 3yNZ8UJRuJham46lCOuXoN9H4OX+VtKcsZMZi73g=
+Received: from mx2.investici.org (unknown [127.0.0.1])
+	by devianza.investici.org (Postfix) with ESMTP id 4gr5Nt5xJcz6vZ9;
+	Wed, 01 Jul 2026 16:40:46 +0000 (UTC)
+Received: by mx2.investici.org (Postfix) id 4gr5Nt2BPnz4y2q;
+	Wed, 01 Jul 2026 16:40:46 +0000 (UTC)
+Date: Wed, 01 Jul 2026 17:40:46 +0100
+From: Bradley Morgan <include@grrlz.net>
+To: Leonardo Bras <leo.bras@arm.com>
+CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+ Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Quentin Perret <qperret@google.com>,
+ Vincent Donnefort <vdonnefort@google.com>, Gavin Shan <gshan@redhat.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v3_1/3=5D_KVM=3A_arm64=3A_skip_pKVM?=
+ =?US-ASCII?Q?_cache_flushes_for_non_cacheable_mappings?=
+In-Reply-To: <akU64YK5dqcWGdCD@LeoBrasDK>
+References: <20260624160028.15591-1-include@grrlz.net> <20260624160028.15591-2-include@grrlz.net> <akU64YK5dqcWGdCD@LeoBrasDK>
+Message-ID: <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net>
 MIME-Version: 1.0
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132019_634902_217ADE62 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20260701_094053_679222_9D6E3252 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,104 +78,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for honoring the set_voltages request to set the
-voltage swing and preemphasis values in the .configure() callback.
+On July 1, 2026 5:05:53 PM GMT+01:00, Leonardo Bras <leo.bras@arm.com>
+wrote:
+>On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
+>> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+>> uses that list directly, so it lost the PTE attribute check done by the
+>> generic stage 2 walker.
+>> 
+>> Record whether a mapping is cacheable and skip cache maintenance for
+>> mappings that are not cacheable.
+>> 
+>> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+>> Signed-off-by: Bradley Morgan <include@grrlz.net>
+>> ---
+>>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
+>>  1 file changed, 41 insertions(+), 10 deletions(-)
+>> 
+>> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+>> index 428723b1b0f5..ca6e823028c2 100644
+>> --- a/arch/arm64/kvm/pkvm.c
+>> +++ b/arch/arm64/kvm/pkvm.c
+>> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping
+>*m)
+>>  	return m->gfn * PAGE_SIZE;
+>>  }
+>>  
+>> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
+>> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
+>
+>Out of curiosity here, why do you choose to use bit 48 here instead of, 
+>let's say, bit 63?
+>
+>(I know it makes absolutely no difference to inner working here, as there 
+>should probably not be 2^48 pages in one mapping.)
+>
+>Thanks!
+>Leo
 
-For proper hardware cleanup, reset both in the .reset() callback.
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/phy/mediatek/phy-mtk-dp.c | 41 ++++++++++++++++++++++++++++++-
- 1 file changed, 40 insertions(+), 1 deletion(-)
+sup Leo, here's a quote from maz 
 
-diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index a2cd22b9da06..17d871530cca 100644
---- a/drivers/phy/mediatek/phy-mtk-dp.c
-+++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -48,6 +48,11 @@
- /* DP_PHYD_TX_CTL_0 */
- #define PHYD_TX_LN_EN			GENMASK(7, 4)
- 
-+/* DP_PHYD_DRIVING_FORCE */
-+#define PHYD_DP_TX_FORCE_VOLT_SWING_EN	BIT(0)
-+#define PHYD_DP_TX_FORCE_VOLT_SWING_VAL	GENMASK(2, 1)
-+#define PHYD_DP_TX_FORCE_PRE_EMPH_VAL	GENMASK(4, 3)
-+
- #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
- #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
- #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
-@@ -101,6 +106,7 @@ enum mtk_dp_phya_ana_glb_regidx {
- };
- 
- enum mtk_dp_phyd_dig_lane_regidx {
-+	DP_PHYD_LAN_DRIVING_FORCE,
- 	DP_PHYD_LAN_DRIVING_PARAM_0,
- 	DP_PHYD_LAN_MAX
- };
-@@ -121,6 +127,7 @@ static const u8 mt8195_phy_ana_glb_regs[DP_PHYA_GLOBAL_MAX] = {
- };
- 
- static const u8 mt8195_phy_dig_lane_regs[DP_PHYD_LAN_MAX] = {
-+	[DP_PHYD_LAN_DRIVING_FORCE] = 0x18,
- 	[DP_PHYD_LAN_DRIVING_PARAM_0] = 0x2c,
- };
- 
-@@ -235,6 +242,28 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 				   PHYD_TX_LN_EN, val);
- 	}
- 
-+	if (opts->dp.set_voltages) {
-+		const u32 reg_drv_force = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_FORCE];
-+
-+		if (opts->dp.lanes > 4) {
-+			dev_err(&phy->dev, "Wrong lanes config %u\n", opts->dp.lanes);
-+			return -EINVAL;
-+		}
-+
-+		for (i = 0; i < opts->dp.lanes; i++) {
-+			const u32 off_dig_lane = pdata->off_dig_lane[i];
-+			u32 val;
-+
-+			val = FIELD_PREP(PHYD_DP_TX_FORCE_VOLT_SWING_VAL, opts->dp.voltage[i]);
-+			val |= FIELD_PREP(PHYD_DP_TX_FORCE_PRE_EMPH_VAL, opts->dp.pre[i]);
-+
-+			regmap_update_bits(dp_phy->regmap, off_dig_lane + reg_drv_force,
-+					   PHYD_DP_TX_FORCE_VOLT_SWING_VAL |
-+					   PHYD_DP_TX_FORCE_PRE_EMPH_VAL,
-+					   val);
-+		}
-+	}
-+
- 	regmap_update_bits(dp_phy->regmap,
- 			   pdata->off_dig_glb + pdata->regs_dig_glb[DP_PHYD_PLL_CTL_1],
- 			   TPLL_SSC_EN, opts->dp.ssc ? TPLL_SSC_EN : 0);
-@@ -329,7 +358,8 @@ static int mtk_dp_phy_reset(struct phy *phy)
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
- 	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	const u32 reg_rst = pdata->regs_dig_glb[DP_PHYD_SW_RST];
--	int ret;
-+	const u32 reg_drv_force = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_FORCE];
-+	int i, ret;
- 
- 	/* Clearing bits sets reset state */
- 	regmap_clear_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
-@@ -345,6 +375,15 @@ static int mtk_dp_phy_reset(struct phy *phy)
- 	if (ret)
- 		dev_err(dp_phy->dev, "Could not disable lanes during reset!\n");
- 
-+	/* Reset Voltage Swing and Preemphasis values */
-+	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
-+		const u32 off_dig_lane = pdata->off_dig_lane[i];
-+
-+		regmap_clear_bits(dp_phy->regmap, off_dig_lane + reg_drv_force,
-+				   PHYD_DP_TX_FORCE_VOLT_SWING_VAL |
-+				   PHYD_DP_TX_FORCE_PRE_EMPH_VAL);
-+	}
-+
- 	return 0;
- }
- 
--- 
-2.54.0
+"This thing is already big enough, let's not add a bool right in the
+middle (use pahole to find out why this is bad). Given that nr_pages
+is for a range, and that the minimum page size uses 12 bits, the
+largest number of pages you can have here is 56-12=48 bit wide. That's
+another 16 bits worth of flags you can use."
 
+this should just clarify things, any questions, feel more than free to ask!
+
+(btw V4 is coming soon)
+
+>> +
+>> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
+>> +{
+>> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+>> +}
+>> +
+>> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
+>> +{
+>> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
+>> +}
+>> +
+>> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64
+>nr_pages,
+>> +				      bool cacheable)
+>> +{
+>> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
+>> +
+>> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+>> +	if (cacheable)
+>> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
+>> +}
+>> +
+>>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
+>>  {
+>> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
+>> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
+>>  }
+>>  
+>>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
+>> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct
+>kvm_pgtable *pgt, u64 start, u64
+>>  			continue;
+>>  
+>>  		page = pfn_to_page(mapping->pfn);
+>> -		WARN_ON_ONCE(mapping->nr_pages != 1);
+>> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
+>>  		unpin_user_pages_dirty_lock(&page, 1, true);
+>>  		account_locked_vm(kvm->mm, 1, false);
+>>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+>> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct
+>kvm_pgtable *pgt, u64 start, u64
+>>  
+>>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+>>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+>> -					mapping->nr_pages);
+>> +					pkvm_mapping_nr_pages(mapping));
+>>  		if (WARN_ON(ret))
+>>  			return ret;
+>>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+>> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
+>u64 addr, u64 size,
+>>  		 * permission faults are handled in the relax_perms() path.
+>>  		 */
+>>  		if (mapping) {
+>> -			if (size == (mapping->nr_pages * PAGE_SIZE))
+>> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
+>>  				return -EAGAIN;
+>>  
+>>  			/*
+>> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
+>u64 addr, u64 size,
+>>  	swap(mapping, cache->mapping);
+>>  	mapping->gfn = gfn;
+>>  	mapping->pfn = pfn;
+>> -	mapping->nr_pages = size / PAGE_SIZE;
+>> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
+>> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
+>> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
+>>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+>>  
+>>  	return ret;
+>> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable
+>*pgt, u64 addr, u64 size)
+>>  	lockdep_assert_held(&kvm->mmu_lock);
+>>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+>>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+>> -					mapping->nr_pages);
+>> +					pkvm_mapping_nr_pages(mapping));
+>>  		if (WARN_ON(ret))
+>>  			break;
+>>  	}
+>> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable
+>*pgt, u64 addr, u64 size)
+>>  	struct pkvm_mapping *mapping;
+>>  
+>>  	lockdep_assert_held(&kvm->mmu_lock);
+>> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+>> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+>> +		if (!pkvm_mapping_is_cacheable(mapping))
+>> +			continue;
+>> +
+>>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+>> -					  PAGE_SIZE * mapping->nr_pages);
+>> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
+>> +	}
+>>  
+>>  	return 0;
+>>  }
+>> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct
+>kvm_pgtable *pgt, u64 addr, u64
+>>  
+>>  	lockdep_assert_held(&kvm->mmu_lock);
+>>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+>> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+>> -					   mapping->nr_pages, mkold);
+>> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
+>> +					   handle, mapping->gfn,
+>> +					   pkvm_mapping_nr_pages(mapping),
+>> +					   mkold);
+>>  
+>>  	return young;
+>>  }
+>> -- 
+>> 2.53.0
+>> 
+>
+
+Thanks!
 
