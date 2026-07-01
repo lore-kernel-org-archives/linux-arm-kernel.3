@@ -4,77 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA62C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:45:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 989CFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=S5CD9RCGzTJ8lEWCXCyIZVGHOFsiCgVXwE8Z7g69M4c=; b=eVhsOmjNKTvGMx1YPvXwlso32K
-	d/iYae7w7TD4iZmNaO7pNhxuMyLibqNaMnE+yl6xvYKxzoxaAhm3ClKjClcqSCFHPxiBgiMvkF+qN
-	SdmxdxE54v8InUYIZFDQ4IQzbkG4nNlIR6EfjXeIoZmA5Q89uM+QbGeFG0JBu7KWX9C8IMC3psIXY
-	KctdmDCGZBKxL39OcSL8xOVi4n81AfLy/OBtxT4AGLD/fI/A2Ee1eRxhkccwnduluwD0iYDfqyf6a
-	qkxW2DDtlMaTFpaIuEvi/sbjwrPcP87zF4GwZPZkDdejrP8RFC8/6j7BE2QvFCmdCQxUuEBYqUtH+
-	BheYp/Qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zryXcVid5vc6uq/c5lbU5QHgsNUYuSSps54Hsm8mVUc=; b=3cJ27jO33RXWYuutZPgOrDJMIk
+	PgGLdTY6ZvT5Yq2JqHwjRJTBQ0/OXZGDssAhzfjGGZfKZeMyLc+aIKolI/HivuTxjMRqxja5qWM7f
+	y0KDvgj/Fkt5eUTsniusIX17s1tMiARiqDl9qmi2eBZ+xaqiuyBqBWb0A4+dAfEhi9ZydRAqevEE8
+	y9DkSFPt/2lgUuj+1ldurY4t7vJJdh0roCFsb6H/jatGdwCEkL4j07ju0x6T4zTRBXTyMaRaZdcHu
+	II3qR4TkoP2Ykxaqjuf08UdtMHQFg88EgITeAUMbYlGTgbpB8DxcKxSFOcNYs+2au/5CiXU/IQXMq
+	kldnOciw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werVY-00000001Dpq-1BzQ;
-	Wed, 01 Jul 2026 09:45:28 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1weqbW-0000000142E-0cB2;
+	Wed, 01 Jul 2026 08:47:34 +0000
+Received: from out-181.mta1.migadu.com ([95.215.58.181])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werVV-00000001Dp3-3atg
+	id 1weqbT-000000013y7-1vjF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 09:45:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=S5CD9RCGzTJ8lEWCXCyIZVGHOFsiCgVXwE8Z7g69M4c=; b=jQrFf5/IjpRWnpMNXSB11D6z+8
-	zzx6sCrx6XRbFWE3+I/L/ThV1vsBBSW2gWNmf1jMIsXIoUmd9n1ioU2iIRUATvigGkNkXZ2D7Dfp1
-	YtN8xXr3otSf0zQnN18xGcDprra3IefSKll4N3TxBRDik4MeoWjqu+ll3tvuNZB9/yqdLNHPpBggn
-	azRfeBdA62Ryx1vPeoGgHUXnohYgj+YNzsTVFaZOLPMTEpniJXPJAoUbmZpF/AdD8wyFxedNWKVY3
-	DAWzWQZyOWRxzCkpf9lOT4FsutupWe5kFUn3Cz7bTi+xDakejCH/yWXag6EUDruS8eIUeE/632B6v
-	U/b2VZHA==;
-Received: from sslproxy07.your-server.de ([78.47.199.104])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <Max.Merchel@ew.tq-group.com>)
-	id 1werVT-000Fue-2j;
-	Wed, 01 Jul 2026 11:45:23 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <Max.Merchel@ew.tq-group.com>)
-	id 1werVT-000DCq-1P;
-	Wed, 01 Jul 2026 11:45:23 +0200
-From: Max Merchel <Max.Merchel@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: imx6qdl-tqma6: add nvmem-layout
-Date: Wed,  1 Jul 2026 11:45:18 +0200
-Message-ID: <20260701094520.1482697-1-Max.Merchel@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 01 Jul 2026 08:47:32 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782895649;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zryXcVid5vc6uq/c5lbU5QHgsNUYuSSps54Hsm8mVUc=;
+	b=XdGo4gU8XQeKBXWODO+iiFuMa7aetuVrSOedZ1ucMgb69TvVBhcEbR0G1m2SebTSYbBxTP
+	OoGx+Q09LDBwe3j02hL5KdkJpTsJVN2e9Qy6TTyxfcIBQdFWHm3N9SzVmWObxB5AALysaa
+	L1pbiMmaX1v4cjPDGzDYryeJPNx8Cno=
+From: Atish Patra <atish.patra@linux.dev>
+Date: Wed, 01 Jul 2026 01:46:51 -0700
+Subject: [PATCH v8 03/22] RISC-V: Add Sxcsrind ISA extension definition and
+ parsing
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28047/Tue Jun 30 23:29:24 2026)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-counter_delegation-v8-3-7909f863a645@meta.com>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
+To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
+ Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Atish Patra <atish.patra@linux.dev>, Ian Rogers <irogers@google.com>, 
+ Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_024526_007510_926AD6F0 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_014731_655309_A3E694C9 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,60 +76,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TQMa6x has board-information located in EEPROM at offset 0x20.
-Add necessary nodes and properties for nvmem cell.
+From: Atish Patra <atishp@rivosinc.com>
 
-Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
+The S[m|s]csrind extension extends the indirect CSR access mechanism
+defined in Smaia/Ssaia extensions.
+
+This patch just enables the definition and parsing.
+
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi | 10 ++++++++++
- arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi | 10 ++++++++++
- 2 files changed, 20 insertions(+)
+ arch/riscv/include/asm/hwcap.h | 4 ++++
+ arch/riscv/kernel/cpufeature.c | 2 ++
+ 2 files changed, 6 insertions(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
-index 67f8f59aff5ae..2fa116e1ca9a6 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
-@@ -39,6 +39,16 @@ m24c64_50: eeprom@50 {
- 		reg = <0x50>;
- 		pagesize = <32>;
- 		vcc-supply = <&sw4_reg>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			module_info: module-info@20 {
-+				reg = <0x20 0x60>;
-+			};
-+		};
- 	};
- };
+diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
+index 7ef8e5f55c8d..d4a7b90e2d78 100644
+--- a/arch/riscv/include/asm/hwcap.h
++++ b/arch/riscv/include/asm/hwcap.h
+@@ -112,6 +112,8 @@
+ #define RISCV_ISA_EXT_ZCLSD		103
+ #define RISCV_ISA_EXT_ZICFILP		104
+ #define RISCV_ISA_EXT_ZICFISS		105
++#define RISCV_ISA_EXT_SSCSRIND		106
++#define RISCV_ISA_EXT_SMCSRIND		107
  
-diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
-index db552802554d4..4361c7efb9d73 100644
---- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
-@@ -32,6 +32,16 @@ m24c64_50: eeprom@50 {
- 		reg = <0x50>;
- 		pagesize = <32>;
- 		vcc-supply = <&sw4_reg>;
-+
-+		nvmem-layout {
-+			compatible = "fixed-layout";
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+
-+			module_info: module-info@20 {
-+				reg = <0x20 0x60>;
-+			};
-+		};
- 	};
- };
+ #define RISCV_ISA_EXT_XLINUXENVCFG	127
  
+@@ -121,9 +123,11 @@
+ #ifdef CONFIG_RISCV_M_MODE
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SMAIA
+ #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SMNPM
++#define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SMCSRIND
+ #else
+ #define RISCV_ISA_EXT_SxAIA		RISCV_ISA_EXT_SSAIA
+ #define RISCV_ISA_EXT_SUPM		RISCV_ISA_EXT_SSNPM
++#define RISCV_ISA_EXT_SxCSRIND		RISCV_ISA_EXT_SSCSRIND
+ #endif
+ 
+ #endif /* _ASM_RISCV_HWCAP_H */
+diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+index f46aa5602d74..3fa0a563fb21 100644
+--- a/arch/riscv/kernel/cpufeature.c
++++ b/arch/riscv/kernel/cpufeature.c
+@@ -576,11 +576,13 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+ 	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
+ 	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
+ 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
++	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
+ 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+ 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
+ 	__RISCV_ISA_EXT_DATA(smstateen, RISCV_ISA_EXT_SMSTATEEN),
+ 	__RISCV_ISA_EXT_DATA(ssaia, RISCV_ISA_EXT_SSAIA),
+ 	__RISCV_ISA_EXT_DATA(sscofpmf, RISCV_ISA_EXT_SSCOFPMF),
++	__RISCV_ISA_EXT_DATA(sscsrind, RISCV_ISA_EXT_SSCSRIND),
+ 	__RISCV_ISA_EXT_SUPERSET(ssnpm, RISCV_ISA_EXT_SSNPM, riscv_xlinuxenvcfg_exts),
+ 	__RISCV_ISA_EXT_DATA(sstc, RISCV_ISA_EXT_SSTC),
+ 	__RISCV_ISA_EXT_DATA(svade, RISCV_ISA_EXT_SVADE),
 
-base-commit: be5c93fa674f0fc3c8f359c2143abce6bbb422e6
 -- 
-2.43.0
+2.53.0-Meta
 
 
