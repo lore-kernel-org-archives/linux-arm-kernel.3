@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A538C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:47:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 088B5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dCJ2r81edroj2Hmgi/7A55is/dQobvLAXnLASBXtpg8=; b=KXsQi7dAZZFM//yw5vJYf1Hl+x
-	tUcG9kaF52bgqm4dZnwUMYTv2vq0INnc1dodWc3xntgVA6eG/eDmfPvMZJLkguXe8hNEJom3q9nYf
-	ydbyNLMJwJ4AMMkn79qgJ4PrXI5LGxaEQkWgCnrvwiKpIXO8ai/H9GVqjnCf3etDa3Vr5nZQSUPeO
-	CcWHC1c2ro6Dxllbc3tlUUe0aNjSOEtvwJfsjQMLOP+p5d8JrXIGM59GmNjBQf7dV0GvlkdWlSz51
-	JIfHDX5l+of6Qnyq00IjN8QPSoS80NzdUfbosrQRxZ+Cq8XFBEN6UDmdtFQee8G9/S/qaDAnq3C00
-	U8C3Y2gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jvOWmfkx36mnX9lZaLvMJfF/ThQGv9wnJlAijUC9Frs=; b=lHjas4he/NhZyrlC8ef3uEXuO7
+	gZSXVV59UF+4dxkaGGnqIf/V2MxNqPLSW66U+RyHqmeocZqdageFf3exLDFFXWj5Kf1AG3gW8Zthy
+	0sJDZtLB842MXLFU1ZrAq6MzOCMj/wN2Qt59ToKJ1CdotkGdgoK+LheUyONyRtFV7aUfmrP8gc16F
+	kR9QJKtug3QOX4yRvpklbD7vGuyByYx0MGcqVujgunuz/RUpSE5NZIevhOfbUvCJVJfNJ0+Pf42I5
+	X9RxwecD6qfsWO9yjuL9VjMwDzjYlVS07OQ8R/dDy+wfSuEs7SBfjGrj+g3M8UrjFr45J7jLYL+lS
+	UyTcWYFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqbn-000000014NU-0ZMU;
-	Wed, 01 Jul 2026 08:47:51 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1weqbr-000000014Sp-1crj;
+	Wed, 01 Jul 2026 08:47:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqbk-000000014IB-277Y
+	id 1weqbq-000000014Qz-0RTg
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 08:47:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=jvOWmfkx36mnX9lZaLvMJfF/ThQGv9wnJlAijUC9Frs=; b=MKkbRRkeos4wdiwBKfvR4YtU2w
+	2IRV6MoV6lFOvyeUJ+uF/IlCbSZsme7KQcUbRHctrKkwyCDoqLe+Tnvw/kWzA2B0KdKVm2KwU6jOS
+	Vf3UWWNnDvKRUc9yvtFi+PVB7j4B/r80ZJMJ3zAAm/ki9ihi2RLkbZjsxmOP95sS4s3cdE9fWox9P
+	RhHk4cBJFPMZhbVR2Hyipd3BTuY9y9eDLnzIIik7xIOduqGfc6f9MJv+nEzQ+/kLinIUvvEh75j5u
+	H4/ddmXP3k2k7EpKj4fG5gF5JONMbk55iJTM9B4fcXgHBdV67RfyHcvq+H9jOnBOeoMvootNHCTMy
+	GXjG59+w==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weqbn-00000002WbF-0JHs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 08:47:49 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782895666;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dCJ2r81edroj2Hmgi/7A55is/dQobvLAXnLASBXtpg8=;
-	b=hA7Q7Ziqj0FcrguHs1jTijVS/PGxrXPk8PqaMozHWTdozmjFOtcq7ATQjFyPUCbGURhvYA
-	aFVu3M5KBssn2Bge4t8fBCPEPxeowXkEh0MvOiS7rW1FLFu7Wxya8IBCOYcWSXCyWmAv6K
-	a75H3/1QG8AwXRVKhulLBPahHsqPxaw=
-From: Atish Patra <atish.patra@linux.dev>
-Date: Wed, 01 Jul 2026 01:46:54 -0700
-Subject: [PATCH v8 06/22] RISC-V: Add Smcntrpmf extension parsing
+	Wed, 01 Jul 2026 08:47:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D6822364;
+	Wed,  1 Jul 2026 01:47:44 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8DF533F85F;
+	Wed,  1 Jul 2026 01:47:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782895668; bh=w3pBCXjVMeki7Wa4icahZC8zG9Ej/FE71V+26Ug4VuY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oijyqhpiZolrj8beTQeecoSA0zspbl1mvtV57Ym/R4K+prPzDiGdBChIczbjcUaVV
+	 WrH9IXcx+TGFctE2AL5iKqnbDmSN5YsUBHGNi/t0TPwAWvtSKU7gFST9T4r0jQRS0P
+	 m2y/NYpIM86KyPvJ2VzEms1bntoWqq4kbJi9pZ6k=
+Date: Wed, 1 Jul 2026 09:47:46 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+Cc: Yiqi Sun <sunyiqixm@gmail.com>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, rmk+kernel@armlinux.org.uk,
+	ruanjinjie@huawei.com, kees@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v2] arm64: ptrace: use live x0 for seccomp and audit
+ after ptrace
+Message-ID: <akTUMn7AGet8ITcA@arm.com>
+References: <20260529065444.1336608-1-sunyiqixm@gmail.com>
+ <2f435bab0d61d0bf8fbaa54203525aae8e8f5371.1782384161.git.sunyiqixm@gmail.com>
+ <akJuljttiQoki3sq@willie-the-truck>
+ <akP8-ddTn9bhIDEW@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20260701-counter_delegation-v8-6-7909f863a645@meta.com>
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
-In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
-To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, 
- Anup Patel <anup@brainfault.org>, Namhyung Kim <namhyung@kernel.org>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Atish Patra <atish.patra@linux.dev>, Ian Rogers <irogers@google.com>, 
- Will Deacon <will@kernel.org>, James Clark <james.clark@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akP8-ddTn9bhIDEW@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_014748_694637_3EDA866D 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20260701_094751_475200_D88659C1 
+X-CRM114-Status: GOOD (  32.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +88,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Atish Patra <atishp@rivosinc.com>
+On Tue, Jun 30, 2026 at 06:29:29PM +0100, Catalin Marinas wrote:
+> I think we need to keep orig_x0 as our original arg0 throughout the
+> kernel and just fix the tracer path to sync it on the syscall entry. It
+> doesn't unclutter the code but it shouldn't break the ABI either (unless
+> someone relied on the ptrace change x0 and not being noticed by
+> seccomp). Something like below:
+> 
+> ----------------8<-----------------------------
+> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+> index 4d08598e2891..cd21b301e154 100644
+> --- a/arch/arm64/kernel/ptrace.c
+> +++ b/arch/arm64/kernel/ptrace.c
+> @@ -2417,6 +2417,18 @@ int syscall_trace_enter(struct pt_regs *regs)
+>  		ret = report_syscall_entry(regs);
+>  		if (ret || (flags & _TIF_SYSCALL_EMU))
+>  			return NO_SYSCALL;
+> +		/*
+> +		 * Keep orig_x0 authoritative so that seccomp (via
+> +		 * syscall_get_arguments()), audit and the restart path all
+> +		 * see the same first argument the syscall is dispatched with,
+> +		 * even if it has been updated by a tracer. Skip this for
+> +		 * NO_SYSCALL (set either by the user or the tracer) as
+> +		 * regs[0] holds the return value (see the comment in
+> +		 * el0_svc_common()). For compat, orig_r0 is provided directly
+> +		 * through GPR index 17.
+> +		 */
+> +		if (!is_compat_task() && regs->syscallno != NO_SYSCALL)
+> +			regs->orig_x0 = regs->regs[0];
+>  	}
+>  
+>  	/* Do the secure computing after ptrace; failures should be fast. */
+> ----------------8<-----------------------------
+> 
+> If we want to change the ABI, we could do like riscv and only set the
+> arguments via PTRACE_SET_SYSCALL_INFO while the GPR ptrace accesses
+> whatever is in regs[0] - either the original arg or the return value. I
+> think they changed this inadvertently in 2023 when they moved to the
+> generic syscall.
 
-Smcntrpmf extension allows M-mode to enable privilege mode filtering
-for cycle/instret counters. However, the cyclecfg/instretcfg CSRs are
-available in Ssccfg only if Smcntrpmf is present.
+Looking at some of the history, the ABI break on riscv was noticed, so
+definitely not an option for us. I think the change would have looked
+something like below. We could keep regs[0] match orig_x0 for entry but
+it gets out of sync later, so still confusing for gdb/lldb/strace.
 
-That's why, kernel needs to detect presence of Smcntrpmf extension and
-enable privilege mode filtering for cycle/instret counters.
-
-Reviewed-by: Clément Léger <cleger@rivosinc.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- arch/riscv/include/asm/hwcap.h | 1 +
- arch/riscv/kernel/cpufeature.c | 1 +
- 2 files changed, 2 insertions(+)
-
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index d4a7b90e2d78..51ad55b9677a 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -114,6 +114,7 @@
- #define RISCV_ISA_EXT_ZICFISS		105
- #define RISCV_ISA_EXT_SSCSRIND		106
- #define RISCV_ISA_EXT_SMCSRIND		107
-+#define RISCV_ISA_EXT_SMCNTRPMF		108
+---------------8<----------------------
+diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+index 5e4c7fc44f73..c58ac8d25692 100644
+--- a/arch/arm64/include/asm/syscall.h
++++ b/arch/arm64/include/asm/syscall.h
+@@ -93,19 +93,12 @@ static inline void syscall_set_arguments(struct task_struct *task,
+ 					 struct pt_regs *regs,
+ 					 const unsigned long *args)
+ {
+-	regs->regs[0] = args[0];
++	regs->orig_x0 = args[0];
+ 	regs->regs[1] = args[1];
+ 	regs->regs[2] = args[2];
+ 	regs->regs[3] = args[3];
+ 	regs->regs[4] = args[4];
+ 	regs->regs[5] = args[5];
+-
+-	/*
+-	 * Also copy the first argument into orig_x0
+-	 * so that syscall_get_arguments() would return it
+-	 * instead of the previous value.
+-	 */
+-	regs->orig_x0 = regs->regs[0];
+ }
  
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
+ /*
+diff --git a/arch/arm64/include/asm/syscall_wrapper.h b/arch/arm64/include/asm/syscall_wrapper.h
+index abb57bc54305..6b13d7c8ad95 100644
+--- a/arch/arm64/include/asm/syscall_wrapper.h
++++ b/arch/arm64/include/asm/syscall_wrapper.h
+@@ -12,7 +12,7 @@
  
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 3fa0a563fb21..1452521d740a 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -576,6 +576,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
- 	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
- 	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
-+	__RISCV_ISA_EXT_DATA(smcntrpmf, RISCV_ISA_EXT_SMCNTRPMF),
- 	__RISCV_ISA_EXT_DATA(smcsrind, RISCV_ISA_EXT_SMCSRIND),
- 	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
- 	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
+ #define SC_ARM64_REGS_TO_ARGS(x, ...)				\
+ 	__MAP(x,__SC_ARGS					\
+-	      ,,regs->regs[0],,regs->regs[1],,regs->regs[2]	\
++	      ,,regs->orig_x0,,regs->regs[1],,regs->regs[2]	\
+ 	      ,,regs->regs[3],,regs->regs[4],,regs->regs[5])
+ 
+ #ifdef CONFIG_COMPAT
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index 358ddfbf1401..a80596531a5c 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -66,6 +66,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 
+ 	regs->orig_x0 = regs->regs[0];
+ 	regs->syscallno = scno;
++	syscall_set_return_value(current, regs, -ENOSYS, 0);
+ 
+ 	/*
+ 	 * BTI note:
+@@ -111,8 +112,6 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 		 * setting the return value is unlikely to do anything sensible
+ 		 * anyway.
+ 		 */
+-		if (scno == NO_SYSCALL)
+-			syscall_set_return_value(current, regs, -ENOSYS, 0);
+ 		scno = syscall_trace_enter(regs);
+ 		if (scno == NO_SYSCALL)
+ 			goto trace_exit;
 
 -- 
-2.53.0-Meta
-
+Catalin
 
