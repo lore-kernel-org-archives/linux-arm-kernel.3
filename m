@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D75C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B407C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5DKmClFGUyTFGPu0nP1vsfcVZ/IX+FI4vKFGgJ6zxqo=; b=vue0Obkh9LUmG010FChkeY0exC
-	Bpvl5MkOBkZXtSm76i/eJeejjYVGffHzATUAG8hFUJc69aWabFpp+ULZOoYU+NcULOCeVT45n22Vp
-	YlpVapYQBY92NqZm1IpyP7NZ41U5LiwM30ffxoTqYriB0pA0XF5yQxC6Z73pvnTEauIB4ebEv4aKv
-	73aO4fULjIuoCXyEzs3N4o6nhDtbU3jTsn6Oc8w0Mo3ouGvgSyYDyvdyBmOBCrokgvpuOr2lWqsaY
-	GXJrMtQBcm4NiLnAje7zOQgm9ZgGjuyOSrcqT04bSqjMw2Vemf8MolkV/T3iZSTYI3x7zoC2uM6wy
-	Tq75F1iw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DTtfUjQOmEv3JPoDppTP1aI9YbqG+g8qqg+zCpXpWzg=; b=KgeGTOuNxKac1rfsv9zxWC4nfm
+	CdJyTz+VEB3SANfaT6ecuMYVTGRGX48NdsLbxhFkzOmD5qQvgrDhoZ3c7d+RnBQajfuBKjIXbtyCo
+	khk6DSbXcHjTR0ePy9we8Luj4VEECN5BoJLmbuX+pTfzPGEehYOKfTC1fGCRSdjjRJQM8b2tXttmK
+	H0JyDK932EhCT3bZAHIDLDgBQaPusYIyNFHA5NTC9PQlodxoUVjToLyTLER4UjCF+THvty5QmNu4b
+	dygb/6NM/sUzuuZdVQzmqYJobBE4IztIOVblS3fhDyZLo3yZaS0QOuEMm+DLP8VMI+ezdJiNTFiS7
+	9deW6SpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wez0H-00000002kaE-0jXG;
-	Wed, 01 Jul 2026 17:45:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wez0D-00000002kXM-3El7
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 17:45:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6CFA2BF7;
-	Wed,  1 Jul 2026 10:45:30 -0700 (PDT)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B5C0E3F85F;
-	Wed,  1 Jul 2026 10:45:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782927935; bh=JYlNs5cCz4iPuOZduJDZZgEyl0FofGYsMvYkgOEiosY=;
-	h=From:To:Cc:Subject:Date:From;
-	b=D8QgBOAWEV0NgOSJOt29mYQd7CeduBIC8fDG+HvGIgYU6EarArrsRwY5PWRQNX3XX
-	 HwlhUhuxMY1m8wsHYQipFtTu2dRu3L+mN/dveZzBnT2E5OxjZrefhUPdDyc2p10i5x
-	 mm8i/kdEytzA+nLMFa0Or60sjnCw6UZIsnqhNy4w=
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org,
-	joro@8bytes.org
-Cc: jpb@kernel.org,
-	catalin.marinas@arm.com,
-	yangyicong@hisilicon.com,
+	id 1wetul-00000001pM0-33Jq;
+	Wed, 01 Jul 2026 12:19:39 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wetui-00000001p9g-1wOT;
+	Wed, 01 Jul 2026 12:19:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908374;
+	bh=RwGHzUiPcWJXB9o6ik2AuHWQA9CyEMuFAZdCf3FIp38=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=TEoLzFSRl35wimGhYYdbOyHnIsUDO7+VKvuPjIlT3O9DbgfYS4FVHzGpxxdUEtIkc
+	 VumMfKxCsolmirHkozb3Vzos+emDKCQEFBSVoSiqlUjwbEWF6GhU4UfGNsFxmaN4t0
+	 JJJPpwE6dk5sDfYMiwsgsn92mC1VA5NMu9V+/DM6YGvNlPutFc9NFryLS1wjHnOL/e
+	 kF8TdgzAEoGfg1fTc8MelQUCxLY3gk9nIUO7nYVVFN6IC0lFrzOvZpBKpyCGyYGBH1
+	 heFRyh+LId0eExpNhOMo3CvJNslXrN4pFCFogPtXSm5fLqcJPb66rL3S12l9jWYTSi
+	 6BnglFAAG15UA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 324AD17E0909;
+	Wed,  1 Jul 2026 14:19:34 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: [PATCH] iommu/arm-smmu-v3: Add HAFT support for SVA
-Date: Wed,  1 Jul 2026 18:45:17 +0100
-Message-ID: <878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.54.0.dirty
+	kernel@collabora.com,
+	justin.yeh@mediatek.com
+Subject: [PATCH 6/7] arm64: dts: mediatek: mt8192: Add and use UART AP_DMA controller
+Date: Wed,  1 Jul 2026 14:19:28 +0200
+Message-ID: <20260701121929.19374-7-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701121929.19374-1-angelogioacchino.delregno@collabora.com>
+References: <20260701121929.19374-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_104537_898154_0C8D7148 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20260701_051936_696631_53E64948 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,95 +81,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since table access flags cannot be software-managed, if process
-pagetables are using HAFT then SVA must require the SMMU to support and
-enable it too, otherwise page aging is liable to get out of whack.
+This SoC has a DMA controller (AP_DMA) that provides one channel
+for each data direction (transmit and receive) for all of the
+UART controllers in the SoC.
 
-Cc: <stable@vger.kernel.org>
-Fixes: 62df5870ebf7 ("arm64: Enable ARCH_HAS_NONLEAF_PMD_YOUNG")
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+In order to increase the efficiency of data TX/RX over the UART
+controllers, add the UART DMA controller and assign the right
+channels to its two uart controllers.
+
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 5 +++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 6 ++++++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 3 +++
- 3 files changed, 14 insertions(+)
+ arch/arm64/boot/dts/mediatek/mt8192.dtsi | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-index 1ed8a6f29dc4..ef11e9493f93 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-@@ -102,6 +102,8 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
- 			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
- 		if (master->smmu->features & ARM_SMMU_FEAT_HD)
- 			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
-+		if (master->smmu->features & ARM_SMMU_FEAT_HAFT && system_supports_haft())
-+			target->data[1] |= cpu_to_le64(CTXDESC_CD_1_HAFT);
- 	} else {
- 		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
+diff --git a/arch/arm64/boot/dts/mediatek/mt8192.dtsi b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
+index 465567c3be54..d05a5ac61534 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8192.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
+@@ -732,6 +732,19 @@ spmi: spmi@10027000 {
+ 			assigned-clock-parents = <&topckgen CLK_TOP_OSC_D10>;
+ 		};
  
-@@ -211,6 +213,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
- 	if (system_supports_bbml2_noabort())
- 		feat_mask |= ARM_SMMU_FEAT_BBML2;
- 
-+	if (system_supports_haft())
-+		feat_mask |= ARM_SMMU_FEAT_HAFT;
++		apdma: dma-controller@10217a80 {
++			compatible = "mediatek,mt8192-uart-dma", "mediatek,mt6835-uart-dma";
++			reg = <0 0x10217a80 0 0x80>, <0 0x10217b00 0 0x80>,
++			      <0 0x10217b80 0 0x80>, <0 0x10217c00 0 0x80>;
++			interrupts = <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH 0>;
++			clocks = <&infracfg CLK_INFRA_AP_DMA>;
++			#dma-cells = <1>;
++			dma-requests = <4>;
++		};
 +
- 	if ((smmu->features & feat_mask) != feat_mask)
- 		return false;
+ 		gce: mailbox@10228000 {
+ 			compatible = "mediatek,mt8192-gce";
+ 			reg = <0 0x10228000 0 0x4000>;
+@@ -756,6 +769,8 @@ uart0: serial@11002000 {
+ 			interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
+ 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART0>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 0>, <&apdma 1>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
  
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index a10affb483a4..7637e9128533 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4925,6 +4925,9 @@ static void arm_smmu_get_httu(struct arm_smmu_device *smmu, u32 reg)
- 	u32 hw_features = 0;
+@@ -766,6 +781,8 @@ uart1: serial@11003000 {
+ 			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
+ 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART1>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 2>, <&apdma 3>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
  
- 	switch (FIELD_GET(IDR0_HTTU, reg)) {
-+	case IDR0_HTTU_ACCESS_DIRTY_HAFT:
-+		hw_features |= ARM_SMMU_FEAT_HAFT;
-+		fallthrough;
- 	case IDR0_HTTU_ACCESS_DIRTY:
- 		hw_features |= ARM_SMMU_FEAT_HD;
- 		fallthrough;
-@@ -5256,6 +5259,9 @@ static int arm_smmu_device_acpi_probe(struct platform_device *pdev,
- 		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
- 
- 	switch (FIELD_GET(ACPI_IORT_SMMU_V3_HTTU_OVERRIDE, iort_smmu->flags)) {
-+	case IDR0_HTTU_ACCESS_DIRTY_HAFT:
-+		smmu->features |= ARM_SMMU_FEAT_HAFT;
-+		fallthrough;
- 	case IDR0_HTTU_ACCESS_DIRTY:
- 		smmu->features |= ARM_SMMU_FEAT_HD;
- 		fallthrough;
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index c909c9a88538..61a7df5afb99 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -40,6 +40,7 @@ struct arm_vsmmu;
- #define IDR0_HTTU			GENMASK(7, 6)
- #define IDR0_HTTU_ACCESS		1
- #define IDR0_HTTU_ACCESS_DIRTY		2
-+#define IDR0_HTTU_ACCESS_DIRTY_HAFT	3
- #define IDR0_COHACC			(1 << 4)
- #define IDR0_TTF			GENMASK(3, 2)
- #define IDR0_TTF_AARCH64		2
-@@ -369,6 +370,7 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
- #define CTXDESC_CD_0_ASET		(1UL << 47)
- #define CTXDESC_CD_0_ASID		GENMASK_ULL(63, 48)
- 
-+#define CTXDESC_CD_1_HAFT		(1UL << 3)
- #define CTXDESC_CD_1_TTB0_MASK		GENMASK_ULL(51, 4)
- 
- /*
-@@ -921,6 +923,7 @@ struct arm_smmu_device {
- #define ARM_SMMU_FEAT_HD		(1 << 22)
- #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
- #define ARM_SMMU_FEAT_BBML2		(1 << 24)
-+#define ARM_SMMU_FEAT_HAFT		(1 << 25)
- 	u32				features;
- 
- #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
 -- 
-2.54.0.dirty
+2.54.0
 
 
