@@ -4,79 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6647C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D027DC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:30:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFB4Bp0YBQbqUpXC3NxsL0hV18fZ3rk9FR0tAgGa+/g=; b=WT3n9RVJfLDr37w5mN4GCy6Lkn
-	ROK9SfQlFxySTvTWBoPLFWd1zBw17UT2lZ1u4gnriLl4p0xK5nMopwT2XFNi5HuUbmTdj8EhLo/zs
-	ShpKgS3n99VO4/cBlywIRUCFRrk7OipjC+slfaVew0cEp7gc76gfQNwm4JPD+o4h73Cr8ZRNA0I0I
-	5HBDoOE8hvDirDI+lXD8Z+bWsJFeIfve1HgGn/d4jkc0PWjs7rtr3GOToRP/Vg+wDH7WlgCMtdiFj
-	49sHLOGyBjVmLHAhW/OHwpxGIkUz5FCDLuM9uDubq0lN22NB6Cf+QEp0dknqpXzppmtHO2UFDIECy
-	TiBooz8w==;
+	bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=; b=n9EDJLmh3uCs3ktQXz9zzxD6Xu
+	uJHVGqkM62JdxTHzZ1qAi3R0P1XCsz1QHAB1qqwMYGdk5VsRV3Q1G68MOmoy110kPgdrNJOEGgVuZ
+	IVma7tImgJLQmmba3vkiWCDwQAJqAFDq+IndXiORHZPLaKCf+IdzrdL+mzUFk/EAZ0iXzUeFsiy6C
+	dnrTax7J8IlR4/L78z4+10H/Q+zwHRVQymqKEiibK2nBW9RyVKSVw/Hx3YQjoWDW7j0XLTN4c3/ey
+	jxXfgeKZ75D6mNKogcpQs7hPZlQtKakMcIkruwEhY8rJpfxBfMUOErRdCdQ4FJ/trGfxx1b+b5Ox8
+	BY6ro7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesBJ-00000001J3z-0oQy;
-	Wed, 01 Jul 2026 10:28:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wesCc-00000001JPk-3wej;
+	Wed, 01 Jul 2026 10:29:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesBH-00000001J3t-29wg
+	id 1wesCc-00000001JP4-12Ls
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 10:29:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=; b=hy7NWC2ezsf8MMLGlueGtkcHiz
+	e0ylEldcpt2jSM+7XjlD+0OLM5UOd7y1V3ytWyTuFD8j0TGVEeYJGtp/ONqSqemizVFtsbSbdrovV
+	BoWyIuU8+FFU39vVbi8DDf1Y7DAb28E/cvNKAFlLadosQRQQBgmFImGHstWaH58VhNLGbhjrtZXvE
+	mqnPEuZRzR/f0kTKPmF6n6KG+8EO93HMn2N474yifZKu1xB4UD29vQ8DLKNzLLDnwbVvvtZlXMMcU
+	9DWnn8LYYzLw0pj/ZATXwaL+XnsNRAJAKSaD32+i3Q1C1u2h2ujl9BVTcX6nes6kfe+dh4cKxYefP
+	HFJC9WUw==;
+Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wesCY-00000002ciO-3R49
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 10:28:35 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD36944080
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 10:28:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9450F1F0155F
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 10:28:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782901714;
-	bh=dFB4Bp0YBQbqUpXC3NxsL0hV18fZ3rk9FR0tAgGa+/g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=bZdoysyy2AwRuTceUJvoZOL/a54sXju0V3+M5KCqODyfHx4KHWmATSxu7JqEhANNY
-	 ds+DQ+QWVwMaPYit9Rhmzfn6G2KLkXwYr+s4wdfp0kUEQ855d0yIvs8zOyBlUjduHI
-	 3b5rtwzj+JvIJ58Kj5V9LWPRuQn/ORN6voCKSUS04uslmBPf5Ui6DZJrii4/k7BpFX
-	 7ZvnDWg8r4Ik/roEq+O8JaLkUxklpFWLVPaUijKuOMIOHmz/aDQ2d3wM1mswr3ZKmM
-	 VvgBrzc7uF4b3s3tj46EZW6aqz0oJXf2ccrqW0qK785u0/a4hJIa9DiB3k0bPKrmvh
-	 8Ecrf13lGbp2Q==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-39b349ae174so1971471fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 03:28:34 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RpNawvKgBg+EopZDuuaLHlfuPIsZmX0S2tb4wHN0Tz+IHwCTXgH/50nCz8M60raoVH+Ik3X8m+3HvT805CgGpeI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/m2CHAugahecfm+fQqWpzxdSxvBPXlm+cBsQTH130lHXn9Zrv
-	qLZCr+jTYHb00g6mAzQ/Aii2gVQgYXSib6NpXA9pPq88bMNOXvYKxFlr7u4O+HeuVnFYtS47UK3
-	+B4ZxRWRSkXvqSvwzfanxz1HwqVZRbiU=
-X-Received: by 2002:ac2:488b:0:b0:5ae:b7d4:b68 with SMTP id
- 2adb3069b0e04-5aec801077dmr7489e87.2.1782901713165; Wed, 01 Jul 2026 03:28:33
- -0700 (PDT)
+	Wed, 01 Jul 2026 10:29:57 +0000
+Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-30bbe98c3f0so1092247eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 03:29:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782901792; x=1783506592; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=;
+        b=AH+lshj1/C7mE05DilRX0dmN0UxhsHlE99D/bhaOB/CAH9f3h/D+NqvWSDCPq6JN8Q
+         1saBvn7iJqtQpjy+QtPXcy5h8Py71xBcOkzVrB/Qi6fNF+sePOWlZg4iIUpA5MMNopVp
+         Qdj/Mh6DezHCBSYoOM26II+ok9hU6jkFe4xpaxmYTGT4sawF4762DqgmkiMsg2MhHOhg
+         QVUqxQc6g3oW/6ZnEFSftJbdhUBT+1I0np+yQnm5kOXDABua5jsgtSACRKEbQw3asCP8
+         Q3DTHx2iyG6u2sRtT2YKjIkoguWlP5n85OrNYsYaXqAQc3a0POaoKsyYt1i+f2+JmqHo
+         +5hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782901792; x=1783506592;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=;
+        b=REwHkKR4pi8CpKVX3KISfpTya8AwoJONdtGA1AWxTmR9gyv41LeeTqdgrMGxluNwBf
+         XKe4LMYOpyq4Z3FxDz8g3LSkTLbjJyXfd8E3NVm/lUaZV50B7wWyux5NoyT46N4bBg5F
+         5Usr/xKquSTFJhgjRNHcwklLjOj0pxrJoVVAcp57JDtVMtd+z5U5RfgTmvxhwn9HKeVP
+         rkid3kSHXFLSVsJZYUEOw9GU5m8afvPm4qSgrE/GFk9C7MnN0tMLSOK2uGPaCmalzOwq
+         dlsJoLbQ/4Pu5AvI6EbA9mJFL7gqmIXe57Scp0zPfVRyKtCOucF5BNzZQ68kyxYnkwLA
+         dN5A==
+X-Forwarded-Encrypted: i=1; AHgh+Rr+df7ynjNbq4kET40+occj7FbemGzPfhV+5T4qPDE080ZXiMCSK8GKDT6X57PB6yPFMiA/irYG8VzQfnnCKKCg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9Mf7T4WJYAxcik6atrpEadbfevZmfDb5wCMICBpS4nUdPECMv
+	jOwUKzKwWYEaiDXPQBtxWEBRWvDasq1Ocy1gPIEIWi/WSowoeZY3QE8Z
+X-Gm-Gg: AfdE7clPOFuhuxmL8OprCpvjXXxzchQAbDlkCxOFXFF3uOygoawxbymRIy3StgqtCfZ
+	VhSAlJ9/R/oDWXIS3u8GXEJD/Gz2ZqoqC/CN8PVNM5KnXKCc84AxUyG+3ukMCiMuOAFXYuqKO+F
+	bPY6a3Uo6v63sWm+w1K8wsEz++7aBRJlbqdzosU7SDfjPB8RQOuKGiBqXAlNqcZCH+GpfcjEX+a
+	mDLRgSgx8Kzsx9p0c01ECTlL9J9ExLgqVu3VD9W7jxVpCfOtZZvE41jEdau21lD22saq9XL16ab
+	3N9/5Na0Pv2+2hxMRiagQkDqhB59QzQz+CeY5C3L9huChLny5FhR01p+NmtZr84SNKaxqBqNqSd
+	xYoWcZlefX3Us9tpaG2VM4FTKkH/zMx6deFJdsadXkekbJf0xHtoB3FLC5lNtGa2MFhE5FTXLYZ
+	qeEDRVYAJJY9/pMuEzoO4/72o=
+X-Received: by 2002:a05:7300:fb8c:b0:30c:9f31:b604 with SMTP id 5a478bee46e88-30eff294ff9mr1275666eec.25.1782901791971;
+        Wed, 01 Jul 2026 03:29:51 -0700 (PDT)
+Received: from nbai25050028.. ([2403:8600:2090:6f:c5d7:7505:b0e9:be5e])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ee317095dsm27602019eec.15.2026.07.01.03.29.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 03:29:51 -0700 (PDT)
+From: Aniket Negi <aniket.negi03@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	aniket.negi@airoha.com
+Subject: Re: [PATCH] net: airoha: fix MIB stats collection to be lossless
+Date: Wed,  1 Jul 2026 15:59:44 +0530
+Message-ID: <20260701102944.246106-1-aniket.negi03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <akS48y8gCJf-EmTP@lore-desk>
+References: <akS48y8gCJf-EmTP@lore-desk>
 MIME-Version: 1.0
-References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com>
-In-Reply-To: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 1 Jul 2026 12:28:19 +0200
-X-Gmail-Original-Message-ID: <CAD++jL=5YBkLz5YQ45cT3uVmBfVbCZ_cy8zAg1J-sqwzhVNN3w@mail.gmail.com>
-X-Gm-Features: AVVi8Ce9zRwSC7YWDdpFS7YxJ1muCcN5kO1IIt7fv-PQnrz6ioPZPYbslWakb_g
-Message-ID: <CAD++jL=5YBkLz5YQ45cT3uVmBfVbCZ_cy8zAg1J-sqwzhVNN3w@mail.gmail.com>
-Subject: Re: [PATCH v12 0/6] gpio: siul2-s32g2: add initial GPIO driver
-To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Alberto Ruiz <aruizrui@redhat.com>, 
-	Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
-	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_112955_640614_0C7D4800 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,29 +121,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Khristine,
+> Maybe better mib_prev?
 
-thanks for the updated patches!
+Ok sure will update. mib_prev is cleaner and more concise. 
+ 
+> Since now we do not reset the MIB counters in airoha_update_hw_stats(), we can
+> get rid of the for loop there and just call airoha_dev_get_hw_stats() with the
+> provided dev pointer. Even better, just rename airoha_dev_get_hw_stats() in
+> airoha_update_hw_stats() and move the spinlock there. What do you think?
 
-On Tue, Jun 30, 2026 at 2:54=E2=80=AFPM Khristine Andreea Barbulescu
-<khristineandreea.barbulescu@oss.nxp.com> wrote:
+I am aligned with your suggestion, Since after removing MIB reset logic, there isn't need to iterate over all devs on airoha_gdm_port. This will simplify the code significantly.
 
-> Andrei Stefanescu (2):
->   pinctrl: s32cc: change to "devm_pinctrl_register_and_init"
->   pinctrl: s32cc: implement GPIO functionality
->
-> Khristine Andreea Barbulescu (4):
->   pinctrl: s32cc: add/fix some comments
->   pinctrl: s32cc: remove inline specifiers
->   dt-bindings: pinctrl: s32g2-siul2: describe GPIO and EIRQ resources
+I'll refactor as follows:
 
-I applied these 5 patches to the pin control tree.
+1. Remove the for loop in airoha_update_hw_stats()
+2. Rename airoha_dev_get_hw_stats() to airoha_update_hw_stats()
+3) move the spinlock into the renamed function.
 
->   arm64: dts: s32g: describe GPIO and EIRQ resources in SIUL2 pinctrl
->     node
 
-Please funnel this one through the SoC tree.
-
-Yours,
-Linus Walleij
+Best Regards,
+Aniket Negi
 
