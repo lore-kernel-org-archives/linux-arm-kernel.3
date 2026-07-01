@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300C4C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55FEBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mVeRRJJSZeObgGNAULymnreJVn5f+SfTJtLSNLvtxrU=; b=XgHyyjgRn40NvXjDSmtT8zLPcy
-	2eW/C2z0A1MwLF5kBhZvq3HqtNROvniWdOXPx80gY6Y6iCfrgfMQDwtnUkwOYl+z7BglQvjX6Y7tR
-	3R4Is0ZBRBtXDLTJL/HhO5YhQ4GHNfUYb60XFVAkvlox/O0eUtwM73ZGWnZAllhDdgjpVH5RLoPAF
-	izeLGbk5L6WV1yckBtHIkguqVgxu0wv7sGMJzO6qJ+VOLA1QH2TneAKKlJkUFWAWdSF9YzCTTPpxk
-	Q8JyrFZI6rxgnZ6pbKszxWVpHuWdvAG2o7Lrqshghnmbo4XxfqpQLgFRGmeP8ZmtxbmtD4ggRn3KP
-	edgEVgXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PiCN0XbHNxL3wiS2C15r2mhEdbBCiGu3dJWvUYNOTRY=; b=VyDZeXqFeYWu4kbv+dRSmmc2a0
+	24izN+eE3+RMjbRdVVsqxQM8G+Uf3HA7m2CqS7pKtUi8MR99mh24wsuhXDNtUcXwI4ntTp1pXTZaF
+	mVPAKLt5uFlC/qTFqdUJoIosUrVTBZfUPkCYljnJbu+qFVblRn+Lw9RPrxQn3cJdWcDiBDQjn13Ie
+	6pgWaW82nGrQ0mbR3QNYObicU7hlwGjxNiJAWtdOZoXea2O4VctlQCFTk2JW0cssNLVSAZFV1X6q1
+	Oy/Y8DbtirDhytg7mkG3XUvjrwe8r/Eu5BdgS0S1N8srcVhOCMc9p5cS+5H8psGuG3YiuRPnr2Q3b
+	gJ02JoVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoll-00000000pWV-3HoQ;
-	Wed, 01 Jul 2026 06:50:01 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1weonJ-00000000peN-04VJ;
+	Wed, 01 Jul 2026 06:51:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoli-00000000pVN-3lLS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 06:50:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id DE6F71A0DA4;
-	Wed,  1 Jul 2026 06:49:54 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9DDDD60288;
-	Wed,  1 Jul 2026 06:49:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 456F2104C998E;
-	Wed,  1 Jul 2026 08:49:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782888593; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=mVeRRJJSZeObgGNAULymnreJVn5f+SfTJtLSNLvtxrU=;
-	b=dsZjbIHyHqKbtNQgFtTpEmSmyzCKQ7Bqkrs+wIv64J3pAN2yA9llX5SJd2drVb0BFDtWcP
-	D0x2IIDqvmtxF2dXJOnh7ebPykzEBIhHaBoWMDOr+zjssqu7hPKgQtUpVGPObByHIkurYm
-	U11hDLemXrwlJCfWuL9kouozaGqSifrJh2k1rmKFMF2paiBOjgyXU1NFFo4P5R1hK0c+s+
-	2twCQoDUUG0MBesiqroBqWoPI5lm2WmogR2uZr3zYcwF+sx1NFeDBdqCcmi65KTdiIob2p
-	y86oqdjnFwakf0YdGy2B7sRrQnMjUX1ROvtm5gbnwQyz5Drewewdak8EDhj9WA==
-Message-ID: <7d33f825-01a8-48bf-930a-5b1db80d8ee5@bootlin.com>
-Date: Wed, 1 Jul 2026 08:49:45 +0200
+	id 1weonH-00000000peB-0pcu;
+	Wed, 01 Jul 2026 06:51:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A80E442003;
+	Wed,  1 Jul 2026 06:51:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E9CB1F000E9;
+	Wed,  1 Jul 2026 06:51:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782888694;
+	bh=PiCN0XbHNxL3wiS2C15r2mhEdbBCiGu3dJWvUYNOTRY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=lazT/QJg6tNx8ADnUeOrhR3oQvxrL7lGXlFte3tRvPd+enNiiTRSvpBghuXOx2+fR
+	 mow8Tuq6QcTEMyXmRy+0GmmRjGFgdAKov6rLldCqifp4fTpbe/2DiQP9Y6iDOrh9GA
+	 xz6bVHsNd1d++2pwdRqbxRH0EAMVdaWIskPQ5GIvkDu/sQPKRfT6fK/SxVwxzSXyA6
+	 /dG++YTgMt0WjvnIzHUJxcS3F+pBwwe5L3yp6YMi1tpoqrdtD1pZW1j2EX5bzRl6SK
+	 4W36EwVVbQnfHaCPwANNlElPzwDhS4DabNCQwThnoyWv5VBH5PP97sFYSnasI/vY6v
+	 A+V/K0+jt3rGg==
+Date: Wed, 1 Jul 2026 08:51:31 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Aniket Negi <aniket.negi03@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, aniket.negi@airoha.com
+Subject: Re: [PATCH] net: airoha: fix MIB stats collection to be lossless
+Message-ID: <akS48y8gCJf-EmTP@lore-desk>
+References: <akPQ7P1Dqb00oWa3@lore-desk>
+ <20260701063823.239783-1-aniket.negi03@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] net: stmmac: dwmac-socfpga: Add mac-mode DT property
- support
-To: muhammad.nazim.amirul.nazle.asmade@altera.com, dinguyen@kernel.org
-Cc: rmk+kernel@armlinux.org.uk, krzk+dt@kernel.org, conor+dt@kernel.org,
- robh@kernel.org, davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260630133108.27244-4-muhammad.nazim.amirul.nazle.asmade@altera.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260630133108.27244-4-muhammad.nazim.amirul.nazle.asmade@altera.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_234959_099550_009263C0 
-X-CRM114-Status: GOOD (  25.40  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9rMejwU9NztTVBPE"
+Content-Disposition: inline
+In-Reply-To: <20260701063823.239783-1-aniket.negi03@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,110 +74,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On 6/30/26 15:31, muhammad.nazim.amirul.nazle.asmade@altera.com wrote:
-> From: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> 
-> Russell King's commit de696c63c1dc ("net: stmmac: socfpga: convert to
-> use phy_interface") replaced mac_interface with phy_interface in
-> socfpga_get_plat_phymode(), noting that no upstream DTS files set the
-> "mac-mode" property, making the two values identical.
-> 
-> The Agilex5 SoCDK TSN Config2 board is an exception: its gmac1 TSN
-> port uses GMII internally in the MAC while the PHY-side interface is
-> RGMII, so mac-mode and phy-mode differ. Without restoring mac_interface
-> support, the MAC is configured with RGMII instead of GMII, causing
-> connectivity failures on this board.
-> 
-> Add socfpga_of_get_mac_mode() to read the optional "mac-mode" DT
-> property and store it in a new mac_interface field. When the property
-> is absent, mac_interface falls back to phy_interface, preserving
-> the existing behaviour for all other boards.
+--9rMejwU9NztTVBPE
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-After our discussions, indeed mac-mode seems to be the way to go, however
-I have some remarks on how it's handled right now.
+> Hi Lorenzo,
+>=20
+> Thank you for the detailed review and suggestions!
+>=20
+> > > +	/* TX - 64-bit H+L registers: hw accumulates the total, read direct=
+ly. =3D
+> > */
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
+> > > -	dev->stats.tx_ok_pkts +=3D ((u64)val << 32);
+> > > -	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
+> > > -	dev->stats.tx_ok_pkts +=3D val;
+> > > +	dev->stats.tx_ok_pkts =3D (u64)val << 32;
+> >=20
+> > I guess it is more readable to store REG_FE_GDM_TX_OK_PKT_CNT_L() read =
+in v=3D
+> > al
+> > here. Something like:
+> >=20
+> > 	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
+> > 	dev->stats.tx_ok_pkts +=3D val;
+> >=20
+> > This apply even to occurrence below
+> Agreed. I'll store CNT_L read in val first to improve readability.
+>=20
+> > > +	dev->stats.tx_ok_pkts +=3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_C=
+NT_L=3D
+> > (port->id));
+> > > =3D20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_H(port->id));
+> > > -	dev->stats.tx_ok_bytes +=3D ((u64)val << 32);
+> > > -	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_L(port->id));
+> > > -	dev->stats.tx_ok_bytes +=3D val;
+> > > +	dev->stats.tx_ok_bytes =3D (u64)val << 32;
+> > > +	dev->stats.tx_ok_bytes +=3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE=
+_CNT=3D
+> > _L(port->id));
+> > > =3D20
+> > > +	/* TX - 32-bit registers: accumulate delta to handle wrap-around. */
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_DROP_CNT(port->id));
+> > > -	dev->stats.tx_drops +=3D val;
+> > > +	dev->stats.tx_drops +=3D (u32)(val - dev->stats.hw_prev_stats.tx_dr=
+ops);
+> > > +	dev->stats.hw_prev_stats.tx_drops =3D val;
+> > > =3D20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_BC_CNT(port->id));
+> > > -	dev->stats.tx_broadcast +=3D val;
+> > > +	dev->stats.tx_broadcast +=3D (u32)(val - dev->stats.hw_prev_stats.t=
+x_br=3D
+> > oadcast);
+> > > +	dev->stats.hw_prev_stats.tx_broadcast =3D val;
+> > > =3D20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_MC_CNT(port->id));
+> > > -	dev->stats.tx_multicast +=3D val;
+> > > +	dev->stats.tx_multicast +=3D (u32)(val - dev->stats.hw_prev_stats.t=
+x_mu=3D
+> > lticast);
+> > > +	dev->stats.hw_prev_stats.tx_multicast =3D val;
+> > > =3D20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_RUNT_CNT(port->id));
+> > > -	dev->stats.tx_len[i] +=3D val;
+> > > +	dev->stats.tx_len[i] +=3D (u32)(val - dev->stats.hw_prev_stats.tx_l=
+en[i=3D
+> > ]);
+> > > +	dev->stats.hw_prev_stats.tx_len[i] =3D val;
+> > > =3D20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_H(port->id));
+> > > -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> > > -	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_L(port->id));
+> > > -	dev->stats.tx_len[i++] +=3D val;
+> > > +	dev->stats.tx_len[i] +=3D (u64)val << 32;
+> > =20
+> > Since now we do not reset MIB counters, this is wrong, you can't use "+=
+=3D"
+>=20
+> You are absolutely right, since MIB counters are no longer cleared, using=
+ "+=3D" for E64 counter would cause double counting each iteration. This wa=
+s missed in the patch, specifically for the case where runt count(32 bit) a=
+nd E64 counter (64 bit) need to be combined in the same counter.=20
+>=20
+> I'll fix this by using separate accumulator fields to "tx_runt_accum/rx_r=
+unt_accum" to track the runt deltas, then compute tx_len[i] as tx_len[i]=3D=
+ tx_runt_accum + E64_CNT (H+L).
+>=20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_RUNT_CNT(port->id));
+> > > -	dev->stats.rx_len[i] +=3D val;
+> > > +	dev->stats.rx_len[i] +=3D (u32)(val - dev->stats.hw_prev_stats.rx_l=
+en[i=3D
+> > ]);
+> > > +	dev->stats.hw_prev_stats.rx_len[i] =3D val;
+> > > =3D20
+> > >  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_H(port->id));
+> > > -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> > > -	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_L(port->id));
+> > > -	dev->stats.rx_len[i++] +=3D val;
+> > > +	dev->stats.rx_len[i] +=3D (u64)val << 32;
+> >=20
+> > same here.
+>=20
+> Acked. The same approach above will be applied to rx_len[i].=20
+>=20
+> > > +
+> > > +	struct {
+> > > +	/* Previous HW register values for 32-bit counter delta tracking.
+> > > +	 * Storing the last seen value and accumulating (u32)(curr - prev)
+> > > +	 * in 64-bit software counter & handles wrap-around transparently
+> > > +	 * via unsigned arithmetic. These fields are never reported to
+> > > +	 * userspace.
+> > > +	 */
+> >=20
+> > can you please align the comment here?
+>=20
+> Will fix the comment alignment.
+>=20
+> >=20
+> > > +		u32 tx_drops;
+> > > +		u32 tx_broadcast;
+> > > +		u32 tx_multicast;
+> > > +		u32 tx_len[7];
+> > > +		u32 rx_drops;
+> > > +		u32 rx_broadcast;
+> > > +		u32 rx_multicast;
+> > > +		u32 rx_errors;
+> > > +		u32 rx_crc_error;
+> > > +		u32 rx_over_errors;
+> > > +		u32 rx_fragment;
+> > > +		u32 rx_jabber;
+> > > +		u32 rx_len[7];
+> > > +	} hw_prev_stats;
+> >=20
+> > Maybe something like "prev_val32" ?
+> >=20
+> > Will update the name of struct to hold prev counter from hw_pre_stats t=
+o prev_val32.
+>=20
+> Good suggestion. However, since the struct hw_prev_stats now contains bot=
+h u32 (previous register value) and u64 (runt accumulators) fields. I'll re=
+name it to "prev_mib_state" to better reflect its dual purpose of storing p=
+revious register values for delta calculation and accumulators for combined=
+ counters.=20
 
-> 
-> Fixes: de696c63c1dc ("net: stmmac: socfpga: convert to use phy_interface")
-> Signed-off-by: Nazim Amirul <muhammad.nazim.amirul.nazle.asmade@altera.com>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-socfpga.c   | 23 ++++++++++++++++++-
->  1 file changed, 22 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> index 1d7f0a57d288..6a6837c4a414 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-> @@ -69,12 +69,30 @@ struct socfpga_dwmac {
->  	void __iomem *tse_pcs_base;
->  	void __iomem *sgmii_adapter_base;
->  	bool f2h_ptp_ref_clk;
-> +	phy_interface_t mac_interface;
->  	const struct socfpga_dwmac_ops *ops;
->  };
->  
-> +static int socfpga_of_get_mac_mode(struct device_node *np)
-> +{
-> +	const char *pm;
-> +	int err, i;
-> +
-> +	err = of_property_read_string(np, "mac-mode", &pm);
-> +	if (err < 0)
-> +		return err;
-> +
-> +	for (i = 0; i < PHY_INTERFACE_MODE_MAX; i++) {
-> +		if (!strcasecmp(pm, phy_modes(i)))
-> +			return i;
-> +	}
-> +
-> +	return -ENODEV;
-> +}
-> +
->  static phy_interface_t socfpga_get_plat_phymode(struct socfpga_dwmac *dwmac)
->  {
-> -	return dwmac->plat_dat->phy_interface;
-> +	return dwmac->mac_interface;
->  }
+Maybe better mib_prev?
 
-Taking a look at the logic in socfpga_gen{5|10}_set_phy_mode(), we have :
+Since now we do not reset the MIB counters in airoha_update_hw_stats(), we =
+can
+get rid of the for loop there and just call airoha_dev_get_hw_stats() with =
+the
+provided dev pointer. Even better, just rename airoha_dev_get_hw_stats() in
+airoha_update_hw_stats() and move the spinlock there. What do you think?
 
-  phy_interface_t phymode = socfpga_get_plat_phymode(dwmac);
-  u32 val;
+Regards,
+Lorenzo
 
-  socfpga_set_phy_mode_common(phymode, &val)
+>  =20
+> Regards,
+> Aniket Negi
+>=20
 
-  if (dwmac->splitter_base)
-	  val = SYSMGR_EMACGRP_CTRL_PHYSEL_ENUM_GMII_MII;
+--9rMejwU9NztTVBPE
+Content-Type: application/pgp-signature; name=signature.asc
 
-[...]
+-----BEGIN PGP SIGNATURE-----
 
-  if (phymode == PHY_INTERFACE_MODE_SGMII)
-	  socfpga_sgmii_config(dwmac, true);
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCakS48wAKCRA6cBh0uS2t
+rHTFAP98GZd4vah+/iyTOTP+JaCGb7y8uJEZbADWZ+6OdKVipQEAoZh7+BYH/Ppl
+mqqkT8muUF4OwTApIzilfaivEim+bgI=
+=w6dd
+-----END PGP SIGNATURE-----
 
-
-
-With this new patch, we now have 2 different ways of handling this
-converter block (splitter presence, and mac-mode presence in DT)
-
-Can you unify this a bit ?
-
-One thing could be adding a helper to get the macmode such as
-socfpga_get_plat_macmode()
-
-I think we should move the splitter handling before calling 
-socfpga_get_plat_macmode() :
-
- if (dwmac->splitter_base)
-   	dwmav->mac_interface = PHY_INTERFACE_MODE_GMII
-
-We'd get the intf_sel value based on the macmode, and also calls to
-helpers such as socfpga_sgmii_config(phymode, xxx) need the actual
-phymode as a parameter, not the macmode.
-
-Thanks :)
-
-Maxime
-
-
+--9rMejwU9NztTVBPE--
 
