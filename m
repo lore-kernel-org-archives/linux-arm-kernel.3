@@ -4,66 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B241C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F083C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IcvXr+XpwcXIl5fM8xKi3PUr+V6+uleNHzT41cgqWTE=; b=VnRya5IloX7+TnQAHGyw2o35EP
-	4LLycAumXoTFdyzW9w9k4sxoN/RhyBOv6ZzG7b1yD1+CtMKheAWnPTh0y26bhV079iOPO74lXz3xP
-	/bljHLqE7UIeazz+8gM1UasKrrpmcaJFSknKN1qL64GelvL0irpIS0wnMbHVCkb7jwLlLtgaUF0a6
-	EPQYNclm8AEVDhRWopa27HGJBBbD/9dALB7/iVf/nj8QLmMARcs+LLOcazoDNGINTnFN34eChqqoj
-	K7ZgYt2Fu+/WPOh+jqHTa5GJyCibe+nKJt3nNVsXx8jnzCPpwkx6RzvoxmMKEjlfNHE2AM6f7kebj
-	oBq+3AMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h6G6oRgORHVYJo/knBtQJKa5dpje2k0WnY1iIjqH1yE=; b=hh0HuHK3505fm7irkh4hSsyyOp
+	1GsUD0uRRwrrtlJDowaTrANYVd8ppnia13rnizjAOZuSct4OTLrFQAZCj44tRIi15vN/u8fpbL/uT
+	u/OCAx6CJjR7BV2X+leSInutZ5hDAq7iDAHUaeIWkB4fqbnFpqscNNzpXLBBvHenVVIKRU9ltuXrL
+	ECriu1GHSwb13JipmDQaCWDGmXa4L+UfLshNJxgTOGEXTNTsESqUekRcFGcYN76ww1S15DDpFk39x
+	WaoZCnQNTuKuaPUvTyOBsXiyWPWhib4veDaKPx/wxglJ680mSuZKY2HF/GDGaPAP8jjG0JQTapwgx
+	pJY7kAIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexzc-00000002Ypi-31AO;
-	Wed, 01 Jul 2026 16:40:56 +0000
-Received: from devianza.investici.org ([198.167.222.108])
+	id 1wey1p-00000002ZEm-0qSg;
+	Wed, 01 Jul 2026 16:43:13 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexzZ-00000002Yoa-0ncS
+	id 1wey1n-00000002ZDw-1Zev
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:40:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1782924046;
-	bh=IcvXr+XpwcXIl5fM8xKi3PUr+V6+uleNHzT41cgqWTE=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=Qbik0ukNjGB++p4equLZMSRRUn+XKS96t0Di/dLpuQMEzCIvVMlr8z9HO0d/e8MId
-	 wY1AsOv2KhBBpfs88sRmRKEXBFlMlY4z2xDPYfE88rS+8Dy1dEb2o6ZkpcOP640uIQ
-	 3yNZ8UJRuJham46lCOuXoN9H4OX+VtKcsZMZi73g=
-Received: from mx2.investici.org (unknown [127.0.0.1])
-	by devianza.investici.org (Postfix) with ESMTP id 4gr5Nt5xJcz6vZ9;
-	Wed, 01 Jul 2026 16:40:46 +0000 (UTC)
-Received: by mx2.investici.org (Postfix) id 4gr5Nt2BPnz4y2q;
-	Wed, 01 Jul 2026 16:40:46 +0000 (UTC)
-Date: Wed, 01 Jul 2026 17:40:46 +0100
-From: Bradley Morgan <include@grrlz.net>
-To: Leonardo Bras <leo.bras@arm.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
- Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
- Steffen Eiden <seiden@linux.ibm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Quentin Perret <qperret@google.com>,
- Vincent Donnefort <vdonnefort@google.com>, Gavin Shan <gshan@redhat.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v3_1/3=5D_KVM=3A_arm64=3A_skip_pKVM?=
- =?US-ASCII?Q?_cache_flushes_for_non_cacheable_mappings?=
-In-Reply-To: <akU64YK5dqcWGdCD@LeoBrasDK>
-References: <20260624160028.15591-1-include@grrlz.net> <20260624160028.15591-2-include@grrlz.net> <akU64YK5dqcWGdCD@LeoBrasDK>
-Message-ID: <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net>
+	Wed, 01 Jul 2026 16:43:12 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id C0AB9240101
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 18:43:07 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1782924187; bh=h6G6oRgORHVYJo/knBtQJKa5dpje2k0WnY1iIjqH1yE=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=rsuRhl3D5asDldg1wXWaNCrYv2yQ/vpElg+E7UsU8Pzf6vVNNb1y8eO9GfIJWBcxK
+	 l3XayJyMKN7lW58TgP1xaH1S2pjJ3VpA51h7hxDFYjBGDr2/rbBjJB/g0jQJmPLZIB
+	 KxYucZpBn6PTc/Vu5/yF2yH1x1dsvIBDc4UONMp2F4B/PBulGjoCKt8UV1xp3Mfqu5
+	 53f50UhZ4sTUkxmUE/Qb4TCKdsNufgZCzPzSPu5IWieGi7UbXItjuqzuMeNMr/s7jd
+	 NPnkQzlnMH+L2WmQ3/rITS/xj7qePTulR10Y6ygeYAk2r3Uk8OCbHWT480yHdlubx+
+	 pP9+gGa+rHzpw==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4gr5RY3WfGz6tvq;
+	Wed,  1 Jul 2026 18:43:05 +0200 (CEST)
+Message-ID: <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
+From: Markus Probst <markus.probst@posteo.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
+	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	 <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 01 Jul 2026 16:43:07 +0000
+In-Reply-To: <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+	 <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+	 <20260701-bronze-jaguar-of-perfection-028bac@quoll>
+	 <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
+	 <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-nC+OGHgEd8Indof71zb6"
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 8bit
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094053_679222_9D6E3252 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20260701_094311_720492_D7A43CD5 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,172 +128,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July 1, 2026 5:05:53 PM GMT+01:00, Leonardo Bras <leo.bras@arm.com>
-wrote:
->On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
->> pKVM keeps its own mapping list for stage 2 operations. Its flush path
->> uses that list directly, so it lost the PTE attribute check done by the
->> generic stage 2 walker.
->> 
->> Record whether a mapping is cacheable and skip cache maintenance for
->> mappings that are not cacheable.
->> 
->> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
->> Signed-off-by: Bradley Morgan <include@grrlz.net>
->> ---
->>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
->>  1 file changed, 41 insertions(+), 10 deletions(-)
->> 
->> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
->> index 428723b1b0f5..ca6e823028c2 100644
->> --- a/arch/arm64/kvm/pkvm.c
->> +++ b/arch/arm64/kvm/pkvm.c
->> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping
->*m)
->>  	return m->gfn * PAGE_SIZE;
->>  }
->>  
->> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
->> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
->
->Out of curiosity here, why do you choose to use bit 48 here instead of, 
->let's say, bit 63?
->
->(I know it makes absolutely no difference to inner working here, as there 
->should probably not be 2^48 pages in one mapping.)
->
->Thanks!
->Leo
 
+--=-nC+OGHgEd8Indof71zb6
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-sup Leo, here's a quote from maz 
+On Wed, 2026-07-01 at 17:14 +0200, Krzysztof Kozlowski wrote:
+> On 01/07/2026 15:25, Markus Probst wrote:
+> > > > +
+> > > > +maintainers:
+> > > > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> > >=20
+> > > This should be someone caring about this hardware.
+> > He does have the majority of commits on this driver (excluding merge
+> > commits and commits not exclusive to this driver), although most of
+> > them are pretty tiny.
+> >=20
+> > Who would you suggest instead?
+>=20
+> Someone adding features for this driver, maybe driver maintainers. But
+> if Alexandre is fine, you can leave him.
+>=20
+> > >=20
+> > > > +
+> > > > +description:
+> > > > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates =
+with the
+> > > > +  very low current consumption in the wide range of operation volt=
+age.
+> > > > +
+> > > > +allOf:
+> > > > +  - $ref: rtc.yaml#
+> > > > +
+> > > > +properties:
+> > > > +  compatible:
+> > > > +    const: sii,s35390a
+> > > > +
+> > > > +  reg:
+> > > > +    maxItems: 1
+> > > > +
+> > > > +  sii,wakealarm-output-pin:
+> > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > +    enum: [1, 2]
+> > > > +    description: |
+> > > > +      The output pin to wake up the system.
+> > > > +      Default will use the output pin for interrupt signal 2.
+> > > > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signa=
+l 1
+> > > > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signa=
+l 2
+> > >=20
+> > > Does that mean device generates the interrupts?
+> > Yes.
+> >=20
+>=20
+>=20
+> Then I think you miss interrupts property.
+=46rom what I can tell the line is used to generate a system wakeup
+event.
 
-"This thing is already big enough, let's not add a bool right in the
-middle (use pahole to find out why this is bad). Given that nr_pages
-is for a range, and that the minimum page size uses 12 bits, the
-largest number of pages you can have here is 56-12=48 bit wide. That's
-another 16 bits worth of flags you can use."
+There would be no obvious benefit of connecting it to an interrupt
+controller, so this property would be obsolete?
 
-this should just clarify things, any questions, feel more than free to ask!
+Thanks
+- Markus Probst
 
-(btw V4 is coming soon)
+>=20
+> Best regards,
+> Krzysztof
 
->> +
->> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
->> +{
->> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
->> +}
->> +
->> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
->> +{
->> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
->> +}
->> +
->> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64
->nr_pages,
->> +				      bool cacheable)
->> +{
->> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
->> +
->> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
->> +	if (cacheable)
->> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
->> +}
->> +
->>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
->>  {
->> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
->> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
->>  }
->>  
->>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
->> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct
->kvm_pgtable *pgt, u64 start, u64
->>  			continue;
->>  
->>  		page = pfn_to_page(mapping->pfn);
->> -		WARN_ON_ONCE(mapping->nr_pages != 1);
->> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
->>  		unpin_user_pages_dirty_lock(&page, 1, true);
->>  		account_locked_vm(kvm->mm, 1, false);
->>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
->> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct
->kvm_pgtable *pgt, u64 start, u64
->>  
->>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
->>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
->> -					mapping->nr_pages);
->> +					pkvm_mapping_nr_pages(mapping));
->>  		if (WARN_ON(ret))
->>  			return ret;
->>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
->> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
->u64 addr, u64 size,
->>  		 * permission faults are handled in the relax_perms() path.
->>  		 */
->>  		if (mapping) {
->> -			if (size == (mapping->nr_pages * PAGE_SIZE))
->> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
->>  				return -EAGAIN;
->>  
->>  			/*
->> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
->u64 addr, u64 size,
->>  	swap(mapping, cache->mapping);
->>  	mapping->gfn = gfn;
->>  	mapping->pfn = pfn;
->> -	mapping->nr_pages = size / PAGE_SIZE;
->> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
->> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
->> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
->>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
->>  
->>  	return ret;
->> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable
->*pgt, u64 addr, u64 size)
->>  	lockdep_assert_held(&kvm->mmu_lock);
->>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
->>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
->> -					mapping->nr_pages);
->> +					pkvm_mapping_nr_pages(mapping));
->>  		if (WARN_ON(ret))
->>  			break;
->>  	}
->> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable
->*pgt, u64 addr, u64 size)
->>  	struct pkvm_mapping *mapping;
->>  
->>  	lockdep_assert_held(&kvm->mmu_lock);
->> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
->> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
->> +		if (!pkvm_mapping_is_cacheable(mapping))
->> +			continue;
->> +
->>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
->> -					  PAGE_SIZE * mapping->nr_pages);
->> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
->> +	}
->>  
->>  	return 0;
->>  }
->> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct
->kvm_pgtable *pgt, u64 addr, u64
->>  
->>  	lockdep_assert_held(&kvm->mmu_lock);
->>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
->> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
->> -					   mapping->nr_pages, mkold);
->> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
->> +					   handle, mapping->gfn,
->> +					   pkvm_mapping_nr_pages(mapping),
->> +					   mkold);
->>  
->>  	return young;
->>  }
->> -- 
->> 2.53.0
->> 
->
+--=-nC+OGHgEd8Indof71zb6
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-Thanks!
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpFQ4cbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSFI8P/3g9wc/GMAAirV36quML
++9GQDRlBJXSizRsPFYQAjN9Qi3KS3SOK3g+EMCdzOl7WoIc8f/lP2x1qtL5w1vus
+6MH+CjY9OmWeQPSenS8wjEjwxyEhUGMPZdsfOz/Tr17wxf9+G3NKogTOYDZ03Bli
+iH+mjDH+ZXFtsm3ZBaTzqkEWjmeCi+OIVHf0hMCWCqEtWFBFVwIaFLtO8YsaOQui
+6+nf5Yz1AHWi5qhVNpnXXA48Zr0n+tz/gz80b7BrNS/p62fJFPxtE43yN6sAT+Ad
+QZOEblmA1hlM+l6Ptjvg8H+zOsxyExvp1GXORnwX3YQaoKNxp8j5/evGjDCSUsem
+IxghOTDcT8UukAnc043EtlhN20t5i7DRj8CvRZ3Z4vLcTatc16bfuffqnzGtSGlO
+y9+3Pk0+42rw/1TgviNtmlVeSLh17h5GUWekO/vtOa0kt6J/Vg0HEx53xkpPSr/5
+8m26hdaOv7qCgcNg4iDIVoVuhRhIfzLlqTWlvgrKiuIXbXbs6LD53VqD8q9ifJM+
+rnjcl+Tpavi6iI7BOg+3gOO/tSpXF92S4O6hyR4h678q3kqq+VRX+PrK6L7PRf56
+GZ/ngn+UM41wGxpNz39i81LKwcjthvHJDxj9okl28drlux9Tc/Q10URNJWgMtEmn
+ROYB9Z0HEt6kJWAo1zMBL/Ym
+=9wxf
+-----END PGP SIGNATURE-----
+
+--=-nC+OGHgEd8Indof71zb6--
 
