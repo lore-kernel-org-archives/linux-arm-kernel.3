@@ -4,72 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E7AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 05:40:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB108C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 05:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2UmmNH+yZDAjjZR6MqM+QgQOsu35Gsqs14tgC0MIavM=; b=H9gM6f+3QmZtJQ5fOT4cFOymNp
-	INZ1gg3RKSpH3pNhinIHWt7eUSa3180fG1A2yVcVghcrNP/IRUAYFdK1iO9fI8Lsb24fVVaG2kBpZ
-	jOC1B/Cn5LbFm5BeOdB9bEHtUgZOSesew+3Jem00bOFoqMa1TV95wJG6Ks1cvV6Qok4yy8iGSRC9c
-	w1xeWyE4FePNq52iyGIlAUG3DgrRVq4rr+emVcLiZ1peLsTKpSKdaMHypWXqSqEw/rImtGTJPX5j/
-	db8fwBYZF2wQFUWRAkORr8v5WQBaxOam9dycTnr+uF6032nW/sFL+8XogkSMzCyU6R0/7aUZ3ZCJl
-	89xY+IHQ==;
+	bh=T1t8ASZT93gzfU5pdTAOTA4V2VHb9WMJJjSO4xw/5mE=; b=Fz6GdEsbVFVMYet4lSMyyLR6pb
+	jaiPYr9TuEy6T4i+NGdaHvAPy8HV9LSnhD95Fl/JKy+IdH50b16qLD0d2ga4pSeNSEymWl2hhWfwI
+	BETxTf1qu49s1quDeDdcSZ1gUp28ux4cWOSvQMqllhAPy9nIXSMrwB3G+xQ8IQA3BJ7SDQl+vMi4x
+	ERgdLiD3YigNnRcmVTmtRCKHSoaUp+bGUPKw7JJgyzJ9yOsa64foNv/4O6w4g+AnmpL7Gc49zyjl9
+	xgjafMuEju+74qhUVY+uO0CPwWqwv1qO46YdBceXVzGUefeY9uC9RtFYSm0lIryUmHLiQupd8IVwF
+	WkQWe5qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wenfz-00000000guR-0bcn;
-	Wed, 01 Jul 2026 05:39:59 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wengC-00000000gyo-1CMU;
+	Wed, 01 Jul 2026 05:40:12 +0000
+Received: from mail-koreacentralazon11022128.outbound.protection.outlook.com ([40.107.43.128] helo=SEVP216CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wenfv-00000000gt6-3J8B;
-	Wed, 01 Jul 2026 05:39:57 +0000
-X-UUID: 442ae94e750f11f1aa26b74ffac11d73-20260701
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:f37576a9-a375-4c7f-ad87-6d3dd921d54d,IP:0,U
-	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:0
-X-CID-META: VersionHash:e7bac3a,CLOUDID:0e3cee1c3040dfdb058ab0416684d043,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|865|898,TC:nil,Content:0
-	|15|50,EDM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,O
-	SI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 442ae94e750f11f1aa26b74ffac11d73-20260701
-X-User: liujiajia@kylinos.cn
-Received: from nature [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <liujiajia@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1450260893; Wed, 01 Jul 2026 13:39:45 +0800
-Date: Wed, 1 Jul 2026 13:39:42 +0800
-From: Jiajia Liu <liujiajia@kylinos.cn>
-To: Thorsten Leemhuis <regressions@leemhuis.info>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ming Yen Hsieh <mingyen.hsieh@mediatek.com>,
-	Leon Yen <leon.yen@mediatek.com>, linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Linux kernel regressions list <regressions@lists.linux.dev>
-Subject: Re: [PATCH v2] wifi: mt76: add wcid publish check in mt76_sta_add
-Message-ID: <akSoHk-BozrpWPmZ@nature>
-References: <20260528033814.46418-1-liujiajia@kylinos.cn>
- <b143b62e-ca11-4f00-ad60-f71ae55213b9@leemhuis.info>
+	id 1weng9-00000000gxY-1nzB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 05:40:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wO8GaSwq6BQlVIREuB/eQb8nYdb1y08JWNjbcFayRKUViIiEyG4ohlGjbav2XMvuV75gxrLOXfUQNYviOzu88AtvsXnlIttUHzsx+cDoaSYqLOwfUN3j3O1AWozyy5yJdiZQsBuy2IKAoHq0aJhmFBFg5wUJk0rWAZe2wMQiPLWW3KcZyjzTIFFCYLZ11wvmsdz1AwHhkUGVO1LS48AJopAKX/JEqfdLqgKJnhBGdK+vvKEKyfYym+40QNONTsfTzs72Xs++EgOtJyfI2MfYYwiJNo5eOiXLa8k2ZRsIFwHc5h1mPDWsDxqu2Oo0Bex6EshSyM0a0+rIhuLp7z2cEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=T1t8ASZT93gzfU5pdTAOTA4V2VHb9WMJJjSO4xw/5mE=;
+ b=J2lpyXE/pDcBfWfeEmWxKdnUYJ8KZTW0m4WfQkbBFq8sNs1bU9btdpR/WnL7v8IiLPcnZ3ZU+b9iDlfBueirbLblOnt9KKD+bB+5aiFc6jq+4xGUtnOx3kKfBEv+twLGR2e9xqb8VKAEHkS5h1GrCzFlaOzxD0nIkJOFqYNzXJ5xiX9Mknd/MqJr0YLD7fHT8K2ka3Ix0jx4tz3kbv4l78iOChzbTV2kBiiFjXjqf6VVSb50gEWiSNDe9oFMpu4b2ZlUSVdD36gee+1J5EhE/2wndc4bj79PSZwlnOlPwXl/GnMBSt0JYjYbhSMJzPSq0BsMiTvh/RDL61VZndgrMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
+ header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=T1t8ASZT93gzfU5pdTAOTA4V2VHb9WMJJjSO4xw/5mE=;
+ b=E5A3lLSeBELTmq1lGjZJiZpQGBATMuk5p/VhU4W3UCsckPJgTF2zxXWkhrIcsHIDOVLqQmfUo5Ct6IvHzJOEObAuFwGIgWGIbZNkfEXrcDN2t2v9Tralqt6cF28Kt6tdPlFcC0ALidwXubuBoCD/drKXzOjMhQLILrxMNcamsTU=
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
+ by SE5P216MB3149.KORP216.PROD.OUTLOOK.COM (2603:1096:101:2fe::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Wed, 1 Jul
+ 2026 05:39:52 +0000
+Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+ ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
+ 05:39:52 +0000
+From: Nas Chung <nas.chung@chipsnmedia.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, "mchehab@kernel.org"
+	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
+	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "linux-media@vger.kernel.org"
+	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-imx@nxp.com" <linux-imx@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, jackson.lee
+	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>,
+	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>
+Subject: RE: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Topic: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
+ device
+Thread-Index: AQHdA6oA4dFGLrgtZ0GgpOtEiXsOgLZN6VwAgACMHsCAAFr0AIAJXZjA
+Date: Wed, 1 Jul 2026 05:39:52 +0000
+Message-ID: <SL2P216MB24415FC199917CAD64F62F27FBF62@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+References: <20260624072043.238-1-nas.chung@chipsnmedia.com>
+ <20260624072043.238-3-nas.chung@chipsnmedia.com>
+ <20260624-junkyard-sensuous-fcd43189b593@spud>
+ <SL2P216MB2441BB9DC91CCBE494F2B45BFBEC2@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
+ <20260625-artificial-coot-of-climate-efbecd@quoll>
+In-Reply-To: <20260625-artificial-coot-of-climate-efbecd@quoll>
+Accept-Language: en-US, ko-KR
+Content-Language: ko-KR
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SE5P216MB3149:EE_
+x-ms-office365-filtering-correlation-id: 3666f691-d98c-4b6e-c732-08ded7332c97
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|38070700021|3023799007|4143699003|18002099003|22082099003|56012099006;
+x-microsoft-antispam-message-info: NdVSpDz4N2VCEe83C/NPslHO2nYgp6xvT4ZqyUvFFGCLvQDjA6JCtTa1mhxwXVSQyHusS4AXl0xh3DqyC0OxEeB/UHpuKO+GJPkOg24hcXQo/sbtYNcUka8DcWqz5Go8F7KLOzxSGx2Ug95cadNj2QlzRyPnwtT24bK3U+x8BHHV57XEBFecj9MxHzu/HB9bI5iCFSHvtoO3yri/Q6HSxkUZfukoKSCo5IPZSlolOAZJ3i3gLjQTU8mWqGzV+8tOaHiq+Ni6hGsFaa8YXb6bJY9fdvcYew19fQukWk1U0BcTPVpEFaFZnjjykejINN20MEaOTcjNjKE75ZqTWCmha0ZFTqH9OD8Ks1u7Oy1eir5d4qDzimhxq8fJavs3pmQhvNeH6k4QK9O4ti2cpcyGxfVWvUWrDYgVMV4GDq2ihLC8osXKGXAuqWdyZ6Mf0BWDOOk5vA3gJ3C+gjDRaUxaT2WHkTnjKcKhOVzLQamLRQoM3tvWWxxK6cezig7evyUBB+KzBCZ4XafUTKYbMlT4RWVSSZfi5q0aCx9xbWXzZUn9U6NwNQhAzAnAVVa5etQzuYfWU9/0s7BLB3jAZ862aPEHiSy5XVGpX15Q876EcjPc1k2Lz4mlOmn7TpshmDEqu9UUk9pEZ+CKQklyE7C0OJ5hMpjqA4TDWQZt127mntPgUYLUM7+G9DvzxW+br65TKew7K74pN82onoMMczlVarsBlr/lIEC2RJ7nOdgJm5k=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(38070700021)(3023799007)(4143699003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?H+QB3udHGwvi8TwtA6pB4pgrGtujR9/Ze3DFda8Sb42v8wheXzs0v4bXBIaG?=
+ =?us-ascii?Q?5nMb2G+AACy3aB27+hp4MUWV7/QI8DmoGlARkGstxipdS/Zbmi1pOVzS2tXf?=
+ =?us-ascii?Q?bL7O+++ApHprt2hQzliRks7vZsA4b7Sgh0XTeuvrcvsKP+VwzofHbSSs08g8?=
+ =?us-ascii?Q?bwAuZ+S8w27H5XKO4tcyuyOP5SzkLao6ncStno6iRvrrryxRG3Uv+yOL8g/f?=
+ =?us-ascii?Q?cQ9QyZKyOPe/21hxWMN+rJX9zapltRlIIzOLN7HnSJD6fPcV0G7CfFq14i1q?=
+ =?us-ascii?Q?rbMaXOT+rgjd3qMif0v4WvhyzWR4DRCHZURXmSF3aE9iAr+sWUDD4aPdmylL?=
+ =?us-ascii?Q?xzCbhK/Oif+HZ06EIdTj/TPd1shquhr8otmBzpOKdvFbcGMK1TchCHYfZard?=
+ =?us-ascii?Q?JwQzOMIVqHo0nwRAgWPrbxH7zu8Ztub4f51vGVoydjkD60bAlLYzRwz2QY13?=
+ =?us-ascii?Q?vGR4o4eTh8pfoZEbQI4ELu7sj1IWgiaMnbFIZYcc4Ap7i3XnxSSO5xgEqo6d?=
+ =?us-ascii?Q?X1/4tgnXtv7D1Xu3z4HjWcGCcy9fiiSBOy8hFrIl107hiziCOoQblaqpOeKR?=
+ =?us-ascii?Q?jMdkP0ZlsrmcWSrmJ91mhgS2CaRW4MC0gB0RpC2ICcHYky5PiXBpub9860Za?=
+ =?us-ascii?Q?wh51VicQHrEvjcdSdpaq/DFMqORopoOwtszioHQ+yoOd8FU+sREuxA0zuqZv?=
+ =?us-ascii?Q?uPXIKIvVJOzr4aawdDBgnABaHSOHgh9SFtBH26ayADf1XRQYVjBEbr7NbaEw?=
+ =?us-ascii?Q?VzTxcR3qIL/myPTOkzw4hMmJFKfIc241ZHl9QYrMRguz5+JDM17Q/icYbPxt?=
+ =?us-ascii?Q?nlIcyaIpI/pyrG+0ThyBDHcXpYk7p2WCCM4KVmVj5JO9I1zVRuqCJqwxiV/G?=
+ =?us-ascii?Q?tupBpty6TZhbVtANnzv5LJGdVJNtQAGh3+MvZmo4P9LZnqMtTb1dFHmbdjyL?=
+ =?us-ascii?Q?Ao8bLQfcaJluqNscJg0DEAZ/ck4rFI/E5NEG26cjs4mzwaD9awPRzrpcWomS?=
+ =?us-ascii?Q?RiRKIRBQv+0bxkmdsjsLmr3NVdPCawjcWr006pssAw/JrfltBpleOedRuUDA?=
+ =?us-ascii?Q?jjbdHnUur7cGAF+lShU7r6DsgV9zgzigEJ82Be610GJNWf16Z2sSj4RYOF8q?=
+ =?us-ascii?Q?fj8P5IW2rsKnO1DROV4GfvTEuJBkVgc9FYvEFy/jFhOIKNaXSDpTekmyHqiu?=
+ =?us-ascii?Q?qKxmBa44o6x8JMR2m84GTXbmx+4HGq37oQiQnmVdOFQ+Yh5ZFnHMUtfF1OqP?=
+ =?us-ascii?Q?D0XS2PN4U453fUp3uaWbhekBjJuflOxM8o7KLHLEZb1XrSFQHHOjsHPMDvFW?=
+ =?us-ascii?Q?YJ4xK9r/t6EsV/UzI8Gx1ElCZKB7+9XDtQBzmtciek3OcVwv7oi0X4YwerQx?=
+ =?us-ascii?Q?nSFwJCfamtPPYcQ2URv53Pd5iN19CT/SZ7+Ze7xqtSUNj+Tm5WNzcYwkowPv?=
+ =?us-ascii?Q?/9QUDlCkiEHtmfDBOTjKMb+u0GtJBX9JvAWppGwZTBdBN9KHKWgkxYekdmqg?=
+ =?us-ascii?Q?4UEYuLclTnnKqyFJZ4fPsWUHSYVtBKYELLPvCix4giZjrGfj7fmb/YkNgV4m?=
+ =?us-ascii?Q?sx5gj1vt0vzVbsknYo2h3+4UpvAUpbLfE3W7stF7IyOyuuiSHqDslrjtZO2c?=
+ =?us-ascii?Q?iAK5TB0V3Ll0zTTKbiL2HhZQWSVIHPH6c65VmVqLwkAeZQpcTTn1Bd/xrFR4?=
+ =?us-ascii?Q?z3gC0r3oNk8opgdSNcXRmpBZS2OfQ0uWeoLh7VFfPHlC3j0Fr88pVEVN9juv?=
+ =?us-ascii?Q?Z4cQc1FF2g=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b143b62e-ca11-4f00-ad60-f71ae55213b9@leemhuis.info>
+X-OriginatorOrg: chipsnmedia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3666f691-d98c-4b6e-c732-08ded7332c97
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 05:39:52.4495
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: gZlAEB/LCqbDi8zpKaelaohxaeK/W8QZT/GjdcT47Rj5wkw7aPj9ZhFaiLUYK384054sQTU4KXMOtejq/CHcE3sxcIQ/iwMwH/NwVdkcV6Y=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE5P216MB3149
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_223956_123145_5EB30854 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20260630_224009_471842_E277A363 
+X-CRM114-Status: GOOD (  17.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,84 +155,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 01:29:51PM +0200, Thorsten Leemhuis wrote:
-> On 5/28/26 05:38, Jiajia Liu wrote:
-> > Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_add
-> > to avoid reinitializing the wcid->poll_list.
-> > 
-> > Found dev->sta_poll_list corruption when using mt7925 and 7.1-rc4.
-> 
-> Jiajia Liu, Felox: given that the problem seems to be in 7.1, should we
-> ask the stable team to pick this regression fix up, as this change was
-> mainlined (as 20b126920a259d ("wifi: mt76: add wcid publish check in
-> mt76_sta_add") [v7.2-rc1]), but lacks both a Fixes and a Stable tag?
+Hi, Krzysztof.
 
-Yes. It seems to be related to cbf5e61da660 ("wifi: mt76: initialize
-more wcid fields mt76_wcid_init") [v6.14-rc1]. But I didn't reproduce
-when I checked it out and tested. So Fixes was not added.
+>-----Original Message-----
+>From: Krzysztof Kozlowski <krzk@kernel.org>
+>Sent: Thursday, June 25, 2026 3:29 PM
+>
+>On Thu, Jun 25, 2026 at 01:43:33AM +0000, Nas Chung wrote:
+>> >> +  sram:
+>> >> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> >> +    description:
+>> >> +      phandle to the SRAM node used to store reference data, reducin=
+g
+>DMA
+>> >> +      memory bandwidth.
+>> >> +
+>> >> +  iommus:
+>> >> +    maxItems: 1
+>> >> +
+>> >> +  "#cooling-cells":
+>> >> +    const: 2
+>> >> +
+>> >> +  "#address-cells":
+>> >> +    const: 2
+>> >> +
+>> >> +  "#size-cells":
+>> >> +    const: 2
+>> >> +
+>> >> +  ranges: true
+>> >> +
+>> >> +patternProperties:
+>> >> +  "^interface@[0-9a-f]+$":
+>> >
+>> >I have to wonder if this interface business is required at all.
+>> >Why can this not go into the parent, with each region fetchable via
+>> >reg-names, interrupt-names and iommu-names?
+>>
+>> Thanks for your feedback.
+>>
+>> I did try the flat model, but the blocker is the IOMMU.
+>>
+>> The control region and four interface regions are independent DMA
+>requesters
+>> with distinct stream IDs, and each interface can be assigned to a
+>different VM,
+>> driving the video core with its own isolated memory.
+>>
+>> If all stream IDs are listed under the parent's iommus, they bind to a
+>> single device and share one domain, so the isolation is lost.
+>> This is the main reason I added the interface nodes.
+>
+>Feels similar to issue Qualcomm has. I rejected such subnodes and
+>Qualcomm came with a solution in DMA IOMMU code, but that solution was
+>rejected by DMA folks:
+>https://lore.kernel.org/all/c7b956a9-d3e8-4e18-b780-
+>5d08f5cd2ca1@kernel.org/
+>
+>I don't have proper arguments to convince DMA folks, thus I agree for
+>Qualcomm for the subnodes. It should be fine here as well, in such case.
 
-> 
-> Ciao, Thorsten
-> 
-> > According to the corruption information, prev->next was changed to itself.
-> > 
-> > wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8b:e2
-> > wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=84:9e:56:9c:7e:6b)
-> > wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
-> >  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
-> > list_add corruption. prev->next should be next (ffff8c808a7488f8), but was ffff8c80958a7040. (prev=ffff8c80958a7040).
-> > 
-> >  mt76_wcid_add_poll+0x95/0xd0 [mt76]
-> >  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
-> >  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
-> >  mt76_dma_rx_poll+0x50d/0x790 [mt76]
-> >  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
-> > 
-> > Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
-> > ---
-> > 
-> > Changes in v2:
-> >   - use dev->wcid table instead of adding MT_WCID_FLAG_DRV_PUBLSH for
-> >     wcid publish check suggested by Sean
-> >   - subject and commit message update
-> > 
-> > ---
-> >  drivers/net/wireless/mediatek/mt76/mac80211.c | 15 ++++++++++++---
-> >  1 file changed, 12 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
-> > index 4ae5e4715a9c..b78b4cd206e0 100644
-> > --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
-> > +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
-> > @@ -1576,6 +1576,7 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
-> >  {
-> >  	struct mt76_wcid *wcid = (struct mt76_wcid *)sta->drv_priv;
-> >  	struct mt76_dev *dev = phy->dev;
-> > +	struct mt76_wcid *published;
-> >  	int ret;
-> >  	int i;
-> >  
-> > @@ -1595,11 +1596,19 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
-> >  		mtxq->wcid = wcid->idx;
-> >  	}
-> >  
-> > -	ewma_signal_init(&wcid->rssi);
-> > -	rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-> > +	published = rcu_dereference_protected(dev->wcid[wcid->idx],
-> > +					      lockdep_is_held(&dev->mutex));
-> > +	if (published != wcid) {
-> > +		WARN_ON_ONCE(published);
-> > +		ewma_signal_init(&wcid->rssi);
-> > +		rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
-> > +		mt76_wcid_init(wcid, phy->band_idx);
-> > +	} else {
-> > +		wcid->phy_idx = phy->band_idx;
-> > +	}
-> > +
-> >  	phy->num_sta++;
-> >  
-> > -	mt76_wcid_init(wcid, phy->band_idx);
-> >  out:
-> >  	mutex_unlock(&dev->mutex);
-> >
+Thanks for sharing this.
+
+I'll keep the subnodes and note this rationale in the v7 cover letter.
+
+Thanks.
+Nas.
+
+>
+>Best regards,
+>Krzysztof
+
 
