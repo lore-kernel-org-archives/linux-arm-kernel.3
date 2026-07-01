@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21759C44500
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860EAC44502
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:23:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,55 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4WnOHXZX/INC4S31BQeT/b5fl4DW5lZDfWWLUWbCoEg=; b=ApqN8CmvrIiGCfk/Y5HYvajqZo
-	OApSYRNNiIMDtFGkzWo7vL73hryfrDsDxFpHL4sFeJL91pCQSSBF+V/N3p1uExZCijtafAGuhnMXD
-	5GoK5HiLdhNui2eIfcWIQ4hxsqy/2IkJ7bh3AZw14kfLGQIGJNV1yuCBxpoIa3PFuBg+9tBtDLBoO
-	Mbgb1L2io3ZDspkSETJC2bHJa8yKmlhi8IWyTL5nWY/MCAssSQT/0gfAbu88NamEhGp+gRexAuaHV
-	rUgZkzS/QV05xvm7EjU04bhFWPUImw5q25dRBtjVJ0ZPdj4fSTl7r8s12XApQ1+8+d4ZIphD8lNLq
-	iAZOriVA==;
+	bh=L+MQqoMdTb10quuKjj21cquQc2SQagarqLqHoeQ9/rY=; b=M/y3OA6HHco0cSSDLTDYjjyosB
+	ApjfskatDuk0cj9Ushol8A5MlQCf3M6R89CCWQOT+lmI4k+IotWr0sXxKcHxWXJcGJkzGxBB1fzvi
+	y+e/2tLybJn410wjwmxxGGyTFmCjLsB3oxbnOC0Y+h/Sh2dxRo+xXYoy4QYoL3t+vnHvBHNce2poT
+	IsEkeKS8W2YtcSojGwEBDchp8c6ssGewXcCLGPK2AT0gIz3rQCm1PMFkYXPRKRi4iL4DnAbiQnWil
+	9qF5knQkAi4P9sBxMkqHbOE1bcI06uRQMkevNRcAXP9CGGNgtsRd6fxrTRB8VOqlcL7cQyCj51/fs
+	JRs/GVzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevqr-00000002H0i-3drh;
-	Wed, 01 Jul 2026 14:23:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wevqs-00000002H2G-29XV;
+	Wed, 01 Jul 2026 14:23:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevqo-00000002Gxx-47xK;
-	Wed, 01 Jul 2026 14:23:43 +0000
+	id 1wevqq-00000002GzZ-2k5R;
+	Wed, 01 Jul 2026 14:23:44 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 690564402A;
-	Wed,  1 Jul 2026 14:23:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A7681F000E9;
-	Wed,  1 Jul 2026 14:23:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 69FBB4172F;
+	Wed,  1 Jul 2026 14:23:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 288F71F00AC4;
+	Wed,  1 Jul 2026 14:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782915822;
-	bh=4WnOHXZX/INC4S31BQeT/b5fl4DW5lZDfWWLUWbCoEg=;
+	s=k20260515; t=1782915824;
+	bh=L+MQqoMdTb10quuKjj21cquQc2SQagarqLqHoeQ9/rY=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=R8ZxcfA6TySd3kAUAwcju+kRAXeFc27y05xP9WwOeygl9EY0Vsy0LjTjNC+toVYL2
-	 TjT8znSlLYzwE/uGxxdfhAbLKmKvw4DVfPgQ252n4nWcpz/gTHZSyoLUPEb6L1w5dW
-	 PpJUJTZ/RZF4K5z0fllaxO6+a8lWx+J2D5+/sFOkhBBmI4EJ6FrBKEU9QrfiA9a/w+
-	 kKmv8eZiIDnqAIVYuHVQIAwYu+aEyiAV+nYpCSG4rIFNpGNg9qWTGZFim5QXivoYpA
-	 oYtdCM0Ev6L4jxuiBNIhTxjHS3BqpkHZBd3I5v/wNG7HvDOhNCaCuT+UBO4AzyXGmR
-	 jocUMMEoMwbqw==
-Date: Wed, 01 Jul 2026 09:23:41 -0500
+	b=CW81gr08/6J3xgLYZqeMUjS5S8MAX27dufuEN6oZM/k/TED4PyD+vkkGZ5DmD5J1E
+	 uZ49HNe3o4iDB9XKWBlELTolRsUaDMTt2jKlaHfXCFlZT/INQEHZXNozYwNlQsQZe4
+	 JvKjXqzgOt0iq62BIusGQ+anmtq8f3FxDStbZNW5HbIHEIeOuqjUgZ4bgqauiZa3MD
+	 9gWB9X1JR8kU37EUKr08+s4nmL363X43JW/sB2tjC3MQINmycor97RpJFo1oGicYB/
+	 Zt0jNTBcVsnBh+bhF4RTtFBQTau7XUnFQlnezMZwBZDt7ryWbew0RO/wyYBoNrQkzH
+	 bdtra1G8tBtPA==
+Date: Wed, 01 Jul 2026 09:23:43 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: conor+dt@kernel.org, mripard@kernel.org, devicetree@vger.kernel.org, 
- maarten.lankhorst@linux.intel.com, p.zabel@pengutronix.de, 
- krzk+dt@kernel.org, chunkuang.hu@kernel.org, matthias.bgg@gmail.com, 
- tzimmermann@suse.de, airlied@gmail.com, linux-mediatek@lists.infradead.org, 
- simona@ffwll.ch, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- linux-arm-kernel@lists.infradead.org, jason-jh.lin@mediatek.com, 
- justin.yeh@mediatek.com
+Cc: linux-kernel@vger.kernel.org, chunkuang.hu@kernel.org, 
+ matthias.bgg@gmail.com, mripard@kernel.org, jason-jh.lin@mediatek.com, 
+ kernel@collabora.com, devicetree@vger.kernel.org, justin.yeh@mediatek.com, 
+ simona@ffwll.ch, p.zabel@pengutronix.de, tzimmermann@suse.de, 
+ conor+dt@kernel.org, airlied@gmail.com, maarten.lankhorst@linux.intel.com, 
+ dri-devel@lists.freedesktop.org, krzk+dt@kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260701122057.19648-29-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260701122057.19648-39-angelogioacchino.delregno@collabora.com>
 References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
- <20260701122057.19648-29-angelogioacchino.delregno@collabora.com>
-Message-Id: <178291581550.4115656.11254665059124480356.robh@kernel.org>
-Subject: Re: [PATCH 28/42] dt-bindings: display: mediatek: Introduce MT8196
- extended DMA Engine
+ <20260701122057.19648-39-angelogioacchino.delregno@collabora.com>
+Message-Id: <178291581802.4116105.6915436352274822148.robh@kernel.org>
+Subject: Re: [PATCH 38/42] dt-bindings: display: mediatek: Introduce MT8196
+ 2D Sharpness Processor
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +75,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 01 Jul 2026 14:20:43 +0200, AngeloGioacchino Del Regno wrote:
-> Add documentation for the extended DMA Engine (exDMA) IP found in
-> the newer generation SoCs like MT8196, MT8894, MT6991, and their
+On Wed, 01 Jul 2026 14:20:53 +0200, AngeloGioacchino Del Regno wrote:
+> Add documentation for the Two-Dimension Sharpness Processor, or
+> "TDSHP", found in many MediaTek SoCs including MT8196 and its
 > variants.
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  .../mediatek/mediatek,mt8196-exdma.yaml       | 104 ++++++++++++++++++
->  1 file changed, 104 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.yaml
+>  .../mediatek/mediatek,mt8196-tdshp.yaml       | 98 +++++++++++++++++++
+>  1 file changed, 98 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -93,12 +92,12 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.yaml: ignoring, error in schema: properties: compatible
-Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-exdma.example.dtb: /example-0/dma-controller@32850000: failed to match any schema with compatible: ['mediatek,mt8196-disp-exdma']
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.yaml: ignoring, error in schema: properties: compatible
+Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-tdshp.example.dtb: /example-0/tdshp@321e0000: failed to match any schema with compatible: ['mediatek,mt8196-disp-tdshp']
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260701122057.19648-29-angelogioacchino.delregno@collabora.com
+See https://patchwork.kernel.org/project/devicetree/patch/20260701122057.19648-39-angelogioacchino.delregno@collabora.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
