@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7B43C43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC0D0C43458
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:55:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=la1cTwn8GN2DO14kHz2INNaAKV4mkua++Zzl1219p2w=; b=jxZWBtWu7OWAwxJ3H4gGxv4w5Q
-	FNTecbUGYLfPIrE7eYk64D1+sllpbyEo/FhsMVnxuyVZUkcRboJkWH3iF2IWwpkZTJIwzsWXoXnBT
-	8+VdbAmU5WcaMG4f4SSpTK3SPxB1rOeg9/fuEO+qSjkybmivzW36n68JddfvD0SO3UBuNMy2DYFac
-	Bo6ZSdvH5FFG44N/S6IjjWz6ycsdFDLwaOQCVVwt1HMHbER3ppZyB5FyMSidy4JIYIs9UyWaPMG5Z
-	fj9VGDKllX9lTODUw2M84Ep0LzmYlE5f3vxhYZA9RPHQABzjJ8K4ZveU7Va56B5tGu3Z7RIU4cg/L
-	ZnV6zgbw==;
+	bh=HfiUSqQBhGBAYvrrFitLkDBGFPvDnaBqCx4Nvg1WAhs=; b=dDfOJPz+Mj/OKUba1O/RXY04k4
+	hIWuEvFowb7K/+rscYolADlg1UR1TYc031sTW8rN9rPjV6x/yATysa+GEPu9swrrOD9+iHDUvf/JQ
+	FsWuhERP5OIYX+h487C+Sf2cUdBl1WWhrnHRHBMKZdh5VM5hn6jqsxnTy1kE8WEwBuA6//T686SA2
+	ahGIf8HDKbj5GfF6Fd41qHQbaKbODHjvIKWDmLA5o5UK2znMQlFOHTljS1VzZJcSncCJey0UbMS1R
+	/Ma3X/u4JkKZK54wD/wFsMS6dKG1BybAYDmzCXSE0bPGIhetQkfYyYKfdEFHWDfJDPc1GFPcR/TzQ
+	DxS1hwTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyDd-00000002ckb-35sP;
+	id 1weyDd-00000002ck5-2PqN;
 	Wed, 01 Jul 2026 16:55:25 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyDb-00000002chh-0e5V;
-	Wed, 01 Jul 2026 16:55:24 +0000
+	id 1weyDZ-00000002cgl-1pkq;
+	Wed, 01 Jul 2026 16:55:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782924920;
-	bh=YfYkB3ig/KBHMaLO3PQRP4rzQsPdZVQOBAWsBZHeAow=;
+	s=mail; t=1782924919;
+	bh=wehnLxMMRrBDItrASTkvWAjFyIoEkEsvXkIvo0kbZK4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=q06OGYnmJaCUTt2ag3/3SujadGgGI8m5kToFndSywAuMO4yvpQOooF299MkqtlYeQ
-	 9ePkVf6vdFYcgRHQluMNdMxNTAUn6AxOyAQra6r2Ge6Qay8DOJoH2yGq9mXomWC7MU
-	 T1TM3f9yk4gNzxu4pTG5J39cx3ttHNdM+iA+tRGTeBjpwLeGg7nMC/jseGPK1sgkmw
-	 FM+pYXSE8O4v7rePNOUchz7njKwVss/CNGb1JvhDhdEe5BWEg67JOvZ5hYUELeRYmo
-	 BfZAVnexUIip4tyDb2QyKP3j/LnOP2KK0Spo9Bsq/S70JaxNTTgttpXAwHpsYr6HNr
-	 JMvfFcGZ+bMgA==
+	b=W4bF+CtHxHluTYTTBazDk/DMqkyNEMzzQbbT1GEKzGnSGKRibB2FrGXCIEbMOgdOv
+	 mGScluCTbecvVRpamQBfbYnQECedtOAQMZTxNBnDn7Q8J8kl4eQKuJUvyekO8kJ3yD
+	 hDc/4oSePedl4M8Qgv09SBMPl3CnUaXVHC+2XHDvI6DZ9WtK0RUnHDUmahR6Tq/Bh8
+	 K7SxEdTno5IXXmpATe1fwpQR4GYIjBcZGow8VptpAhFcEU0aFA1snThvMAoMwQNPGN
+	 qMoq9rQsd/2vNIb/6BpF+PJKzmG0Tbf5UgoWzVOOY5OkswCsuzppganUL3Z7hXVLhS
+	 53/2lM7htwJog==
 Received: from [100.64.1.21] (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 16B7D17E0D72;
-	Wed,  1 Jul 2026 18:55:20 +0200 (CEST)
-Message-ID: <7bda5a3e-d753-445d-a093-ce647d29df74@collabora.com>
-Date: Wed, 1 Jul 2026 18:55:19 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A4CDB17E0909;
+	Wed,  1 Jul 2026 18:55:18 +0200 (CEST)
+Message-ID: <9f59a89f-a58d-4151-bc7e-7e7cde8877f6@collabora.com>
+Date: Wed, 1 Jul 2026 18:55:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: dma: mediatek,uart-dma: add support for
- MT8189 SoC
+Subject: Re: [PATCH] dt-bindings: PCI: mediatek-gen3: Add support for MT8189
+ SoC
 To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Frank Li <Frank.Li@kernel.org>, Rob Herring <robh@kernel.org>,
+ Ryder Lee <ryder.lee@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Long Cheng <long.cheng@mediatek.com>
-Cc: kernel@collabora.com, dmaengine@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260701-mt8189-dt-bindings-uart-dma-v1-1-c7106216a40d@collabora.com>
+ Jianjun Wang <jianjun.wang@mediatek.com>
+Cc: kernel@collabora.com, linux-pci@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260701-mt8189-dt-bindings-pcie-v1-1-7c7a65087654@collabora.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20260701-mt8189-dt-bindings-uart-dma-v1-1-c7106216a40d@collabora.com>
+In-Reply-To: <20260701-mt8189-dt-bindings-pcie-v1-1-7c7a65087654@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_095523_364873_7075407D 
-X-CRM114-Status: UNSURE (   6.20  )
+X-CRM114-CacheID: sfid-20260701_095521_624344_52C6DC7D 
+X-CRM114-Status: UNSURE (   6.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,11 +84,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 17:47, Louis-Alexis Eyraud wrote:
-> Add the compatible string for the APDMA IP found in MT8189 SoC,
-> that supports 35-bits addressing as MT6985 SoC.
+On 7/1/26 17:27, Louis-Alexis Eyraud wrote:
+> Add compatible for MT8189 PCIe Gen3 controller, that is compatible with
+> the one found MT8192.
 > 
 > Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
 
