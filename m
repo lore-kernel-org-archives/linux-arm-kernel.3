@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DD0C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15BDC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oJxqhTjhsZDa9jhMH91sD2Vnxv5QNaBItO/IfmQMzdQ=; b=JgtKi8kG7Vd7viWbZIvV9kYZsE
-	RGpSpTgDJV2KEw8UPfYmgjZPbWr2wPD53Hgr9i3NUc4n9t3WaQhZDBg/Di9PuPxBB5q33Tq8H3xZh
-	QLv+V/Ye38p0A9Xvk8ybH/bzDsXqsIFfI5+l3OqM4bp/CpaPPQ0s0WX0GT8wHmoiSF0psic92e6HA
-	m2VPvAKFlS8kkNttkESuTfOcvdIk4vIrqKrQ+bcqQ2VUKgh5uqiCubhe8NeCc6nuOgWngWbh1f7C+
-	1ms3201CaSKRMj58ZUnqo/n590AiG4zbjReOrQmWBRnm9e9jQ0QUSaNW1hKyhtYoAo4TJGtQLS4ZY
-	4OZiMfQw==;
+	bh=OpePOPLCA0PXvchecli98EIEzQF2dD3vOt0f1SSbJi8=; b=mQFoWGXVvP2f8nhWzkpOS8jILJ
+	Dttdy514jaGOJ2YDkcPh6yrz9Lq2NUbvPcQc/ZagFXsZ+PfGaL4biabX5wXaOA8S1tn95W4pSkQx9
+	6pWb/g55DWVOgYeT7b23o89KFzDAcIA9Y7kCHZz+KPN36UxyK/j2sqGnfAbn1N0WxBkgYJXgNgI4G
+	n4zsZrCQ7BP6E68HprB4xw41sb9g2Cj78dkS++0s5rkum571j7gLf2wM5+9+yZQzAstpfteGpHwiJ
+	egCoDbWw743Nm2cGNd1ElMtrNobctnDcgt8hn8yqu1u5yQI8Al2/+NfIchxYowEsbzJAk7pXifFe+
+	OTnG/Vag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwi-00000001us5-1w7C;
-	Wed, 01 Jul 2026 12:21:40 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wetwl-00000001v1q-1iIg;
+	Wed, 01 Jul 2026 12:21:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwI-00000001tol-0wTw;
-	Wed, 01 Jul 2026 12:21:17 +0000
+	id 1wetwO-00000001u1D-2Kej;
+	Wed, 01 Jul 2026 12:21:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=oJxqhTjhsZDa9jhMH91sD2Vnxv5QNaBItO/IfmQMzdQ=; b=tFL7VqHxundLdHUzMDrrNTpJCN
-	AuBrfpBxgD1ePEjQOp53EMyrZkb4y3DPOqBM9VNVCXpATE7yJnUy0Qg2nasBLvQZw+FZJ3xBUEpz4
-	JTwPGOY13fl4gk9x3HMtVnkc35asAnu3GM8xSCusXZj5FhOX9AlVthxfkoPkgC45kDKD01FADWp7f
-	lE/YlRspEnJMeTJnyMg4eNAZXHDnUb071MzhtdDQa7zMg995Th/seXMrmQrAwSDG/mdyfP5dUywrw
-	D6Fc+JDu1vVQ34VQvq673qkLIHZBApJZt4H77Cw86+bzEJbWi2btYTBk7nqNwF0Fik4WbACjogr08
-	TLyLqrZg==;
+	bh=OpePOPLCA0PXvchecli98EIEzQF2dD3vOt0f1SSbJi8=; b=PjxaiTcWHZ2SHRbDeepAmNXIfV
+	txstrE7iWNq54EkLlz0GeA2Pasp7jA/DtLw478r0HMCoLIp1lOTdu4Jw2GUD9QpxzwiKYEb1E8IGi
+	3Zj0j5Q/gghJ5SQiORdSR1dXHeGRGM+/HBxIwNa5MKqrcVmJs9BTtPHBuIx4Wpa0jxfl2hkB7ipBS
+	5gGfOA7zt3QIBzKHXOvPdC+cXoNHXTOneZTKjzeJTif3in0ZVBTCLHbA7bq+SFN9pgh9+G4sJDgEe
+	SR7rsgzZgfgASeXI6QLoUlYlLnIixWPw8CGC0iNeEljcDwrbMODmak6j81cw4QnUxTVOFP1z2R3yI
+	oARkCsOQ==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwF-00000006aqS-0S6k;
-	Wed, 01 Jul 2026 12:21:12 +0000
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetwL-00000002ji7-3EAn;
+	Wed, 01 Jul 2026 12:21:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908470;
-	bh=di/SrTgMBLyWZ1eeV5NF13frht3qVrP/Za067lp9KA4=;
+	s=mail; t=1782908476;
+	bh=bouJrrAmvaCef0ljEylZ0CN770Hr5Qsn4ItcvLnxm7g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=B0ZJz98GRuOTuxbNJQhIXJR0kOmrBBSEN5EOKNLRrlSj62OFBCT+llY2PX47c7vxq
-	 7NJUpv0JBCaIfsdZDy0Q8pmcIw36RxMJ5mJahozPPUWlnNt216gumLBFBrxr/WH7qf
-	 JRvhIVw4XIc3pVEJJipLyy/hY/njO8+VMFS8ld6VW1PpWjxQvpU/aPTlR7nhRLqF73
-	 Gn7DO83LCCmzNNSY4w5ad+miKl/RYMiRPRvG8mNa8GWW7gx0oxGLgksq8dEYLs22XP
-	 WJrfQ5vLD6jB4CCEv96jHPluAsw0ZStNbcY6v8mzZh6w+o1qu6ZLjjDT6Z0ZbZQIO6
-	 JK0aopaMqxdlw==
+	b=FWMa0OnqQ0lEFTe8z1u/M+eRNlY0XZE1P3HK+q9jM+QMd8styF+35vFxhXdJS9Gkx
+	 4A3dRRpJ9Mu1a+stnivyS1dW5XzsR6Fli3gDylqGLI7EpFYjpsw2tpQd1uj/H8pr5/
+	 Jxm5dpzK3Y0BNyWVI5IR3AFx/AqgfJx7GHoSxa1s4y4IOpBlpV3WEjkKa5vT/7AyyP
+	 caOImNhoWOrWQ0xl6Gi3BoUEfcqX39imRPLdpoQktQKSz+OsM74Ad2UqHDSUhNf/2o
+	 bhm1umDqmQgHswkVS274hoHAXnA4zLZl7/rocVCmXrltDL0uQdlOSVDnIUwRv3Debb
+	 fxFcShBdCPhmA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 40F3E17E35CB;
-	Wed,  1 Jul 2026 14:21:09 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D194517E0FB0;
+	Wed,  1 Jul 2026 14:21:15 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -78,17 +78,17 @@ Cc: p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com,
 	kernel@collabora.com
-Subject: [PATCH 08/42] drm/mediatek: De-duplicate internal component checks
-Date: Wed,  1 Jul 2026 14:20:23 +0200
-Message-ID: <20260701122057.19648-9-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 12/42] drm/mediatek: ovl_adaptor: Add special MERGE component check
+Date: Wed,  1 Jul 2026 14:20:27 +0200
+Message-ID: <20260701122057.19648-13-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132111_335047_642BC5A6 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20260701_132117_944043_2D2265FD 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,140 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both mtk_ddp_comp and mtk_drm_drv are performing similar checks
-to distinguish components that have an external driver from ones
-that don't - with the exception of mtk_ddp_comp also checking if
-the component is related to a backlight driver.
+On the legacy ovl_adaptor for MT8195 and MT8188, four MERGE IPs
+from VPPSYS are used, and those shall be exclusive to the OVL
+Adaptor driver.
 
-Create helper functions in the main component management driver
-mtk_ddp_comp, one to check if the currently checked component is
-internal/simple, and one (static, internal to mtk_ddp_comp only)
-to check if it is a backlight related one.
+For this reason, add a branch in mtk_ovl_adaptor_is_comp_present()
+to check if the component that is being checked is MERGE and, if
+so, iterate through the list of component matches to understand if
+it is one of those that must be exclusive to OVL Adaptor.
 
-Since the amount of internal/simple components is lower than the
-amount of ones having a specific driver, and since it is expected
-that most of (if not all) of any new hardware support will need a
-specific driver as well, the helpers are doing an inverted check
-compared to what the code was doing before, as both mtk_ddp_comp
-and mtk_drm_drv were checking for external component explicitly,
-while now they're doing the same, but checking if NOT internal.
-
-Also, while at it, for the OVL_ADAPTOR components case, instead
-of checking for MTK_DISP_OVL_ADAPTOR, call the already provided
-mtk_ovl_adaptor_is_comp_present() function to check for this type
-of component.
+This resolves a corner case happening when mediatek-drm retries to
+probe after a probe deferral, where all MERGE components would get
+added to both "normal" and OVL Adaptor pipelines.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c | 47 ++++++++++++++-----------
- drivers/gpu/drm/mediatek/mtk_ddp_comp.h |  1 +
- drivers/gpu/drm/mediatek/mtk_drm_drv.c  | 16 ++-------
- 3 files changed, 30 insertions(+), 34 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-index 2ba2123238b3..f7103e20abe5 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-@@ -629,6 +629,27 @@ static void mtk_ddp_comp_clk_put(void *_clk)
- 	clk_put(clk);
- }
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+index ed9a2e35ba8a..bbf1d8ccda05 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl_adaptor.c
+@@ -519,6 +519,17 @@ bool mtk_ovl_adaptor_is_comp_present(struct device_node *node)
+ 	if (type >= OVL_ADAPTOR_TYPE_NUM)
+ 		return false;
  
-+static bool mtk_ddp_comp_is_backlight_comp(enum mtk_ddp_comp_type type)
-+{
-+	return type == MTK_DISP_BLS || type == MTK_DISP_PWM;
-+}
++	/* Check if this is one of the MERGE components used in OVL Adaptor */
++	if (type == OVL_ADAPTOR_TYPE_MERGE) {
++		int id = of_alias_get_id(node, private_comp_stem[type]);
 +
-+bool mtk_ddp_comp_is_internal_comp(enum mtk_ddp_comp_type type)
-+{
-+	switch (type) {
-+	case MTK_DISP_DITHER:
-+	case MTK_DISP_OD:
-+	case MTK_DISP_POSTMASK:
-+	case MTK_DISP_RSZ:
-+	case MTK_DISP_UFOE:
-+		return true;
-+	default:
-+		break;
-+	};
++		for (int i = OVL_ADAPTOR_MERGE0; i <= OVL_ADAPTOR_MERGE3; i++)
++			if (comp_matches[i].alias_id == id)
++				return true;
 +
-+	return false;
-+}
-+
- static int mtk_ddp_comp_init_internal_comp(struct device *dev, struct device *comp_dev)
- {
- 	struct device_node *comp_node = comp_dev->of_node;
-@@ -700,26 +721,12 @@ int mtk_ddp_comp_init(struct device *dev, struct device_node *node,
- 	if (ret)
- 		return ret;
- 
--	if (type == MTK_DISP_AAL ||
--	    type == MTK_DISP_BLS ||
--	    type == MTK_DISP_CCORR ||
--	    type == MTK_DISP_COLOR ||
--	    type == MTK_DISP_DSC ||
--	    type == MTK_DISP_GAMMA ||
--	    type == MTK_DISP_MERGE ||
--	    type == MTK_DISP_OVL ||
--	    type == MTK_DISP_OVL_2L ||
--	    type == MTK_DISP_PWM ||
--	    type == MTK_DISP_RDMA ||
--	    type == MTK_DISP_WDMA ||
--	    type == MTK_DISP_DPI ||
--	    type == MTK_DISP_DP_INTF ||
--	    type == MTK_DISP_DSI)
--		goto end;
--
--	ret = mtk_ddp_comp_init_internal_comp(dev, comp->dev);
--	if (ret)
--		return ret;
-+	/* If there's no external driver for this component, allocate and init now */
-+	if (mtk_ddp_comp_is_internal_comp(type) || mtk_ddp_comp_is_backlight_comp(type)) {
-+		ret = mtk_ddp_comp_init_internal_comp(dev, comp->dev);
-+		if (ret)
-+			return ret;
++		return false;
 +	}
- end:
- 	hash_add(hlist->ddp_list, &comp->lnode, comp->id);
- 
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-index 4203eecb2a7b..58a06add1368 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.h
-@@ -351,6 +351,7 @@ static inline struct mtk_ddp_comp
- 	return NULL;
- }
- 
-+bool mtk_ddp_comp_is_internal_comp(enum mtk_ddp_comp_type type);
- int mtk_ddp_comp_get_id(struct device_node *node,
- 			enum mtk_ddp_comp_type comp_type);
- int mtk_find_possible_crtcs(struct drm_device *drm, struct device *dev);
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index e956e1966b86..18683aee61ff 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -1166,20 +1166,8 @@ static int mtk_drm_probe(struct platform_device *pdev)
- 		 * blocks have separate component platform drivers and initialize their own
- 		 * DDP component structure. The others are initialized here.
- 		 */
--		if (comp_type == MTK_DISP_AAL ||
--		    comp_type == MTK_DISP_CCORR ||
--		    comp_type == MTK_DISP_COLOR ||
--		    comp_type == MTK_DISP_DSC ||
--		    comp_type == MTK_DISP_GAMMA ||
--		    comp_type == MTK_DISP_MERGE ||
--		    comp_type == MTK_DISP_OVL ||
--		    comp_type == MTK_DISP_OVL_2L ||
--		    comp_type == MTK_DISP_OVL_ADAPTOR ||
--		    comp_type == MTK_DISP_RDMA ||
--		    comp_type == MTK_DISP_WDMA ||
--		    comp_type == MTK_DISP_DP_INTF ||
--		    comp_type == MTK_DISP_DPI ||
--		    comp_type == MTK_DISP_DSI) {
-+		if (!mtk_ddp_comp_is_internal_comp(comp_type) &&
-+		    !mtk_ovl_adaptor_is_comp_present(node)) {
- 			dev_info(dev, "Adding component match for %pOF\n",
- 				 node);
- 			drm_of_component_match_add(dev, &match, component_compare_of,
++
+ 	/*
+ 	 * In the context of mediatek-drm, ETHDR, MDP_RDMA and Padding are
+ 	 * used exclusively by OVL Adaptor: if this component is not one of
 -- 
 2.54.0
 
