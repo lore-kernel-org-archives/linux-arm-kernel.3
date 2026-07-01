@@ -4,74 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5A3C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C553DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qxtFhLzSHt+nahGfRB9UVm+Cbn4C6aY1wYx6sp3xHJA=; b=j41cujIN9Gm0QKMwo3pN76LrC7
-	CzmACMyC47PihvIXTeU2Dl+YmQ9CMHeKm30j62Q/E/v2z4JsIwv03K1CUODYoozkeZV2kyjauwdGM
-	7GtCwuxBuVEXgoGQEVN+4lGOGqm/qRHZLwRbTIRFlVH/nRma8Wq32qfQrzGwaVu4cIHnLEMJQhlEj
-	fJX+/L5mm7rNP17Dmd/6op02RBWMRwh/S8qpsASTzHuku07l4LXQTdy2vxBYw8ym1kcsj1X/k9zDL
-	SqFuoDz0+/IPNu6EyVVmlRD+K+L+yG/NFRVMBVHfAIDYDv1o2ayFjnrrK7R/s0UeACHRav2W+1ObQ
-	DO4QwgUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TGwmfRVd+YyFvuzvOFe8H0UypjWMFncHsObt4CQMVcM=; b=NUg03F5RvCMEPtk4qyCBtqqq1b
+	pr+9G2Ytgse4JYruZo8u+LmGtbIBvdI+jZ4XcyS6E8jP0INexoTLFcj84A7D2AnIMsmV7O+YydgRi
+	W9rz+MNPYCedPyirXwEAC+YqigMgEzXbfVgbv/zmVqOjL4U6P/SfOOoFJGHPG15fOqow/1VytzG5O
+	LUt/FTk/QOX7TsQ6WejIpcwWRjhlXPcsuyox1fcLurjjxEEf8JJlCTLW37d+qBg19D/c/KQyhQnRl
+	g/VLf5HkG6iwkaIq8b1PGJ2z7oVdOpGD81HKFkAZR0jo7VHHekB713cWvFASMCQluRDize/OkQPIN
+	Svd+LZVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wey70-00000002aSY-3csC;
-	Wed, 01 Jul 2026 16:48:34 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1weyBc-00000002azD-17tA;
+	Wed, 01 Jul 2026 16:53:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wey6v-00000002aQL-0NM1
+	id 1weyBb-00000002ayQ-1qMg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:48:33 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 4A5324E40BFA;
-	Wed,  1 Jul 2026 16:48:26 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EF9515FD9D;
-	Wed,  1 Jul 2026 16:48:25 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 612B9104C948E;
-	Wed,  1 Jul 2026 18:48:21 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1782924504; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=qxtFhLzSHt+nahGfRB9UVm+Cbn4C6aY1wYx6sp3xHJA=;
-	b=PwApHo/8B8Epz4Vt7aF8WpSL7rgkO6iJ2++Z5ARi/DD2CMEDZchzNpLSF+DlHBO9cH4qME
-	K54lB9odaBwrcVe6ZDujZvDh/vnWlvDxtRxIa95VXY6b7rabchl5Jy16rlch6Qlgt13c71
-	XjCn5pVC2upoxr4VDY9fDxkDYPJfDaKpK4A+lsYlm8WUoboO7/uNZf6ZCafdtNHXj7d8QT
-	e3rHiScXuYFxNGxECrUnB78L1bco6nedN9qZ95hnVZ3Xwiqth+Mt+Yju2oI6rx13iWc7J8
-	9B8gnokziJEoxfxQKkrZ7GJKDKmn7x7i8+NuJquh7LwajrdbGBL9So5/z/ATsQ==
-Date: Wed, 1 Jul 2026 18:48:21 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Markus Probst <markus.probst@posteo.de>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
- property for S35390A
-Message-ID: <20260701164821b7492eac@mail.local>
-References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
- <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
- <20260701-bronze-jaguar-of-perfection-028bac@quoll>
- <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
- <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
- <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
+	Wed, 01 Jul 2026 16:53:19 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F1CAA60122;
+	Wed,  1 Jul 2026 16:53:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2266F1F000E9;
+	Wed,  1 Jul 2026 16:53:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782924797;
+	bh=TGwmfRVd+YyFvuzvOFe8H0UypjWMFncHsObt4CQMVcM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=RSFmO/VsP/9dwynujfEjIIN/W/GhYUqchStGl1nqCZkMGzTtqKTygh4U0SGFRcaPE
+	 vjDvHs1Qq+nCoEBHIAhgA+R0nWIfOsAiFPg5KQIsflyHCulYDaqAG0t41ch2+kKiko
+	 RKQ7t3MharlSDjo4RJgyzLExjLJM4dDSSAg9mFzh8DBuVnhOaApHqhi2bA4jIN0cLU
+	 lG0eI5tCAhxbsZq3MSJ08sEmf9OmQh4BqoJh+7m1+zlOhxDQhQcljkutvRJn20h8RU
+	 g+n2CyJUe3jrltGDCmwMcdaWAdpov3h68P3oODc3JRXUySPBzXzXZqaoAJSEKYvL1Y
+	 s7DTdiKIZc70g==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Date: Wed, 01 Jul 2026 17:52:22 +0100
+Subject: [PATCH v2 01/14] firmware: arm_scmi: Fix OF node reference
+ handling
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094829_269063_E48A1B4C 
-X-CRM114-Status: GOOD (  21.76  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-scmi_core_fixes-v2-1-1f5e85553f73@kernel.org>
+References: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
+In-Reply-To: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,67 +69,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2026 16:43:07+0000, Markus Probst wrote:
-> On Wed, 2026-07-01 at 17:14 +0200, Krzysztof Kozlowski wrote:
-> > On 01/07/2026 15:25, Markus Probst wrote:
-> > > > > +
-> > > > > +maintainers:
-> > > > > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
-> > > > 
-> > > > This should be someone caring about this hardware.
-> > > He does have the majority of commits on this driver (excluding merge
-> > > commits and commits not exclusive to this driver), although most of
-> > > them are pretty tiny.
-> > > 
-> > > Who would you suggest instead?
-> > 
-> > Someone adding features for this driver, maybe driver maintainers. But
-> > if Alexandre is fine, you can leave him.
-> > 
-> > > > 
-> > > > > +
-> > > > > +description:
-> > > > > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
-> > > > > +  very low current consumption in the wide range of operation voltage.
-> > > > > +
-> > > > > +allOf:
-> > > > > +  - $ref: rtc.yaml#
-> > > > > +
-> > > > > +properties:
-> > > > > +  compatible:
-> > > > > +    const: sii,s35390a
-> > > > > +
-> > > > > +  reg:
-> > > > > +    maxItems: 1
-> > > > > +
-> > > > > +  sii,wakealarm-output-pin:
-> > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > > > +    enum: [1, 2]
-> > > > > +    description: |
-> > > > > +      The output pin to wake up the system.
-> > > > > +      Default will use the output pin for interrupt signal 2.
-> > > > > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signal 1
-> > > > > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signal 2
-> > > > 
-> > > > Does that mean device generates the interrupts?
-> > > Yes.
-> > > 
-> > 
-> > 
-> > Then I think you miss interrupts property.
-> From what I can tell the line is used to generate a system wakeup
-> event.
-> 
-> There would be no obvious benefit of connecting it to an interrupt
-> controller, so this property would be obsolete?
-> 
+SCMI devices store the DT node in dev.of_node through
+device_set_node(), but that helper only assigns the fwnode and
+of_node pointers without taking an OF node reference.
 
-Then you need proper wakeup-source support
+Take a reference when assigning the node and release it from the
+SCMI device release path. With the device owning that reference,
+remove the separate channel-side get/put pair from the core driver.
 
+Fixes: 96da4a99ce50 ("firmware: arm_scmi: Set fwnode for the scmi_device")
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+---
+ drivers/firmware/arm_scmi/bus.c    | 3 ++-
+ drivers/firmware/arm_scmi/driver.c | 4 ----
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index 793be9eabaed..f643a1f0e282 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -395,6 +395,7 @@ static void scmi_device_release(struct device *dev)
+ {
+ 	struct scmi_device *scmi_dev = to_scmi_dev(dev);
+ 
++	of_node_put(dev->of_node);
+ 	kfree_const(scmi_dev->name);
+ 	kfree(scmi_dev);
+ }
+@@ -465,7 +466,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	scmi_dev->id = id;
+ 	scmi_dev->protocol_id = protocol;
+ 	scmi_dev->dev.parent = parent;
+-	device_set_node(&scmi_dev->dev, of_fwnode_handle(np));
++	device_set_node(&scmi_dev->dev, of_fwnode_handle(of_node_get(np)));
+ 	scmi_dev->dev.bus = &scmi_bus_type;
+ 	scmi_dev->dev.release = scmi_device_release;
+ 	dev_set_name(&scmi_dev->dev, "scmi_dev.%d", id);
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 3e0d975ec94c..b9245238e293 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2778,13 +2778,11 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 		devm_kfree(info->dev, cinfo);
+ 		return -EINVAL;
+ 	}
+-	of_node_get(of_node);
+ 
+ 	cinfo->id = prot_id;
+ 	cinfo->dev = &tdev->dev;
+ 	ret = info->desc->ops->chan_setup(cinfo, info->dev, tx);
+ 	if (ret) {
+-		of_node_put(of_node);
+ 		scmi_device_destroy(info->dev, prot_id, name);
+ 		devm_kfree(info->dev, cinfo);
+ 		return ret;
+@@ -2807,7 +2805,6 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
+ 			"unable to allocate SCMI idr slot err %d\n", ret);
+ 		/* Destroy channel and device only if created by this call. */
+ 		if (tdev) {
+-			of_node_put(of_node);
+ 			scmi_device_destroy(info->dev, prot_id, name);
+ 			devm_kfree(info->dev, cinfo);
+ 		}
+@@ -2892,7 +2889,6 @@ static int scmi_chan_destroy(int id, void *p, void *idr)
+ 		struct scmi_info *info = handle_to_scmi_info(cinfo->handle);
+ 		struct scmi_device *sdev = to_scmi_dev(cinfo->dev);
+ 
+-		of_node_put(cinfo->dev->of_node);
+ 		scmi_device_destroy(info->dev, id, sdev->name);
+ 		cinfo->dev = NULL;
+ 	}
 
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.43.0
+
 
