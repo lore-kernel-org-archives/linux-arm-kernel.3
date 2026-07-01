@@ -4,157 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ABA8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 02:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4161BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 02:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uovCZINWu/g8P6/Il8iQACSPrUB+dJNUJxBHyVokZwM=; b=c9mBPFmmLTKuGegLxCqZIolN32
-	r8CpaHWr3R9ABhWxWRVjLkYagoV2qLFuHjARfEOCzFxv82CaaUsspUmlWnjhWop/yfbcXG9CjWUTl
-	36svXJ6d5DoF/4nsbThl6FOVFI2jPb2GpSWiPVwSvwC+edQ21KPMfeZzDG8TN8QKKTOkHscjxK3ux
-	xPAGwf/0BtW9yeM/y1cZe9Shz41wpSOAKSd8ws3mzE7c8aDX2MRIL722dt5v4rPRIpctJ+o153CMm
-	XU2gdFXmDay3onpQLPAeyPjwLWZZg4V+E8KR6xJcpfpQ4rrs5Fuo3t4y6qSJHg+5fDyQzUjg8uhGh
-	h05wdigQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJTpC+CjT6V4l0jkY1XwpDUfcQUmvUveAir1k/ZxLM4=; b=i6GNNXhJxLMDts+vtgPUZ37vhs
+	RcLDIR8jPyvsM2eBMA8EkPKxsT+ZS1mFhcU+iqsJ/IQyyZYWo48Qt/HeD8AVQkeoJpXzV5M9unnQB
+	rae1h/LSv69IUpJIko0srt06frzA3AWVgVzNsjAjrSVWxOWrBafkkL4p2Jy8q0VA6FBgC1fGpELr/
+	MSmWePw5qDXFJDKZZ3jegTi6ICgQbEqzIw8cdfJM3+ocUJMw6RpRAfuFAoKWxl2s8zVt6yydZM4NV
+	jlbqMJ8ajd2XvNUwzdxKTJOVcOlYWPWxesywq3Vw7ll0MQ27AbcSb38SpEnnnt7g0qCi6HfbygK2U
+	nXbziaFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wekA3-00000000Tj4-3SiF;
-	Wed, 01 Jul 2026 01:54:47 +0000
-Received: from mail-southcentralusazon11011070.outbound.protection.outlook.com ([40.93.194.70] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wel2K-00000000Xrb-1O5A;
+	Wed, 01 Jul 2026 02:50:52 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wek9w-00000000TeE-2w0S
+	id 1wel2H-00000000Xr5-2UVt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 01:54:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uceEzSUgIPNAE5lMx9fvBpiRIefL+0wyZqeTGRZNtYQD2vuRP6hSknA1RDFvNAZmLIEfFcyY4slhCENeEV59WOdIuvJjdmGqECkQesoHANxcOfxwA2rIx4dmUeqZMoxROziNPAgWMcI6NYMdzHxJgrtiJUyCRv9Er4aiswAtYNlFZIEMWRSQL3FwiaRqRiC7Wrqg0nKaj44XG78Y5EloG3cNhdQzHAXP5HudtYlOJo0n8cqpJ2FKNjU17ZKGpZH4FRCnizFsByraSW1qgaFaxcCqAjGlwb5cpmfLCmlBL5KLbbJnAA6rH/l3hrQJzYzzUNFjD+856tvmqeQwYrmwnQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uovCZINWu/g8P6/Il8iQACSPrUB+dJNUJxBHyVokZwM=;
- b=U4p8sLDFkoLniuU18/Zjq3rPnb/1BBS3nSPzTWPgCv1q47CunbRneTtl1AoLnFfTSJCwFgYqlosiSGY+yky5WhQaRHh/Ym5tZKGQjScWysbXVrUxDTpENpEMehvcnsO2s4AQZM2TFAhjbFQHCrTSi+2BRKCB6VX8PhFWDYIRB1eKNpQuI2/h9R4UPkFfCsOy94WRmJEXOa+nqDcI5wyseWoduXwQI5rgGZSS8oykNEEijoEPQY0h/gfwuLvh3/zkxw8rrcDcwuRYVXulcftp6NOx8Bpr1YJxxu0650k+qX/rKINzRC/C8zDN9Hr4BpiNyHvvZOzqX0Cs2EXNQQ/Mcg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
- dkim=pass header.d=altera.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uovCZINWu/g8P6/Il8iQACSPrUB+dJNUJxBHyVokZwM=;
- b=FpT3EPM/5jnGv3Ftn7YfNu64OvvlsPwYERc7eamrml/clyZ43Qzc7BXeCqtnoaCAnE1FQjGd1dreZGi64/EorxXzIiSHDpI2r/yKkGocGOhL89a1fDAqUwLKZbkQjqc2JxcDS4sNqkK1yaRuhB0cIr2e+I9xqRGf/EJDFYFgbGCFd97C12/f5EGIEppb3vOG7p/qa1qGBJYYHOqrvHXazmGK6wmwAQe2khokk7I0F5ZTs7qZ7adKZolGRohi4sb9fXjkR5YrT4xAlWHRvhJuq47TsQjmvD6KMcRRviRFKyR8JcRTS/F+oVdjyaZyUGNnOOZSjb/+VOKD83G8Fdc9vQ==
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
- by MW4PR03MB7010.namprd03.prod.outlook.com (2603:10b6:303:1a5::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Wed, 1 Jul
- 2026 01:54:32 +0000
-Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
- ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
- 01:54:32 +0000
-From: "Nazle Asmade, Muhammad Nazim Amirul"
-	<muhammad.nazim.amirul.nazle.asmade@altera.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: "dinguyen@kernel.org" <dinguyen@kernel.org>,
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
-	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] arm64: dts: socfpga: agilex5: Add SoCDK TSN Config2
- board
-Thread-Topic: [PATCH 2/3] arm64: dts: socfpga: agilex5: Add SoCDK TSN Config2
- board
-Thread-Index: AQHdCJS3eKbhTF393kOGxrO3eujj3LZXH+EAgAALkICAAAzEAIAAr76A
-Date: Wed, 1 Jul 2026 01:54:32 +0000
-Message-ID: <5a0c962e-1af0-4d6a-b871-d8a0b0197ff5@altera.com>
-References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260630133108.27244-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <edf84080-a5e0-478c-9977-af2376cb71c5@lunn.ch>
- <347c50ed-234a-4f29-b63a-1e0010c6b09d@altera.com>
- <e4cf8d95-0467-4bdc-8e19-228ced3a8bbc@lunn.ch>
-In-Reply-To: <e4cf8d95-0467-4bdc-8e19-228ced3a8bbc@lunn.ch>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=altera.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR03MB6964:EE_|MW4PR03MB7010:EE_
-x-ms-office365-filtering-correlation-id: 58143dc1-90bc-4dd2-aa3b-08ded713b1f0
-x-ms-exchange-atpmessageproperties: SA
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|55112099003|4133799003|11063799006|56012099006|4143699003|38070700021|22082099003|18002099003;
-x-microsoft-antispam-message-info: Ry823GCVcxmRaDB0l8UPjaGdOY4ksr0TcUQoZaayIH4LpWQqO8N1q01sopSVMfvi+WXgr6UrERsRyid6Ld6S2JjqGzrxuFKQIxmd67+Fb5YaFp2CwanRjLMafYeObzMDsRZQBLLgHXCjqgucHKLM8obI016FxKdRgvw9mRoNMuUkF9OEy5baU+PsrDvs8FoYis2t+pXk3AE3XKBoybWOHYx6FxltPeHTNXFJufl37DE1BnbSofwoYL1T14EBRY/mfsLiXXZiLIzK3k4LBCRlQFXonXAj0AYLQT2JnhPjLavMv8KFEhxlSUJ9MOssUz3qbMDuNCrJ67QrC8gSKbvSu8s6AnEK3lSpXz3GEE24kY4BF/NaouncifJMJI2sW/s1IGz+Kmeo7J1mTvk0N0sxR42X6vCfTzjv9ljsnq85aOIE2FwD3Bpg1KruTNBHX9bcU7o1xGqoWUVotCjoIl+ENiX9u+/oviZCKzXl8ZNM5UbwqUodh7eLCnqSZoL/uPxwIbHXiNs3JDQsDz/FoejEV9GhdWFtQwNLFTK8qQ4bpfRB7EPdoOALd46x59r+bHuu5yxZgTFyADr5U3ZUjxP8ONb+Wn98AFE5A+QrncIWMkqudyL2irjz8vwjsn9A3803M6q7V0gNveotBhUkHVEqZeFOsRD385v6DrpPKUfuzpM=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(55112099003)(4133799003)(11063799006)(56012099006)(4143699003)(38070700021)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 2
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SDZkWWMyNlV0Zml4NjBFNmpCc3FWd1pBYzFBUWhpa0RHTEJpOHArUGpPU2Fw?=
- =?utf-8?B?SE0wMENDN0pDQlBRYkJSTGg4end5TXYvRzFPN0dwSXczaVMweG4vVGRlVU1a?=
- =?utf-8?B?WU9mbVZGWTJwa1ZSbzNzck5YbElmRjJZdXN3NWFxK3RKdFdhWmdNY1M1eEFq?=
- =?utf-8?B?UHoxS01nYWNyUWdyNHIvcmdFQUZ0SHZwd2RubFhrTGNKdDJSR25mK2lacUN6?=
- =?utf-8?B?WWl3eUdWMUVLUnA0cUNVSEZ2Q2dRVzE4eldvUHZxNWRDN29FZGhYZjhhc3h4?=
- =?utf-8?B?WXF6ZVJuYW9VRXorRGJUWmVKM1BmcE5LSDZUOWxMcFpxSUtVUkYxZC8va2Mz?=
- =?utf-8?B?b2JnQWE2OUJPTmVUcXdINmJlczl4ZCtmbmdTc2lOQTNqT1hJSlJUZCtsY1hC?=
- =?utf-8?B?S1VTYlI3UDBzUHpBM0pKQzFuR3ZmMG43MDBTaS9CdmhkK0UwWThJb2JjdWZ1?=
- =?utf-8?B?bW52LzJ4SDBQdjk4ckxQTU5IZGE3RWFQUHlsdVhsUEVVWHlycFloUmFJN0ts?=
- =?utf-8?B?aUxaL2pDSXFueVRONlNGb0tPbXF4cXB1TXhDb1pLOG9wVzAyc0N3NnphY2RS?=
- =?utf-8?B?UDJST3hZc3ZqZ0s2Y3ZzbmxtU1VqNEpadEZhcTUrZzg5aVVTVzdwaUo5M0Iz?=
- =?utf-8?B?QlJBUkVPK3l2Yi9UcC9WelJrN3ZZUkRkMy9IM0RrZ1B0d1NzSVF4aTZ4SVln?=
- =?utf-8?B?dEdmRUtuY1N4UGtNMFptaTZOSVAxbE1NaFRDY2huNVZNcjBNbW9FS2lBa1hs?=
- =?utf-8?B?NWJsMWNmZzlmREhHaVNic0hlOU5GeDlZRVJvd1ppNlBaOGJheEhhbE9paVdD?=
- =?utf-8?B?a2J4L3BFOTN6d3N3b3VBcU1rQlRHTGZxYktmUnZNTTU0SXBsQ2xXNG5NYVQ4?=
- =?utf-8?B?NVV4cm1FR2NESUE2UlVQdFhiUWorZjdVY004aGp0NDNWYjFKS28vSXBCM2dT?=
- =?utf-8?B?MTg3aWk4OGJCdFpWY3Y4Nlg5S2pTejdIOWxtcFN3NXdXN3B3V0dVNEh6MEx6?=
- =?utf-8?B?YU5JNXQvSDNYaGVGWXJRS0kxQUJHM3U0TWFaRmw1Y1Z0UmpqL3NVNXZKYnY3?=
- =?utf-8?B?NElWZFBqS1BZbnV0dVdVMDhZSEtHaTFZUXJxNGZHVkx3QS9IM0VlOFM5eml5?=
- =?utf-8?B?dE9BZG9SejlaYzVXZXg1M1ZiU0pDVmpLckFKQTQ3VFFqaDRwVUJjTGR6OXNB?=
- =?utf-8?B?by9ESUZoQTFCM3FrMjJ0eVBOVUV0S1AzSzcyTklXQWdZM2FtdWY2V0Jiak5L?=
- =?utf-8?B?OEFpa3BXUVI5T2dMcHJQR2Z4b3BYbGVlSGxxVmFrVDJZRTFUUEthR1hrOW41?=
- =?utf-8?B?VnZwRWZmWURhdS8vd0N3VWJpclF1ZkhpWlNjK21tSUJ3b3c1cDk4K3QwcFVF?=
- =?utf-8?B?RTdqdlFOYzdVVDZXNkV2RVNFYVlnMEZNWFlJQ2dvNWpKbVVFUjJYQkJ2ZHRn?=
- =?utf-8?B?N1doU0VmVjZodktKRTdUZVRHQnUwRFp0Z2g4RGJTQUJZSExjTnJsWFFpY3B3?=
- =?utf-8?B?ek1NSWZMOFR5d25MNzlkM1A5Ukx3YjZGbzVWSXVQcm5nVkg1YU0xWWNqZ09u?=
- =?utf-8?B?T1Nra3AzRGpWSE96ZWhFT25vWUlieVlURGVweWEvTVREMFM0RmZRdFJyc1Zk?=
- =?utf-8?B?TXlvUkNQZnBoZzIrb0czRDl4N2xTSDY0UzJYRnNBZjRmUjhJcm5XUFM1N0ZD?=
- =?utf-8?B?T2xUZ2hZREswOStKV3R2KytXWndNdC9rQkF4angzZlJJUGR1U3crYlk3VkFY?=
- =?utf-8?B?Ri95VVZtejRCWUZnclMxYkZwck4wa3RoTThqN3lnanR6SytwUjE4RVB0Uzcr?=
- =?utf-8?B?dFdKK3Z4MzVaajY5eTJBVzF6Y0FhUExvclpmS2NJWi9ZdUdzWk0vbmN1MEtj?=
- =?utf-8?B?ZnZ4Lzhjbk8rOURxaUZyaHg5Wlp2Q2hPU1BqYkQ2RWNwalBKMDZiZG1Pelh5?=
- =?utf-8?B?cE0xbUJkS3Z2YWgwdVVMWXcrcFhjc050bkRqU2lzd3YvcG5saVNiUGhick1X?=
- =?utf-8?B?K2hjQ3BETjVGU1lySjFMRG1jK2U5OUpKcEhQbGtTdHhXbDE3WWhtaDh3TFNl?=
- =?utf-8?B?V3FJSWdtU1FXY1I3eUVkeUorOWRmSEpyeXV4Y2RDMzRKREdXNHlLaWJHSHhy?=
- =?utf-8?B?S254NVlFOUp6bG03VHkwZVBwMHAyamJabUxNWnZhWHZDVk1RSlZ2VkZHSzlv?=
- =?utf-8?B?aVJMdEpYckhnc21vd2xFVG1sOUFOM1VKYndwUkFKcWFvRWM3NzZrQ1NSWDhR?=
- =?utf-8?B?L211VDFVY2dCZ01MTFg0aHI1KzFrU3RFRmsySWM5MytiZGV6dU1qM0pRMnJM?=
- =?utf-8?B?R0dLaG1GVXlsRTl0Zzk1L1F1TlY0bGFadHBUYnlUa2p5Z3J4Wlp0ZkhKTGtn?=
- =?utf-8?Q?0UcPf9kFQt2CGWX8cQrMqSq2uSr66hB3UjrH1y2CnAjfZ?=
-x-ms-exchange-antispam-messagedata-1: Y6z5NjiOIEjgqi4/OwR4CrHDPlo94dInhFk=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <27AAD0A6C9AD9044A2441CE3877B4137@namprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Wed, 01 Jul 2026 02:50:50 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-36b9d265355so114310a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 19:50:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782874248; x=1783479048; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PJTpC+CjT6V4l0jkY1XwpDUfcQUmvUveAir1k/ZxLM4=;
+        b=OcooktPuwoSP1hvI/VLB0C2EY6OnGbBA5Lzve9RuJI506sFIHBZL0v3PToD43+/pmB
+         3tQz6/f/1g9APt6IXg3rlYRVAguJOrlxjhSLOs14DvMt5gXKcK3hgy0lm/BKRPTSWP5p
+         wPEFpztJ6f+nw33PYG1b/tXUrEr1rQgh2FzhZwnTR3IH4xAkn95cSTD6jRauiNJlEw/E
+         JH4v+IyTaNm4bcfOcqV2HBIvgVNIDfiin2HFW9Csn+AQWBlf1paK2jmW2iCL/PESHwJB
+         mjxUrzU7yR+wwPd8s7WdPeDGYzFNEm6eMMwAKVqpN7Os3arEkVTjmSIqa5YSw0MIJYmf
+         aRLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782874248; x=1783479048;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PJTpC+CjT6V4l0jkY1XwpDUfcQUmvUveAir1k/ZxLM4=;
+        b=HyhJm43Xru57AEaCeDozwReWQUoW2od2Mets2npatvQW0x51bEom4sH8hC3ZzgG3R7
+         v/e0+2s6slaOksiQeFSHiTr47s1NpSdvpTVQXo2YsyL6uxDcTVcQuMqF5SiShPneskZw
+         M3OtvQcJITbkKCcboKfSQQuJ7ENnqVscy8nyHdB6NKBnu7ZARD1BLwqQrai3M+5pL0Eo
+         jrkZOAtLW3NsbrtcVLi00YxsysPzBFlkOSr5dWciz1PwPpov+mSDsUmCyBQ5Isq3Toc2
+         0RTx+KLqXeSDoT1RlVrsBQJiVYv5++bLqAUUi9NHRsSskiJAZvWcgd1LPfBd0wsnqp0S
+         sW2Q==
+X-Forwarded-Encrypted: i=1; AHgh+Rqk7g/Oc5h7Pbjj+J3m3ZVz7edQ4eg6PiSqZf9YraHEZj68NWVpjpJYpJ+MNciVq7I6B24V26gQkX5kNjxjoVS8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPjkCnd14fUp68KxMG/3UsSPw7DnqAYwskugQWxS9GyNeQg2VL
+	RemZvdO9dXNKxHhy0bdyyRwJxsF0Jpf78jkDBfWkLNsDovP0wsPOm43M
+X-Gm-Gg: AfdE7ck6noRWCWj1RJh8OeuBjEBcvLmxOfh2glledbiDuLJocYDobKgmdCF9DwukT+t
+	zdKiDoczeQYz98cy7sbExCLriKtjbavbRxGkr5Gfm+Z+HXFXrY6+nzIAKEdkzxm4ovUs3PLSjYH
+	Vvc1EApf5qoDg+YUN7BpUVnzhpo0JE862GtsIpKC4yhqZqOebsL5EhSmAO53+0hrOrMXYGo64I4
+	yycFhm6XtXEkKYnBl395VkGHAZ7SRXrDidvswfW77t4y1y4GpXG5J/q8D4+AjA+GblburZDPdRF
+	NB9+2+AlED/zwaWEn+B46d7m5gU6/IMPDbdZ2yjYCN0lSBbrbNlmDR5gdmjbStvcpkv+ypeMYeA
+	Ts5h2e8Ug3uBqjadYAro68T8LvIlsHDUqDEbWZynOCAUwULkhpcwvSLaG/5HsOEikbus9+2jBBA
+	weB7b9gIY1YCJuHL8ktSubu3Ya/n48UhN7BxT8qVwzrt/bCyAV4iSLVkfsM/e8FQ==
+X-Received: by 2002:a17:90b:57cb:b0:37f:a915:1c29 with SMTP id 98e67ed59e1d1-38052726b73mr4731151a91.19.1782874247947;
+        Tue, 30 Jun 2026 19:50:47 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3809644a387sm848448a91.13.2026.06.30.19.50.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Jun 2026 19:50:47 -0700 (PDT)
+Message-ID: <91a9aa8c-2e7a-494d-86f4-26982676a952@roeck-us.net>
+Date: Tue, 30 Jun 2026 19:50:45 -0700
 MIME-Version: 1.0
-X-OriginatorOrg: altera.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 58143dc1-90bc-4dd2-aa3b-08ded713b1f0
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 01:54:32.2764
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0bkeaLmxQ/skdFXOKayfAiMJdcTVeK/wUIrUuiTvQcBouEfXhbcNzlilYSBr5pCerTUXtipQjQ1cvhFuguOPP+GJ/JI1jpMdSGt2gytAYVx+ZnmQXI7sW25DRV+7Kh1khpJDn42i2/Oh4FrZvnW4/w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR03MB7010
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 5/5] watchdog: aaeon: Add watchdog driver for SRG-IMX8P
+ MCU
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ =?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
+ <20260630-dev-b4-aaeon-mcu-driver-v6-5-d66b5fcbd2f0@bootlin.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20260630-dev-b4-aaeon-mcu-driver-v6-5-d66b5fcbd2f0@bootlin.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_185440_743115_028FADB0 
-X-CRM114-Status: GOOD (  25.82  )
+X-CRM114-CacheID: sfid-20260630_195049_693884_E936E72D 
+X-CRM114-Status: GOOD (  31.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,54 +158,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gMzAvNi8yMDI2IDExOjI1IHBtLCBBbmRyZXcgTHVubiB3cm90ZToNCj4gT24gVHVlLCBKdW4g
-MzAsIDIwMjYgYXQgMDI6Mzk6NTBQTSArMDAwMCwgTmF6bGUgQXNtYWRlLCBNdWhhbW1hZCBOYXpp
-bSBBbWlydWwgd3JvdGU6DQo+PiBPbiAzMC82LzIwMjYgOTo1OCBwbSwgQW5kcmV3IEx1bm4gd3Jv
-dGU6DQo+Pj4+ICsgKiBnbWFjMSBpcyB0aGUgVFNOIHBvcnQuIFRoZSBNQUMgb3BlcmF0ZXMgaW4g
-R01JSSBtb2RlIGludGVybmFsbHkNCj4+Pj4gKyAqIHdoaWxlIHRoZSBQSFktc2lkZSBpbnRlcmZh
-Y2UgaXMgUkdNSUksIHNvIG1hYy1tb2RlIGFuZCBwaHktbW9kZSBkaWZmZXIuDQo+Pj4+ICsgKi8N
-Cj4+Pj4gKyZnbWFjMSB7DQo+Pj4+ICsgIHN0YXR1cyA9ICJva2F5IjsNCj4+Pj4gKyAgcGh5LW1v
-ZGUgPSAicmdtaWkiOyAvKiBUWC9SWCBjbG9jayBkZWxheXMgcHJvdmlkZWQgYnkgQWdpbGV4NSBJ
-L08gaGFyZHdhcmUgKi8NCj4+PiBDb3VsZCB5b3UgcHJvdmlkZSBtb3JlIGRldGFpbHMgYWJvdXQg
-dGhpcy4gSSB3YW50IHRvIHVuZGVyc3RhbmQgdGhlDQo+Pj4gYmlnIHBpY3R1cmUuDQo+Pj4NCj4+
-PiBOb3JtYWxseSB3ZSB0YWxrIGFib3V0IHRoZSBQQ0IgcHJvdmlkaW5nIHRoZSBkZWxheXMuIFRo
-aXMgc291bmRzIGxpa2UNCj4+PiBpdCBpcyB0aGUgRlBHQT8gU28gaSBuZWVkIGNvbnZpbmNpbmcg
-dGhpcyBpcyBjb3JyZWN0Lg0KPj4gSGkgQW5kcmV3LA0KPj4NCj4+IFRoYW5rcyBmb3IgeW91ciBx
-dWljayByZXZpZXcgYW5kIHllcywgaXQgaXMgdGhlIEZQR0Eg4oCUIHNwZWNpZmljYWxseSBhDQo+
-PiBzb2Z0IElQIGJsb2NrIGluIHRoZSBGUEdBIGZhYnJpYyB0aGF0IGltcGxlbWVudHMgdGhlIFJH
-TUlJIGNsb2NrIGRlbGF5cw0KPj4gYW5kIGlzIGNvbmZpZ3VyZWQgYmVmb3JlIExpbnV4IGJvb3Rz
-IHZpYSB0aGUgRlBHQSBiaXRzdHJlYW0uIFRoZSBkcml2ZXINCj4+IG11c3Qgbm90IGFkZCBhZGRp
-dGlvbmFsIGRlbGF5cyBvbiB0b3AuDQo+DQo+IFNvIGl0IGRlcGVuZHMgb24gaG93IHRoZSBjb252
-ZXJ0ZXIgYmxvY2sgaXMgZGVzY3JpYmVkLCBidXQgLi4uLg0KPg0KPiAgRnJvbSBhIGJpZyBwaWN0
-dXJlLCBNQUMgYW5kIFBIWSBwYWlyLCBpdCBpcyB0aGUgTUFDIHdoaWNoDQo+IGltcGxlbWVudHMg
-dGhlIGRlbGF5cy4NCj4NCj4gaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGludXgvdjYuMTUv
-c291cmNlL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvZXRoZXJuZXQtY29u
-dHJvbGxlci55YW1sI0wzNDYNCj4NCj4gIyBUaGVyZSBhcmUgYSBzbWFsbCBudW1iZXIgb2YgY2Fz
-ZXMgd2hlcmUgdGhlIE1BQyBoYXMgaGFyZCBjb2RlZA0KPiAjIGRlbGF5cyB3aGljaCBjYW5ub3Qg
-YmUgZGlzYWJsZWQuIFRoZSAncGh5LW1vZGUnIG9ubHkgZGVzY3JpYmVzIHRoZQ0KPiAjIFBDQi4g
-IFRoZSBpbmFiaWxpdHkgdG8gZGlzYWJsZSB0aGUgZGVsYXlzIGluIHRoZSBNQUMgZG9lcyBub3Qg
-Y2hhbmdlDQo+ICMgdGhlIG1lYW5pbmcgb2YgJ3BoeS1tb2RlJy4gSXQgZG9lcyBob3dldmVyIG1l
-YW4gdGhhdCBhICdwaHktbW9kZScgb2YNCj4gIyAncmdtaWknIGlzIG5vdyBpbnZhbGlkLCBpdCBj
-YW5ub3QgYmUgc3VwcG9ydGVkLCBzaW5jZSBib3RoIHRoZSBQQ0INCj4gIyBhbmQgdGhlIE1BQyBh
-bmQgUEhZIGFkZGluZyBkZWxheXMgY2Fubm90IHJlc3VsdCBpbiBhIGZ1bmN0aW9uYWwNCj4gIyBs
-aW5rLiBUaHVzIHRoZSBNQUMgc2hvdWxkIHJlcG9ydCBhIGZhdGFsIGVycm9yIGZvciBhbnkgbW9k
-ZXMgd2hpY2gNCj4gIyBjYW5ub3QgYmUgc3VwcG9ydGVkLiBXaGVuIHRoZSBNQUMgaW1wbGVtZW50
-cyB0aGUgZGVsYXksIGl0IG11c3QNCj4gIyBlbnN1cmUgdGhhdCB0aGUgUEhZIGRvZXMgbm90IGFs
-c28gaW1wbGVtZW50IHRoZSBzYW1lIGRlbGF5LiBTbyBpdA0KPiAjIG11c3QgbW9kaWZ5IHRoZSBw
-aHktbW9kZSBpdCBwYXNzZXMgdG8gdGhlIFBIWSwgcmVtb3ZpbmcgdGhlIGRlbGF5IGl0DQo+ICMg
-aGFzIGFkZGVkLiBGYWlsdXJlIHRvIHJlbW92ZSB0aGUgZGVsYXkgd2lsbCByZXN1bHQgaW4gYQ0K
-PiAjIG5vbi1mdW5jdGlvbmluZyBsaW5rLg0KPg0KPiAgICAgIEFuZHJldw0KPg0KPiAtLS0NCj4g
-cHctYm90OiBjcg0KSGkgQW5kcmV3LA0KDQpUaGUgZGVsYXlzIGFyZSBwcm92aWRlZCBieSB0aGUg
-RlBHQSBHTUlJLXRvLVJHTUlJIGNvbnZlcnRlciBzb2Z0IElQLA0Kd2hpY2ggaXMgaGFyZGNvZGVk
-IGluIHRoZSBGUEdBIGJpdHN0cmVhbSBhbmQgY2Fubm90IGJlIGRpc2FibGVkIG9yDQptb2RpZmll
-ZCBmcm9tIHRoZSBkcml2ZXIgc2lkZS4NCg0KVXNpbmcgcGh5LW1vZGUgPSAicmdtaWkiIGlzIGlu
-dGVudGlvbmFsIGhlcmUg4oCUIGl0IHByZXZlbnRzIHRoZSBQSFkgZnJvbQ0KYWRkaW5nIGl0cyBv
-d24gaW50ZXJuYWwgZGVsYXlzIG9uIHRvcCwgc2luY2UgdGhlIEZQR0EgY29udmVydGVyIGFscmVh
-ZHkNCnByb3ZpZGVzIHRoZSBmdWxsIHJlcXVpcmVkIGRlbGF5LiBUaGlzIGlzIGNvbnNpc3RlbnQg
-d2l0aCBob3cgYWxsIG90aGVyDQpBZ2lsZXg1IFNvQ0RLIGJvYXJkIHZhcmlhbnRzIGFyZSBkZXNj
-cmliZWQsIGFzIHNlZW4gaW4gY29tbWl0DQpjNTYzN2U1Y2ViNGIgKCJhcm02NDogZHRzOiBzb2Nm
-cGdhOiBhZ2lsZXg1OiBGaXggcGh5LW1vZGUgdG8gcmdtaWkgYXMgSFcNCnByb3ZpZGVzIGNsb2Nr
-IGRlbGF5IikgYWxyZWFkeSBpbiBEaW5oIE5ndXllbidzIHRyZWUsIHdoaWNoIGFwcGxpZXMgdGhl
-DQpzYW1lIHJhdGlvbmFsZSBhY3Jvc3MgYWxsIEFnaWxleDUgYm9hcmRzLg0KDQpCUiwNCk5hemlt
-IEFtaXJ1bA0K
+On 6/30/26 05:51, Thomas Perrot (Schneider Electric) wrote:
+> Add watchdog driver for the Aaeon SRG-IMX8P embedded controller.
+> This driver provides system monitoring and recovery capabilities
+> through the MCU's watchdog timer.
+> 
+> The watchdog supports start, stop, and ping operations with a maximum
+> hardware heartbeat of 25 seconds and a default timeout of 240 seconds.
+> The software timeout can be changed via the WDIOC_SETTIMEOUT ioctl,
+> the DT timeout-sec property, or the watchdog_timeout kernel boot
+> parameter.
+> 
+> Co-developed-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+> Signed-off-by: Jérémie Dautheribes (Schneider Electric) <jeremie.dautheribes@bootlin.com>
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+> Acked-by: Guenter Roeck <linux@roeck-us.net>
+> ---
+>   MAINTAINERS                      |   1 +
+>   drivers/watchdog/Kconfig         |  10 +++
+>   drivers/watchdog/Makefile        |   1 +
+>   drivers/watchdog/aaeon_mcu_wdt.c | 144 +++++++++++++++++++++++++++++++++++++++
+>   4 files changed, 156 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 2538f8c4bc14..7b92af42c9fd 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -193,6 +193,7 @@ S:	Maintained
+>   F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+>   F:	drivers/gpio/gpio-aaeon-mcu.c
+>   F:	drivers/mfd/aaeon-mcu.c
+> +F:	drivers/watchdog/aaeon_mcu_wdt.c
+>   F:	include/linux/mfd/aaeon-mcu.h
+>   
+>   AAEON UPBOARD FPGA MFD DRIVER
+> diff --git a/drivers/watchdog/Kconfig b/drivers/watchdog/Kconfig
+> index d3b9df7d466b..f67a0b453316 100644
+> --- a/drivers/watchdog/Kconfig
+> +++ b/drivers/watchdog/Kconfig
+> @@ -420,6 +420,16 @@ config SL28CPLD_WATCHDOG
+>   
+>   # ARM Architecture
+>   
+> +config AAEON_MCU_WATCHDOG
+> +	tristate "Aaeon MCU Watchdog"
+> +	depends on MFD_AAEON_MCU
+> +	select WATCHDOG_CORE
+> +	help
+> +	  Select this option to enable watchdog timer support for the Aaeon
+> +	  SRG-IMX8P onboard microcontroller (MCU). This driver provides
+> +	  watchdog functionality through the MCU, allowing system monitoring
+> +	  and automatic recovery from system hangs.
+> +
+>   config AIROHA_WATCHDOG
+>   	tristate "Airoha EN7581 Watchdog"
+>   	depends on ARCH_AIROHA || COMPILE_TEST
+> diff --git a/drivers/watchdog/Makefile b/drivers/watchdog/Makefile
+> index ba52099b1253..2deec425d3ea 100644
+> --- a/drivers/watchdog/Makefile
+> +++ b/drivers/watchdog/Makefile
+> @@ -37,6 +37,7 @@ obj-$(CONFIG_USBPCWATCHDOG) += pcwd_usb.o
+>   # ALPHA Architecture
+>   
+>   # ARM Architecture
+> +obj-$(CONFIG_AAEON_MCU_WATCHDOG) += aaeon_mcu_wdt.o
+>   obj-$(CONFIG_ARM_SP805_WATCHDOG) += sp805_wdt.o
+>   obj-$(CONFIG_ARM_SBSA_WATCHDOG) += sbsa_gwdt.o
+>   obj-$(CONFIG_ARMADA_37XX_WATCHDOG) += armada_37xx_wdt.o
+> diff --git a/drivers/watchdog/aaeon_mcu_wdt.c b/drivers/watchdog/aaeon_mcu_wdt.c
+> new file mode 100644
+> index 000000000000..347ee8269bfd
+> --- /dev/null
+> +++ b/drivers/watchdog/aaeon_mcu_wdt.c
+> @@ -0,0 +1,144 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Aaeon MCU Watchdog driver
+> + *
+> + * Copyright (C) 2026 Bootlin
+> + * Author: Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
+> + */
+> +
+> +#include <linux/mfd/aaeon-mcu.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +#include <linux/watchdog.h>
+> +
+> +#define AAEON_MCU_PING_WDT	0x73
+> +
+> +#define AAEON_MCU_WDT_TIMEOUT         240
+> +#define AAEON_MCU_WDT_HEARTBEAT_MS    25000
+> +#define AAEON_MCU_WDT_MIN_TIMEOUT     1
+> +#define AAEON_MCU_WDT_MAX_TIMEOUT     3600
+> +
+> +static unsigned int timeout;
+> +module_param(timeout, uint, 0);
+> +MODULE_PARM_DESC(timeout, "Watchdog timeout in seconds");
+> +
+> +struct aaeon_mcu_wdt {
+> +	struct watchdog_device wdt;
+> +	struct regmap *regmap;
+> +};
+> +
+> +static int aaeon_mcu_wdt_cmd(struct aaeon_mcu_wdt *data, u8 opcode, u8 arg)
+> +{
+> +	return regmap_write(data->regmap, AAEON_MCU_REG(opcode, arg), 0);
+> +}
+> +
+> +static int aaeon_mcu_wdt_start(struct watchdog_device *wdt)
+> +{
+> +	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
+> +
+> +	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_CONTROL_WDT_OPCODE, 0x01);
+> +}
+> +
+> +static int aaeon_mcu_wdt_status(struct watchdog_device *wdt, bool *enabled)
+> +{
+> +	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
+> +	unsigned int rsp;
+> +	int ret;
+> +
+> +	ret = regmap_read(data->regmap,
+> +			  AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT_OPCODE, 0x02),
+> +			  &rsp);
+> +	if (ret)
+> +		return ret;
+> +
+> +	*enabled = rsp == 0x01;
+> +	return 0;
+> +}
+> +
+> +static int aaeon_mcu_wdt_stop(struct watchdog_device *wdt)
+> +{
+> +	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
+> +
+> +	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_CONTROL_WDT_OPCODE, 0x00);
+> +}
+> +
+> +static int aaeon_mcu_wdt_ping(struct watchdog_device *wdt)
+> +{
+> +	struct aaeon_mcu_wdt *data = watchdog_get_drvdata(wdt);
+> +
+> +	return aaeon_mcu_wdt_cmd(data, AAEON_MCU_PING_WDT, 0x00);
+> +}
+> +
+> +static const struct watchdog_info aaeon_mcu_wdt_info = {
+> +	.identity	= "Aaeon MCU Watchdog",
+> +	.options	= WDIOF_KEEPALIVEPING | WDIOF_MAGICCLOSE | WDIOF_SETTIMEOUT
+> +};
+> +
+> +static const struct watchdog_ops aaeon_mcu_wdt_ops = {
+> +	.owner		= THIS_MODULE,
+> +	.start		= aaeon_mcu_wdt_start,
+> +	.stop		= aaeon_mcu_wdt_stop,
+> +	.ping		= aaeon_mcu_wdt_ping,
+> +};
+> +
+> +static int aaeon_mcu_wdt_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct watchdog_device *wdt;
+> +	struct aaeon_mcu_wdt *data;
+> +	bool enabled;
+> +	int ret;
+> +
+> +	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+> +	if (!data)
+> +		return -ENOMEM;
+> +
+> +	data->regmap = dev_get_regmap(dev->parent, NULL);
+> +	if (!data->regmap)
+> +		return -ENODEV;
+> +
+> +	wdt = &data->wdt;
+> +	wdt->parent = dev;
+> +	wdt->info = &aaeon_mcu_wdt_info;
+> +	wdt->ops = &aaeon_mcu_wdt_ops;
+> +	/*
+> +	 * The MCU firmware has a fixed hardware timeout of 25 seconds that
+> +	 * cannot be changed. The watchdog core handles automatic pinging to
+> +	 * support software timeouts longer than the hardware limit. The default
+> +	 * software timeout of 240 seconds can be overridden via the DT
+> +	 * timeout-sec property or the watchdog_timeout kernel boot parameter.
+> +	 */
+> +	wdt->timeout = AAEON_MCU_WDT_TIMEOUT;
+> +	wdt->min_timeout = AAEON_MCU_WDT_MIN_TIMEOUT;
+> +	wdt->max_timeout = AAEON_MCU_WDT_MAX_TIMEOUT;
+> +	wdt->max_hw_heartbeat_ms = AAEON_MCU_WDT_HEARTBEAT_MS;
+
+Either max_timeout or max_hw_heartbeat_ms should be set, but not both.
+ From the include file:
+
+  * @max_timeout:The watchdog devices maximum timeout value (in seconds)
+  *              as configurable from user space. Only relevant if
+  *              max_hw_heartbeat_ms is not provided.
+
+In other words, max_timeout is ignored by the watchdog core.
+
+> +	watchdog_init_timeout(wdt, timeout, dev);
+
+As pointed out by Sashiko, this will not initialize the timeout from
+devicetree. You'll need to either adjust the code or the comment above.
+
+Thanks,
+Guenter
+
+> +
+> +	watchdog_set_drvdata(wdt, data);
+> +	watchdog_stop_on_reboot(wdt);
+> +
+> +	ret = aaeon_mcu_wdt_status(wdt, &enabled);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (enabled)
+> +		set_bit(WDOG_HW_RUNNING, &wdt->status);
+> +
+> +	return devm_watchdog_register_device(dev, wdt);
+> +}
+> +
+> +static struct platform_driver aaeon_mcu_wdt_driver = {
+> +	.driver		= {
+> +		.name	= "aaeon-mcu-wdt",
+> +	},
+> +	.probe		= aaeon_mcu_wdt_probe,
+> +};
+> +
+> +module_platform_driver(aaeon_mcu_wdt_driver);
+> +
+> +MODULE_ALIAS("platform:aaeon-mcu-wdt");
+> +MODULE_DESCRIPTION("Aaeon MCU Watchdog Driver");
+> +MODULE_AUTHOR("Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>");
+> +MODULE_LICENSE("GPL");
+> 
+
 
