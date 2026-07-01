@@ -4,85 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B520C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 03:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02801C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 03:12:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJhajr5kdTmXSpbRHiZGZT3ioUVr6sHAFFO+7D7H7Iw=; b=iOvF7KGn0MRaYFG/LHd3UyK3Y1
-	Stow9qkYvSLzM0Xr/OetmnnF8rbxIL48Ig76MqgqM9C/jCWG4ZNujRWPrdKzbtEMx2j/j1fHBQHRj
-	NIyJh5JhWUl30hDV3xy3RsjArwz7yLyJVPK3z0CVBMs0G1b1hqH/r/Wm5abrf+tvRDlahFHsFuAxh
-	wlZr8eqAn8MZOv/fKEJbBwM2qC90kg6JngIzmvtUTxv/cfB1hZiRT+njjLgyPNbDbmZo6q+NWyOXW
-	MputLq9MSCIfVNnYlxyI89bIOzpmsjrjloQxusRfGuoKdO7adHctS9Alkjmnq9PivZFtcthEMBA10
-	2xBOPbIw==;
+	bh=20GEOoWVXtFwTGkXU2zWhkLooH2/6u+j4KTV7HVvqXc=; b=yHzQZrVotJa1UX7+2sefOMwTtT
+	nyAZ4iOm8Nh0BAnUtIFEs1EyDFHt0c1eRjL68J4aeVb4dDn/LI7iYlXqpVCfJjElU0BjaoPhblYGU
+	ywomFMM0K3PDFcvD1yrl78u//sJqOsAunSgLczINjbQI78BgWxWLlUv7fmBBJMS+t6rxv0u7LbOK/
+	zLuLfMOwHu5/B8ZwFdUK05GntLlzk1IonmynWwnf62drgFgMH/ZX6qPO2ffr01VwCVoSiULhIP56U
+	lKi5lNwgVMvekdONsDJnBDBaQtgr2nVq6zQzTOUxM4GIDB8pkrIwcFUTK0k/TOlmpYV84ijXueBFW
+	z52CJVQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1welKD-00000000Yfg-2btR;
-	Wed, 01 Jul 2026 03:09:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wekOe-00000000Vqf-2iIn;
+	Wed, 01 Jul 2026 02:09:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1welKC-00000000Yfa-1O8k
+	id 1wekOb-00000000Vq0-3mQ4
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 02:09:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To
+	:From:Sender:Reply-To:Content-Description;
+	bh=20GEOoWVXtFwTGkXU2zWhkLooH2/6u+j4KTV7HVvqXc=; b=l81QapeaZmlrkXfcJa8tn2G7bh
+	qr4Ph0tPbveHj+okJgCWDP7p0XrhrrAT1ft5P9w9Xke/aJwnbTyBbWHavMKwRvdh9r0mtOZCg/DQ3
+	if2yyuMmO0U5THiEogCFssshP2hzXrNNdkBBnSVQrlGgUw2NbHSk4FIs5r4Pr4LlT482PlLgadBC5
+	m/BxWVI/RIP6zLAmS5WeLFaXuAf/3qFO3uU6gh8ZCeiyM3tMJv9fPnBZylXk7xjD66dYfHMhur74g
+	JTjWs5E+FP+kkecZVRZOhVyk6UK/9yiNfDlhEp4Hmg9DEbaNL2Yg0BiUfE/xTRKIfKHaTPs1FrCH5
+	jtnOXycw==;
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wekOQ-00000002KBB-1cUw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 03:09:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B167D417B9;
-	Wed,  1 Jul 2026 03:09:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 598A71F000E9;
-	Wed,  1 Jul 2026 03:09:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782875359;
-	bh=FJhajr5kdTmXSpbRHiZGZT3ioUVr6sHAFFO+7D7H7Iw=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Apa1e2TNAD1OXcazOEFCxJl7l5BrVVMLldpRf0byGAFIxmHZcJ9j3O57EBDpqqCGC
-	 npNWTMDbd5MynUk+n9TOEgWrKZLUeu0x85rBnH3oE01O8UmQAVgtiT8Oxe0DwbXarq
-	 Rhj55UyvnpmtD02vXdUXMyNS/Gwhk3JQUnTOPAcDA46ZE++fUcZtSTuxWdL5uTuivC
-	 kvC2jhtCrGypZNaCdpd0nztN0oQqPcwT5h4mHQP6EvhXUQv1O6OZax7pV/JnK+5h4f
-	 Xtfv09ZeJ7OVs0ct4YkBueDVTpnVdg+nTb12bqzwLvFUbpPUCF35eDdmAKCrVeiZyW
-	 sl8y0F2F3AO0Q==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Alexey Kardashevskiy <aik@amd.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
-Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
- direct, pool and swiotlb paths
-In-Reply-To: <20260630174216.GK7525@ziepe.ca>
-References: <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
- <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
- <yq5aqzm4dz25.fsf@kernel.org> <20260618153705.GH231643@ziepe.ca>
- <yq5ao6h6enhm.fsf@kernel.org> <20260619122148.GL231643@ziepe.ca>
- <yq5aldcaejos.fsf@kernel.org> <20260619140616.GB1068655@ziepe.ca>
- <yq5ao6gtoncp.fsf@kernel.org> <20260630174216.GK7525@ziepe.ca>
-Date: Wed, 01 Jul 2026 08:39:06 +0530
-Message-ID: <yq5abjcro17x.fsf@kernel.org>
+	Wed, 01 Jul 2026 02:09:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=am5VGGcyRdtNUDOk4oKZ24/X0Hh08pImwa+33kGFFOAXCv3X2SHx9yeIoHdB7ILHR7Mau81SKylvW2irOAF1dQFI7IP1pLOOOBqqDnSJzEqeN9gXOFcprNjQSNw8yvftuW8krVfb1AjpIkVj/8HaYp/cF5JGn7pGkoJR5k8HVMCr+Fk7EU6oNy9fYyJhWtsc7CSsMu1NojUsn+psIeqN3j0nSn1nRcDvYtDrcb/L1+IaXWNZenMM9R7j4iBrMt1SQKBG+Z95WkahycVlLT8QeZ2Enn6G/JWAJpCOJOEx3i0UN6W42ONjz408m/Vmdb/l0SLMcU/YyV/VB0jDeOtNfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=20GEOoWVXtFwTGkXU2zWhkLooH2/6u+j4KTV7HVvqXc=;
+ b=ETLDxIfxZPVUci7eRjWiDuJYzJKjRnQouDGwHez+WiD66Tv1SEDhN7hhDRU0BKfFsptfDfzXuv8bnxcBGAXc2kE5MNLKz4qPMmN/AcYgsgyjYVUn/PtO9GpZGgdbot1iBOrkxRg+w3SOsIZbdyp8sAnOtkx+R7e9winoIuw+m7lg6Ae0PgUxJdRU+7MifGyrvhxl2IQ0AlH4gPtG5Hvpc8/5f+62pcEMqYb2Dsm9rOPWErFsANAo71I9jjYAesxCHcWT3cfiShJr4HCEj4SOdMq0vgXFPcuXkQPSar9OYbZkEJWXM0dvsb4LApbjYG64JZci+PGBWTeNDN94Nzib6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=20GEOoWVXtFwTGkXU2zWhkLooH2/6u+j4KTV7HVvqXc=;
+ b=Nfx2Prco5RuWL+SbIjQmkCvpfndQ5pHdKiezFZC5SlWrVgawoyx9fXquAZPsxDcm5XUmOTFZhr57ryeKyVhDD7lK4zIco0PpHtQEJS0t7XdfD+RUo1F3PSnpZ6QQa+fQs56TDPjtMoHGe4CzSpj+QBH5kt6a3l6Y7yTOZScmbv7gT913S4VgiYRY3CT3adJR/9lBn4o0yly9nt8xTkTWxgqxzeGHmXkwdtDgHrIL8I7E4K1tkUVIbx2HLAZgrdZUcBVYBXTf6xizFP329zbFV4crSLS9eZ3T3bthWS5dkEOu0jwyxbK5/n/0897obJzqKgZ+E6SS6vJ+n3qH5uPZ9g==
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com (2603:10b6:a03:432::18)
+ by CH3PR03MB7436.namprd03.prod.outlook.com (2603:10b6:610:197::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Wed, 1 Jul
+ 2026 02:09:28 +0000
+Received: from SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775]) by SJ0PR03MB6964.namprd03.prod.outlook.com
+ ([fe80::b965:bfa8:58fb:e775%4]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
+ 02:09:28 +0000
+From: "Nazle Asmade, Muhammad Nazim Amirul"
+	<muhammad.nazim.amirul.nazle.asmade@altera.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, "dinguyen@kernel.org"
+	<dinguyen@kernel.org>
+CC: "rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@google.com"
+	<edumazet@google.com>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 0/3] arm64: dts/net: stmmac: Add Agilex5 SoCDK TSN Config2
+ board support
+Thread-Topic: [PATCH 0/3] arm64: dts/net: stmmac: Add Agilex5 SoCDK TSN
+ Config2 board support
+Thread-Index: AQHdCJS2cYVZ644zC0qC6sMkDkZ86rZXHmkAgADNt4A=
+Date: Wed, 1 Jul 2026 02:09:28 +0000
+Message-ID: <5a14a8cc-028a-4053-9c56-b4e8f275366a@altera.com>
+References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
+ <563ac947-0c5d-47ee-aedc-66baf4d32648@bootlin.com>
+In-Reply-To: <563ac947-0c5d-47ee-aedc-66baf4d32648@bootlin.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SJ0PR03MB6964:EE_|CH3PR03MB7436:EE_
+x-ms-office365-filtering-correlation-id: 87d67438-89df-43ff-1378-08ded715c7f2
+x-ms-exchange-atpmessageproperties: SA
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|366016|4143699003|38070700021|3023799007|55112099003|18002099003|22082099003|11063799006|56012099006;
+x-microsoft-antispam-message-info: JDtDehAKmHWMOBfobSwH6MhS+n2asVcVcEl9xB121Sbpg+PnLup972mFztt0ppzkqcfxAGVYTKVCNqFuJ68dbUwrI334Y18d35/6V5SDR5BNRogAQUibMENJ4xjk3OqV2XPz48DIrJLnKwx8fBR2C9686wnDkGYy2XvQvNasIzYQppCuiQIXq7KQKCB/nBGQu8GCq1QF30o3N4nrzl2/1k9rox7L2Eei6ig1T0PMO2cr4udqmVFQgX8x0uJGQrLH4ldjpRmJLlUdUJPOWcBH6QE03Hg/xR0T9e1/mXgLVfyXzV4IhBv1NQM3DyPRbaed9g0hMxkFN/GrkPQcH6amM48v3TAhLHAQxYO3E9wKdI2MDVooHHp3QI2w8WxsSACTtdNjr4yL9uatg7J28mmnFgkzKLGZ04lFjem3/l5A/MfQ3rmwA94Emw/sgNwafrJDQVcazDor2D0K9+wC9ILY7XhIh7O/yaFUB5a76Ofdc5IsAr3n2i02cmda64DEF9NYSocvOQT39OJu1/HtOB+58M0pnzbS5Tio6alYxokGnsvsc1ujZWl9B5iBqSi4eP8Pg+oJ0CbrU+JpHGnhU6uIwS3DD3VZ97xYothFh5SUKSqVab31c3vEkRfJpX7vQHb1D6EgWQsR0TgKtnC/Sq/58y167tb1u+ev/BS8Q0VOTXCeI0OQQJc12aoR+Gpi3CIjf8EjcUoOdCMt7IQ0VFS/2kDa+D4g0pYwFIUTYCmeWR8=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR03MB6964.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(366016)(4143699003)(38070700021)(3023799007)(55112099003)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 2
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NU5CSjFFNXFzQ3FBSGZjMzYxMHlZaE9ZcUptdERWSjI0TzJrTGJoN0tjRjYy?=
+ =?utf-8?B?MHk2QTlxNllPQldjQ0xTN1plaUlPRzBobGgrYW12c1VPVWRiV0MwVDNnUjdI?=
+ =?utf-8?B?TzFwY3ZjeFhtbll3bG5YOVJVNjZVZTcwZC9jM3ZCTWwxRWdRRFNPQ082WWtM?=
+ =?utf-8?B?MXhxTHg1c25pU1ZYS2RlcHlNdnV5WnZHM1FmR2h3dy9rWnVDRWd0c3paVEox?=
+ =?utf-8?B?T0NMVkFMcmFwNzJXRTBBZGt1UksrRk1WN1JHeXVXcGR4c0hLQUNKUURHVHFD?=
+ =?utf-8?B?SGlXN21YcytNZ3QwWFdibnNVQXJRQmtucEMyTGdtN2o4dytMWWlTMEJ1d2FM?=
+ =?utf-8?B?V0M3MGovaFB6QkhrZlRjWXZOVDh6Wi93V3h1WlVwbTFLei9heUNaQ3JuOXFI?=
+ =?utf-8?B?cVB1MTlJNW5mQVZQSjhQZ3dvTHE4aVVVUmdDWjlMbHlUdnU5UGRjOFQzODkv?=
+ =?utf-8?B?YXVQU2lHSkNCZTlrd2s5blp0NVNPN1g0cnZXM1VMMXpjSWEvY0ZEZFlkLzhI?=
+ =?utf-8?B?VStBUGFxdW9iN3Qzb2I0R1V5ZjBtNTFIK1FCd1dlNXJJSCtOUW1MczYyYUpX?=
+ =?utf-8?B?bUJqTUVaTW9uY1VEZ1ZPNFdVMHhqcnNLak1rSjh3N3JQZW95N056R0x0dVlG?=
+ =?utf-8?B?eVFNTnd3V2h4d0hrb1ZLMTByV2UwL2xTRGFvSFZuMHlibWlMZ3hFYkxZdzF0?=
+ =?utf-8?B?N2NPUHJZbGMwNFZPTmdENzhUeFd6dnVmKzIyTUpzeXNTRGNkZm5ic3BzL1Qz?=
+ =?utf-8?B?S2ZWRWd3bXFFOTFWSGdheit2ME41T0ZPdW4vbC9hdlE5a29NOEpIZmphbUhP?=
+ =?utf-8?B?SnRUbnljTkJHVWhZWVk4c0hHWjZCVTNwN3ZhNWRISjBGV1VqSU1nSnc5aEtq?=
+ =?utf-8?B?RHlQamhBOFZxd3JuYmxBSUFCTjdhcGNZNGlEOWVVYVQwV0plZGtBMVkvbGpE?=
+ =?utf-8?B?SlJUVjNRZU4yVWlpajcyTTJsemdkeWhtYWNrVVB1VHYzTkNFNzlaa0F5dTRF?=
+ =?utf-8?B?WWE2cm05Q2tuendQaW9RNEdERWlYSnhEQ3hRNUk4YlRtNTNUSXdYTmlmMWwy?=
+ =?utf-8?B?KzRjbTJ1NlYxeWF4dStnaEFNWnFYdmw0TzZXSFF0eVE1ZEZJM2FnYWRnT0xm?=
+ =?utf-8?B?dmxEMitDSXo0WUdhU2oxWjh2dk9KNlZXN2NXaHhITDV5dWpjalBncE9PQXBY?=
+ =?utf-8?B?bVl2MGk4Q2FvSW5pSm1nTkI0dlB1eDB4cXBuUmpybFFzNHdMbTEyQ004bkli?=
+ =?utf-8?B?cE80SE1jdHNsV2NSM0dIRUQzenVBTEpjbXpBQnA1UTFKQlJnR0E5V0NrZW5M?=
+ =?utf-8?B?UGVyOFVEL1lMS1JYUzN5V3gveGtQdkYxKzNYWWJVYWZLbTFCb0N6Yld4ZzRK?=
+ =?utf-8?B?ZTdnZitPeHhBWFlyTWJzZWpnOUZZOUFhazlYdjE1QktvdGFsSEhHWmpXNlhC?=
+ =?utf-8?B?SmNSWDgzazFvenpOU2FwZE1WQk1NUTlWVndyKzhtT0NHeDBjaUhVWjl5VnRF?=
+ =?utf-8?B?U281Y3VUTHJsV1VuVWhOd242dHd3VFNNcEFrQ3l6dFdWWDEva21IbFlhRE92?=
+ =?utf-8?B?Ny9ieW1JVnNFblBNM0ttY3hzYjNxN1p6MmtIa1RaZUJFdWJFcHRKYUNMYnBC?=
+ =?utf-8?B?b2lLTE1taTg0OWVlTTNEOU1ldGJQUmpXcWx4M3Jxdk5GQm1BdmRXaXNvSkJk?=
+ =?utf-8?B?ZnFJWVlnTS9WeVJLUzVZWFMyRy9tZyt1MDZtdjF6QWJ3SVhQMUY5U2xJdkNX?=
+ =?utf-8?B?TlAzbXRjTXF4KzNEMWtqMy9VTXU3dVJLZlFnTG9RNVdwNWhpNlZxc0JWZHRv?=
+ =?utf-8?B?MXUzTlN3bC9nUUJURmxrdWFPTytITWVwM0NlWkhjL0FpZ1dORUJWL2ozNUdX?=
+ =?utf-8?B?Ry9qQzZVYjAzVG1vWWVqZTBiWTd5d25RdGRiTXA5S3JidzFhOUJRNzhQTHFL?=
+ =?utf-8?B?WFpnYXJ6U0NVZWxUNGNYWHRZQzJSNmFwTmJCZHFTdFY3MXU4K0NTcExlVkVy?=
+ =?utf-8?B?Q2I1YVl2OTIvVkJXWWdUbXh6NWc2cG03bFFLbVNKK0tRazNkNHZTVE1NditS?=
+ =?utf-8?B?RTNUcmQvdWl4bW1nTGtnNEplVlJ5UXF2NFhEenJpOCtCclhzdXBEdVI0ZUdZ?=
+ =?utf-8?B?R21ndlFTdjd3bmxzQ2RYQm04TGtlYVFGNVlLV2lpNHVoN2tQWDV6NzRtUXUw?=
+ =?utf-8?B?b0VDYlFja3BtQ05XSVN5UXV0d2lTbGJnY1VwYmI1YUNRMlA5cUFDcm1BZW94?=
+ =?utf-8?B?c3VKZUp5UDRHMFdqSi9hWU5EZmFPcHBsemJnYmdQU0ovS29TL2VrUURhZ1pE?=
+ =?utf-8?B?MWhxYUMyekpIdEdwRERkYlhzQzJHMkcxRS9tU25NZVhwU2d1YjYzUldTM3BN?=
+ =?utf-8?Q?8DpfSjZ/cKF/LKgB+HsiLx1iT9Zxbsg1Fk+cKRUTPoY8+?=
+x-ms-exchange-antispam-messagedata-1: YBQe2VxzPmj4vU8WI3eBI+S2CXOHmHH0jMA=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <E3792D060F9E274DB9F13160AA0D0F64@namprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SJ0PR03MB6964.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87d67438-89df-43ff-1378-08ded715c7f2
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 02:09:28.1524
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: e3V4fP3obYrI2NXHBoHdlS+fCE84vSlz9o9Hqt0Ytvr1EBoSVcAANy4yCljakk+AnXROqpNmbJcoYQH1KDa7K0jTMJCbdwfTNmnzuRXIh6PGgeFokymzD9GJMJVppNmSDu+Z/qhhl+5SijHraQ50Zw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR03MB7436
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_030938_885076_9555E411 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,115 +180,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
-
-> On Mon, Jun 29, 2026 at 12:16:30PM +0530, Aneesh Kumar K.V wrote:
->> >> Thinking about this more, I guess we should mark the swiotlb as
->> >> cc_shared only with  CC_ATTR_GUEST_MEM_ENCRYPT instead of
->> >> CC_ATTR_MEM_ENCRYPT as we have below.
->> >
->> > The name cc_shared should be used for GUEST scenarios only.
->> >
->> > I guess there is some merit in keeping swiotlb using "decrypted" to
->> > mean it usinig pgprot_decrypted and set_memory_decyped() which AMD
->> > gives meaning to on both host and guest.
->> 
->> Are you suggesting to change the struct io_tlb_mem::cc_shared back to
->> struct io_tlb_mem::unencrypted?. 
->
-> Yes
->
->> > IDK what AMD should do on the host by default. I guess it should setup
->> > a swiotlb pool of low dma addrs "unencrypted", but not "cc_shared"?
->> >
->> 
->> If by low DMA address you mean using an address with the C-bit
->> cleared. 
->
-> Yes
->
->> The current code already does this and uses the swiotlb pool correctly
->> on SME.
->
-> Well, through the force_dma_unencrypted() hack...
->
->> The challenge arises when we want to force SWIOTLB
->> bouncing even for devices that can handle encrypted DMA addresses (more
->> on that below). For such a config force_dma_uencrypted(dev) will return
->> false and swiotlb will be marked cc_shared/decrypted = true; This trip
->> the new check we added.
->
-> Yes, because cc_shared (guest) and unencrypted (host) are very
-> different things and we've mixed them:
->
->> 	if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
->
-> I'm aruging force_dma_unencrypted should mean cc_shared and be
-> guest_only, but the SME hack breaks this.
->
->> We can also do
->> 
->> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
->> 		/* swiotlb pool is incorrect for this device */
->> 		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
->> 			return (phys_addr_t)DMA_MAPPING_ERROR;
->> 
->> 		/* Force attrs to match the kind of memory in the pool */
->> 		if (mem->cc_shared)
->> 			*attrs |= DMA_ATTR_CC_SHARED;
->> 		else
->> 			*attrs &= ~DMA_ATTR_CC_SHARED;
->> 	} else {
->> 		/*
->> 		 * Host memory encryption where device requires an
->> 		 * unencrypted dma_addr_t due to dma mask limit
->>     		 */
->> 		if (force_dma_unencrypted(dev))
->> 			*attrs |= DMA_ATTR_CC_SHARED;
->> 		else
->> 			*attrs &= ~DMA_ATTR_CC_SHARED;
->> 	}
->
-> If we do this I would like to split the force_dma_.. functions into
-> guest and host, ie force_dma_cc_shared() and force_host_decrypted()
->
-> To make it clear there are two very different things here.
->
-
-I have now folded the below change into
-
-modified   kernel/dma/swiotlb.c
-@@ -1514,9 +1514,23 @@ phys_addr_t swiotlb_tbl_map_single(struct device *dev, phys_addr_t orig_addr,
- 	if (cc_platform_has(CC_ATTR_MEM_ENCRYPT))
- 		pr_warn_once("Memory encryption is active and system is using DMA bounce buffers\n");
- 
--	/* swiotlb pool is incorrect for this device */
--	if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
--		return (phys_addr_t)DMA_MAPPING_ERROR;
-+	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
-+
-+		/* swiotlb pool is incorrect for this device */
-+		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
-+			return (phys_addr_t)DMA_MAPPING_ERROR;
-+
-+	} else if (cc_platform_has(CC_ATTR_HOST_MEM_ENCRYPT)) {
-+		/*
-+		 * On hosts with memory encryption, SWIOTLB-backed memory is
-+		 * unencrypted. DMA addresses returned for bounce buffers must
-+		 * therefore be marked unencrypted, even for devices that can
-+		 * address encrypted memory. This also preserves swiotlb=force
-+		 * behavior for those devices.
-+		 */
-+		if (unlikely(!mem->cc_shared))
-+			return (phys_addr_t)DMA_MAPPING_ERROR;
-+	}
- 
-[PATCH] dma: swiotlb: track pool encryption state and honor DMA_ATTR_CC_SHARED
-
-This is the only code path where we need to special-case host memory
-encryption. For this reason, I have avoided renaming
-io_tlb_mem::cc_shared to io_tlb_mem::unencrypted. I can send a v7 with
-the above and we can review the changes based on that?
-
--aneesh
+T24gMzAvNi8yMDI2IDk6NTMgcG0sIE1heGltZSBDaGV2YWxsaWVyIHdyb3RlOg0KPiBIaSwNCj4g
+DQo+IE9uIDYvMzAvMjYgMTU6MzEsIG11aGFtbWFkLm5hemltLmFtaXJ1bC5uYXpsZS5hc21hZGVA
+YWx0ZXJhLmNvbSB3cm90ZToNCj4+IEZyb206IE5hemltIEFtaXJ1bCA8bXVoYW1tYWQubmF6aW0u
+YW1pcnVsLm5hemxlLmFzbWFkZUBhbHRlcmEuY29tPg0KPj4NCj4+IFRoZSBJbnRlbCBTb0NGUEdB
+IEFnaWxleDUgU29DREsgVFNOIENvbmZpZzIgYm9hcmQgdXNlcyBhIGR1YWwtcG9ydA0KPj4gRXRo
+ZXJuZXQgc2V0dXAgd2hlcmUgZ21hYzEgKFRTTiBwb3J0KSBvcGVyYXRlcyB3aXRoIGRpZmZlcmVu
+dCBNQUMtc2lkZQ0KPj4gYW5kIFBIWS1zaWRlIGludGVyZmFjZSBtb2RlczogR01JSSBpbnRlcm5h
+bGx5IGluIHRoZSBNQUMsIGFuZCBSR01JSQ0KPj4gdG93YXJkcyB0aGUgUEhZLg0KPiANCj4gVGhl
+cmUncyB0aGUgc2FtZSBiZWhhdmlvdXIgb24gR2VuNSwgZS5nLiBDeWNsb25lViB3aGVyZSB3ZSBo
+YXZlIHRoZQ0KPiAiRU1BQyBzcGxpdHRlciIuIEJhc2VkIG9uIHdldGhlciBvciBub3Qgd2UgaGF2
+ZSB0aGF0IHNwbGl0dGVyIGluIERULA0KPiB3ZSBvdmVycmlkZSB0aGUgSU5URl9TRUwgYml0cyB0
+byBzZXQgR01JSSBhcyB0aGUgTUFDIG91dHB1dCwgdGhlIHNwbGl0dGVyDQo+IGNvbnZlcnRpbmcg
+dGhhdCB0byBSR01JSS9TR01JSS4NCj4gDQo+IElzIHRoZXJlIHNvbWV0aGluZyBzaW1pbGFyIG9u
+IHRoaXMgQWdpbGVYNSB2ZXJzaW9uIGJ5IGFueSBjaGFuY2UsIGZvcg0KPiB3aGljaCB3ZSBjb3Vs
+ZCByZXVzZSB0aGUgbG9naWMgPw0KPiANCj4gSSBrbm93IHRoYXQgb24gQ3ljbG9uZVYgeW91IGFs
+c28gbmVlZCB0byBhZGp1c3QgdGhhdCBHTUlJIC0+IFJHTUlJL1NHTUlJDQo+IHNwbGl0dGVyIHdo
+ZW5ldmVyIHRoZSBzcGVlZCBjaGFuZ2VzLCBpcyB0aGF0IGRpZmZlcmVudCBvbiBhZ2lsZVg1ID8g
+aGF2ZQ0KPiB5b3UgdGVzdGVkIDEwLzEwME1icHMgPw0KPiANCj4gVGhhbmtzLA0KPiANCj4gTWF4
+aW1lDQpIaSBNYXhpbWUsDQoNClllcywgd2UgaGF2ZSB0ZXN0ZWQgYWxsIHRocmVlIHNwZWVkcy4N
+Cg0KMTBNYnBzOiBMaW5rIFVwIC0gMTBNYnBzL0Z1bGwsIHRocm91Z2hwdXQgfjkuMzUgTWJpdHMv
+c2VjIDEwME1icHM6IExpbmsgDQpVcCAtIDEwME1icHMvRnVsbCwgdGhyb3VnaHB1dCB+OTQgTWJp
+dHMvc2VjIDEwMDBNYnBzOiBMaW5rIFVwIC0gDQoxR2Jwcy9GdWxsLCB0aHJvdWdocHV0IH45MzAg
+TWJpdHMvc2VjDQoNCkJSLA0KTmF6aW0NCg==
 
