@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D79C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:11:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A18BC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CtwYQrYYiW6hpQCNYyX45j7zmtq9O7BK7U1u+USXMvo=; b=qFcHjGrBoygamO1Niqc3D8ts+t
-	tmlB7VMJlslGPFmr+0y2sO/RSFmW9yUAoybyTtuEJsXmsuws5ok+FfIwUuP/CqfDDmtVYvlLFdHrH
-	Od7OJG6+5SackTuxUT++eM/m3lHMWvcGk8AaFIsrExQNtJRiaqr/S7Fr3f/bKPr/OUjPDaezLQ/ah
-	gNScJMN+SsSSfwvyhqwq7FVhElV/J1oH82+ZHOXEYvJpD7iuKkKtmRkCeZEq2epbCw+kwnucq0q1K
-	BmiRqaw3VxC/FN2BBNi70DXRzok4wZThYjL0bUuucweUllsVmtWfvb0O18myG1+kvtDevt/RBg8it
-	SxBFM0BA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gTkyVTtRcMZcPdurXsovV6wnw2YiFl8CfGd3WXFslWg=; b=bmSpQt9BsiCgG+2nfonQaHRWAJ
+	crZR6P1g8G4eEd97/DC8OmxZi8PI7Pq8d8Ai3cOIJmPejvItMzrliobe51FnfxODojJpN8IcpR8re
+	rTYEVGgUtkUg43pYse45KJkg0+CVwXCNggyfCe4Dx4mV8NcoqAD43vjbnJ/OEKa+MvS33CxseQOkm
+	T4C00y3/Sw1tafCARf/MgiEVkuNaDzf3T/sURCGZf1OMsHb1BpQacYHMmGOXZOlfJGoaUUFp4hUQx
+	BP9jhVqIy1ydSvU3XSUclKrWOV6AdjKsZlOqEqbgaV2EAts/VW373BHxTxzYOAV+xB6kwrnY+lwuO
+	csj8jzIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2DK-000000031Ia-2Vqn;
-	Wed, 01 Jul 2026 21:11:22 +0000
+	id 1wf2Po-000000031nn-2W64;
+	Wed, 01 Jul 2026 21:24:16 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2DJ-000000031IG-0n4f
+	id 1wf2Pn-000000031nh-0OSI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 21:11:21 +0000
+	Wed, 01 Jul 2026 21:24:15 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id C6C79416CF;
-	Wed,  1 Jul 2026 21:11:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A8E61F00A3D;
-	Wed,  1 Jul 2026 21:11:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 779BE41932;
+	Wed,  1 Jul 2026 21:24:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D8A81F000E9;
+	Wed,  1 Jul 2026 21:24:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782940279;
-	bh=CtwYQrYYiW6hpQCNYyX45j7zmtq9O7BK7U1u+USXMvo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=GVr16EHM6F29TG6rx8ee3/BJXvM3iFNK8XlRXFDlrCBPAyR1JOSQJcYN78AwU3h7V
-	 Vp4DNtiJZqa4Dnp+T+JcDUoH5155CntFIqOFW7HgirKVue2GtWXELsmPZe9texo2OW
-	 ioRXmmdl9g9Mr0oKl7GjzxTizdi2FKjvr9yabqhfuDcJI58SQjlbF23ApzUw9edJM6
-	 ZkypS1p4hlG1qjv7pnTCAoQA6ACiJvyQqkJSzRjxdTkdk8KJyHPxEkuM0yMURh2+in
-	 6mtbHjJVf+I82s9pBJInuFVALmj/lN74Q5Lf5PEGLOf9BM3ePX/mDxqzuA5YjhTUzF
-	 YTRm4s/0ADLDQ==
-Date: Wed, 1 Jul 2026 22:11:15 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Chi-Wen Weng <cwweng.linux@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- dlechner@baylibre.com, nuno.sa@analog.com, andy@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- cwweng@nuvoton.com
-Subject: Re: [PATCH 2/2] iio: adc: Add Nuvoton MA35D1 EADC driver
-Message-ID: <20260701221115.544e33fd@jic23-huawei>
-In-Reply-To: <20260625110638.38438-3-cwweng.linux@gmail.com>
-References: <20260625110638.38438-1-cwweng.linux@gmail.com>
-	<20260625110638.38438-3-cwweng.linux@gmail.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	s=k20260515; t=1782941054;
+	bh=gTkyVTtRcMZcPdurXsovV6wnw2YiFl8CfGd3WXFslWg=;
+	h=From:To:Cc:Subject:Date;
+	b=l8tuvdzS6vqSGYe7YseaFCuQoFtR3O8BvY+Xzyz/rFyCEsAAcZOWTealhoulFa5xT
+	 5WJTsD+SM1bjE6wDODWiZlD4mvZjsb6BDqWqckTZbPliWJTmliIkQCH9JGWa/Kwxzd
+	 JjqILqvFp4jgn6R3YUq40W942a0E4j3vMnd5+FkSEpJsqp6oKUL0ECgWHQj/oi+sTB
+	 H9yB5lqGEQrnrSykZRRx0vce+3oAnkRcTpa2xop0j4JJVG3xU4UkGfqNikHSt9YGpg
+	 8OcOTo5hgNeP8U7u62W6AbETRxnpqFunB6Ygg3U1BRWYpskcv+zuPaK+PjCjqjEeov
+	 geqfigj8ljHgA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev
+Cc: linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Daniel Mack <daniel@zonque.org>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Ralph Siemsen <ralph.siemsen@linaro.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Stefan Agner <stefan@agner.ch>,
+	Stefan Wiehler <stefan.wiehler@nokia.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v2 00/19] ARM: platform and feature deprecation
+Date: Wed,  1 Jul 2026 23:23:34 +0200
+Message-Id: <20260701212353.2196041-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,221 +98,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Jun 2026 19:06:38 +0800
-Chi-Wen Weng <cwweng.linux@gmail.com> wrote:
+From: Arnd Bergmann <arnd@arndb.de>
 
-> From: Chi-Wen Weng <cwweng@nuvoton.com>
-> 
-> Add an IIO driver for the Nuvoton MA35D1 Enhanced ADC controller.
-> 
-> The driver supports direct raw reads and triggered buffered capture. The
-> controller end-of-conversion interrupt is exposed as the device trigger
-> and is used to push samples into the IIO buffer.
-> 
-> Channels are described by firmware child nodes and can be configured as
-> single-ended or differential inputs. Since the differential enable bit is
-> global, mixed single-ended and differential buffered scans are rejected.
-> 
-> DMA support is intentionally not included in this initial upstream driver;
-> conversions are handled through the interrupt-driven path.
-> 
-> Signed-off-by: Chi-Wen Weng <cwweng@nuvoton.com>
+Sorry for dropping the ball on v1 of this series almost two years ago.
+This is attempt to bring the source code to the state that we discussed
+back in 2024, regarding a timeline for deprecating and removing features,
+in particular platforms and ABIs that are basically unused and are
+also getting in the way of maintenance.
 
-A few minor additional comments in line. I've tried to avoid
-duplication but there may be some there!
+The earlier consensus was to remove these features in 2025 or 2026
+after the corresponding LTS kernel release. I would suggest pushing
+these to early 2027 now, see the patch description for details on
+each one:
 
-Jonathan
-> diff --git a/drivers/iio/adc/ma35d1_eadc.c b/drivers/iio/adc/ma35d1_eadc.c
-> new file mode 100644
-> index 000000000000..0c075126e139
-> --- /dev/null
-> +++ b/drivers/iio/adc/ma35d1_eadc.c
+ - all board files that are still not converted to DT
+   (except for OMAP1 and S3C)
 
-...
+ - iWMMXt FPU support
 
-> +}
-> +
-> +static int ma35d1_adc_read_raw(struct iio_dev *indio_dev,
-> +			       const struct iio_chan_spec *chan,
-> +			       int *val, int *val2, long mask)
-> +{
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +	int ret;
-> +
-> +	switch (mask) {
-> +	case IIO_CHAN_INFO_RAW:
-> +		if (!iio_device_claim_direct(indio_dev))
-> +			return -EBUSY;
-> +
-> +		mutex_lock(&adc->lock);
+ - ARMv6/ARM1136r0 (not ARMv6K/ARM1136r1/ARM1176) along with the
+   OMAP24xx and i.MX31 SoCs using it
 
-Look at the ACQUIRE() macros for claim direct stuff (in iio.h)
-and then use guard() for this.  Be careful to add {} to define scope
-to being this case block.  May not save much code but it will be easeir
-to read than this currently is.
+ - Cortex-M3/M4/M7 based microcontroller support
+   (stm32, imxrt, lpc18xx, samv7)
 
-> +		ret = ma35d1_adc_read_conversion(indio_dev, chan, val);
-> +		mutex_unlock(&adc->lock);
-> +
-> +		iio_device_release_direct(indio_dev);
-> +		if (ret)
-> +			return ret;
-> +
-> +		return IIO_VAL_INT;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +}
+ - LSI Axxia platform
 
-> +static int ma35d1_adc_parse_channels(struct iio_dev *indio_dev,
-> +				     struct device *dev)
-> +{
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +	DECLARE_BITMAP(used_channels, MA35D1_EADC_MAX_CHANNELS);
-> +	struct fwnode_handle *child;
-> +	struct iio_chan_spec *channels;
-> +	int num_channels;
-> +	int scan_index = 0;
+ - OABI, OABI-compat and NWFPE are confined to StrongARM based
+   builds and scheduled for removal once StrongARM is gone.
 
-Move assignment down to just above the loop.  Makes it easier for
-reviewers to associate the initial value with what is going on.
+ - DEPRECATED_PARAM_STRUCT, which was originally scheduled for
+   removal in 2006 (!)
 
-> +	int ret;
-> +
-> +	bitmap_zero(used_channels, MA35D1_EADC_MAX_CHANNELS);
-> +
-> +	num_channels = device_get_child_node_count(dev);
-> +	if (!num_channels)
-> +		return dev_err_probe(dev, -ENODATA,
-> +				     "no ADC channels configured\n");
-> +
-> +	if (num_channels > MA35D1_EADC_MAX_CHANNELS)
-> +		return dev_err_probe(dev, -EINVAL, "too many ADC channels\n");
-> +
-> +	channels = devm_kcalloc(dev, num_channels + 1, sizeof(*channels),
-> +				GFP_KERNEL);
-> +	if (!channels)
-> +		return -ENOMEM;
-> +
-> +	device_for_each_child_node(dev, child) {
-...
+The ARCH_S3C64XX platform was scheduled for removal in 2024, but is
+still actively used and will get removed once Mark Brown stops using
+it. The OMAP1 platform has some remaining boardfiles and is expected to
+get converted to DT.
 
-> +
-> +static int ma35d1_adc_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct iio_dev *indio_dev;
-> +	struct ma35d1_adc *adc;
-> +	int irq;
-> +	int ret;
-> +
-> +	indio_dev = devm_iio_device_alloc(dev, sizeof(*adc));
-> +	if (!indio_dev)
-> +		return -ENOMEM;
-> +	adc = iio_priv(indio_dev);
-> +	adc->dev = dev;
-> +	mutex_init(&adc->lock);
-For new code
-	ret = devm_mutex_init(&adc->lock);
-	if (ret)
-		return ret;
+Big-endian ARMv7 CPU support is not scheduled for removal but marked
+as broken the same way as ARM64 has, to reduce the need for testing
+unused configurations. This may be removed in the future if arm64 does
+it as well (note: big-endian ARMv5 support is not deprecated because
+it is used by ixp4xx).
 
-The advantage this brings to debug is small but it's also very simple
-so we are no doing it for all new code in IIO.
+Regarding actually removing the code, I would suggest linux-7.4 (January
+2027), removing both the board files and any drivers that have either
+become newly unused or were missed in a previous machine removal series,
+followed by removing support for then unused CPUs a release later.
 
-> +	init_completion(&adc->completion);
-> +
-> +	adc->regs = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(adc->regs))
-> +		return dev_err_probe(dev, PTR_ERR(adc->regs),
-> +				     "failed to map registers\n");
-> +
-> +	adc->clk = devm_clk_get_enabled(dev, NULL);
-> +	if (IS_ERR(adc->clk))
-> +		return dev_err_probe(dev, PTR_ERR(adc->clk),
-> +				     "failed to get and enable ADC clock\n");
-> +
-> +	indio_dev->name = "ma35d1-eadc";
-> +	indio_dev->modes = INDIO_DIRECT_MODE | INDIO_BUFFER_TRIGGERED;
+Maintainers of the above features, please provide Acks or let me know
+if you think any of them need to hand around for longer.
 
-Second part of this is set by the triggered_buffer call later. So don't set it
-here.
+Changes since v1:
 
-> +	indio_dev->info = &ma35d1_adc_info;
-> +
-> +	ret = ma35d1_adc_parse_channels(indio_dev, dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ma35d1_adc_hw_init(adc);
-> +
-> +	ret = devm_add_action_or_reset(dev, ma35d1_adc_hw_disable, adc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = ma35d1_adc_setup_trigger(indio_dev, dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return irq;
-> +
-> +	ret = devm_request_irq(dev, irq, ma35d1_adc_isr, 0, dev_name(dev),
-> +			       indio_dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to request IRQ %d\n", irq);
-> +
-> +	ret = devm_iio_triggered_buffer_setup(dev, indio_dev,
-> +					      iio_pollfunc_store_time,
-> +					      ma35d1_adc_trigger_handler,
-> +					      &ma35d1_adc_buffer_ops);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret,
-> +				     "failed to setup triggered buffer\n");
-> +
-> +	platform_set_drvdata(pdev, indio_dev);
-> +
-> +	ret = devm_iio_device_register(dev, indio_dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to register IIO device\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static int ma35d1_adc_suspend(struct device *dev)
-> +{
-> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +
-> +	if (iio_buffer_enabled(indio_dev))
-> +		return -EBUSY;
+  - fix build failures for ARMv6 patch
+  - update timelines
+  - add a few more patches for features that were not
+    quite as obsolete two years ago
 
-Failing suspend because a buffer is enabled is unlikely to be popular.
-Can you not save necessary state and restore so buffered capture continues
-on resume?
+Links to previous discussion:
 
-> +
-> +	ma35d1_adc_hw_disable(adc);
-> +	clk_disable_unprepare(adc->clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int ma35d1_adc_resume(struct device *dev)
-> +{
-> +	struct iio_dev *indio_dev = dev_get_drvdata(dev);
-> +	struct ma35d1_adc *adc = iio_priv(indio_dev);
-> +	int ret;
-> +
-> +	ret = clk_prepare_enable(adc->clk);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ma35d1_adc_hw_init(adc);
-> +
-> +	return 0;
-> +}
+  https://lore.kernel.org/linux-arm-kernel/20210109174357.GB1551@shell.armlinux.org.uk/
+  https://lore.kernel.org/linux-arm-kernel/2831c5a6-cfbf-4fe0-b51c-0396e5b0aeb7@app.fastmail.com/
+  https://lore.kernel.org/all/20241204102904.1863796-1-arnd@kernel.org/
 
+Arnd Bergmann (19):
+  ARM: use CONFIG_AEABI by default everywhere
+  ARM: limit OABI support to StrongARM CPUs
+  ARM: rework ARM11 CPU selection logic
+  ARM: deprecate support for ARM1136r0
+  ARM: turn CONFIG_ATAGS off by default
+  ARM: mark CPU_ENDIAN_BE8 as deprecated
+  ARM: update DEPRECATED_PARAM_STRUCT removal timeline
+  ARM: s3c64xx: extend deprecation schedule
+  ARM: update FPE_NWFPE help text
+  ARM: mark IWMMXT as deprecated
+  ARM: mark ARCH_DOVE as deprecated
+  ARM: PXA: mark remaining board files as deprecated
+  ARM: orion5x: mark all board files as deprecated
+  ARM: mark mach-sa1100 as deprecated
+  ARM: mark RiscPC as deprecated
+  ARM: mark footbridge as deprecated
+  ARM: mark Cortex-M3/M4/M7 based boards as deprecated
+  ARM: mark axxia platform as deprecated
+  ARM: mark mv78xx0 support as deprecated
 
+ arch/arm/Kconfig                        | 80 ++++++++++++++-----------
+ arch/arm/Kconfig.platforms              |  2 +-
+ arch/arm/configs/am200epdkit_defconfig  |  3 +-
+ arch/arm/configs/aspeed_g4_defconfig    |  2 -
+ arch/arm/configs/aspeed_g5_defconfig    |  1 -
+ arch/arm/configs/assabet_defconfig      |  3 +
+ arch/arm/configs/at91_dt_defconfig      |  2 -
+ arch/arm/configs/axm55xx_defconfig      |  2 -
+ arch/arm/configs/bcm2835_defconfig      |  1 -
+ arch/arm/configs/clps711x_defconfig     |  1 -
+ arch/arm/configs/collie_defconfig       |  2 +-
+ arch/arm/configs/davinci_all_defconfig  |  1 -
+ arch/arm/configs/dove_defconfig         |  2 +-
+ arch/arm/configs/ep93xx_defconfig       |  1 -
+ arch/arm/configs/footbridge_defconfig   |  2 +
+ arch/arm/configs/gemini_defconfig       |  1 -
+ arch/arm/configs/h3600_defconfig        |  3 +-
+ arch/arm/configs/hisi_defconfig         |  1 -
+ arch/arm/configs/imx_v4_v5_defconfig    |  1 -
+ arch/arm/configs/integrator_defconfig   |  2 -
+ arch/arm/configs/ixp4xx_defconfig       |  1 -
+ arch/arm/configs/jornada720_defconfig   |  3 +-
+ arch/arm/configs/keystone_defconfig     |  1 -
+ arch/arm/configs/lpc32xx_defconfig      |  1 -
+ arch/arm/configs/mmp2_defconfig         |  1 -
+ arch/arm/configs/moxart_defconfig       |  2 -
+ arch/arm/configs/mps2_defconfig         |  1 -
+ arch/arm/configs/multi_v4t_defconfig    |  2 -
+ arch/arm/configs/multi_v5_defconfig     | 10 ----
+ arch/arm/configs/mv78xx0_defconfig      |  3 +-
+ arch/arm/configs/mvebu_v5_defconfig     | 10 ----
+ arch/arm/configs/mxs_defconfig          |  1 -
+ arch/arm/configs/neponset_defconfig     |  3 +
+ arch/arm/configs/netwinder_defconfig    |  3 +
+ arch/arm/configs/nhk8815_defconfig      |  1 -
+ arch/arm/configs/omap1_defconfig        |  3 +-
+ arch/arm/configs/orion5x_defconfig      | 11 ----
+ arch/arm/configs/pxa168_defconfig       |  2 -
+ arch/arm/configs/pxa3xx_defconfig       |  2 -
+ arch/arm/configs/pxa910_defconfig       |  2 -
+ arch/arm/configs/pxa_defconfig          |  5 --
+ arch/arm/configs/rpc_defconfig          |  3 +
+ arch/arm/configs/s3c6400_defconfig      |  2 +
+ arch/arm/configs/sama5_defconfig        |  1 -
+ arch/arm/configs/sama7_defconfig        |  1 -
+ arch/arm/configs/spear13xx_defconfig    |  1 -
+ arch/arm/configs/spitz_defconfig        |  2 +-
+ arch/arm/configs/stm32_defconfig        |  3 +-
+ arch/arm/configs/versatile_defconfig    |  2 -
+ arch/arm/configs/vt8500_v6_v7_defconfig |  1 -
+ arch/arm/configs/wpcm450_defconfig      |  2 -
+ arch/arm/mach-at91/Kconfig              |  4 +-
+ arch/arm/mach-axxia/Kconfig             |  4 +-
+ arch/arm/mach-dove/Kconfig              |  8 ++-
+ arch/arm/mach-footbridge/Kconfig        |  7 ++-
+ arch/arm/mach-imx/Kconfig               | 13 +++-
+ arch/arm/mach-mv78xx0/Kconfig           |  4 +-
+ arch/arm/mach-omap2/Kconfig             | 18 ++++--
+ arch/arm/mach-orion5x/Kconfig           | 47 +++++++++++----
+ arch/arm/mach-pxa/Kconfig               | 10 +++-
+ arch/arm/mach-rpc/Kconfig               |  5 +-
+ arch/arm/mach-s3c/Kconfig.s3c64xx       | 15 +++--
+ arch/arm/mach-sa1100/Kconfig            |  5 +-
+ arch/arm/mach-stm32/Kconfig             | 14 +++--
+ arch/arm/mach-versatile/Kconfig         | 15 +++--
+ arch/arm/mm/Kconfig                     | 29 ++++++++-
+ 66 files changed, 227 insertions(+), 170 deletions(-)
+
+-- 
+2.39.5
+
+Cc: Aaro Koskinen <aaro.koskinen@iki.fi>
+Cc: Alexander Sverdlin <alexander.sverdlin@siemens.com>
+Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Andrew Lunn <andrew@lunn.ch>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Daniel Mack <daniel@zonque.org>
+Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Gregory Clement <gregory.clement@bootlin.com>
+Cc: Haojian Zhuang <haojian.zhuang@gmail.com>
+Cc: "Jeremy J. Peper" <jeremy@jeremypeper.com>
+Cc: Kristoffer Ericson <kristoffer.ericson@gmail.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
+Cc: Patrice Chotard <patrice.chotard@foss.st.com>
+Cc: Ralph Siemsen <ralph.siemsen@linaro.org>
+Cc: Robert Jarzmik <robert.jarzmik@free.fr>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Cc: Stefan Agner <stefan@agner.ch>
+Cc: Stefan Wiehler <stefan.wiehler@nokia.com>
+Cc: Tony Lindgren <tony@atomide.com>
+Cc: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
 
