@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E65DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E26C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:40:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TeELv0MEFwei4dRZUKd0W83Qb4qpPXjtjbcss/SZrxA=; b=CtlP3w1JZgS7O/HKMyUuWasqi0
-	nEDXtqIVdMEf4OW8hTg1NOMAu6SgNX0nkQOCy7RwyplHx5TXTyJYGkPPEDyQTQSDlYkuWxCoqBNHN
-	V+dGDecffo9hye011HWQFNHN4q80ONytvy2KF3DnyQGhU4K9tf+0PmJZwuycCaOikPtcZFH9sH19H
-	c0BQPUj+4k6IZ2B42BaWEDkQHc1V9YQzTVi7Rdw4TbBkX2rZarVZJDyhVfUo/WbaG7z3aGWGR/hIw
-	fcTB4VdlK+U8iH1CVr95lowddaa2ScuE9GP6BC02ooQWzQ6o7cCLbIk3euxiuhV1DygEDt5z+LNg9
-	VhZ98JHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dzaTPoH0/Jbz15YM7OdwlqoyPsJkrqrtqSoCOmHvtKA=; b=QLzqCWkT21XxUDlIPylr8gtVI4
+	6VK3A4GKKobPm2cf2FvCRZdD7Pd8rfYVx94SCjFrfZtDXvfGkR7481GYVmum38pCLRM/x8X1Y/yJW
+	8wFzT31uUygXbwdXuqqG6XP3vPR2nIvZ/7IMsDqAhZKNGdz3IvWWecQBso7TpTRtxLlKgjYLmRygu
+	XoR/NkgbdQAXtmvAdyzozJfctySeeKPC9hE+3yUgd5CJeSBmypd3xh3RD8o6a3vkzUdmjeD6MrQ1E
+	wCcOLb61jdEpNUVvJqLpe8g+jIblGrva8n1p1603LdoHAZ999U6mgiUU/4OrujOlXJdNLHoDyI+MD
+	R0ciI7xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqSr-000000012sz-3k8K;
-	Wed, 01 Jul 2026 08:38:37 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1weqUp-0000000136O-12d0;
+	Wed, 01 Jul 2026 08:40:39 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqSp-000000012sX-1rt6;
-	Wed, 01 Jul 2026 08:38:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782895112;
-	bh=naKCm2AE7MiKT2DcwqT2cgOCma8bbUjR3ekPlXMemSE=;
-	h=From:Date:Subject:To:Cc:From;
-	b=gINkERXCikBLW89Y87lnOP+6v1dCnilw7ungWlAedJYPlIduDawPGWPG+WloE9je7
-	 G8togEiidEbm4clFu7exbu67ha3GTSjsW0HSEN2S3QHFPLXb1gQ1iR8fkZciniJara
-	 e+Ptgqd+DVJ0znJDlHJjutJ8j0H2JNz8piLPB65wfEEaQFTLnoLcQ/tyUaYp6Ts0Rj
-	 kJSABXvmqxn2AmKi1J1lOwpxtXkbvRm2kl2BoCtOnWtBsYq+b9cxfomtrE7EnpoAuQ
-	 HK1KuuwR1xwpmNbcGNStQIKNoL+cWLvFQVft/w+Hzh3OkDy4uC+HvbfSrCsEwIdep3
-	 glpP8XSW+ilBQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 400DD17E0E1C;
-	Wed,  1 Jul 2026 10:38:32 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 01 Jul 2026 10:38:21 +0200
-Subject: [PATCH v2] arm64: dts: mediatek: mt6359: use proper compatible for
- rtc
+	id 1weqUm-0000000135d-00zu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 08:40:37 +0000
+Date: Wed, 1 Jul 2026 10:40:30 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782895232;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dzaTPoH0/Jbz15YM7OdwlqoyPsJkrqrtqSoCOmHvtKA=;
+	b=shJRu5vDUP7ZDKQSHsK+hm5YzMgosdS81oqGJoO7WyU/KYkL+sjeEnqx02Vf7vGu0x43Ry
+	uv6fAueFoRpJ4Xm9fSuHL9YZ7rkYM4cHiFQyvecXnQY0kyodiLeLDYy0hJhNzEafujjp1V
+	4VPvIVU8ENW3zH8WQmLPMJWXGjv3azZz4S7EcH9XIzvV8SgR9veRJvvUkBalD1CoSrGzoV
+	LUCKXOnXTb6ujHmRmax4+2WJA6Xfad6AmRnq70bALY+fNfyXQpi6N0l1bc4wGICwqzsR7f
+	4PF/coqct+vO1K0YDcsduOPh91BO43A+uz4vYcgsqDb3FgEpWf9orTC78wUw0g==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782895232;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dzaTPoH0/Jbz15YM7OdwlqoyPsJkrqrtqSoCOmHvtKA=;
+	b=g0vhUs9WNGqHZUgF7RfmzHiuDSnx9FCObdSlzDF54pp2Ic5gy6Dobr2Cf6z2yhnU/uvjVU
+	UB1UH3naQir8cmAA==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+	Christophe Leroy <chleroy@kernel.org>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, John Stultz <jstultz@google.com>, 
+	Stephen Boyd <sboyd@kernel.org>, "David S . Miller" <davem@davemloft.net>, 
+	Andreas Larsson <andreas@gaisler.com>, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
+	linux-api@vger.kernel.org, sparclinux@vger.kernel.org
+Subject: Re: [PATCH v2 1/9] time: Respect COMPAT_32BIT_TIME for old time type
+ functions
+Message-ID: <20260701102912-ea8f3291-7bba-407b-9a7d-7c367a4c9398@linutronix.de>
+References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
+ <20260630-vdso-compat_32bit_time-v2-1-520d194640dd@linutronix.de>
+ <0cda7366-2eb9-4ecb-b76a-b3b68ee10043@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-mediatek-genio-mt6365-cleanup-v2-1-78e3d63b8c05@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WOwQ7CIBBEf6XZs2sQKqGe/A/jgdKtbmxBARuN6
- b+L1bvHN8nMmxckikwJdtULIk2cOPgCclWBO1t/IuSuMEghtailwZE6tpkueCLPAcesld6iG8j
- 6+xW16zpTO9WLxkDZuEbq+bHsH45fjnS7F03+htDaROjCOHLeVZ4eGReVVgI+hTOnHOJz+Tdtl
- sbvSvPnyrRBgbqvlVGmpUb2exeGwbYh2nXxwXGe5zfiNShN/wAAAA==
-X-Change-ID: 20260428-mediatek-genio-mt6365-cleanup-6cdd84c3f098
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782895112; l=2356;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=naKCm2AE7MiKT2DcwqT2cgOCma8bbUjR3ekPlXMemSE=;
- b=wpW/x97FpY0cRMwaxoQ3gorpZVrPs11uJxeofBcqfxIJBnhyulrIUSTlhWKUgCwBW7lQDdjmO
- k8pRm1br4zkCwiGkPquoVz1B9CUymnjhdXu5AZIlhj77S4zXwgCFiZH
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <0cda7366-2eb9-4ecb-b76a-b3b68ee10043@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_013835_696669_09E68D93 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20260701_014036_190649_5B95D272 
+X-CRM114-Status: GOOD (  16.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +91,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT6359 PMIC include file uses directly "mediatek,mt6358-rtc"
-compatible string for the rtc subnode, but not its own compatible
-string.
-Now that the "mediatek,mt6359-rtc" compatible is properly declared in
-the dt-bindings, use it with "mediatek,mt6358-rtc" as fallback.
+On Tue, Jun 30, 2026 at 03:00:37PM +0200, Arnd Bergmann wrote:
+> On Tue, Jun 30, 2026, at 09:38, Thomas Weißschuh wrote:
+> > The "old" time types use 32-bit seconds which are not y2038-safe.
+> > Respect COMPAT_32BIT_TIME for functions using those types.
+> > time(), stime() and gettimeofday() are disabled completely.
+> 
+> Looks good, yes
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
-Several Mediatek and Radxa boards, based on MT8370, MT8390 or MT8395
-SoC, integrate the MT6365 PMIC, that is a MT6359P variant:
- - Mediatek Genio 1200-EVK
- - Mediatek Genio 700-EVK
- - Mediatek Genio 510-EVK
- - Radxa NIO-12L
-It is compatible with the MT6359 PMIC.
+Sashiko found an issue [0], which I think is valid. I'll change that for v3.
 
-But both MT6365 PMIC support and compatibility were never expressed in
-the dt-bindings and there is no MT6365 include file as well.
-So, since these board support was introduced, their devicetrees use the
-mt6359 include file to enable this PMIC support. 
+> > settimeofday() is kept as it is required to do the initial timewarping
+> > after boot. However the 'tv' argument will be rejected.
+> 
+> Not sure about this part, did we already discuss this last time?
 
-The goal of this series is to clean this support by adding the missing
-compatible strings for this MFD main and subdevices in the dt-bindings,
-and add a include for MT6365 definitions to replace the MT6359 include
-in these board devicetrees and for future ones (like Genio 520/720
-EVKs).
+This is my interpretation of [1].
 
-The series is based on linux-next tree (tag: next-20260630) and has
-been tested on Mediatek Genio 510, 700 and 1200-EVK boards.
----
-Changes in v2:
-- Rebased over next-20260630 tag
-- Removed already merged patches from series
-- Removed useless regulator label addition from patch
-- Link to v1: https://lore.kernel.org/r/20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com
----
- arch/arm64/boot/dts/mediatek/mt6359.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> I can see how keeping the timewarping functionality is the easy way
+> out, but completely disabling the settimeofday syscall the same
+> way we do on new architectures seems so much more consistent.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-index a953fb527b69..52fb0f832260 100644
---- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
-@@ -287,7 +287,7 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshub {
- 		};
- 
- 		mt6359rtc: rtc {
--			compatible = "mediatek,mt6358-rtc";
-+			compatible = "mediatek,mt6359-rtc", "mediatek,mt6358-rtc";
- 		};
- 	};
- };
+Shouldn't we then do this completely? Irrespective of COMPAT_32BIT_TIME?
+And then remove all of the timewarping and kernel timezone bits.
 
----
-base-commit: ba7c57499e5999aeae8dd4f954eb2600589d80aa
-change-id: 20260428-mediatek-genio-mt6365-cleanup-6cdd84c3f098
+It would be nice however if this series, and my other ones blocked behind it,
+are not blocked on that larger rework.
 
-Best regards,
--- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+(...)
 
+[0] https://sashiko.dev/#/patchset/20260630-vdso-compat_32bit_time-v2-0-520d194640dd%40linutronix.de?part=1
+[1] https://lore.kernel.org/all/e9487ebe-3730-438a-9c23-e45f75986ecc@app.fastmail.com/
+
+
+Thomas
 
