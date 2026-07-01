@@ -4,141 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3B5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D0BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=; b=CrFa/zfZqhboZ0ZSm7zofs7MG7
-	UzOruTucxj5aRCr5DWT/KGb4z+kEFUwkrEJ8cDAcA8vfzqYpdnGaH5mEuT17bqPcHRqJYoY1p8+LW
-	6Fl73wIoA6Jc7G7p2zeetktpbpUMGxThEaov7evwONHmm9UwdsJPo6UyPYkBz3KZuDJfYEUeMhaq5
-	zORhZr+9hkhMkXscMCfKNDrMs0NEH3JN4AEZlGlN+o0Sp8P1tPVdr5rFs6szCLrNjKAFj/2//Ol6I
-	dm+HSKmELpgy7nooHhbM+xidmELkMQkQijatp0THqW2F/W3svcCNXnwhW1MJ/nSoh5AaTzmoDCKy0
-	omiQdmBQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F3tUEC7RtYlVbwWQFfwwdFjjsr90lp0ihCLoI0ydDyQ=; b=aqL0sAoRnlCfnmklP73UEoJhKO
+	zErvs6BKob+WdMAKJnw+bxs+Mr2USMka3rIEXmyB/vvY1VZOs1ago1e/q/OJKINxo8LHvaSaZflkW
+	sFnXYTNr6zfFoY5EJh+LVfZdflbhbo/+UGEXcrlttPgQ+AfYKBETEY891KaKG5dTEA8zNTkceNm21
+	n/W/zDRLNFOAv6ndtcBFsIAxpe6gUrZRs+NAA+eIUvqPCgE2aDsh+NrbaivdCQWEN6jmnvNB1AkuO
+	JSnSbMjmRCQCku4TC6D7lhMV0SLU9IBzrPopbneOKjx+iCv1wqMeul1jROvEziot9gkzziOPP1Mfa
+	7pCLtKAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqvb-000000019wC-2VMi;
-	Wed, 01 Jul 2026 09:08:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weqxD-00000001AJz-11gk;
+	Wed, 01 Jul 2026 09:09:59 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqvZ-000000019vP-3vjH;
-	Wed, 01 Jul 2026 09:08:18 +0000
+	id 1weqx9-00000001AId-3hoi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 09:09:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=; b=A4lwV1f6J14i/EUDS55Nhe4ats
-	VKuSwH9oqlmSkKXheBt3UujeuE1hHNIGTfufQRiNcAVWu2341hUCuUUm+l0XkTv6LUMzDKB+yls2z
-	BWpBn0qSjclphQkuCDG5Hidb3id4V8L/OF8zaBYMWYUMZ7UjVKeOhgtqgG+0XAJaoQA8BxyvyDLM0
-	1rlVIsZGnSGTcUKyO7HWFDAbXWUiRkQmozZx/LgcbYJILZkp52ueV2AHfPEX+kmX/EjiqXTv94ErY
-	NZZHvPIGExwDI7rDM24M9Tuu7vWieIQ6J6N/TjotWIKEGUJiDIn91Qo//pkgivVTp1EFPM5iCzOKN
-	u/1Wp2dA==;
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weqvW-00000002YEU-04SE;
-	Wed, 01 Jul 2026 09:08:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RBcRXoYU6Q2cs2rwItSzd3Ze3fko0RLEP3AOeVw3WYTj5udw4vYTP33QTVbGnwchDcRfSZKC40vXymyvbHBPES13M7Vr+KNxAgCjP6hHmpqLhpdS8dL0YHJeFX6lxCQEIrq5YAkgA/tUH2q+YrD432nnIK96/kaK9vOSiJHyVhHECX5TOvCTv9pZdxbE8EBjJ7Hbz7w7QwYAPRggWxKKamaLyIByxN03yVGZBebn0AY2NNjUVEnPjsepH4d9kXWilP0Dzbvde95ouyEHpStA3+3qjW+uMOYGWXJ1M5mdY8mAvdqS/xcsDRQ1wAyjwRW70Yx1fVwcHAGGz0MPMnvf/Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=;
- b=kaDRLGg/j7f7hjmSV3G77HvoDn6KyfqbAN7O3AowOCWLySAYuVDD2madtK3X0BvDgdZ6BkI3VzqugDnnmAgGGkpfR+j7Tkwu++ibhyJ0Pos+hkcwz+oSIufXJnu8hNveXQt7qYfcSSgpw7ZLIDHpvY3HbzqwewmigXPFErXK7n4HlzTJEs8BgDQBSyEH5Ur5G8kL/47fA+CifKRrVEn/Pz4aNGzD4J45JOR47qY1bLP6gebR9B2jKOaZv9ab1QU8IMkg1SIYf3Mlx4bRJdnCTVgSkExMjqqy7p5a+IS8iBgGyiB93zR0aO+tAIVCvdj4uD8U10nfgAwMSPoyfEbVnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=linutronix.de smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=g1/TDN4Zyz4o7+1roVy2O8d48myj4Wdvt3h8XPdnhnw=;
- b=E+Bn6CMLLuOpHnAyC2nbyEZzooY0NISJihogc2hlgH15KjiFdC1WFnSS0r4FCvToAKLIrXHCvKXHosOiwNuV9GHnQ6eq8ke1NgyPjBEGuyA18mEhF33tTQ70fTugnY2T2sFg2GK4hTwor0d5cIU8nYC2PUNNwTF6f3L69oJI/e4=
-Received: from BY3PR05CA0057.namprd05.prod.outlook.com (2603:10b6:a03:39b::32)
- by CY5PR12MB6431.namprd12.prod.outlook.com (2603:10b6:930:39::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 09:08:02 +0000
-Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
- (2603:10b6:a03:39b:cafe::14) by BY3PR05CA0057.outlook.office365.com
- (2603:10b6:a03:39b::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Wed, 1
- Jul 2026 09:08:01 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 1 Jul 2026 09:08:01 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Wed, 1 Jul
- 2026 04:07:58 -0500
-Received: from [10.136.39.208] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
- Transport; Wed, 1 Jul 2026 04:07:50 -0500
-Message-ID: <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
-Date: Wed, 1 Jul 2026 14:37:49 +0530
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=F3tUEC7RtYlVbwWQFfwwdFjjsr90lp0ihCLoI0ydDyQ=; b=iKN4FMG+lZhmANi3WAwUcoL3GK
+	kNhJxc8LmIwWnlYROVGRbBdG1yll15aFzSjDcdeAuO/6BvNnn9D677pkbx4LbeSez5JeQ6jeytlEM
+	5Y75HoKrYSUH5lR3s2jVnvCNegGxP0DpYB6YVynY+JnJPQDznStyrydE2jd/TWm8MFXBpS7Zy7xEi
+	B46oBIR0Zi2i/P7fWA7TSRaSgiDXjLpRIwnpikv09RxAixvwEArLzkIK63zDV2C4O9EieIi1epaSo
+	MPzes+gMx77gbxJBNLJyPFTNyy6Vi8xRuwEQu36DeGeRlk61yeAPvXS5jqvFCPaxno4isgNzkS2He
+	T9LwR3ZA==;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <Max.Merchel@ew.tq-group.com>)
+	id 1weqx3-0009s4-1P;
+	Wed, 01 Jul 2026 11:09:49 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <Max.Merchel@ew.tq-group.com>)
+	id 1weqx3-000GWG-2O;
+	Wed, 01 Jul 2026 11:09:48 +0200
+From: Max Merchel <Max.Merchel@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: imx6ul-tqma6ul: add nvmem-layout
+Date: Wed,  1 Jul 2026 11:09:44 +0200
+Message-ID: <20260701090946.1479190-1-Max.Merchel@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 8/8] futex: Use runtime constants for __futex_hash()
- hot path
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Peter Zijlstra
-	<peterz@infradead.org>
-CC: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@kernel.org>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, Catalin Marinas
-	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
-	<gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Darren Hart
-	<dvhart@infradead.org>, Davidlohr Bueso <dave@stgolabs.net>,
-	=?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>,
-	<linux-arch@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Samuel Holland
-	<samuel.holland@sifive.com>, Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, Thomas Huth
-	<thuth@redhat.com>, Sean Christopherson <seanjc@google.com>, Jisheng Zhang
-	<jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, Christian Borntraeger
-	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
- <20260701075714.GP48970@noisy.programming.kicks-ass.net>
- <20260701084150.GNOeboLw@linutronix.de>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20260701084150.GNOeboLw@linutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|CY5PR12MB6431:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1bfc53b6-a014-4a70-2098-08ded75040c4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|7416014|23010399003|22082099003|18002099003|4143699003|5023799004|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: kJxdKYokYZS3EIDHBQtFESDnvoU+k1pJzGafuFnINUKWX5rZ3QUmqN+0EtIrimyDV8yHvQdYXKbzXv4/+AoDQECO5GTsio5NHiJRLL+YzDAr+YnLVCyHDh+z8xbbmdBPboj2PXBRc41ZSUT6WJeDLFwN5av8C9Ff2jcRkpYknNXy0nlJ+6/h9vbWF9U+lnn2PM7RFO8MjsUMmoUlhdV7ms/n0TYrOWtj9BqpdhlvdKS/okwxsE8SQoJDiCZYNRJPxOeGvKH50JBnh04DDUIPcJIbbGQ01nyYFbOCej54CmGuTdmie6JMXYFlYfygioAn71GJrpb45i35WqBjq6vdBQ0Se/5aNeZ29JI+L4t9bYVwVgjAcvg3RV/m0Su2t4GzjQr77yslTGMsIq2N0iJX8zahtN3VIoqjHQ0NLJRSceswPhKJULFfhELsWtPN2Qr9NoLfpoAh09TZNw6qTQQbdRq6Un+RShlQyR33PMWaf8WrjF0DBCNYAs6gJR0Q0tT7M0ZzfckeC1/8UNfxxXrgwnJvTG/oSXtZ45o7BnQ1eflUk8CIcL7tzsgAE+91lz1Hv9POdP1O1pVhXLRxwDZ5KRWO2xgO/2fcNGvGipkwgp6/LL4kCbCo6MaY7eaKU5gqgJRS5wGp+SthGXFy26o9/+NofegVYFQv3dhHTxYHsa0o+d4B5Dvwtze9PNmjFU1BOoKssPjuihld0SXaHhmkFg==
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(7416014)(23010399003)(22082099003)(18002099003)(4143699003)(5023799004)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: HVjZr8VEub2Nq1ykpJ5IEyRcCFymMpo7JAcX7xWamGawFw1Y7sXIlMFEhHIPEqQdrdUbNUDPpoLH4gelRsbyxjhtuhnrU7ilBgMWftiUgVO36srcn/Y9FXnDemLVeyKMPuHajCGX1IG++a2XUTBZCINASagcKeADV2O4/igG2ZVjGLqeGqgyl18HFRATzRYzF+7mQ1TAdNulhVDQ79FnVchKLo82LLd5walCTaYfFug41R/CdZQaFlTsd0pX6lpXxDshdxcbpZv2BXj7HwDo3KkUKqP32j97LSOM9Oa0Xsy1lbq2NsBq5tTLtMb/pkfo/ocalG7x/sdNwnHbtkrwR2tjLMHMSDfpoLH4BIWZc7xsk57OPnG7rqGR99NVl/TxLmm3DWSr421aeF3C91JqECwML8HuNt06Vntw1xLcFjqnRJjy5fIm8jNMO226psgJ
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 09:08:01.6128
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1bfc53b6-a014-4a70-2098-08ded75040c4
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6431
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28047/Tue Jun 30 23:29:24 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_100814_265855_1F3C614B 
-X-CRM114-Status: GOOD (  17.20  )
+X-CRM114-CacheID: sfid-20260701_020956_027207_37F9FF11 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,50 +89,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Peter, Sebastian,
+TQMa6UL has board-information located in EEPROM at offset 0x20.
+Add necessary nodes and properties for nvmem cell.
 
-On 7/1/2026 2:11 PM, Sebastian Andrzej Siewior wrote:
-> On 2026-07-01 09:57:14 [+0200], Peter Zijlstra wrote:
->> The big $1M question: does it actually make it go faster? The whole
->> point here was performance, right? But I'm not seeing numbers showing
->> how awesome these patches are.
-> 
-> I did complain about the about the size of __futex_data which is blown
-> on distro kernels due to CONFIG_NODES_SHIFT=10 on Debian for instance.
-> This makes it go away at no extra price but yeah let me boot a big box
-> and see.
-> If the performance remains unchanged it is still worth considering due
-> to size savings on the average box with 1 node. The biggest box I have
-> access to has four nodes. If I remember correctly, Prateek was saying
-> that AMD has "normal" boxes which would require =9 for normal operation
-> and they do run distro kernels so lowering that value is not an option.
+Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Rationale there was with CCX as NUMA, we have 32 NUMA nodes on chip and
-with CXL, there is a possibility of 2x that so I suggested NODE_SHIFT
-of 7 or 8 should probably cover almost all real hardware without any
-added NUMA emulation weirdness.
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi
+index 4fa98e6a66d7c..9b70e58868b08 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-tqma6ul-common.dtsi
+@@ -126,6 +126,16 @@ m24c64_50: eeprom@50 {
+ 		compatible = "atmel,24c64";
+ 		reg = <0x50>;
+ 		pagesize = <32>;
++
++		nvmem-layout {
++			compatible = "fixed-layout";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			module_info: module-info@20 {
++				reg = <0x20 0x60>;
++			};
++		};
+ 	};
+ 
+ 	m24c02_52: eeprom@52 {
 
-To answer the million dollar question, I see the following on running
-perf bench futex on a 3rd Gen EPYC (2 x 64C/128T)
-
-  +----------------+-----------+-----------+-----------+--------------+
-  | Benchmark      | Kernel 1  | Kernel 2  |   Unit    | % Improvement|
-  |                |  (avg/5)  |  (avg/5)  |           | (K2 vs K1)   |
-  +----------------+-----------+-----------+-----------+--------------+
-  | Wake-parallel  |  0.01614  |  0.00456  |    ms     |   +71.75%    |
-  | Requeue        |  0.26394  |  0.24644  |    ms     |    +6.63%    |
-  | Lock-pi        |     34.0  |     57.2  |  ops/sec  |   +68.24%    |
-  +----------------+-----------+-----------+-----------+--------------+
-
-Kernel1 is tip at base commit and Kernel 2 is tip + this series.
-perf bench futex hash some insane bimodal behavior on my system with
-both tip and tip + series so I've left that variant out for now.
-
-This is only from 5 runs from a single boot. I'll try to grab a
-bigger system and check is it makes a difference there.
-
+base-commit: be5c93fa674f0fc3c8f359c2143abce6bbb422e6
 -- 
-Thanks and Regards,
-Prateek
+2.43.0
 
 
