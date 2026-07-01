@@ -4,168 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88CD8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:17:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8925EC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IO+jCRTlkAFgZb4kIptvF0xqL7i4CvDwr6ckF9p14xs=; b=fqE6+SGBcQX2Ki/aolGzrr7BSb
-	18KFPuaA49EyuJdnGkaPhVcTCTUSaKnETOUft8Dv1eS0ZM2A4RLx8i5EwQHLSVKUdKl4G5ri5o4D3
-	ydBdY34zbf2JWtoerSxSkgRDvsipPZDq3w/lfiC6cFQFICu4gb0VgIOo4eBX4kBNb00L74n67NYjZ
-	SVA4oRV7H9ZbLa1nPnL7T8vXecO1gySHxQ4fm8FvEARMqo+pIJYjxg86UJt9oLvS/hi7WilPL/OfH
-	AdteRncRzbGgHUqlsL5qfPmuzus14xA39CNG+V1ug64vlLq22G27Ffp6Mg5dXGkH5d4ptHaFWPD2g
-	pE87Yauw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/88Vrn8Y7h20GH2cr/4O5dp/5mPIhOGlUDOqjsLUyUE=; b=yu2IhAy999l+qHwXpyzrTvozZw
+	v2c1eQOAF9UPAZ0IbcstPN6olIDqBz3isn39uvapbDps2cAQZC1ML7EdLN/6yQOZnCPswmJLrW6rL
+	fRJFTkPc083nwXV54/n+Grbm1GGkV/UAkPrCbL3GRm1beLTnP9W4wZEk7IS6XfPvDvaT1dytbi7dj
+	ls3q4QEwuEibkPUgn8YC9kHUjEEFyb6yFw9g490C01Sy1U2mGsikRxyiMSiDBDZ3warII0Im5t19z
+	wmf485eM73K0+InuNZW59UoIUoIlBe/DOJxrK8NAst9WARe4I2E1H3CsBilZiGvO3ZzrRUjLWC9DV
+	l4KPx3hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetTa-00000001U5Z-1Qgk;
-	Wed, 01 Jul 2026 11:51:34 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wewqz-00000002OYM-1S1p;
+	Wed, 01 Jul 2026 15:27:57 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetTY-00000001U52-2Dc4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 11:51:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=IO+jCRTlkAFgZb4kIptvF0xqL7i4CvDwr6ckF9p14xs=; b=lTUkzZ5HXq60WX2BLi1/TZ5+QF
-	dwYeZq/hDhq4xVJo3Aw9iA5s2EKKGc8bN80b47I622aidKeTl8ydCpL5EUcUWlgrfWCMJvN1czlig
-	HAJhNCxwuY9ry0xqpoBG8sT1/OacS78MYnmZsiAWFxeIZnzF7o4GVz3gVmyp+67J4p1oxQ0VIbRD8
-	XDRwGn75QywipNA8BRu+VEHZv7GO6oXvZxvPwYS1sk4fcoxthIvLLwhYSSjdnnC02x62s792L6tSj
-	XiAVcI0R3H8TrGbvFU0VCw9JnZP04XNPr4VTGEKuYdTS6uR9f3xmFnsNqMS/gy/1IMKTjIx7fpZRS
-	hilDcT5A==;
-Received: from mail-westeuropeazon11013069.outbound.protection.outlook.com ([52.101.72.69] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetTV-00000002hdS-3eXl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 11:51:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PxlUeoHRu1q3r+gq7yyU4iG6PiwDkRJj7YFPkcuQVl6t8EsYFMIlGrosp3elxjA1TLeMdm5LUVEUkIGh/VmzXSnegIz4i7OoNXkc+uZBMpfXTsumxPjvWYpp59J2sDH3fQoWLv1VydfeYwCrrh15YJOlGbtxs6LnDGq5IfpOfD8m/wsv3TS5HnnYk4xcybjBaj8jgUxHXxX0sfw+VskZSKyf2zIKLVjqqfW8zHqPz4idI24i6Ez3UHxHX02AtlaexVN6JGfN4qbt0szm1Qfd8pfsXLbF+oQxrvvpcKg8pl/aYxthNsNdZlZv4ZZyc0dg2FSSDbp2VFE1CTuParlehQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IO+jCRTlkAFgZb4kIptvF0xqL7i4CvDwr6ckF9p14xs=;
- b=yifhcvP/ddmKgUFOh3UdAKlvX+xGcWPXv0Ohl1rd9XJVOrvbI1Ja7g87mU7d0Yhduxz3C/z8fwJ+Dl7cjEP/MjJOHzYutFbfyDXhtre69efwJxtIFHlw3fQPdlBb6Xt2GcWbCHDhrQV8uvPTbANucn+VrZeKcjjTbnA9TAUKuzqYTtpzcDzY8fA2zwjwNW1AnYkgGRBC4A8nU6wud/Ogd8kOSNHsmCOdUZ9qqFRjAy7QLnxh3LKKzQBwnPByg1q/Q9f7zdp/oEDf+A+YMHMj8+WEgv3bcRbZg6eKC6u9s+bOJK/bq6xb65ZwwqdYh/O0BG2fMte6Rxc1SKhAQWU67Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IO+jCRTlkAFgZb4kIptvF0xqL7i4CvDwr6ckF9p14xs=;
- b=ONw7MF8RKbuu20JUlTE4mgdF252l6iDqXkKVAMz0cbTzheXKa/ANFwucOWj9BwqdW60kKW7qJSoR2IyBGc0ihOjKlIss92SR2nJhpv/+102MKeuPP8NA1WA5ISVtbwL+aYIyD+2FGmOBHJ09s10TM0IpvQmJh/jCmyiEMfrwzJ5X5x/hGyS8rzglfoj9QD1LS1+x7kgXpdujtNPtVZVLGKXZQ+PFeI10EfR0gYDxTQjphZbl1PkPnchcqp9lCJl0waC9Ar1dPs1xtLhOYPNC3u6PSXV0Zz7VwrU0hVi6/gOmdpV3HIfDd8TKm4HxeufPKMcq6KaERrd5iEOPoykEdQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com (2603:10a6:20b:3b5::20)
- by DBBPR04MB8012.eurprd04.prod.outlook.com (2603:10a6:10:1e6::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 11:51:24 +0000
-Received: from AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85]) by AM9PR04MB8179.eurprd04.prod.outlook.com
- ([fe80::a551:cde0:6730:1d85%5]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
- 11:51:23 +0000
-From: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	NXP S32 Linux <s32@nxp.com>,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: [PATCH 1/1] arm64: dts: s32g: describe GPIO and EIRQ resources in SIUL2 pinctrl node
-Date: Wed,  1 Jul 2026 13:51:20 +0200
-Message-Id: <20260701115120.1115494-2-khristineandreea.barbulescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260701115120.1115494-1-khristineandreea.barbulescu@oss.nxp.com>
-References: <20260701115120.1115494-1-khristineandreea.barbulescu@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P192CA0005.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5da::11) To AM9PR04MB8179.eurprd04.prod.outlook.com
- (2603:10a6:20b:3b5::20)
+	id 1wewqw-00000002OY1-11kW;
+	Wed, 01 Jul 2026 15:27:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782919671;
+	bh=URXsJVFgIXD2Z23IoOR4jzvVp//h7YdO2XrHcOWjOAc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=KmTT0uJDYKlACON/Ui3/4K0cgzzzfdJEnOqHRqHbnTkHUlQoNYPoZsUpLu94DBeUD
+	 IXbmeEQOGcyxcoJd867hJv3mXZdTByXRWa1o/1fK2RvOKoW0IjGyH8hgQ0t22cxjFd
+	 8aPsnQWwMKtV71Nxz7koAn4U+TkugsW//UvefiNrqfahVq9UTNqbXRN1BYdrncpnfq
+	 4TVJidvKvLBJq6yUZjjfpIG7fEQ83ZocirZUEC8WYeV6lFRFyOxJs9iC0IBYsXHMy5
+	 OEMgjFfBrhvagWzLZkl5PjrMeIXHgyEY8zBz6nrjdMH8AOXUI8ewOiV7mXPGHhI4Jx
+	 fEQZuVIoKhRCA==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A593517E010F;
+	Wed,  1 Jul 2026 17:27:50 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Wed, 01 Jul 2026 17:27:36 +0200
+Subject: [PATCH] dt-bindings: PCI: mediatek-gen3: Add support for MT8189
+ SoC
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8179:EE_|DBBPR04MB8012:EE_
-X-MS-Office365-Filtering-Correlation-Id: c031bf4b-038a-4a66-21c7-08ded767133e
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|19092799006|1800799024|366016|376014|7416014|921020|18002099003|22082099003|11063799006|56012099006|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: mdbWjFQyUSsDOOQbk4uPQea/LW9lKGGuqyKlimpb8bwEqtX9t5wrlyh0RRdr+Lr/KMz3YjFW5btt2wodcF//GPKRKu96+IZxzPHkSd2S0+ORHrGqNjODQyuPWQ9mYh3/EIs07jnYhRpBRy/TuN8AaphxXqXqRc63uYJvwWU90iM0IpyEafEIwLf82mUIR0lGw/LNuTqncX20Uv2e85twk2oz8pVriH1aJx+VakanQFNyJe+9//o2HkqRkzRXbvJ5ExgVK1tXl5uQItT32R7GyRGVL5K2gxWS35Zd3zhPM/2v8L+D4LJIR6qmHVH8RMJcUhVIWpSvYQYIeAeEvC4T9SyPZHaf7ZdWALB61CDgOaTg+FM6GbK4ugZOieMLAnVZVt4OfQQHNLRzJlaQZLidQDDZee8kybpJBSS7aBE9P7cBiPFWxGtdYLjr4HOvFWgyETnzTqDxCbbX7AXfdLtCVPiNh03z8uwtXkQ6vOxX55YLyPTjMN6LIzahs+bN2VzMmSVPb5sYqauIUiWyOP8lNrexLGhXXH4X8zoDf8wRI3dqH4Rgen9juAVlli+IX70cb04W67pcBRN31aYhmTyH54IRKFYGW7N9Ag9a5Agc2ZzL/NR2ap1uojqbBeJEg2hKYTB9nxmJ3bpF+WX4VmQHgtCQb/7RSSMFK9wqZlnA/YfR9GyLE0TAzh6jFwiKDm4nm9URmZlqF6c0taOT8I6dYg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8179.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(1800799024)(366016)(376014)(7416014)(921020)(18002099003)(22082099003)(11063799006)(56012099006)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MnNtd2V2RU1FdXFBMk52elZjeU5BdWRqVG53cGt5WmtCeG8vSGVCYzV5REU2?=
- =?utf-8?B?TVozUm9wdmdQNHM4MkZCblV1c3B0ay9RNW1xK3RHUGYxR3hCdm1jNUIvK3dh?=
- =?utf-8?B?MlpZek1SMVVDa3RTbmRpTFR1NXp5TTVTcGZhUUs1WVlCZ1VvOU43aTkyMWRB?=
- =?utf-8?B?V0VjdWJHYktSc1lTNjhwWDllaXV6YURramh4ZUNPYUNnckFnQU1leTFkWW1q?=
- =?utf-8?B?eFBHQzJZNVZFN3Q4VDBUYXBDaXNIb001SW1FRkRxb1loRWtvdkpkaGwwbk0y?=
- =?utf-8?B?QzF5ZFR0TkNGMVRFQ0k1VlFkNFZZSXhHSWtaZlVVdDdwclMzVFo0YjdzbVZh?=
- =?utf-8?B?ZWpzWlVTQ0JzYTZlclFHSUcxZkV3ekNTNEFKc1RlYnpIQStlY2dqQkprVGJW?=
- =?utf-8?B?M1pSczlpT1VVUzJTc3lsaHN4UFFTTlNYV0ZCaHN6cFFSMGZZdDYyeU9CWmZS?=
- =?utf-8?B?S0dCQ2FRaUdQNmdyZDFxWE9pUjJ0M0NlK0QzblNnYnVkeHNKY01nRzJNTVRE?=
- =?utf-8?B?UUp3U0R1Q0M5Skw5WWlSTHJBdnNMOWh4WUdmOWJONFJHai9ueklWVktjYzRv?=
- =?utf-8?B?RWZFd3RySjRvVDdGNXRYM29NRVA5YWlhUDlmOFpkNWpLb2xIVXBaM0U4bFFx?=
- =?utf-8?B?SUNzMlpVR1JzU21uWTduRVJFNk1nWW5mNXlVWlFhMGwwY0FiZUd4NGRRcUl1?=
- =?utf-8?B?dUo1UmkyQlJuNk1CQzl3WHdKUHZLY2U2YVdMSnpPOHkrUmZZeGs3SnpkellO?=
- =?utf-8?B?R1ZvSFFxbWFZc083WGlqazFQSU1BbG9HS1FPQ2YwYVpYNlBWNGczbEdqeXEv?=
- =?utf-8?B?OGR1UllSdDVONXRHc1hzcGc3MWZ1WG9Qa0ZFRXJIeDlHdVprV0NHcGR0UjZY?=
- =?utf-8?B?bXc3NzdEVG16RWtCcGY3bGZxdzBtTGM0VGM5Qnh5OFZNMG0xMXU3eHdnYTMx?=
- =?utf-8?B?clVIenM5azlEWDkydktQS09hVW9LSUZDblJPMTdSL1hKcUlvOUhUUE94UVRa?=
- =?utf-8?B?MGNSekVBdVRhMTFKZ085YldleFVGRWpTVkJ0Q0tvZmw3UDl6MytJTkFkL3pC?=
- =?utf-8?B?SWlFSHozRzNWT2hsaVVSVGhCY2RDSTVncEZ1Wk1rR1dLa01nMVU3bWtNUVdE?=
- =?utf-8?B?dElMcnVvc1N5aSs2cnd1S2hRWDJnc3pMTmR4KzFMb3UzNXNDMThWaURkakx0?=
- =?utf-8?B?eEFDb0s3T0pkZ1IzK0JGRy9MSEhwVHk0RGsreXJ5RGVXVU5BTU9Zc0FReUQx?=
- =?utf-8?B?ejJ4eURvMG0yNFNwbk00RSs1clNhRVIvYTBLWVhOa3RYUWJQSFNMNUIrTlFX?=
- =?utf-8?B?OGdUNHNvU1c3ZTltVzc2K3JnN05TcEFlZG1RalU1MVRUL3lEcjFrbUlObytn?=
- =?utf-8?B?OFFYbUVJcU12MFdtQ0JmYzJpT20vRHZXRnp2Z2RTdjREUTBzS1JnRnQ1S0hu?=
- =?utf-8?B?U0NUaDBPc3AvekIxZlhTUTR2UEkxcmpSelAvcGJCOEY4d1N2OUJBbFZUbVVz?=
- =?utf-8?B?VlRqU2VSSGVBTktWb1pTUnRDalVIaVZIdzA4MDNkU05ML0JjTUtTZnRiQmtP?=
- =?utf-8?B?ckg5VnJ2ZXhWdFJGSG5VZWdSbWdFR1VhWDVxVWFiaGx3VU5LZkxqTlNlcWFl?=
- =?utf-8?B?MkV4SDZjc0dCZVAvYzFENGl1ZkI4a0tRU0ZTb2YyRGtHVDJYVWttWHY0anJW?=
- =?utf-8?B?anVxRWVOd3IyZ1NYL2hOejhYUS9RV2xYeldiWjFDYyt4QzNzMDRXbXFhWWFB?=
- =?utf-8?B?R3V0cE5zak42Si9OL1Y4T0FNWFlJM2JuYitmTllHbm5oU0lyQlgxZkVrMElS?=
- =?utf-8?B?bDNuQWpmTW9Dd05Jb2d4RFlFMEdWeCtBQ1MzSTYrckJmVkNNUEE1eTJTZDha?=
- =?utf-8?B?U3dVTzZBQ3AxVEJ4VTRwaVRNSzBRM1lNV01QelY1UklEZGVqZi93RjNSVENm?=
- =?utf-8?B?dXRnQVZXUlA3ZHRySDRhcnFlWVp0MFplaExKLzJOeDBzTldEamhkZFZCWVh5?=
- =?utf-8?B?cGVCOHJ2cE1nQ1ovSlFVSHM4MHlyRSsvR3RjUEdDS1QvSUFpZ0dSdUxXVm5j?=
- =?utf-8?B?UEtnQVc3QnZSMzBoaWoyMUxiZzFsZWZ4dko2WHdwS3c2MGRMWndBYjZoQ3o1?=
- =?utf-8?B?MWFMNjE5UE9iNm92cmFsMHNpSis3SkNFQ0N0bDRjMmNYTkNHVDdTeGw2NWJM?=
- =?utf-8?B?dnpJN0c2aWF3SFJUNm5hTE9JK2N1ZmxRWTNnM295eVljRDNYY3ZqMnIwc0ha?=
- =?utf-8?B?YTE5TjFQdmhneTZaRVhSWkZQaklVQW9kb1ZFdVJncnMxZ0VIekdQY2VNSWFG?=
- =?utf-8?B?MnptTjh5azRwU3pFRHZRS3hiQjV0aWZGVlJXTkd3ZkY0MCtIbnNBNDI5TmZV?=
- =?utf-8?Q?tANSVaUNwz/klcZyNqxWLulRbqeVp5us3IIx6?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c031bf4b-038a-4a66-21c7-08ded767133e
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8179.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 11:51:23.9230
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: q/p38NTldhRzO5U+ZmpHhmZfuoRy7DQNy2MSKxGOkAxzXkIcJJ341KjPHXxOQ805XpQ4UY2u0xTQdHRAYDBSCJqtK4K1bFjqw/YlAQFWGpW6rAT+KqQJk+TmzcNnuO2h
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB8012
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-mt8189-dt-bindings-pcie-v1-1-7c7a65087654@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQ6DIBBFr2Jm3UkAjQWv0rgQmNpZgBawMTHev
+ USX7yf/vQMyJaYMQ3NAoh9nXmIF+WjAfaY4E7KvDEqoXjyFxFC01AZ9QcvRc5wzro4JlW6tlcZ
+ 0nXVQ32uiN++X+TXenOi71UC5R7BTJnRLCFyGJtJe8Ir0rYDxPP+iBWvGmgAAAA==
+X-Change-ID: 20260701-mt8189-dt-bindings-pcie-283bb19944bc
+To: Ryder Lee <ryder.lee@mediatek.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Jianjun Wang <jianjun.wang@mediatek.com>
+Cc: kernel@collabora.com, linux-pci@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782919670; l=1302;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=URXsJVFgIXD2Z23IoOR4jzvVp//h7YdO2XrHcOWjOAc=;
+ b=iF4XbkJ8/pfOJLhmuUVbJrDhfjhcrnWXcdvstnVxVsFSpKJpvFlr5KXpIoUyz9wZEUbXqQhjg
+ 4XE2KXBZ5cjBxc3M+jniSD6jhHDfFVNE/YYCDABEL0NrB+5TFvOGuxM
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_125129_984600_8330C8D7 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20260701_082754_451046_1F90A1D5 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,99 +94,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the SIUL2 pinctrl node to describe the additional register
-ranges and DT properties used by the updated SIUL2 driver.
+Add compatible for MT8189 PCIe Gen3 controller, that is compatible with
+the one found MT8192.
 
-Besides the MSCR and IMCR ranges used for pinmux and pin
-configuration, the SIUL2 block also provides PGPDO and
-PGPDI registers for GPIO output and input operations,
-as well as an EIRQ register window for external interrupt configuration.
-
-The driver supports both legacy pinctrl-only DTs and
-extended DTs with GPIO and IRQ.
-
-Reflect these resources in the SIUL2 pinctrl node by adding:
-  - the PGPDO and PGPDI register ranges
-  - the EIRQ register range
-  - gpio-controller, #gpio-cells and gpio-ranges
-  - interrupt-controller, #interrupt-cells and interrupts
-
-Keep the hardware description aligned with the updated SIUL2
-driver, where pinctrl, GPIO data access and the EIRQ register
-block are described under the same device node.
-
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 21 ++++++++++++++++++++-
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 21 ++++++++++++++++++++-
- 2 files changed, 40 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 809019ea0e29..8dc0c5d9f368 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -135,7 +135,26 @@ pinctrl: pinctrl@4009c240 {
- 				/* IMCR119-IMCR397 registers on siul2_1 */
- 			      <0x44010c1c 0x45c>,
- 				/* IMCR430-IMCR495 registers on siul2_1 */
--			      <0x440110f8 0x108>;
-+			      <0x440110f8 0x108>,
-+				/* PGPDO registers on siul2_0 */
-+			      <0x4009d700 0x10>,
-+				/* PGPDI registers on siul2_0 */
-+			      <0x4009d740 0x10>,
-+				/* PGPDO registers on siul2_1 */
-+			      <0x44011700 0x18>,
-+				/* PGPDI registers on siul2_1 */
-+			      <0x44011740 0x18>,
-+				/* EIRQ window: DISR0..IFEER0 */
-+			      <0x44010010 0x34>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&pinctrl 0 0 102>,
-+					<&pinctrl 112 112 79>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
- 
- 			jtag_pins: jtag-pins {
- 				jtag-grp0 {
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index 22e80fc03f9c..129d6ad8e5c6 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -193,7 +193,26 @@ pinctrl: pinctrl@4009c240 {
- 				/* IMCR119-IMCR397 registers on siul2_1 */
- 			      <0x44010c1c 0x45c>,
- 				/* IMCR430-IMCR495 registers on siul2_1 */
--			      <0x440110f8 0x108>;
-+			      <0x440110f8 0x108>,
-+				/* PGPDO registers on siul2_0 */
-+			      <0x4009d700 0x10>,
-+				/* PGPDI registers on siul2_0 */
-+			      <0x4009d740 0x10>,
-+				/* PGPDO registers on siul2_1 */
-+			      <0x44011700 0x18>,
-+				/* PGPDI registers on siul2_1 */
-+			      <0x44011740 0x18>,
-+				/* EIRQ window: DISR0..IFEER0 */
-+			      <0x44010010 0x34>;
-+
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			gpio-ranges = <&pinctrl 0 0 102>,
-+					<&pinctrl 112 112 79>;
-+
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			interrupts = <GIC_SPI 210 IRQ_TYPE_LEVEL_HIGH>;
- 
- 			jtag_pins: jtag-pins {
- 				jtag-grp0 {
+diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+index 4db700fc36ba..fbc0378392d4 100644
+--- a/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
++++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml
+@@ -51,6 +51,7 @@ properties:
+               - mediatek,mt7981-pcie
+               - mediatek,mt7986-pcie
+               - mediatek,mt8188-pcie
++              - mediatek,mt8189-pcie
+               - mediatek,mt8195-pcie
+           - const: mediatek,mt8192-pcie
+       - items:
+@@ -193,6 +194,7 @@ allOf:
+           contains:
+             enum:
+               - mediatek,mt8188-pcie
++              - mediatek,mt8189-pcie
+               - mediatek,mt8195-pcie
+     then:
+       properties:
+
+---
+base-commit: ba7c57499e5999aeae8dd4f954eb2600589d80aa
+change-id: 20260701-mt8189-dt-bindings-pcie-283bb19944bc
+
+Best regards,
 -- 
-2.34.1
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
