@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB2BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 09:00:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E4CC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 09:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IILEoiVbjF29U2QWGQolzOtYw8B8ZOuiJ9wWV3+dcLo=; b=ouBJfIOUEqrK9k5nIBl9sUNz9k
-	eLfs7pYr9E6EO5g3PALZB8x0Ji2wvd7vMvWEhAlUX3Wx/cMkzFU257XwaOHsJqTQhP+0aIMYO6vDo
-	p2zVWAzdt5hf7HTnkUfLestD9HKEWe9wq5Tvt9zQMgqnKnlztXdOlL3/r8RJseltJQCEcK2vcoKAE
-	PaEKgYl7AX1G+XR70Jl73WKxnKa/s1ILhyUlfVRTyaUIdQJZCKbsid72hPbhejew3W2Ut56DQHhZe
-	VyznA3mOikm49wt/ZUMdJ6DHY8fA8m3bn0I38NeYSU9FBooQeCPeIr9wvdZxxQgTxbr4wuwGP6vgJ
-	OIrUGdAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G2El0M6am4JsL+bEkXw1yoY8gU7i68pwJgBLwsg6xg4=; b=zqQK1g6+cLae1HHRKXmGnpRiSN
+	bEqSE1ES19DRq+vEFTz/ZPXEfFTkbvdAUXYMVh/MI4A9Zd0xdmsEtcZIi2Vs0766hm8lrnkELN1En
+	9fjHjOk8xt36HpSQyJi31ZlhA+Zwvh64q6t9ZHH1frC5ewfkVykWsDVO6qy6/bd+iMYRCcLUBScfD
+	DCqxIwSCgdkpZZWUXCvzb3hUkljnzbGVyBvCvPEhyQGgt6tPBXrDC+C8JFyxqzVRLPEOxF3XUSVWG
+	SypXidQ6V2KurlVtLJkMyPAF7fax7O6dinQIMfG0tVRZOkn6DvP+L/O0BH6vsdGqmtFE0Svg0/nw5
+	Fhbxpcew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZkX-00000006QdF-3ASP;
-	Fri, 03 Jul 2026 08:59:53 +0000
+	id 1wfZlc-00000006QlK-4AwF;
+	Fri, 03 Jul 2026 09:01:00 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZkU-00000006Qct-3COz
+	id 1wfZla-00000006QkS-1qne
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:59:52 +0000
+	Fri, 03 Jul 2026 09:00:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E91001684;
-	Fri,  3 Jul 2026 01:59:43 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DADDB3F905;
-	Fri,  3 Jul 2026 01:59:46 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 84C9B1684;
+	Fri,  3 Jul 2026 02:00:52 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.73.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58C973F905;
+	Fri,  3 Jul 2026 02:00:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783069188; bh=ArxNuhsV39DcuOHPL8HguLPPdxicz93aKTFRes9110A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JHhH5n1Jsgre31CxsoUhig0gdvKRnUF1wE11oMoxGleTt/bYr2cYdcNL4YkNqqXqa
-	 VxVbMJ+NnGsJuErudYorxueu1o93h/sUaAZCj4ladyiVYxFOIKgR8HCkrqaNVLXigx
-	 n3Jtr+oMjEZrbJ5cnoc5WHZhJgFnNyMMNFdjzYzQ=
-Date: Fri, 3 Jul 2026 09:59:40 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Russell King <linux@armlinux.org.uk>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Kees Cook <kees@kernel.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, slipher <slipher@protonmail.com>
-Subject: Re: [PATCH v2] RFC: ARM: breakpoint: CFI breakpoints only on demand
-Message-ID: <akd5_G5oA2dxdg89@J2N7QTR9R3>
-References: <20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org>
+	t=1783069256; bh=FaTU6ZiyPyiPxJG4iwJWWSF1yEgoyNUyWDD0Eltw0Nc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lN7tnWTipISpo9m4CaYXRl0gVWPXXDKsf7gAD4vvvnJ/Z4/jkg6moMIhL/WWyqExu
+	 2p0O7hjGjA1NK3XdyTd7HNkneZ+hFShU5sf2L4PtUuBSxpMvEhQkIsRe2eKcPosD3T
+	 O+0OMCcSvHl2wEQqYAMeWyW7RCewAh8P1/gyzpJw=
+Message-ID: <fa9440a9-cfbe-4eef-a255-a4aed196640e@arm.com>
+Date: Wed, 1 Jul 2026 21:19:28 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 07/15] arm_mpam: propagate MSC read errors for state
+ saving functions
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-8-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260702162229.4008659-8-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_015950_904340_A8A8E5B0 
-X-CRM114-Status: GOOD (  34.48  )
+X-CRM114-CacheID: sfid-20260703_020058_572566_E5D5A2FF 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,97 +82,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 09:11:54AM +0200, Linus Walleij wrote:
-> This removes the stub hw_breakpoint_cfi_handler() from ARM, making
-> it not steal breakpoint type 0x03 (ARM_ENTRY_CFI_BREAKPOINT) unless
-> CFI is actively used in the kernel.
+Hi Andre,
+
+On 7/2/26 17:22, Andre Przywara wrote:
+> Allow the mpam_save_mbwu_state() function to return an error, and
+> propagate read errors from the lower level up.
 > 
-> When not instrumenting with CFI, we fall through to return 1 from
-> hw_breakpoint_pending() "unhandled fault" so userspace can make use
-> of this breakpoint.
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  drivers/resctrl/mpam_devices.c | 47 +++++++++++++++++++++-------------
+>  1 file changed, 29 insertions(+), 18 deletions(-)
 > 
-> This of course does not work if userspace want to use CFI and custom
-> breakpoints at the same time, and CONFIG_CFI does exist as something
-> users might want to select for their kernel.
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index d18c7be86aaa..c50ca0e4f426 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -1773,6 +1773,7 @@ static int mpam_save_mbwu_state(void *arg)
+>  {
+>  	int i;
+>  	u64 val;
+> +	int ret;
+>  	struct mon_cfg *cfg;
+>  	u32 cur_flt, cur_ctl, mon_sel;
+>  	struct mpam_msc_ris *ris = arg;
+> @@ -1789,31 +1790,41 @@ static int mpam_save_mbwu_state(void *arg)
+>  		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
+>  			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
+>  		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
+> -		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+> -		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+> -		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+> +		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
+> +		if (!ret)
+> +			ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
+> +		if (!ret)
+> +			mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+>  
+> -		if (mpam_ris_has_mbwu_long_counter(ris)) {
+> -			val = mpam_msc_read_mbwu_l(msc);
+> -			mpam_msc_zero_mbwu_l(msc);
+> -		} else {
+> -			u32 val32;
+> +		if (!ret) {
+> +			if (mpam_ris_has_mbwu_long_counter(ris)) {
+> +				val = mpam_msc_read_mbwu_l(msc);
+> +				mpam_msc_zero_mbwu_l(msc);
+> +			} else {
+> +				u32 val32;
+>  
+> -			mpam_read_monsel_reg(msc, MBWU, &val32);
+> -			val = val32;
+> -			mpam_write_monsel_reg(msc, MBWU, 0);
+> +				ret = mpam_read_monsel_reg(msc, MBWU, &val32);
+> +				if (!ret) {
+> +					val = val32;
+> +					mpam_write_monsel_reg(msc, MBWU, 0);
+> +				}
+> +			}
+>  		}
+>  
+> -		cfg->mon = i;
+> -		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+> -		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+> -		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+> -		mbwu_state->correction += val;
+> -		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+> +		if (!ret && val != MSMON___L_NRDY) {
+> +			cfg->mon = i;
+> +			cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
+> +			cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
+> +			cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
+> +			mbwu_state->correction += val;
+> +			mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+> +		}
+>  		mpam_mon_sel_unlock(msc);
+> +		if (ret)
+> +			break;
 
-I don't follow this part. CONFIG_CFI is for the kernel; it has nothing
-to do with what userspace wnats to do.
+There is a lot of if(!ret) in this loop. Does it not end up cleaner to
+add an out_unlock label after the loop and jump to that in the failure
+cases?
 
-AFAICT, when the kernel is built with CONFIG_CFI, if userspace uses BKPT
-at all, for any reason, it can cause the kernel to die().
+Thanks,
 
-> If this is not good acceptable we need to think about other ways for
-> CFI to interfer, such as not using BKPT at all (rather something like
-> BUG()) and back out the offending patch until the compiler behaviour
-> has changed.
+Ben
 
-See comments below.
-
-> Fixes: c3f89986fde7 ("ARM: 9391/2: hw_breakpoint: Handle CFI breakpoints")
-> Reported-by: slipher <slipher@protonmail.com>
-> Closes: https://lore.kernel.org/lkml/kJqktbpLphg_Pk5I5SPptgTLjl3E3eq5mN5UzCslyFj7Q1Irp-wDid4mj5eQVd2iZtRGXgeZd8goq195EkXdjyt864YMc8mVb2B9NGH91NQ=@protonmail.com/
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
-> ---
-> Trying to solve the CFI bug. Let's see of this first
-> approach is acceptable for the reporter.
-> ---
-> Changes in v2:
-> - Resending as non-RFC so it can be applied as a band-aid.
-> - Link to v1: https://patch.msgid.link/20260626-arm32-cfi-bug-v1-1-a467b5050c0b@kernel.org
-> ---
->  arch/arm/kernel/hw_breakpoint.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm/kernel/hw_breakpoint.c b/arch/arm/kernel/hw_breakpoint.c
-> index cd4b34c96e35..007023db6a5d 100644
-> --- a/arch/arm/kernel/hw_breakpoint.c
-> +++ b/arch/arm/kernel/hw_breakpoint.c
-> @@ -929,10 +929,6 @@ static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
->  		break;
 >  	}
+>  
+> -	return 0;
+> +	return ret;
 >  }
-> -#else
-> -static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
-> -{
-> -}
->  #endif
 >  
 >  /*
-> @@ -964,9 +960,11 @@ static int hw_breakpoint_pending(unsigned long addr, unsigned int fsr,
->  	case ARM_ENTRY_SYNC_WATCHPOINT:
->  		watchpoint_handler(addr, fsr, regs);
->  		break;
-> +#ifdef CONFIG_CFI
->  	case ARM_ENTRY_CFI_BREAKPOINT:
->  		hw_breakpoint_cfi_handler(regs);
->  		break;
-> +#endif
 
-AFAICT, hw_breakpoint_cfi_handler() is only intended to handle
-BKPT instructions executed in kernel mode, and even when the kernel is
-build with CF support, it doesn't make sense to call that for BKPT
-instructions executed in user mode.
-
-On arm64, we have separate paths for BRK exceptions from user mode
-(do_el0_brk64()) and kernel mode (do_el1_brk64()).
-
-Surely you can check kernel_mode(regs) or user_mode(regs) to distinguish
-the two cases, and only call hw_breakpoint_cfi_handler() when the
-exception was taken from kernel mode?
-
-Mark.
-
->  	default:
->  		ret = 1; /* Unhandled fault. */
->  	}
-> 
-> ---
-> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-> change-id: 20260626-arm32-cfi-bug-10fb960749c4
-> 
-> Best regards,
-> --  
-> Linus Walleij <linusw@kernel.org>
-> 
-> 
 
