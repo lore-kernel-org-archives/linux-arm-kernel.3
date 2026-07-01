@@ -4,83 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9D1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:58:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DABFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ePmFTt3rstOx1IVudF2odVlsiK0au8knUpVzH4WAluw=; b=PP6abN+QRe9267NyrkzqsjHtvr
-	jIWTh29aBbKjYxtuUMxsHX2cLQw2MjjezbHlsDrzsV5Y6Kf2dLY25eo7Z10+QbgIauGmNUvdN6gws
-	gjU4qza2U+iaoTKLOHt9nvPegdw3QzOPnoElCJjx1Cv8Cqz5wvKePblNXWKAfVXxPq8vScGEZZ0wc
-	VFavcbH6jEdxZ67tGbTtvE7OOqmN9BqjYd9XXcEfilqdWiPOOHbKMMWEFjg8GyJMDuBua2LZsVYgC
-	g5pgch9jGDx1TtN+fQhRYGUKYaib1YDlbhdi5bcNoq+RqnB4y2/yhGjwhtlpYLIutsquH7Aclz2Ds
-	3ZTaOmeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bQAGkfEN6RTz/PTUbnee2qFXHjroDRm351sKXfw+Z54=; b=g9DlysWwDFmyQaPZycqTU5lKGf
+	pixq5ergA/yU2UnzzyWfRFTwz6QxEkNNAjCIq3msVFF6Kjk4hH4F92uj0HkBr1wb11l45wmKyxb6Q
+	7J3CZ3sVYIpthUzGxf8DWEKEoixprOC/Gx1U7l04Y3HLguJJfvOhrQ/U72c0iR7e45L0M3mvJ8lLa
+	ckl9a8siZvHcUCvGglkdYZqhkv7BO/d1KIevrvqxi/YL3ovnkCezeBJZ/Qcq6EMnq8cy8nGwORAc5
+	Sxo4bFy6sRMJpaS2YNaxss7F6L93nUCmfPHt37Uy2yqQZSaGAxJsjKtBFP5G2QCH0jgt4JHvXqAJW
+	yJEEFJ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevSS-00000002EHN-03lB;
-	Wed, 01 Jul 2026 13:58:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wetvZ-00000001rdo-2fcn;
+	Wed, 01 Jul 2026 12:20:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevSQ-00000002EHE-2eup
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 13:58:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2ACBE406C1;
-	Wed,  1 Jul 2026 13:58:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E8901F00A3A;
-	Wed,  1 Jul 2026 13:58:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782914310;
-	bh=ePmFTt3rstOx1IVudF2odVlsiK0au8knUpVzH4WAluw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fM7XqVQdKtVW76vvm37/QxzvdOzywI+FgauHtn1ml/ste9Tta4xmD/sojvqEVF6lP
-	 FsaN/f3l00uZ6iguLU/zMXTZvDGmS8i/zcGutFF1s/24xfiXPONa2NNiQ+yYYvoiaO
-	 VHcayZERLltwtW0zJ25kGhpfwwQAXfxc1+6wUDHD6vHypyoubtx8PEshKPEPfBrWi6
-	 sD85cR8B9G1zXW3XgN11UyLjtl6qKDonm9IUcJMY74lTzNXFt0VMTsExU2iJB+QNxJ
-	 Nly6uqW4WAFvE5ybUXRWv7nyWDsF7lmUP9+lnKZve63mQrmBI+whbx5P4udDFdceoU
-	 cUqGl1joP0Nkw==
-Date: Wed, 1 Jul 2026 15:58:21 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Gavin Shan <gshan@redhat.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
-	Lorenzo.Pieralisi2@arm.com
-Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
-Message-ID: <akUc/ScJN0GlM+9G@lpieralisi>
-References: <aiJ6u83O0nVUtPyv@lpieralisi>
- <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
- <aiLes2ecZSr17UwZ@lpieralisi>
- <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
- <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
- <8da87878-2a5d-478a-a280-60dbed7ad1b9@redhat.com>
- <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
- <8f81ed99-c53a-4196-baa2-adea9239a000@redhat.com>
- <aj6sdzlbxT8D5fnf@lpieralisi>
- <901398bb-ed6c-4997-b3cd-ce2829b09c87@redhat.com>
+	id 1wetvU-00000001rLc-20Yo;
+	Wed, 01 Jul 2026 12:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=bQAGkfEN6RTz/PTUbnee2qFXHjroDRm351sKXfw+Z54=; b=bLQ3EcyRbh4RlnB8tLvptVQ/YL
+	sRa1oCSObYDJwwXkOvUb5Q0D8OcnhgfK/87lGoN6y9NY66PgYW2e0DE7dgeGH2hQHnte8gY2J0De1
+	vOPX5mvenn81wm3wW6HReX4aNF9wFsielG8F1tMCbVMkOrOpGqKoLVNyVhuxtCr1Rt01okOH2RTqt
+	c1a/1PDYsvFrl4RyDfFurUkBe85Z3qrrLyVk0GcgO00U73kZfcWaDFz48yQqs0Bf4a1uRDAXmDQhX
+	HWXf9SSqjWtbQHjt8w8n8P6dc5rixNeUjZcByzXTclK+/k/Dmoo/vaPteDTaV3QLqGV6toKAqRG+6
+	5YYs5rgg==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetvP-00000002jDi-1gdW;
+	Wed, 01 Jul 2026 12:20:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908418;
+	bh=YWDC62tARH/Sx8HhgrilqmNvsshH1pwlK8X7yKp8Do0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kDReD4Oy7VEs1VthBIYyllvKpZjMNbTLVBG6tIQKPG+hLy1K5LwihFfVcsNm0IgDg
+	 MgTIjkENM5Vb+o0iOusqNlZlWItRFG+FlyrknE5Jov3cTfqpsuXF1aWYdlcjVoNs43
+	 Yaus7xegko9UeH7YZfAfHdo1OvVdWqhMF1R20QR71x8tQ8pX5UFMKi5KlA5MpkEyMj
+	 1APQkmBm4V+SYxI/69KPNg3Hv5snhnjN68xeQA70k6IfPdCWiCsn5xbK8l6NmYRTWB
+	 +uulJJwLdtQ9/biKTIx4hmtiENBmA+ld0FOf0xL/xu/LWStzUc7oTF1h89kCIP4cri
+	 6TTDlv7o3FMDg==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 80BA717E15A5;
+	Wed,  1 Jul 2026 14:20:17 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunfeng.yun@mediatek.com
+Cc: vkoul@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	justin.yeh@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	kernel@collabora.com
+Subject: [PATCH 08/12] phy: phy-mtk-dp: Add support for digital and analog calibration
+Date: Wed,  1 Jul 2026 14:20:04 +0200
+Message-ID: <20260701122008.19509-9-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <901398bb-ed6c-4997-b3cd-ce2829b09c87@redhat.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_132019_598640_A0A3B9AB 
+X-CRM114-Status: GOOD (  26.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,156 +101,467 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 28, 2026 at 08:33:01PM +1000, Gavin Shan wrote:
-> On 6/27/26 2:44 AM, Lorenzo Pieralisi wrote:
-> > On Fri, Jun 26, 2026 at 09:43:03PM +1000, Gavin Shan wrote:
-> > > On 6/26/26 6:47 PM, Suzuki K Poulose wrote:
-> > > > On 26/06/2026 08:43, Gavin Shan wrote:
-> > > > > On 6/26/26 1:58 AM, Suzuki K Poulose wrote:
-> > > > > > On 25/06/2026 14:53, Gavin Shan wrote:
-> > > > > > > On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
-> > > > > > > > On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
-> > > > > > > > > On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
-> > > > > > > > > > On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
-> > > > > 
-> > > > > [...]
-> > > > > 
-> > > > > > > > > 
-> > > > > > > > > I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, and found
-> > > > > > > > > that memory slots backed by THP are broken. With THP disabled on the host and
-> > > > > > > > > other fixes (mentioned in my prevous replies) applied on the top of this (v14)
-> > > > > > > > > series, I'm able to boot a realm guest with rebased QEMU series [2], plus more
-> > > > > > > > > fxies on the top.
-> > > > > > > > > 
-> > > > > > > > > [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ latest)
-> > > > > > > > > [2] https://git.qemu.org/git/qemu.git                (branch: cca/ gavin)
-> > > > > > > > > 
-> > > > > > > > > Lorenzo, You may be saying there is someone making QEMU to support ARM/CCA?
-> > > > > > > > 
-> > > > > > > > Mathieu and I are working on that yes and with Steven/Suzuki to fix the THP
-> > > > > > > > issues you pointed out above.
-> > > > > > > > 
-> > > > > > > > > If so, I'm not sure if there is a QEMU repository for me to try?
-> > > > > > > > 
-> > > > > > > > We should be able to submit patches by end of June - we shall let you know
-> > > > > > > > whether we can make something available earlier.
-> > > > > > > > 
-> > > > > > > 
-> > > > > > > Not sure if there are other known issues in this series. It seems the stage2
-> > > > > > > page fault handling on the shared space isn't working well. In my test, the
-> > > > > > > vring (struct vring_desc) of virtio-net-pci is updated by the guest, and the
-> > > > > > > data isn't seen by QEMU, I'm suspecting if the host-page-frame-number is properly
-> > > > > > > resolved in the s2 page fault handler for shared (unprotected) space.
-> > > > > > > 
-> > > > > > > - I rebased Jean's latest qemu branch to the upstream qemu;
-> > > > > > > 
-> > > > > > > - On the host, which is emulated by qemu/tcg, the THP (transparent huge page) is
-> > > > > > >     disabled.
-> > > > > > > 
-> > > > > > > - On the guest, I can see the virtio vring (struct vring_desc) is updated. The
-> > > > > > >     S1 page-table entry looks correct because the corresponding physical address
-> > > > > > >     0x10046880000 is a sane shared (unprotected) space address.
-> > > > > > > 
-> > > > > > >     [   52.094143] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
-> > > > > > >     [   52.289746] virtqueue_add_desc_split: desc[0]@0xffff000006880000, [00000100b983f000  00000640  0002  0001]
-> > > > > > >     [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
-> > > > > > > 
-> > > > > > > - On the host, the s2 page-table-entry is unmapped due to attribute transition (private -> shared).
-> > > > > > >     A subsequent S2 page fault is raised against the adress and the s2 page-table-entry is built.
-> > > > > > > 
-> > > > > > >     [  109.259077] ====> realm_unmap_shared_range: tracked_unprot_addr=0x10046880000
-> > > > > > >     [  109.260249] realm_unmap_shared_range: unmapped shared range at 0x10046880000
-> > > > > > >     [  109.317786] realm_unmap_shared_range: unmapped shared range at 0x10046880000
-> > > > > > >     [  109.629939] ====> kvm_handle_guest_abort: fault_ipa=0x10046880000, esr=0x92000007
-> > > > > > >     [  109.630245] realm_map_non_secure: ipa=0x10046880000, pfn=0xb8b59, size=0x1000, prot=0xf
-> > > > > > >     [  109.630331] realm_map_non_secure: ipa=0x10046880000, ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
-> > > > > > 
-> > > > > > Are you able to correlate the order of the transitions and the Guest
-> > > > > > access with RMM log ? We haven't seen this from our end. We are aware
-> > > > > > of permission fault issues with Unprotected IPA when backing the memslot
-> > > > > > with MAP_PRIVATE areas. But this looks different.
-> > > > > > 
-> > > > > > Lorenzo, have you run into this ?
-> > > > > > 
-> > > > > 
-> > > > > It's hard to correlate the order since the logs are collected from two separate
-> > > > > consoles. For the write permission, I add code to the host where the permission
-> > > > > is always added for all s2 page faults in the shared space. Otherwise, qemu can
-> > > > > be killed by -EFAULT or similar error.
-> > > > 
-> > > > This is the problem. We can't add WRITE permission by default. I believe
-> > > > you may have MAP_PRIVATE mapping and it has to be mapped as READ only
-> > > > and on a permission fault, we replace it with a writable page. By
-> > > > overriding the WRITE permission, you let the guest write to a page
-> > > > that may not be seen by the VMM.
-> > > > 
-> > > > We identified this as a bug in the KVM driver in this series (reported
-> > > > by Lorenzo) and there is a corresponding tf-RMM change that is required
-> > > > to get this working. So, please could you wait until the next series
-> > > > when this will be addressed ? Or you could switch to using MAP_SHARED
-> > > > for the "shared" memory in the memslot.
-> > > > 
-> > > 
-> > > Exactly. the syntax for MAP_PRIVATE is broken if the write permission is
-> > > enforced for a read fault in the shared space. In my case, the host page can
-> > > be the zero page and eventually multiple s2 page-table entries (for multiple
-> > > unprotected or shared pages) point to the zero page. It's why clearing the
-> > > 3rd queue (Ctrl queue) also clears the first queue (Rx queue) in my case.
-> > > 
-> > > Yes, this issue can be avoid by using a shared memory backend in qemu, something
-> > > like below. With this, I'm able to see virtio-net-pci starts to work...
-> > > 
-> > >      -object memory-backend-ram,id=mem0,size=2G,share=yes
-> > 
-> > Yes, as Suzuki said that's what we have been fixing. QEmu patches
-> > will be on the mailing lists very shortly - the KVM/tf-RMM fixes
-> > to make MAP_PRIVATE work will be included in the next posting.
-> > 
-> > Feel free to drop your QEmu command line so that I can give it
-> > a shot and check whether the fixes solve the problem you hit
-> > (I think so because that's precisely the kind of issue I got
-> > into when I started debugging THP/MAP_PRIVATE but it is better
-> > to check).
-> > 
-> 
-> The virtio-net-pci doesn't work with the following command lines. The guest
-> kernel image is built from upstream kernel (v7.1.rc7).
-> 
->     qemu-system-aarch64 -enable-kvm -object rme-guest,id=rme0,             \
->     -machine virt,gic-version=3,confidential-guest-support=rme0            \
->     -cpu host,pmu=off                                                      \
->     -smp maxcpus=2,cpus=2,sockets=1,clusters=1,cores=1,threads=2           \
->     -m 2G -object memory-backend-ram,id=mem0,size=2G                       \
->     -numa node,nodeid=0,cpus=0-1,memdev=mem0                               \
->     -serial mon:stdio -monitor none -nographic -nodefaults                 \
->     -kernel /mnt/linux/arch/arm64/boot/Image                               \
->     -initrd /mnt/buildroot/output/images/rootfs.cpio.xz                    \
->     -append earlycon=pl011,mmio,0x10009000000                              \
->     -device pcie-root-port,bus=pcie.0,chassis=1,id=pcie.1                  \
->     -device pcie-root-port,bus=pcie.0,chassis=2,id=pcie.2                  \
->     -device pcie-root-port,bus=pcie.0,chassis=3,id=pcie.3                  \
->     -device pcie-root-port,bus=pcie.0,chassis=4,id=pcie.4                  \
->     -netdev tap,id=tap1,vhost=on,script=/etc/qemu-ifup,downscript=/etc/qemu-ifdown  \
->     -device virtio-net-pci,bus=pcie.2,netdev=tap1,mac=b8:3f:d2:1d:3e:c0
+Add support for reading the calibration values from eFuse: if
+present, write those - otherwise, rely on the defaults from
+SoC-specific data.
+This also adds support for writing the calibration values for
+the analog part of the PHY.
 
-Tested with private RAM backend, THP left enabled (and additional KVM and
-RMM patches that will be included in v15) looks like the net interface
-comes up cleanly.
+Note that before this change, only default hardcoded calibration
+values were supported for the digital driving parameters.
 
-Probably it is best to sync up on the upcoming v15 posting that I am
-testing in the background to make sure you don't spend more time chasing
-it.
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/phy/mediatek/phy-mtk-dp.c | 286 ++++++++++++++++++++++++++++--
+ 1 file changed, 267 insertions(+), 19 deletions(-)
 
-Thanks,
-Lorenzo
+diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
+index 17d871530cca..b1b526ee44eb 100644
+--- a/drivers/phy/mediatek/phy-mtk-dp.c
++++ b/drivers/phy/mediatek/phy-mtk-dp.c
+@@ -13,6 +13,7 @@
+ #include <linux/delay.h>
+ #include <linux/io.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/nvmem-consumer.h>
+ #include <linux/of.h>
+ #include <linux/phy/phy.h>
+ #include <linux/platform_device.h>
+@@ -20,6 +21,19 @@
+ 
+ #define MTK_DP_PHY_MAX_LANES		4
+ 
++/* DP_PHYA_GLB_BIAS_GEN_0 (PHYA - Analog) */
++#define XTP_GLB_BIAS_INT_R_CTRL		GENMASK(20, 16)
++
++/* DP_PHYA_GLB_FORCE_CTRL_1 */
++#define CKM_CKTX0_EN_FORCE_MODE		BIT(10)
++
++/* DP_PHYA_GLB_DPAUX_TX */
++#define CKM_PT0_CKTX_IMPSEL		GENMASK(23, 20)
++
++/* DP_PHYA_LAN_LANE_TX_0 */
++#define XTP_LN_TX_IMPSEL_PMOS		GENMASK(15, 12)
++#define XTP_LN_TX_IMPSEL_NMOS		GENMASK(19, 16)
++
+ /* DP_PHYA_GLB_FORCE_CTRL_1 */
+ #define CKM_CKTX0_EN_FORCE_MODE		BIT(10)
+ 
+@@ -53,11 +67,29 @@
+ #define PHYD_DP_TX_FORCE_VOLT_SWING_VAL	GENMASK(2, 1)
+ #define PHYD_DP_TX_FORCE_PRE_EMPH_VAL	GENMASK(4, 3)
+ 
++/*
++ * DRIVING_PARAM_X (PHYD - Digital)
++ *
++ * Driving param registers are split in three sets, all containing settings
++ * for Voltage Swing and Pre-Emphasis for each lane's differential pair.
++ *
++ * All three sets share the same layout, but for different physical signals;
++ * In particular:
++ * [0-2]: LC TX CM (Minus / Negative Edge)
++ * [3-5]: LC TX C  (Logic State Change Point)
++ * [6-8]: LC TX CP (Plus / Positive Edge)
++ *
++ * And they contain values for:
++ * [0,3,6]: Swing 0 Pre[0-3]
++ * [1,4,7]: Swing 1 Pre[0-2] and Swing 2 Pre0
++ * [2,5,8]: Swing 2 Pre1 and Swing 3 Pre0
++ */
++#define PHYD_DIG_NUM_DRV_PARA_REGS	9
+ #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
+ #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
+ #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
+ #define XTP_LN_TX_LCTXC0_SW0_PRE3_DEFAULT	GENMASK(29, 29)
+-#define DRIVING_PARAM_3_DEFAULT	(XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT | \
++#define MT8195_DRIVING_PARAM_3_DEFAULT	(XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW0_PRE3_DEFAULT)
+@@ -66,21 +98,21 @@
+ #define XTP_LN_TX_LCTXC0_SW1_PRE1_DEFAULT	GENMASK(12, 9)
+ #define XTP_LN_TX_LCTXC0_SW1_PRE2_DEFAULT	(BIT(18) | BIT(21))
+ #define XTP_LN_TX_LCTXC0_SW2_PRE0_DEFAULT	GENMASK(29, 29)
+-#define DRIVING_PARAM_4_DEFAULT	(XTP_LN_TX_LCTXC0_SW1_PRE0_DEFAULT | \
++#define MT8195_DRIVING_PARAM_4_DEFAULT	(XTP_LN_TX_LCTXC0_SW1_PRE0_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW1_PRE1_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW1_PRE2_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW2_PRE0_DEFAULT)
+ 
+ #define XTP_LN_TX_LCTXC0_SW2_PRE1_DEFAULT	(BIT(3) | BIT(5))
+ #define XTP_LN_TX_LCTXC0_SW3_PRE0_DEFAULT	GENMASK(13, 12)
+-#define DRIVING_PARAM_5_DEFAULT	(XTP_LN_TX_LCTXC0_SW2_PRE1_DEFAULT | \
++#define MT8195_DRIVING_PARAM_5_DEFAULT	(XTP_LN_TX_LCTXC0_SW2_PRE1_DEFAULT | \
+ 				 XTP_LN_TX_LCTXC0_SW3_PRE0_DEFAULT)
+ 
+ #define XTP_LN_TX_LCTXCP1_SW0_PRE0_DEFAULT	0
+ #define XTP_LN_TX_LCTXCP1_SW0_PRE1_DEFAULT	GENMASK(10, 10)
+ #define XTP_LN_TX_LCTXCP1_SW0_PRE2_DEFAULT	GENMASK(19, 19)
+ #define XTP_LN_TX_LCTXCP1_SW0_PRE3_DEFAULT	GENMASK(28, 28)
+-#define DRIVING_PARAM_6_DEFAULT	(XTP_LN_TX_LCTXCP1_SW0_PRE0_DEFAULT | \
++#define MT8195_DRIVING_PARAM_6_DEFAULT	(XTP_LN_TX_LCTXCP1_SW0_PRE0_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW0_PRE1_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW0_PRE2_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW0_PRE3_DEFAULT)
+@@ -89,22 +121,30 @@
+ #define XTP_LN_TX_LCTXCP1_SW1_PRE1_DEFAULT	GENMASK(10, 9)
+ #define XTP_LN_TX_LCTXCP1_SW1_PRE2_DEFAULT	GENMASK(19, 18)
+ #define XTP_LN_TX_LCTXCP1_SW2_PRE0_DEFAULT	0
+-#define DRIVING_PARAM_7_DEFAULT	(XTP_LN_TX_LCTXCP1_SW1_PRE0_DEFAULT | \
++#define MT8195_DRIVING_PARAM_7_DEFAULT	(XTP_LN_TX_LCTXCP1_SW1_PRE0_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW1_PRE1_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW1_PRE2_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW2_PRE0_DEFAULT)
+ 
+ #define XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT	GENMASK(3, 3)
+ #define XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT	0
+-#define DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
++#define MT8195_DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
+ 				 XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT)
+ 
+ enum mtk_dp_phya_ana_glb_regidx {
++	DP_PHYA_GLB_BIAS_GEN_0,
++	DP_PHYA_GLB_BIAS_GEN_1,
++	DP_PHYA_GLB_DPAUX_TX,
+ 	DP_PHYA_GLB_FORCE_CTRL_0,
+ 	DP_PHYA_GLB_FORCE_CTRL_1,
+ 	DP_PHYA_GLOBAL_MAX
+ };
+ 
++enum mtk_dp_phya_ana_lane_regidx {
++	DP_PHYA_LAN_LANE_TX_0,
++	DP_PHYA_LAN_MAX
++};
++
+ enum mtk_dp_phyd_dig_lane_regidx {
+ 	DP_PHYD_LAN_DRIVING_FORCE,
+ 	DP_PHYD_LAN_DRIVING_PARAM_0,
+@@ -122,10 +162,17 @@ enum mtk_dp_phyd_dig_glb_regidx {
+ };
+ 
+ static const u8 mt8195_phy_ana_glb_regs[DP_PHYA_GLOBAL_MAX] = {
++	[DP_PHYA_GLB_BIAS_GEN_0] = 0x0,
++	[DP_PHYA_GLB_BIAS_GEN_1] = 0x4,
++	[DP_PHYA_GLB_DPAUX_TX] = 0x8,
+ 	[DP_PHYA_GLB_FORCE_CTRL_0] = 0x30,
+ 	[DP_PHYA_GLB_FORCE_CTRL_1] = 0x34,
+ };
+ 
++static const u8 mt8195_phy_ana_lane_regs[DP_PHYA_LAN_MAX] = {
++	[DP_PHYA_LAN_LANE_TX_0] = 0x4,
++};
++
+ static const u8 mt8195_phy_dig_lane_regs[DP_PHYD_LAN_MAX] = {
+ 	[DP_PHYD_LAN_DRIVING_FORCE] = 0x18,
+ 	[DP_PHYD_LAN_DRIVING_PARAM_0] = 0x2c,
+@@ -140,46 +187,100 @@ static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
+ 	[DP_PHYD_TX_CTL_0] = 0x44,
+ };
+ 
++/**
++ * struct mtk_dp_phya_imp_sel - Per-Lane Impedance Selection
++ * @pmos: Impedance selection for P-Channel MOSFET
++ * @nmos: Impedance selection for N-Channel MOSFET
++ */
++struct mtk_dp_phya_imp_sel {
++	u8 pmos : 4;
++	u8 nmos : 4;
++};
++
+ /**
+  * struct mtk_dp_phy_pdata - Platform data and defaults for MediaTek DP/eDP PHY
+  * @off_ana_glb:    Base offset for dptx_phyd_sifslv_ana_glb
++ * @off_ana_lane:   Base offsets for dptx_phyd_sifslv_ana_lan (for each lane)
+  * @off_dig_glb:    Base offset for dptx_phyd_sifslv_dig_glb
+  * @off_dig_lane:   Base offsets for dptx_phyd_sifslv_dig_lan (for each lane)
+  * @regs_ana_glb:   Register (layout) offsets for ana_glb
++ * @regs_ana_lane:  Register (layout) offsets for ana_lan
+  * @regs_dig_glb:   Register (layout) offsets for dig_glb
+  * @regs_dig_lane:  Register (layout) offsets for dig_lan
++ * @ana_bias_r:     Internal resistance "R" Selection Settings (global)
++ * @ana_cktx_imp:   TX Clock Impedance Selection Settings (global)
++ * @ana_lanes_imp:  TX Impedance Selection Settings (for all lanes)
++ * @driving_params: Voltage Swing and Pre-Emphasis settings (for all lanes)
+  */
+ struct mtk_dp_phy_pdata {
+ 	/* Register offsets */
+ 	u16 off_ana_glb;
++	u16 off_ana_lane[MTK_DP_PHY_MAX_LANES];
+ 	u16 off_dig_glb;
+ 	u16 off_dig_lane[MTK_DP_PHY_MAX_LANES];
+ 
+ 	/* Register maps */
+ 	const u8 *regs_ana_glb;
++	const u8 *regs_ana_lane;
+ 	const u8 *regs_dig_glb;
+ 	const u8 *regs_dig_lane;
++
++	/* Calibration defaults */
++	u8 ana_bias_r;
++	u8 ana_cktx_imp;
++	struct mtk_dp_phya_imp_sel ana_lanes_imp;
++	u32 driving_params[PHYD_DIG_NUM_DRV_PARA_REGS];
+ };
+ 
+ struct mtk_dp_phy {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+ 	const struct mtk_dp_phy_pdata *pdata;
++
++	u8 ana_bias_r;
++	u8 ana_cktx_imp;
++	struct mtk_dp_phya_imp_sel ana_impsel[MTK_DP_PHY_MAX_LANES];
++	bool efuse_cal_present;
+ };
+ 
+-static int mtk_dp_phy_init(struct phy *phy)
++static int mtk_dp_phy_set_analog_calibration_params(struct mtk_dp_phy *dp_phy)
++{
++	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
++	const u8 *regs_ana_glb = pdata->regs_ana_glb;
++	const u8 *regs_ana_lane = pdata->regs_ana_lane;
++	int i, ret;
++
++	ret = regmap_update_bits(dp_phy->regmap,
++				 pdata->off_ana_glb + regs_ana_glb[DP_PHYA_GLB_BIAS_GEN_0],
++				 XTP_GLB_BIAS_INT_R_CTRL, pdata->ana_bias_r);
++	if (ret)
++		return ret;
++
++	ret = regmap_update_bits(dp_phy->regmap,
++				 pdata->off_ana_glb + regs_ana_glb[DP_PHYA_GLB_DPAUX_TX],
++				 CKM_PT0_CKTX_IMPSEL, pdata->ana_cktx_imp);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
++		struct mtk_dp_phya_imp_sel *ana_imp = &dp_phy->ana_impsel[i];
++		u32 val = FIELD_PREP(XTP_LN_TX_IMPSEL_PMOS, ana_imp->pmos) |
++			  FIELD_PREP(XTP_LN_TX_IMPSEL_NMOS, ana_imp->nmos);
++		u32 off_ana_lane = pdata->off_ana_lane[i];
++
++		ret = regmap_update_bits(dp_phy->regmap,
++					 off_ana_lane + regs_ana_lane[DP_PHYA_LAN_LANE_TX_0],
++					 XTP_LN_TX_IMPSEL_PMOS | XTP_LN_TX_IMPSEL_NMOS, val);
++		if (ret)
++			return ret;
++	}
++	return 0;
++}
++
++static int mtk_dp_phy_set_digital_drv_params(struct mtk_dp_phy *dp_phy)
+ {
+-	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
+ 	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
+ 	const u32 reg = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_PARAM_0];
+-	static const u32 driving_params[] = {
+-		DRIVING_PARAM_3_DEFAULT,
+-		DRIVING_PARAM_4_DEFAULT,
+-		DRIVING_PARAM_5_DEFAULT,
+-		DRIVING_PARAM_6_DEFAULT,
+-		DRIVING_PARAM_7_DEFAULT,
+-		DRIVING_PARAM_8_DEFAULT
+-	};
+ 	int i, ret;
+ 
+ 	/*
+@@ -190,11 +291,31 @@ static int mtk_dp_phy_init(struct phy *phy)
+ 	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
+ 		ret = regmap_bulk_write(dp_phy->regmap,
+ 					pdata->off_dig_lane[i] + reg,
+-					driving_params,
+-					ARRAY_SIZE(driving_params));
++					pdata->driving_params,
++					ARRAY_SIZE(pdata->driving_params));
+ 		if (ret)
+ 			return ret;
+ 	};
++	return 0;
++}
++
++static int mtk_dp_phy_init(struct phy *phy)
++{
++	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
++	struct device *dev = &phy->dev;
++	int ret;
++
++	ret = mtk_dp_phy_set_digital_drv_params(dp_phy);
++	if (ret) {
++		dev_err(dev, "Cannot set driving params\n");
++		return ret;
++	}
++
++	ret = mtk_dp_phy_set_analog_calibration_params(dp_phy);
++	if (ret) {
++		dev_err(dev, "Cannot set analog calibration\n");
++		return ret;
++	}
+ 
+ 	return 0;
+ }
+@@ -396,6 +517,109 @@ static const struct phy_ops mtk_dp_phy_dev_ops = {
+ 	.owner = THIS_MODULE,
+ };
+ 
++static void mtk_dp_phy_get_default_cal_data(struct mtk_dp_phy *dp_phy)
++{
++	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
++	int i;
++
++	dp_phy->ana_bias_r = pdata->ana_bias_r;
++	dp_phy->ana_cktx_imp = pdata->ana_cktx_imp;
++
++	/* Copy the default lane impedance settings to all lanes */
++	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++)
++		memcpy(&dp_phy->ana_impsel[i], &pdata->ana_lanes_imp,
++		       sizeof(dp_phy->ana_impsel[0]));
++
++	return;
++}
++
++static int mtk_dp_phy_get_one_cal_para(struct device *dev, const char *name, u8 max_val)
++{
++	u16 buf = 0;
++	int ret;
++
++	/*
++	 * All of the calibrations are always max 8 bits long, but some may
++	 * be split between two different 8-bits cells: handle this corner
++	 * case by retrying reading as u16.
++	 */
++	ret = nvmem_cell_read_u8(dev, name, (u8 *)&buf);
++	if (ret)
++		ret = nvmem_cell_read_u16(dev, name, &buf);
++
++	if (ret) {
++		dev_err(dev, "Cannot get calibration data for %s: %d\n", name, ret);
++		return ret;
++	};
++
++	if (buf == 0) {
++		dev_warn(dev, "No calibration for %s. Using defaults\n", name);
++		return -ENOENT;
++	}
++
++	if (buf > max_val) {
++		dev_err(dev, "Bad value %u retrieved for %s. Returning.\n", buf, name);
++		return -ERANGE;
++	};
++
++	return buf;
++}
++
++static int mtk_dp_phy_get_calibration_data(struct mtk_dp_phy *dp_phy)
++{
++	char mtk_dp_cal_lane_imp_name[] = "impedance-laneXM";
++	struct device *dev = dp_phy->dev;
++	int i, ret;
++
++	ret = mtk_dp_phy_get_one_cal_para(dev, "rbias-trim", FIELD_MAX(XTP_GLB_BIAS_INT_R_CTRL));
++	if (ret < 0)
++		goto end;
++	dp_phy->ana_bias_r = ret;
++
++	ret = mtk_dp_phy_get_one_cal_para(dev, "impedance-txclk", FIELD_MAX(CKM_PT0_CKTX_IMPSEL));
++	if (ret < 0)
++		goto end;
++	dp_phy->ana_cktx_imp = ret;
++
++	/* Get impedance params for each lane */
++	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
++		/* P-MOSFET first */
++		snprintf(mtk_dp_cal_lane_imp_name, ARRAY_SIZE(mtk_dp_cal_lane_imp_name),
++			 "impedance-lane%dp", i);
++		ret = mtk_dp_phy_get_one_cal_para(dev, mtk_dp_cal_lane_imp_name,
++						  FIELD_MAX(XTP_LN_TX_IMPSEL_PMOS));
++		if (ret < 0)
++			goto end;
++		dp_phy->ana_impsel[i].pmos = ret;
++
++		/* ...and then N-MOSFET too */
++		snprintf(mtk_dp_cal_lane_imp_name, ARRAY_SIZE(mtk_dp_cal_lane_imp_name),
++			 "impedance-lane%dn", i);
++		ret = mtk_dp_phy_get_one_cal_para(dev, mtk_dp_cal_lane_imp_name,
++						  FIELD_MAX(XTP_LN_TX_IMPSEL_PMOS));
++		if (ret < 0)
++			goto end;
++		dp_phy->ana_impsel[i].nmos = ret;
++	}
++end:
++	if (ret < 0) {
++		/*
++		 * If any of the calibration values is missing, or if there
++		 * is no calibration at all in the eFuses, copy the default
++		 * one entirely (as partial values shall not be mixed!)
++		 */
++		if (ret == -ENOENT) {
++			dev_info(dev, "Using calibration default values\n");
++			mtk_dp_phy_get_default_cal_data(dp_phy);
++			return 0;
++		}
++		return ret;
++	};
++	dp_phy->efuse_cal_present = true;
++
++	return 0;
++}
++
+ static const struct mtk_dp_phy_pdata mt8195_dp_phy_data;
+ 
+ static int mtk_dp_phy_legacy_probe(struct platform_device *pdev, struct mtk_dp_phy *dp_phy)
+@@ -437,6 +661,7 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
+ 	struct mtk_dp_phy *dp_phy;
+ 	void __iomem *base;
+ 	struct phy *phy;
++	int ret;
+ 
+ 	dp_phy = devm_kzalloc(dev, sizeof(*dp_phy), GFP_KERNEL);
+ 	if (!dp_phy)
+@@ -458,6 +683,10 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
+ 
+ 	dp_phy->pdata = device_get_match_data(dev);
+ 
++	ret = mtk_dp_phy_get_calibration_data(dp_phy);
++	if (ret)
++		return ret;
++
+ 	phy = devm_phy_create(dev, NULL, &mtk_dp_phy_dev_ops);
+ 	if (IS_ERR(phy))
+ 		return dev_err_probe(dev, PTR_ERR(phy),
+@@ -476,12 +705,31 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
+-	.off_ana_glb = 0x0,
++	.off_ana_glb = 0,
++	.off_ana_lane = (const u16[]) { 0x100, 0x200, 0x300, 0x400 },
+ 	.off_dig_glb = 0x1000,
+ 	.off_dig_lane = (const u16[]) { 0x1100, 0x1200, 0x1300, 0x1400 },
+ 	.regs_ana_glb = mt8195_phy_ana_glb_regs,
++	.regs_ana_lane = mt8195_phy_ana_lane_regs,
+ 	.regs_dig_glb = mt8195_phy_dig_glb_regs,
+ 	.regs_dig_lane = mt8195_phy_dig_lane_regs,
++	.ana_bias_r = 15,
++	.ana_cktx_imp = 8,
++	.ana_lanes_imp = {
++		.pmos = 8,
++		.nmos = 8,
++	},
++	.driving_params = (const u32[]) {
++		[0] = 0,
++		[1] = 0,
++		[2] = 0,
++		[3] = MT8195_DRIVING_PARAM_3_DEFAULT,
++		[4] = MT8195_DRIVING_PARAM_4_DEFAULT,
++		[5] = MT8195_DRIVING_PARAM_5_DEFAULT,
++		[6] = MT8195_DRIVING_PARAM_6_DEFAULT,
++		[7] = MT8195_DRIVING_PARAM_7_DEFAULT,
++		[8] = MT8195_DRIVING_PARAM_8_DEFAULT
++	},
+ };
+ 
+ static const struct of_device_id mtk_dp_phy_of_match[] = {
+-- 
+2.54.0
 
-> 
-> The virtio-net-pci starts to work with the shareable memory-backend.
-> 
->     -object memory-backend-ram,id=mem0,size=2G,share=yes
-> 
-> Note that THP is disabled on my host.
-> 
->     root@host:~# cat /sys/kernel/mm/transparent_hugepage/enabled
->     always madvise [never]
 
