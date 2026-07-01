@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9B2CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:25:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16E1DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wlayQOEl2KZTkzmBCwJs/YLxYkgF9FY4O+U8iZIcOt8=; b=PIfAa8pkCeGJ+OwefO3yQw+b+3
-	tlOY+KNGrzMMMlFHGX1UJhkRsUBNM7LG+nz5BnCRCpcGvRd+z9+5Dxw3eJhAPAtNgudsNbO/Z2MC1
-	wjD1+HE8Yj+7IzspInbnGdJoxbQABv4DRvTQWKAle73neag2+UgWsUXyVaaHtmIEo4cdeFl+qhQ8v
-	l+RP33fmNi6XkhBk4/AmMXrSMfs3gsSCBtxbPocsDEUHzZRuXKWZk9K7X/HnlGs3NMfHleAwUnsdz
-	xvSuKGDaC+7nGj2hZIgyMS6jpLN2LAQ3jlvSPqmpIQUNlsDTXC4BQo6lbabtus2fLXYFqnxZ0C8kL
-	fzTKxdpw==;
+	bh=99rTkGtMEhY28UmP5cIJYBXAGUjxeodjcs2HZAq97+I=; b=S8Z23mqM4sbyvrOQZRCNO3hPGM
+	9Wg52WQ8zhB7nl8DGKQ4OaECfYKhJNdlc1ec3LG0Gc/K9uFxQUPmALjS7l/I30KcUPV09QMHOuEeq
+	4nZ96A+NZhRZiw6G1hmq/hk0licFn9GCMjqLW2+OrS64rauv2uLzTCh2uu9PoSqSRcOVsn4iqT0Hh
+	5Xr78FPxuAD5UGfXhR8LBJ571429nBnAUL6WYde4TqbpbR9yZtxQyMWK6PT/oRUoFfuULOJ0JfrJF
+	BHoj+TtWNMGypLsRoU8zTbqxHcoCSTQwd1XV2n3H7hNcMMAjTTeP28MHXhEHpwDFVOzg3VAHnPA8v
+	tYh/MN5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2R3-000000032Ud-1AUb;
-	Wed, 01 Jul 2026 21:25:33 +0000
+	id 1wf2RB-000000032ac-3D4l;
+	Wed, 01 Jul 2026 21:25:41 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2R2-000000032U4-1E9B
+	id 1wf2R9-000000032Zf-3wGs
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 21:25:32 +0000
+	Wed, 01 Jul 2026 21:25:39 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0E9D5418CC;
+	by sea.source.kernel.org (Postfix) with ESMTP id AC03842E3D;
+	Wed,  1 Jul 2026 21:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 691811F00A3A;
 	Wed,  1 Jul 2026 21:25:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9E2D1F000E9;
-	Wed,  1 Jul 2026 21:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782941131;
-	bh=wlayQOEl2KZTkzmBCwJs/YLxYkgF9FY4O+U8iZIcOt8=;
+	s=k20260515; t=1782941139;
+	bh=99rTkGtMEhY28UmP5cIJYBXAGUjxeodjcs2HZAq97+I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=grs2EkX0EEzX86/S44iVTmiUw/jk2hbNJMEGEJCJVKoaHyA+Iu0aR/4yv7eDkUg5a
-	 nIVTHUgGUwgZGrjh5by8y2+zc7Cw3b6kDfiDeyh1GNtvW85cGAYEEYbyXIIsHzl3qK
-	 /130aRuLFvtszDMkblUqumfJbzSQ9UU6+r8KRdN7sJpNQr7lF80PJtk3M9/qqsfLCj
-	 FPKucqqkU3xftK3SgRunQtOjNkf/J4oTPBwvvI2UUV/KUPAt3fvKzybK0+EMJgHBcQ
-	 Q3Af7Be2XVscl5KLq56Y6gULJjv9lcRMuAvjx1DMqG8gOXXZp8uVP2laIpXu5WijXp
-	 nJ68BXcB1bX6w==
+	b=drMX/zVMUi6s614tuhfwQRqRrQHr6+zq4Y5CybzpIA2njdUcZR+VYgbQICRIUsuVW
+	 vtqQsl310YGSy/QMtESwwJkMisKBLCpbg/FSD5DHIVy8NA73wp7EqpgYCMK0/MSi55
+	 7zSzytbdEkCy+FheLAH3R/jru4JEgnlpV9Fi56BjSLVoKxD5HxBd4PSZzOlvtacIaS
+	 QF6VorAoIbPH2jD72LBHyFDyp6vtothOeXCYxk+1hPiPGvbrGfT8wd6pRvR0YtEvyS
+	 QWtQ4qGgmJepkhuR8ecSWbPT3fYTFUNVwawVD70Uf0rYQl7FdHpPPftXks3ZD53T7Y
+	 qIQGzxzdGrf8Q==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	soc@lists.linux.dev
@@ -78,9 +78,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Tony Lindgren <tony@atomide.com>,
 	Vladimir Zapolskiy <vz@mleia.com>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v2 10/19] ARM: mark IWMMXT as deprecated
-Date: Wed,  1 Jul 2026 23:23:44 +0200
-Message-Id: <20260701212353.2196041-11-arnd@kernel.org>
+Subject: [PATCH v2 11/19] ARM: mark ARCH_DOVE as deprecated
+Date: Wed,  1 Jul 2026 23:23:45 +0200
+Message-Id: <20260701212353.2196041-12-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260701212353.2196041-1-arnd@kernel.org>
 References: <20260701212353.2196041-1-arnd@kernel.org>
@@ -102,48 +102,44 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-With no remaining users and support getting removed from future compilers,
-there seems little point in keeping iwmmxt around much longer.
+The Marvell Armada 510 (Dove) platform is supported both as devicetree
+and atags/boardfile variants, with varying degrees of hardware support.
 
-On the other hand, the iwmmxt support in the kernel rarely gets in the
-way, so there is little cost, so set a removal date of early 2027 for
-the moment. If anyone is still using this, it can be extended as long
-there is binutils support.
+Russell was the last known user of the board file version, and there
+are very few users overall. Unless Russell still needs this variant,
+let's remove after the next LTS kernel, leaving the CONFIG_MACH_DOVE
+variant with devicetree.
 
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/Kconfig | 14 +++++++++++---
- 1 file changed, 11 insertions(+), 3 deletions(-)
+ arch/arm/mach-dove/Kconfig | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 1f02183cff13..e2bdf2591c10 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -513,13 +513,21 @@ config PLAT_VERSATILE
- source "arch/arm/mm/Kconfig"
- 
- config IWMMXT
--	bool "Enable iWMMXt support"
--	depends on CPU_XSCALE || CPU_XSC3 || CPU_MOHAWK
--	default y if PXA27x || PXA3xx || ARCH_MMP
-+	bool "Enable iWMMXt support (DEPRECATED)"
-+	depends on PXA27x || PXA3xx || ARCH_MMP
+diff --git a/arch/arm/mach-dove/Kconfig b/arch/arm/mach-dove/Kconfig
+index 996888ffcfe7..f547120e223e 100644
+--- a/arch/arm/mach-dove/Kconfig
++++ b/arch/arm/mach-dove/Kconfig
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ menuconfig ARCH_DOVE
+-	bool "Marvell Dove" if ARCH_MULTI_V7
++	bool "Marvell Dove (DEPRECATED)" if ARCH_MULTI_V7
+ 	depends on ATAGS
+ 	select CPU_PJ4
+ 	select GPIOLIB
+@@ -11,7 +11,11 @@ menuconfig ARCH_DOVE
+ 	select PM_GENERIC_DOMAINS if PM
+ 	select PCI_QUIRKS if PCI
  	help
- 	  Enable support for iWMMXt context switching at run time if
- 	  running on a CPU that supports it.
+-	  Support for the Marvell Dove SoC 88AP510
++	  Support for the Marvell Dove SoC 88AP510 using board files.
++
++	  Support for this machine will be removed in early 2027, unless
++	  there is a strong reason to keep it. Users should migrate to
++	  the devicetree-enabled version (CONFIG_MACH_DOVE) instead.
  
-+	  Machines that actually support this feature are very rare,
-+	  and support is deprecated in new gcc-14.  While there were a
-+	  few applications that used this in the past, none are known
-+	  to still do so.
-+
-+	  If you use this, please send a patch to remove the
-+	  deprecation, otherwise this will be removed in early
-+	  2027.
-+
- if !MMU
- source "arch/arm/Kconfig-nommu"
- endif
+ if ARCH_DOVE
+ 
 -- 
 2.39.5
 
