@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D1FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6ABCC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dx1O75jqKMARjEbw4xneNk7aG4r2yfuJioWVDgA4Lp0=; b=FuXgV452M76W0rPX13JcZ3VDG9
-	Z2BNECiN5kHRe7ZtHy06Gi+MY3Ghqmz/pRSf+bgBlfwfgVoVSl8+YMfP06/CxGal/GKQRfZS9iyT7
-	C1R5f2IDm/3MxFtG5j+qxVJs1io1r4UKyD/AJaKtmdbEtHKw6pFmYOEykQdyMxF3dtJdE/28mMYzz
-	PvRGtS87cQ2wrUyCRjdliaodgmBj/3CLnJPPHGNE36JUp6PIzizsMwgdiMoxrHudb5b53WeDCrJXh
-	PAY0hCrju8QrGFO0CGaHrv345KSP2N5vrFL9o9iFFwSiWekyQaM6VS5Gv9jcJaia2AQu2i76yw9oU
-	/8sOnp3A==;
+	bh=xWoQa8RFTTk84aEoAC07qJog4uQPcmRTcxfNGLNDxJg=; b=QGedskken3Q9yy74x7y05E8/j0
+	Pxz/MbqYvzPIdrD+eT5hxb9F/StL1VCqj/xP74ZnX8Xuyp8TGnAniGvlM9NAxmNBapVP8i3TaR+z6
+	8kUh/T/rY//OEsY1k1fGBcjr8bzjz5AttTFJKB0yVFYGITM4jPuohxrxJPXazHXl5s+ToU/kxy25A
+	pgtb9BA+iDcJb05ypmjKJCAozlPWIBX91omg6pNtHwI26AJoqWvY2Y4RC6/CHYeVYHF+cyFohiPqD
+	XP/7P6TM1G0eZ4ZqK4C4+kMmVrZGbg+iCGN+dV/InMNOrQSvP91R6PP4HK+PR8BuoItpI3PijD3yY
+	RBdjXdbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wephz-00000000x6s-2Djr;
-	Wed, 01 Jul 2026 07:50:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wepiF-00000000xAV-2oym;
+	Wed, 01 Jul 2026 07:50:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wephy-00000000x6f-2mMc
+	id 1wepiE-00000000xA5-1RJd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 07:50:10 +0000
+	Wed, 01 Jul 2026 07:50:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3695643CFA
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0931F01559
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:50:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E9F8043D95
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:50:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB9CB1F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782892210;
-	bh=dx1O75jqKMARjEbw4xneNk7aG4r2yfuJioWVDgA4Lp0=;
+	s=k20260515; t=1782892225;
+	bh=xWoQa8RFTTk84aEoAC07qJog4uQPcmRTcxfNGLNDxJg=;
 	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=j2DcNdYdADDJu+D3REmFeOGs5cw/wVRDCtpWACgDuKjqrOOLm2M4y5DN23480AZ1+
-	 vdbHErYbb2InVSGUdjvxGuamb9E+yPRsBVjhCVCiXyKaOxignCJrhJJ+sCulqREuj2
-	 JZxBrhhL8M2bGYMeKhgzQoRiW4OCC68fnAE12cgLy2w3/40ruKeTVw7/mHAPBTxFXf
-	 MW3RIJTIy2p3JhCAAmsgmH3SkxgQcdyu4tbovvpGx2pi551ZcwYmfASnsbjb8Sy5Am
-	 u1HrtfRlZkc2/+8NNkXk6EuHohgDRlqIW5fn+gweETKl82yJ2QHYPWNfZQsisst93n
-	 oOXXzvbJsIhvQ==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39b14a7e53aso3399301fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:50:09 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RojRUr0Q2erRLNslcpJ20hOw09VZBHzyuX7N6vwSmML3n/HV9/b4MifZJhk71SVyBHycztioO/1sxzuMPc1RyNJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuikFRZeKuLN6ZnyHbGuLxHtFr8Xn9295PrDM72J+uIbiLu1Qv
-	O06MW6FyT1W1ldRpCqJj2kNCrW5Gzvsgree3TnvCCiP5XNzynon9WsyK8IEtFCsuhyQ/6flK1z3
-	q9mrUdQMgpZZahaYrVT6+s2hf3+5VRng7V6dMSxkuPg==
-X-Received: by 2002:a05:651c:1593:b0:39a:f75e:a147 with SMTP id
- 38308e7fff4ca-39b340d882dmr882981fa.34.1782892208779; Wed, 01 Jul 2026
- 00:50:08 -0700 (PDT)
+	b=DczjMUBvKfp5CMbsOROhYOGCOLsZpYRnR4v/M3FcrVtZ7ab5uweJIGfIFRAulsUab
+	 RQyOOY9042JI8cfD+xhwBMIrVwgaBGnKuFFEiapdo11rUNdUrRqaRmffpzzfxieieI
+	 T/0aqk0CcKZjuzJTm6sbYauBENXBRGY1J8L3MfLT06EoG8bIya0xqXHaeiMrDG4LLF
+	 xrtfqYoz2mUp/RMDIxrUwEZMdoaPLaT4/4z9gVNtlYguLbrghReud4/Ano4SYiJ4pb
+	 qJM7A0Nz8PrS5WA1ceOhrWNQoO0p6gPnjjQgD0YxRt0AWSQA9wQsBDEMNZUwVXRDpY
+	 t+ceRvuSwytlg==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39b2be45e8cso3076791fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:50:25 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqOVo+cEEAYitctBFb6cYk8rNfDxRpG1++GR1YkRRMYWMDpZTV1LxZ/w/261yVagnJ3kvNzcnOYR21luOoUdj4e@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9fEImEcjHRmubzp6HoXxR4eIaqCRLgc1aABK5JGpuLH/PexVA
+	lhNDzMS4hQcb/ogoKz9qD9SjAW3HFaPOQ4THIFPM0HL+5JC8FSfIL4rMBunY+FP9UGT+XfDJ+A0
+	2FZuuoC2UmrvmMQ65tZoFRiaBgjY9LorVyFxFwGWk1g==
+X-Received: by 2002:a2e:864f:0:b0:393:6934:6104 with SMTP id
+ 38308e7fff4ca-39b340ed172mr905801fa.19.1782892224586; Wed, 01 Jul 2026
+ 00:50:24 -0700 (PDT)
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 1 Jul 2026 00:50:07 -0700
+ HTTPREST; Wed, 1 Jul 2026 03:50:23 -0400
 Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 1 Jul 2026 00:50:07 -0700
+ HTTPREST; Wed, 1 Jul 2026 03:50:23 -0400
 From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260630125403.546375-6-khristineandreea.barbulescu@oss.nxp.com>
+In-Reply-To: <20260630125403.546375-7-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
-References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com> <20260630125403.546375-6-khristineandreea.barbulescu@oss.nxp.com>
-Date: Wed, 1 Jul 2026 00:50:07 -0700
-X-Gmail-Original-Message-ID: <CAMRc=McZEw4P3LS9HzaS5W1qonGWkdvCYaEvFiY8m6sm98aWjA@mail.gmail.com>
-X-Gm-Features: AVVi8Ce65ZHRsdwHuQE2lkQelFQAZtLRoTaOMFpaCpGigaio81APEbQW62eUHbc
-Message-ID: <CAMRc=McZEw4P3LS9HzaS5W1qonGWkdvCYaEvFiY8m6sm98aWjA@mail.gmail.com>
-Subject: Re: [PATCH v12 5/6] pinctrl: s32cc: implement GPIO functionality
+References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com> <20260630125403.546375-7-khristineandreea.barbulescu@oss.nxp.com>
+Date: Wed, 1 Jul 2026 03:50:23 -0400
+X-Gmail-Original-Message-ID: <CAMRc=MfQDX7qNzmYP99RqvYtwVa9KsxKu4qq+8TD5Vz5FvrKOg@mail.gmail.com>
+X-Gm-Features: AVVi8Cf_I55n91eLuPB2Yr4k-M3SBY1DoYVILdNZ89grAvuz-pPqlnv6xDy3sRA
+Message-ID: <CAMRc=MfQDX7qNzmYP99RqvYtwVa9KsxKu4qq+8TD5Vz5FvrKOg@mail.gmail.com>
+Subject: Re: [PATCH v12 6/6] arm64: dts: s32g: describe GPIO and EIRQ
+ resources in SIUL2 pinctrl node
 To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
 	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
@@ -94,36 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 14:54:02 +0200, Khristine Andreea Barbulescu
+On Tue, 30 Jun 2026 14:54:03 +0200, Khristine Andreea Barbulescu
 <khristineandreea.barbulescu@oss.nxp.com> said:
-> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> Update the SIUL2 pinctrl node to describe the additional register
+> ranges and DT properties used by the updated SIUL2 driver.
 >
-> The updated SIUL2 block groups pinctrl, GPIO data access
-> and interrupt control within the same hardware unit.
-> The SIUL2 driver is therefore structured as a monolithic
-> pinctrl/GPIO driver.
+> Besides the MSCR and IMCR ranges used for pinmux and pin
+> configuration, the SIUL2 block also provides PGPDO and
+> PGPDI registers for GPIO output and input operations,
+> as well as an EIRQ register window for external interrupt configuration.
 >
-> GPIO data access and direction handling are implemented using the
-> gpio-regmap library backed by a virtual regmap. The virtual regmap
-> translates the gpio-regmap register model to the underlying SIUL2
-> registers: MSCR for direction, PGPDI for input values and PGPDO for
-> output values.
+> The driver supports both legacy pinctrl-only DTs and
+> extended DTs with GPIO and IRQ.
 >
-> The existing pinctrl GPIO callbacks are used for the request/free path:
-> they switch the pad to GPIO mode on request and restore the previous
-> MSCR configuration when the GPIO is released.
+> Reflect these resources in the SIUL2 pinctrl node by adding:
+>   - the PGPDO and PGPDI register ranges
+>   - the EIRQ register range
+>   - gpio-controller, #gpio-cells and gpio-ranges
+>   - interrupt-controller, #interrupt-cells and interrupts
 >
-> This change came as a result of upstream review in the
-> following series:
-> https://lore.kernel.org/linux-gpio/20260120115923.3463866-4-khristineandreea.barbulescu@oss.nxp.com/T/#m543c9edbdde74bdc68b6a2364e8b975356c33043
-> https://lore.kernel.org/all/20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com/
+> Keep the hardware description aligned with the updated SIUL2
+> driver, where pinctrl, GPIO data access and the EIRQ register
+> block are described under the same device node.
 >
-> Support both SIUL2 DT layouts:
-> - legacy pinctrl-only binding
-> - extended pinctrl/GPIO/irqchip binding
->
-> Reviewed-by: Linus Walleij <linusw@kernel.org>
-> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
 > Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 > ---
 
