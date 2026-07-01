@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5929CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68FD8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaOQ0gXw+fSo/Zw1kG/qItnut778262iiJtDkhtyDSU=; b=Mgvm674DN1bmlfBhZaW4GGWnyt
-	HCB0EpUlKkFP/AwxOf4ELVi9UIdlR6G5AFGGQw5A/Hw9gZoemPCQuV+syNERaCbEk2PIlcz1594/D
-	Y6ksOOt8bZ4ytcNRfwAr/Qv1m6j9pkWqGuuBU7/wdTLv72N/EppALwvSqcXryMDdGEHWGfejxisQ4
-	8SoN/z8EJo8/w6cqGKgzDMPvY4HeVYkKDpZJka7yVTynvQxcr8yRCFVqDlFvT/ep1EzbhV3zfjAMa
-	Aik9P0mHUPfPkePi5WFPDTji39PsZ1cCxnSUzDVA4S0bOllDKKkz50DYJrbK2ERX5VtYyBpsHVJso
-	ZCJZ4CpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lTbkb9PNizd9LGcvfest9O/hgUQd1NGIQ+sGEr29HOQ=; b=aUQHC28hcEv+mAXBa23M6s00oT
+	zm2qcSIDEFO+HJbdc793j4qRlLcoLrPqtPD9GiJYgd/PpJ33Bl1Xxf1p9nZf5iJIP9/GZhqtxTlRx
+	3lA8WxtPO4fC8sahC/e+s7MDD6WZaPsNYAc90iiOOCmzyYmhTQplxqU9IvZzZ/dFyyd0ep8bVpSRD
+	MW9eOYe8dR64CGqRmD3YHaL4i46/+SU0VsJV9VECclCN/Pbk3QwdG50+rGsMrIg53OErwaM6nivsQ
+	FtZDZDvkvPUQF8BkPE411dfbspmzzO9TBYczQ+mAB08lxM9TGkCr62aYdyR7i+06kpfFC9MFLfwL8
+	DJVL7GMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuj6-000000027zf-15WG;
-	Wed, 01 Jul 2026 13:11:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wewb2-00000002NBM-2JeJ;
+	Wed, 01 Jul 2026 15:11:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuiy-000000027gj-05gO;
-	Wed, 01 Jul 2026 13:11:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782911490;
-	bh=zDRp0gc07u7dHssZ9PgMsLDpVBlNq50qtWtj6ChvsG4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=qug4yfrqHeuTZ7NMqU/K/b52mWLjpSeFGlsD3uA8a2Rb0hi7K9bF8RyW+T3zJ49ea
-	 1/fGu3IcB8Bb8OembQEiWefKbO9/SHW0/M7g/Tm4BrWVOVVTjKRbIs8nZDWeMFZK9I
-	 ake/urCdImbYegJsO0NgDw11eLxDlP8ciqdsFEHb/MQQ4QieXZRjFziADYdEQvOyiP
-	 3RoxG/59t4sCSLRzqxuG72eIheNL8sm4t3lz0k+idWi2QporCRgkPNvJ+eahoQpPH2
-	 Kz2HVaNwr+GVHN+DRpwHx/eVlHknrAlNMFQ3jOtNGXlDFccXGmoMEPw8QghcyXjgzL
-	 zus5cNMw+73qQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E96FD17E35CD;
-	Wed,  1 Jul 2026 15:11:28 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 01 Jul 2026 15:11:14 +0200
-Subject: [PATCH 09/15] clk: mediatek: Add MT8189 vlpcfg clock support
+	id 1wewb1-00000002NB8-2hVs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 15:11:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=lTbkb9PNizd9LGcvfest9O/hgUQd1NGIQ+sGEr29HOQ=; b=YHMBAJAhWfpuUSwrKH0lfcnt5x
+	6AFawMi4+C/strSRsUDFgQcaiKZNU1RH/1dP7pQn7QkKEes4YXObO2IwskozETpjSfxhJO5JzAd9b
+	y0lWnEsAPvilAaX0eJXIoou3vUkiBV3IQnJWi+O4vZgQxQacpKr3cGuE17GBhzU5xTzmMwFfUQsV4
+	N95gxOw1bQsY1kYplNltwlo55MSbCcZip4JkATLzWa0bd7dKsLXEcRepwSGMEtkE58RjGGPOz4Nl0
+	JFx3T7bFnKaFr6yl8E00lsOcoAntyor/8fWNlDsZF5wMClbHu5dnKhE3ojBderBMSw8SM8cBkhFES
+	nZPWeKVQ==;
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weway-00000002vEs-0kLd
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 15:11:26 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 941691A0DBE;
+	Wed,  1 Jul 2026 15:11:15 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6225360288;
+	Wed,  1 Jul 2026 15:11:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 83A59104C9645;
+	Wed,  1 Jul 2026 17:11:12 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782918674; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=lTbkb9PNizd9LGcvfest9O/hgUQd1NGIQ+sGEr29HOQ=;
+	b=bmYSG8aPQ1KMoP6ZmgZ1bSZof92ublO7R9gPm+t76+Y5Njw35/HF8NL9fWBX4LUVcZ/ryT
+	6Caxt2QsZnoYLoV7Gdz4LvdciZdayzpRxMD4jGAsmKQgBVED5om661WmI1a8sfjsu+ZxWD
+	Aq7qAb9DOK4EKmMlMslyYVpfpHHdpqkFeXn8qHvARnsO3uw9HdZRRQunf9/wIc5sp1dbsr
+	sc/5tppUdga8i6Xq4nJuoVTFDkSUmFWddsATN1vCT9f3K/JSOn8oUC7slzxuyp4Gynt1rI
+	ZxgKQIvWjNbeUc29j2jG6VmcsKXa8x3S4dX4qmIclyjvC9pSDspGw0zlBpzX4A==
+Date: Wed, 1 Jul 2026 17:11:11 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Markus Probst <markus.probst@posteo.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
+Message-ID: <2026070115111192951db5@mail.local>
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+ <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+ <20260701-bronze-jaguar-of-perfection-028bac@quoll>
+ <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-mt8189-clocks-system-base-v1-9-2b048feea50a@collabora.com>
-References: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
-In-Reply-To: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Edward-JW Yang <edward-jw.yang@mediatek.com>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=6481;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=zDRp0gc07u7dHssZ9PgMsLDpVBlNq50qtWtj6ChvsG4=;
- b=FFEgQaeJBSuL/yvRxYAfiepsiufL0NWwJKx/Ei2SERzZ6p/OHRWt7XrYXoI44FyHo+GVYuMQD
- IHpRTRO/qcvDCh+w+hfKPYCwDMF+ObHUj8PB7BGgjtw2q8QfUsnQlfU
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_061132_348853_818AAC3D 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20260701_161124_332704_7B32FA94 
+X-CRM114-Status: GOOD (  30.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,155 +99,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 vlpcfg clock controller,
-which provides clock gate control for vlp domain IPs.
+On 01/07/2026 13:25:41+0000, Markus Probst wrote:
+> On Wed, 2026-07-01 at 09:35 +0200, Krzysztof Kozlowski wrote:
+> > On Tue, Jun 30, 2026 at 07:22:21PM +0000, Markus Probst wrote:
+> > > Synology NAS devices use the output pin for interrupt signal 1 to wake up
+> > > the system.
+> > > 
+> > > Move devicetree bindings for sii,s35390a into its own file.
+> > > Add sii,wakealarm-output-pin property to enable the use of the output
+> > > pin for interrupt signal 1 for the wake alarm, which makes it possible to
+> > > set an wake alarm on Synology NAS devices.
+> > > 
+> > > Signed-off-by: Markus Probst <markus.probst@posteo.de>
+> > > ---
+> > >  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 54 ++++++++++++++++++++++
+> > >  .../devicetree/bindings/rtc/trivial-rtc.yaml       |  3 --
+> > >  MAINTAINERS                                        |  1 +
+> > >  include/dt-bindings/rtc/s35390a.h                  |  9 ++++
+> > >  4 files changed, 64 insertions(+), 3 deletions(-)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> > > new file mode 100644
+> > > index 000000000000..31a578673870
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
+> > > @@ -0,0 +1,54 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > > +%YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: S-35390A 2-WIRE REAL-TIME CLOCK
+> > > +
+> > > +maintainers:
+> > > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> > 
+> > This should be someone caring about this hardware.
+> He does have the majority of commits on this driver (excluding merge
+> commits and commits not exclusive to this driver), although most of
+> them are pretty tiny.
+> 
+> Who would you suggest instead?
 
-Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/clk/mediatek/Makefile            |   2 +-
- drivers/clk/mediatek/clk-mt8189-vlpcfg.c | 115 +++++++++++++++++++++++++++++++
- 2 files changed, 116 insertions(+), 1 deletion(-)
+I can take it but the point of Krzysztof is mainly that the ones working
+on the driver don't necessarily have to be the DT bindings maintainers
+as both are well separated.
 
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 3b25df9e7b50..d9279b237b7b 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -124,7 +124,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
- obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
- obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
--				   clk-mt8189-vlpckgen.o
-+				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
- obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
- obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
- obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-vlpcfg.c b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
-new file mode 100644
-index 000000000000..81e2d44bd320
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-vlpcfg.c
-@@ -0,0 +1,115 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025-2026 MediaTek Inc.
-+ *                    Qiqi Wang <qiqi.wang@mediatek.com>
-+ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
-+ * Copyright (C) 2026 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-mtk.h"
-+#include "clk-gate.h"
-+
-+#include <dt-bindings/clock/mediatek,mt8189-clk.h>
-+
-+static const struct mtk_gate_regs vlpcfg_ao_reg_cg_regs = {
-+	.set_ofs = 0x0,
-+	.clr_ofs = 0x0,
-+	.sta_ofs = 0x0,
-+};
-+
-+#define GATE_VLPCFG_AO_REG(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &vlpcfg_ao_reg_cg_regs, _shift, &mtk_clk_gate_ops_no_setclr)
-+
-+static const struct mtk_gate vlpcfg_ao_reg_clks[] = {
-+	GATE_VLPCFG_AO_REG(CLK_VLPCFG_AO_APEINT_RX, "vlpcfg_ao_apeint_rx", "clk26m", 8),
-+};
-+
-+static const struct mtk_clk_desc vlpcfg_ao_reg_mcd = {
-+	.clks = vlpcfg_ao_reg_clks,
-+	.num_clks = ARRAY_SIZE(vlpcfg_ao_reg_clks),
-+};
-+
-+static const struct mtk_gate_regs vlpcfg_reg_cg_regs = {
-+	.set_ofs = 0x4,
-+	.clr_ofs = 0x4,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, _flags)		\
-+	GATE_MTK_FLAGS(_id, _name, _parent, &vlpcfg_reg_cg_regs, _shift,	\
-+		       &mtk_clk_gate_ops_no_setclr_inv, _flags)
-+
-+#define GATE_VLPCFG_REG(_id, _name, _parent, _shift)		\
-+	GATE_VLPCFG_REG_FLAGS(_id, _name, _parent, _shift, 0)
-+
-+static const struct mtk_gate vlpcfg_reg_clks[] = {
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SCP, "vlpcfg_scp",
-+			      "vlp_scp_sel", 28, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_R_APXGPT_26M, "vlpcfg_r_apxgpt_26m",
-+			      "clk26m", 24, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRCK_TEST, "vlpcfg_dpmsrck_test",
-+			      "clk26m", 23, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_RG_DPMSRRTC_TEST, "vlpcfg_dpmsrrtc_test",
-+			      "clk32k", 22, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DPMSRULP_TEST, "vlpcfg_dpmsrulp_test",
-+			      "osc_d10", 21, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST, "vlpcfg_spmi_p",
-+			      "vlp_spmi_p_sel", 20, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SPMI_P_MST_32K, "vlpcfg_spmi_p_32k",
-+			      "clk32k", 18, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_SYS, "vlpcfg_pmif_spmi_p_sys",
-+			      "vlp_pwrap_ulposc_sel", 13, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PMIF_SPMI_P_TMR, "vlpcfg_pmif_spmi_p_tmr",
-+			      "vlp_pwrap_ulposc_sel", 12, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_SYS, "vlpcfg_pmif_spmi_m_sys",
-+			"vlp_pwrap_ulposc_sel", 11),
-+	GATE_VLPCFG_REG(CLK_VLPCFG_REG_PMIF_SPMI_M_TMR, "vlpcfg_pmif_spmi_m_tmr",
-+			"vlp_pwrap_ulposc_sel", 10),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_DVFSRC, "vlpcfg_dvfsrc",
-+			      "vlp_dvfsrc_sel", 9, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_PWM_VLP, "vlpcfg_pwm_vlp",
-+			      "vlp_pwm_vlp_sel", 8, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SRCK, "vlpcfg_srck",
-+			      "vlp_srck_sel", 7, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F26M, "vlpcfg_sspm_f26m",
-+			      "vlp_sspm_f26m_sel", 4, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_F32K, "vlpcfg_sspm_f32k",
-+			      "clk32k", 3, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_SSPM_ULPOSC, "vlpcfg_sspm_ulposc",
-+			      "vlp_sspm_ulposc_sel", 2, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_32K_COM, "vlpcfg_vlp_32k_com",
-+			      "clk32k", 1, CLK_IS_CRITICAL),
-+	GATE_VLPCFG_REG_FLAGS(CLK_VLPCFG_REG_VLP_26M_COM, "vlpcfg_vlp_26m_com",
-+			      "clk26m", 0, CLK_IS_CRITICAL),
-+};
-+
-+static const struct mtk_clk_desc vlpcfg_reg_mcd = {
-+	.clks = vlpcfg_reg_clks,
-+	.num_clks = ARRAY_SIZE(vlpcfg_reg_clks),
-+};
-+
-+static const struct of_device_id of_match_clk_mt8189_vlpcfg[] = {
-+	{ .compatible = "mediatek,mt8189-vlpcfg", .data = &vlpcfg_reg_mcd },
-+	{ .compatible = "mediatek,mt8189-vlpcfg-ao", .data = &vlpcfg_ao_reg_mcd },
-+	{ /* sentinel */ }
-+};
-+
-+static struct platform_driver clk_mt8189_vlpcfg_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8189-vlpcfg",
-+		.of_match_table = of_match_clk_mt8189_vlpcfg,
-+	},
-+};
-+module_platform_driver(clk_mt8189_vlpcfg_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8189 vlpcfg clocks driver");
-+MODULE_LICENSE("GPL");
+I mostly did clean ups in the driver, Lorenz Brun submitted something
+way more interesting.
+
+> > 
+> > > +
+> > > +description:
+> > > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
+> > > +  very low current consumption in the wide range of operation voltage.
+> > > +
+> > > +allOf:
+> > > +  - $ref: rtc.yaml#
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    const: sii,s35390a
+> > > +
+> > > +  reg:
+> > > +    maxItems: 1
+> > > +
+> > > +  sii,wakealarm-output-pin:
+> > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > +    enum: [1, 2]
+> > > +    description: |
+> > > +      The output pin to wake up the system.
+> > > +      Default will use the output pin for interrupt signal 2.
+> > > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signal 1
+> > > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signal 2
+> > 
+> > Does that mean device generates the interrupts?
+> Yes.
+> 
+> Thanks
+> - Markus Probst
+> 
+> > 
+> > Best regards,
+> > Krzysztof
+
+
 
 -- 
-2.54.0
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
