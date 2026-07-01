@@ -4,143 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB108C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 05:40:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65249C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 05:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T1t8ASZT93gzfU5pdTAOTA4V2VHb9WMJJjSO4xw/5mE=; b=Fz6GdEsbVFVMYet4lSMyyLR6pb
-	jaiPYr9TuEy6T4i+NGdaHvAPy8HV9LSnhD95Fl/JKy+IdH50b16qLD0d2ga4pSeNSEymWl2hhWfwI
-	BETxTf1qu49s1quDeDdcSZ1gUp28ux4cWOSvQMqllhAPy9nIXSMrwB3G+xQ8IQA3BJ7SDQl+vMi4x
-	ERgdLiD3YigNnRcmVTmtRCKHSoaUp+bGUPKw7JJgyzJ9yOsa64foNv/4O6w4g+AnmpL7Gc49zyjl9
-	xgjafMuEju+74qhUVY+uO0CPwWqwv1qO46YdBceXVzGUefeY9uC9RtFYSm0lIryUmHLiQupd8IVwF
-	WkQWe5qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A2dYl0OUyzZ06MfTi9YwzB+RT+fpto3AMtLt5rd0qn0=; b=G4ylzMzV5PL0YRT8HpupLoSnPp
+	eipxRHEjXAvgiCYqyPoJmYCYrrT4453owvE41wJA2nXtC9lz7iBSfQlih6oV5peKlKlIsr6ApUK7T
+	ktNz6r2oMfNh2FQ6sKQ3OBgTiXpmhZ+3ow8vfdJz1+onSknNIuStIljOAUOxPh4oJObyMHTcjz1ln
+	bX7lAgUvMkGEv2mKx80B6yP/TqrF9Do33VzA4yxCt9mVunGlb+7C54LxsmyobPIPSLItUwH7bAMP5
+	1qtC47yjyn9SCEo/nUB1YkGxYyELIB9eB7tvOE1APf9Y8pTJNj6m+ojhVDLqUtfdBG9Wf592PbqSD
+	7BkjwZlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wengC-00000000gyo-1CMU;
-	Wed, 01 Jul 2026 05:40:12 +0000
-Received: from mail-koreacentralazon11022128.outbound.protection.outlook.com ([40.107.43.128] helo=SEVP216CU002.outbound.protection.outlook.com)
+	id 1wennX-00000000hWw-3w8r;
+	Wed, 01 Jul 2026 05:47:47 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weng9-00000000gxY-1nzB
+	id 1wennV-00000000hWU-2M8U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 05:40:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wO8GaSwq6BQlVIREuB/eQb8nYdb1y08JWNjbcFayRKUViIiEyG4ohlGjbav2XMvuV75gxrLOXfUQNYviOzu88AtvsXnlIttUHzsx+cDoaSYqLOwfUN3j3O1AWozyy5yJdiZQsBuy2IKAoHq0aJhmFBFg5wUJk0rWAZe2wMQiPLWW3KcZyjzTIFFCYLZ11wvmsdz1AwHhkUGVO1LS48AJopAKX/JEqfdLqgKJnhBGdK+vvKEKyfYym+40QNONTsfTzs72Xs++EgOtJyfI2MfYYwiJNo5eOiXLa8k2ZRsIFwHc5h1mPDWsDxqu2Oo0Bex6EshSyM0a0+rIhuLp7z2cEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=T1t8ASZT93gzfU5pdTAOTA4V2VHb9WMJJjSO4xw/5mE=;
- b=J2lpyXE/pDcBfWfeEmWxKdnUYJ8KZTW0m4WfQkbBFq8sNs1bU9btdpR/WnL7v8IiLPcnZ3ZU+b9iDlfBueirbLblOnt9KKD+bB+5aiFc6jq+4xGUtnOx3kKfBEv+twLGR2e9xqb8VKAEHkS5h1GrCzFlaOzxD0nIkJOFqYNzXJ5xiX9Mknd/MqJr0YLD7fHT8K2ka3Ix0jx4tz3kbv4l78iOChzbTV2kBiiFjXjqf6VVSb50gEWiSNDe9oFMpu4b2ZlUSVdD36gee+1J5EhE/2wndc4bj79PSZwlnOlPwXl/GnMBSt0JYjYbhSMJzPSq0BsMiTvh/RDL61VZndgrMA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=chipsnmedia.com; dmarc=pass action=none
- header.from=chipsnmedia.com; dkim=pass header.d=chipsnmedia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chipsnmedia.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=T1t8ASZT93gzfU5pdTAOTA4V2VHb9WMJJjSO4xw/5mE=;
- b=E5A3lLSeBELTmq1lGjZJiZpQGBATMuk5p/VhU4W3UCsckPJgTF2zxXWkhrIcsHIDOVLqQmfUo5Ct6IvHzJOEObAuFwGIgWGIbZNkfEXrcDN2t2v9Tralqt6cF28Kt6tdPlFcC0ALidwXubuBoCD/drKXzOjMhQLILrxMNcamsTU=
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM (2603:1096:101:1b9::8)
- by SE5P216MB3149.KORP216.PROD.OUTLOOK.COM (2603:1096:101:2fe::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Wed, 1 Jul
- 2026 05:39:52 +0000
-Received: from SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232]) by SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
- ([fe80::f234:3bc6:9197:8232%6]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
- 05:39:52 +0000
-From: Nas Chung <nas.chung@chipsnmedia.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Conor Dooley <conor@kernel.org>, "mchehab@kernel.org"
-	<mchehab@kernel.org>, "hverkuil@xs4all.nl" <hverkuil@xs4all.nl>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>, "s.hauer@pengutronix.de"
-	<s.hauer@pengutronix.de>, "linux-media@vger.kernel.org"
-	<linux-media@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-imx@nxp.com" <linux-imx@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, jackson.lee
-	<jackson.lee@chipsnmedia.com>, lafley.kim <lafley.kim@chipsnmedia.com>,
-	"marek.vasut@mailbox.org" <marek.vasut@mailbox.org>
-Subject: RE: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
- device
-Thread-Topic: [PATCH v6 2/9] dt-bindings: media: nxp: Add Wave6 video codec
- device
-Thread-Index: AQHdA6oA4dFGLrgtZ0GgpOtEiXsOgLZN6VwAgACMHsCAAFr0AIAJXZjA
-Date: Wed, 1 Jul 2026 05:39:52 +0000
-Message-ID: <SL2P216MB24415FC199917CAD64F62F27FBF62@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
-References: <20260624072043.238-1-nas.chung@chipsnmedia.com>
- <20260624072043.238-3-nas.chung@chipsnmedia.com>
- <20260624-junkyard-sensuous-fcd43189b593@spud>
- <SL2P216MB2441BB9DC91CCBE494F2B45BFBEC2@SL2P216MB2441.KORP216.PROD.OUTLOOK.COM>
- <20260625-artificial-coot-of-climate-efbecd@quoll>
-In-Reply-To: <20260625-artificial-coot-of-climate-efbecd@quoll>
-Accept-Language: en-US, ko-KR
-Content-Language: ko-KR
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=chipsnmedia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SL2P216MB2441:EE_|SE5P216MB3149:EE_
-x-ms-office365-filtering-correlation-id: 3666f691-d98c-4b6e-c732-08ded7332c97
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|38070700021|3023799007|4143699003|18002099003|22082099003|56012099006;
-x-microsoft-antispam-message-info: NdVSpDz4N2VCEe83C/NPslHO2nYgp6xvT4ZqyUvFFGCLvQDjA6JCtTa1mhxwXVSQyHusS4AXl0xh3DqyC0OxEeB/UHpuKO+GJPkOg24hcXQo/sbtYNcUka8DcWqz5Go8F7KLOzxSGx2Ug95cadNj2QlzRyPnwtT24bK3U+x8BHHV57XEBFecj9MxHzu/HB9bI5iCFSHvtoO3yri/Q6HSxkUZfukoKSCo5IPZSlolOAZJ3i3gLjQTU8mWqGzV+8tOaHiq+Ni6hGsFaa8YXb6bJY9fdvcYew19fQukWk1U0BcTPVpEFaFZnjjykejINN20MEaOTcjNjKE75ZqTWCmha0ZFTqH9OD8Ks1u7Oy1eir5d4qDzimhxq8fJavs3pmQhvNeH6k4QK9O4ti2cpcyGxfVWvUWrDYgVMV4GDq2ihLC8osXKGXAuqWdyZ6Mf0BWDOOk5vA3gJ3C+gjDRaUxaT2WHkTnjKcKhOVzLQamLRQoM3tvWWxxK6cezig7evyUBB+KzBCZ4XafUTKYbMlT4RWVSSZfi5q0aCx9xbWXzZUn9U6NwNQhAzAnAVVa5etQzuYfWU9/0s7BLB3jAZ862aPEHiSy5XVGpX15Q876EcjPc1k2Lz4mlOmn7TpshmDEqu9UUk9pEZ+CKQklyE7C0OJ5hMpjqA4TDWQZt127mntPgUYLUM7+G9DvzxW+br65TKew7K74pN82onoMMczlVarsBlr/lIEC2RJ7nOdgJm5k=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SL2P216MB2441.KORP216.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(38070700021)(3023799007)(4143699003)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?H+QB3udHGwvi8TwtA6pB4pgrGtujR9/Ze3DFda8Sb42v8wheXzs0v4bXBIaG?=
- =?us-ascii?Q?5nMb2G+AACy3aB27+hp4MUWV7/QI8DmoGlARkGstxipdS/Zbmi1pOVzS2tXf?=
- =?us-ascii?Q?bL7O+++ApHprt2hQzliRks7vZsA4b7Sgh0XTeuvrcvsKP+VwzofHbSSs08g8?=
- =?us-ascii?Q?bwAuZ+S8w27H5XKO4tcyuyOP5SzkLao6ncStno6iRvrrryxRG3Uv+yOL8g/f?=
- =?us-ascii?Q?cQ9QyZKyOPe/21hxWMN+rJX9zapltRlIIzOLN7HnSJD6fPcV0G7CfFq14i1q?=
- =?us-ascii?Q?rbMaXOT+rgjd3qMif0v4WvhyzWR4DRCHZURXmSF3aE9iAr+sWUDD4aPdmylL?=
- =?us-ascii?Q?xzCbhK/Oif+HZ06EIdTj/TPd1shquhr8otmBzpOKdvFbcGMK1TchCHYfZard?=
- =?us-ascii?Q?JwQzOMIVqHo0nwRAgWPrbxH7zu8Ztub4f51vGVoydjkD60bAlLYzRwz2QY13?=
- =?us-ascii?Q?vGR4o4eTh8pfoZEbQI4ELu7sj1IWgiaMnbFIZYcc4Ap7i3XnxSSO5xgEqo6d?=
- =?us-ascii?Q?X1/4tgnXtv7D1Xu3z4HjWcGCcy9fiiSBOy8hFrIl107hiziCOoQblaqpOeKR?=
- =?us-ascii?Q?jMdkP0ZlsrmcWSrmJ91mhgS2CaRW4MC0gB0RpC2ICcHYky5PiXBpub9860Za?=
- =?us-ascii?Q?wh51VicQHrEvjcdSdpaq/DFMqORopoOwtszioHQ+yoOd8FU+sREuxA0zuqZv?=
- =?us-ascii?Q?uPXIKIvVJOzr4aawdDBgnABaHSOHgh9SFtBH26ayADf1XRQYVjBEbr7NbaEw?=
- =?us-ascii?Q?VzTxcR3qIL/myPTOkzw4hMmJFKfIc241ZHl9QYrMRguz5+JDM17Q/icYbPxt?=
- =?us-ascii?Q?nlIcyaIpI/pyrG+0ThyBDHcXpYk7p2WCCM4KVmVj5JO9I1zVRuqCJqwxiV/G?=
- =?us-ascii?Q?tupBpty6TZhbVtANnzv5LJGdVJNtQAGh3+MvZmo4P9LZnqMtTb1dFHmbdjyL?=
- =?us-ascii?Q?Ao8bLQfcaJluqNscJg0DEAZ/ck4rFI/E5NEG26cjs4mzwaD9awPRzrpcWomS?=
- =?us-ascii?Q?RiRKIRBQv+0bxkmdsjsLmr3NVdPCawjcWr006pssAw/JrfltBpleOedRuUDA?=
- =?us-ascii?Q?jjbdHnUur7cGAF+lShU7r6DsgV9zgzigEJ82Be610GJNWf16Z2sSj4RYOF8q?=
- =?us-ascii?Q?fj8P5IW2rsKnO1DROV4GfvTEuJBkVgc9FYvEFy/jFhOIKNaXSDpTekmyHqiu?=
- =?us-ascii?Q?qKxmBa44o6x8JMR2m84GTXbmx+4HGq37oQiQnmVdOFQ+Yh5ZFnHMUtfF1OqP?=
- =?us-ascii?Q?D0XS2PN4U453fUp3uaWbhekBjJuflOxM8o7KLHLEZb1XrSFQHHOjsHPMDvFW?=
- =?us-ascii?Q?YJ4xK9r/t6EsV/UzI8Gx1ElCZKB7+9XDtQBzmtciek3OcVwv7oi0X4YwerQx?=
- =?us-ascii?Q?nSFwJCfamtPPYcQ2URv53Pd5iN19CT/SZ7+Ze7xqtSUNj+Tm5WNzcYwkowPv?=
- =?us-ascii?Q?/9QUDlCkiEHtmfDBOTjKMb+u0GtJBX9JvAWppGwZTBdBN9KHKWgkxYekdmqg?=
- =?us-ascii?Q?4UEYuLclTnnKqyFJZ4fPsWUHSYVtBKYELLPvCix4giZjrGfj7fmb/YkNgV4m?=
- =?us-ascii?Q?sx5gj1vt0vzVbsknYo2h3+4UpvAUpbLfE3W7stF7IyOyuuiSHqDslrjtZO2c?=
- =?us-ascii?Q?iAK5TB0V3Ll0zTTKbiL2HhZQWSVIHPH6c65VmVqLwkAeZQpcTTn1Bd/xrFR4?=
- =?us-ascii?Q?z3gC0r3oNk8opgdSNcXRmpBZS2OfQ0uWeoLh7VFfPHlC3j0Fr88pVEVN9juv?=
- =?us-ascii?Q?Z4cQc1FF2g=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 01 Jul 2026 05:47:46 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-664ce3000e6so194393d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 22:47:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782884864; x=1783489664; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A2dYl0OUyzZ06MfTi9YwzB+RT+fpto3AMtLt5rd0qn0=;
+        b=gYZclWG8hcsJnCm75kmCf6MXc8zMervsGp9aiRNOxjZCcrsIoGA15ccpc46Ojs5eqc
+         tj1fN4Pcfy7Pff/snrrcHMb58mLUBtYV9gIK3gku7fpriK0WkvQZRf4XP9jbSZKTvmZh
+         OFVcIf28pu4jQ3DqOzeXZskfymQe3AInGnULoHRYVv5Hpkk2sE47hugWSmaExZTsdQRp
+         otcM39AH0KEKkh/fVinhSBQ+1fkSDp+0LTQu8RpNkW37jxa3L6GOxM7RZs8UOtE3nkRv
+         cXMpBnDOuir/Az5cziVDnG3RGLiErkgj9Seeoy7r2k3/O9oIu9UU14qpt598YpZ3Vt7R
+         A+mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782884864; x=1783489664;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=A2dYl0OUyzZ06MfTi9YwzB+RT+fpto3AMtLt5rd0qn0=;
+        b=BUgfp1zq/FpDBHadqjcY+/rN2P+L4ORQcMvaYl0Y0BGbklzNEExPi+Z6JZRolC7upO
+         TOVuh4rduQfkiH6Aw72Iz7mURIKRaeCcACpZR8lB9tmPOrYc5PBjixVJl1LGiJ/Z9O9N
+         s37PU/k/nlZKc1GXPI7H13TUn7E/5lNKptm5uKKSU8CJuftdb07VJaUISvExOmgmhflO
+         Xp/hc5/LxlXT7Rj9+Bj6dm17lf4Cd0MyM4uivlIauHcZEjcxbfDsOWVTTm/DeN2ycmJJ
+         3TW9/PyJ1CnROFq98yGEE7VH7ftw1S16jZMYdQyufG62EtUIhPRMRSWh7OwRG2hATLK9
+         xS9w==
+X-Forwarded-Encrypted: i=1; AHgh+RpLGUTv30UgR49eChyqbhvDWY7Uo5AsJbk28hiLGRJfFLcsSKDLa665RVed7kQIwLR4Y+dnp67dbe3TI9dHG/qX@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuUBqnJ5A+dHgLbuKgOvhAePz/CTwPralLONBjFMWA0Z6SIEgd
+	TgeAuojN1+fWu439HXVeC1nD057NSS45IkLdJAQsR18UIlcmyPJ7xGbY
+X-Gm-Gg: AfdE7clvcRO2KqLaM28qGDk2fRJfVPRPxoHuA9/Z43lEa5x6Q2Xo2cdMz5FJyC/YfdZ
+	EJSRzOHaLa57P9Uh45woRkc1ACEfDRvGX3o3/vaN2voOol4zqV++I0EphkHUl6bpBfyWokTCTR8
+	er0ZlG0BP9OLjsLh7KBP7pOkRtG5ZqjBlkbh56speQP14oJSFY+wzR2mLfjeBk44+XF6Dq83TRm
+	a4pfVoX2FUhNX58WL19pKJCBisdGIxfSTYjN7Yy2IrEqxU9RZGKUDzgzafpeO8rff+ssKxcxjBS
+	qeczui3+L2pkSyZ2pbmpIivTKpmRJhUT5xqYCxzBVqrPSlOsHYxTX5aEZ+OiAEsKqv85Mt/1q3U
+	pPq081y80n2ugYggnioiO4gLk4AdXw9TVC+q5U1NwexaD1n+0/kPizy++ZmF+pdA7QGdEJP0btJ
+	fierstQaK8mESu/JMisQi0CC755ZpAdCzrMjBLaI72GZVO5qpjM7wyg8t6RhP5
+X-Received: by 2002:a05:690e:bcd:b0:664:d899:e3a9 with SMTP id 956f58d0204a3-665219a787dmr223821d50.20.1782884864130;
+        Tue, 30 Jun 2026 22:47:44 -0700 (PDT)
+Received: from AMD.home.local (dhcp-9-244-8-156.gobrightspeed.net. [9.244.8.156])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6650163752bsm1836441d50.16.2026.06.30.22.47.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Jun 2026 22:47:43 -0700 (PDT)
+From: Enzo Adriano <enzo.adriano.code@gmail.com>
+To: Yuanshen Cao <alex.caoys@gmail.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Cc: conor+dt@kernel.org,
+	mripard@kernel.org,
+	krzk+dt@kernel.org,
+	robh@kernel.org,
+	samuel@sholland.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	Frank.Li@kernel.org,
+	vkoul@kernel.org,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v3 1/5] dmaengine: sun6i-dma: Refactor to support A733 interrupt and register handling
+Date: Wed,  1 Jul 2026 01:47:01 -0400
+Message-ID: <20260701054701.3961908-1-enzo.adriano.code@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <akQuefaUpt6OPNSo@b82beb281c41>
+References: <20260622-sun60i-a733-dma-v3-0-f697ef296cbc@gmail.com> <20260622-sun60i-a733-dma-v3-1-f697ef296cbc@gmail.com> <20260629003505.18f0053d@ryzen.lan> <akQuefaUpt6OPNSo@b82beb281c41>
 MIME-Version: 1.0
-X-OriginatorOrg: chipsnmedia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SL2P216MB2441.KORP216.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3666f691-d98c-4b6e-c732-08ded7332c97
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 05:39:52.4495
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 4d70c8e9-142b-4389-b7f2-fa8a3c68c467
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: gZlAEB/LCqbDi8zpKaelaohxaeK/W8QZT/GjdcT47Rj5wkw7aPj9ZhFaiLUYK384054sQTU4KXMOtejq/CHcE3sxcIQ/iwMwH/NwVdkcV6Y=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SE5P216MB3149
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_224009_471842_E277A363 
-X-CRM114-Status: GOOD (  17.24  )
+X-CRM114-CacheID: sfid-20260630_224745_651540_7BA70C08 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,74 +112,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Krzysztof.
+Hi Yuanshen, Andre,
 
->-----Original Message-----
->From: Krzysztof Kozlowski <krzk@kernel.org>
->Sent: Thursday, June 25, 2026 3:29 PM
->
->On Thu, Jun 25, 2026 at 01:43:33AM +0000, Nas Chung wrote:
->> >> +  sram:
->> >> +    $ref: /schemas/types.yaml#/definitions/phandle
->> >> +    description:
->> >> +      phandle to the SRAM node used to store reference data, reducin=
-g
->DMA
->> >> +      memory bandwidth.
->> >> +
->> >> +  iommus:
->> >> +    maxItems: 1
->> >> +
->> >> +  "#cooling-cells":
->> >> +    const: 2
->> >> +
->> >> +  "#address-cells":
->> >> +    const: 2
->> >> +
->> >> +  "#size-cells":
->> >> +    const: 2
->> >> +
->> >> +  ranges: true
->> >> +
->> >> +patternProperties:
->> >> +  "^interface@[0-9a-f]+$":
->> >
->> >I have to wonder if this interface business is required at all.
->> >Why can this not go into the parent, with each region fetchable via
->> >reg-names, interrupt-names and iommu-names?
->>
->> Thanks for your feedback.
->>
->> I did try the flat model, but the blocker is the IOMMU.
->>
->> The control region and four interface regions are independent DMA
->requesters
->> with distinct stream IDs, and each interface can be assigned to a
->different VM,
->> driving the video core with its own isolated memory.
->>
->> If all stream IDs are listed under the parent's iommus, they bind to a
->> single device and share one domain, so the isolation is lost.
->> This is the main reason I added the interface nodes.
->
->Feels similar to issue Qualcomm has. I rejected such subnodes and
->Qualcomm came with a solution in DMA IOMMU code, but that solution was
->rejected by DMA folks:
->https://lore.kernel.org/all/c7b956a9-d3e8-4e18-b780-
->5d08f5cd2ca1@kernel.org/
->
->I don't have proper arguments to convince DMA folks, thus I agree for
->Qualcomm for the subnodes. It should be fine here as well, in such case.
+I applied the v3 series locally on top of dc59e4fea9d8. The
+series applied cleanly, the focused DMA binding check passed, and
+a focused drivers/dma/sun6i-dma.o build passed. I have not done a
+hardware DMA runtime test, so this is only static review plus
+build/schema validation.
 
-Thanks for sharing this.
+On the IRQ accessor shape, I think Andre's data-driven direction is
+a good fit for the enable/status register differences. The
+A733-specific values look like data: enable offset 0x134, status
+offset 0x138, stride 0x40. A small helper using cfg offsets/stride
+would keep the call sites readable without needing per-compatible
+read/write accessors. I would keep dump_com_regs separate unless
+there is a clean table-driven way to express the genuinely different
+dump layout.
 
-I'll keep the subnodes and note this rationale in the v7 cover letter.
+While comparing this with the public Sun60iw2 BSP, I think the same
+respin should also fix the interrupt channel decode path that Sashiko
+pointed out. The series encodes the interrupt register as:
 
-Thanks.
-Nas.
+  irq_reg = pchan->idx / sdev->cfg->num_channels_per_reg;
+  irq_offset = pchan->idx % sdev->cfg->num_channels_per_reg;
 
->
->Best regards,
->Krzysztof
+but the interrupt handler still decodes with:
 
+  pchan = sdev->pchans + j;
+
+For A733, num_channels_per_reg is 1, so j is always 0 and each IRQ
+status register would map back to pchans[0]. The public Sun60iw2 BSP
+uses the inverse mapping:
+
+  pchan = sdev->pchans + (i * sdev->cfg->channum_per_reg + j);
+
+That matches the encode path and looks like the shape needed here as
+well. The register-loop bounds probably want the same treatment:
+derive the number of IRQ status registers from the real channel count,
+not from an implicitly exact division.
 
