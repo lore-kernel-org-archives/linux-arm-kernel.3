@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6844DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:56:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AE9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:57:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9y61zEpbl3lWeqPjOEs4paomRMxmkpKGpkOq3Lwd3E4=; b=dwI1MCv7Hvx4ayDPa4ZPtSWRds
-	asC9QzfxYnlAX6oA6cXm4kI/4Ind+8rNjj8qzzyZXDYZzG7jftjBs1qCVTIVC3alSlpU3fhqj07AK
-	6yPebpmm0YB7kUldg688qA+9uljgMD2UPCm7Y+zjFIn9oUDaNYefVXtkCqfO56lBHammQIF2DVzQw
-	2OA1JvWxzBWZ94FtTtJV5EFX9AEzQUlBNwGm+KFTu47kG9EPm0Wx4nfH14KYJdQ8GUS97zjqWaKN+
-	isSnZENLx0uJS7iyneurqBaQGO/+yjUnBXisueQ81k3BoJZbQIzIwHZGjv2iGGME0H3vbg6OqeWb3
-	puAxqHmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qkCj0ssMPm11qG6AeK/H9md/QP+Ow5ktlfNd4bttAYU=; b=m3ZTvwwzMfPziH
+	Zj7QrMTBM64yTaANI9YGxsap3spVNGD53SPNp8Bu67wDuMrVMC3s+ynIDSmts/NfpTfuwSe5SlrzE
+	vJ+OXSL2ZD/KM61//qqHXVb2IqoU0PDD49UNzqicBNmgZ33cKRC8YRv3bEohUdiaL8rilER1ZVwiM
+	chcbf+sLut3BzX9hpGwxILjt/ShqNlo5nOXz4nQMLDhxinjYjdrpxBsXhgFFATqdcfPytkfksB63V
+	8Vixi+pWuF45Rv0G0sPE+I5YAQN3LRQ5T3Eu5fZm5IBIEFKcR3QppMMJw0yMT6acvFzSfzoY1VjR2
+	9MhvCssIQBYy8WFBLqrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyEw-00000002dNH-0gDl;
-	Wed, 01 Jul 2026 16:56:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyEt-00000002dMr-3bKT
+	id 1weyFI-00000002dTG-0xWq;
+	Wed, 01 Jul 2026 16:57:08 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weyFF-00000002dR9-3d9T
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:56:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83B7E169C;
-	Wed,  1 Jul 2026 09:56:37 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 62AAF3F673;
-	Wed,  1 Jul 2026 09:56:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782925001; bh=inKJs5VrSJWXmzPFuimreLE5b+JqjaqHPCr/Op1K2IA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FHBzk19QjtC1loMK8YakU/7+36IERtdX35e15JQ+WwwZ8NjLOW5gxFEZ5HYLeI66z
-	 P/nMynqudZ4ela+9Ij8mMk0p4atEgMT0FXN++Z2yTegiHi+BZ8EZHizflRXgtbzQcr
-	 gNdzdnmLp46ROJLhAgi6+WPkQSjLrcxaTR/5pjCo=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Bradley Morgan <include@grrlz.net>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] KVM: arm64: skip pKVM cache flushes for non cacheable mappings
-Date: Wed,  1 Jul 2026 17:56:37 +0100
-Message-ID: <akVGxdakrVYp8kho@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <EB48DA64-1E2E-4D8C-8F8A-ED6257AD93E9@grrlz.net>
-References: <20260624160028.15591-1-include@grrlz.net> <20260624160028.15591-2-include@grrlz.net> <akU64YK5dqcWGdCD@LeoBrasDK> <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net> <akVGDoI9FltrVduP@LeoBrasDK> <EB48DA64-1E2E-4D8C-8F8A-ED6257AD93E9@grrlz.net>
+	Wed, 01 Jul 2026 16:57:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 58AB84E40BFA
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 16:57:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1B09B5FD9D;
+	Wed,  1 Jul 2026 16:57:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 98BE6104C948E;
+	Wed,  1 Jul 2026 18:56:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782925021; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=qkCj0ssMPm11qG6AeK/H9md/QP+Ow5ktlfNd4bttAYU=;
+	b=MPWi01YJ/a2z7k+SKa73J1razqKGCbFJjgW9wCVhWIoEpcZ1ohbb3OWPoms4pVfqMVxDAi
+	h8Fc8spvRXuo9t00jWjYILUK7QMp2zlOe9AxtsFS1o+FFUe+OK2eM2/Uys5THU1C01JuRb
+	fPdmys2wKVNo+uV8owlZu8nKEUdabBRvoy0LP6Vk+BXWniOc2pbffA8i/ltS1ebUrRz5gx
+	zJCguZnHBNb6yveL8ABGuJqpUnVNxSilfFtoR7orrVEC247AEUo7B+Qy4OZfIiHOjH7wNJ
+	nvqTQVn/JVU25Qk5TieiY1gwVTl+sdoPinwAulFpE/8DsQmoRAClamHIJpQxWw==
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: [PATCH 0/5] gpio: nomadik: silence boot log
+Date: Wed, 01 Jul 2026 18:56:57 +0200
+Message-Id: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQqDMBBG4avIrB1ILGjpVcRF1F87rSaS0VIQ7
+ 95ol9/ivZ0UUaD0yHaK+IhK8Ak2z6h7Oj+CpU+mwhSlqYzlcZHAPsyulzerTPArl9XdtQ6wuIF
+ SuUQM8r2udfO3bu0L3Xqu6Dh+LRDl7HcAAAA=
+X-Change-ID: 20260701-gpio-nomadik-silent-678abaee1e3e
+To: Linus Walleij <linusw@kernel.org>, 
+ Bartosz Golaszewski <brgl@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_095643_990871_5AF68670 
-X-CRM114-Status: GOOD (  33.08  )
+X-CRM114-CacheID: sfid-20260701_095706_050958_708DEBDF 
+X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,221 +85,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 05:54:40PM +0100, Bradley Morgan wrote:
-> On July 1, 2026 5:53:34 PM GMT+01:00, Leonardo Bras <leo.bras@arm.com>
-> wrote:
-> >On Wed, Jul 01, 2026 at 05:40:46PM +0100, Bradley Morgan wrote:
-> >> On July 1, 2026 5:05:53 PM GMT+01:00, Leonardo Bras <leo.bras@arm.com>
-> >> wrote:
-> >> >On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
-> >> >> pKVM keeps its own mapping list for stage 2 operations. Its flush
-> >path
-> >> >> uses that list directly, so it lost the PTE attribute check done by
-> >the
-> >> >> generic stage 2 walker.
-> >> >> 
-> >> >> Record whether a mapping is cacheable and skip cache maintenance for
-> >> >> mappings that are not cacheable.
-> >> >> 
-> >> >> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
-> >> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
-> >> >> ---
-> >> >>  arch/arm64/kvm/pkvm.c | 51
-> >++++++++++++++++++++++++++++++++++---------
-> >> >>  1 file changed, 41 insertions(+), 10 deletions(-)
-> >> >> 
-> >> >> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> >> >> index 428723b1b0f5..ca6e823028c2 100644
-> >> >> --- a/arch/arm64/kvm/pkvm.c
-> >> >> +++ b/arch/arm64/kvm/pkvm.c
-> >> >> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct
-> >pkvm_mapping
-> >> >*m)
-> >> >>  	return m->gfn * PAGE_SIZE;
-> >> >>  }
-> >> >>  
-> >> >> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
-> >> >> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
-> >> >
-> >> >Out of curiosity here, why do you choose to use bit 48 here instead of,
-> >> >let's say, bit 63?
-> >> >
-> >> >(I know it makes absolutely no difference to inner working here, as
-> >there 
-> >> >should probably not be 2^48 pages in one mapping.)
-> >> >
-> >> >Thanks!
-> >> >Leo
-> >> 
-> >> 
-> >> sup Leo, here's a quote from maz 
-> >
-> >Hi Bradley,
-> >
-> >> 
-> >> "This thing is already big enough, let's not add a bool right in the
-> >> middle (use pahole to find out why this is bad).
-> >
-> >I suppose you proposed to add a bool into a struct, maybe?
-> >It would screw the struct alignment.
-> 
-> yep, crappy old me
-> 
+Currently, on EyeQ5, we might get those error logs:
 
-Hah, you were probably focused on the big picture.
+[    0.544230] nomadik-gpio 1400000.gpio: failed getting reset control: -EPROBE_DEFER
+[    0.544274] nomadik-gpio 1400000.gpio: could not populate nmk chip struct
 
-> 
-> >> Given that nr_pages
-> >> is for a range, and that the minimum page size uses 12 bits, the
-> >> largest number of pages you can have here is 56-12=48 bit wide. That's
-> >> another 16 bits worth of flags you can use."
-> >
-> >Humm, makes sense.
-> >And since he mentions 16 bits worth of flags, you start by using the 48th 
-> >bit. Ok, got your rationale.
-> >
-> >(I would possibly start with the 63, though, but that's more on personal 
-> >taste)
-> 
-> 48 won't make the world blow up :)
+Then on successful probe we get:
 
-yeap,
+[    0.976838] nomadik-gpio 1400000.gpio: chip registered
 
-> 
-> >> 
-> >> this should just clarify things, any questions, feel more than free to
-> >ask!
-> >> 
-> >> (btw V4 is coming soon)
-> >
-> >Thanks!
-> >Leo
-> >
-> >> 
-> >> >> +
-> >> >> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
-> >> >> +{
-> >> >> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> >> >> +}
-> >> >> +
-> >> >> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
-> >> >> +{
-> >> >> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
-> >> >> +}
-> >> >> +
-> >> >> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64
-> >> >nr_pages,
-> >> >> +				      bool cacheable)
-> >> >> +{
-> >> >> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
-> >> >> +
-> >> >> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> >> >> +	if (cacheable)
-> >> >> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
-> >> >> +}
-> >> >> +
-> >> >>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
-> >> >>  {
-> >> >> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
-> >> >> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
-> >> >>  }
-> >> >>  
-> >> >>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
-> >> >> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct
-> >> >kvm_pgtable *pgt, u64 start, u64
-> >> >>  			continue;
-> >> >>  
-> >> >>  		page = pfn_to_page(mapping->pfn);
-> >> >> -		WARN_ON_ONCE(mapping->nr_pages != 1);
-> >> >> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
-> >> >>  		unpin_user_pages_dirty_lock(&page, 1, true);
-> >> >>  		account_locked_vm(kvm->mm, 1, false);
-> >> >>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> >> >> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct
-> >> >kvm_pgtable *pgt, u64 start, u64
-> >> >>  
-> >> >>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
-> >> >>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
-> >> >> -					mapping->nr_pages);
-> >> >> +					pkvm_mapping_nr_pages(mapping));
-> >> >>  		if (WARN_ON(ret))
-> >> >>  			return ret;
-> >> >>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> >> >> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable
-> >*pgt,
-> >> >u64 addr, u64 size,
-> >> >>  		 * permission faults are handled in the relax_perms() path.
-> >> >>  		 */
-> >> >>  		if (mapping) {
-> >> >> -			if (size == (mapping->nr_pages * PAGE_SIZE))
-> >> >> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
-> >> >>  				return -EAGAIN;
-> >> >>  
-> >> >>  			/*
-> >> >> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable
-> >*pgt,
-> >> >u64 addr, u64 size,
-> >> >>  	swap(mapping, cache->mapping);
-> >> >>  	mapping->gfn = gfn;
-> >> >>  	mapping->pfn = pfn;
-> >> >> -	mapping->nr_pages = size / PAGE_SIZE;
-> >> >> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
-> >> >> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
-> >> >> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
-> >> >>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
-> >> >>  
-> >> >>  	return ret;
-> >> >> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct
-> >kvm_pgtable
-> >> >*pgt, u64 addr, u64 size)
-> >> >>  	lockdep_assert_held(&kvm->mmu_lock);
-> >> >>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> >> >>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
-> >> >> -					mapping->nr_pages);
-> >> >> +					pkvm_mapping_nr_pages(mapping));
-> >> >>  		if (WARN_ON(ret))
-> >> >>  			break;
-> >> >>  	}
-> >> >> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable
-> >> >*pgt, u64 addr, u64 size)
-> >> >>  	struct pkvm_mapping *mapping;
-> >> >>  
-> >> >>  	lockdep_assert_held(&kvm->mmu_lock);
-> >> >> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> >> >> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> >> >> +		if (!pkvm_mapping_is_cacheable(mapping))
-> >> >> +			continue;
-> >> >> +
-> >> >>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
-> >> >> -					  PAGE_SIZE * mapping->nr_pages);
-> >> >> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
-> >> >> +	}
-> >> >>  
-> >> >>  	return 0;
-> >> >>  }
-> >> >> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct
-> >> >kvm_pgtable *pgt, u64 addr, u64
-> >> >>  
-> >> >>  	lockdep_assert_held(&kvm->mmu_lock);
-> >> >>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> >> >> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
-> >> >> -					   mapping->nr_pages, mkold);
-> >> >> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
-> >> >> +					   handle, mapping->gfn,
-> >> >> +					   pkvm_mapping_nr_pages(mapping),
-> >> >> +					   mkold);
-> >> >>  
-> >> >>  	return young;
-> >> >>  }
-> >> >> -- 
-> >> >> 2.53.0
-> >> >> 
-> >> >
-> >> 
-> >> Thanks!
-> >
-> 
-> Thanks!
+First line is because we don't use the appropriate dev_err_probe()
+helper. Second line is redundant to populate chip dev_err() calls and
+shall be dropped. Third line should be dropped.
 
-Thanks!
+That's done in patches 3+4+5. Patches 1+2 prepare the terrain.
+
+Have a nice day,
+Théo
+
+Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
+---
+Théo Lebrun (5):
+      gpio: nomadik: convert nmk_gpio_populate_chip() to goto cleanup
+      gpio: nomadik: add missing dev_err() call on chip populate failure
+      gpio: nomadik: drop duplicate probe error line
+      gpio: nomadik: use dev_err_probe()
+      gpio: nomadik: drop "chip registered" log on probe success
+
+ drivers/gpio/gpio-nomadik.c | 64 ++++++++++++++++++++++-----------------------
+ 1 file changed, 32 insertions(+), 32 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260701-gpio-nomadik-silent-678abaee1e3e
+
+Best regards,
+--  
+Théo Lebrun <theo.lebrun@bootlin.com>
+
 
