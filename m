@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B407C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98842C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:00:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTtfUjQOmEv3JPoDppTP1aI9YbqG+g8qqg+zCpXpWzg=; b=KgeGTOuNxKac1rfsv9zxWC4nfm
-	CdJyTz+VEB3SANfaT6ecuMYVTGRGX48NdsLbxhFkzOmD5qQvgrDhoZ3c7d+RnBQajfuBKjIXbtyCo
-	khk6DSbXcHjTR0ePy9we8Luj4VEECN5BoJLmbuX+pTfzPGEehYOKfTC1fGCRSdjjRJQM8b2tXttmK
-	H0JyDK932EhCT3bZAHIDLDgBQaPusYIyNFHA5NTC9PQlodxoUVjToLyTLER4UjCF+THvty5QmNu4b
-	dygb/6NM/sUzuuZdVQzmqYJobBE4IztIOVblS3fhDyZLo3yZaS0QOuEMm+DLP8VMI+ezdJiNTFiS7
-	9deW6SpA==;
+	bh=i8K/NUn179obrwiLM1qsC0wfSvzmywr8gUv0tSarxIU=; b=MxaGpIBH+j6rS838G5ZCYbTI2F
+	MQEMXgu9PUwATexfzplPoM4beb6JRfZPmcdR1h+/UNr0XGLh/EdOE3GZsfNDBILSb91jVecNU0aEa
+	fUJYTDLi+Rcnc/2bUnHNqDkQAzGIhPwFjYZzmTAdUM8mBOGabjdNIxKmDr/v0FK+j2pNjEQpY2GZx
+	0tl4UzEC5zaQapTkQc/Z6N9f4N0c22JfIRNkRt/g0kT98IdYuj+Qg+zdi9D6CAxbpew22Nq1s+ygm
+	fTZenyU5zyHwA6mv2cVtx9Z/ivO1BvqS/XRJYyrWPdSeefQ8gZErz4MTProIwRKuZu9u7ayy96hxb
+	otTUCdGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetul-00000001pM0-33Jq;
-	Wed, 01 Jul 2026 12:19:39 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wetvI-00000001qpb-2X4U;
+	Wed, 01 Jul 2026 12:20:12 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetui-00000001p9g-1wOT;
-	Wed, 01 Jul 2026 12:19:37 +0000
+	id 1wetvE-00000001qdm-0VUK;
+	Wed, 01 Jul 2026 12:20:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=i8K/NUn179obrwiLM1qsC0wfSvzmywr8gUv0tSarxIU=; b=BvZHoSk79V8zjJxQb8Z/klKGwk
+	6uw5NcIQV79ah2kqy5zpEpCw4EYmBTWH33rkQPzu11D79LegRSAwjHilbwrIRrL0wN3pBe6nFhxLU
+	gJ3LJDaD7293yHC8vfkDyA9mtLNQQuPIZFMC3UpEjQy/y4MaCmIAHEmmzFdjWtYGfdQ11LAkGXWAj
+	BBrSQN/RmJIboWtD9Et27khXi4iHyMLcyLHoZWFTiB20JLP8M+rU6LnvCEF9UDvFV+/1l4TAG/3jt
+	gzz/tGngFrqaGiH3OU65F19lMkoAQiqLIje+744CPxcz/4u67tsGQz8yR+z2lQX8kQb6NZI1k9f/C
+	LMKLl3NA==;
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetvB-00000002j5U-0GhM;
+	Wed, 01 Jul 2026 12:20:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908374;
-	bh=RwGHzUiPcWJXB9o6ik2AuHWQA9CyEMuFAZdCf3FIp38=;
+	s=mail; t=1782908403;
+	bh=0gPe20SEhbSKRx8YMF1loMW2r5BMkP9zKr6qfZ5JseA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TEoLzFSRl35wimGhYYdbOyHnIsUDO7+VKvuPjIlT3O9DbgfYS4FVHzGpxxdUEtIkc
-	 VumMfKxCsolmirHkozb3Vzos+emDKCQEFBSVoSiqlUjwbEWF6GhU4UfGNsFxmaN4t0
-	 JJJPpwE6dk5sDfYMiwsgsn92mC1VA5NMu9V+/DM6YGvNlPutFc9NFryLS1wjHnOL/e
-	 kF8TdgzAEoGfg1fTc8MelQUCxLY3gk9nIUO7nYVVFN6IC0lFrzOvZpBKpyCGyYGBH1
-	 heFRyh+LId0eExpNhOMo3CvJNslXrN4pFCFogPtXSm5fLqcJPb66rL3S12l9jWYTSi
-	 6BnglFAAG15UA==
+	b=JZ9kR++ycUB2t7OH5iCE0tSPapmmQzeR/2khfPzlVnpVGDOLcl+Pfi2G33hc6pJ1H
+	 nJ2KVjmXNuQjfqkt77i+Ne6iaD669x4ngJEP/byQs0z4gQltjNlYGM4yyHRb1TyzvT
+	 Le/cDnhJqWXw4wrmbtZxqiuFEE9gYpIRYSoBViBnwkPy4kAt0NyYdkVgq/oLcwgKJE
+	 XH/sl4CJF3g798vj3ZeXPrWZi92S05rz6OepVgupCWzoeGnCw9L2tm0oZ4R9yRY9hM
+	 Y3wn5+rbEgc6qrxTm9+fmicnVwNKscS3KNxlEGbOmLyadlk0RQ+brB24dvaERkCeub
+	 9iE20jWQepTkA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 324AD17E0909;
-	Wed,  1 Jul 2026 14:19:34 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E15CD17E0F44;
+	Wed,  1 Jul 2026 14:20:02 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: robh@kernel.org,
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
-	justin.yeh@mediatek.com
-Subject: [PATCH 6/7] arm64: dts: mediatek: mt8192: Add and use UART AP_DMA controller
-Date: Wed,  1 Jul 2026 14:19:28 +0200
-Message-ID: <20260701121929.19374-7-angelogioacchino.delregno@collabora.com>
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH 09/10] dt-bindings: display: mediatek: wdma: Add compatibles for more SoCs
+Date: Wed,  1 Jul 2026 14:19:49 +0200
+Message-ID: <20260701121950.19454-10-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701121929.19374-1-angelogioacchino.delregno@collabora.com>
-References: <20260701121929.19374-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260701121950.19454-1-angelogioacchino.delregno@collabora.com>
+References: <20260701121950.19454-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_051936_696631_53E64948 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20260701_132005_603465_62D5D724 
+X-CRM114-Status: UNSURE (   8.47  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,61 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC has a DMA controller (AP_DMA) that provides one channel
-for each data direction (transmit and receive) for all of the
-UART controllers in the SoC.
-
-In order to increase the efficiency of data TX/RX over the UART
-controllers, add the UART DMA controller and assign the right
-channels to its two uart controllers.
+Multiple MediaTek SoCs have the Write DMA hardware in their Display
+Controller: add the missing compatibles for Dimensity 1200 (MT6893)
+and for Kompanio 500/520/820/1200 (MT8183/MT8186/MT8192/MT8195).
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/mt8192.dtsi | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml  | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8192.dtsi b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
-index 465567c3be54..d05a5ac61534 100644
---- a/arch/arm64/boot/dts/mediatek/mt8192.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8192.dtsi
-@@ -732,6 +732,19 @@ spmi: spmi@10027000 {
- 			assigned-clock-parents = <&topckgen CLK_TOP_OSC_D10>;
- 		};
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+index 97d052b0fb61..c3ed867d058d 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+@@ -22,11 +22,16 @@ properties:
+   compatible:
+     oneOf:
+       - enum:
++          - mediatek,mt6893-disp-wdma
+           - mediatek,mt8173-disp-wdma
+       - items:
+           - enum:
+               - mediatek,mt6795-disp-wdma
+               - mediatek,mt8167-disp-wdma
++              - mediatek,mt8183-disp-wdma
++              - mediatek,mt8186-disp-wdma
++              - mediatek,mt8192-disp-wdma
++              - mediatek,mt8195-disp-wdma
+           - const: mediatek,mt8173-disp-wdma
  
-+		apdma: dma-controller@10217a80 {
-+			compatible = "mediatek,mt8192-uart-dma", "mediatek,mt6835-uart-dma";
-+			reg = <0 0x10217a80 0 0x80>, <0 0x10217b00 0 0x80>,
-+			      <0 0x10217b80 0 0x80>, <0 0x10217c00 0 0x80>;
-+			interrupts = <GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH 0>,
-+				     <GIC_SPI 147 IRQ_TYPE_LEVEL_HIGH 0>,
-+				     <GIC_SPI 148 IRQ_TYPE_LEVEL_HIGH 0>,
-+				     <GIC_SPI 149 IRQ_TYPE_LEVEL_HIGH 0>;
-+			clocks = <&infracfg CLK_INFRA_AP_DMA>;
-+			#dma-cells = <1>;
-+			dma-requests = <4>;
-+		};
-+
- 		gce: mailbox@10228000 {
- 			compatible = "mediatek,mt8192-gce";
- 			reg = <0 0x10228000 0 0x4000>;
-@@ -756,6 +769,8 @@ uart0: serial@11002000 {
- 			interrupts = <GIC_SPI 109 IRQ_TYPE_LEVEL_HIGH 0>;
- 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART0>;
- 			clock-names = "baud", "bus";
-+			dmas = <&apdma 0>, <&apdma 1>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
-@@ -766,6 +781,8 @@ uart1: serial@11003000 {
- 			interrupts = <GIC_SPI 110 IRQ_TYPE_LEVEL_HIGH 0>;
- 			clocks = <&clk26m>, <&infracfg CLK_INFRA_UART1>;
- 			clock-names = "baud", "bus";
-+			dmas = <&apdma 2>, <&apdma 3>;
-+			dma-names = "tx", "rx";
- 			status = "disabled";
- 		};
- 
+   reg:
 -- 
 2.54.0
 
