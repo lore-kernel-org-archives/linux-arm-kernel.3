@@ -4,164 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA182C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7458C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OeptgWv4YOjHf0APczO6fqkHNUioqKwtW7DjEetmSvo=; b=i+gUgUJoU+2uZNaxLNJycDNXYU
-	t2JtNTs+gcRSNWt+5HQxpFfjW48/yLL1CwXxsgBxACs7jUVLp9Zr8lSIx5iXW3ediOZvqhLWuDXVz
-	Ch/ljGHJ2GaKuvDea9Ug5lJFWE+bgj++LAZhJg/F0v3yheuOkuZLwwaX4mg+R0RfO7cpL6ErKihXh
-	CqrxXb1ucQCfMJt09q5Ey4/L0pAhyH5rpcP979ssf5lpzSIu8N3/4eMXcyU59vefnOyoIdgarvjzp
-	S/1Cccp2prqoLvKK7Q9saqVVXVOwEAVsjhwYA4zNIYz0DQf1x6krjdwq8+Ww9ofSKFrzD+HHnMgi2
-	OX3MwqOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YH0eAlmV5ZlCp7oTdtLjLrCzIaxPTHh71mN5NSFhZDE=; b=FMWCNNW45mWOsyoPoRm8mP89R7
+	MvG+QVQsVvnS+73BQ+Fs2V0/Dnj99yHTAOWYptsWvCW6hC9Bh2soSxkgYlLJVyWsj0QxXtR3QtWhw
+	LIW9YhJi9BRh4RKf0hpd+f+836VbYpidH5rgk7EZEphbTqyFxQrWoK3//oO8f/cIw3vzUt0Ncj941
+	ctXUKq0LlKhGt5ezzQnP6jeg3LMjeqnNiDmryqZiwDpCxeS3Il2bfmowu7F93B1Eosh4w1Xsj8YpN
+	PBtJaKahKiHdydG40dc4qB9bEfSbZt0PPHgBKchUC3zEMaefd9h/8a/iZqwzevkyzlg7RM26Yn0TZ
+	iugLmJXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevtA-00000002Hm5-1Wgj;
-	Wed, 01 Jul 2026 14:26:08 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1wetw6-00000001tMD-1asj;
+	Wed, 01 Jul 2026 12:21:02 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevt7-00000002Hkl-3Txp;
-	Wed, 01 Jul 2026 14:26:07 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 661BHIGf3568649;
-	Wed, 1 Jul 2026 09:26:01 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=OeptgWv4YOjHf0APczO6fqkHNUioqKwtW7DjEetmS
-	vo=; b=PxClAib8dPoLwYUgYzuY8AGPgqRvjhyjxzLqFfNo/MyUn3K7UfQxbndMD
-	pTWSw2kt7KFqJHz6FIdZda8G/ORlZZOpJFu4F7m6OwycTZ8cS/SfsLBCcH6y+8hv
-	j+F2gCNU9KBQj4Qa1+Y4DEEjgpm14cLtmECEPkoy2+JndXAsiJ82S1wiPLC+nO85
-	5wJce6VXljvp5yt3Y/Zrm8sn46VTNvvxWT/XTbz+dP9maUNy/glyxNi2UM6YHezd
-	KzVUeVjsVe3N/iH5f+W2G9/4yKmoGhhsd12eqnIyN0N8XsqddvQ59WuslcADjGhl
-	TbgcGevsqp+CsCOu43hjEhcuARxLg==
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010020.outbound.protection.outlook.com [52.101.46.20])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f51vu188a-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 01 Jul 2026 09:26:00 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ThPVTe45jLArIN8AypggSocaPllETC3BDSBlr1HmirfnuW/Ydi7BQc1D/Ozd7Kyup/OoalWP2MbS0zwTkGsKvFv7TM4k7J0sOcBhMq65WRefkpIkv7cySalCcc3IQ38zoCxNHgXCA4DaTBJ1DFtJpj847cOCBbDQgmZgrGJZ9hPvOa428wK0c5yi2k5udu7RraBGF0ap3VCuc01maJi4ze+7zgQ18CrhoEnZnq2qJyTh4lsk+Uja6Vr6J7zCk5ZNdj/5QrykpJB2GkklG/A6oPw++LcxVH30ey48dICxDWHpSvJxcKhvMJT7lJYInbqUEvYxElAdClIzcPh/PRhQGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OeptgWv4YOjHf0APczO6fqkHNUioqKwtW7DjEetmSvo=;
- b=VknMohIevPztkExML9FDlcQ+qYDpdhXuU38ypgimVbJKXSU/hXVaBLw8eg4NTR69Z6PchKRV1gyYHkT2Ichd87i7dLThz8xX7A9PGICi17M4lanOKHfeEHiOLopJ5IqV6M3vLL3IzvD8DALABN5bmlyjMAE/byinEvPmNTdmynqM4e/K8PftxsJ4vyW8h38QoV6h4t1NUt7i9wrH2EdxGp4S9WJeXl9fOcWeXTdqCGHbER963o1jnD18KqxLMqpD0MLVzhZLSGGycW4G7/uBq9bXnjpn9Sdr/NUW8f25rAfNLMZdoZ6HH5+8mMmtWGZDn62BoXHWKsCOkoDhC32aOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=cadence.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OeptgWv4YOjHf0APczO6fqkHNUioqKwtW7DjEetmSvo=;
- b=jzWrBmCdyFyd4IVasiNf4Wm4sZg2Gw2vCyyr1VARGugbv+aRi+0MRUQu612ipJl06KLk5ooMXBx6DQFi0JUadT6i7t1NlqKINRoNOT/qYdgPas8hitNnkDqNv2R9FVN1vLAodB2+VUJ9flC3lo90xmMtNerfaRw6w4YORnODUn0=
-Received: from PH7P220CA0143.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:327::25)
- by DM6PR10MB4236.namprd10.prod.outlook.com (2603:10b6:5:212::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 14:25:55 +0000
-Received: from CY4PEPF0000FCC4.namprd03.prod.outlook.com
- (2603:10b6:510:327:cafe::66) by PH7P220CA0143.outlook.office365.com
- (2603:10b6:510:327::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.9 via Frontend Transport; Wed, 1
- Jul 2026 14:25:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CY4PEPF0000FCC4.mail.protection.outlook.com (10.167.242.106) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 1 Jul 2026 14:25:53 +0000
-Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 1 Jul
- 2026 09:25:06 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE214.ent.ti.com
- (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 1 Jul
- 2026 09:25:06 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 1 Jul 2026 09:25:06 -0500
-Received: from a0507176-HP-Z2-Tower-G9-Workstation-Desktop-PC.dhcp.ti.com (a0507176-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.50.145])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 661EOvlX1000238;
-	Wed, 1 Jul 2026 09:25:02 -0500
-From: Gokul Praveen <g-praveen@ti.com>
-To: <conor+dt@kernel.org>, <devicetree@vger.kernel.org>, <krzk+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <neil.armstrong@linaro.org>,
-        <nm@ti.com>, <robh@kernel.org>, <sjakhade@cadence.com>,
-        <kristo@kernel.org>, <vigneshr@ti.com>, <vkoul@kernel.org>,
-        <yamonkar@cadence.com>, <g-praveen@ti.com>
-Subject: [PATCH v4 net-next 1/2] dt-bindings: phy: cadence-torrent: Update property values to support 3 clocks
-Date: Wed, 1 Jul 2026 19:54:56 +0530
-Message-ID: <20260701142457.81874-2-g-praveen@ti.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260701142457.81874-1-g-praveen@ti.com>
-References: <20260701142457.81874-1-g-praveen@ti.com>
+	id 1wetw2-00000001t7I-2cde;
+	Wed, 01 Jul 2026 12:20:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=YH0eAlmV5ZlCp7oTdtLjLrCzIaxPTHh71mN5NSFhZDE=; b=nQZleVeX+XZ8fjKuIsFr1DY+F7
+	Zma/sHSlLOqHxSO5X8meBvjLNnG8fn4wBMw4EbZ+BmN0huw/7gB1ppfiFe5rmoP9fle5blg67xy8C
+	zMfGuNqqOA2r/WdeYP/MM7UWsH1csppi2B9OmHcadaxQAB7rSdUMO88vChkvzWHlnaOAMNY3E9kzj
+	YlEIiT/gpzhuRdIF9i+ZsYih2tE6OCGdyYZPivT13VhF47aqVNggzxs44RVaAE50lq5Kk7DqpQT85
+	3kL00EpqvocVv46fA5O9h20kwOiY36D+3rCnV3QJBK9J3mi/lpQxxFZEFH0TYd4KwzqKOoGNoqtbu
+	q1OUjDVQ==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetvw-00000002jUo-0rFp;
+	Wed, 01 Jul 2026 12:20:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908450;
+	bh=D8xSYkpIyl50Azpbz1Ovm3/ITMW8MoCD/TiEbkzX/jw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=dHDcqsedFd/kZVRR/4ve7GtOgmycdE7Op4ya+bnevyvQ4lEMNiPk8jVTkC7ZgK2dB
+	 Qf6PS8wvdQMpISu4N7Kx8hUhWl3ngEECh95NDu7LdsRdiynLKL0Qfx0aOrQxGVv1T+
+	 zg5UmZRT7D0qozy4TVFPr+tGn8uHAAmUH9mzCVCZNVeAok8t+7/XgGIAXdNStFFHWs
+	 DKKPwvTdEDXCGzP/ZUM0aMow6xmbg0NGKwHR37z9LFQ70L5HMa/guK9XMTJb97dGJB
+	 FHcJczU+HF6PBSSTlbF4KoDX3npb9AWdoulnD/x3pxJEVO98UvYOEHRNgCPqNxQfra
+	 RDfs0mhzLLisQ==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 54A5817E0CA2;
+	Wed,  1 Jul 2026 14:20:49 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	andi.shyti@kernel.org,
+	djakov@kernel.org,
+	broonie@kernel.org,
+	jitao.shi@mediatek.com,
+	ck.hu@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH 3/6] dt-bindings: display: mediatek: Allow trigger-sources on relevant HW
+Date: Wed,  1 Jul 2026 14:20:40 +0200
+Message-ID: <20260701122043.19612-4-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCC4:EE_|DM6PR10MB4236:EE_
-X-MS-Office365-Filtering-Correlation-Id: c803cd32-8777-47b6-a712-08ded77ca837
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|36860700016|1800799024|23010399003|18002099003|22082099003|921020|6133799003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: KXIPRoXTcEytRRdMj1WKNr6QWJtbrQqxaiTjal95h/u6PB8jfTh/gIVHQnyY4au2QgM6OnIydId9p8x5TlRr/mmaYxNUDb4/16wBxTXbAkoJzOojTSyMTbVuTTypxCVCz+ekgETlhe0NblEl33rmeGFPAhWHHGVhgcqEaB6HUqJQKh6rwHhKcVXJk+58nSrMMwV4oAdd3lPVTRB7nkb0Ue5TRmRGfy45MlH/Udr0NeCUIDmvnMQqxdRm7HXRp1hJ80OkqAm1Qzf6iNAQfZCpKZ6MhhdXkyomL+yjHy95E1+fWZKe79J49kfpL2DSCfXp5IXOuSRnLxpfnAYhuEbf1mpQk/5scIurfVVNohS0Bv6pWUF9jQGP2XLjdXgOm4mCGY6+6uCEdSySvcsuw0vPDtM640ketlyE2wARGRi9vrrQtcMYFktgy0ny+AwWFe5u/LnnqliHjHxDQxnx9irIyCjhe7f22Mx+vjr7vQ/rz8FS7zfKOhnnb4uHK3iozmJlxyK/dESR9wxVpSzqB/YpuZx1bKaXLT12yrZGKMqj6ffS5c2ABjR2wUXFdbnrNuZ7Yen+XjnP1OdHEcJgbeKI5MfdSobb/LrdH0ahOo8PCBC95BVQiaPyOvmDC1pFrK9DHdDypf64T0Zq2FLEGUkgsmRzAOyy2FRi/0aVBHegavvwv0I/IwxCutu1XqoSJ57zEw14QKBblX9z8DFN0jz/nNVbv3VixiMHzzCCOTAlVx4SHqrJcyJrT1hyeiZc1ppQ
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(36860700016)(1800799024)(23010399003)(18002099003)(22082099003)(921020)(6133799003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: MuUv9HVZtRvlcw+ay7JcQXc0nvsrAC0kyh/z/VRAsDEq7q1ZKahlxliBOSy08ry/FR0urHuHwXORh9VZx9IzSZU1hTI7Nx9JDm8FSU25FF7Ytr8Nv5aYRJfpr8xDTPuNCOYnZhSeOjSkTcTUwQ23aWPHHM4/ycIWhB0oMb8Sta1sQakunIYPmlbOdX5WAbDmWAcA29YdBg4Et4+ZORA56ifEblfXPH6Ff+3Eo8kbLavMMQ4ItsXe61KM1KMe+vnhggupfE6EjckG53UF3Amqg5a66zZj+TJduOK7kB9k1MRFkN1fysADpB1td1aCPmd6ZE8+9YTSRo4iEVwAkr+qa1i4m6N5vdkxhdv00n09/o+D407eV7vxOC0EWOIuFAsbza2S4ywmsFViKsp2ddnRTTFulhOXS23f4Gbz7jqnbv0I7tYfDBYoTTWre2GtzqCJ
-X-Exchange-RoutingPolicyChecked: rDdfD558CdBJeTTJ9KPEFCK1c0VWjXRWMSI6KTQ/3Dz33UXIRLvOOH8nP/iahi8HysN1UdHswEYwqJ0I8rHB8JaQ1B68wL+P4+DDaB+CGr2JCGbAVmdqnKZG8IJW2IdeHGNrdiyCtlwsnuRaadlbnTjN7KUJ1fOBMVMOoZ1FcSrzMo9Z1f6kr8r2LsQWJFecRK9f2wEu4HeLwtntUbLG3impcgLSI4F8H+88rVySAFvjOliKJNAsri0mdZ//bA0I0JqUOPb7Knux57Nr3l7zS151FI0j6EZlyYgLe8B9QW0VDHRo+KaznUJsz437BYIO+F2q5vKE4kBmBOOSgP3COw==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 14:25:53.0448
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c803cd32-8777-47b6-a712-08ded77ca837
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCC4.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR10MB4236
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDE1MiBTYWx0ZWRfX1iCpvBM++lsL
- kXVN3mmt7oT5dYDQuxZrmOljX8Yg0kgP1f+1l02Ywr/eTDMySCMY2xe07KW188QkF5dssj7eNCg
- lCvUL4sLxPwmeXFnq2HpttG4pAj8k4CVXmjzu4VCKiqF65NIlo8O5XADo2u5TvPKKoJ8SqYmn4B
- ZSE/IhWhd6/af74C4QgK4PdkuGyggcRqKedrwRaxc9gZA10+lRR2rrFsylHwhImDPPD8XmPBcOO
- fVHlD+X67Zr4g3MLw0IR0THj67SBj/3h0zgd+Dr13fuszNyvSn24t31GRzZj1Yzg+6hineDsxFp
- nGn5Lg+VZ/OiP3Tw94nQlfMnlJUawTbq5+Hiq9ycShpE3pzLoyMLOF48T8B5zBP8K7ZCDLpAsJQ
- FIHFya2tjf9LtuIx71pmwP6RY6j+wM5pcc4uT4nCzwenHIooost+z5gOfj9BEI+qmGMuAlv3Shd
- IldxIrAoMeSCM6lpofA==
-X-Proofpoint-GUID: CD5UPPjJ86VDoU1XZGMF7ubcPV7ImwD2
-X-Authority-Analysis: v=2.4 cv=FYEHAp+6 c=1 sm=1 tr=0 ts=6a452378 cx=c_pps
- a=VvAZzv+PhNtEUaR8E1V7rA==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=V5UXEbMT0ywA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
- a=sozttTNsAAAA:8 a=uSPA2Th2IVTVKQU8YO4A:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDE1MiBTYWx0ZWRfX9X+gA8sxaDDz
- UNNjqQppXeouxNjJNNd6luoWETJcEFlJRJfuNNXqNA60bAp5Zm642p2A4juUFKCSo3MGt0Gw+By
- 5wDz2RP/li7k4kUryqzsLMq5tYvQpwg=
-X-Proofpoint-ORIG-GUID: CD5UPPjJ86VDoU1XZGMF7ubcPV7ImwD2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-01_03,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 spamscore=0 lowpriorityscore=0 bulkscore=0 phishscore=0
- adultscore=0 malwarescore=0 impostorscore=0 priorityscore=1501 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607010152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_072605_985543_AB7EC125 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20260701_132053_094356_C41C1687 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,54 +111,317 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update maxItems value of "clocks" property to 3 as description of
-this parameter already indicates 3 clocks(refclk,pll1_refclk(optional)
-and phy_en_refclk(optional)).
+Most of the MediaTek Display Controller hardware sub-IPs need a
+specific (and reserved to them) MuteX trigger.
 
-Update the maxItems and items value of "clock-names" property with multiple
-combination of clock-names possible since pll1_refclk and phy_en_refclk are
-optional clocks.
+Since now MuteX is a trigger source, allow specifying trigger
+sources in all of the display IPs that support one.
 
-Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../bindings/phy/phy-cadence-torrent.yaml        | 16 ++++++++++++----
- 1 file changed, 12 insertions(+), 4 deletions(-)
+ .../devicetree/bindings/display/mediatek/mediatek,aal.yaml     | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml   | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,color.yaml   | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,dither.yaml  | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,dp.yaml      | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml     | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml     | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,dsi.yaml     | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,ethdr.yaml   | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,gamma.yaml   | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,merge.yaml   | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,od.yaml      | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml  | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,ovl.yaml     | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,padding.yaml | 3 +++
+ .../bindings/display/mediatek/mediatek,postmask.yaml           | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,rdma.yaml    | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,split.yaml   | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,ufoe.yaml    | 3 +++
+ .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml    | 3 +++
+ 20 files changed, 60 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-index 9af39b33646a..96c664d50629 100644
---- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-+++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-@@ -34,7 +34,7 @@ properties:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
+index 4bbea72b292a..41d60a3d8007 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
+@@ -55,6 +55,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
  
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: AAL Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
+index 5c5068128d0c..e148aa57b1b9 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
+@@ -47,6 +47,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: CCORR Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
+index 5564f4063317..7c0985d0f9ea 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
+@@ -57,6 +57,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: COLOR Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
+index 891c95be15b9..85a1746965b9 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
+@@ -45,6 +45,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: DITHER Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+index 3a752a99949a..d8cfac0326ba 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
+@@ -42,6 +42,9 @@ properties:
+   power-domains:
+     maxItems: 1
+ 
++  trigger-sources:
++    maxItems: 1
++
+   interrupts:
+     maxItems: 1
+ 
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
+index eb4f276e8dc4..f5be6c1e4b0e 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
+@@ -109,6 +109,9 @@ properties:
+     items:
+       - const: dpi
+ 
++  trigger-sources:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
+index c8b3e86943e4..4863db6aba6e 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
+@@ -43,6 +43,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   mediatek,gce-client-reg:
+     description:
+       The register of client driver can be configured by gce with 4 arguments
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
+index b5cdfe0eaca4..a9793b274070 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
+@@ -73,6 +73,9 @@ properties:
+     items:
+       - const: dphy
+ 
++  trigger-sources:
++    maxItems: 1
++
+   port:
+     $ref: /schemas/graph.yaml#/properties/port
+     description:
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
+index 98db47894eeb..89370690ee71 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
+@@ -100,6 +100,9 @@ properties:
+       - const: gfx_fe1_async
+       - const: vdo_be_async
+ 
++  trigger-sources:
++    maxItems: 1
++
+   mediatek,gce-client-reg:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     minItems: 1
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
+index ec1054bb06d4..4d06085e6014 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
+@@ -54,6 +54,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: GAMMA Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
+index 3798a25402d3..656df51335b5 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
+@@ -47,6 +47,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
    clocks:
      minItems: 1
--    maxItems: 2
-+    maxItems: 3
+     maxItems: 2
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
+index 930c088a722a..c912ae2493c3 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
+@@ -60,6 +60,9 @@ properties:
+       - port@0
+       - port@1
+ 
++  trigger-sources:
++    maxItems: 1
++
+   mediatek,gce-client-reg:
+     $ref: /schemas/types.yaml#/definitions/phandle-array
+     description: describes how to locate the GCE client register
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
+index ac0d924a451b..326223b36112 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
+@@ -40,6 +40,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: OVL-2L Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+index 4df5c7b410c6..dc200068d617 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
+@@ -61,6 +61,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: OVL Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
+index 86787866ced0..9dac0319dd60 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
+@@ -34,6 +34,9 @@ properties:
+   power-domains:
+     maxItems: 1
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: Padding's clocks
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml
+index fb6fe4742624..caef5194371f 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml
+@@ -40,6 +40,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: POSTMASK Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
+index d914c06640df..13deb7c87ee6 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
+@@ -60,6 +60,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+ 
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: RDMA Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml
+index 4b6ff546757e..7307a50fa30f 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml
+@@ -40,6 +40,9 @@ properties:
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
+     maxItems: 1
+ 
++  trigger-sources:
++    maxItems: 1
++
+   mediatek,gce-client-reg:
      description:
-       PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for PLL1).
-       pll1_refclk is optional and used for multi-protocol configurations requiring
-@@ -45,9 +45,17 @@ properties:
+       The register of display function block to be set by gce. There are 4 arguments,
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+index 036a66ed42e7..31e0863dd815 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
+@@ -39,6 +39,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
  
-   clock-names:
-     minItems: 1
--    items:
--      - const: refclk
--      - enum: [ pll1_refclk, phy_en_refclk ]
-+    maxItems: 3
-+    oneOf:
-+      - items:
-+          - const: refclk
-+      - items:
-+          - const: refclk
-+          - enum: [ pll1_refclk, phy_en_refclk ]
-+      - items:
-+          - const: refclk
-+          - const: pll1_refclk
-+          - const: phy_en_refclk
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: UFOe Clock
+diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+index c3ed867d058d..3e6b346baa11 100644
+--- a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
++++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
+@@ -45,6 +45,9 @@ properties:
+       the power controller specified by phandle. See
+       Documentation/devicetree/bindings/power/power-domain.yaml for details.
  
-   reg:
-     minItems: 1
++  trigger-sources:
++    maxItems: 1
++
+   clocks:
+     items:
+       - description: WDMA Clock
 -- 
-2.34.1
+2.54.0
 
 
