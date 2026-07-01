@@ -4,97 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC71C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21C7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gu+E2JdVa1JRknmwyrW0o138XPVwsj6HNCm/db6x0Ac=; b=WUPtBNMnoFboDYEtrnWu4eDT+L
-	C4qbkkGXCDg7EhnVMoJW7+plQ2EODorOSnpdztQHx6D61Vl/oew0AZruxD0+iR8W+74IJIks5lkEs
-	rJBYGDZlKGfDI+Y7W0lw743Hy44nVvabISCi+1tYzzeOlyNUWhevz0Hr9KVhlCJhPADOAuke6DRR6
-	aQBU+Xqa2zELSpeEDaI3MBhBjUyeRpe5jBURfA40eqiQvhLe9QlhGfw2QJTrwxUR8tsscH+gCvcAY
-	FQuFbBRMVs3Lx98F4wuqZHmu2t/zt1zIzPtv5jxQAvd4lQb9QgXe9+A8wHueThPsZ9EQAmR07bDsQ
-	GIP7yJrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZZZNIunvezzi1hRh4HlL5d8b3sIAo8k+6zdPe3u6JKg=; b=PBNE4pM3Cp1MHou3OzsfDMHKkm
+	XkhNqTT4RzalUhgGe/5zumG7eDA9HdR9WjhFcuiNiL2uWgf5k/LDoMkV9yKceGZ1zW6HF2P2yOEdi
+	utt1Z9xfQ8T8RdIOjc67SkLKpWnBe/sxa6IvTIWCf6glKyE3mMhrG0cZzNYpWJMPO6s9cXBa3Gxcs
+	wXQM7UJi49prVOSw5hn4mcEaOg81yFs8sWQCCD9HP27Qbsa/dF49MdjYVb/kcbf/g49vOVuFU2xSy
+	P0tDukn/fAYg71krL7PyfXlsQTX5jrj17awspVXtsEgCBDmTg9OIQfn8w2xRQ4UKyohoxQXNa63ZH
+	9yFU/SXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weud8-000000026yf-3qWb;
-	Wed, 01 Jul 2026 13:05:30 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wetwT-00000001uDz-2TDt;
+	Wed, 01 Jul 2026 12:21:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weud7-000000026y3-0AIR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 13:05:30 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-493b8d99342so41845e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 06:05:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782911125; x=1783515925; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Gu+E2JdVa1JRknmwyrW0o138XPVwsj6HNCm/db6x0Ac=;
-        b=wfS3fIiZnamQs5xW8HtX4jbJA5pEp64sShN+mdK+fHNi2c9vv5+JCNUKKre/c5cosd
-         MsZ1Uth1vB8HZ/cymQG4XqFw1wQ/D23dHilYdaFJ4OljnZne8HR5P1Hzm78gb7jj7Ftu
-         lhcPU7yQHE5m7sq9UPUcLU85odcjHDwWfF2159K7rCwCgT/DI7MjJDusyEIsDtJyB/Ar
-         n36XT92Os8Hi4RiDbhh1vOCkF2GuLvgmnzLX3GqfwdvZNli7PgANIye1Z8R75DvPtICb
-         9geTO+LoB/QjYKpqnVKb8ckZ7SSy2A/bU8nGqxEs4YEW7KTu9kGIZArly6lkR66e7JxJ
-         YDBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782911125; x=1783515925;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Gu+E2JdVa1JRknmwyrW0o138XPVwsj6HNCm/db6x0Ac=;
-        b=LhSQ1es5PcTOXyrDIYKspnaQCMNFoTxvaOU17SZo/IlGNeBFtqfcyl4/yrzxsBCa7e
-         dXGg+idrAREkYjlW86gXn0l8GLyto0xQ2ySA80eAqbalko06zfuqWVjQsEmADB9VhuDN
-         1flE/hbWEhDNaAL7l+gssSIBJiVUPEUSBghpa0amU68zNOLLhPCP0jY4GSX0FVCHUCog
-         v/rIkUkdH5T86ivCSeNI9cm45ItrUFUbmzFHqlPZA5+Clze7YpftPZKuGJOroMSKiBYE
-         qWmkCjP5rlkE+3xqFkQoOO6nAp6lYu9Uqerr/zxEJ6NM7du9LPMo9DWsNysKnmvGIqYB
-         EF9Q==
-X-Forwarded-Encrypted: i=1; AFNElJ+A97iski59iAt1RhHbKM/eZ0LHrtEjyfAO7IYjnM3sCSkOi/yocAbrkTZVmsHenzuzaGybu3fkFMu6vSyJsATx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEmuFuaX7ge5pDMuYJ9nCBrmYEqwm+fS+qLopFAKVIEhTqVFl4
-	vgeBmUJTjkmImj/gKEsU6ASbmfL1llAMP51n8lBu7it/7QHm4MTfzzHIRWVA4V1cRA==
-X-Gm-Gg: AfdE7cleVxkx0WJI+x/eVhfujKFS1U4ixTEAIO5YR+zP1FW8b4XppDh9CHA2iw50WKa
-	RWh1I0/UKq9gfafUenXKxVNqS7XrTgRMnWTW0pgfBxpK3BSILcP4hjGMwxv7OVU514X2Ck8C5yU
-	/LVqj3MOcgFz+uQPVUZyK9oO5P2waysAHyggACGYFPmairk6+Htg2VPQeY5kqcmdQK9njIRyfZd
-	81AdiCf4uJH6Q6zjjlNXwlTz5F8VbE5h7X5EVA6j0I79L514/I7U0qgyWiqFw8lHWd2+7r0VO9z
-	gsNfbilg6gHfKCy/GpvDUt/Ec76Vu7I9vRkXT31PRezA37qRTajyOJ0hHCIvVAD5P9jbgutrTNc
-	f777bJ6WWtMg+n5LILdN2ASjPPgoU0sDiaHAsQhl+CaRe5wHaZM6hSmqT+Z2t+LeYEj+mG3xH/E
-	VVNq1XHEKLkJYP7zquGhnHfBHSm0DxTAgkTnkbVm33si41krQjMow=
-X-Received: by 2002:a05:600c:4b9a:b0:492:203f:a378 with SMTP id 5b1f17b1804b1-493c0bca5e0mr702615e9.8.1782911124942;
-        Wed, 01 Jul 2026 06:05:24 -0700 (PDT)
-Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47566743895sm18099701f8f.25.2026.07.01.06.05.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 06:05:24 -0700 (PDT)
-Date: Wed, 1 Jul 2026 13:05:19 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Pranjal Shrivastava <praan@google.com>,
-	Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org, kees@kernel.org,
-	baolu.lu@linux.intel.com, kevin.tian@intel.com,
-	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org, jamien@nvidia.com
-Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Message-ID: <akUQj2pa1W-MekgF@google.com>
-References: <cover.1782799827.git.nicolinc@nvidia.com>
- <akPB6l-fuJUcg4a2@google.com>
- <akPX_N0P2EcI_jbV@google.com>
- <akPhuF9pAWaBXzpi@google.com>
- <20260630185942.GF7481@nvidia.com>
+	id 1wetwA-00000001tXd-2Rqd;
+	Wed, 01 Jul 2026 12:21:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ZZZNIunvezzi1hRh4HlL5d8b3sIAo8k+6zdPe3u6JKg=; b=JXtA57IwJipnQBNDGpjqRazZe/
+	Gbp0rIkvDPPj0g8n79LQgy6eYEhRpOMNkFScmMZxnxXERWQ+0ln7ixClbw6AgSkI01MmioQmt0p/7
+	40CUUxpL8/POLi/kWnYdiGP8E5MDO2fsLu8HijKFfBb0muVwJrfdi1ymPUk9XsHF7SZtNtgX1WyRa
+	9aj8YVl7NxKDlfonN/lze+BtD5OnmJxxkgXmwiONJ1Oz/M3bpEXiHiJ/XfsIuUkE3/DPH/FCUslWY
+	Kk+DEk2tpBkndylQFTYakjg83sf6Uq5td8HamN5kfVLyHKmNQf55yZJIzw4LxP7F3m0kd/zTSrZjU
+	lgVisFSg==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wetw7-00000002jaX-2mis;
+	Wed, 01 Jul 2026 12:21:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908462;
+	bh=Yl4F/qLiX1FuymwDnMa7ipHvpjWY2yM9HKkuyODQUtU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SyirWOW6u1Sce5SyCm2A3fXliMPnplIAViizuFyiiRACwzZvO1ZokfkjN2u2sDnRn
+	 gA5JNEUXfiiqiy6TNStWlxAiZCMUmf+AwzZ6+2w+5OgKIa5DJ+I1xHW+5e3Pg0Jqkh
+	 S88CIh+nvrqYxeGEWtn0fAnH2omit6MBy80aohLb7f9PIl9BT3HTwQYBTgR6Y532C2
+	 QMkgHtEo7lz24PZXI7+0i7oogkJRRoBaB+jy/E9A4gXfzzwuB4t0dkO8eqsC+1G/7w
+	 rcpkD1m4UL6seaZXvDCCkOF5PchUr0HsFE85A3cHtQC4ZpOxIoSACXwLjW+yZYT2Ab
+	 ToiLWHt/owzLA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 38DF217E0CD4;
+	Wed,  1 Jul 2026 14:21:01 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com,
+	Paul-pl Chen <paul-pl.chen@mediatek.com>
+Subject: [PATCH 01/42] drm/mediatek: Rename OVL format naming
+Date: Wed,  1 Jul 2026 14:20:16 +0200
+Message-ID: <20260701122057.19648-2-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630185942.GF7481@nvidia.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_060529_137074_D22B3F88 
-X-CRM114-Status: GOOD (  26.61  )
+X-CRM114-CacheID: sfid-20260701_132103_857034_4F6D27FE 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,48 +104,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 03:59:42PM -0300, Jason Gunthorpe wrote:
-> On Tue, Jun 30, 2026 at 03:33:12PM +0000, Mostafa Saleh wrote:
-> 
-> > For example patch#1 verifies log2size and split and both are read
-> > from HW registers. Same for the base address or other addresses as
-> > the page tables, they  might be corrupted due to a buggy driver.
-> > My point is that, it is really hard to assume that the previous state
-> > of registers/STE/page-tables were valid or even consistent, when the
-> > kernel crashed and did not transition the state gracefully.
-> 
-> Sure, and this mechanism is probably not very useful for debugging
-> these kinds of errors in the SMMU driver. Oh well, that isn't a common
-> source of kernel crashes :)
+From: Paul-pl Chen <paul-pl.chen@mediatek.com>
 
-I hope not! Although memory corruption can happen due to many other
-reasons :/
+Rename format arrays from mt8173_formats[] to mt8173_ovl_formats[]
+to explicitly indicate that these format definitions are specific
+to OVL (Overlay) components.
 
-I am not trying to bikeshed, but I wondering if there is a more
-reliable way rather than doing archaeology from a panicked kernel
-SMMUv3 configuration, as I am worried that will be even harder to
-debug if it goes wrong.
+This naming improvement is necessary because MT8196 introduces new
+display components (EXDMA, BLENDER, OUTPROC) that support different
+format capabilities than OVL. Without clear naming, it becomes
+ambiguous which formats apply to which component type.
 
->  
-> > Similarly for TLBs, the kernel might have panicked in the middle of an
-> > unmap or free domain. (not to mention what that means for RPM where
-> > a device reset with unknown TLBs)
-> 
-> TLB is fine. kdump works by carving out a chunk of memory for the
-> future crash kernel. When the kernel boots it ignores all the memory
-> used by the prior kernel. So DMA can keep running into the old kernels
-> memory with no issue. It doesn't matter if the TLBs are inconsistent or
-> not.
+Examples of format differences between components:
+- EXDMA supports 10-bit RGB formats that some OVL variants don't
+- BLENDER has different YUV handling requirements
+- Component-specific format conversion capabilities vary
 
-Ideally if a TLB is to be missed (because of the panic), it should not
-point to kdump memory as it is carved-out. However, it is still a leap to
-assume that the TLBs are in a good shape as I mentioned with RPM (or
-even if the device resets transiently for some reason) it can end up
-with garbage in its TLBs.
+The explicit naming:
+- Prevents confusion when debugging format-related issues
+- Makes it immediately clear which component a format array belongs to
+- Improves code searchability (grep for "ovl_formats")
+- Follows consistent naming convention for component-specific definitions
+- Prepares for adding exdma_formats[], blender_formats[] arrays
 
-Thanks,
-Mostafa
+This is a preparatory patch for MT8196 component support, which
+requires clear distinction between OVL formats and EXDMA/BLENDER
+formats to avoid applying incorrect format configurations.
 
-> 
-> Jason
+Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 36 ++++++++++++-------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+index c4b5a262fa8a..87c2b5e6d6b0 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+@@ -101,7 +101,7 @@ static inline bool is_10bit_rgb(u32 fmt)
+ 	return false;
+ }
+ 
+-static const u32 mt8173_formats[] = {
++static const u32 mt8173_ovl_formats[] = {
+ 	DRM_FORMAT_XRGB8888,
+ 	DRM_FORMAT_ARGB8888,
+ 	DRM_FORMAT_BGRX8888,
+@@ -115,7 +115,7 @@ static const u32 mt8173_formats[] = {
+ 	DRM_FORMAT_YUYV,
+ };
+ 
+-static const u32 mt8195_formats[] = {
++static const u32 mt8195_ovl_formats[] = {
+ 	DRM_FORMAT_XRGB8888,
+ 	DRM_FORMAT_ARGB8888,
+ 	DRM_FORMAT_XRGB2101010,
+@@ -673,8 +673,8 @@ static const struct mtk_disp_ovl_data mt2701_ovl_driver_data = {
+ 	.gmc_bits = 8,
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = false,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
+@@ -683,8 +683,8 @@ static const struct mtk_disp_ovl_data mt8167_ovl_driver_data = {
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+@@ -692,8 +692,8 @@ static const struct mtk_disp_ovl_data mt8173_ovl_driver_data = {
+ 	.gmc_bits = 8,
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
+@@ -701,8 +701,8 @@ static const struct mtk_disp_ovl_data mt8183_ovl_driver_data = {
+ 	.gmc_bits = 10,
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
+@@ -710,8 +710,8 @@ static const struct mtk_disp_ovl_data mt8183_ovl_2l_driver_data = {
+ 	.gmc_bits = 10,
+ 	.layer_nr = 2,
+ 	.fmt_rgb565_is_0 = true,
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+@@ -723,8 +723,8 @@ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+ 	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+ 		       BIT(DRM_MODE_BLEND_COVERAGE) |
+ 		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+@@ -736,8 +736,8 @@ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+ 	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+ 		       BIT(DRM_MODE_BLEND_COVERAGE) |
+ 		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+-	.formats = mt8173_formats,
+-	.num_formats = ARRAY_SIZE(mt8173_formats),
++	.formats = mt8173_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8173_ovl_formats),
+ };
+ 
+ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+@@ -750,8 +750,8 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+ 	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+ 		       BIT(DRM_MODE_BLEND_COVERAGE) |
+ 		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
+-	.formats = mt8195_formats,
+-	.num_formats = ARRAY_SIZE(mt8195_formats),
++	.formats = mt8195_ovl_formats,
++	.num_formats = ARRAY_SIZE(mt8195_ovl_formats),
+ 	.supports_clrfmt_ext = true,
+ };
+ 
+-- 
+2.54.0
+
 
