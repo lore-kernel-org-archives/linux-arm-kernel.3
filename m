@@ -4,81 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1815C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 20:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D07C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 20:49:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tzU5geEAdlGdzp5rSJKP+9OB0IsgaotJw1U5Q6pxjvc=; b=VUaO2kfP8vmX1TTDNocyVOCJBV
-	FOAwYJynhjjA+z8vewM59nts1n0eCaF+ICBrSJ0uoyliLjGAjenRIEPeV4romp/rNyBT4+wPRVYhv
-	MnPPyjKD5mBYx5qbhHbHYYzh2v3VlWe7jIN0SES2vMsEo39IbSvlq3mTjdh935Xkg7fDrzA0Te+me
-	2Xc3YjXt7hG29JNnoFLFW2kVRFp57/+VRL08e0HqQ0YxW3ptInVjT9xCwwUhcfM0eUaKICmFQgRLy
-	9he4R9LKS77wdfLTcwRgZyswUkn3ntk5/HVbSaMu5q9NqGxblDHZlfob341mGsVxyrcGYEwerxuI/
-	PNsTZdhw==;
+	bh=0OI9r+oDLNMoCCNp+jvgl6P08jRKSfU7E7aeuxBZlOQ=; b=r3uIv42sArh1CdqajI2mB4QMzc
+	Dg/AABmbIFVp5Xa71MtaRAytOXjCc4qTT8hYCDYxNY+hBaEkq5fFFOGoXODxY5mwruBwcsd9WggfN
+	4d9MmO9Adi5C6YZlYyhgpj6dg53+N7t14BqGAaxMP/fnILBdYCbMAMXiLXkt7WR+B1IO1tnE0uIpd
+	H+djKBGsq7QJVXUF3FdtXmIslAznSDO3b6FybXf9smdUhOsbszohmbq+n3pJ1AafUpc7XAHx8hqSL
+	2wrZzaRk8mnMTXy8nHl1eZcfgJ7pM+D/XDs9TfBQ4f1WqjrH5yezzIxjPSXRtXXYTfC2EWrJlpH6y
+	6Xsd9qCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1mg-00000002zHX-1zgJ;
-	Wed, 01 Jul 2026 20:43:50 +0000
-Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
+	id 1wf1ru-0000000301q-2qRK;
+	Wed, 01 Jul 2026 20:49:14 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1mc-00000002zEx-3E3S
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 20:43:48 +0000
-Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-4909b046dabso1659244b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 13:43:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782938625; x=1783543425; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tzU5geEAdlGdzp5rSJKP+9OB0IsgaotJw1U5Q6pxjvc=;
-        b=oE2Ab22b4d7sk6XVVI8e4IgRNGvV7H9zG+b1s7yuY97eABrkqNs+ivyuRkOuXlAMRM
-         pd3ICpYOWrfmMWrAsgiCqg50Ub16yQ+qr3iSFraYsrGhACw4Z4ItPh2wiMRCZKO099J1
-         84ZTwZM1vX5PIF/8s1VO3RaZuhBAzzEBxAwlEzgHECZYf5S1BLUNT3s+pJvCTLtFh/Zl
-         HKEp0SKcKeGr4Y6Rsss1U1R9/zP4+td9eFCcX4XuO1/DVVpFFwOTllw/FuDs9RZpXQRg
-         /rxkFToyFyDDzwqiYYnvUp3G5n5+WCP82dkAt47zvQd/V53eLnVN6bFmL8/49jHxTjc8
-         FULw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782938625; x=1783543425;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tzU5geEAdlGdzp5rSJKP+9OB0IsgaotJw1U5Q6pxjvc=;
-        b=Wr2sW1uttqxfOTfOor9FtJG4f1nyYJiBAYNBRRJCkkIiJVqAHvQs1gclYP3NT5UawZ
-         ocJizfo5Prjkbm9w7VkekVpWr1rJNPiFqHRgdC312vdhVAMC7kFoEMXenjHMwfuzRaQQ
-         tKnCjJB/mFU6AHj3gNuw3aCV5USBPiZ5yTiYFEXidgmkB4rBjh0IYGSidbjO9xoGa7pu
-         CWiqxPLAWT/dd5Xte9Cl4zjtQiakmJoRHPkypR3q7g/t5bHGjGx//sVzREKNfLRLiw+x
-         lBlN62Rx2zNSuMcz/jvzgdmFz4dqKFweQ1zNVv0FdDRMRmFcPvinSYoaTx9kwt1MCCXY
-         JvPg==
-X-Forwarded-Encrypted: i=1; AFNElJ+wezrhcWkmd1iK9qiU6TSOf+suRo5ZMyGLKa1jYA3aj1XjvnU0xsoMs1hwb1x0UNsV15cypByG227h3kxC5reJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1v2Vd6ItRpxzxepDD9YsdgNVr3e7IGBNG+LlnKTDoxPis1Sfx
-	3+MvEWb8JyUHkbIz+/Rl8G81jDYAQf0gOuaGiTECP4iDAYFORB81MAMsmKYNR9WcFWAMWuiktk1
-	6howKMbpqh9d4mR8TEz44kJuKSg==
-X-Received: from iodr16-n1.prod.google.com ([2002:a05:6602:6c90:10b0:993:783e:f2bb])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:5088:b0:487:6930:d50 with SMTP id 5614622812f47-4960efba909mr1932765b6e.35.1782938625160;
- Wed, 01 Jul 2026 13:43:45 -0700 (PDT)
-Date: Wed,  1 Jul 2026 20:43:39 +0000
-In-Reply-To: <20260701204342.2654385-1-coltonlewis@google.com>
-Mime-Version: 1.0
-References: <20260701204342.2654385-1-coltonlewis@google.com>
-X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
-Message-ID: <20260701204342.2654385-3-coltonlewis@google.com>
-Subject: [PATCH 2/5] arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0
- is negative
-From: Colton Lewis <coltonlewis@google.com>
-To: stable@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	James Morse <james.morse@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mingwei Zhang <mizhang@google.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
+	id 1wf1rs-0000000301H-1m2R;
+	Wed, 01 Jul 2026 20:49:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1782938946; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=OwFN0gPD+BiuM4H6omziC9HWaxRyCyapRT2uKi9EFb7YL7zfTa4siBw6pjiqE/E2UW
+    /9Jnw079GPsGR2Dd0YfwoAv4V86rwJw+vRzkK3k86qBWC/iJeM8/pun8FvFuuxXYTkbW
+    PTsmffApLXWk+ZD1L3mhWM9OCPcFEKMciwrK/L8ZTSPJkJ3nrrik496TGRewLL3LtX+8
+    WHeaPZZ6DojK0KUhJKp6ENyszQrAm6cLORJrJW/5+DV1g8e+nKCPiyqHwB7n9aPWN0Et
+    tnh0hK9lNOAIvjZzdRKLgnjFDAvj8JAK1k7gblXsCoRPi4Z4kVa/o5Yh3H2QDM1ezBR4
+    zOjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1782938946;
+    s=strato-dkim-0002; d=strato.com;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=0OI9r+oDLNMoCCNp+jvgl6P08jRKSfU7E7aeuxBZlOQ=;
+    b=HdxzqBaRCHSC8u3tKtwPAL0ctTU1/AVWXlIBgGV9h+RnuRUZZDw/0k/X13tuf7EtDY
+    /Rr0wzdZRFpxUPYxdJgil1Y/3ClsS6LlJ6PmKuDUgvMrB8i8reRXpDcaMXw0+ly+22OE
+    1z2jnL+pxkFmGAgv4MT+LndKUh+W7oM5N9ycbcFIJaPyd5+PmuMQL+AouE3iYufMuG1j
+    MMXXTtlMx/SCqovv7WM1qLePnBNzGl94rhiauUFZqQOf1lNhO5S2diJDUHBMiumWpbVj
+    zRzuKo5ehy+6cppXJP7zQEfW3lykUpmKRdroa+/fakg1hfh2/nt0b1bRw4T+B+0gd+DR
+    RO0g==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo02
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1782938946;
+    s=strato-dkim-0002; d=iokpp.de;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=0OI9r+oDLNMoCCNp+jvgl6P08jRKSfU7E7aeuxBZlOQ=;
+    b=sIai4biILPLJ3qx6cnpm9RRIVP5MADxN2cHXM5kK9ofXpRkcri9XD/IddbgDCMEYFY
+    Nucj8fnxifKV2l8OECinbLlPVfMjK/xFKoIW1HlMEF5tZswCxIp+OKC+35xggA8qbeBM
+    cbi1mA75/rXPK/M/Wl/rymRoVdkw1CXAwC0u1e+JkIFKYqk05yYtZCPv3glH/hYV6SUk
+    SolA0aRAaaj83QrkXMLAVjSbwYTZHAh121nyyWTwuKVeJAjBLgILocbkGh704GCeCeLc
+    l+heDDEZnDcCIRLD5i0MB0N58Qsz0tt4E/j3gZDU3yF3GnkvNBzrjIPzA80ua6BzzZyH
+    z2EQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1782938946;
+    s=strato-dkim-0003; d=iokpp.de;
+    h=References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=0OI9r+oDLNMoCCNp+jvgl6P08jRKSfU7E7aeuxBZlOQ=;
+    b=tHf9G+j3iVW3fB/gSnpgkz62pZdUbJLh5lze5IV0e5jjCcfBXOSjuB23+y5f7nDk6j
+    UBBbT+xn4e5QQR33KQBA==
+X-RZG-AUTH: ":LmkFe0i9dN8c2t4QQyGBB/NDXvjDB6pBSe9tgBDSDt0V0zNriHg+YfT0rGWUpI6weUrZX7j5d8vw1ZwljKUZAZetExYucA=="
+Received: from p200300c5871477310ac0be5030e43536.dip0.t-ipconnect.de
+    by smtp.strato.de (RZmta 55.5.6 AUTH)
+    with ESMTPSA id z4d388261Kn5VQK
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Wed, 1 Jul 2026 22:49:05 +0200 (CEST)
+Message-ID: <3362cec069bd3437c378f356c3e1333d3428070e.camel@iokpp.de>
+Subject: Re: [PATCH v2 3/3] scsi: ufs: core: Always run tx_eqtr POST_CHANGE
+ notify
+From: Bean Huo <beanhuo@iokpp.de>
+To: Can Guo <can.guo@oss.qualcomm.com>, bvanassche@acm.org,
+ beanhuo@micron.com,  peter.wang@mediatek.com, martin.petersen@oracle.com,
+ mani@kernel.org
+Cc: linux-scsi@vger.kernel.org, Alim Akhtar <alim.akhtar@samsung.com>, Avri
+ Altman <avri.altman@wdc.com>, "James E.J. Bottomley"
+ <James.Bottomley@HansenPartnership.com>,  Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>,  open list
+ <linux-kernel@vger.kernel.org>, "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+Date: Wed, 01 Jul 2026 22:49:05 +0200
+In-Reply-To: <20260625121306.1655467-4-can.guo@oss.qualcomm.com>
+References: <20260625121306.1655467-1-can.guo@oss.qualcomm.com>
+	 <20260625121306.1655467-4-can.guo@oss.qualcomm.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.44.4-0ubuntu2.1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_134346_812812_FF63CEE1 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20260701_134912_748195_89641FDC 
+X-CRM114-Status: UNSURE (   6.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,71 +116,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+On Thu, 2026-06-25 at 05:13 -0700, Can Guo wrote:
+> ufshcd_tx_eqtr() skips POST_CHANGE notify when __ufshcd_tx_eqtr()
+> fails. That can leave variant cleanup incomplete when PRE_CHANGE saved
+> temporary state that POST_CHANGE is expected to restore.
+>=20
+> Always call POST_CHANGE once PRE_CHANGE has succeeded. Keep the TX EQTR
+> result as the primary return value, and only propagate POST_CHANGE
+> failure when TX EQTR itself succeeded.
+>=20
+> Log PRE_CHANGE and POST_CHANGE notify failures to make variant callback
+> failures visible in TX EQTR error paths.
+>=20
+> Reviewed-by: Manivannan Sadhasivam <mani@kernel.org>
+> Reviewed-by: Peter Wang <peter.wang@mediatek.com>
+> Signed-off-by: Can Guo <can.guo@oss.qualcomm.com>
 
-[ Upstream commit 3944382fa6f22b54bc3624c9657b98ec34b5ba59 ]
+Loods good to me!
 
-For CPUs that have ID_AA64MMFR4_EL1.E2H0 as negative, it is important
-to avoid the boot path that sets HCR_EL2.E2H=0. Fortunately, we
-already have this path to cope with fruity CPUs.
-
-Tweak init_el2 to look at ID_AA64MMFR4_EL1.E2H0 first.
-
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
-Link: https://lore.kernel.org/r/20240122181344.258974-8-maz@kernel.org
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
----
- arch/arm64/kernel/head.S | 23 +++++++++++++++--------
- 1 file changed, 15 insertions(+), 8 deletions(-)
-
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index 6517bf2644a08..e32c8dd0b17a7 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -589,25 +589,32 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
- 	mov_q	x1, INIT_SCTLR_EL1_MMU_OFF
- 
- 	/*
--	 * Fruity CPUs seem to have HCR_EL2.E2H set to RES1,
--	 * making it impossible to start in nVHE mode. Is that
--	 * compliant with the architecture? Absolutely not!
-+	 * Compliant CPUs advertise their VHE-onlyness with
-+	 * ID_AA64MMFR4_EL1.E2H0 < 0. HCR_EL2.E2H can be
-+	 * RES1 in that case.
-+	 *
-+	 * Fruity CPUs seem to have HCR_EL2.E2H set to RES1, but
-+	 * don't advertise it (they predate this relaxation).
- 	 */
-+	mrs_s	x0, SYS_ID_AA64MMFR4_EL1
-+	ubfx	x0, x0, #ID_AA64MMFR4_EL1_E2H0_SHIFT, #ID_AA64MMFR4_EL1_E2H0_WIDTH
-+	tbnz	x0, #(ID_AA64MMFR4_EL1_E2H0_SHIFT + ID_AA64MMFR4_EL1_E2H0_WIDTH - 1), 1f
-+
- 	mrs	x0, hcr_el2
- 	and	x0, x0, #HCR_E2H
--	cbz	x0, 1f
--
-+	cbz	x0, 2f
-+1:
- 	/* Set a sane SCTLR_EL1, the VHE way */
- 	pre_disable_mmu_workaround
- 	msr_s	SYS_SCTLR_EL12, x1
- 	mov	x2, #BOOT_CPU_FLAG_E2H
--	b	2f
-+	b	3f
- 
--1:
-+2:
- 	pre_disable_mmu_workaround
- 	msr	sctlr_el1, x1
- 	mov	x2, xzr
--2:
-+3:
- 	__init_el2_nvhe_prepare_eret
- 
- 	mov	w0, #BOOT_CPU_MODE_EL2
--- 
-2.55.0.rc2.803.g1fd1e6609c-goog
-
+Reviewed-by: Bean Huo <beanhuo@micron.com>
 
