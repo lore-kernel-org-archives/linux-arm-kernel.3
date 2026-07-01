@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A892CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C746C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRMFHyL/UPNrM65im540fqrf4ZoLTuhCO5kIQyraKCs=; b=bUBzTQ1sH27M+9+x2VTZolCmpc
-	WYDfvVbaUuKoFDOnIaisQouQAAEcDGJICL9MxtUGBVMaNyOMN9B8Kw3bLVzvaScXf09LIdZhtsrdD
-	sOW+dDHvTGqfq7Ol0pIrs607M7stBDGXYGnanLENmorlZ2Hv6A0dlsdj73+J+ig+OgZC4a/u6YJlG
-	gA+/TK26E9wOtQhNE/elzIN2nvr1HXl26Cc4d2/ZXYm3dBIRH6Kq1UxmPrPmzy4RxcMNQYhYqZ5nt
-	O8munhVMTzI0cOMKglRdnUXSeQPkz4JQAvna26KfNKZ33UTwiJIQEyEA5rp9pgbdIQfosHqrX95ar
-	CEtjQ3Eg==;
+	bh=xHNIwvgIvrag8fe3InRwZWIlH8aKQGYsVQYfK37rrJA=; b=p4Q88HrDxs4oSioirjJ6HQ8IOL
+	VvWe6BRKu1KOpR1IXRvr9YAZb0nzyvbk5v64CDBvGqU+J+05mwBG+ZnNpRkpNOuagI5c2LS9hOS8a
+	HNd0d3PUY9Qd38Uj4AsI2AK3nF0TQI3pC2d4+ZgpdI2MsRGalXLoIRpFw+JKXKuC2K9zRyZqcuFJn
+	0dETRCSmhX5mD38jxpS37p2T7feZZ+jflLPtdN8OQBvegdc+YSId5cJW4HaeqaDYNFVgBOIWSIvA2
+	UYfvcRfuF/lIVhh4nZ6PHqr7BWa1X2GWT9vZ5ip5lDdBxmLV31s4UaPPbsJUE4YOgHLQeRkP1fjfq
+	pzCArs9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvg-00000001rxM-48Oh;
-	Wed, 01 Jul 2026 12:20:37 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wevhL-00000002G88-0NOt;
+	Wed, 01 Jul 2026 14:13:55 +0000
+Received: from esa1.hc555-34.eu.iphmx.com ([23.90.104.144])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvW-00000001rT6-2oKW;
-	Wed, 01 Jul 2026 12:20:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=CRMFHyL/UPNrM65im540fqrf4ZoLTuhCO5kIQyraKCs=; b=blqYREO98n9ETSODUhJ6BEbHOo
-	2MeiMmPi5K11bZ5Js+Qc19JnCheym7LrEcksYUXN9oCpobsHR7a7oP8iBYK8SjX+3yB2nZj/8an2m
-	ve+c8j380z4bT9S1oqcq6i7m67cRZkpp3Hb/LE3N366PddZufNPNVnbk3QCxigKnUxbDoQZCgkZyC
-	qBhLurUVrpQ7kQN8ym16/x1L/o+cZTTB9krhKjzg/5KodAR8iEvEOvD1iWyU/GaZhTqf7cgwEvMwF
-	4kF4AcAyPNjk3ciBEwWq5KK3T0xslUDT8D7x0lqnP62E8ZDHnKMNuV6uuCnQol/xtUq1WhxBqSW8N
-	OHZiX8fg==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvP-00000006aX5-1Twa;
-	Wed, 01 Jul 2026 12:20:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908414;
-	bh=U6ptaCRIBTuu6TtdNgVk6FYeE4TCtGKvw6TAUNktPuY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ayQYx6Isel99dFp8bYIxomctlGhVA8acBcDVaspFVbIIQepgZZglIrz81ydvsF0iO
-	 lGFvSBmM3X/U/pDNR3lesscM4Yu6yPYv61jCPzUETwINpjg2lJSnPfHPrJ5PtLGLPm
-	 bMaG1pXfA6OMOE6E9SFGlSVHoxMBZc3ISDYaH5wtYcLYS+uKSsp+TyLqGU9xfeDpMu
-	 ugCBeGyAEK2uINW1y44cjHQE0UF3iJM1v4Q8VcAg9qC++A2ITLdvLYUXcxC5P771PR
-	 5mWl8Y7SzqfiCREuLm4xhPK2MEbSxxbywr0f3Tsd4Aboc143cp2wApZBgONv1so4s2
-	 lbX4nYN3J+daw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1227517E0FAA;
-	Wed,  1 Jul 2026 14:20:14 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunfeng.yun@mediatek.com
-Cc: vkoul@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	justin.yeh@mediatek.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	kernel@collabora.com
-Subject: [PATCH 04/12] phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
-Date: Wed,  1 Jul 2026 14:20:00 +0200
-Message-ID: <20260701122008.19509-5-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
+	id 1wevhH-00000002G7E-0n7J
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 14:13:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
+  t=1782915231; x=1814451231;
+  h=date:from:to:cc:subject:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=CEVGvu6TCDiaCcSvmrd98Os19avfl2PEiaB4Dw/9jcE=;
+  b=erosjDHtRbH6qpmRHkQZEh+yrzY9LoO398H3Z8RJn2ZcskWb7qszU6y3
+   WyrkyDwVJwOcUbU2psl9njiv0oL1hnR7LMVYsjoY4if+MgKWtMc/iKxGs
+   UPhYGm2Lk/xvCy6YA24lR/MpVWCUUmmC0Y6g0xVoCZFkMoiVHcw0kW+3t
+   d9v3GiWTy51LU5A5VQfx3HBjSiPoPuqXPvrLG5+zN0Ced+CvR5z8zoxdO
+   a3vDtTsTJ7XKGWRPtaCClDotJdUdb2S0B4mvFMxWTfINnCElehiVz1y8D
+   c+NMXr9BmuV7cXHnYvHaXRPD2RE50Py+d3bxWUG2UzZVfREiWE6IN84+2
+   w==;
+X-CSE-ConnectionGUID: a6ygRUh4Tc2xpB9DXALZAg==
+X-CSE-MsgGUID: PvKqB6oPRfCF7OCS61n8lA==
+X-Amp-Result: SKIPPED(no attachment in message)
+X-Amp-File-Uploaded: False
+Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
+  by esa1.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2026 17:13:46 +0300
+X-CSE-ConnectionGUID: ErA3OLcJQ1yRxQuQaa7WWQ==
+X-CSE-MsgGUID: Zaseidf5QfKEyJp5AqiCaA==
+Received: from unknown (HELO epgd056.me-corp.lan) ([10.154.54.2])
+  by ces02_data.me-corp.lan with SMTP; 01 Jul 2026 17:19:05 +0300
+Received: by epgd056.me-corp.lan (sSMTP sendmail emulation); Wed, 01 Jul 2026 17:13:45 +0300
+Date: Wed, 1 Jul 2026 16:46:48 +0300
+From: Dmitry Guzman <Dmitry.Guzman@mobileye.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Steven Rostedt
+ <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, Mathieu
+ Desnoyers <mathieu.desnoyers@efficios.com>, linux-i2c@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/7] i2c: nomadik: optimize layout of struct nmk_i2c_dev
+Message-Id: <20260701164648.93eca0250e8a4932611a2ce5@mobileye.com>
+In-Reply-To: <CAD++jLmqtG-j=Q-Ctr-1-GKVqYzcwOwWUF6AYHcKf5aXUSKE5A@mail.gmail.com>
+References: <20260623-i2c-fault-reporting-v1-0-6db1a8aabf18@mobileye.com>
+	<20260623-i2c-fault-reporting-v1-2-6db1a8aabf18@mobileye.com>
+	<CAD++jLmqtG-j=Q-Ctr-1-GKVqYzcwOwWUF6AYHcKf5aXUSKE5A@mail.gmail.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132019_631767_EC0D78B4 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20260701_071351_761576_2E7E6801 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,258 +86,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding support for newer SoCs and for adding
-more capabilities to this driver in an efficient manner, migrate
-all of the hardcoded register offsets to SoC specific pdata and
-assign that for both DT and platform probing.
+On Thu, 25 Jun 2026 00:36:49 +0200
+Linus Walleij <linusw@kernel.org> wrote:
 
-While at it also cleanup writing the driving parameters to the PHY
-by iterating through all lanes with a loop instead.
+> Hi Dmitry,
+>
+> thanks for your patch!
+>
+> Also nice to see some kernel contributions directly from
+> MobilEye!
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/phy/mediatek/phy-mtk-dp.c | 138 +++++++++++++++++++++++-------
- 1 file changed, 109 insertions(+), 29 deletions(-)
+Thanks for you review!
 
-diff --git a/drivers/phy/mediatek/phy-mtk-dp.c b/drivers/phy/mediatek/phy-mtk-dp.c
-index 98e05fe05ce3..ce33f6812bae 100644
---- a/drivers/phy/mediatek/phy-mtk-dp.c
-+++ b/drivers/phy/mediatek/phy-mtk-dp.c
-@@ -4,6 +4,10 @@
-  *
-  * Copyright (c) 2022, BayLibre Inc.
-  * Copyright (c) 2022, MediaTek Inc.
-+ *
-+ * Major refactoring
-+ * Copyright (c) 2026, Collabora Ltd.
-+ *                     AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-  */
- 
- #include <linux/delay.h>
-@@ -14,24 +18,25 @@
- #include <linux/platform_device.h>
- #include <linux/regmap.h>
- 
--#define PHY_OFFSET			0x1000
-+#define MTK_DP_PHY_MAX_LANES		4
- 
--#define MTK_DP_PHY_DIG_PLL_CTL_1	(PHY_OFFSET + 0x14)
-+/* DP_PHYD_PLL_CTL_1 */
- #define TPLL_SSC_EN			BIT(3)
- 
--#define MTK_DP_PHY_DIG_BIT_RATE		(PHY_OFFSET + 0x3C)
--#define BIT_RATE_RBR			0
--#define BIT_RATE_HBR			1
--#define BIT_RATE_HBR2			2
--#define BIT_RATE_HBR3			3
-+/* DP_PHYD_BIT_RATE */
-+#define PHYD_DIG_RG_BIT_RATE		GENMASK(1, 0)
-+#  define BIT_RATE_RBR			0
-+#  define BIT_RATE_HBR			1
-+#  define BIT_RATE_HBR2			2
-+#  define BIT_RATE_HBR3			3
- 
--#define MTK_DP_PHY_DIG_SW_RST		(PHY_OFFSET + 0x38)
--#define DP_GLB_SW_RST_PHYD		BIT(0)
-+/* DP_PHYD_SW_RST */
-+#define PHYD_DIG_GLB_SW_RST_B		GENMASK(7, 0)
-+#  define DP_GLB_SW_RST_PHYD		BIT(0)
-+#  define DP_GLB_SW_RST_TFIFO_ANA	BIT(1)
-+#  define DP_GLB_SW_RST_XTAL_CLK	BIT(2)
-+#  define DP_GLB_SW_RST_MAIN_LINK	BIT(3)
- 
--#define MTK_DP_LANE0_DRIVING_PARAM_3		(PHY_OFFSET + 0x138)
--#define MTK_DP_LANE1_DRIVING_PARAM_3		(PHY_OFFSET + 0x238)
--#define MTK_DP_LANE2_DRIVING_PARAM_3		(PHY_OFFSET + 0x338)
--#define MTK_DP_LANE3_DRIVING_PARAM_3		(PHY_OFFSET + 0x438)
- #define XTP_LN_TX_LCTXC0_SW0_PRE0_DEFAULT	BIT(4)
- #define XTP_LN_TX_LCTXC0_SW0_PRE1_DEFAULT	(BIT(10) | BIT(12))
- #define XTP_LN_TX_LCTXC0_SW0_PRE2_DEFAULT	GENMASK(20, 19)
-@@ -78,14 +83,58 @@
- #define DRIVING_PARAM_8_DEFAULT	(XTP_LN_TX_LCTXCP1_SW2_PRE1_DEFAULT | \
- 				 XTP_LN_TX_LCTXCP1_SW3_PRE0_DEFAULT)
- 
-+enum mtk_dp_phyd_dig_lane_regidx {
-+	DP_PHYD_LAN_DRIVING_PARAM_0,
-+	DP_PHYD_LAN_MAX
-+};
-+
-+enum mtk_dp_phyd_dig_glb_regidx {
-+	DP_PHYD_PLL_CTL_0,
-+	DP_PHYD_PLL_CTL_1,
-+	DP_PHYD_SW_RST,
-+	DP_PHYD_BIT_RATE,
-+	DP_PHYD_GLOBAL_MAX
-+};
-+
-+static const u8 mt8195_phy_dig_lane_regs[DP_PHYD_LAN_MAX] = {
-+	[DP_PHYD_LAN_DRIVING_PARAM_0] = 0x2c,
-+};
-+
-+static const u8 mt8195_phy_dig_glb_regs[DP_PHYD_GLOBAL_MAX] = {
-+	[DP_PHYD_PLL_CTL_0] = 0x10,
-+	[DP_PHYD_PLL_CTL_1] = 0x14,
-+	[DP_PHYD_SW_RST] = 0x38,
-+	[DP_PHYD_BIT_RATE] = 0x3c,
-+};
-+
-+/**
-+ * struct mtk_dp_phy_pdata - Platform data and defaults for MediaTek DP/eDP PHY
-+ * @off_dig_glb:    Base offset for dptx_phyd_sifslv_dig_glb
-+ * @off_dig_lane:   Base offsets for dptx_phyd_sifslv_dig_lan (for each lane)
-+ * @regs_dig_glb:   Register (layout) offsets for dig_glb
-+ * @regs_dig_lane:  Register (layout) offsets for dig_lan
-+ */
-+struct mtk_dp_phy_pdata {
-+	/* Register offsets */
-+	u16 off_dig_glb;
-+	u16 off_dig_lane[MTK_DP_PHY_MAX_LANES];
-+
-+	/* Register maps */
-+	const u8 *regs_dig_glb;
-+	const u8 *regs_dig_lane;
-+};
-+
- struct mtk_dp_phy {
- 	struct device *dev;
- 	struct regmap *regmap;
-+	const struct mtk_dp_phy_pdata *pdata;
- };
- 
- static int mtk_dp_phy_init(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u32 reg = pdata->regs_dig_lane[DP_PHYD_LAN_DRIVING_PARAM_0];
- 	static const u32 driving_params[] = {
- 		DRIVING_PARAM_3_DEFAULT,
- 		DRIVING_PARAM_4_DEFAULT,
-@@ -94,15 +143,21 @@ static int mtk_dp_phy_init(struct phy *phy)
- 		DRIVING_PARAM_7_DEFAULT,
- 		DRIVING_PARAM_8_DEFAULT
- 	};
--
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE0_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE1_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE2_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
--	regmap_bulk_write(dp_phy->regmap, MTK_DP_LANE3_DRIVING_PARAM_3,
--			  driving_params, ARRAY_SIZE(driving_params));
-+	int i, ret;
-+
-+	/*
-+	 * Assume that all lanes need the same driving parameters: this
-+	 * will bulk write from DRIVING_PARAM_0 to DRIVING_PARAM_8 on
-+	 * all lanes (a grand total of [9 * num_lanes] 32-bit writes)
-+	 */
-+	for (i = 0; i < MTK_DP_PHY_MAX_LANES; i++) {
-+		ret = regmap_bulk_write(dp_phy->regmap,
-+					pdata->off_dig_lane[i] + reg,
-+					driving_params,
-+					ARRAY_SIZE(driving_params));
-+		if (ret)
-+			return ret;
-+	};
- 
- 	return 0;
- }
-@@ -110,9 +165,12 @@ static int mtk_dp_phy_init(struct phy *phy)
- static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
- 	u32 val;
- 
- 	if (opts->dp.set_rate) {
-+		const u32 reg_bit_rate = pdata->regs_dig_glb[DP_PHYD_BIT_RATE];
-+
- 		switch (opts->dp.link_rate) {
- 		default:
- 			dev_err(&phy->dev,
-@@ -132,10 +190,11 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- 			val = BIT_RATE_HBR3;
- 			break;
- 		}
--		regmap_write(dp_phy->regmap, MTK_DP_PHY_DIG_BIT_RATE, val);
-+		regmap_write(dp_phy->regmap, pdata->off_dig_glb + reg_bit_rate, val);
- 	}
- 
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_PLL_CTL_1,
-+	regmap_update_bits(dp_phy->regmap,
-+			   pdata->off_dig_glb + pdata->regs_dig_glb[DP_PHYD_PLL_CTL_1],
- 			   TPLL_SSC_EN, opts->dp.ssc ? TPLL_SSC_EN : 0);
- 
- 	return 0;
-@@ -144,12 +203,17 @@ static int mtk_dp_phy_configure(struct phy *phy, union phy_configure_opts *opts)
- static int mtk_dp_phy_reset(struct phy *phy)
- {
- 	struct mtk_dp_phy *dp_phy = phy_get_drvdata(phy);
-+	const struct mtk_dp_phy_pdata *pdata = dp_phy->pdata;
-+	const u32 reg_rst = pdata->regs_dig_glb[DP_PHYD_SW_RST];
-+
-+	/* Clearing bits sets reset state */
-+	regmap_clear_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_SW_RST,
--			   DP_GLB_SW_RST_PHYD, 0);
-+	/* PHYD needs 50uS to guarantee reset done */
- 	usleep_range(50, 200);
--	regmap_update_bits(dp_phy->regmap, MTK_DP_PHY_DIG_SW_RST,
--			   DP_GLB_SW_RST_PHYD, 1);
-+
-+	/* Setting bits means go out of reset */
-+	regmap_set_bits(dp_phy->regmap, pdata->off_dig_glb + reg_rst, DP_GLB_SW_RST_PHYD);
- 
- 	return 0;
- }
-@@ -161,11 +225,18 @@ static const struct phy_ops mtk_dp_phy_dev_ops = {
- 	.owner = THIS_MODULE,
- };
- 
-+static const struct mtk_dp_phy_pdata mt8195_dp_phy_data;
-+
- static int mtk_dp_phy_legacy_probe(struct platform_device *pdev, struct mtk_dp_phy *dp_phy)
- {
- 	struct device *dev = &pdev->dev;
- 	struct phy *phy;
- 
-+	/*
-+	 * If legacy platform driver probe, assume this is MT8195 or compatible
-+	 * with a devicetree that was not migrated to the new, proper bindings.
-+	 */
-+	dp_phy->pdata = &mt8195_dp_phy_data;
- 	dp_phy->regmap = *(struct regmap **)dev->platform_data;
- 	if (!dp_phy->regmap)
- 		return dev_err_probe(dev, -EINVAL, "No platform data available\n");
-@@ -214,6 +285,8 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
- 	if (IS_ERR(dp_phy->regmap))
- 		return PTR_ERR(dp_phy->regmap);
- 
-+	dp_phy->pdata = device_get_match_data(dev);
-+
- 	phy = devm_phy_create(dev, NULL, &mtk_dp_phy_dev_ops);
- 	if (IS_ERR(phy))
- 		return dev_err_probe(dev, PTR_ERR(phy),
-@@ -231,8 +304,15 @@ static int mtk_dp_phy_probe(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static const struct mtk_dp_phy_pdata mt8195_dp_phy_data = {
-+	.off_dig_glb = 0x1000,
-+	.off_dig_lane = (const u16[]) { 0x1100, 0x1200, 0x1300, 0x1400 },
-+	.regs_dig_glb = mt8195_phy_dig_glb_regs,
-+	.regs_dig_lane = mt8195_phy_dig_lane_regs,
-+};
-+
- static const struct of_device_id mtk_dp_phy_of_match[] = {
--	{ .compatible = "mediatek,mt8195-dp-phy" },
-+	{ .compatible = "mediatek,mt8195-dp-phy", .data = &mt8195_dp_phy_data },
- 	{ /* sentinel */ }
- };
- MODULE_DEVICE_TABLE(of, mtk_dp_phy_of_match);
--- 
-2.54.0
+> >  struct nmk_i2c_dev {
+> >         struct i2c_vendor_data          *vendor;
+> > @@ -206,13 +206,13 @@ struct nmk_i2c_dev {
+> >         u32                             clk_freq;
+> >         unsigned char                   tft;
+> >         unsigned char                   rft;
+>
+> ^
+> Maybe you want to take the opportunity to change these
+> two into u8 if you're anyway changing the layout of this
+> struct?
+
+I'm waiting for review of patch 1 in the set. If I need to submit next
+version of the patchset, I'll change these two unsigned chars, as well
+as `unsigned char *buffer` in `struct i2c_nmk_client`, into u8.
+
+Best Regards,
+--
+Dmitry Guzman <Dmitry.Guzman@mobileye.com>
 
 
