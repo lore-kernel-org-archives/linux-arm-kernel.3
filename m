@@ -4,158 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DE6FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 01:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F286C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 02:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YC26FmdTmn0Uux8AKzau08ESZRvbLNzgi/lvhbTZq30=; b=CbtYIf+IXubeyMdxEPtwtQD2KM
-	/XB7CrLFyQQPwR068uvh9dHC1BvjHFkglbsqCh573/GjTSqUMIG9+SiW2O/yGnx6ASeDyHBtAC262
-	XIixudjEt0n+owS1tbcm8FJDctdukDM8k/+u+QlKG7b1fTKtRIo4AN6y7zfabu+9iF+5NjYELIaYY
-	OW5NHqL8dCM+a3qvNjHZ1+tYMSVkZ3Wqhx2UscXRK+orzYXiCSe0dKOhXxMFlcob9P7x3fF/8nGks
-	P3UKf0xqwHsCZXpJHKKKYkUktreTIlPDfejie3Oq7YJtm41HZpfks+xaMn6GJzgzfIbuzpZNns2/y
-	ElOcx+TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OOC4a4hB83XJuIh9Jdf10Z71bUUVibpbqo4gSEZbfDY=; b=lstkFhyPyb7Adt8orKgPD18BkS
+	3IjEVO6y2avS8x+tjqEZgAZQpL7ZSQr2XX18/WaHIwkDImS+JefQRTqqN1j12Q/fPhT+GUJhwBZJ5
+	9eU0MYATJa7xL22t76y4ZqN9eJA5qSy0zKE5v70KpE8a+gD/r8Adpr/hliAdbceBS79tRufeb44dw
+	nj2K2kF58LbfXEPblCISs0aO1IQXfmlOl8co3f3xm+qy0udej/CpgcG0SbEieCMHSDHTITKxQpOSC
+	Io5z4e6vzt5hboIqDb2J+xOvRqD4U7MOFx3D2LAsoJyayzUNXb84wMTF926KTMdAZWmfPmF751QSG
+	FMGeW3gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wekAK-00000000TuR-0xuv;
-	Wed, 01 Jul 2026 01:55:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wekU9-00000000W9Y-2ZCC;
+	Wed, 01 Jul 2026 02:15:33 +0000
+Received: from esa8.hc1455-7.c3s2.iphmx.com ([139.138.61.253])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wekA4-00000000TjJ-37xt
+	id 1wekU5-00000000W96-2R1o
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 01:54:50 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65UNM0cs3471869
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 1 Jul 2026 01:54:47 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	YC26FmdTmn0Uux8AKzau08ESZRvbLNzgi/lvhbTZq30=; b=NOl5BNY2eMXlZxTz
-	KmSPPi/syXcZzrooD+OjW4tOGXhJ8jAFFExHKGmd5CY1SveoQ91VlbCeJvd+FT1K
-	pGXY0yMg/64K9o7u9WqBaddb9GvM2iFpeCGxhaZKWjywaRJSuTjeI5i8wC0QKNc0
-	WP20RJc3bmqe14dfMy37L6W7sxhKu2knKGasyo1QPH7Dy7sP6+3tLAASYmcjhaDV
-	P5uvF8OdCDxnru2MzFc/dML7/NUtZvNInWvSOMdKL2H6CdKwmvPVsiRqv396AM2a
-	ph3l+qWOQItwpQ2vZTUqjYbiWldQk3zHZlIA+Iu0UUWIddiaTRW5fmkRo2bjoVz6
-	ALpb/Q==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f4fc0arw6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 01:54:47 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-37fca5f21b1so920304a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 18:54:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782870887; x=1783475687; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YC26FmdTmn0Uux8AKzau08ESZRvbLNzgi/lvhbTZq30=;
-        b=Tu7+USX5HJqyWDUENzzsscb7eNj5n3avDUrOHee139eoDnhmKoN2/bh+RfPOSyfqnh
-         JU1GH+T3+RoidOXg9dDd9Ce8stZ6eWbFaJBmGLHBgvspExRN9dIwFZ1wZyIkE2TwjN1i
-         AvjpSICudEnDC6lZq4cVVwaFJDv+XmA1exHeY2ZEzyWPuyLrqvXOSo2SJWGW5SaXFvn1
-         /0+I6E4f8z2qNNpKHP0odUb6OL0Ze2c7/O3wEo0i5gkI9SUGaCu9CjEgiSGhS91eOGUx
-         0RGrqbbewydq7FPcobhf2Fb2nmLDdaAaMbKikAP3WSoRWKSKcq6Gq3Sq1SxSsKos7+30
-         AXIw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782870887; x=1783475687;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=YC26FmdTmn0Uux8AKzau08ESZRvbLNzgi/lvhbTZq30=;
-        b=NyhVD9pPBydBqFy9oD+XlnzZ4b07XJz1C6PYgKevOFMPC5RSX7OaE0VP9lI8NQE6Bl
-         j0m12IM85Oz8ox9IWXiJm5C/6r3YlevYmizS6/JVhFeh41yn5Hra0xBc49uwVugQCpaq
-         1L3tuYVv4Y5k/SNhHZdl/ZZYmQnqn50eijJS4VxiZ9p91gaCxbuhl3gqWjp8otS4J6LM
-         eyVa3q42ILhqTzSjCLTrX2FYerbhNNXE9yn+VWcULQHju64SE7vgN7asgHN2SbHWP01c
-         4TyBTNF6JM+tPRQEGetIXAvjhYrU+Y3tPIqZZnfSdNtSumwJgqTkDEsGWpFFLNaNOS9h
-         Dvbg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr/CH1QPfolcyb2wypQz1GCRq2xUTrQ0ZHgsszotDNGdSNVn4KppDpMy+L6gJBCQ9mfT2BN4Bip1/OkQVBbJ4kX@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzlIC727QAgKsGwR4cgp6BT3/6Pp7UmA3xNYMd1NuRPjevUtWY
-	UflQUR21Chig5C1wSf7TLmEH8Je6bFJCQw0oixxwK31IJ1kSgh2NL4KQygvWKz2GvbrSaSZZx9O
-	XbsXfjBFAJ5Buj8Y19UwhMnezF0pOCj+eSsvEhY3bB7FZMjkDxVOPrtKxxHTIpGZfGLBPa/J3RD
-	jAmA==
-X-Gm-Gg: AfdE7clK95xZIV7066oZ/Jcocx87zfbgkPapiFnCcOuAFDYbMkDpRjHUu416Setgjfx
-	mFfYoSuZVLIcoPA9BHFBZRdFqih6586M/RNVJCEHTB29uq+Rcs7PXirOiQFuB6EUzOs8fq4IgQd
-	+q2eO0BJS7sktzckMlPFPgtF4CijB2/Vw3Yx6bIR2wEK0XlduG31Dm5iY6dwYg2g4aFOI1BdQmy
-	w9QurDjx0ByM7Vk/3Oc4hFcqPwn6RfWn7aGp+25ri05CuHzA0iq4naq5scNEtB5NITzew4w0eYM
-	ZQE2rlzYLQaRzDSouiR3yd+uAnmUJ2rIJRn0GdXXoyd2My3GB77you2eA3Q2LNoH/P0sS23P30R
-	+dtcMUS92i3cHrv1VfQjRyPgJcbWa+cR+s422WOZaA5b+gT/9vdqXiFzc/khuro0QXIrWDZTcSQ
-	==
-X-Received: by 2002:a17:902:ec8f:b0:2c9:ece2:822b with SMTP id d9443c01a7336-2ca44889405mr30905095ad.3.1782870886730;
-        Tue, 30 Jun 2026 18:54:46 -0700 (PDT)
-X-Received: by 2002:a17:902:ec8f:b0:2c9:ece2:822b with SMTP id d9443c01a7336-2ca44889405mr30904765ad.3.1782870886152;
-        Tue, 30 Jun 2026 18:54:46 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca37a7102esm23040315ad.6.2026.06.30.18.54.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Jun 2026 18:54:45 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Wed, 01 Jul 2026 09:53:45 +0800
-Subject: [PATCH v4 5/5] arm64: dts: qcom: glymur: use Aggregator TNOC
- compatible
+	Wed, 01 Jul 2026 02:15:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1782872131; x=1814408131;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Pw/JDUXvjVK+3QrfI9yFi2jVw+bIU28wBw3FXCmitUA=;
+  b=PYmXlZhuhs/OeLLl+OZOdGUmlpKqEl0rgvQq9vAGVEDG2Vfewr8Aocm2
+   OjUyXfVaMes60FTwKz4SEKpyrVCKKeypmqkd6C02DzBwQmPfMRzgaEr3S
+   PPwMIlFe/gR7nEFKNFGeXgGXMqHq/xsIsKUYhSBZUB5+C9f6OarBk+S5e
+   nY0KALCpLD8/x1ReFW5XqYksAV0exUB+N4cyKo3GsYJaCGRGzvmlI5DsB
+   q3tragZPtFN/y5PeGEYWNnxEj4/Ox4CWi3p58mzhX9EG5VoB+bI02i5Ow
+   gyJfojYe+VSRqe3IAOB/HLt1V5Xt1wl/3lBLzDPkXxlEAuMmFFIa1rTIx
+   A==;
+X-CSE-ConnectionGUID: LDJl6E3sTumH1+ooTH+EsA==
+X-CSE-MsgGUID: BKexsoSPTLuwS8eRu1R8jQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11833"; a="233846967"
+X-IronPort-AV: E=Sophos;i="6.24,235,1774278000"; 
+   d="scan'208";a="233846967"
+Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
+  by esa8.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 01 Jul 2026 11:15:27 +0900
+Received: from az2nlsmgm4.fujitsu.com (unknown [10.150.26.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id 94948CA4D
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 02:15:25 +0000 (UTC)
+Received: from az2nlsmom3.fujitsu.com (unknown [10.150.26.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2nlsmgm4.fujitsu.com (Postfix) with ESMTPS id 4D80F103C302
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 02:15:25 +0000 (UTC)
+Received: from FCCLS0092175.localdomain (unknown [10.8.91.60])
+	by az2nlsmom3.fujitsu.com (Postfix) with SMTP id BF254100A6C3;
+	Wed,  1 Jul 2026 02:15:16 +0000 (UTC)
+Date: Wed, 1 Jul 2026 11:15:15 +0900
+From: Kohei Enju <enju.kohei@fujitsu.com>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, 
+	James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>, 
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, Gavin Shan <gshan@redhat.com>, 
+	Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun <alpergun@google.com>, 
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>, 
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com, Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 00/44] arm64: Support for Arm CCA in KVM
+Message-ID: <akR0eX0nCumIgnlh@FCCLS0092175.localdomain>
+References: <20260513131757.116630-1-steven.price@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-fix-tracenoc-probe-issue-v4-5-aefab449a470@oss.qualcomm.com>
-References: <20260701-fix-tracenoc-probe-issue-v4-0-aefab449a470@oss.qualcomm.com>
-In-Reply-To: <20260701-fix-tracenoc-probe-issue-v4-0-aefab449a470@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Jie Gan <jie.gan@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Abel Vesa <abelvesa@kernel.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-        linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782870848; l=1699;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=OBSctkNoPUXkv4iIPY07zyqOMNxZfKUYjyMh/aKW2us=;
- b=DA3VNt61VJoRRUhPlCsksJ/tb1/he7RYq8J1STLfm51nmK39SVAnVB6X00n0cewpsdBoqJdpB
- JT1nt83u2tRC+Yf5yy+NIYonPjpxkwoJLPlmL7bGr+jjXvozH14h0gx
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDAxOCBTYWx0ZWRfX8CCkJm6Dn66C
- Gd7h0LMIs5nLBSdk+HX1WoXKTJySYlyGIQ+OCa4ALwdok+LnMJT1ZV/MRlGDiiSSLEm2G55XBnW
- VI33TPp379x9C4a5KN3GkW7tPlcMHQEJTFAgBhh6mqAZD1VBub34sN50m5vO4DyIUv/bOihfB00
- na5z0qM5uCwb4RDN/XoDiAP6kL+z/0FjlZe/T5klLRI5wXOgWXcFKWKFZmNHVTuiWAETZ9p5pem
- xAMinXaOX6lFIw1kS6Ujrc8RybYkBOFnJnsHzWPOTJCLfwKGsQyQYDKnaMIIkYW07IQHUHs7i3r
- OYO8ChzSQ/G+JI5q25co6k+KYeuwDfZ5aLCIqUMq47rXtYtRuWlqL5DgmOZbfmKiJJ9CGSbxp0I
- WfCsFgCplmELJstCowR+nQxEbvXERnjrY0+BLCqAtnT96m5UjC7WpV5wpwBEqXTf+75A6Uqasjn
- vASattlTtQkYr8zE9Cg==
-X-Proofpoint-GUID: sUAuJAKMPwsUb9IQhpex7QI1bXsZAEBV
-X-Proofpoint-ORIG-GUID: sUAuJAKMPwsUb9IQhpex7QI1bXsZAEBV
-X-Authority-Analysis: v=2.4 cv=Ivkutr/g c=1 sm=1 tr=0 ts=6a447367 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=EUspDBNiAAAA:8 a=zFLblpEf9OP3IKm3h4oA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDAxOCBTYWx0ZWRfXxEXiU1x2h281
- WA349OOlefBshsTRDO6j8j20hCAYB4n4KDucEzNs9tdC1lwqvqPpz45fAeoTD5Tnmu5Xknq5Y/r
- ErhIZDOSilaFcsssdESo5h2bYKl8T/Q=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-06-30_06,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 impostorscore=0 clxscore=1015 malwarescore=0
- bulkscore=0 adultscore=0 lowpriorityscore=0 suspectscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607010018
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260513131757.116630-1-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_185448_976128_35785A87 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20260630_191530_207263_13CD01D3 
+X-CRM114-Status: GOOD (  40.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,51 +100,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The traceNoC node is the system-level Aggregator TNOC, so it must own a
-valid ATID that tags the whole aggregation path. It is marked compatible
-with "qcom,coresight-itnoc", an Interconnect TNOC, which is never
-assigned an ATID. As a result the aggregator has no trace ID and cannot
-tag the merged trace.
+On 05/13 14:17, Steven Price wrote:
+> This series adds support for running protected VMs using KVM under the
+> Arm Confidential Compute Architecture (CCA).
+> 
+> This is rebased on v7.1-rc1, but still targets RMM v2.0-bet1[1].
+> 
+> The major updates from v13 remain but have been more fully implemented:
+> the RMM uses the host's page size, range based RMI APIs mean we don't
+> have to break everything down to base page sizes, the GIC state is
+> passed via system registers, and the uAPI has been simplified.
+> 
+> The main changes since v13 are:
+> 
+>  * The RMI definitions and wrappers have been fully updated for RMM
+>    v2.0-bet1. In particular the temporary RMM v1.0 SMC compatibility
+>    patch has been dropped.
+> 
+>  * The PSCI completion ioctl has been removed. RMM v2.0-bet1 still
+>    requires the host to provide the target REC for PSCI calls which
+>    name another vCPU, but KVM now performs the RMI PSCI completion
+>    automatically before entering the REC again. Userspace no longer
+>    needs to issue KVM_ARM_VCPU_RMI_PSCI_COMPLETE. A future spec should
+>    remove the need for the host to provide the MPIDR mapping.
+> 
+>  * The generic RMI init, RMM configuration, GPT setup,
+>    delegate/undelegate helpers and SRO infrastructure have moved out of
+>    KVM into arch/arm64/kernel/rmi.c. RMI is expected to be used by
+>    features outside KVM, so this code should be available even when KVM
+>    is not built.
+> 
+>  * RMI_GRANULE_TRACKING_GET has been updated to work on a range, this
+>    allows it to work when the region is not aligned to the tracking
+>    size. Solves the problem reported by Mathieu[2].
+> 
+>  * SRO support has been moved earlier in the series and improved. It
+>    provides a cleaner way for the host to provide the RMM with the extra
+>    memory it requires. However support is still incomplete where the
+>    TF-RMM code does not yet implement it. This is noted by FIXMEs in the
+>    code.
+> 
+>  * The ARM VM type encoding has been reworked to coexist with the
+>    upstream pKVM KVM_VM_TYPE_ARM_PROTECTED bit.
+> 
+>  * The private-memory documentation now notes that arm64 uses
+>    KVM_CAP_MEMORY_ATTRIBUTES.
+> 
+>  * PMU support is dropped for now. It will be added later in a separate
+>    series. Similarly for selecting the hash algorithm and RPV.
 
-An Interconnect TNOC is a subsystem-level aggregator: it merges trace
-from the ATB sources within its subsystem (TPDMs and other ATB masters)
-and forwards the combined stream to the system-level Aggregator TNOC. It
-carries no ATID of its own, because the Aggregator TNOC downstream in the
-path already owns the ATID.
+Hi Steven,
 
-Switch the node to "qcom,coresight-agtnoc" so it is described as the
-Aggregator TNOC it is and is assigned a system trace ID. Rename the node
-to "tn" and use the "apb_pclk" clock name as required by the Aggregator
-TNOC binding.
+Is there any plan to add support for selecting the MEC policy (shared or
+private)? We have been working on adding support for this on top of your
+series. If this is not already in the works, we may upstream our
+implementation later.
 
-Fixes: 1f7d0c42a08d ("arm64: dts: qcom: glymur: add coresight nodes")
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/glymur.dtsi | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Thanks,
+Kohei
 
-diff --git a/arch/arm64/boot/dts/qcom/glymur.dtsi b/arch/arm64/boot/dts/qcom/glymur.dtsi
-index 20b49af7298e..d612e8ed54c8 100644
---- a/arch/arm64/boot/dts/qcom/glymur.dtsi
-+++ b/arch/arm64/boot/dts/qcom/glymur.dtsi
-@@ -6038,12 +6038,12 @@ qm_tpdm_out: endpoint {
- 			};
- 		};
- 
--		itnoc@11200000  {
--			compatible = "qcom,coresight-itnoc";
-+		tn@11200000 {
-+			compatible = "qcom,coresight-agtnoc";
- 			reg = <0x0 0x11200000 0x0 0x3c00>;
- 
- 			clocks = <&aoss_qmp>;
--			clock-names = "apb";
-+			clock-names = "apb_pclk";
- 
- 			in-ports {
- 				#address-cells = <1>;
-
--- 
-2.34.1
-
+> 
+> There are also the usual rebase updates and smaller fixes, including
+> changes to the RMM v2.0-bet1 range APIs, removal of REC auxiliary
+> granule handling, fixes to the address range descriptor encoding, and
+> cleanups around realm stage-2 teardown.
+> 
+> Stateful RMI Operations
+> -----------------------
+> 
+> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+> the RMM to complete an operation over several SMC calls while requesting
+> or returning memory to the host. This allows interrupts to be handled in
+> the middle of an operation and lets the RMM dynamically allocate memory
+> for internal tracking purposes. For example, RMI_REC_CREATE no longer
+> needs auxiliary granules to be provided up front, and can instead
+> request memory during the operation.
+> 
+> This series includes the generic SRO infrastructure in
+> arch/arm64/kernel/rmi.c and uses it for REC create/destroy. The other
+> cases are not yet used by TF-RMM and a future revision will be needed to
+> finish those paths in Linux.
+> 
+> This series is based on v7.1-rc1. It is also available as a git
+> repository:
+> 
+> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v14
+> 
+> Work in progress changes for kvmtool are available from the git
+> repository below:
+> 
+> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v12
+> 
+> The TF-RMM has not yet merged the RMM v2.0 support, so you will need to
+> use a branch with RMM v2.0-bet1 support. At the time of writing the
+> following branch is being used:
+> 
+> https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_2
+> (tested on commit 3340667a291a)
+> 
+> There is a kvm-unit-test branch which has been updated to support the
+> attestation used in RMMv2.0 available here:
+> 
+> https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca cca/v4
+> 
+> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
+> [2] https://lore.kernel.org/all/acrj-cKphy4hJsEG@p14s/
 
