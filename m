@@ -4,147 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BB64C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD2BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ofou19QbyrdcTBD9IzbCWECuazAfQMESoAqczJbChhE=; b=QQMV3kCX42JGTRjwYQa0C6ETO5
-	yyXt/Nm4v5evtnHFRFKpi7ygc6uZNx7IH7PtIPh7TbdicDw3lhOMkp2lRSYtRLX7KWIXCzTFaZ2zH
-	gYWHfDbrfTi1R8M+ZMG67/c/fk6KuKeVSK7KTlYI3qs9yKz8KBbukB9fsgKwGUP2t4JAPClGxSGky
-	P7Fvre9hc1edmNzuXUB9Wk5SI3SYLCxy77V15mG65jU6MSg4t4pFBtne9RF+bKdLyt+6xOLEIqkh3
-	FqvcJkLomnUqWuigSK4wCSa09tbFfzCRS7GhfQSFJW613YNFXWXkkKNjfTmyeHow4bkwVISB2RGi9
-	8NdEsxMA==;
+	bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=; b=bsUqSdx9DLpXzHTcmX5qpFAHBb
+	pnomZLnVsX7m5MbDijdWvihvvX5V9B35YFxNyJSFybRu2H/Q5hDozbHVVpiJNWa8GaknOmGQhWDm6
+	gq7YccqkMhPZx8vyYMNdVg0aHIqntPMo9ZuGHT+FrtWOaEcYaEBxWnAfLi2zitEyXYjf7mfuPT6aq
+	zJcyvrF1Ljpq4WN76rjbXDANdqBWvIcI4WREsKox1RVRj8nJP9E/helFTucoicRur1MsfXbh+YRWC
+	j2/UBBYnH+TXDEYGj9YWNIjrY3HlUGekJ72Z/M0CVvpnOj60YyDSqBIXEzNpxoo9JCI72AXVmi1Np
+	vGogWRXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weo7T-00000000lyw-326J;
-	Wed, 01 Jul 2026 06:08:23 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1weoAN-00000000m9H-0AAs;
+	Wed, 01 Jul 2026 06:11:23 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weo7Q-00000000lyK-0DMg
+	id 1weoAK-00000000m8X-2L8y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 06:08:21 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6615lYKk059375
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 1 Jul 2026 06:08:19 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	ofou19QbyrdcTBD9IzbCWECuazAfQMESoAqczJbChhE=; b=CYIfQ9lsAw5/cTEO
-	1n201Gl1zCy4ZOigz9S+E8V8B9IIR1fzed/x8bMvFM384f1/7dJNGI0tZFHeOnaY
-	SqaLjvRpllfLIV1FV9h9jtMys5RRqdEw5FeLPw4mbII8Xa0eXQgkE79U2sJugKVB
-	+NkQSFCvP6J0t7Lnptj6rBPmFupWVunwbrulFySwvHvQ4kkHEnjJlzGcatoq1hvh
-	fAejf1G+9zv6bxGhte/E3huia80acteUMFn2RzLhcC4EepXBNfOPGwCHUsIqyZeW
-	n19guOlhI56/wisx0CtpDiyVTbp96u14nL0nAw9vGVBGNVYjXvWJwtGYf8qMcR4X
-	I75low==
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f4k3sjcq0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 06:08:19 +0000 (GMT)
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-847950bb95cso263097b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 23:08:19 -0700 (PDT)
+	Wed, 01 Jul 2026 06:11:22 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6976b0b2c79so294136a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 23:11:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782886277; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gUA/TjG/uDhjCFL6SMNN3ETwwW1KrjHjf/8ZpWZg1yC4LIvppRc8MzQkAiiRiFJHAG
+         r/801u+E+9K3S7W0c6ri6Vut7KlgiPYrLpHtgTUAgkZbStIA1ddaGHg5OBJIyKCDOO0w
+         t583L7sQwH74g9le1wqtQKIVhHxXV4Yvcb82qxq8mu8R9/D76dhnq5AYauBudnm+zyg2
+         eT41Nz7AziH0Y0e0xvvtD0Ky1FCySCOsvgo/zWKCHV8TOKDsSMU9VksMVA9dXxpFsNaz
+         yELalgLPLr+fEq9nIUw+5i/g5kPHQS7lipsJdmpH1pGDkPypo8A7wgYcut8UF69Kcm6S
+         NGnA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=;
+        fh=/VJe+oKepMgNZKL3cQRO8SSpDXV393lZrMUxyjewd24=;
+        b=BT1n9nuK2WfynU1hPP0PlbUZyqdGG8r016Ti855hoQCQR2HI6mtOIwCitj2rvYuv7z
+         M4a+COwmAEL4oVsbh7+T5clWsJXM42CaTXsy91wkFq4IrhMlJyDed+uT/KtXDzcB7URh
+         plajHnlcJLRCfcmGhx+QCg5AkeUdtPPN0IjgA8cpn0YQvttkqxqAUDqfxg8aR5dGa4z6
+         fT+8fyzZ5vT1Fi/M73v1cvyJO48nLjhykyqAoyA1HZ0CNKBr0ByaJyLqV3LxubkxQdVI
+         BJtAjQdc+RAPeLxYZF4MpL/lZK7bXMA64Cz5DOarWl2LsmnFpMLrjaxcvFQyuj4detqw
+         cFJA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782886099; x=1783490899; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ofou19QbyrdcTBD9IzbCWECuazAfQMESoAqczJbChhE=;
-        b=WmM8jwhix2QYYJe52gTMumB0L9D4hZ2jMGe3GXDV3TpPxmFCR6YSOPeHek5RqJl1bK
-         PqIDyZCkXQ1pNGzz6sHL4TkdTyjx7tmnGycHdlOCCHawFKeZb16GMMWGxX11yKytik12
-         KbADNX9EF9yBva5cNrEGzYJXdLM5AEjHdsA4Uo/gZyDvaDjaxIYexsTQO8Hd8/b69/lO
-         frl+nAuZcwcMobRD5sU2JzmTL/HRR2ORk4RSPfJbh7x8LsHnE08gH39q1FmGgpEYJ5vi
-         GuxTc01X6EdKb7KADHxtUCEEnHWqgw4E8NRsgIcj5YExz5svkYh3h/Tr9vB5pEuVo4MK
-         orfg==
+        d=gmail.com; s=20251104; t=1782886277; x=1783491077; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=;
+        b=bDQg94/XgUcmmNuEJM/JkjKBJ5K7npfYNI3tnfaR62C+Q4mmNivijn+xR5z67LqdI3
+         bJCxHA5nodZyDq+bd7ckST6asblq5pQ2ppFSq13k0rht+073syFFhBuTVL8Aw1mEI7hO
+         BKXCKtp42nWdxCJOBipYOEUaN6gohyguC447jBMQNG+3NLflmJgaS5grM5aakg7Ozv98
+         hcu+S0mGQ4AUTHZoAXMjqabUH5/za72mCfWCzGaf5D1e5meUVqMkc9b09kJcSfis7uhJ
+         Thqw7wAa3LbKKcbd9JDVlmKw/yh/sJ6FOcZb1r3b8/SD5H2x72+zAqu/hY1iKAYeKFIn
+         erSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782886099; x=1783490899;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ofou19QbyrdcTBD9IzbCWECuazAfQMESoAqczJbChhE=;
-        b=Cm9XcsNBtl6KiyNApfRPNOxJiRJnhKXx8NJdG7Gn6ZnoH8WTPGchClzdMRc86KqqcE
-         xhw6L8u/WFkfVJXNDfL/+60snPv0gI0NnwEYMgm0jEbHOAal5SUVfjGhFNahleZ9Kr0/
-         c7faoaGDofBLKqa3YT4pk2zlFBZqgnhRW5MHRhrsVrR92vIEbBSGCDKkwUjwu8agwNjP
-         zAiI2GTSz07tB++6FpcQRaQrTAt0oX8Z9rMMSRL4rRoTzuG5NpLInH7wQ35Fso6pLKgq
-         M/C4fVkl0SbGUD/d8Cleidw8x3b1uKWhxQBlZUUztrFRs6dSkx+Zlxpca7I2qgEP8fyF
-         bSQw==
-X-Forwarded-Encrypted: i=1; AHgh+RrtN6VsqEnk7qjIRCLOnQvx3CFkM6nMauZmTCi0B7MhUxM4MWa67+kbEdT451J7CqjPZkeGbMQqiy0fLiPdGj5m@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqENghqbXAcREAsb2P3JtqCk20/vkW21PVLQ3BeOyecskVSCC0
-	bELJOv2yDrFXnwWdJTJMkcL47AZpZmB6b4rmhJabp38IHi1l5uc6RKMi3Il2SJgVQV/YmiRTYMR
-	28IAV6ZOGyLZygW2FsRWWy2Ahe9GnoKd8vFh7+/3dqy2ttxQdojDi1ZtsXbhEc5/5sEVqNaKNz1
-	sfQkD9zb4A3gB1
-X-Gm-Gg: AfdE7cnpb9XvNADUcUDEYQ6rVp6mPRCtBJyhY1HesfN6SdlQkobXIW5QldyX3lxXSJQ
-	0joFwXRkzh7rDMlRJg691PpblSKpttViclopNWI9XNMCTZPiqLAaMi6SJz+OQD6bh45aKM24jxP
-	cX14+me464edKWd5rrpE3I96BxyhnO+dv3KIfHnAnt1R8ji9TTl8aZN14Jumar9FlkjsaseOVld
-	sQbJ7E11nwC8bHSgIEMNfDivnuaWA0Ey+vo39aZihmgCUb6zCHrdPQY3wbn8XlvjX+qfrAQKz/j
-	IO+zrUoJeUy3A7qu7K5dBaX+Coa6NCCK6V3onEWhWblc9yO5bSspt0OQlBhULDt6X4y+YKcp4T1
-	JEiIATf2ctx3QKrHPCwvE3lKoTH/5Ztq1MiLHuC0cuNSYFxM+i8XxFcYXcsq20Y8FDWugu/8Q6Y
-	TbhqB/rrw=
-X-Received: by 2002:a05:6a00:4f82:b0:847:6ff4:da97 with SMTP id d2e1a72fcca58-847c0a2353cmr178436b3a.61.1782886098579;
-        Tue, 30 Jun 2026 23:08:18 -0700 (PDT)
-X-Received: by 2002:a05:6a00:4f82:b0:847:6ff4:da97 with SMTP id d2e1a72fcca58-847c0a2353cmr178414b3a.61.1782886098098;
-        Tue, 30 Jun 2026 23:08:18 -0700 (PDT)
-Received: from [10.133.33.239] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8479fcfacafsm3318955b3a.0.2026.06.30.23.08.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Jun 2026 23:08:17 -0700 (PDT)
-Message-ID: <ad5b766c-acde-4056-9328-f95f945d2f11@oss.qualcomm.com>
-Date: Wed, 1 Jul 2026 14:04:55 +0800
+        d=1e100.net; s=20251104; t=1782886277; x=1783491077;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=;
+        b=m/UI527JjBgK6il+I1cFiflsHX94IQtRtLy/yGBU/48exfCdp3V9E3eJI3AgQpOeGK
+         rDpVRhfBaRbjDig1jfFQ+n5t8SX84WN09Y/R9rtnUcSKzYIDNQxmKlaIp2n01/iaDm5G
+         N69FSpWBKpENL1Vy2zqjSG7XdKdV0PbLNyiTSFUedNxK6/jKxWcbIw6GyqFL1/4KXvzN
+         cJKQ8yqbzeMBHeEJ4y3vJCho3MDDoN74sFt/svqhrUIu0c5iPGPx9e4c5rCnk5evjvYs
+         4Vu3ImFWXqZCsUOvGmV1FL5DzeZ8t8ikPC72Z/6GQsOHpd3uWT4v/wbFwVpBO5IX6OHZ
+         0Ajw==
+X-Forwarded-Encrypted: i=1; AHgh+RpCV/m6/89yQ8PINpsoSARLr9oT/4gYyU4KIP1GT/teO4pt6/m33qGKhlfmZb4kLldPP78CCi/VZfptfHtNRxv8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRP6JND1LrKYkYnu4ztNbz50raj4y+TEJ3IMjuAfCsSuHBfh5Z
+	8g0o6nIIC6y3MNbM271rwd22Zmhgy1opX/ZFSXes0KBlUngnRKBSVScFJeRLt1/Rph/veOfplCK
+	3mn6nSFcAoFbuQtH19wuM/bs7jN7hHw/zoYM9lNc=
+X-Gm-Gg: AfdE7cm/KAyAN3PMzF1ooeJ7lCZAJu3MWEMX8IIUMcCqAK5MzifaCTJJcF6J027uZCJ
+	cNSu6eRUR3H8zFRXZBjORBniu3WhVOjundhp9QGFVRg+seRw8DFWdvG77ZKBXAJOwW5ZxpUOp6B
+	13HTSCXlGTXf7qifgHuNgMwsAdL45iUW3/iIFHNLFRa8lsHUE7bkbz71CT/r26Yp4ABci8FrByG
+	p8n5A1Xu95Gx57rZMajDHwLO1BK/CbbkWZdozhunY+/e9JoN85hTa6X0qjRTExEbzE1ASsFi8dH
+	IlY/M/0=
+X-Received: by 2002:a17:907:3e18:b0:c12:a330:b92b with SMTP id
+ a640c23a62f3a-c12aa14aac6mr6173366b.40.1782886276371; Tue, 30 Jun 2026
+ 23:11:16 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 0/7] Provide support for Trigger Generation Unit
-From: "Songwei.Chai" <songwei.chai@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Greg KH <gregkh@linuxfoundation.org>
-Cc: andersson@kernel.org, alexander.shishkin@linux.intel.com,
-        mike.leach@linaro.org, konrad.dybcio@oss.qualcomm.com,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org
-References: <20260417073336.2712426-1-songwei.chai@oss.qualcomm.com>
- <48c6abce-c492-46a6-84ef-3074983e817c@oss.qualcomm.com>
- <a36a1ed3-5194-465c-b029-0404e0f2bcee@oss.qualcomm.com>
- <2026062959-distaste-launder-e253@gregkh>
- <c09d70e1-edd6-41a8-8ab3-db353bb6f8eb@oss.qualcomm.com>
- <ce9a2121-8f7e-4ac2-8795-5ee602966e74@arm.com>
- <e7d83356-c9cc-4324-a65e-fda3bd27af76@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <e7d83356-c9cc-4324-a65e-fda3bd27af76@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: nZZ1GXbQTQ6RYiU8JBCvmaSFTtjiYL2H
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDA2MSBTYWx0ZWRfX0nI2jqd3f1Jk
- go1n5PZF3EI/5fDtghIdzypNxe/Wy34Q3Z/p1S65CuJEEh1UzgzA25C9dcwPlKTf47eT0Q9N7xo
- nk/pw4xPhJ+5gRLtj5+UeCs+NLthS1b2vFFEK5hi3gOeFcDDUVpiGqwxZZoI72dKmJDQQhUEh9a
- EHP/WqRVJrnqWuD8QEy6nKBQ4M2kv4lcRkFDqwe7Lxt49mneGXyZGvyFZ4gMZuaqqHHDOckFjAe
- q0g8BzTipBILNXleP8aenq6xgSGdcOcyU7lWBqNAGscJFTRIZBoU7vHuBGb4o9b3hY2ZbtC9W02
- NoGZixVZkmV6c0WgdQenLJV4CublhFUFHlmVSOrYaLylee0b3ZKtG2lNv1nxS7sPExae1iFVZ7w
- wr17lKYA2uw9hs8MJEaQZeMNxFKhAg17qzYP83AhomnzlRPCExRWbkup1473XcxkY3fXy5enWQ2
- Op5QeYbpYg97rwjhXsA==
-X-Proofpoint-ORIG-GUID: nZZ1GXbQTQ6RYiU8JBCvmaSFTtjiYL2H
-X-Authority-Analysis: v=2.4 cv=Ff4HAp+6 c=1 sm=1 tr=0 ts=6a44aed3 cx=c_pps
- a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=7OR0-vqQ_RDJhF54Gb0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=IoOABgeZipijB_acs4fv:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDA2MSBTYWx0ZWRfX0XV3UcuHQvd0
- i8+Z0Zyn/47u7/+Xc92Wyzm1NDMfLR0irHQcWpPvbcvtxvXgJTU1LloR7X08Q3Jg05vuZgZiP20
- t7YvCZMI6MRpghNpKOLV/VQrTJGCW98=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-01_01,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 phishscore=0 clxscore=1015
- lowpriorityscore=0 malwarescore=0 spamscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607010061
+References: <20260630065735.3341614-1-pawlik.dan@gmail.com> <akOCJI-2kAAwOQzz@chamomile>
+In-Reply-To: <akOCJI-2kAAwOQzz@chamomile>
+From: Daniel Pawlik <pawlik.dan@gmail.com>
+Date: Wed, 1 Jul 2026 08:11:05 +0200
+X-Gm-Features: AVVi8CfA9uhypD8RuUIaiCQhrLk2tdtBO915kC01GwUewd1n6TYEXO1SRl3IXQQ
+Message-ID: <CALC2ApjGZFFPXr4d-r+4VNCpQO1N3Z4NOiBXwYU307jm-626OA@mail.gmail.com>
+Subject: Re: [PATCH v2 0/5] netfilter: nf_flow_table_path: L2 bridge offload
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org, 
+	bridge@lists.linux.dev, coreteam@netfilter.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_230820_291072_9D000D73 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20260630_231120_669404_04611CF3 
+X-CRM114-Status: GOOD (  29.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,115 +117,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Florian, Pablo,
 
-On 6/30/2026 3:59 PM, Songwei.Chai wrote:
->
->
-> On 6/29/2026 6:44 PM, Suzuki K Poulose wrote:
->> Hello,
->>
->> On 29/06/2026 11:17, Songwei.Chai wrote:
->>>
->>> On 6/29/2026 12:22 PM, Greg KH wrote:
->>>> On Mon, Jun 29, 2026 at 11:03:33AM +0800, Songwei.Chai wrote:
->>>>> Hi Greg & Alexander,
->>>>>
->>>>> Apologies for interrupting again.
->>>>>
->>>>> As the TGU hardware plays an important role in Qualcomm tracing 
->>>>> design, I
->>>>> would greatly appreciate it if you could kindly take some time to 
->>>>> review
->>>>> this at your earliest convenience.
->>>> The merge window _just_ closed, please give us a chance to catch up.
->>>>
->>>> Also, why us?  Surely you have other reviewers for this code, right?
->>>
->>> Hi Greg,
->>>
->>> Understood, thanks for letting us know.
->>>
->>> Regarding your question: since this introduces a new 
->>> drivers/hwtracing/ qcom directory, there is no existing maintainer 
->>> for it.
->>> Given your scope (and Alexander's), we believe you are the most 
->>> relevant reviewers.
->>>
->>> The reason for creating the qcom directory is as follows:
->>>
->>> /We previously tried to upstream this driver under 
->>> drivers/hwtracing/ coresight,/
->>> /but it was not accepted as it is considered Qualcomm-specific and 
->>> not tightly/
->>> /coupled with the CoreSight subsystem. Based on this feedback, we are 
->>
->> Some clarification here: This device is not CoreSight  so we denied
->> keeping this under drivers/hwtracing/coresight/ - Not because it is 
->> Qualcomm specific. We have TPDM, TPDA, TnoC devices under the coresight
->> subsystem, which are all Qualcomm specific for e.g.
->>
->> That said, there are other drivers in drivers/hwtracing/ which I usually
->> merge and push to Greg, after some reviews/acks from the respective
->> people (e.g., PTT HiSilicon PCIe Tune and Trace).
->>
->> But, your proposal was that there were other maintainers for your new 
->> subtree and you were going to push this via ,linux-arm-msm ? to which I
->> didn't have any objections.
->>
->> That said, I am fine with pushing this to Greg via the CoreSight pull
->> requests (similar to Hisilicon PTT driver), but would need someone to
->> Maintain/Review the driver (with entries in MAINTAINERS, similar to
->> PTT).
->>
->>
->> Thoughts ?
->
-> Hi Suzuki,
->
-> Thank you for your constructive feedback in helping us move this patch 
-> forward.
-> As the owner of this driver, together with Jie Gan (who has extensive 
-> review experience), we will be responsible for the maintenance and 
-> review going forward.
-> I will also include the MAINTAINERS update in the next TGU release.
->
-> Please feel free to share any further comments or suggestions.
->
-> Thanks,
-> Songwei
->
-Hi Suzuki,
+I'll leave it up to you - if `br_netfilter` isn't the right approach
+in this case, then we can drop that series.
 
-In the latest TGU Patch series (V15), I have also added you as a 
-maintainer so that you will be notified of any new drivers under 
-drivers/hwtracing/qcom.
+Before your reply, I wasn't familiar with Eric Woudstra's
+"bridge-fastpath" series - thanks for the tip.
+I'll take a look at it and try to build on those patches.
 
-The review responsibilities will be handled by Jie and myself.
+Thanks, and best regards,
+Dan
 
-Thanks,
 
-Songwei
-
->>
->> Kind regards
->> Suzuki
->>
->>
->>
->>> exploring/
->>> /a dedicated drivers/hwtracing/qcom directory, similar to intel_th, 
->>> to better/
->>> /support this and future Qualcomm hwtracing drivers./
->>>
->>> More details can be found in “[PATCH v14 0/7] -- Why we are 
->>> proposing this”.
->>>
->>> Thanks,
->>> Songwei
->>>
->>>>
->>>> thanks,
->>>>
->>>> greg k-h
->>
+wt., 30 cze 2026 o 10:45 Pablo Neira Ayuso <pablo@netfilter.org> napisa=C5=
+=82(a):
+>
+> Hi,
+>
+> On Tue, Jun 30, 2026 at 08:57:30AM +0200, Daniel Pawlik wrote:
+> > This series adds L2 bridge offload support to nft_flow_offload, allowin=
+g
+> > bridged IPv4/IPv6 flows to be accelerated by the flowtable fast path
+> > without requiring L3 routing.
+> >
+> > Background
+> > ----------
+> > Hardware flow offload engines (e.g. MediaTek PPE) can accelerate bridge=
+d
+> > traffic but require that nft_flow_offload detect and handle bridged flo=
+ws
+> > differently from routed ones: no routing table lookup, MAC addresses fr=
+om
+> > the Ethernet header, and VLAN context pre-populated from the bridge por=
+t.
+> >
+> > v2: Fix missing Returns: tags in kernel-doc comments for the three new
+> >     bridge helpers (br_fdb_has_forwarding_entry_rcu,
+> >     br_vlan_get_offload_info_rcu, br_vlan_is_enabled_rcu).
+> >
+> > Patches
+> > -------
+> > 1/5  net: export __dev_fill_forward_path
+> >      Refactors dev_fill_forward_path() to expose __dev_fill_forward_pat=
+h()
+> >      which accepts a caller-supplied net_device_path_ctx, needed to
+> >      pre-populate VLAN state before the forward path walk.
+> >
+> > 2/5  net: bridge: add flow offload helpers
+> >      Adds br_fdb_has_forwarding_entry_rcu(), br_vlan_get_offload_info_r=
+cu()
+> >      and br_vlan_is_enabled_rcu() to expose bridge state to nft_flow_of=
+fload
+> >      without requiring inclusion of net/bridge/br_private.h.
+> >
+> > 3/5  netfilter: nf_flow_table_path: add L2 bridge offload
+> >      Core of the series. Adds nft_flow_offload_is_bridging() detection,
+> >      nft_flow_route_bridging() which avoids nf_route() (fails for
+> >      bridged-only subnets), MAC/VLAN pre-population for bridged flows,
+> >      and a dst leak fix. nft_flow_route() becomes a thin dispatcher.
+> >
+> > 4/5  netfilter: nf_flow_table_path: handle DEV_PATH_MTK_WDMA in path in=
+fo
+> >      Fixes zero-source-MAC in PPE entries when a bridged flow traverses
+> >      MT7996/MT7915 WiFi WDMA hardware.
+> >
+> > 5/5  netfilter: nf_flow_table_path: add VLAN passthrough support
+> >      Records VLAN encap info for passthrough-mode bridge ports so hardw=
+are
+> >      offload entries include the correct VLAN tag.
+> >
+> > Rebase note
+> > -----------
+> > Originally developed against OpenWrt pending-6.18 patches by Ryan Chen
+> > <rchen14b@gmail.com> and Bo-Cun Chen <bc-bocun.chen@mediatek.com>.
+> > Rebased to current upstream: path discovery infrastructure moved to
+> > nf_flow_table_path.c in commit 93d7a7ed0734 ("netfilter: flowtable: mov=
+e
+> > path discovery infrastructure to its own file"), so all netfilter chang=
+es
+> > now land in that file rather than nft_flow_offload.c.
+> >
+> > How to enable bridge offload
+> > -----------------------------
+> > 1. Load kmod-br-netfilter so that bridged IP traffic traverses the
+> >    netfilter forward chain.
+> >
+> > 2. Enable netfilter hooks on the bridge:
+> >      echo 1 > /sys/class/net/<br>/bridge/nf_call_iptables
+> >      echo 1 > /sys/class/net/<br>/bridge/nf_call_ip6tables
+>
+> This requires br_netfilter which is a no go.
+>
+> Sorry, but we should really target at the native nf_conntrack_bridge
+> support.
+>
+> > 3. Register bridge member interfaces in the nft flowtable:
+> >      table inet filter {
+> >          flowtable f {
+> >              hook ingress priority filter
+> >              devices =3D { eth0, wlan0 }
+> >          }
+> >          chain forward {
+> >              type filter hook forward priority filter
+> >              meta l4proto { tcp, udp } flow add @f
+> >          }
+> >      }
+>
+> Yes, but br_netfilter makes no sense for nftables.
+>
+> br_netfilter was made to fill gap at the time ebtables was lagging a
+> lot behind iptables in terms of features. And getting ebtables on pair
+> with iptables in functionality was not feasible either, because it
+> required many new extensions that were specific of the bridge family,
+> which probably was not a big deal, but it also required to get
+> the ebtables command line tool on pair with iptables userspace, which
+> has received more development attention/effort that the bridge tool.
+>
+> All of this does not stand true anymore with nftables, where the
+> bridge family capabilities are at pair with the inet families.
+>
+> I am looking now at the native flowtable bridge support, I will get
+> back to you with updates.
 
