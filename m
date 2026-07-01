@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:07:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3992FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:10:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ndDEMrsNJ7JM0ZtZsmZ0wsrc/RUGY3AFKkG0e4PIAI=; b=EjXc2jsF+J9TCiTxYLUEyQtr+C
-	I5Ysq87UR+4QvP2kEtYV9RBmodubIewhosRs/+O1LS84FvA1ipL4MzOjn4hwkL8iq5lU6fK3ugVxF
-	kF0xpNS3NasuFeHiFbEtFfJ7jZkNh1NmUEtjYMd9gM5boUhHpoPGC9ZoKCK7wxAJIWf1TJtT1qhpp
-	F9EvfiCgpft2XNcqMnbHBKw7qyOwAEbjNIXcivaOvVZNAuIoFB5wNevmAj7YtjUtjbXMGavCW0fUE
-	w9PEtJ6C0xm/EX2UGPJ9snx8/mQwTbZVrHjVpZ3PApJhkrdCJaBDVTwZKSciNOxm/yCgDWv26TZ5o
-	LK2w9/+w==;
+	bh=fiOT6uiF3NGboaiFTBq263sYJRkFitWRNlZkqixnh6U=; b=zAo2PRf8fqLuFATGRdH/0uOIgi
+	EyrWdQca47CthC3ax2kyPK6NERvqYhcSDuMi5Pcld8fZrbfptTU5dmVts8lFzrNDVXHon3T/1labL
+	/3ZsACp5UegMzx6AqVVfb56abCD5jaCipuG/UEzuuF6z0pyX8doviwbTUG6DO3DUAaqB1+xdHoO36
+	Gsvq3D85BEzcKO7iJ9E4HmWsZDicwULZZ+icoYN24bLhTiaA1UeWEWo9eI00Zp0Zgieqf3AWr9MB6
+	AkdXqE2mw2KObcaaneX5Z3XrwlFamaacg9WqsMNIVtDStDxFBBV5VjXR8hqWe594hEh0h9882GZbW
+	Whk4kblg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesnC-00000001QGW-1mxi;
-	Wed, 01 Jul 2026 11:07:46 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wespn-00000001Qfp-3g5f;
+	Wed, 01 Jul 2026 11:10:27 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesn7-00000001QFw-444X;
-	Wed, 01 Jul 2026 11:07:44 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 61568201975;
-	Wed, 01 Jul 2026 13:07:38 +0200 (CEST)
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1wesn4-005ZKD-0y;
-	Wed, 01 Jul 2026 13:07:38 +0200
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id F3D9255D58F;
-	Wed, 01 Jul 2026 11:07:37 +0000 (UTC)
-Date: Wed, 1 Jul 2026 13:07:37 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org, 1579567540@qq.com, 
-	Vincent Mailhol <mailhol@kernel.org>, kernel@pengutronix.de, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
-Message-ID: <20260701-flashy-crocodile-of-flowers-a6a23e-mkl@pengutronix.de>
-X-AI: stop_reason: "refusal"
-References: <20260701070128.2096267-1-1579567540@qq.com>
- <tencent_124D6134EB32480979234201E688087E5408@qq.com>
- <2064877.jZfb76A358@diego>
+	id 1wespl-00000001Qf4-1xqg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 11:10:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=fiOT6uiF3NGboaiFTBq263sYJRkFitWRNlZkqixnh6U=; b=Mra6qpYKy00JCbqscUz5b3u1dm
+	1bGugawwQ4WvrJbZbPKKzLQeYu3ae1bQIBzTpvbxKl3n9Pn0sdv8f4OSi3FTXyGu/gTjWLffBnei9
+	0o+FZ7NsUF1IJWdRCnVJhIZPk1CuabhxyVB5rPXHuADWtOpfTA/j88i6ObbB4cG7geva9boYZtXgR
+	TxHIqbmfaURgj7nUbGY2Cw3DV0WSFr5nx5lEovaIXU57RmB4gHMCYbaz4Oz7kfF/53GbwbB7kxohV
+	z2yRa0rWo0Ua7h32SYNM+b7G1QAWjpGY+ocaCnnrww+yvhw9OR3BECVwZdTps1n8ECJW+TN2ihzIS
+	JFB7nJ9g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:32952)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1wespc-000000008Vo-14Lm;
+	Wed, 01 Jul 2026 12:10:16 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1wespa-000000007iL-1NdZ;
+	Wed, 01 Jul 2026 12:10:14 +0100
+Date: Wed, 1 Jul 2026 12:10:14 +0100
+From: Russell King <linux@armlinux.org.uk>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Nathan Chancellor <nathan@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	slipher <slipher@protonmail.com>
+Subject: Re: [PATCH v3] ARM: breakpoint: CFI breakpoints only on demand
+Message-ID: <akT1lr2iNzbnGEzH@shell.armlinux.org.uk>
+References: <20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="zddsmsw5y2ehct5y"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <2064877.jZfb76A358@diego>
+In-Reply-To: <20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_040742_378484_F3BEB4B7 
-X-CRM114-Status: GOOD (  31.58  )
+X-CRM114-CacheID: sfid-20260701_041025_831809_2D5FB05A 
+X-CRM114-Status: GOOD (  21.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,125 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jul 01, 2026 at 12:42:09PM +0200, Linus Walleij wrote:
+> This removes the stub hw_breakpoint_cfi_handler() from ARM, making
+> it not steal breakpoint type 0x03 (ARM_ENTRY_CFI_BREAKPOINT) unless
+> CFI is actively used in the kernel.
+> 
+> When not instrumenting with CFI, we fall through to return 1 from
+> hw_breakpoint_pending() "unhandled fault" so userspace can make use
+> of this breakpoint.
+> 
+> This of course does not work if userspace want to use CFI and custom
+> breakpoints at the same time, and CONFIG_CFI does exist as something
+> users might want to select for their kernel. If this is not good
+> acceptable we need to think about other ways for CFI to interfer, such
+> as not using BKPT at all (rather something like BUG()) and back out
+> the offending patch until the compiler behaviour has changed.
+> 
+> Fixes: c3f89986fde7 ("ARM: 9391/2: hw_breakpoint: Handle CFI breakpoints")
+> Reported-by: slipher <slipher@protonmail.com>
+> Closes: https://lore.kernel.org/lkml/kJqktbpLphg_Pk5I5SPptgTLjl3E3eq5mN5UzCslyFj7Q1Irp-wDid4mj5eQVd2iZtRGXgeZd8goq195EkXdjyt864YMc8mVb2B9NGH91NQ=@protonmail.com/
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+> Trying to solve the CFI bug. Let's see of this first
+> approach is acceptable for the reporter.
 
---zddsmsw5y2ehct5y
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
-MIME-Version: 1.0
+Looks fine to me, but will depend whether the reporter has CONFIG_CFI
+enabled in their kernel build.
 
-On 01.07.2026 11:55:39, Heiko St=C3=BCbner wrote:
-> Hi,
->
-> Am Mittwoch, 1. Juli 2026, 09:01:27 Mitteleurop=C3=A4ische Sommerzeit sch=
-rieb 1579567540@qq.com:
-> > From: luch00 <1579567540@qq.com>
->
-> please use a real name, not an alias.
->
->
-> > Add support for the RK3588v2 CAN-FD controller by introducing a
-> > dedicated model ID and OF match entry.
-> >
-> > The block is closely related to the existing RK3568 variants, but it
-> > cannot reuse their match data unchanged. In particular, RK3588v2
-> > encodes RX_FIFO_CNT in bits 7:5 instead of 6:4, so the RX path needs
-> > SoC-specific handling.
-> >
-> > Validation on RK3588v2 also shows that its observed errata profile does
-> > not fully match rk3568v2/rk3568v3, so keep a dedicated devtype for this
-> > variant instead of relying on an rk3568 fallback.
->
-> Funnily enough, we seem to have worked on the same topic
-> at the same time :-)
->
-> https://lore.kernel.org/lkml/20260630164336.3444550-1-heiko@sntech.de/
->
-> > Signed-off-by: luch00 <1579567540@qq.com>
-> > ---
-> >  drivers/net/can/rockchip/rockchip_canfd-core.c | 14 ++++++++++++++
-> >  drivers/net/can/rockchip/rockchip_canfd-rx.c   |  5 ++++-
-> >  drivers/net/can/rockchip/rockchip_canfd.h      | 12 +++++++++++-
-> >  3 files changed, 29 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/n=
-et/can/rockchip/rockchip_canfd-core.c
-> > index 29de0c01e..3c2480785 100644
-> > --- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-> > +++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-> > @@ -50,6 +50,15 @@ static const struct rkcanfd_devtype_data rkcanfd_dev=
-type_data_rk3568v3 =3D {
-> >  		RKCANFD_QUIRK_CANFD_BROKEN,
-> >  };
-> >
-> > +/* Tests on the rk3588v2 reproduce Erratum 5, but not
-> > + * Erratum 6 or the special CAN-FD frames that trigger Error Interrupts
-> > + * on rk3568v2/rk3568v3.
-> > + */
->
-> Here I could reproduce erratum 6 though:
-> https://lore.kernel.org/lkml/20260630164336.3444550-4-heiko@sntech.de/
->
->
-> [...]
->
-> > diff --git a/drivers/net/can/rockchip/rockchip_canfd-rx.c b/drivers/net=
-/can/rockchip/rockchip_canfd-rx.c
-> > index 475c0409e..fe64db373 100644
-> > --- a/drivers/net/can/rockchip/rockchip_canfd-rx.c
-> > +++ b/drivers/net/can/rockchip/rockchip_canfd-rx.c
-> > @@ -281,7 +281,10 @@ rkcanfd_rx_fifo_get_len(const struct rkcanfd_priv =
-*priv)
-> >  {
-> >  	const u32 reg =3D rkcanfd_read(priv, RKCANFD_REG_RX_FIFO_CTRL);
-> >
-> > -	return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT, reg);
-> > +	if (priv->devtype_data.model =3D=3D RKCANFD_MODEL_RK3588V2)
-> > +		return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3588, reg);
-> > +
-> > +	return FIELD_GET(RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3568, reg);
-> >  }
-> >
-> >  int rkcanfd_handle_rx_int(struct rkcanfd_priv *priv)
-> > diff --git a/drivers/net/can/rockchip/rockchip_canfd.h b/drivers/net/ca=
-n/rockchip/rockchip_canfd.h
-> > index 93131c7d7..f6105b904 100644
-> > --- a/drivers/net/can/rockchip/rockchip_canfd.h
-> > +++ b/drivers/net/can/rockchip/rockchip_canfd.h
-> > @@ -214,7 +214,8 @@
-> >  #define RKCANFD_REG_TXEVENT_FIFO_CTRL_TXE_FIFO_ENABLE BIT(0)
-> >
-> >  #define RKCANFD_REG_RX_FIFO_CTRL 0x118
-> > -#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT GENMASK(6, 4)
-> > +#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3568 GENMASK(6, 4)
-> > +#define RKCANFD_REG_RX_FIFO_CTRL_RX_FIFO_CNT_RK3588 GENMASK(7, 5)
->
-> Oh, didn't see this when doing my variant of the support, so cool that you
-> found this.
+Have the LLVM compiler people responded to this bug yet? What is their
+plan with the silly choice of BKPT usage for CFI failure?
 
-The "Rockchip RK3588 TRM V1.0-Part1-20220309.pdf" datasheet says bits
-"7:5" are RX_FIFO_FRAME_CNT, while bit "6" is marked as reserved. =F0=9F=A4=
-=B7
-
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---zddsmsw5y2ehct5y
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCakT09wAKCRDMOmT6rpmt
-0ptJAP0V1ggWlmdXB4K6fWYKfQM6O0/UiXoS8io2aIaPk936IQD/fJPILelVtYoR
-mRtNCMATzYSF6Az4KXu0H6TsCNQvsww=
-=9f9+
------END PGP SIGNATURE-----
-
---zddsmsw5y2ehct5y--
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
