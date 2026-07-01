@@ -4,138 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61204C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E5FC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:17:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFIDbbVfqXVTE1ZFrBd9o+vSA6cGlqSe0YuIv/Kzb5c=; b=wJkH4UK+bvHwwFWpWgN88uLvHp
-	W5gT7oqTB6Ql0yw1lk4YOy5stLS2Yn1DTV5F1jkErlgx80ZWN73zxEd/zWmrFiE29FbEbXXYVGVKd
-	9/hNbf3tmLLRNYP8FUQhqsAKjcHqTgnCWVQqUopyQkJxW1LlLZ28bc5WNGbE/pRRX5y2LZhrBNlnB
-	nux9Se7ZtzgtQsxybjEThy1/nlM0vxHVGbXMUPWWM+G7fcXQzN/mHoQrTk39R4MechOOEmSdmE9h5
-	+DCMUS+z7Y3mfvJCjwg0j5uQqeMwFXjePtXjat/EX20475gWimlkdRw2nJMAZntrFvtfoH70ypA/b
-	WigdK/7Q==;
+	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=; b=qB+NFaoS1MsQHpGHgLUzr7qdtt
+	gCkZQw+EFDCYGn5W9EuplRBj5x7n8aenO5dM8RpQv2sW54YmgjKJ7T/9Pdgr7EPZK0pdZIAQrlwz1
+	T6cqh4sICpcepsJwIokj+IMEyEVqCmlYn2AQxAAQcL7kEkp7flC9BhAcxvMqCXkmj58JSLEdrHbU1
+	0aB2AbZyOxaNfKK/hS90KZzNBNGc6YJNDYYwWAgpBAL+TUKU8NQlpbJr0rutiG8B7r66tfygxwToC
+	i3Hsk0i6F3/PkDihiWobf3x0H69CJ1LlC0UbYfWY+3l3icqgOsn5rFTuoh2XjdvZYFN6eIhI4fP8M
+	cPJsE4JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexVR-00000002V3I-0kHA;
-	Wed, 01 Jul 2026 16:09:45 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wexdB-00000002Vye-44MR;
+	Wed, 01 Jul 2026 16:17:45 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexVO-00000002V1u-2vBw
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:09:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=E/U9HozC+CZPZdHHegN6aaNrNFo7uFe5xMhPOqhS0DzoxxZEYwu9VO1zMhiC0Q+TRNY7Oml5UbVvYYivGNTz74zVzPkm6GDN8AB3RIjl6DTpJHYITpEubDSDPF/Dci9rUKixJgmz5Zdh69pikdQLdXaa5N4KkHyKToskwdXB0v5zdYMJZk4M8XnzsEDPTztMD1LNeBFiQaY0OKxp5gSJIOnacHQPlyjxZAtqGRRUJXNrf4gcjT4bsHcx6R9CkHyORXiynXe8kS0ka0PZmLyN25DjjISicLVy8zlLDNAUicHuH7lsNufaIS6V9YjIBSp8oxGHXnprEWZeESCn/cictA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qFIDbbVfqXVTE1ZFrBd9o+vSA6cGlqSe0YuIv/Kzb5c=;
- b=BHW3VlYgUVOgH/Sll3wTxV+TTYLgNnCfPYkajk6S7g1/6KZFTTtyuOuFf174aceghkpRJMICiP72EvKlxWfTf1M4mZ0yPZfwP6aJRe3T0/UgAskP/l00+UFsx/RoTff/tVyoyKRO6SOxaGNzLXTApxKndvlB25iCzkQL1kUxDZzjsR6wsvpoC/BN8X/wIwX2cM5wa5Gs5iwnbcYWfNATviMXq3PXOa4GryfVhMKnZPLz0VYiu5g55Ur1tJhvP84P2pupGEXx5gjgj4fh5jklewlk1bor/tpAlN6Crz+8SNVilxC3QqR5SdsWlPFIF3+QONqPx/O/f75PVd1SSj1e7w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qFIDbbVfqXVTE1ZFrBd9o+vSA6cGlqSe0YuIv/Kzb5c=;
- b=bvFd/Hf+GKD7uOGYB6VFU5pnCM6RmG2DquT1KXYXZY2tkll+kx8Z64GcwCoJHvBWIjQm027O7ZAsQcSrNU5VaFuY1HwTA05D9ZSsF8BPl3OiGQuK/vgHNZWcZgE+8gEjjiAlYrg5HlifFtK8RZReZlO+aSTrvLp+wBjT9IMhBLFH4m9UO9ncY6xRtPDveVARDq2RZXxJ70tiV5DzP72px38mKVtm/BdgG1q03j7u7RQpD8qfABjynTuDRGsqJTdpv6qxpLKoYwakDM0xSccaa2sWQQZ3KO5hnWZHf6dtMNMHjb6JwLsXBZjwdy9v/BRPhz8osihW3KotQT0EwqOZ9g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AS8PR04MB7656.eurprd04.prod.outlook.com (2603:10a6:20b:29b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 16:09:23 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 1 Jul 2026
- 16:09:23 +0000
-Date: Wed, 1 Jul 2026 11:09:11 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Bryan O'Donoghue <bod@kernel.org>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Guoniu Zhou <guoniu.zhou@oss.nxp.com>, Frank Li <Frank.Li@nxp.com>,
-	Aisheng Dong <aisheng.dong@nxp.com>, linux-media@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: (subset) [PATCH v5 0/2] media: nxp: imx8-isi: Add virtual
- channel and frame descriptor support
-Message-ID: <akU7pzJHFXT0ZNNE@SMW015318>
-References: <20260521-isi_vc-v5-0-a38eb4fcd58e@oss.nxp.com>
- <178276214766.2429861.1950641421457268519.b4-ty@b4>
- <20260629202302.GK3054459@killaraus.ideasonboard.com>
- <geVpV765Vs_salSTWKnZ7gqdOqDTm2841DWzfwZnbn-oLEj-gSZ_-QddZyDalTzdWU-2_TGVwXOjYkXy1rwoLw==@protonmail.internalid>
- <akPsxPgLNgu3YsEV@SMW015318>
- <24be88f8-156a-432f-8d2a-4b0417e042c7@kernel.org>
- <akU3hNb_9IkwGLK2@SMW015318>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akU3hNb_9IkwGLK2@SMW015318>
-X-ClientProxiedBy: PH8PR21CA0016.namprd21.prod.outlook.com
- (2603:10b6:510:2ce::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wexd9-00000002Vx6-0E6q;
+	Wed, 01 Jul 2026 16:17:44 +0000
+Date: Wed, 1 Jul 2026 18:17:36 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782922658;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
+	b=EsVOyL/O4PkbWArMdz+v6gZguCvGG9j7x/3IOQgfmssmAyzbqbf3Dwnmp6iiWjIQLh8IAK
+	JRAGYLysl4sguhM8CiL52IwItjrsA45kJA1HxJerrdKce1yFKscd6hUfBDk8kRLLBMASP9
+	HAaDRaeyfaUrcTEpWpEuetEq4glZT0vuVbB1uLjbuxzlPtCFN1uTxxJMQUwfqVd4rBfF4R
+	wCJsPf0rmhs1B6MbHjJUE4G4tH6Wt9Gtq6+Gm8frjT4c8E48ygPJmbA5oLD59dsCa1kUWd
+	30TWjA4Jl5hk3kMLudqnPwPZBzaW22VoMTwcgpgNZPMUp1ROWvJNyZ1aXCKRQQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782922658;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
+	b=qFYc53saNm3tZyv7Mrg+WEORV4WZSIwyhGD1WLYh9NkQnExpQvcYwwIZIB8tgYMjlnnAMr
+	VNvK+45twjg6TcDQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: K Prateek Nayak <kprateek.nayak@amd.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>
+Subject: [PATCH] futex: Optimise the size check get_futex_key()
+Message-ID: <20260701161736.xYYizA0e@linutronix.de>
+References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+ <20260630045531.3939-9-kprateek.nayak@amd.com>
+ <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+ <20260701084150.GNOeboLw@linutronix.de>
+ <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB7656:EE_
-X-MS-Office365-Filtering-Correlation-Id: cb85721c-2f86-4463-55f8-08ded78b1db7
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006|23010399003|56012099006|4143699003|11063799006|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: OZBFqzKhFFCsIzblJF59CaFkekhZbPDGUSdPYIvnXw/DfsL5neTfKXWEkH5xoiMR5/pKNR6+9cGCScGAtQIHbEhFsHibWzV2bQ2FLJojg8lO4rIp3obI+dBRPFXX8T2qLe6AFT0wK3HX/gCGoeCG1pGMbMm1LtiKYZTOiZcjyRHUhddWGmN4Jp7Rie9bZwFfN/GfWE5MCwSq64RIk9W2LZ9JWeTiVr/SgCbZb17lDuisW8fgv3AvdH2LdeOCwa1u1q5YCEJgWK797AhBrHmpAaDNBoAD/I9y+aCRqctRq0yaZdpB9i280OcAy9lBjVaObfSC1cR7RKxrmFANar9g+7FRZ4Ecm7DXSut+YtipxJH2Y2QfYksNFpJ+IiLzad1ADZzyyOZ2m78XaZ1ip5Xt3MraICbzDrBB/MO9ZaRg37FIjSP1MFQzBAoAiwyECJHYRz/e4eUw4v3KCw6vOryaw3iLwQPukopF1/wWiqbirYlr4WCb1q7WqTs0QBQ9B2KQ5Z3YktVeKFV/uRoqgUTC6qGW3QhlKxNIEgJ+T/xFqu9ZcrdbnOrR/WPPkuBE2xLXUkUF19rQrp3mOc0xAbYQN4w/Qihvz07nKBkknxAZSV2OtVhGpGlxuscgvaIqSwlcqS1oSwFkBPfHDXG1etBAwR43wwglnApAPaJ74jA8+Dk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006)(23010399003)(56012099006)(4143699003)(11063799006)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tAeoG8Y3A2GTWvRYFZwDQBYZxmw/ycoEyVso8Sjr+NkY++XJoS/FENAyLv4h?=
- =?us-ascii?Q?7bhEf+9tj9CK2fQguvXx5KUqbZu0tnKLev78HsI0yP4amD8FQT9boVFwzvXP?=
- =?us-ascii?Q?2fY+5c4MvpyRBaTvVRy0zTgVLjsi5B3zc2Tps8aaP+kNfw1ep6giGBfI/G/a?=
- =?us-ascii?Q?NaW+v8EnmUi+Eq3fL5i9YiCOPrzgbt8mwX2B7TvLfFzUYgvNAA0Yx4+0J+dp?=
- =?us-ascii?Q?Hh8y0QvHBRANfCeDFPeFlDmO1sfZgOUjy7qeNHP/LcbNsHDg3CaZayHWxhPk?=
- =?us-ascii?Q?FeTseVge4lK7K9UwC7ewkAORnHuGuonC+3nBiGQ1C6Hc01QXc/AK89EgncLQ?=
- =?us-ascii?Q?FrjBvCkPzxSxEElnWlVoO9qu1kVSTbClXX98j3J7PZqjFwEGp0oVNqHOGGh2?=
- =?us-ascii?Q?BT/YX6UGEo4lBwcwRWl7lM2qaZOsdEjn3OK39GW2iowNhLi8LhlOzWhuLzuZ?=
- =?us-ascii?Q?D4bVJx1mRPu92MXQaYUunswxHb6CFIB2SIX4Nle8Kt7khwaN/ZHdJqn2GsMl?=
- =?us-ascii?Q?B8ooJnKwWvFKDxh/wIEE+oMH07vVoEJMh5eRJr5v9dva3MjksYqF2+sY+rKy?=
- =?us-ascii?Q?dLH4J1tT3uR/ZGcjIarzcxIjt7tThPZylI5i7ZHFOtewOaKJUDwCb0gNlUez?=
- =?us-ascii?Q?ouizmR1OXOVMdX91s1/4ZfgYE8RlcXcoU8Wq8jnuYMhuw1jtI5QpHU3slbCa?=
- =?us-ascii?Q?vDH1MNb1pSY+YuS6DCaSzMklmqTf/P+xysT5rIn4aOhReqbzGwWybVPzLx4r?=
- =?us-ascii?Q?GhDJ+OG6L5ITKo55mvElDW1Aws9wdo1elh0HPKw1ayzd20NtnhaD48mKd+b6?=
- =?us-ascii?Q?6z01qYEinCAXv9bs/XYAn3hA706DdBxtkcDzVBdExOFs43M2SRm1QSXfNUPG?=
- =?us-ascii?Q?tUtriu9qtS41bqZunyJX8NVdmTmFXcLJW81jZ5M7DogRnGBDmJHPRvusYxzR?=
- =?us-ascii?Q?HlVxqyPjZOHk3tendTHXCZSLHJKpnA+9INbbTyVUoaNppa4jaBby15wJ6tHa?=
- =?us-ascii?Q?7GUP+9Cu9QwIN1mPkjHvDCkDWf/ve2I8mKBDorFh9b2PcP1v9m7znd86t/k+?=
- =?us-ascii?Q?KUTNSj+m7Tw4HTjrnsYRjHa6gYg9Sm+iKoI8Dij9OJh+2GYYLMS8uk8kLQeO?=
- =?us-ascii?Q?qtmMj7iy2s6cKIFVq5pWIMv92ZWMDNvxE9+DwsOTr4d6xN6jUiKfCc7jOTOb?=
- =?us-ascii?Q?m4a9KQlAPg0qYJHjhfUYjM+BXi5VhjWXiI6DU0VfVQCNNxYjuOdGFTmrpArh?=
- =?us-ascii?Q?u7dl36p45GRL8hO0PLqDyCuva8C7dgkCkjQhALx2xkSGrNDXehtkprt8UyrC?=
- =?us-ascii?Q?ngskUgERmT+1yKX/gEy1eTVF7WXyuPOcDr4irtdgDxU2aGHRmYO9AahiOaEP?=
- =?us-ascii?Q?z4IUy8fDtp/EZu+cs3ZOssfJMn8woxXs8spt1fl3a3vK5sdFpH/F9hh3pWxO?=
- =?us-ascii?Q?hv2EKeC1CyrgO0NSLkEVwgGh+4jf7KpzXkwsxMopYAhlfhoqi9SJHCiUby/I?=
- =?us-ascii?Q?so37R+Q3JzVQlNQD5zyckUEBzGRSc7ALA9xhcSwKhuAdC5am8YH98a46cwD3?=
- =?us-ascii?Q?csYAtfkl+onsE+UwInCiTVXkXqnWMXLy3poDPEyC/vhTwUx7Tt6OGZnY5hCK?=
- =?us-ascii?Q?zQw63IpekhYWr0vFRfQfIjT4qnv7dzXjpWNmiYKhwQo1si7WaMvDJ8Nwr0AR?=
- =?us-ascii?Q?jCn5ArMTIqJ6vdszkdx2VFGtpBQLKEx0dlyqKrIoUaRcb+n4twkWCB/2mpkR?=
- =?us-ascii?Q?uMe4OqtUpuQy2Q1geHCIsl6dRYhxqvaTHkRzDalR8JaHEc2cbP5v?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: cb85721c-2f86-4463-55f8-08ded78b1db7
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 16:09:23.5065
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fFmpJ1cx+o/6SJ93m02QZvKtNJrWN1LR1kqu6hij+jazk3b3N12PArbz9hqTUwn4kxYYJp2rgR+Ei/X3G1S8kz430CegSFl8O+qsT9rntm3P+7QWvZ6uUQN0K0xML8Q5
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7656
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_090942_735424_7F14F605 
-X-CRM114-Status: GOOD (  26.46  )
+X-CRM114-CacheID: sfid-20260701_091743_237853_3CED55AB 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,59 +100,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 10:51:32AM -0500, Frank Li wrote:
-> On Tue, Jun 30, 2026 at 11:20:53PM +0100, Bryan O'Donoghue wrote:
-> > On 30/06/2026 17:20, Frank Li wrote:
-> > > On Mon, Jun 29, 2026 at 11:23:02PM +0300, Laurent Pinchart wrote:
-> > > > On Mon, Jun 29, 2026 at 03:42:31PM -0400, Frank.Li@oss.nxp.com wrote:
-> > > > > From: Frank Li <Frank.Li@nxp.com>
-> > > > >
-> > > > >
-> > > > > On Thu, 21 May 2026 17:10:03 +0800, Guoniu Zhou wrote:
-> > > > > > This patch series enhances the i.MX ISI driver's with virtual channel
-> > > > > > support and adds frame descriptor capabilities to the crossbar subdevice.
-> > > > >
-> > > > > Applied, thanks!
-> > > > >
-> > > > > [1/2] media: imx8-isi: crossbar: Add get_frame_desc operation
-> > > > >        commit: 3e15a3510908c990ee352aa206d5f9c23d4b216e
-> > > >
-> > > > Is this a mistake ? Patch 1/2 has no R-b tag, and you're not listed as
-> > > > maintainer for this driver.
-> > >
-> > > Sorry, I missed checking Maintainer files, in media summit, agree on I pick
-> > > imx's media drivers, but forget finalize the file\dir list. Can you help
-> > > summery which files\dir I should take care?
-> > >
-> > > If you have concern about this patch, I can drop it.
-> > >
-> > > Frank
-> > You should set yourself up here:
-> > https://patchwork.linuxtv.org/project/linux-media/list/
->
-> I just register it.
->
-> "Registration successful!
->
-> A confirmation email has been sent to frank.li@kernel.org. You'll need to visit the link provided in that email to confirm your registration."
->
-> I have not recieved such confirm email. Anything wrong?
+The futex address must be naturally aligned and this is checked via
+"address % size" where `address' is the supplied address and `size' is
+the expected size of futex. It is guaranteed that `size' is power of two
+but the compiler does not see it and creates here a `div' operation
+(x86, arm, gcc-15).
 
-I just got it. But I am not in delegate list yet.
+We can take advantage of the pow2 property and rewrite it as
+"address & (size-1)".
 
-Frank
+As per testing, the command
+|perf bench futex hash -f 1 -b 16384 -t 1 -r 30
 
->
-> Frank
->
->
-> >
-> > That way you can coordinate with other maintainers on which files get
-> > reviewed by whom, see what the RB and ci status is.
-> >
-> > Its pretty essential.
-> >
-> > ---
-> > bod
->
+improved from
+| [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
+to
+| [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
+
+or by 5.3%
+
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+
+Could someone verify this, please? The 5% look a bit high. This is on
+top of the series (but not worsen by the series).
+
+ kernel/futex/core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernel/futex/core.c b/kernel/futex/core.c
+index 179b26e9c9341..2b00ab510e7d2 100644
+--- a/kernel/futex/core.c
++++ b/kernel/futex/core.c
+@@ -520,7 +520,7 @@ int get_futex_key(u32 __user *uaddr, unsigned int flags, union futex_key *key,
+ 	 * The futex address must be "naturally" aligned.
+ 	 */
+ 	key->both.offset = address % PAGE_SIZE;
+-	if (unlikely((address % size) != 0))
++	if (unlikely((address & (size-1)) != 0))
+ 		return -EINVAL;
+ 	address -= key->both.offset;
+ 
+-- 
+2.53.0
+
 
