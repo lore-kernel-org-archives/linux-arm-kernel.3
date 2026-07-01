@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FEBC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 20:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208DBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 20:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jzH8cIjmzkaTbzxcez6NOL9lvuXAy29AjJiZHK2/mzw=; b=j9XLk1HB+69C3++O1iGMoNRh87
-	kl16h74GZIGpTMxsTK38Pa7FOb3364/wc3z6LYwJbj49826yt+Qk5gdpMc2lPyB0haMSTybwbJXpO
-	wSzbgk/ZTMNoYahXg6ttNRPkaIzs8kmo61VOrW6A4ajSeis7GuGC5/IFLPo6PeeOJw+LQ5GQgHoY9
-	sZV56BH7M/VrTeUhIg6yKit2ngmkP62EaUKXy0sl+13s4oWElbZKMnaFszjDF6cQWwF9v5ptcQJ3f
-	RMhRxfy+qIYmfNZBs3Yk1iTFxl9XR0GImj+wRuOqoy4QEYqz2aXa/oIQt7WkrviR7rG9dYN5r0Pir
-	x8dTrZOg==;
+	bh=VtpSn/6kLzzI0fPKRwZyJeSOYrsZvfNjFJIskyKdEpo=; b=30yZzubyUov1ZQaEB/CPMjhNdJ
+	r4D54IUA8WsJf56J1RFehKo2BvxvrfKQBj6Va6iYZVav4EgAQcQbDP1z0ASTZekVYc89+fyMo61Lj
+	BWCDDvRn1EDSrHV0/cw4Z8Ystw3GGAwz1P/a8RIqgy9Fb++xIJD1qNJXqxLuchP2CqYtDTLt7pafk
+	O9UeCX5lCSDyTv2DNAXaOBHPRSNSn0HLIydk2iLTzzYLK13NqvVa59XQqzCtrZdJ/nx9hX0qAmDao
+	RUpL+elIyDH7Ws6wxVIl98Ru7GmAVxT0VxSP846lCAbi99+Yf5jfhhSgm9H+HfFAYZVcj1+Du7+71
+	B4zZP3RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1is-00000002yYH-0wzX;
-	Wed, 01 Jul 2026 20:39:54 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1wf1jA-00000002yk9-2w47;
+	Wed, 01 Jul 2026 20:40:12 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf1ip-00000002yX9-3GbX
+	id 1wf1j7-00000002ygi-2f7K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 20:39:53 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	Wed, 01 Jul 2026 20:40:11 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4grBhj1pw6z8v1h;
-	Wed, 01 Jul 2026 22:39:49 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4grBj000HTz9vCg;
+	Wed,  1 Jul 2026 22:40:04 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782938389;
+	t=1782938404;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jzH8cIjmzkaTbzxcez6NOL9lvuXAy29AjJiZHK2/mzw=;
-	b=rC/gRBAsaZ3PrhN1J5BcUSJngZncbLvZbg0L+VBsOlTrptly9QIX6J2YB+MAZO51VtdfT+
-	H6cdyD7ue5oqmMMl9KHSlkhjzsLOSLbjBYbM135cmHXj1FO764BElba7op3R1y8YvzjD4X
-	MDc+p9y+vgwDVtiRjAFVqfdhiYmjM2z9LOW/2aoTuqijMl/hbuNwRwRuhLZ/7rmEu78IFV
-	8FgJbRFhjPyO0pnE2qmxZVaAtoHxqtiZXXEQDnd0aPEjpczduAU8XEc3ADTY+Jz584iFjc
-	xgRI/1GFmO22zWJ3NVS653QI8vXtCmsNwPj1pSuf8i5ESpmaSJPMXssOMvXTrw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=UMooT3WC;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+	bh=VtpSn/6kLzzI0fPKRwZyJeSOYrsZvfNjFJIskyKdEpo=;
+	b=hII4/v+XyEcgBjsJqnzuHz0HIfc4v0uYbbAlpM5N153KSZ7Lxmql9zyIIHLsDmagEl4DC/
+	if9b66JJf0/AH7wAOPjDXpSFowfn4y87SXarGE+JYdtTv62Dp/RHunryEDS+cBkzxNddRs
+	JPXXS2sPTc3GtKmFhA2o7+05Lf5Z+Ydv/isVB3YXllRj666UfqkkpAPVEW7x/3nGwJgvpY
+	D0VsEnCBEuash+NvG/kSNoO5jWVZ4JQx5PKIbOpqqSctdTgOaYpGeMq9F5uVBEzfPOTBRs
+	Q3E70VLCAfeoVSurWSQHjr1yKranyyezlKiBFn7ktuxL18lscXLR7AGULWyvNQ==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1782938388;
+	t=1782938401;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jzH8cIjmzkaTbzxcez6NOL9lvuXAy29AjJiZHK2/mzw=;
-	b=UMooT3WC3YZwbPvyoOa8L8tzBx/dhNGaKQMoZzUF8WTt9uWCu/0g7RxL5S0g0I5YfuvSgl
-	Oz5Ps719Y/qvwaIE0gePP4DrNdSWqyiuboO3PKtmnXKBCDdGHOz2MFzp9gfOjl60UKDJKW
-	Nb29BdQFmKt58EWfpP1RR2wsAMBN041viyzt8Vm6qhOfbfpfhP1TH16gXYuC/bolj4kZhD
-	gD4ef0oxhJ0do/Qh+XHu70T1ABB8PSe/FT5RYTPWVikFvxGc1jXW+5GBTeuqiEijAzYsjW
-	YTb1DxsZOSUySpBZ3fuESBRgPsV8q80o71nPbxBgnEgLQBixNmvcp2jtjpnGxQ==
+	bh=VtpSn/6kLzzI0fPKRwZyJeSOYrsZvfNjFJIskyKdEpo=;
+	b=a4No3Vxi9tIK7D0IhxJV+jG8cxgBv3D8HUGYfF3nazBl5OfRDJtCsB1ncVfoxp60NrV/7l
+	WOHhnb4VyE9P5QHy9O+fJRGwbeYiTmQAHwljDyyZUlF0HhO+yXoPi0f0Ol7gK7xuXqsbaG
+	r9mDUSMAnr0M4ngg9Jz3sZC7ooVbZVjE46/BZh8FZ8nDbjoTCtcoKhbmBIfLikjE5/FJd9
+	elQVUgA7daKpL1bOBWjva6c9dMSHla725LHVnyPFnHZs3AElC+HJCSBGJ1ViB/BS+KEHkB
+	nvDFADkY+mSx/za3u+Pja8KuQIAmjKnum1zfAxS58/EpTMc81XSaksXBVZp+vA==
 To: linux-pci@vger.kernel.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Bjorn Helgaas <bhelgaas@google.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
@@ -73,26 +71,24 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Manivannan Sadhasivam <mani@kernel.org>,
 	Marc Zyngier <maz@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v3 1/5] PCI: dwc: Determine whether iMSI is used before calling .init
-Date: Wed,  1 Jul 2026 22:37:44 +0200
-Message-ID: <20260701203918.63189-2-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH v3 5/5] arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes
+Date: Wed,  1 Jul 2026 22:37:48 +0200
+Message-ID: <20260701203918.63189-6-marek.vasut+renesas@mailbox.org>
 In-Reply-To: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
 References: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: a1heqr496enipirpo7hddet7dcxqyciw
-X-MBO-RS-ID: 08b502b8c3826dfc338
-X-Rspamd-Queue-Id: 4grBhj1pw6z8v1h
+X-MBO-RS-ID: 8cf0f4f9360d4fef111
+X-MBO-RS-META: xjw591x7ki7wibk4dthfs8mczz8eraxw
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_133951_959356_757A2E80 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20260701_134009_835712_512F922D 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,17 +103,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The R-Car Gen4 PCIe controller integration configures MSI registers
-in the controller driver .init callback, because those registers
-have to be configured while PERST signal is asserted, and the PERST
-signal is asserted across the controller driver .init callback.
+This SoC implements GIC600 with GICv3 ITS and PCIe host mode on this
+SoC can use it. Add GIC ITS node into GIC node, update interrupt-map
+and add msi-map into PCIe controller node.
 
-The registers have to be configured differently in case the iMSI is
-or is not used. Assign pp->use_imsi_rx before the controller driver
-.init callback is called, so the controller driver .init callback
-implementation can use the pp->use_imsi_rx value.
+The GIC ITS does have master interface to issue transactions to RAM.
+The interface does support cacheable transactions, however, it does
+not support shareable attribute, because the AXI port signals are tied
+to inactive in this implementation. Therefore, add "dma-noncoherent"
+DT property into the GIC ITS subnode.
 
+The GIC redistributor does not have cacheable/shareable, therefore
+add "dma-noncoherent" DT property into the GIC node.
+
+Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+NOTE: This would not be possible without prior work from Shimoda-san
+      https://lore.kernel.org/all/20240214052144.1966569-1-yoshihiro.shimoda.uh@renesas.com/
 ---
 Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
 Cc: Bjorn Helgaas <bhelgaas@google.com>
@@ -137,39 +141,86 @@ Cc: linux-kernel@vger.kernel.org
 Cc: linux-pci@vger.kernel.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
-V3: New patch
+V2: No change
+V3: Add Co-developed-by to credit Shimoda-san
 ---
- drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 31 ++++++++++++++++-------
+ 1 file changed, 22 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 06722259d2e37..f5a38e6fd8d79 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -587,6 +587,12 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (ret)
- 		return ret;
+diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+index c25642a620db8..dba46499b5e9c 100644
+--- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
+@@ -809,6 +809,7 @@ pciec0: pcie@e65d0000 {
+ 			resets = <&cpg 624>;
+ 			reset-names = "pwr";
+ 			max-link-speed = <4>;
++			msi-parent = <&its>;
+ 			num-lanes = <2>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+@@ -819,10 +820,10 @@ pciec0: pcie@e65d0000 {
+ 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
+ 			#interrupt-cells = <1>;
+ 			interrupt-map-mask = <0 0 0 7>;
+-			interrupt-map = <0 0 0 1 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 2 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 3 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
+ 			snps,enable-cdm-check;
+ 			status = "disabled";
  
-+	if (pci_msi_enabled()) {
-+		pp->use_imsi_rx = !(pp->ops->msi_init ||
-+				    of_property_present(np, "msi-parent") ||
-+				    of_property_present(np, "msi-map"));
-+	}
+@@ -856,6 +857,7 @@ pciec1: pcie@e65d8000 {
+ 			resets = <&cpg 625>;
+ 			reset-names = "pwr";
+ 			max-link-speed = <4>;
++			msi-parent = <&its>;
+ 			num-lanes = <2>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+@@ -866,10 +868,10 @@ pciec1: pcie@e65d8000 {
+ 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
+ 			#interrupt-cells = <1>;
+ 			interrupt-map-mask = <0 0 0 7>;
+-			interrupt-map = <0 0 0 1 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 2 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 3 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
+-					<0 0 0 4 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 2 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 3 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
++					<0 0 0 4 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
+ 			snps,enable-cdm-check;
+ 			status = "disabled";
+ 
+@@ -2148,11 +2150,22 @@ ipmmu_mm: iommu@eefc0000 {
+ 		gic: interrupt-controller@f1000000 {
+ 			compatible = "arm,gic-v3";
+ 			#interrupt-cells = <3>;
+-			#address-cells = <0>;
++			#address-cells = <2>;
++			#size-cells = <2>;
+ 			interrupt-controller;
+ 			reg = <0x0 0xf1000000 0 0x20000>,
+ 			      <0x0 0xf1060000 0 0x110000>;
+ 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
++			dma-noncoherent;
 +
- 	if (pp->ops->init) {
- 		ret = pp->ops->init(pp);
- 		if (ret)
-@@ -594,10 +600,6 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
- 	}
++			ranges = <0x0 0x0 0x0 0xf1000000 0x0 0x200000>;
++
++			its: msi-controller@40000 {
++				compatible = "arm,gic-v3-its";
++				reg = <0x0 0x40000 0x0 0x20000>;
++				dma-noncoherent;
++				msi-controller;
++			};
+ 		};
  
- 	if (pci_msi_enabled()) {
--		pp->use_imsi_rx = !(pp->ops->msi_init ||
--				     of_property_present(np, "msi-parent") ||
--				     of_property_present(np, "msi-map"));
--
- 		/*
- 		 * For the use_imsi_rx case the default assignment is handled
- 		 * in the dw_pcie_msi_host_init().
+ 		gpu: gpu@fd000000 {
 -- 
 2.53.0
 
