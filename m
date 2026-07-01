@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFECAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0402DC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWNDIk7fyUz4D/2m8OAHIVTblCwgE7WjSABB2eON9n8=; b=ZxHRworj3w/EdcLsX2M1LHt78m
-	nP05nWFfSJjCufoj8wKV0gUhGCfh7WbLEZFqPNr8a1nqyhMgVwmVLhobFWOIis2L+ne1cWCVmq/PQ
-	vWnnePja6+JgVwoGmM5DnYSr07x/AiVvaHG95bBoksjxaZ+qlgtMhFg4yg8PhQw/UTlNoyvNqCe/t
-	F7U4EdE4rFZBh+sk5tk2StsqcFmArHpsbQ3zeZTYn5g16IC4Eply/g4dB4tJAlk8Cb2Cs3/1Sne4g
-	qFxyR4B4719aEjM8yyPJgYV1OMtBWK/jrWWfBgMUGnDlUZLkm9Jl/1zZx6AKj89rpr46X90MVHgv1
-	kDYBck0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mFHD8RRGJkLeLGm/699c6/1NPhNrhPx5wfXpMOoTjPI=; b=Tqfm2kc1SFTXeS
+	we+r90Eus5br1h0xXJVEYuEbdzKNpc+oRY/CCEWfMAMRIMHgxJHQeUt2Lkgl6fgAWsFKpbs3o0Wfn
+	ZMEo6x9M3tdaI9ii6KkR0Utm6wtIDBCbhjtgijVR97NGvpAZENNqeIQITKxDPhEtmPwS7s97P0sqQ
+	gmYzbw2UTbFAtqCHOXH0mT/++wXU9wLkXYf7WLK2dxbTthRpGutPkiJllws4Q1yItz1X7ix/ZIOpC
+	SaO7uSP6x9EKYLMtc0uxzKjgjKYkhqKMmPmRjiexFWGNiw3rnTgynpkDTZEOefod5y9nCtBLqTM2n
+	9Ebi9KyrBSkY3in5cDJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepuC-00000000yfv-1cj3;
-	Wed, 01 Jul 2026 08:02:48 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1weq1E-00000000zC8-2Yuc;
+	Wed, 01 Jul 2026 08:10:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepu8-00000000yfH-3egi;
-	Wed, 01 Jul 2026 08:02:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1782892953; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=aTPEf3BqjKu6ldy2Xslnu+HCEWFE6vblrMkjVb5aeayVdGPijkyKG1LMZ6CZNLezp4ugzaVWMYco2vxL9LfHDXR2hdnbFzSDgPg8upjd9SJe1Rjm5Zsgvr4aAiXu7+iJqGDW0WJl8SIG1lR2U5JKH1fsYHzSxQW8Qfvy8d2mH8s=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1782892953; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CWNDIk7fyUz4D/2m8OAHIVTblCwgE7WjSABB2eON9n8=; 
-	b=lamTyYNS9M6k0ALZ9lZlnurd7UG/ZXESPXWU00I5ivICDw4j4INNfn5LX3Qz3+BsPU8LTB3JEBwOk+a6HRM4V7bADRXU7UhppH+jbKrp/wCU829XSmn1tOa9BufYdJFyudT94cSNT1cfFuyD9w6AK+MciAzMUPHMLl4NQyu4VCM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=michael.riesch@collabora.com;
-	dmarc=pass header.from=<michael.riesch@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1782892953;
-	s=zohomail; d=collabora.com; i=michael.riesch@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=CWNDIk7fyUz4D/2m8OAHIVTblCwgE7WjSABB2eON9n8=;
-	b=F0yG8nQo3YbIjKWV9YHgILL1rxYz9mgW3xw/AfWH94ua+v/J8PH7nd3RXd24npaQ
-	IQR5CFW6blT7eUGRjNoFo4TdbDDuGKkWvGSfKjMCC09bfsJAMtMR+F8FIfyglywBXBh
-	wvcWiRoSQ2Xgy2B2JXi+Gxz6KCm+/vVsV2ha6qGc=
-Received: by mx.zohomail.com with SMTPS id 1782892951290681.0323311430374;
-	Wed, 1 Jul 2026 01:02:31 -0700 (PDT)
-Message-ID: <39bf50d1-a54c-41c0-bfee-ef73c293b990@collabora.com>
-Date: Wed, 1 Jul 2026 10:02:26 +0200
+	id 1weq1D-00000000zBz-1UTH;
+	Wed, 01 Jul 2026 08:10:03 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62AC2600AB;
+	Wed,  1 Jul 2026 08:10:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90E1E1F00A3A;
+	Wed,  1 Jul 2026 08:10:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782893402;
+	bh=mFHD8RRGJkLeLGm/699c6/1NPhNrhPx5wfXpMOoTjPI=;
+	h=From:Subject:Date:To:Cc;
+	b=OC4rkXT8wZoc1FGaN/bsXZNkwylvmxM3DF3XkjnaolvmlcuodcpxThi+y0YIaEYRV
+	 pY4K6TZXrU8vpjP0RZmurbpD2aJFJBvQWrEdZM3uPhr32XjZwjuooj1973nCOlVs6j
+	 Wlqs/C6xcckOu3QwjKTkgqRIKkjU+PiSnYJLFvSyjld4LUOK6z0fDDIejGOcHBNETG
+	 RWobs2SNwGY1H7AREqtOPRVC5gI5KNWsy55MJ4Ew03Vi6h4wxnQMdfONMKZBg1QJXa
+	 kAwkRLv4IbGcK9Fko8C2L3j7dj8o3cymC5r3VBGfHhCSoeY2L08DX/t/64fG0PJefX
+	 WBE4lZnysLhOQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v7 0/3] airoha: add the capability to configure
+ GDM3/GDM4 as WAN/LAN on demand
+Date: Wed, 01 Jul 2026 10:09:24 +0200
+Message-Id: <20260701-airoha-ethtool-priv_flags-v7-0-b4153bd44428@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Fix devices suspend freeze
- on RK3568/RK3566
-To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Geis <pgwipeout@gmail.com>
-Cc: Diederik de Haas <diederik@cknow-tech.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, devicetree@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260624192726.781864-1-jonas@kwiboo.se>
- <20260624192726.781864-3-jonas@kwiboo.se>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20260624192726.781864-3-jonas@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_010244_970845_0793B7C4 
-X-CRM114-Status: GOOD (  17.28  )
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43Q0WrFIAwG4Fc5eD1HolbtrvYeYwxrYysr9WBLO
+ ePQd5/0ylEoIxD4CfkCebKFcqSFvd2eLNMWl5jmEszLjfnRzQPx2JfMBAgNpbiLOY2O0zquKU3
+ 8nuP2FSY3LLzTzhnwpVlgZf+eKcTHYX+wmVY+02Nln2UyxmVN+ec4uuEx/4e/IUeuADvh20Btw
+ PdvyjNNrykPB7uJmjJXlCiUUcIb55DQihMla8peUbJQkizJ3stgsDlRqqIQrijFgWsg2/ogbCB
+ 3opqawiuqKZRH7Amssro//0pXlGivKF0oqzuvAXqJnf9D7fv+C1idWAdEAgAA
+X-Change-ID: 20260606-airoha-ethtool-priv_flags-b6aa70caa780
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, 
+ Alexander Lobakin <aleksander.lobakin@intel.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Madhur Agrawal <madhur.agrawal@airoha.com>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,101 +78,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+Add the capability to configure GDM3/GDM4 as WAN/LAN on demand when QoS
+offload is created or destroyed.
+Make dev->qdma an RCU pointer so the TX path can safely dereference it
+without holding RTNL.
+Introduce airoha_qdma_start() and airoha_qdma_stop() helpers.
 
-On 6/24/26 21:27, Jonas Karlman wrote:
-> The EHCI/OHCI controller depends on clk_usbphy1_480m being enabled, or
-> the system may freeze when registers are accessed, i.e. during suspend
-> in ohci_suspend().
-> 
-> Add the missing clk_usbphy1_480m clocks reference to EHCI/OHCI
-> controllers to ensure the clock is enabled when ECHI/OHCI registers are
-> accessed to prevent a system freeze.
-> 
-> Fixes suspend pm_test issue with EHCI/OHCI devices due to the missing
-> clk_usbphy1_480m reference and makes following pm_test modes work:
-> 
->   echo N > /sys/module/printk/parameters/console_suspend
-> 
->   echo devices > /sys/power/pm_test
->   echo platform > /sys/power/pm_test
->   echo processors > /sys/power/pm_test
->   echo core > /sys/power/pm_test
-> 
->   echo mem > /sys/power/state
-> 
-> Fixes: 91c4c3e06a25 ("arm64: dts: rockchip: add usb2 nodes to rk3568 device tree")
-> Fixes: 78f7186095db ("arm64: dts: rockchip: rename and sort the rk356x usb2 phy handles")
-> Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
+Changes in v7:
+- Fix ETS stats accounting in patch 2/3
+- Reset ETS stats accounting in airoha_dev_set_qdma().
+- Link to v6: https://lore.kernel.org/r/20260629-airoha-ethtool-priv_flags-v6-0-86bc600d31bc@kernel.org
 
-Acked-by: Michael Riesch <michael.riesch@collabora.com>
+Changes in v6:
+- Rebase on top of next-next
+- Add patch 1/3: "rename airoha_priv_flags to airoha_dev_flags"
+- Drop patch 2/3: "refactor QDMA start/stop into reusable helpers"
+- Link to v5: https://lore.kernel.org/r/20260611-airoha-ethtool-priv_flags-v5-0-c11de08486d1@kernel.org
 
-Thanks and best regards,
-Michael
+Changes in v5:
+- Add patch 1/3: use int instead of atomic_t for qdma users counter
+- Protect dev->flags with flow_offload_mutex mutex.
+- Introduce AIROHA_PRIV_F_QOS in order to handle better WAN/LAN
+  switching.
+- Link to v4: https://lore.kernel.org/r/20260610-airoha-ethtool-priv_flags-v4-0-60e89cf28fea@kernel.org
 
-> ---
-> v2: Collect t-b tag
-> ---
->  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 16 ++++++++--------
->  1 file changed, 8 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> index a5832895bd39..c930a6fd6ea0 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-> @@ -321,44 +321,44 @@ its: msi-controller@fd440000 {
->  	};
->  
->  	usb_host0_ehci: usb@fd800000 {
-> -		compatible = "generic-ehci";
-> +		compatible = "rockchip,rk3568-ehci", "generic-ehci";
->  		reg = <0x0 0xfd800000 0x0 0x40000>;
->  		interrupts = <GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>;
->  		clocks = <&cru HCLK_USB2HOST0>, <&cru HCLK_USB2HOST0_ARB>,
-> -			 <&cru PCLK_USB>;
-> +			 <&cru PCLK_USB>, <&usb2phy1>;
->  		phys = <&usb2phy1_otg>;
->  		phy-names = "usb";
->  		status = "disabled";
->  	};
->  
->  	usb_host0_ohci: usb@fd840000 {
-> -		compatible = "generic-ohci";
-> +		compatible = "rockchip,rk3568-ohci", "generic-ohci";
->  		reg = <0x0 0xfd840000 0x0 0x40000>;
->  		interrupts = <GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
->  		clocks = <&cru HCLK_USB2HOST0>, <&cru HCLK_USB2HOST0_ARB>,
-> -			 <&cru PCLK_USB>;
-> +			 <&cru PCLK_USB>, <&usb2phy1>;
->  		phys = <&usb2phy1_otg>;
->  		phy-names = "usb";
->  		status = "disabled";
->  	};
->  
->  	usb_host1_ehci: usb@fd880000 {
-> -		compatible = "generic-ehci";
-> +		compatible = "rockchip,rk3568-ehci", "generic-ehci";
->  		reg = <0x0 0xfd880000 0x0 0x40000>;
->  		interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
->  		clocks = <&cru HCLK_USB2HOST1>, <&cru HCLK_USB2HOST1_ARB>,
-> -			 <&cru PCLK_USB>;
-> +			 <&cru PCLK_USB>, <&usb2phy1>;
->  		phys = <&usb2phy1_host>;
->  		phy-names = "usb";
->  		status = "disabled";
->  	};
->  
->  	usb_host1_ohci: usb@fd8c0000 {
-> -		compatible = "generic-ohci";
-> +		compatible = "rockchip,rk3568-ohci", "generic-ohci";
->  		reg = <0x0 0xfd8c0000 0x0 0x40000>;
->  		interrupts = <GIC_SPI 134 IRQ_TYPE_LEVEL_HIGH>;
->  		clocks = <&cru HCLK_USB2HOST1>, <&cru HCLK_USB2HOST1_ARB>,
-> -			 <&cru PCLK_USB>;
-> +			 <&cru PCLK_USB>, <&usb2phy1>;
->  		phys = <&usb2phy1_host>;
->  		phy-names = "usb";
->  		status = "disabled";
+Changes in v4:
+- Move back QDMA TX/RX DMA enable to airoha_dev_open()/airoha_dev_stop().
+- Configure GDM3/4 as WAN if GDM2 is not available in ndo_init()
+  callback.
+- Protect qdma pointer in airoha_gdm_dev struct using RCU.
+- Rely on rtnl_dereference() to access qdma pointer in the control path.
+- Add airoha_qdma_start() and airoha_qdma_stop() utility routines in
+  patch 1/2
+- Link to v3: https://lore.kernel.org/r/20260608-airoha-ethtool-priv_flags-v3-1-3e8e3dc3f715@kernel.org
+
+Changes in v3:
+- Do not introduce ethtool private flags support to configure LAN/WAN
+  for GDM3/4 and rely on tc qdisc offload for it instead.
+- Set GDM3/4 ports as LAN by default.
+- Move QDMA TX/RX DMA enable from airoha_dev_open() to airoha_probe()
+  and the corresponding disable from airoha_dev_stop() to airoha_qdma_cleanup().
+- Link to v2: https://lore.kernel.org/r/20260607-airoha-ethtool-priv_flags-v2-1-742c7aa1e182@kernel.org
+
+Changes in v2:
+- Rework airoha_dev_set_wan_flag routine
+- Enable GDM_STRIP_CRC_MASK in airoha_disable_gdm2_loopback()
+- Do not always reset REG_SRC_PORT_FC_MAP6 in
+  airoha_disable_gdm2_loopback() but use the same condition used in
+  airoha_enable_gdm2_loopback().
+- Link to v1: https://lore.kernel.org/r/20260606-airoha-ethtool-priv_flags-v1-1-401b2c9fe9f1@kernel.org
+
+---
+Lorenzo Bianconi (3):
+      net: airoha: rename airoha_priv_flags to airoha_dev_flags
+      net: airoha: fix ETS QoS stats counter underflow and cross-channel corruption
+      net: airoha: defer GDM3/GDM4 WAN mode and GDM2 loopback to QoS offload
+
+ drivers/net/ethernet/airoha/airoha_eth.c  | 239 ++++++++++++++++++++++++++----
+ drivers/net/ethernet/airoha/airoha_eth.h  |  26 +++-
+ drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
+ drivers/net/ethernet/airoha/airoha_regs.h |   1 +
+ 4 files changed, 233 insertions(+), 42 deletions(-)
+---
+base-commit: 1c664ec4b9ea827b609d296921ed5bad8a40a158
+change-id: 20260606-airoha-ethtool-priv_flags-b6aa70caa780
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
