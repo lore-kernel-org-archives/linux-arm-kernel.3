@@ -4,163 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A54C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5827BC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:25:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2XOXndb/e0ZkBy4LNF/NiNIQJiJfZJADopLl+0bDHkU=; b=I4VVVVKlDGA7igbqzmAkA8aLCM
-	kt7x/1w5d3uTl5jytmprx+uObP/HVoJn7ZGF1aajxktx2/jJ83khaNBrNUkOFFFZlOKUwQAKE2KRe
-	9FZFE/BJyhTmZoSaIJP8qJvwnhr/01UlPDQRwR/jFPhELjakC3ACQFyWSpshE9P8gofj3r+MFP2ez
-	ZroL3wWQ1NoSLNZyNpxt0g4I+Y+xw94sQp8h7ccfBrme6ycin4YmL1LTIJVUozqIOuU4gu9wnfQfG
-	yPKWUc7HdOM98qb5W0EZ982hf7kOjrN+tVIcSzB2wu8tA2Jak00NXVoFCBxBlJXOv3/TXXA0jyK42
-	W9L4AGiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q1OMlnLqhJ/nuYl7HOrfRPHTY5k1p1Y5aURnyZGWWQ4=; b=rw3a1mdp7t24h5H9ev8ozMYGHl
+	FFdmtGGMwX04Qzpb28BwO3auUXxXPKTsbEfaIVwjDElA5IoZ2/6yLW5NL1KCaVE8ABSSx6DUpb1Rd
+	5tPH7WNnlvM8aSOfGzG0jb6PprqBoYmWwip5axFelPNo+09ghnPlBxJ8zqEbmMtNRxLUOO0ATIed2
+	pMaix2fmLwseerDekLiAcNg7KwTjfENS7prhaqwJWOyc6gMrU22EFINRsGoMNri/b+UpERHvdSaKo
+	BLW4lORHmlEyTm+mT2985CAJ7Dn6Ce8xDyoQBZ1NWN8Hl1wKwsQw/Ozk00jGpbuAnEojfXDd24929
+	PWpC0cuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoO8-00000000nLM-3zgB;
-	Wed, 01 Jul 2026 06:25:36 +0000
+	id 1weoOE-00000000nNj-0FOE;
+	Wed, 01 Jul 2026 06:25:42 +0000
 Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoO5-00000000nJV-2Q2b
+	id 1weoO8-00000000nKj-29hp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 06:25:35 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6612uUXJ2535139;
-	Wed, 1 Jul 2026 01:25:29 -0500
+	Wed, 01 Jul 2026 06:25:38 +0000
+Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6612uOgV2538133;
+	Wed, 1 Jul 2026 01:25:32 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=2XOXndb/e0ZkBy4LNF/NiNIQJiJfZJADopLl+0bDH
-	kU=; b=T88xT4USmYkSwofjS59qYCvBmWcAGcFgcgLTmfgTVkAPSlEl39zNIp6/Z
-	6FEjfJO+46fkh5MbJCC949gh0+PAk+L6fET2+A9nyua2BleAJ/Cz2VsoyZxsMjQu
-	drO/BDFFJ3II/WHLgvqLxhGaK3f9tcATxpeSPUAZbEZCv4tamo6z2/CKSSOp/tl1
-	FZgT48I/tkDt4MUE2/2EoMaIMBNIZj3NAXVk7F2/hWVihHuL/8qUkvYnYBgcZ2zR
-	H/2CmPgY9nj+89FdLQpv/c0IQEIOyTigTkGOGkk6jtcVbyaKuOCtsDHuu9EiW/a9
-	jOVKgbaIkWGf5FUoEf/W5q7oFTSiQ==
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11010011.outbound.protection.outlook.com [40.93.198.11])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f4cpvwtcc-1
+	proofpoint-05-2026; bh=q1OMlnLqhJ/nuYl7HOrfRPHTY5k1p1Y5aURnyZGWW
+	Q4=; b=qeiHV/phV4GHzquhPti8KZG/K7h5KLH2g6YqTJc4OI+IEDa2bXNV2ZZ+o
+	oOL7mbC16ANBuhMy8zm//lnO7UVW4c7lQTQZZtmK1dHjEtzOUJ3da3Fsrq8RQl1z
+	nblpbYvo5OyQ5bO5AUcPm7PhpxKiATuLfFqfzOjydt1cZIgDqg7dG++phO7Zqq+1
+	y398CcXFsY1wsX0z1VMKh5XYIpinNq0Z0HUtFkHQB8iM2iZraMTPX71GhkaMn5CS
+	7RS27jLliXPzob74IG/02s2H7EhzPvlRC1VWUZ1iXYBubbw5BMIJnRkqHrnCbn27
+	PFp70MzGgO+Vn9vakNAXN9JkGHQQQ==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012018.outbound.protection.outlook.com [40.93.195.18])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f4nva2ftq-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 01 Jul 2026 01:25:29 -0500 (CDT)
+	Wed, 01 Jul 2026 01:25:32 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Dzw+cfGw7V3a2Z8oqgtYo28d9xlxtSig7MTVL2MFRAUPcN33zB9cRPcR6YKvhjBffMkLr+iigEeebmd1tdqkYSGYxJoxrtdHnAHAISSy3icAhrevvZgwiGWwO18pgcc+boFQITFmiWKFZ4KXNaDqiR/jHCWFCSN00XEdj9qzoGlY1BIr18LhAcgRWpIF0OjQxpifCn5ImJSpgb1WRTqxeaclVjHvb5WI2S1sNU99DitWMys1dREWwH+N+rhx4xJHypcHhUbMHQDTuBQz/O8fCGQeatuGykt41mT8+MyXPw2IrnCDTKL++k66xHR0DYKDfD5fpjCvdVKjKiau8W48DQ==
+ b=I/5XA1CV4fT+IHkoBCdZ5tszyRZkU19QaU4Jp0PEpWQcnz9B30DwkcVLsFEINQUjrY1btUeS4CRGo7WdomT2Kpa5HuxG24LantO+0q5zF3G34Ck0yL5Y7d6DAxTiPi4gj63LL5OrYOPgLqmYWIdj6e/IOO3joyJydzQgbObI1adzte2ZxfzDZ8XLfLG6SPFl+cCu3Zc4mABDJw3V04Hq2Iw/nLHBVPbAby/NNKweNzEmsXZFwD1QoQx1McYYEoUgR5dIGa0qX4BawW7hrdWUdjRfrIqjxBP5E9VJdVU6wOIvlLaIbYMpthV2WdkM7EmcAvY3Li9nYUvKzk2Z+MLKxQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2XOXndb/e0ZkBy4LNF/NiNIQJiJfZJADopLl+0bDHkU=;
- b=saO/XB6PKIDdiKYDKDd5o6t1/b3mGxVb/2VpOgyfA/7p74KpEmKmQ5FGXvpEAO7j0sSPXyobA1PtOmp+BUH7fba+/a528Yy8+eO4kRpKXUfYRJ48c09n2zgJ0ryQ3QDz4sjHfowIqs4bDtFYPfjmZPMWkomh8NUNr9eBFGB8Aok01vGwU32up0b55eBvtElgJ6NArjyyewC42vO2e5RabE/f4zNh7u7NIfGZVB+rwDEoLkEv/N0XP9d6b6A/N5jwBxC750I5H7eZrS/tXCiTTvt/HOPH4ZouF9sZFlbpaKiTnN/vnbf/rzAgcydSn5aRPYVtpXH+ydyZKkYOPPKNBw==
+ bh=q1OMlnLqhJ/nuYl7HOrfRPHTY5k1p1Y5aURnyZGWWQ4=;
+ b=MFY0ermx6ZQfU4/QPFHXvnPyfQF46kZJKXrcd4LBQWm8aeamFWE3Z+KLltBIURxrpD0Cnh0Z0UyQUVHpcbZhoZOgBMqEAcjPe29ekGH+mFrGcHduqrNLLY1ernP/smgmmcajKv7XaadU5gbF3L962MVjycuvM5RhbGXb+38XYe+JXjOf8ddFXrVRWVr1ly3V+VGDoPCfSQt6kSsOvPNFai483kjO1UAjJkdGXbjrpEiM1rQUMO49hCL1k/2HaCf0GWWtZvaje8ef0rFr9694Ttc+NJj04zN8IZ9nubvGlpxv/RVpdijiEY2NOvghzlWB+tITjUL2YeURHTz9XeMl0Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ 198.47.21.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2XOXndb/e0ZkBy4LNF/NiNIQJiJfZJADopLl+0bDHkU=;
- b=jMlyio/bXw5EnPoGstRDSBkjhBpb7ni4Txhyr2asX0EGfT8IPPBRMEXDYBOc/b7yYJjwgIrvx8YMljUG1XPW4d1YEdipQ+tsbS8zopgDYBJfRFF9gm4A0W46LMbrgwa0mKsDmZ8TLHv7FDRZ99K06fJia+iELR+HGOksybWkOEU=
-Received: from MW4P220CA0001.NAMP220.PROD.OUTLOOK.COM (2603:10b6:303:115::6)
- by BN0PR10MB5206.namprd10.prod.outlook.com (2603:10b6:408:127::8) with
+ bh=q1OMlnLqhJ/nuYl7HOrfRPHTY5k1p1Y5aURnyZGWWQ4=;
+ b=rH//uDuJzDVKBvTnWrQ7rK2jldFv8/E4gK61EwFzSnyDFWcWQDtPyBiZOS/B1mNTkb5GPYE2MveZCBqhGAB6GtTzgESWvEF/pJN5zZnKL7Z8p//+7wXrYc8kljhLY/WmUKQW1rMFt72fHd0UjMUhzUkP6JUh6Hn9EMQIYSpPp7I=
+Received: from BN9PR03CA0049.namprd03.prod.outlook.com (2603:10b6:408:fb::24)
+ by BLAPR10MB5042.namprd10.prod.outlook.com (2603:10b6:208:30c::7) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 06:25:25 +0000
-Received: from CO1PEPF00012E7D.namprd03.prod.outlook.com
- (2603:10b6:303:115:cafe::25) by MW4P220CA0001.outlook.office365.com
- (2603:10b6:303:115::6) with Microsoft SMTP Server (version=TLS1_3,
+ 06:25:29 +0000
+Received: from BN3PEPF0000B06E.namprd21.prod.outlook.com
+ (2603:10b6:408:fb:cafe::a5) by BN9PR03CA0049.outlook.office365.com
+ (2603:10b6:408:fb::24) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Wed, 1
- Jul 2026 06:25:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ Jul 2026 06:25:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
 Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CO1PEPF00012E7D.mail.protection.outlook.com (10.167.249.52) with Microsoft
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ BN3PEPF0000B06E.mail.protection.outlook.com (10.167.243.73) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Wed, 1 Jul 2026 06:25:23 +0000
-Received: from DFLE207.ent.ti.com (10.64.6.65) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ 15.21.202.0 via Frontend Transport; Wed, 1 Jul 2026 06:25:27 +0000
+Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 1 Jul
- 2026 01:25:20 -0500
-Received: from DFLE208.ent.ti.com (10.64.6.66) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 01:25:26 -0500
+Received: from DFLE211.ent.ti.com (10.64.6.69) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Wed, 1 Jul
- 2026 01:25:20 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE208.ent.ti.com
- (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 01:25:26 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE211.ent.ti.com
+ (10.64.6.69) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Wed, 1 Jul 2026 01:25:20 -0500
+ Transport; Wed, 1 Jul 2026 01:25:26 -0500
 Received: from a1257480.dhcp.ti.com (a1257480.dhcp.ti.com [172.24.231.175])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6616PA6M710280;
-	Wed, 1 Jul 2026 01:25:17 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6616PA6N710280;
+	Wed, 1 Jul 2026 01:25:23 -0500
 From: Jaspinder Budhal <j-budhal@ti.com>
 To: <ogabbay@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>
 CC: <dri-devel@lists.freedesktop.org>, <linux-doc@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <j-budhal@ti.com>, <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [RFC PATCH 1/2] Documentation: accel: Add NPAC client driver documentation
-Date: Wed, 1 Jul 2026 11:55:04 +0530
-Message-ID: <20260701062505.1091840-2-j-budhal@ti.com>
+Subject: [RFC PATCH 2/2] accel/npac: Add NPAC client driver
+Date: Wed, 1 Jul 2026 11:55:05 +0530
+Message-ID: <20260701062505.1091840-3-j-budhal@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260701062505.1091840-1-j-budhal@ti.com>
 References: <20260701062505.1091840-1-j-budhal@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E7D:EE_|BN0PR10MB5206:EE_
-X-MS-Office365-Filtering-Correlation-Id: b40c4a78-2cd1-4e1e-6b14-08ded7398876
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B06E:EE_|BLAPR10MB5042:EE_
+X-MS-Office365-Filtering-Correlation-Id: ec02c275-8ff9-4534-f7c7-08ded7398afc
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|23010399003|36860700016|1800799024|82310400026|13003099007|6133799003|5023799004|56012099006|22082099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info: qpPlI6zeEH8mzthKzZeGH68fIm3Pjg4OCkoRoZMmcnelJk9Kzl3iH+99cHR18WBd9IC6vxzno71BUsIH7XtQix9WZvIEeD8WXpD0djMi9hS85ESQkRkMbDQ6RRsWAPcMPg6gMq4MmIdSvEgNXwDzuD7AIx8RfM5ezLOBvxHw5ejZdq2GKwztPYqro+Nq6Nkx7jf05j32EaQa5uZaM5RmUQr+Yv8vDdq/rtai8KL9scBIOq/5ayQ2Pcfom9e/9oNMfUKhawRu8i7JZ5AGlWi7eJBXpnopbfszvCYYiUjWNuWiTmQq9Eo2vez0eR7gnTVwDFBCUbx5Xaw3QUd3C3K7zINbWkX86vFjEghStJz/Bp3pY9G0Z2e4n0qpVrJ+izf7JSJsDo9YtAvzcCBd0k8m9Wgpv5Ut0txMIZ3yb1/lRExli9wz7lpI3/cxn/PbrQkU8kvL3jjLMM8VZ0ZOip3MRpl0/GhdLOYZan7Cdi7nAq30Z6PwroaUWSjfsULI2zb8gwHZ9J/9NXTxBmP71jwEjFgZPsp4bmuA00sdOYYNEzeH86/lpKHBGTwnaTPF8GwTuGhwVXKxqOu+ePHZkKJZQgnlMztwf+0oVGcqLXNj8xIY+CrPRlaT6fK4rAzwwXo4f6cwDHc2y00HwA+A2xLfqw==
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(23010399003)(36860700016)(1800799024)(82310400026)(13003099007)(6133799003)(5023799004)(56012099006)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|13003099007|18002099003|3023799007|22082099003|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: HiZK1KgMNmd48bhwEDV2884bc7nxMzLDTu/6ok6ym/VNSOde8iQMNiBLOknH5oEUMAfuDuLto1as4vRQlpiMLQMKJNW/kTG+TOVoWB5+WoCNcxodgG7qdvNe3/B6M+0QQG09i6pUxnIN+TDibxLjiH/0JB+rjpRlLkToTcz2KPyKfM+P7vnBMd5iAHBhrZdSI3SqhE8FJf2r7Sus3fFH6i6f//wlMFW1hBd46t9s1qbY2YcU8KKHhjJbyJkSCQ7NXGgurJ1J+GKSNNNb1v8lmV6gd8riLp8YulRt9KWH1ENdpCSiv90IYUF8e0hpddfEl0zMcME3tgFkpVshD9EMTaEqlVm6FneUWhi2FXe7FGThEZ8yon+yY7zjxwgeDw0lng/rBAb0igwT5rpmCUABMcKvyoi69n8ygI3ouW7u+j6Aog5CB6SwcLKblrbAO7Kz07jkHOcwX6XitGOXeIwL0HMeWr+LDS4cmq0KsA81anssbbhqhVczjY8tzwM2JDi4pq8/7UD7MGUFgibG5eRu0Y2RZy82zxy2cROEp8UxS0c8D0t6EN7EQBJ2zwGRObkd0sRVyH7IfdCZQaknV0tQ1m9ZcHr8BXTDUGLORm0a4FmCaNdoAxc9YjN5kUsGwjiDttX33Ysd0qIE2IRdtFTgPQ==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(13003099007)(18002099003)(3023799007)(22082099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: k2gbqyTlKx65xgkWF5ocggisnShd7D9FOQa9c9M5vQFm8jIiY6/r8cWd7pV68do1YyQ1/1tXeitZIBXTc+avZHNOTV+dc+Z82w2CCFg5peNPc1ubQOUOvm1CB3SCnsOFNOis+67v0HYDcJzys/EqDKXV58PwFYr+6PRs3quiT15Eypi6QmCF7OzXVABHDAo/Yrii5QDN/I50QNwyiHkh1Bc2LtiMMsg0aiafyd1xE2Sm6r/X4CHiwkL4BykSNyk3unLX1lUdgW9hUwEKH4cbnrquLXScYRHzw7f1IFUlb7AFjzwEQ9gOu6jwo1pncToBhsb4lpooV3H8nWljrA9ZRSusvM+xwyo4B/NMtPBwfMJz7grmCwN5sqmnsDISj3C9HM0HbMeKBXZtZebxE2lCThDUk0a1v1VdbXMhjt2/LSrtPmWNp3pHZlYq/YeYnTHE
-X-Exchange-RoutingPolicyChecked: NGU7qh3nTNLSxYrGV4xpkhWja5YvQQziR1j/zkF+e2wqIbSbYyQTeO8OPytSCA+CYXY46Ak9KyQWOCJdZX47KP20wg1XlHLZv1R8fOKfVP0mbW1CY/kSxKfQKBA2jsMrO/25RQqgfjheMVWolcQpkWUaC5KvxkkyTQuw1bpCqpw9pt85de0EsZFNZ9V3aZ986IiYIDBLwxeH9B/iL+cq8yofegNxbpiKRLykE89zAu5fDgQaqKnFq17rhfeC0yZRIORgBo4rIFkM0saWO5FeneS9U/33tjTP9i/hLZmRjMJo5xRJ7E4pWetXSUh8N6Nmv1311ifAJC4d2t4mKMbYTw==
+X-MS-Exchange-AntiSpam-MessageData-0: pTjUXHnVwCx2+CARFAeL0+7ljtiMYccs5uJibXQ46w4d3o3WDlnmcP2d5h68WK1fgKSfgetdBHLueahRP8MFUPu/30j4PygyLZ48i/VsxRUWPMTjCeZBl1JcxKIzHZs8WHt3jSU3GpaziutbAdwccGBTAQEviQufrxWLYB0AB16rMOkPZAuTBC9dyn2/2Eoh9mHHUfWdnuVcoSEdgfEDmv+z0CXxpuaec3qsE3u9aHreYHABvinYM33dnNS6YBIAyFuqQGy3A0UY9pQXzxxUTF+9NDwuwm7jby1YH8gT7DHy5fMZt7tO5do02VW2m74j4b71IzXYX2Snur9kKo+bXocrA8PIric7FwZE71ebc2aqwS7X/P5aetEUl6ajgKY3CLT4nLSCjsGNbHJszrxVokr6TBI8iJGgHCLcBQgMunsLkMVB86tReuNOsHLce23y
+X-Exchange-RoutingPolicyChecked: ieAjJZvX3ItP/WVcY8x1phdWkWD40Q3xQPnXIYwwnZrI5vh10AnCm09AXNT36Y/+UeMDaoSlEDeCyBYYzhEi099AeCv0nL6Y1Nyorh+XBbFKFgHqaEiayeHJpRLLMTCPbMzxKI5W1Bkkkj0Pvmk35bHYBQawdBwwPGd1MmxN5I8YPhipXICMlxnHHhxc7ZvRz9XHenor2EJYB7Qli/LOrnaHbYH4ddvp6VDnvjPW5Rex15XSg76coBYei4SZpfFf1yM4TXYFzMpBMiMbMFCM4OFUeGAcMsAlxRWP4+A2ZEh2FahWswkz87mGTsMEKlwBsa/s3UR8vip0QGUUyWHRAA==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 06:25:23.4482
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 06:25:27.6941
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: b40c4a78-2cd1-4e1e-6b14-08ded7398876
+X-MS-Exchange-CrossTenant-Network-Message-Id: ec02c275-8ff9-4534-f7c7-08ded7398afc
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF00012E7D.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B06E.namprd21.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5206
-X-Authority-Analysis: v=2.4 cv=c6abhx9l c=1 sm=1 tr=0 ts=6a44b2d9 cx=c_pps
- a=EUTAWq9+kh0QDJjqgNTvsw==:117 a=iwqwCZQqcuTv3JOpYdM7/Q==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=8pif782wAAAA:8
- a=23GqUWE8kzSqVje7P-cA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDA2NCBTYWx0ZWRfX9DrmR65J/oVR
- F9IbDMy9wtMuB192WlfHrdhGbM9cE7ZDa+d2eJr0yv8NzCz4vnX0RT17gzPnzSr0i3TEMIju5/P
- byxDX93roGt1c5Ge5t7B4MBacIFDyXM=
-X-Proofpoint-GUID: Sqyrz9BZ4v6QDAAD_Op7RS2TAHpeUWAk
-X-Proofpoint-ORIG-GUID: Sqyrz9BZ4v6QDAAD_Op7RS2TAHpeUWAk
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDA2NCBTYWx0ZWRfX5eZV17LIhGTI
- CCGOHYrfL6Iko7tdJi6Xk7wrSoLQbQv0VZxmY9wWfS6FCYFFuVlkoRUEoajMm1dz4/sqN3B0u5/
- jUM0tOcnY+Vdyax/b0F5XA0xFBt3fg8qMegL/HYgfgJNh1vKLK7jZ+Q88If978EzjclyxocB613
- xilSkazCiHTbez1GQe7vYgi6jt+B85Cq/rDhUN6/heUXhOATorVVMozTH/EMsrtIGKJCStG3JZN
- c+Bow/je0oBlk7g60QrAytUtdG+L+RSb4ry2V7DQLpsnGYFMsR7SPy2jv90ltWyQEHZwusgFMcs
- dGI6QUaZHpwEK4DqJwBpP/KLFEHXNvSlSJjz5+7UvDjk7SRQ0YXykwoMQEkRdt279X08ZkloDr+
- /QJgi27a2u0ZH9LDhs5F2g19kyCyvJR/GRxVzp8YORhUhsw4EXI/1gs+dBw9BEmse4wN6FjOY6E
- 5vdZJ34/mf+x7EXysWQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR10MB5042
+X-Proofpoint-GUID: ZyT12Tfkugtjo7-0-0CJ5hrCOKuFY8UF
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDA2NCBTYWx0ZWRfX+zIV9mN6pCJr
+ SR7gaQer603U6xIpNoJo34mizNyGeiDCfGiadnycSlpOzYzJdUWhBO0Wa936BnuiR/dr9ypdL8V
+ r5D5LPlc9xL5cuhhK7MOztu/5mY3uadRjUTn+ru7fkVOanysjHdzcA1bplyhO/3J35ppIJNFF0q
+ pZwEaLv3bpbI3Oupfl0ndZsUJ2Zs6MI0n19QeoWmL6ZqLFV0nx9WWHVHHhrPjXXVrRGPu3MLodI
+ cduXm8YclvSEFYeFC31mv7a5Nr4iX2SRgfTdzXUtmj+tLCu7k/j8D6pPSG8VbbiReHZ8twAUwf0
+ 1VO/g0tPZYuDhYKTZuQ1w6tW64TkKAVrxMBD7Fd218ZmDn5rI9OK+z2RxKG5hmXSATB5yu2UPrT
+ /Y1PDmY6UIVQYEgidD4ElRyMUITdsVfeBzwlWFcQa2VSFJpq/xlOWXT9E0QtDGOSJ9g+0m7BP4f
+ AV4sLOM6PBX9PZ5iSlw==
+X-Authority-Analysis: v=2.4 cv=FqA1OWrq c=1 sm=1 tr=0 ts=6a44b2dc cx=c_pps
+ a=QNQPV3WJHVGG3OZWPlqtww==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=V5UXEbMT0ywA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22 a=jwouBfj2j3NM8CExmVVE:22
+ a=sozttTNsAAAA:8 a=SldqRqN-pHjL7LJduoQA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDA2NCBTYWx0ZWRfX9nLqwd9q3PvJ
+ ZkCktrWxUB5oJSZbBi6VGVDYVkBfch4Y+hb8t+EEftIZP1OBeF3raweD2vo5y495RPBONDpfbWd
+ ro+rO+GMGNC5/ETBc+4n6NetHoVsWNI=
+X-Proofpoint-ORIG-GUID: ZyT12Tfkugtjo7-0-0CJ5hrCOKuFY8UF
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-01_01,2026-06-26_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 spamscore=0 impostorscore=0 suspectscore=0
- adultscore=0 malwarescore=0 bulkscore=0 clxscore=1011 lowpriorityscore=0
+ priorityscore=1501 impostorscore=0 malwarescore=0 adultscore=0 clxscore=1011
+ bulkscore=0 spamscore=0 lowpriorityscore=0 suspectscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607010064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_232533_733656_B769ED50 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20260630_232536_680619_B8D690A6 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,171 +174,301 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-NPAC (Network Packet ACcelerator) is a hardware accelerator present on
-TI's TDA5 family of SoCs, designed to offload network packet processing
-tasks from various hosts. It can be used to implement various packet
-processing use cases such as ACL (Access Control List) rule enforcement,
-reducing host CPU load.
+Add the Linux client driver for the Network Packet ACcelerator (NPAC).
+The driver communicates with the NPAC host driver via RPMsg,
+allowing offloading of ethernet-related packet processing tasks.
 
-This is an RFC patch for getting feedback on the initial implementation.
-
-See the TDA54 SoC datasheet for hardware details:
-https://www.ti.com/lit/ds/symlink/tda54-q1.pdf
+The driver provides the basic framework for receiving offload commands
+via IOCTL and communicating with the NPAC hardware accelerator.
 
 Signed-off-by: Jaspinder Budhal <j-budhal@ti.com>
 ---
- Documentation/accel/npac.rst | 142 +++++++++++++++++++++++++++++++++++
- 1 file changed, 142 insertions(+)
- create mode 100644 Documentation/accel/npac.rst
+ drivers/accel/Kconfig         |   1 +
+ drivers/accel/Makefile        |   1 +
+ drivers/accel/npac/Kconfig    |  13 ++
+ drivers/accel/npac/Makefile   |   3 +
+ drivers/accel/npac/npac_drv.c | 218 ++++++++++++++++++++++++++++++++++
+ 5 files changed, 236 insertions(+)
+ create mode 100644 drivers/accel/npac/Kconfig
+ create mode 100644 drivers/accel/npac/Makefile
+ create mode 100644 drivers/accel/npac/npac_drv.c
 
-diff --git a/Documentation/accel/npac.rst b/Documentation/accel/npac.rst
+diff --git a/drivers/accel/Kconfig b/drivers/accel/Kconfig
+index bdf48ccafcf2..a6d8c1ebfcf1 100644
+--- a/drivers/accel/Kconfig
++++ b/drivers/accel/Kconfig
+@@ -28,6 +28,7 @@ source "drivers/accel/amdxdna/Kconfig"
+ source "drivers/accel/ethosu/Kconfig"
+ source "drivers/accel/habanalabs/Kconfig"
+ source "drivers/accel/ivpu/Kconfig"
++source "drivers/accel/npac/Kconfig"
+ source "drivers/accel/qaic/Kconfig"
+ source "drivers/accel/rocket/Kconfig"
+ 
+diff --git a/drivers/accel/Makefile b/drivers/accel/Makefile
+index 1d3a7251b950..0df7b9f2ae18 100644
+--- a/drivers/accel/Makefile
++++ b/drivers/accel/Makefile
+@@ -4,5 +4,6 @@ obj-$(CONFIG_DRM_ACCEL_AMDXDNA)		+= amdxdna/
+ obj-$(CONFIG_DRM_ACCEL_ARM_ETHOSU)	+= ethosu/
+ obj-$(CONFIG_DRM_ACCEL_HABANALABS)	+= habanalabs/
+ obj-$(CONFIG_DRM_ACCEL_IVPU)		+= ivpu/
++obj-$(CONFIG_DRM_ACCEL_NPAC_CLIENT)	+= npac/
+ obj-$(CONFIG_DRM_ACCEL_QAIC)		+= qaic/
+ obj-$(CONFIG_DRM_ACCEL_ROCKET)		+= rocket/
+\ No newline at end of file
+diff --git a/drivers/accel/npac/Kconfig b/drivers/accel/npac/Kconfig
 new file mode 100644
-index 000000000000..fba6ddd0cfd2
+index 000000000000..a9543ac2c7aa
 --- /dev/null
-+++ b/Documentation/accel/npac.rst
-@@ -0,0 +1,142 @@
-+.. SPDX-License-Identifier: GPL-2.0-only OR MIT
++++ b/drivers/accel/npac/Kconfig
+@@ -0,0 +1,13 @@
++config DRM_ACCEL_NPAC_CLIENT
++	tristate "NPAC Client Driver"
++	depends on DRM_ACCEL
++	depends on RPMSG
++	help
++	  This driver is the NPAC (Network Packet ACcelerator) client,
++	  communicating with the NPAC host driver running on a remote
++	  processor over RPMsg. The driver registers with the DRM accelerator
++	  framework and exposes /dev/accel/accel* as the userspace interface
++	  for ACL rule offload operations.
++	  If you have a device with NPAC and wish to use it with this
++	  driver, say M to compile this driver as a module, or Y to
++	  compile it into the kernel.
+diff --git a/drivers/accel/npac/Makefile b/drivers/accel/npac/Makefile
+new file mode 100644
+index 000000000000..89f4773d7041
+--- /dev/null
++++ b/drivers/accel/npac/Makefile
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0-only
 +
-+====================================================
-+Texas Instruments NPAC (Network Packet ACcelerator)
-+====================================================
++obj-$(CONFIG_DRM_ACCEL_NPAC_CLIENT) += npac_drv.o
+diff --git a/drivers/accel/npac/npac_drv.c b/drivers/accel/npac/npac_drv.c
+new file mode 100644
+index 000000000000..7516382ba74b
+--- /dev/null
++++ b/drivers/accel/npac/npac_drv.c
+@@ -0,0 +1,218 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Copyright (C) 2026 Texas Instruments Incorporated - https://www.ti.com/
++ */
 +
-+Overview
-+========
++#include <drm/drm_accel.h>
++#include <drm/drm_drv.h>
++#include <drm/drm_file.h>
++#include <drm/drm_gem.h>
++#include <drm/drm_ioctl.h>
++#include <linux/completion.h>
++#include <linux/kernel.h>
++#include <linux/module.h>
++#include <linux/mutex.h>
++#include <linux/rpmsg.h>
 +
-+NPAC (Network Packet ACcelerator) is a hardware accelerator available
-+on Texas Instruments SoCs in the TDA5 family that provides network packet
-+processing acceleration [0]_.
++#define NPAC_RPMSG_SERVICE_NAME	"ti.npac"
++#define NPAC_ACK_TIMEOUT_MS	1000
 +
-+The NPAC Host Driver runs on a dedicated remote processor and manages
-+NPAC hardware.
++/**
++ * enum npac_acl_cmd - IOCTL command numbers for NPAC ACL operations.
++ */
++enum npac_acl_cmd {
++	/** @NPAC_ACL_ADD_RULE: Add an ACL rule. */
++	NPAC_ACL_ADD_RULE,
 +
-+The NPAC client driver provides offloading support for ethernet-related tasks
-+and communicates with the NPAC Host Driver over RPMsg (Remote Processor
-+Messaging).
++	/** @NPAC_ACL_DELETE_RULE: Delete an ACL rule. */
++	NPAC_ACL_DELETE_RULE,
++};
 +
-+The driver exposes /dev/accel/accel* as the userspace interface for accelerator
-+configuration and management operations.
++/**
++ * enum npac_acl_match_type - Match field selector for an ACL rule.
++ */
++enum npac_acl_match_type {
++	/** @NPAC_ACL_MATCH_SRC_IPV4: Match on source IPv4 address. */
++	NPAC_ACL_MATCH_SRC_IPV4 = 1,
 +
-+The NPAC Host Driver supports ACL (Access Control
-+List) [1]_ rule offload. ACL configuration requests are sent by the client
-+driver to the NPAC Host Driver.
++	/** @NPAC_ACL_MATCH_DST_IPV4: Match on destination IPv4 address. */
++	NPAC_ACL_MATCH_DST_IPV4,
 +
-+Communication Model
-+-------------------
++	/** @NPAC_ACL_MATCH_SRC_MAC: Match on source MAC address. */
++	NPAC_ACL_MATCH_SRC_MAC,
 +
-+The NPAC client driver registers with the RPMsg subsystem during driver
-+initialization.
++	/** @NPAC_ACL_MATCH_DST_MAC: Match on destination MAC address. */
++	NPAC_ACL_MATCH_DST_MAC,
++};
 +
-+When the NPAC host driver announces the NPAC RPMsg service endpoint, the
-+RPMsg core matches the announced service against the registered NPAC client
-+driver and invokes the driver probe callback.
++/**
++ * enum npac_acl_verdict - Action to apply when an ACL rule matches.
++ */
++enum npac_acl_verdict {
++	/** @NPAC_ACL_VERDICT_ALLOW: Accept the matched packet. */
++	NPAC_ACL_VERDICT_ALLOW = 1,
 +
-+Offload command received from userspace are formatted into RPMsgs and sent
-+to the NPAC Host Driver.
++	/** @NPAC_ACL_VERDICT_DROP: Drop the matched packet. */
++	NPAC_ACL_VERDICT_DROP,
++};
 +
-+NPAC Host Driver responses are received through RPMsg callbacks.
++/* Sized for the largest match field: a 6-byte MAC address. */
++#define NPAC_ACL_MATCH_VALUE_MAX	6
 +
-+ACL Rule Offload
-+----------------
++struct npac_acl_offload_rule {
++	__u32 match_type;
++	__u32 verdict;
++	__u8  match_value[NPAC_ACL_MATCH_VALUE_MAX];
++};
 +
-+ACL (Access Control List) rules are packet filtering policies that define how
-+network traffic should be handled — for example, dropping packets from a
-+blacklisted source IP or allowing traffic only from trusted MAC addresses.
++#define DRM_IOCTL_NPAC_ACL_ADD_RULE \
++	DRM_IOWR(DRM_COMMAND_BASE + NPAC_ACL_ADD_RULE, struct npac_acl_offload_rule)
 +
-+In the standard Linux networking stack, ACL enforcement is handled in software
-+by the netfilter subsystem. Each packet is inspected against the configured
-+ruleset on the host CPU. On embedded SoCs in the TDA5 family such as TDA54,
-+the per-packet overhead of software-based ACL enforcement accumulates under
-+high traffic rates, increasing CPU utilization and reducing the processing
-+capacity available for other system functions.
++#define DRM_IOCTL_NPAC_ACL_DELETE_RULE \
++	DRM_IOWR(DRM_COMMAND_BASE + NPAC_ACL_DELETE_RULE, struct npac_acl_offload_rule)
 +
-+The NPAC client driver offloads rules from Linux to NPAC hardware.
-+Once a rule is programmed, matching packets are handled entirely by NPAC,
-+reducing CPU load.
++struct npac_device {
++	struct drm_device drm;
++	struct rpmsg_device *rpdev;
++	struct mutex req_lock; /* lock for request */
++	struct completion ack;
++};
 +
-+For example, a rule to drop all packets from a specific source IP or to
-+allow packets from a trusted source is offloaded to NPAC. Instead of the
-+host parsing each packet and applying the ACL rules, NPAC enforces the
-+rule directly in hardware.
++static inline struct npac_device *drm_to_npac_device(struct drm_device *dev)
++{
++	return container_of(dev, struct npac_device, drm);
++}
 +
-+Userspace Interface
-+-------------------
++static int npac_add_rule_ioctl(struct drm_device *dev, void *data,
++			       struct drm_file *file)
++{
++	struct npac_device *npac = drm_to_npac_device(dev);
++	struct npac_acl_offload_rule *rule = data;
++	int ret;
 +
-+The driver exposes /dev/accel/accel* as the userspace control interface for ACL
-+rule management operations.
++	dev_dbg(dev->dev, "add rule ioctl received\n");
 +
-+The interface uses IOCTL-based request handling for accelerator configuration
-+and rule management operations.
++	mutex_lock(&npac->req_lock);
++	reinit_completion(&npac->ack);
++	ret = rpmsg_send(npac->rpdev->ept, rule, sizeof(*rule));
++	if (ret) {
++		dev_err(dev->dev, "rpmsg_send failed: %d\n", ret);
++		mutex_unlock(&npac->req_lock);
++		return ret;
++	}
++	if (!wait_for_completion_timeout(&npac->ack,
++					 msecs_to_jiffies(NPAC_ACK_TIMEOUT_MS))) {
++		dev_err(dev->dev, "ack timed out\n");
++		mutex_unlock(&npac->req_lock);
++		return -ETIMEDOUT;
++	}
++	mutex_unlock(&npac->req_lock);
++	return 0;
++}
 +
-+IOCTL Commands
-+~~~~~~~~~~~~~~
++static int npac_delete_rule_ioctl(struct drm_device *dev, void *data,
++				  struct drm_file *file)
++{
++	struct npac_device *npac = drm_to_npac_device(dev);
++	struct npac_acl_offload_rule *rule = data;
++	int ret;
 +
-+DRM_IOCTL_NPAC_ACL_ADD_RULE
++	dev_dbg(dev->dev, "delete rule ioctl received\n");
 +
-+  This IOCTL allows userspace to add an ACL rule to the accelerator. The
-+  call will forward the rule to the NPAC host driver for hardware programming.
-+  The NPAC Host Driver is responsible for validating the rule and applying it to
-+  the NPAC hardware.
++	mutex_lock(&npac->req_lock);
++	reinit_completion(&npac->ack);
++	ret = rpmsg_send(npac->rpdev->ept, rule, sizeof(*rule));
++	if (ret) {
++		dev_err(dev->dev, "rpmsg_send failed: %d\n", ret);
++		mutex_unlock(&npac->req_lock);
++		return ret;
++	}
++	if (!wait_for_completion_timeout(&npac->ack,
++					 msecs_to_jiffies(NPAC_ACK_TIMEOUT_MS))) {
++		dev_err(dev->dev, "ack timed out\n");
++		mutex_unlock(&npac->req_lock);
++		return -ETIMEDOUT;
++	}
++	mutex_unlock(&npac->req_lock);
++	return 0;
++}
 +
-+DRM_IOCTL_NPAC_ACL_DELETE_RULE
++static const struct drm_ioctl_desc npac_drm_ioctls[] = {
++	DRM_IOCTL_DEF_DRV(NPAC_ACL_ADD_RULE,    npac_add_rule_ioctl,    DRM_ROOT_ONLY),
++	DRM_IOCTL_DEF_DRV(NPAC_ACL_DELETE_RULE, npac_delete_rule_ioctl, DRM_ROOT_ONLY),
++};
 +
-+  This IOCTL allows userspace to remove an ACL rule from the accelerator.
-+  The call will forward the deletion request to the NPAC host driver, which
-+  will remove the rule from the NPAC hardware.
++DEFINE_DRM_ACCEL_FOPS(npac_fops);
 +
-+Driver Lifecycle
-+----------------
++static const struct drm_driver npac_drm_driver = {
++	.driver_features	= DRIVER_COMPUTE_ACCEL,
++	.ioctls			= npac_drm_ioctls,
++	.num_ioctls		= ARRAY_SIZE(npac_drm_ioctls),
++	.fops			= &npac_fops,
++	.name			= "npac",
++	.desc			= "NPAC Client Driver",
++};
 +
-+The driver lifecycle is coordinated through the RPMsg framework.
++static int npac_cb(struct rpmsg_device *rpdev, void *data, int len,
++		   void *priv, u32 src)
++{
++	struct npac_device *npac = dev_get_drvdata(&rpdev->dev);
 +
-+Probe Flow
-+~~~~~~~~~~
++	dev_dbg(&rpdev->dev, "ack received\n");
++	complete(&npac->ack);
++	return 0;
++}
 +
-+1. The NPAC client driver registers with the RPMsg subsystem
++static int npac_probe(struct rpmsg_device *rpdev)
++{
++	struct npac_device *npac;
++	int ret;
 +
-+2. NPAC host driver initializes on the remote processor
++	npac = devm_drm_dev_alloc(&rpdev->dev, &npac_drm_driver,
++				  struct npac_device, drm);
++	if (IS_ERR(npac))
++		return PTR_ERR(npac);
 +
-+3. NPAC Host Driver announces its RPMsg service endpoint
++	npac->rpdev = rpdev;
++	mutex_init(&npac->req_lock);
++	init_completion(&npac->ack);
++	dev_set_drvdata(&rpdev->dev, npac);
 +
-+4. The RPMsg subsystem in Linux matches the announced service against
-+   the registered NPAC client driver
++	ret = drm_dev_register(&npac->drm, 0);
++	if (ret) {
++		dev_err(&rpdev->dev, "Failed to register DRM accel device: %d\n", ret);
++		return ret;
++	}
 +
-+5. The RPMsg subsystem invokes the driver probe callback
++	dev_info(&rpdev->dev, "NPAC Client driver probed\n");
++	return 0;
++}
 +
-+6. Driver communication resources are initialized
++static void npac_remove(struct rpmsg_device *rpdev)
++{
++	struct npac_device *npac = dev_get_drvdata(&rpdev->dev);
 +
-+7. /dev/accel/accel* becomes available to userspace
++	drm_dev_unplug(&npac->drm);
 +
-+Request Flow
-+~~~~~~~~~~~~
++	dev_info(&rpdev->dev, "NPAC Client Driver removed\n");
++}
 +
-+1. Userspace submits an ACL configuration request through /dev/accel/accel*
++static struct rpmsg_device_id npac_id_table[] = {
++	{ .name = NPAC_RPMSG_SERVICE_NAME },
++	{},
++};
++MODULE_DEVICE_TABLE(rpmsg, npac_id_table);
 +
-+2. The request is forwarded to the NPAC host driver using RPMsg
++static struct rpmsg_driver npac_driver = {
++	.drv.name	= KBUILD_MODNAME,
++	.id_table	= npac_id_table,
++	.probe		= npac_probe,
++	.callback	= npac_cb,
++	.remove		= npac_remove,
++};
 +
-+3. The NPAC Host Driver validates the request and performs the required hardware
-+   programming operations
++module_rpmsg_driver(npac_driver);
 +
-+4. NPAC Host Driver responses are received by the Linux driver through the RPMsg
-+   callback.
-+
-+RPMsg Integration
-+-----------------
-+
-+The driver integrates with the Linux RPMsg subsystem for communication with
-+the NPAC host driver processor.
-+
-+RPMsg is used as the transport mechanism for:
-+
-+- Accelerator configuration requests
-+- NPAC Host Driver responses
-+
-+References
-+----------
-+
-+.. [0] https://www.ti.com/lit/ds/symlink/tda54-q1.pdf
-+.. [1] https://en.wikipedia.org/wiki/Access-control_list#Networking_ACLs
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("NPAC Client Driver");
++MODULE_AUTHOR("Jaspinder Budhal <j-budhal@ti.com>");
 -- 
 2.34.1
 
