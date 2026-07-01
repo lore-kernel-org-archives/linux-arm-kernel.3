@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844B3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45AC5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=claxqKdJjDBG4bp86+Kgv1KwKi6DWddvXbYHWowqs7M=; b=WDDsH4dCgGPy3CSgsYCy8LuPZG
-	jL9w1Zkti2WN7izfvTt0zz0EkeFikMkXzIkas+TbDk1syxJUvb6fpOl/P7jkGX77kV9wc6knZUGwm
-	ZxshixK+cxPMfTLkCXidRxIjxJsySS5aEwHDHkQgs5xZo6lB8hVBVrwAMHLgsDqURaUh9IQya6BBx
-	K0+vkVQnN8rFyLS/L0KVUka+d1dYIJ+fSLtzPsDzcPIUxCxzK9w5mczGGJEXddNek4VBUDScWz9I5
-	R7L5jWFMjjxHP3YIvCI7XfyyeyYns2c6azj34Y6G/MRr4MhOduDl7PG5xiRUzdqYFlJYY0L+Lox0x
-	CDVMxTwg==;
+	bh=MX/lz98+0cd/8G1ZQWEULMZs5MfQbqscpnFu2VUjmNo=; b=uO0fSecCmBeDKojFhiGCtTLzxo
+	enghXS7eaIjksw/Zo72PT2dZ39wwsDyQEalKI+MJRVLMORey45EzNlGNPnkvNBVunC9+QU9uBmTRk
+	cWYxOfq3AxyuhQNT0l/CERhgTEIdJtPBnlYGeKa8O9X43Ukp1q7LbURnzpIR2Edt6owY6SE3xikXG
+	FSX1Ry83pG3WbMOABMGD6XNi9JedreJuUcKgH/whpdB1z4VrlL7Pt10rLL1Ld+5TXiscWNhN9UHGW
+	wZt0317aA44nOVdMX4zpmzg7GAcNLiByRtBQGjM1lXshCG4LfloqU9Vp0k4pz+4qZ2uZ5DYdToBYi
+	KhbOs4TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2Rn-000000032zR-1n6a;
-	Wed, 01 Jul 2026 21:26:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wf2Rv-0000000335u-3F28;
+	Wed, 01 Jul 2026 21:26:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2Rm-000000032yG-1y95
+	id 1wf2Ru-0000000334X-2Vhf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 21:26:18 +0000
+	Wed, 01 Jul 2026 21:26:26 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B734400E1;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DC8C600AF;
+	Wed,  1 Jul 2026 21:26:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95EBF1F00A3A;
 	Wed,  1 Jul 2026 21:26:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C74B81F000E9;
-	Wed,  1 Jul 2026 21:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782941178;
-	bh=claxqKdJjDBG4bp86+Kgv1KwKi6DWddvXbYHWowqs7M=;
+	s=k20260515; t=1782941185;
+	bh=MX/lz98+0cd/8G1ZQWEULMZs5MfQbqscpnFu2VUjmNo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YxgA8TWC2w0t5bEKvxhTKBYvk7Q93vFUa2kdPOexxkZDugTuHJgugP5p6ZsMhC6FM
-	 24o3Im+1r0Yth6zWiAgs+B8e4CKfrdO80T/2/lb4m590l/zB55VHHD0jVGsbH4K+zR
-	 p8ZMPrE/Rw5/d5am40SxvfXIm6A/FCBicZuUGRr0QIs094BFHaMdZNoRPq9XIHR0j5
-	 7FCCqyF6YM+7TrtIvz9+j2vGtL5MPnX0bRhtdpOxQICtrixOL3jeHXSA2l5gxzPv66
-	 eHxwpZa6pw6N9T+7yAZCwCSF8e45nan7GNd33X63wLNFH1T5E+sD0WZ5VhicmkAFN+
-	 vdA3j3ec7kFzQ==
+	b=lRVMIYgCFASweQy7+uaoWcSNU3Sf3yGcuxtbwpdNpy5gVyt7lTNR740hecqw71Xc1
+	 aZ/yrN13O+Ak3HCdLYh4+/GPG5xkdVN0ugTDDm17UxozEnkGV4K/h2upRmImPfjnIe
+	 dNNqCVYb6r74x08quxqI2LNGoqGp+72eCoaLK2EKhpc4c1IKxdlMhPI+pNXxDj/fnV
+	 /n+1dRVB4BB87i2g20ijCOvMCoPu6krxz2cZDPlv6M0XtgExt5MKZbOBmEHeJgqhCS
+	 0Q0yf+c3w9zJWINsNx86YYUtTUMmEVTLJ0bbmFKcUI/8xewoeum90rwQZulQwpR8Xc
+	 tRdbHjewuEQXA==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	soc@lists.linux.dev
@@ -77,11 +77,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Stefan Wiehler <stefan.wiehler@nokia.com>,
 	Tony Lindgren <tony@atomide.com>,
 	Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: [PATCH v2 16/19] ARM: mark footbridge as deprecated
-Date: Wed,  1 Jul 2026 23:23:50 +0200
-Message-Id: <20260701212353.2196041-17-arnd@kernel.org>
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v2 17/19] ARM: mark Cortex-M3/M4/M7 based boards as deprecated
+Date: Wed,  1 Jul 2026 23:23:51 +0200
+Message-Id: <20260701212353.2196041-18-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260701212353.2196041-1-arnd@kernel.org>
 References: <20260701212353.2196041-1-arnd@kernel.org>
@@ -103,53 +102,147 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Along with RiscPC and SA1100, these are the last remaining Intel StrongARM
-machines. The Corel NetWinder used to be particular popular in the late
-1990s, but was discontinued during the bankruptcy of rebel.com in 2001.
-The other machine is the DEC (later Intel) EBSA285 evaluation board that
-was made in small numbers in 1997 for software developers.
+The Cortex-M3/M4/M7 cores were designed as a replacement for the earlier
+ARM7TDMI and ARM9TDMI microarchitectures used in older microcontrollers.
 
-The footbridge/netwinder platform was the main target for the first Debian
-2.0 "Hamm" release on the Arm architecture back in 1998, but was dropped
-in Debian 6.0 "Squeeze" in 2011, which only supported ARMv4T and higher
-with the EABI based ports as ARMv4 hardware had fallen already out of
-use by that time.
+At the moment, Linux can run these cores either when they are integrated
+into a larger SoC, or as standalone microcontrollers. While there was
+a lot of development work going into Cortex-M support from 2011 to 2016,
+this largely stopped when it became clear that Zephyr and other RTOS
+had taken over that market. To date, the only Cortex-M based based
+microcontroller boards supported upstream are reference implementations.
 
-Link: http://netwinder.org/
-Cc: Linus Walleij <linus.walleij@linaro.org>
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Ralph Siemsen <ralph.siemsen@linaro.org>
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Acked-by: Marc Zyngier <maz@kernel.org>
+Schedule these for removal after the next LTS kernel, so if any users
+remain that want to update their kernels, they can stay on that
+version for a few years before having to maintain the platform support
+out of tree.
+
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/mach-footbridge/Kconfig | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+ arch/arm/Kconfig            |  8 ++++++--
+ arch/arm/mach-at91/Kconfig  |  4 +++-
+ arch/arm/mach-imx/Kconfig   |  4 +++-
+ arch/arm/mach-stm32/Kconfig | 14 ++++++++------
+ 4 files changed, 20 insertions(+), 10 deletions(-)
 
-diff --git a/arch/arm/mach-footbridge/Kconfig b/arch/arm/mach-footbridge/Kconfig
-index 78189997caa1..96a74d447028 100644
---- a/arch/arm/mach-footbridge/Kconfig
-+++ b/arch/arm/mach-footbridge/Kconfig
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- menuconfig ARCH_FOOTBRIDGE
--	bool "FootBridge Implementations"
-+	bool "FootBridge Implementations (DEPRECATED)"
- 	depends on ARCH_MULTI_V4 && !(ARCH_MULTI_V4T || ARCH_MULTI_V5)
- 	depends on !(ARCH_MOXART || ARCH_GEMINI || ARCH_SA1100)
- 	depends on ATAGS
-@@ -12,7 +12,10 @@ menuconfig ARCH_FOOTBRIDGE
- 	select NEED_MACH_MEMORY_H
- 	help
- 	  Support for systems based on the DC21285 companion chip
--	  ("FootBridge"), such as the Simtec CATS and the Rebel NetWinder.
-+	  ("FootBridge"), used in the EBSA285 and the Rebel NetWinder.
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index e2bdf2591c10..5adccaed7d01 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -471,7 +471,7 @@ source "arch/arm/mach-zynq/Kconfig"
+ 
+ # ARMv7-M architecture
+ config ARCH_LPC18XX
+-	bool "NXP LPC18xx/LPC43xx"
++	bool "NXP LPC18xx/LPC43xx (DEPRECATED)"
+ 	depends on ARM_SINGLE_ARMV7M
+ 	select ARCH_HAS_RESET_CONTROLLER
+ 	select ARM_AMBA
+@@ -481,8 +481,10 @@ config ARCH_LPC18XX
+ 	  Support for NXP's LPC18xx Cortex-M3 and LPC43xx Cortex-M4
+ 	  high performance microcontrollers.
+ 
++	  This platform is scheduled for removal in early 2027
 +
-+	  Support for these machines will go away in 2027,
-+	  unless there are any remaining users that speak up.
+ config ARCH_MPS2
+-	bool "ARM MPS2 platform"
++	bool "ARM MPS2 platform (DEPRECATED)"
+ 	depends on ARM_SINGLE_ARMV7M
+ 	select ARM_AMBA
+ 	select CLKSRC_MPS2
+@@ -493,6 +495,8 @@ config ARCH_MPS2
+ 	  Please, note that depends which Application Note is used memory map
+ 	  for the platform may vary, so adjustment of RAM base might be needed.
  
- if ARCH_FOOTBRIDGE
++	  This platform is scheduled for removal in early 2027
++
+ # Definitions to make life easier
+ config ARCH_ACORN
+ 	bool
+diff --git a/arch/arm/mach-at91/Kconfig b/arch/arm/mach-at91/Kconfig
+index c5ef27e3cd8f..cb0e3ff8e0ca 100644
+--- a/arch/arm/mach-at91/Kconfig
++++ b/arch/arm/mach-at91/Kconfig
+@@ -15,13 +15,15 @@ menuconfig ARCH_AT91
  
+ if ARCH_AT91
+ config SOC_SAMV7
+-	bool "SAM Cortex-M7 family" if ARM_SINGLE_ARMV7M
++	bool "SAM Cortex-M7 family (DEPRECATED)" if ARM_SINGLE_ARMV7M
+ 	select COMMON_CLK_AT91
+ 	select PINCTRL_AT91
+ 	help
+ 	  Select this if you are using an SoC from Microchip's SAME7, SAMS7 or SAMV7
+ 	  families.
+ 
++	  This platform is scheduled for removal in early 2027
++
+ config SOC_SAMA5D2
+ 	bool "SAMA5D2 family"
+ 	depends on ARCH_MULTI_V7
+diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
+index f85a5f8c0a58..3f0521c652cb 100644
+--- a/arch/arm/mach-imx/Kconfig
++++ b/arch/arm/mach-imx/Kconfig
+@@ -219,12 +219,14 @@ config SOC_IMX7ULP
+ 	  This enables support for Freescale i.MX7 Ultra Low Power processor.
+ 
+ config SOC_IMXRT
+-	bool "i.MXRT support"
++	bool "i.MXRT support (DEPRECATED)"
+ 	depends on ARM_SINGLE_ARMV7M
+ 	select ARMV7M_SYSTICK if ARM_SINGLE_ARMV7M
+ 	help
+ 	  This enables support for Freescale i.MXRT Crossover processor.
+ 
++	  This platform is scheduled for removal in early 2027
++
+ config SOC_VF610
+ 	bool "Vybrid Family VF610 support"
+ 	select ARM_GIC if ARCH_MULTI_V7
+diff --git a/arch/arm/mach-stm32/Kconfig b/arch/arm/mach-stm32/Kconfig
+index 630b992f32b1..4ac3384e397a 100644
+--- a/arch/arm/mach-stm32/Kconfig
++++ b/arch/arm/mach-stm32/Kconfig
+@@ -14,30 +14,32 @@ menuconfig ARCH_STM32
+ 	select STM32_EXTI if ARM_SINGLE_ARMV7M
+ 	select STM32_FIREWALL
+ 	help
+-	  Support for STMicroelectronics STM32 processors.
++	  Support for STMicroelectronics STM32MP1 processors using Cortex-A7
++	  cores. Note that support for the earlier Cortex-M based variants
++	  is deprecated and scheduled for removal in early 2027.
+ 
+ if ARCH_STM32
+ 
+ if ARM_SINGLE_ARMV7M
+ 
+ config MACH_STM32F429
+-	bool "STMicroelectronics STM32F429"
++	bool "STMicroelectronics STM32F429 (DEPRECATED)"
+ 	default y
+ 
+ config MACH_STM32F469
+-	bool "STMicroelectronics STM32F469"
++	bool "STMicroelectronics STM32F469 (DEPRECATED)"
+ 	default y
+ 
+ config MACH_STM32F746
+-	bool "STMicroelectronics STM32F746"
++	bool "STMicroelectronics STM32F746 (DEPRECATED)"
+ 	default y
+ 
+ config MACH_STM32F769
+-	bool "STMicroelectronics STM32F769"
++	bool "STMicroelectronics STM32F769 (DEPRECATED)"
+ 	default y
+ 
+ config MACH_STM32H743
+-	bool "STMicroelectronics STM32H743"
++	bool "STMicroelectronics STM32H743 (DEPRECATED)"
+ 	default y
+ 
+ endif # ARMv7-M
 -- 
 2.39.5
 
