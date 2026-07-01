@@ -4,113 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFC1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:32:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCB2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:35:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCjnwi8QfYnO+8yzfpol694kVs5T+6OkOnlzLTl6vgw=; b=LopCsYfFsn+PvkC9lUKXKNnGLP
-	KAhQf/qCCXKirks7GXtQa5fjheCcb693G6dm47ptR+nHkWlRHlLbCnl/ua6ieXZDYfUvoMIMzlF4U
-	s8jhsZ56DkZZu34ZJvVoh+MPEQmNU0RAwa1yUEoBTQRkK1fHUXnt8QGTYfTQtC1E85oHEk+vh5en4
-	8PSRcU4Jzlauwpl1+6wF+oq0ePex8SWzpWPXqa4X3SFwT5vkYP8zx84BtN+FgWKpMrbC9JJwhVEFG
-	XbfENmdhiGzHC2WB5hhb70BnzCLOx7wCAqW6Q2+G/gwxBlkz0b4C1ZEqwOzpVzJ+61LCdH31kW9Sz
-	5lbSyomg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OV8gaPiQO40kpe0vnMtC2nXL8DrZwaWi9384uLF+/CY=; b=giNTd1EipDtOtQKCnO6hH8W6FP
+	VFtCBToHtUo7J951eT5sYUDhTt/XAug6M+wPc9ScATBkgPkePbi6DGoGmiiDIuNORUFwgptYda/wZ
+	EDDqziln7X/BrDrAaPxj1TZ+JIazMJ459DXjWb5crT2/N6sM280SkvDUXnOB+vK7Ol70NsBEonwT+
+	ofGvyhc+D20Ryc3DZRxgfJtKgTqriEv1sC0KAY3ssi0gXJVkIZbtqqSo9SzpE0/GTVohPWrNPP4gt
+	+lynWfWs17UeocM4UWxJ3AUjfEWEwnyeccOLazKeiqBW9itHKTn2jiBCZK79+16SgyzC0ndVUpX/f
+	7UJ7Mmdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqMn-0000000126X-3joC;
-	Wed, 01 Jul 2026 08:32:21 +0000
-Received: from flow-a3-smtp.messagingengine.com ([103.168.172.138])
+	id 1weqPE-000000012V3-0vMC;
+	Wed, 01 Jul 2026 08:34:52 +0000
+Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1] helo=mail.3ffe.de)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqMm-00000001262-0UKf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 08:32:21 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.phl.internal (Postfix) with ESMTP id 10A071380095;
-	Wed,  1 Jul 2026 04:32:19 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Wed, 01 Jul 2026 04:32:19 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1782894739;
-	 x=1782901939; bh=VCjnwi8QfYnO+8yzfpol694kVs5T+6OkOnlzLTl6vgw=; b=
-	pk4AtDVr7X0Ga3ZeWprkuDgz4D0ADwYPDjiF6dJpeDjRBJwKFomQfgV1i2cUPfwS
-	YGG7oxHtxzxWOI/oCF1vTenXM/Bxnl+jzvqa2o4Uav3luge6v1KsVb0Z58Ux10SH
-	ihh0bvVj3hWOmrddUlZbKOAN4x35MKqgbBPgbBV3RnkOt941tQlZLmtzA0NS1gVa
-	wZi+BX1NBKmJrTAwiAoLRjtW42OtB7SEAhpJrWi1lBjP1k7jAL8lyCFZnVDg89+r
-	yq3ugkbXbTZjzlXrAoPV90L435jnotEuAcLSM1fiUThBWAv5FA+0Gj5gsyx2KLQ7
-	ZckqFzlkSmSQZ4fn81X3Mw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1782894739; x=
-	1782901939; bh=VCjnwi8QfYnO+8yzfpol694kVs5T+6OkOnlzLTl6vgw=; b=a
-	PVd6uLEv7fU/TFcABcQ+6PpHoMr8BHiJ+7VXlOffrKOqC36QNz/tVpyV3NvzfTod
-	D12qmE6PIf6WHNeISxeR2PjY2027TmvjNXrFxvtY38cmVNKGAlsBHfYZaEPMldtj
-	Lx4aKKaBkPRT88prowJPqxRuZQHVZjBoqJ5QCw0xSe6s44p1rQ086mjOsoX28TPW
-	9xsDJn/pATFSr1374Jh2BlzoBgdD3L6Pec9oMRKCmjzb9eZyHTCmKVWo3RDAktE8
-	tNkami4hj34GWAN2LivncENYiAdNktm7yzF+45KtV6dfaEprjLbvQJRIJu7kUuvb
-	iayg2SwCno/GXgKqzIgsQ==
-X-ME-Sender: <xms:ktBEau0GTKniJ8UB3YIuVYzf3eXVLN7QylKoL2Bg3MvVCc4pVtvVDA>
-    <xme:ktBEar60oidT1BA9rF5zAoFVaPJxONWxBjLfRIadX_dUCe2QqF-rSuhjZX7RPcIt0
-    McilfieaxXTrUq93k9EhmP2DAH4aUXqX6JoopoRear13Gt0vfqWdww>
-X-ME-Proxy-Cause: dmFkZTG0B4Rq0E7HZkR0pnZ163rac2T7w/EKBvk1H137+LZ1DDmAdSv9ox5RZtU3ubf1at
-    u6WZgpkWy1yZ+xPhMEysBiXHkI/FAG+tA+IsC7Ro0iyP9baBdW/Gqq+MlndGYuJGyVzQes
-    sd0BE3aLNH4YSDGlgFLBNAaYaG4sOQZZhfVJ0T/DQs+GdE4ZINEDpFh6AD1t6CMHbDFHDW
-    Dyb4WNYJUZVB9C+3CFefMMbkInAN2w2O60GzAhBejddPbYdKqDE8euqw5cyFrUqYL7HsI0
-    R+mzjjbALXsHGc4CbyBPpSyrrc7KFjZiKMINe5pj5pPVKzR16ORlRpADFkdNJmxEZmU+Hi
-    ynyy/p0s3wJ+5wEoNPryrkVk9wTT8gYX2NL2ziGtuHO0uNldRlrz3biDchZ5dvxLIoQPIf
-    4Ys0zoOwEAUJHKft5OKDDA9H2IMg5sfzB6cDfIpFIN0QNKHe1GarKKRW9xzRvvwFTC0xOM
-    y4BJJZ5HI/iFaCrklCySRsAU30y83NuxwPgF9nAHDnQAYLQGdVKWf6ZBWmjRbJTc4RScn0
-    PuPIT1IbJ8nqZLck0tWGST4XHneH+nQKFfqBV2Q8vd0Qp009muP0neRLplYkqbtscaQsro
-    HqRhq0vRLrdvrrofCQK3xJLqp8yB0cEt3pLS1D0HPb/YWgaYMdL06KmwXiqQ
-X-ME-Proxy: <xmx:ktBEaqLzev-1LnQpM8aDMtsrxpbXI8sZxIxM5-kJ2egQIJ0_s1wuwQ>
-    <xmx:ktBEaituhqNUPSQSy6pSO_Qxs07LiQTb2hOujvou545SdGJ0hWLeNQ>
-    <xmx:ktBEajm5fZl4R56Cjs77mdXM8OA19dWCSOQIvEyWIusUmQRiQ2DdOA>
-    <xmx:ktBEaplfx6UlRi6-9Vko4Drjuya6hEFHgk8ptOVgSj4h5IyVGGcNBQ>
-    <xmx:k9BEalsyhw0QnIjnuvZrS58BD58_C1KJuzD7-U3z5P3C3pb2O69T_it9>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1786E182007E; Wed,  1 Jul 2026 04:32:18 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: A045QOfflcQ7
-Date: Wed, 01 Jul 2026 10:31:37 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>
-Cc: "Arnd Bergmann" <arnd@kernel.org>, "Linus Walleij" <linusw@kernel.org>,
- "Bartosz Golaszewski" <brgl@kernel.org>,
- "Marcel Holtmann" <marcel@holtmann.org>,
- "MyungJoo Ham" <myungjoo.ham@samsung.com>,
- "Chanwoo Choi" <cw00.choi@samsung.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Andy Shevchenko" <andy@kernel.org>,
- "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
- "Ulf Hansson" <ulfh@kernel.org>, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- dri-devel@lists.freedesktop.org, linux-i2c@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org,
- "linux-mmc @ vger . kernel . org" <linux-mmc@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
- linux-usb@vger.kernel.org
-Message-Id: <72746bd8-8ba3-4369-a2e9-60795f183813@app.fastmail.com>
-In-Reply-To: <CAMuHMdWhv8i6tkmOJU_ee9LAV7mMcQHe9FXgqTHCjGiEMWvn8Q@mail.gmail.com>
-References: <20260629135917.1308621-1-arnd@kernel.org>
- <CAMuHMdXhsM4JzArRuB=A46N-Ogbn2Fans+PVJVA-hEytFq=DeQ@mail.gmail.com>
- <ff4d7043-1929-4fa1-ba5e-f28403ad6fcc@app.fastmail.com>
- <CAMuHMdWhv8i6tkmOJU_ee9LAV7mMcQHe9FXgqTHCjGiEMWvn8Q@mail.gmail.com>
-Subject: Re: [PATCH] [RFC] gpiolib: introduce gpio_name() helper
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+	id 1weqPC-000000012U7-0jSY;
+	Wed, 01 Jul 2026 08:34:51 +0000
+Received: from localhost (unknown [213.135.10.150])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id 880D35B6;
+	Wed,  1 Jul 2026 10:34:38 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
+	t=1782894878;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OV8gaPiQO40kpe0vnMtC2nXL8DrZwaWi9384uLF+/CY=;
+	b=h67gQjQBVSxm1zGv4NOn57N9gJTCxMWWp3YcNhFmHdxQHNawukaOxBFeoTLd7xSSsUmHEb
+	QHOO7Rdm6R9+IhDqEV//349b1hxptHCVf1Ld31NKjoCEVG3yZWiCutXBBQIV2AETWkCvG0
+	2cvaUpJLCDQ65E9H4T7Bz3ZxH6x4FUP/Fk5LNDw6NweLNxPVKswcK05bPvhIWZ5hC03CGb
+	zu9OuKTRqyoO5BGXK6QgIby1CRCo3dgJBzS+jDk1gA31fpjROSM1sYk8vN6mvqxzcilIxi
+	5sg1p4WSH4Ikuhd3m7Ug/A13vn7+YhQwohIgElCdJhJ/Z95aXmB3+k3/Z3v1Aw==
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78;
+ micalg=pgp-sha384; protocol="application/pgp-signature"
+Date: Wed, 01 Jul 2026 10:34:35 +0200
+Message-Id: <DJN3HIIAY4LE.3MXU9Q2YFSCJJ@walle.cc>
+Subject: Re: [PATCH v4 1/7] dt-bindings: mtd: jedec,spi-nor: allow the SFDP
+ to be exposed via NVMEM
+Cc: <pratyush@kernel.org>, <mwalle@kernel.org>,
+ <takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
+ <richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>,
+ <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <srini@kernel.org>,
+ <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+ <claudiu.beznea@tuxon.dev>, <linux@armlinux.org.uk>,
+ <richardcochran@gmail.com>, <arnd@arndb.de>,
+ <linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <netdev@vger.kernel.org>
+From: "Michael Walle" <michael@walle.cc>
+To: "Linus Walleij" <linusw@kernel.org>, "Manikandan Muralidharan"
+ <manikandan.m@microchip.com>
+X-Mailer: aerc 0.20.0
+References: <20260630092406.150587-1-manikandan.m@microchip.com>
+ <20260630092406.150587-2-manikandan.m@microchip.com>
+ <CAD++jL=FkEfpz-LW0vmPpZ28fLfGFMWo5E479Mapz55YUxKNAQ@mail.gmail.com>
+In-Reply-To: <CAD++jL=FkEfpz-LW0vmPpZ28fLfGFMWo5E479Mapz55YUxKNAQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_013220_250625_0CA31DEA 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20260701_013450_403682_95850C06 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,38 +86,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026, at 18:01, Geert Uytterhoeven wrote:
-> On Mon, 29 Jun 2026 at 19:54, Arnd Bergmann <arnd@arndb.de> wrote:
->> On Mon, Jun 29, 2026, at 17:29, Geert Uytterhoeven wrote:
+--7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
->> > Same results for instantiation using sysfs or configfs[1], although
->> > the latter does have optional support for specifying the name.
+Hi,
+
+>> Add an optional "sfdp" child node (compatible "jedec,sfdp") that
+>> describes the SFDP as a read-only NVMEM provider via nvmem.yaml, so its
+>> contents (e.g. a vendor EUI-48/EUI-64) can be read through NVMEM cells.
 >>
->> I wonder how many of the other instances have the same problem
->> then. Would it be appropriate for gpiochip_fwd_desc_add() to set
->> a name itself to address this one?
+>> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 >
-> I don't think it would be appropriate for the GPIO aggregator to set
-> that name.  What we want to print here (for debugging) is the physical
-> GPIO that an aggregator's GPIO is mapped to, not some consumer or line
-> name (which is not guaranteed to be unique).
+> I would expect it to follow nvmem conventions like this, notice
+> compatibles specific-to-general with sfdp first:
 
-Ok.
 
-> E.g. "<chip-name>.<offset>" would be fine.  As gpiod_name() can only
-> return a fixed string or an existing string, it can't return such a
-> formatted string, though. And consumers don't have access to chip info?
+> sfdp {
+>     /* NVMEM provided by SFDP */
+>     compatible =3D "jedec,sfdp", "nvmem-cells";
+>     label =3D "SFDP";
 
-The gpiod_hwgpio() function is exported to consumers, so they can
-already print that instead of desc_to_gpio() if the local number
-is sufficient. If we really care about the <chip-name> portion for
-any of the debug prints, we could export another function that
-returns maybe gpiod_to_chip(gpiod)->label or
-dev_name(&gpiod_to_gpio_device(gpiod)->dev), which are both
-constant strings we can print.
+Isn't using label frowned upon? I wouldn't add that to the example.
 
-It looks like we can also replace most of the remaining callers
-of desc_to_gpio() with gpiod_hwgpio().
+>     read-only;
+>     #address-cells =3D <1>;
+>     #size-cells =3D <1>;
+>
+>     mac0: macaddr@0x00 {
+>         reg =3D <0x00 0x06>;
+>     };
+>     mac1: macaddr@0x06 {
+>         reg =3D <0x06 0x06>;
+>     };
+> };
 
-       Arnd
+If I'm correct, this is the old style, see commit bd912c991d2e
+("dt-bindings: nvmem: layouts: add fixed-layout"). So it should
+eventually look like:
+
+sfdp {
+     compatible =3D "jedec,sfdp";
+
+     nvmem-layout {
+	     compatible =3D "microchip,sst26vf-sfdp-eui";
+     };
+};
+
+Which is what patch series will lead to.
+
+Also I'm not sure if we really need to add the "nvmem-cells" here.
+IIRC in MTD it was there to tell a driver to add an nvmem device to
+an already existing compatible/node.
+
+Apart from the MTD case, I've just found qcom,smem-part,yaml which
+has compatible =3D "nvmem-cells".
+
+-michael
+
+> Your example should definitely be more elaborate like this,
+> just an opaque sfdp node will not suffice. Maybe a separate
+> example?
+>
+> Yours,
+> Linus Walleij
+
+
+--7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCakTRGxEcbWljaGFlbEB3
+YWxsZS5jYwAKCRASJzzuPgIf+PesAYCvxlMrRPb3CpBzPYndulCo9xHSs8WFx8GM
+YRvSkp3iZq/ziK9zzw8WIc8dB59hR7gBgJcgQcwu/qH+CFtJvfiWDEH4EWXU3HSR
+2Jx1LkNCSYEaHycVFgiepmorZPwBghbBeA==
+=IjRV
+-----END PGP SIGNATURE-----
+
+--7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78--
 
