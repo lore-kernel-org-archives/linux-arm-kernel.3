@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33759C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00CDDC44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:36:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jvk8wT74XQpHdpHr0qJlwmQY2oUumU0y+d7j3jrtWOk=; b=e5S6ydir98dzVwEN3KmbE3+LQU
-	5xID8+TYqYPmO0Uj8VbW5FO1m5P7vftQa7+wv4oao66kLO79Bnf1pdIH3NSvdNuLbHlD9UXL+gZKz
-	hiaU9hgirN5ExbqoY0AYY5u6zu8I/lSspY3b/O0Sm71aYM4Jmprc70MFpzcYlCC1n5ntKX13k73Ol
-	57Lq9ZFc6tk1o5LIYokYbN9wMTrnTZ2MZnIwhpYDGiLY/I4SpIyUf3xygoUxp5YVGz5x7Tpg0F837
-	Ug3JKZko90cDGOcnntNAeS7F+fPOeAAXR6wes+qB0+PFgtqHIDSL8DJXt/jG5PWQMEHqpzne2jup7
-	VEqpA6QQ==;
+	bh=GUUstZAAMU5aRKxM7N6a65oCKWiXTTbDvZjDiHr8xeI=; b=GCb+V6pbjvQFEjMbmVldqojPLE
+	zZUjlvNAWGeOZc32hCGgDfj1zzW/iwH60TvD+4CgUQKGTx9ub9re9pD/3/JJKgnMoZUrTlYMMEhyR
+	fYSfFucL6qrlDvb06ErYeB3W/GQqDtjr0qyWry1R8o1e5KR7CeYwve7r62NaYMjie0HRAtPhy1t6s
+	BOOe7nJeT5q8VDZsYI/LgHr+R+LzBNKJUSRDCXoP6cJQPKbWNEZl/r3kO5Six9JLde5OZyuewcK9X
+	F3RCIffuc0uxL+SG9L/x2fCXcN4DH59Gd3hsjQISqldZfEv0fl92t5pGJ6i/ewOwP0YBZUS76fMEt
+	qEyqeaNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4Tv-00000003BjL-19xy;
-	Wed, 01 Jul 2026 23:36:39 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wf4Tw-00000003BnC-1TG6;
+	Wed, 01 Jul 2026 23:36:40 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4TM-000000039zc-0uOy;
-	Wed, 01 Jul 2026 23:36:10 +0000
+	id 1wf4TM-000000039zA-0jkH;
+	Wed, 01 Jul 2026 23:36:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1782948950;
-	bh=np2J43IcHBPq7RBBOFbcW7f507/36/KZRoRU4RyhKMM=;
+	bh=myM2kDdC+o9qU/R8uVpBsqVAxMREJkYJoXrUM6Jce8E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=U2trjkurvlWVRSQjI+m65sHxWQR9bigHjhBKW5z+WVRCcoA/59vH8ssFeZTOVHWBD
-	 5+ibWapwhu0y4iuHvglZYWWCTollvczfENsuzZ5ODa+cYNqdtxZvAUarfgWi3in1oE
-	 FIknKUuzNwUy9d/SMPGfElHk6OzrirZBE4tjDJ+zd6wKd1ehIsNXR9GYhsokd1UvmM
-	 eXwakQ9Vvbo3JaLoZofF9lBhMSIXeWbCewOH/cqeesaICdUSo9WvwfH50xdGh34l8r
-	 e297iEaqJGQi4ngk45cuVyWdgsnb7q+UUUHqSiaGQce6DNyy4PBT1PA4Wf6S9cd50h
-	 12zIm2zdC4SHg==
+	b=l86FlR/Bi2GDtRDYGqVw3WD4OyyrERDHhIF980zAVf+zasaJ2wD5ovqWzEgKwSXLv
+	 LsQcrAbt9fWMl3xUtm7FgqP6nBdLA9PDZ1eW8BKOyV47Xf9ieVtKQllnTjvmzm681N
+	 rqB7aCeUQ3SPvJLYYQaLjTwl1QC4XjzA7jxvJk+Dlv+g7Hd85ixtMWHC9Wut5rBrYM
+	 QPt8DrZJuewyQW5ZhBkUta0RDmUaMK0jJCzrKaQ6BJZn8HW2zv6HKTnGorw9W11Rtx
+	 +0PzjNY/3q9kYqPeLxUHTofYOAIT9Ha0bFFqj5M3VE+SJkmgEwULKhxK30BDK1ELgF
+	 zxBHaIeuZKu4A==
 Received: from jupiter.universe (unknown [100.64.1.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2E33D17E35FE;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 38C5B17E3602;
 	Thu,  2 Jul 2026 01:35:50 +0200 (CEST)
 Received: by jupiter.universe (Postfix, from userid 1000)
-	id DC3E7480076; Thu, 02 Jul 2026 01:35:48 +0200 (CEST)
+	id DF10F480079; Thu, 02 Jul 2026 01:35:48 +0200 (CEST)
 From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 02 Jul 2026 01:36:10 +0200
-Subject: [PATCH v9 32/38] usb: dwc3: core: support PHY reset notifications
+Date: Thu, 02 Jul 2026 01:36:12 +0200
+Subject: [PATCH v9 34/38] phy: rockchip: usbdp: Rename mode to hw_mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-rockchip-usbdp-cleanup-v9-32-e31efbb62d2e@collabora.com>
+Message-Id: <20260702-rockchip-usbdp-cleanup-v9-34-e31efbb62d2e@collabora.com>
 References: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
 In-Reply-To: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -69,26 +69,26 @@ Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>,
  devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
  Sebastian Reichel <sebastian.reichel@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6018;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6709;
  i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=np2J43IcHBPq7RBBOFbcW7f507/36/KZRoRU4RyhKMM=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpFpFQaADYzy+H1U2MVBcvmVgrz/Ohh1r0WA
- 621tmEzbjJxhIkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqRaRUAAoJENju1/PI
- O/qa1l0P/0QluI8keuml/NJRxub5jsIRwmkwHhPY44VRDIhQaL3oCCCPCwBD1nDcRIZCDG3yI/R
- L0/z33sIbjBCODHkpGkMEvdkqr1sXIEtLx7VMjV0Ng5rbGS0hMTwm7bHB+RQdlLqSCGK5QMGBhX
- BV1+wr/TMhhdiYb3Qb0xPmh0ZtNTBzyeaopAMYbmGKKbqMFHK69fkHFWMWSFOK2y+BNylkeM7l1
- NKzhdqDybxkNSbuG+lpOrQlvvkY1p8oznwWHjuiYVUtoI1DQ5FcphWbmdfnLeY/dsNsmd/gaDWd
- EQ6Gt+ScOMkcylwjgMRAAnKlnQAIY0KSXYFDUxUTz8soOH8Rho6zqyNKveI1vq2tooj9JFH82Dl
- PwbcX8yO04A8tT7GJVyBfdqurEdwxZGEmSBgUtACehRG+dKv1/DtOxUY+s0WBgMO91dX+RgX80I
- jXtEJt4gaRn7rMramHcsXRzyuS6SXkxe+qtm4JZ7vIoVaa+bIG6slGhF2OXy5JewpCfDI+5Rrcv
- csgric6kKxbScWbLO3PgVKWUodZ130mI7DwCues6sGDZqqpNSZtX9NUpAGWMtg6jji/vFKXqsih
- ZzJQBoTR2T+7yMJeBU0bwT1vmx6HcPt/oZl+LdKB3lepRkR/Q3UWsZRvtnZ5KB1zsXjvzAOHMmD
- OSzGPrCo+064lXVKePz4m1A==
+ bh=myM2kDdC+o9qU/R8uVpBsqVAxMREJkYJoXrUM6Jce8E=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpFpFRnyZXbpi51tAIRAlLhy0cPl/Gy8v32X
+ Q9dAwfSfXxN3YkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqRaRUAAoJENju1/PI
+ O/qaH9YP/itITf812DSkAla90r9Ht2ZOVCckKgPZcS1dJfbAAeqh2EyQjjfhiUWvroa+V68KYIq
+ KIWPCVVMAgbO9ZeMafKebQbLQjjKHN9Udu1kpj1V6G1XxUnAGYEr+pA8dPQjVkXvOhZmyh27PPQ
+ 4kcIHJOvg5VBgxAtJLdipbRNTqg+j1LhN4ZeJVTUaTOoeyrqkusiEyrOk/W8EAHzdeqoh2hBBAU
+ jrSyf/oJ/m/0UqYXI8joTi+Z/SXQFnQFBooiWkMjdIcKzqznVZShhn5WmjuMTgkcTsFVYp3bBvn
+ tK4Mtn3HZcycyZBTtb2NhACIBlErOigVLL7uLgnyyHvmMQw/T08/z+RjUEvJIT8wUkdvmtpQQ9q
+ HGwlTbHiz+etvMaFeTNBOddUFrQf5Wp0PCv6H/XgLyFaPNfDPHln6nE52yISmIRdQqNVQVXF0TW
+ nUla2Jcis2BBXPutkPUl8OD/TH2y7MkRqV3erme/jC+hzvQk/jO/mwNLJX3lSyatqOYps/eTpeo
+ b9D5V4c99GrlBS+ROQhbg7lkOOyEXVvHXnTjZn4Xh8ohVxfzIRn8F7wFpLs4loD3tejH40VtND4
+ tKyCI976iV4QlCwZjUrmp2RdJ+E5ClMIZX1gCZYT5vGiNWQ109uC4O7qZbeWsZC+if5oCejd/6O
+ EH3u2tG3LeKvJelj58NcnIA==
 X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
  fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_163604_615972_706D53F1 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20260701_163604_477343_3C5C0DCB 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,198 +103,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On recent Rockchip platforms (at least RK3588 & RK3576), DWC3 IP is used
-with a USBDP PHY providing USB3 and DP. This PHY needs to be reset when
-the mode changes, which may happen when plugging in different USB-C
-devices.
-
-If the USBDP PHY resets with the DWC3 IP running, its internal state
-corrupts resulting in the USBDP PHY not being able to lock some PLL
-clocks, which effectively renders USB3 unusable.
-
-To fix the issue this adds handling for the new PHY framework reset
-notifications, which will assert PHYSOFTRST before the actual PHY
-is disabled and will deassert it once the PHY returns.
+Rename mode field to hw_mode to make clear that this is the modes
+currently supported by the hardware, but not necessarily requested
+by software. I.e. it is only set by either the USB-C state machine
+or device-tree if the PHY is used in a fixed routing setup.
 
 Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 ---
- drivers/usb/dwc3/core.c | 82 +++++++++++++++++++++++++++++++++++++++++++++++++
- drivers/usb/dwc3/core.h | 16 ++++++++++
- 2 files changed, 98 insertions(+)
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 46 +++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/usb/dwc3/core.c b/drivers/usb/dwc3/core.c
-index 517aa7f1486d..fdc92c22381a 100644
---- a/drivers/usb/dwc3/core.c
-+++ b/drivers/usb/dwc3/core.c
-@@ -30,6 +30,7 @@
- #include <linux/pinctrl/devinfo.h>
- #include <linux/reset.h>
- #include <linux/bitfield.h>
-+#include <linux/phy/phy.h>
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index ad594bb3962a..a19b048fb39c 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -175,7 +175,7 @@ struct rk_udphy {
+ 	/* PHY status management */
+ 	bool flip;
+ 	bool phy_needs_reinit;
+-	u8 mode;
++	u8 hw_mode; /* modes currently supported by hardware */
+ 	u8 status;
  
- #include <linux/usb/ch9.h>
- #include <linux/usb/gadget.h>
-@@ -660,6 +661,9 @@ static int dwc3_core_ulpi_init(struct dwc3 *dwc)
- 	return ret;
+ 	/* utilized for USB */
+@@ -585,18 +585,18 @@ static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)
+ 				   CMN_DP_CMN_RSTN, FIELD_PREP(CMN_DP_CMN_RSTN, 0x0));
  }
  
-+static void dwc3_phy_register_notifiers(struct dwc3 *dwc);
-+static void dwc3_phy_unregister_notifiers(struct dwc3 *dwc);
-+
- static int dwc3_ss_phy_setup(struct dwc3 *dwc, int index)
+-static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 mode)
++static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 hw_mode)
  {
- 	u32 reg;
-@@ -845,6 +849,8 @@ static int dwc3_phy_init(struct dwc3 *dwc)
- 			goto err_exit_usb3_phy;
+-	if (udphy->mode == mode)
++	if (udphy->hw_mode == hw_mode)
+ 		return;
+ 
+ 	udphy->phy_needs_reinit = true;
+-	udphy->mode = mode;
++	udphy->hw_mode = hw_mode;
+ }
+ 
+ static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state)
+ {
+-	u8 mode;
++	u8 hw_mode;
+ 
+ 	switch (state) {
+ 	case TYPEC_DP_STATE_C:
+@@ -605,7 +605,7 @@ static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state
+ 		udphy->lane_mux_sel[1] = PHY_LANE_MUX_DP;
+ 		udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
+ 		udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+-		mode = UDPHY_MODE_DP;
++		hw_mode = UDPHY_MODE_DP;
+ 		udphy->dp_lanes = 4;
+ 		break;
+ 
+@@ -622,12 +622,12 @@ static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state
+ 			udphy->lane_mux_sel[2] = PHY_LANE_MUX_DP;
+ 			udphy->lane_mux_sel[3] = PHY_LANE_MUX_DP;
+ 		}
+-		mode = UDPHY_MODE_DP_USB;
++		hw_mode = UDPHY_MODE_DP_USB;
+ 		udphy->dp_lanes = 2;
+ 		break;
  	}
  
-+	dwc3_phy_register_notifiers(dwc);
-+
- 	/*
- 	 * Above DWC_usb3.0 1.94a, it is recommended to set
- 	 * DWC3_GUSB3PIPECTL_SUSPHY and DWC3_GUSB2PHYCFG_SUSPHY to '0' during
-@@ -880,10 +886,86 @@ static int dwc3_phy_init(struct dwc3 *dwc)
- 	return ret;
+-	rk_udphy_mode_set(udphy, mode);
++	rk_udphy_mode_set(udphy, hw_mode);
  }
  
-+static int dwc3_usb3_phy_notify(struct notifier_block *nb,
-+				unsigned long action, void *data)
-+{
-+	struct dwc3 *dwc = container_of(nb, struct dwc3_phy_nb, nb)->dwc;
-+	int i;
-+
-+	switch (action) {
-+	case PHY_NOTIFY_PRE_RESET:
-+		/*
-+		 * If the controller is already suspended (e.g. runtime PM),
-+		 * there is no internal state to clean up.
-+		 */
-+		if (pm_runtime_suspended(dwc->dev))
-+			return NOTIFY_OK;
-+
-+		dwc->phy_reset_in_progress = true;
-+
-+		/*
-+		 * Assert USB3 PHY soft reset within DWC3 before the external
-+		 * PHY resets. This disconnects the PIPE interface, preventing
-+		 * the DWC3 from interfering with PHY reinitialization and
-+		 * avoiding LCPLL lock failures.
-+		 */
-+		for (i = 0; i < dwc->num_usb3_ports; i++) {
-+			u32 reg = dwc3_readl(dwc, DWC3_GUSB3PIPECTL(i));
-+
-+			reg |= DWC3_GUSB3PIPECTL_PHYSOFTRST;
-+			dwc3_writel(dwc, DWC3_GUSB3PIPECTL(i), reg);
-+		}
-+		break;
-+
-+	case PHY_NOTIFY_POST_RESET:
-+		if (!dwc->phy_reset_in_progress)
-+			return NOTIFY_OK;
-+
-+		dwc->phy_reset_in_progress = false;
-+
-+		/*
-+		 * Deassert PHY soft reset and reconfigure the PIPE interface
-+		 * settings after PHY reinitialization.
-+		 */
-+		for (i = 0; i < dwc->num_usb3_ports; i++) {
-+			u32 reg = dwc3_readl(dwc, DWC3_GUSB3PIPECTL(i));
-+
-+			reg &= ~DWC3_GUSB3PIPECTL_PHYSOFTRST;
-+			dwc3_writel(dwc, DWC3_GUSB3PIPECTL(i), reg);
-+		}
-+		break;
-+	}
-+
-+	return NOTIFY_OK;
-+}
-+
-+static void dwc3_phy_register_notifiers(struct dwc3 *dwc)
-+{
-+	int i;
-+
-+	for (i = 0; i < dwc->num_usb3_ports; i++) {
-+		dwc->usb3_phy_nb[i].nb.notifier_call = dwc3_usb3_phy_notify;
-+		dwc->usb3_phy_nb[i].dwc = dwc;
-+		phy_register_notifier(dwc->usb3_generic_phy[i],
-+				      &dwc->usb3_phy_nb[i].nb);
-+	}
-+}
-+
-+static void dwc3_phy_unregister_notifiers(struct dwc3 *dwc)
-+{
-+	int i;
-+
-+	for (i = 0; i < dwc->num_usb3_ports; i++)
-+		phy_unregister_notifier(dwc->usb3_generic_phy[i],
-+					&dwc->usb3_phy_nb[i].nb);
-+}
-+
- static void dwc3_phy_exit(struct dwc3 *dwc)
+ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+@@ -750,7 +750,7 @@ static int rk_udphy_status_check(struct rk_udphy *udphy)
+ 	int ret;
+ 
+ 	/* LCPLL check */
+-	if (udphy->mode & UDPHY_MODE_USB) {
++	if (udphy->hw_mode & UDPHY_MODE_USB) {
+ 		ret = regmap_read_poll_timeout(udphy->pma_regmap, CMN_ANA_LCPLL_DONE_OFFSET,
+ 					       val, (val & CMN_ANA_LCPLL_AFC_DONE) &&
+ 					       (val & CMN_ANA_LCPLL_LOCK_DONE), 200, 100000);
+@@ -785,15 +785,15 @@ static int rk_udphy_init(struct rk_udphy *udphy)
+ 	int ret;
+ 
+ 	dev_dbg(udphy->dev, "reinit PHY with USB=%s and DP=%s (%u lanes) flipped=%s\n",
+-		str_enabled_disabled(udphy->mode & UDPHY_MODE_USB),
+-		str_enabled_disabled(udphy->mode & UDPHY_MODE_DP),
++		str_enabled_disabled(udphy->hw_mode & UDPHY_MODE_USB),
++		str_enabled_disabled(udphy->hw_mode & UDPHY_MODE_DP),
+ 		udphy->dp_lanes, str_yes_no(udphy->flip));
+ 
+ 	rk_udphy_reset_assert_all(udphy);
+ 	usleep_range(10000, 11000);
+ 
+ 	/* enable rx lfps for usb */
+-	if (udphy->mode & UDPHY_MODE_USB)
++	if (udphy->hw_mode & UDPHY_MODE_USB)
+ 		rk_udphy_grfreg_write(udphy->udphygrf, &cfg->grfcfg.rx_lfps, true);
+ 
+ 	/* Step 1: power on pma and deassert apb rstn */
+@@ -830,13 +830,13 @@ static int rk_udphy_init(struct rk_udphy *udphy)
+ 			   FIELD_PREP(CMN_DP_LANE_EN_ALL, 0));
+ 
+ 	/* Step 4: deassert init rstn and wait for 200ns from datasheet */
+-	if (udphy->mode & UDPHY_MODE_USB) {
++	if (udphy->hw_mode & UDPHY_MODE_USB) {
+ 		ret = rk_udphy_reset_deassert(udphy, "init");
+ 		if (ret)
+ 			goto assert_resets;
+ 	}
+ 
+-	if (udphy->mode & UDPHY_MODE_DP) {
++	if (udphy->hw_mode & UDPHY_MODE_DP) {
+ 		regmap_update_bits(udphy->pma_regmap, CMN_DP_RSTN_OFFSET,
+ 				   CMN_DP_INIT_RSTN,
+ 				   FIELD_PREP(CMN_DP_INIT_RSTN, 0x1));
+@@ -845,7 +845,7 @@ static int rk_udphy_init(struct rk_udphy *udphy)
+ 	udelay(1);
+ 
+ 	/*  Step 5: deassert cmn/lane rstn */
+-	if (udphy->mode & UDPHY_MODE_USB) {
++	if (udphy->hw_mode & UDPHY_MODE_USB) {
+ 		ret = rk_udphy_reset_deassert(udphy, "cmn");
+ 		if (ret)
+ 			goto assert_resets;
+@@ -904,7 +904,7 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
+ 	num_lanes = device_property_count_u32(udphy->dev, "rockchip,dp-lane-mux");
+ 	if (num_lanes < 0) {
+ 		dev_dbg(udphy->dev, "no dp-lane-mux, following dp alt mode\n");
+-		udphy->mode = UDPHY_MODE_USB;
++		udphy->hw_mode = UDPHY_MODE_USB;
+ 		return 0;
+ 	}
+ 
+@@ -933,10 +933,10 @@ static int rk_udphy_parse_lane_mux_data(struct rk_udphy *udphy)
+ 		}
+ 	}
+ 
+-	udphy->mode = UDPHY_MODE_DP;
++	udphy->hw_mode = UDPHY_MODE_DP;
+ 	udphy->dp_lanes = num_lanes;
+ 	if (num_lanes == 1 || num_lanes == 2) {
+-		udphy->mode |= UDPHY_MODE_USB;
++		udphy->hw_mode |= UDPHY_MODE_USB;
+ 		udphy->flip = (udphy->lane_mux_sel[0] == PHY_LANE_MUX_DP) ||
+ 			      (udphy->lane_mux_sel[1] == PHY_LANE_MUX_DP);
+ 	}
+@@ -1027,7 +1027,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
  {
- 	int i;
+ 	int ret;
  
-+	dwc3_phy_unregister_notifiers(dwc);
-+
- 	for (i = 0; i < dwc->num_usb3_ports; i++)
- 		phy_exit(dwc->usb3_generic_phy[i]);
+-	if (!(udphy->mode & mode)) {
++	if (!(udphy->hw_mode & mode)) {
+ 		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
+ 		return 0;
+ 	}
+@@ -1042,7 +1042,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
+ 		if (ret)
+ 			return ret;
  
-diff --git a/drivers/usb/dwc3/core.h b/drivers/usb/dwc3/core.h
-index e0dee9d28740..79d833d00137 100644
---- a/drivers/usb/dwc3/core.h
-+++ b/drivers/usb/dwc3/core.h
-@@ -1002,6 +1002,18 @@ struct dwc3_glue_ops {
- 	void	(*pre_run_stop)(struct dwc3 *dwc, bool is_on);
- };
+-		if (!udphy->hs && udphy->mode & UDPHY_MODE_USB)
++		if (!udphy->hs && udphy->hw_mode & UDPHY_MODE_USB)
+ 			rk_udphy_u3_port_disable(udphy, false);
+ 		udphy->phy_needs_reinit = false;
  
-+struct dwc3;
-+
-+/**
-+ * struct dwc3_phy_nb - wrapper for PHY notifier block
-+ * @nb: notifier block
-+ * @dwc: back-pointer to the DWC3 controller
-+ */
-+struct dwc3_phy_nb {
-+	struct notifier_block	nb;
-+	struct dwc3		*dwc;
-+};
-+
- /**
-  * struct dwc3 - representation of our controller
-  * @drd_work: workqueue used for role swapping
-@@ -1065,6 +1077,7 @@ struct dwc3_glue_ops {
-  * @usb3_phy: pointer to USB3 PHY
-  * @usb2_generic_phy: pointer to array of USB2 PHYs
-  * @usb3_generic_phy: pointer to array of USB3 PHYs
-+ * @usb3_phy_nb: notifier blocks for USB3 PHY reset events
-  * @num_usb2_ports: number of USB2 ports
-  * @num_usb3_ports: number of USB3 ports
-  * @phys_ready: flag to indicate that PHYs are ready
-@@ -1171,6 +1184,7 @@ struct dwc3_glue_ops {
-  * @suspended: set to track suspend event due to U3/L2.
-  * @susphy_state: state of DWC3_GUSB2PHYCFG_SUSPHY + DWC3_GUSB3PIPECTL_SUSPHY
-  *		  before PM suspend.
-+ * @phy_reset_in_progress: set if a PHY reset notification is being handled
-  * @imod_interval: set the interrupt moderation interval in 250ns
-  *			increments or 0 to disable.
-  * @max_cfg_eps: current max number of IN eps used across all USB configs.
-@@ -1229,6 +1243,7 @@ struct dwc3 {
+@@ -1071,7 +1071,7 @@ static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
  
- 	struct phy		*usb2_generic_phy[DWC3_USB2_MAX_PORTS];
- 	struct phy		*usb3_generic_phy[DWC3_USB3_MAX_PORTS];
-+	struct dwc3_phy_nb	usb3_phy_nb[DWC3_USB3_MAX_PORTS];
+ static void rk_udphy_power_off(struct rk_udphy *udphy, u8 mode)
+ {
+-	if (!(udphy->mode & mode)) {
++	if (!(udphy->hw_mode & mode)) {
+ 		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
+ 		return;
+ 	}
+@@ -1330,7 +1330,7 @@ static int rk_udphy_usb3_phy_init(struct phy *phy)
+ 	guard(mutex)(&udphy->mutex);
  
- 	u8			num_usb2_ports;
- 	u8			num_usb3_ports;
-@@ -1415,6 +1430,7 @@ struct dwc3 {
- 	unsigned		wakeup_configured:1;
- 	unsigned		suspended:1;
- 	unsigned		susphy_state:1;
-+	unsigned		phy_reset_in_progress:1;
+ 	/* DP only or high-speed, disable U3 port */
+-	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
++	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs) {
+ 		rk_udphy_u3_port_disable(udphy, true);
+ 		return 0;
+ 	}
+@@ -1345,7 +1345,7 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+ 	guard(mutex)(&udphy->mutex);
  
- 	u16			imod_interval;
- 
+ 	/* DP only or high-speed */
+-	if (!(udphy->mode & UDPHY_MODE_USB) || udphy->hs) {
++	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs) {
+ 		udphy->status &= ~UDPHY_MODE_USB;
+ 		return 0;
+ 	}
 
 -- 
 2.53.0
