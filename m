@@ -4,137 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7FDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:57:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9D1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:58:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPlz1j4lDp/U9RBeREXmlGm4xvDNQHrS1W3kbrrrs04=; b=A75FfhxpfELjT9D0OvPgwZDo6C
-	s2xhJjMXE0D6jVAR+FYjIiSepsQiKm3nH4EVWBXu2PFdl9+PVpHgKFlejfetRUSwBR1OJjmb+GI8Y
-	l1XJXaQRidN4Z+DbWp12KCmxx8zOZR3+2cO+PCIc36ylDGw2AHyRj7Gzy2NTP+V2Wgf91z59039mc
-	x/NWs1U+6arzFEyjFf8DC2Ze9GYhitBnj+ZX7nB6isucpIeGg9ucqoyhYBsJVN8AkS1z04QhwoThJ
-	kpxUi7oMTlGAtBknNZGscMyQJgiodxfQ/LDCcIzenWy8VIZrDXzhN7GTnuy0bw6CRmw9OZFfHYSxd
-	EqP6fN6g==;
+	bh=ePmFTt3rstOx1IVudF2odVlsiK0au8knUpVzH4WAluw=; b=PP6abN+QRe9267NyrkzqsjHtvr
+	jIWTh29aBbKjYxtuUMxsHX2cLQw2MjjezbHlsDrzsV5Y6Kf2dLY25eo7Z10+QbgIauGmNUvdN6gws
+	gjU4qza2U+iaoTKLOHt9nvPegdw3QzOPnoElCJjx1Cv8Cqz5wvKePblNXWKAfVXxPq8vScGEZZ0wc
+	VFavcbH6jEdxZ67tGbTtvE7OOqmN9BqjYd9XXcEfilqdWiPOOHbKMMWEFjg8GyJMDuBua2LZsVYgC
+	g5pgch9jGDx1TtN+fQhRYGUKYaib1YDlbhdi5bcNoq+RqnB4y2/yhGjwhtlpYLIutsquH7Aclz2Ds
+	3ZTaOmeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevRH-00000002E5q-3G2T;
-	Wed, 01 Jul 2026 13:57:19 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1wevSS-00000002EHN-03lB;
+	Wed, 01 Jul 2026 13:58:32 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevRF-00000002E5P-1lgR
+	id 1wevSQ-00000002EHE-2eup
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 13:57:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xhqXAdaPnnPoSuGf8itbITa/5eYr8jpLTzWkzET+QYIyrFBvJqmmhmp6wC3P5po0PJ/WQXAgEgCbpdd6aEL4yUZcPT2BnjNL6Iwwz3ApedvsT1Hp/nabdmfpz9etdKNVr+kPgRMPtL+kZG5RPUusrAhs1UM+X7EU6Scuc59b9nBcOy2iqr3Vf9SIRnbFwIbc1OzMOtqdUkZvF8P0f/MXqSmzapPt7ClvTsXkqn5bpky+xCHv/X585Zd9ctJNdBqRWmFD/EvZVaP42L6YZLzGpZCGQLZCK/Fgpjbp5Wb3063DMggJqw6n1DvmI9kBnTZd1XbxUK/2zMDgMXs1kgoYcA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QPlz1j4lDp/U9RBeREXmlGm4xvDNQHrS1W3kbrrrs04=;
- b=TK/bdFrmxTVqdx2HhJBbMJHwyBMBUOJmaxUhKy86IabIlHgqrRPIucjWXqXMNIqShs4bS5+G7WZUHuAP4sra5hZxHeLFu7a6ov7IO9DWn3GtUUNfu7rYttj//Riq5IEF63ImfavCR+8yHihqduNDJetfOXuhh/DWat7VhVsn6RivnoyM03R+aQFGP79SdmCguf0IR50fQUa0dlN4Gz1uFH0goTIOp3YOUDeES7Id9p9jGsL4PUlaH9T/z9r12I/UDQKC+uAvSJM0IvpcgGVe6T7OYoDhBO5lRbvuPzUcGgIa1zAltGBG/PxH+2NtumLosIaFmpFczmsV8IZoCTWTPQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=transsion.com; dmarc=pass action=none
- header.from=transsion.com; dkim=pass header.d=transsion.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transsion.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QPlz1j4lDp/U9RBeREXmlGm4xvDNQHrS1W3kbrrrs04=;
- b=XFutFDuy76Bgo7pgNlFbmOUtNpv122P8/3LTitTWOf7H21aVzteDO9MPZbX+jp4JYakrStIZ6Wl0NU37tKTBtNjK/Nz8qsjmgxR5cCzrZcw3zjcuS/tkMceD5cNQ4b7lwaKEOuyt3wbhkP5eGwspg8DMeHEq/QqwrM4EYtAW8cM=
-Received: from SI2PR04MB5648.apcprd04.prod.outlook.com (2603:1096:4:1a4::11)
- by TYZPR04MB7508.apcprd04.prod.outlook.com (2603:1096:405:40::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 13:56:58 +0000
-Received: from SI2PR04MB5648.apcprd04.prod.outlook.com
- ([fe80::8ce1:b82b:3b19:f79d]) by SI2PR04MB5648.apcprd04.prod.outlook.com
- ([fe80::8ce1:b82b:3b19:f79d%5]) with mapi id 15.21.0159.018; Wed, 1 Jul 2026
- 13:56:58 +0000
-From: Pu Hu <hupu@transsion.com>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Subject: Re: [RFC 0/2] arm64: kprobes: Fix single-step fault and reentry
- handling
-Thread-Topic: [RFC 0/2] arm64: kprobes: Fix single-step fault and reentry
- handling
-Thread-Index: AQHdCVM5llIetQ2+U0epMS9G7bPoC7ZYrJ+AgAADkAA=
-Date: Wed, 1 Jul 2026 13:56:57 +0000
-Message-ID: <ec11e9ca-ae7c-49c3-ae7b-47a70e9f86af@transsion.com>
-References: <20260701121448.3926-1-hupu@transsion.com>
- <20260701224345.c3a215ece3660a0cbae67645@kernel.org>
-In-Reply-To: <20260701224345.c3a215ece3660a0cbae67645@kernel.org>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=transsion.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SI2PR04MB5648:EE_|TYZPR04MB7508:EE_
-x-ms-office365-filtering-correlation-id: 63c08f6a-a64d-4b13-0c9e-08ded7789dfa
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|23010399003|18002099003|22082099003|38070700021|6133799003|3023799007|4143699003|11063799006|56012099006;
-x-microsoft-antispam-message-info: MVs8ubcG80QvusIdskNwVxXC8Us7gu0fJFcdBkSznw7mMhtnARwyEIARLEFdYPaD+5eJDV/+Ux1DYcPRwuXUymyVR+o0ZdIpSPN5jeRW74jaJfksykkI4Z1mu//8n4rNG/eZOfUpPaYa3Ysl/xzMlGid2kkQV3yH5O4As0+ixNkD+RhaziSSDhUUbmznrrDqDAzWS9fuBiIelvG3ZGzqCX1M40YwG4hffXydrUVotuRGTXqt7BPqDngCGu3HJaNCo6lnkbyaq2gjFTkZolOkoKkYGzBlmBEyjRjG31XkBqg91fcZxjc19BhekYAYQ600vfwhm8O00keQwgLVhm2nM/jl5QTjEVpSIEQpOr3SkEW7/h2FgMyzw2WsAALnbW57Ei0yavS4gms4jZ/XT6GGNIcGlM5vcWTt64g8ejulyCXrVMDQBBEpse/4vcVGrdOTeZO++KExZUOosI61pdYwVwZ15ZwFPnNr2ekLwJhgVFMR+/gmplGVbKyaQATRt2aQPd85DrAqJSxax51E+cv5AKRR3PMFdCwk/VB+6cOILQfX6rY9BAa5Q6tl7IhlvVooarJpjDdDqJ01gadqUZA3EcJhJCHcHXEZYwIPmC1RbEFMZn8XI5BCQLdXF1INw4uR27wFVcNjxKUVu+hRQva2Vo9RHkAulFTODgn8p16r86brnvknkDbQW5QKBsL4+v4juQkpQjteoHYq0MBLiJ6/63BL8OMYHuZOjHxAU71toWk=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR04MB5648.apcprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(23010399003)(18002099003)(22082099003)(38070700021)(6133799003)(3023799007)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VGx3Rlo1R2pFZm16dzZ3WkFyQUxCcFhLK00zNGsvZWRnaHNOTnBzVTZPSmhW?=
- =?utf-8?B?cUlYUUNlb0Zsak5zL09zMGZxV0JtR2ZvYnBIRWJhZWJHekplby9mNTc1a3N2?=
- =?utf-8?B?bHJwbWFxKzRJN3N4aGRPUlNWTHFaM3VqeFEreDhpQVVDK1pFWjVUSnV4VTE5?=
- =?utf-8?B?UExRdUZzVUZOSCt6N0hURUk2RGhzK0FzZG0wTlFwT251ZWtxZXQvUW54K0xh?=
- =?utf-8?B?WkJTdC9sY1JSVEFOSi8zQyt6RVo4R0ZEallRNFZWSmlVUzI1RWx3bWZtZXpD?=
- =?utf-8?B?dU5XSllCdXJtdThtSmN5TzZyMmtVaEVES2Z4Wjhid2k2WUx1aGxvb0JnaFJ5?=
- =?utf-8?B?dlNkcmt6T2hqOTAzT3dsUnY5TFdURFdnV2lzNmp4dHFib1BPWnJPeWg1QXRL?=
- =?utf-8?B?K2o4SlNIdERkMWRBVDBadjBYS0xyeGZaTm1VNGtRUVhLSjM4TDBQS3FkMWZ1?=
- =?utf-8?B?V24wVzl3MXo5MFpZNWRTc0xCOUU3UWJnMmM2WXB2WjNKQ2dwcXRqR0gyS0gy?=
- =?utf-8?B?QkZZNDJ6V1NVVXhUazRwWmtpcmY2b3A2YU10d2VwSnVQODc2M0tPYzZtVGVl?=
- =?utf-8?B?RTlsNkcxTUp6L0NPUGo2R0lrbXJwRE5Wc2J3UnJob1Y1cTl6RW83UmovQjFN?=
- =?utf-8?B?VDAwSEppZURhQncwZFJQaTkwZFZKck1vbVR0UDdnWTNqUDkvVVZNREVJSTEz?=
- =?utf-8?B?bEtqQUpJZ3E2T0V1WFkrR1dsRGgvT3pBR1ZTak5oT1FjY01aK3l1Q3VreFdD?=
- =?utf-8?B?bUVEYTZ1c2RSTXA4UGxpR0pUNnN6bWlERi9zRHVuM1dtZnoxSE54bDdacXJD?=
- =?utf-8?B?V2FaSnVHZkdNeWxVUm02YUtuS0tlcFF3M3hpWFlnV2JSV2U1dGdONTZ4OHRp?=
- =?utf-8?B?TTZ3c3ptcW1TSC9za1VmSG8ySEFFSEZ0UFM3N1N2UlBEdm1nZ283clVQWkc2?=
- =?utf-8?B?K3JsbVljTmVKMDd0SmY0Q1NEMjFMd1RBdG5nY3ZDRldxYUwyUjcvN1pZdDhP?=
- =?utf-8?B?Q3ZDalVoTXI2YjJoNkZpaXBpSzhXZjNvRFM0MU9MbU9BNHNLSnBWSGxVVWxB?=
- =?utf-8?B?akIzNFlnZm83eXd5b0htSVRyc04zQ1BGUWdVUExQUUdrRDM1ZjkzbkhJVUsy?=
- =?utf-8?B?c3o1cGY3YXgwLzIrQk9UNDNadnk2NExWU1ZqaFl5dFBhMzhRSEtkQ2NKRU5R?=
- =?utf-8?B?TERXZHpDdWU0RW5yYUhiTGl2bTdTa3lzZDhvUkg1YXVGZHFPMnVSV3hvUyth?=
- =?utf-8?B?N1FGdVl2Zmw0VmJRdmpvRGZEazBlamR0RmExRkFaTFFWTWRCVHEyYUJLM0V3?=
- =?utf-8?B?Y2JUUUIrRVBoNFhiRHRnMnJQaitPOG5IVklWd2NTNHF1OHdud09jNTlIZnFT?=
- =?utf-8?B?Tk0wZ3h1ZjVLam5LbnBpT3BTd2dqWEpwQVJPUklYbjE0eElLL1Y0dUZMRHpP?=
- =?utf-8?B?K3lKMDBjOTdYMjRQM2g3RjNqRVExRXJZbWoyUjhnaE5VcVRUTzdSMVhmMEps?=
- =?utf-8?B?VVBxV2k1Z2pXZWkrcGZaYmdTZzljZExDbDcvL1hEOFJ4cDNpdHN6Q3c4UTM0?=
- =?utf-8?B?Z3IrQXU0OHA0NFFvcmJBeDdnKzlrSVV6WFVYTlowdVpoTzgwbFFiQ1g3ejNM?=
- =?utf-8?B?SEdBVGQ1ZUVlUGw4ZnppZXlBZFpXbTNjMFV6R29sL1FBZTcvdlJieFBjUHpF?=
- =?utf-8?B?dXd2ZWdYQXFSdzVqeGZ1dCs0N090Y3ByNjFXdHlFcDNUUWQzdUxSK2dGNmxv?=
- =?utf-8?B?WXJMR3YrdVlmYlRJT3hKQktLLy9saklTZTBOTkFMdjJRU3I1Q09GanRnajRU?=
- =?utf-8?B?MEcxWUdubytMSC96UncvS2ljM2wvRFJ0MktIVlEyVWttLzVtSHYxUFRuOVZY?=
- =?utf-8?B?cFU3amlaOXpkM0R1ck0zdWJMeTRHOGxDYkJmZmhJWk1EV3U2bEprVk1yM0FI?=
- =?utf-8?B?d2hTUU0rU1RpN1ZwTXpaTURFaENVRjNtN0Q3ZW81WU05YXN3TjByYi84RUNU?=
- =?utf-8?B?dUd1Q1V0ZEd2U1JHbUdiL05hV2M3OWpnN01CTmJ5NGhiNExieElURjJZcUdF?=
- =?utf-8?B?MWY2Uk10d2xrOStBTjhnUkZOK1Fya3krTEdEeFVBSzBsQys4RTJqd2ErYzdw?=
- =?utf-8?B?OFVUWGZWcmdMcmFsajMwcTByVCtuYXB1ZitYU2FZaWlYWTlEelhiK3hvYjJW?=
- =?utf-8?B?MGNkNy9EMjFxQk1lZUdNa3B0d2tNcWNyNUg4ODRNaDY0TVJETDZjRXoyR0FI?=
- =?utf-8?B?NGFYSzF1NEFRSE4vZkpJNkRTVzNvSEltd1oyMFZBT29ONXNsT0R6Qlc3d0pL?=
- =?utf-8?B?dVRPdEpHNHdXNnJzcWFZVlAwbGtFaUVGM0I0RkRTNjdjZ0dSang0QT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <4F96EB83D26EA54AAC14489EEB8C3456@apcprd04.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	Wed, 01 Jul 2026 13:58:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2ACBE406C1;
+	Wed,  1 Jul 2026 13:58:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E8901F00A3A;
+	Wed,  1 Jul 2026 13:58:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782914310;
+	bh=ePmFTt3rstOx1IVudF2odVlsiK0au8knUpVzH4WAluw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=fM7XqVQdKtVW76vvm37/QxzvdOzywI+FgauHtn1ml/ste9Tta4xmD/sojvqEVF6lP
+	 FsaN/f3l00uZ6iguLU/zMXTZvDGmS8i/zcGutFF1s/24xfiXPONa2NNiQ+yYYvoiaO
+	 VHcayZERLltwtW0zJ25kGhpfwwQAXfxc1+6wUDHD6vHypyoubtx8PEshKPEPfBrWi6
+	 sD85cR8B9G1zXW3XgN11UyLjtl6qKDonm9IUcJMY74lTzNXFt0VMTsExU2iJB+QNxJ
+	 Nly6uqW4WAFvE5ybUXRWv7nyWDsF7lmUP9+lnKZve63mQrmBI+whbx5P4udDFdceoU
+	 cUqGl1joP0Nkw==
+Date: Wed, 1 Jul 2026 15:58:21 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Gavin Shan <gshan@redhat.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev, Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+	Lorenzo.Pieralisi2@arm.com
+Subject: Re: [PATCH v14 29/44] arm64: RMI: Runtime faulting of memory
+Message-ID: <akUc/ScJN0GlM+9G@lpieralisi>
+References: <aiJ6u83O0nVUtPyv@lpieralisi>
+ <ecef952b-e8c6-4102-933b-c99c46f14431@redhat.com>
+ <aiLes2ecZSr17UwZ@lpieralisi>
+ <1e39094f-7fa3-4ef1-be54-53d7a8643506@redhat.com>
+ <98d2a0f3-b831-466a-8212-5bcf97ad9d8b@arm.com>
+ <8da87878-2a5d-478a-a280-60dbed7ad1b9@redhat.com>
+ <9482dfbc-4d96-47ba-a615-f4ba0bda833f@arm.com>
+ <8f81ed99-c53a-4196-baa2-adea9239a000@redhat.com>
+ <aj6sdzlbxT8D5fnf@lpieralisi>
+ <901398bb-ed6c-4997-b3cd-ce2829b09c87@redhat.com>
 MIME-Version: 1.0
-X-OriginatorOrg: transsion.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SI2PR04MB5648.apcprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 63c08f6a-a64d-4b13-0c9e-08ded7789dfa
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 13:56:57.9436
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 2e8503a6-2d01-4333-8e36-6ab7c8cd7ae2
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: J0lxLa/b6YHbgpHpG9Z2AvppRgwlp/Yty9ANz9o7gzz62Cns6cLQeBhMOVi8OjsIxiXyGRe/NQTtdveAgJIPdw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR04MB7508
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_065717_495685_AE17ABF8 
-X-CRM114-Status: GOOD (  17.54  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <901398bb-ed6c-4997-b3cd-ce2829b09c87@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,40 +92,159 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Hongyan Xia <hongyan.xia@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "naveen@kernel.org" <naveen@kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "will@kernel.org" <will@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xLzIwMjYgOTo0MyBQTSwgTWFzYW1pIEhpcmFtYXRzdSB3cm90ZToNCj4gT24gV2VkLCAx
-IEp1bCAyMDI2IDEyOjE0OjU0ICswMDAwDQo+IFB1IEh1IDxodXB1QHRyYW5zc2lvbi5jb20+IHdy
-b3RlOg0KPiANCj4+IEZyb206IGh1cHUgPGh1cHVAdHJhbnNzaW9uLmNvbT4NCj4+DQo+PiBUaGlz
-IHNlcmllcyBmaXhlcyB0d28gYXJtNjQga3Byb2JlcyBpc3N1ZXMgb2JzZXJ2ZWQgd2hlbiBydW5u
-aW5nDQo+PiBzaW1wbGVwZXJmIHdpdGggcHJlZW1wdGlycSB0cmFjZXBvaW50cyBhbmQgZHdhcmYg
-Y2FsbGNoYWlucyB3aGlsZSBhDQo+PiBrcHJvYmUgaXMgYWN0aXZlIG9uIGEgZnJlcXVlbnRseSBl
-eGVjdXRlZCBrZXJuZWwgZnVuY3Rpb24uDQo+Pg0KPj4gVGhlIGNyYXNoIGhhcHBlbnMgaW4gdGhl
-IGtwcm9iZSBkZWJ1ZyBleGNlcHRpb24gcGF0aC4gV2hpbGUgYSBrcHJvYmUgaXMNCj4+IHByZXBh
-cmluZyBvciBleGVjdXRpbmcgaXRzIFhPTCBzaW5nbGUtc3RlcCBpbnN0cnVjdGlvbiwgcGVyZi90
-cmFjZSBjb2RlDQo+PiBjYW4gcnVuIGluIHRoZSBzYW1lIHdpbmRvdy4gVGhhdCBjb2RlIG1heSBl
-aXRoZXIgdGFrZSBhIGZhdWx0IG9mIGl0cyBvd24NCj4+IG9yIGhpdCBhbm90aGVyIGtwcm9iZS4N
-Cj4+DQo+PiBQYXRjaCAxIG1ha2VzIGtwcm9iZV9mYXVsdF9oYW5kbGVyKCkgaGFuZGxlIGEgZmF1
-bHQgaW4NCj4+IEtQUk9CRV9ISVRfU1MvS1BST0JFX1JFRU5URVIgb25seSB3aGVuIHRoZSBmYXVs
-dGluZyBQQyBwb2ludHMgYXQgdGhlDQo+PiBjdXJyZW50IGtwcm9iZSdzIFhPTCBpbnN0cnVjdGlv
-bi4gT3RoZXJ3aXNlIHRoZSBmYXVsdCBpcyBsZWZ0IHRvIHRoZQ0KPj4gbm9ybWFsIGZhdWx0IGhh
-bmRsaW5nIHBhdGguDQo+Pg0KPj4gUGF0Y2ggMiBhbGxvd3MgYSBrcHJvYmUgaGl0IGluIEtQUk9C
-RV9ISVRfU1MgdG8gYmUgaGFuZGxlZCBhcyBhDQo+PiByZWNvdmVyYWJsZSBvbmUtbGV2ZWwgcmVl
-bnRyeS4gT25seSBhIGhpdCB3aGlsZSBhbHJlYWR5IGluDQo+PiBLUFJPQkVfUkVFTlRFUiByZW1h
-aW5zIHVucmVjb3ZlcmFibGUuDQo+Pg0KPj4gVGhpcyBmb2xsb3dzIHRoZSBzYW1lIGxvZ2ljIGFz
-IHRoZSBleGlzdGluZyB4ODYgZml4ZXM6DQo+PiAgICA2MzgxYzI0Y2Q2ZDUgKCJrcHJvYmVzL3g4
-NjogRml4IHBhZ2UtZmF1bHQgaGFuZGxpbmcgbG9naWMiKQ0KPj4gICAgNmE1MDIyYTU2YWMzICgi
-a3Byb2Jlcy94ODY6IEFsbG93IHRvIGhhbmRsZSByZWVudGVyZWQga3Byb2JlIG9uIHNpbmdsZS1z
-dGVwcGluZyIpDQo+IA0KPiBHb29kIGNhdGNoISENCj4gVGhlIHNlcmllcyBsb29rcyBnb29kIHRv
-IG1lLg0KPiANCj4gQWNrZWQtYnk6IE1hc2FtaSBIaXJhbWF0c3UgKEdvb2dsZSkgPG1oaXJhbWF0
-QGtlcm5lbC5vcmc+DQo+IA0KPiBCdXQgaXQgc2hvdWxkIGJlIHJldmlld2VkIGJ5IGFybTY0IG1h
-aW50YWluZXJzIHRvby4NCj4gDQo+IEJUVywgaWYgeW91IGFyZSAiUHUgSHUiLCB0aGUgU2lnbmVk
-LW9mZi1ieSB0YWcgc2hvdWxkIGJlDQo+ICJQdSBIdSA8Li4uPiIgaW5zdGVhZCBvZiAiaHVwdSA8
-Li4uPiIuDQo+IA0KDQpIaSBNYXNhbWksDQoNClRoYW5rIHlvdSBmb3IgeW91ciByZXBseSBhbmQg
-QWNrZWQtYnkuDQoNClllcywgdGhhbmtzIGZvciBwb2ludGluZyB0aGlzIG91dC4gSSB3aWxsIGZp
-eCB0aGUgYXV0aG9yIG5hbWUgYW5kIHRoZQ0KU2lnbmVkLW9mZi1ieSB0YWdzIHRvIHVzZSBhIGNv
-bnNpc3RlbnQgbmFtZSBpbiB0aGUgbmV4dCB2ZXJzaW9uIG9mIHRoZQ0KcGF0Y2hzZXQuDQoNClRo
-YW5rcywNCmh1cHUNCg0K
+On Sun, Jun 28, 2026 at 08:33:01PM +1000, Gavin Shan wrote:
+> On 6/27/26 2:44 AM, Lorenzo Pieralisi wrote:
+> > On Fri, Jun 26, 2026 at 09:43:03PM +1000, Gavin Shan wrote:
+> > > On 6/26/26 6:47 PM, Suzuki K Poulose wrote:
+> > > > On 26/06/2026 08:43, Gavin Shan wrote:
+> > > > > On 6/26/26 1:58 AM, Suzuki K Poulose wrote:
+> > > > > > On 25/06/2026 14:53, Gavin Shan wrote:
+> > > > > > > On 6/6/26 12:35 AM, Lorenzo Pieralisi wrote:
+> > > > > > > > On Fri, Jun 05, 2026 at 06:11:11PM +1000, Gavin Shan wrote:
+> > > > > > > > > On 6/5/26 5:28 PM, Lorenzo Pieralisi wrote:
+> > > > > > > > > > On Fri, Jun 05, 2026 at 04:23:15PM +1000, Gavin Shan wrote:
+> > > > > 
+> > > > > [...]
+> > > > > 
+> > > > > > > > > 
+> > > > > > > > > I tried to rebase Jean's latest QEMU series [1] to upstream QEMU, and found
+> > > > > > > > > that memory slots backed by THP are broken. With THP disabled on the host and
+> > > > > > > > > other fixes (mentioned in my prevous replies) applied on the top of this (v14)
+> > > > > > > > > series, I'm able to boot a realm guest with rebased QEMU series [2], plus more
+> > > > > > > > > fxies on the top.
+> > > > > > > > > 
+> > > > > > > > > [1] https://git.codelinaro.org/linaro/dcap/qemu.git  (branch: cca/ latest)
+> > > > > > > > > [2] https://git.qemu.org/git/qemu.git                (branch: cca/ gavin)
+> > > > > > > > > 
+> > > > > > > > > Lorenzo, You may be saying there is someone making QEMU to support ARM/CCA?
+> > > > > > > > 
+> > > > > > > > Mathieu and I are working on that yes and with Steven/Suzuki to fix the THP
+> > > > > > > > issues you pointed out above.
+> > > > > > > > 
+> > > > > > > > > If so, I'm not sure if there is a QEMU repository for me to try?
+> > > > > > > > 
+> > > > > > > > We should be able to submit patches by end of June - we shall let you know
+> > > > > > > > whether we can make something available earlier.
+> > > > > > > > 
+> > > > > > > 
+> > > > > > > Not sure if there are other known issues in this series. It seems the stage2
+> > > > > > > page fault handling on the shared space isn't working well. In my test, the
+> > > > > > > vring (struct vring_desc) of virtio-net-pci is updated by the guest, and the
+> > > > > > > data isn't seen by QEMU, I'm suspecting if the host-page-frame-number is properly
+> > > > > > > resolved in the s2 page fault handler for shared (unprotected) space.
+> > > > > > > 
+> > > > > > > - I rebased Jean's latest qemu branch to the upstream qemu;
+> > > > > > > 
+> > > > > > > - On the host, which is emulated by qemu/tcg, the THP (transparent huge page) is
+> > > > > > >     disabled.
+> > > > > > > 
+> > > > > > > - On the guest, I can see the virtio vring (struct vring_desc) is updated. The
+> > > > > > >     S1 page-table entry looks correct because the corresponding physical address
+> > > > > > >     0x10046880000 is a sane shared (unprotected) space address.
+> > > > > > > 
+> > > > > > >     [   52.094143] software IO TLB: Memory encryption is active and system is using DMA bounce buffers
+> > > > > > >     [   52.289746] virtqueue_add_desc_split: desc[0]@0xffff000006880000, [00000100b983f000  00000640  0002  0001]
+> > > > > > >     [   52.432150] PTE 0x00e8010046880707 at address 0xffff000006880000
+> > > > > > > 
+> > > > > > > - On the host, the s2 page-table-entry is unmapped due to attribute transition (private -> shared).
+> > > > > > >     A subsequent S2 page fault is raised against the adress and the s2 page-table-entry is built.
+> > > > > > > 
+> > > > > > >     [  109.259077] ====> realm_unmap_shared_range: tracked_unprot_addr=0x10046880000
+> > > > > > >     [  109.260249] realm_unmap_shared_range: unmapped shared range at 0x10046880000
+> > > > > > >     [  109.317786] realm_unmap_shared_range: unmapped shared range at 0x10046880000
+> > > > > > >     [  109.629939] ====> kvm_handle_guest_abort: fault_ipa=0x10046880000, esr=0x92000007
+> > > > > > >     [  109.630245] realm_map_non_secure: ipa=0x10046880000, pfn=0xb8b59, size=0x1000, prot=0xf
+> > > > > > >     [  109.630331] realm_map_non_secure: ipa=0x10046880000, ipa_top=0x10046881000, flags=0x1e0001, range_desc=0xb8b59004
+> > > > > > 
+> > > > > > Are you able to correlate the order of the transitions and the Guest
+> > > > > > access with RMM log ? We haven't seen this from our end. We are aware
+> > > > > > of permission fault issues with Unprotected IPA when backing the memslot
+> > > > > > with MAP_PRIVATE areas. But this looks different.
+> > > > > > 
+> > > > > > Lorenzo, have you run into this ?
+> > > > > > 
+> > > > > 
+> > > > > It's hard to correlate the order since the logs are collected from two separate
+> > > > > consoles. For the write permission, I add code to the host where the permission
+> > > > > is always added for all s2 page faults in the shared space. Otherwise, qemu can
+> > > > > be killed by -EFAULT or similar error.
+> > > > 
+> > > > This is the problem. We can't add WRITE permission by default. I believe
+> > > > you may have MAP_PRIVATE mapping and it has to be mapped as READ only
+> > > > and on a permission fault, we replace it with a writable page. By
+> > > > overriding the WRITE permission, you let the guest write to a page
+> > > > that may not be seen by the VMM.
+> > > > 
+> > > > We identified this as a bug in the KVM driver in this series (reported
+> > > > by Lorenzo) and there is a corresponding tf-RMM change that is required
+> > > > to get this working. So, please could you wait until the next series
+> > > > when this will be addressed ? Or you could switch to using MAP_SHARED
+> > > > for the "shared" memory in the memslot.
+> > > > 
+> > > 
+> > > Exactly. the syntax for MAP_PRIVATE is broken if the write permission is
+> > > enforced for a read fault in the shared space. In my case, the host page can
+> > > be the zero page and eventually multiple s2 page-table entries (for multiple
+> > > unprotected or shared pages) point to the zero page. It's why clearing the
+> > > 3rd queue (Ctrl queue) also clears the first queue (Rx queue) in my case.
+> > > 
+> > > Yes, this issue can be avoid by using a shared memory backend in qemu, something
+> > > like below. With this, I'm able to see virtio-net-pci starts to work...
+> > > 
+> > >      -object memory-backend-ram,id=mem0,size=2G,share=yes
+> > 
+> > Yes, as Suzuki said that's what we have been fixing. QEmu patches
+> > will be on the mailing lists very shortly - the KVM/tf-RMM fixes
+> > to make MAP_PRIVATE work will be included in the next posting.
+> > 
+> > Feel free to drop your QEmu command line so that I can give it
+> > a shot and check whether the fixes solve the problem you hit
+> > (I think so because that's precisely the kind of issue I got
+> > into when I started debugging THP/MAP_PRIVATE but it is better
+> > to check).
+> > 
+> 
+> The virtio-net-pci doesn't work with the following command lines. The guest
+> kernel image is built from upstream kernel (v7.1.rc7).
+> 
+>     qemu-system-aarch64 -enable-kvm -object rme-guest,id=rme0,             \
+>     -machine virt,gic-version=3,confidential-guest-support=rme0            \
+>     -cpu host,pmu=off                                                      \
+>     -smp maxcpus=2,cpus=2,sockets=1,clusters=1,cores=1,threads=2           \
+>     -m 2G -object memory-backend-ram,id=mem0,size=2G                       \
+>     -numa node,nodeid=0,cpus=0-1,memdev=mem0                               \
+>     -serial mon:stdio -monitor none -nographic -nodefaults                 \
+>     -kernel /mnt/linux/arch/arm64/boot/Image                               \
+>     -initrd /mnt/buildroot/output/images/rootfs.cpio.xz                    \
+>     -append earlycon=pl011,mmio,0x10009000000                              \
+>     -device pcie-root-port,bus=pcie.0,chassis=1,id=pcie.1                  \
+>     -device pcie-root-port,bus=pcie.0,chassis=2,id=pcie.2                  \
+>     -device pcie-root-port,bus=pcie.0,chassis=3,id=pcie.3                  \
+>     -device pcie-root-port,bus=pcie.0,chassis=4,id=pcie.4                  \
+>     -netdev tap,id=tap1,vhost=on,script=/etc/qemu-ifup,downscript=/etc/qemu-ifdown  \
+>     -device virtio-net-pci,bus=pcie.2,netdev=tap1,mac=b8:3f:d2:1d:3e:c0
+
+Tested with private RAM backend, THP left enabled (and additional KVM and
+RMM patches that will be included in v15) looks like the net interface
+comes up cleanly.
+
+Probably it is best to sync up on the upcoming v15 posting that I am
+testing in the background to make sure you don't spend more time chasing
+it.
+
+Thanks,
+Lorenzo
+
+> 
+> The virtio-net-pci starts to work with the shareable memory-backend.
+> 
+>     -object memory-backend-ram,id=mem0,size=2G,share=yes
+> 
+> Note that THP is disabled on my host.
+> 
+>     root@host:~# cat /sys/kernel/mm/transparent_hugepage/enabled
+>     always madvise [never]
 
