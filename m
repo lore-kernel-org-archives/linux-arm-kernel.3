@@ -4,88 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E5FC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C336CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=; b=qB+NFaoS1MsQHpGHgLUzr7qdtt
-	gCkZQw+EFDCYGn5W9EuplRBj5x7n8aenO5dM8RpQv2sW54YmgjKJ7T/9Pdgr7EPZK0pdZIAQrlwz1
-	T6cqh4sICpcepsJwIokj+IMEyEVqCmlYn2AQxAAQcL7kEkp7flC9BhAcxvMqCXkmj58JSLEdrHbU1
-	0aB2AbZyOxaNfKK/hS90KZzNBNGc6YJNDYYwWAgpBAL+TUKU8NQlpbJr0rutiG8B7r66tfygxwToC
-	i3Hsk0i6F3/PkDihiWobf3x0H69CJ1LlC0UbYfWY+3l3icqgOsn5rFTuoh2XjdvZYFN6eIhI4fP8M
-	cPJsE4JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3dujbRhMeiNyK8kLqgQiL31zEQA6WQpfWd+jTQhC83E=; b=aaVNY9elSAfhNJQ/k7JmZX6rPW
+	wMxNsce7qx+QUWAYKxFHudNzj7N/XsKvPq5qIwdH6CJXDTUkj7740rCXkTbseM17fxY9Dhx7bI2Mf
+	/atDArygB3Gc/0rfWtxJTJVB7TUnNsQYZHNIpttuw+r9OiMje1ITzOHphlcDmwYwcKAzityUI3gEP
+	C/rDQRyUV7QQZ4c+qeL8+rZuu0ICPZy+dxbS3cujgdpFl6lUKNWhrvFMopPJ6jG7Bod0mOHOxU8oY
+	JyIo81X0X1g1ShBl42GTGEQksMxZ9jelDlmkYFHKdEJ8WL9ORpkJr5hGyqWnD5AZ4/vaQMbPmx0ub
+	IJ4nqs2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexdB-00000002Vye-44MR;
-	Wed, 01 Jul 2026 16:17:45 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1weuFV-000000021UB-1KWO;
+	Wed, 01 Jul 2026 12:41:05 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wexd9-00000002Vx6-0E6q;
-	Wed, 01 Jul 2026 16:17:44 +0000
-Date: Wed, 1 Jul 2026 18:17:36 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782922658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
-	b=EsVOyL/O4PkbWArMdz+v6gZguCvGG9j7x/3IOQgfmssmAyzbqbf3Dwnmp6iiWjIQLh8IAK
-	JRAGYLysl4sguhM8CiL52IwItjrsA45kJA1HxJerrdKce1yFKscd6hUfBDk8kRLLBMASP9
-	HAaDRaeyfaUrcTEpWpEuetEq4glZT0vuVbB1uLjbuxzlPtCFN1uTxxJMQUwfqVd4rBfF4R
-	wCJsPf0rmhs1B6MbHjJUE4G4tH6Wt9Gtq6+Gm8frjT4c8E48ygPJmbA5oLD59dsCa1kUWd
-	30TWjA4Jl5hk3kMLudqnPwPZBzaW22VoMTwcgpgNZPMUp1ROWvJNyZ1aXCKRQQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782922658;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=L2lRSuF/an/7YC+KLWyfsyxeZeo/jAhgGQaxohFrdhc=;
-	b=qFYc53saNm3tZyv7Mrg+WEORV4WZSIwyhGD1WLYh9NkQnExpQvcYwwIZIB8tgYMjlnnAMr
-	VNvK+45twjg6TcDQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: K Prateek Nayak <kprateek.nayak@amd.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?utf-8?B?QW5kcsOp?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: [PATCH] futex: Optimise the size check get_futex_key()
-Message-ID: <20260701161736.xYYizA0e@linutronix.de>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
- <20260701075714.GP48970@noisy.programming.kicks-ass.net>
- <20260701084150.GNOeboLw@linutronix.de>
- <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
+	id 1weuFQ-000000021ME-03z4
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 12:41:01 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-472326ca506so456244f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 05:40:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782909658; x=1783514458; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=3dujbRhMeiNyK8kLqgQiL31zEQA6WQpfWd+jTQhC83E=;
+        b=eKRL6gbarPKfAM3EYm097h88C5bgngI3sw6Qsw6/Dihp5y0k1P3CnyfSMZ2fxXdTB2
+         cVt53iYZjFVDYljUGL+cVwpSTODDv3Rlu7R2mD9NF449EtDyO/kgo9R2+IZbpG5Cet/S
+         MWKUXBT5zRY3zxZ4l0StFwTESjFGD0IWq4L1izbH8ChdElnHiXOwdcgkTBhhhmliKP7p
+         mZAE0EEXZRPZsNW47n/M2Yq3CFQRhmMLTDSwa227Xoe9Qug39TNw2d1J6t/B30rmd1OU
+         wpNDnSKpcAwfnzjQXcHvfpAA88TmjD2OzsqSzRguegLDirIBr0xxhdw+0dtJd8gJOvwY
+         nFYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782909658; x=1783514458;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=3dujbRhMeiNyK8kLqgQiL31zEQA6WQpfWd+jTQhC83E=;
+        b=mEqsKlOCwUGz/THJdbJ2jPlOOCeCoEyjPR+c6ywwKfzSYc1DvqCQygoWxxb0wNYey0
+         5BT1qS/k/6htxlhyac/16SkU9NQ3UHFc6TOyA8AvcyNnaN6S3+3rEkZzGW8fpGsCJyaf
+         I4c0WayyD0jNRw5eAp6iFXIZ9VWpZY2bSrqTz0JNAjU89sXKCYDD634aCs/WQn1ZFoHN
+         AqgzJlYfrfT1wWF7DYIdpn43/NJwGEFw4JY+Csn4C0HLbpremA+MB2b4Z2pQ7GWsVvGx
+         FRS9OqD28zBk6BoJkCXhZdJTy3jWvBnvUEE/aSes3vGFLpcMlQzsaHJsK9lljwUW2JT8
+         thjA==
+X-Forwarded-Encrypted: i=1; AHgh+RoMmlwddPti2xZv36efl+gBlCe3b/W0KcKIaiSE/fyoifXIe/sRFe34T2WD/Tl1YygvIlcIAZjm+pzmBncyBeQq@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0tdQFVNQV1EsA7D2sG0nyU4C3I7llrqicOLxLLKNOq7D38nRg
+	sJ1Wo/M6k15nnkM40V6VuuhNyZWgR9s/gBRYKc8U/8e8irwlRxW9QikYpFKHWtVFBXs=
+X-Gm-Gg: AfdE7clWMpX2HO+z9IGnabrTqd/sCCe0KkKkOv5lXJXIZyE3QbKhH2M/SNddqPrM/zc
+	jgHoGRtDPh4x5fiu6NHxjL2dwc1rdFPyBq0ua7txe7rebz/kmyydeasPm1ZLALfGXLzJ/UmQq/k
+	Bnza2u2S457Wt2B9bm9g396HoQT/BVwyW/6uKBlCe8WujnJnYZHR0wgUdeeXhqeIclYHPdPqDPy
+	jDZxhKjJtJA8+B8ObMDVNYvwxmSWbftptG1ktd/dC7YZrn7bxC3br3fXeN4JcpacSKIjmsel3FW
+	TxshVTK//ewrcLIdXHzCk0jF2TKCzZv9m+3WeJp9VtDydANNKWbqAyf3fCIFMd6D/f8N1u5qVMY
+	+eUDJCIA2D0o9phiG9O200HSM3R5L0pkTidRiph87po8UMtJelE4I+HbU21CTTWZSBEJDVHDIOm
+	Ae3fHWYH3xiA==
+X-Received: by 2002:a05:6000:4687:b0:475:e015:c2a with SMTP id ffacd0b85a97d-47757e57e6cmr1834835f8f.8.1782909658387;
+        Wed, 01 Jul 2026 05:40:58 -0700 (PDT)
+Received: from localhost ([2001:4090:a246:8638:a73d:f626:6582:90ca])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-476792758aasm9625791f8f.11.2026.07.01.05.40.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 05:40:57 -0700 (PDT)
+From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+Date: Wed, 01 Jul 2026 14:39:20 +0200
+Subject: [PATCH v7 08/11] arm64: dts: ti: k3-am62p-ti-ipc-firmware: Move
+ wkup reserved memory
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-topic-am62a-ioddr-dt-v6-19-v7-8-e9db8b16821a@baylibre.com>
+References: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
+In-Reply-To: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, 
+ Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, 
+ Beleswar Padhi <b-padhi@ti.com>, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
+ Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
+ "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3910; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=4xo0fn2TK5jkPi/2917g98xkU+Bs/Sy82TdJFYV28F0=;
+ b=owGbwMvMwCXWejAsc4KoVzDjabUkhixXrvXqwpH7ehcf/qivasnx8O7DphXLF7euW8/L+7Tq9
+ IJNKXzJHaUsDGJcDLJiiiydiaFp/+V3HktetGwzzBxWJpAhDFycAjCRjUsYGabrp578P2cm0+Kk
+ rTavo7Zv2T7v6jTzEzNCXfQS+9yMtj5iZPg/83jIeqZdjI/fZMyYxbfyfs375+tPL+AOUltovXn
+ qik4OAA==
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_091743_237853_3CED55AB 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20260701_054100_111479_11CBAE4A 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,47 +124,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The futex address must be naturally aligned and this is checked via
-"address % size" where `address' is the supplied address and `size' is
-the expected size of futex. It is guaranteed that `size' is power of two
-but the compiler does not see it and creates here a `div' operation
-(x86, arm, gcc-15).
+Move the reserved memory regions used for wkup_r5fss0_core0 to the
+k3-am62p-ti-ipc-firmware.dtsi. These are all the same for the other
+boards as well, so we can combine them here similar to what is already
+done for the mcu_r5fss0_core0 memory regions.
 
-We can take advantage of the pow2 property and rewrite it as
-"address & (size-1)".
-
-As per testing, the command
-|perf bench futex hash -f 1 -b 16384 -t 1 -r 30
-
-improved from
-| [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
-to
-| [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
-
-or by 5.3%
-
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
+ arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi | 12 ++++++++++++
+ arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi          | 12 ------------
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts              | 12 ------------
+ arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi        | 12 ------------
+ 4 files changed, 12 insertions(+), 36 deletions(-)
 
-Could someone verify this, please? The 5% look a bit high. This is on
-top of the series (but not worsen by the series).
-
- kernel/futex/core.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/kernel/futex/core.c b/kernel/futex/core.c
-index 179b26e9c9341..2b00ab510e7d2 100644
---- a/kernel/futex/core.c
-+++ b/kernel/futex/core.c
-@@ -520,7 +520,7 @@ int get_futex_key(u32 __user *uaddr, unsigned int flags, union futex_key *key,
- 	 * The futex address must be "naturally" aligned.
- 	 */
- 	key->both.offset = address % PAGE_SIZE;
--	if (unlikely((address % size) != 0))
-+	if (unlikely((address & (size-1)) != 0))
- 		return -EINVAL;
- 	address -= key->both.offset;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+index 5d7f701420e2d8308b637f3064c560e485ed85f2..f77651109564224408723b72baba93e39a82be07 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-ti-ipc-firmware.dtsi
+@@ -17,6 +17,18 @@ mcu_r5fss0_core0_memory_region: memory@9b900000 {
+ 		reg = <0x00 0x9b900000 0x00 0xf00000>;
+ 		no-map;
+ 	};
++
++	wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
++		compatible = "shared-dma-pool";
++		reg = <0x00 0x9c800000 0x00 0x100000>;
++		no-map;
++	};
++
++	wkup_r5fss0_core0_memory_region: memory@9c900000 {
++		compatible = "shared-dma-pool";
++		reg = <0x00 0x9c900000 0x00 0x01d08000>;
++		no-map;
++	};
+ };
  
+ &mailbox0_cluster0 {
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+index 8a5ff5c457579c7b1be7157d235fd4b4e5c6af11..49c78b6b8b2b43fe381c761823bbd93725f331aa 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
+@@ -161,18 +161,6 @@ secure_ddr: optee@9e800000 {
+ 			reg = <0x00 0x9e800000 0x00 0x01800000>; /* for OP-TEE */
+ 			no-map;
+ 		};
+-
+-		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c800000 0x00 0x100000>;
+-			no-map;
+-		};
+-
+-		wkup_r5fss0_core0_memory_region: memory@9c900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x01d08000>;
+-			no-map;
+-		};
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+index 16549fd7340a556798cf5a242746c219d3168d83..6444aa0c106197eb44088ec99d7c7dba7f8f854d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-sk.dts
+@@ -49,18 +49,6 @@ reserved_memory: reserved-memory {
+ 		#size-cells = <2>;
+ 		ranges;
+ 
+-		wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c800000 0x00 0x100000>;
+-			no-map;
+-		};
+-
+-		wkup_r5fss0_core0_memory_region: memory@9c900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x01d08000>;
+-			no-map;
+-		};
+-
+ 		secure_tfa_ddr: tfa@9e780000 {
+ 			reg = <0x00 0x9e780000 0x00 0x80000>;
+ 			no-map;
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+index 1408c970f1942e8a720c9cf071b2f49eafa9db5e..76295e47eca9d6373a89430355330c9a4ac9be32 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+@@ -63,18 +63,6 @@ rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
+ 			no-map;
+ 		};
+ 
+-		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c800000 0x00 0x00100000>;
+-			no-map;
+-		};
+-
+-		wkup_r5fss0_core0_memory_region: r5f-memory@9c900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0x01d08000>;
+-			no-map;
+-		};
+-
+ 		secure_tfa_ddr: tfa@9e780000 {
+ 			reg = <0x00 0x9e780000 0x00 0x80000>;
+ 			no-map;
+
 -- 
 2.53.0
 
