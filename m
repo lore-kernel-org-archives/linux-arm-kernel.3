@@ -4,62 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E309C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 22:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14DBC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 22:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmf0yIErl+HxkobvYAzz7ozHbW2IIVmNhGXMLcFGe94=; b=x8z4BE+Mwl8li2BFGJ09TyItL5
-	vzgzuJnCN38fPXk6L9YsNgE+NG+7+eFOMzRhw7oXFUmcaDYM65XnVEj5dZR4KSafaSkyR7sxxgMQz
-	USsyMu9ys9TIXsAkK3O0lWvwKOQtzgZAVJAgv/kQwVegjYUHmzSJEXPtWpqdPcGgUMA/wViivbdlD
-	aaUrsQx3kkTCqHUPOKGywqQfunruUWgnMQB4ki4mHtjNpY4zF7u4/rMe+efmDvYvsZZmLCi5/1uMl
-	nIsYutGDr7z3zyTdVeDXECj6r3ug86j10/+nWj6cLd11JCNxbzpy39JaXgtPAUisa/uEtcrZtOq3A
-	coeuPnwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=; b=3/cUOE78KtlVMfVs+ut3bcXKdR
+	w0l7zgtIrGabqB2MQKQ+dJJUQmOirBWI9XzpFZGPfGA8dAKsD1qiG6RVUeGC4/0BIUd6CK9yii+ql
+	HI1p3nOtxMFyJyjXOrrK8gQDngf8Ki7Bo9juyrj/vHkquzHsXsWfHAhnRk9v4Xtasr6o35XpOfu4S
+	VQ95AFxQCjk36PplkW4q0Dll0Pie9BnbZhoVORFK3L8dB9WTD/zMKPiTzjYnv257ueLeA4CiIVS29
+	U2QNMjabk1k5825cVevM9ZszYJ4BcGbGHhQjhzX9K4FK8Gz9PGQMfeXoB4fmFdViPxucpRcLO0AXg
+	wPMPHb0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf3eX-000000037KZ-3ygr;
-	Wed, 01 Jul 2026 22:43:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wf3jV-000000037Zk-37Oi;
+	Wed, 01 Jul 2026 22:48:41 +0000
+Received: from mail-qv2-x01.google.com ([2607:f8b0:4864:33::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf3eW-000000037KM-3Jjx;
-	Wed, 01 Jul 2026 22:43:32 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3CB0143485;
-	Wed,  1 Jul 2026 22:43:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 916711F000E9;
-	Wed,  1 Jul 2026 22:43:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782945812;
-	bh=wmf0yIErl+HxkobvYAzz7ozHbW2IIVmNhGXMLcFGe94=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S6eGCbfuLq7coiGwPOBQ+CoM9l4p0roRt3RBFZsFi5yWHPyH7XIBstSio2/ezP/Dg
-	 xatrM1i1Pt8E2FIKnnpzmS1Cz61vVqyTV946KGDKf7KXucgTOzcXW0Ny2+b1i7wWTm
-	 yJxHG/12eRqWCWX0jUtsfmrDS5GxhZJPNoYrwL0bDdYR506pFmUSRZAUhiCM7k9n1L
-	 iqGAyAAF0VGq8s44xDS06NIr+ezeXifRE7VDF9lcoV57hHjRr2jeYFphIry6bsXlc+
-	 BOlwxHWOGOTDr0IuSHdD8P5svvWkq5Eh24/9RCsNx1xezychxYsBBnVWOxZVM9mIiU
-	 CCn/+8jhsDAAQ==
-Date: Thu, 2 Jul 2026 00:43:29 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Aniket Negi <aniket.negi03@gmail.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: airoha: fix MIB stats collection to be
- lossless
-Message-ID: <akWYEf5wusTq9_ol@lore-desk>
-References: <20260630111834.233643-1-aniket.negi03@gmail.com>
- <20260701173941.314795-1-aniket.negi03@gmail.com>
+	id 1wf3jS-000000037ZG-1sSK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 22:48:39 +0000
+Received: by mail-qv2-x01.google.com with SMTP id 6a1803df08f44-8ef118ead8eso6705326d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 15:48:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782946117; cv=none;
+        d=google.com; s=arc-20260327;
+        b=RwGuHxQMinVI1p8qA1PY5+IbfFUoVZzVAAUrgt34Xm/bgewSAoKtX8GWvjMo3/LeFT
+         BHev5b2+eG23tV+a6TCsAI3lzFodOVtk1XuUgewQwXQokrmItfLtqe749XQSd1hv9n5u
+         W6pborOLtlv7z2j1irXRHVptZCP2mmgK09ULkGjqa6sKzc6K2w0CmHBkvOYNSG0qXd9Q
+         BN5Mn/XDSLYPChJ2Se+/jG7waUTEs9axA87rNLEcoTT/f1ifUS9ZToGsI6toVUvj4jr3
+         eIJ+UJhmJelgb/+z/9qmajw7YgOPWh5duRowNIBnN07lkX99LN3sllXFpaNSYhAU4hHG
+         R6yw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=;
+        fh=1HEoYVEKA3/4GwbvrYTnPadyX3tWB4S4oJHb1j/Y6ig=;
+        b=oC8f74BCEIskufuSCZLI+kMiNHLi2ahaVrU77wZrz2E6nB1zTXavds84Qq7GK2+N8O
+         i0OeR9x+LTA9vqOWgb35mKdyZZUat/XoP2Lhp3A7xSfa11emxMZy5sAyx/aWybTdiY1a
+         5gcCpeDd59JYlolb08PA1yuXugQVn+SAdfEdGePHKf/A3e7TzzuR4uhUw25k7F+hS89N
+         EiOfTcZPSKzPXhbG33aSQ1wNr49SdViSBhoEIWlyRqLzbgIalxtP+9x78MZFkLqVZCua
+         k80tuw5feMVRl+esTvKYWTnFj5Y51ksSalR+87Gf12pXutUBNso5m1T7TSlLeBcednhg
+         +oyQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782946117; x=1783550917; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=;
+        b=jEwo30ctFxgSxvOEx6RkkOCo7ZjFiuP2rwlUeRWozjkl45Ia2ArFUgax3YBFVDMIWo
+         ktXR0JOhzI95wPJnSjRqTi3tV+t63YcRB8vxiUTbQ6aex/VnBYKzs/nkXNLDr9Wse7m5
+         JjmC2Cu0/mOd+X/Bj7iB6H5DQ6h7Gj4JSsn5VnAJbjm9TNP1VfAWqXJnccYCCK4E84Ag
+         2akCHye2CP6VZKKd8JznIhONPUMEewGXVO3GVM1naWcmPOUInl8JOh4PYAevl1k312YP
+         NTrTZUTUF9C0EF91iIOLUZ+21gjVNjIBOmbagseBkpOpVHd6unc8ttLKwc9b6R95wBqX
+         xL3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782946117; x=1783550917;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=AYFlxrwBFYPoq90kn+JK7G1o1/XM41yRTcPx7DGMUZM=;
+        b=H2u6fsyMgDKtFiY+xZWSDnn+Ym6H2uU2fDZJASf7X5rntJrfCpmhs49sliy+llyzlo
+         bZQ2YDkaDw5eIhQ8a1NGkJ+pIcU4V1TWEYalnQfd2WDGaQ/WM+m39jsPZIS8Rn43I2mu
+         CmvO6NTgLEe6n/iBGKff/zX43CalyvelTZqYBvRVMoE/oMw9MaVGiTgYpZzWT2hYncTD
+         0NR+GSl926irB3R1a/fd3wLt+qC4p7zYP1t53Z9mbcunw09f7sfQtM6ypLl3jDsx318t
+         p5eg7xmaMxM6x5cFeeIZIlKIgp5V1hid6r8Gz/N7fkXWq1HHSSrPl2iREWEN9czrXCf4
+         SqTg==
+X-Gm-Message-State: AOJu0Yy6YHVeweuRBI3hTqjcK3MjqFBW4GySI3DdFVPDKeZk24IeOSHr
+	sXeOuKlRUUaUMAaZchI4AGjQ1yd7d9zLbw2dtqC492cgMaMCvzWJE8ed5kVZopEMqFE5SywoP6S
+	xcZO1DnSbAG0HF7GKxKqGdpcLrNxJZ2U=
+X-Gm-Gg: AfdE7cl2pFEARtImkuWiM6SmJQiwkGxJ7Vs0D4kBssBmKxxKSbxvdnnicc7F6nst7kM
+	L4WD2FGj1tIoRC8aa9ZRxBhX+rIkNMS9hxBW+wY1pniJUkBz23BSfjPadq0p5TwrQTsErmSV+Qw
+	uktKxhdWPZ8ygvIpH3T7sUsFc7NS87+c8VL31nNTjX95zsbHKdSR9CD1dqwDshZhjvuTddglJ8c
+	ngj9rKyssa1Ggy+x67M6mQrAB/d+3Y2zgNkGFEf6SU2vXgH956liiCND0S9cKUKRgLaMtSQKOtA
+	eAJnV1LD1Eqx7lJ23m6qi4t7eUgULPjaySLtgb8WinMWNHZEqrUIs+lgRw==
+X-Received: by 2002:a05:6214:3d0f:b0:8dd:d13a:8c84 with SMTP id
+ 6a1803df08f44-8f4214a1f72mr39935196d6.8.1782946117029; Wed, 01 Jul 2026
+ 15:48:37 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="GwVceFzz02rhH5Cx"
-Content-Disposition: inline
-In-Reply-To: <20260701173941.314795-1-aniket.negi03@gmail.com>
+References: <20260701212353.2196041-1-arnd@kernel.org> <20260701212353.2196041-12-arnd@kernel.org>
+In-Reply-To: <20260701212353.2196041-12-arnd@kernel.org>
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Date: Wed, 1 Jul 2026 15:48:26 -0700
+X-Gm-Features: AVVi8Cepw8-jeERBXP5uzrp7v2GBj31ta-VoNMboVTSNdDufrAM_yNfN295JHb0
+Message-ID: <CADkSEUgm4Bse0x0K355iuLVJJM-mgeZAxg4xywgH1nYxnU-d4A@mail.gmail.com>
+Subject: Re: [PATCH v2 11/19] ARM: mark ARCH_DOVE as deprecated
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Ard Biesheuvel <ardb@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Daniel Mack <daniel@zonque.org>, Frank Li <Frank.Li@nxp.com>, 
+	Gregory Clement <gregory.clement@bootlin.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>, Kristoffer Ericson <kristoffer.ericson@gmail.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Ralph Siemsen <ralph.siemsen@linaro.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Russell King <linux@armlinux.org.uk>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stefan Agner <stefan@agner.ch>, 
+	Stefan Wiehler <stefan.wiehler@nokia.com>, Tony Lindgren <tony@atomide.com>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Will Deacon <will@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_154838_551933_4F63F351 
+X-CRM114-Status: GOOD (  24.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,406 +131,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---GwVceFzz02rhH5Cx
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-> The current driver resets hardware MIB counters after every read via
-> REG_FE_GDM_MIB_CLEAR. This creates a race window: packets arriving
-> between the read and the clear are silently lost from statistics.
->=20
-> Fix this by removing the MIB clear and switching to a delta-based
-> software tracking approach:
->=20
-> - 64-bit H+L registers (tx/rx ok pkts, ok bytes, E64..L1023):
->   read the absolute hardware total directly each poll.
->=20
-> - 32-bit registers (drops, bc, mc, errors, runt, long, ...):
->   store the previous raw register value in mib_prev and accumulate
->   (u32)(curr - prev) into a 64-bit software counter. Unsigned
->   subtraction handles wrap-around transparently.
->=20
-> - tx_len[0]/rx_len[0] ({0,64} RMON bucket) combines RUNT_CNT
->   (32-bit, delta-tracked via mib_prev.tx_runt_cnt) and E64_CNT
->   (64-bit, absolute). A u64 accumulator tx_runt_accum64 holds the
->   running RUNT delta sum so that each poll sets:
->     tx_len[0] =3D tx_runt_accum64 + E64_abs
->   without double-counting the E64 value.
->=20
-> Merge airoha_dev_get_hw_stats() into airoha_update_hw_stats(),
-> moving the port spin_lock inside so callers do not need a separate
-> wrapper.
->=20
-> Signed-off-by: Aniket Negi <aniket.negi03@gmail.com>
-
-Hi Aniket,
-
-just few nits inline. Fixing them:
-
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-
+On Wed, Jul 1, 2026 at 2:25=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
+e:
+>
+> From: Arnd Bergmann <arnd@arndb.de>
+>
+> The Marvell Armada 510 (Dove) platform is supported both as devicetree
+> and atags/boardfile variants, with varying degrees of hardware support.
+>
+> Russell was the last known user of the board file version, and there
+> are very few users overall. Unless Russell still needs this variant,
+> let's remove after the next LTS kernel, leaving the CONFIG_MACH_DOVE
+> variant with devicetree.
+>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 > ---
->=20
-> Changes in v2:
->   - Store _CNT_L register reads in val before adding to stats, improving
->     readability (suggested by Lorenzo Bianconi)
->   - Fix double-counting bug in the RUNT+E64 combined bucket: previously
->     "+=3D" for E64 re-added the full absolute counter each poll; now a
->     dedicated tx_runt_accum64/rx_runt_accum64 accumulator holds the
->     running RUNT delta, and tx_len[0] is assigned (not accumulated) each
->     poll as runt_accum64 + E64_abs
->   - Replace 7-element tx_len[]/rx_len[] shadow arrays in mib_prev with
->     focused tx_runt_cnt/tx_long_cnt and rx_runt_cnt/rx_long_cnt fields;
->     only RUNT and LONG are 32-bit and need wrap-around tracking
->   - Rename inner struct hw_prev_stats to mib_prev; rename accumulator
->     fields to tx_runt_accum64/rx_runt_accum64 for clarity
->   - Fix comment alignment in mib_prev struct block
->   - Rename airoha_dev_get_hw_stats() to airoha_update_hw_stats() and
->     move the port spin_lock inside, removing the separate wrapper
->=20
->  drivers/net/ethernet/airoha/airoha_eth.c | 115 +++++++++++++----------
->  drivers/net/ethernet/airoha/airoha_eth.h |  27 ++++++
->  2 files changed, 92 insertions(+), 50 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 59001fd4b6f7..4b7c547de165 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -1686,12 +1686,14 @@ static void airoha_qdma_stop_napi(struct airoha_q=
-dma *qdma)
->  	}
->  }
-> =20
-> -static void airoha_dev_get_hw_stats(struct airoha_gdm_dev *dev)
-> +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
->  {
->  	struct airoha_gdm_port *port =3D dev->port;
->  	struct airoha_eth *eth =3D dev->eth;
->  	u32 val, i =3D 0;
-> =20
-> +	spin_lock(&port->stats_lock);
+>  arch/arm/mach-dove/Kconfig | 8 ++++++--
+>  1 file changed, 6 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm/mach-dove/Kconfig b/arch/arm/mach-dove/Kconfig
+> index 996888ffcfe7..f547120e223e 100644
+> --- a/arch/arm/mach-dove/Kconfig
+> +++ b/arch/arm/mach-dove/Kconfig
+> @@ -1,6 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  menuconfig ARCH_DOVE
+> -       bool "Marvell Dove" if ARCH_MULTI_V7
+> +       bool "Marvell Dove (DEPRECATED)" if ARCH_MULTI_V7
+>         depends on ATAGS
+>         select CPU_PJ4
+>         select GPIOLIB
+> @@ -11,7 +11,11 @@ menuconfig ARCH_DOVE
+>         select PM_GENERIC_DOMAINS if PM
+>         select PCI_QUIRKS if PCI
+>         help
+> -         Support for the Marvell Dove SoC 88AP510
+> +         Support for the Marvell Dove SoC 88AP510 using board files.
 > +
->  	/* Read relevant MIB for GDM with multiple port attached */
->  	if (port->id =3D=3D AIROHA_GDM3_IDX || port->id =3D=3D AIROHA_GDM4_IDX)
->  		airoha_fe_rmw(eth, REG_FE_GDM_MIB_CFG(port->id),
-> @@ -1701,152 +1703,165 @@ static void airoha_dev_get_hw_stats(struct airo=
-ha_gdm_dev *dev)
-> =20
->  	u64_stats_update_begin(&dev->stats.syncp);
-> =20
-> -	/* TX */
-> +	/* TX - 64-bit H+L registers: hw accumulates the total, read directly. =
-*/
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
-> -	dev->stats.tx_ok_pkts +=3D ((u64)val << 32);
-> +	dev->stats.tx_ok_pkts =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
->  	dev->stats.tx_ok_pkts +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_H(port->id));
-> -	dev->stats.tx_ok_bytes +=3D ((u64)val << 32);
-> +	dev->stats.tx_ok_bytes =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_L(port->id));
->  	dev->stats.tx_ok_bytes +=3D val;
-> =20
-> +	/* TX - 32-bit registers: accumulate delta to handle wrap-around. */
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_DROP_CNT(port->id));
-> -	dev->stats.tx_drops +=3D val;
-> +	dev->stats.tx_drops +=3D (u32)(val - dev->stats.mib_prev.tx_drops);
-> +	dev->stats.mib_prev.tx_drops =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_BC_CNT(port->id));
-> -	dev->stats.tx_broadcast +=3D val;
-> +	dev->stats.tx_broadcast +=3D (u32)(val - dev->stats.mib_prev.tx_broadca=
-st);
-> +	dev->stats.mib_prev.tx_broadcast =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_MC_CNT(port->id));
-> -	dev->stats.tx_multicast +=3D val;
-> +	dev->stats.tx_multicast +=3D (u32)(val - dev->stats.mib_prev.tx_multica=
-st);
-> +	dev->stats.mib_prev.tx_multicast =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_RUNT_CNT(port->id));
-> -	dev->stats.tx_len[i] +=3D val;
-> +	dev->stats.mib_prev.tx_runt_accum64 +=3D
+> +         Support for this machine will be removed in early 2027, unless
+> +         there is a strong reason to keep it. Users should migrate to
+> +         the devicetree-enabled version (CONFIG_MACH_DOVE) instead.
+>
+>  if ARCH_DOVE
+>
+> --
+> 2.39.5
+>
 
-I guess dev->stats.mib_prev.tx_runt64
-
-> +		(u32)(val - dev->stats.mib_prev.tx_runt_cnt);
-
-	dev->stats.mib_prev.tx_runt64 +=3D (u32)(val -
-					       dev->stats.mib_prev.tx_runt);
-
-> +	dev->stats.mib_prev.tx_runt_cnt =3D val;
-> +
-> +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute) =E2=86=92 {=
-0, 64} bucket.
-> +	 * Accumulate RUNT delta in tx_runt_accum64, then assign tx_len[0] as
-> +	 * accum + E64_abs so each call gives the correct combined total.
-> +	 */
-
-no new-line here.
-
-> +
-> +	dev->stats.tx_len[i] =3D dev->stats.mib_prev.tx_runt_accum64;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_H(port->id));
-> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.tx_len[i] +=3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_L(port->id));
->  	dev->stats.tx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_H(port->id));
-> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.tx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_L(port->id));
->  	dev->stats.tx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_H(port->id));
-> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.tx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_L(port->id));
->  	dev->stats.tx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_H(port->id));
-> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.tx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_L(port->id));
->  	dev->stats.tx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_H(port->id));
-> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.tx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_L(port->id));
->  	dev->stats.tx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_H(port->id));
-> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.tx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_L(port->id));
->  	dev->stats.tx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_LONG_CNT(port->id));
-> -	dev->stats.tx_len[i++] +=3D val;
-> +	dev->stats.tx_len[i++] +=3D (u32)(val - dev->stats.mib_prev.tx_long_cnt=
-);
-> +	dev->stats.mib_prev.tx_long_cnt =3D val;
-> =20
->  	/* RX */
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_H(port->id));
-> -	dev->stats.rx_ok_pkts +=3D ((u64)val << 32);
-> +	dev->stats.rx_ok_pkts =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_L(port->id));
->  	dev->stats.rx_ok_pkts +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_H(port->id));
-> -	dev->stats.rx_ok_bytes +=3D ((u64)val << 32);
-> +	dev->stats.rx_ok_bytes =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_L(port->id));
->  	dev->stats.rx_ok_bytes +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_DROP_CNT(port->id));
-> -	dev->stats.rx_drops +=3D val;
-> +	dev->stats.rx_drops +=3D (u32)(val - dev->stats.mib_prev.rx_drops);
-> +	dev->stats.mib_prev.rx_drops =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_BC_CNT(port->id));
-> -	dev->stats.rx_broadcast +=3D val;
-> +	dev->stats.rx_broadcast +=3D (u32)(val - dev->stats.mib_prev.rx_broadca=
-st);
-> +	dev->stats.mib_prev.rx_broadcast =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_MC_CNT(port->id));
-> -	dev->stats.rx_multicast +=3D val;
-> +	dev->stats.rx_multicast +=3D (u32)(val - dev->stats.mib_prev.rx_multica=
-st);
-> +	dev->stats.mib_prev.rx_multicast =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ERROR_DROP_CNT(port->id));
-> -	dev->stats.rx_errors +=3D val;
-> +	dev->stats.rx_errors +=3D (u32)(val - dev->stats.mib_prev.rx_errors);
-> +	dev->stats.mib_prev.rx_errors =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_CRC_ERR_CNT(port->id));
-> -	dev->stats.rx_crc_error +=3D val;
-> +	dev->stats.rx_crc_error +=3D (u32)(val - dev->stats.mib_prev.rx_crc_err=
-or);
-> +	dev->stats.mib_prev.rx_crc_error =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OVERFLOW_DROP_CNT(port->id));
-> -	dev->stats.rx_over_errors +=3D val;
-> +	dev->stats.rx_over_errors +=3D (u32)(val - dev->stats.mib_prev.rx_over_=
-errors);
-> +	dev->stats.mib_prev.rx_over_errors =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_FRAG_CNT(port->id));
-> -	dev->stats.rx_fragment +=3D val;
-> +	dev->stats.rx_fragment +=3D (u32)(val - dev->stats.mib_prev.rx_fragment=
-);
-> +	dev->stats.mib_prev.rx_fragment =3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_JABBER_CNT(port->id));
-> -	dev->stats.rx_jabber +=3D val;
-> +	dev->stats.rx_jabber +=3D (u32)(val - dev->stats.mib_prev.rx_jabber);
-> +	dev->stats.mib_prev.rx_jabber =3D val;
-> =20
->  	i =3D 0;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_RUNT_CNT(port->id));
-> -	dev->stats.rx_len[i] +=3D val;
-> +	dev->stats.mib_prev.rx_runt_accum64 +=3D
-> +		(u32)(val - dev->stats.mib_prev.rx_runt_cnt);
-
-ditto.
-
-> +	dev->stats.mib_prev.rx_runt_cnt =3D val;
-> +
-> +	/* rx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute) =E2=86=92 {=
-0, 64} bucket.
-> +	 * then assign rx_len[0] =3D rx_runt_accum64 + E64_abs.
-> +	 */
-> =20
-ditto.
-
-> +	dev->stats.rx_len[i] =3D dev->stats.mib_prev.rx_runt_accum64;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_H(port->id));
-> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.rx_len[i] +=3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_L(port->id));
->  	dev->stats.rx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_H(port->id));
-> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.rx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_L(port->id));
->  	dev->stats.rx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_H(port->id));
-> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.rx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_L(port->id));
->  	dev->stats.rx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_H(port->id));
-> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.rx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_L(port->id));
->  	dev->stats.rx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_H(port->id));
-> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.rx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_L(port->id));
->  	dev->stats.rx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_H(port->id));
-> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
-> +	dev->stats.rx_len[i] =3D (u64)val << 32;
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_L(port->id));
->  	dev->stats.rx_len[i++] +=3D val;
-> =20
->  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_LONG_CNT(port->id));
-> -	dev->stats.rx_len[i++] +=3D val;
-> +	dev->stats.rx_len[i] +=3D (u32)(val - dev->stats.mib_prev.rx_long_cnt);
-> +	dev->stats.mib_prev.rx_long_cnt =3D val;
-> =20
->  	u64_stats_update_end(&dev->stats.syncp);
-> -}
-> -
-> -static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
-> -{
-> -	struct airoha_gdm_port *port =3D dev->port;
-> -	int i;
-> -
-> -	spin_lock(&port->stats_lock);
-> -
-> -	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
-> -		if (port->devs[i])
-> -			airoha_dev_get_hw_stats(port->devs[i]);
-> -	}
-> -
-> -	/* Reset MIB counters */
-> -	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
-> -		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
-> =20
->  	spin_unlock(&port->stats_lock);
->  }
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index f6d01a8e8da1..3af1c49dd62d 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -245,6 +245,33 @@ struct airoha_hw_stats {
->  	u64 rx_fragment;
->  	u64 rx_jabber;
->  	u64 rx_len[7];
-> +
-> +	struct {
-> +		/* Previous HW register values for 32-bit counter delta
-> +		 * tracking. Storing the last seen value and accumulating
-> +		 * (u32)(curr - prev) into the 64-bit software counter
-> +		 * handles wrap-around transparently via unsigned arithmetic.
-> +		 * tx_runt_accum64/rx_runt_accum64 hold the running sum of
-> +		 * runt deltas. These fields are never reported to userspace.
-> +		 */
-> +		u32 tx_drops;
-> +		u32 tx_broadcast;
-> +		u32 tx_multicast;
-> +		u32 tx_runt_cnt;
-
-		u32 tx_runt;
-
-> +		u32 tx_long_cnt;
-
-		u32 tx_long;
-
-> +		u64 tx_runt_accum64;
-
-		64 tx_runt64;
-
-> +		u32 rx_drops;
-> +		u32 rx_broadcast;
-> +		u32 rx_multicast;
-> +		u32 rx_errors;
-> +		u32 rx_crc_error;
-> +		u32 rx_over_errors;
-> +		u32 rx_fragment;
-> +		u32 rx_jabber;
-> +		u32 rx_runt_cnt;
-
-		u32 rx_runt;
-
-> +		u32 rx_long_cnt;
-
-		u32 rx_long;
-
-> +		u64 rx_runt_accum64;
-
-		u64 rx_runt64;
-
-> +	} mib_prev;
->  };
-> =20
->  enum {
->=20
-> base-commit: a225f8c20712713406ae47024b8df42deacddd4a
-> --=20
-> 2.43.0
->=20
-
---GwVceFzz02rhH5Cx
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCakWYEQAKCRA6cBh0uS2t
-rI/KAQDj7HnMgKz2CDJF2bsStuvQ8Yx1Lkss7GR1FTF+TdsnqgD+OrfAJNP8iTFH
-XOEipPlOOiEnjr1+U91ZWspbMkK5PQM=
-=+eVZ
------END PGP SIGNATURE-----
-
---GwVceFzz02rhH5Cx--
+Reviewed-by: Ethan Nelson-Moore <enelsonmoore@gmail.com>
 
