@@ -4,127 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECDB6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BFCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l9KLtpA1OYRz5CRbdM5Z97ti/AlXd/L0OITQB0Tauqw=; b=ZvZNuBkXFOfD2drHM8ZSzGyp5G
-	UcO8Uyfdf108fbhntSvpcBYiscIGA5yA/2ipepWhZ/4mcYXbHH5y5WJF3Q/vq3Q0OqSJWO1VTol3M
-	jsZPHYWPZmOsmXZYSEA4qoanISOvfxScy8hzvMeFfnp5Y1MAEKHswmQPP7XQjmHVSTyWiy3eHxmmS
-	UWbvkX09q0utKuMouxvasiccA+C6BWJwuuq1WmvsKJPf4HDoMR7DlanMItt4oEPByFh4+ICkyy3si
-	IJTHAJtX4DB+pyaKjr+rjxnYihQY3SsTeJLydfNCmS3ZfYeED5c/T4+8P8lwcKAlYNtIRtXdbcsuv
-	oCyPpNLA==;
+	bh=W9jOzjqG5Rzz//GfX0/ecAtlcngTzgF0sG7TCjmqoyY=; b=qyQLr5zUzcwCZ9wW/fxle0ufyI
+	zA9kD4vxML0pygdeDE1ahE0Sdoww3xghvqnSCpX7eGCXBK0G8HAMRYF9LDVN92jxRjfeTt+/aGpWP
+	RfOxkli5UT+0Ea9vGNEvn8TSZ7skFB4S18Jy5wPzT0WZCieNI1ABNGU+kNZ24GPJgCUslXIFROxes
+	KUp/5tHVt+TXsb5Jsmr3bt6gbGzi9oGmF/NibsJ1P3AZiVosqg4UmPn1ClTiOGtUM3WKnQTGmdYCH
+	pfqO3Zv8WDQuF7KD17p4iBpXsD5ZByOufqYCXSRk99KfV1RWyBY2zFspQ13d8cXbRTFINax1EruLj
+	UETF6vGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevuL-00000002I7t-0Qws;
-	Wed, 01 Jul 2026 14:27:21 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wevwK-00000002II3-1jGM;
+	Wed, 01 Jul 2026 14:29:24 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevuI-00000002I6o-0s2c
+	id 1wevwI-00000002IHv-427k
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 14:27:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nI0kTsAo7PI94iHLFSuwwhk9Oyw2AKRRTxViI3cOpsvXWjFaQXkAl6gD1JVmd1mZfqM+lAg0irLA3IPjNsYOPLXhE7yiDKcv8gmZMvG+5K5o/uae1I7FWCfkMsq9rkVgASuBwNsdVebzpXZt2JQQ3Qmdzu0IzjjmCBneuqJ+Ygbf5yyeCIL1Nrjzi1uRydkbA2otAojhjDLRbmbuTFtIMuxXe/XU5g/+FAc4RNqjJlK7fJb2QbX1tElJQa2OVhnNXO98Rq0ti5ztnGC2Lals9FyWjX7hoEVyV8Wp+TpPXw7Bkogkid702x0WtfgJ+oV3LrFItTF4NuviQQUH4akwIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l9KLtpA1OYRz5CRbdM5Z97ti/AlXd/L0OITQB0Tauqw=;
- b=m/juC6pqRfE1GTwfutOxq6xRbM5uFg4wxQy688dqiu2WpkfZK+pBns9GrC5wFrTvuN/B4EY+UgFw55Hg2jUvWusAs01STzAeXeYW94iNG4dtxoPFMDL/dr1B1SRy1IkH/CLns9VTCjfxzqpTVq/UMGrcO5Ix9osolkb8dzeT3IqxJJuHki+TnUODBzUIH8mgMJmpL2n/QQAr/vj8eXe5fj5nuOO3GcdiKUd4Cl87K7eVHUOxZCKVQ0MsUmV1afT8dBVBgKNuwU/U9man57qiLhSjx+8YZBeu8oc5WeBcmZabDJ/uT4v6eMNO8J+nvm0LkQXncBqkLJKO6TM2oLP2VQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l9KLtpA1OYRz5CRbdM5Z97ti/AlXd/L0OITQB0Tauqw=;
- b=tQknxcJVfLku9C6SJbcaxwQa2Rw0+VmjGdTGHt/P//MGyekTphelWjhd8oU6/FEzqzxE5psFldNkaPmd0Ij47dgMmNmW10ul4Zdmejo0KwN64Sqvp1GnrLd0ysqwmvh1W76Bi7TnQdZ/rbYyKcJti3R1Hg5wR6vFJ8Dpbrl8eCy/bfI+uVCkw+qTcM/201SblBYYAJGIFR1s775C/93Gz2IgeCVO5RpNBTTP5i1YrJaNHWTP7JXDplNd6eglEwulpSFbGQp0DPzXdI+h/TJaQehm+Yz6c6VdH7oSU3RI0kFM5jCTO+gcSZtCv+s24KEDTG5ZXODsOVm8At/cLjjvTg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by AMDPR04MB11649.eurprd04.prod.outlook.com (2603:10a6:20b:71d::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.139.20; Wed, 1 Jul
- 2026 14:27:13 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Wed, 1 Jul 2026
- 14:27:13 +0000
-Date: Wed, 1 Jul 2026 09:27:03 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Ioana Ciornei <ioana.ciornei@nxp.com>
-Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, devicetree@vger.kernel.org,
-	vladimir.oltean@nxp.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v2 1/5] arm64: dts: lx2160a: transition to
- device-specific SerDes compatible strings
-Message-ID: <akUjt5OPiO5cJ1D9@SMW015318>
-References: <20260701131137.940145-1-ioana.ciornei@nxp.com>
- <20260701131137.940145-2-ioana.ciornei@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701131137.940145-2-ioana.ciornei@nxp.com>
-X-ClientProxiedBy: SJ2P220CA0009.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:5da::8) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AMDPR04MB11649:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1316cc75-585b-4ebf-4a10-08ded77cd808
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|1800799024|23010399003|18002099003|22082099003|4143699003|56012099006|11063799006|3023799007;
-X-Microsoft-Antispam-Message-Info: gs4b78QEaTDoWy/tKjOgzrfbU3JUYCTvP2bTQziGgFrksbhQGeRvlLSVzI24qSv1cVCo0+iF6jTNFtNhzOeZ0mbaFfiUTeHIssVa3rMb5s9fCMGlWKGC4U6rLn049cl1CbEE1lWEAJCtj8VJhvh9E8atvWnq3D1qo1nMPdhHQ16phWHE7dCmRCY7emLCcgbW/xMMG9Ed0hn/CJUVz/U0wLlykgRDCDWTXP+ROq2YVF4abtN7yP6D1UCBoqH7hVJz/IoYHWtp54jdbfa8agbeDv0fDzsAsliG3IeVp2IjELlz7WMSV50YOY6grFQUpNfyAzOKotXqRGgcMqqH9QgwCU5JYeQwDjOJj56TkWBiaMvEZAYMpDv2KgXinPAHo1CLXKMqa7anEV8Dz25e2qwZLoejX17id8OOrUTcGdjdd3m39cDysj9m7N7Ha5g75wKpubFw/uCJ6M+y4VCgoPy+90vrO3pZVATNF2HMjPiYC2qhBXU6yyGqelT+jDhbNKtz1EqhYVm0kVnI5y2Qg1P5QCulq3J1XI/OCyAZD6QDqAEvJXQ4ec02NfUJfbV4nE6da5ikw1T2wW4/0DVDB08aEnWT+WWAZx41lp4DbH3FxaMmAwy4bKaLmlORdqKYVFwkValdzvy76rKW8aeOLbze32BYzTdgZa30ZBgLnfmjTz8=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(1800799024)(23010399003)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BFEnqUy281VSEF1kJIJ/fKBZCvu117ZNgdkdJgT7k3pYq6k02hq6BxofsX6G?=
- =?us-ascii?Q?Bwi8PI1zOz5Zdr6Se2NxFNEPdkY5sy0Kd2TX7UtYn2+v+s6PETCGu2+2fbTA?=
- =?us-ascii?Q?r+3YKzQ85PPQmgbberbjUgIYkg+TyJHlVDkEiQxrOlDTnq2Es06F6jFpph/M?=
- =?us-ascii?Q?9/npjDgxotVneoLkR7AgQ4NTB6U8cmGDFDD/J7/N/FGrY4qWXrzxWVCn52i0?=
- =?us-ascii?Q?jVRfhi4FzG60jO1FvWxjIyx/HhBhtLiKHW2JqfhXdJw2obFJUxmF6glfHCyl?=
- =?us-ascii?Q?jkfIestAexQH48hVJwof2tZAP6s641Qdtefsg2qvgqWkm2kumo2LIgCQb9qc?=
- =?us-ascii?Q?eHpvTd52LOA3+BmgnT56ZPSdOWPSntfcZ0vJFQLIj5SW1J5touoWfQEo1x0P?=
- =?us-ascii?Q?c/sLtfHvmjDEYjvw1/xyiUSfs03krU1eE/frUG8wq5cIxr7W3bg3/+PVJIHg?=
- =?us-ascii?Q?chHSJjIKIPd8A7eKIz8t23+bZGYUwqG3Mah3KJDA08JzyDTMdB3MbyAeVIf9?=
- =?us-ascii?Q?xbtC48spe2bIiNF8XTHUESl+ejd6PgJD43aoYWGMp58RXoI4e1ckOTwhIK4v?=
- =?us-ascii?Q?KFm5yqXPZfwr2D2220ViSvDsdIxzyDTRevmebdX47A0/vW6+0hynZ7zPz/7a?=
- =?us-ascii?Q?DsxmXQJJfhGaYz+PVdGk/9DIQlokbFwqk3Q9bRAc1B3bJ2q4ilDm8pGsXyrr?=
- =?us-ascii?Q?/twRp+puMpEyt2P2jig9VAWqWgpkskNpSugMpDctchZ4NMyj1gmwOPa+M16B?=
- =?us-ascii?Q?jpQZ8K2hE6SioBgi9jao/rGAIdbqwp7zZhv7aZhjEvt4ElMvEviX3u6ODjE4?=
- =?us-ascii?Q?mFRvLhdzN7E4VTMYHoNBs2Vy5q91MbdHEp2R986wwILx0/HkE/r9w8kB2Jdh?=
- =?us-ascii?Q?4YdFojTxFDP0y6aOkT7NWYSvDuUBhMVyBlvl/OPxFBr8bh925IuvoJBVEmVI?=
- =?us-ascii?Q?6804EE2RBpJobKd8UvCa1ZtZh7tcNP5i6GULrrsOQVZelbcuLW9qVIKb+rEb?=
- =?us-ascii?Q?CcPPe8u5lWDX8or7bsTtIR7n/3GtpzsJU/BaHJKU40Ufxlh5CagJs3OxJyrf?=
- =?us-ascii?Q?PkRB96FztqgSXKyd0RdoTHF85Ehq9um3tqymZHuPw76/9f0sJ4KPU42J90+c?=
- =?us-ascii?Q?GVPyUg67njiXFHKMX87a+iNaDk1BTXHjpvZhSq2SoMbi6NjWcqn7uH/SxMrq?=
- =?us-ascii?Q?BDQdkMWgnzn0EQ2yjSS2i5mu1WAJJDpPrXDLOztZKsIjHAnV6+RQwySTsslK?=
- =?us-ascii?Q?iy8a089urMlPjoF1Nb8XjWe4eEuk04FPwbXyF1K4/9bxjZyevbp+hweXvkeY?=
- =?us-ascii?Q?jV/SWyOY8hbIRxZI0DXVUwIW0o+5xolqRIYM5MCwPYPoQixS+3TWaAoOvmHM?=
- =?us-ascii?Q?6M399//nZaza6rj5a0JM7cVO0+RPZkg2SSZNPI8x/rGvL5SJDUhvHNdShlI6?=
- =?us-ascii?Q?h0uV20y8y+f6DjCuAECOk7yfVXT2TscEZOGx8azaNzS8v7EOtoc5CxbqluJQ?=
- =?us-ascii?Q?nAnDRQiJu7C1w1ixbO+C25Cez5uNj43RAm9H9xp+71/YeEyrtbgE7cQeWngf?=
- =?us-ascii?Q?9/0a6FjFr7c3E476wobFWm4tpJM64LZ0s09Uauo/vy6VlMJU0UY0RGDwCGHP?=
- =?us-ascii?Q?lb6KUTGSbZ/OoqWxffsa/yl0E1t8nU0B/21dAJ+sGBLe8+OTw651LJzx2uE7?=
- =?us-ascii?Q?UkrbJTfEAKfZFPBYpQ1AkfDIsPh6SJ6+sv9+MMQYhhmZq12uGqdTQlO/cWLM?=
- =?us-ascii?Q?/JXIucODH3F+aYXOhuBHSoqWzr0yyFK3RGrOaSt8dmyVsfdJeyzu?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1316cc75-585b-4ebf-4a10-08ded77cd808
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 14:27:13.6856
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BcJbCjHgxnebN7bJCG04UtoLoyqLMvwvUQLQimrrLv6XsMbKD5VUMW1ypiC1EaTIoBzyy27MknKQsJWA5g9TgGFtXZ4HtrmwJw/5o9mBZJ2Bh4Cc/R7HJlxsYEBaRN2w
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11649
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_072718_251863_CCE2C5DC 
-X-CRM114-Status: GOOD (  29.12  )
+	Wed, 01 Jul 2026 14:29:23 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0B2A36001D;
+	Wed,  1 Jul 2026 14:29:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B44951F00A3A;
+	Wed,  1 Jul 2026 14:29:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782916161;
+	bh=W9jOzjqG5Rzz//GfX0/ecAtlcngTzgF0sG7TCjmqoyY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=MTKAp6KDEBhKMoaPtJO55E+C0RCxTAs+m6/7FjA8iAg8mDk29k/jdue8RDXN9mGdG
+	 adZ05+g9EFew11Gr1OQXKN+l6M4wMSe2/6WkhU78nwIPpzmd6TvT5urLlR5ka9dmDQ
+	 tjDfgC5ZWpqfoE1cQ6zhbcI+SooxCxIq7IHfxHqZ+fB2pwopY09CBTNoSQfolkIZ9a
+	 QL3VKqXUp636SWu4o1IDdO5x5tSzWk9mOT/CxaixNzLR2a9gbpWSLAm76KKh7S2kEG
+	 eBcp0ZON02Mwl7dHsDcl000YDW1BZ3ToXm4QUdjBVYjCZi6vxoSUmSwHtgwTpMTJpY
+	 OPw3DSppGeHgw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wevwF-00000000LyA-1YM0;
+	Wed, 01 Jul 2026 14:29:19 +0000
+Date: Wed, 01 Jul 2026 15:29:18 +0100
+Message-ID: <86v7aypyv5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Jia He <justin.he@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Bin Guo <guobin@linux.alibaba.com>
+Subject: Re: [PATCH] arm64/sysreg: Fix BWE field encoding in ID_AA64DFR2_EL1
+In-Reply-To: <20260630222347.1449737-1-justin.he@arm.com>
+References: <20260630222347.1449737-1-justin.he@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: justin.he@arm.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, lpieralisi@kernel.org, broonie@kernel.org, Sascha.Bischoff@arm.com, tabba@google.com, anshuman.khandual@arm.com, oupton@kernel.org, linux-kernel@vger.kernel.org, guobin@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,124 +89,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 04:11:33PM +0300, Ioana Ciornei wrote:
-> From: Vladimir Oltean <vladimir.oltean@nxp.com>
->
-> Align to the modern fsl,lynx-28g.yaml binding, where the SoC and SerDes
-> instance is present in the compatible string, to allow reliable per-lane
-> capability detection and per-lane customization of electrical properties.
->
-> The modern bindings are backward-incompatible with old kernels, due
-> to the consumer phandles being either in one form or in another, as
-> explained here:
-> https://lore.kernel.org/lkml/20250930140735.mvo3jii7wgmzh2bs@skbuf/
->
-> One of the major differences between the LX2160A and LX2162A is the
-> SerDes. So far, LX2162A has used fsl-lx2160a-rev2.dtsi, but we need to
-> split that up even further, and derive a fsl-lx2162a.dtsi which
-> overrides the SerDes properties.
->
-> Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+On Tue, 30 Jun 2026 23:23:47 +0100,
+Jia He <justin.he@arm.com> wrote:
+> 
+> Commit 93d7356e4b30 ("arm64: sysreg: Describe ID_AA64DFR2_EL1 fields")
+> encodes the FEAT_BWE2 value of the BWE field as '0b0002'. Binary
+> literals only accept the digits 0 and 1, so the intended value is 2,
+> i.e. 0b0010.
+> 
+> The macro generated by gen-sysreg.awk currently expands to
+> 	#define ID_AA64DFR2_EL1_BWE_FEAT_BWE2 UL(0b0002)
+> is not legal C and would fail to compile if any in-tree code referenced
+> it. At present no caller uses this enum value, so the kernel still
+> builds cleanly, but the bug is latent.
+> 
+> Fix the typo by using the correct binary literal 0b0010.
+> 
+> Cc: Bin Guo <guobin@linux.alibaba.com>
+> Fixes: 93d7356e4b30 ("arm64: sysreg: Describe ID_AA64DFR2_EL1 fields")
+> Signed-off-by: Jia He <justin.he@arm.com>
+> Reviewed-by: Mark Brown <broonie@kernel.org>
 > ---
-> Changes in v2:
-> - Enable serdes_1 on all board DTs that has consumers for it.
-> - Use the proper name for serdes_3 in fsl-lx2162a.dtsi.
-> - Remove paragraph from commit message which mentioned some consumer
-> changes that are no longer needed nor part of the commit.
-> ---
->  .../freescale/fsl-lx2160a-clearfog-itx.dtsi   |   4 +
->  .../dts/freescale/fsl-lx2160a-half-twins.dts  |   4 +
->  .../boot/dts/freescale/fsl-lx2160a-rdb.dts    |   4 +
->  .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 150 +++++++++++++++++-
->  .../dts/freescale/fsl-lx2162a-clearfog.dts    |   6 +-
->  .../boot/dts/freescale/fsl-lx2162a-qds.dts    |   2 +-
->  .../arm64/boot/dts/freescale/fsl-lx2162a.dtsi |  24 +++
->  7 files changed, 190 insertions(+), 4 deletions(-)
->  create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2162a.dtsi
->
-...
->
-> +&serdes_1 {
-> +       status = "okay";
-> +};
-> +
+>  arch/arm64/tools/sysreg | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index bc1788b1662b..7cb61aca3797 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -1806,7 +1806,7 @@ Res0	15:8
+>  UnsignedEnum	7:4	BWE
+>  	0b0000	NI
+>  	0b0001	FEAT_BWE
+> -	0b0002	FEAT_BWE2
+> +	0b0010	FEAT_BWE2
 
-Can you try keep alphabet order? may old file is not ordersed, but try
-best, at least should before &uart0
+Well, that was embarrassing. FWIW (and given the original patch,
+that's not much):
 
->  &uart1 {
->         status = "okay";
->  };
-> diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-> index 1d73abffa6b7..a687eb3e3190 100644
-> --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Please split chips dtsi and boards dts to two patch.
+	M.
 
-> @@ -621,17 +621,163 @@ soc: soc {
->                 ranges;
->                 dma-ranges = <0x0 0x0 0x0 0x0 0x10000 0x00000000>;
->
-> +               /* Note on the interpretation of SerDes lane numbering from
-> +                * LX2160ARM lane mappings for RCW[SRDS_PRTCL_S1]:
-> +                * The letters (A-H) correspond to logical lane numbers in the
-> +                * SerDes register map (lane A's registers start with LNAGCR0),
-> +                * while the numbers (0-7) correspond to physical lanes as
-> +                * routed to pins.  SerDes block #1 is flipped in the LX2160A
-> +                * floorplan (logical lane A goes to physical lane 7's pins),
-> +                * while SerDes blocks #2 and #3 are not.  The lanes below are
-> +                * listed right to left when looking at that table.
-> +                * Both the numbers and the letters are according to the logical
-> +                * numbering scheme, and do not account for the flipping.
-> +                */
-...
-> +                       compatible = "fsl,lx2160a-serdes3";
-> +                       reg = <0x0 0x1ec0000 0x0 0x1e30>;
-> +                       #address-cells = <1>;
-> +                       #size-cells = <0>;
-> +                       status = "disabled";
-
-status should be last property
-
-> +                       #phy-cells = <1>;
-> +
-> +                       serdes_3_lane_a: phy@0 {
-> +                               reg = <0>;
-> +                               #phy-cells = <0>;
-> +                       };
-> +
-...
-> +
-> +#include "fsl-lx2160a-rev2.dtsi"
-> +
-> +&serdes_1 {
-> +       compatible = "fsl,lx2162a-serdes1", "fsl,lynx-28g";
-> +
-> +       /delete-node/ phy@0;
-> +       /delete-node/ phy@1;
-> +       /delete-node/ phy@2;
-> +       /delete-node/ phy@3;
-
-Now, do not perfer delete-node. if ver2 is not include phy@0, ...
-
-create ver2 files, let ver2 include it. Now most people like A + B, not
-A - B.
-
-Frank
-
-> +};
-> +
-> +&serdes_2 {
-> +       compatible = "fsl,lx2162a-serdes2", "fsl,lynx-28g";
-> +};
-> +
-> +&soc {
-> +       /delete-node/ phy@1ec0000;
-> +};
-> --
-> 2.25.1
->
->
+-- 
+Without deviation from the norm, progress is not possible.
 
