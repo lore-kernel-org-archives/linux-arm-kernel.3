@@ -4,99 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70240C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3F7C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:05:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xO6I0cQmE/o/jLdfAj6Gj34sxxTE7oWAFzWnpM35sCs=; b=ItflVVKPjedGek5eTj28ze7uCJ
-	tTvaWCpZ6XoovNeBYcxTFgPnBJclXeIIKXapYikE234z0bN7mofSr0HQ7ulsNo70KJTQE1OCMkCU0
-	Aq3Om2FLGqWt32698dqeksEt/L2phG3rm8dCIK7GMv53rtTDqnIGglDfwAHJ2qAeT1RJvcYskgl4C
-	MIxKkcEra64/g+j4NHFXBDEN07b8Pv1NhzPTcv8tXZ0ozfHL7+rAKLQGOOTPwGjXazTdxHmu1u0cL
-	OhnNKB2nz+Tz/F6YURTqkfEcBbkmq3/cgNrNtR5B0+JkSwwgiBifAx5ZQ5Lttxa9YFVigHNDnKKbD
-	PjnoMeQg==;
+	bh=LNqRE2wBNyfheaMuXoR+AjG8kVj1XgCRpVmTWikTkDg=; b=XCCGMUEJOcwVnPJiQ/OZWm7rsl
+	RNYgheVmdTSklCJ+e1suqFP7t9U7TAyKDnE38kZ36OwC1/JLWJqhRUwHiKeQODcbltYmFYatZxHlq
+	jlush8GxasbRvoo3U7hQPSXlYJi1ZcRB6Kq4CBp1OttngG9g933vSt2RrbDV/1o7XJ5nqRn376OoZ
+	6tuDclXli0txKXUMOL7WnHDHB1msvGe/8YIvBkOFSQn5G5OAyNxiQ+XPAipCknk0+mSAZ+Cl9a4O7
+	726EgocDyrP5XR5q85PEQ+83PYjg9XFK6ErqmAOQnpo4/MYEBdXDFDIau/SYstUafJbmlmHlXy3lT
+	z1D0m5bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwM-00000001txO-1o17;
-	Wed, 01 Jul 2026 12:21:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weuiz-000000027oc-3c5y;
+	Wed, 01 Jul 2026 13:11:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetw6-00000001tKd-2mee;
-	Wed, 01 Jul 2026 12:21:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=xO6I0cQmE/o/jLdfAj6Gj34sxxTE7oWAFzWnpM35sCs=; b=YeOrbSloLYXIQS90sqCbQCF27b
-	Tn4mOXy7dyEI3thr1+xbmWs4AgCYM0MRn97Ja6F7MzMQlJ1tNrnSP11v3agPW1PnUXzh76zes1wJM
-	k4FGSy3uJCo+zsGVLEsCuWvMJujlfW/9Y5JdRY1IjCTyxbusojq5wLwkfzWmt5tJJjDG2f8AfQN6V
-	HFi4VeR8qlCwHK6PmaIVwvoWuYXFFdQMdDhQVYhkbRoAVSuIy3jeqJebG/kFJHb+N7w7+X4pbuGjZ
-	vXkvS5Sx2vAzIdw7iEd4br7ujtVRI8szU4ntcYaROExYQpYDpqLsPck1Xiw3t1y722caqIq0r5qwm
-	O8b2ahMQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetw1-00000002jXW-2UCE;
-	Wed, 01 Jul 2026 12:21:01 +0000
+	id 1weuiw-000000027dE-29nV;
+	Wed, 01 Jul 2026 13:11:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908456;
-	bh=MH9rZNYjTexT9/FSQg9LOO/88ptllu4jdjcPjbmJHTI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FDRdcObXoQGxpSBq5tszZW0ObJHRVfa1cpxLK2fqJaguAl4arNEC8PkiDPWOxEPS2
-	 kPT3nTIPZucvglyTd4QyXT7CRzScrN9bA1pPwRu/SCln3UkIs17qth1mlxI7f/u21h
-	 Yrk2sLk8MfrIVWu5oFcok/amzu4dcbU2IPjodTIyR2FlR6PU+GknNRjvMYgP/nUU+X
-	 M0N97n2pUUBEH+NN4WT+vqAP9vcFBa81t6EvqPShuYnhPLEW9w4qnWiY3UcO6OIDzz
-	 KvAH3judd6aJtkXr0hCd7cc219UNmYi4OhUcJED2BjR85rMn4oKCFnooEAA4544XIe
-	 HRb9uvJB5S/5Q==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	s=mail; t=1782911488;
+	bh=+hRHFz0agduJr5pnmY0TtLeRwfae7FsBp+NKq8nJMXw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=lS276rFa0DUdezKMvixD8MgrRt2XuTxrT7vcjsKbFxQXQaZwJdSE2+7wTmtTT3Esf
+	 olJ69pZDlQTODhLhxZSyjfzCvFnJkDnYeUeiGnGGDj13/17YOQ6xOyiTAeo/X6cekl
+	 mj41dIB9/ukUfyX0qWIGN/WMLG6Bgi8PdHyrrLo+J452LWxg1/5kTVp7gf45oJazcy
+	 wrkGd+AP3zrNshZs8LBOELQpEcCK7Y3NbUDzy5pXcmliidCFZheb/MWj4BeuBcLwFc
+	 JSOl+e5TBdIsm/cHBQaIfXt8u/v9lJWeBcl0RWG23yCH4lcbW8PSuaDVst4uffoLKQ
+	 wwGZUliDxxAEg==
+Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0BBC317E116D;
-	Wed,  1 Jul 2026 14:20:55 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	andi.shyti@kernel.org,
-	djakov@kernel.org,
-	broonie@kernel.org,
-	jitao.shi@mediatek.com,
-	ck.hu@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH 6/6] soc: mediatek: mtk-mmsys: Use MMSYS_ROUTE() in default routing table
-Date: Wed,  1 Jul 2026 14:20:43 +0200
-Message-ID: <20260701122043.19612-7-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AC24E17E35C9;
+	Wed,  1 Jul 2026 15:11:27 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Wed, 01 Jul 2026 15:11:13 +0200
+Subject: [PATCH 08/15] clk: mediatek: Add MT8189 vlpckgen clock support
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-mt8189-clocks-system-base-v1-8-2b048feea50a@collabora.com>
+References: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
+In-Reply-To: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Edward-JW Yang <edward-jw.yang@mediatek.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=10027;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=+hRHFz0agduJr5pnmY0TtLeRwfae7FsBp+NKq8nJMXw=;
+ b=bwOze7aEpkH/crR7i4KZbyftHa6gxW3c23czXydnKnUpe0LraE3OpZyDsSAc3krkpOV5jBZeC
+ oRieoEC5PvKAuLLFf+SlddXnNp4qOYS0wkUr7oaklcU6Jzt7UAMbY3Q
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132057_755176_8D6C1960 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20260701_061130_738496_72646DF2 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,308 +92,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All of the mtk_mmsys_routes tables for all SoCs were converted to
-use the MMSYS_ROUTE() macro but the default one used for MT2701,
-MT2712 and SoCs from that generation was not: convert this one as
-well.
+Add support for the MT8189 vlpckgen clock controller, which provides
+muxes and dividers for clock selection in vlp domain for other IP blocks.
 
-This brings no functional change.
-
+Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/soc/mediatek/mtk-mmsys.h | 279 +++++++++++++------------------
- 1 file changed, 114 insertions(+), 165 deletions(-)
+ drivers/clk/mediatek/Makefile              |   3 +-
+ drivers/clk/mediatek/clk-mt8189-vlpckgen.c | 284 +++++++++++++++++++++++++++++
+ 2 files changed, 286 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/mediatek/mtk-mmsys.h b/drivers/soc/mediatek/mtk-mmsys.h
-index b37d859b6c14..d534d43aad6f 100644
---- a/drivers/soc/mediatek/mtk-mmsys.h
-+++ b/drivers/soc/mediatek/mtk-mmsys.h
-@@ -157,171 +157,120 @@ struct mtk_mmsys_driver_data {
-  * to an independent table.
-  */
- static const struct mtk_mmsys_routes mmsys_default_routing_table[] = {
--	{
--		DDP_COMPONENT_BLS, DDP_COMPONENT_DSI0,
--		DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
--		BLS_TO_DSI_RDMA1_TO_DPI1
--	}, {
--		DDP_COMPONENT_BLS, DDP_COMPONENT_DSI0,
--		DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
--		DSI_SEL_IN_BLS
--	}, {
--		DDP_COMPONENT_BLS, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
--		BLS_TO_DPI_RDMA1_TO_DSI
--	}, {
--		DDP_COMPONENT_BLS, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
--		DSI_SEL_IN_RDMA
--	}, {
--		DDP_COMPONENT_BLS, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DPI_SEL, DPI_SEL_IN_MASK,
--		DPI_SEL_IN_BLS
--	}, {
--		DDP_COMPONENT_GAMMA, DDP_COMPONENT_RDMA1,
--		DISP_REG_CONFIG_DISP_GAMMA_MOUT_EN, GAMMA_MOUT_EN_RDMA1,
--		GAMMA_MOUT_EN_RDMA1
--	}, {
--		DDP_COMPONENT_OD0, DDP_COMPONENT_RDMA0,
--		DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD_MOUT_EN_RDMA0,
--		OD_MOUT_EN_RDMA0
--	}, {
--		DDP_COMPONENT_OD1, DDP_COMPONENT_RDMA1,
--		DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD1_MOUT_EN_RDMA1,
--		OD1_MOUT_EN_RDMA1
--	}, {
--		DDP_COMPONENT_OVL0, DDP_COMPONENT_COLOR0,
--		DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
--		OVL0_MOUT_EN_COLOR0
--	}, {
--		DDP_COMPONENT_OVL0, DDP_COMPONENT_COLOR0,
--		DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
--		COLOR0_SEL_IN_OVL0
--	}, {
--		DDP_COMPONENT_OVL0, DDP_COMPONENT_RDMA0,
--		DISP_REG_CONFIG_DISP_OVL_MOUT_EN, OVL_MOUT_EN_RDMA,
--		OVL_MOUT_EN_RDMA
--	}, {
--		DDP_COMPONENT_OVL1, DDP_COMPONENT_COLOR1,
--		DISP_REG_CONFIG_DISP_OVL1_MOUT_EN, OVL1_MOUT_EN_COLOR1,
--		OVL1_MOUT_EN_COLOR1
--	}, {
--		DDP_COMPONENT_OVL1, DDP_COMPONENT_COLOR1,
--		DISP_REG_CONFIG_DISP_COLOR1_SEL_IN, COLOR1_SEL_IN_OVL1,
--		COLOR1_SEL_IN_OVL1
--	}, {
--		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
--		RDMA0_SOUT_DPI0
--	}, {
--		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DPI1,
--		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
--		RDMA0_SOUT_DPI1
--	}, {
--		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DSI1,
--		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
--		RDMA0_SOUT_DSI1
--	}, {
--		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DSI2,
--		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
--		RDMA0_SOUT_DSI2
--	}, {
--		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DSI3,
--		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
--		RDMA0_SOUT_DSI3
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
--		RDMA1_SOUT_DPI0
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
--		DPI0_SEL_IN_RDMA1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI1,
--		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
--		RDMA1_SOUT_DPI1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI1,
--		DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
--		DPI1_SEL_IN_RDMA1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI0,
--		DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
--		DSI0_SEL_IN_RDMA1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI1,
--		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
--		RDMA1_SOUT_DSI1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI1,
--		DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
--		DSI1_SEL_IN_RDMA1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI2,
--		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
--		RDMA1_SOUT_DSI2
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI2,
--		DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
--		DSI2_SEL_IN_RDMA1
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI3,
--		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
--		RDMA1_SOUT_DSI3
--	}, {
--		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI3,
--		DISP_REG_CONFIG_DSIO_SEL_IN, DSI3_SEL_IN_MASK,
--		DSI3_SEL_IN_RDMA1
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
--		RDMA2_SOUT_DPI0
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI0,
--		DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
--		DPI0_SEL_IN_RDMA2
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI1,
--		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
--		RDMA2_SOUT_DPI1
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI1,
--		DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
--		DPI1_SEL_IN_RDMA2
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI0,
--		DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
--		DSI0_SEL_IN_RDMA2
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI1,
--		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
--		RDMA2_SOUT_DSI1
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI1,
--		DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
--		DSI1_SEL_IN_RDMA2
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI2,
--		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
--		RDMA2_SOUT_DSI2
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI2,
--		DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
--		DSI2_SEL_IN_RDMA2
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI3,
--		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
--		RDMA2_SOUT_DSI3
--	}, {
--		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI3,
--		DISP_REG_CONFIG_DSIO_SEL_IN, DSI3_SEL_IN_MASK,
--		DSI3_SEL_IN_RDMA2
--	}, {
--		DDP_COMPONENT_UFOE, DDP_COMPONENT_DSI0,
--		DISP_REG_CONFIG_DISP_UFOE_MOUT_EN, UFOE_MOUT_EN_DSI0,
--		UFOE_MOUT_EN_DSI0
--	}
-+	MMSYS_ROUTE(BLS, 0, DSI, 0,
-+		    DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
-+		    BLS_TO_DSI_RDMA1_TO_DPI1),
-+	MMSYS_ROUTE(BLS, 0, DSI, 0,
-+		    DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
-+		    DSI_SEL_IN_BLS),
-+	MMSYS_ROUTE(BLS, 0, DPI, 0,
-+		    DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
-+		    BLS_TO_DPI_RDMA1_TO_DSI),
-+	MMSYS_ROUTE(BLS, 0, DPI, 0,
-+		    DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
-+		    DSI_SEL_IN_RDMA),
-+	MMSYS_ROUTE(BLS, 0, DPI, 0,
-+		    DISP_REG_CONFIG_DPI_SEL, DPI_SEL_IN_MASK,
-+		    DPI_SEL_IN_BLS),
-+	MMSYS_ROUTE(GAMMA, 0, RDMA, 1,
-+		    DISP_REG_CONFIG_DISP_GAMMA_MOUT_EN, GAMMA_MOUT_EN_RDMA1,
-+		    GAMMA_MOUT_EN_RDMA1),
-+	MMSYS_ROUTE(OD, 0, RDMA, 0,
-+		    DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD_MOUT_EN_RDMA0,
-+		    OD_MOUT_EN_RDMA0),
-+	MMSYS_ROUTE(OD, 1, RDMA, 1,
-+		    DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD1_MOUT_EN_RDMA1,
-+		    OD1_MOUT_EN_RDMA1),
-+	MMSYS_ROUTE(OVL, 0, COLOR, 0,
-+		    DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
-+		    OVL0_MOUT_EN_COLOR0),
-+	MMSYS_ROUTE(OVL, 0, COLOR, 0,
-+		    DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
-+		    COLOR0_SEL_IN_OVL0),
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
-+		    DISP_REG_CONFIG_DISP_OVL_MOUT_EN, OVL_MOUT_EN_RDMA,
-+		    OVL_MOUT_EN_RDMA),
-+	MMSYS_ROUTE(OVL, 1, COLOR, 1,
-+		    DISP_REG_CONFIG_DISP_OVL1_MOUT_EN, OVL1_MOUT_EN_COLOR1,
-+		    OVL1_MOUT_EN_COLOR1),
-+	MMSYS_ROUTE(OVL, 1, COLOR, 1,
-+		    DISP_REG_CONFIG_DISP_COLOR1_SEL_IN, COLOR1_SEL_IN_OVL1,
-+		    COLOR1_SEL_IN_OVL1),
-+	MMSYS_ROUTE(RDMA, 0, DPI, 0,
-+		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
-+		    RDMA0_SOUT_DPI0),
-+	MMSYS_ROUTE(RDMA, 0, DPI, 1,
-+		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
-+		    RDMA0_SOUT_DPI1),
-+	MMSYS_ROUTE(RDMA, 0, DSI, 1,
-+		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
-+		    RDMA0_SOUT_DSI1),
-+	MMSYS_ROUTE(RDMA, 0, DSI, 2,
-+		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
-+		    RDMA0_SOUT_DSI2),
-+	MMSYS_ROUTE(RDMA, 0, DSI, 3,
-+		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
-+		    RDMA0_SOUT_DSI3),
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
-+		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
-+		    RDMA1_SOUT_DPI0),
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
-+		    DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
-+		    DPI0_SEL_IN_RDMA1),
-+	MMSYS_ROUTE(RDMA, 1, DPI, 1,
-+		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
-+		    RDMA1_SOUT_DPI1),
-+	MMSYS_ROUTE(RDMA, 1, DPI, 1,
-+		    DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
-+		    DPI1_SEL_IN_RDMA1),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 0,
-+		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
-+		    DSI0_SEL_IN_RDMA1),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 1,
-+		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
-+		    RDMA1_SOUT_DSI1),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 1,
-+		    DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
-+		    DSI1_SEL_IN_RDMA1),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 2,
-+		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
-+		    RDMA1_SOUT_DSI2),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 2,
-+		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
-+		    DSI2_SEL_IN_RDMA1),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 3,
-+		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
-+		    RDMA1_SOUT_DSI3),
-+	MMSYS_ROUTE(RDMA, 1, DSI, 3,
-+		    DISP_REG_CONFIG_DSIO_SEL_IN, DSI3_SEL_IN_MASK,
-+		    DSI3_SEL_IN_RDMA1),
-+	MMSYS_ROUTE(RDMA, 2, DPI, 0,
-+		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
-+		    RDMA2_SOUT_DPI0),
-+	MMSYS_ROUTE(RDMA, 2, DPI, 0,
-+		    DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
-+		    DPI0_SEL_IN_RDMA2),
-+	MMSYS_ROUTE(RDMA, 2, DPI, 1,
-+		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
-+		    RDMA2_SOUT_DPI1),
-+	MMSYS_ROUTE(RDMA, 2, DPI, 1,
-+		    DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
-+		    DPI1_SEL_IN_RDMA2),
-+	MMSYS_ROUTE(RDMA, 2, DSI, 0,
-+		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
-+		    DSI0_SEL_IN_RDMA2),
-+	MMSYS_ROUTE(RDMA, 2, DSI, 1,
-+		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
-+		    RDMA2_SOUT_DSI1),
-+	MMSYS_ROUTE(RDMA, 2, DSI, 1,
-+		    DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
-+		    DSI1_SEL_IN_RDMA2),
-+	MMSYS_ROUTE(RDMA, 2, DSI, 2,
-+		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
-+		    RDMA2_SOUT_DSI2),
-+	MMSYS_ROUTE(RDMA, 2, DSI, 2,
-+		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
-+		    DSI2_SEL_IN_RDMA2),
- };
- 
- #endif /* __SOC_MEDIATEK_MTK_MMSYS_H */
+diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
+index 9d3d2983bfb2..3b25df9e7b50 100644
+--- a/drivers/clk/mediatek/Makefile
++++ b/drivers/clk/mediatek/Makefile
+@@ -123,7 +123,8 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VDOSYS) += clk-mt8188-vdo0.o clk-mt8188-vdo1.o
+ obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
+ obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
+ obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
+-obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o
++obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
++				   clk-mt8189-vlpckgen.o
+ obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
+diff --git a/drivers/clk/mediatek/clk-mt8189-vlpckgen.c b/drivers/clk/mediatek/clk-mt8189-vlpckgen.c
+new file mode 100644
+index 000000000000..39ca051b9ef8
+--- /dev/null
++++ b/drivers/clk/mediatek/clk-mt8189-vlpckgen.c
+@@ -0,0 +1,284 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2025-2026 MediaTek Inc.
++ *                    Qiqi Wang <qiqi.wang@mediatek.com>
++ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
++ * Copyright (C) 2026 Collabora Ltd.
++ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
++ */
++
++#include <linux/clk.h>
++#include <linux/delay.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++
++#include "clk-mtk.h"
++#include "clk-mux.h"
++#include "clk-gate.h"
++
++#include <dt-bindings/clock/mediatek,mt8189-clk.h>
++
++static DEFINE_SPINLOCK(mt8189_vlpclk_lock);
++
++static const char * const vlp_26m_oscd10_parents[] = {
++	"clk26m",
++	"osc_d10"
++};
++
++static const char * const vlp_vadsp_vowpll_parents[] = {
++	"clk26m",
++	"vowpll"
++};
++
++static const char * const vlp_sspm_ulposc_parents[] = {
++	"ulposc",
++	"univpll_d5_d2",
++	"osc_d10"
++};
++
++static const char * const vlp_aud_adc_parents[] = {
++	"clk26m",
++	"vowpll",
++	"aud_adc_ext",
++	"osc_d10"
++};
++
++static const char * const vlp_scp_iic_spi_parents[] = {
++	"clk26m",
++	"mainpll_d5_d4",
++	"mainpll_d7_d2",
++	"osc_d10"
++};
++
++static const char * const vlp_vadsp_uarthub_b_parents[] = {
++	"clk26m",
++	"osc_d10",
++	"univpll_d6_d4",
++	"univpll_d6_d2"
++};
++
++static const char * const vlp_axi_kp_parents[] = {
++	"clk26m",
++	"osc_d10",
++	"osc_d2",
++	"mainpll_d7_d4",
++	"mainpll_d7_d2"
++};
++
++static const char * const vlp_sspm_parents[] = {
++	"clk26m",
++	"osc_d10",
++	"mainpll_d5_d2",
++	"ulposc",
++	"mainpll_d6"
++};
++
++static const char * const vlp_pwm_vlp_parents[] = {
++	"clk26m",
++	"osc_d4",
++	"clk32k",
++	"osc_d10",
++	"mainpll_d4_d8"
++};
++
++static const char * const vlp_pwrap_ulposc_parents[] = {
++	"clk26m",
++	"osc_d10",
++	"osc_d7",
++	"osc_d8",
++	"osc_d16",
++	"mainpll_d7_d8"
++};
++
++static const char * const vlp_vadsp_parents[] = {
++	"clk26m",
++	"osc_d20",
++	"osc_d10",
++	"osc_d2",
++	"ulposc",
++	"mainpll_d4_d2"
++};
++
++static const char * const vlp_scp_parents[] = {
++	"clk26m",
++	"univpll_d4",
++	"univpll_d3",
++	"mainpll_d3",
++	"univpll_d6",
++	"apll1",
++	"mainpll_d4",
++	"mainpll_d6",
++	"mainpll_d7",
++	"osc_d10"
++};
++
++static const char * const vlp_spmi_p_parents[] = {
++	"clk26m",
++	"f26m_d2",
++	"osc_d8",
++	"osc_d10",
++	"osc_d16",
++	"osc_d7",
++	"clk32k",
++	"mainpll_d7_d8",
++	"mainpll_d6_d8",
++	"mainpll_d5_d8"
++};
++
++static const char * const vlp_camtg_parents[] = {
++	"clk26m",
++	"univpll_192m_d8",
++	"univpll_d6_d8",
++	"univpll_192m_d4",
++	"osc_d16",
++	"osc_d20",
++	"osc_d10",
++	"univpll_d6_d16",
++	"tvdpll1_d16",
++	"f26m_d2",
++	"univpll_192m_d10",
++	"univpll_192m_d16",
++	"univpll_192m_d32"
++};
++
++static const struct mtk_mux vlp_ck_muxes[] = {
++	/* VLP_CLK_CFG_0 */
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_SCP_SEL, "vlp_scp_sel",
++			     vlp_scp_parents, 0x008, 0x00c, 0x010,
++			     0, 4, 7, 0x04, 0),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_PWRAP_ULPOSC_SEL, "vlp_pwrap_ulposc_sel",
++			vlp_pwrap_ulposc_parents, 0x008, 0x00c, 0x010,
++			8, 3, 0x04, 1),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SPMI_P_MST_SEL, "vlp_spmi_p_sel",
++			vlp_spmi_p_parents, 0x008, 0x00c, 0x010,
++			16, 4, 0x04, 2),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_DVFSRC_SEL, "vlp_dvfsrc_sel",
++			vlp_26m_oscd10_parents, 0x008, 0x00c, 0x010,
++			24, 1, 0x04, 3),
++	/* VLP_CLK_CFG_1 */
++	MUX_CLR_SET_UPD(CLK_VLP_CK_PWM_VLP_SEL, "vlp_pwm_vlp_sel",
++			vlp_pwm_vlp_parents, 0x014, 0x018, 0x01c,
++			0, 3, 0x04, 4),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_AXI_VLP_SEL, "vlp_axi_vlp_sel",
++			vlp_axi_kp_parents, 0x014, 0x018, 0x01c,
++			8, 3, 0x04, 5),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SYSTIMER_26M_SEL, "vlp_timer_26m_sel",
++			vlp_26m_oscd10_parents, 0x014, 0x018, 0x01c,
++			16, 1, 0x04, 6),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SSPM_SEL, "vlp_sspm_sel",
++			vlp_sspm_parents, 0x014, 0x018, 0x01c,
++			24, 3, 0x04, 7),
++	/* VLP_CLK_CFG_2 */
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SSPM_F26M_SEL, "vlp_sspm_f26m_sel",
++			vlp_26m_oscd10_parents, 0x020, 0x024, 0x028,
++			0, 1, 0x04, 8),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SRCK_SEL, "vlp_srck_sel",
++			vlp_26m_oscd10_parents, 0x020, 0x024, 0x028,
++			8, 1, 0x04, 9),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_SPI_SEL, "vlp_scp_spi_sel",
++			vlp_scp_iic_spi_parents, 0x020, 0x024, 0x028,
++			16, 2, 0x04, 10),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_IIC_SEL, "vlp_scp_iic_sel",
++			vlp_scp_iic_spi_parents, 0x020, 0x024, 0x028,
++			24, 2, 0x04, 11),
++	/* VLP_CLK_CFG_3 */
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_SPI_HIGH_SPD_SEL,
++			"vlp_scp_spi_hs_sel",
++			vlp_scp_iic_spi_parents, 0x02c, 0x030, 0x034,
++			0, 2, 0x04, 12),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_IIC_HIGH_SPD_SEL,
++			"vlp_scp_iic_hs_sel",
++			vlp_scp_iic_spi_parents, 0x02c, 0x030, 0x034,
++			8, 2, 0x04, 13),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_SSPM_ULPOSC_SEL, "vlp_sspm_ulposc_sel",
++			vlp_sspm_ulposc_parents, 0x02c, 0x030, 0x034,
++			16, 2, 0x04, 14),
++	MUX_CLR_SET_UPD(CLK_VLP_CK_APXGPT_26M_SEL, "vlp_apxgpt_26m_sel",
++			vlp_26m_oscd10_parents, 0x02c, 0x030, 0x034,
++			24, 1, 0x04, 15),
++	/* VLP_CLK_CFG_4 */
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_VADSP_SEL, "vlp_vadsp_sel",
++			     vlp_vadsp_parents, 0x038, 0x03c, 0x040,
++			     0, 3, 7, 0x04, 16),
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_VADSP_VOWPLL_SEL,
++			     "vlp_vadsp_vowpll_sel",
++			     vlp_vadsp_vowpll_parents, 0x038, 0x03c, 0x040,
++			     8, 1, 15, 0x04, 17),
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_VADSP_UARTHUB_BCLK_SEL,
++			     "vlp_vadsp_uarthub_b_sel",
++			     vlp_vadsp_uarthub_b_parents,
++			     0x038, 0x03c, 0x040, 16, 2, 23, 0x04, 18),
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_CAMTG0_SEL, "vlp_camtg0_sel",
++			     vlp_camtg_parents, 0x038, 0x03c, 0x040,
++			     24, 4, 31, 0x04, 19),
++	/* VLP_CLK_CFG_5 */
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_CAMTG1_SEL, "vlp_camtg1_sel",
++			     vlp_camtg_parents, 0x044, 0x048, 0x04c,
++			     0, 4, 7, 0x04, 20),
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_CAMTG2_SEL, "vlp_camtg2_sel",
++			     vlp_camtg_parents, 0x044, 0x048, 0x04c,
++			     8, 4, 15, 0x04, 21),
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_AUD_ADC_SEL, "vlp_aud_adc_sel",
++			     vlp_aud_adc_parents, 0x044, 0x048, 0x04c,
++			     16, 2, 23, 0x04, 22),
++	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_KP_IRQ_GEN_SEL, "vlp_kp_irq_sel",
++			     vlp_axi_kp_parents, 0x044, 0x048, 0x04c,
++			     24, 3, 31, 0x04, 23),
++};
++
++static const struct mtk_gate_regs vlp_ck_cg_regs = {
++	.set_ofs = 0x1f4,
++	.clr_ofs = 0x1f8,
++	.sta_ofs = 0x1f0,
++};
++
++#define GATE_VLP_CK_FLAGS(_id, _name, _parent, _shift, _flag) {	\
++		.id = _id,				\
++		.name = _name,				\
++		.parent_name = _parent,			\
++		.regs = &vlp_ck_cg_regs,		\
++		.shift = _shift,			\
++		.flags = _flag,				\
++		.ops = &mtk_clk_gate_ops_setclr_inv,	\
++	}
++
++#define GATE_VLP_CK(_id, _name, _parent, _shift)	\
++	GATE_VLP_CK_FLAGS(_id, _name, _parent, _shift, 0)
++
++static const struct mtk_gate vlp_ck_clks[] = {
++	GATE_VLP_CK(CLK_VLP_CK_VADSYS_VLP_26M_EN, "vlp_vadsys_vlp_26m", "clk26m", 1),
++	GATE_VLP_CK_FLAGS(CLK_VLP_CK_FMIPI_CSI_UP26M_CK_EN, "vlp_fmipi_csi_up26m",
++			  "fmipi_csi_up26m", 11, CLK_IS_CRITICAL),
++};
++
++static const struct mtk_clk_desc vlpck_desc = {
++	.mux_clks = vlp_ck_muxes,
++	.num_mux_clks = ARRAY_SIZE(vlp_ck_muxes),
++	.clks = vlp_ck_clks,
++	.num_clks = ARRAY_SIZE(vlp_ck_clks),
++	.clk_lock = &mt8189_vlpclk_lock,
++};
++
++static const struct of_device_id of_match_clk_mt8189_vlpck[] = {
++	{ .compatible = "mediatek,mt8189-vlpckgen", .data = &vlpck_desc },
++	{ /* sentinel */ }
++};
++
++static struct platform_driver clk_mt8189_vlpck_drv = {
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
++	.driver = {
++		.name = "clk-mt8189-vlpck",
++		.of_match_table = of_match_clk_mt8189_vlpck,
++	},
++};
++module_platform_driver(clk_mt8189_vlpck_drv);
++
++MODULE_DESCRIPTION("MediaTek MT8189 vlpckgen clocks driver");
++MODULE_LICENSE("GPL");
+
 -- 
 2.54.0
 
