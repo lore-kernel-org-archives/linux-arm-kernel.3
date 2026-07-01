@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3340CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E48C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:29:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VBbVY1P0BXOAj9WGBZV/qKqgm8Py9Z+vOsn3CnnEyFs=; b=A0Xhui02s62uxfUXDbY4CwJ3sJ
-	0YiSgM7oG19N9efRs2XhVFEUalqxqPLhf46xuSXcMfrBcH/XozTIUGv94/6CS1MbhaQeOMNz9EvUO
-	QeJsflymjnpNO4GhZYVeWzbCUyuSYeDf+ylVnzSv8bn5t8o13kHBZ8PT2sPbS30A5SkbpAb5RxhmY
-	PnwIr8MEwCDLI8KqDi3LIrOX3S/bCp1CeDrgBFf7+V5ucVnPNXKN/2zE65nNbf1h0x/ZtnDzYMUxq
-	1MkQc5zwGrPerFTbTqNVGCgWJ1p+rS8HjyJcOEvIvUvKinwseznwLNSGdcNJAa3SCLVwGntpkA7ki
-	Li++LG/Q==;
+	bh=oouf/dK+KVCQpIL5LxKtT/u/Z+E2ntQeaZfCAiSQ8EI=; b=l6Es6QDb0mxPQcMqWxjADtDlNr
+	i0+qSPOPpUc1pIhwCqW9bGCR1cfNaeQcctEfi2D/IBsi2JPxCJsT/DRwH1sRLGI2/wFVDBD3rm/un
+	ZwnPLNZzkbWyrv5QqDm8aayiUyUE+PTHvSVTZ29gxNQX+/Cb0z+vSStF81ImUY1WO1TVuV98hXDco
+	lQeyR6eDu1+PKY/D0WNXvVEEPhJjSE2hkPSKGUvhIbeXJ553uZfoHqTw7gsohe99N+FFHx8nV2UTq
+	b8u5c0vfG865J+a5x1MzKj39OpOcaOayWg4fHQK4Q6OhnGd382STKohJVqIkIh5yM0Zua/OwyP3KD
+	7UwLNqxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvs-00000001saW-2Gpz;
-	Wed, 01 Jul 2026 12:20:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wezgq-00000002pRj-094Z;
+	Wed, 01 Jul 2026 18:29:40 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvj-00000001s3y-2Bwv;
-	Wed, 01 Jul 2026 12:20:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=VBbVY1P0BXOAj9WGBZV/qKqgm8Py9Z+vOsn3CnnEyFs=; b=PXhsT5E4+SVG5f4KkUplQLS1vZ
-	EXQl1RR9ClFoTgFKZXMng6vgO+phavFzFkGupaHLxNwAcWl8rtng/dTOytMxVYNalKYcJs5otZynG
-	WhFlGDh15CUs+MwkneG4qByrA1ohOeCfC61e6g5ifG9f/hSRlWF82zi7ddwW9S5Q1ooJNAwtq1/cB
-	H5RVyipKgDvc+ZyVB4Jc2rHFlOgp83hyhXNfgUMW7CZ8jdCgQx+RXD85JNs+nFH8gjEwJ6eaVHCtm
-	GLphUPHER71kPu+9+y6HioNfa2Ivii0i6VwjFcYFpehMNHoRfIdJnLB01/hERzEZRmxOLyF5DUyza
-	fyuLu11g==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetvg-00000002jMF-0n3p;
-	Wed, 01 Jul 2026 12:20:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908434;
-	bh=7zzcLEDLfA5nbvd3rmnarcTdTM/piIa7uIm8EO8nqq0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K5KxoXgFvzANjiYNyNMvJI3NSE3Y+RSkW+plIJDrfp0MfAe4Sy0MnM+jZj4Wxg6uJ
-	 rJOEdrs6WAmQxjwcEampm6zXYYF52L7P0Yw/uTpJ+KqVpnFbrJSH/kz0il2/E1WpvE
-	 ou1iRK64NB3t8tgTGJaCMuZi9CsFEx2kO7l+SrsbCRJZ25+zWSqKaNv3OWmVFRcDF+
-	 FRg8QqVn0YeLj7Nn7aMMwP7qf7QeE0KzIQzS/OsV+6Jfg03yCmWzv0XtrHPMTSYhVY
-	 S+iSVjFErygQ09iaF2aDDkfDdyxAspUpIX+AYklsZtTXuUWgAs7FpWPsyRCTP4S7uv
-	 djezl3xHLTFXw==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C220C17E1583;
-	Wed,  1 Jul 2026 14:20:33 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	granquet@baylibre.com,
-	rex-bc.chen@mediatek.com,
-	dmitry.osipenko@collabora.com,
-	ck.hu@mediatek.com,
-	amergnat@baylibre.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH 06/11] drm/mediatek: mtk_dp: Use PHY API for PHY power sequences
-Date: Wed,  1 Jul 2026 14:20:19 +0200
-Message-ID: <20260701122024.19557-7-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
+	id 1wezgo-00000002pRO-08mI;
+	Wed, 01 Jul 2026 18:29:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0850B60138;
+	Wed,  1 Jul 2026 18:29:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF5FC1F00A3A;
+	Wed,  1 Jul 2026 18:29:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782930576;
+	bh=oouf/dK+KVCQpIL5LxKtT/u/Z+E2ntQeaZfCAiSQ8EI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=VYkvCZduhCdySp7hXHzjgXIR7cuZyFtTKEveIl7wuCR8Uisy6nUQ0D+18L8KPP+Bm
+	 zXy9qWlA79l62K19CEV7oach/0mgqjWFY5fsiZvmgWYdgbgXOpp70LjBpYVgrVwLWM
+	 xoFCuzGmJrzEZrLYaA7W1wDnuKGHjOhhNEQsCm2p13YJxXEfjAX6YX0WmJrMJCRcrD
+	 oibjmbB9SkkXkicl9IysYY72s5H06OzlgTjHIN5cNXjm1rYcWw3LlsaGBlNWV80DTi
+	 sryYFJjyD/9wGMdnMIu4I1PwQJpjvPi+mYiU4TZeESzGnV2G19Stgtdz/mpADJuvmh
+	 qYd75WqKxmwHA==
+Date: Wed, 1 Jul 2026 19:29:31 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: David Lechner <dlechner@baylibre.com>
+Cc: rva333@protonmail.com, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
+ Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Lee Jones <lee@kernel.org>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Ben Grisdale <bengris32@protonmail.ch>,
+ Conor Dooley <conor.dooley@microchip.com>, Andy Shevchenko
+ <andriy.shevchenko@intel.com>
+Subject: Re: [PATCH v4 0/4] AUXADC driver for the MediaTek mt6323 PMIC
+Message-ID: <20260701192931.1be293bd@jic23-huawei>
+In-Reply-To: <3f914030-44e8-4f63-ae72-7fde7d843325@baylibre.com>
+References: <20260623-mt6323-adc-v4-0-299680ad3194@protonmail.com>
+	<3f914030-44e8-4f63-ae72-7fde7d843325@baylibre.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132036_355900_0CC99C47 
-X-CRM114-Status: GOOD (  10.84  )
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,74 +77,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PHY driver has gained support for .power_on() and .power_off()
-callbacks: use the API provided phy_power_on(), phy_power_off()
-functions instead of writing into PHY registers from this driver.
+On Sun, 28 Jun 2026 12:34:20 -0500
+David Lechner <dlechner@baylibre.com> wrote:
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 32 ++++++++++++++++++++++++-------
- 1 file changed, 25 insertions(+), 7 deletions(-)
+> On 6/23/26 3:16 AM, Roman Vivchar via B4 Relay wrote:
+> > This series adds support for the 15-bit AUXADC hardware block found on
+> > the MediaTek mt6323 PMIC.
+> > 
+> > The previous version of the series for all AUXADC, EFUSE and thermal
+> > drivers was split after Krzysztof's comment [1].
+> > 
+> > Tested on the MediaTek mt6572 and mt8163 SoCs (Ben), both paired with a
+> > mt6323.
+> > 
+> > [1]: https://lore.kernel.org/linux-mediatek/20260504-mt6323-v1-0-799b58b355ff@protonmail.com/T/#med30fad67a090be35f549231336b2dec295233f6
+> > 
+> > Tested-by: Ben Grisdale <bengris32@protonmail.ch> # Amazon Echo Dot (2nd Generation)
+> > Signed-off-by: Roman Vivchar <rva333@protonmail.com>
+> > ---  
+> Reviewed-by: David Lechner <dlechner@baylibre.com>
+> 
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 97bce8966a1f..3b5348ab487d 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1415,6 +1415,8 @@ static void mtk_dp_aux_panel_poweron(struct mtk_dp *mtk_dp, bool pwron)
- 
- static void mtk_dp_power_enable(struct mtk_dp *mtk_dp)
- {
-+	int ret;
-+
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_RESET_AND_PROBE,
- 			   0, SW_RST_B_PHYD);
- 
-@@ -1425,21 +1427,37 @@ static void mtk_dp_power_enable(struct mtk_dp *mtk_dp)
- 			   SW_RST_B_PHYD, SW_RST_B_PHYD);
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_PWR_STATE,
- 			   DP_PWR_STATE_BANDGAP_TPLL, DP_PWR_STATE_MASK);
--	mtk_dp_write(mtk_dp, DP_PHY_AUX_RX_CTL,
--		     RG_DPAUX_RX_VALID_DEGLITCH_EN | RG_XTP_GLB_CKDET_EN |
--		     RG_DPAUX_RX_EN);
--	mtk_dp_update_bits(mtk_dp, MTK_DP_0034, 0, DA_CKM_CKTX0_EN_FORCE_EN);
-+
-+	if (mtk_dp->phy_dev) {
-+		mtk_dp_write(mtk_dp, DP_PHY_AUX_RX_CTL,
-+			     RG_DPAUX_RX_VALID_DEGLITCH_EN | RG_XTP_GLB_CKDET_EN |
-+			     RG_DPAUX_RX_EN);
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_0034, 0, DA_CKM_CKTX0_EN_FORCE_EN);
-+	} else {
-+		ret = phy_power_on(mtk_dp->phy);
-+		if (ret)
-+			dev_warn(mtk_dp->dev, "Could not power on PHY!\n");
-+	}
- }
- 
- static void mtk_dp_power_disable(struct mtk_dp *mtk_dp)
- {
-+	int ret;
-+
- 	mtk_dp_write(mtk_dp, MTK_DP_TOP_PWR_STATE, 0);
- 
--	mtk_dp_update_bits(mtk_dp, MTK_DP_0034,
-+	if (unlikely(mtk_dp->phy_dev)) {
-+		mtk_dp_update_bits(mtk_dp, MTK_DP_0034,
- 			   DA_CKM_CKTX0_EN_FORCE_EN, DA_CKM_CKTX0_EN_FORCE_EN);
- 
--	/* Disable RX */
--	mtk_dp_write(mtk_dp, DP_PHY_AUX_RX_CTL, 0);
-+		/* Disable RX */
-+		mtk_dp_write(mtk_dp, DP_PHY_AUX_RX_CTL, 0);
-+	} else {
-+		ret = phy_power_off(mtk_dp->phy);
-+		if (ret)
-+			dev_warn(mtk_dp->dev, "Could not power off PHY!\n");
-+	}
-+
- 	mtk_dp_write(mtk_dp, MTK_DP_TOP_MEM_PD,
- 		     0x550 | FUSE_SEL | MEM_ISO_EN);
- }
--- 
-2.54.0
+Applied patch 1 - with some hand editing due to another change
+to that binding, and patch 2 to the testing branch of iio.git
+which I'll push out as togreg once the bots have given it a clean
+bill of health.
 
+I'm assuming 3 will go via mfd and 4 via the soc tree.
+
+Thanks,
+
+Jonathan
 
