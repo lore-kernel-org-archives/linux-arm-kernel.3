@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03FDDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 537D1C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OEPXdGuWQWFYTexOfPAGOf7p20zH9EXp0M53nJvEN18=; b=C419nxO1PVhE1belTThWyOcyWs
-	H7+Hcc5Mb7zEtyGunlxZ7+TTqV9Diw+dN2Zb1MF2Zd+i11Hntu5ECd4ekuCI1cjTesrnWgK/gPeCe
-	1OtbjqzaMzxJBsJA6IUcnymkN6lOjhNZzH47jdV7KQ+BWb9Te6CeAWml+ZuKIOKpvG9inCZ3Psqfc
-	0JJBEzE8J+hmwFhSor06h6VEFCLTSiD476QUqrxEM3GfQAI+j6YLQSylt+AWb1+pxRT+HEFpEFwVK
-	q6yLBFBjUhHpuHUk0hWrneIfZ9A2y/I8uN0zKbKFaYLromHZZFgQBkx1jcZw9Ltu/6rVLxdyCysRB
-	I6aUyOkQ==;
+	bh=LP5dS7JKLNAK83t9i7GySnskCv7SsNh0UOdVqbYGGiI=; b=ZvBYXE0o3w1k6FGTUvJ+A62qTR
+	KgdgqsNZPtiXDWSgLHw6sP2GW2+yV7+IzYJs/q7POgVKY5G0P4H72vstahewhppaVMnm7Mjklaqgm
+	AKKEwt8dql83nAI0M3FZKCjritJz7S5R/VgEv/BgXw9+DOhhcTi+TS/k/hL84xr+aZ2m3Hbeh+WnQ
+	5XNlmlpUb8rpGCwcURJXymgygRlWKzFUAGvW43FtujcMRxQN2hiEvTXwmnapnUknrGN0/jWUqSlYL
+	qTBOBCSOhTZ+iVilexxIJmvlg4bIiGb6hW3kZOYA1kKtzL3zn7mqOBP7aUTv2m/2iTi0oar5UoCha
+	SFGGnxrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwG-00000001tmw-3I6X;
+	id 1wetwG-00000001tlH-0YWo;
 	Wed, 01 Jul 2026 12:21:12 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvy-00000001srD-2sTk;
+	id 1wetvv-00000001sem-1ZjY;
 	Wed, 01 Jul 2026 12:21:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908452;
-	bh=knL125EqyeDrxGL3Ld+yoYxozWxizbjazjQr+Cmfeww=;
+	s=mail; t=1782908449;
+	bh=wgHgcm8xmrhSZqBKw4j7YQgDPCGbEX4RDBXbqihHAaY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=J9AwQjsRjbU+eOAh5iRR3sAr+iiBXCt944cwy3yqYQeus2HgH1dvBLmfxuvG874Oh
-	 5/rIavH3IYSPgKEvRrreXsWhp4qaj7HKFStCQXj1yCrDSzp3J0C3ttQOHGp7CnqXF1
-	 VLXu8o6BUJsU9egdpFa4o4QWbxLqB9tZMpTLQ48EzQLgJh83r6oo6hvDP45Sp35rxC
-	 4gBjxcp4WqhWOlFS8rT84GHKkGOhgDC8pG3vPbCh0za/C/jcFnmyVucp+Y32HEPT0T
-	 XqZ2WQj9BnpJOPzooTYilY/1+Hc0u+6YGhW2V0Mtx4S03jbFMml41jpCZBMip1p/FU
-	 3G4C5ZxF2hZ2Q==
+	b=Z0SLQdhSwyJDbeiKvQ+HrIpTUxzjvAh0AcbNdueDIZSowjEUHOYjSYGxglQmEumKU
+	 KPSvzcVFxC0eFa6W+31sk7e3oWPUQM5zsYoh+h7tLjjxf95WIyt6utg/hWq9YmjqFG
+	 QvCNvCCYWffKv8ESM+vDbZtK+WWSCC5Vedq3t5QMNysXlxERskkI4Y7qnhpLaJOEiO
+	 ePcbSt60kXV72W4i39Q54yZQkqBXHfqBwAX37QLO5Jx8zSjjnDEEjDHb8UDD5HLiaq
+	 /KTLPKC7aMMka9VzSWl3/TYLfAL1P/oBdEO5/CNnzufbLu4RsluuEFixa382hfSP+8
+	 zyBpU2nwIjF6w==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EA5E317E0FAA;
-	Wed,  1 Jul 2026 14:20:50 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 25B3817E0CF4;
+	Wed,  1 Jul 2026 14:20:48 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -72,17 +72,18 @@ Cc: p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com,
 	kernel@collabora.com
-Subject: [PATCH 4/6] soc: mediatek: mtk-mutex: Add new functions to add/remove triggers
-Date: Wed,  1 Jul 2026 14:20:41 +0200
-Message-ID: <20260701122043.19612-5-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 2/6] dt-bindings: soc: mediatek: mutex: Allow #trigger-source-cells
+Date: Wed,  1 Jul 2026 14:20:39 +0200
+Message-ID: <20260701122043.19612-3-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
 References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_052054_964929_994AB509 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20260701_052051_951492_062A4441 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,132 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new mtk_mutex_add_trigger() and mtk_mutex_remove_trigger() to
-replace, in the near future, their older style equivalents such as
-mtk_mutex_add_comp() and mtk_mutex_remove_comp() for the Display
-Controller related MuteX triggers.
-
-The same functions will be used to also replace the Media Data
-Path 3 (MDP3) specific mtk_mutex_write_mod(), unifying the MuteX
-handling across all of the currently supported multimedia-related
-drivers for MediaTek SoCs.
-
-While at it, this also takes into account the upcoming refactoring
-of mtk_mmsys and mediatek-drm, which are about to migrate to a new
-Component "Type -> Hardware ID" mapping, by adding a new function
-parameter "hw_inst_id" to support that.
+This hardware controls trigger sources, and there's even a generic
+binding just for that: allow #trigger-source-cells in MuteX, so
+that this is allowed to provide triggers to external HW.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/soc/mediatek/mtk-mutex.c       | 60 ++++++++++++++++++++++++++
- include/linux/soc/mediatek/mtk-mutex.h |  6 +++
- 2 files changed, 66 insertions(+)
+ .../devicetree/bindings/soc/mediatek/mediatek,mutex.yaml      | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-index 6ffdcb673ae9..28715b07e668 100644
---- a/drivers/soc/mediatek/mtk-mutex.c
-+++ b/drivers/soc/mediatek/mtk-mutex.c
-@@ -960,6 +960,65 @@ void mtk_mutex_unprepare(struct mtk_mutex *mutex)
- }
- EXPORT_SYMBOL_GPL(mtk_mutex_unprepare);
+diff --git a/Documentation/devicetree/bindings/soc/mediatek/mediatek,mutex.yaml b/Documentation/devicetree/bindings/soc/mediatek/mediatek,mutex.yaml
+index 1ba086ad749d..429ea149068e 100644
+--- a/Documentation/devicetree/bindings/soc/mediatek/mediatek,mutex.yaml
++++ b/Documentation/devicetree/bindings/soc/mediatek/mediatek,mutex.yaml
+@@ -57,6 +57,9 @@ properties:
+     items:
+       - description: MUTEX Clock
  
-+static enum mtk_mutex_sof_id mtk_mutex_get_sof_trig(enum mtk_ddp_comp_type type,
-+						    unsigned int hw_inst_id)
-+{
-+	switch (type) {
-+	case MTK_DISP_DSI:
-+		return MUTEX_SOF_DSI0 + hw_inst_id;
-+	case MTK_DISP_DPI:
-+		return MUTEX_SOF_DPI0 + hw_inst_id;
-+	case MTK_DISP_DP_INTF:
-+		return MUTEX_SOF_DP_INTF0 + hw_inst_id;
-+	default:
-+		break;
-+	}
++  '#trigger-source-cells':
++    const: 1
 +
-+	return DDP_MUTEX_SOF_MAX;
-+}
-+
-+void mtk_mutex_add_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
-+			   unsigned int hw_inst_id, unsigned int mtx_trig_id)
-+{
-+	struct mtk_mutex_ctx *ctx = container_of(mutex, struct mtk_mutex_ctx, mutex[mutex->id]);
-+	enum mtk_mutex_sof_id sof_id = mtk_mutex_get_sof_trig(type, hw_inst_id);
-+	const u32 offset = DISP_REG_MUTEX_MOD(ctx, mtx_trig_id, mutex->id);
-+	u32 val;
-+
-+	if (sof_id < DDP_MUTEX_SOF_MAX) {
-+		const u32 sof_offset = DISP_REG_MUTEX_SOF(ctx->data->mutex_sof_reg, mutex->id);
-+
-+		writel(ctx->data->mutex_sof[sof_id], ctx->regs + sof_offset);
-+		return;
-+	}
-+
-+	val = readl(ctx->regs + offset);
-+	writel(val | BIT(mtx_trig_id % 32), ctx->regs + offset);
-+}
-+EXPORT_SYMBOL_NS_GPL(mtk_mutex_add_trigger, "MTK_MUTEX");
-+
-+void mtk_mutex_remove_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
-+			      unsigned int hw_inst_id, unsigned int mtx_trig_id)
-+{
-+	struct mtk_mutex_ctx *ctx = container_of(mutex, struct mtk_mutex_ctx, mutex[mutex->id]);
-+	enum mtk_mutex_sof_id sof_id = mtk_mutex_get_sof_trig(type, hw_inst_id);
-+	const u32 offset = DISP_REG_MUTEX_MOD(ctx, mtx_trig_id, mutex->id);
-+	u32 val;
-+
-+	if (sof_id < DDP_MUTEX_SOF_MAX) {
-+		const u32 sof_offset = DISP_REG_MUTEX_SOF(ctx->data->mutex_sof_reg, mutex->id);
-+
-+		val = readl(ctx->regs + sof_offset);
-+		writel(val & ~ctx->data->mutex_sof[sof_id], ctx->regs + sof_offset);
-+		return;
-+	}
-+
-+	val = readl(ctx->regs + offset);
-+	writel(val & ~BIT(mtx_trig_id % 32), ctx->regs + offset);
-+}
-+EXPORT_SYMBOL_NS_GPL(mtk_mutex_remove_trigger, "MTK_MUTEX");
-+
-+/* TODO: Legacy - Scheduled for removal */
- void mtk_mutex_add_comp(struct mtk_mutex *mutex,
- 			enum mtk_ddp_comp_id id)
- {
-@@ -1011,6 +1070,7 @@ void mtk_mutex_add_comp(struct mtk_mutex *mutex,
- }
- EXPORT_SYMBOL_GPL(mtk_mutex_add_comp);
- 
-+/* TODO: Legacy - Scheduled for removal */
- void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
- 			   enum mtk_ddp_comp_id id)
- {
-diff --git a/include/linux/soc/mediatek/mtk-mutex.h b/include/linux/soc/mediatek/mtk-mutex.h
-index 635218e3ac68..5368206dd62c 100644
---- a/include/linux/soc/mediatek/mtk-mutex.h
-+++ b/include/linux/soc/mediatek/mtk-mutex.h
-@@ -67,16 +67,22 @@ enum mtk_mutex_sof_index {
- 	MUTEX_SOF_IDX_MAX		/* ALWAYS keep at the end */
- };
- 
-+enum mtk_ddp_comp_type;
-+
- struct mtk_mutex *mtk_mutex_get(struct device *dev);
- int mtk_mutex_prepare(struct mtk_mutex *mutex);
- void mtk_mutex_add_comp(struct mtk_mutex *mutex,
- 			enum mtk_ddp_comp_id id);
-+void mtk_mutex_add_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
-+			   unsigned int hw_inst_id, unsigned int mtx_trig_id);
- void mtk_mutex_enable(struct mtk_mutex *mutex);
- int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex,
- 			     void *pkt);
- void mtk_mutex_disable(struct mtk_mutex *mutex);
- void mtk_mutex_remove_comp(struct mtk_mutex *mutex,
- 			   enum mtk_ddp_comp_id id);
-+void mtk_mutex_remove_trigger(struct mtk_mutex *mutex, enum mtk_ddp_comp_type type,
-+			      unsigned int hw_inst_id, unsigned int mtx_trig_id);
- void mtk_mutex_unprepare(struct mtk_mutex *mutex);
- void mtk_mutex_put(struct mtk_mutex *mutex);
- void mtk_mutex_acquire(struct mtk_mutex *mutex);
+   mediatek,gce-events:
+     description:
+       The event id which is mapping to the specific hardware event signal
+@@ -119,6 +122,7 @@ examples:
+             interrupts = <GIC_SPI 169 IRQ_TYPE_LEVEL_LOW>;
+             power-domains = <&spm MT8173_POWER_DOMAIN_MM>;
+             clocks = <&mmsys CLK_MM_MUTEX_32K>;
++            #trigger-source-cells = <1>;
+             mediatek,gce-events = <CMDQ_EVENT_MUTEX0_STREAM_EOF>,
+                                   <CMDQ_EVENT_MUTEX1_STREAM_EOF>;
+         };
 -- 
 2.54.0
 
