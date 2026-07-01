@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC14C43327
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF02EC43602
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ca4G4RBheero8W5ZHFYsakUeqot3Kd2Q1mDkspUbZf0=; b=agqQSJQF58h5Mu/4+suC32AWfe
-	BRFzvO7xwyvpcKA5JQWU1b4ZYTDf2hpvj4pUja/qzGfMxMWHb/AWK1WPrQFB0sU3lHtdQ1Dr9f2Wa
-	dmgFvRumcCOBMhPJo9fQHrj0+nsOxaeQ9tWYFZozGNX8JiLEd203sNaMc1a9IW+uaTTAjGIGP+SWc
-	VE9+qh08rZct4ZhXeKWO1IYlM/uKFnY/+u1GWvL15Qye5RqM0/zPFP57DyNPdGyJU0ndLD7PpwipZ
-	iuAmdwE9U7bHO8t8MSJ0f0vcscZtbAM1SpIbrO2C2RvlNhjuKArvEd+rHfcwpJF0APPmjU27jsymB
-	LMn5f6oA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C70PlLLBPFT+bNSv10mQhwuZyOdB3FrRwr2gTVXM/sQ=; b=MO0xwxgpALG2Pcr2dQ7VwGj2bm
+	vSGyeo3WajLv+xJgBzyI11P9ZorZTnK6biqP7GEkSpeJZvNgePqJfectJAWMoKb4ZwBj1HV5i4PWw
+	ZWdl3LSo/OAG1yMrUM8t1eE1ZABlHSPEkFSUJHp0LU+ID3bkSvSfBSDX1+IqSPiEHR8u3VBuTfUQA
+	wkqLT2L377FD5fpWbj8RqBjMH2rm6TDBspLSSOepHhfvmsxVbqDXsV6ds1udJQ9W/1GKu0TxwF4Yu
+	WxkYNSinpFyGZa/UK2fGESapodd6L41Q8Ku5Yez2U9RIr27v6i8xfJ4tmC3gmuWBezFfrX3RTk0+K
+	M8xTKsmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqLY-000000011YG-0wPL;
-	Wed, 01 Jul 2026 08:31:04 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1weqLb-000000011ap-10za;
+	Wed, 01 Jul 2026 08:31:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqLU-000000011VV-0YRL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 08:31:02 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=ratatoskr.trumtrar.info)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.trumtrar@pengutronix.de>)
-	id 1weqLE-00051f-WC; Wed, 01 Jul 2026 10:30:45 +0200
-From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Date: Wed, 01 Jul 2026 10:30:23 +0200
-Subject: [PATCH v3 2/2] arm64: dts: imx8mp-skov: support new 7inch panel
- board
+	id 1weqLX-000000011Wz-1xjc;
+	Wed, 01 Jul 2026 08:31:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A512601D8;
+	Wed,  1 Jul 2026 08:31:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 29B44C2BCC6;
+	Wed,  1 Jul 2026 08:31:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1782894662;
+	bh=EN7+luIk8ttxgrcIn29NeS7w5DT1mqmUEpqgU8cOU4w=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=pUx3yXnPdCTJahJfhmnLb3VfU0fdV9Lv6TH2zYUtBzk8RaG603wE1TjhCn1XY/rLC
+	 30Pv1ubIR4ct97j6IjuWW2r3F+xt8W0+R5BFj51nErTPyUPZ2bVJo5ANHP8LuXiMwa
+	 2DN+WyQzs/XVcX/PulIJvQufVlxtNRyrSksPlei8w5jFDR4kJqrebod5DcAH5yBwLK
+	 UTaBDW2nluW8kPsEKP0X/le1eDAewAnd7F2lGDoFQAV28gCDhA5Ps1L/OfiaIMIuGC
+	 ZnJl2H/pDr64FrUY+ZTZuFz10Gg/bAi7F/J3Ax2hRYFaKb4YUy8h7Ou3djyPpZdloy
+	 kKkUS5S43ieEg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13070C43458;
+	Wed,  1 Jul 2026 08:31:02 +0000 (UTC)
+From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Subject: [PATCH v6 0/2] clk: amlogic: Add A9 peripherals clock controller
+Date: Wed, 01 Jul 2026 16:30:01 +0800
+Message-Id: <20260701-a9_peripherals-v6-0-9630f39879e5@amlogic.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-2-d74f7e3f8293@pengutronix.de>
-References: <20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de>
-In-Reply-To: <20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: Steffen Trumtrar <s.trumtrar@pengutronix.de>, 
+X-B4-Tracking: v=1; b=H4sIAArQRGoC/3XPTQrCMBAF4KuUrI1M/prWlfcQkTSd2oDakkhRp
+ Hd32lUluHwD7+PNhyWMARM7FB8WcQopDA8K5a5gvnePK/LQUmYSZAklKO7qy0iVscfobolrKTT
+ a2oJpPaPSGLELrxU8nSn3IT2H+F79SS7Xv9QkOXBE0VQenMDSH939NlyD3/vhzhZsUhtAQAYoA
+ lqwzlZQmc6KHNBboMoATUCHQkKLmt6yOWA2gMoXGAIar0HUVoEy+heY5/kLkFdWxXEBAAA=
+X-Change-ID: 20260603-a9_peripherals-4214e79705dc
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xianwei Zhao <xianwei.zhao@amlogic.com>, 
+ Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Brian Masney <bmasney@redhat.com>
+Cc: linux-amlogic@lists.infradead.org, linux-clk@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3082;
- i=s.trumtrar@pengutronix.de; h=from:subject:message-id;
- bh=8BTgJY7f8umnygoGx9lArRpKcNsZ5rvai7faGnydFA8=;
- b=owGbwMvMwCUmtVehiCsuTInxtFoSQ5bLBePJNxwvFv5d2t/xM/HWuQrbC3+7F7+adEnbsuvzv
- l1T2Ly+dpSyMIhxMciKKbKoLKzgE/X44Bk5TYQLZg4rE8gQBi5OAZjIrwsM//0vTrYNvV/5g3G3
- RkLtp23XXkuvNJzmfWXnZe3ASrbIA7aMDI/a/91mahY6zD3T4fmCsJ1Jm/iiIq9aF7z3/vCAdau
- nMhcA
-X-Developer-Key: i=s.trumtrar@pengutronix.de; a=openpgp;
- fpr=24A1780E1548F0495996140A1ABD20720A5E5622
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.trumtrar@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_013100_202527_E807B96E 
-X-CRM114-Status: GOOD (  12.14  )
+ linux-arm-kernel@lists.infradead.org, Jian Hu <jian.hu@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782894659; l=2893;
+ i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
+ bh=EN7+luIk8ttxgrcIn29NeS7w5DT1mqmUEpqgU8cOU4w=;
+ b=Xw9K4k9bePFl7wxYw4cyAoSwBxvdJXE98gki1lSauw51LcjhFKhZWqVL/NqbLD0zCnuv8t4gU
+ /2+dtstXbAUAPadINiWCjQvsbYrlV3ZYbvw9AQhr0OftCJBiJrSuBtU
+X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
+ pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
+X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
+ auth_id=735
+X-Original-From: Jian Hu <jian.hu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,118 +91,81 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This board is similar to the already upstream
-imx8mp-skov-revc-tian-g07017.dts but uses a different 7" panel with a
-different touch controller.
+This series adds Amlogic A9 peripherals clock support,
+including dt-binding and peripherals clock driver.
 
-Signed-off-by: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Note that this driver depends on the A9 PLL driver, which is not yet
+upstream. The Meson PLL framework is currently undergoing refactoring,
+and the A9 PLL driver will be submitted as a follow-up series after
+that work has been completed.
+
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
 ---
- arch/arm64/boot/dts/freescale/Makefile             |  1 +
- .../imx8mp-skov-revc-jutouch-jt070tm041.dts        | 79 ++++++++++++++++++++++
- 2 files changed, 80 insertions(+)
+Changes in v6:
+- Rebase onto the latest clk-meson-next.
+- Update Kconfig and Makefile context to apply cleanly.
+- No functional changes.
+- Link to v5: https://lore.kernel.org/r/20260630-a9_peripherals-v5-0-bc4019730354@amlogic.com
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 8ddaab127ab9c..efca29735b2cb 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -435,6 +435,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revb-mi1010ait-1cp1.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-bd500.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-hdmi.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-tian-g07017.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt070tm041.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-skov-revc-jutouch-jt101tm023.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-toradex-smarc-dev.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8mp-tqma8mpql-mba8mpxl.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt070tm041.dts b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt070tm041.dts
-new file mode 100644
-index 0000000000000..56374f1e67663
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-revc-jutouch-jt070tm041.dts
-@@ -0,0 +1,79 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+
-+/dts-v1/;
-+
-+#include "imx8mp-skov-reva.dtsi"
-+
-+/ {
-+	model = "SKOV IMX8MP CPU revC - JuTouch JT070TM041";
-+	compatible = "skov,imx8mp-skov-revc-jutouch-jt070tm041", "fsl,imx8mp";
-+
-+	panel {
-+		compatible = "jutouch,jt070tm041";
-+		backlight = <&backlight>;
-+		power-supply = <&reg_tft_vcom>;
-+
-+		port {
-+			in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+};
-+
-+&backlight {
-+	status = "okay";
-+};
-+
-+&i2c2 {
-+	clock-frequency = <100000>;
-+	status = "okay";
-+
-+	touchscreen@2a {
-+		compatible = "eeti,exc81w32";
-+		reg = <0x2a>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
-+		interrupts-extended = <&gpio4 28 IRQ_TYPE_LEVEL_LOW>;
-+		reset-gpios = <&gpio4 29 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1024>;
-+		touchscreen-size-y = <600>;
-+		vdd-supply = <&reg_vdd_3v3>;
-+	};
-+};
-+
-+&lcdif2 {
-+	status = "okay";
-+};
-+
-+&lvds_bridge {
-+	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_LDB>,
-+				 <&clk IMX8MP_VIDEO_PLL1>;
-+	assigned-clock-parents = <&clk IMX8MP_VIDEO_PLL1_OUT>;
-+	/* IMX8MP_VIDEO_PLL1 = IMX8MP_CLK_MEDIA_DISP2_PIX * 2 * 7 */
-+	assigned-clock-rates = <0>, <358400000>;
-+	status = "okay";
-+
-+	ports {
-+		port@1 {
-+			ldb_lvds_ch0: endpoint {
-+				remote-endpoint = <&in_lvds0>;
-+			};
-+		};
-+	};
-+};
-+
-+&pwm4 {
-+	status = "okay";
-+};
-+
-+&pwm1 {
-+	status = "okay";
-+};
-+
-+&reg_tft_vcom {
-+	regulator-min-microvolt = <3160000>;
-+	regulator-max-microvolt = <3160000>;
-+	voltage-table = <3160000 73>;
-+	status = "okay";
-+};
+Changes in v5:
+- Include <linux/module.h>.
+- Add missing '0' suffixes to some clocks.
+- Fix typo: "encorder1" -> "encoder1".
+- Fix the parent clock for a9_hdmitx1_pixel.
+- Link to v4: https://lore.kernel.org/r/20260618-a9_peripherals-v4-0-fe120de44e77@amlogic.com
 
+Changes in v4:
+- Expose channel 3 for gen_clk.
+- Add missing '0' suffixes to somes.
+- Use helper macro for vclk clocks definitions.
+- Drop forward declaration.
+- Drop CLK_HW_INIT* and revert to explicit clock declarations.
+- Fix can clock channel number comment.
+- Rename enc clocks to encoder0/encoder1.
+- Link to v3: https://lore.kernel.org/r/20260610-a9_peripherals-v3-0-d07a78085f71@amlogic.com
+
+Changes in v3:
+- Add "depend on A9 pll" instructions in the cover-letter.
+- Move COMPILE_TEST after 'depends on ARM64' reported by sashiko-bot.
+- Fix usb_48m_pre_sel's parent reported by sashiko-bot.
+- Fix gen_div width reported by sashiko-bot.
+- Fix hdmitx1_pixel's parent reported by sashiko-bot.
+- Link to v2: https://lore.kernel.org/r/20260603-a9_peripherals-v2-0-ee1b8c0a1e6c@amlogic.com
+
+Changes in v2:
+- Split the A9 clock driver and send the peripherals clock separately.
+- Add COMPILE_TEST in Kconfig.
+- Drop the 'optional'.
+- Rename apb4 to soc.
+- Sort the header file.
+- Rename hifi to hifi0.
+- Use CLK_HW_INIT_PARENTS_DATA to describe clk_init_data.
+- Use CLK_HW_INIT_HW to describe clk_init_data.
+- Use CLK_HW_INIT_PARENTS_HW to describe clk_init_data.
+- Link to v1: https://lore.kernel.org/all/20260511-b4-a9_clk-v1-0-41cb4071b7c9@amlogic.com/
+
+---
+Jian Hu (2):
+      dt-bindings: clock: Add Amlogic A9 peripherals clock controller
+      clk: amlogic: Add A9 peripherals clock controller driver
+
+ .../clock/amlogic,a9-peripherals-clkc.yaml         |  164 ++
+ drivers/clk/meson/Kconfig                          |   15 +
+ drivers/clk/meson/Makefile                         |    1 +
+ drivers/clk/meson/a9-peripherals.c                 | 2089 ++++++++++++++++++++
+ .../clock/amlogic,a9-peripherals-clkc.h            |  351 ++++
+ 5 files changed, 2620 insertions(+)
+---
+base-commit: a1b4c3a63a7e56b98b2eccc3a82b9f31d51c2e35
+change-id: 20260603-a9_peripherals-4214e79705dc
+
+Best regards,
 -- 
-2.51.0
+Jian Hu <jian.hu@amlogic.com>
+
 
 
