@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0366DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C23C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6wRKSXChsr77WPNeKS78AynfZLFETLZw16rerEeWi/o=; b=iQvCkiDcimSq3bXA22DTJyFDvF
-	2J130NhrkL5TQHp7NagSl5wTOlrOHKKyWUId4flCoO3FyJx20WbsaH04ebSVkUCw50AiURgmRnUZp
-	x8ncDRjLHBfQlryfV3eNOx18JBQ2cKHAyQ9bPTHLPUKqtJzABEJHOnfd0Q4IVUvvMhjjXR7BWe/EV
-	TLkmgNo3fCiJRLcG60VU8pcv1PGmUrJ8OgWQ8OhFS90/DNDDYTFVMvd/5BX8xA9tTsWMvX4sERb/d
-	gk+Su2mUSyGWpiDPraWsMEZO7lNREySxu0ZtO0EmFqFpZvu1d/XcG4unzLrvKqJ6XHbkbM2jGmHP+
-	q5UIjiwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ka7QnJN4tdnWVmhlb/tOiO+HN/iNCJ+GTmw5iPpNAhE=; b=VowLhLp31PHIvMwfwK02hDl5sw
+	ohIciLv2a7RObZAOOLOIrpFqUzCMxusLxdoJ3PGgoVgeSvlgWQnFPWeT0Fjf54r4J+xpmN56gIvE2
+	xMdnqVj9Eb2UNyZkOv2LyDIcnfiE1gkazHuTA/1+oyoUNRTFZxSxX6r62mzWsK2FXEMoAKjNtYaWM
+	Az06PEK5C398c/LHvTDn5nqsDxmhp/+eSu62LOkuJ03/tnxMCa+orQqZs6r7fw3k3R3UKiu19WZew
+	2DG23+bi+AlXcASMA9jSDFg737We8OGEbNZg/Z6qVACwvisgd+QuguHgmoWDgQMbw5td9ihBzIlOV
+	YIVibsaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuMB-000000022ej-3aBp;
-	Wed, 01 Jul 2026 12:47:59 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1weuOL-000000022tn-1Ru3;
+	Wed, 01 Jul 2026 12:50:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuM9-000000022dj-1eOb
+	id 1weuOK-000000022th-2YEc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 12:47:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=6wRKSXChsr77WPNeKS78AynfZLFETLZw16rerEeWi/o=; b=04
-	AB/X5RnPsqzGgx1YccBerkuxPYKjwwo+gB/hs3d37IkMLuDJMzh//bklmlN1Xj69rwO+Rk3cu7u6x
-	KuSWMsJv507OOHmA6VtUYdAC025fpud8QZxcZ1Cc6+/E90SUVJ6ZqizLcMyd7Qcl0IE/SLf4iD/cS
-	jx/BkoPXUIHe25I=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1weuLx-00AALT-D6; Wed, 01 Jul 2026 14:47:45 +0200
-Date: Wed, 1 Jul 2026 14:47:45 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Nazle Asmade, Muhammad Nazim Amirul" <muhammad.nazim.amirul.nazle.asmade@altera.com>
-Cc: "dinguyen@kernel.org" <dinguyen@kernel.org>,
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] arm64: dts: socfpga: agilex5: Add SoCDK TSN Config2
- board
-Message-ID: <d70a6795-e1a2-43e2-b523-0fc668324674@lunn.ch>
-References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260630133108.27244-3-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <edf84080-a5e0-478c-9977-af2376cb71c5@lunn.ch>
- <347c50ed-234a-4f29-b63a-1e0010c6b09d@altera.com>
- <e4cf8d95-0467-4bdc-8e19-228ced3a8bbc@lunn.ch>
- <5a0c962e-1af0-4d6a-b871-d8a0b0197ff5@altera.com>
+	Wed, 01 Jul 2026 12:50:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D217416CA
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 12:50:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 013BE1F00A3E
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 12:50:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782910212;
+	bh=ka7QnJN4tdnWVmhlb/tOiO+HN/iNCJ+GTmw5iPpNAhE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=NsVendUc+xlXbwfcV/MeSOuOSKIWnrzKOb697WibrhMO8d2jJZgICMwCA8tVdR1WL
+	 EyFY+UfVwi3MQiSWnRYitDADK57Eki3DZVoz9HuCulWm10rE7CT2jKzn88EK//ta5T
+	 bo2yhX6leUxqHqxfVlIfLrrDKoejNg/Ejr+kCVfYomuDjnPjctsBpLsNACwAGtkD10
+	 oiTUa5/nsGAjOwL2O23VTAIwtB7yIZWkmjO+FvTFd3G8pcplooUcPznoWC5Z3tq3XP
+	 wl4z21/n1Z5iWGNo6qbstil1SHlARsmwJkyXvrNwrvnLSqIzOdTENuMpYeUkm4m1lJ
+	 oIpqz34CZj88w==
+Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-5aebbeba529so564065e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 05:50:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqBuBPpc+qtEH/2+P4GpaGvuVQ10K7wXXGs2M18GBSuufa+ZekB7EamLMdilMLVstcQZe8Mdo42Ib4nsz9nmjD4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGU8yjbp5Khs+k4aTID7pWOwJCE5CXXGT5ZVCsQOJSFoYDcOiD
+	CIlZnL8kUyb7kF7jO1FGCOCpQgVRyUtOFdbMUnueEEf6iOof5dNDU4Vz7GLcSE0Xptjnw/cCpEa
+	G2pMpBZLvUrWeZadEHo6LOyTb9tjTN1Q=
+X-Received: by 2002:a05:6512:312a:b0:5ae:a9eb:c5bc with SMTP id
+ 2adb3069b0e04-5aec68b8a6bmr211539e87.54.1782910210712; Wed, 01 Jul 2026
+ 05:50:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5a0c962e-1af0-4d6a-b871-d8a0b0197ff5@altera.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_054757_433971_F5F1D546 
-X-CRM114-Status: GOOD (  22.61  )
+References: <20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org> <akT1lr2iNzbnGEzH@shell.armlinux.org.uk>
+In-Reply-To: <akT1lr2iNzbnGEzH@shell.armlinux.org.uk>
+From: Linus Walleij <linusw@kernel.org>
+Date: Wed, 1 Jul 2026 14:49:57 +0200
+X-Gmail-Original-Message-ID: <CAD++jL=_j69pFuM+vv-8Q7x4VA=PUX8iV1Yfw4YkdxGDFo9D1g@mail.gmail.com>
+X-Gm-Features: AVVi8CcUQBe3Ypind6UEgo4R6TXZ3SBFDAQ1fOheUwkqZ3hP3JStneA4_dlmptA
+Message-ID: <CAD++jL=_j69pFuM+vv-8Q7x4VA=PUX8iV1Yfw4YkdxGDFo9D1g@mail.gmail.com>
+Subject: Re: [PATCH v3] ARM: breakpoint: CFI breakpoints only on demand
+To: Russell King <linux@armlinux.org.uk>
+Cc: Nathan Chancellor <nathan@kernel.org>, Sami Tolvanen <samitolvanen@google.com>, 
+	Kees Cook <kees@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	slipher <slipher@protonmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +81,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > # There are a small number of cases where the MAC has hard coded
-> > # delays which cannot be disabled. The 'phy-mode' only describes the
-> > # PCB.  The inability to disable the delays in the MAC does not change
-> > # the meaning of 'phy-mode'. It does however mean that a 'phy-mode' of
-> > # 'rgmii' is now invalid, it cannot be supported, since both the PCB
-> > # and the MAC and PHY adding delays cannot result in a functional
-> > # link. Thus the MAC should report a fatal error for any modes which
-> > # cannot be supported. When the MAC implements the delay, it must
-> > # ensure that the PHY does not also implement the same delay. So it
-> > # must modify the phy-mode it passes to the PHY, removing the delay it
-> > # has added. Failure to remove the delay will result in a
-> > # non-functioning link.
-> >
-> >      Andrew
-> >
-> > ---
-> > pw-bot: cr
-> Hi Andrew,
-> 
-> The delays are provided by the FPGA GMII-to-RGMII converter soft IP,
-> which is hardcoded in the FPGA bitstream and cannot be disabled or
-> modified from the driver side.
-> 
-> Using phy-mode = "rgmii" is intentional here — it prevents the PHY from
-> adding its own internal delays on top, since the FPGA converter already
-> provides the full required delay. This is consistent with how all other
-> Agilex5 SoCDK board variants are described, as seen in commit
-> c5637e5ceb4b ("arm64: dts: socfpga: agilex5: Fix phy-mode to rgmii as HW
-> provides clock delay") already in Dinh Nguyen's tree, which applies the
-> same rationale across all Agilex5 boards.
+On Wed, Jul 1, 2026 at 1:10=E2=80=AFPM Russell King <linux@armlinux.org.uk>=
+ wrote:
 
-I've become more insistent that designs get this correct. So i don't
-care too much about past systems. Many vendors are having to fix up
-their drivers and DT in order to make new boards consistent.
+> Have the LLVM compiler people responded to this bug yet? What is their
+> plan with the silly choice of BKPT usage for CFI failure?
 
-You can look at your system as the FPGA being the MAC, and the PHY is
-the PHY. The PCB is not providing the delay, the MAC is. This exactly
-fits the description above.
+Haven't heard anything.
 
-     Andrew
+My tentative plan is to follow this up with a patch to LLVM (and I guess
+then later also GCC...) to enable handling CFI faults with a read
+to the guard region at 0xffc00000 instead of using BKPT so we get a
+good old predictable segfault instead. I was thinking something like
+
+-fsanitize-kcfi-guard-region-address=3D0xffc00000
+
+My idea is that the unwinder can then see that this is caused by KCFI
+and act accordingly, but already the existing stack trace should make
+it pretty obvious what happened.
+
+It's the best I can think of at least, haven't seen any other ideas.
+
+Yours,
+Linus Walleij
 
