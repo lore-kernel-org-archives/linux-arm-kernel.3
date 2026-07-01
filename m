@@ -4,123 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6592C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2043AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5ZmUhI4lGBrijj+WNtqGtqeoK5QeoNNW0ruug9fc60=; b=1HhBHthmZDQ1tB/Djq9NVUUHNh
-	MpkC9SSrG64UsbK+7U2voctS8L4bppGnHSAxoaBt0NC+kwWIK7srA2olCPf23/gubqtTdMetV/GlT
-	G3MIxCBQgm8qOTQydHbM1Xl5M8AKCUCXfeEuuaqgMJVeQFPWU8c4Q0+iTz4ARtCKDkAbl2NvV489P
-	BaTETK5vbziUWh6MAg+n9z00QfvO9CYOavdz6RWmbg56hqkjMqIhNQI0Ry9T/wDEceB906b/rKFqw
-	uCoqHs22WSIRJPnMAjtT52CdVsZuVlYYYF68J0amuaT1Ri4WhsSwGXd8HGoSO9T2k61rWy+vuQ6Cp
-	WqFoHONw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TxdCNTqf6d+Y4shcMaMr3pq1OuzXv0QnwA/NEcqw9rg=; b=e4Veu7s92ohizEejVG3FcnfvRT
+	96b6IURM9HWGypi8N6FNVI1DBIap45l/kLXfg1wnTV198BwKwVh6uIXZdAswZ1RJq0UazhKGfuiQf
+	mut142zNRzpr2q83FehYzlvWtt/kfrE8YK8tgeAQ9+pj8VT55BtDsN7NnJIIvP8S+iVfvP1z6Pm4g
+	914+37kF3SlBhMAYpE/ZpAtjIbp88kvE2HaWdZQzzheJAlENVyG0HoC+IGIGo3lGv6je3Pj2M+XW2
+	aPYaJEYl5Xocdqhe8QSnZ1MYKlsttTggyXUjpeLl6fWJ/2o3i9w8dxawRWxFqxnEZYej2IX7PSOS6
+	33QG7s8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wev1Z-00000002BSi-3oQn;
-	Wed, 01 Jul 2026 13:30:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wetw5-00000001tIk-0nkq;
+	Wed, 01 Jul 2026 12:21:01 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wev1W-00000002BST-3ar1
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 13:30:42 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5001340272;
-	Wed,  1 Jul 2026 13:30:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 128DC1F000E9;
-	Wed,  1 Jul 2026 13:30:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782912642;
-	bh=A5ZmUhI4lGBrijj+WNtqGtqeoK5QeoNNW0ruug9fc60=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=je9UZWT+wuT+sTNUvVgqw3NOS4v+DMNpfirm04gvG57bmytGksEKU3th/tPZwfU94
-	 6Cj4IRuaEYe1HzeSNtxJ6cPuTO/D5I8T0aitOjZN6XsbcfCVdJqfcG5ZMvVpC2QfE+
-	 OWDRge7BWt4ZC09PudmO9upREu3p9rg14O0qt7BWszynUI6OqMlmNdESlTifxjMSxo
-	 NUsolddCbDzqQmgLE2lU3sh8bvBsLFClwAmrBGshjKRdDgxE+MUFxh6ra6XF6lyhC9
-	 NYdY4tZS4CLRSbV30BimOIwMtKBrC92NBTuoPsJE5QfuODxCBVaFVA3OmNEZtTYWIA
-	 gsNPreUi4hjFA==
-Message-ID: <0f05e07a-57ab-4ae6-8274-c9c496ca60c2@kernel.org>
-Date: Wed, 1 Jul 2026 15:30:31 +0200
+	id 1wetvv-00000001sid-20h3;
+	Wed, 01 Jul 2026 12:20:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=TxdCNTqf6d+Y4shcMaMr3pq1OuzXv0QnwA/NEcqw9rg=; b=cZGlgNNkrwLxlSu7GO+1nOs8h/
+	Txho9CcOsZEDqi7tTMhfhaqOkCXr46Cy1fCnnAZA9P0SDGjd+zR91be2OnPcXRaKLvoy4Fd8QH/yA
+	vRIz1uT9/CnTYdvSklhJfdqGk7GJLevgK6c81P6m3RjP+SdwnI17PDqdPbM612cyPYdzx0eLnKDuT
+	eTMR9rbpwc/wWM7jtqq0vgO188QzFBi6Bpu4kLx9xSsScMtrC8/LUs7h/7IrT4hoZT75xbTqM5Ath
+	yLmj7qRZBuU8ybcVE86HqBds5TDDO/4tLBObF95poNrBMcgt0TEIYErO/vFioN3D9vgFS0U61jhck
+	co+7+OKw==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wetvs-00000006akq-0k8a;
+	Wed, 01 Jul 2026 12:20:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908446;
+	bh=m6sJ153mTEtGqqARntkJHomU856d72WMcKy3EMNBfdA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=UdHzJ3oKReCUM8CMjgYobeK2cYD0xqTaw9zVy9oOW3jjlQ8dli3+zy7x6/FrKbNIC
+	 F6DKQVvkx8hl8FMqpY7/7MNEpwFaEVOu+XvIFD13MRWW9hGQ30sRRZf2faShcOZNTP
+	 6uZdv4d2uYiO0PKtTI7QQF58ZuT1hIK1MGl9uqbAPr4h2mFz6FwBjzLtbycO+Xh1Qe
+	 zI2xEsMa1XUDENfAEOWl3tUuFbQr6sczfbOixO6NQ1lJqRZFQcjZNe2TugkBhQw0h3
+	 SEHLwpCkJBG8XMMDbCar3ZE7CT/31SzfVT9rVc9fvOIMmdw6wq2rnVwLvy46dWmMxZ
+	 NoBlTHgqlhLhA==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BC1D817E0857;
+	Wed,  1 Jul 2026 14:20:45 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	andi.shyti@kernel.org,
+	djakov@kernel.org,
+	broonie@kernel.org,
+	jitao.shi@mediatek.com,
+	ck.hu@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH 0/6] MediaTek MMSYS/Mute-X new-style part 1
+Date: Wed,  1 Jul 2026 14:20:37 +0200
+Message-ID: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] dt-bindings: arm: coresight-tnoc: Add standalone
- qcom,coresight-agtnoc compatible
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
- Abel Vesa <abel.vesa@oss.qualcomm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach <mike.leach@arm.com>,
- James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>,
- Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Abel Vesa <abelvesa@kernel.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260701-fix-tracenoc-probe-issue-v4-0-aefab449a470@oss.qualcomm.com>
- <20260701-fix-tracenoc-probe-issue-v4-1-aefab449a470@oss.qualcomm.com>
- <20260701-stirring-piculet-of-vastness-a361e5@quoll>
- <4117c406-0d75-4eb1-842e-1d346b7fbf99@oss.qualcomm.com>
- <9aa63427-ba41-436d-ab19-a533082d336a@kernel.org>
- <62ac6887-1551-490b-b42b-2661d7152734@oss.qualcomm.com>
- <7838f7c3-0f38-4e93-a9c1-88f387e78ca9@oss.qualcomm.com>
- <d4669b9e-bf07-42dd-95c5-792e358c505e@oss.qualcomm.com>
- <12709ff6-bb42-4d3b-9f9d-e327cd8d89cb@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <12709ff6-bb42-4d3b-9f9d-e327cd8d89cb@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_132048_442871_30746AA1 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,58 +109,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/07/2026 15:09, Konrad Dybcio wrote:
-> On 7/1/26 2:54 PM, Jie Gan wrote:
->>
->>
->> On 7/1/2026 7:02 PM, Konrad Dybcio wrote:
->>> On 7/1/26 9:31 AM, Jie Gan wrote:
->>>>
->>>>
->>>> On 7/1/2026 3:26 PM, Krzysztof Kozlowski wrote:
->>>>> On 01/07/2026 09:16, Jie Gan wrote:
->>>>>>
->>>>>>
->>>>>> On 7/1/2026 2:57 PM, Krzysztof Kozlowski wrote:
->>>>>>> On Wed, Jul 01, 2026 at 09:53:41AM +0800, Jie Gan wrote:
->>>>>>>> The TNOC compatible previously only allowed the two-string AMBA form
->>>>>>>> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
->>>>>>>> AMBA bus.
->>>>>>>>
->>>>>>>> Convert the compatible to a oneOf and add a standalone
->>>>>>>> "qcom,coresight-agtnoc" compatible alongside the existing AMBA form. The
->>>>>>>> standalone string carries no "arm,primecell" entry, so the device is
->>>>>>>> created on the platform bus instead of the AMBA bus.
->>>
->>> [...]
->>>
->>>>>> AMBA primecell identification. The purpose of the new compatible is to
->>>>>> clearly distinguish this platform-specific case from the standard
->>>>>> AMBA-based implementation. Or shall I re-use the existing compatible
->>>>>> "qcom,coresight-tnoc" as platform standalone compatible?
->>>>>>
->>>>>> We already have a similar pattern for the interconnect TraceNoC device,
->>>>>> which uses the platform-specific compatible string qcom,coresight-itnoc.
->>>>> I do not see there a fake, duplicated compatible for the same device.
->>>>> Can you elaborate how is that relevant?
->>>>
->>>> Will fix it by removing AMBA related description.
->>>>
->>>> Shall I update the clock name from apb_pclk to apb as a platform device?
->>>
->>> Why?
->>
->> For the previous platform devices, we got comments to add the clock-name with "apb" instead of "apb_pclk".
->>
->> Please check the qcom,coresight-ctcu.yaml and qcom,coresight-itnoc.yaml
-> 
-> Well, if you need to break the bindings already, might as well on
-> the grounds of choosing a saner ("clock names shouldn't include _clk")
-> name.. Not sure if Krzysztof will like it
+This series part 1 of a huge restructuring of the entire multimedia
+part of MediaTek SoCs, especially mediatek-drm, and contains only a
+set of changes that don't require any simultaneous updates in the
+mediatek-drm driver.
 
-I miss the rationale for doing the change, why exactly this binding
-should have clocks corrected.
+This adds support for correctly advertising the MediaTek Mute-X IP
+as a source of trigger signals (because that's what it is), hence
+for adding #trigger-source-cells in the Mute-X devicetree node and
+for specifying a Mute-X trigger-source in all of the MTK Display
+Controller components supporting or requiring one, as previously
+it was kind of hacked up as a static array in the Mute-X driver,
+for both MDP and DISP components, which is, well, depending on the
+point of view, actually wrong.
 
-Best regards,
-Krzysztof
+Moreover, this goes on with the first part for a rework of MediaTek
+MMSYS, which is a requirement for the upcoming huge restructuring
+of the mediatek-drm driver; this starts adding boilerplate required
+for setting up MMSYS entries with decoupling of "component type" to
+"component instance number".
+
+As of now, all of the components in MediaTek DRM, hence also in the
+MMSYS driver, are thrown in a catch-all enumeration that does not
+make any distinction between Type-Instance relationship, and it is
+like so (mock-up names ahead):
+
+DISPLAY_DITHER0
+DISPLAY_DITHER1
+DISPLAY_DSI0
+DISPLAY_DSI1
+
+... and so on.
+
+Since the number of components is now becoming uncontrollably large,
+the catch-all enumeration poses a big issue as the mediatek-drm driver
+is allocating a huge array that will be only half full (optimistically,
+because usually it's way less than half full) and with repeated ops
+assignment for each and every instance of the very same Sub-IP,
+effectively treating every instance of a Sub-IP like it is completely
+different from one another (for example, like DSI0 and DSI1 are as
+different as DITHER0 and DSI1).
+
+This has to change. It had to change months ago, but now it has become
+not only a maintenance burden, but also a... (sorry) big mess.
+
+And well, that... especially looking forward to add support for newer
+SoCs, using even more components in one pipeline, and using different
+and newer components (of new types...), making the catch-all enum to
+grow of another ~20 entries or more.
+
+So, this is PART 1 of this huge restructuring, which will impact many
+drivers, including soc/mediatek's mutex and mmsys, most of drm/mediatek
+and, in the future, also media/mediatek/mtk-mdp3 (and eventually its
+firmwareless implementation which, for components handling, will be
+as complicated as mediatek-drm and, without this restructuring, would
+be yet another boulder).
+
+AngeloGioacchino Del Regno (6):
+  dt-bindings: soc: mediatek: mutex: Improve title and description
+  dt-bindings: soc: mediatek: mutex: Allow #trigger-source-cells
+  dt-bindings: display: mediatek: Allow trigger-sources on relevant HW
+  soc: mediatek: mtk-mutex: Add new functions to add/remove triggers
+  soc: mediatek: mtk-mmsys: Rework routes to specify component ID
+  soc: mediatek: mtk-mmsys: Use MMSYS_ROUTE() in default routing table
+
+ .../display/mediatek/mediatek,aal.yaml        |   3 +
+ .../display/mediatek/mediatek,ccorr.yaml      |   3 +
+ .../display/mediatek/mediatek,color.yaml      |   3 +
+ .../display/mediatek/mediatek,dither.yaml     |   3 +
+ .../display/mediatek/mediatek,dp.yaml         |   3 +
+ .../display/mediatek/mediatek,dpi.yaml        |   3 +
+ .../display/mediatek/mediatek,dsc.yaml        |   3 +
+ .../display/mediatek/mediatek,dsi.yaml        |   3 +
+ .../display/mediatek/mediatek,ethdr.yaml      |   3 +
+ .../display/mediatek/mediatek,gamma.yaml      |   3 +
+ .../display/mediatek/mediatek,merge.yaml      |   3 +
+ .../display/mediatek/mediatek,od.yaml         |   3 +
+ .../display/mediatek/mediatek,ovl-2l.yaml     |   3 +
+ .../display/mediatek/mediatek,ovl.yaml        |   3 +
+ .../display/mediatek/mediatek,padding.yaml    |   3 +
+ .../display/mediatek/mediatek,postmask.yaml   |   3 +
+ .../display/mediatek/mediatek,rdma.yaml       |   3 +
+ .../display/mediatek/mediatek,split.yaml      |   3 +
+ .../display/mediatek/mediatek,ufoe.yaml       |   3 +
+ .../display/mediatek/mediatek,wdma.yaml       |   3 +
+ .../bindings/soc/mediatek/mediatek,mutex.yaml |  21 +-
+ drivers/soc/mediatek/mt6893-mmsys.h           |  34 +-
+ drivers/soc/mediatek/mt8167-mmsys.h           |  21 +-
+ drivers/soc/mediatek/mt8173-mmsys.h           |  28 +-
+ drivers/soc/mediatek/mt8183-mmsys.h           |  14 +-
+ drivers/soc/mediatek/mt8186-mmsys.h           |  22 +-
+ drivers/soc/mediatek/mt8188-mmsys.h           |  78 ++---
+ drivers/soc/mediatek/mt8192-mmsys.h           |  20 +-
+ drivers/soc/mediatek/mt8195-mmsys.h           | 181 +++++------
+ drivers/soc/mediatek/mt8365-mmsys.h           |  20 +-
+ drivers/soc/mediatek/mtk-mmsys.h              | 299 ++++++++----------
+ drivers/soc/mediatek/mtk-mutex.c              |  60 ++++
+ include/linux/soc/mediatek/mtk-mutex.h        |   6 +
+ 33 files changed, 474 insertions(+), 390 deletions(-)
+
+-- 
+2.54.0
+
 
