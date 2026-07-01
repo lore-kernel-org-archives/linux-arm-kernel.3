@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445B8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D97C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:11:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ajykTxkMfwB9zl67Z4jf7zzFk36k01o+dotaOXLVQWo=; b=33N2QhlvPh+jhyu2gfkkCCM8Ri
-	Gsmeji0qFhQZw873XcYCIibCULyhtt3CIXXQBDO9P7ZVuZ2YaelF0TM4Zw4lRpH9AxSQIzblYacLo
-	vX0G/6WG/IgUYBy5qGCBDsQm3YX7YkzJ6MtVnqyG4RikfASCEg+h2aYson5f2KRLwWXoOjRpldNAY
-	UY8UQz+KQAEz6pJMG7XLHgVjfdsIm+j3Cb46Nim6n905b+pF95Q0tnuOsp8fCyyUQcXx8CoNWCXWh
-	aig0B0ivMrVzCM2gTzQ5kf0w5U5YDCsi6hDTyPIr01Io6P9EIEp4xS+UYsmvpGMYWDukuicbrhuMH
-	tG8Ttd8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oqGtlgZEYCI95N9DJUurPCghJw7MFIlkGVBezzzioz8=; b=WvVC5xV+/HLftU+D/lOyOOt3X6
+	GIQW2T5GEGmFsEIuOGBn0AnjUDFiLpw0mBzUf9ErWQeldT8lSWmdvLHGV2/Jdny0AuSAORCj4vgjP
+	BA++g18I2fkqMStDnAB/YAq1fDKPZ32RyNE+ykaSdmyTSu2MkOBxvkwGYEvHdnai8PsREfpCvkaRu
+	aGWnmfJ5Ev/14Avyd4FY4LkT2uYuAAWSQuQxeHqnxKbNTEoldi6jnsiakdC9AkasbzcZSmMej44PE
+	rDMdLEJvCaWi4pwPyZ4SXEgUMSgfVLoA0n3Df3kR6UsB80zH6XmQADR7biQhDlrrD1PrHeysMXh48
+	glgICAmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyRN-00000002fwt-0Bxy;
-	Wed, 01 Jul 2026 17:09:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wetui-00000001pE9-3Bp4;
+	Wed, 01 Jul 2026 12:19:36 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyRM-00000002fwh-1vNc
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 17:09:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9403A601DE;
-	Wed,  1 Jul 2026 17:09:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2013E1F00A3A;
-	Wed,  1 Jul 2026 17:09:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782925775;
-	bh=ajykTxkMfwB9zl67Z4jf7zzFk36k01o+dotaOXLVQWo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=QwwZDfFw+hzSBMcbO+Pl7Mxfx8FsnipBW65084+NPq5QtggZbnZiVIPJdZ28BoVNz
-	 GCp6XCvhipBWnIJnvlfmvofRPM1svCbjtZw3KzzTjCZ5IHh2GcuBNnwiLXyD8450Dc
-	 AeDjwe4dMtg5nR/+mIvm3cb2XWogXj71FcJF2jWdHISgj4LhEb8hWQgee6YmeA3ZD+
-	 7MMtVK0p1Cyf0YPNvy/bU/X31Q0LgawsB7uUvY5zh0yW1NHYpSKCIh2EOixH4b/04r
-	 NuK/0DgFKVEhVVcD62AHvwtjyxzUJw273qSvWlf10Q6XOXQq2zRKIsamnObTRciSA2
-	 mY2tojhEc2Xpw==
-Date: Wed, 1 Jul 2026 10:09:33 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Jia He <justin.he@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	id 1wetuf-00000001p69-3vBc;
+	Wed, 01 Jul 2026 12:19:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908372;
+	bh=Zo8DY2p+sclgU6ZpYmPwfUACzcUgRe8O1TmDoQnLwC0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=KDl/DVCXk2tNVL9sOF4qxGbOLecvBw950BACdrGC2BKKomPbyz4hPfiMZ91eHOqXh
+	 VKrmrPmXh7lXli0R9Jh2JBj4DTwFI7NtqfOmGAzMQUgvYjxgGTbn4i7GyMopdM99rg
+	 ND4d5vsPh2hiMRgS4q2BUS28ewCNkLjrxk/Za6Pi5ANeWn5P/VdyITiUg1iiZRP5GM
+	 7cD1zrTPx5bLQwhYDvsaAUk02vLxQo7CEnygjwFrR/YGsyzMNMXwDSxm0y9HwQWIng
+	 0BffvRTUnXVce3p+7FWryICHRNeDvsIH+EZOAGB8xkUnpznSMyv06WsBOV7lAVM/R3
+	 FQILpxT/DSzBw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B061C17E0FAA;
+	Wed,  1 Jul 2026 14:19:31 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-kernel@vger.kernel.org, Bin Guo <guobin@linux.alibaba.com>
-Subject: Re: [PATCH] arm64/sysreg: Fix BWE field encoding in ID_AA64DFR2_EL1
-Message-ID: <akVJzdz2Ahl4NhhK@kernel.org>
-References: <20260630222347.1449737-1-justin.he@arm.com>
+	kernel@collabora.com,
+	justin.yeh@mediatek.com
+Subject: [PATCH 2/7] arm64: dts: mediatek: mt8173: Add and use UART AP_DMA controller
+Date: Wed,  1 Jul 2026 14:19:24 +0200
+Message-ID: <20260701121929.19374-3-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701121929.19374-1-angelogioacchino.delregno@collabora.com>
+References: <20260701121929.19374-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630222347.1449737-1-justin.he@arm.com>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_051934_127684_E392BB34 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,47 +81,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 10:23:47PM +0000, Jia He wrote:
-> Commit 93d7356e4b30 ("arm64: sysreg: Describe ID_AA64DFR2_EL1 fields")
-> encodes the FEAT_BWE2 value of the BWE field as '0b0002'. Binary
-> literals only accept the digits 0 and 1, so the intended value is 2,
-> i.e. 0b0010.
-> 
-> The macro generated by gen-sysreg.awk currently expands to
-> 	#define ID_AA64DFR2_EL1_BWE_FEAT_BWE2 UL(0b0002)
-> is not legal C and would fail to compile if any in-tree code referenced
-> it. At present no caller uses this enum value, so the kernel still
-> builds cleanly, but the bug is latent.
-> 
-> Fix the typo by using the correct binary literal 0b0010.
-> 
-> Cc: Bin Guo <guobin@linux.alibaba.com>
-> Fixes: 93d7356e4b30 ("arm64: sysreg: Describe ID_AA64DFR2_EL1 fields")
-> Signed-off-by: Jia He <justin.he@arm.com>
-> Reviewed-by: Mark Brown <broonie@kernel.org>
+This SoC has a DMA controller (AP_DMA) that provides one channel
+for each data direction (transmit and receive) for all of the
+UART controllers in the SoC.
 
-Hah, I screwed that up pretty good!
+In order to increase the efficiency of data TX/RX over the UART
+controllers, add the UART DMA controller and assign the right
+channels to each of the four UART controllers.
 
-Reviewed-by: Oliver Upton <oupton@kernel.org>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi | 27 ++++++++++++++++++++++++
+ 1 file changed, 27 insertions(+)
 
-> ---
->  arch/arm64/tools/sysreg | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index bc1788b1662b..7cb61aca3797 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -1806,7 +1806,7 @@ Res0	15:8
->  UnsignedEnum	7:4	BWE
->  	0b0000	NI
->  	0b0001	FEAT_BWE
-> -	0b0002	FEAT_BWE2
-> +	0b0010	FEAT_BWE2
->  EndEnum
->  UnsignedEnum	3:0	STEP
->  	0b0000	NI
-> -- 
-> 2.34.1
-> 
+diff --git a/arch/arm64/boot/dts/mediatek/mt8173.dtsi b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
+index 81ddb4eec48e..43159ae6da8f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8173.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8173.dtsi
+@@ -673,6 +673,25 @@ gic: interrupt-controller@10221000 {
+ 				(GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_HIGH)>;
+ 		};
+ 
++		apdma: dma-controller@11000300 {
++			compatible = "mediatek,mt8173-uart-dma", "mediatek,mt6577-uart-dma";
++			reg = <0 0x11000300 0 0x80>, <0 0x11000380 0 0x80>,
++			      <0 0x11000400 0 0x80>, <0 0x11000480 0 0x80>,
++			      <0 0x11000500 0 0x80>, <0 0x11000580 0 0x80>,
++			      <0 0x11000600 0 0x80>, <0 0x11000680 0 0x80>;
++			interrupts = <GIC_SPI 95 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 96 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 97 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 98 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 99 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 100 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 101 IRQ_TYPE_LEVEL_LOW>,
++				     <GIC_SPI 100 IRQ_TYPE_LEVEL_LOW>;
++			clocks = <&pericfg CLK_PERI_AP_DMA>;
++			#dma-cells = <1>;
++			dma-requests = <8>;
++		};
++
+ 		auxadc: auxadc@11001000 {
+ 			compatible = "mediatek,mt8173-auxadc";
+ 			reg = <0 0x11001000 0 0x1000>;
+@@ -688,6 +707,8 @@ uart0: serial@11002000 {
+ 			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&pericfg CLK_PERI_UART0_SEL>, <&pericfg CLK_PERI_UART0>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 0>, <&apdma 1>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -698,6 +719,8 @@ uart1: serial@11003000 {
+ 			interrupts = <GIC_SPI 84 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&pericfg CLK_PERI_UART1_SEL>, <&pericfg CLK_PERI_UART1>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 2>, <&apdma 3>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -708,6 +731,8 @@ uart2: serial@11004000 {
+ 			interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&pericfg CLK_PERI_UART2_SEL>, <&pericfg CLK_PERI_UART2>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 4>, <&apdma 5>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+@@ -718,6 +743,8 @@ uart3: serial@11005000 {
+ 			interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_LOW>;
+ 			clocks = <&pericfg CLK_PERI_UART3_SEL>, <&pericfg CLK_PERI_UART3>;
+ 			clock-names = "baud", "bus";
++			dmas = <&apdma 6>, <&apdma 7>;
++			dma-names = "tx", "rx";
+ 			status = "disabled";
+ 		};
+ 
+-- 
+2.54.0
+
 
