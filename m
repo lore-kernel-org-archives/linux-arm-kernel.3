@@ -4,112 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C19D7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:17:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3767C44507
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoOn6a9eFPu3j3lxjvRT84RKODlbnmxk6NgG22+hUT4=; b=39l9oYW0qbAKtnvK20yEftOJwp
-	p3MyMAhNAyMzZeAvKeDumIe4zGbrIjw29X1mTXJHXry3MsXlv4OUFPnZhPnO1daFdyKkvV1rgqAtB
-	9U6pqbrEQnC/YnWKYGxzEefWGZSOZViskd0SgZjZ7dIvLuO8Vk71Ba2014bqhl4P2tWZhgZW7pGbc
-	vQ1lMKi+fnjNBNH2ojmQ5uUUWH5rj3i49IyCG6yyOSQMSLpezRajqnzW2piqBXHcFq9Wqpb4878Yj
-	kYMw8DCSbxSDbFDLC4WIx00KpXA1jfkMsTtIvTQ1u9QowjLamYXhh3POYfL8Z9pqlsC5gInEuWuN0
-	+JejJINg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ao2e4oml9wyP8ZDiiFp/FwD87zl/XZ7fR7vvHotuJkc=; b=pz5HVFhsrPaB10sAUA3sFIwrnv
+	vxjC07kL4LkC8knEk/DtMGIhhbsi4p+jPm26dXPstTGREi4xDELYkEhVVBe7KZXGdJiT3epTCIXdn
+	7wyUyY6PC4ua3/RPQ4sVUfl7T5YV1wJo4Dama3OwjUqbOxkrI7XzZKFPIM42T3XXPXKso3/Yi3fDm
+	PwVmj1LEj99nGq5sfASs3a9w6OHkNXs7OP89NYkl9N2Os4eLOEF9z8IUZAIKCpgcJDNhYe8Wilp/H
+	eYGfTKrpcaOFfCfoHqeT/9CF0WrMRQLhK7Awsym4L86tal3k5glTLNYG9JNP5n1hOVoNFRPnddaav
+	l+IJZrhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevkw-00000002GMh-1945;
-	Wed, 01 Jul 2026 14:17:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wevqp-00000002Gy2-14K6;
+	Wed, 01 Jul 2026 14:23:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevkv-00000002GLo-1kft
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 14:17:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=KoOn6a9eFPu3j3lxjvRT84RKODlbnmxk6NgG22+hUT4=; b=hvohUaUIiMoagOOkUVyn3vM/g8
-	HIgoI0GX4f7A6ybtJ1tpoO6r38qnfpSHvvnmB9jj+AqB50qqCgFFeRfbCd9fw/eC7LRLsVvEvjRB+
-	EtJw0OJW8tjFsjl02Dz0c93cWRQvSKBNpOpnIQ9M3wV21J4sAU1cSpcVWjO8JjPVozAtm80y4Pm87
-	QiNPSYs9MEizADjfRnOAOdx9CgmrsaFSVl6QWet4Re4Efi8EGPscAlGHGCnLh0Zl1CUTokHW3t73F
-	hxk4d9dGxRlf4BLTAhMXTK8TFo9mhzjDimaPICGrCqtDzIoV3ANakFJi1s7M0l5QU07//2Bz/eyqb
-	n1EuzW6A==;
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wevks-00000002sMS-2QZZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 14:17:36 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4938d5f86f3so5123135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 07:17:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782915450; x=1783520250; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KoOn6a9eFPu3j3lxjvRT84RKODlbnmxk6NgG22+hUT4=;
-        b=dvPziartaECogdiyH4839GjCBEYRLtDO8JfCT5rRJDMhNWUViqBDu2pSdJl3JjWcD9
-         MF+njOk86NA8SUJchAjtJGErLvE2nd9esGDwJpWRiKVoyWUITBGJQZ/0zq297Ta8rZMk
-         PPt3yWABvf3dd+cmfjdJDofcgUC5OavnhYeEcRH69z3cH6HvgDqxAkpGdCwj4LSKVw9D
-         PVRzUT9WWw6Cvl6xOOYugEIN+kpp2E0GuxawvXUfJInXAVzGf44Cfrc7tcYbgJ4u/F+t
-         dvnKRhvqhd1L10h8G48o4FLd6K/qg7mCD5nKdAHfBPc2/qJd31cFsJ8tmgoqcwzi0Y/E
-         8ZzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782915450; x=1783520250;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=KoOn6a9eFPu3j3lxjvRT84RKODlbnmxk6NgG22+hUT4=;
-        b=hopA9vj7W43sWWZKx7B6f+sy+gLRkWoTASnyA+RYN0yjpV3dFjsJ6fPJicBjKuaDw2
-         xECbVMOPZSDxcN150hjocrCESLWW9auqdFY2FI18vpEJFh3ZW4HMPF8SU4ug17ohnbrT
-         2kxokCJDPj5U15+bTlNvaQ83jvOnqyEcorIKsgrd5bvT46BLI2SkXwwucfXf8zHoulpb
-         zHivGbNig3PG7q5p5UL7FesBOXevq7XrLknOkunDMU898LYRcBuOhNi/D1/bmrLp943T
-         EB2Y2ldaia3KiQUbT+wMFiGhrn2Pyj5duZ8GsFmxmbAO/5GRt874KHbHBoMYQcrSslQj
-         fiIg==
-X-Forwarded-Encrypted: i=1; AFNElJ+MFMzlSnrXb5ruD+bbzU2mvPwODZHmOBEJH7EjvLGzssCrP1OXzTCFrTb69g3zS1VTG09MPBIFDJ6n6TPa3CQd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaIe3mbHMOaqdWqIMNpEEdGkQH2huMvAm7ePfFWSMbYxdbeuOQ
-	aXKEWF/7Awnk/QIK7b5L9grEwyz2di6LQcEvwFp8G9a5d7YkRzrWr4bdp5VOyOzAoXRgyO3vNpt
-	7IBiD
-X-Gm-Gg: AfdE7cnrXWkIdj62T8qgtB3OakYpN3KObL8Zo4H2TQRTkrWSnv261P3YBfeXHGsT6sm
-	g9ZxbWGgpkKn0Fj3nhyTJy49ZKhbkn3bq5eHZMX1C9I+h0kP4cmh7XvqREmpkFewceyJQQNU0pY
-	dg0mU9h/lLFy4BWI4GAzIUUX9L4almZe69T+N+rXp4Id0mM0/r2qhM4CW+JolTin2QjbtjR3jA4
-	c55vummgYOZFHf27lIOB0GViwO7pEbAhXm/RRTPRjuIMUMXZhYsEZc5Po2oayXCBWraIXDzazpf
-	WXMG3x2m8hWctdME4LnR5JhRt98jMAv5Uj86LwFmmSexkmoc9KptCPneTdD8qew06WPzh2K1mJP
-	Bktkx5lKBqkEnLgmvK9PtV+dylgDDVUBFeSzpKXpYBzrq20alSTGDfXQ25bv91hXpcHC0XRkJUe
-	AZlzuJm+kYYFIxWWC0xhx0FHM1ULBVU7RTaZl7O/TcYiI5IA+hHTrK
-X-Received: by 2002:a05:600c:4f83:b0:493:c064:316f with SMTP id 5b1f17b1804b1-493c230bb07mr25432565e9.3.1782915450355;
-        Wed, 01 Jul 2026 07:17:30 -0700 (PDT)
-Received: from [192.168.0.2] (host93-7-32-195.dimensionesrl.eu. [195.32.7.93])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493be81df2asm152552155e9.12.2026.07.01.07.17.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 07:17:29 -0700 (PDT)
-From: Angelo Dureghello <adureghello@baylibre.com>
-X-Google-Original-From: Angelo Dureghello <adureghello@baylibre.org>
-Date: Wed, 01 Jul 2026 16:17:24 +0200
-Subject: [PATCH v7 2/2] m68k: defconfig: update stmark2 defconfig
-MIME-Version: 1.0
+	id 1wevqn-00000002Gxb-1e0W;
+	Wed, 01 Jul 2026 14:23:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F5F96001D;
+	Wed,  1 Jul 2026 14:23:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 241651F000E9;
+	Wed,  1 Jul 2026 14:23:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782915820;
+	bh=Ao2e4oml9wyP8ZDiiFp/FwD87zl/XZ7fR7vvHotuJkc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject;
+	b=EzLT8/YBy4/tcL4Rg0lEVmwQyXjQbxJ/R1A2Rv2piwbsp6FOOAtl/tlWOPCYLZ6+H
+	 iLNiwTVx2u5CU//oPivoXTEYzi0oK7Woa3UHg4MURm9TOb2TK0qzChygYJtdEJ+Eev
+	 TaUJPYtJi03UxekA81CxgjXTqGK8l5rGtvFPBB7BIQbgkgVO+fqrxWVCjTDvMbOmm+
+	 Iqts+D4oaIZgkENj8uXQxN/ki2aLO7JeWT1tYedFtFmiYBNxHxf55GXS0aEWy5VNOe
+	 LbpPao9oFTkAIinQTEGFcZ9hF4mfQXk4SBqFf2XfV4kCOAf+kwQJ/g3sW8kbj2lJPt
+	 y3qLXeLGaJ71A==
+Date: Wed, 01 Jul 2026 09:23:39 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-wip-stmark2-dac-v7-2-ff8fdcc8010a@baylibre.com>
-References: <20260701-wip-stmark2-dac-v7-0-ff8fdcc8010a@baylibre.com>
-In-Reply-To: <20260701-wip-stmark2-dac-v7-0-ff8fdcc8010a@baylibre.com>
-To: Jonathan Cameron <jic23@kernel.org>, 
- David Lechner <dlechner@baylibre.com>, 
- =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, 
- Andy Shevchenko <andy@kernel.org>, 
- Geert Uytterhoeven <geert@linux-m68k.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org, 
- linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, 
- Angelo Dureghello <adureghello@baylibre.com>
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_151734_753923_B1BE6672 
-X-CRM114-Status: GOOD (  10.75  )
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, p.zabel@pengutronix.de, kernel@collabora.com, 
+ tzimmermann@suse.de, chunkuang.hu@kernel.org, simona@ffwll.ch, 
+ linux-arm-kernel@lists.infradead.org, jason-jh.lin@mediatek.com, 
+ airlied@gmail.com, conor+dt@kernel.org, maarten.lankhorst@linux.intel.com, 
+ linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com, 
+ mripard@kernel.org, devicetree@vger.kernel.org, justin.yeh@mediatek.com
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260701122057.19648-24-angelogioacchino.delregno@collabora.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+ <20260701122057.19648-24-angelogioacchino.delregno@collabora.com>
+Message-Id: <178291581273.4115171.8214844308967079622.robh@kernel.org>
+Subject: Re: [PATCH 23/42] dt-bindings: display: mediatek: Introduce
+ Digital Video Output HW
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,33 +74,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Angelo Dureghello <adureghello@baylibre.com>
 
-Update stmark2 defconfig enabling MCF5441X DACs.
+On Wed, 01 Jul 2026 14:20:38 +0200, AngeloGioacchino Del Regno wrote:
+> Add documentation for the Digital Video Output (DVO) IP found in
+> the newer generation SoCs MT8196, MT8189 and their variants.
+> 
+> This is effectively a more capable block replacing the DisplayPort
+> Interface (DPI/DP_INTF) one found in older SoCs.
+> 
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+>  .../display/mediatek/mediatek,mt8196-dvo.yaml | 142 ++++++++++++++++++
+>  1 file changed, 142 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
+> 
 
-Signed-off-by: Angelo Dureghello <adureghello@baylibre.com>
----
-Changes for v5:
-- move this patch after new Kconfig symbols are added
----
- arch/m68k/configs/stmark2_defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+My bot found errors running 'make dt_binding_check' on your patch:
 
-diff --git a/arch/m68k/configs/stmark2_defconfig b/arch/m68k/configs/stmark2_defconfig
-index b3fb95f73a95..3941113bc60b 100644
---- a/arch/m68k/configs/stmark2_defconfig
-+++ b/arch/m68k/configs/stmark2_defconfig
-@@ -76,6 +76,8 @@ CONFIG_DMADEVICES=y
- CONFIG_MCF_EDMA=y
- # CONFIG_VIRTIO_MENU is not set
- # CONFIG_VHOST_MENU is not set
-+CONFIG_IIO=y
-+CONFIG_MCF54415_DAC=y
- CONFIG_EXT2_FS=y
- CONFIG_EXT2_FS_XATTR=y
- CONFIG_EXT2_FS_POSIX_ACL=y
+yamllint warnings/errors:
 
--- 
-2.54.0
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: ignoring, error in schema: properties: compatible
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+Traceback (most recent call last):
+  File "/usr/local/bin/dt-doc-validate", line 8, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 66, in main
+    ret |= check_doc(f)
+           ~~~~~~~~~^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 37, in check_doc
+    dtsch.check_schema_refs()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 242, in check_schema_refs
+    self._check_schema_refs(resolver, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
+    self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            has_constraint=has_constraint)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
+    self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            has_constraint=has_constraint)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 203, in _check_schema_refs
+    ref_sch = resolver.lookup(schema['$ref']).contents
+              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
+    retrieved = self._registry.get_or_retrieve(uri)
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 422, in get_or_retrieve
+    registry = self.crawl()
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 500, in crawl
+    id = resource.id()
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 231, in id
+    id = self._specification.id_of(self.contents)
+  File "/usr/local/lib/python3.13/dist-packages/referencing/jsonschema.py", line 50, in _dollar_id
+    return contents.get("$id")
+           ^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.example.dtb: /example-0/dvo@324c0000: failed to match any schema with compatible: ['mediatek,mt8196-edp-dvo']
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20260701122057.19648-24-angelogioacchino.delregno@collabora.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
