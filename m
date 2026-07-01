@@ -4,108 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB60EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03074C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rgX47RXdJZ0KIqrYqTZV9oy3dGtbSHHIqUStuXB2M/E=; b=xmrDiEO2BV+Nqcc6/rF682cVJY
-	hPhXZnTQsxbm3EwvhBB+eT4H2zwDNsaoaME1z79IhZ1k95r02WFusEzm05qw+1u7MyBwoSquoSxm6
-	ru118lsgXsgrIKN+T0YIM71I+pJSTIyP90az3Gs0eIzkSdEqDvUKRjBcUI48I1xDoGhsAtaeGBAM3
-	Wh8UXxk23akLzEcVyPmn0k9eOTgjK7OxaAkS9P8yVl14w8FfJKeWYzu/m14ss/IOD8LtTRk+PYREP
-	dL0j8b4cdQZsTfWAfAuE5AdVQu9oyD7zIhH6YEqhdz8YAKKE3oz+65a+bNk2iDSSRm3asGkxPm6XX
-	0ORasb1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7aPPO+1CYD+YBwvwpYgtZJkmXkRW2VjIt/FwgJ0T6qg=; b=D5hEIS031/rPDXsYJffQYkhYpr
+	cpJRCsQl27awOzTNvlephqwmTO5v839qkoBnuFsBQOudE2B6uMOzR/oqC4YFNawtBKbpkhzvTGfJJ
+	5Sc5UPC9cWKtd7yLiwci4UXY7MBN4pcvO2gGKwPn1Jhfe42TQnFQsGG9Ju0h8GuvupNIgHGLC6QnJ
+	eaka9bWL/OOTju6rBSdFhJO+F8Ip1VuRloRQkCBE7U+WrbtozXk5gch2uA2tYYkz/lA9F/a1W7W1L
+	uphZuA/Qv137TCICGqe6QE1H8BhidQy5p8S34/ktE9zwzQj1UDN+ntD0G9WNyHGCthn7Z320Q8ndb
+	u8RefjmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weriW-00000001FwO-2w8P;
-	Wed, 01 Jul 2026 09:58:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1werif-00000001G38-1Rn5;
+	Wed, 01 Jul 2026 09:59:01 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weriV-00000001FvG-2i0B
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 09:58:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rgX47RXdJZ0KIqrYqTZV9oy3dGtbSHHIqUStuXB2M/E=; b=Rl9Szjrp9joZlg/MxI/uP71dms
-	XLvTrQztFrq/qCOx2YO/su8fcVW3X+Zqe6USR/tUY3qzf41SpJpuaIoidYcOs8FpSWyw/FeqoXaFt
-	U5LoXEjJjr5dMnrjVMC2z2cRZUjYzMxlsmWN48Lyt9hZrDrEIJsQSQqj6ZymChHNxrh+kZMeqQFYq
-	HMmM+7JFajHLQB5fZBpFhF1M+ZZq75lpy2ff8tbEHiWlompRTkKGXh1h9ytnnyszWFSp6bjOax+8x
-	b/mPCo+pSHGphrWx9d58l8F8ODcKLFAN2p78EtvFKG/jVfcEkXGkKwfJ3Bz8p/S2N8P04oDyi5ne5
-	+MRlGKpA==;
-Received: from mail-pj2-x04.google.com ([2607:f8b0:4864:39::4])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weriS-00000002al7-3ljW
+	id 1werib-00000001FzT-3Lrg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 09:58:50 +0000
-Received: by mail-pj2-x04.google.com with SMTP id d9443c01a7336-2c80ff1bbb1so1616905ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 02:58:47 -0700 (PDT)
+	Wed, 01 Jul 2026 09:58:59 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493bed621acso47235e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 02:58:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782899926; x=1783504726; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=rgX47RXdJZ0KIqrYqTZV9oy3dGtbSHHIqUStuXB2M/E=;
-        b=dsS+13DAkE4dw2vtmP/5V3pufCxUYdxJosyPzZ42+UoJpGrYeyNfSihe6ILc7PH0Qc
-         VN5I7l5vAKzH7XJPHrJQbw/paHGrvgJbVKOpjsSMwn9FU5EwGbM2VpjqvajI0E3g4rrV
-         6rBrOy9RrF4nB/IrKAUcmj+4uoTbD3SaZ0BTRJ4QgIxA87SrEvfY/8MiC70ZcFNLaib5
-         9+58UCGM8qV94NGNwYt6WijioxZtLoFLyC7uLD4vj9/SCuvjWfAgCVT6tv814+Dx72co
-         1uZkWPWANAVPUUwQGBGRz9t5LXsMdxsJlCY5L3+CMVu3RppmQL5w3QoELHy6P40qB1MP
-         zAyw==
+        d=google.com; s=20251104; t=1782899936; x=1783504736; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7aPPO+1CYD+YBwvwpYgtZJkmXkRW2VjIt/FwgJ0T6qg=;
+        b=uKTYUk4S27IYiMI8E+aDHZvmEVYb0TGu3Jm8m1oXf6o0UkOw0nwklQvPweErrCp0bJ
+         OZjfEWD+/s8NiAT9IrXqS2Vxp8vef9Km+IB5bl6lVpVhrlA6rnP9p9Cldl5YN2mXl0jo
+         t0WiPGP+NY0UkbxH0jcUvfy15A0ADjLqabl6ajFqbNCskX0Cs6K2tet9DyKGWFjGUKV6
+         it4ENJtq1KJSBcL2YlMDJ+irRtYMFh/A4b4nejwSEtqs73J3AGvyVu5TQf9ypKD2Nyjv
+         fcMRgzYhXHQwKI/2at64tDY1hSco/7xUxOqYvrS2lQU2tRECUz4erizXH/b1yFvUIyzD
+         qNsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782899926; x=1783504726;
-        h=content-transfer-encoding:mime-version:message-id:references
-         :in-reply-to:user-agent:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rgX47RXdJZ0KIqrYqTZV9oy3dGtbSHHIqUStuXB2M/E=;
-        b=jRdGxxOlw4eKXOD9RnZ6jNPiygbaUjyXgJxkY3TVAf1H8oq6Avs6rLz23sgWUkbvIN
-         FjkFp2wpG9ixOA68NKeM/XKnyDkFjmdDeq2fk2yEFuLkE6EHBf/ymt621wXsAvrw75pn
-         UB+GneAupxiSzEfGaMXMePD2zV7cy0N+TFXNdkPSz3oETr7ypjQ64R1zsaH0s1qkrmbC
-         EVK/SLozvRkSF1fajn1OIH9ymi2GcxWbYUcdTGvczKiVhZOueWSqSSPG2aPHzsptcblW
-         TUDWxKeDReM5x9S7bkdrI7oxQqxXt9Ohulu+mBeCgva2myURDU5lZejA7DjX9H9BNGqw
-         M/Yg==
-X-Forwarded-Encrypted: i=1; AHgh+RoDIBYe0/Zrq+bVlsZU9D6KUZl9h6ltoAzqTEX0fdDcArFIZjiD0w2UVEaySRwBnJKjD4gmfnIukiNXuuc8XMIo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd7fl/F/r9QrQp9a/lKxHMnWca0zNtwQIl1EAlpiwdQMh2w5mY
-	8OQLbij372a8+KQX5rIXlJGq+Ok0owlDepZApIUgO1ILhcC+QbpBvDag
-X-Gm-Gg: AfdE7cmAA61k+6F1QLF3dmJ++pLKlqUFjOFsXTRfpHNHcA4JGVQtlgsb9hC99lCXSyY
-	E60Q7ToSfUX2ChlJmKrg25rrO9MDZhh84j4T8ck0AUxUpX3Vach9AyWVGF69P3/LNgizf73HKMA
-	lX8szo+wk7T9JgJgrg/ddnmiiT9zgF0Y2dVYygwnV8jLejWI8CoKTEgs/VfPOAlOMo4cMjBkSZH
-	foMQnAGID+5MB0h7Tz40YGJHLU4T7ErNq5k4voNs6HBrHCmbwu9StdKBLx0kS6tQ+faY6/PrAL+
-	/vqrGSrnEgkyfxdW8NF+IoB9XCYTyS3gpbXVB2XXimI73t0eg6h5NXiFKcC4bPjWy23uGCzl3he
-	jWx11mctrFMT/wqdGfAez09hvsM/eCXIa6XeoV9SH9COA6bqfX4qvvTzex+E5a1yjhL3uczX43O
-	6ndiGQBzCRj0WWLTFm
-X-Received: by 2002:a17:903:46cd:b0:2c9:97a8:8c17 with SMTP id d9443c01a7336-2ca7e8c6253mr10964195ad.42.1782899926244;
-        Wed, 01 Jul 2026 02:58:46 -0700 (PDT)
-Received: from ehlo.thunderbird.net ([2603:c024:0:1f00:233::14])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca382d0d22sm29144285ad.80.2026.07.01.02.58.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Jul 2026 02:58:45 -0700 (PDT)
-Date: Wed, 01 Jul 2026 17:57:33 +0800
-From: Coia Prant <coiaprant@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Dragan Simic <dsimic@manjaro.org>, Jonas Karlman <jonas@kwiboo.se>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2_2/3=5D_dt-bindings=3A_arm=3A?=
- =?US-ASCII?Q?_rockchip=3A_Add_Graperain_G3568_series?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20260701-reliable-dodo-of-tolerance-63cc8e@quoll>
-References: <20260630153810.3574714-2-coiaprant@gmail.com> <20260630153810.3574714-6-coiaprant@gmail.com> <20260701-reliable-dodo-of-tolerance-63cc8e@quoll>
-Message-ID: <7A7E4706-D4D7-48C6-87ED-F1F7B4DCE0F5@gmail.com>
+        d=1e100.net; s=20251104; t=1782899936; x=1783504736;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=7aPPO+1CYD+YBwvwpYgtZJkmXkRW2VjIt/FwgJ0T6qg=;
+        b=ixRitaSvBQN9n9YmthCzgOjHla2tGlzWEL0gCcE3vk6LqXXQXuwuQijzDYcC43bplZ
+         HDEGod4Dshz4Qwu3ZWj+g6Gx15Y6fa60JeRRSbe0V8wqzwPno2VDhq50YKICzOBT6i4J
+         h2lTUEVzI2TMNCXL7GQA6Vm6+4sJgVrmd0p2ZK+ezqAj3AnfJXBYkuMxTrVh01nlYrKA
+         1xlNL1CDF3f16156NasoZ7IDf4s7MW4uHaGInLQbKJGyOcOq/xB2IkqAZnE6Ql3cTaGX
+         B+SK5dyqF/stgeot/anf5fVPRu8J9ixmRmVbmc1iGQiCSPDspJ0WKbL/EY9VjYzrOd70
+         MTYg==
+X-Forwarded-Encrypted: i=1; AFNElJ8t7sw/yEJAJh5x0I/sOW0IHwF8sY2MMB9sZ+/UjwzZisVCY236T7CdDMvxtsMirEvru7YW97DYY/tcJUq/TsLD@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUBiplZopOBO0Gk80ZS6DFQgimM61aKanlMgLc57i6dJxvNaIZ
+	OrNQm8tttd3Fo8sBlsil8cvm3mL4YCPgXGPSu8KZS6RjuzcYklK8aBxJzcIDo7lGpQ==
+X-Gm-Gg: AfdE7ckFi5PZsQDJym0MRIfV+0/z4oxFcyke7QiGqJc5sA3xCsZ1wHsfegOb9olcuE3
+	ZTx+kUduh42H6R3AOWqXSyhxiZuSrUZBuQ65NOPaK83ZHLNDrFztnMKvFyZ1wyIHWagUf107PJu
+	aHyJ2mIqSWN033oERd2vr1wTpN9C5NqlvQjbwDbfkhC6cabxmvuvzll9MGWkVz7IfvLAm1RiqzK
+	Zj5vam3q7LFzrylqBItXkT1+sQpvwHyLqAyUc9/O9z40T+n0ZPFjTcUm2lTwoQkETHHpa0QlNqK
+	qmDv9hBuvbVGJio5xadN6i3xYbyS/brnG2GoseNVo61eU5lq3UzC2oardsyNzIM6yfaN8VhSFUe
+	7o2zFofz/4EnKzz3XBVeNPBahPjOBUa1OrvAIMErmV8xhtujoQP6Sfvd3GO2vnca7KiG3eh45MS
+	aP6Yc880MnhK92YvhlZhrqtGtU7Pd39W/Rem9FBKNdKBYDwHbaFTw=
+X-Received: by 2002:a05:600c:22d4:b0:493:b47f:a24 with SMTP id 5b1f17b1804b1-493c0bcab48mr503405e9.6.1782899935171;
+        Wed, 01 Jul 2026 02:58:55 -0700 (PDT)
+Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493bef17c82sm31881885e9.1.2026.07.01.02.58.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 02:58:54 -0700 (PDT)
+Date: Wed, 1 Jul 2026 09:58:50 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
+	praan@google.com, kees@kernel.org, baolu.lu@linux.intel.com,
+	kevin.tian@intel.com, miko.lenczewski@arm.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	jamien@nvidia.com
+Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <akTk2uM0Kat4Jvrg@google.com>
+References: <cover.1782799827.git.nicolinc@nvidia.com>
+ <akPB6l-fuJUcg4a2@google.com>
+ <akQYpCdwGnpKTnjN@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <akQYpCdwGnpKTnjN@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_105849_010749_5603CBAA 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_025857_851872_081050C5 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +107,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On July 1, 2026 3:07:03 PM GMT+08:00, Krzysztof Kozlowski <krzk@kernel=2Eor=
-g> wrote:
->On Tue, Jun 30, 2026 at 11:38:11PM +0800, Coia Prant wrote:
->> Document Graperain G3568 v2
->>  which is a development board based on RK3568 SoC=2E
->
->Broken wrapping=2E
->
->Best regards,
->Krzysztof
->
+On Tue, Jun 30, 2026 at 12:27:32PM -0700, Nicolin Chen wrote:
+> (I think Jason has answered most of the questions here.)
+> 
+> On Tue, Jun 30, 2026 at 01:17:30PM +0000, Mostafa Saleh wrote:
+> > For example, patch 4 disables the EVTQ to avoid events as there might
+> > be a lot, why are they not fatal also?
+> 
+> FWIW, the PATCH-4 doesn't disable the EVTQ: EVTQ is disabled in
+> kdump case prior to the series; PATCH-4 just makes sure it won't
+> get enabled transiently.
 
-Acknowledged=2E I will fix the text wrapping and clean up the commit=20
-message in the v3 submission=2E
+Yes, I meant the patch disabling it even transiently because of DMA
+faults, which was confusing to me because I though they are fatal anyway,
+but I see Jason’s explanation now.
 
-Thanks for pointing it out!
+Thanks,
+Mostafa
+
+> 
+> Nicolin
 
