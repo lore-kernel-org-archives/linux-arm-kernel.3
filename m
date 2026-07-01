@@ -4,41 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A57AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05186C44509
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:58:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kjyQ7xm8wfOeTEQsZr3aJezB+b6G+PVrGVDgls9IpGU=; b=xgyCVj3EnlU/PC5Ig3v126u3gF
-	4XV4cADyLy5L2mIUZrYzFlgJ+yzj4WqKugJYTG6BTb63YthjRoL9f8AL6rT9nUSOB4tQxZYCUoNsk
-	X2bLctUnfCKgkHWFkzT0f43k5KfIszGdE/eliNsvzTd2hSR9o0ZUnafazkrp4HnRS/C6B1GvMZlYD
-	dfTXclaSw6iiSzjURTIbq+DnOf7s4h2fjJqVxdVPw8mbJZA0gSz2JgqQv1dZIsd6t4GCyFw0wqyqk
-	nt866mqmlprqbNe9HSz5yN0sGFRAarUh4lecLeJnfos570x13r8bFk57e/OVfFxbGVbFQaK9Aicwo
-	4v3tLPHw==;
+	bh=w7ys3gQS36vX7bhP2jMMRC0T0njszSbVM3wCH34pQ0I=; b=21UMGvuV8JHhY6tuxL4hZQozhy
+	6VfQpRMhWlil0QudzaUlGAqbs9YwzDFCPS0HJbiukzZwlim7rKr7WuMjI0G5UpVmTWG3eb9vNUFem
+	IM0NCDPTzShyqK0UyhfNUp1AgK3H06q+ehCjzqj544miQUalBUS2gfOtxLFfEEBwK2mDMf6cpv+iZ
+	D5zGbNvgh/pQ9oFLZM3lyMnao45kA10Da1OPuXD6dqOXqQqOIiv3T9QaCGj0tBfPLxPxzL8yICFwF
+	jkD7L8qcDccREOGOJ2MlNFYYpL3WZOVlKGJBUn0Ygmto9qiPBdNNpMyaqfSX9QXfTAlg7FSswvVuq
+	5lSlIe5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuWM-000000025dQ-2P7z;
-	Wed, 01 Jul 2026 12:58:30 +0000
+	id 1weuWO-000000025gE-2sF1;
+	Wed, 01 Jul 2026 12:58:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weuWN-000000025dV-1JDi
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 12:58:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=w7ys3gQS36vX7bhP2jMMRC0T0njszSbVM3wCH34pQ0I=; b=EMFCBuB90B4UA7AZh7UPuOs5hb
+	7ejBF9wcT80Mb6wkkhB3f7MF9sFwcjOtPRLik5mbBuMTyJ3Esu7P4QnLnMiZlvCtxkBmMmCrQQB6p
+	pxX1OAlE0LInGwZLW8YtqSTudBc8Kh8VYDD4B39RuffRjoNiI0AbavAyV72dxLuCMNxClRinaALTf
+	1tAESgSWkuMpQLQKsk5IcM6ZsERLOPQ2HZagNLJtnNxrKe2gInp4E/GYmjmaaJomq8NefoYvVvBeV
+	FPwIDrtIWeHdYy5MNKKBTGDWDHiTyKrmEnbhy+UUJ8DH1W85RaiLihsRrDkas6LEROoZS3eEw8Cyi
+	FK1a2YJA==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuWK-000000025aU-1bfu
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1weuWI-00000002nJF-1Rne
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 12:58:29 +0000
+	Wed, 01 Jul 2026 12:58:28 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 152DA168F;
-	Wed,  1 Jul 2026 05:58:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 41FB72309;
+	Wed,  1 Jul 2026 05:58:20 -0700 (PDT)
 Received: from oss-apollo7005.oss.cambridge.arm.com (oss-apollo7005.oss.lab.cambridge.arm.com [10.7.15.171])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF6673F85F;
-	Wed,  1 Jul 2026 05:58:24 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4530B3F85F;
+	Wed,  1 Jul 2026 05:58:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782910707; bh=K1AD/gmj/xCl/Rnp9uZq0E3VuEueKpD1q8n6J33eTSw=;
+	t=1782910704; bh=TjZQjXvmf+jcdo/yZ9wWNKRBKdWsD2g0nSjBFHkWucY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BozIy0EprTbt0FZUDgOqyjVYclGJpo1GhCSEeyahGxz5sqV7GOcQYHSIU8aKw3tdH
-	 +lngKOAdZkWOiwY4JY/ZOnucUZ/jxa5vfXX4NtVtQ6l6Z1Rwcy4a7AAdxZnL5A72dZ
-	 2Z5/h+qRsRvgG/++Vh6RbYwIxbWMGxQQ/KpSVKn4=
+	b=alrAR196+L2fzJszSmDXtpfcjAfJ72HiH0kyE6ELdX6Larrx4CCCJoXugZxSbOVal
+	 Sp1Pi50B5pf6jyp9LJofx/dKXxy1szmEa98gHvD5Jxm5sqig9T4WVpxkzfr1gAc5OE
+	 Ugexr9Qp93/+DbidBLvVx3IlPo//ZkxksIL17+Tw=
 From: Philip Radford <philip.radford@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -56,19 +71,18 @@ Cc: sudeep.holla@arm.com,
 	d-gole@ti.com,
 	souvik.chakravarty@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
 	Philip Radford <philip.radford@arm.com>
-Subject: [PATCH v8 09/13] powercap: arm_scmi: Enable multiple constraints support
-Date: Wed,  1 Jul 2026 12:57:43 +0000
-Message-Id: <20260701125747.407921-10-philip.radford@arm.com>
+Subject: [PATCH v8 08/13] include: trace: Add new parameter to trace_scmi_fc_call
+Date: Wed,  1 Jul 2026 12:57:42 +0000
+Message-Id: <20260701125747.407921-9-philip.radford@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20260701125747.407921-1-philip.radford@arm.com>
 References: <20260701125747.407921-1-philip.radford@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_055828_463306_E0B8B02F 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20260701_135826_836803_58DF00B0 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,41 +99,152 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Cristian Marussi <cristian.marussi@arm.com>
 
-Initialize the domains with all the discovered available constraints,
-making available multiple per-domain constraints when the platform has
-advertised support for multiple concurrent power limits.
+Since SCMIv4.0 some of the supported Fastchannels can be configured using
+an additional parameter like CPL_ID or Capability_ID.
 
-CC: "Rafael J. Wysocki" <rafael@kernel.org>
-CC: linux-pm@vger.kernel.org
+Add equivalent support in the SCMI fastchannel traces to printout also such
+parameter and fix all the existent call sites.
+
+When such parameter is not used, it will simply show up as zero.
+
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
-[Philip: Amended Copyright]
 Signed-off-by: Philip Radford <philip.radford@arm.com>
 ---
- drivers/powercap/arm_scmi_powercap.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/firmware/arm_scmi/perf.c     |  8 ++++----
+ drivers/firmware/arm_scmi/powercap.c | 12 +++++++-----
+ include/trace/events/scmi.h          | 12 +++++++-----
+ 3 files changed, 18 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/powercap/arm_scmi_powercap.c b/drivers/powercap/arm_scmi_powercap.c
-index 90d1fa70b1d4..2f8a1e0ecccf 100644
---- a/drivers/powercap/arm_scmi_powercap.c
-+++ b/drivers/powercap/arm_scmi_powercap.c
-@@ -2,7 +2,7 @@
- /*
-  * SCMI Powercap support.
-  *
-- * Copyright (C) 2022 ARM Ltd.
-+ * Copyright (C) 2022-2026 ARM Ltd.
-  */
+diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scmi/perf.c
+index 7f283f457e02..88d614e3184b 100644
+--- a/drivers/firmware/arm_scmi/perf.c
++++ b/drivers/firmware/arm_scmi/perf.c
+@@ -552,7 +552,7 @@ static int __scmi_perf_limits_set(const struct scmi_protocol_handle *ph,
+ 		struct scmi_fc_info *fci = &dom->fc_info[PERF_FC_LIMIT];
  
- #include <linux/device.h>
-@@ -449,7 +449,7 @@ static int scmi_powercap_register_zone(struct scmi_powercap_root *pr,
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LIMITS_SET,
+-				   dom->id, min_perf, max_perf);
++				   dom->id, 0, min_perf, max_perf);
+ 		iowrite32(max_perf, fci->set_addr);
+ 		iowrite32(min_perf, fci->set_addr + 4);
+ 		ph->hops->fastchannel_db_ring(fci->set_db);
+@@ -636,7 +636,7 @@ static int __scmi_perf_limits_get(const struct scmi_protocol_handle *ph,
+ 		*max_perf = ioread32(fci->get_addr);
+ 		*min_perf = ioread32(fci->get_addr + 4);
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LIMITS_GET,
+-				   dom->id, *min_perf, *max_perf);
++				   dom->id, 0, *min_perf, *max_perf);
+ 		return 0;
+ 	}
  
- 	z = powercap_register_zone(&spz->zone, scmi_top_pcntrl, spz->info->name,
- 				   parent ? &parent->zone : NULL,
--				   &zone_ops, 1, &constraint_ops);
-+				   &zone_ops, spz->info->num_cpli, &constraint_ops);
- 	if (!IS_ERR(z)) {
- 		spz->height = scmi_powercap_get_zone_height(spz);
- 		spz->registered = true;
+@@ -706,7 +706,7 @@ static int __scmi_perf_level_set(const struct scmi_protocol_handle *ph,
+ 		struct scmi_fc_info *fci = &dom->fc_info[PERF_FC_LEVEL];
+ 
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LEVEL_SET,
+-				   dom->id, level, 0);
++				   dom->id, 0, level, 0);
+ 		iowrite32(level, fci->set_addr);
+ 		ph->hops->fastchannel_db_ring(fci->set_db);
+ 		return 0;
+@@ -769,7 +769,7 @@ static int __scmi_perf_level_get(const struct scmi_protocol_handle *ph,
+ 	if (dom->fc_info && dom->fc_info[PERF_FC_LEVEL].get_addr) {
+ 		*level = ioread32(dom->fc_info[PERF_FC_LEVEL].get_addr);
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_PERF, PERF_LEVEL_GET,
+-				   dom->id, *level, 0);
++				   dom->id, 0, *level, 0);
+ 		return 0;
+ 	}
+ 
+diff --git a/drivers/firmware/arm_scmi/powercap.c b/drivers/firmware/arm_scmi/powercap.c
+index 653b0656a9bd..32371018bf1d 100644
+--- a/drivers/firmware/arm_scmi/powercap.c
++++ b/drivers/firmware/arm_scmi/powercap.c
+@@ -603,7 +603,7 @@ static int __scmi_powercap_cap_get(const struct scmi_protocol_handle *ph,
+ 	    dom->cpli[cpl_id].fc_info[POWERCAP_FC_CAP].get_addr) {
+ 		*power_cap = ioread32(dom->cpli[cpl_id].fc_info[POWERCAP_FC_CAP].get_addr);
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_CAP_GET,
+-				   dom->id, *power_cap, 0);
++				   dom->id, cpl_id, *power_cap, 0);
+ 		return 0;
+ 	}
+ 
+@@ -736,7 +736,7 @@ static int __scmi_powercap_cap_set(const struct scmi_protocol_handle *ph,
+ 		iowrite32(power_cap, fci->set_addr);
+ 		ph->hops->fastchannel_db_ring(fci->set_db);
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_CAP_SET,
+-				   domain_id, power_cap, 0);
++				   domain_id, cpl_id, power_cap, 0);
+ 		ret = 0;
+ 	} else {
+ 		ret = pi->xfer_cap_set(ph, pc, cpl_id, power_cap, ignore_dresp);
+@@ -845,7 +845,8 @@ static int scmi_powercap_avg_interval_get(const struct scmi_protocol_handle *ph,
+ 			POWERCAP_PAI_GET : POWERCAP_CAI_GET;
+ 
+ 		*val = ioread32(dom->cpli[cpl_id].fc_info[POWERCAP_FC_XAI].get_addr);
+-		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id, *val, 0);
++		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id,
++				   cpl_id, *val, 0);
+ 		return 0;
+ 	}
+ 
+@@ -918,7 +919,8 @@ static int scmi_powercap_avg_interval_set(const struct scmi_protocol_handle *ph,
+ 			POWERCAP_PAI_SET : POWERCAP_CAI_SET;
+ 		struct scmi_fc_info *fci = &pc->cpli[cpl_id].fc_info[POWERCAP_FC_XAI];
+ 
+-		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id, ivl, 0);
++		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, trace_cmd, domain_id,
++				   cpl_id, ivl, 0);
+ 		iowrite32(ivl, fci->set_addr);
+ 		ph->hops->fastchannel_db_ring(fci->set_db);
+ 		return 0;
+@@ -971,7 +973,7 @@ static int scmi_powercap_measurements_get(const struct scmi_protocol_handle *ph,
+ 		/* See SCMIv4.0 3.10.2 - Payload is 32bit ONLY avg_power */
+ 		*avg_ivl = 0;
+ 		trace_scmi_fc_call(SCMI_PROTOCOL_POWERCAP, POWERCAP_MEASUREMENTS_GET,
+-				   pc->id, *avg_power, *avg_ivl);
++				   pc->id, 0, *avg_power, *avg_ivl);
+ 		return 0;
+ 	}
+ 
+diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
+index 703b7bb68e44..b03da7323d04 100644
+--- a/include/trace/events/scmi.h
++++ b/include/trace/events/scmi.h
+@@ -10,13 +10,14 @@
+ #define TRACE_SCMI_MAX_TAG_LEN	6
+ 
+ TRACE_EVENT(scmi_fc_call,
+-	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 val1, u32 val2),
+-	TP_ARGS(protocol_id, msg_id, res_id, val1, val2),
++	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 sub_id, u32 val1, u32 val2),
++	TP_ARGS(protocol_id, msg_id, res_id, sub_id, val1, val2),
+ 
+ 	TP_STRUCT__entry(
+ 		__field(u8, protocol_id)
+ 		__field(u8, msg_id)
+ 		__field(u32, res_id)
++		__field(u32, sub_id)
+ 		__field(u32, val1)
+ 		__field(u32, val2)
+ 	),
+@@ -25,13 +26,14 @@ TRACE_EVENT(scmi_fc_call,
+ 		__entry->protocol_id = protocol_id;
+ 		__entry->msg_id = msg_id;
+ 		__entry->res_id = res_id;
++		__entry->sub_id = sub_id;
+ 		__entry->val1 = val1;
+ 		__entry->val2 = val2;
+ 	),
+ 
+-	TP_printk("pt=%02X msg_id=%02X res_id:%u vals=%u:%u",
+-		__entry->protocol_id, __entry->msg_id,
+-		__entry->res_id, __entry->val1, __entry->val2)
++	TP_printk("pt=%02X msg_id=%02X res_id:%u sub_id:%u vals=%u:%u",
++		  __entry->protocol_id, __entry->msg_id,
++		  __entry->res_id, __entry->sub_id, __entry->val1, __entry->val2)
+ );
+ 
+ TRACE_EVENT(scmi_xfer_begin,
 -- 
 2.25.1
 
