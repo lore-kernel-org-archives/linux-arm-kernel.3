@@ -4,64 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD993C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 916ADC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jQjO0POpW5npv7gePynnmnZhFEpgwRLzhnQyTwlih9E=; b=lx1XUO46E9NARViVDXglme7G0V
-	O5+iUHOcibUA49+NnSZNYWTX+8TNcTivPwKmPqKrm8IW8O27LgmDQ4uM6RTYw1/+18h4eErvGpzYp
-	VkJ7DfvjNjwFwrFuf5leE3WXZMpQCovwmFlPfJr3EUrLJlnZeLpfqbUIwoVx6nyGL5bM5wACWEO77
-	nWUmIEIANngihMRxBJERKIAC7mkvqCI9SrIiIpRijkf1xQoP28j7RD4bpNITuXgPnaMIt3LU+zmBr
-	e0+o6jzvEwDT+VPiTeDIWqd838IKhSRSpb0zIYZ8lonopP9kx22BsEM9AIDNag5B25XJZDHP03ac7
-	hUuhSCDw==;
+	bh=4PWNFl6ZQByziaVhB18vyfYMIONrw43O1wXv6AV4AJI=; b=upczfEuKE8B5fxyxQsSiGdrYiE
+	gS35vP4GTsAfTYyMrLxPVJ8LhkHs5R39j8wl0vr9nbNFW/vgy/OGAOvOvcoq37wtQMH51DqrYi2Qm
+	XhDtB9canKXAamAgwg7ZnMuUQMmtfA2YJsjoNQwl9WQRx9rYWepiPS31OsnFwdBXwl+2JSIHDfS58
+	YMx+xTQWVgmX0aNZpsyMK/cBJwXLrHVtDvdCxWUf1EVy69v4Ke5HvSwGYWJRu9CGQxECzrjcqvEkE
+	g3bQjc3tVW9LwFz2+6eNhyrrQJ4xLyOV8p44JA3YWjRPhovhRo0Dezi6rF7AE/UBfOKbS1Pj1jJ7L
+	wKcG8ODA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyPD-00000002fXu-1YrS;
-	Wed, 01 Jul 2026 17:07:23 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1weyQq-00000002fnd-3lIG;
+	Wed, 01 Jul 2026 17:09:04 +0000
+Received: from mout02.posteo.de ([185.67.36.66])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyPC-00000002fXg-1Gew
+	id 1weyQo-00000002fmR-3yrw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 17:07:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B3221413BC;
-	Wed,  1 Jul 2026 17:07:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24E291F000E9;
-	Wed,  1 Jul 2026 17:07:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782925641;
-	bh=jQjO0POpW5npv7gePynnmnZhFEpgwRLzhnQyTwlih9E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d4C6p94JW+TBVhPikzZjIEPEzISzz+e4aGhdMTzu8fjimtFMF5ANFijXKXsbMI5m3
-	 4b64KGe2iAMmj7T9XmkS02AlhwA/TIHGhP7eaoQYqsDwBjYwnEsDK5ZhdAnZDXWiD9
-	 SvhN+RUFoYRF718u6rSzZbRUXP/zd0jOCaW6OEsD3d4ascqQzTT7EnqLhJKvJ2bEY7
-	 YpqqlcAws1S9ihtwO6F7ZAxVr9MOHn9e1XpFprKMb7KMUg4vTW4A5Tt8elReYyDTKD
-	 Wp9WQBQ/0x1SOs6H/Zyu0aY0UMA3rSjANO4Ygpg33g9a8QGiba3pZLDfEDAw272Fo0
-	 c7gOl4Dba8a5A==
-Date: Wed, 1 Jul 2026 18:07:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Steffen Trumtrar <s.trumtrar@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/2] dt-bindings: arm: fsl: add compatible for new
- Skov I.MX8MP variant
-Message-ID: <20260701-tingly-splendor-490c985bb91f@spud>
-References: <20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-0-d74f7e3f8293@pengutronix.de>
- <20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-1-d74f7e3f8293@pengutronix.de>
+	Wed, 01 Jul 2026 17:09:04 +0000
+Received: from submission (posteo.de [185.67.36.169]) 
+	by mout02.posteo.de (Postfix) with ESMTPS id A0CB9240103
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 19:08:59 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
+	t=1782925739; bh=4PWNFl6ZQByziaVhB18vyfYMIONrw43O1wXv6AV4AJI=;
+	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
+	 MIME-Version:OpenPGP:From;
+	b=ZXVNBLCWMy3t4/CaP7U0StQrTQ62R+/4rkV7cwtzwQ+lgmZtB5CPrDUhZ+4WEGRTH
+	 e/RieupFb5+zExVdJuJeIIBsEk89/vNgdhaah/7dgMQnUOU7auAXpyU78wTlOYgh9a
+	 cY3MZrhKyXmq112N9m5ZCSKyYksWGKMKyXBHQQAPF7iFGcHw0QKng0LJcjXxQASGSv
+	 wOGPeiEYr1RbTFhejDTYQh7nv3TRMVLw5AUxGnZ/xqjxrzonCzpRvQ3JymFjUqqny5
+	 kw3B57GteqYwL6cC7SpSiauRRhaqUub2TnbYiNmCkNq/td+9l+NROGnwxYnIbgTnjB
+	 qeVohwwEwg3zQ==
+Received: from customer (localhost [127.0.0.1])
+	by submission (posteo.de) with ESMTPSA id 4gr61P69jzz9rxM;
+	Wed,  1 Jul 2026 19:08:57 +0200 (CEST)
+Message-ID: <74b32ed0a700e3900c0f34d730b2b5b69eb2ca19.camel@posteo.de>
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
+From: Markus Probst <markus.probst@posteo.de>
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Uwe
+ =?ISO-8859-1?Q?Kleine-K=F6nig?=
+	 <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
+	 <gregory.clement@bootlin.com>, Sebastian Hesselbarth
+	 <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 01 Jul 2026 17:08:59 +0000
+In-Reply-To: <20260701164821b7492eac@mail.local>
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+	 <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+	 <20260701-bronze-jaguar-of-perfection-028bac@quoll>
+	 <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
+	 <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
+	 <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
+	 <20260701164821b7492eac@mail.local>
+Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
+ keydata=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
+ jfGillcaQOqFZ3WwVqyzG1BUfTow==
+Content-Type: multipart/signed; micalg="pgp-sha256";
+	protocol="application/pgp-signature"; boundary="=-QMgkZ3jnmlt4sJFDDbT9"
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="2nTvnn+3qjdlH96h"
-Content-Disposition: inline
-In-Reply-To: <20260701-v7-0-topic-imx8mp-skov-dts-jutouch-7inch-v3-1-d74f7e3f8293@pengutronix.de>
+OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_100903_293642_AFE50F04 
+X-CRM114-Status: GOOD (  24.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,23 +131,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---2nTvnn+3qjdlH96h
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+--=-QMgkZ3jnmlt4sJFDDbT9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
---2nTvnn+3qjdlH96h
-Content-Type: application/pgp-signature; name=signature.asc
+On Wed, 2026-07-01 at 18:48 +0200, Alexandre Belloni wrote:
+> On 01/07/2026 16:43:07+0000, Markus Probst wrote:
+> > On Wed, 2026-07-01 at 17:14 +0200, Krzysztof Kozlowski wrote:
+> > > On 01/07/2026 15:25, Markus Probst wrote:
+> > > > > > +
+> > > > > > +maintainers:
+> > > > > > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+> > > > >=20
+> > > > > This should be someone caring about this hardware.
+> > > > He does have the majority of commits on this driver (excluding merg=
+e
+> > > > commits and commits not exclusive to this driver), although most of
+> > > > them are pretty tiny.
+> > > >=20
+> > > > Who would you suggest instead?
+> > >=20
+> > > Someone adding features for this driver, maybe driver maintainers. Bu=
+t
+> > > if Alexandre is fine, you can leave him.
+> > >=20
+> > > > >=20
+> > > > > > +
+> > > > > > +description:
+> > > > > > +  The S-35390A is a CMOS 2-wire real-time clock IC which opera=
+tes with the
+> > > > > > +  very low current consumption in the wide range of operation =
+voltage.
+> > > > > > +
+> > > > > > +allOf:
+> > > > > > +  - $ref: rtc.yaml#
+> > > > > > +
+> > > > > > +properties:
+> > > > > > +  compatible:
+> > > > > > +    const: sii,s35390a
+> > > > > > +
+> > > > > > +  reg:
+> > > > > > +    maxItems: 1
+> > > > > > +
+> > > > > > +  sii,wakealarm-output-pin:
+> > > > > > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > > > > > +    enum: [1, 2]
+> > > > > > +    description: |
+> > > > > > +      The output pin to wake up the system.
+> > > > > > +      Default will use the output pin for interrupt signal 2.
+> > > > > > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt s=
+ignal 1
+> > > > > > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt s=
+ignal 2
+> > > > >=20
+> > > > > Does that mean device generates the interrupts?
+> > > > Yes.
+> > > >=20
+> > >=20
+> > >=20
+> > > Then I think you miss interrupts property.
+> > From what I can tell the line is used to generate a system wakeup
+> > event.
+> >=20
+> > There would be no obvious benefit of connecting it to an interrupt
+> > controller, so this property would be obsolete?
+> >=20
+>=20
+> Then you need proper wakeup-source support
+Wouldn't that break existing devicetrees?
+
+The current driver allows to wake up the system, even without
+having=C2=A0wakeup-source set.
+
+As an example: arch/arm/boot/dts/marvell/kirkwood-ts219.dtsi
+
+Thanks
+- Markus Probst
+
+>=20
+>=20
+
+--=-QMgkZ3jnmlt4sJFDDbT9
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakVJRQAKCRB4tDGHoIJi
-0pNVAPwNAlfWYnCiw8kwj89N3eXDVY04B4SiP+XAAonRzhCV0AEAtSursEhGx4D1
-IRD7ENVrg8nW3zpXj2penFbCtfIjIAE=
-=4KXq
+iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpFSaEbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSq/oQAI/3MjA8ZT7kUcnfTCD3
+U1Usgjef9N4VmZAXdwcBaCBCNeZMz877e4BDi/Hmuelpwd+xdKJfnhmBz2mtYf0Z
+MJdICoVnztQlRWs0eS79ZwuyWNKjI/p9OIfvSZHKOHUHMfs4FIo73TkQP8T1WYtW
+g1Zs5nXDniGeVGPutSYQD6Ji/JTh7iY6wXr1oBf9p4ZH5ff0ibHz4hj+6ILt8RJO
+3a1Pg/62AYUgs3WJHNJx52nudk0PmR0MCleiRWr0BQE+2PMAgl7m4Fxo0e23wejs
+faAp2dDgu1KY4xHls+7WYLiulf+dBPYccURhTyinOPZep2yuXbO1kMT0H+Xtp7MA
+I+y3pPIc7sjOEcYwiIv5n7PuRoW5Fcpcv0EDfCc9aDC8fcfPQj1LWUNatreJ38vt
+ZOFntozKWWkr/pFgfGcQCJrwg2mW/5Ifp3rH0B0YKjPIAkeFIXkj+dKgMek7n02z
+2wlBS/94T2BXBQlWP7vRv+g3++BIEFruIOAQKGHCi7Bw4UtS1qbhNDImBtlGeVtr
+PxOm1lhzh5R8zFm2M/zGoaaU6xaXp387n7W+1BOnC+nJhL4Mwn2HkpD30AtDuWm5
+XUu30EdMAj5rJnB9y70rbXXKG9S/ioLg6+OdZ+CwGIxM7dLVlZGthUX5sKR3IEx8
+g2PP+n0rJOEfSblcwGqLnHVs
+=MVyr
 -----END PGP SIGNATURE-----
 
---2nTvnn+3qjdlH96h--
+--=-QMgkZ3jnmlt4sJFDDbT9--
 
