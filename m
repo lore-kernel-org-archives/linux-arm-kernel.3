@@ -4,127 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EA6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70240C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:05:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ga8f0tsQSQ1NxTF8LX5eJkVav6t2RLzk7/oapYCbhN4=; b=pNbVz9ibDJq5/lySRCSLrnPSr8
-	7PitEYGZ2DC5qnQexYKBOLz7zvmLAsVCaqb+TJDeUmUOhRDEm0nCRq/TTzfZO5RnSQN2RzpGFtmUu
-	gCNHNobrlMzGoOFcOdifwqDuyAcCuYxzwU64tIvf0rDDYTKbU/PvsOrtLgjKoK0Fo/DxlwA0P/crC
-	t9Idmgdh0F0JoDxGLkuSjSDeKZ5Hnj5bjiu42eKjUlgKJONUeVLE0jnIRMQMZ6LEn8hjt8qS3Ubnf
-	n8lL2xIdxIp8ey5uWTxx4nCeX5MdtPzVf60PfqFeRDMRwF+T0CPd2SDPW51XOXIasJLN3ukrxtI4i
-	jEUFqZRw==;
+	bh=xO6I0cQmE/o/jLdfAj6Gj34sxxTE7oWAFzWnpM35sCs=; b=ItflVVKPjedGek5eTj28ze7uCJ
+	tTvaWCpZ6XoovNeBYcxTFgPnBJclXeIIKXapYikE234z0bN7mofSr0HQ7ulsNo70KJTQE1OCMkCU0
+	Aq3Om2FLGqWt32698dqeksEt/L2phG3rm8dCIK7GMv53rtTDqnIGglDfwAHJ2qAeT1RJvcYskgl4C
+	MIxKkcEra64/g+j4NHFXBDEN07b8Pv1NhzPTcv8tXZ0ozfHL7+rAKLQGOOTPwGjXazTdxHmu1u0cL
+	OhnNKB2nz+Tz/F6YURTqkfEcBbkmq3/cgNrNtR5B0+JkSwwgiBifAx5ZQ5Lttxa9YFVigHNDnKKbD
+	PjnoMeQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuFM-000000021Ju-3dCS;
-	Wed, 01 Jul 2026 12:40:56 +0000
+	id 1wetwM-00000001txO-1o17;
+	Wed, 01 Jul 2026 12:21:18 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuFL-000000021J8-1fOc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 12:40:55 +0000
+	id 1wetw6-00000001tKd-2mee;
+	Wed, 01 Jul 2026 12:21:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=ga8f0tsQSQ1NxTF8LX5eJkVav6t2RLzk7/oapYCbhN4=; b=JyjjPC/9iMlCOqta2a+aSwTxnz
-	HOxgTe/NxEDGDYD3uGfj8i63Y0GexpYd0O+hvUEX1R9bPu4kxkImuHDEKYieclRu7SNXgvrA0mOqK
-	Q9oV6co6JUBX0h9WoTC0U0ywtmOLUJt4Se+hosU4l4UazWWkLxzp2puefUlpzvNNUnlreoxYA3gnP
-	iPM9/UQRm0zXazikWMlzYCEPXqcLaPjjleebg1+WwnmOp1ZkDIC/UMt3NTVzIgYeNYWqo+L6Q6oKX
-	MtiTo30l7R7HQyjk3fdjgDzkiciBsp9cFbdexQZLoGdHjZ2309kzbs5j2XsjV/MelaBpvbv6kMDvZ
-	ovgYS+eQ==;
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=xO6I0cQmE/o/jLdfAj6Gj34sxxTE7oWAFzWnpM35sCs=; b=YeOrbSloLYXIQS90sqCbQCF27b
+	Tn4mOXy7dyEI3thr1+xbmWs4AgCYM0MRn97Ja6F7MzMQlJ1tNrnSP11v3agPW1PnUXzh76zes1wJM
+	k4FGSy3uJCo+zsGVLEsCuWvMJujlfW/9Y5JdRY1IjCTyxbusojq5wLwkfzWmt5tJJjDG2f8AfQN6V
+	HFi4VeR8qlCwHK6PmaIVwvoWuYXFFdQMdDhQVYhkbRoAVSuIy3jeqJebG/kFJHb+N7w7+X4pbuGjZ
+	vXkvS5Sx2vAzIdw7iEd4br7ujtVRI8szU4ntcYaROExYQpYDpqLsPck1Xiw3t1y722caqIq0r5qwm
+	O8b2ahMQ==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weuFI-00000002lbN-04Vb
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 12:40:54 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-470174001a0so531538f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 05:40:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1782909649; x=1783514449; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ga8f0tsQSQ1NxTF8LX5eJkVav6t2RLzk7/oapYCbhN4=;
-        b=gdNkshq0Bk4tGyIuml2z1d9Ek2+3bLkctPMvCQ9NLTsy4SQrfLg3EnlI5nopJ86Oaq
-         +wsRdnzj+a5j1unj5rb7jZJnUQC9eO/3xrpeJanqjzCC426h0cF0rd9poIlzG1yuU51x
-         7MY3OAcMGYZHU9UjusoaHxy/bg6nOmCAlmkhoswnZmReqrCJcoEtXfZVhMmleyOujDtl
-         cI0OyCYhFnFTb9QnPs1eFokgvTuGPH7U0g2gLRMcDgxi7LM9tF0cCk1bkvEcoUUcQXyQ
-         hHolX4fBz8eW/fpKFfB+y3MminLa31TACIiaPtMP6ntaFsgIVdCP7qkamKzMrImuRH1F
-         JzxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782909649; x=1783514449;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=ga8f0tsQSQ1NxTF8LX5eJkVav6t2RLzk7/oapYCbhN4=;
-        b=RwdC3iX3jJnK5dqCPTPzIe2LYtbM6fVT7nmbAb4+0YiWAz3LQwfba0Sg1HbQVGwitG
-         GvzozxNSZUB9YJuvx45umIV24IJulKdTXxbvHio/3ti2YDqsdSTeRFQWirE0rFEEoNbu
-         eQ3/rBI31zxWtu40ZMeWhpp04k8K0uE1t3S8F0JEge1ERxtB7HY82Ad8H6kfUesXb+cJ
-         n49YAqp9YnSHNtnaJmuOcSiXDH8XREECxlX2ZegMqiIhwLLINLzBZx2yxrFvaPJCic55
-         zCA88FID0r1V1haPAn/L4NSysAneWiMDjruQurHxIkzTWpIP2kncBkeTfMzz9pD45yT5
-         CbEg==
-X-Forwarded-Encrypted: i=1; AHgh+RqkYZd5rdK0o5feIO62AeCtrtZvOSaXlTou01wsU0Sj2LqYfWpBPQ1vLcbVQjwITXrHxdLpJ3l7Q0o2PZXpLTdq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+bJg4qLA4yrvRpsUbK4s9vZzJ0J213gRjQuTHjFQ2Q7fyIyrk
-	NARozTW/lO4S+3ySyeyG14CLnZ356UKIs57sYIIYqPiY3Xx++BmEKx8s0EJKXYJ2lwU=
-X-Gm-Gg: AfdE7ck44DZ1M63bSJeAa/spoWanFUTKGTSYLkrYJ0Zd9DrTMgc1o82yeLIFjJxV5i9
-	nEne0M3kg99rZ8VcRgil0bym5jhxjRl3b1MXsernuyBpjJId23ZtZb3s0J+kI2/MpNXgQuTNAWg
-	gpSV76Cn+OJNijdb3wDZjcdH7pFTUDE+wLb4gUxZgEmQIR5Kc/uHTcJ92acdI1zQl9zaoKXvYBm
-	bhnDC+SDNLzi89SFvY7XQkJi81VBkj8dtDBc8V27bvbDNFeh+BXO4vchkAwYaszFzLHgieE4Um4
-	QY/31x8zVOR8d5Z/SPdy2QE9Hv4FHkyJqWAcNJxScFjAw9mn/vhvoq+2eaN02wuByCW5Y5zltJk
-	7K4ga88EuVtghJmJLg60F+yw91kq/lTKf9C6FWFFMCvHiUd3pBgJB0MSjtKgRjxwjkH/SZT5s5h
-	+Pcp6D2Fe+PA==
-X-Received: by 2002:a05:6000:40c7:b0:475:7de4:82ee with SMTP id ffacd0b85a97d-477b388947fmr606880f8f.17.1782909649238;
-        Wed, 01 Jul 2026 05:40:49 -0700 (PDT)
-Received: from localhost ([2001:4090:a246:8638:a73d:f626:6582:90ca])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-475641e4659sm17892064f8f.12.2026.07.01.05.40.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 05:40:48 -0700 (PDT)
-From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-Date: Wed, 01 Jul 2026 14:39:14 +0200
-Subject: [PATCH v7 02/11] arm64: dts: ti: k3-am62d2-evm: Fix wkup R5F
- memory region size
+	id 1wetw1-00000002jXW-2UCE;
+	Wed, 01 Jul 2026 12:21:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908456;
+	bh=MH9rZNYjTexT9/FSQg9LOO/88ptllu4jdjcPjbmJHTI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=FDRdcObXoQGxpSBq5tszZW0ObJHRVfa1cpxLK2fqJaguAl4arNEC8PkiDPWOxEPS2
+	 kPT3nTIPZucvglyTd4QyXT7CRzScrN9bA1pPwRu/SCln3UkIs17qth1mlxI7f/u21h
+	 Yrk2sLk8MfrIVWu5oFcok/amzu4dcbU2IPjodTIyR2FlR6PU+GknNRjvMYgP/nUU+X
+	 M0N97n2pUUBEH+NN4WT+vqAP9vcFBa81t6EvqPShuYnhPLEW9w4qnWiY3UcO6OIDzz
+	 KvAH3judd6aJtkXr0hCd7cc219UNmYi4OhUcJED2BjR85rMn4oKCFnooEAA4544XIe
+	 HRb9uvJB5S/5Q==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0BBC317E116D;
+	Wed,  1 Jul 2026 14:20:55 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	andi.shyti@kernel.org,
+	djakov@kernel.org,
+	broonie@kernel.org,
+	jitao.shi@mediatek.com,
+	ck.hu@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH 6/6] soc: mediatek: mtk-mmsys: Use MMSYS_ROUTE() in default routing table
+Date: Wed,  1 Jul 2026 14:20:43 +0200
+Message-ID: <20260701122043.19612-7-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-topic-am62a-ioddr-dt-v6-19-v7-2-e9db8b16821a@baylibre.com>
-References: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
-In-Reply-To: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, 
- Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
- Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>, 
- Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, 
- Beleswar Padhi <b-padhi@ti.com>, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
- Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
- Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
- "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1492; i=msp@baylibre.com;
- h=from:subject:message-id; bh=/cdLsE4GymvHLRjtj+WocAzlDHQHGpLi8wiqmhvVCHs=;
- b=owGbwMvMwCXWejAsc4KoVzDjabUkhixXruZX/Ydn7lAu7Yh7yPip8BKfl8milRuvT1E9EDX7i
- OuumqSWjlIWBjEuBlkxRZbOxNC0//I7jyUvWrYZZg4rE8gQBi5OAZiIiAcjw8w7HeWKXyeKSZv/
- MuRZ/HDOcsFPsp0z2aLtT7paPl58g5+RYdO1pYEr9a37Vfazvv4tt3+9w8m7G8NN91bf7wzjz72
- 9hA8A
-X-Developer-Key: i=msp@baylibre.com; a=openpgp;
- fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_134052_118402_37F232FD 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20260701_132057_755176_8D6C1960 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,40 +111,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The wkup_r5fss0_core0_memory_region was reserved with only
-0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
-AM62A defines the DM code/data DDR footprint differently:
+All of the mtk_mmsys_routes tables for all SoCs were converted to
+use the MMSYS_ROUTE() macro but the default one used for MT2701,
+MT2712 and SoCs from that generation was not: convert this one as
+well.
 
-    /* DDR for DM R5F code/data [ size 27 MiB + 364 KB ] */
-    DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B5B000
+This brings no functional change.
 
-which results in an end at 0x9e600000. For this memory region which
-starts at 0x9c900000 this means a length of:
-
-    0x9e600000 - 0x9c900000 = 0x1d00000
-
-Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd
-Fixes: 1544bca2f188 ("arm64: dts: ti: Add support for AM62D2-EVM")
-Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/soc/mediatek/mtk-mmsys.h | 279 +++++++++++++------------------
+ 1 file changed, 114 insertions(+), 165 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-index f5ceb6a1b5debabf1ead67eea634b48db1540186..463a3f6130b8f2927a032137e87c01df446cffda 100644
---- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
-@@ -67,7 +67,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
+diff --git a/drivers/soc/mediatek/mtk-mmsys.h b/drivers/soc/mediatek/mtk-mmsys.h
+index b37d859b6c14..d534d43aad6f 100644
+--- a/drivers/soc/mediatek/mtk-mmsys.h
++++ b/drivers/soc/mediatek/mtk-mmsys.h
+@@ -157,171 +157,120 @@ struct mtk_mmsys_driver_data {
+  * to an independent table.
+  */
+ static const struct mtk_mmsys_routes mmsys_default_routing_table[] = {
+-	{
+-		DDP_COMPONENT_BLS, DDP_COMPONENT_DSI0,
+-		DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
+-		BLS_TO_DSI_RDMA1_TO_DPI1
+-	}, {
+-		DDP_COMPONENT_BLS, DDP_COMPONENT_DSI0,
+-		DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
+-		DSI_SEL_IN_BLS
+-	}, {
+-		DDP_COMPONENT_BLS, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
+-		BLS_TO_DPI_RDMA1_TO_DSI
+-	}, {
+-		DDP_COMPONENT_BLS, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
+-		DSI_SEL_IN_RDMA
+-	}, {
+-		DDP_COMPONENT_BLS, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DPI_SEL, DPI_SEL_IN_MASK,
+-		DPI_SEL_IN_BLS
+-	}, {
+-		DDP_COMPONENT_GAMMA, DDP_COMPONENT_RDMA1,
+-		DISP_REG_CONFIG_DISP_GAMMA_MOUT_EN, GAMMA_MOUT_EN_RDMA1,
+-		GAMMA_MOUT_EN_RDMA1
+-	}, {
+-		DDP_COMPONENT_OD0, DDP_COMPONENT_RDMA0,
+-		DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD_MOUT_EN_RDMA0,
+-		OD_MOUT_EN_RDMA0
+-	}, {
+-		DDP_COMPONENT_OD1, DDP_COMPONENT_RDMA1,
+-		DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD1_MOUT_EN_RDMA1,
+-		OD1_MOUT_EN_RDMA1
+-	}, {
+-		DDP_COMPONENT_OVL0, DDP_COMPONENT_COLOR0,
+-		DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
+-		OVL0_MOUT_EN_COLOR0
+-	}, {
+-		DDP_COMPONENT_OVL0, DDP_COMPONENT_COLOR0,
+-		DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
+-		COLOR0_SEL_IN_OVL0
+-	}, {
+-		DDP_COMPONENT_OVL0, DDP_COMPONENT_RDMA0,
+-		DISP_REG_CONFIG_DISP_OVL_MOUT_EN, OVL_MOUT_EN_RDMA,
+-		OVL_MOUT_EN_RDMA
+-	}, {
+-		DDP_COMPONENT_OVL1, DDP_COMPONENT_COLOR1,
+-		DISP_REG_CONFIG_DISP_OVL1_MOUT_EN, OVL1_MOUT_EN_COLOR1,
+-		OVL1_MOUT_EN_COLOR1
+-	}, {
+-		DDP_COMPONENT_OVL1, DDP_COMPONENT_COLOR1,
+-		DISP_REG_CONFIG_DISP_COLOR1_SEL_IN, COLOR1_SEL_IN_OVL1,
+-		COLOR1_SEL_IN_OVL1
+-	}, {
+-		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
+-		RDMA0_SOUT_DPI0
+-	}, {
+-		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DPI1,
+-		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
+-		RDMA0_SOUT_DPI1
+-	}, {
+-		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DSI1,
+-		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
+-		RDMA0_SOUT_DSI1
+-	}, {
+-		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DSI2,
+-		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
+-		RDMA0_SOUT_DSI2
+-	}, {
+-		DDP_COMPONENT_RDMA0, DDP_COMPONENT_DSI3,
+-		DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
+-		RDMA0_SOUT_DSI3
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
+-		RDMA1_SOUT_DPI0
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
+-		DPI0_SEL_IN_RDMA1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI1,
+-		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
+-		RDMA1_SOUT_DPI1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DPI1,
+-		DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
+-		DPI1_SEL_IN_RDMA1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI0,
+-		DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
+-		DSI0_SEL_IN_RDMA1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI1,
+-		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
+-		RDMA1_SOUT_DSI1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI1,
+-		DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
+-		DSI1_SEL_IN_RDMA1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI2,
+-		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
+-		RDMA1_SOUT_DSI2
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI2,
+-		DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
+-		DSI2_SEL_IN_RDMA1
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI3,
+-		DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
+-		RDMA1_SOUT_DSI3
+-	}, {
+-		DDP_COMPONENT_RDMA1, DDP_COMPONENT_DSI3,
+-		DISP_REG_CONFIG_DSIO_SEL_IN, DSI3_SEL_IN_MASK,
+-		DSI3_SEL_IN_RDMA1
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
+-		RDMA2_SOUT_DPI0
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI0,
+-		DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
+-		DPI0_SEL_IN_RDMA2
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI1,
+-		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
+-		RDMA2_SOUT_DPI1
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DPI1,
+-		DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
+-		DPI1_SEL_IN_RDMA2
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI0,
+-		DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
+-		DSI0_SEL_IN_RDMA2
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI1,
+-		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
+-		RDMA2_SOUT_DSI1
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI1,
+-		DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
+-		DSI1_SEL_IN_RDMA2
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI2,
+-		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
+-		RDMA2_SOUT_DSI2
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI2,
+-		DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
+-		DSI2_SEL_IN_RDMA2
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI3,
+-		DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
+-		RDMA2_SOUT_DSI3
+-	}, {
+-		DDP_COMPONENT_RDMA2, DDP_COMPONENT_DSI3,
+-		DISP_REG_CONFIG_DSIO_SEL_IN, DSI3_SEL_IN_MASK,
+-		DSI3_SEL_IN_RDMA2
+-	}, {
+-		DDP_COMPONENT_UFOE, DDP_COMPONENT_DSI0,
+-		DISP_REG_CONFIG_DISP_UFOE_MOUT_EN, UFOE_MOUT_EN_DSI0,
+-		UFOE_MOUT_EN_DSI0
+-	}
++	MMSYS_ROUTE(BLS, 0, DSI, 0,
++		    DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
++		    BLS_TO_DSI_RDMA1_TO_DPI1),
++	MMSYS_ROUTE(BLS, 0, DSI, 0,
++		    DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
++		    DSI_SEL_IN_BLS),
++	MMSYS_ROUTE(BLS, 0, DPI, 0,
++		    DISP_REG_CONFIG_OUT_SEL, BLS_RDMA1_DSI_DPI_MASK,
++		    BLS_TO_DPI_RDMA1_TO_DSI),
++	MMSYS_ROUTE(BLS, 0, DPI, 0,
++		    DISP_REG_CONFIG_DSI_SEL, DSI_SEL_IN_MASK,
++		    DSI_SEL_IN_RDMA),
++	MMSYS_ROUTE(BLS, 0, DPI, 0,
++		    DISP_REG_CONFIG_DPI_SEL, DPI_SEL_IN_MASK,
++		    DPI_SEL_IN_BLS),
++	MMSYS_ROUTE(GAMMA, 0, RDMA, 1,
++		    DISP_REG_CONFIG_DISP_GAMMA_MOUT_EN, GAMMA_MOUT_EN_RDMA1,
++		    GAMMA_MOUT_EN_RDMA1),
++	MMSYS_ROUTE(OD, 0, RDMA, 0,
++		    DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD_MOUT_EN_RDMA0,
++		    OD_MOUT_EN_RDMA0),
++	MMSYS_ROUTE(OD, 1, RDMA, 1,
++		    DISP_REG_CONFIG_DISP_OD_MOUT_EN, OD1_MOUT_EN_RDMA1,
++		    OD1_MOUT_EN_RDMA1),
++	MMSYS_ROUTE(OVL, 0, COLOR, 0,
++		    DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
++		    OVL0_MOUT_EN_COLOR0),
++	MMSYS_ROUTE(OVL, 0, COLOR, 0,
++		    DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
++		    COLOR0_SEL_IN_OVL0),
++	MMSYS_ROUTE(OVL, 0, RDMA, 0,
++		    DISP_REG_CONFIG_DISP_OVL_MOUT_EN, OVL_MOUT_EN_RDMA,
++		    OVL_MOUT_EN_RDMA),
++	MMSYS_ROUTE(OVL, 1, COLOR, 1,
++		    DISP_REG_CONFIG_DISP_OVL1_MOUT_EN, OVL1_MOUT_EN_COLOR1,
++		    OVL1_MOUT_EN_COLOR1),
++	MMSYS_ROUTE(OVL, 1, COLOR, 1,
++		    DISP_REG_CONFIG_DISP_COLOR1_SEL_IN, COLOR1_SEL_IN_OVL1,
++		    COLOR1_SEL_IN_OVL1),
++	MMSYS_ROUTE(RDMA, 0, DPI, 0,
++		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
++		    RDMA0_SOUT_DPI0),
++	MMSYS_ROUTE(RDMA, 0, DPI, 1,
++		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
++		    RDMA0_SOUT_DPI1),
++	MMSYS_ROUTE(RDMA, 0, DSI, 1,
++		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
++		    RDMA0_SOUT_DSI1),
++	MMSYS_ROUTE(RDMA, 0, DSI, 2,
++		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
++		    RDMA0_SOUT_DSI2),
++	MMSYS_ROUTE(RDMA, 0, DSI, 3,
++		    DISP_REG_CONFIG_DISP_RDMA0_SOUT_EN, RDMA0_SOUT_MASK,
++		    RDMA0_SOUT_DSI3),
++	MMSYS_ROUTE(RDMA, 1, DPI, 0,
++		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
++		    RDMA1_SOUT_DPI0),
++	MMSYS_ROUTE(RDMA, 1, DPI, 0,
++		    DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
++		    DPI0_SEL_IN_RDMA1),
++	MMSYS_ROUTE(RDMA, 1, DPI, 1,
++		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
++		    RDMA1_SOUT_DPI1),
++	MMSYS_ROUTE(RDMA, 1, DPI, 1,
++		    DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
++		    DPI1_SEL_IN_RDMA1),
++	MMSYS_ROUTE(RDMA, 1, DSI, 0,
++		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
++		    DSI0_SEL_IN_RDMA1),
++	MMSYS_ROUTE(RDMA, 1, DSI, 1,
++		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
++		    RDMA1_SOUT_DSI1),
++	MMSYS_ROUTE(RDMA, 1, DSI, 1,
++		    DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
++		    DSI1_SEL_IN_RDMA1),
++	MMSYS_ROUTE(RDMA, 1, DSI, 2,
++		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
++		    RDMA1_SOUT_DSI2),
++	MMSYS_ROUTE(RDMA, 1, DSI, 2,
++		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
++		    DSI2_SEL_IN_RDMA1),
++	MMSYS_ROUTE(RDMA, 1, DSI, 3,
++		    DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
++		    RDMA1_SOUT_DSI3),
++	MMSYS_ROUTE(RDMA, 1, DSI, 3,
++		    DISP_REG_CONFIG_DSIO_SEL_IN, DSI3_SEL_IN_MASK,
++		    DSI3_SEL_IN_RDMA1),
++	MMSYS_ROUTE(RDMA, 2, DPI, 0,
++		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
++		    RDMA2_SOUT_DPI0),
++	MMSYS_ROUTE(RDMA, 2, DPI, 0,
++		    DISP_REG_CONFIG_DPI_SEL_IN, DPI0_SEL_IN_MASK,
++		    DPI0_SEL_IN_RDMA2),
++	MMSYS_ROUTE(RDMA, 2, DPI, 1,
++		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
++		    RDMA2_SOUT_DPI1),
++	MMSYS_ROUTE(RDMA, 2, DPI, 1,
++		    DISP_REG_CONFIG_DPI_SEL_IN, DPI1_SEL_IN_MASK,
++		    DPI1_SEL_IN_RDMA2),
++	MMSYS_ROUTE(RDMA, 2, DSI, 0,
++		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI0_SEL_IN_MASK,
++		    DSI0_SEL_IN_RDMA2),
++	MMSYS_ROUTE(RDMA, 2, DSI, 1,
++		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
++		    RDMA2_SOUT_DSI1),
++	MMSYS_ROUTE(RDMA, 2, DSI, 1,
++		    DISP_REG_CONFIG_DSIO_SEL_IN, DSI1_SEL_IN_MASK,
++		    DSI1_SEL_IN_RDMA2),
++	MMSYS_ROUTE(RDMA, 2, DSI, 2,
++		    DISP_REG_CONFIG_DISP_RDMA2_SOUT, RDMA2_SOUT_MASK,
++		    RDMA2_SOUT_DSI2),
++	MMSYS_ROUTE(RDMA, 2, DSI, 2,
++		    DISP_REG_CONFIG_DSIE_SEL_IN, DSI2_SEL_IN_MASK,
++		    DSI2_SEL_IN_RDMA2),
+ };
  
- 		wkup_r5fss0_core0_memory_region: memory@9c900000 {
- 			compatible = "shared-dma-pool";
--			reg = <0x00 0x9c900000 0x00 0xf00000>;
-+			reg = <0x00 0x9c900000 0x00 0x01d00000>;
- 			no-map;
- 			bootph-pre-ram;
- 		};
-
+ #endif /* __SOC_MEDIATEK_MTK_MMSYS_H */
 -- 
-2.53.0
+2.54.0
 
 
