@@ -4,140 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5098EC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5316C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3xcKgsHVEOzzQWLbdHR+bvYzUbolVaNe8LkLsMG9YU=; b=nM7twmSQxH/07OubPkrENJRK7B
-	EfIHVQpAduaNbibBeaaR98EVTtgIw2VVFqr6tJW9dpa43Nv0V7yuBER1RTcm4G7AUNXz+bs3oOUUv
-	78abF/3f+OvupjhysKSjHcBsy46NfCdErdNoOW5Co8IvuThJZrp1IVdeXoWbTsYVEG/H7SHlxOUwL
-	logrMr9RZ3D/TEfisQiciy4/80rcWAWPjIqZlOAbBZpDbZi88x0v/9V0vVMA7Yb0H7GHKVoSg10N0
-	fwZ0SbTXVViM9NqDbOKXtAyVS5pmag7pKI0wdIUp9V/xiueHSGpRT8Ea1b1Kr9HLqE82AmCBGEizq
-	7C0pNshw==;
+	bh=wabyGcafRR0+VfjWyNDbDqN04fopnYLNvxMknBs2P7c=; b=Ge7lc57WFzGVcERjNAV/29WkPm
+	ZUEmPreWCmZu8uAbrHhCSU8EQpYfcY0fQVopfeCqpxi5rtQpyD9jjTBVg8YvjbrRI4dhC1Cm0Uk9B
+	cnabC5/9NIwXM+cKkcCcjlgmEzBiEfb5/8Ll93KqbnzosN31U2RrD0C6CIzTTQkDHc/xnNSr9J85e
+	5HqQN8u6872fX5itdAKdB109RiKWnTvN3rQg5WIMd7N33egSs8bL5tQdAntnhlIJba/n+iR2GeR1m
+	mFDxqMJe6YTHOkVVXzuPv4rfiSUJoI5JW9x0Se0W6dDDoklHVAZBFyKRpYtjWdC9AZnpDZvnQY9OO
+	erJqk1Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesXY-00000001MUl-3SRk;
-	Wed, 01 Jul 2026 10:51:36 +0000
-Received: from mail-francesouthazon11011005.outbound.protection.outlook.com ([40.107.130.5] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wesZS-00000001Mvs-1iJu;
+	Wed, 01 Jul 2026 10:53:34 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesXW-00000001MOX-23Fq
+	id 1wesZQ-00000001MvN-40cP
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 10:53:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=wabyGcafRR0+VfjWyNDbDqN04fopnYLNvxMknBs2P7c=; b=OHkwMTABYHkBy4Rmar1oYsVCzZ
+	YdSysNYZeaUO+9CdPPyuhK8JPl/gnnInyoDPkiooJLuaKAgBSh1N7NJcoUvRkf3XJnXa6YFM+k8nt
+	HN7WC59A5YYg0yNfv5EIv4qOCTwb+BtdxyLmBGX7f6o6CysTejD/FKm0ZCHXdNcJpOHYp2XBcmUDO
+	QQnIQgDsRePGl35LHlKGu18PNW9U7lVlZs4jZ/SqvdBI3WwYS0bfNbnAJhisvgmbfwlwCeUQJEZ99
+	sq++fZ81p+OENNZnoasZ16xQErj7KOBd/vq9/ap/WNb6Zc6eihJ/WrFO+UC2MLMA8YgWFQCF9oUlh
+	qbHkgz/A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wesZL-00000002eB1-1U2t
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 10:51:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=zCpLKGviF+ebW2jNyzbG4fqsjgLp6hDelPqNxXc8Zb/PwEvstHJsO7FGGa4Gp3PABeEtl8viMEwuxB3JjuxkzFbXZGLh3yGEj1PvRJ7ZDBPmklQUp3ldVsP1cY3rntxtXWBZ7HD4Bc8jmiNJ55yTzX+znlH8M1VygIJldE4XQIFdnOOLG3vwQm7wszFiJrpp9zV1q4OkiGNk3/CvJxkZr0HkbsoZKCN0Mh1RBpcEDWjK4Bbo03YM49eBglv/QkkspcjKBlfQXOD7yfJTmP7NL981K/VYMISU8nK+QU53nrIsAB9g5Ld1eNMl3KauhQCHrYjOKiRESk3gEdi+hcWgjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=l3xcKgsHVEOzzQWLbdHR+bvYzUbolVaNe8LkLsMG9YU=;
- b=ndGPVXjW0vn55x7vgXe9gsVCIncU4VPWxgw8IMwidzvFt9BRwB+2LiU7TR88JaCUHng9z9hdMfvMpVomecSS4ksK50rlrFV/wG7vDGn9xqXjzh7OQ3XyTWQz3AQYFHRIBSp6sPUrRvTk359iXzfGFb6om5lnsYmU1yi88ciGKRUspKAFvFWQ95VV9M14UZxgHR7v/LOJ9O+nm/1we+R47tspApbWGWelRpfZyYAdcQEAZn7XCoI8wuJ0+XHYld47EydXO52IyNOv+/M9oE8cPTy4TgYBR16TCziXgl4a0YnpEvo0Ee4nfMQvOcUoXlhyUUYwlizbGgsQBrGgHEuGFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=l3xcKgsHVEOzzQWLbdHR+bvYzUbolVaNe8LkLsMG9YU=;
- b=lmrC7FQ2Tr7qlj9x5n0yiYrImZEpXGDExgTFPsTNT0QSLAqdRwJ+PtIms+TDM0teaWgr78mzO8jVoH3bjdmPVIszNyDrD9Q+v9A1eAv0RdclEHT45/B1HNBjO4IAVKQTMqWbTmOl+vOJBmEOgJnLcf1qZzo8HC1hfczJaHc/bZ/txLK/jyO2yHj7zv97Cl2P2uTTqeGoLU2MdvWXfDRcsHFgxtmg/5jeVn2e9XCWUybB7yz2RCtsSVLpeGL7RzdMQCgsPiOX8IGRE48eMZlE4c+aRNDFFje15eIiyGL/sWlsZu9jy7jNR3wRgt+4ZfvkdetV24LIgPGxdl9KK2uysw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com (2603:10a6:800:296::7)
- by DU6PR04MB11229.eurprd04.prod.outlook.com (2603:10a6:10:5c4::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 10:51:27 +0000
-Received: from VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be]) by VI2PR04MB11276.eurprd04.prod.outlook.com
- ([fe80::60d7:a8e5:eb88:9be%5]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
- 10:51:26 +0000
-From: "Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	Frank.Li@nxp.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de
-Cc: imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sherry.sun@nxp.com
-Subject: [PATCH V5 7/7] arm64: dts: imx95: Move power supply properties to Root Port node
-Date: Wed,  1 Jul 2026 18:52:34 +0800
-Message-ID: <20260701105234.198987-8-sherry.sun@oss.nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260701105234.198987-1-sherry.sun@oss.nxp.com>
-References: <20260701105234.198987-1-sherry.sun@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2P153CA0002.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:140::16) To VI2PR04MB11276.eurprd04.prod.outlook.com
- (2603:10a6:800:296::7)
+	Wed, 01 Jul 2026 10:53:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C5D242247;
+	Wed,  1 Jul 2026 03:53:20 -0700 (PDT)
+Received: from [10.57.37.248] (unknown [10.57.37.248])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22C093F85F;
+	Wed,  1 Jul 2026 03:53:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782903205; bh=JZ56j9O/E/kb3CIeJoDp5K9QusgKfml7k5WJLhXC098=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kWk13RqKQ05yF/keJKKAoG2johPDXGZZNyWNrYJu6wcvzr07ub1fzAWpTdwka/E6q
+	 Uq1BFIYlBLNqglC/uQ0SRczjha3tUTsAs/HJXvv8ybID9ynHz/NQIPxK+7xL/QRR+s
+	 NlwIFfzy0G7AW2cO1hqgGlJ/eZ6wnw6/sj9T/I3Y=
+Message-ID: <8c0e6a32-2de2-4b94-9fe2-e32f5e9bcc4a@arm.com>
+Date: Wed, 1 Jul 2026 11:53:17 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI2PR04MB11276:EE_|DU6PR04MB11229:EE_
-X-MS-Office365-Filtering-Correlation-Id: 439b837b-2c25-4797-4a65-08ded75eb343
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|19092799006|376014|7416014|1800799024|921020|11063799006|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: 4pUO6COJv/qzVMyXDXot5aAsnq0P/CbsyD+HeIEFXVJ/daqxV1qDtWCCJQtlM4f7GoUlUciVjCwXQChK+26u+xr2r0QuiDFJ5O61g0nOpKTJpMdWjUrkBgsoPG+YUcLQFyQR62aA60UFs4F8bjMlTFLiPHzViwYbG+9198R8u/zUzOOYicNN8JiozEtAkV5qJVTtDos8XGBTXy8BokTSEzyv9VQL2Y1/8MeH7WoRYw9SUIMxnF//xt9wci3dY0N1/INkULj6J8RXU8FDDVCZcDHKr6FM/X4L9EJFzc5T26PYQRNY0mgytUmtd2S6IAJ8L6iz5y7q1kpMNf9TAMrNZ2Mcp1fNkMS5EsWL1JOnqEyPx5p81wLX1rvsfGNuOJUf9a/6HlH/W2/D41mR2yY2WZli/ipnMdjLg2XvyIFSDqel15n0AS65Sr14GO/1Ni/ZoNZu+mhSnlC8Xjp978HiSnd6QKm52q1dwxXbIBgYk25eLf2amILzwlS539bsl/DaT8x9pF4NxhbdaiIoaONzU4N3xi38zn/w5MiOX28tjAW6w/XBlmJMxKzepcRAO6p+OtdfutF8tKSQ/i2qwciQVxrGI5wDTpRIlnDYlMHm0MJztGwD3eF3+veblWhB3MJTFWJYqGf9wp7QVLccQTmJF4ng7i7YILS/OAVwAp60obfPX0oAPgvfztcqLkEdzfNgHb1nlrLamCuEk7jCt1TOjw==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11276.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(19092799006)(376014)(7416014)(1800799024)(921020)(11063799006)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YkdJg8M6MtJoiNUsbFNYX1h4hbfBXsDoFrLfrTwgjqfHTGpj3HAwGWF1NBqK?=
- =?us-ascii?Q?dKhYPQSItLLUzEThAo9BE57TMsxiExvg/qObv7ndn2+Z76DduxvV8wCx+cuM?=
- =?us-ascii?Q?dWnirYgBpHpjarq9dt0P+saIogv3yK2AVBnMFAKZH9dJJbGmPjWSmR7KrF0E?=
- =?us-ascii?Q?xamTg1+D5OdxIewvX51adOilamrftYMi7zbZxDBXcIdotBQof+xbxZMveFU6?=
- =?us-ascii?Q?vfImcuJjorP2X9Kqwu9r04Nrpu3j+9uC+Ee873oDroF+5B5tLiM5HOi4ZjnZ?=
- =?us-ascii?Q?nayOaEdgRMNw9fQYFSqSwAuSh0oFEFgsY28stLL5IPgWERpsSCzE7sTvBSvt?=
- =?us-ascii?Q?Snv6Ay0PfCy2gD4m++nyUPYJi9+pLSpaslzBj10s7hyVFhsj/eZVHpktq3Ww?=
- =?us-ascii?Q?pfU9feY+A4JF+lq0y9vGCQ+Tun7iBqsyOlP/6DidUjxefWAUoU5+VWKP6cf1?=
- =?us-ascii?Q?3Lpz7MEWTgu94tZTEmvejFxSQvORBECZXTofbsPDAuHe7L3Io7n6l+Ke8ECR?=
- =?us-ascii?Q?aG0P/yZ5zns2JNu+dcRdQyS94prd7G0mX3FYhqoTRClqf+Cjyt1pje4fG8Z/?=
- =?us-ascii?Q?VyONHmz45RhNA5R2dKk6pX+BLYw5o7F+TiZ+MbUrdy5aPipGtjdOfCIkgH2h?=
- =?us-ascii?Q?NwhmdwrmN0rYQL64BslIJm6S8liKqW0QukFJQ5dmsF7eM3UqSV9cYU82+Osa?=
- =?us-ascii?Q?a0le9lchWxZeodwWqFz0zk3pGc+WKrtsLJhj+vyqMXk4j+lss66+QRXZaMYk?=
- =?us-ascii?Q?CX+iglHVq97TfGZsousgm6K8crIT4tc5wowAev658g0cUIEdumUi/xFcbBnC?=
- =?us-ascii?Q?9twdiJPj45juYlByKXIiAqC5s2ebWCUZdq8YMFYphbXqEPHXvB82AFE+W3oA?=
- =?us-ascii?Q?F/TiMrDgMIpwp4IKN078kFUgT09m72H2wjULQ42FzhsxaE/JzGhm5aNz0PNw?=
- =?us-ascii?Q?6Gb9JJkCc9wxu04gBOC5Iysciu0VYNMPmZOd5o3QUhjoj4+LUmDfXvageeRq?=
- =?us-ascii?Q?V17BKmcQ+FgAC9PdCrqztcY63tCshp2aU3rUR73gGa6/6ouAKzRZg882XjiO?=
- =?us-ascii?Q?uolEHcS2/IzSJbgEIkYcZH5Rkw6O+fwQS5gDmdThTcjOCW6PPA1cKZVFgjgp?=
- =?us-ascii?Q?zaCdc7nP4MaeA7xd/7Bkz1fA6giv2K91wzOxMVsSEMSAWxHuAAHfJdZ4Tykc?=
- =?us-ascii?Q?CBEuqawoNNHhnDBTadHFYlhTVQyZa3tKgdDwZz2mfXPQCZR0GFRGfVmydr5W?=
- =?us-ascii?Q?8WKpw3d1Y0nkmSs4QyZOBsjKAdOfuYT8IM6nUeN7y2OFhdiD5d2wvfDi+xxm?=
- =?us-ascii?Q?ArWVuhArKOjGBUvdIrVvJR1ZB+97tVLV0DfZtCHrdMUR9Blj2XWldSA5QXM0?=
- =?us-ascii?Q?DhMJD0D5pjKwezirDO26N6b8mOngQBn6BYKTddLdPr+dMBbZlkcwSeGrMmwx?=
- =?us-ascii?Q?D3FNJyRMrYh7O270CxlVWq1iEUxLKZQJUuM3XlyGfbtfZh9MkLYtmKVCA3ws?=
- =?us-ascii?Q?85MxXJALrWNznHrC9vJ7VCSAoCKIEhtAlxQYREV+KfxWF3q95lDEugzjJi2Y?=
- =?us-ascii?Q?Qd1P23irf+XOZiUQ45T4ZNLaNZD82fb3fLPNpmztZTpk4jI9nSNU9QAySVEq?=
- =?us-ascii?Q?hOy7+/kRNCzMRS+Tq9Phvla5RN1FiLbppgiltD76nBGs5EI4MTF0V2a91/rp?=
- =?us-ascii?Q?NKyTHXzNtu3qU7Mo/P85OFWMI3etfQrOC6QMNzV+My3zUBLd4YUnJ+49TMv/?=
- =?us-ascii?Q?qK53DA9fdDrrekWLbcHnwPygZE3sPxGiXaWPrlt9lh0NouCMEIq5?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 439b837b-2c25-4797-4a65-08ded75eb343
-X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11276.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 10:51:26.9122
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /1mxu7HLn86Hd5e+si9N70KK/zzn/RmG3AQm9cvtTqU7+gw8i7ufFkqNmQIzQLM7lKjaDD6fA5qg4sY6dFAppi5QOWM+zpDesTEOlJpLS2NQg9BIlNR6ww2LHaNyFD4S
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11229
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v14 00/44] arm64: Support for Arm CCA in KVM
+To: Kohei Enju <enju.kohei@fujitsu.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>, WeiLin.Chang@arm.com,
+ Lorenzo.Pieralisi2@arm.com
+References: <20260513131757.116630-1-steven.price@arm.com>
+ <akR0eX0nCumIgnlh@FCCLS0092175.localdomain>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <akR0eX0nCumIgnlh@FCCLS0092175.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_035134_540221_78DC6F32 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20260701_115327_708189_B2DCE972 
+X-CRM114-Status: GOOD (  34.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,83 +100,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sherry Sun <sherry.sun@nxp.com>
+On 01/07/2026 03:15, Kohei Enju wrote:
+> On 05/13 14:17, Steven Price wrote:
+>> This series adds support for running protected VMs using KVM under the
+>> Arm Confidential Compute Architecture (CCA).
+>>
+>> This is rebased on v7.1-rc1, but still targets RMM v2.0-bet1[1].
+>>
+>> The major updates from v13 remain but have been more fully implemented:
+>> the RMM uses the host's page size, range based RMI APIs mean we don't
+>> have to break everything down to base page sizes, the GIC state is
+>> passed via system registers, and the uAPI has been simplified.
+>>
+>> The main changes since v13 are:
+>>
+>>  * The RMI definitions and wrappers have been fully updated for RMM
+>>    v2.0-bet1. In particular the temporary RMM v1.0 SMC compatibility
+>>    patch has been dropped.
+>>
+>>  * The PSCI completion ioctl has been removed. RMM v2.0-bet1 still
+>>    requires the host to provide the target REC for PSCI calls which
+>>    name another vCPU, but KVM now performs the RMI PSCI completion
+>>    automatically before entering the REC again. Userspace no longer
+>>    needs to issue KVM_ARM_VCPU_RMI_PSCI_COMPLETE. A future spec should
+>>    remove the need for the host to provide the MPIDR mapping.
+>>
+>>  * The generic RMI init, RMM configuration, GPT setup,
+>>    delegate/undelegate helpers and SRO infrastructure have moved out of
+>>    KVM into arch/arm64/kernel/rmi.c. RMI is expected to be used by
+>>    features outside KVM, so this code should be available even when KVM
+>>    is not built.
+>>
+>>  * RMI_GRANULE_TRACKING_GET has been updated to work on a range, this
+>>    allows it to work when the region is not aligned to the tracking
+>>    size. Solves the problem reported by Mathieu[2].
+>>
+>>  * SRO support has been moved earlier in the series and improved. It
+>>    provides a cleaner way for the host to provide the RMM with the extra
+>>    memory it requires. However support is still incomplete where the
+>>    TF-RMM code does not yet implement it. This is noted by FIXMEs in the
+>>    code.
+>>
+>>  * The ARM VM type encoding has been reworked to coexist with the
+>>    upstream pKVM KVM_VM_TYPE_ARM_PROTECTED bit.
+>>
+>>  * The private-memory documentation now notes that arm64 uses
+>>    KVM_CAP_MEMORY_ATTRIBUTES.
+>>
+>>  * PMU support is dropped for now. It will be added later in a separate
+>>    series. Similarly for selecting the hash algorithm and RPV.
+> 
+> Hi Steven,
 
-Move the power supply properties from the PCIe controller nodes to the
-Root Port child nodes to support the new PCI pwrctrl framework.
+Hi,
 
-Since i.MX95 is the new platform that under development phase, it should
-be fine to simply move the power supply properties.
+> Is there any plan to add support for selecting the MEC policy (shared or
+> private)? We have been working on adding support for this on top of your
+> series. If this is not already in the works, we may upstream our
+> implementation later.
 
-Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
----
- arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 4 ++--
- arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts | 8 ++++----
- 2 files changed, 6 insertions(+), 6 deletions(-)
+I've been trying to focus on getting the minimum useful series
+upstreamed before looking at additional features (such as hash
+algorithm, MEC policy etc). If you've already got support then yes
+please do upstream it later when we've got this series landed.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-index 7d820a0f80b2..6aedcbbe915a 100644
---- a/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts
-@@ -555,8 +555,6 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&gpio5 13 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_m2_pwr>;
--	vpcie3v3aux-supply = <&reg_m2_pwr>;
- 	supports-clkreq;
- 	status = "disabled";
- };
-@@ -570,6 +568,8 @@ &pcie0_ep {
- 
- &pcie0_port0 {
- 	reset-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-+	vpcie3v3-supply = <&reg_m2_pwr>;
-+	vpcie3v3aux-supply = <&reg_m2_pwr>;
- };
- 
- &sai1 {
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-index 2e463bc7c601..340ab0253ec2 100644
---- a/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk.dts
-@@ -542,8 +542,6 @@ &pcie0 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_pcie0>;
--	vpcie3v3aux-supply = <&reg_pcie0>;
- 	supports-clkreq;
- 	status = "okay";
- };
-@@ -557,6 +555,8 @@ &pcie0_ep {
- 
- &pcie0_port0 {
- 	reset-gpios = <&i2c7_pcal6524 5 GPIO_ACTIVE_LOW>;
-+	vpcie3v3-supply = <&reg_pcie0>;
-+	vpcie3v3aux-supply = <&reg_pcie0>;
- };
- 
- &pcie1 {
-@@ -564,8 +564,6 @@ &pcie1 {
- 	pinctrl-names = "default";
- 	/* This property is deprecated, use reset-gpios from the Root Port node. */
- 	reset-gpio = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
--	vpcie-supply = <&reg_slot_pwr>;
--	vpcie3v3aux-supply = <&reg_slot_pwr>;
- 	status = "okay";
- };
- 
-@@ -578,6 +576,8 @@ &pcie1_ep {
- 
- &pcie1_port0 {
- 	reset-gpios = <&i2c7_pcal6524 16 GPIO_ACTIVE_LOW>;
-+	vpcie3v3-supply = <&reg_slot_pwr>;
-+	vpcie3v3aux-supply = <&reg_slot_pwr>;
- };
- 
- &sai1 {
--- 
-2.50.1
+Thanks,
+Steve
+
+> Thanks,
+> Kohei
+> 
+>>
+>> There are also the usual rebase updates and smaller fixes, including
+>> changes to the RMM v2.0-bet1 range APIs, removal of REC auxiliary
+>> granule handling, fixes to the address range descriptor encoding, and
+>> cleanups around realm stage-2 teardown.
+>>
+>> Stateful RMI Operations
+>> -----------------------
+>>
+>> The RMM v2.0 spec introduces Stateful RMI Operations (SROs), which allow
+>> the RMM to complete an operation over several SMC calls while requesting
+>> or returning memory to the host. This allows interrupts to be handled in
+>> the middle of an operation and lets the RMM dynamically allocate memory
+>> for internal tracking purposes. For example, RMI_REC_CREATE no longer
+>> needs auxiliary granules to be provided up front, and can instead
+>> request memory during the operation.
+>>
+>> This series includes the generic SRO infrastructure in
+>> arch/arm64/kernel/rmi.c and uses it for REC create/destroy. The other
+>> cases are not yet used by TF-RMM and a future revision will be needed to
+>> finish those paths in Linux.
+>>
+>> This series is based on v7.1-rc1. It is also available as a git
+>> repository:
+>>
+>> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v14
+>>
+>> Work in progress changes for kvmtool are available from the git
+>> repository below:
+>>
+>> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v12
+>>
+>> The TF-RMM has not yet merged the RMM v2.0 support, so you will need to
+>> use a branch with RMM v2.0-bet1 support. At the time of writing the
+>> following branch is being used:
+>>
+>> https://git.trustedfirmware.org/TF-RMM/tf-rmm.git topics/rmm-v2.0-poc_2
+>> (tested on commit 3340667a291a)
+>>
+>> There is a kvm-unit-test branch which has been updated to support the
+>> attestation used in RMMv2.0 available here:
+>>
+>> https://gitlab.arm.com/linux-arm/kvm-unit-tests-cca cca/v4
+>>
+>> [1] https://developer.arm.com/documentation/den0137/2-0bet1/
+>> [2] https://lore.kernel.org/all/acrj-cKphy4hJsEG@p14s/
 
 
