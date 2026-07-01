@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D96FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD69CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mP0e90CvY990VFp7DBQ0zX9hoQdSW13F7tPZWoQRh4s=; b=sNn5su+jcT+/2C+8vc/VXd3LbU
-	CvgyVqLCAEb5DrFXodEKqDsNpwwCoWKt5V6aA68XZunQi3ytmNzh/EDtjScIeelJQB0rICu/mtfDJ
-	fBuVCwHuoyyCTo3TXolZrBVyp/kAOOneUne1xfTtF9fiQUxtBJ2d8xAg/W3BMPzU4RNujeoWFfgl5
-	cjhGXuhylUdteshu9xpantIY7bNjXT8lhchYrb4kHaXTAyM4HBbMbSMtWUJEt8+5MdoIVGb0oCPKr
-	Jhi+zZ8AaiLb07bu1XwQLoTeXXl3zYV1S8uF/dIwblAY5/pz7s3xd0PxxtaiLvkfHZ/Xv7Sfb2YpN
-	MEM3f+yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wb7A/TS/HEDvAZgwyCH1DqONn9Dswjv2acmk5jyqSNo=; b=zf5WDhJfAfQL8GQobJd4zMU1Hj
+	15YCoQDlVHjZ1gyVSJXBw0fzT9Qbsn5wD3rIdo1h+dXX5R2ilf6tC5DLoovUHAgFX1PBiIYceXYUC
+	k+nTVS8JgXDLVl492u9NWgYV0Jwj15iYmbNXZZnBIYCnvxyDSFdNCHLTbtRRxsSKJAmspeiwHP1sb
+	8oT0KyXWMg2fYmhLzgc0VnQCSkoExKD5TCz99zoLRJe5CY47msunTAq9iwaihFlh/DsY9/i8231UD
+	m+c+FC5IHmnvw2Z3Oj0uWWNtWePlyBP70TFeVRhXGK3Vv4M1RtnC6PYWoBZzrMGyeMrNg+QOV8nPL
+	sDlx6uiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetLJ-00000001TP1-14Cn;
-	Wed, 01 Jul 2026 11:43:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wetiA-00000001kNJ-2p5D;
+	Wed, 01 Jul 2026 12:06:38 +0000
+Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetLH-00000001TOf-3rdL;
-	Wed, 01 Jul 2026 11:43:00 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with UTF8SMTP id C90B06001D;
-	Wed,  1 Jul 2026 11:42:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 040251F000E9;
-	Wed,  1 Jul 2026 11:42:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782906178;
-	bh=mP0e90CvY990VFp7DBQ0zX9hoQdSW13F7tPZWoQRh4s=;
-	h=Date:Subject:Cc:From:To:References:In-Reply-To;
-	b=W+aesSNaRj6xDDx+gCKAkWRHIzE3qBTdxq9B5csJjx0biTRJzU32MDfU4A4U3m1oT
-	 jY8QKneD0SkKgOmxqt0oCl0PL96dLMa/uwtVGg+FMp9OJiyf94wdcHPpHn0t09YmW5
-	 FY/E4G4KgtTNsmKBQu4P7iUS4Q/6NEJMpZYTDTys25LicEOwh/hO9C8DMI66GCvbJb
-	 co5Kh9B3LHQ3AqB0jAjPFw7JxlgHLnqx+74IcXPV9kM6qs4J3j5dkvmtYpYfig7CM1
-	 +CkzQGFlDWg217jSX1pU/NdtzbdMCaVTYrfpe0lz4hZO+dv3tQdXifg3+Y+uZ5KTox
-	 6QMUkdFsh/5rA==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Wed, 01 Jul 2026 13:42:55 +0200
-Message-Id: <DJN7HPMWJLXG.157YRMNW34NJQ@kernel.org>
-Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
- accessor
-Cc: "Linus Walleij" <linusw@kernel.org>, "Bartosz Golaszewski"
- <brgl@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
- <conor+dt@kernel.org>, "afaerber@suse.com" <afaerber@suse.com>,
- "wbg@kernel.org" <wbg@kernel.org>, "mathieu.dubois-briand@bootlin.com"
- <mathieu.dubois-briand@bootlin.com>, "lars@metafoo.de" <lars@metafoo.de>,
- "Michael.Hennerich@analog.com" <Michael.Hennerich@analog.com>,
- "jic23@kernel.org" <jic23@kernel.org>, "nuno.sa@analog.com"
- <nuno.sa@analog.com>, "andy@kernel.org" <andy@kernel.org>,
- "dlechner@baylibre.com" <dlechner@baylibre.com>,
- =?utf-8?b?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>,
- "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-realtek-soc@lists.infradead.org"
- <linux-realtek-soc@lists.infradead.org>, "linux-iio@vger.kernel.org"
- <linux-iio@vger.kernel.org>, =?utf-8?b?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?=
- <cy.huang@realtek.com>, =?utf-8?b?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?=
- <stanley_chang@realtek.com>, =?utf-8?b?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?=
- <james.tai@realtek.com>, =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
- <eleanor.lin@realtek.com>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Andy Shevchenko"
- <andy.shevchenko@gmail.com>
-X-Mailer: aerc 0.20.0
-References: <20260512033317.1602537-3-eleanor.lin@realtek.com>
- <agMM9soiqpG-TRSb@ashevche-desk.local>
- <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
- <ah92oEavMu4QRn8y@ashevche-desk.local>
- <CAMRc=MdA24z-tB_D8CTw68Di8e4OVQJ1QH4+rDskFzq=xjJ5BQ@mail.gmail.com>
- <DJ3QVMZ6XLW9.1M9W541O92QWJ@kernel.org>
- <CAD++jLncD2ZjH3aedOkGNYP3FyZ=i7Pb0OcKKZKuMOPGNjM_nQ@mail.gmail.com>
- <DJN3PDTPJ3L6.24P71OQFB6C98@kernel.org>
- <CAHp75VeTp4eYQ4QBoeH2VyVhUivxNn1CaC9jskmeg-1zTAOYLQ@mail.gmail.com>
- <akTyDzdrt949VnWK@ashevche-desk.local>
- <akT8Niv1ddo-uWmc@ashevche-desk.local>
-In-Reply-To: <akT8Niv1ddo-uWmc@ashevche-desk.local>
+	id 1wetcz-00000001WgM-3zKn
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 12:01:20 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=wb7A/TS/HEDvAZgwyCH1DqONn9Dswjv2acmk5jyqSNo=;
+	b=3ahc3ltqmkkXN9QOuiqpU41Hl9c7g10bPEsmpLbdkxKl22rY8Ydsv3Y7DuF/IsXfToBelOvol
+	G9z6KYaKaF1ZDJEg+drbNGABLUE41nf239pKGy6A898SbEduRuZUdGZMmCMTzDG3r1JMeIkSjv1
+	swsO0K9vl0hnPnhv2DueDpQ=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4gqyzb4XVxz1K96Z;
+	Wed,  1 Jul 2026 19:51:55 +0800 (CST)
+Received: from kwepemr200004.china.huawei.com (unknown [7.202.195.241])
+	by mail.maildlp.com (Postfix) with ESMTPS id 28B134055B;
+	Wed,  1 Jul 2026 20:01:04 +0800 (CST)
+Received: from [10.67.121.62] (10.67.121.62) by kwepemr200004.china.huawei.com
+ (7.202.195.241) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 1 Jul
+ 2026 20:01:03 +0800
+Message-ID: <d3e43723-82da-415f-ab79-5be49e92969e@huawei.com>
+Date: Wed, 1 Jul 2026 20:01:02 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] ACPI: CPPC: add paired FFH feedback-counter read hook
+To: Beata Michalska <beata.michalska@arm.com>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
+	<lenb@kernel.org>, <robert.moore@intel.com>, <zhenglifeng1@huawei.com>,
+	<zhanjie9@hisilicon.com>, <sumitg@nvidia.com>, <cuiyunhui@bytedance.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <wanghuiqiang@huawei.com>, <xuwei5@huawei.com>,
+	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <wangzhi12@huawei.com>
+References: <20260410094145.4132082-1-zhangpengjie2@huawei.com>
+ <20260410094145.4132082-2-zhangpengjie2@huawei.com>
+ <akNyNKSGf5yKwtwN@arm.com>
+From: Pengjie Zhang <zhangpengjie2@huawei.com>
+In-Reply-To: <akNyNKSGf5yKwtwN@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.67.121.62]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemr200004.china.huawei.com (7.202.195.241)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_050118_624129_18F73758 
+X-CRM114-Status: GOOD (  27.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,97 +85,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+Hi Beata,
 
-On Wed Jul 1, 2026 at 1:38 PM CEST, Andy Shevchenko wrote:
-> On Wed, Jul 01, 2026 at 01:55:11PM +0300, Andy Shevchenko wrote:
->> On Wed, Jul 01, 2026 at 01:01:10PM +0300, Andy Shevchenko wrote:
->> > On Wed, Jul 1, 2026 at 11:44=E2=80=AFAM Michael Walle <mwalle@kernel.o=
-rg> wrote:
->> > > On Fri Jun 19, 2026 at 11:08 PM CEST, Linus Walleij wrote:
->> > > > On Mon, Jun 8, 2026 at 4:41=E2=80=AFPM Michael Walle <mwalle@kerne=
-l.org> wrote:
->> > > >
->> > > >> >>> Without an accessor like gpio_regmap_get_gpiochip(), we canno=
-t retrieve the
->> > > >> >>> gpio_chip instantiated inside gpio-regmap.c to fulfill these =
-requirements in our
->> > > >> >>> map() function.
->> > > >>
->> > > >> Why is gpiochip_irq_reqres() called in the first place? Isn't tha=
-t
->> > > >> only called if the irq handling is set up via gc->irq.chip and no=
-t
->> > > >> via gpiochip_irqchip_add_domain() like in gpio-regmap?
->> > > >
->> > > > Not really, the gpiochip_irq_reqres() is called to mark that a
->> > > > GPIO line is used for IRQ, so the gpiolib cannot turn this
->> > > > GPIO into an output line, gpiod_direction_out() will fail
->> > > > on lines used for IRQ. So it's a failsafe.
->> > > >
->> > > > You can live without it of course, but then you don't get
->> > > > this failsafe.
->> > >
->> > > Thanks for the explanation! So did I make a mistake years ago by
->> > > adding the gpiochip_irqchip_add_domain(), see commit 6a45b0e2589f
->> > > ("gpiolib: Introduce gpiochip_irqchip_add_domain()")
->> > >
->> > > As Yu-Chun found, gpiochip_irq_reqres() expect the irq chip data
->> > > to be a gpio_chip, which isn't the case (in general) for an
->> > > externally allocated domain, is it?
->> >=20
->> > So the whole issue comes from the fact that the IRQ chip is not marked
->> > as immutable. For immutable IRQ chips (which all GPIO provides should
->> > have) there is no such issue to begin with, id est there is no
->> > gpiochip_irq_reqres() callback assigned (and respective _relres).
->>=20
->> Ah, for immutable chips we put either custom ones or
->> GPIOCHIP_IRQ_RESOURCE_HELPERS which actually refers to those callbacks.
->>=20
->> So, if the domain is external, it should also provide irq_request_resour=
-ces
->> and release callbacks. In the custom case we can wrap gpiochip_reqres_ir=
-q()
->> and gpiochip_relres_irq() respectively.
->>=20
->> But we need to have a struct gpio_chip pointer for them. And note, the
->> IRQ chip data can be anything in that case, so it's not a requirement.
+Thanks for taking the time to review this patch.
+Please see my inline comments below.
+
+On 6/30/2026 3:37 PM, Beata Michalska wrote:
+> Gonna be a bit picky with wording so do bear with me ...
 >
-> And looking back for implementation in v3 the whole mistake was to use
-> GPIOCHIP_IRQ_RESOURCE_HELPERS. It just wanted custom callbacks with
-> the IRQ chip data assigned to whatever from which we may then deduce
-> struct gpio_chip. It does *not* require to be struct gpio_chip.
-> The local driver data structure should keep pointer to struct gpio_regmap=
-.
-> That one can be used in the respective .irq_request_resources() and
-> .irq_release_resources(). The default ones for gpio-regmap may also
-> be provided via a macro, say GPIO_REGMAP_IRQ_RESOURCE_HELPERS.
+> On Fri, Apr 10, 2026 at 05:41:44PM +0800, Pengjie Zhang wrote:
+>> cppc_get_perf_ctrs() reads the delivered and reference performance
+>> counters one at a time.
+>>
+>> Allow architectures to provide both FFH feedback counters in one
+>> operation when that either narrows the sampling window or avoids extra
+>> cross-CPU reads. Add a small FFH-specific hook for that case and fall
+>> back to the existing per-register reads when unsupported.
+>>
+>> Signed-off-by: Pengjie Zhang <zhangpengjie2@huawei.com>
+>> ---
+>>   drivers/acpi/cppc_acpi.c | 58 ++++++++++++++++++++++++++++++++++++----
+>>   include/acpi/cppc_acpi.h |  7 +++++
+>>   2 files changed, 60 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+>> index 2e91c5a97761..7b3e8b0597dc 100644
+>> --- a/drivers/acpi/cppc_acpi.c
+>> +++ b/drivers/acpi/cppc_acpi.c
+>> @@ -988,6 +988,23 @@ int __weak cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val)
+>>   	return -ENOTSUPP;
+>>   }
+>>   
+>> +/**
+>> + * cpc_read_ffh_fb_ctrs() - Read FFH feedback counters together
+>> + * @cpunum:	CPU number to read
+> This reads bit awkward. Target CPU maybe ?
+>> + * @reg1:	first CPPC register information
+>> + * @val1:	place holder for first return value
+>> + * @reg2:	second CPPC register information
+>> + * @val2:	place holder for second return value
+>> + *
+>> + * Return: 0 for success and error code
+> 0 on success, error code otherwise ?
+
+Will update the wording as suggested.
+
+>> + */
+>> +int __weak cpc_read_ffh_fb_ctrs(int cpunum, struct cpc_reg *reg1,
+>> +				u64 *val1, struct cpc_reg *reg2, u64 *val2)
+>> +{
+>> +	return -EOPNOTSUPP;
+>> +}
+>> +
+>> +
+>>   /**
+>>    * cpc_write_ffh() - Write FFH register
+>>    * @cpunum:	CPU number to write
+>> @@ -1504,6 +1521,40 @@ bool cppc_perf_ctrs_in_pcc(void)
+>>   }
+>>   EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc);
+>>   
+>> +static int cppc_read_perf_fb_ctrs(int cpunum,
+>> +				  struct cpc_register_resource *delivered_reg,
+>> +				  struct cpc_register_resource *reference_reg,
+>> +				  u64 *delivered, u64 *reference)
+> The signature here differs from cpc_read_ffh_fb_ctrs.
+> It's not an issue but it might be good idea to stay consistent maybe ?
+> Also ... was about to suggest to stick to either perf_ctrs or feedback_ctrs
+> in naming but it seems the is no clear pattern  withint the file
+> ...
+You're right about the mixed naming.
+I will use the _fb_ctrs suffix for all new functions in v2.
+>> +{
+>> +	int ret;
+>> +
+>> +	/*
+>> +	 * For FFH feedback counters, try a paired read first to reduce
+>> +	 * sampling skew between delivered and reference counters. Fall
+>> +	 * back to the existing per-register reads if unsupported.
+>> +	 */
+>> +	if (CPC_IN_FFH(delivered_reg) && CPC_IN_FFH(reference_reg)) {
+>> +		ret = cpc_read_ffh_fb_ctrs(cpunum,
+>> +					&delivered_reg->cpc_entry.reg, delivered,
+>> +					&reference_reg->cpc_entry.reg, reference);
+>> +		if (!ret)
+>> +			return 0;
+>> +
+>> +		if (ret != -EOPNOTSUPP)
+>> +			return ret;
+> Shouldn't this one be enough ? Don't think you need the first condition.
+right，I will drop the redundant if (!ret) check in v2
+>> +	}
+>> +
+>> +	ret = cpc_read(cpunum, delivered_reg, delivered);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = cpc_read(cpunum, reference_reg, reference);
+>> +	if (ret)
+>> +		return ret;
+> As you are not doing anything with 'ret' this could just be:
+> 	ret = cpc_read(cpunum, delivered_reg, delivered);
+> 	if (ret) return ret;
+> 	return cpc_read(cpunum, reference_reg, reference);
 >
-> Hence I don't see the need of having gpio_regmap_get_gpiochip() helper
-> and driver can be implemented using gpio-regmap and external IRQ domain.
+> Though that's minor.
+Good catch, this is much cleaner. I will apply this change.
+Thanks again for the constructive feedback!
+
+Best regards,
+  Pengjie
 >
-> What did I miss?
-
-IMHO nothing, that's exactly my understanding, too. Except for the
-GPIO_REGMAP_IRQ_RESOURCE_HELPERS. See my previous mail. Because that
-would have to be set by regmap-irq.
-
--michael
-
-
---66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCakT9PxIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/jYjQF9Gz3dJXM6TuUZSyWng71nPci0aL0VH5LP
-dNpe5FVqJ4Ior5jpzAeunvyMv81lG/+KAYDqi5CgF2b7DtiKxlORD3txD8udK4gO
-MmqRdaSeG1BgwQIw81pxT3l8f1mcc70WhBE=
-=tciR
------END PGP SIGNATURE-----
-
---66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f--
+> ---
+> BR
+> Beata
+>> +
+>> +	return 0;
+>> +}
+>> +
+>>   /**
+>>    * cppc_get_perf_ctrs - Read a CPU's performance feedback counters.
+>>    * @cpunum: CPU from which to read counters.
+>> @@ -1547,11 +1598,8 @@ int cppc_get_perf_ctrs(int cpunum, struct cppc_perf_fb_ctrs *perf_fb_ctrs)
+>>   		}
+>>   	}
+>>   
+>> -	ret = cpc_read(cpunum, delivered_reg, &delivered);
+>> -	if (ret)
+>> -		goto out_err;
+>> -
+>> -	ret = cpc_read(cpunum, reference_reg, &reference);
+>> +	ret = cppc_read_perf_fb_ctrs(cpunum, delivered_reg, reference_reg,
+>> +				     &delivered, &reference);
+>>   	if (ret)
+>>   		goto out_err;
+>>   
+>> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
+>> index d1f02ceec4f9..006b42dbbd4b 100644
+>> --- a/include/acpi/cppc_acpi.h
+>> +++ b/include/acpi/cppc_acpi.h
+>> @@ -172,6 +172,8 @@ extern int cppc_get_transition_latency(int cpu);
+>>   extern bool cpc_ffh_supported(void);
+>>   extern bool cpc_supported_by_cpu(void);
+>>   extern int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val);
+>> +extern int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
+>> +				struct cpc_reg *reg2, u64 *val2);
+>>   extern int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val);
+>>   extern int cppc_get_epp_perf(int cpunum, u64 *epp_perf);
+>>   extern int cppc_set_epp_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls, bool enable);
+>> @@ -246,6 +248,11 @@ static inline int cpc_read_ffh(int cpunum, struct cpc_reg *reg, u64 *val)
+>>   {
+>>   	return -EOPNOTSUPP;
+>>   }
+>> +static inline int cpc_read_ffh_fb_ctrs(int cpu, struct cpc_reg *reg1, u64 *val1,
+>> +				       struct cpc_reg *reg2, u64 *val2)
+>> +{
+>> +	return -EOPNOTSUPP;
+>> +}
+>>   static inline int cpc_write_ffh(int cpunum, struct cpc_reg *reg, u64 val)
+>>   {
+>>   	return -EOPNOTSUPP;
+>> -- 
+>> 2.33.0
+>>
 
