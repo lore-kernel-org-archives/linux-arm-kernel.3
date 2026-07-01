@@ -4,60 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86562C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AD3AC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7OAVI61QCG9swWmfE7yqtDuGV/OQ+fEPL58DyfrzLw=; b=sOGIZC5bzw3W9f7xeOcIW9kl4l
-	3wCsiDZY4kVu9FWm6p1/emAaAoBbq8ijTaV0/h7gx838gmjy8f/XYkjIF0h8bXQslG9JywqYcX3W9
-	SefEl9NGSfU5Zt+tgsGKtD7I2pm9K21nO1lZYd59WtJgf8BnU8fu33JHwiw4AmHdFq9tKn59TZLca
-	4ntYjmPs7vyAAfHkWRSFb7/SAe6p0EHoru6ntojl3ZGD3Qm0qVXs+M9Ki94tOKccJjXrMR0IzEElb
-	R5VLQ1W+nGtMh98e9uwZWug1HPEtOjSGgBBDVMfENZiZSvOnb+OTI5FeAgtVPPXc3MHwTuo8eylgv
-	DbqC4fkg==;
+	bh=Vtg6gtjTXG/5kZ90vLQ3ZK8HeIu7FaVLNgb7sibmyzw=; b=fXhY/W3e4sn9fuFTphYbjEB4Xf
+	wh7oEaSF6qXv9Bl1qLNJGY1baGn2CdgDGN5sVg+gKEQY3CvxvfRpCZa1nkfu+7KDi3sz6hoRE0R3+
+	ZuWpvfNEoHDBi/3ro+8NOMZ8zKYN8GUNusDwGhoNjD2+7RMTa+76UWucGjpRstjKkPdGDlBZbUnpB
+	fw3uE3XcTzoNpc8Gq882Xb2FdQqjAY7MUziSxWBP1Qx5U3gTS2fgN4D8m2RjPd4r/eZC/XpDiFS/0
+	nZDmg6ArDdTYcDUIDNdARLT20+48j9VWhXvn46QAttSJLchWqE5LdRWpJ6IrrMho9/JIh2zrtnMVZ
+	PLeiHPRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqcq-000000015xf-40Qd;
-	Wed, 01 Jul 2026 08:48:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1weqcv-0000000167e-3KLr;
+	Wed, 01 Jul 2026 08:49:01 +0000
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqcq-000000015vG-02gf;
-	Wed, 01 Jul 2026 08:48:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=B7OAVI61QCG9swWmfE7yqtDuGV/OQ+fEPL58DyfrzLw=; b=lfbjH78316dbpUQhFgkQjmcILt
-	E8f5HZ876vDiPzDz1VodzXiIGWwfTokfhNlCYbPu9EBzY9lmNWLtIL6/tOYWgzRmMT7cto60J+SC1
-	5FiPRJHrbbeHuHIXYHXKFUQY1X8gvbIMVQeW1F4BRuT6WQRz9LPZK+ao+sKATreiH38/mv5C4vo+T
-	C8iD+t1gdHwLPLhjgDfX6PjqwnBm9sBvCOYg0btZ4ThhqPOdBlYt3g7zHrP4OZyFe+G38JLEwpVQb
-	R4ZYGPtEdjtBHDkNmzInQDAhb3lt6y1rkDpLT/NKt8/xpu2+08Noro8ObH6vI0OdQ8jMe2A13jXr7
-	2JaHCNhQ==;
-Received: from out-176.mta1.migadu.com ([2001:41d0:203:375::b0])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weqcm-00000002Wvq-1p4J;
-	Wed, 01 Jul 2026 08:48:54 +0000
+	id 1weqct-0000000160t-3WOb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 08:49:01 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782895730;
+	t=1782895737;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=B7OAVI61QCG9swWmfE7yqtDuGV/OQ+fEPL58DyfrzLw=;
-	b=Fj1VyxK7J+37FD7vP9f/P93B/DY/Pvc34Fgtk6N2PFXTDVG8akv8TcGw1hsFJliVwrOlOb
-	BSU4fGnAhfS+S5d924d78fX6gm0L0wYsAEgtcyeFkL/iLogIpWJMuHj6pOdDrJ4jOJqopc
-	kNdSXuYhvcjSKckGAt5v6EEwM3bnBgo=
+	bh=Vtg6gtjTXG/5kZ90vLQ3ZK8HeIu7FaVLNgb7sibmyzw=;
+	b=PVOo7ZBmM6YIM0NolMjtxLKfchiQEr7jsQyDsVfx1ILzRodHDDodTu/+8yZ/a8/ZWI+xsS
+	loVXakO8WmEY/K3R/2MI5d+kkGXuY6uZti8GYMEisHs+IN0qKtKhw3y1/G2iNRPhgF8yLE
+	bNBxjuDWrFbO0ZnwwXQ3Rtp1dmB6abc=
 From: Atish Patra <atish.patra@linux.dev>
-Date: Wed, 01 Jul 2026 01:47:06 -0700
-Subject: [PATCH v8 18/22] RISC-V: perf: Add Qemu virt machine events
+Date: Wed, 01 Jul 2026 01:47:08 -0700
+Subject: [PATCH v8 20/22] tools/perf: Add RISC-V CounterIDMask event field
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-counter_delegation-v8-18-7909f863a645@meta.com>
+Message-Id: <20260701-counter_delegation-v8-20-7909f863a645@meta.com>
 References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 In-Reply-To: <20260701-counter_delegation-v8-0-7909f863a645@meta.com>
 To: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
@@ -72,8 +59,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
  linux-perf-users@vger.kernel.org, Conor Dooley <conor@kernel.org>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_094852_735945_92890286 
-X-CRM114-Status: GOOD (  12.76  )
+X-CRM114-CacheID: sfid-20260701_014900_029067_9B12A0B1 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,96 +77,35 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Atish Patra <atishp@rivosinc.com>
 
-Qemu virt machine supports a very minimal set of legacy perf events.
-Add them to the vendor table so that users can use them when
-counter delegation is enabled.
+Counter delegation lets supervisor mode choose the hpmcounter for an event,
+but the hardware may only allow a given event on a subset of counters. Add
+a RISC-V specific "CounterIDMask" json event field, handled like the other
+arch-specific entries in event_fields[], that carries the allowed-counter
+bitmask through to the driver's existing counterid_mask (config2:0-31)
+format.
 
-Qemu is identified by its marchid. Older Qemu reports all-zero
-mvendorid/marchid/mimpid, while newer Qemu reports the marchid 0x2a (42)
-allocated to it in the RISC-V ISA manual [1]. Register the events for
-both ids so they are available across Qemu versions.
-
-[1] https://github.com/riscv/riscv-isa-manual/blob/main/marchid.md
+The value is the bitmask directly so no counter-list to bitmask
+conversion is needed, and because the field is RISC-V specific it is a
+no-op for every other architecture's events (unlike the shared "Counter"
+field).
 
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/include/asm/vendorid_list.h |  6 ++++++
- drivers/perf/riscv_pmu_sbi.c           | 39 ++++++++++++++++++++++++++++++++++
- 2 files changed, 45 insertions(+)
+ tools/perf/pmu-events/jevents.py | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/riscv/include/asm/vendorid_list.h b/arch/riscv/include/asm/vendorid_list.h
-index 7f5030ee1fcf..beaf9236dba7 100644
---- a/arch/riscv/include/asm/vendorid_list.h
-+++ b/arch/riscv/include/asm/vendorid_list.h
-@@ -11,4 +11,10 @@
- #define SIFIVE_VENDOR_ID	0x489
- #define THEAD_VENDOR_ID		0x5b7
- 
-+#define QEMU_VIRT_VENDOR_ID		0x000
-+#define QEMU_VIRT_IMPL_ID		0x000
-+#define QEMU_VIRT_ARCH_ID		0x000
-+/* Newer Qemu reports the spec-allocated marchid 0x2a (42) for non-vendor CPUs */
-+#define QEMU_VIRT_ARCH_ID_SPEC		0x2a
-+
- #endif
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 8d56bef95a1b..6d528eafb525 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -27,6 +27,7 @@
- #include <asm/sbi.h>
- #include <asm/cpufeature.h>
- #include <asm/vendor_extensions.h>
-+#include <asm/vendorid_list.h>
- #include <asm/vendor_extensions/andes.h>
- #include <asm/hwcap.h>
- #include <asm/csr_ind.h>
-@@ -469,7 +470,45 @@ struct riscv_vendor_pmu_events {
- 	  .hw_event_map = _hw_event_map, .cache_event_map = _cache_event_map, \
- 	  .attrs_events = _attrs },
- 
-+/* QEMU virt PMU events */
-+static const struct riscv_pmu_event qemu_virt_hw_event_map[PERF_COUNT_HW_MAX] = {
-+	PERF_MAP_ALL_UNSUPPORTED,
-+	[PERF_COUNT_HW_CPU_CYCLES]		= {0x01, 0xFFFFFFF8},
-+	[PERF_COUNT_HW_INSTRUCTIONS]		= {0x02, 0xFFFFFFF8}
-+};
-+
-+static const struct riscv_pmu_event qemu_virt_cache_event_map[PERF_COUNT_HW_CACHE_MAX]
-+						[PERF_COUNT_HW_CACHE_OP_MAX]
-+						[PERF_COUNT_HW_CACHE_RESULT_MAX] = {
-+	PERF_CACHE_MAP_ALL_UNSUPPORTED,
-+	[C(DTLB)][C(OP_READ)][C(RESULT_MISS)]	= {0x10019, 0xFFFFFFF8},
-+	[C(DTLB)][C(OP_WRITE)][C(RESULT_MISS)]	= {0x1001B, 0xFFFFFFF8},
-+
-+	[C(ITLB)][C(OP_READ)][C(RESULT_MISS)]	= {0x10021, 0xFFFFFFF8},
-+};
-+
-+RVPMU_EVENT_CMASK_ATTR(cycles, cycles, 0x01, 0xFFFFFFF8);
-+RVPMU_EVENT_CMASK_ATTR(instructions, instructions, 0x02, 0xFFFFFFF8);
-+RVPMU_EVENT_CMASK_ATTR(dTLB-load-misses, dTLB_load_miss, 0x10019, 0xFFFFFFF8);
-+RVPMU_EVENT_CMASK_ATTR(dTLB-store-misses, dTLB_store_miss, 0x1001B, 0xFFFFFFF8);
-+RVPMU_EVENT_CMASK_ATTR(iTLB-load-misses, iTLB_load_miss, 0x10021, 0xFFFFFFF8);
-+
-+static struct attribute *qemu_virt_event_group[] = {
-+	RVPMU_EVENT_ATTR_PTR(cycles),
-+	RVPMU_EVENT_ATTR_PTR(instructions),
-+	RVPMU_EVENT_ATTR_PTR(dTLB_load_miss),
-+	RVPMU_EVENT_ATTR_PTR(dTLB_store_miss),
-+	RVPMU_EVENT_ATTR_PTR(iTLB_load_miss),
-+	NULL,
-+};
-+
- static struct riscv_vendor_pmu_events pmu_vendor_events_table[] = {
-+	RISCV_VENDOR_PMU_EVENTS(QEMU_VIRT_VENDOR_ID, QEMU_VIRT_ARCH_ID, QEMU_VIRT_IMPL_ID,
-+				qemu_virt_hw_event_map, qemu_virt_cache_event_map,
-+				qemu_virt_event_group)
-+	RISCV_VENDOR_PMU_EVENTS(QEMU_VIRT_VENDOR_ID, QEMU_VIRT_ARCH_ID_SPEC, QEMU_VIRT_IMPL_ID,
-+				qemu_virt_hw_event_map, qemu_virt_cache_event_map,
-+				qemu_virt_event_group)
- };
- 
- static const struct riscv_pmu_event *current_pmu_hw_event_map;
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 0cf9d26315b3..516fb73886ed 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -396,6 +396,7 @@ class JsonEvent:
+         ('EnAllSlices', 'enallslices='),
+         ('SliceId', 'sliceid='),
+         ('ThreadMask', 'threadmask='),
++        ('CounterIDMask', 'counterid_mask='),
+     ]
+     for key, value in event_fields:
+       if key in jd and not is_zero(jd[key]):
 
 -- 
 2.53.0-Meta
