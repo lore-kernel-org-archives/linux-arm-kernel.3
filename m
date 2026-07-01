@@ -4,109 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D027DC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:30:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFCEC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 10:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=; b=n9EDJLmh3uCs3ktQXz9zzxD6Xu
-	uJHVGqkM62JdxTHzZ1qAi3R0P1XCsz1QHAB1qqwMYGdk5VsRV3Q1G68MOmoy110kPgdrNJOEGgVuZ
-	IVma7tImgJLQmmba3vkiWCDwQAJqAFDq+IndXiORHZPLaKCf+IdzrdL+mzUFk/EAZ0iXzUeFsiy6C
-	dnrTax7J8IlR4/L78z4+10H/Q+zwHRVQymqKEiibK2nBW9RyVKSVw/Hx3YQjoWDW7j0XLTN4c3/ey
-	jxXfgeKZ75D6mNKogcpQs7hPZlQtKakMcIkruwEhY8rJpfxBfMUOErRdCdQ4FJ/trGfxx1b+b5Ox8
-	BY6ro7vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q4Mw1ewD/jb3yXkm243uxaRWKqoUXL01sdFnsTQHgvY=; b=fvA/le8Pj2UHs/QwsBKCTmRIGu
+	6Qs0x/iZEj6HGjNYY4wD+UTyuJ5T6AWdGrJf0nfsstv+qUkaD6b7ZN1MkHMj+tql5JpSuW3KltTfC
+	EhNBfVLfdHW4EfBbJo1+FvodQ2egmTyHn6KLLwGwx5oWHo0QGfTM1v9Km/dSBwBhtG31eXgKkuUWZ
+	k1ATqz9+8v+TJ8D1e6CaqodEV/Ef0CAoW+1Jp9T/R1iVu+0lhtZV+sYhvShtjo7xpYz9lBHPiRXJ6
+	1zMEYo59KhEqrKBCc664rGf4as2uD4y/z/jQUIm4X6hx24DV2IjTxI37Dk3SdeItWcbfiy9Z+Qa0q
+	xPpb1/0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesCc-00000001JPk-3wej;
-	Wed, 01 Jul 2026 10:29:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wesLW-00000001KPG-3vf0;
+	Wed, 01 Jul 2026 10:39:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wesCc-00000001JP4-12Ls
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 10:29:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=; b=hy7NWC2ezsf8MMLGlueGtkcHiz
-	e0ylEldcpt2jSM+7XjlD+0OLM5UOd7y1V3ytWyTuFD8j0TGVEeYJGtp/ONqSqemizVFtsbSbdrovV
-	BoWyIuU8+FFU39vVbi8DDf1Y7DAb28E/cvNKAFlLadosQRQQBgmFImGHstWaH58VhNLGbhjrtZXvE
-	mqnPEuZRzR/f0kTKPmF6n6KG+8EO93HMn2N474yifZKu1xB4UD29vQ8DLKNzLLDnwbVvvtZlXMMcU
-	9DWnn8LYYzLw0pj/ZATXwaL+XnsNRAJAKSaD32+i3Q1C1u2h2ujl9BVTcX6nes6kfe+dh4cKxYefP
-	HFJC9WUw==;
-Received: from mail-dy1-x1335.google.com ([2607:f8b0:4864:20::1335])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wesCY-00000002ciO-3R49
+	id 1wesLU-00000001KOj-3QU3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 10:29:57 +0000
-Received: by mail-dy1-x1335.google.com with SMTP id 5a478bee46e88-30bbe98c3f0so1092247eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 03:29:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782901792; x=1783506592; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=;
-        b=AH+lshj1/C7mE05DilRX0dmN0UxhsHlE99D/bhaOB/CAH9f3h/D+NqvWSDCPq6JN8Q
-         1saBvn7iJqtQpjy+QtPXcy5h8Py71xBcOkzVrB/Qi6fNF+sePOWlZg4iIUpA5MMNopVp
-         Qdj/Mh6DezHCBSYoOM26II+ok9hU6jkFe4xpaxmYTGT4sawF4762DqgmkiMsg2MhHOhg
-         QVUqxQc6g3oW/6ZnEFSftJbdhUBT+1I0np+yQnm5kOXDABua5jsgtSACRKEbQw3asCP8
-         Q3DTHx2iyG6u2sRtT2YKjIkoguWlP5n85OrNYsYaXqAQc3a0POaoKsyYt1i+f2+JmqHo
-         +5hw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782901792; x=1783506592;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZZMCWACMwzKqJvaEkw4AdQSHyt0FLtQuCecBrJDnzH4=;
-        b=REwHkKR4pi8CpKVX3KISfpTya8AwoJONdtGA1AWxTmR9gyv41LeeTqdgrMGxluNwBf
-         XKe4LMYOpyq4Z3FxDz8g3LSkTLbjJyXfd8E3NVm/lUaZV50B7wWyux5NoyT46N4bBg5F
-         5Usr/xKquSTFJhgjRNHcwklLjOj0pxrJoVVAcp57JDtVMtd+z5U5RfgTmvxhwn9HKeVP
-         rkid3kSHXFLSVsJZYUEOw9GU5m8afvPm4qSgrE/GFk9C7MnN0tMLSOK2uGPaCmalzOwq
-         dlsJoLbQ/4Pu5AvI6EbA9mJFL7gqmIXe57Scp0zPfVRyKtCOucF5BNzZQ68kyxYnkwLA
-         dN5A==
-X-Forwarded-Encrypted: i=1; AHgh+Rr+df7ynjNbq4kET40+occj7FbemGzPfhV+5T4qPDE080ZXiMCSK8GKDT6X57PB6yPFMiA/irYG8VzQfnnCKKCg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx9Mf7T4WJYAxcik6atrpEadbfevZmfDb5wCMICBpS4nUdPECMv
-	jOwUKzKwWYEaiDXPQBtxWEBRWvDasq1Ocy1gPIEIWi/WSowoeZY3QE8Z
-X-Gm-Gg: AfdE7clPOFuhuxmL8OprCpvjXXxzchQAbDlkCxOFXFF3uOygoawxbymRIy3StgqtCfZ
-	VhSAlJ9/R/oDWXIS3u8GXEJD/Gz2ZqoqC/CN8PVNM5KnXKCc84AxUyG+3ukMCiMuOAFXYuqKO+F
-	bPY6a3Uo6v63sWm+w1K8wsEz++7aBRJlbqdzosU7SDfjPB8RQOuKGiBqXAlNqcZCH+GpfcjEX+a
-	mDLRgSgx8Kzsx9p0c01ECTlL9J9ExLgqVu3VD9W7jxVpCfOtZZvE41jEdau21lD22saq9XL16ab
-	3N9/5Na0Pv2+2hxMRiagQkDqhB59QzQz+CeY5C3L9huChLny5FhR01p+NmtZr84SNKaxqBqNqSd
-	xYoWcZlefX3Us9tpaG2VM4FTKkH/zMx6deFJdsadXkekbJf0xHtoB3FLC5lNtGa2MFhE5FTXLYZ
-	qeEDRVYAJJY9/pMuEzoO4/72o=
-X-Received: by 2002:a05:7300:fb8c:b0:30c:9f31:b604 with SMTP id 5a478bee46e88-30eff294ff9mr1275666eec.25.1782901791971;
-        Wed, 01 Jul 2026 03:29:51 -0700 (PDT)
-Received: from nbai25050028.. ([2403:8600:2090:6f:c5d7:7505:b0e9:be5e])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30ee317095dsm27602019eec.15.2026.07.01.03.29.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 03:29:51 -0700 (PDT)
-From: Aniket Negi <aniket.negi03@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	aniket.negi@airoha.com
-Subject: Re: [PATCH] net: airoha: fix MIB stats collection to be lossless
-Date: Wed,  1 Jul 2026 15:59:44 +0530
-Message-ID: <20260701102944.246106-1-aniket.negi03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <akS48y8gCJf-EmTP@lore-desk>
-References: <akS48y8gCJf-EmTP@lore-desk>
+	Wed, 01 Jul 2026 10:39:08 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91C4643F94
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 10:39:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63B751F0155E
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 10:39:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782902348;
+	bh=q4Mw1ewD/jb3yXkm243uxaRWKqoUXL01sdFnsTQHgvY=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=CvmIMQlpDPun8oKUF6snfTgD5R960tQ39+Ad7gri+Glzo8M3xcUmIR/X/ChVXo/NM
+	 LoBkt8GTKKxOJnKW8icgGzjR+KTlrxKeiu1OZOpzSQ9BahiOOvwcXZ6Uz2w8/KYIqt
+	 5VJj7HSvLi0ub+uEPGKsvoJQROh/cFbWhe+FazUqVutSc5DVw944YTwxbbd7aZB3z4
+	 2JWwgkQM538t/UZSdLP8CHDFRFmJw/hlH1T3TwFf1xJSvK8HsTtarZ2Y0umGA0QNZc
+	 v4REPnfaTuzUCQABmQV4nHd2lj6bZ8npdl9tiDVtlygmu9uuzv8Jy9bVpHCYrzBRSQ
+	 +5m7bRYHZ8lOA==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5aeb77b3afbso501500e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 03:39:08 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RqsKQz0f3pf8tHjSEx1HgSvwP9jOZO41TIz6CvNCKVDGMKl1dYX5HEPX4eT6rCcsUm5E0EqYze6t4HU1H29mH6f@lists.infradead.org
+X-Gm-Message-State: AOJu0YxfJboFVW64y213xDG9SK7RvPQ/Gu+YV0Y9VpCwr0lkmvg6qMo5
+	L5G36BYdIpzd+Ro7kzBRO5I144h8sC82OF6yqElL/YjcVonLuwr99wVBCWNqDUjOmTcL8xNkViE
+	b8a01XXySe874rZlmOKBr3HQvsXBleig/KCDZylB/CQ==
+X-Received: by 2002:ac2:568a:0:b0:5ae:9fb4:6740 with SMTP id
+ 2adb3069b0e04-5aec742dcbemr246886e87.46.1782902347033; Wed, 01 Jul 2026
+ 03:39:07 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Jul 2026 05:39:04 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Jul 2026 05:39:04 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAMRc=MfgAB8bc6PD-6jw_KR0uNBfH+PO2XtCeL1SUF2nCiT0xg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_112955_640614_0C7D4800 
-X-CRM114-Status: GOOD (  10.41  )
+References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
+ <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
+ <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
+ <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
+ <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+ <akOZFIowVvprnAMf@vaman> <CAMRc=MfgAB8bc6PD-6jw_KR0uNBfH+PO2XtCeL1SUF2nCiT0xg@mail.gmail.com>
+Date: Wed, 1 Jul 2026 05:39:04 -0500
+X-Gmail-Original-Message-ID: <CAMRc=MfA3OuuUUb063hAaN-0Byt=ToEf+uLtcR2DoqED6dZ+Nw@mail.gmail.com>
+X-Gm-Features: AVVi8CdM4YB1YNAKK21RhumfGngKAr8KUFWynreeOPd7b_5_r_J6FsxJ2sTmC58
+Message-ID: <CAMRc=MfA3OuuUUb063hAaN-0Byt=ToEf+uLtcR2DoqED6dZ+Nw@mail.gmail.com>
+Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
+ PHY on sa8255p
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
+	Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com, 
+	Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>, Romain Gantois <romain.gantois@bootlin.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, Radu Rendec <rrendec@redhat.com>, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Drew Fustini <dfustini@tenstorrent.com>, 
+	linux-sunxi@lists.linux.dev, linux-amlogic@lists.infradead.org, 
+	linux-mips@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Vinod Koul <vkoul@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,24 +110,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Maybe better mib_prev?
+On Tue, 30 Jun 2026 15:44:16 +0200, Bartosz Golaszewski <brgl@kernel.org> said:
+> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
+>> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
+>>> > Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
+>>> > driver instead of the MAC driver where it was previously. Instead of cramming
+>>> > both HLOS and firmware handling into the same driver, I figured it makes more
+>>> > sense to have a dedicated, cleaner driver as the two share very little code (if
+>>> > any).
+>>>
+>>> I think you are mixing up DT bindings and driver implementation?
+>>
+>> Should the bindings change if we have different driver and firmware
+>> implementations? Isn't binding supposed to be agnostic of
+>> implementations..?
+>>
+>
+> The way sa8255p implements SCMI is with SMC exclusively but - since even base
+> support is not yet upstream -  maybe it would be possible to expose SCMI clocks
+> like some platforms do and reuse the same binding.
+>
+> Would it make sense?
+>
+> Bart
+>
 
-Ok sure will update. mib_prev is cleaner and more concise. 
- 
-> Since now we do not reset the MIB counters in airoha_update_hw_stats(), we can
-> get rid of the for loop there and just call airoha_dev_get_hw_stats() with the
-> provided dev pointer. Even better, just rename airoha_dev_get_hw_stats() in
-> airoha_update_hw_stats() and move the spinlock there. What do you think?
+Scratch that. The firmware on sa8255p does not expose SCMI clock protocol, we
+can only use devfs with this PHY so it's either the same binding document with
+different properties depending on compatible or two separate bindings. I prefer
+the latter because it's cleaner.
 
-I am aligned with your suggestion, Since after removing MIB reset logic, there isn't need to iterate over all devs on airoha_gdm_port. This will simplify the code significantly.
-
-I'll refactor as follows:
-
-1. Remove the for loop in airoha_update_hw_stats()
-2. Rename airoha_dev_get_hw_stats() to airoha_update_hw_stats()
-3) move the spinlock into the renamed function.
-
-
-Best Regards,
-Aniket Negi
+Bartosz
 
