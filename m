@@ -4,66 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0241CC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56DFEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GGp5Dm186Bswv7RqJClgeTRL8kDm1gnT9vJb2LXMRt0=; b=kTJw7Ius3YxnV0pPbvsDZzGN+g
-	Q+QTW7OfGK0MlHjZgE/UvZb5D2N1DSAbbwomdg0q0rjVyhmTsEtpWeys/SNwltRiD6xzOuEqOJa+T
-	FpmOwVpp6VZm6SNe1+268tRzirupmFz828i4alhNIWzVSMJJvAeQwVQyc3cJD5NsuWtPemqi1uClt
-	bEIo62jZda/H5PxpP6vGGAISCkE+Cb3XeK8D4mnUIulRxV0Ug5u4DzuFl4wJhiyfMVzxwXIbgwjWG
-	AAjkeiqqfwEZJIHKkp7Z07T/nawOPvdE4CJCk7QiEIspT3qAZNnweqTZU/xg1gzWZVFFEejJvFDcr
-	rOqL51SQ==;
+	bh=cdbL4uPPZRNI1McFl2ORyA950h7OQxlQZYWEKBHUc8g=; b=TE+8hF5cc900LhAvXJQElY1Z0W
+	Wi2qBV5bL2MLaDuFhxsBT2RXin6tDlwtnYIeBtHF+f7ItFC/AipQl7KBIScLJrbRXjdDH7VrIIGp/
+	XAM7RkxAJcFnKc/2dWSFWANpXdfbq4yZNgKocOWat8XTrOd0crhmqDTNW4sbyxJcocN/9kCHFPrpF
+	sBz6vO6KYBMyr2BuSQIrA2+Uf1iH+AOuMQzMvsI3qg7ti27U0qfDGBgMBpCDrXSPGjrgKmQY9c2Ev
+	QejfW9w23W4afzPtvy1h6lBuUslseWwUoANAt1N9brkdeQjQt2cK1TVz5gHTAXQr/qXWvky8M6Ida
+	wO8VxdEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuj9-000000028BS-3its;
-	Wed, 01 Jul 2026 13:11:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuj6-000000027y3-3bPg;
-	Wed, 01 Jul 2026 13:11:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GGp5Dm186Bswv7RqJClgeTRL8kDm1gnT9vJb2LXMRt0=; b=fNinxlk+LFcxPwz3AZmev1j2YD
-	Xfs1SzQ+Sx1cAiEokmK8n+LeI6to3HkfdXsX5tGzOvpGuURTjbwJBOuYAjxjlqMQEdo06OEi5BMP7
-	W+crgx2J7QwBS2Sha8rMxVvM8o485uXCP3G89/Kr6hRfF5cwcmFZi0R0wfDy3EGkhTW7aiuYYKaD7
-	WAPPYH0IKcp54+pRC/8rOi3fkSE2a1ciK7N2runKc3nDkSH8nVQorLGVPrf52w8aViIMRmFtOpm06
-	QpWfs+l0lfc6F8UVfSpanKDNJKFfDrPdTWyGXtXREFC5ORmaZkiCHsG38hGmWwX962zwUxKkT6LIw
-	+JXD8TpA==;
+	id 1weuj8-0000000286e-1hQT;
+	Wed, 01 Jul 2026 13:11:42 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weuj3-00000002oK4-3T0h;
-	Wed, 01 Jul 2026 13:11:39 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weuj2-000000027t4-3SWO;
+	Wed, 01 Jul 2026 13:11:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782911496;
-	bh=YoR0g+Zy5bmdtAdJUQSWYfnzy6l/TnhEKDxMDbaZxrM=;
+	s=mail; t=1782911495;
+	bh=gTGmyDJnU/LcksYtV5yn7FZ/IoxYsY23TcYCiacN1EM=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=IYkearjlBwtwQ0sXwlzHmoiuGtmSiP58wvCRmfIMBPdR+08sD/No6LOyrYM35b9gh
-	 0UlK3qU9fb7GWI05re8sltdlh/Af79h+cA3bthHuglqHePU88lSFkKwHn9xill9fzO
-	 zS50mknDZOwVWTUMScFmRqKoHt8La98Q2AF95RSyGmW0MBI8J/v8cxJlKmxoSus+hH
-	 0/N/3Bru0zq4t3hKB+fgP0h1p9QlXHfwyu/+KLwoQZgVWbVTczr6Py1+pvtd2WLQt1
-	 RVIAaszNReR/rt80AK4eXc/VX2DGmexB4XyAF+S1BhQPCBYN9KboELl6WenzKfq7u1
-	 9+hBtYaeOrxMg==
+	b=RA2G4WF+Bt4dGqDgCWdGiNhRV9GYOnoS2O9N5FxVT+hiUZNlau8udtU1DsQMjYQhu
+	 2wL/QLjDiezpQHl6ri+mVPy6BwtoZJSbfTdtHi+FrO6dPezWC+pK8PmQ57s0W09Zv/
+	 y2jgC6rKlyqCFwGXxcX7J46GJ1bvLeLLAD8/CaD6T1hn+PO+7+WA4w+fGJL9MEFkL4
+	 UxQw9NcjAU7s7PmRAjfkDxwjamOyOdALh+7CdnXMPXjzOk8JlO95SyflMTJQUIAi31
+	 fgZT3KwX/9pks0NX/gpiO2l283n93ZyYuqh0bUozva5PFk5y34kNlCWiuEJqOwigAr
+	 3LlPtbfFRVMIw==
 Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2FE0A17E35FE;
-	Wed,  1 Jul 2026 15:11:35 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E19FE17E35FB;
+	Wed,  1 Jul 2026 15:11:33 +0200 (CEST)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 01 Jul 2026 15:11:19 +0200
-Subject: [PATCH 14/15] clk: mediatek: Add MT8189 scp clock support
+Date: Wed, 01 Jul 2026 15:11:18 +0200
+Subject: [PATCH 13/15] clk: mediatek: Add MT8189 i2c clock support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-mt8189-clocks-system-base-v1-14-2b048feea50a@collabora.com>
+Message-Id: <20260701-mt8189-clocks-system-base-v1-13-2b048feea50a@collabora.com>
 References: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
 In-Reply-To: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -82,16 +68,16 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=5001;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=6586;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=YoR0g+Zy5bmdtAdJUQSWYfnzy6l/TnhEKDxMDbaZxrM=;
- b=f2c9iq4eV9vNQq6ejkIcFlaXcqOfJHUSmk6AuQ83S8h4Q4pRr/884nTbJgSSDZ6NgGlOd5xK8
- EwdGRhMOugkA12Vf3tfXQwKotaVlcHOArrcfFhbHesl9hkQVSzkaWp1
+ bh=gTGmyDJnU/LcksYtV5yn7FZ/IoxYsY23TcYCiacN1EM=;
+ b=4LAh8MY96fBSZOcFQAeMrRXein3ytbP5UvDdRVXEoCru0dJItnV++dbq0KpHUFUuFgq48wIBB
+ hDptVQ3oZ7xDZrefKMesudKrw9AQ8JHxo5XQPTG5eokEJ/3ypJcBTD8
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_141137_994977_FE3D5BEC 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260701_061140_033023_0AE0459C 
+X-CRM114-Status: GOOD (  18.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,8 +92,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 scp clock controller,
-which provides clock gate control for System Control Processor.
+Add support for the MT8189 i2c clock controller,
+which provides clock gate control for i2c.
 
 Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
 Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
@@ -115,50 +101,53 @@ Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/clk/mediatek/Kconfig          | 10 +++++
- drivers/clk/mediatek/Makefile         |  1 +
- drivers/clk/mediatek/clk-mt8189-scp.c | 77 +++++++++++++++++++++++++++++++++++
- 3 files changed, 88 insertions(+)
+ drivers/clk/mediatek/Kconfig          |  13 ++++
+ drivers/clk/mediatek/Makefile         |   1 +
+ drivers/clk/mediatek/clk-mt8189-iic.c | 122 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 136 insertions(+)
 
 diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index bba631138b07..919a916f1f4f 100644
+index 245d3b83b5d3..bba631138b07 100644
 --- a/drivers/clk/mediatek/Kconfig
 +++ b/drivers/clk/mediatek/Kconfig
-@@ -872,6 +872,16 @@ config COMMON_CLK_MT8189_IIC
- 	  the MT8189 chipset, improving the overall performance and power
- 	  efficiency of the device.
+@@ -859,6 +859,19 @@ config COMMON_CLK_MT8189_DVFSRC
+ 	  vcore dvfs clocks. If you want to control its clocks, say Y or M
+ 	  to include this driver in your kernel build.
  
-+config COMMON_CLK_MT8189_SCP
-+	tristate "Clock driver for MediaTek MT8189 scp"
++config COMMON_CLK_MT8189_IIC
++	tristate "Clock driver for MediaTek MT8189 iic"
 +	depends on COMMON_CLK_MT8189
 +	default COMMON_CLK_MT8189
 +	help
-+	  Enable this to support the clock framework for the System Control
-+	  Processor (SCP) in the MediaTek MT8189 SoC. This includes clock
-+	  management for SCP-related features, ensuring proper clock
-+	  distribution and gating for power efficiency and functionality.
++	  Enable this option to support the clock framework for MediaTek MT8189
++	  integrated circuits (iic). This driver is responsible for managing
++	  clock sources, dividers, and gates specifically designed for MT8189
++	  SoCs. Enabling this driver ensures that the system can correctly
++	  manage clock frequencies and power for various components within
++	  the MT8189 chipset, improving the overall performance and power
++	  efficiency of the device.
 +
  config COMMON_CLK_MT8192
  	tristate "Clock driver for MediaTek MT8192"
  	depends on ARM64 || COMPILE_TEST
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index bfc075023d9b..a3a93a16b369 100644
+index 4dbfc9ac83ba..bfc075023d9b 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
-@@ -129,6 +129,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
+@@ -128,6 +128,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
  obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
  obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
- obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
-+obj-$(CONFIG_COMMON_CLK_MT8189_SCP) += clk-mt8189-scp.o
++obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-scp.c b/drivers/clk/mediatek/clk-mt8189-scp.c
+diff --git a/drivers/clk/mediatek/clk-mt8189-iic.c b/drivers/clk/mediatek/clk-mt8189-iic.c
 new file mode 100644
-index 000000000000..75197cd98b52
+index 000000000000..80a01706791a
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-scp.c
-@@ -0,0 +1,77 @@
++++ b/drivers/clk/mediatek/clk-mt8189-iic.c
+@@ -0,0 +1,122 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (C) 2025-2026 MediaTek Inc.
@@ -179,62 +168,107 @@ index 000000000000..75197cd98b52
 +
 +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
 +
-+static const struct mtk_gate_regs scp_cg_regs = {
-+	.set_ofs = 0x4,
-+	.clr_ofs = 0x8,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_SCP(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &scp_cg_regs, _shift, &mtk_clk_gate_ops_setclr_inv)
-+
-+static const struct mtk_gate scp_clks[] = {
-+	GATE_SCP(CLK_SCP_SET_SPI0, "scp_set_spi0", "clk26m", 0),
-+	GATE_SCP(CLK_SCP_SET_SPI1, "scp_set_spi1", "clk26m", 1),
-+};
-+
-+static const struct mtk_clk_desc scp_mcd = {
-+	.clks = scp_clks,
-+	.num_clks = ARRAY_SIZE(scp_clks),
-+};
-+
-+static const struct mtk_gate_regs scp_iic_cg_regs = {
++static const struct mtk_gate_regs impe_cg_regs = {
 +	.set_ofs = 0x8,
 +	.clr_ofs = 0x4,
 +	.sta_ofs = 0x0,
 +};
 +
-+#define GATE_SCP_IIC(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &scp_iic_cg_regs, _shift, &mtk_clk_gate_ops_setclr_inv)
++#define GATE_IMPE(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &impe_cg_regs, _shift,	\
++		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
 +
-+static const struct mtk_gate scp_iic_clks[] = {
-+	GATE_SCP_IIC(CLK_SCP_IIC_I2C0_W1S, "scp_iic_i2c0_w1s", "vlp_scp_iic_sel", 0),
-+	GATE_SCP_IIC(CLK_SCP_IIC_I2C1_W1S, "scp_iic_i2c1_w1s", "vlp_scp_iic_sel", 1),
++static const struct mtk_gate impe_clks[] = {
++	GATE_IMPE(CLK_IMPE_I2C0, "impe_i2c0", "i2c_sel", 0),
++	GATE_IMPE(CLK_IMPE_I2C1, "impe_i2c1", "i2c_sel", 1),
 +};
 +
-+static const struct mtk_clk_desc scp_iic_mcd = {
-+	.clks = scp_iic_clks,
-+	.num_clks = ARRAY_SIZE(scp_iic_clks),
++static const struct mtk_clk_desc impe_mcd = {
++	.clks = impe_clks,
++	.num_clks = ARRAY_SIZE(impe_clks),
 +};
 +
-+static const struct of_device_id of_match_clk_mt8189_scp[] = {
-+	{ .compatible = "mediatek,mt8189-scp-clk", .data = &scp_mcd },
-+	{ .compatible = "mediatek,mt8189-scp-i2c-clk", .data = &scp_iic_mcd },
++static const struct mtk_gate_regs impen_cg_regs = {
++	.set_ofs = 0x8,
++	.clr_ofs = 0x4,
++	.sta_ofs = 0x0,
++};
++
++#define GATE_IMPEN(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &impen_cg_regs, _shift,	\
++		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++
++static const struct mtk_gate impen_clks[] = {
++	GATE_IMPEN(CLK_IMPEN_I2C7, "impen_i2c7", "i2c_sel", 0),
++	GATE_IMPEN(CLK_IMPEN_I2C8, "impen_i2c8", "i2c_sel", 1),
++};
++
++static const struct mtk_clk_desc impen_mcd = {
++	.clks = impen_clks,
++	.num_clks = ARRAY_SIZE(impen_clks),
++};
++
++static const struct mtk_gate_regs imps_cg_regs = {
++	.set_ofs = 0x8,
++	.clr_ofs = 0x4,
++	.sta_ofs = 0x0,
++};
++
++#define GATE_IMPS(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &imps_cg_regs, _shift,	\
++		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++
++static const struct mtk_gate imps_clks[] = {
++	GATE_IMPS(CLK_IMPS_I2C3, "imps_i2c3", "i2c_sel", 0),
++	GATE_IMPS(CLK_IMPS_I2C4, "imps_i2c4", "i2c_sel", 1),
++	GATE_IMPS(CLK_IMPS_I2C5, "imps_i2c5", "i2c_sel", 2),
++	GATE_IMPS(CLK_IMPS_I2C6, "imps_i2c6", "i2c_sel", 3),
++};
++
++static const struct mtk_clk_desc imps_mcd = {
++	.clks = imps_clks,
++	.num_clks = ARRAY_SIZE(imps_clks),
++};
++
++static const struct mtk_gate_regs impws_cg_regs = {
++	.set_ofs = 0x8,
++	.clr_ofs = 0x4,
++	.sta_ofs = 0x0,
++};
++
++#define GATE_IMPWS(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &impws_cg_regs, _shift,	\
++		&mtk_clk_gate_ops_setclr, CLK_OPS_PARENT_ENABLE)
++
++static const struct mtk_gate impws_clks[] = {
++	GATE_IMPWS(CLK_IMPWS_I2C2, "impws_i2c2", "i2c_sel", 0),
++};
++
++static const struct mtk_clk_desc impws_mcd = {
++	.clks = impws_clks,
++	.num_clks = ARRAY_SIZE(impws_clks),
++};
++
++static const struct of_device_id of_match_clk_mt8189_iic[] = {
++	{ .compatible = "mediatek,mt8189-iic-wrap-e", .data = &impe_mcd },
++	{ .compatible = "mediatek,mt8189-iic-wrap-en", .data = &impen_mcd },
++	{ .compatible = "mediatek,mt8189-iic-wrap-s", .data = &imps_mcd },
++	{ .compatible = "mediatek,mt8189-iic-wrap-ws", .data = &impws_mcd },
 +	{ /* sentinel */ }
 +};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_scp);
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_iic);
 +
-+static struct platform_driver clk_mt8189_scp_drv = {
++static struct platform_driver clk_mt8189_iic_drv = {
 +	.probe = mtk_clk_simple_probe,
 +	.remove = mtk_clk_simple_remove,
 +	.driver = {
-+		.name = "clk-mt8189-scp",
-+		.of_match_table = of_match_clk_mt8189_scp,
++		.name = "clk-mt8189-iic",
++		.of_match_table = of_match_clk_mt8189_iic,
 +	},
 +};
-+module_platform_driver(clk_mt8189_scp_drv);
++module_platform_driver(clk_mt8189_iic_drv);
 +
-+MODULE_DESCRIPTION("MediaTek MT8189 scp clocks driver");
++MODULE_DESCRIPTION("MediaTek MT8189 iic clocks driver");
 +MODULE_LICENSE("GPL");
 
 -- 
