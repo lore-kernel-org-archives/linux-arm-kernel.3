@@ -4,154 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 146E3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:49:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D1FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:50:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tO+wGssHzCkwgLc1fyD6Bz2Zw0cVzq6FhbGs/0ytjg0=; b=rtuefJlH79/OpNDJZI6zbG/IYC
-	LHJWVQfpQth7yDQLxFEYqmRudLHBVyET3mnkvjsKfvxYjok2QxTpNrYIT8zUBT9oLOqjT/UkS8OpN
-	2WvtuRrtSQ71/FUs8LSTwXiRwn8q4STkZpusuSd5gZ2igsTrC6MUrYK7FRsURUG4Y0TitBxpclTNH
-	bJLXXnlvrYOeFYqBzXDQAWt1qk+BGM+q2l9g6AtKOmjU70fxkaAR3CoFZMWPJr9sR25QM5usiyR7S
-	AI7hz51+jJ+de7br1MIX/2wIhHOFhwdUDAGs8vN/rdskTT5nmMCYuzGeitYe1NRGDRghbRWDATRhp
-	mT0CET7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dx1O75jqKMARjEbw4xneNk7aG4r2yfuJioWVDgA4Lp0=; b=FuXgV452M76W0rPX13JcZ3VDG9
+	Z2BNECiN5kHRe7ZtHy06Gi+MY3Ghqmz/pRSf+bgBlfwfgVoVSl8+YMfP06/CxGal/GKQRfZS9iyT7
+	C1R5f2IDm/3MxFtG5j+qxVJs1io1r4UKyD/AJaKtmdbEtHKw6pFmYOEykQdyMxF3dtJdE/28mMYzz
+	PvRGtS87cQ2wrUyCRjdliaodgmBj/3CLnJPPHGNE36JUp6PIzizsMwgdiMoxrHudb5b53WeDCrJXh
+	PAY0hCrju8QrGFO0CGaHrv345KSP2N5vrFL9o9iFFwSiWekyQaM6VS5Gv9jcJaia2AQu2i76yw9oU
+	/8sOnp3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wephX-00000000x1D-1gCW;
-	Wed, 01 Jul 2026 07:49:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wephz-00000000x6s-2Djr;
+	Wed, 01 Jul 2026 07:50:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wephU-00000000x0N-39Ll
+	id 1wephy-00000000x6f-2mMc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 07:49:42 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6615lY6b059325
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 1 Jul 2026 07:49:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	tO+wGssHzCkwgLc1fyD6Bz2Zw0cVzq6FhbGs/0ytjg0=; b=Cj9hPbcbpWbTK+tF
-	PIcK3PBPMaXTUuCv/sDEIZo5Y0/0nqsviQe1Sa2GXh1P431Pj3fnTpSPlaXTeDwn
-	TejVsKuSbEwrL/m/AnaWDqhBuceZkeHF0ZsVBuk9HfOe8gugsp87HitC4zRCFssi
-	k6ElK05VWfaFfa4ppKG4OagIrOqSKu1qzdm2FACtXswaGGtn3D+wovGnFISOY7GX
-	OMvVD6rpHgm0xjYIk5hYyHMTHswLl1ybVHT0kDKMfw8cMtPhTll65hQ48rMgVW19
-	6WCyma+Z3Xe8amIkZHwcyG4+oRHAwiriPfz76n406OSuMECtU/mf/hi9TS+eXug3
-	o6S6LA==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f4k3sjxc5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 07:49:40 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c0408254aso23247271cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:49:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782892179; x=1783496979; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tO+wGssHzCkwgLc1fyD6Bz2Zw0cVzq6FhbGs/0ytjg0=;
-        b=YGy00K3XKusBmnqb0SNP/EzXT4Gb3iYy8F9TyezVEMNgoy+oEUGvpnVzDP+c9kti7P
-         odc6pGGvzXJhfzZq5V9j9vzLAp0lxFLCJ2iAYBYpk1pgq9Z7xJW59AYhgSmX9l0EAfFr
-         DimN8JZoX7iFNbXsqm8ddbFpgs6xrSBKSev+r1MjWBRyDtx+cmx1bkc34VtFir5NRaq3
-         BmMYmceRJ3qIhsgvZKZMBvGL7eKS79xLNHUoKXMVqPo5eX5o24b75Ye8Ksivh4kcyfG4
-         lbQFEoxKUusBm3LoTqm+esB7wPSa6WD4IJi5ieUKLsjJtZikh5Wfvjttq0s3zdDmkJRJ
-         93ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782892179; x=1783496979;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tO+wGssHzCkwgLc1fyD6Bz2Zw0cVzq6FhbGs/0ytjg0=;
-        b=nk5GNC+k6AswMhY00g5gHSzG+CUujKpIvPKop0wzA3H5o5oe44rr3SIwsQmTW9qNLG
-         JK4jj4zHQqb1rKdPGJqOP58fl/z7KxXEYYjUuZnrb7GTutw9cB6zqywsL2jgVlkGEoFv
-         psA3OlQnVd9/dXvc/U1veZUIzIJQ+L4SZjdbZevq9y0bXT7pn7WWcxXWo+Ajz7ETawY6
-         Q+LCaUJ9oBBiJ3H1749gZpEnmT6v+41NB0XOAkjwR8fFMLKKFC2QEown5/P2W/Fp43Zx
-         Qbc+SJA/n4QLAxiVTUAAYr1lXwC3TDO8DSKIdQkxkRdZ42jDRgk9eyV4sjFiwC2Q41AL
-         9xOA==
-X-Forwarded-Encrypted: i=1; AFNElJ+eNjJu1f/wlODv0gVPQRGh8CYJBR/Nf1RVPBdo6mZs155FaMxyEofKh008XHSjvl/e6IoIid8pFQ9zWtXwCB5u@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKwA5HOtKcLmw+CyjmclqNlU4lO2mqEZ37uY2sSqHJxrj7waY6
-	trrvilnUre9YbUouU2JveMXIZ4asN832fXVs3DjuFYPYlBCY9JSZ+nZ9JYroN5apnkZg5OVrXH9
-	vee4cTmk1QhJuCOK8VGSwM4m62hRSCEgKNNaxwR/vTCHregGeS7DwITkEo06MlswwXlQZVOnRM5
-	PGyVuVvp9KBw==
-X-Gm-Gg: AfdE7clSX+1lXvl3yUMI9aj+GSbDeIVoqCGG9Dn8cPFpmR7n2KWZxbhwgE/7hotzpgs
-	or5D/eruiJQrWzZYKIq0sqHJ9DFp65/toQopojQv3mm/B0OCfMmTWwtTaCWROBzGgxdcZzoyppm
-	NCnCRAX86BHkqfA10cK7KnDyJICkYR9QEyi7o/ZVUbKD75J40GGQjCi6cmzuVxUjxk5vKX8uzfn
-	/B//vkYxdcgNr69hGhVQEHoLSVFJVnbF9TzWKxK7jevpDkYKCuws2LVLeTGlQp9/wxx1IQQoU3w
-	8Gh+gL+L89EWNjGVK4leo24LNhtjDI4SJe9aCk1zGyRCrNGRpmlQejV0M01JNlonQXlwirSgtp0
-	2MPt5FNKJr61J471DXZYkKfqk/hFxIWdOR2YYATucBRtdou+WEvp9KXFICoG28w==
-X-Received: by 2002:a05:622a:4292:b0:517:146d:2cb5 with SMTP id d75a77b69052e-51c17e8f1ecmr60558981cf.20.1782892179096;
-        Wed, 01 Jul 2026 00:49:39 -0700 (PDT)
-X-Received: by 2002:a05:622a:4292:b0:517:146d:2cb5 with SMTP id d75a77b69052e-51c17e8f1ecmr60558621cf.20.1782892178662;
-        Wed, 01 Jul 2026 00:49:38 -0700 (PDT)
-Received: from [192.168.69.212] (88-187-86-199.subs.proxad.net. [88.187.86.199])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47563d194bbsm13031759f8f.3.2026.07.01.00.49.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Jul 2026 00:49:37 -0700 (PDT)
-Message-ID: <4eb126f4-f9c8-471e-94f1-ff40675dbe73@oss.qualcomm.com>
-Date: Wed, 1 Jul 2026 09:49:35 +0200
+	Wed, 01 Jul 2026 07:50:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3695643CFA
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:50:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0931F01559
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:50:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782892210;
+	bh=dx1O75jqKMARjEbw4xneNk7aG4r2yfuJioWVDgA4Lp0=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=j2DcNdYdADDJu+D3REmFeOGs5cw/wVRDCtpWACgDuKjqrOOLm2M4y5DN23480AZ1+
+	 vdbHErYbb2InVSGUdjvxGuamb9E+yPRsBVjhCVCiXyKaOxignCJrhJJ+sCulqREuj2
+	 JZxBrhhL8M2bGYMeKhgzQoRiW4OCC68fnAE12cgLy2w3/40ruKeTVw7/mHAPBTxFXf
+	 MW3RIJTIy2p3JhCAAmsgmH3SkxgQcdyu4tbovvpGx2pi551ZcwYmfASnsbjb8Sy5Am
+	 u1HrtfRlZkc2/+8NNkXk6EuHohgDRlqIW5fn+gweETKl82yJ2QHYPWNfZQsisst93n
+	 oOXXzvbJsIhvQ==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39b14a7e53aso3399301fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:50:09 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RojRUr0Q2erRLNslcpJ20hOw09VZBHzyuX7N6vwSmML3n/HV9/b4MifZJhk71SVyBHycztioO/1sxzuMPc1RyNJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuikFRZeKuLN6ZnyHbGuLxHtFr8Xn9295PrDM72J+uIbiLu1Qv
+	O06MW6FyT1W1ldRpCqJj2kNCrW5Gzvsgree3TnvCCiP5XNzynon9WsyK8IEtFCsuhyQ/6flK1z3
+	q9mrUdQMgpZZahaYrVT6+s2hf3+5VRng7V6dMSxkuPg==
+X-Received: by 2002:a05:651c:1593:b0:39a:f75e:a147 with SMTP id
+ 38308e7fff4ca-39b340d882dmr882981fa.34.1782892208779; Wed, 01 Jul 2026
+ 00:50:08 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Jul 2026 00:50:07 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Jul 2026 00:50:07 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260630125403.546375-6-khristineandreea.barbulescu@oss.nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/9] ARM: VDSO: Respect COMPAT_32BIT_TIME
-Content-Language: en-US
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-        Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
-        Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-        Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-        "H. Peter Anvin" <hpa@zytor.com>, Russell King <linux@armlinux.org.uk>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Vincenzo Frascino <vincenzo.frascino@arm.com>,
-        John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andreas Larsson <andreas@gaisler.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org,
-        Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org,
-        sparclinux@vger.kernel.org
-References: <20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de>
- <20260630-vdso-compat_32bit_time-v2-5-520d194640dd@linutronix.de>
-From: =?UTF-8?Q?Philippe_Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
-In-Reply-To: <20260630-vdso-compat_32bit_time-v2-5-520d194640dd@linutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: 31Q0dbymeAjwvByXsXBFVYX40JyKrzpV
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDA3NyBTYWx0ZWRfX2CCc/o2TbIkE
- cHuHeRGnz67x1xn0slibd8AN6H50SluVN6meg5jU5EuNUaAxpJYwxNBxyD43ycXVIWfx4qnoyQ7
- 62Jf/VXoSvG5ys0fbnksnHGbLRHykp22LCEmHnKAvpjGvdmh5Y09gPqBn44XiyL9/W5ODNBk9x3
- R3WAlfZT1JDfv9OMbjOOl/MvgwQP1ONxPII6Drd+6PgS3/dI0L6vD7D1cyp0QyKYq9Cwj6apzSp
- ier4is6PdgWEFq1THhVCgb6iMUnPig6VO3RhYcBWum7+EFjg5MiefLVNaVszSqDzhbiFJXonb4E
- zuEGgXkFRnczk13UhgySuiMohg8jWqmkqmMQdvlKOQlxXqYVcK6TUCCq3zcbbCqmXLCjpanhJKE
- 40buQsM/4vWCDJnRyTak+hMwaZEOHlskt6f66GqFvvlNlBj/j1ItQWIWmBkKQnTnfis7XtKsyNc
- bTUJejI4Z6QHC/3GEJA==
-X-Proofpoint-ORIG-GUID: 31Q0dbymeAjwvByXsXBFVYX40JyKrzpV
-X-Authority-Analysis: v=2.4 cv=Ff4HAp+6 c=1 sm=1 tr=0 ts=6a44c694 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=4s3hRJSeHn4rkQlkrse1kQ==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=M51BFTxLslgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
- a=EUspDBNiAAAA:8 a=gC1PrsFcNpCBvASTUOwA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDA3NyBTYWx0ZWRfX5wsDwlP9r+bo
- J5KXI6YM6nbANzp5t9TBXbjIAbcfqfcgSUOnBHQORQRBKVVISHc0tNeAVAk0GTXErOnoDZtNwtv
- oWlXMfHiSyL0TpU6+BNntwIFax+OuS0=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-01_01,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 impostorscore=0 phishscore=0 clxscore=1015
- lowpriorityscore=0 malwarescore=0 spamscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607010077
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_004940_801647_06A9CE6D 
-X-CRM114-Status: GOOD (  16.78  )
+References: <20260630125403.546375-1-khristineandreea.barbulescu@oss.nxp.com> <20260630125403.546375-6-khristineandreea.barbulescu@oss.nxp.com>
+Date: Wed, 1 Jul 2026 00:50:07 -0700
+X-Gmail-Original-Message-ID: <CAMRc=McZEw4P3LS9HzaS5W1qonGWkdvCYaEvFiY8m6sm98aWjA@mail.gmail.com>
+X-Gm-Features: AVVi8Ce65ZHRsdwHuQE2lkQelFQAZtLRoTaOMFpaCpGigaio81APEbQW62eUHbc
+Message-ID: <CAMRc=McZEw4P3LS9HzaS5W1qonGWkdvCYaEvFiY8m6sm98aWjA@mail.gmail.com>
+Subject: Re: [PATCH v12 5/6] pinctrl: s32cc: implement GPIO functionality
+To: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
+Cc: Alberto Ruiz <aruizrui@redhat.com>, Christophe Lizzi <clizzi@redhat.com>, devicetree@vger.kernel.org, 
+	Enric Balletbo <eballetb@redhat.com>, Eric Chanudet <echanude@redhat.com>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Lee Jones <lee@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Jacky Bai <ping.bai@nxp.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,20 +94,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/6/26 09:38, Thomas WeiÃschuh wrote:
-> If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
-> provide any 32-bit time related functionality. This is the intended
-> effect of the kconfig option and also the fallback system calls would
-> also not be implemented.
-> 
-> Currently the kconfig option does not affect the gettimeofday() syscall,
-> so also keep that in the vDSO.
-> 
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+On Tue, 30 Jun 2026 14:54:02 +0200, Khristine Andreea Barbulescu
+<khristineandreea.barbulescu@oss.nxp.com> said:
+> From: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+>
+> The updated SIUL2 block groups pinctrl, GPIO data access
+> and interrupt control within the same hardware unit.
+> The SIUL2 driver is therefore structured as a monolithic
+> pinctrl/GPIO driver.
+>
+> GPIO data access and direction handling are implemented using the
+> gpio-regmap library backed by a virtual regmap. The virtual regmap
+> translates the gpio-regmap register model to the underlying SIUL2
+> registers: MSCR for direction, PGPDI for input values and PGPDO for
+> output values.
+>
+> The existing pinctrl GPIO callbacks are used for the request/free path:
+> they switch the pad to GPIO mode on request and restore the previous
+> MSCR configuration when the GPIO is released.
+>
+> This change came as a result of upstream review in the
+> following series:
+> https://lore.kernel.org/linux-gpio/20260120115923.3463866-4-khristineandreea.barbulescu@oss.nxp.com/T/#m543c9edbdde74bdc68b6a2364e8b975356c33043
+> https://lore.kernel.org/all/20260504131148.3622697-7-khristineandreea.barbulescu@oss.nxp.com/
+>
+> Support both SIUL2 DT layouts:
+> - legacy pinctrl-only binding
+> - extended pinctrl/GPIO/irqchip binding
+>
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Andrei Stefanescu <andrei.stefanescu@oss.nxp.com>
+> Signed-off-by: Khristine Andreea Barbulescu <khristineandreea.barbulescu@oss.nxp.com>
 > ---
->   arch/arm/vdso/vdso.lds.S      |  2 ++
->   arch/arm/vdso/vgettimeofday.c | 14 ++++++++------
->   2 files changed, 10 insertions(+), 6 deletions(-)
 
-Reviewed-by: Philippe Mathieu-Daudé <philmd@oss.qualcomm.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
