@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C68B1C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:59:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 021B2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bPAciJxN/zk5R8hpG893G6VxTHK+KMWnn1rfcw3lEuY=; b=RhD2WF3PX2lwcoUCBf03YXGCPD
-	VRpoc8PgdEMzIG0/LEhXHMz8WZdxDFb5sacH4b20WYlNgXZ3VlcQRIBlS567UhFgRbJPrV0eRik7y
-	dQbMOoSEohPK+AhhB/uhCtDW5MH2rMihjgXoXxOtMf6Y2Eo4rLC265vIyy+qLZKizRc9+wTnrCicU
-	ftOIh0AK46vCbixbKjpg4RbvGNUdFSPCNpplqrfR9RZyyMImh1GiMXaLmZPkPg9swPAaXWMEWGqdm
-	AgddZyVB/KoKn37TsmA1IlAzNGMqYwZuf6QKBEE5dhBKKxcq8RrA6f3IQDQ5COQQKPTsH6HL2vuZ9
-	6Ih5O+Mg==;
+	bh=qsT7JqqZ198yjPzV9FmstL+QoXATo9JfcrAOb77a4SA=; b=UlNuYvtMgIu5gu82r0V7jDiU2f
+	g9Ft609hvn4PR2AUc70AaN/WxgDWtDFiU/O9feMayfR8nRpwqlNpAoa54rqCi2R2dlPF56NkUnJg7
+	AZrE+vL1YOw5lF59qb1g8i9SKUz9Jx4wTCwdU2WVaJ2x2FAiGaqG+0Biy0TGprp7p2UJNUs25ebqY
+	cKpBnqOXSf791UCJndYHHH/fBOeD5c5gq7Jd59b2eA+7npvD+3IYDIILb3iR3PfZnb5vGeXFbxjo4
+	+xWUsoMSdvYSwcwOU6F+RAYMRPBnQlp5Hq4KMEIxYIeDapmOpFX8bjiQF2rLALnrrnJ14ssRKF+ym
+	G8LQPWsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weouW-00000000qZ4-41mC;
-	Wed, 01 Jul 2026 06:59:05 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
+	id 1weoF7-00000000mZZ-35Ou;
+	Wed, 01 Jul 2026 06:16:17 +0000
+Received: from relay.yourmailgateway.de ([188.68.61.103])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weouP-00000000qRW-2Nqn;
-	Wed, 01 Jul 2026 06:58:58 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 1 Jul
- 2026 14:58:18 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Wed, 1 Jul 2026 14:58:18 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Wed, 1 Jul 2026 14:58:18 +0800
-Subject: [PATCH v3 2/3] phy: aspeed: Add AST2700 USB3.2 PHY driver
+	id 1weoF4-00000000mYy-3a97;
+	Wed, 01 Jul 2026 06:16:16 +0000
+Received: from mors-relay-8403.netcup.net (localhost [127.0.0.1])
+	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gqqXC5GYNz8F0Z;
+	Wed,  1 Jul 2026 08:16:11 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1782886571;
+	bh=rp90KJFs22SyjGf2Hk3J7Q7l91PBQxjIILxn6RvvY+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=g4zUQNpfJa61aEi2tVmdwfjBlUEOaHTBD6TeHnpae3Gauuf3u499YLSwlxzx607z5
+	 fxczv1T92tXpFjMgoZtRFJ/ik7KovZRl69bmFf0VQjxI+PV9EBEWruVWkc8N39LkwM
+	 YA+G4JVW8J9reLpC8yKaWc9D0ZrLMwmOybv8i+mpqz+hvFGFz/H4oIIKqvnWogy4Lc
+	 LCmwFml4B2ny64ZREkUfyKU3SYMFCytAdHYuFEQW9evW4cBMRBT6eFHZ9jV1LeXFq2
+	 slmwUl9P2YWY4PbcSqGwYsLJCKFqEnE35SNCr1YgSOoM9QnXIKxAx7VhEUB9K9tAVT
+	 7PL3R6rd9+fNQ==
+Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gqqXC4Y7Pz8F0W;
+	Wed,  1 Jul 2026 08:16:11 +0200 (CEST)
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4gqqXB0S2bz8sb0;
+	Wed,  1 Jul 2026 08:16:10 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 79E145F961;
+	Wed,  1 Jul 2026 08:16:08 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <dc7657b2-e3d5-4777-af52-1169fe743761@leemhuis.info>
+Date: Wed, 1 Jul 2026 08:16:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] wifi: mt76: add wcid publish check in mt76_sta_add
+To: "stable@vger.kernel.org" <stable@vger.kernel.org>,
+ Greg KH <gregkh@linuxfoundation.org>, Sasha Levin <sashal@kernel.org>
+Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Jiajia Liu <liujiajia@kylinos.cn>, Ryder Lee <ryder.lee@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ming Yen Hsieh <mingyen.hsieh@mediatek.com>, Leon Yen
+ <leon.yen@mediatek.com>, linux-wireless@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260528033814.46418-1-liujiajia@kylinos.cn>
+ <b143b62e-ca11-4f00-ad60-f71ae55213b9@leemhuis.info>
+ <akSoHk-BozrpWPmZ@nature>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+In-Reply-To: <akSoHk-BozrpWPmZ@nature>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-ID: <20260701-upstream_usb3phy-v3-2-00e12315b6f9@aspeedtech.com>
-References: <20260701-upstream_usb3phy-v3-0-00e12315b6f9@aspeedtech.com>
-In-Reply-To: <20260701-upstream_usb3phy-v3-0-00e12315b6f9@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Philipp Zabel
-	<p.zabel@pengutronix.de>
-CC: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782889098; l=10148;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=1ev22esjMN6mzTKH+myy5O4JjFTSQ+E4rn/t7pEFxP0=;
- b=Dwz//yd2vACbJCQav8UpOpqijMcS1qS79BB0HnEGhxqImaKBR+nDB4WrFJIP7+J4DDvs5CcNd
- IXHYQkL0DVTAkdGFHGqIqMnjpNQm/DMeEMSwW7dVT1Hs5YJ7QcVNQQ5
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+X-PPP-Message-ID: <178288656922.3967521.14789663261680188235@mxe9fb.netcup.net>
+X-Rspamd-Server: rspamd-worker-8404
+X-Rspamd-Queue-Id: 79E145F961
+X-NC-CID: l2BgsPYJ/4KD2mWJhuqWjAbXGGXHzUV2LTla55HtmwPtd8pnV9s=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_235857_641893_D90E8BE6 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20260630_231615_357399_2E5FF0F5 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,314 +100,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add AST2700 USB3.2 PHY driver support.
+On 7/1/26 07:39, Jiajia Liu wrote:
+> On Tue, Jun 30, 2026 at 01:29:51PM +0200, Thorsten Leemhuis wrote:
+>> On 5/28/26 05:38, Jiajia Liu wrote:
+>>> Since mt7925_mac_sta_add publishes wcid, add publish check in mt76_sta_add
+>>> to avoid reinitializing the wcid->poll_list.
+>>>
+>>> Found dev->sta_poll_list corruption when using mt7925 and 7.1-rc4.
+>>
+>> Jiajia Liu, Felox:
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/phy/Kconfig                  |   1 +
- drivers/phy/Makefile                 |   1 +
- drivers/phy/aspeed/Kconfig           |  15 +++
- drivers/phy/aspeed/Makefile          |   2 +
- drivers/phy/aspeed/phy-aspeed-usb3.c | 236 +++++++++++++++++++++++++++++++++++
- 5 files changed, 255 insertions(+)
+BTW: @Felix, sorry for the typo!
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 19f3b7d12b7d..85fa381978f8 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -171,6 +171,7 @@ config PHY_XGENE
- source "drivers/phy/allwinner/Kconfig"
- source "drivers/phy/amlogic/Kconfig"
- source "drivers/phy/apple/Kconfig"
-+source "drivers/phy/aspeed/Kconfig"
- source "drivers/phy/axiado/Kconfig"
- source "drivers/phy/broadcom/Kconfig"
- source "drivers/phy/cadence/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index d7aa516bcc49..c6dd02003bbe 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -23,6 +23,7 @@ obj-$(CONFIG_PHY_XGENE)			+= phy-xgene.o
- obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
- 					   amlogic/	\
- 					   apple/	\
-+					   aspeed/	\
- 					   axiado/	\
- 					   broadcom/	\
- 					   cadence/	\
-diff --git a/drivers/phy/aspeed/Kconfig b/drivers/phy/aspeed/Kconfig
-new file mode 100644
-index 000000000000..7b5f48db2be8
---- /dev/null
-+++ b/drivers/phy/aspeed/Kconfig
-@@ -0,0 +1,15 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+#
-+# PHY drivers for ASPEED
-+#
-+
-+config PHY_ASPEED_USB3
-+	tristate "ASPEED USB3 PHY driver"
-+	select GENERIC_PHY
-+	depends on (ARCH_ASPEED || COMPILE_TEST)
-+	help
-+	  Enable this to support the USB 3.2 PHY on the Aspeed AST2700 SoC.
-+	  It supports SuperSpeedPlus Gen2x1 (10 Gbps), SuperSpeed (5 Gbps),
-+	  High Speed (480 Mbps), Full Speed (12 Mbps) and Low Speed
-+	  (1.5 Mbps), and is paired with the DWC3 USB controller.
-diff --git a/drivers/phy/aspeed/Makefile b/drivers/phy/aspeed/Makefile
-new file mode 100644
-index 000000000000..d96d9d73a009
---- /dev/null
-+++ b/drivers/phy/aspeed/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PHY_ASPEED_USB3)		+= phy-aspeed-usb3.o
-diff --git a/drivers/phy/aspeed/phy-aspeed-usb3.c b/drivers/phy/aspeed/phy-aspeed-usb3.c
-new file mode 100644
-index 000000000000..eff148faa14c
---- /dev/null
-+++ b/drivers/phy/aspeed/phy-aspeed-usb3.c
-@@ -0,0 +1,236 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2026 Aspeed Technology Inc.
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+
-+#define PHY3S00		0x00
-+#define PHY3S00_INIT_DONE		BIT(15)
-+#define PHY3S00_SRAM_BYPASS		BIT(7)
-+#define PHY3S00_SRAM_EXT_LOAD	BIT(6)
-+#define PHY3S04		0x04
-+#define PHY3C00		0x08
-+#define PHY3C04		0x0C
-+#define PHY3P00		0x10
-+#define PHY3P00_RX_ADAPT_AFE_EN_G1	BIT(0)
-+#define PHY3P00_RX_ADAPT_AFE_EN_G2	BIT(1)
-+#define PHY3P00_RX_ADAPT_DFE_EN_G1	BIT(2)
-+#define PHY3P00_RX_ADAPT_DFE_EN_G2	BIT(3)
-+#define PHY3P00_RX_CDR_VCO_LOWFREQ_G1	BIT(4)
-+#define PHY3P00_RX_CDR_VCO_LOWFREQ_G2	BIT(5)
-+#define PHY3P00_RX_EQ_AFE_GAIN_G1	GENMASK(9, 6)
-+#define PHY3P00_RX_EQ_AFE_GAIN_G2	GENMASK(13, 10)
-+#define PHY3P00_RX_EQ_ATT_LVL_G1	GENMASK(16, 14)
-+#define PHY3P00_RX_EQ_ATT_LVL_G2	GENMASK(19, 17)
-+#define PHY3P00_RX_EQ_CTLE_BOOST_G1	GENMASK(24, 20)
-+#define PHY3P00_RX_EQ_CTLE_BOOST_G2	GENMASK(29, 25)
-+#define PHY3P00_RX_EQ_DELTA_IQ_G1_LO	GENMASK(31, 30)
-+
-+#define PHY3P04		0x14
-+#define PHY3P04_RX_EQ_DELTA_IQ_G1_HI	GENMASK(1, 0)
-+#define PHY3P04_RX_EQ_DELTA_IQ_G2	GENMASK(5, 2)
-+#define PHY3P04_RX_EQ_DFE_TAP1_G1	GENMASK(13, 6)
-+#define PHY3P04_RX_EQ_DFE_TAP1_G2	GENMASK(21, 14)
-+#define PHY3P04_RX_LOS_LFPS_EN		BIT(22)
-+#define PHY3P04_RX_LOS_THRESHOLD	GENMASK(25, 23)
-+#define PHY3P04_RX_TERM_CTRL		GENMASK(28, 26)
-+#define PHY3P04_TX_EQ_MAIN_G1_LO	GENMASK(31, 29)
-+
-+#define PHY3P08		0x18
-+#define PHY3P08_TX_EQ_MAIN_G1_HI	GENMASK(1, 0)
-+#define PHY3P08_TX_EQ_MAIN_G2		GENMASK(6, 2)
-+#define PHY3P08_TX_EQ_OVRD		BIT(7)
-+#define PHY3P08_TX_EQ_POST_G1		GENMASK(12, 9)
-+#define PHY3P08_TX_EQ_POST_G2		GENMASK(16, 13)
-+#define PHY3P08_TX_EQ_PRE_G1		GENMASK(20, 17)
-+#define PHY3P08_TX_EQ_PRE_G2		GENMASK(24, 21)
-+#define PHY3P08_TX_IBOOST_LVL		GENMASK(28, 25)
-+#define PHY3P08_TX_TERM_CTRL		GENMASK(31, 29)
-+
-+#define PHY3P0C		0x1C
-+#define PHY3P0C_TX_VBOOST_EN		BIT(0)
-+
-+#define PHY3CMD		0x40
-+
-+#define PHY3P_RX_EQ_CTLE_BOOST_G1_DEFAULT	0x7
-+#define PHY3P_RX_EQ_CTLE_BOOST_G2_DEFAULT	0x7
-+#define PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT	0x3
-+#define PHY3P_RX_EQ_DELTA_IQ_G2_DEFAULT	0x5
-+#define PHY3P_RX_LOS_THRESHOLD_DEFAULT		0x3
-+#define PHY3P_RX_TERM_CTRL_DEFAULT		0x2
-+#define PHY3P_TX_EQ_MAIN_G1_DEFAULT		0xa
-+#define PHY3P_TX_EQ_MAIN_G2_DEFAULT		0x9
-+#define PHY3P_TX_EQ_POST_G1_DEFAULT		0x4
-+#define PHY3P_TX_EQ_POST_G2_DEFAULT		0x3
-+#define PHY3P_TX_EQ_PRE_G2_DEFAULT		0x2
-+#define PHY3P_TX_IBOOST_LVL_DEFAULT		0xf
-+#define PHY3P_TX_TERM_CTRL_DEFAULT		0x2
-+
-+#define PHY3P00_DEFAULT ( \
-+	PHY3P00_RX_ADAPT_AFE_EN_G1 | \
-+	PHY3P00_RX_ADAPT_AFE_EN_G2 | \
-+	PHY3P00_RX_ADAPT_DFE_EN_G1 | \
-+	PHY3P00_RX_ADAPT_DFE_EN_G2 | \
-+	FIELD_PREP(PHY3P00_RX_EQ_CTLE_BOOST_G1, PHY3P_RX_EQ_CTLE_BOOST_G1_DEFAULT) | \
-+	FIELD_PREP(PHY3P00_RX_EQ_CTLE_BOOST_G2, PHY3P_RX_EQ_CTLE_BOOST_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P00_RX_EQ_DELTA_IQ_G1_LO, \
-+		   PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT & 0x3) \
-+)
-+
-+#define PHY3P04_DEFAULT ( \
-+	FIELD_PREP(PHY3P04_RX_EQ_DELTA_IQ_G1_HI, \
-+		   PHY3P_RX_EQ_DELTA_IQ_G1_DEFAULT >> 2) | \
-+	FIELD_PREP(PHY3P04_RX_EQ_DELTA_IQ_G2, PHY3P_RX_EQ_DELTA_IQ_G2_DEFAULT) | \
-+	PHY3P04_RX_LOS_LFPS_EN | \
-+	FIELD_PREP(PHY3P04_RX_LOS_THRESHOLD, PHY3P_RX_LOS_THRESHOLD_DEFAULT) | \
-+	FIELD_PREP(PHY3P04_RX_TERM_CTRL, PHY3P_RX_TERM_CTRL_DEFAULT) | \
-+	FIELD_PREP(PHY3P04_TX_EQ_MAIN_G1_LO, \
-+		   PHY3P_TX_EQ_MAIN_G1_DEFAULT & 0x7) \
-+)
-+
-+#define PHY3P08_DEFAULT ( \
-+	FIELD_PREP(PHY3P08_TX_EQ_MAIN_G1_HI, PHY3P_TX_EQ_MAIN_G1_DEFAULT >> 3) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_MAIN_G2, PHY3P_TX_EQ_MAIN_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_POST_G1, PHY3P_TX_EQ_POST_G1_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_POST_G2, PHY3P_TX_EQ_POST_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_EQ_PRE_G2, PHY3P_TX_EQ_PRE_G2_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_IBOOST_LVL, PHY3P_TX_IBOOST_LVL_DEFAULT) | \
-+	FIELD_PREP(PHY3P08_TX_TERM_CTRL, PHY3P_TX_TERM_CTRL_DEFAULT) \
-+)
-+
-+#define PHY3P0C_DEFAULT \
-+	PHY3P0C_TX_VBOOST_EN
-+
-+struct aspeed_usb3_phy {
-+	void __iomem *regs;
-+	struct reset_control *rst;
-+	struct device *dev;
-+	struct clk *clk;
-+};
-+
-+static int aspeed_usb3_phy_init(struct phy *phy)
-+{
-+	struct aspeed_usb3_phy *aspeed_phy = phy_get_drvdata(phy);
-+	u32 val;
-+	int ret;
-+
-+	ret = clk_prepare_enable(aspeed_phy->clk);
-+	if (ret) {
-+		dev_err(aspeed_phy->dev, "Failed to enable clock %d\n", ret);
-+		return ret;
-+	}
-+
-+	ret = reset_control_deassert(aspeed_phy->rst);
-+	if (ret) {
-+		clk_disable_unprepare(aspeed_phy->clk);
-+		return ret;
-+	}
-+
-+	/* Wait for USB3 PHY internal SRAM initialization done */
-+	ret = readl_poll_timeout(aspeed_phy->regs + PHY3S00, val,
-+				 val & PHY3S00_INIT_DONE,
-+				 USEC_PER_MSEC, 10 * USEC_PER_MSEC);
-+	if (ret) {
-+		dev_err(aspeed_phy->dev, "SRAM init timeout\n");
-+		goto err_assert_reset;
-+	}
-+
-+	val = readl(aspeed_phy->regs + PHY3S00);
-+	val |= PHY3S00_SRAM_BYPASS;
-+	writel(val, aspeed_phy->regs + PHY3S00);
-+
-+	/* Set protocol1_ext signals as default PHY3 settings based on SNPS documents.
-+	 * Including PCFGI[54]: protocol1_ext_rx_los_lfps_en for better compatibility
-+	 */
-+	writel(PHY3P00_DEFAULT, aspeed_phy->regs + PHY3P00);
-+	writel(PHY3P04_DEFAULT, aspeed_phy->regs + PHY3P04);
-+	writel(PHY3P08_DEFAULT, aspeed_phy->regs + PHY3P08);
-+	writel(PHY3P0C_DEFAULT, aspeed_phy->regs + PHY3P0C);
-+
-+	return 0;
-+
-+err_assert_reset:
-+	reset_control_assert(aspeed_phy->rst);
-+	clk_disable_unprepare(aspeed_phy->clk);
-+	return ret;
-+}
-+
-+static int aspeed_usb3_phy_exit(struct phy *phy)
-+{
-+	struct aspeed_usb3_phy *aspeed_phy = phy_get_drvdata(phy);
-+
-+	reset_control_assert(aspeed_phy->rst);
-+	clk_disable_unprepare(aspeed_phy->clk);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops aspeed_usb3_phy_ops = {
-+	.init		= aspeed_usb3_phy_init,
-+	.exit		= aspeed_usb3_phy_exit,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int aspeed_usb3_phy_probe(struct platform_device *pdev)
-+{
-+	struct aspeed_usb3_phy *aspeed_phy;
-+	struct phy_provider *phy_provider;
-+	struct device *dev = &pdev->dev;
-+	struct phy *phy;
-+
-+	aspeed_phy = devm_kzalloc(dev, sizeof(*aspeed_phy), GFP_KERNEL);
-+	if (!aspeed_phy)
-+		return -ENOMEM;
-+
-+	aspeed_phy->dev = dev;
-+
-+	aspeed_phy->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(aspeed_phy->clk))
-+		return PTR_ERR(aspeed_phy->clk);
-+
-+	aspeed_phy->rst = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(aspeed_phy->rst))
-+		return PTR_ERR(aspeed_phy->rst);
-+
-+	aspeed_phy->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(aspeed_phy->regs))
-+		return PTR_ERR(aspeed_phy->regs);
-+
-+	phy = devm_phy_create(dev, NULL, &aspeed_usb3_phy_ops);
-+	if (IS_ERR(phy))
-+		return PTR_ERR(phy);
-+
-+	phy_set_drvdata(phy, aspeed_phy);
-+
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct of_device_id aspeed_usb3_phy_match_table[] = {
-+	{
-+		.compatible = "aspeed,ast2700-usb3-phy",
-+	},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, aspeed_usb3_phy_match_table);
-+
-+static struct platform_driver aspeed_usb3_phy_driver = {
-+	.probe		= aspeed_usb3_phy_probe,
-+	.driver		= {
-+		.name	= KBUILD_MODNAME,
-+		.of_match_table	= aspeed_usb3_phy_match_table,
-+	},
-+};
-+module_platform_driver(aspeed_usb3_phy_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("ASPEED USB3.2 PHY Driver");
+>> given that the problem seems to be in 7.1, should we
+>> ask the stable team to pick this regression fix up, as this change was
+>> mainlined (as 20b126920a259d ("wifi: mt76: add wcid publish check in
+>> mt76_sta_add") [v7.2-rc1]), but lacks both a Fixes and a Stable tag?
+> 
+> Yes. It seems to be related to cbf5e61da660 ("wifi: mt76: initialize
+> more wcid fields mt76_wcid_init") [v6.14-rc1]. But I didn't reproduce
+> when I checked it out and tested. So Fixes was not added.
 
--- 
-2.34.1
+In that case:
+
+@Stable team, you you please pick up 20b126920a259d ("wifi: mt76: add
+wcid publish check in mt76_sta_add") [v7.2-rc1] for 7.1? It lacks a
+fixes tag and the problem might be older, but I saw two reports about
+this with 7.1-rc -- so it seems some recent change made that problem
+more likely to occur, so it might be good to fix it at least in 7.1.y.
+
+Ciao, Thorsten
+
+>>> According to the corruption information, prev->next was changed to itself.
+>>>
+>>> wlan0: disconnect from AP 90:fb:5d:94:8b:e3 for new auth to 90:fb:5d:94:8b:e2
+>>> wlan0: authenticate with 90:fb:5d:94:8b:e2 (local address=84:9e:56:9c:7e:6b)
+>>> wlan0: send auth to 90:fb:5d:94:8b:e2 (try 1/3)
+>>>  slab kmalloc-8k start ffff8c80958a6000 pointer offset 4160 size 8192
+>>> list_add corruption. prev->next should be next (ffff8c808a7488f8), but was ffff8c80958a7040. (prev=ffff8c80958a7040).
+>>>
+>>>  mt76_wcid_add_poll+0x95/0xd0 [mt76]
+>>>  mt7925_mac_add_txs.part.0+0xa5/0xe0 [mt7925_common]
+>>>  mt7925_rx_check+0xa7/0xc0 [mt7925_common]
+>>>  mt76_dma_rx_poll+0x50d/0x790 [mt76]
+>>>  mt792x_poll_rx+0x52/0xe0 [mt792x_lib]
+>>>
+>>> Signed-off-by: Jiajia Liu <liujiajia@kylinos.cn>
+>>> ---
+>>>
+>>> Changes in v2:
+>>>   - use dev->wcid table instead of adding MT_WCID_FLAG_DRV_PUBLSH for
+>>>     wcid publish check suggested by Sean
+>>>   - subject and commit message update
+>>>
+>>> ---
+>>>  drivers/net/wireless/mediatek/mt76/mac80211.c | 15 ++++++++++++---
+>>>  1 file changed, 12 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/drivers/net/wireless/mediatek/mt76/mac80211.c b/drivers/net/wireless/mediatek/mt76/mac80211.c
+>>> index 4ae5e4715a9c..b78b4cd206e0 100644
+>>> --- a/drivers/net/wireless/mediatek/mt76/mac80211.c
+>>> +++ b/drivers/net/wireless/mediatek/mt76/mac80211.c
+>>> @@ -1576,6 +1576,7 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
+>>>  {
+>>>  	struct mt76_wcid *wcid = (struct mt76_wcid *)sta->drv_priv;
+>>>  	struct mt76_dev *dev = phy->dev;
+>>> +	struct mt76_wcid *published;
+>>>  	int ret;
+>>>  	int i;
+>>>  
+>>> @@ -1595,11 +1596,19 @@ mt76_sta_add(struct mt76_phy *phy, struct ieee80211_vif *vif,
+>>>  		mtxq->wcid = wcid->idx;
+>>>  	}
+>>>  
+>>> -	ewma_signal_init(&wcid->rssi);
+>>> -	rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+>>> +	published = rcu_dereference_protected(dev->wcid[wcid->idx],
+>>> +					      lockdep_is_held(&dev->mutex));
+>>> +	if (published != wcid) {
+>>> +		WARN_ON_ONCE(published);
+>>> +		ewma_signal_init(&wcid->rssi);
+>>> +		rcu_assign_pointer(dev->wcid[wcid->idx], wcid);
+>>> +		mt76_wcid_init(wcid, phy->band_idx);
+>>> +	} else {
+>>> +		wcid->phy_idx = phy->band_idx;
+>>> +	}
+>>> +
+>>>  	phy->num_sta++;
+>>>  
+>>> -	mt76_wcid_init(wcid, phy->band_idx);
+>>>  out:
+>>>  	mutex_unlock(&dev->mutex);
+>>>
 
 
