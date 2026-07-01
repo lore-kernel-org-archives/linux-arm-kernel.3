@@ -4,74 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABCB2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:35:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E65DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 08:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OV8gaPiQO40kpe0vnMtC2nXL8DrZwaWi9384uLF+/CY=; b=giNTd1EipDtOtQKCnO6hH8W6FP
-	VFtCBToHtUo7J951eT5sYUDhTt/XAug6M+wPc9ScATBkgPkePbi6DGoGmiiDIuNORUFwgptYda/wZ
-	EDDqziln7X/BrDrAaPxj1TZ+JIazMJ459DXjWb5crT2/N6sM280SkvDUXnOB+vK7Ol70NsBEonwT+
-	ofGvyhc+D20Ryc3DZRxgfJtKgTqriEv1sC0KAY3ssi0gXJVkIZbtqqSo9SzpE0/GTVohPWrNPP4gt
-	+lynWfWs17UeocM4UWxJ3AUjfEWEwnyeccOLazKeiqBW9itHKTn2jiBCZK79+16SgyzC0ndVUpX/f
-	7UJ7Mmdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TeELv0MEFwei4dRZUKd0W83Qb4qpPXjtjbcss/SZrxA=; b=CtlP3w1JZgS7O/HKMyUuWasqi0
+	nEDXtqIVdMEf4OW8hTg1NOMAu6SgNX0nkQOCy7RwyplHx5TXTyJYGkPPEDyQTQSDlYkuWxCoqBNHN
+	V+dGDecffo9hye011HWQFNHN4q80ONytvy2KF3DnyQGhU4K9tf+0PmJZwuycCaOikPtcZFH9sH19H
+	c0BQPUj+4k6IZ2B42BaWEDkQHc1V9YQzTVi7Rdw4TbBkX2rZarVZJDyhVfUo/WbaG7z3aGWGR/hIw
+	fcTB4VdlK+U8iH1CVr95lowddaa2ScuE9GP6BC02ooQWzQ6o7cCLbIk3euxiuhV1DygEDt5z+LNg9
+	VhZ98JHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqPE-000000012V3-0vMC;
-	Wed, 01 Jul 2026 08:34:52 +0000
-Received: from 0001.3ffe.de ([2a01:4f8:c0c:9d57::1] helo=mail.3ffe.de)
+	id 1weqSr-000000012sz-3k8K;
+	Wed, 01 Jul 2026 08:38:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weqPC-000000012U7-0jSY;
-	Wed, 01 Jul 2026 08:34:51 +0000
-Received: from localhost (unknown [213.135.10.150])
+	id 1weqSp-000000012sX-1rt6;
+	Wed, 01 Jul 2026 08:38:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782895112;
+	bh=naKCm2AE7MiKT2DcwqT2cgOCma8bbUjR3ekPlXMemSE=;
+	h=From:Date:Subject:To:Cc:From;
+	b=gINkERXCikBLW89Y87lnOP+6v1dCnilw7ungWlAedJYPlIduDawPGWPG+WloE9je7
+	 G8togEiidEbm4clFu7exbu67ha3GTSjsW0HSEN2S3QHFPLXb1gQ1iR8fkZciniJara
+	 e+Ptgqd+DVJ0znJDlHJjutJ8j0H2JNz8piLPB65wfEEaQFTLnoLcQ/tyUaYp6Ts0Rj
+	 kJSABXvmqxn2AmKi1J1lOwpxtXkbvRm2kl2BoCtOnWtBsYq+b9cxfomtrE7EnpoAuQ
+	 HK1KuuwR1xwpmNbcGNStQIKNoL+cWLvFQVft/w+Hzh3OkDy4uC+HvbfSrCsEwIdep3
+	 glpP8XSW+ilBQ==
+Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.3ffe.de (Postfix) with ESMTPSA id 880D35B6;
-	Wed,  1 Jul 2026 10:34:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=walle.cc; s=mail2022082101;
-	t=1782894878;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OV8gaPiQO40kpe0vnMtC2nXL8DrZwaWi9384uLF+/CY=;
-	b=h67gQjQBVSxm1zGv4NOn57N9gJTCxMWWp3YcNhFmHdxQHNawukaOxBFeoTLd7xSSsUmHEb
-	QHOO7Rdm6R9+IhDqEV//349b1hxptHCVf1Ld31NKjoCEVG3yZWiCutXBBQIV2AETWkCvG0
-	2cvaUpJLCDQ65E9H4T7Bz3ZxH6x4FUP/Fk5LNDw6NweLNxPVKswcK05bPvhIWZ5hC03CGb
-	zu9OuKTRqyoO5BGXK6QgIby1CRCo3dgJBzS+jDk1gA31fpjROSM1sYk8vN6mvqxzcilIxi
-	5sg1p4WSH4Ikuhd3m7Ug/A13vn7+YhQwohIgElCdJhJ/Z95aXmB3+k3/Z3v1Aw==
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Wed, 01 Jul 2026 10:34:35 +0200
-Message-Id: <DJN3HIIAY4LE.3MXU9Q2YFSCJJ@walle.cc>
-Subject: Re: [PATCH v4 1/7] dt-bindings: mtd: jedec,spi-nor: allow the SFDP
- to be exposed via NVMEM
-Cc: <pratyush@kernel.org>, <mwalle@kernel.org>,
- <takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
- <richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>,
- <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <srini@kernel.org>,
- <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
- <claudiu.beznea@tuxon.dev>, <linux@armlinux.org.uk>,
- <richardcochran@gmail.com>, <arnd@arndb.de>,
- <linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <netdev@vger.kernel.org>
-From: "Michael Walle" <michael@walle.cc>
-To: "Linus Walleij" <linusw@kernel.org>, "Manikandan Muralidharan"
- <manikandan.m@microchip.com>
-X-Mailer: aerc 0.20.0
-References: <20260630092406.150587-1-manikandan.m@microchip.com>
- <20260630092406.150587-2-manikandan.m@microchip.com>
- <CAD++jL=FkEfpz-LW0vmPpZ28fLfGFMWo5E479Mapz55YUxKNAQ@mail.gmail.com>
-In-Reply-To: <CAD++jL=FkEfpz-LW0vmPpZ28fLfGFMWo5E479Mapz55YUxKNAQ@mail.gmail.com>
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 400DD17E0E1C;
+	Wed,  1 Jul 2026 10:38:32 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Wed, 01 Jul 2026 10:38:21 +0200
+Subject: [PATCH v2] arm64: dts: mediatek: mt6359: use proper compatible for
+ rtc
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-mediatek-genio-mt6365-cleanup-v2-1-78e3d63b8c05@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WOwQ7CIBBEf6XZs2sQKqGe/A/jgdKtbmxBARuN6
+ b+L1bvHN8nMmxckikwJdtULIk2cOPgCclWBO1t/IuSuMEghtailwZE6tpkueCLPAcesld6iG8j
+ 6+xW16zpTO9WLxkDZuEbq+bHsH45fjnS7F03+htDaROjCOHLeVZ4eGReVVgI+hTOnHOJz+Tdtl
+ sbvSvPnyrRBgbqvlVGmpUb2exeGwbYh2nXxwXGe5zfiNShN/wAAAA==
+X-Change-ID: 20260428-mediatek-genio-mt6365-cleanup-6cdd84c3f098
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782895112; l=2356;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=naKCm2AE7MiKT2DcwqT2cgOCma8bbUjR3ekPlXMemSE=;
+ b=wpW/x97FpY0cRMwaxoQ3gorpZVrPs11uJxeofBcqfxIJBnhyulrIUSTlhWKUgCwBW7lQDdjmO
+ k8pRm1br4zkCwiGkPquoVz1B9CUymnjhdXu5AZIlhj77S4zXwgCFiZH
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_013450_403682_95850C06 
-X-CRM114-Status: GOOD (  14.23  )
+X-CRM114-CacheID: sfid-20260701_013835_696669_09E68D93 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,83 +89,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+The MT6359 PMIC include file uses directly "mediatek,mt6358-rtc"
+compatible string for the rtc subnode, but not its own compatible
+string.
+Now that the "mediatek,mt6359-rtc" compatible is properly declared in
+the dt-bindings, use it with "mediatek,mt6358-rtc" as fallback.
 
-Hi,
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Several Mediatek and Radxa boards, based on MT8370, MT8390 or MT8395
+SoC, integrate the MT6365 PMIC, that is a MT6359P variant:
+ - Mediatek Genio 1200-EVK
+ - Mediatek Genio 700-EVK
+ - Mediatek Genio 510-EVK
+ - Radxa NIO-12L
+It is compatible with the MT6359 PMIC.
 
->> Add an optional "sfdp" child node (compatible "jedec,sfdp") that
->> describes the SFDP as a read-only NVMEM provider via nvmem.yaml, so its
->> contents (e.g. a vendor EUI-48/EUI-64) can be read through NVMEM cells.
->>
->> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
->
-> I would expect it to follow nvmem conventions like this, notice
-> compatibles specific-to-general with sfdp first:
+But both MT6365 PMIC support and compatibility were never expressed in
+the dt-bindings and there is no MT6365 include file as well.
+So, since these board support was introduced, their devicetrees use the
+mt6359 include file to enable this PMIC support. 
 
+The goal of this series is to clean this support by adding the missing
+compatible strings for this MFD main and subdevices in the dt-bindings,
+and add a include for MT6365 definitions to replace the MT6359 include
+in these board devicetrees and for future ones (like Genio 520/720
+EVKs).
 
-> sfdp {
->     /* NVMEM provided by SFDP */
->     compatible =3D "jedec,sfdp", "nvmem-cells";
->     label =3D "SFDP";
+The series is based on linux-next tree (tag: next-20260630) and has
+been tested on Mediatek Genio 510, 700 and 1200-EVK boards.
+---
+Changes in v2:
+- Rebased over next-20260630 tag
+- Removed already merged patches from series
+- Removed useless regulator label addition from patch
+- Link to v1: https://lore.kernel.org/r/20260429-mediatek-genio-mt6365-cleanup-v1-0-6f43838be92f@collabora.com
+---
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Isn't using label frowned upon? I wouldn't add that to the example.
+diff --git a/arch/arm64/boot/dts/mediatek/mt6359.dtsi b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
+index a953fb527b69..52fb0f832260 100644
+--- a/arch/arm64/boot/dts/mediatek/mt6359.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt6359.dtsi
+@@ -287,7 +287,7 @@ mt6359_vsram_others_sshub_ldo: ldo_vsram_others_sshub {
+ 		};
+ 
+ 		mt6359rtc: rtc {
+-			compatible = "mediatek,mt6358-rtc";
++			compatible = "mediatek,mt6359-rtc", "mediatek,mt6358-rtc";
+ 		};
+ 	};
+ };
 
->     read-only;
->     #address-cells =3D <1>;
->     #size-cells =3D <1>;
->
->     mac0: macaddr@0x00 {
->         reg =3D <0x00 0x06>;
->     };
->     mac1: macaddr@0x06 {
->         reg =3D <0x06 0x06>;
->     };
-> };
+---
+base-commit: ba7c57499e5999aeae8dd4f954eb2600589d80aa
+change-id: 20260428-mediatek-genio-mt6365-cleanup-6cdd84c3f098
 
-If I'm correct, this is the old style, see commit bd912c991d2e
-("dt-bindings: nvmem: layouts: add fixed-layout"). So it should
-eventually look like:
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-sfdp {
-     compatible =3D "jedec,sfdp";
-
-     nvmem-layout {
-	     compatible =3D "microchip,sst26vf-sfdp-eui";
-     };
-};
-
-Which is what patch series will lead to.
-
-Also I'm not sure if we really need to add the "nvmem-cells" here.
-IIRC in MTD it was there to tell a driver to add an nvmem device to
-an already existing compatible/node.
-
-Apart from the MTD case, I've just found qcom,smem-part,yaml which
-has compatible =3D "nvmem-cells".
-
--michael
-
-> Your example should definitely be more elaborate like this,
-> just an opaque sfdp node will not suffice. Maybe a separate
-> example?
->
-> Yours,
-> Linus Walleij
-
-
---7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKcEABMJAC8WIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCakTRGxEcbWljaGFlbEB3
-YWxsZS5jYwAKCRASJzzuPgIf+PesAYCvxlMrRPb3CpBzPYndulCo9xHSs8WFx8GM
-YRvSkp3iZq/ziK9zzw8WIc8dB59hR7gBgJcgQcwu/qH+CFtJvfiWDEH4EWXU3HSR
-2Jx1LkNCSYEaHycVFgiepmorZPwBghbBeA==
-=IjRV
------END PGP SIGNATURE-----
-
---7dc42cc06038756823fa21ce147a9856939103d1b021230f1b15a2a59c78--
 
