@@ -4,97 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 626AAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE7BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:45:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+3KB3W8igbPhJZR6fsRkWP2Fgao3oonwJVqpaQObUCc=; b=WQyrOEWe1jIZIkHs31gqbrMXFK
-	9KqnDWCyly8mRCz8xRTtSwI7haF5bcaCRNiE0hgyeq+XPIiVE0Z7JV97kAxkK2ENPw9nKi6Vru8qW
-	iEK7PGoRINeJ3ITDvF9b+/tkFDUdEi8ExI0taAS64bWyUecwsg51ve+K3THX6eUyH4aGfWPmOfpjR
-	A7nFGBJV2AZiuteneh2oAkYFidqlafr5qA1bG3uTfB5qbNpDinFxM88YF00RGHWu1ZyPTD1vgMc+7
-	49+k+b0GMA5f+X44VVriUAHmwr2YDP9S3BOhlCMh3j4eSG1o9JJlZqPrhDnvLrjMo1gblp1TjQ34t
-	SvqiJPjA==;
+	bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=; b=m0shI757EjuEcppEU1t7KIhkza
+	UHn3AUEf2J8g1ZfP3ETFqeEt2AYZBKkgGGlCHzW2IfF0B/Hg3ycsriR/J1xBisBdZssNtbOcW9om7
+	kzJXmCMU8R5E0vEe5uO15E9g/Td8W6TDFcFkDH2p3mFf7SPBbb/VyKwxLmUPgg4aToAP3ys1gofW5
+	tJ6zrHe0XBMosvCfZb3vQLSc0/aDPTuQ/qJ+XtWC5lYk8+CtZCpqvhJ//akCtWu5CmLEM5Htrr1C1
+	r9Y4uLJbIOtfRrE1XBvWr/hYb7YP4k5itdh1paIJjILkv5fwDoUnUsNS3oS0Gkc1EHTePO8dliX9k
+	OyxAHIwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyzP-00000002kCn-2lK3;
-	Wed, 01 Jul 2026 17:44:47 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1weyzk-00000002kKj-3n3e;
+	Wed, 01 Jul 2026 17:45:08 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyzM-00000002kBX-1GgC
+	id 1weyzh-00000002kIq-2mb8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 17:44:46 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c81db32393so88845ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 10:44:42 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782927882; cv=none;
+	Wed, 01 Jul 2026 17:45:07 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c9b2ac97cdso70485ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 10:45:05 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782927905; cv=none;
         d=google.com; s=arc-20260327;
-        b=AjoqmkGWZwJIGzuRAxu+zsP+iEzE3tZ5qqS/hP2nFSvtiH2KIe0meEu9HOOCKUUPCn
-         K+SHRwWc8vNpBL5dELinM6OJkPeUjOkhscEKIYJCCoDTCt6VDt9Sz5swLrhF3c0tURn+
-         nHYdf6dXEmwOPgSQ9pWWVK/FZPy1oUWjhx9H1Db0rCTMAc0LjHWWJtnGX2LyQfi2BlG2
-         ksFlHpebn+i+O1HK8/TvmIJjR/IzIJ36e+FRlZSu20YpuqwSLAoWbBOXDmHHZqbT0ebg
-         Kpo3jgRpTWNcwJ3S7n1oIxRGlPfw443nm8qa9GSYfRinMWU2ux3x/WQ9e0ExUkjFyip3
-         N2yA==
+        b=PsADvfig8SRcJr5x+BCKerzBndPp9A1VZPWjc1GWtI/rm6vqU3qyAC/qB7fEY5J2F3
+         oPfB4qfKzipdlOW7NCNrhBqZq4NWaShOTIb1IzBZHUvDgm2jQH/FK/N2c4Vdm5JhqxBR
+         WWNQb0xbS96mlP33eCEZTPXHzl1obrFgfTClR+8/MM/43vMp1LkINI6DIYx6zf249lN3
+         qarJrDQMxME5VNslra9X+83LwZi5hje3A1HKJb4+znj3K+hXGSkRAlzqlH7Xzcwh3BOw
+         s8vm1TpVPKm7BAU5NIwnkPFENzLWNOfMQ82yGidIiYfLqpGk5Ymlosu7aXIUN40NlD5J
+         Bc1w==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=+3KB3W8igbPhJZR6fsRkWP2Fgao3oonwJVqpaQObUCc=;
-        fh=yh9Xvgoyao85b272uDtHJ9ZAVsB7lzo+3PDMl2nyekM=;
-        b=lM8Rzhw5QlXy/un3+5ijJRyCfdDqSS12eP1w0Nq0bqsZXpUziAo8/mzfmE8sc8tZcc
-         8d/AfkVv5t6OQnoTES4gxt7deWYi2p0TmKbvITvlYevNQfloczM1coXfsF4hfpZvLWyO
-         rb3YmAcpTrqPUtfvYUw3iWo8vF5FuvaQVlficT76/4g0ZuUZVC/DvRWgbPcvw9SlFZ/3
-         VsG9hOW47cUEe3YyBKgcjmW+fJtoO0Ok4ZELdks3+hO63WvQvbg9mqi67GrofzhOKOSj
-         PsGic4HEs7JvMvn/jwLNGys/bNT8Kr6YWmVHKDLi9g4l2PpD4RrpdSghbiFm7pMHAFb7
-         CvJw==;
+        bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=;
+        fh=qR0Qo6iir18Iao6qTu/WEUggYzBmPMeh6s6d1CJvKY0=;
+        b=XfXKC6RWxgIws98hzmi5KV+StSDLQzfqjRPtl1sRpSwCV9E6c8teZ+ykxVyeT69hZQ
+         j5hXURon2BW4wGeZH6Ewp+TUBnSK6s5jsgEDMhTR2zcGF175BcaYOQF1+W/vAa/vQ3Ec
+         OVDL23rrfRXaIXMWKcr8gR/nEezbZCzrZQA4LmSFHNZvq+ftScjtLKyU5IomnJUhVrpo
+         ZPrd9r+rQHvF5zJh5A3aiZU+iAb4mJRKVKOD0GVLR5s5YisqNFxirJpRzJjd6tvC8Ek2
+         g8WUXnIZ/hjz57plm7cgfFrPtPJWd6Suayq1IX7Jfz4yDRz4lK5MZ+nzR1+KHu8iCUik
+         q1yw==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782927882; x=1783532682; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1782927905; x=1783532705; darn=lists.infradead.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=+3KB3W8igbPhJZR6fsRkWP2Fgao3oonwJVqpaQObUCc=;
-        b=klXGz1bDO6QsHfn5NnBWmz1V9YF4MIAdJF5R44JRCfja1CLoaYdk9OrDwAZnbH3sj0
-         ytT5sJxVMSJyRLm5vMxYqCubaMo3lsuS8h+ozbtavNPxGf03tez7FcJ5T/zw9nmzvgHh
-         L6oV0PJEEB+BuMFZlmTpb4jnDFgvX7Heazn8JjUOLaRV/M393vmbaJ0dLZvm5lgkiEMH
-         FLcnzHRwnxElJ/0bv8gitzsQXWSIQwO+cjwfL7+JE9u67gJovmy7Ndgldwp429rQnzrS
-         4hlFhhLV1rQodxVUcuR9Dw7nOpI6tu595sZUJNQqeZvmVKa67U5dYGvBaSYbja/tDVi3
-         YdhQ==
+        bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=;
+        b=tcQSIZuPRAza7SoC0sony0q7ZUaTgNDatN1alyRlzDuqsJAzs6Ehe9IyDpTwibBHo9
+         NqsdFYbFXAU6ECh9SuYDlB3oAURzWVO0bG3Nv7We7ziXUm4KOSW9YQFNo6x5J0jkZAmm
+         dmzRvPqMSl+hXfc58+HA5xZzWo2DI8Q/RQPaDnMgjf++pwiPk7bsU6fhdg2kDkynL6ev
+         vPKmrKR3w/boeZs81S1pXocPxGB2iEQOlbbY/r/uzaeCJkM5UVb9YtT81nkJXR8XtZRi
+         m8tGSmnJb61puGREDNbnpLjvp8o9jPy3p4WBEVoDvYrA7l3O6VgFR5GWL3+HLdYPDLde
+         Y6QQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782927882; x=1783532682;
+        d=1e100.net; s=20251104; t=1782927905; x=1783532705;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+3KB3W8igbPhJZR6fsRkWP2Fgao3oonwJVqpaQObUCc=;
-        b=f9VNwBuzi4oJWalEiRcA+yrGUv+NWRdjj5QNEbDimXmxUxz42daN6seHQQyRYDq325
-         eZ+IkA6ezvN6iQJMb099Rxw0eQPz3EZYoZwVURLe+cSEl8kaZRkdM0YkYqdWsORjDO9h
-         L0RHivjdIlZaQju0iWOoy/UhtZGJkU50JVwr8VqJpEh7WJhRR4ZNI2rmsdNFR0CNpuLr
-         eb6t9corAUajWyolz61y+nuDejE2Ili8Sg11Eh+y6LDNwKY8GltbCCqLgRPA09L37Bjb
-         RFA29FLPQ3WBGdNZn64VNZawsP5D+l2Cgi1Ti+yhJFuK+SC0BaTpSWn0QntAEFzFuWRY
-         ZLRg==
-X-Forwarded-Encrypted: i=1; AHgh+RqSvIMmWKUJ30lKqdnDnY9ht7Fomi3pyR0dB70YyrM4bunCEnLX6g0kGOExMgT5o6Oz1ZDgKpC6snNyX+RdxKHu@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywz7jCkNF2wWk+aLK7r4dURpKRbr1ipvGbQ1GRkqBqv5TI3EXLa
-	UCfBDaSMSHsHhiCK+Q79pe+OkTv8iaLIgEW2QLcERVoK01kb2DqDy/fpGp5XjSlu/WjrDBw9jnV
-	dBOCODO+Aiil8tK8eBjJZMk4xxzs7AXynatbPYjHZ
-X-Gm-Gg: AfdE7clrU42sXR5BF3uXg0dXl+kbTMG+xWnhgC+2gRxfM0IUeAP6itxMgxS9x98v+TY
-	rZ4eeMFdTlEJMeru0e5LsJGWOPYK6JibaEEPjHFzIa5Pw5RnOLsY/ojZLNP+/f5NvEzTCRF03lc
-	cRAy/T0sVVDwds6at/fnZWr09pb9QY/CPmsKQPQwsl7rvCJbTtTsMsLtZCM+cHOFgN/3thPxoYF
-	o5Ff+IFuo7lbbdW+N1Xv8aZNxSUbiZHuZRNJn4/jaTFM36ySW6A+Wx/P26+hk0qMlH37Z3sw5qs
-	PQyX+WAi
-X-Received: by 2002:a17:903:1c7:b0:2b7:b03d:9dce with SMTP id
- d9443c01a7336-2ca7092e3abmr2685955ad.18.1782927881605; Wed, 01 Jul 2026
- 10:44:41 -0700 (PDT)
+        bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=;
+        b=JAa3lho3Xo1ZmBPsYQqu8kJ7q2RMZZCDwVN3QbjkW3T67Z+VevwG+7BKxsYLHsOLTS
+         iuuWvuZbVmrYVAViDhbWkOAF6xVeyBhHVgjc7J0017r7jYv9ixmNBwPYMUj0Jx5/5BMD
+         LvqUyt2VlyzzDFSWXqn8S+8CBQ87IDhei89JBxc1qOpjXNp/d2Uunv+xjjoKGck93Euu
+         tamFXi4OdcZdTfpyiDALoVp8ct97UIDXhqtVYi7HZaUVFw4/8e/GvRrkKuxtEijB/rSi
+         Ds1DsW3/fjegGT0H4CaB/z2+mdQxEV9hNcJ6SLgFp0226F8AYuEXvQTg6P/KWmKjZbzN
+         ow3Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpR3iyL9wSNOI8X+6fx+/ef5mwuwNSwZt6SbqyRmkMJ92Cik1ayO7FcS5YLaV1ddfv2n9olYv0Toys743ucn+I9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8gGGXO0op6SPKkvFW55F1S8sMMO4DB9EDeP/Hr/qGxxlc77xr
+	uNtrDCRuvhRAT2UYzfdNB2SpHaw+j4VWkhi7F6i+xJGvUtSEmnKnewYGCB5T4rq6juPczqmcfKO
+	yk41US/X7jriDo1DV7cHMQW275r38uMSi3oyDYL0J
+X-Gm-Gg: AfdE7cnL8jy18vDzy/r80o+Vk5HS9XxqWF1RRVruXMGlDyZFkXaAe4jjkmu3Xjyj6Rn
+	NH4dXTgBeSQV+z+XxnFttI0GbImcLC2kMzEgXetqfW/CpE5AQ6MqVXHkKWhwRk0Ooum829NLm0Z
+	f3tVcNTZxw0Ly0qxvOXORvk+sRLJiEpUd6QuE5i3y3iTq4f1N28t+BqIqdCP46FkEg3+MDz+oiS
+	lmVwWJpyKxTGxIIlhrFAR4EDYg0Mib79Fz3ks/0/JhnSh+WAgrs/lamVw94rUnJsLmnjLNt3A==
+X-Received: by 2002:a17:903:41d0:b0:2bd:6dad:7ccd with SMTP id
+ d9443c01a7336-2ca77f00e4bmr2394415ad.25.1782927903977; Wed, 01 Jul 2026
+ 10:45:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-19-7909f863a645@meta.com>
-In-Reply-To: <20260701-counter_delegation-v8-19-7909f863a645@meta.com>
+References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-20-7909f863a645@meta.com>
+In-Reply-To: <20260701-counter_delegation-v8-20-7909f863a645@meta.com>
 From: Ian Rogers <irogers@google.com>
-Date: Wed, 1 Jul 2026 10:44:29 -0700
-X-Gm-Features: AVVi8CfVI0-HeGb5BzxacOi52xTnZf0837ZLQ1Li6xufzgI5Rfn0UuYpoo0nJUs
-Message-ID: <CAP-5=fX1wR0tKyTiLjpK5JKWUP8j=E4meaPG1eyzTwj1XuKmFw@mail.gmail.com>
-Subject: Re: [PATCH v8 19/22] tools/perf: Support event code for arch standard events
+Date: Wed, 1 Jul 2026 10:44:52 -0700
+X-Gm-Features: AVVi8CcF30QiINVIR-rPJZ0l--luoek-SQcSIaomJxOhJ6SUjI8adFi78wHcNvk
+Message-ID: <CAP-5=fVBe7Rsf4tkaRiMVPcAD1rHr7PxT-8XpR208C4jaANmmQ@mail.gmail.com>
+Subject: Re: [PATCH v8 20/22] tools/perf: Add RISC-V CounterIDMask event field
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
 	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, 
@@ -107,8 +106,8 @@ Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_104444_340557_33EB5913 
-X-CRM114-Status: GOOD (  22.98  )
+X-CRM114-CacheID: sfid-20260701_104505_695242_9349C842 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,10 +127,20 @@ wrote:
 >
 > From: Atish Patra <atishp@rivosinc.com>
 >
-> RISC-V relies on the event encoding from the json file. That includes
-> arch standard events. If event code is present, event is already updated
-> with correct encoding. No need to update it again which results in losing
-> the event encoding.
+> Counter delegation lets supervisor mode choose the hpmcounter for an even=
+t,
+> but the hardware may only allow a given event on a subset of counters. Ad=
+d
+> a RISC-V specific "CounterIDMask" json event field, handled like the othe=
+r
+> arch-specific entries in event_fields[], that carries the allowed-counter
+> bitmask through to the driver's existing counterid_mask (config2:0-31)
+> format.
+>
+> The value is the bitmask directly so no counter-list to bitmask
+> conversion is needed, and because the field is RISC-V specific it is a
+> no-op for every other architecture's events (unlike the shared "Counter"
+> field).
 >
 > Signed-off-by: Atish Patra <atishp@rivosinc.com>
 
@@ -141,52 +150,22 @@ Thanks,
 Ian
 
 > ---
->  tools/perf/pmu-events/arch/riscv/arch-standard.json | 10 ++++++++++
->  tools/perf/pmu-events/jevents.py                    |  9 ++++++++-
->  2 files changed, 18 insertions(+), 1 deletion(-)
+>  tools/perf/pmu-events/jevents.py | 1 +
+>  1 file changed, 1 insertion(+)
 >
-> diff --git a/tools/perf/pmu-events/arch/riscv/arch-standard.json b/tools/=
-perf/pmu-events/arch/riscv/arch-standard.json
-> new file mode 100644
-> index 000000000000..96e21f088558
-> --- /dev/null
-> +++ b/tools/perf/pmu-events/arch/riscv/arch-standard.json
-> @@ -0,0 +1,10 @@
-> +[
-> +  {
-> +    "EventName": "cycles",
-> +    "BriefDescription": "cycle executed"
-> +  },
-> +  {
-> +    "EventName": "instructions",
-> +    "BriefDescription": "instruction retired"
-> +  }
-> +]
 > diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jev=
 ents.py
-> index 3a1bcdcdc685..0cf9d26315b3 100755
+> index 0cf9d26315b3..516fb73886ed 100755
 > --- a/tools/perf/pmu-events/jevents.py
 > +++ b/tools/perf/pmu-events/jevents.py
-> @@ -413,7 +413,14 @@ class JsonEvent:
->          self.long_desc =3D None
->      if arch_std:
->        if arch_std.lower() in _arch_std_events:
-> -        event =3D _arch_std_events[arch_std.lower()].event
-> +        # Inherit the arch-standard encoding only if this event defines =
-no
-> +        # explicit encoding of its own. Events with explicit EventCode,
-> +        # ConfigCode, etc. may carry alternate encodings and appended mo=
-difiers
-> +        # that must survive.
-> +        if ('EventCode' not in jd and 'ExtSel' not in jd and
-> +            configcode is None and eventidcode is None and
-> +            legacy_hw_config is None and legacy_cache_config is None):
-> +          event =3D _arch_std_events[arch_std.lower()].event
->          # Copy from the architecture standard event to self for undefine=
-d fields.
->          for attr, value in _arch_std_events[arch_std.lower()].__dict__.i=
-tems():
->            if hasattr(self, attr) and not getattr(self, attr):
+> @@ -396,6 +396,7 @@ class JsonEvent:
+>          ('EnAllSlices', 'enallslices=3D'),
+>          ('SliceId', 'sliceid=3D'),
+>          ('ThreadMask', 'threadmask=3D'),
+> +        ('CounterIDMask', 'counterid_mask=3D'),
+>      ]
+>      for key, value in event_fields:
+>        if key in jd and not is_zero(jd[key]):
 >
 > --
 > 2.53.0-Meta
