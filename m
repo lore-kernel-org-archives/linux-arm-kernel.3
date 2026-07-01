@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1523AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DE5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IKVQLAIpJBqpULw36UA4BMH9WLN/5GXEfLx3U//uxu0=; b=Ham8sv+z8tTKo39Ao1oR9DxW2c
-	iqocYfKhZ4k0r0jvY5uEt/QdXH0/Vjp8tNw980swq9BwGMccwHW5I6pi6mKlYP8nY+bI6AsANZDJv
-	zBPafgCwjTRrintaKU81pRzErDft/v5QgrVJnoz0wY8KSKDJquwYLodFvcxJfJ303B1pQg5nE3Inn
-	5uI3Jsuu+nAql6y3f7XDt/YBdaDVskAYy7gVgVcnWGtdoVhomjZqB3C9gXhn+D7RM4clkhSOZiEe1
-	t7Y6C96773anBwdBviB8XZnBAbPlJfEBdlO6kgGQitPb85ctRpQoZzrLlPzJfYNXXYBJq3T/9mFn0
-	CuhHEcKA==;
+	bh=l/bJogi67pEEsHbp+sCZTQMpJ8KqX701e8jz6o0CT3c=; b=Zkof3Ait6mAm0rPdi4b6t0CSF8
+	Tep99wV+zCbkCq0Eo/9ONPWWIWjjEkoJEPy7o0cS8E1apIoFlbQ0TboC7qivO/4ybstjKf4F280AK
+	cPbDDsIQFieM23oY3aZa6iSSCP5JQif2EtrqGKLqW671II884bnzp5rB0okPfzkD8jPKQU69QyOPY
+	wSPdWY63R6GpXftUX/L6OYyy9iuZuqNRvCKeYDz61fa/LF1TAjPblrYq/OSruUqeoua0b0B8V+jPH
+	PpMqfJUrg76b26ooCi5DxB3LxZUcD9yIOI0phaSzPpI5yBktZdIVNsEI44jRf2ZrbFC5N17CwfOB1
+	92mOXFjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wezER-00000002m0S-19o6;
-	Wed, 01 Jul 2026 18:00:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wetvI-00000001qnn-09vs;
+	Wed, 01 Jul 2026 12:20:12 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wezEP-00000002m08-31p4
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 18:00:17 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD2A56001D;
-	Wed,  1 Jul 2026 18:00:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF52D1F000E9;
-	Wed,  1 Jul 2026 18:00:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782928815;
-	bh=IKVQLAIpJBqpULw36UA4BMH9WLN/5GXEfLx3U//uxu0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=DPquNYnqFVNYTSn3zrpf/OpIxbIMGloGzttGIlxPtmUty9+qU68cpnMwHuSOtdX5V
-	 Lc710+E6btaik5PG3QKbgUrSigED5ZB+SX+3t/YugZikh1chuFY9sviEdveOybqcR5
-	 JfZYj+o5CDf66Xr8YI6EswrVAksZN/ul9qukz488X0CTMaSnAQvl7aZvZq9fQQBxKh
-	 4VxrPJ/MSaCqS/8PhgIF7et/OfwzwuwzHpgSUisRRK+NR2cRE/63PKZPRk90Wr4d5x
-	 ZG9A+QjgW646Ur9Cc2XxGoe8vGGERn/LYzkosD9uGMzSUvJeXYau9QP/ffh79Gl7jl
-	 s++P6qsJ2SiJw==
-Date: Wed, 1 Jul 2026 19:00:09 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Angelo Dureghello <adureghello@baylibre.com>
-Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
- <nuno.sa@analog.com>, Andy Shevchenko <andy@kernel.org>, Geert Uytterhoeven
- <geert@linux-m68k.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- linux-kernel@vger.kernel.org, linux-iio@vger.kernel.org,
- linux-m68k@lists.linux-m68k.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Andy Shevchenko
- <andriy.shevchenko@intel.com>
-Subject: Re: [PATCH v7 0/2] add mcf54415 DAC driver
-Message-ID: <20260701190009.04cff040@jic23-huawei>
-In-Reply-To: <20260701-wip-stmark2-dac-v7-0-ff8fdcc8010a@baylibre.com>
-References: <20260701-wip-stmark2-dac-v7-0-ff8fdcc8010a@baylibre.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	id 1wetv9-00000001qOO-2doa;
+	Wed, 01 Jul 2026 12:20:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782908401;
+	bh=oicLzQI1HRwxnR+j6TEA/BwogndBNOfdRjAIDTmIHfk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=DFb0BMjU80Dy5gYcANyjmMPxkAtQu5ds2eq8+NnWkERY4SAruP2VR6aY1y0dPNtfg
+	 OckrFm1KeDeurIfpVJQg75P2vkCGgP0lphTk/unxb29XtLuG1XUnZoxFVsWDJMajrT
+	 GvQYYIl5HgpVYICgon2KW+Oh6l/EOtK/GW4UGKa8PE7rRn4XIL135NYOhVoi+mKzyg
+	 i8qNJpYGmYqRHiNj4ajG9z1xkYeMKQFejJfkhvcUbP+zn3Wi1BOqbQodXbiB8uYKoy
+	 qejljt5Tsmd1AsD4QMBP7g64gWmZSGvbhQr73qMa9g4GrEmmLpY8gphUUG0HuHgX5y
+	 fzJ/7IWn3jAag==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AE91D17E116D;
+	Wed,  1 Jul 2026 14:20:00 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	jitao.shi@mediatek.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com
+Subject: [PATCH 07/10] drm/mediatek: mtk_dsi: Add support for MT8196
+Date: Wed,  1 Jul 2026 14:19:47 +0200
+Message-ID: <20260701121950.19454-8-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701121950.19454-1-angelogioacchino.delregno@collabora.com>
+References: <20260701121950.19454-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_052003_865784_2AEE4EC8 
+X-CRM114-Status: GOOD (  20.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +90,303 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Jul 2026 16:17:22 +0200
-Angelo Dureghello <adureghello@baylibre.com> wrote:
+Add support for the new DSI IP found in the Kompanio Ultra MT8196
+SoC and its Dimensity and Genio variants.
 
-> This patchset adds a minimalistic DAC driver for the NXP mcf54415/6/7/8
-> builtin DACs.
-Applied patch 1 to the testing branch of iio.git.
+Differently from the older DSI IPs, the one from MT8196 requires
+the initialization of all of the QoS parameters and can make use
+of a DSI SRAM reserved buffer (present also on older SoCs but not
+mandatory on those).
 
-Thanks,
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c |   2 +
+ drivers/gpu/drm/mediatek/mtk_dsi.c     | 197 +++++++++++++++++++++++++
+ 2 files changed, 199 insertions(+)
 
-Jonathan
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index bd2d17017bd2..9a4c59849c4b 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -826,6 +826,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
+ 	  .data = (void *)MTK_DSI },
+ 	{ .compatible = "mediatek,mt8188-dsi",
+ 	  .data = (void *)MTK_DSI },
++	{ .compatible = "mediatek,mt8196-dsi",
++	  .data = (void *)MTK_DSI },
+ 	{ }
+ };
+ 
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index ba96c12a8ceb..fc6f846208d6 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -153,6 +153,18 @@
+ #define FORCE_COMMIT			BIT(0)
+ #define BYPASS_SHADOW			BIT(1)
+ 
++/* DSI_VDE */
++#define VDE_BLOCK_ULTRA			BIT(29)
++
++/* DSI_BUF_CON0 */
++#define DSI_QOS_BUF_EN			BIT(0)
++
++/* DSI_BUF_CON1 */
++#define BUF_OUT_VALID_THRESH		GENMASK(14, 0)
++
++/* DSI_BUF_SODI_HIGH, SODI_LOW and other BUF registers */
++#define BUF_THRESHOLD_PARAM		GENMASK(19, 0)
++
+ /* CMDQ related bits */
+ #define CONFIG				GENMASK(7, 0)
+ #define SHORT_PACKET			0
+@@ -165,6 +177,16 @@
+ 
+ #define NS_TO_CYCLE(n, c)    ((n) / (c) + (((n) % (c)) ? 1 : 0))
+ 
++/* HW QoS and Anti-Latency Buffer related bits */
++#define MTK_DSI_MAX_FIFO_BYTES			1554
++#define MTK_DSI_DEFAULT_QOS_VALID_FIFO_US	25
++#define MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US	36
++#define MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US	35
++#define MTK_DSI_DEFAULT_QOS_ULTRA_HI_US		26
++#define MTK_DSI_DEFAULT_QOS_ULTRA_LO_US		25
++#define MTK_DSI_DEFAULT_QOS_URGENT_LO_US	11
++#define MTK_DSI_DEFAULT_QOS_URGENT_HI_US	12
++
+ #define MTK_DSI_HOST_IS_READ(type) \
+ 	((type == MIPI_DSI_GENERIC_READ_REQUEST_0_PARAM) || \
+ 	(type == MIPI_DSI_GENERIC_READ_REQUEST_1_PARAM) || \
+@@ -207,9 +229,26 @@ enum mtk_dsi_adv_regidx {
+ 	DSI_VM_CMD_CON,
+ 	DSI_SHADOW_DEBUG,
+ 	DSI_CMDQ,
++	DSI_VDE,
+ 	DSI_ADV_REG_MAX
+ };
+ 
++enum mtk_dsi_qos_regidx {
++	DSI_QOS_BUF_CON0,
++	DSI_QOS_BUF_CON1,
++	DSI_QOS_TX_BUF_RW_TIMES,
++	DSI_QOS_SODI_HIGH,
++	DSI_QOS_SODI_LOW,
++	DSI_QOS_PREULTRA_HIGH,
++	DSI_QOS_PREULTRA_LOW,
++	DSI_QOS_ULTRA_HIGH,
++	DSI_QOS_ULTRA_LOW,
++	DSI_QOS_URGENT_HIGH,
++	DSI_QOS_URGENT_LOW,
++	DSI_QOS_PREURGENT_HIGH,
++	DSI_QOS_REG_MAX
++};
++
+ struct mtk_phy_timing {
+ 	u32 lpx;
+ 	u32 da_hs_prepare;
+@@ -234,8 +273,12 @@ struct phy;
+ struct mtk_dsi_driver_data {
+ 	const u16 *reg_main;
+ 	const u16 *reg_adv;
++	const u16 *reg_qos;
+ 
+ 	const u16 max_link_rate_mbps;
++	const u8 dsi_sram_bytes;
++	const u8 pixels_per_iter;
++	const u8 num_burst_lines;
+ 
+ 	bool has_size_ctl;
+ 	bool cmdq_long_packet_ctl;
+@@ -329,6 +372,59 @@ static const u16 mtk_dsi_regs_mt8186[DSI_ADV_REG_MAX] = {
+ 	[DSI_CMDQ] = 0xd00,
+ };
+ 
++static const u16 mtk_dsi_regs_main_v2[DSI_MAIN_REG_MAX] = {
++	[DSI_START] = 0x00,
++	[DSI_INTEN] = 0x08,
++	[DSI_INTSTA] = 0x0c,
++	[DSI_CON_CTRL] = 0x30,
++	[DSI_MODE_CTRL] = 0x34,
++	[DSI_TXRX_CTRL] = 0x38,
++	[DSI_PSCTRL] = 0x3c,
++	[DSI_VSA_NL] = 0x60,
++	[DSI_VBP_NL] = 0x64,
++	[DSI_VFP_NL] = 0x68,
++	[DSI_VACT_NL] = 0x6c,
++	[DSI_SIZE_CON] = 0x2c,
++	[DSI_HSA_WC] = 0x80,
++	[DSI_HBP_WC] = 0x84,
++	[DSI_HFP_WC] = 0x88,
++	[DSI_CMDQ_SIZE] = 0x44,
++	[DSI_HSTX_CKL_WC] = 0x100,
++	[DSI_RX_DATA0] = 0xa4,
++	[DSI_RX_DATA1] = 0xa8,
++	[DSI_RX_DATA2] = 0xac,
++	[DSI_RX_DATA3] = 0xb0,
++	[DSI_RACK] = 0xb4,
++	[DSI_PHY_LCCON] = 0x7d0,
++	[DSI_PHY_LD0CON] = 0x7d4,
++	[DSI_PHY_TIMECON0] = 0x600,
++	[DSI_PHY_TIMECON1] = 0x604,
++	[DSI_PHY_TIMECON2] = 0x608,
++	[DSI_PHY_TIMECON3] = 0x60c,
++};
++
++static const u16 mtk_dsi_regs_qos_v2[DSI_QOS_REG_MAX] = {
++	[DSI_QOS_BUF_CON0] = 0x300,
++	[DSI_QOS_BUF_CON1] = 0x304,
++	[DSI_QOS_TX_BUF_RW_TIMES] = 0x310,
++	[DSI_QOS_SODI_HIGH] = 0x314,
++	[DSI_QOS_SODI_LOW] = 0x318,
++	[DSI_QOS_PREULTRA_HIGH] = 0x324,
++	[DSI_QOS_PREULTRA_LOW] = 0x328,
++	[DSI_QOS_ULTRA_HIGH] = 0x32c,
++	[DSI_QOS_ULTRA_LOW] = 0x330,
++	[DSI_QOS_URGENT_HIGH] = 0x334,
++	[DSI_QOS_URGENT_LOW] = 0x338,
++	[DSI_QOS_PREURGENT_HIGH] = 0x33c
++};
++
++static const u16 mtk_dsi_regs_mt8196[DSI_ADV_REG_MAX] = {
++	[DSI_VM_CMD_CON] = 0x110,
++	[DSI_SHADOW_DEBUG] = 0xd0,
++	[DSI_CMDQ] = 0x400,
++	[DSI_VDE] = 0x3f8,
++};
++
+ static inline struct mtk_dsi *bridge_to_dsi(struct drm_bridge *b)
+ {
+ 	return container_of(b, struct mtk_dsi, bridge);
+@@ -752,6 +848,89 @@ static int mtk_dsi_set_dsc_params(struct mtk_dsi *dsi)
+ 	return drm_dsc_compute_rc_parameters(dsc);
+ }
+ 
++static void mtk_dsi_config_hw_buffers(struct mtk_dsi *dsi)
++{
++	const struct mtk_dsi_driver_data *data = dsi->driver_data;
++	const u16 *reg_qos = data->reg_qos;
++	u32 buffer_unit, sram_unit, num_hw_buffers;
++	u32 preultra_hi, preultra_lo;
++	u32 urgent_hi, urgent_lo;
++	u32 ultra_hi, ultra_lo;
++	u32 sodi_hi, sodi_lo;
++	u32 data_rate_per_buf;
++	u32 out_valid_thresh;
++	u32 dsi_buf_bpp;
++	u32 fill_rate;
++	u32 pclk_mhz;
++	u32 rw_times;
++	u32 val;
++
++	/*
++	 * At the time of writing, only MT8196 is implemented and, for this SoC,
++	 * the buffer unit is equal to the SRAM bytes.
++	 *
++	 * There are other SoCs already out in the wild that do support the HW
++	 * buffers and that have different sizes, so keep the calculation as-is!
++	 */
++	buffer_unit = data->dsi_sram_bytes;
++	sram_unit = data->dsi_sram_bytes;
++	num_hw_buffers = sram_unit / buffer_unit;
++
++	if (data->support_per_frame_lp)
++		val = CMDMODE_WAIT_DATA_EVERY_LINE_EN;
++	else
++		val = 0;
++
++	mtk_dsi_mask(dsi, data->reg_main[DSI_CON_CTRL],
++		     CMDMODE_WAIT_DATA_EVERY_LINE_EN, val);
++
++	data_rate_per_buf = dsi->data_rate * dsi->lanes / 8 / buffer_unit;
++
++	/* Calculate valid threshold and avoid exceeding FIFO size */
++	out_valid_thresh = MTK_DSI_DEFAULT_QOS_VALID_FIFO_US * data_rate_per_buf;
++	out_valid_thresh = min(out_valid_thresh, MTK_DSI_MAX_FIFO_BYTES - 1);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON1], BUF_OUT_VALID_THRESH, out_valid_thresh);
++
++	/* Enable ULTRA signal trigger between SOF and VACT */
++	mtk_dsi_mask(dsi, data->reg_adv[DSI_VDE], VDE_BLOCK_ULTRA, 0);
++
++	/* Calculate fill rate with line counter mode for DSI Video Mode */
++	if (dsi->format == MIPI_DSI_FMT_RGB565)
++		dsi_buf_bpp = 2;
++	else
++		dsi_buf_bpp = 3;
++
++	pclk_mhz = dsi->vm.pixelclock / HZ_PER_MHZ;
++	fill_rate = pclk_mhz * data->pixels_per_iter * dsi_buf_bpp / buffer_unit;
++
++	/* Calculate QoS Anti-Latency parameters */
++	sodi_hi = MTK_DSI_MAX_FIFO_BYTES * num_hw_buffers;
++	sodi_hi -= (fill_rate - data_rate_per_buf) * 12 / 10;
++	sodi_lo = (23 + 5) * data_rate_per_buf;
++	preultra_hi = MTK_DSI_DEFAULT_QOS_PREULTRA_HI_US * data_rate_per_buf;
++	preultra_lo = MTK_DSI_DEFAULT_QOS_PREULTRA_LO_US * data_rate_per_buf;
++	ultra_hi = MTK_DSI_DEFAULT_QOS_ULTRA_HI_US * data_rate_per_buf;
++	ultra_lo = MTK_DSI_DEFAULT_QOS_ULTRA_LO_US * data_rate_per_buf;
++	urgent_hi = MTK_DSI_DEFAULT_QOS_URGENT_HI_US * data_rate_per_buf;
++	urgent_lo = MTK_DSI_DEFAULT_QOS_URGENT_LO_US * data_rate_per_buf;
++	rw_times = dsi->vm.vactive * dsi_buf_bpp;
++	rw_times /= data->num_burst_lines * data->pixels_per_iter;
++
++	/* Write all QoS parameters: Screen On Deep Idle, (pre)Ultra, Urgent, RW times */
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_HIGH], BUF_THRESHOLD_PARAM, sodi_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_SODI_LOW], BUF_THRESHOLD_PARAM, sodi_lo);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_HIGH], BUF_THRESHOLD_PARAM, preultra_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_PREULTRA_LOW], BUF_THRESHOLD_PARAM, preultra_lo);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_HIGH], BUF_THRESHOLD_PARAM, ultra_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_ULTRA_LOW], BUF_THRESHOLD_PARAM, ultra_lo);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_HIGH], BUF_THRESHOLD_PARAM, urgent_hi);
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_URGENT_LOW], BUF_THRESHOLD_PARAM, urgent_lo);
++	writel(rw_times, dsi->regs + reg_qos[DSI_QOS_TX_BUF_RW_TIMES]);
++
++	/* Finally, activate internal line-buffering */
++	mtk_dsi_mask(dsi, reg_qos[DSI_QOS_BUF_CON0], DSI_QOS_BUF_EN, DSI_QOS_BUF_EN);
++}
++
+ static int mtk_dsi_config_vdo_timing(struct mtk_dsi *dsi)
+ {
+ 	const struct mtk_dsi_driver_data *data = dsi->driver_data;
+@@ -929,6 +1108,10 @@ static int mtk_dsi_poweron(struct mtk_dsi *dsi)
+ 	mtk_dsi_reset_engine(dsi);
+ 	mtk_dsi_phy_timconfig(dsi);
+ 
++	/* Setup HW FIFO if DSI supports QoS Anti-Latency buffers */
++	if (data->dsi_sram_bytes && data->reg_qos)
++		mtk_dsi_config_hw_buffers(dsi);
++
+ 	mtk_dsi_ps_control(dsi, true);
+ 	mtk_dsi_set_vm_cmd(dsi);
+ 	ret = mtk_dsi_config_vdo_timing(dsi);
+@@ -1549,6 +1732,19 @@ static const struct mtk_dsi_driver_data mt8189_dsi_driver_data = {
+ 	.support_per_frame_lp = true,
+ };
+ 
++static const struct mtk_dsi_driver_data mt8196_dsi_driver_data = {
++	.reg_main = mtk_dsi_regs_main_v2,
++	.reg_qos = mtk_dsi_regs_qos_v2,
++	.reg_adv = mtk_dsi_regs_mt8196,
++	.max_link_rate_mbps = 2000,
++	.dsi_sram_bytes = 32,
++	.pixels_per_iter = 2,
++	.num_burst_lines = 8,
++	.has_size_ctl = true,
++	.cmdq_long_packet_ctl = true,
++	.support_per_frame_lp = true,
++};
++
+ static const struct of_device_id mtk_dsi_of_match[] = {
+ 	{ .compatible = "mediatek,mt2701-dsi", .data = &mt2701_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8173-dsi", .data = &mt8173_dsi_driver_data },
+@@ -1556,6 +1752,7 @@ static const struct of_device_id mtk_dsi_of_match[] = {
+ 	{ .compatible = "mediatek,mt8186-dsi", .data = &mt8186_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8188-dsi", .data = &mt8188_dsi_driver_data },
+ 	{ .compatible = "mediatek,mt8189-dsi", .data = &mt8189_dsi_driver_data },
++	{ .compatible = "mediatek,mt8196-dsi", .data = &mt8196_dsi_driver_data },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, mtk_dsi_of_match);
+-- 
+2.54.0
+
 
