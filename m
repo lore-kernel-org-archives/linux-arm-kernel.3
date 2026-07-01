@@ -4,93 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F3F9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 22:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC2F8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 22:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3clFkoMgwO+tNW68in0DI4GqhMuyNn/swBRONrpbz24=; b=tjD/mFe9EUKTw3QF8e1I1g7lwz
-	s4Ah+terSkxzhhET1bzPA0uQV7ruoIpvt6Ovoy9Sgss36cOU7CgjYqzKYvisbVeoI217HT5iJgOht
-	GKarskNfFfeK6+qx17F48zxAJg2sJ2mMlMtx53o5MGNZNqPG0c6JiRyEtp+jCtv+Sez1klPdkIw4u
-	a6X+wNtE9zD4pJsW0s2sPMt+YmGjEIZcxZ3l3TqgDuVOiMgV5lZB/EzL/QkV9Cl3FGmWgjEroSEBM
-	55RHZ45VMC8UFA8f3qV11P9Q9ToWej4d2LJorjCwjxB25A46q0Cnng+eQc1OmtZky+Q21FjJc+IkR
-	QKxFlmOA==;
+	bh=MVhzVy40B70l/jqexwyJaSJ3X5bFGEqAL47A5U/79HE=; b=cR2iea0UrsoxASf6SII8alBTo9
+	8QGIoYLVTw1HJojZ+IS47T2L3iHDFAOG8asJKXkaV+GjwDNkNTpcqizkXzOlunE4f32Mkw+B4FfBR
+	41dF0+uPqbKR3emLAxD0OrjIvv3AkMJOT3KeLQN0yvtOjkYSsKK8eZMd8HVyEseBvFaAt1FuuqgWU
+	tZRsMu0lSsjjnLcAD+Rhvly/AeW3u7MT6JaWdtNnlFL/DscK3qwa0aJRefF1tM0ZKAuYP5jyPsP9J
+	PgbX/ZT8TiNYs3JQGXEa8LGtpzPevhn2pPpY+RU3N0u5Q1D0pmtl+nOBRqpFEZOJybye+GFgOR1ia
+	FGmR6VYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf3B3-000000035WD-0WCv;
-	Wed, 01 Jul 2026 22:13:05 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1wf3KB-000000035wp-49kx;
+	Wed, 01 Jul 2026 22:22:32 +0000
+Received: from mail-qk2-x03.google.com ([2607:f8b0:4864:34::3])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf3B0-000000035Vm-0qTE
+	id 1wf3K9-000000035wP-1yqU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 22:13:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1782943980; bh=i8Zsy6wBIzZOEyfsXMGlUAnjX4BwFWboqrar8BoRkWc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mZ0fC742yRhqenNOUcolDlh9FHApqlHcGnDTW7Yu4K2oblMVNT+l+ORTkn6qGLM9T
-	 qC6jiga8xWiMli5JZMODYOsikKDSzDGIgWrNNu2p6CEG5kHhfo9+yibnGUH7anqgkQ
-	 1VAbyNvZc+lijEMg0GtwJYR0wKy5F/MlW1UwmLXY4Vajc+kvUlxp+kJyOQQA1Y64lm
-	 wHx5Z46+ihm+udGwHj3WKj/vmdW/7GlsLbzq1tMStpIhv/qCCROqOa63OSDSWITkUr
-	 SjRESqD8PkYHiFYQCf1M4JXnPx95ubSxrb6Vo1oAeO/Qz8iD9rkSUojqWH+SaH+WkF
-	 SzLHDm2+E1Jxg==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 9A25C394727;
-	Wed,  1 Jul 2026 22:13:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1782943980; bh=i8Zsy6wBIzZOEyfsXMGlUAnjX4BwFWboqrar8BoRkWc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mZ0fC742yRhqenNOUcolDlh9FHApqlHcGnDTW7Yu4K2oblMVNT+l+ORTkn6qGLM9T
-	 qC6jiga8xWiMli5JZMODYOsikKDSzDGIgWrNNu2p6CEG5kHhfo9+yibnGUH7anqgkQ
-	 1VAbyNvZc+lijEMg0GtwJYR0wKy5F/MlW1UwmLXY4Vajc+kvUlxp+kJyOQQA1Y64lm
-	 wHx5Z46+ihm+udGwHj3WKj/vmdW/7GlsLbzq1tMStpIhv/qCCROqOa63OSDSWITkUr
-	 SjRESqD8PkYHiFYQCf1M4JXnPx95ubSxrb6Vo1oAeO/Qz8iD9rkSUojqWH+SaH+WkF
-	 SzLHDm2+E1Jxg==
-Message-ID: <708bd72f-6d85-48b6-9a0c-46a4b26fd3eb@mleia.com>
-Date: Thu, 2 Jul 2026 01:12:58 +0300
+	Wed, 01 Jul 2026 22:22:30 +0000
+Received: by mail-qk2-x03.google.com with SMTP id d75a77b69052e-51c0f88ca6aso2045241cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 15:22:29 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782944548; cv=none;
+        d=google.com; s=arc-20260327;
+        b=bV3AXU8PPKfkepAf6hkZUrzUh/HXqgPSLOxiqhKNQYI/fADLwDQwLI2/6nVYc6DCNz
+         i+aHtSmvhF9/yioAXGLxDkNwG0YFiQYi3UC0YcAjwFR3WTbQjC9reMWBeMuAp54Oj+uH
+         e9+I4M0akLjCgc2wYZaZCIGXDGJLmf6hPsENw2GELDCP8s1EXqLcpWQTVyISxcuypwKh
+         mS2utZvz8SbHfuaOS9mNJRzNqTJJurB0XukjTN0ysQhm6VI4hGs9YLBeIxFYMQF0vtkS
+         Cz+6ZeCq89wOtPo44OPMToNPxgvpbVvKkfR1ShkGLw+6Avt3/gAd812IfyxkSAxEy8m/
+         a+BQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=MVhzVy40B70l/jqexwyJaSJ3X5bFGEqAL47A5U/79HE=;
+        fh=JzVv2IrdCpgayWS9k3G9IGeA/oX0rpITJ3OogKG1cLw=;
+        b=sbsHevCqzglitVEz/9HllJfSZW+xm1cwrjNL2p8evrEYI6PTAdyow8frCC27CJizzN
+         yI0q046mlAL4vipqAgJvX/KeWEwq0E0xcReoa3R3qYAwcTqozV7AZHmWvSGEUuIQ2osl
+         8ZMCOLvPYuSZLC4pCrgnzPSfcY8yU+Z8ET8Wv3mm5efWNCVRq/dXk3KmrH5zup/zkNe9
+         yReEi6vSCAZS/oa4Pzz6YBgRSmR/Mmz2Rq45JFIe45QdpdSzoKcs1wjDZ3FV1f52NtIK
+         OwoM2Akf2jOdEQqo/1y15NyhoOFohzS6/PoEGXXVSdmW4/Vez6p8L+DxEWGdwoWIxPCb
+         TBqA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782944548; x=1783549348; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MVhzVy40B70l/jqexwyJaSJ3X5bFGEqAL47A5U/79HE=;
+        b=F7Io/7UerdDrPO3xa2WljtFazRoDIjoYEL1/LULG7ohrM94HYonp7m7WuxQ87GeC+i
+         QIpnmufQ3J4hm9x/oFUdvvfcpdh9EbHNCoBJH4tcyXIBfHM5nu7SsvfoluBhI2k/f7Zp
+         1f8UM9Sd+yX0zn5+Rl8p7FTFaulZ4rMBxWUgGeCvsnXgJVZyH184923e2N7wIEIj6JRN
+         5HaGKm/K8QRPyQfr9YnAs3MMhgMdiFtYdBCD2o+HEWU7kdAiauEEMtJGDd3bnkYfWFx3
+         neOkgfye2jZhqBiQ1rJ7QfiaIpvXBrg+hjKmR/tMCveST8sOeZ7EQIVlnzvSvmeUVW0q
+         UGmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782944548; x=1783549348;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=MVhzVy40B70l/jqexwyJaSJ3X5bFGEqAL47A5U/79HE=;
+        b=laUy6FdKw1afcGVFH2iMfVZjZ9RlYsvnFyib9EqmWDft4HCCoQn2lq/38vq+Cu4dfA
+         1SiJkgcQIb/fdP7AVkN+9sSDF23j+uQYEPwk2i4AZsRt+uDAXLPQEDFKDW8BBcTS5YNA
+         O4W/K2ENcJ0kott+ZC2DjL+0Z73dwlhqAbq07vpD73RLeAKvINR8MUwtkGyLlmwsOno7
+         3LpRI4/QPbDRACXQtQhGoUbqgbybolK09V5uFa0MPo5bZ2vaW7mK0I9QJ045KZMv0/qA
+         KX48HCuuVlzQBIsjPFVQksgQGMzHt/QyU+Qh2r8xV4aG40NjFPFW+ei2VhyrYdreaHWG
+         NhoQ==
+X-Gm-Message-State: AOJu0Yzw2q6pNPwqEuRmFobcmjmdRbDB9iGXgrUvXStpBLgzfTVMgVJb
+	jNbdAfoyg7Btus97RqWjy8+4JtutALoJdxNdVt0pbOnQmDJFTh/RUvjXNeOHQ0sKWsdZ26UtR0y
+	nAzT+awfkPYMSeyDfKp6IAit0T+1sWis=
+X-Gm-Gg: AfdE7cmudZSHpV8Md81KKqTKCqven02GgtZzvGUjXgqWcoCn/6YZC2aJO7pEt7PWPD+
+	rY1Jdt3SglipozsBCkHDDRtpML1c76skUsB6vpplSoDfrN6U4RN+kuLk0RNnKTL5fNY7RRiyAWf
+	CVS6+LnAFI2EUBPoBfYbC0spQlwI2MiEnbSZutXUeMpy5O/8rd2IeHe89iKb635E6ARMY78TJKg
+	0fGrojoh0IvnJTiIWtMpv4VSLbXngc1Kqw2kWzCwp7d+E2BgYoGvdRviMsJWKFxgHidreM0jZws
+	4eAg/eSrYNkSsRYqA0IFPrkauwcFMZXMN3D3CColiLRwPowaf6CLr67/A3DTA0KsQK8N
+X-Received: by 2002:ac8:5981:0:b0:51b:fca2:af71 with SMTP id
+ d75a77b69052e-51c26b14753mr45380561cf.42.1782944548094; Wed, 01 Jul 2026
+ 15:22:28 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 17/19] ARM: mark Cortex-M3/M4/M7 based boards as
- deprecated
-To: Arnd Bergmann <arnd@kernel.org>, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
- Aaro Koskinen <aaro.koskinen@iki.fi>,
- Alexander Sverdlin <alexander.sverdlin@siemens.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
- <andrew@lunn.ch>, Ard Biesheuvel <ardb@kernel.org>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Daniel Mack <daniel@zonque.org>,
- Ethan Nelson-Moore <enelsonmoore@gmail.com>, Frank Li <Frank.Li@nxp.com>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Haojian Zhuang <haojian.zhuang@gmail.com>,
- "Jeremy J. Peper" <jeremy@jeremypeper.com>,
- Kristoffer Ericson <kristoffer.ericson@gmail.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Mark Brown <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Mike Rapoport <rppt@kernel.org>, Nicolas Ferre
- <nicolas.ferre@microchip.com>, Patrice Chotard
- <patrice.chotard@foss.st.com>, Ralph Siemsen <ralph.siemsen@linaro.org>,
- Robert Jarzmik <robert.jarzmik@free.fr>, Russell King
- <linux@armlinux.org.uk>, Sascha Hauer <s.hauer@pengutronix.de>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Stefan Agner <stefan@agner.ch>, Stefan Wiehler <stefan.wiehler@nokia.com>,
- Tony Lindgren <tony@atomide.com>, Will Deacon <will@kernel.org>
-References: <20260701212353.2196041-1-arnd@kernel.org>
- <20260701212353.2196041-18-arnd@kernel.org>
-From: Vladimir Zapolskiy <vz@mleia.com>
-In-Reply-To: <20260701212353.2196041-18-arnd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20260701_221300_651917_93ECD62A 
-X-CRM114-Status: GOOD (  21.28  )
-ln: failed to access 'reaver_cache/texts/20260701_221300_651917_93ECD62A': No such file or directory
+References: <20260701212353.2196041-1-arnd@kernel.org> <20260701212353.2196041-6-arnd@kernel.org>
+In-Reply-To: <20260701212353.2196041-6-arnd@kernel.org>
+From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
+Date: Wed, 1 Jul 2026 15:22:17 -0700
+X-Gm-Features: AVVi8CdgN18Vc-unGLPG99aYWmbh8Lx3HkejzODRi3mFEu8urukn9hQEI-DKk2E
+Message-ID: <CADkSEUhif4s5sSHe-bMapxEiM4bksaNkS+R5EtWOV2kgsk-29w@mail.gmail.com>
+Subject: Re: [PATCH v2 05/19] ARM: turn CONFIG_ATAGS off by default
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
+	Aaro Koskinen <aaro.koskinen@iki.fi>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, 
+	Ard Biesheuvel <ardb@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Daniel Mack <daniel@zonque.org>, Frank Li <Frank.Li@nxp.com>, 
+	Gregory Clement <gregory.clement@bootlin.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>, Kristoffer Ericson <kristoffer.ericson@gmail.com>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
+	Nicolas Ferre <nicolas.ferre@microchip.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Ralph Siemsen <ralph.siemsen@linaro.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
+	Russell King <linux@armlinux.org.uk>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stefan Agner <stefan@agner.ch>, 
+	Stefan Wiehler <stefan.wiehler@nokia.com>, Tony Lindgren <tony@atomide.com>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Will Deacon <will@kernel.org>, Linus Walleij <linus.walleij@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_221300_651917_93ECD62A 
-X-CRM114-Status: GOOD (  26.55  )
+X-CRM114-CacheID: sfid-20260701_152229_530595_524C7E19 
+X-CRM114-Status: GOOD (  21.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,155 +130,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/2/26 00:23, Arnd Bergmann wrote:
+Hi, Arnd,
+
+Looks good to me, though I noticed a few small issues.
+
+On Wed, Jul 1, 2026 at 2:24=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
+e:
+>
 > From: Arnd Bergmann <arnd@arndb.de>
-> 
-> The Cortex-M3/M4/M7 cores were designed as a replacement for the earlier
-> ARM7TDMI and ARM9TDMI microarchitectures used in older microcontrollers.
-> 
-> At the moment, Linux can run these cores either when they are integrated
-> into a larger SoC, or as standalone microcontrollers. While there was
-> a lot of development work going into Cortex-M support from 2011 to 2016,
-> this largely stopped when it became clear that Zephyr and other RTOS
-> had taken over that market. To date, the only Cortex-M based based
-> microcontroller boards supported upstream are reference implementations.
-> 
-> Schedule these for removal after the next LTS kernel, so if any users
-> remain that want to update their kernels, they can stay on that
-> version for a few years before having to maintain the platform support
-> out of tree.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->   arch/arm/Kconfig            |  8 ++++++--
->   arch/arm/mach-at91/Kconfig  |  4 +++-
->   arch/arm/mach-imx/Kconfig   |  4 +++-
->   arch/arm/mach-stm32/Kconfig | 14 ++++++++------
->   4 files changed, 20 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-> index e2bdf2591c10..5adccaed7d01 100644
-> --- a/arch/arm/Kconfig
-> +++ b/arch/arm/Kconfig
-> @@ -471,7 +471,7 @@ source "arch/arm/mach-zynq/Kconfig"
->   
->   # ARMv7-M architecture
->   config ARCH_LPC18XX
-> -	bool "NXP LPC18xx/LPC43xx"
-> +	bool "NXP LPC18xx/LPC43xx (DEPRECATED)"
->   	depends on ARM_SINGLE_ARMV7M
->   	select ARCH_HAS_RESET_CONTROLLER
->   	select ARM_AMBA
-> @@ -481,8 +481,10 @@ config ARCH_LPC18XX
->   	  Support for NXP's LPC18xx Cortex-M3 and LPC43xx Cortex-M4
->   	  high performance microcontrollers.
->   
-> +	  This platform is scheduled for removal in early 2027
-> +
+>
+> Only a very small number of machines remain that rely on
+> traditional board files with the ATAGS boot data instead
+> of devicetree, and we have not accepted new ones for
+> a decade.
+>
+> Most of the remaining ones are on their way out of the
+> kernel, but the Kconfig option that controls ATAGS
+> is still enabled by default.
+>
+> To reflect the actual status of ATAGS support and alert
+> the remaining users of upstream and out-of-tree platforms
+> with this, chanyge it to being default-disabled and
+nit: change*
 
-Acked-by: Vladimir Zapolskiy <vz@mleia.com> # NXP LPC18xx/LPC43xx
+> add a dependency on CONFIG_EXPERT.
+>
+> The board specific defconfig files that rely on ATAGS
+> are changed to turn on both EXPERT and ATAGS if they
+> were not doing thath already, and the ones that explicitly
+nit: that*
 
->   config ARCH_MPS2
-> -	bool "ARM MPS2 platform"
-> +	bool "ARM MPS2 platform (DEPRECATED)"
->   	depends on ARM_SINGLE_ARMV7M
->   	select ARM_AMBA
->   	select CLKSRC_MPS2
-> @@ -493,6 +495,8 @@ config ARCH_MPS2
->   	  Please, note that depends which Application Note is used memory map
->   	  for the platform may vary, so adjustment of RAM base might be needed.
->   
-> +	  This platform is scheduled for removal in early 2027
-> +
->   # Definitions to make life easier
->   config ARCH_ACORN
->   	bool
-> diff --git a/arch/arm/mach-at91/Kconfig b/arch/arm/mach-at91/Kconfig
-> index c5ef27e3cd8f..cb0e3ff8e0ca 100644
-> --- a/arch/arm/mach-at91/Kconfig
-> +++ b/arch/arm/mach-at91/Kconfig
-> @@ -15,13 +15,15 @@ menuconfig ARCH_AT91
->   
->   if ARCH_AT91
->   config SOC_SAMV7
-> -	bool "SAM Cortex-M7 family" if ARM_SINGLE_ARMV7M
-> +	bool "SAM Cortex-M7 family (DEPRECATED)" if ARM_SINGLE_ARMV7M
->   	select COMMON_CLK_AT91
->   	select PINCTRL_AT91
->   	help
->   	  Select this if you are using an SoC from Microchip's SAME7, SAMS7 or SAMV7
->   	  families.
->   
-> +	  This platform is scheduled for removal in early 2027
-> +
->   config SOC_SAMA5D2
->   	bool "SAMA5D2 family"
->   	depends on ARCH_MULTI_V7
-> diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-> index f85a5f8c0a58..3f0521c652cb 100644
-> --- a/arch/arm/mach-imx/Kconfig
-> +++ b/arch/arm/mach-imx/Kconfig
-> @@ -219,12 +219,14 @@ config SOC_IMX7ULP
->   	  This enables support for Freescale i.MX7 Ultra Low Power processor.
->   
->   config SOC_IMXRT
-> -	bool "i.MXRT support"
-> +	bool "i.MXRT support (DEPRECATED)"
->   	depends on ARM_SINGLE_ARMV7M
->   	select ARMV7M_SYSTICK if ARM_SINGLE_ARMV7M
->   	help
->   	  This enables support for Freescale i.MXRT Crossover processor.
->   
-> +	  This platform is scheduled for removal in early 2027
-> +
->   config SOC_VF610
->   	bool "Vybrid Family VF610 support"
->   	select ARM_GIC if ARCH_MULTI_V7
-> diff --git a/arch/arm/mach-stm32/Kconfig b/arch/arm/mach-stm32/Kconfig
-> index 630b992f32b1..4ac3384e397a 100644
-> --- a/arch/arm/mach-stm32/Kconfig
-> +++ b/arch/arm/mach-stm32/Kconfig
-> @@ -14,30 +14,32 @@ menuconfig ARCH_STM32
->   	select STM32_EXTI if ARM_SINGLE_ARMV7M
->   	select STM32_FIREWALL
->   	help
-> -	  Support for STMicroelectronics STM32 processors.
-> +	  Support for STMicroelectronics STM32MP1 processors using Cortex-A7
-> +	  cores. Note that support for the earlier Cortex-M based variants
-> +	  is deprecated and scheduled for removal in early 2027.
->   
->   if ARCH_STM32
->   
->   if ARM_SINGLE_ARMV7M
->   
->   config MACH_STM32F429
-> -	bool "STMicroelectronics STM32F429"
-> +	bool "STMicroelectronics STM32F429 (DEPRECATED)"
->   	default y
->   
->   config MACH_STM32F469
-> -	bool "STMicroelectronics STM32F469"
-> +	bool "STMicroelectronics STM32F469 (DEPRECATED)"
->   	default y
->   
->   config MACH_STM32F746
-> -	bool "STMicroelectronics STM32F746"
-> +	bool "STMicroelectronics STM32F746 (DEPRECATED)"
->   	default y
->   
->   config MACH_STM32F769
-> -	bool "STMicroelectronics STM32F769"
-> +	bool "STMicroelectronics STM32F769 (DEPRECATED)"
->   	default y
->   
->   config MACH_STM32H743
-> -	bool "STMicroelectronics STM32H743"
-> +	bool "STMicroelectronics STM32H743 (DEPRECATED)"
->   	default y
->   
->   endif # ARMv7-M
+> turned it off before no longer need to.
 
--- 
-Best wishes,
-Vladimir
+> --- a/arch/arm/configs/stm32_defconfig
+> +++ b/arch/arm/configs/stm32_defconfig
+> @@ -20,7 +20,8 @@ CONFIG_ARCH_STM32=3Dy
+>  CONFIG_CPU_V7M_NUM_IRQ=3D240
+>  CONFIG_SET_MEM_PARAM=3Dy
+>  CONFIG_DRAM_BASE=3D0x90000000
+> -# CONFIG_ATAGS is not set
+> +CONFIG_FLASH_MEM_BASE=3D0x08000000
+> +CONFIG_FLASH_SIZE=3D0x00200000
+
+^ These shouldn't be here - they depend on CPU_ARM740T || CPU_ARM946E
+|| CPU_ARM940T, and they were manually removed previously. If they got
+added when you did make savedefconfig, I'm not sure why, given that
+dependency.
+
+Reviewed-by: Ethan Nelson-Moore <enelsonmoore@gmail.com> (assuming
+these issues are fixed)
+
+Ethan
 
