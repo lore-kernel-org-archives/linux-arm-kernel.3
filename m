@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29179C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C0FFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vmXCt6ya0mUDM3tmOji9Mkco1rXEOXdIhFzW5qA5Qsk=; b=vMgdlaATPhocxAIWoU4u4JxADf
-	ccuflsGQY0wTGYP0+i/ORrH5FzHQyr5W2ewXrFV2lczcrrCQtn0gdpr5GhjKa4h/qYTSgYkJ43b5e
-	CiZM1yz8EgF7Cn+ihViYPS1UIaFfV2mhEl9eMn1PkwNFg9RJ9vlhZE8lU0NFPjumlNyvicFFu7YP0
-	Macm1MTY3YIjlip2GWbFoDzhbFqJab9abcSEBuUA/fLAtCAtP4v9RwS/yyaLVol5gGWNFTS7aCEXG
-	F6yg6byWkp+zjPXnZKGsfWuJYiF0BWWaQgo2t4K0Qyv8eiwZ3ZOVYznWHm8uTtYrGRYIS5pf9wagx
-	WiuO0eXQ==;
+	bh=zD18+lkGRBa7PBn3KUgw8H34IY/4vfNxffrrLBFg6Ek=; b=mT/qWaoXSJ3h8uOsouTFpDvMU8
+	ythpajsgMkHfnX/g6TxWkmt/PiNsgXr/sxyqNcpzlGPrAM0fpD/PxnYmXpTbwM8HcKB8sTJA9PiRj
+	efjSmAKAA4kJwbudSA/+vGRNmwk5UloBMEZdHblEH85e1DhyNEFdRS8Uy3VjbODuTwQyO5/2my8I3
+	uQYMuqd3dq/ClaMVovz83yBLSgjv1dFLAB7tZzg3H9uECzAhM7eq9+RvZS/nLCrzBou/fzaU7Vl7f
+	i61tP7MHU/Z4K1XXl6ejiNiZ5gA6cIOuR18vUDsxkQ1WjWwXQ5x70c2OQawQZi7srZNTeeObIlLCz
+	45DZLTZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBu-00000002bUh-2Sf6;
-	Wed, 01 Jul 2026 16:53:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBp-00000002bHP-463a;
-	Wed, 01 Jul 2026 16:53:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782924811;
-	bh=F3uHPVS1XECBg+1FJgBsfQzbfVfb5e4T+gqzbMq2A5Q=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=foSZak7+BxtLEwRYgivu+0IOUXwZ3OQ04aj+NCtX/mR7oZk0d2+9TLw6JHLv9hqvH
-	 gD+XAmcBQwF9Oo0c9klBThjh/SCCPAsGPNYZvpyVx+o+lBUT9/m3TPgWlvBT64AESc
-	 1VYYtkRp2dAH/mYKaR93afRjTL1tHfoNvFgEK3LH0j/n6D8lm89ZeViVFCEzORlOM+
-	 NO6a2s0LYpYd1YW3iAgo9LPKspHAlUFw/CVSibbOudHrMQUoG3fqEVt3205ewyFn69
-	 a+j72Ht3QSFWjtbjkcndWh+WwsAmy/6BqWzY3mmuyvE8chms1hnDugSMwuCq/S4Le6
-	 LfnTMMuWfCOpQ==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A56B317E0CA2;
-	Wed,  1 Jul 2026 18:53:30 +0200 (CEST)
-Message-ID: <f56fcbae-3ff5-46c3-bbe7-7eac462f7dd2@collabora.com>
-Date: Wed, 1 Jul 2026 18:53:30 +0200
+	id 1weyBz-00000002beX-3SFc;
+	Wed, 01 Jul 2026 16:53:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1weyBv-00000002bVX-1lv1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 16:53:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA608497;
+	Wed,  1 Jul 2026 09:53:33 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2CAA03F915;
+	Wed,  1 Jul 2026 09:53:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782924818; bh=syaa6eFKfMvHb+WPeFcB+nipqUZfcz72zdt4OYpzGNw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HWXZPMYgcP9CLNOhOwaipS4bVmmpgdymeFijqlqMS6lIUMDXLKrsAKOJlDSKYY2wI
+	 sSC5jm3E5EyRkM3SytL+CUSGoV8LlJ2Y3m5X7jmVqX/6Yz4c0qst/OfT+op1plCIt0
+	 jG938f6F9VUVsQNnUWgAVJa7ccWWD+GOmhWTE2F0=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] KVM: arm64: skip pKVM cache flushes for non cacheable mappings
+Date: Wed,  1 Jul 2026 17:53:34 +0100
+Message-ID: <akVGDoI9FltrVduP@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net>
+References: <20260624160028.15591-1-include@grrlz.net> <20260624160028.15591-2-include@grrlz.net> <akU64YK5dqcWGdCD@LeoBrasDK> <5105C9D2-C708-452E-BA61-F22083A33C74@grrlz.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 23/42] dt-bindings: display: mediatek: Introduce Digital
- Video Output HW
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, p.zabel@pengutronix.de, kernel@collabora.com,
- tzimmermann@suse.de, chunkuang.hu@kernel.org, simona@ffwll.ch,
- linux-arm-kernel@lists.infradead.org, jason-jh.lin@mediatek.com,
- airlied@gmail.com, conor+dt@kernel.org, maarten.lankhorst@linux.intel.com,
- linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com,
- mripard@kernel.org, devicetree@vger.kernel.org, justin.yeh@mediatek.com
-References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
- <20260701122057.19648-24-angelogioacchino.delregno@collabora.com>
- <178291581273.4115171.8214844308967079622.robh@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <178291581273.4115171.8214844308967079622.robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_095334_207169_1CEC30E8 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260701_095339_564710_D98A48FA 
+X-CRM114-Status: GOOD (  30.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,102 +85,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 16:23, Rob Herring (Arm) wrote:
+On Wed, Jul 01, 2026 at 05:40:46PM +0100, Bradley Morgan wrote:
+> On July 1, 2026 5:05:53 PM GMT+01:00, Leonardo Bras <leo.bras@arm.com>
+> wrote:
+> >On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
+> >> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+> >> uses that list directly, so it lost the PTE attribute check done by the
+> >> generic stage 2 walker.
+> >> 
+> >> Record whether a mapping is cacheable and skip cache maintenance for
+> >> mappings that are not cacheable.
+> >> 
+> >> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> >> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> >> ---
+> >>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
+> >>  1 file changed, 41 insertions(+), 10 deletions(-)
+> >> 
+> >> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> >> index 428723b1b0f5..ca6e823028c2 100644
+> >> --- a/arch/arm64/kvm/pkvm.c
+> >> +++ b/arch/arm64/kvm/pkvm.c
+> >> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping
+> >*m)
+> >>  	return m->gfn * PAGE_SIZE;
+> >>  }
+> >>  
+> >> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
+> >> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
+> >
+> >Out of curiosity here, why do you choose to use bit 48 here instead of, 
+> >let's say, bit 63?
+> >
+> >(I know it makes absolutely no difference to inner working here, as there 
+> >should probably not be 2^48 pages in one mapping.)
+> >
+> >Thanks!
+> >Leo
 > 
-> On Wed, 01 Jul 2026 14:20:38 +0200, AngeloGioacchino Del Regno wrote:
->> Add documentation for the Digital Video Output (DVO) IP found in
->> the newer generation SoCs MT8196, MT8189 and their variants.
->>
->> This is effectively a more capable block replacing the DisplayPort
->> Interface (DPI/DP_INTF) one found in older SoCs.
->>
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   .../display/mediatek/mediatek,mt8196-dvo.yaml | 142 ++++++++++++++++++
->>   1 file changed, 142 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
->>
 > 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
+> sup Leo, here's a quote from maz 
 
-Those errors on literally all bindings are quite embarassing. Oops.
+Hi Bradley,
 
-Already fixed locally, but since this is a huge series, I will allow some time
-for reviews before compulsively pushing a v2.
+> 
+> "This thing is already big enough, let's not add a bool right in the
+> middle (use pahole to find out why this is bad).
 
-Cheers,
-Angelo
+I suppose you proposed to add a bool into a struct, maybe?
+It would screw the struct alignment.
 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: ignoring, error in schema: properties: compatible
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-> Traceback (most recent call last):
->    File "/usr/local/bin/dt-doc-validate", line 8, in <module>
->      sys.exit(main())
->               ~~~~^^
->    File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 66, in main
->      ret |= check_doc(f)
->             ~~~~~~~~~^^^
->    File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 37, in check_doc
->      dtsch.check_schema_refs()
->      ~~~~~~~~~~~~~~~~~~~~~~~^^
->    File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 242, in check_schema_refs
->      self._check_schema_refs(resolver, self)
->      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
->    File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
->      self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
->      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->                              has_constraint=has_constraint)
->                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->    File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
->      self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
->      ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->                              has_constraint=has_constraint)
->                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->    File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 203, in _check_schema_refs
->      ref_sch = resolver.lookup(schema['$ref']).contents
->                ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
->    File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
->      retrieved = self._registry.get_or_retrieve(uri)
->    File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 422, in get_or_retrieve
->      registry = self.crawl()
->    File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 500, in crawl
->      id = resource.id()
->    File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 231, in id
->      id = self._specification.id_of(self.contents)
->    File "/usr/local/lib/python3.13/dist-packages/referencing/jsonschema.py", line 50, in _dollar_id
->      return contents.get("$id")
->             ^^^^^^^^^^^^
-> AttributeError: 'list' object has no attribute 'get'
-> Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.example.dtb: /example-0/dvo@324c0000: failed to match any schema with compatible: ['mediatek,mt8196-edp-dvo']
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.kernel.org/project/devicetree/patch/20260701122057.19648-24-angelogioacchino.delregno@collabora.com
-> 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
-> 
+> Given that nr_pages
+> is for a range, and that the minimum page size uses 12 bits, the
+> largest number of pages you can have here is 56-12=48 bit wide. That's
+> another 16 bits worth of flags you can use."
 
+Humm, makes sense.
+And since he mentions 16 bits worth of flags, you start by using the 48th 
+bit. Ok, got your rationale.
+
+(I would possibly start with the 63, though, but that's more on personal 
+taste)
+
+> 
+> this should just clarify things, any questions, feel more than free to ask!
+> 
+> (btw V4 is coming soon)
+
+Thanks!
+Leo
+
+> 
+> >> +
+> >> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
+> >> +{
+> >> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> >> +}
+> >> +
+> >> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
+> >> +{
+> >> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
+> >> +}
+> >> +
+> >> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64
+> >nr_pages,
+> >> +				      bool cacheable)
+> >> +{
+> >> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
+> >> +
+> >> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> >> +	if (cacheable)
+> >> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
+> >> +}
+> >> +
+> >>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
+> >>  {
+> >> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
+> >> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
+> >>  }
+> >>  
+> >>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
+> >> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct
+> >kvm_pgtable *pgt, u64 start, u64
+> >>  			continue;
+> >>  
+> >>  		page = pfn_to_page(mapping->pfn);
+> >> -		WARN_ON_ONCE(mapping->nr_pages != 1);
+> >> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
+> >>  		unpin_user_pages_dirty_lock(&page, 1, true);
+> >>  		account_locked_vm(kvm->mm, 1, false);
+> >>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> >> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct
+> >kvm_pgtable *pgt, u64 start, u64
+> >>  
+> >>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+> >>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+> >> -					mapping->nr_pages);
+> >> +					pkvm_mapping_nr_pages(mapping));
+> >>  		if (WARN_ON(ret))
+> >>  			return ret;
+> >>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> >> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
+> >u64 addr, u64 size,
+> >>  		 * permission faults are handled in the relax_perms() path.
+> >>  		 */
+> >>  		if (mapping) {
+> >> -			if (size == (mapping->nr_pages * PAGE_SIZE))
+> >> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
+> >>  				return -EAGAIN;
+> >>  
+> >>  			/*
+> >> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt,
+> >u64 addr, u64 size,
+> >>  	swap(mapping, cache->mapping);
+> >>  	mapping->gfn = gfn;
+> >>  	mapping->pfn = pfn;
+> >> -	mapping->nr_pages = size / PAGE_SIZE;
+> >> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
+> >> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
+> >> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
+> >>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+> >>  
+> >>  	return ret;
+> >> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable
+> >*pgt, u64 addr, u64 size)
+> >>  	lockdep_assert_held(&kvm->mmu_lock);
+> >>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+> >>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+> >> -					mapping->nr_pages);
+> >> +					pkvm_mapping_nr_pages(mapping));
+> >>  		if (WARN_ON(ret))
+> >>  			break;
+> >>  	}
+> >> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable
+> >*pgt, u64 addr, u64 size)
+> >>  	struct pkvm_mapping *mapping;
+> >>  
+> >>  	lockdep_assert_held(&kvm->mmu_lock);
+> >> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> >> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+> >> +		if (!pkvm_mapping_is_cacheable(mapping))
+> >> +			continue;
+> >> +
+> >>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+> >> -					  PAGE_SIZE * mapping->nr_pages);
+> >> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
+> >> +	}
+> >>  
+> >>  	return 0;
+> >>  }
+> >> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct
+> >kvm_pgtable *pgt, u64 addr, u64
+> >>  
+> >>  	lockdep_assert_held(&kvm->mmu_lock);
+> >>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> >> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+> >> -					   mapping->nr_pages, mkold);
+> >> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
+> >> +					   handle, mapping->gfn,
+> >> +					   pkvm_mapping_nr_pages(mapping),
+> >> +					   mkold);
+> >>  
+> >>  	return young;
+> >>  }
+> >> -- 
+> >> 2.53.0
+> >> 
+> >
+> 
+> Thanks!
 
