@@ -4,94 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50CE0C44502
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5263AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:12:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sYPxLxyl2ueCPkMM8r1UMMkxjRvlhE4VtffuHN2xTrk=; b=LH6CKeT+AYZkI/5i4Q7F1aP628
-	+NzwbpFXDshDXT+bE5pmDHkMT9VSisjf6Ko/5PgQoY8t1wTyVTyZpaGNpuE8lbxwCMq21iJfvo7L+
-	c6YO9kZi8sYe+2/5w7vMj4VlpV86ptIO4/KV2N49EywdSCk9qGkHLoGvVuVwqb5N5s1R0qFYCRrO/
-	veBMrdLq7/KL1I/FkAYx7JRQm88P6SlRIbKc6+oLyuK6Qx/EuC+HI73/1wh/F5IC0pITYSQx1t8Vr
-	w5KSV/6UTac20RgywkCKi//ynrAnW1UMF/b+d4kTGAM8Df/nynMtRhoslOLOYJ1lDt4aHfnXXzTcv
-	n7YzX/Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+TXHRJSgvYv/9Lz4VWMTGD64HiSOw25IkH1L8qTK16o=; b=LG5ZyAC2ZGCIux89v82fN0FrXy
+	6b690jPEA2PalSvTf677GPcMxpFoB+qWABEngIWk4QrmvAFIRn9j9jeh8womkTS1eo2NLzcZ6LPp3
+	cBtstxbKRU1UlnaBjCVrCrt1Fp/lzjovmIvVv+xx95jH/z9UVlKZHEGMjRlntW0FVpJW+M5b4BKjt
+	MsWAj5SepzTPf8+CG51g0PXb+oD97yoDMcKwLLjZGYCau8BGDG8ZkI/kbSuLQ6KJnjZQ6VvbEVIKe
+	ncL7Auu/2y5roVNSJ2Dhh8qBK+Q6KtAQOfHN1QMOEj1OwQanNDyFz9/SZ1fRBbn8Xw41eNnWgPU3D
+	6w/e2c/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weujD-000000028KB-2WDK;
-	Wed, 01 Jul 2026 13:11:47 +0000
+	id 1weujK-000000028cI-37nZ;
+	Wed, 01 Jul 2026 13:11:54 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuj8-0000000284C-1nPn;
-	Wed, 01 Jul 2026 13:11:42 +0000
+	id 1weujK-000000028Yf-0vXs
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Jul 2026 13:11:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=sYPxLxyl2ueCPkMM8r1UMMkxjRvlhE4VtffuHN2xTrk=; b=msMvm/DJaazqgmXMduGBBDuYJO
-	5oFFygKvekBuZrcBfkN8s+dMHAXIzkkxSKMjMVYyV223N2bBOHSH2dZ9UhBcS43WTvmnsLH3vmQ5j
-	UHH+Jy9TshbNZLn8oZrc7w1bipphkPLuRz14iitUpClyMGPsyWZG8KHzBEfq2CfdipCY0Wddw5H6y
-	qlv3ljtixjTFudmBfKiqc5B9GA4kJgeSqcNzZ4grEtY+oarmFZL4vOgfjlTTaozcPbPVbfyKI0M8y
-	Gc1viJnrlDqstuW29AGhPW5NA5hsjQrcZn0+nyYhoKYRkOgbc7l9By5N6J3X/d5oHjAG5kVF6bFkC
-	wlNOy+eA==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=+TXHRJSgvYv/9Lz4VWMTGD64HiSOw25IkH1L8qTK16o=; b=kvle3pABWhwR/vGzSAOBn90mb+
+	ocAw7kPfDDqtETuHHCQAx/wdZFrDva96dW5j2sbG+9WjnT7AQuL0kedwQBcH0kHrmRY4NQVtk/Jsz
+	fFBR6Yh04loHWJHcOBZ7CGATc0UFKk1NxxyL34pJ7qDrP38QbD+aqSLoPN4KtEe/a7NjmLHI/v6kR
+	o6Zo3mjX0tPunFZ01RHJb08B50s2m0DKvc6hDK0Fk/UmbP4QzaBzyQ1vTUS+jN7M3z5URgm6VxSOg
+	AIDpYQwbekOWk7BGvEbHi5JQp75EXhKRM4HlpqcFjvnrHLbr4osIyhEY8EqsxAyXXZbkUTtIt45/G
+	PdkgaWXA==;
+Received: from mail-swedencentralazon11013000.outbound.protection.outlook.com ([52.101.83.0] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1weuj4-00000002oKq-3Xud;
-	Wed, 01 Jul 2026 13:11:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782911497;
-	bh=idHbCObBbdJ9+i/5PsaHs4jJfR5QMaovt3fy20RvFKI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=A8G3LMPVgfNU+VELPcM5K7bBQGQ60qO+YL7b3zxADFdxEV1s3AUDO1X4OTJXb3ToJ
-	 3S7HypWbw0kXx+c6oth3UfyYFwMYADZm3/v3e45m8TM+dr1DfP2yI8D1ywvLN+DCbp
-	 m3Fl/Bvfve50j5TDfXgpgmjYJ2OP9bYWsDwpiStXmB6Lb+Ws9r4QD1+Tyulm8OyE8j
-	 cNjS6hk6QwuPJUf92YTrILzi18mGqPghCmOTDkWc/wBvLuyTF6i3UB9AnuvF1ohz05
-	 pYDR9wi47P1uTX7hMD7FgwYtSmMMtYsVsLNN4v9iSrr6lpBITMNpRa7wL6D1liH8H7
-	 w9lIXA+gzfBZQ==
-Received: from yukiji.home (unknown [100.64.0.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6DDF517E023C;
-	Wed,  1 Jul 2026 15:11:36 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 01 Jul 2026 15:11:20 +0200
-Subject: [PATCH 15/15] clk: mediatek: Add MT8189 ufs clock support
+	id 1weujF-00000002oMn-3yv0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 13:11:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gkM0BKOVLGxtp9ljqeOVZkpjY7mGC7wYQ/gXyYZavHagwPXtejJbuQbzA/pbDbodH+9u/+S+u73e/M4Xda4PZ8VU9ayUynlQfxC5cPSSmILNmNU5EoeVF52Whn8B7GVavovrulBFZeTmvzdNQjz+zom6AkBEsGDvKXa6c/05Muf/d2YPNDir6KGrU0+DrGfXB1GtbGI7QH356ww+8W5cLbWZ34+gErnWa8yjSXyOX121L7WSrjWNPhbhanCFCukRBgbsOVE1mNgBJ+g5U93BkPa9ZqAMHktB7i8Mz7MB2TzYlhPAUt8gVqxcy5zXmju5/lC/MzoAlEWfP85qtYJFnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+TXHRJSgvYv/9Lz4VWMTGD64HiSOw25IkH1L8qTK16o=;
+ b=E2jod2yty1qJaIVVkcvybezTOsYseQwUlCQR5PIYvG51kOVp0t5aITu2YjknHh3ltqy1KGbPJGKZdMfO8kfwPhGrZfg/APqSSjSrL9nW0suhaBo/yrCq84wu6YWLkF6i1cTwuEqi1vWMusmh265IWe9JKl9mpLv3jhNdvfDxhj6Blk99uAHmrWp9DvgNtpuFrpO5gTE3LjlXUrE8rkYdz+XtEQ9REo16lHD/ZBeXAuD4/mgjr2J+3+W38/YCaEelV4hhQK3NgLbOUxxl/zqbCpxbAYCnM9UC2/mBGZFPJay4ANHCo9zfA+tG6F5oHmQxEaGtLz8883BsKVcw7kWeiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+TXHRJSgvYv/9Lz4VWMTGD64HiSOw25IkH1L8qTK16o=;
+ b=QwB3Ref1QnJ/Z6J+S6w7yY/0zvgalnhJ0itJsAHnezgahReXpZGUPE57p3JX0wDOxbHWKtJPrd6MsvQ3p2qibT7bsQ0/eaLp1/euUprXkF0Ru2Zfcd++V2Lvvv1n32VTmhZsml9CUHObY4QioiYHm0YHABvcVstUxqC/PdyNiyXpkg4oKXe5YXARsimnSdCNdid47XmGY4xUTNOyjeBbhh++xjvgvSGXEsrdsnKh/ZUlUYaprfB8fCHzIcrgp8dfG3YkVM1Lwx36V31Duy5gevWIB2B6HXAwP8GVCzU2faPwpB7sPMMUEZIyJ1mZDwdlPcDIdUF+VBgMdMfBVIYyqA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13) by AS5PR04MB10059.eurprd04.prod.outlook.com
+ (2603:10a6:20b:680::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
+ 13:11:44 +0000
+Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
+ ([fe80::1739:3404:2175:33dd%6]) with mapi id 15.21.0159.018; Wed, 1 Jul 2026
+ 13:11:44 +0000
+From: Ioana Ciornei <ioana.ciornei@nxp.com>
+To: Frank.Li@nxp.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org
+Cc: vladimir.oltean@nxp.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev
+Subject: [PATCH v2 0/5] arm64: dts: describe the Lynx 10G and 28G SerDes blocks for Layerscape SoCs
+Date: Wed,  1 Jul 2026 16:11:32 +0300
+Message-Id: <20260701131137.940145-1-ioana.ciornei@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM9P192CA0028.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21d::33) To GVXPR04MB12290.eurprd04.prod.outlook.com
+ (2603:10a6:150:319::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-mt8189-clocks-system-base-v1-15-2b048feea50a@collabora.com>
-References: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
-In-Reply-To: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Edward-JW Yang <edward-jw.yang@mediatek.com>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- netdev@vger.kernel.org, Irving-CH Lin <irving-ch.lin@mediatek.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=7242;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=idHbCObBbdJ9+i/5PsaHs4jJfR5QMaovt3fy20RvFKI=;
- b=Zy+78vcrFuphfSl+9WpeEpPJln0BTwYXbVnQY9EdM4Q7DaahfqQrFVRHyYb7tGwbAzuGG4jvB
- HfyMJ2dHoT7CGiBIyXgubueLsjQV86bndpNQBfYX58X+z+ChDIvYCQ4
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|AS5PR04MB10059:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a3d9912-417a-4f38-5941-08ded7724c37
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|19092799006|376014|23010399003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: 0DH/SUbl0RHdkujtG09jJH+V8+ohL3Eljk2uNQERzA2QNbbjtWHl9JkWc4SxRYM+HRKvHzYmw24pwWdmOnQqnqMdt9UNK1mhNZW382RyCgNdQ+Meda2F/5MW0Mqsdm6CnttCh6OUH+mWnpTbHPXneqL70ewdiBznbl6gI8Jgvt0a0Kudv6XN/MrQWWszm6i69w4aA2GrXbqFtzbh7JfMtMUtUJfKHEbBc1Kr+HBDP3uSkD6i1FW9SGwVNX7uAaGdlmFojzL7Tt++oLOAJyZXcOnWKQpPE4LHOfKBkQWzrGPUjXXC4IgwUir69dp83zU8TDTILAwk2ZtrzF8EcNYfJoQHUhm5PHJtI8UjoS3eApd0U/Op9/Limk6JjwZEgDOVyMOkjJ4OM2vDfrcp9uyGayVuXfvHl0uLxIWlDy+T1M7otgZTI3B9IXA1ekwPJMo5xPA64Hwk9zMLs6j/yfeOvdYNrCcEJ24pCGN4f/NYY3LSNxCYfLmM+qMGOwVuVpk8u/dd6N1QJdAsxXYp2xCfyRrAdl6ebirI1PrJZyyC1GTDDXwW54ss7/YpaZwm//UEN6/tMi/06O37Jxq8LBI0VwqAUnPBhKcEuKuKqv97ATB8i7T+5RiSPWAGpwsh8tR6Y7MGFV5p4JwxkpSeBwKKcSQ2zjup6+8jGt10XXEOnQo=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(19092799006)(376014)(23010399003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tFdieq3GtW9tODurMyOwp+2UP/vqzPzQMVg7w9dUcWCHkiDbNqSZFQ7qY1Dt?=
+ =?us-ascii?Q?3mge5rp/ybt/COixb5isjRKNoMUFW1qK+cRhWBN1zPMXitR2zNntoe4+K7EN?=
+ =?us-ascii?Q?+8M2scFjHimfhl7QGbYUOesd+qXzBGimVd6k8yri4OR1DX2BF4XBO1ds+++n?=
+ =?us-ascii?Q?i9k7zeT8Gc0RHM+hTUuAfN8VqYmhoJicvUpIKgBfpiCE0XsNLu4UXs2sZeX+?=
+ =?us-ascii?Q?p6r8IqIZiE9KEU8FBhkzX+urKqU54YUZFP6FikKu7TRt7fW4hRDEsBZZR5/s?=
+ =?us-ascii?Q?tpxsSwrvW7jwtq5xDfIha0keSS2BwKC/SzAqe0J9xGow0sXc60AAdD4Tg6C7?=
+ =?us-ascii?Q?Hyj9xDQSOCxW6ZCUsCa1UhWfxGIoJdYfpntQmnGRrh724Lvk0usx7SojivfR?=
+ =?us-ascii?Q?YvmR2HBk0K2mCVRoKKzQKvBSyVPNMLdYWHmebDuLveBBCMGXtnoERz7tbqj6?=
+ =?us-ascii?Q?YUiWHboMeGWcUvWH4uUsBB56+DtDJEAQVdWSQnWRyc6D6REw8s+EMarP0z4Z?=
+ =?us-ascii?Q?MFLNcGByunCP0Hi44Y59wj+XiTt5LC1jkiLVjJXEFW6g3ukxU4WNUZ5f+emB?=
+ =?us-ascii?Q?88eWool9Q55+YOfREPsKnLcsoB8MDNWsvWivHjagaPbk5v3dy8NEfJpbdiUZ?=
+ =?us-ascii?Q?UIb4qAu7Qtg4ByIIc7xEpCSeeWsauHT616+Q/BexnsNRqiMpQ6lp03PDiYad?=
+ =?us-ascii?Q?q2/eenzWwNhIPcPwwWr1byS/ZEwtFx5i2FvB7kuDowAU3hGyvxhrLqju1H5x?=
+ =?us-ascii?Q?qfuapU4wFUUPoAjctC3Hk1HS03NqzXW8uzkiyMXIfGhnJMIWzHJ/PXMYjMr7?=
+ =?us-ascii?Q?JyvvZlGrHaJDqDC8uNq3oos0liYnpvaueU+4hY6iZ0ETm6Zi/kiu1KXLz8pZ?=
+ =?us-ascii?Q?b6IuToBWBujz91Ipr4QDD4qX+PcYxyRr5EnA/TkqW7Uwh/OJ7WUHm+VN+xEf?=
+ =?us-ascii?Q?ZtS5gpGyNkYz3qsfO4KhuuzPrx9+EgMLvTVrp7WewqRqDiIDd7ge91jB3PEF?=
+ =?us-ascii?Q?ZfsiXVXfV6oGRxBkijoe3+EscWYaRN1XZWaqNA4DVuQf3dfQCAptVhYeDUoG?=
+ =?us-ascii?Q?zE2E1t/ErSNTmvppjLx3jU3qehXVHOyI3pkovcUZbdnO9je1nWL5A144ZMD+?=
+ =?us-ascii?Q?XLbUXi+uzZgNh4+bqU/2xnBLFPWKu7thX4VjpZy7v5+gfqUwpnSX0stBeG33?=
+ =?us-ascii?Q?rX9D6eEiGptvs30/pkM5kPeRH1wFw14ULO4K8t4GdgE713BPHiuiD1M4pKoh?=
+ =?us-ascii?Q?nLcWWujb2200hOEPs3VVY+kYMOpp9fOvL7nHr0PVpqrqA+LS5FuXiAow0Inr?=
+ =?us-ascii?Q?BZl6PC2ckAE2k1Z7KypbrfalX8486cSL4B+kx26iqiayEfU6J5VFODUpU95w?=
+ =?us-ascii?Q?oO3vCcwvifMQVjuWo0W/b7sAWbBbiHE10KMfCN0wDSm3fmdWv87fGuSRyLuD?=
+ =?us-ascii?Q?g8gq1a9lfkEiyi6nPm2bHhebEV2muqEgnyyPMiSx+brp0cxfamJXbfXklCRW?=
+ =?us-ascii?Q?LtAXNZr+Uc5zVP70a/YEhv+6loAEwErOBHIFbMPykdZw9K2Mg8izhk3syon9?=
+ =?us-ascii?Q?+q0foFnZUd5WJv9tfacMs8Hu+dj0iowVN6iBzVswzpr+/Wz8LHIgZ+kOo48S?=
+ =?us-ascii?Q?ZnW1044/jlR5s9IdlRjCm829xVjxQDYaTloIlpP9en/mCaOILfYlknIBYZHY?=
+ =?us-ascii?Q?5pHzBtoGfZUxJWTpTRBLe3CXhpg8+jJTyy2z8s1nkOZQOBBeGiZ+M3Ju3GPz?=
+ =?us-ascii?Q?DFuw7kU3oA=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a3d9912-417a-4f38-5941-08ded7724c37
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 13:11:43.9421
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: snqPTWRsdF7Jf5IWk2FOkxPesTydgsT2ZrHW3h6Dbu5iwwfsaac2DV3zg5KFMNuZochFHT1fVYHtMWZKD2PO+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB10059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_141139_057238_47A8D968 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20260701_141150_106011_4F5B0B01 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,196 +154,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the MT8189 ufs clock controller,
-which provides clock gate control for Universal Flash Storage.
+This patch set adds the device tree nodes for the Lynx10G SerDes blocks
+found on the LS1028A, LS1046A, LS1088A and LS2088A SoCs.
 
-Co-developed-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-Co-developed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/clk/mediatek/Kconfig          |  12 +++
- drivers/clk/mediatek/Makefile         |   1 +
- drivers/clk/mediatek/clk-mt8189-ufs.c | 133 ++++++++++++++++++++++++++++++++++
- 3 files changed, 146 insertions(+)
+The first patch also transitions the LX2160A SoC dtsi to use the
+device-specific Lynx28G SerDes compatible.
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 919a916f1f4f..34a270a377cc 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -882,6 +882,18 @@ config COMMON_CLK_MT8189_SCP
- 	  management for SCP-related features, ensuring proper clock
- 	  distribution and gating for power efficiency and functionality.
- 
-+config COMMON_CLK_MT8189_UFS
-+	tristate "Clock driver for MediaTek MT8189 ufs"
-+	depends on COMMON_CLK_MT8189
-+	default COMMON_CLK_MT8189
-+	help
-+	  Enable this to support the clock management for the Universal Flash
-+	  Storage (UFS) interface on MediaTek MT8189 SoCs. This includes
-+	  clock sources, dividers, and gates that are specific to the UFS
-+	  feature of the MT8189 platform. It is recommended to enable this
-+	  option if the system includes a UFS device that relies on the MT8189
-+	  SoC for clock management.
-+
- config COMMON_CLK_MT8192
- 	tristate "Clock driver for MediaTek MT8192"
- 	depends on ARM64 || COMPILE_TEST
-diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index a3a93a16b369..1aa9f4265225 100644
---- a/drivers/clk/mediatek/Makefile
-+++ b/drivers/clk/mediatek/Makefile
-@@ -130,6 +130,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
- obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
- obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
- obj-$(CONFIG_COMMON_CLK_MT8189_SCP) += clk-mt8189-scp.o
-+obj-$(CONFIG_COMMON_CLK_MT8189_UFS) += clk-mt8189-ufs.o
- obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
- obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
- obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-ufs.c b/drivers/clk/mediatek/clk-mt8189-ufs.c
-new file mode 100644
-index 000000000000..85afab04420f
---- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-ufs.c
-@@ -0,0 +1,133 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (C) 2025-2026 MediaTek Inc.
-+ *                    Qiqi Wang <qiqi.wang@mediatek.com>
-+ *                    Irving-CH Lin <irving-ch.lin@mediatek.com>
-+ * Copyright (C) 2026 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ *                    Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-+ */
-+
-+#include <linux/clk-provider.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+
-+#include "clk-mtk.h"
-+#include "clk-gate.h"
-+
-+#include <dt-bindings/clock/mediatek,mt8189-clk.h>
-+#include <dt-bindings/reset/mediatek,mt8189-resets.h>
-+
-+#define MT8189_UFSCFG_AO_RST0_SET_OFFSET	0x48
-+#define MT8189_UFSCFG_PDN_RST0_SET_OFFSET	0x48
-+
-+static const struct mtk_gate_regs ufscfg_ao_reg_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0xc,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_UFSCFG_AO_REG(_id, _name, _parent, _shift)		\
-+	GATE_MTK(_id, _name, _parent, &ufscfg_ao_reg_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+static const struct mtk_gate ufscfg_ao_reg_clks[] = {
-+	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_TX_SYM,
-+			   "ufscfg_ao_unipro_tx_sym", "clk26m", 1),
-+	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_RX_SYM0,
-+			   "ufscfg_ao_unipro_rx_sym0", "clk26m", 2),
-+	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_RX_SYM1,
-+			   "ufscfg_ao_unipro_rx_sym1", "clk26m", 3),
-+	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_UNIPRO_SYS,
-+			   "ufscfg_ao_unipro_sys", "ufs_sel", 4),
-+	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_U_SAP_CFG,
-+			   "ufscfg_ao_u_sap_cfg", "clk26m", 5),
-+	GATE_UFSCFG_AO_REG(CLK_UFSCFG_AO_REG_U_PHY_TOP_AHB_S_BUS,
-+			   "ufscfg_ao_u_phy_ahb_s_bus", "axi_u_sel", 6),
-+};
-+
-+static u16 ufscfg_ao_rst_ofs[] = {
-+	MT8189_UFSCFG_AO_RST0_SET_OFFSET,
-+};
-+
-+static u16 ufscfg_ao_rst_idx_map[] = {
-+	[MT8189_UFSAO_RST_UFS_MPHY] = 8,
-+};
-+
-+static const struct mtk_clk_rst_desc ufscfg_ao_rst_desc = {
-+	.version = MTK_RST_SET_CLR,
-+	.rst_bank_ofs = ufscfg_ao_rst_ofs,
-+	.rst_bank_nr = ARRAY_SIZE(ufscfg_ao_rst_ofs),
-+	.rst_idx_map = ufscfg_ao_rst_idx_map,
-+	.rst_idx_map_nr = ARRAY_SIZE(ufscfg_ao_rst_idx_map),
-+};
-+
-+static const struct mtk_clk_desc ufscfg_ao_reg_mcd = {
-+	.clks = ufscfg_ao_reg_clks,
-+	.num_clks = ARRAY_SIZE(ufscfg_ao_reg_clks),
-+	.rst_desc = &ufscfg_ao_rst_desc,
-+};
-+
-+static const struct mtk_gate_regs ufscfg_pdn_reg_cg_regs = {
-+	.set_ofs = 0x8,
-+	.clr_ofs = 0xc,
-+	.sta_ofs = 0x4,
-+};
-+
-+#define GATE_UFSCFG_PDN_REG(_id, _name, _parent, _shift)	\
-+	GATE_MTK(_id, _name, _parent, &ufscfg_pdn_reg_cg_regs, _shift, &mtk_clk_gate_ops_setclr)
-+
-+static const struct mtk_gate ufscfg_pdn_reg_clks[] = {
-+	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_UFS,
-+			    "ufscfg_ufshci_ufs", "ufs_sel", 0),
-+	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_AES,
-+			    "ufscfg_ufshci_aes", "aes_ufsfde_sel", 1),
-+	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_U_AHB,
-+			    "ufscfg_ufshci_u_ahb", "axi_u_sel", 3),
-+	GATE_UFSCFG_PDN_REG(CLK_UFSCFG_REG_UFSHCI_U_AXI,
-+			    "ufscfg_ufshci_u_axi", "mem_sub_u_sel", 5),
-+};
-+
-+static u16 ufscfg_pdn_rst_ofs[] = {
-+	MT8189_UFSCFG_PDN_RST0_SET_OFFSET,
-+};
-+
-+static u16 ufscfg_pdn_rst_idx_map[] = {
-+	[MT8189_UFSPDN_RST_UFS_UNIPRO] = 0,
-+	[MT8189_UFSPDN_RST_UFS_CRYPTO] = 1,
-+	[MT8189_UFSPDN_RST_UFS_HCI] = 2,
-+};
-+
-+static const struct mtk_clk_rst_desc ufscfg_pdn_rst_desc = {
-+	.version = MTK_RST_SET_CLR,
-+	.rst_bank_ofs = ufscfg_pdn_rst_ofs,
-+	.rst_bank_nr = ARRAY_SIZE(ufscfg_pdn_rst_ofs),
-+	.rst_idx_map = ufscfg_pdn_rst_idx_map,
-+	.rst_idx_map_nr = ARRAY_SIZE(ufscfg_pdn_rst_idx_map),
-+};
-+
-+static const struct mtk_clk_desc ufscfg_pdn_reg_mcd = {
-+	.clks = ufscfg_pdn_reg_clks,
-+	.num_clks = ARRAY_SIZE(ufscfg_pdn_reg_clks),
-+	.rst_desc = &ufscfg_pdn_rst_desc,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8189_ufs[] = {
-+	{ .compatible = "mediatek,mt8189-ufscfg-ao", .data = &ufscfg_ao_reg_mcd },
-+	{ .compatible = "mediatek,mt8189-ufscfg-pdn", .data = &ufscfg_pdn_reg_mcd },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_ufs);
-+
-+static struct platform_driver clk_mt8189_ufs_drv = {
-+	.probe = mtk_clk_simple_probe,
-+	.remove = mtk_clk_simple_remove,
-+	.driver = {
-+		.name = "clk-mt8189-ufs",
-+		.of_match_table = of_match_clk_mt8189_ufs,
-+	},
-+};
-+module_platform_driver(clk_mt8189_ufs_drv);
-+
-+MODULE_DESCRIPTION("MediaTek MT8189 ufs clocks driver");
-+MODULE_LICENSE("GPL");
+Changes in v2:
+- Enable serdes_1 on all board DTs that has consumers for it.
+- Use the proper name for serdes_3 in fsl-lx2162a.dtsi.
+- Remove paragraph from commit message which mentioned some consumer
+changes that are no longer needed nor part of the commit.
+- Change the size of the SerDes region to 0x2000
+
+Ioana Ciornei (1):
+  arm64: dts: ls1088a: describe the Lynx 10G SerDes blocks
+
+Vladimir Oltean (4):
+  arm64: dts: lx2160a: transition to device-specific SerDes compatible
+    strings
+  arm64: dts: ls1028a: describe the Lynx 10G SerDes
+  arm64: dts: ls1046a: describe the Lynx 10G SerDes blocks
+  arm64: dts: ls208xa: describe the Lynx 10G SerDes blocks
+
+ .../arm64/boot/dts/freescale/fsl-ls1028a.dtsi |  29 ++++
+ .../arm64/boot/dts/freescale/fsl-ls1046a.dtsi |  60 +++++++
+ .../arm64/boot/dts/freescale/fsl-ls1088a.dtsi |  58 +++++++
+ .../arm64/boot/dts/freescale/fsl-ls208xa.dtsi |  98 ++++++++++++
+ .../freescale/fsl-lx2160a-clearfog-itx.dtsi   |   4 +
+ .../dts/freescale/fsl-lx2160a-half-twins.dts  |   4 +
+ .../boot/dts/freescale/fsl-lx2160a-rdb.dts    |   4 +
+ .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 150 +++++++++++++++++-
+ .../dts/freescale/fsl-lx2162a-clearfog.dts    |   6 +-
+ .../boot/dts/freescale/fsl-lx2162a-qds.dts    |   2 +-
+ .../arm64/boot/dts/freescale/fsl-lx2162a.dtsi |  24 +++
+ 11 files changed, 435 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2162a.dtsi
 
 -- 
-2.54.0
+2.25.1
 
 
