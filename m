@@ -4,99 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7458C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7212C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YH0eAlmV5ZlCp7oTdtLjLrCzIaxPTHh71mN5NSFhZDE=; b=FMWCNNW45mWOsyoPoRm8mP89R7
-	MvG+QVQsVvnS+73BQ+Fs2V0/Dnj99yHTAOWYptsWvCW6hC9Bh2soSxkgYlLJVyWsj0QxXtR3QtWhw
-	LIW9YhJi9BRh4RKf0hpd+f+836VbYpidH5rgk7EZEphbTqyFxQrWoK3//oO8f/cIw3vzUt0Ncj941
-	ctXUKq0LlKhGt5ezzQnP6jeg3LMjeqnNiDmryqZiwDpCxeS3Il2bfmowu7F93B1Eosh4w1Xsj8YpN
-	PBtJaKahKiHdydG40dc4qB9bEfSbZt0PPHgBKchUC3zEMaefd9h/8a/iZqwzevkyzlg7RM26Yn0TZ
-	iugLmJXA==;
+	bh=ReIKZEmzQcT/lXNhpZEbpiQEzJnJhX1zgx/JrSHN7cU=; b=ruTKaiKMIVIncR2bNpj0NFq/nW
+	rmTcx2DelosABtvbcxGq/4yVI3WbLmDeS/u+XcyqMAVf1TBgazxbiy6Fjp3nrLmdhtSjHs2TKBNBm
+	EHMld/j+dY9VdrXY99H8fUfEbsjsxFWvTzWYAFU+MSEmWhxW2JRXVVpNOu/l+Px4NzlIi+FRUxu1/
+	GOBnwMy8ms3FHRWMcPiDd+i+iwYoyrIDRqaDOjbRA+peE+ZtTJvYvsLq9fbaZheHQfeoRFnJ26tZf
+	K1qDZO/7Nc33ML7+6LW+KMNddc5AI7Brrbv8uWCc0ZeZFztotPjdMrziEDK9EFLs6Hi4z14P/FN87
+	5uvRTOOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetw6-00000001tMD-1asj;
-	Wed, 01 Jul 2026 12:21:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetw2-00000001t7I-2cde;
-	Wed, 01 Jul 2026 12:20:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=YH0eAlmV5ZlCp7oTdtLjLrCzIaxPTHh71mN5NSFhZDE=; b=nQZleVeX+XZ8fjKuIsFr1DY+F7
-	Zma/sHSlLOqHxSO5X8meBvjLNnG8fn4wBMw4EbZ+BmN0huw/7gB1ppfiFe5rmoP9fle5blg67xy8C
-	zMfGuNqqOA2r/WdeYP/MM7UWsH1csppi2B9OmHcadaxQAB7rSdUMO88vChkvzWHlnaOAMNY3E9kzj
-	YlEIiT/gpzhuRdIF9i+ZsYih2tE6OCGdyYZPivT13VhF47aqVNggzxs44RVaAE50lq5Kk7DqpQT85
-	3kL00EpqvocVv46fA5O9h20kwOiY36D+3rCnV3QJBK9J3mi/lpQxxFZEFH0TYd4KwzqKOoGNoqtbu
-	q1OUjDVQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetvw-00000002jUo-0rFp;
-	Wed, 01 Jul 2026 12:20:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908450;
-	bh=D8xSYkpIyl50Azpbz1Ovm3/ITMW8MoCD/TiEbkzX/jw=;
+	id 1wewQr-00000002MQc-03uy;
+	Wed, 01 Jul 2026 15:00:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wewQo-00000002MPo-0vr5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Jul 2026 15:00:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6734F2309;
+	Wed,  1 Jul 2026 08:00:45 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 861233F85F;
+	Wed,  1 Jul 2026 08:00:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782918049; bh=1tBpbtauY31MpOCadF4QZFHUFEmduYVt/xowXA5+NRE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dHDcqsedFd/kZVRR/4ve7GtOgmycdE7Op4ya+bnevyvQ4lEMNiPk8jVTkC7ZgK2dB
-	 Qf6PS8wvdQMpISu4N7Kx8hUhWl3ngEECh95NDu7LdsRdiynLKL0Qfx0aOrQxGVv1T+
-	 zg5UmZRT7D0qozy4TVFPr+tGn8uHAAmUH9mzCVCZNVeAok8t+7/XgGIAXdNStFFHWs
-	 DKKPwvTdEDXCGzP/ZUM0aMow6xmbg0NGKwHR37z9LFQ70L5HMa/guK9XMTJb97dGJB
-	 FHcJczU+HF6PBSSTlbF4KoDX3npb9AWdoulnD/x3pxJEVO98UvYOEHRNgCPqNxQfra
-	 RDfs0mhzLLisQ==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 54A5817E0CA2;
-	Wed,  1 Jul 2026 14:20:49 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	andi.shyti@kernel.org,
-	djakov@kernel.org,
-	broonie@kernel.org,
-	jitao.shi@mediatek.com,
-	ck.hu@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	b=Ve+im/gbWHAgIKdjnicMRWA9PKd2f4Wgpy8dVWGVMGEbHG/6KAPAEDPJB9QmcOxih
+	 arxD1lfj/7uZcphvmjzqmRwWDxv0yMMYKOEGjN95pSJUakVPZT9om8oHyMaSBX0F+W
+	 ggvYHX9kWK5EiCmaRvFyLh9i3EZe1YZCJpBGKbWg=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH 3/6] dt-bindings: display: mediatek: Allow trigger-sources on relevant HW
-Date: Wed,  1 Jul 2026 14:20:40 +0200
-Message-ID: <20260701122043.19612-4-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 3/6] KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
+Date: Wed,  1 Jul 2026 16:00:41 +0100
+Message-ID: <akUrmfQnKmIXTigs@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20260630121005.1130996-4-weilin.chang@arm.com>
+References: <20260630121005.1130996-1-weilin.chang@arm.com> <20260630121005.1130996-4-weilin.chang@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132053_094356_C41C1687 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20260701_080054_435535_C6E548A4 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,317 +83,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Most of the MediaTek Display Controller hardware sub-IPs need a
-specific (and reserved to them) MuteX trigger.
+Hi Wei Lin,
 
-Since now MuteX is a trigger source, allow specifying trigger
-sources in all of the display IPs that support one.
+On Tue, Jun 30, 2026 at 01:10:02PM +0100, Wei-Lin Chang wrote:
+> ptdump files can still be read after the pgt of the canonical mmu is
+> freed, if they are opened before the VM debugfs directory is removed.
+> This triggers UAF in places where we cache the pgt pointer or access it
+> without checking its validity.
+> 
+> Check the pgt is still alive under the mmu_lock before accessing the
+> pgt.
+> 
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/patchset/20260623142443.648972-1-weilin.chang@arm.com?part=1
+> Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> ---
+>  arch/arm64/kvm/ptdump.c | 38 ++++++++++++++++++++++++--------------
+>  1 file changed, 24 insertions(+), 14 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> index d5aa9eff08d1..752d8e0cd25c 100644
+> --- a/arch/arm64/kvm/ptdump.c
+> +++ b/arch/arm64/kvm/ptdump.c
+> @@ -115,13 +115,21 @@ static int kvm_ptdump_build_levels(struct ptdump_pg_level *level, u32 start_lvl)
+>  static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
+>  {
+>  	struct kvm_ptdump_guest_state *st;
+> -	struct kvm_pgtable *pgtable = kvm->arch.mmu.pgt;
+> +	struct kvm_pgtable *pgtable;
+>  	int ret;
+>  
+>  	st = kzalloc_obj(struct kvm_ptdump_guest_state, GFP_KERNEL_ACCOUNT);
+>  	if (!st)
+>  		return ERR_PTR(-ENOMEM);
+>  
+> +	guard(write_lock)(&kvm->mmu_lock);
+> +	if (!kvm->arch.mmu.pgt) {
+> +		kfree(st);
+> +		return ERR_PTR(-ENXIO);
+> +	}
+> +
+> +	pgtable = kvm->arch.mmu.pgt;
+> +
+>  	ret = kvm_ptdump_build_levels(&st->level[0], pgtable->start_level);
+>  	if (ret) {
+>  		kfree(st);
+> @@ -137,7 +145,6 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
+>  
+>  static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+>  {
+> -	int ret;
+>  	struct kvm_ptdump_guest_state *st = m->private;
+>  	struct kvm *kvm = st->kvm;
+>  	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
+> @@ -154,11 +161,11 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+>  		.seq		= m,
+>  	};
+>  
+> -	write_lock(&kvm->mmu_lock);
+> -	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> -	write_unlock(&kvm->mmu_lock);
+> +	guard(write_lock)(&kvm->mmu_lock);
+> +	if (mmu->pgt)
+> +		return kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- .../devicetree/bindings/display/mediatek/mediatek,aal.yaml     | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,ccorr.yaml   | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,color.yaml   | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,dither.yaml  | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,dp.yaml      | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,dpi.yaml     | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,dsc.yaml     | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,dsi.yaml     | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,ethdr.yaml   | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,gamma.yaml   | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,merge.yaml   | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,od.yaml      | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml  | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,ovl.yaml     | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,padding.yaml | 3 +++
- .../bindings/display/mediatek/mediatek,postmask.yaml           | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,rdma.yaml    | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,split.yaml   | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,ufoe.yaml    | 3 +++
- .../devicetree/bindings/display/mediatek/mediatek,wdma.yaml    | 3 +++
- 20 files changed, 60 insertions(+)
+IIUC, that's the same behavior, right?
+Just changed to look about the same with the rest of this file?
 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
-index 4bbea72b292a..41d60a3d8007 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,aal.yaml
-@@ -55,6 +55,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: AAL Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
-index 5c5068128d0c..e148aa57b1b9 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ccorr.yaml
-@@ -47,6 +47,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: CCORR Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
-index 5564f4063317..7c0985d0f9ea 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,color.yaml
-@@ -57,6 +57,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: COLOR Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
-index 891c95be15b9..85a1746965b9 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dither.yaml
-@@ -45,6 +45,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: DITHER Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-index 3a752a99949a..d8cfac0326ba 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dp.yaml
-@@ -42,6 +42,9 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   interrupts:
-     maxItems: 1
- 
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-index eb4f276e8dc4..f5be6c1e4b0e 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dpi.yaml
-@@ -109,6 +109,9 @@ properties:
-     items:
-       - const: dpi
- 
-+  trigger-sources:
-+    maxItems: 1
-+
- required:
-   - compatible
-   - reg
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
-index c8b3e86943e4..4863db6aba6e 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsc.yaml
-@@ -43,6 +43,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   mediatek,gce-client-reg:
-     description:
-       The register of client driver can be configured by gce with 4 arguments
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
-index b5cdfe0eaca4..a9793b274070 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,dsi.yaml
-@@ -73,6 +73,9 @@ properties:
-     items:
-       - const: dphy
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   port:
-     $ref: /schemas/graph.yaml#/properties/port
-     description:
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
-index 98db47894eeb..89370690ee71 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ethdr.yaml
-@@ -100,6 +100,9 @@ properties:
-       - const: gfx_fe1_async
-       - const: vdo_be_async
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   mediatek,gce-client-reg:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     minItems: 1
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
-index ec1054bb06d4..4d06085e6014 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,gamma.yaml
-@@ -54,6 +54,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: GAMMA Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
-index 3798a25402d3..656df51335b5 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,merge.yaml
-@@ -47,6 +47,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     minItems: 1
-     maxItems: 2
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
-index 930c088a722a..c912ae2493c3 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,od.yaml
-@@ -60,6 +60,9 @@ properties:
-       - port@0
-       - port@1
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   mediatek,gce-client-reg:
-     $ref: /schemas/types.yaml#/definitions/phandle-array
-     description: describes how to locate the GCE client register
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
-index ac0d924a451b..326223b36112 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl-2l.yaml
-@@ -40,6 +40,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: OVL-2L Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-index 4df5c7b410c6..dc200068d617 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ovl.yaml
-@@ -61,6 +61,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: OVL Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
-index 86787866ced0..9dac0319dd60 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,padding.yaml
-@@ -34,6 +34,9 @@ properties:
-   power-domains:
-     maxItems: 1
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: Padding's clocks
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml
-index fb6fe4742624..caef5194371f 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,postmask.yaml
-@@ -40,6 +40,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: POSTMASK Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
-index d914c06640df..13deb7c87ee6 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,rdma.yaml
-@@ -60,6 +60,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: RDMA Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml
-index 4b6ff546757e..7307a50fa30f 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,split.yaml
-@@ -40,6 +40,9 @@ properties:
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
-     maxItems: 1
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   mediatek,gce-client-reg:
-     description:
-       The register of display function block to be set by gce. There are 4 arguments,
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
-index 036a66ed42e7..31e0863dd815 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,ufoe.yaml
-@@ -39,6 +39,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: UFOe Clock
-diff --git a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
-index c3ed867d058d..3e6b346baa11 100644
---- a/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
-+++ b/Documentation/devicetree/bindings/display/mediatek/mediatek,wdma.yaml
-@@ -45,6 +45,9 @@ properties:
-       the power controller specified by phandle. See
-       Documentation/devicetree/bindings/power/power-domain.yaml for details.
- 
-+  trigger-sources:
-+    maxItems: 1
-+
-   clocks:
-     items:
-       - description: WDMA Clock
--- 
-2.54.0
+>  
+> -	return ret;
+> +	return 0;
+>  }
 
+So if the pgt does not exist anymore, it returns zero. Is that the desired 
+behavior?
+
+I guess it's aligned with the idea of single file mentioned in the cover, 
+right?
+
+>  
+>  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+> @@ -206,17 +213,23 @@ static const struct file_operations kvm_ptdump_guest_fops = {
+>  
+>  static int kvm_pgtable_range_show(struct seq_file *m, void *unused)
+>  {
+> -	struct kvm_pgtable *pgtable = m->private;
+> +	struct kvm *kvm = m->private;
+> +
+> +	guard(write_lock)(&kvm->mmu_lock);
+> +	if (kvm->arch.mmu.pgt)
+> +		seq_printf(m, "%2u\n", kvm->arch.mmu.pgt->ia_bits);
+>  
+> -	seq_printf(m, "%2u\n", pgtable->ia_bits);
+>  	return 0;
+>  }
+>  
+>  static int kvm_pgtable_levels_show(struct seq_file *m, void *unused)
+>  {
+> -	struct kvm_pgtable *pgtable = m->private;
+> +	struct kvm *kvm = m->private;
+> +
+> +	guard(write_lock)(&kvm->mmu_lock);
+> +	if (kvm->arch.mmu.pgt)
+> +		seq_printf(m, "%1d\n", KVM_PGTABLE_MAX_LEVELS - kvm->arch.mmu.pgt->start_level);
+>  
+> -	seq_printf(m, "%1d\n", KVM_PGTABLE_MAX_LEVELS - pgtable->start_level);
+>  	return 0;
+>  }
+>  
+> @@ -224,15 +237,12 @@ static int kvm_pgtable_debugfs_open(struct inode *m, struct file *file,
+>  				    int (*show)(struct seq_file *, void *))
+>  {
+>  	struct kvm *kvm = m->i_private;
+> -	struct kvm_pgtable *pgtable;
+>  	int ret;
+>  
+>  	if (!kvm_get_kvm_safe(kvm))
+>  		return -ENOENT;
+>  
+> -	pgtable = kvm->arch.mmu.pgt;
+> -
+> -	ret = single_open(file, show, pgtable);
+> +	ret = single_open(file, show, kvm);
+
+Maybe this change is more related with the previous patch?
+
+>  	if (ret < 0)
+>  		kvm_put_kvm(kvm);
+>  	return ret;
+> -- 
+> 2.43.0
+> 
+
+Thanks!
+Leo
 
