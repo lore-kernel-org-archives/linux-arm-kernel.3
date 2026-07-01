@@ -4,96 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A910CC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD0DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=54H8ja6qkwc+zSll+xVZzhQ87dmwI3XRpSBDJRGLWNs=; b=uILiIUVFP5f1QlT+ulYNuLGNy2
-	R1UIwCewK76zloeWCWnQ5XdpCSsq88o3RpWEJnMPkJodx5S/O4bID4/6NDYLPWpuEc/PwXr5W27Vh
-	HR4kgqzIQPtNB154ciZDaqEPR1ss/fbuRGekZYCtCyeTBUf0W4kTgZ5A3rKkg//lqVTN6qqkUTduX
-	TFWTk/3CJKRzJq1jxEukgrkTSj5JPwimWjX+Ara8u08nUCnHckJuGVIE+Tj93RY/Y68k40p6lk0Ws
-	2TrpjNtExS1DYJJ1u+2pym8Y/wqvhSiUWKxvQpM4EkoG0R2qe6zqcfGXjd/de9fTrRnO9WKdf4zKw
-	NVZ1Zccw==;
+	bh=qS13cSENFGcBB0bnz6k1QAxOjQr0kz2UqGp/5+eDOd8=; b=WfHsQHcnprDIXaXkQQqK3eYB5w
+	R0BcC+nM0bi6m4QhECWM9CTRsMbFU4IWvxqFH+lG+T81lgka8a9SNlK0hGPwVKueJHm+D6yu/5c5p
+	5c4e+dBJwTV2Dp+RibWj5Q6hbpM/J72/v7Usx2wEXKQaTNIXPmlreaYRN2ku5mtO2nh/e9/W6zTCv
+	8NGvuAD8EZSooSNNAHIRiGBIucj/NBFijdbda56hhViiwnTBT8hVoNVVuvgwngeDgvajz3tETJeKe
+	iAUAG34K/pnEMDTaNa1URRYwoJYp2HwAaXDGopFXVyiTnCk6jb7+OU97fgy/lY+HgvOFJYoDDk01F
+	fD3T4HLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wev2p-00000002Bfk-0ifn;
-	Wed, 01 Jul 2026 13:32:03 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wev7K-00000002C7N-3gHi;
+	Wed, 01 Jul 2026 13:36:42 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wev2j-00000002Bco-3Kld
+	id 1wev7J-00000002C6k-1B7w
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 13:32:01 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-472a14c9965so557020f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 06:31:55 -0700 (PDT)
+	Wed, 01 Jul 2026 13:36:42 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c9b2ac97cdso39525ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 06:36:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782912714; x=1783517514; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=54H8ja6qkwc+zSll+xVZzhQ87dmwI3XRpSBDJRGLWNs=;
-        b=JK14S8Q0810G40ahOg6hJ/tkRF2JCio4Pjxa8qEy5Acd0yJ78qh0cKy0tj4Ne8W1lb
-         fJ3SvTQj1w8tK4rYwDeKAifPL3M+zmczutd0qAzw4vmEUBCnEoI6SnjIuG38PElx6xMr
-         sYRkgxrCDYla99q1H++BW4iLLE14J6UEcu56sjygfc6s+lu2V+LUZk60ZwmBN66zQ8cP
-         wjxz2eCl7wmqRQ62YeLNYGUMTMGLDxx/vq7C+Ln+Ea9RKYc4Uh1tzZ5i5e396dOktm8i
-         xD0C2gpaMslcdOEdcLjgQGZmJiU6EEx5MHk0ymJS9XdKxAAzKTuYxfkYxi//Js0sroaS
-         jI9A==
+        d=google.com; s=20251104; t=1782912999; x=1783517799; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qS13cSENFGcBB0bnz6k1QAxOjQr0kz2UqGp/5+eDOd8=;
+        b=bSjsoUxz+8GMD0F6sIzmDqawm4mwBnpXVbUF8jId+gGZuNC3Z+2Y6uDZVo3BkkWK4I
+         tI8OBJbzAvfpBl+XM5PCmRxl9/3jOSUT2Nt+HG+4sByJsBl8zXmntwSy1Q6kBSAnz2ee
+         YZij3S+zQfzC0YNJq5hKJen7PxInQIoUo0TjMD0+ENo6E0tSqMOj4KHaGUL9fGpYku42
+         4qwaWklRuV00XW2Sm4TtZl92dJvLJnFAezG2eB1OEPev87wSOPZ/7CXfC9sl/QFZ/rb3
+         8R98LX2uZ5v05QeYJyeQRJQ6muguCkL/1Yfw3jQsgdWqTQdKi5EtRJqpkHshhNbU5YcE
+         /2Bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782912714; x=1783517514;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=54H8ja6qkwc+zSll+xVZzhQ87dmwI3XRpSBDJRGLWNs=;
-        b=FSVkFfBd6W/u0/aGpc76xQhddzckhTJDlSGB5u2gxOXSEZjW5wy6g+LdjST8RXri0f
-         ca+023nJsZSZU5mFuonlkRq7nVRsiijdeTsB4tPeJVBWNqfc+6c2y3lEIQkHulWwtf7x
-         PO/quiX0asWnfDElKotG3yI5jFfBoZVWyX8fcBlS4jUOp6ARGYgsUVOGwhOdfaBPvQYh
-         +zIIM0Lb/VDdABIDHhwwQKflIq1zrVC2hweq5M0rlp5Sqm7Mlf+yljlvpXG7aT4Trk5W
-         oP4nH9aIOrlqc6uFrb0/ocmWiz8C4O7dYa7800vIg2I7l/Ex3LYvfjhksRhYInskUu5o
-         5dww==
-X-Forwarded-Encrypted: i=1; AHgh+RpuaQMZ0sSiJ1QAagrZJ8qfJn+sO3jlIoB8YtErw6cKTnEz2omzgedqHANXmMj7zw/jau5wpLpwwUS0rY7wiJOl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTh05ika9erednOaI7U+0LgUfLWLU0a9Y7kMuLu6goSxsGoOQT
-	xDS0hUN8duGqDhHVYvG3qegnqmUPYCPH/O/McLQ8OWxqLZBgnzNpp/iOeIRKZcX0xQ==
-X-Gm-Gg: AfdE7cnVZeb5owllfPESUYFqzHsY4v/BmQZ+I0F1c6X53mhnUVGrs4Jimd2/AXaENmK
-	oHJcmMbSb52oRNkxhd41A+d4WWArMzT/3iI8Dvq6lBOv/ts/FfjZhAzF2gI53ek+u+Bl/XfoarE
-	3PgzavdoPzY3KJAOLjDJ4CVp02GoPkqcfITed/ZUDDzNNt3YzArPjvVn2cXquRat9QPRAj0B6iY
-	9YFJUJtfTDLNUQCCMuRXo3tm8FpnBxeymB8TlCAe+3CxyS2jJa8rYCq2c4ziO34H8yNQEiCN6Sn
-	ERLsAZatV+fljkszMNqFcHxKg74fROShvtNb0wW9PX7/fq5BUXFgp7xzxtVx+43FrvdJK3V3nz+
-	XwESwM+tbGEXq44hogKYcOhiRkWAZhe1868g0aOn8Akwbup5eIhZ5zDVndIekQ5gqbt2Nb3dwvK
-	dyQf5u98n5Pa63B/NFrFNiHWCUQvO8SLOQQ3Q6vCaubWJF2reeG0dIjulALSXLKA==
-X-Received: by 2002:a05:6000:29db:b0:475:f0c2:5b02 with SMTP id ffacd0b85a97d-4775b45b05emr2137424f8f.56.1782912713855;
-        Wed, 01 Jul 2026 06:31:53 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-475641e4542sm18270184f8f.10.2026.07.01.06.31.52
+        d=1e100.net; s=20251104; t=1782912999; x=1783517799;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qS13cSENFGcBB0bnz6k1QAxOjQr0kz2UqGp/5+eDOd8=;
+        b=FDavnKUieyMD4LtG9xsZeRtXkob1M9FK8NrrURefElxZG5rBmvgQDG61ISI9v7YUJf
+         PihZ+lqc+043UrA64zEBMnS/cozSp7xxyLfdtLhtW+0IYyUwV1iFcUPT6yBAEjypqu+E
+         alPpcVRfbMwk3vpzYuEzAqMDw6B7apZV40DnUY9EOFA3oEr898mc+KSCXDdjZUJf0bA8
+         Tg4UBt+2pRBZlIjn03R+57v5qUVkr1vuSZYVZbOFl3okqgChEsUXo23AV4AA4u9AoKUa
+         YJn1/OdNQADuOqXoKWQf2F1rCzi9MG6MMryQuvbSTfsBcowoyTpnKodaFsrGK1PGdjmi
+         vysQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqqV7sC6O+ewDNOm72P8rWVsONI5dAiK/c2xHE843aV6hD9+3NZNXGPIQ0N5m6wBpzV+RL3lT9OozohfpA2nYh3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxA2/lHN8ORvJ/Ql1z+Fk5+UQWmYrhQzAxl4A0P9jfPxuuTkGMs
+	rTOdyZYdR9eTpzMYGCMMQc/dr5Gzm73TxIQwjhbII3mx4RXXzojivM++ggjEYz3moA==
+X-Gm-Gg: AfdE7clUe0UM2nmMB0JEOy5oU7isZ0AMs59cZ9WBtC1njgSGltrgQwNRinmeCTvoiNw
+	2VPAWWsNHE5aTJxVbkClXK36J+sO8AEviavMz5hl6WL3LBdgwi9tLPBctT+4004g9jw4jgl+7sv
+	LsX22DelF2BMYS7jTdKeVzYGOszzsiXI4jE6DtL//pYtNZKROF1ZUCPbZ1RwKe0piaFVQcegpW4
+	zwaoxLeEKhRrsKgWRHFnIVnAr7Jmwd5Xqi2ZURbNkLJhhQwEg3jqT9/DNfcQ1RE4Ei/x/ClD4tx
+	Biuv/wVdjW/WjYhwoy2pfWx6dpkahZTt52lC3QNswhxJnLgdsI809jDHPmRirBZyWeXG2oCOi2x
+	Mo+vTshw1nKkNXRhjnGjtcoHUoq9vaDiQNcSJegrVpr972RoWj8ay7qdeV/RT3kjkGmmW2TpBTP
+	5toaIHd/t7HYWTsSEBwsNxJj6MmPVe4G8YhLGD1c7gaYj+AT4=
+X-Received: by 2002:a17:903:283:b0:2ca:1bbe:c3e0 with SMTP id d9443c01a7336-2ca8f1bb537mr296825ad.0.1782912998682;
+        Wed, 01 Jul 2026 06:36:38 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8479fffa65bsm4111750b3a.21.2026.07.01.06.36.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 06:31:52 -0700 (PDT)
-Date: Wed, 1 Jul 2026 14:31:49 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Bradley Morgan <include@grrlz.net>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] KVM: arm64: skip pKVM cache flushes for non
- cacheable mappings
-Message-ID: <akUWxY_irosuTF4L@google.com>
-References: <20260624160028.15591-1-include@grrlz.net>
- <20260624160028.15591-2-include@grrlz.net>
+        Wed, 01 Jul 2026 06:36:36 -0700 (PDT)
+Date: Wed, 1 Jul 2026 13:36:29 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>, Nicolin Chen <nicolinc@nvidia.com>,
+	will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	kees@kernel.org, baolu.lu@linux.intel.com, kevin.tian@intel.com,
+	miko.lenczewski@arm.com, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, jamien@nvidia.com
+Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <akUX3T3fIoN42sdM@google.com>
+References: <cover.1782799827.git.nicolinc@nvidia.com>
+ <akPB6l-fuJUcg4a2@google.com>
+ <akPX_N0P2EcI_jbV@google.com>
+ <akPhuF9pAWaBXzpi@google.com>
+ <20260630185942.GF7481@nvidia.com>
+ <akUQj2pa1W-MekgF@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260624160028.15591-2-include@grrlz.net>
+In-Reply-To: <akUQj2pa1W-MekgF@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_063157_862803_02177784 
-X-CRM114-Status: GOOD (  26.51  )
+X-CRM114-CacheID: sfid-20260701_063641_324658_DD328321 
+X-CRM114-Status: GOOD (  36.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,151 +109,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 04:00:26PM +0000, Bradley Morgan wrote:
-> pKVM keeps its own mapping list for stage 2 operations. Its flush path
-> uses that list directly, so it lost the PTE attribute check done by the
-> generic stage 2 walker.
+On Wed, Jul 01, 2026 at 01:05:19PM +0000, Mostafa Saleh wrote:
+> On Tue, Jun 30, 2026 at 03:59:42PM -0300, Jason Gunthorpe wrote:
+> > On Tue, Jun 30, 2026 at 03:33:12PM +0000, Mostafa Saleh wrote:
+> > 
+> > > For example patch#1 verifies log2size and split and both are read
+> > > from HW registers. Same for the base address or other addresses as
+> > > the page tables, they  might be corrupted due to a buggy driver.
+> > > My point is that, it is really hard to assume that the previous state
+> > > of registers/STE/page-tables were valid or even consistent, when the
+> > > kernel crashed and did not transition the state gracefully.
+> > 
+> > Sure, and this mechanism is probably not very useful for debugging
+> > these kinds of errors in the SMMU driver. Oh well, that isn't a common
+> > source of kernel crashes :)
 > 
-> Record whether a mapping is cacheable and skip cache maintenance for
-> mappings that are not cacheable.
+> I hope not! Although memory corruption can happen due to many other
+> reasons :/
 > 
-> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
-> Signed-off-by: Bradley Morgan <include@grrlz.net>
-> ---
->  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
->  1 file changed, 41 insertions(+), 10 deletions(-)
+> I am not trying to bikeshed, but I wondering if there is a more
+> reliable way rather than doing archaeology from a panicked kernel
+> SMMUv3 configuration, as I am worried that will be even harder to
+> debug if it goes wrong.
 > 
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 428723b1b0f5..ca6e823028c2 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
->  	return m->gfn * PAGE_SIZE;
->  }
->  
-> +#define PKVM_MAPPING_NR_PAGES_MASK	GENMASK_ULL(47, 0)
-> +#define PKVM_MAPPING_CACHEABLE		BIT_ULL(48)
-
-Probably better to make it "_NC". Protected VMs only support cacheable and they
-also use struct pkvm_mapping. 
-
-> +
-> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
-> +{
-> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> +}
-> +
-> +static bool pkvm_mapping_is_cacheable(struct pkvm_mapping *m)
-> +{
-> +	return m->nr_pages & PKVM_MAPPING_CACHEABLE;
-> +}
-> +
-> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64 nr_pages,
-> +				      bool cacheable)
-> +{
-> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
-> +
-> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> +	if (cacheable)
-> +		m->nr_pages |= PKVM_MAPPING_CACHEABLE;
-> +}
-> +
->  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
->  {
-> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
-> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
->  }
-
-Perhaps using a bitfield would heavily simplify this code?
-
-struct pkvm_mapping {
-  ...
-  u64 nr_pages : 63
-  u64 flags : 1
-}
-
-Or alternatively, could just make nr_pages u32 and flags u32. nr_pages will not
-exceed PMD_SIZE / PAGE_SIZE, which is at worst 8192 on 64K systems.
-
->  
->  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
-> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
->  			continue;
->  
->  		page = pfn_to_page(mapping->pfn);
-> -		WARN_ON_ONCE(mapping->nr_pages != 1);
-> +		WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
->  		unpin_user_pages_dirty_lock(&page, 1, true);
->  		account_locked_vm(kvm->mm, 1, false);
->  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
->  
->  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
->  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
-> -					mapping->nr_pages);
-> +					pkvm_mapping_nr_pages(mapping));
->  		if (WARN_ON(ret))
->  			return ret;
->  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
->  		 * permission faults are handled in the relax_perms() path.
->  		 */
->  		if (mapping) {
-> -			if (size == (mapping->nr_pages * PAGE_SIZE))
-> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
->  				return -EAGAIN;
->  
->  			/*
-> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
->  	swap(mapping, cache->mapping);
->  	mapping->gfn = gfn;
->  	mapping->pfn = pfn;
-> -	mapping->nr_pages = size / PAGE_SIZE;
-> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
-> +				  !(prot & (KVM_PGTABLE_PROT_DEVICE |
-> +					    KVM_PGTABLE_PROT_NORMAL_NC)));
->  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
->  
->  	return ret;
-> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
->  	lockdep_assert_held(&kvm->mmu_lock);
->  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
->  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
-> -					mapping->nr_pages);
-> +					pkvm_mapping_nr_pages(mapping));
->  		if (WARN_ON(ret))
->  			break;
->  	}
-> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
->  	struct pkvm_mapping *mapping;
->  
->  	lockdep_assert_held(&kvm->mmu_lock);
-> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-> +		if (!pkvm_mapping_is_cacheable(mapping))
-> +			continue;
-> +
->  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
-> -					  PAGE_SIZE * mapping->nr_pages);
-> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
-> +	}
->  
->  	return 0;
->  }
-> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
->  
->  	lockdep_assert_held(&kvm->mmu_lock);
->  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
-> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
-> -					   mapping->nr_pages, mkold);
-> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
-> +					   handle, mapping->gfn,
-> +					   pkvm_mapping_nr_pages(mapping),
-> +					   mkold);
->  
->  	return young;
->  }
-> -- 
-> 2.53.0
+> >  
+> > > Similarly for TLBs, the kernel might have panicked in the middle of an
+> > > unmap or free domain. (not to mention what that means for RPM where
+> > > a device reset with unknown TLBs)
+> > 
+> > TLB is fine. kdump works by carving out a chunk of memory for the
+> > future crash kernel. When the kernel boots it ignores all the memory
+> > used by the prior kernel. So DMA can keep running into the old kernels
+> > memory with no issue. It doesn't matter if the TLBs are inconsistent or
+> > not.
 > 
+> Ideally if a TLB is to be missed (because of the panic), it should not
+> point to kdump memory as it is carved-out. However, it is still a leap to
+> assume that the TLBs are in a good shape as I mentioned with RPM (or
+> even if the device resets transiently for some reason) it can end up
+> with garbage in its TLBs.
+
+Regarding RPM, I can say that even if we panicked while SMMU was off in
+the previous kernel, when we call device_reset() in the new kernel we
+still issue the TLBI_ALL with the reset.
+
+However, I agree with the overall problem, i.e. IF an active device
+unmaps the DMA addr after the transaction in the previous kernel, 
+(with the SMMU powered ON) but the TLBI was missed due to a crash/panic,
+Any new DMA in the new kernel may alias onto a memory in the previous 
+(crashed) kernel, not the kdump kernel.
+
+That way, I agree that continuing DMA could be problematic as we may
+corrupt the very memory we'd wanna analyze for a crash.
+
+Thanks,
+Praan
+
 
