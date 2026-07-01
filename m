@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51CBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA3CAC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 13:11:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DyFW4FsiViZhChF5WNm3j2DSLPGRx4pDfa8+DQlXgTA=; b=AOwEvJ3FZb5W+PlfzT/lN6fC0f
-	aVkNxYdNYtOQROy0+az/G3dLK8jBwVontmeN8VgZWLGSF4Crg9HESSJ4vWGurM/t1PEJ7ymDsTsBe
-	SV1JXCqG1zmOVxpnQcECx2o7KGJ0IENXCf053WYrELnjKchU6dJBNkvyKYp7awR4CgeVnoakKSGzZ
-	BXpvlaj8+f7jWiWOYEazJO/+3pCIGreRd5UpSrFXFWVC65RWRVGwbRFAY6YrgB/tq0PahfK+XIdIs
-	WgJt1ij4qA1BfAptdE25K6K238Zu07sVeg07glDDpqJKTgZ0FcgAi6k+9GzHrpC4MW6aE6zxEApnp
-	U8iOMCEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YOMYfvgj8yW4Pi/ltVPNg/vq+kvQKnAhZDTE4qutt1I=; b=U/FQ4iwI+Cjhf1
+	0Cn9WrKzzlWMT6VS9DcH6H2H4zIoLi5yOQG2RZwcfCQMYULPtgG8glH+WCzAPgs0Zh+UnhGPOs9zi
+	FNyhFcVgKI1e52qo33W4hTQ3CDzU3EmvFAJklQsbtVsH5d7oBSthW9sP0sEgQPJ/+OE924nRAaxwc
+	iPi0Njor9reIdYou6HafmtCO9vjvMISXTz5n1rSfgmVVQJUSYo93K6xbRWNC84rEcRZmliUx2ppmx
+	7T/0608NE2e4m+/enCYSQlkLebbc6Hz8qNHZlwsO+BbVDTUZVX6yTqWge42zS98pPF4QxtG6aDWZ6
+	5I6xq3EIBxjAVFJP/rOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwO-00000001u2Y-1hLf;
-	Wed, 01 Jul 2026 12:21:20 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1weuip-000000027Vr-2xLK;
+	Wed, 01 Jul 2026 13:11:23 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetw0-00000001syE-2yBP;
-	Wed, 01 Jul 2026 12:21:05 +0000
+	id 1weuin-000000027V1-176P;
+	Wed, 01 Jul 2026 13:11:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908454;
-	bh=vThzxJlHLKd0/LM3ByMjHSDiXV6pWjm3bFhD8BN6jBE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lv+tH98MQ3KS8IcO9xPUQHUXG2ljNZ7SL/6cX/Kg4s5fDfalBbKGe533iSgoh5UfE
-	 C+VvN/C5WBA1MRxYGLhcoRoCwD0zViEV5jmDnNZRoiIoZ9kZMIMejiJb3LMF7ad5Ae
-	 iErI2093tCqsWAQIOsUO+alfabWAJ4YBoI4pBEshN/edHRiAy+pf7SlzKphHPCjTZ5
-	 zgMTp0rNyg4i2N1Hke4Qm43AFZrc7sru+/JWaLqmet0AcsI/lhvnGojiaRIlXD6WB1
-	 UF8eUBPCJBfoB6ZuuASeNWiaq7AAjMqNB3JoBINMSpcr6raeOpU57kHykdKndlEErJ
-	 9Mt2SAj2jJkcA==
-Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	s=mail; t=1782911478;
+	bh=QIxKF0eP1N9vophR0MT1mP0a00BGi/R2xAljGm0nClI=;
+	h=From:Subject:Date:To:Cc:From;
+	b=hY0yNAyENtU/BPDjFqBMzUvBArPfg8rFQE7Ao9LMEhM3qBg0XylsoBpUbPpsKP/U8
+	 DM8w7VsHwSznUTFlFN0QSQOTW/q/+k7A6Vpzr9wpd0AQ69LZpIg5gAUz+VceTGBFy7
+	 Yk15qH+QnAPDaynqBOSRGEZa1bK78mUaKszOkCD81d3FntYt7fxvQ9v/Wf+6rJtU9C
+	 khhoaZ4DtjjmJhI6mWupLB+hh18f1lOKiGGmomDKrLqfXbZdjMsNoAeJEQr4gU734h
+	 MwcLhUpSoSPK5/9tj7wQktVF62ALUpREI/myOvspiXgczlRs9qRwPS65H2XZta8KzA
+	 tymUaDFwuzvHQ==
+Received: from yukiji.home (unknown [100.64.0.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 83F6217E0FB0;
-	Wed,  1 Jul 2026 14:20:52 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	andi.shyti@kernel.org,
-	djakov@kernel.org,
-	broonie@kernel.org,
-	jitao.shi@mediatek.com,
-	ck.hu@mediatek.com,
-	dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	kernel@collabora.com
-Subject: [PATCH 5/6] soc: mediatek: mtk-mmsys: Rework routes to specify component ID
-Date: Wed,  1 Jul 2026 14:20:42 +0200
-Message-ID: <20260701122043.19612-6-angelogioacchino.delregno@collabora.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B636A17E0CA2;
+	Wed,  1 Jul 2026 15:11:17 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH 00/15] MT8189: Add support for system and base clock
+ controllers
+Date: Wed, 01 Jul 2026 15:11:05 +0200
+Message-Id: <20260701-mt8189-clocks-system-base-v1-0-2b048feea50a@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWNQQ7CIBBFr0Jm7SSATVt7FdMF4qBEAcugqWl6d
+ 0kbl+8n778FmLInhkEskOnj2adYQR0E2LuJN0J/rQxa6la2R4mh9Ko/oX0m+2DkLxcKeDFM2Ml
+ ONdQ4p42B6r8yOT9v3+dx50zTuybKPsKm2RSCL4OINBf8Z2Bc1x+8LNctnAAAAA==
+X-Change-ID: 20260630-mt8189-clocks-system-base-70714e4ff2aa
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chun-Jie Chen <chun-jie.chen@mediatek.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Edward-JW Yang <edward-jw.yang@mediatek.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ netdev@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ Irving-CH Lin <irving-ch.lin@mediatek.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782911477; l=6133;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=QIxKF0eP1N9vophR0MT1mP0a00BGi/R2xAljGm0nClI=;
+ b=FdeE+8779Wq/oPJZpNVjjjWbQY4g2eRPA17K9WqARCgWMQnlsWZYkaCB7i4UMR5508qwj9uLr
+ 5dQvAG4F5yyDpuCEms1WonOcn1eOhQUl3Hn0lqf//hFsRP2FDXsewib
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_052058_234535_FBC39779 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260701_061121_470538_FB37C934 
+X-CRM114-Status: GOOD (  17.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,986 +96,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for a refactoring of multimedia related MediaTek
-drivers, including mmsys, mutex and mediatek-drm, rework all of
-the MMSYS routes to specify a hardware component instance number
-(or "SubID") alongside the hardware component type.
+This series is a continuation by AngeloGioacchino Del Regno and I of a
+previous series ([1]), that adds the clock controller support for
+the Mediatek MT8189 SoC and its variants (MT8371, MT8391).  
 
-This also is one step of preparation towards the removal of the
-catch-all mtk_ddp_comp_id enumeration and towards the migration
-from a predefined-coupling static hardware component IDSubID
-mapping (carrying around a very long enumeration and also some
-multiple big arrays in mediatek-drm) to a more flexible map of
-Component ID (Type) decoupled from Component SubID (HW Instance)
-as then, anyway, techniques to handle components are always the
-same on a type basis.
+The first major changes is the split of the series in two:
+- one for all basic clock controllers including system ones (this
+series)
+- one for the multimedia and graphics related clock controllers (to be
+send in the future)
 
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+We chose to separate the multimedia clock drivers from the base system
+ones, as there is currently an unsolvable inter-dependency between the
+power domains and multimedia clocks; the power domains need a
+dual-stage bring-up, where only a part of the multimedia clocks are
+accessible in the first power domain powerup stage, and the rest when
+the second stage (SRAM enablement) is done.
+The current workarounds for this issue, such as removing the is_enabled
+operation from the impacted clock controllers clk_ops table or
+let the multimedia power domain always on, were quickly discarded
+for upstream.
+
+The second major change is the dt-bindings patch that got heavily
+reworked, not only because of the split choice. We took the opportunity
+to regroup in the MT8186 clock and system clock dt-bindings the
+description of several other Mediatek SoC (MT8188, MT8192 and MT8195)
+and add in them the MT8189 new ones.
+The rationale is to ease maintainability and have common files for
+several currently supported SoC or new future ones, that have the same
+kind of clock controller design.
+
+Finally the pending remarks from peer reviews on the v6 revision of [1]
+were also taken into account and new fixes and cleanups were also
+added.
+
+A more detailed changelog between [1] and this series:
+- Removed multimedia and graphics related clock controllers code and
+  definitions from series
+- Added new dt-bindings patches to factorise existing MT8188, MT8192
+  and MT8195 in MT8186 clock dt-bindings
+- Heavily modified the MT8189 dt-bindings to add new compatibles 
+  in MT8186 clock dt-bindings
+- Created a new dt-bindings include for the MT8189 reset controller
+  definitions (include/dt-bindings/reset/mediatek,mt8189-resets.h)
+- Removed unnecessary `syscon` compatible fallback from MT8189 base
+  clock controllers
+- Added missing 'mediatek,mt8189-fhctl' compatible declaration in
+  dt-bindings
+- Modified Kconfig to COMMON_CLK_MT8189 be tristate (and not bool) to 
+  allow all MT8189 clock controller drivers to be built as modules (it
+  was partial) 
+- Fix pll unregisters in clk_mt8189_apmixed_probe error case
+- Reparent several clocks to correct 26M references in clk-mt8189-bus.c,
+  clk-mt8189-topckgen.c and clk-mt8189-vlpckgen.c
+- Removed CLK_SET_RATE_NO_REPARENT flag from mfg_sel_mfgpll
+- Rename TOPCKGEN_fmipi_csi_up26m clock to fmipi_csi_up26m to remove caps usage
+- Implemented reset controllers in clk-mt8189-ufs.c
+- Updated all file headers to update copyrights and add all authors
+- Added all co-developed-by trailers
+
+The series is based on linux-next tree (tag: next-20260630) and has
+been tested on Mediatek Genio 520-EVK (MT8371) and 720-EVK (MT8391) boards
+with board hardware enablement patch series (new series revision for
+those boards to be sent soon after this one).
+
+[1]: https://lore.kernel.org/linux-mediatek/20260309120512.3624804-1-irving-ch.lin@mediatek.com/
+[2]: https://lore.kernel.org/linux-mediatek/20260309120512.3624804-2-irving-ch.lin@mediatek.com/
+
 ---
- drivers/soc/mediatek/mt6893-mmsys.h |  34 +++---
- drivers/soc/mediatek/mt8167-mmsys.h |  21 ++--
- drivers/soc/mediatek/mt8173-mmsys.h |  28 ++---
- drivers/soc/mediatek/mt8183-mmsys.h |  14 +--
- drivers/soc/mediatek/mt8186-mmsys.h |  22 ++--
- drivers/soc/mediatek/mt8188-mmsys.h |  78 ++++++------
- drivers/soc/mediatek/mt8192-mmsys.h |  20 +--
- drivers/soc/mediatek/mt8195-mmsys.h | 181 ++++++++++++++--------------
- drivers/soc/mediatek/mt8365-mmsys.h |  20 +--
- drivers/soc/mediatek/mtk-mmsys.h    |  20 +--
- 10 files changed, 220 insertions(+), 218 deletions(-)
+Louis-Alexis Eyraud (15):
+      dt-bindings: clock: mediatek: reorder MT8186 compatibles
+      dt-bindings: clock: mediatek: regroup MT8188 dt-bindings into MT8186
+      dt-bindings: clock: mediatek: regroup MT8192 dt-bindings into MT8186
+      dt-bindings: clock: mediatek: regroup MT8195 dt-bindings into MT8186
+      dt-bindings: clock: mediatek: Add MT8189 clocks
+      clk: mediatek: Add MT8189 apmixedsys clock support
+      clk: mediatek: Add MT8189 topckgen clock support
+      clk: mediatek: Add MT8189 vlpckgen clock support
+      clk: mediatek: Add MT8189 vlpcfg clock support
+      clk: mediatek: Add MT8189 bus clock support
+      clk: mediatek: Add MT8189 dbgao clock support
+      clk: mediatek: Add MT8189 dvfsrc clock support
+      clk: mediatek: Add MT8189 i2c clock support
+      clk: mediatek: Add MT8189 scp clock support
+      clk: mediatek: Add MT8189 ufs clock support
 
-diff --git a/drivers/soc/mediatek/mt6893-mmsys.h b/drivers/soc/mediatek/mt6893-mmsys.h
-index c8654f591a83..2fd472b2b8c1 100644
---- a/drivers/soc/mediatek/mt6893-mmsys.h
-+++ b/drivers/soc/mediatek/mt6893-mmsys.h
-@@ -82,55 +82,55 @@
- #define DSI1_SEL_IN_DITHER1_MOUT			1
- 
- static const struct mtk_mmsys_routes mmsys_mt6893_routing_table[] = {
--	MMSYS_ROUTE(OVL_2L0, OVL0,
-+	MMSYS_ROUTE(OVL_2L, 0, OVL, 0,
- 		    MT6893_DISP_OVL0_2L_OVL1_OVL1_2L_BGOUT_SEL, MT6893_DISP_SEL_IN_MASK,
- 		    MT6893_DISP_OVL0_2L_OVL1_OVL1_2L_BGOUT_SEL_OVL0_2L),
--	MMSYS_ROUTE(COLOR0, CCORR,
-+	MMSYS_ROUTE(COLOR, 0, CCORR, 0,
- 		    MT6893_DISP_COLOR0_OUT_SEL_IN, MT6893_DISP_COLOR0_OUT_SIN_MASK,
- 		    MT6893_DISP_COLOR0_OUT_SEL_IN_COLOR0),
--	MMSYS_ROUTE(CCORR, AAL0,
-+	MMSYS_ROUTE(CCORR, 0, AAL, 0,
- 		    MT6893_DISP_AAL0_SEL_IN, MT6893_DISP_AAL0_SEL_IN_CCORR0_SOUT,
- 		    MT6893_DISP_AAL0_SEL_IN_CCORR0_SOUT),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT6893_DSI0_SEL_IN, MT6893_DSI0_SEL_IN_DITHER0_MOUT,
- 		    MT6893_DSI0_SEL_IN_DITHER0_MOUT),
--	MMSYS_ROUTE(DITHER1, DSI1,
-+	MMSYS_ROUTE(DITHER, 1, DSI, 1,
- 		    MT6893_DSI1_SEL_IN, DSI1_SEL_IN_DITHER1_MOUT,
- 		    DSI1_SEL_IN_DITHER1_MOUT),
--	MMSYS_ROUTE(RDMA4, DP_INTF0,
-+	MMSYS_ROUTE(RDMA, 4, DP_INTF, 0,
- 		    MT6893_DISP_DP_WRAP_SEL_IN, MT6893_DISP_DP_WRAP_MASK,
- 		    MT6893_DISP_DISP_RDMA4_SOUT_DP_INTF0),
--	MMSYS_ROUTE(RDMA4, DSC0,
-+	MMSYS_ROUTE(RDMA, 4, DSC, 0,
- 		    MT6893_DISP_RDMA4_MERGE0_SEL_IN, MT6893_DISP_RDMA4_MERGE0_SEL_IN_MASK,
- 		    MT6893_DISP_RDMA4_SOUT_RDMA4_MERGE0_SEL),
--	MMSYS_ROUTE(OVL_2L1, OVL1,
-+	MMSYS_ROUTE(OVL_2L, 1, OVL, 1,
- 		    MT6893_DISP_OVL1_2L_BGOUT_SOUT_SEL, MT6893_DISP_OVL1_2L_BGOUT_SOUT_MASK,
- 		    MT6893_DISP_OVL1_2L_BGOUT_SOUT_OVL1),
--	MMSYS_ROUTE(CCORR, AAL0,
-+	MMSYS_ROUTE(CCORR, 0, AAL, 0,
- 		    MT6893_DISP_CCORR0_SOUT_SEL, MT6893_DISP_CCORR0_SOUT_AAL0_SEL,
- 		    MT6893_DISP_CCORR0_SOUT_AAL0_SEL),
--	MMSYS_ROUTE(RDMA4, MERGE1,
-+	MMSYS_ROUTE(RDMA, 4, MERGE, 1,
- 		    MT6893_DISP_RDMA4_SOUT, MT6893_DISP_RDMA4_SOUT_MASK,
- 		    MT6893_DISP_RDMA4_MERGE1_SEL),
--	MMSYS_ROUTE(RDMA4, DP_INTF0,
-+	MMSYS_ROUTE(RDMA, 4, DP_INTF, 0,
- 		    MT6893_DISP_RDMA4_SOUT, MT6893_DISP_RDMA4_DP_WRAP_SEL,
- 		    MT6893_DISP_RDMA4_DP_WRAP_SEL),
--	MMSYS_ROUTE(DSC0, DP_INTF0,
-+	MMSYS_ROUTE(DSC, 0, DP_INTF, 0,
- 		    MT6893_DISP_DSC_WRAP_SOUT_SEL, MT6893_DISP_DSC_WRAP_SOUT_DP_WRAP_SEL,
- 		    MT6893_DISP_DSC_WRAP_SOUT_DP_WRAP_SEL),
--	MMSYS_ROUTE(OVL_2L0, OVL0,
-+	MMSYS_ROUTE(OVL_2L, 0, OVL, 0,
- 		    MT6893_MMSYS_OVL_CON, MT6893_DISP_OVL0_2L_OVL0_2L_OVL1_OVL1_2L_BGOUT,
- 		    MT6893_DISP_OVL0_2L_OVL0_2L_OVL1_OVL1_2L_BGOUT),
--	MMSYS_ROUTE(OVL_2L1, OVL1,
-+	MMSYS_ROUTE(OVL_2L, 1, OVL, 1,
- 		    MT6893_MMSYS_OVL_CON, MT6893_DISP_OVL0_2L_OVL1_2L_OVL1_OVL1_2L_BGOUT,
- 		    MT6893_DISP_OVL0_2L_OVL1_2L_OVL1_OVL1_2L_BGOUT),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT6893_DISP_DITHER0_MOUT_EN, MT6893_DISP_DITHER0_MOUT_MASK,
- 		    MT6893_DISP_DITHER0_MOUT_EN_DSI0_SEL),
--	MMSYS_ROUTE(DITHER1, DSI1,
-+	MMSYS_ROUTE(DITHER, 1, DSI, 1,
- 		    MT6893_DISP_DITHER1_MOUT_EN, MT6893_DISP_DITHER1_MOUT_MASK,
- 		    MT6893_DISP_DITHER1_MOUT_EN_DSI1_SEL),
--	MMSYS_ROUTE(OVL_2L2, RDMA4,
-+	MMSYS_ROUTE(OVL_2L, 2, RDMA, 4,
- 		    MT6893_DISP_OVL2_2L_OUT0_MOUT, MT6893_DISP_OVL2_2L_OUT0_MOUT_MASK,
- 		    MT6893_DISP_OVL2_2L_OUT0_MOUT_RDMA4),
- };
-diff --git a/drivers/soc/mediatek/mt8167-mmsys.h b/drivers/soc/mediatek/mt8167-mmsys.h
-index eef14083c47b..d579feee4212 100644
---- a/drivers/soc/mediatek/mt8167-mmsys.h
-+++ b/drivers/soc/mediatek/mt8167-mmsys.h
-@@ -10,29 +10,24 @@
- #define MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN	0x06c
- 
- #define MT8167_DITHER_MOUT_EN_RDMA0			0x1
--#define MT8167_DITHER_MOUT_EN_MASK			0x7
--
- #define MT8167_RDMA0_SOUT_DSI0				0x2
--#define MT8167_RDMA0_SOUT_MASK				0x3
--
- #define MT8167_DSI0_SEL_IN_RDMA0			0x1
--#define MT8167_DSI0_SEL_IN_MASK				0x3
- 
- static const struct mtk_mmsys_routes mt8167_mmsys_routing_table[] = {
--	MMSYS_ROUTE(OVL0, COLOR0,
-+	MMSYS_ROUTE(OVL, 0, COLOR, 0,
- 		    MT8167_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, OVL0_MOUT_EN_COLOR0,
- 		    OVL0_MOUT_EN_COLOR0),
--	MMSYS_ROUTE(DITHER0, RDMA0,
--		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_MASK,
-+	MMSYS_ROUTE(DITHER, 0, RDMA, 0,
-+		    MT8167_DISP_REG_CONFIG_DISP_DITHER_MOUT_EN, MT8167_DITHER_MOUT_EN_RDMA0,
- 		    MT8167_DITHER_MOUT_EN_RDMA0),
--	MMSYS_ROUTE(OVL0, COLOR0,
-+	MMSYS_ROUTE(OVL, 0, COLOR, 0,
- 		    MT8167_DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, COLOR0_SEL_IN_OVL0,
- 		    COLOR0_SEL_IN_OVL0),
--	MMSYS_ROUTE(RDMA0, DSI0,
--		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_MASK,
-+	MMSYS_ROUTE(RDMA, 0, DSI, 0,
-+		    MT8167_DISP_REG_CONFIG_DISP_DSI0_SEL_IN, MT8167_DSI0_SEL_IN_RDMA0,
- 		    MT8167_DSI0_SEL_IN_RDMA0),
--	MMSYS_ROUTE(RDMA0, DSI0,
--		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_MASK,
-+	MMSYS_ROUTE(RDMA, 0, DSI, 0,
-+		    MT8167_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8167_RDMA0_SOUT_DSI0,
- 		    MT8167_RDMA0_SOUT_DSI0),
- };
- 
-diff --git a/drivers/soc/mediatek/mt8173-mmsys.h b/drivers/soc/mediatek/mt8173-mmsys.h
-index 957876d7c166..af67879ff8b4 100644
---- a/drivers/soc/mediatek/mt8173-mmsys.h
-+++ b/drivers/soc/mediatek/mt8173-mmsys.h
-@@ -33,46 +33,46 @@
- #define MT8173_RDMA0_SOUT_COLOR0			BIT(0)
- 
- static const struct mtk_mmsys_routes mt8173_mmsys_routing_table[] = {
--	MMSYS_ROUTE(OVL0, COLOR0,
-+	MMSYS_ROUTE(OVL, 0, COLOR, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN, MT8173_OVL0_MOUT_EN_COLOR0,
- 		    MT8173_OVL0_MOUT_EN_COLOR0),
--	MMSYS_ROUTE(OD0, RDMA0,
-+	MMSYS_ROUTE(OD, 0, RDMA, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_OD_MOUT_EN, MT8173_OD0_MOUT_EN_RDMA0,
- 		    MT8173_OD0_MOUT_EN_RDMA0),
--	MMSYS_ROUTE(UFOE, DSI0,
-+	MMSYS_ROUTE(UFOE, 0, DSI, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_UFOE_MOUT_EN, MT8173_UFOE_MOUT_EN_DSI0,
- 		    MT8173_UFOE_MOUT_EN_DSI0),
--	MMSYS_ROUTE(COLOR0, AAL0,
-+	MMSYS_ROUTE(COLOR, 0, AAL, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_COLOR0_SOUT_SEL_IN, MT8173_COLOR0_SOUT_MERGE,
- 		    0 /* SOUT to AAL */),
--	MMSYS_ROUTE(RDMA0, UFOE,
-+	MMSYS_ROUTE(RDMA, 0, UFOE, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL_IN, MT8173_RDMA0_SOUT_COLOR0,
- 		    0 /* SOUT to UFOE */),
--	MMSYS_ROUTE(OVL0, COLOR0,
-+	MMSYS_ROUTE(OVL, 0, COLOR, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_COLOR0_SEL_IN, MT8173_COLOR0_SEL_IN_OVL0,
- 		    MT8173_COLOR0_SEL_IN_OVL0),
--	MMSYS_ROUTE(AAL0, COLOR0,
-+	MMSYS_ROUTE(AAL, 0, COLOR, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_AAL_SEL_IN, MT8173_AAL_SEL_IN_MERGE,
- 		    0 /* SEL_IN from COLOR0 */),
--	MMSYS_ROUTE(RDMA0, UFOE,
-+	MMSYS_ROUTE(RDMA, 0, UFOE, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_UFOE_SEL_IN, MT8173_UFOE_SEL_IN_RDMA0,
- 		    0 /* SEL_IN from RDMA0 */),
--	MMSYS_ROUTE(UFOE, DSI0,
-+	MMSYS_ROUTE(UFOE, 0, DSI, 0,
- 		    MT8173_DISP_REG_CONFIG_DSI0_SEL_IN, MT8173_DSI0_SEL_IN_UFOE,
- 		    0 /* SEL_IN from UFOE */),
--	MMSYS_ROUTE(OVL1, COLOR1,
-+	MMSYS_ROUTE(OVL, 1, COLOR, 1,
- 		    MT8173_DISP_REG_CONFIG_DISP_OVL1_MOUT_EN, MT8173_OVL1_MOUT_EN_COLOR1,
- 		    MT8173_OVL1_MOUT_EN_COLOR1),
--	MMSYS_ROUTE(GAMMA, RDMA1,
-+	MMSYS_ROUTE(GAMMA, 0, RDMA, 1,
- 		    MT8173_DISP_REG_CONFIG_DISP_GAMMA_MOUT_EN, MT8173_GAMMA_MOUT_EN_RDMA1,
- 		    MT8173_GAMMA_MOUT_EN_RDMA1),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8173_DISP_REG_CONFIG_DISP_RDMA1_SOUT_EN, RDMA1_SOUT_MASK,
- 		    RDMA1_SOUT_DPI0),
--	MMSYS_ROUTE(OVL1, COLOR1,
-+	MMSYS_ROUTE(OVL, 1, COLOR, 1,
- 		    MT8173_DISP_REG_CONFIG_DISP_COLOR1_SEL_IN, COLOR1_SEL_IN_OVL1,
- 		    COLOR1_SEL_IN_OVL1),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8173_DISP_REG_CONFIG_DPI_SEL_IN, MT8173_DPI0_SEL_IN_MASK,
- 		    MT8173_DPI0_SEL_IN_RDMA1),
- };
-diff --git a/drivers/soc/mediatek/mt8183-mmsys.h b/drivers/soc/mediatek/mt8183-mmsys.h
-index 123384958c4b..cf221ef203d2 100644
---- a/drivers/soc/mediatek/mt8183-mmsys.h
-+++ b/drivers/soc/mediatek/mt8183-mmsys.h
-@@ -28,25 +28,25 @@
- #define MT8183_MMSYS_SW0_RST_B			0x140
- 
- static const struct mtk_mmsys_routes mmsys_mt8183_routing_table[] = {
--	MMSYS_ROUTE(OVL0, OVL_2L0,
-+	MMSYS_ROUTE(OVL, 0, OVL_2L, 0,
- 		    MT8183_DISP_OVL0_MOUT_EN, MT8183_OVL0_MOUT_EN_OVL0_2L,
- 		    MT8183_OVL0_MOUT_EN_OVL0_2L),
--	MMSYS_ROUTE(OVL_2L0, RDMA0,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 0,
- 		    MT8183_DISP_OVL0_2L_MOUT_EN, MT8183_OVL0_2L_MOUT_EN_DISP_PATH0,
- 		    MT8183_OVL0_2L_MOUT_EN_DISP_PATH0),
--	MMSYS_ROUTE(OVL_2L1, RDMA1,
-+	MMSYS_ROUTE(OVL_2L, 1, RDMA, 1,
- 		    MT8183_DISP_OVL1_2L_MOUT_EN, MT8183_OVL1_2L_MOUT_EN_RDMA1,
- 		    MT8183_OVL1_2L_MOUT_EN_RDMA1),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8183_DISP_DITHER0_MOUT_EN, MT8183_DITHER0_MOUT_IN_DSI0,
- 		    MT8183_DITHER0_MOUT_IN_DSI0),
--	MMSYS_ROUTE(OVL_2L0, RDMA0,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 0,
- 		    MT8183_DISP_PATH0_SEL_IN, MT8183_DISP_PATH0_SEL_IN_OVL0_2L,
- 		    MT8183_DISP_PATH0_SEL_IN_OVL0_2L),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8183_DISP_DPI0_SEL_IN, MT8183_DPI0_SEL_IN_RDMA1,
- 		    MT8183_DPI0_SEL_IN_RDMA1),
--	MMSYS_ROUTE(RDMA0, COLOR0,
-+	MMSYS_ROUTE(RDMA, 0, COLOR, 0,
- 		    MT8183_DISP_RDMA0_SOUT_SEL_IN, MT8183_RDMA0_SOUT_COLOR0,
- 		    MT8183_RDMA0_SOUT_COLOR0),
- };
-diff --git a/drivers/soc/mediatek/mt8186-mmsys.h b/drivers/soc/mediatek/mt8186-mmsys.h
-index 354664be72bd..0c6941be6fa5 100644
---- a/drivers/soc/mediatek/mt8186-mmsys.h
-+++ b/drivers/soc/mediatek/mt8186-mmsys.h
-@@ -63,37 +63,37 @@
- #define MT8186_MMSYS_SW0_RST_B				0x160
- 
- static const struct mtk_mmsys_routes mmsys_mt8186_routing_table[] = {
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8186_DISP_OVL0_MOUT_EN, MT8186_OVL0_MOUT_EN_MASK,
- 		    MT8186_OVL0_MOUT_TO_RDMA0),
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8186_DISP_RDMA0_SEL_IN, MT8186_RDMA0_SEL_IN_MASK,
- 		    MT8186_RDMA0_FROM_OVL0),
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8186_MMSYS_OVL_CON, MT8186_MMSYS_OVL0_CON_MASK,
- 		    MT8186_OVL0_GO_BLEND),
--	MMSYS_ROUTE(RDMA0, COLOR0,
-+	MMSYS_ROUTE(RDMA, 0, COLOR, 0,
- 		    MT8186_DISP_RDMA0_SOUT_SEL, MT8186_RDMA0_SOUT_SEL_MASK,
- 		    MT8186_RDMA0_SOUT_TO_COLOR0),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8186_DISP_DITHER0_MOUT_EN, MT8186_DITHER0_MOUT_EN_MASK,
- 		    MT8186_DITHER0_MOUT_TO_DSI0),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8186_DISP_DSI0_SEL_IN, MT8186_DSI0_SEL_IN_MASK,
- 		    MT8186_DSI0_FROM_DITHER0),
--	MMSYS_ROUTE(OVL_2L0, RDMA1,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 1,
- 		    MT8186_DISP_OVL0_2L_MOUT_EN, MT8186_OVL0_2L_MOUT_EN_MASK,
- 		    MT8186_OVL0_2L_MOUT_TO_RDMA1),
--	MMSYS_ROUTE(OVL_2L0, RDMA1,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 1,
- 		    MT8186_DISP_RDMA1_SEL_IN, MT8186_RDMA1_SEL_IN_MASK,
- 		    MT8186_RDMA1_FROM_OVL0_2L),
--	MMSYS_ROUTE(OVL_2L0, RDMA1,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 1,
- 		    MT8186_MMSYS_OVL_CON, MT8186_MMSYS_OVL0_2L_CON_MASK,
- 		    MT8186_OVL0_2L_GO_BLEND),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8186_DISP_RDMA1_MOUT_EN, MT8186_RDMA1_MOUT_EN_MASK,
- 		    MT8186_RDMA1_MOUT_TO_DPI0_SEL),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8186_DISP_DPI0_SEL_IN, MT8186_DPI0_SEL_IN_MASK,
- 		    MT8186_DPI0_FROM_RDMA1),
- };
-diff --git a/drivers/soc/mediatek/mt8188-mmsys.h b/drivers/soc/mediatek/mt8188-mmsys.h
-index 99080afead7e..c70c4b462381 100644
---- a/drivers/soc/mediatek/mt8188-mmsys.h
-+++ b/drivers/soc/mediatek/mt8188-mmsys.h
-@@ -202,124 +202,124 @@ static const u8 mmsys_mt8188_vdo1_rst_tb[] = {
- };
- 
- static const struct mtk_mmsys_routes mmsys_mt8188_routing_table[] = {
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8188_VDO0_OVL_MOUT_EN, MT8188_MOUT_DISP_OVL0_TO_DISP_RDMA0,
- 		    MT8188_MOUT_DISP_OVL0_TO_DISP_RDMA0),
--	MMSYS_ROUTE(OVL0, WDMA0,
-+	MMSYS_ROUTE(OVL, 0, WDMA, 0,
- 		    MT8188_VDO0_OVL_MOUT_EN, MT8188_MOUT_DISP_OVL0_TO_DISP_WDMA0,
- 		    MT8188_MOUT_DISP_OVL0_TO_DISP_WDMA0),
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8188_VDO0_DISP_RDMA_SEL, MT8188_SEL_IN_DISP_RDMA0_FROM_MASK,
- 		    MT8188_SEL_IN_DISP_RDMA0_FROM_DISP_OVL0),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8188_VDO0_DSI0_SEL_IN, MT8188_SEL_IN_DSI0_FROM_MASK,
- 		    MT8188_SEL_IN_DSI0_FROM_DISP_DITHER0),
--	MMSYS_ROUTE(DITHER0, MERGE0,
-+	MMSYS_ROUTE(DITHER, 0, MERGE, 0,
- 		    MT8188_VDO0_VPP_MERGE_SEL, MT8188_SEL_IN_VPP_MERGE_FROM_MASK,
- 		    MT8188_SEL_IN_DP_INTF0_FROM_DISP_DITHER0),
--	MMSYS_ROUTE(DITHER0, DSC0,
-+	MMSYS_ROUTE(DITHER, 0, DSC, 0,
- 		    MT8188_VDO0_DSC_WARP_SEL, MT8188_SEL_IN_DSC_WRAP0C0_IN_FROM_MASK,
- 		    MT8188_SEL_IN_DSC_WRAP0C0_IN_FROM_DISP_DITHER0),
--	MMSYS_ROUTE(DITHER0, DP_INTF0,
-+	MMSYS_ROUTE(DITHER, 0, DP_INTF, 0,
- 		    MT8188_VDO0_DP_INTF0_SEL_IN, MT8188_SEL_IN_DP_INTF0_FROM_MASK,
- 		    MT8188_SEL_IN_DP_INTF0_FROM_DISP_DITHER0),
--	MMSYS_ROUTE(DSC0, MERGE0,
-+	MMSYS_ROUTE(DSC, 0, MERGE, 0,
- 		    MT8188_VDO0_VPP_MERGE_SEL, MT8188_SEL_IN_VPP_MERGE_FROM_MASK,
- 		    MT8188_SEL_IN_VPP_MERGE_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(MERGE0, DP_INTF0,
-+	MMSYS_ROUTE(MERGE, 0, DP_INTF, 0,
- 		    MT8188_VDO0_DP_INTF0_SEL_IN, MT8188_SEL_IN_DP_INTF0_FROM_MASK,
- 		    MT8188_SEL_IN_DP_INTF0_FROM_VPP_MERGE),
--	MMSYS_ROUTE(DSC0, DSI0,
-+	MMSYS_ROUTE(DSC, 0, DSI, 0,
- 		    MT8188_VDO0_DSI0_SEL_IN, MT8188_SEL_IN_DSI0_FROM_MASK,
- 		    MT8188_SEL_IN_DSI0_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(RDMA0, COLOR0,
-+	MMSYS_ROUTE(RDMA, 0, COLOR, 0,
- 		    MT8188_VDO0_DISP_RDMA_SEL, GENMASK(1, 0),
- 		    MT8188_SOUT_DISP_RDMA0_TO_DISP_COLOR0),
--	MMSYS_ROUTE(DITHER0, DSC0,
-+	MMSYS_ROUTE(DITHER, 0, DSC, 0,
- 		    MT8188_VDO0_DISP_DITHER0_SEL_OUT, MT8188_SOUT_DISP_DITHER0_TO_MASK,
- 		    MT8188_SOUT_DISP_DITHER0_TO_DSC_WRAP0_IN),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8188_VDO0_DISP_DITHER0_SEL_OUT, MT8188_SOUT_DISP_DITHER0_TO_MASK,
- 		    MT8188_SOUT_DISP_DITHER0_TO_DSI0),
--	MMSYS_ROUTE(DITHER0, MERGE0,
-+	MMSYS_ROUTE(DITHER, 0, MERGE, 0,
- 		    MT8188_VDO0_DISP_DITHER0_SEL_OUT, MT8188_SOUT_DISP_DITHER0_TO_MASK,
- 		    MT8188_SOUT_DISP_DITHER0_TO_VPP_MERGE0),
--	MMSYS_ROUTE(DITHER0, DP_INTF0,
-+	MMSYS_ROUTE(DITHER, 0, DP_INTF, 0,
- 		    MT8188_VDO0_DISP_DITHER0_SEL_OUT, MT8188_SOUT_DISP_DITHER0_TO_MASK,
- 		    MT8188_SOUT_DISP_DITHER0_TO_DP_INTF0),
--	MMSYS_ROUTE(MERGE0, DP_INTF0,
-+	MMSYS_ROUTE(MERGE, 0, DP_INTF, 0,
- 		    MT8188_VDO0_VPP_MERGE_SEL, MT8188_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8188_SOUT_VPP_MERGE_TO_DP_INTF0),
--	MMSYS_ROUTE(MERGE0, DPI0,
-+	MMSYS_ROUTE(MERGE, 0, DPI, 0,
- 		    MT8188_VDO0_VPP_MERGE_SEL, MT8188_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8188_SOUT_VPP_MERGE_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(MERGE0, WDMA0,
-+	MMSYS_ROUTE(MERGE, 0, WDMA, 0,
- 		    MT8188_VDO0_VPP_MERGE_SEL, MT8188_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8188_SOUT_VPP_MERGE_TO_DISP_WDMA0),
--	MMSYS_ROUTE(MERGE0, DSC0,
-+	MMSYS_ROUTE(MERGE, 0, DSC, 0,
- 		    MT8188_VDO0_VPP_MERGE_SEL, MT8188_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8188_SOUT_VPP_MERGE_TO_DSC_WRAP0_IN),
--	MMSYS_ROUTE(DSC0, DSI0,
-+	MMSYS_ROUTE(DSC, 0, DSI, 0,
- 		    MT8188_VDO0_DSC_WARP_SEL, MT8188_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8188_SOUT_DSC_WRAP0_OUT_TO_DSI0),
--	MMSYS_ROUTE(DSC0, MERGE0,
-+	MMSYS_ROUTE(DSC, 0, MERGE, 0,
- 		    MT8188_VDO0_DSC_WARP_SEL, MT8188_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8188_SOUT_DSC_WRAP0_OUT_TO_VPP_MERGE),
- };
- 
- static const struct mtk_mmsys_routes mmsys_mt8188_vdo1_routing_table[] = {
--	MMSYS_ROUTE(MDP_RDMA0, MERGE1,
-+	MMSYS_ROUTE(MDP_RDMA, 0, MERGE, 1,
- 		    MT8188_VDO1_VPP_MERGE0_P0_SEL_IN, GENMASK(0, 0),
- 		    MT8188_VPP_MERGE0_P0_SEL_IN_FROM_MDP_RDMA0),
--	MMSYS_ROUTE(MDP_RDMA1, MERGE1,
-+	MMSYS_ROUTE(MDP_RDMA, 1, MERGE, 1,
- 		    MT8188_VDO1_VPP_MERGE0_P1_SEL_IN, GENMASK(0, 0),
- 		    MT8188_VPP_MERGE0_P1_SEL_IN_FROM_MDP_RDMA1),
--	MMSYS_ROUTE(MDP_RDMA2, MERGE2,
-+	MMSYS_ROUTE(MDP_RDMA, 2, MERGE, 2,
- 		    MT8188_VDO1_VPP_MERGE1_P0_SEL_IN, GENMASK(0, 0),
- 		    MT8188_VPP_MERGE1_P0_SEL_IN_FROM_MDP_RDMA2),
--	MMSYS_ROUTE(MERGE1, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 1, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MERGE0_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8188_SOUT_TO_MIXER_IN1_SEL),
--	MMSYS_ROUTE(MERGE2, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 2, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MERGE1_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8188_SOUT_TO_MIXER_IN2_SEL),
--	MMSYS_ROUTE(MERGE3, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 3, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MERGE2_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8188_SOUT_TO_MIXER_IN3_SEL),
--	MMSYS_ROUTE(MERGE4, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 4, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MERGE3_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8188_SOUT_TO_MIXER_IN4_SEL),
--	MMSYS_ROUTE(ETHDR_MIXER, MERGE5,
-+	MMSYS_ROUTE(ETHDR_MIXER, 0, MERGE, 5,
- 		    MT8188_VDO1_MIXER_OUT_SOUT_SEL, GENMASK(0, 0),
- 		    MT8188_MIXER_SOUT_TO_MERGE4_ASYNC_SEL),
--	MMSYS_ROUTE(MERGE1, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 1, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MIXER_IN1_SEL_IN, GENMASK(0, 0),
- 		    MT8188_MIXER_IN1_SEL_IN_FROM_MERGE0_ASYNC_SOUT),
--	MMSYS_ROUTE(MERGE2, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 2, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MIXER_IN2_SEL_IN, GENMASK(0, 0),
- 		    MT8188_MIXER_IN2_SEL_IN_FROM_MERGE1_ASYNC_SOUT),
--	MMSYS_ROUTE(MERGE3, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 3, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MIXER_IN3_SEL_IN, GENMASK(0, 0),
- 		    MT8188_MIXER_IN3_SEL_IN_FROM_MERGE2_ASYNC_SOUT),
--	MMSYS_ROUTE(MERGE4, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 4, ETHDR_MIXER, 0,
- 		    MT8188_VDO1_MIXER_IN4_SEL_IN, GENMASK(0, 0),
- 		    MT8188_MIXER_IN4_SEL_IN_FROM_MERGE3_ASYNC_SOUT),
--	MMSYS_ROUTE(ETHDR_MIXER, MERGE5,
-+	MMSYS_ROUTE(ETHDR_MIXER, 0, MERGE, 5,
- 		    MT8188_VDO1_MIXER_SOUT_SEL_IN, GENMASK(2, 0),
- 		    MT8188_MIXER_SOUT_SEL_IN_FROM_DISP_MIXER),
--	MMSYS_ROUTE(ETHDR_MIXER, MERGE5,
-+	MMSYS_ROUTE(ETHDR_MIXER, 0, MERGE, 5,
- 		    MT8188_VDO1_MERGE4_ASYNC_SEL_IN, GENMASK(2, 0),
- 		    MT8188_MERGE4_ASYNC_SEL_IN_FROM_MIXER_OUT_SOUT),
--	MMSYS_ROUTE(MERGE5, DPI1,
-+	MMSYS_ROUTE(MERGE, 5, DPI, 1,
- 		    MT8188_VDO1_DISP_DPI1_SEL_IN, GENMASK(1, 0),
- 		    MT8188_DISP_DPI1_SEL_IN_FROM_VPP_MERGE4_MOUT),
--	MMSYS_ROUTE(MERGE5, DPI1,
-+	MMSYS_ROUTE(MERGE, 5, DPI, 1,
- 		    MT8188_VDO1_MERGE4_SOUT_SEL, GENMASK(3, 0),
- 		    MT8188_MERGE4_SOUT_TO_DPI1_SEL),
--	MMSYS_ROUTE(MERGE5, DP_INTF1,
-+	MMSYS_ROUTE(MERGE, 5, DP_INTF, 1,
- 		    MT8188_VDO1_DISP_DP_INTF0_SEL_IN, GENMASK(1, 0),
- 		    MT8188_DISP_DP_INTF0_SEL_IN_FROM_VPP_MERGE4_MOUT),
--	MMSYS_ROUTE(MERGE5, DP_INTF1,
-+	MMSYS_ROUTE(MERGE, 5, DP_INTF, 1,
- 		    MT8188_VDO1_MERGE4_SOUT_SEL, GENMASK(3, 0),
- 		    MT8188_MERGE4_SOUT_TO_DP_INTF0_SEL),
- };
-diff --git a/drivers/soc/mediatek/mt8192-mmsys.h b/drivers/soc/mediatek/mt8192-mmsys.h
-index 7cafa2455fd0..37ced5152ba7 100644
---- a/drivers/soc/mediatek/mt8192-mmsys.h
-+++ b/drivers/soc/mediatek/mt8192-mmsys.h
-@@ -31,34 +31,34 @@
- #define MT8192_DSI0_SEL_IN_DITHER0			0x1
- 
- static const struct mtk_mmsys_routes mmsys_mt8192_routing_table[] = {
--	MMSYS_ROUTE(OVL_2L0, RDMA0,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 0,
- 		    MT8192_DISP_OVL0_2L_MOUT_EN, MT8192_OVL0_MOUT_EN_DISP_RDMA0,
- 		    MT8192_OVL0_MOUT_EN_DISP_RDMA0),
--	MMSYS_ROUTE(OVL_2L2, RDMA4,
-+	MMSYS_ROUTE(OVL_2L, 2, RDMA, 4,
- 		    MT8192_DISP_OVL2_2L_MOUT_EN, MT8192_OVL2_2L_MOUT_EN_RDMA4,
- 		    MT8192_OVL2_2L_MOUT_EN_RDMA4),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8192_DISP_DITHER0_MOUT_EN, MT8192_DITHER0_MOUT_IN_DSI0,
- 		    MT8192_DITHER0_MOUT_IN_DSI0),
--	MMSYS_ROUTE(OVL_2L0, RDMA0,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 0,
- 		    MT8192_DISP_RDMA0_SEL_IN, MT8192_RDMA0_SEL_IN_OVL0_2L,
- 		    MT8192_RDMA0_SEL_IN_OVL0_2L),
--	MMSYS_ROUTE(CCORR, AAL0,
-+	MMSYS_ROUTE(CCORR, 0, AAL, 0,
- 		    MT8192_DISP_AAL0_SEL_IN, MT8192_AAL0_SEL_IN_CCORR0,
- 		    MT8192_AAL0_SEL_IN_CCORR0),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8192_DISP_DSI0_SEL_IN, MT8192_DSI0_SEL_IN_DITHER0,
- 		    MT8192_DSI0_SEL_IN_DITHER0),
--	MMSYS_ROUTE(RDMA0, COLOR0,
-+	MMSYS_ROUTE(RDMA, 0, COLOR, 0,
- 		    MT8192_DISP_RDMA0_SOUT_SEL, MT8192_RDMA0_SOUT_COLOR0,
- 		    MT8192_RDMA0_SOUT_COLOR0),
--	MMSYS_ROUTE(CCORR, AAL0,
-+	MMSYS_ROUTE(CCORR, 0, AAL, 0,
- 		    MT8192_DISP_CCORR0_SOUT_SEL, MT8192_CCORR0_SOUT_AAL0,
- 		    MT8192_CCORR0_SOUT_AAL0),
--	MMSYS_ROUTE(OVL0, OVL_2L0,
-+	MMSYS_ROUTE(OVL, 0, OVL_2L, 0,
- 		    MT8192_MMSYS_OVL_MOUT_EN, MT8192_DISP_OVL0_GO_BG,
- 		    MT8192_DISP_OVL0_GO_BG),
--	MMSYS_ROUTE(OVL_2L0, RDMA0,
-+	MMSYS_ROUTE(OVL_2L, 0, RDMA, 0,
- 		    MT8192_MMSYS_OVL_MOUT_EN, MT8192_DISP_OVL0_2L_GO_BLEND,
- 		    MT8192_DISP_OVL0_2L_GO_BLEND),
- };
-diff --git a/drivers/soc/mediatek/mt8195-mmsys.h b/drivers/soc/mediatek/mt8195-mmsys.h
-index f69929a2a4d4..3a58b9b74282 100644
---- a/drivers/soc/mediatek/mt8195-mmsys.h
-+++ b/drivers/soc/mediatek/mt8195-mmsys.h
-@@ -160,278 +160,279 @@
- #define MT8195_SVPP3_MDP_RSZ					BIT(5)
- 
- static const struct mtk_mmsys_routes mmsys_mt8195_routing_table[] = {
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8195_VDO0_OVL_MOUT_EN, MT8195_MOUT_DISP_OVL0_TO_DISP_RDMA0,
- 		    MT8195_MOUT_DISP_OVL0_TO_DISP_RDMA0),
--	MMSYS_ROUTE(OVL0, WDMA0,
-+	MMSYS_ROUTE(OVL, 0, WDMA, 0,
- 		    MT8195_VDO0_OVL_MOUT_EN, MT8195_MOUT_DISP_OVL0_TO_DISP_WDMA0,
- 		    MT8195_MOUT_DISP_OVL0_TO_DISP_WDMA0),
--	MMSYS_ROUTE(OVL0, OVL1,
-+	MMSYS_ROUTE(OVL, 0, OVL, 1,
- 		    MT8195_VDO0_OVL_MOUT_EN, MT8195_MOUT_DISP_OVL0_TO_DISP_OVL1,
- 		    MT8195_MOUT_DISP_OVL0_TO_DISP_OVL1),
--	MMSYS_ROUTE(OVL1, RDMA1,
-+	MMSYS_ROUTE(OVL, 1, RDMA, 1,
- 		    MT8195_VDO0_OVL_MOUT_EN, MT8195_MOUT_DISP_OVL1_TO_DISP_RDMA1,
- 		    MT8195_MOUT_DISP_OVL1_TO_DISP_RDMA1),
--	MMSYS_ROUTE(OVL1, WDMA1,
-+	MMSYS_ROUTE(OVL, 1, WDMA, 1,
- 		    MT8195_VDO0_OVL_MOUT_EN, MT8195_MOUT_DISP_OVL1_TO_DISP_WDMA1,
- 		    MT8195_MOUT_DISP_OVL1_TO_DISP_WDMA1),
--	MMSYS_ROUTE(OVL1, OVL0,
-+	MMSYS_ROUTE(OVL, 1, OVL, 0,
- 		    MT8195_VDO0_OVL_MOUT_EN, MT8195_MOUT_DISP_OVL1_TO_DISP_OVL0,
- 		    MT8195_MOUT_DISP_OVL1_TO_DISP_OVL0),
--	MMSYS_ROUTE(DSC0, MERGE0,
-+	MMSYS_ROUTE(DSC, 0, MERGE, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_VPP_MERGE_FROM_MASK,
- 		    MT8195_SEL_IN_VPP_MERGE_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(DITHER1, MERGE0,
-+	MMSYS_ROUTE(DITHER, 1, MERGE, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_VPP_MERGE_FROM_MASK,
- 		    MT8195_SEL_IN_VPP_MERGE_FROM_DISP_DITHER1),
--	MMSYS_ROUTE(MERGE5, MERGE0,
-+	MMSYS_ROUTE(MERGE, 5, MERGE, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_VPP_MERGE_FROM_MASK,
- 		    MT8195_SEL_IN_VPP_MERGE_FROM_VDO1_VIRTUAL0),
--	MMSYS_ROUTE(DITHER0, DSC0,
-+	MMSYS_ROUTE(DITHER, 0, DSC, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP0_IN_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP0_IN_FROM_DISP_DITHER0),
--	MMSYS_ROUTE(MERGE0, DSC0,
-+	MMSYS_ROUTE(MERGE, 0, DSC, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP0_IN_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP0_IN_FROM_VPP_MERGE),
--	MMSYS_ROUTE(DITHER1, DSC1,
-+	MMSYS_ROUTE(DITHER, 1, DSC, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_IN_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_IN_FROM_DISP_DITHER1),
--	MMSYS_ROUTE(MERGE0, DSC1,
-+	MMSYS_ROUTE(MERGE, 0, DSC, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_IN_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_IN_FROM_VPP_MERGE),
--	MMSYS_ROUTE(MERGE0, DP_INTF1,
-+	MMSYS_ROUTE(MERGE, 0, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINA_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINA_VIRTUAL0_FROM_VPP_MERGE),
--	MMSYS_ROUTE(MERGE0, DPI0,
-+	MMSYS_ROUTE(MERGE, 0, DPI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINA_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINA_VIRTUAL0_FROM_VPP_MERGE),
--	MMSYS_ROUTE(MERGE0, DPI1,
-+	MMSYS_ROUTE(MERGE, 0, DPI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINA_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINA_VIRTUAL0_FROM_VPP_MERGE),
--	MMSYS_ROUTE(DSC1, DP_INTF1,
-+	MMSYS_ROUTE(DSC, 1, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINA_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINA_VIRTUAL0_FROM_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DSC1, DPI0,
-+	MMSYS_ROUTE(DSC, 1, DPI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINA_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINA_VIRTUAL0_FROM_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DSC1, DPI1,
-+	MMSYS_ROUTE(DSC, 1, DPI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINA_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINA_VIRTUAL0_FROM_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DSC0, DP_INTF1,
-+	MMSYS_ROUTE(DSC, 0, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINB_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINB_VIRTUAL0_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(DSC0, DPI0,
-+	MMSYS_ROUTE(DSC, 0, DPI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINB_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINB_VIRTUAL0_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(DSC0, DPI1,
-+	MMSYS_ROUTE(DSC, 0, DPI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_SINB_VIRTUAL0_FROM_MASK,
- 		    MT8195_SEL_IN_SINB_VIRTUAL0_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(DSC1, DP_INTF0,
-+	MMSYS_ROUTE(DSC, 1, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DP_INTF0_FROM_MASK,
- 		    MT8195_SEL_IN_DP_INTF0_FROM_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(MERGE0, DP_INTF0,
-+	MMSYS_ROUTE(MERGE, 0, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DP_INTF0_FROM_MASK,
- 		    MT8195_SEL_IN_DP_INTF0_FROM_VPP_MERGE),
--	MMSYS_ROUTE(MERGE5, DP_INTF0,
-+	MMSYS_ROUTE(MERGE, 5, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DP_INTF0_FROM_MASK,
- 		    MT8195_SEL_IN_DP_INTF0_FROM_VDO1_VIRTUAL0),
--	MMSYS_ROUTE(DSC0, DSI0,
-+	MMSYS_ROUTE(DSC, 0, DSI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSI0_FROM_MASK,
- 		    MT8195_SEL_IN_DSI0_FROM_DSC_WRAP0_OUT),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSI0_FROM_MASK,
- 		    MT8195_SEL_IN_DSI0_FROM_DISP_DITHER0),
--	MMSYS_ROUTE(DSC1, DSI1,
-+	MMSYS_ROUTE(DSC, 1, DSI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSI1_FROM_MASK,
- 		    MT8195_SEL_IN_DSI1_FROM_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(MERGE0, DSI1,
-+	MMSYS_ROUTE(MERGE, 0, DSI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSI1_FROM_MASK,
- 		    MT8195_SEL_IN_DSI1_FROM_VPP_MERGE),
--	MMSYS_ROUTE(OVL1, WDMA1,
-+	MMSYS_ROUTE(OVL, 1, WDMA, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DISP_WDMA1_FROM_MASK,
- 		    MT8195_SEL_IN_DISP_WDMA1_FROM_DISP_OVL1),
--	MMSYS_ROUTE(MERGE0, WDMA1,
-+	MMSYS_ROUTE(MERGE, 0, WDMA, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DISP_WDMA1_FROM_MASK,
- 		    MT8195_SEL_IN_DISP_WDMA1_FROM_VPP_MERGE),
--	MMSYS_ROUTE(DSC1, DSI1,
-+	MMSYS_ROUTE(DSC, 1, DSI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DSC1, DP_INTF0,
-+	MMSYS_ROUTE(DSC, 1, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DSC1, DP_INTF1,
-+	MMSYS_ROUTE(DSC, 1, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DSC1, DPI0,
-+	MMSYS_ROUTE(DSC, 1, DPI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DSC1, DPI1,
-+	MMSYS_ROUTE(DSC, 1, DPI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DSC1, MERGE0,
-+	MMSYS_ROUTE(DSC, 1, MERGE, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DITHER1, DSI1,
-+	MMSYS_ROUTE(DITHER, 1, DSI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DISP_DITHER1),
--	MMSYS_ROUTE(DITHER1, DP_INTF0,
-+	MMSYS_ROUTE(DITHER, 1, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DISP_DITHER1),
--	MMSYS_ROUTE(DITHER1, DPI0,
-+	MMSYS_ROUTE(DITHER, 1, DPI, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DISP_DITHER1),
--	MMSYS_ROUTE(DITHER1, DPI1,
-+	MMSYS_ROUTE(DITHER, 1, DPI, 1,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DSC_WRAP1_FROM_MASK,
- 		    MT8195_SEL_IN_DSC_WRAP1_OUT_FROM_DISP_DITHER1),
--	MMSYS_ROUTE(OVL0, WDMA0,
-+	MMSYS_ROUTE(OVL, 0, WDMA, 0,
- 		    MT8195_VDO0_SEL_IN, MT8195_SEL_IN_DISP_WDMA0_FROM_MASK,
- 		    MT8195_SEL_IN_DISP_WDMA0_FROM_DISP_OVL0),
--	MMSYS_ROUTE(DITHER0, DSC0,
-+	MMSYS_ROUTE(DITHER, 0, DSC, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER0_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER0_TO_DSC_WRAP0_IN),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER0_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER0_TO_DSI0),
--	MMSYS_ROUTE(DITHER1, DSC1,
-+	MMSYS_ROUTE(DITHER, 1, DSC, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DITHER1, MERGE0,
-+	MMSYS_ROUTE(DITHER, 1, MERGE, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_VPP_MERGE),
--	MMSYS_ROUTE(DITHER1, DSI1,
-+	MMSYS_ROUTE(DITHER, 1, DSI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DITHER1, DP_INTF0,
-+	MMSYS_ROUTE(DITHER, 1, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DITHER1, DP_INTF1,
-+	MMSYS_ROUTE(DITHER, 1, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DITHER1, DPI0,
-+	MMSYS_ROUTE(DITHER, 1, DPI, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(DITHER1, DPI1,
-+	MMSYS_ROUTE(DITHER, 1, DPI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DISP_DITHER1_TO_MASK,
- 		    MT8195_SOUT_DISP_DITHER1_TO_DSC_WRAP1_OUT),
--	MMSYS_ROUTE(MERGE5, MERGE0,
-+	MMSYS_ROUTE(MERGE, 5, MERGE, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VDO1_VIRTUAL0_TO_MASK,
- 		    MT8195_SOUT_VDO1_VIRTUAL0_TO_VPP_MERGE),
--	MMSYS_ROUTE(MERGE5, DP_INTF0,
-+	MMSYS_ROUTE(MERGE, 5, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VDO1_VIRTUAL0_TO_MASK,
- 		    MT8195_SOUT_VDO1_VIRTUAL0_TO_DP_INTF0),
--	MMSYS_ROUTE(MERGE0, DSI1,
-+	MMSYS_ROUTE(MERGE, 0, DSI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_DSI1),
--	MMSYS_ROUTE(MERGE0, DP_INTF0,
-+	MMSYS_ROUTE(MERGE, 0, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_DP_INTF0),
--	MMSYS_ROUTE(MERGE0, DP_INTF1,
-+	MMSYS_ROUTE(MERGE, 0, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(MERGE0, DPI0,
-+	MMSYS_ROUTE(MERGE, 0, DPI, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(MERGE0, DPI1,
-+	MMSYS_ROUTE(MERGE, 0, DPI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(MERGE0, WDMA1,
-+	MMSYS_ROUTE(MERGE, 0, WDMA, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_DISP_WDMA1),
--	MMSYS_ROUTE(MERGE0, DSC0,
-+	MMSYS_ROUTE(MERGE, 0, DSC, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_DSC_WRAP0_IN),
--	MMSYS_ROUTE(MERGE0, DSC1,
-+	MMSYS_ROUTE(MERGE, 0, DSC, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_VPP_MERGE_TO_DSC_WRAP1_IN_MASK,
- 		    MT8195_SOUT_VPP_MERGE_TO_DSC_WRAP1_IN),
--	MMSYS_ROUTE(DSC0, DSI0,
-+	MMSYS_ROUTE(DSC, 0, DSI, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP0_OUT_TO_DSI0),
--	MMSYS_ROUTE(DSC0, DP_INTF1,
-+	MMSYS_ROUTE(DSC, 0, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP0_OUT_TO_SINB_VIRTUAL0),
--	MMSYS_ROUTE(DSC0, DPI0,
-+	MMSYS_ROUTE(DSC, 0, DPI, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP0_OUT_TO_SINB_VIRTUAL0),
--	MMSYS_ROUTE(DSC0, DPI1,
-+	MMSYS_ROUTE(DSC, 0, DPI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP0_OUT_TO_SINB_VIRTUAL0),
--	MMSYS_ROUTE(DSC0, MERGE0,
-+	MMSYS_ROUTE(DSC, 0, MERGE, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP0_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP0_OUT_TO_VPP_MERGE),
--	MMSYS_ROUTE(DSC1, DSI1,
-+	MMSYS_ROUTE(DSC, 1, DSI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP1_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP1_OUT_TO_DSI1),
--	MMSYS_ROUTE(DSC1, DP_INTF0,
-+	MMSYS_ROUTE(DSC, 1, DP_INTF, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP1_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP1_OUT_TO_DP_INTF0),
--	MMSYS_ROUTE(DSC1, DP_INTF1,
-+	MMSYS_ROUTE(DSC, 1, DP_INTF, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP1_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP1_OUT_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(DSC1, DPI0,
-+	MMSYS_ROUTE(DSC, 1, DPI, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP1_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP1_OUT_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(DSC1, DPI1,
-+	MMSYS_ROUTE(DSC, 1, DPI, 1,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP1_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP1_OUT_TO_SINA_VIRTUAL0),
--	MMSYS_ROUTE(DSC1, MERGE0,
-+	MMSYS_ROUTE(DSC, 1, MERGE, 0,
- 		    MT8195_VDO0_SEL_OUT, MT8195_SOUT_DSC_WRAP1_OUT_TO_MASK,
- 		    MT8195_SOUT_DSC_WRAP1_OUT_TO_VPP_MERGE),
- };
- 
- static const struct mtk_mmsys_routes mmsys_mt8195_vdo1_routing_table[] = {
--	MMSYS_ROUTE(MDP_RDMA0, MERGE1,
-+	MMSYS_ROUTE(MDP_RDMA, 0, MERGE, 1,
- 		    MT8195_VDO1_VPP_MERGE0_P0_SEL_IN, GENMASK(0, 0),
- 		    MT8195_VPP_MERGE0_P0_SEL_IN_FROM_MDP_RDMA0),
--	MMSYS_ROUTE(MDP_RDMA1, MERGE1,
-+	MMSYS_ROUTE(MDP_RDMA, 1, MERGE, 1,
- 		    MT8195_VDO1_VPP_MERGE0_P1_SEL_IN, GENMASK(0, 0),
- 		    MT8195_VPP_MERGE0_P1_SEL_IN_FROM_MDP_RDMA1),
--	MMSYS_ROUTE(MDP_RDMA2, MERGE2,
-+	MMSYS_ROUTE(MDP_RDMA, 2, MERGE, 2,
- 		    MT8195_VDO1_VPP_MERGE1_P0_SEL_IN, GENMASK(0, 0),
- 		    MT8195_VPP_MERGE1_P0_SEL_IN_FROM_MDP_RDMA2),
--	MMSYS_ROUTE(MERGE1, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 1, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MERGE0_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8195_SOUT_TO_MIXER_IN1_SEL),
--	MMSYS_ROUTE(MERGE2, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 2, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MERGE1_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8195_SOUT_TO_MIXER_IN2_SEL),
--	MMSYS_ROUTE(MERGE3, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 3, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MERGE2_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8195_SOUT_TO_MIXER_IN3_SEL),
--	MMSYS_ROUTE(MERGE4, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 4, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MERGE3_ASYNC_SOUT_SEL, GENMASK(1, 0),
- 		    MT8195_SOUT_TO_MIXER_IN4_SEL),
--	MMSYS_ROUTE(ETHDR_MIXER, MERGE5,
-+	MMSYS_ROUTE(ETHDR_MIXER, 0, MERGE, 5,
- 		    MT8195_VDO1_MIXER_OUT_SOUT_SEL, GENMASK(0, 0),
- 		    MT8195_MIXER_SOUT_TO_MERGE4_ASYNC_SEL),
--	MMSYS_ROUTE(MERGE1, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 1, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MIXER_IN1_SEL_IN, GENMASK(0, 0),
- 		    MT8195_MIXER_IN1_SEL_IN_FROM_MERGE0_ASYNC_SOUT),
--	MMSYS_ROUTE(MERGE2, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 2, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MIXER_IN2_SEL_IN, GENMASK(0, 0),
- 		    MT8195_MIXER_IN2_SEL_IN_FROM_MERGE1_ASYNC_SOUT),
--	MMSYS_ROUTE(MERGE3, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 3, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MIXER_IN3_SEL_IN, GENMASK(0, 0),
- 		    MT8195_MIXER_IN3_SEL_IN_FROM_MERGE2_ASYNC_SOUT),
--	MMSYS_ROUTE(MERGE4, ETHDR_MIXER,
-+	MMSYS_ROUTE(MERGE, 4, ETHDR_MIXER, 0,
- 		    MT8195_VDO1_MIXER_IN4_SEL_IN, GENMASK(0, 0),
- 		    MT8195_MIXER_IN4_SEL_IN_FROM_MERGE3_ASYNC_SOUT),
--	MMSYS_ROUTE(ETHDR_MIXER, MERGE5,
-+	MMSYS_ROUTE(ETHDR_MIXER, 0, MERGE, 5,
- 		    MT8195_VDO1_MIXER_SOUT_SEL_IN, GENMASK(2, 0),
- 		    MT8195_MIXER_SOUT_SEL_IN_FROM_DISP_MIXER),
--	MMSYS_ROUTE(ETHDR_MIXER, MERGE5,
-+	MMSYS_ROUTE(ETHDR_MIXER, 0, MERGE, 5,
- 		    MT8195_VDO1_MERGE4_ASYNC_SEL_IN, GENMASK(2, 0),
- 		    MT8195_MERGE4_ASYNC_SEL_IN_FROM_MIXER_OUT_SOUT),
--	MMSYS_ROUTE(MERGE5, DPI1,
-+	MMSYS_ROUTE(MERGE, 5, DPI, 1,
- 		    MT8195_VDO1_DISP_DPI1_SEL_IN, GENMASK(1, 0),
- 		    MT8195_DISP_DPI1_SEL_IN_FROM_VPP_MERGE4_MOUT),
--	MMSYS_ROUTE(MERGE5, DPI1,
-+	MMSYS_ROUTE(MERGE, 5, DPI, 1,
- 		    MT8195_VDO1_MERGE4_SOUT_SEL, GENMASK(1, 0),
- 		    MT8195_MERGE4_SOUT_TO_DPI1_SEL),
--	MMSYS_ROUTE(MERGE5, DP_INTF1,
-+	MMSYS_ROUTE(MERGE, 5, DP_INTF, 1,
- 		    MT8195_VDO1_DISP_DP_INTF0_SEL_IN, GENMASK(1, 0),
- 		    MT8195_DISP_DP_INTF0_SEL_IN_FROM_VPP_MERGE4_MOUT),
--	MMSYS_ROUTE(MERGE5, DP_INTF1,
-+	MMSYS_ROUTE(MERGE, 5, DP_INTF, 1,
- 		    MT8195_VDO1_MERGE4_SOUT_SEL, GENMASK(1, 0),
- 		    MT8195_MERGE4_SOUT_TO_DP_INTF0_SEL),
- };
-+
- #endif /* __SOC_MEDIATEK_MT8195_MMSYS_H */
-diff --git a/drivers/soc/mediatek/mt8365-mmsys.h b/drivers/soc/mediatek/mt8365-mmsys.h
-index 533a3fd0923b..b438ab7ae00b 100644
---- a/drivers/soc/mediatek/mt8365-mmsys.h
-+++ b/drivers/soc/mediatek/mt8365-mmsys.h
-@@ -28,35 +28,35 @@
- #define MT8365_DPI0_SEL_IN_RDMA1			0x0
- 
- static const struct mtk_mmsys_routes mt8365_mmsys_routing_table[] = {
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_OVL0_MOUT_EN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_OVL0_MOUT_PATH0_SEL),
--	MMSYS_ROUTE(OVL0, RDMA0,
-+	MMSYS_ROUTE(OVL, 0, RDMA, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_RDMA0_SEL_IN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_RDMA0_SEL_IN_OVL0),
--	MMSYS_ROUTE(RDMA0, COLOR0,
-+	MMSYS_ROUTE(RDMA, 0, COLOR, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_RDMA0_SOUT_SEL,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_RDMA0_SOUT_COLOR0),
--	MMSYS_ROUTE(COLOR0, CCORR,
-+	MMSYS_ROUTE(COLOR, 0, CCORR, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_COLOR0_SEL_IN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_DISP_COLOR_SEL_IN_COLOR0),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_DITHER0_MOUT_EN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_DITHER_MOUT_EN_DSI0),
--	MMSYS_ROUTE(DITHER0, DSI0,
-+	MMSYS_ROUTE(DITHER, 0, DSI, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_DSI0_SEL_IN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_DSI0_SEL_IN_DITHER),
--	MMSYS_ROUTE(RDMA0, COLOR0,
-+	MMSYS_ROUTE(RDMA, 0, COLOR, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_RDMA0_RSZ0_SEL_IN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_RDMA0_RSZ0_SEL_IN_RDMA0),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_LVDS_SYS_CFG_00,
- 		    MT8365_LVDS_SYS_CFG_00_SEL_LVDS_PXL_CLK,
- 		    MT8365_LVDS_SYS_CFG_00_SEL_LVDS_PXL_CLK),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_DPI0_SEL_IN,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_DPI0_SEL_IN_RDMA1),
--	MMSYS_ROUTE(RDMA1, DPI0,
-+	MMSYS_ROUTE(RDMA, 1, DPI, 0,
- 		    MT8365_DISP_REG_CONFIG_DISP_RDMA1_SOUT_SEL,
- 		    MT8365_DISP_MS_IN_OUT_MASK, MT8365_RDMA1_SOUT_DPI0),
- };
-diff --git a/drivers/soc/mediatek/mtk-mmsys.h b/drivers/soc/mediatek/mtk-mmsys.h
-index fe628d5f5198..b37d859b6c14 100644
---- a/drivers/soc/mediatek/mtk-mmsys.h
-+++ b/drivers/soc/mediatek/mtk-mmsys.h
-@@ -80,18 +80,24 @@
- 
- #define MMSYS_RST_NR(bank, bit) (((bank) * 32) + (bit))
- 
-+/* Temporary compatibility definitions */
-+#define DDP_COMPONENT_CCORR0		DDP_COMPONENT_CCORR
-+#define DDP_COMPONENT_UFOE0		DDP_COMPONENT_UFOE
-+#define DDP_COMPONENT_GAMMA0		DDP_COMPONENT_GAMMA
-+#define DDP_COMPONENT_ETHDR_MIXER0	DDP_COMPONENT_ETHDR_MIXER
-+
- /*
-  * This macro adds a compile time check to make sure that the in/out
-  * selection bit(s) fit in the register mask, similar to bitfield
-  * macros, but this does not transform the value.
-  */
--#define MMSYS_ROUTE(from, to, reg_addr, reg_mask, selection)		\
--	{ DDP_COMPONENT_##from, DDP_COMPONENT_##to, reg_addr, reg_mask,	\
--	  (__BUILD_BUG_ON_ZERO_MSG((reg_mask) == 0, "Invalid mask") +	\
--	   __BUILD_BUG_ON_ZERO_MSG(~(reg_mask) & (selection),		\
--				   #selection " does not fit in "	\
--				   #reg_mask) +				\
--	   (selection))							\
-+#define MMSYS_ROUTE(from, fsid, to, tsid, reg_addr, reg_mask, selection)	\
-+	{ DDP_COMPONENT_##from##fsid, DDP_COMPONENT_##to##tsid, reg_addr, reg_mask,	\
-+	  (__BUILD_BUG_ON_ZERO_MSG((reg_mask) == 0, "Invalid mask") +		\
-+	   __BUILD_BUG_ON_ZERO_MSG(~(reg_mask) & (selection),			\
-+				   #selection " does not fit in "		\
-+				   #reg_mask) +					\
-+	   (selection))								\
- 	}
- 
- struct mtk_mmsys_routes {
+ .../bindings/clock/mediatek,mt8186-clock.yaml      |  171 +++-
+ .../bindings/clock/mediatek,mt8186-fhctl.yaml      |    1 +
+ .../bindings/clock/mediatek,mt8186-sys-clock.yaml  |   42 +-
+ .../bindings/clock/mediatek,mt8188-clock.yaml      |   93 --
+ .../bindings/clock/mediatek,mt8188-sys-clock.yaml  |   58 --
+ .../bindings/clock/mediatek,mt8192-clock.yaml      |  191 ----
+ .../bindings/clock/mediatek,mt8192-sys-clock.yaml  |   68 --
+ .../bindings/clock/mediatek,mt8195-clock.yaml      |  238 -----
+ .../bindings/clock/mediatek,mt8195-sys-clock.yaml  |   76 --
+ drivers/clk/mediatek/Kconfig                       |   79 ++
+ drivers/clk/mediatek/Makefile                      |    8 +
+ drivers/clk/mediatek/clk-mt8189-apmixedsys.c       |  196 ++++
+ drivers/clk/mediatek/clk-mt8189-bus.c              |  200 ++++
+ drivers/clk/mediatek/clk-mt8189-dbgao.c            |   98 ++
+ drivers/clk/mediatek/clk-mt8189-dvfsrc.c           |   58 ++
+ drivers/clk/mediatek/clk-mt8189-iic.c              |  122 +++
+ drivers/clk/mediatek/clk-mt8189-scp.c              |   77 ++
+ drivers/clk/mediatek/clk-mt8189-topckgen.c         | 1024 ++++++++++++++++++++
+ drivers/clk/mediatek/clk-mt8189-ufs.c              |  133 +++
+ drivers/clk/mediatek/clk-mt8189-vlpcfg.c           |  115 +++
+ drivers/clk/mediatek/clk-mt8189-vlpckgen.c         |  284 ++++++
+ include/dt-bindings/clock/mediatek,mt8189-clk.h    |  433 +++++++++
+ include/dt-bindings/reset/mediatek,mt8189-resets.h |   17 +
+ 23 files changed, 3046 insertions(+), 736 deletions(-)
+---
+base-commit: ba7c57499e5999aeae8dd4f954eb2600589d80aa
+change-id: 20260630-mt8189-clocks-system-base-70714e4ff2aa
+
+Best regards,
 -- 
-2.54.0
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
