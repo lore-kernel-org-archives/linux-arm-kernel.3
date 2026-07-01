@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE8EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F837C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lw+X/12C/+fnQjcoUhRS7wFh1lpYx3UtxsJU4IkxeeM=; b=G3VbxSzGA2fTak6WL3hLBMjErY
-	E+f9+mDE8gzpJA6/yqA8AG4W0mGsAr+bK3Zd77DHzp+keveMeQ3ex6xDX2RdCiVwuoqkib/lESGmY
-	UoxjrGyZKX4NIxlFJI9Aj6y7M+/nfw/VNJBAdyoVWESvdQaiyQOqJPMQIA1xgG+orHHqXBS522xvo
-	yUwCW6h9nBGOSbmL+4u31EnGJZjqGYy7hxNLIA7+5+wtItQXi9fdIWiLUIn1cGBuTN9qP0jM2pG9+
-	yW96MGV4BCrw1bDCUtCtjBMPx/aUxYQf+ZNE9Pv28TOxJON6INIwUSOpnyydAkeqZTumVdMSfNWbk
-	nqO+1/+Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2dfRCuz/Cx5jv1RnO5O5ysir1ZIvHZJYb+e7qI4TkyE=; b=ExVV+7SD2La6CPDVWFBGTOxnYN
+	BWqgFZEBuXr5MYyiNPSvotFwvXHpoBAJO95jvoMAFTXPwcwCE0pLiwyCXW5Y4BHSNyw94fstsQP6Q
+	+XuGBaecBnFeR74hA++M7C/gqm9Hoep/cOVF/WxWWfc1VJBdKZ2FK8eGHF2HFX0OBBphwKPRAy1fx
+	z2ULDa+VxIvjo94zNw3XEHYpTEFZDBgbZQOJg1BEtHMrL/7F3QhUNhfJntbYslkRN1ntQi/T1wgEf
+	G2GHdmHaqbFHBgn1YblFE9hZk8CcFh4HXdzQ3JmOYXuvDchk06GkewgRTj+AN4btA/iXDSHEtQ3nb
+	8TXf1NmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvo-00000001sNd-38IS;
-	Wed, 01 Jul 2026 12:20:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wetvQ-00000001rE1-2FQz;
+	Wed, 01 Jul 2026 12:20:20 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvf-00000001rqT-2WhF;
-	Wed, 01 Jul 2026 12:20:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=lw+X/12C/+fnQjcoUhRS7wFh1lpYx3UtxsJU4IkxeeM=; b=ER+yvu7yzcdw/KZYp9VSGLtsD/
-	Lp+WxUwce9Y8hlMIU6ZCysKvWUxzk4gbXJaRURclDfqgAUKcDBlYlVmRBf5zpvncjTGqg9fHi0sgN
-	wKAJuIbBkLIWYAWBsx2F61yQFFhA6BXsgjbs+wtmJF+2NozjC2ccqEs5/gTvpPCjW4F+7W0O4nmko
-	Gyj3vRZSq7Sy6wcHA7K+bpLFOyxuZPK5BUgMaGjKrGLOacBqbOC8nnwpgdVyYTljX0G+1fHo+v8sw
-	dszfOy7WMDhK7rlBbxz0Y63TVjzvCaoNRf48o/7SZc5bKgEDL5jjFAS13GL4einhea5nW+zuQVoQo
-	93RZposA==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetvb-00000002jJX-3o24;
-	Wed, 01 Jul 2026 12:20:34 +0000
+	id 1wetvJ-00000001qo2-3aUs;
+	Wed, 01 Jul 2026 12:20:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908430;
-	bh=1ituvx4NOXspaaiMu1RL1FikTCV/DEZyG6ZgJ0WQA3E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QqlnROMSQPSdPvOMDGGXkzg5jsP8ix9VdIkepYU0Z6Oqr3oIXXfnz1/3Okflr82o4
-	 hXNDcLIBovRSlUDWFxmQxsk2r4NwRfXEb771RDGlUv7oV3z8YMwRxn4+fYgxHSqVwW
-	 98Xv1+4NdCnRl/IoakD/Za7EzxvH4uBZ+Y/3MDNGyVYc8rR62rmGct3C95015VHM0n
-	 A0d5cCfFOAcc+vozZFeta7W1CuXZgydbjUSuuWgcTlQXZCs74N26Fl1ht2+hzHD+iy
-	 rCXPyjblGwR08bHOL0oN0o6Jqn6AFVeFGHIbDKpyVJ98zZ8MpJSNxCegd6WsZ9B1T6
-	 oKc1W3KsCzjOg==
+	s=mail; t=1782908411;
+	bh=iqUVt8CT1sNuLpB4ADp03oE5HGlCBS0SsQI49Nsa4eQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=QUaIaxbyrZQOlh7ks8EESor+JN9AidmGzqUX1tmQWbSgDYaUgDbybErYDZGLFNfpK
+	 zSP3F8wpXdojJAaC13vCJjI3D2VV/WfunK89WyxOQc/2jCHtKlcVsH0q09j2w+Tuyp
+	 E29G+h5OK/MrD14TQ7odgiT+8kAOQoUuO9+DSGNyCBdJZmyQvhikZqf/5RuIMLoHMq
+	 Md8XSr0EvhXzn7n9FEmAvrMH8rgrkGViFLITZib+reD2qab8s5U8/l1dYPBygQndm2
+	 OJcAdZh11UfS3cG7vNNqOsT5elaZNa2393Y4cJp6euDeigGtJn/J7E7iL/OyYT86w1
+	 u8fLlcO/DRDjA==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A9A1F17E0F44;
-	Wed,  1 Jul 2026 14:20:29 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 978BE17E0909;
+	Wed,  1 Jul 2026 14:20:10 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: chunkuang.hu@kernel.org
-Cc: p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
+To: chunfeng.yun@mediatek.com
+Cc: vkoul@kernel.org,
+	neil.armstrong@linaro.org,
 	robh@kernel.org,
 	krzk+dt@kernel.org,
 	conor+dt@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	granquet@baylibre.com,
-	rex-bc.chen@mediatek.com,
-	dmitry.osipenko@collabora.com,
-	ck.hu@mediatek.com,
-	amergnat@baylibre.com,
+	chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
-	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	dri-devel@lists.freedesktop.org,
 	kernel@collabora.com
-Subject: [PATCH 03/11] drm/mediatek: mtk_dp: Fix hdmi codec and phy driver unregistration
-Date: Wed,  1 Jul 2026 14:20:16 +0200
-Message-ID: <20260701122024.19557-4-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 00/12] PHY: MediaTek DP PHY refactor and MT8196 eDP
+Date: Wed,  1 Jul 2026 14:19:56 +0200
+Message-ID: <20260701122008.19509-1-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132032_105564_025C9C8A 
-X-CRM114-Status: GOOD (  16.54  )
+X-CRM114-CacheID: sfid-20260701_052014_148055_1CADFA48 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,98 +85,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-During probe, this driver is registering two platform devices: one
-for the HDMI Codec driver and one for the DisplayPort PHY driver.
+This series performs major refactoring on the MediaTek DisplayPort PHY
+driver, makes it probe with devicetree instead of getting registered
+by the mtk_dp DRM driver, adds power_on/off() callbacks, and honors
+the phy configure opts' set_lanes and set_voltages for, respectively,
+varying the number of lanes and setting the voltage pre-emphasis and
+swing on the PHY, for each lane.
 
-In the probe function, none of the error cases are unregistering
-any of the two platform devices and this may cause registration
-of multiple instances of those in case this driver returns one or
-more probe deferral(s) in the "wrong" spots.
+This driver now also properly gets the PHY (EYE) Calibration Data from
+NVMEM (eFuse array) if provided, instead of getting it (improperly)
+injected by the mtk_dp driver.
 
-In order to fix this, add devm actions to unregister those and
-remove the manual calls to platform_device_unregister in the
-mtk_dp_remove() function, as those would otherwise be redundant.
+Additionally, all of the driving parameters calculations and most of
+the other register definitions were refactored to greatly enhance the
+human readability of this code.
 
-Fixes: e71a8ebbe086 ("drm/mediatek: dp: Audio support for MT8195")
-Fixes: caf2ae486742 ("drm/mediatek: dp: Add support for embedded DisplayPort aux-bus")
-Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
----
- drivers/gpu/drm/mediatek/mtk_dp.c | 30 ++++++++++++++++++++++++++----
- 1 file changed, 26 insertions(+), 4 deletions(-)
+As a last step, this also transfers the register offsets for both the
+digital and analog phy registers in arrays assigned to soc specific
+data, in an effort to both introduce support for new minor revisions
+of the MediaTek DisplayPort PHY and to have a clearer view of the
+register related differences between those (for example, it is easily
+understandable that the analog part remained exactly the same between
+MT8195 and MT8196, but the digital part gets a slight update).
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index eefbc7e0f9c8..2c738c16dafa 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -2670,6 +2670,13 @@ static const struct hdmi_codec_ops mtk_dp_audio_codec_ops = {
- 	.hook_plugged_cb = mtk_dp_audio_hook_plugged_cb,
- };
- 
-+static void mtk_dp_unregister_pdevs(void *data)
-+{
-+	struct platform_device *ext_pdev = data;
-+
-+	platform_device_unregister(ext_pdev);
-+}
-+
- static int mtk_dp_register_audio_driver(struct device *dev)
- {
- 	struct mtk_dp *mtk_dp = dev_get_drvdata(dev);
-@@ -2680,18 +2687,29 @@ static int mtk_dp_register_audio_driver(struct device *dev)
- 		.data = mtk_dp,
- 		.no_capture_mute = 1,
- 	};
-+	int ret;
- 
- 	mtk_dp->audio_pdev = platform_device_register_data(dev,
- 							   HDMI_CODEC_DRV_NAME,
- 							   PLATFORM_DEVID_AUTO,
- 							   &codec_data,
- 							   sizeof(codec_data));
--	return PTR_ERR_OR_ZERO(mtk_dp->audio_pdev);
-+	if (IS_ERR(mtk_dp->audio_pdev))
-+		return PTR_ERR(mtk_dp->audio_pdev);
-+
-+	ret = devm_add_action_or_reset(dev, mtk_dp_unregister_pdevs, mtk_dp->phy_dev);
-+	if (ret) {
-+		platform_device_unregister(mtk_dp->audio_pdev);
-+		return dev_err_probe(dev, ret,
-+				     "Failed to add codec unregister devm action");
-+	}
-+	return 0;
- }
- 
- static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- {
- 	struct device *dev = mtk_dp->dev;
-+	int ret;
- 
- 	mtk_dp->phy_dev = platform_device_register_data(dev, "mediatek-dp-phy",
- 							PLATFORM_DEVID_AUTO,
-@@ -2701,6 +2719,13 @@ static int mtk_dp_register_phy(struct mtk_dp *mtk_dp)
- 		return dev_err_probe(dev, PTR_ERR(mtk_dp->phy_dev),
- 				     "Failed to create device mediatek-dp-phy\n");
- 
-+	ret = devm_add_action_or_reset(dev, mtk_dp_unregister_pdevs, mtk_dp->phy_dev);
-+	if (ret) {
-+		platform_device_unregister(mtk_dp->phy_dev);
-+		return dev_err_probe(dev, ret,
-+				     "Failed to add phy unregister devm action");
-+	}
-+
- 	mtk_dp_get_calibration_data(mtk_dp);
- 
- 	mtk_dp->phy = devm_phy_get(&mtk_dp->phy_dev->dev, "dp");
-@@ -2870,9 +2895,6 @@ static void mtk_dp_remove(struct platform_device *pdev)
- 	pm_runtime_disable(&pdev->dev);
- 	if (mtk_dp->data->bridge_type != DRM_MODE_CONNECTOR_eDP)
- 		timer_delete_sync(&mtk_dp->debounce_timer);
--	platform_device_unregister(mtk_dp->phy_dev);
--	if (mtk_dp->audio_pdev)
--		platform_device_unregister(mtk_dp->audio_pdev);
- }
- 
- #ifdef CONFIG_PM_SLEEP
+Speaking of which, as a last step, this also adds support for the
+MT8196 SoC (and its derivatives), which uses this PHY only for its
+Embedded DisplayPort (eDP) IP (spoiler: the DP one seems to be way
+too different and requiring an entirely new PHY driver).
+
+In this state, this driver can also easily support the MT8189 SoC
+with a few lines of code: even though I do have clean code to add
+support for this one, I was not (*yet*) able to test it on upstream
+based kernels, and for this reason I decided to leave that one out
+for now (but it's coming later for sure).
+
+NOTE!
+Despite all the apparently breaking changes in the refactoring, full
+compatibility with older MTK_DP driver and with old devicetrees was
+retained and carefully tested on multiple platforms!
+
+P.S.: I am aware of the BUILD_DRIVING_PARAM_0( 0, 2, 4, 7) checkpatch
+warning and I didn't fix it in bigger favor of human readability.
+
+AngeloGioacchino Del Regno (12):
+  dt-bindings: phy: Document MT8195 and MT8196 DisplayPort PHYs
+  phy: phy-mtk-dp: Rename regs to regmap in struct mtk_dp_phy
+  phy: phy-mtk-dp: Allow probing with devicetree match
+  phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
+  phy: phy-mtk-dp: Implement power_on and power_off PHY callbacks
+  phy: phy-mtk-dp: Support set_lanes in configure and properly cleanup
+  phy: phy-mtk-dp: Support setting volt swing and preemphasis values
+  phy: phy-mtk-dp: Add support for digital and analog calibration
+  phy: phy-mtk-dp: Rewrite and document default driving param macros
+  phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
+  phy: phy-mtk-dp: Add PHYD Lane EN register mask to SoC data
+  phy: phy-mtk-dp: Add support for MT8196 eDP PHY
+
+ .../bindings/phy/mediatek,mt8195-dp-phy.yaml  |  77 ++
+ drivers/phy/mediatek/phy-mtk-dp.c             | 828 ++++++++++++++++--
+ 2 files changed, 808 insertions(+), 97 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/mediatek,mt8195-dp-phy.yaml
+
 -- 
 2.54.0
 
