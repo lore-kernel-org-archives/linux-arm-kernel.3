@@ -4,79 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7799FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:31:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F628C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:31:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
-	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EHH0hjrKeaZWnba6OJ5JT0e3gySxkqVh6AO3zCntqNE=; b=kQEAAqDoENAsJGpUcTAro+uOdM
-	EbeCzsN3M0nuBWL3OuzU3LvURPKVEd4RhOrX7VTMH5dPQv12V3ByR/s5Vt8qSGavkaGNDe9reoEgN
-	bZDlXRRkV2kAsn92ciqjJ15kn6EAHfGdy+JbDf8X5UVwI4RZ5rS5VfdSWFvNefh23gtaooOB0itXp
-	/3M1yDV/KbGFb68HXT0zASTRFeZyzl6bekla2QFAw850jMIXh7PVuDBhRAeP9yHP4U9Zyuh1yJrgw
-	/c8UUd5FC0bJt7xpDGzWrBgOmojQYSCFFgQVsAevL4P0dSKjRvz3fGuECb7YeLe/Wg99vXUw1kfb+
-	WYtr5uqA==;
+	bh=RuV8a1CwzpzVDxsgDrgfy7XNpYOTGy0EFYQPFPpbjcw=; b=olvUS74Xo29HkOW2G3TEEZLoiE
+	yP34MSsMo+BIt8ZAsZbbCxtHGBOszDYVU2JxKBioC2TDGnyTlcwVFp+LrX+DRorhCTZLP6b6IMlfl
+	0vD8r1cxD7eMqb4vCdRLLHOPcXXqq3SFHmkUs7RVJTjLhk3fNsPOSSJm2RQCiQUvgzokPjvnxCTQh
+	KW1MlL3OTjpVOAYZON6+qIvdAZn7kmNGIwJJIt+QUstZmr+ouztrmNObmvQAIIk65i3H6XMZTTfd1
+	fquwLHzyxst4I4h8DY1dUX2zmpiiRgZTy4Y7vmAW8T+YGR32MeQfrEC3xsjw5LTgf1vutfLxfpdx0
+	lVd2d8iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepQ3-00000000u8U-2Arn;
-	Wed, 01 Jul 2026 07:31:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wepQ7-00000000uA9-47T1;
+	Wed, 01 Jul 2026 07:31:43 +0000
+Received: from mail-westus3azon11011060.outbound.protection.outlook.com ([40.107.208.60] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepQ2-00000000u8K-1DLq
+	id 1wepQ4-00000000u8T-1Upe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 07:31:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E261243C1C
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2F811F0155A
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 07:31:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782891097;
-	bh=EHH0hjrKeaZWnba6OJ5JT0e3gySxkqVh6AO3zCntqNE=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=dXF2gbb4zSreejAuIAugrOyXLuV+oDU7bhAYgL0LZxT0zrV9v8M5ANPVmGmXDFNKW
-	 Zqy3X3gD6N5hBwHERKl8dd2ZkXb75PHo8petzIQkpDR9vDKkYMZxCq6jNbmxRZmz/C
-	 /cA/iBHwJHvLucrePyNEZJWpTfOL2U6tLtXxV94EyOAblZaLwAqNtX30lgZ7pU7PEf
-	 S1NcZvtsLS9BV/x/qC+mR/FH7XowLzv3L09xDuwXs/2uLIq5pQfKfqXTJw0wdtZJ3B
-	 koAK0uVuwl844JRhO2/5wCvIMR4WhpBBWfmGFpx73gG8mbnMN4NQDxK7pG/9oG8C+W
-	 m80tae7NgM2gw==
-Received: by mail-lj1-f173.google.com with SMTP id 38308e7fff4ca-3997a448ecbso3825101fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:31:37 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RoT2NpLr59KUL2Icsn2K0bFL/B2f1uA4tmW954p90qMOYYAcT4biiBmMJWbdiwoGMatL1tLNUpJaef6xghvxIjd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6f9PR6g7apph8Y4/y1mb97vFC19ubqSRs1FrtCTfDxghYQ8PR
-	D2228jv9jIzi6aU182no8BlvFAeA+AxElemvlRfC8vEPfUlKUOEwPAEGt//g2uSXin+6CalzucL
-	SKT4EvSaLr0bfUyGV4ltSA5K+RIrzoSwY5GQR3OC14A==
-X-Received: by 2002:a2e:bd83:0:b0:399:8394:9dee with SMTP id
- 38308e7fff4ca-39b340c41d3mr912171fa.25.1782891096281; Wed, 01 Jul 2026
- 00:31:36 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 1 Jul 2026 03:31:35 -0400
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 1 Jul 2026 03:31:35 -0400
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260630-dev-b4-aaeon-mcu-driver-v6-3-d66b5fcbd2f0@bootlin.com>
-MIME-Version: 1.0
-References: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com> <20260630-dev-b4-aaeon-mcu-driver-v6-3-d66b5fcbd2f0@bootlin.com>
-Date: Wed, 1 Jul 2026 03:31:35 -0400
-X-Gmail-Original-Message-ID: <CAMRc=Md2=u=tWhC-H6CA10zoS3ByPtA0UuSsCVkh-eLNe=Rmaw@mail.gmail.com>
-X-Gm-Features: AVVi8Cc_OfLeKOGOhGEKktyfB7tzHJqrZ0eIZ3H6jyHsoTN6UQFcWrRNSrUer3M
-Message-ID: <CAMRc=Md2=u=tWhC-H6CA10zoS3ByPtA0UuSsCVkh-eLNe=Rmaw@mail.gmail.com>
-Subject: Re: [PATCH v6 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
-To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miquel Raynal <miquel.raynal@bootlin.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 01 Jul 2026 07:31:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PBU/y99J8WTGfFv+ZJU9ZPBptqKlrj+4iQ+Fdymve9qlcn5R0O75u6fbpro2gBWNxoj+k74TbjGi47wfldB96HQApqIU03bEGprxAOy2x4j4gsDuPhZgihdUjFSrWtwKurosa0XGFDwKYa9nl6s6EFAy4lhhhLAhLiJ47ibusp6WwkEn3aO2K+Y9y1CFRcFiboLOKq97dKd2FVyXuGeAMvU5gibSVMN+ylOfkEsbKEBOX/tD/lXnpnmHJGDhIQp1NeLiPV/ajNKyIi9GF353lQdTOAc1bhd9cJ8JKxWdyiARwcMXJ63Td+dHTPBk8PiNJJZU171FOEUCmq0AFhpqXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RuV8a1CwzpzVDxsgDrgfy7XNpYOTGy0EFYQPFPpbjcw=;
+ b=MN8X7qJFwBRRQn5WESPveBtC/E79HbvVRJJBYKpofQIvUV9uQtF0VUr/DDefuMk2zHrDmWMHxB45D6iSQxrHaEohdfqYo3wP81ZkCElNdBW587JFdpIIqTZJrYgEWYIA9mpAM43SG2EXA8XheJ9s3KxnvyCLWThhDSRCSxPYluPjueJM3DfDMcNRXMtJhjsirxD9JQTMKoGTlw+ENounh35SiC1wrOFOaFJHOezddlzjEokZqk7kcLTPWyUxHIZcExpegnvf+hgmPXf4BJ58abVaXGyMeRLOSe/82kj3KlnDKk1c9hkyw374YfNZ40CpAZE83MgLYDai/C62MGLSXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RuV8a1CwzpzVDxsgDrgfy7XNpYOTGy0EFYQPFPpbjcw=;
+ b=VCHBnp/KV0xkXBtah2L7hRjtUm36VJe7xNmlA3eiI5w4Zsx8qMzqZ5UaAegCioqlCWOlOh6FsPNSYMMaQIvvFLRQ73Tyz/X6g0b5uRIcqmlyLnbrzluPl+AFBKOy+Eia+Fu3IbY6SqKxQOcoj6Hq7nZzJebiaPaxA5oJK6ti6lk=
+Received: from DS7PR12MB9549.namprd12.prod.outlook.com (2603:10b6:8:24e::7) by
+ MW6PR12MB8708.namprd12.prod.outlook.com (2603:10b6:303:242::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
+ 07:31:30 +0000
+Received: from DS7PR12MB9549.namprd12.prod.outlook.com
+ ([fe80::bace:1330:9ab2:acc6]) by DS7PR12MB9549.namprd12.prod.outlook.com
+ ([fe80::bace:1330:9ab2:acc6%6]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
+ 07:31:30 +0000
+From: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>, "Botcha, Mounika"
+	<Mounika.Botcha@amd.com>, Olivia Mackall <olivia@selenic.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "Simek, Michal" <michal.simek@amd.com>,
+	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>, "Savitala, Sarat
+ Chand" <sarat.chand.savitala@amd.com>
+Subject: RE: [PATCH] hwrng: xilinx-trng: propagate timeout before any data is
+ read
+Thread-Topic: [PATCH] hwrng: xilinx-trng: propagate timeout before any data is
+ read
+Thread-Index: AQHdAtabK9gmDgDVD0GaZNSQvCuqerZYUT1g
+Date: Wed, 1 Jul 2026 07:31:29 +0000
+Message-ID: <DS7PR12MB954988025789E3A5F4F18FE297F62@DS7PR12MB9549.namprd12.prod.outlook.com>
+References: <20260623060728.18906-1-pengpeng@iscas.ac.cn>
+In-Reply-To: <20260623060728.18906-1-pengpeng@iscas.ac.cn>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-07-01T07:30:15.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
+ General
+ v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DS7PR12MB9549:EE_|MW6PR12MB8708:EE_
+x-ms-office365-filtering-correlation-id: 189d383a-28ff-4d0c-a202-08ded742c4a5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|38070700021|921020|3023799007|11063799006|56012099006|18002099003|22082099003;
+x-microsoft-antispam-message-info: L97MEBipzZboF0aH7fTS12ZH9mJpID/apmk07bHqfVqPlFEXrJ2TbnBciKCRI6m7ZFhjo8tG7rM868BdvdojhTMi9JiEkfDFp8g27oXqJkbpFXTDM3nHnmbp8+C6izCXFV7vBEiG4MsdsXoR5zl2biptGrj9BTtCsM0GDdm6wq5n6LNgLw4rI0M8tn3Cyxsb/AJQLKTvNObBEcUdkdE0XglLDqLhzvRlz6iwahqJ1bZ5D8Kk3uvDa/G/DbjBMUto1d2UTVONYp3j1f5ZAzj1HH1YSiwucxxDLRCjP2r4z3CptPDSp7RRzS+ctm2v3RkqoTR3DLBrz9n9TuE6JmELLC7DaarwPlYWhz8APQJ0wAtL97BZFnKQl1ZPntO8DZKLx6G9F5hVJKOi7e9cgKqcQTfliFR9H6YjHTOZ5krghdMI/40fX758VZ7k0VtJ99h3n6vPbou3fddgi94y17FJ1CpqL29o+mqoqjLT9dEkmdsSKRicv8W08wpC+QrIX4X4fIJ4oOhUpwNyKsaGPXH4EjNwjnu6AdkfLOU4tn7wAgTfPQ/bMagk/KqSn0c3yVsdZvORZsBVPTscBQ2Gm4mkoMEGAoZa1C9rZqCKPRhim+tmhc7BVnC8ujeD5vvnV4s2yv4gsFL2I2xgJqzs+ZRlADIC6UkKaj454duSvhbYKhreie5/5Juin+P0+kIY4hD/PpyoKgxFecuNE6OBEUbjou09Yj31OsznlYPCMDsMxGoTvyY4CzfMP5FxlKWDjF9m
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9549.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(38070700021)(921020)(3023799007)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?D0Mo0kaP9xA/qOlY5cWX+6iYeZb1oZWpxUFOk7QJaB3g7SF3gmLXrH7CS7TD?=
+ =?us-ascii?Q?Z4yVWcbTAlBb8IuIThUyCwyj7FhYNi4AhrCWTxRHD7cg4Cnrsk692lowmvOw?=
+ =?us-ascii?Q?M8DzeMnzRnKzQrMNRe24DyooFSReAjrVwdPw0xZ07ad1PSBrLbW4qklF+Lid?=
+ =?us-ascii?Q?MpSfCQMsDYzUvwLh6Km02ACJyeXAk06RYVK6h3eacMsJU8t0yOj7zn2OP0ss?=
+ =?us-ascii?Q?DzK6K9hDwGF4Cuefl7j1a9vGEb7kc1qbAisBAwD8P1FXqLK2QrlUWp+XP005?=
+ =?us-ascii?Q?j/TtSgjU5Uwb7/sCs2LKM6bMzh+FybbF+1NeFd//BieSLyZkRVcLMY16FI2U?=
+ =?us-ascii?Q?g6fEPNJSPOIGD/WLeYjK82wFBSEbg80QEDbuXYy2BUyQCpfwpunKFRVQ4e68?=
+ =?us-ascii?Q?b5T5ri3iae3octsmW/+7AHhS7ukE/aEK1uuGTP0dMGupkA1xV3EVAEy3oSf+?=
+ =?us-ascii?Q?KZv3zbJ+iIOkOuUakVpSel3Llfii1+NpX/3QSJuJ0C6YrZAOj4+pcMbAwFVD?=
+ =?us-ascii?Q?NYEk30WYnw73+/kfmqd+RIda00e+ZntUzAVWCNmej8zrWG5VZUxj4NZ2d/zA?=
+ =?us-ascii?Q?2+I3ukM6VOed3a8JPgxGVHt1o7geGIFw1b//hxyffVqnbq7i5sWBsPrGHFyD?=
+ =?us-ascii?Q?VVDhhFBHQ5EIWbY6u1U1d3Oycli2f2S5zNSS2BiJ0uH1C0JrB1FvtiL0NHxs?=
+ =?us-ascii?Q?uZpviqTtL3w8WsYbl4NHF1Ca3tWlXLKk5DrnSpFiZGJ+ssBCySpv99q27LzS?=
+ =?us-ascii?Q?zupt1Q8lfOedIRsEkVa7emkYBA2qvYHS3CAutosLrCDjC+eJYwX5KD7x9fRh?=
+ =?us-ascii?Q?VyPSTqW06pScp4cwKvdNUGSMQQEiwNg5gY7RS8HZ+j5Rh8wsXqzc1bitzewZ?=
+ =?us-ascii?Q?6U5gvsrr5NFwXANwDUVaPLa18AWzL4rhOK9DqPqZxtrwFgJwOyugck9/5+XF?=
+ =?us-ascii?Q?21BnZiUgNRJ1GPqbeCfEScqmoVHGqCMfsltLlVKqX7FdHv3RXfmQoWP04goJ?=
+ =?us-ascii?Q?Y5d0UDhOmfhqcAvJy9n0ED/r6a0aeidnEsMAMWkJYRFnpny2buPQqV2WxbuQ?=
+ =?us-ascii?Q?BAvm7UWwEKHm7S6DiKBYaC11xMoU6I8WKEVsg7uh3wX8p53sRAgllFBbdqjG?=
+ =?us-ascii?Q?2EANQzxTRsaXDfK4Wj9YBbQ6dZFYBLVtbkPc14GX8pEPliJIffyWkb3KLtLK?=
+ =?us-ascii?Q?TDCkwYQJDHYdDcYQKa1uwn0CVHP3XMJV4WHAEz081rv+cwtapy8dp5MKZ4Um?=
+ =?us-ascii?Q?ClMaAYBCpkJS+8DoGIKeFVpx6V89h/SYqhBwMAc/fJxpfu4IHlAop6p2JKJP?=
+ =?us-ascii?Q?hVEtNnRwFkNZ7/pnjc5OIcGalcnt4UI58Trz2nCOMbTlJAXkJIJU9SFEXrwP?=
+ =?us-ascii?Q?zKAU/rg4Zeuu53uRTIlW1g3+YPgWnw37klv8cScWg7wNgF6QWuDyWWBKVkKb?=
+ =?us-ascii?Q?5ECBJO2R1/a2pwLvP/84TKZnFZ7TGxxUBR9bT2R/OIsMfqjkq9aaX+uhvzFd?=
+ =?us-ascii?Q?UapURMe53HaBxt9wau0Fkw+dQiYhPirCYKKC/sfKfM91EFkT3q+T+5RVPAXa?=
+ =?us-ascii?Q?T05Tuy7njOlOqYavpeoJl/xBzFUjVtMKTopNgDpenphvq2g3iz0m/LZkWeC0?=
+ =?us-ascii?Q?ktCp8jpwhdDOs/gCV3vD+GR5s5HgbwsdTkG5OOlTc/j6yX04UdJ/ZTdvObZl?=
+ =?us-ascii?Q?hiWS6I2K2wP/2mpTJt0gohR5QddbqNSJnaopqh4N/elclXxc?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9549.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 189d383a-28ff-4d0c-a202-08ded742c4a5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 07:31:29.9980
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WlEz3eWPAfFDIC4xFo87qb8maMS9LBu9o9ZueReAaR2tYf2dz5EFJMTjXU2M5Kt0
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8708
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_003140_409055_AF7DE4DD 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,376 +147,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 14:51:13 +0200, "Thomas Perrot (Schneider
-Electric)" <thomas.perrot@bootlin.com> said:
-> Add Multi-Function Device (MFD) driver for the Aaeon SRG-IMX8P
-> embedded controller. This driver provides the core I2C communication
-> interface and registers child devices (GPIO and watchdog controllers).
+AMD General
+
+Reviewed-by : Harsh Jain <h.jain@amd.com>
+
+
+> -----Original Message-----
+> From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> Sent: Tuesday, June 23, 2026 11:37 AM
+> To: Botcha, Mounika <Mounika.Botcha@amd.com>; Jain, Harsh (AECG-SSW)
+> <h.jain@amd.com>; Olivia Mackall <olivia@selenic.com>; Herbert Xu
+> <herbert@gondor.apana.org.au>; Simek, Michal <michal.simek@amd.com>; linu=
+x-
+> crypto@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
+> kernel@vger.kernel.org
+> Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> Subject: [PATCH] hwrng: xilinx-trng: propagate timeout before any data is=
+ read
 >
-> The driver implements a custom regmap bus over I2C to match the MCU's
-> fixed 3-byte command format [opcode, arg, value]. Register addresses
-> are encoded as 16-bit values (opcode << 8 | arg) using the
-> AAEON_MCU_REG() macro defined in the shared header. The regmap
-> instance is shared with child drivers via dev_get_regmap(). Concurrent
-> I2C accesses from child drivers are serialized by regmap's built-in
-> locking.
 >
-> I2C transfers use heap-allocated DMA-safe buffers rather than
-> stack-allocated ones, as required by I2C controllers that perform DMA.
+> xtrng_readblock32() polls for 16-byte chunks but returns the number of
+> bytes read even when the first poll times out. Its caller then treats a
+> zero return as a short successful read, and partial reads for full
+> 32-byte blocks can make the tail copy use a fixed block offset rather
+> than the amount already produced.
 >
-> Regmap caching is enabled (REGCACHE_MAPLE) with a volatile_reg
-> callback that marks GPIO input read registers (opcode 0x72) and the
-> watchdog status register (opcode 0x63, arg 0x02) as volatile. All
-> other registers written by the driver (GPIO direction,
-> GPO state, watchdog control) are stable and can be safely cached.
+> Return the poll error when no data has been read, preserve partial
+> positive returns after some data is available, stop the generator on all
+> collection exits, and append tail bytes at the current output count.
 >
-> Co-developed-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jere=
-mie.dautheribes@bootlin.com>
-> Signed-off-by: J=C3=A9r=C3=A9mie Dautheribes (Schneider Electric) <jeremi=
-e.dautheribes@bootlin.com>
-> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.=
-com>
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 > ---
->  MAINTAINERS                   |   2 +
->  drivers/mfd/Kconfig           |  11 +++
->  drivers/mfd/Makefile          |   1 +
->  drivers/mfd/aaeon-mcu.c       | 205 ++++++++++++++++++++++++++++++++++++=
-++++++
->  include/linux/mfd/aaeon-mcu.h |  40 +++++++++
->  5 files changed, 259 insertions(+)
+>  drivers/char/hw_random/xilinx-trng.c | 32 +++++++++++++++++++++-------
+>  1 file changed, 24 insertions(+), 8 deletions(-)
 >
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index ea9d55f76f35..f91b6a1826d0 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -191,6 +191,8 @@ M:	Thomas Perrot <thomas.perrot@bootlin.com>
->  R:	J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.com>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
-> +F:	drivers/mfd/aaeon-mcu.c
-> +F:	include/linux/mfd/aaeon-mcu.h
+> diff --git a/drivers/char/hw_random/xilinx-trng.c b/drivers/char/hw_rando=
+m/xilinx-
+> trng.c
+> index f615d5adddde..4a1a168bb46a 100644
+> --- a/drivers/char/hw_random/xilinx-trng.c
+> +++ b/drivers/char/hw_random/xilinx-trng.c
+> @@ -87,8 +87,8 @@ static void xtrng_softreset(struct xilinx_rng *rng)
+>         xtrng_readwrite32(rng->rng_base + TRNG_CTRL_OFFSET,
+> TRNG_CTRL_PRNGSRST_MASK, 0);
+>  }
 >
->  AAEON UPBOARD FPGA MFD DRIVER
->  M:	Thomas Richard <thomas.richard@bootlin.com>
-> diff --git a/drivers/mfd/Kconfig b/drivers/mfd/Kconfig
-> index aace5766b38a..ed5169c7a683 100644
-> --- a/drivers/mfd/Kconfig
-> +++ b/drivers/mfd/Kconfig
-> @@ -1561,6 +1561,17 @@ config ABX500_CORE
->  	  remain unchanged when IC changes. Binding of the functions to
->  	  actual register access is done by the IC core driver.
->
-> +config MFD_AAEON_MCU
-> +	tristate "Aaeon SRG-IMX8P MCU Driver"
-> +	depends on I2C
-> +	select MFD_CORE
-> +    select REGMAP
-> +	help
-> +	  Select this option to enable support for the Aaeon SRG-IMX8P
-> +	  onboard microcontroller (MCU). This driver provides the core
-> +	  functionality to communicate with the MCU over I2C. The MCU
-> +	  provides GPIO and watchdog functionality.
-> +
->  config AB8500_CORE
->  	bool "ST-Ericsson AB8500 Mixed Signal Power Management chip"
->  	depends on ABX500_CORE && MFD_DB8500_PRCMU
-> diff --git a/drivers/mfd/Makefile b/drivers/mfd/Makefile
-> index e75e8045c28a..34db5b033584 100644
-> --- a/drivers/mfd/Makefile
-> +++ b/drivers/mfd/Makefile
-> @@ -8,6 +8,7 @@ obj-$(CONFIG_MFD_88PM860X)	+=3D 88pm860x.o
->  obj-$(CONFIG_MFD_88PM800)	+=3D 88pm800.o 88pm80x.o
->  obj-$(CONFIG_MFD_88PM805)	+=3D 88pm805.o 88pm80x.o
->  obj-$(CONFIG_MFD_88PM886_PMIC)	+=3D 88pm886.o
-> +obj-$(CONFIG_MFD_AAEON_MCU)	+=3D aaeon-mcu.o
->  obj-$(CONFIG_MFD_ACT8945A)	+=3D act8945a.o
->  obj-$(CONFIG_MFD_SM501)		+=3D sm501.o
->  obj-$(CONFIG_ARCH_BCM2835)	+=3D bcm2835-pm.o
-> diff --git a/drivers/mfd/aaeon-mcu.c b/drivers/mfd/aaeon-mcu.c
-> new file mode 100644
-> index 000000000000..306aaac1bd60
-> --- /dev/null
-> +++ b/drivers/mfd/aaeon-mcu.c
-> @@ -0,0 +1,205 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Aaeon MCU driver
-> + *
-> + * Copyright (C) 2026 Bootlin
-> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
-m>
-> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-> + */
-> +
-> +#include <linux/err.h>
-> +#include <linux/i2c.h>
-> +#include <linux/mfd/aaeon-mcu.h>
-> +#include <linux/mfd/core.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +#include <linux/slab.h>
-> +
-> +struct aaeon_mcu {
-> +	struct i2c_client *client;
-> +	u8 *cmd;      /* DMA-safe 3-byte write buffer [opcode, arg, value] */
-> +	u8 *response; /* DMA-safe 1-byte read buffer for MCU acknowledgment */
-> +};
-> +
-> +static const struct mfd_cell aaeon_mcu_devs[] =3D {
-> +	MFD_CELL_BASIC("aaeon-mcu-wdt", NULL, NULL, 0, 0),
-> +	MFD_CELL_BASIC("aaeon-mcu-gpio", NULL, NULL, 0, 0),
-> +};
-> +
-> +/* Number of bytes in a MCU command: [opcode, arg, value] */
-> +#define AAEON_MCU_CMD_LEN      3
-> +
-> +/*
-> + * Custom regmap bus for the Aaeon MCU I2C protocol.
-> + *
-> + * The MCU uses a fixed 3-byte command format [opcode, arg, value] follo=
-wed
-> + * by a 1-byte response. It requires a STOP condition between the comman=
-d
-> + * write and the response read, so two separate i2c_transfer() calls are
-> + * issued.  The regmap lock serialises concurrent accesses from the GPIO
-> + * and watchdog child drivers.
-> + *
-> + * Register addresses are encoded as a 16-bit big-endian value where the
-> + * high byte is the opcode and the low byte is the argument, matching th=
-e
-> + * wire layout produced by regmap for reg_bits=3D16.
-> + */
-
-I would have preferred this implemented as a quirk in the i2c regmap but
-won't die on that hill.
-
-> +
-> +static int aaeon_mcu_regmap_write(void *context, const void *data, size_=
-t count)
-> +{
-> +	struct aaeon_mcu *mcu =3D context;
-> +	struct i2c_client *client =3D mcu->client;
-> +	struct i2c_msg write_msg;
-> +	/* The MCU always sends a response byte after each command; discard it.=
+> -/* Return no. of bytes read */
+> -static size_t xtrng_readblock32(void __iomem *rng_base, __be32 *buf, int
+> blocks32, bool wait)
+> +/* Return no. of bytes read or a negative error before any data is read.=
  */
-> +	struct i2c_msg response_msg;
-> +	int ret;
-> +
-> +	memcpy(mcu->cmd, data, count);
-> +
-> +	write_msg.addr  =3D client->addr;
-> +	write_msg.flags =3D I2C_M_DMA_SAFE;
-> +	write_msg.buf   =3D mcu->cmd;
-> +	write_msg.len   =3D count;
-> +
-> +	response_msg.addr  =3D client->addr;
-> +	response_msg.flags =3D I2C_M_RD | I2C_M_DMA_SAFE;
-> +	response_msg.buf   =3D mcu->response;
-> +	response_msg.len   =3D 1;
-> +
-> +	ret =3D i2c_transfer(client->adapter, &write_msg, 1);
-> +	if (ret < 0)
-> +		return ret;
-> +	if (ret !=3D 1)
-> +		return -EIO;
-> +
-> +	ret =3D i2c_transfer(client->adapter, &response_msg, 1);
-> +	if (ret < 0)
-> +		return ret;
-> +	if (ret !=3D 1)
-> +		return -EIO;
-> +
-> +	return 0;
-> +}
-> +
-> +static int aaeon_mcu_regmap_read(void *context, const void *reg_buf,
-> +				 size_t reg_size, void *val_buf, size_t val_size)
-> +{
-> +	struct aaeon_mcu *mcu =3D context;
-> +	struct i2c_client *client =3D mcu->client;
-> +	struct i2c_msg write_msg;
-> +	struct i2c_msg read_msg;
-> +	int ret;
-> +
-> +	/*
-> +	 * reg_buf holds the 2-byte big-endian register address [opcode, arg].
-> +	 * Append a trailing 0x00 to form the full 3-byte MCU command.
-> +	 */
-> +	mcu->cmd[0] =3D ((u8 *)reg_buf)[0];
-> +	mcu->cmd[1] =3D ((u8 *)reg_buf)[1];
-> +	mcu->cmd[2] =3D 0x00;
-> +
-> +	write_msg.addr  =3D client->addr;
-> +	write_msg.flags =3D I2C_M_DMA_SAFE;
-> +	write_msg.buf   =3D mcu->cmd;
-> +	write_msg.len   =3D AAEON_MCU_CMD_LEN;
-> +
-> +	read_msg.addr  =3D client->addr;
-> +	read_msg.flags =3D I2C_M_RD | I2C_M_DMA_SAFE;
-> +	read_msg.buf   =3D val_buf;
-> +	read_msg.len   =3D val_size;
-> +
-> +	ret =3D i2c_transfer(client->adapter, &write_msg, 1);
-> +	if (ret < 0)
-> +		return ret;
-> +	if (ret !=3D 1)
-> +		return -EIO;
-> +
-> +	ret =3D i2c_transfer(client->adapter, &read_msg, 1);
-> +	if (ret < 0)
-> +		return ret;
-> +	if (ret !=3D 1)
-> +		return -EIO;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct regmap_bus aaeon_mcu_regmap_bus =3D {
-> +	.write =3D aaeon_mcu_regmap_write,
-> +	.read  =3D aaeon_mcu_regmap_read,
-> +};
-> +
-> +static bool aaeon_mcu_volatile_reg(struct device *dev, unsigned int reg)
-> +{
-> +	/*
-> +	 * GPIO input registers are driven by external signals and can change
-> +	 * at any time without CPU involvement, always read from hardware.
-> +	 *
-> +	 * The watchdog status register reflects hardware state and can change
-> +	 * autonomously.
-> +	 *
-> +	 * All other registers are written by the driver and their values are
-> +	 * stable, so they can be safely cached.
-> +	 */
-> +	if ((reg >> 8) =3D=3D AAEON_MCU_READ_GPIO_OPCODE)
-> +		return true;
-> +	if (reg =3D=3D AAEON_MCU_REG(AAEON_MCU_CONTROL_WDT_OPCODE, 0x02))
-> +		return true;
-> +	return false;
-> +}
-> +
-> +static const struct regmap_config aaeon_mcu_regmap_config =3D {
-> +	.reg_bits          =3D 16,
-> +	.val_bits          =3D 8,
-> +	.reg_format_endian =3D REGMAP_ENDIAN_BIG,
-> +	.max_register      =3D AAEON_MCU_MAX_REGISTER,
-> +	.volatile_reg      =3D aaeon_mcu_volatile_reg,
-> +	.cache_type        =3D REGCACHE_MAPLE,
-> +};
-> +
-> +static int aaeon_mcu_probe(struct i2c_client *client)
-> +{
-> +	struct aaeon_mcu *ddata;
-> +	struct regmap *regmap;
-> +
-> +	ddata =3D devm_kzalloc(&client->dev, sizeof(*ddata), GFP_KERNEL);
-> +	if (!ddata)
-> +		return -ENOMEM;
-> +
-> +	ddata->client =3D client;
-> +
-> +	ddata->cmd =3D devm_kzalloc(&client->dev, AAEON_MCU_CMD_LEN * sizeof(*d=
-data->cmd),
-
-Why not devm_kcalloc()?
-
-> +				   GFP_KERNEL);
-> +	if (!ddata->cmd)
-> +		return -ENOMEM;
-> +
-> +	ddata->response =3D devm_kzalloc(&client->dev, sizeof(*ddata->response)=
-, GFP_KERNEL);
-> +	if (!ddata->response)
-> +		return -ENOMEM;
-> +
-> +	regmap =3D devm_regmap_init(&client->dev, &aaeon_mcu_regmap_bus,
-> +				  ddata, &aaeon_mcu_regmap_config);
-> +	if (IS_ERR(regmap))
-> +		return dev_err_probe(&client->dev, PTR_ERR(regmap),
-> +				     "failed to initialize regmap\n");
-> +
-> +	return devm_mfd_add_devices(&client->dev, PLATFORM_DEVID_AUTO,
-> +				    aaeon_mcu_devs, ARRAY_SIZE(aaeon_mcu_devs),
-> +				    NULL, 0, NULL);
-> +}
-> +
-> +static const struct of_device_id aaeon_mcu_of_match[] =3D {
-> +	{ .compatible =3D "aaeon,srg-imx8p-mcu" },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, aaeon_mcu_of_match);
-> +
-> +static struct i2c_driver aaeon_mcu_driver =3D {
-> +	.driver =3D {
-> +		.name =3D "aaeon-mcu",
-> +		.of_match_table =3D aaeon_mcu_of_match,
-> +	},
-> +	.probe =3D aaeon_mcu_probe,
-> +};
-> +module_i2c_driver(aaeon_mcu_driver);
-> +
-> +MODULE_DESCRIPTION("Aaeon MCU Driver");
-> +MODULE_AUTHOR("J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootli=
-n.com>");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/mfd/aaeon-mcu.h b/include/linux/mfd/aaeon-mcu.=
-h
-> new file mode 100644
-> index 000000000000..3a1aeec85d60
-> --- /dev/null
-> +++ b/include/linux/mfd/aaeon-mcu.h
-> @@ -0,0 +1,40 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +/*
-> + * Aaeon MCU driver definitions
-> + *
-> + * Copyright (C) 2026 Bootlin
-> + * Author: J=C3=A9r=C3=A9mie Dautheribes <jeremie.dautheribes@bootlin.co=
-m>
-> + * Author: Thomas Perrot <thomas.perrot@bootlin.com>
-> + */
-> +
-> +#ifndef __LINUX_MFD_AAEON_MCU_H
-> +#define __LINUX_MFD_AAEON_MCU_H
-> +
-> +/*
-> + * MCU register address: the high byte is the command opcode, the low
-> + * byte is the argument.  This matches the 3-byte wire format
-> + * [opcode, arg, value] used by the MCU I2C protocol.
-> + */
-> +#define AAEON_MCU_REG(op, arg)		(((op) << 8) | (arg))
-> +
-> +/*
-> + * Opcode for GPIO input reads. These registers are volatile, their valu=
-es
-> + * are driven by external signals and can change without CPU involvement=
-.
-> + * Used by the MFD driver's volatile_reg callback to bypass the regmap c=
-ache.
-> + */
-> +#define AAEON_MCU_READ_GPIO_OPCODE	0x72
-> +
-> +/*
-> + * Opcode for watchdog control and status commands.
-> + * The status register (arg=3D0x02) reflects hardware state and is volat=
-ile.
-> + */
-> +#define AAEON_MCU_CONTROL_WDT_OPCODE	0x63
-> +
-> +/*
-> + * Highest register address in the MCU register map.
-> + * The WRITE_GPIO opcode (0x77) with the highest GPIO argument (0x0B =3D=
- 11,
-> + * i.e. MAX_GPIOS - 1) produces the largest encoded address.
-> + */
-> +#define AAEON_MCU_MAX_REGISTER		AAEON_MCU_REG(0x77, 0x0B)
-> +
-> +#endif /* __LINUX_MFD_AAEON_MCU_H */
+> +static int xtrng_readblock32(void __iomem *rng_base, __be32 *buf, int bl=
+ocks32,
+> bool wait)
+>  {
+>         int read =3D 0, ret;
+>         int timeout =3D 1;
+> @@ -103,8 +103,11 @@ static size_t xtrng_readblock32(void __iomem *rng_ba=
+se,
+> __be32 *buf, int blocks3
+>                 ret =3D readl_poll_timeout(rng_base + TRNG_STATUS_OFFSET,=
+ val,
+>                                          (val & TRNG_STATUS_QCNT_MASK) =
+=3D=3D
+>                                          TRNG_STATUS_QCNT_16_BYTES, !!wai=
+t, timeout);
+> -               if (ret)
+> +               if (ret) {
+> +                       if (!read)
+> +                               return ret;
+>                         break;
+> +               }
+>
+>                 for (idx =3D 0; idx < TRNG_READ_4_WORD; idx++) {
+>                         *(buf + read) =3D cpu_to_be32(ioread32(rng_base +
+> TRNG_CORE_OUTPUT_OFFSET));
+> @@ -119,27 +122,40 @@ static int xtrng_collect_random_data(struct xilinx_=
+rng
+> *rng, u8 *rand_gen_buf,
+>  {
+>         u8 randbuf[TRNG_SEC_STRENGTH_BYTES];
+>         int byteleft, blocks, count =3D 0;
+> +       int full_blocks_bytes;
+>         int ret;
+>
+>         byteleft =3D no_of_random_bytes & (TRNG_SEC_STRENGTH_BYTES - 1);
+>         blocks =3D no_of_random_bytes >> TRNG_SEC_STRENGTH_SHIFT;
+> +       full_blocks_bytes =3D blocks * TRNG_SEC_STRENGTH_BYTES;
+>         xtrng_readwrite32(rng->rng_base + TRNG_CTRL_OFFSET,
+> TRNG_CTRL_PRNGSTART_MASK,
+>                           TRNG_CTRL_PRNGSTART_MASK);
+>         if (blocks) {
+>                 ret =3D xtrng_readblock32(rng->rng_base, (__be32 *)rand_g=
+en_buf, blocks,
+> wait);
+> -               if (!ret)
+> -                       return 0;
+> +               if (ret <=3D 0) {
+> +                       count =3D ret;
+> +                       goto out_stop;
+> +               }
+>                 count +=3D ret;
+> +               if (ret < full_blocks_bytes)
+> +                       goto out_stop;
+>         }
+>
+>         if (byteleft) {
+>                 ret =3D xtrng_readblock32(rng->rng_base, (__be32 *)randbu=
+f, 1, wait);
+> +               if (ret < 0) {
+> +                       if (!count)
+> +                               count =3D ret;
+> +                       goto out_stop;
+> +               }
+>                 if (!ret)
+> -                       return count;
+> -               memcpy(rand_gen_buf + (blocks * TRNG_SEC_STRENGTH_BYTES),
+> randbuf, byteleft);
+> -               count +=3D byteleft;
+> +                       goto out_stop;
+> +               ret =3D min(ret, no_of_random_bytes - count);
+> +               memcpy(rand_gen_buf + count, randbuf, ret);
+> +               count +=3D ret;
+>         }
+>
+> +out_stop:
+>         xtrng_readwrite32(rng->rng_base + TRNG_CTRL_OFFSET,
+>                           TRNG_CTRL_PRNGMODE_MASK |
+> TRNG_CTRL_PRNGSTART_MASK, 0U);
 >
 > --
-> 2.54.0
->
->
+> 2.50.1 (Apple Git-155)
 
-Bart
 
