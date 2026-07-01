@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93BDEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:45:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DD48C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 15:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8uaKB+erLgoGRRliSGgNeAl6w8yoVZVFzLWho+NHNyA=; b=XN+aAFka/KUzB03rx//oFJThOP
-	XWYCzL1uAUWcSzVAykBuJpmcFmcj1X1gNc1QmIRI1hXxPbhO6rGRcjMEiALtxv6DsVaBMIwHQ4BpN
-	uZH9YuxMpYTMwoSPbzFcDxzezNsgFDwglWWfbZZ38tXMl3MomZdHxrARjpwdqLZPqGz09MncgwNhg
-	D2fL1fNtY4q6wem7+1Eb7+eOLmfIjWa7SolFb1cQnVlHIEdYHLb4jusKo3MUIXJf64qavZGp9R3tX
-	Ns7lhRpObGI685EbtLs8wGMVuKoI0K1x+mvxED+b1L5+7VuVG4dl7qMVKCpq/NvdJhKKUxdk3mHds
-	mAXi5dKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=NRactH9G8VIg87UGgdIMTyvt5IVxZz9zv/IYqfJqpdw=; b=a/DRKDnFncoY4cv2CRdmGLjSBz
+	PAT0wwRolXsS1TCXjY/FauT7TomK1OYgh9itQKSeLTmAqmn6qhS2QuXmsF646IvJX1KofeqelL5bq
+	EVeIyraFL1+lF1FSlK01aH0blufmxJVSulV7OBdkmUwUT9KVvRdhuT5yEJACmqdDM5nTh/4+U+OkA
+	pj6u5rXmFugM9x/yHQ2mPRcPTYgh188dXeEVcdlG6HsNQpO+WtYEvImkxS/VZx74LmrjdId4E/H2l
+	fork2pueOLdD20c0mxyZhzH/L0vzf8BM5LOZ3z7XTKSNypmhRrmbNpmpoxrYa8mYL2ZlD0EvtHmbq
+	9zbzTbXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wex87-00000002QbC-2UuJ;
-	Wed, 01 Jul 2026 15:45:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wexA8-00000002Qsa-3XuN;
+	Wed, 01 Jul 2026 15:47:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wex86-00000002Qaz-0O1E
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 15:45:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 77B7740E89;
-	Wed,  1 Jul 2026 15:45:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD4B1F000E9;
-	Wed,  1 Jul 2026 15:45:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782920737;
-	bh=8uaKB+erLgoGRRliSGgNeAl6w8yoVZVFzLWho+NHNyA=;
-	h=From:To:Cc:Subject:Date;
-	b=WnWiJ+NP0SOka904WY52aACOyO2t2A0ssND3U7OY3dci5+oywsOOZG+XP+34PmaU2
-	 6hOYOLiBjrqhoYpsUxdCRPk1sEbHQ3MkHtXWQ0EXFyUpFxm0DLfXPiZBGj5wfwf9ns
-	 8na8+I4k76Jmmq27sKSkeBcX9BXGtEKm3fOHJwbYP9IAhV6kLEZWfm2ib54JNZF4aE
-	 WYACK/vUJ2OoIBRzQET8nax8+IbG/Pb1epKNltQJKsfkBpm1XdTQxBkIvAbEWI6Ydv
-	 rPolX0KA2kSrBGqPjBuS7D7H88INZ/TtWRW1Tdg+pOWGTbRoM4NjfV9fhsRzV51gAC
-	 5yGvuJFzBeOEg==
-Received: from phl-compute-08.internal (phl-compute-08.internal [10.202.2.48])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 216EDF4006A;
-	Wed,  1 Jul 2026 11:45:36 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-08.internal (MEProxy); Wed, 01 Jul 2026 11:45:36 -0400
-X-ME-Sender: <xms:IDZFagfvseMWKSVeticHnUvvm3LkuxiAJDyhZ3lVxBNhohZTF6Rmrw>
-    <xme:IDZFaqXh9WYDsZIVcGZsQAA5gq6o8qUoZ-zJ1YcdOBV0PeiYtRJQ7ufLUwUjb3_k_
-    AK40wyFCNXBNRu3lTUgTFrid4_P5OZ791s84d_uxzZvo4nvmLsrLw>
-X-ME-Received: <xmr:IDZFahBfIKOhDFlY9CMUqIqryA09rPxmeyYC2Ouy-0VJfmq774ZqDUtyWsOUFA>
-X-ME-Proxy-Cause: dmFkZTFCe0Qg8LePbnO0tVViZYir7gYWYFiJi9FChNr/c+BoUiXMnAjJHzn194QSG8/hmE
-    er9oQOSseZew0j1bWXWyBPXr67FVctHtt01gmE3489L1P+Gx2psn4JZ0E+oki4I/XmVSjv
-    sab8pDNDBaBDmFMoKJOTZAhGMsFJhqmYcFrdjq35kCv78wFKzHVql2YMMAoOc7QejNctHl
-    ndCOFPQRb+3ETTE2bACiBK1HKTklEgZfUaOEg7qEaLYL6SdMiXE5AiAJVzwWv+tOVsjPIj
-    KefxDv54AyNdZFvrK5Lw6WxPOD/ohy38tR6PLST5NqEZERqlSE6w82lhlgi80Lm5+aordQ
-    wr0rPQXwBNooBWHEILFP7z3nXEm0TppdHpyGb/q8PdoCG80/CGslcFma3K0Ztn+vLZSeg5
-    0RSmZlxB+XGat748J1JC1Btf/yrM7usWj6kvXABDu6cJlcW6IH0IKrqGfOnlsCyXmtjbke
-    +18SfuRawLi8YgFr/0hXZONT13KJRwvIPHznaJSa7sgLRIq6eXzccC23HvgG3ZsbwsPmxr
-    T3qpDEdK1sWE7MbXeMTHsfpG1X1Q6Y8hQSNXlGUnJSNVDMc4Ku60ucAq2eN0km6phtQDvU
-    /hR/zlhr4V+Xo9qF/rgo01n25IqQ7LsO99LI7S1fe2v6zkMo6tUzo73aEtKg
-X-ME-Proxy: <xmx:IDZFal5YW1-CQ_lqZHgP0fDhCEcq-sXE-IWOV7vT7rfRSow22HiMkA>
-    <xmx:IDZFao014SKzL0DVXmE6VsFKJU3Bd8CgOX_QNRa-p7Hr-4GIxUsbIQ>
-    <xmx:IDZFapkaajlGfFVtiFThuEWrIVZHfc2u9h3d6pC2yFotyyiQpPSWMA>
-    <xmx:IDZFau7TCJJgqonLF73HtJWaCad4iIJbzY3ov8POiw86331Ox5xmNA>
-    <xmx:IDZFaklcPO15aUFndgnZJ7xXqu3Fau_1hwSe8owB4Ed82ha6gl0IfeJC>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 1 Jul 2026 11:45:35 -0400 (EDT)
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Kyle McMartin <jkkm@meta.com>,
-	Breno Leitao <leitao@debian.org>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCH] iommu/arm-smmu-v3: Shrink command/event/PRI queues in kdump kernel
-Date: Wed,  1 Jul 2026 16:45:28 +0100
-Message-ID: <20260701154528.768976-1-kas@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	id 1wexA6-00000002Qs4-3YSC;
+	Wed, 01 Jul 2026 15:47:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782920859;
+	bh=Ky9AIH6/lq3FHpbsWjW7cQtA0kjqF07M4MVwKxOHcRs=;
+	h=From:Date:Subject:To:Cc:From;
+	b=mHpvIqwNp84u6/vvEm9g+BG98EFMuN+XKb/mWOpwbdTBqqkoW4jbvWpoqticz77at
+	 tJaBSxNVfU5jTcA1Dqy17ROjbdQR0XdHldSAIWOLdSoxLDm4BtTNZ2fl34Ak6Qy3hi
+	 xtvYsRUi+bmjICiJCukTyrwjy5VzY/c1sXw1WGSmNlERYFCjlR7x1lp8bS8T/Hsjm7
+	 w9w/eaUo/5beDO/ZqtzTUnURFVyvqegw3C4pWlLStn7+tvygo222Pep/zk2+ZPg5j1
+	 H1imdLxDMYAlFoClXT+8W2O3OQPV78xgbfEwfMxEQshAM9ZNrhysQYvVnoNO7dnq4G
+	 9tTShUonVWYPg==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 093D817E02CB;
+	Wed,  1 Jul 2026 17:47:38 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Wed, 01 Jul 2026 17:47:20 +0200
+Subject: [PATCH] dt-bindings: dma: mediatek,uart-dma: add support for
+ MT8189 SoC
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-mt8189-dt-bindings-uart-dma-v1-1-c7106216a40d@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQ6DIBAAv0L23E3AppT6lcYDyGL3ALaAxsT49
+ xI9zhxmdiiUmQr0YodMKxeeUwN1EzB+bJoI2TeGTnZaPqXCWI0yL/QVHSfPaSq42FzRR4vBBO/
+ IPDSRgVb4Zgq8nfX3cHGm39Im9ZLgbCEc5xi59iLRVvEc6buE4Tj+p2kPCp4AAAA=
+X-Change-ID: 20260701-mt8189-dt-bindings-uart-dma-f8fdbe856ee8
+To: Sean Wang <sean.wang@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Frank Li <Frank.Li@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Long Cheng <long.cheng@mediatek.com>
+Cc: kernel@collabora.com, dmaengine@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782920858; l=1072;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=Ky9AIH6/lq3FHpbsWjW7cQtA0kjqF07M4MVwKxOHcRs=;
+ b=ofMvNwFJxd2WVq31avixKD4TbRj35vFDFtRR0jcj91McrJ+rG7GfQZ47Vwn2QS6H9O8ZGXCOp
+ xmk7QNrBj7BBEHNOkJQLU2Oeu5O4fFX1HVyVk6W14l0cMXrxUhzUck5
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_084743_039141_0422CD97 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,56 +92,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The command, event and PRI queues are sized from the maxima the hardware
-advertises in IDR1, which can be several megabytes each. On systems with
-many SMMUv3 instances that cost is paid per instance and adds up to tens
-of megabytes of coherent DMA in the capture kernel.
+Add the compatible string for the APDMA IP found in MT8189 SoC,
+that supports 35-bits addressing as MT6985 SoC.
 
-A kdump capture kernel runs from a small crashkernel reservation and only
-has to drive the few devices used to save the dump, so deep queues serve
-no purpose. The queues carry invalidation commands and fault records, not
-DMA data, so dump throughput is unaffected; a shallower queue only bounds
-how many commands may be in flight before a sync, which does not matter for
-the capture kernel's small device count and modest I/O.
-
-Clamp every queue to a single page when is_kdump_kernel() is true. Doing
-it in arm_smmu_init_one_queue() covers the command, event and PRI queues
-in one place. The command queue still holds at least one batch plus a sync
-(256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
-command batching keeps working.
-
-Suggested-by: Kyle McMartin <jkkm@meta.com>
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f0..6ec3ef5ee0da 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4414,6 +4414,20 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
- {
- 	size_t qsz;
- 
-+	/*
-+	 * A kdump capture kernel runs from a small crashkernel reservation and
-+	 * only has to drive the few devices used to save the dump, so there is
-+	 * no point sizing the queues for the (multi-megabyte) maxima the
-+	 * hardware advertises. Clamp each queue to a single page. ent_sz_shift
-+	 * is the log2 of the entry size in bytes (dwords * 8).
-+	 */
-+	if (is_kdump_kernel()) {
-+		u32 ent_sz_shift = ilog2(dwords) + 3;
-+
-+		q->llq.max_n_shift = min_t(u32, q->llq.max_n_shift,
-+					   PAGE_SHIFT - ent_sz_shift);
-+	}
-+
- 	do {
- 		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
- 		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
+diff --git a/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml b/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
+index 3708518fe7fc..bba20e88a6dc 100644
+--- a/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/mediatek,uart-dma.yaml
+@@ -40,6 +40,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt6991-uart-dma
++              - mediatek,mt8189-uart-dma
+               - mediatek,mt8196-uart-dma
+           - const: mediatek,mt6985-uart-dma
+       - enum:
+
+---
+base-commit: ba7c57499e5999aeae8dd4f954eb2600589d80aa
+change-id: 20260701-mt8189-dt-bindings-uart-dma-f8fdbe856ee8
+
+Best regards,
 -- 
-2.54.0
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
