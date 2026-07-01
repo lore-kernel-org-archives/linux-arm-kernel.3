@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849F7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B7BC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPx6WVTDQZFIdXGzut5gk4J2ThjEFww+a3kTIk1fPgY=; b=2vGQIUS4QiiVXTBcsX6zrAKCdN
-	EQrPM9DMRnHhCZnz7P9V2c7ef9pAho+GmIhfGamQIPTHJrhFhKZ0w1Octvj611JCnh00ys1Gt3X3r
-	mexnb2yip96y3YGoaJgc8Tq/IlsqT/kw5EXp4u3LxtsyRrEWXXcE0npnSnz0YaDXtUb96gQF+aSZb
-	IZLKqU1RDb300fGtPDt7B1dwkgs4n6ZOfr/hqk8x/w/A1CoTexar5/9trPgK/9waooXQHeC9m03TF
-	LiAPrOq9hrwHgoD+X/rGDxta3pIWia6HqLSqovM7OhGNMs2QSCwcYCkBK+vLclmejB1A1xC+B8kD6
-	E0HY6iOw==;
+	bh=UyDXms99eTd7032G7jvn8+11Yj1aiXgFu+J2wSs8MWM=; b=0c0WaAaWLzch+9n49l05JYu5au
+	ik0KNZdggMrivWVDeHMQTVyACldmblU1iuk+lLskCbiAGV7OtQSYNJDXmekBmT/fVJJ5JGkJTtv0m
+	58G/3WLebxg1t41OCLTXHfXdvi0cbIrGUE9lar4qV8MGV++GLES8mctQHA19K4/60fdGJX0EhwI72
+	fV3GDHHKloj9RfBt2A0RVVOcJGxR/2904brr49X9AM2IaXQhhUJo6TyODjDsY57woPEuqMrajUNMC
+	FMIb2X3DZaIPmi2YCeHrW7r/hl0NpQO4l8BGio1HsHYVIJB3jdETwMNIxLRB9OmijF8wOSnQKDi/T
+	ivzMBTKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetxI-00000001wex-3sfn;
-	Wed, 01 Jul 2026 12:22:17 +0000
+	id 1wetxJ-00000001wgH-1QL8;
+	Wed, 01 Jul 2026 12:22:19 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwq-00000001vFt-3DwG;
+	id 1wetwr-00000001vG0-2Zch;
 	Wed, 01 Jul 2026 12:21:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=CPx6WVTDQZFIdXGzut5gk4J2ThjEFww+a3kTIk1fPgY=; b=N8KDsuvpraWcRykZVe5OyO+njC
-	0fJeJHx2Wl2bf5AXB1tRmVk5LHheucYY4SMdj3yOmW/cVbinSaLir2ekFhvwAyVWGD32WVTapVOny
-	j5/MSfvYIYcnrauw7dDM9xA/XXcIfKXznmGSJCqPHLdYurXGnW/plgMU1uMAMQ26CXT+HBntwwpCd
-	IKVTaKWXcOvOZmMc0evW7hIz/xPBEih4EY4/yaEC2mqMfU/cJ6yUlGhOGRCn0cLulIVoXaOOKLx9b
-	GPVZk51KBtZ0QWcttfAhxggIUzzMkvm1U0UQrLItTYq5DnSye8sFm9JnKK5eUo4GLBkzombi1R/ej
-	dvl1M5kA==;
+	bh=UyDXms99eTd7032G7jvn8+11Yj1aiXgFu+J2wSs8MWM=; b=ujF4mjDUAshinRSzZhUIAgDBXR
+	NeGvTB7dpxZWVNJdVaJrPbIv+4mHIdsh13mO+w1AIsfI0kXE3DgapRyGTcpzFcH/jw5xzB0JQdwqg
+	OxziBcKaO2wIFsSUZ9yOhzRIFvlMjKsfCz9s+fmJ/AiJRV35024t3mZsHgC32vUhvaeSqiOSTipEX
+	AHpnVAD6337sLOfMkFzmk7rqqwYfqmIvBizUEMPnPawxCMJQ62GMfx7cj4v6Vs/totjIO5SUL3fDE
+	BOKLbGejMlrfWcBwldLLybk9vWmHOYPkAlZFhWojAavsWEwTTPMUie3lkDwCqZzCUc7gVZNCq+eib
+	9dcXh5Tw==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by casper.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetwn-00000006azP-0gQk;
-	Wed, 01 Jul 2026 12:21:47 +0000
+	id 1wetwo-00000006b0q-0ZyJ;
+	Wed, 01 Jul 2026 12:21:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1782908504;
-	bh=n8Y1F/7yJz5bZfK3i2dMMM7pnc4ZZ3VfCwKaBMTtCrI=;
+	bh=BletofGxTLJKLtOCpRi+bIeuCm9Svwd3CTzjPRNS3zs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=AyXeMM9weop3co4ZggBCG4/ONXUSUnIkhPL+BITnWYy8i/wMcW5agZ1w3erk+Z5EN
-	 LPT6S3IpsoV1eEiriTncD/Avq1wnNz7irQ91otmh1SE/XlJBBb8hglsSRw7DOO0MHk
-	 Y9qVgGAlUydopnlagf93FmGqjmPxTMGwiMOOGhzHKS3QgnY2DkeluSKqHQb1BCOYxR
-	 TA1R1dm15W+pfcXFwzxWrkQIMKb9JvCs2LMzlM3vKtJCltKarMv/EcJ0QWf5+iONY8
-	 +kejXJmeUuDnw2A2Xy38z92QN10P9lPqCR27R3J3er6vqY02OxC0BjtcK8pL+OMtpA
-	 3aeIK/DVxviEA==
+	b=f/FSdYijfGUmt0/hjbGg38KesEluMgbvlg7gpLIRdltr09Kna6h27IwH1IGW0+Smr
+	 HSfQ52Znb37OtzM64K+zSGhV5SEPxIBrEL2ouZxrZNjPzxNNM8WE4DtuLpeDL8tv5R
+	 J3mMbwPIXmO6CGF4Zjs7z05Lznb4g1hHbAYW06m4GPuJfBch7dbJWL6bsHtIGC4yAb
+	 2zMrX2TjcQUW9i/RY0Jk+ElxlU/6E8EsZmvJYZEgQbE9bx5T05zE2ZSOeRg2qteDXE
+	 pKE7P1AmPFlUtoSkNAyo8Q8oEx+ZPvt/6+vyuDrUweda9jXqqiknVj3LiOsFLHxUWz
+	 M0N+FDDAlHuXQ==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CEC6B17E35CD;
-	Wed,  1 Jul 2026 14:21:42 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 22C7B17E35D6;
+	Wed,  1 Jul 2026 14:21:44 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -78,17 +78,17 @@ Cc: p.zabel@pengutronix.de,
 	justin.yeh@mediatek.com,
 	jason-jh.lin@mediatek.com,
 	kernel@collabora.com
-Subject: [PATCH 31/42] drm/mediatek: Add support for Display Output Processor component
-Date: Wed,  1 Jul 2026 14:20:46 +0200
-Message-ID: <20260701122057.19648-32-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH 32/42] drm/mediatek: mtk_crtc: Dynamically find suitable CRTC DMA device
+Date: Wed,  1 Jul 2026 14:20:47 +0200
+Message-ID: <20260701122057.19648-33-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132145_457735_8F52EE63 
-X-CRM114-Status: GOOD (  21.80  )
+X-CRM114-CacheID: sfid-20260701_132146_419950_A922D253 
+X-CRM114-Status: GOOD (  19.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,401 +103,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Display Output Processor hardware component,
-found in the MediaTek Kompanio Ultra MT8196, Genio Pro 5100 MT8894,
-Dimensity 9400 MT6991 and others.
+Now that the vblank and config components are being dynamically
+selected, the only hardcoded strategy that is left is selecting
+a DMA device for a CRTC that is being created.
 
-This hardware handles the post-stage of pixel processing in the
-layer overlaying process and is also capable of performing gamma
-correction, ensuring that the per-pixel values are within the
-expected gamma range.
+In order to support pipelines including an embedded multimedia
+controller (like MDP3) chained with the display controller and
+pipelines chaining multiple display controllers together, stop
+assuming that the first component in the pipeline is suited to
+do DMA operations and implement support to dynamically find not
+only a suitable DMA device, but also the best one.
+
+This finds the first device that provides DMA and the first one
+that is also behind an IOMMU.
+
+The criteria for selecting the best device is to prefer a DMA
+device behind an IOMMU; if not found, the first DMA capable
+one is selected instead.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/Makefile           |   1 +
- drivers/gpu/drm/mediatek/mtk_ddp_comp.c     |  14 ++
- drivers/gpu/drm/mediatek/mtk_disp_drv.h     |  14 ++
- drivers/gpu/drm/mediatek/mtk_disp_outproc.c | 247 ++++++++++++++++++++
- drivers/gpu/drm/mediatek/mtk_drm_drv.c      |   3 +
- drivers/gpu/drm/mediatek/mtk_drm_drv.h      |   1 +
- include/linux/soc/mediatek/mtk-mmsys.h      |   1 +
- 7 files changed, 281 insertions(+)
- create mode 100644 drivers/gpu/drm/mediatek/mtk_disp_outproc.c
+ drivers/gpu/drm/mediatek/mtk_crtc.c | 68 ++++++++++++++++++++++++-----
+ 1 file changed, 56 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/Makefile b/drivers/gpu/drm/mediatek/Makefile
-index 5506f306a7b6..bec46e981ae1 100644
---- a/drivers/gpu/drm/mediatek/Makefile
-+++ b/drivers/gpu/drm/mediatek/Makefile
-@@ -10,6 +10,7 @@ mediatek-drm-y := mtk_crtc.o \
- 		  mtk_disp_exdma.o \
- 		  mtk_disp_gamma.o \
- 		  mtk_disp_merge.o \
-+		  mtk_disp_outproc.o \
- 		  mtk_disp_ovl.o \
- 		  mtk_disp_ovl_adaptor.o \
- 		  mtk_disp_rdma.o \
-diff --git a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-index 9896420f902d..0ecb942d6129 100644
---- a/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_ddp_comp.c
-@@ -345,6 +345,18 @@ static const struct mtk_ddp_comp_funcs ddp_od = {
- 	.start = mtk_od_start,
- };
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index ee23a50cf4d1..3f70d11270e9 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -1131,6 +1131,60 @@ struct device *mtk_crtc_dma_dev_get(struct drm_crtc *crtc)
+ 	return mtk_crtc->dma_dev;
+ }
  
-+static const struct mtk_ddp_comp_funcs ddp_outproc = {
-+	.clk_enable = mtk_outproc_clk_enable,
-+	.clk_disable = mtk_outproc_clk_disable,
-+	.start = mtk_outproc_start,
-+	.stop = mtk_outproc_stop,
-+	.config = mtk_outproc_config,
-+	.register_vblank_cb = mtk_outproc_register_vblank_cb,
-+	.unregister_vblank_cb = mtk_outproc_unregister_vblank_cb,
-+	.enable_vblank = mtk_outproc_enable_vblank,
-+	.disable_vblank = mtk_outproc_disable_vblank,
-+};
-+
- static const struct mtk_ddp_comp_funcs ddp_ovl = {
- 	.clk_enable = mtk_ovl_clk_enable,
- 	.clk_disable = mtk_ovl_clk_disable,
-@@ -451,6 +463,7 @@ static const char * const mtk_ddp_comp_stem[MTK_DDP_COMP_TYPE_MAX] = {
- 	[MTK_DISP_MERGE] = "merge",
- 	[MTK_DISP_MUTEX] = "mutex",
- 	[MTK_DISP_OD] = "od",
-+	[MTK_DISP_OUTPROC] = "outproc",
- 	[MTK_DISP_OVL] = "ovl",
- 	[MTK_DISP_OVL_2L] = "ovl-2l",
- 	[MTK_DISP_OVL_ADAPTOR] = "ovl_adaptor",
-@@ -477,6 +490,7 @@ static const struct mtk_ddp_comp_funcs *mtk_ddp_funcs[MTK_DDP_COMP_TYPE_MAX] = {
- 	[MTK_DISP_GAMMA]		= &ddp_gamma,
- 	[MTK_DISP_MERGE]		= &ddp_merge,
- 	[MTK_DISP_OD]			= &ddp_od,
-+	[MTK_DISP_OUTPROC]		= &ddp_outproc,
- 	[MTK_DISP_OVL]			= &ddp_ovl,
- 	[MTK_DISP_OVL_2L]		= &ddp_ovl,
- 	[MTK_DISP_OVL_ADAPTOR]		= &ddp_ovl_adaptor,
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_drv.h b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-index df4357b0954b..7b16f46ce9e2 100644
---- a/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_drv.h
-@@ -121,6 +121,20 @@ void mtk_merge_stop_cmdq(struct device *dev, struct cmdq_pkt *cmdq_pkt);
- enum drm_mode_status mtk_merge_mode_valid(struct device *dev,
- 					  const struct drm_display_mode *mode);
- 
-+void mtk_outproc_start(struct device *dev);
-+void mtk_outproc_stop(struct device *dev);
-+int mtk_outproc_clk_enable(struct mtk_ddp_comp *comp);
-+void mtk_outproc_clk_disable(struct mtk_ddp_comp *comp);
-+void mtk_outproc_config(struct mtk_ddp_comp *comp, unsigned int w,
-+			     unsigned int h, unsigned int vrefresh,
-+			     unsigned int bpc, struct cmdq_pkt *cmdq_pkt);
-+void mtk_outproc_register_vblank_cb(struct device *dev,
-+					 void (*vblank_cb)(void *),
-+					 void *vblank_cb_data);
-+void mtk_outproc_unregister_vblank_cb(struct device *dev);
-+void mtk_outproc_enable_vblank(struct device *dev);
-+void mtk_outproc_disable_vblank(struct device *dev);
-+
- void mtk_ovl_bgclr_in_on(struct device *dev);
- void mtk_ovl_bgclr_in_off(struct device *dev);
- void mtk_ovl_bypass_shadow(struct device *dev);
-diff --git a/drivers/gpu/drm/mediatek/mtk_disp_outproc.c b/drivers/gpu/drm/mediatek/mtk_disp_outproc.c
-new file mode 100644
-index 000000000000..b8eeefd69964
---- /dev/null
-+++ b/drivers/gpu/drm/mediatek/mtk_disp_outproc.c
-@@ -0,0 +1,247 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (c) 2025 MediaTek Inc.
-+ *                    Nancy Lin <nancy.lin@mediatek.com>
-+ * Copyright (c) 2026 Collabora Ltd.
-+ *                    AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-+ */
-+
-+#include <drm/drm_fourcc.h>
-+#include <drm/drm_framebuffer.h>
-+#include <linux/clk.h>
-+#include <linux/component.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/reset.h>
-+#include <linux/soc/mediatek/mtk-cmdq.h>
-+#include <linux/soc/mediatek/mtk-mmsys.h>
-+
-+#include "mtk_crtc.h"
-+#include "mtk_ddp_comp.h"
-+#include "mtk_disp_drv.h"
-+#include "mtk_drm_drv.h"
-+
-+#define DISP_REG_OVL_OUTPROC_INTEN			0x004
-+#define DISP_REG_OVL_OUTPROC_INTSTA			0x008
-+#  define OVL_OUTPROC_FME_CPL_INTEN			BIT(1)
-+
-+#define DISP_REG_OVL_OUTPROC_DATAPATH_CON		0x010
-+#  define OVL_OUTPROC_DATAPATH_CON_OUTPUT_CLAMP		BIT(26)
-+
-+#define DISP_REG_OVL_OUTPROC_EN				0x020
-+#  define OVL_OUTPROC_OVL_EN				BIT(0)
-+
-+#define DISP_REG_OVL_OUTPROC_RST			0x024
-+#  define OVL_OUTPROC_RST				BIT(0)
-+
-+#define DISP_REG_OVL_OUTPROC_SHADOW_CTRL		0x028
-+#  define OVL_OUTPROC_BYPASS_SHADOW			BIT(2)
-+
-+#define DISP_REG_OVL_OUTPROC_ROI_SIZE			0x030
-+
-+struct mtk_disp_outproc {
-+	void __iomem		*regs;
-+	struct clk		*clk;
-+	void			(*vblank_cb)(void *data);
-+	void			*vblank_cb_data;
-+	int			irq;
-+	struct cmdq_client_reg	cmdq_reg;
-+};
-+
-+void mtk_outproc_register_vblank_cb(struct device *dev, void (*vblank_cb)(void *),
-+				    void *vblank_cb_data)
++static int mtk_crtc_find_suitable_dma_dev(struct mtk_drm_private *priv,
++					  struct mtk_crtc *mtk_crtc,
++					  const struct mtk_drm_path_definition *path)
 +{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
++	struct mtk_ddp_comp *dma_comp = NULL, *dma_comp_mmu = NULL;
++	int i;
 +
-+	priv->vblank_cb = vblank_cb;
-+	priv->vblank_cb_data = vblank_cb_data;
-+}
++	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
++		const struct mtk_drm_comp_definition *cdef = path[i].comp;
++		struct mtk_ddp_comp *comp;
 +
-+void mtk_outproc_unregister_vblank_cb(struct device *dev)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
++		comp = mtk_ddp_comp_find_by_id(&priv->hlist,
++					       cdef->type, cdef->inst_id);
++		if (!comp)
++			continue;
 +
-+	priv->vblank_cb = NULL;
-+	priv->vblank_cb_data = NULL;
-+}
++		/*
++		 * Check if this is a legacy OVL_ADAPTOR component and, if so, this
++		 * has to forcefully be the DMA device for this CRTC: assign it to
++		 * dma_comp_mmu to force that.
++		 */
++		if (comp->type == MTK_DISP_OVL_ADAPTOR) {
++			dma_comp_mmu = comp;
++			break;
++		}
 +
-+void mtk_outproc_enable_vblank(struct device *dev)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
++		if (!comp->dev || !comp->dev->of_node)
++			continue;
 +
-+	writel(0x0, priv->regs + DISP_REG_OVL_OUTPROC_INTSTA);
-+	writel(OVL_OUTPROC_FME_CPL_INTEN, priv->regs + DISP_REG_OVL_OUTPROC_INTEN);
-+}
++		/* Find the first device provides DMA... */
++		if (!dma_comp) {
++			if (of_property_present(comp->dev->of_node, "#dma-cells"))
++				dma_comp = comp;
++		}
 +
-+void mtk_outproc_disable_vblank(struct device *dev)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
++		/* ...and check if that device is also behind an IOMMU */
++		if (!of_property_present(comp->dev->of_node, "iommus"))
++			continue;
 +
-+	writel(0x0, priv->regs + DISP_REG_OVL_OUTPROC_INTEN);
-+}
++		/* If a device behind IOMMU is found, this is the best outcome */
++		dma_comp_mmu = comp;
++		break;
++	}
 +
-+static irqreturn_t mtk_outproc_irq_handler(int irq, void *dev_id)
-+{
-+	struct mtk_disp_outproc *priv = dev_id;
-+	u32 val;
-+
-+	val = readl(priv->regs + DISP_REG_OVL_OUTPROC_INTSTA);
-+	if (val == 0)
-+		return IRQ_NONE;
-+
-+	writel(0, priv->regs + DISP_REG_OVL_OUTPROC_INTSTA);
-+
-+	if (priv->vblank_cb)
-+		priv->vblank_cb(priv->vblank_cb_data);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+void mtk_outproc_config(struct mtk_ddp_comp *comp, unsigned int w,
-+			unsigned int h, unsigned int vrefresh,
-+			unsigned int bpc, struct cmdq_pkt *cmdq_pkt)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(comp->dev);
-+
-+	writel(((h & GENMASK(15, 0)) << 16) | (w & GENMASK(15, 0)),
-+	       priv->regs + DISP_REG_OVL_OUTPROC_ROI_SIZE);
-+
-+	writel(OVL_OUTPROC_DATAPATH_CON_OUTPUT_CLAMP,
-+	       priv->regs + DISP_REG_OVL_OUTPROC_DATAPATH_CON);
-+}
-+
-+void mtk_outproc_start(struct device *dev)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
-+	u32 val;
-+
-+	writel(OVL_OUTPROC_RST, priv->regs + DISP_REG_OVL_OUTPROC_RST);
-+	writel(0, priv->regs + DISP_REG_OVL_OUTPROC_RST);
-+
-+	val = readl(priv->regs + DISP_REG_OVL_OUTPROC_SHADOW_CTRL);
-+	val |= OVL_OUTPROC_BYPASS_SHADOW;
-+	writel(val, priv->regs + DISP_REG_OVL_OUTPROC_SHADOW_CTRL);
-+
-+	writel(OVL_OUTPROC_OVL_EN, priv->regs + DISP_REG_OVL_OUTPROC_EN);
-+}
-+
-+void mtk_outproc_stop(struct device *dev)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
-+
-+	/* Don't reset at stop time to avoid vblank timeouts */
-+	writel(0, priv->regs + DISP_REG_OVL_OUTPROC_EN);
-+}
-+
-+int mtk_outproc_clk_enable(struct mtk_ddp_comp *comp)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(comp->dev);
-+
-+	return clk_prepare_enable(priv->clk);
-+}
-+
-+void mtk_outproc_clk_disable(struct mtk_ddp_comp *comp)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(comp->dev);
-+
-+	clk_disable_unprepare(priv->clk);
-+}
-+
-+static int mtk_outproc_bind(struct device *dev, struct device *master,
-+				 void *data)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
-+
-+	if (priv->irq)
-+		enable_irq(priv->irq);
++	if (dma_comp_mmu)
++		mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp_mmu);
++	else if (dma_comp)
++		mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
++	else
++		return -EINVAL;
 +
 +	return 0;
 +}
 +
-+static void mtk_outproc_unbind(struct device *dev, struct device *master, void *data)
-+{
-+	struct mtk_disp_outproc *priv = dev_get_drvdata(dev);
-+
-+	if (priv->irq)
-+		disable_irq(priv->irq);
-+}
-+
-+static const struct component_ops mtk_disp_outproc_component_ops = {
-+	.bind	= mtk_outproc_bind,
-+	.unbind = mtk_outproc_unbind,
-+};
-+
-+static int mtk_disp_outproc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct mtk_disp_outproc *priv;
-+	int ret;
-+
-+	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-+	if (!priv)
-+		return -ENOMEM;
-+
-+	priv->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(priv->regs))
-+		return dev_err_probe(dev, PTR_ERR(priv->regs), "Cannot get reg resource\n");
-+
-+	priv->clk = devm_clk_get(dev, NULL);
-+	if (IS_ERR(priv->clk))
-+		return dev_err_probe(dev, PTR_ERR(priv->clk), "Cannot get clocks\n");
-+
-+#if IS_REACHABLE(CONFIG_MTK_CMDQ)
-+	ret = cmdq_dev_get_client_reg(dev, &priv->cmdq_reg, 0);
-+	if (ret)
-+		dev_dbg(dev, "No mediatek,gce-client-reg\n");
-+#endif
-+
-+	priv->irq = platform_get_irq_optional(pdev, 0);
-+	if (priv->irq > 0) {
-+		ret = devm_request_irq(dev, priv->irq, mtk_outproc_irq_handler,
-+				       IRQF_NO_AUTOEN, dev_name(dev), priv);
-+		if (ret)
-+			return dev_err_probe(dev, ret, "Failed to request irq\n");
-+	}
-+
-+	platform_set_drvdata(pdev, priv);
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret)
-+		return ret;
-+
-+	ret = component_add(dev, &mtk_disp_outproc_component_ops);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to add component\n");
-+
-+	return ret;
-+}
-+
-+static void mtk_disp_outproc_remove(struct platform_device *pdev)
-+{
-+	component_del(&pdev->dev, &mtk_disp_outproc_component_ops);
-+}
-+
-+static const struct of_device_id mtk_disp_outproc_driver_dt_match[] = {
-+	{ .compatible = "mediatek,mt8196-disp-outproc" },
-+	{ /* sentinel */},
-+};
-+
-+MODULE_DEVICE_TABLE(of, mtk_disp_outproc_driver_dt_match);
-+
-+struct platform_driver mtk_disp_outproc_driver = {
-+	.probe		= mtk_disp_outproc_probe,
-+	.remove		= mtk_disp_outproc_remove,
-+	.driver		= {
-+		.name	= "mediatek-disp-outproc",
-+		.owner	= THIS_MODULE,
-+		.of_match_table = mtk_disp_outproc_driver_dt_match,
-+	},
-+};
-+
-+MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
-+MODULE_AUTHOR("Nancy Lin <nancy.lin@mediatek.com>");
-+MODULE_DESCRIPTION("MediaTek Display Controller Output Processing Driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-index 9f1264bb1d5e..3ed0e3f45fe2 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
-@@ -557,6 +557,8 @@ static const struct of_device_id mtk_ddp_comp_dt_ids[] = {
- 	  .data = (void *)MTK_DISP_MUTEX },
- 	{ .compatible = "mediatek,mt8173-disp-od",
- 	  .data = (void *)MTK_DISP_OD },
-+	{ .compatible = "mediatek,mt8196-disp-outproc",
-+	  .data = (void *)MTK_DISP_OUTPROC },
- 	{ .compatible = "mediatek,mt2701-disp-ovl",
- 	  .data = (void *)MTK_DISP_OVL },
- 	{ .compatible = "mediatek,mt8167-disp-ovl",
-@@ -1070,6 +1072,7 @@ static struct platform_driver * const mtk_drm_drivers[] = {
- 	&mtk_disp_exdma_driver,
- 	&mtk_disp_gamma_driver,
- 	&mtk_disp_merge_driver,
-+	&mtk_disp_outproc_driver,
- 	&mtk_disp_ovl_adaptor_driver,
- 	&mtk_disp_ovl_driver,
- 	&mtk_disp_rdma_driver,
-diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.h b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-index 4ef61c1e33e3..3f84384f8569 100644
---- a/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-+++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.h
-@@ -80,6 +80,7 @@ extern struct platform_driver mtk_disp_dsc_driver;
- extern struct platform_driver mtk_disp_exdma_driver;
- extern struct platform_driver mtk_disp_gamma_driver;
- extern struct platform_driver mtk_disp_merge_driver;
-+extern struct platform_driver mtk_disp_outproc_driver;
- extern struct platform_driver mtk_disp_ovl_adaptor_driver;
- extern struct platform_driver mtk_disp_ovl_driver;
- extern struct platform_driver mtk_disp_rdma_driver;
-diff --git a/include/linux/soc/mediatek/mtk-mmsys.h b/include/linux/soc/mediatek/mtk-mmsys.h
-index d5c082d920c4..a1c8a436b3dc 100644
---- a/include/linux/soc/mediatek/mtk-mmsys.h
-+++ b/include/linux/soc/mediatek/mtk-mmsys.h
-@@ -99,6 +99,7 @@ enum mtk_ddp_comp_type {
- 	MTK_DISP_MERGE,
- 	MTK_DISP_MUTEX,
- 	MTK_DISP_OD,
-+	MTK_DISP_OUTPROC,
- 	MTK_DISP_OVL,
- 	MTK_DISP_OVL_2L,
- 	MTK_DISP_OVL_ADAPTOR,
+ int mtk_crtc_create(struct drm_device *drm_dev,
+ 		    enum mtk_crtc_path path_sel, int priv_data_index,
+ 		    const struct mtk_drm_route *conn_routes,
+@@ -1139,7 +1193,6 @@ int mtk_crtc_create(struct drm_device *drm_dev,
+ 	struct mtk_drm_private *priv = drm_dev->dev_private;
+ 	const struct mtk_drm_path_definition *output_path;
+ 	struct device *dev = drm_dev->dev;
+-	struct mtk_ddp_comp *dma_comp;
+ 	struct mtk_crtc *mtk_crtc;
+ 	unsigned int num_comp_planes = 0;
+ 	unsigned int max_comp_stages = 0;
+@@ -1309,20 +1362,11 @@ int mtk_crtc_create(struct drm_device *drm_dev,
+ 	dev_dbg(dev, "Found %u layers composed by maximum of %u stage(s) each.\n",
+ 		mtk_crtc->hwlayer_nr, max_comp_stages);
+ 
+-	/*
+-	 * Default to use the first component as the dma dev.
+-	 * In the case of ovl_adaptor sub driver, it needs to use the
+-	 * dma_dev_get function to get representative dma dev.
+-	 */
+-	dma_comp = mtk_ddp_comp_find_by_id(&priv->hlist,
+-					   output_path->comp[0].type,
+-					   output_path->comp[0].inst_id);
+-	if (dma_comp == NULL) {
++	ret = mtk_crtc_find_suitable_dma_dev(priv, mtk_crtc, output_path);
++	if (ret) {
+ 		dev_err(dev, "Could not find appropriate DMA device!\n");
+ 		return -EINVAL;
+ 	}
+-
+-	mtk_crtc->dma_dev = mtk_ddp_comp_dma_dev_get(dma_comp);
+ 	dev_dbg(dev, "Using DMA device %pOF\n", mtk_crtc->dma_dev->of_node);
+ 
+ 	ret = mtk_crtc_init(drm_dev, mtk_crtc, crtc_i);
 -- 
 2.54.0
 
