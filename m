@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 362EDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC060C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=poxKs3wWC0uOWO62se4SxK9nVbQpyNDuaVwfA5HPjRA=; b=bDqIwbofhnvOp/cAZpMkdj+RkV
-	fXK6KhQo6aVwG7IwPfePzij1OmaXXtcwcFbYE+5rsJ5ZcGDcGUKSdnes86tuoP0vEzodKFQf7sy5V
-	aedEEdYBujuGDLvFiMqVTLRaA5u9YX1YPxLI02d3JPbo2mjCGwfnb3eYXJhCOFp25duB1bngyteQa
-	v6sJuHXYGIE25ybJR0i6ttFJ1sseONASdW/1pf248Mg4J4uhGHZzNeX2u3aNXrbObLvoKbeEANAmJ
-	hqFRq3vLi0eD0ocmwt34igqSNiRv8ATx/S6U6E0WaqQ9Kli6QREcyw6zSu3mfjPqwbXGS9RvP8ASS
-	f2MZp7cA==;
+	bh=WTJ0R7e1Q47azBR5F9YcK+atCEC47tjq96vRaQRcYFU=; b=3vRVmfvggejxKsFMOaw+z4Bzyb
+	t75tENWSYkq0jkyPhUZBhWmasXbRsGU2ChJiiBz6xRLGOOVgN6WnBGnm3s3LEAD2cKgmwoZoVWF+Q
+	KTpesIakBS7/idOPc1ORbysnUrYcnZHux2FqzBKVObqBFruqyQR8BIgyxCNKIT4C4cnnqlL9TeEwo
+	MdMMRLlMPadfUK8MznAnioUdfSKYCGniikH0C+ZLx7ZkhsTyaxvoAhElKefKxxP8n3NOvdUQoWgOc
+	DikeiXdg9DeYXk5A4OA7pPIt6x0SszfFt4RugKBoJN2qELkQ4SPpVnL3w6M1tioACVLA2YdWchk6+
+	sEad1zPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2RZ-000000032ou-0lh2;
-	Wed, 01 Jul 2026 21:26:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wf2Rh-000000032uD-1Bun;
+	Wed, 01 Jul 2026 21:26:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2RX-000000032nz-0F5i
+	id 1wf2Rf-000000032sf-0cXx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 21:26:03 +0000
+	Wed, 01 Jul 2026 21:26:11 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAF9F438B3;
-	Wed,  1 Jul 2026 21:26:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 567D41F000E9;
-	Wed,  1 Jul 2026 21:25:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 955C5600B0;
+	Wed,  1 Jul 2026 21:26:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 325E91F00A3A;
+	Wed,  1 Jul 2026 21:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782941162;
-	bh=poxKs3wWC0uOWO62se4SxK9nVbQpyNDuaVwfA5HPjRA=;
+	s=k20260515; t=1782941170;
+	bh=WTJ0R7e1Q47azBR5F9YcK+atCEC47tjq96vRaQRcYFU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RTWf1+Er1XsT+8u/oDE4fVu0HSH/ftWvccZWcG3SWgiPRpNB4QTRWL07hG/Tw1YNa
-	 r1M6/cIDmBFxjt5FGphzrmZSX9Ymp9A+xvc4FOmcp3h7DDlZ9KC7ahOOYEXv6sOdFy
-	 HRh624t2XxldsFa2AeRQNk+8XX3YNolyJbUenmWxTvUP8aPMoxuWdq9gNFX2b/qggx
-	 7CA/owN6sKYcM3dYxV5B+pNpKbIWRLqgsJsIzhXflvAmJTwJpfSLHfn68ZyPlWnQV6
-	 d0BPAAHn5lKsT6EFKMQP8ucOJjIvCxjG2z2elhgfp4774GVoSjmQRdP2LFMHTGPl9M
-	 vqFRPehhlkzTg==
+	b=iSDiCCJ+HfLjkGZv7RW0R2fE7e9auJCiPwCohbdaPdK+sTsqWsR9DD4QYFHkCh3fj
+	 oxjPGgmwO9g1sBnn0VsiD7bz336KkC0Z4SXcWAjOjKarEFs1dTVtyJ6NRR5V58kb3s
+	 /rrtNdsegXMuHNDkAiNDuo8rx58XbtzJ4MNTBbrEEpJ4Tg1UzmEys8J3og2IUkdhsz
+	 3MzUQw+aOYwufXnZNsHQEgseSjZkOVMAGQAJVcgn8HT4h4Hw2phw9f8cf59JhmQNEL
+	 CQ4zJk81jklJ6/P+gMdgSGfcKJY3s8Rp+I5qknEbpepsGyX5nqQ70dvF85T11nyBII
+	 7uHk72SWFeF6w==
 From: Arnd Bergmann <arnd@kernel.org>
 To: linux-arm-kernel@lists.infradead.org,
 	soc@lists.linux.dev
@@ -77,11 +77,10 @@ Cc: linux-kernel@vger.kernel.org,
 	Stefan Wiehler <stefan.wiehler@nokia.com>,
 	Tony Lindgren <tony@atomide.com>,
 	Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: [PATCH v2 14/19] ARM: mark mach-sa1100 as deprecated
-Date: Wed,  1 Jul 2026 23:23:48 +0200
-Message-Id: <20260701212353.2196041-15-arnd@kernel.org>
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v2 15/19] ARM: mark RiscPC as deprecated
+Date: Wed,  1 Jul 2026 23:23:49 +0200
+Message-Id: <20260701212353.2196041-16-arnd@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20260701212353.2196041-1-arnd@kernel.org>
 References: <20260701212353.2196041-1-arnd@kernel.org>
@@ -103,51 +102,46 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Arnd Bergmann <arnd@arndb.de>
 
-Most of the old StrongARM1100 machines were removed two years ago as part
-of a wider cleanup, the remaining four were left either because someone
-showed interest in converting them to devicetree, or because they were
-still supported by qemu and therefore useful to keep the platform alive.
+This platform is the oldest still supported machine, dating back
+to the original 1994 ARM610 version.  The only currently supported
+configuration uses an ARMv4 StrongARM but still requires building
+for ARMv3 because of the board design not supporting 16-bit
+data access.
 
-None of the devicetree conversion actually happened, and qemu has
-marked the platform as deprecated, so do the same in the kernel now.
+ARMv3 support has been removed in gcc-9, and the gcc-8 release
+is already old but still supported for building the kernel.
 
-If anyone is still running one of these four machines and planning
-to keep updating their kernels, please speak up now so we can adapt
-the plans as needed.
+The only set of machines that lacks support for 16-bit load/store
+instructions (Alpha EV5 and older) was recently removed from
+the kernel.
 
-If nobody is found using StrongARM1100 any more, it can be removing
-during 2027, leaving 6.12-LTS as the last longterm support kernel
-for it.
+Since there is little hope of this being maintainable much
+longer, plan to remove it in early 2027 while it is still expected
+to mostly work.
 
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Cc: Kristoffer Ericson <kristoffer.ericson@gmail.com>
 Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm/mach-sa1100/Kconfig | 5 ++++-
+ arch/arm/mach-rpc/Kconfig | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/mach-sa1100/Kconfig b/arch/arm/mach-sa1100/Kconfig
-index e23700e0d6c8..d50721e39641 100644
---- a/arch/arm/mach-sa1100/Kconfig
-+++ b/arch/arm/mach-sa1100/Kconfig
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- menuconfig ARCH_SA1100
--	bool "SA11x0 Implementations"
-+	bool "SA11x0 Implementations (DEPRECATED)"
+diff --git a/arch/arm/mach-rpc/Kconfig b/arch/arm/mach-rpc/Kconfig
+index 55f6d829b677..60b3823b690c 100644
+--- a/arch/arm/mach-rpc/Kconfig
++++ b/arch/arm/mach-rpc/Kconfig
+@@ -1,5 +1,5 @@
+ config ARCH_RPC
+-	bool "RiscPC"
++	bool "RiscPC (DEPRECATED)"
  	depends on ARCH_MULTI_V4 && !(ARCH_MULTI_V4T || ARCH_MULTI_V5)
- 	depends on !(ARCH_MOXART || ARCH_GEMINI)
- 	depends on ATAGS
-@@ -20,6 +20,9 @@ menuconfig ARCH_SA1100
+ 	depends on !(ARCH_FOOTBRIDGE || ARCH_SA1100 || ARCH_MOXART || ARCH_GEMINI)
+ 	depends on !CC_IS_CLANG && GCC_VERSION < 90100 && GCC_VERSION >= 60000
+@@ -19,3 +19,6 @@ config ARCH_RPC
  	help
- 	  Support for StrongARM 11x0 based boards.
- 
+ 	  On the Acorn Risc-PC, Linux can support the internal IDE disk and
+ 	  CD-ROM interface, serial and parallel port, and the floppy drive.
++
 +	  Support for these machines will go away in 2027,
 +	  unless there are any remaining users that speak up.
-+
- if ARCH_SA1100
- 
- config SA1100_ASSABET
 -- 
 2.39.5
 
