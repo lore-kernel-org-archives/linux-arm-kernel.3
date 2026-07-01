@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBD2C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EF7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m/vPmW68Mm8MPJoTFcuWd7T+2p/M42dSAOH2+LtBZ50=; b=JQRU/JEJ/73nJd
-	KdnxDISzzv7FBS3QtIELclnFS75RdVApJDT1HdictoKvJ5lMvh3a6VB7BCwI/lHFl1Cng2jl2YwvL
-	/0qrMUfu62qMhG2j8Nzim8U5an4K066hYFQLQ127FafpkGucieWng8bvk8E+uvoZdfpd8ctSNYbel
-	yuQAaTbCWYu5iBgipL0KoUCmjZTVRXBjbh+KjvJCjiWBzUiYSywIupfqD8+kJ5dB2SD9Iucg90DZJ
-	7Peyw42a7EMJ/tplhsZQxhpgnXgcvNDt/CK16dsxWfSWUQLGj06gBRnznjnT+mVH6HQKcQMOUNiXx
-	bsF0nrnoMjvqB3kXq9SQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WI8N45gPmQ8iJjB+GBzTf6cfCJJQqV/EJ7frAbCwTn0=; b=CE8zSwjiz1KndZbzoBS/foRvA2
+	/NqVpqZ1gmwB6R6rzsmGoHbcAOeAJOJ9QoJKSV6IAcqgspEjTsn8zNBEFfa6r9oFYBr1YRSULGjS4
+	0JvrvUuygbqXKshsXduGa8PI4/IKV+1/Sx27wcypdSK8xTSaxikKF3syhJSBLPa6dCnazlio9+8fq
+	v62qmkknogsThvfOmOmFCkjHGxzwrac9ciXgf26z+5+hXN/um5pZWL1LIyaqPwDLwlOsvTvDNJM0O
+	MMmfya9fyYv8fRMrX1a58Pb8837C/tcLy8VG++gADvH0TvI3Q/VTQ13H8ljNxs7/rbydNeNAqYWsx
+	otcrN6bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBc-00000002azH-1RvV;
-	Wed, 01 Jul 2026 16:53:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1weyBe-00000002b0y-2I3R;
+	Wed, 01 Jul 2026 16:53:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBb-00000002ayR-1qRC
+	id 1weyBd-00000002b08-2Ths
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:53:19 +0000
+	Wed, 01 Jul 2026 16:53:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CCDB6001D;
-	Wed,  1 Jul 2026 16:53:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F6D51F00A3A;
-	Wed,  1 Jul 2026 16:53:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C927C60122;
+	Wed,  1 Jul 2026 16:53:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDBAB1F00A3A;
+	Wed,  1 Jul 2026 16:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782924796;
-	bh=m/vPmW68Mm8MPJoTFcuWd7T+2p/M42dSAOH2+LtBZ50=;
-	h=From:Subject:Date:To:Cc;
-	b=hemTOLvyTMTjX88+Kyxz+N/FOpuM18KkrpTebVErJJV9slXoEWfrOmTihZpxIdbPp
-	 mTo6/S6qaieGRcpqslJu+NpD8gfEzlLXKgfOgu8ekJeUFvd0hN6y3I/FxFXcU1h2B/
-	 WhC0Hf+ZWsUCI9hs0AsKlM0xpGTJSIH96zOk7hj70zLT4zCXzR7wJa85iESNfVcmWl
-	 cX83m9U8Qx0h3OtAN7knYvaUYveDuAldLaKCG4OzfyEDlJqwc6ksHQs5RfQjEQxCm+
-	 ndo2HaY6lqq+LfTsZmVseTh5fySCmjmzNUgI1fh1YjnZLvk/xvi6VyJStjlwImLONq
-	 PGghmIo0D7aSw==
+	s=k20260515; t=1782924800;
+	bh=WI8N45gPmQ8iJjB+GBzTf6cfCJJQqV/EJ7frAbCwTn0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=G7NSELVWGhn1RRD/UspFPix48SEfW9DsnTHHdzwPeUCzJlyqr5ysZ2XwiNC/g9yjM
+	 WH0TRv2ATNPdmReEyfwYqsFBxM64UNnNzkqG+QmoeI91rZk7Yira2gApWhQ9Opmr7E
+	 dMpCHmiMT7kWhuklMVrGGZ8pw4RIB9B193qtG6myEVk729TU6cVRI/Me0A/WwvgBrD
+	 EKyZEF7TpIb7Dad0flVx/xIzEepVldt+3n/DAcNajIDhHCL2afAJKpodkw+Hv1nEK2
+	 QJ9nZmzzG46EpQEBNR0AhTO9T2Bn5xrq1FyP/zdV9bBzeDzmOaRVPbMxwrrrWjJG3T
+	 tpD+HpHhkSsmg==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH v2 00/14] firmware: arm_scmi: Fix SCMI core cleanup paths
-Date: Wed, 01 Jul 2026 17:52:21 +0100
-Message-Id: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
+Date: Wed, 01 Jul 2026 17:52:25 +0100
+Subject: [PATCH v2 04/14] firmware: arm_scmi: Fix SCMI device destroy
+ lifetimes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMpFRWoC/2WNzQ6CMBCEX4Xs2Zr+CKaefA9DCJQFqkLNLhIN4
- d0t6M3jl5n5ZgZG8shwSmYgnDz7METQuwRcVw4tCl9HBi11JjNtBbveFy4QFo1/IYu6NK4+pqY
- 6YAlx9SDcgji65F/mZ3VFN66atdF5HgO9t8tJrb2f3cg/+6SEFI012ilMlbX6fEMa8L4P1EK+L
- MsHk1W+o8EAAAA=
-X-Change-ID: 20260629-scmi_core_fixes-da3cd753b4ea
+Message-Id: <20260701-scmi_core_fixes-v2-4-1f5e85553f73@kernel.org>
+References: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
+In-Reply-To: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
 Cc: Cristian Marussi <cristian.marussi@arm.com>
 X-Mailer: b4 0.15.2
@@ -71,100 +69,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series fixes a set of SCMI core and mailbox transport lifetime issues
-found around device creation, channel setup failure, notification teardown
-and malformed firmware descriptions.
+scmi_child_dev_find() drops the reference returned by
+device_find_child() before returning the scmi_device pointer. A
+concurrent unregister can then release the device while the destroy path
+is still using the returned pointer.
 
-Most of these issues were found by Sashiko[1][2] while reviewing the ACPI SCMI
-PCC work[3]. They are posted separately because the problems are independent
-SCMI core and mailbox transport cleanup bugs, and do not depend on the ACPI
-PCC series.
+Make the lookup helper return the device_find_child() reference and keep
+it until scmi_device_destroy() has finished unregistering the child.
 
-Here is the attempt to fix them, some of them can be dropped if it is too
-theoretical. I have addressed all the issues that made sense to me at the
-time of reading the report.
+Also split device_unregister() in __scmi_device_destroy() so the SCMI bus
+ID is not made reusable until after device_del() has removed the old
+scmi_dev.N name from sysfs. This avoids a new SCMI device reusing the
+same ID while the old device is still registered.
 
-The fixes tighten ownership and teardown rules for generated SCMI devices,
-transport devices and transport channels. They make internal transport
-devices reachable by explicit teardown without exposing them to normal SCMI
-driver binding, ensure partially initialized channels are unwound on setup
-failures, and avoid IDR/device lifetime races during probe failure and device
-unbind.
-
-The series also fixes notifier and notification teardown ordering. Requested
-device notifiers are unregistered before protocol IDRs are destroyed, RCU is
-used around requested-device protocol lookups, and transport callbacks are
-stopped before notification state is released.
-
-The mailbox transport fixes cover both setup failure unwinding and an early
-interrupt window: mailbox callbacks can run as soon as mbox_request_channel()
-binds the client and starts the controller, so the SCMI mailbox transport now
-publishes its cinfo before requesting channels.
-
-Fixes tags need to be checked again or even dropped if it is not a stable
-material. Just some placeholders that I thought are appropriated are in place.
-
-Summary:
-
-- Fix OF node reference ownership for generated SCMI devices.
-- Allow explicit teardown lookup of internal transport devices.
-- Clean up TX/RX channels when SCMI channel setup fails midway.
-- Fix SCMI device lifetime handling around child lookup and bus ID reuse.
-- Free transport resources when IDR insertion fails after channel setup.
-- Unregister requested-device notifier before active protocol IDR teardown.
-- Unwind mailbox channels on TX receiver and P2A receiver setup failures.
-- Protect requested-device protocol lookup with RCU.
-- Avoid modifying an IDR while iterating it during channel cleanup.
-- Clear the SystemPower singleton flag on SCMI device creation failure.
-- Reject out-of-range DT protocol IDs instead of allowing u8 truncation.
-- Stop transport callbacks before releasing notification state.
-- Publish mailbox cinfo before requesting mailbox channels.
-
+Fixes: 46edb8d1322c ("firmware: arm_scmi: provide the mandatory device release callback")
+Fixes: 9ca67840c0dd ("firmware: arm_scmi: Balance device refcount when destroying devices")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
-
-[1] https://sashiko.dev/#/patchset/20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com
-[2] https://sashiko.dev/#/patchset/20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org
-[3] https://patch.msgid.link/20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com
-
 ---
-Changes in v2:
-(Mostly addressing the additional issues found by Sashiko)
-- Added fixes for IDR mutation during channel cleanup.
-- Added SystemPower singleton flag unwind on device creation failure.
-- Added validation to skip out-of-range DT protocol IDs.
-- Moved notification teardown after transport channel cleanup.
-- Published mailbox cinfo before mbox_request_channel() can enable callbacks.
-- Link to v1: https://patch.msgid.link/20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org
+ drivers/firmware/arm_scmi/bus.c | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
 
----
-Sudeep Holla (14):
-      firmware: arm_scmi: Fix OF node reference handling
-      firmware: arm_scmi: Fix transport device teardown lookup
-      firmware: arm_scmi: Clean up channels on setup failure
-      firmware: arm_scmi: Fix SCMI device destroy lifetimes
-      firmware: arm_scmi: Free transport channel on IDR failure
-      firmware: arm_scmi: Unregister device notifier before IDR teardown
-      firmware: arm_scmi: Unwind TX receiver mailbox setup failure
-      firmware: arm_scmi: Unwind P2A receiver mailbox setup failure
-      firmware: arm_scmi: Protect device request lookup with RCU
-      firmware: arm_scmi: Avoid IDR updates while cleaning channels
-      firmware: arm_scmi: Clear SystemPower flag on create failure
-      firmware: arm_scmi: Reject out of range DT protocol IDs
-      firmware: arm_scmi: Stop channels before notification teardown
-      firmware: arm_scmi: Publish mailbox cinfo before channel request
-
- drivers/firmware/arm_scmi/bus.c                | 72 ++++++++++++++++----------
- drivers/firmware/arm_scmi/common.h             |  2 +
- drivers/firmware/arm_scmi/driver.c             | 44 +++++++++-------
- drivers/firmware/arm_scmi/transports/mailbox.c | 26 +++++++---
- 4 files changed, 90 insertions(+), 54 deletions(-)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260629-scmi_core_fixes-da3cd753b4ea
-
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index d4beefa4234f..e1deb1b3011d 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -250,8 +250,9 @@ static int scmi_match_by_id_table(struct device *dev, const void *data)
+ 	return __scmi_dev_match_by_id_table(scmi_dev, id_table, false);
+ }
+ 
+-static struct scmi_device *scmi_child_dev_find(struct device *parent,
+-					       int prot_id, const char *name)
++/* Returns a device_find_child() reference which must be dropped by caller. */
++static struct scmi_device *
++scmi_child_dev_find_get(struct device *parent, int prot_id, const char *name)
+ {
+ 	struct scmi_device_id id_table[2] = { 0 };
+ 	struct device *dev;
+@@ -263,9 +264,6 @@ static struct scmi_device *scmi_child_dev_find(struct device *parent,
+ 	if (!dev)
+ 		return NULL;
+ 
+-	/* Drop the refcnt bumped implicitly by device_find_child */
+-	put_device(dev);
+-
+ 	return to_scmi_dev(dev);
+ }
+ 
+@@ -422,8 +420,9 @@ static void __scmi_device_destroy(struct scmi_device *scmi_dev)
+ 	if (scmi_dev->protocol_id == SCMI_PROTOCOL_SYSTEM)
+ 		atomic_set(&scmi_syspower_registered, 0);
+ 
++	device_del(&scmi_dev->dev);
+ 	ida_free(&scmi_bus_id, scmi_dev->id);
+-	device_unregister(&scmi_dev->dev);
++	put_device(&scmi_dev->dev);
+ }
+ 
+ static struct scmi_device *
+@@ -440,9 +439,11 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	 * each DT defined protocol at probe time, and the concurrent
+ 	 * registration of SCMI drivers.
+ 	 */
+-	scmi_dev = scmi_child_dev_find(parent, protocol, name);
+-	if (scmi_dev)
++	scmi_dev = scmi_child_dev_find_get(parent, protocol, name);
++	if (scmi_dev) {
++		put_device(&scmi_dev->dev);
+ 		return scmi_dev;
++	}
+ 
+ 	/*
+ 	 * Ignore any possible subsequent failures while creating the device
+@@ -492,8 +493,8 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 
+ 	return scmi_dev;
+ put_dev:
++	ida_free(&scmi_bus_id, scmi_dev->id);
+ 	put_device(&scmi_dev->dev);
+-	ida_free(&scmi_bus_id, id);
+ 	return NULL;
+ }
+ 
+@@ -574,9 +575,11 @@ void scmi_device_destroy(struct device *parent, int protocol, const char *name)
+ {
+ 	struct scmi_device *scmi_dev;
+ 
+-	scmi_dev = scmi_child_dev_find(parent, protocol, name);
+-	if (scmi_dev)
++	scmi_dev = scmi_child_dev_find_get(parent, protocol, name);
++	if (scmi_dev) {
+ 		__scmi_device_destroy(scmi_dev);
++		put_device(&scmi_dev->dev);
++	}
+ }
+ EXPORT_SYMBOL_GPL(scmi_device_destroy);
+ 
 
 -- 
-Regards,
-Sudeep
+2.43.0
 
 
