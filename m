@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3767C44507
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:23:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FB2C44508
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 14:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ao2e4oml9wyP8ZDiiFp/FwD87zl/XZ7fR7vvHotuJkc=; b=pz5HVFhsrPaB10sAUA3sFIwrnv
-	vxjC07kL4LkC8knEk/DtMGIhhbsi4p+jPm26dXPstTGREi4xDELYkEhVVBe7KZXGdJiT3epTCIXdn
-	7wyUyY6PC4ua3/RPQ4sVUfl7T5YV1wJo4Dama3OwjUqbOxkrI7XzZKFPIM42T3XXPXKso3/Yi3fDm
-	PwVmj1LEj99nGq5sfASs3a9w6OHkNXs7OP89NYkl9N2Os4eLOEF9z8IUZAIKCpgcJDNhYe8Wilp/H
-	eYGfTKrpcaOFfCfoHqeT/9CF0WrMRQLhK7Awsym4L86tal3k5glTLNYG9JNP5n1hOVoNFRPnddaav
-	l+IJZrhA==;
+	bh=vO42L4Nhds/UY8hBhbxFlSZhqARnmHdkd0khHdxgnL0=; b=d21upLx1aBoKFE3IsN8HQ5R9Sf
+	B0NiOMmqrdyOXN510EfkiPbVewS+TOe74MfesML+qBZ4cReDUkTfA3aJ4mL9G8+LfnRBtNPGKIwfQ
+	lJC4oby72aT3aJ3zTIcjKV5vpq3zvxfc4mdhL8xGhzGCZqwLCvVM1oS40n941qTZ7epgoYaSEsSES
+	xDzJE1HSnmU5JXSLdV150IU1ehfuX+wGgu5lASsb7kaPeY029lYQM1MYSl2rfyKZOu9eOhSV7HGf3
+	5V4nVycPtY8vC+pTgiEvTwsj08dR/85SLuHk3Iov6haD0dwkYi6zDoyVdxwPZMULYfluQvR6V79D8
+	a1NB9zxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevqp-00000002Gy2-14K6;
+	id 1wevqp-00000002GyT-2FC4;
 	Wed, 01 Jul 2026 14:23:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wevqn-00000002Gxb-1e0W;
+	id 1wevqn-00000002Gxd-3gX1;
 	Wed, 01 Jul 2026 14:23:41 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F5F96001D;
-	Wed,  1 Jul 2026 14:23:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 241651F000E9;
-	Wed,  1 Jul 2026 14:23:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 68D5042A47;
+	Wed,  1 Jul 2026 14:23:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27A6E1F00A3A;
+	Wed,  1 Jul 2026 14:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782915820;
-	bh=Ao2e4oml9wyP8ZDiiFp/FwD87zl/XZ7fR7vvHotuJkc=;
+	s=k20260515; t=1782915821;
+	bh=vO42L4Nhds/UY8hBhbxFlSZhqARnmHdkd0khHdxgnL0=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject;
-	b=EzLT8/YBy4/tcL4Rg0lEVmwQyXjQbxJ/R1A2Rv2piwbsp6FOOAtl/tlWOPCYLZ6+H
-	 iLNiwTVx2u5CU//oPivoXTEYzi0oK7Woa3UHg4MURm9TOb2TK0qzChygYJtdEJ+Eev
-	 TaUJPYtJi03UxekA81CxgjXTqGK8l5rGtvFPBB7BIQbgkgVO+fqrxWVCjTDvMbOmm+
-	 Iqts+D4oaIZgkENj8uXQxN/ki2aLO7JeWT1tYedFtFmiYBNxHxf55GXS0aEWy5VNOe
-	 LbpPao9oFTkAIinQTEGFcZ9hF4mfQXk4SBqFf2XfV4kCOAf+kwQJ/g3sW8kbj2lJPt
-	 y3qLXeLGaJ71A==
-Date: Wed, 01 Jul 2026 09:23:39 -0500
+	b=XXu1vrz/uoxgB8k+hjRFdEMGiRBbgvAfLsaS6LP4upp3R/hnCeY3vnun0hH4M2J3i
+	 dnJorz84lT1WlwG30bJ+ymKpIBBPgX/THKqo1G/IGn+G0i9jD9mtPrCy5zuMBKufki
+	 7Euj6/1WB1uKxhMaooav9Nwd7JeFw/b0c7dWGFFrjLVoGxj3Vr0ew492o/QC/xL6hu
+	 4I1UVBHQYrXavbe+zUIgY1FNqn80aLAOicVje1RalWMjqINqGdYtNhCkZ3YnF1EmuY
+	 XUPr+0MA2WRSX7kDTW1AUxs5sQ33qr5PLcZlv+eyVucyz77RCahVgDd8dxmO3IDYQP
+	 xT8QJC5SUGYzQ==
+Date: Wed, 01 Jul 2026 09:23:40 -0500
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, p.zabel@pengutronix.de, kernel@collabora.com, 
- tzimmermann@suse.de, chunkuang.hu@kernel.org, simona@ffwll.ch, 
- linux-arm-kernel@lists.infradead.org, jason-jh.lin@mediatek.com, 
- airlied@gmail.com, conor+dt@kernel.org, maarten.lankhorst@linux.intel.com, 
+Cc: linux-kernel@vger.kernel.org, kernel@collabora.com, airlied@gmail.com, 
+ dri-devel@lists.freedesktop.org, mripard@kernel.org, conor+dt@kernel.org, 
+ justin.yeh@mediatek.com, devicetree@vger.kernel.org, 
+ jason-jh.lin@mediatek.com, linux-arm-kernel@lists.infradead.org, 
+ simona@ffwll.ch, chunkuang.hu@kernel.org, tzimmermann@suse.de, 
  linux-mediatek@lists.infradead.org, matthias.bgg@gmail.com, 
- mripard@kernel.org, devicetree@vger.kernel.org, justin.yeh@mediatek.com
+ maarten.lankhorst@linux.intel.com, p.zabel@pengutronix.de, 
+ krzk+dt@kernel.org
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-In-Reply-To: <20260701122057.19648-24-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260701122057.19648-27-angelogioacchino.delregno@collabora.com>
 References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
- <20260701122057.19648-24-angelogioacchino.delregno@collabora.com>
-Message-Id: <178291581273.4115171.8214844308967079622.robh@kernel.org>
-Subject: Re: [PATCH 23/42] dt-bindings: display: mediatek: Introduce
- Digital Video Output HW
+ <20260701122057.19648-27-angelogioacchino.delregno@collabora.com>
+Message-Id: <178291581411.4115410.14754664533277420399.robh@kernel.org>
+Subject: Re: [PATCH 26/42] dt-bindings: display: mediatek: Introduce MT8196
+ Layer Blender
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,18 +76,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 01 Jul 2026 14:20:38 +0200, AngeloGioacchino Del Regno wrote:
-> Add documentation for the Digital Video Output (DVO) IP found in
-> the newer generation SoCs MT8196, MT8189 and their variants.
-> 
-> This is effectively a more capable block replacing the DisplayPort
-> Interface (DPI/DP_INTF) one found in older SoCs.
+On Wed, 01 Jul 2026 14:20:41 +0200, AngeloGioacchino Del Regno wrote:
+> Add documentation for the Overlay Layer Blender IP found in the
+> newer generation SoCs like MT8196, MT8894, MT6991, and their
+> variants.
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  .../display/mediatek/mediatek,mt8196-dvo.yaml | 142 ++++++++++++++++++
->  1 file changed, 142 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml
+>  .../mediatek/mediatek,mt8196-blender.yaml     | 97 +++++++++++++++++++
+>  1 file changed, 97 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -94,59 +93,21 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: ignoring, error in schema: properties: compatible
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: ignoring, error in schema: properties: compatible
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
 	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.yaml: properties:compatible: [{'const': 'mediatek,mt8189-dp-dvo'}, {'const': 'mediatek,mt8189-edp-dvo'}, {'const': 'mediatek,mt8196-edp-dvo'}] is not of type 'object', 'boolean'
-Traceback (most recent call last):
-  File "/usr/local/bin/dt-doc-validate", line 8, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 66, in main
-    ret |= check_doc(f)
-           ~~~~~~~~~^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 37, in check_doc
-    dtsch.check_schema_refs()
-    ~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 242, in check_schema_refs
-    self._check_schema_refs(resolver, self)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
-    self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            has_constraint=has_constraint)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
-    self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            has_constraint=has_constraint)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 203, in _check_schema_refs
-    ref_sch = resolver.lookup(schema['$ref']).contents
-              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
-    retrieved = self._registry.get_or_retrieve(uri)
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 422, in get_or_retrieve
-    registry = self.crawl()
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 500, in crawl
-    id = resource.id()
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 231, in id
-    id = self._specification.id_of(self.contents)
-  File "/usr/local/lib/python3.13/dist-packages/referencing/jsonschema.py", line 50, in _dollar_id
-    return contents.get("$id")
-           ^^^^^^^^^^^^
-AttributeError: 'list' object has no attribute 'get'
-Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-dvo.example.dtb: /example-0/dvo@324c0000: failed to match any schema with compatible: ['mediatek,mt8196-edp-dvo']
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.yaml: properties:compatible: [{'const': 'mediatek,mt8196-disp-blender'}] is not of type 'object', 'boolean'
+Documentation/devicetree/bindings/display/mediatek/mediatek,mt8196-blender.example.dtb: /example-0/blender@328e0000: failed to match any schema with compatible: ['mediatek,mt8196-disp-blender']
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.kernel.org/project/devicetree/patch/20260701122057.19648-24-angelogioacchino.delregno@collabora.com
+See https://patchwork.kernel.org/project/devicetree/patch/20260701122057.19648-27-angelogioacchino.delregno@collabora.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
