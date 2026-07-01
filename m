@@ -4,79 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0F5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:36:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E435C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:41:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DUrP0BD+vBoJzvk7f8YbXYhe1H2LXfm3xIEl63tk6c=; b=F3KjTM1CRBruF0GmfHpg8dIzzD
-	jLt1mu8eEdSKYfrB/KYKohj3rTVwxaM1szaZ4X3TVixeckx7DXn56yK8gq2nsep8vZ67oO8an1JUg
-	p/Je9EZprXagqYtBdi5ZsavPtk/Gef9iUvPiiKgcTzf5zvI7S94k077hBRsgtvx4zRzT2MhiwGYP0
-	Q9t4m2j3VcL/yLWxMs4LfemWjjktUbZeWGGgoWDN7RrGIDyNqMs1s2pYikA+cEbS0DJmtyLgkEAwy
-	hE2lAsVt2pHq2bT38WgH6K57QddYuVQD4IcvQ5t3iYn5lFRg5FOnI4IOqn8N/qtNfUDvFxU0f69D2
-	ot2f0cPA==;
+	bh=lExvIVm/qhAmBiXb4s7Ug/WTGW/jVwYWmx7ZmSxI+IU=; b=M3TD2MvRiYql2/Iu0mKZfQHUQ8
+	N9UObH7dyL+1rt2q/VDvQCx/aFRr4WpCY2GANHyCL//ztkvqMHG3efVWtLoVFucBn4YyBsI7oZaud
+	+Tw7ZtTULrUzzqH+jvmkA76xNxS/cXC6wimjubfZV4MI6MpB7HxjEXo60/HGCyLrLXK0sfnBMgIks
+	yAG8iBdZzfUHZq2qn13KDSUAKASkJ/gFGAulzRB2ptIuoyNOL4xy7EA7ncXH1KO+pTPd275NpmKk2
+	0P31gXuHfNhLnW8I3o+23rAgATpRMe9M6OA75SBeVihjgv8pBBah9/qJ9lA3+GqrK2TwTUL2XQr07
+	Bahxb7Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuAY-000000020vT-3WO6;
-	Wed, 01 Jul 2026 12:35:58 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1weuFH-000000021I5-2eT6;
+	Wed, 01 Jul 2026 12:40:51 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weuAV-000000020uX-1xbu
+	id 1weuFF-000000021HG-1ui0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 12:35:57 +0000
-X-UUID: 5ec73ba6754911f1aa26b74ffac11d73-20260701
-X-CTIC-Tags: HR_CC_AS_FROM, HR_CC_COUNT, HR_CC_DOMAIN_COUNT, HR_CC_NAME, HR_CTE_8B
-	HR_CTT_MISS, HR_DATE_H, HR_DATE_WKD, HR_DATE_ZONE, HR_FROM_DIGIT_LEN
-	HR_FROM_NAME, HR_SJ_DIGIT_LEN, HR_SJ_LANG, HR_SJ_LEN, HR_SJ_LETTER
-	HR_SJ_NOR_SYM, HR_SJ_PHRASE, HR_SJ_PHRASE_LEN, HR_SJ_WS, HR_TO_COUNT
-	HR_TO_DOMAIN_COUNT, HR_TO_NAME, HR_TO_NO_NAME, IP_TRUSTED, SRC_TRUSTED
-	DN_TRUSTED, SA_EXISTED, SN_EXISTED, SPF_NOPASS, DKIM_NOPASS
-	DMARC_NOPASS, CIE_BAD, CIE_GOOD, CIE_GOOD_SPF, GTI_FG_BS
-	GTI_RG_INFO, GTI_C_BU, AMN_GOOD, ABX_MISS_RDNS
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:24356243-bd7a-4024-a659-5b600d5b6675,IP:15,
-	URL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:15
-X-CID-INFO: VERSION:1.3.12,REQID:24356243-bd7a-4024-a659-5b600d5b6675,IP:15,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:15
-X-CID-META: VersionHash:e7bac3a,CLOUDID:f2fa71fa90eaa34a34f027b8c5fa4f63,BulkI
-	D:260701203542AZS4KJN4,BulkQuantity:0,Recheck:0,SF:17|19|38|66|78|81|82|10
-	2|127|136|850|865|898,TC:nil,Content:0|15|50,EDM:-3,IP:-2,URL:0,File:nil,R
-	T:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DK
-	P:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_FAS,TF_CID_SPAM_FSD
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5ec73ba6754911f1aa26b74ffac11d73-20260701
-X-User: wangyan01@kylinos.cn
-Received: from localhost.localdomain [(116.128.244.171)] by mailgw.kylinos.cn
-	(envelope-from <wangyan01@kylinos.cn>)
-	(Generic MTA)
-	with ESMTP id 1114196408; Wed, 01 Jul 2026 20:35:40 +0800
-From: Wang Yan <wangyan01@kylinos.cn>
-To: Shuah Khan <shuah@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Wang Yan <wangyan01@kylinos.cn>
-Subject: [PATCH 1/6] selftests/arm64: fix spelling errors in comments
-Date: Wed,  1 Jul 2026 20:35:15 +0800
-Message-Id: <20260701123520.271580-2-wangyan01@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20260701123520.271580-1-wangyan01@kylinos.cn>
-References: <20260701123520.271580-1-wangyan01@kylinos.cn>
+	Wed, 01 Jul 2026 12:40:50 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-4759b4f0897so471234f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 05:40:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1782909648; x=1783514448; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lExvIVm/qhAmBiXb4s7Ug/WTGW/jVwYWmx7ZmSxI+IU=;
+        b=INAnWGWDbEg1qZda5rODmsUTzu4ut0hkleLyO0hDKCq3kS7+LYfTvGNRq8KdRYcH/y
+         LXVvehd2vbtiYUC8spTw0pbMR9H2hqRvb1ba0BwOVgJiZCzOgaRBsca21vN17wsmZYSz
+         YxTyT8wObtgB5lE1xGzoHrbyqLZfPONcqzQMzsGHkbdiTQj/aXH+/3IBAiqTUOxSLRa7
+         C2/pnzr7aA2xw+zNy2IgNmRVO8SgcyqpX/f9ZB6OMM2meg0LL+DouKDd0nQazTaO1LSP
+         RXy3KVi4PvrYWLNrVZqdk/tri5afqtFO7FB5smv5Crn4nvN+sY6udPGDmufSIFFYUyth
+         k28w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782909648; x=1783514448;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=lExvIVm/qhAmBiXb4s7Ug/WTGW/jVwYWmx7ZmSxI+IU=;
+        b=Q8PjI4FQzgZrDCn0fIzzngSi7WKjqcJvSoxpNta9+SFf5zF+xAvqh+wvYdG5FEWefq
+         eUaI9DiwtZiA9qq6HYj8weuDBKroTgMyM55hfAtx8h6/nAC2RJbEAtiAtixokoZwOKJ3
+         pOV16QmQSC2VNkvvzASEkkNxxIa060Sr4WBLfizH+Bpc83QJ7bvK1jP6jItjMK/e2Jst
+         b5zbs0z4sHitOH4EXUZlBK6H1opmrWfRITLlCKAZaPtQJFIzikVPko1d1uDrkVRN0nRU
+         JEOOPHxrMuIHnjbwxw1/7X7ucQTv9zjDLhv5pSGNWv4HP+sT+EHW6VwlX+x2fB5Cyl6p
+         9h6w==
+X-Forwarded-Encrypted: i=1; AHgh+Ro2FYUru9vZ7DB39xUoj1d1VwDKzbk3CAUVQx+VKJC9tGnSohkLY7epwX8VOMar79Gpk1GsWQZ+4PAaTpDl5bqV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/qJ8/2ndTnDQeMEdQUkxzMAJPs61Zw3l3/yesEIwK/f/NoO3B
+	E3DohsVWE2KeSMiOLZMFBG54nUIfJVd1Sk3Kd9G3A857c7Eu67d+QoC81V/YKwbq4Xc=
+X-Gm-Gg: AfdE7cngf0kKXF/oRjCf7lmzOQb54HiywuxxlIrrunBwd4jC1SDW04n9zM6uVrQnunW
+	VWI+XnOjIx7v+xoFKIr/HdMseaEhi/eiIIIPflmzcHHUpc7ub15o50xh93bo7wV/27SHwZp3S5c
+	lp2RGC+wv9FBHVyNQlUggkuAKxuOYu+ZyAA+WfYjLbgLYaOfnffzAjUfW7nDy0bEOHy7u3CGOPY
+	7Ekw2aIPq4aYpYpr0/bkCHeMwkvvH1e/JV++rHlRvkloBVrTUbk3xFVgsjQ8K2q0z+Hg9CudiJ9
+	UJrpj+YUftuvuXS8UF5Cby40kufKjlMVSoMPIf15QJmdQq2fs4IUxKd/U1yWblsckhEr8FjKqx4
+	J0M4BmOB44OLra6Ch+NFY6cTpNZptYmzvWFsPlyZXvyJqs8z8dzqXT7XBMHJeRHakzluyvtp4C2
+	tGodjetQTKwQ==
+X-Received: by 2002:adf:e009:0:20b0:474:6a5b:860b with SMTP id ffacd0b85a97d-477b4fb2955mr401340f8f.37.1782909647645;
+        Wed, 01 Jul 2026 05:40:47 -0700 (PDT)
+Received: from localhost ([2001:4090:a246:8638:a73d:f626:6582:90ca])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47566c0deacsm17848753f8f.26.2026.07.01.05.40.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 05:40:47 -0700 (PDT)
+From: "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+Date: Wed, 01 Jul 2026 14:39:13 +0200
+Subject: [PATCH v7 01/11] arm64: dts: ti: k3-am62a-phycore-som: Fix wkup
+ R5F memory region size
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260701-topic-am62a-ioddr-dt-v6-19-v7-1-e9db8b16821a@baylibre.com>
+References: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
+In-Reply-To: <20260701-topic-am62a-ioddr-dt-v6-19-v7-0-e9db8b16821a@baylibre.com>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Tero Kristo <kristo@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ Judith Mendez <jm@ti.com>, Daniel Schultz <d.schultz@phytec.de>, 
+ Andrew Davis <afd@ti.com>, Siddharth Vadapalli <s-vadapalli@ti.com>, 
+ Paresh Bhagat <p-bhagat@ti.com>, Bryan Brattlof <bb@ti.com>, 
+ Jai Luthra <jai.luthra@ideasonboard.com>, Devarsh Thakkar <devarsht@ti.com>, 
+ Beleswar Padhi <b-padhi@ti.com>, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Sebin Francis <sebin.francis@ti.com>, Kendall Willis <k-willis@ti.com>, 
+ Akashdeep Kaur <a-kaur@ti.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Hari Nagalla <hnagalla@ti.com>, 
+ "Markus Schneider-Pargmann (TI)" <msp@baylibre.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1530; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=xJhx36MS26Ugt3HIC/X2CbJ51kDEkatoPsKwiaxCXCQ=;
+ b=kA0DAAoWhcFWaZAVSlMByyZiAGpFCnyjGaxDR9qbBVnjN/qS5E5NRZGzZonOGc1Sdrm+xQu/K
+ Yh1BAAWCgAdFiEEiWFVZv8fucZjoqazhcFWaZAVSlMFAmpFCnwACgkQhcFWaZAVSlMRBwD/R8D5
+ k4DLFbAre6LCFFxtN42qd7BzTXZEuQeC+r9vtfEBAONbUMoSrUIisHZJ7wMtgjwHi7BPgHJORi4
+ RdPks5AoH
+X-Developer-Key: i=msp@baylibre.com; a=openpgp;
+ fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_053555_845114_DB5EC0E2 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20260701_054049_536357_1C57B245 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +124,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix two spelling mistakes in arm64 selftest comments:
-  - "whcih" -> "which" (arm64/gcs/libc-gcs.c)
-  - "resutls" -> "results" (arm64/pauth/pac.c)
+The wkup_r5fss0_core0_memory_region was reserved with only
+0x0f00000 but the MCU SDK linker for the wkup R5F firmware on
+AM62A defines the DM code/data DDR footprint differently:
 
-Signed-off-by: Wang Yan <wangyan01@kylinos.cn>
+    /* DDR for DM R5F code/data [ size 27 MiB + 364 KB ] */
+    DDR                         : ORIGIN = 0x9CAA5000 LENGTH = 0x1B5B000
+
+which results in an end at 0x9e600000. For this memory region which
+starts at 0x9c900000 this means a length of:
+
+    0x9e600000 - 0x9c900000 = 0x1d00000
+
+Link: https://github.com/TexasInstruments/mcupsdk-core-k3/blob/k3_main/examples/drivers/ipc/ipc_rpmsg_echo_linux/am62ax-sk/r5fss0-0_freertos/ti-arm-clang/linker.cmd
+Fixes: 8dd0ac27fcd1 ("arm64: dts: ti: k3-am62a-phycore-som: Enable Co-processors")
+Signed-off-by: Markus Schneider-Pargmann (TI) <msp@baylibre.com>
 ---
- tools/testing/selftests/arm64/gcs/libc-gcs.c | 2 +-
- tools/testing/selftests/arm64/pauth/pac.c    | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/testing/selftests/arm64/gcs/libc-gcs.c b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-index 72e82bfbecc9..ddb0b2b20155 100644
---- a/tools/testing/selftests/arm64/gcs/libc-gcs.c
-+++ b/tools/testing/selftests/arm64/gcs/libc-gcs.c
-@@ -130,7 +130,7 @@ TEST(gcs_find_terminator)
-  * We can access a GCS via ptrace
-  *
-  * This could usefully have a fixture but note that each test is
-- * fork()ed into a new child whcih causes issues.  Might be better to
-+ * fork()ed into a new child which causes issues.  Might be better to
-  * lift at least some of this out into a separate, non-harness, test
-  * program.
-  */
-diff --git a/tools/testing/selftests/arm64/pauth/pac.c b/tools/testing/selftests/arm64/pauth/pac.c
-index 67d138057707..f4b859c75a5a 100644
---- a/tools/testing/selftests/arm64/pauth/pac.c
-+++ b/tools/testing/selftests/arm64/pauth/pac.c
-@@ -292,7 +292,7 @@ TEST(single_thread_different_keys)
+diff --git a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+index de4048a3564bcac9558f88c94381f07db30d4f99..e13da7c95a30459e7649f284689039b89a95f651 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi
+@@ -67,7 +67,7 @@ wkup_r5fss0_core0_dma_memory_region: memory@9c800000 {
  
- /*
-  * fork() does not change keys. Only exec() does so call a worker program.
-- * Its only job is to sign a value and report back the resutls
-+ * Its only job is to sign a value and report back the results
-  */
- TEST(exec_changed_keys)
- {
+ 		wkup_r5fss0_core0_memory_region: memory@9c900000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9c900000 0x00 0xf00000>;
++			reg = <0x00 0x9c900000 0x00 0x01d00000>;
+ 			no-map;
+ 		};
+ 
+
 -- 
-2.25.1
+2.53.0
 
 
