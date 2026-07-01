@@ -4,51 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 183DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D96FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 11:43:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	Cc:Subject:To:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h9pSgGl8YkLBQ2exZouesGTns5v/BpmUC/xFWMtiDqs=; b=LS5ySnvxhn0EGgSYuSiLXd0nW8
-	0pR3CUDdR6ChmqXl1k44UPhceF9zRnObGzURVXb9GeDB+j2bJMtTG5/7B50TfJgDLdKYAFkjH0Vd6
-	UViIGDytGyvWQW19H5udEZHU1NICPvd7nw21+ET+oH2zQtyb5OemgMIwX7PgLov6J2KFuifcMjFz/
-	4/XSjxM/3yxmGRE8vJd5aR7LxFalG+RMvOQpip3qG4HYMSpBEdr6S3J0g4XJDpM7EDb8QNehjU+vd
-	/LO/3WIKdxIHmngf7bQy5PsYEEYkklfKyvaOVot10ymwaHbdWnYMEE3etWU2ZSgZnAYZIVWFTfU8C
-	0jGUaOiQ==;
+	bh=mP0e90CvY990VFp7DBQ0zX9hoQdSW13F7tPZWoQRh4s=; b=sNn5su+jcT+/2C+8vc/VXd3LbU
+	CvgyVqLCAEb5DrFXodEKqDsNpwwCoWKt5V6aA68XZunQi3ytmNzh/EDtjScIeelJQB0rICu/mtfDJ
+	fBuVCwHuoyyCTo3TXolZrBVyp/kAOOneUne1xfTtF9fiQUxtBJ2d8xAg/W3BMPzU4RNujeoWFfgl5
+	cjhGXuhylUdteshu9xpantIY7bNjXT8lhchYrb4kHaXTAyM4HBbMbSMtWUJEt8+5MdoIVGb0oCPKr
+	Jhi+zZ8AaiLb07bu1XwQLoTeXXl3zYV1S8uF/dIwblAY5/pz7s3xd0PxxtaiLvkfHZ/Xv7Sfb2YpN
+	MEM3f+yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetHQ-00000001T9y-34c4;
-	Wed, 01 Jul 2026 11:39:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wetLJ-00000001TP1-14Cn;
+	Wed, 01 Jul 2026 11:43:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetHO-00000001T9Q-3s6g;
-	Wed, 01 Jul 2026 11:38:59 +0000
+	id 1wetLH-00000001TOf-3rdL;
+	Wed, 01 Jul 2026 11:43:00 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with UTF8SMTP id 4C19643D85;
-	Wed,  1 Jul 2026 11:38:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id ADD151F000E9;
-	Wed,  1 Jul 2026 11:38:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with UTF8SMTP id C90B06001D;
+	Wed,  1 Jul 2026 11:42:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 040251F000E9;
+	Wed,  1 Jul 2026 11:42:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782905938;
-	bh=h9pSgGl8YkLBQ2exZouesGTns5v/BpmUC/xFWMtiDqs=;
-	h=Date:To:Subject:Cc:From:References:In-Reply-To;
-	b=h0tPhmIuRQaVWZmQCLWf+J9ulT43fnQMsgoGsDBGPQgsPgKwOU4mn77ycRulCL/js
-	 7PuktulmhmiKcJHPpug2x1AhrpH5ktLis70a07NbKQJbqFDeylRNEGfG6j3gtEkBM4
-	 XgG+YF2Sc5reZpX/GBjB/D529lGlL2ZocWLe8WKjWuTA+wkPqTKrzd5x1PgS/iAsVv
-	 AlsjI67zsaX+egQICbHu+5AtkaSZP+DJWTDdidFfXCeCnk3j8c+3YkHhTeFVaTluPT
-	 Sfm5/z98r4P9PvuOA2cFJfQjeKhsMrUoK+fcXAVoiSYJTqVK6m1kHeHllXcsOqyTOj
-	 VLZcxtm9LRlWw==
+	s=k20260515; t=1782906178;
+	bh=mP0e90CvY990VFp7DBQ0zX9hoQdSW13F7tPZWoQRh4s=;
+	h=Date:Subject:Cc:From:To:References:In-Reply-To;
+	b=W+aesSNaRj6xDDx+gCKAkWRHIzE3qBTdxq9B5csJjx0biTRJzU32MDfU4A4U3m1oT
+	 jY8QKneD0SkKgOmxqt0oCl0PL96dLMa/uwtVGg+FMp9OJiyf94wdcHPpHn0t09YmW5
+	 FY/E4G4KgtTNsmKBQu4P7iUS4Q/6NEJMpZYTDTys25LicEOwh/hO9C8DMI66GCvbJb
+	 co5Kh9B3LHQ3AqB0jAjPFw7JxlgHLnqx+74IcXPV9kM6qs4J3j5dkvmtYpYfig7CM1
+	 +CkzQGFlDWg217jSX1pU/NdtzbdMCaVTYrfpe0lz4hZO+dv3tQdXifg3+Y+uZ5KTox
+	 6QMUkdFsh/5rA==
 Mime-Version: 1.0
 Content-Type: multipart/signed;
- boundary=dcd813d04f8d378108c13e0073cb9d5d673b85bfdaa1fe7fae31e7cfd056;
+ boundary=66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f;
  micalg=pgp-sha384; protocol="application/pgp-signature"
-Date: Wed, 01 Jul 2026 13:38:54 +0200
-Message-Id: <DJN7EN61AJGW.2TV8JLMVRFTJ@kernel.org>
-To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Andy Shevchenko"
- <andy.shevchenko@gmail.com>
+Date: Wed, 01 Jul 2026 13:42:55 +0200
+Message-Id: <DJN7HPMWJLXG.157YRMNW34NJQ@kernel.org>
 Subject: Re: [PATCH v3 2/7] gpio: regmap: add gpio_regmap_get_gpiochip()
  accessor
 Cc: "Linus Walleij" <linusw@kernel.org>, "Bartosz Golaszewski"
@@ -75,9 +73,10 @@ Cc: "Linus Walleij" <linusw@kernel.org>, "Bartosz Golaszewski"
  <james.tai@realtek.com>, =?utf-8?b?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?=
  <eleanor.lin@realtek.com>
 From: "Michael Walle" <mwalle@kernel.org>
+To: "Andy Shevchenko" <andriy.shevchenko@intel.com>, "Andy Shevchenko"
+ <andy.shevchenko@gmail.com>
 X-Mailer: aerc 0.20.0
-References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
- <20260512033317.1602537-3-eleanor.lin@realtek.com>
+References: <20260512033317.1602537-3-eleanor.lin@realtek.com>
  <agMM9soiqpG-TRSb@ashevche-desk.local>
  <adff3a2d21a64d3ea3b408d62157ee1e@realtek.com>
  <ah92oEavMu4QRn8y@ashevche-desk.local>
@@ -87,7 +86,8 @@ References: <20260512033317.1602537-1-eleanor.lin@realtek.com>
  <DJN3PDTPJ3L6.24P71OQFB6C98@kernel.org>
  <CAHp75VeTp4eYQ4QBoeH2VyVhUivxNn1CaC9jskmeg-1zTAOYLQ@mail.gmail.com>
  <akTyDzdrt949VnWK@ashevche-desk.local>
-In-Reply-To: <akTyDzdrt949VnWK@ashevche-desk.local>
+ <akT8Niv1ddo-uWmc@ashevche-desk.local>
+In-Reply-To: <akT8Niv1ddo-uWmc@ashevche-desk.local>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,85 +102,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---dcd813d04f8d378108c13e0073cb9d5d673b85bfdaa1fe7fae31e7cfd056
+--66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
 
-On Wed Jul 1, 2026 at 12:55 PM CEST, Andy Shevchenko wrote:
-> On Wed, Jul 01, 2026 at 01:01:10PM +0300, Andy Shevchenko wrote:
->> On Wed, Jul 1, 2026 at 11:44=E2=80=AFAM Michael Walle <mwalle@kernel.org=
-> wrote:
->> > On Fri Jun 19, 2026 at 11:08 PM CEST, Linus Walleij wrote:
->> > > On Mon, Jun 8, 2026 at 4:41=E2=80=AFPM Michael Walle <mwalle@kernel.=
-org> wrote:
+On Wed Jul 1, 2026 at 1:38 PM CEST, Andy Shevchenko wrote:
+> On Wed, Jul 01, 2026 at 01:55:11PM +0300, Andy Shevchenko wrote:
+>> On Wed, Jul 01, 2026 at 01:01:10PM +0300, Andy Shevchenko wrote:
+>> > On Wed, Jul 1, 2026 at 11:44=E2=80=AFAM Michael Walle <mwalle@kernel.o=
+rg> wrote:
+>> > > On Fri Jun 19, 2026 at 11:08 PM CEST, Linus Walleij wrote:
+>> > > > On Mon, Jun 8, 2026 at 4:41=E2=80=AFPM Michael Walle <mwalle@kerne=
+l.org> wrote:
+>> > > >
+>> > > >> >>> Without an accessor like gpio_regmap_get_gpiochip(), we canno=
+t retrieve the
+>> > > >> >>> gpio_chip instantiated inside gpio-regmap.c to fulfill these =
+requirements in our
+>> > > >> >>> map() function.
+>> > > >>
+>> > > >> Why is gpiochip_irq_reqres() called in the first place? Isn't tha=
+t
+>> > > >> only called if the irq handling is set up via gc->irq.chip and no=
+t
+>> > > >> via gpiochip_irqchip_add_domain() like in gpio-regmap?
+>> > > >
+>> > > > Not really, the gpiochip_irq_reqres() is called to mark that a
+>> > > > GPIO line is used for IRQ, so the gpiolib cannot turn this
+>> > > > GPIO into an output line, gpiod_direction_out() will fail
+>> > > > on lines used for IRQ. So it's a failsafe.
+>> > > >
+>> > > > You can live without it of course, but then you don't get
+>> > > > this failsafe.
 >> > >
->> > >> >>> Without an accessor like gpio_regmap_get_gpiochip(), we cannot =
-retrieve the
->> > >> >>> gpio_chip instantiated inside gpio-regmap.c to fulfill these re=
-quirements in our
->> > >> >>> map() function.
->> > >>
->> > >> Why is gpiochip_irq_reqres() called in the first place? Isn't that
->> > >> only called if the irq handling is set up via gc->irq.chip and not
->> > >> via gpiochip_irqchip_add_domain() like in gpio-regmap?
+>> > > Thanks for the explanation! So did I make a mistake years ago by
+>> > > adding the gpiochip_irqchip_add_domain(), see commit 6a45b0e2589f
+>> > > ("gpiolib: Introduce gpiochip_irqchip_add_domain()")
 >> > >
->> > > Not really, the gpiochip_irq_reqres() is called to mark that a
->> > > GPIO line is used for IRQ, so the gpiolib cannot turn this
->> > > GPIO into an output line, gpiod_direction_out() will fail
->> > > on lines used for IRQ. So it's a failsafe.
->> > >
->> > > You can live without it of course, but then you don't get
->> > > this failsafe.
->> >
->> > Thanks for the explanation! So did I make a mistake years ago by
->> > adding the gpiochip_irqchip_add_domain(), see commit 6a45b0e2589f
->> > ("gpiolib: Introduce gpiochip_irqchip_add_domain()")
->> >
->> > As Yu-Chun found, gpiochip_irq_reqres() expect the irq chip data
->> > to be a gpio_chip, which isn't the case (in general) for an
->> > externally allocated domain, is it?
+>> > > As Yu-Chun found, gpiochip_irq_reqres() expect the irq chip data
+>> > > to be a gpio_chip, which isn't the case (in general) for an
+>> > > externally allocated domain, is it?
+>> >=20
+>> > So the whole issue comes from the fact that the IRQ chip is not marked
+>> > as immutable. For immutable IRQ chips (which all GPIO provides should
+>> > have) there is no such issue to begin with, id est there is no
+>> > gpiochip_irq_reqres() callback assigned (and respective _relres).
 >>=20
->> So the whole issue comes from the fact that the IRQ chip is not marked
->> as immutable. For immutable IRQ chips (which all GPIO provides should
->> have) there is no such issue to begin with, id est there is no
->> gpiochip_irq_reqres() callback assigned (and respective _relres).
+>> Ah, for immutable chips we put either custom ones or
+>> GPIOCHIP_IRQ_RESOURCE_HELPERS which actually refers to those callbacks.
+>>=20
+>> So, if the domain is external, it should also provide irq_request_resour=
+ces
+>> and release callbacks. In the custom case we can wrap gpiochip_reqres_ir=
+q()
+>> and gpiochip_relres_irq() respectively.
+>>=20
+>> But we need to have a struct gpio_chip pointer for them. And note, the
+>> IRQ chip data can be anything in that case, so it's not a requirement.
 >
-> Ah, for immutable chips we put either custom ones or
-> GPIOCHIP_IRQ_RESOURCE_HELPERS which actually refers to those callbacks.
+> And looking back for implementation in v3 the whole mistake was to use
+> GPIOCHIP_IRQ_RESOURCE_HELPERS. It just wanted custom callbacks with
+> the IRQ chip data assigned to whatever from which we may then deduce
+> struct gpio_chip. It does *not* require to be struct gpio_chip.
+> The local driver data structure should keep pointer to struct gpio_regmap=
+.
+> That one can be used in the respective .irq_request_resources() and
+> .irq_release_resources(). The default ones for gpio-regmap may also
+> be provided via a macro, say GPIO_REGMAP_IRQ_RESOURCE_HELPERS.
 >
-> So, if the domain is external, it should also provide irq_request_resourc=
-es
-> and release callbacks. In the custom case we can wrap gpiochip_reqres_irq=
-()
-> and gpiochip_relres_irq() respectively.
+> Hence I don't see the need of having gpio_regmap_get_gpiochip() helper
+> and driver can be implemented using gpio-regmap and external IRQ domain.
+>
+> What did I miss?
 
-Exactly. And its seems that this should have been possible with this
-series, too.
-
-Apart from that, most drivers use regmap-irq with gpio-regmap. For
-this we'd probably have to add something to regmap-irq because that
-module owns the irq_chip.
-
-> But we need to have a struct gpio_chip pointer for them. And note, the
-> IRQ chip data can be anything in that case, so it's not a requirement.
-
-That's what I've meant. Conceptionally, it should be part of
-gpiochip_irqchip_add_domain()/gpiolib, so a user doesn't have to
-have that knowledge. But I don't see how this could be achieved.
+IMHO nothing, that's exactly my understanding, too. Except for the
+GPIO_REGMAP_IRQ_RESOURCE_HELPERS. See my previous mail. Because that
+would have to be set by regmap-irq.
 
 -michael
 
---dcd813d04f8d378108c13e0073cb9d5d673b85bfdaa1fe7fae31e7cfd056
+
+--66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCakT8ThIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/j29wF9F2RjUXkQCFlw9MAhKebih0vk6rnt8RJH
-ZVGS/bJEnhLaCTuy3+MEHzj8ym4L4W4SAYDXrMLoVwpYVA+hB0NyniGo6j0kkPTA
-T1NARfzcR/ZyvhE6qaERxH1/f+1E21odLOE=
-=g4tC
+iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCakT9PxIcbXdhbGxlQGtl
+cm5lbC5vcmcACgkQEic87j4CH/jYjQF9Gz3dJXM6TuUZSyWng71nPci0aL0VH5LP
+dNpe5FVqJ4Ior5jpzAeunvyMv81lG/+KAYDqi5CgF2b7DtiKxlORD3txD8udK4gO
+MmqRdaSeG1BgwQIw81pxT3l8f1mcc70WhBE=
+=tciR
 -----END PGP SIGNATURE-----
 
---dcd813d04f8d378108c13e0073cb9d5d673b85bfdaa1fe7fae31e7cfd056--
+--66ec2de313caad83fa7b88719e14937926b75988ac63d56f9ce9c52a842f--
 
