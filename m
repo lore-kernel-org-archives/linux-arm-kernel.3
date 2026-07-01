@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8589BC44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D0CFC44500
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2R7MMcV3mmk0nBdIgoUyC/wqlhfh+hr+iLk2fd0g8uI=; b=ZfgSHk7r7BtfcGq9yZccOOTyto
-	P9fBzAg8zIzMQY6bhWDUUH7haMNsKNNXCIZnvWVCDHAZ2pQ8Z+A00B4NkU51cGFKiJBuIIq/X2R9Y
-	L2ac0F6j6Ka0ETEbH0P2kX7+xqKwGAALw9F3XAFPtJOm65SdSIhfowzZ7dI2/Wo5PySrf/WMWJ9ja
-	YrPJJScjRsaUhbWlIL4SElUwXOdRXiP6j4RdevyS8sjPg2G22Nu0rBFCtAo1G9EF08YzjeGd9NoZj
-	kekDZdLHKllBcocHLmXXhu6WPu07gfOuk1FWTxLkPHuxLWFhnz8c5eu+wMBje3iZ1MgDkp7EdTrOu
-	vaDbPgag==;
+	bh=QKCu+PYcgJkSg1JMnJ2Tzl4HnJfoedyvK0J5G8oSbPk=; b=YgMNeca+lX21xfkZUKpMKs9/T8
+	G897OdqdeTpFOe3LbLvhR9GYjHx/DoGpQSPdpYbQuTeKX7FIuqUwMaQEbaR+l6mo9n2+F3bx7zKCB
+	3J3BMEqQddZOfzkcnWQMgxKeNHycC9FA1HTJbIar+XFNJQo8ylvkhq7ov9bmGb/ReyerBy/+9EVlG
+	r7Bzm/VG1K0vfahDAdDgp1eHqg9g6ow/XOGrBx3AybbPSFMznELOh9q30IEVJHhXbu4GS7WHcvjSa
+	MVwUbzCNhIBacHnCHzp1tI20eJQWRLihi7Kz6Z4F12bfsKAiH4N7QK5Yg8Gz042u1VTmoAUrkDevh
+	QespsjdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBk-00000002b9n-1ZnK;
+	id 1weyBk-00000002bAi-3T4H;
 	Wed, 01 Jul 2026 16:53:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBi-00000002b4v-0Mqy
+	id 1weyBj-00000002b7t-22Cm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:53:26 +0000
+	Wed, 01 Jul 2026 16:53:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 877DA6001D;
-	Wed,  1 Jul 2026 16:53:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC2D11F000E9;
-	Wed,  1 Jul 2026 16:53:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 40E3743A4E;
+	Wed,  1 Jul 2026 16:53:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 919991F00ACF;
+	Wed,  1 Jul 2026 16:53:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782924805;
-	bh=2R7MMcV3mmk0nBdIgoUyC/wqlhfh+hr+iLk2fd0g8uI=;
+	s=k20260515; t=1782924807;
+	bh=QKCu+PYcgJkSg1JMnJ2Tzl4HnJfoedyvK0J5G8oSbPk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PYAoMrRD+yH4FMWd2ivhD4Y7E2zYn6WM6Ce45FQx+xLDPLSgTcpbrApZqxaQzQhzY
-	 tgOiDoBfV8D9gSHsBy8/ZQj904Q8Evj973YftNzOCYtJ/LOzWJYPq4MtihUzvArQkE
-	 4CsEmVCJKomT1ACaLrP83QBeElWpr/G1ck8OJA4b4IXYVZ9+e7dOegAZ1kt73abLAF
-	 gW+023bpm95o1R4Hsr/O/mM4o9N+qPpjTtbjDUWm0wze3si8spqvN/MiIJW40xgfq6
-	 EaG+DNx4W+0D/OT6NiqERcsREj7jZXeHhxHLMQL8lFIZ44NPORNH7E/r6G3zGYFXSj
-	 IOYizHojWlaEA==
+	b=QG45kKGniYzG0ldpN/80pDDz8V5sohuZyH65/PwXU1Labu8X1pwkgFnFztBaz1ymv
+	 PiZNvlZqT0HmfCwwl6s9dug1mK8/NtRve7nqH2kuymgcGCnyi5aOJu7Q0yeO9szImA
+	 By3cYoqf3qdAckTL5CfhuOoSB0p4ATZU4uaAxNlWcV6w2fUczSPcAvEAOadmqcXanJ
+	 h3seFnnP1NSl7kKnCRM+07Lna+UOJS7XlLr6DTjD9OlE9WcxNZk4YmJb5J5nL1OISh
+	 I8ahvARVUekKi9T845yu1FeOXrqi3rpgZ9T8UcvdtHrnlGlf/QL71tnEMIf6HTavmP
+	 iKaGhrYSz1RpQ==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 01 Jul 2026 17:52:30 +0100
-Subject: [PATCH v2 09/14] firmware: arm_scmi: Protect device request lookup
- with RCU
+Date: Wed, 01 Jul 2026 17:52:32 +0100
+Subject: [PATCH v2 11/14] firmware: arm_scmi: Clear SystemPower flag on
+ create failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-scmi_core_fixes-v2-9-1f5e85553f73@kernel.org>
+Message-Id: <20260701-scmi_core_fixes-v2-11-1f5e85553f73@kernel.org>
 References: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
 In-Reply-To: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,42 +69,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The SCMI device request notifier looks up protocol OF nodes from the
-active_protocols IDR. The IDR lookup can run concurrently with protocol
-activation while probe is still registering protocols and creating their
-SCMI devices.
+__scmi_device_create() reserves the singleton SystemPower protocol
+device by setting scmi_syspower_registered before allocating and
+registering the SCMI device.
 
-Wrap the lookup in an RCU read-side critical section as required by the
-IDR API for lockless readers.
+If any later step fails, the function returns NULL but leaves the flag
+set. A subsequent retry, for example after probe deferral, then observes
+the stale reservation and rejects creation of the SystemPower protocol
+device permanently.
 
-Fixes: 53b8c25df708 ("firmware: arm_scmi: Add common notifier helpers")
+Route all failures after the successful reservation through a common
+unwind path which clears scmi_syspower_registered again. Keep the
+duplicate-device rejection path unchanged because that path did not acquire
+the reservation.
+
+Fixes: 2c3e674465e7 ("firmware: arm_scmi: Refactor device create/destroy helpers")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 3 +++
- 1 file changed, 3 insertions(+)
+ drivers/firmware/arm_scmi/bus.c | 22 ++++++++++++----------
+ 1 file changed, 12 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 6df0fe055d64..a575e661f1e2 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -33,6 +33,7 @@
- #include <linux/of.h>
- #include <linux/platform_device.h>
- #include <linux/processor.h>
-+#include <linux/rcupdate.h>
- #include <linux/refcount.h>
- #include <linux/slab.h>
- #include <linux/xarray.h>
-@@ -2957,7 +2958,9 @@ static int scmi_device_request_notifier(struct notifier_block *nb,
- 	struct scmi_device_id *id_table = data;
- 	struct scmi_info *info = req_nb_to_scmi_info(nb);
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index e1deb1b3011d..cdfcd8e96e93 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -431,6 +431,7 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ {
+ 	int id, retval;
+ 	struct scmi_device *scmi_dev;
++	bool syspower = (protocol == SCMI_PROTOCOL_SYSTEM);
  
-+	rcu_read_lock();
- 	np = idr_find(&info->active_protocols, id_table->protocol_id);
-+	rcu_read_unlock();
- 	if (!np)
- 		return NOTIFY_DONE;
+ 	/*
+ 	 * If the same protocol/name device already exist under the same parent
+@@ -446,14 +447,12 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 	}
+ 
+ 	/*
+-	 * Ignore any possible subsequent failures while creating the device
+-	 * since we are doomed anyway at that point; not using a mutex which
+-	 * spans across this whole function to keep things simple and to avoid
+-	 * to serialize all the __scmi_device_create calls across possibly
+-	 * different SCMI server instances (parent)
++	 * Reserve the singleton SystemPower protocol device before
++	 * allocation and registration. This keeps creation simple without
++	 * a mutex spanning the whole function; error paths after the
++	 * reservation must drop it again.
+ 	 */
+-	if (protocol == SCMI_PROTOCOL_SYSTEM &&
+-	    atomic_cmpxchg(&scmi_syspower_registered, 0, 1)) {
++	if (syspower && atomic_cmpxchg(&scmi_syspower_registered, 0, 1)) {
+ 		dev_warn(parent,
+ 			 "SCMI SystemPower protocol device must be unique !\n");
+ 		return NULL;
+@@ -461,19 +460,19 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ 
+ 	scmi_dev = kzalloc_obj(*scmi_dev);
+ 	if (!scmi_dev)
+-		return NULL;
++		goto clear_syspower;
+ 
+ 	scmi_dev->name = kstrdup_const(name ?: "unknown", GFP_KERNEL);
+ 	if (!scmi_dev->name) {
+ 		kfree(scmi_dev);
+-		return NULL;
++		goto clear_syspower;
+ 	}
+ 
+ 	id = ida_alloc_min(&scmi_bus_id, 1, GFP_KERNEL);
+ 	if (id < 0) {
+ 		kfree_const(scmi_dev->name);
+ 		kfree(scmi_dev);
+-		return NULL;
++		goto clear_syspower;
+ 	}
+ 
+ 	scmi_dev->id = id;
+@@ -495,6 +494,9 @@ __scmi_device_create(struct device_node *np, struct device *parent,
+ put_dev:
+ 	ida_free(&scmi_bus_id, scmi_dev->id);
+ 	put_device(&scmi_dev->dev);
++clear_syspower:
++	if (syspower)
++		atomic_set(&scmi_syspower_registered, 0);
+ 	return NULL;
+ }
  
 
 -- 
