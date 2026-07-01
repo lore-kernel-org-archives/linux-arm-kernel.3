@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 033CEC43327
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C89C43602
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:53:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,44 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qJ0jOkL1ltEZQTlEuZlzOaSUuaAoYiJSzKQRTPeitxg=; b=rZl0z++/0hOkE/j9FxzQtcfwXb
-	Jx2knZO6bkZOsW111Arq9BLGc1BHGEz9gSJo7tIuC6pD/7LA2sbCDipuhrj9Xy/mT3d0eexLzdaCu
-	f+wtuxt8dh62wfHHaxbeH19vqjgqzIwlg2XCCB9+TCdQdvNAPE+q5RCQCclNZsFkSmLsDNyO7lSvx
-	FXsJmfKxZTUcPI4QDChBrYUzFCNQeT86GnwnEFNJ3rffaqG/+mFz6JMRNJOsIgTJJL4RQw5sksWd5
-	DmVuCP3LsqZd/Ak/WotaN441mLaPQQ1qmO1nW4zgJ9oXnnHcQCrUVHimc4dMqjqZQZ5vWjQR2GeSH
-	tQ1P/dsA==;
+	bh=xsC7twIJ3ucnfIY/XQ0lBk229dOSIqHl6m5TjxkfYO4=; b=vnrvwFNKAYSmm2shR7N/54fYcv
+	D6ZMDmEbFUEEKRca0hUyJNTW6LE8gB+jHWqAIPo51+Sg+/CQwaxQ/1/V4MK3cP07KOhRO846nCNPU
+	UOfkJtd5Yw6sFQubDOXGRUosBGJ1xfJ1d0FHyK5v+8rF7VlQ+oD3Xtu2wJ+02cyK4cE/gtk3JmhJS
+	vhuStvM/4yXdmN6RxhQdfKrbxEZynARzTIKAYatCVq4dUQx1c165S6OCa4lSfZookLmqUO+nzvj35
+	n7L5xizBGvKjivgfsVlxf3NsDvQsPvAPPuEIbBG6AbXnzSkOr8bRpZfG03coYi+aWyXJMSV4rCwQX
+	UwDfV6cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBh-00000002b4u-3Kko;
-	Wed, 01 Jul 2026 16:53:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1weyBi-00000002b5g-0E6u;
+	Wed, 01 Jul 2026 16:53:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyBe-00000002b0a-1JEO
+	id 1weyBf-00000002b2S-3xLr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 16:53:22 +0000
+	Wed, 01 Jul 2026 16:53:24 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id BE5056001D;
-	Wed,  1 Jul 2026 16:53:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E03561F000E9;
-	Wed,  1 Jul 2026 16:53:20 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 76A1A4013E;
+	Wed,  1 Jul 2026 16:53:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C71EE1F00A3F;
+	Wed,  1 Jul 2026 16:53:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782924801;
-	bh=qJ0jOkL1ltEZQTlEuZlzOaSUuaAoYiJSzKQRTPeitxg=;
+	s=k20260515; t=1782924803;
+	bh=xsC7twIJ3ucnfIY/XQ0lBk229dOSIqHl6m5TjxkfYO4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=OwCeExYiTHlG46qCJDjUJ27Zo4xF69kGm8hR8p5/vnNF2uWsG1SGzEm9ifjCUBwhX
-	 mNvqrxLYj614e7yKldV8JDGIRRNeSnPtzR8HsJbtbErjVfKBV3jKh1Hxj1GVe37PiW
-	 h2nC39UBAWBD5eZYCY0iP0FOxglNTp1UVwzIZsVCVG0xppkRzTR83kULi8q5tNesgW
-	 jWP3DCoHQQIly+bjrt9o95kT6wdlorepxNogH11VptLL2TjP/vOtJDZxFkra/CIo0y
-	 Jf4/hLumB5cUcmdPQP/n0jsHEoNZyF+r71j28qeFwQUpQLA3ibzXo3Xb3/Y+o90MfM
-	 tsvLZBnpGEEZw==
+	b=EjQJrbgzXLOpVc33xXnofE68QrIVR2JvFOxCbp9zD2YUh6FXMEizovFBmWxLzf7sk
+	 uOejw87+kQw1SsirHQpDUX1L6zaIDqmTc+92SFIjL6bSW+6W/dToyLopKLx9cVWky+
+	 5kFWR8ZObSZETbUSjmcUUpC8RqAqUqKA0ZzCNjiLcDaKEA/jtt/cwP93h3d0gdKA+J
+	 KSLoTCaQFE+J8fKXzJT9zkxmNJe7NGmE9Sar2qiTVK30oJUDKva5ELw+9GhBrYMT1a
+	 dmwAxypp4Zh7iOQoBZfc49I8qcBkOgBpiV9EWxsu7QbO492JDfkAj+qqcq2VL7avcF
+	 OM1Nr7bFVxPSw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Wed, 01 Jul 2026 17:52:26 +0100
-Subject: [PATCH v2 05/14] firmware: arm_scmi: Free transport channel on IDR
- failure
+Date: Wed, 01 Jul 2026 17:52:28 +0100
+Subject: [PATCH v2 07/14] firmware: arm_scmi: Unwind TX receiver mailbox
+ setup failure
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260701-scmi_core_fixes-v2-5-1f5e85553f73@kernel.org>
+Message-Id: <20260701-scmi_core_fixes-v2-7-1f5e85553f73@kernel.org>
 References: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
 In-Reply-To: <20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,33 +69,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If transport channel setup succeeds but the following IDR insertion fails,
-the error path destroys the transport device and frees the channel info
-without invoking the transport cleanup callback.
+mailbox_chan_setup() can request an additional unidirectional TX
+receiver channel after successfully acquiring the primary channel. If
+that second request fails, the function returns immediately and leaves
+the primary channel allocated.
 
-Call chan_free() before destroying the device so transport specific
-resources such as IRQs, mailbox channels and mapped shared memory are
-released consistently with the normal teardown path.
+Unwind the primary mailbox channel before returning the error so probe
+deferral or other setup failures do not leave the channel busy for later
+probe attempts.
 
-Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
+Fixes: 9f68ff79ec2c ("firmware: arm_scmi: Add support for unidirectional mailbox channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/driver.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/firmware/arm_scmi/transports/mailbox.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 861087b2920e..4b369b003003 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2808,6 +2808,7 @@ static int scmi_chan_setup(struct scmi_info *info, struct device_node *of_node,
- 			"unable to allocate SCMI idr slot err %d\n", ret);
- 		/* Destroy channel and device only if created by this call. */
- 		if (tdev) {
-+			info->desc->ops->chan_free(prot_id, cinfo, idr);
- 			scmi_device_destroy(info->dev, prot_id, name);
- 			devm_kfree(info->dev, cinfo);
+diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
+index ae0f67e6cc45..44d45ce838e5 100644
+--- a/drivers/firmware/arm_scmi/transports/mailbox.c
++++ b/drivers/firmware/arm_scmi/transports/mailbox.c
+@@ -225,9 +225,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 		smbox->chan_receiver = mbox_request_channel(cl, a2p_rx_chan);
+ 		if (IS_ERR(smbox->chan_receiver)) {
+ 			ret = PTR_ERR(smbox->chan_receiver);
++			smbox->chan_receiver = NULL;
+ 			if (ret != -EPROBE_DEFER)
+ 				dev_err(cdev, "failed to request SCMI Tx Receiver mailbox\n");
+-			return ret;
++			goto err_free_chan;
  		}
+ 	}
+ 
+@@ -246,6 +247,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
+ 	mutex_init(&smbox->chan_lock);
+ 
+ 	return 0;
++
++err_free_chan:
++	mbox_free_channel(smbox->chan);
++	return ret;
+ }
+ 
+ static int mailbox_chan_free(int id, void *p, void *data)
 
 -- 
 2.43.0
