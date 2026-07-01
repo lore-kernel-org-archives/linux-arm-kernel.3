@@ -4,78 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD9EAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA62C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 09:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9l0tMZx1oyWFbUbJfx+ICGrvgd3GF0PzrIO0TTe9URo=; b=BpbQy1nm9XemL8JCFvJMefAEPx
-	b/4wggiqzRwZLps1sIicioEAHEJ9VNKLtYh0tKnG1J0ZdnNNPRbqoSDY2aTLg1Lp+gvonf7A/Et5z
-	/sZgtm19jt196rZCrJRCX0+73HzSWiOuntE2jkngD4lZc6zQicpNa43dgJ+0gPad2DbcLKJN7YSnD
-	WMdO9H4lmeOWchLa2N7/BuU6n/yPZL87Od0Lje5w+KS9Q62wK6pGWmdZRiUYTn2xtJ2j5D47gmjZb
-	owAulEOqFZ/3zbawIbBq88n9IP5vEW9zrGBKZ6fvExcrtlM39dAt9MzQYCmECC1RkESNdP4oTXHJp
-	xYf7OIGQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S5CD9RCGzTJ8lEWCXCyIZVGHOFsiCgVXwE8Z7g69M4c=; b=eVhsOmjNKTvGMx1YPvXwlso32K
+	d/iYae7w7TD4iZmNaO7pNhxuMyLibqNaMnE+yl6xvYKxzoxaAhm3ClKjClcqSCFHPxiBgiMvkF+qN
+	SdmxdxE54v8InUYIZFDQ4IQzbkG4nNlIR6EfjXeIoZmA5Q89uM+QbGeFG0JBu7KWX9C8IMC3psIXY
+	KctdmDCGZBKxL39OcSL8xOVi4n81AfLy/OBtxT4AGLD/fI/A2Ee1eRxhkccwnduluwD0iYDfqyf6a
+	qkxW2DDtlMaTFpaIuEvi/sbjwrPcP87zF4GwZPZkDdejrP8RFC8/6j7BE2QvFCmdCQxUuEBYqUtH+
+	BheYp/Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werSl-00000001DKq-3GL6;
-	Wed, 01 Jul 2026 09:42:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1werVY-00000001Dpq-1BzQ;
+	Wed, 01 Jul 2026 09:45:28 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1werSk-00000001DJa-3SAs
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Jul 2026 09:42:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=9l0tMZx1oyWFbUbJfx+ICGrvgd3GF0PzrIO0TTe9URo=; b=QvkJRea+62GGR164507xaBpybz
-	KUnUkF1BE2xoKEhGq3ia1JDto7JEjrC34YMUrts7pibdgfVKtY9lFf/5Y/kI7t43Spao1KFkM79j8
-	F0WVPBrsfx2b5Pf+kfCRn3FIKbVER7KvZvL6UkpYoUrSKkCoPq3hkuU5Ga/ZtzY0uDOH+cvzJg6k1
-	IqiKMQOuqxoVIJYiTIc6xQXZIT+7HVXQWs2434PzuDvIlh/TaJKnw+4rKJNHpTgIlcA3UmtlH/kDx
-	3V5HlPFs6PcD72Lov33GnYoBOQvVrLlslsXuSzCWacjMJopOmcYgEgcpUXWLUqkWqbQU6/yrq/0d3
-	yxQs1vRw==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1werSh-00000002Zrg-3uoA
+	id 1werVV-00000001Dp3-3atg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 09:42:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5850022FC;
-	Wed,  1 Jul 2026 02:42:26 -0700 (PDT)
-Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 55C3F3F905;
-	Wed,  1 Jul 2026 02:42:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782898950; bh=kKJ08oum40okyDRmCcsnFq7zWexfO5vGKH5pIFu69kg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=J+yt/6gv5KeAGOBP9JIL1j0DUoHVBb2+p7uhd/n8EOSq9MfYsIlyf+sR1+Qaz3WbQ
-	 mPWhDLh3Gz5DiARgNM8N2u1BPkaWCxfk+2C5i0xmlR2FV3mdfsuCSoNNpTburlgv8u
-	 E8chq98QN+ofcpngYS3mx+N22pDhe+aItp1ExfRU=
-From: Linu Cherian <linu.cherian@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH 5/5] arm64: cpufeature: Extend bbml3 support list
-Date: Wed,  1 Jul 2026 15:11:31 +0530
-Message-ID: <20260701094131.677636-6-linu.cherian@arm.com>
+	Wed, 01 Jul 2026 09:45:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=S5CD9RCGzTJ8lEWCXCyIZVGHOFsiCgVXwE8Z7g69M4c=; b=jQrFf5/IjpRWnpMNXSB11D6z+8
+	zzx6sCrx6XRbFWE3+I/L/ThV1vsBBSW2gWNmf1jMIsXIoUmd9n1ioU2iIRUATvigGkNkXZ2D7Dfp1
+	YtN8xXr3otSf0zQnN18xGcDprra3IefSKll4N3TxBRDik4MeoWjqu+ll3tvuNZB9/yqdLNHPpBggn
+	azRfeBdA62Ryx1vPeoGgHUXnohYgj+YNzsTVFaZOLPMTEpniJXPJAoUbmZpF/AdD8wyFxedNWKVY3
+	DAWzWQZyOWRxzCkpf9lOT4FsutupWe5kFUn3Cz7bTi+xDakejCH/yWXag6EUDruS8eIUeE/632B6v
+	U/b2VZHA==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <Max.Merchel@ew.tq-group.com>)
+	id 1werVT-000Fue-2j;
+	Wed, 01 Jul 2026 11:45:23 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <Max.Merchel@ew.tq-group.com>)
+	id 1werVT-000DCq-1P;
+	Wed, 01 Jul 2026 11:45:23 +0200
+From: Max Merchel <Max.Merchel@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Max Merchel <Max.Merchel@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: imx6qdl-tqma6: add nvmem-layout
+Date: Wed,  1 Jul 2026 11:45:18 +0200
+Message-ID: <20260701094520.1482697-1-Max.Merchel@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260701094131.677636-1-linu.cherian@arm.com>
-References: <20260701094131.677636-1-linu.cherian@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28047/Tue Jun 30 23:29:24 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_104232_179858_F7C88E97 
-X-CRM114-Status: UNSURE (   7.45  )
+X-CRM114-CacheID: sfid-20260701_024526_007510_926AD6F0 
+X-CRM114-Status: UNSURE (   7.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,44 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add below cpus to the midr list, which supports
-BBML3 but don't advertise through MMFR2 ID.
+TQMa6x has board-information located in EEPROM at offset 0x20.
+Add necessary nodes and properties for nvmem cell.
 
-Cortex A520(AE)
-Cortex A715
-Cortex A720(AE)
-Cortex A725
-Neoverse N3
-C1-Nano
-C1-Pro
-C1-Ultra
-C1-Premium
-
-Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+Signed-off-by: Max Merchel <Max.Merchel@ew.tq-group.com>
 ---
- arch/arm64/kernel/cpufeature.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi | 10 ++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi | 10 ++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index d754b1b7da77..9b806c1c60aa 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -2142,6 +2142,15 @@ bool cpu_supports_bbml3(void)
- 		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
- 		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
- 		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
-+		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
-+		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
-+		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
-+		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
-+		MIDR_REV_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf),
-+		MIDR_REV_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf),
- 		{}
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
+index 67f8f59aff5ae..2fa116e1ca9a6 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6a.dtsi
+@@ -39,6 +39,16 @@ m24c64_50: eeprom@50 {
+ 		reg = <0x50>;
+ 		pagesize = <32>;
+ 		vcc-supply = <&sw4_reg>;
++
++		nvmem-layout {
++			compatible = "fixed-layout";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			module_info: module-info@20 {
++				reg = <0x20 0x60>;
++			};
++		};
  	};
+ };
  
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
+index db552802554d4..4361c7efb9d73 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-tqma6b.dtsi
+@@ -32,6 +32,16 @@ m24c64_50: eeprom@50 {
+ 		reg = <0x50>;
+ 		pagesize = <32>;
+ 		vcc-supply = <&sw4_reg>;
++
++		nvmem-layout {
++			compatible = "fixed-layout";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			module_info: module-info@20 {
++				reg = <0x20 0x60>;
++			};
++		};
+ 	};
+ };
+ 
+
+base-commit: be5c93fa674f0fc3c8f359c2143abce6bbb422e6
 -- 
 2.43.0
 
