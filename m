@@ -4,59 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CAFDC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C75C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 12:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/ULRTW67nH038Rqy2Zjcw6yLviOqXS54RmbvDkwGbY=; b=EAab7o8P8By3I/uXY2sALrTOq5
-	DldeHDbjMfNGFzGkCCnujrpBNlJHz81twtfSbvM/XX/+qfjQToQuL5ozZ7KRnvwectMaoSpYlYNFe
-	+8TLeyVWzio5ln21FvRidmJtZAbutl6kC3qtiQ3XfenQjDQBdt5YVFlMK2ZMWXXG6z0z71IR17Np8
-	i0C9kB5XPjX/adxDtHPtP0FLfNMo6AIb2A9fmSb/Em2gjPF44R5DvT2XguJlVohdARengoQRJtS2u
-	hMpu5g4K+HEvk1Z3Lkk++htcmgWOewUpHNEY1z1uAAi67nvWSaZF1++mEfbez5W/W1OZ0KsyLcl4l
-	ut6ZJ3rw==;
+	bh=aog0Xvyq0MvgwUY+F8qpBo5tcMWJmlQeL3wfqKLKFIU=; b=NjQ2HJs0llPSYVee97Q8oeJSdd
+	XGZ6C6K6vF1Q0LgcVZU9dTnebG5EsgJKjeNnijaWzFmd7K0Ha6Si8QSse8uXu2mnawM0mEVEhjZp8
+	72MbRAKfh4XF8CHU61UKODPp6MXiPuNg6gav1rPgjCNsET4PRFrtwuSrnWLHBtpVHmJtXpvmJWMg9
+	s/LwRPsZuoDVNZU8eAvsVeVUdv0K61bABx2nm8L4W9tPSHHOr5lmvBgGM4B8Rt0/dvsORWLulwKdN
+	n52EuBVrlYovNVkqBf0rTCSAreH3omXa5xuhfvSwhcCMexVZm5h6o6R6bSxo0iMOQR+z6fw0ziVip
+	uUKMqTbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetw0-00000001t2I-1oqI;
-	Wed, 01 Jul 2026 12:20:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wetwX-00000001uNg-1Cfg;
+	Wed, 01 Jul 2026 12:21:29 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wetvr-00000001sVz-45bY;
-	Wed, 01 Jul 2026 12:20:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=c/ULRTW67nH038Rqy2Zjcw6yLviOqXS54RmbvDkwGbY=; b=Y/AWmj+ckvPQ3NehJS4gt6xDgT
-	oIy2YZiOY2HhTPAzEVjlemN9Hks3xt46/a3ks5phH4bez/K+1bI7CoNjSdDA503NpVpshCtb5oLda
-	ZH/IuDoxmILU0TcyqVkxAskDiuDmXiI+k2Zflk90FDekpjsBTUgUTnsPy7qCT8UwNMsJYXATdp8fk
-	zjs1Y7/epGAGKwR/avBx6zK0wFFzzYiPIgZIrhimkSDfEFTVe8SNW+HqODcjMCpxnyTNhQERxj24L
-	nGO7h25mdhtfNrRwtGrvqyh97wCcj2U2kICqu1GN8+UPps2hQKj+9YzVeU2xPQUq7+eK0Jlm63LE1
-	ZKuptzDQ==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wetvn-00000002jQM-0oCK;
-	Wed, 01 Jul 2026 12:20:46 +0000
+	id 1wetwB-00000001tX3-0lCJ;
+	Wed, 01 Jul 2026 12:21:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782908441;
-	bh=81GBBUpbjdjDXr0NDYQet5Q9bU5Yyjhgqm78JS+U1hw=;
+	s=mail; t=1782908464;
+	bh=ymB+zr0yyVevOZNXkW8L1qIjB6qUPedpzUM3brYF7SE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oCJSw/o0r///ZUQmMs1u69z1eYFz8jFgM2klmphNLc41GPGofLcXDLqKD2BQwZjxb
-	 TEVmlzQHdNIj1LHUALdGJ/sFIo/rJ/GR3AioBm+AV8gykQJF6VhB1OILg8NxkKiJBv
-	 5Z0hbrlw9eFDApWuZ39vkuHg5SP2ncPi+fl8fsJO780r612SC/gQMh354UddEmU6Mt
-	 B9CLenkQWTyLALWdXmaLMbXv/mN0MKv83AjENWvX8sQ3+4mNXLVFe4Vzd0xMm+02+i
-	 RuhIZo+eKIRSPjMESuroKtJGTHxoTT0KKjF69z1ucS17BeGklMWdszGFt+Oco5EwSR
-	 sBkmldVTxKKWg==
+	b=iyq0Bqbv7C95OvwX5Vq7WNoQOD8toA6Cv+CLc1oXxLFfcEvqhbNuh2m+F5aLdIOUs
+	 boVQGLKv8Dq8cR8y3qPx/gr8ley4lqGUjmClpXdPYlyaItjwcFSJGMYGCRzorjiKva
+	 3C1PGwxiiYVYTmDdi/PUGZGear12A7kLEmwJ5r/hOZllmQ3IZO9EwPS58gZV/nVbV1
+	 PWjKXosSTqaVTDsbG2F+ineAnbI2yNkBrBuQVTAKmZxq9Y4ZR7VNJWs6lDEz+fhQAY
+	 +Nx2DkOilsA12V4Sy58KlGm2yTZvnjo68kPZd8qfa9GSJZ4QDCQuoMquJLYNOwj7q+
+	 ZfHZh9nmMWj8Q==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CBEDD17E0CF4;
-	Wed,  1 Jul 2026 14:20:40 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D908417E0F44;
+	Wed,  1 Jul 2026 14:21:03 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: chunkuang.hu@kernel.org
 Cc: p.zabel@pengutronix.de,
@@ -70,31 +56,27 @@ Cc: p.zabel@pengutronix.de,
 	conor+dt@kernel.org,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	jitao.shi@mediatek.com,
-	granquet@baylibre.com,
-	rex-bc.chen@mediatek.com,
-	dmitry.osipenko@collabora.com,
-	ck.hu@mediatek.com,
-	amergnat@baylibre.com,
-	justin.yeh@mediatek.com,
-	jason-jh.lin@mediatek.com,
 	dri-devel@lists.freedesktop.org,
 	linux-mediatek@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com
-Subject: [PATCH 11/11] drm/mediatek: mtk_dp: Clarify XTAL freq and Debounce registers
-Date: Wed,  1 Jul 2026 14:20:24 +0200
-Message-ID: <20260701122024.19557-12-angelogioacchino.delregno@collabora.com>
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com,
+	Paul-pl Chen <paul-pl.chen@mediatek.com>,
+	Nancy Lin <nancy.lin@mediatek.com>
+Subject: [PATCH 03/42] drm/mediatek: Export OVL Blend function
+Date: Wed,  1 Jul 2026 14:20:18 +0200
+Message-ID: <20260701122057.19648-4-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
-References: <20260701122024.19557-1-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_132045_070915_4D0C4CC8 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20260701_052108_159062_1B6AC2F1 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,104 +91,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clarify the meaning of the sub-fields in the crystal frequency and
-transmitter interrupt debounce registers, with the only purpose of
-increasing human readability.
+From: Paul-pl Chen <paul-pl.chen@mediatek.com>
 
+For the new BLENDER component, the OVL ignore pixel alpha logic
+should be exported as a function and reused it.
+
+Signed-off-by: Nancy Lin <nancy.lin@mediatek.com>
+Signed-off-by: Paul-pl Chen <paul-pl.chen@mediatek.com>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- drivers/gpu/drm/mediatek/mtk_dp.c     | 35 ++++++++++++++++-----------
- drivers/gpu/drm/mediatek/mtk_dp_reg.h |  6 +++--
- 2 files changed, 25 insertions(+), 16 deletions(-)
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 68 +++++++++++++++++--------
+ drivers/gpu/drm/mediatek/mtk_disp_ovl.h |  8 +++
+ 2 files changed, 56 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp.c b/drivers/gpu/drm/mediatek/mtk_dp.c
-index 605ead7fa9bf..b861a5df9316 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp.c
-+++ b/drivers/gpu/drm/mediatek/mtk_dp.c
-@@ -1204,9 +1204,15 @@ static void mtk_dp_initialize_settings_v2p1(struct mtk_dp *mtk_dp)
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+index 9ded20202191..fa4607304acb 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.c
+@@ -215,6 +215,23 @@ void mtk_ovl_disable_vblank(struct device *dev)
+ 	writel_relaxed(0x0, ovl->regs + DISP_REG_OVL_INTEN);
+ }
  
- static void mtk_dp_initialize_settings(struct mtk_dp *mtk_dp)
- {
++bool mtk_ovl_is_ignore_pixel_alpha(struct mtk_plane_state *state, unsigned int blend_mode)
++{
++	if (!state->base.fb)
++		return false;
++
 +	/*
-+	 * Set DP XTAL freq to 26MHz and accumulator to 1.
-+	 * Valid values for XTAL freq are 12 and 26.
++	 * Although the alpha channel can be ignored, CONST_BLD must be enabled
++	 * for XRGB format, otherwise OVL will still read the value from memory.
++	 * For RGB888 related formats, whether CONST_BLD is enabled or not won't
++	 * affect the result. Therefore we use !has_alpha as the condition.
 +	 */
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_342C,
--			   XTAL_FREQ_DP_TRANS_P0_DEFAULT,
--			   XTAL_FREQ_DP_TRANS_P0_MASK);
-+			   FIELD_PREP_CONST(XTAL_FREQ_DP_ACCUM_NUM_MASK, 1) |
-+			   FIELD_PREP_CONST(XTAL_FREQ_DP_CLOCK_MHZ_MASK, 26),
-+			   XTAL_FREQ_DP_ACCUM_NUM_MASK | XTAL_FREQ_DP_CLOCK_MHZ_MASK);
++	if (blend_mode == DRM_MODE_BLEND_PIXEL_NONE || !state->base.fb->format->has_alpha)
++		return true;
 +
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3540,
- 			   FEC_CLOCK_EN_MODE_DP_TRANS_P0,
- 			   FEC_CLOCK_EN_MODE_DP_TRANS_P0);
-@@ -1248,28 +1254,29 @@ static void mtk_dp_initialize_aux_hpd_detect_settings(struct mtk_dp *mtk_dp)
- 
- static void mtk_dp_initialize_hpd_detect_settings(struct mtk_dp *mtk_dp)
++	return false;
++}
++
+ u32 mtk_ovl_get_blend_modes(struct device *dev)
  {
--	u32 val;
--
- 	/* Mask AUX TOP interrupt, as this uses transmitter for HPD */
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TOP_IRQ_MASK,
- 			   AUX_TOP_IRQ_MSK, AUX_TOP_IRQ_MSK);
+ 	struct mtk_disp_ovl *ovl = dev_get_drvdata(dev);
+@@ -401,6 +418,29 @@ void mtk_ovl_layer_off(struct device *dev, unsigned int idx,
+ 		      DISP_REG_OVL_RDMA_CTRL(idx));
+ }
  
--	/* Debounce threshold */
-+	/* Set Hotplug debounce threshold time: xtal_period * deb_thd */
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
- 			   8, HPD_DEB_THD_DP_TRANS_P0_MASK);
- 
--	val = (HPD_INT_THD_DP_TRANS_P0_LOWER_500US |
--	       HPD_INT_THD_DP_TRANS_P0_UPPER_1100US) << 4;
--	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
--			   val, HPD_INT_THD_DP_TRANS_P0_MASK);
--
- 	/*
--	 * Connect threshold 1.5ms + 5 x 0.1ms = 2ms
--	 * Disconnect threshold 1.5ms + 5 x 0.1ms = 2ms
-+	 * Set interrupt debounce threshold time
-+	 * VAL  |  0     1     2     3  INT_THD
-+	 * Low  | 100   300   500   700 uS
-+	 * High | 700   900  1100  1300 uS
- 	 */
--	val = (5 << 8) | (5 << 12);
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
--			   val,
-+			   FIELD_PREP_CONST(HPD_INT_LOW_THD_DP_TRANS_P0_MASK, 2) |
-+			   FIELD_PREP_CONST(HPD_INT_HIGH_THD_DP_TRANS_P0_MASK, 2),
-+			   HPD_INT_THD_DP_TRANS_P0_MASK);
++unsigned int mtk_ovl_get_blend_mode(struct mtk_plane_state *state, unsigned int blend_modes)
++{
++	unsigned int blend_mode = DRM_MODE_BLEND_COVERAGE;
 +
-+	/* Connection and Disconnection thresholds: 1.5ms + (5 x 0.1) ms = 2ms */
-+	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3410,
-+			   FIELD_PREP_CONST(HPD_DISC_THD_DP_TRANS_P0_MASK, 5) |
-+			   FIELD_PREP_CONST(HPD_CONN_THD_DP_TRANS_P0_MASK, 5),
- 			   HPD_DISC_THD_DP_TRANS_P0_MASK |
- 			   HPD_CONN_THD_DP_TRANS_P0_MASK);
- 	mtk_dp_update_bits(mtk_dp, MTK_DP_TRANS_P0_3430,
-diff --git a/drivers/gpu/drm/mediatek/mtk_dp_reg.h b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-index 9caf743f4fe6..418a2318c656 100644
---- a/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-+++ b/drivers/gpu/drm/mediatek/mtk_dp_reg.h
-@@ -253,6 +253,8 @@
- #define MTK_DP_TRANS_P0_3410				0x1410
- #define HPD_DEB_THD_DP_TRANS_P0_MASK				GENMASK(3, 0)
- #define HPD_INT_THD_DP_TRANS_P0_MASK				GENMASK(7, 4)
-+#define HPD_INT_HIGH_THD_DP_TRANS_P0_MASK			GENMASK(3, 2)
-+#define HPD_INT_LOW_THD_DP_TRANS_P0_MASK			GENMASK(1, 0)
- #define HPD_INT_THD_DP_TRANS_P0_LOWER_500US			(2 << 4)
- #define HPD_INT_THD_DP_TRANS_P0_UPPER_1100US			(2 << 6)
- #define HPD_DISC_THD_DP_TRANS_P0_MASK				GENMASK(11, 8)
-@@ -267,8 +269,8 @@
- #define IRQ_MASK_DP_TRANS_P0_INT_IRQ				(BIT(3) << 4)
- #define IRQ_STATUS_DP_TRANS_P0_MASK				GENMASK(15, 12)
- #define MTK_DP_TRANS_P0_342C				0x142c
--#define XTAL_FREQ_DP_TRANS_P0_DEFAULT				(BIT(0) | BIT(3) | BIT(5) | BIT(6))
--#define XTAL_FREQ_DP_TRANS_P0_MASK				GENMASK(7, 0)
-+#define XTAL_FREQ_DP_ACCUM_NUM_MASK				GENMASK(1, 0)
-+#define XTAL_FREQ_DP_CLOCK_MHZ_MASK				GENMASK(7, 2)
- #define MTK_DP_TRANS_P0_3430				0x1430
- #define HPD_INT_THD_ECO_DP_TRANS_P0_MASK			GENMASK(1, 0)
- #define HPD_INT_THD_ECO_DP_TRANS_P0_HIGH_BOUND_EXT		BIT(1)
++	/*
++	 * For the platforms where OVL_CON_CLRFMT_MAN is defined in the hardware data sheet
++	 * and supports premultiplied color formats, such as OVL_CON_CLRFMT_PARGB888
++	 * and supports premultiplied color formats, such as OVL_CON_CLRFMT_PARGB8888.
++	 *
++	 * Check blend_modes in the driver data to see if premultiplied mode is supported.
++	 * If not, use coverage mode instead to set it to the supported color formats.
++	 *
++	 * Current DRM assumption is that alpha is default premultiplied, so the bitmask of
++	 * blend_modes must include BIT(DRM_MODE_BLEND_PREMULTI). Otherwise, mtk_plane_init()
++	 * will get an error return from drm_plane_create_blend_mode_property() and
++	 * state->base.pixel_blend_mode should not be used.
++	 */
++	if (blend_modes & BIT(DRM_MODE_BLEND_PREMULTI))
++		blend_mode = state->base.pixel_blend_mode;
++
++	return blend_mode;
++}
++
+ unsigned int mtk_ovl_fmt_convert(unsigned int fmt, unsigned int blend_mode,
+ 				 bool fmt_rgb565_is_0, bool color_convert,
+ 				 u8 clrfmt_shift, u32 clrfmt_man, u32 byte_swap, u32 rgb_swap)
+@@ -529,7 +569,7 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 	unsigned int rotation = pending->rotation;
+ 	unsigned int offset = (pending->y << 16) | pending->x;
+ 	unsigned int src_size = (pending->height << 16) | pending->width;
+-	unsigned int blend_mode = state->base.pixel_blend_mode;
++	unsigned int blend_mode = mtk_ovl_get_blend_mode(state, ovl->data->blend_modes);
+ 	unsigned int ignore_pixel_alpha = 0;
+ 	unsigned int con;
+ 
+@@ -554,17 +594,8 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 		 * For blend_modes supported SoCs, always enable alpha blending.
+ 		 * For blend_modes unsupported SoCs, enable alpha blending when has_alpha is set.
+ 		 */
+-		if (blend_mode || state->base.fb->format->has_alpha)
++		if (state->base.pixel_blend_mode || state->base.fb->format->has_alpha)
+ 			con |= OVL_CON_AEN;
+-
+-		/*
+-		 * Although the alpha channel can be ignored, CONST_BLD must be enabled
+-		 * for XRGB format, otherwise OVL will still read the value from memory.
+-		 * For RGB888 related formats, whether CONST_BLD is enabled or not won't
+-		 * affect the result. Therefore we use !has_alpha as the condition.
+-		 */
+-		if (blend_mode == DRM_MODE_BLEND_PIXEL_NONE || !state->base.fb->format->has_alpha)
+-			ignore_pixel_alpha = OVL_CONST_BLEND;
+ 	}
+ 
+ 	/*
+@@ -590,6 +621,9 @@ void mtk_ovl_layer_config(struct device *dev, unsigned int idx,
+ 
+ 	mtk_ddp_write_relaxed(cmdq_pkt, con, &ovl->cmdq_reg, ovl->regs,
+ 			      DISP_REG_OVL_CON(idx));
++
++	if (mtk_ovl_is_ignore_pixel_alpha(state, blend_mode))
++		ignore_pixel_alpha = OVL_CONST_BLEND;
+ 	mtk_ddp_write_relaxed(cmdq_pkt, pitch_lsb | ignore_pixel_alpha,
+ 			      &ovl->cmdq_reg, ovl->regs, DISP_REG_OVL_PITCH(idx));
+ 	mtk_ddp_write_relaxed(cmdq_pkt, src_size, &ovl->cmdq_reg, ovl->regs,
+@@ -754,9 +788,7 @@ static const struct mtk_disp_ovl_data mt8192_ovl_driver_data = {
+ 	.layer_nr = 4,
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+-	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+-		       BIT(DRM_MODE_BLEND_COVERAGE) |
+-		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
++	.blend_modes = MTK_OVL_SUPPORT_BLEND_MODES,
+ 	.formats = mt8173_ovl_formats,
+ 	.num_formats = mt8173_ovl_formats_len,
+ };
+@@ -767,9 +799,7 @@ static const struct mtk_disp_ovl_data mt8192_ovl_2l_driver_data = {
+ 	.layer_nr = 2,
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+-	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+-		       BIT(DRM_MODE_BLEND_COVERAGE) |
+-		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
++	.blend_modes = MTK_OVL_SUPPORT_BLEND_MODES,
+ 	.formats = mt8173_ovl_formats,
+ 	.num_formats = mt8173_ovl_formats_len,
+ };
+@@ -781,9 +811,7 @@ static const struct mtk_disp_ovl_data mt8195_ovl_driver_data = {
+ 	.fmt_rgb565_is_0 = true,
+ 	.smi_id_en = true,
+ 	.supports_afbc = true,
+-	.blend_modes = BIT(DRM_MODE_BLEND_PREMULTI) |
+-		       BIT(DRM_MODE_BLEND_COVERAGE) |
+-		       BIT(DRM_MODE_BLEND_PIXEL_NONE),
++	.blend_modes = MTK_OVL_SUPPORT_BLEND_MODES,
+ 	.formats = mt8195_ovl_formats,
+ 	.num_formats = mt8195_ovl_formats_len,
+ 	.supports_clrfmt_ext = true,
+diff --git a/drivers/gpu/drm/mediatek/mtk_disp_ovl.h b/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+index 919498496bb6..419c2136006c 100644
+--- a/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
++++ b/drivers/gpu/drm/mediatek/mtk_disp_ovl.h
+@@ -6,12 +6,20 @@
+ #ifndef __MTK_DISP_OVL_H__
+ #define __MTK_DISP_OVL_H__
+ 
++#include <drm/drm_blend.h>
+ #include <drm/drm_fourcc.h>
+ 
++#define MTK_OVL_SUPPORT_BLEND_MODES \
++	 (BIT(DRM_MODE_BLEND_PREMULTI) | \
++	  BIT(DRM_MODE_BLEND_COVERAGE) | \
++	  BIT(DRM_MODE_BLEND_PIXEL_NONE))
++
+ extern const u32 mt8195_ovl_formats[];
+ extern const size_t mt8195_ovl_formats_len;
+ 
+ bool mtk_ovl_is_10bit_rgb(unsigned int fmt);
++bool mtk_ovl_is_ignore_pixel_alpha(struct mtk_plane_state *state, unsigned int blend_mode);
++unsigned int mtk_ovl_get_blend_mode(struct mtk_plane_state *state, unsigned int blend_modes);
+ unsigned int mtk_ovl_fmt_convert(unsigned int fmt, unsigned int blend_mode,
+ 				 bool fmt_rgb565_is_0, bool color_convert,
+ 				 u8 clrfmt_shift, u32 clrfmt_man, u32 byte_swap, u32 rgb_swap);
 -- 
 2.54.0
 
