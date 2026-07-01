@@ -4,113 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7713C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:32:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2BCFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 18:47:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sFnduIEfzTelI/qGOJcaAiSoi1cQ4sBh6Iidu4lwHVM=; b=FFLHuXxGSqqYKBCjQ0ryl3R74a
-	dSynGl7gGjaRRydqqOlYRbbi3zFPc6jwveLdsc/KQefpm1gbcNTQoDF2B8pHGYePEAbrFwffMeldu
-	bNZENsKKemqq6Ip+4vzTgEiyz/34Au8uOjNWG+fGgRhq4cjDTIgqnM76eWrp+RnoWTVYvIPDIfxA/
-	vVWb28p3KMYvzRJQ4i9A+yASC3KdkmA2jtD6Pwr//tNUaAM40twEX9QUcz6GTRU6agYaMLF1pU1a1
-	Nfaqo103G094RPPbfwtEMwcbd7BuL3wxlILeg3TtDfUFUy60kgYHCxUoXvPy/7ofIY+YlWNxUKYRL
-	okf574TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qy1+fiy5vVG6Fgi2325/mnWQkrttmVDQVIUSqg+HoGM=; b=s9UZmz4zeANW//b4mjrH1NqRXS
+	kJEKdeLnxji0lvBtBOzI61rdBA4IFlo5MYswZeoaSxUN+xekj+2htdmGUj9R0qFs/A0YK9GFwzDG5
+	uTa13/xO4Mlo+XRuu+SzmMscSjMtPxAxMM8kp0y6VCQgZFxvoj1oSaYsDQ6+qwzh1mT/eCB7uacp2
+	RESq2kwfRuaJySyFgwFupVE8iv+eUofgVQ5RJQkzbHz677A/JxiOnAV1qIZbM+Bnj4LMtcXxDJpzm
+	4H5vFGSBHIbS/oNoxM7lmLBxmEl//9WsiuqcQ3+iZIDKGXhU/76zRUsbFJY6eYXzel124tK7Fo+oX
+	qn1xcH0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weype-00000002j6c-49Dc;
-	Wed, 01 Jul 2026 17:34:42 +0000
-Received: from mout01.posteo.de ([185.67.36.65])
+	id 1wezyL-00000002rJ6-3RIj;
+	Wed, 01 Jul 2026 18:47:45 +0000
+Received: from mail-qt1-x862.google.com ([2607:f8b0:4864:20::862])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weypb-00000002j5h-2oEl
+	id 1wezyJ-00000002rIZ-1NDq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 17:34:41 +0000
-Received: from submission (posteo.de [185.67.36.169]) 
-	by mout01.posteo.de (Postfix) with ESMTPS id 9C7F724002D
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Jul 2026 19:34:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=posteo.de; s=2017;
-	t=1782927275; bh=sFnduIEfzTelI/qGOJcaAiSoi1cQ4sBh6Iidu4lwHVM=;
-	h=Message-ID:Subject:From:To:Cc:Date:Autocrypt:Content-Type:
-	 MIME-Version:OpenPGP:From;
-	b=jLZaxhpBkB2C+nX53mkmVQQ1cLHk2n0MumxeYnYmF45PSydMvivtn3flsJuJ8yFAA
-	 GVu/LP8uQy62Zy+fJQ60lM20kgiB7pxCmw3AqgSo3asDRS7s86j/XOOnoprqU+OQQE
-	 2Xai7dCch2NHSHy+LW2sJODVuZJCFm6SIpe7NFjbAV6ilMhLH1466ytYGrTQa3DP+Q
-	 X2KcFfPvx/PR1QQ2uzOMvmgbs+caVAhTZtqZCA6jFq/gFC7wRJxaezvFKw/Vfc0Vtz
-	 bVWbd2rL9pUXWNIJlJDGNVBoiZAwbI6H+vUmc3F4gsdMip+vQPd3F8zIxtWnGZSsTZ
-	 G0ZR7lXyVbbfw==
-Received: from customer (localhost [127.0.0.1])
-	by submission (posteo.de) with ESMTPSA id 4gr6Zy27LVz9rxD;
-	Wed,  1 Jul 2026 19:34:34 +0200 (CEST)
-Message-ID: <c2b910e58bc523f2cb83df28400a675385ef65d2.camel@posteo.de>
-Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
- property for S35390A
-From: Markus Probst <markus.probst@posteo.de>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Uwe =?ISO-8859-1?Q?Kleine-K=F6nig?=
- <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>, Gregory Clement
- <gregory.clement@bootlin.com>, Sebastian Hesselbarth	
- <sebastian.hesselbarth@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Wed, 01 Jul 2026 17:34:35 +0000
-In-Reply-To: <202607011506045358209c@mail.local>
-References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
-	 <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
-	 <202607011506045358209c@mail.local>
-Autocrypt: addr=markus.probst@posteo.de; prefer-encrypt=mutual;
- keydata=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
- jfGillcaQOqFZ3WwVqyzG1BUfTow==
-Content-Type: multipart/signed; micalg="pgp-sha256";
-	protocol="application/pgp-signature"; boundary="=-/2u+iIun9SPxCmVGLVKh"
+	Wed, 01 Jul 2026 18:47:44 +0000
+Received: by mail-qt1-x862.google.com with SMTP id d75a77b69052e-51c1372f84dso7372331cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 11:47:42 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782931661; x=1783536461;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Qy1+fiy5vVG6Fgi2325/mnWQkrttmVDQVIUSqg+HoGM=;
+        b=tANrwKuklFi03/a/Yqm2EiqKpN6GmLRDRcuWo/HWCVM+HSoSe2EHLR+eGWwx7JuZxB
+         UYDabRl/j93dl5s0mXuXBgzHTcbrZUv4u3vy6KpyQner56J/y1Sfz5NtOl66+d5J648u
+         +BTDVdq9n6eTdUrHFWjImGVEkVWUxoZwpuGaPtnPrfLcIgN95j3ZuV1khYL8ulLAK/cp
+         6HNpoQx83+ZvGqCeLWwa+2jhTl1wvThb9WDs3oC2qz+bfr0jUQAfOwIfhWeJndq5ZqiX
+         QUGHnKpbhORjcWCTV3UcESYFaflZE2zaUKFPA+YFZeisMvTLX9CXI1fEafftJx2S3wWH
+         3rYQ==
+X-Forwarded-Encrypted: i=1; AFNElJ9mWAz7IRhDos4S6bD2jo2fPIfuSOi6S/76GBhVmgW3shLCX4CZnVbwyy93iFttBKuqimCQjM1KkTLKgYPw3L+9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXxwBDC0Auu3Eu+9lNrelQTxFf9QA8tqGR/k+SYf2dRRO2RWaR
+	MCBSydXpLvqZLq9UxrFbDek96uaajDtFXUGC1RRL1M7n+2rJFrzPvCW+l35dcZ0Yn2RDS5K/+Ja
+	x/3MP+aeFCncqHtXpwZzSh0cGESi+vj2bZlti1k2ZIuHCpSf9Iwsdmb/R0iVOcF8PsoohPq7FRL
+	H8se3EwCC04gTPzdZ0M2srV4IXtw9qA89XaUCX9rNKvLgk6VtOgoJq3QG/4cvlJmtirSANTBc66
+	bC1A3JqnMpWocGTCdcYHnzJAQDf3zwEVOo=
+X-Gm-Gg: AfdE7cniJrrDilHj65Z2+ROU5U3VwJCv2hhNgYA2BLesFOcJBR52krqu3j4VaFMRahI
+	+UcZdjb5U00Ag1mwWWpJ8YHd6Kh/nWpF0ax80plyPuS2ia444LdWaGJeS0K5a6AYUO6xrQZmkWc
+	o7/a+kwKiSWheip2IGXs9IVkqBXjPjIRQKt6yaS11Mo6HEUX2MfBoxIcag9IkyYB4CVkp3KOIwk
+	X0YA70kPVctzwTvI69I8aGNKXsiHpQUsNXuM+NgZq/EdPjAAekUmWJaAhw+16G+b27RskIqqMuW
+	NEwFbObUogBi4wDsHJZB9T30dpZ5/AIZwda8KIzmdY0v2JiOTAvoUo1yCIGXSVfgpx+3igosazo
+	8vsvrhHhTE/ML+jImYEEPYOwY0LVMz2AkjuHTL/T0Bfm1OsXD77Nxy/Ve7GVirhRced79GmNFY8
+	vNr9utWy0sXZgl6KPwSDOfLrc+K6I6xyOIyuk+ROlV0DxRCo2rl7PjSQ==
+X-Received: by 2002:ac8:5f94:0:b0:51a:8c9b:649f with SMTP id d75a77b69052e-51c2af408a0mr26516501cf.67.1782931661162;
+        Wed, 01 Jul 2026 11:47:41 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-101.dlp.protect.broadcom.com. [144.49.247.101])
+        by smtp-relay.gmail.com with ESMTPS id d75a77b69052e-51c10795464sm2199011cf.5.2026.07.01.11.47.40
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 01 Jul 2026 11:47:41 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c1a9764f0so12181181cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 11:47:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1782931660; x=1783536460; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Qy1+fiy5vVG6Fgi2325/mnWQkrttmVDQVIUSqg+HoGM=;
+        b=YrLlvpXYJXMe1RrAtoN1aOiShesnf+wHoFhmJquNBpLO6AW+aDdbwuuR8R3WhBMGmi
+         g3s2MFZm19SeZcpt19j+XEIRaQ8CJhM5p/QHBQ3FPGYC7BfZTMVGswdiCBtCqpHFcWZ0
+         n2apTj0J3jZYZqSnGe9c2qYJJqhDF187dIP5s=
+X-Forwarded-Encrypted: i=1; AFNElJ/WGIaA69Bx4KVI1pitiMqa1qmQeJpqVDMhzzWbE1eNaQ9KMAsWlpRgDqFVkGaYl5+c25Zmvdt5nS4hN/2aHkKR@lists.infradead.org
+X-Received: by 2002:ac8:7f4d:0:b0:51c:1bcd:5cc3 with SMTP id d75a77b69052e-51c2ad5c37bmr24012651cf.25.1782931660581;
+        Wed, 01 Jul 2026 11:47:40 -0700 (PDT)
+X-Received: by 2002:ac8:7f4d:0:b0:51c:1bcd:5cc3 with SMTP id d75a77b69052e-51c2ad5c37bmr24012221cf.25.1782931660134;
+        Wed, 01 Jul 2026 11:47:40 -0700 (PDT)
+Received: from [10.211.247.235] ([192.19.50.250])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51c1080d149sm57936471cf.1.2026.07.01.11.47.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Jul 2026 11:47:39 -0700 (PDT)
+Message-ID: <d37a738d-f316-42cf-8dbc-99a732a33240@broadcom.com>
+Date: Wed, 1 Jul 2026 11:51:57 -0700
 MIME-Version: 1.0
-OpenPGP: url=https://posteo.de/keys/markus.probst@posteo.de.asc; preference=encrypt
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] drm: uapi: Add macro for chipset specific event ID
+ region
+To: Bence Csokas <bence.csokas@arm.com>, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, nouveau@lists.freedesktop.org
+Cc: Daniel Kiss <Daniel.Kiss@arm.com>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Lyude Paul <lyude@redhat.com>,
+ Danilo Krummrich <dakr@kernel.org>, Zack Rusin <zack.rusin@broadcom.com>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+References: <20260616134802.636166-2-bence.csokas@arm.com>
+From: Maaz Mombasawala <maaz.mombasawala@broadcom.com>
+Content-Language: en-US
+In-Reply-To: <20260616134802.636166-2-bence.csokas@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_103440_016179_029BCC14 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20260701_114743_398090_81DDBAAA 
+X-CRM114-Status: UNSURE (   6.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,108 +128,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+LGTM!
 
---=-/2u+iIun9SPxCmVGLVKh
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Maaz Mombasawala <maaz.mombasawala@broadcom.com>
 
-On Wed, 2026-07-01 at 17:06 +0200, Alexandre Belloni wrote:
-> On 30/06/2026 19:22:21+0000, Markus Probst wrote:
-> > Synology NAS devices use the output pin for interrupt signal 1 to wake =
-up
-> > the system.
-> >=20
-> > Move devicetree bindings for sii,s35390a into its own file.
-> > Add sii,wakealarm-output-pin property to enable the use of the output
-> > pin for interrupt signal 1 for the wake alarm, which makes it possible =
-to
-> > set an wake alarm on Synology NAS devices.
-> >=20
-> > Signed-off-by: Markus Probst <markus.probst@posteo.de>
-> > ---
-> >  .../devicetree/bindings/rtc/sii,s35390a.yaml       | 54 ++++++++++++++=
-++++++++
-> >  .../devicetree/bindings/rtc/trivial-rtc.yaml       |  3 --
-> >  MAINTAINERS                                        |  1 +
-> >  include/dt-bindings/rtc/s35390a.h                  |  9 ++++
-> >  4 files changed, 64 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml b/D=
-ocumentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > new file mode 100644
-> > index 000000000000..31a578673870
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/rtc/sii,s35390a.yaml
-> > @@ -0,0 +1,54 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/rtc/sii,s35390a.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: S-35390A 2-WIRE REAL-TIME CLOCK
-> > +
-> > +maintainers:
-> > +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
-> > +
-> > +description:
-> > +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with=
- the
-> > +  very low current consumption in the wide range of operation voltage.
-> > +
-> > +allOf:
-> > +  - $ref: rtc.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    const: sii,s35390a
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  sii,wakealarm-output-pin:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    enum: [1, 2]
-> > +    description: |
-> > +      The output pin to wake up the system.
-> > +      Default will use the output pin for interrupt signal 2.
-> > +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signal 1
-> > +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signal 2
-> > +
->=20
-> Ideally, we'd get a proper pinctrl driver part for this because what
-> happens if you want interrupts on both pin or clock output on both pins
-> or any combination of interrupts and clocks?
->=20
-Yes.
-
-Thanks
-- Markus Probst
-
-
-
-
---=-/2u+iIun9SPxCmVGLVKh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iQJPBAABCAA5FiEEgnQYxPSsWOdyMMRzNHYf+OetQ9IFAmpFT6IbFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJEDR2H/jnrUPSS/EP/0InCbRWpPfmdYxplz+y
-bKjJSHRM3BwQuvuXPYfYS5+tMDRqz4uvEY8hZg64argZ409I7EKKqqD7oX6Cczk2
-kYW8fOI0Cskw8CqB299LPx0KwrI7iwW9tSoKK4NGOlYX11Cjq2OJSqnE2Ft+fpy7
-Fz0ji9bvl3RAyUCamxbWJTRrdtIMiW2Y6PhHFBVoE4FWLIDBTkuV4MftrkUOWt2S
-1o2jgOiOG1vqzOvg5INJOoDC5LoPagqqkBXxxTutMvz5qHJRUun7VXecZ2bVi7It
-7cm9rTtv0iUNke5jTsLPzOAhk8GkPNlIK0Bt21eM/Q5Xfo3pyz5ATCo8+7l83SGe
-5sEyB8jOYG4xTg1d55sndZZUG36z2Z+Jtfr8h+lT+P4q6oz2RMbeAeHeQZ8SgzSA
-G0R1qtvysseC61tvLbnCd06VKPIilTVgyLMPR7jXwwu7QOieoJz2mM5HgWXyguoO
-DnbifMSazYmqcIGm7oGiK06wYJ3/tG7j1kxQ2I2wEOr5wPzMkW5ehsR+t3tBDWXr
-DdSW+iFL56mzzTy+Nq+tbOfw8UzWR4dYXIbE0Wg77Lv/570yYPPnomOA5SBrZzag
-U+MfPCtxGLxADbH8hZPcF+KaqLg+tRW5a2BcLFI83gCuBlYUkGdlPLmA5OCqG6O3
-WhhPPl0fGrF7P8YX0aIMahbw
-=ITFG
------END PGP SIGNATURE-----
-
---=-/2u+iIun9SPxCmVGLVKh--
+-- 
+Maaz Mombasawala <maaz.mombasawala@broadcom.com>
 
