@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E41FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46AE8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 21:43:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yCSDE72yLPeEDTveWDb74YPcIUXppRyDd4Tf1rTkN7o=; b=s1orvPK8R5Lwivia9DXR402fIP
-	f3+yrjazHhx7AGX5inBzHZtBK5WyI7Sl9FvXynPE28/aUrUR2T3oPzKGVZHtB2uyjwkvNQzMRYwJk
-	/3rhXCySwIdzUCk6oYb+Ay0qzqw9WfRUuOLzWFoBcH40OcjuQPeTWo7M6EIPg8Ks0FlcduHyxBCMz
-	v0qcdo/26xGxC3MRE6dYXY4c21ETHHcUgI4wsZrFpY+ShDIC/5IwONB++ab2m+wH7UkWO/na0nmAs
-	DrQfUfQWu4038OcNzrCr4/jbv1tJOpWHmDXp0tH1p9NqpqNgZjDqr5ik1u1gttgSwNPMfVbARy32z
-	4UKF579Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vFwcgrMP51FdJfNWjgX6FQceDh7Uf7KWJsHpwmCExdo=; b=C+8/GG0Gfulkz8OPtuRYtQXJii
+	AyrPakefzS1NXkTsE5xN9h9ao6xeE8Mi7SkmiNNeyA/cdOe0Q3iKzMdNGooL7r6K/4r0I/EJK+8PM
+	pTkfs1kWuGLW5ApVEtax3KxvhwZuMYUBC7rJ10X9QWeZCwCIzibm1KRk4pwbXbX12BVdib8e2xTAs
+	Ihovd2+E+gZAwRBKuJhl89Llr59eR8DEn133eGXr/QX7e92RcKWwIjTr9fdaZ7BuBWY7f7TJxIE14
+	CZd7la/ibtpeP4aJKjsoHx2WH55vS5VyZXCsEm3f2fsD48U0Sg5jJAu5Eitu/slZogIm7OSLQLiUy
+	s1nDKXzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2SB-000000033GX-0HQ0;
-	Wed, 01 Jul 2026 21:26:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wf2i4-0000000347Q-2Jha;
+	Wed, 01 Jul 2026 21:43:08 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf2S9-000000033FU-1d8k
+	id 1wf2i2-0000000347I-1Nro
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 21:26:41 +0000
+	Wed, 01 Jul 2026 21:43:06 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 28BF6414ED;
-	Wed,  1 Jul 2026 21:26:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF91F1F000E9;
-	Wed,  1 Jul 2026 21:26:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 6D6286001D;
+	Wed,  1 Jul 2026 21:43:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E3321F000E9;
+	Wed,  1 Jul 2026 21:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782941201;
-	bh=yCSDE72yLPeEDTveWDb74YPcIUXppRyDd4Tf1rTkN7o=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=X6vr5np3/3sRkzW1xoLd+eMNasUx0mupu4uXGWt/s5ij5+cpM7oavnL9k3KQ3k4mA
-	 mOn8Yg59W01pG11OKaIOL2eqwbYnPi7cH+NvdJi5XcOcOiO5RX76DuWwR/sLPypDN0
-	 b1DnZLMSdfPM5LkpfqyLWFoqpUo3HprhkO/pqzSw+c9G+mUskkJEfvsozZHUeHvBsI
-	 xZZygZp/b7R5LgRDZOJ6HyHKxE0Hdl+RfjE4JfcUAyy10s2ieg0qPBDWv/6zbMOhn3
-	 zrQBKRgkjv9bdf1n+Q9oy/399aka+hSgaGNXMUmKwCsFDKtuny1NJgeWQA0Fqubkt8
-	 iCtZ5457Vov2A==
-From: Arnd Bergmann <arnd@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	soc@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	s=k20260515; t=1782942185;
+	bh=vFwcgrMP51FdJfNWjgX6FQceDh7Uf7KWJsHpwmCExdo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XZmWjkPnZK3fkjIVsPg1IyLY5CsScRyUNdbZxQFLSIwscN+BYy+ERMpHK2ogQiuBz
+	 JeYxxPyvX+ovMYt6mij4IwrooXgbS3Hg7PYqCaRQVtdb+38SfNOWea/tNy7ipj9zTo
+	 de4wi6l5s5PfEFyoadMxTBRhuMOR60ag5jXs0CERFb8vZ5j77huBoi5sqWVSj2PH48
+	 UyIgW1Cts26zju64SNMXOLPN1dHnJ+LaZRTnLbREK9htdd5OnaDquZPMILdjsKthZt
+	 sXSaiHzHi/naigFUi+gLwh591pzvhUdUS/MwFSulvWA7aOJUWGIbJfoBcwOg/q6xJ5
+	 pz7IRow2H3DRQ==
+Date: Wed, 1 Jul 2026 22:42:50 +0100
+From: Lee Jones <lee@kernel.org>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Daniel Mack <daniel@zonque.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Ralph Siemsen <ralph.siemsen@linaro.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stefan Agner <stefan@agner.ch>,
-	Stefan Wiehler <stefan.wiehler@nokia.com>,
-	Tony Lindgren <tony@atomide.com>,
-	Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>
-Subject: [PATCH v2 19/19] ARM: mark mv78xx0 support as deprecated
-Date: Wed,  1 Jul 2026 23:23:53 +0200
-Message-Id: <20260701212353.2196041-20-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20260701212353.2196041-1-arnd@kernel.org>
-References: <20260701212353.2196041-1-arnd@kernel.org>
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mfd: stm32-timers: depopulate child devices on populate
+ failure
+Message-ID: <20260701214250.GD2108533@google.com>
+References: <20260615063042.36397-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260615063042.36397-1-pengpeng@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,47 +72,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+On Mon, 15 Jun 2026, Pengpeng Hou wrote:
 
-Only one machine remains supported and was kept in 2022 for the
-Debian_on_Buffalo project that was still using this, with plans to
-convert it to devicetree.
+> stm32_timers_probe() releases the timer DMA resources when
+> of_platform_populate() fails, but it does not depopulate any child
+> devices that were created before the failure.
+> 
+> The remove path explicitly depopulates child devices before releasing
+> DMA resources to avoid races with children using DMA.  Apply the same
+> ordering on the populate failure path.
+> 
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> ---
+>  drivers/mfd/stm32-timers.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/mfd/stm32-timers.c b/drivers/mfd/stm32-timers.c
+> index b3dbc02aaf79..1f0aecae83a5 100644
+> --- a/drivers/mfd/stm32-timers.c
+> +++ b/drivers/mfd/stm32-timers.c
+> @@ -329,8 +329,10 @@ static int stm32_timers_probe(struct platform_device *pdev)
+>  	platform_set_drvdata(pdev, ddata);
+>  
+>  	ret = of_platform_populate(pdev->dev.of_node, NULL, NULL, &pdev->dev);
+> -	if (ret)
+> +	if (ret) {
+> +		of_platform_depopulate(&pdev->dev);
 
-The conversion never happened, and Debian_on_Buffalo does not provide
-kernels later than linux-6.1, so it is unlikely to still be useful
-for a DT conversion in the future.
+It's strange to see an un-winder inside the error handling of its
+original call.  We're used to seeing them called only on success during
+a subsequent step.
 
-Mark the platform for deprecation after the next LTS kernel, which
-should give any remaining users a few more years of bugfixes.
+Wouldn't devm_of_platform_populate() be better here instead?
 
-Link: https://lore.kernel.org/all/20221019150410.3851944-6-arnd@kernel.org/
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
----
- arch/arm/mach-mv78xx0/Kconfig | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+>  		stm32_timers_dma_remove(dev, ddata);
+> +	}
+>  
+>  	return ret;
+>  }
+> -- 
+> 2.50.1 (Apple Git-155)
+> 
 
-diff --git a/arch/arm/mach-mv78xx0/Kconfig b/arch/arm/mach-mv78xx0/Kconfig
-index 670e6587827e..98b35f5d05ba 100644
---- a/arch/arm/mach-mv78xx0/Kconfig
-+++ b/arch/arm/mach-mv78xx0/Kconfig
-@@ -1,6 +1,6 @@
- # SPDX-License-Identifier: GPL-2.0-only
- menuconfig ARCH_MV78XX0
--	bool "Marvell MV78xx0"
-+	bool "Marvell MV78xx0 (DEPRECATED)"
- 	depends on ARCH_MULTI_V5
- 	depends on CPU_LITTLE_ENDIAN
- 	depends on ATAGS
-@@ -14,6 +14,8 @@ menuconfig ARCH_MV78XX0
- 	  Support for the following Marvell MV78xx0 series SoCs:
- 	  MV781x0, MV782x0.
- 
-+	  This platform is scheduled for removal in early 2027.
-+
- if ARCH_MV78XX0
- 
- config MACH_TERASTATION_WXL
 -- 
-2.39.5
-
+Lee Jones
 
