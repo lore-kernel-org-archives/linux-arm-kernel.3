@@ -4,110 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CE7BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27D75C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 17:45:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=; b=m0shI757EjuEcppEU1t7KIhkza
-	UHn3AUEf2J8g1ZfP3ETFqeEt2AYZBKkgGGlCHzW2IfF0B/Hg3ycsriR/J1xBisBdZssNtbOcW9om7
-	kzJXmCMU8R5E0vEe5uO15E9g/Td8W6TDFcFkDH2p3mFf7SPBbb/VyKwxLmUPgg4aToAP3ys1gofW5
-	tJ6zrHe0XBMosvCfZb3vQLSc0/aDPTuQ/qJ+XtWC5lYk8+CtZCpqvhJ//akCtWu5CmLEM5Htrr1C1
-	r9Y4uLJbIOtfRrE1XBvWr/hYb7YP4k5itdh1paIJjILkv5fwDoUnUsNS3oS0Gkc1EHTePO8dliX9k
-	OyxAHIwg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5DKmClFGUyTFGPu0nP1vsfcVZ/IX+FI4vKFGgJ6zxqo=; b=vue0Obkh9LUmG010FChkeY0exC
+	Bpvl5MkOBkZXtSm76i/eJeejjYVGffHzATUAG8hFUJc69aWabFpp+ULZOoYU+NcULOCeVT45n22Vp
+	YlpVapYQBY92NqZm1IpyP7NZ41U5LiwM30ffxoTqYriB0pA0XF5yQxC6Z73pvnTEauIB4ebEv4aKv
+	73aO4fULjIuoCXyEzs3N4o6nhDtbU3jTsn6Oc8w0Mo3ouGvgSyYDyvdyBmOBCrokgvpuOr2lWqsaY
+	GXJrMtQBcm4NiLnAje7zOQgm9ZgGjuyOSrcqT04bSqjMw2Vemf8MolkV/T3iZSTYI3x7zoC2uM6wy
+	Tq75F1iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyzk-00000002kKj-3n3e;
-	Wed, 01 Jul 2026 17:45:08 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyzh-00000002kIq-2mb8
+	id 1wez0H-00000002kaE-0jXG;
+	Wed, 01 Jul 2026 17:45:41 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wez0D-00000002kXM-3El7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 17:45:07 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2c9b2ac97cdso70485ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 10:45:05 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782927905; cv=none;
-        d=google.com; s=arc-20260327;
-        b=PsADvfig8SRcJr5x+BCKerzBndPp9A1VZPWjc1GWtI/rm6vqU3qyAC/qB7fEY5J2F3
-         oPfB4qfKzipdlOW7NCNrhBqZq4NWaShOTIb1IzBZHUvDgm2jQH/FK/N2c4Vdm5JhqxBR
-         WWNQb0xbS96mlP33eCEZTPXHzl1obrFgfTClR+8/MM/43vMp1LkINI6DIYx6zf249lN3
-         qarJrDQMxME5VNslra9X+83LwZi5hje3A1HKJb4+znj3K+hXGSkRAlzqlH7Xzcwh3BOw
-         s8vm1TpVPKm7BAU5NIwnkPFENzLWNOfMQ82yGidIiYfLqpGk5Ymlosu7aXIUN40NlD5J
-         Bc1w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=;
-        fh=qR0Qo6iir18Iao6qTu/WEUggYzBmPMeh6s6d1CJvKY0=;
-        b=XfXKC6RWxgIws98hzmi5KV+StSDLQzfqjRPtl1sRpSwCV9E6c8teZ+ykxVyeT69hZQ
-         j5hXURon2BW4wGeZH6Ewp+TUBnSK6s5jsgEDMhTR2zcGF175BcaYOQF1+W/vAa/vQ3Ec
-         OVDL23rrfRXaIXMWKcr8gR/nEezbZCzrZQA4LmSFHNZvq+ftScjtLKyU5IomnJUhVrpo
-         ZPrd9r+rQHvF5zJh5A3aiZU+iAb4mJRKVKOD0GVLR5s5YisqNFxirJpRzJjd6tvC8Ek2
-         g8WUXnIZ/hjz57plm7cgfFrPtPJWd6Suayq1IX7Jfz4yDRz4lK5MZ+nzR1+KHu8iCUik
-         q1yw==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1782927905; x=1783532705; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=;
-        b=tcQSIZuPRAza7SoC0sony0q7ZUaTgNDatN1alyRlzDuqsJAzs6Ehe9IyDpTwibBHo9
-         NqsdFYbFXAU6ECh9SuYDlB3oAURzWVO0bG3Nv7We7ziXUm4KOSW9YQFNo6x5J0jkZAmm
-         dmzRvPqMSl+hXfc58+HA5xZzWo2DI8Q/RQPaDnMgjf++pwiPk7bsU6fhdg2kDkynL6ev
-         vPKmrKR3w/boeZs81S1pXocPxGB2iEQOlbbY/r/uzaeCJkM5UVb9YtT81nkJXR8XtZRi
-         m8tGSmnJb61puGREDNbnpLjvp8o9jPy3p4WBEVoDvYrA7l3O6VgFR5GWL3+HLdYPDLde
-         Y6QQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782927905; x=1783532705;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4WnvY/8pdLerNOMgVcd3eg+mIsfzQdgJqCy+yb7eu3E=;
-        b=JAa3lho3Xo1ZmBPsYQqu8kJ7q2RMZZCDwVN3QbjkW3T67Z+VevwG+7BKxsYLHsOLTS
-         iuuWvuZbVmrYVAViDhbWkOAF6xVeyBhHVgjc7J0017r7jYv9ixmNBwPYMUj0Jx5/5BMD
-         LvqUyt2VlyzzDFSWXqn8S+8CBQ87IDhei89JBxc1qOpjXNp/d2Uunv+xjjoKGck93Euu
-         tamFXi4OdcZdTfpyiDALoVp8ct97UIDXhqtVYi7HZaUVFw4/8e/GvRrkKuxtEijB/rSi
-         Ds1DsW3/fjegGT0H4CaB/z2+mdQxEV9hNcJ6SLgFp0226F8AYuEXvQTg6P/KWmKjZbzN
-         ow3Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpR3iyL9wSNOI8X+6fx+/ef5mwuwNSwZt6SbqyRmkMJ92Cik1ayO7FcS5YLaV1ddfv2n9olYv0Toys743ucn+I9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8gGGXO0op6SPKkvFW55F1S8sMMO4DB9EDeP/Hr/qGxxlc77xr
-	uNtrDCRuvhRAT2UYzfdNB2SpHaw+j4VWkhi7F6i+xJGvUtSEmnKnewYGCB5T4rq6juPczqmcfKO
-	yk41US/X7jriDo1DV7cHMQW275r38uMSi3oyDYL0J
-X-Gm-Gg: AfdE7cnL8jy18vDzy/r80o+Vk5HS9XxqWF1RRVruXMGlDyZFkXaAe4jjkmu3Xjyj6Rn
-	NH4dXTgBeSQV+z+XxnFttI0GbImcLC2kMzEgXetqfW/CpE5AQ6MqVXHkKWhwRk0Ooum829NLm0Z
-	f3tVcNTZxw0Ly0qxvOXORvk+sRLJiEpUd6QuE5i3y3iTq4f1N28t+BqIqdCP46FkEg3+MDz+oiS
-	lmVwWJpyKxTGxIIlhrFAR4EDYg0Mib79Fz3ks/0/JhnSh+WAgrs/lamVw94rUnJsLmnjLNt3A==
-X-Received: by 2002:a17:903:41d0:b0:2bd:6dad:7ccd with SMTP id
- d9443c01a7336-2ca77f00e4bmr2394415ad.25.1782927903977; Wed, 01 Jul 2026
- 10:45:03 -0700 (PDT)
+	Wed, 01 Jul 2026 17:45:39 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C6CFA2BF7;
+	Wed,  1 Jul 2026 10:45:30 -0700 (PDT)
+Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B5C0E3F85F;
+	Wed,  1 Jul 2026 10:45:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782927935; bh=JYlNs5cCz4iPuOZduJDZZgEyl0FofGYsMvYkgOEiosY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=D8QgBOAWEV0NgOSJOt29mYQd7CeduBIC8fDG+HvGIgYU6EarArrsRwY5PWRQNX3XX
+	 HwlhUhuxMY1m8wsHYQipFtTu2dRu3L+mN/dveZzBnT2E5OxjZrefhUPdDyc2p10i5x
+	 mm8i/kdEytzA+nLMFa0Or60sjnCw6UZIsnqhNy4w=
+From: Robin Murphy <robin.murphy@arm.com>
+To: will@kernel.org,
+	joro@8bytes.org
+Cc: jpb@kernel.org,
+	catalin.marinas@arm.com,
+	yangyicong@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: [PATCH] iommu/arm-smmu-v3: Add HAFT support for SVA
+Date: Wed,  1 Jul 2026 18:45:17 +0100
+Message-ID: <878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com>
+X-Mailer: git-send-email 2.54.0.dirty
 MIME-Version: 1.0
-References: <20260701-counter_delegation-v8-0-7909f863a645@meta.com> <20260701-counter_delegation-v8-20-7909f863a645@meta.com>
-In-Reply-To: <20260701-counter_delegation-v8-20-7909f863a645@meta.com>
-From: Ian Rogers <irogers@google.com>
-Date: Wed, 1 Jul 2026 10:44:52 -0700
-X-Gm-Features: AVVi8CcF30QiINVIR-rPJZ0l--luoek-SQcSIaomJxOhJ6SUjI8adFi78wHcNvk
-Message-ID: <CAP-5=fVBe7Rsf4tkaRiMVPcAD1rHr7PxT-8XpR208C4jaANmmQ@mail.gmail.com>
-Subject: Re: [PATCH v8 20/22] tools/perf: Add RISC-V CounterIDMask event field
-To: Atish Patra <atish.patra@linux.dev>
-Cc: Jiri Olsa <jolsa@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Namhyung Kim <namhyung@kernel.org>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Conor Dooley <conor@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_104505_695242_9349C842 
-X-CRM114-Status: GOOD (  21.17  )
+X-CRM114-CacheID: sfid-20260701_104537_898154_0C8D7148 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,52 +71,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 1, 2026 at 1:48=E2=80=AFAM Atish Patra <atish.patra@linux.dev> =
-wrote:
->
-> From: Atish Patra <atishp@rivosinc.com>
->
-> Counter delegation lets supervisor mode choose the hpmcounter for an even=
-t,
-> but the hardware may only allow a given event on a subset of counters. Ad=
-d
-> a RISC-V specific "CounterIDMask" json event field, handled like the othe=
-r
-> arch-specific entries in event_fields[], that carries the allowed-counter
-> bitmask through to the driver's existing counterid_mask (config2:0-31)
-> format.
->
-> The value is the bitmask directly so no counter-list to bitmask
-> conversion is needed, and because the field is RISC-V specific it is a
-> no-op for every other architecture's events (unlike the shared "Counter"
-> field).
->
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
+Since table access flags cannot be software-managed, if process
+pagetables are using HAFT then SVA must require the SMMU to support and
+enable it too, otherwise page aging is liable to get out of whack.
 
-Reviewed-by: Ian Rogers <irogers@google.com>
+Cc: <stable@vger.kernel.org>
+Fixes: 62df5870ebf7 ("arm64: Enable ARCH_HAS_NONLEAF_PMD_YOUNG")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 5 +++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 6 ++++++
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 3 +++
+ 3 files changed, 14 insertions(+)
 
-Thanks,
-Ian
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 1ed8a6f29dc4..ef11e9493f93 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -102,6 +102,8 @@ void arm_smmu_make_sva_cd(struct arm_smmu_cd *target,
+ 			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HA);
+ 		if (master->smmu->features & ARM_SMMU_FEAT_HD)
+ 			target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_HD);
++		if (master->smmu->features & ARM_SMMU_FEAT_HAFT && system_supports_haft())
++			target->data[1] |= cpu_to_le64(CTXDESC_CD_1_HAFT);
+ 	} else {
+ 		target->data[0] |= cpu_to_le64(CTXDESC_CD_0_TCR_EPD0);
+ 
+@@ -211,6 +213,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+ 	if (system_supports_bbml2_noabort())
+ 		feat_mask |= ARM_SMMU_FEAT_BBML2;
+ 
++	if (system_supports_haft())
++		feat_mask |= ARM_SMMU_FEAT_HAFT;
++
+ 	if ((smmu->features & feat_mask) != feat_mask)
+ 		return false;
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index a10affb483a4..7637e9128533 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -4925,6 +4925,9 @@ static void arm_smmu_get_httu(struct arm_smmu_device *smmu, u32 reg)
+ 	u32 hw_features = 0;
+ 
+ 	switch (FIELD_GET(IDR0_HTTU, reg)) {
++	case IDR0_HTTU_ACCESS_DIRTY_HAFT:
++		hw_features |= ARM_SMMU_FEAT_HAFT;
++		fallthrough;
+ 	case IDR0_HTTU_ACCESS_DIRTY:
+ 		hw_features |= ARM_SMMU_FEAT_HD;
+ 		fallthrough;
+@@ -5256,6 +5259,9 @@ static int arm_smmu_device_acpi_probe(struct platform_device *pdev,
+ 		smmu->features |= ARM_SMMU_FEAT_COHERENCY;
+ 
+ 	switch (FIELD_GET(ACPI_IORT_SMMU_V3_HTTU_OVERRIDE, iort_smmu->flags)) {
++	case IDR0_HTTU_ACCESS_DIRTY_HAFT:
++		smmu->features |= ARM_SMMU_FEAT_HAFT;
++		fallthrough;
+ 	case IDR0_HTTU_ACCESS_DIRTY:
+ 		smmu->features |= ARM_SMMU_FEAT_HD;
+ 		fallthrough;
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index c909c9a88538..61a7df5afb99 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -40,6 +40,7 @@ struct arm_vsmmu;
+ #define IDR0_HTTU			GENMASK(7, 6)
+ #define IDR0_HTTU_ACCESS		1
+ #define IDR0_HTTU_ACCESS_DIRTY		2
++#define IDR0_HTTU_ACCESS_DIRTY_HAFT	3
+ #define IDR0_COHACC			(1 << 4)
+ #define IDR0_TTF			GENMASK(3, 2)
+ #define IDR0_TTF_AARCH64		2
+@@ -369,6 +370,7 @@ static inline unsigned int arm_smmu_cdtab_l2_idx(unsigned int ssid)
+ #define CTXDESC_CD_0_ASET		(1UL << 47)
+ #define CTXDESC_CD_0_ASID		GENMASK_ULL(63, 48)
+ 
++#define CTXDESC_CD_1_HAFT		(1UL << 3)
+ #define CTXDESC_CD_1_TTB0_MASK		GENMASK_ULL(51, 4)
+ 
+ /*
+@@ -921,6 +923,7 @@ struct arm_smmu_device {
+ #define ARM_SMMU_FEAT_HD		(1 << 22)
+ #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
+ #define ARM_SMMU_FEAT_BBML2		(1 << 24)
++#define ARM_SMMU_FEAT_HAFT		(1 << 25)
+ 	u32				features;
+ 
+ #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
+-- 
+2.54.0.dirty
 
-> ---
->  tools/perf/pmu-events/jevents.py | 1 +
->  1 file changed, 1 insertion(+)
->
-> diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jev=
-ents.py
-> index 0cf9d26315b3..516fb73886ed 100755
-> --- a/tools/perf/pmu-events/jevents.py
-> +++ b/tools/perf/pmu-events/jevents.py
-> @@ -396,6 +396,7 @@ class JsonEvent:
->          ('EnAllSlices', 'enallslices=3D'),
->          ('SliceId', 'sliceid=3D'),
->          ('ThreadMask', 'threadmask=3D'),
-> +        ('CounterIDMask', 'counterid_mask=3D'),
->      ]
->      for key, value in event_fields:
->        if key in jd and not is_zero(jd[key]):
->
-> --
-> 2.53.0-Meta
->
 
