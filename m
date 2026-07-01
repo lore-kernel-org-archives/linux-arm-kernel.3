@@ -4,135 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F628C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:31:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8166DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 07:32:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RuV8a1CwzpzVDxsgDrgfy7XNpYOTGy0EFYQPFPpbjcw=; b=olvUS74Xo29HkOW2G3TEEZLoiE
-	yP34MSsMo+BIt8ZAsZbbCxtHGBOszDYVU2JxKBioC2TDGnyTlcwVFp+LrX+DRorhCTZLP6b6IMlfl
-	0vD8r1cxD7eMqb4vCdRLLHOPcXXqq3SFHmkUs7RVJTjLhk3fNsPOSSJm2RQCiQUvgzokPjvnxCTQh
-	KW1MlL3OTjpVOAYZON6+qIvdAZn7kmNGIwJJIt+QUstZmr+ouztrmNObmvQAIIk65i3H6XMZTTfd1
-	fquwLHzyxst4I4h8DY1dUX2zmpiiRgZTy4Y7vmAW8T+YGR32MeQfrEC3xsjw5LTgf1vutfLxfpdx0
-	lVd2d8iQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=naqNMluZvhh1zpVu6XPv1SQCAhNN/GX6Unyao2I5ZNI=; b=ngA8JeRLZmVsrtxgb7/u9vlA8g
+	MKqM4SZ/jB3jp0EsX5SYMYlqSz1+PYN4UWUYE2pF9LdUfLjXsXz0UJ18JbVnYrV58h9nFhgw5o/Aw
+	SzIuLIzrNRlBIwsEOoQgS1LHUKr/DHItuqQViQHhk0SETjflqWBKbMz2VM5nzmE5Jzko9Wb3NsCkc
+	xAfry5NzU5ztGWLBuEc3ifeWZ9gQ6p1SrGvpV6aIpXV7vhWQ/vDuGPrBO9oSyD6duYhIOBd5RAGf9
+	IgfssFqlFJRTV0x4/Mtfb77nMidPAltyaoMAD18o+5E10loidO7RUrsr7ytBIcAZY92TW6apRubs6
+	uM+sK5QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepQ7-00000000uA9-47T1;
-	Wed, 01 Jul 2026 07:31:43 +0000
-Received: from mail-westus3azon11011060.outbound.protection.outlook.com ([40.107.208.60] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wepQN-00000000uHh-0vHS;
+	Wed, 01 Jul 2026 07:31:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wepQ4-00000000u8T-1Upe
+	id 1wepQK-00000000uG9-3cN1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 07:31:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PBU/y99J8WTGfFv+ZJU9ZPBptqKlrj+4iQ+Fdymve9qlcn5R0O75u6fbpro2gBWNxoj+k74TbjGi47wfldB96HQApqIU03bEGprxAOy2x4j4gsDuPhZgihdUjFSrWtwKurosa0XGFDwKYa9nl6s6EFAy4lhhhLAhLiJ47ibusp6WwkEn3aO2K+Y9y1CFRcFiboLOKq97dKd2FVyXuGeAMvU5gibSVMN+ylOfkEsbKEBOX/tD/lXnpnmHJGDhIQp1NeLiPV/ajNKyIi9GF353lQdTOAc1bhd9cJ8JKxWdyiARwcMXJ63Td+dHTPBk8PiNJJZU171FOEUCmq0AFhpqXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RuV8a1CwzpzVDxsgDrgfy7XNpYOTGy0EFYQPFPpbjcw=;
- b=MN8X7qJFwBRRQn5WESPveBtC/E79HbvVRJJBYKpofQIvUV9uQtF0VUr/DDefuMk2zHrDmWMHxB45D6iSQxrHaEohdfqYo3wP81ZkCElNdBW587JFdpIIqTZJrYgEWYIA9mpAM43SG2EXA8XheJ9s3KxnvyCLWThhDSRCSxPYluPjueJM3DfDMcNRXMtJhjsirxD9JQTMKoGTlw+ENounh35SiC1wrOFOaFJHOezddlzjEokZqk7kcLTPWyUxHIZcExpegnvf+hgmPXf4BJ58abVaXGyMeRLOSe/82kj3KlnDKk1c9hkyw374YfNZ40CpAZE83MgLYDai/C62MGLSXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RuV8a1CwzpzVDxsgDrgfy7XNpYOTGy0EFYQPFPpbjcw=;
- b=VCHBnp/KV0xkXBtah2L7hRjtUm36VJe7xNmlA3eiI5w4Zsx8qMzqZ5UaAegCioqlCWOlOh6FsPNSYMMaQIvvFLRQ73Tyz/X6g0b5uRIcqmlyLnbrzluPl+AFBKOy+Eia+Fu3IbY6SqKxQOcoj6Hq7nZzJebiaPaxA5oJK6ti6lk=
-Received: from DS7PR12MB9549.namprd12.prod.outlook.com (2603:10b6:8:24e::7) by
- MW6PR12MB8708.namprd12.prod.outlook.com (2603:10b6:303:242::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
- 07:31:30 +0000
-Received: from DS7PR12MB9549.namprd12.prod.outlook.com
- ([fe80::bace:1330:9ab2:acc6]) by DS7PR12MB9549.namprd12.prod.outlook.com
- ([fe80::bace:1330:9ab2:acc6%6]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
- 07:31:30 +0000
-From: "Jain, Harsh (AECG-SSW)" <h.jain@amd.com>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, "Botcha, Mounika"
-	<Mounika.Botcha@amd.com>, Olivia Mackall <olivia@selenic.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "Simek, Michal" <michal.simek@amd.com>,
-	"linux-crypto@vger.kernel.org" <linux-crypto@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-CC: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>, "Savitala, Sarat
- Chand" <sarat.chand.savitala@amd.com>
-Subject: RE: [PATCH] hwrng: xilinx-trng: propagate timeout before any data is
- read
-Thread-Topic: [PATCH] hwrng: xilinx-trng: propagate timeout before any data is
- read
-Thread-Index: AQHdAtabK9gmDgDVD0GaZNSQvCuqerZYUT1g
-Date: Wed, 1 Jul 2026 07:31:29 +0000
-Message-ID: <DS7PR12MB954988025789E3A5F4F18FE297F62@DS7PR12MB9549.namprd12.prod.outlook.com>
-References: <20260623060728.18906-1-pengpeng@iscas.ac.cn>
-In-Reply-To: <20260623060728.18906-1-pengpeng@iscas.ac.cn>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Enabled=True;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_SetDate=2026-07-01T07:30:15.0000000Z;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Name=AMD
- General
- v26;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_ContentBits=3;MSIP_Label_198e8dea-a4f3-4850-b16a-fd6d2b1302b4_Method=Standard
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DS7PR12MB9549:EE_|MW6PR12MB8708:EE_
-x-ms-office365-filtering-correlation-id: 189d383a-28ff-4d0c-a202-08ded742c4a5
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|38070700021|921020|3023799007|11063799006|56012099006|18002099003|22082099003;
-x-microsoft-antispam-message-info: L97MEBipzZboF0aH7fTS12ZH9mJpID/apmk07bHqfVqPlFEXrJ2TbnBciKCRI6m7ZFhjo8tG7rM868BdvdojhTMi9JiEkfDFp8g27oXqJkbpFXTDM3nHnmbp8+C6izCXFV7vBEiG4MsdsXoR5zl2biptGrj9BTtCsM0GDdm6wq5n6LNgLw4rI0M8tn3Cyxsb/AJQLKTvNObBEcUdkdE0XglLDqLhzvRlz6iwahqJ1bZ5D8Kk3uvDa/G/DbjBMUto1d2UTVONYp3j1f5ZAzj1HH1YSiwucxxDLRCjP2r4z3CptPDSp7RRzS+ctm2v3RkqoTR3DLBrz9n9TuE6JmELLC7DaarwPlYWhz8APQJ0wAtL97BZFnKQl1ZPntO8DZKLx6G9F5hVJKOi7e9cgKqcQTfliFR9H6YjHTOZ5krghdMI/40fX758VZ7k0VtJ99h3n6vPbou3fddgi94y17FJ1CpqL29o+mqoqjLT9dEkmdsSKRicv8W08wpC+QrIX4X4fIJ4oOhUpwNyKsaGPXH4EjNwjnu6AdkfLOU4tn7wAgTfPQ/bMagk/KqSn0c3yVsdZvORZsBVPTscBQ2Gm4mkoMEGAoZa1C9rZqCKPRhim+tmhc7BVnC8ujeD5vvnV4s2yv4gsFL2I2xgJqzs+ZRlADIC6UkKaj454duSvhbYKhreie5/5Juin+P0+kIY4hD/PpyoKgxFecuNE6OBEUbjou09Yj31OsznlYPCMDsMxGoTvyY4CzfMP5FxlKWDjF9m
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS7PR12MB9549.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(38070700021)(921020)(3023799007)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?D0Mo0kaP9xA/qOlY5cWX+6iYeZb1oZWpxUFOk7QJaB3g7SF3gmLXrH7CS7TD?=
- =?us-ascii?Q?Z4yVWcbTAlBb8IuIThUyCwyj7FhYNi4AhrCWTxRHD7cg4Cnrsk692lowmvOw?=
- =?us-ascii?Q?M8DzeMnzRnKzQrMNRe24DyooFSReAjrVwdPw0xZ07ad1PSBrLbW4qklF+Lid?=
- =?us-ascii?Q?MpSfCQMsDYzUvwLh6Km02ACJyeXAk06RYVK6h3eacMsJU8t0yOj7zn2OP0ss?=
- =?us-ascii?Q?DzK6K9hDwGF4Cuefl7j1a9vGEb7kc1qbAisBAwD8P1FXqLK2QrlUWp+XP005?=
- =?us-ascii?Q?j/TtSgjU5Uwb7/sCs2LKM6bMzh+FybbF+1NeFd//BieSLyZkRVcLMY16FI2U?=
- =?us-ascii?Q?g6fEPNJSPOIGD/WLeYjK82wFBSEbg80QEDbuXYy2BUyQCpfwpunKFRVQ4e68?=
- =?us-ascii?Q?b5T5ri3iae3octsmW/+7AHhS7ukE/aEK1uuGTP0dMGupkA1xV3EVAEy3oSf+?=
- =?us-ascii?Q?KZv3zbJ+iIOkOuUakVpSel3Llfii1+NpX/3QSJuJ0C6YrZAOj4+pcMbAwFVD?=
- =?us-ascii?Q?NYEk30WYnw73+/kfmqd+RIda00e+ZntUzAVWCNmej8zrWG5VZUxj4NZ2d/zA?=
- =?us-ascii?Q?2+I3ukM6VOed3a8JPgxGVHt1o7geGIFw1b//hxyffVqnbq7i5sWBsPrGHFyD?=
- =?us-ascii?Q?VVDhhFBHQ5EIWbY6u1U1d3Oycli2f2S5zNSS2BiJ0uH1C0JrB1FvtiL0NHxs?=
- =?us-ascii?Q?uZpviqTtL3w8WsYbl4NHF1Ca3tWlXLKk5DrnSpFiZGJ+ssBCySpv99q27LzS?=
- =?us-ascii?Q?zupt1Q8lfOedIRsEkVa7emkYBA2qvYHS3CAutosLrCDjC+eJYwX5KD7x9fRh?=
- =?us-ascii?Q?VyPSTqW06pScp4cwKvdNUGSMQQEiwNg5gY7RS8HZ+j5Rh8wsXqzc1bitzewZ?=
- =?us-ascii?Q?6U5gvsrr5NFwXANwDUVaPLa18AWzL4rhOK9DqPqZxtrwFgJwOyugck9/5+XF?=
- =?us-ascii?Q?21BnZiUgNRJ1GPqbeCfEScqmoVHGqCMfsltLlVKqX7FdHv3RXfmQoWP04goJ?=
- =?us-ascii?Q?Y5d0UDhOmfhqcAvJy9n0ED/r6a0aeidnEsMAMWkJYRFnpny2buPQqV2WxbuQ?=
- =?us-ascii?Q?BAvm7UWwEKHm7S6DiKBYaC11xMoU6I8WKEVsg7uh3wX8p53sRAgllFBbdqjG?=
- =?us-ascii?Q?2EANQzxTRsaXDfK4Wj9YBbQ6dZFYBLVtbkPc14GX8pEPliJIffyWkb3KLtLK?=
- =?us-ascii?Q?TDCkwYQJDHYdDcYQKa1uwn0CVHP3XMJV4WHAEz081rv+cwtapy8dp5MKZ4Um?=
- =?us-ascii?Q?ClMaAYBCpkJS+8DoGIKeFVpx6V89h/SYqhBwMAc/fJxpfu4IHlAop6p2JKJP?=
- =?us-ascii?Q?hVEtNnRwFkNZ7/pnjc5OIcGalcnt4UI58Trz2nCOMbTlJAXkJIJU9SFEXrwP?=
- =?us-ascii?Q?zKAU/rg4Zeuu53uRTIlW1g3+YPgWnw37klv8cScWg7wNgF6QWuDyWWBKVkKb?=
- =?us-ascii?Q?5ECBJO2R1/a2pwLvP/84TKZnFZ7TGxxUBR9bT2R/OIsMfqjkq9aaX+uhvzFd?=
- =?us-ascii?Q?UapURMe53HaBxt9wau0Fkw+dQiYhPirCYKKC/sfKfM91EFkT3q+T+5RVPAXa?=
- =?us-ascii?Q?T05Tuy7njOlOqYavpeoJl/xBzFUjVtMKTopNgDpenphvq2g3iz0m/LZkWeC0?=
- =?us-ascii?Q?ktCp8jpwhdDOs/gCV3vD+GR5s5HgbwsdTkG5OOlTc/j6yX04UdJ/ZTdvObZl?=
- =?us-ascii?Q?hiWS6I2K2wP/2mpTJt0gohR5QddbqNSJnaopqh4N/elclXxc?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 01 Jul 2026 07:31:58 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6615lIWk138701
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 1 Jul 2026 07:31:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	naqNMluZvhh1zpVu6XPv1SQCAhNN/GX6Unyao2I5ZNI=; b=IbO2GVuMXURSMRsF
+	LRpjClDudvMqMNVJZqH1icTdQwvnrB335lkClOSpgpH5NxURfQyaT2VCpbqCbzBH
+	5yDxZ1fHAGonqABfbe4eSPysXpXzJfnruVJv83g5cXB3Z/AxCbv6/cLfeTf32CqN
+	gjzzqr2ANytjyg3uk5PdsTjnrofiVsJT0noHFHLe5en8l2wNpJLIt6vpgbgUWBLs
+	qyBJKViRDXVa39/WDBekRvabw2AbW1Pnz8nfkltQq0NQ5tJk21NJIl1yZr+62u38
+	ZOvkhuCqj3zBejzNgsanvCxy21S3m2j/iSS7ZXIXgSCzoqNeBQG8AFkyBJsYxG5w
+	H88CXg==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f4kgw2q6n-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 07:31:56 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2c80be91ea3so8216495ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 00:31:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1782891116; x=1783495916; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=naqNMluZvhh1zpVu6XPv1SQCAhNN/GX6Unyao2I5ZNI=;
+        b=VHV9DNNTLeM5zsCAOxp3OCDB+jLYDhBx8q5MHMTrMl/G/SF4VAmZZyv1P5TExTIBo5
+         eB93SC9Gm9aW2tPRtQDq+xU8cNiaj7mw1mafReLGJc++58MvHWeoay52YQ0eCXvgZO4o
+         xgB5EmPNfOsCkvdX3/+PRosQ8EwX9jhFaBp91MSXHSccHxp32f7H7cwtWjw4f9qrBJiC
+         xTSFFEW3/WYoWrw2fa1bKzGPHZSOk3AkqRM/DuA/C8ex7UAu+fy99NC8zZvKhTKbQHZF
+         Mx5nIgpwWChRb19d2GmQ4BaZRsNb36dZ0ErVSaZcliBmXy6uExwMBmsxU/ZtVKhBt9R6
+         5ezw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782891116; x=1783495916;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=naqNMluZvhh1zpVu6XPv1SQCAhNN/GX6Unyao2I5ZNI=;
+        b=X1tHgC5+uVx8+yQjcQBV55VJvMhaBktFLS2wdxn8X/EfBLS9EUGrtDtqZklvl4Jq/N
+         PSrqG699AyFzf8aODK8Whs/XrVgFeSJQJDAxyDXTyfuRi1ExA+wVwpYfgssFlh2hcey0
+         JITkF8Rsx9hOON8uStVcsqYH0YeAva1DbYBcDtMD0/kZwkdg6HmIiQvWbdWE51NcK3yG
+         fu8fUQmivb6QX1R0oHAZ9GKyRXICaZuJADTlElnYwX4ly0PdM6LhY+uEwa5rbj+GPe8T
+         OruCb58gPd3Ea/IFc5RWGBJkvb+AKZ5sKwtOojmIPnc5zFQppHDi8FJgyve5XMciME6l
+         Ri4A==
+X-Forwarded-Encrypted: i=1; AHgh+Rq6qPdb1FtoRTGZv7cyVNfE4jN54lg/+g5nEzhGHFLYHuNkaRxhOEwhc0D1Mf6ai21bdDVSrHgTV1ID3AIFZOaf@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEVezME7/4ksndaboEo7F8OzfsE9Sht+1GL25TB+bFbPt5zClI
+	87r+CUz2BGgxAyspgsAnxzsrs/qYo4/OnSbz4RFFV/TdwjqyVK6zMtxzLUUH+gpAhXm46YKmNek
+	UECq6n8T00Ihy85MZfM88qqDDW3Qy5XwSeJ2GsZdN+pGHmzef3CpPH9IGSpK8kBHpOvV/angCAg
+	uiDw==
+X-Gm-Gg: AfdE7cmjP/H9iaosZSI7R9O5NrTq300A1jioa0+4Tlt6OD5OLMrlX38f9qJ+zCmX3Nm
+	HBo846C2S2c1jtqF4MQUtZ7D/oGXHx2/HFucDnGgOq6dwB28uMgJqxRkkQixAuWZ2CGdP92sCz0
+	KcooKPJucpO7uVqBS8WoQAIWBNv04nLDDD4Sgs3sn1F3TcK3j/m8TiLj4xlg3+OGRobeStdPX3W
+	NJhUE/qggR7Xd7rIvCRVxUHA7H5PWLPDaXCtLU221HSanQg3vJTWgEsgJk0AGxghQwg3I/Oh7id
+	7Y8tbq/lwg+7jeP8if6HgXMVTW07DqtgGCUKTaQLF5VKXUG7Og1ZWj6P3t1ZVqd5zztfhhpVLRM
+	DjCn0gpMDuQEPa75nKt0gtGma54kTyi+ElE4W1Q7OmodAZN9MsD+6nr2Y4SnRfZVNZp+NtmTeU6
+	4=
+X-Received: by 2002:a17:903:2f8e:b0:2c9:ff83:41e3 with SMTP id d9443c01a7336-2ca7e6e1653mr6427345ad.21.1782891115637;
+        Wed, 01 Jul 2026 00:31:55 -0700 (PDT)
+X-Received: by 2002:a17:903:2f8e:b0:2c9:ff83:41e3 with SMTP id d9443c01a7336-2ca7e6e1653mr6427055ad.21.1782891115085;
+        Wed, 01 Jul 2026 00:31:55 -0700 (PDT)
+Received: from [10.133.33.76] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca3828c2e8sm26960375ad.43.2026.07.01.00.31.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Jul 2026 00:31:54 -0700 (PDT)
+Message-ID: <62ac6887-1551-490b-b42b-2661d7152734@oss.qualcomm.com>
+Date: Wed, 1 Jul 2026 15:31:47 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DS7PR12MB9549.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 189d383a-28ff-4d0c-a202-08ded742c4a5
-X-MS-Exchange-CrossTenant-originalarrivaltime: 01 Jul 2026 07:31:29.9980
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: WlEz3eWPAfFDIC4xFo87qb8maMS9LBu9o9ZueReAaR2tYf2dz5EFJMTjXU2M5Kt0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8708
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/5] dt-bindings: arm: coresight-tnoc: Add standalone
+ qcom,coresight-agtnoc compatible
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Leo Yan <leo.yan@arm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Abel Vesa <abelvesa@kernel.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org
+References: <20260701-fix-tracenoc-probe-issue-v4-0-aefab449a470@oss.qualcomm.com>
+ <20260701-fix-tracenoc-probe-issue-v4-1-aefab449a470@oss.qualcomm.com>
+ <20260701-stirring-piculet-of-vastness-a361e5@quoll>
+ <4117c406-0d75-4eb1-842e-1d346b7fbf99@oss.qualcomm.com>
+ <9aa63427-ba41-436d-ab19-a533082d336a@kernel.org>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <9aa63427-ba41-436d-ab19-a533082d336a@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=Co2PtH4D c=1 sm=1 tr=0 ts=6a44c26c cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=TEn5Sf8rmKvuiEhX-CAA:9 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-ORIG-GUID: MTZrxuqcX-AmkFcZBCyKyO_aZ6cruAJj
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAxMDA3NSBTYWx0ZWRfXz3xf1Y/EmT5i
+ C18e+cPJjpxOES/BX3/1EZso9Dg5HpZqTkrHSifXagRGSNPtFYHBZvPDRJHDy/3J7mYTYolMoX5
+ UaS3U8Kg6XFlUjQQRplNtcqKAO9MtBQ=
+X-Proofpoint-GUID: MTZrxuqcX-AmkFcZBCyKyO_aZ6cruAJj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAxMDA3NSBTYWx0ZWRfX/WJy16POFSYa
+ KB8248EK6x2u2gVJenLuRtNAaQ/vuI2IG0NUR7DB8ujfcDEC/E0nwYF+7TXq/zfGHjPycMhnRbp
+ Z6RlUwfrIR2bfLY+H9MvO8yboed24GQfHhgCixc8BL6CaHTjrEBYZYNdB4zM2EWdEHYDemENVnA
+ jXTp7UxzI2z+luMq+R8ax986S148sC3Px43BGAsfHI9ggpOI07V1R4E+NI8846oXvBi1vLEupqz
+ SUgW+Bki86ifLvEhRgpYn+ZjmD2TSRXFxMNRXA3zgVQJ8DUReJjMlTE9XXMDsN00ePMYS4ZcvRJ
+ aPVkPYWORb1vZ/w+eQInUc/N3RUfLs5cytRWVpu5OtGKsTVM6k8FWBJQBiIMTpuE3gmGjbPu/Kl
+ NtZyhnvGcpT+P6/Ec/W1OULvVHxr4f2AdDn9UYLAjKeaMLRDEG7gp36Ln9LjJ1hoN/KnqgiiUx1
+ C6TuFfg421BUXo8BMfg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-01_01,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 clxscore=1015 bulkscore=0 suspectscore=0 phishscore=0
+ spamscore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607010075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_003140_409055_AF7DE4DD 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20260701_003156_910686_FEA0FB46 
+X-CRM114-Status: GOOD (  28.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,136 +169,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AMD General
-
-Reviewed-by : Harsh Jain <h.jain@amd.com>
 
 
-> -----Original Message-----
-> From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> Sent: Tuesday, June 23, 2026 11:37 AM
-> To: Botcha, Mounika <Mounika.Botcha@amd.com>; Jain, Harsh (AECG-SSW)
-> <h.jain@amd.com>; Olivia Mackall <olivia@selenic.com>; Herbert Xu
-> <herbert@gondor.apana.org.au>; Simek, Michal <michal.simek@amd.com>; linu=
-x-
-> crypto@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> kernel@vger.kernel.org
-> Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> Subject: [PATCH] hwrng: xilinx-trng: propagate timeout before any data is=
- read
->
->
-> xtrng_readblock32() polls for 16-byte chunks but returns the number of
-> bytes read even when the first poll times out. Its caller then treats a
-> zero return as a short successful read, and partial reads for full
-> 32-byte blocks can make the tail copy use a fixed block offset rather
-> than the amount already produced.
->
-> Return the poll error when no data has been read, preserve partial
-> positive returns after some data is available, stop the generator on all
-> collection exits, and append tail bytes at the current output count.
->
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> ---
->  drivers/char/hw_random/xilinx-trng.c | 32 +++++++++++++++++++++-------
->  1 file changed, 24 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/char/hw_random/xilinx-trng.c b/drivers/char/hw_rando=
-m/xilinx-
-> trng.c
-> index f615d5adddde..4a1a168bb46a 100644
-> --- a/drivers/char/hw_random/xilinx-trng.c
-> +++ b/drivers/char/hw_random/xilinx-trng.c
-> @@ -87,8 +87,8 @@ static void xtrng_softreset(struct xilinx_rng *rng)
->         xtrng_readwrite32(rng->rng_base + TRNG_CTRL_OFFSET,
-> TRNG_CTRL_PRNGSRST_MASK, 0);
->  }
->
-> -/* Return no. of bytes read */
-> -static size_t xtrng_readblock32(void __iomem *rng_base, __be32 *buf, int
-> blocks32, bool wait)
-> +/* Return no. of bytes read or a negative error before any data is read.=
- */
-> +static int xtrng_readblock32(void __iomem *rng_base, __be32 *buf, int bl=
-ocks32,
-> bool wait)
->  {
->         int read =3D 0, ret;
->         int timeout =3D 1;
-> @@ -103,8 +103,11 @@ static size_t xtrng_readblock32(void __iomem *rng_ba=
-se,
-> __be32 *buf, int blocks3
->                 ret =3D readl_poll_timeout(rng_base + TRNG_STATUS_OFFSET,=
- val,
->                                          (val & TRNG_STATUS_QCNT_MASK) =
-=3D=3D
->                                          TRNG_STATUS_QCNT_16_BYTES, !!wai=
-t, timeout);
-> -               if (ret)
-> +               if (ret) {
-> +                       if (!read)
-> +                               return ret;
->                         break;
-> +               }
->
->                 for (idx =3D 0; idx < TRNG_READ_4_WORD; idx++) {
->                         *(buf + read) =3D cpu_to_be32(ioread32(rng_base +
-> TRNG_CORE_OUTPUT_OFFSET));
-> @@ -119,27 +122,40 @@ static int xtrng_collect_random_data(struct xilinx_=
-rng
-> *rng, u8 *rand_gen_buf,
->  {
->         u8 randbuf[TRNG_SEC_STRENGTH_BYTES];
->         int byteleft, blocks, count =3D 0;
-> +       int full_blocks_bytes;
->         int ret;
->
->         byteleft =3D no_of_random_bytes & (TRNG_SEC_STRENGTH_BYTES - 1);
->         blocks =3D no_of_random_bytes >> TRNG_SEC_STRENGTH_SHIFT;
-> +       full_blocks_bytes =3D blocks * TRNG_SEC_STRENGTH_BYTES;
->         xtrng_readwrite32(rng->rng_base + TRNG_CTRL_OFFSET,
-> TRNG_CTRL_PRNGSTART_MASK,
->                           TRNG_CTRL_PRNGSTART_MASK);
->         if (blocks) {
->                 ret =3D xtrng_readblock32(rng->rng_base, (__be32 *)rand_g=
-en_buf, blocks,
-> wait);
-> -               if (!ret)
-> -                       return 0;
-> +               if (ret <=3D 0) {
-> +                       count =3D ret;
-> +                       goto out_stop;
-> +               }
->                 count +=3D ret;
-> +               if (ret < full_blocks_bytes)
-> +                       goto out_stop;
->         }
->
->         if (byteleft) {
->                 ret =3D xtrng_readblock32(rng->rng_base, (__be32 *)randbu=
-f, 1, wait);
-> +               if (ret < 0) {
-> +                       if (!count)
-> +                               count =3D ret;
-> +                       goto out_stop;
-> +               }
->                 if (!ret)
-> -                       return count;
-> -               memcpy(rand_gen_buf + (blocks * TRNG_SEC_STRENGTH_BYTES),
-> randbuf, byteleft);
-> -               count +=3D byteleft;
-> +                       goto out_stop;
-> +               ret =3D min(ret, no_of_random_bytes - count);
-> +               memcpy(rand_gen_buf + count, randbuf, ret);
-> +               count +=3D ret;
->         }
->
-> +out_stop:
->         xtrng_readwrite32(rng->rng_base + TRNG_CTRL_OFFSET,
->                           TRNG_CTRL_PRNGMODE_MASK |
-> TRNG_CTRL_PRNGSTART_MASK, 0U);
->
-> --
-> 2.50.1 (Apple Git-155)
+On 7/1/2026 3:26 PM, Krzysztof Kozlowski wrote:
+> On 01/07/2026 09:16, Jie Gan wrote:
+>>
+>>
+>> On 7/1/2026 2:57 PM, Krzysztof Kozlowski wrote:
+>>> On Wed, Jul 01, 2026 at 09:53:41AM +0800, Jie Gan wrote:
+>>>> The TNOC compatible previously only allowed the two-string AMBA form
+>>>> "qcom,coresight-tnoc", "arm,primecell", which forces the device onto the
+>>>> AMBA bus.
+>>>>
+>>>> Convert the compatible to a oneOf and add a standalone
+>>>> "qcom,coresight-agtnoc" compatible alongside the existing AMBA form. The
+>>>> standalone string carries no "arm,primecell" entry, so the device is
+>>>> created on the platform bus instead of the AMBA bus.
+>>>
+>>> That's a Linux driver specific reason, so not a valid one.
+>>>
+>>> Describe the hardware instead.
+>>>
+>>> Also, you do not get other compatible for the same device.
+>>
+>> The device is intended to be discovered and probed via the AMBA bus.
+>> However, due to a hardware issue, AMBA probing does not work correctly.
+>> While adding the arm,primecell-periphid property would allow the
+> 
+> If this is not AMBA bus device, then drop primecell compatible.
+
+Will drop the primecell compatible and update the description.
+
+> 
+>> existing AMBA driver to bind, but I think that's a temp WA. As
+>> Suzuki/Leo pointed out, we should not add the property to pretend the
+>> device as an AMBA device.
+>>
+>> Instead, I introduced a dedicated compatible string so the device can be
+>> handled by the existing platform driver without relying on the missing
+> 
+> As I said, that's a Linux driver specific reason, so not a valid one.
+> 
+> Fix your drivers if you insist on that.
+> 
+>> AMBA primecell identification. The purpose of the new compatible is to
+>> clearly distinguish this platform-specific case from the standard
+>> AMBA-based implementation. Or shall I re-use the existing compatible
+>> "qcom,coresight-tnoc" as platform standalone compatible?
+>>
+>> We already have a similar pattern for the interconnect TraceNoC device,
+>> which uses the platform-specific compatible string qcom,coresight-itnoc.
+> I do not see there a fake, duplicated compatible for the same device.
+> Can you elaborate how is that relevant?
+
+Will fix it by removing AMBA related description.
+
+Shall I update the clock name from apb_pclk to apb as a platform device?
+
+Thanks,
+Jie
+
+> 
+> Best regards,
+> Krzysztof
 
 
