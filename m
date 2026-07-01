@@ -4,64 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C036AC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 705A3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKy0RFu7xgDEI2dGgMG+Dk1HrsGATT053SdOOOQC+b8=; b=undzNHjcX3gbgHv7uaCX7dgJiG
-	xixVTNhpBrIOyWskaw/wea1yVdAWWO5oepOvxBnnJhLpPhaQt0dDBdgfv25UEUaVXM0p7y7EPP0YF
-	8HFCsgxhSKNI3HXcnHhO954SvYQZba5C46yRwFZ68A0zyI8rK5QWYOgUK5yII9VrPz8wXrTkwPX6J
-	kluhWo9RSKJinoqqFqVgPcBJM2K8xydRp8SUJybVoIjeOCsCrIjvZChgs6QEhoxYrR5HWZ+qIWalW
-	ur8k0+UI1+RGM2qMrvUbu9CA/+gjfTHCIlOOg+B77CEu3cXdZQU8FEHttMmOv/TBaUKuK4SOUSn1s
-	Iykg4fDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YRFt5f9J7tMZL9mrTbFXbEI5C92bjoEptJBjun0m++4=; b=RUVHdksK0xfSDHKNPMRsNVzovH
+	Yd0+d2XB8Vy/eMCn+8Dh20ALR2J730uBlk9vbNaUsvowshQxJwi71ZfJMkVkzkpCa8AV2V7ktJd5X
+	exM/f+ur4vxaNxcRkVzVf15aF9vduLdkGLSqBoGPLvsURQZdzAXvcgLkp7vRBo+V9ta00Mq7sCwtr
+	p1LUmv9+o7dbB85VBXu3bpVS4FOHQFYgAGa0/1F6Cay583Iq66qN1LiA3NqJc0EUD5tIQggAQbqfr
+	a59GOf/R/H/JTo9i/w3e++CznlkIRjWJDSNkUXvNfc6JIFA8+ZnU0FQTssyeUKJOmi+hP/bzNUpWI
+	hRVWvGHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4s3-00000003GBX-0BRY;
-	Thu, 02 Jul 2026 00:01:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wf4Ty-00000003Bsn-0k4H;
+	Wed, 01 Jul 2026 23:36:42 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4s1-00000003GBQ-3lXC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 00:01:33 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 71C31404FC;
-	Thu,  2 Jul 2026 00:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C21B1F000E9;
-	Thu,  2 Jul 2026 00:01:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782950493;
-	bh=MKy0RFu7xgDEI2dGgMG+Dk1HrsGATT053SdOOOQC+b8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GCSLWpmDDEHjrlT+KseVQxpcJoSLCpI5ureoFaRX4IN4pf2ZgYy3CJqjibEizrE32
-	 firSuVyH/BMLdcDdau8xWogD+IbYcegGky7KTpXk87Hn0jidAODsZ8sJZ8MSnxGyj3
-	 m1QsTW6pUMkFDv+iRUxIqSGHUXmwKziEl3FQZGRm/SWvCEP2eNtnKHTZVrsvb8Z3OP
-	 w2BVPcDPvygS8saTkLyd1vvvqKEcW5Sfb1pZasSYrSjIU68xhp5WWKs5irdDTAEEOd
-	 mDmhjE4e0JjyGcoEWpSSLr2n1hQqOYrI6T4wK0lrOcmgjI2WDTAZxf5nSNV8OwPt/X
-	 KZ6gil7BYJPvQ==
-Date: Wed, 1 Jul 2026 17:01:32 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
-Message-ID: <akWqXBJrJ1n34BQ5@kernel.org>
-References: <20260701204342.2654385-1-coltonlewis@google.com>
- <akWhad3U5VNjWzxu@kernel.org>
+	id 1wf4TN-00000003A1B-0rkM;
+	Wed, 01 Jul 2026 23:36:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1782948950;
+	bh=4RuwzAtf5TKGkkh33ZvgbW91Fqbf6UoXltvoPmdTV2I=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Ni7TxY3WL+87gUUA9z1Z5f8DcDdvcMovMxYaK/ASLRb2ZSuyL7Ecv7J7wObTzV+zf
+	 sCemTBs2vCshpQ80SVbVdSuCrnW95mqi0s8PHf4G6YvtMI2vZ0vV+PtlmS9BakzrPJ
+	 j1zODvOGyzDBzFgb761PjO+L9bQYfPDcIUT3I2D9SZYQwA5n2VtbNvKU1JNPEs8+zh
+	 AikKzBd2R1l4GAw3WbFPsp4WZ74NsZ3+Zi1NPd8R+Vb4PEWL+rWDDcbLXN7R7h1rpf
+	 LYeFyMpXOug0R2g831YuuoeBOsuVRfVl+r8T5VEERIS5F25SoX6jsSODr2UJWPZ5sS
+	 1Jid6U4+bWr1Q==
+Received: from jupiter.universe (unknown [100.64.1.62])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: sre)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 455AE17E361D;
+	Thu,  2 Jul 2026 01:35:50 +0200 (CEST)
+Received: by jupiter.universe (Postfix, from userid 1000)
+	id E08CF48007A; Thu, 02 Jul 2026 01:35:48 +0200 (CEST)
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+Date: Thu, 02 Jul 2026 01:36:13 +0200
+Subject: [PATCH v9 35/38] phy: rockchip: usbdp: Simplify power state
+ handling
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akWhad3U5VNjWzxu@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-rockchip-usbdp-cleanup-v9-35-e31efbb62d2e@collabora.com>
+References: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
+In-Reply-To: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, 
+ Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6342;
+ i=sebastian.reichel@collabora.com; h=from:subject:message-id;
+ bh=4RuwzAtf5TKGkkh33ZvgbW91Fqbf6UoXltvoPmdTV2I=;
+ b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpFpFRa+ou2LkR21OWZwKdVSLxiiOpwQx95q
+ 8e/kJRzey2gKYkCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqRaRUAAoJENju1/PI
+ O/qahH4P/3+Rrju4vHg151N1+iO/jfoqvL83xNF73dzSAh6ZBCRb/m6Vv8Qco7x5rjUIFYbCBZS
+ 8Ny2UqcA3K4lWpOku02CwPzLaavXxcP5X5Vi+OZgkBi5dAdpRfED0LF5SycWCsKLBGGsxowl9F0
+ Oq27qPbJzZJ8B3obUk87ulDOtjk3XVRF2EbxO4E8pTqRsGVmUHAp517UmEBqdFDmh7BoxRR0U/R
+ 8XrVUvNUpnb0UnFDZxVDAVWhQvyH9ZSyqgJUeDRTahYsOYEA4zJoktLQuUhLQS4DAhuKapghiRC
+ /nj2kC3OZ4bvC+jKcApcHpIc6a2dfz9TIoyYIpCp9yAjfnyYpBs8i8FkRy22H3yKcNOB730Zdbd
+ hbDvb0Pa9XtzgrjVpUZqEGHMT3qfKYTILoPsqI+OQBGE4A8CrUBi44htl2ACXfMjFSdSXRdVFo9
+ qZAj+ggk/6yyk6y0VqeoHz8iaWxkvVxzrztDJesgpycqp/El+FwGZbj4Edm7IH9TSHZpkxMFVsE
+ ev1xiEj4DVs2YuL803BRxny+iQDHu4X5/JGYMJzir3B4hQ2i4bvBBVtC8hriT797GxdbkuTnlqi
+ xqAcEKsPqplsHMG40U+aD5SIOtheSlNlE03BuA1I1xo0ySNYnzeeqFlzJ7bpeAj/yZ1DcRoBGef
+ NCYSXMLyfmJvIkc7O458lzw==
+X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
+ fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_163605_486295_F37C6EAC 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,58 +104,219 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Circling back around...
+Simplify power state handling by introducing sw_mode in addition
+to the hw_mode field, so that the PHY knows about the currently
+supported modes from the hardware perspective, the current modes
+requested by software and the actual hardware status.
 
-On Wed, Jul 01, 2026 at 04:23:21PM -0700, Oliver Upton wrote:
-> The subject prefix should be "[PATCH 6.6 0/5]" so people know right up
-> front where this is going.
-> 
-> On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
-> > This series backports VHE CPU boot fixes to the 6.6.y stable branch.
-> > 
-> > These fixes are already present in the 6.12.y stable branch (and
-> > newer), but are missing in 6.6.y. They are required to enable booting
-> > L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
-> 
-> It's a bit worse than this. The architecture retroactively made
-> FEAT_E2H0 an optional feature, there are now implementations in the wild
-> that do not support the feature.
-> 
-> > Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
-> > incorrectly configured (because it misses VHE-only detection or early
-> > initialization), causing early boot hangs/trap loops.
-> > 
-> > Conflict resolutions:
-> > - Patch 4 (KVM: arm64: Initialize HCR_EL2.E2H early) had conflicts in
-> >   arch/arm64/kvm/hyp/nvhe/hyp-init.S due to differences in state
-> >   initialization. Resolved by extracting EL2 state initialization into
-> >   __kvm_init_el2_state.
-> > - Patch 5 (arm64: Revamp HCR_EL2.E2H RES1 detection) had conflicts in
-> >   arch/arm64/include/asm/el2_setup.h. Resolved by using raw msr hcr_el2
-> >   instead of the missing msr_hcr_el2 macro.
-> > 
-> > 
-> > Marc Zyngier (4):
-> >   arm64: sysreg: Add layout for ID_AA64MMFR4_EL1
-> >   arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is
-> >     negative
-> >   arm64: Fix early handling of FEAT_E2H0 not being implemented
-> >   arm64: Revamp HCR_EL2.E2H RES1 detection
-> > 
-> > Mark Rutland (1):
-> >   KVM: arm64: Initialize HCR_EL2.E2H early
+Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+---
+ drivers/phy/rockchip/phy-rockchip-usbdp.c | 117 +++++++++++++-----------------
+ 1 file changed, 49 insertions(+), 68 deletions(-)
 
-Please go through and correct all of the SHA1s for the cherry-picks,
-smells like some LLM just hallucinated some bits given how close they
-are to the real deal.
+diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+index a19b048fb39c..51aac07ef9fe 100644
+--- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
++++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+@@ -176,7 +176,8 @@ struct rk_udphy {
+ 	bool flip;
+ 	bool phy_needs_reinit;
+ 	u8 hw_mode; /* modes currently supported by hardware */
+-	u8 status;
++	u8 sw_mode; /* modes currently requested */
++	u8 status; /* current PHY power state */
+ 
+ 	/* utilized for USB */
+ 	bool hs; /* flag for high-speed */
+@@ -585,15 +586,6 @@ static void rk_udphy_dp_lane_enable(struct rk_udphy *udphy, int dp_lanes)
+ 				   CMN_DP_CMN_RSTN, FIELD_PREP(CMN_DP_CMN_RSTN, 0x0));
+ }
+ 
+-static void rk_udphy_mode_set(struct rk_udphy *udphy, u8 hw_mode)
+-{
+-	if (udphy->hw_mode == hw_mode)
+-		return;
+-
+-	udphy->phy_needs_reinit = true;
+-	udphy->hw_mode = hw_mode;
+-}
+-
+ static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state)
+ {
+ 	u8 hw_mode;
+@@ -627,7 +619,7 @@ static void rk_udphy_set_typec_state(struct rk_udphy *udphy, unsigned long state
+ 		break;
+ 	}
+ 
+-	rk_udphy_mode_set(udphy, hw_mode);
++	udphy->hw_mode = hw_mode;
+ }
+ 
+ static void rk_udphy_set_typec_default_mapping(struct rk_udphy *udphy)
+@@ -1023,66 +1015,61 @@ static int rk_udphy_parse_dt(struct rk_udphy *udphy)
+ 	return rk_udphy_reset_init(udphy, dev);
+ }
+ 
+-static int rk_udphy_power_on(struct rk_udphy *udphy, u8 mode)
++static int rk_udphy_update_power_state(struct rk_udphy *udphy)
+ {
++	u8 target_mode = udphy->hw_mode & udphy->sw_mode;
+ 	int ret;
+ 
+-	if (!(udphy->hw_mode & mode)) {
+-		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
++	if (!udphy->phy_needs_reinit && udphy->status == target_mode)
+ 		return 0;
+-	}
+ 
+-	if (udphy->status == UDPHY_MODE_NONE) {
+-		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
++	/*
++	 * Inform DWC3 driver, that we are about to reset the PHY, so that it can
++	 * assert its PIPE reset lines and avoid DWC3 getting into a buggy state.
++	 */
++	phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
+ 
+-		rk_udphy_u3_port_disable(udphy, true);
+-		udelay(10);
++	/*
++	 * Disable USB3 port, which among other things re-routes a DWC3 clock to
++	 * avoid SErrors when the DWC3 registers are accessed while the PHY is
++	 * disabled.
++	 */
++	rk_udphy_u3_port_disable(udphy, true);
++	udelay(10);
+ 
++	if (udphy->status == UDPHY_MODE_NONE) {
++		/* Power up (incl. clocks) */
+ 		ret = rk_udphy_setup(udphy);
+-		if (ret)
++		if (ret) {
++			phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
+ 			return ret;
+-
+-		if (!udphy->hs && udphy->hw_mode & UDPHY_MODE_USB)
+-			rk_udphy_u3_port_disable(udphy, false);
+-		udphy->phy_needs_reinit = false;
+-
+-		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
+-	} else if (udphy->phy_needs_reinit) {
+-		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_PRE_RESET);
+-
+-		rk_udphy_u3_port_disable(udphy, true);
+-		udelay(10);
+-
++		}
++	} else if (target_mode == UDPHY_MODE_NONE) {
++		/* Power down (incl. clocks) */
++		rk_udphy_disable(udphy);
++	} else {
++		/* Mode change => re-init */
+ 		ret = rk_udphy_init(udphy);
+ 		if (ret) {
+ 			phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
+ 			return ret;
+ 		}
+-
+-		phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
+-
+-		udphy->phy_needs_reinit = false;
+ 	}
+ 
+-	udphy->status |= mode;
++	/* Ensure USB3 support is enabled when supported and requested */
++	if (!udphy->hs && target_mode & UDPHY_MODE_USB)
++		rk_udphy_u3_port_disable(udphy, false);
+ 
+-	return 0;
+-}
+-
+-static void rk_udphy_power_off(struct rk_udphy *udphy, u8 mode)
+-{
+-	if (!(udphy->hw_mode & mode)) {
+-		dev_info(udphy->dev, "mode 0x%02x is not support\n", mode);
+-		return;
+-	}
+-
+-	if (!udphy->status)
+-		return;
++	/*
++	 * Inform DWC3, that we are done with the reset, so that it can deassert
++	 * its PIPE reset line.
++	 */
++	phy_notify_reset(udphy->phy_u3, PHY_NOTIFY_POST_RESET);
+ 
+-	udphy->status &= ~mode;
++	udphy->status = target_mode;
++	udphy->phy_needs_reinit = false;
+ 
+-	if (udphy->status == UDPHY_MODE_NONE)
+-		rk_udphy_disable(udphy);
++	return 0;
+ }
+ 
+ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+@@ -1091,9 +1078,11 @@ static int rk_udphy_dp_phy_power_on(struct phy *phy)
+ 	int ret;
+ 
+ 	scoped_guard(mutex, &udphy->mutex) {
++		udphy->sw_mode |= UDPHY_MODE_DP;
++
+ 		phy_set_bus_width(phy, udphy->dp_lanes);
+ 
+-		ret = rk_udphy_power_on(udphy, UDPHY_MODE_DP);
++		ret = rk_udphy_update_power_state(udphy);
+ 		if (ret)
+ 			return ret;
+ 
+@@ -1118,8 +1107,10 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
++	udphy->sw_mode &= ~UDPHY_MODE_DP;
++
+ 	rk_udphy_dp_lane_enable(udphy, 0);
+-	rk_udphy_power_off(udphy, UDPHY_MODE_DP);
++	rk_udphy_update_power_state(udphy);
+ 
+ 	return 0;
+ }
+@@ -1329,13 +1320,9 @@ static int rk_udphy_usb3_phy_init(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
+-	/* DP only or high-speed, disable U3 port */
+-	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs) {
+-		rk_udphy_u3_port_disable(udphy, true);
+-		return 0;
+-	}
++	udphy->sw_mode |= UDPHY_MODE_USB;
+ 
+-	return rk_udphy_power_on(udphy, UDPHY_MODE_USB);
++	return rk_udphy_update_power_state(udphy);
+ }
+ 
+ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+@@ -1344,15 +1331,9 @@ static int rk_udphy_usb3_phy_exit(struct phy *phy)
+ 
+ 	guard(mutex)(&udphy->mutex);
+ 
+-	/* DP only or high-speed */
+-	if (!(udphy->hw_mode & UDPHY_MODE_USB) || udphy->hs) {
+-		udphy->status &= ~UDPHY_MODE_USB;
+-		return 0;
+-	}
++	udphy->sw_mode &= ~UDPHY_MODE_USB;
+ 
+-	rk_udphy_power_off(udphy, UDPHY_MODE_USB);
+-
+-	return 0;
++	return rk_udphy_update_power_state(udphy);
+ }
+ 
+ static const struct phy_ops rk_udphy_usb3_phy_ops = {
 
-I also want to see that all KVM modes have been tested (nVHE, hVHE, VHE,
-protected) before this gets picked up. Overall though taking this to
-stable seems like the right thing to do.
+-- 
+2.53.0
 
-Any reason why you've only done 6.6? The kernel was first aware of
-E2H=RES1 as far back as 5.13.
-
-Thanks,
-Oliver
 
