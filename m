@@ -4,105 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFD2BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B285FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 06:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=; b=bsUqSdx9DLpXzHTcmX5qpFAHBb
-	pnomZLnVsX7m5MbDijdWvihvvX5V9B35YFxNyJSFybRu2H/Q5hDozbHVVpiJNWa8GaknOmGQhWDm6
-	gq7YccqkMhPZx8vyYMNdVg0aHIqntPMo9ZuGHT+FrtWOaEcYaEBxWnAfLi2zitEyXYjf7mfuPT6aq
-	zJcyvrF1Ljpq4WN76rjbXDANdqBWvIcI4WREsKox1RVRj8nJP9E/helFTucoicRur1MsfXbh+YRWC
-	j2/UBBYnH+TXDEYGj9YWNIjrY3HlUGekJ72Z/M0CVvpnOj60YyDSqBIXEzNpxoo9JCI72AXVmi1Np
-	vGogWRXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:
+	Content-Type:Subject:To:From:Message-ID:Reply-To:Cc:Content-Transfer-Encoding
+	:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gUgn9XVgCdfL1yHoLdIVyyMJAK0jlFPSySq1P+fhWYw=; b=22aT/EL7RfuHYOzfFHDgk9T3Ad
+	Sv4jwlibFT2iVoLOtIWscdPUsG5NW1FhKW2qVAqtJ9urEv4oSJ2X6OzYaHmXH0IeS44PH2JGbv92O
+	EueJdMsRx7IgiUWHXApbVKPOdENIUYzuIwHjEDgueQVtUb3dxwstwoxTHkhKevfGVtR7zlbJCQAGN
+	ZzINud/Uii6iMEr61lg6uX2SOqBfkADwHzLy1SvYB4Qr8dJ4e0PH2RUA4/REflYBALm6IzFi8kFCN
+	8wp/yaig7KYug4TIpm7PqIC4J2yHu3QOOWXj3uJ8c4cbb2O368Zav6z7QwWAIFYYcy4mmi6WZdb/X
+	80ZUTtCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoAN-00000000m9H-0AAs;
-	Wed, 01 Jul 2026 06:11:23 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1weoGv-00000000mjs-14VV;
+	Wed, 01 Jul 2026 06:18:09 +0000
+Received: from mail-japanwestazon11011026.outbound.protection.outlook.com ([40.107.74.26] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weoAK-00000000m8X-2L8y
+	id 1weoGs-00000000mjO-2yEW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Jul 2026 06:11:22 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6976b0b2c79so294136a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Jun 2026 23:11:18 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782886277; cv=none;
-        d=google.com; s=arc-20260327;
-        b=gUA/TjG/uDhjCFL6SMNN3ETwwW1KrjHjf/8ZpWZg1yC4LIvppRc8MzQkAiiRiFJHAG
-         r/801u+E+9K3S7W0c6ri6Vut7KlgiPYrLpHtgTUAgkZbStIA1ddaGHg5OBJIyKCDOO0w
-         t583L7sQwH74g9le1wqtQKIVhHxXV4Yvcb82qxq8mu8R9/D76dhnq5AYauBudnm+zyg2
-         eT41Nz7AziH0Y0e0xvvtD0Ky1FCySCOsvgo/zWKCHV8TOKDsSMU9VksMVA9dXxpFsNaz
-         yELalgLPLr+fEq9nIUw+5i/g5kPHQS7lipsJdmpH1pGDkPypo8A7wgYcut8UF69Kcm6S
-         NGnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=;
-        fh=/VJe+oKepMgNZKL3cQRO8SSpDXV393lZrMUxyjewd24=;
-        b=BT1n9nuK2WfynU1hPP0PlbUZyqdGG8r016Ti855hoQCQR2HI6mtOIwCitj2rvYuv7z
-         M4a+COwmAEL4oVsbh7+T5clWsJXM42CaTXsy91wkFq4IrhMlJyDed+uT/KtXDzcB7URh
-         plajHnlcJLRCfcmGhx+QCg5AkeUdtPPN0IjgA8cpn0YQvttkqxqAUDqfxg8aR5dGa4z6
-         fT+8fyzZ5vT1Fi/M73v1cvyJO48nLjhykyqAoyA1HZ0CNKBr0ByaJyLqV3LxubkxQdVI
-         BJtAjQdc+RAPeLxYZF4MpL/lZK7bXMA64Cz5DOarWl2LsmnFpMLrjaxcvFQyuj4detqw
-         cFJA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782886277; x=1783491077; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=;
-        b=bDQg94/XgUcmmNuEJM/JkjKBJ5K7npfYNI3tnfaR62C+Q4mmNivijn+xR5z67LqdI3
-         bJCxHA5nodZyDq+bd7ckST6asblq5pQ2ppFSq13k0rht+073syFFhBuTVL8Aw1mEI7hO
-         BKXCKtp42nWdxCJOBipYOEUaN6gohyguC447jBMQNG+3NLflmJgaS5grM5aakg7Ozv98
-         hcu+S0mGQ4AUTHZoAXMjqabUH5/za72mCfWCzGaf5D1e5meUVqMkc9b09kJcSfis7uhJ
-         Thqw7wAa3LbKKcbd9JDVlmKw/yh/sJ6FOcZb1r3b8/SD5H2x72+zAqu/hY1iKAYeKFIn
-         erSQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782886277; x=1783491077;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CWhVhD5eLCMV4lXuEV0ZYaY1wQTvatZLeKGOm+NJE/g=;
-        b=m/UI527JjBgK6il+I1cFiflsHX94IQtRtLy/yGBU/48exfCdp3V9E3eJI3AgQpOeGK
-         rDpVRhfBaRbjDig1jfFQ+n5t8SX84WN09Y/R9rtnUcSKzYIDNQxmKlaIp2n01/iaDm5G
-         N69FSpWBKpENL1Vy2zqjSG7XdKdV0PbLNyiTSFUedNxK6/jKxWcbIw6GyqFL1/4KXvzN
-         cJKQ8yqbzeMBHeEJ4y3vJCho3MDDoN74sFt/svqhrUIu0c5iPGPx9e4c5rCnk5evjvYs
-         4Vu3ImFWXqZCsUOvGmV1FL5DzeZ8t8ikPC72Z/6GQsOHpd3uWT4v/wbFwVpBO5IX6OHZ
-         0Ajw==
-X-Forwarded-Encrypted: i=1; AHgh+RpCV/m6/89yQ8PINpsoSARLr9oT/4gYyU4KIP1GT/teO4pt6/m33qGKhlfmZb4kLldPP78CCi/VZfptfHtNRxv8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRP6JND1LrKYkYnu4ztNbz50raj4y+TEJ3IMjuAfCsSuHBfh5Z
-	8g0o6nIIC6y3MNbM271rwd22Zmhgy1opX/ZFSXes0KBlUngnRKBSVScFJeRLt1/Rph/veOfplCK
-	3mn6nSFcAoFbuQtH19wuM/bs7jN7hHw/zoYM9lNc=
-X-Gm-Gg: AfdE7cm/KAyAN3PMzF1ooeJ7lCZAJu3MWEMX8IIUMcCqAK5MzifaCTJJcF6J027uZCJ
-	cNSu6eRUR3H8zFRXZBjORBniu3WhVOjundhp9QGFVRg+seRw8DFWdvG77ZKBXAJOwW5ZxpUOp6B
-	13HTSCXlGTXf7qifgHuNgMwsAdL45iUW3/iIFHNLFRa8lsHUE7bkbz71CT/r26Yp4ABci8FrByG
-	p8n5A1Xu95Gx57rZMajDHwLO1BK/CbbkWZdozhunY+/e9JoN85hTa6X0qjRTExEbzE1ASsFi8dH
-	IlY/M/0=
-X-Received: by 2002:a17:907:3e18:b0:c12:a330:b92b with SMTP id
- a640c23a62f3a-c12aa14aac6mr6173366b.40.1782886276371; Tue, 30 Jun 2026
- 23:11:16 -0700 (PDT)
+	Wed, 01 Jul 2026 06:18:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SS8Xb9kLrCcNmuzFV+YbpMWhdO84GzbJxs3qq8WRMK+bMBb9fgNYVOvgCwjc8yV0Z/RjtBO3xwZDQcPkTM5LP9cdpSPTV1le3aFgD/5CNCwEdCmXVIPuE8zWrwBqIj2xBX+VZHXDU+xh/emRuh4RlwBE6z/KpZ+M84H9xBmn8YJJ+3OyivyliBwLDfKSfSsKrbuvaGkHepRt72yKKKL1pcK/TqGXQvfJKP0wF0Ror/4t5C2tZtjGiESXwhsUIxk5luS55qK61hdMcDf+0wRclm30HHtXmAQzHeceu2MUQr4gxUGuvfVw2A1T9FdEGl50758iST2Zx7rSI4TwNXug+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gUgn9XVgCdfL1yHoLdIVyyMJAK0jlFPSySq1P+fhWYw=;
+ b=dx+yHfibqYWQzCICL0qSamW/6b12/k+L5huEJIoVT8qi6ythdyfcYOVpH2whFBUCdz/H0UqZPME/DeNrPqIVNLvZV8B0AZvA2A63Ra+VGp86Ye/T7VnwH94eGnFbmzz4HM/UrWEFGFAkd6XePR4TEIEwAkyZrowQnKeHnRA13lE20+k7+QHxObMOW3tvnf/y08UarTmbkJIHhYtxkhp9xOKEhdQ+pPd8IySvf2fsLYxjIPj+zVdxpOXYK7rbCqKOGZZpuvJqCNFJRvJ2Sjbe+ybBjrpRU4WVr/8u308jmefgm31adYBROcJXK/ti2eZ12vibI4/EACE5xabuXxWgUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=renesas.com; dmarc=pass action=none header.from=renesas.com;
+ dkim=pass header.d=renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gUgn9XVgCdfL1yHoLdIVyyMJAK0jlFPSySq1P+fhWYw=;
+ b=on/EF3JDugLX4XPwDNCPOi81uWQqqut3b6GjzWFzigXvufkU0MSnSHxDyhVEusHYXjzSQU3Y610r9awCMn/fdTr6reOIJ2q//oh0NTNSNgzy7shY7G9kHye7xry32IhmPoOTdiUC6n7ID2xdXVIECOoNGBUBuWhcZn3IyEKwVkI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=renesas.com;
+Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com (2603:1096:400:373::8)
+ by TYRPR01MB12462.jpnprd01.prod.outlook.com (2603:1096:405:105::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Wed, 1 Jul 2026
+ 06:17:57 +0000
+Received: from TY3PR01MB11797.jpnprd01.prod.outlook.com
+ ([fe80::1868:c915:c230:a383]) by TY3PR01MB11797.jpnprd01.prod.outlook.com
+ ([fe80::1868:c915:c230:a383%5]) with mapi id 15.21.0181.008; Wed, 1 Jul 2026
+ 06:17:57 +0000
+Message-ID: <875x2zcjxn.wl-kuninori.morimoto.gx@renesas.com>
+From: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jaroslav Kysela <perex@perex.cz>, Liam Girdwood <lgirdwood@gmail.com>, linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, Mark Brown <broonie@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, Takashi Iwai <tiwai@suse.com>
+Subject: [PATCH] ASoC: mediatek: mt8173-rt5650: tidyup error message
+User-Agent: Wanderlust/2.15.9 Emacs/30.2 Mule/6.0
+Content-Type: text/plain; charset=US-ASCII
+Date: Wed, 1 Jul 2026 06:17:57 +0000
+X-ClientProxiedBy: TYCP286CA0312.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:400:38b::19) To TY3PR01MB11797.jpnprd01.prod.outlook.com
+ (2603:1096:400:373::8)
 MIME-Version: 1.0
-References: <20260630065735.3341614-1-pawlik.dan@gmail.com> <akOCJI-2kAAwOQzz@chamomile>
-In-Reply-To: <akOCJI-2kAAwOQzz@chamomile>
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-Date: Wed, 1 Jul 2026 08:11:05 +0200
-X-Gm-Features: AVVi8CfA9uhypD8RuUIaiCQhrLk2tdtBO915kC01GwUewd1n6TYEXO1SRl3IXQQ
-Message-ID: <CALC2ApjGZFFPXr4d-r+4VNCpQO1N3Z4NOiBXwYU307jm-626OA@mail.gmail.com>
-Subject: Re: [PATCH v2 0/5] netfilter: nf_flow_table_path: L2 bridge offload
-To: Pablo Neira Ayuso <pablo@netfilter.org>
-Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org, 
-	bridge@lists.linux.dev, coreteam@netfilter.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: TY3PR01MB11797:EE_|TYRPR01MB12462:EE_
+X-MS-Office365-Filtering-Correlation-Id: 5e0645d8-d7b4-4e2d-6112-08ded7387e69
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|52116014|56012099006|11063799006|18002099003|38350700014;
+X-Microsoft-Antispam-Message-Info: iemnmo45G+GIp/cg4NCXWbi0C4HMUW65pFtZW+FgV5UOnSfYkLHz4x0WSPtrGUiqThm7U/J75FTHaT4m0mv4Z5k94maLwXEeX77b6u2wDW5OZ3uvXsAXWFQ1MJzW3O/xMkKBvLqC2brXneBVhbseXQ/Jg0qU3X7WmyEVOBCUYsKao1HPAC3hsHQJMKoSem/xEcN1elz5v4zesLIUMSPaZffS89sAfIiBJOaTOoIikOW3ah+KlOaTyk2A6xeCeAMavSteo95xvlbnCAydxW89LhPPDqrLh4e72GvivXPLdpIbCijO6G1k5FFO8xxJZ7IZVan80BuL7zkVb+J1eWbuGSqRjfrEW3kn4klcPxpKEeVnGEK1QgrHAfcPlNZJwRp/Fsd75SWxbHJJcwGyeHUapVbycg+26GJKqJGFcGzTRuwfDcK3n06UkAsJdf+SMPvi6jBza78mCcHEwlZ+p13/1IWHmKVtxRZSZYBl9K//zmVZGY5qHu0fhq0EbdYSVwoa+V5BDdoLV/g2Ka1bvotXzODGa2ewXVk965xkWCxUGXBoqHrCLBqWvDSbV/RWjqZeSAHI0FzJwiaCH3jwzKjABh+BaFhdArwDsegkYKFWYR6cHzmBhEArswcAjmR+JQZSU3d2o5zAvBRxXMe0j7HTml6E15tzx5DWCMm9D/0FLC1A7weBnQNQK9TBa0s/uAEoZRVXmo1mkt3/G9B5fRO3NC0xqYPiBS8gDPaRKFjis8Y=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY3PR01MB11797.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(52116014)(56012099006)(11063799006)(18002099003)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?mX8GX11ZGyiBj/eN8Tf/nXX37w2p63Pe/8zecDQsGStzOTkSECtBiL47WAJ8?=
+ =?us-ascii?Q?46Iy+0JFaWUBOjZuR4MKNSmzhoqedlmF5CGQiZT5dBlgRzDKhmZ6yIvhhwJR?=
+ =?us-ascii?Q?T31+gzUmYjM4+eTAvIDbqEqMD5/oRoAOgYGJNmxSrAm2g8j1N/thJw2hXon0?=
+ =?us-ascii?Q?XBQbgp82HqQiKqQ+gXylAL9HFG56wiP4MmqhOiKH3Zghyzh4Hgg64mIBHtkP?=
+ =?us-ascii?Q?AK++bvgyWp/hETBD6SpuOWylvdYIbISBhRuaCt8tJcn1mLpd2jLjNwcqtGzT?=
+ =?us-ascii?Q?1f3k8g8CKSfzTv5AI/G/TgTRnSdF5pzfhHYgGC60v+0Qi10RBcLv1BKjXPh2?=
+ =?us-ascii?Q?bTUOpIepkoNeYddcZRd1x8S0JpvfENmYtb6CR4Da19p7fFGyGMZEP9BsPett?=
+ =?us-ascii?Q?uMf+qSxQEd1hnFIQtL2/8zdHj5CdUxNYGgp5uyz4FmdgBWOJgb7ONlVPR6CJ?=
+ =?us-ascii?Q?u8UqyUeSC84eKz6XYRSiFi59ms6T9PLq6Fa62rN/v55qutIzhPGGhRvVdGey?=
+ =?us-ascii?Q?zHDV9TCsG8L9WHSrW+KtIcfAvQJwVR01O4R2DPiNB7eZHzeCc4JsE6S3mT4F?=
+ =?us-ascii?Q?EH4NtvbNTF2Ii0YxNfuEDYYogOrGTQeupE6oSLhdKun9bRTXWL+e3/+3ZNXR?=
+ =?us-ascii?Q?YKQC4uFRe3yIOK4PvwSmuoTICGA3uzKj9GmW/kzgIjEzyNiiJeUL1CWMe+Ji?=
+ =?us-ascii?Q?g8Sb2kg0gDpmsZWvxPbh/KaAqxXmEgNOwohxebJcEWI9p4sp8hJOP5YAIHYa?=
+ =?us-ascii?Q?dJFe0UkTtlFH/VmcEP7zTJRBEJpVP8hhff/bfI/x+xTAY7ZBMvRWTXjbLE/W?=
+ =?us-ascii?Q?dpxTSKCnRlvYp/DBPB52fw4su3VRFV7a9rDgdtXXr7X9OB3wXw56eb7CLFEy?=
+ =?us-ascii?Q?GF0EwMacqA4f5zyO15laR2UEIPF8R9iHPvaweMCJvyn/rFGVMpTHcCVN4sfV?=
+ =?us-ascii?Q?SDHc4cLR0ZiV8ljb0VYzb7Ca5E4DFAUmoIlHC7xt9Xhiix3BUsxGwyup/7vy?=
+ =?us-ascii?Q?kG7df3V8lUdHvgt5CZ0bHDS/TgBctMSeFjAUD9F+Xr22n0QwBG0Cjre7IlzT?=
+ =?us-ascii?Q?2I2tf+SP06i2M/n0TNjRgcbs4qtBuVqIGAbx7HkxmZLAtEt/YfN4YQfa/DNK?=
+ =?us-ascii?Q?2ggW31hRhuEjHAQxsjE+R/Cx/GpKZmk67zurDYqswIZ3wHMfXmBspryxN2bV?=
+ =?us-ascii?Q?tf5XAle7ElojE8T4Z7jVIp9vrxSYC6n4obhunyQHgBWRtId2rPgqytjK9pCq?=
+ =?us-ascii?Q?7GvaPjptpsJRz1kmohQKTJgruXixgSAW+/X7NxoxX+fEjoMgV68nlGq/E90X?=
+ =?us-ascii?Q?3ABLeawDXO7jLSmLdtYdXeaLiEiDdyUL+wSwL/vQwMpnrMy7QFuPxJg4tZL/?=
+ =?us-ascii?Q?eUrOPHC4EkE6D1bwI47eJrzSTdyGacuW2erOrcqlmOX5h0f+iEYHbfsX76nA?=
+ =?us-ascii?Q?bUR6o4eOT2AwYPLH9v+461DXn0FdjqQ2oRCznQzXYRemXRJt1KOhP0Bq1Ilo?=
+ =?us-ascii?Q?48wJDIbboauiAEBfKPeKUQrzxjMJqeusMAzfQ7Y5Gd9MYBklMsgJduHOTI26?=
+ =?us-ascii?Q?op2y768mXC6J67/tCUTXwVI6jkHf3yT4N4BkP2wi4LLUDrvJc4XLjmlj32ke?=
+ =?us-ascii?Q?ueZ49uXPT05/2nK9fTbuxj8ctyzSlKv4T9ofvvW98VoOp3aPeMHmoGXIWPqS?=
+ =?us-ascii?Q?RUSnK3b2Rf6+kyHE3qVZXMz0nUDiakQ954obsAnjNjb7VXNpk7XT2oit0x4B?=
+ =?us-ascii?Q?Y0hRsc8hgqRi3U7FKAfD/eHDU9iZRtioXuqX9XdgyBK6VgQ9sw1t?=
+X-OriginatorOrg: renesas.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5e0645d8-d7b4-4e2d-6112-08ded7387e69
+X-MS-Exchange-CrossTenant-AuthSource: TY3PR01MB11797.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jul 2026 06:17:57.3872
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vcLG3qWU9H8zycmL+yyYGD5IgnkjUtnyvCHp8LfOjWifgjCFosOnjLgMh41jySP4bST5Cb9nX6Gc/7218tal2WmM1MOG8+Uo1YcP/9V5FHGptwQLD+s4j0W3mcyYTr83
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYRPR01MB12462
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260630_231120_669404_04611CF3 
-X-CRM114-Status: GOOD (  29.92  )
+X-CRM114-CacheID: sfid-20260630_231806_758139_B9A08D70 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,126 +131,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Florian, Pablo,
+mt8173_rt5650_dev_probe() has strange error message
 
-I'll leave it up to you - if `br_netfilter` isn't the right approach
-in this case, then we can drop that series.
+=>	ret = device_property_read_u32(...);
+	      ^^^^^^^^^^^^^^^^^^^^^^^^
+	if (ret)
+=>		dev_err(... "%s snd_soc_register_card fail %d\n", ...);
+				^^^^^^^^^^^^^^^^^^^^^
 
-Before your reply, I wasn't familiar with Eric Woudstra's
-"bridge-fastpath" series - thanks for the tip.
-I'll take a look at it and try to build on those patches.
+It should be "device_property_read_u32() fail". Fix it.
 
-Thanks, and best regards,
-Dan
+Signed-off-by: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+---
+ sound/soc/mediatek/mt8173/mt8173-rt5650.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/sound/soc/mediatek/mt8173/mt8173-rt5650.c b/sound/soc/mediatek/mt8173/mt8173-rt5650.c
+index 3d6d7bc05b872..8c5096482520a 100644
+--- a/sound/soc/mediatek/mt8173/mt8173-rt5650.c
++++ b/sound/soc/mediatek/mt8173/mt8173-rt5650.c
+@@ -315,7 +315,7 @@ static int mt8173_rt5650_dev_probe(struct platform_device *pdev)
+ 					       &mt8173_rt5650_priv.pll_from);
+ 		if (ret) {
+ 			dev_err(&pdev->dev,
+-				"%s snd_soc_register_card fail %d\n",
++				"%s device_property_read_u32() fail %d\n",
+ 				__func__, ret);
+ 		}
+ 	}
+-- 
+2.53.0
 
-wt., 30 cze 2026 o 10:45 Pablo Neira Ayuso <pablo@netfilter.org> napisa=C5=
-=82(a):
->
-> Hi,
->
-> On Tue, Jun 30, 2026 at 08:57:30AM +0200, Daniel Pawlik wrote:
-> > This series adds L2 bridge offload support to nft_flow_offload, allowin=
-g
-> > bridged IPv4/IPv6 flows to be accelerated by the flowtable fast path
-> > without requiring L3 routing.
-> >
-> > Background
-> > ----------
-> > Hardware flow offload engines (e.g. MediaTek PPE) can accelerate bridge=
-d
-> > traffic but require that nft_flow_offload detect and handle bridged flo=
-ws
-> > differently from routed ones: no routing table lookup, MAC addresses fr=
-om
-> > the Ethernet header, and VLAN context pre-populated from the bridge por=
-t.
-> >
-> > v2: Fix missing Returns: tags in kernel-doc comments for the three new
-> >     bridge helpers (br_fdb_has_forwarding_entry_rcu,
-> >     br_vlan_get_offload_info_rcu, br_vlan_is_enabled_rcu).
-> >
-> > Patches
-> > -------
-> > 1/5  net: export __dev_fill_forward_path
-> >      Refactors dev_fill_forward_path() to expose __dev_fill_forward_pat=
-h()
-> >      which accepts a caller-supplied net_device_path_ctx, needed to
-> >      pre-populate VLAN state before the forward path walk.
-> >
-> > 2/5  net: bridge: add flow offload helpers
-> >      Adds br_fdb_has_forwarding_entry_rcu(), br_vlan_get_offload_info_r=
-cu()
-> >      and br_vlan_is_enabled_rcu() to expose bridge state to nft_flow_of=
-fload
-> >      without requiring inclusion of net/bridge/br_private.h.
-> >
-> > 3/5  netfilter: nf_flow_table_path: add L2 bridge offload
-> >      Core of the series. Adds nft_flow_offload_is_bridging() detection,
-> >      nft_flow_route_bridging() which avoids nf_route() (fails for
-> >      bridged-only subnets), MAC/VLAN pre-population for bridged flows,
-> >      and a dst leak fix. nft_flow_route() becomes a thin dispatcher.
-> >
-> > 4/5  netfilter: nf_flow_table_path: handle DEV_PATH_MTK_WDMA in path in=
-fo
-> >      Fixes zero-source-MAC in PPE entries when a bridged flow traverses
-> >      MT7996/MT7915 WiFi WDMA hardware.
-> >
-> > 5/5  netfilter: nf_flow_table_path: add VLAN passthrough support
-> >      Records VLAN encap info for passthrough-mode bridge ports so hardw=
-are
-> >      offload entries include the correct VLAN tag.
-> >
-> > Rebase note
-> > -----------
-> > Originally developed against OpenWrt pending-6.18 patches by Ryan Chen
-> > <rchen14b@gmail.com> and Bo-Cun Chen <bc-bocun.chen@mediatek.com>.
-> > Rebased to current upstream: path discovery infrastructure moved to
-> > nf_flow_table_path.c in commit 93d7a7ed0734 ("netfilter: flowtable: mov=
-e
-> > path discovery infrastructure to its own file"), so all netfilter chang=
-es
-> > now land in that file rather than nft_flow_offload.c.
-> >
-> > How to enable bridge offload
-> > -----------------------------
-> > 1. Load kmod-br-netfilter so that bridged IP traffic traverses the
-> >    netfilter forward chain.
-> >
-> > 2. Enable netfilter hooks on the bridge:
-> >      echo 1 > /sys/class/net/<br>/bridge/nf_call_iptables
-> >      echo 1 > /sys/class/net/<br>/bridge/nf_call_ip6tables
->
-> This requires br_netfilter which is a no go.
->
-> Sorry, but we should really target at the native nf_conntrack_bridge
-> support.
->
-> > 3. Register bridge member interfaces in the nft flowtable:
-> >      table inet filter {
-> >          flowtable f {
-> >              hook ingress priority filter
-> >              devices =3D { eth0, wlan0 }
-> >          }
-> >          chain forward {
-> >              type filter hook forward priority filter
-> >              meta l4proto { tcp, udp } flow add @f
-> >          }
-> >      }
->
-> Yes, but br_netfilter makes no sense for nftables.
->
-> br_netfilter was made to fill gap at the time ebtables was lagging a
-> lot behind iptables in terms of features. And getting ebtables on pair
-> with iptables in functionality was not feasible either, because it
-> required many new extensions that were specific of the bridge family,
-> which probably was not a big deal, but it also required to get
-> the ebtables command line tool on pair with iptables userspace, which
-> has received more development attention/effort that the bridge tool.
->
-> All of this does not stand true anymore with nftables, where the
-> bridge family capabilities are at pair with the inet families.
->
-> I am looking now at the native flowtable bridge support, I will get
-> back to you with updates.
 
