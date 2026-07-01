@@ -4,72 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBFEBC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E55DC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 16:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1EJKo9UZk1nbA1V5e3Sc7KHXAi+s10Fhy29nL6iSjQY=; b=MWAn0JlTSQSaR3691ETNg/uTb8
-	h57pVQ/6uNxKGaIZz+CscWYSTZ6fcr9eaXgbrV9WNmHCb+dBbGOcBYkwtixYHzLSiQeUK2AVaw2tO
-	M5nLL1OXtxVj3l6Ci2s61PLhtTUT8VP1ZdHk3mUSDN34yTcbHmpvJA38t8r1ZjUk9ux0e1aqjMS0Z
-	5VgC7MQG8Bs8fQHokKiSvbzQWfbIugp1LoV6ymglxfdoy0Ai6e+wHeC+PlvOa4NHz/aph+b6fI8UD
-	MrNfUOLjMf95x+7PQ3UrW/XD68pL7NTFLr52l5/M3cDiKQMk8g47akF4TUwY8YPpEJGUuGf7IWvCb
-	ZyFL6iqw==;
+	bh=/atnhhyuiyaYGTIs6tPwLh1U80J42TytoTU+U9u2siY=; b=V8qpc/3ANsb+8D8P62bKXjfsXx
+	YXn3G5q28+FDsiWKGKLm9+54E3WhVeRriLDp4F8msNnf1pWTOBfXjvhd7f7TLhIGs5247tcVvzf/x
+	mIloAtbQYIG4xwpAKKtYC88AJrXiKUVTROOprf9T0ZPlSxc8rOL36+T/B4Yo2LvWB2IQiA4G56aYm
+	17KO3TLz52+ZzbeVyl8YLsm4OoWw5uOge48YpXNzMVspSkP93upz68DOrYbLuMgFXJFu/HnMTzd1h
+	18jdpemJGqi98XbDCg38c0wPrF9HkT+JT1KFiR3ly6SP5SNRKDqKRz/rmaFwEzy7rmSKg6n+1ZQOQ
+	RzTLXTLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyE1-00000002d0l-3LGU;
-	Wed, 01 Jul 2026 16:55:49 +0000
+	id 1wetwy-00000001veC-2Dfc;
+	Wed, 01 Jul 2026 12:21:56 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1weyDz-00000002cxQ-1JKn;
-	Wed, 01 Jul 2026 16:55:49 +0000
+	id 1wetwO-00000001tyT-1Dp3;
+	Wed, 01 Jul 2026 12:21:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782924945;
-	bh=y7gtTI0ydq98AZsQ2d7PtGJojxoKiDUQ/aGW+YI8xuU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=D1Ra6Y3ScH0xOht1DNftMgZndiCg7oBVferRNeiE0ZrnhpWK4ZS6UzHCCJKys6PMJ
-	 bzbyH2rTDQ3wyiq+hanKMiRfUyGfVHTWovIDIPuufmE9QOQP3vtYd0ge79mwOVPRer
-	 Gb470Q/pgc/EWeKmR6du/ANew24kWcsFF5tGSyY6XV4uyVOIdjwcBwC+OBxmejgcOw
-	 GbXJD3tqTuDgpTkH1Ug5GzfC09goJS4/SDh3jxX0/U9tuTt0/IOm4PKqJYl+FIhChK
-	 aMB1sIcM8cGSrm9Ps/ZvNWEyiLVPOL4FkqXJwmue4zHSI6B2rho99CxRwIBFr9Am98
-	 7t2asgpe4Ft0w==
-Received: from [100.64.1.21] (unknown [100.64.1.21])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	s=mail; t=1782908477;
+	bh=zDQHO31YQESRyD5xPDjrqaWl4NdzeVv2+s5rGc4p7JU=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=neMY8j8NzNnXKb+pceojq+utU1dk5ofiAfq5UidcKHaFDRTjA/Ppw2caW6YpeuufE
+	 2tTtstzje1E0v95Ylp9iXUn8+SCKSuB4q6tN8zt5+MD2MjEvsfIq+vNUpaUj6d2aJC
+	 mxyISD9SBGOLQ8w74kqtwSIvPKsYAiBse5pSiV7Hr+ihJdCyNYShL2zduS0ao7D4rc
+	 nZws0dI0DMUqaHjSQJM8NyNfh4FNDz9aqF5XR8RrSfkmjwyKOmeU1QmkzjL4w3Xf9d
+	 Yx9rHH+n0aRGoJ1/vfLDYB3omAJiYqdFPPjPC/09p9zIhu2g/oH0rz2evdXhpa5gQL
+	 TQnIAekgR3GXw==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D93D817E0CD4;
-	Wed,  1 Jul 2026 18:55:44 +0200 (CEST)
-Message-ID: <94632030-6204-4403-af8c-13aca3916857@collabora.com>
-Date: Wed, 1 Jul 2026 18:55:44 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: serial: mediatek,uart: Add compatible
- for MT8189 SoC
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260701-add-mediatek-genio-520-720-evk-v2-0-19d5da4ef984@collabora.com>
- <20260701-add-mediatek-genio-520-720-evk-v2-1-19d5da4ef984@collabora.com>
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BE01717E0CA2;
+	Wed,  1 Jul 2026 14:21:16 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20260701-add-mediatek-genio-520-720-evk-v2-1-19d5da4ef984@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+To: chunkuang.hu@kernel.org
+Cc: p.zabel@pengutronix.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	justin.yeh@mediatek.com,
+	jason-jh.lin@mediatek.com,
+	kernel@collabora.com
+Subject: [PATCH 13/42] drm/mediatek: mtk_hdmi_v2: Don't warn on RPM active during detach
+Date: Wed,  1 Jul 2026 14:20:28 +0200
+Message-ID: <20260701122057.19648-14-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+References: <20260701122057.19648-1-angelogioacchino.delregno@collabora.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_095548_371949_FB4A7145 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260701_052120_574748_606E866B 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,14 +89,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/1/26 18:35, Louis-Alexis Eyraud wrote:
-> Add a compatible string for the MT8189 SoC.
-> The UART IPs in this chip are fully compatible with the one found in
-> MT6577 SoC.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+The Runtime PM may be active during bridge .detach() and this
+happens especially at boot, when probe deferrals in the display
+controller driver happen.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Even though it looks safe to assume that RPM has to be inactive
+at that time, this happens to be true only if the DDC was to be
+handled internally (like before .hpd_{en,dis}able() existed).
+
+At this point in time, this driver uses HPD callbacks, and for
+HPD to actually work it is necessary to raise the RPM refcount
+to wake up the entire HDMI IP: since it's not granted that the
+HPD or other children of the HDMI node are disabled during the
+display controller probe sequence, the WARN at bridge .detach()
+time may trigger (and will do that when mediatek-drm defers),
+unnecessarily bloating the kernel log, as the RPM refcount will
+be decreased anyway when removing the driver.
+
+This is why the WARN(pm_runtime_active()) check during detach
+is simply a development stage leftover: remove it!
+
+Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+index 7bbf463056c9..0cc80e80ae26 100644
+--- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
++++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+@@ -995,8 +995,6 @@ static void mtk_hdmi_v2_bridge_detach(struct drm_bridge *bridge)
+ {
+ 	struct mtk_hdmi *hdmi = hdmi_ctx_from_bridge(bridge);
+ 
+-	WARN_ON(pm_runtime_active(hdmi->dev));
+-
+ 	/* The controller is already powered off, just disable irq here */
+ 	disable_irq(hdmi->irq);
+ }
+-- 
+2.54.0
 
 
