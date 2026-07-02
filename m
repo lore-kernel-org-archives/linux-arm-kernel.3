@@ -4,90 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21439C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 18:55:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9820DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fNS4tqccb04+QtS0h43Z588lZs7oUTCl9VD/wpTFlbQ=; b=41W7E59vZ4QB2RMZC6bhLmoFLb
-	UWyDwf818gc15K83z1tj40H61BGfCsWQjioCZLn3Ql0x2xc+dzC/NZrbuUDmfGHo8sa3ZZMjrxaq2
-	CK2cVDrWkUQhvhgaCMDb/aLx3cfcvax7sXqrWPH24Gp36FUHWbeP6X+ze4X9YmXFMMXi2QxFMgffd
-	D+SqQj5Eccqti9NODdXCLwJ4D2qE16BOQfw/UaOiF1JHnbRniHcKP1A1vDZiucO+GqDNwvva+z6GW
-	nRPRcQdhtKcHaphilEva/ZRP+diyNoCTwnXgYFQhL3u8UwJVZpY3hcFsHesjtseQWfTKjkfiJCinC
-	nrxKoXtA==;
+	bh=wJkyAFlBL9UguzFac1zTtX83kUekBA+QIwn1Y2uhNNY=; b=bnGSVXgeiUG+rwxhGn22CAeJFn
+	LEHtWS26MXj7peH6vP23436pfVwQ1rvhmTGUnH0wXGhdrVEzzpP7e3BLcaTBRv7fNdVZeFX2QNPA3
+	i3BR++DrYkIFMxhK99t4JKSxwQgHYXDRBeyQ33X+Zg7a4sxKnF3H9l4HOBde+Nw+fBwpjXoL/uX2L
+	KxBkfSxT0kY/MKtOUM7qBhKR3N03lQXtI2l4dgD6cyWYNlsHUhQi/3AMl8dsNMXuTcKHjIIQyJpsW
+	nUIuHpGcYPgj5yT/wEJONgFX5XwvrkA+jKFlaskFJPypnvhDEn5Yp07TGFjRSstimLY+h0vbjlGWs
+	uxsg0zxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMZP-00000005IOg-3dbN;
-	Thu, 02 Jul 2026 18:55:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfMdo-00000005Inm-0RST;
+	Thu, 02 Jul 2026 19:00:04 +0000
+Received: from mail-northeuropeazon11010005.outbound.protection.outlook.com ([52.101.84.5] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMZO-00000005IOK-1flp;
-	Thu, 02 Jul 2026 18:55:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62880601CF;
-	Thu,  2 Jul 2026 18:55:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB9B1F000E9;
-	Thu,  2 Jul 2026 18:55:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783018529;
-	bh=fNS4tqccb04+QtS0h43Z588lZs7oUTCl9VD/wpTFlbQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=NacNS6bg/nGPS5YUVw5jH76wz5YShTWSyyE8s+P9wfrl2yzgf4tTqcvZHd84S/7Dg
-	 DDaRntRlSXAQmnWC9ElrOfi+TuWSbnb7FQi3I4Te4lO1VsC4K6hrneeJsRSTr2B5hG
-	 v60VUaXomKc6i8I8XKVWIzjnJsOPFhn0XrSMskbWikxlCGMT2LKUKUChoG6CXUGT5h
-	 koccK0yAKwj+292C599zTt87zjQ+SsCFkTAFkjKlxCEFClwz47A+xtLqXaKv6pEn3h
-	 51yzH/sYvncroPFkvHbxw8GTs8sxwIWGve6jNtawVKeMepHRu8pziEf52iuZ80c7LE
-	 4SHH3bL6VawbA==
-Date: Thu, 2 Jul 2026 19:55:21 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Kyrie Wu =?utf-8?B?KOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"laurent.pinchart+renesas@ideasonboard.com" <laurent.pinchart+renesas@ideasonboard.com>,
-	"nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
-	"jacopo.mondi@ideasonboard.com" <jacopo.mondi@ideasonboard.com>,
-	Yunfei Dong =?utf-8?B?KOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	Irui Wang =?utf-8?B?KOeOi+eRnik=?= <Irui.Wang@mediatek.com>,
-	"rongqianfeng@vivo.com" <rongqianfeng@vivo.com>,
-	"tzungbi@kernel.org" <tzungbi@kernel.org>,
-	"tfiga@chromium.org" <tfiga@chromium.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"wenst@chromium.org" <wenst@chromium.org>,
-	"benjamin.gaignard@collabora.com" <benjamin.gaignard@collabora.com>,
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
-	"haoxiang_li2024@163.com" <haoxiang_li2024@163.com>,
-	"ribalda@chromium.org" <ribalda@chromium.org>,
-	Tiffany Lin =?utf-8?B?KOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
-	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
-	"fshao@chromium.org" <fshao@chromium.org>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"mchehab@kernel.org" <mchehab@kernel.org>,
-	"fanwu01@zju.edu.cn" <fanwu01@zju.edu.cn>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	Andrew-CT Chen =?utf-8?B?KOmZs+aZuui/qik=?= <Andrew-CT.Chen@mediatek.com>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"hverkuil+cisco@kernel.org" <hverkuil+cisco@kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"kees@kernel.org" <kees@kernel.org>,
-	"sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>
-Subject: Re: [PATCH v5 11/14] dt-bindings: media: mediatek: vcodec: add
- decoder dt-bindings for mt8196
-Message-ID: <20260702-parlor-disband-fdc2f049336c@spud>
-References: <20260603084045.17488-1-kyrie.wu@mediatek.com>
- <20260603084045.17488-12-kyrie.wu@mediatek.com>
- <20260603-pentagram-unleveled-8729d0003aa7@spud>
- <6cb7ae4a09d476a04ceefca50564646712ad391b.camel@mediatek.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="JdEKl3bSogEo/Lcd"
+	id 1wfMdl-00000005Iiu-0V4n
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 19:00:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xefZsPHiqWlRCZiS63YGoG8EGjr6r8FLb0xdGDLMsP5iMf5t/Mi1DyLq9vyDrfiqgsgPc8a+O8S/onB+qYm4TafFSWUo5ksa4o9PiSVZKphgbQCzEFbMNb8NgloCsXg6G3u9iqcObOeh/friBFkCV2r+y9oFCGcMyya28o89Y8YDsBCFJVy/tESmkHsbUh4jVgK7YPjLMO23++ME8mUK/AqTcCa5YzjEnW8nI/g+kCNe6OspHemDtZo1ZcbHeF11fjoHmDjfO5hCyqz1XsTzof8sIKBesqXJFbFk18sbj05VBbejIZLa0eYtcEIBZvqQywn4iaQG4NiMm84M+Gc7RA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wJkyAFlBL9UguzFac1zTtX83kUekBA+QIwn1Y2uhNNY=;
+ b=WkOOUHRSEPyCxObiD0Izc6jWzFVn4lZHdhHoZ6Ok6PwouT/bZ5gSFJz3mD4VslFJxSAzvkjS77L/gxhLacteV5DcJ3y3sRln2NUPZhPDiXEEBbDQGnFhq6uQcmpGujN9u9gTatf49q29ef/LStdORLYSJHcOA/RklYBFfHclbiaAVt0qZD7fsY9sL8zOtNuriB/m07tNlxnntq0cION0L424kXo02fW0rmhJ/PUJou8faeEonIvHotOwc8M3Y0vqOib2rgjYTS480yeHuk6JKXXMSvYhsPP8G5iUeymp3UfjTPe9HMiQT8o5VHlg/hTXByytY44FWuJQr5pxduORmQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wJkyAFlBL9UguzFac1zTtX83kUekBA+QIwn1Y2uhNNY=;
+ b=s1ZYim2k85INqrjtvDb48SvZHeWrdCphzB+Uh61+Ipk7omLtj6KwF4ZAm9Rq6TFXs4au06SiwP3qLk0+be7q1RnTRrWnSIh7I5ps9pcnuTwoneIN0nLZ/1JCGamVJbtevQwdzPz/78MoHz22Mj65kQ7fRjrYk50sfmUFBWHR4wlAfDHML2o32TWPKgkXGar8UdOvEd9EI+csz9aNq2YI/apB/VdeQQ47keJqnDyHKW2zGFWzNUlLjgns5bOTXjdpu0RJ+ZY3blPWmkO3HUwDgygokRPjlST5cshIL+mV8utAF0CkT0AgjYeFLyALK0ccr4OMOCnHa1laHZA91NFMTQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by DU2PR04MB9194.eurprd04.prod.outlook.com (2603:10a6:10:2f9::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Thu, 2 Jul
+ 2026 18:59:54 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 2 Jul 2026
+ 18:59:53 +0000
+Date: Thu, 2 Jul 2026 13:59:44 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	Guoniu Zhou <guoniu.zhou@nxp.com>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v7 2/8] media: subdev: Add media_async_register_subdev()
+ helper
+Message-ID: <aka1IHI3ar8FS0ei@SMW015318>
+References: <20260702-imx8qxp_pcam-v7-0-b47d9e363400@nxp.com>
+ <20260702-imx8qxp_pcam-v7-2-b47d9e363400@nxp.com>
+ <20260702161519.GI3534761@killaraus.ideasonboard.com>
+ <akapt6v_DBJSAnj0@SMW015318>
+ <20260702181920.GJ3534761@killaraus.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <6cb7ae4a09d476a04ceefca50564646712ad391b.camel@mediatek.com>
+In-Reply-To: <20260702181920.GJ3534761@killaraus.ideasonboard.com>
+X-ClientProxiedBy: SA1P222CA0077.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:2c1::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB9194:EE_
+X-MS-Office365-Filtering-Correlation-Id: e47510ba-ef2f-4955-3aeb-08ded86c1996
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|19092799006|7416014|366016|22082099003|18002099003|4143699003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: R0d/VAxblMc1WSfqHxGjdVKMqquOFPzIsoeHds8p+F7n6sPDt3YiKd+XXuE5ON2+jFZJZqjjSlpb/KF9QKyU5M5MSfevX5gfup3P+W2BKDlwjKgirV+pHbzItwRm6gCoWv6l6CQAh97P3+MvpGRrqf9hVoXwXFwmJgN1QNL0Nlb071qIPOYgt4hIpKu7wvazNJnHQiqrgYDhiEzOsq9umF2+KHQHm1nG4tLUHSm84y9H2n5h0QF+eznxwD0gN8vcPeOvCo3o302tLyhImXEXd/jJku3Rd8w0Ql+yPhFx2Jp6t7gIHsxOh9UWMBtbYvN9N1BgzN1u8KZCkHx1WikvJtlcEqB/4S3IDyUCF74F409o8oRe6BOnDMO9NR/7mSl2O/+b/ogqp14E6ohFR3M72l7mXprf+fJGu9CDhsDyEpyUwOD4x2xII6HMP/C6ev+Mw/x1T4qtFQBezMiD5iB4uRqL+meqkHRWZIc4Nx5qxUYyBuh7qY85f62YlNW5dUqjVFzs+cRgbv4bfvt3oeN9l+mV97XNxzvEPmDc4aZC5Q4ti/pZQE+YZidX5rBPuvvG7Fju1h9iDlzvJ6/FDUOOs8vM/2UeXbHzpt1Dy4QHsy7j6ezvf4mc79iJNaMV6eHxnDQ83Eh5Iuo/6oLjqB2D130m/GSP85rchgtkvKdFe14=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(19092799006)(7416014)(366016)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?25v3w16HdBAyXQIIO77aDGsR6wJxcKfjHAl2wEyTZWi3fVFTppVNRJEl7ucN?=
+ =?us-ascii?Q?m8lFvLa2I1D7YgKSWWbkQ0u+6Pf2fYeCYwbwvxqTLot1O7kdv2AgS7Mj0afq?=
+ =?us-ascii?Q?Uj7VZuBJZZevmatUI5sDNNiBsLj7vFMLbJ/xczTWs/LOTKURi3uMYPo5+z9H?=
+ =?us-ascii?Q?lCYhh2ky1URiNLiHZ0qC3+Geee64GL3coJJPB8DaI22q0A+XNfwfU0tPKBmU?=
+ =?us-ascii?Q?OQW338wefFtrkeWgcD0wBz8bgFPEsVocQBP3X7FkyX8OOAM+o0ljavRwAe4Q?=
+ =?us-ascii?Q?dKsyiIDbm6ZVmniH8QrYOgxD88lSqFr+j7hjuToUsiwBzeu55CHtMuLCpLX5?=
+ =?us-ascii?Q?JZG9KHwSrGmxIIoyeXHceTE/DdaHl9SuVTid3YEGdp/eJOT+0z/uOFCCBYye?=
+ =?us-ascii?Q?snqIVfuamuVbcMXExKG2EBO5hhxwbQXjM50TOSEn5Dp8hCf1It1PfnbE7c0w?=
+ =?us-ascii?Q?AEwiwk8qY8jNN1yFroZn/h42hYFso0jzDmxX7NEir9koDkjhRO0piwU4lWRP?=
+ =?us-ascii?Q?E5L8UP9OB+3ngYBa5QzAm7rEabETtkRGrxxG1ivPH4gsUq/N9vl0tFzS2AWZ?=
+ =?us-ascii?Q?sOrGMLXh91pdm6JngbAdSoxxY6gKPuOcMWxC+2G2UnhcX1SmC0KrteKT+JzZ?=
+ =?us-ascii?Q?lWC03CzySKPKujfgBaNBwR7LSuDN5R5zcd9Codha6rMYkaWzSdwmAkDe6aiU?=
+ =?us-ascii?Q?UtS2mSwN7PcvnT7o+suNIQDn01YPcCvQOxc6obn15bNgl5ib0nwpMY6iRwEw?=
+ =?us-ascii?Q?BtyTJgRrLb8oiBrHAzBJAwkdq9p1dfq2s9GFh9XPzpjcWvaKposC/E8XeIja?=
+ =?us-ascii?Q?EY5iYZLTVtqIbuzXxATh+OyQGGEqQ4y7QpflgttxxDBQf53+W40UryGcUGwF?=
+ =?us-ascii?Q?LCPviupQOxPDAlSK2r/UBIBQbkBhA+SuFXzSOHrS7HgODhW3R/ezz9lBOT4/?=
+ =?us-ascii?Q?GkgLpcdYSrvlOJtQ7q7CC1xXCfd+sL3TJgBfD16nHkuw6vGXihaixLFpDHuN?=
+ =?us-ascii?Q?HusgBTz61HVjaIv1Ye4b/2ls87+0lglickkd/oR7EZFrEWFOfsgfD3PACrEm?=
+ =?us-ascii?Q?LhFv+whIbDSPyyq7XS1PO57FQbETVIlqVf8YNpZyjzXz0qXNYZCSzlTIN4L5?=
+ =?us-ascii?Q?4LXSaq05a3IdTTCtWOnICr/zJ+59rzcmPQH6baGCBfUD7sZQKVAF8PhmUKL0?=
+ =?us-ascii?Q?Mt/s+HDjPCM35b4w2l6blIks4qQ/MLmvECrs/B1BaGBKzZBwqzb/Kd2wlE41?=
+ =?us-ascii?Q?Km5ng1OPTmBB+FF42CksJcWduIxS5MQjZOpuJZ9+cEnlF8KCr+Gn0AzzmjlR?=
+ =?us-ascii?Q?4HLs4+Gj0vjkACHZvxsF8wVH+UZ3a06Is9AoMCOhEYJmzjTRg408B5taftmW?=
+ =?us-ascii?Q?K7tZD9l2zHn5NVFlLxI46vaGzCH8sItM5UKwiHszV0SnkPChOjYuRrXJDNtM?=
+ =?us-ascii?Q?LQblKFdY4eb1/LWFAzrkJF5slLQMoJddD+Rpdeq80ElEZ4O27J4186faoH/W?=
+ =?us-ascii?Q?5PvTDocVYHGoeQA//aXfkHtXdT9GJ2CWU3y16tJNZ5V1DsEBwyN06wxF0zg8?=
+ =?us-ascii?Q?GOY2cpuor7RUg/YrZ4LWpQYhY3wWt0Isgorum6laFoHDgtN60Y1xllxbIDCz?=
+ =?us-ascii?Q?lkzIXogg339qGExKMu3rP99oDvS/SaQ/pk77zPJ+UaWgreqEzzjGXXtukqse?=
+ =?us-ascii?Q?1R1RnFHgufSIl5R3HOVClbqIpjSbaPlqhxAH1+32LyYA5KVlhD1GyIVj+qyD?=
+ =?us-ascii?Q?Jv6JhuTtV2fycXimR8CzKhqnmCf4kgFq+c3+vvb/CceNctjSxEHm?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e47510ba-ef2f-4955-3aeb-08ded86c1996
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 18:59:53.7406
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 7wO7jDaWNyKidJ8NMuKCzTKy35iNwoJ/9q/23P32MX9kcckxy2eupy0FFc9ljjAV8pup31xWl+XNJDh6rLnz8M3LDScTqps29cgjj1YSlgF9ibD9BGf+6uyCeDmVlJWk
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9194
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_120001_165882_63FC75E7 
+X-CRM114-Status: GOOD (  18.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,93 +154,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---JdEKl3bSogEo/Lcd
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Jul 02, 2026 at 09:19:20PM +0300, Laurent Pinchart wrote:
+> On Thu, Jul 02, 2026 at 01:11:03PM -0500, Frank Li wrote:
+> > On Thu, Jul 02, 2026 at 07:15:19PM +0300, Laurent Pinchart wrote:
+> > > Hi Frank,
+> > >
+> > > Have you missed the comment in v6 ?
+> > >
+> > > https://lore.kernel.org/all/20260629084654.GB3054459@killaraus.ideasonboard.com/
+> >
+> > Sorry, I forget emphased it in change log.
+> >
+> > "For the reason stated by Sakari in patch 1/9 (dependency from MC to
+> > V4L2), I don't think a "media_async_register_subdev()" function is a
+> > good idea."
+> >
+> > The reason already NOT existed in v7, I removed v4l2_fwnode_endpoint from
+> > media_pad. So MC will not depdent to V4L2.
+> >
+> > So this comments is not suit for this version.
+>
+> media_async_register_subdev(), with its "media_" prefix, appears part of
+> the MC API, but it operates on a subdev. At least the function name
+> should be changed in my opinion.
 
-On Thu, Jul 02, 2026 at 05:39:24AM +0000, Kyrie Wu (=E5=90=B4=E6=99=97) wro=
-te:
-> On Wed, 2026-06-03 at 17:14 +0100, Conor Dooley wrote:
-> > On Wed, Jun 03, 2026 at 04:40:41PM +0800, Kyrie Wu wrote:
-> > > From: Yunfei Dong <yunfei.dong@mediatek.com>
-> > >=20
-> > > The MT8196 decoder differs from previous generations in several
-> > > key aspects, most notably in its use of VCP instead of SCP.
-> > > Additionally, the MT8196 enhances codec capabilities by supporting
-> > > HEVC Main10 profile decoding. To accommodate these hardware
-> > > changes,
-> > > the binding constraints specify a total of 12 clock inputs,
-> > > consisting of 9 decoder clocks and 3 VCP interface clocks,
-> > > along with 2 power domains covering both the decoder and VCP
-> > > subsystems.
-> >=20
-> > I'm pretty pretty confused by this statement about constraints, since
-> > there's none added?
-> > The vcodec-dec node doesn't even seem to permit clocks at all?
-> >=20
-> Dear Conor,
->=20
-> I apologize for any confusion my commit message caused. What I wanted
-> to convey was the hardware differences between the MT8196 and previous
-> ICs. If you feel that the VCP and clock information are not suitable
-> for this location, I would like to rewrite the commit message as
-> follows:
-> Compared to previous ICs, the MT8196 supports a 10-bit decoder and has
-> a decoding capability of 4K@120fps, using a dual hardware decoding
-> architecture of LAT+CORE.
+Name is easy to fix. The key is if the overall direction and method is
+good enough to go futher.
 
-Sure? But your comments about the constraints are odd and I do not know
-if that means you omitted changing constraints when you should have?
-For example, using lat+core only permits you 10 input clocks but your
-commit message talks about 12.
+Optional naming here
 
->=20
-> Thanks.
->=20
+v4l2_async_register_subdev_with_created_pad()
+v4l2_create_pad_and_async_register_subdev()
+v4l2_async_register_subdev_from_fw_ports()
+...
+
+Frank
+
+>
+> --
 > Regards,
-> Kyrie.
-> > >=20
-> > > Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
-> > > Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> > > ---
-> > >  .../bindings/media/mediatek,vcodec-subdev-decoder.yaml           |=
-=20
-> > > 1 +
-> > >  1 file changed, 1 insertion(+)
-> > >=20
-> > > diff --git
-> > > a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-
-> > > decoder.yaml
-> > > b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-
-> > > decoder.yaml
-> > > index bf8082d87ac0..74e1d88d3056 100644
-> > > --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-
-> > > subdev-decoder.yaml
-> > > +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-
-> > > subdev-decoder.yaml
-> > > @@ -76,6 +76,7 @@ properties:
-> > >        - mediatek,mt8186-vcodec-dec
-> > >        - mediatek,mt8188-vcodec-dec
-> > >        - mediatek,mt8195-vcodec-dec
-> > > +      - mediatek,mt8196-vcodec-dec
-> > > =20
-> > >    reg:
-> > >      minItems: 1
-> > > --=20
-> > > 2.45.2
-> > >=20
-
---JdEKl3bSogEo/Lcd
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaka0GAAKCRB4tDGHoIJi
-0gcwAQCtMtUoW/cbg4OpVaaf+u+0oq30lr9mkXMb60IDpSgRaQEAsdk2ey0KDekc
-nYS63SVumLqJUdoy4hxVqlFifZehUQo=
-=16wN
------END PGP SIGNATURE-----
-
---JdEKl3bSogEo/Lcd--
+>
+> Laurent Pinchart
 
