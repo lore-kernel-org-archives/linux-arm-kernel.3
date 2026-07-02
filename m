@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D105AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35029C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lkRmJfjduZK9IpL92pMpmu7hELRF8zY2e5+CUCrWXcs=; b=Xg8TuGMh+sfc2EOkx3yilnEd5x
-	AdxZ6dQDqVGMxfPdIUrU9lbHzBC0/wTiYz1zyN4QuSMZvazyy/nQBSZW74cjUueerQW1RqKnaqX/4
-	kr2raGBbKFUwf0IRY9ftSXu7uRbdhhx6hLGHxmUnEQev+bJJrxRIl61+Mnqd+qGxm2L8brr5rzRcK
-	2HEjX1TcM0USpOuhGkfnNTxak6A8OJHieB9tmuG3MrcMqWKNr1SrEQzrouv0ClLI7x6EYWGVuczq2
-	5peeBfc4H0MmIDxhot7IUYpxfb3FszHwyxOuZj9kj/E0HxLtLiRTiWp40ubDQnDar+w7DVgf8+0fN
-	d+bwvDag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RvPGrV8NE4JxDz89/TlgY36u3wEzVwPRYMNH7LCnBU0=; b=lLbZFEUwov8Vi9d1juqli6kyUX
+	1zTdlRaDMqPkDYkizsvA5Mt3F/8YpvtjrWfvDwWPZmpvQpzG+9fsZd7ZNn4rIfa0lnYSD0HHoF9p7
+	Iyh2GPUL7sNW4+naD4ljO7v2Hs6rN/d8R8R08JOIc9FIh+ny6C/hS4Ua+KDc9AcEDp5WWfy8aRyb0
+	FVhEoOQLXCEkDTdBVxavPvQRnbrjOA0NZtY1cq8CA6sSNM4GsMsUpmkHgXumbU/hw5jBcua4/E8o9
+	Ie7R0rMNeSV7RVFf95XeuYhmhanRX2LmaCLY0N03FBYhlzh44PAWy6zs/Up+Jq4tpkRn+n+Za8hAo
+	z6877GPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsU-00000004uDW-2qrF;
-	Thu, 02 Jul 2026 16:03:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfJsV-00000004uEe-0Peb;
+	Thu, 02 Jul 2026 16:03:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsS-00000004uBy-3P9N
+	id 1wfJsT-00000004uCF-1c5P
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:00 +0000
+	Thu, 02 Jul 2026 16:03:01 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9076C43466;
+	by tor.source.kernel.org (Postfix) with ESMTP id B1BFA601CA;
 	Thu,  2 Jul 2026 16:03:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CA5D1F00A3D;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67D8B1F000E9;
 	Thu,  2 Jul 2026 16:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
 	s=k20260515; t=1783008180;
-	bh=lkRmJfjduZK9IpL92pMpmu7hELRF8zY2e5+CUCrWXcs=;
-	h=From:To:Cc:Subject:Date;
-	b=XTbNbKQ+/p0h8CFLoiMLzwJChp9SYauDq9FBOQXktnbBXLGwRFtznu33HATZQ+xc+
-	 qRWpPzHQdBdSyHbxWH2n1zWPDGYg3lH9vsBUg5edBoOF18wcgfZ5HfEzpg1ITQjlTT
-	 czkcd5UD4cvu9byr2oJBHudAI9sDqsrmQJffFdsJ3OyNAlj6Xp4DK5dPfQbFJzVzDL
-	 M38chUi7n5zfSAMI3xCgvPND2HT4KE65n1jAfJPyWLQ6LbDOYjubPyxn5DQa3drMda
-	 bPv7bJUxJrIQUmS3L0iB4HoxqybK9GfAKPeYE5z1NAzKwekbmHQyKH4WeyKsI/xgyf
-	 ObCoURcQ3YkDg==
+	bh=RvPGrV8NE4JxDz89/TlgY36u3wEzVwPRYMNH7LCnBU0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=KlrCelUnYJZceEN21WvSOb/jRMKU06rbbjMSh3Mlqrh1HmoLYJG8EKqCSbtuKg0xc
+	 YJ7/98/qtH94SIS/EvIlhZ6vQo2ZKrEpD2fghuWeoAclJgHMdrhMynEB/ZFyPFQqoU
+	 euHESnDvzGpqJvvgN1rRGaNm4GMDMAK0iwUAjVMi+ZrOgZ44AQX5blMlYjxjeZ8W6g
+	 k7z5H4obH8FiG6k1snzoZQDvYFjctrNV8bbXYW8uh4kQlbxHMVr7tMRid7H4BrhPtX
+	 uxU/fCJUa4Q7KCOwfjpdZ2Ue+VxVq0Qod8bvPLvk5CkCQVky2lKB5Za7JB+OTX2/Eu
+	 PHxnRKH/ZJZiA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wfJsQ-00000000ojd-0KJS;
+	id 1wfJsQ-00000000ojd-1JvR;
 	Thu, 02 Jul 2026 16:02:58 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -57,10 +57,12 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 00/28] KVM: arm64: Add support for FEAT_NV2p1 and FEAT_NV3
-Date: Thu,  2 Jul 2026 17:02:20 +0100
-Message-ID: <20260702160248.1377250-1-maz@kernel.org>
+Subject: [PATCH 01/28] arm64: sysreg: Emit RESx/UNKN values for Mapping definitions
+Date: Thu,  2 Jul 2026 17:02:21 +0100
+Message-ID: <20260702160248.1377250-2-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
+References: <20260702160248.1377250-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -81,89 +83,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds support for two extensions targeting Nested Virt on
-arm64:
+The sysreg file is using the Mapping qualifier to indicate that
+a given encoding is only a mapping to a particular register.
+As a result, we don't output any definition, and instead expect
+the canonical definitions to be used.
 
-- FEAT_NV2p1 is effectively a bug fix for two registers (CNTHCTL_EL2
-  and CPTR_EL2) that are missing stateful bits when accessed from EL1
-  in a NV configuration. When this is present, the hypervisor can
-  avoid a bunch of traps.
+This works rather well for individual fields, but creates problems
+for macros that refer to more generic classes of bits such as RESx.
 
-- FEAT_NV3 is much more ambitious, and changes the way ERET behaves in
-  a NV environment. By moving EL1 accesses to HCR_EL2 from memory (via
-  VNCR) to a dedicated register (NVHCR_EL2), the HW can detect whether
-  the guest is performing an ERET for itself (NVHCR_EL2.TGE==1) or to
-  its own guest (NVHCR_EL2.TGE==0). In the former case, ERET is done
-  directly, and no trap occurs. Similar optimisations are available
-  for a class of TLBI instructions.
+Relax the above rule by emitting the RESx and UNKN values for Mapping
+qualifiers as well.
 
-The whole thing has been tested on an FVP model, and shown measurable
-improvements for an L1 guest (about 1.5% fewer instructions).
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/tools/gen-sysreg.awk | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
 
-Given that this isn't very convincing on its own, I have built an
-approximate emulation of FEAT_NV3 that L1 (and deeper levels) can use
-on actual production hardware. For these deeper levels, the numbers
-are in the double digit of percentage point reduction (those
-interested can look at the patches in the kvm-arm64/nv3 branch in my
-tree).
-
-Does it make NV better? Yes!
-Does it make NV good? Get real!
-
-Anyway, patches on top of -rc1 plus the current state of kvmarm/fixes.
-
-Marc Zyngier (28):
-  arm64: sysreg: Emit RESx/UNKN values for Mapping definitions
-  arm64: Update ID_AA64MMFR4_EL1 description to 2026-03 JSON release
-  KVM: arm64: Merge guest's HCRX_EL2 using NV_HCRX_GUEST_EXCLUDE
-  KVM: arm64: Drop __HCRX_EL2_* masks
-  KVM: arm64: Plumb HCRX_EL2.SRMASKEn in HCRX_EL2 sanitisation
-  KVM: arm64: Classify CPTR_EL2 as a SR_LOC_SPECIAL register
-  KVM: arm64: Don't evaluate HCR_EL2.NV on ERET fast path
-  arm64: Add ARM64_HAS_NV2P1 capability
-  KVM: arm64: Relax CPTR_EL2 handling when FEAT_NV2p1 is present
-  KVM: arm64: Relax CNTHCTL_EL2 handling when FEAT_NV2p1 is present
-  KVM: arm64: Expose FEAT_NV2p1 to NV guests
-  arm64: Add FEAT_NV2p1 detection
-  arm64: sysreg: Add NVHCR_EL2 description as a mirror of HCR_EL2
-  arm64: sysreg: Add HCRX_EL2 bits related to FEAT_NV3
-  arm64: Add ARM64_HAS_NV3 capability
-  KVM: arm64: Split NV-specific exit fixups from the non-NV handling
-  KVM: arm64: Add NV3 control bits to HCRX_EL2 sanitisation
-  KVM: arm64: Add kvm_has_nv{2,3}() predicates
-  KVM: arm64: Make HCR_EL2 a non-VNCR register
-  KVM: arm64: Add sanitisation for NVHCR_EL2
-  KVM: arm64: Add NVHCR_EL2 handling to the sysreg array
-  KVM: arm64: Add routing for NVHCR_EL2 trap
-  KVM: arm64: Add NVHCR_EL2 context switching
-  KVM: arm64: Engage NV3 ERET trap elision
-  KVM: arm64: Engage NV3 TLBI trap elision
-  KVM: arm64: Add FEAT_NV3 detection
-  KVM: arm64: Expose FEAT_NV3 to guests
-  arm64: Add override for ID_AA64MMFR4_EL1.NV_frac
-
- arch/arm64/include/asm/cpufeature.h        |  1 +
- arch/arm64/include/asm/kvm_arm.h           | 15 ------
- arch/arm64/include/asm/kvm_emulate.h       | 41 +++++++++++++++-
- arch/arm64/include/asm/kvm_host.h          |  3 +-
- arch/arm64/include/asm/vncr_mapping.h      |  2 +-
- arch/arm64/kernel/cpufeature.c             | 18 ++++++-
- arch/arm64/kernel/image-vars.h             |  1 +
- arch/arm64/kernel/pi/idreg-override.c      | 10 ++++
- arch/arm64/kvm/arch_timer.c                | 10 +++-
- arch/arm64/kvm/config.c                    | 25 +++++++++-
- arch/arm64/kvm/emulate-nested.c            | 16 ++++--
- arch/arm64/kvm/hyp/include/hyp/switch.h    | 27 ++++++++--
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 11 +++++
- arch/arm64/kvm/hyp/vhe/switch.c            | 44 +++++++++++++----
- arch/arm64/kvm/hyp/vhe/sysreg-sr.c         | 21 +++++---
- arch/arm64/kvm/nested.c                    | 14 +++++-
- arch/arm64/kvm/sys_regs.c                  | 57 ++++++++++++++++++++--
- arch/arm64/tools/cpucaps                   |  2 +
- arch/arm64/tools/gen-sysreg.awk            | 14 ++++--
- arch/arm64/tools/sysreg                    | 42 ++++++++++++++--
- 20 files changed, 313 insertions(+), 61 deletions(-)
-
+diff --git a/arch/arm64/tools/gen-sysreg.awk b/arch/arm64/tools/gen-sysreg.awk
+index 86860ab672dc7..d7f7ceb768fe5 100755
+--- a/arch/arm64/tools/gen-sysreg.awk
++++ b/arch/arm64/tools/gen-sysreg.awk
+@@ -228,7 +228,7 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
+ }
+ 
+ # Currently this is effectivey a comment, in future we may want to emit
+-# defines for the fields.
++# defines for the fields. "Mapping" does emit the RESx/UNKN definitions.
+ ($1 == "Fields" || $1 == "Mapping") && block_current() == "Sysreg" {
+ 	expect_fields(2)
+ 
+@@ -239,9 +239,15 @@ $1 == "EndSysreg" && block_current() == "Sysreg" {
+ 	print ""
+ 
+ 	next_bit = -1
+-	res0 = null
+-	res1 = null
+-	unkn = null
++	if ($1 == "Mapping") {
++		res0 = $2 "_RES0"
++		res1 = $2 "_RES1"
++		unkn = $2 "_UNKN"
++	} else {
++		res0 = null
++		res1 = null
++		unkn = null
++	}
+ 
+ 	next
+ }
 -- 
 2.47.3
 
