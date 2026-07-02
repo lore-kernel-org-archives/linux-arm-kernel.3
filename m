@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D5B7C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AD4C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/1UdJ97Bp7EXqhL2TR07gM6gIfScCTqCxI6c0EYEFwI=; b=OPA+UjUWmvUVTyI1zDX6DCkbZI
-	iZYl8dV99IsPXTtK05Ck4o2ZZhrkPPT2SGdc8LEt2kDe5vT7tUaf5ajlXyN/Ca5gRJ3u6s5wyU3Jr
-	6DAok5KowqSU4ZA3ESWW61CAesVyb2jC53dlNCR0fmsyaKB4NRQuhvEpypOmn9OZq1eaCjyyqKpcn
-	ZYkaRY2wcxzFiBMLLj53Vk9D+81a7Ow2uaoT6dU6k/Bo3HAY7DzRwkFO7ALthUx+LqKuhKMfQuWMT
-	wY22TPSuQvjQd+xvjYLU5JNo853ks3dGCFv5V/8+f3YDFAIBL6ok3quKKdEFhmUkGPni2dJ6UlmdF
-	2F/RsPTA==;
+	bh=3ZzWfhxSs7Ijv/NWxS+JT1yf5R5x2XicAoTTuuWFkWA=; b=qHzRrIxDM8EqtmG1rcfeFOpUuO
+	uegWBVXcsauCFtwpXgUH3PRStphfDLmeZHbqPm4YMiMU/ajisYPnSYq52cYqSbruVYK28bKjjsaAY
+	kw3pNnCdtfUy023UKMWGihRAXD6mPoH9nJSDzfvsio5GEp9WWNcLoewfgwXxtAF8osZtZ60+njVwb
+	oDuZ8W9lf05M72z/XJR/nUP++IoE7vQmmJ4zdLe7tFcwYKVRTRtq6AS53eul+RvUbT/adqYFkPg+V
+	MokyhczSpE3/X3JfC+r0S8to5y6v1QlUUiB6VGA2lxrLUdYKanZiQmJ0OvM08kBRVQe8duvCGS4u6
+	y693k+qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsg-00000004ucJ-1fh5;
-	Thu, 02 Jul 2026 16:03:14 +0000
+	id 1wfJse-00000004uVZ-1oTy;
+	Thu, 02 Jul 2026 16:03:12 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsX-00000004uHL-1DPX
+	id 1wfJsV-00000004uFp-3NrR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:05 +0000
+	Thu, 02 Jul 2026 16:03:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B166415AA;
-	Thu,  2 Jul 2026 16:03:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E25021F01568;
-	Thu,  2 Jul 2026 16:03:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8F60840458;
+	Thu,  2 Jul 2026 16:03:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 708E81F0155D;
+	Thu,  2 Jul 2026 16:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783008184;
-	bh=/1UdJ97Bp7EXqhL2TR07gM6gIfScCTqCxI6c0EYEFwI=;
+	s=k20260515; t=1783008183;
+	bh=3ZzWfhxSs7Ijv/NWxS+JT1yf5R5x2XicAoTTuuWFkWA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=R9yFgPqodk5pFnoAa8zckKG5N4UUu43NKBq397/iMbegaOgTq5BqV81zDx0d2vGlD
-	 QT87B7VIzQUrFmwqrh/i83/dVidA3wTc01Ug7tfx09Bol2slx/1VWyWPrY4ufHdzPv
-	 B2oWGEcAdtw+fBKi26V+XyBbdycXdRSL6JtsnKoO8XjNdaaWb7zDf3KtclSLmNXofi
-	 A8ohcF3jVIyQmtEiYh7XTGG0sS7i89EbMmXLrvyDR6igUZMJprRFC/P3HO+Jj5mkbk
-	 Vs8CUwZ78u5MRibCFswne5S7XAIABigu7YGOEQCT0es+X9hkbXFo2VZ92hWwoWNqrX
-	 eZszobUdyh6cQ==
+	b=ckQE7mhwh2oDXFxSOYBNLTkJS2b3Itkc9NeXYd8YqyOBkYNf4SbBaXT2R0WOkmUDX
+	 ZknSV+x6oRrfTJL5zhjF55FiUAMiVGWHUTaBlnVv+k1bXOiNovERSIfY6HGQB1JTph
+	 MgdI+rTNpenvbCGx4JUfljmeggDCHKeB53Ne9BmbWUcgulpRNvIlBnnXGZHTI2ef5E
+	 1G2knwCJG9k/HbYB2SaHty1rasEWQzYguJCVA85Rs/VZQROuQ2j9/TZg+uEMTiUefn
+	 0mp4Qq3YzGS8R4TmuIO2VUWMIP6lH4Z0pxo8kFxS2T5Ld/Q0qlxSwAU7VXpOJ9UQ/b
+	 mivsOjp4Wgc+g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wfJsV-00000000ojd-0sJp;
-	Thu, 02 Jul 2026 16:03:03 +0000
+	id 1wfJsT-00000000ojd-38yA;
+	Thu, 02 Jul 2026 16:03:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 25/28] KVM: arm64: Engage NV3 TLBI trap elision
-Date: Thu,  2 Jul 2026 17:02:45 +0100
-Message-ID: <20260702160248.1377250-26-maz@kernel.org>
+Subject: [PATCH 18/28] KVM: arm64: Add kvm_has_nv{2,3}() predicates
+Date: Thu,  2 Jul 2026 17:02:38 +0100
+Message-ID: <20260702160248.1377250-19-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
 References: <20260702160248.1377250-1-maz@kernel.org>
@@ -83,36 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similarly to the ERET elision mechanism, FEAT_NV3 can elide TLBIs
-that only affects the guest's S1 translation. Enable this, with the
-express condition that the guest isn't NV2 aware, as we otherwise
-need to trap these TLBIs to deal with VNCR mappings.
+Add a new set of predicates indicating whether VM is capable of
+NV2, NV3, and is in a nested NV3 context.
+
+This is going to become useful as we start dealing with a mix of
+behaviours (NV2, NV3, NV2 on NV3...).
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ arch/arm64/include/asm/kvm_emulate.h | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
 diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index b32870a5e1236..d6f432b1558f5 100644
+index 9831166695186..c562d8171d5e1 100644
 --- a/arch/arm64/include/asm/kvm_emulate.h
 +++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -715,6 +715,15 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
- 		if (cpus_have_final_cap(ARM64_HAS_NV3) &&
- 		    vcpu_has_nv(vcpu) && vcpu_el2_e2h_is_set(vcpu)) {
- 			vcpu->arch.hcrx_el2 |= HCRX_EL2_NVTGE;
-+
-+			/*
-+			 * If the guest is NV2-capable, then we need to see
-+			 * all the TLBIs, as configured in HCR_EL2.
-+			 * Otherwise, relax the TLBI traps to only TGE=0.
-+			 */
-+			if (!kvm_has_nv2(vcpu->kvm))
-+				vcpu->arch.hcrx_el2 |= (HCRX_EL2_NVnTTLB  |
-+							HCRX_EL2_NVnTTLBIS);
- 		}
- 	}
+@@ -266,6 +266,26 @@ static inline bool vserror_state_is_nested(struct kvm_vcpu *vcpu)
+ 	       (__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_TMEA);
  }
+ 
++static inline bool kvm_has_nv2(struct kvm *kvm)
++{
++	return (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) &&
++		kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY));
++}
++
++static inline bool kvm_has_nv3(struct kvm *kvm)
++{
++	return (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT) &&
++		cpus_have_final_cap(ARM64_HAS_NV3) &&
++		kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV3));
++}
++
++static inline bool is_nested_nv3_ctxt(struct kvm_vcpu *vcpu)
++{
++	return (has_vhe() && kvm_has_nv3(vcpu->kvm) && is_nested_ctxt(vcpu) &&
++		(__vcpu_sys_reg(vcpu, HCR_EL2) & HCR_EL2_NV) &&
++		(__vcpu_sys_reg(vcpu, HCRX_EL2) & HCRX_EL2_NVTGE));
++}
++
+ /*
+  * The layout of SPSR for an AArch32 state is different when observed from an
+  * AArch64 SPSR_ELx or an AArch32 SPSR_*. This function generates the AArch32
 -- 
 2.47.3
 
