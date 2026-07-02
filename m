@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F60C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531BEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:45:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+NLPZaAxLlfVoo9TQds5zdC84AWDauDAYil69mJ6gMU=; b=XC9MYkqlqVT9QX7s1x9A5QamrA
-	PPpTJ9PfG5wzaSy3bOIyaG0jJtxXsFdRqe1eOU2It2nto/lOEfOuUtDvdyg2ORc7VDthM0X6IdffT
-	KkdQFmcCKDNf5uvpveSigMf6S5npQwUG8ulCXLV8CPKbd224QYPD48cNb/mkLprRVdOB9lQgnXqLt
-	6z3eONCB7gaeOFe5tIryhudQ6hV5uRd/kVAXitL26zU/RbbkHSFaY694WvGKFOWFfrfq5I+prdDcy
-	ztQPBy8ojZXgBIV3n9qPfXspNSfF+AHXUdEX2PT8AFOwE//8NxrN2fcOb5IFhcgQ7Da1Rcbq+0cQk
-	H/MuGMQA==;
+	bh=59qEucnyS37/pT7/a7uWPu4mSZu2iXHdYUdedzUuCWw=; b=B1vuOR3Yvm2BYesBEUcHvHYblf
+	veAh3hJPa8UAUBjNc17v8fg7iYvhJ2OBs4SHX8Te434hHDTgyvGa2FsktpIEMiWulv6jPTVx362AS
+	tvyYjN5ElplzFmW5sPSCFJW60bkud7fhZSCJGe4hU40tzCWePdNvTluE7ECqbridSIdsITAhGSba9
+	POpxNTLd3RA+uKkp37qUE8G3yoGLDqHMOXeenVFFQTbijhWjfAioi5oTNshHCV/3BpbF56XteLpFX
+	K4nIpPgy6ef2S6vGrDjsjS07G+aXe9PxtD0MIBFfxf2+FPZJ3GOn4jyYgLP5Mt+VLTc57EIdGTm9b
+	gBK9wVcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJaZ-00000004qbK-3d0q;
-	Thu, 02 Jul 2026 15:44:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfJb7-00000004qfp-46kO;
+	Thu, 02 Jul 2026 15:45:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJaY-00000004qb9-1xRn
+	id 1wfJb6-00000004qfG-0t5N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 15:44:30 +0000
+	Thu, 02 Jul 2026 15:45:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id E47CA43BA5;
-	Thu,  2 Jul 2026 15:44:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B58EA1F000E9;
-	Thu,  2 Jul 2026 15:44:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 422B7601ED;
+	Thu,  2 Jul 2026 15:45:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96E0E1F000E9;
+	Thu,  2 Jul 2026 15:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783007069;
-	bh=+NLPZaAxLlfVoo9TQds5zdC84AWDauDAYil69mJ6gMU=;
+	s=k20260515; t=1783007103;
+	bh=59qEucnyS37/pT7/a7uWPu4mSZu2iXHdYUdedzUuCWw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ksutEY6Wh40A6FNGBunfbtg1fjIF0LNXDbJ3mO8CXEDU9pmcOBdL1e/5v05soePHr
-	 fj7g57nyLn/6TbxNbZCc7sDoxqwpTg/n39fFiWAzCxJ38dr3zBxoHH2U0/RHHT1+wo
-	 VDVnIr90DU16mwTfqURsSknrMnLfVhKw4Qlpegd1Qm8BOb+YGybrKatKQ5QUk8ynMB
-	 opam7cm2C4mTc1EGvul7UFk5PgcjCCMbscuOBRN9dp4VYGpYjM1HpEciKR+vYdhCOe
-	 X1tnccg9j6y+B8TiwvHOyngDBNQjFo03tK5XPFDCOdzCwRDo5hW6hdXBiQsZm6OYk7
-	 HOCsesTwJTz/A==
-Message-ID: <e552da60-3d44-4812-9522-19df8470c495@kernel.org>
-Date: Thu, 2 Jul 2026 17:44:20 +0200
+	b=jfxx93mI0WsTjXM2lMZUbF2ST+JdPutWFbARMvB51yaDLU9YGWXmV9QMfDby1IEQy
+	 IzZj6IdNYraKUtE9BsLegmT+cQOSrhTMUINWE8Om4Qp48PzK+YM3NsWg1kB6ibut1H
+	 MicgLWR8xf4GpI/6j30u/A+EqC38wAWC59qzH0ufvDz/NUVqaxZ8jXkJzBTpT64FYd
+	 OQ6h6FSB29/P+QTA5/gxQ5RTVIRuIsBQ5Ap4QoA0vlOkVSnDX+sgH5lEsgEuzfvTuB
+	 iLsG+LQWrclkBwcgnIMQuXEhRhqvbpSs4rsDRyYrGY07IixObcgXBv1Kga1H/3uUtL
+	 aZUTo5wGNSyWg==
+Message-ID: <210eb5d7-2b74-441e-87c6-f51f484cbde3@kernel.org>
+Date: Thu, 2 Jul 2026 17:44:52 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] mm/migrate: use huge_ptep_get() in
- remove_migration_pte()
+Subject: Re: [PATCH v2 5/6] mm/page_vma_mapped: use huge_ptep_get() for
+ hugetlb
 To: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
  akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
 Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
@@ -62,7 +62,7 @@ Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
  linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
  anshuman.khandual@arm.com, stable@vger.kernel.org
 References: <20260702051341.126509-1-dev.jain@arm.com>
- <20260702051341.126509-5-dev.jain@arm.com>
+ <20260702051341.126509-6-dev.jain@arm.com>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,7 +109,7 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260702051341.126509-5-dev.jain@arm.com>
+In-Reply-To: <20260702051341.126509-6-dev.jain@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -127,19 +127,23 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 7/2/26 07:13, Dev Jain wrote:
-> remove_migration_pte() converts migration entries back to present PTEs
-> after folio migration completes. For hugetlb folios,
-> page_vma_mapped_walk() returns the pte pointer to the hugetlb folio in
-> pvmw.pte, but the code reads it with ptep_get().
+> check_pte() is the final validation step in page_vma_mapped_walk().
+> It reads pvmw->pte with ptep_get() to decide whether the entry maps
+> the PFN range being walked. For hugetlb VMAs, that pointer refers
+> to a hugetlb entry.
 > 
 > On arches which provide their own huge_ptep_get() to dereference a huge
 > pte pointer, accessing via ptep_get() would cause pte_pfn(),
 > pte_present() etc to misbehave.
 > 
 > It is not clear whether this has a trivially visible effect to userspace.
-
-Right, for non-present entries it's even weirder. Fortunately your patch #1 also
-handles that.
+> 
+> Use huge_ptep_get() to dereference a huge pte pointer.
+> 
+> Fixes: ace71a19cec5 ("mm: introduce page_vma_mapped_walk()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
 
 Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
