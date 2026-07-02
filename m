@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA7DBC43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E27C43602
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:52:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,40 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lgJMzuqmBRaH++f38JBRE5zjJqjhtRtrahdjHTqht3s=; b=d6ZItgzqDbXXrirSeQ+kgoeafl
-	sIrlPbQfY5e9KBzRmcKKpHXqJ3cgG+mjTXICmQ7rpiza6C+7e3tte2Yx1XqsxI3BTEG4a/9Nd0Vb7
-	+3qxQxiFWgQ1/xjXkybFmYt5koJ1/DN5wLCdQU1cIt9tLnnugnYjNN54KxqAS7Y0eEzUUSN0yPwCn
-	M3rieXte3Oga74cRJpZ7+B4oUI8oX6tD8aU1QipE5qH+19fsbGwPjqnT/51nhnlbYKQB8JYAyc/xY
-	JQiENks+VxZ0lU8N8Hq6+j+SdRPiwoKp9cHKssiISd3BJNT6O0WZs/mFwvz3AY1ysSLhOrmbrlly4
-	Q9a+ZLLA==;
+	bh=NNy4KyqXUp/x4mpyh9dPiWTGx0rpm2CpKMD1myxfN/I=; b=iFqP7wdh3YmlrtBmizlYNo8SRv
+	GvGiohVViME1auvJGIB06LRLXmby7MnGI8GoZZe0CAt1QFoFZLqrxH19QGK7z8/5o+xuDMG4KKA7V
+	e0EYxc0Z353Eb4WYdwpQ+dXWWc0WNYzg4UvT4zlDqRKwCEL88xG8tT2RBnn9uu2BbaLFFYALetlxa
+	2PAIHBXZkyFrFJBeC1DrdFqCdxJCRWj6xhGnulSYwIovGn7YMtOPUFvz+lSJwJIGVqN5Z4oycv/os
+	IPOeyN0JkseRR9hi1AQkoOGuvbV3FVHdNb6F4db+f+V9tSrnZnsS9hfgyqZOonc/IWy6hzcMyOErr
+	3T5vTM4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfNSZ-00000005P0t-46Zk;
-	Thu, 02 Jul 2026 19:52:31 +0000
+	id 1wfNSc-00000005P3S-0WD7;
+	Thu, 02 Jul 2026 19:52:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfNSX-00000005Ox7-1wli
+	id 1wfNSU-00000005Owo-2t4n
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 02 Jul 2026 19:52:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8EE1B35E4;
-	Thu,  2 Jul 2026 12:52:24 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2378835B7;
+	Thu,  2 Jul 2026 12:52:21 -0700 (PDT)
 Received: from e132581.arm.com (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D54903F673;
-	Thu,  2 Jul 2026 12:52:25 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CD653F673;
+	Thu,  2 Jul 2026 12:52:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783021948; bh=x1lBjsF5/MLaiy1rj5VKM0hhGOvEvas0KHfeTOn3MPw=;
+	t=1783021945; bh=Sqwov2LCkYLnR5lep1hpSJ+8RmtoEa//JjWAVQYJqXc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dqzY3TuMUhWakEHGNaBGAdaWPXI7QITbyQk2nOqk9qnljau7iuTPo3IAWIdUb4k/V
-	 4gkl4+RMdl8tC+HkJWDVof/vRFNrbR9Cny/4+jweLxf/q2JxxllSU0+K1UCUJ3GfrX
-	 W2d+Yk/2wXpYDNW+/OZ4fPwKUVKp451HbaqDEuAk=
+	b=GaZESgBjdmkhKNj27ZdO5J+Y0a/psbWn+lV7LXwCzZVzZM5CS35BVic0C3bcqdgn/
+	 HfD19RxGJVi4fjPv2KtwYYxe26ezoZkLHq7gQI0frYr7cUTB4VMPUKeixAXcWL89MS
+	 LygPaN5s66fqkAOclkZ1xKKb1l3z8/i1vfbf5mf8=
 From: Leo Yan <leo.yan@arm.com>
-Date: Thu, 02 Jul 2026 20:51:43 +0100
-Subject: [PATCH v11 8/9] perf cs-etm: Synthesize callchains for instruction
- samples
+Date: Thu, 02 Jul 2026 20:51:42 +0100
+Subject: [PATCH v11 7/9] perf cs-etm: Support call indentation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-b4-arm_cs_callchain_support_v1-v11-8-846abbf600d7@arm.com>
+Message-Id: <20260702-b4-arm_cs_callchain_support_v1-v11-7-846abbf600d7@arm.com>
 References: <20260702-b4-arm_cs_callchain_support_v1-v11-0-846abbf600d7@arm.com>
 In-Reply-To: <20260702-b4-arm_cs_callchain_support_v1-v11-0-846abbf600d7@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
@@ -62,16 +61,16 @@ Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org,
  linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
  Leo Yan <leo.yan@linux.dev>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783021918; l=7028;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783021918; l=7010;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=UPlRO+aMi+l1O10YsUFWszm8cMi/akMrwhhjdEAONRw=;
- b=V/GnKUvmjEXyDXxM8M6sbiugjtrheUDIwD9P/w6ptcz5/etr+jmMQrPDbzR/eTG7jOgyqYNFO
- Tdx/4V9aWkSDe4LJdKPvEuXGR40ZQACDcJ1UoHY2S7RLvzOI+vDPTgP
+ bh=KU1nGLnlyfV4qp0o9gXppX+q1xgFc3kxSXETMgbcvEk=;
+ b=jOObZ3HyoauKzF7wTMdv03cf8gu6TuQPcnknBK9LjrayHb2iHq6IaMygClvCTqaGxEPftvs5k
+ hKsIGFaElaBAfJcc/XXR/ReEH1fP7+yvu5RfDm5kurCcWVGNiEqO02Y
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_125230_042699_DCBEA7C0 
-X-CRM114-Status: GOOD (  20.97  )
+X-CRM114-CacheID: sfid-20260702_125230_026849_84BFAFFF 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,211 +87,131 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Leo Yan <leo.yan@linaro.org>
 
-CS ETM already records branches into the thread stack, but instruction
-samples do not carry synthesized callchains. It misses to support the
-callchain and no output with the itrace option 'g'.
+The perf script callindent is derived from call stack in thread context,
+CS ETM ignores the requirement for callindent without pushing and poping
+call stack.
 
-Allocate a callchain buffer per queue and use thread_stack__sample()
-when synthesizing instruction samples.
+Enable thread-stack when either itrace thread-stack support or last branch
+entries are requested, allocate the branch stack storage accordingly, and
+feed taken branches to thread_stack__event() whenever thread-stack state
+is needed.
 
-Advertise PERF_SAMPLE_CALLCHAIN on the synthetic instruction event.
-Allocate one extra callchain entry than requested, as the first entry
-is reserved for storing context information.
+When callindent is requested, pass callstack=true to thread_stack__event()
+so the common thread-stack code maintains call depth for branch samples.
 
-cs_etm__context() is introduced for handling context packet and update
-the thread info and start kernel address for frontend decoding.
+Before:
+
+  perf script -F +callindent
+
+  callchain_test    6543 [002]          1 branches: main                                 ffff93252258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
+  callchain_test    6543 [002]          1 branches: foo                                  aaaad6b607c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: print                                aaaad6b607ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: do_svc                               aaaad6b60794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: vectors                              aaaad6b60780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches: el0t_64_sync_handler             ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches: el0_svc                          ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches: lockdep_hardirqs_off             ffff800081828794 el0_svc+0x24 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches: __this_cpu_preempt_check         ffff80008182b348 lockdep_hardirqs_off+0xf0 ([kernel.kallsyms])
 
 After:
 
-  perf script --itrace=g16l64i1i
-
-  callchain_test    6543 [002]          1 instructions:
-        ffff800080010c14 vectors+0x414 ([kernel.kallsyms])
-            aaaad6b60784 do_svc+0x1c (/home/kernel/leoy/test_cs_callchain/callchain_test)
-            aaaad6b60798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-            aaaad6b607b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-            aaaad6b607c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
-            ffff9325225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
-            ffff9325233c call_init+0x9c (inlined)
-            ffff9325233c __libc_start_main_impl+0x9c (inlined)
-            aaaad6b60670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
-        ffff800080012290 ret_to_user+0x120 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                 main                                                 ffff93252258 __libc_start_call_main+0x78 (/usr/lib/aarch64-linux-gnu/libc.so.6)
+  callchain_test    6543 [002]          1 branches:                     foo                                              aaaad6b607c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                         print                                        aaaad6b607ac foo+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                             do_svc                                   aaaad6b60794 print+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                                 vectors                              aaaad6b60780 do_svc+0x18 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+  callchain_test    6543 [002]          1 branches:                                     el0t_64_sync_handler         ffff80008001159c el0t_64_sync+0x194 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                                         el0_svc                  ffff800081829194 el0t_64_sync_handler+0x9c ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                                             lockdep_hardirqs_off ffff800081828794 el0_svc+0x24 ([kernel.kallsyms])
+  callchain_test    6543 [002]          1 branches:                                                 __this_cpu_preempt_check                         ffff80008182b348 lockdep_hardirqs_off+0xf0 ([kernel.kallsyms])
 
 Signed-off-by: Leo Yan <leo.yan@linaro.org>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/cs-etm.c | 83 +++++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 78 insertions(+), 5 deletions(-)
+ tools/perf/util/cs-etm.c | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
 
 diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
-index f76648fa67681c464faf5e9cf4e019653bce5b4c..95e3ec1171acc8442d8539a72a26a1a5a53a2f37 100644
+index 996317687ce7b241afed83444b554155edb09564..f76648fa67681c464faf5e9cf4e019653bce5b4c 100644
 --- a/tools/perf/util/cs-etm.c
 +++ b/tools/perf/util/cs-etm.c
-@@ -18,6 +18,7 @@
- #include <stdlib.h>
+@@ -67,6 +67,8 @@ struct cs_etm_auxtrace {
+ 	bool snapshot_mode;
+ 	bool data_queued;
+ 	bool has_virtual_ts; /* Virtual/Kernel timestamps in the trace. */
++	bool use_thread_stack;
++	bool use_callchain;
  
- #include "auxtrace.h"
-+#include "callchain.h"
- #include "color.h"
- #include "cs-etm.h"
- #include "cs-etm-decoder/cs-etm-decoder.h"
-@@ -87,9 +88,11 @@ struct cs_etm_auxtrace {
- struct cs_etm_traceid_queue {
- 	u8 trace_chan_id;
- 	u64 period_instructions;
-+	u64 kernel_start;
- 	union perf_event *event_buf;
- 	unsigned int br_stack_sz;
- 	struct branch_stack *last_branch;
-+	struct ip_callchain *callchain;
- 	struct cs_etm_packet *prev_packet;
- 	struct cs_etm_packet *packet;
- 	struct cs_etm_packet_queue packet_queue;
-@@ -670,6 +673,15 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
- 		tidq->br_stack_sz = etm->synth_opts.last_branch_sz;
- 	}
- 
-+	if (etm->synth_opts.callchain) {
-+		/* Add 1 to callchain_sz for callchain context */
-+		tidq->callchain =
-+			zalloc(struct_size(tidq->callchain, ips,
-+					   etm->synth_opts.callchain_sz + 1));
-+		if (!tidq->callchain)
-+			goto out_free;
-+	}
-+
- 	tidq->event_buf = malloc(PERF_SAMPLE_MAX_SIZE);
- 	if (!tidq->event_buf)
+ 	int num_cpu;
+ 	u64 latest_kernel_timestamp;
+@@ -656,7 +658,7 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
+ 	if (!tidq->prev_packet)
  		goto out_free;
-@@ -677,6 +689,7 @@ static int cs_etm__init_traceid_queue(struct cs_etm_queue *etmq,
- 	return 0;
  
- out_free:
-+	zfree(&tidq->callchain);
- 	zfree(&tidq->last_branch);
- 	zfree(&tidq->prev_packet);
- 	zfree(&tidq->packet);
-@@ -960,6 +973,7 @@ static void cs_etm__free_traceid_queues(struct cs_etm_queue *etmq)
- 		thread__zput(tidq->frontend_thread);
- 		thread__zput(tidq->decode_thread);
- 		zfree(&tidq->event_buf);
-+		zfree(&tidq->callchain);
- 		zfree(&tidq->last_branch);
- 		zfree(&tidq->prev_packet);
- 		zfree(&tidq->packet);
-@@ -1602,6 +1616,26 @@ static void cs_etm__sample_branch_stack(struct cs_etm_auxtrace *etm,
- 					tidq->last_branch, tidq->br_stack_sz);
- 		sample->branch_stack = tidq->last_branch;
- 	}
-+
-+	if (etm->synth_opts.callchain) {
-+		if (tidq->kernel_start)
-+			thread_stack__sample(tidq->frontend_thread,
-+					     tidq->packet->cpu,
-+					     tidq->callchain,
-+					     etm->synth_opts.callchain_sz + 1,
-+					     sample->ip, tidq->kernel_start);
-+		else
-+			/*
-+			 * Clear the callchain when the kernel start address is
-+			 * not available yet. The empty callchain can then be
-+			 * consumed by cs_etm__inject_event().
-+			 */
-+			memset(tidq->callchain, 0,
-+			       struct_size(tidq->callchain, ips,
-+					   etm->synth_opts.callchain_sz + 1));
-+
-+		sample->callchain = tidq->callchain;
-+	}
- }
+-	if (etm->synth_opts.last_branch) {
++	if (etm->use_thread_stack) {
+ 		size_t sz = sizeof(struct branch_stack);
  
- static int cs_etm__synth_instruction_sample(struct cs_etm_queue *etmq,
-@@ -1800,6 +1834,9 @@ static int cs_etm__synth_events(struct cs_etm_auxtrace *etm,
- 		attr.branch_sample_type |= PERF_SAMPLE_BRANCH_HW_INDEX;
- 	}
+ 		sz += etm->synth_opts.last_branch_sz *
+@@ -1572,7 +1574,7 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
+ 	if (!cs_etm__packet_has_taken_branch(tidq->prev_packet))
+ 		return;
  
-+	if (etm->synth_opts.callchain)
-+		attr.sample_type |= PERF_SAMPLE_CALLCHAIN;
-+
- 	if (etm->synth_opts.instructions) {
- 		attr.config = PERF_COUNT_HW_INSTRUCTIONS;
- 		attr.sample_period = etm->synth_opts.period;
-@@ -1931,6 +1968,34 @@ static int cs_etm__sample(struct cs_etm_queue *etmq,
- 	return 0;
- }
+-	if (etmq->etm->synth_opts.last_branch) {
++	if (etmq->etm->use_thread_stack) {
+ 		from = cs_etm__last_executed_instr(tidq->prev_packet);
+ 		to = cs_etm__first_executed_instr(tidq->packet);
  
-+static int cs_etm__context(struct cs_etm_queue *etmq,
-+			   struct cs_etm_traceid_queue *tidq)
-+{
-+	ocsd_ex_level el = tidq->packet->el;
-+	struct machine *machine;
-+	int ret;
-+
-+	machine = cs_etm__get_machine(etmq, el);
-+	if (!machine) {
-+		ret = -EINVAL;
-+		goto err;
-+	}
-+
-+	tidq->kernel_start = machine__kernel_start(machine);
-+
-+	ret = cs_etm__etmq_update_thread(etmq, el, tidq->packet->tid,
-+					 &tidq->frontend_thread);
-+	if (ret)
-+		goto err;
-+
-+	return 0;
-+
-+err:
-+	thread__zput(tidq->frontend_thread);
-+	tidq->kernel_start = 0;
-+	return ret;
-+}
-+
- static int cs_etm__exception(struct cs_etm_traceid_queue *tidq)
+@@ -1581,7 +1583,8 @@ static void cs_etm__add_stack_event(struct cs_etm_queue *etmq,
+ 		/* Enable callchain so thread stack entry can be allocated */
+ 		thread_stack__event(tidq->frontend_thread, tidq->prev_packet->cpu,
+ 				    tidq->prev_packet->flags, from, to, size,
+-				    etmq->buffer->buffer_nr + 1, false,
++				    etmq->buffer->buffer_nr + 1,
++				    etmq->etm->use_callchain,
+ 				    tidq->br_stack_sz, 0);
+ 	} else {
+ 		thread_stack__set_trace_nr(tidq->frontend_thread,
+@@ -1991,7 +1994,7 @@ static int cs_etm__flush(struct cs_etm_queue *etmq,
+ 	cs_etm__packet_swap(etm, tidq);
+ 
+ 	/* Reset last branches after flush the trace */
+-	if (etm->synth_opts.last_branch)
++	if (etm->use_thread_stack)
+ 		thread_stack__flush(tidq->frontend_thread);
+ 
+ 	return err;
+@@ -2054,7 +2057,7 @@ static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
  {
- 	/*
-@@ -2531,9 +2596,7 @@ static int cs_etm__process_traceid_queue(struct cs_etm_queue *etmq,
- 			 * tracing the kernel the context packet will be emitted
- 			 * between two ranges.
- 			 */
--			ret = cs_etm__etmq_update_thread(etmq, tidq->packet->el,
--							 tidq->packet->tid,
--							 &tidq->frontend_thread);
-+			ret = cs_etm__context(etmq, tidq);
- 			if (ret)
- 				goto out;
- 			break;
-@@ -3572,6 +3635,14 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
- 					PERF_IP_FLAG_TRACE_BEGIN |
- 					PERF_IP_FLAG_TRACE_END;
+ 	enum cs_etm_pid_fmt pid_fmt = cs_etm__get_pid_fmt(etmq);
  
-+	if (etm->synth_opts.callchain && !symbol_conf.use_callchain) {
-+		symbol_conf.use_callchain = true;
-+		if (callchain_register_param(&callchain_param) < 0) {
-+			symbol_conf.use_callchain = false;
-+			etm->synth_opts.callchain = false;
-+		}
-+	}
-+
- 	etm->session = session;
+-	if (!etmq->etm->synth_opts.last_branch)
++	if (!etmq->etm->use_thread_stack)
+ 		return;
  
- 	etm->num_cpu = num_cpu;
-@@ -3623,9 +3694,11 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 	switch (pid_fmt) {
+@@ -3556,6 +3559,7 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		itrace_synth_opts__set_default(&etm->synth_opts,
+ 				session->itrace_synth_opts->default_no_sample);
+ 		etm->synth_opts.callchain = false;
++		etm->synth_opts.thread_stack = session->itrace_synth_opts->thread_stack;
  	}
  
- 	etm->use_thread_stack = etm->synth_opts.thread_stack ||
--				etm->synth_opts.last_branch;
-+				etm->synth_opts.last_branch ||
-+				etm->synth_opts.callchain;
- 
--	etm->use_callchain = etm->synth_opts.thread_stack;
-+	etm->use_callchain = etm->synth_opts.thread_stack ||
-+			     etm->synth_opts.callchain;
- 
+ 	if (etm->synth_opts.calls)
+@@ -3617,6 +3621,12 @@ int cs_etm__process_auxtrace_info_full(union perf_event *event,
+ 		etm->tc.cap_user_time_zero = tc->cap_user_time_zero;
+ 		etm->tc.cap_user_time_short = tc->cap_user_time_short;
+ 	}
++
++	etm->use_thread_stack = etm->synth_opts.thread_stack ||
++				etm->synth_opts.last_branch;
++
++	etm->use_callchain = etm->synth_opts.thread_stack;
++
  	err = cs_etm__synth_events(etm, session);
  	if (err)
+ 		goto err_free_queues;
 
 -- 
 2.34.1
