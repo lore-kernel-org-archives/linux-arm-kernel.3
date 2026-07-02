@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54115C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:30:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4FFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dhB37sanQ9gP3BQBa1lXUyGQ+AGwStKjYKFmsiYa1jc=; b=kuV/VtrCjGPboTSceNG6KEZEpq
-	q3UDKbzlXM0QPw4nK+CsNH8K6np8dn8ufNyzGiExY9SqmI6WcyIjjtxz5E88IcUwGdfX6zRauQuYa
-	eeGTvoua7Gii908aiqZo5FN788upVtjGdheaS3KRiWQvCjZe49Hex1yDp4ZZC+3eMiMnDAxy+SFQT
-	/xdsOcKd+dgWme8z4ifRYtX/6j6z08KXf8A8O4Sp1VJmPs/DQLQXM3VfMEBql48WiOpNL4YRgVWPn
-	n9YFAAbJrJKY1JgJ1x47Gdi7xUzWfvFV2NV93qzcDObvAhdTLrmx0v9rNYhUDclmpwXu820M+/y7b
-	JW4vyFPA==;
+	bh=nqmuPPmfP9VFcLThHSDeBnpXUiiV8nG4V34GV0c7hOk=; b=w8RwXVF1ElWM7bffh3gpOgpdjc
+	bm5SRC3tLbPSM+V9FkDX9gwC4+VRIcxI58gmthuvs0YWAhMBTxiqrs4CQXxidjXK/7WSZfCKP0/i0
+	NWINglxHb+z2kl8O20/GKKr1UZoRB+f8Oj7Yc5MdVKuHgI1dPNFrp0eiV/N2po+SlvqiJXmckd3bd
+	/gM2OB6F+7hc4ARWABn/WIwHsPLxRMPJEMz+RJr8cReQ3R8/ad8VeQsY0af5AGBSJEXv/LuZ3wMrG
+	r5UnGdR/mgO0GJSGf5hE4G49wzjazRL19zMXNqPN/O5SH1jVstnuOIJXJv8mh30nWVkJayFOK33Kd
+	FCbxb2ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgz-00000004fS9-2eBE;
-	Thu, 02 Jul 2026 14:47:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wfLFY-000000058mo-2EB0;
+	Thu, 02 Jul 2026 17:30:56 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgf-00000004edk-34RA;
-	Thu, 02 Jul 2026 14:46:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003603;
-	bh=lOuo9OuftqAiecudrw0LjAp4UZHtVn6GRWRdGeTDE3Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ddkIEJ9p/5fCAngPV7xWgUO7ReoBcuRJYcsDop62G4+z/txLckcOaJ6IESFTkutvA
-	 7W8anjGUPMD87lwZ3JNydE9OAcvIpnUzZNeagLJ6owdyWyeGlv7SiaqvrpgKOuIxKK
-	 XyFcvmcuhGG5mAsedtNjs1LEafrIa84K/xZ5P8cbgPRVBJMl0z/HU4sITW2HIwbdLa
-	 +L5leBvo19Cb22j9U4JgEFW1kEGzw52KtqrPgKwF/0/Ejn9HWnlCxIjdnLLBqS2meS
-	 k0jaz3Vt2YY4TCnsXEYpDDjRqvXahNkcFjrDnooizMzVl8CXpLr10/46LB9UDiaSDl
-	 10TETdlfip7bQ==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6EA8A17E35FB;
-	Thu,  2 Jul 2026 16:46:43 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:29 +0300
-Subject: [PATCH v8 16/39] drm/display: bridge_connector: Wire up HDMI 2.0
- scrambler callbacks
+	id 1wfLFV-000000058m5-39vu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 17:30:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 322654E40C3F;
+	Thu,  2 Jul 2026 17:30:49 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F2B02602EE;
+	Thu,  2 Jul 2026 17:30:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 90FCB104C958B;
+	Thu,  2 Jul 2026 19:30:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783013447; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=nqmuPPmfP9VFcLThHSDeBnpXUiiV8nG4V34GV0c7hOk=;
+	b=Kc/AXq//tuSUAOD406+lAEEvx3VeHJAeHfcb4ALztzre2D+frAtf/I9C8kI5ykr6SF4pX3
+	t7zLeeL/l4zixdSRttiAuF9YAtkQ5hiy22Uf5zn9epnwzhpVxJMKg0uxtsgwtsEEtwsMav
+	O4JKcL2oVvBd9siz6dqEeUE3qf6bnnUaiIhDU2x0uHEvmFfwgcVVn3V4kAqosy1fnYUVck
+	SA9jk5Z8+R6OWunRDah0pF4wi98UWDkdhvt0dSdjB52eeZOE8jDqVd+E7JcO2GYU5lqdrh
+	qfnTzmPblF7shcNYUFTE+7DtEUERRUPfMZ8BVIady+0xAyOsNBOZDPySMExAWA==
+Message-ID: <7576597d-6910-4d58-95b3-28ca64f42b57@bootlin.com>
+Date: Thu, 2 Jul 2026 19:30:39 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 net-next 07/14] net: enetc: differentiate phylink
+ capabilities for pseudo-MAC and standalone MAC
+To: wei.fang@oss.nxp.com, claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
+ xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org
+Cc: imx@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20260702025714.456233-1-wei.fang@oss.nxp.com>
+ <20260702025714.456233-8-wei.fang@oss.nxp.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20260702025714.456233-8-wei.fang@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-16-d79890d00b6a@collabora.com>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074645_970507_849A1B27 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20260702_103054_024279_CC803043 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,93 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Connect the bridge connector's .scrambler_{enable|disable} callbacks to
-the underlying bridge's .hdmi_scrambler_{enable|disable} funcs when
-HDMI 2.0 conformance is advertised.
+Hi,
 
-This completes the bridge connector plumbing so that the SCDC
-scrambling helpers can control source-side scrambling through the
-bridge chain.
+On 7/2/26 04:57, wei.fang@oss.nxp.com wrote:
+> From: Claudiu Manoil <claudiu.manoil@nxp.com>
+> 
+> The ENETC pseudo-MACs are proprietary internal links that do not
+> implement any standard MII interface, so restrict their supported PHY
+> interface modes to PHY_INTERFACE_MODE_INTERNAL only.
+> 
+> Since pseudo-MACs can operate at any speed between 10Mbps and 25Gbps
+> in multiples of 10Mbps, set their MAC capabilities to cover the full
+> range of standard full-duplex speeds: 10/100/1000/2500/5000/10000/
+> 20000/25000 Mbps.
+> 
+> For standalone ENETC, expand the supported interface modes to include
+> 10GBASER and XGMII in addition to the existing RGMII, SGMII, 1000BASEX,
+> 2500BASEX and USXGMII modes, with MAC capabilities up to 10G. MAC_1000
+> is replaced with MAC_1000FD to explicitly exclude 1000M half-duplex,
+> which is not supported.
+> 
+> Signed-off-by: Claudiu Manoil <claudiu.manoil@nxp.com>
+> Signed-off-by: Wei Fang <wei.fang@nxp.com>
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/display/drm_bridge_connector.c | 40 +++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 17eb2548efad..ceb961a9adb5 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -578,6 +578,32 @@ static int drm_bridge_connector_write_spd_infoframe(struct drm_connector *connec
- 	return bridge->funcs->hdmi_write_spd_infoframe(bridge, buffer, len);
- }
- 
-+static int drm_bridge_connector_scrambler_enable(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
-+
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	return bridge->funcs->hdmi_scrambler_enable(bridge);
-+}
-+
-+static int drm_bridge_connector_scrambler_disable(struct drm_connector *connector)
-+{
-+	struct drm_bridge_connector *bridge_connector =
-+		to_drm_bridge_connector(connector);
-+	struct drm_bridge *bridge;
-+
-+	bridge = bridge_connector->bridge_hdmi;
-+	if (!bridge)
-+		return -EINVAL;
-+
-+	return bridge->funcs->hdmi_scrambler_disable(bridge);
-+}
-+
- static const struct drm_edid *
- drm_bridge_connector_read_edid(struct drm_connector *connector)
- {
-@@ -603,7 +629,7 @@ static const struct drm_connector_hdmi_funcs drm_bridge_connector_hdmi_funcs = {
- 		.clear_infoframe = drm_bridge_connector_clear_hdmi_infoframe,
- 		.write_infoframe = drm_bridge_connector_write_hdmi_infoframe,
- 	},
--	/* audio, hdr_drm and spd are set dynamically during init */
-+	/* scrambler, audio, hdr_drm and spd are set dynamically during init */
- };
- 
- static const struct drm_connector_infoframe_funcs drm_bridge_connector_hdmi_audio_infoframe = {
-@@ -912,6 +938,11 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			     !bridge->funcs->hdmi_clear_spd_infoframe))
- 				return ERR_PTR(-EINVAL);
- 
-+			if (bridge->supported_hdmi_ver >= HDMI_VERSION_2_0 &&
-+			    (!bridge->funcs->hdmi_scrambler_enable ||
-+			     !bridge->funcs->hdmi_scrambler_disable))
-+				return ERR_PTR(-EINVAL);
-+
- 			bridge_connector->bridge_hdmi = drm_bridge_get(bridge);
- 
- 			if (bridge->supported_hdmi_ver)
-@@ -1018,6 +1049,13 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
- 			bridge_connector->hdmi_funcs.spd =
- 				drm_bridge_connector_hdmi_spd_infoframe;
- 
-+		if (bridge_connector->bridge_hdmi->supported_hdmi_ver >= HDMI_VERSION_2_0) {
-+			bridge_connector->hdmi_funcs.scrambler_enable =
-+				drm_bridge_connector_scrambler_enable;
-+			bridge_connector->hdmi_funcs.scrambler_disable =
-+				drm_bridge_connector_scrambler_disable;
-+		}
-+
- 		ret = drmm_connector_hdmi_init_with_caps(drm, connector,
- 							 bridge_connector->bridge_hdmi->vendor,
- 							 bridge_connector->bridge_hdmi->product,
-
--- 
-2.54.0
+Maxime
 
 
