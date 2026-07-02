@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D21C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA1A6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:14:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wbs/mTRwyENT+31khCrbilaYILlqAbqUj79MmimTMBM=; b=F+3+U9fvFDUsjgMBgiz75rgJoq
-	mLI582nQm9tp+2jaALHfQHnqrCE3eXgYifN3y46jEj0nbfYhApmBrlo7QZ0VGr7LRc6UvQmk136Yj
-	PMZrMHQd1MgSZSB6053zrYwRMR2Bshal2c28zysO+wM3QfuXe77PmeZw+ZTzSgGF7Csu74U9tT7Y3
-	B+RXvpRW9LPLdKjj7F6hVuDg1Wx5+DOuwxgQ/kOlT78FFjmDm0kjpOyf7L/CBMK/w9uKBRgWirN1F
-	pBrb/UDTQrBwKs0onZ6Ku7BKtsVUPb0//nE5l4HfuuKAnR8qYFklBq6UaUaw3S4d1clqFxJJUq6Zg
-	E67KVkcQ==;
+	bh=gll/9fA8Jon07mOpIIFXW4zhgEZAjyVUTEJee2eFAao=; b=ZKQqYmnCw0rfXnQE21nvq8biTn
+	iWAdCVLJUzkv+ielJKF8jYtx+olPSI72STuCG1iUkuOowMT/taEuwSZvAVSrCJn8IMeEFai9N90Vp
+	G7amRL+0ESHATUCledwLyeoHQb0O5pLDqmYUKTcW22XD3FXVMCWfs6CsOZa6Sn827xpTdZ0md0Khi
+	pcZ3ZbV4TG9NzPdhg9AC1M3JY29750MDZw8JYrvbb5c7keSxl7We3kDSi6hH2NKexNHtWbhL1qDBU
+	gIsv0qLId3o8xB4p6wrhBN5NXl4vCoLwFlYVA6JJj7OVdlYHlpS38mGYWlRZe2uq6w1cPZt0E95N9
+	B/w2wBZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIhJ-00000004g9e-24o0;
-	Thu, 02 Jul 2026 14:47:25 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wfIgj-00000004epO-0IFC;
+	Thu, 02 Jul 2026 14:46:49 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgk-00000004env-0UHJ;
-	Thu, 02 Jul 2026 14:46:53 +0000
+	id 1wfIgb-00000004eYT-0fJT;
+	Thu, 02 Jul 2026 14:46:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003608;
-	bh=j+IffSILacf06DNetIyvvHCQNzzEzQcndg8b9y+U9nw=;
+	s=mail; t=1783003597;
+	bh=4PyW8Jhg7IiTzgbSHOrnUha3BzbvIJ2MbhHineOQU4M=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=UlYiMhGfI9AcmXP6mfqibym6B0VmC/uwnxv5wWYhCkcHnIiWpFFPBJT4rUXOs4Hp8
-	 P2C6O1w5Y+eyMNliKCSS/iDn3JQZ+cdE0GCJMX6rD7ceLAOIEuM7Oz+UkPxLY0SeV3
-	 rqiqO06IxTCFinrf1ZH79ym0ceEXRruqqKnC4DtgYGCKmNQ8noYKk3k01ZbUHbRwhs
-	 lsT9uPZpKXDT1fDDjgrfg8lGTu7wCVX2EggL4nxb0EqGP/GgCtnextupTyKj4qkdD1
-	 gqr6If//l2fv5Psy5d/8rWo5riv0ILnzbilZID96Dg8wTZj3GcuZhoGFt7ucyPc3xD
-	 gayCHFMpKaKbA==
+	b=HxfkMS7W8sBiV7T3rZB+k1FFRe/+kbErsAmzNf5jw8yypsDHIkmI9BXjg34DCh2mF
+	 crYZeqX8OzHL/ok/SRBwmC8Fr0cIhtX0GD9nubv0doTB3y0juDtZp683jIaUxoGhno
+	 tvJkvAnCZel4NhH7ITXnoiBene/Pk1FcVSfH5rIuJBBpyj2AHglUbQEcD1RvC6Rubi
+	 jinKib9tuZ0GQoHAp1dm8PeRNpNUEESlWaDierF7FaML++WI9BZhlWlnrXMWSPQMTS
+	 MZh6sHwSSfRDRwpZcIrCoMRAedVHBPosiV5w1McNVW6mPu3CevbjV1lhFKcp4kWHdZ
+	 cKPJAFxO6QafA==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 042E817E3623;
-	Thu,  2 Jul 2026 16:46:48 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7555217E0852;
+	Thu,  2 Jul 2026 16:46:37 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:35 +0300
-Subject: [PATCH v8 22/39] drm/rockchip: dw_hdmi_qp: Use local dev variable
- consistently in bind()
+Date: Thu, 02 Jul 2026 17:46:21 +0300
+Subject: [PATCH v8 08/39] drm/display: hdmi: Advertise SCDC source version
+ when scrambling
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-22-d79890d00b6a@collabora.com>
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-8-d79890d00b6a@collabora.com>
 References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
 In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -71,8 +71,9 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074651_508502_AAE44334 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20260702_074642_054739_71BE77E1 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,125 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace indirect struct device accesses via hdmi->dev and pdev->dev with
-the local dev parameter already available in dw_hdmi_qp_rockchip_bind(),
-for consistency and readability.
+The HDMI 2.0 spec advises that compliant Source devices report their
+SCDC version in the Source Version register.  Do so when enabling
+scrambling by calling drm_scdc_set_source_version().
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Failures are non-fatal: SCDC version negotiation is purely informational
+and does not gate scrambling or any high-bitrate functionality, so a
+flaky DDC bus should not block scrambling setup.
+
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 33 +++++++++++++-------------
- 1 file changed, 16 insertions(+), 17 deletions(-)
+ drivers/gpu/drm/display/drm_hdmi_helper.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 7bd0f6dcbe5d..d2fcfa70ed16 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -564,7 +564,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	struct clk *ref_clk;
- 	int ret, irq, i;
+diff --git a/drivers/gpu/drm/display/drm_hdmi_helper.c b/drivers/gpu/drm/display/drm_hdmi_helper.c
+index 7c96cccf683d..b8ed2a1e47f5 100644
+--- a/drivers/gpu/drm/display/drm_hdmi_helper.c
++++ b/drivers/gpu/drm/display/drm_hdmi_helper.c
+@@ -16,6 +16,7 @@
+ #include <drm/drm_print.h>
+ #include <drm/drm_property.h>
  
--	if (!pdev->dev.of_node)
-+	if (!dev->of_node)
- 		return -ENODEV;
++#define DRM_HDMI_SCDC_SOURCE_VERSION	1
+ #define DRM_HDMI_SCDC_POLL_DELAY_MS	1000
  
- 	hdmi = drmm_kzalloc(drm, sizeof(*hdmi), GFP_KERNEL);
-@@ -584,7 +584,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 		return dev_err_probe(dev, -ENODEV, "Missing platform ctrl ops\n");
- 
- 	hdmi->ctrl_ops = cfg->ctrl_ops;
--	hdmi->dev = &pdev->dev;
-+	hdmi->dev = dev;
- 	hdmi->port_id = -ENODEV;
- 
- 	/* Identify port ID by matching base IO address */
-@@ -595,7 +595,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 		}
+ static inline bool is_eotf_supported(u8 output_eotf, u8 sink_eotf)
+@@ -531,6 +532,12 @@ int drm_connector_hdmi_enable_scrambling(struct drm_connector *connector,
+ 		return -EINVAL;
  	}
- 	if (hdmi->port_id < 0)
--		return dev_err_probe(hdmi->dev, hdmi->port_id,
-+		return dev_err_probe(dev, hdmi->port_id,
- 				     "Failed to match HDMI port ID\n");
  
- 	plat_data.phy_ops = cfg->phy_ops;
-@@ -623,37 +623,36 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
- 						       "rockchip,grf");
- 	if (IS_ERR(hdmi->regmap))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->regmap),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->regmap),
- 				     "Unable to get rockchip,grf\n");
++	/*
++	 * Advertise our SCDC source version. This is purely informational and
++	 * does not gate scrambling, so failures are non-fatal.
++	 */
++	drm_scdc_set_source_version(connector, DRM_HDMI_SCDC_SOURCE_VERSION);
++
+ 	drm_dbg_kms(dev, "Enabling scrambling\n");
  
- 	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							  "rockchip,vo-grf");
- 	if (IS_ERR(hdmi->vo_regmap))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->vo_regmap),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->vo_regmap),
- 				     "Unable to get rockchip,vo-grf\n");
- 
--	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
-+	ret = devm_clk_bulk_get_all_enabled(dev, &clks);
- 	if (ret < 0)
--		return dev_err_probe(hdmi->dev, ret, "Failed to get clocks\n");
-+		return dev_err_probe(dev, ret, "Failed to get clocks\n");
- 
--	ref_clk = clk_get(hdmi->dev, "ref");
-+	ref_clk = clk_get(dev, "ref");
- 	if (IS_ERR(ref_clk))
--		return dev_err_probe(hdmi->dev, PTR_ERR(ref_clk),
-+		return dev_err_probe(dev, PTR_ERR(ref_clk),
- 				     "Failed to get ref clock\n");
- 
- 	plat_data.ref_clk_rate = clk_get_rate(ref_clk);
- 	clk_put(ref_clk);
- 
--	hdmi->frl_enable_gpio = devm_gpiod_get_optional(hdmi->dev, "frl-enable",
-+	hdmi->frl_enable_gpio = devm_gpiod_get_optional(dev, "frl-enable",
- 							GPIOD_OUT_LOW);
- 	if (IS_ERR(hdmi->frl_enable_gpio))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->frl_enable_gpio),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->frl_enable_gpio),
- 				     "Failed to request FRL enable GPIO\n");
- 
- 	hdmi->phy = devm_of_phy_get_by_index(dev, dev->of_node, 0);
- 	if (IS_ERR(hdmi->phy))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->phy),
--				     "Failed to get phy\n");
-+		return dev_err_probe(dev, PTR_ERR(hdmi->phy), "Failed to get phy\n");
- 
- 	cfg->ctrl_ops->io_init(hdmi);
- 
-@@ -671,7 +670,7 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	if (irq < 0)
- 		return irq;
- 
--	ret = devm_request_threaded_irq(hdmi->dev, irq,
-+	ret = devm_request_threaded_irq(dev, irq,
- 					cfg->ctrl_ops->hardirq_callback,
- 					cfg->ctrl_ops->irq_callback,
- 					IRQF_SHARED, "dw-hdmi-qp-hpd",
-@@ -682,18 +681,18 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
- 	drm_encoder_helper_add(encoder, &dw_hdmi_qp_rockchip_encoder_helper_funcs);
- 	ret = drmm_encoder_init(drm, encoder, NULL, DRM_MODE_ENCODER_TMDS, NULL);
- 	if (ret)
--		return dev_err_probe(hdmi->dev, ret, "Failed to init encoder\n");
-+		return dev_err_probe(dev, ret, "Failed to init encoder\n");
- 
- 	platform_set_drvdata(pdev, hdmi);
- 
- 	hdmi->hdmi = dw_hdmi_qp_bind(pdev, encoder, &plat_data);
- 	if (IS_ERR(hdmi->hdmi))
--		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->hdmi),
-+		return dev_err_probe(dev, PTR_ERR(hdmi->hdmi),
- 				     "Failed to bind dw-hdmi-qp\n");
- 
- 	connector = drm_bridge_connector_init(drm, encoder);
- 	if (IS_ERR(connector))
--		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
-+		return dev_err_probe(dev, PTR_ERR(connector),
- 				     "Failed to init bridge connector\n");
- 
- 	return 0;
+ 	hdmi->scdc_cb = drm_scdc_monitor_scrambler;
 
 -- 
 2.54.0
