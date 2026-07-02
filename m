@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FA0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F31C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MLNuDBzEsED8Ne30eQ2qCY8SThDnsj9uYn72sCOAs2g=; b=KczypxS+VD+eHDSuezDViQhI/Z
-	bIKQ+AFye3eerWvcIBk9PmsO1BEg6LrDWOEYCrlML3k3o0T+clmdV1CIoLBdYYBaOxBI0gDZKwUhn
-	XpLAyuOqYA2JoJDBhxEUwBB9jdK9f6OdGYnTahty4KivMwib5GkeGjAeNNgyrN2q7nYUw0bDvgjkh
-	t0Y4o/ORYPnB5JttgoK+BpOQylNBy+9drqg5bXyMC7Tjgj2umYP/OiEKLxjylN0XJZNlf/MPWNYyq
-	uckr82uJhT3Ly1+ML2v34CZNAoi6olPLQ2N8c4A3zISHdWa1/G2Igx7IxitvrR3C6toi2pAn/AviS
-	q2u1T0wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tYMWwoG+aGYbDAeNtkjiX4sgiIviy2XybeSNdUZXNFo=; b=gSWYmpjeTrEZa/O/aev0laSe4z
+	80d7zfZ4N+pA0n5M3UUL/zYTpIYt+yuaYCYXcSqEN5w+NZ4GORBrWHvAnj9WXhOPqjEI9oK41Ujr9
+	CkITppVPObPQ00zbIaUyf54Md0HokhAhCppIkRQPxUgy8mvhX4VCxd23rSHN4iw3+N8/de4Gb0YF3
+	6Oo7b7TX8BnOovyDFouxz+JohmCMK52cbpe5l/Mo9JPuD+Matd/RMLNBKL6YT+RzCsoMmrtBACexv
+	xLnsId/xOoS7mgORyUS0fA7e35zpBwDHX4N3OiYFShK3lcUsCbPp4pXHyQaObbpdf9zE8xddIu+7o
+	gsox9wBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfLRV-00000005AHm-2k0D;
-	Thu, 02 Jul 2026 17:43:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wfIhT-00000004gUx-0vQT;
+	Thu, 02 Jul 2026 14:47:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfLRS-00000005AGu-36AI
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 17:43:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783014191;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=MLNuDBzEsED8Ne30eQ2qCY8SThDnsj9uYn72sCOAs2g=;
-	b=WyOo1I44Pm2c7U9Vagjcb9qaD6qnf35f0m9fzwws6hN/Zev3hYaRQe8hSTLVPPQqGnkDqN
-	yeIKPlM4hYJsEYkXiDSz779AWf7L/U8KYKY+1aMSwaIR8umtgWijYZZb51hvlOE9YLlzm7
-	96gP1pwja91MbGB0qYf9hC6VelB+AKw=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-654-2NInGJc4MjKVYszoW3leVw-1; Thu,
- 02 Jul 2026 13:43:08 -0400
-X-MC-Unique: 2NInGJc4MjKVYszoW3leVw-1
-X-Mimecast-MFC-AGG-ID: 2NInGJc4MjKVYszoW3leVw_1783014187
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	id 1wfIgo-00000004f0K-2xIT;
+	Thu, 02 Jul 2026 14:46:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783003612;
+	bh=S6Q8LDH3QfUyODTJ2AoCLtkLMwF3ThHiyASVglFQcFk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=m6sOzqvuBdO2NIWXKmJglOcCHDxBIq1L/deKVYHTWoZkqvQyhePlBlYCxdRDuEIPl
+	 a2n01mJQe+NyrS3npDXy9wRy3yP06VzNtE6S12NKORcOfKHLUIFl6ufGXE4+ya2GNj
+	 F9XFCx/PV6DHCxRvoD7rNCi4ot3G5jomaqzGWdwpbpRCyp0htvlGiYAsoobvQo6LlG
+	 EKMLLZfglNNlVM3xlOvGbA59aWPffFZE8H7HYFEfLUEUvgCqFzfSd90QI0RyCMst2J
+	 AV2ay1cZClYdrPvIVfkPjhVGUYg9yUzNFLd73POyB8Y2+pYORSesmSQ8oy6Wh9HXgc
+	 P1e02aCL5Z/oA==
+Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 86F841944DFC;
-	Thu,  2 Jul 2026 17:43:06 +0000 (UTC)
-Received: from [172.20.209.159] (unknown [10.30.45.50])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3F0E51971E72;
-	Thu,  2 Jul 2026 17:43:05 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (7.2.0-rc1,
- upstream-arm-next, a52d6c71)
-Date: Thu, 02 Jul 2026 17:43:05 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 658DA17E3664;
+	Thu,  2 Jul 2026 16:46:52 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 02 Jul 2026 17:46:41 +0300
+Subject: [PATCH v8 28/39] drm/bridge: dw-hdmi-qp: Drop unused .setup_hpd()
+ phy op
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <57391.126070213430800344@us-mta-654.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: OEUhCZtpYiEqyRR85xeZll4N5x_GkXRSm67PF3MNDUk_1783014187
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-28-d79890d00b6a@collabora.com>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_104314_855631_8E67D767 
-X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-CacheID: sfid-20260702_074654_945883_32495E40 
+X-CRM114-Status: UNSURE (   8.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,38 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+With the transition to .{enable|disable}_hpd() phy ops complete in both
+the bridge and platform drivers, .setup_hpd() has no remaining callers.
+Drop it.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 3 ---
+ include/drm/bridge/dw_hdmi_qp.h              | 1 -
+ 2 files changed, 4 deletions(-)
 
-Tested-by: CKI Project <cki-project@redhat.com>
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 4d41ad7319a5..8ce005673517 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -1314,9 +1314,6 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
+ 	/* Clear DONE and ERROR interrupts */
+ 	dw_hdmi_qp_write(hdmi, I2CM_OP_DONE_CLEAR | I2CM_NACK_RCVD_CLEAR,
+ 			 MAINUNIT_1_INT_CLEAR);
+-
+-	if (hdmi->phy.ops->setup_hpd)
+-		hdmi->phy.ops->setup_hpd(hdmi, hdmi->phy.data);
+ }
+ 
+ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
+index b4fb1c578a5b..ad33f9cafdeb 100644
+--- a/include/drm/bridge/dw_hdmi_qp.h
++++ b/include/drm/bridge/dw_hdmi_qp.h
+@@ -16,7 +16,6 @@ struct dw_hdmi_qp_phy_ops {
+ 	int (*init)(struct dw_hdmi_qp *hdmi, void *data);
+ 	void (*disable)(struct dw_hdmi_qp *hdmi, void *data);
+ 	enum drm_connector_status (*read_hpd)(struct dw_hdmi_qp *hdmi, void *data);
+-	void (*setup_hpd)(struct dw_hdmi_qp *hdmi, void *data);
+ 	void (*enable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
+ 	void (*disable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
+ };
 
-Kernel information:
-    Commit message: selftests/arm64: fix spelling errors in comments
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2647180691
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+-- 
+2.54.0
 
 
