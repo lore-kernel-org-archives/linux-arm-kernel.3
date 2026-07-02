@@ -4,75 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 472B2C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D4C2C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:13:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zZrsje0Y9un95zkmd6Nk7AQgoPyKJQhB/0kIVNVnp98=; b=i/gsSsh2bSIMPSLHFIEdolzrv+
-	A58yeCcNj0l9IrV2FWwyCKC/EiXz2MDoul41p3UYddaRL6KVUlPPAx6qgnou2qMlpNToeq4OGYgRC
-	uG/LE7Y+mCe0oIa1lXhPxY0j+t3f6Xp0NYpryJyieOM2tWatEH0Jh0YdqqVX7qdeMfYrTaw/ek/1K
-	pMMFlDy/U4lzDOikRV+MWTeZRdAucDDK76R8LURaFs53ka2SkzbB1lBfQuG7e7ruZV5Fdnjt3IZ7s
-	oDyHU2to2BImjFlW2BRWtq6NL0oE5Zp3lcAXJszu6nDFdrWf066B4Ut4D4YJ0Q6d0Pj3wDqJ7Ar0B
-	x5o0c52Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v/2lAloUxNkyUNTQVRqjrzrN3TnrTeD5XrpCGs1lgZg=; b=snekCFbEMdtJhhtbD2+7STvWgl
+	uSqFfr23myRx9DwYA01bJp+Kx+KTicqL2tbHbgsl83h3Sthl76i2XrfblTcFsABh+utF6bC+mlfHD
+	SUWxnZxk0ST1VE5mWlyK1KmuTcP3FzA8dbNbCUIrxxRomeUEZgE0MvPHsF8i7gUA6tGfnnvhCecdy
+	BgqQaXYaG2Qqy5A9Hl5b4MKkiGckBbpCmHdJj6wa8XFJgB8kB2qBlkQw5FQgElyyRQrPTkhN3yNun
+	tQlzUcvan6uNNyHdi+Ckv24ZXjF1sOvShmLLV9Zrcrtnahn5882Da5jCQnqrrNN4wM9XUamm+X7DZ
+	QuhXuaPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIhM-00000004gHR-0g2p;
-	Thu, 02 Jul 2026 14:47:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wfJ6Z-00000004m2D-20sh;
+	Thu, 02 Jul 2026 15:13:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgm-00000004etw-1E9G;
-	Thu, 02 Jul 2026 14:46:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003610;
-	bh=hqDohe/oeyjhHYgKODZ6BBwQ9gsTIlUwVaDcz7r2mak=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=doRp+tAkUDpIlBAgsBv3650JUf8zuYk2WSkrZkIpKh5tZlELmpVuYpUMVnI3OHrBQ
-	 4A3NiJlruG9g+QmRUUjyKLWjg3bP6gyMJWG0twU8h3Pbpq85e/CySqez3mZUaorJ3I
-	 SEI0u6Yabudy7bt94t7GwTgz24Dz3+t7etHGFTxz7kShCbJV4dF8YHh57IbnFqBDWw
-	 X+MP5CutYsBeF119IKJjx0xnYpBNFMyj/6CSFPTNwO377WYX4/a5Xo6rpx0+kN1XUM
-	 xvWz6UyHqrnsVigzNIv4QeMLnI8qxEOXJAx68vnCZEL4EQGlOlY55xozOosYMXy92p
-	 uiM9Au+/3USaA==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 33CAB17E363B;
-	Thu,  2 Jul 2026 16:46:50 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:38 +0300
-Subject: [PATCH v8 25/39] drm/rockchip: dw_hdmi_qp: Mask RK3576 HPD IRQ in
- io_init
+	id 1wfJ6X-00000004m1z-45wR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 15:13:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6256343A01;
+	Thu,  2 Jul 2026 15:13:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 978F81F00A3A;
+	Thu,  2 Jul 2026 15:13:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783005209;
+	bh=v/2lAloUxNkyUNTQVRqjrzrN3TnrTeD5XrpCGs1lgZg=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=EN2SdiREAz1ok0NPvBjkDF0HuLa0AU/nOMLBgyunSJGfd2BW7LIzDbnytNnya2Wow
+	 M4eGqbopfqhp6luTj8CaXF4zEjq4TV4x6Pf8ZJ52FTOLyUqqQx2Zf+KmHkhGN8dcD+
+	 JF2yZ12lhDJIUCSgHb6McnGJSLUaHxejbiW2gnAZPG/2E0RLFSVOk0k7YgzmE0oym2
+	 JSRAiU7RF87EncgDYC031O5EpLXxy4luB8jRyn9G2MPfiHzxMJDn6ZijN+oWA7BZdO
+	 z2bzVjrUdRIDKQdKKDnRRCl/3ZnEJzjka+QpygLxMbXocGfbxmL3a/206JZAVfvRK9
+	 YZJzn40lfCkOA==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Bjoern Doebel <doebel@amazon.de>, stable@vger.kernel.org, Marc Zyngier
+ <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, David Woodhouse <dwmw@amazon.co.uk>, Ali
+ Saidi <alisaidi@amazon.com>, David Arinzon <darinzon@amazon.com>, Zeev
+ Zilberman <zeev@amazon.com>
+Cc: Bjoern Doebel <doebel@amazon.de>
+Subject: Re: [PATCH] irqchip/gic-v3-its: Reconfigure ITS from software state
+ on resume
+In-Reply-To: <akZPM6SeJiM8th0N@amazon.de>
+References: <20260507183102.1897629-1-doebel@amazon.de>
+ <akZPM6SeJiM8th0N@amazon.de>
+Date: Thu, 02 Jul 2026 17:13:26 +0200
+Message-ID: <87y0fto25l.ffs@fw13>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-25-d79890d00b6a@collabora.com>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074652_604275_AA864945 
-X-CRM114-Status: GOOD (  10.04  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +72,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Start with HPD masked, matching RK3588, so the bridge framework controls
-when interrupts are armed via hpd_enable().
+On Thu, Jul 02 2026 at 11:57, Bjoern Doebel wrote:
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> Hi all,
+>
+> gentle ping on this one.
 
-diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-index 3de4b3e6ea85..11ca73ca4caf 100644
---- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-@@ -427,7 +427,7 @@ static void dw_hdmi_qp_rk3576_io_init(struct rockchip_hdmi_qp *hdmi)
- 
- 	regmap_write(hdmi->vo_regmap, RK3576_VO0_GRF_SOC_CON14, val);
- 
--	val = FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 0);
-+	val = FIELD_PREP_WM16(RK3576_HDMI_HPD_INT_MSK, 1);
- 	regmap_write(hdmi->regmap, RK3576_IOC_MISC_CON0, val);
- }
- 
+Marc?
 
--- 
-2.54.0
-
+> Since the original posting I've re-validated the fix against current
+> mainline:
+>
+>   - It still applies cleanly to v7.2-rc1 (and to v7.1.0).
+>
+>   - I reproduced the original failure on *stock* v7.2-rc1. On EC2
+>     Graviton instances, hibernation resume fails 100% of the time: the
+>     ITS comes back reset, MAPD/MAPTI are never replayed, and the ENA
+>     NIC silently loses its LPIs:
+>
+>       ena 0000:00:05.0: ... didn't receive a MSI-X interrupt (cmd 3)
+>       ena 0000:00:05.0: Failed to create IO CQ. error: -62
+>
+>     The instance then has no networking after resume.
+>
+>   - With this patch applied, the same kernel survives hibernate/resume
+>     cleanly: 9/9 cycles with zero failures, across all three Graviton
+>     generations (Graviton 2/3/4, i.e. Neoverse N1/V1/V2), networking
+>     fully restored on every resume.
+>
+> As described in the previous message, this is the fallout from 713335b6ee29
+> ("irqchip/gic-v3-its: Implement .msi_teardown() callback"): device
+> teardown no longer happens across a suspend/resume that keeps the MSI
+> domain, so the ITS is never reprogrammed and drops interrupts after the
+> hardware has been reset.
+>
+> Could you take a look when you get a chance?
+>
+> Thanks,
+> Bjoern
+>
+>
+>
+>
+> Amazon Web Services Development Center Germany GmbH
+> Tamara-Danz-Str. 13
+> 10243 Berlin
+> Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
+> Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
+> Sitz: Berlin
+> Ust-ID: DE 365 538 597
 
