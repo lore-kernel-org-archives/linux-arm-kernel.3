@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F8BC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B3EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lcuTdravlMR0Qyf+1ix5nCY4cEoCOdIZ0/1Vb+xhGiA=; b=0XPpAG/OfYmYLuKfjzQMIv8lX9
-	cCpF0ayC43vtRjQts3ujqdtYeMnxd0aUYtR58uCoq1sfQLdDj1O3DX/fi+7EID/+y1ANZQqxC85UI
-	v8dgN9zL6GZNH36W4+RQUUsr0gaj9tJfC3Zcptr8ECY3bsiOyu5DoS+0ueM+HJKznxL6bOmPfz5lr
-	REpHZZi7VK8yAe6T0YtYe6N+M9pqy4HlYubvLGyzxGpmFTEnZJlMgtE9kQNfe1Eli3G/5VL1eSp4Z
-	i5XV72F1JCGc+erlXOWIljdExYfXVMDSl3IhCG7FUEAMvbqqIWcXzvoRsoiiiDSbCVGsk/ZEs1dvL
-	NyJQBR9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=adgjMTckmpxpZCcJHdKndp5zeblz2lkQJtQUpi5yLqw=; b=rLo3YZbcB7n2E+j6QkjzY26t49
+	uniE50QTFAUh8IvkCWb90XqVzLPEUmFRY9iLRmmBCUj2Vawf36LlNTxMSvkVTKKxq5SmjOwhpzqhI
+	q9amGprpoUUyeijrpPQhnsFIev5lMBHJxg32rrd/oufnq/eKS/Bu/JlLIszdtlfAUnNcJjooLGy+F
+	n3C16R9FPDGuIBl8bRamNK8cU0ACgkQOhaPs25yXxy1br1hTwoXAJ3oXJmjzPdwjtPjFABjGwv/n5
+	BlDxmHfD4pUBIsTM0YJRdFb0cVh0imS5TeCt5wIdMgtCr2StItYXoYz24azdSVi+YYOdory0DNVHG
+	oYA7tINw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfBon-00000003idQ-0G5P;
-	Thu, 02 Jul 2026 07:26:41 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1wfCpC-00000003sYE-3vod;
+	Thu, 02 Jul 2026 08:31:10 +0000
+Received: from out-189.mta1.migadu.com ([2001:41d0:203:375::bd])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfBof-00000003iOf-3LDb;
-	Thu, 02 Jul 2026 07:26:35 +0000
-X-UUID: 573977fc75e711f1afed4741b24580c9-20260702
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From; bh=lcuTdravlMR0Qyf+1ix5nCY4cEoCOdIZ0/1Vb+xhGiA=;
-	b=uOsEtfrGiKqC8lw3afydBnKHYtad2QyOrLfwBkv+9/lGvW1T6mPVDI5ECGvVMa4fQmVsauoZxk/gsfjr282Fat7gaBaGcJpxfVjaq9weLBW7ywpUbc3c6JBaNGerN4y3qMQTM7b3TUt6KTKptS80Iq7oqCo1LCbpmByuntrPEPc=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.17,REQID:4eca58cf-49c6-4196-a303-b3fdd59aabf4,IP:0,U
-	RL:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-20
-X-CID-META: VersionHash:d497b38,CLOUDID:7098b4c4-4062-4a8f-9776-acbccc936972,B
-	ulkID:nil,BulkQuantity:0,SF:81|82|102|836|865|888|898,TC:-5,Content:0|15|5
-	0|99,EDM:1|-100,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 573977fc75e711f1afed4741b24580c9-20260702
-Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw01.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 811974983; Thu, 02 Jul 2026 00:26:28 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 2 Jul 2026 15:26:25 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 2 Jul 2026 15:26:25 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Hans Verkuil <hverkuil-cisco@xs4all.nl>, Mauro Carvalho Chehab
-	<mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	<linux-media@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>
-Subject: [PATCH v15 08/12] media: mediatek: jpeg: fix remove buffer removal timing for multi-core
-Date: Thu, 2 Jul 2026 15:26:08 +0800
-Message-ID: <20260702072614.10373-9-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20260702072614.10373-1-kyrie.wu@mediatek.com>
-References: <20260702072614.10373-1-kyrie.wu@mediatek.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+	id 1wfCpA-00000003sWz-2fGh
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 08:31:10 +0000
+Content-Type: text/plain;
+	charset=us-ascii
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1782981054;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=adgjMTckmpxpZCcJHdKndp5zeblz2lkQJtQUpi5yLqw=;
+	b=lCL8SUoRvBuYJjOANyVkEtDxtMP+lrtMd+JM22wKEQg/9vL02SI2jmIv/0K6w18ZXSfRmW
+	pyYqOtyzNMKo9IlWryGti6xTNZDxKuT4/OiXQMIgcEuP/lkaMwrX5LmL40mqzRK/is1qNv
+	824p2/q8qxoAqbhxxZiPgnYNnOVND+E=
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
+Subject: Re: [PATCH v2 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Muchun Song <muchun.song@linux.dev>
+In-Reply-To: <555ccf16-3abf-4f82-9ebd-5df970e9de53@arm.com>
+Date: Thu, 2 Jul 2026 16:29:59 +0800
+Cc: osalvador@suse.de,
+ akpm@linux-foundation.org,
+ ljs@kernel.org,
+ david@kernel.org,
+ liam@infradead.org,
+ riel@surriel.com,
+ vbabka@kernel.org,
+ harry@kernel.org,
+ jannh@google.com,
+ lance.yang@linux.dev,
+ kas@kernel.org,
+ linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org,
+ rcampbell@nvidia.com,
+ apopple@nvidia.com,
+ ziy@nvidia.com,
+ matthew.brost@intel.com,
+ joshua.hahnjy@gmail.com,
+ rakie.kim@sk.com,
+ byungchul@sk.com,
+ gourry@gourry.net,
+ ying.huang@linux.alibaba.com,
+ j-nomura@ce.jp.nec.com,
+ nao.horiguchi@gmail.com,
+ ak@linux.intel.com,
+ mel@csn.ul.ie,
+ pfalcato@suse.de,
+ jpoimboe@kernel.org,
+ dave.hansen@intel.com,
+ tglx@kernel.org,
+ catalin.marinas@arm.com,
+ will@kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ ryan.roberts@arm.com,
+ anshuman.khandual@arm.com
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <69EA5792-0152-4ACA-9BB0-1971180F40F0@linux.dev>
+References: <20260702051341.126509-1-dev.jain@arm.com>
+ <20260702051341.126509-7-dev.jain@arm.com>
+ <555ccf16-3abf-4f82-9ebd-5df970e9de53@arm.com>
+To: Dev Jain <dev.jain@arm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_002633_881794_0009BDC7 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20260702_013108_815928_57B8306B 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,61 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move calls to v4l2_m2m_src/dst_buf_remove() inside of the spinlock
-protected scope to ensure all necessary operations are performed
-before buffers are removed from their queues and ensure proper
-synchronization of buffer handling to avoid buffer lost.
 
-Fixes: 86379bd9d399 ("media: mtk-jpeg: Fixes jpeg enc&dec worker sw flow")
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
----
- drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-index 02efaed198b8..0b9a3b66895a 100644
---- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-+++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-@@ -1653,9 +1653,6 @@ static void mtk_jpegenc_worker(struct work_struct *work)
- 		goto enc_end;
- 	}
- 
--	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
--	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
--
- 	schedule_delayed_work(&comp_jpeg[hw_id]->job_timeout_work,
- 			      msecs_to_jiffies(MTK_JPEG_HW_TIMEOUT_MSEC));
- 
-@@ -1673,6 +1670,8 @@ static void mtk_jpegenc_worker(struct work_struct *work)
- 			     &src_buf->vb2_buf);
- 	mtk_jpeg_set_enc_params(ctx, comp_jpeg[hw_id]->reg_base);
- 	mtk_jpeg_enc_start(comp_jpeg[hw_id]->reg_base);
-+	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
-+	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
- 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
- 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
- 
-@@ -1754,9 +1753,6 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 		goto dec_end;
- 	}
- 
--	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
--	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
--
- 	mtk_jpeg_set_dec_src(ctx, &src_buf->vb2_buf, &bs);
- 	if (mtk_jpeg_set_dec_dst(ctx,
- 				 &jpeg_src_buf->dec_param,
-@@ -1781,6 +1777,8 @@ static void mtk_jpegdec_worker(struct work_struct *work)
- 				jpeg_src_buf->bs_size,
- 				&bs,
- 				&fb);
-+	v4l2_m2m_src_buf_remove(ctx->fh.m2m_ctx);
-+	v4l2_m2m_dst_buf_remove(ctx->fh.m2m_ctx);
- 	mtk_jpeg_dec_start(comp_jpeg[hw_id]->reg_base);
- 	v4l2_m2m_job_finish(jpeg->m2m_dev, ctx->fh.m2m_ctx);
- 	spin_unlock_irqrestore(&comp_jpeg[hw_id]->hw_lock, flags);
--- 
-2.45.2
+> On Jul 2, 2026, at 13:18, Dev Jain <dev.jain@arm.com> wrote:
+>=20
+>=20
+>=20
+> On 02/07/26 10:43 am, Dev Jain wrote:
+>> prot_none_hugetlb_entry() is the hugetlb callback for the early
+>> mprotect(PROT_NONE) PFN permission walk on x86.
+>>=20
+>> The callback passes the decoded PFN to pfn_modify_allowed(). For a
+>> hugetlb callback, the pte pointer refers to a hugetlb entry. On
+>> architectures where hugetlb entries need huge_ptep_get(), reading =
+that
+>> entry with ptep_get() can make the permission check use the wrong =
+PFN.
+>>=20
+>> Use huge_ptep_get() before decoding the hugetlb PFN.
+>>=20
+>> Currently there is no path which can trigger a bug: huge_ptep_get() =
+is a
+>> simple ptep_get() for x86, and the prot_none walk occurs only for =
+x86.
+>>=20
+>> So no need to backport - use the correct helper anyways.
+>>=20
+>> Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged =
+high MMIO PROT_NONE mappings")
+>> Signed-off-by: Dev Jain <dev.jain@arm.com>
+>> ---
+>=20
+> @Muchun, I did not do the change you suggested: if we do #ifdef around
+> the hugetlb callback, then for CONFIG_HUGETLB_PAGE=3Dn, =
+prot_none_hugetlb_entry()
+> is defined but not used, giving compile error.
+>=20
+
+Got it. Thanks for your explanation.
+
+
 
 
