@@ -4,87 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 197EDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81621C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=28PbrJsue24gxCxFzMj1TZNmDll7upM8xjPIwGE2HHc=; b=Tik4symPjCPS52LfUzzK25Z53v
-	MQU3/vV45t26I0vDRjsLPL2wtavTKG1Ccg4oUz6cUgPwm8f6XUFskltXGjcBKsjGfh2xgFXcj9b4m
-	8lKwtpUeNqtLVMd/JocPwHRfkkpLOuq2stIPaJTckYhlCwDSw9fh8P2tBvMjV6+5w+DbG8HWxFkbf
-	tFvD4jHVhNxxFUwLln5sL112Lyxu2P6sKouHG4OSadnfRpDf8Mm5JVNLc9o7f/yPys/94BG7utoB3
-	jJ1WnK1XIjLZ0xd5fEKgyFuJQfiVpS5aBo8F7A+xyU06aboiKM1QcsawL4lINzXEcqA8yDQc6udrS
-	z3oD1+YQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kwkpuFiJFSig1yrgIRHVrq1BQtVphda099BHLY4gXx8=; b=VhMOpNcZCFTNH70uUhGzxJJNQL
+	0ZSMRwM+geAV5dvRqjSkn85u2RM/YSxC0qcCRLMlzKjWuK4X8afiKqiHF8nq+hBwT3/CIkAg45YBa
+	7ydeIjJCOy/Hy9Bx9v3Alqw9K9xqFLp4eHi7o3Svy5tyDNwSydfIHsKw02AMv65CB7NX14Y5yz12Z
+	8syXPBSUptT0FypiETw2sqUsP8umeY8iNDGPyiOOD8UzEJ9owBsjSbB4sqEum4HLziDF0Xfty/NSj
+	yrg1Jmb72Rn5cfp2ozauPnrP94N2LGO66y45Ajo6TM51Q2bRI4xSTnEr0NkscWdZ8KzzI+GH4gW85
+	qVLcouwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMiP-00000005JEu-3T5b;
-	Thu, 02 Jul 2026 19:04:49 +0000
-Received: from pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.13.214.179])
+	id 1wfMij-00000005JS7-0qbA;
+	Thu, 02 Jul 2026 19:05:09 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMiN-00000005JCl-3DnV
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 19:04:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1783019087; x=1814555087;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=28PbrJsue24gxCxFzMj1TZNmDll7upM8xjPIwGE2HHc=;
-  b=pqGNjnPKznFlsBd3A72LbumvG1E8KxcOuzW62eAGPcZN9LwAueetoqAB
-   I1TgzB+DGxcacMLsMq7SusLfEHIUiqZIuEvLL1fjb12uKNORHU4j93K7m
-   4NLaIjSZGbEM6JtB4bfnRcjOoMCRZsuwWk6sYuuXtrAeldA3G2XOjj+Qa
-   BiX1TKpV8JunCxCDthm3EpAcRIkdUt3EoeWSCI6tdWmuKzsnKCTWCNPPx
-   rjFHVLJLYXkD1dQ3r5iiVgZ3eDERY/gHWyzoxlHqv30TSoMSJG3IiWmfp
-   FX5NqllJIU/2VAFmIikZdT4D/1no6w96OXOt1sObksQQtV10p/PCVTnHS
-   Q==;
-X-CSE-ConnectionGUID: Z1BcOmIYQYKK6k3LUBa7pQ==
-X-CSE-MsgGUID: 3IFZy54RQYaqxgK0r4k1gA==
-X-IronPort-AV: E=Sophos;i="6.25,144,1779148800"; 
-   d="scan'208";a="22933538"
-Received: from ip-10-5-9-48.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.9.48])
-  by internal-pdx-out-005.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2026 19:04:43 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.104:32053]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.43.112:2525] with esmtp (Farcaster)
- id 8a338137-edab-4456-8313-f0c7488aa835; Thu, 2 Jul 2026 19:04:42 +0000 (UTC)
-X-Farcaster-Flow-ID: 8a338137-edab-4456-8313-f0c7488aa835
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Thu, 2 Jul 2026 19:04:42 +0000
-Received: from dev-dsk-congkai-2a-df9e8fab.us-west-2.amazon.com
- (172.23.251.204) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43; Thu, 2 Jul 2026
- 19:04:42 +0000
-From: Congkai Tan <congkai@amazon.com>
-To: Oliver Upton <oupton@kernel.org>, <kvmarm@lists.linux.dev>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: Congkai Tan <congkai@amazon.com>, Marc Zyngier <maz@kernel.org>, "Joey
- Gouly" <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, "Jonathan
- Corbet" <corbet@lwn.net>, Haris Okanovic <harisokn@amazon.com>, Geoff Blake
-	<blakgeof@amazon.com>, Stanislav Spassov <stanspas@amazon.de>,
-	<kvm@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 3/3] KVM: arm64: Advertise STALL_SLOT* in PMCEID1 under strict PMUv3 UAPI
-Date: Thu, 2 Jul 2026 19:04:21 +0000
-Message-ID: <20260702190421.420992-4-congkai@amazon.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260702190421.420992-1-congkai@amazon.com>
-References: <20260702190421.420992-1-congkai@amazon.com>
+	id 1wfMig-00000005JNH-076u;
+	Thu, 02 Jul 2026 19:05:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=kwkpuFiJFSig1yrgIRHVrq1BQtVphda099BHLY4gXx8=; b=GnNg4IcbGHj4LG3T+K83pcS4qd
+	g1bV+9BkUhKcRb20kwj58+CxUOs7De7lebEY06waM02j88XzE13GSkX4jwLL0ebUnOYw9ojoZUtTW
+	jIMnYrZuIL5i8e27f2CXf6jcA+kvgOm9Aj8/S3h+myUR6FZiTVPcF4v47aDTwCrUeUaMYv8nXJlm6
+	2JynNtRFpf2i/fL8kFsAI6jXv/Vib0HWY+UL0VzeGGw5IfqSVEYPHm6vz5ocSIKShLKu5jBYG1Jq7
+	39+58w0Q8cW5sa/mG5wh+QX5s9W2gPRnpjpGD6GfYivmtxnVyddQTrhiTeVHO1T5D4YYrwUds32lv
+	gjLwNegA==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Hrushiraj Gandhi <hrushirajg23@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: add Vicharak Axon board support
+Date: Thu,  2 Jul 2026 21:04:55 +0200
+Message-ID: <178301901903.3838694.3276523670393868229.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260608060940.52549-1-hrushirajg23@gmail.com>
+References: <20260608060940.52549-1-hrushirajg23@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.23.251.204]
-X-ClientProxiedBy: EX19D045UWC004.ant.amazon.com (10.13.139.203) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_120447_861639_2B44D43C 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20260702_120506_089899_0BEB1CC1 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +71,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Skip masking STALL_SLOT, STALL_SLOT_FRONTEND and STALL_SLOT_BACKEND out
-of PMCEID1 when KVM_ARM_VCPU_PMU_V3_STRICT is set, because this is when
-PMMIR_EL1.SLOTS is exposed to guests, making these events meaningful for
-collection.
 
-Change the parameter of compute_pmceid1() from arm_pmu to kvm_vcpu, to
-check if KVM_ARM_VCPU_PMU_V3_STRICT is set. Also updated the signature of
-compute_pmceid0() for consistency.
+On Mon, 08 Jun 2026 11:39:38 +0530, Hrushiraj Gandhi wrote:
+> This series adds initial device tree support for the Vicharak Axon
+> single-board computer, which is based on the Rockchip RK3588 SoC.
+> 
+> The Vicharak Axon is a feature-rich SBC targeting developer and embedded
+> use cases. It ships with:
+> 
+>   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
+>   - RK806 PMIC providing all SoC power domains
+>   - eMMC 5.1 (on-board) and microSD slot
+>   - Gigabit Ethernet via RGMII (RTL8211F)
+>   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
+>   - PCIe 3.0 x4 and two PCIe 2.0 slots
+>   - SATA 3.0
+>   - USB 2.0 host ports (EHCI/OHCI)
+>   - NXP PCA9554 I/O expander for status LEDs
+>   - Haoyu HYM8563 RTC
+> 
+> [...]
 
-Signed-off-by: Congkai Tan <congkai@amazon.com>
-Reviewed-by: Geoff Blake <blakgeof@amazon.com>
-Reviewed-by: Haris Okanovic <harisokn@amazon.com>
-Reviewed-by: Stanislav Spassov <stanspas@amazon.de>
----
- arch/arm64/kvm/pmu-emul.c | 25 +++++++++++++------------
- 1 file changed, 13 insertions(+), 12 deletions(-)
+Applied, thanks!
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 9595bce6519f..89eec5a1a499 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -851,9 +851,9 @@ static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
- 	return ((u64)hi[pmceid1] << 32) | lo[pmceid1];
- }
- 
--static u64 compute_pmceid0(struct arm_pmu *pmu)
-+static u64 compute_pmceid0(struct kvm_vcpu *vcpu)
- {
--	u64 val = __compute_pmceid(pmu, 0);
-+	u64 val = __compute_pmceid(vcpu->kvm->arch.arm_pmu, 0);
- 
- 	/* always support SW_INCR */
- 	val |= BIT(ARMV8_PMUV3_PERFCTR_SW_INCR);
-@@ -862,32 +862,33 @@ static u64 compute_pmceid0(struct arm_pmu *pmu)
- 	return val;
- }
- 
--static u64 compute_pmceid1(struct arm_pmu *pmu)
-+static u64 compute_pmceid1(struct kvm_vcpu *vcpu)
- {
--	u64 val = __compute_pmceid(pmu, 1);
-+	u64 val = __compute_pmceid(vcpu->kvm->arch.arm_pmu, 1);
- 
- 	/*
--	 * Don't advertise STALL_SLOT*, as PMMIR_EL0 is handled
--	 * as RAZ
-+	 * If KVM_ARM_VCPU_PMU_V3_STRICT is not set, PMMIR_EL1 is
-+	 * unconditionally RAZ, so don't advertise STALL_SLOT* events.
- 	 */
--	val &= ~(BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT - 32) |
--		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND - 32) |
--		 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_BACKEND - 32));
-+	if (!kvm_vcpu_has_pmuv3_strict(vcpu))
-+		val &= ~(BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT - 32) |
-+			 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_FRONTEND - 32) |
-+			 BIT_ULL(ARMV8_PMUV3_PERFCTR_STALL_SLOT_BACKEND - 32));
-+
- 	return val;
- }
- 
- u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
- {
--	struct arm_pmu *cpu_pmu = vcpu->kvm->arch.arm_pmu;
- 	unsigned long *bmap = vcpu->kvm->arch.pmu_filter;
- 	u64 val, mask = 0;
- 	int base, i, nr_events;
- 
- 	if (!pmceid1) {
--		val = compute_pmceid0(cpu_pmu);
-+		val = compute_pmceid0(vcpu);
- 		base = 0;
- 	} else {
--		val = compute_pmceid1(cpu_pmu);
-+		val = compute_pmceid1(vcpu);
- 		base = 32;
- 	}
- 
+[1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
+      commit: e0008b108aaf8c5aa22930b2ceadf8f894562acb
+[2/2] arm64: dts: rockchip: add Vicharak Axon board
+      commit: e08c3389c78dbefd31a57df8807cf57ef6f3c9b1
+
+Please check for double empty lines and ordering in future patches.
+I've cleaned up some things.
+
+Best regards,
 -- 
-2.50.1
-
+Heiko Stuebner <heiko@sntech.de>
 
