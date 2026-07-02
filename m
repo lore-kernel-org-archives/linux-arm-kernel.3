@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A55C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 11:57:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9768C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 11:59:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XCkz49E19Etc5iFn8o8j43bZJGIh6w14Def27S1kOQQ=; b=YBhNExG/UtySNhMX7Ql8PTiJEm
-	XykUw6kazFXXtRwb+Z2cV/5NiorhavHcrnGZFOlo0sWlzBC1w24126GSAQxVqWT57uo1WqWwKtjNl
-	xPZbVBQCK/BC7ebTWgD+l9fhGJ4mQCPH1wk5mqBYdoM3r2P5ig40Kcv8kHTrsIJmw3OlYguqZjj4I
-	QbkxULr3Ts4CuyqYIK8h63M9OsYw3d0R22MCnEZV02wuS4VprfZ8Wj5m3e5MapqTM2NuMwb8mESwX
-	g3vX/AYEB9aXwhtSXrx6EADrAKmHTKBSGcdkJcwpVDKK3cAQbRbZ3WUnvC+73F5YARLIG8YP0/THW
-	XOIm1/kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V59F5LeFLLk0hiR6HVyBNdzVUev2yIANYpC8FeFlguU=; b=ruILNhu+AIdLlngSMdVHbVrx51
+	aA+lchst11CXNlWqGDhNbFNwISxNhocEh0WnFZy4hd2WEoPhBy/IPODNdAeZsMu+1c5qSrPuXDxvp
+	655n/G0ET8ZggPk5kIsdyRIAmBp0Vmw5gbWfyvPKmM5VULuWc2koSuS9yJNXJs9TRjYbc4v6O1JUq
+	tEwGd8gsvxPQW5A91M0iKtmKAadKICDhIK0mfKjgUzgn5wERYZJ9U/x9Yfwcbh+k3qYaRBzSYy1Tx
+	X/L3HCul1SXBz8G81LPDF/EMAiQtgbOBQtMFpBAPg4hWGUGhY1G56hAzkUoDA2VYoSb+u4TmeqHwM
+	nv3+77gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfG3B-00000004MjE-19mC;
-	Thu, 02 Jul 2026 11:57:49 +0000
-Received: from pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com ([52.26.1.71])
+	id 1wfG59-00000004N9s-0whM;
+	Thu, 02 Jul 2026 11:59:51 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfG39-00000004Miq-1m04
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 11:57:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1782993467; x=1814529467;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=XCkz49E19Etc5iFn8o8j43bZJGIh6w14Def27S1kOQQ=;
-  b=bLVZTPqOo9nMVDRVdv+931tq/sbpfOjuQ+BxWZnihA7GjWpj0OYH8XhF
-   Gd142lpMH8le6XdEXTfot3bwi99Qm146XBS/qEpzsdhgJFkFeCpBXb0ZB
-   4iWgE1YCxP3N8/78YXGtQu9lVk2kVrF5OlWI+Zk/owwaRfXRo5rjJ9+It
-   lyIR39D+YJi+U9SqWDGt9pJcBL50k4N5ak4FxkwRlnA0PwDCARhlwxzfJ
-   A8hwrSFxZJ4LG5zlJMixrE9ExS9XJ3HNWZh0uBR5y1U4JIKYF+7WLkis0
-   2W5dDs92GzRTYgBptQrOF7e0pG56V91lJkcTYZ8P7xlmLArdF4BfMfcPu
-   g==;
-X-CSE-ConnectionGUID: 4ejd4uzNSGqN+sH0hbni0g==
-X-CSE-MsgGUID: C7kalaF1TD2ohysTFS7eCQ==
-X-IronPort-AV: E=Sophos;i="6.25,143,1779148800"; 
-   d="scan'208";a="22945047"
-Received: from ip-10-5-12-219.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.12.219])
-  by internal-pdx-out-006.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2026 11:57:42 +0000
-Received: from EX19MTAUWB001.ant.amazon.com [205.251.233.51:3682]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.43.112:2525] with esmtp (Farcaster)
- id 73beebf7-0d64-45e3-9112-7eb54854c385; Thu, 2 Jul 2026 11:57:42 +0000 (UTC)
-X-Farcaster-Flow-ID: 73beebf7-0d64-45e3-9112-7eb54854c385
-Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
- EX19MTAUWB001.ant.amazon.com (10.250.64.248) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Thu, 2 Jul 2026 11:57:41 +0000
-Received: from dev-dsk-doebel-1a-7b355d76.us-east-1.amazon.com (10.169.119.5)
- by EX19D001UWA001.ant.amazon.com (10.13.138.214) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
- Thu, 2 Jul 2026 11:57:40 +0000
-From: Bjoern Doebel <doebel@amazon.de>
-To: <stable@vger.kernel.org>, Marc Zyngier <maz@kernel.org>, Thomas Gleixner
-	<tglx@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, David Woodhouse <dwmw@amazon.co.uk>, "Ali
- Saidi" <alisaidi@amazon.com>, David Arinzon <darinzon@amazon.com>, "Zeev
- Zilberman" <zeev@amazon.com>
-CC: Bjoern Doebel <doebel@amazon.de>
-Subject: Re: [PATCH] irqchip/gic-v3-its: Reconfigure ITS from software state on resume
-Date: Thu, 2 Jul 2026 11:57:15 +0000
-Message-ID: <akZPM6SeJiM8th0N@amazon.de>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20260507183102.1897629-1-doebel@amazon.de>
-References: <20260507183102.1897629-1-doebel@amazon.de>
+	id 1wfG57-00000004N7q-0UD1
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 02 Jul 2026 11:59:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=V59F5LeFLLk0hiR6HVyBNdzVUev2yIANYpC8FeFlguU=; b=OutkGWzxXx7M8LQMhloU9ATZyR
+	Iye5/XEP+f1z6Ye/tHyHi5lEF/ahNeLVw90RxSDKUf/V4zXneTqBq4a/TpdchvDuT6OWw63K9JQl5
+	UC88leaNfUs/KCVMbpVo4JA5DvSldIrc55gfU99M8mUvCk/0/h2B91LAk1o8voXmHC0FQi3gh5t3V
+	reX40qWgzBSv1VnN5vPRtMp+Hdg0ETCOZX0tzJEjC6oV0FAYn617MBep2vePX8DfgLsdSCMNDi5w9
+	00vYAaj0iTlks2rTV3PKWpvxw9SF+4f4KxJ5ZjdS27MEUAPBiEp4DPY/I16G6UlXewWTytCCD2ZPi
+	bEtbk3Jg==;
+Received: from [72.10.137.214] (helo=rfs.netwinder.org)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfG4z-00000008Tfh-24bT;
+	Thu, 02 Jul 2026 11:59:42 +0000
+Date: Thu, 2 Jul 2026 07:59:40 -0400
+From: Ralph Siemsen <ralphs@netwinder.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Ard Biesheuvel <ardb@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Daniel Mack <daniel@zonque.org>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Ralph Siemsen <ralph.siemsen@linaro.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Stefan Agner <stefan@agner.ch>,
+	Stefan Wiehler <stefan.wiehler@nokia.com>,
+	Tony Lindgren <tony@atomide.com>, Vladimir Zapolskiy <vz@mleia.com>,
+	Will Deacon <will@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v2 09/19] ARM: update FPE_NWFPE help text
+Message-ID: <akZSrFc_8ra8sysq@rfs.lan>
+References: <20260701212353.2196041-1-arnd@kernel.org>
+ <20260701212353.2196041-10-arnd@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-X-Originating-IP: [10.169.119.5]
-X-ClientProxiedBy: EX19D033UWC003.ant.amazon.com (10.13.139.217) To
- EX19D001UWA001.ant.amazon.com (10.13.138.214)
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_045747_574314_1C30ED1B 
-X-CRM114-Status: GOOD (  10.70  )
+In-Reply-To: <20260701212353.2196041-10-arnd@kernel.org>
+X-SRS-Rewrite: SMTP reverse-path rewritten from <ralphs@netwinder.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,50 +97,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On Wed, Jul 01, 2026 at 11:23:43PM +0200, Arnd Bergmann wrote:
+>
+>The help text is seriously outdated and predates the introduction of
+>VFP floating point units that were available as early as some ARM926
+>based systems.
+>
+>Change the help text to reflect that this is now a legacy feature
+>and that it will go away along with OABI support in the future.
 
-gentle ping on this one.
+Indeed NWFPE was initially added in order to be able to execute 
+pre-existing binaries from even earlier systems.
 
-Since the original posting I've re-validated the fix against current
-mainline:
+Once soft-float became available in the toolchain, the netwinder
+userspace was rebuilt, and NWFPE became largely unnecessary.
 
-  - It still applies cleanly to v7.2-rc1 (and to v7.1.0).
+All of this happened in the early 2000's.
 
-  - I reproduced the original failure on *stock* v7.2-rc1. On EC2
-    Graviton instances, hibernation resume fails 100% of the time: the
-    ITS comes back reset, MAPD/MAPTI are never replayed, and the ENA
-    NIC silently loses its LPIs:
+>Acked-by: Linus Walleij <linus.walleij@linaro.org>
+>Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-      ena 0000:00:05.0: ... didn't receive a MSI-X interrupt (cmd 3)
-      ena 0000:00:05.0: Failed to create IO CQ. error: -62
+Acked-by: Ralph Siemsen <ralphs@netwinder.org>
 
-    The instance then has no networking after resume.
-
-  - With this patch applied, the same kernel survives hibernate/resume
-    cleanly: 9/9 cycles with zero failures, across all three Graviton
-    generations (Graviton 2/3/4, i.e. Neoverse N1/V1/V2), networking
-    fully restored on every resume.
-
-As described in the previous message, this is the fallout from 713335b6ee29
-("irqchip/gic-v3-its: Implement .msi_teardown() callback"): device
-teardown no longer happens across a suspend/resume that keeps the MSI
-domain, so the ITS is never reprogrammed and drops interrupts after the
-hardware has been reset.
-
-Could you take a look when you get a chance?
-
-Thanks,
-Bjoern
-
-
-
-
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christof Hellmis, Andreas Stieger
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
-
+Regards,
+Ralph
 
