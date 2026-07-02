@@ -4,94 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 295D4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60554C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95TYvt/Y3bxZkBtWRHNbhVKIR5ubiXw34ct5QIR0VLc=; b=Yr0syYxvvAciEWV67J2OOk/c11
-	nFv4nErvBICAw33NjrVItHPMeo1WVU/WXjamIFNNWviUQpSIf5j4LApeQyq5qGzexgzGqWd6FvqNm
-	5U3UG45ouDyGzYLtvvEZnlWUkMt3gAn/RJXDt0Nq2rcXl78YlCMfqE9S32T0k3wwMBcrYdi/gGBgB
-	7R+EDvjq01+53OPCcPMDi6CFl9oDqXY/qZ6Ur+MBsZsTwXaVH2qHWY8OM6afK016e0Vfo6zIwkDPY
-	A0xmlGt3g2ldqybbRztL3oP80gGOmmvHerZGxLjiakLAiJFEcfFs/IXs26EOz6r0s6c+Zj5Mof25x
-	wkT5oLhw==;
+	bh=una0b7iSQE3/1X7UfiBFNzSBZGQVECZybRvoQUF1H+I=; b=mcUU3ELflx+vasywU1tZIUF4X1
+	r/gXUMT49pLeCYNamLnGtVFYYc2uR/hd28EYECpetlatVkxvJuaWj5exnjqS21I0xffV9Cj18sqzw
+	BAh4L9GzTGprnwuwhugxnswlzyNFu0WX5rRieJRwTLXUpd2/WH7sJvJuvR/Xj9Myaaf07LwaG1357
+	naX0z5aj6f3dk2Y0ToQXQPc3hMpNU9hMMu8DQw2Sx6ZR2oxp9Qk8Jkb7steT575aWyvbuWr53yO/0
+	8F/ITJzd8GxJQbleXEzO6pG/toodg8pYIVmfOKniWLRltWvs8Jn/gLAQZZWrug/5ePTZj8DibGvgs
+	9NUb8mJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJAk-00000004maZ-3L3V;
-	Thu, 02 Jul 2026 15:17:50 +0000
-Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
+	id 1wfJCY-00000004mtx-0NxK;
+	Thu, 02 Jul 2026 15:19:42 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJAi-00000004mZu-3be0
+	id 1wfJCW-00000004mtS-0M75
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 15:17:49 +0000
-Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-8eaa7b5e31eso4698656d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 08:17:48 -0700 (PDT)
+	Thu, 02 Jul 2026 15:19:41 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-8efcef23d21so12569556d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 08:19:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783005467; x=1783610267; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1783005579; x=1783610379; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=95TYvt/Y3bxZkBtWRHNbhVKIR5ubiXw34ct5QIR0VLc=;
-        b=BgLYgIPlVks+YcQbFOOGNkSdqN3qgI8bjf+DO1dwLh6Njh6I+yA23rjcvJsn6TLJqu
-         1Yz2WQWrLuUIA0ajG6ILjUd8Nc94PPJrKWNneBF3bojGZqGvEKKA8slXTJ6XSVAWYW30
-         OljoChiYNWgVDx0E+kLTdgFuyagC926LE66Oop6eCdzr0FqZcLGdkAOeSsQf3UV6u5cy
-         6ow5YZRZtCNXdN6xdUsAyYxh7jLG/3ho/rPg9u8vdGbGCvZapuBQBsGeSJ8u7DxcZL4P
-         oTtSGzfjafpLAkd50DxZ1EQcZkqZi+VIygSCG+Q5DXRWleZ2zDWESUklIMSevg8wSoS6
-         Or5Q==
+        bh=una0b7iSQE3/1X7UfiBFNzSBZGQVECZybRvoQUF1H+I=;
+        b=Huxm94KL/7zzhdaPRNoD2NH4j7ldZuY+MgbPRYUCqt5o534gWtDzQfk0lGrK6hrCHy
+         zE84DAx8lNUBOTmaPrlVffslciM23ZTetcia2w2g2f+B4OA2O3dQU2ZW/wyD7Lp/KkgY
+         i2EvqOZKE4SRH6WkIBQ6Um9PVcQBE45AoQ20Cte3aFxeQwCqJTlqMhpdoudVqdXGAWy7
+         St6cCXHfmAf/o8HkRmsogvzlCjzJAlmZVlrrtC1PcGJAWvg4yvITH662yhKXyHAeCTwj
+         8bRSBP7A0+aWfsXRHlv1cVBOZ7M/NJdWnHY5QMKhbndRHlqzM9yF8n1uTB+bcMk+oqaD
+         bl8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783005467; x=1783610267;
+        d=1e100.net; s=20251104; t=1783005579; x=1783610379;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=95TYvt/Y3bxZkBtWRHNbhVKIR5ubiXw34ct5QIR0VLc=;
-        b=VMd1XL9877TYDXxhZPV9NwScRPbDQLh9qWDdQyV/ST8WsuIeU/zWl0Ye0AntquITAW
-         CFojcJrjZK9eP2QMuZMl0KzFy8p8WM15wfU06hS7NGyonPXpCL7EZQfqBLCYBFMjWcpy
-         L39R94H8NkcNH4/Hq8nazvmy8nq+gDW+vw55HFmEAY81rvt3rnNRjr03yl1bhpVyYX90
-         WTtFkMVQocOnuQne2RDOPHnlOPwpsPqv4aaNUWNoAaLKrcbR2n+23+QXFjKN+Sy/3d0V
-         Me5Om3X9tLHOWoIKwZ8UKCee1emiGw8Ymezw61aIvQz1KTE+/Gfa1ojxvGZsbDEzH6gL
-         akew==
-X-Forwarded-Encrypted: i=1; AHgh+RpIwCatyRS0KA6pxZpe35jWlQdhqvCxjAolgZKSCrXt7DNB+JgKS/KM2BfNfYH6q2x3raHcC31NGzrYx64ikKCl@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMgc/DQZ5rkwsT0bDcPd8CXGx0tGfnbJ/37O6xaOpYwxXhMLSN
-	Ft86OngLMlrWxV3FDDj0sHxgnsEDViqP4wDIbp/hmbge3KeQEDLa05JeAan+/1/10r8=
-X-Gm-Gg: AfdE7cmdc5U9rMK1X+1go6q3NT7jEQgPjwCPOAhFm9fCMV879ajk5zN5ffsnpkdVblb
-	PU0jyPM3Ko+2+rCpAek7TOb1nka/KgNFWV1ZVsarlbMCQsDjoDmHCYnVMRJxUzsfTX+8l+eYtzM
-	gSx11HsanFmJr4FDZl+F2q6QlClQnahitXvlAtypQ4jR2gMrEqsPxtg+7B3Lw2X7p4dtx5UxihK
-	Isr2prh82dtG2QawNW5kIjSuwFsgJTFSnfW9383t7ZwUCXeoEM9Meg5tDveUUO33x8G5LmmfYzz
-	/RFJ5bdjpNjI6QW9sjoE4pKCZMrJvPTxu5H3rA4dNimuYCkVdXtiOcTeJ8zVOidBS1ZqIHZwGCL
-	RozZeJHsAfL7Oba1dtIHsXW9PUfL5PeVpfUHMOyGrCUHQLQ+qE6Rr/sb0bac2lfr8iRGcL8G49E
-	eHS1/QR+pfIUyLQBij8Opf5hypwQNLcOa71DNs0tk1H4xPd3pY0KcfSVhwlcopaYV3OpI=
-X-Received: by 2002:a05:6214:5b87:b0:8f1:958c:eff9 with SMTP id 6a1803df08f44-8f5be9c1f13mr4309056d6.28.1783005467087;
-        Thu, 02 Jul 2026 08:17:47 -0700 (PDT)
+        bh=una0b7iSQE3/1X7UfiBFNzSBZGQVECZybRvoQUF1H+I=;
+        b=FwaoMG+g5oNSTk3oIMRYR3F2OqZvK9uF9mvDhBJsrGxaxAzzwzfQ1O1iiRKgvhgBVO
+         w/bEVCyZIarWVp0oVBnY80fmSGmdv0sOfyUCOZkgzpbIQUE0Z0e58brepes/ecQmEXvZ
+         ZD69uSEQEkkMSJvgI/zSCZHsApdz8i4CI/cstifQJQ65/wsbxHY/i+d0823lCJ0rZtjN
+         OTNMVSWMvlJBnKa+BnwkV9S3uAONSFy12Tc7sAYMiWfrfT+Op89gzT76AhfBYt9D+1Da
+         Dk+wLM2Gkr5e/PjDlrFtuWFhXnwqUapRL8P49sBH/z7yCpT9+V45S+Be+L+1hEn6xyvf
+         BtgQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq2Pj9pjy0N6ZkRGSsXYSqJO2Jxhlu/ANMua/VHkUWhh05pbK1/YrlO7wGHWyykWZZ+OFZIt3IrsmgLCPlPoaVR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdVGUcp1iDsn9OfpxI4JC8MUCmXWL9krmOBNzKJIEMBnrLA+Mw
+	AF9j27YB/JGjJBTG+m84TxsEXWSG0zrLBkwXwIdHzPdfvgSypEFFLwevaw85v9CzNOxMhyx3Qj7
+	ydnV7
+X-Gm-Gg: AfdE7cm5ZtQVoCXAFQQMUibOPmr3/elmlLru0pRujLpKDpgoAwDTk4DU9Nlakk1pvCG
+	s4rRwoGMgY/oFeMRjB34xU80C7dPXyK4tejpMIZqVMeGILZBHu9eNaLjaIzWwGGWX2/9Etr4BCf
+	/vlaiNSEf7AjT4mmW1GKiyhKsWXFchLxFd2HAnZZEQEPBLpOr4GNtWCS8BK7WpLfch3k/3IiuMD
+	BaDRIzlY+E7DQ44y+POcKJlfZ6146RbdsIFbWRSTO7mZuBJxdSHkujP8FjQj25ZWQainr27bTSF
+	gV/g/A+gVgtQjJAze5L6/glPVHnV8tDgYPLdBZgvD5lOOtO1X2wjFAG6etDLiMAUs7mUYg4Pm61
+	vto0nC/xHc9j2JJCBsSuq22oIi9n2yqi+fePMfCYRfah8IrM2l3fOR/D6iiCANzBqTCJJ6pBiQN
+	8SDpwAsf2Vzp461RNykSZLoNVJnxJzNzGloeN2FXMBI6s+b/tf1NMygFX3Z7VIITiuoMI=
+X-Received: by 2002:a05:6214:4208:b0:8de:16a7:fbe3 with SMTP id 6a1803df08f44-8f3c863d139mr68985636d6.31.1783005578597;
+        Thu, 02 Jul 2026 08:19:38 -0700 (PDT)
 Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f46e371d55sm28337966d6.10.2026.07.02.08.17.46
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f471de93a1sm27985376d6.34.2026.07.02.08.19.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 08:17:46 -0700 (PDT)
+        Thu, 02 Jul 2026 08:19:36 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1wfJAf-00000005wiw-48V3;
-	Thu, 02 Jul 2026 12:17:45 -0300
-Date: Thu, 2 Jul 2026 12:17:45 -0300
+	id 1wfJCR-00000005wsj-2X8o;
+	Thu, 02 Jul 2026 12:19:35 -0300
+Date: Thu, 2 Jul 2026 12:19:35 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Nicolin Chen <nicolinc@nvidia.com>,
-	Kyle McMartin <jkkm@meta.com>, Breno Leitao <leitao@debian.org>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
- kdump kernel
-Message-ID: <20260702151745.GQ7525@ziepe.ca>
-References: <20260702112825.781750-1-kas@kernel.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Alexey Kardashevskiy <aik@amd.com>,
+	Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+Message-ID: <20260702151935.GR7525@ziepe.ca>
+References: <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com>
+ <yq5aqzm4dz25.fsf@kernel.org>
+ <20260618153705.GH231643@ziepe.ca>
+ <yq5ao6h6enhm.fsf@kernel.org>
+ <20260619122148.GL231643@ziepe.ca>
+ <yq5aldcaejos.fsf@kernel.org>
+ <20260619140616.GB1068655@ziepe.ca>
+ <yq5ao6gtoncp.fsf@kernel.org>
+ <20260630174216.GK7525@ziepe.ca>
+ <yq5abjcro17x.fsf@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260702112825.781750-1-kas@kernel.org>
+In-Reply-To: <yq5abjcro17x.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_081748_905323_90CD0D27 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20260702_081940_132599_1265E480 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +134,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 12:28:25PM +0100, Kiryl Shutsemau (Meta) wrote:
-> The command, event and PRI queues are sized from the maxima the hardware
-> advertises in IDR1, which can be several megabytes each. On systems with
-> many SMMUv3 instances that cost is paid per instance and adds up to tens
-> of megabytes of coherent DMA in the capture kernel.
-> 
-> A kdump capture kernel runs from a small crashkernel reservation and only
-> has to drive the few devices used to save the dump, so deep queues serve
-> no purpose. The queues carry invalidation commands and fault records, not
-> DMA data, so dump throughput is unaffected; a shallower queue only bounds
-> how many commands may be in flight before a sync, which does not matter for
-> the capture kernel's small device count and modest I/O.
-> 
-> Clamp every queue to a single page when is_kdump_kernel() is true. Doing
-> it in arm_smmu_init_one_queue() covers the command, event and PRI queues
-> in one place. The command queue still holds at least one batch plus a sync
-> (256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
-> command batching keeps working.
-> 
-> Suggested-by: Kyle McMartin <jkkm@meta.com>
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> Reviewed-by: Breno Leitao <leitao@debian.org>
-> ---
-> v2:
->  - Use min() instead of min_t(); both operands are u32 so the cast was
->    redundant (Jason Gunthorpe, Breno Leitao).
->  - Add Reviewed-by from Breno.
-> 
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
+On Wed, Jul 01, 2026 at 08:39:06AM +0530, Aneesh Kumar K.V wrote:
 
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> This is the only code path where we need to special-case host memory
+> encryption. For this reason, I have avoided renaming
+> io_tlb_mem::cc_shared to io_tlb_mem::unencrypted. I can send a v7 with
+> the above and we can review the changes based on that?
+
+I'm OK with this
 
 Jason
 
