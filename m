@@ -4,71 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C1FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43723C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7unR8yvtQ9taeigaG7HqsXFuVB10+E437UJK7eQF5HI=; b=ZiPK7O+QmNsL+5nig/h0/LKFOG
-	SoF9GbN0Di2fKrKEXLJwXHO3YCyaiDIsPkeBrzNU5L3aKrjwqXjkhpoywJ0n3BjNwbq767v4yJXRf
-	pys4wrSlynfqkkHRy5D19BEfE6BeviWyHQbLFA+z+VMaFssHVLpbx37NCGit47/ZAR+Oe7uLIIzBb
-	o/s4I3L7pyr8Qonf5GR2WGcA3dVBvKXyEfiaJPCkeq377S8KklBO8DHSIi6kNLZPA+ruG4fmhYYdy
-	tLNdXnrJTApAhe6mxzUdejOZ/Gok4E2OQrM9LWs1d98RS10rmDk4oXPgxOP8JCVRkXWAlZI7SQRln
-	8RFqDBww==;
+	bh=1fxXhck2nCzeMzLvm9K6L7ngfJTEEd79JFyjVImCQDM=; b=IcP5HV65vYu5bik3GArstNvGqd
+	BGUbVs6LwgqWuAwPQCm2DZ3UgNzRnTgMDRqt3MkmstiFcj2rooNlgLfBojYS+ONGHhFIMy/9nbJZY
+	4Mof8MNyLM/gj4iUNBNaEhBvNY1Vt7nLshSEvyab17f2dUnB4rsFT4HcyfknhLNB06G5J7oD2sXiE
+	GbwpkKxF0UtsxdRsjLHtbfJ8A71dfU+D7Wo6r+qIaoZj77LWzv9RdPU5JMp9mxhWBE7Mw3KYHJs/o
+	IaWNpyInEToV2ddh4qXSbx/fEl5mGb6/7roBPeifVp/rWSklrXZH3luxdd9OdyzwDodgtv7fJ1iIU
+	ctv5R9ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJIu-00000004nvp-2NoD;
-	Thu, 02 Jul 2026 15:26:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfJLC-00000004oLC-0b9I;
+	Thu, 02 Jul 2026 15:28:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJIs-00000004nvA-3S6l;
-	Thu, 02 Jul 2026 15:26:14 +0000
+	id 1wfJLA-00000004oL5-3jQ7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 15:28:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B3924178F;
-	Thu,  2 Jul 2026 15:26:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3BD81F000E9;
-	Thu,  2 Jul 2026 15:26:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A18EF40B69;
+	Thu,  2 Jul 2026 15:28:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 909DE1F000E9;
+	Thu,  2 Jul 2026 15:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783005974;
-	bh=7unR8yvtQ9taeigaG7HqsXFuVB10+E437UJK7eQF5HI=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=VlT93tZX0KmWBgfzHBqYA6MZ4OVnMILicDuEgMwbD85mP+D8HPdzDcbfd7yUvqSu7
-	 pGFQ+VWyujHb9OvJX9VniLR9X363fkZ3vSck5JSYJ1kzbeq9j4r8LDR/JAKR9xEAU2
-	 xbSC92vIliVCwzZIbkQQmB6tdN/W6h4rVlm7nGj3XTLaZngZacN4tDYMywvu/c77Xy
-	 Nb1cBIy3LV93hMVbeySsB8bOcrwdBPLSHhRUowj+/YS+AaSKszuXcHDgz3qb1ArKTn
-	 dLVcBR0f80h8DG+EGDxcAjXukhVn4mDrkKAPY8NoC6kYNSqdWfKdhE83NXE6AfVcG6
-	 /O7PTlSQORlnA==
-From: Vinod Koul <vkoul@kernel.org>
-To: Manivannan Sadhasivam <mani@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, 
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>, 
- Herbert Xu <herbert@gondor.apana.org.au>, 
- "David S. Miller" <davem@davemloft.net>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>, 
- Niklas Cassel <cassel@kernel.org>, Frank.Li@oss.nxp.com
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
- mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
- linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>, 
- Damien Le Moal <dlemoal@kernel.org>
-In-Reply-To: <20260521-dma_prep_config-v7-0-1f73f4899883@nxp.com>
-References: <20260521-dma_prep_config-v7-0-1f73f4899883@nxp.com>
-Subject: Re: [PATCH v7 0/9] dmaengine: Add new API to combine configuration
- and descriptor preparation
-Message-Id: <178300596742.727083.5865685817987530958.b4-ty@kernel.org>
-Date: Thu, 02 Jul 2026 20:56:07 +0530
+	s=k20260515; t=1783006116;
+	bh=1fxXhck2nCzeMzLvm9K6L7ngfJTEEd79JFyjVImCQDM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=b2UNbaF3r1hljIWsq+U3j/11VVe9K2mDfW8ITR+HjohsDjn4ssvCJs9AFVheLFUgy
+	 YutZV+6PpHeF6xFcTE3aP1wgob9+1JJiCuA/RUVFz2dvVYiCt029oTNRLVLNIirVwd
+	 ZJRN/llZI+zewvXG8n2DgpVZTw4maIPQ94/3bo8QOtoi+JTqEKFtFV6CASOrxfXduo
+	 qTdXAdcCH6byaDW+HoajP2kUzTHaMjHIVEEpuN8pRkkUTl53dMnB2eSPLJRIlyVlw7
+	 fxKtmvq5cuKuBvDlq8x+OvxC7zoRN102vKdIlK8yykc6GDFwRBmyrZt2fzUDpQl6OJ
+	 HSXqnKeJZSz7Q==
+Message-ID: <d6544525-5dfd-40c0-9c9a-2423f21d8034@kernel.org>
+Date: Thu, 2 Jul 2026 17:28:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/6] arm64: make huge_ptep_get handled unaligned
+ addresses
+To: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
+ akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
+Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
+ lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, rcampbell@nvidia.com, apopple@nvidia.com,
+ ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
+ rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
+ ying.huang@linux.alibaba.com, j-nomura@ce.jp.nec.com,
+ nao.horiguchi@gmail.com, ak@linux.intel.com, mel@csn.ul.ie,
+ pfalcato@suse.de, jpoimboe@kernel.org, dave.hansen@intel.com,
+ tglx@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com, stable@vger.kernel.org
+References: <20260702051341.126509-1-dev.jain@arm.com>
+ <20260702051341.126509-2-dev.jain@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260702051341.126509-2-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,45 +126,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 21 May 2026 11:32:46 -0400, Frank.Li@oss.nxp.com wrote:
-> Previously, configuration and preparation required two separate calls. This
-> works well when configuration is done only once during initialization.
+On 7/2/26 07:13, Dev Jain wrote:
+> huge_ptep_get() can be handed a virtual address pointing to the middle of
+> a contpmd/contpte mapped hugetlb folio (examples of callers are
+> pagemap_hugetlb_range, page_mapped_in_vma).
 > 
-> However, in cases where the burst length or source/destination address must
-> be adjusted for each transfer, calling two functions is verbose.
+> The arm64 helper rewalks the pgtables in find_num_contig to answer whether
+> the huge pte we have maps a contpmd or a contpte hugetlb folio, and
+> returns CONT_PMDS or CONT_PTES, so that it can collect a/d bits over the
+> contiguous ptes. We can falsely return CONT_PTES instead of CONT_PMDS
+> if the addr is not aligned.
 > 
-> 	if (dmaengine_slave_config(chan, &sconf)) {
-> 		dev_err(dev, "DMA slave config fail\n");
-> 		return -EIO;
-> 	}
+> Fix this by aligning the pmdp pointer down to a contpmd base before
+> checking equality with the passed huge pte pointer, to correctly answer
+> whether the huge pte is the base of a contpmd block.
 > 
-> [...]
+> Fixes: 29cb80519689 ("arm64: hugetlb: Cleanup huge_pte size discovery mechanisms")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>  arch/arm64/mm/hugetlbpage.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+> index 30772a909aea3..8e799c1fe0aa6 100644
+> --- a/arch/arm64/mm/hugetlbpage.c
+> +++ b/arch/arm64/mm/hugetlbpage.c
+> @@ -87,7 +87,7 @@ static int find_num_contig(struct mm_struct *mm, unsigned long addr,
+>  	p4dp = p4d_offset(pgdp, addr);
+>  	pudp = pud_offset(p4dp, addr);
+>  	pmdp = pmd_offset(pudp, addr);
+> -	if ((pte_t *)pmdp == ptep) {
+> +	if ((pte_t *)PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS) == ptep) {
+>  		*pgsize = PMD_SIZE;
+>  		return CONT_PMDS;
+>  	}
 
-Applied, thanks!
 
-[1/9] dmaengine: Add API to combine configuration and preparation (sg and single)
-      commit: 796bdb33e86aec8504bf8868e0665f120638ac72
-[2/9] dmaengine: Add safe API to combine configuration and preparation
-      commit: af900b7dc1e1cdac571ac38e7fee80f1a1776a62
-[3/9] PCI: endpoint: pci-epf-test: Use dmaenigne_prep_config_single() to simplify code
-      commit: 9605825841061bbdd2fc2a0218098373c539173e
-[4/9] dmaengine: dw-edma: Use new .device_prep_config_sg() callback
-      commit: bfb66d8098dbbaaada3ab877eda21cd447115c95
-[5/9] dmaengine: dw-edma: Pass dma_slave_config to dw_edma_device_transfer()
-      commit: 1af246e9d222f93aee59f3b47ff3bd59d08725e7
-[6/9] nvmet: pci-epf: Remove unnecessary dmaengine_terminate_sync() on each DMA transfer
-      commit: bd00d2c4a1b2a1e7ad3060d3d606fb4c9db6a064
-[7/9] nvmet: pci-epf: Use dmaengine_prep_config_single_safe() API
-      commit: a0fba0a49f77effd3962723b1fa14c766fbc0ec4
-[8/9] PCI: epf-mhi: Use dmaengine_prep_config_single() to simplify code
-      commit: 53191cc449db1cf4f25db275978c61b1c6aaeba9
-[9/9] crypto: atmel: Use dmaengine_prep_config_sg() API
-      commit: c9e9927c6d8346cdf6555a8f97da093980172e4b
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Best regards,
 -- 
-~Vinod
+Cheers,
 
-
+David
 
