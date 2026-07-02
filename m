@@ -4,118 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84484C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B65C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fYYg+pEkCTZu2/BFkr8J5mfv2eARpE2SiRa74Iaa9Jo=; b=Eh9SJDkcdHzdySn0UTwLoGg4pH
-	7CFOzqZ0LXWAVEu7EThyeRJ/4GuGyqOPYYfdjk7cWKMAcBaM9h7pov7+1wsMNfxa+AHlMi1o5EawQ
-	Ryt0FRyiNc8BzdPYyVo6D9jXn6C9aHgHUsE8kIHanyNYKAvy3Xi2r3xzhstvVFHR4hld80xWSBTEB
-	VifqmxwL5e0Y30hXxshxtlrA117a7kjM51J1fCHEAGheueRF8GsPsIh4n42IWzdRVaeSwUtjjPA4G
-	I0PRc7c8RCE4mUkzl+7VzhWI3F6YKwuSgc6GIbqkKKKpn8GUOCQwWmmSwAeMv1eecNHnoUFaB0bTH
-	btyMgrdQ==;
+	bh=1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=; b=Q6OgCakq8/OOi+Ykq1ZZwRGSUi
+	f6Hhj8Mrb4bt7Tgmu3Mwu77xxnKr3wp2EG+3yN5BB8d6/wzdk7hk0dvsYT3X5ZV7byqVt1p2hrJud
+	IJIVbgETXZdwARzxvj613qWKx6fHDgbIJpqGfd1QnryTwUuO3N4nwWZ+WGITbSKKD+0OY9aJR0vor
+	PqdUk4AhXBcbUqx7SR4ojafQlSQHrl7kkd1IHyPn5v2oAxbJduHsgU0wYFcK7LEHAKn4rS9yadTqT
+	1+PmZi3JRgOTwfBMmdhw+HSuFnxRRWUPqhVXtF5hD5eSsfqD5hEuCCOcrnc9B+Q38vbnPCT9jk5u0
+	s65NnZ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf5hw-00000003Jij-20tB;
-	Thu, 02 Jul 2026 00:55:12 +0000
-Received: from mail-qv2-x01.google.com ([2607:f8b0:4864:33::1])
+	id 1wf5lm-00000003JwL-00B0;
+	Thu, 02 Jul 2026 00:59:10 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf5hu-00000003JiE-0kNM
+	id 1wf5lj-00000003Jvz-3G8o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 00:55:11 +0000
-Received: by mail-qv2-x01.google.com with SMTP id 6a1803df08f44-8f0f56c2dc9so2523516d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 17:55:09 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1782953708; cv=none;
-        d=google.com; s=arc-20260327;
-        b=AQBcB9Y1QelP27/8fef4oxumT/cP+4G8mtKjpvpvf15GccvoetkkwlYezEeZuCtCpq
-         YvP91943UiIlAKqGG1KtcpWCekZdeXaTPdxApPtJ6748Qx8njKltHgaySUQskop/hOdi
-         Vp1gVZG590VAMxZ/jx+fTrFpNj/fay6Dtj6BygOLPEdD2yDF2u6qDK86FrWH/+knbsL6
-         Tmmol+eWw4qzULqaO9sxeXvPzMwjZ6syaojGrYbJE7chNcfycY7+rkLZgE1cx2ISHn1t
-         rtl6LIlfuzLmEla1Q0Lnm4xgcnEuWIEeuDb2cWQwWduAB66YCm3eJ0VJyMKCOoeIScoo
-         30gQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=fYYg+pEkCTZu2/BFkr8J5mfv2eARpE2SiRa74Iaa9Jo=;
-        fh=1HEoYVEKA3/4GwbvrYTnPadyX3tWB4S4oJHb1j/Y6ig=;
-        b=kZiAjS8V2XkLr3O5JrfCjcZKIv170ZSLHOVZJVhNziBlAlQj3VlUeinDmNqFnObJsr
-         J0EUTvpZEI5YJ131d3JWtRsRuYhpwYCf4ucDBN8+8ILl58StehJm/6InEt8bXM1MOF0k
-         8o13Dv205zIQLfgQ+DutDHUPZS63h/lk1Hzt3nTYzq00LtFDBMTnCYBYX91tN8Q9LRrk
-         3qY5pZG3O/W7IIoeWP1MiST4kFPw0wT/zB/N82h2UHP0uUffNnon5uLR5P9Ywvrj39lI
-         iDgJaPt/ZxCKfT7XCYcDH9yLLpcbfBWFH8f+rHHL+XpOpXmRijJiKFQCTStsyVTeUXPm
-         S1tQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Thu, 02 Jul 2026 00:59:08 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 661Lht612468356
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Jul 2026 00:59:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=; b=JF4qzEFXU+yZIg8T
+	/wqtw9aJGtGfaeaQKbaGfomaPrPefT+PcKuRvfCds5RVKim7r64NQ3zTjxCTQZze
+	WynCW2jdv/jP44CMKHkTDc4UqYfcrEmpcBywB0AueE4wsWNA4vK+se4Gy6Dndo4g
+	7caQpDzv28GbP80sC/YIjXQFFsRJUd8bLB0I6lLhkCcW8OfLqe72xRJFunsfkSH/
+	D7cfMYD7EKVbRw6jtVdrTFCbYGmOttG1u9Q9etWBVPGjIbBTQ1eEyAVdWU3iy+LP
+	q179ryI26lltqmqNy9aPcoeqdt7qDvjXA4A5iFX2aW2lrV63r1hwch0WAIpi65Td
+	gfiqhw==
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f4x0tmc2v-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 00:59:06 +0000 (GMT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-37e1f96b248so1740819a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 17:59:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782953708; x=1783558508; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fYYg+pEkCTZu2/BFkr8J5mfv2eARpE2SiRa74Iaa9Jo=;
-        b=SB8PdE1B+tJ1vIjhIQDHoOa9XAZcPpBZvPR9LoYyDZqUqmkTkRPcXGfeY8os+wxnE+
-         PvkY07mE3p0DGoSxcM/6/evd/VBEuWvMO58BC5/my/ndSocPMZkyf2CXyw9K6b+VXFSw
-         eWcxQA3kzJrCxF3QxO/NSeHcrauWtD7MMorho4xxhCPaCybdlOCUo9lDWQBMrsq92rKK
-         1o+GTBRqQaqeTjrlN3+3MswB0D48IAyIpTCFM+K6FPHoH/pO9gpeL7sN19hEnsVnPKTk
-         jq/Gi9AIZOSql/x7vDwZfZyv2iUjcElsVNQEFfMc2B29u4iPb7B+M9VQb5WCeUtNlYjs
-         08+A==
+        d=oss.qualcomm.com; s=google; t=1782953946; x=1783558746; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=;
+        b=iNjCdINlKyZyRWOozGtKJFAh3lRxKkrpFUb6hkxRO5ysXHf4b3Syq/dlOCWgw1wpp9
+         gvx5jHVE+5n7lKPbscK/0RpSkcQ6Nmv+qpAFJavB0NNh5WPJ/zMZD6qkaQCVtI59puDe
+         HrraWDtQ7aCzKnUzwfRRR+spnocqlRQu1ihHZlweRTW/QPXytwwnEkCRFWcMEH8msz7o
+         09Xm5EmIEaxoCtY3MrdBoIVyrVTsjBvBmZYefIY5Uzx3oFt4BSgK2YaKDRfwx2OUGmKf
+         Nc/4NWn2V9yFPU/2OVgwiW3hHoA309MUjtDA/L0fLLtRTNlKjmzSh04X7FxM5FpaTgQv
+         6xJg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782953708; x=1783558508;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=fYYg+pEkCTZu2/BFkr8J5mfv2eARpE2SiRa74Iaa9Jo=;
-        b=s0yMtbAndRKSyL/KnwxiMbKgHdbvc4UQskCvItcr1pt/5uy0zX5OOCh3dy4gwTPFCS
-         6xCGWDShtCA4N4RtWy1pwHQeLwnJiTvI7Z2vVuedJzo04rx+4oC0tP7hsImaFT9x1p29
-         2gYYS5e3IgS9Q2VY3M6ojg9HtmgG7QtVDe9rJxLLhP0kFycHlQWbYOqo7xxGFfragL18
-         d7u8SMjl9PWOewAN87+bRw411Ia1Bc8No213fmemXJ7HKK4bj6XDRfUygxt1Dzyoac5t
-         Baqifhv4pXMoslpQNCDFSqiDukkfGQzJfYaGoel5CYyq3m1749oC/FIqDp0Szf1iAprd
-         erxQ==
-X-Gm-Message-State: AOJu0YzKdcP60KKOHlQ99aq+KN2dOW1T3meWYH26IfBDNDOqEmxT0X8s
-	ZMX5cChwKzYd5kElMh+fzmCd0z8hQjGn2YVpdnd858Txr5AeuDNFBacfJZyCiTezoQ6xDb+kKDP
-	0+46Q1QD6IcFKHK65Rl6i8oYllrPEljY=
-X-Gm-Gg: AfdE7clggXRC7SHxPEqvzCHoiaCtmzZCYVcYVFDIlHd9wTPibFgJl6X8xn60UOZEGMR
-	LmphgXc2plHDk11Rwz9A1+sGOmHCxDO3IYx0Q7ds44PPaeb5znoH7KMjupMnLvaP59C2PDrTsfM
-	U9L6StJ0nSXXfNoA7bU6d8b9ONyRHqZc7R6n+uPlETG4aWCKdXLVmRuBxT6QoOrZi7kdXv8zf47
-	Ua5UU1qAYMidGDQKyxW6gfRWlp+Pm1IlGxPZO5c4h9mrxsANQSvCC1a6h3Jw9cmvby/xBHoVwdV
-	wJmpuHYTknO2ZOKNNvJ8IH9XZT+HUkD3Hxws1iBNvM6M0bFzdriLfTg0ZA==
-X-Received: by 2002:a05:6214:45:b0:8ef:1dc9:27e8 with SMTP id
- 6a1803df08f44-8f3c99bfbb0mr36043326d6.49.1782953708551; Wed, 01 Jul 2026
- 17:55:08 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1782953946; x=1783558746;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=;
+        b=tKTitG67q0olQ8DHDTgrUXXG6R4Vev/umqw2a69tKlK1Q77ANggwVsza1OwH4Q4Jq9
+         n0+HsFp90ve7BDTu88IJ+QvUQs7s3EWxmrHycG1WMgA9y5wc/pShFv9tgGiLvSRvJvJ6
+         QQlPXcViRE/ddV1+Z5AXwOKnCuJwBr3h7MZ+nPTb56YBO6h6vFuUgCIGThJ2y5Ahr3pD
+         y3UkxqDi3no/OwHJy6mYSz1lKW3kjyFsYkhvXFIg6+7DxMIruHm2NI9uu4cLnGyA4RzJ
+         7xe+EvI1+YG7ZaV3DLX01v4+wHMePqPUQ3p17UtMKFBN0UGE9s/CwiHJiBckEMEP2Ey4
+         laww==
+X-Forwarded-Encrypted: i=1; AHgh+RrxFpwbCPen2Oe7jOBvPOtevhmWbnWj74NNUnC4mN/v+ZE1Sv+KLrRJ+5n0RzP5nHi09H1nf2rkPb484WImWlYc@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLVGMx8CEQ01bPdydy9AIs3Pgqdadxe4Jp2SwLxXiySIBtFGVp
+	hxGGMKHi0L+SxGQogDZAU7UpldKDl49OP0ofqLp8eAZr2fM6sHNT9tC8OvxBlYEffSGOE7o0FPH
+	oFhOkAT3zNc4RRZDBtHBfLgdHnp9OmiEc595RgB8GPHa+Y01CZWTtGhqEUw6IREi+gOBtAV94EC
+	pjfg==
+X-Gm-Gg: AfdE7cm2hJaaiwd1ujN68+osZ6zmdtdJ0Wlqsq29J46yOZmyHDKGCsdCUhWjiuii0je
+	rtTiCljs80sp+VkoARYgokB+J/hoHThJumD5Wjj7Ku7EuKfgdm7QdfrgWkwM7KKpmyzNy7696CC
+	lMpFkBfH40aNTanbPcWl+rR/Pt3umJNDGy8Ho7cz4c4RetUA0x3jaf/c0QjbwO5DLFaykqM8Wfz
+	Wr/yez2Gm+nDwgsqeHooibkWp/wustoD/NgRB5TCx70MduyWDTuWS1g9cGz6oJnNXKInF7dveTs
+	NnVZ12yb1AvalR6S/dLsFcqK+wxGfpJWRdvpd83rF+X8msKV/moLzZhBo/rGFm6bE6wwPx3bt1+
+	OwJQdAd4QjA4Vt/qQRjqT0yJY0OSqhja11TbAtqv4OSHTanVk9dJEYp2p7ZTRubesC9u+Iun32/
+	uC
+X-Received: by 2002:a17:90b:4a8d:b0:37f:ef32:d444 with SMTP id 98e67ed59e1d1-380aa0ac3d4mr4195452a91.1.1782953945637;
+        Wed, 01 Jul 2026 17:59:05 -0700 (PDT)
+X-Received: by 2002:a17:90b:4a8d:b0:37f:ef32:d444 with SMTP id 98e67ed59e1d1-380aa0ac3d4mr4195422a91.1.1782953945182;
+        Wed, 01 Jul 2026 17:59:05 -0700 (PDT)
+Received: from [10.133.33.125] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-380e15e6e33sm86819a91.5.2026.07.01.17.59.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Jul 2026 17:59:04 -0700 (PDT)
+Message-ID: <5218878b-c91f-4d14-ba12-68edf7b3f4a7@oss.qualcomm.com>
+Date: Thu, 2 Jul 2026 08:59:00 +0800
 MIME-Version: 1.0
-References: <20260701212353.2196041-1-arnd@kernel.org> <20260701212353.2196041-8-arnd@kernel.org>
-In-Reply-To: <20260701212353.2196041-8-arnd@kernel.org>
-From: Ethan Nelson-Moore <enelsonmoore@gmail.com>
-Date: Wed, 1 Jul 2026 17:54:57 -0700
-X-Gm-Features: AVVi8CcSOzhFzPsWUOEG7lSD3yFIyfxu2K16jG_kbQtZEf0p-TG6IrXn3i7gVuw
-Message-ID: <CADkSEUhO9nhzQZCS7ZziCtMna+ibfj9_PbSH5R+c0pyi5viCvg@mail.gmail.com>
-Subject: Re: [PATCH v2 07/19] ARM: update DEPRECATED_PARAM_STRUCT removal timeline
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, 
-	Aaro Koskinen <aaro.koskinen@iki.fi>, Alexander Sverdlin <alexander.sverdlin@siemens.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Ard Biesheuvel <ardb@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Daniel Mack <daniel@zonque.org>, Frank Li <Frank.Li@nxp.com>, 
-	Gregory Clement <gregory.clement@bootlin.com>, Haojian Zhuang <haojian.zhuang@gmail.com>, 
-	"Jeremy J. Peper" <jeremy@jeremypeper.com>, Kristoffer Ericson <kristoffer.ericson@gmail.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>, 
-	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
-	Ralph Siemsen <ralph.siemsen@linaro.org>, Robert Jarzmik <robert.jarzmik@free.fr>, 
-	Russell King <linux@armlinux.org.uk>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Stefan Agner <stefan@agner.ch>, 
-	Stefan Wiehler <stefan.wiehler@nokia.com>, Tony Lindgren <tony@atomide.com>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Will Deacon <will@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] coresight: Fix clock refcount imbalance on platform
+ remove
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Anshuman Khandual <anshuman.khandual@arm.com>,
+        Yeoreum Yun <yeoreum.yun@arm.com>,
+        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+References: <20260701-fix-clock-refcount-unbalance-v1-0-321dc63c1f90@oss.qualcomm.com>
+ <20260701-fix-clock-refcount-unbalance-v1-1-321dc63c1f90@oss.qualcomm.com>
+ <20260701162321.GG1812158@e132581.arm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20260701162321.GG1812158@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: NhpHL5xtopU3u980oVzTYncflpLoaea1
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDAwNyBTYWx0ZWRfX2WSzVfNM8Fh7
+ v8qygiQ13XypUlhEFh9wwmmA3mrbDjhutIM12Jv9HNwgHz9PureazrHRHAeIaXph5j/YxfEVXRM
+ ofBYqnmBxthzxbp49Dqr+vK5bOR2Xsc=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDAwNyBTYWx0ZWRfX8oNchWXa+ogq
+ 6zcqsSpd4nB8oeBmNd+v4v8ftSSQY+WAL4HvHotVAW0MGHL18k9xDbgJBd/A0WKu6tGrsmmnZxv
+ 1cONE9iQefVNSoUznD64vt6F20NfpKCry/WfGODIN11G+DcN07ALa7hfaOi/+VADglIPea71vzd
+ DqCOA9qn7+TqadlUZg+a+5CctnEZu1KYp/NOs63zn8nBmP15KqrpXPbUVGO392cwcTs5KvMWGNZ
+ xILPn7821sovkwoGlcEz3ucNb+rto+ExAqqmtTMf0c8kzcLLt7tsdmuSP5saO0XTRxe9TuWDE26
+ uTOuyvDb3JYgCe602rignz+4yoUv3rIVcgisDGZ+F6+2FOCBjOw3VTVEuM7NQLJyoCmJGkeRU2w
+ q7K20HEWBgeqGoo1KcCVqKGzYZVM7RkaS6cd5OwUNuqc6nXpTPDkKPGzKUeVKCHut1D1pFf4zab
+ DCXsyy+d82F21sWj5zQ==
+X-Authority-Analysis: v=2.4 cv=T5+8ifKQ c=1 sm=1 tr=0 ts=6a45b7da cx=c_pps
+ a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
+ a=2XoT9cGsJh1acgpUKzsA:9 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
+X-Proofpoint-ORIG-GUID: NhpHL5xtopU3u980oVzTYncflpLoaea1
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-01_05,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 spamscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
+ bulkscore=0 clxscore=1015 priorityscore=1501 malwarescore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607020007
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_175510_270227_68D3CEB7 
-X-CRM114-Status: GOOD (  12.49  )
+X-CRM114-CacheID: sfid-20260701_175907_939435_A857B4A0 
+X-CRM114-Status: GOOD (  29.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,18 +161,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Arnd,
+Hi Leo,
 
-On Wed, Jul 1, 2026 at 2:25=E2=80=AFPM Arnd Bergmann <arnd@kernel.org> wrot=
-e:
-> This configuration option is for the older boot method that preceeded
-> ATAGS. This was scheduled for removal back in 2001, but the removal
-> never happened, presumably because nobody cared enough to actually do it,
-> not because there are any users left.
+On 7/2/2026 12:23 AM, Leo Yan wrote:
+> On Wed, Jul 01, 2026 at 02:05:02PM +0800, Jie Gan wrote:
+> 
+>> After probe, pm_runtime_put() allows the device to suspend and the
+>> runtime suspend callback disables the same clocks. During remove the
+>> device is left runtime suspended, so pm_runtime_disable() freezes it
+>> with the clocks already disabled. The devm cleanup that runs afterwards
+>> calls clk_disable_unprepare() a second time, underflowing the clock
+>> enable refcount.
+> 
+> Thanks for fixing the issue.
+> 
+> The problem is that if the device has already been runtime suspended and
+> its clock has been disabled, afterwards when remove the device, the devm
+> cleanup disables the clock again, resulting in clock count underflow.
+> 
+>> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+>> index 0abc11f0690c..4c5b94640e6a 100644
+>> --- a/drivers/hwtracing/coresight/coresight-funnel.c
+>> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
+>> @@ -334,6 +334,7 @@ static void funnel_platform_remove(struct platform_device *pdev)
+>>   		return;
+>>   
+>>   	funnel_remove(&pdev->dev);
+>> +	pm_runtime_get_sync(&pdev->dev);
+>>   	pm_runtime_disable(&pdev->dev);
+> 
+> Let's use the funnel driver for the discussion. Once we agree on the
+> approach, we can apply the same change to the other CoreSight platform
+> drivers.
+> 
+> How about the following teardown?
+> 
+>   static void funnel_platform_remove(struct platform_device *pdev)
+>   {
+>          struct funnel_drvdata *drvdata = dev_get_drvdata(&pdev->dev);
+> +       int ret;
+> 
+>          if (WARN_ON(!drvdata))
+>                  return;
+> 
+> +       ret = pm_runtime_get_sync(&pdev->dev);
+> +       if (ret < 0)
+> +               dev_warn(&pdev->dev, "failed to resume before remove: %d\n", ret);
+> +
+>          funnel_remove(&pdev->dev);
+> +
+>          pm_runtime_disable(&pdev->dev);
+> +       pm_runtime_set_suspended(&pdev->dev);
+> +       pm_runtime_put_noidle(&pdev->dev);
+>   }
 
-Only netwinder_defconfig selects this option. Do the most recent
-NetWinder firmware versions actually need it? (LinusW, do you know
-this?) If not, can't we just drop it entirely?
+This proposal looks good to me. I forgot to add pm_runtime_put_noidle to 
+drop the useless reference which created by pm_runtime_get_sync.
 
-Ethan
+Thanks,
+Jie
+
+> 
+> The idea is to first resume the device with pm_runtime_get_sync(), then
+> perform the remove (which is safe if they need to access or clean up
+> hardware state), and finally clean up the runtime PM states. I mainly
+> referred to drivers/iio/adc/stm32-adc.c.
+> 
+> Thanks,
+> Leo
+
 
