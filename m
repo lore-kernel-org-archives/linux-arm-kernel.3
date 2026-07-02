@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C74D8C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C016C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gz1SCcBQk1uT9BfitccY1PXQbFj9e4s1uC4Oikj/pOw=; b=stnzmYkR3bl+AYOUw7a+77W1q2
-	v8ljzgKexKPhQSOvD9LV4S8aFRmpu16EICgoLb9lcgldx3CmIXitKUKKK1zIlsz/ZprcONkZs0n5J
-	/6+JDPRJt4QkInr1V96frFeCUe39WD76BGzhwN/xxUxddb48R5+JgO55G7CMfsWi4ZyHt5TjofVsp
-	eKMDxDTe5AF5csBbImuLztBj1gr3HEY2TwQFM4wFKZ4WinjXwdFP/4GSJ9iOG3dunyrPhkoWb19A4
-	J0NUgHZFb5UKzpUy/1lHJk1bm8hymtaNNBvhhKZh5i3hrj6ZDG22pIl/UHzhGle2HpVErlaNDlveb
-	wJPzpCtg==;
+	bh=RtXDFqw6p2zDy0q9A7tS+b3EKzCFjxgTHXGegH5U6qY=; b=Z7wpceYa947o+Zr3bkcKdivC2o
+	EDjLSkaZQRNNV3N9JS57RTWRnBUEUdM+FuRdES5O67Zc5mPRMWscN8ZstD/wZ3rx2sTSQfKH/kE4M
+	3VNTxP/ze6E9hsZUpJlxq9q9a0wEUNK7U8Jk0sMKpKC5WCiUyx7l1J/2I7iXFmuQb8WAKPy39WY2E
+	3X2mhOAZrRJXXujVXHw/oyQuMFL2Ya9D/vLPwkj5+QzBAwzTwFSIf2rXXXUq9lRxqJ8BTkJQ/ODSW
+	Wgd6VhBUEd+G70hre46OYEizysrS4e4YoR7cHNiWMsqO9mils+oh6wI3854mVUls4P2vwcRE2ypCo
+	Rvr9HN0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsZ-00000004uKb-1joN;
-	Thu, 02 Jul 2026 16:03:07 +0000
+	id 1wfJsd-00000004uUJ-3k0E;
+	Thu, 02 Jul 2026 16:03:11 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsT-00000004uCP-37qR
+	id 1wfJsV-00000004uEo-2Azj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:01 +0000
+	Thu, 02 Jul 2026 16:03:03 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 32F07601F0;
-	Thu,  2 Jul 2026 16:03:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD1E41F00AC4;
-	Thu,  2 Jul 2026 16:03:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ECCDB601FA;
+	Thu,  2 Jul 2026 16:03:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3F2D1F00A3F;
+	Thu,  2 Jul 2026 16:03:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783008180;
-	bh=Gz1SCcBQk1uT9BfitccY1PXQbFj9e4s1uC4Oikj/pOw=;
+	s=k20260515; t=1783008182;
+	bh=RtXDFqw6p2zDy0q9A7tS+b3EKzCFjxgTHXGegH5U6qY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=c2C0r3fAS3FhJF4PK/tP21s8cSFukJF/jxm22ybu32OyeIwDEaQBaHkjCjE8wL7BY
-	 191x7uYfKZV5z1HrG+hpgOTHH5iuQoe39/ekivkmiOKvg+L5FSTNmW4urNAJEJtNBr
-	 XRuR6eYvMK8fUE5MmXPR3HdqHoo6/j9tohcDH3rJEHNk4Mn5GgO1Rk3RxQR6+EfbRz
-	 dxmy1yZ6foMY0C8b8naFI0LGAYXoAhElUvWQlgmi50A8N2qdhtON1rb+d7GI0d4kJm
-	 Yv5JH03wLdL/78nROpw94VDWfPq/ZxeWcj5ET4nOp4oCpH6ceKcs7k2e1nNb7FwJZo
-	 8LHby5gD1y8sw==
+	b=UAxa94T7EmbepHPVbK6oa+R/OCZ/xrqasAzsNAlbLogWczaesIDkunCXlbZeAmywy
+	 vx5F/dY7D1a7stzMIi+9+SWQVixDdmeSnDQ7gS5rNijSa4kty1ErCqhC0Awt85hMGL
+	 JjH2rbdPPVJ/KzSfFllSbggdJFhbhQAy13yxR7BGATyBJL7R38kV8WhR7X+kwIJfzF
+	 b5Mt4X8Bj/k0w7OOVzQl+5WjT382r5F1RiaNfE8A1PnzamrYzrtvyfL2YKsbLkHzZ6
+	 BAhJNiVqJ+Q76MsZhOmtgVmyairfAmJ/7GhIrOFNc2dtHrPE/U5Wdt3IceMuGtiCLn
+	 aeARJfuuPvPrQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wfJsR-00000000ojd-0Wpb;
-	Thu, 02 Jul 2026 16:02:59 +0000
+	id 1wfJsS-00000000ojd-422v;
+	Thu, 02 Jul 2026 16:03:01 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 05/28] KVM: arm64: Plumb HCRX_EL2.SRMASKEn in HCRX_EL2 sanitisation
-Date: Thu,  2 Jul 2026 17:02:25 +0100
-Message-ID: <20260702160248.1377250-6-maz@kernel.org>
+Subject: [PATCH 14/28] arm64: sysreg: Add HCRX_EL2 bits related to FEAT_NV3
+Date: Thu,  2 Jul 2026 17:02:34 +0100
+Message-ID: <20260702160248.1377250-15-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
 References: <20260702160248.1377250-1-maz@kernel.org>
@@ -83,44 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HCRX_EL2.SRMASKEn is a new bit enabling FEAT_SRMASK for a guest.
-We don't plan to support it any time soon, but it doesn't hurt to
-actively document it, specially as we are going to add more bits
-we actually care about.
+FEAT_NV3 introduces 4 new HCRX_EL2 control bits. Describe them
+in the sysreg file.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 1 +
- arch/arm64/tools/sysreg | 4 +++-
- 2 files changed, 4 insertions(+), 1 deletion(-)
+ arch/arm64/tools/sysreg | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 16d8148dc3f12..8d5e4aacf49c4 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -904,6 +904,7 @@ static const DECLARE_FEAT_MAP_FGT(hdfgwtr2_desc, hdfgwtr2_masks,
- 
- 
- static const struct reg_bits_to_feat_map hcrx_feat_map[] = {
-+	NEEDS_FEAT(HCRX_EL2_SRMASKEn, FEAT_SRMASK),
- 	NEEDS_FEAT(HCRX_EL2_PACMEn, feat_pauth_lr),
- 	NEEDS_FEAT(HCRX_EL2_EnFPM, FEAT_FPMR),
- 	NEEDS_FEAT(HCRX_EL2_GCSEn, FEAT_GCS),
 diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 32e2f9856768b..c6e8117a6f9cd 100644
+index 31e4ea455a9ce..afe9337851a2e 100644
 --- a/arch/arm64/tools/sysreg
 +++ b/arch/arm64/tools/sysreg
-@@ -4545,7 +4545,9 @@ Fields	ZCR_ELx
+@@ -4548,7 +4548,12 @@ Fields	ZCR_ELx
  EndSysreg
  
  Sysreg	HCRX_EL2	3	4	1	2	2
--Res0	63:25
-+Res0	63:27
-+Field	26	SRMASKEn
-+Res0	25
+-Res0	63:27
++Res0	63:35
++Field	34	NVnTTLBOS
++Field	33	NVnTTLBIS
++Field	32	NVnTTLB
++Res0	31:28
++Field	27	NVTGE
+ Field	26	SRMASKEn
+ Res0	25
  Field	24	PACMEn
- Field	23	EnFPM
- Field	22	GCSEn
 -- 
 2.47.3
 
