@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ADCBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439D2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0q6ZHo2BNl+8kjffnB0LfiSWsOwt6gBjPhstX77CSvM=; b=rleEp6alWH2qZWGoHhfBgPOhJx
-	V99ChaiwZCpIxVNiEOaCNw8jtgZQKZ/lA2ZFJUy4EHu/tlohJ9af9MibeDRQMjgORRH/D+ZJLQrN7
-	8xtFltdvAqS82GFja86yj6VNEQpHWR6wYqvyw1SPoiosPbAprxC0j8fE7/Anjb627hZk3wfFUIQbM
-	dPsJZyTeySVVdIjXw0b1z4eWtUr6nNXTm1PiCBQayvw4ZdMiXcbpc4s3DMQ0JLOiGRRFdsnEbpgoz
-	3Kwoh8QaWiBd8Ka7JxTN2hy6rAV3JCyzFLhG1bapoF97K8OOdWatlnVCi/l50XY0C8LBgHQkc2nzL
-	XdZOQlyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gnP9BAFcBr8YepGSjigXPELQUSougD4kTqP9JAMV/ug=; b=fMF7MtWEkpiKvJsz4v+GzE1dRP
+	QQD5TK/GOC0lgqbs6joobIMyCDJZCFy+qiaFiBil237PzIdLkeAR+XO579NLUlrWmeeC2OaPXRGT4
+	OOpI3eiLbFI6nZIFEAT8J7egyclS3/kzEXqVFwqM5MQuIeZ4Wjqq0yjZ1ajcRXoH8vbDLOiJRFgf3
+	PgwxUMgBg2OA5b6/H7OeJljuVJ4FF3EUETJaadOL7Z6EChwOzfAlHO0h2yir3BUPhLVCYPHQhwcTc
+	bkLhIYVuBfgUyXKfgiJnB0wLVUiugybgQe7eDqlLdjzJNXp2bjxHL3pQtivCEmqHwZP+lryNVOVbN
+	A6lUrn0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIge-00000004edr-0xiZ;
-	Thu, 02 Jul 2026 14:46:44 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wfJV0-00000004q4A-44qe;
+	Thu, 02 Jul 2026 15:38:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgX-00000004eWu-3lcY;
-	Thu, 02 Jul 2026 14:46:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003594;
-	bh=XsiOHnKG4SPo7X0UGed/J+0uvQr1+vBQt+lfVk7aPnw=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XkRbuTSSQIE1klIwXr0sU7Jzjbxq665fL9vrNQfYrbcbDC4TG48pLnzSWWyYV90pH
-	 HWUGhBWdMVSir1+ICbLIAe2JpHtwE4g4Gsrl85I7vfLVv5UzS6pTaqcFjAvKORYijA
-	 V/0tPENRX4n88A8ZTRS9BIfBQfrvMdvAd8zmJMu7Go1sXuQJ2GlWHFYUQSpyhimrbf
-	 f9CgTlcZU6LBjv7mIY9QSFRjHLsDI9pKfDkEnLS/hUHacPoOlv/e/OgP+cfC0JDzLH
-	 bVgla8F+mxZPovVsVqmBPpJibv8MOJRuXY9VZFjb6eCyJDj1i+GyGCcUY2urRGNh5L
-	 bL8Js57gfRzjw==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 733DE17E0FDF;
-	Thu,  2 Jul 2026 16:46:34 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:17 +0300
-Subject: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
- infrastructure
+	id 1wfJUz-00000004q42-0TCi
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 15:38:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id D9B6E403F3;
+	Thu,  2 Jul 2026 15:38:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CA7391F000E9;
+	Thu,  2 Jul 2026 15:38:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783006724;
+	bh=gnP9BAFcBr8YepGSjigXPELQUSougD4kTqP9JAMV/ug=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kHlhXQYH0GjrVMC1tAgUsYs9fyR1QjM2zIIXfYqfpLr3ai15VbK4NWNzds7hq6U4I
+	 WHkDLushfZAiOiRZwMjwMr3Mku+oFHAlG45XMUxOl0UO8jjXpuX5lv169Todzj1e9h
+	 Df9zHgrdLPUKcIArJ8egVDAVC15BDrfgmlMZKhngo2Knjpe4sGKIC+kXn6nHgc8Qh1
+	 +sWq85EZRWtt8bxDfRvHAy1zyt1hVqbvk7/1PgxijvvUwFhuWJvS2jOaqOZ76v/Agc
+	 voORsSPR+7dCIgFkWGjrXkDtmmJohvh12bSK5hIhhOuum+BIjO7gqvIDKh3S97bxmL
+	 UBRCMlO/11XUw==
+Date: Thu, 2 Jul 2026 16:38:40 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Peter Maydell <peter.maydell@linaro.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: Sort registers in cpu-feature-registers.rst
+Message-ID: <af54a933-f6c3-4786-a9a2-de679fa8d2be@sirena.org.uk>
+References: <20260522-arm64-cpu-ftr-regs-v1-0-19775b40faf0@kernel.org>
+ <20260522-arm64-cpu-ftr-regs-v1-3-19775b40faf0@kernel.org>
+ <akaCJvZkdqigcQUZ@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074638_094942_1D55C1BC 
-X-CRM114-Status: GOOD (  22.94  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="P9JGLlGwTUGfsf3d"
+Content-Disposition: inline
+In-Reply-To: <akaCJvZkdqigcQUZ@arm.com>
+X-Cookie: Reactor error - core dumped!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,196 +76,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the connector-level infrastructure to support HDMI 2.0 scrambling:
 
-- A scrambler_supported flag to indicate whether the source supports the
-  scrambling capability, in which case the newly introduced
-  .scrambler_{enable|disable}() callbacks in drm_connector_hdmi_funcs
-  are mandatory
-- A scrambler_needed flag to be managed by the hdmi state helpers based
-  on the negotiated TMDS character rate and the source/sink scrambling
-  capabilities
-- A scrambler_enabled flag to track whether scrambling is currently
-  active
-- A delayed work item (scdc_work) with an associated callback (scdc_cb)
-  to monitor sink-side scrambling status and retry the setup if the sink
-  resets it
+--P9JGLlGwTUGfsf3d
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-These are intended to be used by SCDC scrambling helpers to coordinate
-scrambling setup and teardown between the source driver and the DRM
-core.
+On Thu, Jul 02, 2026 at 04:22:14PM +0100, Catalin Marinas wrote:
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/drm_connector.c | 26 ++++++++++++--
- include/drm/drm_connector.h     | 77 +++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 100 insertions(+), 3 deletions(-)
+> The patch is fine but I just realised that we are really inconsistent
+> with the non-visible things. We exposed a few hear, I guess in the early
+> days, and then we stopped, just adding the occasional visible fields.
 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index c7ce6b7bd8b0..deecfc582f09 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -220,6 +220,19 @@ void drm_connector_free_work_fn(struct work_struct *work)
- 	}
- }
- 
-+static void drm_connector_hdmi_scdc_work(struct work_struct *work)
-+{
-+	struct drm_connector *connector;
-+	struct drm_connector_hdmi *hdmi;
-+
-+	hdmi = container_of(to_delayed_work(work), struct drm_connector_hdmi,
-+			    scdc_work);
-+	connector = container_of(hdmi, struct drm_connector, hdmi);
-+
-+	if (hdmi->scdc_cb)
-+		hdmi->scdc_cb(connector);
-+}
-+
- static int drm_connector_init_only(struct drm_device *dev,
- 				   struct drm_connector *connector,
- 				   const struct drm_connector_funcs *funcs,
-@@ -285,6 +298,7 @@ static int drm_connector_init_only(struct drm_device *dev,
- 	mutex_init(&connector->edid_override_mutex);
- 	mutex_init(&connector->hdmi.infoframes.lock);
- 	mutex_init(&connector->hdmi_audio.lock);
-+	INIT_DELAYED_WORK(&connector->hdmi.scdc_work, drm_connector_hdmi_scdc_work);
- 	connector->edid_blob_ptr = NULL;
- 	connector->epoch_counter = 0;
- 	connector->tile_blob_ptr = NULL;
-@@ -624,12 +638,18 @@ int drmm_connector_hdmi_init_with_caps(struct drm_device *dev,
- 	 * inferred limit with the actual controller capability. A value of
- 	 * zero keeps the default limit inferred from supported_hdmi_ver.
- 	 */
--	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0)
-+	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0) {
-+		if (!hdmi_funcs->scrambler_enable ||
-+		    !hdmi_funcs->scrambler_disable)
-+			return -EINVAL;
-+
-+		connector->hdmi.scrambler_supported = true;
- 		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
--	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3)
-+	} else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3) {
- 		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
--	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0)
-+	} else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0) {
- 		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
-+	}
- 
- 	if (caps->max_tmds_char_rate) {
- 		if (caps->max_tmds_char_rate > connector->hdmi.max_tmds_char_rate)
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index 961a729d0869..c70b57963f28 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -28,6 +28,7 @@
- #include <linux/ctype.h>
- #include <linux/hdmi.h>
- #include <linux/notifier.h>
-+#include <linux/workqueue.h>
- #include <drm/drm_mode_object.h>
- #include <drm/drm_util.h>
- #include <drm/drm_property.h>
-@@ -1131,6 +1132,19 @@ struct drm_connector_hdmi_state {
- 	 * @tmds_char_rate: TMDS Character Rate, in Hz.
- 	 */
- 	unsigned long long tmds_char_rate;
-+
-+	/**
-+	 * @scrambler_needed: Whether HDMI 2.0 SCDC scrambling is required
-+	 * for the negotiated mode/bpc/format.
-+	 *
-+	 * Computed by drm_atomic_helper_connector_hdmi_check() from
-+	 * @tmds_char_rate and the source/sink scrambling capabilities.
-+	 *
-+	 * Per HDMI 2.0, scrambling is mandatory above 340 MHz TMDS
-+	 * character rate. Optional scrambling at lower rates is
-+	 * deliberately not requested by the helper.
-+	 */
-+	bool scrambler_needed;
- };
- 
- /**
-@@ -1439,6 +1453,36 @@ struct drm_connector_hdmi_funcs {
- 	 */
- 	const struct drm_edid *(*read_edid)(struct drm_connector *connector);
- 
-+	/**
-+	 * @scrambler_enable:
-+	 *
-+	 * The callback is invoked via @drm_connector_hdmi_enable_scrambling
-+	 * during commit to setup SCDC scrambling and high TMDS clock ratio on
-+	 * the source side.
-+	 *
-+	 * The @scrambler_enable callback is mandatory if HDMI 2.0 is to be
-+	 * supported.
-+	 *
-+	 * Returns:
-+	 * 0 on success, a negative error code otherwise
-+	 */
-+	int (*scrambler_enable)(struct drm_connector *connector);
-+
-+	/**
-+	 * @scrambler_disable:
-+	 *
-+	 * The callback is invoked via @drm_connector_hdmi_disable_scrambling
-+	 * during commit to tear down SCDC scrambling and high TMDS clock ratio
-+	 * on the source side.
-+	 *
-+	 * The @scrambler_disable callback is mandatory if HDMI 2.0 is to be
-+	 * supported.
-+	 *
-+	 * Returns:
-+	 * 0 on success, a negative error code otherwise
-+	 */
-+	int (*scrambler_disable)(struct drm_connector *connector);
-+
- 	/**
- 	 * @avi:
- 	 *
-@@ -2098,6 +2142,39 @@ struct drm_connector_hdmi {
- 	 */
- 	unsigned long long max_tmds_char_rate;
- 
-+	/**
-+	 * @scrambler_supported: Indicates whether the HDMI controller
-+	 * (source) supports HDMI 2.0 SCDC scrambling.
-+	 *
-+	 * This is set by the HDMI connector init helpers if the provided
-+	 * capabilities advertise HDMI_VERSION_2_0 support.
-+	 *
-+	 * When true, @drm_connector_hdmi_funcs.scrambler_enable and
-+	 * @drm_connector_hdmi_funcs.scrambler_disable are mandatory.
-+	 */
-+	bool scrambler_supported;
-+
-+	/**
-+	 * @scrambler_enabled: Tracks whether HDMI 2.0 scrambler is currently enabled.
-+	 */
-+	bool scrambler_enabled;
-+
-+	/**
-+	 * @scdc_work: Work item currently used to monitor sink-side scrambling
-+	 * status and retry setup if the sink resets it.
-+	 */
-+	struct delayed_work scdc_work;
-+
-+	/** @scdc_cb: Callback to be invoked as part of @scdc_work.
-+	 *
-+	 * Currently used to monitor sink-side scrambling status and retry
-+	 * setup if the sink resets it.
-+	 *
-+	 * This is assigned by the framework when making use of
-+	 * drm_connector_hdmi_enable_scrambling() helper.
-+	 */
-+	void (*scdc_cb)(struct drm_connector *connector);
-+
- 	/**
- 	 * @funcs: HDMI connector Control Functions
- 	 */
+> Shall we drop the 'visible' column altogether and only document the
+> visible fields here?
 
--- 
-2.54.0
+Yeah, I was struggling to understand the logic and would certainly
+prefer to not have to type in every single bitfield in yet another
+location.  I'll add a patch on top that does as you suggest, see if
+anyone objects.
 
+--P9JGLlGwTUGfsf3d
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmpGhf8ACgkQJNaLcl1U
+h9C8SAf9E5KA5iSqdivlp96tse489VUFmODlF8XFNkfYBRH8kzOUXLteEaC6JLzm
+wFF3CFAPVDwg1PSbY4wkgDoEdadpOou0L842z2zDjys1twMfeXK5gWY+wvNm4iQK
+kiNW1OSaV4D4GirwPome2nswvkeTIfyxcYXcmzhAU2nPtFgzAndHycLm8AUs6daL
+W2WsdJiwCFrvoNWKiLl/RjNDoSUM8ycGy882zcGJYnid1TIAhx0jXyQpABQMlNKy
+MtSKq/c3TRPbUGmCl0Ut3cgiUa7XQ+actK18NJH9RfwowhOTHbhg+hbXUS+AoWG6
+rz3p4wMc3FqUWGiDFUV49Bu/QVeuCg==
+=GLCj
+-----END PGP SIGNATURE-----
+
+--P9JGLlGwTUGfsf3d--
 
