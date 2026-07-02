@@ -4,92 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 464BDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Jul 2026 23:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C036AC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wh49f0xnm+dnPD93gRdPCbAkw8035G3HYldXfLYaT44=; b=VLuURL9Ms9MDKJgCEKhVT+4Gwt
-	G8+qBd/6tNstpFsBrSNXoSWtQTnKrtd8xBAzWgW1VNUjcoRz5JRiZCumrmpVVgThKW5OM+522ES6J
-	DQyU0uhJrQWKX2BDczBX2/w2mLCnKYv046Ud507zJ2ry2Hatxja+GmzsvFylss4tiMGV182R77fwM
-	w67VnNj638K7IL0Zuh4VNkpKYNJ2zdfMNLeLAY+BguXXCm6u6DGWUdQ5jCJ6bdKrynTxUt43bjKoi
-	oWUcdlzQekpg96zGaOtVFphj4pwxAwq0RzvBt4zroV2iR2N2LDwqO+KVLj4MRuj7YmwL0J7w4E62/
-	82tCXdTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MKy0RFu7xgDEI2dGgMG+Dk1HrsGATT053SdOOOQC+b8=; b=undzNHjcX3gbgHv7uaCX7dgJiG
+	xixVTNhpBrIOyWskaw/wea1yVdAWWO5oepOvxBnnJhLpPhaQt0dDBdgfv25UEUaVXM0p7y7EPP0YF
+	8HFCsgxhSKNI3HXcnHhO954SvYQZba5C46yRwFZ68A0zyI8rK5QWYOgUK5yII9VrPz8wXrTkwPX6J
+	kluhWo9RSKJinoqqFqVgPcBJM2K8xydRp8SUJybVoIjeOCsCrIjvZChgs6QEhoxYrR5HWZ+qIWalW
+	ur8k0+UI1+RGM2qMrvUbu9CA/+gjfTHCIlOOg+B77CEu3cXdZQU8FEHttMmOv/TBaUKuK4SOUSn1s
+	Iykg4fDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4TO-00000003AB1-1mfr;
-	Wed, 01 Jul 2026 23:36:06 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wf4s3-00000003GBX-0BRY;
+	Thu, 02 Jul 2026 00:01:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf4TF-000000039mQ-1YPr;
-	Wed, 01 Jul 2026 23:36:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782948949;
-	bh=+YRPJyI1V8oNPkbxLLhcwim5gCsEu0UcFX5g+tdQNU8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=QDh2xTKbPq/rwzI4ArqPloCgjYsrSvdcAJThPpyAfQLHAd9R3Y8jv9+1gLjYoq7us
-	 l+we5j9dUTx26du/MS+7Rjqah8FCw8YEMNgAkbXeu0EY9+gZ/IUUSiFvz0+npu/Yzt
-	 aCxiMnGLt6MpFD3HeXxsYEEbQKao4DvtVDhTlDZWOgHOW8dkEVY/qjVpkGtwX+TdOS
-	 dw19hmNL3ZZsuJBK+C+v0NbJBcpMQyBhdkVDlJn9wFAFFGg1DDENi53mydJXJztwgq
-	 DxDRhGtE1TRPWS928xpOq1tvIraZgehjeAzOCVbnh+JPwg7PloFQpBuQZc7FVEQaHb
-	 hyDJ6lgj6kXyw==
-Received: from jupiter.universe (unknown [100.64.1.62])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sre)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6B55417E15A5;
-	Thu,  2 Jul 2026 01:35:49 +0200 (CEST)
-Received: by jupiter.universe (Postfix, from userid 1000)
-	id B9A3A48003D; Thu, 02 Jul 2026 01:35:48 +0200 (CEST)
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-Date: Thu, 02 Jul 2026 01:35:47 +0200
-Subject: [PATCH v9 09/38] phy: rockchip: usbdp: Amend SSC modulation
- deviation
+	id 1wf4s1-00000003GBQ-3lXC
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 00:01:33 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 71C31404FC;
+	Thu,  2 Jul 2026 00:01:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C21B1F000E9;
+	Thu,  2 Jul 2026 00:01:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782950493;
+	bh=MKy0RFu7xgDEI2dGgMG+Dk1HrsGATT053SdOOOQC+b8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=GCSLWpmDDEHjrlT+KseVQxpcJoSLCpI5ureoFaRX4IN4pf2ZgYy3CJqjibEizrE32
+	 firSuVyH/BMLdcDdau8xWogD+IbYcegGky7KTpXk87Hn0jidAODsZ8sJZ8MSnxGyj3
+	 m1QsTW6pUMkFDv+iRUxIqSGHUXmwKziEl3FQZGRm/SWvCEP2eNtnKHTZVrsvb8Z3OP
+	 w2BVPcDPvygS8saTkLyd1vvvqKEcW5Sfb1pZasSYrSjIU68xhp5WWKs5irdDTAEEOd
+	 mDmhjE4e0JjyGcoEWpSSLr2n1hQqOYrI6T4wK0lrOcmgjI2WDTAZxf5nSNV8OwPt/X
+	 KZ6gil7BYJPvQ==
+Date: Wed, 1 Jul 2026 17:01:32 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
+Message-ID: <akWqXBJrJ1n34BQ5@kernel.org>
+References: <20260701204342.2654385-1-coltonlewis@google.com>
+ <akWhad3U5VNjWzxu@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-rockchip-usbdp-cleanup-v9-9-e31efbb62d2e@collabora.com>
-References: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
-In-Reply-To: <20260702-rockchip-usbdp-cleanup-v9-0-e31efbb62d2e@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Frank Wang <frank.wang@rock-chips.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Andy Yan <andy.yan@rock-chips.com>, Dmitry Baryshkov <lumag@kernel.org>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, 
- Alexey Charkov <alchark@gmail.com>, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org, 
- Sebastian Reichel <sebastian.reichel@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1765;
- i=sebastian.reichel@collabora.com; h=from:subject:message-id;
- bh=hEuJtDizS20fyTE+j+LEHbrRcnH32J1MUDI597yISUc=;
- b=owJ4nAFtApL9kA0DAAoB2O7X88g7+poByyZiAGpFpFOfqEVg3dFDtpeVCKDLjpfuZWiJ9ZEiW
- SH0E15gBWfF44kCMwQAAQoAHRYhBO9mDQdGP4tyanlUE9ju1/PIO/qaBQJqRaRTAAoJENju1/PI
- O/qa4Z0P/jAOopK3jHpNLZwR6v954tyqH0evvyHHdyCjZbKq6lzYEukQUexNux120mXZ3EpWCwP
- DDbKZCgJmfvtMgazW1VPo3PunKo3PfuivbDGPrQG7bnnY3JC9GFvfX1xdlNU/YllFJWNxtiVPs6
- ei9ZqkQI7Gqyqazm8Es3fm/ptDQtkRomFhQ+/lQtfdc3FVlX3HhCmezL1Vjx0nP1lyHnurfToe9
- Y02hyunPII3TTciS7fFXDMWhavnPmKS676kQmxs0D9G5XRbTjubGx0SeBGTVl5U96N0f+yijknp
- hDILpdQO/NHZyVe/oa9CRfdXjTPU+SwvXJsYP7BrrvBvK4tT4rC7h1M7AKWYhsEy2M12GD2b+PK
- tbHo8cnv5/yrvxj1HtLmzUgkt54OZIEilDuHtMijO2G+NDxKE23q8+QhxZ+AwExTQ8jPhNqHT7F
- 6NVfCs8nm5s0JiBsAb4uKRqx+G4KnxqfG8TVh74Jz64RNsRtk5UyvO+A6T74RJRW7wu1Z7VCvGK
- BO2OXUWVMsdj3Sj5kP2HJOjqlFkHd13wOHhqEf6G5ij/4dSx70Sqr0ee3B4JcKkmbHXr2+6Uibg
- h72OPnFGdj91Y7skXGlB8xmO3r7EydZ7koENWV8uRX5jHqCu6ETR6BfpoFDKp7r7iJSy6JsrlIu
- 5v/v44tCd51/XF0l6sFU5yA==
-X-Developer-Key: i=sebastian.reichel@collabora.com; a=openpgp;
- fpr=EF660D07463F8B726A795413D8EED7F3C83BFA9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_163557_613782_67ABD7E8 
-X-CRM114-Status: GOOD (  10.79  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akWhad3U5VNjWzxu@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,57 +76,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wang <frank.wang@rock-chips.com>
+Circling back around...
 
-Move SSC modulation deviation into private config of clock
+On Wed, Jul 01, 2026 at 04:23:21PM -0700, Oliver Upton wrote:
+> The subject prefix should be "[PATCH 6.6 0/5]" so people know right up
+> front where this is going.
+> 
+> On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
+> > This series backports VHE CPU boot fixes to the 6.6.y stable branch.
+> > 
+> > These fixes are already present in the 6.12.y stable branch (and
+> > newer), but are missing in 6.6.y. They are required to enable booting
+> > L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
+> 
+> It's a bit worse than this. The architecture retroactively made
+> FEAT_E2H0 an optional feature, there are now implementations in the wild
+> that do not support the feature.
+> 
+> > Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
+> > incorrectly configured (because it misses VHE-only detection or early
+> > initialization), causing early boot hangs/trap loops.
+> > 
+> > Conflict resolutions:
+> > - Patch 4 (KVM: arm64: Initialize HCR_EL2.E2H early) had conflicts in
+> >   arch/arm64/kvm/hyp/nvhe/hyp-init.S due to differences in state
+> >   initialization. Resolved by extracting EL2 state initialization into
+> >   __kvm_init_el2_state.
+> > - Patch 5 (arm64: Revamp HCR_EL2.E2H RES1 detection) had conflicts in
+> >   arch/arm64/include/asm/el2_setup.h. Resolved by using raw msr hcr_el2
+> >   instead of the missing msr_hcr_el2 macro.
+> > 
+> > 
+> > Marc Zyngier (4):
+> >   arm64: sysreg: Add layout for ID_AA64MMFR4_EL1
+> >   arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is
+> >     negative
+> >   arm64: Fix early handling of FEAT_E2H0 not being implemented
+> >   arm64: Revamp HCR_EL2.E2H RES1 detection
+> > 
+> > Mark Rutland (1):
+> >   KVM: arm64: Initialize HCR_EL2.E2H early
 
- - 24M: 0x00d4[5:0] = 0x30
- - 26M: 0x00d4[5:0] = 0x33
+Please go through and correct all of the SHA1s for the cherry-picks,
+smells like some LLM just hallucinated some bits given how close they
+are to the real deal.
 
-Signed-off-by: Frank Wang <frank.wang@rock-chips.com>
-[Taken over from rockchip's kernel tree; register 0x00d4 is not
-described in the TRM]
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
-Signed-off-by: Sebastian Reichel <sebastian.reichel@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+I also want to see that all KVM modes have been tested (nVHE, hVHE, VHE,
+protected) before this gets picked up. Overall though taking this to
+stable seems like the right thing to do.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index 2b27fd1c15d8..923279ed7d77 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -350,7 +350,8 @@ static const struct reg_sequence rk_udphy_24m_refclk_cfg[] = {
- 	{0x0a64, 0xa8}, {0x1a3c, 0xd0},
- 	{0x1a44, 0xd0}, {0x1a48, 0x01},
- 	{0x1a4c, 0x0d}, {0x1a54, 0xe0},
--	{0x1a5c, 0xe0}, {0x1a64, 0xa8}
-+	{0x1a5c, 0xe0}, {0x1a64, 0xa8},
-+	{0x00d4, 0x30}
- };
- 
- static const struct reg_sequence rk_udphy_26m_refclk_cfg[] = {
-@@ -377,7 +378,7 @@ static const struct reg_sequence rk_udphy_26m_refclk_cfg[] = {
- 	{0x0c30, 0x0e}, {0x0c48, 0x06},
- 	{0x1c30, 0x0e}, {0x1c48, 0x06},
- 	{0x028c, 0x18}, {0x0af0, 0x00},
--	{0x1af0, 0x00}
-+	{0x1af0, 0x00}, {0x00d4, 0x33}
- };
- 
- static const struct reg_sequence rk_udphy_init_sequence[] = {
-@@ -412,8 +413,7 @@ static const struct reg_sequence rk_udphy_init_sequence[] = {
- 	{0x0070, 0x7d}, {0x0074, 0x68},
- 	{0x0af4, 0x1a}, {0x1af4, 0x1a},
- 	{0x0440, 0x3f}, {0x10d4, 0x08},
--	{0x20d4, 0x08}, {0x00d4, 0x30},
--	{0x0024, 0x6e},
-+	{0x20d4, 0x08}, {0x0024, 0x6e}
- };
- 
- static inline int rk_udphy_grfreg_write(struct regmap *base,
+Any reason why you've only done 6.6? The kernel was first aware of
+E2H=RES1 as far back as 5.13.
 
--- 
-2.53.0
-
+Thanks,
+Oliver
 
