@@ -4,181 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3FEBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92D6AC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pw34LNor8ONZekt0ezRs6Us72J60Rz266P3ViTRsnWw=; b=X432UK5uF+roc+Hyu1kkL00D5O
-	e6tR0nhI/hJTa2AFfKU2YlyaQdnQi3yrl1/eeVfrCu3yCJTr2OWEc8o3zkoM717SHeRAhRXjMaXWX
-	NjC7NnKeqteNAV7bSHr4KCHY/7QI/gGJnAm4mk1Z3/Oq4IPqcnIVnfmnUN8azL7oCljIJhP+tIpGN
-	VBWCAssMO3S+7Le64ukXOjOJj6nd2vIqBPI4aS3XcQSTtqvW+dvbOxz9+95jVcR+7FPIJNMghq2B3
-	LQfyE/Ast+oka7rJhwJ+w0Qi+zJgHpXX3yrjPUMDoxtIPx3g/s6rd9G8DPECV52r2bKMrTc9MvWjD
-	C8cn4rbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U47AD84cL4bgHSLmobM5ZhjbhKce39K3qqgD3AI5WGY=; b=U8TasCoT2iyjh2GygfOIVrAp5V
+	vfS1wg0rg7DDTBEqN1WbxgVBZKjBCjoMjXgGXv7GSwXto4QmsNvWFT0OsO7GaiDDavmGOQK+RjISH
+	drJLGngnE2o6sDDvHTtj1+TB9TZn4tivxpmrRCgmPovzB/DitOsWkCD+UYZe3eMZPScIeVT6pKuZS
+	qAJSu0OjzdU3kNmk5cx1tGV7vfivIT/D7c1bANhespy/WXyHnDTRcV8N56Noco2HnDby5DDpTyKsQ
+	UQGAwnEXYJBaLUfDpuAp0cJXNnNAZRUjrebYWPP05irRmDfxmPac0Si2OowewUCj+3uIAx4PY9evH
+	sih2UXCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfB1L-00000003ex6-3pTf;
-	Thu, 02 Jul 2026 06:35:35 +0000
-Received: from mail-eastus2azon11011043.outbound.protection.outlook.com ([52.101.57.43] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wfB1Q-00000003eyB-08Do;
+	Thu, 02 Jul 2026 06:35:40 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfB1H-00000003ewD-1eP0
+	id 1wfB1O-00000003exR-1RtU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 06:35:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eyVdLHCpg7A47l29MWDwFJt/aECGT91HIWOeaav+7nEH+lG8NRnVKUP+U9KYNEQ/rsXkYd4Kt6R536RpA/m26YCQ81bex2si2xQvKGAdXCyOCWHCZgFYX4RWgTLZQplnZUfLnsz6DoZDUsTTD6i/IZLfZlo5zgCUHclALWpPZ3YPxSa2mlUSo0uGmF8Gmpmi11H9dTzThZ1Ls1Y3srodvZPKZC5IAwYmy7IHWeBTzzpM9Zknav/Pyn1qTxri955vNkg0vjdfYPQ3eNaF8hlkQKrLwTK6Um+xXpreXSrjFn3aTi8ojzLAi+fku4Pd+wVfVxbNZktlMo1eBgIAZ6XhRg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pw34LNor8ONZekt0ezRs6Us72J60Rz266P3ViTRsnWw=;
- b=oG12s91si7D/S4wmp2Y6F2pvlKZXCsHeSeSB620pPtg/LspPgjDOwrK3HBAeKrswn2Vl3cvuBZ9dG3TMw48v61uXuxFmgbjm7a0IrEnMLIPnwIFCWzIj1IXvIyg/LZL4m/CcHW2tX/rr8umKLxTIaIMGPNkhB3DMlAG1uS158lkQsUY/+KJTWljgQHWBNAPTeKKtM8SVgBHCdL8g7iGrpxStgg1QmbuelRNB15qs5RkaDlNG423gc2n0a9rlF2cYQ30aksoQ6lGBnE3IyVFK7rjrcbUN1KxLwSAs33naMIs/GE7wDfmzG2t0nw0iC0MVxkbUFnhPHMpTFMI5IRQUBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pw34LNor8ONZekt0ezRs6Us72J60Rz266P3ViTRsnWw=;
- b=xjOrwuzEpJIw9OV4ElOfBYWMuXA76REMA/FtMmSileIn8GGDIkRPADMOUES2INQJVS00aCIEhY7EW9LMplupqP8p74K75Y/MtW7IDvm9U1iHdcZjBXf4hMyRTydmbyp1GSQwqQfIkYYSd8U7RdSbU+v01PEuVzAWGbarFI6PUk0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com (2603:10b6:408:301::14)
- by CH3PR12MB9729.namprd12.prod.outlook.com (2603:10b6:610:253::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
- 06:35:22 +0000
-Received: from LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287]) by LV5PR12MB9779.namprd12.prod.outlook.com
- ([fe80::8ac8:e862:8ae9:9287%3]) with mapi id 15.21.0181.008; Thu, 2 Jul 2026
- 06:35:22 +0000
-Message-ID: <5a1ef110-dbf9-4537-a542-9739a6ab0733@amd.com>
-Date: Thu, 2 Jul 2026 08:35:16 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] i2c: cadence: Add support for Axiado AX3000
-To: Swark Yang <syang@axiado.com>, Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org
-References: <20260630-axiado-ax3000-cadence-i2c-support-v3-0-4e217cfe5904@axiado.com>
- <20260630-axiado-ax3000-cadence-i2c-support-v3-2-4e217cfe5904@axiado.com>
-Content-Language: en-US
-From: Michal Simek <michal.simek@amd.com>
-Autocrypt: addr=michal.simek@amd.com; keydata=
- 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
- mpwx1d8=
-In-Reply-To: <20260630-axiado-ax3000-cadence-i2c-support-v3-2-4e217cfe5904@axiado.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR05CA0024.namprd05.prod.outlook.com
- (2603:10b6:a03:33b::29) To LV5PR12MB9779.namprd12.prod.outlook.com
- (2603:10b6:408:301::14)
+	Thu, 02 Jul 2026 06:35:39 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493c5220cb7so4540745e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 23:35:37 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782974136; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FsP1K8rz5wn1hqfjYvaZqau7DwLBwqS9dzQYjebZrA9+qQARTXjrXJNrKGabDCBoKv
+         EDQ60sI0F2VQYegvQR30k3FbsEI40aBMO87wBoTpEvf4U5zmQS4jcy8vJ5BQzqJVN0hZ
+         IKWWQt9PBc8RKll7mW2RPqHGFskcB67VfEfp9zOzPpNxRJNIpQKX2llwTYXw5KfOJw3S
+         mJ0vB91l78GXC2xS4lLSOUFdIlOCPiKDPLUiAGAJAP3H1s/oe+q2bjStv5PGw6/S4bi9
+         X6/I72OZRB0p6PZgZmiXG0KkEWhFkPRCOZiglOQ1QgRm3Ew9itTEP1q44do4OgEJMSZb
+         NyoQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=U47AD84cL4bgHSLmobM5ZhjbhKce39K3qqgD3AI5WGY=;
+        fh=OFpM9pm2YuZUe/Lpw/1OtmiEUkc2f8qBluAFFUaJJJo=;
+        b=SrkJl543ysvtLvkcuy0HDvA4lNBL5yJMatGHOJVkr3x/f/mX/xSHqhvuugvh+Ylk+q
+         jB3BZXZexLXUm4ygR0lKFl3f4SJfGpqT0fU3cuWsSsWrHdtaOf/lzw9HTz+khB0xYYip
+         KoWGuoXBoM024Mbd8k1je+D8TsgtHTVBX1pCkzNxA9n2KWCKOP76VGQBztQGyvCk2fqv
+         yksgLgPSCBfd9BNQgJElROHV1weozEBk78r6h1ut/dWz6Az+ShWvapV+OCR/whT+WSlW
+         QT499h4ci5sEtkbJ5Z/o2iR3Rc1RzJuI5hEfkVZ59z7AOJQhokl+bRPfJKh3vnIJFQMi
+         oT3w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782974136; x=1783578936; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U47AD84cL4bgHSLmobM5ZhjbhKce39K3qqgD3AI5WGY=;
+        b=mXcINqYYYxYcocRFVCuCz+1Z5Q+T/eWn1oSFu8FmXDvmh3wF7+u3QavAHHHeYcvvFK
+         HOcW/mfagmkYmhNIfQLGltBw1AOUv7cE+NQNnmmX7aJM6PUEZDKXq2uPT39errPuZWzt
+         imP3Dy/9cBLs1Bc2tff2Yq3ANO31oP/4+BQLoN+4xztp1sfeyV4Y3geGoxofUqNPg0Zc
+         K3qRkv2bxfLCfYzK68KYysUUss9YNODUxIleRecT3iB6L6C1qQW9hluuri52GAL6yXZm
+         iS21uwHBc51ZqnrUEw0kKZp/b2UYlPfqaM8Gqct5wbj2eqtCzor5GiAAbnT40nWDd0iX
+         sBSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782974136; x=1783578936;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=U47AD84cL4bgHSLmobM5ZhjbhKce39K3qqgD3AI5WGY=;
+        b=EI4p9c/BACv7B1Rz7k8rbXZnNh4Ll2Go2m+wdyH1C8VjrXofJuH2/aS9rVuZNrthiC
+         X2gaYVgxccjhrifE7OE+TOatKAb/ic2XKrlWXRzcKXL6UiVKLeWweyBD4BWJia+cpKR0
+         m2f1HH634ivBPGX+v/wWxKgcKCUunIlfqDm+CZf9FsLjXyCqfXRjiuGBRXvDxM+xYlbf
+         Nef+78fLGh17SIrOL67uSpuqiLhQT1GybcAol6jN7KmAZYkvii3Q6QE/87TOc6zkzGOX
+         O2sXqTvKEVCGYuSKSPIHdOijmk8mDNJPGA4wnwLdo6McpmfGniYx9meZhAh6SI0mpcpK
+         +B3A==
+X-Forwarded-Encrypted: i=1; AHgh+Rq7adYCxiZ24uJ2ydOLm5BNnUKZh3APZ9b+B3l4VnqqvUfLDIWoJYQDT4jV8HlMWwO5x/jkOEsEaR57N+iYdGWA@lists.infradead.org
+X-Gm-Message-State: AOJu0YwejhPZyAiXPac+X17OCCtQzM1WDYdY78Nen8ZuhZ29nH/Mv8rw
+	93KmedRbg82Ro+XEOI40D5kCzS5oOGLzXZEAR3t6kb4RaoefLeqjF4lILAf49g8LZOcDQ9uwx9A
+	GW4+BGN2PbMr6cJMp39qoxfykUIkWpTA=
+X-Gm-Gg: AfdE7cnLok7It28h1XtrpP60djmsY9C7Z2u9AJKJ0hzUysebYjr8RIZpS1/29AKrhB/
+	FYLApZjtqlFMWJPnm6jNkAX9ctPG3GPuC9H2f6rODU6Ov1T2HbStlXKGEf4v8Cu8eK/eIsr+Zcy
+	onIz+VWG69V/OCkQt1jrZBs6rNfm/dXmRN9na7l/sH+rP8ihGNB41K3aV5sM10CobjyRlJUaHPQ
+	q3DkaXAFDnZJo5oriMu2CwW101okCArbN5p7wNntkrSgkM9WWjVOUa86VSEtp0ILIDrPd+upQ==
+X-Received: by 2002:a05:6000:2282:b0:470:4900:8d14 with SMTP id
+ ffacd0b85a97d-477b32c1b95mr5561148f8f.2.1782974136196; Wed, 01 Jul 2026
+ 23:35:36 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV5PR12MB9779:EE_|CH3PR12MB9729:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74ab2dca-eb17-4537-c8ef-08ded80417f2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|366016|11063799006|56012099006|4143699003|3023799007|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info: wLiBHebjKHWZTeRZSmlKOPLJzB1SXFwWTp0LP155AM0WNl3UAeYt1bgZ+AlMwcDrs/l7gxjVOfU+5fPBFWrgYGXcB5HrQUTtxl2K8fz854AZMS/A4+1z3eij45gsUwF3C1dPCTMUzDp4mbH6i606GHCqY1RhwmphPhS3+Jf5f0noIquUtGnmA5yM+EKI5VyBMw5UNpUZBf/Ljo2YjRZuitsqn/wmY6AmedXofZsRMuy0o52ulK9duDapU3IF9Jio4WPNaE6X4qITRNIXKaoxFY5wlHX1o3Vcam26OQ41wraekD1j6XOfurQoBHSuhUHFUwWTTmC/eYBGKdd6IjBRaXT47ox3Q+a7oT22fWioCwYTzdvcByyiGm3YltlAtwlzyRVXBRNDG/71s0ejBA9bTLSSGg2k0nQIgpJzRiQ6M6UEOKBlQOiO0CfNmrwBsMKOZUmYKpwIzxunsFwW/LmYrJbqGVr4VFw1vW4IGE3APozxk0CHB1a5AwMU1JnU9J4DJKFowlv+cTDchC9yVIf06zJvi2eKMPr4IEwN141pPd9YiPa6sGrZMmF+27pwJ+eO41Xjo1vZPPlWqN3Mme29nYdsO7+t5BQv4TFuabwABMfzAHmu05TW5ASposDA3aALa1PeCB2n7LlukzbjkOFAPGqy7qfzk4Y1dMBgetAyhp0=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR12MB9779.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(366016)(11063799006)(56012099006)(4143699003)(3023799007)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dVdVaDNTZmtzbjFyY3VWWC9aZTNKeW80bWpYUytQWUxLVzBtU1paUXBGeWJ2?=
- =?utf-8?B?ZHNiNnN5TG5LelVCOHdIdEZGa1E3bFhWMXBFQW5YNm1VajRUNENkQVZMVHZr?=
- =?utf-8?B?YTBIcmhtNnFOdnZJaGtmR2RBZ0I2Z1Ziempqby9lSE4zSS9UU1pyZHpYeXVO?=
- =?utf-8?B?YkRHbWJ4VmxwUmJJYk5uL0xrdG1UZjk1Vm42djVvaUdvQzdWckRlRjc3U2RI?=
- =?utf-8?B?cmRVMGdNZTBOcis5TE5VQnJKcVBGclJrQndKazhOSWUwSmtXM01QSmplNndz?=
- =?utf-8?B?T1dmTkdkcVdtUzNGMW40T1JOWTREVnNkVjhqbXdMWU5GZHB2L3B3QzZTTFVQ?=
- =?utf-8?B?ZUNPY1ZqdTRQRnBLVTcxVVBiZXV1QXBhZSs1UWNmZHYvV3BRZGY0RlRIdEtl?=
- =?utf-8?B?YmUrUmhPbEJwOGxzOFNXdzhHWCtKR00wQmhWbVZnK2tGY0s0ai85ZElwVUh3?=
- =?utf-8?B?N3BHaWMrY2I1VlI0cFZrVTIrVVZTVFZQQVVTekJXQlVkZjQ3cUd0cnhqMHpV?=
- =?utf-8?B?NEdIWm1pd282ZVBFMHJOVXhXRUN2Y3N6cXVIMUhjSlhFeUg4Wko5d0FtQnR4?=
- =?utf-8?B?cmlZb2N3d1daN3ZZMUlaeW5pdDFTSnhsYnA1Q1hUMU93Z2x1YTRic1J0Y0pr?=
- =?utf-8?B?NWFuUE5qejQ4b3pGUG5Xc3JmL1h3ekI4ZUl4NTRPWFBTbEJTYXFpNFh3d3pN?=
- =?utf-8?B?Y3VQcHpmTmJQUU9vamdnSmhBbXNKaUpQNklvZHhWOXZvSGFJaFVlS01MVzhT?=
- =?utf-8?B?M1hqWldmQ3YwQlZaUzdPcHg0aEttWGxXRUdmVFRBNVYxQ0x5WmliVnBJOUth?=
- =?utf-8?B?RWxiNUZEZTJrNWlNa2d0ZnoyQ0FpUXRBeTlLYmY4a3EzYkpCZUtVK05TeTV2?=
- =?utf-8?B?WXd0OFdqWk95cEtWSiszM3hQK0NDN1YvYmdSSC9wUmNVMEJtSTd2dTZydjhm?=
- =?utf-8?B?MCs4ODhoS1dsVzErQkJ6azhFZXVNc1VkcEV5ekFvMEV5MEVOWDNCZ25oWEd3?=
- =?utf-8?B?WlcvbGl6dFJYaGkwcldEVEpHOUxZTXlCbkR1dVNzTXV3bHcxZFhteGVhYVBW?=
- =?utf-8?B?bUIrc0cwdWxENkVuZ3JEU2tQcWtGZk44alFINnFoYlV5RU9IRSt3Mm1MTjNi?=
- =?utf-8?B?YXFEL3o3dDRETUZhemQ5QTVUUThkZFowdWEwYTduTThCeUNVU3E2bWcvS1dn?=
- =?utf-8?B?cnZna296dVN4amdjOXJxdS9DTVFzUlNUd2pNdGFXZDlQbUxhM0VwOFpocU5k?=
- =?utf-8?B?QVg5dUpQMkozL0RzV2FhQXg5OVJadC92My9NVXVTblJVdjJQVHBlWU1YRXZE?=
- =?utf-8?B?aTlidUpMUG1KOHVEejY4ZkI3WHU3Y1E0cHl3Z21PMDZmeXVlOGhaOWZCUHg5?=
- =?utf-8?B?RkUvcDBtTDBqWFdkQTBsUktFRHZ2RHh2UU9ZVWtBY2hLeUhRdWczdzNkMjl2?=
- =?utf-8?B?TnFnK21rb0VpWSs0c1FrTC81VkFMVFRPYjJzVmttb0lkclFsOWZDUExvSEht?=
- =?utf-8?B?cHBMOHZRZ1RSMml5a0lKeWREY2k3SDJEcWtwOHJzUG5Qa3N0cmwvU2RQZmNt?=
- =?utf-8?B?Wmx4c3VhUUY3RUdnSEJMTEZXK1ZpOVptSmxIV2xvbHh0dzZxTytPWFQ3KzVv?=
- =?utf-8?B?WUMvbWtFbUtreksvVHJBd1pjdEJORU5YRE9GNFRvNFhxQ3cyZ3dwbUgrT0FN?=
- =?utf-8?B?dGRPc3JSSTFJZGl6U05uWnBmeE5PaHovNTJERnNLWHRtbDVFNG1GM1FwaTFB?=
- =?utf-8?B?R3RqWFQxS2NGOVA0aUgzZ0xBVGRQb3pWRVBXRTkvQUIyckFseFN5UXk2WWZt?=
- =?utf-8?B?cmlLQ3ZuZ1h2a2lFTXBDU2tpTU1XWEVxL2ZEc04xMnJKQ3czYzdWZytuY1h1?=
- =?utf-8?B?RXMvOFZtUk52OUNFR2hhV1dkMEc5UTVzOHkzTDNOc2JTQStLbWxvdFFZSVpS?=
- =?utf-8?B?WmZ3OVk5dktPTFp6T2FTVlZsMEh6aGdtNVlnSHM3SWt1NklkZmd4alNJTkx0?=
- =?utf-8?B?TVlxTUt2c0d2aTZ1Z3dlYmZ1K3kxWmVFd0FsSEFtNjdhaTErRUxkek4vUGVY?=
- =?utf-8?B?VHREVWpTempMUUpEU0liMDBzaHl6bmkrZi9BenprQk5Za0dod0RRd3hIT0hV?=
- =?utf-8?B?TmR5OGk5T1ZxN1BHS3hwRFl3ZTFqSWxUS0lWM253RCtsMnVkYjJYYlNGVGxh?=
- =?utf-8?B?dW5OVzJOSEgzQXJDQTNMUCs4LzJYSXZRZ29vdzlIN0NXb1Q3LzI0UEwxSDg1?=
- =?utf-8?B?ZldTaGVMOHd2cGdwdnhvSVFBUkYvYjNIRXZDK0w4T1JsQytGOVNQeXl1V25Q?=
- =?utf-8?B?WkYxcWZuSkYyZUJVc0lCVFJIZHhlRlMremxkNGRac3RZT0U3S2RtUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74ab2dca-eb17-4537-c8ef-08ded80417f2
-X-MS-Exchange-CrossTenant-AuthSource: LV5PR12MB9779.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 06:35:22.7716
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0ZJ3et9Cfy0Da/v8tvzl6cC4CZwyufHtgrzdWy+OZ7NUPX5ooTHulvYGhgJwkiyg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9729
+References: <20260618084726.1070022-1-jiangwen6@xiaomi.com> <20260624195704.5c29c0353163babb721585ca@linux-foundation.org>
+In-Reply-To: <20260624195704.5c29c0353163babb721585ca@linux-foundation.org>
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+Date: Thu, 2 Jul 2026 14:35:24 +0800
+X-Gm-Features: AVVi8CdG5CabgJEFZZpewjLyJ7t--OOyNjBGNXchfHTDNoEBtggbSD2E0Nzod_E
+Message-ID: <CAHKocdHJ-JB5jjXG3_-syz4P8k1C=jWrGaFxwnTjcinpGyR_BA@mail.gmail.com>
+Subject: Re: [PATCH v4 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
+ with contiguous memory
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	catalin.marinas@arm.com, will@kernel.org, urezki@gmail.com, baohua@kernel.org, 
+	Xueyuan.chen21@gmail.com, dev.jain@arm.com, rppt@kernel.org, david@kernel.org, 
+	ryan.roberts@arm.com, anshuman.khandual@arm.com, ajd@linux.ibm.com, 
+	linux-kernel@vger.kernel.org, jiangwen6@xiaomi.com, shanghaoqiang@xiaomi.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_233531_747673_D499F03B 
-X-CRM114-Status: GOOD (  26.70  )
+X-CRM114-CacheID: sfid-20260701_233538_421837_DD3FEB11 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,103 +119,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 25 Jun 2026 at 10:57, Andrew Morton <akpm@linux-foundation.org> wro=
+te:
+>
+> On Thu, 18 Jun 2026 16:47:20 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> w=
+rote:
+>
+> > This patchset accelerates ioremap, vmalloc, and vmap when the memory
+> > is physically fully or partially contiguous. Two techniques are used:
+>
+> Thanks.
+>
+> > 1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
+> >    segments
+> > 2. Use batched mappings wherever possible in both vmalloc and ARM64
+> >    layers
+> >
+> > Besides accelerating the mapping path, this also enables large
+> > mappings (PMD and cont-PTE) for vmap, which are currently not
+> > supported.
+> >
+> > Patches 1-2 extend ARM64 vmalloc CONT-PTE mapping to support multiple
+> > CONT-PTE regions instead of just one.
+> >
+> > Patch 3 extracts a common helper vmap_set_ptes() that consolidates PTE
+> > mapping logic between the ioremap and vmalloc/vmap paths, handling both
+> > CONT_PTE and regular PTE mappings. This prepares for the next patch.
+> >
+> > Patch 4 extends the page table walk path to support page shifts other
+> > than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
+> > mappings. The function is renamed from vmap_small_pages_range_noflush()
+> > to vmap_pages_range_noflush_walk().
+> >
+> > Patches 5-6 add huge vmap support for contiguous pages, including
+> > support for non-compound pages with pfn alignment verification.
+> >
+> > On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
+> > the performance CPUfreq policy enabled, benchmark results:
+> >
+> > * ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
+> > * vmalloc(1 MB) mapping time (excluding allocation) with
+> >   VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53us)
+> > * vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
+>
+> Nice.
+>
+> > Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
+>
+> Indeed.
+>
+> I see Dev had a good look at v3 - hopefully he (and Ulad) (and more ARM
+> folks) have time to go through this.
+>
+> Is there any effect on anything other than arm64?  I'm wondering how
+> much testing these changes will really get in mm.git and linux-next.
+>
+> How is our selftests coverage of these changes?  Is there some existing
+> selftest which will exercise these new features?
+>
 
+Hi Andrew,
 
-On 7/1/26 06:48, Swark Yang wrote:
-> The Axiado AX3000 SoC integrates a Cadence I2C controller
-> that supports SMBus Quick commands.
-> 
-> Introduce the "axiado,ax3000-i2c" compatible string and
-> add a new quirk CDNS_I2C_ENABLE_SMBUS_QUICK to enable
-> this functionality. This allows the controller to support
-> I2C_FUNC_SMBUS_QUICK, enabling features such as bus scanning
-> via quick write commands.
-> 
-> Additionally, enabling SMBus Quick emulation in the I2C core exposes
-> the controller to potential 0-length reads. Because the Cadence IP
-> does not natively support 0-length reads (writing 0 to the transfer
-> size register leaves the hardware in an unsupported state), this patch
-> also populates the adapter quirks with I2C_AQ_NO_ZERO_LEN_READ.
+I ran all test_vmalloc subtests (run_test_mask=3D0xff) on both ARM64 and
+x86_64, comparing base (v7.0.10) against the patched kernel.
 
-nit: Avoid "this patch". Just use ", populate ..."
+All test_vmalloc subtests passed on both platforms. I do not see any
+functional or performance regression. The small differences below look
+like measurement noise.
 
+ARM64 (Radxa ROCK 5B+, RK3588, pinned to CPU 0, performance governor,
+5 runs averaged):
 
-> This ensures 0-length reads are safely rejected by the core, preventing
-> potential bus hangs.
-> 
-> Signed-off-by: Swark Yang <syang@axiado.com>
-> ---
->   drivers/i2c/busses/i2c-cadence.c | 23 +++++++++++++++++++++++
->   1 file changed, 23 insertions(+)
-> 
-> diff --git a/drivers/i2c/busses/i2c-cadence.c b/drivers/i2c/busses/i2c-cadence.c
-> index 0fb728ade92e..1964ea1650c5 100644
-> --- a/drivers/i2c/busses/i2c-cadence.c
-> +++ b/drivers/i2c/busses/i2c-cadence.c
-> @@ -128,6 +128,7 @@
->   #define CDNS_I2C_TIMEOUT_MAX	0xFF
->   
->   #define CDNS_I2C_BROKEN_HOLD_BIT	BIT(0)
-> +#define CDNS_I2C_ENABLE_SMBUS_QUICK	BIT(1)
->   #define CDNS_I2C_POLL_US	100000
->   #define CDNS_I2C_POLL_US_ATOMIC	10
->   #define CDNS_I2C_TIMEOUT_US	500000
-> @@ -1175,10 +1176,14 @@ static int cdns_i2c_master_xfer_atomic(struct i2c_adapter *adap, struct i2c_msg
->    */
->   static u32 cdns_i2c_func(struct i2c_adapter *adap)
->   {
-> +	struct cdns_i2c *id = adap->algo_data;
->   	u32 func = I2C_FUNC_I2C | I2C_FUNC_10BIT_ADDR |
->   			(I2C_FUNC_SMBUS_EMUL & ~I2C_FUNC_SMBUS_QUICK) |
->   			I2C_FUNC_SMBUS_BLOCK_DATA;
->   
-> +	if (id->quirks & CDNS_I2C_ENABLE_SMBUS_QUICK)
-> +		func |= I2C_FUNC_SMBUS_QUICK;
-> +
->   #if IS_ENABLED(CONFIG_I2C_SLAVE)
->   	func |= I2C_FUNC_SLAVE;
->   #endif
-> @@ -1442,9 +1447,24 @@ static const struct cdns_platform_data r1p10_i2c_def = {
->   	.quirks = CDNS_I2C_BROKEN_HOLD_BIT,
->   };
->   
-> +static const struct cdns_platform_data ax3000_i2c_def = {
-> +	.quirks = CDNS_I2C_ENABLE_SMBUS_QUICK,
-> +};
-> +
-> +/*
-> + * The controller does not support zero-length reads. Enabling SMBus Quick
-> + * commands would otherwise let the core emulate a Quick read as a zero-length
-> + * read message, which writes 0 to the transfer size register and leaves the
-> + * hardware in an unsupported state. Reject such transfers in the core.
-> + */
-> +static const struct i2c_adapter_quirks cdns_i2c_quirks = {
-> +	.flags = I2C_AQ_NO_ZERO_LEN_READ,
-> +};
-> +
->   static const struct of_device_id cdns_i2c_of_match[] = {
->   	{ .compatible = "cdns,i2c-r1p10", .data = &r1p10_i2c_def },
->   	{ .compatible = "cdns,i2c-r1p14",},
-> +	{ .compatible = "axiado,ax3000-i2c", .data = &ax3000_i2c_def },
->   	{ /* end of table */ }
->   };
->   MODULE_DEVICE_TABLE(of, cdns_i2c_of_match);
-> @@ -1510,6 +1530,9 @@ static int cdns_i2c_probe(struct platform_device *pdev)
->   		id->quirks = data->quirks;
->   	}
->   
-> +	if (id->quirks & CDNS_I2C_ENABLE_SMBUS_QUICK)
-> +		id->adap.quirks = &cdns_i2c_quirks;
-> +
->   	id->rinfo.pinctrl = devm_pinctrl_get(&pdev->dev);
->   	if (IS_ERR(id->rinfo.pinctrl)) {
->   		int err = PTR_ERR(id->rinfo.pinctrl);
-> 
+ +------------------------------+------------+------------+--------+
+ | Test                         | Base(usec) |Patch(usec) | Change |
+ +------------------------------+------------+------------+--------+
+ | fix_size_alloc_test          |     935371 |     913368 |  -2.4% |
+ | full_fit_alloc_test          |    1208295 |    1244718 |  +3.0% |
+ | long_busy_list_alloc_test    |   35669866 |   35854584 |  +0.5% |
+ | random_size_alloc_test       |   20122611 |   20200013 |  +0.4% |
+ | fix_align_alloc_test         |    3240373 |    3288431 |  +1.5% |
+ | random_size_align_alloc_test |    4822107 |    4792305 |  -0.6% |
+ | pcpu_alloc_test              |      87641 |      89429 |  +2.0% |
+ | Total cycles                 | 1586173575 | 1593193228 |  +0.4% |
+ +------------------------------+------------+------------+--------+
 
-Wiring looks good to me.
+x86_64 (Intel i7-8700, bare metal, pinned to CPU 0, performance governor,
+5 runs averaged):
 
-Acked-by: Michal Simek <michal.simek@amd.com>
+ +------------------------------+-------------+-------------+--------+
+ | Test                         |  Base(usec) | Patch(usec) | Change |
+ +------------------------------+-------------+-------------+--------+
+ | fix_size_alloc_test          |      447739 |      439655 |  -1.8% |
+ | full_fit_alloc_test          |      572719 |      575582 |  +0.5% |
+ | long_busy_list_alloc_test    |     8544326 |     8635052 |  +1.1% |
+ | random_size_alloc_test       |     4475421 |     4490037 |  +0.3% |
+ | fix_align_alloc_test         |     1725389 |     1712483 |  -0.7% |
+ | random_size_align_alloc_test |     2192646 |     2215064 |  +1.0% |
+ | pcpu_alloc_test              |       50354 |       51911 |  +3.1% |
+ | Total cycles                 | 57494755150 | 57703906913 |  +0.4% |
+ +------------------------------+-------------+-------------+--------+
 
-Thanks,
-Michal
+> You diligently went through the Sashiko report against v3 (thanks).
+> Please pass an eye across its v4 report, see if something new popped
+> up?
+>         https://sashiko.dev/#/patchset/20260618084726.1070022-1-jiangwen6=
+@xiaomi.com
+>
+
+I've gone through the Sashiko findings:
+
+- Patch 5 (CONFIG_HAVE_ARCH_HUGE_VMAP): Over-interpretation.
+  CONFIG_HAVE_ARCH_HUGE_VMAP is correct =E2=80=94 it gates
+  arch_vmap_pmd_supported() and arch_vmap_pte_supported_shift() which
+  this code calls.
+
+- Patch 5 (__ffs(page_to_pfn())): Over-interpretation. Never appears.
+
+- Patch 6 (GFP_KERNEL triggering reclaim on alignment failure):
+  Over-interpretation. The same GFP_KERNEL is used by the
+  existing get_vm_area_caller() =E2=80=94 no behavioral change.
+
+Best Regards,
+Wen
 
