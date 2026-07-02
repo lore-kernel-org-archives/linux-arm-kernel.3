@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BECF9C43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAB12C43327
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1jiUI4II0VO8aH2bupSsEs//r9OPp5fqldDp21ApI2o=; b=n3rgt94XiM/pLWodeIuokI7c0A
-	nH0cyRp0gSqXSDrIsG4eQeubS1B2sogWLUTKK/54MKUjATSWahWoxoyhcK5zmnp8MRe5dCW2ZWbsK
-	7ExWvLUR7Rr7X5slOvtJdoZuwgHunP4Fg5U0hvv2LkOqjxOV1hsPhK8eYUDG4sPrsrViHce6m3Md+
-	O2VagsJsiuEUqDk70FJVBKgRZ0oThSxhwwwZ/jRAumg8Zptsj/3L9Y62/ODnEoEcZVWCDDdyE+iuz
-	AJn8PwazY2NB52lAc5yAhbNqxzOKfPUKGTUC+wtl8dIpmIxCdX26Uy6ak5A81LKYPY1dcc1htNdH+
-	YG7h8izA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fG4XO2ww4wMf7EmudqmYsnTV3KHgPa+i+Gvv7QSnaNY=; b=cXDxXGi8Q5Rigm
+	PWEJFUOmW2FqFVBPAiWZvKLGuVeplMfr4Hg7B6GSXmEL2VKFpT3Wdn+ydX7BIk0Ia/DBTx8Uc8ZSe
+	Qi6TBVy+IIq4tiZeKBWP7suWaK6ukhGTou9b86BrXo5tppzKDCknyxuH5HQQSnNh6e6NDASZ+et5x
+	EObbWXl/htBMQMH+PJ56xJDXawJDe5WA5TzRckr4mGX1E63rq5/mczWYlaTADVivSq7Jzh0NQrge0
+	OCbrEM9OfSjBhYqiSPXjfOxxlqld/CO5HikTT4ZWSpImhNkeKka69AGlP9SthCOFeJzti3O8Vqs2Z
+	fEsZGDCuacOITagjubOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgd-00000004ecr-3etU;
-	Thu, 02 Jul 2026 14:46:43 +0000
+	id 1wfIge-00000004ef8-3ysr;
+	Thu, 02 Jul 2026 14:46:44 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgX-00000004eWp-0Umf;
-	Thu, 02 Jul 2026 14:46:40 +0000
+	id 1wfIgX-00000004eWo-0I11;
+	Thu, 02 Jul 2026 14:46:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003593;
-	bh=alwKjX0qd04bQGKBybnZVjx1pcMm+oZgM4GGSs2jfak=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WPsB6KJ633mpnlMCJgd3Za/iV9saZ8Dp9jl1SAEjZAi+IsGQ3aWI+EICbdGlUWrQN
-	 AhCRIUiX5+8A2Hhl1Ey+xtq9SUbBIXVKyd+5J2JiwxPGnM1uOQbdc6yphjNtM3bcUy
-	 +dbwQmRO3210LsxGDKevY+hSth5nmejxET6zHFsBE7chxBbcXaOQpcywixKraDwtLL
-	 BmO/7epFP0JuTfZJaJDTWD/WvaT3HmlTQss5Az47+P5SaJWuHMMvOlIYhCoEAHV6UT
-	 WqdeeqpAMQTV8zbjiY7kYBaSDF03Ps+lLz3VssSxvN+xjH9nvlHqJdh2GbDyg0TDGA
-	 xTap0p7sJCdfA==
+	s=mail; t=1783003591;
+	bh=Ou+ENO0xLbokUnTy4g0RXMQ2CFxIbN1tHjqNYZz1Vzg=;
+	h=From:Subject:Date:To:Cc:From;
+	b=TNFjjvABWiyidTVci8wNbQ8aO0cd9LYjF1+I1lby8GQWX/u66fTKDnA/k5jLxviPq
+	 TU/pVef9Jwed11q+H/ApyPyAg3Z3fezOVdIG2AJno7rJ+1Dayc1gZEi40Q0BkHaCYq
+	 tf7ipqaIG0K1Lc8B6FnCHgOHbVt/CwOKJ1LvTveSkeGieYUIVljm5YcvOiJIMOLDtm
+	 rzrh1TE/3+0fxi4Bkelqqu2IuLtXuJAgtgiZFogO4e4+yMrC+08haqDd0Juu4ouCqe
+	 GYXpqmgGyVns3BY8kgY4djWe1ad8TTO8geNCR77Fgpm0E+tK18IlfADKZ/CQ6SY3Cc
+	 hOUFNM5Ii64Sg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 02FEF17E0F44;
-	Thu,  2 Jul 2026 16:46:33 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 756F317E0CA0;
+	Thu,  2 Jul 2026 16:46:31 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:15 +0300
-Subject: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector init
- helper
+Subject: [PATCH v8 00/39] Add HDMI 2.0 support to DW HDMI QP TX
+Date: Thu, 02 Jul 2026 17:46:13 +0300
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33Q3UrEMBAF4FdZcm0kM/ntXvke4kWTTG1gu11Tq
+ crSd3d2QSoYvDyB+TJnrmKhWmgRx8NVVFrLUuYzh/BwEGnsz68kS+YsUKEFVFrmDznmqci3i1x
+ S7acoU445ROtTGjrBc5dKQ/m8m88vnMeyvM/16/7FCrfX/7QVpJJBu4G8UdC77inNp1Mf59o/p
+ nkSN3HFH8UpgKaCrPTkIyYbMprcUvRvpWspmhUu5wC8VkOClmJ2RbcbGVY0+KxjiBmh2cjuikH
+ XUiwr2ftAXiXWYktxu2JRtRTHCproDW8bfcCW4nfFKWwpnhVjLEVriID+XHfbtm+g7uOPWgIAA
+ A==
+X-Change-ID: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -68,11 +72,14 @@ To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
  Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
 Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
+ linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Diederik de Haas <diederik@cknow-tech.com>, 
+ Maud Spierings <maud_spierings@hotmail.com>
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074637_477691_5B953D0E 
-X-CRM114-Status: GOOD (  23.38  )
+X-CRM114-CacheID: sfid-20260702_074637_417573_9862FDF3 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,326 +94,258 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding HDMI 2.x source capabilities, introduce struct
-drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
-helper.
+Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
+TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
+management for high TMDS clock ratio and scrambling.
 
-The existing drmm_connector_hdmi_init() helper currently takes
-individual capability arguments such as supported_formats and max_bpc.
-Adding more HDMI-specific arguments to that function would not scale
-well, so move those values into a dedicated capabilities structure and
-implement the existing helper as a wrapper around the new caps-based
-interface.
+Since SCDC state is lost on sink disconnects, the bridge driver needs to
+trigger a CRTC reset during connector detection.  To support this, the
+series introduces the connector and bridge scrambling infrastructure
+(patches 1-8), wires it up through the bridge connector layer with an
+atomic-aware detect_ctx hook (patches 9-11), then implements the SCDC
+scrambling feature in the DW HDMI QP bridge driver (patches 12-15).
+
+Patches 16-18 are minor cleanups in the Rockchip platform driver.
+Patches 19-23 improve HPD handling by deferring IRQ registration until
+the connector is fully initialized, adding .enable_hpd()/.disable_hpd()
+PHY ops, and restricting HPD events to the affected connector.
+
+Patches 24-25 convert vc4 HDMI to the common SCDC scrambling helpers as
+a proof of reuse, replacing the driver-local scrambling implementation.
+
+Patches 26-30 add KUnit tests: connector scrambler validation, a new
+4K@60Hz 600MHz EDID, hdmi_state_helper scrambling tests, and EDID
+conformity fixes for some of the existing test blobs.
+
+This has been tested on the following boards:
+
+* Radxa ROCK 5B (RK3588)
+* Radxa ROCK 4D (RK3576)
+* Raspberry Pi 5 Model B Rev 1.1 (BCM2712 D0)
+
+Note that commit d87773de9efe1 ("clocksource/drivers/arm_arch_timer:
+Default to EL2 virtual timer when running VHE"), introduced in v7.2-rc1,
+causes Raspberry Pi 5 to hang during boot.  Reverting the commit
+restores normal boot.  This issue has already been reported in [1];
+alternatively, the workaround proposed in [2] can be applied.
+
+Regards,
+Cristian
+
+[1] https://lore.kernel.org/all/ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com/
+[2] https://lore.kernel.org/all/20260619204832.586079-1-dan@reactivated.net/
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/drm_connector.c | 202 +++++++++++++++++++++++++++-------------
- include/drm/drm_connector.h     |  55 +++++++++++
- 2 files changed, 193 insertions(+), 64 deletions(-)
+Changes in v8:
+- Added an enum hdmi_version under video/hdmi to describe the HDMI
+  specification version a source/sink supports (new patch 1)
+- Introduced HDMI connector capabilities API and reworked the
+  infrastructure patches on top of it: drmm_connector_hdmi_init() now
+  takes a drm_connector_hdmi_caps struct that carries supported_formats,
+  max_bpc, supported_hdmi_ver and max_tmds_char_rate (new patches 2-3)
+- Moved all the new SCDC helpers covering both source and sink to
+  display/drm_hdmi_helper.c
+- Renamed drm_scdc_{start,stop}_scrambling() to
+  drm_connector_hdmi_{enable,disable}_scrambling() and added a
+  connector-state argument so the scrambler_needed flag is checked
+  centrally instead of in every driver
+- Renamed drm_scdc_sync_status() to drm_connector_hdmi_sync_scdc(),
+  aligned its lifecycle with vc4_hdmi_reset_link(), and removed the
+  internal drm_scdc_reset_crtc() helper; it now also gates on CRTC state
+  and an in-flight commit (Maxime)
+- Changed the prototype of drm_atomic_helper_connector_hdmi_hotplug() to
+  take an acquire context and an int return, instead of adding a new
+  _ctx variant (Maxime)
+- Added drm_hdmi_mode_needs_scrambling() to centralise the above-340 MHz
+  decision (new patch 7)
+- Made SCDC source version negotiation optional and moved it to a
+  dedicated patch "drm/display: hdmi: Advertise SCDC source version when
+  scrambling" (new patch 8), backed by a new
+  drm_scdc_set_source_version() helper in "drm/display: scdc-helper: Add
+  helper to set SCDC version information" (new patch 6)
+- Added a fallback TMDS rate validation patch using the connector-level
+  max_tmds_char_rate when the driver provides no .tmds_char_rate_valid()
+  hook (new patch 9)
+- Split scrambler_needed flag handling into its own hdmi-state-helper
+  dedicate change (new patch 11)
+- VC4:
+  * Replaced vc4_hdmi_mode_needs_scrambling() with
+    drm_hdmi_mode_needs_scrambling() (new patch 30)
+  * Restored drm_dev_{enter,exit}() pairing around the converted
+    scrambling paths
+  * Removed now unused output_{bpc,color_format} fields from vc4_hdmi as
+    part of the SCDC conversion
+- KUnit:
+  * Covered the caps-based connector init path: NULL caps, inferred
+    max_tmds_char_rate per supported_hdmi_ver, and override validation
+    (new patch 32)
+  * Switched drm_hdmi_state_helper_test to the caps-based init helper
+    and exposed it through
+    drm_kunit_helper_connector_hdmi_init_with_caps_edid_funcs() (new
+    patch 34)
+  * Added max_tmds_char_rate fallback coverage in
+    drm_hdmi_state_helper_test (new patch 35)
+- Rebased onto latest drm-misc-next and dropped the already applied
+  "drm/fb-helper: Remove unused local variable in hotplug_event()" patch
+- Link to v7: https://patch.msgid.link/20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com
 
-diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
-index 8b4baed060f3..c7ce6b7bd8b0 100644
---- a/drivers/gpu/drm/drm_connector.c
-+++ b/drivers/gpu/drm/drm_connector.c
-@@ -542,6 +542,137 @@ int drmm_connector_init(struct drm_device *dev,
- }
- EXPORT_SYMBOL(drmm_connector_init);
- 
-+/**
-+ * drmm_connector_hdmi_init_with_caps - Init a preallocated HDMI connector
-+ * @dev: DRM device
-+ * @connector: A pointer to the HDMI connector to init
-+ * @vendor: HDMI Controller Vendor name
-+ * @product: HDMI Controller Product name
-+ * @funcs: callbacks for this connector
-+ * @hdmi_funcs: HDMI-related callbacks for this connector
-+ * @connector_type: user visible type of the connector
-+ * @ddc: optional pointer to the associated ddc adapter
-+ * @caps: optional HDMI connector capabilities
-+ *
-+ * Initialises a preallocated HDMI connector. Connectors can be
-+ * subclassed as part of driver connector objects.
-+ *
-+ * Cleanup is automatically handled with a call to
-+ * drm_connector_cleanup() in a DRM-managed action.
-+ *
-+ * The connector structure should be allocated with drmm_kzalloc().
-+ *
-+ * The @drm_connector_funcs.destroy hook must be NULL.
-+ *
-+ * Returns:
-+ * Zero on success, error code on failure.
-+ */
-+int drmm_connector_hdmi_init_with_caps(struct drm_device *dev,
-+				       struct drm_connector *connector,
-+				       const char *vendor, const char *product,
-+				       const struct drm_connector_funcs *funcs,
-+				       const struct drm_connector_hdmi_funcs *hdmi_funcs,
-+				       int connector_type,
-+				       struct i2c_adapter *ddc,
-+				       const struct drm_connector_hdmi_caps *caps)
-+{
-+	int ret;
-+
-+	if (!vendor || !product)
-+		return -EINVAL;
-+
-+	if ((strlen(vendor) > DRM_CONNECTOR_HDMI_VENDOR_LEN) ||
-+	    (strlen(product) > DRM_CONNECTOR_HDMI_PRODUCT_LEN))
-+		return -EINVAL;
-+
-+	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
-+	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
-+		return -EINVAL;
-+
-+	if (!caps)
-+		return -EINVAL;
-+
-+	if (!caps->supported_formats ||
-+	    !(caps->supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
-+		return -EINVAL;
-+
-+	if (connector->ycbcr_420_allowed !=
-+	    !!(caps->supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
-+		return -EINVAL;
-+
-+	if (!(caps->max_bpc == 8 || caps->max_bpc == 10 || caps->max_bpc == 12))
-+		return -EINVAL;
-+
-+	if (!hdmi_funcs->avi.clear_infoframe ||
-+	    !hdmi_funcs->avi.write_infoframe ||
-+	    !hdmi_funcs->hdmi.clear_infoframe ||
-+	    !hdmi_funcs->hdmi.write_infoframe)
-+		return -EINVAL;
-+
-+	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
-+	if (ret)
-+		return ret;
-+
-+	connector->hdmi.supported_formats = caps->supported_formats;
-+
-+	/*
-+	 * The supported HDMI version can be used to infer the maximum TMDS
-+	 * character rate allowed by the specification. Some controllers,
-+	 * however, may support a lower rate than that version would imply.
-+	 *
-+	 * A non-zero caps->max_tmds_char_rate lets drivers override the
-+	 * inferred limit with the actual controller capability. A value of
-+	 * zero keeps the default limit inferred from supported_hdmi_ver.
-+	 */
-+	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0)
-+		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
-+	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3)
-+		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
-+	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0)
-+		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
-+
-+	if (caps->max_tmds_char_rate) {
-+		if (caps->max_tmds_char_rate > connector->hdmi.max_tmds_char_rate)
-+			return -EINVAL;
-+		connector->hdmi.max_tmds_char_rate = caps->max_tmds_char_rate;
-+	}
-+
-+	strtomem_pad(connector->hdmi.vendor, vendor, 0);
-+	strtomem_pad(connector->hdmi.product, product, 0);
-+
-+	/*
-+	 * drm_connector_attach_max_bpc_property() requires the
-+	 * connector to have a state.
-+	 */
-+	if (connector->funcs->atomic_create_state) {
-+		struct drm_connector_state *state;
-+
-+		state = connector->funcs->atomic_create_state(connector);
-+		if (IS_ERR(state))
-+			return PTR_ERR(state);
-+
-+		connector->state = state;
-+	} else if (connector->funcs->reset) {
-+		connector->funcs->reset(connector);
-+	}
-+
-+	drm_connector_attach_max_bpc_property(connector, 8, caps->max_bpc);
-+	connector->max_bpc = caps->max_bpc;
-+
-+	if (caps->max_bpc > 8)
-+		drm_connector_attach_hdr_output_metadata_property(connector);
-+
-+	ret = drm_connector_attach_color_format_property(connector,
-+							 caps->supported_formats);
-+	if (ret)
-+		return ret;
-+
-+	connector->hdmi.funcs = hdmi_funcs;
-+
-+	return 0;
-+}
-+EXPORT_SYMBOL(drmm_connector_hdmi_init_with_caps);
-+
- /**
-  * drmm_connector_hdmi_init - Init a preallocated HDMI connector
-  * @dev: DRM device
-@@ -578,71 +709,14 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 			     unsigned long supported_formats,
- 			     unsigned int max_bpc)
- {
--	int ret;
-+	struct drm_connector_hdmi_caps caps = {
-+		.supported_formats = supported_formats,
-+		.max_bpc = max_bpc,
-+	};
- 
--	if (!vendor || !product)
--		return -EINVAL;
--
--	if ((strlen(vendor) > DRM_CONNECTOR_HDMI_VENDOR_LEN) ||
--	    (strlen(product) > DRM_CONNECTOR_HDMI_PRODUCT_LEN))
--		return -EINVAL;
--
--	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
--	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
--		return -EINVAL;
--
--	if (!supported_formats || !(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
--		return -EINVAL;
--
--	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
--		return -EINVAL;
--
--	if (!(max_bpc == 8 || max_bpc == 10 || max_bpc == 12))
--		return -EINVAL;
--
--	if (!hdmi_funcs->avi.clear_infoframe ||
--	    !hdmi_funcs->avi.write_infoframe ||
--	    !hdmi_funcs->hdmi.clear_infoframe ||
--	    !hdmi_funcs->hdmi.write_infoframe)
--		return -EINVAL;
--
--	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
--	if (ret)
--		return ret;
--
--	connector->hdmi.supported_formats = supported_formats;
--	strtomem_pad(connector->hdmi.vendor, vendor, 0);
--	strtomem_pad(connector->hdmi.product, product, 0);
--
--	/*
--	 * drm_connector_attach_max_bpc_property() requires the
--	 * connector to have a state.
--	 */
--	if (connector->funcs->atomic_create_state) {
--		struct drm_connector_state *state;
--
--		state = connector->funcs->atomic_create_state(connector);
--		if (IS_ERR(state))
--			return PTR_ERR(state);
--
--		connector->state = state;
--	} else if (connector->funcs->reset) {
--		connector->funcs->reset(connector);
--	}
--
--	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
--	connector->max_bpc = max_bpc;
--
--	if (max_bpc > 8)
--		drm_connector_attach_hdr_output_metadata_property(connector);
--
--	ret = drm_connector_attach_color_format_property(connector, supported_formats);
--	if (ret)
--		return ret;
--
--	connector->hdmi.funcs = hdmi_funcs;
--
--	return 0;
-+	return drmm_connector_hdmi_init_with_caps(dev, connector, vendor,
-+						  product, funcs, hdmi_funcs,
-+						  connector_type, ddc, &caps);
- }
- EXPORT_SYMBOL(drmm_connector_hdmi_init);
- 
-diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
-index af075c38f4db..961a729d0869 100644
---- a/include/drm/drm_connector.h
-+++ b/include/drm/drm_connector.h
-@@ -2029,6 +2029,47 @@ struct drm_connector_hdmi_audio {
- 	int dai_port;
- };
- 
-+/**
-+ * struct drm_connector_hdmi_caps - HDMI capabilities structure
-+ *
-+ * This structure is required to initialize the connector using
-+ * drmm_connector_hdmi_init_with_caps().
-+ */
-+struct drm_connector_hdmi_caps {
-+	/**
-+	 * @supported_hdmi_ver:
-+	 *
-+	 * Maximum HDMI specification version supported by the controller side
-+	 * of this connector. This describes the controller capability only;
-+	 * the effective link capabilities may be further restricted by the
-+	 * sink, bridge, or mode validation.
-+	 *
-+	 * HDMI_VERSION_UNKNOWN means legacy/default behaviour.
-+	 */
-+	enum hdmi_version supported_hdmi_ver;
-+
-+	/**
-+	 * @supported_formats:
-+	 *
-+	 * Bitmask of @drm_output_color_format listing supported output formats.
-+	 */
-+	unsigned long supported_formats;
-+
-+	/**
-+	 * @max_tmds_char_rate:
-+	 *
-+	 * Maximum TMDS character rate supported by the source, in Hz.
-+	 * A value of 0 means the core should use the default limit implied by
-+	 * @supported_hdmi_ver.
-+	 */
-+	unsigned long long max_tmds_char_rate;
-+
-+	/**
-+	 * @max_bpc: Maximum bits per char the HDMI connector supports.
-+	 */
-+	unsigned int max_bpc;
-+};
-+
- /*
-  * struct drm_connector_hdmi - DRM Connector HDMI-related structure
-  */
-@@ -2051,6 +2092,12 @@ struct drm_connector_hdmi {
- 	 */
- 	unsigned long supported_formats;
- 
-+	/**
-+	 * @max_tmds_char_rate: Maximum TMDS character rate, in Hz,
-+	 * supported by the controller.
-+	 */
-+	unsigned long long max_tmds_char_rate;
-+
- 	/**
- 	 * @funcs: HDMI connector Control Functions
- 	 */
-@@ -2555,6 +2602,14 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
- 			     struct i2c_adapter *ddc,
- 			     unsigned long supported_formats,
- 			     unsigned int max_bpc);
-+int drmm_connector_hdmi_init_with_caps(struct drm_device *dev,
-+				       struct drm_connector *connector,
-+				       const char *vendor, const char *product,
-+				       const struct drm_connector_funcs *funcs,
-+				       const struct drm_connector_hdmi_funcs *hdmi_funcs,
-+				       int connector_type,
-+				       struct i2c_adapter *ddc,
-+				       const struct drm_connector_hdmi_caps *caps);
- void drm_connector_attach_edid_property(struct drm_connector *connector);
- int drm_connector_register(struct drm_connector *connector);
- int drm_connector_dynamic_register(struct drm_connector *connector);
+Changes in v7:
+- Split the scrambler_needed flag computation from the SCDC scrambling
+  helpers into a standalone hdmi_state_helper patch for clarity (new
+  patch 6)
+- Added vc4 HDMI conversion to common TMDS char rate constants and SCDC
+  scrambling helpers as a proof of reuse (new patches 24-25)
+- Added KUnit tests for connector scrambler_supported/callback
+  consistency validation (new patch 26)
+- Added 4K@60Hz 600MHz TMDS test EDID for high-rate scrambling coverage
+  (new patch 27)
+- Added KUnit tests for hdmi_state_helper scrambler_needed flag:
+  low-rate, high-rate, and source-no-support cases (new patch 28)
+- Fixed EDID conformity issues (edid-decode v1.33.0 failures) in the
+  existing 1080p+4K YUV420 200MHz and 4K RGB/YUV 340MHz test EDIDs
+  without changing the capabilities used by existing tests (new patches
+  29-30)
+- Rebased onto latest drm-misc-next
+- Link to v6: https://patch.msgid.link/20260520-dw-hdmi-qp-scramb-v6-0-24b74603b782@collabora.com
 
--- 
-2.54.0
+Changes in v6:
+- Collected R-b & A-b tags from Dmitry and Heiko
+- Restructured the series from 10 into 22 patches, splitting the SCDC
+  scrambling helpers, connector infrastructure, bridge operations,
+  bridge_connector plumbing, dw-hdmi-qp implementation, and Rockchip
+  platform changes into distinct commits
+- Added drm_scdc_dbg() macro to simplify debug messages (new patch)
+- Added drm_scdc_start/stop/sync_status() helpers for full scrambling
+  lifecycle management (reworked from v5 patch 5)
+- Added drm_atomic_helper_connector_hdmi_hotplug_ctx() to propagate
+  modeset acquire context for SCDC sync on hotplug (new patch)
+- Added connector scrambler callbacks and SCDC work/flag infrastructure
+  as a separate patch (split from v5 patch 5)
+- Added DRM_BRIDGE_OP_HDMI_SCRAMBLER bridge operation with
+  hdmi_scrambler_enable/disable callbacks (new patch)
+- Implemented bridge_connector scrambler interface wiring (new patch)
+- Added .enable_hpd()/.disable_hpd() PHY ops for dw-hdmi-qp bridge and
+  Rockchip platform drivers, replacing the obsolete .setup_hpd() op
+- Added dw_hdmi_qp_hpd_notify() helper for targeted connector-only HPD
+  notification (split from v5 patch 10)
+- Dropped drm_fb_helper_hotplug_event() unused variable (new cleanup)
+- Dropped unused drm_simple_kms_helper.h include (new cleanup)
+- Masked RK3576 HPD IRQ in io_init() for consistency with RK3588
+- Rebased onto latest drm-misc-next
+- Link to v5: https://patch.msgid.link/20260426-dw-hdmi-qp-scramb-v5-0-d778e70c317b@collabora.com
+
+Changes in v5:
+- Added new patches: 1/10, 3/10, 6/10, 7/10, 8/10
+- Removed redundant no-op error check in drm_bridge_helper_reset_crtc()
+  (patch 1)
+- Removed the EDEADLK retry loop from the bridge .detect_ctx() callback,
+  as that's already handled in the drm_bridge_detect_ctx() helper or by
+  the caller when ctx is provided (patch 2)
+- Refactored drm_bridge_detect() to delegate to drm_bridge_detect_ctx()
+  and added a WARN_ON for unexpected negative return values (patch 2)
+- Split the bridge-connector .detect_ctx() switch into a preparatory
+  patch to use cached connector status in .get_modes() (patch 3)
+- Improved error handling in SCDC scrambling setup: roll back high TMDS
+  clock ratio on scrambling failure, reset scramb_enabled flag on
+  set_scramb failure, and add SCDC version read/write error checks
+  (patch 5)
+- Annotated scramb_enabled with READ_ONCE/WRITE_ONCE for cross-context
+  access between modeset paths and the scrambling work item (patch 5)
+- Renamed SCDC_MIN_SOURCE_VERSION to SCDC_MAX_SOURCE_VERSION (patch 5)
+- Rate limited i2c error messages (patch 6)
+- Added missing newlines in dev_err_probe() messages (patch 7)
+- Replaced indirect device pointer accesses with local dev variable in
+  bind() (patch 8)
+- Split the HPD connector restriction (formerly patch 4/4): register HPD
+  IRQ after connector setup first (patch 9), then restrict HPD event to
+  the affected connector (patch 10); also collected R-b from Heiko
+- Rebased onto latest drm-misc-next
+- Link to v4: https://lore.kernel.org/r/20260303-dw-hdmi-qp-scramb-v4-0-317d3b8bd219@collabora.com
+
+Changes in v4:
+- Fixed conflicts while rebasing onto latest drm-misc-next
+- Link to v3: https://lore.kernel.org/r/20260119-dw-hdmi-qp-scramb-v3-0-bd8611730fc1@collabora.com
+
+Changes in v3:
+- Used drm_bridge_helper_reset_crtc() helper to reset the display
+  pipeline and got rid of some boilerplate code (Maxime)
+- Rebased onto latest drm-misc-next
+- Link to v2: https://lore.kernel.org/r/20260113-dw-hdmi-qp-scramb-v2-0-ae7b2c58d24d@collabora.com
+
+Changes in v2:
+- Collected Tested-by tags from Diederik and Maud
+- Rebased onto latest drm-misc-next
+- Ensured the recently introduced 'no-hpd' support for dealing with
+  unconnected/repurposed/broken HPD pin is limited to HDMI 1.4 rates
+- Link to v1: https://lore.kernel.org/r/20251203-dw-hdmi-qp-scramb-v1-0-836fe7401a69@collabora.com
+
+---
+Cristian Ciocaltea (39):
+      video/hdmi: Introduce HDMI version enum
+      drm/connector: Add caps-based HDMI connector init helper
+      drm/display: bridge_connector: Pass HDMI capabilities through caps struct
+      drm/connector: Add HDMI 2.0 scrambler infrastructure
+      drm/display: scdc-helper: Add macro for connector-prefixed debug messages
+      drm/display: scdc-helper: Add helper to set SCDC version information
+      drm/display: hdmi: Add HDMI 2.0 scrambling management helpers
+      drm/display: hdmi: Advertise SCDC source version when scrambling
+      drm/display: hdmi-state-helper: Add fallback TMDS rate validation
+      drm/display: hdmi-state-helper: Sync SCDC state on hotplug
+      drm/display: hdmi-state-helper: Set HDMI scrambling requirement
+      drm/bridge: Remove redundant error check in drm_bridge_helper_reset_crtc()
+      drm/bridge: Add bridge ops for source-side HDMI 2.0 scrambling
+      drm/display: bridge_connector: Use cached connector status in .get_modes()
+      drm/display: bridge_connector: Switch to .detect_ctx() connector helper
+      drm/display: bridge_connector: Wire up HDMI 2.0 scrambler callbacks
+      drm/bridge: dw-hdmi-qp: Rate limit i2c read error messages
+      drm/bridge: dw-hdmi-qp: Provide .{enable|disable}_hpd() PHY ops
+      drm/bridge: dw-hdmi-qp: Add HDMI 2.0 SCDC scrambling support
+      drm/bridge: dw-hdmi-qp: Provide dw_hdmi_qp_hpd_notify() helper
+      drm/rockchip: dw_hdmi_qp: Add missing newlines in dev_err_probe() messages
+      drm/rockchip: dw_hdmi_qp: Use local dev variable consistently in bind()
+      drm/rockchip: dw_hdmi_qp: Drop unnecessary #include
+      drm/rockchip: dw_hdmi_qp: Defer HPD IRQ enable until after connector setup
+      drm/rockchip: dw_hdmi_qp: Mask RK3576 HPD IRQ in io_init
+      drm/rockchip: dw_hdmi_qp: Implement .{enable|disable}_hpd() PHY ops
+      drm/rockchip: dw_hdmi_qp: Use dw_hdmi_qp_hpd_notify() for HPD reports
+      drm/bridge: dw-hdmi-qp: Drop unused .setup_hpd() phy op
+      drm/vc4: hdmi: Use common TMDS char rate constants
+      drm/vc4: hdmi: Switch to drm_hdmi_mode_needs_scrambling()
+      drm/vc4: hdmi: Convert to common SCDC scrambling infrastructure
+      drm/tests: connector: Add HDMI caps-based init coverage
+      drm/tests: connector: Add HDMI source-side scrambler coverage
+      drm/tests: hdmi_state_helper: Use drmm_connector_hdmi_init_with_caps()
+      drm/tests: hdmi_state_helper: Add max_tmds_char_rate fallback tests
+      drm/tests: edid: Add 4K@60Hz EDID with 600MHz TMDS
+      drm/tests: hdmi_state_helper: Cover source-side scrambling decision
+      drm/tests: edid: Fix conformity for 1080p+4K YUV420 200MHz EDID
+      drm/tests: edid: Fix conformity for 4K RGB/YUV 340MHz EDID
+
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c       | 129 ++++++--
+ drivers/gpu/drm/display/drm_bridge_connector.c     | 146 +++++----
+ drivers/gpu/drm/display/drm_hdmi_helper.c          | 267 +++++++++++++++++
+ drivers/gpu/drm/display/drm_hdmi_state_helper.c    |  32 +-
+ drivers/gpu/drm/display/drm_scdc_helper.c          |  70 ++++-
+ drivers/gpu/drm/drm_bridge_helper.c                |   2 -
+ drivers/gpu/drm/drm_connector.c                    | 222 ++++++++++----
+ drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c     | 130 ++++----
+ drivers/gpu/drm/tests/drm_connector_test.c         | 330 +++++++++++++++++++++
+ drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 315 +++++++++++++++++++-
+ drivers/gpu/drm/tests/drm_kunit_edid.c             | 251 +++++++++++++---
+ drivers/gpu/drm/tests/drm_kunit_edid.h             |   1 +
+ drivers/gpu/drm/vc4/vc4_hdmi.c                     | 301 ++++---------------
+ drivers/gpu/drm/vc4/vc4_hdmi.h                     |  21 --
+ include/drm/bridge/dw_hdmi_qp.h                    |   4 +-
+ include/drm/display/drm_hdmi_helper.h              |  15 +
+ include/drm/display/drm_hdmi_state_helper.h        |   6 +-
+ include/drm/display/drm_scdc_helper.h              |   2 +
+ include/drm/drm_bridge.h                           |  41 +++
+ include/drm/drm_connector.h                        | 132 +++++++++
+ include/linux/hdmi.h                               |  12 +
+ 21 files changed, 1869 insertions(+), 560 deletions(-)
+---
+base-commit: 44d19b8a7548aa25cbc6ebd5f27e958f7142c36b
+change-id: 20251203-dw-hdmi-qp-scramb-cdbd8b57ccf9
 
 
