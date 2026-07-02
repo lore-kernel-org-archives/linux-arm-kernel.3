@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43723C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D12DC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fxXhck2nCzeMzLvm9K6L7ngfJTEEd79JFyjVImCQDM=; b=IcP5HV65vYu5bik3GArstNvGqd
-	BGUbVs6LwgqWuAwPQCm2DZ3UgNzRnTgMDRqt3MkmstiFcj2rooNlgLfBojYS+ONGHhFIMy/9nbJZY
-	4Mof8MNyLM/gj4iUNBNaEhBvNY1Vt7nLshSEvyab17f2dUnB4rsFT4HcyfknhLNB06G5J7oD2sXiE
-	GbwpkKxF0UtsxdRsjLHtbfJ8A71dfU+D7Wo6r+qIaoZj77LWzv9RdPU5JMp9mxhWBE7Mw3KYHJs/o
-	IaWNpyInEToV2ddh4qXSbx/fEl5mGb6/7roBPeifVp/rWSklrXZH3luxdd9OdyzwDodgtv7fJ1iIU
-	ctv5R9ng==;
+	bh=lQIOVySReL8vS2U2jav9YDGBDGuteWIuFYGGUlN0FC8=; b=uaEdDOferNlvmTpUA+f/Z18J5o
+	EwGU7yfgSUuis8Rkz32vUsvDAcx31DxKyb7k077b8U/xMv1AiwPcLN2izmKwwLkekhhENptxJ7dnU
+	0fVCS5h74I0pgyi7OXiW9CSlOYxDfiuSxp6hxJuJpRDeaPENFDrDyOdvfWgCTlNmyR3bO0E+sZD7Z
+	HLg40GH8dvA6MSmwtxdeRLUxSRY6FIehIefGjS5HRwvTr71do5RQ+hYudldsiyIlnUXh4u6VrOXQj
+	1IWePz7hldbp8A7uyJnLNA2aPOvavE9Yv3R6QyImufu55PmOGC/Ja7yk31C+DIH4rhADNkWuDv/DU
+	zAPIFTaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJLC-00000004oLC-0b9I;
-	Thu, 02 Jul 2026 15:28:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfJNM-00000004oXF-3ljw;
+	Thu, 02 Jul 2026 15:30:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJLA-00000004oL5-3jQ7
+	id 1wfJNL-00000004oX2-1cmw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 15:28:36 +0000
+	Thu, 02 Jul 2026 15:30:51 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A18EF40B69;
-	Thu,  2 Jul 2026 15:28:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 909DE1F000E9;
-	Thu,  2 Jul 2026 15:28:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5B711601C6;
+	Thu,  2 Jul 2026 15:30:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 480371F000E9;
+	Thu,  2 Jul 2026 15:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783006116;
-	bh=1fxXhck2nCzeMzLvm9K6L7ngfJTEEd79JFyjVImCQDM=;
+	s=k20260515; t=1783006250;
+	bh=lQIOVySReL8vS2U2jav9YDGBDGuteWIuFYGGUlN0FC8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=b2UNbaF3r1hljIWsq+U3j/11VVe9K2mDfW8ITR+HjohsDjn4ssvCJs9AFVheLFUgy
-	 YutZV+6PpHeF6xFcTE3aP1wgob9+1JJiCuA/RUVFz2dvVYiCt029oTNRLVLNIirVwd
-	 ZJRN/llZI+zewvXG8n2DgpVZTw4maIPQ94/3bo8QOtoi+JTqEKFtFV6CASOrxfXduo
-	 qTdXAdcCH6byaDW+HoajP2kUzTHaMjHIVEEpuN8pRkkUTl53dMnB2eSPLJRIlyVlw7
-	 fxKtmvq5cuKuBvDlq8x+OvxC7zoRN102vKdIlK8yykc6GDFwRBmyrZt2fzUDpQl6OJ
-	 HSXqnKeJZSz7Q==
-Message-ID: <d6544525-5dfd-40c0-9c9a-2423f21d8034@kernel.org>
-Date: Thu, 2 Jul 2026 17:28:25 +0200
+	b=X90zH9Jy/e9p4kfi2DS6OMkiROYz/68mN0iPhH41GUXVyq+OeD6UtNB3YsTKjikeT
+	 /UkPx2ZBpaK74k8G3UzvLNYI8a9lifGYdqUxQms7WdCu0FE9JFo/8mA6q8pYfxpQOI
+	 IJnIeaY04WvUzrLKT7czbbjYuVZOGgQN1L2eEZhr7f8aWRZucinTJPp6ICT6Y3Soih
+	 2d7p8lEpmqH9tROhhJw1rCzzQbj5FabizMehNbDndcfZ0XNNhDpNkTP3Oa0sozcNKJ
+	 uX3yNDOR/D/lKK6Kz+vBoj8anHJk7Hhh+Z5WVaTLkdwnkdDnB8h2okvAy9k1HLCr5z
+	 hBdqJB8YLm1LQ==
+Message-ID: <f22ed786-88a6-41d4-9304-ca617a0e7d06@kernel.org>
+Date: Thu, 2 Jul 2026 17:30:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/6] arm64: make huge_ptep_get handled unaligned
- addresses
-To: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
- akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
+Subject: Re: [PATCH v2 2/6] mm/rmap: use huge_ptep_get() in try_to_unmap_one()
+To: Muchun Song <muchun.song@linux.dev>, Dev Jain <dev.jain@arm.com>
 Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
  lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
  linux-kernel@vger.kernel.org, rcampbell@nvidia.com, apopple@nvidia.com,
  ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
  rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, j-nomura@ce.jp.nec.com,
- nao.horiguchi@gmail.com, ak@linux.intel.com, mel@csn.ul.ie,
- pfalcato@suse.de, jpoimboe@kernel.org, dave.hansen@intel.com,
+ ying.huang@linux.alibaba.com, nao.horiguchi@gmail.com, ak@linux.intel.com,
+ mel@csn.ul.ie, pfalcato@suse.de, jpoimboe@kernel.org, dave.hansen@intel.com,
  tglx@kernel.org, catalin.marinas@arm.com, will@kernel.org,
  linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com, stable@vger.kernel.org
+ anshuman.khandual@arm.com, stable@vger.kernel.org, osalvador@suse.de,
+ akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
 References: <20260702051341.126509-1-dev.jain@arm.com>
- <20260702051341.126509-2-dev.jain@arm.com>
+ <20260702051341.126509-3-dev.jain@arm.com>
+ <97a43d82-28c2-4f98-ad74-fe05ed9f0297@linux.dev>
+ <a6a00b38-612f-439d-9b75-337170e3af30@arm.com>
+ <CE6E9F6C-8891-40E3-A5B7-BA475070EACD@linux.dev>
 From: "David Hildenbrand (Arm)" <david@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=david@kernel.org; keydata=
@@ -109,9 +110,9 @@ Autocrypt: addr=david@kernel.org; keydata=
  3iyY2Nsd7JxfKu1PRhCGwXzRw5TlfEsoRI7V9A8isUCoqE2Dzh3FvYHVeX4Us+bRL/oqareJ
  CIFqgYMyvHj7Q06kTKmauOe4Nf0l0qEkIuIzfoLJ3qr5UyXc2hLtWyT9Ir+lYlX9efqh7mOY
  qIws/H2t
-In-Reply-To: <20260702051341.126509-2-dev.jain@arm.com>
+In-Reply-To: <CE6E9F6C-8891-40E3-A5B7-BA475070EACD@linux.dev>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,44 +127,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/2/26 07:13, Dev Jain wrote:
-> huge_ptep_get() can be handed a virtual address pointing to the middle of
-> a contpmd/contpte mapped hugetlb folio (examples of callers are
-> pagemap_hugetlb_range, page_mapped_in_vma).
+On 7/2/26 11:35, Muchun Song wrote:
 > 
-> The arm64 helper rewalks the pgtables in find_num_contig to answer whether
-> the huge pte we have maps a contpmd or a contpte hugetlb folio, and
-> returns CONT_PMDS or CONT_PTES, so that it can collect a/d bits over the
-> contiguous ptes. We can falsely return CONT_PTES instead of CONT_PMDS
-> if the addr is not aligned.
 > 
-> Fix this by aligning the pmdp pointer down to a contpmd base before
-> checking equality with the passed huge pte pointer, to correctly answer
-> whether the huge pte is the base of a contpmd block.
+>> On Jul 2, 2026, at 17:08, Dev Jain <dev.jain@arm.com> wrote:
+>>
+>>
+>>
+>> On 02/07/26 2:17 pm, Muchun Song wrote:
+>>>
+>>>
+>>>
+>>> Maybe I didn't express my thoughts clearly in the first version, let me
+>>> explain in more detail.
+>>>
+>>> We should define this stub as a no-op for !CONFIG_HUGETLB_PAGE (like
+>>> set_huge_pte_at, that is why I mentioned 5d4af6195c87c6 for your reference
+>>> in your previous version). Currently, you've added a declaration, but the
+>>> function itself doesn't actually exist, which seems quite strange to me.
+>>
+>> https://lore.kernel.org/all/a4fe8ba6-2ecd-4bb9-95a9-27f9f1e87d2e@kernel.org/
+>>
+>> David suggested this. Honestly I quite like David's suggestion, what do you
+>> think?
 > 
-> Fixes: 29cb80519689 ("arm64: hugetlb: Cleanup huge_pte size discovery mechanisms")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
->  arch/arm64/mm/hugetlbpage.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
-> index 30772a909aea3..8e799c1fe0aa6 100644
-> --- a/arch/arm64/mm/hugetlbpage.c
-> +++ b/arch/arm64/mm/hugetlbpage.c
-> @@ -87,7 +87,7 @@ static int find_num_contig(struct mm_struct *mm, unsigned long addr,
->  	p4dp = p4d_offset(pgdp, addr);
->  	pudp = pud_offset(p4dp, addr);
->  	pmdp = pmd_offset(pudp, addr);
-> -	if ((pte_t *)pmdp == ptep) {
-> +	if ((pte_t *)PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS) == ptep) {
->  		*pgsize = PMD_SIZE;
->  		return CONT_PMDS;
->  	}
+> Thanks for pointing that out, I missed it earlier. That said, looking at
+> hugetlb.h, it already contains quite a few no-op stubs. To keep things
+> consistent, I'd personally prefer a stub here. Since David suggested this,
+> I’d love to hear his thoughts on this as well.
 
+It's the shortest possible way to enforce (through the linker!) that you
+function is not called from wrong context.
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+The only alternative is using a stub with a BUILD_BUG() in it. Which will 4 5 LOC :)
 
 -- 
 Cheers,
