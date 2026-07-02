@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BE68C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:22:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A1FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:22:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2MgB8u7Zm/HvNUsB09hHXQScvv5t1UcCuZUbDulKh74=; b=lwxmkUgJPwmZ1+5IpFDZT3ymNn
-	RPweaOrQI0va+ApeChIntbFIW2F7MMGb1V0FA/wS9iYqr0uNdEn6KRxtc8qpB6PDTP1M8lljFOp3V
-	oaZ3sgZVKAU8YCeDn8xdrfL739vPG6BKiRWhr9Rs5myt48BcCRJnS+orgPY3kyEcMIQOw0NNFcivU
-	2go1br7yP9QIw9/quUriLUiv0E6DXvEnxJze2OVDhPG/GCPeMsugjP1/mgn9I2b4A2RDq0ugEKO9b
-	oWPFmpbPFEFBQJccFagzQPZJtMmGH7yPHhxyESQbwpD87dCrNN6y9SSnnZs802Zxp4/YQKWM7QQ7T
-	V3mMS1+w==;
+	bh=czlvCWHgFxITAitOP/CbIbd0AbY2KzDlKh3fOr0rKWI=; b=WxmLJTG+JZoCh8KJ+qATDQm6+f
+	UPT0yrF+dhzmqJHVsg9SBVEh3Zi/1ZcE8aUgBTP++fw3ZmEAoyQhkvXcQME3nTS61IfRpV0GFTKBY
+	gPnzIr/Ob8P9KwpTIQmScbXbS/jsRgOxK6w86hijO3Yp9wifFzBRXagah394QuTjqxnsWZ//j6UNK
+	TD/ZRdVwhvquxZ+VjLN6FeEP2juESuYSHtOYz60Gp3ljhB+4KJe9AklEnjiszX6h7j9och5u+tlYK
+	y+7kzddn8ikm/ryLKQxT+HF5XNuxxyvNeAPd9k2PDay6irf5/h6UzbipM2AX9eGjbY+Q0AKGwEsAx
+	dLM/REaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKBb-00000004zGG-13oH;
-	Thu, 02 Jul 2026 16:22:47 +0000
+	id 1wfKBe-00000004zI9-1azl;
+	Thu, 02 Jul 2026 16:22:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKBY-00000004zEd-3tCg
+	id 1wfKBc-00000004zGu-1n2k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:22:46 +0000
+	Thu, 02 Jul 2026 16:22:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63CB435CB;
-	Thu,  2 Jul 2026 09:22:39 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8135235B7;
+	Thu,  2 Jul 2026 09:22:43 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D69553F673;
-	Thu,  2 Jul 2026 09:22:39 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 290333F673;
+	Thu,  2 Jul 2026 09:22:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783009363; bh=463AiPpg8bN0YaCAhKvsVnF4tFZr9fK0cCTAjKjeLXk=;
+	t=1783009367; bh=7qjci2iIVbAXAhbMTcthtv0y9ebcxOyVKtQNj6luUuE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uT1RWj7Ua/dQDdjTObYmQnB1J+IYH33rmHNKgaUPvmaV8j208BWdWqdcExAeCjfzd
-	 VAq1v0Rvblaju9s0bo7FwoPPyWnu/UdSgEVhrkK6JuhJvMv/KbP9QmsHg6cUzZq1xX
-	 /KNRkKewqz3cal7FnlCQLm6h90GaWLmYI483GcNA=
+	b=lBbL6rMjFQEQyG9xrzuTJ4n8pNDUKlJt42cPO2CfJNQFnjcaXjTlNmBuB5gciAgm0
+	 tcf5wU4i0WZr3N0/ADWNTjRdYXztg1zPeflU2dloah37I1OFDiR3ZDgkD1G4/cDoSi
+	 ma8jEoue1pVybtN1IQqoK0hCqEeupcApDcuwxJJw=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -60,17 +60,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 01/15] arm_mpam: let low level MSC read accessors return an error
-Date: Thu,  2 Jul 2026 18:22:15 +0200
-Message-ID: <20260702162229.4008659-2-andre.przywara@arm.com>
+Subject: [PATCH v2 02/15] arm_mpam: propagate MSC read errors for wrapper functions
+Date: Thu,  2 Jul 2026 18:22:16 +0200
+Message-ID: <20260702162229.4008659-3-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260702162229.4008659-1-andre.przywara@arm.com>
 References: <20260702162229.4008659-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_092245_058359_D6B10521 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260702_092248_544200_95876252 
+X-CRM114-Status: GOOD (  13.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,357 +85,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The upcoming MPAM-Fb support does not use MMIO primitives to access an
-MSC, but employs a shared-memory/doorbell based firmware protocol.
-Its complexity means that is must be able to handle errors, whereas we
-always assume an MSC access succeeds today.
-
-Change the __mpam_read_reg() low level accessor function to return the
-requested data through a pointer, and return an error code instead.
-At the moment this is always 0, but this will change with alternative
-MSC access methods.
-Change all users of those MSC read wrappers to comply with the new
-prototype, though at the moment without propagating any errors.
+Allow the wrapper functions for IDR and ESR accesses to return an
+error, and propagate read errors from the lower level up.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 129 ++++++++++++++++++++-------------
- 1 file changed, 78 insertions(+), 51 deletions(-)
+ drivers/resctrl/mpam_devices.c | 51 +++++++++++++++++++++++-----------
+ 1 file changed, 35 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index b69f99488111..df14b4513382 100644
+index df14b4513382..ce8738adb6ff 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -177,20 +177,23 @@ static void mpam_assert_partid_sizes_fixed(void)
- 		WARN_ON_ONCE(!partid_max_published);
+@@ -247,27 +247,34 @@ static bool mpam_msc_check_aidr(struct mpam_msc *msc)
+ 	return true;
  }
  
--static u32 __mpam_read_reg(struct mpam_msc *msc, u16 reg)
-+static int __mpam_read_reg(struct mpam_msc *msc, u16 reg, u32 *res)
+-static u64 mpam_msc_read_idr(struct mpam_msc *msc)
++static int mpam_msc_read_idr(struct mpam_msc *msc, u64 *res)
  {
- 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
+ 	u32 idr_high = 0, idr_low;
++	int ret;
  
--	return readl_relaxed(msc->mapped_hwpage + reg);
-+	*res = readl_relaxed(msc->mapped_hwpage + reg);
+ 	lockdep_assert_held(&msc->part_sel_lock);
+ 
+-	mpam_read_partsel_reg(msc, IDR, &idr_low);
+-	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
+-		mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
++	ret = mpam_read_partsel_reg(msc, IDR, &idr_low);
++	if (!ret && FIELD_GET(MPAMF_IDR_EXT, idr_low))
++		ret = mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
+ 
+-	return ((u64)idr_high << 32) | idr_low;
++	if (!ret)
++		*res = ((u64)idr_high << 32) | idr_low;
++
++	return ret;
+ }
+ 
+-static void mpam_msc_clear_esr(struct mpam_msc *msc)
++static int mpam_msc_clear_esr(struct mpam_msc *msc)
+ {
+ 	u32 esr_low;
++	int ret;
+ 
+-	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
++	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
++	if (ret)
++		return ret;
+ 
+ 	if (!esr_low)
+-		return;
++		return 0;
+ 
+ 	/*
+ 	 * Clearing the high/low bits of MPAMF_ESR can not be atomic.
+@@ -277,18 +284,30 @@ static void mpam_msc_clear_esr(struct mpam_msc *msc)
+ 	 */
+ 	if (msc->has_extd_esr)
+ 		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
++
+ 	__mpam_write_reg(msc, MPAMF_ESR, 0);
 +
 +	return 0;
  }
  
--static inline u32 _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg)
-+static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
-+					 u32 *res)
+-static u64 mpam_msc_read_esr(struct mpam_msc *msc)
++static int mpam_msc_read_esr(struct mpam_msc *msc, u64 *res)
  {
- 	lockdep_assert_held_once(&msc->part_sel_lock);
--	return __mpam_read_reg(msc, reg);
-+	return __mpam_read_reg(msc, reg, res);
- }
+ 	u32 esr_high = 0, esr_low;
++	int ret;
  
--#define mpam_read_partsel_reg(msc, reg) _mpam_read_partsel_reg(msc, MPAMF_##reg)
-+#define mpam_read_partsel_reg(msc, reg, res) _mpam_read_partsel_reg(msc, MPAMF_##reg, res)
- 
- static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
- {
-@@ -208,13 +211,14 @@ static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 va
- 
- #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
- 
--static inline u32 _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg)
-+static inline int _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg,
-+					u32 *res)
- {
- 	mpam_mon_sel_lock_held(msc);
--	return __mpam_read_reg(msc, reg);
-+	return __mpam_read_reg(msc, reg, res);
- }
- 
--#define mpam_read_monsel_reg(msc, reg) _mpam_read_monsel_reg(msc, MSMON_##reg)
-+#define mpam_read_monsel_reg(msc, reg, res) _mpam_read_monsel_reg(msc, MSMON_##reg, res)
- 
- static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
- {
-@@ -226,10 +230,11 @@ static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val
- 
- static bool mpam_msc_check_aidr(struct mpam_msc *msc)
- {
--	u32 aidr = __mpam_read_reg(msc, MPAMF_AIDR);
--	u32 major = FIELD_GET(MPAMF_AIDR_ARCH_MAJOR_REV, aidr);
--	u32 minor = FIELD_GET(MPAMF_AIDR_ARCH_MINOR_REV, aidr);
-+	u32 aidr, major, minor;
- 
-+	__mpam_read_reg(msc, MPAMF_AIDR, &aidr);
-+	major = FIELD_GET(MPAMF_AIDR_ARCH_MAJOR_REV, aidr);
-+	minor = FIELD_GET(MPAMF_AIDR_ARCH_MINOR_REV, aidr);
- 	/*
- 	 * v0.0 and >v2.x aren't supported, but anything else should be backward
- 	 * compatible to v0.1 or v1.0.
-@@ -244,20 +249,22 @@ static bool mpam_msc_check_aidr(struct mpam_msc *msc)
- 
- static u64 mpam_msc_read_idr(struct mpam_msc *msc)
- {
--	u64 idr_high = 0, idr_low;
-+	u32 idr_high = 0, idr_low;
- 
- 	lockdep_assert_held(&msc->part_sel_lock);
- 
--	idr_low = mpam_read_partsel_reg(msc, IDR);
-+	mpam_read_partsel_reg(msc, IDR, &idr_low);
- 	if (FIELD_GET(MPAMF_IDR_EXT, idr_low))
--		idr_high = mpam_read_partsel_reg(msc, IDR + 4);
-+		mpam_read_partsel_reg(msc, IDR + 4, &idr_high);
- 
--	return (idr_high << 32) | idr_low;
-+	return ((u64)idr_high << 32) | idr_low;
- }
- 
- static void mpam_msc_clear_esr(struct mpam_msc *msc)
- {
--	u64 esr_low = __mpam_read_reg(msc, MPAMF_ESR);
-+	u32 esr_low;
+-	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
+-	if (msc->has_extd_esr)
+-		__mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
++	ret = __mpam_read_reg(msc, MPAMF_ESR, &esr_low);
++	if (ret)
++		return ret;
 +
-+	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
++	if (msc->has_extd_esr) {
++		ret = __mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
++		if (ret)
++			return ret;
++	}
  
- 	if (!esr_low)
- 		return;
-@@ -275,13 +282,13 @@ static void mpam_msc_clear_esr(struct mpam_msc *msc)
- 
- static u64 mpam_msc_read_esr(struct mpam_msc *msc)
- {
--	u64 esr_high = 0, esr_low;
-+	u32 esr_high = 0, esr_low;
- 
--	esr_low = __mpam_read_reg(msc, MPAMF_ESR);
-+	__mpam_read_reg(msc, MPAMF_ESR, &esr_low);
- 	if (msc->has_extd_esr)
--		esr_high = __mpam_read_reg(msc, MPAMF_ESR + 4);
-+		__mpam_read_reg(msc, MPAMF_ESR + 4, &esr_high);
- 
--	return (esr_high << 32) | esr_low;
-+	return ((u64)esr_high << 32) | esr_low;
+-	return ((u64)esr_high << 32) | esr_low;
++	*res = ((u64)esr_high << 32) | esr_low;
++
++	return 0;
  }
  
  static void __mpam_part_sel_raw(u32 partsel, struct mpam_msc *msc)
-@@ -774,13 +781,13 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
- 	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
+@@ -993,7 +1012,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
  
- 	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
--	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
-+	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
- 	can_set = now & MSMON___NRDY;
- 
- 	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
- 	/* Configuration change to try and coax hardware into setting nrdy */
- 	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
--	now = _mpam_read_monsel_reg(msc, MSMON_CSU);
-+	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
- 	can_clear = !(now & MSMON___NRDY);
- 	mpam_mon_sel_unlock(msc);
- 
-@@ -800,7 +807,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 
- 	/* Cache Capacity Partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
--		u32 ccap_features = mpam_read_partsel_reg(msc, CCAP_IDR);
-+		u32 ccap_features;
-+
-+		mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
- 
- 		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
- 		if (props->cmax_wd &&
-@@ -823,7 +832,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 
- 	/* Cache Portion partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
--		u32 cpor_features = mpam_read_partsel_reg(msc, CPOR_IDR);
-+		u32 cpor_features;
-+
-+		mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
- 
- 		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
- 		if (props->cpbm_wd)
-@@ -832,7 +843,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 
- 	/* Memory bandwidth partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
--		u32 mbw_features = mpam_read_partsel_reg(msc, MBW_IDR);
-+		u32 mbw_features;
-+
-+		mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
- 
- 		/* portion bitmap resolution */
- 		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
-@@ -860,7 +873,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 
- 	/* Priority partitioning */
- 	if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
--		u32 pri_features = mpam_read_partsel_reg(msc, PRI_IDR);
-+		u32 pri_features;
-+
-+		mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
- 
- 		props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
- 		if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
-@@ -879,7 +894,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 
- 	/* Performance Monitoring */
- 	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
--		u32 msmon_features = mpam_read_partsel_reg(msc, MSMON_IDR);
-+		u32 msmon_features;
-+
-+		mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
- 
- 		/*
- 		 * If the firmware max-nrdy-us property is missing, the
-@@ -892,7 +909,8 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
- 			u32 csumonidr;
- 
--			csumonidr = mpam_read_partsel_reg(msc, CSUMON_IDR);
-+			mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
-+
- 			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
- 			if (props->num_csu_mon) {
- 				bool hw_managed;
-@@ -915,7 +933,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 		}
- 		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_MBWU, msmon_features)) {
- 			bool has_long;
--			u32 mbwumon_idr = mpam_read_partsel_reg(msc, MBWUMON_IDR);
-+			u32 mbwumon_idr;
-+
-+			mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
- 
- 			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
- 			if (props->num_mbwu_mon) {
-@@ -945,8 +965,11 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 	 */
- 	if (FIELD_GET(MPAMF_IDR_HAS_PARTID_NRW, ris->idr) &&
- 	    class->type != MPAM_CLASS_UNKNOWN) {
--		u32 nrwidr = mpam_read_partsel_reg(msc, PARTID_NRW_IDR);
--		u16 partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
-+		u16 partid_max;
-+		u32 nrwidr;
-+
-+		mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
-+		partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
- 
- 		mpam_set_feature(mpam_feat_partid_nrw, props);
- 		msc->partid_max = min(msc->partid_max, partid_max);
-@@ -971,7 +994,8 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
  	/* Grab an IDR value to find out how many RIS there are */
  	mutex_lock(&msc->part_sel_lock);
- 	idr = mpam_msc_read_idr(msc);
--	msc->iidr = mpam_read_partsel_reg(msc, IIDR);
-+	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
-+
+-	idr = mpam_msc_read_idr(msc);
++	mpam_msc_read_idr(msc, &idr);
+ 	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
+ 
  	mutex_unlock(&msc->part_sel_lock);
+@@ -1009,7 +1028,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
+ 		mutex_lock(&msc->part_sel_lock);
+ 		__mpam_part_sel(ris_idx, 0, msc);
+-		idr = mpam_msc_read_idr(msc);
++		mpam_msc_read_idr(msc, &idr);
+ 		mutex_unlock(&msc->part_sel_lock);
  
- 	mpam_enable_quirks(msc);
-@@ -1039,24 +1063,24 @@ static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
- {
- 	int retry = 3;
- 	u32 mbwu_l_low;
--	u64 mbwu_l_high1, mbwu_l_high2;
-+	u32 mbwu_l_high1, mbwu_l_high2;
+ 		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
+@@ -2492,7 +2511,7 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+ 					   &msc->accessibility)))
+ 		return IRQ_NONE;
  
- 	mpam_mon_sel_lock_held(msc);
+-	reg = mpam_msc_read_esr(msc);
++	mpam_msc_read_esr(msc, &reg);
  
- 	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
- 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
- 
--	mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-+	__mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
- 	do {
- 		mbwu_l_high1 = mbwu_l_high2;
--		mbwu_l_low = __mpam_read_reg(msc, MSMON_MBWU_L);
--		mbwu_l_high2 = __mpam_read_reg(msc, MSMON_MBWU_L + 4);
-+		__mpam_read_reg(msc, MSMON_MBWU_L, &mbwu_l_low);
-+		__mpam_read_reg(msc, MSMON_MBWU_L + 4, &mbwu_l_high2);
- 
- 		retry--;
- 	} while (mbwu_l_high1 != mbwu_l_high2 && retry > 0);
- 
- 	if (mbwu_l_high1 == mbwu_l_high2)
--		return (mbwu_l_high1 << 32) | mbwu_l_low;
-+		return ((u64)mbwu_l_high1 << 32) | mbwu_l_low;
- 
- 	pr_warn("Failed to read a stable value\n");
- 	return MSMON___L_NRDY;
-@@ -1120,14 +1144,14 @@ static void read_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
- 
- 	switch (m->type) {
- 	case mpam_feat_msmon_csu:
--		*ctl_val = mpam_read_monsel_reg(msc, CFG_CSU_CTL);
--		*flt_val = mpam_read_monsel_reg(msc, CFG_CSU_FLT);
-+		mpam_read_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-+		mpam_read_monsel_reg(msc, CFG_CSU_FLT, flt_val);
- 		break;
- 	case mpam_feat_msmon_mbwu_31counter:
- 	case mpam_feat_msmon_mbwu_44counter:
- 	case mpam_feat_msmon_mbwu_63counter:
--		*ctl_val = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
--		*flt_val = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
-+		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-+		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
- 		break;
- 	default:
- 		pr_warn("Unexpected monitor type %d\n", m->type);
-@@ -1206,6 +1230,7 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
- static void __ris_msmon_read(void *arg)
- {
- 	u64 now;
-+	u32 now32;
- 	bool nrdy = false;
- 	bool config_mismatch;
- 	bool overflow = false;
-@@ -1268,9 +1293,9 @@ static void __ris_msmon_read(void *arg)
- 
- 	switch (m->type) {
- 	case mpam_feat_msmon_csu:
--		now = mpam_read_monsel_reg(msc, CSU);
--		nrdy = now & MSMON___NRDY;
--		now = FIELD_GET(MSMON___VALUE, now);
-+		mpam_read_monsel_reg(msc, CSU, &now32);
-+		nrdy = now32 & MSMON___NRDY;
-+		now = FIELD_GET(MSMON___VALUE, now32);
- 
- 		if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) && m->waited_timeout)
- 			nrdy = false;
-@@ -1288,9 +1313,9 @@ static void __ris_msmon_read(void *arg)
- 			else
- 				now = FIELD_GET(MSMON___L_VALUE, now);
- 		} else {
--			now = mpam_read_monsel_reg(msc, MBWU);
--			nrdy = now & MSMON___NRDY;
--			now = FIELD_GET(MSMON___VALUE, now);
-+			mpam_read_monsel_reg(msc, MBWU, &now32);
-+			nrdy = now32 & MSMON___NRDY;
-+			now = FIELD_GET(MSMON___VALUE, now32);
- 		}
- 
- 		if (mpam_has_quirk(T241_MBW_COUNTER_SCALE_64, msc) &&
-@@ -1685,16 +1710,18 @@ static int mpam_save_mbwu_state(void *arg)
- 		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
- 			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
- 		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
--
--		cur_flt = mpam_read_monsel_reg(msc, CFG_MBWU_FLT);
--		cur_ctl = mpam_read_monsel_reg(msc, CFG_MBWU_CTL);
-+		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-+		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
- 		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
- 
- 		if (mpam_ris_has_mbwu_long_counter(ris)) {
- 			val = mpam_msc_read_mbwu_l(msc);
- 			mpam_msc_zero_mbwu_l(msc);
- 		} else {
--			val = mpam_read_monsel_reg(msc, MBWU);
-+			u32 val32;
-+
-+			mpam_read_monsel_reg(msc, MBWU, &val32);
-+			val = val32;
- 			mpam_write_monsel_reg(msc, MBWU, 0);
- 		}
- 
+ 	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+ 	if (!errcode)
 -- 
 2.43.0
 
