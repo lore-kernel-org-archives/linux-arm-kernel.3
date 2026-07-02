@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB6FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 10:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF2D9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 10:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=19Blhbug/ViMibEwSUq3xAqJ9uRR52sZJ3C/I6CrjH0=; b=pKSTKjtg5y4EGb0GYzfdyUo3es
-	Vd/gkMBGC0m+ZWY+ruXZ95KDTU0c4BiL5VvtfF5+4xtw5VT2G39FaCEJb3DbixF1NJkI0/aaHjUNe
-	CKbDMkTwnz9MGF726DjmCjXVFPVq9WgZouTvY4W/78FgAwgbVV4ZBtUa4GdmbqHaYl/8mGDYtQrOS
-	AOJrshZdA3z+lQ9UhI02eeYRKH0DPgEZBY3vP1jRINw1iq2teDtCSrrwo+/7OuBwX1Rm9JMbOyR/h
-	MbanoC+sjlqLwLEpy0KJ/qmR/1cfc6LPd63olq15YMJ80lYuIlXL9vfJWkM7RT9L9WVN8ecOQu3om
-	WAClYX+w==;
+	bh=tpHUx+iU6bLZo5mNKpJCWFG+jTe0bq2v3KW2aRr6Uyc=; b=QkryoZczIRtUS4uoug8Bl/N2hA
+	TVeCTwrJhu6gIdFL+vtu7kZT1IczVZU5EEkNRYlIGLMmls2cVLuyfXko4HTtMVy3j3DUztZZMSrbP
+	QqiTVEYVMAY1V3Kr+dqBfg50dwHJ+MSFhvic0H+7sNHGwfMffK0bRBLAeJmKr+x+oRxWePkl6XnT1
+	A/rIBQbg8bNXFwvJP9DwTVclcDFgztUOA0oaHuHM1RlUxg99dhbkImCRy0hqwihdLk4XYk/I44ZTO
+	aqtpbaypr2tKO5rs4aI5RRAEhWzGf+g5ykjzAh7fw+jmdGW0c5Q99leT8V/PJv+PdQO4KsdnhID6z
+	9JBnnkCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDsR-0000000445B-1JWf;
-	Thu, 02 Jul 2026 09:38:35 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDsN-000000043zV-0SCm
+	id 1wfF7W-00000004FhW-0fHY;
+	Thu, 02 Jul 2026 10:58:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfF7T-00000004Fgr-0fA7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 09:38:32 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-472326ca506so1160907f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 02:38:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782985109; x=1783589909; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=19Blhbug/ViMibEwSUq3xAqJ9uRR52sZJ3C/I6CrjH0=;
-        b=CmydogT5WOTMKAtMI80nJpJqq1jnKhO85ieWUx5mIWslZ79wIr5Vu18ysy2GHa3eZH
-         zcQJCRg0xt3BF3CN72UKTcagfGQXSTYhUvHpb97yb3qfEEHaK8fuy4RDdlRF/v8+zAIo
-         K8uxmbwwuNCew3ExGmCipcfsqDgENIwlW3Vft5TrBJ7BBo1Yg+Q4VJ64P4jgHP5q9UDF
-         34aQ6xTeXE+1bFdMMWNR6KxTUy/U1wDNsUyNGjlpYNXiSq34duzkN5Vn0q6rshS/8j3R
-         Lo5YVSZpyicArBxgKyyrQj4T9UdD4CBk57/TCQmrgZQZHxOeNCVhGw8NO6qAAW4EqxhL
-         mT9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782985109; x=1783589909;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=19Blhbug/ViMibEwSUq3xAqJ9uRR52sZJ3C/I6CrjH0=;
-        b=I03qSDalOe671EIANdQN2ZxPLgOE2VJOyR+df14ZCSqImPAS6Xv4DjwXdOf1FAnMgq
-         yf5Qo3Ip39ucsZaP7yl1AuANIdyzcSpleoFd464LEfqg1zxei0Ot/9ChjTaUEa3L6USk
-         Fp6aR0l8NgaQgpBzlY5Ec4wYcd/tu/4F8XMinAwi1v2bnJtdxd4Yx9La6qask0h62jd7
-         0HJayztStCk5ctF0E27Y7aOFgIcAd/nt8tr4O/abB4crFevMksJz66fmJSSJQHw016Qh
-         lwJMFtpOLyVsCeQJ/L6a1soC8mmZwwT9FHYu/KSKZLjwXrP+sa3At53Akle4Pkv8MhmZ
-         c9kQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+wFtKzG3Wc/DAJbv++ClDlsOMdDyVOSTO3CpJiXIKeIhufdyyud0UFACcL0VUd8Kcm3OKgP/8SCHv/YQ2C7kYc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yynf1CnKZpLjxmp4wt2KqyOY7vd2Lsulsa7mdtWD+k9jlFbpVdZ
-	bztrP39QV5tEIWJKY7MbMXr6ud3bUV47mjKS3RO5I3cwI7vrU6v557Vo
-X-Gm-Gg: AfdE7cnMIYuugcJ/2HzRRsV6h/Fmrmo0B8O2UShTBv2UDFRSJMbwnnBPxm6jRCfSwSH
-	+JGwz0mRpicPpOf2zUPz0ba4s8QMMztqernxaD9DJYrn+Z3kaG10KzYzOaLunRn1TkXV+VG4DTr
-	HS3yWu8msNtMOcN36rCFvS77/6wQ9KxDN+6psgVXB1y56rWoiiI/EejPHJWSnYGdI1gNLjnxATm
-	4V8w0jAZPWYTjurLoztlxBiWoCwCyBIVwRh/Sc3wXkHjkZ7ldB+OdORVw8qSoijr4ic6fjZY7ZG
-	1LOy/y4OZz4okS7W95WpuWQdOUzWKmZiRkLP1PoNwEkZpNpKPqMPEAj3mvZGceUm+HBIArB7dom
-	Ssd8JYQlTO6drlk38YijIG3IQ4iLiT1/Thc1ZQMSa6BV3om5oMMuv3QxBi6zOpTHSC8cYzxwJw6
-	PibZN1v8aZB3Cblv7WAyaHR5Hj+5CIz2Iggo/P6u6HexpJ/OUeTvTtD/njTzhsccNvAV9axzfbp
-	lEqVQ==
-X-Received: by 2002:a05:600c:8117:b0:490:688b:f9f8 with SMTP id 5b1f17b1804b1-493c2b99aafmr71835635e9.27.1782985108910;
-        Thu, 02 Jul 2026 02:38:28 -0700 (PDT)
-Received: from Ansuel-XPS24.localdomain (host-79-52-250-217.retail.telecomitalia.it. [79.52.250.217])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-493c636c8b9sm35502285e9.10.2026.07.02.02.38.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 02:38:28 -0700 (PDT)
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Thu, 02 Jul 2026 10:58:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95DDE356E;
+	Thu,  2 Jul 2026 03:58:05 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 017293F905;
+	Thu,  2 Jul 2026 03:58:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782989889; bh=GKe7TITEFnRW0+TIwdiAaqbX7l401DXeRZ1PFimE7Ic=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ScaL9klctrfC1nZszPATlBNGZfQgSLLUmDS9rlpFskG4zAekS3k2R94pM6p7Y10VT
+	 gOD9XlGOfmnC7K/iKF504aaS49Ekpm/VEnxdRSwAwfj8M4YeDMMnaEBNRQYbHdsXsQ
+	 zKN74dQtoj2Bar84aEcbbNxdyccUayNbkswmKn1k=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Wei-Lin Chang <weilin.chang@arm.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org
-Subject: [PATCH v10 4/5] phy: move and rename Airoha PCIe PHY driver to dedicated directory
-Date: Thu,  2 Jul 2026 11:38:09 +0200
-Message-ID: <20260702093812.15918-5-ansuelsmth@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260702093812.15918-1-ansuelsmth@gmail.com>
-References: <20260702093812.15918-1-ansuelsmth@gmail.com>
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 3/6] KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
+Date: Thu,  2 Jul 2026 11:58:06 +0100
+Message-ID: <akZEPVJhCcYbyoN2@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <5yy625c66j3kgoboejg7hagnmxjzp2tvmvvncmqvo444wtpmzl@sufez6t2iy3r>
+References: <20260630121005.1130996-1-weilin.chang@arm.com> <20260630121005.1130996-4-weilin.chang@arm.com> <akUrmfQnKmIXTigs@LeoBrasDK> <5yy625c66j3kgoboejg7hagnmxjzp2tvmvvncmqvo444wtpmzl@sufez6t2iy3r>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_023831_178647_77BF11F8 
-X-CRM114-Status: GOOD (  27.14  )
+X-CRM114-CacheID: sfid-20260702_035811_275961_DE46D979 
+X-CRM114-Status: GOOD (  39.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,175 +83,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To keep the generic PHY directory tidy, move the PCIe PHY driver for
-Airoha AN7581 SoC to a dedicated directory.
+On Wed, Jul 01, 2026 at 06:27:51PM +0100, Wei-Lin Chang wrote:
+> On Wed, Jul 01, 2026 at 04:00:41PM +0100, Leonardo Bras wrote:
+> > Hi Wei Lin,
+> > 
+> > On Tue, Jun 30, 2026 at 01:10:02PM +0100, Wei-Lin Chang wrote:
+> > > ptdump files can still be read after the pgt of the canonical mmu is
+> > > freed, if they are opened before the VM debugfs directory is removed.
+> > > This triggers UAF in places where we cache the pgt pointer or access it
+> > > without checking its validity.
+> > > 
+> > > Check the pgt is still alive under the mmu_lock before accessing the
+> > > pgt.
+> > > 
+> > > Reported-by: Sashiko <sashiko-bot@kernel.org>
+> > > Closes: https://sashiko.dev/#/patchset/20260623142443.648972-1-weilin.chang@arm.com?part=1
+> > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > > ---
+> > >  arch/arm64/kvm/ptdump.c | 38 ++++++++++++++++++++++++--------------
+> > >  1 file changed, 24 insertions(+), 14 deletions(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> > > index d5aa9eff08d1..752d8e0cd25c 100644
+> > > --- a/arch/arm64/kvm/ptdump.c
+> > > +++ b/arch/arm64/kvm/ptdump.c
+> > > @@ -115,13 +115,21 @@ static int kvm_ptdump_build_levels(struct ptdump_pg_level *level, u32 start_lvl)
+> > >  static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
+> > >  {
+> > >  	struct kvm_ptdump_guest_state *st;
+> > > -	struct kvm_pgtable *pgtable = kvm->arch.mmu.pgt;
+> > > +	struct kvm_pgtable *pgtable;
+> > >  	int ret;
+> > >  
+> > >  	st = kzalloc_obj(struct kvm_ptdump_guest_state, GFP_KERNEL_ACCOUNT);
+> > >  	if (!st)
+> > >  		return ERR_PTR(-ENOMEM);
+> > >  
+> > > +	guard(write_lock)(&kvm->mmu_lock);
+> > > +	if (!kvm->arch.mmu.pgt) {
+> > > +		kfree(st);
+> > > +		return ERR_PTR(-ENXIO);
+> > > +	}
+> > > +
+> > > +	pgtable = kvm->arch.mmu.pgt;
+> > > +
+> > >  	ret = kvm_ptdump_build_levels(&st->level[0], pgtable->start_level);
+> > >  	if (ret) {
+> > >  		kfree(st);
+> > > @@ -137,7 +145,6 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
+> > >  
+> > >  static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+> > >  {
+> > > -	int ret;
+> > >  	struct kvm_ptdump_guest_state *st = m->private;
+> > >  	struct kvm *kvm = st->kvm;
+> > >  	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
+> > > @@ -154,11 +161,11 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
+> > >  		.seq		= m,
+> > >  	};
+> > >  
+> > > -	write_lock(&kvm->mmu_lock);
+> > > -	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> > > -	write_unlock(&kvm->mmu_lock);
+> > > +	guard(write_lock)(&kvm->mmu_lock);
+> > > +	if (mmu->pgt)
+> > > +		return kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> > 
+> > IIUC, that's the same behavior, right?
+> > Just changed to look about the same with the rest of this file?
+> 
+> I'm not too sure what you are referring to, if you mean the
+> write_lock/unlock -> guard(write_lock) change, then yes, mostly. Just
+> also checking mmu->pgt is still not freed.
 
-Also rename the driver and add the relevant SoC name to the .c and .h
-file in preparation for support of PCIe and USB PHY driver for Airoha
-AN7583 SoC that use a completely different implementation and
-calibration for PHYs and will have their own dedicated drivers.
+I was referring just to lock+unlock -> guard() strategy.
+IIUC this has the same effect, so I was wondering on why you suggested the 
+change.
 
-The rename permits to better identify the specific usage of the driver
-in the future once the airoha PHY directory will have multiple driver
-for multiple SoC.
+I then supposed it was to look the same of the rest of the file.
 
-The config is changed from PHY_AIROHA_PCIE to PHY_AIROHA_AN7581_PCIE.
+> 
+> > 
+> > >  
+> > > -	return ret;
+> > > +	return 0;
+> > >  }
+> > 
+> > So if the pgt does not exist anymore, it returns zero. Is that the desired 
+> > behavior?
+> 
+> Good question, so the question is what contract between the ptdump and
+> user do we want to make for this case. I guess returning some error like -EIO
+> could make a little more sense than just printing nothing?
+>
 
-Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- MAINTAINERS                                         |  4 ++--
- drivers/phy/Kconfig                                 | 11 +----------
- drivers/phy/Makefile                                |  4 ++--
- drivers/phy/airoha/Kconfig                          | 13 +++++++++++++
- drivers/phy/airoha/Makefile                         |  3 +++
- .../phy-an7581-pcie-regs.h}                         |  2 +-
- .../{phy-airoha-pcie.c => airoha/phy-an7581-pcie.c} |  6 +++---
- 7 files changed, 25 insertions(+), 18 deletions(-)
- create mode 100644 drivers/phy/airoha/Kconfig
- create mode 100644 drivers/phy/airoha/Makefile
- rename drivers/phy/{phy-airoha-pcie-regs.h => airoha/phy-an7581-pcie-regs.h} (99%)
- rename drivers/phy/{phy-airoha-pcie.c => airoha/phy-an7581-pcie.c} (99%)
+It depends on what is the behaviour you want to see... see below..
+ 
+> > 
+> > I guess it's aligned with the idea of single file mentioned in the cover, 
+> > right?
+> 
+> Sorry, I don't get what you are asking here?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 05e90c3f7fe0..952653034c4c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -765,8 +765,8 @@ M:	Lorenzo Bianconi <lorenzo@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/phy/airoha,en7581-pcie-phy.yaml
--F:	drivers/phy/phy-airoha-pcie-regs.h
--F:	drivers/phy/phy-airoha-pcie.c
-+F:	drivers/phy/airoha/phy-an7581-pcie-regs.h
-+F:	drivers/phy/airoha/phy-an7581-pcie.c
- 
- AIROHA SPI SNFI DRIVER
- M:	Lorenzo Bianconi <lorenzo@kernel.org>
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 19f3b7d12b7d..e93951a4a898 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -46,16 +46,6 @@ config GENERIC_PHY_MIPI_DPHY
- 	  Provides a number of helpers a core functions for MIPI D-PHY
- 	  drivers to us.
- 
--config PHY_AIROHA_PCIE
--	tristate "Airoha PCIe-PHY Driver"
--	depends on ARCH_AIROHA || COMPILE_TEST
--	depends on OF
--	select GENERIC_PHY
--	help
--	  Say Y here to add support for Airoha PCIe PHY driver.
--	  This driver create the basic PHY instance and provides initialize
--	  callback for PCIe GEN3 port.
--
- config PHY_CAN_TRANSCEIVER
- 	tristate "CAN transceiver PHY"
- 	select GENERIC_PHY
-@@ -168,6 +158,7 @@ config PHY_XGENE
- 	help
- 	  This option enables support for APM X-Gene SoC multi-purpose PHY.
- 
-+source "drivers/phy/airoha/Kconfig"
- source "drivers/phy/allwinner/Kconfig"
- source "drivers/phy/amlogic/Kconfig"
- source "drivers/phy/apple/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index d7aa516bcc49..4ca4a07963fc 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -7,7 +7,6 @@ obj-$(CONFIG_PHY_COMMON_PROPS)		+= phy-common-props.o
- obj-$(CONFIG_PHY_COMMON_PROPS_TEST)	+= phy-common-props-test.o
- obj-$(CONFIG_GENERIC_PHY)		+= phy-core.o
- obj-$(CONFIG_GENERIC_PHY_MIPI_DPHY)	+= phy-core-mipi-dphy.o
--obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
- obj-$(CONFIG_PHY_CAN_TRANSCEIVER)	+= phy-can-transceiver.o
- obj-$(CONFIG_PHY_ECONET_PCIE)		+= phy-econet-pcie.o
- obj-$(CONFIG_PHY_EYEQ5_ETH)		+= phy-eyeq5-eth.o
-@@ -20,7 +19,8 @@ obj-$(CONFIG_PHY_PISTACHIO_USB)		+= phy-pistachio-usb.o
- obj-$(CONFIG_PHY_SNPS_EUSB2)		+= phy-snps-eusb2.o
- obj-$(CONFIG_PHY_XGENE)			+= phy-xgene.o
- 
--obj-$(CONFIG_GENERIC_PHY)		+= allwinner/	\
-+obj-$(CONFIG_GENERIC_PHY)		+= airoha/	\
-+					   allwinner/	\
- 					   amlogic/	\
- 					   apple/	\
- 					   axiado/	\
-diff --git a/drivers/phy/airoha/Kconfig b/drivers/phy/airoha/Kconfig
-new file mode 100644
-index 000000000000..9a1b625a7701
---- /dev/null
-+++ b/drivers/phy/airoha/Kconfig
-@@ -0,0 +1,13 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Phy drivers for Airoha devices
-+#
-+config PHY_AIROHA_AN7581_PCIE
-+	tristate "Airoha AN7581 PCIe-PHY Driver"
-+	depends on ARCH_AIROHA || COMPILE_TEST
-+	depends on OF
-+	select GENERIC_PHY
-+	help
-+	  Say Y here to add support for Airoha AN7581 PCIe PHY driver.
-+	  This driver create the basic PHY instance and provides initialize
-+	  callback for PCIe GEN3 port.
-diff --git a/drivers/phy/airoha/Makefile b/drivers/phy/airoha/Makefile
-new file mode 100644
-index 000000000000..912f3e11a061
---- /dev/null
-+++ b/drivers/phy/airoha/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+obj-$(CONFIG_PHY_AIROHA_AN7581_PCIE)	+= phy-an7581-pcie.o
-diff --git a/drivers/phy/phy-airoha-pcie-regs.h b/drivers/phy/airoha/phy-an7581-pcie-regs.h
-similarity index 99%
-rename from drivers/phy/phy-airoha-pcie-regs.h
-rename to drivers/phy/airoha/phy-an7581-pcie-regs.h
-index 58572c793722..b938a7b468fe 100644
---- a/drivers/phy/phy-airoha-pcie-regs.h
-+++ b/drivers/phy/airoha/phy-an7581-pcie-regs.h
-@@ -1,4 +1,4 @@
--/* SPDX-License-Identifier: GPL-2.0-only */
-+// SPDX-License-Identifier: GPL-2.0-only
- /*
-  * Copyright (c) 2024 AIROHA Inc
-  * Author: Lorenzo Bianconi <lorenzo@kernel.org>
-diff --git a/drivers/phy/phy-airoha-pcie.c b/drivers/phy/airoha/phy-an7581-pcie.c
-similarity index 99%
-rename from drivers/phy/phy-airoha-pcie.c
-rename to drivers/phy/airoha/phy-an7581-pcie.c
-index 56e9ade8a9fd..81ddf0e7638b 100644
---- a/drivers/phy/phy-airoha-pcie.c
-+++ b/drivers/phy/airoha/phy-an7581-pcie.c
-@@ -13,7 +13,7 @@
- #include <linux/platform_device.h>
- #include <linux/slab.h>
- 
--#include "phy-airoha-pcie-regs.h"
-+#include "phy-an7581-pcie-regs.h"
- 
- #define LEQ_LEN_CTRL_MAX_VAL	7
- #define FREQ_LOCK_MAX_ATTEMPT	10
-@@ -1279,12 +1279,12 @@ MODULE_DEVICE_TABLE(of, airoha_pcie_phy_of_match);
- static struct platform_driver airoha_pcie_phy_driver = {
- 	.probe	= airoha_pcie_phy_probe,
- 	.driver	= {
--		.name = "airoha-pcie-phy",
-+		.name = "airoha-an7581-pcie-phy",
- 		.of_match_table = airoha_pcie_phy_of_match,
- 	},
- };
- module_platform_driver(airoha_pcie_phy_driver);
- 
--MODULE_DESCRIPTION("Airoha PCIe PHY driver");
-+MODULE_DESCRIPTION("Airoha AN7581 PCIe PHY driver");
- MODULE_AUTHOR("Lorenzo Bianconi <lorenzo@kernel.org>");
- MODULE_LICENSE("GPL");
--- 
-2.53.0
+IIUC you mentioned in the cover letter that you planned to have a file 
+which would, on read, output ptdump for every nested pgtable. Did I get 
+that right? 
 
+If so, I imagine that the user has no idea how many nested pgtables are 
+there, and if the ioctl initially finds N, but ends up printing N-1 
+(because a pgtable was not there anymore), that would not be an error that 
+the user should be worried about.
+
+It could be an issue if you were printing in multiple steps (multiple 
+checks), as a part of that pgtable could be printed while another part 
+could not. Which does not seem to be the case.
+
+> 
+> > 
+> > >  
+> > >  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
+> > > @@ -206,17 +213,23 @@ static const struct file_operations kvm_ptdump_guest_fops = {
+> > >  
+> > >  static int kvm_pgtable_range_show(struct seq_file *m, void *unused)
+> > >  {
+> > > -	struct kvm_pgtable *pgtable = m->private;
+> > > +	struct kvm *kvm = m->private;
+> > > +
+> > > +	guard(write_lock)(&kvm->mmu_lock);
+> > > +	if (kvm->arch.mmu.pgt)
+> > > +		seq_printf(m, "%2u\n", kvm->arch.mmu.pgt->ia_bits);
+> > >  
+> > > -	seq_printf(m, "%2u\n", pgtable->ia_bits);
+> > >  	return 0;
+> > >  }
+> > >  
+> > >  static int kvm_pgtable_levels_show(struct seq_file *m, void *unused)
+> > >  {
+> > > -	struct kvm_pgtable *pgtable = m->private;
+> > > +	struct kvm *kvm = m->private;
+> > > +
+> > > +	guard(write_lock)(&kvm->mmu_lock);
+> > > +	if (kvm->arch.mmu.pgt)
+> > > +		seq_printf(m, "%1d\n", KVM_PGTABLE_MAX_LEVELS - kvm->arch.mmu.pgt->start_level);
+> > >  
+> > > -	seq_printf(m, "%1d\n", KVM_PGTABLE_MAX_LEVELS - pgtable->start_level);
+> > >  	return 0;
+> > >  }
+> > >  
+> > > @@ -224,15 +237,12 @@ static int kvm_pgtable_debugfs_open(struct inode *m, struct file *file,
+> > >  				    int (*show)(struct seq_file *, void *))
+> > >  {
+> > >  	struct kvm *kvm = m->i_private;
+> > > -	struct kvm_pgtable *pgtable;
+> > >  	int ret;
+> > >  
+> > >  	if (!kvm_get_kvm_safe(kvm))
+> > >  		return -ENOENT;
+> > >  
+> > > -	pgtable = kvm->arch.mmu.pgt;
+> > > -
+> > > -	ret = single_open(file, show, pgtable);
+> > > +	ret = single_open(file, show, kvm);
+> > 
+> > Maybe this change is more related with the previous patch?
+> 
+> I see your point, but I divided it into first fixing mmu UAF, then the
+> pgt UAF, which I also think makes sense.
+> 
+
+Okay then
+
+Thanks!
+Leo
 
