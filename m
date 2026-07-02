@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BA9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 925E0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:36:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DaEsGQyA9lchO5J2AFHDiPCEx3TudYnthel4tv0857M=; b=J4NHuWE02jYOceVQMttU55T5RF
-	d2z7kQjH+QPwbtab+t+ScqapwGV5C1tyQemWoERxxGW0+s5Ts+rJ5J+i/Xbv8MSIpK3sG+rxy/BP1
-	dIT2tgM5GvSh8EHPKO3A7Pp3PsTDLB6mVxbbrZXWL3xDgnilBXH/zXl1AUVIjkhlZ0smIyuqERFro
-	8eMWi64Q56kjjGmgoF1wTZvM6xn2WnHet+YpFAfZMTKyiNrKgjl2NWVqU1Q2r06fA6Xpl9klZpUVs
-	O1fyqoW2s375hA6Hf4uDWNuA801G1jBPUeG3um5KG14OPv3twY2qELy41NiKdLW2JlzwBbnuB6TxF
-	cHPXHx6w==;
+	bh=I1eeHpCHy2amylD5gAFQ/G5VWDnH0phiGEsKBXqG2BM=; b=zsGONH2y8JHw1U8SARPO5vbdtf
+	+cR13USbwHwioMSFNCxmZdjUotSXr4NyPj1Z7kY0eW0SR2X5M4pVyjctZ7b8/wyXDc6XlCayK8AGk
+	QF5WfhF+wPxD7HVXdhnTe+COFAq8bHC5Kt+zZ7XoeJUJ049shl42xRSqS5SYySM/IEL655LxuixxA
+	q/YERDRc0mTqpNtAa8MAJoSquFT/qBjeSx40wayOaqd7jleZ6SEJZhW4ak0Zb2isJ03R5jRMc29ih
+	AoxTl89T5hgmZkrFdiBhu3b7pxfxRNxQ1ySstoRydKePyfp8gFZDnBi49mpHicZv7OXl7ZEsrHLZb
+	KjLi20tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfLKB-000000059Mw-1Xl2;
-	Thu, 02 Jul 2026 17:35:43 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wfLKU-000000059Uk-2h0P;
+	Thu, 02 Jul 2026 17:36:02 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfLK8-000000059Lp-42Yk
+	id 1wfLKS-000000059Tc-0V8T
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 17:35:42 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3BB9E4E409FA;
-	Thu,  2 Jul 2026 17:35:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DF68B602EE;
-	Thu,  2 Jul 2026 17:35:38 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 032F3104C9590;
-	Thu,  2 Jul 2026 19:35:33 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783013737; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=DaEsGQyA9lchO5J2AFHDiPCEx3TudYnthel4tv0857M=;
-	b=uUye/YfpNoN/FMZ4X1Cn5/O4LhI3ptQAjczCfgJX3Bgk4hJuMyoIOcI0vKjJFYSg4hta1o
-	NueV4e13bB7rgP9zShZjzGVlRgHXl31jmbYmC490Y5gAkRP2hr+Te8eqPXQrEsPsv0LcOk
-	i0wP3lPGzw8jKCoXv99iRmQKTa57dYfQwlxKM5hpRBGwWZe7z+AWr3aE1dxEsB+riUbAOi
-	cjEd2M1+miyQmR7++DBBR/jO8ubnNEQVvFGttwGquZNFNlM3CtpTmuCodM/r1++YovdfRz
-	kOSQB8asI5ks9XwqQ9/PmKCvMR7wB/YFw4S23LaDauAsQ0sfRIBYg8kIvdWnPw==
-Message-ID: <11de0ecc-17af-4f64-884f-e1b146d80aaf@bootlin.com>
-Date: Thu, 2 Jul 2026 19:35:33 +0200
+	Thu, 02 Jul 2026 17:36:01 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-381065a7a03so519398a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 10:35:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783013759; x=1783618559; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I1eeHpCHy2amylD5gAFQ/G5VWDnH0phiGEsKBXqG2BM=;
+        b=NHp5tBs0EZCq9gzYdqPxxQObSp4EYHWUqmTjN+LAWTa0MBsYQY0ricT66AeGE8yS6d
+         i7zxmxi/bA+BGQM3sLEvHqNAYOvO5CHykLJi6EEkO90ACo02XfeILY1AVTuQWU6IkPhd
+         PYDlZoYivaeYYDpZnhLQUEI1MxLeZVpI/whe/Ntj8u/zWzmKbpig6yEWBg91fO1CeDdN
+         AWRRHxTV4kViWRafuUObT902Nh3CPqyNb54EazCe7nplLy90npkJEYyThRjwbJkNhxlY
+         NC3TZJFekUfwsQfJA1w1FRlTw20VIJqumso5mLXGk3J8skkvvUkQ+Sb7zMSbckSGY3Q6
+         NHSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783013759; x=1783618559;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=I1eeHpCHy2amylD5gAFQ/G5VWDnH0phiGEsKBXqG2BM=;
+        b=W2xhW58PRLssZimZvOjDinOjvqEHdfq+T9E9PRgqLMHmzqIbPVsRaVWH5tN0gKTOa3
+         Kjdh6dbMujr0DgPBQm8gX5Qs/9jWtcm+bB7pNcin5zdFqjb789H+7yS45Giu+4DuCzwr
+         4lRgArU7G2OAdq5nBIeA02XL2gLaOke2gvy9MWiwkTGKn2/vXWzfQsLQR+u4OFk6buMd
+         pOPr6lv0Sq0ZzuZcqrUeDQ/rMUYTHI+qFw9u9BIwO+UVrNHgpobuKPGGq+slwDTDlpwF
+         yCqdVlDW8rJekc7AOSbjoqoZeoKA1AXXsA3ffJVc6lS8+QTo52ruAB54rX9WEwh7vwsE
+         NowQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqz+K+0WVyM21WUHMDQBvMFOm9QVJVlEsN4BRoEm0Q52LoiexHWYFmZLX5TzB2DdAkM3gCU9+fKwJRoAtZ/0FgN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuHcjombkZ2IY285z1cHPAZJyIrt5YydJUWiUtCSPwykByPdCi
+	Y3x4rFasAt0V9txCk9yHRh4GbjHUR8/VjB2wqi0SPnJIIwKelovmCfL5rFAfti8j
+X-Gm-Gg: AfdE7cn8cPVWbB6wzk66H4bgV3x/m3EBYYA18Ad8wFy+xB89BRqABq91NXpmuspcNXG
+	3ZxjVo1OspqYFnqfmKmVrkU1XOZU2trmE1JkTg7ZNXfv8efzMJqi6TGaMykgTzafMcyyFboCRvx
+	P75AIHkVMJbB4cKovobbxeLaYwDtSaophWTHeOxQAW3n21+vMPZvM33i6gJ0qVoC1lS4zkwBUNc
+	sXjn6YNBqCF5+oHgRxdKJjRh9L4PafsW3G89055tVHP+ijd9GY6gFpe21PGzv3q2iaoJpD7Y8cf
+	YWIyWTWcIMh7XiCsP9wdCrVRBGwhxMCr2GyqvWVCo+H17RGJta82O66haEixrWnkwiURWKekvcw
+	A8C6YZ83cdBqxcvWctb8yOqvHdgYgGdaa/lXo76Aoz7gQIZEagT2whyh41Ba00GCU6NE8rQ42ip
+	J62vrkRCsp4OdGlw8QR3MkGDNenaAk5hZp7K9QPA1LWXTVd8MTJlmVVhU=
+X-Received: by 2002:a17:90b:41:b0:372:b4a1:21d8 with SMTP id 98e67ed59e1d1-380aa0f43d6mr7412581a91.13.1783013758621;
+        Thu, 02 Jul 2026 10:35:58 -0700 (PDT)
+Received: from LAPTOP-97G9G880.domain.name ([106.222.201.11])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0b813cd9sm10870313eec.8.2026.07.02.10.35.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jul 2026 10:35:58 -0700 (PDT)
+From: Karthikeyan KS <karthiproffesional@gmail.com>
+To: andrew@codeconstruct.com.au
+Cc: joel@jms.id.au,
+	andrew@aj.id.au,
+	Kees Cook <kees@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v6] soc: aspeed: lpc-snoop: Fix usercopy overflow in snoop_file_read
+Date: Thu,  2 Jul 2026 17:35:50 +0000
+Message-ID: <20260702173550.10779-1-karthiproffesional@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 net-next 08/14] net: enetc: remove invalid code from
- enetc4_pl_mac_link_up()
-To: wei.fang@oss.nxp.com, claudiu.manoil@nxp.com, vladimir.oltean@nxp.com,
- xiaoning.wang@nxp.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, wei.fang@nxp.com, chleroy@kernel.org
-Cc: imx@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-References: <20260702025714.456233-1-wei.fang@oss.nxp.com>
- <20260702025714.456233-9-wei.fang@oss.nxp.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20260702025714.456233-9-wei.fang@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_103541_172385_22542A98 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20260702_103600_159359_A8A4AF59 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +104,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
+Thanks for your consistent support and guidance.
+I learned a lot from you.
+Much Appreciated.
 
-On 7/2/26 04:57, wei.fang@oss.nxp.com wrote:
-> From: Wei Fang <wei.fang@nxp.com>
-> 
-> When adding phylink MAC operations support to the NETC switch driver,
-> Russell King pointed out several pieces of invalid logic in the
-> .mac_link_up() implementation (see [1] and [2]):
-> 
-> 1) Half-duplex backpressure is not supported by the kernel, Ethernet
->    relies on packet dropping for congestion management.
-> 
-> 2) phylink_autoneg_inband() is unnecessary, as RGMII in-band status is
->    not supported.
-> 
-> 3) TX and RX pause are disabled in half-duplex mode, so there is no
->    need to override them in .mac_link_up().
-> 
-> The same invalid logic is also present in enetc4_pl_mac_link_up(), so
-> remove the invalid code from it.
-> 
-> Link: https://lore.kernel.org/imx/acEIQqI-_oyCym8O@shell.armlinux.org.uk/ # 1
-> Link: https://lore.kernel.org/imx/acEFwqmAvWls_9Ef@shell.armlinux.org.uk/ # 2
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
+Thanks,
+Karthikeyan
 
