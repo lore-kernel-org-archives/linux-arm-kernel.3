@@ -4,54 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A10E2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 02:12:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01598C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 02:15:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xd6c0bAtnDC1jjI/+BRH1ouYM9ZqgJCsh0Ij+BLlITo=; b=svYc6plMfCsFdEGtf8uZmkACxQ
-	j0L7Z+y864feP9NlvHBKyNUsY5WGdAI0o6iCoObpu/qjawXEFilQ1oVbyzb0bwsg0yfRwgJGRCo5l
-	S8RVmDtXnPTPQVYzMChPwZVIf46yCHgjZYdGjlfGlmYMCrFQr2Wa1LbAncgE0awTMzeL4iP4Ijyrp
-	Hlh0hSwbytzGscQtgyZGR7OgM83WzQsbrGP+JMWKA6r5sTZwNqutAFZPCU4s8TGmpXuw7vUxFCmJI
-	DEztUq2+c6g76rkr9G+DoWhB9uu/FiLUKzCWmL0XeFqtEEkBOmkHynB2sAvCSJmu7tnQ6X2NVSiyA
-	UXn2oh/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=; b=y3xZZYwJzrxqukYmyHREDZzgGJ
+	bNKREmz6BcvhAHkhmqrg+7gBEeljcMIJUxOoUHy6M9whegLBvwWcHxkb8BjBLbwn+awFmBZVO3wBV
+	WxFx9kEjjahYmYwbVLOjYx88iW75RMIo/QlPA6ZkeXvrzrlB0kXJOensU1NwwlOoBd+0kB6PUfXcm
+	McwrBvnz18LpanCUkRQfQ6Rl3Twtonv6Q3MWRKK4MUaSKB83370Poh9MbHZgRmaioNo+oouFZAbiS
+	xOrmO3D82ccfAL44QT4jbHPuV3/4M8mG/HT1Wx5zMB8AACGAaKNJQpkd/ctvT8kk35L96zdL4HJnN
+	UM7PRGEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf6uD-00000003P5A-1U19;
-	Thu, 02 Jul 2026 02:11:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wf6Js-00000003LOu-0cJm;
+	Thu, 02 Jul 2026 01:34:24 +0000
+Received: from mx0a-00069f02.pphosted.com ([205.220.165.32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf6uC-00000003P4w-0ACk
+	id 1wf6Jn-00000003LMs-39pm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 02:11:56 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2909A40065;
-	Thu,  2 Jul 2026 02:11:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 990FC1F000E9;
-	Thu,  2 Jul 2026 02:11:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782958314;
-	bh=Xd6c0bAtnDC1jjI/+BRH1ouYM9ZqgJCsh0Ij+BLlITo=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=kJ2APbjgjo3kIcdbXWZLU9i4Jy7JX7fIVJ98tZh21ByFZiFIZmGTjMt2YjOt4xqDY
-	 L1/xj3jL4IIrJqKFSW4Rsc/OhBCMiXJ5+TeQnerxvDEcB2F/b6IyRvGmrhrfr33iEZ
-	 17hxcp++bMvCffzco3LiIvltFl//A5gAzqNTGO/hNTMUUHnPSPbRivYG0bPRx6cAYN
-	 abiV7QkyVYVwBsmoZ3Bxqog/NycG/Um3goXhWEsZYeXPZIcodFXo1ECVndZjkhsXz7
-	 qTxVpLtbUUrO4uBw9XrJqtgj4odhFZb2ndZEqlhVm2U7vTjfiY7cyoqZK/EZN64rnk
-	 U3Qv+xPpGyUtA==
-Content-Type: multipart/mixed; boundary="===============1924622309690578587=="
+	Thu, 02 Jul 2026 01:34:22 +0000
+Received: from pps.filterd (m0246617.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 661EKFmR2784219;
+	Thu, 2 Jul 2026 01:33:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=; b=
+	UClqZuYDakE70gSsazeZPFvtn7Wg4ow0krVrVQMjotPYnFAPw1uCv1ceZbLZvzxI
+	petfatRqZOQtpjFWSBup6kpEix4owig/r0LRSezLEXVmC3dLH8gpeFPoqsJplGqj
+	IWOwUF5a+qWlJwgFnVhhGyd52iPOZ/qQ8auIbYD+3GAzQNx3mUISBAFBJwsHVg4C
+	SJCtECu5ED1xhFy35Pnw8EinU3nZU9+sD1G8iEke2ixbjG+sUQjPuHavU5U8nQI8
+	qtL6oR3Kxr7ppwqu571Q4bpHwRMfZZdxDB/Mu6yWpnSRp7C3aGp8xe/XEM8bV8ag
+	Uvwsk7UTOVw1dJHmnPfqDg==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4f272qq6s2-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 02 Jul 2026 01:33:57 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.7/8.18.1.7) with ESMTP id 6621XgXx013188;
+	Thu, 2 Jul 2026 01:33:56 GMT
+Received: from sa9pr02cu001.outbound.protection.outlook.com (mail-southcentralusazon11013069.outbound.protection.outlook.com [40.93.196.69])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4f24ysqnma-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 02 Jul 2026 01:33:56 +0000 (GMT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EHQrLtlc5w7TCBtfMwZLmSs+4Ngn3G2y9eZyDtMiZx23+qsRD3gJysWefJbr+15L1V9Xf0xpnCi92CsyzcE8Sb1m+pOXCT95P8GYlzc/eHgAMguebRIla3dmvvnBfixZb33S+d0fberKewapesILYLOZnp4fkX02gEmNk2It5uBJm+q+5VRbDl6btUSDBA8DpvN8VSfC/9cEzZVC5ozlAi+/zBSI5vE5nv1gwN6FLd3P6E3hhgE6XyhZ6fbiQaqvo3gl+sAs/a4qsM2Yx8oM/r6YJiaRtD6A6uGdojsqCsePxjP4f4S6fsQZA87dts+9Wl2MVxO5EX/kF+4UCvheuQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=;
+ b=QBqjT+KoDhHvliNf/SUrAUDL2m2OFcJ9sZJIDtp2nyzBnba5k2EJduA3WHIc1BKVv5sRRsY/gTdoDr3l6zDt9xwn5ZMPk2PK2haTtzRs3SXAuYs6CTmk+/FNZ1vtNP8PmbddBfZ1VZG047eRkAm9R/xoGa7rJHZu0BCmnvei4MbjTq0K9HJr5ZDtq5ekALTqh7hT2RqxL+XNfHhmaeDU22L2dA8/8jhAQs4cbTh5DMMcAmh5gtSdvOzglVpRZ57nMBY/2xy/qn+o4jkf95LFy83lMkpQT3AEJYIysRY5bSu19w+b7DExxRjOFkV6lFZqiYb9hGCuF3Zl7KOY7LvVzw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Qc9kxLkDGha/9o5ViVD+9oBCbKgLib4L+J3lTykDaPA=;
+ b=m10QWItgBYd4C1XSV3djAeMg09yxasb3ccdNfSnP6ja21CY7Od7MsPoYEujLmyX8t+yDg1Xg86Xn31vwEpAVVqNR5gZO2vq9tauTxfkTUCW6m0Oxct867SqWG6OsILT96jtL7IHD0sTBfrKKEaXegQjax5l1qvw7uEP6mR0f2Wo=
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
+ by CY8PR10MB7314.namprd10.prod.outlook.com (2603:10b6:930:7b::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
+ 2026 01:33:52 +0000
+Received: from CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
+ ([fe80::3c92:21f3:96a:b574%6]) with mapi id 15.21.0181.008; Thu, 2 Jul 2026
+ 01:33:52 +0000
+From: Ankur Arora <ankur.a.arora@oracle.com>
+To: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        bpf@vger.kernel.org
+Cc: arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org,
+        peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com,
+        harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org,
+        daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com,
+        xueshuai@linux.alibaba.com, rdunlap@infradead.org,
+        david.laight.linux@gmail.com, broonie@kernel.org,
+        joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+        konrad.wilk@oracle.com, ashok.bhat@arm.com,
+        Ankur Arora <ankur.a.arora@oracle.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Christoph Lameter <cl@linux.com>
+Subject: [PATCH v13 03/15] arm64/delay: move some constants out to a separate header
+Date: Wed,  1 Jul 2026 18:33:22 -0700
+Message-Id: <20260702013334.140905-4-ankur.a.arora@oracle.com>
+X-Mailer: git-send-email 2.31.1
+In-Reply-To: <20260702013334.140905-1-ankur.a.arora@oracle.com>
+References: <20260702013334.140905-1-ankur.a.arora@oracle.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: YT4PR01CA0277.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:109::10) To CO6PR10MB5409.namprd10.prod.outlook.com
+ (2603:10b6:5:357::14)
 MIME-Version: 1.0
-Message-Id: <127be9fcbdb5b68bef8de1a918c3eaabb302f363788f96b5dca0cedfb583ef4d@mail.kernel.org>
-In-Reply-To: <20260702013334.140905-16-ankur.a.arora@oracle.com>
-References: <20260702013334.140905-16-ankur.a.arora@oracle.com>
-Subject: Re: [PATCH v13 15/15] barrier: add clock tests for smp_cond_load_relaxed_timeout()
-From: bot+bpf-ci@kernel.org
-To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
-Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@linaro.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,rdunlap@infradead.org,david.laight.linux@gmail.com,broonie@kernel.org,joao.m.martins@oracle.com,boris.ostrovsky@oracle.com,konrad.wilk@oracle.com,ashok.bhat@arm.com,ankur.a.arora@oracle.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Thu,  2 Jul 2026 02:11:53 +0000 (UTC)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|CY8PR10MB7314:EE_
+X-MS-Office365-Filtering-Correlation-Id: f2ef599f-c4bb-4de4-8d7b-08ded7d9f974
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|7416014|56012099006|6133799003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: iszpNcNaHAWNrhkzOIuxijS26b+kyfHRToQBM3SHx6kfDEXymtYNmDUtE3U9j44LQEiqC+FFeWMOdxhV5zCY0ulYYXGYSF8ZDajCDNAFB9SbJw095T1geV585XWdeCYUgjzQPvHcqUJ8SDQv6Yq6SNAuvjW+XPgvW3IHqb8w2WmAZKqXBy5htjhFNl5dXJBNGCr15JlSBIIUH84tT6D+urT3O2gAC8e9NIOUJxqT3fU2260iEhm7ky7O8yTnUsyzVQvkKUNebxscvhqfRoLYSoF6OymVFMkXTwMUIaY74FQNPHISRJmgpFgUKaLIvG0tWMuF8PFzfLOhMyxXs7fr8fhKpRl2HQpTXk/kzt/ZarFyVvum8ejlnG9UuJdVnQ86rIp+8P7zKPo21IzrYhDYeBKr97x559lRPFgBtzxSg7pqPK8jc4PEYwavmjrH1K1cAAMuq7/GM2xqKQ/spVPG8LsRuy833T7/srVi1lEDPADK6dn2GDZ0HxyJBc2YiYlGsCXkvG+Fre/oH8c/L+k48fvXbcSLSOgRIMoNDRfIeI0L/jVCpnWxOz2iNzQ5jD211UL5bshhfROAlmupVp0umcKgvXTbTM+OaxT2ZYLCOziCMZEr28i9A/DhElFT4H0rghmqmlaRSA7YoB8jNpA86xV9lZ5Shvm3Or4K9MQ6RWA=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(7416014)(56012099006)(6133799003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+qIg3Ro4p767GfZf7ehBmSgNe9fWqdbwvmgnT9II6BgUtd2pH6/hBw0awvcy?=
+ =?us-ascii?Q?AOJ4W06rfK7tlV1p+eSYw5YivFPOS8FaqUsiuViJSK/FxiC/++r1FWJ98qQb?=
+ =?us-ascii?Q?1lN5xl6Cg/8muhI2wGadaoiHJTOTSPCf4F4s8HczeT00fgCT8SIMf4MurjFK?=
+ =?us-ascii?Q?NwwYhEgRstQAILEZp5xfta7uV6VOAjnZ+sFWnMSMqAdbbhjkejEkXXNR1uSq?=
+ =?us-ascii?Q?r4kELcsFeWCrKXCQ6Bfs0FifaiHHUBLFlK2kDS9FUpp0Sffhu92cjEgTDb+H?=
+ =?us-ascii?Q?WhFLbw/JZG9A3lvEUvTP6+iTGfZLQRhdiul9tU66CEYhKVVCEgeKQZOFYwRI?=
+ =?us-ascii?Q?HcsNjmYQjCOiJP8vw6YoEswsnwXm4sFwt++bh4bC2JPRIK1E3E5pLwxBNarR?=
+ =?us-ascii?Q?p7Ap1PjaioUazXH+C2N0IzY671OACr+/mvbSXpjN8cLgFJuYsYAQVFN9sshk?=
+ =?us-ascii?Q?BI8jj4Kf8ygrZJpeFFa7N/8HAXcFUGEoXUvip3GJYJEfrHFuEws/XXONLEtI?=
+ =?us-ascii?Q?aU8wsQ3zyGFu8SF75Q8H+qpojy8kZscM0lum8Ml+Ogx+yv1YweD+8SUxse5y?=
+ =?us-ascii?Q?7M+RDWIpETcrKYX938vUOzhQTJSVRpDpIXaCjI1v0jyAyyJR78Whe9IMKHOn?=
+ =?us-ascii?Q?E+6/T7hNDb1sT0r2xLz5EdqTFBmfaS/y/YV3/hIJm8hOQVSCf06uhq5hyHgl?=
+ =?us-ascii?Q?pJ7l4N/woI3ZfvA7dpJ/6iEHku+duFLDWTe6w6Fb+JT7q3ZpS4x7VYTZxhbm?=
+ =?us-ascii?Q?urD+xlrlyqkZWbcfxwdsgH/jgUH0WzzrCvglqjQKit0FgMz6JrA0/IeSjXWJ?=
+ =?us-ascii?Q?Ww4fDkrD/NGcMIWEK4zHDREVjSaVxTk8twphxp6zvbVyuPHtoD4fe+/q+UA3?=
+ =?us-ascii?Q?QWzkljqDds015/nbgIEVbUQhCvxMXJtKno7F4JEdusZebTD6xrxihw3ivRkF?=
+ =?us-ascii?Q?g+ushtg5WJ1nKMiFJshUVFvE/QqCKfCHLNivWaEDFjkGCzqutd3bIf9XzOZh?=
+ =?us-ascii?Q?vlDf+b81HkO9jynJDJoy7vIc3h8gKgQ+JPZOoOXkRuqOXuZPnoAz53prhxoh?=
+ =?us-ascii?Q?dvuER+UWWermRnXFz0vO408NTOBevFtRzSWInahIG41yp5JA+/2+DzyP/GOK?=
+ =?us-ascii?Q?Lm10kDl0XUwlD+wwaJjv55idNf4wb3BtMni9AJ8wFlqnwScPzf8yP5+DdCbg?=
+ =?us-ascii?Q?k8Ow2xQHEae7FF9qIrv6HhrPqygRGXzsQaKK5MLzgRGPNq7L8YGzjLTVIz6d?=
+ =?us-ascii?Q?lTNPBEIGd1QBrYmKzyjlh4jSw5Mzw2S3lJp6kK496/+ep6+k3E/imfp+4Nuh?=
+ =?us-ascii?Q?nsJ2tl5pN7huRZ4PeLrulpUqG3idYRTlDDeB62O1aQIWelRqufASOm9A/hyA?=
+ =?us-ascii?Q?tDdHenDsQ0jBCzxd8KcBQcRn8Rc+7HDuTFgJeRvjQNGJnupv6bd6f5kIbKjR?=
+ =?us-ascii?Q?YOlNXZbi6uLO0c2YwJ3mNnmLiW10ST6ViEwA1rIIvz0eMnuqA+rLvoE9g2oz?=
+ =?us-ascii?Q?VTFofyWQ35zQvY5nO5PBuTxXCtWLtup57KoQYtja7Ky/Fp0vShCZ7xrCtO0J?=
+ =?us-ascii?Q?DRQEVU6Con5ydNYaSMFBuejevVgaHrWE0eB58qGVuPmYv1FBnA8jLA2pzgl1?=
+ =?us-ascii?Q?j7gimWfZ/RPNFUL6FQeFcMwoPsL9YpLoy/0pDzTe0KDhmE8L+rYT///xnKRu?=
+ =?us-ascii?Q?7rHjJWtFOZx89V50Nr4UOE6YGfTuVGMvywobHFiTS7fOu74HFa/MHvNzEwwP?=
+ =?us-ascii?Q?1KjzdFs6GmuYNSRVGy1NowdB7baa8o8=3D?=
+X-Exchange-RoutingPolicyChecked: OKP02yd3fYQG7Jwm7ECTCIfCLnE+DGJ8HRr/NAIiV+x6cxw9LXWVQYYEWP4NmXOzPYTYo8321yQC7Wx4hHWZAnK209MeJsenkxVBpenwR7M6VJgYdzP+bhRUDJCuuZRZGLd2OyBNQj5XbBc5TN2NaTOf63gFzd9PM1yJeIxPF7hFVw/P+uAPYOlGE/+VMrXt9nua3VYBT0edph0Z+ohnssQmCENXe04J/efAhEN0EmNpIkVXJKRcG7oz0QMKmN0W/WhubMKn05+3BComzLFg+6WXOmOYFoLQ+TGrZwulg5I1+3grKIph1nf4H++lDhrslkAYrNhZExHjVoAJd2Tcqw==
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: 9L4p9jks2Z/Y7oRXh1L12tFl4wFrYvq/DuqrYiXt3t7NaUxr56Qpb2FldfjFrrCzujuhwQaEhh+NnNxgUHIFNRKglVjAWxLUAx/Bdqdxz++Ak7j5+azzryhv5dDXQqy5BuX9cdq3jjn6RN+5LyMUHmw6tDklAlV4+dojvE846nbEnXXPtkxG6UPwc0yMa4r5f791+WqkfNpWdC/clDoHR3dnT5PRQ/S0NPj0+Af7wP4QHUuiIwJqJKgzFD/Vz2mFgTNNjjMSovHYAQPlQ0n2X+SbM5UbSWo2DL32qm93TtPCTu8Q5AhjF8563Aln95TD5QC1SMkIX7CTfm6lWiek9LQxSXx9ag8kmAQShQg0/QveXbxCpr29qYSwCbD60mchaOiim3+8JQWOQyfaKVB4TBXbmBLGlllJTb495BpOF23aYhgh91bRZsrnKEJ6j01k8tpBYf3fyCeEw6sHr0kdiNXAOG+q7X7XJ8Qivs0EPLsCzFZRyGOJOmHKaRQbhhEREyTjkDH4lZ0qyHhGy2nayMYJrlA1RYg4XKt81+98c7vAbJUoXIG2wzVbHkvaj+SNxgPAO7w2WOLBarreu9I7LO22VdjtWTaVoov8MKAf93Y=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f2ef599f-c4bb-4de4-8d7b-08ded7d9f974
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 01:33:52.7304
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EYr2z4dyyDpPgrH4f5obU+/QgLz3wVQ5F1vqrzC2Vj3o9FgnbB7dDnlUOiwtPEYPohtsJc3qr4RSdY6tJrU43wt7WihvMHXeu0CTnhPjuQQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB7314
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-02_01,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxlogscore=999
+ adultscore=0 bulkscore=0 spamscore=0 phishscore=0 lowpriorityscore=0
+ mlxscore=0 malwarescore=0 suspectscore=0 classifier=spam adjust=0 reason=mlx
+ scancount=1 engine=8.19.0-2606160000 definitions=main-2607020013
+X-Proofpoint-ORIG-GUID: oudIF-FBed7qqnDJOhl8vv_Z7bKX6glb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDAxMiBTYWx0ZWRfXws+RJvg4Rsq5
+ GDilSGf2DdHiAchMgn7U8cVQdod2mdIuQqvfzpKSsmJtTal3fLCJVfqPd4elbpPwpIO0KO4UI9I
+ CAc6DQ41bMPVIzx8ZktRuOryByMZ06/UvUt07eXE7a68VWIpmAMtrVrBHTvmc483WQOjSbB4Li4
+ ltHPwXJlVlZCKCdkTdXJ3lCUkWutdu5O98z70MSojWXf7JytYtxWVyC0XdqhCpht4rw11FdCqIc
+ ZLQ2/BC00ajyowIGnoh6UNhwxKfMYvF9qpsb2/8p3zcDEL67qgARdyQ5s0HbsX9gP5pahRruT+G
+ D5XyGOEAj7+oAWjuP49z/+qHoou/SKZlKXq7Ba7+p4nBpjQCteKf1Lc7VoWxCJgCZRpzubOmKdK
+ HQDGzulG6oup949Z7kASLoIsZYXcQfHiN3f9+bx7ywo1ruwYUm2K8AuRRKfmTCNUtrUtHdD+CTQ
+ mNpd04O7RenJXJjOrKw1NcTRMj/ZFndRmo/vC3OM=
+X-Authority-Analysis: v=2.4 cv=LOxWhpW9 c=1 sm=1 tr=0 ts=6a45c005 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=RAioF0-LDSMA:10
+ a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22 a=jiCTI4zE5U7BLdzWsZGv:22
+ a=7Gl3-_t3PgB9XO-mQDs3:22 a=7CQSdrXTAAAA:8 a=VwQbUJbxAAAA:8 a=JfrnYn6hAAAA:8
+ a=NufY4J3AAAAA:8 a=yPCof4ZbAAAA:8 a=gQgDrPkycQ706KZxoKkA:9
+ a=a-qgeE7W1pNrGK8U0ZQC:22 a=1CNFftbPRP8L7MoqJWF3:22 a=TPcZfFuj8SYsoCJAFAiX:22
+ a=5yU3S35YU4bGjq-dph-N:22 a=Bho9c0fBagfJEIQBS7DQ:22 cc=ntf awl=host:13723
+X-Proofpoint-GUID: oudIF-FBed7qqnDJOhl8vv_Z7bKX6glb
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDAxMiBTYWx0ZWRfXw6LyRVG33zbV
+ FLaQdh1OfleZYn7GPxhd/2s9qcTtM7kVRQCd5CF9S71MXlWBKn1gZ9Lp2z0nCGVw82ICdSo4N7u
+ hMLnl5mPGi2SQi2zJuSCsOd2kVzKSbYQp4sd1Til1164vlp08907
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_183419_800668_19DE01A2 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,93 +202,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============1924622309690578587==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+Moves some constants and functions related to xloops, cycles computation
+out to a new header. Also make __delay_cycles() available outside of
+arch/arm64/lib/delay.c.
 
-> diff --git a/lib/tests/barrier-timeout-test.c b/lib/tests/barrier-timeout-test.c
-> index 4226fb6456b3..ec78f8533006 100644
-> --- a/lib/tests/barrier-timeout-test.c
-> +++ b/lib/tests/barrier-timeout-test.c
+Rename some macros in qcom/rpmh-rsc.c which were occupying the same
+namespace.
 
-[ ... ]
+No functional change.
 
-> @@ -112,8 +114,64 @@ static void test_smp_cond_timeout(struct kunit *test)
->  		KUNIT_EXPECT_GE(test, runtime, timeout_ns);
->  }
->
-> +static s64 synthetic_clock(struct clock_state *clk)
-> +{
-> +	clk->end_time += clk->extra;
-> +	clk->niters++;
-> +
-> +	return clk->end_time;
-> +}
-> +
-> +
-> +struct smp_cond_expiry_params {
-> +	char	*desc;
-> +	s64	timeout;
-> +	s64	clk_inc;
-> +	u32	niters;
-> +};
-> +
-> +static const struct smp_cond_expiry_params expiry_params_list[] = {
-> +	{ .clk_inc = (0x1ULL << 28), .timeout = 0,		.niters = 1,			.desc = "0",    },
-> +	{ .clk_inc = (0x1ULL << 28), .timeout = 1,		.niters = 2,			.desc = "1",    },
-> +	{ .clk_inc = (0x1ULL << 28), .timeout = (0x1ULL << 30), .niters = 1 + (1 << (30-28)),	.desc = "1<<30",   },
-> +	{ .clk_inc = (0x1ULL << 28), .timeout = S32_MAX,	.niters = 1 + (1 << (31-28)),	.desc = "S32_MAX", },
-> +	{ .clk_inc = (0x1ULL << 28), .timeout = U32_MAX,	.niters = 1 + (1 << (32-28)),	.desc = "U32_MAX", },
-> +	{ .clk_inc = (0x1ULL << 28), .timeout = (0x1ULL << 33), .niters = 1 + (1 << (33-28)),	.desc = "1<<33",   },
-> +};
-> +
-> +static void expiry_param_to_desc(const struct smp_cond_expiry_params *p, char *desc)
-> +{
-> +	snprintf(desc, KUNIT_PARAM_DESC_SIZE, "smp_cond_%s_timeout: clock-%s, timeout=%s, iterations=%u",
-> +		"relaxed", "synthetic", p->desc, p->niters);
-> +}
-
-This isn't a bug, but since "relaxed" and "synthetic" never vary here,
-could they be written directly into the format string rather than passed
-through %s?
-
-> +
-> +static void test_smp_cond_expiry(struct kunit *test)
-> +{
-> +	const struct smp_cond_expiry_params *p = test->param_value;
-> +	struct clock_state clk = {
-> +		.start_time = 0,
-> +		.end_time = 0,
-> +		.extra = p->clk_inc,
-> +		.niters = 0,
-> +	};
-> +	s64 runtime;
-> +
-> +	flag = 0;
-> +	smp_cond_load_relaxed_timeout(&flag,
-> +				      0,
-> +				      synthetic_clock(&clk),
-> +				      p->timeout);
-> +
-> +	runtime = (u64)clk.end_time - (u64)clk.start_time;
-> +	KUNIT_EXPECT_EQ(test, clk.niters, p->niters);
-> +	KUNIT_EXPECT_GE(test, runtime, p->timeout);
-> +}
-> +
-> +
-> +KUNIT_ARRAY_PARAM(smp_cond_expiry_params, expiry_params_list, expiry_param_to_desc);
->  static struct kunit_case barrier_timeout_test_cases[] = {
->  	KUNIT_CASE_PARAM(test_smp_cond_timeout, smp_cond_update_params_gen_params),
-> +	KUNIT_CASE_PARAM(test_smp_cond_expiry, smp_cond_expiry_params_gen_params),
->  	{}
->  };
-
-
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>
+Cc: Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Reviewed-by: Christoph Lameter <cl@linux.com>
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ arch/arm64/include/asm/delay-const.h | 28 ++++++++++++++++++++++++++++
+ arch/arm64/lib/delay.c               | 15 ++++-----------
+ drivers/soc/qcom/rpmh-rsc.c          |  8 ++++----
+ 3 files changed, 36 insertions(+), 15 deletions(-)
+ create mode 100644 arch/arm64/include/asm/delay-const.h
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/28559763019
---===============1924622309690578587==--
+diff --git a/arch/arm64/include/asm/delay-const.h b/arch/arm64/include/asm/delay-const.h
+new file mode 100644
+index 000000000000..2a5acfb7bff1
+--- /dev/null
++++ b/arch/arm64/include/asm/delay-const.h
+@@ -0,0 +1,28 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_DELAY_CONST_H
++#define _ASM_DELAY_CONST_H
++
++#include <linux/types.h>
++#include <asm/param.h>	/* For HZ */
++
++/* 2**32 / 1000000 (rounded up) */
++#define __usecs_to_xloops_mult	0x10C7UL
++
++/* 2**32 / 1000000000 (rounded up) */
++#define __nsecs_to_xloops_mult	0x5UL
++
++extern unsigned long loops_per_jiffy;
++static inline unsigned long xloops_to_cycles(unsigned long xloops)
++{
++	return (xloops * loops_per_jiffy * HZ) >> 32;
++}
++
++#define USECS_TO_CYCLES(time_usecs) \
++	xloops_to_cycles((time_usecs) * __usecs_to_xloops_mult)
++
++#define NSECS_TO_CYCLES(time_nsecs) \
++	xloops_to_cycles((time_nsecs) * __nsecs_to_xloops_mult)
++
++u64 notrace __delay_cycles(void);
++
++#endif	/* _ASM_DELAY_CONST_H */
+diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
+index e278e060e78a..c660a7ea26dd 100644
+--- a/arch/arm64/lib/delay.c
++++ b/arch/arm64/lib/delay.c
+@@ -12,17 +12,10 @@
+ #include <linux/kernel.h>
+ #include <linux/module.h>
+ #include <linux/timex.h>
++#include <asm/delay-const.h>
+ 
+ #include <clocksource/arm_arch_timer.h>
+ 
+-#define USECS_TO_CYCLES(time_usecs)			\
+-	xloops_to_cycles((time_usecs) * 0x10C7UL)
+-
+-static inline unsigned long xloops_to_cycles(unsigned long xloops)
+-{
+-	return (xloops * loops_per_jiffy * HZ) >> 32;
+-}
+-
+ /*
+  * Force the use of CNTVCT_EL0 in order to have the same base as WFxT.
+  * This avoids some annoying issues when CNTVOFF_EL2 is not reset 0 on a
+@@ -32,7 +25,7 @@ static inline unsigned long xloops_to_cycles(unsigned long xloops)
+  * Note that userspace cannot change the offset behind our back either,
+  * as the vcpu mutex is held as long as KVM_RUN is in progress.
+  */
+-static cycles_t notrace __delay_cycles(void)
++u64 notrace __delay_cycles(void)
+ {
+ 	guard(preempt_notrace)();
+ 	return __arch_counter_get_cntvct_stable();
+@@ -73,12 +66,12 @@ EXPORT_SYMBOL(__const_udelay);
+ 
+ void __udelay(unsigned long usecs)
+ {
+-	__const_udelay(usecs * 0x10C7UL); /* 2**32 / 1000000 (rounded up) */
++	__const_udelay(usecs * __usecs_to_xloops_mult);
+ }
+ EXPORT_SYMBOL(__udelay);
+ 
+ void __ndelay(unsigned long nsecs)
+ {
+-	__const_udelay(nsecs * 0x5UL); /* 2**32 / 1000000000 (rounded up) */
++	__const_udelay(nsecs * __nsecs_to_xloops_mult);
+ }
+ EXPORT_SYMBOL(__ndelay);
+diff --git a/drivers/soc/qcom/rpmh-rsc.c b/drivers/soc/qcom/rpmh-rsc.c
+index c6f7d5c9c493..ad5ec5c0de0a 100644
+--- a/drivers/soc/qcom/rpmh-rsc.c
++++ b/drivers/soc/qcom/rpmh-rsc.c
+@@ -146,10 +146,10 @@ enum {
+  *  +---------------------------------------------------+
+  */
+ 
+-#define USECS_TO_CYCLES(time_usecs)			\
+-	xloops_to_cycles((time_usecs) * 0x10C7UL)
++#define RPMH_USECS_TO_CYCLES(time_usecs)		\
++	rpmh_xloops_to_cycles((time_usecs) * 0x10C7UL)
+ 
+-static inline unsigned long xloops_to_cycles(u64 xloops)
++static inline unsigned long rpmh_xloops_to_cycles(u64 xloops)
+ {
+ 	return (xloops * loops_per_jiffy * HZ) >> 32;
+ }
+@@ -819,7 +819,7 @@ void rpmh_rsc_write_next_wakeup(struct rsc_drv *drv)
+ 	wakeup_us = ktime_to_us(wakeup);
+ 
+ 	/* Convert the wakeup to arch timer scale */
+-	wakeup_cycles = USECS_TO_CYCLES(wakeup_us);
++	wakeup_cycles = RPMH_USECS_TO_CYCLES(wakeup_us);
+ 	wakeup_cycles += arch_timer_read_counter();
+ 
+ exit:
+-- 
+2.43.7
+
 
