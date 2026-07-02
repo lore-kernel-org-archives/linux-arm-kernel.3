@@ -4,148 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54021C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:14:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771BDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:17:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuAQSeYto/ttDs6+rks6T+oQIMtsRrIZsmzN8pV5xTY=; b=tgfePU2FonJQ192LqlNq5PGJQn
-	hivmmUe0m26VJW/9973LzmrBlmtC9HpPephCXYKsPMg72R53j1uUPqrUBgomsquGozza6zHQc8kwW
-	eHBU7TMdBhX7iPXw/nUaRe6eEK/mmVoZ82wEMvGnHti8A6YAdroSgpOdAlyPZInJ1kzeCyO3DauBX
-	h0nH6Pv/tYx52Qw3qb5OQmK5P2WbThbyjQak7njF/Mx/u5liKxaa3k8pRqG88NxvQ+la434TC6uA+
-	JgfqE5eN63Vbs44/0F1loH8E37kyjxzEJEwrX4Wkk5sA1gwkzXKxCSrGFR+Ku91YuV+VWhSBT6RUk
-	+RgbzI/A==;
+	bh=1opG8KVKCkJTM4GDzfVHg07XwVYvSaDsnS3cERZdy7E=; b=vqsVpJpBIrz8imR9SdgczcUZY/
+	A3OkwfK8RWTUHu+pBZLtbLxdOWKU408x9e1q5iP/3/pIIDuXy5NCdVBLNkTHQ2XSvxzOjVEvejE7o
+	ZO8V6bZJVVlxEZHPtqe/UGog6rDqWl1tj+uCSS5v0QYZzr0xVZ5X9P4Su716S1kJpkMuxjcf7PLYl
+	MP45clcTntV8IrmNTOLDNxaHZRr+Sn5czWFR84E5i0XGPQPPtCg4RwoVhQPSWcLA8X5RsahT+sECK
+	AYma3Ghuze31i6/64lzYntJKGk3x1Wqpcjyo1jNCg7uZ33bWab6kjBakljSwWn6DXOU9PTLRBIwYh
+	ufJhg0YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAgU-00000003d5a-3YIf;
-	Thu, 02 Jul 2026 06:14:02 +0000
-Received: from mail-westus3azon11011032.outbound.protection.outlook.com ([40.107.208.32] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1wfAji-00000003dVU-3Snp;
+	Thu, 02 Jul 2026 06:17:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAgQ-00000003d4s-3Zn5;
-	Thu, 02 Jul 2026 06:14:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fu+cpBMUVgoVAWFIVFwpo8QHTyOf35Ku92Fx9D4ebh4JJn5gTRGsobJylUF2xXzrH5tUT1SiZcSCuAcCw/XodNS9Cw4/NaYWD/oom/RB6aPHhP3Cb50N4+cD9+OMh3nEUsQtZRtQHD5kpwXXVDDk8gTgJtz21Ius2UWqb3l4Fo36TDrSdYRxzXJdtJJXfS2gsdn5mPL0+fc+FcrllBzCgiBFc0XJxWKXyXxXlHfr8fYs52piGgi0psfOapr6iCJoso5iIOnnwpNgHyYX9IiSbhuGaqKMqdUXiLD0XmlOjhWF2f/euhAP0AeI+dzJhMihGokKBKB903V0BTfau25YUg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fuAQSeYto/ttDs6+rks6T+oQIMtsRrIZsmzN8pV5xTY=;
- b=LYxWoomiWCEbYxTn/hz083JAN+WRMqwRbogfsN+uhRw13wreTCmDe9n9whO0qKK0zHZ6bt8+VL817OLCmIsZfUjBmwMdh88hH8oHrZckuRgWzbFCnw90whtbgoxS0OiDH+rf1BTf1mTWouz+IaAI6IJofKtsRnjz6fhUHWOpo6V46HZbii7f9eY3hIW5N/egnqI9r61loM3ROsT2tna+4ec/s6OVWj+dZEFc7tHohZcptHhfUJuex/0Fup+JDn6XG6399QK2OrJbn1UIoLFNMYWe5o+0pae/HysjFKH3fFi5i/Mr+IZzeUs8ii6mHFtNviBZFvmBY9iB2tp1SiQCCw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=microchip.com; dmarc=pass action=none
- header.from=microchip.com; dkim=pass header.d=microchip.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=microchip.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fuAQSeYto/ttDs6+rks6T+oQIMtsRrIZsmzN8pV5xTY=;
- b=yNmqG8PO8Uc6Cv8YGi3YXZdL9tKR69JoVo4LJ3N8L+nVeJUqpHLOuQaawdQpxdundpd+HbtrLpxy7pP3dVD6/VHKgsDRQiUa3N+/pYh/Zzwogp13WkU9LAZSl/cxE0iBCLDE+yd1EsOtBzjP8vm2ATu7G3LAHY8LUE93ufrGi7oOGLe82BcI1jpEYzvwY9U1a9UHmpVWCzuz4kmqcAl2rZzUdkciLevadl5Q6EMJpjpUnbLNpV7EjPkbemy3dOmHp62bcj0l1XF1kYUGi9/i4RfBCHFwMABhha0FqaHzwkbj9x9T9x9dYNXGNQ0h+rKm+eac0/Dd4+gz6APGZGN/Xw==
-Received: from DM3PPF9623118BD.namprd11.prod.outlook.com
- (2603:10b6:f:fc00::f3a) by IA1PR11MB7944.namprd11.prod.outlook.com
- (2603:10b6:208:3d8::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
- 06:13:53 +0000
-Received: from DM3PPF9623118BD.namprd11.prod.outlook.com
- ([fe80::ad98:5674:dd4c:875d]) by DM3PPF9623118BD.namprd11.prod.outlook.com
- ([fe80::ad98:5674:dd4c:875d%6]) with mapi id 15.21.0139.018; Thu, 2 Jul 2026
- 06:13:52 +0000
-From: <Manikandan.M@microchip.com>
-To: <linusw@kernel.org>, <michael@walle.cc>
-CC: <pratyush@kernel.org>, <mwalle@kernel.org>,
-	<takahiro.kuwano@infineon.com>, <miquel.raynal@bootlin.com>,
-	<richard@nod.at>, <vigneshr@ti.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <srini@kernel.org>, <Nicolas.Ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <arnd@arndb.de>,
-	<linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<netdev@vger.kernel.org>
-Subject: Re: [PATCH v4 1/7] dt-bindings: mtd: jedec,spi-nor: allow the SFDP to
- be exposed via NVMEM
-Thread-Topic: [PATCH v4 1/7] dt-bindings: mtd: jedec,spi-nor: allow the SFDP
- to be exposed via NVMEM
-Thread-Index: AQHdCHJO2Gcoz1g2RUeN8B826tcfiLZXqkWAgACtuoCAACbngIABRB0A
-Date: Thu, 2 Jul 2026 06:13:52 +0000
-Message-ID: <7ed6a2c8-1a6b-41d7-a2cd-ca39073812eb@microchip.com>
-References: <20260630092406.150587-1-manikandan.m@microchip.com>
- <20260630092406.150587-2-manikandan.m@microchip.com>
- <CAD++jL=FkEfpz-LW0vmPpZ28fLfGFMWo5E479Mapz55YUxKNAQ@mail.gmail.com>
- <DJN3HIIAY4LE.3MXU9Q2YFSCJJ@walle.cc>
- <CAD++jLntmnwU3gAQfDn2nd4CQ_7HY6S_kBguVtZvVT1PktFCPw@mail.gmail.com>
-In-Reply-To: <CAD++jLntmnwU3gAQfDn2nd4CQ_7HY6S_kBguVtZvVT1PktFCPw@mail.gmail.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=microchip.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM3PPF9623118BD:EE_|IA1PR11MB7944:EE_
-x-ms-office365-filtering-correlation-id: 08ffef9a-a4ef-4e21-5559-08ded8011731
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|23010399003|18002099003|22082099003|38070700021|4143699003|56012099006|11063799006;
-x-microsoft-antispam-message-info: q/yzmjFwLzhLctK7SNYR4sIJw3TgOFOA8sY4Y+xUNOj9FbMpGl19sfrPU48zur8eRF60IpVyE7Vhwu8+vKObn5VCypzBguY/O0gd3zrjL/qsr2feXfF63k7kHht4S/y9baHIl5dokJck8H4X2LtX7dBu8xjl/6xUfDDBe4QkNPL5cc6XBSYHJCVI19xZj/O/xK/0qfUk/5TKCIJHhDC1o0Q0IS1Jbnp6EymOW6D9K36SeI2i7Y9/vga75Qk6ndZ9sGmNm/TmVSXCXJjal9xgJFoBwtq7DxvvhafDeoSmAb6tMTCFMbr5GJ94leIVtZuBPjOWl7Wj8RIJGEELvTmrKdqjNKuufV2mzXsxvjccRjo0k+pKrhzUqCQvFe6VGX5OlMNw8Dhwr/GIMFROsyKqxAgg9ryBFRpquQB8gdl3Q0iN0zm6EpMyyNAfmkUFS0oLjueagqik7cITejgAnKtPisUo/e9iqZiELmZKb8xPqLqpbelaivcCEQEkdWqZeA63BYWAO3htK0L7TUDbsnNficebTC4fzfPUM2ZeM4l7jPCWzglgLjpRPwdL5sFEOq0ziOmDVVNlEyiZWQW1v3MdPQqVuP6ZZX5R96C0byS/uudrPJHWSNqotZ/ZGyFCjR93UNi90vSaZ+vjocdGTbqh/50IV2kFgBft6GLJILcR9NKkDghc2ov5VtF/2l+8nIFD5i2PVu/+hCB2wRulb2i9cyDJeERfl3xTb3GAO+nevqs=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM3PPF9623118BD.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(23010399003)(18002099003)(22082099003)(38070700021)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?RmJqZ0k4a1NINUEyelBqQThqU2p5MDlkMklZTnVSRkh6NGN5NEl2WHJsK3Ft?=
- =?utf-8?B?Z3hBa1VwUE51THNyL1p5dlV2L2llYk9CY3Q1SVdPR3JoVlRYY0taa3hBMDVt?=
- =?utf-8?B?MFRSSjRnNmlDVWVTbnJlMTM5eUx5a1FJT2VWU2Z1THoyTlIvSzBjdmQ1ZmYx?=
- =?utf-8?B?cVVJTDc1UHBocEVLUjVzYTJMZG05NzBEa0pZR1FxdEpYSzNhTWdGVEZDd0lX?=
- =?utf-8?B?STIwT2JwV0E0VmtpUG8xbWZoc3p2dzAwSHh1NUJKaTkzVlpQa3RZRWJkQlBn?=
- =?utf-8?B?b09IOStrOGlYWFdEWUUyM2UzN01CWnkwVERYOUFPUXJhYldyd2xHYS9FYzZW?=
- =?utf-8?B?TExPU1dPMEYzWGE4L1Y3ekQxYXB3RlY3dWZrbmp1QTAxREtQd3Q5TTR4WGx3?=
- =?utf-8?B?QkFpUU9idEdRN2NWdWMwTkVsL3l2SHZ2dnJOc3Q2VkkvSzFtZENyNTU0TUkx?=
- =?utf-8?B?K21hYmZoTVc5bFBZZnEvQmlrWW9KMC9kMGorZmo2aWJzM2taT3prQWJndlJE?=
- =?utf-8?B?TzVLbUU1YVR1RndDaWNkWk15RzRDNmxWVktMbU9uaklwdXVwbVdwNjc5TC9H?=
- =?utf-8?B?OXRGT3ZwU0tpRm9xMjhaUWRScHc0UVgzY3pXN3A2bHBwS3VYRTZvdy93NzQw?=
- =?utf-8?B?aFd1T3cydEdpb0VZUXBqbnFpMHdObklmR1RpSGZNMVlYbUFWU2pucjhYdXhO?=
- =?utf-8?B?U1c5cG9KSmJzZXdxclhKQm1Jb1ZYZHptYkFEbmlTZFhaMUliNkMwTGRMU0o3?=
- =?utf-8?B?eEJxNzlRa3NFK0RWa0haRUh4aHhwUG85KzhxblZsSldNRFR3TFREcFhHZWhX?=
- =?utf-8?B?RytNNEZEZlBDYVR6Z0JGZEQzUGhOSjZSbWRrTlM4QmhTWXVEUWF4dkxsSTJS?=
- =?utf-8?B?bDBreDZkNkF4aVBPYisyYWcrKzhIKzlxdU05SEdCbEkybHoyb2E3UkxCdjNs?=
- =?utf-8?B?eTJDZFBma2U5NGppK0ZxWjk0VEZ2RE1pU01Xa2NFMDlxNEZOSms1UzhvclY5?=
- =?utf-8?B?ejBZWjdwYXRadmQyNUxadjBjSG40dGlWMnFCd0QrUDUzYU5ENllKREZQU2RY?=
- =?utf-8?B?Wm8zNUhVSzV2ZW9uWHlmRHhWV2dZK2pCMUFlclVGK1pEVnM4QkFrV0xNek5k?=
- =?utf-8?B?eUpBd2IrVzg5dk85eTVoRzBFTXJUdWFtSzZ1OWVKNFJ6WkpaR2V6VnkyOWxz?=
- =?utf-8?B?alN0MjhqSWcySnVrTFlsbkNYMnhyS3FVa0hTTzJhd21BdExTYW5xd2ZSVHN4?=
- =?utf-8?B?VU9TeldkaWs0Snp3dlRjMjExVlcrQ0wvdnVVQjk5YS9PZU0vcG1YbTlxdHhF?=
- =?utf-8?B?ZVQvM3FubEFYdkhYYm5mQStERFAxZ25JR1hZcmVHWDBraXRGVEZpMVIrQ2o5?=
- =?utf-8?B?TFVzNWdRN0REQ0Z2Z1prWHBndERmeWd2U3pUUGdBM3RoVjlCNHE4UjJCSWFK?=
- =?utf-8?B?aFBZb1ozcENmcStLYlA4eFYzTTRVekR4NUpBai8zMU5Rd0NmeHdTV0xnM0Rn?=
- =?utf-8?B?UGplMHBTckcwMXVGeDFNSDR2bnlneW94em5uOTl2QjNtSFlMSGVsbkJPZWw1?=
- =?utf-8?B?Skx2c2NSTUxySlR5TDI5dFlxM0VheFVrU1ovQm5mYklmbVFuaTlHVnh4VDli?=
- =?utf-8?B?V1JOR1psVUg3Wk14UHcrNlN0dzZuVFBTUGJUSDVKNDZWMDcyUjFDa3B2RFhL?=
- =?utf-8?B?SjlUMDU4cEI3OE5TNUpiNm91cWJUcFAyQjdIeXUzcXVxek42Zy9kUE4xYWNt?=
- =?utf-8?B?SkRXMEhVSk94Nys4RkdzbzB6YnhBbWwxbllxWVFUWVdEcHJTK1VrRXdEUDJC?=
- =?utf-8?B?MzBFK3pkdnFlVWRvUXFWTHlybFZDMllWOFUxYmZPTTA2MWI3YzBJY0ZYaURI?=
- =?utf-8?B?aUlWOEZ5T3RJTmJtNG8wenBpam1RSnJBMjB6S3JTNkxxY1M1WjVEaVRqQVZJ?=
- =?utf-8?B?NDVXWlZ0aVhsaGhpNmpESitjOEhvc3QyS29VakdwRU81QXZqYXpuWmZDVU0y?=
- =?utf-8?B?ZzFoRnlyYnRUd3RFaFNoQ21zRk82dm9aOHF5a0RLeUtKby9rNnE1dUt2c1Ns?=
- =?utf-8?B?MnhRWkhGNHZKL0lGRW5mdUk1QzlQSGlrUFJnZUxsUmRKMGNRbEVjcmlGSTh0?=
- =?utf-8?B?QVQ1cjd3SXU3VE16WDlyODlzR25jOTFZNmNkZTUvcE9jMTlKUUJQMUF4SnNE?=
- =?utf-8?B?VmwrZ1RmbzlpR3RUQjVrNGZtNnJiOCtTRmNlanNQSmMrbEhCWnU2OGxuWHdC?=
- =?utf-8?B?QllwSVRTblowT3JzNkViQkh0MHdxWnlveGNUSmJVY2s4WWI1byttOUxIMXpX?=
- =?utf-8?B?RUZCNjhnbXowUTdnblM0R09KbW9OZzdsbE5UckZiT3MrZGg0MHRBQT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <E0CF23099F47734987F8123332B2741B@namprd11.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1wfAji-00000003dVK-1N0M
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 06:17:22 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EB3360172;
+	Thu,  2 Jul 2026 06:17:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E021F000E9;
+	Thu,  2 Jul 2026 06:17:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1782973041;
+	bh=1opG8KVKCkJTM4GDzfVHg07XwVYvSaDsnS3cERZdy7E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=JGq1OIOPdp5JvKbv9Ct4JH5C2W5v3DSnOAMEt8X8r/QJlSz9G05k39jJkjDG3BiF/
+	 llHrDHXFGXRax0Er6yiKTZWCgyI3p6KZONQHurhZ4P8urH07VCMjlueXpFsOw9oOWi
+	 hF7B2B6f+S488eyrgg0G9xd0djStAZePEGLEL8bI=
+Date: Thu, 2 Jul 2026 08:16:05 +0200
+From: Greg KH <gregkh@linuxfoundation.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
+Message-ID: <2026070224-small-apprehend-b71b@gregkh>
+References: <20260701204342.2654385-1-coltonlewis@google.com>
 MIME-Version: 1.0
-X-OriginatorOrg: microchip.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM3PPF9623118BD.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08ffef9a-a4ef-4e21-5559-08ded8011731
-X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Jul 2026 06:13:52.8513
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3f4057f3-b418-4d4e-ba84-d55b4e897d88
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: L/Ox14mD7ug97636SmPDt4fMepKfn9YrcXaS/N2zdzsih9pVIV4EsfFZhT1gNSJwoXeBGXZsX8Ct+L2FBHJDHNDUopC0P4S+UbGCZVmi8kE=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR11MB7944
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_231358_938159_71DC6F00 
-X-CRM114-Status: GOOD (  20.30  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701204342.2654385-1-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,25 +72,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gNy8xLzI2IDQ6MjMgUE0sIExpbnVzIFdhbGxlaWogd3JvdGU6DQo+IEVYVEVSTkFMIEVNQUlM
-OiBEbyBub3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bmxlc3MgeW91IGtub3cg
-dGhlIGNvbnRlbnQgaXMgc2FmZQ0KPiANCj4gT24gV2VkLCBKdWwgMSwgMjAyNiBhdCAxMDozNOKA
-r0FNIE1pY2hhZWwgV2FsbGUgPG1pY2hhZWxAd2FsbGUuY2M+IHdyb3RlOg0KPiANCj4+IElmIEkn
-bSBjb3JyZWN0LCB0aGlzIGlzIHRoZSBvbGQgc3R5bGUsIHNlZSBjb21taXQgYmQ5MTJjOTkxZDJl
-DQo+PiAoImR0LWJpbmRpbmdzOiBudm1lbTogbGF5b3V0czogYWRkIGZpeGVkLWxheW91dCIpLiBT
-byBpdCBzaG91bGQNCj4+IGV2ZW50dWFsbHkgbG9vayBsaWtlOg0KPj4NCj4+IHNmZHAgew0KPj4g
-ICAgICAgY29tcGF0aWJsZSA9ICJqZWRlYyxzZmRwIjsNCj4gKC4uLikNCj4+IEFsc28gSSdtIG5v
-dCBzdXJlIGlmIHdlIHJlYWxseSBuZWVkIHRvIGFkZCB0aGUgIm52bWVtLWNlbGxzIiBoZXJlLg0K
-Pj4gSUlSQyBpbiBNVEQgaXQgd2FzIHRoZXJlIHRvIHRlbGwgYSBkcml2ZXIgdG8gYWRkIGFuIG52
-bWVtIGRldmljZSB0bw0KPj4gYW4gYWxyZWFkeSBleGlzdGluZyBjb21wYXRpYmxlL25vZGUuDQo+
-Pg0KPj4gQXBhcnQgZnJvbSB0aGUgTVREIGNhc2UsIEkndmUganVzdCBmb3VuZCBxY29tLHNtZW0t
-cGFydCx5YW1sIHdoaWNoDQo+PiBoYXMgY29tcGF0aWJsZSA9ICJudm1lbS1jZWxscyIuDQo+IA0K
-PiBZb3UncmUgcmlnaHQsIEkgd2FzIHVzaW5nIG9sZCBpbmZvcm1hdGlvbiwgZGlzY2FyZCBteSBj
-b21tZW50cy4uLg0KPiBSZXZpZXdlZC1ieTogTGludXMgV2FsbGVpaiA8bGludXN3QGtlcm5lbC5v
-cmc+DQo+IA0KPiBJIHRoaW5rIG15IGNvbW1lbnQgaW4gdGhlIGRyaXZlciB0byBjaGVjayBmb3Ig
-dGhlIGNvbXBhdGlibGUNCj4gaW5zdGVhZCBvZiB0aGUgbm9kZSBuYW1lIGlzIHN0aWxsIHZhbGlk
-IHRob3VnaC4NClRoYW5rIHlvdSBMaW51cyBXYWxsZWpqIGFuZCBNaWNoYWVsLg0KSSB3aWxsIGFk
-ZHJlc3MgdGhlIGRyaXZlciBjaGFuZ2VzIGluIHRoZSBuZXh0IHZlcnNpb24uDQo+IA0KPiBZb3Vy
-cywNCj4gTGludXMgV2FsbGVpag0KDQoNCi0tIA0KVGhhbmtzIGFuZCBSZWdhcmRzLA0KTWFuaWth
-bmRhbiBNLg0K
+On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
+> This series backports VHE CPU boot fixes to the 6.6.y stable branch.
+> 
+> These fixes are already present in the 6.12.y stable branch (and
+> newer), but are missing in 6.6.y. They are required to enable booting
+> L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
+> 
+> Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
+> incorrectly configured (because it misses VHE-only detection or early
+> initialization), causing early boot hangs/trap loops.
+
+Why is this needed for 6.6.y?  Why not just use 6.12.y and newer for
+systems that require this new feature?  What is preventing that from
+happening?
+
+thanks,
+
+greg k-h
 
