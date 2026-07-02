@@ -4,95 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6E2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D2CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:24:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+AybXHCcO4BnLqFoauWvt1KwEn7CeMrNml46vf7sfE=; b=xOIBraFKzGWc5WKnOYufMMtVd9
-	SiqmgWNgdHhmyga05uW1ThHLuXU03vf5qK3u4CO4HsUXP6oOu00zTtje9gMtvEqAjrU4SCLCfbfgN
-	PE9MQ4GJsPLEtmrfs3jTFG59c17wwXuCrW25K8iTpirdnXwKhllFEpu7uKjBc7BuIIOtjxpypRJZv
-	/rBuWfyQzzlJt3MRElG1dgtVIh9O6B/A+sNRSYzEQJV29wnDfSS+YZRyLBlBprplLG+u+kANCf43c
-	rEfaWyQL+FnrV20LMrPJ9SDTLbUgKyHexO6K+3AM0Nw7MM89dThGvZ3hNL0EJ2YQCLKHXFD7ViqGi
-	ZjBtxuwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XBY9rp8EKn144/cyQOvwrADc4v44FFdbbkw6wB5GINE=; b=iT93DVOdf0CE1x1lrN5MDZ53ki
+	2syYceBJjKygHMeAVkx7hBIc4bxiQ9EJWdFbX9PL2hOqisE0aLlOmudyg8eAN/z1av/qzK5SrgkD9
+	tkyscMPh/exieqG7TIVjDFnlzrS1+kOLtnVPCxUgJh2R01GW/1qT1zhuYj9yhTGKkpFrGOO1CjsaG
+	9VJm4LQ2aC+syncEN/MBgOg04mUw57u/hSpL+smxdXSp/ByxjAdZsLVTuqbeFmRho7bnudn8tzylK
+	TziGBBIAILZJH/EUK3nyjBj6r837huvpncPTEE8ubwRxio3SVoBHPkPkWzpAKIg4KAQt52KgMUYgd
+	JmdQHOtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAoD-00000003diE-0MFn;
-	Thu, 02 Jul 2026 06:22:01 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1wfAq3-00000003dtQ-0FCv;
+	Thu, 02 Jul 2026 06:23:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAoA-00000003dhW-40jC
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 06:22:00 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c9b42be8feso14899085ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 23:21:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782973318; x=1783578118; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p+AybXHCcO4BnLqFoauWvt1KwEn7CeMrNml46vf7sfE=;
-        b=apj9L6d5S2YRb+IAxYFaXvqBlcRbg4vv91sB/11yPEfheBDe+ZwCnBfphh4UoFU6dR
-         rVJ7oztbPNuJLskIp6g1Bjhcq1r1vRkZ3+3BHlkfGv08hlOEHYkQCNy/t1rHr+NJFMYe
-         TqD0E9Q5vbj5ax6FjrPdUyhNu+hXh38XjVcw5KQ4Sq7jXnSGzx64QEXtba/tlVg3DuGN
-         Hm7+Obpj5Dd2/ChTALi1qidLbDM5E28+6RMCcvtPbiPIUGIClqTXVlQhNuolArOtGdnd
-         tPO3910CZ1FmetzteB3rxG4HwWsFhNYW3I6UGf1trriDaW7IfXYPksON4GbFuAe7sZAH
-         9x9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782973318; x=1783578118;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=p+AybXHCcO4BnLqFoauWvt1KwEn7CeMrNml46vf7sfE=;
-        b=FZmFpy/iWfCsh/0+ju7D/Gv3bLV/4lOG+09JS3xD5QCsQmcnSmwTc4bf8vYISOuZLQ
-         1Qbfk0R0QuFGUR0RLUkm3tgtCyDTMRoGVPTftNoHX7TG1h0/qpHCXWLQxO1eRo9MCB2/
-         GaqbWXq6EUDmMQno4iphKIpT4NjFYR85l7ghVkDCDif7ltiR30F5bjpf6b67c4uQB3w2
-         goS8D+k3giYHQyAIUTzX7XArN8wydDUyB5w2a4yI1VItDkkWiJrt5vaiOKEkp+RXgDbX
-         LUsHdJiOt/rSZ88irl7fskbGnTx3cAHiigvrtX7FsMZtMNRrqcG6rWxzlQbUNY15Le3t
-         Iuhw==
-X-Forwarded-Encrypted: i=1; AHgh+RrmfUhL5+Vpzxd3eBCH4j+tXWLCiVgV7QbazbaMmtEpRDNDwHbK8Ja+rtfssT1Q8mTCPs1wd7s4VAOqqdQteJ1+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzjRZOA93CCSBP8/8Ey/3FLm/DhKZ4DFAUUruzWH/aG+HWkDbi
-	eeXzpQ6hqzSBAEQb4qztQ0UNvOiI6ho0RpgdB6xGJNmu6iBRhgj4q8bL
-X-Gm-Gg: AfdE7ckFlp5z8vaXfemrg+M+oTvYtB9EtVMBk9j6dVXUTX7gV/VPAOv8EHDICBCdRiO
-	7GQ+0Uz1DX4LagWCJkJ7pY23Goc7LQX9Vf8dDurwn39n5ZOubiesYHeiwxPSlgCUwtHyROx+H1X
-	Ecvtzlezqm7dTdCRCDVLks9e7Fh0ko4lQMy8B45zddFWTHGCRU/cwLJI0Ffm1MjKIF2MffNkuKe
-	oc/kGZApoRRgmu5us0EKn8500VLlLMqqDPymzygbF5xAbC339S1NwbUKch33AdopiNOtJR+U3AY
-	nak9LyddcH562293nqlNAvaakGkSl16hBzyVx/OuBnbql0uCso+UuZxHqfydSRI6E12LVSzNQYg
-	2lVJR1EUVZOqcOr40jpWi3m6p0DXpGRoSdJ9WFebq0xJq+m4z0O3Ce6S57yuYm7UuIRZU3LiiEe
-	eRiQ/TS9G2DrdpYlLvo4dqATFg14r/UDNmOg==
-X-Received: by 2002:a17:903:41c7:b0:2c9:c46b:129b with SMTP id d9443c01a7336-2ca7e67c028mr50539785ad.5.1782973317756;
-        Wed, 01 Jul 2026 23:21:57 -0700 (PDT)
-Received: from nbai25050028.. ([2403:8600:2090:6f:cce5:6a06:d746:c95f])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c7fa65asm5296145c88.6.2026.07.01.23.21.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Jul 2026 23:21:57 -0700 (PDT)
-From: Aniket Negi <aniket.negi03@gmail.com>
-To: Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	aniket.negi@airoha.com
-Subject: Re: [PATCH net v2] net: airoha: fix MIB stats collection to be lossless
-Date: Thu,  2 Jul 2026 11:51:47 +0530
-Message-ID: <20260702062150.8291-1-aniket.negi03@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <akWYEf5wusTq9_ol@lore-desk>
-References: <akWYEf5wusTq9_ol@lore-desk>
+	id 1wfAq1-00000003dtD-19OF;
+	Thu, 02 Jul 2026 06:23:53 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 98FBB40B11;
+	Thu,  2 Jul 2026 06:23:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A461F00A3A;
+	Thu,  2 Jul 2026 06:23:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782973432;
+	bh=XBY9rp8EKn144/cyQOvwrADc4v44FFdbbkw6wB5GINE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PIY+TDJ9mIq+2AAkVUcRIH3+kgPxcQ19xY0Vy6FujkiGNDF8Ycrm1OolKflvB1fV3
+	 dR7OXB5XdaKe1mabHIfTkhmDGLGDwqtxRG1GD2tCJUeMSuPkYARraNDvTuBK372hjy
+	 lzcpiUVmRhNAvJZx40iq1fkzFpDWUYde3P/ZzFI0PLMp4x+HoQz/vDHC9AvMIgwtXw
+	 zuYqqfPT1990a7f1Tp2d/v4F0oFKkB7VuItO0DeWilhJghQKgpuFzhO2UQlk/h7ber
+	 lMy6QcuplEePpZAolAYBFEGuYFFZ3weDRUU3kJ2EWNvt+uASb4NzjKLUlunCWkLF8f
+	 7IjInO1PavoxQ==
+Date: Thu, 2 Jul 2026 08:23:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Gokul Praveen <g-praveen@ti.com>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	neil.armstrong@linaro.org, nm@ti.com, robh@kernel.org, sjakhade@cadence.com, 
+	kristo@kernel.org, vigneshr@ti.com, vkoul@kernel.org, yamonkar@cadence.com
+Subject: Re: [PATCH v4 net-next 1/2] dt-bindings: phy: cadence-torrent:
+ Update property values to support 3 clocks
+Message-ID: <20260702-vigilant-tody-of-inquire-ffbede@quoll>
+References: <20260701142457.81874-1-g-praveen@ti.com>
+ <20260701142457.81874-2-g-praveen@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_232158_990898_DB706DB2 
-X-CRM114-Status: GOOD (  11.35  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260701142457.81874-2-g-praveen@ti.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,80 +71,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Signed-off-by: Aniket Negi <aniket.negi03@gmail.com>
-> 
-> Hi Aniket,
-> 
-> just few nits inline. Fixing them:
-> 
-> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> 
+On Wed, Jul 01, 2026 at 07:54:56PM +0530, Gokul Praveen wrote:
+> Update maxItems value of "clocks" property to 3 as description of
+> this parameter already indicates 3 clocks(refclk,pll1_refclk(optional)
+> and phy_en_refclk(optional)).
 
-Ok sure. I'll update.
+But what if description is wrong? You need to provide rationale why you
+are doing it and you cannot use existing code alone as that rationale,
+because as you pointed out - existing code is not fully correct.
 
-> > +	dev->stats.mib_prev.tx_runt_cnt = val;
-> > +
-> > +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute) → {0, 64} bucket.
-> > +	 * Accumulate RUNT delta in tx_runt_accum64, then assign tx_len[0] as
-> > +	 * accum + E64_abs so each call gives the correct combined total.
-> > +	 */
 > 
-> no new-line here.
-> 
-> > +
-> > +	dev->stats.tx_len[i] = dev->stats.mib_prev.tx_runt_accum64;
-> 
+> Update the maxItems and items value of "clock-names" property with multiple
+> combination of clock-names possible since pll1_refclk and phy_en_refclk are
+> optional clocks.
 
-Sure, You are reffering to both the spaces above and below comment section?. Same for rx_runt and rx_long/tx_long.
+Why? You need to describe why you are doing this, not what you are
+doing.
 
-I'll update as following:
- +	dev->stats.mib_prev.tx_runt_cnt = val;
- +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute) → {0, 64} bucket.
- +	 * Accumulate RUNT delta in tx_runt_accum64, then assign tx_len[0] as
- +	 * accum + E64_abs so each call gives the correct combined total.
- +	 */
- +	dev->stats.tx_len[i] = dev->stats.mib_prev.tx_runt_accum64;
+> 
+> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+> ---
+>  .../bindings/phy/phy-cadence-torrent.yaml        | 16 ++++++++++++----
+>  1 file changed, 12 insertions(+), 4 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> index 9af39b33646a..96c664d50629 100644
+> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+> @@ -34,7 +34,7 @@ properties:
+>  
+>    clocks:
+>      minItems: 1
+> -    maxItems: 2
+> +    maxItems: 3
+>      description:
+>        PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for PLL1).
+>        pll1_refclk is optional and used for multi-protocol configurations requiring
+> @@ -45,9 +45,17 @@ properties:
+>  
+>    clock-names:
+>      minItems: 1
+> -    items:
+> -      - const: refclk
+> -      - enum: [ pll1_refclk, phy_en_refclk ]
+> +    maxItems: 3
 
-> > +		u32 tx_drops;
-> > +		u32 tx_broadcast;
-> > +		u32 tx_multicast;
-> > +		u32 tx_runt_cnt;
-> 
-> 		u32 tx_runt;
-> 
-> > +		u32 tx_long_cnt;
-> 
-> 		u32 tx_long;
-> 
-> > +		u64 tx_runt_accum64;
-> 
-> 		64 tx_runt64;
-> 
-> > +		u32 rx_drops;
-> > +		u32 rx_broadcast;
-> > +		u32 rx_multicast;
-> > +		u32 rx_errors;
-> > +		u32 rx_crc_error;
-> > +		u32 rx_over_errors;
-> > +		u32 rx_fragment;
-> > +		u32 rx_jabber;
-> > +		u32 rx_runt_cnt;
-> 
-> 		u32 rx_runt;
-> 
-> > +		u32 rx_long_cnt;
-> 
-> 		u32 rx_long;
-> 
-> > +		u64 rx_runt_accum64;
-> 
-> 		u64 rx_runt64;
-> 
-> > +	} mib_prev;
-> >  };
+Drop
 
-Acked the change name from tx_runt_cnt to tx_run, tx_long_cnt to tx_long, tx_runt_accum64 to tx_runt64. Same for rx counters.
+> +    oneOf:
+> +      - items:
+> +          - const: refclk
+> +      - items:
+> +          - const: refclk
+> +          - enum: [ pll1_refclk, phy_en_refclk ]
 
-Best Regards,
-Aniket Negi
+Drop these, pointless. You were supposed to grow existing syntax.
+
+> +      - items:
+> +          - const: refclk
+> +          - const: pll1_refclk
+
+So here is the enum.
+
+> +          - const: phy_en_refclk
+
+And this stays.
+
+You make changes which do not make the binding better and are not
+explained in commit msg. Focus on WHY you are doing things and also
+explain WHY you did such complicated syntax (if you insist on rewriting
+correct code into something odd we do not expect).
+
+Best regards,
+Krzysztof
+
 
