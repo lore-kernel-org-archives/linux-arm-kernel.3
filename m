@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8306EC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EAF7C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4stdxRal4cL+nFCp6TKtb9Ve4LwRjwY+2vtMdBovbZM=; b=KaApKj0aQAnZz2Nd0Y1URBeKT/
-	eGlsqs32V79Am7qjo58relXGxTLzli2RJZVAJYTeV+cIlwjcYsxgEwRaQLP0YnNTRD3lcGPtD0/vy
-	BHwmap9roujU63u9ioW1kvtixTTONO5CZRVDPHFwv2P9x1DzgTpmquL9N+51dyNtiFiQ87tAzULzo
-	b6XqX+Z+OPckq/x5umHoHs0h9J7/lGbpXwEYl6pSWSohABjY1iRn0G4lWn6/IGtpBNaN4NKNpEoX/
-	4MugOOrvtbT323zURcDg9VdrhTFgMujRa0ycObkGEo9thvHGqOxmUKtqt38GU5oeuX5HSFP+UeBTJ
-	80IvUK0A==;
+	bh=1GX3MJ5dlCzoGDnIm3FDvikY6d8Vo9kOExa3P+h1mME=; b=B29WAaFFUM87wKbpp6zkKDxPs8
+	zgagHqgQFU/pHa44gRwx44f9hL+batMqIgYuo6GkKiY/PKeUH+DPZGFFpwoGnIPBxlxyKF2Wv+1DH
+	m6yS6cxjnIYIa6h7Ws1cXuYSwn7pc78tVUTZJtkG6Q8gTk9f8g4vkMw6og06B1tD4Y0F9ShUVRu6X
+	la1tzyrg6/GD3FBMs3m2WRTXEdkkRsv4JFUZ+VqPvxW4P+33XQx6xg0DcAL+i8YM7K/uuzJESIYYZ
+	9AGRyudr5kYgbrnCRBhZ9uxUpICFhWqWl7iCmRY0F0XktpQJkEW0XC46uXVKjyY9bTO3FQVOWMz1B
+	YOQFdPJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsZ-00000004uKy-2Fax;
-	Thu, 02 Jul 2026 16:03:07 +0000
+	id 1wfJsf-00000004uZk-37m0;
+	Thu, 02 Jul 2026 16:03:13 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsT-00000004uCo-46Lu
+	id 1wfJsW-00000004uGa-2lsU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:02 +0000
+	Thu, 02 Jul 2026 16:03:04 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BACA543D86;
-	Thu,  2 Jul 2026 16:03:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FEBC1F00ADF;
-	Thu,  2 Jul 2026 16:03:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A91E41323;
+	Thu,  2 Jul 2026 16:03:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 497CE1F00A3D;
+	Thu,  2 Jul 2026 16:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783008181;
-	bh=4stdxRal4cL+nFCp6TKtb9Ve4LwRjwY+2vtMdBovbZM=;
+	s=k20260515; t=1783008184;
+	bh=1GX3MJ5dlCzoGDnIm3FDvikY6d8Vo9kOExa3P+h1mME=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cI3RZpYliMmGWvAOBErL/jV7GqnkgQrBG0OcA6nQvvOlPJIQIWc51d/bs+oJXIvNM
-	 BVbswuw3iyB7O2tT+TNawSiaVIEzfL4fdGexDDbckZ4A5fF9Jj+tqw9BLE5hz7kLo3
-	 cnTtKW+hWUwlFV347nEc92xCe6N8NsOE3g/XkYw2HxrKLlmH1MFi1uWphfGwcxEGXc
-	 agwvNLp0x97EItm6XNNTCUEyKZ6Lkh81ga0NdBbxHEXTaflUclNMzRzzhetfbIHLYf
-	 xt89XenBJTmS13i6VFMTWsqasGkqD4UOyRW0quvneDi0DAI3K+KKu5oSG0pF+//SbQ
-	 fui6ysEStcoFg==
+	b=UX0llUcV/cOAKu23+67wiD/FF7LbG62D33e6N6WvPPaI1mM1yFYYLEZXxksJV7U0V
+	 nfF9zLiKw+wkeoHsgOtk80pC33XDW09AC1Q/eKgVNCIb9qAqt8ovxbVnTEgdCHYXJs
+	 IBfK+VA22cCjvJO8kNkIG63OWfwEhVB39yNKwrtsNVIwfFNAtG4KTLsqHp103nFTLC
+	 1Qou3FEKmNQdDKP45nd/8bYuLgiaAy26Qjg7NMf3HajztscEEcO8TTt4kOAQje0fy9
+	 ZRh4qtDuEI7y23bIw+TB1jAXSAM2z2vtPfs/kTcuhOn5I7GGzTJ04WBjKapMmMvg9o
+	 d4vvnDrUaujcw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wfJsR-00000000ojd-3rP8;
-	Thu, 02 Jul 2026 16:02:59 +0000
+	id 1wfJsU-00000000ojd-2QZ5;
+	Thu, 02 Jul 2026 16:03:02 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Steffen Eiden <seiden@linux.ibm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 09/28] KVM: arm64: Relax CPTR_EL2 handling when FEAT_NV2p1 is present
-Date: Thu,  2 Jul 2026 17:02:29 +0100
-Message-ID: <20260702160248.1377250-10-maz@kernel.org>
+Subject: [PATCH 22/28] KVM: arm64: Add routing for NVHCR_EL2 trap
+Date: Thu,  2 Jul 2026 17:02:42 +0100
+Message-ID: <20260702160248.1377250-23-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
 References: <20260702160248.1377250-1-maz@kernel.org>
@@ -83,87 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With FEAT_NV2P1, it is no longer necessary to trap CPTR_EL2 accesses
-via CPACR_EL1, as CPACR_EL1.TCPAC is guaranteed to be stateful.
-
-Prevent such trapping and context switch CPACTR_EL1 in NV contexts
-when NV2P1 is present.
+NVHCR_EL2 accesses from EL1 are taken to EL2 when HCRX_EL2.NVTGE==0
+and HCR_EL2.NV==1. Describe this in the exception routing tables.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 5 +++--
- arch/arm64/kvm/hyp/vhe/switch.c         | 3 +++
- arch/arm64/kvm/hyp/vhe/sysreg-sr.c      | 8 +++++---
- arch/arm64/kvm/sys_regs.c               | 5 ++++-
- 4 files changed, 15 insertions(+), 6 deletions(-)
+ arch/arm64/kvm/emulate-nested.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index 8e5f492f39086..7b27296c94607 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -108,9 +108,10 @@ static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
- 	 * The architecture is a bit crap (what a surprise): an EL2 guest
- 	 * writing to CPTR_EL2 via CPACR_EL1 can't set any of TCPAC or TTA,
- 	 * as they are RES0 in the guest's view. To work around it, trap the
--	 * sucker using the very same bit it can't set...
-+	 * sucker using the very same bit it can't set. FEAT_NV2p1 fixes it.
- 	 */
--	if (vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
-+	if (!cpus_have_final_cap(ARM64_HAS_NV2P1) &&
-+	    vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
- 		val |= CPTR_EL2_TCPAC;
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index b7f3d86a94031..f5dc578d8c985 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -90,6 +90,7 @@ enum cgt_group_id {
+ 	CGT_HCRX_EnFPM,
+ 	CGT_HCRX_TCR2En,
+ 	CGT_HCRX_SCTLR2En,
++	CGT_HCRX_nNVTGE,
+ 
+ 	CGT_CNTHCTL_EL1TVT,
+ 	CGT_CNTHCTL_EL1TVCT,
+@@ -121,6 +122,8 @@ enum cgt_group_id {
+ 	CGT_MDCR_TDE_TDRA,
+ 	CGT_MDCR_TDCC_TDE_TDA,
+ 
++	CGT_HCR_NV_HCRX_nNVTGE,
++
+ 	CGT_ICH_HCR_TC_TDIR,
  
  	/*
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 3b76e0468317b..361d3f8344dd8 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -441,6 +441,9 @@ static bool kvm_hyp_handle_cpacr_el1(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	u64 esr = kvm_vcpu_get_esr(vcpu);
- 	int rt;
- 
-+	if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-+		return false;
-+
- 	if (!is_hyp_ctxt(vcpu) || esr_sys64_to_sysreg(esr) != SYS_CPACR_EL1)
- 		return false;
- 
-diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-index be685b63e8cf2..6f0f046e4ca4e 100644
---- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-+++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-@@ -42,10 +42,12 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
- 		u64 val;
- 
- 		/*
--		 * We don't save CPTR_EL2, as accesses to CPACR_EL1
--		 * are always trapped, ensuring that the in-memory
--		 * copy is always up-to-date. A small blessing...
-+		 * Without FEAT_NV2p1, we don't save CPTR_EL2, as accesses
-+		 * to CPACR_EL1 are always trapped, ensuring that the
-+		 * in-memory copy is always up-to-date. A small blessing...
- 		 */
-+		if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-+			__vcpu_assign_sys_reg(vcpu, CPTR_EL2, read_sysreg_el1(SYS_CPACR));
- 		__vcpu_assign_sys_reg(vcpu, SCTLR_EL2,	 read_sysreg_el1(SYS_SCTLR));
- 		__vcpu_assign_sys_reg(vcpu, TTBR0_EL2,	 read_sysreg_el1(SYS_TTBR0));
- 		__vcpu_assign_sys_reg(vcpu, TTBR1_EL2,	 read_sysreg_el1(SYS_TTBR1));
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 6b47d936efb32..1dfc1f88bec82 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -326,7 +326,10 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
- 			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
- 			return val;
- 		case CPTR_EL2:
--			return __vcpu_sys_reg(vcpu, reg);
-+			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-+				return read_sysreg_el1(SYS_CPACR);
-+			else
-+				return __vcpu_sys_reg(vcpu, reg);
- 		default:
- 			WARN_ON_ONCE(1);
- 		}
+@@ -413,6 +416,12 @@ static const struct trap_bits coarse_trap_bits[] = {
+ 		.mask		= HCRX_EL2_SCTLR2En,
+ 		.behaviour	= BEHAVE_FORWARD_RW,
+ 	},
++	[CGT_HCRX_nNVTGE] = {
++		.index		= HCRX_EL2,
++		.value		= 0,
++		.mask		= HCRX_EL2_NVTGE,
++		.behaviour	= BEHAVE_FORWARD_RW,
++	},
+ 	[CGT_CNTHCTL_EL1TVT] = {
+ 		.index		= CNTHCTL_EL2,
+ 		.value		= CNTHCTL_EL1TVT,
+@@ -468,6 +477,7 @@ static const enum cgt_group_id *coarse_control_combo[] = {
+ 					CGT_HCR_TVM, CGT_HCR_TRVM, CGT_HCRX_SCTLR2En),
+ 	MCB(CGT_HCR_TPU_TICAB,		CGT_HCR_TPU, CGT_HCR_TICAB),
+ 	MCB(CGT_HCR_TPU_TOCU,		CGT_HCR_TPU, CGT_HCR_TOCU),
++	MCB(CGT_HCR_NV_HCRX_nNVTGE,	CGT_HCR_NV, CGT_HCRX_nNVTGE),
+ 	MCB(CGT_HCR_NV1_nNV2_ENSCXT,	CGT_HCR_NV1_nNV2, CGT_HCR_ENSCXT),
+ 	MCB(CGT_MDCR_TPM_TPMCR,		CGT_MDCR_TPM, CGT_MDCR_TPMCR),
+ 	MCB(CGT_MDCR_TPM_HPMN,		CGT_MDCR_TPM, CGT_MDCR_HPMN),
+@@ -853,6 +863,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
+ 	SR_TRAP(SYS_SCTLR2_EL2,		CGT_HCR_NV),
+ 	SR_RANGE_TRAP(SYS_HCR_EL2,
+ 		      SYS_HCRX_EL2,	CGT_HCR_NV),
++	SR_TRAP(SYS_NVHCR_EL2,		CGT_HCR_NV_HCRX_nNVTGE),
+ 	SR_TRAP(SYS_SMPRIMAP_EL2,	CGT_HCR_NV),
+ 	SR_TRAP(SYS_SMCR_EL2,		CGT_HCR_NV),
+ 	SR_RANGE_TRAP(SYS_TTBR0_EL2,
 -- 
 2.47.3
 
