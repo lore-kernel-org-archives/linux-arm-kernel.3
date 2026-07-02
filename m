@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B0CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF26C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/aVqZJf/C6PYZntLhN+QEiyL4o0Yeerfxoh48+jmzU=; b=vvqqLA1l98Nrqszq4QZ72QtQBC
-	AfEkFwKq7Q5JN43x12R9FdKZ6L7zD82gUF35jJJuout6WVYF+IdFqu22p+fnQ9pYnRWuRZbqw9ILm
-	H9J6toCifjXDRK6AI3pRILHeRjoIr55rq2FzMYSQwFlp+O5vbS9LWU1Ytyk/5kby38Kdw776mq1EW
-	yFF0xclPrjjeNfhUF7HmDrpAtSUSk5szRBmI8FT6ezAMQqtUJOWpsfaI2z/rqDGwrmM/u5N2NL/lR
-	4MJIw5BR8sapKhMP4pJDrZ7ebpJKo8nzud5Ddl8yT968xApS3xivqrSnfF4NhjP8honoN9CFgzE0M
-	WrnZ4Gvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gJc2ZXFFVkna7QBtpQqQx1joA9VijE2aSoSY4AV7Vrs=; b=OP0s9uz00sx1zWKjdiReljBYhY
+	8ugZcfD/pUePuVZZyAzVWyeX+v9yUAWiAQUcdFykPN577EoHncGzh+DmXhue0zQnthpjxF//vUAly
+	WXg/jTvtdacYms19e0/914xke1yK4s4BF6cSuXMdEYiWeTrmyJ3GOdEtQo9jm7DgaUlqrqSq4HfAd
+	VAvKSV48ZgQ4ENJFZ0VgpaEI7aUNm72bNk/wmJzY3/e+UUSvww6dq5GEi+76lud34qMAvDqdykx2z
+	rojnXec1RK0Yx3rHd4+zdAHwSkSrtLQtTr0Q/G4siNcs96039yri4iDdSESIXeIHPhoID2tV7jo+l
+	xFxWZUWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCpV-00000003sd7-0FV9;
-	Thu, 02 Jul 2026 08:31:29 +0000
-Received: from out-187.mta1.migadu.com ([95.215.58.187])
+	id 1wfCbn-00000003pWm-3wzn;
+	Thu, 02 Jul 2026 08:17:19 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCpS-00000003sc1-35Hl
+	id 1wfCbf-00000003pVf-0hf6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 08:31:28 +0000
-Content-Type: text/plain;
-	charset=us-ascii
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782981083;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=B/aVqZJf/C6PYZntLhN+QEiyL4o0Yeerfxoh48+jmzU=;
-	b=daAJ1xZfVM5So6P+S4D3GZ0fQbQQOQF+ts06Q8GMhDvpA25OfUGdTWy1E37X7s+VBBq3ka
-	bX4f6z/dYmiOXQyt7Qk9rIbeWlpuAlt0D/4ccU/NxorPu+9jlQMoIwHxbTO6AUEdTZbVza
-	9hVa4sjDDW+fNVa+28uJBHMXnRr4ryY=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v2 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20260702051341.126509-7-dev.jain@arm.com>
-Date: Thu, 2 Jul 2026 16:30:44 +0800
-Cc: osalvador@suse.de,
- akpm@linux-foundation.org,
- ljs@kernel.org,
- david@kernel.org,
- liam@infradead.org,
- riel@surriel.com,
- vbabka@kernel.org,
- harry@kernel.org,
- jannh@google.com,
- lance.yang@linux.dev,
- kas@kernel.org,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- rcampbell@nvidia.com,
- apopple@nvidia.com,
- ziy@nvidia.com,
- matthew.brost@intel.com,
- joshua.hahnjy@gmail.com,
- rakie.kim@sk.com,
- byungchul@sk.com,
- gourry@gourry.net,
- ying.huang@linux.alibaba.com,
- j-nomura@ce.jp.nec.com,
- nao.horiguchi@gmail.com,
- ak@linux.intel.com,
- mel@csn.ul.ie,
- pfalcato@suse.de,
- jpoimboe@kernel.org,
- dave.hansen@intel.com,
- tglx@kernel.org,
- catalin.marinas@arm.com,
- will@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- ryan.roberts@arm.com,
- anshuman.khandual@arm.com
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <05E75034-5478-42C2-A4E2-BAA6C32A485B@linux.dev>
-References: <20260702051341.126509-1-dev.jain@arm.com>
- <20260702051341.126509-7-dev.jain@arm.com>
-To: Dev Jain <dev.jain@arm.com>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 02 Jul 2026 08:17:18 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 024EC1A0DD5;
+	Thu,  2 Jul 2026 08:17:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B62655FF03;
+	Thu,  2 Jul 2026 08:17:06 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 90A3F104C96A5;
+	Thu,  2 Jul 2026 10:17:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782980225; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=gJc2ZXFFVkna7QBtpQqQx1joA9VijE2aSoSY4AV7Vrs=;
+	b=ERANWzcFm1uj6GQ7c2DRm/HlQFI9/dQl5lNS9uP6do/bkXXYKUsaLzW7s16mpLsWOXhgV1
+	gEpaCqZ/FI9OhjNAw6x14AdwKSR09BJLxabLEvPQneiA5h40NVu1QCtl4Zj4VMGA11qfZ8
+	a8SRokCjPigVA2B5U3fQW4Fl8Z1xs1Pn/GvxN1FWTu/B7B3LWjqivUN3RDR+nOMRRgY6AX
+	HM6XWG467tElfQGSE68i96OLTXCd2+S8nixInDL2Sz9f8PHwdpYuA8Tyn7y/3PAdtrIG8t
+	APMseIuMqQdwAgeqvRK8b8Jg7u4PhXh7pDlpJsWDc535X9J8b1j0734RdnWmNg==
+Date: Thu, 2 Jul 2026 10:17:01 +0200
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Markus Probst <markus.probst@posteo.de>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <uwe@kleine-koenig.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
+Message-ID: <202607020817017cde494f@mail.local>
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+ <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+ <20260701-bronze-jaguar-of-perfection-028bac@quoll>
+ <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
+ <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
+ <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
+ <20260701164821b7492eac@mail.local>
+ <74b32ed0a700e3900c0f34d730b2b5b69eb2ca19.camel@posteo.de>
+ <187099d0-5e09-49c2-b67d-8bd4366ff1a0@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <187099d0-5e09-49c2-b67d-8bd4366ff1a0@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_013126_924920_845AF3E9 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260702_011711_522700_0636152D 
+X-CRM114-Status: GOOD (  13.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 02/07/2026 08:09:55+0200, Krzysztof Kozlowski wrote:
+> >> Then you need proper wakeup-source support
+> > Wouldn't that break existing devicetrees?
+> 
+> How?
+> 
+> > 
+> > The current driver allows to wake up the system, even without
+> > having wakeup-source set.
+> 
+> Anyway, wakeup-source is already there in rtc, so this would be done. I
+> don't get though, why there is no benefit of routing it to interrupt
+> controller (interrupt controllers do wake up the system). Additionally,
+> if you do not connect it to any interrupt, then how does it wake up the
+> system?
+> 
+
+Some systems are routing the interrupt output of the RTC directly to the
+PMIC and the PMIC is the one responsible for waking the rest of the
+system, including the SoC.
 
 
-> On Jul 2, 2026, at 13:13, Dev Jain <dev.jain@arm.com> wrote:
->=20
-> prot_none_hugetlb_entry() is the hugetlb callback for the early
-> mprotect(PROT_NONE) PFN permission walk on x86.
->=20
-> The callback passes the decoded PFN to pfn_modify_allowed(). For a
-> hugetlb callback, the pte pointer refers to a hugetlb entry. On
-> architectures where hugetlb entries need huge_ptep_get(), reading that
-> entry with ptep_get() can make the permission check use the wrong PFN.
->=20
-> Use huge_ptep_get() before decoding the hugetlb PFN.
->=20
-> Currently there is no path which can trigger a bug: huge_ptep_get() is =
-a
-> simple ptep_get() for x86, and the prot_none walk occurs only for x86.
->=20
-> So no need to backport - use the correct helper anyways.
->=20
-> Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged =
-high MMIO PROT_NONE mappings")
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
-
-Thanks.=
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
