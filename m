@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80DDFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32E19C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMF0XPgxh1bPvJqjJzOCEAXRRBEy4S34va7nAbDWY8g=; b=PTMFVEuhysvK6xx+KE7GR50MUr
-	NUsxqzxQPUqZfi29f1kRuhdPJmY9e8O4g8O4A0i7ssGiS9UGpfLvXpngDzW0JY8Z8I12SwCssJ0yJ
-	b2YWNyqAy6ifmTUop0HdhaOaH3UMK8gtuopPeAg+MhXPgo5ff6uHz8VQO9NQqiepU+SR+84o4MrcI
-	otAPPbP0unjT92IZGpWQP/7/p2lHYncj8Xevb6H35vY9eH0gH306Os92+c6Bwi7azSYHMq3KQBlAg
-	b32+IvhdLGnza6Mz1wGjIjI9ohRBO+1XjcJtD0zY+vMdZmwj7WN3j6IRcpKrqIwIi3ABm9kYgVB6v
-	kZPKcRqg==;
+	bh=1h+3Fpyke2tX7ZFvdKHeQ4JdNdIQdnDKWaAKP31G/a8=; b=QIxd3Bc9WKA5E7vA935nTzIHUA
+	CVj/fFIUTUQaZi36lR2eBvbJXNstXiQVLpeVZdWn4Jx7k+2iJiD4Cp1zgQWEdnTW4Sv2G84Lm3/wK
+	Rd1vHCFQkXONcwwmYdgwpVwn+Gxvynd+I6yjSMNFDqwrDBtO+V/4lz6G6Uxlh03fUVoTD07lA7YIN
+	jPxBz94Fwq2eRcHFoSlMoJ4N2Z13tcO/9IQ1FWfpHCoSLDZiw11N/PdGxlMAK1oYIOE4bvQSsJiCX
+	FJvC5yadMgX+fEz6ZchzF3S5rTLuuV3edzrIAAhGVoYftMWRB1ywPfZxB9tgwyf1zrVZw2snVYvYG
+	PUsBp8Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCKa-00000003n6F-1bRs;
-	Thu, 02 Jul 2026 07:59:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfCKz-00000003nCa-2Sib;
+	Thu, 02 Jul 2026 07:59:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCKZ-00000003n5p-17Yp
+	id 1wfCKy-00000003nBw-3HfS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 07:59:31 +0000
+	Thu, 02 Jul 2026 07:59:56 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B503460132
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 07:59:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28DB81F00ACA
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 07:59:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F15F43425
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 07:59:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 120CD1F00ADB
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 07:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782979170;
-	bh=KMF0XPgxh1bPvJqjJzOCEAXRRBEy4S34va7nAbDWY8g=;
+	s=k20260515; t=1782979196;
+	bh=1h+3Fpyke2tX7ZFvdKHeQ4JdNdIQdnDKWaAKP31G/a8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=D7cSQFo8X6CcFmn5MmR63opL79CNwlOUTkeojVXjQNXiMR+syEvpGnzAJzgda2JTe
-	 EcKTshWWfoHgri6T621CJP5KhPqmtmMuECE+INihG66kIVnyv+FllXlXO5dSV4cnHs
-	 8+oTuAC/pdev4diCCgPD/5PqsDjZWng4VPkjGjFMyIzWnK5b+EXk+3Iz+sEiMqup8N
-	 JHd6zwRstFBKWhdD/dlhJxo4DVV8adaUDRHv/El/U99jA3gTaEhIvYOLzEtEB52l9m
-	 TNyLMskIN/1Ez6Ots/C9h1WJaR++JEgpagkKF38Fdqsua2ZriIY55AdkKgyIyZ6pXQ
-	 66WO7P+/aNVOg==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aeb8870485so1343915e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 00:59:30 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp4bJWkPs9bVoyfMwBhc2STE0yfJ+Oe9vH7JgtjaWKun4ztjlWZiX+A7a+0fUimvpdQxP2PaotouPCZKGisBFtV@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbUS6H9n7coDDB3uWZlK7ZIOFLU8u1l3eoJFspfAz9/aXgBFw3
-	GRrnoRqRGcZet+Dy1IXP5JUjTyjT/V59uQNAMI0upScWNf62hY3gZ3tk4WTOlj/S1bS4+hgCKrj
-	TUcfBphq2uoJFGnUxFr3LiZLrOkjpKP8=
-X-Received: by 2002:a05:6512:8354:b0:5ae:b4d5:6e5f with SMTP id
- 2adb3069b0e04-5aec67b87abmr805780e87.40.1782979168977; Thu, 02 Jul 2026
- 00:59:28 -0700 (PDT)
+	b=S6849HXj9O8LKKQpSF70YZh+9LnvgLiloLIXi3sEDCfC+KICtsoGW3N0tkxc5Q/jJ
+	 clOLMlBFcOTIWDnfiVrOkNyUXMduvxZLZ29m2iHF/b7TazlLMBXWn+SerOBlGmdViH
+	 rckRTbr1lq2FcoCBZ4jxxxCNBDjej9tsKf1I/S0zA6WNEv59Brhfi9k1nn3QRheH3b
+	 zsH4CD6rfskE90P5QQ6z85O5EojsIFh4dBgaz9BfJQ+4fEyoFO5fPxc7j7tNE3dHWx
+	 GtLev8wny4rNPOTrTJim86RaIPoLmLZKYxNQhWErp1ikuaDakAXxP5PBM7cIQll7Ex
+	 OnoAHNztJ8rKg==
+Received: by mail-lf1-f43.google.com with SMTP id 2adb3069b0e04-5aeae350e0aso1544502e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 00:59:55 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Roq+38ndV7tvoj4FlpFnsekSJKKHfdjQpJG9uECFRtAAayLAceM+T5946AnuzDV5/epmIYquEt8meXnozHebO0F@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+9ItjFcCsFagwfJyETn0e9hgSRCQ3cnerDeoCaxyxxUVI18wB
+	CfveSwStQFS3TF4O4wxILXI7N20cd9rz39wWVj40d0V1TkHU5sn9W4s5uORxtEKUaqN80ceH3Pc
+	GInkcEhE5/XrnmxqfLlip7zeAhhUMESk=
+X-Received: by 2002:a05:6512:6482:b0:5ae:a3c3:f123 with SMTP id
+ 2adb3069b0e04-5aec67aa697mr1289406e87.25.1782979194864; Thu, 02 Jul 2026
+ 00:59:54 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com> <20260701-gpio-nomadik-silent-v1-3-644d10316cef@bootlin.com>
-In-Reply-To: <20260701-gpio-nomadik-silent-v1-3-644d10316cef@bootlin.com>
+References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com> <20260701-gpio-nomadik-silent-v1-4-644d10316cef@bootlin.com>
+In-Reply-To: <20260701-gpio-nomadik-silent-v1-4-644d10316cef@bootlin.com>
 From: Linus Walleij <linusw@kernel.org>
-Date: Thu, 2 Jul 2026 09:59:11 +0200
-X-Gmail-Original-Message-ID: <CAD++jLnrytVkFAcftQ-izh3uLTSF2EVahJYvsfCtEgaemW5Fvg@mail.gmail.com>
-X-Gm-Features: AVVi8Cfg-mo5-xyGo9O3KW-dS4uIM1OW6BMV2xJQvOGyercEBg0FSbo8ioLZlCA
-Message-ID: <CAD++jLnrytVkFAcftQ-izh3uLTSF2EVahJYvsfCtEgaemW5Fvg@mail.gmail.com>
-Subject: Re: [PATCH 3/5] gpio: nomadik: drop duplicate probe error line
+Date: Thu, 2 Jul 2026 09:59:42 +0200
+X-Gmail-Original-Message-ID: <CAD++jLkOspcOBG9DU+OD-++M3kNEviq7pY109Pqpd6V=RoKUEA@mail.gmail.com>
+X-Gm-Features: AVVi8CcU8tKaRId_dejrARm-i_U9g0OluvkGMZwVqH98hTd5N0_d2-ckQ2U3Yr8
+Message-ID: <CAD++jLkOspcOBG9DU+OD-++M3kNEviq7pY109Pqpd6V=RoKUEA@mail.gmail.com>
+Subject: Re: [PATCH 4/5] gpio: nomadik: use dev_err_probe()
 To: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>
 Cc: Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
 	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
@@ -86,18 +86,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Wed, Jul 1, 2026 at 6:57=E2=80=AFPM Th=C3=A9o Lebrun <theo.lebrun@bootli=
 n.com> wrote:
 
-> Now that all error codepaths in nmk_gpio_populate_chip() log an error,
-> drop dev_err() call that is made on nmk_gpio_populate_chip() failure.
->
-> Current boot log:
+> gpio-nomadik depends on a few resources. In one case the reset is taking
+> time to show up leading to a boot log containing:
 >
 > [    0.544230] nomadik-gpio 1400000.gpio: failed getting reset control: -=
 EPROBE_DEFER
-> [    0.544274] nomadik-gpio 1400000.gpio: could not populate nmk chip str=
-uct
 >
-> The second line is always redundant (or is logged when we shouldn't log,
-> like ioremap or alloc failures).
+> Fix by replacing all dev_err() calls that might be made at probe with
+> dev_err_probe().
+>
+> On nomadik platforms, the nmk_gpio_populate_chip() log calls might
+> attach their reasons to the gpio or pinctrl device depending on boot
+> order.
 >
 > Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
 
