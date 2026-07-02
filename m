@@ -4,154 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F17C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:05:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42E5CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WIXpHrXZz8lVJqRXUoVfTfWarW/kql4r9EwWgjySmE0=; b=jUGpLdE92LEjpf7xPHUkUPr+Ur
-	eo8MFh7NeBAHFitAcLSvFrm8T1SK9BobqBzbjCMnW3cPv6rEse7y627VvbL+3x92rcnvC8M5RQa7v
-	CuB5I0bgyjvF53zszk44nt9onYzEtZjjPyzSgcIK7v/Yysu29mv5Vrv1J2T0vmxs1erGawoTfAbSk
-	eAN5F1I/dt8Q7ZEzz9bGKIy2mgQ63L3Zh1czGwHcsdhq3H8m3D5MgL/tk6KXXrajYsLMycpbfjkHW
-	/ELTKQXKXVCxFI6SDgoB4LIZ6WOO6iObkzt+Ryyc3jF2S6qLTHaBLL7URX1MA+uvweGDJwcdMcTWb
-	pvNGkLVQ==;
+	bh=8jmZgztIIly2FUdl37Dv57x8nlSrD2AEgsf/lT8MqIo=; b=l3hYsHNh2+sJLEcS2oaJtQuBlr
+	fGXTTXr+dc2Xz14YTjReei3IEYmrtO+AaEBmg2gARj8/Mf/c5ZcHM+Y8mQP0SUzFNwEgzE1XWGfBX
+	EGZY4jJppc0lW298dN4gwkYqIMH+l92b/P9FVBFGHJELLt6nnQYGQziU6zxBd7fq3nTw9sQ6TDEqQ
+	BoPq/xjaGzKYQBmSj/wqWdPBRF/t+jGGalljTAIqR3Ey7+yXc+JtiTXcxs2vOOw5XXJx0fNRQb9IH
+	NrZWv5ZQJxfnbAtDdw2/li9TplOdvQGJk2GkMJGWJHNt32uxkZbWwzrjexQvJfJu/XWKMA1C5YEkh
+	c4CGG3kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJuT-00000004x2h-0gPu;
-	Thu, 02 Jul 2026 16:05:06 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wfK06-00000004xz1-1ptt;
+	Thu, 02 Jul 2026 16:10:54 +0000
+Received: from lahtoruutu.iki.fi ([185.185.170.37])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJuQ-00000004x02-1Tu7
+	id 1wfK03-00000004xy2-1YEv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:05:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=r4atZ5bWmJlQIzo1tIHMkrSuYMEq6+LY9q18dAD2trw4iNrUF/tjDbo/oX7FNKj/dmlgxMc3QBr1/y7Rq/cKgQwvDdQLc9NRNMC1wFVNdBgsVrykqmLowdXupgkitzHLUZUmYJ6K0K/hui24nuzf/dl2iJcRe6qcoRLbYhW/QH1LPKA/gMfLq56XlEI5KyVwUZUn92T5hxi8X6ED9B8WKd8WxvvlcS71ZfoOsOK9ud0t2gIN7KzTBVLhODEg7/2bwS1yPjrL1BSSfwGfIdP3JjJhGmZcyFF6+3IQXN65QqDQ81f0m72Hbatpg70A+Ux9sYcQoH4t8ctUHFM6VsHi9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=WIXpHrXZz8lVJqRXUoVfTfWarW/kql4r9EwWgjySmE0=;
- b=KIxTK0tqadXDB9IOG7Gx5Ha0/2Bzi5Utji4D2QY/+i1cGYoBqesI1ZijyjxqQqt7XVEOa9SNFwyMGFgU36xKJt5798lnFToRSFA8s8Iwu5kP5w/+2kSQ5LRgoLgRLkQ+CBLIzFPc8ie5/muXjKn11yPsai0T15/JvNiST3mTS1Z/D05QBzcv7KoH/RZ3KduqvI4BzYPkno4MpONFLdrBccchoSiCmq9GYLiVUSb9v/OXLO0P4gIdlfW/Zo+Ox8/IutmtDLcvA+MnfH0bFekZBM5gnEzw6i8KunMxo2XiZZhVnX1Hly82GNbJe7jJrLXqYdtgiNn6ri/crRkfkWQzLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=WIXpHrXZz8lVJqRXUoVfTfWarW/kql4r9EwWgjySmE0=;
- b=ken7IBJ+VyKcjcM+L/1Nhm9AxQwoskaI9mmoJDhI21MGg68Qe1EdBm8slwBMggjMk9KnQqJVobfX6sNXgdIE/5rsjZxFXtTEUUYgLnBCbPYL+DMqm4cA83gTb6MOOmv6o+n3SDON7VZHsJRhQxO71olK69V3BIPSR3PHygJBpbNUgPWpRUVR0xJl+y2bjQpd7LAI7HJbg0qtESAqLw7waz5z0h5SHKkU1CJqTNimAUqOEzXfGd9K1YZzYX/OqPjPD6leo1MEsV1c98s6OL33xztXUzueT5GPtWHF9ZB2uEGV44JgbMQahlpbYwRUVpBv+n3PD9GaZtfNH4j0E3WcpA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB9936.eurprd04.prod.outlook.com (2603:10a6:102:38b::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
- 2026 16:04:57 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 2 Jul 2026
- 16:04:56 +0000
-From: Frank.Li@oss.nxp.com
-Date: Thu, 02 Jul 2026 12:04:04 -0400
-Subject: [PATCH v7 8/8] arm64: dts: imx8qxp-mek: add parallel ov5640 camera
- support
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-imx8qxp_pcam-v7-8-b47d9e363400@nxp.com>
-References: <20260702-imx8qxp_pcam-v7-0-b47d9e363400@nxp.com>
-In-Reply-To: <20260702-imx8qxp_pcam-v7-0-b47d9e363400@nxp.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Frank Li <Frank.Li@nxp.com>, 
- Martin Kepplinger-Novakovic <martink@posteo.de>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Purism Kernel Team <kernel@puri.sm>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783008245; l=3896;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=DTzjcwsMZnU5X3I679egLBtPndSMzRGzIJdHEg2WA9E=;
- b=dYTEKmS9kVDaE7LRKUH2pH3kSiczAey7GONfoq7gzQw8tqN5SxMqzMkgrOmAVhMRLYe/vnmIb
- ZACuHtiofbTBjD27gp7hh7XFnYXQMwqNcFhxFz1WwNMLSgNkuV3TtMo
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: PH2PEPF00003847.namprd17.prod.outlook.com
- (2603:10b6:518:1::64) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 02 Jul 2026 16:10:53 +0000
+Received: from roadster.musicnaut.iki.fi (85-76-33-40-nat.elisa-mobile.fi [85.76.33.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: aaro.koskinen)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4grhgX070kz49PsJ;
+	Thu, 02 Jul 2026 19:10:31 +0300 (EEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1783008638;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8jmZgztIIly2FUdl37Dv57x8nlSrD2AEgsf/lT8MqIo=;
+	b=BmR2ZOGq0zLpNVmcqR5zpnMDhTuEs+AqMjK8nRypye1kcRcOBFfI9g3Vr7x1RCQb4wC4Zi
+	H6lEpGi8J4l0VYs8+LKj4sWQIHL2qT6e2INXatvWge0WR9Tg/njNwn+O9SbvU0wQNanV/S
+	NHI8lTXTUbFXQ3izU6CUMdqdOqaDbFo7Gn8XBq3w0XFujsELPinEDGCGHcD3JZhuP5rPpm
+	1psGxN3+NBfybXLGoXj6KBBU4XhVCOllBq0m+NlLcLtebfTNIVozccVh9PUiMOk+a+0sMR
+	CBENneNoPTWofKBdNRZPGwUkp/Ty59uPZ1PB+Cf9tJNmgrNUbIBwsQlpWCnWaQ==
+ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1783008638;
+	b=lWez1SUD0tdkslnGi2ll3DVes9+u4nS+QhqhSKmfv6REpb1eb76dIcLiV6qZKtA7jqLcXW
+	ukMb/ATykhxr/mvydjrb0XAIXBgApCFALNiS/8Pw6HYtA5dAaBM2lWFhd+8yBfgI1yfaJU
+	H81fdR5+CGw3R/kzNJZmsf1DvKAsGQdQV9lalPLvAoFdsqI94MCT+A9K3lzCyiF799BCn9
+	og4RIOcnEfTK++eYay3AejDRmERTbKTcUmdkPeQTQ/D4mwy44yV6y6q/2Adone4RksuDu7
+	rWxMu547xIfH0MV9bQsP7KWTkF56A5GaDxj8EHU+88FOVGdL5p4tCPZJgC7+1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1783008638;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8jmZgztIIly2FUdl37Dv57x8nlSrD2AEgsf/lT8MqIo=;
+	b=KvmvzpvYQsoklaoNQ3hPx7CbqrTDPsWGTxNrqZLwCwy+p2uZAfhWB0cFCXKeRaToERiqb/
+	l5tP567fWl+QyQJy/Mu3U07kJWlY0uISvTJ5awCkpeHmoahu5pYor2LDiuDO1RSgPUohLI
+	LDr3EJ9mo52Dr8qyC6hyd3xpwG9U0jEWuH3E2hsty7fURQRei4CNh7FKYekBwaTHuh21FY
+	wX3Iia545IKz3eCch+TWUijnr1xfAg2eA0CQbf4yrWy/gQaEQZxYnTmqVEB/gmepmrQn+H
+	OFC3aTg1AM+6hu6+CySHOXcgbqgotYpucD6AJMfheZV65+K+8Y3ogNs9EZBuog==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
+Date: Thu, 2 Jul 2026 19:10:28 +0300
+From: Aaro Koskinen <aaro.koskinen@iki.fi>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
+	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Ard Biesheuvel <ardb@kernel.org>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Daniel Mack <daniel@zonque.org>,
+	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
+	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>,
+	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Patrice Chotard <patrice.chotard@foss.st.com>,
+	Ralph Siemsen <ralph.siemsen@linaro.org>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Russell King <linux@armlinux.org.uk>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Stefan Agner <stefan@agner.ch>,
+	Stefan Wiehler <stefan.wiehler@nokia.com>,
+	Tony Lindgren <tony@atomide.com>, Vladimir Zapolskiy <vz@mleia.com>,
+	Will Deacon <will@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: Re: [PATCH v2 01/19] ARM: use CONFIG_AEABI by default everywhere
+Message-ID: <akaNdDa1U0da7kfI@roadster.musicnaut.iki.fi>
+References: <20260701212353.2196041-1-arnd@kernel.org>
+ <20260701212353.2196041-2-arnd@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB9936:EE_
-X-MS-Office365-Filtering-Correlation-Id: d9553cde-b8b4-4a7a-4006-08ded853a91a
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|23010399003|366016|921020|18002099003|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 18OO3lEiCClgjEQKBfJmShhUFCDug92V6SrWm+jIVAW9L8F2HhiOq54ce3KusUlJtLVmd7Ysep1EfIr3KFqBaIV1XXzPW7jYvKyZUoe9Xdatz5/TrEuAZvlA1Pl3dG9mxzCq2L5sI+pbxU2niNu5N2v/ieVM5GkpCk/dQ4og+aeLMtCOyzp+wUJ45D5q+a0iBF9uq/9laSdtjGgE59BEGJIJWNTNUCh05W7bO/G9IDFNTBRjqH69SQFsEQf/dLoz0aFkHMh9q4edwvs2BM/zG2BRDMwRCTXGnQgGcon+CEsAsX+fwG2RlMgK7vDbE1jm7O19RW7kr0Xv9pe7Dbh/vwovqFSzuu5Rb7obtscWUuA+hHexj2IPaYDR+Xk4l0BTMnRi/dmNGP+eHmS18CX/l9U9b4TL62zz6Xd9YyAqcZNzccskU8+r89GaDqKFZQtR+NeGnN4U9vohYVVrK93ccD8eT/J5XGHGeNCRfzZccaG5fSKUV041oa+TKrusQkaf4QE4we3j9Z8NBelhi18utsLunfua5ew0f2vCDmNMQqKID9/4UfHHT4Mf3P2qoKMu2uRMmaCw5d44OU+SyVMkgZP11JPIUajxm1Sa6uk5R7dXQzU8M5XJFH7BFNhe5KrK/pIFogC2J5aa7fbW3JfvD//lTzT3DvzjBlHePv/8D8vlvmQ6OqDoyEL5y/8RssZjGy8i7UM9o3mJwGUihbi7jg==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(23010399003)(366016)(921020)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WUU1R1lDOHh0U3hJMGdmSWJlQ3V4UGx5MlpVN0hsOUlUQ3VDMTlDMWRjR08x?=
- =?utf-8?B?cU9ManRVRWN2dk1JTlZHOHZMSEdablhyWEQ5RE02OVhjeGpHeExPQXhJSk1Q?=
- =?utf-8?B?MUM0YUozdWxZeXdNZ1lOeXNJSlZmZ0hXbXdaNkhZS2Zwbmx1N3hPWVhSSksw?=
- =?utf-8?B?UjBwUWxkZjN4U0E3eW9SSFB3dnQzM1Q3OFNoVUsvZ2UyaGgvelVqaHlIb01v?=
- =?utf-8?B?TUNvNXAzWUs5NnNsa2I2ckgzTW8ySnNVNExMNW1hNHk1YUs4R0dEdiszNVVS?=
- =?utf-8?B?VVlwVXJVTFBxRk9xZk1PVEU4ZW56NFpwd05MQ1NJQnlmS2h0aldvd1M3dlRh?=
- =?utf-8?B?dFJ6OXdoRXZScU52WDROeDFjVGcvVjVXZEx4SGtxaWNOMUFDWnBxNTBqU3Zx?=
- =?utf-8?B?RGExQllZVXhZcDdQK2tuQkIyaTQ3RjhFY0dwUGpGc0xlN2NBcnF2b2dtRVV2?=
- =?utf-8?B?OHF0TnM2WTF1a2orMEtBY0VFYTk5V01ZOHBFNUVZcEcwc0pjR0NDQVdOT2FR?=
- =?utf-8?B?Tll0c0lYMGJaNDFLY29nUXF4a0RNem12U0dFdDRVQTNZNlhoNkhRQ09yRDFs?=
- =?utf-8?B?YVp4Z0hKYlJFWVQxN1JvU0x2SWdCZ0oxU1NRTE8xV2dKOENBS1B3MjNONTdR?=
- =?utf-8?B?QTlkSm53Vkp5a2JBU2R1eDNHdVE0L1VaZDFXTFNKQXJEeXhnSGFDVGk5T1I1?=
- =?utf-8?B?N00vYm1tNnlTZlBOdUd4NWpTd1BwQklQY1VhK3gycUFVYjZWbVM4V3NJM0Nx?=
- =?utf-8?B?ditmYWtWaEF0VGxsU1FzdjJYcUkvME9SWkt2aUthTGo3TG1HQ2lxZGJibVRz?=
- =?utf-8?B?TXNwUVB4WkI0RUFzNkloSlBxdURNV2QxZ1hDd1FKMjhOaTlvVjZrbFhGSjd4?=
- =?utf-8?B?SmNNY2ZIczBNSWpWOE5tTEVMV2M0SURnQnBNT2pVY3ozYTdWdnBCUFFNNFlz?=
- =?utf-8?B?K3ZVSjZ0TjdBcXZiUm5aN3M1Uk5DSS9WZVRRMmZyN3YxZnlDaEtJMHFLbEY5?=
- =?utf-8?B?REJZTDBOR01PYmYwb2hHMUtqeVU5SVpWVThyRjVTZDl4cGZncS9zQ2RyYjY5?=
- =?utf-8?B?NktmN1pXU3NLTkFTYm5pZDRpRTNTdVVkcXFEc0JvS3d3YWVFVzE5OUw1SGd1?=
- =?utf-8?B?QndWL2FYSWtDVmhRTkdzaFV1bGlqakl6U1hINTJLcU5GNkszcnBXYVFvV2hZ?=
- =?utf-8?B?NXIzWGdNc2UrNU1EOGsyU01sNlhLSGc1TVoxM1lwMThXUjVSekZUd1JFVGhi?=
- =?utf-8?B?VWJ5ejRKWitFU3BwcXhSUEEvZnZZTnN0dGVQT1d5KythUExjSVJQR2lnZDNa?=
- =?utf-8?B?NFZUc2lDK2RxRk9ZNGI3WUJmRjdZRFBLdXBMTWJqYkkyVEdQS3BVS3d4MUxQ?=
- =?utf-8?B?b29TZmc0RG9xQkI3TW1jT1d0TmNDUG1NYzhRanB5Q2pkSHl1MGRsR0VORmpQ?=
- =?utf-8?B?RVhDUVZUdHhSQ0pMQ05LNDVIUE9MenM3Z2pZaGxKVWp1TjNMRVFNdkxHY1hV?=
- =?utf-8?B?V2RFVDkwYUJVNm5BS3FPVVJTVEE2TGVOdjdGQ2xhYnJQUCtSY2V0OHpETUVx?=
- =?utf-8?B?eWViRVk2clhkc1MwOGE4c2YybVM4dzRURnZKNUp0bS9YWW9mZGRLTEl1eDJR?=
- =?utf-8?B?SHBUU3YyOTd2akw1TCtwejlMMDc1MUNUY1BWZkNaWlNIb0dkUmFDeUxnbjdQ?=
- =?utf-8?B?VjgyU2M2VkVQazJTV3NjMktqV2xXVnMvMmNUUXFpMHpGeG5RUXFwUFlGVC9S?=
- =?utf-8?B?d3d0dXIyc3NVY2tKRTZmVGJkb29HMVZNTml4L2tYK2JLWDlzdUpIdFgwZ003?=
- =?utf-8?B?NFY5UkI1ZE00QW9QM0c0R294dXpoYlBNNnE3Zm82bTNZQTJxTW45U0dUQm9T?=
- =?utf-8?B?bk12WTlpTEE1TjJMY1VsbHpGSWwrZmt5Qy9JUm1oeXh1U2tSZjVQTDA0Snpl?=
- =?utf-8?B?ZmhBZWZBc1lsOTdsZitUUWs3OGxQTVBHTmRjMFRIbmdwQ1VZSEdVUXo0ZTJY?=
- =?utf-8?B?eGEvKzNBZnR1QzNMUDZhQTNsYjZ3YUxwTFZRRGtrSkxzNTdUeWJGdkVDMXYw?=
- =?utf-8?B?aXBlWlZHL2toeDZFSC9KK0lHMXpqaFB1OVFYaVlHTkdUVGFqZ1djL1VXSWhW?=
- =?utf-8?B?dlN4SHpReHlRZDBFQ0dUWmRhN3JOUXd1c0NVN1FXZXZoczVpZ2ZXeUI5YjVn?=
- =?utf-8?B?aVl3ZThrVnVScCtmQmJsYitBZFlUMC9GZUZwbzhsRUFCQlhOTUc0VXZ3Y3Rw?=
- =?utf-8?B?R3lwblNtdE82cmFjYy9KSTdBYitDZkM4R3lkNjZKSkdreVJKRnQyVTNrYnRV?=
- =?utf-8?B?NVpkaUdKV2dhWWxsc3ZiekR3YzhIeElJWDBCZG5vZnFTNFF4c1VxbmVudFRC?=
- =?utf-8?Q?cRMxtMHnaXIVj0Uib1ht6VEmOixnufZOwN0na?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9553cde-b8b4-4a7a-4006-08ded853a91a
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 16:04:56.6637
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vBZSPLYYP53u01Xggxk/HxRMHm/i2o7cm/6SJvM3cozHlYBoI9HMAXqB9QpN58L0c2Jz1xz0LdU4oWfLiBo4AxU7kM+UZ9rUzEXctInCyfo8/uYVFiqXZfLTxJfFXBRI
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9936
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701212353.2196041-2-arnd@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_090502_408998_6534915B 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20260702_091051_756413_D58A29FB 
+X-CRM114-Status: GOOD (  31.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,141 +122,639 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi,
 
-Add parallel ov5640 nodes in imx8qxp-mek and create overlay file to enable
-it because it can work at two mode: MIPI CSI and parallel mode.
+On Wed, Jul 01, 2026 at 11:23:35PM +0200, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> On ARMv4 and ARMv5, the default is still to build for OABI, with
+> CONFIG_AEABI disabled, even though distros and toolchains no longer
+> support OABI as a target.
+> 
+> Change the default to EABI for all architecture levels and change
+> the defconfig entries as follows:
+> 
+>  - All machines that used to explicitly enable EABI can drop that line now
+>  - Machines that are likely to actually use old distros and had NWFPE
+>    enabled in combination with OABI (rpc, footrbridge, netwinder,
+>    assabet, neponset) explicitly turn it on now.
+>  - Machines that already had both EABI and NWFPE disabled in defconfig
+>    (at91_dt, collie, ep93xx, gemini, h3600, imx_v4_v5, integrator, jornada,
+>    moxart, multi_v4t, omap1) were likely not usable with either OABI or
+>    EABI and now use EABI instead implicitly, making it more likely that
+>    they could work.
+> 
+> Acked-by: Linus Walleij <linus.walleij@linaro.org>
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 
-Reviewed-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-Changes in v7
-- none
+Acked-by: Aaro Koskinen <aaro.koskinen@iki.fi> # OMAP
 
-changes in v6
-- add Guoniu's reviewed-by tags
-
-changes in v4
-- add hsync-active = <1>
-
-changes in v3
-- replace csi with cpi.
-- use imx8qxp-mek-ov5640-cpi.dtso since csi use imx8qxp-mek-ov5640-csi.dtso
-
-change in v2
-- move ov5640 part to overlay file
-- rename to imx8qxp-mek-ov5640-parallel.dtso
-- remove data-lanes
----
- arch/arm64/boot/dts/freescale/Makefile             |  3 +
- .../boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso | 83 ++++++++++++++++++++++
- 2 files changed, 86 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 001ca3a12c0ae..3b9e9844f11ef 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -554,6 +554,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx8qxp-mek-pcie-ep.dtb
- imx8qxp-mek-ov5640-csi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-csi.dtbo
- dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-csi.dtb
- 
-+imx8qxp-mek-ov5640-cpi-dtbs := imx8qxp-mek.dtb imx8qxp-mek-ov5640-cpi.dtbo
-+dtb-${CONFIG_ARCH_MXC} += imx8qxp-mek-ov5640-cpi.dtb
-+
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqp-mba8xx.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8qxp-tqma8xqps-mb-smarc-2.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx8ulp-9x9-evk.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso
-new file mode 100644
-index 0000000000000..9fbdd798f17d6
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx8qxp-mek-ov5640-cpi.dtso
-@@ -0,0 +1,83 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/imx8-lpcg.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/media/video-interfaces.h>
-+#include <dt-bindings/pinctrl/pads-imx8qxp.h>
-+
-+&cm40_i2c {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	ov5640_pi: camera@3c {
-+		compatible = "ovti,ov5640";
-+		reg = <0x3c>;
-+		clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
-+		clock-names = "xclk";
-+		assigned-clocks = <&pi0_misc_lpcg IMX_LPCG_CLK_0>;
-+		assigned-clock-rates = <24000000>;
-+		AVDD-supply = <&reg_2v8>;
-+		DOVDD-supply = <&reg_1v8>;
-+		DVDD-supply = <&reg_1v5>;
-+		pinctrl-0 = <&pinctrl_parallel_cpi>;
-+		pinctrl-names = "default";
-+		powerdown-gpios = <&lsio_gpio3 2 GPIO_ACTIVE_HIGH>;
-+		reset-gpios = <&lsio_gpio3 3 GPIO_ACTIVE_LOW>;
-+
-+		port {
-+			ov5640_pi_ep: endpoint {
-+				bus-type = <MEDIA_BUS_TYPE_PARALLEL>;
-+				bus-width = <8>;
-+				hsync-active = <1>;
-+				pclk-sample = <1>;
-+				remote-endpoint = <&parallel_cpi_in>;
-+				vsync-active = <0>;
-+			};
-+		};
-+	};
-+};
-+
-+&iomuxc {
-+	pinctrl_parallel_cpi: parallelcpigrp {
-+		fsl,pins = <
-+			IMX8QXP_CSI_D00_CI_PI_D02		0xc0000041
-+			IMX8QXP_CSI_D01_CI_PI_D03		0xc0000041
-+			IMX8QXP_CSI_D02_CI_PI_D04		0xc0000041
-+			IMX8QXP_CSI_D03_CI_PI_D05		0xc0000041
-+			IMX8QXP_CSI_D04_CI_PI_D06		0xc0000041
-+			IMX8QXP_CSI_D05_CI_PI_D07		0xc0000041
-+			IMX8QXP_CSI_D06_CI_PI_D08		0xc0000041
-+			IMX8QXP_CSI_D07_CI_PI_D09		0xc0000041
-+
-+			IMX8QXP_CSI_MCLK_CI_PI_MCLK		0xc0000041
-+			IMX8QXP_CSI_PCLK_CI_PI_PCLK		0xc0000041
-+			IMX8QXP_CSI_HSYNC_CI_PI_HSYNC		0xc0000041
-+			IMX8QXP_CSI_VSYNC_CI_PI_VSYNC		0xc0000041
-+			IMX8QXP_CSI_EN_LSIO_GPIO3_IO02		0xc0000041
-+			IMX8QXP_CSI_RESET_LSIO_GPIO3_IO03	0xc0000041
-+		>;
-+	};
-+};
-+
-+&isi {
-+	status = "okay";
-+};
-+
-+&parallel_cpi {
-+	status = "okay";
-+
-+	ports {
-+		port@0 {
-+			parallel_cpi_in: endpoint {
-+				hsync-active = <1>;
-+				remote-endpoint = <&ov5640_pi_ep>;
-+			};
-+		};
-+	};
-+};
-
--- 
-2.43.0
-
+> ---
+>  arch/arm/Kconfig                        | 15 ++++++---------
+>  arch/arm/configs/am200epdkit_defconfig  |  1 -
+>  arch/arm/configs/aspeed_g4_defconfig    |  1 -
+>  arch/arm/configs/assabet_defconfig      |  1 +
+>  arch/arm/configs/at91_dt_defconfig      |  1 -
+>  arch/arm/configs/axm55xx_defconfig      |  1 -
+>  arch/arm/configs/bcm2835_defconfig      |  1 -
+>  arch/arm/configs/clps711x_defconfig     |  1 -
+>  arch/arm/configs/collie_defconfig       |  1 -
+>  arch/arm/configs/davinci_all_defconfig  |  1 -
+>  arch/arm/configs/dove_defconfig         |  1 -
+>  arch/arm/configs/ep93xx_defconfig       |  1 -
+>  arch/arm/configs/footbridge_defconfig   |  1 +
+>  arch/arm/configs/gemini_defconfig       |  1 -
+>  arch/arm/configs/h3600_defconfig        |  1 -
+>  arch/arm/configs/hisi_defconfig         |  1 -
+>  arch/arm/configs/imx_v4_v5_defconfig    |  1 -
+>  arch/arm/configs/integrator_defconfig   |  1 -
+>  arch/arm/configs/ixp4xx_defconfig       |  1 -
+>  arch/arm/configs/jornada720_defconfig   |  1 -
+>  arch/arm/configs/keystone_defconfig     |  1 -
+>  arch/arm/configs/lpc32xx_defconfig      |  1 -
+>  arch/arm/configs/mmp2_defconfig         |  1 -
+>  arch/arm/configs/moxart_defconfig       |  1 -
+>  arch/arm/configs/multi_v4t_defconfig    |  1 -
+>  arch/arm/configs/multi_v5_defconfig     |  1 -
+>  arch/arm/configs/mv78xx0_defconfig      |  2 --
+>  arch/arm/configs/mvebu_v5_defconfig     |  1 -
+>  arch/arm/configs/mxs_defconfig          |  1 -
+>  arch/arm/configs/neponset_defconfig     |  1 +
+>  arch/arm/configs/netwinder_defconfig    |  1 +
+>  arch/arm/configs/nhk8815_defconfig      |  1 -
+>  arch/arm/configs/omap1_defconfig        |  2 --
+>  arch/arm/configs/orion5x_defconfig      |  2 --
+>  arch/arm/configs/pxa168_defconfig       |  2 --
+>  arch/arm/configs/pxa3xx_defconfig       |  2 --
+>  arch/arm/configs/pxa910_defconfig       |  2 --
+>  arch/arm/configs/pxa_defconfig          |  1 -
+>  arch/arm/configs/rpc_defconfig          |  1 +
+>  arch/arm/configs/spear13xx_defconfig    |  1 -
+>  arch/arm/configs/spitz_defconfig        |  1 -
+>  arch/arm/configs/versatile_defconfig    |  1 -
+>  arch/arm/configs/vt8500_v6_v7_defconfig |  1 -
+>  arch/arm/configs/wpcm450_defconfig      |  1 -
+>  44 files changed, 11 insertions(+), 53 deletions(-)
+> 
+> diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+> index 9187240a02db..ccc0114d30de 100644
+> --- a/arch/arm/Kconfig
+> +++ b/arch/arm/Kconfig
+> @@ -1153,17 +1153,14 @@ config ARM_PATCH_IDIV
+>  config AEABI
+>  	bool "Use the ARM EABI to compile the kernel" if !CPU_V7 && \
+>  		!CPU_V7M && !CPU_V6 && !CPU_V6K && !CC_IS_CLANG
+> -	default CPU_V7 || CPU_V7M || CPU_V6 || CPU_V6K || CC_IS_CLANG
+> +	default y
+>  	help
+> -	  This option allows for the kernel to be compiled using the latest
+> -	  ARM ABI (aka EABI).  This is only useful if you are using a user
+> -	  space environment that is also compiled with EABI.
+> +	  The Arm EABI is the default ABI on all modern Linux
+> +	  distributions, replacing the obsolete and "OABI" that was
+> +	  commonly used on ARMv4 distributions before ca. 2013.
+>  
+> -	  Since there are major incompatibilities between the legacy ABI and
+> -	  EABI, especially with regard to structure member alignment, this
+> -	  option also changes the kernel syscall calling convention to
+> -	  disambiguate both ABIs and allow for backward compatibility support
+> -	  (selected with CONFIG_OABI_COMPAT).
+> +	  Everyone should enable this, as support for OABI user space
+> +	  was dropped in gcc-4.8 and most distributions after ca. 2013.
+>  
+>  config OABI_COMPAT
+>  	bool "Allow old ABI binaries to run with this kernel (EXPERIMENTAL)"
+> diff --git a/arch/arm/configs/am200epdkit_defconfig b/arch/arm/configs/am200epdkit_defconfig
+> index d8198592fe1b..b3f81237c6e1 100644
+> --- a/arch/arm/configs/am200epdkit_defconfig
+> +++ b/arch/arm/configs/am200epdkit_defconfig
+> @@ -7,7 +7,6 @@ CONFIG_EXPERT=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_PXA=y
+>  CONFIG_ARCH_GUMSTIX=y
+> -CONFIG_AEABI=y
+>  # CONFIG_OABI_COMPAT is not set
+>  CONFIG_CMDLINE="console=ttyS0,115200n8 root=1f01 rootfstype=jffs2"
+>  CONFIG_MODULES=y
+> diff --git a/arch/arm/configs/aspeed_g4_defconfig b/arch/arm/configs/aspeed_g4_defconfig
+> index 45d8738abb75..3dcb80157f77 100644
+> --- a/arch/arm/configs/aspeed_g4_defconfig
+> +++ b/arch/arm/configs/aspeed_g4_defconfig
+> @@ -22,7 +22,6 @@ CONFIG_KEXEC=y
+>  CONFIG_ARCH_ASPEED=y
+>  CONFIG_MACH_ASPEED_G4=y
+>  CONFIG_VMSPLIT_2G=y
+> -CONFIG_AEABI=y
+>  CONFIG_UACCESS_WITH_MEMCPY=y
+>  # CONFIG_ATAGS is not set
+>  CONFIG_JUMP_LABEL=y
+> diff --git a/arch/arm/configs/assabet_defconfig b/arch/arm/configs/assabet_defconfig
+> index 07ab9eaac4af..df63889b0c4c 100644
+> --- a/arch/arm/configs/assabet_defconfig
+> +++ b/arch/arm/configs/assabet_defconfig
+> @@ -5,6 +5,7 @@ CONFIG_ARCH_MULTI_V4=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_SA1100=y
+>  CONFIG_SA1100_ASSABET=y
+> +# CONFIG_AEABI is not set
+>  CONFIG_CMDLINE="mem=32M console=ttySA0,38400n8 initrd=0xc0800000,3M root=/dev/ram"
+>  CONFIG_FPE_NWFPE=y
+>  CONFIG_PM=y
+> diff --git a/arch/arm/configs/at91_dt_defconfig b/arch/arm/configs/at91_dt_defconfig
+> index e331242dece7..320eb27a6a2e 100644
+> --- a/arch/arm/configs/at91_dt_defconfig
+> +++ b/arch/arm/configs/at91_dt_defconfig
+> @@ -18,7 +18,6 @@ CONFIG_SOC_AT91SAM9=y
+>  CONFIG_SOC_SAM9X60=y
+>  CONFIG_SOC_SAM9X7=y
+>  # CONFIG_ATMEL_CLOCKSOURCE_PIT is not set
+> -CONFIG_AEABI=y
+>  CONFIG_UACCESS_WITH_MEMCPY=y
+>  # CONFIG_ATAGS is not set
+>  CONFIG_ARM_APPENDED_DTB=y
+> diff --git a/arch/arm/configs/axm55xx_defconfig b/arch/arm/configs/axm55xx_defconfig
+> index 0952e5e94c5e..12c59a4ee504 100644
+> --- a/arch/arm/configs/axm55xx_defconfig
+> +++ b/arch/arm/configs/axm55xx_defconfig
+> @@ -38,7 +38,6 @@ CONFIG_PCIE_AXXIA=y
+>  CONFIG_SMP=y
+>  CONFIG_NR_CPUS=16
+>  CONFIG_HOTPLUG_CPU=y
+> -CONFIG_AEABI=y
+>  CONFIG_OABI_COMPAT=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_ARM_APPENDED_DTB=y
+> diff --git a/arch/arm/configs/bcm2835_defconfig b/arch/arm/configs/bcm2835_defconfig
+> index 4a8ac09843d7..b469ecc36cf5 100644
+> --- a/arch/arm/configs/bcm2835_defconfig
+> +++ b/arch/arm/configs/bcm2835_defconfig
+> @@ -25,7 +25,6 @@ CONFIG_CRASH_DUMP=y
+>  CONFIG_ARCH_MULTI_V6=y
+>  CONFIG_ARCH_BCM=y
+>  CONFIG_ARCH_BCM2835=y
+> -CONFIG_AEABI=y
+>  CONFIG_SECCOMP=y
+>  CONFIG_KEXEC=y
+>  CONFIG_CPU_FREQ=y
+> diff --git a/arch/arm/configs/clps711x_defconfig b/arch/arm/configs/clps711x_defconfig
+> index f66d502ce2ef..7ba344e84c62 100644
+> --- a/arch/arm/configs/clps711x_defconfig
+> +++ b/arch/arm/configs/clps711x_defconfig
+> @@ -6,7 +6,6 @@ CONFIG_RD_LZMA=y
+>  CONFIG_EXPERT=y
+>  CONFIG_JUMP_LABEL=y
+>  CONFIG_PARTITION_ADVANCED=y
+> -CONFIG_AEABI=y
+>  # CONFIG_COREDUMP is not set
+>  CONFIG_SLUB_TINY=y
+>  CONFIG_NET=y
+> diff --git a/arch/arm/configs/collie_defconfig b/arch/arm/configs/collie_defconfig
+> index 578c6a4af620..165202960438 100644
+> --- a/arch/arm/configs/collie_defconfig
+> +++ b/arch/arm/configs/collie_defconfig
+> @@ -10,7 +10,6 @@ CONFIG_ARCH_MULTI_V4=y
+>  CONFIG_ARCH_SA1100=y
+>  CONFIG_SA1100_COLLIE=y
+>  CONFIG_CMDLINE="noinitrd root=/dev/mtdblock2 rootfstype=jffs2 fbcon=rotate:1"
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_PM=y
+>  # CONFIG_SWAP is not set
+>  CONFIG_SLUB_TINY=y
+> diff --git a/arch/arm/configs/davinci_all_defconfig b/arch/arm/configs/davinci_all_defconfig
+> index 72703ef0c51c..e6fbe1f03920 100644
+> --- a/arch/arm/configs/davinci_all_defconfig
+> +++ b/arch/arm/configs/davinci_all_defconfig
+> @@ -17,7 +17,6 @@ CONFIG_ARCH_DAVINCI=y
+>  CONFIG_ARCH_DAVINCI_DA850=y
+>  CONFIG_DAVINCI_MUX_DEBUG=y
+>  CONFIG_DAVINCI_MUX_WARNINGS=y
+> -CONFIG_AEABI=y
+>  CONFIG_SECCOMP=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+> diff --git a/arch/arm/configs/dove_defconfig b/arch/arm/configs/dove_defconfig
+> index b6ed01216a62..08271e6719d7 100644
+> --- a/arch/arm/configs/dove_defconfig
+> +++ b/arch/arm/configs/dove_defconfig
+> @@ -7,7 +7,6 @@ CONFIG_EXPERT=y
+>  CONFIG_ARCH_MULTI_V7=y
+>  CONFIG_ARCH_DOVE=y
+>  CONFIG_MACH_CM_A510=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+> diff --git a/arch/arm/configs/ep93xx_defconfig b/arch/arm/configs/ep93xx_defconfig
+> index ce41dc8c435c..6863d8fd7713 100644
+> --- a/arch/arm/configs/ep93xx_defconfig
+> +++ b/arch/arm/configs/ep93xx_defconfig
+> @@ -18,7 +18,6 @@ CONFIG_MACH_EDB9315=y
+>  CONFIG_MACH_EDB9315A=y
+>  CONFIG_MACH_TS72XX=y
+>  CONFIG_MACH_VISION_EP9307=y
+> -CONFIG_AEABI=y
+>  CONFIG_CMDLINE="console=ttyAM0,115200 root=/dev/nfs ip=bootp"
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> diff --git a/arch/arm/configs/footbridge_defconfig b/arch/arm/configs/footbridge_defconfig
+> index 5f6963687ee4..589b7b1df8c6 100644
+> --- a/arch/arm/configs/footbridge_defconfig
+> +++ b/arch/arm/configs/footbridge_defconfig
+> @@ -11,6 +11,7 @@ CONFIG_ARCH_EBSA285_HOST=y
+>  CONFIG_ARCH_NETWINDER=y
+>  CONFIG_FPE_NWFPE=y
+>  CONFIG_FPE_NWFPE_XP=y
+> +# CONFIG_AEABI is not set
+>  CONFIG_MODULES=y
+>  CONFIG_PARTITION_ADVANCED=y
+>  CONFIG_ACORN_PARTITION=y
+> diff --git a/arch/arm/configs/gemini_defconfig b/arch/arm/configs/gemini_defconfig
+> index 7b1daec630cb..5860b2fe7d1f 100644
+> --- a/arch/arm/configs/gemini_defconfig
+> +++ b/arch/arm/configs/gemini_defconfig
+> @@ -11,7 +11,6 @@ CONFIG_KEXEC=y
+>  CONFIG_ARCH_MULTI_V4=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_GEMINI=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_CMDLINE="console=ttyS0,115200n8"
+>  CONFIG_PM=y
+> diff --git a/arch/arm/configs/h3600_defconfig b/arch/arm/configs/h3600_defconfig
+> index 4e272875c797..0923d331190a 100644
+> --- a/arch/arm/configs/h3600_defconfig
+> +++ b/arch/arm/configs/h3600_defconfig
+> @@ -9,7 +9,6 @@ CONFIG_ARCH_MULTI_V4=y
+>  CONFIG_ARCH_SA1100=y
+>  CONFIG_SA1100_H3600=y
+>  # CONFIG_CPU_FREQ_STAT is not set
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_MODULES=y
+>  CONFIG_NET=y
+>  CONFIG_UNIX=y
+> diff --git a/arch/arm/configs/hisi_defconfig b/arch/arm/configs/hisi_defconfig
+> index dde9cff951d4..c89b743784ca 100644
+> --- a/arch/arm/configs/hisi_defconfig
+> +++ b/arch/arm/configs/hisi_defconfig
+> @@ -10,7 +10,6 @@ CONFIG_ARCH_HIP04=y
+>  CONFIG_ARCH_HIX5HD2=y
+>  CONFIG_SMP=y
+>  CONFIG_NR_CPUS=16
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+> diff --git a/arch/arm/configs/imx_v4_v5_defconfig b/arch/arm/configs/imx_v4_v5_defconfig
+> index 9139d1784c70..871e93dd65b5 100644
+> --- a/arch/arm/configs/imx_v4_v5_defconfig
+> +++ b/arch/arm/configs/imx_v4_v5_defconfig
+> @@ -15,7 +15,6 @@ CONFIG_ARCH_MXC=y
+>  CONFIG_SOC_IMX1=y
+>  CONFIG_SOC_IMX25=y
+>  CONFIG_SOC_IMX27=y
+> -CONFIG_AEABI=y
+>  CONFIG_PM_DEBUG=y
+>  CONFIG_KPROBES=y
+>  CONFIG_MODULES=y
+> diff --git a/arch/arm/configs/integrator_defconfig b/arch/arm/configs/integrator_defconfig
+> index 61711d4bbf74..ba38ec810a61 100644
+> --- a/arch/arm/configs/integrator_defconfig
+> +++ b/arch/arm/configs/integrator_defconfig
+> @@ -13,7 +13,6 @@ CONFIG_ARCH_INTEGRATOR=y
+>  CONFIG_ARCH_INTEGRATOR_AP=y
+>  CONFIG_INTEGRATOR_IMPD1=y
+>  CONFIG_ARCH_INTEGRATOR_CP=y
+> -CONFIG_AEABI=y
+>  # CONFIG_ATAGS is not set
+>  CONFIG_CMDLINE="console=ttyAM0,38400n8 root=/dev/nfs ip=bootp"
+>  CONFIG_CPU_FREQ=y
+> diff --git a/arch/arm/configs/ixp4xx_defconfig b/arch/arm/configs/ixp4xx_defconfig
+> index 418ef909572b..122ca7354986 100644
+> --- a/arch/arm/configs/ixp4xx_defconfig
+> +++ b/arch/arm/configs/ixp4xx_defconfig
+> @@ -9,7 +9,6 @@ CONFIG_EXPERT=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_IXP4XX=y
+>  CONFIG_CPU_BIG_ENDIAN=y
+> -CONFIG_AEABI=y
+>  CONFIG_CMDLINE="console=ttyS0,115200"
+>  CONFIG_STRICT_KERNEL_RWX=y
+>  CONFIG_STRICT_MODULE_RWX=y
+> diff --git a/arch/arm/configs/jornada720_defconfig b/arch/arm/configs/jornada720_defconfig
+> index d57285cfefb2..0ebddd083b36 100644
+> --- a/arch/arm/configs/jornada720_defconfig
+> +++ b/arch/arm/configs/jornada720_defconfig
+> @@ -5,7 +5,6 @@ CONFIG_ARCH_MULTI_V4=y
+>  CONFIG_ARCH_SA1100=y
+>  CONFIG_SA1100_JORNADA720=y
+>  CONFIG_SA1100_JORNADA720_SSP=y
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_PM=y
+>  CONFIG_MODULES=y
+>  CONFIG_NET=y
+> diff --git a/arch/arm/configs/keystone_defconfig b/arch/arm/configs/keystone_defconfig
+> index b0cadd878152..af91b9a420c9 100644
+> --- a/arch/arm/configs/keystone_defconfig
+> +++ b/arch/arm/configs/keystone_defconfig
+> @@ -22,7 +22,6 @@ CONFIG_PCI_KEYSTONE=y
+>  CONFIG_SMP=y
+>  CONFIG_HOTPLUG_CPU=y
+>  CONFIG_ARM_PSCI=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_VFP=y
+>  CONFIG_NEON=y
+> diff --git a/arch/arm/configs/lpc32xx_defconfig b/arch/arm/configs/lpc32xx_defconfig
+> index b9e2e603cd95..c0b45eea1b0f 100644
+> --- a/arch/arm/configs/lpc32xx_defconfig
+> +++ b/arch/arm/configs/lpc32xx_defconfig
+> @@ -10,7 +10,6 @@ CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+>  CONFIG_EXPERT=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_LPC32XX=y
+> -CONFIG_AEABI=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+>  CONFIG_CMDLINE="console=ttyS0,115200n81 root=/dev/ram0"
+> diff --git a/arch/arm/configs/mmp2_defconfig b/arch/arm/configs/mmp2_defconfig
+> index 0ea608c75f22..2ca166d4e78f 100644
+> --- a/arch/arm/configs/mmp2_defconfig
+> +++ b/arch/arm/configs/mmp2_defconfig
+> @@ -4,7 +4,6 @@ CONFIG_PREEMPT=y
+>  CONFIG_LOG_BUF_SHIFT=14
+>  # CONFIG_BLK_DEV_BSG is not set
+>  CONFIG_ARCH_MMP=y
+> -CONFIG_AEABI=y
+>  CONFIG_MACH_MMP2_DT=y
+>  CONFIG_CMDLINE="root=/dev/nfs rootfstype=nfs nfsroot=192.168.1.100:/nfsroot/ ip=192.168.1.101:192.168.1.100::255.255.255.0::eth0:on console=ttyS2,38400 mem=128M user_debug=255 earlyprintk"
+>  CONFIG_VFP=y
+> diff --git a/arch/arm/configs/moxart_defconfig b/arch/arm/configs/moxart_defconfig
+> index e2d9f3610063..d97d9ea5c34d 100644
+> --- a/arch/arm/configs/moxart_defconfig
+> +++ b/arch/arm/configs/moxart_defconfig
+> @@ -16,7 +16,6 @@ CONFIG_ARCH_MULTI_V4=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_MOXART=y
+>  CONFIG_MACH_UC7112LX=y
+> -CONFIG_AEABI=y
+>  # CONFIG_ATAGS is not set
+>  CONFIG_ARM_APPENDED_DTB=y
+>  # CONFIG_SWAP is not set
+> diff --git a/arch/arm/configs/multi_v4t_defconfig b/arch/arm/configs/multi_v4t_defconfig
+> index 1a86dc305523..14c93bb59ad6 100644
+> --- a/arch/arm/configs/multi_v4t_defconfig
+> +++ b/arch/arm/configs/multi_v4t_defconfig
+> @@ -17,7 +17,6 @@ CONFIG_INTEGRATOR_IMPD1=y
+>  CONFIG_INTEGRATOR_CM720T=y
+>  CONFIG_INTEGRATOR_CM920T=y
+>  CONFIG_INTEGRATOR_CM922T_XA10=y
+> -CONFIG_AEABI=y
+>  # CONFIG_ATAGS is not set
+>  CONFIG_CPU_IDLE=y
+>  CONFIG_ARM_CPUIDLE=y
+> diff --git a/arch/arm/configs/multi_v5_defconfig b/arch/arm/configs/multi_v5_defconfig
+> index d237ea8ea327..7eab9fb9ffc4 100644
+> --- a/arch/arm/configs/multi_v5_defconfig
+> +++ b/arch/arm/configs/multi_v5_defconfig
+> @@ -36,7 +36,6 @@ CONFIG_MACH_NET2BIG=y
+>  CONFIG_MACH_MSS2_DT=y
+>  CONFIG_ARCH_SUNXI=y
+>  CONFIG_ARCH_VERSATILE=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+> diff --git a/arch/arm/configs/mv78xx0_defconfig b/arch/arm/configs/mv78xx0_defconfig
+> index 1174893102bd..823f7963b8b3 100644
+> --- a/arch/arm/configs/mv78xx0_defconfig
+> +++ b/arch/arm/configs/mv78xx0_defconfig
+> @@ -11,9 +11,7 @@ CONFIG_ARCH_MULTI_V5=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_MV78XX0=y
+>  CONFIG_MACH_TERASTATION_WXL=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_VFP=y
+>  CONFIG_KPROBES=y
+>  CONFIG_MODULES=y
+> diff --git a/arch/arm/configs/mvebu_v5_defconfig b/arch/arm/configs/mvebu_v5_defconfig
+> index 781f8f72df5f..0709a5e66bb5 100644
+> --- a/arch/arm/configs/mvebu_v5_defconfig
+> +++ b/arch/arm/configs/mvebu_v5_defconfig
+> @@ -22,7 +22,6 @@ CONFIG_MACH_MV2120=y
+>  CONFIG_MACH_D2NET_DT=y
+>  CONFIG_MACH_NET2BIG=y
+>  CONFIG_MACH_MSS2_DT=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+> diff --git a/arch/arm/configs/mxs_defconfig b/arch/arm/configs/mxs_defconfig
+> index 603fb003b223..b0b5eb33d01e 100644
+> --- a/arch/arm/configs/mxs_defconfig
+> +++ b/arch/arm/configs/mxs_defconfig
+> @@ -17,7 +17,6 @@ CONFIG_BLK_DEV_INITRD=y
+>  CONFIG_PERF_EVENTS=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_MXS=y
+> -CONFIG_AEABI=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_FORCE_LOAD=y
+>  CONFIG_MODULE_UNLOAD=y
+> diff --git a/arch/arm/configs/neponset_defconfig b/arch/arm/configs/neponset_defconfig
+> index 8a5dcca743fc..c3010a4d93a8 100644
+> --- a/arch/arm/configs/neponset_defconfig
+> +++ b/arch/arm/configs/neponset_defconfig
+> @@ -11,6 +11,7 @@ CONFIG_ZBOOT_ROM_BSS=0xc1000000
+>  CONFIG_ZBOOT_ROM=y
+>  CONFIG_CMDLINE="console=ttySA0,38400n8 cpufreq=221200 rw root=/dev/mtdblock2 mtdparts=sa1100:512K(boot),1M(kernel),2560K(initrd),4M(root) mem=32M noinitrd initrd=0xc0800000,3M"
+>  CONFIG_FPE_NWFPE=y
+> +# CONFIG_AEABI is not set
+>  CONFIG_PM=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+> diff --git a/arch/arm/configs/netwinder_defconfig b/arch/arm/configs/netwinder_defconfig
+> index e639e6ad02cb..7ff70439458d 100644
+> --- a/arch/arm/configs/netwinder_defconfig
+> +++ b/arch/arm/configs/netwinder_defconfig
+> @@ -4,6 +4,7 @@ CONFIG_ARCH_MULTI_V4=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_FOOTBRIDGE=y
+>  CONFIG_ARCH_NETWINDER=y
+> +# CONFIG_AEABI is not set
+>  CONFIG_DEPRECATED_PARAM_STRUCT=y
+>  CONFIG_CMDLINE="root=0x801"
+>  CONFIG_FPE_NWFPE=y
+> diff --git a/arch/arm/configs/nhk8815_defconfig b/arch/arm/configs/nhk8815_defconfig
+> index 696b4fbc2412..7a307bd93730 100644
+> --- a/arch/arm/configs/nhk8815_defconfig
+> +++ b/arch/arm/configs/nhk8815_defconfig
+> @@ -12,7 +12,6 @@ CONFIG_KALLSYMS_ALL=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_NOMADIK=y
+>  CONFIG_MACH_NOMADIK_8815NHK=y
+> -CONFIG_AEABI=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+>  # CONFIG_SWAP is not set
+> diff --git a/arch/arm/configs/omap1_defconfig b/arch/arm/configs/omap1_defconfig
+> index 7bf58e8a5ab5..8d11ba724204 100644
+> --- a/arch/arm/configs/omap1_defconfig
+> +++ b/arch/arm/configs/omap1_defconfig
+> @@ -28,9 +28,7 @@ CONFIG_MACH_OMAP_PALMTE=y
+>  CONFIG_MACH_SX1=y
+>  CONFIG_MACH_NOKIA770=y
+>  CONFIG_MACH_AMS_DELTA=y
+> -CONFIG_AEABI=y
+>  CONFIG_CMDLINE="root=1f03 rootfstype=jffs2"
+> -CONFIG_FPE_NWFPE=y
+>  # CONFIG_SUSPEND is not set
+>  CONFIG_PM=y
+>  CONFIG_MODULES=y
+> diff --git a/arch/arm/configs/orion5x_defconfig b/arch/arm/configs/orion5x_defconfig
+> index f5be2e26d9ae..d658d5e04e2d 100644
+> --- a/arch/arm/configs/orion5x_defconfig
+> +++ b/arch/arm/configs/orion5x_defconfig
+> @@ -20,10 +20,8 @@ CONFIG_MACH_TS409=y
+>  CONFIG_MACH_TS78XX=y
+>  CONFIG_MACH_MV2120=y
+>  CONFIG_MACH_NET2BIG=y
+> -CONFIG_AEABI=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_VFP=y
+>  CONFIG_KPROBES=y
+>  CONFIG_MODULES=y
+> diff --git a/arch/arm/configs/pxa168_defconfig b/arch/arm/configs/pxa168_defconfig
+> index 8cbca84fe33a..d6af01434f04 100644
+> --- a/arch/arm/configs/pxa168_defconfig
+> +++ b/arch/arm/configs/pxa168_defconfig
+> @@ -3,11 +3,9 @@ CONFIG_SYSVIPC=y
+>  CONFIG_NO_HZ_IDLE=y
+>  CONFIG_HIGH_RES_TIMERS=y
+>  CONFIG_PREEMPT=y
+> -CONFIG_AEABI=y
+>  CONFIG_LOG_BUF_SHIFT=14
+>  CONFIG_ARCH_MMP=y
+>  CONFIG_CMDLINE="root=/dev/nfs rootfstype=nfs nfsroot=192.168.2.100:/nfsroot/ ip=192.168.2.101:192.168.2.100::255.255.255.0::eth0:on console=ttyS0,115200 mem=128M"
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+>  CONFIG_MODULE_FORCE_UNLOAD=y
+> diff --git a/arch/arm/configs/pxa3xx_defconfig b/arch/arm/configs/pxa3xx_defconfig
+> index fb272e3a2337..2a777698d06f 100644
+> --- a/arch/arm/configs/pxa3xx_defconfig
+> +++ b/arch/arm/configs/pxa3xx_defconfig
+> @@ -7,9 +7,7 @@ CONFIG_KALLSYMS_ALL=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_PXA=y
+>  CONFIG_MACH_PXA3XX_DT=y
+> -CONFIG_AEABI=y
+>  CONFIG_CMDLINE="root=/dev/nfs rootfstype=nfs nfsroot=192.168.1.100:/nfsroot/ ip=192.168.1.101:192.168.1.100::255.255.255.0::eth0:on console=ttyS0,115200 mem=64M debug"
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_MODULES=y
+>  CONFIG_NET=y
+>  CONFIG_PACKET=y
+> diff --git a/arch/arm/configs/pxa910_defconfig b/arch/arm/configs/pxa910_defconfig
+> index 71ed0d73f8a9..9e7b11d1e723 100644
+> --- a/arch/arm/configs/pxa910_defconfig
+> +++ b/arch/arm/configs/pxa910_defconfig
+> @@ -10,8 +10,6 @@ CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+>  CONFIG_MODULE_FORCE_UNLOAD=y
+>  # CONFIG_BLK_DEV_BSG is not set
+> -CONFIG_AEABI=y
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_NET=y
+>  CONFIG_PACKET=y
+>  CONFIG_UNIX=y
+> diff --git a/arch/arm/configs/pxa_defconfig b/arch/arm/configs/pxa_defconfig
+> index 66cc149c5ca4..396680975506 100644
+> --- a/arch/arm/configs/pxa_defconfig
+> +++ b/arch/arm/configs/pxa_defconfig
+> @@ -20,7 +20,6 @@ CONFIG_ARCH_GUMSTIX=y
+>  CONFIG_PXA_SHARPSL=y
+>  CONFIG_MACH_AKITA=y
+>  CONFIG_MACH_BORZOI=y
+> -CONFIG_AEABI=y
+>  CONFIG_ARCH_FORCE_MAX_ORDER=8
+>  CONFIG_CMDLINE="root=/dev/ram0 ro"
+>  CONFIG_CPU_FREQ=y
+> diff --git a/arch/arm/configs/rpc_defconfig b/arch/arm/configs/rpc_defconfig
+> index 46df453e224e..8d73ec43cb41 100644
+> --- a/arch/arm/configs/rpc_defconfig
+> +++ b/arch/arm/configs/rpc_defconfig
+> @@ -7,6 +7,7 @@ CONFIG_ARCH_MULTI_V4=y
+>  CONFIG_ARCH_RPC=y
+>  CONFIG_CPU_SA110=y
+>  CONFIG_FPE_NWFPE=y
+> +# CONFIG_AEABI is not set
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+>  CONFIG_PARTITION_ADVANCED=y
+> diff --git a/arch/arm/configs/spear13xx_defconfig b/arch/arm/configs/spear13xx_defconfig
+> index 6712ae741c19..648260f536a1 100644
+> --- a/arch/arm/configs/spear13xx_defconfig
+> +++ b/arch/arm/configs/spear13xx_defconfig
+> @@ -9,7 +9,6 @@ CONFIG_MACH_SPEAR1340=y
+>  CONFIG_SMP=y
+>  # CONFIG_SMP_ON_UP is not set
+>  # CONFIG_ARM_CPU_TOPOLOGY is not set
+> -CONFIG_AEABI=y
+>  CONFIG_ARM_APPENDED_DTB=y
+>  CONFIG_ARM_ATAG_DTB_COMPAT=y
+>  CONFIG_VFP=y
+> diff --git a/arch/arm/configs/spitz_defconfig b/arch/arm/configs/spitz_defconfig
+> index 8f8a058294fb..d68a8f9cdad4 100644
+> --- a/arch/arm/configs/spitz_defconfig
+> +++ b/arch/arm/configs/spitz_defconfig
+> @@ -11,7 +11,6 @@ CONFIG_PXA_SHARPSL=y
+>  CONFIG_MACH_AKITA=y
+>  CONFIG_MACH_BORZOI=y
+>  CONFIG_CMDLINE="console=ttyS0,115200n8 console=tty1 noinitrd root=/dev/mtdblock2 rootfstype=jffs2   debug"
+> -CONFIG_FPE_NWFPE=y
+>  CONFIG_MODULES=y
+>  CONFIG_MODULE_UNLOAD=y
+>  CONFIG_MODULE_FORCE_UNLOAD=y
+> diff --git a/arch/arm/configs/versatile_defconfig b/arch/arm/configs/versatile_defconfig
+> index 849118cbbb44..8e89debb5a5b 100644
+> --- a/arch/arm/configs/versatile_defconfig
+> +++ b/arch/arm/configs/versatile_defconfig
+> @@ -6,7 +6,6 @@ CONFIG_LOG_BUF_SHIFT=14
+>  CONFIG_BLK_DEV_INITRD=y
+>  # CONFIG_ARCH_MULTI_V7 is not set
+>  CONFIG_ARCH_VERSATILE=y
+> -CONFIG_AEABI=y
+>  CONFIG_OABI_COMPAT=y
+>  CONFIG_CMDLINE="root=1f03 mem=32M"
+>  CONFIG_FPE_NWFPE=y
+> diff --git a/arch/arm/configs/vt8500_v6_v7_defconfig b/arch/arm/configs/vt8500_v6_v7_defconfig
+> index 41607a84abc8..2925a1f1dbb6 100644
+> --- a/arch/arm/configs/vt8500_v6_v7_defconfig
+> +++ b/arch/arm/configs/vt8500_v6_v7_defconfig
+> @@ -8,7 +8,6 @@ CONFIG_ARM_ERRATA_720789=y
+>  CONFIG_ARM_ERRATA_754322=y
+>  CONFIG_ARM_ERRATA_775420=y
+>  CONFIG_HAVE_ARM_ARCH_TIMER=y
+> -CONFIG_AEABI=y
+>  CONFIG_HIGHMEM=y
+>  CONFIG_HIGHPTE=y
+>  CONFIG_ARM_APPENDED_DTB=y
+> diff --git a/arch/arm/configs/wpcm450_defconfig b/arch/arm/configs/wpcm450_defconfig
+> index 67b64a378166..9cb379077d70 100644
+> --- a/arch/arm/configs/wpcm450_defconfig
+> +++ b/arch/arm/configs/wpcm450_defconfig
+> @@ -13,7 +13,6 @@ CONFIG_PROFILING=y
+>  CONFIG_ARCH_NPCM=y
+>  CONFIG_ARCH_WPCM450=y
+>  CONFIG_CPU_DCACHE_WRITETHROUGH=y
+> -CONFIG_AEABI=y
+>  CONFIG_UACCESS_WITH_MEMCPY=y
+>  # CONFIG_ATAGS is not set
+>  CONFIG_ARM_APPENDED_DTB=y
+> -- 
+> 2.39.5
+> 
 
