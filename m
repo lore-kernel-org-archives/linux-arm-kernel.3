@@ -4,106 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2AF4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 13:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79807C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6NWmfe8Dq8JrZ1DQwcJzSv5BvctIaK/5J/1ExFQCV9M=; b=Q6AwLRktoTBnxIupAu+YM1UOI4
-	gYw5Uw4HlvDaDDjd60J8dK7HDZDtcAEzF4u7GERFrTuYYtJtLSoxUN3eygfelkkY6XXtyVyidYGXu
-	ZylK3N4hs8S9KoTXPXFV5HaVYwEYB5PZtEtEzDPu+qHLmHHjIlzmyRekB6SHM+9g2tEjzTYd1vIOo
-	wVAyqXGe+69IvE7bCR+tEhrj3rWFPXd5Sx05S9tfi+pH7PSQBsxXrVkfKG9FrCSvWHwyU5P1JSwc8
-	ZXG5KgODIm1m7gGRxxD3fv/0axuiE/3cDIIK/jQRRMekTzCwLWZHSqOG5Ueqs7Z+/hFVZfocso+V3
-	L77ETO6A==;
+	bh=TRLANPogjG6BWRTX1aijmLnnh9jWiE73CCVCRyKbidE=; b=0pkhQ9SQSk7BoimghSWUPTv4Ak
+	3pwn7NIG9l4f2NDiJcsV7GMBswJ4bu8VPDnHJRG3OIiBX29DWsoSGli8soot9z9hPLJYlzHRe37kd
+	HxHsx9LuM4qXGR4MLLK9AIBCl5PZmw1Un+vhnPcvi5TzUNzJs0g7W3AR8n9rUhMlNIyaumc/+irZc
+	+ipWJrTlhrSToys0UFp+5ankOOWNDmsjpMlTjWvSg6jze+2w+ni1BksQdW7X/C20DYNVj9ukUzBYu
+	DT12JtAd2FmXuoLMqrSBEEsnrwGNM2INC17vRhVPhqzkzIRPgfisaEV4zZ8utWFUFXMDb+oEbPmAD
+	82l5jc2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfHv4-00000004ZwB-2DdR;
-	Thu, 02 Jul 2026 13:57:34 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1wfI0B-00000004aHM-0KDr;
+	Thu, 02 Jul 2026 14:02:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfHv0-00000004Zv4-3uzV;
-	Thu, 02 Jul 2026 13:57:32 +0000
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfout.stl.internal (Postfix) with ESMTP id E164F1D000CF;
-	Thu,  2 Jul 2026 09:57:26 -0400 (EDT)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Thu, 02 Jul 2026 09:57:27 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=shutemov.name;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1783000646; x=
-	1783087046; bh=6NWmfe8Dq8JrZ1DQwcJzSv5BvctIaK/5J/1ExFQCV9M=; b=x
-	1pqw1n2RUrH8p9ce2f6m8cqwdOnFzMZjhtlookQDnZVzj9/yCKZvROg7nOyvElQb
-	/BBniiB8S0ZulcFEc15Op0r5VAzi/Hafa0Glraa1qszqdon+XOUHfLMjfvXuBe8R
-	ukEQb1CrGkZQKieEj8hQPljx/Gmff3ingVh9/37fw0uP5cfRZLhHK+iXJ8hfO+O6
-	BcTs7pGl9CqfRJYwWPV9vrVcocDpaNXuxPvNJ9F8Frrvc04hfmkRQjikndBs7DEM
-	f5V0VLgr9nxBhDO7sdwnQAx+gmw4GxzIRF3CT83IQ9jvVbyUhI2S7NyuHvS1arpp
-	dipOquNQsEjOh0Cr3IApg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
-	1783000646; x=1783087046; bh=6NWmfe8Dq8JrZ1DQwcJzSv5BvctIaK/5J/1
-	ExFQCV9M=; b=AXKajFxTOEdTPvlMWtoC/EAQvzNml9bcFd71+Nt1qCW3uOHBLsJ
-	1BVFkJmRETUKSFd2ZMjBQkKpjLKfUClB0QaIN3pYZE8pC0wCAuGCGd0mqB8qF9jb
-	fXgyzZJHYEaIqqDyK+stxK7ep3Suj/Y45wW1NygZD7xfH1qQ8nQnmUpwzKW9ar7N
-	r+oNxlqRxIVewalvZan14obwJ999CWQAKzsy0u/UoOiktmKqieGYmk5zA+ufGhiX
-	RtBTw5fGNlH9gAUJfHl1xjI5K9SKImAUSKq1Nmmj2T39BJmZVPh6w9eoHTAEy3Hn
-	ukn6y61LcidboQA5/4BFLrVef5pWRmYRCzw==
-X-ME-Sender: <xms:RW5GaueEmDtXlZ9AoRmciw5NVL0CpngPFm9ZGTz3Z6XmnT0go3FEJQ>
-    <xme:RW5GarUicBEDb_RCbGhGRrgB2Lx_jVfNnhfiJ0qdrGtwL84p80-k01ELVy3TTj70k
-    MU5CB9CTIxmh-YXG2NWPRBwQQ7GTYVEzk_SOLBpxkcxxni3_DooDfY>
-X-ME-Received: <xmr:RW5Gas_2CUXNnm0uxkUKLiQSwckwLZjtlA005_Av6PH6uVWIVusL5o9-jVBY6Q>
-X-ME-Proxy-Cause: dmFkZTE4TWolB9uoCJVQSvHueLDkUcuW2os1IWqvEyWWpdqUcd4XiL+54kqQ61TrnEGAh6
-    0rlcn5ENk0MJJheNNyEAcxUjLBrOsv0K64/FUoONqzjX0YJjCtGpxHcO1VQ+nCMFQrhOTn
-    Dq6vLJNM3aJFHfxF5c+SFmY9C/SKkrjqIkvfe/EKvQTNcOXfqjbO6+3neM/zHXpUPGKvOL
-    Vaq9+dU5iSP5fKCS4iRI6DLyBCh38T8fe2Eka+C+aI/5uvFxa55erSYbWOAPQVaaurHonk
-    d3xdLEBq8WjP7sVJh4BTwGGAs3R88epaGZlwd3S9vxkmLa7aygDmv0rgKjp8/RVDAkjroV
-    djwEMJwnmYt+RO21T0WTejjDU263fqviOFscWdY6s+B8T2bfsUz/PgHGRw5841J6d/k/ZZ
-    TFEU5pC7ouXLtJIbmxAULG0t14id2aGgbDeDlbT+oDtBiMRc++o7qDVAmxILtQkzMPsnBG
-    n9UKrc0rBY5xhX5YWWxDM0UlXxk1c3hi+0tXChawd0mVjecV8RySI6M2yXbWcby9GFFPU9
-    qypj0S97WffxXus+lbltGOJRf58TuxeGMVtzV1Q6zJ7rI/iMIyfrQmzQU/XjPcAASLL5/R
-    sPd6JVuFSlh1ByC0gWBfmzyXaMIt15uD2o79v+taq3iHjS8JEp+bPZ2jaKiw
-X-ME-Proxy: <xmx:RW5GagiP8nC5e4sFIhf5FkJa9krmBTBFjLTl4HHOH-BxYQYIWY0AAw>
-    <xmx:RW5GapVEBQq2LsDLTubzwuYZe487n1V3V3uHFNKh-akUceZKWyHqQQ>
-    <xmx:RW5Gavv0wmyolvEz1pwEwjPmBLXm5Ps1B-Q-2olbOX4dSu63f-Q0GA>
-    <xmx:RW5Gar6CscIW8QO6cTilKZufPUk731Xro8Nu66m8nSGICo9tfWaTRA>
-    <xmx:Rm5Gal1xI0ow-_X7ewTJxvrou9riiqujrnfOijGrMPpDzM-KS944IQYg>
-Feedback-ID: ie3994620:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 2 Jul 2026 09:57:24 -0400 (EDT)
-Date: Thu, 2 Jul 2026 14:57:23 +0100
-From: Kiryl Shutsemau <kirill@shutemov.name>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>, 
-	Doug Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Andrew Morton <akpm@linux-foundation.org>, 
-	Baoquan He <bhe@redhat.com>, Puranjay Mohan <puranjay@kernel.org>, 
-	Usama Arif <usama.arif@linux.dev>, Breno Leitao <leitao@debian.org>, 
-	Julien Thierry <julien.thierry.kdev@gmail.com>, Lecopzer Chen <lecopzer@gmail.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, kernel-team@meta.com, kexec@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 0/4] arm64: cross-CPU NMI via SDEI
-Message-ID: <akZq-CAdtgg3PbkC@thinkstation>
-References: <cover.1781709543.git.kas@kernel.org>
- <aj6xvvY4AA-fQG2X@arm.com>
- <aj7Pm5H0MN5WwhDK@thinkstation>
- <akJsQK2iG2oZ3vYE@thinkstation>
- <akKVKhOsv6EJVFv4@arm.com>
- <akKiV3CAKWLwHnsW@thinkstation>
- <akOT3yaYVM6BTm_4@thinkstation>
+	id 1wfI09-00000004aH6-3NxA;
+	Thu, 02 Jul 2026 14:02:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id D6324601E0;
+	Thu,  2 Jul 2026 14:02:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0729E1F00A3A;
+	Thu,  2 Jul 2026 14:02:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783000968;
+	bh=TRLANPogjG6BWRTX1aijmLnnh9jWiE73CCVCRyKbidE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N6ap/tSFutvf35GNTz0GsvSkLAEWYxueVqNTildc9lfjjAsYMBYyhDhhZZQJEh6iY
+	 3p3teI3pgWlL4y0/ZxxfsM+5S680oE+4878wOPWz9gjxMdJ0lGOx3hLmeMh64lDaTK
+	 DtjWoUmygyb5qEr4HiAgCI59ywtogq3eTDKraP/vxbq3vDo7LXmM8He/sn/p82ndoL
+	 Im9/KVEihiF2j5BzZlpds1+uzUMV654VFn2SZ/idZLMS3+lWFGlzZKz4gC4U6caDVw
+	 NgPJvyGwULwvCFOxR86dzw3HFroaT0OboKzS2Y5tv7/Te8y1LDHJQjD7Qw74AcCRkt
+	 VlLCbHyNc3/4A==
+Date: Thu, 2 Jul 2026 16:02:46 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+	Madhur Agrawal <madhur.agrawal@airoha.com>
+Subject: Re: [PATCH net-next v7 3/3] net: airoha: defer GDM3/GDM4 WAN mode
+ and GDM2 loopback to QoS offload
+Message-ID: <akZvhnIYe-FMfoOo@lore-desk>
+References: <20260701-airoha-ethtool-priv_flags-v7-0-b4153bd44428@kernel.org>
+ <20260701-airoha-ethtool-priv_flags-v7-3-b4153bd44428@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3joh1UuMhMZBOkHW"
 Content-Disposition: inline
-In-Reply-To: <akOT3yaYVM6BTm_4@thinkstation>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_065731_275220_D2824A3C 
-X-CRM114-Status: GOOD (  28.81  )
+In-Reply-To: <20260701-airoha-ethtool-priv_flags-v7-3-b4153bd44428@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,85 +76,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 11:04:14AM +0100, Kiryl Shutsemau wrote:
-> On Mon, Jun 29, 2026 at 05:53:57PM +0100, Kiryl Shutsemau wrote:
-> > On Mon, Jun 29, 2026 at 04:54:18PM +0100, Catalin Marinas wrote:
-> > > Have you tried SDEI_EVENT_COMPLETE_AND_RESUME instead? Just COMPLETE
-> > > won't return to the kernel. We have sdei_handler_abort() to complete the
-> > > event and, hopefully, you can continue with the CPU_OFF. It's a work
-> > > around the TF-A non-compliance but I think this is useful even if you
-> > > don't issue the CPU_OFF (e.g. no CPU hotplug, just the park loop).
-> > 
-> > Tried it. The result is the opposite of what I expected, and it argues
-> > against doing the complete at all under QEMU's TF-A.
-> 
-> I have to walk back on this. My test setup was broken. I will be back to
-> you with proper data.
 
-Back with proper data. Short version: CPU_OFF from the SDEI stop does not
-work on Grace, whether or not the event is completed first, so the series
-stays with the park. Details below.
+--3joh1UuMhMZBOkHW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-What was broken before
-======================
-My QEMU kdump harness had three faults that together made CPU_OFF look
-like it broke the capture kernel:
+On Jul 01, Lorenzo Bianconi wrote:
+> GDM3 and GDM4 ports require GDM2 loopback to be enabled for hardware
+> QoS offload to function. Without it, HTB and ETS offload on these ports
+> do not work.
+> Previously, GDM3/GDM4 ports were automatically configured as WAN with
+> GDM2 loopback enabled during ndo_init(). Add the capability to configure
+> GDM3/GDM4 as WAN/LAN on demand when QoS offload is created or destroyed.
+> Hook airoha_enable_qos_for_gdm34() into TC_HTB_CREATE so that requesting
+> HTB offload on a GDM3/GDM4 LAN port switches it to WAN mode and enables
+> GDM2 loopback, with proper rollback on failure. Introduce the
+> AIROHA_DEV_F_QOS flag to track whether a device has an active HTB
+> qdisc; clear it on TC_HTB_DESTROY. The device keeps its WAN role after
+> qdisc teardown so that its configuration is preserved until another
+> device explicitly needs the WAN role for QoS offload.
+> If another GDM3/GDM4 device already holds the WAN role without an active
+> QoS qdisc, demote it to LAN before promoting the requesting device. Skip
+> the demotion when the requesting device is itself already the WAN device.
+> Since airoha_dev_set_qdma() can now be called on a running device to
+> migrate between QDMA blocks, make dev->qdma an RCU pointer so the TX
+> path can safely dereference it without holding RTNL.
+> Hold flow_offload_mutex in airoha_enable_qos_for_gdm34() and
+> airoha_disable_qos_for_gdm34() around the dev->flags update,
+> airoha_dev_set_qdma() and GDM2 loopback configuration, serializing
+> against concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER
+> offload path.
+> Introduce airoha_qdma_deref() helper that wraps rcu_dereference_protected=
+()
+> with a lockdep condition accepting either rtnl_lock or flow_offload_mutex,
+> and use it across all control-path dereferences of the RCU-protected
+> dev->qdma pointer.
+> Add airoha_disable_gdm2_loopback() to disable GDM2 hw loopback.
+>=20
+> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
+> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
+> Reviewed-by: Simon Horman <horms@kernel.org>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-  - a race between the sysrq-c crash and the buddy detector -- the script
-    that wedges the CPU wasn't pinned off it, so which crash path ran (and
-    thus the outcome) was random;
-  - the capture kernel's console went quiet at the boot-console handover,
-    so "nothing after Bye!" was mostly lost output, not a hang (keep_bootcon
-    shows it booting on);
-  - the one genuine early stall was the capture kernel's CFI probe of the
-    secure NOR flash -- it reproduces with the whole series compiled out
-    (CONFIG_ARM_SDEI_NMI=n) and disappears with
-    initcall_blacklist=physmap_init, i.e. nothing to do with SDEI.
+Commenting on Sashiko's report:
+https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260701-airoha-ethtool=
+-priv_flags-v7-0-b4153bd44428%40kernel.org
 
-With those fixed, QEMU/TF-A boots the capture kernel to userspace for both
-park and raw CPU_OFF, and CPU_OFF really powers the PE off. But QEMU can't
-decide the question that matters: its post-kexec hold-pen can't revive any
-CPU_OFF'd core (even a cleanly hotplug-offlined one), so re-onlining is
-undecidable there. Hence Grace.
+> ---
+>  drivers/net/ethernet/airoha/airoha_eth.c  | 219 ++++++++++++++++++++++++=
+++----
+>  drivers/net/ethernet/airoha/airoha_eth.h  |  13 +-
+>  drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
+>  drivers/net/ethernet/airoha/airoha_regs.h |   1 +
+>  4 files changed, 214 insertions(+), 28 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 2c9ceb9f16f8..609a5ea67fb7 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
 
-Grace (Neoverse V2, EL3 TF-A)
-=============================
-  - Series as posted (park): the SDEI rung stops the wedged CPU, its
-    context lands in the vmcore, the capture kernel boots. Works.
-    Bringing up secondary CPUs complains that it cannot get the CPU up,
-    but proceeds.
-  - raw CPU_OFF from the uncompleted SDEI event: the capture kernel boots
-    but hangs at "smp: Bringing up secondary CPUs ..." -- it cannot
-    re-online the CPU that was CPU_OFF'd. This is exactly the TF-A point
-    you raised: the SDEI dispatch is left dangling on CPU_OFF and the PE
-    won't come back cleanly.
-  - complete-then-CPU_OFF: same hang at secondary bring-up. Completing the
-    event first does not help.
+[...]
 
-For that last one I did not use sdei_handler_abort(): it can't express
-"complete, then CPU_OFF" from the handler, because its COMPLETE_AND_RESUME
-lands on the "1: ret" trampoline, which resumes the *interrupted* (wedged)
-context -- so nothing after it runs. I used a COMPLETE_AND_RESUME whose
-resume PC is a PSCI CPU_OFF stub, so the event is genuinely completed and
-then the PE powers off. It still can't be re-onlined. (I suspect the
-"complete-then-CPU_OFF wedged EL3" I mentioned earlier was in fact the
-sdei_handler_abort() path resuming the wedged loop, i.e. never doing the
-CPU_OFF at all.)
+> +static void airoha_disable_qos_for_gdm34(struct net_device *netdev)
+> +{
+> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +	struct airoha_gdm_port *port =3D dev->port;
+> +	int err;
+> +
+> +	if (port->id !=3D AIROHA_GDM3_IDX &&
+> +	    port->id !=3D AIROHA_GDM4_IDX)
+> +		return;
+> +
+> +	err =3D airoha_disable_gdm2_loopback(dev);
+> +	if (err)
+> +		netdev_warn(netdev,
+> +			    "failed disabling GDM2 loopback: %d\n", err);
+> +
+> +	dev->flags &=3D ~AIROHA_DEV_F_WAN;
+> +	airoha_dev_set_qdma(dev);
+> +
+> +	airoha_set_macaddr(dev, netdev->dev_addr);
 
-Conclusion
-==========
-CPU_OFF from the SDEI stop is unusable on current TF-A, with or without
-completing the event first -- a concrete real-HW consequence of the
-non-compliance you flagged (TF-A subscribes SDEI to PSCI CPU_ON and
-suspend-wakeup, but not CPU_OFF). So the series keeps the park: the dump
-is complete either way, and only re-onlining the SDEI-stopped CPU in an
-SMP capture kernel is lost -- the same fallback the shared stop path
-already takes when CPU_OFF is unavailable. Powering the PE off for reuse
-is a firmware follow-up (TF-A completing or tearing down the SDEI dispatch
-on PSCI CPU_OFF), not something the kernel can paper over.
+- Should the return value of airoha_set_macaddr() be checked here?
+  airoha_set_macaddr() can return -EINVAL when the device MAC MSBs do
+  not match other same-role sibling devices:
+  	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
+  		...
+  		return -EINVAL;
+  	}
+  Since AIROHA_DEV_F_WAN has just been cleared and dev->qdma has been
+  switched to QDMA0, the scan now iterates LAN-role peers.  If the
+  ex-WAN MAC's top three bytes disagree with the LAN peers, the call
+  returns -EINVAL and the HW MAC registers are left unwritten while
+  the software state has already been flipped to LAN.
+  - The asymmetry is intentional. airoha_disable_qos_for_gdm34() is a
+    teardown path that returns void, the demotion has to happen regardless.
+    Moreover, airoha_set_macaddr() can fail just if the device is
+    misconfigured.
 
-Please consider applying v5.
 
--- 
-  Kiryl Shutsemau / Kirill A. Shutemov
+> +	if (netif_running(netdev))
+> +		airoha_set_gdm_port_fwd_cfg(dev->eth,
+> +					    REG_GDM_FWD_CFG(port->id),
+> +					    FE_PSE_PORT_PPE1);
+> +}
+> +
+> +static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
+> +				       struct netlink_ext_ack *extack)
+> +{
+> +	struct airoha_gdm_dev *wan_dev, *dev =3D netdev_priv(netdev);
+> +	struct airoha_gdm_port *port =3D dev->port;
+> +	struct airoha_eth *eth =3D dev->eth;
+> +	int err =3D -EBUSY;
+> +
+> +	if (port->id !=3D AIROHA_GDM3_IDX &&
+> +	    port->id !=3D AIROHA_GDM4_IDX) {
+> +		/* HW QoS is always supported by GDM1 and GDM2 */
+> +		return 0;
+> +	}
+> +
+> +	if (!airoha_is_lan_gdm_dev(dev)) /* Already enabled */
+> +		return 0;
+> +
+> +	mutex_lock(&flow_offload_mutex);
+> +
+> +	wan_dev =3D airoha_get_wan_gdm_dev(eth);
+> +	if (wan_dev) {
+> +		if ((wan_dev->flags & AIROHA_DEV_F_QOS) ||
+> +		    wan_dev->port->id =3D=3D AIROHA_GDM2_IDX) {
+> +			NL_SET_ERR_MSG_MOD(extack,
+> +					   "QoS configured for WAN device");
+> +			goto error_unlock;
+> +		}
+> +		airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
+> +	}
+> +
+> +	dev->flags |=3D AIROHA_DEV_F_WAN;
+> +	airoha_dev_set_qdma(dev);
+> +	err =3D airoha_enable_gdm2_loopback(dev);
+> +	if (err)
+> +		goto error_disable_wan;
+> +
+> +	err =3D airoha_set_macaddr(dev, netdev->dev_addr);
+> +	if (err)
+> +		goto error_disable_loopback;
+> +
+> +	if (netif_running(netdev)) {
+> +		u32 pse_port;
+> +
+> +		pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
+> +							 : FE_PSE_PORT_PPE1;
+> +		airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
+> +					    pse_port);
+> +	}
+> +
+> +	mutex_unlock(&flow_offload_mutex);
+> +
+> +	return 0;
+> +
+> +error_disable_loopback:
+> +	airoha_disable_gdm2_loopback(dev);
+> +error_disable_wan:
+> +	dev->flags &=3D ~AIROHA_DEV_F_WAN;
+> +	airoha_dev_set_qdma(dev);
+> +error_unlock:
+> +	mutex_unlock(&flow_offload_mutex);
+> +
+> +	return err;
+
+- Does this failure path fully implement the "proper rollback on failure"
+  described in the commit message?
+  Earlier in the function, if a peer wan_dev exists it is demoted via:
+  	airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
+  That helper clears AIROHA_DEV_F_WAN on wan_dev, swaps its RCU qdma
+  pointer to QDMA0, disables GDM2 loopback, rewrites its MAC to the LAN
+  registers, and (if wan_dev was running) sets its REG_GDM_FWD_CFG to
+  FE_PSE_PORT_PPE1.
+  If a later step for the requesting device fails, the error labels
+  error_disable_loopback / error_disable_wan / error_unlock only unwind
+  the requesting device.  The demoted wan_dev is never re-promoted.
+  For example, airoha_set_macaddr(dev, netdev->dev_addr) can return
+  -EINVAL when the requesting device's MAC MSBs disagree with the other
+  WAN-role peers:
+  	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
+  		...
+  		return -EINVAL;
+  	}
+  In that case the failed tc qdisc add returns to userspace, the
+  requesting device is rolled back to LAN, and no GDM3/GDM4 device holds
+  the WAN role anymore.  The previously working WAN device silently loses
+  its WAN role and QDMA1 binding.
+  Should the error paths re-promote wan_dev, or should the preconditions
+  that can fail (MAC MSB check, GDM2 loopback setup) be validated before
+  mutating the peer's state?
+  - This issue has been already reported in the past. If the configuration
+    fails, I think there is no point to move back the previous device as WA=
+N.
+    The user will be able to log again and re-apply the configuration.
+    Moreover, airoha_enable_qos_for_gdm34() can fail just if the device is
+    misconfigured (failures in airoha_enable_gdm2_loopback() or
+    airoha_set_macaddr()).
+
+Regards,
+Lorenzo
+
+> +}
+> +
+>  static int airoha_tc_htb_destroy(struct net_device *netdev)
+>  {
+>  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> @@ -3057,6 +3217,8 @@ static int airoha_tc_htb_destroy(struct net_device =
+*netdev)
+>  	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
+>  		airoha_tc_remove_htb_queue(netdev, q);
+> =20
+> +	dev->flags &=3D ~AIROHA_DEV_F_QOS;
+> +
+>  	return 0;
+>  }
+> =20
+> @@ -3076,24 +3238,33 @@ static int airoha_tc_get_htb_get_leaf_queue(struc=
+t net_device *netdev,
+>  	return 0;
+>  }
+> =20
+> -static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
+> +static int airoha_tc_setup_qdisc_htb(struct net_device *netdev,
+>  				     struct tc_htb_qopt_offload *opt)
+>  {
+>  	switch (opt->command) {
+> -	case TC_HTB_CREATE:
+> +	case TC_HTB_CREATE: {
+> +		struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
+> +		int err;
+> +
+> +		err =3D airoha_enable_qos_for_gdm34(netdev, opt->extack);
+> +		if (err)
+> +			return err;
+> +
+> +		dev->flags |=3D AIROHA_DEV_F_QOS;
+>  		break;
+> +	}
+>  	case TC_HTB_DESTROY:
+> -		return airoha_tc_htb_destroy(dev);
+> +		return airoha_tc_htb_destroy(netdev);
+>  	case TC_HTB_NODE_MODIFY:
+> -		return airoha_tc_htb_modify_queue(dev, opt);
+> +		return airoha_tc_htb_modify_queue(netdev, opt);
+>  	case TC_HTB_LEAF_ALLOC_QUEUE:
+> -		return airoha_tc_htb_alloc_leaf_queue(dev, opt);
+> +		return airoha_tc_htb_alloc_leaf_queue(netdev, opt);
+>  	case TC_HTB_LEAF_DEL:
+>  	case TC_HTB_LEAF_DEL_LAST:
+>  	case TC_HTB_LEAF_DEL_LAST_FORCE:
+> -		return airoha_tc_htb_delete_leaf_queue(dev, opt);
+> +		return airoha_tc_htb_delete_leaf_queue(netdev, opt);
+>  	case TC_HTB_LEAF_QUERY_QUEUE:
+> -		return airoha_tc_get_htb_get_leaf_queue(dev, opt);
+> +		return airoha_tc_get_htb_get_leaf_queue(netdev, opt);
+>  	default:
+>  		return -EOPNOTSUPP;
+>  	}
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index ac5f571f3e53..a314330fcd48 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -537,11 +537,12 @@ struct airoha_qdma {
+> =20
+>  enum airoha_dev_flags {
+>  	AIROHA_DEV_F_WAN =3D BIT(0),
+> +	AIROHA_DEV_F_QOS =3D BIT(1),
+>  };
+> =20
+>  struct airoha_gdm_dev {
+> +	struct airoha_qdma __rcu *qdma;
+>  	struct airoha_gdm_port *port;
+> -	struct airoha_qdma *qdma;
+>  	struct airoha_eth *eth;
+> =20
+>  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
+> @@ -677,6 +678,16 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
+>  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
+>  			     struct airoha_gdm_dev *dev);
+> =20
+> +extern struct mutex flow_offload_mutex;
+> +
+> +static inline struct airoha_qdma *
+> +airoha_qdma_deref(struct airoha_gdm_dev *dev)
+> +{
+> +	return rcu_dereference_protected(dev->qdma,
+> +					 lockdep_rtnl_is_held() ||
+> +					 lockdep_is_held(&flow_offload_mutex));
+> +}
+> +
+>  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
+port);
+>  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
+>  void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *sk=
+b,
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
+net/airoha/airoha_ppe.c
+> index 42f4b0f21d17..0f260c50ac3c 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -15,7 +15,10 @@
+>  #include "airoha_regs.h"
+>  #include "airoha_eth.h"
+> =20
+> -static DEFINE_MUTEX(flow_offload_mutex);
+> +/* Serialize airoha_gdm_dev flags, QDMA pointer and PPE CPU port
+> + * configuration.
+> + */
+> +DEFINE_MUTEX(flow_offload_mutex);
+>  static DEFINE_SPINLOCK(ppe_lock);
+> =20
+>  static const struct rhashtable_params airoha_flow_table_params =3D {
+> @@ -86,8 +89,8 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *=
+ppe)
+> =20
+>  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
+port)
+>  {
+> -	struct airoha_qdma *qdma =3D dev->qdma;
+> -	struct airoha_eth *eth =3D qdma->eth;
+> +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
+> +	struct airoha_eth *eth =3D dev->eth;
+>  	u8 qdma_id =3D qdma - &eth->qdma[0];
+>  	u32 fe_cpu_port;
+> =20
+> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
+rnet/airoha/airoha_regs.h
+> index 436f3c8779c1..4e17dfbcf2b8 100644
+> --- a/drivers/net/ethernet/airoha/airoha_regs.h
+> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
+> @@ -376,6 +376,7 @@
+> =20
+>  #define REG_SRC_PORT_FC_MAP6		0x2298
+>  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
+> +#define FC_MAP6_DEF_VALUE		0x1b1a1918
+> =20
+>  #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
+> =20
+>=20
+> --=20
+> 2.54.0
+>=20
+
+--3joh1UuMhMZBOkHW
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCakZvhgAKCRA6cBh0uS2t
+rIRYAP9gzcl34KcdQs9GVZfh4viK4ItMdpu29s/BbxNVtTtMNAD/RwZlJOqrEZwM
+fGTIrKivFyTiI/EeXxJk4PrT3kNzNwI=
+=zq2G
+-----END PGP SIGNATURE-----
+
+--3joh1UuMhMZBOkHW--
 
