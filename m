@@ -4,92 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33535C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 23:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10974C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 23:08:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ISFvHQZ3NKeevHYQF5oxatYw0rB2ERfN9s0yXu6oE8I=; b=bqWcBrLZPNJEc+2JEjCKI0HmUK
-	gcuKYIZkXOc6j+bKz4DWECjjwP71JH+iy2xSlwIcyhgvtJBZ580BXcM1DaJCjVmId521OXkLv1Eyx
-	6EKXMnlPfDv3j+L2kFCbBYHraHCJ29b9YxtDpI6OObprx64MLdYQHZPf7Hg87mjbXmCndtjlSOrP+
-	rJApdV98qTWXqNUPlPX5h8UwamOYQp5v4MgmBWqGsKriVaxYL+d3v07iYAjBq0Zi2LLDZEMy1FzIO
-	RWimcI0XxmTUyE8utn+42/atO5IwgnPDr0kta1wA8K+wEYl3LSZI6USwcnynTDlllm/LdseQTZXvr
-	/W/NqMlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=bvgOKYK7T77g3oR+LPfWj5fFt53zZhcAY3csRaeP6rw=; b=gJtvHzDv9fsWLxK/HR3pNLsi2j
+	Wb5d3d6EG71129bW002kfZf50gdbRiP1x6w3Gb/W90VGKVzQVQKDEi07FX2ReQrgrNjjoI6WoPurb
+	8xehAqi35Jc4MDR7vcRClSqhqGBhtZwe8Ez7XxzB6CJPwhNtVQEqkpulHkyjtUUT6SRRySy15yLD5
+	hQltIqm8e7jOAjbie7KO7og3w/nqi66+tohVHTm9/OkGkVuvwF/SRUm7nYbyuDdVPyI3LUUNiatE7
+	QcMZVG/akGjgUS9BQz2MyIlT/Z+zThtiWByAGwD22vkVGTivZvxMDdV2Og62OX++fHNvdFSIHZmi/
+	0ImA5C5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfQR5-00000005iS8-3PZB;
-	Thu, 02 Jul 2026 23:03:11 +0000
-Received: from esa10.hc1455-7.c3s2.iphmx.com ([139.138.36.225])
+	id 1wfQVp-00000005inl-1d5E;
+	Thu, 02 Jul 2026 23:08:05 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfQR2-00000005iR8-0GLL
+	id 1wfQVn-00000005inP-0Bto
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 23:03:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
-  t=1783033388; x=1814569388;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SzSr1oCqgTulCTXhvORBDKf3m8KOYxNNU1XaE1bIAds=;
-  b=MTYUlqU749QFj0GFdn6ZTtNQtTxZTEExx/JpFCTOFxbcpROXYXDX0jNa
-   oaoOjXqarC4WfeKIz/UKLhkW3awEam1pBVGyrGRwKmUxXSywp7w4AoFAX
-   g2KFeapb3QeVl0cAH0ycR5mkblkzcpL9zvgeEvLPjBZj+xnoj2ncSJ7m0
-   xtjlrbGp/41Ah5BSnOOuCl5MyoUCGea1UOaqwVM1paj7pKDcGpgjO5QSC
-   oJ7/zrsd9XKDOQYrJCPWJ904MaOj64kwldKN+eb90nCF6hzMCzjUOgbty
-   mpQO0+9g6gsEtTT1lOLqBOw2gDF/6afJW8ZUUJ6Gg8mT6sYjrKuK8u2Nc
-   w==;
-X-CSE-ConnectionGUID: zWwkUpifRdKgZdzH38PjtA==
-X-CSE-MsgGUID: AowYsh2cQoe0v/INp7uBsg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11835"; a="232294263"
-X-IronPort-AV: E=Sophos;i="6.25,144,1779116400"; 
-   d="scan'208";a="232294263"
-Received: from gmgwnl01.global.fujitsu.com (HELO mgmgwnl01.global.fujitsu.com) ([52.143.17.124])
-  by esa10.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2026 08:03:05 +0900
-Received: from az2nlsmgm3.fujitsu.com (unknown [10.150.26.205])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mgmgwnl01.global.fujitsu.com (Postfix) with ESMTPS id E0D9BCA69
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 23:03:04 +0000 (UTC)
-Received: from az2uksmom4.o.css.fujitsu.com (unknown [10.151.22.204])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2nlsmgm3.fujitsu.com (Postfix) with ESMTPS id 8894318ABD27
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 23:03:04 +0000 (UTC)
-Received: from sm-arm-grace07 (unknown [10.124.178.20])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTPS id 924EA40261C;
-	Thu,  2 Jul 2026 23:02:59 +0000 (UTC)
-Date: Fri, 3 Jul 2026 08:02:56 +0900
-From: Itaru Kitayama <itaru.kitayama@fujitsu.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>, Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v2 0/6] KVM: arm64: ptdump: Shadow ptdump fixes
-Message-ID: <akbuIDmd_zH9_m6K@sm-arm-grace07>
-References: <20260630121005.1130996-1-weilin.chang@arm.com>
- <akYLdEuPXEGIZx3E@sm-arm-grace07>
- <vfzn6kbhyemhkum2s72yucbgj4shn7j3g7qd3iima242yph2fr@vdihx2sfibki>
+	Thu, 02 Jul 2026 23:08:04 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8f18d92172aso31858926d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 16:08:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783033682; x=1783638482; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=bvgOKYK7T77g3oR+LPfWj5fFt53zZhcAY3csRaeP6rw=;
+        b=rYrtC3wl2iCmqlXbi8OVaf76FYEtVDiUKvrRN+pwE1x+4RvJfMdupnN1/O2LlKP2EY
+         CSPM5/IBoGwEEWWk9UcJJoBNUDhALx5No39cFF4+Vp0Z+rZTZ3blJhzGxW/WPpXpgmwU
+         t3FflSTJq02+IFZcUjdNSk0Judtf4XtUNH+0efWDzQ2ChCBrV34HKj35aCFxyggFsyJr
+         uBJuEgwjYvFkCwyg4XYlXt6HYjknQC8HzgN4j3OBFNXU7DgjngU4YgRwS70ipX9MmtJb
+         3PZTCBcLkKi2v4SPu3r02nL0U1+SQxBGYGA2xH6mUUNO2CaRLc+I/s6YQke6JwClCLj3
+         uqJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783033682; x=1783638482;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=bvgOKYK7T77g3oR+LPfWj5fFt53zZhcAY3csRaeP6rw=;
+        b=dn4hSc4KO2VPxfL5dL30gLao+IM5Zwr63rAPJRtSuOT5/hpd/D8c8TfUoIsO10g1zO
+         4UBeqSw/ZvoguIko//D52EBybY4Dnu/RKdc2lb95EKnazqevYP8YpIAH8J6z6keAbMpQ
+         WiE+NitZ5cLKN5x7Z2xkFNBbzOqzqECSJyjN7shuW6LlHLcIp5r5HwNytX0M/R8gQvb4
+         EZUtfanmNU0bW+gaIluv3WQMsKPWyK8oSZ4xKy0tY96R6mi4XndojfOPqJyAwQALw6Zs
+         FZZdl+w0MFHoor4NRY+SUe+S+74WbVAV+URd5lxTdr/oC0AIUYCGRpw1QF2uWS1RQnqA
+         rr8Q==
+X-Forwarded-Encrypted: i=1; AHgh+RpFanmyKbKvBU2V5e+2DPHVJZLro/Xpz8twEJf+wc03lh+M6xmt1A36tlcBTDQyF8EiT/9UyR425K70MJc5TBlT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvAYm/4dL+hJrazSS1sV0nWwotrIyeUKF1r3OCwgrQVxgge0qy
+	7Jxz39j5TJysvr/iaYJ5+a3u72oewx3VQDoMF7sOaidEcBv1QTa8rCFF
+X-Gm-Gg: AfdE7cmY4P4ZfKG8bNLHy684mLip7apDIhBDYZVqDH0scmKrn+MvuTPw9atIAigwWnu
+	IqBG7AH4O/uWK63EerhgE34WpTUbJXwiL6LEDQjWqE0CTR8cKSQXd4x36M+JitrwKt7jXPRCLXp
+	PxwpJqxQcg6ARt+bW/9UVUjvqeqHJlq76AvyCdp5Iim48Q5FReXjtvca6zrMMgjXcfkDTVyvhzg
+	PI5zCZkVnVGKmnPJdSq+NuWQGXMlYQShLJCNbhHMqcw9mKmggHbDI9bN3oNvUvg0p8HoV3IiKDv
+	wawmA03amMGFQ6cpxN8KzVBmCv/yzwYuYU0i5J58Yg+iRHDtnaTqmq6tqMtfNuIWUAc1gfksP0o
+	MOOHlFNkdrpnrTikyg26KpArIC8BTr8D7Ne5ewFfYlaoTt2apYY+NHtUXGLi+ai/Gtv8E0BEBnZ
+	zaojhf1ymyp3R3DofRvapx5G7RtLAv0GPBnitKquqF0Kyq0wLBxbVeUI5VAM48c3LrMBj/I8LAT
+	0p0TIucw09W9E4=
+X-Received: by 2002:a05:6214:33c3:b0:8f3:4ea2:427f with SMTP id 6a1803df08f44-8f4214a217dmr92582856d6.1.1783033681514;
+        Thu, 02 Jul 2026 16:08:01 -0700 (PDT)
+Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f472a9d8c0sm38776506d6.49.2026.07.02.16.08.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jul 2026 16:08:01 -0700 (PDT)
+From: Yuho Choi <dbgh9129@gmail.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Mark Brown <broonie@kernel.org>,
+	Yicong Yang <yangyicong@hisilicon.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zhou Wang <wangzhou1@hisilicon.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Yuho Choi <dbgh9129@gmail.com>
+Subject: [PATCH v1] arm64: cpuinfo: Fix sysfs cleanup on failure
+Date: Thu,  2 Jul 2026 19:07:44 -0400
+Message-ID: <20260702230744.91169-1-dbgh9129@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <vfzn6kbhyemhkum2s72yucbgj4shn7j3g7qd3iima242yph2fr@vdihx2sfibki>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_160308_747593_CA93AFDD 
-X-CRM114-Status: GOOD (  31.45  )
+X-CRM114-CacheID: sfid-20260702_160803_085378_8469E9CF 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,93 +102,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 08:41:43AM +0100, Wei-Lin Chang wrote:
-> On Thu, Jul 02, 2026 at 03:55:48PM +0900, Itaru Kitayama wrote:
-> > Hi Wei-Lin,
-> > On Tue, Jun 30, 2026 at 01:09:59PM +0100, Wei-Lin Chang wrote:
-> > > Hi,
-> > > 
-> > > This is v2 of fixing shadow ptdump debugfs files. Unfortunately I couldn't make
-> > > per mmu ptdump files work after all, mainly because there isn't a clean way to
-> > > locate the specific nested mmu for each ptdump file as the nested mmus could be
-> > > freed when the file gets opened. Therefore in this series a single file
-> > > "shadow_page_tables" is created that dumps all valid mmus' page table
-> > > information.
-> > > 
-> > > An advantage of this is that this new ptdump file have a lifetime identical to
-> > > other ptdump files i.e. stage2_page_tables, ipa_range, etc., hence avoiding the
-> > > dentry UAF found last time [1].
-> > > 
-> > > With this all ptdump files are only removed when the last kvm reference gets
-> > > dropped and kvm_destroy_vm_debugfs() is called, in their open(), show()
-> > > functions the nested mmu array and mmu->pgt are checked with mmu_lock held to
-> > > prevent UAF.
-> > > 
-> > > Patch 1-2: Undo previous shadow ptdump implementation.
-> > > Patch 3:   Fix a mmu->pgt UAF that happens when ptdump files are read after
-> > >            mmu->pgt is freed.
-> > > Patch 4-5: Preparation for the shadow page table dump file.
-> > > Patch 6:   Implementation of the shadow page table dump file.
-> > > 
-> > > The fixes are tested with CONFIG_PROVE_LOCKING,
-> > > CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
-> > > 
-> > > Thanks!
-> > 
-> > Running your shadow stage 2 kselftest with bpftrace shows me that __kvm_pgtable_stage2_init()
-> > for shadow stage 2 translation tables are built with ia_bits = 52 and
-> > start_level = 0, but the debugfs entry for the active shadow stage 2 tables prints
-> > out that's 3 levels. Is this fully expected?
-> 
-> Where is this level information you are seeing from? If it is
-> "stage2_level", that only reports the number of levels for the canonical
-> stage-2 (non nested). For nested mmus only the page tables are dumped in
-> nested/shadow_page_tables.
+cpuid_cpu_online() creates the CPU registers kobject and the base
+identification attribute group before optionally merging the SME-specific
+SMIDR attribute into that group.
 
-Yes I know. The initial stage 2 translation table structure information is obtained by 
-instrumenting the kernel using eBPF fexit to __kvm_pgtable_stage2_init().
+If the base group creation fails, return after deleting the kobject. If
+the SME merge fails, remove the base group before deleting the kobject.
 
-Since you're correctly loopin over nested_mmus array, and the output is
-correctly shown using the kvm_pgtable information via the kvm_s2_mmu for
-them, I am confused at this moment.
+Fixes: d69d56496487 ("arm64/sme: Expose SMIDR through sysfs")
+Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+---
+ arch/arm64/kernel/cpuinfo.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-Thanks,
-Itaru.
+diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
+index d50e2a9b066b..141bcfa4d611 100644
+--- a/arch/arm64/kernel/cpuinfo.c
++++ b/arch/arm64/kernel/cpuinfo.c
+@@ -380,9 +380,19 @@ static int cpuid_cpu_online(unsigned int cpu)
+ 		goto out;
+ 	rc = sysfs_create_group(&info->kobj, &cpuregs_attr_group);
+ 	if (rc)
+-		kobject_del(&info->kobj);
+-	if (system_supports_sme())
++		goto out_del_kobj;
++	if (system_supports_sme()) {
+ 		rc = sysfs_merge_group(&info->kobj, &sme_cpuregs_attr_group);
++		if (rc)
++			goto out_remove_group;
++	}
++
++	return 0;
++
++out_remove_group:
++	sysfs_remove_group(&info->kobj, &cpuregs_attr_group);
++out_del_kobj:
++	kobject_del(&info->kobj);
+ out:
+ 	return rc;
+ }
+-- 
+2.43.0
 
-> 
-> Thanks,
-> Wei-Lin Chang
-> 
-> > 
-> > Thanks,
-> > Itaru.
-> > 
-> > > 
-> > > * Changes from v1 ([2]):
-> > > 
-> > >   - Move from per mmu ptdump files to one file that will dump all shadow page
-> > >     tables.
-> > > 
-> > > [1]: https://lore.kernel.org/kvmarm/ajty6I7ZqodP4ous@sm-arm-grace07/
-> > > [2]: https://lore.kernel.org/kvmarm/20260623142443.648972-1-weilin.chang@arm.com/
-> > > 
-> > > Wei-Lin Chang (6):
-> > >   KVM: arm64: ptdump: Remove shadow ptdump files
-> > >   KVM: arm64: ptdump: Undo making the ptdump code mmu aware
-> > >   KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
-> > >   KVM: arm64: ptdump: Factor out initialization of
-> > >     kvm_ptdump_guest_state
-> > >   KVM: arm64: ptdump: Extract kvm_ptdump_guest_open() from canonical
-> > >     ptdump path
-> > >   KVM: arm64: ptdump: Introduce the shadow ptdump file
-> > > 
-> > >  arch/arm64/include/asm/kvm_host.h |   5 +-
-> > >  arch/arm64/include/asm/kvm_mmu.h  |   4 -
-> > >  arch/arm64/kvm/nested.c           |  18 +--
-> > >  arch/arm64/kvm/ptdump.c           | 185 ++++++++++++++++++++----------
-> > >  4 files changed, 135 insertions(+), 77 deletions(-)
-> > > 
-> > > -- 
-> > > 2.43.0
-> > > 
 
