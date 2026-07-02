@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE488C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1263C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rzDg6Eu0nRR4p4AkNSCywRzTxAwA/c7nHfpbUiOlcNE=; b=WbUtFm8oE9utFOaDT9ihni88w5
-	8+HJNVqAXzRCrxUW6tC06pMPNiKYNZrejYsyomx4YIdxLKxdOPGGjaDsRYAbfVIyEj7rLcjrbCKmN
-	8QMZ9SXtfI7S2B/GrJu3AmSkQ0zz/I+xwXoe9EKNUNPN59uNQ0m3qtFrSMPiNwcXxuk4KbIu6XBYS
-	5FAYIC0b9hD40IX0Emc4m33hWVlzAanPfWVoMXkW//W/nSwW/4GH5k1ybBgmAJiyRRE03dtq5wVgy
-	qi25NeVEv+YcWa28U+h1VCJtU9TCcFMBV8DE85VG9j2VHri0qHUFCdtdleTZ8FEOWhVTsDSYIheI1
-	uh6ZMHQQ==;
+	bh=UtNd6BSHdRaL0Wa1rIKAQuRLmED7YnoMHeDT0+9L1os=; b=uc1TrhaDpDlD7ngZ4Qx/wL5NE1
+	mIQ2iUeQlFzSPU/SnNmJ83zjO4XDkKcTFYFzHU5QGZuUoWMA+EoCiCykt1IJLEA4zQWmlZPnOSa9F
+	ge6HoYf8ckUGii24nGI3eeYXGKccR8Z7tlSlTpAdVBCP7kn3T+cIdkC8SKCU3Ozj66XdPYNeB0pOk
+	6doPFJKJrLybovwVjiQ3he70N9lWF0Ha0nwBZrqB2+e+t5/4LzR3UAcwy1N8j4GCe32OAKCUE3k2w
+	qF4HMZEYf5GjXwIdO37MHJdiBa7NTo8UpxCmwUdq9NK0GQSrlw5Z4TSR0RA92MMK5vHsE9c5/4Yob
+	3FZv2wVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJtC-00000004vpw-4A0Q;
-	Thu, 02 Jul 2026 16:03:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfJtG-00000004vva-0VYE;
+	Thu, 02 Jul 2026 16:03:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJtB-00000004vnQ-3uZ0
+	id 1wfJtF-00000004vtc-21Lb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:46 +0000
+	Thu, 02 Jul 2026 16:03:49 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 605B8601EE;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2904743B59;
+	Thu,  2 Jul 2026 16:03:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADFB71F00A3A;
 	Thu,  2 Jul 2026 16:03:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 330CD1F000E9;
-	Thu,  2 Jul 2026 16:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783008225;
-	bh=rzDg6Eu0nRR4p4AkNSCywRzTxAwA/c7nHfpbUiOlcNE=;
+	s=k20260515; t=1783008229;
+	bh=UtNd6BSHdRaL0Wa1rIKAQuRLmED7YnoMHeDT0+9L1os=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=XDmHyGxWFNpd+TXH31F8Y65qId4sMIqFOB/0x0UMCZtGjx1jtvshcuYYeASiYxTcO
-	 dBk8EX9wQiBK4XTNWdHEODZqN7CNateo63o+1QQ1ZvG4nSZXjJrskVxNclS9QB7c7j
-	 rwg8IqwC+anXaKa8AEZsX058hCfCTFGZQptu/CQh8NPFr7uGPg+uGZ5sDofleZ+Qrc
-	 M7VuuR01jXbWi+uD3guMuH8+vnhHmmYaZ9sG6fppmDOjLvvJTzaqLOY5cSK/ZT5XM2
-	 hqqdwi6jI1+WYZjlmYitdaD/B7kkTG9JB78Ch+suKYQ3lztkYEPlBBDEhwtL3M2VBW
-	 li4EWV8pKpXMQ==
+	b=YVjNS9G9IcSAAFNX7IuV/uQMIz74W5Vz5r3Ondup6k/Ze9BrwqgCXPAJE0/Whc5Bd
+	 oc0DhkAPFmuwawqja0ZY9D2/nW/3FLynz8BBGDnP3SfzV+OQ61/4POGaYdfxW21aFt
+	 ru27hIJ5csE+s2Uv+FvarXZP/yvBYUFED2E/1O0SeK014fZ99f8b7a0rK3FWe7XTTq
+	 tbazRlxXn4wCTb9RJA8Dol2r+qpTGNkThydlUkP/9/oejjfh6R2xlFJp8b+cbX58WH
+	 1hcDep6PFJgKFiZcBYQHZuMG5JW9GxJgrlncXGfMut0v+uFVgw967kRf0NcSQBUZFA
+	 VFEENUyobEmVA==
 From: Vinod Koul <vkoul@kernel.org>
-To: Frank.Li@kernel.org, michal.simek@amd.com, dev@folker-schwesinger.de, 
- Suraj Gupta <suraj.gupta2@amd.com>
-Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20260626092656.1563871-1-suraj.gupta2@amd.com>
-References: <20260626092656.1563871-1-suraj.gupta2@amd.com>
-Subject: Re: [PATCH v3 0/3] dmaengine: xilinx_dma: Fixes and optimizations
- for AXIDMA and MCDMA channel management
-Message-Id: <178300822284.756665.15130671466547971043.b4-ty@kernel.org>
-Date: Thu, 02 Jul 2026 21:33:42 +0530
+To: Frank.Li@kernel.org, michal.simek@amd.com, abin.joseph@amd.com, 
+ kees@kernel.org, ptsm@linux.microsoft.com, sakari.ailus@linux.intel.com, 
+ radhey.shyam.pandey@amd.com, u.kleine-koenig@pengutronix.de, 
+ Golla Nagendra <nagendra.golla@amd.com>
+Cc: git@amd.com, dmaengine@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260630064844.705173-1-nagendra.golla@amd.com>
+References: <20260630064844.705173-1-nagendra.golla@amd.com>
+Subject: Re: [PATCH 0/2] dmaengine: zynqmp_dma: fix race between runtime PM
+ and device removal
+Message-Id: <178300822534.756665.17882853364669506909.b4-ty@kernel.org>
+Date: Thu, 02 Jul 2026 21:33:45 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -72,27 +74,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 26 Jun 2026 14:56:53 +0530, Suraj Gupta wrote:
-> This patch series addresses issues and optimizations in the Xilinx
-> AXI DMA and MCDMA drivers:
-> 1. Fix channel idle state management in the interrupt handlers.
-> 2. Enable transfer chaining by removing unnecessary idle restrictions.
-> 3. Optimize control register writes and channel start logic.
+On Tue, 30 Jun 2026 12:18:42 +0530, Golla Nagendra wrote:
+> This patch series addresses two issues in the zynqmp_dma_remove() function:
 > 
-> Note: The patches in this series were part of following IRQ coalescing
-> series which is under discussion:
-> https://lore.kernel.org/all/20250710101229.804183-1-suraj.gupta2@amd.com/
+> 1. Fix the race condition between runtime PM and device removal where
+>    pm_runtime_disable() was called after the power state check, leaving
+>    a window for the runtime PM framework to change state unexpectedly.
+> 
+> 2. Update the stale kernel doc comment that still references a return
+>    value after the function was converted to return void.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/3] dmaengine: xilinx_dma: Fix channel idle state management in AXIDMA and MCDMA interrupt handlers
-      commit: 0b6d055edb55ecadadf54e930c2b4fab76fa9a5a
-[2/3] dmaengine: xilinx_dma: Enable transfer chaining for AXIDMA and MCDMA by removing idle restriction
-      commit: 6078690034790131b9a59081bdf30e26de2254af
-[3/3] dmaengine: xilinx_dma: Optimize control register write and channel start logic for AXIDMA and MCDMA in corresponding start_transfer()
-      commit: 887b3119380cde56f648130029062c223341a1b3
+[1/2] dmaengine: zynqmp_dma: fix race between runtime PM and device removal
+      commit: 516ba2d8b7aac4238f9fcbd58579c43c71b9b695
+[2/2] dmaengine: zynqmp_dma: fix kernel doc for zynqmp_dma_remove()
+      commit: f7e89cba18a1ca6462712ae459a88dd40537b693
 
 Best regards,
 -- 
