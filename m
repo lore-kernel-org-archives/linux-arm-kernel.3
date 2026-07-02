@@ -4,76 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F31C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 263AFC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 17:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYMWwoG+aGYbDAeNtkjiX4sgiIviy2XybeSNdUZXNFo=; b=gSWYmpjeTrEZa/O/aev0laSe4z
-	80d7zfZ4N+pA0n5M3UUL/zYTpIYt+yuaYCYXcSqEN5w+NZ4GORBrWHvAnj9WXhOPqjEI9oK41Ujr9
-	CkITppVPObPQ00zbIaUyf54Md0HokhAhCppIkRQPxUgy8mvhX4VCxd23rSHN4iw3+N8/de4Gb0YF3
-	6Oo7b7TX8BnOovyDFouxz+JohmCMK52cbpe5l/Mo9JPuD+Matd/RMLNBKL6YT+RzCsoMmrtBACexv
-	xLnsId/xOoS7mgORyUS0fA7e35zpBwDHX4N3OiYFShK3lcUsCbPp4pXHyQaObbpdf9zE8xddIu+7o
-	gsox9wBA==;
+	bh=UV7vo70Q15PKxyHcuqcabZOcjIvoszDm8zYalteT250=; b=JGEWJ3QMrnBDfRzgRwjEbKODL0
+	QWY8/FK8VYK+ze/lRJxi2pTaH0WpohFljX080VP53aV2zv5qxdFO9sUJMxq1UyG1FUDg2ByeNgUfb
+	7Adf48QCe0yugiKVfIQyEBnHOp9iORpBCT4SwCo+kqYdsB9Q/HYD6IFuZd8NpQxAS7XcbKyBf+psT
+	qj/BpwndExqM3LMPx54PPWTq97DFWRh/i4YYjZy/poteQhKvYV3ZoOWqtN8dLHNqmg1YC5PDbSAJC
+	wwMJdMusg6eJ0NK9Lsyccj8fz59FUQpdaaMPXpR+uP5I74UQ5NXls4XU+JVefnIKRot9WhzUM3wq8
+	znHyxWWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIhT-00000004gUx-0vQT;
-	Thu, 02 Jul 2026 14:47:35 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wfJsZ-00000004uLJ-33No;
+	Thu, 02 Jul 2026 16:03:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgo-00000004f0K-2xIT;
-	Thu, 02 Jul 2026 14:46:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003612;
-	bh=S6Q8LDH3QfUyODTJ2AoCLtkLMwF3ThHiyASVglFQcFk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=m6sOzqvuBdO2NIWXKmJglOcCHDxBIq1L/deKVYHTWoZkqvQyhePlBlYCxdRDuEIPl
-	 a2n01mJQe+NyrS3npDXy9wRy3yP06VzNtE6S12NKORcOfKHLUIFl6ufGXE4+ya2GNj
-	 F9XFCx/PV6DHCxRvoD7rNCi4ot3G5jomaqzGWdwpbpRCyp0htvlGiYAsoobvQo6LlG
-	 EKMLLZfglNNlVM3xlOvGbA59aWPffFZE8H7HYFEfLUEUvgCqFzfSd90QI0RyCMst2J
-	 AV2ay1cZClYdrPvIVfkPjhVGUYg9yUzNFLd73POyB8Y2+pYORSesmSQ8oy6Wh9HXgc
-	 P1e02aCL5Z/oA==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 658DA17E3664;
-	Thu,  2 Jul 2026 16:46:52 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:41 +0300
-Subject: [PATCH v8 28/39] drm/bridge: dw-hdmi-qp: Drop unused .setup_hpd()
- phy op
+	id 1wfJsU-00000004uCO-0r9V
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 16:03:02 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2827E43F1D;
+	Thu,  2 Jul 2026 16:03:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F1011F00A3E;
+	Thu,  2 Jul 2026 16:03:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783008182;
+	bh=UV7vo70Q15PKxyHcuqcabZOcjIvoszDm8zYalteT250=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=QBHZsXz2mrPcvKCNA4yIgk6MMYZxTI6e53pJi2GYsgmQzfEDC7BPl/BB9pfI/baz9
+	 QN5gjO1hhWU+OeDwSmg9hUHgM/YSeokmkY0JtnPnJAnldtegNp3z/JigCnY8d0rNsm
+	 IdR+bM5OXMcymo9hvTKFVg5zbLSRtTqQSaL8X9lLlWj9uT5WuoJ8ZjgAfWmCgaDRGk
+	 5yV0tOzAj39W/5+mZMcznwydxwOWKrA1f4edHjSQZK8l7v/guorS+6f/MNE/2116Nm
+	 ECTCWBcPUWHGMXApIqEn50DaB0bm4gTpqlOWdopFp6GBvOzryA03IUdcx/IdQUXH9u
+	 hdaKQUmANrNKQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wfJsS-00000000ojd-1OTY;
+	Thu, 02 Jul 2026 16:03:00 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Steffen Eiden <seiden@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 11/28] KVM: arm64: Expose FEAT_NV2p1 to NV guests
+Date: Thu,  2 Jul 2026 17:02:31 +0100
+Message-ID: <20260702160248.1377250-12-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
+References: <20260702160248.1377250-1-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-28-d79890d00b6a@collabora.com>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074654_945883_32495E40 
-X-CRM114-Status: UNSURE (   8.71  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,44 +83,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the transition to .{enable|disable}_hpd() phy ops complete in both
-the bridge and platform drivers, .setup_hpd() has no remaining callers.
-Drop it.
+Since NV2p1 is reducing the number of traps, it is valuable to expose
+it to NV guests. Do so.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 3 ---
- include/drm/bridge/dw_hdmi_qp.h              | 1 -
- 2 files changed, 4 deletions(-)
+ arch/arm64/kvm/nested.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-index 4d41ad7319a5..8ce005673517 100644
---- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-+++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
-@@ -1314,9 +1314,6 @@ static void dw_hdmi_qp_init_hw(struct dw_hdmi_qp *hdmi)
- 	/* Clear DONE and ERROR interrupts */
- 	dw_hdmi_qp_write(hdmi, I2CM_OP_DONE_CLEAR | I2CM_NACK_RCVD_CLEAR,
- 			 MAINUNIT_1_INT_CLEAR);
--
--	if (hdmi->phy.ops->setup_hpd)
--		hdmi->phy.ops->setup_hpd(hdmi, hdmi->phy.data);
- }
- 
- struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
-diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
-index b4fb1c578a5b..ad33f9cafdeb 100644
---- a/include/drm/bridge/dw_hdmi_qp.h
-+++ b/include/drm/bridge/dw_hdmi_qp.h
-@@ -16,7 +16,6 @@ struct dw_hdmi_qp_phy_ops {
- 	int (*init)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*disable)(struct dw_hdmi_qp *hdmi, void *data);
- 	enum drm_connector_status (*read_hpd)(struct dw_hdmi_qp *hdmi, void *data);
--	void (*setup_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*enable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- 	void (*disable_hpd)(struct dw_hdmi_qp *hdmi, void *data);
- };
-
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index dfb96edbdc43c..9972dea42d12a 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -1728,7 +1728,7 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		 * You get EITHER
+ 		 *
+ 		 * - FEAT_VHE without FEAT_E2H0
+-		 * - FEAT_NV limited to FEAT_NV2
++		 * - FEAT_NV limited to FEAT_NV2(p1)
+ 		 * - HCR_EL2.NV1 being RES0
+ 		 *
+ 		 * OR
+@@ -1740,7 +1740,11 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
+ 		if (test_bit(KVM_ARM_VCPU_HAS_EL2_E2H0, kvm->arch.vcpu_features)) {
+ 			val = 0;
+ 		} else {
+-			val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
++			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
++				val = ID_REG_LIMIT_FIELD_ENUM(val, ID_AA64MMFR4_EL1, NV_frac, NV2P1);
++			else
++				val = SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY);
++			val &= ~ID_AA64MMFR4_EL1_E2H0;
+ 			val |= SYS_FIELD_PREP_ENUM(ID_AA64MMFR4_EL1, E2H0, NI_NV1);
+ 		}
+ 		break;
 -- 
-2.54.0
+2.47.3
 
 
