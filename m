@@ -4,158 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E46FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63E9FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C1Yhufc6xvt9ifcyT6JrnbvwoW7wfKisRJN0hIK3Yvs=; b=PdjZaMiROfmtx4nSbFdkbDxwMq
-	E0EvBlCglHVZo/dTX5BRoEzUyPou5D5QusNn8MXYHFERiiCWtzfZPVpJREtE6/HeMyE3HNz2kt1Aa
-	DbG6GtSd7NtBlr8BliwG3FpCHTekWqzbH0ZX3w+aZ8VnV+5r9ljySF22KoTrTPozHwJ6QHxu4AWg/
-	easPtA61EdtsjybdMQ6TkZgV24ULFchWli/aHfPFVhuXiMGrRxaLnY4YiuDpqORDXFVOm+Oo86LbY
-	VksXLoEsXL4pgQlq41bAVLlT/QI1pbTcnAmdzg2ziJnXkVOreRgmuD3dru+ReEcv2mJnQKncVlGxX
-	EzvrAzKw==;
+	bh=b23V63BD9BdyYV2a2cLuU4Mh+dF+RSGxaY+1gI7BIEU=; b=Yy9SvdeDqC0cuEtbVj+zjmnY6b
+	mv2GEtRdjlKwYkbGxB8j7s6kDpR8ZQDqYHLVxGgARcdpDWKLnHtYgtFHosNLkCFIPaET6F06JxmVN
+	SxGeGi/0vo8rwIVB8nb/zNL/9sOIXCYY7GEahSX471PN/qHgLwBjTnX+Rq1PiYpETDQSqUZbR70UV
+	MjckTDDnmr49MMHKXh8YFrio9j0OGhBuL4KFIEpPERMLFcerkbciojG4Qtmerv53vK38zf1xzC2Ap
+	ju5/tz6Ftm/4QOovBU/UMllO4NDQL45edgoQ7dQu06s6nHk0a3Ube3jAY8iL0ZwKg0wD0S41qFA4P
+	WZbLNZzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf5FG-00000003Hek-346r;
-	Thu, 02 Jul 2026 00:25:34 +0000
-Received: from mail-southcentralusazon11011027.outbound.protection.outlook.com ([40.93.194.27] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1wf5FJ-00000003Hfh-3aRD;
+	Thu, 02 Jul 2026 00:25:37 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf5FD-00000003HeM-2zzi
+	id 1wf5FG-00000003HeL-3Sm9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 00:25:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BOLqvxV3BB9w9/nuTXj3DfEmcoNJDqqvU9QJFUPACKo1/45y3OdsH1B/SXzG9ojCuIX4JqdDMytNvbzcULyDCUo3HVIngrxbThOfFKNzlnw7Mvojtit6LI8jFnxyxrRrG0u7PJMTNtjHy4twb2CGWqsl89ByPdC3pWqeo+as25LH5zyhjpyUMLNroxfrj3boep0ZAM0QD+CWtev6p1ksyw/6XiTu+Hcgm2pvEX+MWWETxchDbSKGmxMXfmT2X8bKCV6id+Sbz+41Js8WTP7PVoklLJ9juZJHEmS0vtAEtXXK25okr4ZQ3JwDpspwXNa+9II89IhdPyEp8l8N33aFMQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C1Yhufc6xvt9ifcyT6JrnbvwoW7wfKisRJN0hIK3Yvs=;
- b=ZX/EiXokTyIclQEceN2YnO6XUubMu++r63r9mh+X/SVFXNnWNdCM1BiGE739OWbRzVvRwUxa8VXRKC/OzvhK/RrdLb05VmZrQbXni8qQO6R8Yj13kYwGj7oCaWrzKlx8sD0vshnpPruNqkviE9G2vQRLC8dco1c8qjYztV/hUCVr1GP6f+tCA4ptMC+Aui4s7TrEJ4DPpx4ewAkzokUOmdPgnVurEOXsOlhgRVcbfdzFFNrQmepU1j3gOu16SFEFu2rt69AiZvQX4v3K8ejilIKrLRXsQZDI5tRPO1JQbeblnZvF+rMItT5hIwOrB5OBVMHfMXhjoIN0OLYf35Nxgw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C1Yhufc6xvt9ifcyT6JrnbvwoW7wfKisRJN0hIK3Yvs=;
- b=N3Saq3+lpzUxOgV82PY3ma58fCIlDgOAkFLRnT5SUPcl75REAX+PtHNJoakQm4YjphNHuXHX3rAp38MHbQQFCgTEj9Y5r49HkqrJx40j5sJn+RhNlxg4Cdds8JLS22UA60DZpK7XdaGAiZFsxkFI6wzV7hWKVlA4yd9+ic5YtMs=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB999228.namprd12.prod.outlook.com
- (2603:10b6:806:4db::10) by IA1PR12MB9739.namprd12.prod.outlook.com
- (2603:10b6:208:465::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Thu, 2 Jul
- 2026 00:25:25 +0000
-Received: from SA1PR12MB999228.namprd12.prod.outlook.com
- ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
- ([fe80::4dba:119e:8e7c:37b3%4]) with mapi id 15.21.0181.008; Thu, 2 Jul 2026
- 00:25:25 +0000
-Message-ID: <98800d21-18f6-44d6-9ba0-da9b77567d85@amd.com>
-Date: Thu, 2 Jul 2026 10:25:16 +1000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 03/20] dma-direct: use DMA_ATTR_CC_SHARED in alloc/free
- paths
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
- Robin Murphy <robin.murphy@arm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
- Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>,
- "Cheloha, Scott" <Scott.Cheloha@amd.com>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <20260604083959.1265923-4-aneesh.kumar@kernel.org>
- <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
- <20260617154101.GE3577091@ziepe.ca>
- <25155bd6-4348-4aa8-ba70-0a882fc84db9@amd.com>
- <20260630160242.GI7525@ziepe.ca>
-Content-Language: en-US
-From: Alexey Kardashevskiy <aik@amd.com>
-In-Reply-To: <20260630160242.GI7525@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SY5P300CA0050.AUSP300.PROD.OUTLOOK.COM
- (2603:10c6:10:1fe::9) To SA1PR12MB999228.namprd12.prod.outlook.com
- (2603:10b6:806:4db::10)
+	Thu, 02 Jul 2026 00:25:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1782951925;
+	bh=b23V63BD9BdyYV2a2cLuU4Mh+dF+RSGxaY+1gI7BIEU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=h3bv4x2WU3f1qVa7wLIOYvub7fxttSM9mZv8n11Vg4VoIPKJIsENJXvbd+HN3ds0M
+	 cNISPiqb448GaEdzSxe5INSLK1lnf5MpWUaVphXrhLC2jQh4ncUfEdnPHBL+RuQeKs
+	 +wGvEbXl5aZ3PeTvwmt+3z8oz3eXWAJGGk7SrnnlNbDg0ev2NzTvfzw8XK4vHiEkmd
+	 F9sQLOXnw7VPGED1Zvqi82Gpr6J/HfVYUbWIYf5w2n7mkSR3ny0AeN1/6cPPWmQQ4x
+	 scUrVFdffYKE8fBRFXe9Uc0GRxKAUcwpnpMzfcoT47eg29b5eVu97Edxvh2UA36dot
+	 GGbRjlpj+sJ+g==
+Received: from [192.168.68.117] (unknown [180.150.112.11])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 0162A65871;
+	Thu,  2 Jul 2026 08:25:23 +0800 (AWST)
+Message-ID: <33cf45f92e4aa2ca985501807c3e4f74e1a10032.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v6] soc: aspeed: lpc-snoop: Fix usercopy overflow in
+ snoop_file_read
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Karthikeyan KS <karthiproffesional@gmail.com>
+Cc: joel@jms.id.au, andrew@aj.id.au, Kees Cook <kees@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org
+Date: Thu, 02 Jul 2026 09:55:23 +0930
+In-Reply-To: <20260701171506.338614-1-karthiproffesional@gmail.com>
+References: <033f2657ae6a94ad13d22f717a2900afb75d892d.camel@codeconstruct.com.au>
+	 <20260701171506.338614-1-karthiproffesional@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|IA1PR12MB9739:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea092ab4-5f61-4960-a5f6-08ded7d0695e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|22082099003|6133799003|56012099006|11063799006|3023799007|4143699003|18002099003;
-X-Microsoft-Antispam-Message-Info: p1meNHZ7/WPm688u50XyH2zieVFOZhf/YoocfZTXmF7kj1oUTx//CFegyc7SKauGWVQE3wV3Qd3fnulWYMUvNuoxXxBKhjRls6t38JtMbsuVH3kUgFpq2NxfIY7t1wdVq3CuyXM/0DcdEVHh/fM3AIb42Hw86Knh+RgnAa5NF2M+iRz1y89RQkE9mdmOib2p5UxjLYVVioVtDJP5g3O2iEnHWZ3vSWO3fG08oanpIZNKSVy/JdvA2XdUHmKlLNZVV27qFffx6P91UI7oPtvw1wKbadClSutEWCMhILiYSBdpNpYU/lcK9XxXTDG31G29er2o4m60/UwwXq3f8YFDs8PP3EO3LanqV+CzzGgd87K6MzSKlfxptf28ocXOEi9BUBj1bZf6FaBqus/ITGR6+lFaOk5jrFO8OfTjxzM+dBqP5LAPQ2yLgENJWEo1rqtaqZFvR4ZyH7FvJkt2lCCm9a1bEGM2CdW842Y/ipP++L3OgpcfkaDqn9WCdPiSUvFycHfoNvpdfVrodXAZxTKUsmUlvoaCWoVR2ehkEJV0kyaQUVkq1pETq3IeYQ1qqMqZJN0+XD6Jm6jNiPth+cIDVnyb1oE5v2BrVbzmA3ETgi11Ew7j1QM7w+UTTbT6I2uwWcva/Rd1v25NMopizt26m4yr7ccO2vcsSywNzv/ZcnA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(22082099003)(6133799003)(56012099006)(11063799006)(3023799007)(4143699003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VlI0RDNTODFKc2N3ek1YYWc1bzZla0ZxNFpnTGJzc2k0T1YwQ1daejRGZzZt?=
- =?utf-8?B?WVZ6bXlrNENCZ20vQ204SmtZZzMvd0ZJZzFCSEVteXlnSXIwZjlURjQ2bW81?=
- =?utf-8?B?amEwWjFEOGJkUFdZZVU3S3NXNkl4a2NHSFA1SmtJTzFWajMzSEJBOHVuMUE4?=
- =?utf-8?B?WU1ta043Vi9hOTVkdC9ISnJYdStMbTA1TzVaZzN4SXA5aUxoQ1BlRVFZQWxt?=
- =?utf-8?B?VHEydy9XQjRrcU45RXR5L3NDc0lHTU84OXFnNVl3MnhITmdIdVhDRXh3bHlK?=
- =?utf-8?B?TlZRSlZBTjRzRndYRXA4aTVPV2NJa3doQkFsTEV1V1B2OGIrcHV3OHNVcC9j?=
- =?utf-8?B?eGpCaEpjWjBmR214V01FVGg0eFdOWERKMm94cDl6RVNDaWQrby9VcE03Z0RN?=
- =?utf-8?B?bC83SnppbkptWHVQMjhZdFhPTXljMkkyNU54L2pZZFc2Uk5RUFg1bDY2U1JT?=
- =?utf-8?B?UTdEbzkrQTlLZlZwZXN2TjJEdmJkRnRnUXVoRDdEdSsydjNSdTZwRzJSNmpE?=
- =?utf-8?B?YWdVRFI2MmExcUtLb0RUSW9Ob2FmY3pOTVFOSTYwTVRhVUpieVVadlB4ZEdt?=
- =?utf-8?B?YmRJWnBTMmlFR1dJZGJVazBHY3hzSk1EZHZGeldqZXZYazRKazlvU0Y5TDkr?=
- =?utf-8?B?WHRDaERFSWRVL0VZQ1N2Z1ZrQVFTRWsxdTZDcE5Va3RGcGFtYWxFWk1KZTBJ?=
- =?utf-8?B?UVZweFEwdmNCMlVKSjF3QU0yWnQ0NXJ2M0puRFBITW9GM1JPVGNlVnZUSkh0?=
- =?utf-8?B?N25iRXpIL2JNdnBVbnNqbzdPei9rWWc1eUEvTEtPN3duSHNGblVsT0Y5V0VU?=
- =?utf-8?B?SkZvdmNyV254OE5tM2JrMTFzZHVia21hT0RmNEhLN3pxdXA2Z1VNbEJkSE0v?=
- =?utf-8?B?ZzBodHlhQ0podlpZUXUwRmxvb2dGY0UzejZ0WGR3Ly95aE5mcmVyNHlKeWN1?=
- =?utf-8?B?MUFWTUJhYVkzRTdiM21ZVTFPYTRFUnJ0MFM2MWVkSUJtNUNqR3h5TkNzSU5s?=
- =?utf-8?B?TkNhdUZWTkRpRlJoSlhLck14ZUZsM3MvSENvMmorc2QvaUVRZlFjTVZhZW54?=
- =?utf-8?B?NitjMDBJTjdyMml2OXYzbzNoOWZWUkluL3JlYXFFdEdwUHg1M0JVMHVQYmZp?=
- =?utf-8?B?NlJNSnR6eDNvYmpScVp5UnJsU1krQWY4dDIvdmROQWM3dWd2bXJRaGI3OWVD?=
- =?utf-8?B?MWo4MGhCRThGVy9kZVc3TC9raUxQSlpmbWcvbGxIT296amdHSHFXMnloeDQ0?=
- =?utf-8?B?N01QU2o2SFhUblA0bkhHN0tzRmxhMDJ3MHIycjRUVnBrRmFQeFFVS2xUS2NR?=
- =?utf-8?B?TmRpWWNtWUdBYVJGVmluMVZUNkpERG1LQTNmbVJJdWM1dk9Hajg4T29ucXN3?=
- =?utf-8?B?ZmdMNWhaN3JQbms0UGdab01zaGQzTDQ4VXRqb0xjS0U3a3dtTXRuSnhJVlZa?=
- =?utf-8?B?Wm5wK3hrMGIwRXozZ2pMdm1tK1ZHMUhmUlZFblVhek53OWZYU1pNRGRVY1dk?=
- =?utf-8?B?V3FpUU4wYThqN25ocVdIQTdKYVExSlBhRTZjK2Ewd2dGYXppK1g2eW1tUDJK?=
- =?utf-8?B?SUE1aUxLNnE4Z2ovSjlCcTdpb3ZSNjJCdXc1c1Ava05RVTB0aWxnS2NOeWtM?=
- =?utf-8?B?dVUrc0wxd2MrZTFJV3cyRmV4SUVKSXI0OHVDVHNWTGE2SUNFU2JQcHZZOTNt?=
- =?utf-8?B?L3BWdUIvaFpFVmppZlU0UVEyZFI1Zno2RTVDZndtcUJjSW5XVGtrV2FrMG5U?=
- =?utf-8?B?ZDhlcUdWU0J6dUd4dEFONk1tSmRrWnlTUDVtWHYwRE1acG5SSmpJTEtNUW1m?=
- =?utf-8?B?aDlQRHVCYUFMUXIrOTFXVGJVV0lnRUVUMzlQLzhWdmlYOXlQYTdGcDFCeGdN?=
- =?utf-8?B?MmZla3U3bG5qZ29mTFZNQ1VGaHc2MU5FRUcrdHU4NC9mdXZkbmRacUk4cjZa?=
- =?utf-8?B?anpiUHkxdDN4NWM2RXJrUGc4bHF2K3FaNjhkb0d2bFhxbG9hTS8vaTFZVjNh?=
- =?utf-8?B?bnJkdUphdXZ0c09yZjU4SzRTZnFwelV3c2N0aEFkS21RaGw3bDM5OWNwVUVZ?=
- =?utf-8?B?ejBGbCtpTGJXcGptaEd2YjFkZzRuTC9QYUZBUUdLaUVhT1RGL1FQV1A2SElp?=
- =?utf-8?B?dzZXcE5KVnIzUEFtcEJMUUFxTUozbXJkajd4bnB6ajJUM3o0ZE1ZZDd0d0JH?=
- =?utf-8?B?aXViRmZydGNIT0VXK2ZYaFNlUVYrNi81bWZRRlhHNkM5MlhaKzdnTGhYUENW?=
- =?utf-8?B?MlZHYnVmNzc1S2VCU1gyeXljTG5aWi9tSSs1RWNTSVFBb0ZvZnBVMnozakhN?=
- =?utf-8?B?UlFQNDNVQXdYZWJ5VjFEN1A5QU5uUWt2eStKVkJuZ3dVZXRnR0ZaUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea092ab4-5f61-4960-a5f6-08ded7d0695e
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 00:25:25.5184
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GUrlBrWbc5RCgbjPHJEsAk+nbKxhn/JvXJpLN03KjNzP3xIRf2nPsbiRw+tlFrRXuUVaFafQeBmKBFjpdsjAOw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB9739
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_172531_830459_B16C3344 
-X-CRM114-Status: GOOD (  24.01  )
+X-CRM114-CacheID: sfid-20260701_172535_062654_B3B701BE 
+X-CRM114-Status: UNSURE (   7.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,71 +74,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
+On Wed, 2026-07-01 at 17:15 +0000, Karthikeyan KS wrote:
+> Hi Andrew,
+>=20
+> Just following up, it's been about two weeks since I shared the
+> hardware validation results. I believe I've addressed the questions
+> raised in the thread, but please let me know if there's anything
+> else you'd like me to do.
 
-On 1/7/26 02:02, Jason Gunthorpe wrote:
-> On Thu, Jun 18, 2026 at 12:39:21PM +1000, Alexey Kardashevskiy wrote:
->>
->>
->> On 18/6/26 01:41, Jason Gunthorpe wrote:
->>> On Wed, Jun 17, 2026 at 10:50:39AM +1000, Alexey Kardashevskiy wrote:
->>>>> @@ -193,16 +193,31 @@ void *dma_direct_alloc(struct device *dev, size_t size,
->>>>>     		dma_addr_t *dma_handle, gfp_t gfp, unsigned long attrs)
->>>>>     {
->>>>>     	bool remap = false, set_uncached = false;
->>>>> -	bool mark_mem_decrypt = true;
->>>>> +	bool mark_mem_decrypt = false;
->>>>>     	struct page *page;
->>>>>     	void *ret;
->>>>> +	/*
->>>>> +	 * DMA_ATTR_CC_SHARED is not a caller-visible dma_alloc_*()
->>>>> +	 * attribute. The direct allocator uses it internally after it has
->>>>> +	 * decided that the backing pages must be shared/decrypted, so the
->>>>> +	 * rest of the allocation path can consistently select DMA addresses,
->>>>> +	 * choose compatible pools and restore encryption on free.
->>>>
->>>> Why this limit?
->>>>
->>>> Context: I am looking for a memory pool for a few shared pages (to
->>>> do some guest<->host communication), SWIOTLB seems like the right
->>>> fit but swiotlb_alloc() is not exported and
->>>> dma_direct_alloc(DMA_ATTR_CC_SHARED) is not allowed.  Thanks,
->>>
->>> Then setup your struct device so that the DMA API knows the
->>> guest<->host channel requires unecrypted and it will work correctly.
->>>
->>> I think this is a reasonable API to use for that, and I was just
->>> advocating that hyperv should be using it too.
->>>
->>> But it all relies on a properly setup struct device.
->>
->> Sounds good but how do I do that in practice?
-> 
-> I think we haven't got there yet, I understood Dan's plan was to add a
-> bit in the struct device that signals if the device must be
-> unencrypted or can support all memory.
-> 
-> Currently the dma api assumes all devices must have unencrypted by
-> default so it should be fine already, shouldn't it?
+Nothing further required on your part. I intend to apply it, however am
+working through some other priorities.
 
-It assumes that DMA returns a handle for shared memory but the state of that memory is not guaranteed beforehand. I dislike 2M page mashing.
+Thanks,
 
->> not externally available so I'll have to trick the DMA layer into
->> using SWIOTLB (which is still all shared, right?) as I specifically
->> want to skip page conversions. Setting low DMA mask won't guarantee
->> that the DMA layer won't allocate a page outside of SWIOTLB and
->> convert it. Manually do
-> 
-> Why so particular?
-
-aahhh I missed "pre-". I need a way to get pre-shared pages for my sev-guest activities.
-
-> Any address that satisifies the constraints should
-> be good enough?
-Any address can be already shared (from swiotlb) or not (from outside swiotlb). The latter will may trigger 2M page smashing and this is what I want to avoid. Makes better sense now? Thanks,
-
-
--- 
-Alexey
-
+Andrew
 
