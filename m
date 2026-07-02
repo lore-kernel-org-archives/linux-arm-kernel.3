@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25CDCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:23:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D05C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S6U9PquI1bl4gsO0c+zdVJG09xA+3oRstq88VvzWudc=; b=EU9TSofHUlWwuS1TTlYR/FlC8P
-	sT0HrqsiSLeS4w/IXb6h7WFltSipbWIrMkKu+DqqK0pOZiZY4HvGNpsxceuWzrR60bu5u3nC7zpYo
-	q+mkPNzA6Nr96/vxjnANyYtsK6MU+jskeGjT8OTWLMPC0TA/LYGkEaDpGnCMG8azIXCL94WiZ+CE4
-	d+GmAuu/w2Al616cgaoXEm+bZwH7aXKFUR4HKYQrb2rA8n6m1WYyZSPiNluyM67IQoT8FnzVCw8XQ
-	IbiAoT2tu5mTSaxgkMSObDogvxwqC4dYzaNEOMS7w2UZD+k7tQ3Rsm4c2uyG5qpFLKM0PVd2iENEV
-	dco8BPdg==;
+	bh=ctptTH3qeDu0zBwzmYmGmqkjzVMSnhropx28vhWEkMo=; b=uah6nfqimLOt7DHKvVW9CLTIez
+	SLhcyVvNSCxQJ/KOP01oyIO1+9l//aAf0OFfYZqr5sYnk43mu0IVrWG3CY9cE/eRmjJYGfvNmvANG
+	bE1B8uw8JQnCYIc6TUuGvT0wthCdpruFdefgoc7JNXJrSULGkeBrrYLIVsZ/ZaTo9kuhg5XmBsKpv
+	Sst2J7JyaQNjrUGKA5/QeisNAOV+rjBhXCkueR43LHTm32oFrH9JaHLjxfkfcLIscRUO2cvhmtzrB
+	QolJ9Z8DshB7/DZsBpIlFArAM1L3O1Jz7VCtjILVFe/w0vWBzvsBlxINS1wYcoge4fwRdGP6wASq3
+	c6kbXbjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKBz-00000004zWt-1a7s;
-	Thu, 02 Jul 2026 16:23:11 +0000
+	id 1wfKC3-00000004zaV-27Ab;
+	Thu, 02 Jul 2026 16:23:15 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKBx-00000004zUj-0DjE
+	id 1wfKC1-00000004zYq-2YIS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:23:10 +0000
+	Thu, 02 Jul 2026 16:23:14 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FD3935C8;
-	Thu,  2 Jul 2026 09:23:04 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4D10D35C7;
+	Thu,  2 Jul 2026 09:23:08 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C91DA3F673;
-	Thu,  2 Jul 2026 09:23:04 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC6333F673;
+	Thu,  2 Jul 2026 09:23:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783009388; bh=kEvUNv9TDnlTrcE5k7Pm1MvIytY9hUUE7m5Rs28ExKU=;
+	t=1783009392; bh=StaJVar/MFIJDg7zd2ZfnqLePqmUuN9KdghK7iL1+YA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QdIYOnme/DnUjEmWzeUNK6ASpHR6SGo/287x9A4/W1uA3GWMH7mEfCDRVseFNcVoU
-	 Hvf3RU2VCrLdV//421ADRgtJrKzb95kGpY7tdGLrJwaXqtdp0+/RgFQ+0XJURiIZoU
-	 QguGGcyupZWoiOmAImNVrknU0r8yCq/tN+XcpPAw=
+	b=PzmHFrPk9uPqB7UUnfiAMxTkKxcZU1XlJQ2T+ZOjAu103bzBgImlcmqayqMwt2QFO
+	 ZKsRB1i148kNXsuRziWqCjRElsQVWomXmsNolTxieurST2xDlH8Se+Hj/8Tq1wy29T
+	 HiBeRQbKy9efF/n4vwQv9B63wQaKcrJR68p4wPZk=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -60,17 +60,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 07/15] arm_mpam: propagate MSC read errors for state saving functions
-Date: Thu,  2 Jul 2026 18:22:21 +0200
-Message-ID: <20260702162229.4008659-8-andre.przywara@arm.com>
+Subject: [PATCH v2 08/15] arm_mpam: let low level MSC write accessors return an error
+Date: Thu,  2 Jul 2026 18:22:22 +0200
+Message-ID: <20260702162229.4008659-9-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260702162229.4008659-1-andre.przywara@arm.com>
 References: <20260702162229.4008659-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_092309_167971_0D689CBF 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20260702_092313_728142_09DF1E94 
+X-CRM114-Status: GOOD (  11.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,86 +85,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the mpam_save_mbwu_state() function to return an error, and
-propagate read errors from the lower level up.
+The upcoming MPAM-Fb support does not use MMIO primitives to access an
+MSC, but employs a shared-memory/doorbell based firmware protocol.
+Its complexity means that is must be able to handle errors, whereas we
+always assume an MSC access succeeds today.
+
+Change the __mpam_write_reg() low level accessor function to return an
+error code. At the moment this is always 0, but this will change with
+alternative MSC access methods.
+
+Also change some low level wrappers to propagate the error.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 ---
- drivers/resctrl/mpam_devices.c | 47 +++++++++++++++++++++-------------
- 1 file changed, 29 insertions(+), 18 deletions(-)
+ drivers/resctrl/mpam_devices.c | 12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index d18c7be86aaa..c50ca0e4f426 100644
+index c50ca0e4f426..a7adc75a079c 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1773,6 +1773,7 @@ static int mpam_save_mbwu_state(void *arg)
+@@ -195,18 +195,20 @@ static inline int _mpam_read_partsel_reg(struct mpam_msc *msc, u16 reg,
+ 
+ #define mpam_read_partsel_reg(msc, reg, res) _mpam_read_partsel_reg(msc, MPAMF_##reg, res)
+ 
+-static void __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
++static int __mpam_write_reg(struct mpam_msc *msc, u16 reg, u32 val)
  {
- 	int i;
- 	u64 val;
-+	int ret;
- 	struct mon_cfg *cfg;
- 	u32 cur_flt, cur_ctl, mon_sel;
- 	struct mpam_msc_ris *ris = arg;
-@@ -1789,31 +1790,41 @@ static int mpam_save_mbwu_state(void *arg)
- 		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
- 			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
- 		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
--		mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
--		mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-+		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-+		if (!ret)
-+			ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
-+		if (!ret)
-+			mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+ 	WARN_ON_ONCE(reg + sizeof(u32) > msc->mapped_hwpage_sz);
+ 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
  
--		if (mpam_ris_has_mbwu_long_counter(ris)) {
--			val = mpam_msc_read_mbwu_l(msc);
--			mpam_msc_zero_mbwu_l(msc);
--		} else {
--			u32 val32;
-+		if (!ret) {
-+			if (mpam_ris_has_mbwu_long_counter(ris)) {
-+				val = mpam_msc_read_mbwu_l(msc);
-+				mpam_msc_zero_mbwu_l(msc);
-+			} else {
-+				u32 val32;
- 
--			mpam_read_monsel_reg(msc, MBWU, &val32);
--			val = val32;
--			mpam_write_monsel_reg(msc, MBWU, 0);
-+				ret = mpam_read_monsel_reg(msc, MBWU, &val32);
-+				if (!ret) {
-+					val = val32;
-+					mpam_write_monsel_reg(msc, MBWU, 0);
-+				}
-+			}
- 		}
- 
--		cfg->mon = i;
--		cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
--		cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
--		cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
--		mbwu_state->correction += val;
--		mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-+		if (!ret && val != MSMON___L_NRDY) {
-+			cfg->mon = i;
-+			cfg->pmg = FIELD_GET(MSMON_CFG_x_FLT_PMG, cur_flt);
-+			cfg->match_pmg = FIELD_GET(MSMON_CFG_x_CTL_MATCH_PMG, cur_ctl);
-+			cfg->partid = FIELD_GET(MSMON_CFG_x_FLT_PARTID, cur_flt);
-+			mbwu_state->correction += val;
-+			mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
-+		}
- 		mpam_mon_sel_unlock(msc);
-+		if (ret)
-+			break;
- 	}
- 
--	return 0;
-+	return ret;
+ 	writel_relaxed(val, msc->mapped_hwpage + reg);
++
++	return 0;
  }
  
- /*
+-static inline void _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
++static inline int _mpam_write_partsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
+ {
+ 	lockdep_assert_held_once(&msc->part_sel_lock);
+-	__mpam_write_reg(msc, reg, val);
++	return __mpam_write_reg(msc, reg, val);
+ }
+ 
+ #define mpam_write_partsel_reg(msc, reg, val)  _mpam_write_partsel_reg(msc, MPAMCFG_##reg, val)
+@@ -220,10 +222,10 @@ static inline int _mpam_read_monsel_reg(struct mpam_msc *msc, u16 reg,
+ 
+ #define mpam_read_monsel_reg(msc, reg, res) _mpam_read_monsel_reg(msc, MSMON_##reg, res)
+ 
+-static inline void _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
++static inline int _mpam_write_monsel_reg(struct mpam_msc *msc, u16 reg, u32 val)
+ {
+ 	mpam_mon_sel_lock_held(msc);
+-	__mpam_write_reg(msc, reg, val);
++	return __mpam_write_reg(msc, reg, val);
+ }
+ 
+ #define mpam_write_monsel_reg(msc, reg, val)   _mpam_write_monsel_reg(msc, MSMON_##reg, val)
 -- 
 2.43.0
 
