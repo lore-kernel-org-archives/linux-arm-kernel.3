@@ -4,59 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC8DC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40F82C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Oq1SCAGAkg/fhNyb4Dij2RBKiVngEznFtGkk+Zdb+s=; b=EtKpWr8x8wP1B6OdMhBNRJijRH
-	Ld0jkLu/DoDiV+yL0BPJ1yvTKJXgFbjtBkjl6ExVYZIbJz5gwokaG76R2vfhioOib29Zynd0bmw8P
-	k+o67mDBCEyanBq1pBOX0zxG121XL08rEFdJMAXa4DJY2s/Cjj4ZKoJqsKqFpSBfsJv6cXl61DTtR
-	N3J9sWBsztLvlzOnfypFuFj5ZNf0F7tIxwESq9ErVaX2WJPai6uqrihwlefaGebZg4G8Udgsg9FZ2
-	sQUf/VGCSpHyP+MrMXzGXGp/H115uZ9NUy+VlJwHNMyY0JYtv0Mlv6l1OUQ1s1Jf78HgctV6oeaIu
-	poerxRLg==;
+	bh=m7PQ37TP8TLSa3Y3Mh+GfctL0Wog2HZY6fsfi5VePvQ=; b=tHGWi/l8kBCme62l23hhd38DKK
+	JAX24oEoOpHTEGJNjMofte3qonvj9QkSjqCJiVh4CTR5tNVLzMcCSwKPDMzrqgq8CWQcfCIYOzyEh
+	ZYp3nlI7HytUnBUzShePcYxtEidTuNFWJP+3fUNZ1RCnsBxCRhKxR94slDl0KXGn2b3Fqtz7Sct6f
+	ZeJlSsxS/YGs5vsTMtgCoUhOZmutCmOVonmIuvT1z0Ugkxbwy8XeRRxRmp1hvoNmd5+SvE4RgkS2r
+	J6pqbsteo0gmM1sIGimAw85LON4a0UB/dKA4PlhAudaiAvoGWX3E98EDXngx4yJWKuHZpKrDWfRdQ
+	GnIYwkqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMin-00000005Jab-43nP;
-	Thu, 02 Jul 2026 19:05:13 +0000
+	id 1wfMir-00000005Jik-2m5y;
+	Thu, 02 Jul 2026 19:05:17 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMii-00000005JPr-2tOC;
-	Thu, 02 Jul 2026 19:05:11 +0000
+	id 1wfMin-00000005JWn-0Jhj;
+	Thu, 02 Jul 2026 19:05:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=+Oq1SCAGAkg/fhNyb4Dij2RBKiVngEznFtGkk+Zdb+s=; b=tzVMbT8lbygAzCdhc8BqUypZKW
-	yg5nCOEQKKL/33FmiKBzgAXdOW69t7yuWKEAeZuvOQxGhc4h0t8KtVW6L8xoAy00o0/gs1rSUEu4g
-	sXuSZOMRd82BzkcYMUqJfi62TLAR9HA3bCtl9Fsvh5uwHBifwuUVIqu+xIUPMxTuXGz/wM7wZRJvU
-	kB7TNA8sgRO2KkKf4m4reC97uQJf9O2qMb+0Y2g1JsDWJWYd7aF2fvqavcGvNmq/+gipt39Fdfzih
-	8OiCRoIV2EILJapHv+K0LFkNh6jUniCQzxcsTagsPzzf00wFRYSUh2eAYsM9YAvvzmrXEaO6tG7ta
-	MNWYj1kA==;
+	bh=m7PQ37TP8TLSa3Y3Mh+GfctL0Wog2HZY6fsfi5VePvQ=; b=Jt7tc2xhJjWGJQavuRgUHV+ifa
+	AF2X59WYmK0VSW8hgH+znp+G7NDBzxiYvfWopRG1R2YBftbapRvA2HqK+3aVWF3tR9qFfiCCjljCr
+	/0Q2tGJu3BWzgKNWrPhaODRK7pzblPOiBZipq397eqYyrrj0dvgqPAsgOjAbjp5ZXImtwuTzt7iCy
+	kS+ngbY1gvR845pAYYd/Hvh0XLkJQl7eS3XxOncQSPdrnKlTrGvN1pQNggaVPOogVgMgw2PrHFZQr
+	t3QAo0x//o6NJHvcYfpUAlg0PUYntH5iEtXybCK+UZ2GNGlcfob7zB1Pz60wGYPeXOCk4JOebyEc5
+	Vw07ddog==;
 From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Daniele Briguglio <hello@superkali.me>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] arm64: dts: rockchip: Add HINLINK H28K
-Date: Thu,  2 Jul 2026 21:04:49 +0200
-Message-ID: <178301901910.3838694.10638773555392224178.b4-ty@sntech.de>
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Add Youyeetoo YY3588
+Date: Thu,  2 Jul 2026 21:04:53 +0200
+Message-ID: <178301901896.3838694.11723513577053090499.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260610100006.366963-1-amadeus@jmu.edu.cn>
-References: <20260610100006.366963-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20260610-yy3588-board-v1-0-4bb7176b6826@superkali.me>
+References: <20260610-yy3588-board-v1-0-4bb7176b6826@superkali.me>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_120508_757344_4B9B4956 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20260702_120513_144865_E0ACFF7A 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,23 +72,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 10 Jun 2026 18:00:04 +0800, Chukun Pan wrote:
-> The HINLINK H28K is a dual-gigabit SBC based on the RK3528 SoC.
+On Wed, 10 Jun 2026 15:58:57 +0200, Daniele Briguglio wrote:
+> This series adds support for the Youyeetoo YY3588, a single board
+> computer built around the Rockchip RK3588.
 > 
-> There is a version that SeeedStudio distributes called LinkStar-H28K.
-> It's no different from the HINLINK H28K. The schematic can be found here:
-> 
-> https://www.hinlink.cn/wp-content/uploads/2024/03/20240428015024130824.pdf
-> https://files.seeedstudio.com/wiki/H28K/Open_source/H28K-SCH.zip
+> Both Ethernet ports, eMMC, SD card, USB, Type-C, HDMI output, WiFi on
+> the Mini PCIe slot, audio, the recovery key and the fan have been
+> tested on the board.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/2] dt-bindings: arm: rockchip: Add HINLINK H28K
-      commit: dce1f5a78a4f645ec3fae9b45b1453b989d3fc69
-[2/2] arm64: dts: rockchip: Add HINLINK H28K
-      commit: 145d4af4b204e1fb565a498c6c8f801525cc0a4e
+[1/3] dt-bindings: vendor-prefixes: Add youyeetoo
+      commit: fe76e3493f9ea5e927f9ce6bfe7f8785ba2d0c44
+[2/3] dt-bindings: arm: rockchip: Add Youyeetoo YY3588
+      commit: 1e476370fbb1def308e6da3785843f1d34529721
+[3/3] arm64: dts: rockchip: Add Youyeetoo YY3588
+      commit: 19847bde695f7bc65b16840c91cda4c2e35b36ce
 
 Best regards,
 -- 
