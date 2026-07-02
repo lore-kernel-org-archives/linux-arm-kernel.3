@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F183C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 05:15:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0D3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 05:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkWkBkX560vkT/ZNr93r8SvU+E+F6Z2wGoY4R3XW+08=; b=yQxeBQTwuuoTZTScuuG8BfZFOk
-	L7haN7uL1P9flkf1qvAmClKkE9jCh8sjNyqEy83ubQjvue40ZF0R1s9alCKXzzs0sxi3EGzMjh/Kv
-	orI3e9euGjszxuT2/Ac0fAuRmQ1tq64eFuGoHmedXd0O/wZCW4nbttYHvT449GHNWVTRDLsopetOw
-	Wri9SOsgZ6p4cDNxfSaOPHAvDwgSIAFMLgYGTNDLiinFZ81LHtZXkmSQ6CQ2HRl1xtxM8QEaSqZem
-	l15PY8U1Ve6wBJmkv4GH8QKTzbccwBC/kLqEifx41yMd+w+z38M51mp5XecGJwEvjus0YZJSRF+ci
-	np1rPs6Q==;
+	bh=7WlNPyQYFLmwKtaNoFHPfAfBa2uK4w6WAKhq1umxydQ=; b=D8UBwis9+nxl23H9ZUMbZfp6d8
+	SAr4tSbTgDy+tdAyoXD1jJ6IoHz4RWga019BuTw8EEOTEgvpsIgh8TbD5AJjM2l4a4ZxJFsjgCzcA
+	GTphSYjID7u4vVJ4KTYt4SzE5DZyZMxC60JSReDSwynDa37rcEA11bjUBLQGDvhWkKIsgVTb6cWeb
+	imvnoA0CB2FBmX0LGzqtaV5YzzGZ4rEdVpmjZ9eOFw6cdeaLgnzZIXe9JYwxHBcFMi0SlUA9/Si6J
+	mBQtT+gpKhmrkmel0oF/hjiE64vYMwseo9sQ+FKGL669lac1N765m6/+l87hGqJDkiebj1HOsKVcu
+	lgyOZjmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf9lR-00000003aYm-2Mih;
-	Thu, 02 Jul 2026 05:15:05 +0000
+	id 1wf9la-00000003adE-2uer;
+	Thu, 02 Jul 2026 05:15:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf9lP-00000003aXf-1FeW
+	id 1wf9lY-00000003abx-2DAX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 05:15:04 +0000
+	Thu, 02 Jul 2026 05:15:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0A293585;
-	Wed,  1 Jul 2026 22:14:57 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 931883586;
+	Wed,  1 Jul 2026 22:15:07 -0700 (PDT)
 Received: from cesw-amp-gbt-1s-m12830-01.blr.arm.com (cesw-amp-gbt-1s-m12830-01.blr.arm.com [10.164.195.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 84B2F3F85F;
-	Wed,  1 Jul 2026 22:14:52 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9FD473F85F;
+	Wed,  1 Jul 2026 22:15:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782969302; bh=YVYXx7DeCmRXI/6Xkq+kjiu0y3ZMotg0IHB7MU6Rf+0=;
+	t=1782969311; bh=I7ebyA7U2IBbmxUhqr2edCKpsPqBk8ef9pXwWM/RmMc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DKhRSDIOqCQhkTX1IEPSmVgkM/59IaCv/pY2k6Bd5h6m8z4wqBUSZjy54VDD5BRLn
-	 mrhAiLbh96u/gKDoMChUuxyrG+/9igIyPCWkfYnaw9PKtxNZek+6uGHOkP8vEIorR+
-	 Y3dHBFTViV1wFB6gGFhkduABUrh1JJn9f52xt01g=
+	b=XwiuRd6fXPuSeDCrNxNNkKqwrBYSGz1RsOiHZ5yaS3SYSxFlbr81/JHJw2EohRv8o
+	 qv9BnEYkAoZfhAQrQQLoZ6ed2wJQFtICQu6bp2CRz3/7Tk6yfAD77F7NyrWWccjwwY
+	 jOkQaquHu32CF45zppsHf3Dh8HoMhqITLb1Axt/c=
 From: Dev Jain <dev.jain@arm.com>
 To: muchun.song@linux.dev,
 	osalvador@suse.de,
@@ -76,19 +76,18 @@ Cc: Dev Jain <dev.jain@arm.com>,
 	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	ryan.roberts@arm.com,
-	anshuman.khandual@arm.com,
-	stable@vger.kernel.org
-Subject: [PATCH v2 5/6] mm/page_vma_mapped: use huge_ptep_get() for hugetlb
-Date: Thu,  2 Jul 2026 05:13:39 +0000
-Message-ID: <20260702051341.126509-6-dev.jain@arm.com>
+	anshuman.khandual@arm.com
+Subject: [PATCH v2 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
+Date: Thu,  2 Jul 2026 05:13:40 +0000
+Message-ID: <20260702051341.126509-7-dev.jain@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260702051341.126509-1-dev.jain@arm.com>
 References: <20260702051341.126509-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_221503_383905_478C655F 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260701_221512_608767_615ADED2 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-check_pte() is the final validation step in page_vma_mapped_walk().
-It reads pvmw->pte with ptep_get() to decide whether the entry maps
-the PFN range being walked. For hugetlb VMAs, that pointer refers
-to a hugetlb entry.
+prot_none_hugetlb_entry() is the hugetlb callback for the early
+mprotect(PROT_NONE) PFN permission walk on x86.
 
-On arches which provide their own huge_ptep_get() to dereference a huge
-pte pointer, accessing via ptep_get() would cause pte_pfn(),
-pte_present() etc to misbehave.
+The callback passes the decoded PFN to pfn_modify_allowed(). For a
+hugetlb callback, the pte pointer refers to a hugetlb entry. On
+architectures where hugetlb entries need huge_ptep_get(), reading that
+entry with ptep_get() can make the permission check use the wrong PFN.
 
-It is not clear whether this has a trivially visible effect to userspace.
+Use huge_ptep_get() before decoding the hugetlb PFN.
 
-Use huge_ptep_get() to dereference a huge pte pointer.
+Currently there is no path which can trigger a bug: huge_ptep_get() is a
+simple ptep_get() for x86, and the prot_none walk occurs only for x86.
 
-Fixes: ace71a19cec5 ("mm: introduce page_vma_mapped_walk()")
-Cc: stable@vger.kernel.org
+So no need to backport - use the correct helper anyways.
+
+Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged high MMIO PROT_NONE mappings")
 Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- mm/page_vma_mapped.c | 8 +++++++-
+ mm/mprotect.c | 8 +++++++-
  1 file changed, 7 insertions(+), 1 deletion(-)
 
-diff --git a/mm/page_vma_mapped.c b/mm/page_vma_mapped.c
-index 2ccbabfb2cc17..18e1d341f463c 100644
---- a/mm/page_vma_mapped.c
-+++ b/mm/page_vma_mapped.c
-@@ -107,7 +107,13 @@ static bool map_pte(struct page_vma_mapped_walk *pvmw, pmd_t *pmdvalp,
- static bool check_pte(struct page_vma_mapped_walk *pvmw, unsigned long pte_nr)
- {
- 	unsigned long pfn;
--	pte_t ptent = ptep_get(pvmw->pte);
-+	pte_t ptent;
-+
-+	if (is_vm_hugetlb_page(pvmw->vma))
-+		ptent = huge_ptep_get(pvmw->vma->vm_mm, pvmw->address,
-+				      pvmw->pte);
-+	else
-+		ptent = ptep_get(pvmw->pte);
+diff --git a/mm/mprotect.c b/mm/mprotect.c
+index 9cbf932b028cf..23779632d18bf 100644
+--- a/mm/mprotect.c
++++ b/mm/mprotect.c
+@@ -699,14 +699,20 @@ static int prot_none_pte_entry(pte_t *pte, unsigned long addr,
+ 		0 : -EACCES;
+ }
  
- 	if (pvmw->flags & PVMW_MIGRATION) {
- 		const softleaf_t entry = softleaf_from_pte(ptent);
++#ifdef CONFIG_HUGETLB_PAGE
+ static int prot_none_hugetlb_entry(pte_t *pte, unsigned long hmask,
+ 				   unsigned long addr, unsigned long next,
+ 				   struct mm_walk *walk)
+ {
+-	return pfn_modify_allowed(pte_pfn(ptep_get(pte)),
++	pte_t entry = huge_ptep_get(walk->mm, addr, pte);
++
++	return pfn_modify_allowed(pte_pfn(entry),
+ 				  *(pgprot_t *)(walk->private)) ?
+ 		0 : -EACCES;
+ }
++#else
++#define prot_none_hugetlb_entry	NULL
++#endif
+ 
+ static int prot_none_test(unsigned long addr, unsigned long next,
+ 			  struct mm_walk *walk)
 -- 
 2.43.0
 
