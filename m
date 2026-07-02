@@ -4,95 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32A0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 20:47:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E786FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 20:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xIVBsdzAe7Yc4WFzuAKRuw/CRljjmLh22BC8l+7Gj9M=; b=IbRiDcWUe2Wt9o4DdYZuMlNka+
-	8+ujxxsg6FwIQzzIUi3fxlhqLXVwPwnH7ZdnfcRI3Yl/V15105c4a6RvJ5NAvPrESQfcCPvCgX0WH
-	esWJWhYUyZ3p5tySpTcWnLYBwLT0kSqK6cHY10iT371i5Oz46uClgVbRX10Dr9zXcRNk1J9Q4FKaG
-	GIru3KAHCatNOPbnjK5mjdk03rw3Jr8irJWetSmO+QDJ9JyNoKSIb53uuiAarqfRL0lVW7IS2oYT8
-	vnUSFiup8zaAoTQWc/Ykc6ZBklL9FO95CJhrEnfmjfbYb3PctNE6p8fB+FNkVpIRs0MHcmNmGg9Qx
-	cQyZm5zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IOPaYxIP2LMpN8u9RQ6n3n1HniXA8qWl3iEECN8ezOc=; b=a47B0NHMZgQaet
+	b4rB1O355Jboz5RAATgCdfM/e6Jh6TnV9ZPoVUSJkTBsLO+IitpHDhlysXoTpGPsfSetDTWMeQ/a6
+	IjxmVojtK8waFt0cuNy8i91fheeWOaLsvfLhNvQ7dtKhqamCpwztv+aFHqGxFPtHWBBEce5sp4KnT
+	ND6KNr3jlbpmQqqyBMXNVZN0zcj1P+BwXRmkc92oUmX33YqBAv5ay43hDcniI94XyGai9WsWKLsKo
+	jeto0LsjlgTaBUHBl/MbpQaevPeuCPfNCOUtKeZCpc+TS8s7hEymWtcbnUGDKSSSDG5vrJGWlN4qw
+	GGpJG1kDp3eTaTzpyPTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfOJH-00000005TLd-3aNX;
-	Thu, 02 Jul 2026 20:46:59 +0000
-Received: from mail-pj2-x03.google.com ([2607:f8b0:4864:39::3])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfOJF-00000005TIv-0yqr
+	id 1wfNSA-00000005Olh-3bbu;
+	Thu, 02 Jul 2026 19:52:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfNS7-00000005Ol1-43ig
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 20:46:58 +0000
-Received: by mail-pj2-x03.google.com with SMTP id d9443c01a7336-2c9b43d55a0so14187245ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 13:46:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783025217; x=1783630017; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xIVBsdzAe7Yc4WFzuAKRuw/CRljjmLh22BC8l+7Gj9M=;
-        b=Nt/c7liV8ordaGYkns4rCFAgulnizHh0oF9L7qOlDbT4AT+VhMblP5/w5nx1g9rymv
-         pw0T15e5vB6Jul1Vp9TS9Z9lOkmpxF2KY8a0FwPahkDhzz/uYlOy0FQ0yveXgnZwLOva
-         t5nFYen6jHpxsdN1b/X4XMCEMz6XnQ/7IrKptR66lYtxGk755szg0FOiKzbPnViZKfrj
-         +Zrmls+uYOMHP1mWQFymswOY+QDhL9PIvCnWlHmDj+K2jurWRd8ZqrcrKXv2axYu9xwC
-         0iZfTxjYVW2QpX9z4tMMIKPKG3c96kxcNy5eFhsj9t3Qrr1/IEHqzmafIRcMxXs3+zcB
-         4iog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783025217; x=1783630017;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xIVBsdzAe7Yc4WFzuAKRuw/CRljjmLh22BC8l+7Gj9M=;
-        b=BS+1QcnziOhlLVYnV3rFcF9VCViFW51IT4n0sQ9KAS0E2dxK5IeUPsCkW8zXWhc2xK
-         ZeQN0H4pboRGBoQ0HSqXBuwL2Jl7dMC7GmGR/f30Vs3BKKclS24SKFwmhwI+r7u5wvX6
-         u51DxGXll59DTM/BJbVvvfuflfB6cgPj88dMzecAHt3dlBNTcsFnZZARbbndJgkz6H5N
-         Ek6aoYtsRZoBHdv+vfCjryiTxyEnUMplF64Nad0Wn7DlMWTAFKGHrSqU/xWz2Am23Alb
-         TDn4FX8UOH/P5Luzy7CnHZS5VbBDT0CyBtk9+NB7i7mEnMx3xqvefyG8LMsYUqwPtcnH
-         aO9g==
-X-Forwarded-Encrypted: i=1; AHgh+RrC8NIDUVU9ggGN3OqBQW9xGLNY8W36I7NKB2uJIMnSSjdreDQxOuyFc5LKhaTMaXdtt4Mf8oSMjXwIVa4p3nhq@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo50vUuXpL2eYsG9ABqjFevZgbLmN2s9xgZxhSYy40G1OI3DWn
-	d91t+SXQ4cUkaJNIeJVCC6wcZiA9PE/A6/L270BhGMGO6MEWlS227uS1+J6KgxvTx4c1sQ==
-X-Gm-Gg: AfdE7cnAEn2FzADLSRJm+Q2vOMK55mqJ5Qt3d90ViYygRgTyO23HI0vTJfhlQKHmriS
-	ugezzWXGMnLj61PIRjqlOCXJ/AHvcW1pI2Mg1t1NiYXN94GECuZiuxsLp5fOdW7F50q+relReWO
-	5ug3zkatD7rNH1awthNxZC4gtdIA7K/2rKalBmfQI4KOUjK1LkJ9t6oVZ7olp4MXYqSYhxwEfZJ
-	4xFIZ15TfuZeUm55hWbmWYLcgRDV7JzG6NUTUt8XTLmxp7T8uyaIETCrXVf7oMkhzZzMzw9/voV
-	kBUraAs3k9qV1Q+lVEd1eoMbv01NmBRqFOqs9xyV4qV8xm6CLRN6fg3gh861UZmc4rdZWiXSbfF
-	U4TN2kG17haub9s5En18WmvzKtbFqXHxQjo2BQGgQjCour2Zie/01QZhYiEIQpl7/10Tl4CsCfk
-	TOXrrTl2krI4Y=
-X-Received: by 2002:a17:903:2ac5:b0:2c9:cb1b:64d6 with SMTP id d9443c01a7336-2ca7e6d8c62mr86994665ad.19.1783025216150;
-        Thu, 02 Jul 2026 13:46:56 -0700 (PDT)
-Received: from server.lan ([150.230.217.250])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ca9a9004c1sm18654065ad.21.2026.07.02.13.46.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 13:46:55 -0700 (PDT)
-From: Coia Prant <coiaprant@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Jonas Karlman <jonas@kwiboo.se>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH v5 3/3] arm64: dts: rockchip: Add devicetree for the Graperain G3568 v2
-Date: Fri,  3 Jul 2026 04:46:29 +0800
-Message-ID: <20260702204628.2407308-5-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260702204628.2407308-2-coiaprant@gmail.com>
-References: <20260702204628.2407308-2-coiaprant@gmail.com>
+	Thu, 02 Jul 2026 19:52:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B525335E4;
+	Thu,  2 Jul 2026 12:51:57 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 08F7D3F673;
+	Thu,  2 Jul 2026 12:51:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783021922; bh=t8htHqEC43D7NQ8rG7h2SMr6nEOzDt4h1h5MLfjPjmo=;
+	h=From:Subject:Date:To:Cc:From;
+	b=J2Jg2khRuJPt1hbYyjcqZv6Fn7DMxB3JyuzKkq2rTs57qgaLOnHYe304Uh9vQWDR7
+	 +Scl1yNsMJLoF92svTVl9YHrJvlbETfOH+qvfE62y5Vm8dNU8mw0eEyPowp4Oo11aR
+	 ofB2g7qSVTVbi8QTDe5reiggAskg8K0UMnoXlakw=
+From: Leo Yan <leo.yan@arm.com>
+Subject: [PATCH v11 0/9] perf cs-etm: Support thread stack and callchain
+Date: Thu, 02 Jul 2026 20:51:35 +0100
+Message-Id: <20260702-b4-arm_cs_callchain_support_v1-v11-0-846abbf600d7@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEfBRmoC/5XPy2rDMBAF0F8JWldFo7ey6n+UYvRsBIltpFS0B
+ P975UBJvDJd3uFyZuaGaiw5VnQ83FCJLdc8jT0AvByQP9nxM+Ic+gBRQiURFLDj2JbL4Ovg7fn
+ cO3kc6tc8T+U6NMDUU6uIAuO8Rx2ZS0z5+77h/aPnU67XqfzcFza5Tv9ouUc3iQlOJnGTBPMmh
+ LfefvXTBa1wUw9Mwu6dTXUMnFWKeC2pjVtM/w/THVNMGa6F5inaLWaesf03zfqmTjYYBp4D22J
+ AnjW1qwHpXNRORhEkC048uGVZfgGMwC/BAQIAAA==
+X-Change-ID: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
+ Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>, 
+ Leo Yan <leo.yan@linux.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783021918; l=8146;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=t8htHqEC43D7NQ8rG7h2SMr6nEOzDt4h1h5MLfjPjmo=;
+ b=SSlzdTSKfQzQG/QGu2hPrnZrhONGV1XVMhg/f9foToHcBAMYNrS0UHdZ7jS7Z1P+x/qyZdhGH
+ g1+wFoFnwGNA/FDAuIUVBDTZvrHHZtS1mXMlY8FqcwVI03Pxmaaw4Qa
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_134657_314304_6CD94581 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20260702_125204_107416_C412ABFA 
+X-CRM114-Status: GOOD (  18.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,1038 +89,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Graperain G3568 v2 is an RK3568-based development board, just like
-the RK3568-EVB.
-It always uses soldered connections between the GR3568CV2 core board and
-the RK3568BV2/GR3568BV2 I/O board.
+This series adds thread-stack and synthesized callchain support for Arm
+CoreSight, which comes from older series [1] but heavily rewritten.
 
-The G3568 board has multiple hardware revisions, and we currently
-support v2 (I/O board).
+CS ETM previously kept last-branch state in a per-trace-queue buffer.
+That effectively makes the state per CPU, while the call/return history
+belongs to a thread. This series moves branch tracking to the common
+thread-stack code.
 
-Specification:
-- SoC: RockChip RK3568 ARM64 (4 cores)
-- eMMC: 16-128 GB
-- RAM: 2-16 GB
-- Power: DC 12V 2A
-- Ethernet: 2x RTL8211F RGMII (10/100/1000 Mbps)
-- Wireless radio: 802.11b/g/n/ac dual-band
-- LED:
-  Power: AlwaysOn
-  User: GPIO
-- Button:
-  ESC: SARADC/0 <1100k µV>
-  MENU: SARADC/0 <1400k µV>
-  VOL-: SARADC/0 <430k µV>
-  VOL+: SARADC/0 <50k µV>
-  Power/Reset: PMIC RK809
-- CAN
-  CAN/1: 4-pin (PH 2.0)
-- PWM
-  PWM/4: Backlight
-  PWM/5: Backlight
-  PWM/7: IR Receiver
-- UART:
-  UART/2: Debug TTL - 1500000 8N1 (1.25mm)
-  UART/3: TTL (PH 2.0)
-  UART/4: TTL (PH 2.0)
-  UART/8: AP6356S Bluetooth
-  UART/9: TTL (PH 2.0)
-- I2C:
-  I2C/0: PMIC RK809
-  I2C/1: Touchscreen
-  I2C/4: Camera
-  I2C/5: RTC@51 PCF8563
-- I2S:
-  I2S/0: HDMI Sound
-  I2S/1: RK809 Audio Codec
-  I2S/3: AP6356S Bluetooth Sound
-- SDMMC:
-  SDMMC/0: microSD (TF) slot
-  SDMMC/2: AP6356S SDIO WiFi card
-- Camera: 1x CSI
-- Video: HDMI / DSI0 (MIPI/LVDS) / DSI1 (MIPI/EDP)
-- Audio: HDMI / MIC / Speaker / SPDIF / 3.5mm Headphones / AP6356S Bluetooth
-- USB:
-  USB 2.0 HOST x2
-  USB 2.0 OTG x1 (shared with USB 3.0 OTG/HOST)
-  USB 3.0 HOST x1
-  USB 3.0 OTG/HOST x1
-- SATA: 1x SATA 3.0 with Power/4-pin
-- PCIe: 1x PCIe 3.0 x2 (x4 connector)
+The series records CoreSight branches with thread_stack__event(), uses
+thread_stack__br_sample() for last branch entries, flushes thread stacks
+after decoder resets.
 
-Link:
-- https://image.chukouplus.com/upload/C_153/product_file/20211022/6daddec9e400458816dd4c57ba807fc3.pdf
-- https://blog.gov.cooking/archives/research-graperain-g3568-v2-and-flash.html
+A decoder reset between AUX trace buffers is treated as a global trace
+discontinuity, so all thread stacks are flushed, so avoids carrying
+stale call/return history across a trace discontinuity.
 
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
+One limitation remains for instructions emulated by the kernel. In that
+case the exception return address may not match the return address
+stored in the thread stack, because after exception return can be one
+instruction ahead. The stack can still recover when a later return
+matches an upper caller. Given emulated instructions are not the common
+target for performance callchain analysis. Supporting this would require
+extending the common thread-stack path to accept both the real target
+address and an adjusted address for stack matching, so this series
+leaves that extra complexity out.
+
+The series has been tested on Orion6 board:
+
+  perf test 136 -vvv
+  136: CoreSight synthesized callchain:
+  --- start ---
+  test child forked, pid 3539
+  ---- end(0) ----
+  136: CoreSight synthesized callchain			: Ok
+
+  perf script --itrace=g16i10il64
+
+  callchain_test   17468 [005] 1031003.229943:         10 instructions:
+              aaaac32507c4 main+0x8 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+
+  callchain_test   17468 [005] 1031003.229943:         10 instructions:
+              aaaac3250774 do_svc+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+
+  callchain_test   17468 [005] 1031003.229944:         10 instructions:
+          ffff800080010c20 vectors+0x420 ([kernel.kallsyms])
+              aaaac3250784 do_svc+0x1c (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac3250798 print+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507b0 foo+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              aaaac32507c8 main+0xc (/home/kernel/leoy/test_cs_callchain/callchain_test)
+              ffff90bd225c __libc_start_call_main+0x7c (/usr/lib/aarch64-linux-gnu/libc.so.6)
+              ffff90bd233c call_init+0x9c (inlined)
+              ffff90bd233c __libc_start_main_impl+0x9c (inlined)
+              aaaac3250670 _start+0x30 (/home/kernel/leoy/test_cs_callchain/callchain_test)
+
+Note, the test fails on Juno board which is caused by many discontinuity
+packets (mainly caused by NO_SYNC elem). This is likely caused by the
+FIFO overflow on the path.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
+
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rockchip/rk3568-graperain-g3568-v2.dts    | 943 ++++++++++++++++++
- 2 files changed, 944 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts
+Changes in v11:
+- Rebase on latest perf-tools-next.
+- Verified with "perf test coresight" and no regression.
+- Link to v10: https://lore.kernel.org/r/20260617-b4-arm_cs_callchain_support_v1-v10-0-e8b6e5d63db5@arm.com
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 761d82b4f4f2a..6e9d049e8ddaf 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -144,6 +144,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-easepi-r1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r66s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r68s.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-graperain-g3568-v2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-hinlink-h66k.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-hinlink-h68k.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-lubancat-2.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts b/arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts
-new file mode 100644
-index 0000000000000..9705e1c5a98a9
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-graperain-g3568-v2.dts
-@@ -0,0 +1,943 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3568.dtsi"
-+
-+/ {
-+	model = "Graperain G3568 v2";
-+	compatible = "graperain,g3568-v2", "rockchip,rk3568";
-+
-+	aliases {
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc0;
-+		mmc2 = &sdmmc2;
-+		rtc0 = &rtc0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-esc {
-+			label = "esc";
-+			linux,code = <KEY_ESC>;
-+			press-threshold-microvolt = <1250000>;
-+		};
-+
-+		button-menu {
-+			label = "menu";
-+			linux,code = <KEY_MENU>;
-+			press-threshold-microvolt = <1600000>;
-+		};
-+
-+		button-vol-down {
-+			label = "volume down";
-+			linux,code = <KEY_VOLUMEDOWN>;
-+			press-threshold-microvolt = <600000>;
-+		};
-+
-+		button-vol-up {
-+			label = "volume up";
-+			linux,code = <KEY_VOLUMEUP>;
-+			press-threshold-microvolt = <100000>;
-+		};
-+	};
-+
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led_work: led-0 {
-+			gpios = <&gpio0 RK_PC0 GPIO_ACTIVE_HIGH>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			color = <LED_COLOR_ID_BLUE>;
-+			linux,default-trigger = "heartbeat";
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&led_work_en>;
-+		};
-+	};
-+
-+	rk809-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,name = "Analog RK809";
-+		simple-audio-card,mclk-fs = <256>;
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s1_8ch>;
-+		};
-+		simple-audio-card,codec {
-+			sound-dai = <&rk809>;
-+		};
-+	};
-+
-+	pdm_codec: pdm-codec {
-+		compatible = "dmic-codec";
-+		num-channels = <2>;
-+		#sound-dai-cells = <0>;
-+	};
-+
-+	pdm_sound: pdm-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "microphone";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&pdm>;
-+		};
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&pdm_codec>;
-+		};
-+	};
-+
-+	spdif_dit: spdif-dit {
-+		compatible = "linux,spdif-dit";
-+		#sound-dai-cells = <0>;
-+	};
-+
-+	spdif_sound: spdif-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,name = "SPDIF";
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&spdif>;
-+		};
-+		simple-audio-card,codec {
-+			sound-dai = <&spdif_dit>;
-+		};
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rk809 1>;
-+		clock-names = "ext_clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable>;
-+		post-power-on-delay-ms = <100>;
-+		power-off-delay-us = <300>;
-+		reset-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	dc_12v: regulator-dc-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_12v";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
-+	pcie30_avdd0v9: regulator-pcie30-avdd0v9 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie30_avdd0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	pcie30_avdd1v8: regulator-pcie30-avdd1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie30_avdd1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	vcc3v3_pcie: regulator-vcc3v3-pcie {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio3 RK_PC3 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc3v3_pcie_en_pin>;
-+		regulator-name = "vcc3v3_pcie";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		startup-delay-us = <5000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	vcc5v0_usb: regulator-vcc5v0-usb {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_usb";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	vcc5v0_usb_host: regulator-vcc5v0-usb-host {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PA6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_usb_host_en>;
-+		regulator-name = "vcc5v0_usb_host";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_usb>;
-+	};
-+
-+	vcc5v0_usb_otg: regulator-vcc5v0-usb-otg {
-+		compatible = "regulator-fixed";
-+		enable-active-high;
-+		gpios = <&gpio0 RK_PA5 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc5v0_usb_otg_en>;
-+		regulator-name = "vcc5v0_usb_otg";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&vcc5v0_usb>;
-+	};
-+};
-+
-+&can1 {
-+	assigned-clocks = <&cru CLK_CAN1>;
-+	assigned-clock-rates = <150000000>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&can1m1_pins>;
-+	status = "okay";
-+};
-+
-+/* used for usb_host0_xhci */
-+&combphy0 {
-+	status = "okay";
-+};
-+
-+/* used for usb_host1_xhci */
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+/* connected to sata2 */
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gmac0 {
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-+	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	clock_in_out = "output";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim
-+		     &gmac0_tx_bus2
-+		     &gmac0_rx_bus2
-+		     &gmac0_rgmii_clk
-+		     &gmac0_rgmii_bus>;
-+	phy-handle = <&rgmii_phy0>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	clock_in_out = "output";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		     &gmac1m1_tx_bus2
-+		     &gmac1m1_rx_bus2
-+		     &gmac1m1_rgmii_clk
-+		     &gmac1m1_rgmii_bus>;
-+	phy-handle = <&rgmii_phy1>;
-+	phy-mode = "rgmii-id";
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu>;
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	avdd-0v9-supply = <&vdda0v9_image>;
-+	avdd-1v8-supply = <&vcca1v8_image>;
-+	status = "okay";
-+};
-+
-+&hdmi_in {
-+	hdmi_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi>;
-+	};
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdmi_sound {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	vdd_cpu: regulator@1c {
-+		compatible = "tcs,tcs4525";
-+		reg = <0x1c>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1150000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	rk809: pmic@20 {
-+		compatible = "rockchip,rk809";
-+		reg = <0x20>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
-+		assigned-clocks = <&cru I2S1_MCLKOUT_TX>;
-+		assigned-clock-parents = <&cru CLK_I2S1_8CH_TX>;
-+		#clock-cells = <1>;
-+		clock-names = "mclk";
-+		clocks = <&cru I2S1_MCLKOUT_TX>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_int>, <&i2s1m0_mclk>;
-+		system-power-controller;
-+		#sound-dai-cells = <0>;
-+		vcc1-supply = <&vcc3v3_sys>;
-+		vcc2-supply = <&vcc3v3_sys>;
-+		vcc3-supply = <&vcc3v3_sys>;
-+		vcc4-supply = <&vcc3v3_sys>;
-+		vcc5-supply = <&vcc3v3_sys>;
-+		vcc6-supply = <&vcc3v3_sys>;
-+		vcc7-supply = <&vcc3v3_sys>;
-+		vcc8-supply = <&vcc3v3_sys>;
-+		vcc9-supply = <&vcc3v3_sys>;
-+		wakeup-source;
-+
-+		regulators {
-+			vdd_logic: DCDC_REG1 {
-+				regulator-name = "vdd_logic";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_gpu: DCDC_REG2 {
-+				regulator-name = "vdd_gpu";
-+				regulator-always-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_ddr: DCDC_REG3 {
-+				regulator-name = "vcc_ddr";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vdd_npu: DCDC_REG4 {
-+				regulator-name = "vdd_npu";
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8: DCDC_REG5 {
-+				regulator-name = "vcc_1v8";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_image: LDO_REG1 {
-+				regulator-name = "vdda0v9_image";
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda_0v9: LDO_REG2 {
-+				regulator-name = "vdda_0v9";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_pmu: LDO_REG3 {
-+				regulator-name = "vdda0v9_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <900000>;
-+				};
-+			};
-+
-+			vccio_acodec: LDO_REG4 {
-+				regulator-name = "vccio_acodec";
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd: LDO_REG5 {
-+				regulator-name = "vccio_sd";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_pmu: LDO_REG6 {
-+				regulator-name = "vcc3v3_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vcca_1v8: LDO_REG7 {
-+				regulator-name = "vcca_1v8";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcca1v8_pmu: LDO_REG8 {
-+				regulator-name = "vcca1v8_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vcca1v8_image: LDO_REG9 {
-+				regulator-name = "vcca1v8_image";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3: SWITCH_REG1 {
-+				regulator-name = "vcc_3v3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_sd: SWITCH_REG2 {
-+				regulator-name = "vcc3v3_sd";
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+
-+		codec {
-+			rockchip,mic-in-differential;
-+		};
-+	};
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+
-+	rtc0: rtc@51 {
-+		compatible = "nxp,pcf8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+	};
-+};
-+
-+&i2s0_8ch {
-+	status = "okay";
-+};
-+
-+&i2s1_8ch {
-+	pinctrl-0 = <&i2s1m0_sclktx &i2s1m0_lrcktx &i2s1m0_sdi0 &i2s1m0_sdo0>;
-+	rockchip,trcm-sync-tx-only;
-+	status = "okay";
-+};
-+
-+/* required rk3568-codec-digital for AP6356S Bluetooth Sound */
-+&i2s3_2ch {
-+	status = "disabled";
-+};
-+
-+&mdio0 {
-+	rgmii_phy0: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+		};
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <1>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				function = LED_FUNCTION_LAN;
-+				default-state = "keep";
-+			};
-+		};
-+	};
-+};
-+
-+&pcie30phy {
-+	status = "okay";
-+};
-+
-+&pcie3x2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pcie_reset_pin>;
-+	reset-gpios = <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_pcie>;
-+	status = "okay";
-+};
-+
-+&pdm {
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	bluetooth {
-+		bt_reg_on_h: bt-reg-on-h {
-+			rockchip,pins = <3 RK_PA0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		bt_wake_host_h: bt-wake-host-h {
-+			rockchip,pins = <3 RK_PA1 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+
-+		host_wake_bt_h: host-wake-bt-h {
-+			rockchip,pins = <3 RK_PA2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	leds {
-+		led_work_en: led_work_en {
-+			rockchip,pins = <0 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pmic {
-+		pmic_int: pmic_int {
-+			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	sdio-pwrseq {
-+		wifi_enable: wifi-enable {
-+			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	usb {
-+		vcc5v0_usb_host_en: vcc5v0_usb_host_en {
-+			rockchip,pins = <0 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		vcc5v0_usb_otg_en: vcc5v0_usb_otg_en {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		pcie_reset_pin: pcie-reset-pin {
-+			rockchip,pins = <2 RK_PD6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+		vcc3v3_pcie_en_pin: vcc3v3-pcie-en-pin {
-+			rockchip,pins = <3 RK_PC3 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	wifi-irq {
-+		wifi_host_wake_irq: wifi-host-wake-irq {
-+			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc3v3_pmu>;
-+	pmuio2-supply = <&vcc3v3_pmu>;
-+	vccio1-supply = <&vccio_acodec>;
-+	vccio2-supply = <&vcc_1v8>;
-+	vccio3-supply = <&vccio_sd>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&pwm4 {
-+	status = "okay";
-+};
-+
-+&pwm5 {
-+	status = "okay";
-+};
-+
-+/* Required remotectl for IR receiver */
-+&pwm7 {
-+	status = "disabled";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcca_1v8>;
-+	status = "okay";
-+};
-+
-+&sata2 {
-+	status = "okay";
-+};
-+
-+/* used for eMMC */
-+&sdhci {
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	mmc-hs200-1_8v;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
-+	status = "okay";
-+};
-+
-+/* used for microSD (TF) Slot */
-+&sdmmc0 {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cd-gpios = <&gpio0 RK_PA4 GPIO_ACTIVE_LOW>;
-+	disable-wp;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+/* used for AP6356S WiFi */
-+&sdmmc2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_cmd &sdmmc2m0_clk>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sys>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+
-+	wifi@1 {
-+		compatible = "brcm,bcm4356-fmac", "brcm,bcm4329-fmac";
-+		reg = <1>;
-+		interrupt-parent = <&gpio3>;
-+		interrupts = <RK_PD4 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "host-wake";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_host_wake_irq>;
-+	};
-+};
-+
-+&spdif {
-+	status = "okay";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+/* used for Debug */
-+&uart2 {
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	pinctrl-0 = <&uart3m1_xfer>;
-+	status = "okay";
-+};
-+
-+&uart4 {
-+	pinctrl-0 = <&uart4m1_xfer>;
-+	status = "okay";
-+};
-+
-+/* used for AP6356S Bluetooth */
-+&uart8 {
-+	dma-names = "tx", "rx";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart8m0_xfer &uart8m0_ctsn &uart8m0_rtsn>;
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "brcm,bcm4345c5";
-+		clocks = <&rk809 1>;
-+		clock-names = "lpo";
-+		device-wakeup-gpios = <&gpio3 RK_PA2 GPIO_ACTIVE_HIGH>;
-+		host-wakeup-gpios = <&gpio3 RK_PA1 GPIO_ACTIVE_HIGH>;
-+		max-speed = <1500000>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&bt_reg_on_h &bt_wake_host_h &host_wake_bt_h>;
-+		shutdown-gpios = <&gpio3 RK_PA0 GPIO_ACTIVE_HIGH>;
-+		vddio-supply = <&vcc_1v8>;
-+	};
-+};
-+
-+&uart9 {
-+	pinctrl-0 = <&uart9m1_xfer>;
-+	status = "okay";
-+};
-+
-+&usb_host0_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host0_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host0_xhci {
-+	extcon = <&usb2phy0>;
-+	status = "okay";
-+};
-+
-+&usb_host1_ehci {
-+	status = "okay";
-+};
-+
-+&usb_host1_ohci {
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy0_otg {
-+	phy-supply = <&vcc5v0_usb_otg>;
-+	status = "okay";
-+};
-+
-+&usb2phy1 {
-+	status = "okay";
-+};
-+
-+&usb2phy1_host {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&usb2phy1_otg {
-+	phy-supply = <&vcc5v0_usb_host>;
-+	status = "okay";
-+};
-+
-+&vop {
-+	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-+	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi_in_vp0>;
-+	};
-+};
+Changes in v10:
+- Change to syscall(SYS_gettid) for build failure on x86 (James).
+- Extracted sample thread stack into cs_etm__sample_branch_stack().
+- Link to v9: https://lore.kernel.org/r/20260616-b4-arm_cs_callchain_support_v1-v9-0-f8fad931c413@arm.com
+
+Changes in v9:
+- Added patch 01 to fixed thread leak during trace queue init (sashiko).
+- Added check in instruction and branch samples in
+  cs_etm__add_stack_event() (sashiko).
+- Released frontend_thread properly in cs_etm__context() (sashiko).
+- Refined cs_etm__flush_all_stack() to use switch (sashiko).
+- Gathered James' review tags.
+- Rebased on the latest perf-tools-next.
+- Link to v8: https://lore.kernel.org/r/20260611-b4-arm_cs_callchain_support_v1-v8-0-737948584fea@arm.com
+
+Changes in v8:
+- Updated test_arm_coresight_disasm.sh to pass "--itrace=b" and updated
+  examples in arm-cs-trace-disasm.py (James).
+- Removed static annotation in callchain workload and renamed functions
+  with prefix "callchain_" to reduce naming conflict (James).
+- For callchain test pre-condition check, removed the aarch64 check and
+  added the root permission check (James).
+- Resolved the shellcheck errors (James).
+- Link to v7: https://lore.kernel.org/r/20260611-b4-arm_cs_callchain_support_v1-v7-0-1ba770c862ae@arm.com
+
+Changes in v7:
+- Rebased on the latest perf-tools-next.
+- Used struct_size() for allocation callchain struct (James).
+- Added a helper cs_etm__packet_has_taken_branch() (James).
+- Minor improvements for the callchain test (used record-ctl FIFO and
+  reworked the validation callstack push / pop).
+- Link to v6: https://lore.kernel.org/r/20260526-b4-arm_cs_callchain_support_v1-v6-0-f9f49f53c9dd@arm.com
+
+Changes in v6:
+- Heavily rewrote the patches since restarted the work after 6 years.
+- Changed to use the common thread-stack for branch stack and callchain
+  management.
+- Added a callchain test.
+- Link to v5: https://lore.kernel.org/linux-arm-kernel/20200220052701.7754-1-leo.yan@linaro.org/
+
+Changes in v5:
+- Addressed Mike's suggestion for performance improvement for function
+  cs_etm__instr_addr() for quick calculation for non T32;
+- Removed the patch 'perf cs-etm: Synchronize instruction sample with
+  the thread stack' (Mike);
+- Fixed the issue for exception is taken for branch target address
+  accessing, for the branch sample and stack thread handling, the
+  related patches are 01, 02, 07;
+- Fixed the stack thread handling for instruction emulation and single
+  step with patches 08, 09.
+- Link to v4: https://lore.kernel.org/linux-arm-kernel/20200203020716.31832-1-leo.yan@linaro.org/
+
+---
+Leo Yan (9):
+      perf cs-etm: Fix thread leaks on trace queue init failure
+      perf cs-etm: Filter synthesized branch samples
+      perf cs-etm: Decode ETE exception packets
+      perf cs-etm: Refactor instruction size handling
+      perf cs-etm: Use thread-stack for last branch entries
+      perf cs-etm: Flush thread stacks after decoder reset
+      perf cs-etm: Support call indentation
+      perf cs-etm: Synthesize callchains for instruction samples
+      perf test: Add Arm CoreSight callchain test
+
+ tools/perf/Documentation/perf-test.txt             |   6 +-
+ tools/perf/scripts/python/arm-cs-trace-disasm.py   |   9 +-
+ tools/perf/tests/builtin-test.c                    |   1 +
+ tools/perf/tests/shell/coresight/callchain.sh      | 172 ++++++++++
+ .../shell/coresight/test_arm_coresight_disasm.sh   |   4 +-
+ tools/perf/tests/tests.h                           |   1 +
+ tools/perf/tests/workloads/Build                   |   2 +
+ tools/perf/tests/workloads/callchain.c             |  33 ++
+ tools/perf/util/cs-etm.c                           | 377 +++++++++++++--------
+ 9 files changed, 454 insertions(+), 151 deletions(-)
+---
+base-commit: f6e5090f63b0a9f4c4c42c82348ade4132495ee7
+change-id: 20260521-b4-arm_cs_callchain_support_v1-2c2a70719bcc
+
+Best regards,
 -- 
-2.47.3
+Leo Yan <leo.yan@arm.com>
 
 
