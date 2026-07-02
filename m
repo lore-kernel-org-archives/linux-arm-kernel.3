@@ -4,118 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C5EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 18:55:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21439C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 18:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkXSuQOdgbSwDj1V811Je84c8RPbs+Agf2zsvl3ScOs=; b=qZ6xuAqqDMDgHwpZch1ykdHHbr
-	zxZSVaaTX2+4W/IpV1gogr97SiM66/ztVHVeCgXlkKX/OPYcYLOnok8fSiWPcc7/sqUXC6dYPrMsd
-	emUaBpE/9adjgN/3WXyqBqX4ttU0+VszkpMeCLDqFZgAA6ZNA0L6XfZGF0QDXT+gvluUZVefsGUkw
-	AqpvW26X+96hI5iNZcwQWsvYAlEDFjbnHmsd4sVNR+wXxnZoh0lSkg9fGdAS3638GcUb/IIEarSDX
-	Wyi/2eXnHUFK3qy/+FV7cAvWE7KO7hOZRaf9afAVMaiX8Ak847sK+/PC/lh4bqQ/j+apGO/M3O303
-	Hy8HhMgg==;
+	bh=fNS4tqccb04+QtS0h43Z588lZs7oUTCl9VD/wpTFlbQ=; b=41W7E59vZ4QB2RMZC6bhLmoFLb
+	UWyDwf818gc15K83z1tj40H61BGfCsWQjioCZLn3Ql0x2xc+dzC/NZrbuUDmfGHo8sa3ZZMjrxaq2
+	CK2cVDrWkUQhvhgaCMDb/aLx3cfcvax7sXqrWPH24Gp36FUHWbeP6X+ze4X9YmXFMMXi2QxFMgffd
+	D+SqQj5Eccqti9NODdXCLwJ4D2qE16BOQfw/UaOiF1JHnbRniHcKP1A1vDZiucO+GqDNwvva+z6GW
+	nRPRcQdhtKcHaphilEva/ZRP+diyNoCTwnXgYFQhL3u8UwJVZpY3hcFsHesjtseQWfTKjkfiJCinC
+	nrxKoXtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMZJ-00000005IMv-2lzE;
-	Thu, 02 Jul 2026 18:55:25 +0000
-Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1wfMZP-00000005IOg-3dbN;
+	Thu, 02 Jul 2026 18:55:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMZH-00000005IMW-0A8B
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 18:55:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iGBbG3Tfg7IknPN0e17cGlc8FdCjfa2oHb3LodHyfPLCF2DEaCT2Ob02c9Kc0tZ3OIim1QwCGMNBOWL/5bLcu83hcTK4boAdPH+/toDPMOnOCqnl7+D/ngpE8VMWFd/s75cf5Dtx8V+O8UK/KsyuFQRQb9CR+d3ubfMNZLK9GQNyX7/BGjOHzuLQ6JIpyiG48BzkuGpPbjZeAyNjwx6GBCxmVfc5GvINRxLjuTklLH+DipkSotPWuG8ZG6AWcznIsICbwPVxDIUIu/i3LzJcWR5QEwX9aBjAgsOWnZ0kFuC30543UF65rT6OwQxYBeAcLzRIm1fVgJZVjxLT3mPXrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OkXSuQOdgbSwDj1V811Je84c8RPbs+Agf2zsvl3ScOs=;
- b=UR0BtkF7I9M0TSrbiOR/kJtc8WAQi1HjJQNRuxNFtbB9O9J/S5/pwBUhy/qGDizYULklH73D+TB251NZB5OfQR+SxkAeRKJM0BcIlwVTcFL6bvBOrHy1sb2s1F/q93cmHqyIit1wQmm9cbau+E7YPbmFyezjZHqM7fEofrF53UAL/7RblCkhnBIuwl8ZOlPL43V31iYPTWF8JVeJuD8sYlvU/qKACKBUNKv/b9LAr9b01bkMIPqsQocomR6f/qMHD7E2UBYWvqqdBa0CUUuNjSXlyQvdKmxmG9Jbfk48speKo3v/DNyVRNHdfOSfhZnbjaDOguwioxw71P+rOoUgrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OkXSuQOdgbSwDj1V811Je84c8RPbs+Agf2zsvl3ScOs=;
- b=agvjK9H671xvgLxi4jlpw92MoLQw79ecvXSdylk85+N2xs2iA+ytoXCy1EjzKilhgxnfasQUn0JTYvoo5i0veSw+loLQPm1NtYAOQRQTgYrBskR/fSXJGE7BI0N7oUexZi+Kds0uA4j+trzI/BZL4ExXCmsX/1PUK91dY5X0Nev6RW/8Aivcv3msVr+nCNs8379yvM6zsmBgY8EPcUPkR2tFz9kQrPF0XOE78ID2LZV+ot32dZ4x1SWaRR49Z8fIPGevkwXGKTL8Ob0o62lmgP7gSymk5dm3pJKrTquVUSZfvzqKRCBxxEn1xAnl4jryPUNpzS6riWI8bfIfQWLYqw==
-Received: from SJ0PR13CA0131.namprd13.prod.outlook.com (2603:10b6:a03:2c6::16)
- by SA1PR12MB6995.namprd12.prod.outlook.com (2603:10b6:806:24e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Thu, 2 Jul
- 2026 18:55:07 +0000
-Received: from MWH0EPF000C618E.namprd02.prod.outlook.com
- (2603:10b6:a03:2c6:cafe::57) by SJ0PR13CA0131.outlook.office365.com
- (2603:10b6:a03:2c6::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Thu, 2
- Jul 2026 18:55:06 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- MWH0EPF000C618E.mail.protection.outlook.com (10.167.249.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 18:55:06 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
- 2026 11:54:48 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 2 Jul 2026 11:54:48 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 2 Jul 2026 11:54:47 -0700
-Date: Thu, 2 Jul 2026 11:54:45 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-CC: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
- Roedel" <joro@8bytes.org>, Jason Gunthorpe <jgg@ziepe.ca>, Kyle McMartin
-	<jkkm@meta.com>, Breno Leitao <leitao@debian.org>, Usama Arif
-	<usama.arif@linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
- kdump kernel
-Message-ID: <akaz9UYyPm2yKr92@nvidia.com>
-References: <20260702112825.781750-1-kas@kernel.org>
+	id 1wfMZO-00000005IOK-1flp;
+	Thu, 02 Jul 2026 18:55:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 62880601CF;
+	Thu,  2 Jul 2026 18:55:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB9B1F000E9;
+	Thu,  2 Jul 2026 18:55:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783018529;
+	bh=fNS4tqccb04+QtS0h43Z588lZs7oUTCl9VD/wpTFlbQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=NacNS6bg/nGPS5YUVw5jH76wz5YShTWSyyE8s+P9wfrl2yzgf4tTqcvZHd84S/7Dg
+	 DDaRntRlSXAQmnWC9ElrOfi+TuWSbnb7FQi3I4Te4lO1VsC4K6hrneeJsRSTr2B5hG
+	 v60VUaXomKc6i8I8XKVWIzjnJsOPFhn0XrSMskbWikxlCGMT2LKUKUChoG6CXUGT5h
+	 koccK0yAKwj+292C599zTt87zjQ+SsCFkTAFkjKlxCEFClwz47A+xtLqXaKv6pEn3h
+	 51yzH/sYvncroPFkvHbxw8GTs8sxwIWGve6jNtawVKeMepHRu8pziEf52iuZ80c7LE
+	 4SHH3bL6VawbA==
+Date: Thu, 2 Jul 2026 19:55:21 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Kyrie Wu =?utf-8?B?KOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"laurent.pinchart+renesas@ideasonboard.com" <laurent.pinchart+renesas@ideasonboard.com>,
+	"nicolas.dufresne@collabora.com" <nicolas.dufresne@collabora.com>,
+	"jacopo.mondi@ideasonboard.com" <jacopo.mondi@ideasonboard.com>,
+	Yunfei Dong =?utf-8?B?KOiRo+S6kemjnik=?= <Yunfei.Dong@mediatek.com>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	Irui Wang =?utf-8?B?KOeOi+eRnik=?= <Irui.Wang@mediatek.com>,
+	"rongqianfeng@vivo.com" <rongqianfeng@vivo.com>,
+	"tzungbi@kernel.org" <tzungbi@kernel.org>,
+	"tfiga@chromium.org" <tfiga@chromium.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"wenst@chromium.org" <wenst@chromium.org>,
+	"benjamin.gaignard@collabora.com" <benjamin.gaignard@collabora.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+	"haoxiang_li2024@163.com" <haoxiang_li2024@163.com>,
+	"ribalda@chromium.org" <ribalda@chromium.org>,
+	Tiffany Lin =?utf-8?B?KOael+aFp+ePiik=?= <tiffany.lin@mediatek.com>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"sebastian.fricke@collabora.com" <sebastian.fricke@collabora.com>,
+	"fshao@chromium.org" <fshao@chromium.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"mchehab@kernel.org" <mchehab@kernel.org>,
+	"fanwu01@zju.edu.cn" <fanwu01@zju.edu.cn>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Andrew-CT Chen =?utf-8?B?KOmZs+aZuui/qik=?= <Andrew-CT.Chen@mediatek.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"hverkuil+cisco@kernel.org" <hverkuil+cisco@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"kees@kernel.org" <kees@kernel.org>,
+	"sakari.ailus@linux.intel.com" <sakari.ailus@linux.intel.com>
+Subject: Re: [PATCH v5 11/14] dt-bindings: media: mediatek: vcodec: add
+ decoder dt-bindings for mt8196
+Message-ID: <20260702-parlor-disband-fdc2f049336c@spud>
+References: <20260603084045.17488-1-kyrie.wu@mediatek.com>
+ <20260603084045.17488-12-kyrie.wu@mediatek.com>
+ <20260603-pentagram-unleveled-8729d0003aa7@spud>
+ <6cb7ae4a09d476a04ceefca50564646712ad391b.camel@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="JdEKl3bSogEo/Lcd"
 Content-Disposition: inline
-In-Reply-To: <20260702112825.781750-1-kas@kernel.org>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000C618E:EE_|SA1PR12MB6995:EE_
-X-MS-Office365-Filtering-Correlation-Id: e60abf73-13a0-40c2-8e2d-08ded86b6ed3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|7416014|36860700016|23010399003|18002099003|22082099003|3023799007|56012099006|11063799006|6133799003;
-X-Microsoft-Antispam-Message-Info: qhmWypZVyo934Vu/f6WJjgclIgO5xQhMrYpR3QGC5zLbllwGchcRpWzrhLeLtByFJcSrTjf3dYTvxRL3vQKLfj2J4fpCTKuPj5UOdeCUPdUU/3lJKbRO73vvFWWpuFgmqZzC1Up7fmQWTrOdp1yPXEUOW4jvFD1pQTa4049Gu6pgExaaXRO0lqX+mdxyxgyxSIrqXdQoMt6PlCrc5in282mezQfmtpFhlK/0ACIDlDFKDO2xHaW7ljEg5ofo78NS6T8CNgK5bzvuESsMtazQuTIS6p4x5fxuVNSltzuZP2Jn+FRdGgNVmrw6y8ZVoSPafL5RcaqwTcqSbg58P15q5iRQTjb9SkcIfpZNBzVHT1ahcuhR70Bj6QcO1VUs3GO1zSWe23WDR5OE1/jpRmoesA0pFNyDA3SC9H5JCR5DsD08IgrdXS83duX6fFF5Lqq3LqHx2EGeC5LvexfASjWnFIzx9f/w907D6RnWWwvsA3XqeUu47MpjCq1a1lIa0HmSCjiuAVqWL7ZRU4wgOHz2UBWlQthDS4o7IyJ9Pormj2WZyyQ+tCb06va7VTeSkFXGMCN1R0wc3G37ZUdyp9bQZQB++qllE8hNLAaTlZmV8qErgwZ1TpK89F6/Q00aEZHEIOIcHXUsKneS2yAH8QxSV9qfI2IcR1QumEwJmcAJx1cwSMSSGmTsvSHpSi/aiwAqH2rP5l7S/ABiFsgm/dsOHQ==
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(7416014)(36860700016)(23010399003)(18002099003)(22082099003)(3023799007)(56012099006)(11063799006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: A6q8KGyY+kv987wZZtgrYEdwlLH3xZHFhE1Dm2Dl2uJsTxoO/RkQ+VraaBWC/F22DxI+H+Mph+BhRoxgpmicN9079+aHEL7VkfMMP9Gm2TaSWQjdG/uLnftLFdtkTc7V2qOLGX3hwCg3+kyNVFKBR0/R26REJ1WZGVs71O9xOTr6tdMN8mVtnX/DYglViduiJE/CtypfCir9ZNSW/Cm9YJVVmr9OoijNBtykf2bbji3XV9mNhRzk/Ee0pYnCaH52ndK+/OJGKcxEfURIpOxyNz0M/2BiOSnaLeNnRPwdVHIw0lvHTlFqmkNoKl/pJjOpLcvCuzOs+v1Gw4KXWRW94zTAQM7yw27zrvu2R/WSq7rQz/8qFCN/NwolVGOqwIVOKWnk8CMBmbW6Gn44dsVM0lm1N6/mxxJx+shd+rbGp6ks0dvCcovDHIBpHDBqmfPz
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 18:55:06.4554
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e60abf73-13a0-40c2-8e2d-08ded86b6ed3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6995
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_115523_110316_2D3F6809 
-X-CRM114-Status: GOOD (  13.68  )
+In-Reply-To: <6cb7ae4a09d476a04ceefca50564646712ad391b.camel@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,29 +102,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 12:28:25PM +0100, Kiryl Shutsemau (Meta) wrote:
-> The command, event and PRI queues are sized from the maxima the hardware
-> advertises in IDR1, which can be several megabytes each. On systems with
-> many SMMUv3 instances that cost is paid per instance and adds up to tens
-> of megabytes of coherent DMA in the capture kernel.
-> 
-> A kdump capture kernel runs from a small crashkernel reservation and only
-> has to drive the few devices used to save the dump, so deep queues serve
-> no purpose. The queues carry invalidation commands and fault records, not
-> DMA data, so dump throughput is unaffected; a shallower queue only bounds
-> how many commands may be in flight before a sync, which does not matter for
-> the capture kernel's small device count and modest I/O.
-> 
-> Clamp every queue to a single page when is_kdump_kernel() is true. Doing
-> it in arm_smmu_init_one_queue() covers the command, event and PRI queues
-> in one place. The command queue still holds at least one batch plus a sync
-> (256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
-> command batching keeps working.
-> 
-> Suggested-by: Kyle McMartin <jkkm@meta.com>
-> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-> Reviewed-by: Breno Leitao <leitao@debian.org>
+--JdEKl3bSogEo/Lcd
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Tested-by: Nicolin Chen <nicolinc@nvidia.com>
+On Thu, Jul 02, 2026 at 05:39:24AM +0000, Kyrie Wu (=E5=90=B4=E6=99=97) wro=
+te:
+> On Wed, 2026-06-03 at 17:14 +0100, Conor Dooley wrote:
+> > On Wed, Jun 03, 2026 at 04:40:41PM +0800, Kyrie Wu wrote:
+> > > From: Yunfei Dong <yunfei.dong@mediatek.com>
+> > >=20
+> > > The MT8196 decoder differs from previous generations in several
+> > > key aspects, most notably in its use of VCP instead of SCP.
+> > > Additionally, the MT8196 enhances codec capabilities by supporting
+> > > HEVC Main10 profile decoding. To accommodate these hardware
+> > > changes,
+> > > the binding constraints specify a total of 12 clock inputs,
+> > > consisting of 9 decoder clocks and 3 VCP interface clocks,
+> > > along with 2 power domains covering both the decoder and VCP
+> > > subsystems.
+> >=20
+> > I'm pretty pretty confused by this statement about constraints, since
+> > there's none added?
+> > The vcodec-dec node doesn't even seem to permit clocks at all?
+> >=20
+> Dear Conor,
+>=20
+> I apologize for any confusion my commit message caused. What I wanted
+> to convey was the hardware differences between the MT8196 and previous
+> ICs. If you feel that the VCP and clock information are not suitable
+> for this location, I would like to rewrite the commit message as
+> follows:
+> Compared to previous ICs, the MT8196 supports a 10-bit decoder and has
+> a decoding capability of 4K@120fps, using a dual hardware decoding
+> architecture of LAT+CORE.
+
+Sure? But your comments about the constraints are odd and I do not know
+if that means you omitted changing constraints when you should have?
+For example, using lat+core only permits you 10 input clocks but your
+commit message talks about 12.
+
+>=20
+> Thanks.
+>=20
+> Regards,
+> Kyrie.
+> > >=20
+> > > Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> > > Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> > > ---
+> > >  .../bindings/media/mediatek,vcodec-subdev-decoder.yaml           |=
+=20
+> > > 1 +
+> > >  1 file changed, 1 insertion(+)
+> > >=20
+> > > diff --git
+> > > a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-
+> > > decoder.yaml
+> > > b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-
+> > > decoder.yaml
+> > > index bf8082d87ac0..74e1d88d3056 100644
+> > > --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-
+> > > subdev-decoder.yaml
+> > > +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-
+> > > subdev-decoder.yaml
+> > > @@ -76,6 +76,7 @@ properties:
+> > >        - mediatek,mt8186-vcodec-dec
+> > >        - mediatek,mt8188-vcodec-dec
+> > >        - mediatek,mt8195-vcodec-dec
+> > > +      - mediatek,mt8196-vcodec-dec
+> > > =20
+> > >    reg:
+> > >      minItems: 1
+> > > --=20
+> > > 2.45.2
+> > >=20
+
+--JdEKl3bSogEo/Lcd
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaka0GAAKCRB4tDGHoIJi
+0gcwAQCtMtUoW/cbg4OpVaaf+u+0oq30lr9mkXMb60IDpSgRaQEAsdk2ey0KDekc
+nYS63SVumLqJUdoy4hxVqlFifZehUQo=
+=16wN
+-----END PGP SIGNATURE-----
+
+--JdEKl3bSogEo/Lcd--
 
