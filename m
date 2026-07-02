@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0312C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:15:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B92FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lXdo5/aahv4y37zZlNB/IfEwUv0GT4AThr4Fpd6s7JI=; b=h4bPdDI8HZ24SeUcBbXIrEvXbp
-	rsp6ltsEXAyS04UZnpxKGqKUV80dunLiX2m22qlCD4LO9eev6vK7MD1iz3ueGd9I6RUuAU6a9bcoh
-	kPP80OJMowQf0w2q5RGHz1AxgOaM4by0NlBAYrwwH49L/7CQOYujPoqGJY8rZ8sM19ZZsj6M4ljVP
-	k1bFlkYYNDUj2lsomLjdbwmAmJUqBp23zfBfqko7KV9etqB5hWPXkgm3T5rl5xKULx9iNN5U3nEso
-	lJjFtaxuNT/KCf92F2zmNb+g82zi9X94jDwIR2d0vEcn6vQYGyurPz1syn7RhsEjvzifV3GQn+rh8
-	Ho5SB7DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5x5fcrhEs0YuNzwkCDOfW4zPzxMbMspXY6zqvEqiuvE=; b=zSVsdBJPtr/G0LeRcUxg+pJ+s+
+	zY5o59km1YDO9Adig8cTpcn9FRjUX2kXuD1FrNJNDwUd4dJyVIAOUbiMfNLC4VvlKfu//uYnuSWKN
+	JMheORNJMpxjpDrsDvzViBNVDCeUcLrwzTmH+HKoYt0rK1jBaAzBP02XkjP9XHhAEwKmVUBYC/Dpq
+	BTX802l9aiZBhkg2baQSiiJOw8BiPLiGHVsYUt7lccOXgh3bkj/jSUWunEMzsR6vr59GvtfQc82G7
+	Ze6zcccP8AwjYvuf6NHjKH3VeW27KuHrngxxuVNW4+XMhUBF4K26uhlhLXHTEIK6mA6Z8rYQ4n83m
+	xE3MxO7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfK4C-00000004ydD-1083;
-	Thu, 02 Jul 2026 16:15:08 +0000
-Received: from meesny.iki.fi ([2001:67c:2b0:1c1::201])
+	id 1wfIgj-00000004eqq-2pPI;
+	Thu, 02 Jul 2026 14:46:49 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfK49-00000004ycE-1sgR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:15:06 +0000
-Received: from roadster.musicnaut.iki.fi (85-76-33-40-nat.elisa-mobile.fi [85.76.33.40])
+	id 1wfIgb-00000004eZA-4Arj;
+	Thu, 02 Jul 2026 14:46:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783003595;
+	bh=rKaRa186NjdIogfP8Rz5vSnZI+RuidT9dvuv+K9tbqY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jjBg0paU09j4BNcmQSQt/QgGzNiBhGTXjUCf7BKSZfkF72jgLkHTzpWCGyJgMb1Jl
+	 FTrpbPtav+/I66gfJ1slBWQFIMqS6fslvODY8ZbaZ+xXDRzftRGxUObqG6bojaFyby
+	 yOktPJUCwZSxuiNPUswfnJZ+n9t2xH4iNdb6sp8JdmmN3Lh5b/azzRVnfZ2SzhLQOC
+	 AI/cxUb/7qkaK7rJ1RDXVezUdo7u3flB1fy0ebtFMpKRrSzECd07kDk/OQsjvbjc9/
+	 X4Kt/ogOKry8yGmMJKNKP1fGoTdEQGnR2AKlMTmOzUQ4mZZmpGlORAcZHU0LbPCEw4
+	 SFGK8yMLxocQA==
+Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: aaro.koskinen)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4grhmY5zzmzyPv;
-	Thu, 02 Jul 2026 19:14:53 +0300 (EEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1783008900;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lXdo5/aahv4y37zZlNB/IfEwUv0GT4AThr4Fpd6s7JI=;
-	b=Yvk0nudlf/4pq3Au1Uks0V+9tcCN/GI+dSgUijChIgoDgMOaPnOL/XMF36O32QGXRD1QGr
-	GKRya//cfZuycTMNb3zjQfUoK2Msl4cdYq/iuahrgx3oYdUNZn9wLGS4qTQvat9M5y1cel
-	Mne/c18kqwv9jM5WRXZFB0ARJ2F6mmU=
-ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=meesny; cv=none; t=1783008900;
-	b=tQgfVBlCUVAE3oRixcWlGPb9npGhAnJfJjr2NT9mwmBZHQQiOi6hAfJ6D/yG4/wSKFg9Ny
-	GcsJpz5AlZydwxoyJSemflTB0HVUB0bs6M97rKKdXGRXthqML4r5zs999GoO/QDTWomDmn
-	jZOJp1JBG3q0jWk+iYzvvsfW8KUWHfg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1783008900;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=lXdo5/aahv4y37zZlNB/IfEwUv0GT4AThr4Fpd6s7JI=;
-	b=ScD9E2eIwHcftb3jnTP9LYPe0rS9dNpgP5CpiqJdCAzJsoYMFBTsWz2VQqgznRGdYHOevi
-	WJ6kShnTFLQGkdkfMPJRHKP7t3oh6V18YjTILovTXJdRa7SdRYWJCi+cjMCNvgKVU0789h
-	O1B/P0HxT0pXmah+56ZVgOh4k8+n6qU=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
-Date: Thu, 2 Jul 2026 19:14:51 +0300
-From: Aaro Koskinen <aaro.koskinen@iki.fi>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Ard Biesheuvel <ardb@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Daniel Mack <daniel@zonque.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Ralph Siemsen <ralph.siemsen@linaro.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stefan Agner <stefan@agner.ch>,
-	Stefan Wiehler <stefan.wiehler@nokia.com>,
-	Tony Lindgren <tony@atomide.com>, Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>
-Subject: Re: [PATCH v2 03/19] ARM: rework ARM11 CPU selection logic
-Message-ID: <akaOe1waglVC5ZQT@roadster.musicnaut.iki.fi>
-References: <20260701212353.2196041-1-arnd@kernel.org>
- <20260701212353.2196041-4-arnd@kernel.org>
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C9B817E116D;
+	Thu,  2 Jul 2026 16:46:35 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 02 Jul 2026 17:46:18 +0300
+Subject: [PATCH v8 05/39] drm/display: scdc-helper: Add macro for
+ connector-prefixed debug messages
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701212353.2196041-4-arnd@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-5-d79890d00b6a@collabora.com>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_091505_662466_649D7CE3 
-X-CRM114-Status: GOOD (  38.37  )
+X-CRM114-CacheID: sfid-20260702_074642_241249_DD272FA5 
+X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,211 +88,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:23:37PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Support for SMP on ARM1136r0 has been broken for a while, and nobody
-> is working on fixing it. I had a plan to change ARMv6 support to no
-> longer coexist in a common kernel with ARMv7 CPUs but instead ARMv5 and
-> below. This would have addressed the problem, but after a recent mailing
-> list discussion, we concluded that an easier approach is to just forbid
-> ARM1136r0 CPU support on SMP-enabled kernels.
-> 
-> This mainly affects users of the Nokia N800/N810 tablets using an
-> OMAP2420 SoC, which is the only commercial product with an ARM1136r0
-> that is still supported by the kernel.
-> 
-> The other machines that are still in the same hardware catogory are:
-> 
->  - TI OMAP2420 H4 reference board
->  - TI OMAP2430 SDP software development platform
->  - Freescale/NXP i.MX31 Lite Development Kit
->  - Buglabs i.MX31 Bug 1.x prototype
->  - Arm Integrator/AP with CM1136JF-S core module
-> 
-> To my knowledge, none of these have any actual users aside from
-> reference boards being used more easily test the platforms.
-> 
-> There are also a few ARM1136r1 machines, which implement the
-> ARMv6K SMP support (barriers, atomics and TLS):
-> 
->  - Eukrea CPUIMX35 reference platform
->  - Freescale/NXP i.MX35 Product Development Kit
->  - ARM Integrator/CP/IM-LT3 with ARM1136J Core Tile
->  - ARM Realview/EB with ARM1136J Core Tile
-> 
-> Again, these are mainly reference implementations rather than
-> actual products, but since they support ARMv6K, they should
-> continue to work correctly in SMP-enabled kernels. For the
-> ARM Core Tile, I have not found a datasheet but instead use
-> the revision based on what the respective virtual models
-> report.
-> 
-> All the other ARMv6 platforms use an ARM1176 with ARMv6K,
-> VMSAv7 and Trustzone support.
-> 
-> To avoid the broken configuration, annotate the ARM1136 based
-> machines with specific CPU_ARM1136R0 or CPU_ARM1136R2 symbols
-> in Kconfig and make the r0 variants depend on !SMP.
-> 
-> Link: https://lore.kernel.org/linux-arm-kernel/2831c5a6-cfbf-4fe0-b51c-0396e5b0aeb7@app.fastmail.com/T/
-> Acked-by: Linus Walleij <linus.walleij@linaro.org>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Introduce the drm_scdc_dbg() wrapper over drm_dbg_kms() to help getting
+rid of the boilerplate around prefixing the debug messages with the
+connector information.
 
-Acked-by: Aaro Koskinen <aaro.koskinen@iki.fi> # OMAP
+Acked-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/display/drm_scdc_helper.c | 24 +++++++++---------------
+ 1 file changed, 9 insertions(+), 15 deletions(-)
 
-> ---
->  arch/arm/Kconfig.platforms      |  2 +-
->  arch/arm/mach-imx/Kconfig       |  4 +++-
->  arch/arm/mach-omap2/Kconfig     |  3 ++-
->  arch/arm/mach-versatile/Kconfig | 10 +++++-----
->  arch/arm/mm/Kconfig             | 24 +++++++++++++++++++++++-
->  5 files changed, 34 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm/Kconfig.platforms b/arch/arm/Kconfig.platforms
-> index 386eccc81868..2e118b65f93b 100644
-> --- a/arch/arm/Kconfig.platforms
-> +++ b/arch/arm/Kconfig.platforms
-> @@ -33,7 +33,7 @@ config ARCH_MULTI_V4_V5
->  config ARCH_MULTI_V6
->  	bool "ARMv6 based platforms (ARM11)"
->  	select ARCH_MULTI_V6_V7
-> -	select CPU_V6K
-> +	select CPU_ARM1176
->  
->  config ARCH_MULTI_V7
->  	bool "ARMv7 based platforms (Cortex-A, PJ4, Scorpion, Krait)"
-> diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
-> index a361840d7a04..041e73ad203a 100644
-> --- a/arch/arm/mach-imx/Kconfig
-> +++ b/arch/arm/mach-imx/Kconfig
-> @@ -41,13 +41,15 @@ comment "ARM1136 platforms"
->  
->  config SOC_IMX31
->  	bool "i.MX31 support"
-> -	select CPU_V6
-> +	depends on !SMP
-> +	select CPU_ARM1136R0
->  	select MXC_AVIC
->  	help
->  	  This enables support for Freescale i.MX31 processor
->  
->  config SOC_IMX35
->  	bool "i.MX35 support"
-> +	select CPU_ARM1136R1
->  	select MXC_AVIC
->  	help
->  	  This enables support for Freescale i.MX35 processor
-> diff --git a/arch/arm/mach-omap2/Kconfig b/arch/arm/mach-omap2/Kconfig
-> index f3f19bcfca2c..13987ffbba00 100644
-> --- a/arch/arm/mach-omap2/Kconfig
-> +++ b/arch/arm/mach-omap2/Kconfig
-> @@ -8,8 +8,9 @@ config OMAP_HWMOD
->  config ARCH_OMAP2
->  	bool "TI OMAP2"
->  	depends on ARCH_MULTI_V6
-> +	depends on !SMP
->  	select ARCH_OMAP2PLUS
-> -	select CPU_V6
-> +	select CPU_ARM1136R0
->  	select OMAP_HWMOD
->  	select SOC_HAS_OMAP2_SDRC
->  
-> diff --git a/arch/arm/mach-versatile/Kconfig b/arch/arm/mach-versatile/Kconfig
-> index 513618078440..de42da7de8c8 100644
-> --- a/arch/arm/mach-versatile/Kconfig
-> +++ b/arch/arm/mach-versatile/Kconfig
-> @@ -113,7 +113,8 @@ config INTEGRATOR_CM1136JFS
->  	bool "Integrator/CM1136JF-S core module"
->  	depends on ARCH_INTEGRATOR_AP
->  	depends on ARCH_MULTI_V6
-> -	select CPU_V6
-> +	depends on !SMP
-> +	select CPU_ARM1136R0
->  
->  config ARCH_INTEGRATOR_CP
->  	bool "Support Integrator/CP platform"
-> @@ -135,7 +136,7 @@ config INTEGRATOR_CTB36
->  	bool "Integrator/CTB36 (ARM1136JF-S) core tile"
->  	depends on ARCH_INTEGRATOR_CP
->  	depends on ARCH_MULTI_V6
-> -	select CPU_V6
-> +	select CPU_ARM1136R1
->  
->  config ARCH_CINTEGRATOR
->  	depends on ARCH_INTEGRATOR_CP
-> @@ -182,7 +183,7 @@ config MACH_REALVIEW_EB
->  config REALVIEW_EB_ARM1136
->  	bool "Support ARM1136J(F)-S Tile"
->  	depends on MACH_REALVIEW_EB && ARCH_MULTI_V6
-> -	select CPU_V6
-> +	select CPU_ARM1136R1
->  	help
->  	  Enable support for the ARM1136 tile fitted to the
->  	  Realview(R) Emulation Baseboard platform.
-> @@ -201,11 +202,10 @@ config REALVIEW_EB_A9MP
->  	  Enable support for the Cortex-A9MPCore tile fitted to the
->  	  Realview(R) Emulation Baseboard platform.
->  
-> -# ARMv6 CPU without K extensions, but does have the new exclusive ops
->  config MACH_REALVIEW_PB1176
->  	bool "Support RealView(R) Platform Baseboard for ARM1176JZF-S"
->  	depends on ARCH_MULTI_V6
-> -	select CPU_V6
-> +	select CPU_ARM1176
->  	select HAVE_TCM
->  	help
->  	  Include support for the ARM(R) RealView(R) Platform Baseboard for
-> diff --git a/arch/arm/mm/Kconfig b/arch/arm/mm/Kconfig
-> index 871bd58d2ccc..f3d71e89a31f 100644
-> --- a/arch/arm/mm/Kconfig
-> +++ b/arch/arm/mm/Kconfig
-> @@ -376,6 +376,7 @@ config CPU_PJ4B
->  # ARMv6
->  config CPU_V6
->  	bool
-> +	depends on !SMP
->  	select CPU_32v6
->  	select CPU_ABRT_EV6
->  	select CPU_CACHE_V6
-> @@ -386,7 +387,6 @@ config CPU_V6
->  	select CPU_PABRT_V6
->  	select CPU_THUMB_CAPABLE
->  	select CPU_TLB_V6 if MMU
-> -	select SMP_ON_UP if SMP
->  
->  # ARMv6k
->  config CPU_V6K
-> @@ -403,6 +403,28 @@ config CPU_V6K
->  	select CPU_THUMB_CAPABLE
->  	select CPU_TLB_V6 if MMU
->  
-> +config CPU_ARM1136R0
-> +	bool
-> +	select CPU_V6
-> +	depends on !SMP
-> +	help
-> +	  These early revisions of ARM1136 lack support for the
-> +	  ARMv6k extensions for multiprocessing.
-> +
-> +config CPU_ARM1136R1
-> +	bool
-> +	select CPU_V6K
-> +	help
-> +	  Later revisions of ARM1136 add ARMv6k (atomics, barriers
-> +	  and TLS register) in addition to the features from r0.
-> +
-> +config CPU_ARM1176
-> +	bool
-> +	select CPU_V6K
-> +	help
-> +	  ARM1176 implements ARMv6k, VMSAv7 and Trustzone in
-> +	  addition to the ARMv6 baseline.
-> +
->  # ARMv7 and ARMv8 architectures
->  config CPU_V7
->  	bool
-> -- 
-> 2.39.5
-> 
+diff --git a/drivers/gpu/drm/display/drm_scdc_helper.c b/drivers/gpu/drm/display/drm_scdc_helper.c
+index df878aad4a36..cb6632346aad 100644
+--- a/drivers/gpu/drm/display/drm_scdc_helper.c
++++ b/drivers/gpu/drm/display/drm_scdc_helper.c
+@@ -55,6 +55,10 @@
+ 
+ #define SCDC_I2C_SLAVE_ADDRESS 0x54
+ 
++#define drm_scdc_dbg(connector, fmt, ...)					\
++	drm_dbg_kms((connector)->dev, "[CONNECTOR:%d:%s] " fmt,			\
++		    (connector)->base.id, (connector)->name, ##__VA_ARGS__)
++
+ /**
+  * drm_scdc_read - read a block of data from SCDC
+  * @adapter: I2C controller
+@@ -158,9 +162,7 @@ bool drm_scdc_get_scrambling_status(struct drm_connector *connector)
+ 
+ 	ret = drm_scdc_readb(connector->ddc, SCDC_SCRAMBLER_STATUS, &status);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to read scrambling status: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to read scrambling status: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -188,9 +190,7 @@ bool drm_scdc_set_scrambling(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to read TMDS config: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -201,9 +201,7 @@ bool drm_scdc_set_scrambling(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_writeb(connector->ddc, SCDC_TMDS_CONFIG, config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to enable scrambling: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to enable scrambling: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -248,9 +246,7 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_readb(connector->ddc, SCDC_TMDS_CONFIG, &config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to read TMDS config: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to read TMDS config: %d\n", ret);
+ 		return false;
+ 	}
+ 
+@@ -261,9 +257,7 @@ bool drm_scdc_set_high_tmds_clock_ratio(struct drm_connector *connector,
+ 
+ 	ret = drm_scdc_writeb(connector->ddc, SCDC_TMDS_CONFIG, config);
+ 	if (ret < 0) {
+-		drm_dbg_kms(connector->dev,
+-			    "[CONNECTOR:%d:%s] Failed to set TMDS clock ratio: %d\n",
+-			    connector->base.id, connector->name, ret);
++		drm_scdc_dbg(connector, "Failed to set TMDS clock ratio: %d\n", ret);
+ 		return false;
+ 	}
+ 
+
+-- 
+2.54.0
+
 
