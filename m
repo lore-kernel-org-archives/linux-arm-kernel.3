@@ -4,139 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD99BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA04C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:24:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hYveWjJ4hVAN65iKCtlqZBVIi/BG1r0MlKjEfqsoNak=; b=jks5XnQ1Xsa71ryBClpFVsVQOT
-	khDKRooabp+MNR8yDWroq3mqSnoJlOmA2hO8RZyScyPViojXY3AWRDhRYrufAbHtt1NdvTxtPEKyF
-	YsuSs4ajQ1vu+3SrNxVaHGP2V2lipfYMg8G/V8SE487GO81rNG0btYqdjDeYsndRk+qoizQctBIK5
-	cr+bHLmYTJMRIVoLjSN4oyXMtw8CcVBDAkfN+a+BBTjndW2Kgwv7zLQM2ojMqo8kZrvW0L6TRjD8G
-	CtHarGf/dvxVPegzTC9srJAh7RRfKD8Lfboj1LjRUuTgpTSn8E9yzr4yp2mXhx9ZVTedbhzoGbK3l
-	uZOgSemA==;
+	bh=9nEMQaKM2RATzk6vAZdT3nfnIXYypUIizU65bGtjkAY=; b=HunCG09z65kkQMVH7r8Ux7ZUIE
+	f6tK97zk8ALWQErk2qXtDak9zorK0Fx2ynYyM+C12uS1pjN5hxpMmM9HY0g6sgvB+ZlW3Sm0EhKRy
+	R9GUH6oMiAp3T0vvJXhcjaBGNgDQAun2A41hHAM4573kRmdcE0HmwmikSCJUsOHyLZh9F/oGWzhIX
+	GTEkESFzHmSC2z2VlqPxd6+2PRlS7hhUf9z7P+tMAIIRDyj95Dc6rB7oTophUIeIJXqezfCUFd/GE
+	6PHZQv/WPS+3TUWb3x60VAuPDo2gUiHGKHG3AUw8Q82lkxrT2eO31URhYMQ0HrgOCfRMyDzueMvXu
+	62pIKxhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGM4-00000004QJr-3Pz6;
-	Thu, 02 Jul 2026 12:17:20 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wfGSb-00000004Qzi-3NF0;
+	Thu, 02 Jul 2026 12:24:05 +0000
+Received: from mail-westeuropeazon11010058.outbound.protection.outlook.com ([52.101.69.58] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGM2-00000004QJT-3W1J
+	id 1wfGSY-00000004QyB-0ggJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 12:17:19 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 662BoPFE360479
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Jul 2026 12:17:18 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=hYveWjJ4hVAN65iKCtlqZBVI
-	i/BG1r0MlKjEfqsoNak=; b=Rz/7XvwaNshea5Y4k2hhMHtM4e5Y9cM4D2R3cmPb
-	FfmtptdugPGus/I/vyxnCV21VWya93TlCTd6l4ws7+T/oElFTci0J6zrlnY5ZTQg
-	wltlTuDmuZ/Oeg+bhSn6SrP3yrUD3gD1wnBRFduhILtZjZ/Nq29ZvVyZBDHdgRjp
-	BQtypZw/F2o1na2gGd76T9ZbeIt2qmXQOsp/HuAsy79cUmdzxkOTYMZdXUilR2WP
-	USGkWo2xE4oEfHAJlxn7AAMKzrb9ufCUZQzn4Ne7YW0uiQN54GMUTrZbstixPmgX
-	VuorAHNqKut7WKX7cjhJBpvYnBc4lVgMNgpW6LIR5Ozv7Q==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f5qfc03nc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 12:17:17 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c860544c077so3351346a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 05:17:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782994637; x=1783599437; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=hYveWjJ4hVAN65iKCtlqZBVIi/BG1r0MlKjEfqsoNak=;
-        b=VtQjlz4xJKRgfuMQygCo/y63vPlvNRsVIl0hWWqkxVjIhcrj4YUJHfh0N8XfgrqFv8
-         2TOenn0eOvxzXUVaHC5Vse4DYrdUDqKmIJOpBjfTfJbEtx9qbbUeow6qUZPzoecDs2i/
-         82Q85r6d7/9d5gHRNWZTzaCErGn/YCVwfA85R/v2ZuKebYECtwsRkIQxHsN/2Ko33spu
-         iZ0lfRWCJtExTLBLzMU4v2kBIl7EeY2F//zBgLqceE/6IbdFsKCXQG3f+4HkQeaJh69j
-         kOxdEebvqYSdZvyEER/y7ZywVxrS3NMiIWnWmhXthJ36uJXY6GVqt+Lz0jx8OibwSomS
-         mQGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782994637; x=1783599437;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hYveWjJ4hVAN65iKCtlqZBVIi/BG1r0MlKjEfqsoNak=;
-        b=Oqyulsop4SY5ICSSbpXJUc/VJn2Xfd9VzL4vVQEiLVLa5wjrMsTBnegY1bmb3i4Xx5
-         TVujYRoN55RcSd4Bue4YW1S5H8IFggG9cb/Z5jCbDFtmxnurYf6iaEbStwll1+ZgGBZ7
-         ZP5jUXlDyxtID7uxg4NY23O5lolOkxJYcRoEDdURm86z4LGmKZuYp4EdThEJdvSrA1GB
-         vIrpg0KpO9VtlpbFMT8/40JupTjGwnlQ4K+rxN0Fbk+RSKtAoDVYzM/ESSFCpxI9EcKq
-         LNjrusC5RdAry7dcvkSdUJVFewDRj5Rcvq6/N80yV0HcqOtrcAfF9Fp9aG5AP6IzRBTm
-         fxGg==
-X-Forwarded-Encrypted: i=1; AFNElJ90zWkWTbaVJH7fHfK+VkEW+bJ24I4QIxODA0XlxV33lxye+J+Dq94l1IBfWHge6rfCzIWFGh0z2FmtPMsiaOhQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqmTGTtKORY9NUr6yvB/gAY4n5pX3kbyGF/oxv+Ok/9elScynP
-	fHPYjS/sHEJJg9YsLgQHLq6F8IKSL5jYIJPC/n0jTlLIXV9/qFXkfIqAneMixT56R8QtkBBJe3f
-	z3MDIP67Nw2Ysayirww1S2l+j1i7eCTLx/20cbEtOH2kyLzwqindyKuIEKYelr0soRDi5woDEw3
-	gt7g==
-X-Gm-Gg: AfdE7cnmZc77QcphkWzZ/7ZPO/0gi6gTEi2oVCgaCOUQMWKYZ+QEbxZ28RyQ6Ry9saE
-	t3qkRVRSzJH7gK4Xwes9HcOVKx0vs9HkFZ5TxTltjhRIy+t+nnrY1f9pYnX9N8KaxdjUOxWT9gF
-	tF+ezl/H4fO9Xvpcqvn18/KaCQKWln94sN5Cl7R1BEps5jjkfByBijWKxN3WIqBAxu/iFmz8jdl
-	jYm1IXFfiXuvd8Vu+drpG0AoaZOo1rTXrD6vHfO/gZzPs+g5zD19ZnCKJFbk9e9VlNhJer/+KOL
-	AvDHrFh8r6t+TkGEGwpf2c8VG3aOPsrfAUdiNWh29l59Rcd559g9dIkpwN+Fd6En69eJ5wzmvNm
-	GUdkMqIA6Z7NO6IcvhkqlyL870RNe2ewPi5WawHoWnnb3z+zBmnIVkEwjOKMk
-X-Received: by 2002:a05:6a00:4488:b0:847:9c99:ea4f with SMTP id d2e1a72fcca58-847c510599emr5298456b3a.30.1782994637193;
-        Thu, 02 Jul 2026 05:17:17 -0700 (PDT)
-X-Received: by 2002:a05:6a00:4488:b0:847:9c99:ea4f with SMTP id d2e1a72fcca58-847c510599emr5298433b3a.30.1782994636709;
-        Thu, 02 Jul 2026 05:17:16 -0700 (PDT)
-Received: from hu-ashoraj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847cb9f4c67sm1282608b3a.59.2026.07.02.05.17.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 05:17:16 -0700 (PDT)
-Date: Thu, 2 Jul 2026 05:17:13 -0700
-From: Ashok Raj <ashok.raj@oss.qualcomm.com>
-To: Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
-        tony.luck@intel.com, guohanjun@huawei.com, mchehab@kernel.org,
-        xueshuai@linux.alibaba.com, tongtiangen@huawei.com,
-        james.morse@arm.com, robin.murphy@arm.com, andreyknvl@gmail.com,
-        dvyukov@google.com, vincenzo.frascino@arm.com, mpe@ellerman.id.au,
-        npiggin@gmail.com, ryabinin.a.a@gmail.com, glider@google.com,
-        christophe.leroy@csgroup.eu, aneesh.kumar@kernel.org,
-        naveen.n.rao@linux.ibm.com, tglx@linutronix.de, mingo@redhat.com,
-        linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-        linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        kasan-dev@googlegroups.com, Ashok Raj <ashok.raj@oss.qualcomm.com>
-Subject: Re: [PATCH v15 0/8] arm64: add ARCH_HAS_COPY_MC support
-Message-ID: <akZWyYnAdnvlkZbi@hu-ashoraj-lv.qualcomm.com>
-References: <20260618092124.3901230-1-tianruidong@linux.alibaba.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Thu, 02 Jul 2026 12:24:04 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CDeY5zz2eP8fSj4AvzSqZtqI2U/XH5xT5G4ZrrtrgypV/lt14o/tRlrmj24r3Yva1nAFOxkeVIyN8WTkJhT1trjmTznk+TTZcumWy0LP40gyl/oCF5bKhQNIZH91d+CuYMPEFVMQiPGCbKOS2nCL8M6tRmf8OjKCVF1fQMU0ebjkURvfEmdo3/jBHdAOJypdzMRvjq5/1a5ytAQWO9ZxEi9kDwjOyqbUMNqK5CU8mGQYTIZPLS86zjnqf9K0zz/tptkWySmnrGKwihstky6sMrR/CTIsF+qQlG3SXZQY04v/B4KE9Y1R+xFliIM3ryexV3obKYQLMmD1ppjTgWJxEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9nEMQaKM2RATzk6vAZdT3nfnIXYypUIizU65bGtjkAY=;
+ b=RIqg/T3ckYTWG0jH/vEAVbs0z9VZmg5DWrPTsPfX/PkZ5aRBss+iYrBO6fdqVYa1RySpNRLAW4zORH9tt+UiCOgUlPGC0GO6RQ/ZEK1uE6ph6FCagKluwIidlSy4jRmSuTxJGnDFqddCAJwpxgE9+okBtn7B80Ywm7VnOhhb5zkeyqb83qWsZwzN9x1R9ahjmpg86FLFeJF8iJHQX/rtX2tdqotM7t5ffavvK0Vvx+YC3T8LdBod/WZOhCNjFy6bLVfjUywfrj56X/SvfDiLt4WxYn7Zk2VaYyr8sDf4sTygPSER9fogFT7zbRCZvlJdWvvdJ9ak+SdIv1PQMn1uJw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9nEMQaKM2RATzk6vAZdT3nfnIXYypUIizU65bGtjkAY=;
+ b=X068aKPP9sfVrYQDYlWv4ADIIIuBT5pU9prbsaMVrA0Qe7gWiVKC6BvbFnC7OMddP2kpgynBa3KTViaShgkARx1fvd4TfrrjpYbfVUNel9HfyrxWRD9Bur/as1qFQjb32Ofki45JYbb8ICmAeLpXR58HGcT76+9l0tI0pFBx8IalX5H2E5gn3CF1GBx05AgB2eR+qhzxOP7nGP0Ol6IOyzm1/1xWiMRkF3KNiixGTO5l61pUseBk5ghPb84zrl9B8wLQ4vCBvTS4nJxaZj1VFROEvUfteBSg7J3BGDKnEmhApd0zlhx2Qudh7d/Y952P80tTmQ9xSAfmjJ/oRjYvCw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by AS8PR04MB8484.eurprd04.prod.outlook.com (2603:10a6:20b:34c::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
+ 2026 12:23:57 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 2 Jul 2026
+ 12:23:57 +0000
+Date: Thu, 2 Jul 2026 07:23:44 -0500
+From: Frank Li <Frank.li@oss.nxp.com>
+To: Ioana Ciornei <ioana.ciornei@nxp.com>
+Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, devicetree@vger.kernel.org,
+	vladimir.oltean@nxp.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev
+Subject: Re: [PATCH v2 1/5] arm64: dts: lx2160a: transition to
+ device-specific SerDes compatible strings
+Message-ID: <akZYUNtEmdLp0Kvu@SMW015318>
+References: <20260701131137.940145-1-ioana.ciornei@nxp.com>
+ <20260701131137.940145-2-ioana.ciornei@nxp.com>
+ <akUjt5OPiO5cJ1D9@SMW015318>
+ <b5lpw3xu6svsq7xmmgp3jn4cg455zhp3iw4q6lcsxq4bqy7mwh@guuitghg3xal>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260618092124.3901230-1-tianruidong@linux.alibaba.com>
-X-Proofpoint-ORIG-GUID: yc-f9FlzTzgadxgxXYKtnT0MebwH-yiO
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDEyOCBTYWx0ZWRfX7wO06x7LBeBB
- Lrd0bI/3eEbV+oRycFe2hXefMPooeCrzt+rjyRS0g8ZJTRap7K2haddKSocTiz/6rkgTH0uSXXv
- F1CVKCg2j9STpjfXEIV0Wqp8SGpBdQhl41XN18Ude4ORj7kXY2vIaYU2ql5kXMyFhuxm0fES+7P
- ynO60cpLjJ+8XNuB+PAjZxYizrFRbDQtd5aCk7TO7JemG4nCJNwVMJ3id1PoOlx9gY0ai9Cq0LB
- TsAfNDYsJyRNvUf+Ohr8XnMjifgQ6sdV6dKJ/I7NM5Z1y/kqDl4vy1K1aJYO16taTZwrof2bnCj
- cFY8rmWVw70pLgqCpXtMsOv3NcphHlS714hzmqkv1t+OrFzXtrUPMF1DTbfJRN7UzuQngu+S8t+
- PwPloyPtEh0bzoWRP6gQUog8jWDBV0lgC71kzjUvZQycaqh0hJ8fEaDVcNmgr72hjWllWD0Bncn
- jG5g7Hv9+C9EuMDXuKA==
-X-Authority-Analysis: v=2.4 cv=dvXrzVg4 c=1 sm=1 tr=0 ts=6a4656cd cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
- a=efi387GsBp53Kk3SMt4A:9 a=QEXdDO2ut3YA:10 a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-GUID: yc-f9FlzTzgadxgxXYKtnT0MebwH-yiO
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDEyOCBTYWx0ZWRfX0b2gp9/5xoip
- TyX5JAtSF94ymiSnVQiVaRoYhHeKKTaZ0vcGPMONMEcio7JSDAOAnQr9lKWpoDwmMVt/oMcL0yo
- KB+opqhuLWhzk1CQPkKpJWZCDqu5Byk=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-02_01,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 priorityscore=1501 adultscore=0 impostorscore=0
- bulkscore=0 lowpriorityscore=0 clxscore=1011 suspectscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607020128
+In-Reply-To: <b5lpw3xu6svsq7xmmgp3jn4cg455zhp3iw4q6lcsxq4bqy7mwh@guuitghg3xal>
+X-ClientProxiedBy: PH2PEPF00003854.namprd17.prod.outlook.com
+ (2603:10b6:518:1::74) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|AS8PR04MB8484:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4334398e-aa9d-4b31-aea7-08ded834c963
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|23010399003|1800799024|19092799006|376014|3023799007|18002099003|56012099006|22082099003|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: VtJ76xXMqrRxFwA+v9e25NOknB9Oy7/8B11O2ZmKfQTu8rvlp6Y2r4sf1JiHXwFP7c4HM2YPZ1a2Di2UpptBrhO7toGrILCgtwhFi0ht5DRtrdFPvhjlfTJCqS/GGinXC+ydMfRKAP4mygv5+sAN0nlBU7N6IIFlXYaiMM7VZg65vVugkQPBa387jWfC63sRT++KpLUGciawTFx2yz5gG0eKGR/XQN6VsaxGqj41KvwrxUJ/OL4K0exrnXJYm9RpBYXBZOcWVWvRcbuhSzvTr1x30jsGMPh6ewNtgxqaYCS9xuECEGiIvQGp2YF8FBgZQStZVMWycDLvHXWQTKuQVmU8uZCpj3qrTtJh/LdNa5Q6p9Apvh9nzsaaqD8wcssW/8UimllbbhSjNoGsTM3WfghE+QArDYFUy+7TW2phe4riGuk8fkvRf91Y5m9M1PN7McKNEycLofxV+Os1VcHqQwm6Baps9Hi1w63UyAllpKDD1bjcQTDDUuFGCgK9xl8OZW2dTwmSlDdKn9cqpsCm7C5WFydwa+nd4+50uu8aAX7FNWehWYsjHgxAjLfZUg5KUL8gmO8JXZRcffCmDQ+AwA1P/aiZFtXTP4D7pp1SxbqTynw1zhqmZ+zYrF6XNdtXMuZCtrAJxlp6I08RPgCOWEHB25faSCvaS5EhIyyea2o=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(19092799006)(376014)(3023799007)(18002099003)(56012099006)(22082099003)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sBg0Kh61Ru7Sg+dhAi5orjUOT4Ywxg1lKim66XGLcd94s9FZxB1G0Ms9CWHD?=
+ =?us-ascii?Q?husG5g3gLsWLt/iOt02f4QDnPy8EogzBsyTPwhr+kAHFAnHmvJMykDY3dWfx?=
+ =?us-ascii?Q?7ay97upb/+2qm3oIIV4d1K8pe+MYDuyoF+9MB7++rf0I+VOzSu5BbnZgflGa?=
+ =?us-ascii?Q?9kVNZr+wlbLsX5tMLdd1odDv9bQy+uYvQ+EpKnj0yuR8xghscM0D1VAmXnDr?=
+ =?us-ascii?Q?RjFM4hlmDLJ/ya1HTyGkJn17I40qUpkmrXbWMcLxJzNTYGpqx9CFHTC3rllD?=
+ =?us-ascii?Q?30LnWu+eySmFIwO/5vmoLL7K5qc3CtMfIRO2NznXPfRXUwKKDYc4WfWSekJn?=
+ =?us-ascii?Q?iz9+VTNXhfWkEeqPcSDeuXdrXhfzS8atWAkEY5DSxolVl595p45j8ucY9FoI?=
+ =?us-ascii?Q?6DiQmDrx2R8i1J5RA4Goj4ooV5S8zE9+XnUqHgU4EjQaVsTjgRwcdq+NLn01?=
+ =?us-ascii?Q?1rNtMooTIeW3eu0LDyY97Vc4GNHVPIiPNnrUl04oyj/MMB5n7NE7II1RJE2q?=
+ =?us-ascii?Q?bgNi30VOg8OFg5eboRQ78Wq2Wr1nP4JB1YJYfxgCcyZ4NFUENfdcdw0BEwK2?=
+ =?us-ascii?Q?DwkKx12JAmCC/P8v8GNwnaoH/TyGRoNix1yRAiMt356miufJagSMOxTCL1bb?=
+ =?us-ascii?Q?JcQ0qIfWNxUU79mPltzUMJqx3VuMX9yuClR8HvKAWA7Gxkd35IvaJnVMe+jE?=
+ =?us-ascii?Q?9xS2fEZr0BnqOLbNj5fP/5sZTmF0UmPuNbN6pYY7ta83vkHR4APWmFhzSmD8?=
+ =?us-ascii?Q?CmtWpMxxe9YXZ9XGqODode2C/poLlWHJovsMx6ZxBwV1YB1DYGWz6/71Yjyg?=
+ =?us-ascii?Q?CBWpbEf3Ua3oMYwMt0vJOBXZA10/NzeC/9/ZaHjfu8HVjK+zNe+TQ9tsL07J?=
+ =?us-ascii?Q?saEESNkmdw5nnia0YpeJ48PEGPe1C4v8VLjNrzyhRK0pFCh0/e5KhKvY0KJw?=
+ =?us-ascii?Q?0CPPljlt7udh+BlQQb5uy16txET3kHWTPSeccV3Etkg3cwvHiK8jkxgbbXBB?=
+ =?us-ascii?Q?yRqOwvFUhzQ2l4ZqPslAC16Mfe6u8m8tX34gsUmFiyZjJhEcGIxsL/zoTGRe?=
+ =?us-ascii?Q?dTyHuiSqNCcT77vnWuMqzJNUO6/fncX+C/UJpcKjrGNU9IlAGNTmjQAWVbBk?=
+ =?us-ascii?Q?/pk9RCp14rVCixhBEi/Y0ls+5DQn2w3opb8LRlokSP1/Ub3GqgYLtcGaGAAR?=
+ =?us-ascii?Q?sqccioYie6cqdhfDLdkd0poMaxjbRwxqlnFissouWpklD5eZaWcjpLYtmpNt?=
+ =?us-ascii?Q?FWEWjytk4RSObL6asHc15RHvfF87sGxiT7r5Cacu1BJ5m9FdCENYQl0bsFK3?=
+ =?us-ascii?Q?GEru7MLzwIqzYTaGQ3GIB2DYVp+XOCsemwoct7mOKb0HLOSr6RJTE6+RSVgf?=
+ =?us-ascii?Q?VBeMZX3NmHni538yVcZTERewzYzzyoPDSoSRVlQGH2yLFV1cOB5IMhteEmRG?=
+ =?us-ascii?Q?VEZK8CWQEtQfFSMDGKkwYHfNXcjG2NnlmpgK5GLktIlB1G+2ovFw8YyPi8GE?=
+ =?us-ascii?Q?opKy3MW3KezLTN+9SjkIqfJEYOhmIPwS6JO3dU/jjT+YlUUY++XZLw5IfIN2?=
+ =?us-ascii?Q?T6pCl1FQQ69uY8c+mOZ7rA6b/lSd2Ei+aYOl+Kso60YZjxb9IWviKRI7qWEk?=
+ =?us-ascii?Q?BsutsukTEHbGD96yNZo3H/jXxK/qpJoRH/C0i6PijPVVFAzSdrWnzShDppy0?=
+ =?us-ascii?Q?ymkcJ6fQRSqucZJqNSZpoE2TCDX7mGaeaYeWeEsXaqNUAGEGlNnsqxsR7Sx1?=
+ =?us-ascii?Q?e/dmGcvkHAFc6L0QLYY781vjhsC9RzbHqRLkuf5cNJOfcQF6nT0y?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4334398e-aa9d-4b31-aea7-08ded834c963
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 12:23:56.8808
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zVOy6C20faK0QqVW0KHgoG4pE5ZLMnrsnDKlzcKd3kKcZ19qlt1iUwJ5Lsv5m5FBAop9SvFOwB6aRzxpWHQOzAQQu1H2rfu9PAFZuKHbYLBpiLNRBXYZChTUbyDKjzTm
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8484
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_051718_885438_15C134EB 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20260702_052402_224870_2981828F 
+X-CRM114-Status: GOOD (  46.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,32 +141,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 05:21:14PM +0800, Ruidong Tian wrote:
-> This series continues Tong Tiangen's work on arm64 ARCH_HAS_COPY_MC
-> support. We encounter the same problem, and from a forward-looking
-> perspective, large-memory ARM machines will suffer more from this class
-> of issues, which motivates us to push this feature upstream.
-> 
-> Problem
-> =========
-> With the increase of memory capacity and density, the probability of memory
-> error also increases. The increasing size and density of server RAM in data
-> centers and clouds have shown increased uncorrectable memory errors.
-> 
-> Currently, more and more scenarios that can tolerate memory errors, such as
-> COW[1,2,8,9], KSM copy[3], coredump copy[4], khugepaged[5,6], uaccess copy[7],
-> page migration[10,11], etc.
-> 
+On Thu, Jul 02, 2026 at 10:35:00AM +0300, Ioana Ciornei wrote:
+> On Wed, Jul 01, 2026 at 09:27:03AM -0500, Frank Li wrote:
+> > On Wed, Jul 01, 2026 at 04:11:33PM +0300, Ioana Ciornei wrote:
+> > > From: Vladimir Oltean <vladimir.oltean@nxp.com>
+> > >
+> > > Align to the modern fsl,lynx-28g.yaml binding, where the SoC and SerDes
+> > > instance is present in the compatible string, to allow reliable per-lane
+> > > capability detection and per-lane customization of electrical properties.
+> > >
+> > > The modern bindings are backward-incompatible with old kernels, due
+> > > to the consumer phandles being either in one form or in another, as
+> > > explained here:
+> > > https://lore.kernel.org/lkml/20250930140735.mvo3jii7wgmzh2bs@skbuf/
+> > >
+> > > One of the major differences between the LX2160A and LX2162A is the
+> > > SerDes. So far, LX2162A has used fsl-lx2160a-rev2.dtsi, but we need to
+> > > split that up even further, and derive a fsl-lx2162a.dtsi which
+> > > overrides the SerDes properties.
+> > >
+> > > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+> > > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+> > > ---
+> > > Changes in v2:
+> > > - Enable serdes_1 on all board DTs that has consumers for it.
+> > > - Use the proper name for serdes_3 in fsl-lx2162a.dtsi.
+> > > - Remove paragraph from commit message which mentioned some consumer
+> > > changes that are no longer needed nor part of the commit.
+> > > ---
+> > >  .../freescale/fsl-lx2160a-clearfog-itx.dtsi   |   4 +
+> > >  .../dts/freescale/fsl-lx2160a-half-twins.dts  |   4 +
+> > >  .../boot/dts/freescale/fsl-lx2160a-rdb.dts    |   4 +
+> > >  .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 150 +++++++++++++++++-
+> > >  .../dts/freescale/fsl-lx2162a-clearfog.dts    |   6 +-
+> > >  .../boot/dts/freescale/fsl-lx2162a-qds.dts    |   2 +-
+> > >  .../arm64/boot/dts/freescale/fsl-lx2162a.dtsi |  24 +++
+> > >  7 files changed, 190 insertions(+), 4 deletions(-)
+> > >  create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2162a.dtsi
+> > >
+> > ...
+> > >
+> > > +&serdes_1 {
+> > > +       status = "okay";
+> > > +};
+> > > +
+> >
+> > Can you try keep alphabet order? may old file is not ordersed, but try
+> > best, at least should before &uart0
+>
+> Sure, will move it.
+>
+> >
+> > >  &uart1 {
+> > >         status = "okay";
+> > >  };
+> > > diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
+> > > index 1d73abffa6b7..a687eb3e3190 100644
+> > > --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
+> > > +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
+> >
+> > Please split chips dtsi and boards dts to two patch.
+>
+> Ok, I will split the serdes_1 explicit enable into a prep patch.
+>
+> >
+> > > @@ -621,17 +621,163 @@ soc: soc {
+> > >                 ranges;
+> > >                 dma-ranges = <0x0 0x0 0x0 0x0 0x10000 0x00000000>;
+> > >
+> > > +               /* Note on the interpretation of SerDes lane numbering from
+> > > +                * LX2160ARM lane mappings for RCW[SRDS_PRTCL_S1]:
+> > > +                * The letters (A-H) correspond to logical lane numbers in the
+> > > +                * SerDes register map (lane A's registers start with LNAGCR0),
+> > > +                * while the numbers (0-7) correspond to physical lanes as
+> > > +                * routed to pins.  SerDes block #1 is flipped in the LX2160A
+> > > +                * floorplan (logical lane A goes to physical lane 7's pins),
+> > > +                * while SerDes blocks #2 and #3 are not.  The lanes below are
+> > > +                * listed right to left when looking at that table.
+> > > +                * Both the numbers and the letters are according to the logical
+> > > +                * numbering scheme, and do not account for the flipping.
+> > > +                */
+> > ...
+> > > +                       compatible = "fsl,lx2160a-serdes3";
+> > > +                       reg = <0x0 0x1ec0000 0x0 0x1e30>;
+> > > +                       #address-cells = <1>;
+> > > +                       #size-cells = <0>;
+> > > +                       status = "disabled";
+> >
+> > status should be last property
+>
+> Ok, will move it.
+>
+> >
+> > > +                       #phy-cells = <1>;
+> > > +
+> > > +                       serdes_3_lane_a: phy@0 {
+> > > +                               reg = <0>;
+> > > +                               #phy-cells = <0>;
+> > > +                       };
+> > > +
+> > ...
+> > > +
+> > > +#include "fsl-lx2160a-rev2.dtsi"
+> > > +
+> > > +&serdes_1 {
+> > > +       compatible = "fsl,lx2162a-serdes1", "fsl,lynx-28g";
+> > > +
+> > > +       /delete-node/ phy@0;
+> > > +       /delete-node/ phy@1;
+> > > +       /delete-node/ phy@2;
+> > > +       /delete-node/ phy@3;
+> >
+> > Now, do not perfer delete-node. if ver2 is not include phy@0, ...
+> >
+> > create ver2 files, let ver2 include it. Now most people like A + B, not
+> > A - B.
+> >
+>
+> I am not sure I follow what you say about the ver2 files - are you
+> referring to -rev2 or LX2162A?
+>
+> The LX2162A is a version of the LX2160A SoC, also known as "LX2-Lite".
+> And the main difference is that the LX2162A does not have the 3rd SerDes
+> block and only 4 SerDes lanes on the first block.
 
-Hi Ruidong,
+If it is the same die and it is disable by fuse box. I suggest leave it here
+now because default it is disabled and try to access-control-cell in future.
 
+https://lore.kernel.org/imx/20241212-imx-ocotp-v1-1-198bb0af86a0@nxp.com/
 
-just a minor editorial nit :-)
+That these nodes can be dymatically disabled it.
 
-> [PATCH v15 0/8] arm64: add ARCH_HAS_COPY_MC support
+If it is difference die, it should lx2160a.dtsi include lx2-lite. you
+can rename old lx2160a.dtsi to lx2-lites.dtsi. You need adjust file name
+and I just said overwhole method.
 
-the series has 9 patches, but Subject says 0/8.
+Frank
 
-Cheers,
-Ashok
+>
+> The delete-node is reflecting exactly how the SoCs came about, the
+> LX2162A is a smaller version of the LX2160A (which came first) and not
+> the other way around.
+>
+> I feel like it's unnecessary churn but let me know if you feel strongly
+> about this.
+>
+> Thanks,
+> Ioana
 
