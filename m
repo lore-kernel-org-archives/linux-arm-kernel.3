@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529CDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2658BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:01:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=usqHyr4FCppk89cjD1Lh8z87EZeT9dV/v0SgCLCx+zE=; b=mdh2/+C4QmgDn1p7R5apcCGj0/
-	0j2tcGOp7MNT1OhDoxhvyY9RwaOBj9RuCDwnhw5BNVDGO/SsRuuw0khaB6V585qsZOjzyamt5+rq5
-	6l4wpXv2ZusmpA5swQGKCx68a5yZUlqMP9TVTby7HLL4f9p7FbXEwWyfVBrtaf4IKnPJG419U3OPr
-	Q+MrVCBCxIKi+ehoQJHUm2s06aNLrRSu0Ef/BrBDQr982bqfBkI7p/8dSM2Zwp1Ui+VVYpe2bq8IN
-	giDoCocgF76artCHluMrN4oGjIgeTHEheUSYzTtJqZH+dRtRPgbT+7rd38rdZbrGTfV8hOTS11PTV
-	tBGJVfEg==;
+	bh=Ci5DBXRn+5kdYcV4syoJ/nlrfafCD6IBrci7rpIgT7k=; b=mh547udSwm8ApHy11okbZNm0Zc
+	00b8d3GkQkeHFzjDKDjgzHTCIEF9L0+72SMDUCOvHMiKf3qTb9OTT8Mi8nXGzReFBky8iGlZ+VOJj
+	cX6e5XNy/0nKTe6dxsOb9vxhfv0Uvd75Lw3oN52ahIU8QUKSiMVq0wRX5g3eIzBxR78Zb00n6DoV0
+	YKcOWpWk2wtPtTH+BUJYdbcLXnOmNp9pliVCoOP5lsCFK3JDk8pmMOt9KESNVQLKwUIcrfi39IebJ
+	iMgKDq9rpd8fvFD5H051Egml+ryfj5MHb4Y1IqaoMc7iLLNgKF+IjbIpOZ6stIeiYFhsE4H3zEoGa
+	hzj37ZPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDGe-00000003wMY-37O8;
-	Thu, 02 Jul 2026 08:59:32 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1wfDIm-00000003wlB-0cKY;
+	Thu, 02 Jul 2026 09:01:44 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDGZ-00000003wKP-2Zxu;
-	Thu, 02 Jul 2026 08:59:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=usqHyr4FCppk89cjD1Lh8z87EZeT9dV/v0SgCLCx+zE=; b=g7X4++BeQ2q3zvMDe0NyPsUx45
-	3RF7kSMPpRJbYt9i13rM6nx2YrMi6bglLo9KaWHX2kW0o8LMDoTT//Ifa+E2G6xEy8JVh7LI3VLhV
-	pfLPjaeloaGkxDf/EyrDWK2d7ZPwETD3mnRd+Zm8U6Wo+zHIzbHkfvtnSaV65UQjpEgZlRWPz74t1
-	uZ+2Qyh1y+o5EGlK7R8iiQorjBWQbQ11s5JP91ZxzfTGtLpP9bGB4U2aA3Jjn9RfPRYqPUK6KqVbt
-	qrDiRFk4oGgCIyvEEwrlJoQ1fPKiasr1jqeVQKiw9AwCA6vyTYqUeBHmOLeCCitZYCa+2W1O3HTS0
-	CCZNiKSQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDGU-00000008EIf-3h8q;
-	Thu, 02 Jul 2026 08:59:23 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id EF899300402; Thu, 02 Jul 2026 10:59:21 +0200 (CEST)
-Date: Thu, 2 Jul 2026 10:59:21 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: K Prateek Nayak <kprateek.nayak@amd.com>, Arnd Bergmann <arnd@arndb.de>,
-	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Charlie Jenkins <thecharlesjenkins@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>
-Subject: Re: [PATCH] futex: Optimise the size check get_futex_key()
-Message-ID: <20260702085921.GD49951@noisy.programming.kicks-ass.net>
-References: <20260630045531.3939-1-kprateek.nayak@amd.com>
- <20260630045531.3939-9-kprateek.nayak@amd.com>
- <20260701075714.GP48970@noisy.programming.kicks-ass.net>
- <20260701084150.GNOeboLw@linutronix.de>
- <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
- <20260701161736.xYYizA0e@linutronix.de>
+	id 1wfDIj-00000003wkO-2kO7
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 09:01:43 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E3D852003DD;
+	Thu, 02 Jul 2026 11:01:34 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wfDIc-005iZG-2i;
+	Thu, 02 Jul 2026 11:01:34 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wfDIc-000000005AH-3BGi;
+	Thu, 02 Jul 2026 11:01:34 +0200
+Message-ID: <1ef8b2e4ab588aac1dae737541240e698fcf26a7.camel@pengutronix.de>
+Subject: Re: [PATCH RFC v5 05/12] clk: zte: Add Clock registration
+ infrastructure.
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Stefan =?ISO-8859-1?Q?D=F6singer?= <stefandoesinger@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,  Brian Masney
+ <bmasney@redhat.com>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 02 Jul 2026 11:01:34 +0200
+In-Reply-To: <84C4450E-7355-48CD-BCBB-CF619C27EBED@gmail.com>
+References: <20260628-zx29clk-v5-0-79ff044e4192@gmail.com>
+	 <20260628-zx29clk-v5-5-79ff044e4192@gmail.com>
+	 <c59fab242716c80250a66707d7ccaaf243a85aac.camel@pengutronix.de>
+	 <84C4450E-7355-48CD-BCBB-CF619C27EBED@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701161736.xYYizA0e@linutronix.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_020141_843987_51B32B92 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +79,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 06:17:36PM +0200, Sebastian Andrzej Siewior wrote:
-> The futex address must be naturally aligned and this is checked via
-> "address % size" where `address' is the supplied address and `size' is
-> the expected size of futex. It is guaranteed that `size' is power of two
-> but the compiler does not see it and creates here a `div' operation
-> (x86, arm, gcc-15).
+On Di, 2026-06-30 at 11:53 +0300, Stefan D=C3=B6singer wrote:
+> Hi Philipp,
+>=20
+> > Am 30.06.2026 um 11:27 schrieb Philipp Zabel <p.zabel@pengutronix.de>:
+> >=20
+> > I think the MFD driver is unnecessary overhead. Can't you just keep the
+> > reset controllers as auxdev and use of_platform_populate() to create
+> > devices for clock-controller child nodes such as syscon-reboot?
+>=20
+> MFD for top and matrix was the suggestion of Conor:
+>=20
+> https://lore.kernel.org/linux-arm-kernel/20260618-fantasy-estimate-6c52ed=
+bc6890@spud/
+>=20
+> To quote:
+>=20
+> > I think aux bus makes perfect sense when you have a clock/reset
+> > controller, but once you start expanding past that and you have reboot
+> > or hwmon or hwspinlock then mfd starts to make sense.
 
-That's pretty stupid, since size = futex_size() := 1 << (blah); so it
-has every opportunity to actually see this. Also, see below, clang does!
+Note how the example Conor gives is introduced with:
 
-> We can take advantage of the pow2 property and rewrite it as
-> "address & (size-1)".
-> 
-> As per testing, the command
-> |perf bench futex hash -f 1 -b 16384 -t 1 -r 30
-> 
-> improved from
-> | [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
-> to
-> | [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
-> 
-> or by 5.3%
-> 
-> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> ---
-> 
-> Could someone verify this, please? The 5% look a bit high. This is on
-> top of the series (but not worsen by the series).
+> > Because I messed up stuff in the past, reset-mpfs.c has both aux bus
+> > and mfd probing in it, [...]
 
-Bah, I tried to reproduce and couldn't. Then I noticed I did a clang
-build and that is in fact clever enough to do this optimization itself.
+So while, yes, this is possible, I'd like to avoid it if not necessary.
 
-/me tries again with a GCC build.
+> I can go either way. To me aux vs mfd seems like a distinction without a =
+difference.
 
-pre:  [thread  0] futex: 0x561f14430680 [ 9021408 ops/sec ]
-post: [thread  0] futex: 0x55feadbbb680 [ 8977527 ops/sec ]
+I think that's because the main difference doesn't apply here:
 
-(and this seems to be well inside the error threshold of this test).
+MFD comes from aggregate devices where a shared register space
+accessible via a physical bus (which we have) can be partitioned out to
+child devices. Reset controls are often just individual registers or
+even bits scattered around the CRU register space, so we can't make use
+of the MFD framework's IO/IRQ resource partitioning infrastructure at
+all.
 
-So I see the GCC build do the DIV, and no longer with his patch applied,
-but for some reason I cannot get the runtime performance to actually
-improve much of anything on my system.
+Auxiliary devices were introduced to separate functionality of a single
+device into subsystem drivers (which applies here) for devices that are
+not just controlled via direct register access, for example via a
+firmware interface. That's not the case here, we usually can just share
+a regmap.
 
+Either way, I'd prefer the reset driver to not carry more boilerplate
+than actual reset code, so if you can either put all of them into a
+single auxiliary_driver or into a single platform_driver, I would be
+happier.
+
+regards
+Philipp
 
