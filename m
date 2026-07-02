@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77F3AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:54:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEEBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5F4SqLSzXJmEFBlCC95grIlZ95ePwaUrWR6lWfF8+0=; b=AKfBjzpePzLVQl9Wz8fVwFgu5+
-	Wwct5bBdRd5ojFTvKkSuEBIG/lYilS3LQGvUivx7usIu8rvUEvZVFi7iBdaxDRwfmQCTg3wrXx518
-	dDQc5yYl7TJzvXaQdSS5RMf6BenCJedTFKQk9xY6v4fRkt7n95KXbLFTkJdLEj3tnN0d7gx0rQ+ZB
-	ilkJDNzZCT2bZ4wT+6cXWZjxzvO78NJI8G+ZxoBU1tqV2cbOFPoBMtOQTNAr+1DyXH9OXjiq28VHY
-	uI1rXW6t7iLf37zqTcxfO9ShMLY5RcoyVFXujCqQu+vUE4O7mzpeIhsX91YHO2Y+XyhQji6PCw5+x
-	jx0Doteg==;
+	bh=wtWPQDrl7FjrTDw2AZGEltJb9ojtSFWiuxzeYupPQ0s=; b=cphqORnYWr9jVKGerwfdndaXyF
+	CeFCTJxX2YemP6JNsDFJPlbJV6vuJw7fS/w41xSOvPRvLmb9DSeN3NHpZP2l2Ex36PkSlM+BR1fqV
+	BOR+9bkRCj8sXjruCesLuUAWDait/a1FJJCCpHjS1tdw1E1RiJmbCF1jRc5JkOZ9/otPqfuPzXNOp
+	/2nzeKb6Fc6zpWGQjO+vD7HIEAoOCFbtvCd47G5LjX3LeoYvNVkfuikwOJKWYkm9lfALk/UVKwMf9
+	QxjDGxYmsE95RLj8N4QNExJ0S5WIIL33DiL+M5wszFkiARzQwae6FzHTK/INEn5buaF0dXI+FypKq
+	cIOJzPmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfNUL-00000005Pgu-2An3;
-	Thu, 02 Jul 2026 19:54:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfNUK-00000005Pgj-0Wul
+	id 1wfNSS-00000005OvN-3bpC;
+	Thu, 02 Jul 2026 19:52:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfNSQ-00000005Osu-3Ldl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 19:54:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93C3D43EC0;
-	Thu,  2 Jul 2026 19:54:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDC431F000E9;
-	Thu,  2 Jul 2026 19:54:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783022059;
-	bh=H5F4SqLSzXJmEFBlCC95grIlZ95ePwaUrWR6lWfF8+0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=lxSHss0jvK733v7BcM65Sx1MTW6AMDnyfsKr8aUmdVyraJinGJwuu9LxqTIuIjTch
-	 53aM7s/8DC4UG2yPyIiEWJgCYHJqcHF/oILB5+udDsK6hEh16L2CXQggyUbf/cfaCX
-	 byO7sJKOq6RcgaMHHAOtbQCIo6f/YbGyMfyhyR7J8QeGco0JoC23f7XDbtWD+IW6aq
-	 75XQn2YmirE3ToiqMt7mmw2PHlwAnyZRIx4Tmsh4UvZjxm6z6XxuPu0bV1svRH61cJ
-	 g1Bvgm6gFRGpIlxQjWlf4PAy9ORUsrayYN7JKByWKmPT9JHA7jPHsbQrBE9QMyJWHK
-	 fcuqAp46QwCew==
-Date: Thu, 2 Jul 2026 20:54:12 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Petar Stepanovic <pstepanovic@axiado.com>
-Cc: Joshua Crofts <joshua.crofts1@gmail.com>, Akhila Kavi
- <akavi@axiado.com>, Prasad Bolisetty <pbolisetty@axiado.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Harshit
- Shah <hshah@axiado.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] iio: adc: add Axiado SARADC driver
-Message-ID: <20260702205412.4cd58a5a@jic23-huawei>
-In-Reply-To: <5e84024c-041b-4e2b-9a91-6c0bb9fb3bb2@axiado.com>
-References: <20260622-axiado-ax3000-ax3005-saradc-v3-0-e57c7c7ae675@axiado.com>
-	<20260622-axiado-ax3000-ax3005-saradc-v3-2-e57c7c7ae675@axiado.com>
-	<20260622115554.000036a9@gmail.com>
-	<5e84024c-041b-4e2b-9a91-6c0bb9fb3bb2@axiado.com>
-X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+	Thu, 02 Jul 2026 19:52:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B1ECE35B7;
+	Thu,  2 Jul 2026 12:52:17 -0700 (PDT)
+Received: from e132581.arm.com (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 286F93F673;
+	Thu,  2 Jul 2026 12:52:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783021942; bh=fWKnWG0XxHYhp737OPV3xLbFPiT3yu4LRky6F/1DhAs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=fIfgg+QvFyZx7l65u1kX6PnBjph4njk8XiZ/VAVZ8zu12tbtG/iar71coIeXK6Gzj
+	 BCEH2vSnHuXg6GcG7TPzmhenunl0MinNNHqz1zgiC7MG6WcH0O0O4PPC7/j7lKwU0y
+	 cwglbOVkibjY5i+BNCIDPmp7PIB64c6G+hpxXwMY=
+From: Leo Yan <leo.yan@arm.com>
+Date: Thu, 02 Jul 2026 20:51:41 +0100
+Subject: [PATCH v11 6/9] perf cs-etm: Flush thread stacks after decoder
+ reset
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-b4-arm_cs_callchain_support_v1-v11-6-846abbf600d7@arm.com>
+References: <20260702-b4-arm_cs_callchain_support_v1-v11-0-846abbf600d7@arm.com>
+In-Reply-To: <20260702-b4-arm_cs_callchain_support_v1-v11-0-846abbf600d7@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
+ James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>, 
+ Paschalis Mpeis <paschalis.mpeis@arm.com>, Amir Ayupov <aaupov@fb.com>
+Cc: linux-arm-kernel@lists.infradead.org, coresight@lists.linaro.org, 
+ linux-perf-users@vger.kernel.org, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783021918; l=2436;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=fWKnWG0XxHYhp737OPV3xLbFPiT3yu4LRky6F/1DhAs=;
+ b=EPQypMpJmD7A2fCuPuIa2rBffyHDWk2UmnFx6ll9HkmhERKoZFdEH3iV5rItp6x/SF83wOVsD
+ 8+09NH/UthAAyrr/COTO18vm2INYDEqaLvA/NOrtBL0ILFo7OJCnaWG
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_125222_951854_BE1111CD 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,63 +85,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Jun 2026 10:30:37 +0200
-Petar Stepanovic <pstepanovic@axiado.com> wrote:
+Perf resets the CoreSight decoder when moving to a new AUX trace buffer,
+this causes trace discontinunity globally.
 
-> On 6/22/2026 11:55 AM, Joshua Crofts wrote:
-> > CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
-> >
-> >
-> > On Mon, 22 Jun 2026 00:47:28 -0700
-> > Petar Stepanovic <pstepanovic@axiado.com> wrote:
-> >  
-> >> Add support for the SARADC controller found on Axiado AX3000 and
-> >> AX3005 SoCs.
-> >>
-> >> The driver supports single-shot voltage reads through the IIO
-> >> subsystem. The number of available input channels is selected from
-> >> the SoC match data, allowing AX3000 and AX3005 variants to use the
-> >> same driver.
-> >>
-> >> Signed-off-by: Petar Stepanovic <pstepanovic@axiado.com>
-> >> ---
-> >> +     info->clk_rate = clk_get_rate(info->clk);
-> >> +     if (!info->clk_rate)
-> >> +             return dev_err_probe(dev, -EINVAL, "invalid clock rate\n");
-> >> +
-> >> +     ret = devm_regulator_get_enable_read_voltage(dev, "vref");
-> >> +     if (ret < 0)
-> >> +             return dev_err_probe(dev, info->vref_uV,
-> >> +                                  "failed to get vref voltage\n");  
-> > Sashiko raised an issue that I've missed on previous reads - why
-> > are you using info->vref_uV in dev_err_probe()? The info struct
-> > is not zeroed out on initialization, which means that dev_err_probe
-> > will return a different value each time when read_voltage() fails.
-> > It was designed to accept the retval from whatever function we're
-> > checking.  
-> 
-> Thank you for catching this.
-> You are right, |dev_err_probe()| should use the return value from |devm_regulator_get_enable_read_voltage()|, not |info->vref_uV|.
-> I will fix this in the next version by passing |ret| to |dev_err_probe()| and assigning |info->vref_uV| only after the call succeeds.
-> 
-Hi Petar,  Quick process thing.  If you fully agree with some
-feedback, don't send an email to say that. The place for thanks
-etc is the change log of the next version.
+For callchain synthesis, keeping thread-stack state after decoder reset
+can leave stale call/return history attached to threads that are decoded
+later, producing incorrect synthesized callchains.
 
-We are all swamped in email and it takes a non trivial amount
-of time to check every reply for discussion that needs to continue.
+Flush all host thread stacks after a decoder reset. When virtualization
+is present, flush the guest thread stacks as well.
 
-This is probably the most common thing people who are new to the kernel
-do that I'd rather they didn't :)  I send this email once or twice
-a week at the moment.
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ tools/perf/util/cs-etm.c | 45 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 45 insertions(+)
 
-Thanks,
+diff --git a/tools/perf/util/cs-etm.c b/tools/perf/util/cs-etm.c
+index ba9ffb7bdb4bd95c9dc6c323c0d56f516aae56b8..996317687ce7b241afed83444b554155edb09564 100644
+--- a/tools/perf/util/cs-etm.c
++++ b/tools/perf/util/cs-etm.c
+@@ -2033,6 +2033,45 @@ static int cs_etm__end_block(struct cs_etm_queue *etmq,
+ 
+ 	return 0;
+ }
++
++static int cs_etm__flush_stack_cb(struct thread *thread,
++				  void *data __maybe_unused)
++{
++	thread_stack__flush(thread);
++	return 0;
++}
++
++static void cs_etm__flush_machine_stack(struct cs_etm_queue *etmq, pid_t pid)
++{
++	struct machine *machine;
++
++	machine = machines__find(&etmq->etm->session->machines, pid);
++	if (machine)
++		machine__for_each_thread(machine, cs_etm__flush_stack_cb, NULL);
++}
++
++static void cs_etm__flush_all_stack(struct cs_etm_queue *etmq)
++{
++	enum cs_etm_pid_fmt pid_fmt = cs_etm__get_pid_fmt(etmq);
++
++	if (!etmq->etm->synth_opts.last_branch)
++		return;
++
++	switch (pid_fmt) {
++	case CS_ETM_PIDFMT_CTXTID2:
++		/* Clear the guest stack if virtualization is supported */
++		cs_etm__flush_machine_stack(etmq, DEFAULT_GUEST_KERNEL_ID);
++		fallthrough;
++	case CS_ETM_PIDFMT_CTXTID:
++		cs_etm__flush_machine_stack(etmq, HOST_KERNEL_ID);
++		break;
++	case CS_ETM_PIDFMT_NONE:
++	default:
++		break;
++
++	}
++}
++
+ /*
+  * cs_etm__get_data_block: Fetch a block from the auxtrace_buffer queue
+  *			   if need be.
+@@ -2055,6 +2094,12 @@ static int cs_etm__get_data_block(struct cs_etm_queue *etmq)
+ 		ret = cs_etm_decoder__reset(etmq->decoder);
+ 		if (ret)
+ 			return ret;
++
++		/*
++		 * Since the decoder is reset, this causes a global trace
++		 * discontinuity. Flush all thread stacks.
++		 */
++		cs_etm__flush_all_stack(etmq);
+ 	}
+ 
+ 	return etmq->buf_len;
 
-Jonathan
-
-> Regards,
-> Petar
-> 
-> 
+-- 
+2.34.1
 
 
