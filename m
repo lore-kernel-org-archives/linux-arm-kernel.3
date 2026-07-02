@@ -4,154 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ADB0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:04:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96991C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xq8Hlq1Nng1oT3VPE4+S5o8zVTrpOpOSt2OP1e/D50c=; b=hnsg8b71lDMw4CQXjpewZcnuGq
-	dZOlVctlIgedWG+NW0ZU3XRP1PmH0wtpiNJYM/GSgwkaYEYspYi7MAlax+vUE+5w3IHKchHg+Rf1a
-	AEzQOYxRVxSbJOvBuaR1JxDidsmRUporRE0DHiwFCi/VXZ1MRg45H3GPrutQagIKLb21UfciJVio8
-	EKO7zVFhT0oVyWLYYy4r7+FcXYzR32DCIvUmVmluFzguOocg+RAj3eOhva3BcZgDRGP+1SUAW4TMI
-	seqF3QRiJuXz3bQkr9PX9OOwkiBBuH0WwYxLboBTTzyFDlQAnvmtTljmmv34Kee6hhnDhfpqCm+h3
-	+EbNMMKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BqQwItB+gSh5DK9J07Aevf0zt9+QmubqHldbio4k2tM=; b=wgninG5irzJZP/roDQ+CDkqER2
+	7RhtzhH6p4j6pcPRouobZ4bJiqLitd2WYmvQoxKP/VUQt0T8uIkSsf3CDGiDsUuU2gUyvp6acWnJJ
+	dExvc8tv0I7YlFJK/LMIhlGuRvfg6uF51C3z/JX+NEz5VA9TPtjoSXK7+O/IS+ztM/toqpU1JwrIF
+	vnU5nB4Ba5dMO0s3gLbGmaoxi2MAVk7orAwjBAqyJTWwF9wrByPZkaFHRnlzZPAEUdr6Wkq0GG9QB
+	FDksmeHXqawr4vq4axUDTvIp3oSEP9h4SZDfP1gGEG4JI2xCXIV6Y6qaQ27v+TwiS8ZewDb+YInD8
+	jS6jaZ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJtp-00000004wYI-0Uzs;
-	Thu, 02 Jul 2026 16:04:25 +0000
-Received: from mail-westeuropeazon11011035.outbound.protection.outlook.com ([52.101.70.35] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wfIhD-00000004fsz-2zJY;
+	Thu, 02 Jul 2026 14:47:19 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJtm-00000004wRh-08Rf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:04:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=NAcKaI5i7lN/JGkMnajpcXCC+AqZS3JQGsBYp7xG+ENio+NCTDd4lwrAh0fowdAdEabBKEoKvvtyU8yAPWZF2vDkFrNbXmWsa0ARmWCnUbxVGSCYS/JGIqt/JTr9ae3PdULSa1dI3T7y/8RIYuWtVgjuQUabEAH8ZXA0vdu0Ljbv95cHjRDkszjJokSGSNhRWSA7zDxbXvEFzuUiAScLqZKbUmnsd1WeP9B8pHMHVJvnGOUqcnl4mGNC4QVDah72WP4n3pW846PbEvISzQ0/mzy1zAJOKjKRb06fgzCQvhvtggkt6Hc7PjZNErV2DgB67HPQYrcB8dOfkQmI0djBLg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xq8Hlq1Nng1oT3VPE4+S5o8zVTrpOpOSt2OP1e/D50c=;
- b=jHuEAnoQQ6lm439MROibp1g5L7NczXO1Isr5ZGZmfPO4CfYCw8uVkvszj1yVFsB+noYfqzyHSWFVY/G+mMfJyhztu0uDlBxv0kqN4aUnS/DkSL1ILCXy/E6ifNBhVvxVPeM7NJ8zN9IKfQCIzp48h7M3ydgWSDPXLiPc0mMBq8O8sDPqnTDPdaczkM8faslvi8wgZEU4uI0c+1dGgiSwo7MC6c7sYdIY7rL5gUvoggxZu7FVchGnCOQNMt0RtEgJmSlB2TOWkGZWyjaEg23SPIZE3LK1s5QruOoaAxREbdIVIj4MnyzV7EtUA1FsN2ANwQJO1WHH+0DVHIjPDPtOpg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xq8Hlq1Nng1oT3VPE4+S5o8zVTrpOpOSt2OP1e/D50c=;
- b=GNxhqVVL2hVadIV/WwPRzFIigeM4kBHNoyjlHhar6IDAqgIb5tQZsdHU587gnrZD/rc2WRelyZxkZ+NkgWhzQEwONhtUe6OOpEEZ8h3m6s9m4QQ5+A5sh0gBUv9ZxAkK9ZvbTaM8doQpf6CAuXvu05W3wkw4KGy8eVn75o7MPvGD0azE6Ie0qvxGm6S3+J4DRzpx2NsGzvEaHZ/z0k5PCXyUabOUmAXzGfG6GNLr2q9GuMCpDULzaFn+swLIuOadclHtUd9b/WRbQgw8HDjR6+pZxsk1wxPht14qld5afSPx/xpgBxMJZLgiEqoPeQbqXNpMX3eE7kNt29aSChrZ5w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PAWPR04MB9936.eurprd04.prod.outlook.com (2603:10a6:102:38b::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
- 2026 16:04:16 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 2 Jul 2026
- 16:04:16 +0000
-From: Frank.Li@oss.nxp.com
-Date: Thu, 02 Jul 2026 12:03:57 -0400
-Subject: [PATCH v7 1/8] media: subdev: Add set_pad_by_ep() callback to
- internal ops
+	id 1wfIgi-00000004ejh-2hCQ;
+	Thu, 02 Jul 2026 14:46:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783003606;
+	bh=N574rGF98qOyw1xqHqzsgex+7Md3oeIG2GrW560mHNc=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=dHNSv62eMvQdNLvENPuUTT50RaTI4lA+zpKG6cxe3J7j5UBsGWrnxe8lnNsc/ylCJ
+	 GByl7fxLgqGP6kXATiCtMAuNrSpkxzZiC3mmTKKMRP6KI8RrYrVB8p4ndqf5kbzErV
+	 Ls4c59GuFzFd4Zfc4Yy4RS5x8Ls9PFxFxgTeE4GNf3fAysqx8hxQ89I6615fVN49XH
+	 1PepMMmdXAnSGsaGqephFZGmCX9aImn2S5mPtEwFJuGYxWd6Zu7JH/nqG3LJ6P3HT1
+	 2FihgQ4UlQ6YIREiwj3/kGxitBI8/imcIhrvVF3kOn1r7C70Sk7LwjpjsQUAUsM2Nw
+	 ZckkYWithhJig==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 830DB17E3618;
+	Thu,  2 Jul 2026 16:46:46 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 02 Jul 2026 17:46:33 +0300
+Subject: [PATCH v8 20/39] drm/bridge: dw-hdmi-qp: Provide
+ dw_hdmi_qp_hpd_notify() helper
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-imx8qxp_pcam-v7-1-b47d9e363400@nxp.com>
-References: <20260702-imx8qxp_pcam-v7-0-b47d9e363400@nxp.com>
-In-Reply-To: <20260702-imx8qxp_pcam-v7-0-b47d9e363400@nxp.com>
-To: Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Michael Riesch <michael.riesch@collabora.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Frank Li <Frank.Li@nxp.com>, 
- Martin Kepplinger-Novakovic <martink@posteo.de>, 
- Rui Miguel Silva <rmfrfs@gmail.com>, Purism Kernel Team <kernel@puri.sm>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, Guoniu Zhou <guoniu.zhou@nxp.com>, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-20-d79890d00b6a@collabora.com>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783008245; l=2037;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=Fcu6LwBWjAlMtg92rtXl9kE6Ft7YN438/rcH8f0yTI0=;
- b=InjK6A8HliL03gl2xfRhAR0ynjSDQtu//YyKZBrrKXVZr8YMjZC2DaxwQpU/QSnWZxf9VEbkv
- pbcngLXJSoJBYDo7HHev9o9TaZ2b2crModlbMMxo5zI3mHg0u6pTaVv
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SA1PR02CA0019.namprd02.prod.outlook.com
- (2603:10b6:806:2cf::12) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PAWPR04MB9936:EE_
-X-MS-Office365-Filtering-Correlation-Id: a25427ef-db46-425d-203c-08ded8539145
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|23010399003|366016|921020|18002099003|22082099003|5023799004|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: rzNTF9zPHKayFNRD+3/sdM7sK59Gz8jC7T3/qgO2NvMDOL3/agTwM8e4hXKXSBf4lTklKv+UA+1UHtn3BOVnqwGrFnyoJmD1x+FlEXTjz3Qdu2ZKjI3Gc9itl6N/fZi7EQkc9XwOpyYBUZSgudTXxDEHFoqMHbAtCCkcdW9qS0dDDgCOB7a/G/5Ex2N6AF5SGro3GBrEJrB41gN9NfPUThl1sXgbyfnP8rMit/7dHOWVnsjDrpDCO+4+D9Bgul95UPSpDJWZY6HKH5QQG3QV5YJaqgPeDigHWaxYueCKMa5OEBWFLxf+glzxCwFp18FUUCYlkyJ1CK2mB80GG0uuU6r7T/lvhN6guYOd8IDTNC13rGTrIfdhEmuDdjWRzB+UCT1G06LA4X64oLucmE9TavWUOTTvm8Mfel4gaHuHiw05hJh/AkW40itpgJVMa9C/5i2ThamCbSUmjl7voBOweBkif3vjip6vDLGaPSaAF3UowB0HbjjZHBYS5HsVcXpDkUSxjK1ryM2YNlCeQpA4dktsEIWmBwo2t2iyYJTnQw9/O8J9SEUMR0uNuq8J1aWOhTBOxPcEQ3g+mEREoa4y993xPJtrvC+75RSN0B5UGRcJX7m8m57A4Xx7cqVWrFYTqduhYfk8AG1vXrUP67zirSr5N1cTAeUsDexllwZ3xid529zAfEyUP0QXNXitjHS9tziAXeQGUaWPpZzbSXFMiA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(23010399003)(366016)(921020)(18002099003)(22082099003)(5023799004)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dDJJSzM2TlFSTk1IRnZMb2srQm1sRzJIbDc0MXdSNE0vMTVtL2I4RDlYREp2?=
- =?utf-8?B?MVRrRmlhOUx6eVdaM29OempMcHFsb0xGQS9IUFJ5RGlKY1E2eDlZZElYcXFU?=
- =?utf-8?B?bGVkTU8vZVhFM2EwUmdtUW1iYmlidndVMjVSUlExdk5hOUpUdWZxMnoxU3BQ?=
- =?utf-8?B?aWRyZjBBQTBIbFpYRW9mb3RNaytKdEQvc1Arb1BpRFdqNCtkdnBmMEVJdS92?=
- =?utf-8?B?b2V1WHY3eTF3NzlQaHlVZkFLeUpFcEJnTXIrSVp5QjRLTytQblNBODJVWHhP?=
- =?utf-8?B?UjdzRlhyYUQ5YjZocUJXMlYycVNXLzRRLzBMOGs5U0QrelIwYkZJK2RVYTlG?=
- =?utf-8?B?ckF4dEUyVkhRdThYbFNlSkdBYk13R1FVWkpiWW8rZHU0WWxlR2dsOTFNZWkx?=
- =?utf-8?B?QitycG9hU0U3eEhpMXFJMGY0TjJFaGMwQjYwQ3R2TFRrM01EZGxnRHhaMkRu?=
- =?utf-8?B?UytOVi9SbFpScENBL0kwMDZMbmNiVnRycTJwMXVTcjBhb0VVTE1aclRGaDVx?=
- =?utf-8?B?bUpOYUJSakcySklsK0VtRFF4aERSWmJxTDRURnFSS2U3ekJBUStib3N0QURt?=
- =?utf-8?B?d0JwNnJ3MVNUVkMxdi9XdHYyblVwYXVObkppWEdQU1FEWjJZN0RtMGFET01a?=
- =?utf-8?B?eCtPTEpoVERLejBZZmZ6Wmxmb21qWWRqRVhyTThrbmhiL3dHYXJ2M2lWRkRq?=
- =?utf-8?B?ZHhGbDUzS1dHbHpINTNuRk5mRlU0Vkp3WGNqK3VWVnZ4Y3BxQVIyTVBYMkUr?=
- =?utf-8?B?Q29ERW9iRks0N1hxRFg0cXVRcVNEbjlCeWRUclJVOU1uYWtkZElvYlF5QnZG?=
- =?utf-8?B?anhaY2tDeERqRFlaSkJ4Z0tsOFpmQXVKM1FOK0VhT0xlSUhkNGNHU3hsZlZX?=
- =?utf-8?B?bk5TNUNabytzRkc5OHUyUCtMUmJJd09YNEM2UzNEeGE0dUZvUlZYd3N0alJ4?=
- =?utf-8?B?VExEcjZzNGM0dDUwTG9FRlE0VVArNFlFWTFwbWpsVTJVQTU4RWF6UWlIZGlB?=
- =?utf-8?B?WVppWXJybDhYN3YwRTZaZjRYcEk1ZWhaVnJjVVpVVWFsVlFyaHo1a1haNnpo?=
- =?utf-8?B?SDZPYVcwTmhkMHQ2VllQRnhOUmxoQmJHZWY1cjlCR3NRcEpBZ2t4YU53ZzQ0?=
- =?utf-8?B?cDRGZ1BoemxlL1NUU1Zobk9vVjg5SmtQSlFmTTd2R2tTOEttd1JuQTFsTmd2?=
- =?utf-8?B?elo0UmtOSE53VjZxUUpVS2xVRGoxNDhSdkVUbmFSSkRqSzNuQisvTVp3cGZE?=
- =?utf-8?B?eTJiY1NxZFBtbkJ0RVR4NnpGdGxYOFVGNlYxTzMyUlF0bkpIQi9GNTlQQXdT?=
- =?utf-8?B?LzdDRUw2cWM4bHExMExsQXUvZFdPaXRvd0lvYlY3cm1Hck9nUlVxYnpCeDF6?=
- =?utf-8?B?LzZoN2Z0SnZZTkxiOE5ncUR3Qm8rTEh3ODdELzBxdHphdTR3ZVprMlQ4bzhk?=
- =?utf-8?B?VEFidVpFNTRqZ1UrcmU1d0pRZC9HMzJxcTQycnA1ajVlR01TUFoxZG9Db0xh?=
- =?utf-8?B?QTBEdkVaWXAvUjRTR1czYnVZVU5ZUVJsRGc4N3YxRU5JQnNIdldyR3plWVNw?=
- =?utf-8?B?R3cyano3dmphWFBDNXNidUo5OXVuNkoycktwQk1pWk5IOFRIMWFobHU4bmhI?=
- =?utf-8?B?VkszUmpCdlE0SzhxbDNEU1gycjRJY3V4b1pEdVBjdVFNSnJKVEJ0YXpYeW8x?=
- =?utf-8?B?bnRvd2pmRm5VTVJYMUpaWXc1UUhXSjYwSnZvaU5ZckMyNHo1UUI3Y1BKK3Q3?=
- =?utf-8?B?QjZvRGNXMUdkaXdRQzBseWF4aWZSZlNXNTFyQm5FVVJRWVUreDBEQ0I1T1BS?=
- =?utf-8?B?T0RYR3BwMVdJbnF5em9TbzNxSWtlRHh5d3h6RFdWQXFBQThocXBKMFUrQ2V3?=
- =?utf-8?B?QVhwa3U3QVUyRW5zb0czYlJ0TGE1Q0hhemRLaEVkTzBsbktxOWJCb1NWR3Ew?=
- =?utf-8?B?V1BUT21BS1l6SnBXaGdDNWNKcE51N2s1YXQ4ZWQ0RWhpdVQyeVNGWkd6ckNz?=
- =?utf-8?B?bmVlWTZhcXVaTDBpNThHQldNaHNvV09YckZ6QVZrc1oyTTJ2aTdpd1dTd29J?=
- =?utf-8?B?RTRTd2dyMVpTTllsWVRQSDduNXBPVWp6bWtkb3VyRUVKSEhsVURvKzhkZ2pF?=
- =?utf-8?B?VWM5dGJhVUh0R1g0eklIY2drY0tDZ1NBSmlmQ29Pc2xBUENhMmx2eC9CODhR?=
- =?utf-8?B?bHo1WU9QZjFLWlVmK3pOaGdYekN6ZUdwaGUrUHM3TzFIcVUzZDY5TXEzWG1Q?=
- =?utf-8?B?ZFA3d21QZmNraTFJS0xvZStscnVZNVlYTjZlZ3Z3S0dFakVyYUFaeDlLcEY0?=
- =?utf-8?B?WC9rSzRtUG1Ha3BzU1NhdzhQZzNOVEVjWUZTT3g3Qm1nRW1nSUkvREVVa1lz?=
- =?utf-8?Q?lYlFTdcwNFwnq8qYIwRvVdEuYyNgA2upq0+vg?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a25427ef-db46-425d-203c-08ded8539145
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 16:04:16.6430
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Gl1CAg7Iu/ktVXnmXD/MyDVWXRmJiuOwivt6HdiEY6vYB9bQNpvklIMhG3SBwz4/Nuwz9uY+IrBMNWg12rt2oALTiK4TZnuHt5lsLTwL0vwaGORJ3ibENFD9qS3uNsaS
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9936
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_090422_098738_25C58CF0 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20260702_074648_874729_F2CFE835 
+X-CRM114-Status: GOOD (  14.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,63 +87,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Export dw_hdmi_qp_hpd_notify() for platform drivers to report hot-plug
+detection events.  Unlike drm_helper_hpd_irq_event() which polls all
+connectors, this helper targets only the affected connector and ensures
+.detect_ctx() is invoked on reconnection events to trigger SCDC state
+recovery.
 
-Add a set_pad_by_ep() callback to struct v4l2_subdev_internal_ops. The
-callback is invoked while parsing firmware node endpoints and allows
-subdevice drivers to configure media pad properties based on endpoint
-information.
+Note that this helper may sleep, so it must only be called from a
+threaded HPD interrupt handler or a work function.
 
-Typical uses include setting media pad flags according to the endpoint's
-port number or type, and validating that the endpoint configuration is
-supported by the underlying hardware. This provides a common mechanism
-for endpoint-aware pad initialization during graph construction.
-
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-change in v7
-- add vep argument
+ drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c | 31 ++++++++++++++++++++++++++++
+ include/drm/bridge/dw_hdmi_qp.h              |  1 +
+ 2 files changed, 32 insertions(+)
 
-change in v6
-- new patch
----
- include/media/v4l2-subdev.h | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/include/media/v4l2-subdev.h b/include/media/v4l2-subdev.h
-index d256b7ec8f848..05b3ccfc856ee 100644
---- a/include/media/v4l2-subdev.h
-+++ b/include/media/v4l2-subdev.h
-@@ -34,6 +34,7 @@ struct v4l2_ctrl_handler;
- struct v4l2_event;
- struct v4l2_event_subscription;
- struct v4l2_fh;
-+struct v4l2_fwnode_endpoint;
- struct v4l2_subdev;
- struct v4l2_subdev_fh;
- struct v4l2_subdev_stream_config;
-@@ -935,6 +936,10 @@ struct v4l2_subdev_ops {
-  *	the v4l2_subdev structure. It is almost certainly required for any
-  *	sub-device that sets the V4L2_SUBDEV_FL_HAS_DEVNODE flag.
-  *
-+ * @set_pad_by_ep: Set media pad information by parsed fwnode endpoint vep.
-+ *		   return < 0 means can't support this type endpoint. Set
-+ *		   pad->flags according to vep information.
-+ *
-  * .. note::
-  *	Never call this from drivers, only the v4l2 framework can call
-  *	these ops.
-@@ -947,6 +952,8 @@ struct v4l2_subdev_internal_ops {
- 	int (*open)(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh);
- 	int (*close)(struct v4l2_subdev *sd, struct v4l2_subdev_fh *fh);
- 	void (*release)(struct v4l2_subdev *sd);
-+	int (*set_pad_by_ep)(struct v4l2_subdev *sd, struct media_pad *pad,
-+			     struct v4l2_fwnode_endpoint *vep);
- };
+diff --git a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+index 07b274f76e53..4d41ad7319a5 100644
+--- a/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
++++ b/drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c
+@@ -28,6 +28,7 @@
+ #include <drm/drm_edid.h>
+ #include <drm/drm_modes.h>
+ #include <drm/drm_print.h>
++#include <drm/drm_probe_helper.h>
  
- /* Set this flag if this subdev is a i2c device. */
+ #include <media/cec.h>
+ 
+@@ -1429,6 +1430,36 @@ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ }
+ EXPORT_SYMBOL_GPL(dw_hdmi_qp_bind);
+ 
++/**
++ * dw_hdmi_qp_hpd_notify() - Notify a hot-plug detection event
++ * @hdmi: pointer to the DW HDMI QP controller
++ *
++ * Platform drivers should call this from their threaded IRQ handler or work
++ * function to notify the bridge of a connection status change.
++ * The bridge's .read_hpd() phy_ops callback is used to read the current
++ * connection status.
++ */
++void dw_hdmi_qp_hpd_notify(struct dw_hdmi_qp *hdmi)
++{
++	enum drm_connector_status status;
++
++	status = hdmi->phy.ops->read_hpd(hdmi, hdmi->phy.data);
++	dev_dbg(hdmi->dev, "%s status=%d\n", __func__, status);
++
++	/*
++	 * When the display pipeline has been already active, switch to
++	 * drm_connector_helper_hpd_irq_event() to ensure .detect_ctx()
++	 * gets invoked, i.e. via drm_helper_probe_detect(), because
++	 * drm_bridge_hpd_notify() defers to a delayed hotplug path in
++	 * this case.
++	 */
++	if (hdmi->curr_conn && status == connector_status_connected)
++		drm_connector_helper_hpd_irq_event(hdmi->curr_conn);
++	else
++		drm_bridge_hpd_notify(&hdmi->bridge, status);
++}
++EXPORT_SYMBOL_GPL(dw_hdmi_qp_hpd_notify);
++
+ void dw_hdmi_qp_suspend(struct device *dev, struct dw_hdmi_qp *hdmi)
+ {
+ 	disable_irq(hdmi->main_irq);
+diff --git a/include/drm/bridge/dw_hdmi_qp.h b/include/drm/bridge/dw_hdmi_qp.h
+index b80fceffc315..b4fb1c578a5b 100644
+--- a/include/drm/bridge/dw_hdmi_qp.h
++++ b/include/drm/bridge/dw_hdmi_qp.h
+@@ -36,6 +36,7 @@ struct dw_hdmi_qp_plat_data {
+ struct dw_hdmi_qp *dw_hdmi_qp_bind(struct platform_device *pdev,
+ 				   struct drm_encoder *encoder,
+ 				   const struct dw_hdmi_qp_plat_data *plat_data);
++void dw_hdmi_qp_hpd_notify(struct dw_hdmi_qp *hdmi);
+ void dw_hdmi_qp_suspend(struct device *dev, struct dw_hdmi_qp *hdmi);
+ void dw_hdmi_qp_resume(struct device *dev, struct dw_hdmi_qp *hdmi);
+ #endif /* __DW_HDMI_QP__ */
 
 -- 
-2.43.0
+2.54.0
 
 
