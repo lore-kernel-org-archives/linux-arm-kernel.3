@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8DBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7482C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:33:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fsjiWethRlG4rzb1X9BsBbunsLIv28hcJ4BVZt5/GQM=; b=VA8A7g+4yzEWuGciA5ZZnW9QWE
-	6rZLowb73y3+uU/OuGUBck/+ZceCxpNwd/4qNzN3VLr8ITTnP45txIWyOE2J0SV+62pJPnVK8Hh5U
-	cdPjN5ROlyU4HF/vYSdxpFgGxu1q1reFW5A7KNkVO4eIrEGlZxhE4QXZRehGhb2al/6V3HdMd0QVZ
-	iqBJL7ECAqfDwQTjQeJaR3NjiAA+PdobL72xZN7T9gJs446XJbuyGBru+MQkrBvpCP/btxTQC8PVo
-	GVYlVXzQ+Vp2PBiU4zkuUTXiHMyRaOsBwck/li/XA0l+rwDMd1QPOuq/X9Ao5yOv78eXMs63zSxyU
-	kZNfVI5w==;
+	bh=QsEGcJUkcERFucWpPa4rVp8lL2pWH5gVAn0/q28RlmQ=; b=oT5vHpm6cuk30d1SqA/Z/A01/Y
+	VI5NvwMz59iOc/OX0FdIm2kyLN7Uq5Hp08sx1QOtaUxkQ+N083NGNutGBd4Et5mDHVEfyaci39zIg
+	Yoa1or1DmMZ4mfAxtd9aMNE+vIBLbazUP/rMtrKPNpqp8KJ8PhnkUmZ1qtclpXjpi6graTwpfTqCu
+	s1E+qzWhfzsKl2NVOF/mspslmidwdSUY62C0g8nWz3WVGpp17YNOUyzdLrek9AtDSseK4euj0lsEN
+	hp4nmwVfT5OhTqc/+XZZMCJnSNM+rtx9h4VSu6nevZaw5h+Op5Y1SPZvL5N8YDzc0x0LaGc/cJzoz
+	9cuLzx5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDnM-0000000427R-3vBt;
-	Thu, 02 Jul 2026 09:33:20 +0000
+	id 1wfDng-000000042Nb-1GYY;
+	Thu, 02 Jul 2026 09:33:40 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDnK-0000000424H-3tbJ
+	id 1wfDne-000000042M5-1nPu
 	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Jul 2026 09:33:19 +0000
+	Thu, 02 Jul 2026 09:33:38 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=fsjiWethRlG4rzb1X9BsBbunsLIv28hcJ4BVZt5/GQM=; b=gU2wNArQXhrdzIhYz2fSH2gsu0
-	MypXj+0ipZ4y5OOcXmkqY17aisAFybSszYZGdLwXgHhk7m2Z5NwTxliapf5BayOtfBBDIoo6hWSWj
-	XrKzGAu8pFh5hH3KmORQjdtHc0plpGXzYYDPkgWLzLSiUHfAbl6fjpWgigoywl8By07p6k/OyFEbV
-	1KLIADiNdjLJvZRmc7SygkMbZjbAfxbnCGuHQaZzaQ+xm4JsxGh2QIMU3cXllrP6IKWakaWMvkG7c
-	PrxhWrwaCBUT3U3LSYV6y+V1jJklHOaYVnCwR9BXeg0Rcox8hTjZ0Skgn9pP3QU9QVB4ixvxzM2av
-	WdfXj3Gg==;
+	bh=QsEGcJUkcERFucWpPa4rVp8lL2pWH5gVAn0/q28RlmQ=; b=F4Ppeo6h7RpULtu7MaAOr31x9K
+	Q7FpWgpz9bQBEP35XLVwuTeNgIaroPpFxSIlt+55V2iWqThLQie/oKzzbX9N44LwgwA2VLH5W2c2h
+	IFiPQYsGwlGcdY56TwSFU5u68P0SXbSTQutvv92pKTC8AM9AJ7uzofXQqW65ojbqQHcBHoh07XrIU
+	P5Uqcj2qePIt1ILFxa8vvYbRbFw0YzyM4EAlRbXcBuMOrTq8FU7JaGxpOTiHwPue9AsWMp00wl1hA
+	fMkX6VQeBgwgJF5aRsCrjAWgrnttfNRhMUKDBapi7WfcuoE4oFwoVcaMT71ehCY18gXBcd8FGcA/Q
+	/eAcqIXg==;
 Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wfDnB-00000003cJK-3Q4b
+	id 1wfDnV-00000003cMf-0mrc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 09:33:16 +0000
-Received: from pps.filterd (m0374956.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66295SFK2028490;
-	Thu, 2 Jul 2026 04:32:54 -0500
+	Thu, 02 Jul 2026 09:33:31 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6628cq6t1285399;
+	Thu, 2 Jul 2026 04:33:20 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=fsjiWethRlG4rzb1X9BsBbunsLIv28hcJ4BVZt5/G
-	QM=; b=jNcSSpFLZz5dAG5ykwwGqLqoXwyqZejop16JlwtnXBSKWmbxJK9dwpcb3
-	iV6zLZWkLGguGuEOstUatWo3Icg/g3vV8zSaLm9oTnYRRi0ttK4clIYi2WQS7Rwo
-	uzL5d4X3CSkDSeikwVe3uAAUelsGq2opfHVNA6Wah4lRUL+veTzgq1ny4G0BytSN
-	jW7dc2dhg+eVnAQj9R6m1v8ongOfW1DjYrx/idygy+BahUlbgbevZV1z5ES637jm
-	F6fOnj/7AVHv34f6Icd5vwZmEeP6fXAU4pnCZrBNebwTyk9R50uoSP91jl03h7+6
-	pm3iqH9FzpZWNu9lkhlbJvV7GyVnQ==
-Received: from bn1pr04cu002.outbound.protection.outlook.com (mail-eastus2azon11010042.outbound.protection.outlook.com [52.101.56.42])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f5n23g3v9-1
+	proofpoint-05-2026; bh=QsEGcJUkcERFucWpPa4rVp8lL2pWH5gVAn0/q28Rl
+	mQ=; b=fTL5++DL5EDRJoIqExDFdcnw9eTuGpVa4sU74pd+YpTa9ZujBh0fCeQZy
+	U7Lwg18cyjgwUrqgMO1b/wWSXSEoptxPYP+5itxdJ9Msb02lO4WgUkYyFVcH5S6X
+	L+eZ9EvYTxkBMgKzeu3bAoKVm2LCDJLkEJWtoEYZTfBilSNO8nsE9v1yGf79TECY
+	MQ76NSatR+O/wD0DlWZ987awV7lk/Y2QZkf/sVlgeAIjp50/76q3MOfWAtFTEU3P
+	RFOycMa2+HzwRsyI/o5M0GiRl67wC2t/SbCLMQNTVlmHBd0uCwhTR9uSROxVSegi
+	IZEj0wNqDr3xpIK/7MI4rNcxbKFmQ==
+Received: from sn4pr0501cu005.outbound.protection.outlook.com (mail-southcentralusazon11011023.outbound.protection.outlook.com [40.93.194.23])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f5fvyhtdg-1
 	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 02 Jul 2026 04:32:53 -0500 (CDT)
+	Thu, 02 Jul 2026 04:33:20 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DL1+2dJGVQ3ShH4KmxLOHi7TbifN3AywZprwQF+y+rY2aU3HxZ0S+nXWGtB2Cn7/cgybe8qznRtgflvrJMR4P8xVgFkVyUlXr4x0T+NszkU6W8cA/0qdeCLgQypXRy8BMPgZXMLbbQrhTDXLPKxNSIjE7cCYG7adN3yCdpRlyJ6cmlkR1KzAoL9xc3ZapQIAC94jZifBsF2QQwnRyvoGKKf8giqNNM5VX1zH4w88s+eivYiXzqTb9BcrrYL8bPvEOnKO8+E8EGx+PWCoBUsjLedxidcRRu3HB99bxk+fSjmDYPFGaXIur0hefrHBPCP47S597rMG3stP6HpwoHX0gA==
+ b=EMOoxjhxvqNHZ6tOX37WUav37L2H74wOY1nGoLdZo6mcTxMs3GKftSS8axb2MM3GXb2JgRg1+g+hS8m3G4/vlFIr5KAOsp/3ESiH5BAWzTc2tWJhlBAsmc7KVegMm845VQ8OzRR1B1x1mx6rMjs8a6JAkAR6sOqjw4w3q8/2nP2VLtP4vyMJcUXH39bSyQnvAECqfI8TZmGVrlrQtW/FubzhcU5bzNvXOYNjgUth6o+ISpzNvNFdaYuI2+5H9ycKeNteF8mxEd936QlfYf+24kxjxCKLTDswVeakyuEdJMMMGLKpIIeYtqy4aIQIuFvfk2kQ/19UPE1/ccoNnWQ0Yw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fsjiWethRlG4rzb1X9BsBbunsLIv28hcJ4BVZt5/GQM=;
- b=m3NKiinWvzz5kUbHNI5sNP1tldLNIGlKEzlfu1z8CtNyRooN8t0Btr9tq57vEcTGkcS9P3fqbcTPbr8ibM9wFmFNC+VqSCUqBG8JjHkZgj9om/HIAUkELHennDBrO99PN5p2GkAEhiibfiaOIGKh/036KVaplNfLd1J9To26leJE4noOx9VRbIv1AZ2ITBVDiXVHlOSkKW8T4Q1ift0R9DScfZdl+ibihinTb8fAlrPSqS27GbcRMXmeIc09Q5dE6jndTgG2IRAs1u6vtVTOgiVGy/ghet4izm8757VjCAMaf+IngewsCxloBnO6F75GXuLknHctSS/ZB/yIgbUqwg==
+ bh=QsEGcJUkcERFucWpPa4rVp8lL2pWH5gVAn0/q28RlmQ=;
+ b=r7QIFZUAsalVx3nUYPvKpN5G5h+9JVRTOvAGrC+j7I+3U/6ynoF+tCWo8Ne13dVYvTPCyD6PmIWEDMZdeLwUQTMM7A49WZ/0dciocGGRle/r14vaq9Y7kh6UrZPzkaipzgLstwncLHcrPD32dh0IW+7L/8UCZcJVwP5YcC7+v+M8ybEppWVZgtyb6CX41UliqD5sSM4q9GM2eEf0sCGuPYO/mQoo7+Wmm8ne+vNvk0Hcgjs7V5RzXnYdOEwjEjFhODONOF7F74p2jFK1rkppoTj5i1CXWNQhHphDpWIncdnuOWFrwe0n+n6shc0vAD1jfqUDGU0SiWhMHEaF3m9Peg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  198.47.23.194) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=ti.com;
  dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fsjiWethRlG4rzb1X9BsBbunsLIv28hcJ4BVZt5/GQM=;
- b=otS6HTO0M5y3U+mWlrwYuis1nftx/PshCv9kvvVZ6YJWZKCiqOCboy3RSX5jV0w5sKx0IBfMGwQS9h1OpuBufes2fsyUXPSC8ADjuyI16IPhp1NGzCrlrcP6ovBVVX05WtHhKeZ9+2cRbfdf3DWFGXrdH6LrWjEkTNK0lUu5e0I=
-Received: from SJ0PR13CA0169.namprd13.prod.outlook.com (2603:10b6:a03:2c7::24)
- by CY8PR10MB6538.namprd10.prod.outlook.com (2603:10b6:930:5a::17) with
+ bh=QsEGcJUkcERFucWpPa4rVp8lL2pWH5gVAn0/q28RlmQ=;
+ b=Pl47fUx0iuUA6vSl+HlFIW1Y4LdJ/Xhezdr6pKAD6w5KmNr5rl8Y5Gn3BMYktVExR+oaX4eHclgGFRgbgFnOpEvzT8saaZhllcmCpM7IGEGvOFTbIZi+jlxkn7EuBX7qyD9KJO3izwb7vKiER/FG/sGDXOuuLWc8Ola+eoCrTfE=
+Received: from BY3PR10CA0026.namprd10.prod.outlook.com (2603:10b6:a03:255::31)
+ by IA3PR10MB8614.namprd10.prod.outlook.com (2603:10b6:208:57f::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
- 09:32:48 +0000
-Received: from BY1PEPF0001AE1C.namprd04.prod.outlook.com
- (2603:10b6:a03:2c7:cafe::61) by SJ0PR13CA0169.outlook.office365.com
- (2603:10b6:a03:2c7::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.3 via Frontend Transport; Thu, 2
- Jul 2026 09:32:48 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
+ 2026 09:33:16 +0000
+Received: from BY1PEPF0001AE1A.namprd04.prod.outlook.com
+ (2603:10b6:a03:255:cafe::55) by BY3PR10CA0026.outlook.office365.com
+ (2603:10b6:a03:255::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.10 via Frontend Transport; Thu, 2
+ Jul 2026 09:33:15 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
  smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
  action=none header.from=ti.com;
@@ -91,24 +91,24 @@ Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
  198.47.23.194 as permitted sender) receiver=protection.outlook.com;
  client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
 Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BY1PEPF0001AE1C.mail.protection.outlook.com (10.167.242.105) with Microsoft
+ BY1PEPF0001AE1A.mail.protection.outlook.com (10.167.242.102) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 09:32:48 +0000
+ 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 09:33:15 +0000
 Received: from DLEE210.ent.ti.com (157.170.170.112) by lewvzet200.ext.ti.com
  (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 2 Jul
- 2026 04:32:47 -0500
-Received: from DLEE213.ent.ti.com (157.170.170.116) by DLEE210.ent.ti.com
+ 2026 04:33:12 -0500
+Received: from DLEE209.ent.ti.com (157.170.170.98) by DLEE210.ent.ti.com
  (157.170.170.112) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 2 Jul
- 2026 04:32:47 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE213.ent.ti.com
- (157.170.170.116) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 04:33:11 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 2 Jul 2026 04:32:47 -0500
+ Transport; Thu, 2 Jul 2026 04:33:11 -0500
 Received: from abhilash-HP.dhcp.ti.com (abhilash-hp.dhcp.ti.com [10.24.51.219])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6629VYb13611021;
-	Thu, 2 Jul 2026 04:32:40 -0500
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6629VYb43611021;
+	Thu, 2 Jul 2026 04:33:05 -0500
 From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>
@@ -120,9 +120,9 @@ CC: <Frank.Li@nxp.com>, <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
         <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
         <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
         <r-donadkar@ti.com>, <devarsht@ti.com>, <u-kumar1@ti.com>
-Subject: [PATCH 08/18] arm64: dts: ti: k3-j721s2: Add overlay for fusion application daughter board
-Date: Thu, 2 Jul 2026 15:01:13 +0530
-Message-ID: <20260702093123.1048575-9-y-abhilashchandra@ti.com>
+Subject: [PATCH 11/18] arm64: dts: ti: k3-am68-sk: Add overlay for dual Arducam V3link fusion
+Date: Thu, 2 Jul 2026 15:01:16 +0530
+Message-ID: <20260702093123.1048575-12-y-abhilashchandra@ti.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20260702093123.1048575-1-y-abhilashchandra@ti.com>
 References: <20260702093123.1048575-1-y-abhilashchandra@ti.com>
@@ -132,56 +132,57 @@ Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1C:EE_|CY8PR10MB6538:EE_
-X-MS-Office365-Filtering-Correlation-Id: 32b4f60b-09ef-4e56-832c-08ded81ce141
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1A:EE_|IA3PR10MB8614:EE_
+X-MS-Office365-Filtering-Correlation-Id: dddacf96-0c02-415a-8c6f-08ded81cf196
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|23010399003|82310400026|36860700016|1800799024|18002099003|56012099006|3023799007|13003099007|22082099003;
-X-Microsoft-Antispam-Message-Info: umxwpZfZ6gJ6oOZWHOhHmneWa9vGSVb5ID7wrNPBJinP0ReohSpt50Gf9wWOsTbo729N+I00RjvR5q8lYDz438Css1+r94ZtFr6sRMgC6VmP07M88H/GUa6TlbWeuLSsri1dRHeRv1H5Dtzk/YUKelKhUKVZhFqyEZ0fjl0GMLASVZgiEboLtPlFR/ybZjgSM5gzWlCdAIH2dHCiIbYWBrUR7IuqNfxdR30sii+gpwb3lczgfYZL2NrwEedOQAsEtvCD0Ft3M8v6NCefKuXj2USUbM7H6lStOarhjCXfUE8fS/1LV56rTOdM5kZMja/KwU91MwFPhMe+ZxoEV2Oy+utCCCGtAiTK9rAv2/0RfPWG6ZRTJqqPGk0RS7j19GxqGn2Lw0DhcGBGPYpzyqLgddXF/94DSTF427FX+XA1Ux8NAUgzLSIsoRvBr0FukOUexJuJRioM/hzil6yjCN61kNWLGL5UMQ2Dk55ytItLsCNtT4cNjIKvtxb1zVFn1f4i7aSX9NR0brFFFr6yu90+PG0VytirJmfJ/iSRncfHAliaZloOdm/ELroJg5c7A2AS9Z6/X8C+VoEJ56RKHb4mjExqmz5EBUokmlJ5aJHQHIDipW677eNQE85jAC+6BRNoQL7OAkXD5J9S37hFB5nObQ==
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(23010399003)(82310400026)(36860700016)(1800799024)(18002099003)(56012099006)(3023799007)(13003099007)(22082099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|1800799024|36860700016|13003099007|56012099006|18002099003|22082099003|3023799007;
+X-Microsoft-Antispam-Message-Info: CeRFFAM8WMV3gVxBT3dSW9hrl+rgOYXBZAcor8iERbN9QAIujaGQzvNKkTnNHDg5fQoQVRq01octQbaCym3m3lznYaEw0ai9aWVOx7yY/NoqEnaSQnSehKAdYNAs3LDahbNAucR/Eq8QgKfFJzI8/WPEe1ZIP9CYRgfeJD9fSDMeBiz+BBvTx4wvZiTkf9DJGOR+W/WGoYRQ0ILVJPMTkGB6TIOakVzjoI3XwJWbdN1YHL1AYZ5T5n7p1MLVOzHlxB9VxADn2TPqB0Q1obC1KwaH7/2hbt910K9v60mWwLxB7xHsfUpmoawAveEB3X0xt4BUvLehuo0COJ+Um3FHSkK+6vLFaBSg0mut4ICtYK/bHG6SGiGaNkto8ceCXnBF3seh2/gGp2fUWUuyqkwX7n7b1N+Vm1Pn+j7C7tBqwozCiPCGH0yap5XuTWEnzqsetZoQP5rXokPrvF1NSIMWqDEIFMFc/meYEM/a7exvXEm4S8kOKM4g1mj03pAQENoe83UkMymXiWQJkR2GEzlJwl6t74d1DbIJoAkFF0UCqAA2bkfCLPXvDF8MSU05fIfLNNuIegUDE9E514LnOZu05Hcn7D+dW26Gr8aTNjdwa04yfRFNBL2OvtSduGW5NMDoRao/katuh7XRQD2wdMOjNw==
+X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(1800799024)(36860700016)(13003099007)(56012099006)(18002099003)(22082099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sNInSaaOFDMsOu0Zi7M1tc54oB0qUvMfEFKdEkKwmk2QVyuiQioac+spR6Scp6TjtvRy44SM3cFFTQtpF6I9UTzdP1/v3ZOwYdnWunjcadzX6jxhO6ruOpWShkVPsjvRO4mL/FUrVfYNuEz4ZMJ4joczQEiRVBNe0NRK7jbX01Gyvs02HTIVQiuPzNktBo32rlCHU5hZ1cQbJu6I4vhIbiHLDmBYpa617oEhZRXdje1e+TaSqS1V9k1ZKVlw0YrykEdRUCveKmD1VsZZBnKmRX9XNBHrUcAnCpfILmOCKGPvndyVVXkwHtn8kmmTl8WlCO9vQocpFruKTLUkKRxebnhES5knJTDygTMsxPI9iCk7U2/0tdgdVsO0MLZrJVEHI3z7XJzQICyeLgk9drS5XUoVLCkeSpIQp9JgL0p4AvqJI2YBxo5zNSKpZ6BItM4U
-X-Exchange-RoutingPolicyChecked: hc69eXj6gY44FAqP/SHy2qSltmWQMX8O1vRG6Eze32Q5tfLnU0JFFoJ+MBB2VsfEN/NKvfJNBByq0WVgXWMvld9X2qXVva7ycQ9irwat8+jXPaHUSPnzH4s58qaiHrPGy6gMPi4FtON/Fs2rMzkDP8iQjhk7oZ/j6DGAP95B3/JP9Dh7Ri69X130kQiYFoOpCffvO9y0LYA9IQvwq+09JN3SexphMnUApCO+HRMb5LZMbR3GAVp088LYGkmRezrBA0tx+7N1H2+TCXnDZ7wlHvf76DiuL2H5IH74MVHpl4uOpgZOEM2y6JRSAqlLZrKaFRk50t7dWQOo9NF6AH4gRg==
+X-MS-Exchange-AntiSpam-MessageData-0: TcE6CD6Pl7rWS2S3DyIwul1MYsl8Z3z+ngxsewct5VDOeySsU8A6Nq8iBSKIFrfULcZcdHseiz4Gr5aSQ1h09DIm4x7Ecdh3q3Zi+fGdQRdEQh/vQ+adjtjE7SAaOQ48BK7CdhedDNqOCnp4SwJ2cLruAW4rjngV7FKedzzI1bx91t++71OkKV5203vfa5lqwQnOgMKKpeDXS7NyrYxiJpe3NIUoIZKpz6WBRktDEOkCfhHQSGslZNWArGxk+GEBFHgHk+PKnmZcWPoRjyQA6RcL5X0EQ/4IlvHr5y4VY1n9hYreyq+QOzAtZ0qTzm2bRE0NtcnJ++Ek8pUbzBEAfz12J6fTRloWlvEVwf/cBn0djr1qpuYcBlYh3ZOX+quS/tg8DuLW4jDPgkDwWlGDNgIQGiq1crO3TQwffFlcG2CTUQMf6dq3Oe6xAT+HfbX0
+X-Exchange-RoutingPolicyChecked: JKx0dsG/FKdrX3bc2J8pB8UjYGmzji7EazNkDwmZdVtd7U2QBwzbcEPmA08M/+DctRX1gf7soXHcHEOyw/YRtBmV1YHf+O+Zc8eMxD5AezUXwMcvLJjQwVvkn17hBfCdpsiSqPpeKrlsrJkon+WIthkipZ0ifFtNVmj2HwhDE/v0WaX2Ey7R3JOguyfSgm5fWfsEyn9UIO2GpElAfX1dVhZPb0WRB2LfM2wGEyGwBU0oFQ9vT4o2NMdhGt5R3N23XAm3luP1gpP36NP+rq71NyvpXsY6ifuwAAdXUp5/Kh7qlWV6zYeRlH0pMJbozwnVaQVhlsP7kkMFY/fcTYqnpw==
 X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 09:32:48.1782
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 09:33:15.5808
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 32b4f60b-09ef-4e56-832c-08ded81ce141
+X-MS-Exchange-CrossTenant-Network-Message-Id: dddacf96-0c02-415a-8c6f-08ded81cf196
 X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1A.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR10MB6538
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDA5OCBTYWx0ZWRfX2S7gC4tHWLyS
- IimiNoPO32hF2hdZzMnMALWLsr7JfEkzjwB9Wi+gd5BHDH1DfEuKANGgj8OYLLmNTZOjTOQsfWH
- Vi3OIjtE0+cbUkso9So2vdMRuDiSiuQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDA5OCBTYWx0ZWRfX+jJFuvf1Ypsq
- xQYLfINXTy3HoldoT6gnlQbsyTEG5uEW4jmrbvZk1mY2/LRRc6t5stAiDhFAzCIEe7MQ8gl9acS
- mT1slGSsG1aw5uDAcHEp0kiX8c/FxCCDY/qhqDPfGlNLjS5RF4sfXTbMiqKun21p/Co9uLVXLUo
- nv94JFRRMvwsh3cG5zqHYFIa1WheI7r0TPabLvqXGyb/cdDZucw5ouomQ9xyIlOlF5/GG9rwTBn
- QLktSbCwhDqFNZ5D+NOGzhLY5ig1WLHIxQn5wynzz+0X1ljTC9fvYlWCmGBMonVvI22iqCSWCZp
- XwTn+grtol7esqZSex2S7Yt2upmZshYmilq4oFVkxAFRwnr3OzA+7wuug/M0zbhLSoUyQnTlzgw
- 29UKMG9O/RkJrfmJwMk3NwwO7JnrjY5iEw33Anvh4R3YwfBNYsmkrzsocWz2SnmZxhYUJQkbYLj
- bcXsH8DOsYrunE/tvIQ==
-X-Authority-Analysis: v=2.4 cv=DN+/JSNb c=1 sm=1 tr=0 ts=6a463045 cx=c_pps
- a=cLTib2BoJD1e+Gs0wkBYAA==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR10MB8614
+X-Proofpoint-ORIG-GUID: kybzQ6IfasNtrEq2d-bdYsyZYmqdeP_2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDA5OCBTYWx0ZWRfX6FGKeJmcaNvZ
+ +YUUYeqD3ASjPGY1dc6PxFmJ7kECpp0tQELi/EY2t47CSUY6dqXtwZvK3ZRakOlNVQazAKjGpkA
+ 4CAY02AwQG0YK5aGsaDdJ5grsS2LMpKvGLclP4VgnSnj/olU6jve1FZctO6G18KeMCUxnxBP+ge
+ 4pNMsphoCkJZsHNQ1VkDbuqxBt/JmpvzalXZhtzw4podeubQZDNUZLbheu0BHkc+QH2tgi6S1qa
+ 2C36i9OaEVUNiSKWEhl4zaC4/GiS4THTQoyeCaOvsSC2OAhbdVax+i+I2XwckDDkiM18p/q1grj
+ SzO9dxOkXA5nFPRia8ZphFmcy/22l5vfOGuLXp/s/zk4I4HQR32tfFhoncYKC+69+fuZ5CnP3a0
+ 54IhqVvIlbgYm+hgm7EcMQpqdxqfzWgt7F69eBUil8UwSmn0fSRnjtaQkXlexddR3rMVmHp+QPq
+ aYG0DrePP6N5EM9S68w==
+X-Proofpoint-GUID: kybzQ6IfasNtrEq2d-bdYsyZYmqdeP_2
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDA5OCBTYWx0ZWRfX2GIL8f3p8PhE
+ 6FhbGUCwyK++R/ruVmQ2xHsNnUk2zLSVaG+uT+NY9RDmgJI2VeCtbUK4o2pUVjFXSTZ38yGdLNO
+ 1pDKvthuqStRnMxP7+laVXeLBzPbp6c=
+X-Authority-Analysis: v=2.4 cv=T+q8ifKQ c=1 sm=1 tr=0 ts=6a463060 cx=c_pps
+ a=VQ1tsm+IcWX+DCGDUvrerQ==:117 a=WotqVVQAdb04rnGuttW3Kw==:17
  a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10
  a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=jwouBfj2j3NM8CExmVVE:22 a=iY-8cndAAAAA:8 a=sozttTNsAAAA:8
- a=6Gx5YW5ajZytYw55i70A:9 a=spcmYsBHvreeK_59bKkA:22
-X-Proofpoint-GUID: NtccXHsZ2yKBwdfl6sYyesXQGZ7c7XfI
-X-Proofpoint-ORIG-GUID: NtccXHsZ2yKBwdfl6sYyesXQGZ7c7XfI
+ a=fPAWb5peG099m5CrUpKH:22 a=KtRVGM7OAAAA:8 a=sozttTNsAAAA:8
+ a=iomoXT1V-VCqHUgW514A:9 a=fO9at-cOa0qPyS5aOM0m:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-02_01,2026-06-26_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 malwarescore=0 adultscore=0 impostorscore=0
- clxscore=1015 bulkscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607020098
+ clxscore=1011 malwarescore=0 phishscore=0 adultscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607020098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_103313_140756_02A5A716 
-X-CRM114-Status: GOOD (  16.36  )
+X-CRM114-CacheID: sfid-20260702_103329_775408_F390F487 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,87 +199,102 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Vaishnav Achath <vaishnav.a@ti.com>
 
-Fusion application daughter board [1] can be used to connect multiple
-FPDLink-III based sensors to TI EVMs. The board has two DS90UB960
-deserializers, each of which aggregates input from up to 4x FPDLink-III
-sensors. Up to 8x sensors can simultaneously stream over the two CSI RX
-ports on J721S2.
+Arducam's V3Link mini fusion board [1] has a single DS90UB960
+deserializer which can aggregate input from up to 4x V3Link (and
+FPD-Link III) based cameras over a single 22-pin FFC (4-lane) CSI-2
+connector. Add an overlay supporting two such boards, each connected to
+one of the two CSI RX inputs on AM68-SK.
 
-CSI2RX connectivity on J784S4 and J742S2 is the same as that of J721S2,
-hence the same overlay can be reused.
+The same overlay can be reused on AM69-SK and J721E-SK.
 
-[1]: https://svtronics.com/product/fusion-application-daughter-board-evm577pfusion-v1-0/?srsltid=AfmBOooMsRAd5ibFOGJaKbjsC3j9-loTPK2wWqsqPq2Adj55g1nPluxX
+[1] https://www.arducam.com/downloads/datasheet/Arducam_V3Link_Datasheet.pdf
 
 Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
 Signed-off-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 ---
- arch/arm64/boot/dts/ti/Makefile               |   7 +
- .../boot/dts/ti/k3-j721s2-evm-fusion.dtso     | 191 ++++++++++++++++++
- 2 files changed, 198 insertions(+)
- create mode 100644 arch/arm64/boot/dts/ti/k3-j721s2-evm-fusion.dtso
+ arch/arm64/boot/dts/ti/Makefile               |  10 +
+ .../boot/dts/ti/k3-am68-sk-v3link-fusion.dtso | 204 ++++++++++++++++++
+ 2 files changed, 214 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am68-sk-v3link-fusion.dtso
 
 diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-index 7e2ed5c94e79..79ce2ff38cc3 100644
+index cb16eb9039aa..b14c9a8c94b9 100644
 --- a/arch/arm64/boot/dts/ti/Makefile
 +++ b/arch/arm64/boot/dts/ti/Makefile
 @@ -160,6 +160,7 @@ k3-am68-phyboard-izar-peb-av-15-dtbs := k3-am68-phyboard-izar.dtb \
+         k3-am68-phyboard-izar-peb-av-15.dtbo
  dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-base-board.dtb
  dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-base-board-pcie1-ep.dtbo
++dtb-$(CONFIG_ARCH_K3) += k3-am68-sk-v3link-fusion.dtbo
  dtb-$(CONFIG_ARCH_K3) += k3-j721s2-common-proc-board.dtb
-+dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-fusion.dtbo
+ dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-fusion.dtbo
  dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm-gesi-exp-board.dtbo
- k3-j721s2-evm-dtbs := k3-j721s2-common-proc-board.dtb k3-j721s2-evm-gesi-exp-board.dtbo
- dtb-$(CONFIG_ARCH_K3) += k3-j721s2-evm.dtb
-@@ -283,6 +284,8 @@ k3-j721e-evm-pcie1-ep-dtbs := k3-j721e-common-proc-board.dtb \
- 	k3-j721e-evm-pcie1-ep.dtbo
- k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
+@@ -272,12 +273,16 @@ k3-am68-sk-base-board-pcie1-ep-dtbs := k3-am68-sk-base-board.dtb \
+ 	k3-am68-sk-base-board-pcie1-ep.dtbo
+ k3-am68-sk-fpdlink-fusion-dtbs := k3-am68-sk-base-board.dtb \
+ 	k3-j721e-sk-fpdlink-fusion.dtbo
++k3-am68-sk-v3link-fusion-dtbs := k3-am68-sk-base-board.dtb \
++	k3-am68-sk-v3link-fusion.dtbo
+ k3-am69-sk-csi2-dual-imx219-dtbs := k3-am69-sk.dtb \
  	k3-j721e-sk-csi2-dual-imx219.dtbo
-+k3-j721s2-evm-fpdlink-fusion-dtbs := k3-j721s2-evm.dtb \
-+	k3-j721s2-evm-fusion.dtbo
+ k3-am69-sk-fpdlink-fusion-dtbs := k3-am69-sk.dtb \
+ 	k3-j721e-sk-fpdlink-fusion.dtbo
+ k3-am69-sk-pcie0-ep-dtbs := k3-am69-sk.dtb \
+ 	k3-am69-sk-pcie0-ep.dtbo
++k3-am69-sk-v3link-fusion-dtbs := k3-am69-sk.dtb \
++	k3-am68-sk-v3link-fusion.dtbo
+ k3-j7200-evm-pcie1-ep-dtbs := k3-j7200-common-proc-board.dtb \
+ 	k3-j7200-evm-pcie1-ep.dtbo
+ k3-j721e-common-proc-board-infotainment-dtbs := k3-j721e-common-proc-board.dtb \
+@@ -292,6 +297,8 @@ k3-j721e-sk-csi2-dual-imx219-dtbs := k3-j721e-sk.dtb \
+ 	k3-j721e-sk-csi2-dual-imx219.dtbo
+ k3-j721e-sk-fpdlink-fusion-dtbs := k3-j721e-sk.dtb \
+ 	k3-j721e-sk-fpdlink-fusion.dtbo
++k3-j721e-sk-v3link-fusion-dtbs := k3-j721e-sk.dtb \
++	k3-am68-sk-v3link-fusion.dtbo
+ k3-j721s2-evm-fpdlink-fusion-dtbs := k3-j721s2-evm.dtb \
+ 	k3-j721s2-evm-fusion.dtbo
  k3-j721s2-evm-pcie1-ep-dtbs := k3-j721s2-common-proc-board.dtb \
- 	k3-j721s2-evm-pcie1-ep.dtbo
- k3-j721s2-evm-usb0-type-a-dtbs := k3-j721s2-common-proc-board.dtb \
-@@ -293,6 +296,8 @@ k3-j722s-evm-csi2-quad-tevi-ov5640-dtbs := k3-j722s-evm.dtb \
- 	k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
- k3-j742s2-evm-usb0-type-a-dtbs := k3-j742s2-evm.dtb \
- 	k3-j784s4-j742s2-evm-usb0-type-a.dtbo
-+k3-j784s4-evm-fpdlink-fusion-dtbs := k3-j784s4-evm.dtb \
-+	k3-j721s2-evm-fusion.dtbo
- k3-j784s4-evm-pcie0-pcie1-ep-dtbs := k3-j784s4-evm.dtb \
- 	k3-j784s4-evm-pcie0-pcie1-ep.dtbo
- k3-j784s4-evm-quad-port-eth-exp1-dtbs := k3-j784s4-evm.dtb \
-@@ -351,11 +356,13 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
- 	k3-j721e-evm-pcie0-ep.dtb \
+@@ -359,9 +366,11 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
+ 	k3-am68-sk-base-board-csi2-dual-imx219.dtb \
+ 	k3-am68-sk-base-board-pcie1-ep.dtb \
+ 	k3-am68-sk-fpdlink-fusion.dtb \
++	k3-am68-sk-v3link-fusion.dtb \
+ 	k3-am69-sk-csi2-dual-imx219.dtb \
+ 	k3-am69-sk-fpdlink-fusion.dtb \
+ 	k3-am69-sk-pcie0-ep.dtb \
++	k3-am69-sk-v3link-fusion.dtb \
+ 	k3-j7200-evm-pcie1-ep.dtb \
+ 	k3-j721e-common-proc-board-infotainment.dtb \
+ 	k3-j721e-evm-fpdlink-fusion.dtb \
+@@ -369,6 +378,7 @@ dtb- += k3-am625-beagleplay-csi2-ov5640.dtb \
  	k3-j721e-evm-pcie1-ep.dtb \
  	k3-j721e-sk-csi2-dual-imx219.dtb \
-+	k3-j721s2-evm-fpdlink-fusion.dtb \
+ 	k3-j721e-sk-fpdlink-fusion.dtb \
++	k3-j721e-sk-v3link-fusion.dtb \
+ 	k3-j721s2-evm-fpdlink-fusion.dtb \
  	k3-j721s2-evm-pcie1-ep.dtb \
  	k3-j721s2-evm-usb0-type-a.dtb \
- 	k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
- 	k3-j722s-evm-csi2-quad-tevi-ov5640.dtb \
- 	k3-j742s2-evm-usb0-type-a.dtb \
-+	k3-j784s4-evm-fpdlink-fusion.dtb \
- 	k3-j784s4-evm-pcie0-pcie1-ep.dtb \
- 	k3-j784s4-evm-quad-port-eth-exp1.dtb \
- 	k3-j784s4-evm-usb0-type-a.dtb \
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-evm-fusion.dtso b/arch/arm64/boot/dts/ti/k3-j721s2-evm-fusion.dtso
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-sk-v3link-fusion.dtso b/arch/arm64/boot/dts/ti/k3-am68-sk-v3link-fusion.dtso
 new file mode 100644
-index 000000000000..f200cdaa1bab
+index 000000000000..cfbf59c45782
 --- /dev/null
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-evm-fusion.dtso
-@@ -0,0 +1,191 @@
++++ b/arch/arm64/boot/dts/ti/k3-am68-sk-v3link-fusion.dtso
+@@ -0,0 +1,204 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ * DT Overlay for Fusion (FPD-Link III) board on J721S2 and J784S4 EVM
-+ * https://svtronics.com/portfolio/evm577pfusion-v1-0-fusion/
++ * DT Overlay for Arducam V3Link UC-A09 board
++ * https://www.arducam.com/fpd-link-3-cameras/
 + *
 + * Copyright (C) 2024 Texas Instruments Incorporated - http://www.ti.com/
 + */
++
 +
 +/dts-v1/;
 +/plugin/;
 +
 +#include <dt-bindings/gpio/gpio.h>
++#include "k3-pinctrl.h"
 +
 +&{/} {
 +	clk_fusion_25M_fixed: fixed-clock-25M {
@@ -288,17 +304,21 @@ index 000000000000..f200cdaa1bab
 +	};
 +};
 +
++&csi_mux {
++	idle-state = <1>;
++};
 +
-+&main_i2c5 {
++&cam0_i2c {
 +	#address-cells = <1>;
 +	#size-cells = <0>;
-+	status = "okay";
 +
-+	deser@3d {
++	deser@30 {
 +		compatible = "ti,ds90ub960-q1";
-+		reg = <0x3d>;
-+		clocks = <&clk_fusion_25M_fixed>;
++		reg = <0x30>;
++
 +		clock-names = "refclk";
++		clocks = <&clk_fusion_25M_fixed>;
++
 +		i2c-alias-pool = <0x4a 0x4b 0x4c 0x4d 0x4e 0x4f>;
 +
 +		deserializer_0_ports: ports {
@@ -329,8 +349,8 @@ index 000000000000..f200cdaa1bab
 +			port@4 {
 +				reg = <4>;
 +				ds90ub960_0_csi_out: endpoint {
-+					clock-lanes = <0>;
 +					data-lanes = <1 2 3 4>;
++					clock-lanes = <0>;
 +					link-frequencies = /bits/ 64 <800000000>;
 +					remote-endpoint = <&csi2_phy0>;
 +				};
@@ -347,12 +367,19 @@ index 000000000000..f200cdaa1bab
 +			#size-cells = <0>;
 +		};
 +	};
++};
 +
-+	deser@36 {
++&cam1_i2c {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	deser@30 {
 +		compatible = "ti,ds90ub960-q1";
-+		reg = <0x36>;
-+		clocks = <&clk_fusion_25M_fixed>;
++		reg = <0x30>;
++
 +		clock-names = "refclk";
++		clocks = <&clk_fusion_25M_fixed>;
++
 +		i2c-alias-pool = <0x5a 0x5b 0x5c 0x5d 0x5e 0x5f>;
 +
 +		deserializer_1_ports: ports {
@@ -383,8 +410,8 @@ index 000000000000..f200cdaa1bab
 +			port@4 {
 +				reg = <4>;
 +				ds90ub960_1_csi_out: endpoint {
-+					clock-lanes = <0>;
 +					data-lanes = <1 2 3 4>;
++					clock-lanes = <0>;
 +					link-frequencies = /bits/ 64 <800000000>;
 +					remote-endpoint = <&csi2_phy1>;
 +				};
@@ -414,10 +441,10 @@ index 000000000000..f200cdaa1bab
 +
 +			csi2_phy0: endpoint {
 +				remote-endpoint = <&ds90ub960_0_csi_out>;
++				bus-type = <4>; /* CSI2 DPHY. */
 +				clock-lanes = <0>;
 +				data-lanes = <1 2 3 4>;
 +				link-frequencies = /bits/ 64 <800000000>;
-+
 +			};
 +		};
 +	};
@@ -434,7 +461,7 @@ index 000000000000..f200cdaa1bab
 +
 +			csi2_phy1: endpoint {
 +				remote-endpoint = <&ds90ub960_1_csi_out>;
-+				bus-type = <4>; /* CSI2 DPHY */
++				bus-type = <4>; /* CSI2 DPHY. */
 +				clock-lanes = <0>;
 +				data-lanes = <1 2 3 4>;
 +				link-frequencies = /bits/ 64 <800000000>;
