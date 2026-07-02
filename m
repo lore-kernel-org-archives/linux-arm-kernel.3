@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85ABAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:21:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E27C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hw7CMtSzZ3T03/nHIxRfsVoUiZsPLzFgwT0l0XLT+Jg=; b=pj2e8ocw1bw/c/aK0HxRxSU3F7
-	CspfKVzyePrHecQc5xNVZXBVFyE/q9XEm9qB2McDIGrWY8hNOZ3wUuYJmomnHiBThS5LIeCCXbWGh
-	UcHdS6Q3QgBiFiZYeCc4t3ca8zJDA2Ab40KUoT4cUHLhiI+Gm5goO01eI4TZ/wnqLWMWezzc5fCtO
-	qPE8VSh+VG1E9GbNUE3ELdGz/GSrI0sYayrh2caWsTSiBV4LbCJYHmU3MaXoR6/r5SyQOVdo1PGAF
-	M0tJ823wnayvGH/4vdeibVBG87MPZijRRbQVORRcHMJjAXtJGbfTv539OVxF+eSh99Ua3hJ2voy6k
-	xLYQK/iw==;
+	bh=Bp5U5FjsUuqmG9kVHnnc4OFrEREB6gXomJ8tROC/Nas=; b=GWB+BGRVB7VnE5aMj9H6DAPNzZ
+	jfEiQGUa5ktLlWI3tZs48rXucu2x787kTg14s4lK/f/xQXGXsuqrnsGP7WSoa5m6OiXCFl5Im/TZc
+	HsYTF7nUdbQMjpvnNgUJGdktLZ6aR2guPrPhnXhwkKMNNxVQwMJM4w1AGgy1+O89/pPuwmRXo5dWn
+	d6gsC5WXTcHCS4KNN405VeiPEY8dKDiY8shybs91rUYlwdVT+amJksiU2SsE62UmzOEyZ1xfsC2sn
+	/OMLXYapL0G/A6IQ2O+7NBmBl+QMOfvoK1Pm5QOINwVh5epi/cq1xtSasNoKfVOmpLrQB9E7xmt2A
+	CxIHI/wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCfw-00000003q4I-0UAB;
-	Thu, 02 Jul 2026 08:21:36 +0000
+	id 1wfCfz-00000003q6R-0tIK;
+	Thu, 02 Jul 2026 08:21:39 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCft-00000003q2Y-0yNC
+	id 1wfCfw-00000003q4D-3sXs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 08:21:35 +0000
+	Thu, 02 Jul 2026 08:21:38 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1782980490;
+	s=2020; t=1782980491;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Hw7CMtSzZ3T03/nHIxRfsVoUiZsPLzFgwT0l0XLT+Jg=;
-	b=ODI4rx+oZm7smBBBPpFBoEzJffCzbGEdLsD5wPz/Z8SWP2KWUliPgSciBLpp/HnVa9HmGg
-	u6bIFv7MkwrEaqND87SmtGQ7ULAhisPC9KtkyHrqLK9b8tiO5Esp1+GUp7LIU2TJZJdZ8l
-	RiwnTbK25PJ7owO7x/NA2E/DDb4qx25xKPlJQkpLKiuAG6Zk9U6nDjbFa7yMjhYuMyVgIU
-	pJs4sbQf1tsOYCRwAkkBh+7op5j3IGOFTrlewqWvZ6996ySNqZn/PfX1++o+FUIpjcfM2c
-	WETCgoBy0PHMFdSjgI8xR5410KhZDwYqng4RRYVUzaE9wF6e3tOwaB4kjXZpIQ==
+	bh=Bp5U5FjsUuqmG9kVHnnc4OFrEREB6gXomJ8tROC/Nas=;
+	b=0GCsaEzzXtV7+3pSgVu9W2HrlZjfXko73xUrILYZX8Hk65mqDlFZEcg3Z2VAMx6ukZ+DDy
+	Wat324S+35nUX42kcvzdaAwDQy8WBw6ZJEdnBfXqoohiReiMrfSbXXmVUgNNOWRezi1EkR
+	8LT/Znewzn3A1jiQhQzLJcbaEmw019bz06/Ukrkr5jcag4AmPMB0FUCjvHSNv8IdtZO+sD
+	Ua+kEQBFi980B91go75YCUM1V4tdBOZDY5jyPhqhnnwZrm+R6MFRdTPTBO9OORMFDGeoKz
+	xhOAujq7pNQ2b0xxFi1cFkcElqF8sltuKFCUaQQyqR/1UuobVLJ4Z+mxFo/yxw==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1782980490;
+	s=2020e; t=1782980491;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Hw7CMtSzZ3T03/nHIxRfsVoUiZsPLzFgwT0l0XLT+Jg=;
-	b=4u6eZy6uRINUX51mFPcy79lFscIhOYvFi8pzq8BrNmI3lHtBbhToMDZMYez4+Vw+p3h4vU
-	qxvfvL8PolrSSdCA==
-Date: Thu, 02 Jul 2026 10:21:25 +0200
-Subject: [PATCH v3 1/9] time: Respect COMPAT_32BIT_TIME for old time type
- functions
+	bh=Bp5U5FjsUuqmG9kVHnnc4OFrEREB6gXomJ8tROC/Nas=;
+	b=2M0y1mYMX8Z+I87ZrS2dXnaMyc8xPFYBq11TIrfERYXTp+SGGC2fbgWqvHNdfBghCnzSFj
+	GdgbjETZOUoqjoBg==
+Date: Thu, 02 Jul 2026 10:21:26 +0200
+Subject: [PATCH v3 2/9] vdso/gettimeofday: Validate system call existence
+ for time() and gettimeofday()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260702-vdso-compat_32bit_time-v3-1-db9f36d8d432@linutronix.de>
+Message-Id: <20260702-vdso-compat_32bit_time-v3-2-db9f36d8d432@linutronix.de>
 References: <20260702-vdso-compat_32bit_time-v3-0-db9f36d8d432@linutronix.de>
 In-Reply-To: <20260702-vdso-compat_32bit_time-v3-0-db9f36d8d432@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
@@ -77,16 +77,16 @@ Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
  Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
  sparclinux@vger.kernel.org, 
  =?utf-8?q?Philippe_Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782980489; l=4399;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782980489; l=1392;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=gj4V+syfmAXpdEr+HAh+eG00nr/CFRTmxa9XCdZH050=;
- b=kHodoXYGMDqQpGUjixS5+cbPKN/0Jqd7NpPoi4peiRMHPp8ULeu4jga/P4nLlW1n9oTDU5nYk
- vG017ekPc5IBx5pLMAdQGd0O4fsI3rokIoP9aC8/mbb7ofJAdOTZSq4
+ bh=cec3xwnXWZBQQGbv42GU6QmpPz+8AvRAz3K8EdeOBsQ=;
+ b=fzIbY2wUHyepDnlJz2y76h3VjJzYpEMenwXZ0eQfbLg9z5MtsLMJicYf/IxYkFJWtTT8ssPeF
+ JUjxzIyuUxbA0DywLtasjndTd8qdcR4KZDPqER7EA6QrYk5LgyY3miX
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_012133_548709_4E717A29 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20260702_012137_125419_5D9981E4 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,135 +101,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "old" time types use 32-bit seconds which are not y2038-safe.
-Respect COMPAT_32BIT_TIME for functions using those types.
-time(), stime() and gettimeofday() are disabled completely.
+Not all architectures have the system calls for time() and
+gettimeofday(). When the system call is missing, the vDSO function
+should also not be present.
 
-settimeofday() is kept as it is required to do the initial timewarping
-after boot. However the 'tv' argument will be rejected.
+Validate that.
 
-Link: https://lore.kernel.org/lkml/e9487ebe-3730-438a-9c23-e45f75986ecc@app.fastmail.com/
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+Reviewed-by: Philippe Mathieu-Daudé <philmd@oss.qualcomm.com>
 Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 ---
- kernel/sys_ni.c    |  4 ++++
- kernel/time/time.c | 24 ++++++++++++++++++++----
- 2 files changed, 24 insertions(+), 4 deletions(-)
+ lib/vdso/gettimeofday.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-diff --git a/kernel/sys_ni.c b/kernel/sys_ni.c
-index add3032da16f..c8be0abaa407 100644
---- a/kernel/sys_ni.c
-+++ b/kernel/sys_ni.c
-@@ -351,6 +351,10 @@ COND_SYSCALL(ppoll_time32);
- COND_SYSCALL_COMPAT(ppoll_time32);
- COND_SYSCALL(utimensat_time32);
- COND_SYSCALL(clock_adjtime32);
-+COND_SYSCALL(gettimeofday);
-+COND_SYSCALL_COMPAT(gettimeofday);
-+COND_SYSCALL(time);
-+COND_SYSCALL(stime);
+diff --git a/lib/vdso/gettimeofday.c b/lib/vdso/gettimeofday.c
+index e0f289d3d110..b8c1fc85eb74 100644
+--- a/lib/vdso/gettimeofday.c
++++ b/lib/vdso/gettimeofday.c
+@@ -12,6 +12,8 @@
+ #include <vdso/time32.h>
+ #include <vdso/time64.h>
  
++#include <uapi/linux/unistd.h>
++
  /*
-  * The syscalls below are not found in include/uapi/asm-generic/unistd.h
-diff --git a/kernel/time/time.c b/kernel/time/time.c
-index 0dd63a91e7c5..f836a31751f4 100644
---- a/kernel/time/time.c
-+++ b/kernel/time/time.c
-@@ -43,6 +43,12 @@
- #include <generated/timeconst.h>
- #include "timekeeping.h"
+  * The generic vDSO implementation requires that gettimeofday.h
+  * provides:
+@@ -348,6 +350,10 @@ __cvdso_gettimeofday_data(const struct vdso_time_data *vd,
+ {
+ 	const struct vdso_clock *vc = vd->clock_data;
  
-+#if defined(CONFIG_64BIT) || defined(CONFIG_COMPAT_32BIT_TIME)
-+#define __WANT_OLD_TIME_TYPE_SYSCALL 1
++#ifndef __NR_gettimeofday
++	BUILD_BUG();
 +#endif
 +
-+static_assert(sizeof(__kernel_old_time_t) == 8 ? IS_ENABLED(__WANT_OLD_TIME_TYPE_SYSCALL) : true);
+ 	if (likely(tv != NULL)) {
+ 		struct __kernel_timespec ts;
+ 
+@@ -382,6 +388,10 @@ __cvdso_time_data(const struct vdso_time_data *vd, __kernel_old_time_t *time)
+ 	const struct vdso_clock *vc = vd->clock_data;
+ 	__kernel_old_time_t t;
+ 
++#ifndef __NR_time
++	BUILD_BUG();
++#endif
 +
- /*
-  * The timezone where the local system is located.  Used as a default by some
-  * programs who obtain this value by using gettimeofday.
-@@ -51,7 +57,7 @@ struct timezone sys_tz;
- 
- EXPORT_SYMBOL(sys_tz);
- 
--#ifdef __ARCH_WANT_SYS_TIME
-+#if defined(__ARCH_WANT_SYS_TIME) && defined(__WANT_OLD_TIME_TYPE_SYSCALL)
- 
- /*
-  * sys_time() can be implemented in user-level using
-@@ -96,7 +102,7 @@ SYSCALL_DEFINE1(stime, __kernel_old_time_t __user *, tptr)
- 	return 0;
- }
- 
--#endif /* __ARCH_WANT_SYS_TIME */
-+#endif /* __ARCH_WANT_SYS_TIME && __WANT_OLD_TIME_TYPE_SYSCALL */
- 
- #ifdef CONFIG_COMPAT_32BIT_TIME
- #ifdef __ARCH_WANT_SYS_TIME32
-@@ -137,6 +143,7 @@ SYSCALL_DEFINE1(stime32, old_time32_t __user *, tptr)
- #endif /* __ARCH_WANT_SYS_TIME32 */
- #endif
- 
-+#ifdef __WANT_OLD_TIME_TYPE_SYSCALL
- SYSCALL_DEFINE2(gettimeofday, struct __kernel_old_timeval __user *, tv,
- 		struct timezone __user *, tz)
- {
-@@ -154,6 +161,7 @@ SYSCALL_DEFINE2(gettimeofday, struct __kernel_old_timeval __user *, tv,
- 	}
- 	return 0;
- }
-+#endif /* __WANT_OLD_TIME_TYPE_SYSCALL */
- 
- /*
-  * In case for some reason the CMOS clock has not already been running
-@@ -203,6 +211,9 @@ SYSCALL_DEFINE2(settimeofday, struct __kernel_old_timeval __user *, tv,
- 	struct timezone new_tz;
- 
- 	if (tv) {
-+		if (!IS_ENABLED(__WANT_OLD_TIME_TYPE_SYSCALL))
-+			return -EINVAL;
-+
- 		if (get_user(new_ts.tv_sec, &tv->tv_sec) ||
- 		    get_user(new_ts.tv_nsec, &tv->tv_usec))
- 			return -EFAULT;
-@@ -220,7 +231,7 @@ SYSCALL_DEFINE2(settimeofday, struct __kernel_old_timeval __user *, tv,
- 	return do_sys_settimeofday64(tv ? &new_ts : NULL, tz ? &new_tz : NULL);
- }
- 
--#ifdef CONFIG_COMPAT
-+#ifdef CONFIG_COMPAT_32BIT_TIME
- COMPAT_SYSCALL_DEFINE2(gettimeofday, struct old_timeval32 __user *, tv,
- 		       struct timezone __user *, tz)
- {
-@@ -239,7 +250,9 @@ COMPAT_SYSCALL_DEFINE2(gettimeofday, struct old_timeval32 __user *, tv,
- 
- 	return 0;
- }
-+#endif /* CONFIG_COMPAT_32BIT_TIME */
- 
-+#ifdef CONFIG_COMPAT
- COMPAT_SYSCALL_DEFINE2(settimeofday, struct old_timeval32 __user *, tv,
- 		       struct timezone __user *, tz)
- {
-@@ -247,6 +260,9 @@ COMPAT_SYSCALL_DEFINE2(settimeofday, struct old_timeval32 __user *, tv,
- 	struct timezone new_tz;
- 
- 	if (tv) {
-+		if (!IS_ENABLED(CONFIG_COMPAT_32BIT_TIME))
-+			return -EINVAL;
-+
- 		if (get_user(new_ts.tv_sec, &tv->tv_sec) ||
- 		    get_user(new_ts.tv_nsec, &tv->tv_usec))
- 			return -EFAULT;
-@@ -263,7 +279,7 @@ COMPAT_SYSCALL_DEFINE2(settimeofday, struct old_timeval32 __user *, tv,
- 
- 	return do_sys_settimeofday64(tv ? &new_ts : NULL, tz ? &new_tz : NULL);
- }
--#endif
-+#endif /* CONFIG_COMPAT */
- 
- #ifdef CONFIG_64BIT
- SYSCALL_DEFINE1(adjtimex, struct __kernel_timex __user *, txc_p)
+ 	if (vdso_is_timens_clock(vc)) {
+ 		vd = vdso_timens_data(vd);
+ 		vc = vd->clock_data;
 
 -- 
 2.55.0
