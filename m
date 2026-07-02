@@ -4,115 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D12DC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D495BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQIOVySReL8vS2U2jav9YDGBDGuteWIuFYGGUlN0FC8=; b=uaEdDOferNlvmTpUA+f/Z18J5o
-	EwGU7yfgSUuis8Rkz32vUsvDAcx31DxKyb7k077b8U/xMv1AiwPcLN2izmKwwLkekhhENptxJ7dnU
-	0fVCS5h74I0pgyi7OXiW9CSlOYxDfiuSxp6hxJuJpRDeaPENFDrDyOdvfWgCTlNmyR3bO0E+sZD7Z
-	HLg40GH8dvA6MSmwtxdeRLUxSRY6FIehIefGjS5HRwvTr71do5RQ+hYudldsiyIlnUXh4u6VrOXQj
-	1IWePz7hldbp8A7uyJnLNA2aPOvavE9Yv3R6QyImufu55PmOGC/Ja7yk31C+DIH4rhADNkWuDv/DU
-	zAPIFTaw==;
+	bh=QzSlIl6Z37WbsE2UbIbCXDpjL8qpTQXrId/Z4xb9wcc=; b=bsnavIrIU8Sk15U/azzcnprCt9
+	6FHqWbg5gjM4Ap0P9WODYJHRoN2cxEPS7iRIP1cv4oaK4Zkwp0IlOp0QqLK4rnEaLLkRjZlknz6Oa
+	YWldC9GX3f5TncbBg9LXjtqAQDYtB+zgwNxtxNh42BqW1sUiyPyTHV50JulATXhfKa7AmW2IBGWWr
+	YpIZ1OfWWVKGChk08mclvWGR2pYczRGbCwpoiIAZL2LDlwP3oUtZUAvfNUB4vlTUOXqIU6m7ANpjC
+	E35fO/jElHIsSqBdVwei1DiOTrfGXlz2NqRBBIbKZncyD/iuf3d0dGdc12LbKHlu194kZ8xM4KluM
+	cyt5e7Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJNM-00000004oXF-3ljw;
-	Thu, 02 Jul 2026 15:30:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfJOI-00000004ofm-0xLZ;
+	Thu, 02 Jul 2026 15:31:50 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJNL-00000004oX2-1cmw
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 15:30:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B711601C6;
-	Thu,  2 Jul 2026 15:30:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 480371F000E9;
-	Thu,  2 Jul 2026 15:30:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783006250;
-	bh=lQIOVySReL8vS2U2jav9YDGBDGuteWIuFYGGUlN0FC8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=X90zH9Jy/e9p4kfi2DS6OMkiROYz/68mN0iPhH41GUXVyq+OeD6UtNB3YsTKjikeT
-	 /UkPx2ZBpaK74k8G3UzvLNYI8a9lifGYdqUxQms7WdCu0FE9JFo/8mA6q8pYfxpQOI
-	 IJnIeaY04WvUzrLKT7czbbjYuVZOGgQN1L2eEZhr7f8aWRZucinTJPp6ICT6Y3Soih
-	 2d7p8lEpmqH9tROhhJw1rCzzQbj5FabizMehNbDndcfZ0XNNhDpNkTP3Oa0sozcNKJ
-	 uX3yNDOR/D/lKK6Kz+vBoj8anHJk7Hhh+Z5WVaTLkdwnkdDnB8h2okvAy9k1HLCr5z
-	 hBdqJB8YLm1LQ==
-Message-ID: <f22ed786-88a6-41d4-9304-ca617a0e7d06@kernel.org>
-Date: Thu, 2 Jul 2026 17:30:39 +0200
+	id 1wfJOF-00000004oen-0al9;
+	Thu, 02 Jul 2026 15:31:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783006305;
+	bh=Xkb+/mKuO1FEluXDb53rbD4MmvYJ3E7jzptvbsHL/pQ=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=cvm1LCN7RuPw3sJrteqJx3uGAWr6BhN2gttVW/sftjQ4oiBobOuexhzVh4drzhMyC
+	 sak2w+1IziYBSEsvudn0MMaKORc9Hql1TbzMMW9O9nZ3U2ECyUj+P6ZjWg0XN7gX3N
+	 otaMlSV06slH5L8HdKMkgZnzmxEbCJYyIuKgtuw8geVVATc0MxpUmVSKbTgN3kGWvB
+	 mB95T6Grbv3SYUBmUSei+ayV6vSDorGyvAV0I4LTHGPZhkUWk3ykFimlpImNQmYVM+
+	 28IUkrhUvDardCFp6tEnxiguChLEaAkhGuKM0fzV3T+e+oR+1siNhFGfII+SmMJc8a
+	 VcugSiSx4XJVQ==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3449B17E0180;
+	Thu,  2 Jul 2026 17:31:44 +0200 (CEST)
+Message-ID: <27c0c573-dd0e-49fb-ba40-3a314a8783b3@collabora.com>
+Date: Thu, 2 Jul 2026 18:31:43 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/6] mm/rmap: use huge_ptep_get() in try_to_unmap_one()
-To: Muchun Song <muchun.song@linux.dev>, Dev Jain <dev.jain@arm.com>
-Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
- lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, rcampbell@nvidia.com, apopple@nvidia.com,
- ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, nao.horiguchi@gmail.com, ak@linux.intel.com,
- mel@csn.ul.ie, pfalcato@suse.de, jpoimboe@kernel.org, dave.hansen@intel.com,
- tglx@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com, stable@vger.kernel.org, osalvador@suse.de,
- akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
-References: <20260702051341.126509-1-dev.jain@arm.com>
- <20260702051341.126509-3-dev.jain@arm.com>
- <97a43d82-28c2-4f98-ad74-fe05ed9f0297@linux.dev>
- <a6a00b38-612f-439d-9b75-337170e3af30@arm.com>
- <CE6E9F6C-8891-40E3-A5B7-BA475070EACD@linux.dev>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: Re: [PATCH v8 00/39] Add HDMI 2.0 support to DW HDMI QP TX
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Diederik de Haas <diederik@cknow-tech.com>,
+ Maud Spierings <maud_spierings@hotmail.com>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
 Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <CE6E9F6C-8891-40E3-A5B7-BA475070EACD@linux.dev>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_083147_341540_6043E0B1 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,42 +90,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/2/26 11:35, Muchun Song wrote:
+Hi,
+
+I've just realized I missed updating the part of the cover letter that 
+describes the patch structure. Please find the corrected content below.
+
+Regards,
+Cristian
+
+On 7/2/26 5:46 PM, Cristian Ciocaltea wrote:
+> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
+> TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
+> management for high TMDS clock ratio and scrambling.
+Since SCDC state is lost on sink disconnects, the bridge driver needs to
+trigger a CRTC reset during connector detection.  To support this, the
+series first introduces the HDMI version enum and the caps-based HDMI
+connector init helper (patches 1-3), then builds the connector and
+bridge scrambling infrastructure on top of it - the connector scrambler
+support, the scdc-helper additions (connector-prefixed debug macro and
+SCDC version helper), and the HDMI scrambling management helpers
+including SCDC source-version advertisement (patches 4-8).
+
+It then wires this up through the hdmi-state-helper and bridge connector
+layers: fallback TMDS rate validation, hotplug SCDC state sync and the
+scrambling requirement (patches 9-11), a bridge cleanup and the new
+source-side scrambling bridge ops (patches 12-13), the switch to a
+cached-status, atomic-aware .detect_ctx() connector helper (patches
+14-15), and finally hooking up the HDMI 2.0 scrambler callbacks (patch
+16).
+
+The SCDC scrambling feature itself is implemented in the DW HDMI QP
+bridge driver, alongside i2c error-message rate limiting,
+.enable_hpd()/.disable_hpd() PHY ops and a dw_hdmi_qp_hpd_notify()
+helper (patches 17-20).
+
+Patches 21-28 cover the Rockchip platform driver and HPD handling: minor
+cleanups (newlines in dev_err_probe(), consistent local dev variable,
+dropping an unnecessary include), deferring HPD IRQ enable until after
+connector setup, masking the RK3576 HPD IRQ in io_init, implementing the
+.{enable|disable}_hpd() PHY ops, switching HPD reports to
+dw_hdmi_qp_hpd_notify() to restrict events to the affected connector,
+and dropping the now-unused .setup_hpd() PHY op.
+
+Patches 29-31 convert vc4 HDMI to the common infrastructure as a proof
+of reuse: adopting the shared TMDS char rate constants, switching to
+drm_hdmi_mode_needs_scrambling(), and replacing the driver-local
+scrambling implementation with the common SCDC scrambling helpers.
+
+Patches 32-39 add KUnit tests: HDMI caps-based init coverage and
+source-side scrambler validation for the connector, conversion of
+hdmi_state_helper to drmm_connector_hdmi_init_with_caps() with
+max_tmds_char_rate fallback tests, a new 4K@60Hz 600MHz TMDS EDID,
+source-side scrambling decision coverage, and conformity fixes for the
+existing 1080p+4K YUV420 200MHz and 4K RGB/YUV 340MHz test EDID blobs.
+
 > 
+> This has been tested on the following boards:
 > 
->> On Jul 2, 2026, at 17:08, Dev Jain <dev.jain@arm.com> wrote:
->>
->>
->>
->> On 02/07/26 2:17 pm, Muchun Song wrote:
->>>
->>>
->>>
->>> Maybe I didn't express my thoughts clearly in the first version, let me
->>> explain in more detail.
->>>
->>> We should define this stub as a no-op for !CONFIG_HUGETLB_PAGE (like
->>> set_huge_pte_at, that is why I mentioned 5d4af6195c87c6 for your reference
->>> in your previous version). Currently, you've added a declaration, but the
->>> function itself doesn't actually exist, which seems quite strange to me.
->>
->> https://lore.kernel.org/all/a4fe8ba6-2ecd-4bb9-95a9-27f9f1e87d2e@kernel.org/
->>
->> David suggested this. Honestly I quite like David's suggestion, what do you
->> think?
+> * Radxa ROCK 5B (RK3588)
+> * Radxa ROCK 4D (RK3576)
+> * Raspberry Pi 5 Model B Rev 1.1 (BCM2712 D0)
 > 
-> Thanks for pointing that out, I missed it earlier. That said, looking at
-> hugetlb.h, it already contains quite a few no-op stubs. To keep things
-> consistent, I'd personally prefer a stub here. Since David suggested this,
-> I’d love to hear his thoughts on this as well.
+> Note that commit d87773de9efe1 ("clocksource/drivers/arm_arch_timer:
+> Default to EL2 virtual timer when running VHE"), introduced in v7.2-rc1,
+> causes Raspberry Pi 5 to hang during boot.  Reverting the commit
+> restores normal boot.  This issue has already been reported in [1];
+> alternatively, the workaround proposed in [2] can be applied.
+> 
+> Regards,
+> Cristian
+> 
+> [1] https://lore.kernel.org/all/ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com/
+> [2] https://lore.kernel.org/all/20260619204832.586079-1-dan@reactivated.net/
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+> Changes in v8:
+> - Added an enum hdmi_version under video/hdmi to describe the HDMI
+>   specification version a source/sink supports (new patch 1)
+> - Introduced HDMI connector capabilities API and reworked the
+>   infrastructure patches on top of it: drmm_connector_hdmi_init() now
+>   takes a drm_connector_hdmi_caps struct that carries supported_formats,
+>   max_bpc, supported_hdmi_ver and max_tmds_char_rate (new patches 2-3)
+> - Moved all the new SCDC helpers covering both source and sink to
+>   display/drm_hdmi_helper.c
+> - Renamed drm_scdc_{start,stop}_scrambling() to
+>   drm_connector_hdmi_{enable,disable}_scrambling() and added a
+>   connector-state argument so the scrambler_needed flag is checked
+>   centrally instead of in every driver
+> - Renamed drm_scdc_sync_status() to drm_connector_hdmi_sync_scdc(),
+>   aligned its lifecycle with vc4_hdmi_reset_link(), and removed the
+>   internal drm_scdc_reset_crtc() helper; it now also gates on CRTC state
+>   and an in-flight commit (Maxime)
+> - Changed the prototype of drm_atomic_helper_connector_hdmi_hotplug() to
+>   take an acquire context and an int return, instead of adding a new
+>   _ctx variant (Maxime)
+> - Added drm_hdmi_mode_needs_scrambling() to centralise the above-340 MHz
+>   decision (new patch 7)
+> - Made SCDC source version negotiation optional and moved it to a
+>   dedicated patch "drm/display: hdmi: Advertise SCDC source version when
+>   scrambling" (new patch 8), backed by a new
+>   drm_scdc_set_source_version() helper in "drm/display: scdc-helper: Add
+>   helper to set SCDC version information" (new patch 6)
+> - Added a fallback TMDS rate validation patch using the connector-level
+>   max_tmds_char_rate when the driver provides no .tmds_char_rate_valid()
+>   hook (new patch 9)
+> - Split scrambler_needed flag handling into its own hdmi-state-helper
+>   dedicate change (new patch 11)
+> - VC4:
+>   * Replaced vc4_hdmi_mode_needs_scrambling() with
+>     drm_hdmi_mode_needs_scrambling() (new patch 30)
+>   * Restored drm_dev_{enter,exit}() pairing around the converted
+>     scrambling paths
+>   * Removed now unused output_{bpc,color_format} fields from vc4_hdmi as
+>     part of the SCDC conversion
+> - KUnit:
+>   * Covered the caps-based connector init path: NULL caps, inferred
+>     max_tmds_char_rate per supported_hdmi_ver, and override validation
+>     (new patch 32)
+>   * Switched drm_hdmi_state_helper_test to the caps-based init helper
+>     and exposed it through
+>     drm_kunit_helper_connector_hdmi_init_with_caps_edid_funcs() (new
+>     patch 34)
+>   * Added max_tmds_char_rate fallback coverage in
+>     drm_hdmi_state_helper_test (new patch 35)
+> - Rebased onto latest drm-misc-next and dropped the already applied
+>   "drm/fb-helper: Remove unused local variable in hotplug_event()" patch
+> - Link to v7: https://patch.msgid.link/20260602-dw-hdmi-qp-scramb-v7-0-445eb54ee1ed@collabora.com
 
-It's the shortest possible way to enforce (through the linker!) that you
-function is not called from wrong context.
-
-The only alternative is using a stub with a BUILD_BUG() in it. Which will 4 5 LOC :)
-
--- 
-Cheers,
-
-David
+[...]
 
