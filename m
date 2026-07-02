@@ -4,117 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F840C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BDDC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nruy4vcEMvuLMGaeXCeSl5i/XMglZLpU3SqjhsZ3PYs=; b=46DlF4B7w9PbBlXbJOPnAjDqW6
-	ZPfvQ3w2gcYuY0JQSmc88PV/sci/t+ME4E3oGcb/pziiTyBx4Qj37KSlYwKWgqfdgjimJ6SmCQQ0/
-	glXx60Aic+jcNFw+S7PduscMnwAEB+HMy9vOv7erbHRkrEjtRGxQ1ag+NFjNup0P09wHlFt1TFAjF
-	4OKVTHQaBZK3tWu7uedFax0aGbH91ZKB7OhL6EYJM4YBpydk/6VAWGX0U8xocGLLVh6W5oRycXdR+
-	uQj1Qty7zXaT/XfZGOcD7a+A/wKv7YUFLlhICc0P5O9xA1dUrhB+O+AP5Q89Qz1KptCZSPGcH2bfk
-	ZP0YsI3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=mJSzPYcuu70d1v2EawqMn7TqthwcQ1ssQg57IVhDWI4=; b=UtIAr8u/G+bBVN
+	4PGZk4XSWX2vwveYcf8XsSZ2UQM7rSPzV+MvuqDHPNm6lLaEB9f7EeRzKxktzn8yU9NuAdAXpQKea
+	zm79optOVx2ZIwRVxguBhZvXTZa0gZ/518rAKqyBEUyrbUIUXLXjLkenvoPmrmMC1oJl2PdmJ2R7R
+	d1CWeaMv7NvxEgy0UgDEkdSkHcJxnsJmrpfJIIkZ/OQAosSRtuUWuy+RvmJmBG1F57MIhMG0aVmxg
+	sqw3fKSOfR+TVvSd8G3z/b+5YUshRqCfegHSgGNtnx7Di8meJGjLTzAwQfS/4WMe6Jp7g9N+vWcNg
+	w8nHbGEo23G3LIdeo+Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCet-00000003pum-2Xdz;
-	Thu, 02 Jul 2026 08:20:31 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfCfv-00000003q3Y-070X;
+	Thu, 02 Jul 2026 08:21:35 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCes-00000003puf-1Sd1
+	id 1wfCfs-00000003q2X-1E1b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 08:20:30 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id F388A6001D;
-	Thu,  2 Jul 2026 08:20:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A2EE1F000E9;
-	Thu,  2 Jul 2026 08:20:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782980427;
-	bh=Nruy4vcEMvuLMGaeXCeSl5i/XMglZLpU3SqjhsZ3PYs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lDMrb3GZsubyRaOSIAKEeX83v0VFXBmRD7+X7F/Tn+N12VStbgPOuoXHB3UyIddFE
-	 /et1oKtvfPrmrKMBeTik5veOAInmjD7RJcuw/AO3ttMWkfkD0MZtxMiqYZP8LuARX/
-	 ejwCCjL2OM5ogRTVK80Menepf22KiSIWWIoNDBYMNGQEjjEO7IQ8V+kFcNZf2ka+M1
-	 v0iMktxdu+BZV6Hb7+7RP5sitWFystpvTAyOgucyNNLnIsZxX1AqzOcwe3YLZCnP6s
-	 yn5Kh+CIUsJhcx2P+80SQ+zepK8Qnktmsj8lch3PEACAifwIl6L7qDEbU7GT8ue1Gc
-	 FSdr0SX4G3yWw==
-Message-ID: <887cb4e9-d60d-47b5-9110-e00d18e9e46c@kernel.org>
-Date: Thu, 2 Jul 2026 10:20:20 +0200
+	Thu, 02 Jul 2026 08:21:34 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1782980489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mJSzPYcuu70d1v2EawqMn7TqthwcQ1ssQg57IVhDWI4=;
+	b=of+N59HaFTcbezAeOk+/17hY+A9dAUMSL0R9JbFEMZlA+nby5ylWi5WlxMj2cbxVgqtoX6
+	3ROYEFfYafIQYkmKGJb3YKKBa8oT7It8ES1jGDuDnHZJg6BLs8TOAxVlYtOUje+4JN5zUh
+	6rlS5LGUaV411jwX0tZLB2y1sqG3lcNLRh+9913Yt+jc2oHHKtciVLG5TH2EiEqdQyI9iT
+	uGULIJoJUlBFYcyCwNWA0mQgbR8IdI8+L8xAOlesgBKm/lm+v/HWEO9qNkt66NrD7OTPU7
+	VsVL0vpxTO7Xh55obb8zzMh8t1KQ+g4ycfp6un1P5BGtR3J5X8ButatRWQK55w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1782980489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mJSzPYcuu70d1v2EawqMn7TqthwcQ1ssQg57IVhDWI4=;
+	b=uN9Hdc83IPYWMSKfkIs/YtSKjNdtWXYIe8rXO0da85TsqVeJfAaNeJbY+tm0TW1LYRA9+j
+	B/4b13cGjW5KHSCQ==
+Subject: [PATCH v3 0/9] vDSO: Respect COMPAT_32BIT_TIME
+Date: Thu, 02 Jul 2026 10:21:24 +0200
+Message-Id: <20260702-vdso-compat_32bit_time-v3-0-db9f36d8d432@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
- property for S35390A
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: Markus Probst <markus.probst@posteo.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
- <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
- <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
- <20260701-bronze-jaguar-of-perfection-028bac@quoll>
- <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
- <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
- <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
- <20260701164821b7492eac@mail.local>
- <74b32ed0a700e3900c0f34d730b2b5b69eb2ca19.camel@posteo.de>
- <187099d0-5e09-49c2-b67d-8bd4366ff1a0@kernel.org>
- <202607020817017cde494f@mail.local>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <202607020817017cde494f@mail.local>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XNwQoCIRDG8VcJzxk6lm6deo+IcNepBkoXNdmIf
+ ffc7RAEHf8fzG9eLGEkTGy3eLGIhRIFX0MtF6y7Wn9BTq42AwFaSKl4cSnwLtx7m08KWsqnTHf
+ k2IjGaIVboy2rx33EMw0zfDjWvlLKIT7nP0VO64cEMP/IIrng6iyg0da0tlP7G/lHjsHTsHLIJ
+ rbAl9JK/KWgUhsQTm7Xei2c+6XGcXwD1i+6ywsBAAA=
+X-Change-ID: 20260113-vdso-compat_32bit_time-e808763e976a
+To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+ "H. Peter Anvin" <hpa@zytor.com>, Russell King <linux@armlinux.org.uk>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, 
+ John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Andreas Larsson <andreas@gaisler.com>
+Cc: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-mips@vger.kernel.org, 
+ Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
+ sparclinux@vger.kernel.org, 
+ =?utf-8?q?Philippe_Mathieu-Daud=C3=A9?= <philmd@oss.qualcomm.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782980489; l=4251;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=MR/1oQsubIswpQ1T7czms/mRrVaRqITHlz2n6JTUpl4=;
+ b=IAPP7P7TT/qjpqsC8+BNXtHg/cnx42xojUXsQ9R2Hz9jbgOm2ACYHF+sMsfHVfS0U/4lV37Yl
+ zsUyVwUeFmFBYzA4OF5fifGvug2xcpYakRt7qN14FxkhZlDROdgH2hq
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_012132_481409_E396DC6D 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,31 +101,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2026 10:17, Alexandre Belloni wrote:
-> On 02/07/2026 08:09:55+0200, Krzysztof Kozlowski wrote:
->>>> Then you need proper wakeup-source support
->>> Wouldn't that break existing devicetrees?
->>
->> How?
->>
->>>
->>> The current driver allows to wake up the system, even without
->>> having wakeup-source set.
->>
->> Anyway, wakeup-source is already there in rtc, so this would be done. I
->> don't get though, why there is no benefit of routing it to interrupt
->> controller (interrupt controllers do wake up the system). Additionally,
->> if you do not connect it to any interrupt, then how does it wake up the
->> system?
->>
-> 
-> Some systems are routing the interrupt output of the RTC directly to the
-> PMIC and the PMIC is the one responsible for waking the rest of the
-> system, including the SoC.
+If CONFIG_COMPAT_32BIT_TIME is disabled then the vDSO should not
+provide any 32-bit time related functionality. This is the intended
+effect of the kconfig option and also the fallback system calls would
+also not be implemented.
 
-Yeah, then the PMIC has interrupt line to the SoC and the PMIC is the
-wakeup-source, not RTC.
+I also tried to introduce some helpers to avoid much of the ifdeffery,
+but due to the high variance in the architecture-specific glue code
+these would need to handle, they ended up being worse than the current
+proposal.
+
+As a side-effect this will make the self-tests more reliable,
+as there is now always a matching syscall available for each vDSO function.
+
+clock_getres_time64() was only introduced in v6.19, so libc implementations
+are likely not using it yet.
+
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+---
+Changes in v3:
+- Pick up tags.
+- Fix incorrect references gettimeofday() in per-arch commit messages.
+- Test for CONFIG_COMPAT_32BIT_TIME over __WANT_OLD_TIME_TYPE_SYSCALL in compat_settimeofday()
+- Link to v2: https://patch.msgid.link/20260630-vdso-compat_32bit_time-v2-0-520d194640dd@linutronix.de
+
+Changes in v2:
+- Also handle SPARC.
+- Drop MIPS cleanup patches.
+- Also handle gettimeofday().
+- Add more static validations.
+- Rebase on v7.2-rc1.
+- Link to v1: https://lore.kernel.org/r/20260227-vdso-compat_32bit_time-v1-0-3f0286a7bac3@linutronix.de
+
+To: Andy Lutomirski <luto@kernel.org>
+To: Thomas Gleixner <tglx@kernel.org>
+To: Ingo Molnar <mingo@redhat.com>
+To: Borislav Petkov <bp@alien8.de>
+To: Dave Hansen <dave.hansen@linux.intel.com>
+To: x86@kernel.org
+To: H. Peter Anvin <hpa@zytor.com>
+To: Russell King <linux@armlinux.org.uk>
+To: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>
+To: Madhavan Srinivasan <maddy@linux.ibm.com>
+To: Michael Ellerman <mpe@ellerman.id.au>
+To: Nicholas Piggin <npiggin@gmail.com>
+To: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
+To: Vincenzo Frascino <vincenzo.frascino@arm.com>
+To: John Stultz <jstultz@google.com>
+To: Stephen Boyd <sboyd@kernel.org>
+To: "David S. Miller" <davem@davemloft.net>
+To: Andreas Larsson <andreas@gaisler.com>
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linuxppc-dev@lists.ozlabs.org
+Cc: linux-mips@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-api@vger.kernel.org
+Cc: sparclinux@vger.kernel.org
+Cc: Philippe Mathieu-Daudé <philmd@oss.qualcomm.com>
+
+---
+Thomas Weißschuh (9):
+      time: Respect COMPAT_32BIT_TIME for old time type functions
+      vdso/gettimeofday: Validate system call existence for time() and gettimeofday()
+      x86/vdso: Respect COMPAT_32BIT_TIME
+      arm64: vdso32: Respect COMPAT_32BIT_TIME
+      ARM: VDSO: Respect COMPAT_32BIT_TIME
+      powerpc/vdso: Respect COMPAT_32BIT_TIME
+      MIPS: VDSO: Respect COMPAT_32BIT_TIME
+      sparc: vdso: Respect COMPAT_32BIT_TIME
+      vdso/gettimeofday: Verify COMPAT_32BIT_TIME interactions
+
+ arch/arm/vdso/vdso.lds.S                    |  2 ++
+ arch/arm/vdso/vgettimeofday.c               | 14 ++++++++------
+ arch/arm64/kernel/vdso32/vdso.lds.S         |  2 ++
+ arch/arm64/kernel/vdso32/vgettimeofday.c    | 14 ++++++++------
+ arch/mips/vdso/vdso.lds.S                   |  2 ++
+ arch/mips/vdso/vgettimeofday.c              |  3 +++
+ arch/powerpc/kernel/vdso/gettimeofday.S     |  8 ++++++++
+ arch/powerpc/kernel/vdso/vdso32.lds.S       |  8 +++++---
+ arch/powerpc/kernel/vdso/vgettimeofday.c    | 16 ++++++++++------
+ arch/sparc/vdso/vclock_gettime.c            |  4 ++++
+ arch/sparc/vdso/vdso32/vdso32.lds.S         |  6 ++++--
+ arch/x86/entry/vdso/common/vclock_gettime.c | 20 ++++++++++++--------
+ arch/x86/entry/vdso/vdso32/vdso32.lds.S     |  2 ++
+ kernel/sys_ni.c                             |  4 ++++
+ kernel/time/time.c                          | 24 ++++++++++++++++++++----
+ lib/vdso/gettimeofday.c                     | 20 ++++++++++++++++++++
+ 16 files changed, 114 insertions(+), 35 deletions(-)
+---
+base-commit: e6da2429169af9b33f3629b69905d89bb5ee9e64
+change-id: 20260113-vdso-compat_32bit_time-e808763e976a
 
 Best regards,
-Krzysztof
+--  
+Thomas Weißschuh (Schneider Electric) <thomas.weissschuh@linutronix.de>
+
 
