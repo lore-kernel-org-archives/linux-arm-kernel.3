@@ -4,57 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0053C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC331C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 15:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jJ3DLTIlknojKBYsHiBKYugHEIBfbYTLpD95P/rrvbo=; b=vHdkIwRDdbb48oFTGPTuYwZykc
-	6IjWTlYbfiSUUDRX1XuiFBhdnDHsZFw6N08yXpbiPmhpYWUbFmM8Ns1xE4HlEA/bhSb7x7WuTtp/1
-	f4jsyB5qTbjPvHSzCLsIlCbLNLDSuAGFIDB7p01n079ri/37sP3s8URzkel7pzWq37GfJuBejIK1g
-	lCe8sxKf3mv753aLR+c47NODdZtKxL9MNoM+DlH4M8BDnYVvieGsMWtg8Gs5QATUdrq+9b6Z4kcPI
-	IL2iuzzhh/oVKOEIE+vOMG8QWEHUqu8nBblv41ffkE0gOq7HPR4O7j1TRiC2IN9+08FExNCmlPuX0
-	0q7cWDdg==;
+	bh=/mTDxEEXhf1dHuXuCAdsHsLXruAQZQS4VLT12t4ez0w=; b=iGZMGDbjtLujv5orGukbUzImXc
+	bEmGXAnW+E3RpJgDprOz0IKf+YLUuQHCNWatGTG98LakrZaCjDtfGKJ+WEMUzQRLshayW8bUvv9GZ
+	iHvyS/HX0QGNdSFs5mULAXrAXviZNMr+UaYGY/xfiPoWAOAEjOz1+v8fMtAliaypbzcxHW8pCnjgx
+	g1OamufOIZa79PdFb6x2XLeNsBHEwjYGr/RJaMiflYoxlwm2z95TPlJnocl/pEcuggDs9josLBtD2
+	YeghbLzFV5JgtV2n21RZtV+eI9AuCboV/7/bi21EtRM78ZDldLeIMBbjEE5tNGUloVxtXbsFJ6qyb
+	nP8LByxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJOY-00000004om8-2lBE;
-	Thu, 02 Jul 2026 15:32:06 +0000
+	id 1wfJOa-00000004onT-3Cjn;
+	Thu, 02 Jul 2026 15:32:08 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJOX-00000004olk-0YlT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 15:32:05 +0000
+	id 1wfJOa-00000004omt-12oY;
+	Thu, 02 Jul 2026 15:32:08 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F2A3601F0;
+	by tor.source.kernel.org (Postfix) with ESMTP id AFEF4601EE;
+	Thu,  2 Jul 2026 15:32:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3CAC1F000E9;
 	Thu,  2 Jul 2026 15:32:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F31601F00A3A;
-	Thu,  2 Jul 2026 15:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783006324;
-	bh=jJ3DLTIlknojKBYsHiBKYugHEIBfbYTLpD95P/rrvbo=;
+	s=k20260515; t=1783006327;
+	bh=/mTDxEEXhf1dHuXuCAdsHsLXruAQZQS4VLT12t4ez0w=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=XaW+qLOrHSkDMzJu6XPRHmFIpYJdsCBqaciYzbaiRU3sanrl2ntlnm2T+/tI1AoFj
-	 aKbaNqItCSLp/5eKIQFZPwUXULZaKvTrXGoEt9/ysUR0Fa4U8pyXL4opAQ/wDz/RgQ
-	 M80RX2y574G+0W0rM3bU2iTRK/f5nHFrdIXZe7ANyY/dBUiYdJUtP06KsVemLe70re
-	 TGQAofhFPRrV0Ujg+0ea6JIEr4yKBoMfE5NxvrjIxuugAo2iXgR3iPw+htBwvJJVou
-	 iJWz2VH97MY5Dztk9FsFQQcAfe34YqWW8WvX2ENNDeXTG5u7GhNS7T0g+bZ4Ck6vnS
-	 D5B60OSW/o/zg==
+	b=jzm3JnZHFwt/mqn9jWUA02Owh5bjidWASS5DJ/T1BuIak6b45txHrmHFY2OD7kTFZ
+	 hawKT/j3+DeENwu/Y4qX5BKoOhyukLWxpmaylheHpl2c7Z5XG4aMRgNC50WGmMJSaw
+	 0XjMKWpCykkafVObJ/OJiT1jPiMefA25l0lSEszULIo4FK3HUvCjWO/vqYVZ7+QVMM
+	 51/xXH/BTzmWnRbmA7xrnv6qTjzSrkx609UIL3LD/aZo8Q1+7Pki2XsJDQVO7oBdEb
+	 F/nQ2vVaX8qeNOZ5f/EF1yYQjpGrC9AIxl9I/FbIZfBZNySVAIRGDLMZVUOJN+UMbn
+	 6P0VdgzeHdWGA==
 From: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.Li@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>, 
- Shyam Pandey <radhey.shyam.pandey@amd.com>, 
- Abin Joseph <abin.joseph@amd.com>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20260612215226.1887726-1-robh@kernel.org>
-References: <20260612215226.1887726-1-robh@kernel.org>
-Subject: Re: [PATCH] dt-bindings: dma: xilinx: Fix "xlnx,irq-delay" type
-Message-Id: <178300632060.735405.1201510775186759971.b4-ty@kernel.org>
-Date: Thu, 02 Jul 2026 21:02:00 +0530
+To: Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Frank Li <Frank.Li@kernel.org>, Vladimir Zapolskiy <vz@kernel.org>
+Cc: Long Cheng <long.cheng@mediatek.com>, dmaengine@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+In-Reply-To: <20260701200703.117929-1-vz@kernel.org>
+References: <20260701200703.117929-1-vz@kernel.org>
+Subject: Re: [PATCH] dmaengine: mediatek: mtk-uart-apdma: Return -ENOMEM on
+ memory allocation failure
+Message-Id: <178300632440.735405.9920364004468870936.b4-ty@kernel.org>
+Date: Thu, 02 Jul 2026 21:02:04 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -74,21 +73,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 12 Jun 2026 16:52:25 -0500, Rob Herring (Arm) wrote:
-> "xlnx,irq-delay" programs an 8-bit delay field in the DMA control
-> register, and the driver stores and reads it as a byte. The binding
-> described the property as a uint32 cell, which made the helper type
-> check report the driver as wrong.
+On Wed, 01 Jul 2026 23:07:03 +0300, Vladimir Zapolskiy wrote:
+> If dynamic memory allocation in driver's probe function execution fails, it
+> should be reported to the driver's framework with -ENOMEM error code.
 > 
-> Document "xlnx,irq-delay" as uint8 so the generated schema reflects
-> the hardware field width and the existing driver access.
 > 
-> [...]
 
 Applied, thanks!
 
-[1/1] dt-bindings: dma: xilinx: Fix "xlnx,irq-delay" type
-      commit: fa9cb11584851414b25fd8bf9f59518424b5917c
+[1/1] dmaengine: mediatek: mtk-uart-apdma: Return -ENOMEM on memory allocation failure
+      commit: 467265c750edd7ab43803deeafe7d3120a791d32
 
 Best regards,
 -- 
