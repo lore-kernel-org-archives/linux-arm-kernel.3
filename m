@@ -4,87 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4C3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5EBC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:07:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BgzVAKieF0iuF8m7CPEO5R6wFSEw4erbN+1y1QD9JfI=; b=hc6D8EkOy697tWhktKjk6mDtxE
-	EUOQiFeXrNFXlveL0dKMLI9/0RvKKTYrsV/1AMXpbFNwKOwLisTOU+8F8t1mns8VtPadYa8XJ60RB
-	hBmQ6H76gWr1gWbr+UaDfjnNGzlN9yyPO0nJz/7ySypRuaDGcd+jA4kwltaqtKLjvRgOZZseDeaLq
-	GggMlNEDvmQ7BykDicvlQ6lsJsIMnuGNe7gYlZ79s6ZkG2L+3AveLDC41YO2rNnEH0YXUh6MHxJKi
-	lQ4ZYc16CqBzKU+yguR6SoDuLJXxve3+ubLsxbNZqGBcY2WQfByTc1BvsuxxwHARtE3hklyRjaOXC
-	4Qml8ANw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rTQPPhDVeTbGbJ1qfR9lTcAhGLsRnezT+O5gDJeLhT4=; b=dh2VwZljRBsfmt/T+uRcE1Dj7W
+	QEWvBiKb6ZuiqrcJUPnHo6lF/4qIVOabEsU4zYIRss8YKx+Lqo3tEXtJZWnWGoWjM8Mnl+sxxA82Z
+	AZ0e8N9n8WJtXhx8lmazxxnySwPjIYk0glok4HOBOM3OIXAST0Eo6+crZpzac5i9P5MBnxy5Bjlzk
+	TUfc/cf/IIwH609bfQcRoutPu7wZDotNxB86IZWoLp9KQGCFaZ8x9Xj8q+qHGi2ew+FcmQ4vT4wlp
+	8OJyJdSKjWEP8ondRsa0e1B9f+B89IPI76AsWrlkxOFniA90nYucIwO+ngp1yDcubz8RQgIixX78E
+	lXFKX62g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfG9S-00000004PGF-1mAm;
-	Thu, 02 Jul 2026 12:04:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wfGBx-00000004PSD-31Dn;
+	Thu, 02 Jul 2026 12:06:53 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfG9Q-00000004PFv-30Vc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Jul 2026 12:04:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BgzVAKieF0iuF8m7CPEO5R6wFSEw4erbN+1y1QD9JfI=; b=PVhVq355kL01t7KbPUAo7JVQNS
-	T1R/S5qTGeOQXF41vW1jgbea/TV2hzPne/L0OFCMAKDU7uiR9W1uBVApuMkC9szw7GbFuV8IKFMzf
-	SbVzJkxb2yNOwx7RNLGisl6v7ORxIWD0nre6Pf40rDbcU0he+0h/2T+/YlREPvrYL9aMSmxV/hTln
-	eIFQ5E9eX9kFBONRRhjZQk4xK+K79+mlwjTKmwOlTOlDkkWSFTLnMICVIkVeudmDZVimcve7FnNfA
-	spJ2orvtiHDcAzPNvg/khlWSW7sOcUAUJNawYNrhZRAn6rcoqAEMVDtm3pnNifTLnOQ8eVfZg49Gu
-	aGMKQMiA==;
-Received: from [72.10.137.214] (helo=rfs.netwinder.org)
-	by desiato.infradead.org with esmtpsa (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wfG9K-00000003mN5-2Lu3;
-	Thu, 02 Jul 2026 12:04:10 +0000
-Date: Thu, 2 Jul 2026 08:04:05 -0400
-From: Ralph Siemsen <ralphs@netwinder.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Aaro Koskinen <aaro.koskinen@iki.fi>,
-	"A. Sverdlin" <alexander.sverdlin@siemens.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Ard Biesheuvel <ardb@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Daniel Mack <daniel@zonque.org>, Frank Li <Frank.Li@nxp.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Ralph Siemsen <ralph.siemsen@linaro.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stefan Agner <stefan@agner.ch>,
-	Stefan Wiehler <stefan.wiehler@nokia.com>,
-	Tony Lindgren <tony@atomide.com>, Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 07/19] ARM: update DEPRECATED_PARAM_STRUCT removal
- timeline
-Message-ID: <akZTtfOqEftfT3ZS@rfs.lan>
-References: <20260701212353.2196041-1-arnd@kernel.org>
- <20260701212353.2196041-8-arnd@kernel.org>
- <CADkSEUhO9nhzQZCS7ZziCtMna+ibfj9_PbSH5R+c0pyi5viCvg@mail.gmail.com>
- <46f76624-ba35-427d-8a60-ec0fe39e5b8c@app.fastmail.com>
+	id 1wfGBv-00000004PR1-2YMv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 12:06:53 +0000
+Received: by chaosmail.tech (Postfix) id 479F51C9B14;
+	Thu, 02 Jul 2026 12:06:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1782994007;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rTQPPhDVeTbGbJ1qfR9lTcAhGLsRnezT+O5gDJeLhT4=;
+	b=mikWKQ4mL0CHzCRJY9+4Q7zXIimYfNm45RWwfPH+qv3AgZtwFt27ZzjbfQAEv2zy68J3rg
+	h9npeNUh/EqYGdgrfg82/6a4m0NIJQ8pjeSH+NBZ1xMrLYU3gWl8J39X1GEoqaNewwqJOa
+	HRG40gtuER+/9ne2bloBnwadCV+2/cI=
+From: Sasha Finkelstein <k@chaosmail.tech>
+Date: Thu, 02 Jul 2026 14:06:28 +0200
+Subject: [PATCH 3/3] arm64: dts: apple: Add pmgr-misc nodes to t60xx
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <46f76624-ba35-427d-8a60-ec0fe39e5b8c@app.fastmail.com>
-X-SRS-Rewrite: SMTP reverse-path rewritten from <ralphs@netwinder.org> by desiato.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-pmgr-misc-v1-3-4f075a3a95c1@chaosmail.tech>
+References: <20260702-pmgr-misc-v1-0-4f075a3a95c1@chaosmail.tech>
+In-Reply-To: <20260702-pmgr-misc-v1-0-4f075a3a95c1@chaosmail.tech>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Sasha Finkelstein <k@chaosmail.tech>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782994005; l=1610;
+ i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
+ bh=y/nTCCubfQIHxjED5Vxzczov4TsOcbe98Fn/E9FqjtI=;
+ b=dwtjnGYdattP+uckewxWWEoavs3g6XrxmfZGA/49zaRK1u0+BG6/ORrHj3lfeQ9LQUUzZWTzp
+ uqpP2WPwAD/B/OHGzncQQdWuq8/v48dIFbobFzMDYTWfaGjg0RjGEqG
+X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_050652_110396_0A125CC1 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +80,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 07:36:02AM +0200, Arnd Bergmann wrote:
->On Thu, Jul 2, 2026, at 02:54, Ethan Nelson-Moore wrote:
->> Hi, Arnd,
->>
->> On Wed, Jul 1, 2026 at 2:25 PM Arnd Bergmann <arnd@kernel.org> wrote:
->>> This configuration option is for the older boot method that preceeded
->>> ATAGS. This was scheduled for removal back in 2001, but the removal
->>> never happened, presumably because nobody cared enough to actually do it,
->>> not because there are any users left.
->>
->> Only netwinder_defconfig selects this option. Do the most recent
->> NetWinder firmware versions actually need it? (LinusW, do you know
->> this?) If not, can't we just drop it entirely?
+Adds the PMGR misc control nodes for M1/2 Pro/Max/Ultra series devices.
 
-Support for ATAG was added in firmware v2.0.6 in roughly Jan 1999, 
-meanwhile the most recent firmware is v2.3.3 (still 20+ years old).
+Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+---
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi | 7 +++++++
+ arch/arm64/boot/dts/apple/t602x-die0.dtsi | 7 +++++++
+ 2 files changed, 14 insertions(+)
 
-It is quite safe to disable support for the older parameter method.
+diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+index f715b19efd16..3271d234b483 100644
+--- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+@@ -24,6 +24,13 @@ aic: interrupt-controller@28e100000 {
+ 		power-domains = <&ps_aic>;
+ 	};
+ 
++	pmgr_misc: power-management@28e20c000 {
++		compatible = "apple,t6000-pmgr-misc";
++		reg = <0x2 0x8e20c000 0 0x400>,
++			<0x2 0x8e20c800 0 0x400>;
++		reg-names = "fabric-ps", "dcs-ps";
++	};
++
+ 	smc: smc@290400000 {
+ 		compatible = "apple,t6000-smc", "apple,smc";
+ 		reg = <0x2 0x90400000 0x0 0x4000>,
+diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
+index 8622ddea7b44..121f2cf75915 100644
+--- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
+@@ -23,6 +23,13 @@ aic: interrupt-controller@28e100000 {
+ 		power-domains = <&ps_aic>;
+ 	};
+ 
++	pmgr_misc: power-management@28e20c000 {
++		compatible = "apple,t6020-pmgr-misc";
++		reg = <0x2 0x8e20c000 0 0x400>,
++			<0x2 0x8e20c400 0 0x400>;
++		reg-names = "fabric-ps", "dcs-ps";
++	};
++
+ 	nub_spmi0: spmi@29e114000 {
+ 		compatible = "apple,t6020-spmi", "apple,t8103-spmi";
+ 		reg = <0x2 0x9e114000 0x0 0x100>;
 
->If all StrongARM platforms are on the way out after the LTS kernel,
->I don't see a need to remove this any earlier, even if the chance
->that it's still needed is low.
+-- 
+2.55.0
 
-Also agree with this, might as well remove it all in one go.
-
-Regards,
-Ralph
 
