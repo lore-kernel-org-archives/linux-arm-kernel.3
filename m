@@ -4,149 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94B65C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 00:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11282C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 01:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=; b=Q6OgCakq8/OOi+Ykq1ZZwRGSUi
-	f6Hhj8Mrb4bt7Tgmu3Mwu77xxnKr3wp2EG+3yN5BB8d6/wzdk7hk0dvsYT3X5ZV7byqVt1p2hrJud
-	IJIVbgETXZdwARzxvj613qWKx6fHDgbIJpqGfd1QnryTwUuO3N4nwWZ+WGITbSKKD+0OY9aJR0vor
-	PqdUk4AhXBcbUqx7SR4ojafQlSQHrl7kkd1IHyPn5v2oAxbJduHsgU0wYFcK7LEHAKn4rS9yadTqT
-	1+PmZi3JRgOTwfBMmdhw+HSuFnxRRWUPqhVXtF5hD5eSsfqD5hEuCCOcrnc9B+Q38vbnPCT9jk5u0
-	s65NnZ0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TaP8gBqnh5GPSVyYN1kd/wUuTR0xf8hvRMj30o/v9ks=; b=WSMRIedRHhYyVCUzNLGwxs3eqC
+	Ij7SRi2LwhbbJkzjtf3g0AviFHO1Qkl7IUli4Fb6xi4YgRzLh0XUXqO8g0Id7HMnATWoF2TxNiPxA
+	8hTjnLNZgS4NjcSnsP1AXxC8DoWuHLWRd9PhyMxY3d9ji20JXdSgWD/M0i4SRIAyAAtatIog/t78d
+	nBmsc3WjHM1eRWXxheX8UfwZTw8d/oZMkVXcwS6XXcVZDhmyzLvMcGerLMSQAk1W1fyX/RvovvMTU
+	Ng6QA5IYCZ6o6iVFXW42mJHmQ5Ntf3EzLO91Nv6PE1lAQed7jncLrG8UA2dqFYys57NhQLsACjBnX
+	dsKA0NxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf5lm-00000003JwL-00B0;
-	Thu, 02 Jul 2026 00:59:10 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wf5r2-00000003KGh-26Gb;
+	Thu, 02 Jul 2026 01:04:36 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf5lj-00000003Jvz-3G8o
+	id 1wf5qz-00000003KGC-1Swi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 00:59:08 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 661Lht612468356
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Jul 2026 00:59:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=; b=JF4qzEFXU+yZIg8T
-	/wqtw9aJGtGfaeaQKbaGfomaPrPefT+PcKuRvfCds5RVKim7r64NQ3zTjxCTQZze
-	WynCW2jdv/jP44CMKHkTDc4UqYfcrEmpcBywB0AueE4wsWNA4vK+se4Gy6Dndo4g
-	7caQpDzv28GbP80sC/YIjXQFFsRJUd8bLB0I6lLhkCcW8OfLqe72xRJFunsfkSH/
-	D7cfMYD7EKVbRw6jtVdrTFCbYGmOttG1u9Q9etWBVPGjIbBTQ1eEyAVdWU3iy+LP
-	q179ryI26lltqmqNy9aPcoeqdt7qDvjXA4A5iFX2aW2lrV63r1hwch0WAIpi65Td
-	gfiqhw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f4x0tmc2v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 00:59:06 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-37e1f96b248so1740819a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 17:59:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1782953946; x=1783558746; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=;
-        b=iNjCdINlKyZyRWOozGtKJFAh3lRxKkrpFUb6hkxRO5ysXHf4b3Syq/dlOCWgw1wpp9
-         gvx5jHVE+5n7lKPbscK/0RpSkcQ6Nmv+qpAFJavB0NNh5WPJ/zMZD6qkaQCVtI59puDe
-         HrraWDtQ7aCzKnUzwfRRR+spnocqlRQu1ihHZlweRTW/QPXytwwnEkCRFWcMEH8msz7o
-         09Xm5EmIEaxoCtY3MrdBoIVyrVTsjBvBmZYefIY5Uzx3oFt4BSgK2YaKDRfwx2OUGmKf
-         Nc/4NWn2V9yFPU/2OVgwiW3hHoA309MUjtDA/L0fLLtRTNlKjmzSh04X7FxM5FpaTgQv
-         6xJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782953946; x=1783558746;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1UwChVv2LtnlZ6kQ8NqUjUr2PJVqhAPZ5x3pEIn4KZE=;
-        b=tKTitG67q0olQ8DHDTgrUXXG6R4Vev/umqw2a69tKlK1Q77ANggwVsza1OwH4Q4Jq9
-         n0+HsFp90ve7BDTu88IJ+QvUQs7s3EWxmrHycG1WMgA9y5wc/pShFv9tgGiLvSRvJvJ6
-         QQlPXcViRE/ddV1+Z5AXwOKnCuJwBr3h7MZ+nPTb56YBO6h6vFuUgCIGThJ2y5Ahr3pD
-         y3UkxqDi3no/OwHJy6mYSz1lKW3kjyFsYkhvXFIg6+7DxMIruHm2NI9uu4cLnGyA4RzJ
-         7xe+EvI1+YG7ZaV3DLX01v4+wHMePqPUQ3p17UtMKFBN0UGE9s/CwiHJiBckEMEP2Ey4
-         laww==
-X-Forwarded-Encrypted: i=1; AHgh+RrxFpwbCPen2Oe7jOBvPOtevhmWbnWj74NNUnC4mN/v+ZE1Sv+KLrRJ+5n0RzP5nHi09H1nf2rkPb484WImWlYc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLVGMx8CEQ01bPdydy9AIs3Pgqdadxe4Jp2SwLxXiySIBtFGVp
-	hxGGMKHi0L+SxGQogDZAU7UpldKDl49OP0ofqLp8eAZr2fM6sHNT9tC8OvxBlYEffSGOE7o0FPH
-	oFhOkAT3zNc4RRZDBtHBfLgdHnp9OmiEc595RgB8GPHa+Y01CZWTtGhqEUw6IREi+gOBtAV94EC
-	pjfg==
-X-Gm-Gg: AfdE7cm2hJaaiwd1ujN68+osZ6zmdtdJ0Wlqsq29J46yOZmyHDKGCsdCUhWjiuii0je
-	rtTiCljs80sp+VkoARYgokB+J/hoHThJumD5Wjj7Ku7EuKfgdm7QdfrgWkwM7KKpmyzNy7696CC
-	lMpFkBfH40aNTanbPcWl+rR/Pt3umJNDGy8Ho7cz4c4RetUA0x3jaf/c0QjbwO5DLFaykqM8Wfz
-	Wr/yez2Gm+nDwgsqeHooibkWp/wustoD/NgRB5TCx70MduyWDTuWS1g9cGz6oJnNXKInF7dveTs
-	NnVZ12yb1AvalR6S/dLsFcqK+wxGfpJWRdvpd83rF+X8msKV/moLzZhBo/rGFm6bE6wwPx3bt1+
-	OwJQdAd4QjA4Vt/qQRjqT0yJY0OSqhja11TbAtqv4OSHTanVk9dJEYp2p7ZTRubesC9u+Iun32/
-	uC
-X-Received: by 2002:a17:90b:4a8d:b0:37f:ef32:d444 with SMTP id 98e67ed59e1d1-380aa0ac3d4mr4195452a91.1.1782953945637;
-        Wed, 01 Jul 2026 17:59:05 -0700 (PDT)
-X-Received: by 2002:a17:90b:4a8d:b0:37f:ef32:d444 with SMTP id 98e67ed59e1d1-380aa0ac3d4mr4195422a91.1.1782953945182;
-        Wed, 01 Jul 2026 17:59:05 -0700 (PDT)
-Received: from [10.133.33.125] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-380e15e6e33sm86819a91.5.2026.07.01.17.59.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Jul 2026 17:59:04 -0700 (PDT)
-Message-ID: <5218878b-c91f-4d14-ba12-68edf7b3f4a7@oss.qualcomm.com>
-Date: Thu, 2 Jul 2026 08:59:00 +0800
-MIME-Version: 1.0
+	Thu, 02 Jul 2026 01:04:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MNLI96ojasc79ecRGjnMfePWTvenH6im+YIj2gFLZG9vS/PPyYgd9+dhHzrJKNcepMl4swSUjiMN3agdoIFJRFaVrhuRbxai5H8opebVCwG1rp1FLyIzvydnc+lAsJ/l4OsG3pAfhRWxaXVTrVWsbvy3UAC/6DfHjPTb/oxQ+xfmhE57aJtKeg+8vhDvEBlU3ptmAROQvZ63Ukk3p0u2xCFRf/RBu70Vqo7AgXoxtY8fyQ3KeOmTv3E9iNKioIL9IBqozwHpjsGzIAuKmMc0TRI3DV4155XfXM/SuIcl8qOHA717S98X+FHQTynbYtllBjHImpGYMc/VxfME+tqubg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TaP8gBqnh5GPSVyYN1kd/wUuTR0xf8hvRMj30o/v9ks=;
+ b=LJdCNG2fWfqYDAJwRqBHYVdDmArsLTRrSb0dPBzQMpBHkkx4aEKaWQxjIysO0kk+bHX1C5063P2+BNGA731Bbe4cwAfvBuVH+K3duawbTt7myhy9G/Vr3rt7rQK0JqI3l5qWuaFmnQmsZkwAVTUF0prmbPjB96E6nKocgQ0F9E8GyxKoIkQ6bwOBhV6rGQq7ljxgM7GCJEauotJp1gg7X0lq1krtbDhMEwHiB2yJI49BAbq4NziP2WnSYw+EuO+OXex2DT0yIp4uEhMIobdjx7R5a3ULC8stmdNhElSJttFbezJQQkePdoPLxrAOeaf9aJGiDCad/c8HjfWYgOieqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TaP8gBqnh5GPSVyYN1kd/wUuTR0xf8hvRMj30o/v9ks=;
+ b=Bm81kGXNaBHmo6BPVzF/iTwkDGPKoAU7aiyPDr94IVs8+TtEITFEUINL75xqm8aPQ4CraBe/hGwQdTeIfR91RYxvMB9xEzQygE59as3kW14T2BzEloxP+KseA/eN4cWcq/CpBTMeI3+aD4+UAuNe9kn4FAnGTkHBPc9REaBGVyY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10) by PH7PR12MB6418.namprd12.prod.outlook.com
+ (2603:10b6:510:1fe::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.19; Thu, 2 Jul
+ 2026 01:04:21 +0000
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3%4]) with mapi id 15.21.0181.008; Thu, 2 Jul 2026
+ 01:04:21 +0000
+Message-ID: <fd135adc-a8a4-48e5-b649-2a29789b22d8@amd.com>
+Date: Thu, 2 Jul 2026 11:04:12 +1000
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] coresight: Fix clock refcount imbalance on platform
- remove
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
- <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Anshuman Khandual <anshuman.khandual@arm.com>,
-        Yeoreum Yun <yeoreum.yun@arm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20260701-fix-clock-refcount-unbalance-v1-0-321dc63c1f90@oss.qualcomm.com>
- <20260701-fix-clock-refcount-unbalance-v1-1-321dc63c1f90@oss.qualcomm.com>
- <20260701162321.GG1812158@e132581.arm.com>
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+To: Jason Gunthorpe <jgg@ziepe.ca>, "Aneesh Kumar K.V"
+ <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+ "Lendacky, Thomas" <Thomas.Lendacky@amd.com>
+References: <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
+ <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com> <yq5aqzm4dz25.fsf@kernel.org>
+ <20260618153705.GH231643@ziepe.ca> <yq5ao6h6enhm.fsf@kernel.org>
+ <20260619122148.GL231643@ziepe.ca> <yq5aldcaejos.fsf@kernel.org>
+ <20260619140616.GB1068655@ziepe.ca> <yq5ao6gtoncp.fsf@kernel.org>
+ <20260630174216.GK7525@ziepe.ca>
 Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260701162321.GG1812158@e132581.arm.com>
+From: Alexey Kardashevskiy <aik@amd.com>
+In-Reply-To: <20260630174216.GK7525@ziepe.ca>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: NhpHL5xtopU3u980oVzTYncflpLoaea1
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDAwNyBTYWx0ZWRfX2WSzVfNM8Fh7
- v8qygiQ13XypUlhEFh9wwmmA3mrbDjhutIM12Jv9HNwgHz9PureazrHRHAeIaXph5j/YxfEVXRM
- ofBYqnmBxthzxbp49Dqr+vK5bOR2Xsc=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDAwNyBTYWx0ZWRfX8oNchWXa+ogq
- 6zcqsSpd4nB8oeBmNd+v4v8ftSSQY+WAL4HvHotVAW0MGHL18k9xDbgJBd/A0WKu6tGrsmmnZxv
- 1cONE9iQefVNSoUznD64vt6F20NfpKCry/WfGODIN11G+DcN07ALa7hfaOi/+VADglIPea71vzd
- DqCOA9qn7+TqadlUZg+a+5CctnEZu1KYp/NOs63zn8nBmP15KqrpXPbUVGO392cwcTs5KvMWGNZ
- xILPn7821sovkwoGlcEz3ucNb+rto+ExAqqmtTMf0c8kzcLLt7tsdmuSP5saO0XTRxe9TuWDE26
- uTOuyvDb3JYgCe602rignz+4yoUv3rIVcgisDGZ+F6+2FOCBjOw3VTVEuM7NQLJyoCmJGkeRU2w
- q7K20HEWBgeqGoo1KcCVqKGzYZVM7RkaS6cd5OwUNuqc6nXpTPDkKPGzKUeVKCHut1D1pFf4zab
- DCXsyy+d82F21sWj5zQ==
-X-Authority-Analysis: v=2.4 cv=T5+8ifKQ c=1 sm=1 tr=0 ts=6a45b7da cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=gowsoOTTUOVcmtlkKump:22
- a=2XoT9cGsJh1acgpUKzsA:9 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-ORIG-GUID: NhpHL5xtopU3u980oVzTYncflpLoaea1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-01_05,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 spamscore=0 adultscore=0 lowpriorityscore=0 phishscore=0
- bulkscore=0 clxscore=1015 priorityscore=1501 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607020007
+X-ClientProxiedBy: SY5P300CA0104.AUSP300.PROD.OUTLOOK.COM
+ (2603:10c6:10:248::29) To SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|PH7PR12MB6418:EE_
+X-MS-Office365-Filtering-Correlation-Id: fcc7829e-0d78-453c-be0b-08ded7d5d9b2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|23010399003|22082099003|18002099003|6133799003|56012099006|4143699003|11063799006;
+X-Microsoft-Antispam-Message-Info: vkW5DZxgHyLzmGFoS8kHgDSRupGtfOffLT7WjaIl0RUa1Q44pi3EkDKg4CZnmXfVztYxpdkkXzlRXCCqJz5/8WgvB/uCUX+CAlUyoOC8QMvIpfCCuJ7pgcuw+ZUXzXWbAjKvZJecJvkFtnK26o+u+zGkbQ+ybN41Kng++IcgD3Imec98I89IlQqhPlmG9DE+SdSc4q420QZ674PA0XVHQYbPb+yo/W96lVYbTjKa4YOxvDUTOb08vQWTXphj5diFw3u3EtM34yZXNR9Z1T8TzmwKJ8hLQvZ4BrNJeWIEJWWg1O24u3zv4mUI4jXW0jUx2IHL3QcZgRVVifBaqJHTznvZEYez9Cf+sm369HiURgt0MjKgTuATkWIhCjlrx1IVq5zhpEM221qSW/q8MYXvNbQy6+jI7qXgLgvd0BTNR2G75V5v+9rfybozd44EejtLIDiSTy+CltAYMl4gVFZhbE/zUSftQcGvvtpsK9U29sOlnwVSbRDv4QaDo6mAJV5AH+n7SK6+qFhGdr4P0XSAvX7FG1Re9Fi1BS4PxUa/fD6EOBhxAtZB4TDO+blKxUUCLYarfsmaQQVGFeSCTnqFd5V7KrRZwV76THMje+Gx3md4ph3fbkm8ZCLU/PzKC0Kv93sfqFVIBKTZwwgU0D8pV7dtT6GVVI93386DgnQftIw=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(23010399003)(22082099003)(18002099003)(6133799003)(56012099006)(4143699003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WmxYL3Y5Qnc5Q0hETGhDY1JZb2JrTk1XOUR1YS9DQ01UWTJjNnBDZ2ZzVFhD?=
+ =?utf-8?B?M0RwOWt1TS9SWVNOeWc3UVdLOVN5YVVnb1hIVE1kUG9KbWNXVTR1Z0U1ZlEy?=
+ =?utf-8?B?Z2ROU0lPRW5kN2ZVTUhra0s4VFRPS0tCcTR0a01WbFRudm14K01qTFpZUzlE?=
+ =?utf-8?B?RUJNVWFyYTNFT2RVaHB4YUJITUlLeFY0WG53RFE1eUtZaENSOEswUEtoSmJk?=
+ =?utf-8?B?cC9aZ29jT0JtcDJVd3N3UkdYa0pxdU5QaGJIYmtMb3JaVm1vV3Qxemw3S2RS?=
+ =?utf-8?B?Mk1pM0RWbUdmSnE2OWp5RnFHVmt5bjVWcTNyR0p0UUpsNkx2ZW8xNVgrc1Rn?=
+ =?utf-8?B?RithMzROQU01UXc0YkxxMTB5WmZWbmJHVXozcVl0THBaWW1xYlFpSVFrSnli?=
+ =?utf-8?B?NnVxbTZ5dU92OG8zbU40SEdWY1dTTDBOVlpBbEJGQUYxcDFpNWE4R0pVdTcy?=
+ =?utf-8?B?T1VGRGQrWU9WZXJ5czg1alpiYlhCenhLck01TGVYNTJaQ0ttN2hhYjJ5L25Z?=
+ =?utf-8?B?eTJ1elI0MXFlZXFsS2xBd0h1cjVtaTd6bi92RDNxeUJuWDhsNXFZc3M2ZnhW?=
+ =?utf-8?B?WlZKVzFmWVM1blBmQTlrMll2eTc1TURFbXhVZGo5c3NFOGNHNGl2NVlTaVov?=
+ =?utf-8?B?Y1NERGQyM1hPYmRLdEswYXpHNkUwSzlqcEczVG8xNlBhR0c3cUZHQnU1b1BH?=
+ =?utf-8?B?blhya0k5c2lrblhPYkU2Sk5ZKzlrOE94L2crQjBWWnBYSmZ5cER0a1F5ckpV?=
+ =?utf-8?B?aW9nTkpUVDFlZlNSa3BzdXVLTW1hTkRvbWdqTkdLSE45dGxOc2tmSUxuMTFF?=
+ =?utf-8?B?d05jdlZwbk1kU080Q0FNa0VZZzJHd2xFRnFXRVJmaDdnNi9QWFpqRmhjblls?=
+ =?utf-8?B?aHA1eVY3b1BQNU9FUmlNbW81WXZyL3RjNmdnN05VRFRzSXJRbTJXUVJwQktk?=
+ =?utf-8?B?d0gyenRlYWg0d2xEcThRZ0lwVEpLc3hOUmhETytMVklVUjdRMnpUd3IvUzF4?=
+ =?utf-8?B?UEdGaVVhcWhkZkYzMER6VmlRSFpzRXNvMkhnMi9EdldkaFhNRHlvS09TQStN?=
+ =?utf-8?B?bmJobHZYbG15SERNbXhUSHFadWpJLzdzak1LcG5ZNjNpci9RM0VvRSt5czh2?=
+ =?utf-8?B?bldWWi9vSlI3ZUZ0cHl4QzJTRnNrN2xNVVYrQmx4SHUwcXUvTTJsaTBMMUlZ?=
+ =?utf-8?B?RmVTOExlZ2ZHdUlVM1ZESXZEa0dSWGFhc0JtQVJKKy80TEg3aVNnay92d3E1?=
+ =?utf-8?B?aWloY0xOS1hPcDlWUUk0bjkvWjdML0dnaU11RTVJM1lOOUFQZmpXZ05KTUU3?=
+ =?utf-8?B?Y1dnQ2hxTFU5UUI3dG01ZTRXdFhHSHNKaGVocVhvdXlPdk1hOTRyMnk1V1A3?=
+ =?utf-8?B?eXhyZ1BNSUJNRGN2Z280QVFQMStVY2RITWpKcHdlcVdOWEl3MjVOeFVNTE5R?=
+ =?utf-8?B?bVMybXZyNFNpbXEyMUthQlpkc3VEcnV4ZUZ2NmJrN01XMVhwMDFiLzFYY0lE?=
+ =?utf-8?B?UlRaZ2dtNzM4UTJ1UGltTytFTHF3NVFjMHljOEdMMmRBNFJDdU1XM1piUEY4?=
+ =?utf-8?B?SS9SV2dTdzFISkZRSDhYb3FUcVdTMjYxRHVVNHZtam5NK0VjTGJCM1VDYldS?=
+ =?utf-8?B?L2FpeEtuQXRjZGZueTVnTnBrZXE0YTdFcmlwdEtJeXhVTkpsR1o0M0w1UXor?=
+ =?utf-8?B?Q2lSb211YUliQjYrNkx1ZC9majNtZFl0U1J1czN6WUc0Y2NuVnduOCttOGRr?=
+ =?utf-8?B?aXEzSGpRM0VKS2U4R25nRzNTb0M1eW5kL2padlZ0c2RXQ2FjNXN4Z3JqL3Fa?=
+ =?utf-8?B?dFJpQmc0M2JBL0tTZGVGS0Nibnp0M0tFamxyYzJHbGhHUmUxTCtUb2xXK3dS?=
+ =?utf-8?B?Q2Y1OXpINkR6dS82UHZlRzhUdmttY2k4dlVZTU95WkRFWVRISTJLcGZLWkN4?=
+ =?utf-8?B?NjM2bjNkOWJlYjZkZTdDYWJIQ3BtMERCd0dRaWFIeHNaWm5mb1dwS3RiMXJ1?=
+ =?utf-8?B?UzVGMGV3T2ZzT0wzZHg5Nk5QaDU3ckhtempmaXJtMS9tV2lXU0tJK1R0ZG9Z?=
+ =?utf-8?B?TkZ3bW5MdjZoWmNObVVjZHEveTRZb1lLRlZLRkg4WFVpTGp1TS9nNlVhdWxB?=
+ =?utf-8?B?UGJjN0Z6Z1NZbi9Vcy8zSnllMm96SGRKc1VMQi9CTjNuWlU5UzJvUWdDdEhE?=
+ =?utf-8?B?cnpmU0VqQyt1aDJ3MElOV1FGZXdlRUh6S1FqbTlnUG5WRkF0LzNUVlNYS1c4?=
+ =?utf-8?B?ekwvZVZpS3A5MWc3akhUU2VrUHhQYTNiUmsxdEZOaGtlM2gyZ2xYU0J0bGdn?=
+ =?utf-8?Q?XgdWGaMBeaut2akeqE?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: fcc7829e-0d78-453c-be0b-08ded7d5d9b2
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 01:04:21.4331
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: RK0+R2Flz78bKqbtX3+xF6YXoWukvWXyptyCzPDCDwinaKpGuN9iS7kvnLEvsqcAlQk4OEGjiYo22c4rkr/hDQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB6418
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_175907_939435_A857B4A0 
-X-CRM114-Status: GOOD (  29.08  )
+X-CRM114-CacheID: sfid-20260701_180433_404287_32460993 
+X-CRM114-Status: GOOD (  41.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,73 +168,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
 
-On 7/2/2026 12:23 AM, Leo Yan wrote:
-> On Wed, Jul 01, 2026 at 02:05:02PM +0800, Jie Gan wrote:
-> 
->> After probe, pm_runtime_put() allows the device to suspend and the
->> runtime suspend callback disables the same clocks. During remove the
->> device is left runtime suspended, so pm_runtime_disable() freezes it
->> with the clocks already disabled. The devm cleanup that runs afterwards
->> calls clk_disable_unprepare() a second time, underflowing the clock
->> enable refcount.
-> 
-> Thanks for fixing the issue.
-> 
-> The problem is that if the device has already been runtime suspended and
-> its clock has been disabled, afterwards when remove the device, the devm
-> cleanup disables the clock again, resulting in clock count underflow.
-> 
->> diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
->> index 0abc11f0690c..4c5b94640e6a 100644
->> --- a/drivers/hwtracing/coresight/coresight-funnel.c
->> +++ b/drivers/hwtracing/coresight/coresight-funnel.c
->> @@ -334,6 +334,7 @@ static void funnel_platform_remove(struct platform_device *pdev)
->>   		return;
->>   
->>   	funnel_remove(&pdev->dev);
->> +	pm_runtime_get_sync(&pdev->dev);
->>   	pm_runtime_disable(&pdev->dev);
-> 
-> Let's use the funnel driver for the discussion. Once we agree on the
-> approach, we can apply the same change to the other CoreSight platform
-> drivers.
-> 
-> How about the following teardown?
-> 
->   static void funnel_platform_remove(struct platform_device *pdev)
->   {
->          struct funnel_drvdata *drvdata = dev_get_drvdata(&pdev->dev);
-> +       int ret;
-> 
->          if (WARN_ON(!drvdata))
->                  return;
-> 
-> +       ret = pm_runtime_get_sync(&pdev->dev);
-> +       if (ret < 0)
-> +               dev_warn(&pdev->dev, "failed to resume before remove: %d\n", ret);
-> +
->          funnel_remove(&pdev->dev);
-> +
->          pm_runtime_disable(&pdev->dev);
-> +       pm_runtime_set_suspended(&pdev->dev);
-> +       pm_runtime_put_noidle(&pdev->dev);
->   }
 
-This proposal looks good to me. I forgot to add pm_runtime_put_noidle to 
-drop the useless reference which created by pm_runtime_get_sync.
-
-Thanks,
-Jie
-
+On 1/7/26 03:42, Jason Gunthorpe wrote:
+> On Mon, Jun 29, 2026 at 12:16:30PM +0530, Aneesh Kumar K.V wrote:
+>>>> Thinking about this more, I guess we should mark the swiotlb as
+>>>> cc_shared only with  CC_ATTR_GUEST_MEM_ENCRYPT instead of
+>>>> CC_ATTR_MEM_ENCRYPT as we have below.
+>>>
+>>> The name cc_shared should be used for GUEST scenarios only.
+>>>
+>>> I guess there is some merit in keeping swiotlb using "decrypted" to
+>>> mean it usinig pgprot_decrypted and set_memory_decyped() which AMD
+>>> gives meaning to on both host and guest.
+>>
+>> Are you suggesting to change the struct io_tlb_mem::cc_shared back to
+>> struct io_tlb_mem::unencrypted?.
 > 
-> The idea is to first resume the device with pm_runtime_get_sync(), then
-> perform the remove (which is safe if they need to access or clean up
-> hardware state), and finally clean up the runtime PM states. I mainly
-> referred to drivers/iio/adc/stm32-adc.c.
+> Yes
 > 
-> Thanks,
-> Leo
+>>> IDK what AMD should do on the host by default. I guess it should setup
+>>> a swiotlb pool of low dma addrs "unencrypted", but not "cc_shared"?
+>>>
+>>
+>> If by low DMA address you mean using an address with the C-bit
+>> cleared.
+> 
+> Yes
+> 
+>> The current code already does this and uses the swiotlb pool correctly
+>> on SME.
+> 
+> Well, through the force_dma_unencrypted() hack...
+> 
+>> The challenge arises when we want to force SWIOTLB
+>> bouncing even for devices that can handle encrypted DMA addresses (more
+>> on that below). For such a config force_dma_uencrypted(dev) will return
+>> false and swiotlb will be marked cc_shared/decrypted = true; This trip
+>> the new check we added.
+> 
+> Yes, because cc_shared (guest) and unencrypted (host) are very
+> different things and we've mixed them:
+> 
+>> 	if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+> 
+> I'm aruging force_dma_unencrypted should mean cc_shared and be
+> guest_only, but the SME hack breaks this.
+> 
+>> We can also do
+>>
+>> 	if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+>> 		/* swiotlb pool is incorrect for this device */
+>> 		if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+>> 			return (phys_addr_t)DMA_MAPPING_ERROR;
+>>
+>> 		/* Force attrs to match the kind of memory in the pool */
+>> 		if (mem->cc_shared)
+>> 			*attrs |= DMA_ATTR_CC_SHARED;
+>> 		else
+>> 			*attrs &= ~DMA_ATTR_CC_SHARED;
+>> 	} else {
+>> 		/*
+>> 		 * Host memory encryption where device requires an
+>> 		 * unencrypted dma_addr_t due to dma mask limit
+>>      		 */
+>> 		if (force_dma_unencrypted(dev))
+>> 			*attrs |= DMA_ATTR_CC_SHARED;
+>> 		else
+>> 			*attrs &= ~DMA_ATTR_CC_SHARED;
+>> 	}
+> 
+> If we do this I would like to split the force_dma_.. functions into
+> guest and host, ie force_dma_cc_shared() and force_host_decrypted()
+
+imho force_dma_unencrypted() should not look at the mask at all (the mask should tell the DMA layer to use swiotlb, encrypted or not), instead, when we set up swiotlb - we could make it unencrypted if iommu=pt, otherwise encrypted (although this means IOMMU and defeats the purpose of swiotlb). But at least this patchset has enough plumbing to have swiotlb encrypted, right?
+
+> To make it clear there are two very different things here.
+> 
+>> Here I see value in having DMA_ATTR_UNENCRYPTED. The question is do we
+>> need to split this into two flags and introduce the resulting code
+>> duplication.
+> 
+> The external flag name should be DMA_ATTR_CC_SHARED and only used on
+> CC guest. Internally that turns into using set_memory_decrypted()
+> which works on guest and host for AMD. I don't know how to make the
+> host only case clearer and still keep the code efficient..
+> 
+>>> The dma api has to detect, after the driver sets the dma limit, that
+>>> none of system memory is usable when:
+>>>   - The direct path is being used
+>>>   - phys to dma for 0 is outside the dma limit
+>>>
+>>> Then it should assume the arch has setup a swiotlb pool for it to use
+>>> to fix the high memory problem.
+>>>
+>>> Similar hackery would be needed in the dma alloc path to know that
+>>> decrypted can be used to fix the high memory problem like for GUEST.
+>>>
+>>> I guess some 'dev_cannot_reach_memory(dev)' sort of test in a
+>>> few key places? Setup with a static branch to be a nop on everything
+>>> but AMD, compiled out on every other arch.
+>>>
+>>
+>> If we are not able to reach the memory because of the memory encryption
+>> bit, then isn't dev_cannot_reach_memory(dev) the same as
+>> force_dma_unencrypted(dev)? If so, that is how it is already done.
+> 
+> Sort of yes, but it is properly named to its purpose and not confused
+> with what should be a guest-only function.
+> 
+>> x86/dma: Disable forced SWIOTLB bouncing for SME IOMMU passthrough
+> 
+> Maybe as a crutch to get this series merged..
+feels okay but I do not really know the true meaning of "swiotlb=force" so adding Tom to the thread. Thanks,
+
+
+-- 
+Alexey
 
 
