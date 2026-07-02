@@ -4,65 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 986E2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F840C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=714y3A3V2HhQzTBCArswFPgqwcIAsycvl1HvTDwmRSs=; b=dPCCIZ1RyXb/40uNWbCYarkr4X
-	vA9gDQh/Uhc4xbxYLWuQzJCT3tAfEpKBfiEJ2VWU/KY5iKpdGPyuAaKuXLvo/m0V8Nsdz394qkHrL
-	1dqnjXiNe4v9IWyqqsvmNGZefqebnn/UAGoEFHxJhecVyHjx2ulX+enui7RngMswPiKf3P+DPQqin
-	EDbBnVawif3skSJ8Bp6GTntYzOGmeNdG5KMtjYGdW3dpippciiAmAglWHf6sFT4OxWhCR2pv8zePF
-	oTHd8iuj1af5/PEYFVAjLSDihK4npSNZv1fzvdbP6iBwGU8uDXWGa66Ps/NJnsB9H8ANMymQyPkEI
-	FWZcPh5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nruy4vcEMvuLMGaeXCeSl5i/XMglZLpU3SqjhsZ3PYs=; b=46DlF4B7w9PbBlXbJOPnAjDqW6
+	ZPfvQ3w2gcYuY0JQSmc88PV/sci/t+ME4E3oGcb/pziiTyBx4Qj37KSlYwKWgqfdgjimJ6SmCQQ0/
+	glXx60Aic+jcNFw+S7PduscMnwAEB+HMy9vOv7erbHRkrEjtRGxQ1ag+NFjNup0P09wHlFt1TFAjF
+	4OKVTHQaBZK3tWu7uedFax0aGbH91ZKB7OhL6EYJM4YBpydk/6VAWGX0U8xocGLLVh6W5oRycXdR+
+	uQj1Qty7zXaT/XfZGOcD7a+A/wKv7YUFLlhICc0P5O9xA1dUrhB+O+AP5Q89Qz1KptCZSPGcH2bfk
+	ZP0YsI3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCaE-00000003pBP-21jS;
-	Thu, 02 Jul 2026 08:15:42 +0000
-Received: from mx1.white.stw.pengutronix.de ([185.203.200.13])
+	id 1wfCet-00000003pum-2Xdz;
+	Thu, 02 Jul 2026 08:20:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCaA-00000003pAh-2Y60;
-	Thu, 02 Jul 2026 08:15:40 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 6AF33200F84;
-	Thu, 02 Jul 2026 10:15:36 +0200 (CEST)
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1wfCa8-005iP3-16;
-	Thu, 02 Jul 2026 10:15:36 +0200
-Received: from pengutronix.de (p4ffb2dc6.dip0.t-ipconnect.de [79.251.45.198])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 0C16455E028;
-	Thu, 02 Jul 2026 08:15:35 +0000 (UTC)
-Date: Thu, 2 Jul 2026 10:15:35 +0200
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Cunhao Lu <1579567540@qq.com>
-Cc: heiko <heiko@sntech.de>, linux-can <linux-can@vger.kernel.org>, 
-	mailhol <mailhol@kernel.org>, kernel <kernel@pengutronix.de>, robh <robh@kernel.org>, 
-	krzk+dt <krzk+dt@kernel.org>, conor+dt <conor+dt@kernel.org>, 
-	devicetree <devicetree@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	linux-rockchip <linux-rockchip@lists.infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
-Message-ID: <20260702-deft-grebe-from-camelot-1bf360-mkl@pengutronix.de>
-X-AI: stop_reason: "refusal"
-References: <tencent_534F9A1699EA04B091BF8003C479BFA32607@qq.com>
+	id 1wfCes-00000003puf-1Sd1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 08:20:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id F388A6001D;
+	Thu,  2 Jul 2026 08:20:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A2EE1F000E9;
+	Thu,  2 Jul 2026 08:20:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782980427;
+	bh=Nruy4vcEMvuLMGaeXCeSl5i/XMglZLpU3SqjhsZ3PYs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=lDMrb3GZsubyRaOSIAKEeX83v0VFXBmRD7+X7F/Tn+N12VStbgPOuoXHB3UyIddFE
+	 /et1oKtvfPrmrKMBeTik5veOAInmjD7RJcuw/AO3ttMWkfkD0MZtxMiqYZP8LuARX/
+	 ejwCCjL2OM5ogRTVK80Menepf22KiSIWWIoNDBYMNGQEjjEO7IQ8V+kFcNZf2ka+M1
+	 v0iMktxdu+BZV6Hb7+7RP5sitWFystpvTAyOgucyNNLnIsZxX1AqzOcwe3YLZCnP6s
+	 yn5Kh+CIUsJhcx2P+80SQ+zepK8Qnktmsj8lch3PEACAifwIl6L7qDEbU7GT8ue1Gc
+	 FSdr0SX4G3yWw==
+Message-ID: <887cb4e9-d60d-47b5-9110-e00d18e9e46c@kernel.org>
+Date: Thu, 2 Jul 2026 10:20:20 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="vcp7brl22t3ha7yd"
-Content-Disposition: inline
-In-Reply-To: <tencent_534F9A1699EA04B091BF8003C479BFA32607@qq.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_011538_798646_2A66F725 
-X-CRM114-Status: GOOD (  17.95  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Markus Probst <markus.probst@posteo.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+ <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+ <20260701-bronze-jaguar-of-perfection-028bac@quoll>
+ <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
+ <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
+ <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
+ <20260701164821b7492eac@mail.local>
+ <74b32ed0a700e3900c0f34d730b2b5b69eb2ca19.camel@posteo.de>
+ <187099d0-5e09-49c2-b67d-8bd4366ff1a0@kernel.org>
+ <202607020817017cde494f@mail.local>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <202607020817017cde494f@mail.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,58 +129,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 02/07/2026 10:17, Alexandre Belloni wrote:
+> On 02/07/2026 08:09:55+0200, Krzysztof Kozlowski wrote:
+>>>> Then you need proper wakeup-source support
+>>> Wouldn't that break existing devicetrees?
+>>
+>> How?
+>>
+>>>
+>>> The current driver allows to wake up the system, even without
+>>> having wakeup-source set.
+>>
+>> Anyway, wakeup-source is already there in rtc, so this would be done. I
+>> don't get though, why there is no benefit of routing it to interrupt
+>> controller (interrupt controllers do wake up the system). Additionally,
+>> if you do not connect it to any interrupt, then how does it wake up the
+>> system?
+>>
+> 
+> Some systems are routing the interrupt output of the RTC directly to the
+> PMIC and the PMIC is the one responsible for waking the rest of the
+> system, including the SoC.
 
---vcp7brl22t3ha7yd
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
-MIME-Version: 1.0
+Yeah, then the PMIC has interrupt line to the SoC and the PMIC is the
+wakeup-source, not RTC.
 
-On 02.07.2026 10:53:53, Cunhao Lu wrote:
-> That works for me. I will prepare a v2 with:
->
-> - the binding schema changed to use enum as suggested by Krzysztof
-> - RKCANFD_QUIRK_RK3568_ERRATUM_6 enabled for RK3588v2
-> - your Haikou patch added to the series
-
-Is the SoC you're using actually a 'v2' silicon revision? At least on
-the rk3568 the downstream kernel has code to read the revision.
-
-> > But if it actually works, then personally I'm more than fine with
-> > enabling CAN-FD :-D .
-> >
-> > I guess Marc might have more insight where the FD issue triggered on
-> > the RK3568.
->
-> I will also double-check that CAN-FD still works with the v2 changes and
-> wait for Marc's feedback on the CAN-FD issue before deciding whether
-> RKCANFD_QUIRK_CANFD_BROKEN should stay disabled for RK3588v2.
-
-Compile the latest https://github.com/linux-can/can-utils/ and test:
-
-$ cangen can0 -I 2 -Li -Di -p 10 -f -g 1 -c32 -b
-$ cansequence -rv can1 -f
-
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---vcp7brl22t3ha7yd
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCakYeJQAKCRDMOmT6rpmt
-0ijEAQCCAxydwZ3i3hutlhk/dlVU3grIENXTT9QhVTiaGUAU4AEAg2reTTImi5Jb
-Wd8vJRDW/vzbjqvE0edXoMky/cI/Ggo=
-=ZccD
------END PGP SIGNATURE-----
-
---vcp7brl22t3ha7yd--
+Best regards,
+Krzysztof
 
