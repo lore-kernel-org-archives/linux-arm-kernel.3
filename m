@@ -4,64 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79807C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 562CBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TRLANPogjG6BWRTX1aijmLnnh9jWiE73CCVCRyKbidE=; b=0pkhQ9SQSk7BoimghSWUPTv4Ak
-	3pwn7NIG9l4f2NDiJcsV7GMBswJ4bu8VPDnHJRG3OIiBX29DWsoSGli8soot9z9hPLJYlzHRe37kd
-	HxHsx9LuM4qXGR4MLLK9AIBCl5PZmw1Un+vhnPcvi5TzUNzJs0g7W3AR8n9rUhMlNIyaumc/+irZc
-	+ipWJrTlhrSToys0UFp+5ankOOWNDmsjpMlTjWvSg6jze+2w+ni1BksQdW7X/C20DYNVj9ukUzBYu
-	DT12JtAd2FmXuoLMqrSBEEsnrwGNM2INC17vRhVPhqzkzIRPgfisaEV4zZ8utWFUFXMDb+oEbPmAD
-	82l5jc2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/7XOl3w91hOUbQxmzIR2m5YIz3vbahuHJqb9BRaXCj0=; b=wDnuad9fw5/bt/kSRa+nr8JCPZ
+	ZmRy9OeWYfl7MWNPILOS/IPo+PT3FPJVxrdulMw3Wp6RV4IUy8PI0JXDsvzDC/GDmLiGNZ7YwTGy2
+	zXhZneay0NzN9fzgjtg42rvSz/0bTZll0ozsTTv/PUPtrwmGdw9VGLlQa+1VlZvgUoCXgM1bOeOBS
+	P/kjVJFiyWQhrvbcsW3CLxz6UC+5thf47Ijs7CaeGRUepLFT+kVRPEskLbHJqi+r/13cSxSJVpoqP
+	UMrwk9o3VunXD3j0e4OqlJwGjr23kQ2Tb/7pStnsPMyI3WmKpNbZUx1Mjni/0JX2atKQpIEJCXAc2
+	l5/A+Zvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfI0B-00000004aHM-0KDr;
-	Thu, 02 Jul 2026 14:02:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfI4e-00000004afV-3AdB;
+	Thu, 02 Jul 2026 14:07:28 +0000
+Received: from out203-205-221-209.mail.qq.com ([203.205.221.209])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfI09-00000004aH6-3NxA;
-	Thu, 02 Jul 2026 14:02:49 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D6324601E0;
-	Thu,  2 Jul 2026 14:02:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0729E1F00A3A;
-	Thu,  2 Jul 2026 14:02:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783000968;
-	bh=TRLANPogjG6BWRTX1aijmLnnh9jWiE73CCVCRyKbidE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=N6ap/tSFutvf35GNTz0GsvSkLAEWYxueVqNTildc9lfjjAsYMBYyhDhhZZQJEh6iY
-	 3p3teI3pgWlL4y0/ZxxfsM+5S680oE+4878wOPWz9gjxMdJ0lGOx3hLmeMh64lDaTK
-	 DtjWoUmygyb5qEr4HiAgCI59ywtogq3eTDKraP/vxbq3vDo7LXmM8He/sn/p82ndoL
-	 Im9/KVEihiF2j5BzZlpds1+uzUMV654VFn2SZ/idZLMS3+lWFGlzZKz4gC4U6caDVw
-	 NgPJvyGwULwvCFOxR86dzw3HFroaT0OboKzS2Y5tv7/Te8y1LDHJQjD7Qw74AcCRkt
-	 VlLCbHyNc3/4A==
-Date: Thu, 2 Jul 2026 16:02:46 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	Madhur Agrawal <madhur.agrawal@airoha.com>
-Subject: Re: [PATCH net-next v7 3/3] net: airoha: defer GDM3/GDM4 WAN mode
- and GDM2 loopback to QoS offload
-Message-ID: <akZvhnIYe-FMfoOo@lore-desk>
-References: <20260701-airoha-ethtool-priv_flags-v7-0-b4153bd44428@kernel.org>
- <20260701-airoha-ethtool-priv_flags-v7-3-b4153bd44428@kernel.org>
+	id 1wfI4b-00000004aed-29ox;
+	Thu, 02 Jul 2026 14:07:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1783001241; bh=/7XOl3w91hOUbQxmzIR2m5YIz3vbahuHJqb9BRaXCj0=;
+	h=From:To:Cc:Subject:Date;
+	b=wVvJgs6PeVibewGukVv6ROeFdxW964IpTzNl5KXqKOfnkCN6/TJPXIxjY9s07zLU1
+	 tvsjPYCQtqWnSwlZq+IwMCidFZxX3p0ZDy+xPAx5NoTs/qcmFmcbP24SV13pnOmblT
+	 R7YX+AGKcCYk0oYZbkAuQEyns3bQ6GqFB2prxyWU=
+Received: from localhost.localdomain ([218.4.149.66])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id 1D09A800; Thu, 02 Jul 2026 22:07:16 +0800
+X-QQ-mid: xmsmtpt1783001236tk28nalud
+Message-ID: <tencent_87CB2824608F3C06B4229EF99D3609D00C0A@qq.com>
+X-QQ-XMAILINFO: N8W06kCOZCa5FMwEcpxJJHVidSk1vAQDcjFuBk+i1xLcvE7AwoAWrF++TN0smv
+	 Gr3j9IxC0UQ391iXGpPWSkN4JYX0zKhJO7OQb6bQWhKxrqDrXHM0EPB+KiAKzx0IwzBvAEF/K9R2
+	 2NurbZc1zi470K+bSeczhW3BZeTcOgNAOqoVE3ldSeTSdVQtIS+PuLOQrFMHewM+URGU2AGJcEMk
+	 6+EujMyIJ5o9rGNzCr8nL64pe56ysvOTjXGzVTdDQydXwM1W2Sbfk9fAAThmjHOPaYYkpkBwSFBd
+	 y8xQIOp0D6tzECChyMK/6lAy14Emj5fnkGuv1EAAjIZuX+BqnaDOZqs6zKvlmHwE0HTDshnu9Xdb
+	 1swkq53h7WCdr+4heDN259cyT/vBnn0xlAh0knCBNcaa9H6EGqwTAEHNGG23e1M/PYx85b+S5Pzm
+	 ttUUK5QLqMBLkB1XaxWvVXTidpuyHghtXzlO2bRBEf2VeJIvc0HfvKk/JyPxtK9+sOor+W6d+2U8
+	 MOQiKXpg214JPFWbAye8ZDLmr33Lk9T8wl/vQm/20dvx1+0hTjLeFodh4yTO7BTDiUp568Q+SHS3
+	 JldRy6StxtbG8FUrZ/I8s/nAeDRrKCnZOkYWA9kTgpQ/aMLNNLWZTyu5Wo26tYnXiZQNEeDVJoPf
+	 UM6hkzYc10IF9VvCjJEpxoFR/6QmJBv6omPiXZWZ23ar77vVd3GCZBRPN1DY07CCnQL6qCKIwUgT
+	 1bHf3Vg9H6XGtjYZr1IXnIxcjNtb/vQIw0jpM0O7nAkdRmnQNXhLXvNiny/j5Qb+w/ACbHIthTAw
+	 GHOgRKZgwyTBm31xB2An0HeDWQO6ZhUqzBX1qOrrY+PVUEBTOvRjsIHyHg1sH7+kBN9QbNsnhdWp
+	 K4F0u9N7c8R8BL1zlYGyY5qmq2VVwgP7QF7R5+SB6EtFy3YsJpMNs8xEhH2R6D/wFcafogzmAKrP
+	 eQ4ZEm6ioTvpMjzTSTbuBn1RB52DIoiWxtrjrANPFav4yhV9/7jZKWEcTgIHhhIzmRKvZonrTBj2
+	 L3jkVvRzq0zCd2QWjy
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: 1579567540@qq.com
+To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	linux-can <linux-can@vger.kernel.org>
+Cc: Vincent Mailhol <mailhol@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	kernel <kernel@pengutronix.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Eric Biggers <ebiggers@kernel.org>,
+	Mario Limonciello <mario.limonciello@amd.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Yixun Lan <dlan@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-rockchip <linux-rockchip@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	Cunhao Lu <1579567540@qq.com>
+Subject: [PATCH v2 0/4] can: rockchip: add RK3588 CAN support
+Date: Thu,  2 Jul 2026 22:06:50 +0800
+X-OQ-MSGID: <20260702140654.2961561-1-1579567540@qq.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="3joh1UuMhMZBOkHW"
-Content-Disposition: inline
-In-Reply-To: <20260701-airoha-ethtool-priv_flags-v7-3-b4153bd44428@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_070725_877562_A2944E3F 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,365 +99,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Cunhao Lu <1579567540@qq.com>
 
---3joh1UuMhMZBOkHW
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Add support for the RK3588 CAN controller.
 
-On Jul 01, Lorenzo Bianconi wrote:
-> GDM3 and GDM4 ports require GDM2 loopback to be enabled for hardware
-> QoS offload to function. Without it, HTB and ETS offload on these ports
-> do not work.
-> Previously, GDM3/GDM4 ports were automatically configured as WAN with
-> GDM2 loopback enabled during ndo_init(). Add the capability to configure
-> GDM3/GDM4 as WAN/LAN on demand when QoS offload is created or destroyed.
-> Hook airoha_enable_qos_for_gdm34() into TC_HTB_CREATE so that requesting
-> HTB offload on a GDM3/GDM4 LAN port switches it to WAN mode and enables
-> GDM2 loopback, with proper rollback on failure. Introduce the
-> AIROHA_DEV_F_QOS flag to track whether a device has an active HTB
-> qdisc; clear it on TC_HTB_DESTROY. The device keeps its WAN role after
-> qdisc teardown so that its configuration is preserved until another
-> device explicitly needs the WAN role for QoS offload.
-> If another GDM3/GDM4 device already holds the WAN role without an active
-> QoS qdisc, demote it to LAN before promoting the requesting device. Skip
-> the demotion when the requesting device is itself already the WAN device.
-> Since airoha_dev_set_qdma() can now be called on a running device to
-> migrate between QDMA blocks, make dev->qdma an RCU pointer so the TX
-> path can safely dereference it without holding RTNL.
-> Hold flow_offload_mutex in airoha_enable_qos_for_gdm34() and
-> airoha_disable_qos_for_gdm34() around the dev->flags update,
-> airoha_dev_set_qdma() and GDM2 loopback configuration, serializing
-> against concurrent airoha_ppe_hw_init() in the TC_SETUP_CLSFLOWER
-> offload path.
-> Introduce airoha_qdma_deref() helper that wraps rcu_dereference_protected=
-()
-> with a lockdep condition accepting either rtnl_lock or flow_offload_mutex,
-> and use it across all control-path dereferences of the RCU-protected
-> dev->qdma pointer.
-> Add airoha_disable_gdm2_loopback() to disable GDM2 hw loopback.
->=20
-> Tested-by: Madhur Agrawal <madhur.agrawal@airoha.com>
-> Reviewed-by: Alexander Lobakin <aleksander.lobakin@intel.com>
-> Reviewed-by: Simon Horman <horms@kernel.org>
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+RK3588 integrates three CAN-FD controllers that are closely related to
+the existing Rockchip CAN-FD IP already supported in the kernel. The
+RK3588 variant is not fully compatible with RK3568v2 because the RX
+FIFO count register field has a different layout.
 
-Commenting on Sashiko's report:
-https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260701-airoha-ethtool=
--priv_flags-v7-0-b4153bd44428%40kernel.org
+This series therefore:
 
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c  | 219 ++++++++++++++++++++++++=
-++----
->  drivers/net/ethernet/airoha/airoha_eth.h  |  13 +-
->  drivers/net/ethernet/airoha/airoha_ppe.c  |   9 +-
->  drivers/net/ethernet/airoha/airoha_regs.h |   1 +
->  4 files changed, 214 insertions(+), 28 deletions(-)
->=20
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
-net/airoha/airoha_eth.c
-> index 2c9ceb9f16f8..609a5ea67fb7 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+- extends the existing Rockchip CAN-FD binding with the
+  rockchip,rk3588-canfd compatible
+- adds a dedicated RK3588 match entry and devtype in the driver
+- describes the three CAN controller nodes in rk3588-base.dtsi
+- enables CAN on the RK3588 Tiger Haikou board
 
-[...]
+RK3588 encodes RX_FIFO_CNT in bits 7:5 instead of 6:4. This
+difference was found by comparing Rockchip's vendor kernel 6.1 CAN
+support for RK3568 and RK3588, and was also confirmed by runtime
+testing.
 
-> +static void airoha_disable_qos_for_gdm34(struct net_device *netdev)
-> +{
-> +	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	int err;
-> +
-> +	if (port->id !=3D AIROHA_GDM3_IDX &&
-> +	    port->id !=3D AIROHA_GDM4_IDX)
-> +		return;
-> +
-> +	err =3D airoha_disable_gdm2_loopback(dev);
-> +	if (err)
-> +		netdev_warn(netdev,
-> +			    "failed disabling GDM2 loopback: %d\n", err);
-> +
-> +	dev->flags &=3D ~AIROHA_DEV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +
-> +	airoha_set_macaddr(dev, netdev->dev_addr);
+RK3588 uses the existing erratum 5 empty-FIFO workaround. Based on
+Heiko's testing, v2 also enables the erratum 6 workaround for extended
+frames being transmitted as standard frames.
 
-- Should the return value of airoha_set_macaddr() be checked here?
-  airoha_set_macaddr() can return -EINVAL when the device MAC MSBs do
-  not match other same-role sibling devices:
-  	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-  		...
-  		return -EINVAL;
-  	}
-  Since AIROHA_DEV_F_WAN has just been cleared and dev->qdma has been
-  switched to QDMA0, the scan now iterates LAN-role peers.  If the
-  ex-WAN MAC's top three bytes disagree with the LAN peers, the call
-  returns -EINVAL and the HW MAC registers are left unwritten while
-  the software state has already been flipped to LAN.
-  - The asymmetry is intentional. airoha_disable_qos_for_gdm34() is a
-    teardown path that returns void, the demotion has to happen regardless.
-    Moreover, airoha_set_macaddr() can fail just if the device is
-    misconfigured.
+RKCANFD_QUIRK_CANFD_BROKEN remains enabled for RK3588, so CAN-FD stays
+disabled for now. Local testing did not reproduce the two known CAN-FD
+trigger frames that cause Error Interrupts on RK3568 variants. Instead,
+RK3588 shows a different CAN-FD failure mode: CAN-FD frames without BRS
+work in this setup, but BRS with a data bitrate different from the
+nominal bitrate immediately drives the controller bus-off.
 
+Tested on an embedfire,rk3588-lubancat-5io board with can0/can1
+directly connected. Runtime testing used a 200 MHz CAN clock, nominal
+bitrate 500 kbit/s, data bitrate 500 kbit/s and 1 Mbit/s, and included stress and
+error-path coverage for the existing Rockchip errata handling.
 
-> +	if (netif_running(netdev))
-> +		airoha_set_gdm_port_fwd_cfg(dev->eth,
-> +					    REG_GDM_FWD_CFG(port->id),
-> +					    FE_PSE_PORT_PPE1);
-> +}
-> +
-> +static int airoha_enable_qos_for_gdm34(struct net_device *netdev,
-> +				       struct netlink_ext_ack *extack)
-> +{
-> +	struct airoha_gdm_dev *wan_dev, *dev =3D netdev_priv(netdev);
-> +	struct airoha_gdm_port *port =3D dev->port;
-> +	struct airoha_eth *eth =3D dev->eth;
-> +	int err =3D -EBUSY;
-> +
-> +	if (port->id !=3D AIROHA_GDM3_IDX &&
-> +	    port->id !=3D AIROHA_GDM4_IDX) {
-> +		/* HW QoS is always supported by GDM1 and GDM2 */
-> +		return 0;
-> +	}
-> +
-> +	if (!airoha_is_lan_gdm_dev(dev)) /* Already enabled */
-> +		return 0;
-> +
-> +	mutex_lock(&flow_offload_mutex);
-> +
-> +	wan_dev =3D airoha_get_wan_gdm_dev(eth);
-> +	if (wan_dev) {
-> +		if ((wan_dev->flags & AIROHA_DEV_F_QOS) ||
-> +		    wan_dev->port->id =3D=3D AIROHA_GDM2_IDX) {
-> +			NL_SET_ERR_MSG_MOD(extack,
-> +					   "QoS configured for WAN device");
-> +			goto error_unlock;
-> +		}
-> +		airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
-> +	}
-> +
-> +	dev->flags |=3D AIROHA_DEV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +	err =3D airoha_enable_gdm2_loopback(dev);
-> +	if (err)
-> +		goto error_disable_wan;
-> +
-> +	err =3D airoha_set_macaddr(dev, netdev->dev_addr);
-> +	if (err)
-> +		goto error_disable_loopback;
-> +
-> +	if (netif_running(netdev)) {
-> +		u32 pse_port;
-> +
-> +		pse_port =3D airoha_ppe_is_enabled(eth, 1) ? FE_PSE_PORT_PPE2
-> +							 : FE_PSE_PORT_PPE1;
-> +		airoha_set_gdm_port_fwd_cfg(eth, REG_GDM_FWD_CFG(port->id),
-> +					    pse_port);
-> +	}
-> +
-> +	mutex_unlock(&flow_offload_mutex);
-> +
-> +	return 0;
-> +
-> +error_disable_loopback:
-> +	airoha_disable_gdm2_loopback(dev);
-> +error_disable_wan:
-> +	dev->flags &=3D ~AIROHA_DEV_F_WAN;
-> +	airoha_dev_set_qdma(dev);
-> +error_unlock:
-> +	mutex_unlock(&flow_offload_mutex);
-> +
-> +	return err;
+Changes in v2:
+- use real author name
+- fold the single-compatible entries into an enum, as suggested by Krzysztof
+- enable the erratum 6 workaround for RK3588 based on Heiko's testing
+- add Heiko's RK3588 Tiger Haikou CAN enablement patch
+- keep RKCANFD_QUIRK_CANFD_BROKEN enabled for RK3588 so CAN-FD stays disabled
+- document the RK3588 CAN-FD/BRS bus-off failure mode
 
-- Does this failure path fully implement the "proper rollback on failure"
-  described in the commit message?
-  Earlier in the function, if a peer wan_dev exists it is demoted via:
-  	airoha_disable_qos_for_gdm34(netdev_from_priv(wan_dev));
-  That helper clears AIROHA_DEV_F_WAN on wan_dev, swaps its RCU qdma
-  pointer to QDMA0, disables GDM2 loopback, rewrites its MAC to the LAN
-  registers, and (if wan_dev was running) sets its REG_GDM_FWD_CFG to
-  FE_PSE_PORT_PPE1.
-  If a later step for the requesting device fails, the error labels
-  error_disable_loopback / error_disable_wan / error_unlock only unwind
-  the requesting device.  The demoted wan_dev is never re-promoted.
-  For example, airoha_set_macaddr(dev, netdev->dev_addr) can return
-  -EINVAL when the requesting device's MAC MSBs disagree with the other
-  WAN-role peers:
-  	if (!is_zero_ether_addr(ref_addr) && memcmp(ref_addr, addr, 3)) {
-  		...
-  		return -EINVAL;
-  	}
-  In that case the failed tc qdisc add returns to userspace, the
-  requesting device is rolled back to LAN, and no GDM3/GDM4 device holds
-  the WAN role anymore.  The previously working WAN device silently loses
-  its WAN role and QDMA1 binding.
-  Should the error paths re-promote wan_dev, or should the preconditions
-  that can fail (MAC MSB check, GDM2 loopback setup) be validated before
-  mutating the peer's state?
-  - This issue has been already reported in the past. If the configuration
-    fails, I think there is no point to move back the previous device as WA=
-N.
-    The user will be able to log again and re-apply the configuration.
-    Moreover, airoha_enable_qos_for_gdm34() can fail just if the device is
-    misconfigured (failures in airoha_enable_gdm2_loopback() or
-    airoha_set_macaddr()).
+Cunhao Lu (3):
+  dt-bindings: can: rockchip: add rk3588 CAN-FD compatible
+  can: rockchip: add RK3588 CAN support
+  arm64: dts: rockchip: add CAN-FD nodes for RK3588
 
-Regards,
-Lorenzo
+Heiko Stuebner (1):
+  arm64: dts: rockchip: Enable CAN controller on RK3588-Tiger-Haikou
 
-> +}
-> +
->  static int airoha_tc_htb_destroy(struct net_device *netdev)
->  {
->  	struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> @@ -3057,6 +3217,8 @@ static int airoha_tc_htb_destroy(struct net_device =
-*netdev)
->  	for_each_set_bit(q, dev->qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS)
->  		airoha_tc_remove_htb_queue(netdev, q);
-> =20
-> +	dev->flags &=3D ~AIROHA_DEV_F_QOS;
-> +
->  	return 0;
->  }
-> =20
-> @@ -3076,24 +3238,33 @@ static int airoha_tc_get_htb_get_leaf_queue(struc=
-t net_device *netdev,
->  	return 0;
->  }
-> =20
-> -static int airoha_tc_setup_qdisc_htb(struct net_device *dev,
-> +static int airoha_tc_setup_qdisc_htb(struct net_device *netdev,
->  				     struct tc_htb_qopt_offload *opt)
->  {
->  	switch (opt->command) {
-> -	case TC_HTB_CREATE:
-> +	case TC_HTB_CREATE: {
-> +		struct airoha_gdm_dev *dev =3D netdev_priv(netdev);
-> +		int err;
-> +
-> +		err =3D airoha_enable_qos_for_gdm34(netdev, opt->extack);
-> +		if (err)
-> +			return err;
-> +
-> +		dev->flags |=3D AIROHA_DEV_F_QOS;
->  		break;
-> +	}
->  	case TC_HTB_DESTROY:
-> -		return airoha_tc_htb_destroy(dev);
-> +		return airoha_tc_htb_destroy(netdev);
->  	case TC_HTB_NODE_MODIFY:
-> -		return airoha_tc_htb_modify_queue(dev, opt);
-> +		return airoha_tc_htb_modify_queue(netdev, opt);
->  	case TC_HTB_LEAF_ALLOC_QUEUE:
-> -		return airoha_tc_htb_alloc_leaf_queue(dev, opt);
-> +		return airoha_tc_htb_alloc_leaf_queue(netdev, opt);
->  	case TC_HTB_LEAF_DEL:
->  	case TC_HTB_LEAF_DEL_LAST:
->  	case TC_HTB_LEAF_DEL_LAST_FORCE:
-> -		return airoha_tc_htb_delete_leaf_queue(dev, opt);
-> +		return airoha_tc_htb_delete_leaf_queue(netdev, opt);
->  	case TC_HTB_LEAF_QUERY_QUEUE:
-> -		return airoha_tc_get_htb_get_leaf_queue(dev, opt);
-> +		return airoha_tc_get_htb_get_leaf_queue(netdev, opt);
->  	default:
->  		return -EOPNOTSUPP;
->  	}
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
-net/airoha/airoha_eth.h
-> index ac5f571f3e53..a314330fcd48 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> @@ -537,11 +537,12 @@ struct airoha_qdma {
-> =20
->  enum airoha_dev_flags {
->  	AIROHA_DEV_F_WAN =3D BIT(0),
-> +	AIROHA_DEV_F_QOS =3D BIT(1),
->  };
-> =20
->  struct airoha_gdm_dev {
-> +	struct airoha_qdma __rcu *qdma;
->  	struct airoha_gdm_port *port;
-> -	struct airoha_qdma *qdma;
->  	struct airoha_eth *eth;
-> =20
->  	DECLARE_BITMAP(qos_sq_bmap, AIROHA_NUM_QOS_CHANNELS);
-> @@ -677,6 +678,16 @@ int airoha_get_fe_port(struct airoha_gdm_dev *dev);
->  bool airoha_is_valid_gdm_dev(struct airoha_eth *eth,
->  			     struct airoha_gdm_dev *dev);
-> =20
-> +extern struct mutex flow_offload_mutex;
-> +
-> +static inline struct airoha_qdma *
-> +airoha_qdma_deref(struct airoha_gdm_dev *dev)
-> +{
-> +	return rcu_dereference_protected(dev->qdma,
-> +					 lockdep_rtnl_is_held() ||
-> +					 lockdep_is_held(&flow_offload_mutex));
-> +}
-> +
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port);
->  bool airoha_ppe_is_enabled(struct airoha_eth *eth, int index);
->  void airoha_ppe_check_skb(struct airoha_ppe_dev *dev, struct sk_buff *sk=
-b,
-> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ether=
-net/airoha/airoha_ppe.c
-> index 42f4b0f21d17..0f260c50ac3c 100644
-> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> @@ -15,7 +15,10 @@
->  #include "airoha_regs.h"
->  #include "airoha_eth.h"
-> =20
-> -static DEFINE_MUTEX(flow_offload_mutex);
-> +/* Serialize airoha_gdm_dev flags, QDMA pointer and PPE CPU port
-> + * configuration.
-> + */
-> +DEFINE_MUTEX(flow_offload_mutex);
->  static DEFINE_SPINLOCK(ppe_lock);
-> =20
->  static const struct rhashtable_params airoha_flow_table_params =3D {
-> @@ -86,8 +89,8 @@ static u32 airoha_ppe_get_timestamp(struct airoha_ppe *=
-ppe)
-> =20
->  void airoha_ppe_set_cpu_port(struct airoha_gdm_dev *dev, u8 ppe_id, u8 f=
-port)
->  {
-> -	struct airoha_qdma *qdma =3D dev->qdma;
-> -	struct airoha_eth *eth =3D qdma->eth;
-> +	struct airoha_qdma *qdma =3D airoha_qdma_deref(dev);
-> +	struct airoha_eth *eth =3D dev->eth;
->  	u8 qdma_id =3D qdma - &eth->qdma[0];
->  	u32 fe_cpu_port;
-> =20
-> diff --git a/drivers/net/ethernet/airoha/airoha_regs.h b/drivers/net/ethe=
-rnet/airoha/airoha_regs.h
-> index 436f3c8779c1..4e17dfbcf2b8 100644
-> --- a/drivers/net/ethernet/airoha/airoha_regs.h
-> +++ b/drivers/net/ethernet/airoha/airoha_regs.h
-> @@ -376,6 +376,7 @@
-> =20
->  #define REG_SRC_PORT_FC_MAP6		0x2298
->  #define FC_ID_OF_SRC_PORT_MASK(_n)	GENMASK(4 + ((_n) << 3), ((_n) << 3))
-> +#define FC_MAP6_DEF_VALUE		0x1b1a1918
-> =20
->  #define REG_CDM5_RX_OQ1_DROP_CNT	0x29d4
-> =20
->=20
-> --=20
-> 2.54.0
->=20
+ .../net/can/rockchip,rk3568v2-canfd.yaml      |  4 +-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi | 39 +++++++++++++++++++
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts |  6 +++
+ .../net/can/rockchip/rockchip_canfd-core.c    | 12 ++++++
+ drivers/net/can/rockchip/rockchip_canfd-rx.c  |  5 ++-
+ drivers/net/can/rockchip/rockchip_canfd.h     | 26 ++++++++++++-
+ 6 files changed, 89 insertions(+), 3 deletions(-)
 
---3joh1UuMhMZBOkHW
-Content-Type: application/pgp-signature; name=signature.asc
+-- 
+2.34.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCakZvhgAKCRA6cBh0uS2t
-rIRYAP9gzcl34KcdQs9GVZfh4viK4ItMdpu29s/BbxNVtTtMNAD/RwZlJOqrEZwM
-fGTIrKivFyTiI/EeXxJk4PrT3kNzNwI=
-=zq2G
------END PGP SIGNATURE-----
-
---3joh1UuMhMZBOkHW--
 
