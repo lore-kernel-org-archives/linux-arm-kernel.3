@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 374EEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 22:17:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CB4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 22:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mY5/la9fr3WXZDFSEbfxcufchYny7MI2+Qz0atavRIM=; b=Objtto9oU10EPOK3po6+rJOya7
-	7BGx2sOXgK+q+iN8tuytJVknFI/FFQT97yNL3bTReUUy5YdrpVTbalTpuibhTJsZvrDdLGJZ30X4B
-	pZi6WppFhTBxCBF/Yx45PjFK/T2kJZurYQdE4YOKK97sMj0XYYCThsOIbREPi4LLa2L+H6JM7sYHz
-	zQ9qhlUOHPMMMB+AjaLRC6ZXUX0VvP60QpvoS5vEl4AXInJ7h0sjhIAWUSQ0LP+6CtkCJ+3G5J1tw
-	togfPa0rliNcTV0iL8S62D+jiLoPZl5H9Y0/SqFYgIQEdHtuT6DdE5WwQ3PbZhWtklUFgcWk/xSoQ
-	TG4Sibyg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uIK2wXZt6lpexw1RHubScXDuScpKzH+Rgz4MJDFq5qU=; b=qnnmekrFq8o4WS+XBrq908g+wc
+	vFJe87qVM6eEM0SUvkClB7Z6ePySrRaAIKqA4dYd/4Yvrubl8a7YBzBIPQWbGwENzCJ4YoXO6xvUc
+	uGp0BSJ0decnnP7oCoq7MF89/qKQlm9YO96hVYjwFOwyT/cpaUwODsaGIGvbKOOd8ynby2QN7KTMC
+	bB/Au5wRNIFTvhaESUpBQ8HoFwD9dLCPI2jkZFdt7RI7qh3sMV4mHiuyNuSL14PajUzWiDlPXrakq
+	vx/WM/KDBztmbJo3Er03NxsuanrZ14s45DjRt2TvPPaCAklrm5ZCIAOlpCoh2i9sLoVIGRDQSRrRu
+	LRu6n2iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPaC-00000005cRV-2w8S;
-	Thu, 02 Jul 2026 22:08:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfPkL-00000005f46-3HH7;
+	Thu, 02 Jul 2026 22:19:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPa4-00000005cHp-3uWn;
-	Thu, 02 Jul 2026 22:08:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48D3943F38;
-	Thu,  2 Jul 2026 22:08:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 173FEC32786;
-	Thu,  2 Jul 2026 22:08:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783030104;
-	bh=nJFIVRllr6lBbEH5QrCyHfVsOTw/A4aUo1durTpSg3E=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=JHqfIw7ErnRLHXSVnE0xlFBC3Daw75fAq8fhtyOAVU0Ov6t7cVPe6KmwLjB5yEEeh
-	 qbvTTu5jMgngmra6/sCzDQ3qKTVQRnLNLOt+JViD1wHH1oCezbPbssdYszhK8mFOU3
-	 O2TdY5/NHHlTb02Zx93YCn+bIe0I9uf6PYfc1h+1V/K+d6IBv2Y48TkS+ltren/lhR
-	 ATqNXWkp4Q1Ji1062vBrabi85pJUnt+PJlx6UZyFuICMaHmULk9+XAMzIho9ALCIJ6
-	 HCvT9LAu9+teh9QF7QCQovuUxwFJdy07UnDV2A80s9yDNXZxVQPLu1iNmA63B2yr3q
-	 cQJ0WJ6PxVveA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 06188C43602;
-	Thu,  2 Jul 2026 22:08:24 +0000 (UTC)
-From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Fri, 03 Jul 2026 00:07:22 +0200
-Subject: [PATCH 07/12] arm64: dts: rockchip: rk3588s-nanopi: pcie2x1l2: add
- clkreq
+	id 1wfPkJ-00000005f3o-3jep
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 22:18:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE5DC601CA;
+	Thu,  2 Jul 2026 22:18:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C475C1F000E9;
+	Thu,  2 Jul 2026 22:18:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783030738;
+	bh=uIK2wXZt6lpexw1RHubScXDuScpKzH+Rgz4MJDFq5qU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=CREfmupkg9nGL3Ew/EXkU+T+JQ5dKch4+F69AFVz1GLhUkftCOhcFGPBzPexsATpg
+	 mQiSkKSBD25mkuLuGkKyDmZzv9I/Ro+8oHqZgvFQhJMxhSecuVGMJmDJSx4ogYFZC3
+	 B2mOYGl5oqKY53a/9CJUhZ6HYNzvYlB0GhRiadeHqeHGmna98l/U9FJc2ewjiKekPw
+	 O32zadvoqu44Ue+iLi3eIufTKALzVX4kdUczoVvbSQbq/rxYndz2l9HM2NvqxeQAW5
+	 dTlVRvBWatCFscdttyyBGR44vNEBXE08f7/eboDUucWlsy7T53xYTmGa0ElJSEheJH
+	 eVIO69EYIlprQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-pci@vger.kernel.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, Marc Zyngier
+ <maz@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
+ Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn
+ Helgaas
+ <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Conor
+ Dooley <conor+dt@kernel.org>, Geert Uytterhoeven
+ <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam
+ <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum
+ workaround
+In-Reply-To: <20260701203918.63189-5-marek.vasut+renesas@mailbox.org>
+References: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
+ <20260701203918.63189-5-marek.vasut+renesas@mailbox.org>
+Date: Fri, 03 Jul 2026 00:18:55 +0200
+Message-ID: <87wlvdm3w0.ffs@fw13>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-nanopi-m6-v1-7-8344a1559519@gmail.com>
-References: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
-In-Reply-To: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Joachim Eastwood <joachim.eastwood@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783030102; l=817;
- i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=UdSN50l8fPPMDfJY8YaQToVjBNdxjR3Y9tdra7aQfto=;
- b=33qo2mouC7p3XEOVXak9y0hbIO5U89q9bndd02lpu/wuvl4S9Kx3HFzCX7erCAZ9BazI6DtJn
- 0T/wSi48Dy8CTDLhNafk0nYTJFnLjIhkVtYoydMwjPgr7Q2hkVL3TM4
-X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
- pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
-X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
- with auth_id=846
-X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,36 +76,28 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+On Wed, Jul 01 2026 at 22:37, Marek Vasut wrote:
+> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
+> or APB interface configured to 32 bit, it can therefore access only
+> the first 4 GiB of physical address space. This information comes from
+> R-Car V4H Interface Specification sheet, there is currently no technical
+> update number assigned to this limitation. Further input from hardware
+> engineer indicates that this limitation also applies to R-Car S4 and V4M.
+> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
+> limitation.
+>
+> The quirk is keyed on the combination of the GIC implementation
+> and the platform identification in the device tree.
+>
+> Acked-by: Marc Zyngier <maz@kernel.org>
+> Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-The clkreq is present on the board, so hook it up in DT.
+Assuming this goes through the PCI tree:
 
-Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-index 361682c18e69..bcb2f5d63a61 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi.dtsi
-@@ -312,7 +312,8 @@ &pcie2x1l1 {
- 
- &pcie2x1l2 {
- 	pinctrl-names = "default";
--	pinctrl-0 = <&pcie2_2_rst>;
-+	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>;
-+	supports-clkreq;
- 	reset-gpios = <&gpio3 RK_PD1 GPIO_ACTIVE_HIGH>;
- 	vpcie3v3-supply = <&vcc_3v3_pcie20>;
- 	status = "okay";
-
--- 
-2.55.0
-
-
+Acked-by: Thomas Gleixner <tglx@kernel.org>
 
