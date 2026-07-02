@@ -4,126 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CA3EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:35:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB21C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:36:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzjKbo1Rl3w5YbQDt+R8Lnmmg5dyp0EufeIhKRxCW+w=; b=d/sd9NPMIBLcg6TIeAjC5TuEER
-	m0l43qgfmcrOWt3gGOl4LP60QyEB5B3aB8wZm7Fu6mRRz3TZ4vFThKz619aZZLbenTtPYtutOlkKx
-	WqypqXi8KiOn5ltcMpWluq+x72IiMWZWLwWLM7j0TlKRGfyL7JaH9wYdUcZ0tiPAGex7f+nu4zl7u
-	XmvLRp5m03A8nMfP4HY02PiZmctHSU3EOeiILutk1aUdruOe6SgvIBG/G5QeqwQFrLPY8f28SrvBW
-	DPvT/NhkuQgPtVQiczVPvNkXVyOB0EgAQ6+mObyH9UlyriujOShTg4V90xaKxr6jN4r+OcuW42xQE
-	mlUs6PTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xapI=; b=Lv+BJn/jIYhKZMe6TIwzOTXT0+
+	6J111c78EQArdN10FLYe3/HUXh/JGdPbcNkHH1iSh8Zf7++6YzYOOr1jxydmnNugixFepvZMMOUbk
+	8tgEpbMOe421hDcBzgDTnz7NM1CV97XhKQVqHagxiXjcfPzgH76eIdw7I1Mx94j3lbcgXL6xLvCEm
+	2CnQXB8CYQitvxzAUnjoA/LL/endT4AfY5Fh3fl7o2Ap4Quvn/+m1KkqI7NeppoLtdiWwLEkMVRdl
+	Z55Tp4Oj+WPXdueiSuduIIU1SlJz8OdOnMsejHjemg/5QsUvBs0XxBjAl2DgjgwjfLT42Tyi8PGoR
+	fL0qBXkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfBx7-00000003kWs-1Eq5;
-	Thu, 02 Jul 2026 07:35:17 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wfBxt-00000003kdL-1qkT;
+	Thu, 02 Jul 2026 07:36:05 +0000
+Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfBx4-00000003kWE-1ZoH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 07:35:15 +0000
+	id 1wfBxq-00000003kcH-0Pzn;
+	Thu, 02 Jul 2026 07:36:03 +0000
+Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
+	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6623D8h71285453;
+	Thu, 2 Jul 2026 02:35:50 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	proofpoint-05-2026; bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xa
+	pI=; b=D700PdZKIz457V5Thh8jFcje/Njpg6M1hNROEIW0BmmW2qzKhsvmu31uu
+	+LkFZNB2szr0bTjx8Gl6zdH6Zj7tZwptVn03MkxHp6T/HrF/4wwpEgUT6xRKsooj
+	QOy9M31w1uvSELWLHqOOfkjcwk9RXd6JBIY4Ylm2GvV6g4qAJSQDIq+wWPvzhmJ8
+	lgDLiu3HF5HNzFP0kb+37n1Oit0fSXk/nUoft655RiTYxngKYwppYhMa9euGq0ck
+	+Y7NnZIOMXmmOFHkIV+aPETDKvuuA//tAmblCUXxpqnPLQjc+bRHO26b3N45WNH2
+	hy0Da5YLGg5w9mCay9mdwAwdwCI0g==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011033.outbound.protection.outlook.com [52.101.62.33])
+	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f5fvyh7f0-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 02 Jul 2026 02:35:49 -0500 (CDT)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kwPAkFJWpC/X3RwRPtODfGXgUL2AO6mT7fyGdD4LYjHyWtEq8LayuMdAgCr218lVjNoyJMBHblYb+mP5w64sxBq+gdwfQwL2kqgdZTCNP/6EcJJa0VLPYyMv6getCJ0b3tiw4bag4qS2Cft62/Gd5Dc6Uco94TJQMK6wxKCpxWHlQa3+2Y1VJY9MjDmHJBzDvOL41xkxrA4hlA1sCQLZknU15h28zEw00VB9PLAN7xlDFDwacMUk0g5iop5UJN6Snl+BndHXY1aK7tuMq04/LC5zrn/wKSuZv0FHnx7te6Ja7Vpoc5YathGusOn8q1qEcXXHNhlppBtygWy7UXlCOg==
+ b=aO5UvjdLq6DLs4jyFF8hIiQGu/7QzSM5Q/E1E4TUm0s5mTYNVmD7ffuSUUs1oozPg8R8x2vdD0UEq1lRpnr4IoHNsdShE+O12R0usBdThcfCBIOiPre7/cE9HRM/Pswjyovv2sVVtiWMmixmEoFyHop1fclCOqGS9HodYOmY8zviBu1CE6o4CKCoZMxaF9q+ZbAAz5ES2A9ta0DeRmHMaX8rkZd7alxXOboYahDS6PrQ4REsgqxwe7LPcRVNxGSOS7djtWCYMl0fBctuVhBjgtrt+i15hILCJwCJqzbvmI/8C6hOKnwG6I73LvjichtgWMTVTfuZisyRBBv8o/f+QQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LzjKbo1Rl3w5YbQDt+R8Lnmmg5dyp0EufeIhKRxCW+w=;
- b=VRI2kbCem+bmguOCRcxnu56jy46gGziscjZ6sFxIvR5lOay7Ux66H4+r6C57FbB2qQB03nM1vZe9To1GNQH4UXE7HcPJnoTFgq8Z3unn4awlMU6FS3AMW24Pzoe5YWSG9Ozw/SVacoqqSDbphD7n/9Eadye1sVdZbnFUHoZ1WsqQ7vfZGUtVlTUZh00WZGiNkB4XCH5mtWNLGC8NZJIfQ4cXd7yHykF8X50UTeoh4m1xP8+0mjF90jB2uffyzqsPxer0NwGHQ6TaMg9A6EktyreAtH4tC3Xllc16509oz+7koCFL06sfSNS7yV9AfWNrtIKNbNz4Q3HRySfqpIxfGQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xapI=;
+ b=ShjpESxtmikdChXY7ZB4a4LRsUVLyleCegoupp4uw/uN0EoEej2BidRKIXc2lwcKz6LqJgZjxvWh7c7Ze5irgKRQ9pdQOUd/R5+va3k6at6uvKCvNX5On4/Qpq5OQ5WAXXwJb5yWAMBgMXjbzDnR9w7Gbjxbu7a6sSlAUZScj374YeXOPxZqTMmKTL0PYrI8wq9EYLlHcJZl/GIgdE5M7K0tbHUiAAGjRWyF7QQF2mX26EUiseSMzIh5xtqTGi9emBw3h644YK2Pko4mTDdWJpWZiRupzkDwWcWTK2LPpEcYY7F2V4rZZQ5/0RjjVYVtcXS5LX8YzsdjrzF/XXjkoA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.195) smtp.rcpttodomain=cadence.com smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LzjKbo1Rl3w5YbQDt+R8Lnmmg5dyp0EufeIhKRxCW+w=;
- b=M75hCs2s+SsRmJzyUqeW1OYI16k0OIKqa+B6bKThWIab4gQfrLus+dznQkoP4KCjK2dM7TKwjQyT7Qd7FV67YcJZzkFjjJaNgIlPdhxumzFmNu6lKrEzyYk51eLiGw67hmc73OXcFqx4cYSSrdJx0DzXpkou3oeFIP/F2NkAgcJmHYlrsnW2MG/tvlIbNK9x+Hbsup0qqOuAueJajL00PAd3jU8adKZlB5safF0YYmgR1AWqOBLSPhBxb+k9skfoBP+RnUut27OxHknTb8FV3nNAW+ZYBKmVRujHNYqBoilqt3th8ok9Ll01mo+giCJkZ8SbhsBY7ibjz6Q39ezMsA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13) by VI1PR04MB7072.eurprd04.prod.outlook.com
- (2603:10a6:800:12c::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
- 2026 07:35:06 +0000
-Received: from GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd]) by GVXPR04MB12290.eurprd04.prod.outlook.com
- ([fe80::1739:3404:2175:33dd%6]) with mapi id 15.21.0159.018; Thu, 2 Jul 2026
- 07:35:05 +0000
-Date: Thu, 2 Jul 2026 10:35:00 +0300
-From: Ioana Ciornei <ioana.ciornei@nxp.com>
-To: Frank Li <Frank.li@oss.nxp.com>
-Cc: Frank.Li@nxp.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, devicetree@vger.kernel.org, vladimir.oltean@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev
-Subject: Re: [PATCH v2 1/5] arm64: dts: lx2160a: transition to
- device-specific SerDes compatible strings
-Message-ID: <b5lpw3xu6svsq7xmmgp3jn4cg455zhp3iw4q6lcsxq4bqy7mwh@guuitghg3xal>
-References: <20260701131137.940145-1-ioana.ciornei@nxp.com>
- <20260701131137.940145-2-ioana.ciornei@nxp.com>
- <akUjt5OPiO5cJ1D9@SMW015318>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akUjt5OPiO5cJ1D9@SMW015318>
-X-ClientProxiedBy: AM0P309CA0012.EURP309.PROD.OUTLOOK.COM
- (2603:10a6:20b:28f::19) To GVXPR04MB12290.eurprd04.prod.outlook.com
- (2603:10a6:150:319::13)
+ bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xapI=;
+ b=Rr+8jMRFSCaV4hQ8vt+mZVDiHPQQn2jnqrxAkWYeVe4A9IllAKmTwBomOT/5AaY2APAiIZKkRk2XATwP61tiK6zrx/8RGhRaIO2ojfg+w7vOLyhApH+SneIy6h98DTg3uczrNZZvQXzwj2Zhl/PsYxe4nWQUGHb9dSW/ODWKeR8=
+Received: from DSZP220CA0006.NAMP220.PROD.OUTLOOK.COM (2603:10b6:5:280::14) by
+ DM4PR10MB6231.namprd10.prod.outlook.com (2603:10b6:8:8e::21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.8; Thu, 2 Jul 2026 07:35:41 +0000
+Received: from DS2PEPF000061C6.namprd02.prod.outlook.com
+ (2603:10b6:5:280:cafe::7e) by DSZP220CA0006.outlook.office365.com
+ (2603:10b6:5:280::14) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.10 via Frontend Transport; Thu, 2
+ Jul 2026 07:35:41 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
+Received: from flwvzet201.ext.ti.com (198.47.21.195) by
+ DS2PEPF000061C6.mail.protection.outlook.com (10.167.23.73) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 07:35:39 +0000
+Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet201.ext.ti.com
+ (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 2 Jul
+ 2026 02:35:39 -0500
+Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 2 Jul
+ 2026 02:35:39 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
+ Transport; Thu, 2 Jul 2026 02:35:39 -0500
+Received: from [10.24.50.145] (a0507176-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.50.145])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6627ZYCp3385141;
+	Thu, 2 Jul 2026 02:35:34 -0500
+Message-ID: <f40839d9-445e-4e48-ada9-97feb8e40584@ti.com>
+Date: Thu, 2 Jul 2026 13:05:33 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 net-next 1/2] dt-bindings: phy: cadence-torrent: Update
+ property values to support 3 clocks
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <conor+dt@kernel.org>, <devicetree@vger.kernel.org>, <krzk+dt@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-phy@lists.infradead.org>, <neil.armstrong@linaro.org>,
+        <nm@ti.com>, <robh@kernel.org>, <sjakhade@cadence.com>,
+        <kristo@kernel.org>, <vigneshr@ti.com>, <vkoul@kernel.org>,
+        <yamonkar@cadence.com>, Gokul Praveen
+	<g-praveen@ti.com>
+References: <20260701142457.81874-1-g-praveen@ti.com>
+ <20260701142457.81874-2-g-praveen@ti.com>
+ <20260702-vigilant-tody-of-inquire-ffbede@quoll>
+Content-Language: en-US
+From: Gokul Praveen <g-praveen@ti.com>
+In-Reply-To: <20260702-vigilant-tody-of-inquire-ffbede@quoll>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12290:EE_|VI1PR04MB7072:EE_
-X-MS-Office365-Filtering-Correlation-Id: e56ddcd7-2145-4826-1d9b-08ded80c6f44
+X-MS-TrafficTypeDiagnostic: DS2PEPF000061C6:EE_|DM4PR10MB6231:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0b05625-500c-4e34-f38d-08ded80c83f7
+X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|23010399003|366016|11063799006|4143699003|3023799007|18002099003|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: eo093gF3zQWXzQU32NOMY8oVzYl2Ncpr9+xLFtC/fpD5XudY//XWJXfFTs/693k8lB6a7bgYP2gCMj+L1LJr/ubvMOQmWjUyu0buqoU/46vYeg+mIzKV7ZkcUR4VesK7sQhmzzpHNqkxnqy5+q+YpuLPqy4U/nRkJcl+SNv5i7XOBZARYc+pv8YdrtlZmKov9iWTH5rfPKfAw0ucAd2mHhrhYIKjM7MISKthiUSuDWR38JOISuqrv/RtCi5DNFbnYNx6AW8QGN5m3WRgVVv+r0+iFB+xeRuGlD6hw/EaUIx+kEpf7gE8mLk69tPnzMR4vs1UISU/Ku4AJoU4FTigujg2U5MXrTHKgB1FvmXHZve69n9kDyEMjhSlN6Bxy0e9dbcL+pNhk35sB5mI1OdwKgYHEIpQW5Z8rS9P6KP/VSqD23vA7ea5JbGLEv2EIbTwAP1+ybckzLM+UCoz71HQR9h+FBDbshYfkV8NOLv/3NjHgMtJHzzIFJf+JrQjV/c4zoam7qXGAJyaAg0MXx2o+C0cCzAqQZj2+M2IBrwhe8kwLXEv/Rlim+YE83t1d9dsKNCdrqo+TzRcmmeRMFiWJjpCGyRfXDpB0v+rl8j+E36kvM69vIqTwpOd31XYfm83MXPC3CATfjFvCu7Vfn/0jLjuHM/vvtO9GZPTrVHmsVQ=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12290.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(23010399003)(366016)(11063799006)(4143699003)(3023799007)(18002099003)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|82310400026|7416014|1800799024|4143699003|56012099006|6133799003|3023799007|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: 2SXoqBKi0XiZg/doC7mVMEdyOBqtvWY6nXjlUZhU2om63X5Eovc2pOscjhfdwGD3XqXcN0SOyK0mc+oHXFyOPL/gqJEMpic0yKMt3FPtoZf3xrWA5mL+gbinnDmGUCSyrKLrQrOBF4N8z9EwSwvbbDa8SDy13m3GsJxp/AgpxC9xSx2QlnmwVsX5zOPENmWt3xnX31utSps1dgyhRqh1XFjgzfKh+8yzl/iUh/b1MDZARl5wTbjkAh37iJSFNySKitStvpH4+W19WYXNWaqIwq8YZW5a78hRZirwbnERqmuUhdMP20v4zhUGAOScPU2A3YVrr5GOMua5KwN9LBH59Z4KL8yQi9r6cNykCefQ9yoX2CFoVqKnMy8ZBiNsGTKvBnFPgklnOig6BqVMevPHOPp8kOeVe9haQ+fAZqOMAXcrQD+ZsGE3+Z++WgrMSeFOKe5gsRzYcMFU7AU2xQE35/E2EpLVTdIRwi4L960H/Gnrdy+DGC3khWzVBue19o185LRlE/hVhkye6mHx8i+BmcyxJldI4ia0NgPgn4tPIxsQONX5SrZCX4miCNcSFKbbC9jIt0IfdjKfcKqjR7FbDeLwBki46XBQhjhEBd5Ye9NCxlwzJLqPKkkbdztEnvmJXClfPW0m7vJ0ufhDWoV7+G5kfcXKvWquFO967meKXR4L/MOb4HNkcNQ4Cem5UW3gV+i6GKu6rrhpnixoaYPHOA==
+X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(82310400026)(7416014)(1800799024)(4143699003)(56012099006)(6133799003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZdXdV8765Rmyn3b6NFMkyuuZhRjr3i1Js+YmdygbPHM8PhEUVvuY8F8mtNac?=
- =?us-ascii?Q?ugJ8eyDF5sCZPjFavnkmb1G/2aPr2YvUcg3grWuKHjW947gkHWKDeQ+oa81T?=
- =?us-ascii?Q?037vRxtsKSL+4w/y5SCGk0axX85yOp3MR/2AXDa6X8i8QjUrhgc2ib4GzS/e?=
- =?us-ascii?Q?Gjf+Zjxb6MjFfj8V+0mD7DYrkMwLmfaa8xAS2tFBNbk5T03C3xooHPvh3ZGo?=
- =?us-ascii?Q?yrsD8gjiKfovlUkJZSKwYNX4IxAJD0JF32WafSRlMMunM5v44W7YobqvVDSO?=
- =?us-ascii?Q?SyNcQ2YDkl90SCF07j50oMnYB78AIqEimnGrRm8KDKjYxJpLeBpIFNWKkXKy?=
- =?us-ascii?Q?FnRDdJUMaFg0LRlDtKkazuGdN0fFRebXO73Y/0qeke1Vm7Z2x+fcirbKdkqx?=
- =?us-ascii?Q?lhZsmUO28r+miwErzL2Am/+K5+S5oFud6jPY24tYEMxIzMzSdl5nF4XVzvBV?=
- =?us-ascii?Q?pDXLn1kL0nOzyF9s4mCxjaySAVCJwHY11mB/G7STTE2se7qrrDfk6sRYFQmQ?=
- =?us-ascii?Q?ubrbgBmhiSJZ7NmJIsHFmwDdM4NiPEq8AzFUjTyWZeVpIKYH93tTZCAh8Osa?=
- =?us-ascii?Q?9SToyhvUQgfBq0Assn0WS18atoz2r5AuGv8TF7sHVhWTxj5LJgcubEH5JfwF?=
- =?us-ascii?Q?ML8WROTfXiw5m6W5FgQif/Yjdj/7QAW+R3ekMu6X5En8hC4jJfp9IJeQoQ3k?=
- =?us-ascii?Q?CG/0ud2MFWZouC9YOEyCZiH52JDbX3OjOwHERYI9utJxTQGfB85tfgy3MRAU?=
- =?us-ascii?Q?T6djcMzJmlQp+wKJzBUgp7g385roOqWY0t4mA4Pk+b/ZUphzNe5PmQmm8C2W?=
- =?us-ascii?Q?Y3aB+O85gB+6HzpIzAjMHu2FfXI1caG/qHjdxxeW2zpH8FC4+SJOkyfT4NTq?=
- =?us-ascii?Q?Js56r3i48L2eDI+CBDCMDvAOlPkN10X/KjKCu0HpGxieiXHaRsbsz1yLYEi4?=
- =?us-ascii?Q?9M6QDraNkxoNzsknHQP9AgUMOgBaCM3GZ3Qvd5zuC7ICVfk+UawjRfyi6Y6n?=
- =?us-ascii?Q?HJ7uAdtDjQUFLHSv2fveA2pCLdBxN5Cyyrch+eMi7Dq32Bne/knz4gYOpHAC?=
- =?us-ascii?Q?MJm9JwGOFPBWhnDA/HLbKomvFYgJy04WeRLcTzrjBFWNuvEDh0Kta7ER/H5y?=
- =?us-ascii?Q?v4JQ/rwUBFYf/888dUxNhfTetMzf1dG+3WPa+kqgWmLfAlPxtSBxHkTpwOqE?=
- =?us-ascii?Q?0a9WODNs9fkFIYMD7li9OUzMY6tR5TBO0j5h+B7nuBz63nUyN5sFXU8GCdzp?=
- =?us-ascii?Q?SCDcPU1C3GvjVRyjjZfBO+RWgvAGfHdqAWEYU2/8pS2EVrCpXB+aeLr6lXTh?=
- =?us-ascii?Q?nTCsx6WN6mgxmOCpU+Fm5/L/9Aj8gMPGiRLgt0dPUDar44q4vUtmcw1AgmMs?=
- =?us-ascii?Q?iIV1M/RlH9RTqSO65ZsVsotrPwFy2mKAGnSoL/TfLW3o5ItrGJOhTFlk+7E+?=
- =?us-ascii?Q?bvPkL3iJ9SJ9wtDbsh6IV0Xi0tYHa8T0T33I9LhqgUTBOj5qrj+PLY7/94V8?=
- =?us-ascii?Q?4Zs2e0f+HHWKawoElp/CFf9brOlqu3zNauPEql7vgUOKEF9RJ4yj4f75f/JL?=
- =?us-ascii?Q?am+6HRyiGih7aAwZa+UJm3KEKrfjpmAV0VhGxJrEbraSFVTFBOlMM/AB0gh+?=
- =?us-ascii?Q?/mbH7ZvgvElEEdDg6kZV1oznO05722xLl2PjkmaOJQppS0sKeLgE7O91fhix?=
- =?us-ascii?Q?gs8ZoHrqwZBDnREk3zYm/ctGod2NvIotaB/FkozXQMsQ+/FY/dPW5R31hKS7?=
- =?us-ascii?Q?4M1ocjCy9Q=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e56ddcd7-2145-4826-1d9b-08ded80c6f44
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12290.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 07:35:05.7953
+X-MS-Exchange-AntiSpam-MessageData-0: En+DtNA3/tlivybXJPaowVQdt7hQ0fwNA8BtTB9vx60g2qEk1x8Jm6NFa1GCp1DJGVADeCI+f2GZUranrb2Hs3JTPKgIWheA8/qah3c2mflQkthzrjVA1Y5aV+SDjX3HqqgAlciCee5qnAL1RZmfMIvM9uKu3ymQH1gfEbNCKg3sfwP4whLrVYtnvXdRT/XlPTYbZ7UGGBzmCNTQPEAM+t6faQXcNJcGwsxLbaUm33BjSR989bidg5wl5K4Dz9HFbCZNE0SLPgozl7fbCW6UWG+XgQ31qwABQAIvJx/SRMtJWExq4uLjqoBQHUDzTO5RuZbjJQXt+GoowzDHKcLo3suLgCP46WrutOVJtIXlU4IrdcQOupjDgiQAo0mdNCQMfgMygC7OuIcp5wfClX07bGaSuPgqfQTC6Q2AoWLoCyujvbbCpo4yd/w1af9mDhxn
+X-Exchange-RoutingPolicyChecked: hZOu0qx08HeZbUBpT3kaNS4JltDQYfyMwFM3dgICNbKC4j0ZXSOn4MX9RF7pdk/z0NRn+VwGU80i3mE9IViIJ8Zgt1TzotsGf9oq0B4YFdxibRb1lDVI8wTE5MKSfn9mmrK5+LXYbIxUXGcUm7eHRqNSG+I/uBtyIMPggtWIgeQhvnFjQ5kX/U85F5t5QvyMAGOjlCFcWOgt/B43hlFeez1ceD/3an31n67qHlR5/j2MPxynW6IDMp4jB/7TvOZ798iElxGippbeqlkcLk29eVxrdkx45YVmm03TA3oHEOU5Ffxq4BdV/4kMpxaSM8UbPgkP0d57zAKSDDpMfyPn1Q==
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 07:35:39.7534
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mPNVHwUpd+zJ8WyUvK5w+ZNGqw8LXn0pP75cxe8Ge1wjVBhyeAobdmzmLDCNUkqs+vV+iHvIEN8HeZMao7eiNg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7072
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0b05625-500c-4e34-f38d-08ded80c83f7
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C6.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6231
+X-Proofpoint-ORIG-GUID: F7BCffdAdQAikAqgKYr5uV7wITr39Ktv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDA3NyBTYWx0ZWRfX/ceV7oBJqSJR
+ G8U94KUOX4kOP8gGVIdPZwntW3Ca0EevkVTTqpqnI5iJ6neHoSnopI7bStgNqZqcpt+LHAmfwPu
+ KygWpoE6Bi5Zy/+HZnUdrBaZ9LmxNU8MM7Cf5XJefZ8lyGkIE55bzEF5AHOKGngyU31NE7klgW5
+ bbtJigL8sCRta42mohmFP8m4no038/LRWgXTJKDgKEiIhvj4Pj4JuA0a9UTZrpuQGNDkGDYYSPL
+ TllZCYGuTOzE1aY1tykwSPT4aAXn/ePggvbNaCV6Oy7QRmPostu0V7qPScwmcXNLOTgjLCcAZ9i
+ s83/CJQqHkYUirXqzhaJ16WcDelv86mFUAkYD+sCQPXFtfNGETRtojIz+OMhdLK8TyXxpQlzVrf
+ P1jAb0GIiINw0turfjESgzr0fVgYRHVhoavd+SSs/9dOVbvvjA+rXvlgXPmAxcpEcXM9l18cFoE
+ /rVN0YQQm140KWsF+OQ==
+X-Proofpoint-GUID: F7BCffdAdQAikAqgKYr5uV7wITr39Ktv
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDA3NyBTYWx0ZWRfXyrF8r40g/nGQ
+ Df9aAhSCgdayGwoWrcG/YHZcqjmdb9rQcmzh+gVFg4lDA5pYk2XusQcny0QPYB7V688dJAx3M0k
+ vh6yJGrs1uQcmzkA2O71j5njSPfsCPk=
+X-Authority-Analysis: v=2.4 cv=T+q8ifKQ c=1 sm=1 tr=0 ts=6a4614d5 cx=c_pps
+ a=4QVYENZnsEoURNel/cbnog==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
+ a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
+ a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=CLAEbvughUuGTxuK6hcA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-02_01,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 malwarescore=0 phishscore=0 adultscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 lowpriorityscore=0 impostorscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607020077
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_003514_441911_8245278C 
-X-CRM114-Status: GOOD (  38.23  )
+X-CRM114-CacheID: sfid-20260702_003602_378494_1D54E56A 
+X-CRM114-Status: GOOD (  27.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,136 +183,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 09:27:03AM -0500, Frank Li wrote:
-> On Wed, Jul 01, 2026 at 04:11:33PM +0300, Ioana Ciornei wrote:
-> > From: Vladimir Oltean <vladimir.oltean@nxp.com>
-> >
-> > Align to the modern fsl,lynx-28g.yaml binding, where the SoC and SerDes
-> > instance is present in the compatible string, to allow reliable per-lane
-> > capability detection and per-lane customization of electrical properties.
-> >
-> > The modern bindings are backward-incompatible with old kernels, due
-> > to the consumer phandles being either in one form or in another, as
-> > explained here:
-> > https://lore.kernel.org/lkml/20250930140735.mvo3jii7wgmzh2bs@skbuf/
-> >
-> > One of the major differences between the LX2160A and LX2162A is the
-> > SerDes. So far, LX2162A has used fsl-lx2160a-rev2.dtsi, but we need to
-> > split that up even further, and derive a fsl-lx2162a.dtsi which
-> > overrides the SerDes properties.
-> >
-> > Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
-> > Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
-> > ---
-> > Changes in v2:
-> > - Enable serdes_1 on all board DTs that has consumers for it.
-> > - Use the proper name for serdes_3 in fsl-lx2162a.dtsi.
-> > - Remove paragraph from commit message which mentioned some consumer
-> > changes that are no longer needed nor part of the commit.
-> > ---
-> >  .../freescale/fsl-lx2160a-clearfog-itx.dtsi   |   4 +
-> >  .../dts/freescale/fsl-lx2160a-half-twins.dts  |   4 +
-> >  .../boot/dts/freescale/fsl-lx2160a-rdb.dts    |   4 +
-> >  .../arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 150 +++++++++++++++++-
-> >  .../dts/freescale/fsl-lx2162a-clearfog.dts    |   6 +-
-> >  .../boot/dts/freescale/fsl-lx2162a-qds.dts    |   2 +-
-> >  .../arm64/boot/dts/freescale/fsl-lx2162a.dtsi |  24 +++
-> >  7 files changed, 190 insertions(+), 4 deletions(-)
-> >  create mode 100644 arch/arm64/boot/dts/freescale/fsl-lx2162a.dtsi
-> >
-> ...
-> >
-> > +&serdes_1 {
-> > +       status = "okay";
-> > +};
-> > +
-> 
-> Can you try keep alphabet order? may old file is not ordersed, but try
-> best, at least should before &uart0
+Hi Krzystof,
 
-Sure, will move it.
+On 02/07/26 11:53, Krzysztof Kozlowski wrote:
+> On Wed, Jul 01, 2026 at 07:54:56PM +0530, Gokul Praveen wrote:
+>> Update maxItems value of "clocks" property to 3 as description of
+>> this parameter already indicates 3 clocks(refclk,pll1_refclk(optional)
+>> and phy_en_refclk(optional)).
+> But what if description is wrong? You need to provide rationale why you
+> are doing it and you cannot use existing code alone as that rationale,
+> because as you pointed out - existing code is not fully correct.
 
-> 
-> >  &uart1 {
-> >         status = "okay";
-> >  };
-> > diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-> > index 1d73abffa6b7..a687eb3e3190 100644
-> > --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-> > +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-> 
-> Please split chips dtsi and boards dts to two patch.
+The description is correct because not all device may have 2 input  
+reference clocks , hence keeping the requirement of the 2nd reference 
+clock(pll1_refclk) optional.
 
-Ok, I will split the serdes_1 explicit enable into a prep patch.
+Just as a note: phy_en_refclk is an output clock.
 
-> 
-> > @@ -621,17 +621,163 @@ soc: soc {
-> >                 ranges;
-> >                 dma-ranges = <0x0 0x0 0x0 0x0 0x10000 0x00000000>;
-> >
-> > +               /* Note on the interpretation of SerDes lane numbering from
-> > +                * LX2160ARM lane mappings for RCW[SRDS_PRTCL_S1]:
-> > +                * The letters (A-H) correspond to logical lane numbers in the
-> > +                * SerDes register map (lane A's registers start with LNAGCR0),
-> > +                * while the numbers (0-7) correspond to physical lanes as
-> > +                * routed to pins.  SerDes block #1 is flipped in the LX2160A
-> > +                * floorplan (logical lane A goes to physical lane 7's pins),
-> > +                * while SerDes blocks #2 and #3 are not.  The lanes below are
-> > +                * listed right to left when looking at that table.
-> > +                * Both the numbers and the letters are according to the logical
-> > +                * numbering scheme, and do not account for the flipping.
-> > +                */
-> ...
-> > +                       compatible = "fsl,lx2160a-serdes3";
-> > +                       reg = <0x0 0x1ec0000 0x0 0x1e30>;
-> > +                       #address-cells = <1>;
-> > +                       #size-cells = <0>;
-> > +                       status = "disabled";
-> 
-> status should be last property
+In those cases the multilink serdes configurations requiring 2 different 
+input reference clocks will not work due to the limitation of having 
+only 1 clock.
 
-Ok, will move it.
+However, when it comes to devices where 2 different input reference 
+clocks are supported and a multilink serdes configuration is 
+needed(where the links require separate reference clocks for each 
+protocol so as to cater to the  different clocking speed requirements of 
+these links).
 
-> 
-> > +                       #phy-cells = <1>;
-> > +
-> > +                       serdes_3_lane_a: phy@0 {
-> > +                               reg = <0>;
-> > +                               #phy-cells = <0>;
-> > +                       };
-> > +
-> ...
-> > +
-> > +#include "fsl-lx2160a-rev2.dtsi"
-> > +
-> > +&serdes_1 {
-> > +       compatible = "fsl,lx2162a-serdes1", "fsl,lynx-28g";
-> > +
-> > +       /delete-node/ phy@0;
-> > +       /delete-node/ phy@1;
-> > +       /delete-node/ phy@2;
-> > +       /delete-node/ phy@3;
-> 
-> Now, do not perfer delete-node. if ver2 is not include phy@0, ...
-> 
-> create ver2 files, let ver2 include it. Now most people like A + B, not
-> A - B.
-> 
+Hence, in this case ,2 different input clocks are needed so as to cater 
+to 2 different clock speeds.
 
-I am not sure I follow what you say about the ver2 files - are you
-referring to -rev2 or LX2162A?
+For eg: In the USXGMII+SGMII multilink serdes configuration which I had 
+tested, it failed because
 
-The LX2162A is a version of the LX2160A SoC, also known as "LX2-Lite".
-And the main difference is that the LX2162A does not have the 3rd SerDes
-block and only 4 SerDes lanes on the first block.
+USXGMII requires an input clock speed of 156.25 Mhz and SGMII protocol 
+requires an input clock speed of 100 Mhz.
 
-The delete-node is reflecting exactly how the SoCs came about, the
-LX2162A is a smaller version of the LX2160A (which came first) and not
-the other way around.
+But, since there was only one input clock(refclk) mentioned in the 
+clocks and clock-name parameter , this multilink serdes configuration 
+failed.
 
-I feel like it's unnecessary churn but let me know if you feel strongly
-about this.
+Hence, to make it work, the pll1_refclk had to be added which provided a 
+clock speed of 156.25 Mhz for USXGMI and the refclk provided
 
-Thanks,
-Ioana
+a clock speed of 100 Mhz  for SGMII.
+
+>> Update the maxItems and items value of "clock-names" property with multiple
+>> combination of clock-names possible since pll1_refclk and phy_en_refclk are
+>> optional clocks.
+> Why? You need to describe why you are doing this, not what you are
+> doing.
+Sure , Krzysztof, I will be careful about that and prioritize that in 
+the commit message.
+>> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+>> ---
+>>   .../bindings/phy/phy-cadence-torrent.yaml        | 16 ++++++++++++----
+>>   1 file changed, 12 insertions(+), 4 deletions(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+>> index 9af39b33646a..96c664d50629 100644
+>> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+>> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
+>> @@ -34,7 +34,7 @@ properties:
+>>   
+>>     clocks:
+>>       minItems: 1
+>> -    maxItems: 2
+>> +    maxItems: 3
+>>       description:
+>>         PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for PLL1).
+>>         pll1_refclk is optional and used for multi-protocol configurations requiring
+>> @@ -45,9 +45,17 @@ properties:
+>>   
+>>     clock-names:
+>>       minItems: 1
+>> -    items:
+>> -      - const: refclk
+>> -      - enum: [ pll1_refclk, phy_en_refclk ]
+>> +    maxItems: 3
+> Drop
+Sure, i will do that Krzysztof.
+>> +    oneOf:
+>> +      - items:
+>> +          - const: refclk
+>> +      - items:
+>> +          - const: refclk
+>> +          - enum: [ pll1_refclk, phy_en_refclk ]
+> Drop these, pointless. You were supposed to grow existing syntax.
+>
+>> +      - items:
+>> +          - const: refclk
+>> +          - const: pll1_refclk
+> So here is the enum.
+>
+>> +          - const: phy_en_refclk
+> And this stays.
+>
+> You make changes which do not make the binding better and are not
+> explained in commit msg. Focus on WHY you are doing things and also
+> explain WHY you did such complicated syntax (if you insist on rewriting
+> correct code into something odd we do not expect).
+
+So, the reason I added the oneOf property is to support the following 
+combinations because pll1_refclk and phy_en_refclk are optional clocks. 
+With the earlier enum , only either of pll1_refclk or phy_en_refclk
+
+can be used and both cannot be used at the same time.
+
+Combination 1: refclk
+
+Combination 2 : refclk, pll1_refclk
+
+Combination 3: reclk, phy_en_refclk
+
+Combination 4: refclk, pll1_refclk, phy_en_refclk
+
+
+Please feel free to suggest any alternative solution to support these 
+combinations .
+
+>
+> Best regards,
+> Krzysztof
+>
+>
 
