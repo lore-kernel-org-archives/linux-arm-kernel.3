@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94CB4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 22:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E7DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 22:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uIK2wXZt6lpexw1RHubScXDuScpKzH+Rgz4MJDFq5qU=; b=qnnmekrFq8o4WS+XBrq908g+wc
-	vFJe87qVM6eEM0SUvkClB7Z6ePySrRaAIKqA4dYd/4Yvrubl8a7YBzBIPQWbGwENzCJ4YoXO6xvUc
-	uGp0BSJ0decnnP7oCoq7MF89/qKQlm9YO96hVYjwFOwyT/cpaUwODsaGIGvbKOOd8ynby2QN7KTMC
-	bB/Au5wRNIFTvhaESUpBQ8HoFwD9dLCPI2jkZFdt7RI7qh3sMV4mHiuyNuSL14PajUzWiDlPXrakq
-	vx/WM/KDBztmbJo3Er03NxsuanrZ14s45DjRt2TvPPaCAklrm5ZCIAOlpCoh2i9sLoVIGRDQSRrRu
-	LRu6n2iQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LfyAhQAcQ3NOrWoqIvJ2GPeDBBT7QofvMEvV8x5OqSI=; b=EnJEbHXMiI3nusMcUWf/m0DaSF
+	6QdFexjXRnJdiiwDThZeHY+ZNj1uVc4Yhvu2QA7Twa2JEdaRR705JuXgNErCwR2a76mNYa6Ude2yR
+	A+jtpdam6OGzND5AmgTI0IzLIOPMhbdEoEfrG8W4q8f2GibDum8v3aj3oBUxlzkxnXpgdKUef6Pq0
+	G9LR9jSpKSon2uXjLEGtiQmfBUJ3yFwU4nb2F5E33L5EKyZfKgfiIvz/SChMebsn3qKyTYTtOBZ11
+	iwRCk5LwydAzOrjMaowUQVrMrSA248rJX2ITFCN8pNFxMSxZhnHulzvrCji5U/6Qzi/kdN5KCgp5f
+	gsPU5gpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPkL-00000005f46-3HH7;
-	Thu, 02 Jul 2026 22:19:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfPaE-00000005cWD-0QoL;
+	Thu, 02 Jul 2026 22:08:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPkJ-00000005f3o-3jep
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 22:18:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE5DC601CA;
-	Thu,  2 Jul 2026 22:18:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C475C1F000E9;
-	Thu,  2 Jul 2026 22:18:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783030738;
-	bh=uIK2wXZt6lpexw1RHubScXDuScpKzH+Rgz4MJDFq5qU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=CREfmupkg9nGL3Ew/EXkU+T+JQ5dKch4+F69AFVz1GLhUkftCOhcFGPBzPexsATpg
-	 mQiSkKSBD25mkuLuGkKyDmZzv9I/Ro+8oHqZgvFQhJMxhSecuVGMJmDJSx4ogYFZC3
-	 B2mOYGl5oqKY53a/9CJUhZ6HYNzvYlB0GhRiadeHqeHGmna98l/U9FJc2ewjiKekPw
-	 O32zadvoqu44Ue+iLi3eIufTKALzVX4kdUczoVvbSQbq/rxYndz2l9HM2NvqxeQAW5
-	 dTlVRvBWatCFscdttyyBGR44vNEBXE08f7/eboDUucWlsy7T53xYTmGa0ElJSEheJH
-	 eVIO69EYIlprQ==
-From: Thomas Gleixner <tglx@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>, linux-pci@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>, Marc Zyngier
- <maz@kernel.org>, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
- Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn
- Helgaas
- <bhelgaas@google.com>, Catalin Marinas <catalin.marinas@arm.com>, Conor
- Dooley <conor+dt@kernel.org>, Geert Uytterhoeven
- <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Manivannan Sadhasivam
- <mani@kernel.org>, Rob Herring <robh@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 4/5] irqchip/gic-v3: Add Renesas R-Car Gen4 erratum
- workaround
-In-Reply-To: <20260701203918.63189-5-marek.vasut+renesas@mailbox.org>
-References: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
- <20260701203918.63189-5-marek.vasut+renesas@mailbox.org>
-Date: Fri, 03 Jul 2026 00:18:55 +0200
-Message-ID: <87wlvdm3w0.ffs@fw13>
+	id 1wfPa5-00000005cIA-0bjW;
+	Thu, 02 Jul 2026 22:08:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 81D3543F5C;
+	Thu,  2 Jul 2026 22:08:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 5B8B3C4AF10;
+	Thu,  2 Jul 2026 22:08:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783030104;
+	bh=fCy4Fkxj2qxqtqGzteVHLlq0TEFbaiOWH6aIx20fMW8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=cQZYDk/I238PYzxVwypybvrMnkwKmUmtEyNgjnQb02EKApLDjG0kiL7K8Xy/572jA
+	 uiOCBnRyxtrjSgxbZRjuDpgXK2G5Z/M2ctBraofYsz4nTCnH8j/dHZvrBKWBX5+gNm
+	 5enTnsW1Ehqj66QhO8mUeh9ClDhk0HT7YEfzXcfhKhRKwuCe3QL0b8veOs9bHOeE/i
+	 GhwwTbK2O1PACYuSF/PCgJDGK/dqvMNCytHIxJYxSQxTysnVCyeF/pTeKlV4Krq7tz
+	 jp4MrbyMveAeh538OfOSKkZ3HWOaFoDYPahkUxMMVuJErBOIHxpqZJo8/LqIi8TRq9
+	 XbWZU3ElBmOOQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 4BA79C43458;
+	Thu,  2 Jul 2026 22:08:24 +0000 (UTC)
+From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
+Date: Fri, 03 Jul 2026 00:07:27 +0200
+Subject: [PATCH 12/12] arm64: dts: rockchip: add support for NanoPi M6
+ board
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260703-nanopi-m6-v1-12-8344a1559519@gmail.com>
+References: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
+In-Reply-To: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Joachim Eastwood <joachim.eastwood@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783030102; l=6027;
+ i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
+ bh=2mNPxmqfxuyRvqPxlE8+aLpY5uISihuqVZcpivsPJ9U=;
+ b=SbRqbjNr+VW+ArL959dTIOs887PG74tl9K1aTfcS5Q9J4Byp54YcZHWjt334x5dzKtMJz4E7S
+ H0JWVX//wdhBHIuXIb9eutU4tzwt/sEdXhB4J6MMugxiwZ6jKfbO8lE
+X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
+ pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
+X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
+ with auth_id=846
+X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,28 +81,247 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01 2026 at 22:37, Marek Vasut wrote:
-> Renesas R-Car S4/V4H/V4M GIC600 integration has address width for AXI
-> or APB interface configured to 32 bit, it can therefore access only
-> the first 4 GiB of physical address space. This information comes from
-> R-Car V4H Interface Specification sheet, there is currently no technical
-> update number assigned to this limitation. Further input from hardware
-> engineer indicates that this limitation also applies to R-Car S4 and V4M.
-> Name the limitation GEN4GICITS1, and add a driver quirk to mitigate this
-> limitation.
->
-> The quirk is keyed on the combination of the GIC implementation
-> and the platform identification in the device tree.
->
-> Acked-by: Marc Zyngier <maz@kernel.org>
-> Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+From: Joachim Eastwood <joachim.eastwood@gmail.com>
 
-Assuming this goes through the PCI tree:
+The NanoPi M6 board shares most of the features of the R6 boards.
 
-Acked-by: Thomas Gleixner <tglx@kernel.org>
+Main differences:
+* M.2 M-key slot with PCIe (Also present on R6C)
+* M.2 E-key slot with PCIe and USB (from hub)
+* 1 additional USB 2.0 port from an on-board USB hub
+* RT5616 audio CODEC
+
+Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/Makefile              |   1 +
+ arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dts | 200 +++++++++++++++++++++
+ 2 files changed, 201 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index 761d82b4f4f2..2867830eddf8 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -218,6 +218,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-evb1-v10.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-gameforce-ace.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-indiedroid-nova.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-khadas-edge2.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-m6.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6s.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-nanopi-r6c.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588s-odroid-m2.dtb
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dts b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dts
+new file mode 100644
+index 000000000000..64448bf55cf7
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-nanopi-m6.dts
+@@ -0,0 +1,200 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++
++/dts-v1/;
++
++#include "rk3588s-nanopi.dtsi"
++
++/ {
++	model = "FriendlyElec NanoPi M6";
++	compatible = "friendlyarm,nanopi-m6", "rockchip,rk3588s";
++
++	sound {
++		compatible = "simple-audio-card";
++		pinctrl-names = "default";
++		pinctrl-0 = <&hp_det>;
++
++		simple-audio-card,name = "realtek,rt5616-codec";
++		simple-audio-card,format = "i2s";
++		simple-audio-card,mclk-fs = <256>;
++
++		simple-audio-card,hp-det-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_LOW>;
++
++		simple-audio-card,widgets =
++			"Headphone", "Headphones",
++			"Microphone", "Microphone Jack";
++		simple-audio-card,routing =
++			"Headphones", "HPOL",
++			"Headphones", "HPOR",
++			"MIC1", "Microphone Jack",
++			"Microphone Jack", "micbias1";
++
++		simple-audio-card,cpu {
++			sound-dai = <&i2s0_8ch>;
++		};
++
++		simple-audio-card,codec {
++			sound-dai = <&rt5616>;
++		};
++	};
++
++	adc-keys-1 {
++		compatible = "adc-keys";
++		io-channels = <&saradc 1>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <1800000>;
++		poll-interval = <100>;
++
++		button-maskrom {
++			label = "Recovery";
++			linux,code = <KEY_VENDOR>;
++			press-threshold-microvolt = <1800>;
++		};
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		sys_led: led-0 {
++			label = "sys_led";
++			gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
++			linux,default-trigger = "heartbeat";
++			pinctrl-names = "default";
++			pinctrl-0 = <&sys_led_pin>;
++		};
++
++		user_led: led-1 {
++			label = "user_led";
++			gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_HIGH>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&user_led_pin>;
++		};
++	};
++
++	vcc_3v3_pcie: regulator-vcc-3v3-pcie {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio3 RK_PC6 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pcie2_2_pwren>;
++		regulator-name = "vcc_3v3_pcie";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vcc5v0_usb_otg0: regulator-vcc5v0-usb-otg0 {
++		compatible = "regulator-fixed";
++		enable-active-high;
++		gpios = <&gpio3 RK_PD4 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&typec5v_pwren>;
++		regulator-name = "vcc5v0_usb_otg0";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++
++	vdd_mpcie_3v3: regulator-vdd-mpcie-3v3 {
++		compatible = "regulator-fixed";
++		/* Controlled by EXT_EN on RK806 */
++		regulator-name = "vdd_mpcie_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		vin-supply = <&vcc5v0_sys>;
++	};
++};
++
++&i2c7 {
++	clock-frequency = <200000>;
++	status = "okay";
++
++	rt5616: codec@1b {
++		compatible = "realtek,rt5616";
++		reg = <0x1b>;
++		clocks = <&cru I2S0_8CH_MCLKOUT>;
++		clock-names = "mclk";
++		#sound-dai-cells = <0>;
++		assigned-clocks = <&cru I2S0_8CH_MCLKOUT>;
++		assigned-clock-rates = <12288000>;
++
++		port {
++			rt5616_p0_0: endpoint {
++				remote-endpoint = <&i2s0_8ch_p0_0>;
++			};
++		};
++	};
++};
++
++&i2s0_8ch {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2s0_lrck
++		     &i2s0_mclk
++		     &i2s0_sclk
++		     &i2s0_sdi0
++		     &i2s0_sdo0>;
++	status = "okay";
++
++	i2s0_8ch_p0: port {
++		i2s0_8ch_p0_0: endpoint {
++			dai-format = "i2s";
++			mclk-fs = <256>;
++			remote-endpoint = <&rt5616_p0_0>;
++		};
++	};
++};
++
++&pcie2x1l1 { /* M.2 E-key 2230 */
++	vpcie3v3-supply = <&vdd_mpcie_3v3>;
++};
++
++&pcie2x1l2 { /* M.2 M-key 2280 */
++	pinctrl-0 = <&pcie2_2_rst>, <&pcie20x1m0_clkreqn>, <&pcie20x1m0_waken>;
++	vpcie3v3-supply = <&vcc_3v3_pcie>;
++};
++
++&pinctrl {
++	gpio-leds {
++		sys_led_pin: sys-led-pin {
++			rockchip,pins = <1 RK_PA4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++
++		user_led_pin: user-led-pin {
++			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	headphone {
++		hp_det: hp-det {
++			rockchip,pins = <1 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	pcie {
++		pcie2_2_pwren: pcie2-2-pwren {
++			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++
++	usb {
++		typec5v_pwren: typec5v-pwren {
++			rockchip,pins = <3 RK_PD4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&u2phy3 {
++	status = "okay";
++};
++
++&u2phy3_host {
++	phy-supply = <&vcc5v0_host_20>;
++	status = "okay";
++};
++
++&usb_host1_ehci {
++	status = "okay";
++};
++
++&usb_host1_ohci {
++	status = "okay";
++};
+
+-- 
+2.55.0
+
+
 
