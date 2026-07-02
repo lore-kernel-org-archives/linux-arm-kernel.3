@@ -4,82 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC8BDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 21:47:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1FFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 21:48:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wYlRXCVJKrTzkh2SOQCVT+3zpW7jFoZSEU7DdtLsx1U=; b=UT+87TrYHqZBzA8PvKPu1xRAgA
-	dw4WWJYITV7QmFmfMKdcRmithAeDg1vnM3R86zh+FvoWQ/vDG1PCmMmmHn1Uwg3+7zVQyEGU6l/Ky
-	iK0NuUenXJIU6T56GcE8sZCM1Va/OpkN7qf6wFNZYRXMMlZy5nXV39vhC/Nkl/TfCJAE54nNT12On
-	ZD1QTuPVHRNL6OzPUuHLTg6HRiIxlrfP2qKxTRyZZRyETnw72dJ6Sd7tCb3sumQ3/R7mSIPBkVmPd
-	nsekX49J4fungUd2KWeIQzl6M9UqglR6zH1ZFG27oyGEGiDnUIoad7imIv8I6T1uRyGz/e5kHXRoJ
-	XsE1Ws5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=18nIAbqKxzsmmO3drAP1NepHg/ALBFCMR+9YkWtnWsM=; b=NfS/vTbnkFq234JUE6fPKKxnsO
+	OmA/7Aewmdy7+D2pKhT3AWQpyRqsY8IS9pvcjCJEelVJOJVZ5+qLPpdGspyr59V2e/pyvurw+mDHa
+	uymU6goXiwuFvktAYn3pHAF2NLJCM/8SdNeddBiGt3KFFT1d3SA+nintuZrd2a4ZaVYsiUzvcFcMu
+	XYbtr/H0a9r82bry5FPvG2DSp9keClC4MPhaEEOpnV6SFE6cBVcCpfuIRoxjxEIUMNs4m4LeoxRQn
+	n/YG39Qm8rtVY78/1CqNQDViRkf5VHNPAAzxb9HVpUTqBa4NXaYkWgR2wk6o6QAa68RsON8VsMWmv
+	o/K/eeoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPFh-00000005Yvm-2EHC;
-	Thu, 02 Jul 2026 21:47:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfPGL-00000005Z6u-3aGM;
+	Thu, 02 Jul 2026 21:48:01 +0000
+Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPFg-00000005YvU-1D8I;
-	Thu, 02 Jul 2026 21:47:20 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3DC83601F7;
-	Thu,  2 Jul 2026 21:47:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E44621F000E9;
-	Thu,  2 Jul 2026 21:47:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783028838;
-	bh=wYlRXCVJKrTzkh2SOQCVT+3zpW7jFoZSEU7DdtLsx1U=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=eJvkElSckzELQhQLTv2Ehk/8G2ILjzx0SDpnn9TgfvZLosndBY0GfJFQepuRKwazh
-	 SosWlzjBePlEbBTgT9/Jg/mzcBDXWSR1XmREQAG7w1WPffgdQ0Dg9g4TuX/DBdPFU/
-	 wcBMvNk7YoTjof08DNuF/pqZki7N3cGE5vOnM/qbn1nzW5GPr80FOW38Vu1hc/xEeo
-	 iVFXEMYD27tSpR1bCYXSwxWcAEihvYXChO0Ei01M1HPJIWNcpUg/7tp/UCI8eKTCbF
-	 yLCzad17BoziCVNZUVc/9BoI+w4aRBPuXsDalpbEwN3c52u46TG//xGWQLVbC89IqQ
-	 spcEKsgrAd3mQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wfPFc-00000000vHl-3yIO;
-	Thu, 02 Jul 2026 21:47:17 +0000
-Date: Thu, 02 Jul 2026 22:49:05 +0100
-Message-ID: <87ik6x6p0u.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Len Brown <lenb@kernel.org>,
-	Sunil V L <sunilvl@ventanamicro.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org,
+	id 1wfPGJ-00000005Z5d-2RKX
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 21:48:00 +0000
+Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-6647bc8f900so2593086d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 14:47:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783028878; x=1783633678; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=18nIAbqKxzsmmO3drAP1NepHg/ALBFCMR+9YkWtnWsM=;
+        b=cq9YnyDAr1zhoEBuTUT3XORsghNA10D0AnaoP1O5tNMonQTmVA1Z4n9NmqcG9+Lqjw
+         HeTvZt/5mRSyv298+f5lBSzNv45m3aVpS26GLqd07aR64lImXKwczyfxLaBjkPdRdlL9
+         6T5LgJFodsYlsQd69+TJhDM6yJsc24Q/HexhEq/h6AN1NAaEzBtkI/Gvwzg8gmqPA5B0
+         xe9vpDqjk4mFB7CzqE9BvRnpwZsJCx+4E3wqzCH2oOR1Kwue/C22H4Luyrrt2H4Hj0uv
+         t0V2MQ0Bf5tdEwrIkaNvVMjJhahSgPELeUE8YOm7Zl3Q5RUnIP6C6rycOQUBzPAFXgcB
+         zKew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783028878; x=1783633678;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=18nIAbqKxzsmmO3drAP1NepHg/ALBFCMR+9YkWtnWsM=;
+        b=oxOpPeWxc1q5wIuOFG0b3ejOGYav6IzAx1sF20k1O7dsfluh0PIH8RZZS2vHq1NkOR
+         VqXaQpCAlk3YHEwyc6Rg8MDzRM28i/TcB6/eHLG/GNX8wGukDA/RdTLn+tev8KkGdvqd
+         XQgc8u86RRnBz7sSX85VzCW28KC8Pq0tnKAkvT6xqwuUzobTcSyi9QB8rkd1lYoRcN7c
+         ufzon/jcqDL/o8BQim6+v5G1+5A+/C+G0doOaSrpAvlp821P9JLuuYxhpZjEZH63aeZs
+         yIA5LKHYB7T72BXsheUxQ8um/QuUHQpjP1mhASZeM+vLXx4qUwzMWldHHnEARJprCtxm
+         OeMw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqe5tDjgnPgVlOIVk13HEjdwaq/ZgNr1IlPXOJWIO/jCrs4O6DZ4CSr+79Q3OYQO8Q5cEBMsyPnQjRo6nZV6PMO@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxxycm4tLgXx43JND9itG3HrzqWPxh7Cy/R/gVTQblttxcxyxLy
+	7PsySvJAob1bXuDc2CtBtVreB3SAeC7yQoeZFiYUvORds/Wu4Ve4nTTb
+X-Gm-Gg: AfdE7cmuA2/5nRjGroe110raZwrDv61u6Asq2zKl7vC3bnnyQZPYgKZjl6Z7vP/Do6M
+	nvuZo3MK08WU1Hl1OyKby0Q/o6MwW5gfzuJZNUbQmUYD+G1Gl1Q0xQPTDfNjR68Ex23a1o6E2/T
+	Hol01Ysxsq4aaBXSvcC7Sn6/i6SKFXMndMG07GX/4rCDuUDy2ps6+Qiffz5IR93xe6yapQPOVzF
+	dbtz6jWziOEHRLm0Ms1Yt0zUCInhOBlCwrQ9nIr3mc2ODZ2Pr2FxkIyeV8Os4yduhUOI0yAxw8o
+	ZYZQP5ytSFpGz6Fuxk9R8qEkOU6EXfd+tBwg+0N4L6mtobV0Fr3Ssv4uihKbaG3jFOiwKkPwZJV
+	IZjWB+6NBzpdXLmzcu+QB2VSX1RC3E4sz0mI6tM29pX+/R7WmofmBdwcBTpqOFLwSJ6ltWuaBkq
+	na51wnQjY2LcAnn5gf8LFjxxJZ09iJ4asNApdmileH/+xaqTw=
+X-Received: by 2002:a53:d018:0:b0:664:f107:6cfc with SMTP id 956f58d0204a3-66521a8b7ecmr6972277d50.36.1783028877506;
+        Thu, 02 Jul 2026 14:47:57 -0700 (PDT)
+Received: from zenbox ([2600:1700:18fb:6011:169a:36bf:d0a4:1d7c])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-66624021a75sm1631772d50.11.2026.07.02.14.47.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jul 2026 14:47:57 -0700 (PDT)
+From: Justin Suess <utilityemal77@gmail.com>
+To: Sean Young <sean@mess.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>
+Cc: linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>
-Subject: Re: [PATCH v3 7/7] irqchip/gic-v5: Enable GICv5 IWB ACPI probe ordering detection
-In-Reply-To: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-7-c5562cf0fe29@kernel.org>
-References: <20260701-gic-v5-acpi-iwb-probe-deferral-v3-0-c5562cf0fe29@kernel.org>
-	<20260701-gic-v5-acpi-iwb-probe-deferral-v3-7-c5562cf0fe29@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, rafael@kernel.org, lenb@kernel.org, sunilvl@ventanamicro.com, tglx@kernel.org, chenhuacai@kernel.org, anup@brainfault.org, guohanjun@huawei.com, sudeep.holla@kernel.org, catalin.marinas@arm.com, will@kernel.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, rafael.j.wysocki@intel.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-sunxi@lists.linux.dev,
+	Sashiko <sashiko-bot@kernel.org>,
+	Justin Suess <utilityemal77@gmail.com>
+Subject: [PATCH 0/4] media: rc: sunxi-cir: support the A523/H728/T527 IR receiver
+Date: Thu,  2 Jul 2026 17:47:46 -0400
+Message-ID: <20260702214750.3428694-1-utilityemal77@gmail.com>
+X-Mailer: git-send-email 2.54.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_144759_653055_293F40AF 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,32 +107,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Jul 2026 15:38:55 +0100,
-Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
-> 
-> Register an ACPI hook in the ACPI interrupt management code for GICv5 to
-> retrieve the ACPI interrupt controller handle (if any) of the controller
-> handling a specific GSI, by updating the acpi_set_irq_model() call with
-> the gic_v5_get_gsi_handle() function pointer parameter.
-> 
-> gicv5_get_gsi_handle() allows ACPI core to detect the ACPI handle
-> of the controller that manages a specific GSI interrupt.
-> 
-> Update the IWB driver to clear device dependencies in ACPI core once the
-> IWB driver has probed.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v5-iwb.c |  2 ++
->  drivers/irqchip/irq-gic-v5.c     | 11 ++++++++++-
->  2 files changed, 12 insertions(+), 1 deletion(-)
+This series adds support for the CIR receiver found in the Allwinner
+A523/T527/H728 family (sun55i). The only board in this family that I
+am in possession of that has the IR receiver is the x96qpro+, so it is
+just enabled for that board. The Avaota A1 may have it, but I don't have
+hardware to test, so it's just enabled on the x96qpro+ for now, but
+left in the a523 DTSI for future use.
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+The sun55i family carries a newer revision of the sunxi CIR IP that is
+not backwards-compatible with the prior hardware. So a new pulse
+capture mode field in the control register resets to 0 by default,
+which captures nothing, and the sample clock divider became selectable
+instead of the fixed module clock / 64.
 
-	M.
+Solve this by adding the two new registers, enabling the setting of the
+pulse capture mode register and the selection of the clock speed.
+
+The new compatible is therefore added standalone, without the
+usual sun6i-a31-ir fallback (it won't work).
+
+Tested on an X96Q Pro+ (H728) TV box with the Google TV remote that
+came in the box (using NEC keymap). Was able to press buttons and
+get readings from lirc / ir-keytable.
+
+The series is based on tag v7.2-rc1 on mainline.
+
+Justin Suess (4):
+  media: dt-bindings: allwinner,sun4i-a10-ir: add A523 compatible
+  media: rc: sunxi-cir: add support for the A523
+  arm64: dts: allwinner: a523: add IR receiver node
+  arm64: dts: allwinner: a523: enable IR receiver on the X96Q Pro+
+
+ .../media/allwinner,sun4i-a10-ir.yaml         |  1 +
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 19 +++++
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    |  4 +
+ drivers/media/rc/sunxi-cir.c                  | 76 +++++++++++++++----
+ 4 files changed, 87 insertions(+), 13 deletions(-)
 
 -- 
-Jazz isn't dead. It just smells funny.
+2.54.0
+
 
