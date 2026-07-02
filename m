@@ -4,72 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637E9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 13:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C0CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 13:05:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NJgbIXZ3VpQAEIiycSutVcOhsZeQIS/TD9wj0KScBzk=; b=LZCdKTmJecZc52pBsmr7tyc5Oh
-	k7uQ5tpbqndasRxk/qhg2b7HJVX78DSGIotHjdpgo99XCNueec/yujNd7KUEsfTf0XvZlUSCogei+
-	h+DUhrGB2Ku1bapwmT2nLj9Ix4kIlfRXcZ1K2CUKslylLNuqpQ8Bf8YkreOd1/yOWpkzbQxMQXWTC
-	yA+Z2wv03TuTQ2pMUTxmjbSJ1YyPb1eiUxFzARocGMM2xhAPrCq6wFQOU1z1e9EmQeAd+/n3IrOjB
-	dSjTQSgub7eFLIbRvl0OSzL/fPzEIZYE2VO0ACt29Zdnwaanq/kkNriG2+M+pRrEpmkxUGpEAy9yj
-	C0D8vj2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rf/AIP5W1Ml2PF1aiOmBcunLO0rJAoqW5+UcaOZr+KI=; b=m/JhrmwKzEBgYKf+bqEzMhJ7QL
+	c2iNp3YnBIHecb5Ggf/uuM0Nrdr84Ruzf8WfpnBWjbf85skcvUQcHqp76t9Do2INMyauJGR85H1/S
+	rQgpPpUOftZo53/5chp/4Ye1wPWibIfBejs0Y7yfekB2gN9gGSuEPQF5Vlv2WqGA72HNPLrfsYkH5
+	JZN+6dgNAq49IHkahs0g+xxiG4i4EnI61XEKgY9UeK/mGGQhQ19uKsKGzDMs0xIpsHfgFh3UeJksx
+	qrg//tNeYajq5GnYaTxynXqP7lyUgq58piHuuJ8A7Nshu1UgXnSnGc3jOiDWWo33o8IayhUrpdwI7
+	a1jtW23Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfH2t-00000004UDg-1yJZ;
-	Thu, 02 Jul 2026 13:01:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfH6X-00000004UW7-4Bl1;
+	Thu, 02 Jul 2026 13:05:22 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfH2s-00000004UDB-0fSX
+	id 1wfH6T-00000004UVf-3yjB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 13:01:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7038560120
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 13:01:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27A681F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 13:01:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782997293;
-	bh=NJgbIXZ3VpQAEIiycSutVcOhsZeQIS/TD9wj0KScBzk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gbcnVwtjVe6iEzMwEU980PXG2ymJuMD9otIVeMnmk/FyvrGxy54d9r0OL6Z+V5VT4
-	 g1iApjkJrOOnFgH0KvOK9xXQpZWALRLPDnh48aLzNSyWkuLl0c8wHfRczW/aPaMhjO
-	 X7P4o0/QbE14PBLgTMAbQzQbKyfZYx7D/HcHeKPEQbPEz2a4XXuvVllVt8qlqLdaaO
-	 hskfBKRysc6YRB3eNBH+QC0C0vLqeFzsBPBkovBjsLPei9eWFkfm6Py+KYUNKwEjIn
-	 dP5toKw0YhqNBSmt4IgrI1maUfv9l54IV9TmHTz2wIeyt+LplhvgCEpl3cJMpAUcOQ
-	 20KyXVOeo6tSw==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aebae2f310so1635042e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 06:01:33 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rp/V8Fifo/oi5NQsOcapHyUxQ2UVFvPmDpbie8F1/NLm7K3BwGFf3jTjVqgC4aQupHVJHBqfH0JM6bDBnDRwBJk@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTxZHqRpi7K1RGVGktc8yN6cts+3D5QX+Y96nUYua3lcNgoiHJ
-	ahNG0KlIvg06+QppEbBT4Mgbu8sWLTh1+qf+mo0piJS0JrTDAZFZwD8e5QFaj/6vbD9S5dlJQ3C
-	ShbLk1AxGNruxLSmI2nCI2IhrOw6XESo=
-X-Received: by 2002:a05:6512:10c8:b0:5ae:b8f2:a63d with SMTP id
- 2adb3069b0e04-5aec68b9dbemr1645102e87.65.1782997291626; Thu, 02 Jul 2026
- 06:01:31 -0700 (PDT)
+	Thu, 02 Jul 2026 13:05:20 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=pwOFLSmCqjEBcTzmrkXoNU01Y62rrHOBTkxWWbGaLa3cl0AqQ0lwFR62aa8FCPtoZowt/mmFIPgW8PF8n/EALNm/EgmLdDtM7xAXzx6rlSdMP+uYMoG1XKCF6ACPPTkQQuxXl0oI+lhCNWIHUaZHTDOjR7Ao8Xy8YOOHwV36fV0uD0CS15aT8f5T0KH1FIfaSV+H+bPdWiYOcR6HwfH4ipA5N6C5B7ICGKsvddIGmfsTC3EzeatmFTIQYpzT9g2d5UQRlMgKLqAsHyxg72Baw3BFlO1mOuGZHYCuBb9Cw2w/AI/CUsptH/GwYaksBdDh75tumeuxWHyDxCqHQTLkwA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rf/AIP5W1Ml2PF1aiOmBcunLO0rJAoqW5+UcaOZr+KI=;
+ b=PzjpnxD+l3N7z1edCK27FPRvmdz1hXZvDDcdJT7CbHmCDGnHKs5dPTkfrST3eLqUTmq8iQso56SJvJ9V/yJvgHyXPIg93Wvgu9gql4F4t7PfCjjHcc4RUF2Fb1jSJRrFmUS6HxHOZNzMr4zqwZHWZDBS54CQRXId8tZneBG3AS4Qv/wrt5+2j3SiC3kNKKba0z7iS0UPkl4m13raXI+zoWB5ZyK9Zcx86NOxwdcp/RKBxjAAnEC35gtGr+4FwjEd/GtYBVqJuGnW38LEAZ0NkPv3neCnuA4zM+0adpTeFziULgwrJVOW0l1OXR1JmiUtDFz91w7uRigWl+7gHgsYsQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=nvidia.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rf/AIP5W1Ml2PF1aiOmBcunLO0rJAoqW5+UcaOZr+KI=;
+ b=XNnX8toqKMwCV1h2UaVRBWW9j/f2VYelSXnc3l7nTuoKPrbx/AYAo3Z0vv/p9dyvrAKqaK1azmX7664PVwVy8lcU396gPe51THNQzxRVVlJG3+l3suO+nEdKB9H5qWT4o7scx6FjQ+lZja+vnbTFczu3qDQnJetoChEvnr7388I=
+Received: from AM0P190CA0018.EURP190.PROD.OUTLOOK.COM (2603:10a6:208:190::28)
+ by PA4PR08MB6143.eurprd08.prod.outlook.com (2603:10a6:102:ed::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
+ 2026 13:05:08 +0000
+Received: from AMS1EPF00000090.eurprd05.prod.outlook.com
+ (2603:10a6:208:190:cafe::5e) by AM0P190CA0018.outlook.office365.com
+ (2603:10a6:208:190::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.9 via Frontend Transport; Thu, 2
+ Jul 2026 13:05:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS1EPF00000090.mail.protection.outlook.com (10.167.242.87) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
+ via Frontend Transport; Thu, 2 Jul 2026 13:05:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KTaXarFHJtpmAaoUZn+jy4HxqjWfAxrpyItN5fwbMYSOoVLj5vTsWUZeUv8hoxU8Jm+xONWhCyAnq/Nz2nkdHAAuuNk9PpeYk/7RcfoO5E63dmQDmzMuixgHbtI1WLvHHcmmXxHstP3JfXtMvCrSNaH1fMxfREyGs2yWS9T/FsiDRsWr0+heS8IfRlyrCrwc3KW0GFX5oz+WUVKOh3VcZ3rDjlB0AwjAVFnjp1fGu+z+7bMh8Z0PeI/lxYnRms1S73U7ADuaR50B9QSwWReOxm0+H93ZkEzJCh6rbpExjScjRzNxmiJhJPlT1+WxmzoWvfexDwUr3YJnmturDGMKyA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Rf/AIP5W1Ml2PF1aiOmBcunLO0rJAoqW5+UcaOZr+KI=;
+ b=gHAWIdy6V4f0udqJd3SYRBqBYQErkOiV/28uu8phxOHOoBAlgt0BnkUCfivq+tCdqfJYiICSiWkrnoywyXzIA97IL+RTt1RFDopX5dVdPQRmEs/3gDNfAk50AZtm4equ1Emz/82/hx10QxAT/+QEJpCGn7QtmdI9Od11X55+saJ9Sa7YdcppTEuFbWgbIDcQvibc6n6RiInf57mUzRl9efJ9UJxTBecgpS/mciwThOiTZxC3kDm1/5FjwSiup7uqQsKlglU7uofwEVUDdGHNb0VsSAHyRiuizTpq/z8YBgrXFBfGCCdTrveRkn9YzEDMk8QCPAL9ENHVaozLzkFRZQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Rf/AIP5W1Ml2PF1aiOmBcunLO0rJAoqW5+UcaOZr+KI=;
+ b=XNnX8toqKMwCV1h2UaVRBWW9j/f2VYelSXnc3l7nTuoKPrbx/AYAo3Z0vv/p9dyvrAKqaK1azmX7664PVwVy8lcU396gPe51THNQzxRVVlJG3+l3suO+nEdKB9H5qWT4o7scx6FjQ+lZja+vnbTFczu3qDQnJetoChEvnr7388I=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
+ (2603:10a6:150:16f::10) by DUYPR08MB12013.eurprd08.prod.outlook.com
+ (2603:10a6:10:661::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
+ 13:04:05 +0000
+Received: from GV1PR08MB10455.eurprd08.prod.outlook.com
+ ([fe80::af66:6019:a08:d04]) by GV1PR08MB10455.eurprd08.prod.outlook.com
+ ([fe80::af66:6019:a08:d04%4]) with mapi id 15.21.0181.009; Thu, 2 Jul 2026
+ 13:04:04 +0000
+Message-ID: <591e7ac9-310e-40f4-ab22-161d6ea8f487@arm.com>
+Date: Thu, 2 Jul 2026 15:04:02 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] cache: add SMCCC-backed cache invalidate provider
+To: Srirangan Madhavan <smadhavan@nvidia.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>, Conor Dooley <conor@kernel.org>,
+ Jonathan Cameron <jic23@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Dan Williams <djbw@kernel.org>, Thierry Reding <treding@nvidia.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20260608220709.1300245-1-smadhavan@nvidia.com>
+ <20260608220709.1300245-3-smadhavan@nvidia.com>
+Content-Language: en-US
+From: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <bence.csokas@arm.com>
+In-Reply-To: <20260608220709.1300245-3-smadhavan@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO6P123CA0031.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:2fe::11) To GV1PR08MB10455.eurprd08.prod.outlook.com
+ (2603:10a6:150:16f::10)
 MIME-Version: 1.0
-References: <20260527082707.2013499-1-hejunhao3@h-partners.com> <6ebea989-81c7-6237-1a31-8d6975796680@h-partners.com>
-In-Reply-To: <6ebea989-81c7-6237-1a31-8d6975796680@h-partners.com>
-From: "Rafael J. Wysocki (Intel)" <rafael@kernel.org>
-Date: Thu, 2 Jul 2026 15:01:18 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0gPUi8ZoqVZ_hNk=R6mtB6xqRvYb4_EVwr77ApfHBR9ng@mail.gmail.com>
-X-Gm-Features: AVVi8CciIHZN9eidKgvBSyBcB7Vf9Vbo8s5r03M1pkruVy1XTlbnUAyoBFnSJK8
-Message-ID: <CAJZ5v0gPUi8ZoqVZ_hNk=R6mtB6xqRvYb4_EVwr77ApfHBR9ng@mail.gmail.com>
-Subject: Re: [PATCH v2] ACPI: APEI: Handle repeated SEA error storms
-To: hejunhao <hejunhao3@h-partners.com>
-Cc: rafael@kernel.org, tony.luck@intel.com, guohanjun@huawei.com, 
-	mchehab@kernel.org, xueshuai@linux.alibaba.com, jarkko@kernel.org, 
-	yazen.ghannam@amd.com, jane.chu@oracle.com, lenb@kernel.org, 
-	linmiaohe@huawei.com, bp@alien8.de, linux-acpi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-edac@vger.kernel.org, tanxiaofei@huawei.com, liuyonglong@huawei.com, 
-	mawupeng1@huawei.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10455:EE_|DUYPR08MB12013:EE_|AMS1EPF00000090:EE_|PA4PR08MB6143:EE_
+X-MS-Office365-Filtering-Correlation-Id: e80cc0d4-7da2-429e-4823-08ded83a8af5
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|11063799006|6133799003|22082099003|18002099003|5023799004|4143699003|56012099006;
+X-Microsoft-Antispam-Message-Info-Original: KKaTGNVUX345DpLGOJ/64oOCdVIIV45IOSitCXYfewlaSx4v5w0GXDZTahcavbtXI1z6yU2UY/8Xg9nIqOexghkdQ3D79Xf62cGW8KOnqTsw14ysZtlt75ETpJcSbSRCYopSzc+fBAEmXEhAND99dJ+HoPSdDh95G40N5g6m0PRr7G6cd/w8EhYytp4zxPYGOuHtBnwre2qff7kbRpk/wFr31uny+cNdSMMTaNkgsBHff5VGAEZoFvVvuHHZ4KEzdJz56rjfC5WFlBx3ZWN9Swg1ixsov1dGLJS06gOFxn6QLvH4AMimpDdQVZ7hDqutgkMFl/utCmGcoiZnWXkq/nY7gyyNPh2PHyD8SEIJXtnpa6Zxqt4YWABTjdnyVVmrj/K/FDW9/vXKysc81zqi34fCXN2gip6W0Geu+kiFR+zZcBgHykewrK/0cUJ2Gj6Gv/vvEwEWORO3XqfhHc9cWejt+ygw4a7CehFStRQXBItSCTcFDJoYGyFIQYsGnOaeczAf6JbazglIz6ZYoIF/AbmaJ0U9lWlkvLX/QySvGhdhPpVMaWhW2mpOovz52B7dIePQwD435Fe6HI/ccNqqnM23gw1gbDLXRFFhDoz1hjEw/UxC5LozrqpSekGvGgfdI0dCduf1bmFKxhy2jDcft2zwKke3/9ijPNgjGgwzkK0=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10455.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(11063799006)(6133799003)(22082099003)(18002099003)(5023799004)(4143699003)(56012099006);DIR:OUT;SFP:1101;
+X-Exchange-RoutingPolicyChecked: iptJ0ue64AawQo+XhJRJHuo1xtNpckqBrDPO5w/eHA/RH/9atOZkTBTpAnU7xMs/dGWj10OcTLLU5ht0KqWphmiq/aNtTAl6RvV1CPews5Ou29R7nA/D8HInFwKXUqd/LnO0ARA/DtnJJcmKAHzhmQpho77caiMCeojLGkKBL0qC9IsRC1tvcBtg49wP1PVFIqM+Wa0Hhx154gRLVJQ3iFBQzvQK4xLoB89G9vcI3lEx0aLSOB4/OThqoPTVxFHyjBiqaSfhWZZ1iUJNEOZwu1KEcgE/WrMSeph923iLrlH80rHPeUgdwtGQ6ROiusDOh8a7yoX8Q/j9C/iUlsaksQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUYPR08MB12013
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000090.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 2ee107b5-9db1-4d18-1b25-08ded83a64d3
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700016|1800799024|82310400026|7416014|376014|14060799003|23010399003|4143699003|11063799006|5023799004|22082099003|18002099003|6133799003|56012099006|13003099007;
+X-Microsoft-Antispam-Message-Info: wUhrkp1Z+RvjNX66iQrP1GEAYWrNrS4k8vIHOR7V9gwH06hMOPcGtKQJlTBrpI80k+pSjvfH8zZKTF6HLNXqdvxw+Fx2Z0i1Nilc84Vb8EGzHLnBvxdSU2qvc/FedwVTh8WsEhjecTnex4i+jnyiHD2yh9tbiP+OPnG0Wc1MNUcN1+8HWXquTHZ8BN3bJyb4czeXwWbyDSZxCJyPypWxq9ZBiAXs+tv/IYtdWfNQiN4RXvV8hX3VNiiRTDYuN+coPuebUKMogeuM32ntn+w6vtgvFO9pULraXsEHKEIrljDL16Ck04F2mkcLTcIxDkqxb4AEkAWOmpXxKeVX76Eib8EU3WhIj7pBXrsJ34YXNNB/Wd5+L9xJSy7JNZuQ75CQHFMYmmNUtIcq9eYsMspn0feT+WwET8i7My1TtTAEFLzPJIZGLrvPv8Nv/oHwzCVXv9hRzHKwbfIshj4YeqF2FIdCwhnpLgi4uV8C5ighPMC4B8gonL3kWBMqXX9sa+UWPenCB2ADZvbGrav26WQ1fjEgvT1/JuFzFyGA6csicz4jlWfI/t5Ltaxg1Tx0qKiDyUdWxMoRxGynyLeuR0xg+cDcLPH9l6/h/rPbhydJB22hTXYm3Cm+RYuzzjXGbWYYq2iVgOrpNpn0vyWX90AGKHom94ShMSDNdJVMFBW7hZbpoZMGCzk8eg4nPzvo7TOeiVinWnMLu46kW8kQpiAK5w==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700016)(1800799024)(82310400026)(7416014)(376014)(14060799003)(23010399003)(4143699003)(11063799006)(5023799004)(22082099003)(18002099003)(6133799003)(56012099006)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: 4orKJzptPxZKPIjfBCgG+eYA94wmAQG+14xac/4OcJ0nMWJW2LR9ecoIqZ+E6+p+j5TAeECla3S2v6y4VCew+p3QBpXqEVR+/dL+7BsjsbVbAAXsSRQW2RDsP2zc5VhmfJlHoDRF89C9kAoGLT6HxNUKCOiR/AJrkVB7sAR2AtU4zGKMEPpAZC8vWdiL3AebUp0y5tvwqLYUi/OiGiIEekxr2ibdCyZ01uzeSDn+KH01gzSBagg395oL2lgbMYP2GpEXjgIfN+/EO2jdbJAJmfOK1spWBap+zs0xDqSnwp+WhubG0wgcvk/xhWj9i8OQfOmkyJfquDslwpwd4GotK1XZA1r/kTUBuia1v6ay18oeFSPX5QwQwShSCQGURd44aip+dQCGKMA5/uhEGmPsaPD8DbARqxiQDs25s4p5Emwdou6xaPF9eUnxZyjj9yd2
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 13:05:08.3129
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e80cc0d4-7da2-429e-4823-08ded83a8af5
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000090.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR08MB6143
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_060518_317579_33E90D59 
+X-CRM114-Status: GOOD (  25.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,118 +162,260 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 2, 2026 at 2:50=E2=80=AFPM hejunhao <hejunhao3@h-partners.com> =
-wrote:
->
-> Gentle ping for this one, and it's ready.
+Hi,
 
-So it requires at least one ACK from a person listed as APEI reviewers
-in MAINTAINERS.
+I'm reading the 1.7 H BET0 [1] version of the spec (released 
+2026-04-20), and I see some discrepancies. Not sure if I'm the one 
+reading it wrong, or if you had a different version than me.
 
-> On 2026/5/27 16:27, Junhao He wrote:
-> > When hardware memory corruption occurs and a user process accesses the
-> > corrupted page, the CPU triggers a Synchronous External Abort (SEA).
-> > The kernel invokes do_sea() to handle the exception, which calls
-> > memory_failure() to handle the faulty page.
-> >
-> > Scenario 1: Memory Error Interrupt First, then SEA
-> > The page is already poisoned by the memory error interrupt path. The
-> > subsequent SEA handler sends a SIGBUS to the task, which accesses the
-> > poisoned page. This flow is correct.
-> >
-> > Scenario 2: SEA first, then memory error interrupt (problematic scenari=
-o)
-> > If a user task directly accesses corrupted memory through a PFNMAP-styl=
-e
-> > mapping (e.g., devmem), the page may still be in the free-buddy state w=
-hen
-> > SEA is handled. In this case, memory_failure() will poison the page wit=
-hout
-> > invoking kill_accessing_process(), and then takes the free-buddy recove=
-ry
-> > path.
-> >
-> > After the CPU returns to the task context, the task re-enters the SEA
-> > handler due to the same access. However, ghes_estatus_cached() suppress=
-es
-> > all subsequent entries during the 10-second window, preventing
-> > ghes_do_proc() from being called. This suppression blocks the
-> > MF_ACTION_REQUIRED-based SIGBUS delivery, causing the kernel to fail to
-> > kill the task immediately. Consequently, the process keeps re-entering
-> > the SEA handler, leading to an SEA storm. Later, the memory error
-> > interrupt path also cannot kill the task, leaving the system stuck in
-> > this repeated loop.
-> >
-> > The following error logs are explained using the devmem process:
-> >   NOTICE:  SEA Handle
-> >   [Hardware Error]: Hardware error from APEI Generic Hardware Error Sou=
-rce: 9
-> >   [Hardware Error]: event severity: recoverable
-> >   [Hardware Error]:   section_type: ARM processor error
-> >   [Hardware Error]:    physical fault address: 0x0000001000093c00
-> >   [T54990] Memory failure: 0x1000093: recovery action for free buddy pa=
-ge: Recovered
-> >   [ T9955] EDAC MC0: 1 UE Multi-bit ECC on unknown memory
-> >            (page:0x1000093 offset:0xc00 grain:1 - APEI location: ...)
-> >   NOTICE:  SEA Handle
-> >   NOTICE:  SEA Handle
-> >   ...
-> >   ...        ---> SEA storm
-> >   ...
-> >   NOTICE:  SEA Handle
-> >   [ T9955] Memory failure: 0x1000093: already hardware poisoned
-> >   ghes_print_estatus: 1 callbacks suppressed
-> >   [Hardware Error]: Hardware error from APEI Generic Hardware Error Sou=
-rce: 9
-> >   [Hardware Error]: event severity: recoverable
-> >   [Hardware Error]:   section_type: ARM processor error
-> >   [Hardware Error]:    physical fault address: 0x0000001000093c00
-> >   [T54990] Memory failure: 0x1000093: already hardware poisoned
-> >   [T54990] 0x1000093: Sending SIGBUS to devmem:54990 due to hardware me=
-mory corruption
-> >
-> > To resolve this, return an error when encountering the same SEA again.
-> > The subsequent SEA handler invocation uses arm64_notify_die() to send a
-> > SIGBUS signal to the task, which terminates the process and prevents it
-> > from re-entering the handler loop.
-> >
-> > Signed-off-by: Junhao He <hejunhao3@h-partners.com>
-> > ---
-> >  drivers/acpi/apei/ghes.c | 10 +++++++++-
-> >  1 file changed, 9 insertions(+), 1 deletion(-)
-> >
-> > Changes in V2:
-> > 1. update the commit message per suggestion from Xueshuai
-> > 2. Add a check to only return failure on the ghes_notify_sea() path,
-> >    avoiding impact on other NMI-type GHES handlers.
-> > Link to V1 - https://lore.kernel.org/all/20251030071321.2763224-1-hejun=
-hao3@h-partners.com/
-> >
-> > diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
-> > index 3236a3ce79d6..787664740150 100644
-> > --- a/drivers/acpi/apei/ghes.c
-> > +++ b/drivers/acpi/apei/ghes.c
-> > @@ -1383,8 +1383,16 @@ static int ghes_in_nmi_queue_one_entry(struct gh=
-es *ghes,
-> >       ghes_clear_estatus(ghes, &tmp_header, buf_paddr, fixmap_idx);
-> >
-> >       /* This error has been reported before, don't process it again. *=
-/
-> > -     if (ghes_estatus_cached(estatus))
-> > +     if (ghes_estatus_cached(estatus)) {
-> > +             /*
-> > +              * Return failure on duplicate SEA entries so that the
-> > +              * subsequent SEA handler invocation sends a SIGBUS signa=
-l to
-> > +              * the task to prevent it from re-entering the handler lo=
-op.
-> > +              */
-> > +             if (is_hest_sync_notify(ghes))
-> > +                     rc =3D -ECANCELED;
-> >               goto no_work;
-> > +     }
-> >
-> >       llist_add(&estatus_node->llnode, &ghes_estatus_llist);
-> >
->
+[1] https://developer.arm.com/documentation/den0028/h/?lang=en
+
+Either way, thanks for posting this patch, I'm also looking forward to 
+seeing it get merged!
+
+On 2026. 06. 09. 0:07, Srirangan Madhavan wrote:
+> Add a cache maintenance provider for the Arm SMCCC cache clean+invalidate
+> interface.
+> 
+> The provider discovers SMCCC support and attributes at init time,
+> serializes firmware calls, handles transient BUSY and RATE_LIMITED
+> responses with bounded retries, and registers with the generic cache
+> coherency framework used by memregion callers.
+> 
+> Signed-off-by: Srirangan Madhavan <smadhavan@nvidia.com>
+> Reviewed-by: Jonathan Cameron <jic23@kernel.org>
+> ---
+>   drivers/cache/Kconfig           |  11 +++
+>   drivers/cache/Makefile          |   2 +
+>   drivers/cache/arm_smccc_cache.c | 157 ++++++++++++++++++++++++++++++++
+>   3 files changed, 170 insertions(+)
+>   create mode 100644 drivers/cache/arm_smccc_cache.c
+> 
+> diff --git a/drivers/cache/Kconfig b/drivers/cache/Kconfig
+> index 1518449d47b5..57fd1823dec5 100644
+> --- a/drivers/cache/Kconfig
+> +++ b/drivers/cache/Kconfig
+> @@ -42,6 +42,17 @@ menuconfig CACHEMAINT_FOR_HOTPLUG
+>   
+>   if CACHEMAINT_FOR_HOTPLUG
+>   
+> +config ARM_SMCCC_CACHE
+> +	bool "Arm SMCCC cache maintenance provider"
+> +	depends on ARM64 && HAVE_ARM_SMCCC_DISCOVERY
+> +	help
+> +	  Enable support for the Arm SMCCC cache clean+invalidate
+> +	  interface as a provider for memory hotplug-like cache
+> +	  maintenance operations.
+> +	  The provider registers only when firmware advertises the
+> +	  SMCCC calls and attributes, so systems without firmware support
+> +	  continue without this registered provider.
+> +
+>   config HISI_SOC_HHA
+>   	tristate "HiSilicon Hydra Home Agent (HHA) device driver"
+>   	depends on (ARM64 && ACPI) || COMPILE_TEST
+> diff --git a/drivers/cache/Makefile b/drivers/cache/Makefile
+> index b3362b15d6c1..55736a032d6f 100644
+> --- a/drivers/cache/Makefile
+> +++ b/drivers/cache/Makefile
+> @@ -4,4 +4,6 @@ obj-$(CONFIG_AX45MP_L2_CACHE)		+= ax45mp_cache.o
+>   obj-$(CONFIG_SIFIVE_CCACHE)		+= sifive_ccache.o
+>   obj-$(CONFIG_STARFIVE_STARLINK_CACHE)	+= starfive_starlink_cache.o
+>   
+> +# Providers below depend on CACHEMAINT_FOR_HOTPLUG.
+> +obj-$(CONFIG_ARM_SMCCC_CACHE)		+= arm_smccc_cache.o
+>   obj-$(CONFIG_HISI_SOC_HHA)		+= hisi_soc_hha.o
+> diff --git a/drivers/cache/arm_smccc_cache.c b/drivers/cache/arm_smccc_cache.c
+> new file mode 100644
+> index 000000000000..82b9efdb190b
+> --- /dev/null
+> +++ b/drivers/cache/arm_smccc_cache.c
+> @@ -0,0 +1,157 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2026 NVIDIA Corporation
+> + *
+> + * Arm SMCCC cache maintenance provider using cache clean+invalidate calls.
+> + */
+> +
+> +#include <linux/arm-smccc.h>
+> +#include <linux/cache_coherency.h>
+> +#include <linux/cleanup.h>
+> +#include <linux/delay.h>
+> +#include <linux/errno.h>
+> +#include <linux/init.h>
+> +#include <linux/kernel.h>
+> +#include <linux/mutex.h>
+> +#include <linux/nmi.h>
+> +
+> +#define SMCCC_CACHE_MAX_RETRIES		5
+
+Indentation seems off here.
+
+> +#define SMCCC_CACHE_DEFAULT_DELAY_US	1000UL
+> +#define SMCCC_CACHE_MAX_DELAY_US	20000UL
+> +
+> +struct smccc_cache {
+> +	/* Must be first member */
+> +	struct cache_coherency_ops_inst cci;
+> +	struct mutex lock; /* Serializes SMCCC cache maintenance calls. */
+> +	u32 latency_us;
+> +	u32 rate_limit;
+> +};
+> +
+> +static int smccc_cache_status_to_errno(s32 status)
+
+I could see this being useful in the common smccc.c, not just here.
+
+> +{
+> +	switch (status) {
+> +	case SMCCC_RET_SUCCESS:
+> +		return 0;
+> +	case SMCCC_RET_NOT_SUPPORTED:
+> +		return -EOPNOTSUPP;
+> +	case SMCCC_RET_INVALID_PARAMETER:
+> +		return -EINVAL;
+> +	case SMCCC_RET_RATE_LIMITED:
+> +		return -EAGAIN;
+> +	case SMCCC_RET_BUSY:
+> +		return -EBUSY;
+> +	default:
+> +		return -EIO;
+> +	}
+> +}
+> +
+> +static unsigned long smccc_cache_delay_us(const struct smccc_cache *cache)
+> +{
+> +	unsigned long delay_us = 0;
+> +
+> +	if (cache->rate_limit)
+> +		delay_us = DIV_ROUND_UP_ULL(USEC_PER_SEC, cache->rate_limit);
+> +
+> +	if (cache->latency_us)
+> +		delay_us = max(delay_us, (unsigned long)cache->latency_us);
+> +
+> +	/*
+> +	 * Firmware may advertise neither a rate limit nor a latency hint; use
+> +	 * a small bounded backoff instead of retrying in a tight loop.
+> +	 */
+> +	if (!delay_us)
+> +		delay_us = SMCCC_CACHE_DEFAULT_DELAY_US;
+> +
+> +	return min(delay_us, SMCCC_CACHE_MAX_DELAY_US);
+> +}
+> +
+> +static int smccc_cache_wbinv(struct cache_coherency_ops_inst *cci,
+> +			     struct cc_inval_params *invp)
+> +{
+> +	struct smccc_cache *cache = container_of(cci, struct smccc_cache, cci);
+> +	struct arm_smccc_res res = {};
+
+I would move this down one, for aesthetics (reverse fir tree).
+
+> +	unsigned long delay_us = smccc_cache_delay_us(cache);
+> +	int ret;
+> +
+> +	if (!invp->size)
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * Serialize the full retry sequence. With the default bounds, a caller
+> +	 * may hold the mutex across up to five 20ms backoff sleeps.
+> +	 */
+> +	guard(mutex)(&cache->lock);
+> +
+> +	for (unsigned int i = 0; i < SMCCC_CACHE_MAX_RETRIES; i++) {
+> +		/* Long firmware operations can trigger watchdog checks. */
+> +		touch_nmi_watchdog();
+> +
+> +		arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION,
+> +				     invp->addr, invp->size, 0UL, &res);
+> +
+> +		ret = smccc_cache_status_to_errno((s32)res.a0);
+> +		if (!ret)
+> +			return 0;
+> +
+> +		if (ret != -EBUSY && ret != -EAGAIN)
+> +			return ret;
+> +
+> +		fsleep(delay_us);
+> +	}
+> +
+> +	return -EBUSY;
+
+Minor: I would do `return ret;` so that we get the last error message, 
+which could be either EBUSY or EAGAIN (depending on if FW responded BUSY 
+or RATE_LIMITED).
+
+> +}
+> +
+> +static const struct cache_coherency_ops smccc_cache_ops = {
+> +	.wbinv = smccc_cache_wbinv,
+> +};
+> +
+> +static int __init smccc_cache_init(void)
+> +{
+> +	struct smccc_cache *cache;
+
+Again, I would move this line down one.
+
+> +	struct arm_smccc_res res = {};
+> +	int ret;
+> +
+> +	if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_1)
+> +		return -ENODEV;
+> +
+> +	if (arm_smccc_1_1_get_conduit() == SMCCC_CONDUIT_NONE)
+> +		return -ENODEV;
+> +
+> +	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID,
+> +			     ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION, &res);
+> +	if ((s32)res.a0 < 0)
+> +		return -ENODEV;
+> +
+> +	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_FEATURES_FUNC_ID,
+> +			     ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
+> +			     &res);
+> +	if ((s32)res.a0 < 0)
+> +		return -ENODEV;
+
+7.11.2 states (top of page 47):
+   This function must be implemented if SMCCC_ARCH_CLEAN_INV_MEMREGION 
+is implemented.
+
+Therefore, this check can be dropped, just checking for INV_MEMREGION's 
+existence should be enough.
+
+> +	arm_smccc_1_1_invoke(ARM_SMCCC_ARCH_CLEAN_INV_MEMREGION_ATTRIBUTES,
+> +			     &res);
+> +	if ((s32)res.a0)
+> +		return -ENODEV;
+> +
+> +	cache = cache_coherency_ops_instance_alloc(&smccc_cache_ops,
+> +						   struct smccc_cache, cci);
+> +	if (!cache)
+> +		return -ENOMEM;
+> +
+> +	mutex_init(&cache->lock);
+> +	cache->latency_us = lower_32_bits(res.a2);
+> +	cache->rate_limit = lower_32_bits(res.a3);
+
+The spec only says to truncate X2 to 32 bits, not X3 (chapter 7.11, page 
+46).
+
+> +	ret = cache_coherency_ops_instance_register(&cache->cci);
+> +	if (ret) {
+> +		mutex_destroy(&cache->lock);
+> +		cache_coherency_ops_instance_put(&cache->cci);
+> +		return ret;
+> +	}
+> +
+> +	pr_info("SMCCC cache clean+invalidate provider registered\n");
+
+Is this log line useful for _production_ environments?
+
+> +	return 0;
+> +}
+> +arch_initcall(smccc_cache_init);
+
+Bence
 
