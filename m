@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B918EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9629BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g/YU9h2/+V7xdUoN4efaSbAo6cmdtLPlIo0ezNZnzgc=; b=z5LwrZjUYRg8Xf1hCQjWqmiAOC
-	zE9U1GooY3WfiHZJmtdsYlW1/I7XV+d4QU5k5v1Xwr5xMC4VbLhlh4LS1CMohzF8f283PBfcjsA9N
-	3BJD4dOm3QT85uYaN3lDLomMQoAdSWftIKnkSjcik31YSoD0p9IgpvFMGvT72m+R8PNRPYz7Wg2Pb
-	dhPEd8UE9214nzSq5u2xM+zPxHm3ZSozl2EvuXhrPoC/SX1MDIlmDdFveW2G6rgOx7UHkHCoDWH6v
-	GtR407olGqBuvalU35OH57DV0WxX5NuRdWS0tZrfcm1OvnzRe23IuGHi+gBzDrpJzcHoxms+c2q3R
-	6oJ2Bxlw==;
+	bh=ne/DWlYUKmz4GWAHTNOgn2bnnnsyk1HTtyQAJeqMQwE=; b=pJGHECOkL+oqEMpBe84ccZj7DO
+	yKuqlF6/jn4JVvpF4hzhxXi1JEGbd/SsMCGMz7dNEvbfP2Pwca7byiUn2fR05dgqVB3ywiDyKLit2
+	Scfpdgxivi6QHdHdrWyW/Dv1igKn/zEtD7aQsOSGpWsUNLkG4z6G9QPVauH6Jd7MbhCtLXZ3NmQfN
+	B5nRbDiXHDPDl6EAt7xeJIn5qKZhOo2olFsWMsw1A/BRtIegIUvgRdVDud8/I6FsQpdP6OLnXaEyO
+	W1VF6VI9mRgEOv13EbFJfp7qX4py//P6DUl/QUdI31ZNR/iM0EqUiwQeh9zaBZr2yYdfhKfceClmh
+	1rRIomIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCkE-00000003rLk-1i0B;
-	Thu, 02 Jul 2026 08:26:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCkD-00000003rLX-0TJd;
-	Thu, 02 Jul 2026 08:26:01 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6875540B0E;
-	Thu,  2 Jul 2026 08:26:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FB731F000E9;
-	Thu,  2 Jul 2026 08:25:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782980760;
-	bh=g/YU9h2/+V7xdUoN4efaSbAo6cmdtLPlIo0ezNZnzgc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hSO+EeXaBKdlQzKWkECM/IwvEKdEPNtcQR+uj2ry4hmveWdo4e8F35hw85K0rbtvW
-	 tXBX2vI9f0zXgpuRBI2LP9eEsu0I6a3TCzVa95GPMwGtzTYe+dV2qKD2d5wM0dmzM5
-	 N9A4+n61wB4w2V4zHEzJNyXUXAyPqcsroOKLphCgdFhI5yjAx7Y3TaQTqQ+eiNK1nu
-	 8HhH3IVQ6X3Q3fUP8MlHzRUFUfZTtRGySLuljFAR5PqHEU4I6jXGOBGeq8rq9gXOP2
-	 r48vuy5CzjHmiwsk1exQ6Igz9CCBVOlyL0CuaLxmVUnfRrg+tl1j4/Nc49WfDiI7bm
-	 eHlx5OMd4YKkg==
-Date: Thu, 2 Jul 2026 10:25:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: Ryder Lee <ryder.lee@mediatek.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jianjun Wang <jianjun.wang@mediatek.com>, kernel@collabora.com, 
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: PCI: mediatek-gen3: Add support for MT8189
- SoC
-Message-ID: <20260702-evasive-golden-toad-d3437f@quoll>
-References: <20260701-mt8189-dt-bindings-pcie-v1-1-7c7a65087654@collabora.com>
+	id 1wfCmW-00000003rwT-1YLZ;
+	Thu, 02 Jul 2026 08:28:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfCmS-00000003ruf-0IhT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 08:28:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83E001476;
+	Thu,  2 Jul 2026 01:28:14 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7EAF03F905;
+	Thu,  2 Jul 2026 01:28:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1782980898; bh=4uwRXUUaqg2LeGraF1sC1rIcMEkH9EPqVnUDYuI36uM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JOEiNkJLrf6wAP5HQ7kzLtcNLcAMFPURoGojkjfq+OPYfgatn8K+BcxT/IiIyLQuQ
+	 YApz4P5J6fx4nJcVgLYygC2tRIjfEhARRy9xNfLn6q3CQlV5S2i4ZMwPUP6Hip1juK
+	 GT6xSNPLnC2lv+N1Bg36xHSq+DF6TiHXDXWc0zZ8=
+Date: Thu, 2 Jul 2026 09:28:16 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Jie Gan <jie.gan@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 1/2] coresight: Fix clock refcount imbalance on platform
+ remove
+Message-ID: <20260702082816.GH1812158@e132581.arm.com>
+References: <20260701-fix-clock-refcount-unbalance-v1-0-321dc63c1f90@oss.qualcomm.com>
+ <20260701-fix-clock-refcount-unbalance-v1-1-321dc63c1f90@oss.qualcomm.com>
+ <20260701162321.GG1812158@e132581.arm.com>
+ <5218878b-c91f-4d14-ba12-68edf7b3f4a7@oss.qualcomm.com>
+ <4e41e58e-5fbf-4564-bf9e-cec42570f3d5@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260701-mt8189-dt-bindings-pcie-v1-1-7c7a65087654@collabora.com>
+In-Reply-To: <4e41e58e-5fbf-4564-bf9e-cec42570f3d5@oss.qualcomm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_012820_148756_3F96F492 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,18 +84,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 05:27:36PM +0200, Louis-Alexis Eyraud wrote:
-> Add compatible for MT8189 PCIe Gen3 controller, that is compatible with
-> the one found MT8192.
+On Thu, Jul 02, 2026 at 09:56:05AM +0800, Jie Gan wrote:
+
+>  static void funnel_platform_remove(struct platform_device *pdev)
+>  {
+>         struct funnel_drvdata *drvdata = dev_get_drvdata(&pdev->dev);
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  Documentation/devicetree/bindings/pci/mediatek-pcie-gen3.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+>         if (WARN_ON(!drvdata))
+>                 return;
+> 
+> -       funnel_remove(&pdev->dev);
+> +       /*
+> +        * Resume the device so its clocks are enabled again, balancing the
+> +        * clk_disable_unprepare() that devm runs when the driver detaches.
+> +        * Then mark it suspended and drop the usage count taken here.
+> +        */
+>         pm_runtime_get_sync(&pdev->dev);
+> +       funnel_remove(&pdev->dev);
+>         pm_runtime_disable(&pdev->dev);
+> +       pm_runtime_set_suspended(&pdev->dev);
+> +       pm_runtime_put_noidle(&pdev->dev);
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+LGTM. Thanks for writing up the comment. Please proceed.
 
