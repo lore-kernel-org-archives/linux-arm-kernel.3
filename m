@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C77C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933D6C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ik67GD/2i78xfrGe+gYf3a65KDr4Tg+2EgInqKJ3odI=; b=UFZZwKefAZTI8eKmzLNIrc2trP
-	lLGF8MOpu4Og22sW/PS1ElaHf19cbTSdP/n1weI6NNFfbKjZoU3qxTBuZxciu1jC65t46BAJst7XL
-	HqNx1IW5B8EiyBm0fzzvk1/0cv1oLTvNXqFCPjUqqVoIQO9MfapLO4YiWjHm6x9NVhKq09Q19lMzS
-	G3X0Ry8mwuP8BKoZROiFhxbGAxOPq0Pnepll7sXPZt/hGmB6YOQH9mAlQmXXpnYggYCV05tWC15Dw
-	MyfOVdXp/+HEwhccc389bfB3jkFKM6KFkFp39PzVgSEGDLixNc3bRP6Ow8o3oO94w1vMDIONWJZv1
-	aFKYE7vQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XSio1tefA8hn2ItHYltO++r3B3H0zvF625Ng9n3K4Tk=; b=3CwqqEjrNEBao9bdtqeGXqABuV
+	Gu2x4TDaTy2uVc+y/0vPbGtAcQShXtixlHm/h4MgEYgbOptYsKkjLTEAYUBW5PZQyFw+O257SlK7K
+	7P/F/4/hYlDXszliPmOJsOlTJ8wXM7fh6WgeA+0/awwJUbAVND08M2j6nnFzrQWUFSoUCl0MgLzKa
+	UV8ekrOaQ4rbL2RIqKqkp9SVWCdQKt0PdL5ohWXiu+GsOLL79wYKreNySM3nHVuFfipAHpEBX69Xf
+	49NAo90xKTVbm2LNpm++g5MwvS/jF6mycegtfb12qkiWaePd1b6Zpp7luIaPTJdwUdEE5cTq6fJks
+	nn+4o2jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgf-00000004egw-2mC2;
-	Thu, 02 Jul 2026 14:46:45 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wfIyp-00000004l2R-0YIs;
+	Thu, 02 Jul 2026 15:05:31 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIgb-00000004eYQ-0Xf4;
-	Thu, 02 Jul 2026 14:46:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783003599;
-	bh=c+X7KYcJ0x+hDbr0ifb6EmCP7ZEzo/GJLuiaJ5gbEJk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=I45xClyZw/5RRkvwvZGHXKZFmR+HJCgAv1E1aNqLiarznASqiWaq8GZENPqWtIBnH
-	 RDjdj6us9w849OjMLgMC2wSgBL2IQr9GJn2lGTFcKyle3Bmrs8GbYjqKRh9c2UNWKk
-	 od1NPL+jz/kpwza7FJWd3tzoBX5hfjZ3H2cDBjcJiMjx80grFsLO2aAZEd6TpiDu2D
-	 /JziI0cExBlf26k1cOMxJM3fIhesn/CAlc4zizo6M52G9U8VofmOYXQq/TiTGaZ2CR
-	 Qq/9PJk1+BKG0KBCP2YB+M5aZPfpUb2sMoXS4EToXPBHtrABbsmxpH4L0b+RGd+Aml
-	 Q6oETCs/M4Log==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E784017E15DA;
-	Thu,  2 Jul 2026 16:46:38 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 02 Jul 2026 17:46:23 +0300
-Subject: [PATCH v8 10/39] drm/display: hdmi-state-helper: Sync SCDC state
- on hotplug
+	id 1wfIym-00000004l1m-0XWs
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 15:05:30 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c15a5b265so608871cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 08:05:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20251104; t=1783004725; x=1783609525; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XSio1tefA8hn2ItHYltO++r3B3H0zvF625Ng9n3K4Tk=;
+        b=iuCG0IGxym0pBK6HQGk13rKHJLMPXed3uT1XpIvvT4hWa7824swGIfSnj0/T/nlFe2
+         eAGNeeeDj8SLFtIvqZdUojvz55+usgeoK1kGPZPvp8UnmW897RV5enP9QTU1cqLvWqc1
+         GbQYIs6TTiABTBXt6rpDVRpKc34ifh5AqOXcJ+H5IiSroQYPQCxD06GwXkbG1t3lbPZs
+         6TZyXNEuwsWLd93D0AFuo54lNNsjsZdn0iMxMOXXgCbzdy0yFZaVCTPocxyo1O9Ki7bd
+         a7siq1on/7YcU1PnXC1oQ3S+Ty9Vuhyk7A+/EUXmTrI9Fr+zVGSnAuoZafbsLDAt10zQ
+         hCrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783004725; x=1783609525;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XSio1tefA8hn2ItHYltO++r3B3H0zvF625Ng9n3K4Tk=;
+        b=tDMnrokwJwKgfgkIhPEa1bnCb97PgoRJSwR2OcDLxIwnm4R0EYdHS1MalRr/V76UVR
+         4PfhXJf4MTi1f/ybbiSyh/GURkGskxm9S/19CKbMCEz/NLWwV5s3YkzK6l0VjkSoDQsB
+         beG+F84xnsz3lEES0kxhhdCy0giEv/tdSneTg84fGsxI9rrrFNWC8CQ4YWsfjRmwLma9
+         QGLa+pIkE8KcZgssSqBeJj03nafYsmALm3Mzx3DrpRrErMxJ6Zl0LpOTTXyfBqbOVgIg
+         l3LLU0UUXsvaLxrN2Qn+6LNWWyoZd0Sol3tzY6hu9ZYZ48zQ4vpPsTvVnZHVmOb4M/Pv
+         bMdg==
+X-Forwarded-Encrypted: i=1; AFNElJ+QZCVY3athJHjBW4OldKHXtOMhmZzLYPDMyiqln8mfw34VNAZ5scxiFRdv3oBUOyQlXEat2hWa1pSiVs6h2Hzm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzalt1q1xcbXdbGmDURLzcW3wXpYM/1l6DNyDMlnui5CYY0n3/q
+	iZqn+zTA3aNWzNvDK7UfVQqEK8PCJyBp6OwMGFwqiE283uavaGASLXY21Esq5FGzag==
+X-Gm-Gg: AfdE7ckDYC/U06J4GR3IYpkcPENy2NS233w8Np/n5FWdUiIrMzcEdFFivVyOU3xYAqh
+	0sVBtidtrlnKYF0V4FBL7nXp1JVdCGa3lzkm88rsS/LJqbu/dWr4pxbuQRUzQFpveiCuROzn8OQ
+	JBpwj8xrTfn657dMvSjqPsggTABCoBKTGubhzXJyqINlOfYJooGP5z459PTKH0iN9xHuiV6f9VG
+	JCV2A4qWlioQYQE1l414yWrwOLgNTJhySUKEMEX+muK067o4IC4GNE+Vkn5PX2qPg1N3U6zGwsw
+	tOg2AsgV6ibSUj4tjpUuHWtog+gMBc5KSOMZRWVd+4OfH03oBGXATwuARv66U5fVAsjDq4b/MT/
+	qOJ7Ryoc7NJjqEp9Nig4uDrn+yOxt16uzbnCORNAvij7NaH+5DIrrUXu49E8kDe988Eg7HDYGLg
+	Xw6HZeJ2yLoJ83QnqTez+gRyhCEZTCfv3exMFhjLLI4qMqunM=
+X-Received: by 2002:a05:622a:1811:b0:51c:d16:b48e with SMTP id d75a77b69052e-51c3191132amr7766811cf.22.1783004720401;
+        Thu, 02 Jul 2026 08:05:20 -0700 (PDT)
+Received: from google.com (10.129.124.34.bc.googleusercontent.com. [34.124.129.10])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-44cbec93a70sm3241630fac.11.2026.07.02.08.05.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jul 2026 08:05:19 -0700 (PDT)
+Date: Thu, 2 Jul 2026 15:05:12 +0000
+From: Pranjal Shrivastava <praan@google.com>
+To: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Nicolin Chen <nicolinc@nvidia.com>, Kyle McMartin <jkkm@meta.com>,
+	Breno Leitao <leitao@debian.org>, Usama Arif <usama.arif@linux.dev>,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] iommu/arm-smmu-v3: Shrink command/event/PRI queues in
+ kdump kernel
+Message-ID: <akZ-KIVJlmP4LEcQ@google.com>
+References: <20260702112825.781750-1-kas@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-dw-hdmi-qp-scramb-v8-10-d79890d00b6a@collabora.com>
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
- Dave Stevenson <dave.stevenson@raspberrypi.com>, 
- =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260702112825.781750-1-kas@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_074641_791924_80431F92 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20260702_080528_210023_85E708E5 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,159 +104,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-drm_atomic_helper_connector_hdmi_hotplug() does not currently
-synchronize SCDC status on hotplug events, leaving the scrambler state
-potentially inconsistent after (re)connect.
+On Thu, Jul 02, 2026 at 12:28:25PM +0100, Kiryl Shutsemau (Meta) wrote:
+> The command, event and PRI queues are sized from the maxima the hardware
 
-Hook drm_connector_hdmi_sync_scdc() into both the connect and disconnect
-paths, replacing the existing TODOs around missing scrambler handling.
+A minor note here is PRI & EVT queues are disabled for the kdump kernel
+(see arm_smmu_device_reset). We could just mention all SMMU queues are
+sized [...] in the commit message. 
 
-SCDC synchronization may require a CRTC reset, which in turn needs a
-modeset acquire context for correct locking.  Therefore, extend
-drm_atomic_helper_connector_hdmi_hotplug() and
-drm_atomic_helper_connector_hdmi_update() to take a
-drm_modeset_acquire_ctx argument.  Additionally, change their return
-type from void to int, allowing propagation of errors, such as -EDEADLK
-from lock contention.
+> advertises in IDR1, which can be several megabytes each. On systems with
+> many SMMUv3 instances that cost is paid per instance and adds up to tens
+> of megabytes of coherent DMA in the capture kernel.
+> 
+> A kdump capture kernel runs from a small crashkernel reservation and only
+> has to drive the few devices used to save the dump, so deep queues serve
+> no purpose. The queues carry invalidation commands and fault records, not
+> DMA data, so dump throughput is unaffected; a shallower queue only bounds
+> how many commands may be in flight before a sync, which does not matter for
+> the capture kernel's small device count and modest I/O.
+> 
+> Clamp every queue to a single page when is_kdump_kernel() is true. Doing
+> it in arm_smmu_init_one_queue() covers the command, event and PRI queues
+> in one place. The command queue still holds at least one batch plus a sync
+> (256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
+> command batching keeps working.
+> 
+> Suggested-by: Kyle McMartin <jkkm@meta.com>
+> Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
+> Reviewed-by: Breno Leitao <leitao@debian.org>
+> ---
 
-Update existing callers to pass NULL for the acquire context, preserving
-current behavior.
+Apart from that.
 
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/display/drm_bridge_connector.c  |  3 ++-
- drivers/gpu/drm/display/drm_hdmi_state_helper.c | 28 +++++++++++++++++--------
- drivers/gpu/drm/vc4/vc4_hdmi.c                  |  2 +-
- include/drm/display/drm_hdmi_state_helper.h     |  6 ++++--
- 4 files changed, 26 insertions(+), 13 deletions(-)
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index 796069dbf1a1..46104506fe32 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -221,7 +221,8 @@ drm_bridge_connector_detect(struct drm_connector *connector, bool force)
- 		status = detect->funcs->detect(detect, connector);
- 
- 		if (hdmi)
--			drm_atomic_helper_connector_hdmi_hotplug(connector, status);
-+			drm_atomic_helper_connector_hdmi_hotplug(connector, status,
-+								 NULL);
- 
- 		drm_bridge_connector_hpd_notify(connector, status);
- 	} else {
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index db76699093e8..69ccfbf123fe 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -1198,18 +1198,20 @@ drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *con
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_clear_audio_infoframe);
- 
--static void
-+static int
- drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
--					enum drm_connector_status status)
-+					enum drm_connector_status status,
-+					struct drm_modeset_acquire_ctx *ctx)
- {
- 	const struct drm_edid *drm_edid;
-+	int ret = 0;
- 
- 	if (status == connector_status_disconnected) {
--		// TODO: also handle scramber, HDMI sink disconnected.
-+		ret = drm_connector_hdmi_sync_scdc(connector, false, ctx);
- 		drm_connector_hdmi_audio_plugged_notify(connector, false);
- 		drm_edid_connector_update(connector, NULL);
- 		drm_connector_cec_phys_addr_invalidate(connector);
--		return;
-+		return ret;
- 	}
- 
- 	if (connector->hdmi.funcs->read_edid)
-@@ -1222,24 +1224,32 @@ drm_atomic_helper_connector_hdmi_update(struct drm_connector *connector,
- 	drm_edid_free(drm_edid);
- 
- 	if (status == connector_status_connected) {
--		// TODO: also handle scramber, HDMI sink is now connected.
-+		ret = drm_connector_hdmi_sync_scdc(connector, true, ctx);
- 		drm_connector_hdmi_audio_plugged_notify(connector, true);
- 		drm_connector_cec_phys_addr_set(connector);
- 	}
-+
-+	return ret;
- }
- 
- /**
-  * drm_atomic_helper_connector_hdmi_hotplug - Handle the hotplug event for the HDMI connector
-  * @connector: A pointer to the HDMI connector
-  * @status: Connection status
-+ * @ctx: Lock acquisition context to be used for resetting CRTC
-  *
-  * This function should be called as a part of the .detect() / .detect_ctx()
-  * callbacks for all status changes.
-+ *
-+ * Returns:
-+ * Zero on success, error code on failure.
-+ * If @ctx is set, it might also return -EDEADLK.
-  */
--void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
--					      enum drm_connector_status status)
-+int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
-+					     enum drm_connector_status status,
-+					     struct drm_modeset_acquire_ctx *ctx)
- {
--	drm_atomic_helper_connector_hdmi_update(connector, status);
-+	return drm_atomic_helper_connector_hdmi_update(connector, status, ctx);
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
- 
-@@ -1254,6 +1264,6 @@ EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_hotplug);
-  */
- void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector)
- {
--	drm_atomic_helper_connector_hdmi_update(connector, connector->status);
-+	drm_atomic_helper_connector_hdmi_update(connector, connector->status, NULL);
- }
- EXPORT_SYMBOL(drm_atomic_helper_connector_hdmi_force);
-diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
-index 74dce4be0c00..e165f604939b 100644
---- a/drivers/gpu/drm/vc4/vc4_hdmi.c
-+++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
-@@ -375,7 +375,7 @@ static void vc4_hdmi_handle_hotplug(struct vc4_hdmi *vc4_hdmi,
- 	 * the lock for now.
- 	 */
- 
--	drm_atomic_helper_connector_hdmi_hotplug(connector, status);
-+	drm_atomic_helper_connector_hdmi_hotplug(connector, status, NULL);
- 
- 	if (status != connector_status_connected)
- 		return;
-diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
-index 13375bd0f4ae..0619cd7c435e 100644
---- a/include/drm/display/drm_hdmi_state_helper.h
-+++ b/include/drm/display/drm_hdmi_state_helper.h
-@@ -7,6 +7,7 @@ struct drm_atomic_commit;
- struct drm_connector;
- struct drm_connector_state;
- struct drm_display_mode;
-+struct drm_modeset_acquire_ctx;
- struct hdmi_audio_infoframe;
- 
- enum drm_connector_status;
-@@ -22,8 +23,9 @@ int drm_atomic_helper_connector_hdmi_update_audio_infoframe(struct drm_connector
- int drm_atomic_helper_connector_hdmi_clear_audio_infoframe(struct drm_connector *connector);
- int drm_atomic_helper_connector_hdmi_update_infoframes(struct drm_connector *connector,
- 						       struct drm_atomic_commit *state);
--void drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
--					      enum drm_connector_status status);
-+int drm_atomic_helper_connector_hdmi_hotplug(struct drm_connector *connector,
-+					     enum drm_connector_status status,
-+					     struct drm_modeset_acquire_ctx *ctx);
- void drm_atomic_helper_connector_hdmi_force(struct drm_connector *connector);
- 
- enum drm_mode_status
-
--- 
-2.54.0
-
+Thanks,
+Praan
 
