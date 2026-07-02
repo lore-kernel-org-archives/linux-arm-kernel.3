@@ -4,71 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28AE1C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 11:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51229C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 11:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WooDa3sXBRqdIKDpMlEkUfaz9YYduiF8MeFpCAj9gBM=; b=nEO++s7cwiOMOYWA+TSow9ZrbD
-	eNwtnWYHrK14FWXesMLYop8+uX44FbD2c4tYtjuARWq+bJSWvznR9kTm/CsGUWpdMaDuV0gX7SEpF
-	bccjH1qkNxYEpq4L/ej1iqzaJveOobJR9YngdIRxy7KoECoHhiVpjAYofaTnLUDjbvVUk0uKBzWfO
-	Ewu1NnRRLCd99/YPWzh3/iR1SlDqme6iLhgzkPoCRpSqBVc+FH97vUNyllWJ1VKxO8F9hS130ih1g
-	C6ZXNOudlFNAajyO73v1sMe/sN6d3ngXgqGxeAw0CcKcYKNjHnc1ZLkhNe2d4GKnHEz/2rVg8abqH
-	ZyZjQHkQ==;
+	bh=roMBTHJ3YL3DpY1Xk3OoyAZMGIsM5k1HLpl3nIwppjU=; b=DioNPb+p/TU8JJofsJq6ZmhTnH
+	U0hCQSGZkjrYi1azm9dYlat2EttnWVgHJNrPcCysdOOqQpotYxM80dKV4S5mCYuOD9qFicqug1c0Z
+	8H3tiTiR4pknrSBYwykDGNDu1Z4tPx5I9rOKNWTNHXJ7oJXppp7TrM6lt340U40ktHpSwXrVYHGRY
+	1rFGKtvL12LBemnd11bq6RmshiLJ86UQfycQD86azYlAwfWjGXtNOyhq0NAqxPE2H2ML/93Qv69MS
+	APrsL+QTq4/+1v7tI/eR+EMoGkla0OYz0b2aQWwfNHzZ8E6y5OPuBz88fcIshZMNtH7r7UyVqrfyG
+	g+5pwtCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfF9W-00000004G6c-2UpV;
-	Thu, 02 Jul 2026 11:00:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfF9T-00000004G68-2Z3K
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 11:00:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2ED7C356E;
-	Thu,  2 Jul 2026 04:00:10 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DF0D3F905;
-	Thu,  2 Jul 2026 04:00:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782990014; bh=V8/qMswdwNdFf1xTboS6y3yLYa9m8hQRVWhaPq1J4IM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JVaOa8eriyqzJawPpuRgeIqLCrB+8Yo4VF9ifU2rQej6fbPs5/v66rNca3vSR9xN0
-	 3B7t580oiWlsZ8o6ztB88TGYgiozJW/2yeDTgz6oWFj64pVUjE1GMgjnxbUSrsMW/t
-	 Bk7UFus/qKXHG2Lz8PtuRJch+z5zZw3brPnB8D0M=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Wei-Lin Chang <weilin.chang@arm.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Itaru Kitayama <itaru.kitayama@fujitsu.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v2 6/6] KVM: arm64: ptdump: Introduce the shadow ptdump file
-Date: Thu,  2 Jul 2026 12:00:10 +0100
-Message-ID: <akZEujlMp2H1cYOH@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <w6ffknve2o3l5pgk7mblovsu5xzjwsgf7qyjd66nqwbtsea4ue@h5wj26fbb6kb>
-References: <20260630121005.1130996-1-weilin.chang@arm.com> <20260630121005.1130996-7-weilin.chang@arm.com> <akUyI3Z9JbggzE5P@LeoBrasDK> <w6ffknve2o3l5pgk7mblovsu5xzjwsgf7qyjd66nqwbtsea4ue@h5wj26fbb6kb>
+	id 1wfDzr-000000045Vq-0EVV;
+	Thu, 02 Jul 2026 09:46:15 +0000
+Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfDzn-000000045TH-0sbp;
+	Thu, 02 Jul 2026 09:46:13 +0000
+Message-ID: <18ca03a9-3876-4a6e-aaa9-2fecb9bef7e6@aliel.fr>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
+	s=courrier-s1; t=1782985563;
+	bh=p0sFjWRzjbpxT6lmgqAxIzkvqCsmBHy10xTbeag3hQw=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To;
+	b=kvFLpalAw/VxiqBUqP3rsMzId96gOHBUtGQPWiXolq9p9/en2OvdQEpEjrXfcoRti
+	 0ld9TUr2IXS6RjAbqS/WXtsxzkl1hkA8NnjNo+Upr1KpCC6TcifgMmEF+m+iA/xzcS
+	 L63fJdydame+xUdRPv+AYkaTWtDSd5xH1qJT2Juc=
+Date: Thu, 2 Jul 2026 11:45:25 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird Beta
+From: linux-kernel-dev@aliel.fr
+Subject: Re: [PATCH v7 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
+To: Lee Jones <lee@kernel.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Beniamino Galvani <b.galvani@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20260603-add-mcu-fan-khadas-vim4-v7-0-594ba8a965d8@aliel.fr>
+ <20260603-add-mcu-fan-khadas-vim4-v7-4-594ba8a965d8@aliel.fr>
+ <20260611164053.GC1212816@google.com>
+Content-Language: en-US
+In-Reply-To: <20260611164053.GC1212816@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_040015_732607_5E6003B6 
-X-CRM114-Status: GOOD (  27.65  )
+X-CRM114-CacheID: sfid-20260702_024611_847513_C0587387 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,168 +77,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 06:35:41PM +0100, Wei-Lin Chang wrote:
-> On Wed, Jul 01, 2026 at 04:28:35PM +0100, Leonardo Bras wrote:
-> > On Tue, Jun 30, 2026 at 01:10:05PM +0100, Wei-Lin Chang wrote:
-> > > Create a ptdump file for all shadow page tables. It will dump out all
-> > > valid shadow page tables at the time of request, with the mmu's index,
-> > > guest VTCR_EL2, VTTBR_EL2, and whether the guest stage-2 is enabled or
-> > > not.
-> > > 
-> > > Also detach the nested mmu array under the mmu_lock in
-> > > kvm_arch_flush_shadow_all() so readers cannot race with the array being
-> > > removed, then free the old array after dropping the lock.
-> > 
-> > Out of curiosity: why drop the lock before kfree'ing ?
+On 6/11/26 6:40 PM, Lee Jones wrote:
+> /* Sashiko Automation: Reviewed (0 Findings) */
 > 
-> Because kvfree() can sleep! :)
+> On Wed, 03 Jun 2026, Ronald Claveau via B4 Relay wrote:
+> 
+>> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>>
+>> Refactor probe() to use per-variant values
+>> instead of hardcoded globals.
+>>
+>> Add dedicated regmap configuration for the VIM4 MCU,
+>> with its own volatile/writeable registers.
+>>
+>> Add the fan control register
+>> (0–100 levels vs 0–3 for previous supported boards).
+>>
+>> Add a new compatible string "khadas,vim4-mcu".
+>>
+>> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
+>> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
+>> ---
+>>  drivers/mfd/khadas-mcu.c | 115 ++++++++++++++++++++++++++++++++++++++++-------
+>>  1 file changed, 99 insertions(+), 16 deletions(-)
+>>
+>> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
+>> index ba981a7886921..1bf260729d73b 100644
+>> --- a/drivers/mfd/khadas-mcu.c
+>> +++ b/drivers/mfd/khadas-mcu.c
+>> @@ -75,47 +75,129 @@ static const struct regmap_config khadas_mcu_regmap_config = {
+>>  	.cache_type	= REGCACHE_MAPLE,
+>>  };
+>>  
+>> -static struct mfd_cell khadas_mcu_fan_cells[] = {
+>> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
+>> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
+>> +	.max_level	= 3, /* Fan speed: 0 = off, 1 = low, 2 = medium, 3 = high */
+> 
+> Instead of this comment, you could always just define the value(s)?
 > 
 
-Damn, I was certain to read kfree, not kvfree(), LOL
+I will do that with define.
 
-You are right, then :)
-
-Thanks!
-Leoy
-
-
-> Thanks,
-> Wei-Lin Chang
+>> +};
+>> +
+>> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
+>>  	/* VIM1/2 Rev13+ and VIM3 only */
+>> -	{ .name = "khadas-mcu-fan-ctrl", },
+>> +	{
+>> +		.name = "khadas-mcu-fan-ctrl",
+>> +		.platform_data = &khadas_mcu_fan_pdata,
+>> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
 > 
-> > 
-> > Thanks!
-> > Leo
-> > 
-> > > 
-> > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > > ---
-> > >  arch/arm64/kvm/nested.c | 12 ++++++--
-> > >  arch/arm64/kvm/ptdump.c | 61 ++++++++++++++++++++++++++++++++++++++++-
-> > >  2 files changed, 69 insertions(+), 4 deletions(-)
-> > > 
-> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> > > index 6435efd65cb5..17a180ddf6ca 100644
-> > > --- a/arch/arm64/kvm/nested.c
-> > > +++ b/arch/arm64/kvm/nested.c
-> > > @@ -1283,6 +1283,7 @@ void kvm_nested_s2_flush(struct kvm *kvm)
-> > >  
-> > >  void kvm_arch_flush_shadow_all(struct kvm *kvm)
-> > >  {
-> > > +	struct kvm_s2_mmu *mmus;
-> > >  	int i;
-> > >  
-> > >  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-> > > @@ -1291,9 +1292,14 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
-> > >  		if (!WARN_ON(atomic_read(&mmu->refcnt)))
-> > >  			kvm_free_stage2_pgd(mmu);
-> > >  	}
-> > > -	kvfree(kvm->arch.nested_mmus);
-> > > -	kvm->arch.nested_mmus = NULL;
-> > > -	kvm->arch.nested_mmus_size = 0;
-> > > +
-> > > +	scoped_guard(write_lock, &kvm->mmu_lock) {
-> > > +		mmus = kvm->arch.nested_mmus;
-> > > +		kvm->arch.nested_mmus = NULL;
-> > > +		kvm->arch.nested_mmus_size = 0;
-> > > +	}
-> > > +
-> > > +	kvfree(mmus);
-> > >  	kvm_uninit_stage2_mmu(kvm);
-> > >  }
-> > >  
-> > > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-> > > index 40f93b7c7ad9..1649eaa75798 100644
-> > > --- a/arch/arm64/kvm/ptdump.c
-> > > +++ b/arch/arm64/kvm/ptdump.c
-> > > @@ -181,6 +181,50 @@ static int kvm_ptdump_guest_canonical_show(struct seq_file *m, void *unused)
-> > >  	return 0;
-> > >  }
-> > >  
-> > > +static int kvm_ptdump_guest_nested_show(struct seq_file *m, void *unused)
-> > > +{
-> > > +	int ret = 0, i;
-> > > +	struct kvm_ptdump_guest_state *st = m->private;
-> > > +	struct kvm *kvm = st->kvm;
-> > > +	struct kvm_pgtable_walker walker = (struct kvm_pgtable_walker) {
-> > > +		.cb	= kvm_ptdump_visitor,
-> > > +		.arg	= &st->parser_state,
-> > > +		.flags	= KVM_PGTABLE_WALK_LEAF,
-> > > +	};
-> > > +
-> > > +	guard(write_lock)(&kvm->mmu_lock);
-> > > +
-> > > +	if (!kvm->arch.nested_mmus)
-> > > +		return 0;
-> > > +
-> > > +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
-> > > +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
-> > > +
-> > > +		if (!mmu->pgt)
-> > > +			continue;
-> > > +
-> > > +		if (kvm_s2_mmu_valid(mmu)) {
-> > > +			memset(st, 0, sizeof(*st));
-> > > +			ret = kvm_ptdump_parser_init(st, kvm, mmu->pgt);
-> > > +			if (ret)
-> > > +				return ret;
-> > > +			st->parser_state = (struct ptdump_pg_state) {
-> > > +				.marker		= &st->ipa_marker[0],
-> > > +				.level		= -1,
-> > > +				.pg_level	= &st->level[0],
-> > > +				.seq		= m,
-> > > +			};
-> > > +			seq_printf(m, "nested mmu %d VTCR: 0x%016llx VTTBR: 0x%016llx s2: %s\n",
-> > > +				   i, mmu->tlb_vtcr, mmu->tlb_vttbr,
-> > > +				   mmu->nested_stage2_enabled ? "enabled" : "disabled");
-> > > +			ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
-> > > +			if (ret)
-> > > +				return ret;
-> > > +		}
-> > > +	}
-> > > +	return ret;
-> > > +}
-> > > +
-> > >  static int kvm_ptdump_guest_open(struct inode *m, struct file *file,
-> > >  				 int (*show)(struct seq_file *, void *))
-> > >  {
-> > > @@ -212,6 +256,11 @@ static int kvm_ptdump_guest_canonical_open(struct inode *m, struct file *file)
-> > >  	return kvm_ptdump_guest_open(m, file, kvm_ptdump_guest_canonical_show);
-> > >  }
-> > >  
-> > > +static int kvm_ptdump_guest_nested_open(struct inode *m, struct file *file)
-> > > +{
-> > > +	return kvm_ptdump_guest_open(m, file, kvm_ptdump_guest_nested_show);
-> > > +}
-> > > +
-> > >  static int kvm_ptdump_guest_close(struct inode *m, struct file *file)
-> > >  {
-> > >  	struct kvm *kvm = m->i_private;
-> > > @@ -230,6 +279,13 @@ static const struct file_operations kvm_ptdump_guest_canonical_fops = {
-> > >  	.release	= kvm_ptdump_guest_close,
-> > >  };
-> > >  
-> > > +static const struct file_operations kvm_ptdump_guest_nested_fops = {
-> > > +	.open		= kvm_ptdump_guest_nested_open,
-> > > +	.read		= seq_read,
-> > > +	.llseek		= seq_lseek,
-> > > +	.release	= kvm_ptdump_guest_close,
-> > > +};
-> > > +
-> > >  static int kvm_pgtable_range_show(struct seq_file *m, void *unused)
-> > >  {
-> > >  	struct kvm *kvm = m->private;
-> > > @@ -307,6 +363,9 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
-> > >  			    kvm, &kvm_pgtable_range_fops);
-> > >  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
-> > >  			    kvm, &kvm_pgtable_levels_fops);
-> > > -	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
-> > > +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT)) {
-> > >  		kvm->arch.debugfs_nv_dentry = debugfs_create_dir("nested", kvm->debugfs_dentry);
-> > > +		debugfs_create_file("shadow_page_tables", 0400, kvm->arch.debugfs_nv_dentry,
-> > > +				    kvm, &kvm_ptdump_guest_nested_fops);
-> > > +	}
-> > >  }
-> > > -- 
-> > > 2.43.0
-> > > 
+> No need to attempt to align the '=' like this, please.
+> 
+
+I will remove these extra spaces.
+
+>> +	},
+>>  };
+>>  
+>> -static struct mfd_cell khadas_mcu_cells[] = {
+>> +static const struct mfd_cell khadas_mcu_cells[] = {
+>>  	{ .name = "khadas-mcu-user-mem", },
+>>  };
+>>  
+>> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
+>> +{
+>> +	switch (reg) {
+>> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
+>> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
+>> +	case KHADAS_MCU_WOL_INIT_START_REG:
+>> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
+>> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
+>> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
+>> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
+>> +		return true;
+>> +	default:
+>> +		return false;
+>> +	}
+>> +}
+>> +
+>> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
+>> +{
+>> +	switch (reg) {
+>> +	case KHADAS_MCU_VERSION_0_REG:
+>> +	case KHADAS_MCU_VERSION_1_REG:
+>> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
+>> +		return false;
+>> +	default:
+>> +		return true;
+>> +	}
+>> +}
+>> +
+>> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
+>> +	.reg_bits	= 8,
+>> +	.reg_stride	= 1,
+>> +	.val_bits	= 8,
+>> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
+>> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
+>> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
+>> +	.cache_type	= REGCACHE_MAPLE,
+>> +};
+>> +
+>> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
+>> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
+>> +	.max_level	= 0x64,
+>> +};
+>> +
+>> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
+>> +	{
+>> +		.name		= "khadas-mcu-fan-ctrl",
+>> +		.platform_data	= &khadas_vim4_fan_pdata,
+>> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
+>> +	},
+>> +};
+>> +
+>>  static int khadas_mcu_probe(struct i2c_client *client)
+>>  {
+>> +	const struct mfd_cell *cells, *fan_cells;
+>> +	const struct regmap_config *regmap_cfg;
+>>  	struct device *dev = &client->dev;
+>> +	int ncells, nfan_cells, ret;
+>>  	struct khadas_mcu *ddata;
+>> -	int ret;
+>>  
+>>  	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
+>>  	if (!ddata)
+>>  		return -ENOMEM;
+>>  
+>> +	switch ((uintptr_t)i2c_get_match_data(client)) {
+>> +	case KHADAS_MCU_GENERIC:
+>> +		regmap_cfg	= &khadas_mcu_regmap_config;
+>> +		cells		= khadas_mcu_cells;
+>> +		ncells		= ARRAY_SIZE(khadas_mcu_cells);
+>> +		fan_cells	= khadas_mcu_fan_cells;
+>> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells);
+>> +		break;
+>> +	case KHADAS_MCU_VIM4:
+>> +		regmap_cfg	= &khadas_mcu_vim4_regmap_config;
+>> +		cells		= NULL;
+>> +		ncells		= 0;
+>> +		fan_cells	= khadas_mcu_vim4_cells;
+>> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells);
+> 
+> I'm not as offended by this as I thought I would be!
+> 
+>> +		break;
+>> +	default:
+>> +		return -ENODEV;
+>> +	}
+>> +
+>>  	i2c_set_clientdata(client, ddata);
+>>  
+>>  	ddata->dev = dev;
+>>  
+>> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
+>> +	ddata->regmap = devm_regmap_init_i2c(client, regmap_cfg);
+>>  	if (IS_ERR(ddata->regmap)) {
+>>  		ret = PTR_ERR(ddata->regmap);
+>> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
+>> -		return ret;
+>> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
+>>  	}
+>>  
+>> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> -				   khadas_mcu_cells,
+>> -				   ARRAY_SIZE(khadas_mcu_cells),
+>> -				   NULL, 0, NULL);
+>> -	if (ret)
+>> -		return ret;
+>> +	if (cells && ncells) {
+>> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> +					   cells,
+>> +					   ncells,
+>> +					   NULL, 0, NULL);
+>> +		if (ret)
+>> +			return ret;
+>> +	}
+>>  
+>>  	if (of_property_present(dev->of_node, "#cooling-cells"))
+>>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
+>> -					    khadas_mcu_fan_cells,
+>> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
+>> +					    fan_cells,
+>> +					    nfan_cells,
+>>  					    NULL, 0, NULL);
+>>  
+>>  	return 0;
+>> @@ -123,7 +205,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
+>>  
+>>  #ifdef CONFIG_OF
+>>  static const struct of_device_id khadas_mcu_of_match[] = {
+>> -	{ .compatible = "khadas,mcu", },
+>> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
+>> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
+>>  	{},
+>>  };
+>>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
+>>
+>> -- 
+>> 2.49.0
+>>
+>>
+> 
+
+
+-- 
+Best regards,
+Ronald
 
