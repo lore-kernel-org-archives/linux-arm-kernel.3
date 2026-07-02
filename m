@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB66C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9772CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:54:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kF1f5OWyBovrnxJrEidKvqNse56WBHXzqnAOUsyHHJQ=; b=PwyJMUBC6LRlvTlhOQgY1TFH2Z
-	0A4fZ3FoYw7Jqp871kTu5S4Avhv1N0/U4KexxQSSMSwdLNE+CB6cB1Yix+4QNAf0X2u5sZGzaW7dl
-	wFnvma9/SpFcIm+ZrcPmYLhp5GZZMlgbxUzdjUaJatyBos5rerIHHi9HWpjikkD6Q6L7TiofUWCMD
-	wIKJTQfDmBGZ6oIG0/eNiRInwBQNc77reyo/Adypg5sXOQFM8NWuE+I+ycZZtd53LdcO6emxUqSTZ
-	P2UC73z1Xam4+73qocw8MZxgQDokpG0vE3WvGItzDPQxUnSOxIeHk9qvWw0+YjW2AsKCbt8CabQ5g
-	0mbEXdiw==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pdo6EW50u1yXg+GVeHLwl9An8gN2KPQ5xyF5/s/7kS0=; b=Eui4MElFaP0xDpab/paNWOY4t+
+	t73nwndJK+vh1gM6EJlr5oYg3LcoOwsxXIr6vQ+M9Se12LpNetr5+bOUepvGr8dCVOW01ccvuINiN
+	rLR0Zf2FNYu4MJCh0lqqcyljzSnSxo5dpGpmP6XkDuO3xiKZs3CKZHJlWSfkRE3J1oW8pvuIV18th
+	D4bAXeOiJiMobTQDtG7uH7CTbubbzwfNINhYHR+RFOr+CquOSyqwjxoStJwIr3lXFsunYgrk3dH1B
+	XkmYbKvHdLJR03K51Z1aJb5FuSwnoShOydDxtQZejWUIExmCOJj8YOrEeHKpMM7KBc19bVyyr3ND+
+	QUKZ1uuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfInk-00000004jdO-3wLh;
-	Thu, 02 Jul 2026 14:54:04 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1wfIno-00000004jeQ-0B57;
+	Thu, 02 Jul 2026 14:54:08 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfInh-00000004jcc-3mqg
+	id 1wfInl-00000004jdM-1b4V
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 14:54:03 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-49241dbf9c1so15749985e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 07:54:01 -0700 (PDT)
+	Thu, 02 Jul 2026 14:54:06 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-474303f3c72so1252658f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 07:54:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783004040; x=1783608840; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=kF1f5OWyBovrnxJrEidKvqNse56WBHXzqnAOUsyHHJQ=;
-        b=pzfT9+aVpd9mXq6lfbsSKiGagh9fgmf4qytMRUuhGCM5xbzp9GRj7ggi5yzHHOtRC0
-         95I2OOSIB8YaG0md9lNaJQCm2Ne8SidqmT6Lr1raDnEXF4G2NTuE8iyCsITBV/yRnnog
-         yO+T5Aab0/uWmw6+AQiBEjl8pD83tBv6gZJ41QQoFGajBqwMCv69cbqAhuWg6S9zZqHE
-         ZNDRnOutR6kaeZl/JjaxD8dLAoX9P9JLZA+UcqHG+DX9zD1lz49d8t25rvkFUbzi2bJy
-         TGRCMOKDimQmypCbFlU29Se26pIrBOEXqbxBlArCBkfM+68df9C/ie8AnW2W6I0NmWA+
-         679Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783004040; x=1783608840;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=baylibre.com; s=google; t=1783004043; x=1783608843; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=kF1f5OWyBovrnxJrEidKvqNse56WBHXzqnAOUsyHHJQ=;
-        b=A0dTg6lnKeypgr2sdpJOmXI+KDvFhc0FOSlunpY0VdboAUaAderCi6M0H7yH5fso3P
-         4cPJ4sAadu/rsZmeMYYAdkaP7/S7rY51FTMQbSdmKPvjISs9LeQC59+eM7uHhLI6Syke
-         sr4QdNPcZrXrguu5Qz1ROvXaLhGHoYUU5ySycjSpkmWqF65FEoZ8EINZkVCLlXWCc2p0
-         7HYNkjJyyuIVJJ9jOUkGcZDjqQBpFUZrvkTbtkKRNeD+UxqgLxkaZo+Lhf06XIxKTpH8
-         J9D3FfNghENs7pHBZJmWQEXakz61KiPAn7NA6qVb9OL1xQS08KOH/+BxTGWooWZujK3f
-         XTgA==
-X-Forwarded-Encrypted: i=1; AFNElJ945udtCC8pVBJNsAmRnGyuxt6Jl8OgC42gJImEUkngCy0B1rB2lSp1o3BzSBSSKY1waVFcFesGNQIoPwoSLWSe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1iq4snu9FaFMa+0b+ugr7z2Fe9U/yFLBbCSikNyigLKSa47tn
-	EBHzeFDe32Umlp/u3cB8BO6MnSaEB3HAxivhwRVOECT0yp6ITLZLz9MZqcFvc/jW+P8=
-X-Gm-Gg: AfdE7cku/AadgKo5XTCspO2MeEDE4CQk5DeKQGqQbdJLe35XjycCNiNCKmDZuobuPB8
-	h+JkQxQur+/Llu0udM0uOH0Dcz+iS33yLmloZUblC83tMumJreLoWLdmLkxh0XFcyXN5occRGAL
-	Ia9CVKlF/2Pgo2FGXQaK0Kjgc/wdAsNZYX+tZ4obZGY8YoUmgukgtO+g2Hz3093KSVBuYIyTKCp
-	TbKZuFAD91Bvu9dJ/k1/UdlqlzvldY/itYZc3DFm+igVUFYOaIR5AAWKkPOemIIwnherni9/5hz
-	Oz1vUDoMIZTW6e8XVvupheYT4CD8h4HxNxu7cgA31ti+oYBdV0NCvhg093EREgTknLtMDGEIlGQ
-	XAfSNs8A8FOQnFoxyMksZy+UYJk2d5S/nc4eq2MRMiYWtao3jfibWoO0U9WRbFpmPTkpkoImHvT
-	fo+YWDH/CmSrRaip6ZcQKPzQ5ohwdxOnD44IE63xfPK6I8vrmDWmB3H69g46DNzOdShCYhE6b0Z
-	TIs
-X-Received: by 2002:a05:600c:705:b0:493:b962:4abe with SMTP id 5b1f17b1804b1-493c3dfacf0mr54863745e9.36.1783004039655;
-        Thu, 02 Jul 2026 07:53:59 -0700 (PDT)
+        bh=pdo6EW50u1yXg+GVeHLwl9An8gN2KPQ5xyF5/s/7kS0=;
+        b=fqBwZuGguUrY/TQtD/qQ3hFLQWHWFoxb/IJXfDH4AEyyZxZ/gFrGxarfW+U1W2WauK
+         tJOR56/G1Jasl/LhqhRT24F6Hjw9TZz65+8AngpbiIi2Z0o/x0OGGV5qgcNqJqbKAY9p
+         XgBcS6QhVIavfGp8r1jPkxOaUVG16iDJFHzQzISnSA+76Hrc80Dlei7ynk4YOuepG3h3
+         81mw+fJ66n7o4Jl3NhJmG+w63mTm1qWId7v9i+ee5t+pUdItDKA5N925F8nWfXYqbV7P
+         08lY4NIoZMGvOWhYUExwZ5RZFXvfIaIr8UkTGmkgLjGtrkxc2h4rEG5jZfB9TWnsEZTX
+         b2wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783004043; x=1783608843;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=pdo6EW50u1yXg+GVeHLwl9An8gN2KPQ5xyF5/s/7kS0=;
+        b=BJHddVWucUS9W3UM638W9TvB/EJ1ZGBjpZVOGo3bpJLPTzZPTMTeMp5UwHQaUO8sZb
+         l79EpjRyMZNKsywP3oSaNIpQ6v7ZcG9CgOWBQVNbZ9eP5Bttrgz4H9IcL2UJ4wwYs05A
+         bBKro2W3BbecRDji21A0LF8PgqGtPk/0fwxvY4H2qIhzLyGO1S0lNs8JmsTydAMF+fPt
+         v8DDOComhxEo7i0zvQNP3vxUCtX/4xbTo4CUOf44R0OJGasPXlUfNQy09qmwH9gjZZUY
+         w24cuFl8pC82liwZkAQTCEGsd8AVt9qFQbH4yCHK2XFgR1lMW8Oluvere8vwsEn7XsHV
+         hCBg==
+X-Forwarded-Encrypted: i=1; AHgh+RrJOmcv3PLV66K5UVXLRHAk2d+0OTlH6CLdRq5QV7s+4jmv8EVQDtCm/Ef2n7PmoLT7U3/fAbP0vPf5naLSRVnk@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywcia/ZwqXwKdXI8+7qRrNbW10hcLKOSE0PZBaTUiGPRtj9Y1+R
+	nbfY4eo8G8vpy2r1DN9t+2Yt+S69scF3FuE+sEq6D3EFathVNA54hVTj28HmU/MmRiE=
+X-Gm-Gg: AfdE7cks2xxPRlemT/vAc+p50BU9dXFeFrz2Zcae5Z6bB1uh8Jbew3pPBwqS1cljkvT
+	H6Js7F8kqlVD13xQ8KV4T/JapDd6RKlHQpseU5GugMnCOuLP5UD/fQLKypEO604kDXQfgSsPx+E
+	FgM3ZzhTWWVUbWSW0AyrdpHu76IuudFvZQ3ZCG7HwBxT1g1Vyl8W70diIkwhYjkOcBPxPryMH0m
+	4NEEiGdddAUA2EE2wh+n62ka9J8X1k1f5u0lxQ+AY03ykJnpF5PrSXimK/iE+nWn2zJcEsADqFF
+	PgIUKBoz8LT5u1tVnKWmzKSvME0YuVIQ6As+GVPeyTo8xPKfzk41Otmu2kkRsL6gxZbDDMVC687
+	Ag3ZBx95XKWawzGmAKLBmBeUbv6hqIBL/y7+/G5rTMOxbOUbaE5oVCVJTm9QfeYseZwoqnhBauU
+	ebz0Xo110eNQtVp5hMnOVb0vntKM28FfhGWNXmDZWwS3rAjsZ6T3L4w2CUCGh7srFK+CVWbQbKQ
+	vCT
+X-Received: by 2002:a05:6000:230f:b0:471:c76f:332a with SMTP id ffacd0b85a97d-477573b7906mr9238829f8f.3.1783004043377;
+        Thu, 02 Jul 2026 07:54:03 -0700 (PDT)
 Received: from localhost (p200300f65f47db04bdb9899c6dd79ae8.dip0.t-ipconnect.de. [2003:f6:5f47:db04:bdb9:899c:6dd7:9ae8])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-493c63b6f1bsm49814885e9.10.2026.07.02.07.53.58
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-477db8a450bsm10150079f8f.10.2026.07.02.07.54.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 07:53:59 -0700 (PDT)
+        Thu, 02 Jul 2026 07:54:02 -0700 (PDT)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
 To: Lee Jones <lee@kernel.org>
-Cc: Colin Foster <colin.foster@in-advantage.com>,
-	linux-kernel@vger.kernel.org,
-	James Ogletree <jogletre@opensource.cirrus.com>,
+Cc: James Ogletree <jogletre@opensource.cirrus.com>,
 	Fred Treven <fred.treven@cirrus.com>,
 	Ben Bright <ben.bright@cirrus.com>,
 	Support Opensource <support.opensource@diasemi.com>,
@@ -84,24 +83,24 @@ Cc: Colin Foster <colin.foster@in-advantage.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	patches@opensource.cirrus.com,
+	linux-kernel@vger.kernel.org,
 	linux-sound@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: [PATCH v1 0/3] mfd: Initialize spi_device_id arrays using member names
-Date: Thu,  2 Jul 2026 16:53:38 +0200
-Message-ID: <cover.1783003256.git.u.kleine-koenig@baylibre.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 2/3] mfd: Initialize spi_device_id arrays using member names
+Date: Thu,  2 Jul 2026 16:53:40 +0200
+Message-ID: <f83c8292e7e3ba9425792591fb136d4ae1468215.1783003256.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
+In-Reply-To: <cover.1783003256.git.u.kleine-koenig@baylibre.com>
+References: <cover.1783003256.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3505; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=xnvnSkh4mR8ONwsduDg/BLAZXZr6/CxgasUbEs0w6+o=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqRnty/yxLuXfqpkyn+N9SjKdq6zQf5RlY3lz4I 55PYGK74jGJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCakZ7cgAKCRCPgPtYfRL+ Tn6eCACqswh1Rk+hVIVYEKELUVvKdCmO7XKTWIrWdpQ/WlV0lqQ0YKOrgltvPWKMEUm2uG3Cyru clzgwExexTgigLBkspq263IUPvp7cK/ScLoq3veeoxtVpG3wNHil3Mwz5LKuwxjf+uVKmVokmnl Hnxb1CC4HTHZyPnpdwJBdO7PmNj+4GlSvJ52KUcs2f7WbrUY/u0MgbYFl0bYJCXwUnVyj4OVldu gDLZlTzgj/sCimLCa9vG+nNQvuERsiPBJ/fiwcApIv2M/M/cB3BLpz/oMjZJOaLK5aJaCWGNvjE CunjE3evQ4iBKLGvR+9mGYHc8IiSiTg1cvNAiBYIHqJ15gWZ
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7533; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=Es7SsSn8e0HRgyV3Fx080mF6R5iQ/dMdO440YIjWaMw=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqRnt49Rz8hQwyuGLmQ4QsBwmREUTlRIsCEdHWu r+Z8AGHldyJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCakZ7eAAKCRCPgPtYfRL+ TpUVCACBgWaEVYajAsPuzKuv5cAHxaubBHVn6YEDEX0YWIezmG6ryGtnVJIdcVmFPF90vztkjiH wg0giaTrzet84juyBYlNLPI5zFMr4wTfgiq3X9224pJCGrjb9X6CCmzCP8Ah3wkjodikr1HmoVt BcAyR/wukQBEFujmCCQ+cxEiTOSKeNBRuOuMIXbsHMdccguSRtOaKJxaRvXH4IOeXVvpHAZcGDK 7dkPVEZAozZvG/vnBomhpyYjUTJ4Q/24bPx+XyI6kinjNhJ6GiPDvGAwTgbcDqSA9YoS7zlkPUr 55jU0eAiuAFdlZldot+CUniGvTlp9Jq7xlYb3VOi5R5BmAxq
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_075401_968635_8C42685C 
-X-CRM114-Status: GOOD (  17.98  )
+X-CRM114-CacheID: sfid-20260702_075405_470920_919528BD 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,97 +115,211 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+While being less compact, using named initializers allows to more easily
+see which members of the structs are assigned which value without having
+to lookup the declaration of the struct. And it's also more robust
+against changes to the struct definition.
 
-this series targets to use named initializers for spi_device_id arrays.
-In general these are better readable for humans and more robust to
-changes in the respective struct definition.
+The mentioned robustness is relevant for a planned change to struct
+spi_device_id that replaces .driver_data by an anonymous union.
 
-This robustness is needed as I want to do
+Also adapt spacing and usage of commas to the most common style.
 
-	diff --git a/include/linux/device-id/spi.h b/include/linux/device-id/spi.h
-	index 812e7c3854a7..93d9cd45569a 100644
-	--- a/include/linux/device-id/spi.h
-	+++ b/include/linux/device-id/spi.h
-	@@ -13,7 +13,11 @@ typedef unsigned long kernel_ulong_t;
-	 
-	 struct spi_device_id {
-		char name[SPI_NAME_SIZE];
-	-	kernel_ulong_t driver_data;	/* Data private to the driver */
-	+	union {
-	+		/* Data private to the driver */
-	+		kernel_ulong_t driver_data;
-	+		const void *driver_data_ptr;
-	+	};
-	 };
-	 
-	 #endif /* ifndef LINUX_MOD_DEVICE_ID_SPI_H */
+This patch doesn't modify the compiled array, only its representation
+in source form benefits.
 
-which allows dropping several casts and eases porting CHERI to mainline
-Linux. A possible follow-up change is the following example:
-
-	diff --git a/drivers/mfd/intel-m10-bmc-spi.c b/drivers/mfd/intel-m10-bmc-spi.c
-	index 94b9c99bb4f8..28a3cc84b778 100644
-	--- a/drivers/mfd/intel-m10-bmc-spi.c
-	+++ b/drivers/mfd/intel-m10-bmc-spi.c
-	@@ -70,7 +70,7 @@ static int intel_m10_bmc_spi_probe(struct spi_device *spi)
-		if (!ddata)
-			return -ENOMEM;
-	 
-	-	info = (struct intel_m10bmc_platform_info *)id->driver_data;
-	+	info = id->driver_data_ptr;
-		ddata->dev = dev;
-	 
-		ddata->regmap = devm_regmap_init_spi_avmm(spi, &intel_m10bmc_regmap_config);
-	@@ -160,9 +160,9 @@ static const struct intel_m10bmc_platform_info m10bmc_spi_n5010 = {
-	 };
-	 
-	 static const struct spi_device_id m10bmc_spi_id[] = {
-	-	{ .name = "m10-n3000", .driver_data = (kernel_ulong_t)&m10bmc_spi_n3000 },
-	-	{ .name = "m10-d5005", .driver_data = (kernel_ulong_t)&m10bmc_spi_d5005 },
-	-	{ .name = "m10-n5010", .driver_data = (kernel_ulong_t)&m10bmc_spi_n5010 },
-	+	{ .name = "m10-n3000", .driver_data_ptr = &m10bmc_spi_n3000 },
-	+	{ .name = "m10-d5005", .driver_data_ptr = &m10bmc_spi_d5005 },
-	+	{ .name = "m10-n5010", .driver_data_ptr = &m10bmc_spi_n5010 },
-		{ }
-	 };
-	 MODULE_DEVICE_TABLE(spi, m10bmc_spi_id);
-
-increasing readability due to less explicit casting. This also yields
-tighter type checking as the assignment in the first hunk results in a
-warning if info wasn't a pointer to a const type.
-
-If you consider the last patch mostly churn, just drop it.
-
-There are no dependencies between the patches, and they are merge window
-material.
-
-Best regards
-Uwe
-
-Uwe Kleine-König (The Capable Hub) (3):
-  mfd: Drop unused assignment of spi_device_id driver data
-  mfd: Initialize spi_device_id arrays using member names
-  mfd: Unify style of spi_device_id arrays
-
- drivers/mfd/altera-a10sr.c      |  2 +-
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+---
  drivers/mfd/arizona-spi.c       | 12 ++++++------
  drivers/mfd/cs40l50-spi.c       |  4 ++--
  drivers/mfd/da9052-spi.c        | 12 ++++++------
  drivers/mfd/intel-m10-bmc-spi.c |  6 +++---
  drivers/mfd/madera-spi.c        | 18 +++++++++---------
- drivers/mfd/motorola-cpcap.c    |  6 +++---
- drivers/mfd/ocelot-spi.c        |  2 +-
- drivers/mfd/rk8xx-spi.c         |  2 +-
  drivers/mfd/rsmu_spi.c          | 12 ++++++------
- drivers/mfd/sprd-sc27xx-spi.c   |  2 +-
  drivers/mfd/stmpe-spi.c         | 12 ++++++------
- drivers/mfd/tps65912-spi.c      |  2 +-
  drivers/mfd/wm831x-spi.c        | 16 ++++++++--------
- 14 files changed, 54 insertions(+), 54 deletions(-)
+ 8 files changed, 46 insertions(+), 46 deletions(-)
 
-
-base-commit: 4f441960e691d37c880d2cc004de06bb5b6bd5e4
+diff --git a/drivers/mfd/arizona-spi.c b/drivers/mfd/arizona-spi.c
+index eaa2b2bc5dd0..04baf5a1c652 100644
+--- a/drivers/mfd/arizona-spi.c
++++ b/drivers/mfd/arizona-spi.c
+@@ -255,12 +255,12 @@ static void arizona_spi_remove(struct spi_device *spi)
+ }
+ 
+ static const struct spi_device_id arizona_spi_ids[] = {
+-	{ "wm5102", WM5102 },
+-	{ "wm5110", WM5110 },
+-	{ "wm8280", WM8280 },
+-	{ "wm1831", WM1831 },
+-	{ "cs47l24", CS47L24 },
+-	{ },
++	{ .name = "wm5102", .driver_data = WM5102 },
++	{ .name = "wm5110", .driver_data = WM5110 },
++	{ .name = "wm8280", .driver_data = WM8280 },
++	{ .name = "wm1831", .driver_data = WM1831 },
++	{ .name = "cs47l24", .driver_data = CS47L24 },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, arizona_spi_ids);
+ 
+diff --git a/drivers/mfd/cs40l50-spi.c b/drivers/mfd/cs40l50-spi.c
+index 53526b595a0d..a635951ca6b7 100644
+--- a/drivers/mfd/cs40l50-spi.c
++++ b/drivers/mfd/cs40l50-spi.c
+@@ -40,8 +40,8 @@ static void cs40l50_spi_remove(struct spi_device *spi)
+ }
+ 
+ static const struct spi_device_id cs40l50_id_spi[] = {
+-	{ "cs40l50" },
+-	{}
++	{ .name = "cs40l50" },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, cs40l50_id_spi);
+ 
+diff --git a/drivers/mfd/da9052-spi.c b/drivers/mfd/da9052-spi.c
+index be5f2b34e18a..29cf2c17fde1 100644
+--- a/drivers/mfd/da9052-spi.c
++++ b/drivers/mfd/da9052-spi.c
+@@ -63,12 +63,12 @@ static void da9052_spi_remove(struct spi_device *spi)
+ }
+ 
+ static const struct spi_device_id da9052_spi_id[] = {
+-	{"da9052", DA9052},
+-	{"da9053-aa", DA9053_AA},
+-	{"da9053-ba", DA9053_BA},
+-	{"da9053-bb", DA9053_BB},
+-	{"da9053-bc", DA9053_BC},
+-	{}
++	{ .name = "da9052", .driver_data = DA9052 },
++	{ .name = "da9053-aa", .driver_data = DA9053_AA },
++	{ .name = "da9053-ba", .driver_data = DA9053_BA },
++	{ .name = "da9053-bb", .driver_data = DA9053_BB },
++	{ .name = "da9053-bc", .driver_data = DA9053_BC },
++	{ }
+ };
+ 
+ static struct spi_driver da9052_spi_driver = {
+diff --git a/drivers/mfd/intel-m10-bmc-spi.c b/drivers/mfd/intel-m10-bmc-spi.c
+index cfa620f0c70e..94b9c99bb4f8 100644
+--- a/drivers/mfd/intel-m10-bmc-spi.c
++++ b/drivers/mfd/intel-m10-bmc-spi.c
+@@ -160,9 +160,9 @@ static const struct intel_m10bmc_platform_info m10bmc_spi_n5010 = {
+ };
+ 
+ static const struct spi_device_id m10bmc_spi_id[] = {
+-	{ "m10-n3000", (kernel_ulong_t)&m10bmc_spi_n3000 },
+-	{ "m10-d5005", (kernel_ulong_t)&m10bmc_spi_d5005 },
+-	{ "m10-n5010", (kernel_ulong_t)&m10bmc_spi_n5010 },
++	{ .name = "m10-n3000", .driver_data = (kernel_ulong_t)&m10bmc_spi_n3000 },
++	{ .name = "m10-d5005", .driver_data = (kernel_ulong_t)&m10bmc_spi_d5005 },
++	{ .name = "m10-n5010", .driver_data = (kernel_ulong_t)&m10bmc_spi_n5010 },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, m10bmc_spi_id);
+diff --git a/drivers/mfd/madera-spi.c b/drivers/mfd/madera-spi.c
+index ce9e90322c9c..3fffa21ceadc 100644
+--- a/drivers/mfd/madera-spi.c
++++ b/drivers/mfd/madera-spi.c
+@@ -112,15 +112,15 @@ static void madera_spi_remove(struct spi_device *spi)
+ }
+ 
+ static const struct spi_device_id madera_spi_ids[] = {
+-	{ "cs47l15", CS47L15 },
+-	{ "cs47l35", CS47L35 },
+-	{ "cs47l85", CS47L85 },
+-	{ "cs47l90", CS47L90 },
+-	{ "cs47l91", CS47L91 },
+-	{ "cs42l92", CS42L92 },
+-	{ "cs47l92", CS47L92 },
+-	{ "cs47l93", CS47L93 },
+-	{ "wm1840", WM1840 },
++	{ .name = "cs47l15", .driver_data = CS47L15 },
++	{ .name = "cs47l35", .driver_data = CS47L35 },
++	{ .name = "cs47l85", .driver_data = CS47L85 },
++	{ .name = "cs47l90", .driver_data = CS47L90 },
++	{ .name = "cs47l91", .driver_data = CS47L91 },
++	{ .name = "cs42l92", .driver_data = CS42L92 },
++	{ .name = "cs47l92", .driver_data = CS47L92 },
++	{ .name = "cs47l93", .driver_data = CS47L93 },
++	{ .name = "wm1840", .driver_data = WM1840 },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, madera_spi_ids);
+diff --git a/drivers/mfd/rsmu_spi.c b/drivers/mfd/rsmu_spi.c
+index e07f21482439..cdb0f9797ec6 100644
+--- a/drivers/mfd/rsmu_spi.c
++++ b/drivers/mfd/rsmu_spi.c
+@@ -239,12 +239,12 @@ static void rsmu_spi_remove(struct spi_device *client)
+ }
+ 
+ static const struct spi_device_id rsmu_spi_id[] = {
+-	{ "8a34000",  RSMU_CM },
+-	{ "8a34001",  RSMU_CM },
+-	{ "8a34002",  RSMU_CM },
+-	{ "82p33810", RSMU_SABRE },
+-	{ "82p33811", RSMU_SABRE },
+-	{}
++	{ .name = "8a34000", .driver_data = RSMU_CM },
++	{ .name = "8a34001", .driver_data = RSMU_CM },
++	{ .name = "8a34002", .driver_data = RSMU_CM },
++	{ .name = "82p33810", .driver_data = RSMU_SABRE },
++	{ .name = "82p33811", .driver_data = RSMU_SABRE },
++	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, rsmu_spi_id);
+ 
+diff --git a/drivers/mfd/stmpe-spi.c b/drivers/mfd/stmpe-spi.c
+index dea31efface6..22a3da062dee 100644
+--- a/drivers/mfd/stmpe-spi.c
++++ b/drivers/mfd/stmpe-spi.c
+@@ -121,12 +121,12 @@ static const struct of_device_id stmpe_spi_of_match[] = {
+ MODULE_DEVICE_TABLE(of, stmpe_spi_of_match);
+ 
+ static const struct spi_device_id stmpe_spi_id[] = {
+-	{ "stmpe610", STMPE610 },
+-	{ "stmpe801", STMPE801 },
+-	{ "stmpe811", STMPE811 },
+-	{ "stmpe1601", STMPE1601 },
+-	{ "stmpe2401", STMPE2401 },
+-	{ "stmpe2403", STMPE2403 },
++	{ .name = "stmpe610", .driver_data = STMPE610 },
++	{ .name = "stmpe801", .driver_data = STMPE801 },
++	{ .name = "stmpe811", .driver_data = STMPE811 },
++	{ .name = "stmpe1601", .driver_data = STMPE1601 },
++	{ .name = "stmpe2401", .driver_data = STMPE2401 },
++	{ .name = "stmpe2403", .driver_data = STMPE2403 },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(spi, stmpe_spi_id);
+diff --git a/drivers/mfd/wm831x-spi.c b/drivers/mfd/wm831x-spi.c
+index 54c87267917b..1e519fd9a9e1 100644
+--- a/drivers/mfd/wm831x-spi.c
++++ b/drivers/mfd/wm831x-spi.c
+@@ -77,14 +77,14 @@ static const struct dev_pm_ops wm831x_spi_pm = {
+ };
+ 
+ static const struct spi_device_id wm831x_spi_ids[] = {
+-	{ "wm8310", WM8310 },
+-	{ "wm8311", WM8311 },
+-	{ "wm8312", WM8312 },
+-	{ "wm8320", WM8320 },
+-	{ "wm8321", WM8321 },
+-	{ "wm8325", WM8325 },
+-	{ "wm8326", WM8326 },
+-	{ },
++	{ .name = "wm8310", .driver_data = WM8310 },
++	{ .name = "wm8311", .driver_data = WM8311 },
++	{ .name = "wm8312", .driver_data = WM8312 },
++	{ .name = "wm8320", .driver_data = WM8320 },
++	{ .name = "wm8321", .driver_data = WM8321 },
++	{ .name = "wm8325", .driver_data = WM8325 },
++	{ .name = "wm8326", .driver_data = WM8326 },
++	{ }
+ };
+ 
+ static struct spi_driver wm831x_spi_driver = {
 -- 
 2.55.0.11.g153666a7d9bb
 
