@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFF9C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B134C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:58:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iOURw/RgzEUdJhAQDaSsZRvlVbckDDAcHAc+nkHvils=; b=zPnFXbxQqlekVWmqAtbP3KmnBX
-	uaK4bWZ8CjwzBnxpplL/moviTTJgXh4Hz7yxDG+HOE3QtJzFGcg2dExENHV3y0jM1sPX6BB2WmyGY
-	2du3A4XeTI5VBdc2G6IW3wrRoCL7CbCrbu99rOfM+hsUfhUGijIkoddITPjVup8+w+4rqq2T8Mpmu
-	JQcK7DNY8K+f1I8HPaU64BMyfsp46yUFRmRMrawHYpKavSIhBNPZcChf1pdrlQ5ICuS7RzdoJVeH4
-	KV38ewXV1tKf4AhZCAGD3jTxDHLgY3uIHHiLgMTxpenTUDQ8+oz0cRsXbIG10hLEk5df20JAMiFmx
-	NCxwNqKg==;
+	bh=nfJGQiLZMT0lCObzgKpJ2ztq6NpnscngYdLYNzXRSXc=; b=Lpf1u2puaQNVEM+V4O0UbjOlSD
+	OgPls9VEQWvDCSMxYCTNTH6yvqWAYBSqgIQTXJLGbmjPuQYTjNHFHIt7/F9t8MjmcYZDMNGXEMP4S
+	zUDmR2b/MrY2qd/yItbAF8jCKVa4Dou4j5Y00cvMWwlXlrEo8ilgiXY9Mlv+cB2UvsDjUEUQRc341
+	ju4pBvJNVtdub13vY0ci1Nj7hXjB/o7JMbfMMbUNQLa9m37kDS/8nbEKjBSSBm8Pk/VVA20lViEyH
+	2wcIo9Ep4ZG7WWgJpTwVS6zMQMXLw8jF7tTnq7GVWxpgxjWaFqYeZemLBGuv7IGPeafJ7iRNb4Xgz
+	mj1lqGwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGzx-00000004Tog-3cA1;
-	Thu, 02 Jul 2026 12:58:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfGzz-00000004TpP-4BTU;
+	Thu, 02 Jul 2026 12:58:36 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGzw-00000004ToT-2qLj
+	id 1wfGzy-00000004Toy-3OS8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 12:58:32 +0000
+	Thu, 02 Jul 2026 12:58:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id DC6D54338B;
-	Thu,  2 Jul 2026 12:58:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47AC91F000E9;
-	Thu,  2 Jul 2026 12:58:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 22F6660126;
+	Thu,  2 Jul 2026 12:58:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 498A21F00A3D;
+	Thu,  2 Jul 2026 12:58:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782997111;
-	bh=iOURw/RgzEUdJhAQDaSsZRvlVbckDDAcHAc+nkHvils=;
+	s=k20260515; t=1782997113;
+	bh=nfJGQiLZMT0lCObzgKpJ2ztq6NpnscngYdLYNzXRSXc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=d6aGQPBhg6Ip7VPo2qQKA3Gu0P+sPyMZ3XDROR730KkUF1uJf+siBRABfPza8Gr1A
-	 V/PbB5VEMjsb3T11cA8exyEamJMkLOhbrkVrXvLgXb6IE6yHpKNMvQ2F64/feaC430
-	 Ony0Q/Vm3rpr3qoK/bltaDR7b6R0OgXUn5UlhHRwPz7u0Df9W0LCqqUSuO81OI69iw
-	 BH5HqTUumofAISs5ZOyTFN/Vhj06ur5vwg1vHHGR2f10xoq8SAnq3fqpTxek/nBkhI
-	 DPvzRcecS0tqub0TDMSULzMBfTblGwaRP/ey/WnE1yPbdqHyyKqzozhxuW34QbVoMQ
-	 XONWk4/LOn1xg==
+	b=gsEpkhgWYncq2LdMZrUsooPu/jZHOjUgLjqrSzbuLjR+tIbx7Vcziu5zn7VJNwr33
+	 ss5o8JtaW9CCTG12u1JRgikFR4gV/oKcTEgGcedsx87E2YZcnnsU8YnapO8st7gr0i
+	 VrIElU5Ps/p/8iYg9Z9UfQVUXMgmDGerpP/fy/leNs4kRlBGQZ1Ne1SebwXhv0DCj3
+	 Mmcoexq9euoC2jHaPPw08WJA/V645zwCAepi1yWTAN1Aj6bljYd7G6N7APZTp88tvY
+	 ij90n0h97m7Kbxq06CoxrzMeq4z6toZuvCU4gpIbtwrLjBsNIVwje/EKcbbq0UDFlD
+	 1/astxQce2lYg==
 From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Jia He <justin.he@arm.com>
+To: catalin.marinas@arm.com,
+	shuah@kernel.org,
+	Wang Yan <wangyan01@kylinos.cn>
 Cc: kernel-team@android.com,
 	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Brown <broonie@kernel.org>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Bin Guo <guobin@linux.alibaba.com>
-Subject: Re: [PATCH] arm64/sysreg: Fix BWE field encoding in ID_AA64DFR2_EL1
-Date: Thu,  2 Jul 2026 13:58:22 +0100
-Message-ID: <178298904616.3252144.11498008962010454821.b4-ty@kernel.org>
+	linux-arm-kernel@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] selftests/arm64: fix spelling errors in comments
+Date: Thu,  2 Jul 2026 13:58:23 +0100
+Message-ID: <178298908428.3252584.2973401122289097904.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260630222347.1449737-1-justin.he@arm.com>
-References: <20260630222347.1449737-1-justin.he@arm.com>
+In-Reply-To: <20260702015242.361489-1-wangyan01@kylinos.cn>
+References: <20260702015242.361489-1-wangyan01@kylinos.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -80,24 +74,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Jun 2026 22:23:47 +0000, Jia He wrote:
-> Commit 93d7356e4b30 ("arm64: sysreg: Describe ID_AA64DFR2_EL1 fields")
-> encodes the FEAT_BWE2 value of the BWE field as '0b0002'. Binary
-> literals only accept the digits 0 and 1, so the intended value is 2,
-> i.e. 0b0010.
+On Thu, 02 Jul 2026 09:52:42 +0800, Wang Yan wrote:
+> Fix two spelling mistakes in arm64 selftest comments:
+>   - "whcih" -> "which" (arm64/gcs/libc-gcs.c)
+>   - "resutls" -> "results" (arm64/pauth/pac.c)
 > 
-> The macro generated by gen-sysreg.awk currently expands to
-> 	#define ID_AA64DFR2_EL1_BWE_FEAT_BWE2 UL(0b0002)
-> is not legal C and would fail to compile if any in-tree code referenced
-> it. At present no caller uses this enum value, so the kernel still
-> builds cleanly, but the bug is latent.
 > 
-> [...]
 
 Applied to arm64 (for-next/fixes), thanks!
 
-[1/1] arm64/sysreg: Fix BWE field encoding in ID_AA64DFR2_EL1
-      https://git.kernel.org/arm64/c/6666336d8fe5
+[1/1] selftests/arm64: fix spelling errors in comments
+      https://git.kernel.org/arm64/c/a52d6c7160f7
 
 Cheers,
 -- 
