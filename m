@@ -4,123 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41494C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:02:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B76C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:10:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lr6/nGVMqbFj04a/oTKJJK/EJEvEC7baqIvXkj+U748=; b=UMgDoF8tlLYdw4a+WPbdrBTwyA
-	L5SSkQ7T+CR3dYsNhoLnjpAmY+TDyFaPgoYKAwLTEGsMijFkHJYXY5dRdDfFZ2XCFD30aLB09dA8f
-	wdt62URBj0tyBozPrJGiBwwBui4CiXWWN0hbSgtQdVTWZQNd9xJrrPxaDeUwzzoUB7QCWQakpUmsJ
-	kWufQhuZtj8JxyC24pG+nQrNL/+Hw3XCnXDxfJVkjEhDuMcFmQClNO6D+7bO+dirX+TkdxuhvG71Q
-	MEur5sRTnHyD+UTwS7Oaeg4tQb00PSmrGxvRbNKTGE/1kitNcRDJn313vf0+q5p5XcSX3MTq4W0fS
-	7a0K6Vxw==;
+	bh=Jt8J1JxAG/g5bLol8oJcYaANKEU/YkVoUby7a61ZLDo=; b=EmvaZNU09mpU8Ht7VeDm+BAsMm
+	XheWK27f9qFFNuqGoQqiNGPzLMM3ORkbzoGfrzApDdmyqI8m/UJUwg0E1S5FlEwIi584Je7FOTBlb
+	iNxVSD8ibh/iPn3vDEgqC22GI1603zt5IRbKOCsCkodEnSx4o3WMtwBRsHXjwpJHTV1NRsdTOk4n6
+	UbziJ2eduYU3HHkIo4u/ct5NYJ97CbyBYQxzWzHhg1fU+cZOp5MKrSZGaWqOY2TU6bl5G6uZ/IyoL
+	8bnSUoK5sf7KY6q2071SRlQcHrLiUauKRmtdjF3UDylWxF4FezY8YTGOnVSymgIjEN68VzYcbp+XT
+	H2aweSVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAVG-00000003cRw-3w7Y;
-	Thu, 02 Jul 2026 06:02:26 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1wfAcf-00000003cs2-4AJG;
+	Thu, 02 Jul 2026 06:10:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAVE-00000003cRF-1mxo
+	id 1wfAce-00000003cru-0xFB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 06:02:25 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 81E4414000F3;
-	Thu,  2 Jul 2026 02:02:23 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Thu, 02 Jul 2026 02:02:23 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1782972143;
-	 x=1783058543; bh=lr6/nGVMqbFj04a/oTKJJK/EJEvEC7baqIvXkj+U748=; b=
-	wIbzOPGoCwjGyOHPdmwVicmgc0hQgjfv5nUzg1LLEf5GaCP1SqNESgHBbk23VE7O
-	jLq+w3C003Y578S7klJfk30nSeV4afRUrZl9e3TvugZdNd6XjhEOBQcyqSUTpEkH
-	oByxI2zX/4NNpmkvqjENxhf4xe7T5mjIENxHepQEPmrZx2Btzexg6BQWRxZVrsqc
-	+S5cukDaj5KkpW8WZP8V0yc3sOa2m8SGNz0kOXVgaUW0HO7/gprJnHfpVd3JQWgC
-	DACIUmaOkU40KF4cnkq0LgSgEN//LTcs2L2tGJlCHcRx2Fqsbk4Z52hXGHhrBSv4
-	afHIzhqeFPIZgm6PnZc7ug==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1782972143; x=
-	1783058543; bh=lr6/nGVMqbFj04a/oTKJJK/EJEvEC7baqIvXkj+U748=; b=b
-	evxQom1a4u08OpoVX3L6Z/aT5TnActVsQjVhmTqEFZHvHaxzRGwDng3h1i6z/FhB
-	RplXXFJvwFIhGjttdwXjK6UJMIgqsIF/Id65CNILZ9AQiJ4N8K0ioPz8DMHZ4d/Q
-	MdyMDZx8e7yu064sNweYkTUGxsf/+oBj1UoRum6Y0WCvQTp9E1yacm4AYXEN8Rza
-	8j4dauT9xB6wVqARGa3LH+EE6BdNpnoXWJERpEaxWvSStzLbywYASs5ilc1o7009
-	48hQcAELrXb2ZVTyFMRZW7WL8ong6Qzt0ggQ0ekgzxNu1JceKklgodzy/rLTJaRw
-	Vyow/FlfFbk0kv9Ee/+yg==
-X-ME-Sender: <xms:7v5FapgzlMvs-eAX3PBSbR1xw83qgsjI5wzfmLKj6n449HpLEUq-sg>
-    <xme:7v5Fao1bIxCmxkw70c8_Fn5qen-_ZJmkaIscpjXMdcHU5-VXA72iDscUgS6_y1uOx
-    DZ1IPdRyPR0l980_iUfSuxHQaIMyWZeTGyBykOPo6S3eDeyNA6q3bU>
-X-ME-Proxy-Cause: dmFkZTE1hwWACJKEFIUoFEnQ5OMi3j19SlP0C3otzlzCF8RUdgGEVzHBBEEzC7QNVT5mdZ
-    wn5ONexXjZdSnpsWV63fsi8yrSf+f0LgPP/04gwfVqXs6uZvmMnVveKzmnmq7M8TlGIsLG
-    T5vAg6REddxJvKOG/NJdxuW8enDsm68J5OifLsFdBqJbkqZvOuef21J+fv1yCO0emwuPYr
-    E7kdFxLg7/71Gl3GME/PVUqk8OqK7ga5NomWM2Dkw4oeUs9BB1Qrt53CTvCyXs0fEI3kRy
-    odDCY2kTsKRJT77uzAnKwzv+YVRBIEziVPFLk8/tWPwMCVk4wlPFnD44IGU8oPgBMz+/lV
-    c0tKmOqBqsB3clrHc6NTXwgmDAmFC0J5KBaSXQgoV32/GHhuBlSxh8EJNy+TmlEUJCnaHo
-    /lOPmqF6q2pd0/MuRp7j565E7sKjA2m3YeuGqd5PPPLjxhqiurDJDutc/WZgCLdyD8nzwd
-    pk2wvyyLpvOGXuJU1B9FIdljfZX+X10vY4CrdCHos/aHF5IekDLfsdBv2Yo+USiaqTfKku
-    +sLLmvpisHSN2p5m0XA5Jy9l9uCt3l10avGs7dzFccSTkxFxKwfmuSkASsq04Q6L5xZ/66
-    9+HYHPfEXPvbc7abN0WmFi+x0lVl29l3cmEzhepg2k78hk9Z+3yla5dF1DGQ
-X-ME-Proxy: <xmx:7v5FaruZA2SC-0IiJulQMnJ6087TcCm3EXzdAVzHm3gYYz4YuFUyLA>
-    <xmx:7v5FajTcKljnvAKJQjysI4a2ivYLzpho2u1QD-J9F2Vz7N-6_U2ZCg>
-    <xmx:7v5FansQlAEx6tz7RH8nTbvu7NyVQ-rG7Pie1sTCKDBr02lSMMw3JQ>
-    <xmx:7v5FatBRP6bykKDJb8cDyiE5DPWufX6goN4riQbLvA2EHmzrihxuFg>
-    <xmx:7_5FamHmBpmSGd3sc1DlJch9jxxUCjRyxoks7OQPmEuQ5TTZ1vCpn42G>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 8362E182007E; Thu,  2 Jul 2026 02:02:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 02 Jul 2026 06:10:04 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9508240642;
+	Thu,  2 Jul 2026 06:10:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97FEC1F000E9;
+	Thu,  2 Jul 2026 06:09:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782972603;
+	bh=Jt8J1JxAG/g5bLol8oJcYaANKEU/YkVoUby7a61ZLDo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=XXIjb2fGtvZ4+UQBTSD3JAxKvK5AL4kbaVV8X9fWd3iSNzEmOrOhmWyfdb468iSIp
+	 tIaJ8gOYF+sw00A9sayHhMYil6fSxMMX7hoWzqsQkm+pdGVuoAdGRD+E/aXC2ew6wn
+	 11Kelyfp67IpHh8wGcTzkPbvmLLNWhUhmTh4VJ/uPX3yqCWjNxj/qdeuAxPhWEkT3h
+	 60qv6OouYWA+0J5WtBOjkEule6gBWS+PiPGWIsVJsfaxIoc215wa5t18E3UdXKU0XP
+	 nZ3NM4JdY40BzcxhwaTPuV5j5PLV/HBWgHvKEq4Dsz6Xh6KRVUBAOYDGPabfwPluyh
+	 1QiDDkFXAnvwg==
+Message-ID: <187099d0-5e09-49c2-b67d-8bd4366ff1a0@kernel.org>
+Date: Thu, 2 Jul 2026 08:09:55 +0200
 MIME-Version: 1.0
-X-ThreadId: ALI-OaCDsipc
-Date: Thu, 02 Jul 2026 08:02:02 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ethan Nelson-Moore" <enelsonmoore@gmail.com>,
- "Arnd Bergmann" <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- linux-kernel@vger.kernel.org, "Aaro Koskinen" <aaro.koskinen@iki.fi>,
- "A. Sverdlin" <alexander.sverdlin@siemens.com>,
- "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
- "Alexandre Torgue" <alexandre.torgue@foss.st.com>,
- "Andrew Lunn" <andrew@lunn.ch>, "Ard Biesheuvel" <ardb@kernel.org>,
- "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
- "Daniel Mack" <daniel@zonque.org>, "Frank Li" <Frank.Li@nxp.com>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- "Haojian Zhuang" <haojian.zhuang@gmail.com>,
- "Jeremy J. Peper" <jeremy@jeremypeper.com>,
- "Kristoffer Ericson" <kristoffer.ericson@gmail.com>,
- "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Linus Walleij" <linusw@kernel.org>, "Mark Brown" <broonie@kernel.org>,
- "Marc Zyngier" <maz@kernel.org>, "Mike Rapoport" <rppt@kernel.org>,
- "Nicolas Ferre" <nicolas.ferre@microchip.com>,
- "Patrice Chotard" <patrice.chotard@foss.st.com>,
- "Ralph Siemsen" <ralph.siemsen@linaro.org>,
- "Robert Jarzmik" <robert.jarzmik@free.fr>,
- "Russell King" <linux@armlinux.org.uk>,
- "Sascha Hauer" <s.hauer@pengutronix.de>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- "Stefan Agner" <stefan@agner.ch>,
- "Stefan Wiehler" <stefan.wiehler@nokia.com>,
- "Tony Lindgren" <tony@atomide.com>, "Vladimir Zapolskiy" <vz@mleia.com>,
- "Will Deacon" <will@kernel.org>
-Message-Id: <4099d875-0da3-45df-9abe-437d688039ef@app.fastmail.com>
-In-Reply-To: <CADkSEUgm4yX36W6dG-5WOm42Z3iDpHVcz73suWDN3=bsGgq+0g@mail.gmail.com>
-References: <20260701212353.2196041-1-arnd@kernel.org>
- <20260701212353.2196041-7-arnd@kernel.org>
- <CADkSEUgm4yX36W6dG-5WOm42Z3iDpHVcz73suWDN3=bsGgq+0g@mail.gmail.com>
-Subject: Re: [PATCH v2 06/19] ARM: mark CPU_ENDIAN_BE8 as deprecated
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_230224_694308_54BF7896 
-X-CRM114-Status: GOOD (  10.82  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: rtc: Add sii,wakealarm-output-pin
+ property for S35390A
+To: Markus Probst <markus.probst@posteo.de>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <uwe@kleine-koenig.org>, Andrew Lunn <andrew@lunn.ch>,
+ Gregory Clement <gregory.clement@bootlin.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20260630-rtc_s35390a_int1-v1-0-1b2239e16be2@posteo.de>
+ <20260630-rtc_s35390a_int1-v1-1-1b2239e16be2@posteo.de>
+ <20260701-bronze-jaguar-of-perfection-028bac@quoll>
+ <45e8157be53c3d8827fcccece7f706968bc056d3.camel@posteo.de>
+ <7de66163-369e-4118-af51-6913b565fa4b@kernel.org>
+ <d06dd0726aa3795ae99df5fa8a9c05d6e2001efd.camel@posteo.de>
+ <20260701164821b7492eac@mail.local>
+ <74b32ed0a700e3900c0f34d730b2b5b69eb2ca19.camel@posteo.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <74b32ed0a700e3900c0f34d730b2b5b69eb2ca19.camel@posteo.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,24 +127,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 1, 2026, at 23:57, Ethan Nelson-Moore wrote:
->> At the moment, there are no known bugs with big-endian ARMv7 mode, but
->> it does break occasionally and require someone to fix it.  By marking
->> the code as 'depends on BROKEN' now, it will no longer be covered by CI
->> testing. If any users remain, they can keep patching out the dependency
->> but are more likely to run into regressions.
+On 01/07/2026 19:08, Markus Probst wrote:
+> On Wed, 2026-07-01 at 18:48 +0200, Alexandre Belloni wrote:
+>> On 01/07/2026 16:43:07+0000, Markus Probst wrote:
+>>> On Wed, 2026-07-01 at 17:14 +0200, Krzysztof Kozlowski wrote:
+>>>> On 01/07/2026 15:25, Markus Probst wrote:
+>>>>>>> +
+>>>>>>> +maintainers:
+>>>>>>> +  - Alexandre Belloni <alexandre.belloni@bootlin.com>
+>>>>>>
+>>>>>> This should be someone caring about this hardware.
+>>>>> He does have the majority of commits on this driver (excluding merge
+>>>>> commits and commits not exclusive to this driver), although most of
+>>>>> them are pretty tiny.
+>>>>>
+>>>>> Who would you suggest instead?
+>>>>
+>>>> Someone adding features for this driver, maybe driver maintainers. But
+>>>> if Alexandre is fine, you can leave him.
+>>>>
+>>>>>>
+>>>>>>> +
+>>>>>>> +description:
+>>>>>>> +  The S-35390A is a CMOS 2-wire real-time clock IC which operates with the
+>>>>>>> +  very low current consumption in the wide range of operation voltage.
+>>>>>>> +
+>>>>>>> +allOf:
+>>>>>>> +  - $ref: rtc.yaml#
+>>>>>>> +
+>>>>>>> +properties:
+>>>>>>> +  compatible:
+>>>>>>> +    const: sii,s35390a
+>>>>>>> +
+>>>>>>> +  reg:
+>>>>>>> +    maxItems: 1
+>>>>>>> +
+>>>>>>> +  sii,wakealarm-output-pin:
+>>>>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+>>>>>>> +    enum: [1, 2]
+>>>>>>> +    description: |
+>>>>>>> +      The output pin to wake up the system.
+>>>>>>> +      Default will use the output pin for interrupt signal 2.
+>>>>>>> +        <S35390A_OUTPUT_PIN_INT1> : Output pin for interrupt signal 1
+>>>>>>> +        <S35390A_OUTPUT_PIN_INT2> : Output pin for interrupt signal 2
+>>>>>>
+>>>>>> Does that mean device generates the interrupts?
+>>>>> Yes.
+>>>>>
+>>>>
+>>>>
+>>>> Then I think you miss interrupts property.
+>>> From what I can tell the line is used to generate a system wakeup
+>>> event.
+>>>
+>>> There would be no obvious benefit of connecting it to an interrupt
+>>> controller, so this property would be obsolete?
+>>>
 >>
->> The big-endian ARMv5 support (CONFIG_CPU_ENDIAN_BE32) in contrast is
->> still used on Intel IXP4xx platform, and is the only currently supported
->> mode there, so this one can still be enabled.
->
-> If IXP4xx is the only known remaining user, would it make sense for
-> CPU_BIG_ENDIAN to instead depend on ARCH_IXP4XX || BROKEN? Is BE32
-> mode known to work correctly on any other platforms?
+>> Then you need proper wakeup-source support
+> Wouldn't that break existing devicetrees?
 
-This is essentially what we have, just expressed the other way round:
-all ARMv4/v4t/v5 platforms depend on CONFIG_CPU_LITTLE_ENDIAN, except
-for IXP4xx, which depends on CONFIG_CPU_BIG_ENDIAN.
+How?
 
-        Arnd
+> 
+> The current driver allows to wake up the system, even without
+> having wakeup-source set.
+
+Anyway, wakeup-source is already there in rtc, so this would be done. I
+don't get though, why there is no benefit of routing it to interrupt
+controller (interrupt controllers do wake up the system). Additionally,
+if you do not connect it to any interrupt, then how does it wake up the
+system?
+
+Best regards,
+Krzysztof
 
