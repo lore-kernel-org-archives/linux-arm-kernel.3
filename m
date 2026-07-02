@@ -4,71 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D10EFC44509
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5975BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:03:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w9cS+sH8rK39h4IrKVqMWA/sDRrqsH9R4UnS3rXWPss=; b=xJRjgOiyqGBp56APt/wW+3twF1
-	68Nazk8mP/NIWQYli2nlsYnSKBuoa2Ay6lGEwdVsd/B5a4si2L2kWXTwEvEcNk8liV0YTZKZ6YTaI
-	T9KkwoIt38uL2lqtzkE9YEyfQ5BvDmsA1VWAQPwoHEa8LII5nFtxruJNDNZg3QIDXXjxe5Knx3pjV
-	DWSMlpPp/wzURj0NfvvpWsKDr6c0OXN5ShIogOIuJFwYosVu5xPrwT98VcO0UhV1RpYCNwe0hN4A9
-	AsnA4LaePFMbRQOrY+pUZg5jzLpeYzlEcLFpT1pA8OlkDHDmA4Agjhedy6fC/g4b4CDxaQquALW9f
-	VsKehuuQ==;
+	bh=C8zc9X+dTpqmmD8ALrt/0L2A9nL46NTuI1B1NQ1IqSM=; b=36tsIaJXhpp256oOu7doxCc6Jq
+	wa9/R3Dek++v6EwEOBC6ax/QxDgpg/YbtEUasSO+NLI/Fe+WTCxKaUlJaLoV4ec1LCy0Gek+V/VIH
+	L4kJv4luwjD1n8MEA7jO6Ur9AleUiNKYj8K6cMSF6pyBc0K2JCc1aVNtMfrA9s/yQaj8xpnupJDM0
+	AwZuZqd/R/bc0u+JOfWP6dUYusEuD+01T10PIpJQmbnGAurBm8qccZsTVRd4Tr3Mmz2zJ27C/FtYg
+	s8btLy5DU1Fs578YEE6qz/oGX7KkdkHEECcGeN0coPtAQ1ZX8hFC+lQeFxGXl9DvYaYGWg1xqB3yb
+	/oXm/Q9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJse-00000004uWJ-3NS4;
-	Thu, 02 Jul 2026 16:03:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfIhW-00000004gd4-0B5I;
+	Thu, 02 Jul 2026 14:47:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsW-00000004uG6-0XYB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id D011B43F47;
-	Thu,  2 Jul 2026 16:03:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B63DE1F00A3A;
-	Thu,  2 Jul 2026 16:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783008183;
-	bh=w9cS+sH8rK39h4IrKVqMWA/sDRrqsH9R4UnS3rXWPss=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=iQ5K7qP4ilajR1mGILH/35nueyb7iR0N4e08QqyJYcxxTsb8HeN9cMp6I3mnT1fkh
-	 OBxgdUlHrP8xZi0/nKmooLczTZNSVqnvePs68BFYmTtXU3VjFos6bYWSxesKoze+h8
-	 Fd8OHmYBbpBD5nMbJEMAPAtChOtrTviBVrPc8KKRLWX/aT5bDDjLUep2aqg/W5k/RW
-	 W5FfTejF51TQG5u9ui9oqn83FYYZ2cl12I/SP2JEnVNkGo6JJb71qJkLZ54Ob5kFBo
-	 Z2ziUIQislycxzAGS47RBSBSNuAxuK8NY6x9KmQvOE86QiH8HxsGy6hiNUwa2Z0X1T
-	 XsD70G536HFVQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wfJsT-00000000ojd-45LY;
-	Thu, 02 Jul 2026 16:03:02 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 19/28] KVM: arm64: Make HCR_EL2 a non-VNCR register
-Date: Thu,  2 Jul 2026 17:02:39 +0100
-Message-ID: <20260702160248.1377250-20-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
-References: <20260702160248.1377250-1-maz@kernel.org>
+	id 1wfIgq-00000004f4F-0BhJ;
+	Thu, 02 Jul 2026 14:46:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783003614;
+	bh=oRJHiv5Xy3cWFXF7zc+DVt+6QfSJIYgjTTfVBK1Rmho=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=HzSuOdMNPppul9DcAK+K7kew4gF0ghNPBWe++u72F8SEau+MmCHX6Si/2uSKTdGx2
+	 NKc9wRmlgQoaQ4ZCWKb7aDHabxNy6bC2/fZuBnwNl0MZS3U/P+kODSNG/iGkW2QBD2
+	 AmCgEyX8cjqNP+1TeIAtZLqI2i5ADL3XLoc880Q8kRzlXmxO9N7KgJhk/C+N9TdLQC
+	 6OqjndIWUM5JiLTvoMQIwAUP6K7M6ZxiPpUfcud6MDBmOw9moBSj+SY5CsS7fUH30h
+	 hPpMm6VgV8DNhhnf68iQU75Ik1asgx599AUFneEQ5DX326w0vhO0DFXqq3InToBqoC
+	 vFBN1QUi6D80g==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D045917E3667;
+	Thu,  2 Jul 2026 16:46:53 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 02 Jul 2026 17:46:43 +0300
+Subject: [PATCH v8 30/39] drm/vc4: hdmi: Switch to
+ drm_hdmi_mode_needs_scrambling()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-30-d79890d00b6a@collabora.com>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_074656_295954_2C03F169 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +87,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FEAT_NV3 makes a fundamental change to the architecture, by moving
-guest-initiated HCR_EL2 accesses to the NVHCR_EL2 register. As the
-names suggests, this is HCR_EL2 for a NV guest.
+The VC4 HDMI driver has a local helper to check whether a mode requires
+scrambling.  It is equivalent to drm_hdmi_mode_needs_scrambling(), so
+use the common helper instead.
 
-But where do NVHCR_EL2 accesses from a guest go? The are redirected
-to the VNCR page, right where HCR_EL2 is stored in the NV2 case.
-Does it hurt? Good. There's more coming.
+No functional change intended.
 
-The challenge here is to make KVM work seamlessly, without rewriting
-everything. Which implies that things such as __vcpu_sys_reg(HCR_EL2)
-must work, no matter the underlying NV implementation.
-
-A simple way to deal with it is to move HCR_EL2's canonical storage
-outside of VNCR for the vast majority of the KVM code, and only have
-a copy at entry/exit times. Given that we don't really support NV3
-yet, this is pretty simple.
-
-In the process, advertise NVHCR_EL2 as the register that now holds
-offset 0x78 in the VNCR page.
-
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/include/asm/kvm_host.h     | 3 ++-
- arch/arm64/include/asm/vncr_mapping.h | 2 +-
- arch/arm64/kvm/hyp/vhe/switch.c       | 9 +++++++++
- 3 files changed, 12 insertions(+), 2 deletions(-)
+ drivers/gpu/drm/vc4/vc4_hdmi.c | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index bae2c4f92ef5c..2648c8a717ba0 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -543,6 +543,7 @@ enum vcpu_sysreg {
- 	MDCR_EL2,	/* Monitor Debug Configuration Register (EL2) */
- 	CNTHCTL_EL2,	/* Counter-timer Hypervisor Control register */
- 	ZCR_EL2,	/* SVE Control Register (EL2) */
-+	HCR_EL2,	/* Hypervisor Control Register */
+diff --git a/drivers/gpu/drm/vc4/vc4_hdmi.c b/drivers/gpu/drm/vc4/vc4_hdmi.c
+index fbdb0448aa2b..e7b0f0f2e350 100644
+--- a/drivers/gpu/drm/vc4/vc4_hdmi.c
++++ b/drivers/gpu/drm/vc4/vc4_hdmi.c
+@@ -130,15 +130,6 @@ static bool vc4_hdmi_supports_scrambling(struct vc4_hdmi *vc4_hdmi)
+ 	return true;
+ }
  
- 	/* Any VNCR-capable reg goes after this point */
- 	MARKER(__VNCR_START__),
-@@ -571,7 +572,7 @@ enum vcpu_sysreg {
- 	VNCR(TFSR_EL1),	/* Tag Fault Status Register (EL1) */
- 	VNCR(VPIDR_EL2),/* Virtualization Processor ID Register */
- 	VNCR(VMPIDR_EL2),/* Virtualization Multiprocessor ID Register */
--	VNCR(HCR_EL2),	/* Hypervisor Configuration Register */
-+	VNCR(NVHCR_EL2),/* NV Hypervisor Configuration Register */
- 	VNCR(HSTR_EL2),	/* Hypervisor System Trap Register */
- 	VNCR(VTTBR_EL2),/* Virtualization Translation Table Base Register */
- 	VNCR(VTCR_EL2),	/* Virtualization Translation Control Register */
-diff --git a/arch/arm64/include/asm/vncr_mapping.h b/arch/arm64/include/asm/vncr_mapping.h
-index 14366d35ce82f..9e8a49fa8b638 100644
---- a/arch/arm64/include/asm/vncr_mapping.h
-+++ b/arch/arm64/include/asm/vncr_mapping.h
-@@ -11,7 +11,7 @@
- #define VNCR_VTCR_EL2           0x040
- #define VNCR_VMPIDR_EL2         0x050
- #define VNCR_CNTVOFF_EL2        0x060
--#define VNCR_HCR_EL2            0x078
-+#define VNCR_NVHCR_EL2          0x078
- #define VNCR_HSTR_EL2           0x080
- #define VNCR_VPIDR_EL2          0x088
- #define VNCR_TPIDR_EL2          0x090
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 8268779df4fa9..05bcf8bf7f978 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -70,6 +70,9 @@ static u64 __compute_hcr(struct kvm_vcpu *vcpu)
- 		if (!vcpu_el2_e2h_is_set(vcpu))
- 			hcr |= HCR_NV1;
- 
-+		/* Publish the guest's view of HCR_EL2 to the HW */
-+		__vcpu_assign_sys_reg(vcpu, NVHCR_EL2, __vcpu_sys_reg(vcpu, HCR_EL2));
-+
- 		/*
- 		 * Nothing in HCR_EL2 should impact running in hypervisor
- 		 * context, apart from bits we have defined as RESx (E2H,
-@@ -547,6 +550,7 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
- 	 */
- 	if (unlikely(host_data_test_flag(VCPU_IN_HYP_CONTEXT))) {
- 		u64 mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
-+		u64 hcr;
- 
- 		switch (mode) {
- 		case PSR_MODE_EL1t:
-@@ -559,6 +563,11 @@ static void fixup_nv_guest_exit(struct kvm_vcpu *vcpu)
- 
- 		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
- 		*vcpu_cpsr(vcpu) |= mode;
-+
-+		/* Publish the latest HCR_EL2 to the emulation */
-+		hcr = __vcpu_sys_reg(vcpu, NVHCR_EL2);
-+
-+		__vcpu_assign_sys_reg(vcpu, HCR_EL2, hcr);
+-static bool vc4_hdmi_mode_needs_scrambling(const struct drm_display_mode *mode,
+-					   unsigned int bpc,
+-					   enum drm_output_color_format fmt)
+-{
+-	unsigned long long clock = drm_hdmi_compute_mode_clock(mode, bpc, fmt);
+-
+-	return clock > HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+-}
+-
+ static int vc4_hdmi_debugfs_regs(struct seq_file *m, void *unused)
+ {
+ 	struct drm_debugfs_entry *entry = m->private;
+@@ -313,7 +304,7 @@ static int vc4_hdmi_reset_link(struct drm_connector *connector,
+ 		return 0;
  	}
  
- 	/* Apply extreme paranoia! */
+-	scrambling_needed = vc4_hdmi_mode_needs_scrambling(&vc4_hdmi->saved_adjusted_mode,
++	scrambling_needed = drm_hdmi_mode_needs_scrambling(&vc4_hdmi->saved_adjusted_mode,
+ 							   vc4_hdmi->output_bpc,
+ 							   vc4_hdmi->output_format);
+ 	if (!scrambling_needed) {
+@@ -443,7 +434,8 @@ static int vc4_hdmi_connector_get_modes(struct drm_connector *connector)
+ 		const struct drm_display_mode *mode;
+ 
+ 		list_for_each_entry(mode, &connector->probed_modes, head) {
+-			if (vc4_hdmi_mode_needs_scrambling(mode, 8, DRM_OUTPUT_COLOR_FORMAT_RGB444)) {
++			if (drm_hdmi_mode_needs_scrambling(mode, 8,
++							   DRM_OUTPUT_COLOR_FORMAT_RGB444)) {
+ 				drm_warn_once(drm, "The core clock cannot reach frequencies high enough to support 4k @ 60Hz.");
+ 				drm_warn_once(drm, "Please change your config.txt file to add hdmi_enable_4kp60.");
+ 			}
+@@ -802,7 +794,7 @@ static void vc4_hdmi_enable_scrambling(struct drm_encoder *encoder)
+ 	if (!vc4_hdmi_supports_scrambling(vc4_hdmi))
+ 		return;
+ 
+-	if (!vc4_hdmi_mode_needs_scrambling(mode,
++	if (!drm_hdmi_mode_needs_scrambling(mode,
+ 					    vc4_hdmi->output_bpc,
+ 					    vc4_hdmi->output_format))
+ 		return;
+
 -- 
-2.47.3
+2.54.0
 
 
