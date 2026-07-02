@@ -4,152 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 844F3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:26:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BB0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 14:29:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zbRm2/+9l91bQuKOGC+Y0ZOkfvtbGoXG3sUXKKFqMvc=; b=yQzeL0EZR5kjlERuKKW1O9bsd0
-	NSbtufgB1ZKT03sxf/P6PtxqscEkwwz8VJo0VyNh3OmnFKRTHDDqH1BNa1+LpQSm7CrdkfkcDjZPD
-	SmtnMEz2YoTPHFvNInXIPvLTyH8MjW7DfxE75TFQqeObz6EodHpnfZSOdc9VJs5zdz7KA29oSspGd
-	5lgLyiikxm6rJRhQXb39ONMRN6IkJ1HRq69PEybNP5eBvoZOcSi0spx9gLB0vx/0eNjtQLTxOBhjP
-	utK5F3Na21rMQu5x4Nwj5u042yXhRJYXo4+8TY+J6un6SRDyxfya50tIU9Ti3tsWO6AG6Ts+jlCwg
-	EYoM+Tig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Qxmgc5GPf6s07cMie5Yt6ddiOaa1wIdJN50dxg5fYvY=; b=YwtCL+N8pVt+mytCcIbwFXSS3b
+	NNqupRJvJc42O116GayPDpQzEQUWSgPp6KRuoIRIL5PqSZvHA9aTJRY7F+VCCao+Qs8svTk2OdGqL
+	v+Qs5mmttTqRWoIghuEIdQud47oAezst4JzH77IW1jStEKfC5AzeP5gUK76bnw/2RMw0JMwEltzFF
+	tYac3BQdV3x0C5aBG2ahfJ24ESlpIBRJizB978pjTJtHUFDIzAKxs0GTXGsU2Im247rIQ2t6xJFhX
+	6Wc6y3E98eN46dWbvtuuCIgCVZUMBAMjoj/7Ej6ohqUAn0vHupy5JX/TkBspptMlxyddkqcwC34FI
+	dI2IbGdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIMf-00000004csD-3uMq;
-	Thu, 02 Jul 2026 14:26:05 +0000
-Received: from mail-northeuropeazon11010006.outbound.protection.outlook.com ([52.101.84.6] helo=DB3PR0202CU003.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfIMc-00000004cra-39fi
+	id 1wfIQ7-00000004d9r-1Ywj;
+	Thu, 02 Jul 2026 14:29:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfIQ4-00000004d8f-154i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 14:26:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oLBy8+/04OoO5yoDvDMITKyEeRm9f3IjaXkQ2UKDNT8CrudoTAuocU8WohC0mvTdUyQZBOaUIvyqZ4dQRZVTJO3MfBo16oyclOI5/7Fl0rU9AXbT9JtSX9n7mer+0Nx8rODMjObmUd8I3r/CIgp1WrQZZ06uLh6xY+KcsamPCJtQWAM8+lA2Y9F8FJVqVP/SE/ywWuicLFScOaMxPh7A51KgFbUntNyDGNjElv5JvQ/msJb6Y+7TgPwpzcotS1IMLh5YA5ya9e3+cibbE+5NzIODzHcFytPR8YMSi1jMMDkJcrNs/TNUw4rjxrP+nrAu1tqYpzOQGZu9yKPpFdJXyA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zbRm2/+9l91bQuKOGC+Y0ZOkfvtbGoXG3sUXKKFqMvc=;
- b=TxfsZCNQ+vEJtXO4waJQtKU1TD9hwB4pOdZvUFrbq/67TyYYuGNHYD0yOSwEfeQcotwoiGpsOz6yH6lK+nlhR/ClQhRoqRkWwLd9HwKEdVXMthTO3FJs/3fRUaRSkbkxA4p2zl6ekAwY+GBLGl1z56ZUvB8mxUxLCUMz7Ck5oWPjINrosGqOE7plMq6oXKJVzrq45U661MH0Wsat7Z5R0jq5WBtsY6P4WXwxlQsYnUJT5RkL9LAzEaxnoLyzosg39ptpcOMQWxbE83Zn/qC9tGKtuclOdquCtUGa5lKZCzVgREzUE4zeEX/YaiAV0zNmF8SO6k17jCueFE8Wu5Am4w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zbRm2/+9l91bQuKOGC+Y0ZOkfvtbGoXG3sUXKKFqMvc=;
- b=tW6lq2DreKqCvm1wsH8nAVhiv8mO4pU7MKUVxxk/tubEKl1QU9b1cxtbSf2dPNSF2FdFsLxZrK/zSXDZXGtRjLRZ/I3QH1H30IOxa7uhcMlZSO6E4iXG27ErfoHfGvU/gE+rUrLePh7WvXwo2Uajv8dyB+hrF69PMk+GChH1rpS/dm8BPgVAGHtmewf8mcG60WVRTHvGwB54A2ccZ7uCB/lY1C+XPY4nqkhS8WWlRcKuqutMzxtv7x4+w2C9boLs5GGoQkn9599dDgCiOfqSmeZ7KX4FZse2gDXHyosbYqzkjFcojyzQcUnX4go5KIOSjXcs7fWQCnLv8TPggqn7IA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB8583.eurprd04.prod.outlook.com (2603:10a6:10:2da::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Thu, 2 Jul
- 2026 14:25:57 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 2 Jul 2026
- 14:25:57 +0000
-Date: Thu, 2 Jul 2026 10:25:45 -0400
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-	Aaro Koskinen <aaro.koskinen@iki.fi>,
-	Alexander Sverdlin <alexander.sverdlin@siemens.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Ard Biesheuvel <ardb@kernel.org>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Daniel Mack <daniel@zonque.org>,
-	Ethan Nelson-Moore <enelsonmoore@gmail.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Haojian Zhuang <haojian.zhuang@gmail.com>,
-	"Jeremy J. Peper" <jeremy@jeremypeper.com>,
-	Kristoffer Ericson <kristoffer.ericson@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Linus Walleij <linusw@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Mike Rapoport <rppt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Patrice Chotard <patrice.chotard@foss.st.com>,
-	Ralph Siemsen <ralph.siemsen@linaro.org>,
-	Robert Jarzmik <robert.jarzmik@free.fr>,
-	Russell King <linux@armlinux.org.uk>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Stefan Agner <stefan@agner.ch>,
-	Stefan Wiehler <stefan.wiehler@nokia.com>,
-	Tony Lindgren <tony@atomide.com>, Vladimir Zapolskiy <vz@mleia.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 17/19] ARM: mark Cortex-M3/M4/M7 based boards as
- deprecated
-Message-ID: <akZ06e-yWLvkYe6T@lizhi-Precision-Tower-5810>
-References: <20260701212353.2196041-1-arnd@kernel.org>
- <20260701212353.2196041-18-arnd@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701212353.2196041-18-arnd@kernel.org>
-X-ClientProxiedBy: SN7PR04CA0161.namprd04.prod.outlook.com
- (2603:10b6:806:125::16) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Thu, 02 Jul 2026 14:29:37 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95752359D;
+	Thu,  2 Jul 2026 07:29:28 -0700 (PDT)
+Received: from e140010.cambridge.arm.com (e140010.arm.com [10.2.213.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EB60E3F673;
+	Thu,  2 Jul 2026 07:29:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783002573; bh=hjgzRuRixsji8jEKTlp+FzYkQ4qNfZ44rOs1Pa2QDhE=;
+	h=From:To:Subject:Date:From;
+	b=hcPfanP9lfgG7RZ/Gbwj9CacIVyBHBgGEX04YYhJlhPyRK19zIgvpcN0502pkPTeJ
+	 A0RPfX+tHgtYvVV44MwVqxDuTpfR765q33yWAtMbaH0IzhU2qEOH15m7aoMHLCQakD
+	 vCtqfOOcHNQBN6TmE1QFz3TnvWCAeohrD0tirB6k=
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: pbonzini@redhat.com,
+	kvm@vger.kernel.org,
+	seanjc@google.com,
+	david.hildenbrand@arm.com,
+	maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	fuad.tabba@linux.dev,
+	mark.rutland@arm.com
+Subject: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only memslots
+Date: Thu,  2 Jul 2026 15:29:09 +0100
+Message-ID: <20260702142912.6395-1-alexandru.elisei@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB8583:EE_
-X-MS-Office365-Filtering-Correlation-Id: b9ff808f-21d1-4ca5-e545-08ded845d4d4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|23010399003|1800799024|366016|11063799006|22082099003|4143699003|18002099003|56012099006|41080700001;
-X-Microsoft-Antispam-Message-Info: h8c19gqcFDgbCYPsJXSu2NpqLn1z1yjg39zx5btSzYKzVMzaOEUxy8Q5fzEOOotmnA4+YTX9tn8IfZFfwJo1wRPUSdxDYyZQc7ny85O+yuJI28w81/1evzruSy54zv3EGGIFjA362Lt1Akg+wQcQ+qUedqLSbaOjf4AAwPIzQM9hTmtLsjMEXS1Em5l3nLzbcXpXhWaO+JHV9PtSxpw9D/B6EMWE5PjV/J3d4Isnw1psboi64WV9vjoHCTkGOWpL8ihP9/T6nKnQxBySPZZ4AcKPcZwGQYWNWv478NuhkLS/GVaIa/CWwXw+lZG2QkGJ/ButAjCYFzaGx1XX8jqWkypgSV24gmvU5mb0XdoJriw86QOIElnOhLMe901qFjs21NXDjESUpcFZpP7V7XOl6g/bivND0IDwrkiHN/QTuRdamEfeUolVA6w3pBmz4S+Oj2y8CsVdeF69Mdu9lSzJknV2dUW3xrNRqfNID4wfSJ6iNRFyROan1i0eXDRxUuNw8Q1gqDt/qif13lOpCbuoLVfDb3ST6VNjijIlPU2fmZLgNCitLAzla1NAKzItilxsU55cahLa1pbnQseG1Z4PD8KY3iu2btDv0cG7ySFoJq4TLzPLFJ5PJfq8Wy4bUQvsmw8jiyxmspoIFA17O8W9+y7qpgLJXaZYNpVVDoYLBUaWfVNqynxTVD91eiYvJRuXzV8Ir74Zp3z6sHHPHDWx7Ty67NgiFrehPSfxzwHQ+wA=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(23010399003)(1800799024)(366016)(11063799006)(22082099003)(4143699003)(18002099003)(56012099006)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cFYTn4xevijggpQUwQbxzk8d2vVP6q3wIcyLGj32nygFIDneERTvX9dsBAOL?=
- =?us-ascii?Q?wcK+/MiiHx5xD/KzzkJg/eg//sns+B+SN7PZudB5f7Ui5cKeH4aYtQgCAzDq?=
- =?us-ascii?Q?Ck3IOn0nbMe9maEbsfij+/VTo8GLXTphGEL25waTuU+4hlHJUu7C1S00+9ot?=
- =?us-ascii?Q?GOmdtxI+w+FFZIUApL2a2PuyWXJN04emvgX0T0SGKWQnDf3Jn9uXHYSxiIZS?=
- =?us-ascii?Q?2KqtBxDNiDWBGWR6NdOg1sH5Yjy1AW6LEk/VnOyS3UV0jdBhQ11E2NZbpyF2?=
- =?us-ascii?Q?j+yu77P9sj1c7I4HUUzYPZF9/9Zn2fN25yvSRP8aq/A+BS+EdPoLmn1SAELe?=
- =?us-ascii?Q?69cTN0IpDqY6uVJ06VvXPthk4mygk+LS0IEVe4xfKxVn1kWCzOIBkPFQWgKn?=
- =?us-ascii?Q?h/4jUqQX7JnIIqkMydUXuUDVtBCRrwKhACP2UcowdTN7ZqpoPMcNghFspl95?=
- =?us-ascii?Q?OZ8Dqk8R9EYA6DrYm9NHNet3FHqjuKoSjlvJ9f8xOQbwmyBNGaY7KXai1CQ2?=
- =?us-ascii?Q?4q3BY6UHbr8oAkp6WpPLCelPmZ0FlPoZeDLWQf5Wr/uIVmefNAKd1Mhy/qkR?=
- =?us-ascii?Q?UvnmHDwYTfwfWMtsPzM7nribbN1+y0OLONBGktA7DwyguGVZhblj+Jg6mXzE?=
- =?us-ascii?Q?N7BPDj567Cy1TIw8r3JgkM4kLZJfwj76gCqlnCJFIjn5jBZeGVZrPizCYAAE?=
- =?us-ascii?Q?+xee6Haq9cFZLvrO6Glt64SYUdVg/qwahO3XpMFx9lgAT2SYBF5UgmziMHWd?=
- =?us-ascii?Q?LBd2aom3kYpNdvd7Ujzw5RHiR9H2hDfoM4pu/rBRQC1ETkphQAVL4ZjbPmZY?=
- =?us-ascii?Q?WQcVPcddbLQOOp3gGw2g8bPeu7DBkqGTORwW0mNfJjU2BRIsBYNBuRVT+AEC?=
- =?us-ascii?Q?zqWCG/001zldGexmylZkQQuLT6BBGiP2fw+kV9o+FcaWOSwkJkzZ3BOVcEHB?=
- =?us-ascii?Q?Pmu4PzhK++H5WjhcU0hJ8NyY5BzM7qPaJ99jp8D3Y8pYQpGOEpj5jr1aKk3h?=
- =?us-ascii?Q?mHn/6k+UKIFDQhB/X0QzJj08hlyC1Vvusk29fig9tblm6WHnyA3cVY5rczVH?=
- =?us-ascii?Q?Ls409dwV8UgerzTrVu7UDC3UvYxXUypYyb6ASXYxkKwZhdrMj2K3vKvn2HLu?=
- =?us-ascii?Q?sI6L+qBd/Wf+vVMewiMQbCrYT0Q8yZkims0XPJnprmlTQxNHH1scHSdsfdnn?=
- =?us-ascii?Q?zF7Am2pN0MPdW4Fq9NrAV3B2Xv3+DgyJP5J9jpgUn/D1CJvTDMv8FRrv41sc?=
- =?us-ascii?Q?9fRKRXkiPJcmIpeur4BwAjaMOrbmwNyktb9/fExq7d4NnrsHYHfJIzo5bWL9?=
- =?us-ascii?Q?8qLqA1bqynIyccQLryN4yL91d+u820AcJhdaYp7ZggBzkU1h17yXlo2n3rgb?=
- =?us-ascii?Q?rmGHTHVq0rYuA+1APZU5N68PtpZrJ0E6Whtlm5bKFnLd5V5jhcSDlXQtMCnQ?=
- =?us-ascii?Q?piVCXY2+Spxu8WaXlSOF9mCiSY3fIlSfr+atVEY2V4uofkD2P2SBy4iL7Zkj?=
- =?us-ascii?Q?1rdnInISQL/BTiMWnvCwS8pQV9mH5c97+PziVcrRczaXr6jvZb1sEx8zCZab?=
- =?us-ascii?Q?ZU5HsUzS6soISTDjiIxEKbnjE/aTXlnlLrOfUlHoULK6WNILZhJ0Z/JKy526?=
- =?us-ascii?Q?Ep6npVk7zfQumamZ5Wa69xxyprYBoOnGdLut5l1vilNngbtUzOpxlD/m5Nne?=
- =?us-ascii?Q?C2k7lOHrNeId/5nyuoePH/X6gXKNi5Y5aWyz6M5mKG+L/TBUbYNb7nMteuHa?=
- =?us-ascii?Q?ly9o39FDlpKbC2wofZRr+3Imv5FvAn7PWDOldb2zUHbgCK240Gw0?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b9ff808f-21d1-4ca5-e545-08ded845d4d4
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 14:25:57.4660
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vb7mnHS1R7JOsJXvvVK5oLt8vBXc5cXd9uLcGz5sNdSilDcBW6Ql2VMWAtxzBFXYArMdqw/Xi+hngBTi81nnoAUNahkJO3mTdXI0ljAGf9bjwQaSkXGwBet8bKHWP6Zh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8583
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_072602_792263_3D370BFE 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20260702_072936_405776_487AD491 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,32 +77,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 11:23:51PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> The Cortex-M3/M4/M7 cores were designed as a replacement for the earlier
-> ARM7TDMI and ARM9TDMI microarchitectures used in older microcontrollers.
->
-> At the moment, Linux can run these cores either when they are integrated
-> into a larger SoC, or as standalone microcontrollers. While there was
-> a lot of development work going into Cortex-M support from 2011 to 2016,
-> this largely stopped when it became clear that Zephyr and other RTOS
-> had taken over that market. To date, the only Cortex-M based based
-> microcontroller boards supported upstream are reference implementations.
->
-> Schedule these for removal after the next LTS kernel, so if any users
-> remain that want to update their kernels, they can stay on that
-> version for a few years before having to maintain the platform support
-> out of tree.
->
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  arch/arm/Kconfig            |  8 ++++++--
->  arch/arm/mach-at91/Kconfig  |  4 +++-
->  arch/arm/mach-imx/Kconfig   |  4 +++-
+The memory represented by guest_memfd-only memslots
+(kvm_memslot_is_gmem_only() is true) is shared with userspace, which can
+freely mmap it and access it. The only thing that is preventing dirty page
+logging for such memslots is that KVM doesn't allow slots backed by
+guest_memfd to have their flags changed; they can only be created and
+deleted.
 
-for imx part.
+When KVM changes the flags for a memslot, it is possible for one reader
+handling a guest fault to observe the old memslot, with the old flags, and
+another reader to observe the new memslot, with the new flags. With the way
+a guest_memfd file keeps track of the associated memslots, it is impossible
+to avoid the WARN_ON_ONCE in __kvm_gmem_get_pfn() when one of the two
+memslot pointers that the readers observe doesn't match the memslot pointer
+stored in the file bindings.
 
-Acked-by: Frank Li <Frank.Li@nxp.com>
+To get around this, I decided to change the way guest_memfd keeps track of
+the associated memslots: instead of an xarray of memslot pointers, use an
+xarray which stores the memslot id (id and as_id, to be more precise),
+which can be used to search for the memslot in the active memslots array.
+Whenever guest_memfd wants to access a memslot, it deferences the
+kvm->memslots RCU pointer under the RCU read lock, similar to how guest
+faults are handled, or how the MMU notifiers work. All of this is
+implemented in patch #1, "KVM: guest_memfd: Use memslot id to keep track of
+associated memslots".
+
+Building on that, toggling the KVM_MEM_LOG_DIRTY_PAGES flag for
+guest_memfd-only memslots is implemented in patch #2, "KVM: Implement dirty
+page logging for guest_memfd-only memslots". This is gated by a KVM
+capability because it is a userspace visible change in behaviour.
+
+The capability is also architecture specific, not because this is something
+tied to a specific architecture, but because when I was testing the series
+on arm64 I realized that the arm64 fault handling code required a minor
+change, and I don't know enough about the other architectures to tell if
+any changes are needed for them.
+
+Just FYI, this is an RFC so it goes without saying that I'm open to any
+suggestions, and I'll redo the whole thing if there's a better solution.
+
+Tested the series using kvmtool on an arm64 machine, with guest_memfd
+support added, as well as two command line arguments: --enable-dirty-log
+and --disable-dirty-log. The arguments toggle the KVM_MEM_LOG_DIRTY_PAGES
+memslot flag, they don't read or otherwise touch the list of dirty pages in
+any way. Pushed a branch at [1].
+
+[1] https://gitlab.arm.com/linux-arm/kvmtool-ae/-/tree/guest-memfd-v1-wip4-dirty-page-logging
+
+Alexandru Elisei (3):
+  KVM: guest_memfd: Use memslot id to keep track of associated memslots
+  KVM: Implement dirty page logging for guest_memfd-only memslots
+  KVM: arm64: Allow dirty page logging for guest_memfd-only memslots
+
+ Documentation/virt/kvm/api.rst |   9 ++
+ arch/arm64/kvm/arm.c           |  22 +++++
+ arch/arm64/kvm/mmu.c           |   3 +-
+ include/linux/kvm_host.h       |  15 +++
+ include/uapi/linux/kvm.h       |   1 +
+ virt/kvm/guest_memfd.c         | 165 ++++++++++++++++++++++++++++++---
+ virt/kvm/kvm_main.c            |  44 ++++-----
+ virt/kvm/kvm_mm.h              |  11 +++
+ 8 files changed, 232 insertions(+), 38 deletions(-)
+
+
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+-- 
+2.43.0
 
 
