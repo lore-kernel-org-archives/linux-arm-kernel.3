@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51229C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 11:08:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95FB3C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 11:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=roMBTHJ3YL3DpY1Xk3OoyAZMGIsM5k1HLpl3nIwppjU=; b=DioNPb+p/TU8JJofsJq6ZmhTnH
-	U0hCQSGZkjrYi1azm9dYlat2EttnWVgHJNrPcCysdOOqQpotYxM80dKV4S5mCYuOD9qFicqug1c0Z
-	8H3tiTiR4pknrSBYwykDGNDu1Z4tPx5I9rOKNWTNHXJ7oJXppp7TrM6lt340U40ktHpSwXrVYHGRY
-	1rFGKtvL12LBemnd11bq6RmshiLJ86UQfycQD86azYlAwfWjGXtNOyhq0NAqxPE2H2ML/93Qv69MS
-	APrsL+QTq4/+1v7tI/eR+EMoGkla0OYz0b2aQWwfNHzZ8E6y5OPuBz88fcIshZMNtH7r7UyVqrfyG
-	g+5pwtCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MG9IR5uHec66jFYbTFwqlNI1XrQsQ64Cpl138Qi8h5c=; b=z5iUs8Zwgo2mzpw4tm7bA3abGN
+	8Xpq9e6rh6Q2UWZ3kVvEReznRD1HbW4h98PT97YtJJiZmrLCvnvfxoIAs+ETJ6LHdS8auj6zHf2Y9
+	aBMJwbdnhGc2AZ0C2rTddN3fzY2nLHZYXtzjDH9X7XSY4k7O+UzuaMLsRD6gBRDIv112/u4WZwaTH
+	I6DbO1m9ig+eppObUVwv6M7tDjcC0+b8g8GDIyGaiDqCZ6haQKWbHrjl3DlGOKfPgjEJ1pLGYoklw
+	10jpUgJlrO5Aikv7/umsvIeBcNY8pNnf7iaOX2lJd/Lc6/+cRdDgwdbbzzTvmt4+LsLLvmoODdsCT
+	TVqlwAmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDzr-000000045Vq-0EVV;
-	Thu, 02 Jul 2026 09:46:15 +0000
-Received: from courrier.aliel.fr ([2a01:4f9:c011:1c83::1])
+	id 1wfFKk-00000004HbM-2T9S;
+	Thu, 02 Jul 2026 11:11:54 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDzn-000000045TH-0sbp;
-	Thu, 02 Jul 2026 09:46:13 +0000
-Message-ID: <18ca03a9-3876-4a6e-aaa9-2fecb9bef7e6@aliel.fr>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=aliel.fr;
-	s=courrier-s1; t=1782985563;
-	bh=p0sFjWRzjbpxT6lmgqAxIzkvqCsmBHy10xTbeag3hQw=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To;
-	b=kvFLpalAw/VxiqBUqP3rsMzId96gOHBUtGQPWiXolq9p9/en2OvdQEpEjrXfcoRti
-	 0ld9TUr2IXS6RjAbqS/WXtsxzkl1hkA8NnjNo+Upr1KpCC6TcifgMmEF+m+iA/xzcS
-	 L63fJdydame+xUdRPv+AYkaTWtDSd5xH1qJT2Juc=
-Date: Thu, 2 Jul 2026 11:45:25 +0200
+	id 1wfFKh-00000004Hab-1OiC;
+	Thu, 02 Jul 2026 11:11:53 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C89A0200A6D;
+	Thu, 02 Jul 2026 13:11:47 +0200 (CEST)
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1wfFKd-005jUk-2D;
+	Thu, 02 Jul 2026 13:11:47 +0200
+Received: from pengutronix.de (ip-185-104-138-148.ptr.icomera.net [185.104.138.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 00F2F55E2E3;
+	Thu, 02 Jul 2026 11:11:44 +0000 (UTC)
+Date: Thu, 2 Jul 2026 13:11:43 +0200
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Cunhao Lu <1579567540@qq.com>
+Cc: heiko <heiko@sntech.de>, linux-can <linux-can@vger.kernel.org>, 
+	mailhol <mailhol@kernel.org>, kernel <kernel@pengutronix.de>, robh <robh@kernel.org>, 
+	krzk+dt <krzk+dt@kernel.org>, conor+dt <conor+dt@kernel.org>, 
+	devicetree <devicetree@vger.kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	linux-rockchip <linux-rockchip@lists.infradead.org>, linux-kernel <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
+Message-ID: <20260702-accelerated-shoebill-of-elevation-76f536-mkl@pengutronix.de>
+X-AI: stop_reason: "refusal"
+References: <tencent_C422347432620914231601BC882C7E604D08@qq.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-From: linux-kernel-dev@aliel.fr
-Subject: Re: [PATCH v7 4/8] mfd: khadas-mcu: Add support for VIM4 MCU variant
-To: Lee Jones <lee@kernel.org>
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Andi Shyti <andi.shyti@kernel.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Beniamino Galvani <b.galvani@gmail.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, linux-amlogic@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-pm@vger.kernel.org
-References: <20260603-add-mcu-fan-khadas-vim4-v7-0-594ba8a965d8@aliel.fr>
- <20260603-add-mcu-fan-khadas-vim4-v7-4-594ba8a965d8@aliel.fr>
- <20260611164053.GC1212816@google.com>
-Content-Language: en-US
-In-Reply-To: <20260611164053.GC1212816@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="g3juocogafd37lbu"
+Content-Disposition: inline
+In-Reply-To: <tencent_C422347432620914231601BC882C7E604D08@qq.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_024611_847513_C0587387 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20260702_041151_530636_FC84FAD7 
+X-CRM114-Status: GOOD (  25.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,213 +77,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/11/26 6:40 PM, Lee Jones wrote:
-> /* Sashiko Automation: Reviewed (0 Findings) */
-> 
-> On Wed, 03 Jun 2026, Ronald Claveau via B4 Relay wrote:
-> 
->> From: Ronald Claveau <linux-kernel-dev@aliel.fr>
->>
->> Refactor probe() to use per-variant values
->> instead of hardcoded globals.
->>
->> Add dedicated regmap configuration for the VIM4 MCU,
->> with its own volatile/writeable registers.
->>
->> Add the fan control register
->> (0–100 levels vs 0–3 for previous supported boards).
->>
->> Add a new compatible string "khadas,vim4-mcu".
->>
->> Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
->> Signed-off-by: Ronald Claveau <linux-kernel-dev@aliel.fr>
->> ---
->>  drivers/mfd/khadas-mcu.c | 115 ++++++++++++++++++++++++++++++++++++++++-------
->>  1 file changed, 99 insertions(+), 16 deletions(-)
->>
->> diff --git a/drivers/mfd/khadas-mcu.c b/drivers/mfd/khadas-mcu.c
->> index ba981a7886921..1bf260729d73b 100644
->> --- a/drivers/mfd/khadas-mcu.c
->> +++ b/drivers/mfd/khadas-mcu.c
->> @@ -75,47 +75,129 @@ static const struct regmap_config khadas_mcu_regmap_config = {
->>  	.cache_type	= REGCACHE_MAPLE,
->>  };
->>  
->> -static struct mfd_cell khadas_mcu_fan_cells[] = {
->> +static const struct khadas_mcu_fan_pdata khadas_mcu_fan_pdata = {
->> +	.fan_reg	= KHADAS_MCU_CMD_FAN_STATUS_CTRL_REG,
->> +	.max_level	= 3, /* Fan speed: 0 = off, 1 = low, 2 = medium, 3 = high */
-> 
-> Instead of this comment, you could always just define the value(s)?
-> 
 
-I will do that with define.
+--g3juocogafd37lbu
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
+MIME-Version: 1.0
 
->> +};
->> +
->> +static const struct mfd_cell khadas_mcu_fan_cells[] = {
->>  	/* VIM1/2 Rev13+ and VIM3 only */
->> -	{ .name = "khadas-mcu-fan-ctrl", },
->> +	{
->> +		.name = "khadas-mcu-fan-ctrl",
->> +		.platform_data = &khadas_mcu_fan_pdata,
->> +		.pdata_size    = sizeof(khadas_mcu_fan_pdata),
-> 
-> No need to attempt to align the '=' like this, please.
-> 
+On 02.07.2026 17:23:59, Cunhao Lu wrote:
+> Hi Marc,
+>
+> > Is the SoC you're using actually a 'v2' silicon revision? At least on
+> > the rk3568 the downstream kernel has code to read the revision.
+>
+> The kernel reports the CAN-FD controller as rk3588v2 rev2.2:
+>
+>   rockchip_canfd fea60000.can can0: Rockchip-CANFD rk3588v2 rev2.2 (errat=
+a 0x0000) found
+>   rockchip_canfd fea70000.can can1: Rockchip-CANFD rk3588v2 rev2.2 (errat=
+a 0x0000) found
+>
+> Following your earlier feedback, I have changed the v2 series to use
+> rockchip,rk3588-canfd instead of rockchip,rk3588v2-canfd unless we get
+> more information about RK3588 CAN-FD errata and SoC silicon revisions
+> from Rockchip.
+>
+> > Compile the latest https://github.com/linux-can/can-utils/ and test:
+> >
+> > $ cangen can0 -I 2 -Li -Di -p 10 -f -g 1 -c32 -b
+> > $ cansequence -rv can1 -f
+>
+> I tested with can0 and can1 directly connected. The CAN clock was
+> 200 MHz, and the interfaces were configured as follows:
+>
+>   ip link set can0 down
+>   ip link set can0 type can bitrate 500000 sample-point 0.8 dbitrate 1000=
+000 dsample-point 0.8 fd on
+>   ip link set can0 up
+>
+>   ip link set can1 down
+>   ip link set can1 type can bitrate 500000 sample-point 0.8 dbitrate 1000=
+000 dsample-point 0.8 fd on
+>   ip link set can1 up
+>
+> Without BRS, this test ran for 15 minutes without problems:
+>
+>   cangen can0 -I 2 -Li -Di -p 10 -f -g 1 -c32
+>
+> With BRS enabled:
+>
+>   cangen can0 -I 2 -Li -Di -p 10 -f -g 1 -c32 -b
+>
+> the test only worked when dbitrate was equal to bitrate, for example
+> with both set to 1M. If dbitrate differed from bitrate, the
+> controller went bus-off immediately.
+>
+> So my current conclusion is that CAN-FD itself works on RK3588, but the
+> support appears incomplete: using a faster data phase with BRS does not
+> work in my setup.
 
-I will remove these extra spaces.
+Then CAN-FD is broken. :/
 
->> +	},
->>  };
->>  
->> -static struct mfd_cell khadas_mcu_cells[] = {
->> +static const struct mfd_cell khadas_mcu_cells[] = {
->>  	{ .name = "khadas-mcu-user-mem", },
->>  };
->>  
->> +static bool khadas_mcu_vim4_reg_volatile(struct device *dev, unsigned int reg)
->> +{
->> +	switch (reg) {
->> +	case KHADAS_MCU_PWR_OFF_CMD_REG:
->> +	case KHADAS_MCU_VIM4_REST_CONF_REG:
->> +	case KHADAS_MCU_WOL_INIT_START_REG:
->> +	case KHADAS_MCU_VIM4_LED_ON_RAM_REG:
->> +	case KHADAS_MCU_VIM4_FAN_CTRL_REG:
->> +	case KHADAS_MCU_VIM4_WDT_EN_REG:
->> +	case KHADAS_MCU_VIM4_SYS_RST_REG:
->> +		return true;
->> +	default:
->> +		return false;
->> +	}
->> +}
->> +
->> +static bool khadas_mcu_vim4_reg_writeable(struct device *dev, unsigned int reg)
->> +{
->> +	switch (reg) {
->> +	case KHADAS_MCU_VERSION_0_REG:
->> +	case KHADAS_MCU_VERSION_1_REG:
->> +	case KHADAS_MCU_SHUTDOWN_NORMAL_STATUS_REG:
->> +		return false;
->> +	default:
->> +		return true;
->> +	}
->> +}
->> +
->> +static const struct regmap_config khadas_mcu_vim4_regmap_config = {
->> +	.reg_bits	= 8,
->> +	.reg_stride	= 1,
->> +	.val_bits	= 8,
->> +	.max_register	= KHADAS_MCU_VIM4_SYS_RST_REG,
->> +	.volatile_reg	= khadas_mcu_vim4_reg_volatile,
->> +	.writeable_reg	= khadas_mcu_vim4_reg_writeable,
->> +	.cache_type	= REGCACHE_MAPLE,
->> +};
->> +
->> +static const struct khadas_mcu_fan_pdata khadas_vim4_fan_pdata = {
->> +	.fan_reg	= KHADAS_MCU_VIM4_FAN_CTRL_REG,
->> +	.max_level	= 0x64,
->> +};
->> +
->> +static const struct mfd_cell khadas_mcu_vim4_cells[] = {
->> +	{
->> +		.name		= "khadas-mcu-fan-ctrl",
->> +		.platform_data	= &khadas_vim4_fan_pdata,
->> +		.pdata_size	= sizeof(khadas_vim4_fan_pdata),
->> +	},
->> +};
->> +
->>  static int khadas_mcu_probe(struct i2c_client *client)
->>  {
->> +	const struct mfd_cell *cells, *fan_cells;
->> +	const struct regmap_config *regmap_cfg;
->>  	struct device *dev = &client->dev;
->> +	int ncells, nfan_cells, ret;
->>  	struct khadas_mcu *ddata;
->> -	int ret;
->>  
->>  	ddata = devm_kzalloc(dev, sizeof(*ddata), GFP_KERNEL);
->>  	if (!ddata)
->>  		return -ENOMEM;
->>  
->> +	switch ((uintptr_t)i2c_get_match_data(client)) {
->> +	case KHADAS_MCU_GENERIC:
->> +		regmap_cfg	= &khadas_mcu_regmap_config;
->> +		cells		= khadas_mcu_cells;
->> +		ncells		= ARRAY_SIZE(khadas_mcu_cells);
->> +		fan_cells	= khadas_mcu_fan_cells;
->> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_fan_cells);
->> +		break;
->> +	case KHADAS_MCU_VIM4:
->> +		regmap_cfg	= &khadas_mcu_vim4_regmap_config;
->> +		cells		= NULL;
->> +		ncells		= 0;
->> +		fan_cells	= khadas_mcu_vim4_cells;
->> +		nfan_cells	= ARRAY_SIZE(khadas_mcu_vim4_cells);
-> 
-> I'm not as offended by this as I thought I would be!
-> 
->> +		break;
->> +	default:
->> +		return -ENODEV;
->> +	}
->> +
->>  	i2c_set_clientdata(client, ddata);
->>  
->>  	ddata->dev = dev;
->>  
->> -	ddata->regmap = devm_regmap_init_i2c(client, &khadas_mcu_regmap_config);
->> +	ddata->regmap = devm_regmap_init_i2c(client, regmap_cfg);
->>  	if (IS_ERR(ddata->regmap)) {
->>  		ret = PTR_ERR(ddata->regmap);
->> -		dev_err(dev, "Failed to allocate register map: %d\n", ret);
->> -		return ret;
->> +		return dev_err_probe(dev, ret, "Failed to allocate register map\n");
->>  	}
->>  
->> -	ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
->> -				   khadas_mcu_cells,
->> -				   ARRAY_SIZE(khadas_mcu_cells),
->> -				   NULL, 0, NULL);
->> -	if (ret)
->> -		return ret;
->> +	if (cells && ncells) {
->> +		ret = devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
->> +					   cells,
->> +					   ncells,
->> +					   NULL, 0, NULL);
->> +		if (ret)
->> +			return ret;
->> +	}
->>  
->>  	if (of_property_present(dev->of_node, "#cooling-cells"))
->>  		return devm_mfd_add_devices(dev, PLATFORM_DEVID_NONE,
->> -					    khadas_mcu_fan_cells,
->> -					    ARRAY_SIZE(khadas_mcu_fan_cells),
->> +					    fan_cells,
->> +					    nfan_cells,
->>  					    NULL, 0, NULL);
->>  
->>  	return 0;
->> @@ -123,7 +205,8 @@ static int khadas_mcu_probe(struct i2c_client *client)
->>  
->>  #ifdef CONFIG_OF
->>  static const struct of_device_id khadas_mcu_of_match[] = {
->> -	{ .compatible = "khadas,mcu", },
->> +	{ .compatible = "khadas,mcu", .data = (void *)KHADAS_MCU_GENERIC },
->> +	{ .compatible = "khadas,vim4-mcu", .data = (void *)KHADAS_MCU_VIM4 },
->>  	{},
->>  };
->>  MODULE_DEVICE_TABLE(of, khadas_mcu_of_match);
->>
->> -- 
->> 2.49.0
->>
->>
-> 
+Maybe in a later patch we can hack something, to allow working
+configurations.
 
+> This looks different from the issue described by the current
+> RKCANFD_QUIRK_CANFD_BROKEN comment. That quirk is about specific
+> CAN-FD frames triggering Error Interrupt or Error-Warning during
+> reception. In my test the non-BRS CAN-FD frames work, while the failure
+> is tied to using BRS with a data bitrate different from the nominal
+> bitrate, which immediately drives the controller bus-off.
 
--- 
-Best regards,
-Ronald
+Can you update the description of the quirk for the rk3588 and add how
+to reproduce it?
+
+> Given this result, should I still keep CAN-FD disabled for RK3588, or is
+> it acceptable to enable CAN-FD but document that BRS with a faster data
+> phase is currently not working?
+
+Please keep it disabled for now.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--g3juocogafd37lbu
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCakZHbAAKCRDMOmT6rpmt
+0kH7APkB+Ph02O8jbLwNPVHdiuMu717y5tk5YAdnacU9kEQ/+gEAieWkfM/cPVcW
+4Yv+JL1RKIjpy4cM0fRvq9mHrjox3QQ=
+=m2rP
+-----END PGP SIGNATURE-----
+
+--g3juocogafd37lbu--
 
