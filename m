@@ -4,137 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35215C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 03:26:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 071A2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 03:26:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yPkDVo6MUZRROroOIf8F2+jVfKg/zz31KoKbsURS1bM=; b=NzHxui8pgeRWUKzCM3F3Z5KeUm
-	fEZh3hcn9pzcnOOD2i30UQ9dD6yoLaXkY1IWiSgFn801YaZ7CU4/8JxQUtXwSOGXB5unFuneVqGcz
-	bHl5831LiKahQ+Nh4RuSo0pr6lfZC8aOA93jRODph96wcATWyMXQKP0WQK+aKg1mpj9dEyyCLUI4e
-	gtrFP2DKBxC3tcwmXlRX4be5QvKnFdHNgS55AYFofjRTuu+qZRkBfn8b1Qq070AqmFHz8sxv3y8Tq
-	b7nEQixSnk5dFRkCb+gYxIzNshIRj2S79JhxII6etwHZGSf4wLLG0ng2Aa2+oz7+XscSbCCkdjc18
-	mjS9fcfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lLC3Ud+TVrFH8KiBacdMlSzjHyCVWCIy8gKSFh5QxrA=; b=oTFOmq2Q6RiuPWfL0X6eAcH5Iv
+	N99FT9c2WEYLaNx+ZsM9SqLAURsq25EwzIsdQxbAuE4iZ1TzyhYBxNIKw6fCpi26XUeCSt2lN6poH
+	Qptd4eh+xYz0XFm2Tcj3+c3dEiu9t/w55x6InLN2Q5FltDs/N10tOfrhofeLBJRPP5ebEClTkcgth
+	0XeVBPD8xAhx3ahu4f8VrHVo+NVbHEleXroL6MJKbxQQ/p/wkVcMuskHYO3yypy1UuPjlRMYxRJ9o
+	xnljHHEhNyxdNdUH3mJq/j9ng+DiHz9YHdUpp5m3PP05xC8wrZXWyayjPBjW9aOCI9UsjeX6t3msd
+	71/HantQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf83w-00000003Tvl-2PNC;
-	Thu, 02 Jul 2026 03:26:04 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1wf842-00000003U0b-38Fp;
+	Thu, 02 Jul 2026 03:26:10 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf83u-00000003Tt5-0Lal
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 03:26:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lu7DBMBDooDqShgK//2AaVvswlW+x+V3dM+BGeWCKzwEsRwyyx/kAkWXzDY1ZnqOlVV3rAArmXAnSLBSPMvzAxcztt/h6xG2pW6Rucr+4RF2W+VGUUE0mV7LOA0XNF5SVqEcsYiZd34lC7owFD7jS2nlWwgjXKjwILhpMyuhEoH8SYbcKcgAQfCtPDmCTwmNTxXEXjvYwgPzRWZiZ733jw7a40ydQwtCNNUpU9XqoSonnnkcJzwSXDDUzYktcnRzBEXgw2p8buCisBzoyTg3sAYgkBI7mGPrlCD+GWxdB51irqrcCanMpyay9PUTwkTqxSG0gydbmYdVG0rTWBAfIA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yPkDVo6MUZRROroOIf8F2+jVfKg/zz31KoKbsURS1bM=;
- b=uhsbJPI7Upa1y3bkwWnL7/je2KUlOMMsQnQ2xnKsFnhnCh9dmQMidw4QQvd+2MW6spInVAHu1Eby50/W2jRMMVbW1gvD18r9hyXR/wwYesHRE/pM3gQ46PXE5D6LcCuS3OgGwI8CDoV99vXt3R5sTQdDrFFXpcD28ZbxxEJEXyBQyOYrSBaOAJmk/pSnuPG0oCI8RWu+/WE31fC7rl/7ri3qZ3c4qI3ZNlte2dqCdY9tcm8+XXF796qHGKI9wyOMJM9VdDfmvYe7R7w/zpSK3pBHqzQ1U07Lrhc9+Tat+kouGXCk9tQC2AVo/BF2TPxN9ogQifM+Ly1VcZjp9D8ECw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yPkDVo6MUZRROroOIf8F2+jVfKg/zz31KoKbsURS1bM=;
- b=YGN5n2Q9PS51k0vbLr0KR2atv/ql7Oa8ESePWmQgltf8YDSNwOBdho1DsUHYcOSRRqB1uNUxCL7hzOtVWAjcmoyKnW9Tbv398omuZ2rr5WnBnnaCXi/hrvhJIwouKJTXmFda4Ydoy77rZ99uktcM1LNtVF66dh5sQ3QhmWS6QthinR3pz4Nk9BPj7rQR6vgvhJpM84FsIYaGKXJ+BZiJQByfSld32drP5LIVrMNpuSG1OvO6Re3IDGYAg/AX0W5PUe7ttxhdYEj5RonSrVun4wMcwj2GcCD6COzCGe2ohd92TDoI46HBXdI206lfeaQ0UbKMRLfN26FzwFL2J7f4RQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com (2603:10a6:800:1b0::22)
- by GVXPR04MB10248.eurprd04.prod.outlook.com (2603:10a6:150:1c1::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
- 03:25:57 +0000
-Received: from VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74]) by VE1PR04MB7216.eurprd04.prod.outlook.com
- ([fe80::a9a5:cf83:dbe8:1f74%3]) with mapi id 15.21.0181.009; Thu, 2 Jul 2026
- 03:25:57 +0000
-From: wei.fang@oss.nxp.com
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux@armlinux.org.uk,
-	wei.fang@nxp.com,
-	chleroy@kernel.org
-Cc: imx@lists.linux.dev,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 net-next 07/14] net: enetc: differentiate phylink capabilities for pseudo-MAC and standalone MAC
-Date: Thu,  2 Jul 2026 10:57:07 +0800
-Message-Id: <20260702025714.456233-8-wei.fang@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260702025714.456233-1-wei.fang@oss.nxp.com>
-References: <20260702025714.456233-1-wei.fang@oss.nxp.com>
+	id 1wf83y-00000003TvW-0525;
+	Thu, 02 Jul 2026 03:26:10 +0000
+X-UUID: bf2bd9f875c511f1afed4741b24580c9-20260701
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=lLC3Ud+TVrFH8KiBacdMlSzjHyCVWCIy8gKSFh5QxrA=;
+	b=mhmMEvunyZ1r91peMgk6mmttb45tFYL65CHidmH95ZO8yhbPcHck3+hzeqZeZlxFzZqNkDMznS5JSd/YE+aVhnJfIS3g7HAQmq1pfDFWZ8TGGx2haAkfBh8R1eQb+Fn546eDwu+kRQoR0YD2JmU3XCvJcFL4LNBcAxXc6jib92Y=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.17,REQID:f048528d-5b2a-4c4f-bec5-9387c106969c,IP:0,U
+	RL:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
+	release,TS:0
+X-CID-META: VersionHash:d497b38,CLOUDID:8a395091-e513-42da-9df0-292a2a418813,B
+	ulkID:nil,BulkQuantity:0,SF:102|836|865|888|898,TC:-5,Content:0|15|50|99,E
+	DM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:-1,COL:0,OSI:0,OSA:0,
+	AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: bf2bd9f875c511f1afed4741b24580c9-20260701
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <shiming.cheng@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1167121389; Wed, 01 Jul 2026 20:26:00 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 2 Jul 2026 11:25:57 +0800
+Received: from mbjsdccf07.gcn.mediatek.inc (10.15.20.246) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 2 Jul 2026 11:25:56 +0800
+From: Shiming Cheng <shiming.cheng@mediatek.com>
+To: <davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <horms@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <willemb@google.com>,
+	<daniel.zahka@gmail.com>, <alice@isovalent.com>, <sd@queasysnail.net>,
+	<eilaimemedsnaimel@gmail.com>, <imv4bel@gmail.com>, <nbd@nbd.name>,
+	<dsahern@kernel.org>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>
+CC: <stable@vger.kernel.org>, <lena.wang@mediatek.com>,
+	<shiming.cheng@mediatek.com>
+Subject: [PATCH v4] net: gro: fix double aggregation of flush-marked skbs
+Date: Thu, 2 Jul 2026 11:25:15 +0800
+Message-ID: <20260702032535.23754-1-shiming.cheng@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: MA5PR01CA0209.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b0::8) To VE1PR04MB7216.eurprd04.prod.outlook.com
- (2603:10a6:800:1b0::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VE1PR04MB7216:EE_|GVXPR04MB10248:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd276502-32e7-4cb6-8c9c-08ded7e9a1b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|7416014|376014|1800799024|366016|921020|6133799003|56012099006|11063799006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: VVV3+76q52ClqXsoOPCnu5URgcC/KTNd6fk55RMC9GyiR9HIjRO29sRoIj4ihzadTUOxjUedoPdwEdc+8rCtnrhNY9xCo7+e4QdgksI8d/y9PqFZ8Oip0uZa/YOIldTzK68hLKw2t5Wo3F9HKKVMh4Td2CtjWHqnJxIrAcDAb1MC4T/1/JFOfQinDxjYKx0aA4EVR5V8b5WpzkLt6/+fH0Z6awImvEnVLBFqXzUmOZ9D8KsVKelGvF6/amZ+PDjmGxrYLalyu7psGGnFLNFi9YZpJvsQ5ms92Spccn5JJtW5Lk6vdY5houtwLFNBcgUzdr2BJZLgbMxWWTOKirOyxomz28pv22qXWqbfMOUqdle/mhAJpPL5hjgxXcJxOz9QOMC81v1LGwlJk+OGWUAhSUtdZA8i8S4F6pefnG7sCHEhzHh+zK51g+d3fqLM5ygjBfCpoOmvZ4h37Uoj15kF2QIjLH0xoD64tnnXWZnk5PvJwO/NSIaNxqnR5pwigisVj6CCf/cS+xqJPdJBpKQEdk35A5BQqvqE3BPXLNfCH00a7UIqjmKcoS9JSZk29aWQHNpR8FWoKq/L5dAeg/1BE8GeqduPJYU8k8XxpJXoaC4fZsppm4a1QP4V0PahfVvVT8Q6YckxVlBWpzFsq+4MpsG8D+LbgqbdU+iLP5iu73c7AKTnY/cDZon0HgLM+ctnp2LnJuGzmATOlI2Z3gMH9w==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VE1PR04MB7216.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(7416014)(376014)(1800799024)(366016)(921020)(6133799003)(56012099006)(11063799006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?qXF/jz48RVuu2maRU5/7UHa4EmjFPMSJIY9uaFK6hCNAPoUftFHTKdG2u1qN?=
- =?us-ascii?Q?4oVAM2ewPI/9WmY9a49/uWZcjpS9yZBGJLogZRWb473nwX4RICp2csGSLlyA?=
- =?us-ascii?Q?KOHoc1u+43Cb5o7SUzwnXK8tWOpVBKEpyvh8sZ0EOoaLDjx99GFp7veiAIMv?=
- =?us-ascii?Q?fSt84C2CUknIbRYwqJ2Y3JDs9DFRWl13Ph+X2xlVE9+KADfrp8I1uNiN5dRt?=
- =?us-ascii?Q?tiQTThAHiW8yMhSIJtmo9YZuzA6zTB8yB3GMRTbjyc8/mzO4WWC11HAlmwdm?=
- =?us-ascii?Q?QqPqEir7DtodyulNzxOZMNJeGZtKlwCtn7LleARoVFjGwYfyKPZgm0yaC8yh?=
- =?us-ascii?Q?56aOcYFCHvAHvKXgrtAWs4NUL8f580ZX/tpzIlK+mLLVWnoJKkUNai47psss?=
- =?us-ascii?Q?MFAvADivY0CPr4QAAfRcUWdG6tcAEuGO6IestIyO31XVpzlYUFElhXAQMCLW?=
- =?us-ascii?Q?F14rEO9n9UdSPHFmzZ7Ida1T+S5yCEyDLe4C/jwk4SAmPdZY2hS61Jn8LHkw?=
- =?us-ascii?Q?lzK+lhuNGBpivoEenxIB/0tAIyG84rkuBDlK4JrTqgN07AdT6LlvqLB0N4u+?=
- =?us-ascii?Q?Szw8Em+qETRziLyAZHudO4JyGZtP+pn3cbr8q/mzc0XMzJwxeAOyiMCCz8Wz?=
- =?us-ascii?Q?3k2fLT72vpRODUl9ALy3Dtc/aQ9aTgDpkbX2VfFqvBR/TzYJ7aExOurs2naU?=
- =?us-ascii?Q?GMymSPrKpDBn3zR1PkdIghikcRR+ZI+CfU7G4qvo+0v+DsKZoRVFLznW4jCb?=
- =?us-ascii?Q?wBvmYj1coqI4icpmk4+FaqK9nlSkdrP/rKPhedn3NdI68UZRwWO6D/Rnk7rN?=
- =?us-ascii?Q?ThHxY5dulp3+cF34h6iPQvHf/vTjhDq6mSBbu8zdA54jHH3oL8yzIBs6YMdT?=
- =?us-ascii?Q?CM2LopuOOy3e3akUgGhhnIBBAhcQlYe8UMvk2Fn4lbU5Yw7R2OprFa+CCl3m?=
- =?us-ascii?Q?dKKu/cU2tnpVbfmHHQt7QKuAjJPxYOoM1/CT5SoYEQoL7E+SNBcB6y70/yc8?=
- =?us-ascii?Q?l9sxPOzn/TvUs3x/SOu6E0FsRIO3Lw0O049rwe2vlbMLRpQLbSOV7KqJXVUD?=
- =?us-ascii?Q?NStEhypT1mRp9Z5iyHESUC2nz7HzeCEqa0EssEiarNHxZcGEZxS16SwfQKD7?=
- =?us-ascii?Q?Rb5TgToI8AVJSolZC2qKLrsSa4kOzZ7VN3/HaMxgqbafd1egloo82jTm1qDv?=
- =?us-ascii?Q?3/5SJrXa2RgA3ezdBeifzMML6bN3SiKz72SrWYzhLc/hmwfQjD6qxRI0wW4U?=
- =?us-ascii?Q?HYtC+lyIJtWlPuxO/j40eryzazMsKrDpnGfN9cN0/wl1IqvZpM+tVdmKURQf?=
- =?us-ascii?Q?cJfDrdBsoIHa5RnPbjJwmcb82O0gajOcDBiRnUsHr+5xvFpnSk67LT32v5qA?=
- =?us-ascii?Q?MU3A4bODk8MSDBw9VcsOX2SyltEHt2zkPUc7xfIsz3B8J3F7RTx0dmJSkHJa?=
- =?us-ascii?Q?bW9qDgZ39M4bwI+gwvLt8ErckJH032qFZc0S6lNRgQZEUX+CSLGtlmtJbARe?=
- =?us-ascii?Q?hemnAOa78Yx7wXoxQH7pSr6DOUbRIhZtwQiVmrHmeFiWtNNQhlqxTIB9/XgR?=
- =?us-ascii?Q?gpwT/lU15oxtbqJmvoQbXs4VC8x3tt8XwXnurw3Sy0+GQpRdFZi3gqlB9LcI?=
- =?us-ascii?Q?TUFdZvu2VlJ8m0b8Z676Hq0nOPM0Ylh6RRwrZz0L5FkHK8MeOd30R9Gg3xpZ?=
- =?us-ascii?Q?BrTH9jLiFbfWhp8gmKtpVLHhiMO08JCndi3cbH52a9qb5kxRonbujnnX/i5+?=
- =?us-ascii?Q?QT04unwe4LHEkza5Z+Vf0T2eMvRH7CinRzLoQKhxj+PLqj3Hlv98?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd276502-32e7-4cb6-8c9c-08ded7e9a1b1
-X-MS-Exchange-CrossTenant-AuthSource: VE1PR04MB7216.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 03:25:57.4576
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1KikS0qPGDGzlxzNweWIeL/3z3x388cQjGa+hrEd01mifwEzlWDcBX+FhLFl70uHlgVBmgE9FpL/NEp/N7Y7jAhaLT7r38QNr+ADcfL57Jy9yuX1iebtfxXva9oRVNOp
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10248
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_202602_127411_C11EFA1A 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20260701_202606_072035_1DDD6104 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,120 +90,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Claudiu Manoil <claudiu.manoil@nxp.com>
+The new skb_gro_receive_list() function is missing a critical safety check
+present in the legacy skb_gro_receive() path. Specifically, it does not
+validate NAPI_GRO_CB(skb)->flush before allowing packet aggregation.
 
-The ENETC pseudo-MACs are proprietary internal links that do not
-implement any standard MII interface, so restrict their supported PHY
-interface modes to PHY_INTERFACE_MODE_INTERNAL only.
+This allows already-GRO'd packets with existing frag_list to be
+re-aggregated into a new GRO session, corrupting the frag_list chain
+structure. When skb_segment() attempts to unpack these malformed packets,
+it encounters invalid state and triggers a kernel panic.
 
-Since pseudo-MACs can operate at any speed between 10Mbps and 25Gbps
-in multiples of 10Mbps, set their MAC capabilities to cover the full
-range of standard full-duplex speeds: 10/100/1000/2500/5000/10000/
-20000/25000 Mbps.
+Scenario (Tethering/Device forwarding):
+  1. Driver: Generated aggregated packet P1 via LRO with frag_list
+  2. Dev A: Receives aggregated fraglist packet and flush flag set
+  3. Dev A: Re-enters GRO, skb_gro_receive_list() is called
+  4. Missing flush check allows re-aggregation despite flush flag
+  5. Frag_list chain becomes corrupted (loops or dangling refs)
+  6. Dev B: TX path calls skb_segment(), crashes on corrupted frag_list
 
-For standalone ENETC, expand the supported interface modes to include
-10GBASER and XGMII in addition to the existing RGMII, SGMII, 1000BASEX,
-2500BASEX and USXGMII modes, with MAC capabilities up to 10G. MAC_1000
-is replaced with MAC_1000FD to explicitly exclude 1000M half-duplex,
-which is not supported.
+Root cause in skb_segment():
+  The check at line ~4891:
+    if (hsize <= 0 && i >= nfrags && skb_headlen(list_skb) &&
+        (skb_headlen(list_skb) == len || sg)) {
 
-Signed-off-by: Claudiu Manoil <claudiu.manoil@nxp.com>
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
+  When frag_list is corrupted by double aggregation, when list_skb is
+  a NULL pointer from skb->next, skb_headlen(list_skb) dereference
+  NULL/corrupted pointers occurs.
+
+Call Trace:
+ skb_headlen(NULL skb)
+ skb_segment
+ tcp_gso_segment
+ tcp4_gso_segment
+ inet_gso_segment
+ skb_mac_gso_segment
+ __skb_gso_segment
+ skb_gso_segment
+ validate_xmit_skb
+ validate_xmit_skb_list
+ sch_direct_xmit
+ qdisc_restart
+ __qdisc_run
+ qdisc_run
+ net_tx_action
+
+Fix: Add NAPI_GRO_CB(skb)->flush validation to the early-return check in
+skb_gro_receive_list(), matching the defensive programming pattern of
+skb_gro_receive().
+
+Fixes: 8928756d53d5 ("net: move skb_gro_receive_list from udp to core")
+Cc: stable@vger.kernel.org
+Signed-off-by: Shiming Cheng <shiming.cheng@mediatek.com>
 ---
- drivers/net/ethernet/freescale/enetc/enetc.h  |  2 +-
- .../freescale/enetc/enetc_pf_common.c         | 47 ++++++++++++++-----
- 2 files changed, 35 insertions(+), 14 deletions(-)
+ net/core/gro.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
-index 06a9f1ee0970..8839cfb49bcf 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc.h
-+++ b/drivers/net/ethernet/freescale/enetc/enetc.h
-@@ -1,5 +1,5 @@
- /* SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause) */
--/* Copyright 2017-2019 NXP */
-+/* Copyright 2017-2019, 2025-2026 NXP */
+diff --git a/net/core/gro.c b/net/core/gro.c
+index 35f2f708f010..b1573d98f3a5 100644
+--- a/net/core/gro.c
++++ b/net/core/gro.c
+@@ -229,7 +229,14 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
  
- #include <linux/timer.h>
- #include <linux/pci.h>
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-index 3597cb81a7cc..6ccf9b909054 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-+++ b/drivers/net/ethernet/freescale/enetc/enetc_pf_common.c
-@@ -1,5 +1,5 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
--/* Copyright 2024 NXP */
-+/* Copyright 2024-2026 NXP */
- 
- #include <linux/fsl/enetc_mdio.h>
- #include <linux/of_mdio.h>
-@@ -359,7 +359,9 @@ static bool enetc_port_has_pcs(struct enetc_pf *pf)
- 	return (pf->if_mode == PHY_INTERFACE_MODE_SGMII ||
- 		pf->if_mode == PHY_INTERFACE_MODE_1000BASEX ||
- 		pf->if_mode == PHY_INTERFACE_MODE_2500BASEX ||
--		pf->if_mode == PHY_INTERFACE_MODE_USXGMII);
-+		pf->if_mode == PHY_INTERFACE_MODE_USXGMII ||
-+		pf->if_mode == PHY_INTERFACE_MODE_10GBASER ||
-+		pf->if_mode == PHY_INTERFACE_MODE_XGMII);
- }
- 
- int enetc_mdiobus_create(struct enetc_pf *pf, struct device_node *node)
-@@ -400,25 +402,44 @@ int enetc_phylink_create(struct enetc_ndev_priv *priv, struct device_node *node,
+ int skb_gro_receive_list(struct sk_buff *p, struct sk_buff *skb)
  {
- 	struct enetc_pf *pf = enetc_si_priv(priv->si);
- 	struct phylink *phylink;
-+	unsigned long mac_caps;
- 	int err;
+-	if (unlikely(p->len + skb->len >= 65536))
++	/*
++	 * Packets marked with NAPI_GRO_CB(skb)->flush have already gone
++	 * through GRO/LRO processing and must not be aggregated again.
++	 * Re-entering frag_list GRO may corrupt the frag_list chain and
++	 * later crash during GSO segmentaiont.
++	 */
++	if (unlikely(p->len + skb->len >= 65536 ||
++		     NAPI_GRO_CB(skb)->flush))
+ 		return -E2BIG;
  
- 	pf->phylink_config.dev = &priv->ndev->dev;
- 	pf->phylink_config.type = PHYLINK_NETDEV;
--	pf->phylink_config.mac_capabilities = MAC_ASYM_PAUSE | MAC_SYM_PAUSE |
--		MAC_10 | MAC_100 | MAC_1000 | MAC_2500FD;
- 
- 	__set_bit(PHY_INTERFACE_MODE_INTERNAL,
- 		  pf->phylink_config.supported_interfaces);
--	__set_bit(PHY_INTERFACE_MODE_SGMII,
--		  pf->phylink_config.supported_interfaces);
--	__set_bit(PHY_INTERFACE_MODE_1000BASEX,
--		  pf->phylink_config.supported_interfaces);
--	__set_bit(PHY_INTERFACE_MODE_2500BASEX,
--		  pf->phylink_config.supported_interfaces);
--	__set_bit(PHY_INTERFACE_MODE_USXGMII,
--		  pf->phylink_config.supported_interfaces);
--	phy_interface_set_rgmii(pf->phylink_config.supported_interfaces);
- 
-+	mac_caps = MAC_ASYM_PAUSE | MAC_SYM_PAUSE;
-+	if (!enetc_is_pseudo_mac(priv->si)) {
-+		mac_caps |= MAC_10 | MAC_100 | MAC_1000FD | MAC_2500FD;
-+
-+		__set_bit(PHY_INTERFACE_MODE_SGMII,
-+			  pf->phylink_config.supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_1000BASEX,
-+			  pf->phylink_config.supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_2500BASEX,
-+			  pf->phylink_config.supported_interfaces);
-+		__set_bit(PHY_INTERFACE_MODE_USXGMII,
-+			  pf->phylink_config.supported_interfaces);
-+
-+		if (!is_enetc_rev1(priv->si)) {
-+			mac_caps |= MAC_5000FD | MAC_10000FD;
-+			__set_bit(PHY_INTERFACE_MODE_10GBASER,
-+				  pf->phylink_config.supported_interfaces);
-+			__set_bit(PHY_INTERFACE_MODE_XGMII,
-+				  pf->phylink_config.supported_interfaces);
-+		}
-+
-+		phy_interface_set_rgmii(pf->phylink_config.supported_interfaces);
-+	} else {
-+		mac_caps |= MAC_10FD | MAC_100FD | MAC_1000FD | MAC_2500FD |
-+			    MAC_5000FD | MAC_10000FD | MAC_20000FD |
-+			    MAC_25000FD;
-+	}
-+
-+	pf->phylink_config.mac_capabilities = mac_caps;
- 	phylink = phylink_create(&pf->phylink_config, of_fwnode_handle(node),
- 				 pf->if_mode, ops);
- 	if (IS_ERR(phylink)) {
+ 	if (!pskb_may_pull(skb, skb_gro_offset(skb))) {
 -- 
-2.34.1
+2.45.2
 
 
