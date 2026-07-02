@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2F53C43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:34:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954EFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KryUFmj5I4UTpBrd1Jc9vm0K78lMv0P8zEVp5e0wB44=; b=o6sIzwChSzB3UJgNhRG32vGxmb
-	ZssE7vOoSFQ/Epe293XpsASrriWIuQyDMMVcFWxFwkPBB4hDTfr7OIZwe3Ae/zC6Zo2r86uSZ3TU/
-	UXnnWbotW8AXW0fHs/Genq1+yPOmDwUiCmxlnM98ukWklbC7tIQG0Zn4N65a1c8vLMFyD+kflypYR
-	uoDxF/t3RwhSTG0VU1HHx2VtnHyzBp0yExVQQ6PZt8OmuiYDhPYkuQ1azu8gfUAVcYAVFLPJ4Vy5X
-	FPC/Al93IXPjHxT01UOZUUqllPN/DJTbiUZPXV+v4ecSzVlrwzhQLJWEhEv7z3872aSNyRqAgliOd
-	VSGLannw==;
+	bh=dSZEDn5xe/S/FvshMIWqAmK23ulTfZc+nYOYqRLQ2iA=; b=zdxp6TYzY+y2OF10dWcgGVVnSd
+	xX9gAsG3xfxe4XFBfaFivvpVAnSTayK/oBRc8Xie/TO+NXB9vH/dyF/JtjXm5qaOd+9g1EDWm+vr/
+	EVj46pLbFcOGcopWcu2n3O790GQi2W/e9q57m3tggZ3hu7kfxYQ1l2DWsD6H1T9/5gXkXR7QWMsHP
+	mGeqNPJuQMLulrZnzKuM0mwNCbVSj/JfWI1U8rhbqnBA8n05VT1L2tG/izUuPPc6k8HA0IhryN9LF
+	CVKr6N52ic3yYNNUcOaVLlrlNUCvrNWhCtFGKmGLwqI5vHvx8vgb6CGBT4XYaF7831x7Ie/OJdJJN
+	7MlF/qpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGct-00000004RcY-3kdI;
-	Thu, 02 Jul 2026 12:34:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfGkI-00000004SOq-1XFi;
+	Thu, 02 Jul 2026 12:42:22 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGct-00000004RcR-0VqB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 12:34:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7394843AB7;
-	Thu,  2 Jul 2026 12:34:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E7E91F000E9;
-	Thu,  2 Jul 2026 12:34:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782995682;
-	bh=KryUFmj5I4UTpBrd1Jc9vm0K78lMv0P8zEVp5e0wB44=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OEdDe1hjvjem6WZCZF6PTZ2wdbFz90ZpDZGX4Pa92WUUAKl5LbCnNGpym2dcCVkBU
-	 m9UUMNF/VSaXugW2HqPRInbs9ZbYLcWjnsuCkhvv+Zi/KdRGOZ/U1WSMrbGY+EfjIS
-	 b8s5mRoqUa5gtWN5pVTJCnLhgHTI1pxJIOLjeZv8AMWOptrWR1sr4scTWf+vpzNANY
-	 gXuk2De3q5BvLKMeFgXtEY4ALWTwaJ5h57nznFYBhGD9FLkY/DJXsWktiKTwcfbMzj
-	 fn8KoKoOsWQ3EyOfF+NCwoCgZDTATEEbttsnMC0FAc6hTcnhD1TYG932riS6/kz0N7
-	 yxpNiJq3JnvCw==
-Date: Thu, 2 Jul 2026 13:34:34 +0100
-From: Will Deacon <will@kernel.org>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
-	oleg@redhat.com, tglx@kernel.org, peterz@infradead.org,
-	luto@kernel.org, kees@kernel.org, wad@chromium.org,
-	mark.rutland@arm.com, yeoreum.yun@arm.com, linusw@kernel.org,
-	kevin.brodsky@arm.com, ldv@strace.io, thuth@redhat.com,
-	james.morse@arm.com, song@kernel.org, anshuman.khandual@arm.com,
-	broonie@kernel.org, ryan.roberts@arm.com, pengcan@kylinos.cn,
-	liqiang01@kylinos.cn, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v15 10/11] arm64: entry: Convert to generic entry
-Message-ID: <akZa2tE0Gpsyi_TV@willie-the-truck>
-References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
- <20260511092103.1974980-11-ruanjinjie@huawei.com>
- <cfa07466-225b-476f-adf9-346bd1377a4d@arm.com>
+	id 1wfGkF-00000004SNw-1bZJ;
+	Thu, 02 Jul 2026 12:42:21 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id C5B572004C9;
+	Thu,  2 Jul 2026 14:42:14 +0200 (CEST)
+Received: from inva024.eu-rdc02.nxp.com (inva024.eu-rdc02.nxp.com [134.27.226.22])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id AC91D200445;
+	Thu,  2 Jul 2026 14:42:14 +0200 (CEST)
+Received: from lsv051416.swis.nl-cdc01.nxp.com (lsv051416.swis.nl-cdc01.nxp.com [10.168.48.122])
+	by inva024.eu-rdc02.nxp.com (Postfix) with ESMTP id 196A9202A8;
+	Thu,  2 Jul 2026 14:42:14 +0200 (CEST)
+Date: Thu, 2 Jul 2026 14:42:14 +0200
+From: Jan Petrous <jan.petrous@oss.nxp.com>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, ciprianmarian.costea@oss.nxp.com, s32@nxp.com,
+	p.zabel@pengutronix.de, linux@armlinux.org.uk,
+	ghennadi.procopciuc@nxp.com, Ionut.Vicovan@nxp.com,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org, horms@kernel.org, Frank.li@nxp.com
+Subject: Re: [PATCH 0/4 v2] Serdes: s32g: Add support for serdes subsystem
+Message-ID: <akZcpgDSjAg6gcok@lsv051416.swis.nl-cdc01.nxp.com>
+References: <20260203161917.1666696-1-vincent.guittot@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cfa07466-225b-476f-adf9-346bd1377a4d@arm.com>
+In-Reply-To: <20260203161917.1666696-1-vincent.guittot@linaro.org>
+X-Virus-Scanned: ClamAV using ClamSMTP
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_054219_556321_082492B1 
+X-CRM114-Status: GOOD (  12.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +70,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 04:32:17PM +0100, Ada Couprie Diaz wrote:
-> On 11/05/2026 10:21, Jinjie Ruan wrote:
-> > 3. Architecture-Specific Hooks (asm/entry-common.h):
-> > - Implement arch_ptrace_report_syscall_entry() and _exit() by
-> >    porting the existing arm64 logic to the generic interface.
-> > 
-> > - Add arch_syscall_is_vdso_sigreturn() to asm/syscall.h to
-> >    support Syscall User Dispatch (SUD).
-> Related to the above : I feel this is missing an important information.
-> Given that SUD is only controlled by `CONFIG_GENERIC_ENTRY`,
-> converting to generic entry _requires_ supporting SUD, so we do it here.
-> I think this would be important to mention, as I otherwise felt like this
-> change did not belong in this patch.
+On Tue, Feb 03, 2026 at 05:19:13PM +0100, Vincent Guittot wrote:
+> s32g SoC family includes 2 serdes subsystems which are made of one PCIe
+> controller, 2 XPCS and a shared Phy. The Phy got 2 lanes that can be
+> configured to output PCIe lanes and/or SGMII.
+>     
+> Implement PCIe phy and XPCS support.
+>     
+> Change since v1:
+> - Fix compile_test
+> - Use devm_reset_control_get_exclusive()
+> - Fix s32g_serdes_phy_set_mode_ext()
+> - Manage devm_clk_bulk_get_all() returns 0
+> - Fix s32g_serdes_parse_lanes() error management
+> - Move xpcs filein drivers/net/pcs/
+> - Add pcs_inband_caps()
+> - Fix functions in phylink_pcs_ops
+> - Fix MAINTAINERS
 > 
-> General question that follows : does it make sense to require an arch
-> to support Syscall User Dispatch to be able to convert to generic entry ?
-> (I assume not really, given that only `arch_syscall_is_vdso_sigreturn()` is
-> required on the arch side, but I am curious)
+> 
+> Vincent Guittot (4):
+>   dt-bindings: serdes: s32g: Add NXP serdes subsystem
+>   phy: s32g: Add serdes subsystem phy
+>   phy: s32g: Add serdes xpcs subsystem
+>   MAINTAINERS: Add MAINTAINER for NXP S32G Serdes driver
+> 
+>  .../bindings/phy/nxp,s32g-serdes.yaml         |  154 +++
+>  MAINTAINERS                                   |   10 +
+>  drivers/net/pcs/Makefile                      |    1 +
+>  drivers/net/pcs/pcs-nxp-s32g-xpcs.c           | 1006 +++++++++++++++++
+>  drivers/phy/freescale/Kconfig                 |   10 +
+>  drivers/phy/freescale/Makefile                |    1 +
+>  drivers/phy/freescale/phy-nxp-s32g-serdes.c   |  953 ++++++++++++++++
+>  include/linux/pcs/pcs-nxp-s32g-xpcs.h         |   50 +
+>  8 files changed, 2185 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/nxp,s32g-serdes.yaml
+>  create mode 100644 drivers/net/pcs/pcs-nxp-s32g-xpcs.c
+>  create mode 100644 drivers/phy/freescale/phy-nxp-s32g-serdes.c
+>  create mode 100644 include/linux/pcs/pcs-nxp-s32g-xpcs.h
+> 
+> -- 
+> 2.43.0
+> 
 
-I think SUD should be separated from generic entry. I'm certainly keen
-on the latter for arm64 and far less interested in the former. See this
-series from Gregory:
+Hi Vincent, all,
+I'm taking over the S32G SerDes/XPCS upstreaming. The effort has moved in-house
+at NXP and I'll be carrying it forward, continuing from this v2 rather than
+restarting from zero.
 
-https://lore.kernel.org/all/20260627205551.769684-1-gourry@gourry.net/
+Vincent, thanks for the v1->v2 groundwork. I'll keep your authorship on the
+patches that originate from your series (Co-developed-by plus your
+Signed-off-by) and build on top; I'll send you v3 off-list first, as you
+offered.
 
-Will
+A v3 is in preparation and will come as an RFC, with the v2 review comments
+addressed.
+
+Vincent, if you're OK with the handoff, a short ack here would help make the
+transition visible to the reviewers.
+
+Thanks.
+/Jan
+
 
