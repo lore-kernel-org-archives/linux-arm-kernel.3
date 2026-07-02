@@ -4,93 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFCCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170A7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SyxPIQyiRY94UmnatdvvXHm0PH6iQcFy569ksBi+Ngk=; b=vnNFFNWCf8bkcoMGV5Nx0l5vsa
-	ZQruXanwhrdhPVaYJuS1BMdGsBFhj6fs2Pacz5oJsQfrJLkjNcvxmN/Ca6OdKbYHtWUatGLzSGj3G
-	iuIUwJe/4C3BpETHYE7dm9Pr6c5szwWIhGHB+uPbeh0sSOCO1Re9mUUO6TBldRcicRFzQFN+FLcKT
-	h1riBKGgTvN9QPJ+l4wcExtAQXzPmwYSPpmVfzJEeHsY6gEMKDqOaLmOP2iRvxnV86ZB13jrvLpFx
-	Xg7VUKNVoFNZNe0lXqNFNHI5xvgHMpxL8Bxn/EV4MB8HBV4LHRI9E9EX4xREB/FWWJLBclm447skq
-	rK/8+tnw==;
+	bh=WDfEEzSWJgWFfXeNIdpxPGAQ9BpwsK2ZXWq6vw2pT4g=; b=zOVaUdzqIwiwL5lWbgoskJnjhb
+	5PPjfG5vE1zGRn6rOXyJBBnTJHBZBDf+Skby9ZwJHGBoYheBKU/2u6DztYTiTO/5dYEPNlkrSsoOP
+	qzIWxbDOah69Xk8chgPvL2IAt8s0MwIJEcJ/omHrltyW6MPr1Hv2U94G7Z0kP6SDJTEjQD6o2JNbm
+	SGkdXctbLaj1fbTivXAm+JIKdnYMb5yYX/Zx2/cnUgvo1E03RYekIwBZHdl0/Ui75zYk2rvTeI8qm
+	gmJqnwhQQrBq1sGLfOlpp0evo/4sS5xUHuNnAHvL15puTVuhHlEgZI6d9KXnPl/eTV6TORIhX0Prc
+	e9EAyH9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCrz-00000003szE-0Qjo;
-	Thu, 02 Jul 2026 08:34:03 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wfCsB-00000003t1o-0olV;
+	Thu, 02 Jul 2026 08:34:15 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCrw-00000003sxv-2pWs
+	id 1wfCs6-00000003t0N-1CwZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 08:34:01 +0000
-Content-Type: text/plain;
-	charset=us-ascii
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1782981227;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SyxPIQyiRY94UmnatdvvXHm0PH6iQcFy569ksBi+Ngk=;
-	b=SJ0Y0AqyMS9M2n2QZLRzV1CPGIMZPLVfRQEKWNUmoYjG8lKgVlBsK23Sq7KAs/mmzgEz+r
-	yA/YQ+R4wSRzWGwmuCE7yTqfBDSlerC0fAv8AtZef1qE5HYDgFwTX2JGVoxG7O1hdV5b/4
-	JZKbHPW3AKseFmIiWCmAGoK0KJTfGys=
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
-Subject: Re: [PATCH v2 5/6] mm/page_vma_mapped: use huge_ptep_get() for
- hugetlb
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Muchun Song <muchun.song@linux.dev>
-In-Reply-To: <20260702051341.126509-6-dev.jain@arm.com>
-Date: Thu, 2 Jul 2026 16:33:06 +0800
-Cc: osalvador@suse.de,
- akpm@linux-foundation.org,
- ljs@kernel.org,
- david@kernel.org,
- liam@infradead.org,
- riel@surriel.com,
- vbabka@kernel.org,
- harry@kernel.org,
- jannh@google.com,
- lance.yang@linux.dev,
- kas@kernel.org,
- linux-mm@kvack.org,
- linux-kernel@vger.kernel.org,
- rcampbell@nvidia.com,
- apopple@nvidia.com,
- ziy@nvidia.com,
- matthew.brost@intel.com,
- joshua.hahnjy@gmail.com,
- rakie.kim@sk.com,
- byungchul@sk.com,
- gourry@gourry.net,
- ying.huang@linux.alibaba.com,
- j-nomura@ce.jp.nec.com,
- nao.horiguchi@gmail.com,
- ak@linux.intel.com,
- mel@csn.ul.ie,
- pfalcato@suse.de,
- jpoimboe@kernel.org,
- dave.hansen@intel.com,
- tglx@kernel.org,
- catalin.marinas@arm.com,
- will@kernel.org,
- linux-arm-kernel@lists.infradead.org,
- ryan.roberts@arm.com,
- anshuman.khandual@arm.com,
- stable@vger.kernel.org
-Content-Transfer-Encoding: 7bit
-Message-Id: <6518FA25-16CB-4BC3-B724-B075B0D1B425@linux.dev>
-References: <20260702051341.126509-1-dev.jain@arm.com>
- <20260702051341.126509-6-dev.jain@arm.com>
-To: Dev Jain <dev.jain@arm.com>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 02 Jul 2026 08:34:13 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 4E5911A0DCF;
+	Thu,  2 Jul 2026 08:34:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1ACF35FF03;
+	Thu,  2 Jul 2026 08:34:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4F7B0104C960E;
+	Thu,  2 Jul 2026 10:34:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1782981246; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=WDfEEzSWJgWFfXeNIdpxPGAQ9BpwsK2ZXWq6vw2pT4g=;
+	b=OxUMApa58Q5UX9hYLVcjPJ6e2e+iHrh8huayYvoEZQKLdPjprWeh/PEbPcaOAt//xCfpYt
+	b6eZTaZBWGVoB0hdCFWubkvwhIyj+Vib+w/dsrIENF5bRQe5ARQ7MjDhF8w3A6Or+a/jTH
+	0+dii1umHVwRhMcgzoMgoif7GWCZJLh2CXmT4MQki//kMWdI3rFQBSWL3UoTurVIfvrarx
+	9UOsFthX+ipW32PyPVzc2W5Grzx7jQ9BDqnCOAX2li3fIBGLTu0c21tu5xlwZalmP7F6wC
+	0ykF0l0Z/vIUi17rmyKC2+NkSR1KZR77jK59xxYBdwFpT9V8YrQKKsLYLET+8g==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 02 Jul 2026 10:34:02 +0200
+Message-Id: <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
+Subject: Re: [PATCH 5/5] gpio: nomadik: drop "chip registered" log on probe
+ success
+Cc: "Bartosz Golaszewski" <brgl@kernel.org>, "Philipp Zabel"
+ <p.zabel@pengutronix.de>, "Vladimir Kondratiev"
+ <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
+ <gregory.clement@bootlin.com>, =?utf-8?q?Beno=C3=AEt_Monin?=
+ <benoit.monin@bootlin.com>, "Tawfik Bayouk" <tawfik.bayouk@mobileye.com>,
+ "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-gpio@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Linus Walleij" <linusw@kernel.org>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
+ <20260701-gpio-nomadik-silent-v1-5-644d10316cef@bootlin.com>
+ <CAD++jLmmHXBC9ni0pcVoB2HNK+osBzgirxH7vLHZaANmoe-tpQ@mail.gmail.com>
+In-Reply-To: <CAD++jLmmHXBC9ni0pcVoB2HNK+osBzgirxH7vLHZaANmoe-tpQ@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_013400_853595_FA07291C 
-X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-CacheID: sfid-20260702_013410_470962_4E991AE8 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,29 +85,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Linus,
 
+On Thu Jul 2, 2026 at 10:00 AM CEST, Linus Walleij wrote:
+> On Wed, Jul 1, 2026 at 6:57=E2=80=AFPM Th=C3=A9o Lebrun <theo.lebrun@boot=
+lin.com> wrote:
+>
+>> Successful driver probing should be silent. Drop unconditional
+>> dev_info() call that is done at nmk_gpio_probe() exit.
+>>
+>> Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+>
+> I actually don't generally agree, but you are using this driver more than
+> me now so let's go with your minimalist dmesg style for this driver.
 
-> On Jul 2, 2026, at 13:13, Dev Jain <dev.jain@arm.com> wrote:
-> 
-> check_pte() is the final validation step in page_vma_mapped_walk().
-> It reads pvmw->pte with ptep_get() to decide whether the entry maps
-> the PFN range being walked. For hugetlb VMAs, that pointer refers
-> to a hugetlb entry.
-> 
-> On arches which provide their own huge_ptep_get() to dereference a huge
-> pte pointer, accessing via ptep_get() would cause pte_pfn(),
-> pte_present() etc to misbehave.
-> 
-> It is not clear whether this has a trivially visible effect to userspace.
-> 
-> Use huge_ptep_get() to dereference a huge pte pointer.
-> 
-> Fixes: ace71a19cec5 ("mm: introduce page_vma_mapped_walk()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
+I get from where you stand, but the info level is somewhat strong.
+Documentation/process/coding-style.rst agrees ("When drivers are
+working properly they are quiet").
 
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
+If you like this log line we can turn it into a lower debug level?
 
-Thanks.
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+
+Thanks for the reviews Linus!
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
