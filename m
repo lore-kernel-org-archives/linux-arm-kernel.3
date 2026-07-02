@@ -4,109 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C3C8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 10:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE23C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 10:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HePeeifvB/opdYPmqi87Awn5dRCasskHjfVg9hPOIo=; b=p7UEgT6xfBIrmPi1Xuq34vLA4T
-	tRL9MmO6fiAW5KlLjuarilHMF2ATch/GeLNLpqORVrHYd6RosSEGUfxdc5VHKmbHOPpqLPV1YInXI
-	Okk7mSaIDT5bZ8XXua2QpVbTFp0daqBHDQx79XMEqGJN+UmpBQVXDs6wIPQ0QXnVJToPdwEspO9u0
-	DgtLfu9xyO+eUp8CCXci6TWrT1mfeuohICklT0xSSGCHt/B0swpv5Cc9rT4H5taB0+gXiV0/5thdw
-	0AqR43649QZqSv6Y6yZ8OzLIWDErAdBJc2Bltg4rFKomNRkwNDGNQLCSWWcDrjQTJwlchFG0m6COF
-	CO1+3Drg==;
+	bh=gpZvamYw9AnVrZnk1GFQEFXSHxgLU3wS0Rp+AMjlVD0=; b=uoJGOu1xu2cpEceztcdxYRP/29
+	bz/A94MKakTm4zYkeyQdGYP1DwEQy0/l+Db5eEUL9XvElQzHG4eNOBdvE7e4kv98fJIU5e4J0QLiu
+	J42s/eC1d+QW8SVenrOsNVadNYKCrrqbB9iy/YEoN1DpH/B9RiVrXrCo5u1S/2bknQElzz2VViYnr
+	Hjlxw988XWRMQNLv9jALXe3IQT266oc64Cgncyzb0Sk7ULRLZSatgYMTDDJoPSj9IzkCpKXv5anZW
+	u8FW5I3hfoVxRUeRvI72dcJ56IpfHyIKgcID8ERkN1dLDKWoe+LKNCzjqb7kELpBqCijPu5iy+0Ir
+	uTrGl3JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfEyE-00000004Dcu-38yJ;
-	Thu, 02 Jul 2026 10:48:38 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1wfCVf-00000003oGl-1BBo;
+	Thu, 02 Jul 2026 08:10:59 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfEyC-00000004DcJ-1F4q
+	id 1wfCVd-00000003oDt-002W
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 10:48:37 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-c999f162c9aso776206a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 03:48:35 -0700 (PDT)
+	Thu, 02 Jul 2026 08:10:58 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4720f3bf164so133987f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 01:10:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782989315; x=1783594115; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8HePeeifvB/opdYPmqi87Awn5dRCasskHjfVg9hPOIo=;
-        b=g+WiyOFCNbKxuvWFdvB296TKRzRGZU7hcq4tOk3eb77cSaezx+r6effvVbxiT8FTjG
-         pOOgRmVJFcDvzqWoruBSS7BS5CiyJ/2knTeXW593yf1c7MLRRmQTFfjImSsO2PwlFJMy
-         ush7sv3Bhy8aehnrvbrypD7IjlbncCYGjxWtkdZVi57+rJJdU3QSfvddR5z8wRzt49eq
-         jqt3g843cn2Gx/p4Czi72tthKDwi56+uEG+SWh+g1lHiz0LO8K1uhtUbvP0Cbrx43qmL
-         PqjWvRFumZZcREGjY2GndgIYmAq4nkJDgGjB35Qj9l+gB5adEGujU/BtnqYB/BpixGup
-         AW7g==
+        d=baylibre.com; s=google; t=1782979855; x=1783584655; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gpZvamYw9AnVrZnk1GFQEFXSHxgLU3wS0Rp+AMjlVD0=;
+        b=nU1Wph5EzU9SK7FhCqOCJKiFvexj8vAd6aAL4dlVooj68Z690lO/2tZz7vqGVImeQo
+         RraTAkpX4iDdAwuj1svwbKxVJvlFvD5Wt2UUAbt5xZft6bYC52rPlfiHri9HiHSQV/aJ
+         JSRIzQ4t8bLZWOBeIT1zQXCRQFo5cYOY/EbyUPEVsTqztKZ5y1VTePKPtM1i8A7THlFO
+         pQz3L0+OvB1seSUTdQWui8cg2dALBN35T9p7j1vlW+KdWfyBTIMT3xevT4sDSKdrAmrh
+         MfLiKQ/sCJKhqWW59KBvIlAngj1FfQWrGboxELkH3pa+MbemT27MLcSXL6zjDkESnVeS
+         lmgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782989315; x=1783594115;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8HePeeifvB/opdYPmqi87Awn5dRCasskHjfVg9hPOIo=;
-        b=MK2KDQ/hz8pujPideiRtHJdiZ3Q99dWK6a/US1mcCf54AWsEY7+rYGCFJ5i4w0CRcI
-         yz85FryBMCg14yJDr64iv1flQKGRVlbytFw4o12+Buml1OrFNK1uRwtH7iqecVPAs/LP
-         axcecFrI2HzY9KdMutAUb1b4gWOVnEmysM/eRe1mNzyPViEIumlYIQ3xD5r5VnYI1w4Y
-         LOgl2/io+8fdkts+3+KVbqoCfo0IJdxRSGmbJqLgIVrE7ders9gEWQrE5eZ6zuMstIeg
-         CLjv672eTeMYXGKjrwTZboYV/eTAoi2z5lTH9dCluU+7F6Xyokj0m+kvPTVDcrbV7NdY
-         sNJA==
-X-Forwarded-Encrypted: i=1; AFNElJ+8iU9/zeDRd4yMh3j3FDPhLnNkSCYg0E7Wfnwogdra6M5xlD4q9wDPw7PY8yA/y/H5N1fzOg+XC8hs5zKRdAwK@lists.infradead.org
-X-Gm-Message-State: AOJu0YwX4aCYRuTzrEsvtnuhx0NHkNh/giSR0tHNwTV/A+fIU2O8xvMT
-	yoKxt4Y5k5uMsXKXD7S5luMi0eduwal4B9DShM1LR+VJH3+ZEN8zEvNV
-X-Gm-Gg: AfdE7cnAiQh7mBigY+xpNkjhHAOTP6biUjuKht4sMTIgxE+7Ou1I4DYAP9iJBZ7Vf4w
-	aALB0O3ZU2NllHV59xCHM6aMaN71YfPK3QPxX9fYhu0G8uqh+Ro/qpyHSGPN8QMFrbgq/OoFPbS
-	bLoQ9Spg792ezIKAFvf47fMVTVta6QQF8Mxti0MGTrJBywolpKsloQvzGSCPlDZHGLTy3/sfzDK
-	Z/5zbKYksArb3PQxYEH25cb9xPlXYqA6K1Ytq28gzHFCmcrdbLFp1dHNMn5jFJdOCVGK63xiUd7
-	Val2K3NMd1DTC7m2HS4cFLba0/JDwgy6i6o1MQKq/iSsVBZQT/gya7tJE4HN9clLCJYlg6M8Ceo
-	gQwpZG3HId7iTsfn3pZXTxYo72su3TQiA3fjhnE3iRsXmRdD3bKEn1UV9QAhmz7fRgFL/CAJFJv
-	0vOUUM8JWqB3BU+c8SyefvPfwF6g0BLVzOfLX45Hi3fqRTWO6J1GpfKP8UY31xay5+EvB8J2W4R
-	pl+en0X8/qOBkMZlkFoNbSWFw2vY8+vb1KD4RPNxMk=
-X-Received: by 2002:a05:6a20:e20f:b0:3b4:669c:ee32 with SMTP id adf61e73a8af0-3bfed3b26edmr7042853637.37.1782989314653;
-        Thu, 02 Jul 2026 03:48:34 -0700 (PDT)
-Received: from leonardoc-nb (201-68-197-145.dsl.telesp.net.br. [201.68.197.145])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f116065c5sm5936815eec.11.2026.07.02.03.48.29
+        d=1e100.net; s=20251104; t=1782979855; x=1783584655;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=gpZvamYw9AnVrZnk1GFQEFXSHxgLU3wS0Rp+AMjlVD0=;
+        b=LVfVOThx/AUftJA66U7iLY1c2D8vQcYAmr6KtTA1wB9HF6oyoNavjxUzJMBlrxOClV
+         m6zozNkNIOSsN7Ti5GekFdj0GDYK+Q2gvHuonYICI3QUXdlpRv/nKs/mE9/aFhqLStBF
+         Xl7tpX6ZKz1HzgXC2gEHPg15bUVDH23fRPmhBGVpGCln9CcgNJNABIC2oRbYtojAXr+3
+         KfqCRR7TEsyh5Ssc2w6RJW/B5+7BAEm03KSP2Uf9c1Pb4DEVS9vlGyrrQToW3OvZcYVo
+         OxIqrH/H8oRIukS0bZSfgTslegAhq4OIEe0WKOdE0urG/lRQyRQUBvaL5SklMXmJRJPO
+         DglA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr4Mrt1d4efBGPyz/8dVzTdgOXtvwDUckdi5PeRc9W+gOcGSyVgIxogVUAqomECUMpA/j6Yq6RqUEEvSV2aUo9x@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTNDXTssYfU2Xquc7MIiwYCT4HbXPfBPWMvrS1tuTCFTKBQ3lv
+	VQewiFk11JDEK+Uprjqco3QmD90azIGI9AnrIGLhYGxPHj/X8iDAz17K2mylVib7mUk=
+X-Gm-Gg: AfdE7cnLyl0E6laTm+k9mN3nKd1MLRmBaMrZc2Qdu7q/ywc1/UdriSjmP9jsvV7sUBS
+	eUA4gfOAK37RnVf7JfdeVLTcgy0UMzHebPZMyLM3sFGk8m6XwVVKqKDP6hiIhoeb7RbXCzWJspf
+	BidpIcrJ52SVg8FTaPha3T5Wjx6D1wgRnwi4+5qV5CsjMB2SpLYDuH8osxTGu86Mzn/6zbVYAU8
+	jJj/0+4Qy7K/lB95x4HLHtyxYTGsZUXDXcmJFCC0CY2qlT0qmT6Bn/rKW3rV4SWSYQKKeORXkAT
+	Fu7lzss7W6/XX28lEUWOU9rMsIu1qt3MhjonE7H0TmOv75E/VX4F3aXAFVFGutgFZlcwZrVoq/Q
+	Eaq23DjwcOxR1lorl4Vv23kb8ShzXMwKFQqg54DbzYbHbbgmtoIAosQUE0BbEkTNWhs375n6qHX
+	8yDKRd13PJ1A4=
+X-Received: by 2002:a05:6000:40ce:b0:473:c2ec:7a79 with SMTP id ffacd0b85a97d-4774424350cmr7132004f8f.12.1782979855094;
+        Thu, 02 Jul 2026 01:10:55 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:2e3a:7dcd:d2a4:6556])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-477db3dba3csm6687967f8f.3.2026.07.02.01.10.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 03:48:34 -0700 (PDT)
-From: Leonardo Costa <leoreis.costa@gmail.com>
-To: louis.chauvet@bootlin.com
-Cc: airlied@gmail.com,
-	bparrot@ti.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	jsarha@ti.com,
-	jyri.sarha@iki.fi,
-	kristo@kernel.org,
-	krzk+dt@kernel.org,
-	lee@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	nm@ti.com,
-	robh@kernel.org,
-	sam@ravnborg.org,
-	simona@ffwll.ch,
-	stable@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	tomi.valkeinen@ideasonboard.com,
-	tomi.valkeinen@ti.com,
-	tzimmermann@suse.de,
-	vigneshr@ti.com
-Subject: Re: [PATCH 4/4] drm/tidss: Fix sampling edge configuration
-Date: Thu,  2 Jul 2026 07:48:01 -0300
-Message-ID: <20260702104817.1219078-1-leoreis.costa@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
-References: <20250730-fix-edge-handling-v1-4-1bdfb3fe7922@bootlin.com>
+        Thu, 02 Jul 2026 01:10:54 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+Date: Thu, 02 Jul 2026 10:10:04 +0200
+Subject: [PATCH v3 5/8] clk: sunxi-ng: sun6i-rtc: Add feature bit for IOSC
+ calibration
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-a733-rtc-v3-5-eb2580374de6@baylibre.com>
+References: <20260702-a733-rtc-v3-0-eb2580374de6@baylibre.com>
+In-Reply-To: <20260702-a733-rtc-v3-0-eb2580374de6@baylibre.com>
+To: Junhui Liu <junhui.liu@pigmoral.tech>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
+Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3560; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=LjKLqtELI/k5Bm86qG39EiNLmLLQg2pvRCFKcypyAtM=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqRhz6iQ4ImmQHndHiBUqhJRQYIbF2ssh6u4zet
+ LAX/Wa+q56JAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakYc+gAKCRDm/A8cN/La
+ hevvEACvUM3ca8OwIt1oufqC2tSNAYGaxdWOw46j08bNcil+NPfmr/5Af1LlNbH/cnK2mvD9i17
+ uhUOtHab6h+C5k9mFrYY1/iEpNmMfiAqNP9b/SiohQo4XXQ7vH9aCSJwWzZAlrArxDjOkodWaUc
+ h88RZxUvA7mpw29FBOGQWAxNpADzCWGUspkbA8rAQRvm8euwYNVi7o/O/eqFeiyK5NHr1BWiZjK
+ qHzdkatztZ1pM4D298w9UADjl6bwZ/dDwaRXP5VQp1nZW8W8YDaCjG7yS+RO7IomoAJgRApUaRZ
+ fCv2H2xgcSB9tIG2M6bbAzlbJe9oHGE8VwmGCk4XO2n42566JCVwypwJDkjpELB7bHudEQpOe0N
+ KAlOo18K8PAcZ5uZNFnxWTOZXeiYLXjOxPAUdCpyQm7RyTZ7oXKsm2oT5k8painM4yMkDUXnRVB
+ T03tesm9gVdVWILE+46J+kE4sOjXiNG1Pp2Rw1TPyVPSHfgQ0dFqutz5HsYLHOAQYgz67YjOXfU
+ pzBqi+eTBeBslVZK09E9N6D9jQjjoLPsCuxdb87P8ml5T5tLNLxjNmQtkhUUGOERDfIenO571u8
+ S/AJZCLIex6hlXowPOaM5FRdQFsxE2H3MNvMuOYOZfpG14rbnirk8o1Ip4YH603HjyOic3M3jSz
+ A40fFvy4QCn3l1A==
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_034836_340835_16030247 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20260702_011057_087701_6300A508 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,58 +125,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: Junhui Liu <junhui.liu@pigmoral.tech>
 
-We tested this patch and it introduces a regression on our panel.
+The sun6i-rtc CCU driver currently uses a global static variable to
+denote whether calibration is supported, which makes IOSC operations
+tightly coupled to this file.
 
-On our board, a Toshiba TC358768 DPI-to-DSI bridge is connected to the parallel
-RGB output. The bridge requires data to be driven on the negative edge, and
-this is also reflected by the `ipc` variable in `dispc_vp_enable()`, which is
-set to `1`.
+Convert this into a feature bit to decouple the logic. This allows the
+IOSC clock code to be moved into a shared module for reuse by other SoCs.
 
-With this patch applied, however, data is driven on the positive edge instead.
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
+---
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 17 +++++++++--------
+ drivers/clk/sunxi-ng/ccu_common.h    |  1 +
+ 2 files changed, 10 insertions(+), 8 deletions(-)
 
-According to SPRUIV7C, both `MAIN_CTRL_MMR_CFG0_DPI0_CLK_CTRL[8]` and
-`DSS_VP1_POL_FREQ[14] IPC` should be programmed consistently. However, if we
-follow the actual bit descriptions, and ignore the sentence saying that the two
-programmed values should be the same, the data is driven on the requested edge.
+diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+index 0f528bfaed00..b24c8b196e66 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
++++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+@@ -52,8 +52,6 @@ struct sun6i_rtc_match_data {
+ 	u8				osc32k_fanout_nparents;
+ };
+ 
+-static bool have_iosc_calibration;
+-
+ static int ccu_iosc_enable(struct clk_hw *hw)
+ {
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+@@ -80,7 +78,7 @@ static unsigned long ccu_iosc_recalc_rate(struct clk_hw *hw,
+ {
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 
+-	if (have_iosc_calibration) {
++	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
+ 		u32 reg = readl(cm->base + IOSC_CLK_CALI_REG);
+ 
+ 		/*
+@@ -119,7 +117,7 @@ static int ccu_iosc_32k_prepare(struct clk_hw *hw)
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (!have_iosc_calibration)
++	if (!(cm->features & CCU_FEATURE_IOSC_CALIBRATION))
+ 		return 0;
+ 
+ 	val = readl(cm->base + IOSC_CLK_CALI_REG);
+@@ -134,7 +132,7 @@ static void ccu_iosc_32k_unprepare(struct clk_hw *hw)
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (!have_iosc_calibration)
++	if (!(cm->features & CCU_FEATURE_IOSC_CALIBRATION))
+ 		return;
+ 
+ 	val = readl(cm->base + IOSC_CLK_CALI_REG);
+@@ -148,7 +146,7 @@ static unsigned long ccu_iosc_32k_recalc_rate(struct clk_hw *hw,
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (have_iosc_calibration) {
++	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
+ 		val = readl(cm->base + IOSC_CLK_CALI_REG);
+ 
+ 		/* Assume the calibrated 32k clock is accurate. */
+@@ -167,7 +165,7 @@ static unsigned long ccu_iosc_32k_recalc_accuracy(struct clk_hw *hw,
+ 	struct ccu_common *cm = hw_to_ccu_common(hw);
+ 	u32 val;
+ 
+-	if (have_iosc_calibration) {
++	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
+ 		val = readl(cm->base + IOSC_CLK_CALI_REG);
+ 
+ 		/* Assume the calibrated 32k clock is accurate. */
+@@ -358,7 +356,10 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+ 		return 0;
+ 
+ 	data = match->data;
+-	have_iosc_calibration = data->have_iosc_calibration;
++	if (data->have_iosc_calibration) {
++		iosc_clk.features |= CCU_FEATURE_IOSC_CALIBRATION;
++		iosc_32k_clk.features |= CCU_FEATURE_IOSC_CALIBRATION;
++	}
+ 
+ 	if (!data->have_ext_osc32k) {
+ 		/* ext-osc32k-gate is an orphan, so do not register it. */
+diff --git a/drivers/clk/sunxi-ng/ccu_common.h b/drivers/clk/sunxi-ng/ccu_common.h
+index bbec283b9d99..d9dc24ad5503 100644
+--- a/drivers/clk/sunxi-ng/ccu_common.h
++++ b/drivers/clk/sunxi-ng/ccu_common.h
+@@ -21,6 +21,7 @@
+ #define CCU_FEATURE_CLOSEST_RATE	BIT(9)
+ #define CCU_FEATURE_DUAL_DIV		BIT(10)
+ #define CCU_FEATURE_UPDATE_BIT		BIT(11)
++#define CCU_FEATURE_IOSC_CALIBRATION	BIT(12)
+ 
+ /* MMC timing mode switch bit */
+ #define CCU_MMC_NEW_TIMING_MODE		BIT(30)
 
-From SPRUIV7C (https://www.ti.com/lit/ug/spruiv7b/spruiv7c.pdf):
+-- 
+2.47.3
 
-MAIN_CTRL_MMR_CFG0_DPI0_CLK_CTRL[8] (DPI0_CLK_CTRL_DATA_CLK_INVDIS):
-
-        Clock edge select for DPI0 data outputs
-
-        Note that this value should be the same as the programmed value of
-        DSS_POL_FREQ[14] IPC.
-
-        Reset Source: mod_por_rst_n
-
-        0 DATA and DE are driven on the falling edge of clk
-        1 DATA and DE are driven on the rising edge of clk
-
-
-    DSS_VP1_POL_FREQ[14] (IPC)
-
-        Invert pixel clock
-
-        To set data to pixel clock relationship, CTRL_MMR_DPI0_CLK_CTRL[8]
-        DPI0_CLK_CTRL_DATA_CLK_INVDIS setting should be the same as the [14]
-        IPC setting.
-
-        0 Data is driven on the LCD data lines on the rising-edge of the pixel clock
-        1 Data is driven on the LCD data lines on the falling-edge of the pixel clock
-
-So, the proposed fix to this patch is:
-
-```diff
-- regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x100 : 0x000);
-+ regmap_update_bits(dispc->clk_ctrl, 0, 0x100, ipc ? 0x000 : 0x100);
-```
-
-Reverting the patch also makes the Toshiba bridge work correctly again.
-However, we can confirm that the patch is needed, otherwise only the
-positive-edge case (our case) works correctly.
-
-In other words, the two registers need to match semantically, not numerically.
 
