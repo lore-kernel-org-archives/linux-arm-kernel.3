@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5EBC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:07:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9043CC43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTQPPhDVeTbGbJ1qfR9lTcAhGLsRnezT+O5gDJeLhT4=; b=dh2VwZljRBsfmt/T+uRcE1Dj7W
-	QEWvBiKb6ZuiqrcJUPnHo6lF/4qIVOabEsU4zYIRss8YKx+Lqo3tEXtJZWnWGoWjM8Mnl+sxxA82Z
-	AZ0e8N9n8WJtXhx8lmazxxnySwPjIYk0glok4HOBOM3OIXAST0Eo6+crZpzac5i9P5MBnxy5Bjlzk
-	TUfc/cf/IIwH609bfQcRoutPu7wZDotNxB86IZWoLp9KQGCFaZ8x9Xj8q+qHGi2ew+FcmQ4vT4wlp
-	8OJyJdSKjWEP8ondRsa0e1B9f+B89IPI76AsWrlkxOFniA90nYucIwO+ngp1yDcubz8RQgIixX78E
-	lXFKX62g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SQNpC2MoYnLQAl/v3dxVQexz4TEZdGqYDZch7PZVNZg=; b=KUYdJyuQo1GIW3
+	4bS9c+tbX/XeUfj2OJfd3VFZ9B03sbkypU37WZPPcjosch6Yu4MSwK6w+NlphbbQ/+VHtGFnIVC7G
+	KicSTZitY8tMusbPLaLR1fgTjk+FV18vcxhJTUo4MPRZe1SRM4DbQiZzGOBb8e1f1v6nH2uqZxUNv
+	11bz2Ce9fEqMmwlXzp0n/nqRa3h1KoCEL4IiSxtmJgrMN7YWPkeSTUv92ulreC3kiEVortrUPr1rP
+	gWNxiW9T0JSuFVLhQxyKpg/BMtFmLCyfs1m874P/eUqdgycfb38bkeMIlGw8G3ade8sqQEv8gAjqf
+	FZViqZo1Y8kJUy0NyZ8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGBx-00000004PSD-31Dn;
+	id 1wfGBx-00000004PSN-3RCm;
 	Thu, 02 Jul 2026 12:06:53 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGBv-00000004PR1-2YMv
+	id 1wfGBv-00000004PQi-2VeW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 02 Jul 2026 12:06:53 +0000
-Received: by chaosmail.tech (Postfix) id 479F51C9B14;
-	Thu, 02 Jul 2026 12:06:47 +0000 (UTC)
+Received: by chaosmail.tech (Postfix) id 347FD1C888A;
+	Thu, 02 Jul 2026 12:06:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1782994007;
+	s=mail; t=1782994005;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rTQPPhDVeTbGbJ1qfR9lTcAhGLsRnezT+O5gDJeLhT4=;
-	b=mikWKQ4mL0CHzCRJY9+4Q7zXIimYfNm45RWwfPH+qv3AgZtwFt27ZzjbfQAEv2zy68J3rg
-	h9npeNUh/EqYGdgrfg82/6a4m0NIJQ8pjeSH+NBZ1xMrLYU3gWl8J39X1GEoqaNewwqJOa
-	HRG40gtuER+/9ne2bloBnwadCV+2/cI=
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=SQNpC2MoYnLQAl/v3dxVQexz4TEZdGqYDZch7PZVNZg=;
+	b=PvRN39e2OtdyoOiqOOVP2E/XParelVBDKN6Tf444vbUXewXfCOBlZnpohD/6T1W3NOmIe5
+	dJjT9qJqYMm5oDZmrOLvAh9YMZkHL3re6DIqUkSHUu9VMy1g2An0m+js2RnSAjbydVV8xM
+	T33OvLIxpDx1AYgRkKBZGHH3NJdd/ac=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Thu, 02 Jul 2026 14:06:28 +0200
-Subject: [PATCH 3/3] arm64: dts: apple: Add pmgr-misc nodes to t60xx
+Subject: [PATCH 0/3] soc: apple: Add "PMGR misc" power controls driver
+Date: Thu, 02 Jul 2026 14:06:25 +0200
+Message-Id: <20260702-pmgr-misc-v1-0-4f075a3a95c1@chaosmail.tech>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-pmgr-misc-v1-3-4f075a3a95c1@chaosmail.tech>
-References: <20260702-pmgr-misc-v1-0-4f075a3a95c1@chaosmail.tech>
-In-Reply-To: <20260702-pmgr-misc-v1-0-4f075a3a95c1@chaosmail.tech>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXM0QpAMBSA4VfRubbaViivIhd2HBxltIPU8u6Gy
+ 6/+/ghCgUmgziIEOll49QkmzwCnzo+kuE8Gq22pK23VtoxBLSyoOjLo+sKhxQpSvwUa+PpeTft
+ bDjcT7u8A7vsBoLwa2m0AAAA=
+X-Change-ID: 20260702-pmgr-misc-ae1cbd5bc2c7
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
  Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1782994005; l=1610;
+ Sasha Finkelstein <k@chaosmail.tech>, Hector Martin <marcan@marcan.st>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782994005; l=1550;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=y/nTCCubfQIHxjED5Vxzczov4TsOcbe98Fn/E9FqjtI=;
- b=dwtjnGYdattP+uckewxWWEoavs3g6XrxmfZGA/49zaRK1u0+BG6/ORrHj3lfeQ9LQUUzZWTzp
- uqpP2WPwAD/B/OHGzncQQdWuq8/v48dIFbobFzMDYTWfaGjg0RjGEqG
+ bh=jUlZSi3Y3F/0QuIxjuAl+t+pHRC3h/ygSTf4tVgbRFg=;
+ b=24ErvKIbhJOk782EuxDOBxCg4INtj7JZ+kfwYzPQK38zAqwbYHrJ+KabRgYh7yB2Mirj5Qif0
+ Z2vR12trINkDRcS8Vcb7pzaWD7AtPvbEmZ9fFceWRCi171ACZ57jl1N
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_050652_110396_0A125CC1 
-X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-CacheID: sfid-20260702_050652_109373_325C9EA0 
+X-CRM114-Status: UNSURE (   9.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,52 +81,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds the PMGR misc control nodes for M1/2 Pro/Max/Ultra series devices.
+Certain Apple SoCs have additional power state controls that are using
+a separate "misc" mmio interface. Currently this includes the fabric
+and memory controllers on pro/max/ultra SoCs.
+
+This series adds a driver to put those in a low power state when the
+machine enters sleep. The power savings are SoC-dependent and are
+around 1W.
 
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- arch/arm64/boot/dts/apple/t600x-die0.dtsi | 7 +++++++
- arch/arm64/boot/dts/apple/t602x-die0.dtsi | 7 +++++++
- 2 files changed, 14 insertions(+)
+Hector Martin (1):
+      soc: apple: Add driver for Apple PMGR misc controls
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index f715b19efd16..3271d234b483 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -24,6 +24,13 @@ aic: interrupt-controller@28e100000 {
- 		power-domains = <&ps_aic>;
- 	};
- 
-+	pmgr_misc: power-management@28e20c000 {
-+		compatible = "apple,t6000-pmgr-misc";
-+		reg = <0x2 0x8e20c000 0 0x400>,
-+			<0x2 0x8e20c800 0 0x400>;
-+		reg-names = "fabric-ps", "dcs-ps";
-+	};
-+
- 	smc: smc@290400000 {
- 		compatible = "apple,t6000-smc", "apple,smc";
- 		reg = <0x2 0x90400000 0x0 0x4000>,
-diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-index 8622ddea7b44..121f2cf75915 100644
---- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-@@ -23,6 +23,13 @@ aic: interrupt-controller@28e100000 {
- 		power-domains = <&ps_aic>;
- 	};
- 
-+	pmgr_misc: power-management@28e20c000 {
-+		compatible = "apple,t6020-pmgr-misc";
-+		reg = <0x2 0x8e20c000 0 0x400>,
-+			<0x2 0x8e20c400 0 0x400>;
-+		reg-names = "fabric-ps", "dcs-ps";
-+	};
-+
- 	nub_spmi0: spmi@29e114000 {
- 		compatible = "apple,t6020-spmi", "apple,t8103-spmi";
- 		reg = <0x2 0x9e114000 0x0 0x100>;
+Sasha Finkelstein (2):
+      dt-bindings: soc: apple: Add bindings for apple PMGR misc controls
+      arm64: dts: apple: Add pmgr-misc nodes to t60xx
 
--- 
-2.55.0
+ Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml |  45 +++++++++++++++++++++++++++
+ MAINTAINERS                                                            |   1 +
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi                              |   7 +++++
+ arch/arm64/boot/dts/apple/t602x-die0.dtsi                              |   7 +++++
+ drivers/soc/apple/Kconfig                                              |  10 ++++++
+ drivers/soc/apple/Makefile                                             |   2 ++
+ drivers/soc/apple/apple-pmgr-misc.c                                    | 177 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 7 files changed, 249 insertions(+)
+---
+base-commit: 59574e5978abfc2ce1c194ea0200eb6fc718d8ce
+change-id: 20260702-pmgr-misc-ae1cbd5bc2c7
+
+Best regards,
+--  
+Sasha Finkelstein <k@chaosmail.tech>
 
 
