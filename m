@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CF3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 22:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109F9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 22:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DmLkqVHjjOrO8pEGmghdFHlpAf5iU5cUDI1H9UTV8uc=; b=vcsVZWiwddME+1vnHoEIWNBXG+
-	ZE90cgFx46ZjLgSZPXyyNOcYUvH4FLECLLHUz22eHLxG9rltvib+MMYWDeeGzvB8eSmAJXHEJvhOJ
-	QKOm5XMuhjRXR9m6TcD2G5XY4JGaBZlWZU0WReTiF4DqjUbNJPV2v/6TY/1rB/oS/4sD/lwWnc0PK
-	EuZxkKbdapIfAovJMKb9nRQMjKCzCoUQCmXnSemthEfUde6mkwvQTvQz5Rtg+A4S0+uUrarGGNwYB
-	R+wz/CsV/j4F5Gz2nYgVbkz0pFxfXcV82F8qdbvNfB9PKAgyVao9W218Ab0yoI13ZpNMfsqa9MKZm
-	x3sBlElA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KTAnE+u9MQ7zCsCjUohkPUkYeRSKtDuMTD3xJRmftpk=; b=lydHsBC8ltHQ3yQj4IU1PHqjuX
+	zy/H0S4/36/1Alr6T8Yl962lL2IJooy3ndLlqKjOedW3YfKDnsmjM+WkgD31CH5opQ228aU+VwrG+
+	01y14ORy5QYmfj0if6oboM/lSYtbR0xmOQNDXiS8CRE3LGEpxxNlsmC2yY+F4AnhnstihKk69EEiR
+	DjqLkrtLMKpYK+w8r4D/BVQqyu07eV+LfdLICKi0rMAkiUWaF4ziraPTFzyMBy5hcEAcEL1MVQ/vb
+	cPLBl0m6lxMoMipjv/kEhclqY6RrCslRz+SQy71/DQxPHv/nUY4J5QO5APyUcp9ry1gmoI9/6Th1f
+	gmBlkZzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPa5-00000005cJN-2voI;
-	Thu, 02 Jul 2026 22:08:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfPcn-00000005e90-0Dhm;
+	Thu, 02 Jul 2026 22:11:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfPa4-00000005cHG-2C7j;
-	Thu, 02 Jul 2026 22:08:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E9CA143EA0;
-	Thu,  2 Jul 2026 22:08:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id C5382C2BCF4;
-	Thu,  2 Jul 2026 22:08:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783030103;
-	bh=m/UHTg2bhktE5x+v1ieiha7RXNdo7gHve1/yCDswEpk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=rq6fV46/wwgZfEvFIGiryHAj/H51ZNU2ICXPhvxHth9USzdeZFixSdVlFs0YUXlgp
-	 uTpongaZxxA6rDpwY1Pw8sRKZN8OlaIG7jX8lNzRN4V50b9kdJLWbWzTqNlYa5gCkb
-	 UPXtoD3j4Fz8giDTmSmIjcWELhhwkll8Gx8BlyI1l3w6yI63nW0yNuJdgW8FR/9gyO
-	 7NMInrUFUbQMCLYjKXSl/yx9HabgJTe93PZ51LpMo+hOFDoeGeJ5dqKDXnPEZV+4+S
-	 Fytaklb+Fsh/M1BzsD1OxbxImVBliYmo9kc0ehquSJr6Cy6hBn9Sl+W4ITHiHsm2Oa
-	 a7+nDdKOmCN8w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id A6CBFC43602;
-	Thu,  2 Jul 2026 22:08:23 +0000 (UTC)
-From: Joachim Eastwood via B4 Relay <devnull+joachim.eastwood.gmail.com@kernel.org>
-Date: Fri, 03 Jul 2026 00:07:16 +0200
-Subject: [PATCH 01/12] dt-bindings: arm: rockchip: add FriendlyElec NanoPi
- M6
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-nanopi-m6-v1-1-8344a1559519@gmail.com>
-References: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
-In-Reply-To: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Joachim Eastwood <joachim.eastwood@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783030102; l=1070;
- i=joachim.eastwood@gmail.com; s=20260701; h=from:subject:message-id;
- bh=yyZDtPe8JZdirWWm3es5UC1K/bf3oJ/LDw27weSm6zc=;
- b=20B5BPeM4UwmZy4g/eudhf+IEqP0XVy0DmewljekKv8VCNYH5rEUhonHauidtV8dn2omS0I59
- kKvP4D2imY1B7ti0UHq5YXmlWRXDuDeAH2NiR1Q8Uc3U3Yxmkv84TEm
-X-Developer-Key: i=joachim.eastwood@gmail.com; a=ed25519;
- pk=ZN/8xWtdYaSd5oEfloYSZ1a+/ri0n0VZqjlEeHlbXFU=
-X-Endpoint-Received: by B4 Relay for joachim.eastwood@gmail.com/20260701
- with auth_id=846
-X-Original-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+	id 1wfPcm-00000005e8n-0R4J
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 22:11:12 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7AE1C601CA;
+	Thu,  2 Jul 2026 22:11:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 308DD1F000E9;
+	Thu,  2 Jul 2026 22:11:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783030271;
+	bh=KTAnE+u9MQ7zCsCjUohkPUkYeRSKtDuMTD3xJRmftpk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=QsDtdhOShjFKwr2OFRsBTpheuuNxhbUr5FfTUemingkqV65aCS5lBwjDgdEeNMOz+
+	 7DwGbSfKnxRPVe7PB4vySO5ajFaFBEJs+Quv9GxcNucIjqulossH6DnZJpY8WPs32p
+	 KLeLL8+oHM8rSqz/Y57VOrnwL1ZSWno2bz+9o27qwLZM7dO13qQcT720KP46ZqYRT5
+	 /l8urCyDgGgaz4m2QSv//dnzU2Nf2xRK31QRyFD6PG1mYLnDGXOHi//firMqnJM1uf
+	 lVraOCEz/zE3j1xokVp/KulpEX7O321x8vRW/aN7B+mH88R/9EpiwHqV1a9/Tzy6bY
+	 JMqdtF7LOyiaw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wfPcj-00000000vf7-1QoC;
+	Thu, 02 Jul 2026 22:11:09 +0000
+Date: Thu, 02 Jul 2026 23:12:57 +0100
+Message-ID: <87fr216nx2.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Kemeng Shi <shikemeng@huaweicloud.com>
+Cc: tglx@kernel.org,
+	jason@lakedaemon.net,
+	lpieralisi@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/6] irqchip/gic-v3-its: Fix leak in its_vpe_irq_domain_alloc()
+In-Reply-To: <20260702033050.1583-4-shikemeng@huaweicloud.com>
+References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
+	<20260702033050.1583-4-shikemeng@huaweicloud.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: shikemeng@huaweicloud.com, tglx@kernel.org, jason@lakedaemon.net, lpieralisi@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +81,42 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: joachim.eastwood@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
+On Thu, 02 Jul 2026 04:30:47 +0100,
+Kemeng Shi <shikemeng@huaweicloud.com> wrote:
+> 
+> When its_irq_gic_domain_alloc() fails, the following
+> its_vpe_irq_domain_free() skips calling its_vep_teardown() for the
+> corresponding irq. Call its_vpe_teardown() when its_irq_gic_domain_alloc()
+> is failedto avoid the leak issue.
+> 
+> Fixes: 7d75bbb4bc1ad ("irqchip/gic-v3-its: Add VPE irq domain allocation/teardown")
+> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+> ---
+>  drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index 3e4edcb64065..8968bedefdba 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -4666,8 +4666,10 @@ static int its_vpe_irq_domain_alloc(struct irq_domain *domain, unsigned int virq
+>  			break;
+>  		err = its_irq_gic_domain_alloc(domain, virq + i,
+>  					       vm->vpes[i]->vpe_db_lpi);
+> -		if (err)
+> +		if (err) {
+> +			its_vpe_teardown(vm->vpes[i]);
+>  			break;
+> +		}
 
-Add device tree binding documentation for FriendlyElec NanoPi M6,
-a single-board computer based on the Rockchip RK3588S SoC. Very
-similar to NanoPi R6C and R6S.
+There is already a spot for error handling in this function, we don't
+need a second one.
 
-Signed-off-by: Joachim Eastwood <joachim.eastwood@gmail.com>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 1a9dde18626d..6ba512964c25 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -344,9 +344,10 @@ properties:
-               - friendlyarm,nanopi-r5s
-           - const: rockchip,rk3568
- 
--      - description: FriendlyElec NanoPi R6 series boards
-+      - description: FriendlyElec NanoPi6 series boards
-         items:
-           - enum:
-+              - friendlyarm,nanopi-m6
-               - friendlyarm,nanopi-r6c
-               - friendlyarm,nanopi-r6s
-           - const: rockchip,rk3588s
+	M.
 
 -- 
-2.55.0
-
-
+Jazz isn't dead. It just smells funny.
 
