@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BB5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82D17C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 16:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XKjKff55SWQg6eX2cHt6Ikw+mn7cUY4FVZ0GealhbYM=; b=uUcJSPS13Qn7NZrYbIPvxTGGrn
-	bCfPhoR3OjIsaunoymmSws2vIFpnAJhnCCnFIkSIcNWCQmx75gvRMHUA2h9Y3+fETarhPAewvqU0H
-	5dzzRyIsN4OykC83SP52oHPtWcZ/uIWtNRp5RS1h+Wf/O1SWK61PB75pQwF1895cquhSumK0//tb2
-	lahOgFWZwaw2RfToxmTTu6AcrS6M33MWLGtFuoiulXRNUnjPHPij+jAJgmlWmBQ57pK3oZPSBT5Oj
-	aGvXgcpC1foXOdrBBfK4dw6dxqYdPRbOJFnUgyLp3Km7rtpTgQMoNGzgEkNdwvzetPFJ27woGlwYM
-	Sfrtcw5w==;
+	bh=PUGj/+4Iio52evCl6duoSdTPK6WXJo9dcyJP00Y16+M=; b=HzKRthZvnRfJy06NS6zhpIJPS6
+	R1K7koIeeqHh+F+AQW++hmY/fDP09vhAlYaBO4XA0qKJl6nFahHinqIfvxBI4BYBFRNy0Vz+CFDgk
+	1QUDq+ropvrxAXL6UcV7WEbaIxkKjX/geWwCOo0xAeLxfYd4fsSA42nxGV84i8b1pR7KT/4ky4g5H
+	sIGFmHEUrYdk0XgPEX66emavtCPv29Ff7/p9yoQ5Klj2ArSkS2qLO/54A5zZtH9IXxvnySplhSPM+
+	ZQJcLP/Un0Zigoijl9nUXVBOhEQQl11/fLmxEge1lUwg25TO1UvDC/l9gy4THojwhbfN2QeV0YDO6
+	Hv5f1MnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKCH-00000004zpz-0XrI;
-	Thu, 02 Jul 2026 16:23:29 +0000
+	id 1wfKCK-00000004zti-208x;
+	Thu, 02 Jul 2026 16:23:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfKCE-00000004zmK-0UED
+	id 1wfKCI-00000004zrU-31Tp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:23:27 +0000
+	Thu, 02 Jul 2026 16:23:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DCB0C1570;
-	Thu,  2 Jul 2026 09:23:20 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 067B535C7;
+	Thu,  2 Jul 2026 09:23:25 -0700 (PDT)
 Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 84B753F673;
-	Thu,  2 Jul 2026 09:23:21 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A471D3F673;
+	Thu,  2 Jul 2026 09:23:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783009405; bh=uBY3r0i1U+Smsm1FpuV7cA66Sr4eMf43tDr9fZh5SeU=;
+	t=1783009409; bh=63aVK8ZM+9Q9qj5Rq0WePK2DjiNd4Nqe1XiwN2MvpkM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=RJWIPDVZE7SLqExZhG3+62Rxq4z0WzQnJ6K45kOTSUopZsAMf/2p5Cl5nCHDroXtg
-	 u7kcNprznCipLpDMElQxh6I8+lS+ssyxw/WuDOho04m/6kpHgSFuHs8ytKYG4CeJ/H
-	 1odh9Fk7EJILCAvJwixvfRmoRSXBF3DV41kn2u7Y=
+	b=qcHt4amJUj6+9Z/Kg6YAXZJHh/7qsVOevXV5acs4KsAecNe3sPGEIz7TZQsdvMbEu
+	 zRHV0LdWWzVryl5A4OiuuLQ47NxEeisimmHUmASfPJdV8hFmhYeSGS4K37tbMSSrQY
+	 rb4OVT6134MRpp9+IDrXTrELUlgzOXg61lBxHfAM=
 From: Andre Przywara <andre.przywara@arm.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Hanjun Guo <guohanjun@huawei.com>,
@@ -60,17 +60,17 @@ Cc: Jonathan Cameron <jic23@kernel.org>,
 	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 11/15] arm_mpam: propagate MSC write errors for remaining MSC write users
-Date: Thu,  2 Jul 2026 18:22:25 +0200
-Message-ID: <20260702162229.4008659-12-andre.przywara@arm.com>
+Subject: [PATCH v2 12/15] arm_mpam: Split the locking around the mon_sel registers
+Date: Thu,  2 Jul 2026 18:22:26 +0200
+Message-ID: <20260702162229.4008659-13-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260702162229.4008659-1-andre.przywara@arm.com>
 References: <20260702162229.4008659-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_092326_448320_83740156 
-X-CRM114-Status: GOOD (  15.08  )
+X-CRM114-CacheID: sfid-20260702_092330_841828_B25E5FEE 
+X-CRM114-Status: GOOD (  28.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,171 +85,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow the remaining MSC device functions to return an error, and
-propagate write errors from the lower level up.
+From: James Morse <james.morse@arm.com>
 
+The MSC MON_SEL register needs to be accessed from hardirq for the overflow
+interrupt, and when taking an IPI to access these registers on platforms
+where MSC are not accesible from every CPU. This makes an irqsave
+spinlock the obvious lock to protect these registers. On systems with SCMI
+mailboxes it must be able to sleep, meaning a mutex must be used. The
+SCMI platforms can't support an overflow interrupt.
+
+Clearly these two can't exist for one MSC at the same time.
+
+Split the existing helper into a raw spinlock and a mutex, named inner
+and outer. The outer lock must be taken in an a pre-emptible context
+before the inner lock can be taken. On systems with SCMI mailboxes
+where the MON_SEL accesses must sleep - the inner lock will fail to be
+taken if the caller is unable to sleep.
+This will allow callers to fail without having to explicitly check
+the interface type of each MSC.
+
+Signed-off-by: James Morse <james.morse@arm.com>
+[Andre: remove redundant outer lock in mpam_reprogram_msc()]
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-
-propagate write errors up for mpam_save_mbwu_state()
 ---
- drivers/resctrl/mpam_devices.c | 76 ++++++++++++++++++++++------------
- 1 file changed, 49 insertions(+), 27 deletions(-)
+ drivers/resctrl/mpam_devices.c  | 56 +++++++++++++++++++--------
+ drivers/resctrl/mpam_internal.h | 67 ++++++++++++++++++++++++---------
+ 2 files changed, 90 insertions(+), 33 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index f3558d248c38..addc25e78345 100644
+index addc25e78345..824bc6c97851 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -1150,15 +1150,20 @@ static u64 mpam_msc_read_mbwu_l(struct mpam_msc *msc)
- 	return MSMON___L_NRDY;
+@@ -787,7 +787,7 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+ 	bool can_set, can_clear;
+ 	struct mpam_msc *msc = ris->vmsc->msc;
+ 
+-	if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
++	if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
+ 		return false;
+ 
+ 	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, 0) |
+@@ -819,7 +819,7 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
+ 	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
+ 		return false;
+ 	can_clear = !(now & MSMON___NRDY);
+-	mpam_mon_sel_unlock(msc);
++	mpam_mon_sel_inner_unlock(msc);
+ 
+ 	return (!can_set || !can_clear);
  }
+@@ -961,7 +961,9 @@ static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 					mpam_set_feature(mpam_feat_msmon_csu_xcl, props);
  
--static void mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
-+static int mpam_msc_zero_mbwu_l(struct mpam_msc *msc)
- {
-+	int ret;
-+
- 	mpam_mon_sel_lock_held(msc);
+ 				/* Is NRDY hardware managed? */
++				mpam_mon_sel_outer_lock(msc);
+ 				hw_managed = mpam_ris_hw_probe_csu_nrdy(ris);
++				mpam_mon_sel_outer_unlock(msc);
  
- 	WARN_ON_ONCE((MSMON_MBWU_L + sizeof(u64)) > msc->mapped_hwpage_sz);
- 	WARN_ON_ONCE(!cpumask_test_cpu(smp_processor_id(), &msc->accessibility));
- 
--	__mpam_write_reg(msc, MSMON_MBWU_L, 0);
--	__mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
-+	ret = __mpam_write_reg(msc, MSMON_MBWU_L, 0);
-+	if (!ret)
-+		ret = __mpam_write_reg(msc, MSMON_MBWU_L + 4, 0);
-+
-+	return ret;
- }
- 
- static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
-@@ -1237,10 +1242,11 @@ static inline void clean_msmon_ctl_val(u32 *cur_ctl)
- 		*cur_ctl &= ~MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L;
- }
- 
--static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
--				     u32 flt_val)
-+static int write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
-+				    u32 flt_val)
- {
+ 				/*
+ 				 * Accept the missing firmware property if NRDY appears
+@@ -1334,7 +1336,7 @@ static void __ris_msmon_read(void *arg)
  	struct mpam_msc *msc = m->ris->vmsc->msc;
-+	int ret;
+ 	u32 mon_sel, ctl_val, flt_val, cur_ctl, cur_flt;
  
- 	/*
- 	 * Write the ctl_val with the enable bit cleared, reset the counter,
-@@ -1248,26 +1254,37 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 	 */
- 	switch (m->type) {
- 	case mpam_feat_msmon_csu:
--		mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
--		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
--		mpam_write_monsel_reg(msc, CSU, 0);
--		mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-+		ret = mpam_write_monsel_reg(msc, CFG_CSU_FLT, flt_val);
-+		if (!ret)
-+			ret = mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
-+		if (!ret)
-+			ret = mpam_write_monsel_reg(msc, CSU, 0);
-+		if (!ret)
-+			ret = mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
- 		break;
- 	case mpam_feat_msmon_mbwu_31counter:
- 	case mpam_feat_msmon_mbwu_44counter:
- 	case mpam_feat_msmon_mbwu_63counter:
--		mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val | MSMON_CFG_x_CTL_EN);
-+		ret = mpam_write_monsel_reg(msc, CFG_MBWU_FLT, flt_val);
-+		if (!ret)
-+			ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, ctl_val);
-+		if (!ret)
-+			ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL,
-+						    ctl_val | MSMON_CFG_x_CTL_EN);
- 		/* Counting monitors require NRDY to be reset by software */
--		if (m->type == mpam_feat_msmon_mbwu_31counter)
--			mpam_write_monsel_reg(msc, MBWU, 0);
--		else
--			mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
-+		if (!ret) {
-+			if (m->type == mpam_feat_msmon_mbwu_31counter)
-+				ret = mpam_write_monsel_reg(msc, MBWU, 0);
-+			else
-+				ret = mpam_msc_zero_mbwu_l(m->ris->vmsc->msc);
-+		}
- 		break;
- 	default:
- 		pr_warn("Unexpected monitor type %d\n", m->type);
-+		return -EINVAL;
+-	if (!mpam_mon_sel_lock(msc)) {
++	if (!mpam_mon_sel_inner_lock(msc)) {
+ 		m->err = -EIO;
+ 		return;
  	}
-+
-+	return ret;
+@@ -1441,7 +1443,7 @@ static void __ris_msmon_read(void *arg)
+ 	default:
+ 		m->err = -EINVAL;
+ 	}
+-	mpam_mon_sel_unlock(msc);
++	mpam_mon_sel_inner_unlock(msc);
+ 
+ 	if (nrdy)
+ 		m->err = -EBUSY;
+@@ -1452,7 +1454,7 @@ static void __ris_msmon_read(void *arg)
+ 	return;
+ 
+ out_unlock:
+-	mpam_mon_sel_unlock(msc);
++	mpam_mon_sel_inner_unlock(msc);
+ 
+ 	m->err = ret;
+ }
+@@ -1468,6 +1470,7 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+ 		struct mpam_msc *msc = vmsc->msc;
+ 		struct mpam_msc_ris *ris;
+ 
++		mpam_mon_sel_outer_lock(msc);
+ 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
+ 					 srcu_read_lock_held(&mpam_srcu)) {
+ 			arg->ris = ris;
+@@ -1486,6 +1489,7 @@ static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
+ 			if (err)
+ 				any_err = err;
+ 		}
++		mpam_mon_sel_outer_unlock(msc);
+ 	}
+ 
+ 	return any_err;
+@@ -1568,18 +1572,20 @@ void mpam_msmon_reset_mbwu(struct mpam_component *comp, struct mon_cfg *ctx)
+ 			continue;
+ 
+ 		msc = vmsc->msc;
++		mpam_mon_sel_outer_lock(msc);
+ 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
+ 					 srcu_read_lock_held(&mpam_srcu)) {
+ 			if (!mpam_has_feature(mpam_feat_msmon_mbwu, &ris->props))
+ 				continue;
+ 
+-			if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
++			if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
+ 				continue;
+ 
+ 			ris->mbwu_state[ctx->mon].correction = 0;
+ 			ris->mbwu_state[ctx->mon].reset_on_next_read = true;
+-			mpam_mon_sel_unlock(msc);
++			mpam_mon_sel_inner_unlock(msc);
+ 		}
++		mpam_mon_sel_outer_unlock(msc);
+ 	}
  }
  
- static u64 __mpam_msmon_overflow_val(enum mpam_device_features type)
-@@ -1323,7 +1340,9 @@ static void __ris_msmon_read(void *arg)
+@@ -1781,8 +1787,11 @@ static int mpam_restore_mbwu_state(void *_ris)
+ 	int ret = 0;
+ 	struct mon_read mwbu_arg;
+ 	struct mpam_msc_ris *ris = _ris;
++	struct mpam_msc *msc = ris->vmsc->msc;
+ 	struct mpam_class *class = ris->vmsc->comp->class;
+ 
++	mpam_mon_sel_outer_lock(msc);
++
+ 	for (i = 0; i < ris->props.num_mbwu_mon; i++) {
+ 		if (ris->mbwu_state[i].enabled) {
+ 			mwbu_arg.ris = ris;
+@@ -1798,10 +1807,12 @@ static int mpam_restore_mbwu_state(void *_ris)
+ 		}
  	}
- 	mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, ctx->mon) |
- 		  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
--	mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-+	ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-+	if (ret)
-+		goto out_unlock;
  
- 	switch (m->type) {
- 	case mpam_feat_msmon_mbwu_31counter:
-@@ -1359,14 +1378,16 @@ static void __ris_msmon_read(void *arg)
- 			  cur_ctl != (ctl_val | MSMON_CFG_x_CTL_EN);
++	mpam_mon_sel_outer_unlock(msc);
++
+ 	return ret;
+ }
  
- 	if (config_mismatch || reset_on_next_read) {
--		write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
-+		ret = write_msmon_ctl_flt_vals(m, ctl_val, flt_val);
- 		overflow = false;
- 	} else if (overflow) {
--		mpam_write_monsel_reg(msc, CFG_MBWU_CTL,
--				      cur_ctl &
--				      ~(MSMON_CFG_x_CTL_OFLOW_STATUS |
--					MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L));
-+		ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL,
-+					    cur_ctl &
-+					    ~(MSMON_CFG_x_CTL_OFLOW_STATUS |
-+					    MSMON_CFG_MBWU_CTL_OFLOW_STATUS_L));
- 	}
-+	if (ret)
-+		goto out_unlock;
+-/* Call with MSC cfg_lock held */
++/* Call with MSC cfg_lock and outer mon_sel lock held */
+ static int mpam_save_mbwu_state(void *arg)
+ {
+ 	int i;
+@@ -1817,7 +1828,7 @@ static int mpam_save_mbwu_state(void *arg)
+ 		mbwu_state = &ris->mbwu_state[i];
+ 		cfg = &mbwu_state->cfg;
  
- 	switch (m->type) {
- 	case mpam_feat_msmon_csu:
-@@ -1801,24 +1822,25 @@ static int mpam_save_mbwu_state(void *arg)
+-		if (WARN_ON_ONCE(!mpam_mon_sel_lock(msc)))
++		if (WARN_ON_ONCE(!mpam_mon_sel_inner_lock(msc)))
+ 			return -EIO;
  
  		mon_sel = FIELD_PREP(MSMON_CFG_MON_SEL_MON_SEL, i) |
- 			  FIELD_PREP(MSMON_CFG_MON_SEL_RIS, ris->ris_idx);
--		mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
--		ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
-+		ret = mpam_write_monsel_reg(msc, CFG_MON_SEL, mon_sel);
-+		if (!ret)
-+			ret = mpam_read_monsel_reg(msc, CFG_MBWU_FLT, &cur_flt);
- 		if (!ret)
- 			ret = mpam_read_monsel_reg(msc, CFG_MBWU_CTL, &cur_ctl);
- 		if (!ret)
--			mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
-+			ret = mpam_write_monsel_reg(msc, CFG_MBWU_CTL, 0);
+@@ -1853,7 +1864,9 @@ static int mpam_save_mbwu_state(void *arg)
+ 			mbwu_state->correction += val;
+ 			mbwu_state->enabled = FIELD_GET(MSMON_CFG_x_CTL_EN, cur_ctl);
+ 		}
+-		mpam_mon_sel_unlock(msc);
++
++		mpam_mon_sel_inner_unlock(msc);
++
+ 		if (ret)
+ 			break;
+ 	}
+@@ -2050,6 +2063,7 @@ static int mpam_cpu_offline(unsigned int cpu)
+ 			struct mpam_msc_ris *ris;
  
- 		if (!ret) {
- 			if (mpam_ris_has_mbwu_long_counter(ris)) {
- 				val = mpam_msc_read_mbwu_l(msc);
--				mpam_msc_zero_mbwu_l(msc);
-+				ret = mpam_msc_zero_mbwu_l(msc);
- 			} else {
- 				u32 val32;
+ 			mutex_lock(&msc->cfg_lock);
++			mpam_mon_sel_outer_lock(msc);
+ 			list_for_each_entry_srcu(ris, &msc->ris, msc_list,
+ 						 srcu_read_lock_held(&mpam_srcu)) {
+ 				mpam_touch_msc(msc, &mpam_reset_ris, ris);
+@@ -2063,6 +2077,7 @@ static int mpam_cpu_offline(unsigned int cpu)
+ 				if (mpam_is_enabled())
+ 					mpam_touch_msc(msc, &mpam_save_mbwu_state, ris);
+ 			}
++			mpam_mon_sel_outer_unlock(msc);
+ 			mutex_unlock(&msc->cfg_lock);
+ 		}
+ 	}
+@@ -2756,11 +2771,13 @@ static void __destroy_component_cfg(struct mpam_component *comp)
+ 	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
+ 		msc = vmsc->msc;
  
- 				ret = mpam_read_monsel_reg(msc, MBWU, &val32);
- 				if (!ret) {
- 					val = val32;
--					mpam_write_monsel_reg(msc, MBWU, 0);
-+					ret = mpam_write_monsel_reg(msc, MBWU, 0);
- 				}
+-		if (mpam_mon_sel_lock(msc)) {
++		mpam_mon_sel_outer_lock(msc);
++		if (mpam_mon_sel_inner_lock(msc)) {
+ 			list_for_each_entry(ris, &vmsc->ris, vmsc_list)
+ 				add_to_garbage(ris->mbwu_state);
+-			mpam_mon_sel_unlock(msc);
++			mpam_mon_sel_inner_unlock(msc);
+ 		}
++		mpam_mon_sel_outer_unlock(msc);
+ 	}
+ }
+ 
+@@ -2807,6 +2824,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+ 	mpam_reset_component_cfg(comp);
+ 
+ 	list_for_each_entry(vmsc, &comp->vmsc, comp_list) {
++		int err = 0;
+ 		struct mpam_msc *msc;
+ 		struct mpam_msc_ris *ris;
+ 		struct msmon_mbwu_state *mbwu_state;
+@@ -2815,6 +2833,7 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+ 			continue;
+ 
+ 		msc = vmsc->msc;
++		mpam_mon_sel_outer_lock(msc);
+ 		list_for_each_entry(ris, &vmsc->ris, vmsc_list) {
+ 			if (!ris->props.num_mbwu_mon)
+ 				continue;
+@@ -2823,16 +2842,21 @@ static int __allocate_component_cfg(struct mpam_component *comp)
+ 						  ris->props.num_mbwu_mon);
+ 			if (!mbwu_state) {
+ 				__destroy_component_cfg(comp);
+-				return -ENOMEM;
++				err = -ENOMEM;
++				break;
+ 			}
+ 
+ 			init_garbage(&mbwu_state[0].garbage);
+ 
+-			if (mpam_mon_sel_lock(msc)) {
++			if (mpam_mon_sel_inner_lock(msc)) {
+ 				ris->mbwu_state = mbwu_state;
+-				mpam_mon_sel_unlock(msc);
++				mpam_mon_sel_inner_unlock(msc);
  			}
  		}
++		mpam_mon_sel_outer_unlock(msc);
++
++		if (err)
++			return err;
+ 	}
+ 
+ 	return 0;
+@@ -3085,12 +3109,14 @@ int mpam_apply_config(struct mpam_component *comp, u16 partid,
+ 		msc = vmsc->msc;
+ 
+ 		mutex_lock(&msc->cfg_lock);
++		mpam_mon_sel_outer_lock(msc);
+ 		list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
+ 					 srcu_read_lock_held(&mpam_srcu)) {
+ 			arg.ris = ris;
+ 			mpam_touch_msc(msc, __write_config, &arg);
+ 			ris->in_reset_state = false;
+ 		}
++		mpam_mon_sel_outer_unlock(msc);
+ 		mutex_unlock(&msc->cfg_lock);
+ 	}
+ 
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 04d1a59f02af..4616f1283f1a 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -116,16 +116,20 @@ struct mpam_msc {
+ 	/*
+ 	 * mon_sel_lock protects access to the MSC hardware registers that are
+ 	 * affected by MPAMCFG_MON_SEL, and the mbwu_state.
+-	 * Access to mon_sel is needed from both process and interrupt contexts,
+-	 * but is complicated by firmware-backed platforms that can't make any
+-	 * access unless they can sleep.
+-	 * Always use the mpam_mon_sel_lock() helpers.
+-	 * Accesses to mon_sel need to be able to fail if they occur in the wrong
+-	 * context.
++	 * Both the 'inner' and 'outer' must be taken.
++	 * For real MMIO MSC, the outer lock is unnecessary - but keeps the
++	 * code common with:
++	 * Firmware backed MSC need to sleep when accessing the MSC, which
++	 * means some code-paths will always fail. For these MSC the outer
++	 * lock is providing the protection, and the inner lock fails to
++	 * be taken if the task is unable to sleep.
++	 *
+ 	 * If needed, take msc->probe_lock first.
+ 	 */
+-	raw_spinlock_t		_mon_sel_lock;
+-	unsigned long		_mon_sel_flags;
++	struct mutex		outer_mon_sel_lock;
++	bool			outer_lock_held;
++	raw_spinlock_t		inner_mon_sel_lock;
++	unsigned long		inner_mon_sel_flags;
+ 
+ 	void __iomem		*mapped_hwpage;
+ 	size_t			mapped_hwpage_sz;
+@@ -137,29 +141,56 @@ struct mpam_msc {
+ };
+ 
+ /* Returning false here means accesses to mon_sel must fail and report an error. */
+-static inline bool __must_check mpam_mon_sel_lock(struct mpam_msc *msc)
++static inline bool __must_check mpam_mon_sel_inner_lock(struct mpam_msc *msc)
+ {
+-	/* Locking will require updating to support a firmware backed interface */
+-	if (WARN_ON_ONCE(msc->iface != MPAM_IFACE_MMIO))
+-		return false;
++	/*
++	 * The outer lock may be taken by a CPU that then issues an IPI to run
++	 * a helper that takes the inner lock. lockdep can't help us here.
++	 */
++	WARN_ON_ONCE(!READ_ONCE(msc->outer_lock_held));
++
++	if (msc->iface == MPAM_IFACE_MMIO) {
++		raw_spin_lock_irqsave(&msc->inner_mon_sel_lock, msc->inner_mon_sel_flags);
++		return true;
++	}
++
++	/* Accesses must fail if we are not pre-emptible */
++	return !!preemptible();
++}
+ 
+-	raw_spin_lock_irqsave(&msc->_mon_sel_lock, msc->_mon_sel_flags);
+-	return true;
++static inline void mpam_mon_sel_inner_unlock(struct mpam_msc *msc)
++{
++	WARN_ON_ONCE(!READ_ONCE(msc->outer_lock_held));
++
++	if (msc->iface == MPAM_IFACE_MMIO)
++		raw_spin_unlock_irqrestore(&msc->inner_mon_sel_lock, msc->inner_mon_sel_flags);
++}
++
++static inline void mpam_mon_sel_outer_lock(struct mpam_msc *msc)
++{
++	mutex_lock(&msc->outer_mon_sel_lock);
++	msc->outer_lock_held = true;
+ }
+ 
+-static inline void mpam_mon_sel_unlock(struct mpam_msc *msc)
++static inline void mpam_mon_sel_outer_unlock(struct mpam_msc *msc)
+ {
+-	raw_spin_unlock_irqrestore(&msc->_mon_sel_lock, msc->_mon_sel_flags);
++	msc->outer_lock_held = false;
++	mutex_unlock(&msc->outer_mon_sel_lock);
+ }
+ 
+ static inline void mpam_mon_sel_lock_held(struct mpam_msc *msc)
+ {
+-	lockdep_assert_held_once(&msc->_mon_sel_lock);
++	WARN_ON_ONCE(!READ_ONCE(msc->outer_lock_held));
++	if (msc->iface == MPAM_IFACE_MMIO)
++		lockdep_assert_held_once(&msc->inner_mon_sel_lock);
++	else
++		lockdep_assert_preemption_enabled();
+ }
+ 
+ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
+ {
+-	raw_spin_lock_init(&msc->_mon_sel_lock);
++	raw_spin_lock_init(&msc->inner_mon_sel_lock);
++	mutex_init(&msc->outer_mon_sel_lock);
+ }
+ 
+ /* Bits for mpam features bitmaps */
 -- 
 2.43.0
 
