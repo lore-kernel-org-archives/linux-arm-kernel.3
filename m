@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771BDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6E2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:22:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1opG8KVKCkJTM4GDzfVHg07XwVYvSaDsnS3cERZdy7E=; b=vqsVpJpBIrz8imR9SdgczcUZY/
-	A3OkwfK8RWTUHu+pBZLtbLxdOWKU408x9e1q5iP/3/pIIDuXy5NCdVBLNkTHQ2XSvxzOjVEvejE7o
-	ZO8V6bZJVVlxEZHPtqe/UGog6rDqWl1tj+uCSS5v0QYZzr0xVZ5X9P4Su716S1kJpkMuxjcf7PLYl
-	MP45clcTntV8IrmNTOLDNxaHZRr+Sn5czWFR84E5i0XGPQPPtCg4RwoVhQPSWcLA8X5RsahT+sECK
-	AYma3Ghuze31i6/64lzYntJKGk3x1Wqpcjyo1jNCg7uZ33bWab6kjBakljSwWn6DXOU9PTLRBIwYh
-	ufJhg0YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p+AybXHCcO4BnLqFoauWvt1KwEn7CeMrNml46vf7sfE=; b=xOIBraFKzGWc5WKnOYufMMtVd9
+	SiqmgWNgdHhmyga05uW1ThHLuXU03vf5qK3u4CO4HsUXP6oOu00zTtje9gMtvEqAjrU4SCLCfbfgN
+	PE9MQ4GJsPLEtmrfs3jTFG59c17wwXuCrW25K8iTpirdnXwKhllFEpu7uKjBc7BuIIOtjxpypRJZv
+	/rBuWfyQzzlJt3MRElG1dgtVIh9O6B/A+sNRSYzEQJV29wnDfSS+YZRyLBlBprplLG+u+kANCf43c
+	rEfaWyQL+FnrV20LMrPJ9SDTLbUgKyHexO6K+3AM0Nw7MM89dThGvZ3hNL0EJ2YQCLKHXFD7ViqGi
+	ZjBtxuwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAji-00000003dVU-3Snp;
-	Thu, 02 Jul 2026 06:17:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfAoD-00000003diE-0MFn;
+	Thu, 02 Jul 2026 06:22:01 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAji-00000003dVK-1N0M
+	id 1wfAoA-00000003dhW-40jC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 06:17:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EB3360172;
-	Thu,  2 Jul 2026 06:17:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E021F000E9;
-	Thu,  2 Jul 2026 06:17:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1782973041;
-	bh=1opG8KVKCkJTM4GDzfVHg07XwVYvSaDsnS3cERZdy7E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=JGq1OIOPdp5JvKbv9Ct4JH5C2W5v3DSnOAMEt8X8r/QJlSz9G05k39jJkjDG3BiF/
-	 llHrDHXFGXRax0Er6yiKTZWCgyI3p6KZONQHurhZ4P8urH07VCMjlueXpFsOw9oOWi
-	 hF7B2B6f+S488eyrgg0G9xd0djStAZePEGLEL8bI=
-Date: Thu, 2 Jul 2026 08:16:05 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: stable@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	James Morse <james.morse@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
-Message-ID: <2026070224-small-apprehend-b71b@gregkh>
-References: <20260701204342.2654385-1-coltonlewis@google.com>
+	Thu, 02 Jul 2026 06:22:00 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2c9b42be8feso14899085ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Jul 2026 23:21:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782973318; x=1783578118; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p+AybXHCcO4BnLqFoauWvt1KwEn7CeMrNml46vf7sfE=;
+        b=apj9L6d5S2YRb+IAxYFaXvqBlcRbg4vv91sB/11yPEfheBDe+ZwCnBfphh4UoFU6dR
+         rVJ7oztbPNuJLskIp6g1Bjhcq1r1vRkZ3+3BHlkfGv08hlOEHYkQCNy/t1rHr+NJFMYe
+         TqD0E9Q5vbj5ax6FjrPdUyhNu+hXh38XjVcw5KQ4Sq7jXnSGzx64QEXtba/tlVg3DuGN
+         Hm7+Obpj5Dd2/ChTALi1qidLbDM5E28+6RMCcvtPbiPIUGIClqTXVlQhNuolArOtGdnd
+         tPO3910CZ1FmetzteB3rxG4HwWsFhNYW3I6UGf1trriDaW7IfXYPksON4GbFuAe7sZAH
+         9x9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782973318; x=1783578118;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=p+AybXHCcO4BnLqFoauWvt1KwEn7CeMrNml46vf7sfE=;
+        b=FZmFpy/iWfCsh/0+ju7D/Gv3bLV/4lOG+09JS3xD5QCsQmcnSmwTc4bf8vYISOuZLQ
+         1Qbfk0R0QuFGUR0RLUkm3tgtCyDTMRoGVPTftNoHX7TG1h0/qpHCXWLQxO1eRo9MCB2/
+         GaqbWXq6EUDmMQno4iphKIpT4NjFYR85l7ghVkDCDif7ltiR30F5bjpf6b67c4uQB3w2
+         goS8D+k3giYHQyAIUTzX7XArN8wydDUyB5w2a4yI1VItDkkWiJrt5vaiOKEkp+RXgDbX
+         LUsHdJiOt/rSZ88irl7fskbGnTx3cAHiigvrtX7FsMZtMNRrqcG6rWxzlQbUNY15Le3t
+         Iuhw==
+X-Forwarded-Encrypted: i=1; AHgh+RrmfUhL5+Vpzxd3eBCH4j+tXWLCiVgV7QbazbaMmtEpRDNDwHbK8Ja+rtfssT1Q8mTCPs1wd7s4VAOqqdQteJ1+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzjRZOA93CCSBP8/8Ey/3FLm/DhKZ4DFAUUruzWH/aG+HWkDbi
+	eeXzpQ6hqzSBAEQb4qztQ0UNvOiI6ho0RpgdB6xGJNmu6iBRhgj4q8bL
+X-Gm-Gg: AfdE7ckFlp5z8vaXfemrg+M+oTvYtB9EtVMBk9j6dVXUTX7gV/VPAOv8EHDICBCdRiO
+	7GQ+0Uz1DX4LagWCJkJ7pY23Goc7LQX9Vf8dDurwn39n5ZOubiesYHeiwxPSlgCUwtHyROx+H1X
+	Ecvtzlezqm7dTdCRCDVLks9e7Fh0ko4lQMy8B45zddFWTHGCRU/cwLJI0Ffm1MjKIF2MffNkuKe
+	oc/kGZApoRRgmu5us0EKn8500VLlLMqqDPymzygbF5xAbC339S1NwbUKch33AdopiNOtJR+U3AY
+	nak9LyddcH562293nqlNAvaakGkSl16hBzyVx/OuBnbql0uCso+UuZxHqfydSRI6E12LVSzNQYg
+	2lVJR1EUVZOqcOr40jpWi3m6p0DXpGRoSdJ9WFebq0xJq+m4z0O3Ce6S57yuYm7UuIRZU3LiiEe
+	eRiQ/TS9G2DrdpYlLvo4dqATFg14r/UDNmOg==
+X-Received: by 2002:a17:903:41c7:b0:2c9:c46b:129b with SMTP id d9443c01a7336-2ca7e67c028mr50539785ad.5.1782973317756;
+        Wed, 01 Jul 2026 23:21:57 -0700 (PDT)
+Received: from nbai25050028.. ([2403:8600:2090:6f:cce5:6a06:d746:c95f])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c7fa65asm5296145c88.6.2026.07.01.23.21.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Jul 2026 23:21:57 -0700 (PDT)
+From: Aniket Negi <aniket.negi03@gmail.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	aniket.negi@airoha.com
+Subject: Re: [PATCH net v2] net: airoha: fix MIB stats collection to be lossless
+Date: Thu,  2 Jul 2026 11:51:47 +0530
+Message-ID: <20260702062150.8291-1-aniket.negi03@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <akWYEf5wusTq9_ol@lore-desk>
+References: <akWYEf5wusTq9_ol@lore-desk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260701204342.2654385-1-coltonlewis@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260701_232158_990898_DB706DB2 
+X-CRM114-Status: GOOD (  11.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,22 +107,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
-> This series backports VHE CPU boot fixes to the 6.6.y stable branch.
+> > Signed-off-by: Aniket Negi <aniket.negi03@gmail.com>
 > 
-> These fixes are already present in the 6.12.y stable branch (and
-> newer), but are missing in 6.6.y. They are required to enable booting
-> L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
+> Hi Aniket,
 > 
-> Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
-> incorrectly configured (because it misses VHE-only detection or early
-> initialization), causing early boot hangs/trap loops.
+> just few nits inline. Fixing them:
+> 
+> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> 
 
-Why is this needed for 6.6.y?  Why not just use 6.12.y and newer for
-systems that require this new feature?  What is preventing that from
-happening?
+Ok sure. I'll update.
 
-thanks,
+> > +	dev->stats.mib_prev.tx_runt_cnt = val;
+> > +
+> > +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute) → {0, 64} bucket.
+> > +	 * Accumulate RUNT delta in tx_runt_accum64, then assign tx_len[0] as
+> > +	 * accum + E64_abs so each call gives the correct combined total.
+> > +	 */
+> 
+> no new-line here.
+> 
+> > +
+> > +	dev->stats.tx_len[i] = dev->stats.mib_prev.tx_runt_accum64;
+> 
 
-greg k-h
+Sure, You are reffering to both the spaces above and below comment section?. Same for rx_runt and rx_long/tx_long.
+
+I'll update as following:
+ +	dev->stats.mib_prev.tx_runt_cnt = val;
+ +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute) → {0, 64} bucket.
+ +	 * Accumulate RUNT delta in tx_runt_accum64, then assign tx_len[0] as
+ +	 * accum + E64_abs so each call gives the correct combined total.
+ +	 */
+ +	dev->stats.tx_len[i] = dev->stats.mib_prev.tx_runt_accum64;
+
+> > +		u32 tx_drops;
+> > +		u32 tx_broadcast;
+> > +		u32 tx_multicast;
+> > +		u32 tx_runt_cnt;
+> 
+> 		u32 tx_runt;
+> 
+> > +		u32 tx_long_cnt;
+> 
+> 		u32 tx_long;
+> 
+> > +		u64 tx_runt_accum64;
+> 
+> 		64 tx_runt64;
+> 
+> > +		u32 rx_drops;
+> > +		u32 rx_broadcast;
+> > +		u32 rx_multicast;
+> > +		u32 rx_errors;
+> > +		u32 rx_crc_error;
+> > +		u32 rx_over_errors;
+> > +		u32 rx_fragment;
+> > +		u32 rx_jabber;
+> > +		u32 rx_runt_cnt;
+> 
+> 		u32 rx_runt;
+> 
+> > +		u32 rx_long_cnt;
+> 
+> 		u32 rx_long;
+> 
+> > +		u64 rx_runt_accum64;
+> 
+> 		u64 rx_runt64;
+> 
+> > +	} mib_prev;
+> >  };
+
+Acked the change name from tx_runt_cnt to tx_run, tx_long_cnt to tx_long, tx_runt_accum64 to tx_runt64. Same for rx counters.
+
+Best Regards,
+Aniket Negi
 
