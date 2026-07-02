@@ -4,63 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02333C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E348C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5DpZR7hy/lYQjk9fkUaq4KszFvmgNMTrxboiLH/D098=; b=3xhVEnwFYiEk7IYkRPq7glsYzR
-	z2uEB8sTu6QUMcYSIiVeJo5OKj/BYoJ1jIWVpw+9n9regIGFgbQ43CbC1V0CXzVFvhR5ZcnoGHqCr
-	5Cw0zy8qBoqmtf07392xw6BqGqaXAhhcI9jIC7hF3dUITSxdEYXGoFORIAtyPirkVXmHyDsNWTiWU
-	/Hbpuj/OwmuDMgX7LsrBjlwDPwYVmYrbtMmed5fn1SqFTpSGl0zznkO7ad8J0WQQZlPDofSjb49I8
-	BhPdoyc3qp38H8JzR5zINfslpr0YpUoPI4zUAVmi8cBJ4I+d+ZcPXQsdVXapuUx6hO0O1tsGjJteb
-	3KWNI2jg==;
+	bh=Ek/MyV0Y/c7nnxBrx8eDihkBkPio52NDDyImMElFR1Y=; b=Linq/8GnPuLfmjH+euRviUnq02
+	I55hdEKnBvjipjlFn/EHIqrChZ4Cp61fQis37eR3aBlxkiRqKV4FKeFibIG1JzeNTH32QCZePB9HX
+	22z/lymloIFHKcNCtXHMtea7AaNCwUmPTZnt09Y8FguxnRIKFaz2ylNI5pgvbqhK/iYC1XRMS0R/C
+	BQGgyyQ9WOB5fq7VJDsTQ0d4Hb4v7E3mTUBmTG8uwyjGPsOBMGZ4GUKZEKrajxFEvvkK8kJX516wL
+	VfvoZo6xf+vkv1m/rjhTkOjA//sG8ieuvjI/f1RqJmy1E/N17tnOihRLEcnhK39YQOOIit2Kpvl06
+	IrozcdFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMwC-00000005M0l-2s0s;
-	Thu, 02 Jul 2026 19:19:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfN38-00000005MNh-1t4Z;
+	Thu, 02 Jul 2026 19:26:14 +0000
+Received: from mail-westus2azlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c007::2] helo=MW6PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMwB-00000005M0Y-2u4j
+	id 1wfN35-00000005MNI-49VX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 19:19:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E71643822;
-	Thu,  2 Jul 2026 19:19:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF6D61F000E9;
-	Thu,  2 Jul 2026 19:19:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783019943;
-	bh=5DpZR7hy/lYQjk9fkUaq4KszFvmgNMTrxboiLH/D098=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=SUYzmCEbF70SHkDYOx+MOjMQJQknv8liRNr2dstY7HJsRvOWH3l2/gF6kQR49FS4H
-	 Huy5XiNzTyFJSHivHnTdVYyS+c4knzO7jaEScktTItsLJ7whC/7ifuuFBgOcUFTPLc
-	 0cfNhap8UrTCSlfCU0tARr6xQFjlLqlshg7XwjMNJ89OuuChTi7zREfKaoHv59NJEo
-	 O/ZtQZiOejMTMarEuPbCAs4tl57FvnWb8NzGQhp6rOqEjQSd9Brd4AreANqlsLSJ5H
-	 y/lum7Nff69wWi3zq90n1I8qgNqTTxtvuvQgzbWBUX7DUKkyzJ5aiKKb4wxTXuTLqP
-	 aP8FezItzDztg==
-Date: Thu, 2 Jul 2026 20:18:58 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: soc: apple: Add bindings for apple PMGR
- misc controls
-Message-ID: <20260702-kitchen-census-d79e1abb9f36@spud>
-References: <20260702-pmgr-misc-v1-0-4f075a3a95c1@chaosmail.tech>
- <20260702-pmgr-misc-v1-1-4f075a3a95c1@chaosmail.tech>
+	Thu, 02 Jul 2026 19:26:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fV0scgiEz+As4tOsCQSUU/q5iQj6TR8VhPPWzcGxDMTkRiHBdSi2vled3FU+VgFPIBm4LmvxgfIqUad3fcB/5Ci1zpCfv85WqaKBWaBV0nJq1JOFFTLwM/gbR8TygYf8kHiKZE3VD7eIOhddIPVvGmJvPXMOtSxA3kBZqqSBPN++GODqeBhPwf7MucEv6eNuCli2srLWAtoUctGyYKtXnX7ZGpmnRVoMFulW6FaAH74iOk7N8v0g2sgE4LkSRaMnTJ2xhS8XYcpwsguj2hIafFTe1Y8Uy6sY1vUpeKqqD5kCsv742wcf7xE8woyfAssEgFod9S/0I6ebVTZ78Iynsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ek/MyV0Y/c7nnxBrx8eDihkBkPio52NDDyImMElFR1Y=;
+ b=P5cMOvALmLq4OmLyYpymrygEsSfObZwGFLZ+qgEH8er5awrL/kO5tVS7T8YidaNsGFejozJHTqkws3kDIdlrGrXDhvlQxBSYG3gvkod9XtNGUs03XRcmiKwJ70/mVy/nVwvl3KfVw5t4bNgtl1BYc51uq7SrefSpw5Bvj5EtR+utcf+EUZjMsomdRZb5rd60yz0s9KT3ylT8N9EjjYTAmmt65gAYV/gQTW1zs9dX8G19g969mngc5+NkmEjqaJreAufmSIApS1exdfagVMpt4WGsH26uANkVBLdO7aaeDWeH8kzSPm0Opju9rfn1OOeZu14mcKmyl0oqq2kTtPmZGg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ek/MyV0Y/c7nnxBrx8eDihkBkPio52NDDyImMElFR1Y=;
+ b=OFJHZb8ttDztQZS0mXo14VIzToirWaqt3Xdd6seTnUAeCXArKSyH97kX6PhkyKrc8BKBXKM45aJol3Q1eYU+5mgyk0VUkfDWrc1QNV3omZys/BvlHXTaEeIMdrh9Ad/h6x7U1ebnMMHpDPieux77J+2TS6RrDBQbjQURF3ngP6W0ZcRDQ/1mnG+S8LaXcw6f4pVj06BumLErAvEzXuD3lPYqncUTbRHjvf62VErZyQTaXvjkrrPw33ukyEqdFHVfdXUef7jp6icP0gfVt93bku9oO0p/ynINaLTK1yVFxAd+m/rDZgSNUFHEImGNS1QfLC/c0DrhfNsVTvqFumoX3Q==
+Received: from PH8P223CA0022.NAMP223.PROD.OUTLOOK.COM (2603:10b6:510:2db::27)
+ by DM4PR12MB5868.namprd12.prod.outlook.com (2603:10b6:8:67::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
+ 19:26:01 +0000
+Received: from SN1PEPF000397AE.namprd05.prod.outlook.com
+ (2603:10b6:510:2db:cafe::2e) by PH8P223CA0022.outlook.office365.com
+ (2603:10b6:510:2db::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.10 via Frontend Transport; Thu, 2
+ Jul 2026 19:26:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SN1PEPF000397AE.mail.protection.outlook.com (10.167.248.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 19:26:00 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Thu, 2 Jul
+ 2026 12:25:45 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Thu, 2 Jul 2026 12:25:45 -0700
+Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.182)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 2 Jul 2026 12:25:43 -0700
+Date: Thu, 2 Jul 2026 12:25:43 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Pranjal Shrivastava <praan@google.com>, Mostafa Saleh
+	<smostafa@google.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
+	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
+Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
+ kernel
+Message-ID: <aka7N6oLVq3CoBqn@nvidia.com>
+References: <cover.1782799827.git.nicolinc@nvidia.com>
+ <akPB6l-fuJUcg4a2@google.com>
+ <akPX_N0P2EcI_jbV@google.com>
+ <akPhuF9pAWaBXzpi@google.com>
+ <20260630185942.GF7481@nvidia.com>
+ <akUQj2pa1W-MekgF@google.com>
+ <akUX3T3fIoN42sdM@google.com>
+ <20260702144157.GM7481@nvidia.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Ocjsct3ZYFMJTFmH"
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20260702-pmgr-misc-v1-1-4f075a3a95c1@chaosmail.tech>
+In-Reply-To: <20260702144157.GM7481@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397AE:EE_|DM4PR12MB5868:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6cc2ab69-5590-40d4-5611-08ded86fc03c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|7416014|376014|36860700016|22082099003|18002099003|6133799003|4143699003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: YUb3HFeQ8iRLhaMGXHhSXZp8QPMVdHa/bguLPhIY0ZfIkfvfFKF7RB5ufEu8zVAfAEXRxfIgfq3sTwA7doTUJIYU6kuaL9IGSHsegG90bKB00BGPAA3oiWFqih2Mqgw30Uu3t29EfTCcK/RSwAmiTBwk58iDLfOR9LYB1cOQIzgye8cIdG5GPZT7N3nibWNYSU/1fpMA/JYuhwVQ3ZtObAvapZJ4Y85PrAhwroN4+tpwL7jckf567XTP+dLjtv8EUKxsedm1pJuazaKYg59akxcYtOesLQPfWoo29k/A5VYvLoAR8H7n5KFmClRqoeL40b6OisAHuB4X9S7pwogOzNnfL3CI22gCtGjkaNz+ry1Pi5lhIvi+Eel1+Cb8gslQI5QfYKCwEL/fAFBznj113yvkX3Z/B25IyUUrcdZuBvFAMSbPuHz/U8646ougyuoa6gfhvqroiDrb9HpHg1OG6t8aBE+JcgdziWjUudYlqfYSyxubihM8tFeqZu/sMFTRqkncycGneLRWGsK0lUkzb4WL6Z1u/KKxfNtx9/ScH1+jOHCdQjexgMXfqCoqlthmpIatkjzXATwVRsJaro7Fd6BUhBpmoXaHhMvGMeGF8b144Xh9HqNzYg05CLUtLvfszePU6f6J1ROJbdUifctlfF+YGa8BurlFRl1kRqHRhoZmSPpJCbWyyO8czXOImra0fB6hchkLIHWKEHrqafzsiw==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(7416014)(376014)(36860700016)(22082099003)(18002099003)(6133799003)(4143699003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: BnyKAx0t/uULl8G9WbBrI2EzIOlmv8rBmuEcuwXif4EMgzX24BAh0ij32akQZaGopgi8N7FA6dCb3livg4ULQrCbtnlmrU8yZ6ZGMLzUGXJLvtc4rqR3mwrYSPtlS/TW3jkPR6idv61UbCPuV6buQAONG56f+L1PzeI6UQvdyqKi7PM9ntNtMuJBG5soatRBHk+ndsrTY3kKdHzZwGkAwOtlPqb9Ix0CcSHfA+91/3DeClzwmN+s2Qt+UtpGHThVzRqgPqsi1khUdrmHKhEWgVXAjc2RSZOssdO/y3fq8P56gARRDWueaL1qhGq1tXU0VcfcVm50AmosVhMxvZA+0YwVGSILwb19tE+zEqL1aWHQIhAXSqkE6TKW2IIGCTNoDyZXY+IXffLqdsKiXdLvVOQJ7lNlL4sUlWpSH9rI+SslG6zUn9A/xjr5WpmvhblA
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 19:26:00.9997
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6cc2ab69-5590-40d4-5611-08ded86fc03c
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397AE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5868
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_122612_036040_AF6D3A73 
+X-CRM114-Status: GOOD (  20.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,121 +138,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Ocjsct3ZYFMJTFmH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+On Thu, Jul 02, 2026 at 11:41:57AM -0300, Jason Gunthorpe wrote:
+> On Wed, Jul 01, 2026 at 01:36:29PM +0000, Pranjal Shrivastava wrote:
+> 
+> > However, I agree with the overall problem, i.e. IF an active device
+> > unmaps the DMA addr after the transaction in the previous kernel, 
+> > (with the SMMU powered ON) but the TLBI was missed due to a crash/panic,
+> > Any new DMA in the new kernel may alias onto a memory in the previous 
+> > (crashed) kernel, not the kdump kernel.
+> 
+> It looks like there is an issue in this series, it isn't doing
+> anything with the VMIDs.
+> 
+> The VMIDs that are in-used by the adopted stream table have to be
+> removed from the idr as well (and similarly for ASID if we don't have
+> VMID HW support).
+> 
+> Then the VMIDs that may be dirtied by the prior kernel remain isolated
+> and are never re-used by the new kernel. When the new kernel wants to
+> do DMA it will replace the STE with a new, clean VMID, and there is no
+> problem.
 
-On Thu, Jul 02, 2026 at 02:06:26PM +0200, Sasha Finkelstein wrote:
-> Certain Apple SoCs include additional PMGR power states that are
-> controlled via a different "misc" control block. On existing SoCs, this
-> includes the fabric and memory controller state.
->=20
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
->  Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml |=
- 45 +++++++++++++++++++++++++++++++++++++++++++++
->  MAINTAINERS                                                            |=
-  1 +
->  2 files changed, 46 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr=
--misc.yaml b/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-m=
-isc.yaml
-> new file mode 100644
-> index 000000000000..30abedc67fa4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.y=
-aml
-> @@ -0,0 +1,45 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/soc/apple/apple,t6000-pmgr-misc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Apple SoC PMGR Misc Power States
-> +
-> +maintainers:
-> +  - Sasha Finkelstein <k@chaosmail.tech>
-> +
-> +description: |
-> +  Certain Apple SoCs include additional PMGR power states that are contr=
-olled
-> +  via a different "misc" control block. On existing SoCs, this includes =
-the
-> +  fabric and memory controller state.
+I see. I assume the reserved VMID for the kdump kernel will be a
+clean VMID (!=0). That should guarantee different cache tags.
 
-Are t6000 and t6020 the "certain Apple SoCs"? I assume so. The bit about
-"existing SoCs" is confusing in a binding (although it would be ok in the
-commit message), because you run into language semantics that imply that
-this sentence is about devices to the ones you're addressing here. I
-think you can just do s/. On existing SoCs//. And add an s to the final
-"state" to make it "states".
+But, do we have to scan CDs for ASID? I wonder if we could limit
+to ARM_SMMU_FEAT_TRANS_S2 only, as this series does not memremap
+CDs at all..
 
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - apple,t6000-pmgr-misc
-> +      - apple,t6020-pmgr-misc
-> +
-> +  reg:
-> +    maxItems: 2
-> +
-> +  reg-names:
-> +    items:
-> +      - const: fabric-ps
-> +      - const: dcs-ps
-
-"dcs" means memory controller then?
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    pmgr_misc: power-management@8e20c000 {
-
-If there's a new version, drop the unused label here please.
-
-> +        compatible =3D "apple,t6000-pmgr-misc";
-> +        reg =3D <0x8e20c000 0x400>,
-> +              <0x8e20c800 0x400>;
-> +        reg-names =3D "fabric-ps", "dcs-ps";
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 15011f5752a9..5a29bb86499f 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -2607,6 +2607,7 @@ F:	Documentation/devicetree/bindings/power/apple*
->  F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
->  F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
->  F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
-> +F:	Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
->  F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
->  F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
->  F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
->=20
-> --=20
-> 2.55.0
->=20
-
---Ocjsct3ZYFMJTFmH
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaka5ogAKCRB4tDGHoIJi
-0tlAAQDdgE9j16D8wb54N1NhXZ6tE6JQTMjWT4k+oOAHOEGHXAD+Igpwx/8G2BL5
-x1QpWLWp7T4VAbJhllS/qG+ZIeZTFQY=
-=lPlg
------END PGP SIGNATURE-----
-
---Ocjsct3ZYFMJTFmH--
+Nicolin
 
