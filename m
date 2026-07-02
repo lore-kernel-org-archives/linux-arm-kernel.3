@@ -4,71 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5727FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 18:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 735CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 18:19:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4i3a3SA0E4D8pxClJTF3Hke40ERPur3j2IbFmT5XNDA=; b=usRhpitVsdmpZJec4S+uZU2u24
-	N+wRNY517Lp9IDlbE6lt1g+a6i+uZ/ud+EL7pHbJfm0J0kTXRYpy2sXVwyS/ceKHtUu1BTfvXGYij
-	gTV/J3ot5kyFoU5F2jBukN33KlK8hQ8Ayskaw7SPQP5155p3dqnpAe7Ih0qy6pjDfgzPMpNODPoaY
-	OX4CI1ui7kQMlmfGx90d+8zXuzLNsrZV005Qlf9WqZsI3yiu1IH/GsRr9KA5qe2S59cnzdSFVPkK5
-	TUqThg1eXEis0/4voDjFN2uI87NIof7h+4eHf2FlNggCJlgNsuQjh/mzl9+fKSYlscuR5nLfyxVkd
-	PSYAKctg==;
+	bh=ZD3khzSnkXInota5D0wTwOYPk6AK3yZCMNNRwWFWS3I=; b=TibJnMwaIayRqsnCyFYoX3WE/4
+	Cz0JY4IUEaT1+Z+kBEpwiHJiIOEX5ZGqGev83J6/lX/KmuH400lyqLGZZKFTUA9CtZM+Yzx9OHqsz
+	aRV5KuMqZwJGUr92epvvnIxef3m/GUTiUKArCj68OcN3g3d5Hg3eYJmiceFwiC9FjY2e2+qnsHzIE
+	E3W1dKwOA61oek+/JcX9xn8UgRBSaR6EVD6LN9NO/PmLKJnw8xBBSupUasCvHK2dhklDH+rEiq84z
+	Zf/q3bZrTpe9URgyckqH/46meuY66Kbar9JRoLDJQLaixun7zN4QCh34yGmPXa2uFH0gWutb/fGb3
+	cZN2Aoxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJse-00000004uVE-0rRt;
-	Thu, 02 Jul 2026 16:03:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfIgq-00000004fBY-3f14;
+	Thu, 02 Jul 2026 14:46:56 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfJsV-00000004uFf-2sUd
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 16:03:03 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FA1F43F41;
-	Thu,  2 Jul 2026 16:03:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506761F00ACA;
-	Thu,  2 Jul 2026 16:03:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783008183;
-	bh=4i3a3SA0E4D8pxClJTF3Hke40ERPur3j2IbFmT5XNDA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DUy1tjS50IcEg3DWDkAEEMAvhqE0HdiMjqpp/tLYlfimTRzzXkIGrbCaycHbJHAVM
-	 OQCOdAx8ipSAJMy75Gf0af9bC1SSXYugQATSEGUJ8GPoUdqpY7+4OBnDLlxMdkhc9Q
-	 qd/tWyz2zs1jVETICwIZxO5KIU3UziIGJLzEdbZg7xb9HhQKxIILV6S9z1KWpBfPfh
-	 6dcSYvi/t5yyzy2nYFypruj+ZTHN7SF6GTRLEfSIYb7H+++tkBDTO43pKKNr6jk/+u
-	 0cI/I2mrmQa6Ra50zAiWYbl31T83aQJDX6a2GC+xDp0RspzhDdsrR6zw9YGAxIyvJ/
-	 tlkAtAMZN6McA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wfJsT-00000000ojd-2JhU;
-	Thu, 02 Jul 2026 16:03:01 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Steffen Eiden <seiden@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 17/28] KVM: arm64: Add NV3 control bits to HCRX_EL2 sanitisation
-Date: Thu,  2 Jul 2026 17:02:37 +0100
-Message-ID: <20260702160248.1377250-18-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260702160248.1377250-1-maz@kernel.org>
-References: <20260702160248.1377250-1-maz@kernel.org>
+	id 1wfIgd-00000004ebG-3r78;
+	Thu, 02 Jul 2026 14:46:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783003602;
+	bh=Ly/sv5wqjHD+fIz8DNnd8EigI9nvlSxBFE4MAUM4cG8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=OpRf6x8Km6YtXW42iJUfwmOICF21xnDqN2Hi1tHOUa0jxIF67fcitk0q9mErwS7Sb
+	 c+8q64rGpc7xsdMnViyelMINDJ2+b29HrQ2VhgIP9yBLz72/yUUvCyeVyJzfiq3WB/
+	 iiLWr5ZK6jWjer7HmQhW9qkkay8dlaNNoRWxIB4oFAHyGt8SAImGkC8bs+w0MZu9g0
+	 Uul/qGjU63Thv+a5Cjtg9meD0FI/hehJ5+OBZDRoqSzWfLgqWMx3coesHhALKR/vZB
+	 CVtci5aI2bkiO1PgiZ8FSkCRwQVTzz7GEPvKIUJhqNdI+Itk8QDUdJPOfaBstMLx5U
+	 UrjLwScG2ENuQ==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDA8A17E0E9E;
+	Thu,  2 Jul 2026 16:46:41 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Thu, 02 Jul 2026 17:46:27 +0300
+Subject: [PATCH v8 14/39] drm/display: bridge_connector: Use cached
+ connector status in .get_modes()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, seiden@linux.ibm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-dw-hdmi-qp-scramb-v8-14-d79890d00b6a@collabora.com>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>, 
+ Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+ =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, 
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_074644_169064_1E3DC125 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,39 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Expose the FEAT_NV3 control bits to the sanitisation code so that
-KVM stops moaning about the unattributed bits.
+Replace the active drm_bridge_connector_detect() call in get_modes()
+with a read of the already-cached connector->status.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+The .get_modes() callback is only invoked from
+drm_helper_probe_single_connector_modes(), which has already retrieved
+the connector status.  Calling detect again is redundant and triggers a
+duplicate hotplug event.  This is also a prerequisite for switching to
+the .detect_ctx() hook, which requires a drm_modeset_acquire_ctx not
+available in the .get_modes() path.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- arch/arm64/kvm/config.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/gpu/drm/display/drm_bridge_connector.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 8d5e4aacf49c4..b9a9d65b973e6 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -225,6 +225,7 @@ struct reg_feat_map_desc {
- #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
- #define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
- #define FEAT_GCIE		ID_AA64PFR2_EL1, GCIE, IMP
-+#define FEAT_NV3		ID_AA64MMFR4_EL1, NV_frac, NV3
- 
- static bool not_feat_aa64el3(struct kvm *kvm)
+diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
+index 46104506fe32..57238ba49d70 100644
+--- a/drivers/gpu/drm/display/drm_bridge_connector.c
++++ b/drivers/gpu/drm/display/drm_bridge_connector.c
+@@ -326,12 +326,10 @@ static const struct drm_connector_funcs drm_bridge_connector_funcs = {
+ static int drm_bridge_connector_get_modes_edid(struct drm_connector *connector,
+ 					       struct drm_bridge *bridge)
  {
-@@ -904,6 +905,11 @@ static const DECLARE_FEAT_MAP_FGT(hdfgwtr2_desc, hdfgwtr2_masks,
+-	enum drm_connector_status status;
+ 	const struct drm_edid *drm_edid;
+ 	int n;
  
+-	status = drm_bridge_connector_detect(connector, false);
+-	if (status != connector_status_connected)
++	if (connector->status != connector_status_connected)
+ 		goto no_edid;
  
- static const struct reg_bits_to_feat_map hcrx_feat_map[] = {
-+	NEEDS_FEAT(HCRX_EL2_NVTGE		|
-+		   HCRX_EL2_NVnTTLB		|
-+		   HCRX_EL2_NVnTTLBIS		|
-+		   HCRX_EL2_NVnTTLBOS,
-+		   FEAT_NV3),
- 	NEEDS_FEAT(HCRX_EL2_SRMASKEn, FEAT_SRMASK),
- 	NEEDS_FEAT(HCRX_EL2_PACMEn, feat_pauth_lr),
- 	NEEDS_FEAT(HCRX_EL2_EnFPM, FEAT_FPMR),
+ 	drm_edid = drm_bridge_edid_read(bridge, connector);
+
 -- 
-2.47.3
+2.54.0
 
 
