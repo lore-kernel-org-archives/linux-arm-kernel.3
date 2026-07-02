@@ -4,71 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C42C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:57:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C484AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:59:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFClAQGDsVv8l8d6RDmHm14vTJwQY4pg8XNadozUhPg=; b=zVtgxDgwEsOv4rCtUMy80l1BDl
-	OPFKZUpilPNBvxNAoBitlrC19vO6GnCFs9gGdEYQUbBHKgvPzxCyKI+Sjw/wKhOUTa7IXJAXFLSXJ
-	X6GPHaRqmm4WwivS1M8fHu0qUXba/7sidOzpBZwucNnzmzQ5WUvlzr/Obuw4f9kVYsT6DPY+jIFN+
-	a+76fx9xo+MNaAfRAw7p8wUP4dVhDC4UescVysDgxmNFuNTKkyaHXbBQBI4/GQLO1KOOfG6pZtMBp
-	Uah+4WHh1uI0wRID+tdwvB3/2J7gsCaWqRqp5HY1Jv2mD15XrIgJAvjipwq78g1C9Nsgz2kyUcyvC
-	cWVBNwuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2velwsnohbwy8q48d6Bt5Uv2TXPTqq28bnIf7woLN4=; b=uCDbL2/tY/i4H5bAglr2+Glwdq
+	/2cd7U2z1UIzdcp8N2anrBsxZuR9/CdRGjUfs3CnKK35Mu/8oojRYp/ZPQNwJSVRdHwRIrW+zcryI
+	oYTCd6TNS/ET4UoCagJWxjM8v2Y5AS5hgw7FXBHcYZ4SIK0HBry/ZHrejCGpFO7LrYlguHRCuMJv+
+	w6DjeQgT073H5eqTf2H0+QRy2j5NSyH9CQgToia6o5djYwXVwdocekS85MoiQqECDgkP506x3dgm9
+	cMkkbX4hnA+rc6vRLTfl7f1z4nHviCqs+HeukEE2pTjDxhE8vhvh2/SUfnqIF8ZPwQyTEADr4sSeV
+	7BNyGIFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDEl-00000003vzP-2Prx;
-	Thu, 02 Jul 2026 08:57:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDEj-00000003vyH-0HD8;
-	Thu, 02 Jul 2026 08:57:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4FF42288E;
-	Thu,  2 Jul 2026 01:57:25 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6EFFB3F905;
-	Thu,  2 Jul 2026 01:57:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782982649; bh=MSbq6+W3UnipbgRe5OqNXC2h5o+vLMVg75Y2ERCCqF4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vxlIj29X8SyZB1IgbyT7B2lCW/p+J0QTyfWT5aKusya9JNXJDD72C2MXt0nB1jJBq
-	 L6w4cZPCwWj8mcv6ihhP+P0n5CwUEWYj6xE0SdD0s6CHqhEAm7j1wIRANnMYUKvYbY
-	 gChO0ak5hCTtvm8wzYEpFjegAHoefiu3EimrD+Us=
-Message-ID: <17e411b5-f025-4c72-90a7-5bdd5971654c@arm.com>
-Date: Thu, 2 Jul 2026 10:57:23 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/8] clk: sunxi-ng: Add support for Allwinner A733 CCU
- and PRCM
-To: Enzo Adriano <enzo.adriano.code@gmail.com>,
- Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Jerome Brunet <jbrunet@baylibre.com>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20260310-a733-clk-v1-0-36b4e9b24457@pigmoral.tech>
- <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
-Content-Language: en-US
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260701160055.320000-a733-ccu-status-enzo.adriano.code@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_015733_149153_B8D71B74 
-X-CRM114-Status: GOOD (  18.84  )
+	id 1wfDGa-00000003wKl-24it;
+	Thu, 02 Jul 2026 08:59:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfDGZ-00000003wKQ-1G46
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 08:59:27 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id A33B46001D;
+	Thu,  2 Jul 2026 08:59:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57D5E1F000E9;
+	Thu,  2 Jul 2026 08:59:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782982766;
+	bh=l2velwsnohbwy8q48d6Bt5Uv2TXPTqq28bnIf7woLN4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YExUfOcaKfYTXXu7qIUP3JOAwAlriclxvx0JyfiXQ3Lue2ctRmQYDhnh4NAuMYnmA
+	 duR5tazcXZgMxbUXYjPX/Apr1FGGm1re+urMGaL/nNYgFhmBWR19eNdkJ320k9TbJP
+	 +PSZ4i3RVA83dKhiOlMkNC1ahazJ2ufI5NZwAnliDYMFNYkN1lWeKd+UvYCFURW7hC
+	 2zTuHGfokdfFAXgIFAvM4Yd9TkMbDHce55uBTuELbMhdCu+Uw/Q+nWtmaN4x/Oj6N3
+	 y1FdqJSTU/UCZHLFl3PNVTxKXACbgYhrbd7EyhXv8/4qYdHync++WzEirdpbv1iE58
+	 29ksXmHHHbO0w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wfDGV-00000000e9O-498O;
+	Thu, 02 Jul 2026 08:59:24 +0000
+Date: Thu, 02 Jul 2026 09:59:23 +0100
+Message-ID: <86qzllpy1g.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Bradley Morgan <include@grrlz.net>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Quentin Perret <qperret@google.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Leonardo Bras <leo.bras@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] KVM: arm64: Record whether pKVM stage 2 mapping is cacheable
+In-Reply-To: <20260701192428.17430-1-include@grrlz.net>
+References: <20260701192428.17430-1-include@grrlz.net>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: include@grrlz.net, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, vdonnefort@google.com, leo.bras@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +92,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Enzo,
++ Vincent, Leo
 
-On 7/1/26 18:07, Enzo Adriano wrote:
-> Hi Junhui,
+On Wed, 01 Jul 2026 20:24:28 +0100,
+Bradley Morgan <include@grrlz.net> wrote:
 > 
-> Thanks for the A733 CCU/PRCM RFC v1. I've been reading through the
-> series and the review feedback, including the NSI clock/reset handling,
-> the binding naming and ordering comments, the SDM macro cleanup, and the
-> question around modeled but otherwise-unused clocks such as the GIC clock.
-
-that's great, but please tell the list, by replying to the respective 
-patches. There are still a few patches left that haven't been checked 
-against the manual or otherwise reviewed. I will probably do this at 
-some point in time, but we could use any help here.
-You don't need to be an expert for this: just comparing the numbers in 
-the struct (register offsets and bit positions) against the manual is 
-already very helpful, and can be done by most people, just with some 
-endurance ;-)
-
-Thanks,
-Andre
-
-> I do not see a v2 on the list yet, so I wanted to check in: are you still
-> planning to take this series forward? No rush at all, and I am happy to
-> leave it entirely with you if so.
+> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+> uses that list directly, so it lost the PTE attribute check done by the
+> generic stage 2 walker.
 > 
-> If you have moved on to other things, I would be glad to help carry the
-> series forward and address the review comments, keeping your authorship
-> and prior work intact. I have A733 hardware here and can help test the
-> changes.
+> Record whether a mapping is cacheable and skip cache maintenance for
+> mappings that are not cacheable.
 > 
-> Either way, please let me know what works best for you.
-> 
-> Thanks,
-> Enzo
+> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> ---
+> Changes since V3:
+> - addressed some review :)
 
+This isn't a change log. If you want to be taken seriously, I'd
+suggest you start by following the process. You are otherwise wasting
+people's time. Again.
+
+You also failed to Cc people who have provided feedback on previous
+versions. That's not right.
+
+> 
+>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
+>  1 file changed, 41 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 053e4f733e4b..6d1cad890c7e 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
+>  	return m->gfn * PAGE_SIZE;
+>  }
+>  
+> +#define PKVM_MAPPING_NR_PAGES_MASK     GENMASK_ULL(47, 0)
+> +#define PKVM_MAPPING_NC                        BIT_ULL(48)
+> +
+> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
+> +{
+> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> +}
+
+No. You've been pointed to the correct data structure (an anonymous
+structure containing bit fields). Please consider taking the review
+comments into account.
+
+This would avoid most of the churn in this patch, and make it easy to
+backport. Something like the untested hack below.
+
+	M.
+
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 74fedd9c5ff02..cdddc9e3a11f5 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -195,7 +195,10 @@ struct pkvm_mapping {
+ 	struct rb_node node;
+ 	u64 gfn;
+ 	u64 pfn;
+-	u64 nr_pages;
++	struct {
++		unsigned long nr_pages:48;
++		unsigned int  nc:1;
++	};
+ 	u64 __subtree_last;	/* Internal member for interval tree */
+ };
+ 
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 428723b1b0f5c..5932b93bded58 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -369,7 +369,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
+ 
+ 	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+-					mapping->nr_pages);
++					(u64)mapping->nr_pages);
+ 		if (WARN_ON(ret))
+ 			return ret;
+ 		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+@@ -473,6 +473,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	mapping->gfn = gfn;
+ 	mapping->pfn = pfn;
+ 	mapping->nr_pages = size / PAGE_SIZE;
++	mapping->nc = !!(prot & (KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC));
+ 	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+ 
+ 	return ret;
+@@ -503,7 +504,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	lockdep_assert_held(&kvm->mmu_lock);
+ 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+ 		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+-					mapping->nr_pages);
++					(u64)mapping->nr_pages);
+ 		if (WARN_ON(ret))
+ 			break;
+ 	}
+@@ -517,10 +518,11 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ 	struct pkvm_mapping *mapping;
+ 
+ 	lockdep_assert_held(&kvm->mmu_lock);
+-	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+-		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+-					  PAGE_SIZE * mapping->nr_pages);
+-
++	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
++		if (!mapping->nc)
++			__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
++						  PAGE_SIZE * mapping->nr_pages);
++	}
+ 	return 0;
+ }
+ 
+@@ -537,7 +539,7 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
+ 	lockdep_assert_held(&kvm->mmu_lock);
+ 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+ 		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+-					   mapping->nr_pages, mkold);
++					   (u64)mapping->nr_pages, mkold);
+ 
+ 	return young;
+ }
+
+-- 
+Without deviation from the norm, progress is not possible.
 
