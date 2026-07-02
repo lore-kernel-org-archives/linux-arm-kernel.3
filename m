@@ -4,80 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C484AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:59:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 529CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 08:59:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l2velwsnohbwy8q48d6Bt5Uv2TXPTqq28bnIf7woLN4=; b=uCDbL2/tY/i4H5bAglr2+Glwdq
-	/2cd7U2z1UIzdcp8N2anrBsxZuR9/CdRGjUfs3CnKK35Mu/8oojRYp/ZPQNwJSVRdHwRIrW+zcryI
-	oYTCd6TNS/ET4UoCagJWxjM8v2Y5AS5hgw7FXBHcYZ4SIK0HBry/ZHrejCGpFO7LrYlguHRCuMJv+
-	w6DjeQgT073H5eqTf2H0+QRy2j5NSyH9CQgToia6o5djYwXVwdocekS85MoiQqECDgkP506x3dgm9
-	cMkkbX4hnA+rc6vRLTfl7f1z4nHviCqs+HeukEE2pTjDxhE8vhvh2/SUfnqIF8ZPwQyTEADr4sSeV
-	7BNyGIFQ==;
+	bh=usqHyr4FCppk89cjD1Lh8z87EZeT9dV/v0SgCLCx+zE=; b=mdh2/+C4QmgDn1p7R5apcCGj0/
+	0j2tcGOp7MNT1OhDoxhvyY9RwaOBj9RuCDwnhw5BNVDGO/SsRuuw0khaB6V585qsZOjzyamt5+rq5
+	6l4wpXv2ZusmpA5swQGKCx68a5yZUlqMP9TVTby7HLL4f9p7FbXEwWyfVBrtaf4IKnPJG419U3OPr
+	Q+MrVCBCxIKi+ehoQJHUm2s06aNLrRSu0Ef/BrBDQr982bqfBkI7p/8dSM2Zwp1Ui+VVYpe2bq8IN
+	giDoCocgF76artCHluMrN4oGjIgeTHEheUSYzTtJqZH+dRtRPgbT+7rd38rdZbrGTfV8hOTS11PTV
+	tBGJVfEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDGa-00000003wKl-24it;
-	Thu, 02 Jul 2026 08:59:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfDGe-00000003wMY-37O8;
+	Thu, 02 Jul 2026 08:59:32 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDGZ-00000003wKQ-1G46
-	for linux-arm-kernel@lists.infradead.org;
+	id 1wfDGZ-00000003wKP-2Zxu;
 	Thu, 02 Jul 2026 08:59:27 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A33B46001D;
-	Thu,  2 Jul 2026 08:59:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57D5E1F000E9;
-	Thu,  2 Jul 2026 08:59:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782982766;
-	bh=l2velwsnohbwy8q48d6Bt5Uv2TXPTqq28bnIf7woLN4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=YExUfOcaKfYTXXu7qIUP3JOAwAlriclxvx0JyfiXQ3Lue2ctRmQYDhnh4NAuMYnmA
-	 duR5tazcXZgMxbUXYjPX/Apr1FGGm1re+urMGaL/nNYgFhmBWR19eNdkJ320k9TbJP
-	 +PSZ4i3RVA83dKhiOlMkNC1ahazJ2ufI5NZwAnliDYMFNYkN1lWeKd+UvYCFURW7hC
-	 2zTuHGfokdfFAXgIFAvM4Yd9TkMbDHce55uBTuELbMhdCu+Uw/Q+nWtmaN4x/Oj6N3
-	 y1FdqJSTU/UCZHLFl3PNVTxKXACbgYhrbd7EyhXv8/4qYdHync++WzEirdpbv1iE58
-	 29ksXmHHHbO0w==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wfDGV-00000000e9O-498O;
-	Thu, 02 Jul 2026 08:59:24 +0000
-Date: Thu, 02 Jul 2026 09:59:23 +0100
-Message-ID: <86qzllpy1g.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Bradley Morgan <include@grrlz.net>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=usqHyr4FCppk89cjD1Lh8z87EZeT9dV/v0SgCLCx+zE=; b=g7X4++BeQ2q3zvMDe0NyPsUx45
+	3RF7kSMPpRJbYt9i13rM6nx2YrMi6bglLo9KaWHX2kW0o8LMDoTT//Ifa+E2G6xEy8JVh7LI3VLhV
+	pfLPjaeloaGkxDf/EyrDWK2d7ZPwETD3mnRd+Zm8U6Wo+zHIzbHkfvtnSaV65UQjpEgZlRWPz74t1
+	uZ+2Qyh1y+o5EGlK7R8iiQorjBWQbQ11s5JP91ZxzfTGtLpP9bGB4U2aA3Jjn9RfPRYqPUK6KqVbt
+	qrDiRFk4oGgCIyvEEwrlJoQ1fPKiasr1jqeVQKiw9AwCA6vyTYqUeBHmOLeCCitZYCa+2W1O3HTS0
+	CCZNiKSQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfDGU-00000008EIf-3h8q;
+	Thu, 02 Jul 2026 08:59:23 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id EF899300402; Thu, 02 Jul 2026 10:59:21 +0200 (CEST)
+Date: Thu, 2 Jul 2026 10:59:21 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: K Prateek Nayak <kprateek.nayak@amd.com>, Arnd Bergmann <arnd@arndb.de>,
+	Thomas Gleixner <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Quentin Perret <qperret@google.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Leonardo Bras <leo.bras@arm.com>,
+	Will Deacon <will@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Charlie Jenkins <thecharlesjenkins@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4] KVM: arm64: Record whether pKVM stage 2 mapping is cacheable
-In-Reply-To: <20260701192428.17430-1-include@grrlz.net>
-References: <20260701192428.17430-1-include@grrlz.net>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: include@grrlz.net, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, vdonnefort@google.com, leo.bras@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>, Thomas Huth <thuth@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>
+Subject: Re: [PATCH] futex: Optimise the size check get_futex_key()
+Message-ID: <20260702085921.GD49951@noisy.programming.kicks-ass.net>
+References: <20260630045531.3939-1-kprateek.nayak@amd.com>
+ <20260630045531.3939-9-kprateek.nayak@amd.com>
+ <20260701075714.GP48970@noisy.programming.kicks-ass.net>
+ <20260701084150.GNOeboLw@linutronix.de>
+ <38239f40-1673-469f-baa3-4a343d2aa4c3@amd.com>
+ <20260701161736.xYYizA0e@linutronix.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260701161736.xYYizA0e@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,132 +95,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-+ Vincent, Leo
+On Wed, Jul 01, 2026 at 06:17:36PM +0200, Sebastian Andrzej Siewior wrote:
+> The futex address must be naturally aligned and this is checked via
+> "address % size" where `address' is the supplied address and `size' is
+> the expected size of futex. It is guaranteed that `size' is power of two
+> but the compiler does not see it and creates here a `div' operation
+> (x86, arm, gcc-15).
 
-On Wed, 01 Jul 2026 20:24:28 +0100,
-Bradley Morgan <include@grrlz.net> wrote:
+That's pretty stupid, since size = futex_size() := 1 << (blah); so it
+has every opportunity to actually see this. Also, see below, clang does!
+
+> We can take advantage of the pow2 property and rewrite it as
+> "address & (size-1)".
 > 
-> pKVM keeps its own mapping list for stage 2 operations. Its flush path
-> uses that list directly, so it lost the PTE attribute check done by the
-> generic stage 2 walker.
+> As per testing, the command
+> |perf bench futex hash -f 1 -b 16384 -t 1 -r 30
 > 
-> Record whether a mapping is cacheable and skip cache maintenance for
-> mappings that are not cacheable.
+> improved from
+> | [thread  0] futex: 0x5619f931f740 [ 7001583 ops/sec ]
+> to
+> | [thread  0] futex: 0x55da173e5740 [ 7376137 ops/sec ]
 > 
-> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
-> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> or by 5.3%
+> 
+> Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 > ---
-> Changes since V3:
-> - addressed some review :)
-
-This isn't a change log. If you want to be taken seriously, I'd
-suggest you start by following the process. You are otherwise wasting
-people's time. Again.
-
-You also failed to Cc people who have provided feedback on previous
-versions. That's not right.
-
 > 
->  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
->  1 file changed, 41 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-> index 053e4f733e4b..6d1cad890c7e 100644
-> --- a/arch/arm64/kvm/pkvm.c
-> +++ b/arch/arm64/kvm/pkvm.c
-> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
->  	return m->gfn * PAGE_SIZE;
->  }
->  
-> +#define PKVM_MAPPING_NR_PAGES_MASK     GENMASK_ULL(47, 0)
-> +#define PKVM_MAPPING_NC                        BIT_ULL(48)
-> +
-> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
-> +{
-> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
-> +}
+> Could someone verify this, please? The 5% look a bit high. This is on
+> top of the series (but not worsen by the series).
 
-No. You've been pointed to the correct data structure (an anonymous
-structure containing bit fields). Please consider taking the review
-comments into account.
+Bah, I tried to reproduce and couldn't. Then I noticed I did a clang
+build and that is in fact clever enough to do this optimization itself.
 
-This would avoid most of the churn in this patch, and make it easy to
-backport. Something like the untested hack below.
+/me tries again with a GCC build.
 
-	M.
+pre:  [thread  0] futex: 0x561f14430680 [ 9021408 ops/sec ]
+post: [thread  0] futex: 0x55feadbbb680 [ 8977527 ops/sec ]
 
-diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
-index 74fedd9c5ff02..cdddc9e3a11f5 100644
---- a/arch/arm64/include/asm/kvm_pkvm.h
-+++ b/arch/arm64/include/asm/kvm_pkvm.h
-@@ -195,7 +195,10 @@ struct pkvm_mapping {
- 	struct rb_node node;
- 	u64 gfn;
- 	u64 pfn;
--	u64 nr_pages;
-+	struct {
-+		unsigned long nr_pages:48;
-+		unsigned int  nc:1;
-+	};
- 	u64 __subtree_last;	/* Internal member for interval tree */
- };
- 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 428723b1b0f5c..5932b93bded58 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -369,7 +369,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
- 
- 	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
- 		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
--					mapping->nr_pages);
-+					(u64)mapping->nr_pages);
- 		if (WARN_ON(ret))
- 			return ret;
- 		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
-@@ -473,6 +473,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
- 	mapping->gfn = gfn;
- 	mapping->pfn = pfn;
- 	mapping->nr_pages = size / PAGE_SIZE;
-+	mapping->nc = !!(prot & (KVM_PGTABLE_PROT_DEVICE | KVM_PGTABLE_PROT_NORMAL_NC));
- 	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
- 
- 	return ret;
-@@ -503,7 +504,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	lockdep_assert_held(&kvm->mmu_lock);
- 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
- 		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
--					mapping->nr_pages);
-+					(u64)mapping->nr_pages);
- 		if (WARN_ON(ret))
- 			break;
- 	}
-@@ -517,10 +518,11 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
- 	struct pkvm_mapping *mapping;
- 
- 	lockdep_assert_held(&kvm->mmu_lock);
--	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
--		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
--					  PAGE_SIZE * mapping->nr_pages);
--
-+	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
-+		if (!mapping->nc)
-+			__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
-+						  PAGE_SIZE * mapping->nr_pages);
-+	}
- 	return 0;
- }
- 
-@@ -537,7 +539,7 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
- 	lockdep_assert_held(&kvm->mmu_lock);
- 	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
- 		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
--					   mapping->nr_pages, mkold);
-+					   (u64)mapping->nr_pages, mkold);
- 
- 	return young;
- }
+(and this seems to be well inside the error threshold of this test).
 
--- 
-Without deviation from the norm, progress is not possible.
+So I see the GCC build do the DIV, and no longer with his patch applied,
+but for some reason I cannot get the runtime performance to actually
+improve much of anything on my system.
+
 
