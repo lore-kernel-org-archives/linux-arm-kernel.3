@@ -4,171 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB21C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8467AC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xapI=; b=Lv+BJn/jIYhKZMe6TIwzOTXT0+
-	6J111c78EQArdN10FLYe3/HUXh/JGdPbcNkHH1iSh8Zf7++6YzYOOr1jxydmnNugixFepvZMMOUbk
-	8tgEpbMOe421hDcBzgDTnz7NM1CV97XhKQVqHagxiXjcfPzgH76eIdw7I1Mx94j3lbcgXL6xLvCEm
-	2CnQXB8CYQitvxzAUnjoA/LL/endT4AfY5Fh3fl7o2Ap4Quvn/+m1KkqI7NeppoLtdiWwLEkMVRdl
-	Z55Tp4Oj+WPXdueiSuduIIU1SlJz8OdOnMsejHjemg/5QsUvBs0XxBjAl2DgjgwjfLT42Tyi8PGoR
-	fL0qBXkQ==;
+	bh=E7tAThkTU62sF2pLGd0LQMWFOOCDs+XQSemtf4LuUt4=; b=zsfpKVLJRmS2SB08aCDZ2UPI7Z
+	1gGIGLkh3ZpUeMNSAwMF6NAQrB25+OFbWeH05S4ZUJo/pKAekH5yALiNE2E/wU3TpMapxln1i+OO5
+	0JsGkwz70Yo2+4OdYQiTmSzjUwAULHeEaEHzluEwpef34gTvpJYiSHpexkdCv8fQb7gLNblU40kvC
+	lcaoWbFpBzeLx/T0+dnk77sfnktujC3BYSjyzQmE742bO4zdBNcbOziZWPWGNKzXZJ2X0gvR5NQCk
+	XG2WXlYWQz7EvmXGGJAfU3nwH0wDP0UMD3Q3l11ZI/7i+emw5up4KrSea7ljpbdq8PNY62nZnQc0h
+	Jkm73agw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfBxt-00000003kdL-1qkT;
-	Thu, 02 Jul 2026 07:36:05 +0000
-Received: from mx0b-0002e601.pphosted.com ([148.163.154.28])
+	id 1wfC0N-00000003kox-2sOy;
+	Thu, 02 Jul 2026 07:38:39 +0000
+Received: from mail-oo1-xc32.google.com ([2607:f8b0:4864:20::c32])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfBxq-00000003kcH-0Pzn;
-	Thu, 02 Jul 2026 07:36:03 +0000
-Received: from pps.filterd (m0374955.ppops.net [127.0.0.1])
-	by mx0b-0002e601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6623D8h71285453;
-	Thu, 2 Jul 2026 02:35:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	proofpoint-05-2026; bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xa
-	pI=; b=D700PdZKIz457V5Thh8jFcje/Njpg6M1hNROEIW0BmmW2qzKhsvmu31uu
-	+LkFZNB2szr0bTjx8Gl6zdH6Zj7tZwptVn03MkxHp6T/HrF/4wwpEgUT6xRKsooj
-	QOy9M31w1uvSELWLHqOOfkjcwk9RXd6JBIY4Ylm2GvV6g4qAJSQDIq+wWPvzhmJ8
-	lgDLiu3HF5HNzFP0kb+37n1Oit0fSXk/nUoft655RiTYxngKYwppYhMa9euGq0ck
-	+Y7NnZIOMXmmOFHkIV+aPETDKvuuA//tAmblCUXxpqnPLQjc+bRHO26b3N45WNH2
-	hy0Da5YLGg5w9mCay9mdwAwdwCI0g==
-Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011033.outbound.protection.outlook.com [52.101.62.33])
-	by mx0b-0002e601.pphosted.com (PPS) with ESMTPS id 4f5fvyh7f0-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 02 Jul 2026 02:35:49 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aO5UvjdLq6DLs4jyFF8hIiQGu/7QzSM5Q/E1E4TUm0s5mTYNVmD7ffuSUUs1oozPg8R8x2vdD0UEq1lRpnr4IoHNsdShE+O12R0usBdThcfCBIOiPre7/cE9HRM/Pswjyovv2sVVtiWMmixmEoFyHop1fclCOqGS9HodYOmY8zviBu1CE6o4CKCoZMxaF9q+ZbAAz5ES2A9ta0DeRmHMaX8rkZd7alxXOboYahDS6PrQ4REsgqxwe7LPcRVNxGSOS7djtWCYMl0fBctuVhBjgtrt+i15hILCJwCJqzbvmI/8C6hOKnwG6I73LvjichtgWMTVTfuZisyRBBv8o/f+QQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xapI=;
- b=ShjpESxtmikdChXY7ZB4a4LRsUVLyleCegoupp4uw/uN0EoEej2BidRKIXc2lwcKz6LqJgZjxvWh7c7Ze5irgKRQ9pdQOUd/R5+va3k6at6uvKCvNX5On4/Qpq5OQ5WAXXwJb5yWAMBgMXjbzDnR9w7Gbjxbu7a6sSlAUZScj374YeXOPxZqTMmKTL0PYrI8wq9EYLlHcJZl/GIgdE5M7K0tbHUiAAGjRWyF7QQF2mX26EUiseSMzIh5xtqTGi9emBw3h644YK2Pko4mTDdWJpWZiRupzkDwWcWTK2LPpEcYY7F2V4rZZQ5/0RjjVYVtcXS5LX8YzsdjrzF/XXjkoA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=cadence.com smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B/16Nrq2j3v0Luk3AI9685O9jsDTRih6ilCrnv5xapI=;
- b=Rr+8jMRFSCaV4hQ8vt+mZVDiHPQQn2jnqrxAkWYeVe4A9IllAKmTwBomOT/5AaY2APAiIZKkRk2XATwP61tiK6zrx/8RGhRaIO2ojfg+w7vOLyhApH+SneIy6h98DTg3uczrNZZvQXzwj2Zhl/PsYxe4nWQUGHb9dSW/ODWKeR8=
-Received: from DSZP220CA0006.NAMP220.PROD.OUTLOOK.COM (2603:10b6:5:280::14) by
- DM4PR10MB6231.namprd10.prod.outlook.com (2603:10b6:8:8e::21) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.8; Thu, 2 Jul 2026 07:35:41 +0000
-Received: from DS2PEPF000061C6.namprd02.prod.outlook.com
- (2603:10b6:5:280:cafe::7e) by DSZP220CA0006.outlook.office365.com
- (2603:10b6:5:280::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.10 via Frontend Transport; Thu, 2
- Jul 2026 07:35:41 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- DS2PEPF000061C6.mail.protection.outlook.com (10.167.23.73) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 07:35:39 +0000
-Received: from DFLE206.ent.ti.com (10.64.6.64) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 2 Jul
- 2026 02:35:39 -0500
-Received: from DFLE203.ent.ti.com (10.64.6.61) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37; Thu, 2 Jul
- 2026 02:35:39 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.37 via Frontend
- Transport; Thu, 2 Jul 2026 02:35:39 -0500
-Received: from [10.24.50.145] (a0507176-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.50.145])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6627ZYCp3385141;
-	Thu, 2 Jul 2026 02:35:34 -0500
-Message-ID: <f40839d9-445e-4e48-ada9-97feb8e40584@ti.com>
-Date: Thu, 2 Jul 2026 13:05:33 +0530
+	id 1wfC0L-00000003ko1-0osD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 07:38:38 +0000
+Received: by mail-oo1-xc32.google.com with SMTP id 006d021491bc7-6a0e55e82d0so917109eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 00:38:36 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782977915; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qVrMtmCMkHJrZuN9NV+m2xgbZ4+3qX72hrUNWaxXZ2dACB1+9KpuW1dwJDy3YFC/fs
+         v+heTh99MJuccN5fFHEZxUF43x+FzJCMz8X5hMG77U4aGF0AxwOx23UwyKCEwKgLamJm
+         HF4c2a06hhPOQMoMefAmva0nH/7FY2k5Q6xZr9F2+A2v0ywGFVdu9r14Z7QjKvVXLivY
+         ORflLol1Cd9kNp2lr+XcgvvsvDywlMvKoQsZ2NtyMzvLiKy1oV1nATNVLCJNTAeO7NQZ
+         TXxwaMXMRi7fqTHttg1ImPiaoRaeUZQegvYgLieV3qGajhMBoTScB3q50uJHHq0CiJyL
+         8XTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=E7tAThkTU62sF2pLGd0LQMWFOOCDs+XQSemtf4LuUt4=;
+        fh=Qofx87KGY6J+I+5IuTHUFMpaUD9Of5Yl8Sc2Q2GImAw=;
+        b=ns29j6nU5EsO5oh27AE+hNfbMquIyHGh39Wxq+eSbFFvxiKklun+JHAgpCOT4DALkc
+         lLZMGLJ1wQNRr9rRyvCPyuCQar956DakKTc52Xy8y/1ySaFbfr4YLonRxJ8XIvvy+L7w
+         qS5x/FUNqEmbVN32hhFEJd29steC1Cx7GA1ntUqUCRjksLJPbBrTyKqx+21KeUU5wd7B
+         WoFehZXyS6NLrKcLtgsJNVUjpOi7Uqfx0L35tSztHDFM+WVy9oWwPvK52H+jv3+q5Dg9
+         xAzQJBt7fL/0ayNeSRukC1F5di7YbQQjejQbF6kP2vZI/owSMvjQK3JDFV4sqvWoA2L7
+         I7FQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1782977915; x=1783582715; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=E7tAThkTU62sF2pLGd0LQMWFOOCDs+XQSemtf4LuUt4=;
+        b=VwxFf8bz1k8oQjCPfMgyK2xo0qsaHT9vj/Sj6+4zEC9KaWSORIw5tnRtO0rNgAFqCN
+         sWJmhrioL+V8dCNuiA2hwPmrZQTJM8afoviRfkMTZV/3RXh/898puKX9MYNzwQq6RwhW
+         T+bOho8F7d7gIOIAdyH8Qi/NH5V3oIER5IisjmHGqLo69JvbK1CF/KDxMSB5e8K+jehm
+         S2roVE7gTRDMb+d7qOxvdKZj6yGQIOG+/HMtYKygTh/iiGtlN+sMzPBl9BOwgYjFVIK/
+         n/zHeqjwjioBY4Yn2zpmcX/PDqXUjYUWBkHZQzrcdMjL+G/+80jfm1OOOQRj50SqvEOy
+         y7fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1782977915; x=1783582715;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=E7tAThkTU62sF2pLGd0LQMWFOOCDs+XQSemtf4LuUt4=;
+        b=ApbP3IoBhq7XDB5H5Z8qJSX+BuWG5oxNFY9iiz58vDZD5gHBewXXRH+uoIU+hkcacQ
+         f86fRMg4ENlkkNRG2pkhsKGSTvCkCl/8ZXlF8/hEwNyQ1z4fvAbqlUhrANEI2+v53sO3
+         bYRC5n7Co11UdaFVBEuSCnEqKKX+M2KGmx0iScca+KYvdBmPJUnuxrk+f7BwbBh9yrXq
+         OVHumWDSX/mhsPbiHWmwA6Fn/SBOAy2Ps6Tyh4AivDK/uql0DfdhJ0my+6ISR/HI1um6
+         zz+U9XHq3/I5Kir3vFyWMDe3yoqW00+UZ2N1E08nGa8EH/+JC2Aw8m3f9gZkvS084ooY
+         Pwmw==
+X-Forwarded-Encrypted: i=1; AFNElJ+IF5oAf+0seVL6z/Ky5Tvf8koHZd2VbeEWXsO0CCW0R4eiGgQ36BENP4ov9L68zzknwHblcsqzTt/FhVLkirBk@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYD0sINwe527/+uy8qhXsqL2DvlqYkrz9DyGM+v2kwMiMF8Hw4
+	qVy74tS/N0MHYlXfQwLHoBgP0fQkwd77cZMnRc0QC9l6AkhudfnD8bT3MoIcim0MXr6W+xLsyKo
+	vaigf5I9VYiSEQVELuVQabGOAO6Cdc9Q=
+X-Gm-Gg: AfdE7ck5Gmejxtn9bcfGq8jpMfdLBbgGN4/n4EK14IYAPGrLaTdQBZ44E1q37TUU4g0
+	jXzf1yFtlFk0i38ZrSr6O+N1jurgbrwfZa48lcBwNDoEHBsXHOWDjWh3jmx+WGI95SYWRcfTu38
+	nSGmK3BabH0+JpHYKZIsqmja92I7IPPdSuvelfznxBszhxO1nHmNKvoO1omBDEl9E1TEjpQpjfK
+	QOn9RUaus7D8r68YKTNUhs/Yyp3QMpsGwPCpJj4Sl4WwUce17fYabUxjSnri6q10yDGPaGHcnvH
+	jJ++eMVu1/lhp+OKlkyJuAeWrZ0T6nEfB9VfNisBRoixhG4mjzgoGw2y
+X-Received: by 2002:a05:6820:4b09:b0:6a1:5756:10d3 with SMTP id
+ 006d021491bc7-6a30d79e230mr2586326eaf.22.1782977915404; Thu, 02 Jul 2026
+ 00:38:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 net-next 1/2] dt-bindings: phy: cadence-torrent: Update
- property values to support 3 clocks
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <conor+dt@kernel.org>, <devicetree@vger.kernel.org>, <krzk+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-phy@lists.infradead.org>, <neil.armstrong@linaro.org>,
-        <nm@ti.com>, <robh@kernel.org>, <sjakhade@cadence.com>,
-        <kristo@kernel.org>, <vigneshr@ti.com>, <vkoul@kernel.org>,
-        <yamonkar@cadence.com>, Gokul Praveen
-	<g-praveen@ti.com>
-References: <20260701142457.81874-1-g-praveen@ti.com>
- <20260701142457.81874-2-g-praveen@ti.com>
- <20260702-vigilant-tody-of-inquire-ffbede@quoll>
-Content-Language: en-US
-From: Gokul Praveen <g-praveen@ti.com>
-In-Reply-To: <20260702-vigilant-tody-of-inquire-ffbede@quoll>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS2PEPF000061C6:EE_|DM4PR10MB6231:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0b05625-500c-4e34-f38d-08ded80c83f7
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|376014|23010399003|82310400026|7416014|1800799024|4143699003|56012099006|6133799003|3023799007|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 2SXoqBKi0XiZg/doC7mVMEdyOBqtvWY6nXjlUZhU2om63X5Eovc2pOscjhfdwGD3XqXcN0SOyK0mc+oHXFyOPL/gqJEMpic0yKMt3FPtoZf3xrWA5mL+gbinnDmGUCSyrKLrQrOBF4N8z9EwSwvbbDa8SDy13m3GsJxp/AgpxC9xSx2QlnmwVsX5zOPENmWt3xnX31utSps1dgyhRqh1XFjgzfKh+8yzl/iUh/b1MDZARl5wTbjkAh37iJSFNySKitStvpH4+W19WYXNWaqIwq8YZW5a78hRZirwbnERqmuUhdMP20v4zhUGAOScPU2A3YVrr5GOMua5KwN9LBH59Z4KL8yQi9r6cNykCefQ9yoX2CFoVqKnMy8ZBiNsGTKvBnFPgklnOig6BqVMevPHOPp8kOeVe9haQ+fAZqOMAXcrQD+ZsGE3+Z++WgrMSeFOKe5gsRzYcMFU7AU2xQE35/E2EpLVTdIRwi4L960H/Gnrdy+DGC3khWzVBue19o185LRlE/hVhkye6mHx8i+BmcyxJldI4ia0NgPgn4tPIxsQONX5SrZCX4miCNcSFKbbC9jIt0IfdjKfcKqjR7FbDeLwBki46XBQhjhEBd5Ye9NCxlwzJLqPKkkbdztEnvmJXClfPW0m7vJ0ufhDWoV7+G5kfcXKvWquFO967meKXR4L/MOb4HNkcNQ4Cem5UW3gV+i6GKu6rrhpnixoaYPHOA==
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(376014)(23010399003)(82310400026)(7416014)(1800799024)(4143699003)(56012099006)(6133799003)(3023799007)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: En+DtNA3/tlivybXJPaowVQdt7hQ0fwNA8BtTB9vx60g2qEk1x8Jm6NFa1GCp1DJGVADeCI+f2GZUranrb2Hs3JTPKgIWheA8/qah3c2mflQkthzrjVA1Y5aV+SDjX3HqqgAlciCee5qnAL1RZmfMIvM9uKu3ymQH1gfEbNCKg3sfwP4whLrVYtnvXdRT/XlPTYbZ7UGGBzmCNTQPEAM+t6faQXcNJcGwsxLbaUm33BjSR989bidg5wl5K4Dz9HFbCZNE0SLPgozl7fbCW6UWG+XgQ31qwABQAIvJx/SRMtJWExq4uLjqoBQHUDzTO5RuZbjJQXt+GoowzDHKcLo3suLgCP46WrutOVJtIXlU4IrdcQOupjDgiQAo0mdNCQMfgMygC7OuIcp5wfClX07bGaSuPgqfQTC6Q2AoWLoCyujvbbCpo4yd/w1af9mDhxn
-X-Exchange-RoutingPolicyChecked: hZOu0qx08HeZbUBpT3kaNS4JltDQYfyMwFM3dgICNbKC4j0ZXSOn4MX9RF7pdk/z0NRn+VwGU80i3mE9IViIJ8Zgt1TzotsGf9oq0B4YFdxibRb1lDVI8wTE5MKSfn9mmrK5+LXYbIxUXGcUm7eHRqNSG+I/uBtyIMPggtWIgeQhvnFjQ5kX/U85F5t5QvyMAGOjlCFcWOgt/B43hlFeez1ceD/3an31n67qHlR5/j2MPxynW6IDMp4jB/7TvOZ798iElxGippbeqlkcLk29eVxrdkx45YVmm03TA3oHEOU5Ffxq4BdV/4kMpxaSM8UbPgkP0d57zAKSDDpMfyPn1Q==
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 07:35:39.7534
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0b05625-500c-4e34-f38d-08ded80c83f7
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF000061C6.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR10MB6231
-X-Proofpoint-ORIG-GUID: F7BCffdAdQAikAqgKYr5uV7wITr39Ktv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAyMDA3NyBTYWx0ZWRfX/ceV7oBJqSJR
- G8U94KUOX4kOP8gGVIdPZwntW3Ca0EevkVTTqpqnI5iJ6neHoSnopI7bStgNqZqcpt+LHAmfwPu
- KygWpoE6Bi5Zy/+HZnUdrBaZ9LmxNU8MM7Cf5XJefZ8lyGkIE55bzEF5AHOKGngyU31NE7klgW5
- bbtJigL8sCRta42mohmFP8m4no038/LRWgXTJKDgKEiIhvj4Pj4JuA0a9UTZrpuQGNDkGDYYSPL
- TllZCYGuTOzE1aY1tykwSPT4aAXn/ePggvbNaCV6Oy7QRmPostu0V7qPScwmcXNLOTgjLCcAZ9i
- s83/CJQqHkYUirXqzhaJ16WcDelv86mFUAkYD+sCQPXFtfNGETRtojIz+OMhdLK8TyXxpQlzVrf
- P1jAb0GIiINw0turfjESgzr0fVgYRHVhoavd+SSs/9dOVbvvjA+rXvlgXPmAxcpEcXM9l18cFoE
- /rVN0YQQm140KWsF+OQ==
-X-Proofpoint-GUID: F7BCffdAdQAikAqgKYr5uV7wITr39Ktv
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAyMDA3NyBTYWx0ZWRfXyrF8r40g/nGQ
- Df9aAhSCgdayGwoWrcG/YHZcqjmdb9rQcmzh+gVFg4lDA5pYk2XusQcny0QPYB7V688dJAx3M0k
- vh6yJGrs1uQcmzkA2O71j5njSPfsCPk=
-X-Authority-Analysis: v=2.4 cv=T+q8ifKQ c=1 sm=1 tr=0 ts=6a4614d5 cx=c_pps
- a=4QVYENZnsEoURNel/cbnog==:117 a=tJyPKKxUohctrY4NYmUjkA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10
- a=V5UXEbMT0ywA:10 a=VkNPw1HP01LnGYTKEx00:22 a=Z8NIEmU8O1QQgoT56wFK:22
- a=fPAWb5peG099m5CrUpKH:22 a=sozttTNsAAAA:8 a=CLAEbvughUuGTxuK6hcA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-02_01,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 phishscore=0 adultscore=0 spamscore=0
- priorityscore=1501 bulkscore=0 lowpriorityscore=0 impostorscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607020077
+References: <20260518102451.417971-1-paulk@sys-base.io> <20260518102451.417971-2-paulk@sys-base.io>
+In-Reply-To: <20260518102451.417971-2-paulk@sys-base.io>
+From: arash golgol <arash.golgol@gmail.com>
+Date: Thu, 2 Jul 2026 11:08:23 +0330
+X-Gm-Features: AVVi8CeafjPFa4ObcedUXNC1nyKbr1QgWVPZnCBama60Wv2Vd2sSRdfYRIO95ik
+Message-ID: <CAMxPZkjeCL=kdpj2V-9b-C68kOsrAv1dPKq4iHn2PEpn2pYEuA@mail.gmail.com>
+Subject: Re: [PATCH 01/16] media: sun6i-csi: bridge: Use V4L2 subdev active state
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-staging@lists.linux.dev, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_003602_378494_1D54E56A 
-X-CRM114-Status: GOOD (  27.61  )
+X-CRM114-CacheID: sfid-20260702_003837_315271_A683BEB4 
+X-CRM114-Status: GOOD (  29.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,128 +121,518 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzystof,
+Hi Paul,
 
-On 02/07/26 11:53, Krzysztof Kozlowski wrote:
-> On Wed, Jul 01, 2026 at 07:54:56PM +0530, Gokul Praveen wrote:
->> Update maxItems value of "clocks" property to 3 as description of
->> this parameter already indicates 3 clocks(refclk,pll1_refclk(optional)
->> and phy_en_refclk(optional)).
-> But what if description is wrong? You need to provide rationale why you
-> are doing it and you cannot use existing code alone as that rationale,
-> because as you pointed out - existing code is not fully correct.
-
-The description is correct because not all device may have 2 input  
-reference clocks , hence keeping the requirement of the 2nd reference 
-clock(pll1_refclk) optional.
-
-Just as a note: phy_en_refclk is an output clock.
-
-In those cases the multilink serdes configurations requiring 2 different 
-input reference clocks will not work due to the limitation of having 
-only 1 clock.
-
-However, when it comes to devices where 2 different input reference 
-clocks are supported and a multilink serdes configuration is 
-needed(where the links require separate reference clocks for each 
-protocol so as to cater to the  different clocking speed requirements of 
-these links).
-
-Hence, in this case ,2 different input clocks are needed so as to cater 
-to 2 different clock speeds.
-
-For eg: In the USXGMII+SGMII multilink serdes configuration which I had 
-tested, it failed because
-
-USXGMII requires an input clock speed of 156.25 Mhz and SGMII protocol 
-requires an input clock speed of 100 Mhz.
-
-But, since there was only one input clock(refclk) mentioned in the 
-clocks and clock-name parameter , this multilink serdes configuration 
-failed.
-
-Hence, to make it work, the pll1_refclk had to be added which provided a 
-clock speed of 156.25 Mhz for USXGMI and the refclk provided
-
-a clock speed of 100 Mhz  for SGMII.
-
->> Update the maxItems and items value of "clock-names" property with multiple
->> combination of clock-names possible since pll1_refclk and phy_en_refclk are
->> optional clocks.
-> Why? You need to describe why you are doing this, not what you are
-> doing.
-Sure , Krzysztof, I will be careful about that and prioritize that in 
-the commit message.
->> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
->> ---
->>   .../bindings/phy/phy-cadence-torrent.yaml        | 16 ++++++++++++----
->>   1 file changed, 12 insertions(+), 4 deletions(-)
->>
->> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
->> index 9af39b33646a..96c664d50629 100644
->> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
->> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
->> @@ -34,7 +34,7 @@ properties:
->>   
->>     clocks:
->>       minItems: 1
->> -    maxItems: 2
->> +    maxItems: 3
->>       description:
->>         PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for PLL1).
->>         pll1_refclk is optional and used for multi-protocol configurations requiring
->> @@ -45,9 +45,17 @@ properties:
->>   
->>     clock-names:
->>       minItems: 1
->> -    items:
->> -      - const: refclk
->> -      - enum: [ pll1_refclk, phy_en_refclk ]
->> +    maxItems: 3
-> Drop
-Sure, i will do that Krzysztof.
->> +    oneOf:
->> +      - items:
->> +          - const: refclk
->> +      - items:
->> +          - const: refclk
->> +          - enum: [ pll1_refclk, phy_en_refclk ]
-> Drop these, pointless. You were supposed to grow existing syntax.
+On Mon, May 18, 2026 at 1:55=E2=80=AFPM Paul Kocialkowski <paulk@sys-base.i=
+o> wrote:
 >
->> +      - items:
->> +          - const: refclk
->> +          - const: pll1_refclk
-> So here is the enum.
+> From: Arash Golgol <arash.golgol@gmail.com>
 >
->> +          - const: phy_en_refclk
-> And this stays.
+> Use the V4L2 subdev active state API to store the active format.
+> This simplifies the driver not only by dropping the bridge mbus_format
+> field, but it also allows dropping the bridge lock, replaced with
+> the state lock.
 >
-> You make changes which do not make the binding better and are not
-> explained in commit msg. Focus on WHY you are doing things and also
-> explain WHY you did such complicated syntax (if you insist on rewriting
-> correct code into something odd we do not expect).
-
-So, the reason I added the oneOf property is to support the following 
-combinations because pll1_refclk and phy_en_refclk are optional clocks. 
-With the earlier enum , only either of pll1_refclk or phy_en_refclk
-
-can be used and both cannot be used at the same time.
-
-Combination 1: refclk
-
-Combination 2 : refclk, pll1_refclk
-
-Combination 3: reclk, phy_en_refclk
-
-Combination 4: refclk, pll1_refclk, phy_en_refclk
-
-
-Please feel free to suggest any alternative solution to support these 
-combinations .
-
+> Previously, capture accessed bridge private state directly. After
+> moving to framework-managed state, resolve the format through the
+> subdev pad API.
 >
-> Best regards,
-> Krzysztof
+> The sun6i-csi-bridge hardware does not perform any format conversion.
+> Enforce identical formats on the sink and source pads in the set_fmt()
+> and init_state() callbacks.
 >
+> Signed-off-by: Arash Golgol <arash.golgol@gmail.com>
+> Reviewed-by: Paul Kocialkowski <paulk@sys-base.io>
+> Tested-by: Paul Kocialkowski <paulk@sys-base.io>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+
+I noticed this series didn't make it into the v7.2 merge window.
+Is there anything still pending on my side before it can be picked up,
+or is it just a matter of timing for the next cycle?
+
+Happy to help however I can.
+
+> ---
+>  .../sunxi/sun6i-csi/sun6i_csi_bridge.c        | 155 ++++++++----------
+>  .../sunxi/sun6i-csi/sun6i_csi_bridge.h        |   9 -
+>  .../sunxi/sun6i-csi/sun6i_csi_capture.c       |  27 ++-
+>  3 files changed, 86 insertions(+), 105 deletions(-)
 >
+> diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c b/=
+drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> index d006d9dd0170..43a85bcc2ba2 100644
+> --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.c
+> @@ -13,26 +13,6 @@
+>  #include "sun6i_csi_bridge.h"
+>  #include "sun6i_csi_reg.h"
+>
+> -/* Helpers */
+> -
+> -void sun6i_csi_bridge_dimensions(struct sun6i_csi_device *csi_dev,
+> -                                unsigned int *width, unsigned int *heigh=
+t)
+> -{
+> -       if (width)
+> -               *width =3D csi_dev->bridge.mbus_format.width;
+> -       if (height)
+> -               *height =3D csi_dev->bridge.mbus_format.height;
+> -}
+> -
+> -void sun6i_csi_bridge_format(struct sun6i_csi_device *csi_dev,
+> -                            u32 *mbus_code, u32 *field)
+> -{
+> -       if (mbus_code)
+> -               *mbus_code =3D csi_dev->bridge.mbus_format.code;
+> -       if (field)
+> -               *field =3D csi_dev->bridge.mbus_format.field;
+> -}
+> -
+>  /* Format */
+>
+>  static const struct sun6i_csi_bridge_format sun6i_csi_bridge_formats[] =
+=3D {
+> @@ -226,7 +206,8 @@ static void sun6i_csi_bridge_disable(struct sun6i_csi=
+_device *csi_dev)
+>  }
+>
+>  static void
+> -sun6i_csi_bridge_configure_parallel(struct sun6i_csi_device *csi_dev)
+> +sun6i_csi_bridge_configure_parallel(struct sun6i_csi_device *csi_dev,
+> +                                   const struct v4l2_mbus_framefmt *mbus=
+_format)
+>  {
+>         struct device *dev =3D csi_dev->dev;
+>         struct regmap *regmap =3D csi_dev->regmap;
+> @@ -234,11 +215,9 @@ sun6i_csi_bridge_configure_parallel(struct sun6i_csi=
+_device *csi_dev)
+>                 &csi_dev->bridge.source_parallel.endpoint;
+>         unsigned char bus_width =3D endpoint->bus.parallel.bus_width;
+>         unsigned int flags =3D endpoint->bus.parallel.flags;
+> -       u32 field;
+> +       u32 field =3D mbus_format->field;
+>         u32 value =3D SUN6I_CSI_IF_CFG_IF_CSI;
+>
+> -       sun6i_csi_bridge_format(csi_dev, NULL, &field);
+> -
+>         if (field =3D=3D V4L2_FIELD_INTERLACED ||
+>             field =3D=3D V4L2_FIELD_INTERLACED_TB ||
+>             field =3D=3D V4L2_FIELD_INTERLACED_BT)
+> @@ -317,13 +296,12 @@ sun6i_csi_bridge_configure_parallel(struct sun6i_cs=
+i_device *csi_dev)
+>  }
+>
+>  static void
+> -sun6i_csi_bridge_configure_mipi_csi2(struct sun6i_csi_device *csi_dev)
+> +sun6i_csi_bridge_configure_mipi_csi2(struct sun6i_csi_device *csi_dev,
+> +                                    const struct v4l2_mbus_framefmt *mbu=
+s_format)
+>  {
+>         struct regmap *regmap =3D csi_dev->regmap;
+>         u32 value =3D SUN6I_CSI_IF_CFG_IF_MIPI;
+> -       u32 field;
+> -
+> -       sun6i_csi_bridge_format(csi_dev, NULL, &field);
+> +       u32 field =3D mbus_format->field;
+>
+>         if (field =3D=3D V4L2_FIELD_INTERLACED ||
+>             field =3D=3D V4L2_FIELD_INTERLACED_TB ||
+> @@ -335,19 +313,20 @@ sun6i_csi_bridge_configure_mipi_csi2(struct sun6i_c=
+si_device *csi_dev)
+>         regmap_write(regmap, SUN6I_CSI_IF_CFG_REG, value);
+>  }
+>
+> -static void sun6i_csi_bridge_configure_format(struct sun6i_csi_device *c=
+si_dev)
+> +static void
+> +sun6i_csi_bridge_configure_format(struct sun6i_csi_device *csi_dev,
+> +                                 const struct v4l2_mbus_framefmt *mbus_f=
+ormat)
+>  {
+>         struct regmap *regmap =3D csi_dev->regmap;
+>         bool capture_streaming =3D csi_dev->capture.state.streaming;
+>         const struct sun6i_csi_bridge_format *bridge_format;
+>         const struct sun6i_csi_capture_format *capture_format;
+> -       u32 mbus_code, field, pixelformat;
+> +       u32 pixelformat;
+> +       u32 field =3D mbus_format->field;
+>         u8 input_format, input_yuv_seq, output_format;
+>         u32 value =3D 0;
+>
+> -       sun6i_csi_bridge_format(csi_dev, &mbus_code, &field);
+> -
+> -       bridge_format =3D sun6i_csi_bridge_format_find(mbus_code);
+> +       bridge_format =3D sun6i_csi_bridge_format_find(mbus_format->code)=
+;
+>         if (WARN_ON(!bridge_format))
+>                 return;
+>
+> @@ -391,16 +370,17 @@ static void sun6i_csi_bridge_configure_format(struc=
+t sun6i_csi_device *csi_dev)
+>  }
+>
+>  static void sun6i_csi_bridge_configure(struct sun6i_csi_device *csi_dev,
+> -                                      struct sun6i_csi_bridge_source *so=
+urce)
+> +                                      struct sun6i_csi_bridge_source *so=
+urce,
+> +                                      const struct v4l2_mbus_framefmt *m=
+bus_format)
+>  {
+>         struct sun6i_csi_bridge *bridge =3D &csi_dev->bridge;
+>
+>         if (source =3D=3D &bridge->source_parallel)
+> -               sun6i_csi_bridge_configure_parallel(csi_dev);
+> +               sun6i_csi_bridge_configure_parallel(csi_dev, mbus_format)=
+;
+>         else
+> -               sun6i_csi_bridge_configure_mipi_csi2(csi_dev);
+> +               sun6i_csi_bridge_configure_mipi_csi2(csi_dev, mbus_format=
+);
+>
+> -       sun6i_csi_bridge_configure_format(csi_dev);
+> +       sun6i_csi_bridge_configure_format(csi_dev, mbus_format);
+>  }
+>
+>  /* V4L2 Subdev */
+> @@ -415,6 +395,8 @@ static int sun6i_csi_bridge_s_stream(struct v4l2_subd=
+ev *subdev, int on)
+>         struct sun6i_csi_bridge_source *source;
+>         struct v4l2_subdev *source_subdev;
+>         struct media_pad *remote_pad;
+> +       struct v4l2_subdev_state *state;
+> +       const struct v4l2_mbus_framefmt *mbus_format;
+>         int ret;
+>
+>         /* Source */
+> @@ -433,6 +415,10 @@ static int sun6i_csi_bridge_s_stream(struct v4l2_sub=
+dev *subdev, int on)
+>         else
+>                 source =3D &bridge->source_mipi_csi2;
+>
+> +       /* Active State */
+> +
+> +       state =3D v4l2_subdev_lock_and_get_active_state(subdev);
+> +
+>         if (!on) {
+>                 v4l2_subdev_call(source_subdev, video, s_stream, 0);
+>                 ret =3D 0;
+> @@ -443,7 +429,7 @@ static int sun6i_csi_bridge_s_stream(struct v4l2_subd=
+ev *subdev, int on)
+>
+>         ret =3D pm_runtime_resume_and_get(dev);
+>         if (ret < 0)
+> -               return ret;
+> +               goto unlock;
+>
+>         /* Clear */
+>
+> @@ -451,7 +437,9 @@ static int sun6i_csi_bridge_s_stream(struct v4l2_subd=
+ev *subdev, int on)
+>
+>         /* Configure */
+>
+> -       sun6i_csi_bridge_configure(csi_dev, source);
+> +       mbus_format =3D v4l2_subdev_state_get_format(state,
+> +                                                  SUN6I_CSI_BRIDGE_PAD_S=
+INK);
+> +       sun6i_csi_bridge_configure(csi_dev, source, mbus_format);
+>
+>         if (capture_streaming)
+>                 sun6i_csi_capture_configure(csi_dev);
+> @@ -472,7 +460,8 @@ static int sun6i_csi_bridge_s_stream(struct v4l2_subd=
+ev *subdev, int on)
+>         if (ret && ret !=3D -ENOIOCTLCMD)
+>                 goto disable;
+>
+> -       return 0;
+> +       ret =3D 0;
+> +       goto unlock;
+>
+>  disable:
+>         if (capture_streaming)
+> @@ -482,6 +471,8 @@ static int sun6i_csi_bridge_s_stream(struct v4l2_subd=
+ev *subdev, int on)
+>
+>         pm_runtime_put(dev);
+>
+> +unlock:
+> +       v4l2_subdev_unlock_state(state);
+>         return ret;
+>  }
+>
+> @@ -504,21 +495,23 @@ sun6i_csi_bridge_mbus_format_prepare(struct v4l2_mb=
+us_framefmt *mbus_format)
+>  static int sun6i_csi_bridge_init_state(struct v4l2_subdev *subdev,
+>                                        struct v4l2_subdev_state *state)
+>  {
+> -       struct sun6i_csi_device *csi_dev =3D v4l2_get_subdevdata(subdev);
+> -       unsigned int pad =3D SUN6I_CSI_BRIDGE_PAD_SINK;
+> -       struct v4l2_mbus_framefmt *mbus_format =3D
+> -               v4l2_subdev_state_get_format(state, pad);
+> -       struct mutex *lock =3D &csi_dev->bridge.lock;
+> +       unsigned int pad;
+>
+> -       mutex_lock(lock);
+> +       /*
+> +        * This subdev does not perform format conversion,
+> +        * initialize both pads identically.
+> +        */
+> +       for (pad =3D 0; pad < subdev->entity.num_pads; pad++) {
+> +               struct v4l2_mbus_framefmt *mbus_format;
+>
+> -       mbus_format->code =3D sun6i_csi_bridge_formats[0].mbus_code;
+> -       mbus_format->width =3D 1280;
+> -       mbus_format->height =3D 720;
+> +               mbus_format =3D v4l2_subdev_state_get_format(state, pad);
+>
+> -       sun6i_csi_bridge_mbus_format_prepare(mbus_format);
+> +               mbus_format->code =3D sun6i_csi_bridge_formats[0].mbus_co=
+de;
+> +               mbus_format->width =3D 1280;
+> +               mbus_format->height =3D 720;
+>
+> -       mutex_unlock(lock);
+> +               sun6i_csi_bridge_mbus_format_prepare(mbus_format);
+> +       }
+>
+>         return 0;
+>  }
+> @@ -536,53 +529,32 @@ sun6i_csi_bridge_enum_mbus_code(struct v4l2_subdev =
+*subdev,
+>         return 0;
+>  }
+>
+> -static int sun6i_csi_bridge_get_fmt(struct v4l2_subdev *subdev,
+> -                                   struct v4l2_subdev_state *state,
+> -                                   struct v4l2_subdev_format *format)
+> -{
+> -       struct sun6i_csi_device *csi_dev =3D v4l2_get_subdevdata(subdev);
+> -       struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
+> -       struct mutex *lock =3D &csi_dev->bridge.lock;
+> -
+> -       mutex_lock(lock);
+> -
+> -       if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
+> -               *mbus_format =3D *v4l2_subdev_state_get_format(state,
+> -                                                            format->pad)=
+;
+> -       else
+> -               *mbus_format =3D csi_dev->bridge.mbus_format;
+> -
+> -       mutex_unlock(lock);
+> -
+> -       return 0;
+> -}
+> -
+>  static int sun6i_csi_bridge_set_fmt(struct v4l2_subdev *subdev,
+>                                     struct v4l2_subdev_state *state,
+>                                     struct v4l2_subdev_format *format)
+>  {
+> -       struct sun6i_csi_device *csi_dev =3D v4l2_get_subdevdata(subdev);
+> -       struct v4l2_mbus_framefmt *mbus_format =3D &format->format;
+> -       struct mutex *lock =3D &csi_dev->bridge.lock;
+> +       struct v4l2_mbus_framefmt *fmt;
+>
+> -       mutex_lock(lock);
+> +       /* The format on the source pad always matches the sink pad. */
+> +       if (format->pad !=3D SUN6I_CSI_BRIDGE_PAD_SINK)
+> +               return v4l2_subdev_get_fmt(subdev, state, format);
+>
+> -       sun6i_csi_bridge_mbus_format_prepare(mbus_format);
+> +       sun6i_csi_bridge_mbus_format_prepare(&format->format);
+>
+> -       if (format->which =3D=3D V4L2_SUBDEV_FORMAT_TRY)
+> -               *v4l2_subdev_state_get_format(state, format->pad) =3D
+> -                       *mbus_format;
+> -       else
+> -               csi_dev->bridge.mbus_format =3D *mbus_format;
+> +       /* Set the format on the sink pad. */
+> +       fmt =3D v4l2_subdev_state_get_format(state, format->pad);
+> +       *fmt =3D format->format;
+>
+> -       mutex_unlock(lock);
+> +       /* Propagate the format to the source pad. */
+> +       fmt =3D v4l2_subdev_state_get_format(state, SUN6I_CSI_BRIDGE_PAD_=
+SOURCE);
+> +       *fmt =3D format->format;
+>
+>         return 0;
+>  }
+>
+>  static const struct v4l2_subdev_pad_ops sun6i_csi_bridge_pad_ops =3D {
+>         .enum_mbus_code =3D sun6i_csi_bridge_enum_mbus_code,
+> -       .get_fmt        =3D sun6i_csi_bridge_get_fmt,
+> +       .get_fmt        =3D v4l2_subdev_get_fmt,
+>         .set_fmt        =3D sun6i_csi_bridge_set_fmt,
+>  };
+>
+> @@ -780,8 +752,6 @@ int sun6i_csi_bridge_setup(struct sun6i_csi_device *c=
+si_dev)
+>         };
+>         int ret;
+>
+> -       mutex_init(&bridge->lock);
+> -
+>         /* V4L2 Subdev */
+>
+>         v4l2_subdev_init(subdev, &sun6i_csi_bridge_subdev_ops);
+> @@ -809,6 +779,12 @@ int sun6i_csi_bridge_setup(struct sun6i_csi_device *=
+csi_dev)
+>         if (ret < 0)
+>                 return ret;
+>
+> +       /* V4L2 Subdev finalize */
+> +
+> +       ret =3D v4l2_subdev_init_finalize(subdev);
+> +       if (ret < 0)
+> +               goto error_media_entity;
+> +
+>         /* V4L2 Subdev */
+>
+>         if (csi_dev->isp_available)
+> @@ -818,7 +794,7 @@ int sun6i_csi_bridge_setup(struct sun6i_csi_device *c=
+si_dev)
+>
+>         if (ret) {
+>                 dev_err(dev, "failed to register v4l2 subdev: %d\n", ret)=
+;
+> -               goto error_media_entity;
+> +               goto error_subdev_finalize;
+>         }
+>
+>         /* V4L2 Async */
+> @@ -852,6 +828,9 @@ int sun6i_csi_bridge_setup(struct sun6i_csi_device *c=
+si_dev)
+>         else
+>                 v4l2_device_unregister_subdev(subdev);
+>
+> +error_subdev_finalize:
+> +       v4l2_subdev_cleanup(subdev);
+> +
+>  error_media_entity:
+>         media_entity_cleanup(&subdev->entity);
+>
+> @@ -868,5 +847,7 @@ void sun6i_csi_bridge_cleanup(struct sun6i_csi_device=
+ *csi_dev)
+>
+>         v4l2_device_unregister_subdev(subdev);
+>
+> +       v4l2_subdev_cleanup(subdev);
+> +
+>         media_entity_cleanup(&subdev->entity);
+>  }
+> diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.h b/=
+drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.h
+> index 44653b38f722..a5b0a6f064dd 100644
+> --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.h
+> +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_bridge.h
+> @@ -42,20 +42,11 @@ struct sun6i_csi_bridge {
+>         struct v4l2_subdev              subdev;
+>         struct v4l2_async_notifier      notifier;
+>         struct media_pad                pads[2];
+> -       struct v4l2_mbus_framefmt       mbus_format;
+> -       struct mutex                    lock; /* Mbus format lock. */
+>
+>         struct sun6i_csi_bridge_source  source_parallel;
+>         struct sun6i_csi_bridge_source  source_mipi_csi2;
+>  };
+>
+> -/* Helpers */
+> -
+> -void sun6i_csi_bridge_dimensions(struct sun6i_csi_device *csi_dev,
+> -                                unsigned int *width, unsigned int *heigh=
+t);
+> -void sun6i_csi_bridge_format(struct sun6i_csi_device *csi_dev,
+> -                            u32 *mbus_code, u32 *field);
+> -
+>  /* Format */
+>
+>  const struct sun6i_csi_bridge_format *
+> diff --git a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c b=
+/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> index 65879f4802c0..d90abba21309 100644
+> --- a/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> +++ b/drivers/media/platform/sunxi/sun6i-csi/sun6i_csi_capture.c
+> @@ -888,14 +888,19 @@ static int sun6i_csi_capture_link_validate(struct m=
+edia_link *link)
+>                 media_entity_to_video_device(link->sink->entity);
+>         struct sun6i_csi_device *csi_dev =3D video_get_drvdata(video_dev)=
+;
+>         struct v4l2_device *v4l2_dev =3D csi_dev->v4l2_dev;
+> +       struct v4l2_subdev *src_subdev =3D
+> +               media_entity_to_v4l2_subdev(link->source->entity);
+>         const struct sun6i_csi_capture_format *capture_format;
+>         const struct sun6i_csi_bridge_format *bridge_format;
+>         unsigned int capture_width, capture_height;
+> -       unsigned int bridge_width, bridge_height;
+>         const struct v4l2_format_info *format_info;
+> +       struct v4l2_subdev_format src_fmt =3D {
+> +               .which =3D V4L2_SUBDEV_FORMAT_ACTIVE,
+> +               .pad =3D link->source->index
+> +       };
+>         u32 pixelformat, capture_field;
+> -       u32 mbus_code, bridge_field;
+>         bool match;
+> +       int ret;
+>
+>         sun6i_csi_capture_dimensions(csi_dev, &capture_width, &capture_he=
+ight);
+>
+> @@ -904,19 +909,22 @@ static int sun6i_csi_capture_link_validate(struct m=
+edia_link *link)
+>         if (WARN_ON(!capture_format))
+>                 return -EINVAL;
+>
+> -       sun6i_csi_bridge_dimensions(csi_dev, &bridge_width, &bridge_heigh=
+t);
+> +       /* Resolve csi bridge format. */
+> +       ret =3D v4l2_subdev_call(src_subdev, pad, get_fmt, NULL, &src_fmt=
+);
+> +       if (ret)
+> +               return ret;
+>
+> -       sun6i_csi_bridge_format(csi_dev, &mbus_code, &bridge_field);
+> -       bridge_format =3D sun6i_csi_bridge_format_find(mbus_code);
+> +       bridge_format =3D sun6i_csi_bridge_format_find(src_fmt.format.cod=
+e);
+>         if (WARN_ON(!bridge_format))
+>                 return -EINVAL;
+>
+>         /* No cropping/scaling is supported. */
+> -       if (capture_width !=3D bridge_width || capture_height !=3D bridge=
+_height) {
+> +       if (capture_width !=3D src_fmt.format.width ||
+> +           capture_height !=3D src_fmt.format.height) {
+>                 v4l2_err(v4l2_dev,
+>                          "invalid input/output dimensions: %ux%u/%ux%u\n"=
+,
+> -                        bridge_width, bridge_height, capture_width,
+> -                        capture_height);
+> +                        src_fmt.format.width, src_fmt.format.height,
+> +                        capture_width, capture_height);
+>                 return -EINVAL;
+>         }
+>
+> @@ -947,7 +955,8 @@ static int sun6i_csi_capture_link_validate(struct med=
+ia_link *link)
+>         /* With raw input mode, we need a 1:1 match between input and out=
+put. */
+>         if (bridge_format->input_format =3D=3D SUN6I_CSI_INPUT_FMT_RAW ||
+>             capture_format->input_format_raw) {
+> -               match =3D sun6i_csi_capture_format_match(pixelformat, mbu=
+s_code);
+> +               match =3D sun6i_csi_capture_format_match(pixelformat,
+> +                                                      src_fmt.format.cod=
+e);
+>                 if (!match)
+>                         goto invalid;
+>         }
+> --
+> 2.54.0
+>
+
+--=20
+Regards,
+Arash Golgol
 
