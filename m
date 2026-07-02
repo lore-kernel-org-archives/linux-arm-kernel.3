@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F1A4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 05:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 555ACC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 05:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wEOwCzDNDZHVfKU5Zplsz4V5uu4yg9zuzedo1YwjSlA=; b=JcohWyQZ+0WzmzMUAeaRcplBCr
-	ma3m6tFPUKSZlKgjFmkeu6rf0vwrTrAsjevEDmXdOwoWIxQM2IGSohesXXit2aVp4R9vIYluQ4sBZ
-	7nXQgLn5vB5TpK7LnW8zr92P1D9J79MTfxo2fxAjXHFwOiZlIsarJqFX4aWOuNiEGelJLDVPn6gBB
-	4aEiA9wWUfL5kIJjgLZUjwt4zEKKsiC0xQSE2J3DXy+M9pf4utnp48kdUN6LRDX2k0Duv7u/M3sA+
-	DnB2ybxrooGLypXWKvmLBe2/mvnDs2+8DhPFVjbroTU5AnufcVICUib6F3tDox93i7xpZRerU3HLw
-	Zo4CU3cw==;
+	bh=ebUaQ1R2wHUJAPwhMDRJCTdYQx7fernJMMwxp7oiDHc=; b=RWIIxZcNkE0hxMJIJ2DeBBG0Dz
+	8eei4QFoLoqgKiwcTuGfSYwIIy5ZGKPM7iKSwedoTis2xyRKifcaJA2OdHV47MHhIILr9Ly7su2Is
+	qeYGrhduStUHkiF8aX7R0Cv1/+Pn93zK0slEtaE97IqTqwvo4x/SOTJpkpMk2c1RVQpt3nq+Ohs+n
+	m8dgerDxYsr9zzitWZwWyposc4Blto8YGGSjMgd/pp7r/sTjvT6qubQEcPKEa+AjYE05nYVS4nlNS
+	eXTXqwmmFA01Zy9IxlppSLVnDe8n0116uGzfLXNelxTxV5TuQ7jmMfSYN275Tiyak/Hy6MoZOeRoc
+	StWxSUWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf9l7-00000003aOM-1BxN;
-	Thu, 02 Jul 2026 05:14:45 +0000
+	id 1wf9lG-00000003aSk-1aEA;
+	Thu, 02 Jul 2026 05:14:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wf9l4-00000003aNQ-3luk
+	id 1wf9lE-00000003aRV-2N0k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 05:14:44 +0000
+	Thu, 02 Jul 2026 05:14:53 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7A3AE357C;
-	Wed,  1 Jul 2026 22:14:37 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94A043583;
+	Wed,  1 Jul 2026 22:14:47 -0700 (PDT)
 Received: from cesw-amp-gbt-1s-m12830-01.blr.arm.com (cesw-amp-gbt-1s-m12830-01.blr.arm.com [10.164.195.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 537A23F85F;
-	Wed,  1 Jul 2026 22:14:32 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 6B8DA3F85F;
+	Wed,  1 Jul 2026 22:14:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782969281; bh=ienzyGRe9B9tWaT5v8xmSHn5lDIwPDVd/gVOyC2GvTU=;
+	t=1782969292; bh=tWPUJM3ApyzUL1CLJURNBUdDRGtvetjvWdOoXK1V7p0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F0NeD8GEIbiGiBvjgRh6bIapiMQcvdM5rJEBK1vIEktyr6tBfzLDihurGU4RxsUVA
-	 I8OKgZC2FeEZcu/UdxUcxPHIFVOTE29K/MwoK0gdo4quBfKkJ3giy3PNvKj1BmmAWe
-	 eceYU5/wDyKPtl7yAaFgZLddDmTIh9NWemZP5vOw=
+	b=DDrlaq0+IWhU237/v+5Xe0K3EQV2aB3VOTY4IgfYNaGwE1udm/NmcgAzHAGuUJJqi
+	 BjQok5c+LK1adWHLW3RfQr7KfM0iR8CHgZALpIbYJYoRS1MuWLJK4D2PvUTOnzL+54
+	 HG17AfutxHvYMucTCwxfnz+MRst0pYFqhR0D9lUo=
 From: Dev Jain <dev.jain@arm.com>
 To: muchun.song@linux.dev,
 	osalvador@suse.de,
@@ -78,17 +78,17 @@ Cc: Dev Jain <dev.jain@arm.com>,
 	ryan.roberts@arm.com,
 	anshuman.khandual@arm.com,
 	stable@vger.kernel.org
-Subject: [PATCH v2 3/6] mm/rmap: use huge_ptep_get() in try_to_migrate_one()
-Date: Thu,  2 Jul 2026 05:13:37 +0000
-Message-ID: <20260702051341.126509-4-dev.jain@arm.com>
+Subject: [PATCH v2 4/6] mm/migrate: use huge_ptep_get() in remove_migration_pte()
+Date: Thu,  2 Jul 2026 05:13:38 +0000
+Message-ID: <20260702051341.126509-5-dev.jain@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260702051341.126509-1-dev.jain@arm.com>
 References: <20260702051341.126509-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260701_221443_016896_025D5D4C 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260701_221452_647147_30753C79 
+X-CRM114-Status: GOOD (  10.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,64 +103,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-try_to_migrate_one() is used by folio migration to replace a present
-mapping with a migration entry. For hugetlb folios, page_vma_mapped_walk()
-returns the pte pointer to the hugetlb folio in pvmw.pte, but the code
-reads the huge pte entry with ptep_get().
+remove_migration_pte() converts migration entries back to present PTEs
+after folio migration completes. For hugetlb folios,
+page_vma_mapped_walk() returns the pte pointer to the hugetlb folio in
+pvmw.pte, but the code reads it with ptep_get().
 
 On arches which provide their own huge_ptep_get() to dereference a huge
-pte pointer, accessing via ptep_get() would cause pte_pfn(), pte_present()
-etc to misbehave.
+pte pointer, accessing via ptep_get() would cause pte_pfn(),
+pte_present() etc to misbehave.
 
 It is not clear whether this has a trivially visible effect to userspace.
 
 Use huge_ptep_get() to dereference a huge pte pointer.
 
-Commit a98a2f0c8ce1 copied the bug from try_to_unmap_one into
-try_to_migrate_one.
-
-Fixes: a98a2f0c8ce1 ("mm/rmap: split migration into its own function")
+Fixes: 290408d4a250 ("hugetlb: hugepage migration core")
 Cc: stable@vger.kernel.org
 Acked-by: Muchun Song <muchun.song@linux.dev>
 Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- mm/rmap.c | 16 ++++++++++------
- 1 file changed, 10 insertions(+), 6 deletions(-)
+ mm/migrate.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/mm/rmap.c b/mm/rmap.c
-index aa8a254efaecc..abc3a44baaa3d 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -2505,11 +2505,16 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
- 		/* Unexpected PMD-mapped THP? */
- 		VM_BUG_ON_FOLIO(!pvmw.pte, folio);
- 
--		/*
--		 * Handle PFN swap PTEs, such as device-exclusive ones, that
--		 * actually map pages.
--		 */
--		pteval = ptep_get(pvmw.pte);
-+		address = pvmw.address;
-+		if (folio_test_hugetlb(folio)) {
-+			pteval = huge_ptep_get(mm, address, pvmw.pte);
-+		} else {
-+			/*
-+			 * Handle PFN swap PTEs, such as device-exclusive ones,
-+			 * that actually map pages.
-+			 */
-+			pteval = ptep_get(pvmw.pte);
-+		}
- 		if (likely(pte_present(pteval))) {
- 			pfn = pte_pfn(pteval);
- 		} else {
-@@ -2520,7 +2525,6 @@ static bool try_to_migrate_one(struct folio *folio, struct vm_area_struct *vma,
+diff --git a/mm/migrate.c b/mm/migrate.c
+index d9b23909d716c..c65f0f43df7eb 100644
+--- a/mm/migrate.c
++++ b/mm/migrate.c
+@@ -371,7 +371,11 @@ static bool remove_migration_pte(struct folio *folio,
+ 			continue;
  		}
- 
- 		subpage = folio_page(folio, pfn - folio_pfn(folio));
--		address = pvmw.address;
- 		anon_exclusive = folio_test_anon(folio) &&
- 				 PageAnonExclusive(subpage);
- 
+ #endif
+-		old_pte = ptep_get(pvmw.pte);
++		if (folio_test_hugetlb(folio))
++			old_pte = huge_ptep_get(vma->vm_mm, pvmw.address,
++						pvmw.pte);
++		else
++			old_pte = ptep_get(pvmw.pte);
+ 		if (rmap_walk_arg->map_unused_to_zeropage &&
+ 		    try_to_map_unused_to_zeropage(&pvmw, folio, old_pte, idx))
+ 			continue;
 -- 
 2.43.0
 
