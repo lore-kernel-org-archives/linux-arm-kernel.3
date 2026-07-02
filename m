@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AECC43327
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:22:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0540C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyrb51VmcIeND7kjfkg72u2avQYIOgvZZFiZBbCBsu4=; b=q4REv8xJTtLMRrPBEjwf8kUgai
-	WzUD+hXWiO2LNtoFjU2JBVBJr10sDctfEGLFGxtZlZsWeA36oxjeTjDtwiouI507y8sxQDg/bbpLC
-	+PnsnqXru0EYG4m/357YeKAYfoajKxzN35F9/sA/GE8eSQ7cKEuBomre3ntgo92wnnCMFXqLWZVjK
-	8Hpo/THZKb1QFbtbV60OXImcRRGYMYeVYtYTXNlyFxqYQTRB3LxsBYYp1ybhKXrDSR5pcv+Ea/YWM
-	froHBOPpls9HjtpJkHlKg+mEU9+mlujW/RVN9oC5V5fhWuPIj3g5DGzehg020iPqqAS84tjx5iB8a
-	ZPmPTjzA==;
+	bh=oSmChlaaqqMvLwI9JFc/dmZe32fXU4nIY4AkNzqVrIE=; b=m7wGmnYTfWUuKM5TBfWykr2CPD
+	b1c//tI0NT9LXWtQYmjCxqOG4/ObuEVPxdi3QYaOcUoO7SXYx1tD6vG6eDq4UEXhbFXw7yQ8ItMLw
+	oYsGskSzgzx2ka/6h8hMzZUfIkboqFApQQ9sHkJRGwU1EJaQarVKoi8EBnRZaxeO6jQytaNviECt0
+	QAqDLhg0tt1jy28dZ3+eUSJd+uOwbJhbjOYrUJ1aIoFNZBxZPv6HSDzozmI5WR6mn+orHTOCnhIw5
+	6SydPujK59fB5PNvLhoJpxHUqS96ijEowRfQ31z9UL/9mC7D1gV7kIwxQsxlKmgmAYvw8a2urBRU7
+	OxIAaFRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDcf-0000000405f-1g37;
-	Thu, 02 Jul 2026 09:22:17 +0000
+	id 1wfDcj-0000000409d-18tQ;
+	Thu, 02 Jul 2026 09:22:21 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDcc-0000000403Z-18VW;
-	Thu, 02 Jul 2026 09:22:15 +0000
+	id 1wfDcd-0000000403z-2y7a;
+	Thu, 02 Jul 2026 09:22:17 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1782984131;
-	bh=XGlT1jN6iisVzEuux46Z6HtG1CBC/tpAdAu/EfHF0jg=;
+	s=mail; t=1782984132;
+	bh=j+kGXwr07dgMRRHsw8roEZSBkQ0X8Tn5IRk7GbSjOzU=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=DaKKuw85Hjs+C8RjHJwl5F5HAy/yXdJ1/go76l64bs7S+VaDQKNEtfAJO/09CC+rU
-	 RjMy9V4PezUoYVmHtwA+Ej4cq6c3OIZy3yQ/jcwBf7CiB8LpshGQz14VGV8cvxlLNz
-	 dm1Det0iNUKtZzDduzUkA4GI5/8+uNpQMdikwRlE9vYZ6ENXRMRNk7O8WCknnGY33w
-	 /ZxSBHKVw3clKA4yzckeyaNzBXzhHxoPUGtuxMB6xh5gCG/KW+aPUCqwSw54Yo1CQu
-	 3JkQkChne59Zo+qmyFe86/Bpy7NN/fWmYb3asa9dFVWYjxND1a8pX7v037FMc4OkWU
-	 9lbQ8btTf+Q4Q==
+	b=ZyI/RTO/qkKhB6xhzsW53CmYMPdIHmsArllNS9rt7abzbc0A0/ca6Y9Hsr5iySkfn
+	 jivYZq53k2GGIAhHTiPRPkpL75kRJXpPYBUcbLGXwpHohqFkDOow7qyP0qX8z/BOac
+	 78aztNovUSudeREQvZfwYrpfei7hUCNHni94D++kgNE9f10dccWe+nXbNrPX4G8NGt
+	 pzMkO4OIl3cKgF0RizsdvekgYe1YfBnohgKx9LE1JOahlFNKoeSm4t1WfyroGihcqx
+	 HTJi0UIAGgkdo+u3v4BlZUXXquN/DTu5YDVQjd9H0fer0LLzHeZRTc8wuURIQAtD7R
+	 CrI1SH2rlvQaQ==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDC9B17E0CF4;
-	Thu,  2 Jul 2026 11:22:10 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F209E17E0F68;
+	Thu,  2 Jul 2026 11:22:11 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Mark Tseng <chun-jen.tseng@mediatek.com>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com
-In-Reply-To: <20260529100514.52082-2-chun-jen.tseng@mediatek.com>
-References: <20260529100514.52082-2-chun-jen.tseng@mediatek.com>
-Subject: Re: [PATCH v1 1/1] arm64: dts: mediatek: mt8186: change CCI OPP
- scaling mapping
-Message-Id: <178298413090.12161.3103328089271135521.b4-ty@b4>
-Date: Thu, 02 Jul 2026 11:22:10 +0200
+To: Matthias Brugger <matthias.bgg@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20260702083800.578581-1-wenst@chromium.org>
+References: <20260702083800.578581-1-wenst@chromium.org>
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8188-geralt: Add supply for
+ SPI NOR flash
+Message-Id: <178298413194.12161.9131704032702690772.b4-ty@b4>
+Date: Thu, 02 Jul 2026 11:22:11 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_022214_470458_AA78737B 
-X-CRM114-Status: UNSURE (   5.18  )
+X-CRM114-CacheID: sfid-20260702_022215_911767_0EA20900 
+X-CRM114-Status: UNSURE (   6.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,14 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 29 May 2026 18:05:08 +0800, Mark Tseng wrote:
-> The original CCI OPP table minimum frequency 500Mhz is too low to cause
-> system stall, So it need update to new version, 1.4G ~ 0.8G.
+On Thu, 02 Jul 2026 16:37:58 +0800, Chen-Yu Tsai wrote:
+> The SPI NOR flash is powered the "always on" 1.8V LDO regulated power
+> rail.
+> 
+> Add the supply for the SPI NOR flash.
 
 Applied to v7.2-next/dts64, thanks!
 
-[1/1] arm64: dts: mediatek: mt8186: change CCI OPP scaling mapping
-      commit: c41cd028e8fb138aa6243d224d637db15354ea95
+[1/1] arm64: dts: mediatek: mt8188-geralt: Add supply for SPI NOR flash
+      commit: eb3e990db356964d64f5cc258d30776c0363f9e9
 
 Cheers,
 Angelo
