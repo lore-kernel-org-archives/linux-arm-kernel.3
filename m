@@ -4,73 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA16AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:12:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14F6FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:12:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmPdLqaKMND07r2FECMXcGfBoAAtenNhzfqLptjrTn4=; b=FL/BU4K/ADepcbtt2ICV67Oaty
-	jQMutOCgY9kBgErHf0uiREXwLPlqwnhIcvo98g7nmIg8kplvo3ZcZvI0rVIGtiFyp4lqNBl1lhZOY
-	Ejkok/ukJ5QbAwOgeOyNWW1FvWVtekPV+zPsYogagKreZp7EIgC8GuEWEPl9EALO7E+yqdqifj/Ly
-	slj0jxeJHc++PDpvZrUF717q3pC9xeHbuzVZPwLF/7lgn+zVDo/xJ9nIRL1ENqvnwjmD/m6N7NS4N
-	Aiu2ieyBxbfcSUGYu6koZ4bnliXWYdP5nD9sb88m3DtlQ1+fsGA98WMM9J4IkVgt6d+z7gxQnfre8
-	o/yFjX2Q==;
+	bh=yWVl92ySB0LOea/djTBKxUFhK5i6uFHRlukNHQHiJp8=; b=j3S6MzNcXSFV9n8fXD8Xl+sB1g
+	X13f6ACl055U9TNKzWl4awmx3JNgpFaT+x4G0kfPj9QjXeC534NonKqAobnVW2iuqkRvLo9Ka7ODS
+	GuS0LkkcvVDm9T7SiJUWZgQjMzZJLEXMxIpw3Y+0vY1Cb/733l8hRjMhNdl8nzeJxr7V7SX2C+kJI
+	NdC4VIpgSVysSjnQtqEI3Qf5tefS2ljAbQUiPenxWje8juVOsjpF6/c7ZugXWk3EOWa/ux4W9dxXD
+	xsjHn4fe/FBipXkzfPO36yfbh6i/YHHKo8/Rti4YVpXhRh8FDGMhXyNy+GoW81xfmGn5ibyi4BCb2
+	15UN52rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMpO-00000005Ksn-1YVD;
-	Thu, 02 Jul 2026 19:12:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfMpg-00000005L5w-2RKk;
+	Thu, 02 Jul 2026 19:12:20 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMpK-00000005Kpv-2Gie
+	id 1wfMpe-00000005L3B-0if6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 19:11:58 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D3D81601F8;
-	Thu,  2 Jul 2026 19:11:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 92C2A1F000E9;
-	Thu,  2 Jul 2026 19:11:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783019517;
-	bh=lmPdLqaKMND07r2FECMXcGfBoAAtenNhzfqLptjrTn4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=R+Gsu9zwoI3oQT09CESwXoVv3UwYpNBn87HxkEh94BYmNi+jUlJDXoMdEfOftPkq5
-	 1M/C3pJjmCDrPVoeRdQvENTtQv5eWc1w9PHQgyuoTtrOlfWxefu1zJIijIYveznAu0
-	 J0myoGwfxv9LgDz9trmgd6h1OSMXlx/keZ1WlP1EZ7M7sN99t0ssA7Q0muP3JgtQT1
-	 yUZz7hW7QKcEaXJfWGoMNfWVIgGzmRDzyXmj1QvT2qOh7fTj42NcHFWXHBfTfizRuU
-	 w2lZq9jQ0mkMwwS1aInajW/uTBzJQwDt+XTHMIWb8/pfSzqvgqVmyqhTvIQEybIv/b
-	 wdsX19jxq6nyQ==
-From: Mark Brown <broonie@kernel.org>
-Date: Thu, 02 Jul 2026 20:11:19 +0100
-Subject: [PATCH v2 4/4] arm64: Remove hidden bitfields from
- cpu-feature-registers.rst
+	Thu, 02 Jul 2026 19:12:19 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493bc8fda98so19525885e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 12:12:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783019535; x=1783624335; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yWVl92ySB0LOea/djTBKxUFhK5i6uFHRlukNHQHiJp8=;
+        b=jcLibw4VAkgpCPJTZXftboNmeVo8jFTKvVVxz4jmsNRryYbLtIs/8D5y02fo0LsVLo
+         NUfhslF06oanfOIWhO7b3y7MlcEuvY7+dBM1PaW3m5ih38GG/5fku2nUIFvBQUWBi9Y5
+         YsY9aZg+4bS7skaL3q8TGrDn33XhvYrw2aOQV+CRfVDApStj4Lln1X8+U/IwrETliyvz
+         qZg8288RRfBmiioa45/bo2034zrRsSmyuKtD0Idsoc9UhA/+05Iz9IrD+yrJyoxMV4In
+         J7wKh6bI7/933SbBjJgFCufbzBmAriAbdqxZkjxDsQc8EHI/jyYoK26Rv8eh5ElpbAvi
+         93Kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783019535; x=1783624335;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=yWVl92ySB0LOea/djTBKxUFhK5i6uFHRlukNHQHiJp8=;
+        b=InxsJtCzS0LY0CP7OOaNSCwfESoOPLuJSLeFezBCtJ64nIhy7Zd2acE3uX42tTi2Hr
+         beXLB5AldaeVVPcEdjCBmm8fI/raPl2FnYAMXqR6dw6LPdXDcEQm21shobLTCBLZFIv7
+         mMTVxAMwkGRhn12uIzgIBXKsAYAisj/7hBucS7x9dz8ShQi0kzcme6WfMRwQOf/qnxAj
+         ML6Tc/zme5Iwf7d1TXtvXs3gajP7KacM5KASIaywa+ZzSIEW3P5e+wSR4Um9NMUkMayq
+         xCmyW7wcq3j5XCE7iwjjNEQEJFKKkdQliK2rEJc+uL1qyM9HTjGcJJpzFNc5NNorKX2V
+         pJUA==
+X-Forwarded-Encrypted: i=1; AFNElJ8eBlB7RxX9CTZoJi0FfSL4YbFGEtLual13yBuT2i4bbXaPdczg37QLh9iyj5ssvQiYgLdpHjMbgBv/lB0y6aZR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz60uUUUpVAy3p7n20HXGWlOVmxRo/nNH8gxezrcg/ooBO83sGh
+	UfMHL82eUrxxcFnbvfi8e2tjZDjDeyz96PzHrpxSD1XVNivZVgiPHgWB
+X-Gm-Gg: AfdE7clbAHG268n1oMQCGEszDvUL0RnJ5oEMIsNDHiY9sIOb2X6emc5Qh9JkgL1CdB4
+	3BmoIiEFpXhyBdv/Sxxl58FyiQjRzJ6uCGV77jHXA1ArEF5PfgOZHJDpdswKunRV++AphbpKmKl
+	QD/AKdIOtFIqoVunqXIZT6MtQYJHXcprbfQtmmiivgA6Wl+aQxFcqhRrCy67mF+1SFHRGTQbvla
+	lKUtTGnY9nEWhOW2fLcowibSPYXTMbE0HzTbmb7ldtd8m1QT4ws8kiejNu0zU41WsRWJSt0e15O
+	kLUlgmhMbIrmDCJ6BT7A/tBKc7Wj5gd1o7MnlVWMym0yDYdgXzNwl5r2rqDfTV1Gy1xSdUN2bMl
+	TVuEjs6FWPCuctNWN7e19li1tDGeg28ExDRQ+M49sIogqHwJttaYJxge9PhPD2lo/LkQs9Ey1OG
+	KWRhATyiOMWsN/WC59Fb0QZnm8Q5tjW3Cjqui+rWL4FeB/JtHBFj8/MO+wKLr56M1/9LE+jFxyo
+	nR2vzBF
+X-Received: by 2002:a05:600c:290:b0:493:a613:56b2 with SMTP id 5b1f17b1804b1-493c3cd5967mr65147035e9.8.1783019535315;
+        Thu, 02 Jul 2026 12:12:15 -0700 (PDT)
+Received: from [10.128.11.240] (195-23-151-163.net.novis.pt. [195.23.151.163])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493c636cc08sm83399065e9.11.2026.07.02.12.12.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Jul 2026 12:12:13 -0700 (PDT)
+Message-ID: <eff80e31-f833-4790-8114-1ece4ed3a044@gmail.com>
+Date: Thu, 2 Jul 2026 20:12:12 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/5] mfd: aaeon: Add SRG-IMX8P MCU driver
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ =?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>
+References: <20260630-dev-b4-aaeon-mcu-driver-v6-0-d66b5fcbd2f0@bootlin.com>
+ <20260630-dev-b4-aaeon-mcu-driver-v6-3-d66b5fcbd2f0@bootlin.com>
+Content-Language: en-US
+From: Julian Braha <julianbraha@gmail.com>
+In-Reply-To: <20260630-dev-b4-aaeon-mcu-driver-v6-3-d66b5fcbd2f0@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260702-arm64-cpu-ftr-regs-v2-4-fe0b78f1bd93@kernel.org>
-References: <20260702-arm64-cpu-ftr-regs-v2-0-fe0b78f1bd93@kernel.org>
-In-Reply-To: <20260702-arm64-cpu-ftr-regs-v2-0-fe0b78f1bd93@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>
-Cc: Peter Maydell <peter.maydell@linaro.org>, 
- Joey Gouly <joey.gouly@arm.com>, linux-arm-kernel@lists.infradead.org, 
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.16-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=36551; i=broonie@kernel.org;
- h=from:subject:message-id; bh=HqPCm/yZQLzN3gDSHeDHODfs+K17jJXYA54aRvaNjSs=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqRrfxGovvqs9URYD/yhudg59/ghHMVXumsNjjG
- UXOCWUZxhuJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaka38QAKCRAk1otyXVSH
- 0CMvB/48OnMtsqjroX3JcAhul1XLQqEaf1eqkSaF1EsPAjorMEgg3miMUUAWPoqeUtz+hEUmHjQ
- sIPw++ldm9UUiJWkTTE7/JQANhkKw8EhMprmQXjkDZYUU1WDW6u/ht0E9gu64OOIMkzzjfbuWLv
- g+c/lh+PFwW8VNyl1ZF1VnxlngdKqOaYVRRcEp9e3ZmWvsOfT5QGVAeaNbU+YBzQtTqe3h2j6Ow
- j51eafvo3cBAlxdKUKEMmU5tIDj8U7RLmTq18mO0Ycs8RnGw3Sisv2Y29IjgK9ldlENy7tLwFck
- qYe5N71a1MWIS6WZfi4GUP3JcEhWJ4GiiZEj6OLv/d6gUezR
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260702_121218_259631_13716770 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,715 +117,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently have a visibility column in the tables for the registers in
-cpu-feature-registers.rst but this is always "y" for every register other
-than ID_AA64PFR0_EL1. Given that the documentation of the full set of
-bitfields is readily available in the architecture documentation it is
-redundant for us to explicitly document things we don't advertise, and the
-kernel documentation will inevitably lag the architecture.
+Hi Thomas,
 
-Just remove the visibility column and hidden bitfields.
+On 6/30/26 13:51, Thomas Perrot (Schneider Electric) wrote:
+> +config MFD_AAEON_MCU
+> +	tristate "Aaeon SRG-IMX8P MCU Driver"
+> +	depends on I2C
+> +	select MFD_CORE
+> +    select REGMAP
+> +	help
 
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- Documentation/arch/arm64/cpu-feature-registers.rst | 618 ++++++++++-----------
- 1 file changed, 303 insertions(+), 315 deletions(-)
+Your REGMAP select here strangely indents with spaces, while the rest
+of your kconfig attributes (and this file) are using a tab.
 
-diff --git a/Documentation/arch/arm64/cpu-feature-registers.rst b/Documentation/arch/arm64/cpu-feature-registers.rst
-index 683bdd90c705..fc63ccb666bf 100644
---- a/Documentation/arch/arm64/cpu-feature-registers.rst
-+++ b/Documentation/arch/arm64/cpu-feature-registers.rst
-@@ -115,355 +115,343 @@ infrastructure:
- 
-   ID_AA64FPFR0_EL1 - Floating Point feature ID register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | F8CVT                        | [31]    |    y    |
--     +------------------------------+---------+---------+
--     | F8FMA                        | [30]    |    y    |
--     +------------------------------+---------+---------+
--     | F8DP4                        | [29]    |    y    |
--     +------------------------------+---------+---------+
--     | F8DP2                        | [28]    |    y    |
--     +------------------------------+---------+---------+
--     | F8MM8                        | [27]    |    y    |
--     +------------------------------+---------+---------+
--     | F8MM4                        | [26]    |    y    |
--     +------------------------------+---------+---------+
--     | F16MM2                       | [15]    |    y    |
--     +------------------------------+---------+---------+
--     | F8E4M3                       | [1]     |    y    |
--     +------------------------------+---------+---------+
--     | F8E5M2                       | [0]     |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | F8CVT                        | [31]    |
-+     +------------------------------+---------+
-+     | F8FMA                        | [30]    |
-+     +------------------------------+---------+
-+     | F8DP4                        | [29]    |
-+     +------------------------------+---------+
-+     | F8DP2                        | [28]    |
-+     +------------------------------+---------+
-+     | F8MM8                        | [27]    |
-+     +------------------------------+---------+
-+     | F8MM4                        | [26]    |
-+     +------------------------------+---------+
-+     | F16MM2                       | [15]    |
-+     +------------------------------+---------+
-+     | F8E4M3                       | [1]     |
-+     +------------------------------+---------+
-+     | F8E5M2                       | [0]     |
-+     +------------------------------+---------+
- 
-   ID_AA64ISAR0_EL1 - Instruction Set Attribute Register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | RNDR                         | [63-60] |    y    |
--     +------------------------------+---------+---------+
--     | TS                           | [55-52] |    y    |
--     +------------------------------+---------+---------+
--     | FHM                          | [51-48] |    y    |
--     +------------------------------+---------+---------+
--     | DP                           | [47-44] |    y    |
--     +------------------------------+---------+---------+
--     | SM4                          | [43-40] |    y    |
--     +------------------------------+---------+---------+
--     | SM3                          | [39-36] |    y    |
--     +------------------------------+---------+---------+
--     | SHA3                         | [35-32] |    y    |
--     +------------------------------+---------+---------+
--     | RDM                          | [31-28] |    y    |
--     +------------------------------+---------+---------+
--     | ATOMICS                      | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | CRC32                        | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | SHA2                         | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | SHA1                         | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | AES                          | [7-4]   |    y    |
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | RNDR                         | [63-60] |
-+     +------------------------------+---------+
-+     | TS                           | [55-52] |
-+     +------------------------------+---------+
-+     | FHM                          | [51-48] |
-+     +------------------------------+---------+
-+     | DP                           | [47-44] |
-+     +------------------------------+---------+
-+     | SM4                          | [43-40] |
-+     +------------------------------+---------+
-+     | SM3                          | [39-36] |
-+     +------------------------------+---------+
-+     | SHA3                         | [35-32] |
-+     +------------------------------+---------+
-+     | RDM                          | [31-28] |
-+     +------------------------------+---------+
-+     | ATOMICS                      | [23-20] |
-+     +------------------------------+---------+
-+     | CRC32                        | [19-16] |
-+     +------------------------------+---------+
-+     | SHA2                         | [15-12] |
-+     +------------------------------+---------+
-+     | SHA1                         | [11-8]  |
-+     +------------------------------+---------+
-+     | AES                          | [7-4]   |
-      +------------------------------+---------+---------+
- 
- 
-   ID_AA64ISAR1_EL1 - Instruction set attribute register 1
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | LS64                         | [63-60] |    y    |
--     +------------------------------+---------+---------+
--     | I8MM                         | [55-52] |    y    |
--     +------------------------------+---------+---------+
--     | DGH                          | [51-48] |    y    |
--     +------------------------------+---------+---------+
--     | BF16                         | [47-44] |    y    |
--     +------------------------------+---------+---------+
--     | SB                           | [39-36] |    y    |
--     +------------------------------+---------+---------+
--     | FRINTTS                      | [35-32] |    y    |
--     +------------------------------+---------+---------+
--     | GPI                          | [31-28] |    y    |
--     +------------------------------+---------+---------+
--     | GPA                          | [27-24] |    y    |
--     +------------------------------+---------+---------+
--     | LRCPC                        | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | FCMA                         | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | JSCVT                        | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | API                          | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | APA                          | [7-4]   |    y    |
--     +------------------------------+---------+---------+
--     | DPB                          | [3-0]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | LS64                         | [63-60] |
-+     +------------------------------+---------+
-+     | I8MM                         | [55-52] |
-+     +------------------------------+---------+
-+     | DGH                          | [51-48] |
-+     +------------------------------+---------+
-+     | BF16                         | [47-44] |
-+     +------------------------------+---------+
-+     | SB                           | [39-36] |
-+     +------------------------------+---------+
-+     | FRINTTS                      | [35-32] |
-+     +------------------------------+---------+
-+     | GPI                          | [31-28] |
-+     +------------------------------+---------+
-+     | GPA                          | [27-24] |
-+     +------------------------------+---------+
-+     | LRCPC                        | [23-20] |
-+     +------------------------------+---------+
-+     | FCMA                         | [19-16] |
-+     +------------------------------+---------+
-+     | JSCVT                        | [15-12] |
-+     +------------------------------+---------+
-+     | API                          | [11-8]  |
-+     +------------------------------+---------+
-+     | APA                          | [7-4]   |
-+     +------------------------------+---------+
-+     | DPB                          | [3-0]   |
-+     +------------------------------+---------+
- 
-   ID_AA64ISAR2_EL1 - Instruction set attribute register 2
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | LUT                          | [59-56] |    y    |
--     +------------------------------+---------+---------+
--     | CSSC                         | [55-52] |    y    |
--     +------------------------------+---------+---------+
--     | RPRFM                        | [51-48] |    y    |
--     +------------------------------+---------+---------+
--     | BC                           | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | MOPS                         | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | APA3                         | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | GPA3                         | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | RPRES                        | [7-4]   |    y    |
--     +------------------------------+---------+---------+
--     | WFXT                         | [3-0]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | LUT                          | [59-56] |
-+     +------------------------------+---------+
-+     | CSSC                         | [55-52] |
-+     +------------------------------+---------+
-+     | RPRFM                        | [51-48] |
-+     +------------------------------+---------+
-+     | BC                           | [23-20] |
-+     +------------------------------+---------+
-+     | MOPS                         | [19-16] |
-+     +------------------------------+---------+
-+     | APA3                         | [15-12] |
-+     +------------------------------+---------+
-+     | GPA3                         | [11-8]  |
-+     +------------------------------+---------+
-+     | RPRES                        | [7-4]   |
-+     +------------------------------+---------+
-+     | WFXT                         | [3-0]   |
-+     +------------------------------+---------+
- 
-   ID_AA64ISAR3_EL1 - Instruction set attribute register 3
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | FPRCVT                       | [31-28] |    y    |
--     +------------------------------+---------+---------+
--     | LSFE                         | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | FAMINMAX                     | [7-4]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | FPRCVT                       | [31-28] |
-+     +------------------------------+---------+
-+     | LSFE                         | [19-16] |
-+     +------------------------------+---------+
-+     | FAMINMAX                     | [7-4]   |
-+     +------------------------------+---------+
- 
-   ID_AA64MMFR0_EL1 - Memory model feature register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | ECV                          | [63-60] |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | ECV                          | [63-60] |
-+     +------------------------------+---------+
- 
-   ID_AA64MMFR1_EL1 - Memory model feature register 1
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | AFP                          | [47-44] |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | AFP                          | [47-44] |
-+     +------------------------------+---------+
- 
-   ID_AA64MMFR2_EL1 - Memory model feature register 2
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | AT                           | [35-32] |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | AT                           | [35-32] |
-+     +------------------------------+---------+
- 
-   ID_AA64MMFR3_EL1 - Memory model feature register 3
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | S1POE                        | [19-16] |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | S1POE                        | [19-16] |
-+     +------------------------------+---------+
- 
-   ID_AA64PFR0_EL1 - Processor Feature Register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | DIT                          | [51-48] |    y    |
--     +------------------------------+---------+---------+
--     | MPAM                         | [43-40] |    n    |
--     +------------------------------+---------+---------+
--     | SVE                          | [35-32] |    y    |
--     +------------------------------+---------+---------+
--     | GIC                          | [27-24] |    n    |
--     +------------------------------+---------+---------+
--     | AdvSIMD                      | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | FP                           | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | EL3                          | [15-12] |    n    |
--     +------------------------------+---------+---------+
--     | EL2                          | [11-8]  |    n    |
--     +------------------------------+---------+---------+
--     | EL1                          | [7-4]   |    n    |
--     +------------------------------+---------+---------+
--     | EL0                          | [3-0]   |    n    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | DIT                          | [51-48] |
-+     +------------------------------+---------+
-+     | SVE                          | [35-32] |
-+     +------------------------------+---------+
-+     | AdvSIMD                      | [23-20] |
-+     +------------------------------+---------+
-+     | FP                           | [19-16] |
-+     +------------------------------+---------+
- 
- 
-   ID_AA64PFR1_EL1 - Processor Feature Register 1
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | GCS                          | [47-44] |    y    |
--     +------------------------------+---------+---------+
--     | SME                          | [27-24] |    y    |
--     +------------------------------+---------+---------+
--     | MTE                          | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | SSBS                         | [7-4]   |    y    |
--     +------------------------------+---------+---------+
--     | BT                           | [3-0]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | GCS                          | [47-44] |
-+     +------------------------------+---------+
-+     | SME                          | [27-24] |
-+     +------------------------------+---------+
-+     | MTE                          | [11-8]  |
-+     +------------------------------+---------+
-+     | SSBS                         | [7-4]   |
-+     +------------------------------+---------+
-+     | BT                           | [3-0]   |
-+     +------------------------------+---------+
- 
-   ID_AA64PFR2_EL1 - Processor Feature Register 2
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | FPMR                         | [35-32] |    y    |
--     +------------------------------+---------+---------+
--     | MTEFAR                       | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | MTESTOREONLY                 | [7-4]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | FPMR                         | [35-32] |
-+     +------------------------------+---------+
-+     | MTEFAR                       | [11-8]  |
-+     +------------------------------+---------+
-+     | MTESTOREONLY                 | [7-4]   |
-+     +------------------------------+---------+
- 
-   ID_AA64SMFR0_EL1 - SME feature ID register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | FA64                         | [63]    |    y    |
--     +------------------------------+---------+---------+
--     | LUT6                         | [61]    |    y    |
--     +------------------------------+---------+---------+
--     | LUTv2                        | [60]    |    y    |
--     +------------------------------+---------+---------+
--     | SMEver                       | [59-56] |    y    |
--     +------------------------------+---------+---------+
--     | I16I64                       | [55-52] |    y    |
--     +------------------------------+---------+---------+
--     | F64F64                       | [48]    |    y    |
--     +------------------------------+---------+---------+
--     | I16I32                       | [47-44] |    y    |
--     +------------------------------+---------+---------+
--     | B16B16                       | [43]    |    y    |
--     +------------------------------+---------+---------+
--     | F16F16                       | [42]    |    y    |
--     +------------------------------+---------+---------+
--     | F8F16                        | [41]    |    y    |
--     +------------------------------+---------+---------+
--     | F8F32                        | [40]    |    y    |
--     +------------------------------+---------+---------+
--     | I8I32                        | [39-36] |    y    |
--     +------------------------------+---------+---------+
--     | F16F32                       | [35]    |    y    |
--     +------------------------------+---------+---------+
--     | B16F32                       | [34]    |    y    |
--     +------------------------------+---------+---------+
--     | BI32I32                      | [33]    |    y    |
--     +------------------------------+---------+---------+
--     | F32F32                       | [32]    |    y    |
--     +------------------------------+---------+---------+
--     | SF8FMA                       | [30]    |    y    |
--     +------------------------------+---------+---------+
--     | SF8DP4                       | [29]    |    y    |
--     +------------------------------+---------+---------+
--     | SF8DP2                       | [28]    |    y    |
--     +------------------------------+---------+---------+
--     | SBitPerm                     | [25]    |    y    |
--     +------------------------------+---------+---------+
--     | AES                          | [24]    |    y    |
--     +------------------------------+---------+---------+
--     | SFEXPA                       | [23]    |    y    |
--     +------------------------------+---------+---------+
--     | STMOP                        | [16]    |    y    |
--     +------------------------------+---------+---------+
--     | SMOP4                        | [0]     |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | FA64                         | [63]    |
-+     +------------------------------+---------+
-+     | LUT6                         | [61]    |
-+     +------------------------------+---------+
-+     | LUTv2                        | [60]    |
-+     +------------------------------+---------+
-+     | SMEver                       | [59-56] |
-+     +------------------------------+---------+
-+     | I16I64                       | [55-52] |
-+     +------------------------------+---------+
-+     | F64F64                       | [48]    |
-+     +------------------------------+---------+
-+     | I16I32                       | [47-44] |
-+     +------------------------------+---------+
-+     | B16B16                       | [43]    |
-+     +------------------------------+---------+
-+     | F16F16                       | [42]    |
-+     +------------------------------+---------+
-+     | F8F16                        | [41]    |
-+     +------------------------------+---------+
-+     | F8F32                        | [40]    |
-+     +------------------------------+---------+
-+     | I8I32                        | [39-36] |
-+     +------------------------------+---------+
-+     | F16F32                       | [35]    |
-+     +------------------------------+---------+
-+     | B16F32                       | [34]    |
-+     +------------------------------+---------+
-+     | BI32I32                      | [33]    |
-+     +------------------------------+---------+
-+     | F32F32                       | [32]    |
-+     +------------------------------+---------+
-+     | SF8FMA                       | [30]    |
-+     +------------------------------+---------+
-+     | SF8DP4                       | [29]    |
-+     +------------------------------+---------+
-+     | SF8DP2                       | [28]    |
-+     +------------------------------+---------+
-+     | SBitPerm                     | [25]    |
-+     +------------------------------+---------+
-+     | AES                          | [24]    |
-+     +------------------------------+---------+
-+     | SFEXPA                       | [23]    |
-+     +------------------------------+---------+
-+     | STMOP                        | [16]    |
-+     +------------------------------+---------+
-+     | SMOP4                        | [0]     |
-+     +------------------------------+---------+
- 
-   ID_AA64ZFR0_EL1 - SVE feature ID register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | F64MM                        | [59-56] |    y    |
--     +------------------------------+---------+---------+
--     | F32MM                        | [55-52] |    y    |
--     +------------------------------+---------+---------+
--     | F16MM                        | [51-48] |    y    |
--     +------------------------------+---------+---------+
--     | I8MM                         | [47-44] |    y    |
--     +------------------------------+---------+---------+
--     | SM4                          | [43-40] |    y    |
--     +------------------------------+---------+---------+
--     | SHA3                         | [35-32] |    y    |
--     +------------------------------+---------+---------+
--     | B16B16                       | [27-24] |    y    |
--     +------------------------------+---------+---------+
--     | BF16                         | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | BitPerm                      | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | EltPerm                      | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | AES                          | [7-4]   |    y    |
--     +------------------------------+---------+---------+
--     | SVEVer                       | [3-0]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | F64MM                        | [59-56] |
-+     +------------------------------+---------+
-+     | F32MM                        | [55-52] |
-+     +------------------------------+---------+
-+     | F16MM                        | [51-48] |
-+     +------------------------------+---------+
-+     | I8MM                         | [47-44] |
-+     +------------------------------+---------+
-+     | SM4                          | [43-40] |
-+     +------------------------------+---------+
-+     | SHA3                         | [35-32] |
-+     +------------------------------+---------+
-+     | B16B16                       | [27-24] |
-+     +------------------------------+---------+
-+     | BF16                         | [23-20] |
-+     +------------------------------+---------+
-+     | BitPerm                      | [19-16] |
-+     +------------------------------+---------+
-+     | EltPerm                      | [15-12] |
-+     +------------------------------+---------+
-+     | AES                          | [7-4]   |
-+     +------------------------------+---------+
-+     | SVEVer                       | [3-0]   |
-+     +------------------------------+---------+
- 
-   ID_ISAR5_EL1 - AArch32 Instruction Set Attribute Register 5
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | CRC32                        | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | SHA2                         | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | SHA1                         | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | AES                          | [7-4]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | CRC32                        | [19-16] |
-+     +------------------------------+---------+
-+     | SHA2                         | [15-12] |
-+     +------------------------------+---------+
-+     | SHA1                         | [11-8]  |
-+     +------------------------------+---------+
-+     | AES                          | [7-4]   |
-+     +------------------------------+---------+
- 
-   ID_ISAR6_EL1 - AArch32 Instruction Set Attribute Register 6
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | I8MM                         | [27-24] |    y    |
--     +------------------------------+---------+---------+
--     | BF16                         | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | SB                           | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | FHM                          | [11-8]  |    y    |
--     +------------------------------+---------+---------+
--     | DP                           | [7-4]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | I8MM                         | [27-24] |
-+     +------------------------------+---------+
-+     | BF16                         | [23-20] |
-+     +------------------------------+---------+
-+     | SB                           | [15-12] |
-+     +------------------------------+---------+
-+     | FHM                          | [11-8]  |
-+     +------------------------------+---------+
-+     | DP                           | [7-4]   |
-+     +------------------------------+---------+
- 
-   ID_PFR2_EL1 - AArch32 Processor Feature Register 2
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | SSBS                         | [7-4]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | SSBS                         | [7-4]   |
-+     +------------------------------+---------+
- 
-   MIDR_EL1 - Main ID Register
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | Implementer                  | [31-24] |    y    |
--     +------------------------------+---------+---------+
--     | Variant                      | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | Architecture                 | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | PartNum                      | [15-4]  |    y    |
--     +------------------------------+---------+---------+
--     | Revision                     | [3-0]   |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | Implementer                  | [31-24] |
-+     +------------------------------+---------+
-+     | Variant                      | [23-20] |
-+     +------------------------------+---------+
-+     | Architecture                 | [19-16] |
-+     +------------------------------+---------+
-+     | PartNum                      | [15-4]  |
-+     +------------------------------+---------+
-+     | Revision                     | [3-0]   |
-+     +------------------------------+---------+
- 
-    NOTE: The 'visible' fields of MIDR_EL1 will contain the value
-    as available on the CPU where it is fetched and is not a system
-@@ -471,29 +459,29 @@ infrastructure:
- 
-   MVFR0_EL1 - AArch32 Media and VFP Feature Register 0
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | FPDP                         | [11-8]  |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | FPDP                         | [11-8]  |
-+     +------------------------------+---------+
- 
-   MVFR1_EL1 - AArch32 Media and VFP Feature Register 1
- 
--     +------------------------------+---------+---------+
--     | Name                         |  bits   | visible |
--     +------------------------------+---------+---------+
--     | SIMDFMAC                     | [31-28] |    y    |
--     +------------------------------+---------+---------+
--     | FPHP                         | [27-24] |    y    |
--     +------------------------------+---------+---------+
--     | SIMDHP                       | [23-20] |    y    |
--     +------------------------------+---------+---------+
--     | SIMDSP                       | [19-16] |    y    |
--     +------------------------------+---------+---------+
--     | SIMDInt                      | [15-12] |    y    |
--     +------------------------------+---------+---------+
--     | SIMDLS                       | [11-8]  |    y    |
--     +------------------------------+---------+---------+
-+     +------------------------------+---------+
-+     | Name                         |  bits   |
-+     +------------------------------+---------+
-+     | SIMDFMAC                     | [31-28] |
-+     +------------------------------+---------+
-+     | FPHP                         | [27-24] |
-+     +------------------------------+---------+
-+     | SIMDHP                       | [23-20] |
-+     +------------------------------+---------+
-+     | SIMDSP                       | [19-16] |
-+     +------------------------------+---------+
-+     | SIMDInt                      | [15-12] |
-+     +------------------------------+---------+
-+     | SIMDLS                       | [11-8]  |
-+     +------------------------------+---------+
- 
- 
- Appendix I: Example
-
--- 
-2.47.3
-
+- Julian Braha
 
