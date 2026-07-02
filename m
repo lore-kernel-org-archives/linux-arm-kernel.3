@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10974C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 23:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D05FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 23:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bvgOKYK7T77g3oR+LPfWj5fFt53zZhcAY3csRaeP6rw=; b=gJtvHzDv9fsWLxK/HR3pNLsi2j
-	Wb5d3d6EG71129bW002kfZf50gdbRiP1x6w3Gb/W90VGKVzQVQKDEi07FX2ReQrgrNjjoI6WoPurb
-	8xehAqi35Jc4MDR7vcRClSqhqGBhtZwe8Ez7XxzB6CJPwhNtVQEqkpulHkyjtUUT6SRRySy15yLD5
-	hQltIqm8e7jOAjbie7KO7og3w/nqi66+tohVHTm9/OkGkVuvwF/SRUm7nYbyuDdVPyI3LUUNiatE7
-	QcMZVG/akGjgUS9BQz2MyIlT/Z+zThtiWByAGwD22vkVGTivZvxMDdV2Og62OX++fHNvdFSIHZmi/
-	0ImA5C5g==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3+zO3Ol51NjjNZ26E8qDnrDKvdxz3CAM4/XWW6qiRlk=; b=OTpk7rQpnVLh247hVBP5wOg+Nl
+	2FVUWh86L6asf/RL//u106YmD7umj4vXXpW2wpukxj6lVgRoONp0MsbR9Ez6vPOuV4Zb4cepQQbAM
+	amKMtSvnuPO0UiLaHvMOj/MoPpUsBg3fR2k5VSKj+g5KHx+w2bKSMiomIDyjq8i2wsRXVJYqMPJw2
+	SCeG3q94cBm7w+uB4b/zUvkagYwfUFLPagFvi0wdkRFfrFF68MUQcCJc1Q2rBneM/c2VJoSRDozDE
+	6g6XvDqtY/ETY5Xwq3J6EZVHCBTaz7ZiOxFaTcyUbo5p/ugRHdv6DD1J+C40+gG3vPwojocNCu4Y1
+	vacmtqUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfQVp-00000005inl-1d5E;
-	Thu, 02 Jul 2026 23:08:05 +0000
-Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
+	id 1wfQmK-00000005jUy-2geq;
+	Thu, 02 Jul 2026 23:25:08 +0000
+Received: from gentwo.org ([62.72.0.81])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfQVn-00000005inP-0Bto
+	id 1wfQmI-00000005jUY-2SlT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 23:08:04 +0000
-Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-8f18d92172aso31858926d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 16:08:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783033682; x=1783638482; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bvgOKYK7T77g3oR+LPfWj5fFt53zZhcAY3csRaeP6rw=;
-        b=rYrtC3wl2iCmqlXbi8OVaf76FYEtVDiUKvrRN+pwE1x+4RvJfMdupnN1/O2LlKP2EY
-         CSPM5/IBoGwEEWWk9UcJJoBNUDhALx5No39cFF4+Vp0Z+rZTZ3blJhzGxW/WPpXpgmwU
-         t3FflSTJq02+IFZcUjdNSk0Judtf4XtUNH+0efWDzQ2ChCBrV34HKj35aCFxyggFsyJr
-         uBJuEgwjYvFkCwyg4XYlXt6HYjknQC8HzgN4j3OBFNXU7DgjngU4YgRwS70ipX9MmtJb
-         3PZTCBcLkKi2v4SPu3r02nL0U1+SQxBGYGA2xH6mUUNO2CaRLc+I/s6YQke6JwClCLj3
-         uqJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783033682; x=1783638482;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bvgOKYK7T77g3oR+LPfWj5fFt53zZhcAY3csRaeP6rw=;
-        b=dn4hSc4KO2VPxfL5dL30gLao+IM5Zwr63rAPJRtSuOT5/hpd/D8c8TfUoIsO10g1zO
-         4UBeqSw/ZvoguIko//D52EBybY4Dnu/RKdc2lb95EKnazqevYP8YpIAH8J6z6keAbMpQ
-         WiE+NitZ5cLKN5x7Z2xkFNBbzOqzqECSJyjN7shuW6LlHLcIp5r5HwNytX0M/R8gQvb4
-         EZUtfanmNU0bW+gaIluv3WQMsKPWyK8oSZ4xKy0tY96R6mi4XndojfOPqJyAwQALw6Zs
-         FZZdl+w0MFHoor4NRY+SUe+S+74WbVAV+URd5lxTdr/oC0AIUYCGRpw1QF2uWS1RQnqA
-         rr8Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpFanmyKbKvBU2V5e+2DPHVJZLro/Xpz8twEJf+wc03lh+M6xmt1A36tlcBTDQyF8EiT/9UyR425K70MJc5TBlT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvAYm/4dL+hJrazSS1sV0nWwotrIyeUKF1r3OCwgrQVxgge0qy
-	7Jxz39j5TJysvr/iaYJ5+a3u72oewx3VQDoMF7sOaidEcBv1QTa8rCFF
-X-Gm-Gg: AfdE7cmY4P4ZfKG8bNLHy684mLip7apDIhBDYZVqDH0scmKrn+MvuTPw9atIAigwWnu
-	IqBG7AH4O/uWK63EerhgE34WpTUbJXwiL6LEDQjWqE0CTR8cKSQXd4x36M+JitrwKt7jXPRCLXp
-	PxwpJqxQcg6ARt+bW/9UVUjvqeqHJlq76AvyCdp5Iim48Q5FReXjtvca6zrMMgjXcfkDTVyvhzg
-	PI5zCZkVnVGKmnPJdSq+NuWQGXMlYQShLJCNbhHMqcw9mKmggHbDI9bN3oNvUvg0p8HoV3IiKDv
-	wawmA03amMGFQ6cpxN8KzVBmCv/yzwYuYU0i5J58Yg+iRHDtnaTqmq6tqMtfNuIWUAc1gfksP0o
-	MOOHlFNkdrpnrTikyg26KpArIC8BTr8D7Ne5ewFfYlaoTt2apYY+NHtUXGLi+ai/Gtv8E0BEBnZ
-	zaojhf1ymyp3R3DofRvapx5G7RtLAv0GPBnitKquqF0Kyq0wLBxbVeUI5VAM48c3LrMBj/I8LAT
-	0p0TIucw09W9E4=
-X-Received: by 2002:a05:6214:33c3:b0:8f3:4ea2:427f with SMTP id 6a1803df08f44-8f4214a217dmr92582856d6.1.1783033681514;
-        Thu, 02 Jul 2026 16:08:01 -0700 (PDT)
-Received: from i4-gl-tmk5904.ad.psu.edu ([130.203.156.186])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f472a9d8c0sm38776506d6.49.2026.07.02.16.08.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 16:08:01 -0700 (PDT)
-From: Yuho Choi <dbgh9129@gmail.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Mark Brown <broonie@kernel.org>,
-	Yicong Yang <yangyicong@hisilicon.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zhou Wang <wangzhou1@hisilicon.com>,
+	Thu, 02 Jul 2026 23:25:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gentwo.org;
+	s=default; t=1783034241;
+	bh=qKGLrumscDa5mByfkzFeZJ3yixyhaRNqBH/+a4LrUuE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=kI0ZrrZfPlxoG4/Z0tiTo2s0vWlYKNATLBiP+F25yyonDZ9d4qvoTn6RBqG7qY7AW
+	 WblJ62o60WiK6or6rQtHk+4Ckm8u/LJAaF7z0/Le66MGclQuSpZb4MwCqIpEZf8IzN
+	 ICDUW3K6pQOVBCq7m04FsXDSaNbO/EJlT2BkR5Ho=
+Received: by gentwo.org (Postfix, from userid 1012)
+	id C7D14406ED; Thu, 02 Jul 2026 16:17:21 -0700 (PDT)
+From: Sayali Kulkarni <sk@gentwo.org>
+To: linu.cherian@arm.com
+Cc: anshuman.khandual@arm.com,
+	catalin.marinas@arm.com,
+	kevin.brodsky@arm.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Yuho Choi <dbgh9129@gmail.com>
-Subject: [PATCH v1] arm64: cpuinfo: Fix sysfs cleanup on failure
-Date: Thu,  2 Jul 2026 19:07:44 -0400
-Message-ID: <20260702230744.91169-1-dbgh9129@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	mark.rutland@arm.com,
+	ryan.roberts@arm.com,
+	will@kernel.org,
+	yang@os.amperecomputing.com,
+	ying.huang@linux.alibaba.com,
+	Sayali Kulkarni <sskulkarni@amperecomputing.com>
+Subject: [PATCH] arm64: tlbflush: add debug counters for local vs broadcast flushes
+Date: Thu,  2 Jul 2026 16:17:05 -0700
+Message-ID: <20260702231706.3375924-1-sk@gentwo.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260523134710.3827956-1-linu.cherian@arm.com>
+References: <20260523134710.3827956-1-linu.cherian@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_160803_085378_8469E9CF 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20260702_162506_659362_817865DB 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +75,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpuid_cpu_online() creates the CPU registers kobject and the base
-identification attribute group before optionally merging the SME-specific
-SMIDR attribute into that group.
+From: Sayali Kulkarni <sskulkarni@amperecomputing.com>
 
-If the base group creation fails, return after deleting the kobject. If
-the SME merge fails, remove the base group before deleting the kobject.
+Add vmstat counters under CONFIG_DEBUG_TLBFLUSH to measure how often
+the active_cpu optimization takes the local fast path versus a broadcast.
+Tracks local/broadcast for mm and range flushes, plus the count of
+broadcasts forced by active_cpu being MULTIPLE
 
-Fixes: d69d56496487 ("arm64/sme: Expose SMIDR through sysfs")
-Signed-off-by: Yuho Choi <dbgh9129@gmail.com>
+Signed-off-by: Sayali Kulkarni <sskulkarni@amperecomputing.com>
 ---
- arch/arm64/kernel/cpuinfo.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index d50e2a9b066b..141bcfa4d611 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -380,9 +380,19 @@ static int cpuid_cpu_online(unsigned int cpu)
- 		goto out;
- 	rc = sysfs_create_group(&info->kobj, &cpuregs_attr_group);
- 	if (rc)
--		kobject_del(&info->kobj);
--	if (system_supports_sme())
-+		goto out_del_kobj;
-+	if (system_supports_sme()) {
- 		rc = sysfs_merge_group(&info->kobj, &sme_cpuregs_attr_group);
-+		if (rc)
-+			goto out_remove_group;
+Hi all,
+
+To help analyze when this patch takes effect, I measured how
+often TLB invalidations take the local fast path versus a broadcast, using
+debug vmstat counters added under CONFIG_DEBUG_TLBFLUSH. The counters 
+record local vs broadcast for whole-mm and range flushes, plus the count of
+broadcasts caused by the mm being active on multiple CPUs.
+
+Setup:
+ - Ampere Altra, 64 cores
+ - 7.2.0-rc1 base with the active_cpu patch plus the debug counters.
+ - Hit rate = local flushes / (local + broadcast), read from /proc/vmstat before and 
+    after each run.
+ - Test: A program that repeatedly flips page’s protection using mprotect(), with a
+    configurable number of threads sharing one address space 
+
+Results: 
+
+ workload                           local fraction
+ -----------------------------      --------------
+ mprotect, 1 thread, pinned         ~100%
+ mprotect, 2 threads                ~0.06%
+ mprotect, 4 threads                ~0.06%
+ mprotect, 8 threads                ~0.06%
+ stress-ng --vm 1, pinned           ~100%
+
+For a genuinely single-threaded process, the local fast path is taken essentially 
+every time. Both are consistent across repeated runs.
+
+For multi-threaded process, active_cpu becomes MULTIPLE and broadcast takes
+place for nearly every invalidation. 
+
+One caveat worth noting: "stress-ng --vm 1" is not actually a single-CPU 
+workload. It spawns a parent, a management process and the worker,
+and the scheduler places them on different CPUs, so the mm becomes active on
+more than one CPU and invalidations broadcast. Unpinned, this gives a highly
+variable local fraction (I observed roughly 7%-57% across runs). Pinning it
+to a single CPU, or using a genuinely single-threaded test, gives ~100%.
+
+So the local fast path is taken while the mm stays active on a single CPU; 
+broadcasts return once the mm becomes active on more than one CPU,
+whether via task migration or via a workload spreading itself across CPUs.
+
+This is a hit-rate measurement only; it does not measure the performance
+delta of the local vs broadcast path, which would need separate kernel-level
+timing.
+
+Thanks,
+Sayali Kulkarni (Ampere)
+sskulkarni@amperecomputing.com
+
+--
+Debug counters patch used for these measurements is below / attached.
+
+ arch/arm64/Kconfig.debug          |  9 +++++++++
+ arch/arm64/include/asm/tlbflush.h | 21 +++++++++++++++++++--
+ arch/arm64/mm/context.c           | 14 +++++++++++++-
+ include/linux/vm_event_item.h     | 13 +++++++++++--
+ mm/vmstat.c                       |  6 +++++-
+ 5 files changed, 57 insertions(+), 6 deletions(-)
+
+diff --git a/arch/arm64/Kconfig.debug b/arch/arm64/Kconfig.debug
+index 265c4461031f..2229655f9d3d 100644
+--- a/arch/arm64/Kconfig.debug
++++ b/arch/arm64/Kconfig.debug
+@@ -20,4 +20,13 @@ config ARM64_RELOC_TEST
+ 	depends on m
+ 	tristate "Relocation testing module"
+ 
++config DEBUG_TLBFLUSH
++	bool "Add vmstat counters to analyze TLB handling"
++	depends on DEBUG_KERNEL
++	help
++	 This option adds vmstat counters that track how arm64 TLB invalidations
++	 are handled, specifically how many take the local fast path versus a
++	 broadcast. The counts are exposed in /proc/vmstat and are useful for
++	 analyzing the active_cpu optimization. If unsure, say N.
++
+ source "drivers/hwtracing/coresight/Kconfig"
+diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+index 90b4e4147590..cbda203aa020 100644
+--- a/arch/arm64/include/asm/tlbflush.h
++++ b/arch/arm64/include/asm/tlbflush.h
+@@ -16,7 +16,13 @@
+ #include <linux/mmu_notifier.h>
+ #include <asm/cputype.h>
+ #include <asm/mmu.h>
+-
++#include <linux/vm_event_item.h>
++#ifdef CONFIG_DEBUG_TLBFLUSH
++extern void _count_vm_tlb_event(enum vm_event_item);
++#define count_tlb_event(x) _count_vm_tlb_event(x)
++#else
++#define count_tlb_event(x) do { } while (0)
++#endif
+ /*
+  * Raw TLBI operations.
+  *
+@@ -370,8 +376,12 @@ static inline bool flush_tlb_user_pre(struct mm_struct *mm, tlbf_t flags)
+ 	}
+ 
+ 	local = active == self;
+-	if (!local)
++	if (!local) {
++		if (active == ACTIVE_CPU_MULTIPLE)
++			/* broadcast because mm is active on multiple CPUs */
++			count_tlb_event(NR_TLB_ARM64_BROADCAST_MULTIPLE);
+ 		migrate_enable();
 +	}
-+
-+	return 0;
-+
-+out_remove_group:
-+	sysfs_remove_group(&info->kobj, &cpuregs_attr_group);
-+out_del_kobj:
-+	kobject_del(&info->kobj);
- out:
- 	return rc;
+ 
+ 	return local;
  }
+@@ -490,10 +500,12 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+ 		__tlbi(aside1, asid);
+ 		__tlbi_user(aside1, asid);
+ 		dsb(nsh);
++		count_tlb_event(NR_TLB_LOCAL_FLUSH_ALL);
+ 	} else {
+ 		__tlbi(aside1is, asid);
+ 		__tlbi_user(aside1is, asid);
+ 		__tlbi_sync_s1ish(mm);
++		count_tlb_event(NR_TLB_FLUSH_ALL);
+ 	}
+ 	flush_tlb_user_post(local);
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+@@ -712,6 +724,11 @@ static __always_inline void __do_flush_tlb_range(struct vm_area_struct *vma,
+ 			dsb(nsh);
+ 	}
+ 
++	if (local)
++		count_tlb_event(NR_TLB_LOCAL_FLUSH_RANGE);
++	else
++		count_tlb_event(NR_TLB_FLUSH_RANGE);
++
+ 	flush_tlb_user_post(local);
+ }
+ 
+diff --git a/arch/arm64/mm/context.c b/arch/arm64/mm/context.c
+index f34ed78393e0..d41c1b517abf 100644
+--- a/arch/arm64/mm/context.c
++++ b/arch/arm64/mm/context.c
+@@ -11,7 +11,7 @@
+ #include <linux/sched.h>
+ #include <linux/slab.h>
+ #include <linux/mm.h>
+-
++#include <linux/vmstat.h>
+ #include <asm/cpufeature.h>
+ #include <asm/mmu_context.h>
+ #include <asm/smp.h>
+@@ -443,4 +443,16 @@ static int asids_init(void)
+ 		set_kpti_asid_bits(asid_map);
+ 	return 0;
+ }
++
++#ifdef CONFIG_DEBUG_TLBFLUSH
++/*
++ * Helper so the TLB flush inlines in tlbflush.h can update the vmstat TLB
++ * counters without pulling vmstat internals into the header.
++ */
++void _count_vm_tlb_event(enum vm_event_item x)
++{
++	count_vm_tlb_event(x);
++}
++#endif
++
+ early_initcall(asids_init);
+diff --git a/include/linux/vm_event_item.h b/include/linux/vm_event_item.h
+index 03fe95f5a020..edd508f3b1fc 100644
+--- a/include/linux/vm_event_item.h
++++ b/include/linux/vm_event_item.h
+@@ -117,10 +117,19 @@ enum vm_event_item { PGPGIN, PGPGOUT, PSWPIN, PSWPOUT,
+ #endif /* CONFIG_BALLOON_MIGRATION */
+ #endif /* CONFIG_BALLOON */
+ #ifdef CONFIG_DEBUG_TLBFLUSH
++		/*
++		 * arm64 TLB flush accounting for the active_cpu optimization
++		 * local_* counters mean the local-only fast path was taken;
++		 * the broadcast counters mean a full broadcast was required.
++		 */
+ 		NR_TLB_REMOTE_FLUSH,	/* cpu tried to flush others' tlbs */
+ 		NR_TLB_REMOTE_FLUSH_RECEIVED,/* cpu received ipi for flush */
+-		NR_TLB_LOCAL_FLUSH_ALL,
+-		NR_TLB_LOCAL_FLUSH_ONE,
++		NR_TLB_LOCAL_FLUSH_ALL,     /* local whole-mm flush */
++		NR_TLB_LOCAL_FLUSH_ONE,     /* used by x86 */
++		NR_TLB_LOCAL_FLUSH_RANGE,   /* local range flush (incl. single page) */
++		NR_TLB_FLUSH_ALL,           /* broadcast whole-mm flush */
++		NR_TLB_FLUSH_RANGE,         /* broadcast range flush; also single page */
++		NR_TLB_ARM64_BROADCAST_MULTIPLE,  /* broadcast; mm active on multiple CPUs */
+ #endif /* CONFIG_DEBUG_TLBFLUSH */
+ #ifdef CONFIG_SWAP
+ 		SWAP_RA,
+diff --git a/mm/vmstat.c b/mm/vmstat.c
+index f534972f517d..b5b7a3268cb2 100644
+--- a/mm/vmstat.c
++++ b/mm/vmstat.c
+@@ -1433,7 +1433,11 @@ const char * const vmstat_text[] = {
+ 	[I(NR_TLB_REMOTE_FLUSH)]		= "nr_tlb_remote_flush",
+ 	[I(NR_TLB_REMOTE_FLUSH_RECEIVED)]	= "nr_tlb_remote_flush_received",
+ 	[I(NR_TLB_LOCAL_FLUSH_ALL)]		= "nr_tlb_local_flush_all",
+-	[I(NR_TLB_LOCAL_FLUSH_ONE)]		= "nr_tlb_local_flush_one",
++	[I(NR_TLB_LOCAL_FLUSH_ONE)]             = "nr_tlb_local_flush_one",
++	[I(NR_TLB_LOCAL_FLUSH_RANGE)]           = "nr_tlb_local_flush_range",
++	[I(NR_TLB_FLUSH_ALL)]                   = "nr_tlb_flush_all",
++	[I(NR_TLB_FLUSH_RANGE)]                 = "nr_tlb_flush_range",
++	[I(NR_TLB_ARM64_BROADCAST_MULTIPLE)]    = "nr_tlb_arm64_broadcast_multiple",
+ #endif /* CONFIG_DEBUG_TLBFLUSH */
+ 
+ #ifdef CONFIG_SWAP
 -- 
-2.43.0
+2.47.3
 
 
