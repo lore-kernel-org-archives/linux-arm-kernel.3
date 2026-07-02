@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20D2CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:24:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E347C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 06:27:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XBY9rp8EKn144/cyQOvwrADc4v44FFdbbkw6wB5GINE=; b=iT93DVOdf0CE1x1lrN5MDZ53ki
-	2syYceBJjKygHMeAVkx7hBIc4bxiQ9EJWdFbX9PL2hOqisE0aLlOmudyg8eAN/z1av/qzK5SrgkD9
-	tkyscMPh/exieqG7TIVjDFnlzrS1+kOLtnVPCxUgJh2R01GW/1qT1zhuYj9yhTGKkpFrGOO1CjsaG
-	9VJm4LQ2aC+syncEN/MBgOg04mUw57u/hSpL+smxdXSp/ByxjAdZsLVTuqbeFmRho7bnudn8tzylK
-	TziGBBIAILZJH/EUK3nyjBj6r837huvpncPTEE8ubwRxio3SVoBHPkPkWzpAKIg4KAQt52KgMUYgd
-	JmdQHOtQ==;
+	bh=3eBn6yYPLH2ipNnA672FRtzi3xFVI7UPgps+ZwTDFzA=; b=fpEHTSkJSeeRWxSQQNEVP3pENi
+	v+wYkT/t0TEcZys6Jp7KN9O2j+YJ0Z9NrnDCt6PccRoNW8h6vcGE3GlCY20aykQJNx987ZDjNN5cw
+	z9DJp4M0qn26ovb8jDv6Dvo92ajKaPsbiSoGDprco3n4HdWwhrUo7ofoInS1XKMzadujZjpjWl8m6
+	j9iGLs1RUlIGz4DfJN9zXuSiAaecTIb4ma7+G+wYiIM+jVORKPMIaM5jmi3LGd4SuOVoof6CJlFMA
+	DTkS5+3NyXyy8qunyw2n5vuff8lA4i/6is3L2TLaapNPsjRLO2f58kLw9WAATC28y9S5D+Yb1FxCg
+	NsbwLirQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAq3-00000003dtQ-0FCv;
-	Thu, 02 Jul 2026 06:23:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfAic-00000003dL3-27PK;
+	Thu, 02 Jul 2026 06:16:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfAq1-00000003dtD-19OF;
-	Thu, 02 Jul 2026 06:23:53 +0000
+	id 1wfAia-00000003dKt-3xyy;
+	Thu, 02 Jul 2026 06:16:13 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98FBB40B11;
-	Thu,  2 Jul 2026 06:23:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2A461F00A3A;
-	Thu,  2 Jul 2026 06:23:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9244860172;
+	Thu,  2 Jul 2026 06:16:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 482BF1F000E9;
+	Thu,  2 Jul 2026 06:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782973432;
-	bh=XBY9rp8EKn144/cyQOvwrADc4v44FFdbbkw6wB5GINE=;
+	s=k20260515; t=1782972971;
+	bh=3eBn6yYPLH2ipNnA672FRtzi3xFVI7UPgps+ZwTDFzA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PIY+TDJ9mIq+2AAkVUcRIH3+kgPxcQ19xY0Vy6FujkiGNDF8Ycrm1OolKflvB1fV3
-	 dR7OXB5XdaKe1mabHIfTkhmDGLGDwqtxRG1GD2tCJUeMSuPkYARraNDvTuBK372hjy
-	 lzcpiUVmRhNAvJZx40iq1fkzFpDWUYde3P/ZzFI0PLMp4x+HoQz/vDHC9AvMIgwtXw
-	 zuYqqfPT1990a7f1Tp2d/v4F0oFKkB7VuItO0DeWilhJghQKgpuFzhO2UQlk/h7ber
-	 lMy6QcuplEePpZAolAYBFEGuYFFZ3weDRUU3kJ2EWNvt+uASb4NzjKLUlunCWkLF8f
-	 7IjInO1PavoxQ==
-Date: Thu, 2 Jul 2026 08:23:48 +0200
+	b=AgOrK9hWFVZdG7FQCX01vljrn7ocPX3JQbiQA6nbxE6oXhRyf8ZcyWAgYu7FZkoA0
+	 76+h1enpAdnMpRJEF5JTOElp5ebvnL1CPOZD8o6NBhFjzwHydCczUqbhr2p1G1atSS
+	 6SUw86jYT5IYk9OtFbDyINO+5reMP5nfigVeFLwMHwn6gI/FznrIXgdSx7ouoh+obH
+	 2QKD288wDD77Q7kABTMiO/T+BXtY1CbWEOevEwATu3IAeSwDxf6k06VawImAu42s5L
+	 FreGrS86Zq9VHYVfuWeLdda39dG693hFm4VNR0eXjUo5GeZjWZ64eOxOD4sfuc+6tm
+	 94XBuU9R/c42A==
+Date: Thu, 2 Jul 2026 08:16:07 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Gokul Praveen <g-praveen@ti.com>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
-	neil.armstrong@linaro.org, nm@ti.com, robh@kernel.org, sjakhade@cadence.com, 
-	kristo@kernel.org, vigneshr@ti.com, vkoul@kernel.org, yamonkar@cadence.com
-Subject: Re: [PATCH v4 net-next 1/2] dt-bindings: phy: cadence-torrent:
- Update property values to support 3 clocks
-Message-ID: <20260702-vigilant-tody-of-inquire-ffbede@quoll>
-References: <20260701142457.81874-1-g-praveen@ti.com>
- <20260701142457.81874-2-g-praveen@ti.com>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>
+Cc: pratyush@kernel.org, mwalle@kernel.org, takahiro.kuwano@infineon.com, 
+	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, srini@kernel.org, 
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev, 
+	linux@armlinux.org.uk, richardcochran@gmail.com, linusw@kernel.org, arnd@arndb.de, 
+	michael@walle.cc, linux-mtd@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v4 1/7] dt-bindings: mtd: jedec,spi-nor: allow the SFDP
+ to be exposed via NVMEM
+Message-ID: <20260702-utopian-termite-of-perfection-f1f3ec@quoll>
+References: <20260630092406.150587-1-manikandan.m@microchip.com>
+ <20260630092406.150587-2-manikandan.m@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260701142457.81874-2-g-praveen@ti.com>
+In-Reply-To: <20260630092406.150587-2-manikandan.m@microchip.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,76 +74,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 07:54:56PM +0530, Gokul Praveen wrote:
-> Update maxItems value of "clocks" property to 3 as description of
-> this parameter already indicates 3 clocks(refclk,pll1_refclk(optional)
-> and phy_en_refclk(optional)).
+On Tue, Jun 30, 2026 at 02:54:00PM +0530, Manikandan Muralidharan wrote:
+> Add an optional "sfdp" child node (compatible "jedec,sfdp") that
+> describes the SFDP as a read-only NVMEM provider via nvmem.yaml, so its
 
-But what if description is wrong? You need to provide rationale why you
-are doing it and you cannot use existing code alone as that rationale,
-because as you pointed out - existing code is not fully correct.
+What is SFDP?
 
+> contents (e.g. a vendor EUI-48/EUI-64) can be read through NVMEM cells.
 > 
-> Update the maxItems and items value of "clock-names" property with multiple
-> combination of clock-names possible since pll1_refclk and phy_en_refclk are
-> optional clocks.
-
-Why? You need to describe why you are doing this, not what you are
-doing.
-
-> 
-> Signed-off-by: Gokul Praveen <g-praveen@ti.com>
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 > ---
->  .../bindings/phy/phy-cadence-torrent.yaml        | 16 ++++++++++++----
->  1 file changed, 12 insertions(+), 4 deletions(-)
+>  .../devicetree/bindings/mtd/jedec,spi-nor.yaml | 18 ++++++++++++++++++
+>  1 file changed, 18 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-> index 9af39b33646a..96c664d50629 100644
-> --- a/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-> +++ b/Documentation/devicetree/bindings/phy/phy-cadence-torrent.yaml
-> @@ -34,7 +34,7 @@ properties:
+> diff --git a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> index 587af4968255..98fd954598ab 100644
+> --- a/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/jedec,spi-nor.yaml
+> @@ -103,6 +103,20 @@ properties:
+>    spi-cpol: true
+>    spi-cpha: true
 >  
->    clocks:
->      minItems: 1
-> -    maxItems: 2
-> +    maxItems: 3
->      description:
->        PHY input reference clocks - refclk (for PLL0) & pll1_refclk (for PLL1).
->        pll1_refclk is optional and used for multi-protocol configurations requiring
-> @@ -45,9 +45,17 @@ properties:
->  
->    clock-names:
->      minItems: 1
-> -    items:
-> -      - const: refclk
-> -      - enum: [ pll1_refclk, phy_en_refclk ]
-> +    maxItems: 3
+> +  sfdp:
+> +    $ref: /schemas/nvmem/nvmem.yaml#
+> +    unevaluatedProperties: false
+> +    description:
+> +      The Serial Flash Discoverable Parameters (SFDP) tables exposed as a
+> +      read-only NVMEM device. This allows standard or vendor-specific SFDP
+> +      data (for example a factory-programmed EUI-48/EUI-64 identifier) to be
+> +      consumed through NVMEM cells.
+> +    properties:
+> +      compatible:
+> +        const: jedec,sfdp
+> +    required:
+> +      - compatible
 
-Drop
-
-> +    oneOf:
-> +      - items:
-> +          - const: refclk
-> +      - items:
-> +          - const: refclk
-> +          - enum: [ pll1_refclk, phy_en_refclk ]
-
-Drop these, pointless. You were supposed to grow existing syntax.
-
-> +      - items:
-> +          - const: refclk
-> +          - const: pll1_refclk
-
-So here is the enum.
-
-> +          - const: phy_en_refclk
-
-And this stays.
-
-You make changes which do not make the binding better and are not
-explained in commit msg. Focus on WHY you are doing things and also
-explain WHY you did such complicated syntax (if you insist on rewriting
-correct code into something odd we do not expect).
+Where are any resources? What sort of sub-device is represented here by
+an empty device node?
 
 Best regards,
 Krzysztof
