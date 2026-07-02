@@ -4,94 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319DAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:04:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8419C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 09:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ltAucTOR/5O5x3cPBkQD7HWTrR+has2ZItj9F0GdEnw=; b=xg3+cVj0SXFgzRRYFnNHWNpJnR
-	30Mu0pxPFXztb0xY1X+IIOcobKtwExG0YGO+0Sfgq258jWfyVEGxUNQq7c6tiAOiRUd5x2FkZgia/
-	fI/6krXjhL13i9EhCQQiK1+oERv6MwAKG00l0yWayURc5M/VPolRah2OIkmouZta0v+7thpVPDr8i
-	ho4awJAHPGDntdzDWBm58ge0GOnVZNOJUGEtxIZqV8ucHHUJk+H0QfAaLcPyJSE7oOQJ4bTj7z2ik
-	GYoNRvPKj5yV3Y+arls8ysAydtNSP56j1DbS2b2agWGumtCRT0TGZzddqahsu0/8RVt72nFv9dWAl
-	tMYwoPiQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rYOUNaGMGZsPlGyhqLkbebVXqK7qfkK62tQGnVDlaQc=; b=vzFDxe0xJMLoP7ShvxNahwCViW
+	vTiqL0ikeTLC1TlVkyY5FWNxHQPROdqa+nWVNsKtqdxJ0GZxXAbbPx9h+k03QGD2OGlbxBkMQZwCY
+	Bvll/h4M+0nR2F4DhzaLACm8VYTWwHEfaAeL076KyVcI3+2oMZwrPPhFtdAYj4zbNjTXne2kVWNuC
+	uD17WIc4Ellv1lU5nzrMyx0LKiFbRUM1TsGWQGIT9RDIFm4QxOF4+ffY86viZu/mTpaGv8zJ1sqwR
+	yYnLfQjS94vvHgPKfIe40INSj3rZDVynmZHmAUm36xsABLL3iCT4jBe7T/1xpoH4SXKflYw7FFAAf
+	h/xgJwfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDLR-00000003xbm-3iE6;
-	Thu, 02 Jul 2026 09:04:29 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1wfDLu-00000003xkb-0hU8;
+	Thu, 02 Jul 2026 09:04:58 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfDLP-00000003xab-0o0u
+	id 1wfDLr-00000003xjC-3OVj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 09:04:28 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5aebba706b3so1542148e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 02:04:26 -0700 (PDT)
+	Thu, 02 Jul 2026 09:04:56 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-37d70036426so1028615a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 02:04:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1782983065; x=1783587865; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ltAucTOR/5O5x3cPBkQD7HWTrR+has2ZItj9F0GdEnw=;
-        b=evvstO52fWRa3K5PMcJ+RhEDjl93ldJOiviH4k7YBeewKcjmGoj26WZ7gcc7/87+Yj
-         uXgCHAybkVqWZ+EdlolxiUTCQR5Q/oMLcxBBEqyNuvlU0lfB2gMThHzgIa9Q1xsakgCA
-         Z+76YDno13u3dK9KgVycz0+cEXt3DmFenozXTZn7Lhsie+8cFeMJLbxbKImW/5f5tmhj
-         QZVCizOSLptAxukxL8P1MWQD9R2T2UD/BNiIggvo7k56PNFrkAElP2C33ii+GswRy/uI
-         AD8dl3lz0LM9YUnPLfMdQA4a9R9SLizZoTlek8kdmG3h6O22maaQqPVRGpEofi/unix3
-         ZguQ==
+        d=sifive.com; s=google; t=1782983094; x=1783587894; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=rYOUNaGMGZsPlGyhqLkbebVXqK7qfkK62tQGnVDlaQc=;
+        b=eEZFt4RSLNkmuuGhrTaPORPoGa7Fey+PJyHTn1vwK5JQznDCrYsGNl+IHAd6FKnnn8
+         N6Hlu6WNHeQ8vJfGYGY2rR4GMLnMY4CF+SlpFQXIBAFbmshlc2m5+ajYeJfZ474LDELC
+         rpkG1s7AZ+9y1rJTge+ctPuTv4sZ6iRwB84EAlIQ4zpbEBAcZTcUK7XkFR63QBkPoMlP
+         1TJ9UKMUqtHGa3vZk+aQG+7QRoOJdJO+wxBWnLheTtCVb7TM0jnY4oFXE6xhzerBHCxy
+         Dw3l4tFGKA/S0NGs5WgP5BWO8GdgyvTADMh66UqZKp7HlRwB8TLSUm/B/1EDfEHz6ItW
+         RbEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1782983065; x=1783587865;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ltAucTOR/5O5x3cPBkQD7HWTrR+has2ZItj9F0GdEnw=;
-        b=Wnbd2ZwE0ryrP+wt5+7PRcPdvahn5xe6RUMAeUrmheRoFVxlDIFpylk4gZYv3i32ON
-         8ky2zYY0bhd6cwAkOIxVkN3EI1mRh6tj1ffh9K0Q64K/d4AUU0s+uJjp99Xb4WAclf/D
-         g0Y5YsPEAtzS/2w7WDeQhdGZxcNG2NietDSyfwQdQD0kxD/CcVApaleW0PJs06J3YvGJ
-         6iOvqPP+VITodci6YUofQEqh264+osktOUdFYC/GclZqaoYRqKKQ212r09skAfcoNB9E
-         XXz69mRuMaerjrTy/Ylwq6JuOON7QJUOhVErKlTeYxToFJpDuGQvrhgEOWz4mUTCp1hg
-         9edA==
-X-Forwarded-Encrypted: i=1; AHgh+RpnDQ+wAyD5dQiPJSBgV5encssU7Jr75MzV4IqdUW3ghTg6Uy+a4R6dYoiyC6wykaHHfGlmxSBClBcvPrlsvT6Y@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxnne0Hk9f8IfHVMrp8eAgwnO1zXwI/u2z1jacP9T+BBf0mxiD/
-	Pbqe7XH0Mt5tdn1n2wtTx/dMa72utuUDAD0BysGaHZ8BEwhh68t42gFq
-X-Gm-Gg: AfdE7cnrIhQpY+K7aGVWaF1QiXM4W8mrIHjYd/SuPjeadKYzvLJKqlWN+bZ6lXlE58g
-	aBDBGMpUvsJwdcoiRNK2c9VaIbpEIA4jYqeuty8/kcjoIf+SbgnC0pUM/8AG80usd9Z0wTLUFV0
-	GEVryGzDV68fCeU06hheaerDNQBCXMS+I8w1m6KvmBZZ6HCBjKxPTRwmkj9lcBVQYn83gdGYUeg
-	8haD7ba0E4UjW5bUBjKY8juDfuzVwxTdFNQlGOiOYqZVMCgYlJv97rD6uVi4itdhBWiEH5dNoWE
-	bQ7me/tTGGAxbSiQt9AirH/TGyGdmjNL34Y8K29XCm8yCY5TYDaqwq8ljDJkbbKR+LXXxRvFrtB
-	QFqIkbSNNnZ1FMyNS9sM9vZ3ZuAM4nurbKqN2pgr513FkO+w80/G82rgYkcVcd38QWCD+jU5peW
-	UCb7CqHrb7L30hqJ5x0n7lgMT4XNT7wi0O8KpGKyCFz7Bj1IS7eaa76g==
-X-Received: by 2002:a05:6512:1556:b0:5ae:bfa0:54f1 with SMTP id 2adb3069b0e04-5aec743317amr986635e87.59.1782983064322;
-        Thu, 02 Jul 2026 02:04:24 -0700 (PDT)
-Received: from pc636 (host-90-233-199-119.mobileonline.telia.com. [90.233.199.119])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aec899a3a8sm547824e87.31.2026.07.02.02.04.23
+        d=1e100.net; s=20251104; t=1782983094; x=1783587894;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=rYOUNaGMGZsPlGyhqLkbebVXqK7qfkK62tQGnVDlaQc=;
+        b=naoyXrn/LYSYlt37Z+1+WIU2fqwBmRWKe13fdsr0H6QmRRFsGAjtgHdUVtgjoBq36z
+         IwZ1V+Eh8iGdlHZfdW7pPOwF48xHd/1+G8eozgvQLTUwkxcwQ+vLraajstcRVsGglg0K
+         ZDW50GRPZQ5c0z8qn4+Iwu68KitZhcLlo2lyrxf9I3IU/XThR5fjTxUEFY0AnO5P6inQ
+         2UmYmklksIXEeygV18ckvX07doAa22i7vS2/0i9zPRTjC1T+0NEjx5aAIMqFXqfgPN2s
+         wKtYV6xXPQb66BFUg5IfwKQSKBo/u4D3K27StaWSZSBrPJS67Sem/f6rrhmmdt3TbMRj
+         qxCw==
+X-Gm-Message-State: AOJu0YzPqDNhBcVD10ZfkVQvhyWVmPCRW8d46NwpxIIB8TIzq5yONN3J
+	FvEd4ryI/Y2aUcK5tXLj8LIG1NCZ38CvBb7IlZg9/NZjhSWRR+kA6yOUFfh3ySR070A=
+X-Gm-Gg: AfdE7clJdSINCQwFG8ZwPG3JnZXe1A0rzoZUI7VMwqQn6RqLmLdf9SnHeUFSnc50Nss
+	GafPZ8aBa/osZzs/2uklX+geu35toCpdsaprAyd/hCa0rJ4eahMepMadgzbVQgyH0qzp8a+F0ls
+	gAHb+Sg15ZCLu8lxlJ85swTi/smB/1fDR2bjBurZlHV5VzVi4qocOYg6shniC0CEISBIBqGv2a6
+	eC4o39j0OVG+5/uKbQBditb9uSm+mT0kOY7zsdyLv1ln/OiXQ1jL1sNLlDcj/rEV+n1k1AnUcPT
+	zPlN7mXOpV2EI2i1mtNg0fjesf6oqBFFxZJBe+xL+f1Z3hl/j/Mx1V1z/TBTY/MmuqmRynd3hTF
+	3ZjafJQvhGacL9buX9SCK1Z7GE9of9byjD9dVlAsy1nKHffrJJoEGUssM1J2dvAU3R8bKxPkYCl
+	hQos7mUJzZ6YhvWsvqeK/RBZph6aJ5pn0=
+X-Received: by 2002:a17:90b:3e45:b0:37f:d27f:5186 with SMTP id 98e67ed59e1d1-380ba91d167mr4114967a91.25.1782983094001;
+        Thu, 02 Jul 2026 02:04:54 -0700 (PDT)
+Received: from EricL-ThinkPadX1-TW.local ([136.226.240.163])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-380e15c362asm725719a91.1.2026.07.02.02.04.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 02:04:23 -0700 (PDT)
-From: Uladzislau Rezki <urezki@gmail.com>
-X-Google-Original-From: Uladzislau Rezki <urezki@pc636>
-Date: Thu, 2 Jul 2026 11:04:21 +0200
-To: Wen Jiang <jiangwenxiaomi@gmail.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com,
-	will@kernel.org, urezki@gmail.com, baohua@kernel.org,
-	Xueyuan.chen21@gmail.com, dev.jain@arm.com, rppt@kernel.org,
-	david@kernel.org, ryan.roberts@arm.com, anshuman.khandual@arm.com,
-	ajd@linux.ibm.com, linux-kernel@vger.kernel.org,
-	jiangwen6@xiaomi.com, shanghaoqiang@xiaomi.com
-Subject: Re: [PATCH v4 0/6] mm/vmalloc: Speed up ioremap, vmalloc and vmap
- with contiguous memory
-Message-ID: <akYplZcaLXIl7AsP@pc636>
-References: <20260618084726.1070022-1-jiangwen6@xiaomi.com>
- <20260624195704.5c29c0353163babb721585ca@linux-foundation.org>
- <CAHKocdHJ-JB5jjXG3_-syz4P8k1C=jWrGaFxwnTjcinpGyR_BA@mail.gmail.com>
+        Thu, 02 Jul 2026 02:04:53 -0700 (PDT)
+From: Eric Lin <eric.lin@sifive.com>
+Date: Thu, 02 Jul 2026 17:04:31 +0800
+Subject: [PATCH RFC] dt-bindings: perf: riscv,pmu: Add interrupts-extended
+ property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAHKocdHJ-JB5jjXG3_-syz4P8k1C=jWrGaFxwnTjcinpGyR_BA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260702-pmu-dt-property-v1-1-a7a7737afb72@sifive.com>
+X-B4-Tracking: v=1; b=H4sIAJ4pRmoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDcwND3YLcUt2UEt2CovyC1KKSSt20NEOjJGPTtFSDtGQloK6CotS0zAq
+ widFKQW7OSrEQweLSpKzU5BKQWUq1tQBQgp8DeAAAAA==
+X-Change-ID: 20260701-pmu-dt-property-ff12b35fe0fc
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Atish Patra <atishp@rivosinc.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Nick Hu <nick.hu@sifive.com>, 
+ Eric Lin <eric.lin@sifive.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1782983089; l=2327;
+ i=eric.lin@sifive.com; s=20260630; h=from:subject:message-id;
+ bh=KuUldqSBvNUBw35ye/ZZ9kP2NkGYAK2SlfUkqDDVXZo=;
+ b=r6xyJqLl12BSFPk0mVYjvI1fgO5czZqFRAdildvZY941PKjeY6XoAQqsZmgQVjkkNpPNiA/st
+ /OSxALCjIC8As7kr5tTMspJ7rxU3VdXQOpNyeo7jc8yONMLS0Jk9Ffa
+X-Developer-Key: i=eric.lin@sifive.com; a=ed25519;
+ pk=RLPQN6uNJ1cSM8GhP+L++2j3pf5ohznFbkNdwIO1XDw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_020427_294723_123749C1 
-X-CRM114-Status: GOOD (  28.94  )
+X-CRM114-CacheID: sfid-20260702_020455_847116_59935973 
+X-CRM114-Status: GOOD (  12.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,81 +114,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 02:35:24PM +0800, Wen Jiang wrote:
-> On Thu, 25 Jun 2026 at 10:57, Andrew Morton <akpm@linux-foundation.org> wrote:
-> >
-> > On Thu, 18 Jun 2026 16:47:20 +0800 Wen Jiang <jiangwenxiaomi@gmail.com> wrote:
-> >
-> > > This patchset accelerates ioremap, vmalloc, and vmap when the memory
-> > > is physically fully or partially contiguous. Two techniques are used:
-> >
-> > Thanks.
-> >
-> > > 1. Avoid page table rewalk when setting PTEs/PMDs for multiple memory
-> > >    segments
-> > > 2. Use batched mappings wherever possible in both vmalloc and ARM64
-> > >    layers
-> > >
-> > > Besides accelerating the mapping path, this also enables large
-> > > mappings (PMD and cont-PTE) for vmap, which are currently not
-> > > supported.
-> > >
-> > > Patches 1-2 extend ARM64 vmalloc CONT-PTE mapping to support multiple
-> > > CONT-PTE regions instead of just one.
-> > >
-> > > Patch 3 extracts a common helper vmap_set_ptes() that consolidates PTE
-> > > mapping logic between the ioremap and vmalloc/vmap paths, handling both
-> > > CONT_PTE and regular PTE mappings. This prepares for the next patch.
-> > >
-> > > Patch 4 extends the page table walk path to support page shifts other
-> > > than PAGE_SHIFT and eliminates the page table rewalk for huge vmalloc
-> > > mappings. The function is renamed from vmap_small_pages_range_noflush()
-> > > to vmap_pages_range_noflush_walk().
-> > >
-> > > Patches 5-6 add huge vmap support for contiguous pages, including
-> > > support for non-compound pages with pfn alignment verification.
-> > >
-> > > On the RK3588 8-core ARM64 SoC, with tasks pinned to a little core and
-> > > the performance CPUfreq policy enabled, benchmark results:
-> > >
-> > > * ioremap(1 MB): 1.35x faster (3407 ns -> 2526 ns)
-> > > * vmalloc(1 MB) mapping time (excluding allocation) with
-> > >   VM_ALLOW_HUGE_VMAP: 1.42x faster (5.00 us -> 3.53us)
-> > > * vmap(100MB) with order-8 pages: 8.3x faster (1235 us -> 149 us)
-> >
-> > Nice.
-> >
-> > > Many thanks to Xueyuan Chen for his testing efforts on RK3588 boards.
-> >
-> > Indeed.
-> >
-> > I see Dev had a good look at v3 - hopefully he (and Ulad) (and more ARM
-> > folks) have time to go through this.
-> >
-> > Is there any effect on anything other than arm64?  I'm wondering how
-> > much testing these changes will really get in mm.git and linux-next.
-> >
-> > How is our selftests coverage of these changes?  Is there some existing
-> > selftest which will exercise these new features?
-> >
-> 
-> Hi Andrew,
-> 
-> I ran all test_vmalloc subtests (run_test_mask=0xff) on both ARM64 and
-> x86_64, comparing base (v7.0.10) against the patched kernel.
-> 
-> All test_vmalloc subtests passed on both platforms. I do not see any
-> functional or performance regression. The small differences below look
-> like measurement noise.
-> 
-> ARM64 (Radxa ROCK 5B+, RK3588, pinned to CPU 0, performance governor,
-> 5 runs averaged):
-> 
-I think there are still comments to this series. One from me about
-naming and there is one more from Jain here: [PATCH v4 6/6] mm/vmalloc: align vm_area so vmap() can batch mappings
+The interrupts-extended property is used to specify the connection
+between the PMU counter overflow interrupt and the corresponding CPU
+local interrupt controller (riscv,cpu-intc).
 
-Could you please have a look?
+This property also allows the software to associate a PMU node with a
+specific CPU. To support future heterogeneous systems, where different
+CPUs may support different PMU events, this property allows the driver
+to identify the correct PMU capabilities for each hart.
 
---
-Uladzislau Rezki
+Reviewed-by: Nick Hu <nick.hu@sifive.com>
+Signed-off-by: Eric Lin <eric.lin@sifive.com>
+---
+ Documentation/devicetree/bindings/perf/riscv,pmu.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+index d01c677ad3c7..13aceb3d42b9 100644
+--- a/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
++++ b/Documentation/devicetree/bindings/perf/riscv,pmu.yaml
+@@ -34,6 +34,13 @@ properties:
+   compatible:
+     const: riscv,pmu
+ 
++  interrupts-extended:
++    minItems: 1
++    maxItems: 4095
++    description:
++      Specifies the interrupt-parent and local interrupt index for each CPU's
++      PMU counter overflow. Each item points to a riscv,cpu-intc node.
++
+   riscv,event-to-mhpmevent:
+     $ref: /schemas/types.yaml#/definitions/uint32-matrix
+     description:
+@@ -101,6 +108,7 @@ examples:
+   - |
+     pmu {
+         compatible = "riscv,pmu";
++        interrupts-extended = <&cpu0_intc 13>;
+         riscv,event-to-mhpmevent = <0x0000B 0x0000 0x0001>;
+         riscv,event-to-mhpmcounters = <0x00001 0x00001 0x00000001>,
+                                       <0x00002 0x00002 0x00000004>,
+@@ -127,6 +135,9 @@ examples:
+      */
+     pmu {
+           compatible = "riscv,pmu";
++          interrupts-extended = <&cpu0_intc 13>,
++                                <&cpu1_intc 13>,<&cpu2_intc 13>,
++                                <&cpu3_intc 13>,<&cpu4_intc 13>;
+           riscv,event-to-mhpmevent =
+               /* SBI_PMU_HW_CACHE_REFERENCES -> Instruction or Data cache/ITIM busy */
+               <0x00003 0x00000000 0x1801>,
+
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260701-pmu-dt-property-ff12b35fe0fc
+
+Best regards,
+--  
+Eric Lin <eric.lin@sifive.com>
+
 
