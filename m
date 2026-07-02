@@ -4,142 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9820DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F68C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 19:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJkyAFlBL9UguzFac1zTtX83kUekBA+QIwn1Y2uhNNY=; b=bnGSVXgeiUG+rwxhGn22CAeJFn
-	LEHtWS26MXj7peH6vP23436pfVwQ1rvhmTGUnH0wXGhdrVEzzpP7e3BLcaTBRv7fNdVZeFX2QNPA3
-	i3BR++DrYkIFMxhK99t4JKSxwQgHYXDRBeyQ33X+Zg7a4sxKnF3H9l4HOBde+Nw+fBwpjXoL/uX2L
-	KxBkfSxT0kY/MKtOUM7qBhKR3N03lQXtI2l4dgD6cyWYNlsHUhQi/3AMl8dsNMXuTcKHjIIQyJpsW
-	nUIuHpGcYPgj5yT/wEJONgFX5XwvrkA+jKFlaskFJPypnvhDEn5Yp07TGFjRSstimLY+h0vbjlGWs
-	uxsg0zxg==;
+	bh=2pe7QGosUd6pYukAZkp7UoQqhXM2BPwlkxGc7CrlhlE=; b=k/scpeyHNELOcUO+loQxc849vg
+	/b5vC5of4uC7RIXSi7nkkhPzveKQAuFOMkoKPQsrxSaRhRSJtSd4OrrRyqDvsT3j0lrmo8Sl1vLMq
+	9MJwtVx4agJA+HkRz7PU1eVj77CphikqLMG+3sMeCVPWVy/you+0t6hVF+ioIDmXu1Fr1BRu23P6F
+	9I9JAceNkNuLR9n36R85beywE4wErmlS7TxfUAUaaiXdePvejnIqvlutb0vQoDDSi6QpPMs3giG0B
+	PYIp7zh7wEHjqOuWOOqEB4pi+P5j5EibGgMjRqdwazmc5A/AAMWk3AhTZcwO+5AY1prwoaLjiKnQW
+	lZ7uYObw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMdo-00000005Inm-0RST;
-	Thu, 02 Jul 2026 19:00:04 +0000
-Received: from mail-northeuropeazon11010005.outbound.protection.outlook.com ([52.101.84.5] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1wfMiN-00000005JD4-2cbE;
+	Thu, 02 Jul 2026 19:04:47 +0000
+Received: from pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com ([44.246.1.125])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfMdl-00000005Iiu-0V4n
+	id 1wfMiL-00000005JBO-1a1N
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 19:00:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xefZsPHiqWlRCZiS63YGoG8EGjr6r8FLb0xdGDLMsP5iMf5t/Mi1DyLq9vyDrfiqgsgPc8a+O8S/onB+qYm4TafFSWUo5ksa4o9PiSVZKphgbQCzEFbMNb8NgloCsXg6G3u9iqcObOeh/friBFkCV2r+y9oFCGcMyya28o89Y8YDsBCFJVy/tESmkHsbUh4jVgK7YPjLMO23++ME8mUK/AqTcCa5YzjEnW8nI/g+kCNe6OspHemDtZo1ZcbHeF11fjoHmDjfO5hCyqz1XsTzof8sIKBesqXJFbFk18sbj05VBbejIZLa0eYtcEIBZvqQywn4iaQG4NiMm84M+Gc7RA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wJkyAFlBL9UguzFac1zTtX83kUekBA+QIwn1Y2uhNNY=;
- b=WkOOUHRSEPyCxObiD0Izc6jWzFVn4lZHdhHoZ6Ok6PwouT/bZ5gSFJz3mD4VslFJxSAzvkjS77L/gxhLacteV5DcJ3y3sRln2NUPZhPDiXEEBbDQGnFhq6uQcmpGujN9u9gTatf49q29ef/LStdORLYSJHcOA/RklYBFfHclbiaAVt0qZD7fsY9sL8zOtNuriB/m07tNlxnntq0cION0L424kXo02fW0rmhJ/PUJou8faeEonIvHotOwc8M3Y0vqOib2rgjYTS480yeHuk6JKXXMSvYhsPP8G5iUeymp3UfjTPe9HMiQT8o5VHlg/hTXByytY44FWuJQr5pxduORmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wJkyAFlBL9UguzFac1zTtX83kUekBA+QIwn1Y2uhNNY=;
- b=s1ZYim2k85INqrjtvDb48SvZHeWrdCphzB+Uh61+Ipk7omLtj6KwF4ZAm9Rq6TFXs4au06SiwP3qLk0+be7q1RnTRrWnSIh7I5ps9pcnuTwoneIN0nLZ/1JCGamVJbtevQwdzPz/78MoHz22Mj65kQ7fRjrYk50sfmUFBWHR4wlAfDHML2o32TWPKgkXGar8UdOvEd9EI+csz9aNq2YI/apB/VdeQQ47keJqnDyHKW2zGFWzNUlLjgns5bOTXjdpu0RJ+ZY3blPWmkO3HUwDgygokRPjlST5cshIL+mV8utAF0CkT0AgjYeFLyALK0ccr4OMOCnHa1laHZA91NFMTQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU2PR04MB9194.eurprd04.prod.outlook.com (2603:10a6:10:2f9::11) with
+	Thu, 02 Jul 2026 19:04:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1783019085; x=1814555085;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=2pe7QGosUd6pYukAZkp7UoQqhXM2BPwlkxGc7CrlhlE=;
+  b=JRzSS8PiSTlYdZZP05risZevJlg9Y9W1+egluj93nx4OHVea4bOBk4c/
+   9vwUiQeKvxpq/zanatxvyyZ+Co+RBeu9SZQbGmYiAoaMuf7kpLz9hILBT
+   MiPTuiHUWXNv9NLU1JJxx+vpJ8BlcW+XhVEuHE/JKdWqWQA69G4jpZ0Li
+   iZpO38vEXs+WzOINsLOfsypI8wAu4Hwhs6YnxpJ+enTeVZYmD1S3/6BZa
+   ixN9Uwwj9UihsK5Rk/ajXH1Q0cGxinepd1/slCFLplKMFPcmV1Fqh+V2u
+   6E+qcZE+/MRRUFzG3uk0Nxu/Trq8mcexwz/hkqHG/ZDdzmI2E4gxuIhWQ
+   Q==;
+X-CSE-ConnectionGUID: KnK3/dG4SAiAG74xMu7Rww==
+X-CSE-MsgGUID: fxhspPhJRbCWRBy+suXonQ==
+X-IronPort-AV: E=Sophos;i="6.25,144,1779148800"; 
+   d="scan'208";a="22959825"
+Received: from ip-10-5-0-115.us-west-2.compute.internal (HELO smtpout.naws.us-west-2.prod.farcaster.email.amazon.dev) ([10.5.0.115])
+  by internal-pdx-out-002.esa.us-west-2.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2026 19:04:41 +0000
+Received: from EX19MTAUWA002.ant.amazon.com [205.251.233.178:21211]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.20.237:2525] with esmtp (Farcaster)
+ id 7c09ebf7-9e63-4c84-ad0d-86b36d4e71af; Thu, 2 Jul 2026 19:04:41 +0000 (UTC)
+X-Farcaster-Flow-ID: 7c09ebf7-9e63-4c84-ad0d-86b36d4e71af
+Received: from EX19D001UWA001.ant.amazon.com (10.13.138.214) by
+ EX19MTAUWA002.ant.amazon.com (10.250.64.202) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43;
+ Thu, 2 Jul 2026 19:04:41 +0000
+Received: from dev-dsk-congkai-2a-df9e8fab.us-west-2.amazon.com
+ (172.23.251.204) by EX19D001UWA001.ant.amazon.com (10.13.138.214) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.159.18; Thu, 2 Jul
- 2026 18:59:54 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Thu, 2 Jul 2026
- 18:59:53 +0000
-Date: Thu, 2 Jul 2026 13:59:44 -0500
-From: Frank Li <Frank.li@oss.nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Michael Riesch <michael.riesch@collabora.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Martin Kepplinger-Novakovic <martink@posteo.de>,
-	Rui Miguel Silva <rmfrfs@gmail.com>,
-	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	Guoniu Zhou <guoniu.zhou@nxp.com>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v7 2/8] media: subdev: Add media_async_register_subdev()
- helper
-Message-ID: <aka1IHI3ar8FS0ei@SMW015318>
-References: <20260702-imx8qxp_pcam-v7-0-b47d9e363400@nxp.com>
- <20260702-imx8qxp_pcam-v7-2-b47d9e363400@nxp.com>
- <20260702161519.GI3534761@killaraus.ideasonboard.com>
- <akapt6v_DBJSAnj0@SMW015318>
- <20260702181920.GJ3534761@killaraus.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260702181920.GJ3534761@killaraus.ideasonboard.com>
-X-ClientProxiedBy: SA1P222CA0077.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:806:2c1::24) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.43; Thu, 2 Jul 2026
+ 19:04:40 +0000
+From: Congkai Tan <congkai@amazon.com>
+To: Oliver Upton <oupton@kernel.org>, <kvmarm@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: Congkai Tan <congkai@amazon.com>, Marc Zyngier <maz@kernel.org>, "Joey
+ Gouly" <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, "Jonathan
+ Corbet" <corbet@lwn.net>, Haris Okanovic <harisokn@amazon.com>, Geoff Blake
+	<blakgeof@amazon.com>, Stanislav Spassov <stanspas@amazon.de>,
+	<kvm@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v2 2/3] KVM: arm64: Expose PMMIR_EL1.SLOTS under strict PMUv3 UAPI
+Date: Thu, 2 Jul 2026 19:04:20 +0000
+Message-ID: <20260702190421.420992-3-congkai@amazon.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20260702190421.420992-1-congkai@amazon.com>
+References: <20260702190421.420992-1-congkai@amazon.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU2PR04MB9194:EE_
-X-MS-Office365-Filtering-Correlation-Id: e47510ba-ef2f-4955-3aeb-08ded86c1996
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|19092799006|7416014|366016|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: R0d/VAxblMc1WSfqHxGjdVKMqquOFPzIsoeHds8p+F7n6sPDt3YiKd+XXuE5ON2+jFZJZqjjSlpb/KF9QKyU5M5MSfevX5gfup3P+W2BKDlwjKgirV+pHbzItwRm6gCoWv6l6CQAh97P3+MvpGRrqf9hVoXwXFwmJgN1QNL0Nlb071qIPOYgt4hIpKu7wvazNJnHQiqrgYDhiEzOsq9umF2+KHQHm1nG4tLUHSm84y9H2n5h0QF+eznxwD0gN8vcPeOvCo3o302tLyhImXEXd/jJku3Rd8w0Ql+yPhFx2Jp6t7gIHsxOh9UWMBtbYvN9N1BgzN1u8KZCkHx1WikvJtlcEqB/4S3IDyUCF74F409o8oRe6BOnDMO9NR/7mSl2O/+b/ogqp14E6ohFR3M72l7mXprf+fJGu9CDhsDyEpyUwOD4x2xII6HMP/C6ev+Mw/x1T4qtFQBezMiD5iB4uRqL+meqkHRWZIc4Nx5qxUYyBuh7qY85f62YlNW5dUqjVFzs+cRgbv4bfvt3oeN9l+mV97XNxzvEPmDc4aZC5Q4ti/pZQE+YZidX5rBPuvvG7Fju1h9iDlzvJ6/FDUOOs8vM/2UeXbHzpt1Dy4QHsy7j6ezvf4mc79iJNaMV6eHxnDQ83Eh5Iuo/6oLjqB2D130m/GSP85rchgtkvKdFe14=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(19092799006)(7416014)(366016)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?25v3w16HdBAyXQIIO77aDGsR6wJxcKfjHAl2wEyTZWi3fVFTppVNRJEl7ucN?=
- =?us-ascii?Q?m8lFvLa2I1D7YgKSWWbkQ0u+6Pf2fYeCYwbwvxqTLot1O7kdv2AgS7Mj0afq?=
- =?us-ascii?Q?Uj7VZuBJZZevmatUI5sDNNiBsLj7vFMLbJ/xczTWs/LOTKURi3uMYPo5+z9H?=
- =?us-ascii?Q?lCYhh2ky1URiNLiHZ0qC3+Geee64GL3coJJPB8DaI22q0A+XNfwfU0tPKBmU?=
- =?us-ascii?Q?OQW338wefFtrkeWgcD0wBz8bgFPEsVocQBP3X7FkyX8OOAM+o0ljavRwAe4Q?=
- =?us-ascii?Q?dKsyiIDbm6ZVmniH8QrYOgxD88lSqFr+j7hjuToUsiwBzeu55CHtMuLCpLX5?=
- =?us-ascii?Q?JZG9KHwSrGmxIIoyeXHceTE/DdaHl9SuVTid3YEGdp/eJOT+0z/uOFCCBYye?=
- =?us-ascii?Q?snqIVfuamuVbcMXExKG2EBO5hhxwbQXjM50TOSEn5Dp8hCf1It1PfnbE7c0w?=
- =?us-ascii?Q?AEwiwk8qY8jNN1yFroZn/h42hYFso0jzDmxX7NEir9koDkjhRO0piwU4lWRP?=
- =?us-ascii?Q?E5L8UP9OB+3ngYBa5QzAm7rEabETtkRGrxxG1ivPH4gsUq/N9vl0tFzS2AWZ?=
- =?us-ascii?Q?sOrGMLXh91pdm6JngbAdSoxxY6gKPuOcMWxC+2G2UnhcX1SmC0KrteKT+JzZ?=
- =?us-ascii?Q?lWC03CzySKPKujfgBaNBwR7LSuDN5R5zcd9Codha6rMYkaWzSdwmAkDe6aiU?=
- =?us-ascii?Q?UtS2mSwN7PcvnT7o+suNIQDn01YPcCvQOxc6obn15bNgl5ib0nwpMY6iRwEw?=
- =?us-ascii?Q?BtyTJgRrLb8oiBrHAzBJAwkdq9p1dfq2s9GFh9XPzpjcWvaKposC/E8XeIja?=
- =?us-ascii?Q?EY5iYZLTVtqIbuzXxATh+OyQGGEqQ4y7QpflgttxxDBQf53+W40UryGcUGwF?=
- =?us-ascii?Q?LCPviupQOxPDAlSK2r/UBIBQbkBhA+SuFXzSOHrS7HgODhW3R/ezz9lBOT4/?=
- =?us-ascii?Q?GkgLpcdYSrvlOJtQ7q7CC1xXCfd+sL3TJgBfD16nHkuw6vGXihaixLFpDHuN?=
- =?us-ascii?Q?HusgBTz61HVjaIv1Ye4b/2ls87+0lglickkd/oR7EZFrEWFOfsgfD3PACrEm?=
- =?us-ascii?Q?LhFv+whIbDSPyyq7XS1PO57FQbETVIlqVf8YNpZyjzXz0qXNYZCSzlTIN4L5?=
- =?us-ascii?Q?4LXSaq05a3IdTTCtWOnICr/zJ+59rzcmPQH6baGCBfUD7sZQKVAF8PhmUKL0?=
- =?us-ascii?Q?Mt/s+HDjPCM35b4w2l6blIks4qQ/MLmvECrs/B1BaGBKzZBwqzb/Kd2wlE41?=
- =?us-ascii?Q?Km5ng1OPTmBB+FF42CksJcWduIxS5MQjZOpuJZ9+cEnlF8KCr+Gn0AzzmjlR?=
- =?us-ascii?Q?4HLs4+Gj0vjkACHZvxsF8wVH+UZ3a06Is9AoMCOhEYJmzjTRg408B5taftmW?=
- =?us-ascii?Q?K7tZD9l2zHn5NVFlLxI46vaGzCH8sItM5UKwiHszV0SnkPChOjYuRrXJDNtM?=
- =?us-ascii?Q?LQblKFdY4eb1/LWFAzrkJF5slLQMoJddD+Rpdeq80ElEZ4O27J4186faoH/W?=
- =?us-ascii?Q?5PvTDocVYHGoeQA//aXfkHtXdT9GJ2CWU3y16tJNZ5V1DsEBwyN06wxF0zg8?=
- =?us-ascii?Q?GOY2cpuor7RUg/YrZ4LWpQYhY3wWt0Isgorum6laFoHDgtN60Y1xllxbIDCz?=
- =?us-ascii?Q?lkzIXogg339qGExKMu3rP99oDvS/SaQ/pk77zPJ+UaWgreqEzzjGXXtukqse?=
- =?us-ascii?Q?1R1RnFHgufSIl5R3HOVClbqIpjSbaPlqhxAH1+32LyYA5KVlhD1GyIVj+qyD?=
- =?us-ascii?Q?Jv6JhuTtV2fycXimR8CzKhqnmCf4kgFq+c3+vvb/CceNctjSxEHm?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e47510ba-ef2f-4955-3aeb-08ded86c1996
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 18:59:53.7406
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7wO7jDaWNyKidJ8NMuKCzTKy35iNwoJ/9q/23P32MX9kcckxy2eupy0FFc9ljjAV8pup31xWl+XNJDh6rLnz8M3LDScTqps29cgjj1YSlgF9ibD9BGf+6uyCeDmVlJWk
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9194
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.23.251.204]
+X-ClientProxiedBy: EX19D045UWC004.ant.amazon.com (10.13.139.203) To
+ EX19D001UWA001.ant.amazon.com (10.13.138.214)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_120001_165882_63FC75E7 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260702_120445_465884_389E9ED5 
+X-CRM114-Status: GOOD (  24.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,45 +99,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 09:19:20PM +0300, Laurent Pinchart wrote:
-> On Thu, Jul 02, 2026 at 01:11:03PM -0500, Frank Li wrote:
-> > On Thu, Jul 02, 2026 at 07:15:19PM +0300, Laurent Pinchart wrote:
-> > > Hi Frank,
-> > >
-> > > Have you missed the comment in v6 ?
-> > >
-> > > https://lore.kernel.org/all/20260629084654.GB3054459@killaraus.ideasonboard.com/
-> >
-> > Sorry, I forget emphased it in change log.
-> >
-> > "For the reason stated by Sakari in patch 1/9 (dependency from MC to
-> > V4L2), I don't think a "media_async_register_subdev()" function is a
-> > good idea."
-> >
-> > The reason already NOT existed in v7, I removed v4l2_fwnode_endpoint from
-> > media_pad. So MC will not depdent to V4L2.
-> >
-> > So this comments is not suit for this version.
->
-> media_async_register_subdev(), with its "media_" prefix, appears part of
-> the MC API, but it operates on a subdev. At least the function name
-> should be changed in my opinion.
+Introduce a new field pmmir_slots in struct kvm_arch to store
+PMMIR_EL1.SLOTS. It only saves the actual hardware PMU value when
+the VMM explicitly selects a PMU under KVM_ARM_VCPU_PMU_V3_STRICT.
+Otherwise, it stays 0 after allocation.
 
-Name is easy to fix. The key is if the overall direction and method is
-good enough to go futher.
+Use this field to implement guest access, userspace get, and userspace
+set for PMMIR_EL1:
+- access_pmmir(): uses the value in kvm->arch.pmmir_slots directly. If
+  the VMM selected a PMU and KVM_ARM_VCPU_PMU_V3_STRICT is set, the guest
+  can correctly read the underlying core's SLOTS. Otherwise, it continues
+  to read 0 since the true SLOTS value can be nondeterministic.
+- get_pmmir(): same as access_pmmir().
+- set_pmmir(): only the SLOTS field is writable; a value setting any
+  other bit is rejected with -EINVAL, since get_pmmir() returns SLOTS
+  zero-extended. A value of 0 resets kvm->arch.pmmir_slots to 0 for
+  backward compatibility, as the register is RAZ in older KVM, a value
+  matching the current SLOTS is accepted as a no-op, and anything else is
+  rejected with -EINVAL. Once the VM has run PMMIR_EL1 is immutable, so a
+  mismatching write then returns -EBUSY.
 
-Optional naming here
+The register is now exposed via KVM_GET_REG_LIST for PMUv3 vCPUs, so add
+it to the get-reg-list selftest's PMU register list.
 
-v4l2_async_register_subdev_with_created_pad()
-v4l2_create_pad_and_async_register_subdev()
-v4l2_async_register_subdev_from_fw_ports()
-...
+Signed-off-by: Congkai Tan <congkai@amazon.com>
+Reviewed-by: Geoff Blake <blakgeof@amazon.com>
+Reviewed-by: Haris Okanovic <harisokn@amazon.com>
+Reviewed-by: Stanislav Spassov <stanspas@amazon.de>
+---
+ arch/arm64/include/asm/kvm_host.h             |  3 +
+ arch/arm64/kvm/pmu-emul.c                     | 11 ++++
+ arch/arm64/kvm/sys_regs.c                     | 63 ++++++++++++++++++-
+ .../selftests/kvm/arm64/get-reg-list.c        |  1 +
+ 4 files changed, 76 insertions(+), 2 deletions(-)
 
-Frank
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index a6e33aaf400d..b896d6eef822 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -387,6 +387,9 @@ struct kvm_arch {
+ 	/* Maximum number of counters for the guest */
+ 	u8 nr_pmu_counters;
+ 
++	/* PMMIR_EL1.SLOTS value exposed to the guest. */
++	u8 pmmir_slots;
++
+ 	/* Hypercall features firmware registers' descriptor */
+ 	struct kvm_smccc_features smccc_feat;
+ 	struct maple_tree smccc_filter;
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 1f24169505a9..9595bce6519f 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -1117,6 +1117,17 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 
+ 			kvm_arm_set_pmu(kvm, arm_pmu);
+ 			cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
++
++			/*
++			 * Since a specific PMU is explicitly selected,
++			 * PMMIR_EL1.SLOTS is deterministic to the guest.
++			 * If KVM_ARM_VCPU_PMU_V3_STRICT is set, snapshot
++			 * the value to allow the guest to read it.
++			 */
++			if (kvm_vcpu_has_pmuv3_strict(vcpu))
++				kvm->arch.pmmir_slots =
++					FIELD_GET(ARMV8_PMU_SLOTS,
++						  arm_pmu->reg_pmmir);
+ 			ret = 0;
+ 			break;
+ 		}
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 148fc3400ea8..edfbb8de1528 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1370,6 +1370,64 @@ static bool access_pminten(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 	return true;
+ }
+ 
++static bool access_pmmir(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
++			 const struct sys_reg_desc *r)
++{
++	if (p->is_write)
++		return write_to_read_only(vcpu, p, r);
++
++	/*
++	 * If KVM_ARM_VCPU_PMU_V3_STRICT is set and PMU was explicitly
++	 * selected, the underlying hardware SLOTS value was read into this
++	 * field. Otherwise, it stays 0. All other PMMIR_EL1 fields are RAZ.
++	 */
++	p->regval = FIELD_PREP(ARMV8_PMU_SLOTS, vcpu->kvm->arch.pmmir_slots);
++	return true;
++}
++
++static int get_pmmir(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
++		     u64 *val)
++{
++	*val = FIELD_PREP(ARMV8_PMU_SLOTS, vcpu->kvm->arch.pmmir_slots);
++	return 0;
++}
++
++static int set_pmmir(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
++		     u64 val)
++{
++	struct kvm *kvm = vcpu->kvm;
++	u8 slots = FIELD_GET(ARMV8_PMU_SLOTS, val);
++
++	/*
++	 * Only the SLOTS field is exposed (get_pmmir returns just that field),
++	 * so reject a write that sets any other bit rather than silently
++	 * masking it.
++	 */
++	if (val & ~(u64)ARMV8_PMU_SLOTS)
++		return -EINVAL;
++
++	guard(mutex)(&kvm->arch.config_lock);
++
++	/*
++	 * Once the VM has started PMMIR_EL1 is immutable. Reject any write
++	 * that does not match the current value.
++	 */
++	if (kvm_vm_has_ran_once(kvm))
++		return slots == kvm->arch.pmmir_slots ? 0 : -EBUSY;
++
++	/*
++	 * Only SLOTS = 0 is honored for backwards compatibility with the
++	 * old RAZ behavior. Reject any non-zero write that does not match
++	 * the current value.
++	 */
++	if (!slots)
++		kvm->arch.pmmir_slots = 0;
++	else if (slots != kvm->arch.pmmir_slots)
++		return -EINVAL;
++
++	return 0;
++}
++
+ static bool access_pmovs(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+ 			 const struct sys_reg_desc *r)
+ {
+@@ -3456,7 +3514,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ PMU_SYS_REG(PMINTENCLR_EL1),
+ 	  .access = access_pminten, .reg = PMINTENSET_EL1,
+ 	  .get_user = get_pmreg, .set_user = set_pmreg },
+-	{ SYS_DESC(SYS_PMMIR_EL1), trap_raz_wi },
++	{ PMU_SYS_REG(PMMIR_EL1), .access = access_pmmir, .reset = NULL,
++	  .get_user = get_pmmir, .set_user = set_pmmir },
+ 
+ 	{ SYS_DESC(SYS_MAIR_EL1), access_vm_reg, reset_unknown, MAIR_EL1 },
+ 	{ SYS_DESC(SYS_PIRE0_EL1), NULL, reset_unknown, PIRE0_EL1,
+@@ -4600,7 +4659,7 @@ static const struct sys_reg_desc cp15_regs[] = {
+ 	{ CP15_PMU_SYS_REG(HI,     0, 9, 14, 4), .access = access_pmceid },
+ 	{ CP15_PMU_SYS_REG(HI,     0, 9, 14, 5), .access = access_pmceid },
+ 	/* PMMIR */
+-	{ CP15_PMU_SYS_REG(DIRECT, 0, 9, 14, 6), .access = trap_raz_wi },
++	{ CP15_PMU_SYS_REG(DIRECT, 0, 9, 14, 6), .access = access_pmmir },
+ 
+ 	/* PRRR/MAIR0 */
+ 	{ AA32(LO), Op1( 0), CRn(10), CRm( 2), Op2( 0), access_vm_reg, NULL, MAIR_EL1 },
+diff --git a/tools/testing/selftests/kvm/arm64/get-reg-list.c b/tools/testing/selftests/kvm/arm64/get-reg-list.c
+index 0a3a94c4cca1..cfa99979d57c 100644
+--- a/tools/testing/selftests/kvm/arm64/get-reg-list.c
++++ b/tools/testing/selftests/kvm/arm64/get-reg-list.c
+@@ -532,6 +532,7 @@ static __u64 base_regs[] = {
+ static __u64 pmu_regs[] = {
+ 	ARM64_SYS_REG(3, 0, 9, 14, 1),	/* PMINTENSET_EL1 */
+ 	ARM64_SYS_REG(3, 0, 9, 14, 2),	/* PMINTENCLR_EL1 */
++	ARM64_SYS_REG(3, 0, 9, 14, 6),	/* PMMIR_EL1 */
+ 	ARM64_SYS_REG(3, 3, 9, 12, 0),	/* PMCR_EL0 */
+ 	ARM64_SYS_REG(3, 3, 9, 12, 1),	/* PMCNTENSET_EL0 */
+ 	ARM64_SYS_REG(3, 3, 9, 12, 2),	/* PMCNTENCLR_EL0 */
+-- 
+2.50.1
 
->
-> --
-> Regards,
->
-> Laurent Pinchart
 
