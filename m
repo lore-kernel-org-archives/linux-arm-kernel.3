@@ -4,64 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A02C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30755C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 07:58:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RggIXQChyrd9PGRMbf+vMro4+L7wE747ABQYOAEiDL0=; b=jZMUXFDgDwqdazLFXp4BOhpKQw
-	GPZVdYnQLVEncoNTMjblIk0OcW/73HfCWPa7Li4cVhkGoREBAGCIsM4TTPCzrMGtvA9g1C+PR2WP+
-	ObldNaCGM0hj4G8OZ+kk5nbNWA2Aw8XL0WH0BlB3AA/pDg1Lqr08MN4Zdj4tWrc9hizg0cwSrXuuI
-	tFkH58MaYpQ8WlF8objpfkONyTwRO2M8qVCnV05lpPByUtM2UkF5eGNU01RZNp+3cDsAhSjAvU+uc
-	enPaoAe3V9WhlwToaCJAjB9kRaFl/kHHgFikIrGd5trUhwQAYjAIcTsGOO0+hfUhDUw7FDLXKJJAl
-	zUiAcXWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/j3IiFTI8KXbBn2V4TIY590Yl/+UXf61a09lUwHxiVA=; b=IstCQMhzurNoTy2ARTF7XV+Yls
+	dldc0cWRhMw3chRcQVLIDW57LmYi46JC6Mck6b196he5RKq0Jk4W4w2WCsjfQTrpIb6Uw+L79FFZE
+	Of+Jtn9CjxWjn3dkuq82XCpilT0eU+glWIyPZxbzAc8WumC338TRo7J80TCF2x7gZ5yDQCjaN1CIU
+	Bt+dmKZoZUCzeSXEQZlw0fQO7UrlInvG6eEMYKNXw0e24C/dlBGtTPZIaq3UxQrIVa3+6SBGEtvBg
+	iParVJ/8cwddxdcZaPeHtaPeHBdbJdQXZiBzvRvZo9BB7SdWSIwADn+4kunfhlvR0FlsrZWdOBcFm
+	rzJwpcPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCEH-00000003mIg-3qeE;
-	Thu, 02 Jul 2026 07:53:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfCJZ-00000003mu8-03kG;
+	Thu, 02 Jul 2026 07:58:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfCEH-00000003mIU-09Nc;
-	Thu, 02 Jul 2026 07:53:01 +0000
+	id 1wfCJX-00000003mu2-37wY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Jul 2026 07:58:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 250AE60120;
-	Thu,  2 Jul 2026 07:53:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A267B1F000E9;
-	Thu,  2 Jul 2026 07:52:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D3A886001D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 07:58:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BD101F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Jul 2026 07:58:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1782978779;
-	bh=RggIXQChyrd9PGRMbf+vMro4+L7wE747ABQYOAEiDL0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=env7wj8wcJfIuCtiqo2vta7nC186527y80FragjdAc/RxQ5ScaDRP4J4T3DllIWsE
-	 y/oCXXrMyyA10nC8qPxYSwd9jLj272kw1s9l2jnzrnuCSuw9xezvcyfbUTosfMLlrt
-	 S0RLngLUyu20SuO6o4/xwJ1cmZzVnqkogmrOauVjic58rC30njyzut0demB8x2BXFK
-	 J1t65ElN9x8747Pzzi0vsBEeTaC/dP3bearigkZWFXVZ/G1n9vct3IIDoW5etiX7B6
-	 sS1h3pACCRoAzYaNqxDHEiq5ouMcX7h+rD6WjrFR+K2TVYP+60La/bQVogr1LPx8bX
-	 uucpi7VH4ZLIw==
-Date: Thu, 2 Jul 2026 09:52:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: chunkuang.hu@kernel.org, p.zabel@pengutronix.de, 
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, 
-	simona@ffwll.ch, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, matthias.bgg@gmail.com, 
-	andi.shyti@kernel.org, djakov@kernel.org, broonie@kernel.org, jitao.shi@mediatek.com, 
-	ck.hu@mediatek.com, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, justin.yeh@mediatek.com, 
-	jason-jh.lin@mediatek.com, kernel@collabora.com
-Subject: Re: [PATCH 1/6] dt-bindings: soc: mediatek: mutex: Improve title and
- description
-Message-ID: <20260702-congenial-honest-platypus-39d90a@quoll>
-References: <20260701122043.19612-1-angelogioacchino.delregno@collabora.com>
- <20260701122043.19612-2-angelogioacchino.delregno@collabora.com>
+	s=k20260515; t=1782979106;
+	bh=/j3IiFTI8KXbBn2V4TIY590Yl/+UXf61a09lUwHxiVA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=PldCjYA4RAUI1BMibujMNOxjGmbFPydGf0II6QKP9xPm/7Mfu2E0UGQ8Uay3yY5ji
+	 o3fSpH4jkrayVoCaKT1SC9g1HdBQpoxagDJ9M4krNJdsFe+/tQFT0YmssoNMT/ysuY
+	 CmKdXMo9q5q3jgAjJcVaYW8RrCCvI4VO0q5BsojPWvKdgBTOMQthaPh1ZQu9GXzSwk
+	 RKEWmtdWN3AxAp2kJzNaodwlItKB/ZWIt6EM2hd1Fetd5Ht4awaKfFNc6O1BElvKmG
+	 Uc0yNTyBLsn+ocnwV4tfxTeYhfLugVneGL08f81NFEGfqm+i7U8uIQPB64fAgQfWPh
+	 aknCaTLiz4a2Q==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aeb24c0807so1250059e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 00:58:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Roi/uV6bWE3/Ssu4ySPUSuKhhs7LRi0aIv673Zk0gZJZ67/HgvQivQNmrFAuGaBuK1jDVC4WsuGoFkZOPNYECTu@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywl2tOx34G0/tl9moT+t0sM/7023xBGQo3w+Lo9O6qjxfG6jHed
+	1hE9218EaQPpg5+DQLDhz1QhLj7iRsiyAbblHdNz0B07szSBUGRB8t9Ok2U1ubBSTQngMOU1HQ7
+	tMdyHlvXeR+SONQjML/yt/dhLnrEcPLw=
+X-Received: by 2002:a05:6512:8388:b0:5ae:b861:ac27 with SMTP id
+ 2adb3069b0e04-5aec6793d72mr856369e87.18.1782979105395; Thu, 02 Jul 2026
+ 00:58:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260701122043.19612-2-angelogioacchino.delregno@collabora.com>
+References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com> <20260701-gpio-nomadik-silent-v1-1-644d10316cef@bootlin.com>
+In-Reply-To: <20260701-gpio-nomadik-silent-v1-1-644d10316cef@bootlin.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 2 Jul 2026 09:58:12 +0200
+X-Gmail-Original-Message-ID: <CAD++jLng0n4_YNy+Jfb+xwdi_qxWh_GrbYChwUEG4XtJrUz8pg@mail.gmail.com>
+X-Gm-Features: AVVi8CfSGg0Rg88HPf4tmMDUA0VHM06H_sT-mgyoJj-QDfFPmE65E0qFzsN5iLQ
+Message-ID: <CAD++jLng0n4_YNy+Jfb+xwdi_qxWh_GrbYChwUEG4XtJrUz8pg@mail.gmail.com>
+Subject: Re: [PATCH 1/5] gpio: nomadik: convert nmk_gpio_populate_chip() to
+ goto cleanup
+To: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+	Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,33 +84,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 02:20:38PM +0200, AngeloGioacchino Del Regno wrote:
-> Improve both the title and the description of this hardware to
-> disambiguate its functionality from a hardware mutex and/or from
-> a hwspinlock.
-> 
-> Though in datasheets this is called "DISP_MUTEX", the meaning is
-> is "Mute-X" (where "X" means "any hardware trigger signal") really
-> as this is what this piece of hardware does: muting or unmuting of
-> signals in each sub-IP of the display or other multimedia related
-> controllers.
-> 
-> Based on that, also clarify the description text, as to make sure
-> that the information is actually accurate.
-> 
-> While at it, also avoid forcing literal blocks in the description
-> as there is nothing in there needing that (no ascii graph or other
-> stuff that needs a literal block anyway), and add myself in the
-> list of maintainers.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../bindings/soc/mediatek/mediatek,mutex.yaml   | 17 ++++++++++-------
->  1 file changed, 10 insertions(+), 7 deletions(-)
+On Wed, Jul 1, 2026 at 6:57=E2=80=AFPM Th=C3=A9o Lebrun <theo.lebrun@bootli=
+n.com> wrote:
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> Remove duplicate teardown code that is found in all error if
+> statements. Replace by goto-based cleanup labels.
+>
+> Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
 
-Best regards,
-Krzysztof
+Reviewed-by: Linus Walleij <linusw@kernel.org>
 
+Yours,
+Linus Walleij
 
