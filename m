@@ -4,57 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB09AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:58:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FFF9C43327
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Jul 2026 12:58:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=drkvOwQ3JgEyNang874DEJpH9vFASLmsVzw4BgncP2g=; b=kAfI8vTJuoJolYTz+v0f3ApTDw
-	tFRdD5QklEZ0XG0mre4SPvG58BZPRD3zJP3EfnjH3U4JFRsQL1DUp80DjM/Djb6GRD/4fDK7qTtfB
-	qm2YmwC6K8cxr2h3gAa6H5zdyQv4qsUwpWssF0Dxaj28umcYuMBd6n7rX6g7VLEeFzhDwBNgPmIWM
-	QJLE6IvZC3F17aKhcjffZEUnVS+hnUrSJ7lHLMVNPf053iReyDtqgSOsCrU8W3WpN7eqETQ6abIm/
-	ZmvjrKeYIxZxOQRpdWQU8AP+kuLlsTTai12pJ+NfiZ3U9KF+vq0iDO4p3a9Zv3TrZHgzZT1MjEJ/k
-	C9lJ0z4Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iOURw/RgzEUdJhAQDaSsZRvlVbckDDAcHAc+nkHvils=; b=zPnFXbxQqlekVWmqAtbP3KmnBX
+	uaK4bWZ8CjwzBnxpplL/moviTTJgXh4Hz7yxDG+HOE3QtJzFGcg2dExENHV3y0jM1sPX6BB2WmyGY
+	2du3A4XeTI5VBdc2G6IW3wrRoCL7CbCrbu99rOfM+hsUfhUGijIkoddITPjVup8+w+4rqq2T8Mpmu
+	JQcK7DNY8K+f1I8HPaU64BMyfsp46yUFRmRMrawHYpKavSIhBNPZcChf1pdrlQ5ICuS7RzdoJVeH4
+	KV38ewXV1tKf4AhZCAGD3jTxDHLgY3uIHHiLgMTxpenTUDQ8+oz0cRsXbIG10hLEk5df20JAMiFmx
+	NCxwNqKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGzd-00000004Tlx-37LZ;
-	Thu, 02 Jul 2026 12:58:13 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfGzb-00000004TlK-08eJ
+	id 1wfGzx-00000004Tog-3cA1;
+	Thu, 02 Jul 2026 12:58:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfGzw-00000004ToT-2qLj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Jul 2026 12:58:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 279911FCD;
-	Thu,  2 Jul 2026 05:58:04 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0EDC33F673;
-	Thu,  2 Jul 2026 05:58:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1782997088; bh=+weZPQ8xbiXdAnkCtmY4lzmc6ZGmLb9wleIEIaUmlYU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l1D4OxI4Ci6ZzyqQz7gHIexFtInKuY+B6+kG1mTYiUURgHOGQbN7TXfd/RN7Ifs5W
-	 AlDRiiK1pleQRKIi0f33Zf+W/URS6k0IbqUvOqkt/8zwbgIUr5fFjke2FUat8vxnwT
-	 zjzn/UUsR8gVLeQqjmgYJpC47V+lDZvBltmV05nk=
-Date: Thu, 2 Jul 2026 13:57:59 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v15 10/11] arm64: entry: Convert to generic entry
-Message-ID: <akZgV0Y4YAmB43_g@J2N7QTR9R3.cambridge.arm.com>
-References: <20260511092103.1974980-1-ruanjinjie@huawei.com>
- <20260511092103.1974980-11-ruanjinjie@huawei.com>
- <cfa07466-225b-476f-adf9-346bd1377a4d@arm.com>
- <akZa2tE0Gpsyi_TV@willie-the-truck>
+	Thu, 02 Jul 2026 12:58:32 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DC6D54338B;
+	Thu,  2 Jul 2026 12:58:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47AC91F000E9;
+	Thu,  2 Jul 2026 12:58:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1782997111;
+	bh=iOURw/RgzEUdJhAQDaSsZRvlVbckDDAcHAc+nkHvils=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=d6aGQPBhg6Ip7VPo2qQKA3Gu0P+sPyMZ3XDROR730KkUF1uJf+siBRABfPza8Gr1A
+	 V/PbB5VEMjsb3T11cA8exyEamJMkLOhbrkVrXvLgXb6IE6yHpKNMvQ2F64/feaC430
+	 Ony0Q/Vm3rpr3qoK/bltaDR7b6R0OgXUn5UlhHRwPz7u0Df9W0LCqqUSuO81OI69iw
+	 BH5HqTUumofAISs5ZOyTFN/Vhj06ur5vwg1vHHGR2f10xoq8SAnq3fqpTxek/nBkhI
+	 DPvzRcecS0tqub0TDMSULzMBfTblGwaRP/ey/WnE1yPbdqHyyKqzozhxuW34QbVoMQ
+	 XONWk4/LOn1xg==
+From: Will Deacon <will@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Jia He <justin.he@arm.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Bin Guo <guobin@linux.alibaba.com>
+Subject: Re: [PATCH] arm64/sysreg: Fix BWE field encoding in ID_AA64DFR2_EL1
+Date: Thu,  2 Jul 2026 13:58:22 +0100
+Message-ID: <178298904616.3252144.11498008962010454821.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260630222347.1449737-1-justin.he@arm.com>
+References: <20260630222347.1449737-1-justin.he@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akZa2tE0Gpsyi_TV@willie-the-truck>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_055811_147121_28CFA1AC 
-X-CRM114-Status: GOOD (  24.98  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,59 +77,33 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: peterz@infradead.org, catalin.marinas@arm.com, ldv@strace.io, song@kernel.org, Jinjie Ruan <ruanjinjie@huawei.com>, kees@kernel.org, thuth@redhat.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, kevin.brodsky@arm.com, pengcan@kylinos.cn, broonie@kernel.org, luto@kernel.org, linux-arm-kernel@lists.infradead.org, wad@chromium.org, linusw@kernel.org, oleg@redhat.com, linux-kernel@vger.kernel.org, james.morse@arm.com, tglx@kernel.org, liqiang01@kylinos.cn, yeoreum.yun@arm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 01:34:34PM +0100, Will Deacon wrote:
-> On Wed, Jun 24, 2026 at 04:32:17PM +0100, Ada Couprie Diaz wrote:
-> > On 11/05/2026 10:21, Jinjie Ruan wrote:
-> > > 3. Architecture-Specific Hooks (asm/entry-common.h):
-> > > - Implement arch_ptrace_report_syscall_entry() and _exit() by
-> > >    porting the existing arm64 logic to the generic interface.
-> > > 
-> > > - Add arch_syscall_is_vdso_sigreturn() to asm/syscall.h to
-> > >    support Syscall User Dispatch (SUD).
-> > Related to the above : I feel this is missing an important information.
-> > Given that SUD is only controlled by `CONFIG_GENERIC_ENTRY`,
-> > converting to generic entry _requires_ supporting SUD, so we do it here.
-> > I think this would be important to mention, as I otherwise felt like this
-> > change did not belong in this patch.
-> > 
-> > General question that follows : does it make sense to require an arch
-> > to support Syscall User Dispatch to be able to convert to generic entry ?
-> > (I assume not really, given that only `arch_syscall_is_vdso_sigreturn()` is
-> > required on the arch side, but I am curious)
+On Tue, 30 Jun 2026 22:23:47 +0000, Jia He wrote:
+> Commit 93d7356e4b30 ("arm64: sysreg: Describe ID_AA64DFR2_EL1 fields")
+> encodes the FEAT_BWE2 value of the BWE field as '0b0002'. Binary
+> literals only accept the digits 0 and 1, so the intended value is 2,
+> i.e. 0b0010.
 > 
-> I think SUD should be separated from generic entry. I'm certainly keen
-> on the latter for arm64 and far less interested in the former. See this
-> series from Gregory:
+> The macro generated by gen-sysreg.awk currently expands to
+> 	#define ID_AA64DFR2_EL1_BWE_FEAT_BWE2 UL(0b0002)
+> is not legal C and would fail to compile if any in-tree code referenced
+> it. At present no caller uses this enum value, so the kernel still
+> builds cleanly, but the bug is latent.
 > 
-> https://lore.kernel.org/all/20260627205551.769684-1-gourry@gourry.net/
+> [...]
 
-Agreed.
+Applied to arm64 (for-next/fixes), thanks!
 
-I see Gregory mentions some security concerns, and I think there are a
-number of architecture-specific ABI concerns (e.g. how arm64's SVC
-immediate gets handled), so I'm not keen to rush into supporting
-SYSCALL_USER_DISPATCH.
+[1/1] arm64/sysreg: Fix BWE field encoding in ID_AA64DFR2_EL1
+      https://git.kernel.org/arm64/c/6666336d8fe5
 
-I think what we want is:
+Cheers,
+-- 
+Will
 
-(1) SYSCALL_USER_DISPATCH depends on GENERIC_ENTRY, as in Gregory's
-    series.
-
-(2) SYSCALL_USER_DISPATCH depends on some new
-    ARCH_SUPPORTS_SYSCALL_USER_DISPATCH, such that it an architecture
-    can implement GENERIC_ENTRY *without* being forced to implement
-    SYSCALL_USER_DISPATCH.
-
-(3) For now, we implement GENERIC_ENTRY for arm64 *without*
-    ARCH_SUPPORTS_SYSCALL_USER_DISPATCH.
-
-That way, we can focus on the core GENERIC_ENTRY support for arm64, and
-address the inevitable fallout of that *before* we have to work through
-all the concerns with SYSCALL_USER_DISPATCH.
-
-Mark.
+https://fixes.arm64.dev
+https://next.arm64.dev
+https://will.arm64.dev
 
