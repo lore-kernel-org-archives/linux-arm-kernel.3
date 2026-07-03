@@ -4,131 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 701C8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 02:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3447C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 02:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Gy8PezjJJE9te+390RqXGx7PI/xRpzoFljabhjLAsNw=; b=HCCTOUpQHpeEIWfdeEFUru20kd
-	+6zeD7YAUnsN/1t33+H8j7s1ZhG2Hm/Tnu/yjTodTHWcbSeTzTq/u//Np3yLcOLQkyvGfUePCCWAq
-	fCW+hC6zV654A+qKuaXBIVoG3uH1M+QsF+GlMgOtxo9xk/AdaGegSlyA1B8y8A6za/i03ckUnLNyG
-	sahZxLXpWxcvhmZZWcaiCvBih8ktH0xcX+zwJ3RnCZ/MXOh58syffcclcs6zmmfz5bFz8g/JGg2x9
-	Lm9EyW2wuPKJpHNFFX9T3rP0ReTa80JQX9uwhdiD+Hr+kcmOvhpPrVC3xwl5ftq8YGUbk3hgHlXdd
-	uqY7BAhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Subject:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Ygojyp0bDF3m1hG4wdzA6tVvoWHQZC539t+dNCrdS60=; b=3EucJoCmPR1igP
+	QVayzro78kRFX9JKSPxtqE+pqTVUO/o+jswQAHd/UdCzS2w1hGQpK3xfzDuwPDxr/dbog/K9gNBWq
+	kQ+aRPykfs/sBq4c8Ert3lIo14gM4CU2a5lmV536fALzl/2EAyL3OzMriOviZgUPiA9EXOY/tlj+D
+	xjOeVvLlrkjmgmy0oGSrR3omipICrWkQ1IbXwVhsTdSUV7mA5ONThs7Q+KAIDcPuj6a7R4NVD/So+
+	nzhAFUgbhfyjigIkLmK3BlIDi1GGcOpZlsxJpLbCiZHEPPv0z9kgxRvaxy0GIoAIMVq32VpTFowyf
+	LhCe2SGGaN0bWxgOLTcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfTVy-00000005scI-0wBS;
-	Fri, 03 Jul 2026 02:20:26 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1wfTlA-00000005tGc-2rFE;
+	Fri, 03 Jul 2026 02:36:08 +0000
+Received: from out162-62-58-211.mail.qq.com ([162.62.58.211])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfTVv-00000005sbp-1eAi
+	id 1wfTl7-00000005tFZ-11Et
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 02:20:24 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 5318875A83;
-	Fri,  3 Jul 2026 02:20:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783045221; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Gy8PezjJJE9te+390RqXGx7PI/xRpzoFljabhjLAsNw=;
-	b=G6tUaFAzNUdxTJwhuVhxrsKYE+I/L0G9cHjVgwf/6wfKAtmUg+GsLcFkGq3lseMOTn9Rxi
-	xQ0YvZxXD3u7n+BNoSyGB6cfdbLqn5sY1r9Wsb5P8ZPA73Lt7h+jUd5PftXReylQ7BXr8w
-	QAI6ERjvJ40S00Se20IerD9Sd9gXWNs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783045221;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Gy8PezjJJE9te+390RqXGx7PI/xRpzoFljabhjLAsNw=;
-	b=y1au2qKfGWLqbDl6ZFhXFbTTrrep4rgnzMcm3UM0iuta9qok7DTzlgBX64zgupnMEEO4Ak
-	Iby2/eze2C5EJ7Bw==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=G6tUaFAz;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=y1au2qKf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783045221; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Gy8PezjJJE9te+390RqXGx7PI/xRpzoFljabhjLAsNw=;
-	b=G6tUaFAzNUdxTJwhuVhxrsKYE+I/L0G9cHjVgwf/6wfKAtmUg+GsLcFkGq3lseMOTn9Rxi
-	xQ0YvZxXD3u7n+BNoSyGB6cfdbLqn5sY1r9Wsb5P8ZPA73Lt7h+jUd5PftXReylQ7BXr8w
-	QAI6ERjvJ40S00Se20IerD9Sd9gXWNs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783045221;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Gy8PezjJJE9te+390RqXGx7PI/xRpzoFljabhjLAsNw=;
-	b=y1au2qKfGWLqbDl6ZFhXFbTTrrep4rgnzMcm3UM0iuta9qok7DTzlgBX64zgupnMEEO4Ak
-	Iby2/eze2C5EJ7Bw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A04EA779AA;
-	Fri,  3 Jul 2026 02:20:20 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 1/okJGQcR2qnXAAAD6G6ig
-	(envelope-from <clopez@suse.de>); Fri, 03 Jul 2026 02:20:20 +0000
-From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
-To: kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org (moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64))
-Subject: [PATCH v2] KVM: arm64: vgic: Fix race between LPI release and re-registration
-Date: Fri,  3 Jul 2026 04:15:08 +0200
-Message-ID: <20260703021508.2593100-2-clopez@suse.de>
-X-Mailer: git-send-email 2.51.0
+	Fri, 03 Jul 2026 02:36:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1783046160; bh=Ygojyp0bDF3m1hG4wdzA6tVvoWHQZC539t+dNCrdS60=;
+	h=From:Subject:Date:To:Cc;
+	b=Yl70rcALW07TLVPgPd2M88mr9yTmmtLu2510EYrwHUwRcMgGaYwa6gxaIDoTxb2DE
+	 8fCgnzp4TfHFxr6uTY38/KQ7jzGRbeG3/5ESKO2yqQSF4aGfaSeAQRu/UT7MN/Vv7y
+	 g4bPctWCrfBfZbrfiQ9jzxza4E2WsgCbNnl/uXwI=
+Received: from ubuntu2204.localdomain ([218.4.149.66])
+	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
+	id 8F90EEF9; Fri, 03 Jul 2026 10:35:57 +0800
+X-QQ-mid: xmsmtpt1783046157t5fksbsjd
+Message-ID: <tencent_AA108D2806AC225EF9553469D218C8C0260A@qq.com>
+X-QQ-XMAILINFO: NGZp1yYNf7Y+3KmgUKGD76+hykZmOInL9Y0xSuZx+MoBIwu/ISbYLz5Ckgifd1
+	 LEj6XlcfWOBnhCaHt7hmCOoUoFzy+K/KXHUAQ88bxIAmBFfIlJQRqPHxkovI6oYbu7l6vH/T2/x6
+	 grZ/zZu2MzDH4meUIU45bntctml/qWhGkPjG6PyV0FZj92wfqCmJBX5AymIV07GpLuSuX6g0DCJO
+	 2eXQQv/fiYYGkr9i/ZE+2RxTZynau9CszCbCbNP/ZDhU+Mg2/weUzrZtT9Hky38D64V5Nq2BfYor
+	 6xTHeiPnOS5TrYoA5pElzXRbWDYyJCJxgJF87TqkWfB+XnTAbwpZ/kcMtHR4uxRN/u/DP9s2s8pl
+	 n38zjZvKhABIItsJcwJlVRB0RORSToaGS3CUea1e4mB2RrZLzYMx9Fi/GUuyeQpPBMEAVZ+83ipv
+	 Ls7uKh4QuL1myJkfC2uezCAaIGrz5Zj8JEe0wz8/R5C0+aasDI5lh5GgZ+7jnd32il9xhlbiPg6E
+	 Yip+Lca2WGTBqEFMbhvniWB1nhY0tiUWw0BEsGqnV525yO4mGharcsCPp7sZjQMTjFKP7l4qU8d9
+	 ZTqcllymiMIBP2JxCqKVqgEj8rnxOoAlu0M1DALXxeIXX7ku3I8SbVGU3pgMw2xFYAhs24X3J5i9
+	 4i3wQwBIyrTM6YS4prddpP2UdUFGZYNFFOx24yK0Rgdg5ECNSToHC5PRfbEq0WVdEBxTxAUukOil
+	 AQFIiUiGkwpHtuQhhf/Y6Xi5G3aXxUm/x75bP3+ClKVI6q9LlDE5KzqnIKo3OpWxF2l5+I5kqk4/
+	 yuxekeEquXx8FCmMp5VGzTdLFqv25P6/xlG9kUUSQI3w47MsU5LRrHXd0PKY2dCtAEaJusdbBd32
+	 dOm+fPb8ny+TGNc4k4GU6zsT6KRIlNT9qblq3ZD/KbBLRw/WrlCywBpRN/4n9L7VVPYVHRk5mpYe
+	 WFXlprbDUzca6QItRb+dlQu71RFzMbwMB/f/xgIcWD2GohxHurd5A300PXKoSzU6HRof3RQ8PXCH
+	 L3fCOS4uARZvMCvn1Ju7J1nd1UpHCamprjELEYASexwdEg/QUsGL/WxxwfT0/+K84fsRHkJpr6ML
+	 7BuGn8L3sqmy2FkhO+LJlvl+Uc4H6/Z/ATwwuPh0qhbmX2C/SjeRGvnRsUXA==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+From: Cunhao Lu <1579567540@qq.com>
+Subject: [PATCH v3 0/4] can: rockchip: add RK3588 CAN support
+Date: Fri, 03 Jul 2026 10:35:39 +0800
+X-OQ-MSGID: <20260703-master-v3-0-6d56de6fd2f3@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [-3.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[12];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim,suse.de:mid,imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 5318875A83
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAPsfR2oC/yXMSwqAMAxF0a1IxhZKxO9WxEGtUSP4oakiiHu36
+ vDAfe8CIcckUEUXODpYeF0CkjgCO5plIMVdMKDGTOca1WzEk1OFTbGlokST9BDizVHP53dUN79
+ lbyey/l3DfT9B5L3KagAAAA==
+X-Change-ID: 20260702-master-8c52be892a3f
+To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
+ Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Cunhao Lu <1579567540@qq.com>, 
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_192023_609171_D444C0B2 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20260702_193606_100185_816A1B34 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,130 +92,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix a potential race between decrementing an LPI's reference count and
-evicting that structure from the LPI xarray.
+Add support for the RK3588 CAN controller.
 
-LPI structures are maintained in the VGIC LPI xarray (dist->lpi_xa).
-When the reference count of an LPI structure drops to zero,
-vgic_release_lpi_locked() removes the structure from the xarray and
-frees it under the xarray lock.
+RK3588 integrates three CAN-FD controllers that are closely related to
+the existing Rockchip CAN-FD IP already supported in the kernel. The
+RK3588 variant is not fully compatible with RK3568v2 because the RX
+FIFO count register field has a different layout.
 
-However, the release of an LPI can race with a concurrent LPI
-re-registration with the same INTID via vgic_add_lpi() on another CPU,
-since the reference count drop and the xarray eviction are not performed
-in a single atomic step. This can happen e.g. if the guest issues a
-DISCARD while the LPI is still referenced from a vCPU's active-pending
-list (ap_list), and the same INTID is re-mapped via MAPTI.
+This series therefore:
 
-Particularly, vgic_release_lpi_locked() is called from two distinct
-paths: direct release via vgic_put_irq(), and deferred release via
-vgic_release_deleted_lpis(). During direct release, the issue can result
-in deleting a newly registered LPI from the xarray:
+- extends the existing Rockchip CAN-FD binding with the
+  rockchip,rk3588-canfd compatible
+- adds a dedicated RK3588 match entry and devtype in the driver
+- describes the three CAN controller nodes in rk3588-base.dtsi
+- enables CAN on the RK3588 Tiger Haikou board
 
-  CPU0 (Releasing LPI)                    CPU1 (Adding new LPI)
-  ====================                    =====================
-  vgic_put_irq()
-      __vgic_put_irq()
-          refcount_dec_and_test()
-                                          vgic_add_lpi()
-                                              xa_lock_irqsave(..);
-                                              old_irq = xa_load(&dist->lpi_xa, intid);
-                                              vgic_try_get_irq_ref(old_irq) == false
-                        new IRQ inserted -->  __xa_store(&dist->lpi_xa, intid, ..)
-                                              xa_unlock_irqrestore(..);
-  xa_lock_irqsave(..);
-  vgic_release_lpi_locked()
-      __xa_erase(&dist->lpi_xa, irq->intid);   <-- BUG: new IRQ is erased
-      kfree_rcu(old_irq)
+RK3588 encodes RX_FIFO_CNT in bits 7:5 instead of 6:4. This
+difference was found by comparing Rockchip's vendor kernel 6.1 CAN
+support for RK3568 and RK3588, and was also confirmed by runtime
+testing.
 
-During the deferred release path, the old IRQ can be leaked:
+RK3588 uses the existing erratum 5 empty-FIFO workaround. Based on
+Heiko's testing, v2 also enables the erratum 6 workaround for extended
+frames being transmitted as standard frames.
 
-  CPU0 (Releasing LPI)                    CPU1 (Adding new LPI)
-  ====================                    =====================
-  vgic_put_irq_norelease()
-      __vgic_put_irq()
-          refcount_dec_and_test()
-      irq->pending_release = true
-                                          vgic_add_lpi()
-                                              xa_lock_irqsave(..);
-                                              old_irq = xa_load(&dist->lpi_xa, intid);
-                                              vgic_try_get_irq_ref() == false
-                 BUG: old IRQ overwritten --> __xa_store(&dist->lpi_xa, intid, ..)
-                                              xa_unlock_irqrestore(..);
+RKCANFD_QUIRK_CANFD_BROKEN remains enabled for RK3588, so CAN-FD stays
+disabled for now. Local testing did not reproduce the two known CAN-FD
+trigger frames that cause Error Interrupts on RK3568 variants. Instead,
+RK3588 shows a different CAN-FD failure mode: CAN-FD frames without BRS
+work in this setup, but BRS with a data bitrate different from the
+nominal bitrate immediately drives the controller bus-off.
 
-  vgic_release_deleted_lpis()
-      xa_lock_irqsave(..);
-      xa_for_each() { .. } <-- old IRQ with pending_release = true
-                               is gone, so it cannot be released
+Tested on an embedfire,rk3588-lubancat-5io board with can0/can1
+directly connected. Runtime testing used a 200 MHz CAN clock, nominal
+bitrate 500 kbit/s, data bitrate 500 kbit/s and 1 Mbit/s, and included
+stress and error-path coverage for the existing Rockchip errata handling.
 
-To fix the direct release path, move the reference count drop inside
-the xarray lock, making sure that vgic_add_lpi() never encounters the
-to-be-released LPI.
+v2 -> v3:
+- Move the Changelog below ---
+- Collect Heiko's Reviewed-by and the driver patch Tested-by tag
+- Use Co-developed-by for Heiko's RK3588 contributions and add his
+  Signed-off-by
+v1 -> v2:
+- use real author name
+- fold the single-compatible entries into an enum, as suggested by Krzysztof
+- enable the erratum 6 workaround for RK3588 based on Heiko's testing
+- add Heiko's RK3588 Tiger Haikou CAN enablement patch
+- keep RKCANFD_QUIRK_CANFD_BROKEN enabled for RK3588 so CAN-FD stays disabled
+- document the RK3588 CAN-FD/BRS bus-off failure mode
 
-To fix the deferred release path, since the refcount drop must happen
-under a raw spinlock, the same solution does not work. Instead, update
-vgic_add_lpi(), so that if it evicts a non-NULL refcount=0 LPI from the
-xarray, it takes on the responsibility of releasing it. If this happens,
-vgic_release_deleted_lpis() will iterate the xarray normally and will
-simply not find the already released structure.
-
-Reported-by: Claude:claude-opus-4-6
-Fixes: 3a08a6ca7c37 ("KVM: arm64: vgic-v3: Use bare refcount for VGIC LPIs")
-Fixes: d54594accf73 ("KVM: arm64: vgic-v3: Erase LPIs from xarray outside of raw spinlocks")
-Signed-off-by: Carlos López <clopez@suse.de>
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
 ---
-v2:
-* Address Sashiko's review. Fix the direct release path by decrementing the
-  refcount under the xarray spinlock, preventing a UAF that would have been
-  introduced in v1.
+Cunhao Lu (3):
+      dt-bindings: can: rockchip: add rk3588 CAN-FD compatible
+      can: rockchip: add RK3588 CAN support
+      arm64: dts: rockchip: add CAN-FD nodes for RK3588
+
+Heiko Stuebner (1):
+      arm64: dts: rockchip: Enable CAN controller on RK3588-Tiger-Haikou
+
+ .../bindings/net/can/rockchip,rk3568v2-canfd.yaml  |  4 ++-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 39 ++++++++++++++++++++++
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts      |  6 ++++
+ drivers/net/can/rockchip/rockchip_canfd-core.c     | 12 +++++++
+ drivers/net/can/rockchip/rockchip_canfd-rx.c       |  5 ++-
+ drivers/net/can/rockchip/rockchip_canfd.h          | 26 ++++++++++++++-
+ 6 files changed, 89 insertions(+), 3 deletions(-)
 ---
- arch/arm64/kvm/vgic/vgic-its.c | 10 +++++++++-
- arch/arm64/kvm/vgic/vgic.c     |  5 +++--
- 2 files changed, 12 insertions(+), 3 deletions(-)
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260702-master-8c52be892a3f
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 67d107e9a77d..577286069368 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -116,7 +116,15 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
- 		kfree(irq);
- 		irq = oldirq;
- 	} else {
--		ret = xa_err(__xa_store(&dist->lpi_xa, intid, irq, 0));
-+		/*
-+		 * The entry is either empty or contains a dead LPI (refcount=0)
-+		 * from the deferred release path, pending cleanup by
-+		 * vgic_release_deleted_lpis(). Evict and free it if present.
-+		 */
-+		oldirq = __xa_store(&dist->lpi_xa, intid, irq, 0);
-+		ret = xa_err(oldirq);
-+		if (!ret && oldirq)
-+			kfree_rcu(oldirq, rcu);
- 	}
- 
- 	xa_unlock_irqrestore(&dist->lpi_xa, flags);
-diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-index 5a4768d8cd4f..c32e6c9777e5 100644
---- a/arch/arm64/kvm/vgic/vgic.c
-+++ b/arch/arm64/kvm/vgic/vgic.c
-@@ -167,11 +167,12 @@ void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq)
- 		guard(spinlock_irqsave)(&dist->lpi_xa.xa_lock);
- 	}
- 
--	if (!__vgic_put_irq(kvm, irq))
-+	if (!irq_is_lpi(kvm, irq->intid))
- 		return;
- 
- 	xa_lock_irqsave(&dist->lpi_xa, flags);
--	vgic_release_lpi_locked(dist, irq);
-+	if (refcount_dec_and_test(&irq->refcount))
-+		vgic_release_lpi_locked(dist, irq);
- 	xa_unlock_irqrestore(&dist->lpi_xa, flags);
- }
- 
-
-base-commit: 1ee27dacbe5dc4def481794d899d67b0d4570094
--- 
-2.51.0
+Best regards,
+--  
+Cunhao Lu <1579567540@qq.com>
 
 
