@@ -4,145 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C5DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF86C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFmVjSKmtezW+iC/SEgcCIOX0juiZJsRO1owbDX0Df8=; b=3JlDzsyFWVlUipXGIvYFsQpmZS
-	Ep/8RhXiP1cEezgltCgyY6Wvzilksqdn0rzBxCOsA2B+eaZCB+TnX5T8QZ6+gs+R4blU4IWhOWljO
-	nvlh3gaVdTtYabP4aO2q3dud7hDosGyrOWteMCCfoVMHimCqJ1WOPE9a+2AepMwtBEycSKSYnYlIN
-	2h3P/sH+5LpvpnMMG1Ae9XNzRi0Cvm2pWsQlI5fN8kohtDubSIyRZFCC9s20enOI2Td0uo9ULecZf
-	2KJRt+CnUPwJzMpw3rNODU/8RxuY/ij/W2RlOFOHun97J0+rvRVUSXpbC1bo6ad8pXnJOokFFlRbj
-	4moXCaRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q8QnKRPM8i0cNpsCUuFVq1PNhzYipEwLagNVEG2i8xw=; b=KOJNOh/Fc9pXce9ORvEHwehjO8
+	if9/GiHiBfhDq281x3hOtehv5uRWM0XxG+nrrVTRHuZuDVEAvPox/4uNuxY128+N6XR/+xw36g0VS
+	T+IGXULQipIzhBnwTYnh4yCALYdRZey/ovrbfC/O5F5zptMxej6pTMEQm2g9L5XsqQB7RnCMAekXs
+	r9qzBQV9tUgQRj2su0b2Z1egV/d4xMsnyZRn/HCkOFX4zK3LNZcq3ZnjNcOHH74eviCPTcWMLnNju
+	Qy3S3gfHPpc92jl/p0Nr1CF7i4CdbGEXr0uRiwJ+PUUUmcnyyr9fx4JkaBJbx57ov603Tg14vbBSw
+	GAI+HGdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb5M-00000006azO-1E6Y;
-	Fri, 03 Jul 2026 10:25:28 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb5K-00000006ayc-3P0R
+	id 1wfb7x-00000006bQb-0rRD;
+	Fri, 03 Jul 2026 10:28:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfb7u-00000006bPn-3QCc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 10:25:28 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6635rfdL2994867
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 10:25:26 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	mFmVjSKmtezW+iC/SEgcCIOX0juiZJsRO1owbDX0Df8=; b=jKYOv+4lcTBCAhE8
-	i4qzPPQPd2ZSydMfWzxqJKxKm0IZpxvIA/KGMhN3OI4abRxDi9gQiLmaRJqL5b5Y
-	aFUf4rJs1Syyq8JARo7FvZBtcii2lYmTGNz71PV9aBb4acrn9IPI6/EBwlyLbzir
-	iSDSozwFgnyylT/P3uHoTq6zEWJWIv5qjRcgmvpktKz8qGDP6ghN6P1bFxMJYSLj
-	dqkS+5Tk1hujIcGaBlS5K1V5blo7Nk7qKE59B405z6d6f3rpxqtcURpI8kcQjuqb
-	TjPK7vKPi2fRQurlmLxZypy5q9aU/GmrDLj4yDp8xGFWvvRNZ5MI9LZiU7/RF2Nd
-	KSLXzg==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f648n1vkf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 10:25:25 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c1e777a15so785191cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 03:25:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783074325; x=1783679125; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mFmVjSKmtezW+iC/SEgcCIOX0juiZJsRO1owbDX0Df8=;
-        b=EHb3MhGipTrbZxX+Hh8xnfPo3yKriigBZQN7aIOw7UmdKiBKRAjaLB4DxFsapPIAa7
-         UHVRdrtYqf4dKYxLiMzn/OLC9+m62arabw/Ll+kq2vARBY55blLQu+35xjAS89NmhNib
-         C2GBRgaGlmp0cqy5rg3nt7LxzMWQWsJB+B23klmNfIQBCqNzYPyoQK7EL9nL7hVi7wzi
-         hgIesALtVpuhvXv6p1lzlQp1+Vz/Mv9aQtp6pJnB4cbeyJ7uR04dGXk5ajDzJU6+GtXf
-         IuD9va95Z2v/46A/FoQ0uEITJ9R2szmyLMUe1YkPGBy/AkL0jGzo5WgDF/wUPf9k8VUq
-         4B9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783074325; x=1783679125;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=mFmVjSKmtezW+iC/SEgcCIOX0juiZJsRO1owbDX0Df8=;
-        b=CrXazWKohiJ9/by9HqAe8vvzb0EE7xcCLztC2SzETZZ5rhvqmFPuGm5i20YP6Y5MkS
-         9Qjgt7jzlYCBSLrfBDampTIqyAWfAUgSCJHuWW4N3Cu+MK3MzytXf5FUUthgohF+o7lK
-         19VOnYjhdNMLytQlZgLPq/qEt7TDCah292Uw3AtI07krxgZnHGqzZpVBBB1fk9tDhccQ
-         QoU39jRaBRKbhtZefhuwanq+JGvvIqkOm+SPBEhRPuvbitLfx1iRmPrlJTx/sMWbdImK
-         9WY3RYlLU3k2NhyM/nrsWftk+54Yad6ySPcwJp9072N/SHDSVQFpd9tuNrhR9BqF5oq2
-         /zhA==
-X-Forwarded-Encrypted: i=1; AFNElJ8YoXIzsO+kaNXnuqO4gfr++Mg2wytoav2OPHoq9M7SAzkcADWp9IFVBZu1Vxcri9Owh9WDeoV1GYf/1kJOcsMv@lists.infradead.org
-X-Gm-Message-State: AOJu0YzguJxndM5pzGrGDNjDrp/gDztS+07KNIg3ML0DbGCq5nZ632jr
-	i+ViwmAfdgWHwQC84pOaYle812zEvJUhi4kCAxWwSEcCq57jX/wAziBMO4cH/q2V+HLYyoYIIKc
-	M9gMoI+7tRJo9YySXyqnINYM2w31G46DTolPGVx9K9yp1f3//r7SjpLuWGf1Kovbp4dyCy4Pnsp
-	lxIg==
-X-Gm-Gg: AfdE7cnKiNO1P5nL0uf4tHEEWgPiDvs5U4r2lTBEMJJM4Z1TkF1cymM6d1UHJ6f0X98
-	zYo8qVKvlTL8+NWRiJ17YOyGWDlidzFg4TSUcMWVoEmPm58LiYY6XKXX1W5scOmAjKbv//PfmOj
-	MPk2oZFR35rc7lrnQK+9G5jaJUlEYjLO4AZXK6aYmt3FFSPWgrsh6brZ+hRdeuAl8Gz7gnsHqY6
-	c4gpcMzEklW1rPyA6xRe0k4aE6Rnds4YlDg5mKQI3YWPKKH+3dRcNir1TDb+Gk+NeejZPOJF/pv
-	JcW8c1B+KT70KXJ6P2TO9ClZF7FblVrue0RRSZexd0rItjGAXyckMZHKC0HSxZEU/H5d93DZd89
-	PB0Sbwqy8eMH/mnMj1vdm8WxgeVsBloaYnJk=
-X-Received: by 2002:a05:622a:1aa5:b0:51b:eab3:4ef1 with SMTP id d75a77b69052e-51c26a69173mr79863651cf.4.1783074325293;
-        Fri, 03 Jul 2026 03:25:25 -0700 (PDT)
-X-Received: by 2002:a05:622a:1aa5:b0:51b:eab3:4ef1 with SMTP id d75a77b69052e-51c26a69173mr79863451cf.4.1783074324941;
-        Fri, 03 Jul 2026 03:25:24 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b6059e4csm263041166b.1.2026.07.03.03.25.22
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jul 2026 03:25:24 -0700 (PDT)
-Message-ID: <e5c4c9e3-aecd-4559-a536-e5f2f9b19ed5@oss.qualcomm.com>
-Date: Fri, 3 Jul 2026 12:25:21 +0200
+	Fri, 03 Jul 2026 10:28:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4E2181F91;
+	Fri,  3 Jul 2026 03:28:01 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11C553F905;
+	Fri,  3 Jul 2026 03:27:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783074485; bh=HCfaiQ70wDFRE9iE7hAdyxdatvon4JcTAsPQjZG1BnM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FhdgFc7m0+X94gzv10Bb3P3XVYELZ7ey/aqt8urO0IQxMb8K1w46DpvxF4JsXg8/x
+	 L2GY3bCek9PXtG0GR4A2UCqgKELuPcjckiuHLErhDC6FwupKW8mmeqIMVyBTW8ckG/
+	 Gj+zLIcvhJJ2/Dbpr259d9FeiOPzSB1RqjIZZfUo=
+Date: Fri, 3 Jul 2026 11:27:47 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 6/6] KVM: arm64: ptdump: Introduce the shadow ptdump
+ file
+Message-ID: <scnwtpvy2gkkzwjmweiaiiinxx7xtisbpjjlrtf2nxkraqqpg3@haaa3d3ll4et>
+References: <20260630121005.1130996-1-weilin.chang@arm.com>
+ <20260630121005.1130996-7-weilin.chang@arm.com>
+ <akbcl8vFrpq40qUM@sm-arm-grace07>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/7] ARM/arm64: defconfig: Drop redundant Qualcomm
- clock entries
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260703-clk-qcom-defaults-v3-0-78894525e54a@oss.qualcomm.com>
- <20260703-clk-qcom-defaults-v3-6-78894525e54a@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260703-clk-qcom-defaults-v3-6-78894525e54a@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDEwMCBTYWx0ZWRfX42RIReeRcgYC
- hU29zbmxovnYZW9wxawwQcIDh2+IQPWONGO637lMAyhxpFCH2OujG1KD7hQpHg42PaJan+Q5TcN
- FFZe5Tw2k5PWQV9D5K4l+zFF5J40+1U=
-X-Proofpoint-ORIG-GUID: Kqb9tlGTXAzjgR14IvRU9IsLDWol3EHQ
-X-Authority-Analysis: v=2.4 cv=O4wJeh9W c=1 sm=1 tr=0 ts=6a478e15 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=pIb2VplZuXs3id8JfLcA:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-GUID: Kqb9tlGTXAzjgR14IvRU9IsLDWol3EHQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDEwMCBTYWx0ZWRfX7Pcws+btMT2h
- eZymXNRJiw1RbUAg18bELYxQYRdoDdtaqjf7dI+Yry7XS30ESoYTBcv/T3TYx1Gh32ptiQ3WR4g
- BLoDQVEJw78adbkm3WYsU/LvdXbavCbDHid2lCWms/1jJqA/2g/LQ7tgrrNRbFP/QPxWYSrEEoI
- YKUzJWwtRDCOTgBIBZErEyI6MrGIwZVIsI4Q7E8ZuaIOVEjQcJyAcx5uH76VG2Kb9MJagAKD7/Z
- H1EGcKJwoGlZZhJKJ6fgpw1D9uW1y0FMzf5Eb6pEDCXQXwH1MTDM4dXaDJldo6hAridEviVjUTy
- AmfFqXJlam/ZfBWWb5Q0arrdnUbE9bKxXBavHULltttvFCoerlfh50d5Pf8wE4zXyxpdnapcnj1
- SjGMCecZpg2u3sjscAXdr1HVokf61kA4EyBupstt2lac83rmAuzbP2JNjcQ/PIsXeUgaKLZTSMo
- EN2yPvOirEdd7qi7viQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 bulkscore=0 clxscore=1015 phishscore=0
- suspectscore=0 malwarescore=0 spamscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030100
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akbcl8vFrpq40qUM@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_032526_972525_3BE2BB9E 
-X-CRM114-Status: UNSURE (   9.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_032806_936028_BB2E6A3D 
+X-CRM114-Status: GOOD (  28.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,16 +75,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/3/26 12:04 PM, Krzysztof Kozlowski wrote:
-> Drop all drivers from defconfig which have defaults in Kconfig.  Drop
-> also MDM_LCC_9615 which is gone since commit bac4675a4d1b ("clk: qcom:
-> drop lcc-mdm9615 in favour of lcc-msm8960").
+On Fri, Jul 03, 2026 at 06:48:07AM +0900, Itaru Kitayama wrote:
+> On Tue, Jun 30, 2026 at 01:10:05PM +0100, Wei-Lin Chang wrote:
+> > Create a ptdump file for all shadow page tables. It will dump out all
+> > valid shadow page tables at the time of request, with the mmu's index,
+> > guest VTCR_EL2, VTTBR_EL2, and whether the guest stage-2 is enabled or
+> > not.
+> > 
+> > Also detach the nested mmu array under the mmu_lock in
+> > kvm_arch_flush_shadow_all() so readers cannot race with the array being
+> > removed, then free the old array after dropping the lock.
+> > 
+> > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
+> > ---
+> >  arch/arm64/kvm/nested.c | 12 ++++++--
+> >  arch/arm64/kvm/ptdump.c | 61 ++++++++++++++++++++++++++++++++++++++++-
+> >  2 files changed, 69 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > index 6435efd65cb5..17a180ddf6ca 100644
+> > --- a/arch/arm64/kvm/nested.c
+> > +++ b/arch/arm64/kvm/nested.c
+> > @@ -1283,6 +1283,7 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+> >  
+> >  void kvm_arch_flush_shadow_all(struct kvm *kvm)
+> >  {
+> > +	struct kvm_s2_mmu *mmus;
+> >  	int i;
+> >  
+> >  	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > @@ -1291,9 +1292,14 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+> >  		if (!WARN_ON(atomic_read(&mmu->refcnt)))
+> >  			kvm_free_stage2_pgd(mmu);
+> >  	}
+> > -	kvfree(kvm->arch.nested_mmus);
+> > -	kvm->arch.nested_mmus = NULL;
+> > -	kvm->arch.nested_mmus_size = 0;
+> > +
+> > +	scoped_guard(write_lock, &kvm->mmu_lock) {
+> > +		mmus = kvm->arch.nested_mmus;
+> > +		kvm->arch.nested_mmus = NULL;
+> > +		kvm->arch.nested_mmus_size = 0;
+> > +	}
+> > +
+> > +	kvfree(mmus);
+> >  	kvm_uninit_stage2_mmu(kvm);
+> >  }
+> >  
+> > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+> > index 40f93b7c7ad9..1649eaa75798 100644
+> > --- a/arch/arm64/kvm/ptdump.c
+> > +++ b/arch/arm64/kvm/ptdump.c
+> > @@ -181,6 +181,50 @@ static int kvm_ptdump_guest_canonical_show(struct seq_file *m, void *unused)
+> >  	return 0;
+> >  }
+> >  
+> > +static int kvm_ptdump_guest_nested_show(struct seq_file *m, void *unused)
+> > +{
+> > +	int ret = 0, i;
+> > +	struct kvm_ptdump_guest_state *st = m->private;
+> > +	struct kvm *kvm = st->kvm;
+> > +	struct kvm_pgtable_walker walker = (struct kvm_pgtable_walker) {
+> > +		.cb	= kvm_ptdump_visitor,
+> > +		.arg	= &st->parser_state,
+> > +		.flags	= KVM_PGTABLE_WALK_LEAF,
+> > +	};
+> > +
+> > +	guard(write_lock)(&kvm->mmu_lock);
+> > +
+> > +	if (!kvm->arch.nested_mmus)
+> > +		return 0;
+> > +
+> > +	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+> > +		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+> > +
+> > +		if (!mmu->pgt)
+> > +			continue;
+> > +
+> > +		if (kvm_s2_mmu_valid(mmu)) {
+> > +			memset(st, 0, sizeof(*st));
+> > +			ret = kvm_ptdump_parser_init(st, kvm, mmu->pgt);
+> > +			if (ret)
+> > +				return ret;
+> > +			st->parser_state = (struct ptdump_pg_state) {
+> > +				.marker		= &st->ipa_marker[0],
+> > +				.level		= -1,
+> > +				.pg_level	= &st->level[0],
+> > +				.seq		= m,
+> > +			};
+> > +			seq_printf(m, "nested mmu %d VTCR: 0x%016llx VTTBR: 0x%016llx s2: %s\n",
+> > +				   i, mmu->tlb_vtcr, mmu->tlb_vttbr,
+> > +				   mmu->nested_stage2_enabled ? "enabled" : "disabled");
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> This header information in the debugfs "shadow_page_tables" file, under
+> the nested directory is showing guest hypervisor's configuration while
+> the file is designed to show nested guest's shadwo stage 2 translation
+> tables layouts owned by Host EL2 hypervisor. Is this intentional?
+
+Yes, this is intentional. Here we are exposing guest hypervisor VTCR,
+VTTBR, s2 enabled or not, because that is how the host hypervisor
+distinguishes between different nested mmus (lookup_s2_mmu()).
+
+Thanks,
+Wei-Lin Chang
+
 > 
-> ---
-
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-
-Konrad
+> Thanks,
+> Itaru.
+> 
+> > +			ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
+> > +			if (ret)
+> > +				return ret;
+> > +		}
+> > +	}
+> > +	return ret;
+> > +}
+> > +
+> >  static int kvm_ptdump_guest_open(struct inode *m, struct file *file,
+> >  				 int (*show)(struct seq_file *, void *))
+> >  {
+> > @@ -212,6 +256,11 @@ static int kvm_ptdump_guest_canonical_open(struct inode *m, struct file *file)
+> >  	return kvm_ptdump_guest_open(m, file, kvm_ptdump_guest_canonical_show);
+> >  }
+> >  
+> > +static int kvm_ptdump_guest_nested_open(struct inode *m, struct file *file)
+> > +{
+> > +	return kvm_ptdump_guest_open(m, file, kvm_ptdump_guest_nested_show);
+> > +}
+> > +
+> >  static int kvm_ptdump_guest_close(struct inode *m, struct file *file)
+> >  {
+> >  	struct kvm *kvm = m->i_private;
+> > @@ -230,6 +279,13 @@ static const struct file_operations kvm_ptdump_guest_canonical_fops = {
+> >  	.release	= kvm_ptdump_guest_close,
+> >  };
+> >  
+> > +static const struct file_operations kvm_ptdump_guest_nested_fops = {
+> > +	.open		= kvm_ptdump_guest_nested_open,
+> > +	.read		= seq_read,
+> > +	.llseek		= seq_lseek,
+> > +	.release	= kvm_ptdump_guest_close,
+> > +};
+> > +
+> >  static int kvm_pgtable_range_show(struct seq_file *m, void *unused)
+> >  {
+> >  	struct kvm *kvm = m->private;
+> > @@ -307,6 +363,9 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm)
+> >  			    kvm, &kvm_pgtable_range_fops);
+> >  	debugfs_create_file("stage2_levels", 0400, kvm->debugfs_dentry,
+> >  			    kvm, &kvm_pgtable_levels_fops);
+> > -	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT))
+> > +	if (cpus_have_final_cap(ARM64_HAS_NESTED_VIRT)) {
+> >  		kvm->arch.debugfs_nv_dentry = debugfs_create_dir("nested", kvm->debugfs_dentry);
+> > +		debugfs_create_file("shadow_page_tables", 0400, kvm->arch.debugfs_nv_dentry,
+> > +				    kvm, &kvm_ptdump_guest_nested_fops);
+> > +	}
+> >  }
+> > -- 
+> > 2.43.0
+> > 
 
