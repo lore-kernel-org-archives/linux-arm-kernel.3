@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00497C44501
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CFBC43602
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,38 +12,38 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMfJd1B0NhyQvY4yeAEZmcciy7C5a48PemMKXj9rAho=; b=Z/FaS9Tg6pbgU5paNm79NwFlQm
-	SA5K9o1fOa+svlpBj+d5bu9wQvOnzTECH5lvWY0V40P3HoUMGexfi2TVxMxqHYrUOKL6pafWj9Zzi
-	Zpufix7JdFfH/0j8PM6ynpNs5nYNqCn+MEhTxNb3LK/WBJXEiUjXlaNEd8gsrxs5PP1BOBD4QZQX2
-	GEVBISx7N6JHQE7yEnMn+VU8XjCEcuNoIshWcO8zxs9tL5AYA+iDLxgU+fHAaRtwJ/qGXEg4RyG8A
-	z7bC/M/TI24XmRlIcn9zbaw4VM1UQ9NDRrPLeI7MwOMA1DGHneVfAUiF5e5XS//bl6wptFAZbXn/x
-	RppKkKBg==;
+	bh=ZJ/9voUOLYhUYyNMjcYNu7y69paVeiMf+gA0FKexqF0=; b=MveAInFexRc/oLaC6zf+38Afq/
+	zvLUWfiI6qmKEXetz4EoUzLXkQ3DjVPXHs1x6Dy8nqN3sgRzj6H6UqzlXW7RWpotCZf5TwBZmOaCr
+	fwnR8nqClLzzg+s5SYQVi6/+8l7rLKafDFTNxMIAy+soiwlphNOdtRWG0q1wMvGrZj66KP4hjTtSN
+	wose3E9yLzTCY03K3O0fYbLa+ly5gli/i8WTKAQdn3L4yKhJK/XsA7qugfa+5EbeSgID1r4BHeUBm
+	apAe1P3wxhsntZU3/lmmq6Ne58ogXcPvGQWbiguvgRc+B+J4ukSPSWjsLJoTa/Ynb0CpJGtllMiWd
+	BxBElFrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wff1Q-00000007Hmc-0tYs;
+	id 1wff1Q-00000007HmI-0RQ8;
 	Fri, 03 Jul 2026 14:37:40 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wff1L-00000007HiD-13Ud
+	id 1wff1L-00000007Hhy-0hGr
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 03 Jul 2026 14:37:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id C8E281A0E1A;
-	Fri,  3 Jul 2026 14:37:33 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 34FAD4E40C64;
+	Fri,  3 Jul 2026 14:37:32 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9D87F60300;
-	Fri,  3 Jul 2026 14:37:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D857104C952E;
-	Fri,  3 Jul 2026 16:37:31 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0067460300;
+	Fri,  3 Jul 2026 14:37:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 90022104C95AD;
+	Fri,  3 Jul 2026 16:37:29 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783089452; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1783089451; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=zMfJd1B0NhyQvY4yeAEZmcciy7C5a48PemMKXj9rAho=;
-	b=AV3tR8t13IiDQnSHdNJ4djftX5wGo1pBWkeooc3ciWHccNNIJfhzMUcZejasnaK5gTa1KS
-	dbGYWPo96X/ahcalxS3P2zXw9ekxodrFtPi9iz+P8EQKaK+pjwVULb+pm8ooOqZH0FVGd/
-	YmJLldBvKc7/QYb9iIE16x8uAL5K8IBt6M5IXbrS55ir0Jes9UxazGz+g5jUZ0ldY45yEu
-	72OFRGAzDkYNAXj8Zo4hG4hilIGhPu13kDaAwRpiapar2zwQSodvce3jiU58KtHt86ehU+
-	M7OWeDJowZc8a32C8SFo5RDjrTQVs3rzrwwc03itlBwdWWre/Hpcdl6ZBnyRuQ==
+	bh=ZJ/9voUOLYhUYyNMjcYNu7y69paVeiMf+gA0FKexqF0=;
+	b=pP6cUTtJ/F/xzem7ZKbh9MD5clvyfGS2OOuHXPcDFswFhimk2mEh/UCkiwwN0mGem4lwrN
+	9oq3gqyClH1BnzuKDi9D/D4LmJ00pi9+ax6+3JofaLfHy0zsQE2gNjEgx0YJ4WjWhPIqZT
+	IoU0ZeCsx2b9ruw95EBJNxle06pzx+JFnu7VQ8bdQpBmGHK7MTGfHh1eZUR4ZvBLUnR5Dg
+	i5WjNSWFTabHY/qG0JEQrTgjHN2I7G3Lrj8eVW9vcon/cP6MV74ryFs3UuqtXxBPf6p/OH
+	nRtU3dSC4Lb4iEkYT7q+W5JcjO27JiTej+GYwGLMkM5i90Fe1L9oUu0Jt7zxQg==
 From: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>
@@ -60,9 +60,9 @@ Cc: Tero Kristo <kristo@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 3/6] arm64: dts: ti: k3-j721s2-ti-ipc-firmware: Reserve memory for LPM metadata
-Date: Fri,  3 Jul 2026 16:37:14 +0200
-Message-ID: <20260703143717.177362-4-richard.genoud@bootlin.com>
+Subject: [PATCH v3 2/6] arm64: dts: ti: k3-j7200-ti-ipc-firmware: Reserve memory for LPM metadata
+Date: Fri,  3 Jul 2026 16:37:13 +0200
+Message-ID: <20260703143717.177362-3-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260703143717.177362-1-richard.genoud@bootlin.com>
 References: <20260703143717.177362-1-richard.genoud@bootlin.com>
@@ -70,8 +70,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_073735_429667_B13B32E0 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260703_073735_346185_9FE6A19E 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,7 +86,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Declare a carveout memory region to store LPM metadata on J721S2.
+Declare a carveout memory region to store LPM metadata on J7200.
 
 For Jacinto devices, this memory region is needed for saving ATF context
 and the certificate information of ATF and OPTEE and DM image. This LPM
@@ -108,9 +108,9 @@ resuming (with a flag set in the PMIC), then it:
 - starts TFA on remote proc
 - loads back DM image from memory and jumps to DM
 
-https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
-
 As this is used by U-Boot SPL, bootph-pre-ram is added.
+
+https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
 
 NB: This memory region is not part of DM memory (which is not retained
 at suspend)
@@ -118,27 +118,27 @@ at suspend)
 Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
 Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
 ---
- .../arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi | 12 ++++++++++--
+ arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi | 12 ++++++++++--
  1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-index 5253d028da09..010d20d56927 100644
---- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
-@@ -95,6 +95,12 @@ rtos_ipc_memory_region: memory@a8000000 {
+diff --git a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
+index d65f68c7d432..a6043970715a 100644
+--- a/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j7200-ti-ipc-firmware.dtsi
+@@ -47,6 +47,12 @@ rtos_ipc_memory_region: memory@a4000000 {
  		alignment = <0x1000>;
  		no-map;
  	};
 +
-+	lpm_memory_region: memory@a9c00000 {
-+		reg = <0x00 0xa9c00000 0x00 0x00300000>;
++	lpm_memory_region: memory@a4800000 {
++		reg = <0x00 0xa4800000 0x00 0x00300000>;
 +		no-map;
 +		bootph-pre-ram;
 +	};
  };
  
  &mailbox0_cluster0 {
-@@ -189,8 +195,10 @@ &mcu_r5fss0 {
+@@ -99,8 +105,10 @@ &mcu_r5fss0 {
  &mcu_r5fss0_core0 {
  	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
  	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
