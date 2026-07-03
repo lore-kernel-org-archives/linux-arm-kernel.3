@@ -4,143 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBCBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:21:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1BD2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:24:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=; b=Z4ACkuCt8XhTxjfYQo/A7exuzs
-	XiqvjYB+6WXvkz4wRydwSoEKaKkSWddVdTxS5tw9c9TcXQdKk36oTiMNCGw1WdeRxpU1IBYRm/dik
-	OvNJ7HGdTuWSqXjQ2u+mcPg5SpUIGy9dEZjAftorBJ8okuIJ//Ga/GAFFsZa4BffS0ema5umprQQu
-	wGK2tbITPI4xeECAVoumowEX1hxEKJzqdTjfYfu6GK36Y+KRABnUX9/w9C7nhmz3gxJmWsgI3/rfx
-	p1AMtxM29mu8MkejxSEiQACdun764dVF0bG4p6q5xfulrEoU+De59g2h+nQz6gSCPQTeVJYv+Oapa
-	5AkjUiSA==;
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZI9SE4AQdyvqDpYBmfVnwDD8EKkT0UcJcxbBK5m+Pw0=; b=IW/cC2JhISM3cbiw2/XBJ7Cu7g
+	bETjioK9sFULZ0/5mEt8NYbuhrv2ApGJcdiy857HT8xLSRyci5IzzvbTtEnVJq2vCXUS6AvQjKP8q
+	7F+OToAxjKZwB2L5tna5SXcupQyBYg4OkCGbvAC+5RMhgTLxpndelaKZ1j4Z6nHqweMYMrC3Y1nyP
+	Pk4y+o7pFRLLav66w//3ir5ndlsg6rOC/pmAxb/hmuXBmJBZxQFKbEnXNAHs4arGZ2MvaiVbKjqM4
+	wT+Qe0brxPPPrbP1al445BLzIk/WopPrgq+TlS0XbgA2lPw2Q3BbITWTN9MOweWZEMZNB5i5LjWr8
+	TjVQxNFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZ91-00000006Lt4-0OYj;
-	Fri, 03 Jul 2026 08:21:07 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wfZCF-00000006MGf-2t0l;
+	Fri, 03 Jul 2026 08:24:27 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZ8w-00000006Lrn-0nLF
+	id 1wfZCC-00000006MGE-1xna
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:21:05 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 663685g63053416
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 08:20:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=; b=BECsprnV4e8eciNC
-	vZ0Gvyo2mJYE9MB5ZPCb3lHH/ALHqw7R2tb2eAK9PgXz7LAiz+ZkkFbA8RjWxdUY
-	5Iv5erJhlQGuRrc7jNuEcpmPyTQOcQzNp3wOhzYs5BV7nyVPqz3r9Z9zSXeQeN8j
-	GQNpsxGkvd2qbD23Pqih4FpZMnnKSWzFmRNh9p5dlQ9bX58TDrhTBPCtSwfTCWXO
-	i6Yl8QUjBUQZgobZYqXfLF+hIJy4sYnMRuMRFzN7Tl9TvQ3Yfg34qy8soU8hwvtg
-	+SiItcxqnSJbuxyAzOeiiIANAsUAFr3nOoZsypnbT/ZPKww7Ep2bJ7RL8Ijofyf4
-	O743tw==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f67j00g27-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 08:20:58 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e59b0e0f4so24344485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 01:20:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783066857; x=1783671657; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=;
-        b=J+qOBiq0A35/JrEYetxz51jkigQT3980bPqInXDt26CSRIBwMaiU2O67BHGA8azEEg
-         CWomQDvZLCpsSdGKdDNQGiQZSTMgbPoRSLRylRT1LsYNdsoeYWRL/ft9UNKZzu/ioOKW
-         sFqSW961+CkQvhQTJXPzqnyYG+NFuuihzG7dUqgni4kPgMMgwlMb42q9X+RNfVWKYAm9
-         6yKWrvlSE0RXbu976jduWPJW5UlqapGQYA0Se6SCU7MDptHujOH4D4v7EOfPdH0qNu1H
-         vi6X7rLXYbw5kwdXNkTyJY8uDq+7NDb/BxkJg1Oo3FhnTaqVQNw2hsoKtEwGDxieVhp9
-         b0Lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783066857; x=1783671657;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=;
-        b=aOD9yRk1V3iHdJurAIY8yOfCQsDbkMcTNEhQdXZe+rGfgDeTDQU2Qz4mf0QAhX3QYL
-         BFdMshjBT+aK5b0mi8/+3/eGFx9iLJFUSBoIoYra6h6rkpyRpcrM+CucXwc1KVtNs8NH
-         drPKcrO0/Xzw64edC4VCO2N5CtoBWLS2cbxUkPntD9PBNqBuR1hyflGkJP0oDet3sVQj
-         BWOrTb/qHs3RqY39oXRqXFlIgGn8saVJG6kRh0cbStdjJt45Nmy/WzqrNr4fHFBpfl0D
-         4bSH+jeDXTytU9fUV6btQ9xH0I9Mu59pAaK2pt4n9ugzSZXKe16kWT24Fv4xejHfDdf1
-         QXhA==
-X-Forwarded-Encrypted: i=1; AFNElJ/f8OqEbPYD1bDi/iUqe6B5azUl/SlZIY54VByXVNAvUFgHXmUURsSKmclRBMKuSvpI8yaSP+bTHEycFTDQ2Yfr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/InH4dOTRbJNbBckMEntlEsH002LjStzuL4KYFcLRfXQtVoiM
-	pYG53vSuZi/prXqwOLKuOXW7M/9ZlnkLbOdR/EtuPi9a/mQQhZTVSzQcToCwj12Gvm4FSV5h9ve
-	GTchGSN7xB90g+uHmyQY5TOo7Sn2noKmwJL5IqZmuY0JeSjTqR0M6Ty3z+jqxDpybWUlCF1OzUI
-	CGBw==
-X-Gm-Gg: AfdE7cmuVK6YkkIqBGZsLVqQglPZEIbc8DrZxLuZgNiMduRmVChtWzqro3c0ikW57IG
-	Wuq/O1wit1boBaBCa9wfHWg0uTCA+VB7XjjnrkEq9OfqoyX70fLSskGxWxwDtac+5uXa6J3udLl
-	njIt6GpDwSnzjxcK0MlBxF2OkbjqTAR5UdnL4vTbgVnK/L1paTYiun0L2xkAATeM4RxgZ/lah6O
-	Uz7WGw1Aqlj+S4VwE8FSUbXykmKaWK1Hj1q3x8l5qY/ndoEO0IQOp7TbD6PS1Nhabo3Pve4MUP9
-	LLosFhbZ26Fs+FWFVXvxnQGruVRD/ZoXk4DDj7vfi62+6nK+sVpXvGfD68EQEEklq+56bOaqMND
-	PashhO5q3OvHCWyIEpY6Hp+tAoZ34KEJhPKuJ/DE=
-X-Received: by 2002:a05:620a:44ca:b0:92e:7319:7365 with SMTP id af79cd13be357-92e7b042c9amr1098934985a.26.1783066857251;
-        Fri, 03 Jul 2026 01:20:57 -0700 (PDT)
-X-Received: by 2002:a05:620a:44ca:b0:92e:7319:7365 with SMTP id af79cd13be357-92e7b042c9amr1098932185a.26.1783066856791;
-        Fri, 03 Jul 2026 01:20:56 -0700 (PDT)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:b934:1281:e054:26d2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cce1a844sm30038455e9.15.2026.07.03.01.20.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 01:20:55 -0700 (PDT)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        =?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-        Gregory CLEMENT <gregory.clement@bootlin.com>,
-        =?UTF-8?q?Beno=C3=AEt=20Monin?= <benoit.monin@bootlin.com>,
-        Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
-        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-        linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] gpio: nomadik: silence boot log
-Date: Fri,  3 Jul 2026 10:20:54 +0200
-Message-ID: <178306685093.6924.3082461604910448071.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
-References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
+	Fri, 03 Jul 2026 08:24:25 +0000
+Date: Fri, 3 Jul 2026 10:24:18 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1783067059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ZI9SE4AQdyvqDpYBmfVnwDD8EKkT0UcJcxbBK5m+Pw0=;
+	b=ta/6ZojDa3IXYeNZRJDp7XN1G910he5p7od6lYPGjH149qv2iPCEIdM80pz57ymgYC4Wmz
+	4y7XlkLnh8vuOMQET9yZvCxTZ9wxGkh96z+RcNkqtR3qRljoaZdfFiAVqyNVEJFo0iaJ1O
+	lqP2IsD9zrxB4fmCRTRrvhZBdyUL0YUZxTPQo3W3NhKre2pj5rdcwa9zqAksW253QF7Uee
+	47J4vSYuTLEwI5BCKCUerROIc2dnhLAcEgjJN2KgUUaRSSsSE1d6VoecpG4M+eUtOH3PNg
+	yGdeTVtAXO0yy6J2m56p3ed0zQq6GMZawvy8+IL0eE06Ra2xcXF1PFKN2EZnsA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1783067059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=ZI9SE4AQdyvqDpYBmfVnwDD8EKkT0UcJcxbBK5m+Pw0=;
+	b=KRvot/dx2A9c2NPWXFKb/2LEK2QOX0LnKaSHNAuXtVvkyG4bKyj49OuFyErTkZ5HQyCQgw
+	U/xlQF4ybFYTTSBw==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Steven Rostedt <rostedt@goodmis.org>, Peng Fan <peng.fan@nxp.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Subject: [PATCH v4] remoteproc: imx_rproc: Invoke the callback directly
+Message-ID: <20260703-imx_mbox_rproc-v4-1-67b10560a861@linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: lbZJ_IVuaF7ZVbCARYWktUA-kWxu2nAG
-X-Proofpoint-ORIG-GUID: lbZJ_IVuaF7ZVbCARYWktUA-kWxu2nAG
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDA3OCBTYWx0ZWRfX2QOOK9vI+QN5
- Dm618UdfJwXk0NeQH79nQwg4S6hceETYXnAlLHs4XyuzWFRxi5CpRVMQWuVTpJFyDy0rJV2vdon
- 0bGQLeQk1uHDLFZiH70j095824ZTN1k=
-X-Authority-Analysis: v=2.4 cv=Yuc/gYYX c=1 sm=1 tr=0 ts=6a4770ea cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=QoyTEntUziiQsqKmZ_8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDA3OCBTYWx0ZWRfXzLSIk2s+e49x
- ymWajX89ofajhqt+UH6liBMBR6VWY/8nu7L/LlT8a49dDG79XsojU627Btz4szYphyTQtAi4aNz
- 6c26bbFXVBueJ45D64+gKqE18E4F8PFhY6wZkOcFkMHfH4GY00DOg6wlCXS2BWffiIDOmMFG+9F
- f0hMtl9qOb1RCY/eUfKGtK7epWP+/x+MizCIaxrhEgzX9UfNX1956AtQ+Rx2COLzmF9ZXWOE5xj
- wpDv1ZeS4Ev9xHHBPPCDIhSMeFe8CJrnEz3UkzfkOnx6V3xua5Wzo7QhWZciNxzHHrD+TjuHdzu
- ZZNAS8STrr1D2IriUaX3w3Qee72Ek32pcH+kWsHJCG/G+zAefs3SGag64HMsyNP6ahjjABd9zpM
- quAEGfvp5hMo8SvNtvbYF+227OhOMwVp/gXZPkKeIcnuUDv6KTiPTBgSJo3/MCzG0g64K/11QQH
- sW2g5odTqc6bMBN11Jw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 impostorscore=0 suspectscore=0 phishscore=0
- bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030078
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+X-B4-Tracking: v=1; b=H4sIAJZvR2oC/3XOTW7DIBAF4KtYrEvETwA7q9wjqiIMQzNSbRJwk
+ KvIdy91FomadvlGb76ZG8mQEDLZNTeSoGDGONawfWuIO9nxAyj6molgQjMlOorDfBz6OB/TOUV
+ HjVdcBGV1MC2pS+cEAecVPLzfc4LLtbrTfUh6m4G6OAw47ZpiNpz89E6Yp5i+1j8KX4v/nSycM
+ tq3ITipgXNQ+08cr1OKI84bDytXxIPQTL4QohKWMdV5J3vd2b8I+URw80LIShjTbVvOhYfgfhP
+ LsnwDN15qOl4BAAA=
+X-Change-ID: 20260529-imx_mbox_rproc-7d512f5a6f78
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_012104_042031_1B687BD0 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20260703_012424_654625_299CF02A 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,31 +87,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The imx-mailbox driver moved the callback invocation into the threaded
+IRQ handler. This means the callback is invoked in preemptible context
+and there is no need to schedule the kworker for the
+imx_rproc_notified_idr_cb() invocation.
 
-On Wed, 01 Jul 2026 18:56:57 +0200, Théo Lebrun wrote:
-> Currently, on EyeQ5, we might get those error logs:
-> 
-> [    0.544230] nomadik-gpio 1400000.gpio: failed getting reset control: -EPROBE_DEFER
-> [    0.544274] nomadik-gpio 1400000.gpio: could not populate nmk chip struct
-> 
-> Then on successful probe we get:
-> 
-> [...]
+This was tested with the rpmsg-tty driver on imx93.
 
-Applied, thanks!
+Remove the workqueue handling and invoke the imx_rproc_notified_idr_cb()
+callback directly.
 
-[1/5] gpio: nomadik: convert nmk_gpio_populate_chip() to goto cleanup
-      https://git.kernel.org/brgl/c/6dd9672a16bfbe59427aa0694fdb94553e7949f4
-[2/5] gpio: nomadik: add missing dev_err() call on chip populate failure
-      https://git.kernel.org/brgl/c/2123813511d495b99b605abe4db167793698e0c5
-[3/5] gpio: nomadik: drop duplicate probe error line
-      https://git.kernel.org/brgl/c/b0901d4dc17e37edbc928c01dced21ea86da87f2
-[4/5] gpio: nomadik: use dev_err_probe()
-      https://git.kernel.org/brgl/c/56716e37447a5bd4f9fbd6e314acacce191e313f
-[5/5] gpio: nomadik: drop "chip registered" log on probe success
-      https://git.kernel.org/brgl/c/edbcefc9b0d5925f8be4227fc180a92cd49d126e
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Mathieu Poirier <mathieu.poirier@linaro.org>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+v3=E2=80=A6v4: https://lore.kernel.org/r/20260617-imx_mbox_rproc-v3-0-77948=
+112defc@linutronix.de
+  - The mailbox bits are part of v7.2-rc1. This is just a repost of the
+    imx_rproc driver which is left.
+
+v2=E2=80=A6v3: https://lore.kernel.org/r/20260603-imx_mbox_rproc-v2-0-a0059=
+dc3b69a@linutronix.de
+  - Forward the error in imx_mu_generic_tx() to the caller (new patch
+    #1)
+  - Extend the patch description a bit for for "Start splitting the IRQ
+    handler" to briefly explain why callbacks are moved to the threaded
+    handler.
+  - Drop imx_mu_con_priv::pending. The primary handler wakes its
+    threaded handler. Once the handler is woken, the pending flag must
+    be set and there is no need to set/ clear it.
+  - Avoid the double clk_disable_unprepare() if
+    devm_mbox_controller_register() fails.
+
+v1=E2=80=A6v2: https://lore.kernel.org/r/20260529-imx_mbox_rproc-v1-0-b8ffc=
+36e11e5@linutronix.de
+  - Using correct register to enable RXDB event.
+  - Update commit description for the "threaded interrupt", "unmasks the
+    interrupt" =3D> "masks the interrupt event".
+  - Add a shutdown field so that the interrupt does not unmask the
+    interrupt if it has been already disabled because the channel is
+    about to be shutdown.  A possible race mentioned by sashiko.
+  - Use devm_pm_runtime_enable(). This should avoid a possible race
+    sashiko mentioned.
+  - Use devm_of_platform_populate().
+---
+ drivers/remoteproc/imx_rproc.c | 33 +--------------------------------
+ 1 file changed, 1 insertion(+), 32 deletions(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 7662ebd9d2f49..e18ae33a5cf85 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -24,7 +24,6 @@
+ #include <linux/regmap.h>
+ #include <linux/remoteproc.h>
+ #include <linux/scmi_imx_protocol.h>
+-#include <linux/workqueue.h>
+=20
+ #include "imx_rproc.h"
+ #include "remoteproc_internal.h"
+@@ -115,8 +114,6 @@ struct imx_rproc {
+ 	struct mbox_client		cl;
+ 	struct mbox_chan		*tx_ch;
+ 	struct mbox_chan		*rx_ch;
+-	struct work_struct		rproc_work;
+-	struct workqueue_struct		*workqueue;
+ 	void __iomem			*rsc_table;
+ 	struct imx_sc_ipc		*ipc_handle;
+ 	struct notifier_block		rproc_nb;
+@@ -892,21 +889,11 @@ static int imx_rproc_notified_idr_cb(int id, void *pt=
+r, void *data)
+ 	return 0;
+ }
+=20
+-static void imx_rproc_vq_work(struct work_struct *work)
+-{
+-	struct imx_rproc *priv =3D container_of(work, struct imx_rproc,
+-					      rproc_work);
+-	struct rproc *rproc =3D priv->rproc;
+-
+-	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+-}
+-
+ static void imx_rproc_rx_callback(struct mbox_client *cl, void *msg)
+ {
+ 	struct rproc *rproc =3D dev_get_drvdata(cl->dev);
+-	struct imx_rproc *priv =3D rproc->priv;
+=20
+-	queue_work(priv->workqueue, &priv->rproc_work);
++	idr_for_each(&rproc->notifyids, imx_rproc_notified_idr_cb, rproc);
+ }
+=20
+ static int imx_rproc_xtr_mbox_init(struct rproc *rproc, bool tx_block)
+@@ -1271,13 +1258,6 @@ static int imx_rproc_sys_off_handler(struct sys_off_=
+data *data)
+ 	return NOTIFY_DONE;
+ }
+=20
+-static void imx_rproc_destroy_workqueue(void *data)
+-{
+-	struct workqueue_struct *workqueue =3D data;
+-
+-	destroy_workqueue(workqueue);
+-}
+-
+ static int imx_rproc_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev =3D &pdev->dev;
+@@ -1305,17 +1285,6 @@ static int imx_rproc_probe(struct platform_device *p=
+dev)
+ 		priv->ops =3D dcfg->ops;
+=20
+ 	dev_set_drvdata(dev, rproc);
+-	priv->workqueue =3D create_workqueue(dev_name(dev));
+-	if (!priv->workqueue) {
+-		dev_err(dev, "cannot create workqueue\n");
+-		return -ENOMEM;
+-	}
+-
+-	ret =3D devm_add_action_or_reset(dev, imx_rproc_destroy_workqueue, priv->=
+workqueue);
+-	if (ret)
+-		return dev_err_probe(dev, ret, "Failed to add devm destroy workqueue act=
+ion\n");
+-
+-	INIT_WORK(&priv->rproc_work, imx_rproc_vq_work);
+=20
+ 	ret =3D imx_rproc_xtr_mbox_init(rproc, true);
+ 	if (ret)
+
+---
+base-commit: b3f94b2b3f3e51ab880a51fc6510e1dafba654ed
+change-id: 20260529-imx_mbox_rproc-7d512f5a6f78
 
 Best regards,
--- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+--=20
+Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+
 
