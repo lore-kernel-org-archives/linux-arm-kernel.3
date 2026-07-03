@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010FAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 09:26:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05E22C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 09:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IGLn0yWWoqZ6xb8aEacy8dcT5BUyH/ks4JFwH60trJw=; b=tSGmTM2TQAu390Pk0AWOSxFlpy
-	zFVnb/vlQaZkq7KtMPA2v4fRLWiW+jzoT3/RLGb4aK+KpU49La69ZC1FEHRcKSLM/UvscPEbIYXRU
-	ikMAVV3f8K9Hy+UG7a+r0W7Bn643laFUerJXXgGUMiR9I23PdsANbvAgHXwcCx2nJIa3alSCKyQpr
-	Zcyc2lxvPlif835FgVmOJrdqTjENsP+JmIz8H0m7L+RkLdWjRTkn8dCRqZv4ePLqSFwcpBAKS6Miu
-	Jub/Cny4S6Kqz/F0Nj6wbiVX4hN+j59/lPmiROiwC5GNATYre5Fkpzit9uCyLz37X/rLRqTqWx+eZ
-	xkSXnfug==;
+	bh=xZXSnyn5lFZ5UgdeLT0azNyaJlXpy98p1Ge5OXKtpOU=; b=sB4w3YqCMWOXLHtzmRJUSzailD
+	8lriF424oYNiX+Wb5gQxZTDpqmsRS5SMH9r12pexfczB1PPIN9uMxua9mLfBILjy2jO0c9EICN0Dm
+	zMYr9wzM0RXh+7oKBK+H1tvL9UDcKwRD3SwInVe79iJTJcIpO4+EwMvu+LpDGzG3PvYms8iT3joro
+	D9/ga/rn/CZRSvyyFLk5enpu49uh8Oh1FLECzRNtwtyE3yo+Nde+wimAmOwZFld9XeEyXjtZZWrEH
+	YF8CNE3tvb4Fv76+xIFd3YLNnosDoCUmaG/gW1aUrWJzgKSNdIYdz5lHdDORJu71S+/SGG+/FO4yQ
+	krCB+3aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfaAH-00000006Tns-03D2;
-	Fri, 03 Jul 2026 09:26:29 +0000
+	id 1wfaBM-00000006TyQ-1Db7;
+	Fri, 03 Jul 2026 09:27:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfaAC-00000006TnB-1sGD
+	id 1wfaBJ-00000006Txf-3Bvb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 09:26:27 +0000
+	Fri, 03 Jul 2026 09:27:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1153A1EDB;
-	Fri,  3 Jul 2026 02:26:17 -0700 (PDT)
-Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 703C73F673;
-	Fri,  3 Jul 2026 02:26:12 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFE8F1EDB;
+	Fri,  3 Jul 2026 02:27:27 -0700 (PDT)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F0003F673;
+	Fri,  3 Jul 2026 02:27:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783070781; bh=4r3qWx8Ds3/hTzzeotmLLuGM39MujgZ6TSswYYw5CB8=;
+	t=1783070852; bh=JvoU5nbICVMIWRHb0kIPGUpPkes8KJNpKqGQHTJwF10=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hifszK3FOqihx8yzRGLCoyv4ym7BMwtkSBVfHsleZsBJyYhwGoO5e7D6UuLuQzH3K
-	 +lX9Hc+uNJmEDXeGtAU3M5WxL4QNakdJIEZl4N1GZuwUmyjaD+pKkJXr1VR9VEJKNY
-	 BU+a7i+xtk0h9jO6dtFKe8nuQ2WsJS+93LuAV4iA=
-Date: Fri, 3 Jul 2026 10:26:03 +0100
-From: Wei-Lin Chang <weilin.chang@arm.com>
-To: Leonardo Bras <leo.bras@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Itaru Kitayama <itaru.kitayama@fujitsu.com>, 
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v2 3/6] KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
-Message-ID: <mffciffp7dx7u3kjvb6scu3tzbur34wkgndc5w2qwhmrqjtgq5@rfxk4apyhv3a>
-References: <20260630121005.1130996-1-weilin.chang@arm.com>
- <20260630121005.1130996-4-weilin.chang@arm.com>
- <akUrmfQnKmIXTigs@LeoBrasDK>
- <5yy625c66j3kgoboejg7hagnmxjzp2tvmvvncmqvo444wtpmzl@sufez6t2iy3r>
- <akZEPVJhCcYbyoN2@LeoBrasDK>
+	b=ikRQDQNahGHiJFINP6/dnNmuIEPdANlrfpfBFrGxrRs/b4KK68wYKWhOXNc+EJNEa
+	 vFWsp4D+IrAq/iI69qM2zxoeC9EXqgUPCoYNtcZ2cIZu8S4wc6UUpcRfTYT+KhIOPl
+	 THZ9ggf4tGc+y83nvTHAdrGYDpeQhXtGYAoR248Q=
+Date: Fri, 3 Jul 2026 10:27:28 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Linus Walleij <linusw@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Kees Cook <kees@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, slipher <slipher@protonmail.com>
+Subject: Re: [PATCH v3] ARM: breakpoint: CFI breakpoints only on demand
+Message-ID: <akeAgEBWyAshTI9H@J2N7QTR9R3>
+References: <20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <akZEPVJhCcYbyoN2@LeoBrasDK>
+In-Reply-To: <20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_022624_577295_EB6F28D9 
-X-CRM114-Status: GOOD (  46.37  )
+X-CRM114-CacheID: sfid-20260703_022733_881631_716E17B3 
+X-CRM114-Status: GOOD (  33.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,195 +73,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 11:58:06AM +0100, Leonardo Bras wrote:
-> On Wed, Jul 01, 2026 at 06:27:51PM +0100, Wei-Lin Chang wrote:
-> > On Wed, Jul 01, 2026 at 04:00:41PM +0100, Leonardo Bras wrote:
-> > > Hi Wei Lin,
-> > > 
-> > > On Tue, Jun 30, 2026 at 01:10:02PM +0100, Wei-Lin Chang wrote:
-> > > > ptdump files can still be read after the pgt of the canonical mmu is
-> > > > freed, if they are opened before the VM debugfs directory is removed.
-> > > > This triggers UAF in places where we cache the pgt pointer or access it
-> > > > without checking its validity.
-> > > > 
-> > > > Check the pgt is still alive under the mmu_lock before accessing the
-> > > > pgt.
-> > > > 
-> > > > Reported-by: Sashiko <sashiko-bot@kernel.org>
-> > > > Closes: https://sashiko.dev/#/patchset/20260623142443.648972-1-weilin.chang@arm.com?part=1
-> > > > Signed-off-by: Wei-Lin Chang <weilin.chang@arm.com>
-> > > > ---
-> > > >  arch/arm64/kvm/ptdump.c | 38 ++++++++++++++++++++++++--------------
-> > > >  1 file changed, 24 insertions(+), 14 deletions(-)
-> > > > 
-> > > > diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
-> > > > index d5aa9eff08d1..752d8e0cd25c 100644
-> > > > --- a/arch/arm64/kvm/ptdump.c
-> > > > +++ b/arch/arm64/kvm/ptdump.c
-> > > > @@ -115,13 +115,21 @@ static int kvm_ptdump_build_levels(struct ptdump_pg_level *level, u32 start_lvl)
-> > > >  static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
-> > > >  {
-> > > >  	struct kvm_ptdump_guest_state *st;
-> > > > -	struct kvm_pgtable *pgtable = kvm->arch.mmu.pgt;
-> > > > +	struct kvm_pgtable *pgtable;
-> > > >  	int ret;
-> > > >  
-> > > >  	st = kzalloc_obj(struct kvm_ptdump_guest_state, GFP_KERNEL_ACCOUNT);
-> > > >  	if (!st)
-> > > >  		return ERR_PTR(-ENOMEM);
-> > > >  
-> > > > +	guard(write_lock)(&kvm->mmu_lock);
-> > > > +	if (!kvm->arch.mmu.pgt) {
-> > > > +		kfree(st);
-> > > > +		return ERR_PTR(-ENXIO);
-> > > > +	}
-> > > > +
-> > > > +	pgtable = kvm->arch.mmu.pgt;
-> > > > +
-> > > >  	ret = kvm_ptdump_build_levels(&st->level[0], pgtable->start_level);
-> > > >  	if (ret) {
-> > > >  		kfree(st);
-> > > > @@ -137,7 +145,6 @@ static struct kvm_ptdump_guest_state *kvm_ptdump_parser_create(struct kvm *kvm)
-> > > >  
-> > > >  static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
-> > > >  {
-> > > > -	int ret;
-> > > >  	struct kvm_ptdump_guest_state *st = m->private;
-> > > >  	struct kvm *kvm = st->kvm;
-> > > >  	struct kvm_s2_mmu *mmu = &kvm->arch.mmu;
-> > > > @@ -154,11 +161,11 @@ static int kvm_ptdump_guest_show(struct seq_file *m, void *unused)
-> > > >  		.seq		= m,
-> > > >  	};
-> > > >  
-> > > > -	write_lock(&kvm->mmu_lock);
-> > > > -	ret = kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
-> > > > -	write_unlock(&kvm->mmu_lock);
-> > > > +	guard(write_lock)(&kvm->mmu_lock);
-> > > > +	if (mmu->pgt)
-> > > > +		return kvm_pgtable_walk(mmu->pgt, 0, BIT(mmu->pgt->ia_bits), &walker);
-> > > 
-> > > IIUC, that's the same behavior, right?
-> > > Just changed to look about the same with the rest of this file?
-> > 
-> > I'm not too sure what you are referring to, if you mean the
-> > write_lock/unlock -> guard(write_lock) change, then yes, mostly. Just
-> > also checking mmu->pgt is still not freed.
+On Wed, Jul 01, 2026 at 12:42:09PM +0200, Linus Walleij wrote:
+> This removes the stub hw_breakpoint_cfi_handler() from ARM, making
+> it not steal breakpoint type 0x03 (ARM_ENTRY_CFI_BREAKPOINT) unless
+> CFI is actively used in the kernel.
 > 
-> I was referring just to lock+unlock -> guard() strategy.
-> IIUC this has the same effect, so I was wondering on why you suggested the 
-> change.
+> When not instrumenting with CFI, we fall through to return 1 from
+> hw_breakpoint_pending() "unhandled fault" so userspace can make use
+> of this breakpoint.
 > 
-> I then supposed it was to look the same of the rest of the file.
-
-Yeah, and I believe using guard() is encouraged, since it's less error
-prone.
-
+> This of course does not work if userspace want to use CFI and custom
+> breakpoints at the same time, and CONFIG_CFI does exist as something
+> users might want to select for their kernel. If this is not good
+> acceptable we need to think about other ways for CFI to interfer, such
+> as not using BKPT at all (rather something like BUG()) and back out
+> the offending patch until the compiler behaviour has changed.
 > 
-> > 
-> > > 
-> > > >  
-> > > > -	return ret;
-> > > > +	return 0;
-> > > >  }
-> > > 
-> > > So if the pgt does not exist anymore, it returns zero. Is that the desired 
-> > > behavior?
-> > 
-> > Good question, so the question is what contract between the ptdump and
-> > user do we want to make for this case. I guess returning some error like -EIO
-> > could make a little more sense than just printing nothing?
-> >
+> Fixes: c3f89986fde7 ("ARM: 9391/2: hw_breakpoint: Handle CFI breakpoints")
+> Reported-by: slipher <slipher@protonmail.com>
+> Closes: https://lore.kernel.org/lkml/kJqktbpLphg_Pk5I5SPptgTLjl3E3eq5mN5UzCslyFj7Q1Irp-wDid4mj5eQVd2iZtRGXgeZd8goq195EkXdjyt864YMc8mVb2B9NGH91NQ=@protonmail.com/
+> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> ---
+> Trying to solve the CFI bug. Let's see of this first
+> approach is acceptable for the reporter.
+> ---
+> Changes in v3:
+> - Actually strip the RFC prefix...
+> - Link to v2: https://patch.msgid.link/20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org
 > 
-> It depends on what is the behaviour you want to see... see below..
+> Changes in v2:
+> - Resending as non-RFC so it can be applied as a band-aid.
+> - Link to v1: https://patch.msgid.link/20260626-arm32-cfi-bug-v1-1-a467b5050c0b@kernel.org
+> ---
+>  arch/arm/kernel/hw_breakpoint.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm/kernel/hw_breakpoint.c b/arch/arm/kernel/hw_breakpoint.c
+> index cd4b34c96e35..007023db6a5d 100644
+> --- a/arch/arm/kernel/hw_breakpoint.c
+> +++ b/arch/arm/kernel/hw_breakpoint.c
+> @@ -929,10 +929,6 @@ static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
+>  		break;
+>  	}
+>  }
+> -#else
+> -static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
+> -{
+> -}
+>  #endif
 >  
-> > > 
-> > > I guess it's aligned with the idea of single file mentioned in the cover, 
-> > > right?
-> > 
-> > Sorry, I don't get what you are asking here?
+>  /*
+> @@ -964,9 +960,11 @@ static int hw_breakpoint_pending(unsigned long addr, unsigned int fsr,
+>  	case ARM_ENTRY_SYNC_WATCHPOINT:
+>  		watchpoint_handler(addr, fsr, regs);
+>  		break;
+> +#ifdef CONFIG_CFI
+>  	case ARM_ENTRY_CFI_BREAKPOINT:
+>  		hw_breakpoint_cfi_handler(regs);
+>  		break;
+> +#endif
+
+As commented on v2, I don't think this is the right fix.
+
+I think you should look at which privilege level the exception was taken
+from (e.g. useing user_mode(regs), such that a BKPT from user mode never
+results in a call into hw_breakpoint_cfi_handler(), an can be treated as
+unhandled.
+
+That way the user mode behaviour would be consistent regardless of
+CONFIG_CFI, and even when CONFIG_CFI=y, user mode cannot cause the
+kernel to die() by executing a BKPT.
+
+Mark.
+
+>  	default:
+>  		ret = 1; /* Unhandled fault. */
+>  	}
 > 
-> IIUC you mentioned in the cover letter that you planned to have a file 
-> which would, on read, output ptdump for every nested pgtable. Did I get 
-> that right? 
-
-Correct.
-
+> ---
+> base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+> change-id: 20260626-arm32-cfi-bug-10fb960749c4
 > 
-> If so, I imagine that the user has no idea how many nested pgtables are 
-> there, and if the ioctl initially finds N, but ends up printing N-1 
-> (because a pgtable was not there anymore), that would not be an error that 
-> the user should be worried about.
-
-In kvm_ptdump_guest_nested_show() I acquire the mmu_lock, therefore
-"initially finds N but printing N-1" won't happen, the whole operation
-of looking at the nested mmu array and printing them out is atomic.
-
+> Best regards,
+> --  
+> Linus Walleij <linusw@kernel.org>
 > 
-> It could be an issue if you were printing in multiple steps (multiple 
-> checks), as a part of that pgtable could be printed while another part 
-> could not. Which does not seem to be the case.
-
-Yes, that's one of the problems not taking the lock can introduce.
-
-Thanks,
-Wei-Lin Chang
-
 > 
-> > 
-> > > 
-> > > >  
-> > > >  static int kvm_ptdump_guest_open(struct inode *m, struct file *file)
-> > > > @@ -206,17 +213,23 @@ static const struct file_operations kvm_ptdump_guest_fops = {
-> > > >  
-> > > >  static int kvm_pgtable_range_show(struct seq_file *m, void *unused)
-> > > >  {
-> > > > -	struct kvm_pgtable *pgtable = m->private;
-> > > > +	struct kvm *kvm = m->private;
-> > > > +
-> > > > +	guard(write_lock)(&kvm->mmu_lock);
-> > > > +	if (kvm->arch.mmu.pgt)
-> > > > +		seq_printf(m, "%2u\n", kvm->arch.mmu.pgt->ia_bits);
-> > > >  
-> > > > -	seq_printf(m, "%2u\n", pgtable->ia_bits);
-> > > >  	return 0;
-> > > >  }
-> > > >  
-> > > >  static int kvm_pgtable_levels_show(struct seq_file *m, void *unused)
-> > > >  {
-> > > > -	struct kvm_pgtable *pgtable = m->private;
-> > > > +	struct kvm *kvm = m->private;
-> > > > +
-> > > > +	guard(write_lock)(&kvm->mmu_lock);
-> > > > +	if (kvm->arch.mmu.pgt)
-> > > > +		seq_printf(m, "%1d\n", KVM_PGTABLE_MAX_LEVELS - kvm->arch.mmu.pgt->start_level);
-> > > >  
-> > > > -	seq_printf(m, "%1d\n", KVM_PGTABLE_MAX_LEVELS - pgtable->start_level);
-> > > >  	return 0;
-> > > >  }
-> > > >  
-> > > > @@ -224,15 +237,12 @@ static int kvm_pgtable_debugfs_open(struct inode *m, struct file *file,
-> > > >  				    int (*show)(struct seq_file *, void *))
-> > > >  {
-> > > >  	struct kvm *kvm = m->i_private;
-> > > > -	struct kvm_pgtable *pgtable;
-> > > >  	int ret;
-> > > >  
-> > > >  	if (!kvm_get_kvm_safe(kvm))
-> > > >  		return -ENOENT;
-> > > >  
-> > > > -	pgtable = kvm->arch.mmu.pgt;
-> > > > -
-> > > > -	ret = single_open(file, show, pgtable);
-> > > > +	ret = single_open(file, show, kvm);
-> > > 
-> > > Maybe this change is more related with the previous patch?
-> > 
-> > I see your point, but I divided it into first fixing mmu UAF, then the
-> > pgt UAF, which I also think makes sense.
-> > 
-> 
-> Okay then
-> 
-> Thanks!
-> Leo
 
