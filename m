@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFE92C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 04:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7BBDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 04:36:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4TgXgjdmTSRIB1vQl7JiTjJkLihMd13HlneFILSqAXc=; b=Aj7jfR8ctI3qoseGwS7N3wY8JR
-	6VrC7SSQZH3nEWsVuet+bbatHfNPcDEV3rQyE1YU8vJmKdrAKXq1B6DraO2aWloqEnxFRQW2F9LS5
-	N5yKnRKi/M4Iuo6B3+Ss6iBCjaGPyRv9OQCvhTvVqKK3gR9NCuzOYx9vAmQCggvVapYBwp/8KsNGO
-	GGc0x8HhuuGhSdLXLG5+S1jUfA2BnhDJg9533Rm1d401gWzICJ/RQYwzfHZDtoNLqKialu1bwfdM6
-	+n3tfSQSOu0IZSUqJYq+eG+MueNJ2q5W0fqO5t43iEY9qhRy4fAyLhIw3PEZaNqViObkCyZMfoQKi
-	7XVOlzQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SHnUHC2loAUQOF3ipvuR0PiWOihZrdNJGJ573g3nQSk=; b=IuJxlaaPd0taSxEOsaH3mHNlqx
+	zDLYex2iPk33BOTAa+Pm8cgt253J5b2CYgW8R59D9UK3mjDDNutTbOZt/m0AdKJaQ+l0XtH1qWgAv
+	HsTErRn9mqiRBy9aqnOvczZ0EM+lXr3jrGVbNqGK9yFmqwXBuHmzPhdpU/vob4YfuLcqwR8yDKu3L
+	xWi/72WtkQlQiplhZAxiX06+Qcy7N7tgD56KA0o29V4N2eCPogD1vSu30s4smn6K7Pwcv+818q1qX
+	Oy24yuDr/yGWzIEBUou89l8FlSsQZgPdyeiJIJ2btKSdjU1P7F4b/SQjuG8meoEWJjOGZrY2QlEVG
+	8UI+OuAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfVJW-000000060UK-1KpH;
-	Fri, 03 Jul 2026 04:15:42 +0000
+	id 1wfVde-000000061MV-3aMe;
+	Fri, 03 Jul 2026 04:36:30 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfVJR-000000060Ts-2jVs
+	id 1wfVdc-000000061Lw-25Lq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 04:15:41 +0000
+	Fri, 03 Jul 2026 04:36:29 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73EC31D34;
-	Thu,  2 Jul 2026 21:15:30 -0700 (PDT)
-Received: from localhost (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1C4FD3F905;
-	Thu,  2 Jul 2026 21:15:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 346B91CC4;
+	Thu,  2 Jul 2026 21:36:20 -0700 (PDT)
+Received: from [10.163.170.216] (unknown [10.163.170.216])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E5643F905;
+	Thu,  2 Jul 2026 21:36:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783052134; bh=Cv1M8RLns4cnjAKC5PLIZHRwEpWpgR5Rv0tWEf0CiNk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jtd+3L8SFs4vs7dUAtjNF1Dm5tEThzzxXGWKjZSU/6mjF/rKbvHnzVWXnWAyp5Pxz
-	 s/iTtQMbjTFqKKsNJ0of0fMHf2QdpTnwHEezneA66m7qoFpWe/q6ThF+GP0tuGeFcb
-	 84kXgNLOAEQ8oQ3XwZimJNVbksQRhdXDFosvXwUc=
-Date: Fri, 3 Jul 2026 09:45:31 +0530
-From: Linu Cherian <linu.cherian@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/5] Add BBML3 cpu feature
-Message-ID: <akc3Y44XLqY3ZaEX@a079125.arm.com>
-References: <20260701094131.677636-1-linu.cherian@arm.com>
- <830a4d39-c829-4e79-a0ec-5a3633b58aa6@arm.com>
- <akcpqX8gpduwqtOg@a079125.arm.com>
+	t=1783053384; bh=Huf4PlM1oSkcNi7ICVIfuvMLySVEdvCv0CiezIssnPo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=QZcCEpXeiPNKBiMjjywV9TaLIW4JKg5JaBiuwOf/3xvuLSmfFPNTJXKUFxRfTHxRn
+	 KtyzZUCRHeqrj7YD9egmxo/I8i2VxHSNhJSLNxldk+bQoePMynJNPbPYLPsFRHmgSN
+	 P8cFM1G7JNLYJ5i/7xp3yzOPcyCXtsIXgd74vl2o=
+Message-ID: <f1441151-1da9-4b61-af52-42499496ec73@arm.com>
+Date: Fri, 3 Jul 2026 10:06:19 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akcpqX8gpduwqtOg@a079125.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/5] arm64: cpufeature: Detect BBML3 based on MMFR2 ID
+To: Mark Rutland <mark.rutland@arm.com>, Linu Cherian <linu.cherian@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260701094131.677636-1-linu.cherian@arm.com>
+ <20260701094131.677636-3-linu.cherian@arm.com> <akZBOkMSH77C6MH5@J2N7QTR9R3>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <akZBOkMSH77C6MH5@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_211540_114166_D46A331C 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20260702_213628_633072_FE9FC6C5 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +73,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
 
-On Fri, Jul 03, 2026 at 08:47:01AM +0530, Linu Cherian wrote:
-> Hi Suzuki,
-> 
-> On Wed, Jul 01, 2026 at 11:11:35AM +0100, Suzuki K Poulose wrote:
-> > On 01/07/2026 10:41, Linu Cherian wrote:
-> > > Patches 1 and 2 introduces BBML3 cpu feature
-> > > Patches 3, 4 and 5 adds more cpus to the BBML3 support list,
-> > > 	which dont advertise themselves through the standard
-> > > 	MMFR2_ID registers.
-> > > 
-> > > Linu Cherian (5):
-> > >    arm64: cpufeature: Add BBML3
-> > >    arm64: cpufeature: Detect BBML3 based on MMFR2 ID
-> > 
-> > 
-> > >    arm64: cputype: Add Cortex-A520AE definitions
-> > >    arm64: cputype: Add C1-Nano definitions
-> > >    arm64: cpufeature: Extend bbml3 support list
-> > 
-> > If you could move the last 3 patches to the top, would be easier
-> > for people to back port the "enable" BBLM3 for those CPUs, without
-> > the renaming conflicts.
-> > 
-> 
-> IMHO, if we change the order, "arm64: cpufeature: Extend bbml3 support list"
-> title need to be tweaked and might not go well with this BBML3 support series.
-> Also, backporting issue wouldnt be a problem if the whole series is
-> backported and not just 3 patches in isolation ?
-> 
 
-After looking further on this, i definitely agree that moving those patches up has an
-advantage, w.r.t avoiding dependency on other patches.
+On 02/07/26 4:15 PM, Mark Rutland wrote:
+> On Wed, Jul 01, 2026 at 03:11:28PM +0530, Linu Cherian wrote:
+>> Add MMFR2 ID based BBML3 feature detection, so
+>> that compliant cpus doesn't need to be added to the
+>> midr list.
+>>
+>> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+>> ---
+>>  arch/arm64/kernel/cpufeature.c | 14 +++++++-------
+>>  arch/arm64/tools/sysreg        |  1 +
+>>  2 files changed, 8 insertions(+), 7 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>> index 9986eb7b379c..d754b1b7da77 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -2133,6 +2133,7 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>>  
+>>  bool cpu_supports_bbml3(void)
+>>  {
+>> +	u64 mmfr2;
+>>  	/* CPUs that support BBML3 but dont advertise through MMFR2 ID */
+>>  	static const struct midr_range supports_bbml3_list[] = {
+>>  		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
+>> @@ -2144,15 +2145,14 @@ bool cpu_supports_bbml3(void)
+>>  		{}
+>>  	};
+>>  
+>> -	if (!is_midr_in_range_list(supports_bbml3_list))
+>> -		return false;
+>> +	if (is_midr_in_range_list(supports_bbml3_list))
+>> +		return true;
+>>  
+>> -	/*
+>> -	 * We currently ignore the ID_AA64MMFR2_EL1 register, and only care
+>> -	 * about whether the MIDR check passes.
+>> -	 */
+>> +	mmfr2 = __read_sysreg_by_encoding(SYS_ID_AA64MMFR2_EL1);
+>> +	if (SYS_FIELD_GET(ID_AA64MMFR2_EL1, BBM, mmfr2) == ID_AA64MMFR2_EL1_BBM_3)
+>> +		return true;
+> 
+> This needs to be '>=', so that if there's a future BBML4, we correctly
+> detect that CPUs with BBML4 also have the BBML3 behaviour.
 
-Thanks,
-Linu Cherian.
+That's right.
+> 
+> It would also be better to check the ID field first, before falling back
+> to the MIDR check. That way a reader can more clearly see that
+> supports_bbml3_list catches older parts that don't advertised BBML3, and
+> the comment above supports_bbml3_list would be clearer.
+
+Flipping the check order makes things clearer.
+> 
+> With those changes, this looks sane to me.
+> 
+> Mark.
+> 
+>>  
+>> -	return true;
+>> +	return false;
+>>  }
+>>  
+>>  static bool has_bbml3(const struct arm64_cpu_capabilities *caps, int scope)
+>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>> index bc1788b1662b..082256ec3bf9 100644
+>> --- a/arch/arm64/tools/sysreg
+>> +++ b/arch/arm64/tools/sysreg
+>> @@ -2259,6 +2259,7 @@ UnsignedEnum	55:52	BBM
+>>  	0b0000	0
+>>  	0b0001	1
+>>  	0b0010	2
+>> +	0b0011	3
+>>  EndEnum
+>>  UnsignedEnum	51:48	TTL
+>>  	0b0000	NI
+>> -- 
+>> 2.43.0
+>>
+
+Please move above tools/sysreg change into a separate patch
+as an update for existing ID_AA64MMFR2_EL1 definition.
 
