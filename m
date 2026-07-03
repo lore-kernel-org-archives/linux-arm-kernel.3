@@ -4,137 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1E8FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F9BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AU9ipdiKtSSheUdfxQE+uoCI7onY+7JIv+CgJmSkn4s=; b=4ED1gS15lXi1oB3/hspUm3QBOu
-	P+FpiwsLYpRBzxjOP4HwdvHIHNE+VfFpoXeLA9uw6ipuGhMKSYOmclyz1zC+KoiMS7K9UPyVQVKkM
-	FCO+ZJFbzVKtmr9yKXfNgGZAJRrN+XhEvDSOh33Pa2tvkiNLUzM9c49n//p5RyrxKkav18OnkFvkP
-	4xp123GcAnmziapBV2fepuasGCTqZHRqHAbSz3ECoKq9MZyzELJvpYJlNh59krJcKWBi00PuvRC3M
-	S5D80J2KC+APw3YlThir2u/ZS4fjlLUo0tbGg4ffB+WbT+p0IaluytHd/PdlvzYD/5zx1HkcW1pjx
-	ax2D6l4w==;
+	bh=wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=; b=nGZD9J8sf5+HE4+9Hnt3If6goT
+	ZUHpJCJCXNpXBPNBjp5SXZtfv9LYSDIrIdCkdnuEE3FIz03cRsJE/LaGMQIuIp1RK33wkVOTOsniu
+	xSK8ZgiwdFChEV0BzBWbTYs3+W/0XSRnLgp6dX2VAXYWSOEx5L4rasE/ZEdzV4pEvnWBsUN+tF9Xh
+	KckyfqB2o6Kq1+9WmQrtjsBDFwzQ4F5QP4/qZr5MObtTy3RWuyrzY965bsT4S0XxHL2UyxsXLfSQE
+	C3anSkOx5jwunF0zme0d/cpnC2mZHW310oqtX7T0fM33Eq7a5rbiJzNUibMyYUzSDd55mZzZXfXUA
+	XT49hafw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb1m-00000006aS6-0qVt;
-	Fri, 03 Jul 2026 10:21:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfb53-00000006asQ-0POR;
+	Fri, 03 Jul 2026 10:25:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb1l-00000006aRB-18Eo;
-	Fri, 03 Jul 2026 10:21:45 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1AB34042D;
-	Fri,  3 Jul 2026 10:21:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB6181F000E9;
-	Fri,  3 Jul 2026 10:21:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783074104;
-	bh=AU9ipdiKtSSheUdfxQE+uoCI7onY+7JIv+CgJmSkn4s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=KkIcm4LLntVxghboTdtO3MguHzwJfDma39wqKZaCfeAYH6+3jxHntCnu2hczHu9Kj
-	 h/I68QPcCpg0GdnC8k7NKXCZSDMAMgswafC+/hzJ2e/NPPGlUI+Z7hOhLc+ybCiczI
-	 Xuc8CgMVwEwPFZQ5nV9rQHkZw2PW2PFsRKD5I+pfxDMp5mFMVhkXRgei2UFatUfC4f
-	 0poeUqp1mF3stKuV9yrBAfVUa4xAo0t/ZyY48xJldva0Uqc2VHCoSdmUJif0HdF05F
-	 EWjEFL3Yn5TKZWlZ6B/U6o4Ntnqaa2TcafrIDhJaJIo+dqnQ8w2cBsGNJsnyJIx9wu
-	 9PkMXMcgPyhNw==
-Message-ID: <c83ca485-1e2e-46ba-bd15-1168aa8955d3@kernel.org>
-Date: Fri, 3 Jul 2026 12:21:27 +0200
+	id 1wfb50-00000006arg-1KAw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 10:25:07 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6635rfFT2994873
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 10:25:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=; b=iJxAZ0lRy9VMvl08
+	AswHq8gG8SVa2G21u2tYKvVg9RmRMC68nB0h4aZiGIs8q5x7RLADvxk/1BTMAjni
+	jU+M3P9rB5BsZ/wOiKw8HBPZpm3lTWVqxY1LrwcZSNaw+43m3FNQOrf5GXa8R6BB
+	kQfK4Ga6v7Bem/tCLOqOiAfOHCJLwWFw95bUhaHzJclBkWs/nygbRj3COWB1aet8
+	NdbXdVU5CfQYp2flEkVGYD/NWyGYP4hayuLopwG+XHMJ2WtXtwC1T3k4mlMZzy6y
+	u4AWbpcMYHNEFfR78OmHrYkC3RDoe1Nla9na3y6xI/y/Twi8jTG5Qt3+Rl4E4cyZ
+	55WlKQ==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f648n1vj5-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 10:25:05 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c069f73e4so1375211cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 03:25:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783074305; x=1783679105; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=;
+        b=IZSLA1Ikv1VgQwqU5YwkZgaGozwNttVxoJOnrlUCWqvart+ifPf1M0LP042SSCBXob
+         6f94b7TYbtnjob8k2CyPNt0pQcPZ5FETTf7jS75337R7ECMsMSp6nc3YBv3n+fq0EH96
+         fJIAaQHxDHKrVt4zMEkXks4iplGWZ0/oou0qZl3doMgdZVGo68+ry5EuSOU/fDe4cMVh
+         ntF3lkIISIyhhkHy1AmcUWH6WV1PCig/lPM6InlRKU0ZXWLWxm5AJgZuknQfK0h+drcg
+         +lWAZ4EXgi0bg/jD2eZDc7buV2Og6gIsgIANY1ifxSVsldOjh3BclV0WLHs14mZ++eBm
+         vVjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783074305; x=1783679105;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=;
+        b=SD4l9/Vy0Egiulr4cBmP1aa2L9DazUDV6sKpTUIFwGzfbnuyxJ2Mw4y/D5okY+e4Dy
+         zhBzkRJ6lfsoDjePoGvNahqc9GiF0uFS/ZWrlTqH4arTAMH0gcKoPynF3L2e98h0YHXN
+         4ZQyhsBEMS0I7drE+/EHAZwXBLFGFkqZ5uNs08TB0XlaJAAZ3oxb6iIkqNqBhl/ECc/I
+         WyyKjNBQvnktHB1BKMZ20AwzxYnjmEw4cLDy7qTaTB5Y4YKlCDYuKLTdZUW05dgUpAXW
+         CjXqqOAu5+OGgyVLwB924bWtKfmoyca82Vnbjf61AzCH27Rytx8I+H4/54jrDv/hFE97
+         1hrw==
+X-Forwarded-Encrypted: i=1; AFNElJ/LmzaGxDjhFpuNdAo5RnYF7mmPDIx1UtDbzN1Okfd9pSMycA6Qp0r2AmSPD6+FUnKAZXs0DuMmB414kXK1i58n@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3OnNvPisl2kWaIhZvCzSfXceKu0xouL46y6Xra6iLlah3oWAY
+	hJ2gFB8CfQ1Q8XmCwLMzSN/Um4/5yRyP7i2imgGA4sjupzbTIF1+myvTeEsQPGO8ZA5YRlXW5Jc
+	qcS8d/G2+va8+p1kKUI3l42MngIOVyWLrUcPswn9usorogBujMILPqzv4qB4ARRxnVqb/xE9Hnh
+	I+Yw==
+X-Gm-Gg: AfdE7cmxdJcUyj2BC+hjQkTvT2/C73ADhV7p3GIVYDrpnnlEqGjTGQi5tg3tb9oRTMQ
+	fulhM0dzh26p264xfnaMaX86jzf0g+fe03v69FeAeR1W5r25PPR27doQGv7txxs+0UQml/lJqup
+	VHjlPIKhb3VK2UUpokwnm90ysGPSJlCjXPijI8YgZebCP9NwE5ZOnQXo8LotwGefCNrMcEHWSz5
+	mKXk8gKEx4P3GomB66oEfIRnMVUmVJnqxTjNJG4Qp9sdY/xYCqTUaJL7U1K34GxgMLZYsE5UqDB
+	6zQUDmVkyf54qN9DRiOXcuJyXiFkN+WYQ9f+rQDJUwe1ZO/vZaXalOAUU+FWLCLf30/KyjgqLeC
+	/X/10KfPi7Mz5AaY5FvlMzBBgdrNZOsHLEvM=
+X-Received: by 2002:a05:622a:118e:b0:51c:2324:666 with SMTP id d75a77b69052e-51c26a6b823mr79308891cf.3.1783074304705;
+        Fri, 03 Jul 2026 03:25:04 -0700 (PDT)
+X-Received: by 2002:a05:622a:118e:b0:51c:2324:666 with SMTP id d75a77b69052e-51c26a6b823mr79308631cf.3.1783074304270;
+        Fri, 03 Jul 2026 03:25:04 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62c4a72sm262349166b.43.2026.07.03.03.25.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 03 Jul 2026 03:25:03 -0700 (PDT)
+Message-ID: <424aa2d2-aad3-480c-b63e-bc557839971d@oss.qualcomm.com>
+Date: Fri, 3 Jul 2026 12:25:01 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
- PHY on sa8255p
-To: Bartosz Golaszewski <brgl@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
- Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
- Christophe Roullier <christophe.roullier@foss.st.com>,
- Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, Drew Fustini
- <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
- linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
- imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
- linux-riscv@lists.infradead.org,
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
- Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
- <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
- <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
- <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
- <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
- <akOZFIowVvprnAMf@vaman>
- <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
- <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
- <CAMRc=MfwB_51OLjX_19eagZ1m3UUM2iHny5rx6besR6+Np_A0g@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v3 4/7] clk: qcom: Make important ARM32 drivers default
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20260703-clk-qcom-defaults-v3-0-78894525e54a@oss.qualcomm.com>
+ <20260703-clk-qcom-defaults-v3-4-78894525e54a@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <CAMRc=MfwB_51OLjX_19eagZ1m3UUM2iHny5rx6besR6+Np_A0g@mail.gmail.com>
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260703-clk-qcom-defaults-v3-4-78894525e54a@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDEwMCBTYWx0ZWRfXxoAEZIvcZ0em
+ xOonhlmpauBXn1p79rWngeb3GXoNFCUaZ8D5KWab0BrfioUTzguPjTazPfzgVbqVh4g51QwVkSW
+ nIx+2SVdd9BKdbzhe0sa9CpLKGs15Ko=
+X-Proofpoint-ORIG-GUID: VkRZxB5CmRft_cmPqGC7O7ynutb9zLlB
+X-Authority-Analysis: v=2.4 cv=O4wJeh9W c=1 sm=1 tr=0 ts=6a478e01 cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
+ a=EUspDBNiAAAA:8 a=YbJbqLu5s_8SUIbSLSYA:9 a=QEXdDO2ut3YA:10
+ a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-GUID: VkRZxB5CmRft_cmPqGC7O7ynutb9zLlB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDEwMCBTYWx0ZWRfXyEUx5mwBtgLm
+ 9IdmMr0SMxnGXK2LNfxaNsdNsJQv/9L+ev9QEO3N2oUUWu92EexaiGEQSh0OKIYf5k5qCWGkLhw
+ It6hwh9HapUy31ZlqYM0N4847fFIljXRhabgaU9jj0WGIf9+Z/jYD7MxA1cgLxhaZZv//WQYG9n
+ t93peE+mVqiFtillZGtjZnl8GLra/8VN5nlqM5iUGfnnrhYbwiiqGY2Ep0osDDD8KMZAXVWWxCy
+ TwrLfVb69sIichddsXT3GwkyxYz6Kr5rsVZxxXrAK/Br0ZXDDYmQaKT/bo5l74SmodUArCMgqWZ
+ INSiVYQmvLO9/mmvl5aauOwQ6NdXAtsRX9OjmeM66N5z88t2cNXMpYV0sSewmaMjkJ9pWH2lazh
+ N5565KiM+kYc4+Xugexj5pnDt58/VX9FDPLz8jFyw/yf3qTgOC0rmnGXsNWYks0Ginpuhk9fijl
+ sIwM2OsNNm8K1QsUIcw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 bulkscore=0 clxscore=1015 phishscore=0
+ suspectscore=0 malwarescore=0 spamscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030100
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_032506_486281_269FD27B 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,45 +155,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2026 11:44, Bartosz Golaszewski wrote:
-> On Thu, 2 Jul 2026 11:16:22 +0200, Geert Uytterhoeven
-> <geert@linux-m68k.org> said:
->> Hi Bartosz,
->>
->> On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
->>> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
->>>> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
->>>>>> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
->>>>>> driver instead of the MAC driver where it was previously. Instead of cramming
->>>>>> both HLOS and firmware handling into the same driver, I figured it makes more
->>>>>> sense to have a dedicated, cleaner driver as the two share very little code (if
->>>>>> any).
->>>>>
->>>>> I think you are mixing up DT bindings and driver implementation?
->>>>
->>>> Should the bindings change if we have different driver and firmware
->>>> implementations? Isn't binding supposed to be agnostic of
->>>> implementations..?
->>>
->>> I've thought about it some more and I believe this question is philosophical in
->>> nature.
->>>
->>> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
->>> the same Lemans Ride board and it becomes one or the other. Yet they are not
->>> described by the same DTS and the bindings differ as well. I don't see why we
->>> wouldn't allow the same approach for the this PHY.
->>>
->>> We treat it as different HW variant when it's managed by firmware - just like
->>> we do with the rest of the SoC.
->>
->> DT describes hardware, not software policy.
->>
+On 7/3/26 12:04 PM, Krzysztof Kozlowski wrote:
+> Clock controller drivers are essential for booting up SoCs and are not
+> really optional for a given platform.  Kernel should not ask users
+> choice of drivers when that choice is obvious and known to the
+> developers that answer should be 'yes' or 'module'.
 > 
-> I'll defer to DT maintainers then for that particular case because it affects
+> Switch all Qualcomm clock controller drivers which are chosen in
+> ARM 32-bit qcom defconfig to a default 'yes'.
+> 
+> This has no impact on ARM32 qcom defconfig and ARM64 defconfig
+> include/generated/autoconf.h, however enables a few drivers for ARM32
+> multi_v7 defconfig: IPQ_GCC_4019, QCOM_CLK_APCS_SDX55, MSM_LCC_8960,
+> SDX_GCC_55, QCOM_CLK_RPMH as module, IPQ_GCC_806X, IPQ_LCC_806X and
+> QCOM_A7PLL.  Enabling these on multi_v7 is expected to properly boot
+> these SoCs with defconfig.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
 
-I provided the review tag. It is still valid, also after reading the
-discussions here.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Best regards,
-Krzysztof
+Konrad
 
