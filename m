@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E94C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B6F1C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l+lP5H+LzvBombhuXBM5RzBwxe3kwbgszNKnST0iCYc=; b=ByxYWmfR4NUfdoUgVAjTREYcgn
-	eqieaRBoQD/wohN7b8XOY0I+gnsgUJwZyaVJRfthyCncqRLZH6hW2QS05Hip2dHuNwCFeWWiy3ctm
-	KgtNcaTrhEb9Xgk94TOkOvGoj2zRfEa+MBP1xMc55qtJpgRXujU5wBB9aTwDYb7JWauEARneLgnaB
-	6HS5/N/ZnKRbw3jX6z8o3J/bG/+lv4712+T2w+VX4I9meNzbrD9Matbyt7Ic6J+GWTg0U0Yr0pQRI
-	0oxIiDNbSHurUwU31s7l3fst8PlEctTNOSg07xMTSp8hTd2SuNIwsiEjHEjg8tlQANhoM/beQUkd2
-	7yhZR3CA==;
+	bh=W5Y1ozx7mOvMRYpmVjqqsVX9ZH5NHe+UzO69tr5FlaE=; b=lQAmVUMnseTV5Eal+koXdTMmQE
+	i1BknWnQzBEla+IqRsOGO3zUZ0Riga6DtreJleI5g0a3gH50ybEA1MZ9qz1Bro0332cjt6BIXjMXf
+	o9T+u0C2UUxIsUFuvyeSVTZGJt1IcL5MhozzKt/2LDeAtBGp3eL/ZTszVXyaOuGHjtAD8MEErY77h
+	zY/tcI81zrFW/U1GptRdvl7xVtegiIBgmK+AGwFo2VQmufs0lw2rFJponcCJgPTOuFaNxO9VlMIiV
+	FXWM7dKvyQEG8Kx7EyrRA3VbHnJfdEFAz3UB/wZpssjUkANXXV8VlGiMwnO/N1hYr7aPZO7NbtOJQ
+	BqCmaBlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd9L-00000006xxS-0bhe;
-	Fri, 03 Jul 2026 12:37:43 +0000
+	id 1wfd9K-00000006xwl-3j99;
+	Fri, 03 Jul 2026 12:37:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd9G-00000006xq3-3P8O
+	id 1wfd9D-00000006xk9-1vru
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:37:40 +0000
+	Fri, 03 Jul 2026 12:37:38 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A6A291F60;
-	Fri,  3 Jul 2026 05:37:33 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6486463F;
+	Fri,  3 Jul 2026 05:37:29 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7F7513F905;
-	Fri,  3 Jul 2026 05:37:34 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B2B983F905;
+	Fri,  3 Jul 2026 05:37:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783082258; bh=jvjodvs0U4OgJFMqI3b7Qcmm6ZP6cglCkfubUmLkqB4=;
+	t=1783082254; bh=4lT/9PZUZHBvffF8TO87gr4Si/OUP+K7jD/uH1WnF00=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZzJTiBBcV6IOJsbqFRzVQAouJuw477U5sPXHXtMpd6qVs+nRq98ygipBWEl8csgkH
-	 euzNZah3h5RkrS3NSMsqBNfnchWJn3GXRLIIgKIVTAVeKTxTarq0J8T1U//Q5OHKgv
-	 6yBMzwQ+Ytqk4kqLuBYn6b3flS9Y7WoOFJhqHF/M=
+	b=YRxogu01Y5blvBqwpq5xKH46BkT7Mgk+Psy/AKQNeIpV2fhWVX/KFGtum1kg5KxD2
+	 bkfz2faSUy0xZuf0cV5UeUpuUoJOIGaRK9bP30YkfmruzxKaPZDcnJwYfuqZ0m1Ynd
+	 LoE5BcZBbRCUWTdx4JDrdHW4KheB12rXPGRHwpG4=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -65,17 +65,18 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v5 18/23] firmware: arm_scmi: Expose per-instance identifier
-Date: Fri,  3 Jul 2026 13:35:56 +0100
-Message-ID: <20260703123601.381275-19-cristian.marussi@arm.com>
+Subject: [PATCH v5 17/23] firmware: arm_scmi: Add Telemetry debugfs ABI documentation
+Date: Fri,  3 Jul 2026 13:35:55 +0100
+Message-ID: <20260703123601.381275-18-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
 References: <20260703123601.381275-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_053738_904973_4B2B1952 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20260703_053735_569174_1BEAC409 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,57 +91,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When multiple SCMI instances are configured, the SCMI stack probes and
-it is initialized multiple times: one core stack for each defined instance.
-
-Each istance is simply identified internally with a number and such number
-is already exposed to the user to name the root of the per-instance debugfs
-subtree, if enabled.
-
-Expose such unique identifier to the SCMI drivers so that they can use
-that same identifier when in need to name their per-instance resources.
+Add description of the debugfs SCMI Telemetry protocol ABI.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/driver.c | 1 +
- include/linux/scmi_protocol.h      | 5 +++++
- 2 files changed, 6 insertions(+)
+ Documentation/ABI/testing/debugfs-scmi | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index d54d155e69a8..619d01523729 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -3297,6 +3297,7 @@ static int scmi_probe(struct platform_device *pdev)
- 	idr_init(&info->rx_idr);
- 
- 	handle = &info->handle;
-+	handle->id = info->id;
- 	handle->dev = info->dev;
- 	handle->version = &info->version;
- 	handle->devm_protocol_acquire = scmi_devm_protocol_acquire;
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index c932390b9a09..b90913235225 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -1109,6 +1109,10 @@ struct scmi_notify_ops {
- /**
-  * struct scmi_handle - Handle returned to ARM SCMI clients for usage.
-  *
-+ * @id: A unique positive natural integer identifying the SCMI Instance
-+ *	associated with this handle to be used across all drivers for
-+ *	naming purposes: same identifier used internally as the root for
-+ *	the debugfs per-instance tree.
-  * @dev: pointer to the SCMI device
-  * @version: pointer to the structure containing SCMI version information
-  * @devm_protocol_acquire: devres managed method to get hold of a protocol,
-@@ -1135,6 +1139,7 @@ struct scmi_notify_ops {
-  * @notify_ops: pointer to set of notifications related operations
-  */
- struct scmi_handle {
-+	unsigned int id;
- 	struct device *dev;
- 	struct scmi_base_info *version;
- 
+diff --git a/Documentation/ABI/testing/debugfs-scmi b/Documentation/ABI/testing/debugfs-scmi
+index ee7179ab2edf..9026f75e0016 100644
+--- a/Documentation/ABI/testing/debugfs-scmi
++++ b/Documentation/ABI/testing/debugfs-scmi
+@@ -68,3 +68,25 @@ Description:	Max number of concurrently allowed in-flight SCMI messages for
+ 		the currently configured SCMI transport for instance <n> on the
+ 		RX channels.
+ Users:		Debugging, any userspace test suite
++
++What:		/sys/kernel/debug/scmi/<n>/protocols/0x<m>/
++Date:		Nov 2026
++KernelVersion:	7.3
++Contact:	cristian.marussi@arm.com
++Description:	A subdirectory grouping debug entries related to protocol <m>
++		for instance <n>. Each protocol owns and defines the subtree
++		of entries rooted under this directory.
++Users:		Debugging, any userspace test suite
++
++What:		/sys/kernel/debug/scmi/<n>/protocols/0x1B/shmtis/<n>
++Date:		Nov 2026
++KernelVersion:	7.3
++Contact:	cristian.marussi@arm.com
++Description:	A set of RO files exposed by the Telemetry protocol (0x1B) in
++		order to dump the latest snapshot of each SHMTI memory area in
++		binary format: each file is named by its SHMTI id.
++		File is seekable and a seek to position zero on an open file
++		causes the SHMTI snapshot to refreshed; file timestamps are
++		updated after each snapshot.
++		This directory reports SHMTIs for instance <n>.
++Users:		Debugging, any userspace test suite
 -- 
 2.54.0
 
