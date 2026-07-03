@@ -4,121 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C41E4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BBCBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ipTox04d8yF6hs45Ol4JHySBuCcrZe1nJ7P/q1KLnQ0=; b=uVRqTsyqZPR2svQ5rinQE5+SMz
-	Zvn+prSX2lC+2wvjNqck9nNQVFvFgW3FfLqEzvBB0lnDArmPJA6o2CFhSlUyGanTzU9uCMkFXjM6S
-	WtqT2bBd5WSis0OVdnE0+K0GA+/QQTQbOShzQmLVeXYrUo/fFvHCAPIVzIigt9+l4C97yoFRUD4cr
-	/1OnLvd/0SObRFxHz+Y+tQHAtxhRtq/TQz7WyrVM6hMYldHRmdfCfPyKQZ27ZWFU6lRuhMWUbeAfh
-	FDpj/YuGZxb+DXm8W6Fey3hgjNL76GXAkZSlvpwshGQ7SXov298NfX1Y7KkpVN6qiZRG7H3yoYQtK
-	IXOP9aNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=; b=Z4ACkuCt8XhTxjfYQo/A7exuzs
+	XiqvjYB+6WXvkz4wRydwSoEKaKkSWddVdTxS5tw9c9TcXQdKk36oTiMNCGw1WdeRxpU1IBYRm/dik
+	OvNJ7HGdTuWSqXjQ2u+mcPg5SpUIGy9dEZjAftorBJ8okuIJ//Ga/GAFFsZa4BffS0ema5umprQQu
+	wGK2tbITPI4xeECAVoumowEX1hxEKJzqdTjfYfu6GK36Y+KRABnUX9/w9C7nhmz3gxJmWsgI3/rfx
+	p1AMtxM29mu8MkejxSEiQACdun764dVF0bG4p6q5xfulrEoU+De59g2h+nQz6gSCPQTeVJYv+Oapa
+	5AkjUiSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfY1k-00000006FgI-20HC;
-	Fri, 03 Jul 2026 07:09:32 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1wfZ91-00000006Lt4-0OYj;
+	Fri, 03 Jul 2026 08:21:07 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfY1h-00000006Ffk-1bj7
+	id 1wfZ8w-00000006Lrn-0nLF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 07:09:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ItfJIhKOWJ+fEYV3ElKVfhSw2w7l/sycMYBFspKqgeojmJs4Va6V8nrVAtaceaonFCdxbKFa5qN2sHRUYYoVziDwzb55xTTQ2eFfdjyVkWdOsGqq1wMe4bvPKA9DV8AIfIfMQsrUuVEcnSmmznHb4x57a03XzzNG6GeC/EKAoh9bSa6Rr0kG3OCG4nnVv6sp5MEcGdnwyk0j7GIGj3/JiHTiKvdTl+6lfb63rkgfv7OeWpM/wLtnVl4O4Lp0L6PfxSyl15I6wPsCL6P3SMyfAi35tWwanbv7l3cFOHYd3LsVsncn8tdk8t89ETsStGncb6RHVQXTp92LULzSs3FKxA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ipTox04d8yF6hs45Ol4JHySBuCcrZe1nJ7P/q1KLnQ0=;
- b=FPt++mH4wpFZn55lIoOMODIvI9M+rZBOAaMy333Eby34w0gPSIkDtus27M0Iz/1jT8t7Hj+3jgtG1hBbye3amipBxEjcNHuRAZVwGxXna6h0eJn3X2DhV8SGUWTSBnGhQKCRpwfrZ7OIjYZa6CRaGlG6TsnRtxSzaZgRX1ikB8PTbNT2uSjswtf9ca5i7pNOvkKqV2zUui1MAXR9LHRBOSV8R1H+FkqUFHu/8WbhcPfFUlVv7xOf2QvL+AYlmJMdtKfvBWrrLvY1qMvhkgUixJvrTV0I785Kb/Qvj7shApH51IuxFwD6tFvozCwL2M61gNMkCI/R9ragjbYuTa53IQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ipTox04d8yF6hs45Ol4JHySBuCcrZe1nJ7P/q1KLnQ0=;
- b=Jvm06GbxfzKXRAsKAdbP7I55NOMlPMK3syt6qvwkOZfajMwU0dJ8W3xoTxPnY82jq3u8E1Q6I3t+/R91Zq9zv6rQ3w4et0q6o0twZ9xq3AAe+yhB8qZ26wKg81Pob5uxn5A/hawrMOBJSorgY19ZAtZ3fFh1AH3fyAi9bof5B6NBG/ka5X5T1MoDtgR658YUHLIpkylAyyOBWgqL0BagbvACfvInFRspzC0CPePkRavc3Yhz80daJdn3ZJ2HBuPLf0NcYPFmhOcWrMnbhsBR7qx8y424wpJYRnXOsJTxHmKE9f9ER/3C8iBzkQKthOtX9b0U4T+Oo9FfseYyp7nh9w==
-Received: from BN9P222CA0007.NAMP222.PROD.OUTLOOK.COM (2603:10b6:408:10c::12)
- by LV2PR12MB5989.namprd12.prod.outlook.com (2603:10b6:408:171::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Fri, 3 Jul 2026
- 07:09:23 +0000
-Received: from BN1PEPF00005FFD.namprd05.prod.outlook.com
- (2603:10b6:408:10c:cafe::84) by BN9P222CA0007.outlook.office365.com
- (2603:10b6:408:10c::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Fri, 3
- Jul 2026 07:09:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BN1PEPF00005FFD.mail.protection.outlook.com (10.167.243.229) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 07:09:21 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Jul
- 2026 00:09:03 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Jul
- 2026 00:09:03 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 3 Jul 2026 00:09:01 -0700
-Date: Fri, 3 Jul 2026 00:08:59 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: Jason Gunthorpe <jgg@nvidia.com>, Will Deacon <will@kernel.org>, "Robin
- Murphy" <robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 3/3] iommu/arm-smmu-v3-iommufd: Require exactly one
- Stream ID for a vDEVICE
-Message-ID: <akdgC/kKGZ6fE00Z@nvidia.com>
-References: <cover.1782767110.git.nicolinc@nvidia.com>
- <b98248fb8a7ba39beeb684d27f064897e6ec8ef6.1782767110.git.nicolinc@nvidia.com>
- <SA2PR11MB4844DD8A0367D8E909123F868CF42@SA2PR11MB4844.namprd11.prod.outlook.com>
+	Fri, 03 Jul 2026 08:21:05 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 663685g63053416
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 08:20:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=; b=BECsprnV4e8eciNC
+	vZ0Gvyo2mJYE9MB5ZPCb3lHH/ALHqw7R2tb2eAK9PgXz7LAiz+ZkkFbA8RjWxdUY
+	5Iv5erJhlQGuRrc7jNuEcpmPyTQOcQzNp3wOhzYs5BV7nyVPqz3r9Z9zSXeQeN8j
+	GQNpsxGkvd2qbD23Pqih4FpZMnnKSWzFmRNh9p5dlQ9bX58TDrhTBPCtSwfTCWXO
+	i6Yl8QUjBUQZgobZYqXfLF+hIJy4sYnMRuMRFzN7Tl9TvQ3Yfg34qy8soU8hwvtg
+	+SiItcxqnSJbuxyAzOeiiIANAsUAFr3nOoZsypnbT/ZPKww7Ep2bJ7RL8Ijofyf4
+	O743tw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f67j00g27-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 08:20:58 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e59b0e0f4so24344485a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 01:20:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783066857; x=1783671657; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=;
+        b=J+qOBiq0A35/JrEYetxz51jkigQT3980bPqInXDt26CSRIBwMaiU2O67BHGA8azEEg
+         CWomQDvZLCpsSdGKdDNQGiQZSTMgbPoRSLRylRT1LsYNdsoeYWRL/ft9UNKZzu/ioOKW
+         sFqSW961+CkQvhQTJXPzqnyYG+NFuuihzG7dUqgni4kPgMMgwlMb42q9X+RNfVWKYAm9
+         6yKWrvlSE0RXbu976jduWPJW5UlqapGQYA0Se6SCU7MDptHujOH4D4v7EOfPdH0qNu1H
+         vi6X7rLXYbw5kwdXNkTyJY8uDq+7NDb/BxkJg1Oo3FhnTaqVQNw2hsoKtEwGDxieVhp9
+         b0Lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783066857; x=1783671657;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MevWA27iUr+PqW2XLoVtzDgSJt/tlvlfQxk/aVUgRkY=;
+        b=aOD9yRk1V3iHdJurAIY8yOfCQsDbkMcTNEhQdXZe+rGfgDeTDQU2Qz4mf0QAhX3QYL
+         BFdMshjBT+aK5b0mi8/+3/eGFx9iLJFUSBoIoYra6h6rkpyRpcrM+CucXwc1KVtNs8NH
+         drPKcrO0/Xzw64edC4VCO2N5CtoBWLS2cbxUkPntD9PBNqBuR1hyflGkJP0oDet3sVQj
+         BWOrTb/qHs3RqY39oXRqXFlIgGn8saVJG6kRh0cbStdjJt45Nmy/WzqrNr4fHFBpfl0D
+         4bSH+jeDXTytU9fUV6btQ9xH0I9Mu59pAaK2pt4n9ugzSZXKe16kWT24Fv4xejHfDdf1
+         QXhA==
+X-Forwarded-Encrypted: i=1; AFNElJ/f8OqEbPYD1bDi/iUqe6B5azUl/SlZIY54VByXVNAvUFgHXmUURsSKmclRBMKuSvpI8yaSP+bTHEycFTDQ2Yfr@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/InH4dOTRbJNbBckMEntlEsH002LjStzuL4KYFcLRfXQtVoiM
+	pYG53vSuZi/prXqwOLKuOXW7M/9ZlnkLbOdR/EtuPi9a/mQQhZTVSzQcToCwj12Gvm4FSV5h9ve
+	GTchGSN7xB90g+uHmyQY5TOo7Sn2noKmwJL5IqZmuY0JeSjTqR0M6Ty3z+jqxDpybWUlCF1OzUI
+	CGBw==
+X-Gm-Gg: AfdE7cmuVK6YkkIqBGZsLVqQglPZEIbc8DrZxLuZgNiMduRmVChtWzqro3c0ikW57IG
+	Wuq/O1wit1boBaBCa9wfHWg0uTCA+VB7XjjnrkEq9OfqoyX70fLSskGxWxwDtac+5uXa6J3udLl
+	njIt6GpDwSnzjxcK0MlBxF2OkbjqTAR5UdnL4vTbgVnK/L1paTYiun0L2xkAATeM4RxgZ/lah6O
+	Uz7WGw1Aqlj+S4VwE8FSUbXykmKaWK1Hj1q3x8l5qY/ndoEO0IQOp7TbD6PS1Nhabo3Pve4MUP9
+	LLosFhbZ26Fs+FWFVXvxnQGruVRD/ZoXk4DDj7vfi62+6nK+sVpXvGfD68EQEEklq+56bOaqMND
+	PashhO5q3OvHCWyIEpY6Hp+tAoZ34KEJhPKuJ/DE=
+X-Received: by 2002:a05:620a:44ca:b0:92e:7319:7365 with SMTP id af79cd13be357-92e7b042c9amr1098934985a.26.1783066857251;
+        Fri, 03 Jul 2026 01:20:57 -0700 (PDT)
+X-Received: by 2002:a05:620a:44ca:b0:92e:7319:7365 with SMTP id af79cd13be357-92e7b042c9amr1098932185a.26.1783066856791;
+        Fri, 03 Jul 2026 01:20:56 -0700 (PDT)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:b934:1281:e054:26d2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cce1a844sm30038455e9.15.2026.07.03.01.20.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 01:20:55 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        =?UTF-8?q?Th=C3=A9o=20Lebrun?= <theo.lebrun@bootlin.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+        Gregory CLEMENT <gregory.clement@bootlin.com>,
+        =?UTF-8?q?Beno=C3=AEt=20Monin?= <benoit.monin@bootlin.com>,
+        Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
+        Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+        linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/5] gpio: nomadik: silence boot log
+Date: Fri,  3 Jul 2026 10:20:54 +0200
+Message-ID: <178306685093.6924.3082461604910448071.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
+References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <SA2PR11MB4844DD8A0367D8E909123F868CF42@SA2PR11MB4844.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00005FFD:EE_|LV2PR12MB5989:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81f41c58-a3b1-48ea-e0a6-08ded8d20188
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|23010399003|36860700016|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: KoQoO5vN663M0+3mnfaLoAb8DWBGWL/S0jNpiL7Uvt6FUScXfbXPXksr4anKiwDa9fOPaywpKn/IKHbCyfCnCVDuUIG5QewoAL2RxMqiasFWE8OoWIR8WaH3xjax4jUr862vgVmbAh0AWfYEaMmKkSyP5pF1Kx9QN7dmu4tV51uVkF4vitqw7jeXklXpIvSSsDAOup0TymbRs+Gl9v8X9Ps7Mg+BTGPxd15RJgxjVM4ISFlW5qkxwQDB4weHR94eK/IjqfQ++FWKreeagrw8cIQscxAAKY2SvpvG5hzW7tm3eWutcskfma86adQrcG/kJ6wTQu8aJvUJGeBG5RrRrO7Iy2WW6k++ZXHpshNBhcXWX0UISs4ffqTm+icNTbDzUomiTDqLXV8h4QDcVHJGrXcsrbhGOE69L4d1xG6RoFlZJQIccgmjGhNTTYE0ZSKZo/liVV7h5RR0B0e2uU0S1A82stWF3fCaKY16HiqpeV25R3CWZA2npN8Qj9ZyLoYXPlKnEeGpHGib0kvW0uBffr1tB8m0GSa3RMZZuoa1/O435wD7GLpqjqQ6e2R5aahd+A8GicR/v3P2B0BsmzY+HfkCym9N9DP3AHBv0aaGkbG3Y6fnZxYe95yuAhwLarWseKsu+ToShjbMWJYHULQ+xa/8fyZORvjVDfXM8y7jHUTMGF/8WnIM2u+KY7Ai+o3duz/K1wVQ8uxS2DCINQ+UKg==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(23010399003)(36860700016)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: Tu8zzAD0+17D62RczBbiOmQe4e5ErhbWIWstTRw2KGRBxpeHpanqcnaBBPcBSfDQHOyt9e1/6ODig0NcpaOfhMSbDAlNTohXNneGNIyoK+bAGLxi6XkstYrZjnArX8B6UpFI+roLSE0lYG4BovI5wCBO2mbZqWsPgrLggaGO29uD7v1WPfYbg66ZhC0UYbgMhEMQNIRIvctXsC3azd/Z564X7qocMc75kp8Gcxj+3x54CispsVmgJT+fbTsD855UG5JnDCKKytyfu/FsaAoQOfpVo0rSRHBfATmZOmoNjrvs06rNm2a8vJai/jZNqpvFFE4SfS4CAk8U3Fdgfat74kaWWt5dYfGL9W6M+8B1l6uen1Mu3N/hXxBg9iCtcbfBw2o1UK/73RIj/22H8IUJB8YbDPxJBRHhXPiyDFQc66wIxrMXeXObta2a8wjYljH3
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 07:09:21.1631
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81f41c58-a3b1-48ea-e0a6-08ded8d20188
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00005FFD.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5989
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: lbZJ_IVuaF7ZVbCARYWktUA-kWxu2nAG
+X-Proofpoint-ORIG-GUID: lbZJ_IVuaF7ZVbCARYWktUA-kWxu2nAG
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDA3OCBTYWx0ZWRfX2QOOK9vI+QN5
+ Dm618UdfJwXk0NeQH79nQwg4S6hceETYXnAlLHs4XyuzWFRxi5CpRVMQWuVTpJFyDy0rJV2vdon
+ 0bGQLeQk1uHDLFZiH70j095824ZTN1k=
+X-Authority-Analysis: v=2.4 cv=Yuc/gYYX c=1 sm=1 tr=0 ts=6a4770ea cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=QoyTEntUziiQsqKmZ_8A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDA3OCBTYWx0ZWRfXzLSIk2s+e49x
+ ymWajX89ofajhqt+UH6liBMBR6VWY/8nu7L/LlT8a49dDG79XsojU627Btz4szYphyTQtAi4aNz
+ 6c26bbFXVBueJ45D64+gKqE18E4F8PFhY6wZkOcFkMHfH4GY00DOg6wlCXS2BWffiIDOmMFG+9F
+ f0hMtl9qOb1RCY/eUfKGtK7epWP+/x+MizCIaxrhEgzX9UfNX1956AtQ+Rx2COLzmF9ZXWOE5xj
+ wpDv1ZeS4Ev9xHHBPPCDIhSMeFe8CJrnEz3UkzfkOnx6V3xua5Wzo7QhWZciNxzHHrD+TjuHdzu
+ ZZNAS8STrr1D2IriUaX3w3Qee72Ek32pcH+kWsHJCG/G+zAefs3SGag64HMsyNP6ahjjABd9zpM
+ quAEGfvp5hMo8SvNtvbYF+227OhOMwVp/gXZPkKeIcnuUDv6KTiPTBgSJo3/MCzG0g64K/11QQH
+ sW2g5odTqc6bMBN11Jw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 malwarescore=0 impostorscore=0 suspectscore=0 phishscore=0
+ bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_000929_422104_91B6E1B3 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20260703_012104_042031_1B687BD0 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,33 +155,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 06:40:22AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > Sent: Tuesday, June 30, 2026 5:16 AM
-> >  }
-> > 
-> > +static int arm_vsmmu_vdevice_init(struct iommufd_vdevice *vdev)
-> > +{
-> > +	struct device *dev = iommufd_vdevice_to_device(vdev);
-> > +	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-> > +
-> > +	/*
-> > +	 * arm_vsmmu_vsid_to_sid() maps a vSID to master->streams[0]
-> > alone, so
-> > +	 * more streams would leave the rest stale and none reads out of
-> > bounds.
-> > +	 */
-> > +	if (master->num_streams != 1)
-> > +		return -EINVAL;
-> > +	return 0;
-> > +}
+
+On Wed, 01 Jul 2026 18:56:57 +0200, Théo Lebrun wrote:
+> Currently, on EyeQ5, we might get those error logs:
 > 
-> - EOPNOTSUPP, given the comment seems to indicate it as a current
-> limitation hence may be removed in future? otherwise with -EINVAL
-> this may be documented somewhere to get attention from userspace.
+> [    0.544230] nomadik-gpio 1400000.gpio: failed getting reset control: -EPROBE_DEFER
+> [    0.544274] nomadik-gpio 1400000.gpio: could not populate nmk chip struct
+> 
+> Then on successful probe we get:
+> 
+> [...]
 
-OK. I will change it and other places too.
+Applied, thanks!
 
-Thanks
-Nicolin
+[1/5] gpio: nomadik: convert nmk_gpio_populate_chip() to goto cleanup
+      https://git.kernel.org/brgl/c/6dd9672a16bfbe59427aa0694fdb94553e7949f4
+[2/5] gpio: nomadik: add missing dev_err() call on chip populate failure
+      https://git.kernel.org/brgl/c/2123813511d495b99b605abe4db167793698e0c5
+[3/5] gpio: nomadik: drop duplicate probe error line
+      https://git.kernel.org/brgl/c/b0901d4dc17e37edbc928c01dced21ea86da87f2
+[4/5] gpio: nomadik: use dev_err_probe()
+      https://git.kernel.org/brgl/c/56716e37447a5bd4f9fbd6e314acacce191e313f
+[5/5] gpio: nomadik: drop "chip registered" log on probe success
+      https://git.kernel.org/brgl/c/edbcefc9b0d5925f8be4227fc180a92cd49d126e
+
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
