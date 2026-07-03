@@ -4,63 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F755C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:19:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57007C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:20:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEUrM8x3sX0nMe6PzqR3wBKzu+FAH+7Z0tCazYHvPJI=; b=WyA1Yt+QEPDxm3Wfmo7dWcOf5F
-	yt5L71t8zmdMqBYfs+bS4fKJn88VmPpZAaxeOD2/pNWKCdqu5isotg4h0cbM8txg255Bcq7WyrTVQ
-	Xrolwv3d9ONO4UKMH3nfNLXB/bM0hNeNB+XR5LzkNolh5I+5wvhThHS8uEVdC3p49bfCHR3inNEye
-	a5sOleneOTTiSym+1iBBW5x1rv4/qXO9jhWNJvQk9gy4skj5VNKcmHZZi5f2GDZhU7j7SYyP7srEH
-	7f6tStHcPTppsdbY5DkD1xqQ03i0uCXSbOGRrSL9Vs2ILC0DnsVa1ZnYi3HW3kh8yimvBR3/rETIy
-	gD/7ht9A==;
+	bh=asrF0u9bX+YETjMxSTJvh5rVP0ohIXEanddnLALRraw=; b=Bm2OryTJPcakkjaY4qLwi7vL/q
+	TSL5cyYdjL3m2M5yBoia88UwdjrW58AMLmdvxRBCsYr3X+EZK0R2weBrnIRLHbh9EakQk/xKyhGdP
+	NmZfImENGluS9iQ3LWnVAZ1flxhPJUh0xPjeLL2gTqzwBaW0rey2BXauBYWJOm0FSp9FbPAbJZCub
+	8PJynuHfaBAnHYv/cvLzUiAMX8KTzXMb0lpfU1/WAKtVQbt5DaTq/jNTFYf8i0/HHeteMBtLiqrTp
+	1Oz3ObICrNOdtWpBINkUjxltEZkxvp34fE6WafVlRajwoW+oqdQt1NnHifBhDWfAcKxYQwggXGqjI
+	oUnjDTBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfX4E-000000068Jp-0VbO;
-	Fri, 03 Jul 2026 06:08:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfZ86-00000006LiQ-3SF5;
+	Fri, 03 Jul 2026 08:20:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfX4D-000000068Jj-0owd
+	id 1wfZ85-00000006Lhv-0cti
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 06:08:01 +0000
+	Fri, 03 Jul 2026 08:20:09 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A73F5436A3;
-	Fri,  3 Jul 2026 06:08:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 505DD1F000E9;
-	Fri,  3 Jul 2026 06:07:59 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3EBC2600B0
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 08:20:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9B661F00ACA
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 08:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783058880;
-	bh=mEUrM8x3sX0nMe6PzqR3wBKzu+FAH+7Z0tCazYHvPJI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=M7SMh9pL5doMGKIm/4H0MQ+2m5BYfS/1JNlz0g0NWquKsb0CH/F8vbM8DkYEv6Yim
-	 NfV8SZtjCR5ysa/WNF7wjCB44//ZNuhCO+X/vSzFb9j0XWHEqsfPqVMDs23+/oSV21
-	 euAxPPd5+h5VfaiFCUgM7eIPDmA/zA9mtimCV5LP1X6OF4qcYqNGEL/RgMWwfzArbK
-	 vYxt5kRT7FNEvpdz4ktckdQEHWgtIoOwyv88nYeKV8pTV8yvk5PLn8d6CVMtEFUJei
-	 UnTIRGpd7X2Gu65O1J8B6uY7njmX+9oUPpjNMl5H8o6FFyfDChtw4DT+PsrpyrQL84
-	 RxNBhVEtx5g4A==
-Date: Fri, 3 Jul 2026 08:07:56 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stefan =?utf-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 02/12] dt-bindings: soc: zte: Add zx297520v3 matrix
- clock and reset bindings
-Message-ID: <20260703-cheerful-salmon-of-agility-1ed1f1@quoll>
-References: <20260702-zx29clk-v6-0-377b704f80c4@gmail.com>
- <20260702-zx29clk-v6-2-377b704f80c4@gmail.com>
+	s=k20260515; t=1783066807;
+	bh=asrF0u9bX+YETjMxSTJvh5rVP0ohIXEanddnLALRraw=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=g1/bkJbupZAlyCSXPu9bCHa/ZtEv3YBBPrFvwDfMqKh1hRimkfftfU2D+QeiG0WxH
+	 9I2iEd1rp9LiKxrWq+A7wkYsNjRfdJ3CAf7kZyCXVDyLp2biehWBiscW+aZE79nMYF
+	 S0gn5GV05EhW2jwI2ECapG4WdqBqjW3w308NJchwQnHiKdM5AuNseQ8aHqru0zSr0w
+	 CjZMoODw/dOYmhCAtpXkwqL7zV/S8Yl28GBKX2V3VqEOv+Ti+jXFJ08Hl3CiKRBedo
+	 t0ec1+k9HnKreoy3X2zSt8lEVGxlsXAw7hy+tApOT+Ar4+ftStPHAcHDMGJAA6i5WC
+	 vzeui/QEqXCpg==
+Received: by mail-lj1-f175.google.com with SMTP id 38308e7fff4ca-39b19e7d6fcso2556211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 01:20:07 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rr/e0+ofsqG2ySbWxOcguCnHED3CvAa6Sc97dSTGFBUGj2YiwMpiaOu9DQFYBirAv61JCb0LcjEJW4KoP9om6wp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSIoy5S4APOWaNXwAuEBq2GxpnVFRUIQaP8+SFQGKS27P/Z9vn
+	xuYbLcfRZxtfy0/4mDPuFFegZKVSe7+r4TJS2zOb+QfPNbmKu7Ma/ja4RArtMoNzZQQ3j1+W+d8
+	QhukSNeZ9qR9jDwug8CjlzM2QVaAvDt9YoejEvqALwA==
+X-Received: by 2002:a05:651c:1547:b0:39b:3018:fdba with SMTP id
+ 38308e7fff4ca-39b340f3e6dmr20771621fa.26.1783066806661; Fri, 03 Jul 2026
+ 01:20:06 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 3 Jul 2026 03:20:04 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 3 Jul 2026 03:20:04 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
+ <20260701-gpio-nomadik-silent-v1-5-644d10316cef@bootlin.com>
+ <CAD++jLmmHXBC9ni0pcVoB2HNK+osBzgirxH7vLHZaANmoe-tpQ@mail.gmail.com> <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
+Date: Fri, 3 Jul 2026 03:20:04 -0500
+X-Gmail-Original-Message-ID: <CAMRc=MfKkd-FYA+4-jjgSW+F34ShotOY3Jkq5vuEmOGCtfYx3Q@mail.gmail.com>
+X-Gm-Features: AVVi8Ccaevf9d4eyRM_6Pqww_NGDFnClLnLs7TOb7wYTeUcKNISsM-dwHisAhxs
+Message-ID: <CAMRc=MfKkd-FYA+4-jjgSW+F34ShotOY3Jkq5vuEmOGCtfYx3Q@mail.gmail.com>
+Subject: Re: [PATCH 5/5] gpio: nomadik: drop "chip registered" log on probe success
+To: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+	Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Linus Walleij <linusw@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20260702-zx29clk-v6-2-377b704f80c4@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,27 +90,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 11:27:57PM +0300, Stefan D=C3=B6singer wrote:
-> This controller contains clocks and resets for high speed devices on the
-> zx297520v3 board and hardware spinlocks that I expect will be necessary
-> to communicate correctly with the LTE DSP firmware blob.
->=20
-> A simple MFD driver will instantiate independent clock, reset and hwlock
-> drivers.
->=20
-> Signed-off-by: Stefan D=C3=B6singer <stefandoesinger@gmail.com>
->=20
-> ---
->=20
-> Changes
-> v5->v6:
-> Add syscon compatible - Conor suggested this after v4 and I forgot it in =
-v5.
+On Thu, 2 Jul 2026 10:34:02 +0200, "Th=C3=A9o Lebrun" <theo.lebrun@bootlin.=
+com> said:
+> Hello Linus,
+>
+> On Thu Jul 2, 2026 at 10:00 AM CEST, Linus Walleij wrote:
+>> On Wed, Jul 1, 2026 at 6:57=E2=80=AFPM Th=C3=A9o Lebrun <theo.lebrun@boo=
+tlin.com> wrote:
+>>
+>>> Successful driver probing should be silent. Drop unconditional
+>>> dev_info() call that is done at nmk_gpio_probe() exit.
+>>>
+>>> Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+>>
+>> I actually don't generally agree, but you are using this driver more tha=
+n
+>> me now so let's go with your minimalist dmesg style for this driver.
+>
+> I get from where you stand, but the info level is somewhat strong.
+> Documentation/process/coding-style.rst agrees ("When drivers are
+> working properly they are quiet").
+>
+> If you like this log line we can turn it into a lower debug level?
+>
+>> Reviewed-by: Linus Walleij <linusw@kernel.org>
+>
+> Thanks for the reviews Linus!
+>
 
-Please explain why. syscon has meaning in bindings, so if this is not
-accessed outside, then it is not a syscon.
+My personal preference is for silent drivers too. You can find out if the
+driver probed correctly from sysfs. Only if it didn't, do you need to know
+why from the kernel log.
 
-Best regards,
-Krzysztof
-
+Bart
 
