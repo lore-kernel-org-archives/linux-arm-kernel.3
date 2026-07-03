@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7CCAC44501
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:37:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0370AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9LWVh7P2BGpZWYDV4N71+Mfdo3epx+WTooS39x1DBJs=; b=vEtxFbb/hUn4TO2PxaKP2NbLrr
-	zObYHnh9WY2zFdjJa+iUbnVbjru7pZhgsmc+Zuht2VmlbIv4XkKO3LBO11wtV/aSCIp1w9xYEMYCl
-	MYVqNWbMhAQ0YoNidnj0dkfID1ZqT70/ULTn4kfjIiN96LeRvrySkpYdTq/e7r376P+rdyxI5jW2s
-	Mm15EMR4Fq2zN84RNVn0LQ+GfLiV9MhCbC4Zm0GAqBHW5KHvFPfTRPQrV/GBxi1B4CMNdja1YTlf0
-	TzQ4+RpbkTsGCcyJ/5uHY2tTubdpG6rWdYnI/HelMHbRpYiJUeEGSGyL3wM4a68ARZAdJ8gROJHWg
-	0618DXpA==;
+	bh=XE3n1MQHeBEZIJeRhlEmDATcaZYVPoxlFf67C9rUYLU=; b=DRtYIogORKIGyEM52WhamD62Z3
+	FQ5bz66dd4iwtB9VE+39Kq4J9lsjSWGEV9gU7MXrrvGU1dWMWc0jKKkf8t1M0ArpWfXagqtBXRkGC
+	B9QZh2yQzmoVGQH5w1dT/ps17/eRzhPFU/abThxIKTob2f2asTKSmaaLPL64z9oe4TUpsEits2GkR
+	fgLRvrE/tmyfp/xmSFzAedP5YBTRI2E00S0m6WUO/Q3ebxQCo3ySex9sHKGOahM3yLqk2Jrn4D42R
+	tmpPheb7TAsMi5WEV2p2O1Q15o6QBhaGB/B2ZCu0PrbyUtPt/eXO4sDJn1zJkfJgmYcmks/2E+hDc
+	CaYiJSDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd9C-00000006xiI-0BoF;
-	Fri, 03 Jul 2026 12:37:34 +0000
+	id 1wfd9F-00000006xnI-0fzf;
+	Fri, 03 Jul 2026 12:37:37 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd96-00000006xYN-3Foj
+	id 1wfd9C-00000006xhx-1pZX
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 03 Jul 2026 12:37:28 +0000
+	Fri, 03 Jul 2026 12:37:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=9LWVh7P2BGpZWYDV4N71+Mfdo3epx+WTooS39x1DBJs=; b=O2To8v1bGGfpwPW+LpSUj7L+fF
-	CuzD5pziavjU8YBC6VZ6y5JXw0zE7G7K5Tt+ZhRgah5z1zkGZn9F2/kCELj4bVpFYzHcacuDSYvzL
-	NOsmJEqISkqTxzsx7djZZPaujQxzIivUMWYbqFlSe2eBg9ynEUwZiDnqZsyYUbg090RSrEM8Z9tOa
-	ZLimBMpIC7FoSa4JC47VnFG2A5lzZSU2HP/wVaWY07xI89XQARPy2R3NHlwA+bU3eYHDhx4638DfD
-	L32+plxxN66umMoGOdgskBwhmpl+npep8VGZCLgr931yrQYDNbqqITWGBBTvjJYFKuJOHcS/5yIe/
-	I5pIVSWg==;
+	bh=XE3n1MQHeBEZIJeRhlEmDATcaZYVPoxlFf67C9rUYLU=; b=KUU8nW7VlluH2n6RfB+sw2KX9u
+	DxJATSb2DZCJTDLL3Ro2YoMYbqmDQ1RimbxYRSXiZAGVUXqFYEF7dNeHztzAFuGmmb5PQsjDv8zAi
+	xE/Kn4xV3XVOiBNcjm7FXWLOKV+5f28nwLfS6Ao6b1NNsan9RBUQLOUwJIRvg877Ug1Bxl0+EDWcK
+	dRgMULkLu17Mz+3mffDHt1ZSgy/JSyQEnYRVzvY3w/g+XZLfNU3NAhvxfdY9ljUtPmBjbZiHwtRsN
+	uKhb1YxTLk4eBdTa70TB0aPdiW3rjiwuf/lMcwkFE+dpIF1Xa0JBR/J7fPR4Wnbdhm3oASSArY0OL
+	d7Ey8msQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wfd93-00000004owh-2axm
+	id 1wfd99-00000004oxf-1jh0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:37:27 +0000
+	Fri, 03 Jul 2026 12:37:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 790A4463D;
-	Fri,  3 Jul 2026 05:37:18 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F943463D;
+	Fri,  3 Jul 2026 05:37:26 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8071D3F905;
-	Fri,  3 Jul 2026 05:37:19 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E77563FAA1;
+	Fri,  3 Jul 2026 05:37:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783082242; bh=3MUqAjheDyUpfTI6rCN29biS9tx0wF5pqNDfXEGm4QE=;
+	t=1783082250; bh=Stq5ITq3d09AjUvd+Rpis8aRqelVoFM1D6B+D60/jcc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ghd5mdhIsi35XX+8jwpYsxhzkHxJwwIIb6ZJaEMIUuU1g1x/qpWC6F4JU9O+x+a6p
-	 zQywez7HN438yCbbDY84mSp8WJiZrN/Et7Cuv1Hmrtu5/GauCYYfrVaEzab6LzsBuM
-	 6mDfUzjmuWxsLAj6aznEcKzrhxtR0G1KcPs3tO1c=
+	b=BXFuWcQ2TBKS54du/1t9C7KiESejIqc39bjWBHSkCHO8DHnhZ4t1wmetIywbYTbrn
+	 s0tM0ZCu2dPbzKrsddRhRxYgynMLJX3BoOMdymeAUcWzLQCN4RN7UvVA24/99CspCO
+	 KUs5SaWz5+EHZ3BnQgHBEocniE50S6HYZzJ2hcYY=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -80,17 +80,17 @@ Cc: sudeep.holla@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v5 14/23] firmware: arm_scmi: Add Telemetry generation counter
-Date: Fri,  3 Jul 2026 13:35:52 +0100
-Message-ID: <20260703123601.381275-15-cristian.marussi@arm.com>
+Subject: [PATCH v5 16/23] firmware: arm_scmi: Add Telemetry debugfs SHMTI dump support
+Date: Fri,  3 Jul 2026 13:35:54 +0100
+Message-ID: <20260703123601.381275-17-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
 References: <20260703123601.381275-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_133726_023046_B0341D6D 
-X-CRM114-Status: GOOD (  15.46  )
+X-CRM114-CacheID: sfid-20260703_133731_802534_04EF1E67 
+X-CRM114-Status: GOOD (  16.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,200 +105,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a per-instance generation counter to track configuration changes and
-expose a telemetry operations to get a related waitqueue for monitoring.
+Expose one debugfs entry for each discovered SHMTI that can be used to
+dump the related SHMTI in binary form from TBGN up to TEND markers.
+
+No processing is done kernel side, beside using proper accessors for
+device memory.
 
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/telemetry.c | 53 +++++++++++++++++++++++++++
- include/linux/scmi_protocol.h         |  5 +++
- 2 files changed, 58 insertions(+)
+ drivers/firmware/arm_scmi/telemetry.c | 91 +++++++++++++++++++++++++++
+ 1 file changed, 91 insertions(+)
 
 diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
-index 1cd24a58c51d..f54e7d262f7f 100644
+index f54e7d262f7f..163098985a26 100644
 --- a/drivers/firmware/arm_scmi/telemetry.c
 +++ b/drivers/firmware/arm_scmi/telemetry.c
-@@ -21,6 +21,7 @@
- #include <linux/sprintf.h>
- #include <linux/string.h>
- #include <linux/xarray.h>
-+#include <linux/wait.h>
+@@ -11,6 +11,8 @@
+ #include <linux/compiler_types.h>
+ #include <linux/completion.h>
+ #include <linux/err.h>
++#include <linux/fs.h>
++#include <linux/debugfs.h>
+ #include <linux/delay.h>
+ #include <linux/io.h>
+ #include <linux/limits.h>
+@@ -369,6 +371,12 @@ struct telemetry_shmti {
+ 	struct scmi_telemetry_shmti_info info;
+ };
  
- #include "protocols.h"
- #include "notify.h"
-@@ -30,6 +31,7 @@
- /* Updated only after ALL the mandatory features for that version are merged */
- #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x10000
- 
-+#define SCMI_TLM_GENERATION_ONE		(SCMI_TLM_GENERATION_INVALID + 1U)
- #define SCMI_TLM_TDCF_MAX_RETRIES	5
- 
- enum scmi_telemetry_protocol_cmd {
-@@ -459,6 +461,7 @@ struct telemetry_info {
- 	struct list_head free_des;
- 	struct list_head fcs_des;
- 	struct scmi_telemetry_info info;
-+	struct wait_queue_head gen_wq;
- 	struct notifier_block telemetry_nb;
- 	atomic_t rinfo_initializing;
- 	struct completion rinfo_initdone;
-@@ -608,6 +611,29 @@ scmi_telemetry_tde_cache_lookup(struct telemetry_de *tde,
- 	return 0;
++struct scmi_telemetry_dbg_shmti {
++	struct telemetry_shmti *shmti;
++	size_t buf_sz;
++	void *buf;
++};
++
+ #define SHMTI_EPLG(s)						\
+ 	({							\
+ 		struct telemetry_shmti *_s = (s);		\
+@@ -1297,6 +1305,86 @@ scmi_telemetry_enumerate_common_intervals(struct telemetry_info *ti)
+ 					ti->info.intervals);
  }
  
-+static inline void __scmi_telemetry_generation_set(struct telemetry_info *ti,
-+						   unsigned int new)
++static int scmi_telemetry_dbg_shmti_open(struct inode *inode, struct file *filp)
 +{
-+	atomic_set(&ti->info.generation, new);
++	struct scmi_telemetry_dbg_shmti *sblob;
++	struct telemetry_shmti *shmti;
 +
-+	wake_up_all(&ti->gen_wq);
++	if (!inode->i_private)
++		return -ENODEV;
++
++	shmti = inode->i_private;
++	sblob = kzalloc_obj(*sblob);
++	if (!sblob)
++		return -ENOMEM;
++
++	sblob->shmti = shmti;
++	sblob->buf = kzalloc(shmti->info.len, GFP_KERNEL);
++	if (!sblob->buf) {
++		kfree(sblob);
++		return -ENOMEM;
++	}
++
++	filp->private_data = sblob;
++
++	return 0;
 +}
 +
-+static inline void scmi_telemetry_generation_update(struct telemetry_info *ti)
++static ssize_t scmi_telemetry_dbg_shmti_read(struct file *filp, char __user *buf,
++					     size_t count, loff_t *ppos)
 +{
-+	unsigned int next;
++	struct scmi_telemetry_dbg_shmti *sblob = filp->private_data;
 +
-+	/* Wrap around skipping invalid generation 0 */
-+	next = (atomic_read(&ti->info.generation) + 1) ?: SCMI_TLM_GENERATION_ONE;
++	/* Dump on first read and again after each rewind to start pos */
++	if (!sblob->buf_sz || *ppos == 0) {
++		memcpy_fromio(sblob->buf, sblob->shmti->base,
++			      sblob->shmti->info.len);
++		sblob->buf_sz = sblob->shmti->info.len;
++		/* update inode timestamps */
++		simple_inode_init_ts(file_inode(filp));
++	}
 +
-+	__scmi_telemetry_generation_set(ti, next);
++	return simple_read_from_buffer(buf, count, ppos, sblob->buf, sblob->buf_sz);
 +}
 +
-+static inline void scmi_telemetry_generation_reset(struct telemetry_info *ti)
++static int scmi_telemetry_dbg_shmti_release(struct inode *inode, struct file *filp)
 +{
-+	__scmi_telemetry_generation_set(ti, SCMI_TLM_GENERATION_ONE);
++	struct scmi_telemetry_dbg_shmti *sblob = filp->private_data;
++
++	kfree(sblob->buf);
++	kfree(sblob);
++
++	return 0;
 +}
 +
- struct scmi_tlm_de_priv {
- 	struct telemetry_info *ti;
- 	void *next;
-@@ -2098,6 +2124,8 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
- 						       tstamp_enabled_state,
- 						       *tstamp);
- 
-+		/* A local change can have an impact anyway */
-+		scmi_telemetry_generation_update(ti);
- 		return 0;
++static const struct file_operations scmi_telemetry_dbg_shmti_fops = {
++	.open = scmi_telemetry_dbg_shmti_open,
++	.release = scmi_telemetry_dbg_shmti_release,
++	.read = scmi_telemetry_dbg_shmti_read,
++	.llseek = generic_file_llseek,
++	.owner = THIS_MODULE,
++};
++
++static void scmi_telemetry_debugfs_initialize(struct telemetry_info *ti)
++{
++	const struct scmi_protocol_handle *ph = ti->ph;
++	struct dentry *top, *shmti_top;
++
++	top = ph->hops->debugfs_proto_dentry_get(ph);
++	shmti_top = debugfs_create_dir("shmtis", top);
++
++	for (unsigned int i = 0; i < ti->num_shmti; i++) {
++		struct dentry *d;
++		char id[16];
++
++		snprintf(id, 16, "%u", i);
++		d = debugfs_create_file(id, 0444, shmti_top, &ti->shmti[i],
++					&scmi_telemetry_dbg_shmti_fops);
++		if (!IS_ERR(d))
++			i_size_write(d->d_inode, ti->shmti[i].info.len);
++	}
++}
++
+ static int iter_shmti_update_state(struct scmi_iterator_state *st,
+ 				   const void *response, void *priv)
+ {
+@@ -3212,6 +3300,9 @@ static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
+ 				 "Could NOT register Telemetry notifications\n");
  	}
  
-@@ -2159,6 +2187,9 @@ static int __scmi_telemetry_state_set(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
++	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
++		scmi_telemetry_debugfs_initialize(ti);
 +
  	return ret;
  }
  
-@@ -2262,6 +2293,9 @@ static int scmi_telemetry_all_disable(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
-+
- 	return ret;
- }
- 
-@@ -2334,6 +2368,9 @@ scmi_telemetry_collection_configure(const struct scmi_protocol_handle *ph,
- 
- 	ph->xops->xfer_put(ph, t);
- 
-+	if (!ret)
-+		scmi_telemetry_generation_update(ti);
-+
- 	return ret;
- }
- 
-@@ -2769,6 +2806,10 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
- 		struct telemetry_info *ti = ph->get_priv(ph);
- 
- 		scmi_telemetry_local_resources_reset(ti);
-+
-+		/* Reset generation now that server has been reset */
-+		scmi_telemetry_generation_reset(ti);
-+
- 		/* Fetch again the states from platform. */
- 		ret = scmi_telemetry_initial_state_lookup(ti);
- 		if (ret)
-@@ -2781,6 +2822,14 @@ static int scmi_telemetry_reset(const struct scmi_protocol_handle *ph)
- 	return ret;
- }
- 
-+static struct wait_queue_head *
-+scmi_telemetry_event_wq_get(const struct scmi_protocol_handle *ph)
-+{
-+	struct telemetry_info *ti = ph->get_priv(ph);
-+
-+	return &ti->gen_wq;
-+}
-+
- static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.info_get = scmi_telemetry_info_get,
- 	.de_lookup = scmi_telemetry_de_lookup,
-@@ -2793,6 +2842,7 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
- 	.des_bulk_read = scmi_telemetry_des_bulk_read,
- 	.des_sample_get = scmi_telemetry_des_sample_get,
- 	.reset = scmi_telemetry_reset,
-+	.event_wq_get = scmi_telemetry_event_wq_get,
- };
- 
- static bool
-@@ -3083,6 +3133,9 @@ static int scmi_telemetry_instance_init(struct telemetry_info *ti)
- 
- 	xa_init(&ti->xa_des);
- 	xa_init(&ti->xa_lines);
-+	/* Generation counter init */
-+	atomic_set(&ti->info.generation, SCMI_TLM_GENERATION_ONE);
-+	init_waitqueue_head(&ti->gen_wq);
- 	atomic_set(&ti->des_enabled[ENA_STATE], 0);
- 	atomic_set(&ti->des_enabled[ENA_TSTAMP], 0);
- 	/* Setup resources lazy initialization */
-diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
-index 44ace368fc99..de6b3c7cc959 100644
---- a/include/linux/scmi_protocol.h
-+++ b/include/linux/scmi_protocol.h
-@@ -13,6 +13,7 @@
- #include <linux/device.h>
- #include <linux/notifier.h>
- #include <linux/types.h>
-+#include <linux/wait.h>
- 
- #define SCMI_MAX_STR_SIZE		64
- #define SCMI_SHORT_NAME_MAX_SIZE	16
-@@ -889,6 +890,7 @@ enum scmi_telemetry_collection {
- 	SCMI_TLM_SINGLE_READ,
- };
- 
-+#define SCMI_TLM_GENERATION_INVALID	0U
- #define SCMI_TLM_GRP_INVALID		0xFFFFFFFF
- #define SCMI_TLM_DE_IMPL_MAX_DWORDS	4
- 
-@@ -983,6 +985,7 @@ struct scmi_telemetry_info {
- 	bool enabled;
- 	bool notif_enabled;
- 	enum scmi_telemetry_collection current_mode;
-+	atomic_t generation;
- };
- 
- struct scmi_telemetry_de_sample {
-@@ -1016,6 +1019,7 @@ struct scmi_telemetry_de_sample {
-  *		    This causes an immediate update platform-side of all the
-  *		    enabled DEs.
-  * @reset: reset configuration and telemetry data.
-+ * @event_wq_get: get a reference to the event waitqueue for this instance.
-  */
- struct scmi_telemetry_proto_ops {
- 	const struct scmi_telemetry_info __must_check *(*info_get)
-@@ -1042,6 +1046,7 @@ struct scmi_telemetry_proto_ops {
- 					   int grp_id, int *num_samples,
- 					   struct scmi_telemetry_de_sample *samples);
- 	int (*reset)(const struct scmi_protocol_handle *ph);
-+	struct wait_queue_head *(*event_wq_get)(const struct scmi_protocol_handle *ph);
- };
- 
- /**
 -- 
 2.54.0
 
