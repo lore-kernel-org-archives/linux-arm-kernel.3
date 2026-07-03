@@ -4,115 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 488A6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5710C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BQD5gv36YoN9ZGBbl8CZ1ceMTLNRoJhvy7PP72AjYTM=; b=puNgdE0oybV8MeYra/51sWSFet
-	uB2WjJdwbf4tyHPPU5jVJn98jYKyUMzH12W3QmWJDyeI4KOtb5wgXkC/lUhT+/u0tj9o/UqzavGm6
-	GLOFUzvxET5Z7FEfsyHfan8bZqD6sMWuneVgk4H3mdCETghK5P7Q3zsSMMED0yItng1bFNsSbp4vR
-	O5NmiGjywtIueyFe+U9p2WCbaU5dE+sqpRsXjmK3NKElzzB5mf8tkewNghCq8hoQYvAv57bLror6d
-	LUNl/XlVutgSNPR2MRxdonJjAb9XDsUdAkOCm4q7VORg1sdGqzpSpmUVftqqJ8PdTAMtNSsLIR8Lz
-	b0RTHNUg==;
+	bh=P4zhLhFMp7O4gmnRm5uDgMPugvo8rGAGH9W/oNg9Rsc=; b=a1Ryo70fNPguKd04Bpq91g3SDS
+	RKvBUXr1hsY7FwBv0aZtFYj2QnfR6bNEY9tyILdmN9Uhx7pZQdRhq7FKidyymD9ga5Uuv0h+KdowX
+	ykFwR/fiQYGZkmpG4CnV+9pdFmcL/JTWQTP3mKq3jLlE7rEXyvXgv3d7eixkYSDD8AOotV5EloqrN
+	H0JyjFYwPTGtOZ2XgOgdAI5FcfAxp8gBMZeDIwCsXV/9a8K3hCoxoDDKXulpDXcR3Tebk9qAx379j
+	+58zKKSRRMC9iarESfpu6vKAXaFfX292hZ+1NeIJYkTMCUDP4+ZSbsAox6OtJXqf5gTgSL5ypslDj
+	JtV+n7QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdoY-000000074nc-2mvr;
-	Fri, 03 Jul 2026 13:20:18 +0000
+	id 1wfduE-000000075S2-1rUL;
+	Fri, 03 Jul 2026 13:26:10 +0000
 Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdoV-000000074m1-1GyF
+	id 1wfduC-000000075RJ-30tB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 13:20:17 +0000
-Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-664c535f1a0so762246d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 06:20:15 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783084814; cv=none;
+	Fri, 03 Jul 2026 13:26:09 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-6662551100bso765921d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 06:26:08 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783085167; cv=none;
         d=google.com; s=arc-20260327;
-        b=n2bk7FrrXsZptWqKSRIYydbJTdkWtw2//3rOG+ESdos9gOZIFlmzVNwPTsk7nKq1Ly
-         cRKDVNApjMPiI5f6MZA6QkIwK/XBQpFXve6ySEJyvzHgRblfr4/Pqkr/JUHoUh3GoHYl
-         3ZWZMDB1WKQQdX52Zxyn37iZ447E5F6xokGxERaCzT7xt7o/YPV6RZuBA4V4HeSmX2jg
-         Yir2nMUoTYO0UoNEy1fzlBb0zazzrwtCCRMH3zONoPlZnsQk4V7vTLlRKdk3kYaQ/U2r
-         bkWwETkuFQpruyM4D9btav3fAtk+BCWt6mEzUMXWDlTVmTdi0kJ5kWkNzzLrTdzVXEhj
-         Y+gQ==
+        b=mGAP9c3g8fu1RQQ8n9LACvrfNhhopNfrEXtXyVD5FAm1849K6Dd1d1UKR+XCYxUrCf
+         7eslxHno4AngAvot9nbAu9BKH/NPjyUT6dTJu52u4Ms/LBR4MRZLRBRbIlGnkmKD5Tvd
+         KoOnt8d3J3Nh82WDGGOYan6Ke4X5H49jTsbTMkZAyg23nlXOT8qCRDv0+Rfpw8KWuSXd
+         g5ex0gszga4LkY/LzPDSvCnr+aRPMq7+vwQawIKE0DWw7HCUBO2tv2N9HallRL/A9+M1
+         1vRCYTUL18UwMT5/gS9TrW3n+TP+K1ybWUWMUN4TsJINXma1FqkT971q8tsAKqr4AJQR
+         Au8g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=BQD5gv36YoN9ZGBbl8CZ1ceMTLNRoJhvy7PP72AjYTM=;
-        fh=IZSLploOhsNUi/3y0azWO+eqXQcglnjGsQdWWVQyOxE=;
-        b=JB8bX86H3F0JNKNZfMA/gxUR3CX/OR4PifQA9jeZddf3xmRRGS2pPSoocOqAf3ATVu
-         Dw6M33ryl8DFTpTJQEV63m/uGqJZzzI3uIPAgVUlY97l7Ww6J40wkhOjwb9xzApMwBpy
-         UEIVgOl/JTp5QET/3khq9rS1aMvI3dLdmE5+pMELl06rnyiZEAkaChmnw/B6Wv7pUTmT
-         yHINwdkVsl2cWxwIZeDBut3d0hzUVhVI0h7Xt3Bf7SU6zzgFr3EXqNVgQqpG6MdguU8h
-         WOwKiFODoPGwSz1RnsvQsp9kkAEXt/qsbykryhHHqxNr0au1pMyNc/ZUZkeixJjv0BzE
-         FVEw==;
+        bh=P4zhLhFMp7O4gmnRm5uDgMPugvo8rGAGH9W/oNg9Rsc=;
+        fh=HFGk0RHxP6DGjzKBOFWY0NPdB6sOn/QIluNV0lfVQ5Y=;
+        b=I0G1f02pON4sFGzb4Yu2DVdP6JBIvl6LrvCzeXlPDBWV5xlykqaV9c3dnjCU9puDXF
+         dtOWqhl0eGB5RqnOqpBpyrNfeI2V8X8DiNHb2kfkzcYQmx7y2GNdHgOzaoT7a1CM7rOk
+         DPNsU/ZwbZg02Cr3+5H5cvKpS8iBUCoYjhIU9NARAI6Dxxe6JC6xhY22wpbYehPiq5aP
+         DfiJa+QUMFbrUGCNhbb9uisN9j/a+j5hxxzGhbOSg0UySt34Poi9ob5LdYdp2OW8kpdR
+         hC/tG2PxmTkVNyXyTWjs7ycqAAwqvqYMw+WBPB2/w4ZxYlY5EHNdpNPPDm89/+9mMi3T
+         8puA==;
         darn=lists.infradead.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783084814; x=1783689614; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1783085167; x=1783689967; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BQD5gv36YoN9ZGBbl8CZ1ceMTLNRoJhvy7PP72AjYTM=;
-        b=CU3TRvWzriCBbB+COt1gipzShuDEORoHjHMQ4RPxSAu0gCNES1Wm9R0QZwLw48/nIk
-         8jhMdPL0/LzKU46KH60Wuhxa3I10f6a0PQ2wTbDMkEeIOUhWvujnOVO8QvgLaOeKLeLn
-         3koRRMUN6rPmj/v8FCf/Zuk5UA6vwMDyuO7JU=
+        bh=P4zhLhFMp7O4gmnRm5uDgMPugvo8rGAGH9W/oNg9Rsc=;
+        b=BfR+bwkWbCBlTApq3LW8bA6HM6BfNjlXiCeg/mjOZwy8PcSKMXqel6hvh+GAh7J7VV
+         Bv4N+pzikUhRkRwI5PwyaePPPKID5vBgi5YA6O6fGLDgtxII050h3O0D2oGAmudD8Tcz
+         n9bVyA2k4eq+1m7BSqpR6kN/tutl2akESfPEY=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783084814; x=1783689614;
+        d=1e100.net; s=20251104; t=1783085167; x=1783689967;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=BQD5gv36YoN9ZGBbl8CZ1ceMTLNRoJhvy7PP72AjYTM=;
-        b=FCm4/11eR74Kpe3K8cmbUtA94ql/p5Z88ULx6QktLFT+bwjsJGxU0ovtKieUUUvd3/
-         yXjrYUo0e+S2KJPsgcrm5fygz52Anxai0ioroKQ/k48IiNf+BpbpM1JScSI/YVDsydrU
-         1SbeNXFay/1QF6TnYOm0K0DqdqKKDdH4EXGzgmi49rxkQ+kqo//sPPxj4fFWXEWofFFm
-         YBlfa+blPJ8Whvr5YxqW7K5Djk0QFVIp9imQgYBcfX48DBWr3bPbtA3yCq+ZCBanKQ8d
-         sgps9Wd/uI13NdE1MjIpBtekHi4Ws3QC6a3L3dq73PWhbJi36aRmCk3vE5ksuAcvvfiW
-         O4Vw==
-X-Forwarded-Encrypted: i=1; AHgh+RozoL7Xxau17Rb2lj0CpImqegmFDwT+whQy3JRPQLWtmJsSlzBUlnmqtzhPu8k4+76JEstbgEAmf6Z/db6gYIu4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuReOAlMx6Yq9C/xEkJ3GTynOl3xS5j97S/3Zsz2fzB974pJkc
-	iZqCfwoMRCPX9kU26Yi8TTXwxwyfwHrMmGEgimAOmEtsIRNPrJbqW0ktZuGULInjPsSFfIzX50j
-	ZhvF4QoW7XGy2Wg2exJdVxD/xLjONtKeizzXU6myx
-X-Gm-Gg: AfdE7clX78NgSOGpbK/t//Mpp1r/nqUdbPGx9jUd53aoH6CKmnDknCQd2kSczm9qFMi
-	7MwtgJ6BUs+zE3wMWxCuVzWTbc13DuVMXTyPA/uE+kLgiBhdKghCXoGp7BimqQcDNi9WvBNuGFj
-	CQ8A84ArodX+iB2iAUiFkCO5PAOTqt7jPq4nPXv+iZwVfLwxkOZ5wJWoBKROoSELgdpyCyEjb+e
-	wvJ2C+/zElubcfUiVbyg2DonvZtBQo+CX9BCRlcJoB4u7icJ0Q1JaX3ej+evcrpYkCtN3P6Mr/y
-	YWnWtvdPwW/2Mj7D8hADOQr0/Vg=
-X-Received: by 2002:a05:690e:418a:b0:664:ae6a:e9a5 with SMTP id
- 956f58d0204a3-66521d54781mr9923763d50.75.1783084814296; Fri, 03 Jul 2026
- 06:20:14 -0700 (PDT)
+        bh=P4zhLhFMp7O4gmnRm5uDgMPugvo8rGAGH9W/oNg9Rsc=;
+        b=Dpz1r9S5Qvqetvs0KwA+SoA9H78xV5gHPACQDLW9FJxD9MikYgjQXd2uFxVY7GJ52Y
+         DzsRMQR30DVJvp5hM08VAen0lux5bID1ZvXL+khWJRcDUJXwhX2sx3dbdoLMvpquX0QM
+         xi34gKk6r7aNy8AbwVkUESVHBYHzZ3m+HPeR2I+fVAhHbg3ImWZ32sUnN3UrUbDrCEwr
+         2nlRt7W3bSID9iCAuWAhq/RUehsMzd/2lZt0rBVxw8TRPaeUTSE194Mjx+b8c/u0ZTq3
+         1O1wQcVp8oM2b1w0VZTFkOZfkUwZeZvoZrr1Gg0kTQJzm4Kl9PgLIQNrKxiUaB6nFzM3
+         F6Kw==
+X-Forwarded-Encrypted: i=1; AHgh+Rqk/01z6x2jCfslqu2nYXgF1Qp8v/H2PPsJGjURYTvwWM/+KM63lvEU56ozkroj4TvOLKjIrhq8qPmCiaS0uCy0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUSw989L3hoSSiDA8eQo/840aYsIvuNcLAlhJ0kBmoeu7n4cUs
+	ls/DbTnOmq11USj1gEC6RxZkOasN9FpgHMiEyWw2mlVwcupxrzZWb5gAPQa3IeMQorWq+Rf49Xb
+	o+aAlLTQU7u2pw69j3FlQwyqMeTKr5gGeCqRUhtPn
+X-Gm-Gg: AfdE7ckncO/goFiO/zCF6oUIGe678nLhZvuHC8LzKr/DWe2jTO2Ib2lxpIQYJM66o8B
+	wcBnshDdUddzQ7iMvkXrH2Mh75jt7GfSdGpIPy21WsgMYW4uZ2wIraXMc3EaNjM+TkqFeE7LrOK
+	Rc/fuhE92wkvg3geV+Hlh+fUi3IgsbFRAtYZBDgbMu+6Ldxp9OmXJ8kRxJLznRc+gALQMKqnbJ2
+	F5O5vrelP8vE9GLdlpGF0iFGRqsd+m4LRiAQeW2u+/hUMBUGGg4cVcjdxPGKCmOLAqxLNp5CZYv
+	R2G1KrmR/rkr+EsHGNC5gNOn2W2QT9Y0kJzQOQ==
+X-Received: by 2002:a05:690e:480f:b0:664:fc22:36cd with SMTP id
+ 956f58d0204a3-66521ad34dcmr7426372d50.43.1783085167252; Fri, 03 Jul 2026
+ 06:26:07 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-9-wenst@chromium.org>
- <CAMRc=MdMhr6qAnAtUePbuBbsH=3MzRC+BrL5GssbNTwGjp_ayA@mail.gmail.com>
- <CAGXv+5GHFnMj3qr5BcpLCQk25rWYOgnMKUX079ScELs4uqEdVg@mail.gmail.com> <CAMRc=Mdoj204dTwVMeqFwsVt3f4JJUJtk93VL2hDgh7+C60eqw@mail.gmail.com>
-In-Reply-To: <CAMRc=Mdoj204dTwVMeqFwsVt3f4JJUJtk93VL2hDgh7+C60eqw@mail.gmail.com>
+References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-6-wenst@chromium.org>
+ <akeyxn390mVmYo83@ashevche-desk.local>
+In-Reply-To: <akeyxn390mVmYo83@ashevche-desk.local>
 From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Fri, 3 Jul 2026 21:20:03 +0800
-X-Gm-Features: AVVi8Ccxmi-jSFxGKDTUuToCDHyjKIoBrT_lajnjop8tp06Df09KPZI8Is_qoIU
-Message-ID: <CAGXv+5GH3navtUC-V--dJOEjqiDtOauXf_TKxzdQ_T+bK_v9gA@mail.gmail.com>
-Subject: Re: [PATCH v3 08/13] usb: hub: Power on connected M.2 E-key
- connectors with power sequencing API
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+Date: Fri, 3 Jul 2026 21:25:56 +0800
+X-Gm-Features: AVVi8CePOG6OpnrlSpGFhkpL2GOtwCFUk_NB8IIc5qFTOLO5i-BW3OK69XKCfdo
+Message-ID: <CAGXv+5G3ETTGbgjWJCbQjn9yvRamx4GHPxjWPgmy_aXWUxm0iQ@mail.gmail.com>
+Subject: Re: [PATCH v3 05/13] usb: hub: Associate port@ fwnode with USB port device
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Daniel Scally <djrscally@gmail.com>, 
 	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
 	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
 	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
 	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_062015_350716_01038FFD 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20260703_062608_812524_6DDD00A8 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,34 +125,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 3, 2026 at 9:16=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.org=
-> wrote:
+On Fri, Jul 3, 2026 at 9:02=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
 >
-> On Fri, 3 Jul 2026 14:58:56 +0200, Chen-Yu Tsai <wenst@chromium.org> said=
-:
-> > On Fri, Jul 3, 2026 at 8:41=E2=80=AFPM Bartosz Golaszewski <brgl@kernel=
-.org> wrote:
-> >>
-> >> So this is only needed to not have to track the state in a separate fi=
-eld?
+> On Fri, Jul 03, 2026 at 07:03:06PM +0800, Chen-Yu Tsai wrote:
+> > When a USB hub port is connected to a connector in a firmware node
+> > graph, the port itself has a node in the graph.
 > >
-> > Correct. Reading the field is not the problem. Updating it is, as the
-> > fields are packed bitfields, and Sashiko suggested that locking would
-> > be needed, though it may have been for the peer port, which has since
-> > been removed.
+> > Associate the port's firmware node with the USB port's device,
+> > usb_port::dev. This is used in later changes for the M.2 slot power
+> > sequencing provider to match against the requesting port.
 > >
+> > To avoid potential conflicts with ACPI firmware nodes and then causing
+> > power management issues, only assign the firmware node if the hub's
+> > firmware node is not an ACPI firmware node.
 >
-> I'm not sure if it is. The user controlls the handle. We could argue, it'=
-s up
-> to them to provide synchroniztion. We only assign the target and pwrseq f=
-ields
-> once in pwrseq_match_device() and only change the powered_on field later =
-with
-> pwrseq_power_on/off(). Unless the user does something weird, we should be
-> alright. Maybe a small note in the kernel doc would be in order.
+> Now I'm more confident that it does not mess up with ACPI case.
+> Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 
-I was refering to the status bitfields in |struct usb_port|. As you already
-explained I think the pwrseq stuff is fine.
+Thank you and Bartosz for the reviews.
+
+FTR Sashiko pointed out that this is likely leaking a fwnode reference.
+I will add a fwnode_handle_put() call to usb_hub_remove_port_device()
+in the next version.
 
 
 ChenYu
