@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FBE6C44500
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D446EC43602
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PicZCkwsklXN0ONboTGqm4ynP8f37fEnTaMMPeq9K/A=; b=I/hOVMEeaVIicbWYS6vgO1yFik
-	m2bz8IhxlW01Qqj30a+j2ljpwWwqsWt1gVVc271DW/tyy9AwgvfV3zF8FenLTadg3zxqEh3rKt/Oq
-	z/Rnbg2ib5k6JFdIQJjWZ6opeHzSb9/d7e1VHpieQh4u6JET5UbcP1pbpQOCKedELiU9l5jPW0M9p
-	AfHNWDuLIAyU8GQ0cpxxfdROASRfqpCb2NBOOB61flp3gItrPZHJOCs1MZlRUak1vD4mqKgKqLHQx
-	hSyYK0l6LHrAI62+H1wsfYI8josU9+SEBfm+N/JF1SpccBFqyS2kkYTA1VEATMHXwMdOgGvipK4nC
-	QL9oO3DQ==;
+	bh=RGZOL8C2TkmYpdoDmtcWAQyhNiUWAQ2nkK1kVx5QS1A=; b=yMB3CClEdEWVEvY9H84z8vtTGC
+	WqaspMOWJAkfcPyZel39EhzZPdIHM9sCh2tMZFlmOhHz+uLyVVPtEG4hdmNshDD2bL3qsf8wN13gA
+	E/eSqYtxrJqE0QHaKTiJSh2lj3BAgpopS3+2nYdQRKUVUCwZzUFV2TROewq5lgAIA+JeR0Y+YJrEe
+	0uN4MNxgO1Ec5XACvsxAnzB3wXg429l/ozveWZLXKcX6bmx030JXqfMcqf0IfPnGAV79c+Q3lDBZO
+	IG03lzCMbRK6gYd92kUaAlC1OMNv0O/8Gik8TZre97jMQeXmkVsV5wbs9WxqLxxWWg5JVM2uYu8/T
+	xte7qNIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdyl-000000075uO-0n2p;
+	id 1wfdyl-000000075v6-1hMW;
 	Fri, 03 Jul 2026 13:30:51 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdye-000000075lR-1uQd
+	id 1wfdyi-000000075py-1YPn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 13:30:45 +0000
+	Fri, 03 Jul 2026 13:30:49 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 868DBC49F5F;
-	Fri,  3 Jul 2026 13:30:54 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 5EDCEC49F61;
+	Fri,  3 Jul 2026 13:30:58 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B600760300;
-	Fri,  3 Jul 2026 13:30:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 507CD104C95A6;
-	Fri,  3 Jul 2026 15:30:40 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8ED9160300;
+	Fri,  3 Jul 2026 13:30:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 12473104C9464;
+	Fri,  3 Jul 2026 15:30:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783085441; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1783085445; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=PicZCkwsklXN0ONboTGqm4ynP8f37fEnTaMMPeq9K/A=;
-	b=cLU/0VDlQmsFHLwP9z53WZpW1FIHFoSql5sKKxv1wOwEqpskQjm7bjmc23mfY7vqTU3zZl
-	ZYfBnxigCeZO7V0sPkF6/yVqeiA/pSrE3irTBBnFGCI8tOFxQMytKsBt2z9BBJL7Ifc3oJ
-	RjWKL+9fCNRvF3lRnqW13uBZKMtGx+J16R9JSzDskJUoy56HXjNuINffWi8jvbsOxbAnFm
-	7rgLt/yGuAuTZjJY4y/IVpYAScqo6F0HQAfMyHpUms8ih4OxrdNJ0l0IZVMvXMy+dkqsEL
-	r1/LOrPIauOOhEfCDu7v/orZ/V2udBbctPYtian33WQVPqa6BzNoz53+uzH1DA==
+	bh=RGZOL8C2TkmYpdoDmtcWAQyhNiUWAQ2nkK1kVx5QS1A=;
+	b=K7eo9h3BUEmCk/xosCZC6V6++51tqWU4cMERDXId5OyY53HOByjSQGLNUQ65mFwhXwx+cI
+	9ebFPdIipeNTq/kb6e+ddxnpSpJNKVtm2ucrRIoU6G2CTdQAf01lJmhxD+Tc9r0RKQbcgK
+	id6i2RQR+dw6P80YvEcsjIRhjsckMTBPEIpgamXYWV5pHCkbofgTKGMDRjoIOlImLoK/MX
+	hEFNBy3lQVHCYmLp0KnaljRc3aeT7A/2MmwP6hi+lB0SzM2bd3Kk4QzqxyGOrbD4NX+CO4
+	jQbehgzGYkmCHMsiBvPzMd0X5lLNh9gTfxKa7zXRr+gLgkeDlxcHU/VzLKJQbA==
 From: Paul Louvel <paul.louvel@bootlin.com>
-Date: Fri, 03 Jul 2026 15:30:15 +0200
-Subject: [PATCH 07/12] soc: fsl: qe: Handle spurious interrupts
+Date: Fri, 03 Jul 2026 15:30:17 +0200
+Subject: [PATCH 09/12] soc: fsl: qe: Rename irq variable to parent_irq
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-qe-pic-gpios-v1-7-6c3e706e27dc@bootlin.com>
+Message-Id: <20260703-qe-pic-gpios-v1-9-6c3e706e27dc@bootlin.com>
 References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
 In-Reply-To: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
 To: Qiang Zhao <qiang.zhao@nxp.com>, 
@@ -66,18 +66,17 @@ Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
  linux-gpio@vger.kernel.org, Paul Louvel <paul.louvel@bootlin.com>, 
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783085423; l=865;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783085423; l=1714;
  i=paul.louvel@bootlin.com; s=20260313; h=from:subject:message-id;
- bh=GK/kK8XvyJnCOp6vz8jBjn9EMBNybdfgy5x95pP3Kus=;
- b=VDBcjajqYHWq3dKjYVCVZd0ZABbny6CisoyUEYgZT1kOEyitshUxNq4S0WMOz6TD8veyDwpI3
- d45jQJ9sQDnAUaiA3GwthcRzuBb4+L9lBtxm0OOz+ITlgpCReL9kh0S
+ bh=qLX9DQ6US1jLkaxEAOSY64aDksPeerbbEeIDbPKoJVA=;
+ b=55d1Hq2Gudzpk5/2MD3gVD6YluwwZMFeAdM8hRfZB6IhTnjsBdCCzYQupJ+SZ+NKhsMhxSrNd
+ +8uV2+zFd8iA8VY7KuXYZ2cT7dPQ/IkFTCHlmkWjcCrdxG1Uf24axWX
 X-Developer-Key: i=paul.louvel@bootlin.com; a=ed25519;
  pk=eLW50NT18UAvUT5cAcYf88zNbBCZDLFXuptpyLVhVIU=
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_063044_697764_E20EC7AC 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_063048_583826_67A89B64 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,35 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When no interrupt bits are set in the event register, call
-handle_bad_irq() to account for the spurious interrupt before
-exiting the cascade handler.
+Rename the local variable holding the platform IRQ to parent_irq, which
+better describes its role as the upstream/chained interrupt in the
+hierarchy.
 
 Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
 ---
- drivers/soc/fsl/qe/qe_ports_ic.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/soc/fsl/qe/qe_ports_ic.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_ports_ic.c
-index 27b62f4e3afb..c8b73b0aa233 100644
+index d022aa224f6d..718703dab024 100644
 --- a/drivers/soc/fsl/qe/qe_ports_ic.c
 +++ b/drivers/soc/fsl/qe/qe_ports_ic.c
-@@ -77,9 +77,15 @@ static void qepic_cascade(struct irq_desc *desc)
- 	chained_irq_enter(chip, desc);
+@@ -19,7 +19,7 @@
+ struct qepic_data {
+ 	void __iomem *reg;
+ 	struct irq_domain *host;
+-	int irq;
++	int parent_irq;
+ 	struct irq_chip_generic *gc;
+ };
  
- 	event = in_be32(data->reg + CEPIER);
-+	if (!event) {
-+		handle_bad_irq(desc);
-+		goto out;
-+	}
-+
- 	for_each_set_bit(bit, &event, 32)
- 		generic_handle_domain_irq(data->host, 32 - bit);
+@@ -111,7 +111,7 @@ static int qepic_domain_init(struct irq_domain *d)
+ {
+ 	struct qepic_data *data = d->host_data;
  
-+out:
- 	chained_irq_exit(chip, desc);
+-	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
++	irq_set_chained_handler_and_data(data->parent_irq, qepic_cascade, data);
+ 
+ 	return 0;
+ }
+@@ -120,7 +120,7 @@ static void qepic_domain_exit(struct irq_domain *d)
+ {
+ 	struct qepic_data *data = d->host_data;
+ 
+-	irq_set_chained_handler_and_data(data->irq, NULL, NULL);
++	irq_set_chained_handler_and_data(data->parent_irq, NULL, NULL);
  }
  
+ static int qepic_probe(struct platform_device *pdev)
+@@ -154,9 +154,9 @@ static int qepic_probe(struct platform_device *pdev)
+ 	if (IS_ERR(data->reg))
+ 		return PTR_ERR(data->reg);
+ 
+-	data->irq = platform_get_irq(pdev, 0);
+-	if (data->irq < 0)
+-		return data->irq;
++	data->parent_irq = platform_get_irq(pdev, 0);
++	if (data->parent_irq < 0)
++		return data->parent_irq;
+ 
+ 	data->host = devm_irq_domain_instantiate(dev, &d_info);
+ 	if (IS_ERR(data->host))
 
 -- 
 2.55.0
