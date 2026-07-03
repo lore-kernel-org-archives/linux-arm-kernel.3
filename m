@@ -4,57 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FD9FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 09:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF1DCC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 09:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TlhEmV9b3yQuDivDKOLQMuW+utydjEwNxJ3dp+PpmXw=; b=ueHowT0FEUEkZvKlfOO4fsgE9D
-	WfFM7EpCo+/S1SvHZ7qBVLtZ7Fx1czYFMR6ArpHGQpAliJyV5Y6/VBcGBjXLHSKvETO+Bldm+VFjF
-	8uaMws89g+YqfwikJLi1iRO3A3uelm0V6Ks6nRHud7qKrr44iqLKJCbknS9wPSZQaALTlrxGZHF+7
-	YGh0yqlFVGHXDhAqLLCuNam2jg60dexbs8uxoNMeCmb+FrXHHnY1dbfgQpilu9n/psSB4Q5Sq7ZsR
-	1Q4m2qXlKE8VNlRBqHS7Z83BXYpMQWul8UfkLEanROYlDHVJAd3hMWyz0Vqr8I2XFW9DvF0mngI+d
-	zNEIfH8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=np1GDiFHQ1CuNSD1vWdE5qciQiEtsdk58lh2fmJm4uQ=; b=X2PnuhyZygAM6P28iZnHrQTrPZ
+	qDUngGI1fyjKBVxoeqLfFhYjMljWMovm4L72kBV3SaY+0RJb7SaWisnu3ukXwo0aoSUUFtN9ucm7a
+	VWwmu4O6wLt7vWEhG905XynxINwZmHALUBatjaEwTfUQ8h3M4Ga55TldOjD2wm75Dg2jmSxx6h/Zv
+	kgcRDOmHT+AQ8/NPzUTSp4HG9r58nLICpeqJLeXbzCdeuF7nzM27Wu3TuP7Wg0/y4MBuRQlb04yCe
+	S+kG4VOPvlPu2NCdGF5fTQdTggSUicQka2S/9pBSkYEiN+Y1wraoRNVM9EYOArJkOXkMGn3LQNJgD
+	yLS3g0iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfaS9-00000006VTY-1SYO;
-	Fri, 03 Jul 2026 09:44:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfaYB-00000006W9T-1qyU;
+	Fri, 03 Jul 2026 09:51:11 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfaS7-00000006VSj-3U12;
-	Fri, 03 Jul 2026 09:44:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 650D1429D5;
-	Fri,  3 Jul 2026 09:44:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC6711F000E9;
-	Fri,  3 Jul 2026 09:44:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1783071895;
-	bh=TlhEmV9b3yQuDivDKOLQMuW+utydjEwNxJ3dp+PpmXw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XTTJPkNUPp4wAbmiW3ylIpmJ5anOfLqudJkPW9QCFvMG5RndqmV+GBvkavNv10FfJ
-	 iGfHuQncpHp11s38qXMelHtH3pGadPYzmJa9wwwbLMyRy8oxxxc8ovxXWJUz9gpX3E
-	 6yRFjS0vdBDxfqooTw7pQQ766nzHelOCrj1av5n4=
-Date: Fri, 3 Jul 2026 11:45:05 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Rosen Penev <rosenp@gmail.com>
-Cc: linux-usb@vger.kernel.org, Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	"moderated list:MEDIATEK USB3 DRD IP DRIVER" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:MEDIATEK USB3 DRD IP DRIVER" <linux-mediatek@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>,
-	"open list:KERNEL HARDENING (not covered by other areas):Keyword:b__counted_by(_le|_be)?b" <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCH] usb: mtu3: allocate phys with ssusb
-Message-ID: <2026070330-darkroom-taking-3687@gregkh>
-References: <20260411035731.163580-1-rosenp@gmail.com>
+	id 1wfaY8-00000006W8i-1Ko0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 09:51:09 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-475881b9a4bso312178f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 02:51:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1783072266; x=1783677066; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=np1GDiFHQ1CuNSD1vWdE5qciQiEtsdk58lh2fmJm4uQ=;
+        b=BEDhUaoAXDj4c7pMZxMFqKq5yte8sEdnpxqlmxTtC0HLx9Ax86M9F/oqAJwau2R6J8
+         GfUVlmednRJ9UGyZKEA3cL03MHwy86r47WlKnP8WqMbsh70/dF29vNlDBScKOVT/m0pz
+         9Fm5mukNo7kcm6oSxBASJyRjyndm+xWg5HNk7fTcE5HjZ0nrOWL+fVOQ5MV/ESiWsroW
+         SqZspYMyQK/t/rTETx6Q7drGue6vjfH19oWwz/VfHy2nnvbN3hi+9so+1CEuIqIfaVwD
+         mylN2mSdKwOuNgafu11ijNmUqGHWHmg5rwXlHWCF65yroUt/wKX+ASbsCznn7AF+/6jR
+         nevQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783072266; x=1783677066;
+        h=content-transfer-encoding:content-type:mime-version:date:message-id
+         :subject:references:in-reply-to:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=np1GDiFHQ1CuNSD1vWdE5qciQiEtsdk58lh2fmJm4uQ=;
+        b=Gp3QpnIbukwm2jqEciNbsxFMO2umj95s5wS9yBBVBQGNiJaZ1nuJL24kx9bWpx0zFH
+         OJ2+kVIU+h94PJ4ge/IcwJoO15Ne/x3kCspd+/0ZLxj/OAIgS9MCLwEDo6xyiYYT9xbx
+         e3Ip3QtG+ltH+kZ0aKInIe19OGRYzj+I3xlMwlkBq+ChzILedhomqqK7f7Ox4UZg9x4m
+         ER1/60BjHzcedBDyJRo+2lBjVhXLO7w3Y4l65eJbRdYK94ALNZtSwo5HQPhCmD061DHm
+         j9kCd2V0W5I8dTvyb02TmS1G/+14NEEYThUelo4+F2AOz5/OBUt/sPuxmW6w46+lh3VR
+         IBeQ==
+X-Forwarded-Encrypted: i=1; AFNElJ+B0fCwcYcKPO0GV+qSMBTgg2mtvFtmPtwLlr/Uo28KG2QEodJujyYuDFczJcMLFcLHABICdDO0SaKoCpKKus3N@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv9EwN+veUyetx8vNSFLzqdhUhNnpmlpaP8ofWNkmiNxK/uuz6
+	7U6AHkb7URbvoeCQkcQQdc5+d5vmgGichT0fj85nLnwTGYjNy2rrgkEGwzBMmhbMSqs=
+X-Gm-Gg: AfdE7cmX2A38GFWuxLMvsKXCeuHtnS+7TSxz67CY9bNWJ5CXd3UjEq80S2QBAAO3vOn
+	e8b/V9J185uBUJVOJ/Dh/eqUkcDbjPZ0aclwtVRVvet4OHDDGBWiAilbZa0NYWZeXJfU/BoMRgi
+	XlFy6pfbMiZwshAmhhETher4L9UU11z6ucuCZ6+ObjK77jkLjOOJ/QyII81K2kELiGzH9y3uihn
+	k+ZWCJLpVnzywtAiNpohTFR1EAdgRs8Hxt9t000nyjvwJvVhMyud5zxpdSVxCJR4yp5e+YJlBWk
+	ZckNzVsIfwfhYURP4mB4l4Xze2xEeRLXmhEE3RWBagcWJ4wdygL32SRtYHeB5HXWMRYGMBZ1v5J
+	pfMbD7aN+UM7VAynAwZeWQmksVW+ywDz14VEDlfy0uzssaHhONkE9aX+brafQF2eYiiHOsoySOz
+	knIZsNbc1MTLZNrx6tKebA8FSHzfGuFG1DOg==
+X-Received: by 2002:a05:600c:60a:b0:492:68bc:3237 with SMTP id 5b1f17b1804b1-493c3cf8cc5mr80908995e9.32.1783072265643;
+        Fri, 03 Jul 2026 02:51:05 -0700 (PDT)
+Received: from arrakeen.starnux.net ([2a01:e0a:106d:1080:52eb:f6ff:feb3:451a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493bfe616f5sm126116215e9.1.2026.07.03.02.51.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 02:51:05 -0700 (PDT)
+From: Neil Armstrong <neil.armstrong@linaro.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Kevin Hilman <khilman@baylibre.com>, 
+ Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Jian Hu <jian.hu@amlogic.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor.dooley@microchip.com>
+In-Reply-To: <20260421-clkmsr_a1_t7-v3-0-efc00b0f9e6b@amlogic.com>
+References: <20260421-clkmsr_a1_t7-v3-0-efc00b0f9e6b@amlogic.com>
+Subject: Re: (subset) [PATCH v3 0/4] soc: amlogic: clk-measure: add A1 and
+ T7 support
+Message-Id: <178307226476.3253856.1594545228633804096.b4-ty@b4>
+Date: Fri, 03 Jul 2026 11:51:04 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260411035731.163580-1-rosenp@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15.1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_025108_394237_B18B60CD 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,76 +106,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 10, 2026 at 08:57:31PM -0700, Rosen Penev wrote:
-> Use a flexible array member to combine allocations. Allows removal of a
-> pointless branch. A size of 0 means phys are not allocated.
-> 
-> Add __counted_by for extra runtime analysis.
-> 
-> Signed-off-by: Rosen Penev <rosenp@gmail.com>
-> ---
->  drivers/usb/mtu3/mtu3.h      |  2 +-
->  drivers/usb/mtu3/mtu3_plat.c | 18 ++++++------------
->  2 files changed, 7 insertions(+), 13 deletions(-)
-> 
-> diff --git a/drivers/usb/mtu3/mtu3.h b/drivers/usb/mtu3/mtu3.h
-> index ba5a63669e5f..d71849388602 100644
-> --- a/drivers/usb/mtu3/mtu3.h
-> +++ b/drivers/usb/mtu3/mtu3.h
-> @@ -252,7 +252,6 @@ struct ssusb_mtk {
->  	struct mtu3 *u3d;
->  	void __iomem *mac_base;
->  	void __iomem *ippc_base;
-> -	struct phy **phys;
->  	int num_phys;
->  	int wakeup_irq;
->  	/* common power & clock */
-> @@ -272,6 +271,7 @@ struct ssusb_mtk {
->  	struct regmap *uwk;
->  	u32 uwk_reg_base;
->  	u32 uwk_vers;
-> +	struct phy *phys[] __counted_by(num_phys);
->  };
->  
->  /**
-> diff --git a/drivers/usb/mtu3/mtu3_plat.c b/drivers/usb/mtu3/mtu3_plat.c
-> index cc8a864dbd63..11a919fc3d47 100644
-> --- a/drivers/usb/mtu3/mtu3_plat.c
-> +++ b/drivers/usb/mtu3/mtu3_plat.c
-> @@ -240,17 +240,6 @@ static int get_ssusb_rscs(struct platform_device *pdev, struct ssusb_mtk *ssusb)
->  	if (ret)
->  		return ret;
->  
-> -	ssusb->num_phys = of_count_phandle_with_args(node,
-> -			"phys", "#phy-cells");
-> -	if (ssusb->num_phys > 0) {
-> -		ssusb->phys = devm_kcalloc(dev, ssusb->num_phys,
-> -					sizeof(*ssusb->phys), GFP_KERNEL);
-> -		if (!ssusb->phys)
-> -			return -ENOMEM;
-> -	} else {
-> -		ssusb->num_phys = 0;
-> -	}
-> -
->  	for (i = 0; i < ssusb->num_phys; i++) {
->  		ssusb->phys[i] = devm_of_phy_get_by_index(dev, node, i);
->  		if (IS_ERR(ssusb->phys[i])) {
-> @@ -330,12 +319,17 @@ static int mtu3_probe(struct platform_device *pdev)
->  	struct device *dev = &pdev->dev;
->  	struct ssusb_mtk *ssusb;
->  	int ret = -ENOMEM;
-> +	int num_phys;
->  
-> +	num_phys = of_count_phandle_with_args(dev->of_node,
-> +			"phys", "#phy-cells");
+Hi,
 
-You just caused a bug here if this returns a negative value.
+On Tue, 21 Apr 2026 16:17:40 +0800, Jian Hu wrote:
+> This series adds Amlogic clock measurement support for A1 and T7 SoCs,
+> including binding updates, driver additions, and device tree enablement.
 
-How was this tested?
+Thanks, Applied to https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git (v7.3/arm64-dt)
 
-And why is it even needed?
+[3/4] arm64: dts: meson: a1: Add clk measure support
+      https://git.kernel.org/amlogic/c/dd3d4327240dbd5e4a256f7428f92f454e23edba
+[4/4] arm64: dts: amlogic: t7: Add clk measure support
+      https://git.kernel.org/amlogic/c/d0a92020bb87b45a235d9d1f9ce76494e9ed02ca
 
-thanks,
+These changes has been applied on the intermediate git tree [1].
 
-greg k-h
+The v7.3/arm64-dt branch will then be sent via a formal Pull Request to the Linux SoC maintainers
+for inclusion in their intermediate git branches in order to be sent to Linus during
+the next merge window, or sooner if it's a set of fixes.
+
+In the cases of fixes, those will be merged in the current release candidate
+kernel and as soon they appear on the Linux master branch they will be
+backported to the previous Stable and Long-Stable kernels [2].
+
+The intermediate git branches are merged daily in the linux-next tree [3],
+people are encouraged testing these pre-release kernels and report issues on the
+relevant mailing-lists.
+
+If problems are discovered on those changes, please submit a signed-off-by revert
+patch followed by a corrective changeset.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux.git
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+[3] https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+
+-- 
+Neil
+
 
