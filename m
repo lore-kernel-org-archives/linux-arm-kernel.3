@@ -4,90 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21BF1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8014EC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qm11f/zR4qtblmEb9WqIxklnSmRd5ntPO4IgWl784nc=; b=q8OW0QQkO0abvf4fh+zxMs2Dwi
-	9LCrSBU+Xne1prKhGiYgoH7aB/7bo44+/1VuyCaAZnYSb/auC6AnI2X3fUhhZEnOruANrep9pJ8FI
-	KIhA/PMJu5ty5KkVjYO3mlMa+y0VCvi8+1+/AS+ktbMQjwIcdpsrQJ6t0EFUEnTqc2JfVuJJ/0Ae+
-	VfG6Z8oHhDswYcSTLhD1ShpqRA4m/OMyBYVCCacx9B8CFjri4VDdlRLxhsPD9rgTAPs0T/0OZk3S8
-	QrzoJadEz0V2xxVqnXwQS7kzxuWqN58LBFhf9j6iHr/y5Lfc5QfRRTLvup6Y/3kj7hPqiJ0hH0ouL
-	oiJCXYcw==;
+	bh=wKIP/2g7MTxmMgVnWjjRdFjs9hik6bQNvbKXHobNWdc=; b=NebRhEX5+lAWeF9l9qOcdAg+ez
+	HwSuWzN2EBoplOSk/TnqG9WeNSQMzIP/5GWVyxKHSjS0rCTscpc8BNsmM49qIfW6OyWCcCDYUBl00
+	fwbJ9nhWsjT2QY5VCTMFsWFKshQ4d3pbCZtfKNHjL9aq1aaff92Ifw0JjEZDyhCZt58lgzOp9J3kq
+	gPx5vucFUq8M1S02cf3r5X32q8bIWICw4wIH8uDQ3pMejNYUuDjQRGSFn9bZU2orzzCbY6G39hKn2
+	Cn/5NRPJvTN7l/8qi7EH6UsCzLpZQSs1bV3CCngDKyQVqLfKMgyb1deLa4Xdz2fB+XQkdYzgoiEvD
+	wV5/PYMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcoD-00000006utQ-16yk;
-	Fri, 03 Jul 2026 12:15:53 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1wfcpq-00000006v6u-2zqF;
+	Fri, 03 Jul 2026 12:17:34 +0000
+Received: from mail-yx1-xb135.google.com ([2607:f8b0:4864:20::b135])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcoA-00000006ut1-0glo
+	id 1wfcpo-00000006v5R-0XMs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:15:52 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260703121542epoutp02c9df1f5c62e097a7a2cfc83a4614cda0~_xquWmM4W0030200302epoutp02u
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 12:15:42 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260703121542epoutp02c9df1f5c62e097a7a2cfc83a4614cda0~_xquWmM4W0030200302epoutp02u
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783080942;
-	bh=qm11f/zR4qtblmEb9WqIxklnSmRd5ntPO4IgWl784nc=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=TkPcDkgCOY2B6XOPzI5ryVssnTiJHrpBeVjczbrd3NyYY1J790URp72ZOsSyF03Nf
-	 NwV9KWIof+h6Q9yfZmknZXy7T77bwK3lt0ZJaZiHyFdDJ1ipWctulCeyy48Y4clget
-	 rNauQ09ZqrmhrS6lH9ByYIBQdw/dK3t76rOrWesA=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20260703121541epcas2p2b791d0a882a31a404f0259e2df2e1138~_xqtpTVl21760017600epcas2p2F;
-	Fri,  3 Jul 2026 12:15:41 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.38.209]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4gsCQ54kxqz6B9m6; Fri,  3 Jul
-	2026 12:15:41 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20260703121541epcas2p4408a3bbc4a2f9ff6d018cf9a2f5298d2~_xqs3tG1Y1460114601epcas2p4o;
-	Fri,  3 Jul 2026 12:15:41 +0000 (GMT)
-Received: from KORCO090186 (unknown [12.80.211.165]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20260703121541epsmtip14e82d433e2e957a41fbddb55aa76c1ba~_xqsxJ7j_2740427404epsmtip1U;
-	Fri,  3 Jul 2026 12:15:41 +0000 (GMT)
-From: =?utf-8?B?64Ko7JiB66+8?= <youngmin.nam@samsung.com>
-To: "'Alim Akhtar'" <alim.akhtar@samsung.com>, "'Peter Griffin'"
-	<peter.griffin@linaro.org>
-Cc: <krzk@kernel.org>, <s.nawrocki@samsung.com>, <linus.walleij@linaro.org>,
-	<semen.protsenko@linaro.org>, <ivo.ivanov.ivanov1@gmail.com>,
-	<ryu.real@samsung.com>, <d7271.choe@samsung.com>, <shin.son@samsung.com>,
-	<jaewon02.kim@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <youngmin.nam@samsung.com>
-In-Reply-To: <0e6201dd07a8$eb5884d0$c2098e70$@samsung.com>
-Subject: RE: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank entries
- on Exynos2200/7885/8890/8895
-Date: Fri, 3 Jul 2026 21:15:40 +0900
-Message-ID: <000001dd0ae5$aa491e10$fedb5a30$@samsung.com>
+	Fri, 03 Jul 2026 12:17:33 +0000
+Received: by mail-yx1-xb135.google.com with SMTP id 956f58d0204a3-664cb440f9eso588905d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 05:17:31 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783081051; cv=none;
+        d=google.com; s=arc-20260327;
+        b=asqeFwGN3SjCUkvqQByNIjLnWX2VsZV3LVgvmKIkofoRraxtodJT6vm6bR1PdD624q
+         IfepeIbNkcGH+dWD9oRZh/8yk+doDG8SmlR6ag7CdneHf+GOR2t/OqFIXCnOFB5FPsQ+
+         TihbHIvioCJMrKKZEhMVhlOuDiFLiXV11LthFXly/A2x0liLPWz89S1sx7hqmhYDS9g+
+         y1FHth86xI3+hXJmDTvTz8mJZRoWD894iXVoRWqfFmh7GOXExQ/6RRAzf9QyM/EkTy2C
+         rxdOTSbr3Dv8NeBD6tdS9hOi+FvBbSBZvCZGDe+pjeoVKch5LEVwLSyYy879DyipBBdB
+         t0Zg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=wKIP/2g7MTxmMgVnWjjRdFjs9hik6bQNvbKXHobNWdc=;
+        fh=4A4K/aii08hAu4aw8gvGnzAckchduXc3ySfSGXSqt6o=;
+        b=lXWJIn9y+vcBWfsyMhp2/WJgJrLcV7Jsxz1ky2scmEQDx0KdCEpgp4F1qb3e1M9WFI
+         FETsEJ5BziCQ72f+KB3WBKf5D7RqwFxqPw3L6dn1VDHovEkKjb4nFcMVCGCbsMEY/HZK
+         zoVSCLHLqYOqKW4DYsEYDz4Z/narnUWjMSa3mKMRuLKJG6kJBb8+m1/L+QI2y1IeWjHs
+         pCZGTn10bWv7x0JGM+ThjbMLm8gqU9LKKs2nq1yi67wFNg9gRGyh2wFpGKjOM7PPAYeH
+         h1pb6P7imf+pNY39CiU48V7kIICFgy5RGMuDT23SsBk1nBB8GeJEfFN28pcc+5vBcxmr
+         M+UQ==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1783081051; x=1783685851; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wKIP/2g7MTxmMgVnWjjRdFjs9hik6bQNvbKXHobNWdc=;
+        b=GGLF3Ff826WuhnvJq7HyvDodoPomrcCUjQ9cUhIQlD7OjDl7gjO4oWYc6zlB+Qd9MU
+         9J2tlrZaQ+RnU6YtPDdiqY08Aev/Cr7wSIfUzwQ9/zArb3b0BqCdRtScmLDhFWbPOtlM
+         fuuRPWtkgACNX14sVo4A4q6IwGUFyrF7WFivI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783081051; x=1783685851;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=wKIP/2g7MTxmMgVnWjjRdFjs9hik6bQNvbKXHobNWdc=;
+        b=CwCVk067X4GtJ15ZRYhukP0Vm06zVRSi4juhgTYdhK0zSs1jIIFhVlI/FZyB12zpfC
+         Mg9R13Vy1TLGokdfdJjSd8JbTooB9VbcEdRn30AjKCLBAzjxgdGwCWccvcfpRh2LCwtF
+         XA8Wak/Xg7sg2ur8/rd6KuzTwng5MwDc0kL7D4YRxPWnfEakHIzpdkfLOuqn7+Sw64yS
+         lJPtN4JnXFzCgWRUk9IJTM0DsOnTPxaK4tqurWxlYCCDn8BTzbdHAy1UYsu5FJ/CUrg6
+         CfoeEQpScfSWDKpKiOI4M7lfI+y75uj+XeYyHTak8WsmzbASFcMmrq0h/prlc4gzo6ZE
+         ppqg==
+X-Forwarded-Encrypted: i=1; AHgh+Ror2rMKL8Kfgd3t1oeF5fxCw0jjwC8WL9FNFmVXOVqRmkY0pALJOSw2PI8NyPnK3XgOeLL9J5i8TcAqfIVLtGOM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5f4c4q6Q5xqY8fZ9SY4s4wQ5Vb6/ZWFaGCB3Bgcn1u6L2U03y
+	VqOceVDyBPiCZaBUOVeyx+fxey52xI/IV7S3rnpDDISCsm2wGa1c0Uta7kK9GfTZwX6zuYysJyU
+	bC//sR61MTqx5Th/GgXVk5RK+BNkFS+MatiVTti/y
+X-Gm-Gg: AfdE7cnE0tKyHWTiP7KMWYIIjmetj1XrXBOKsg+7/mLq/DC/gNrNDxqKf0lE5mw2sft
+	bwrmYs1YqMnUSbKly9jfHJUEuZaUXZ9r0A+4zFCXxun6TCqcg6u/kq6VXHn2P2WPXfNGz3L1z1W
+	N8NxmXlNfa4Ggd1BPofRt47Jm5FwEjPdsMSBg2sBaCuJhly/UE1z55HA7txwL+CtDPaGqBz07zD
+	4J5Xh3g4r3CeFfsxp2cG4Sh7b3F2W0PyS0L/AbhN/J5rwIZe5jpZGkDYYG5aryu6M0BJPgh2tDc
+	hGxeNjAEN/0SeROVp3pQje2RkIw=
+X-Received: by 2002:a05:690e:bcd:b0:664:ae03:524e with SMTP id
+ 956f58d0204a3-6652195244emr9486423d50.6.1783081050982; Fri, 03 Jul 2026
+ 05:17:30 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIr5xjB9BZkcy1LV54fp2FD5N/QnAF3wuMlAatK81MBmh+d8gGktICKtYrtzGA=
-Content-Language: ko
-X-CMS-MailID: 20260703121541epcas2p4408a3bbc4a2f9ff6d018cf9a2f5298d2
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251202093027epcas2p24adbd3226dd50b2780baceee6588f3ba
-References: <CGME20251202093027epcas2p24adbd3226dd50b2780baceee6588f3ba@epcas2p2.samsung.com>
-	<20251202093613.852109-1-youngmin.nam@samsung.com>
-	<20251202093613.852109-3-youngmin.nam@samsung.com>
-	<CADrjBPqYT9h_UJKSxBJ_KMQ4yQv4yyTuHaPYjC+K1-6TZj+PXg@mail.gmail.com>
-	<0e6201dd07a8$eb5884d0$c2098e70$@samsung.com>
+References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-4-wenst@chromium.org>
+ <CAMRc=MfPC=Jm6RFkCYG6vsYQiWHxBeNq0L59rwahF_6Fu2Ledw@mail.gmail.com>
+In-Reply-To: <CAMRc=MfPC=Jm6RFkCYG6vsYQiWHxBeNq0L59rwahF_6Fu2Ledw@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 3 Jul 2026 20:17:19 +0800
+X-Gm-Features: AVVi8CdRG77FVnl6YqrCOnoh5pU554e35My8Xh7iayyOJ32J-OMwjYcWxPxxPu4
+Message-ID: <CAGXv+5HMVaERvte8YJDJ0fq0zoMvO7-7caAGQhsAB-9sUHoGtQ@mail.gmail.com>
+Subject: Re: [PATCH v3 03/13] power: sequencing: Add pwrseq_power_is_on()
+To: Bartosz Golaszewski <brgl@kernel.org>
+Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_051550_887407_0BA352FF 
-X-CRM114-Status: GOOD (  28.63  )
+X-CRM114-CacheID: sfid-20260703_051732_223208_ED80860F 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,109 +125,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alim
-
-> -----Original Message-----
-> From: Alim Akhtar <alim.akhtar@samsung.com>
-> Sent: Monday, June 29, 2026 6:23 PM
-> To: 'Peter Griffin' <peter.griffin@linaro.org>; 'Youngmin Nam'
-> <youngmin.nam@samsung.com>
-> Cc: krzk@kernel.org; s.nawrocki@samsung.com; linus.walleij@linaro.org;
-> semen.protsenko@linaro.org; ivo.ivanov.ivanov1@gmail.com;
-> ryu.real@samsung.com; d7271.choe@samsung.com; shin.son@samsung.com;
-> jaewon02.kim@samsung.com; linux-arm-kernel@lists.infradead.org; linux-
-> samsung-soc@vger.kernel.org; linux-gpio@vger.kernel.org; linux-
-> kernel@vger.kernel.org
-> Subject: RE: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank
-> entries on Exynos2200/7885/8890/8895
-> 
-> Hi Krzysztof, Peter
-> 
-> > -----Original Message-----
-> > From: Peter Griffin <peter.griffin@linaro.org>
-> > Sent: Saturday, March 7, 2026 2:47 AM
-> > To: Youngmin Nam <youngmin.nam@samsung.com>
-> > Cc: krzk@kernel.org; s.nawrocki@samsung.com; alim.akhtar@samsung.com;
-> > linus.walleij@linaro.org; semen.protsenko@linaro.org;
-> > ivo.ivanov.ivanov1@gmail.com; ryu.real@samsung.com;
-> > d7271.choe@samsung.com; shin.son@samsung.com;
-> > jaewon02.kim@samsung.com; linux-arm-kernel@lists.infradead.org; linux-
-> > samsung-soc@vger.kernel.org; linux-gpio@vger.kernel.org; linux-
-> > kernel@vger.kernel.org
-> > Subject: Re: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank
-> > entries on
-> > Exynos2200/7885/8890/8895
+On Fri, Jul 3, 2026 at 8:07=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.org=
+> wrote:
+>
+> On Fri, 3 Jul 2026 13:03:04 +0200, Chen-Yu Tsai <wenst@chromium.org> said=
+:
+> > The power sequencing consumer API already does power on state tracking
+> > internally. Expose the state to consumers through pwrseq_power_is_on()
+> > so that they don't have to reimplement it locally.
 > >
-> > Hi Youngmin,
-> >
-> > On Tue, 2 Dec 2025 at 09:30, Youngmin Nam <youngmin.nam@samsung.com>
-> > wrote:
-> > >
-> > > This patch corrects wrong pin bank table definitions for 4 SoCs
-> > > based on their TRMs.
-> > >
-> > > Exynos2200
-> > > - gpq0/1/2 were using EXYNOS_PIN_BANK_EINTN(), which implies a
-> > >   'bank_type_off' layout (.fld_width = {4,1,2,2,2,2}).
-> > > - Per the SoC TRM these banks must use the 'alive' layout
-> > >   (.fld_width = {4,1,4,4}).
-> > > - Switch them to
-> > EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, ...).
-> > >
-> > > Exynos7885
-> > > - etc0, etc1: update bank type to match the SoC TRM.
-> > > - gpq0 is a non-wakeup interrupt bank; change EINTW -> EINTN
-> accordingly.
-> > >
-> > > Exynos8890
-> > > - Per the SoC TRM, rename bank ect0 to gpb3 and mark it as
-> > >   a non-external interrupt bank.
-> > > - gpi1, gpi2: update bank type to match the SoC TRM.
-> > >   exynos8895_bank_type_off (.fld_width = {4,1,2,3,2,2}) ->
-> > >   exynos5433_bank_type_off (.fld_width = {4,1,2,4,2,2})
-> > > - Per the SoC TRM, mark etc1 as a non-external interrupt bank.
-> > > - apply lower case style for hex numbers.
-> > >
-> > > Exynos8895
-> > > - gpa4 is a non-wakeup interrupt bank per the SoC TRM.
-> > >   change EINTW -> EINTN. (The bank_type itself was correct and is kept
-> > >   unchanged.)
-> > > - apply lower case style for hex numbers.
-> > >
-> > > This aligns the pin-bank tables with the documented bitfield layouts
-> > > and wakeup domains. No DT/ABI change.
-> > >
-> > > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-> > > Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-> > > Reviewed-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-> > > Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
-> > > ---
-> >
-> > This patch contains some worthwhile fixes for multiple Exynos SoCs. Do
-> > you plan to re-send it? I think it would be good to get this merged
-> > (even if there isn't broad agreement around renaming the pinctrl
-> > macros to EXYNOS9_)
-> >
-> Can we relook into this series?
-> AFA EXYNOS9_ macro is concern, Exynos990, Exynos9810 etc already support
-> available upstream.
-> Of course it does not justify why Exynos9, but we can consider all SoCs
-> which has come after 2020 have this newer architecture.
-> Or Just have SAMSUNG_ prefix for all such newer SoC.
-> 
-> A unified Macro help in adding new SoC support without much confusion(like
-> I am trying with Exynos8855)
-> 
-> @Youngmin, will you have some time to re-spin these series?
-> 
+>
+> They wouldn't be able to do it as the field is private to pwrseq core any=
+way.
 
-Sure. Let me re visit my patches and will try.
+Which is why a helper is added? Note this is returning the requested state
+on the consumer side, not the actual state.
+
+> In what situation would consumers need this? Typically you know what stat=
+e the
+> handle is in if you control it.
+
+Mostly just to avoid extra tracking in the USB port device. For the hub's
+port power feature flag, the hub driver actually queries the hub for the
+current state; no in-kernel tracking is involved, i.e. the consumer doesn't
+actually know what state it is currently in.
 
 
-> > Thanks,
-> >
-> > Peter
-> 
-
-
+ChenYu
 
