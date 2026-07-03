@@ -4,82 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6824AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 16:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 098E3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 16:19:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/QJAmkOnoHA495YFan6Ky8WtBEo4v0J5CtKrSDPHCEg=; b=0iUI/DUUUpJTJYUkErf2ptoU5m
-	ReZdakRbwBOFab1bWABX0pcfsralCdSJ1CdAOhnTeZf7hAZt0OtnVUzSPl6VSsbih+QhgGileXcs2
-	7JuTMqhQvqxP4Zsp0OESRBmxAQa77xiOp30pSkYl/+5StiHwtwg0uYonBuxRrqIwzGjcDfAGyC2KR
-	fkiDp2E0cOkwr33JVWYPpbUAi70HO/sqdxSPVDT/ZmlUdtz5a0IlDnV0nUUPrQVlo4biuzE3UUdEE
-	8mJ/jDfOBsT08MwxJyTScZoslRRtpQDjoASchH9P+Y4lJVgs3XOYxdIVBjgrM3BOEJ+rLHRR4DlGB
-	2e+Vt+fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MDqV3FE/QURKj47Ug9qhhO3Rw6xeNdaWbeaJ1FuMeXg=; b=BrNakjYGIUins2c+VTTFY1XMgl
+	JI5QIdIVxSF91LaS/fvk4+mT9tu09p7K6ulWXini+nphcD0SpYnb940TyP3eCU0GP6QVY0NwLL+Uh
+	+veLTOp5bo+55t8KWy7tY0byei1cq33/N2QD0e2VvPlDxU/FSZ7XsZHpwMtoUpD2GSt1JSOaU1WoG
+	S8AIDG64V73qVYywFtiS93uM9krdo+6rGrb3/sCVlOyUoXldFvis95lmNxO6hOZAZU9+47CQa7YrJ
+	g0fJNzKap74jHIse+A7pKDQWRYLmnMbyi9y7ek8ahzyWCbBVyfD2WhApsSyWhhIF7BL9AHxzRxS/z
+	/6ONDgMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgbi-00000007Xzn-3buS;
-	Fri, 03 Jul 2026 16:19:14 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wfgbm-00000007Y0g-3zfu;
+	Fri, 03 Jul 2026 16:19:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgbf-00000007Xz5-1ymW
+	id 1wfgbi-00000007XzR-0OQG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 16:19:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 907964E40C6E;
-	Fri,  3 Jul 2026 16:19:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 49DDA60300;
-	Fri,  3 Jul 2026 16:19:06 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 447B011BB8526;
-	Fri,  3 Jul 2026 18:18:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783095544; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=/QJAmkOnoHA495YFan6Ky8WtBEo4v0J5CtKrSDPHCEg=;
-	b=whj5jeAO6iCTFq0BeQBQC4nFBg4yNtvwwlzpeXzd1S6uO6lqsB7ZJVl/1/tqfzVQ3a5KkD
-	bq2U8kDlCTijPK9qC8AwLzRwUFrdzolVBYPpbzxSRFSO5TBncDpn581K0Wz9ph8JmvNxpV
-	gJhwBVgnqegNOR1fdWVP6fHuPGGpmJKGlM7ynmWo/Hp7cMwj27yMs3TTiAu2tz6jCWCTKk
-	gEKUu/Is60Y4BQf5hQ6EoCZOieTx5zzmXP5/QfbBJvutrnsx5Nc5EW0slTi8Z77rDW6mKM
-	CpMwSIUT0FPlHPHxfozL31kvcaeBrDFxVmzvJ8kvRK76ZsAoKF6hzxXVUMIhIQ==
-From: Gregory CLEMENT <gregory.clement@bootlin.com>
-To: Arnd Bergmann <arnd@kernel.org>, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-Cc: linux-kernel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>, Aaro
- Koskinen <aaro.koskinen@iki.fi>, Alexander Sverdlin
- <alexander.sverdlin@siemens.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, Ard
- Biesheuvel <ardb@kernel.org>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Daniel Mack <daniel@zonque.org>, Ethan Nelson-Moore
- <enelsonmoore@gmail.com>, Frank Li <Frank.Li@nxp.com>, Haojian Zhuang
- <haojian.zhuang@gmail.com>, "Jeremy J. Peper" <jeremy@jeremypeper.com>,
- Kristoffer Ericson <kristoffer.ericson@gmail.com>, Krzysztof Kozlowski
- <krzk@kernel.org>, Linus Walleij <linusw@kernel.org>, Mark Brown
- <broonie@kernel.org>, Marc Zyngier <maz@kernel.org>, Mike Rapoport
- <rppt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Patrice
- Chotard <patrice.chotard@foss.st.com>, Ralph Siemsen
- <ralph.siemsen@linaro.org>, Robert Jarzmik <robert.jarzmik@free.fr>,
- Russell King <linux@armlinux.org.uk>, Sascha Hauer
- <s.hauer@pengutronix.de>, Sebastian Hesselbarth
- <sebastian.hesselbarth@gmail.com>, Stefan Agner <stefan@agner.ch>, Stefan
- Wiehler <stefan.wiehler@nokia.com>, Tony Lindgren <tony@atomide.com>,
- Vladimir Zapolskiy <vz@mleia.com>, Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v2 19/19] ARM: mark mv78xx0 support as deprecated
-In-Reply-To: <20260701212353.2196041-20-arnd@kernel.org>
-References: <20260701212353.2196041-1-arnd@kernel.org>
- <20260701212353.2196041-20-arnd@kernel.org>
-Date: Fri, 03 Jul 2026 18:18:54 +0200
-Message-ID: <87y0fs6o7l.fsf@BLaptop.bootlin.com>
+	Fri, 03 Jul 2026 16:19:14 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 51C52600B0;
+	Fri,  3 Jul 2026 16:19:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD6131F000E9;
+	Fri,  3 Jul 2026 16:19:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783095553;
+	bh=MDqV3FE/QURKj47Ug9qhhO3Rw6xeNdaWbeaJ1FuMeXg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=d/j4ZWUrtxifnX8y919J8kuQuU5DEj1oB14B6kihoAoypJZRemNaeQiPADNdNsyYm
+	 BKOCus/eZWIPGtPhqVi4YPlgvopBcbw1dilQiwOzO/FYzr0DfSHgaj6yNVGY3XW+U0
+	 u2IKQRCJPgCVFB7HMRVp8Bms73PRBDjuC+Jna+HUsDOJXbhlxA74ZekbcfutiNkFO1
+	 QMGAOrkyEpsVLwoDKqWVEIEFA7qYSS+i8Ns2MdC5hJfWNfyRAZwHLzOYxKigfjn3NN
+	 M1Gp70mq4T9ehJKkvaOroeS6O8RhG5l456YtAHQcErARJxNPRQZCjY5+Ne1fQyXTuk
+	 C4ZZaF2jOLRag==
+Date: Fri, 3 Jul 2026 17:19:08 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Sasha Finkelstein <k@chaosmail.tech>
+Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: soc: apple: Add Apple PMGR misc
+ controls
+Message-ID: <20260703-acre-buffalo-815de034999e@spud>
+References: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
+ <20260703-pmgr-misc-v2-1-4b26ba10c5a4@chaosmail.tech>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_091911_672771_33281FEE 
-X-CRM114-Status: GOOD (  19.60  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Ew3fU/QzK+CdPJ5y"
+Content-Disposition: inline
+In-Reply-To: <20260703-pmgr-misc-v2-1-4b26ba10c5a4@chaosmail.tech>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,61 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Arnd Bergmann <arnd@kernel.org> writes:
+--Ew3fU/QzK+CdPJ5y
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Only one machine remains supported and was kept in 2022 for the
-> Debian_on_Buffalo project that was still using this, with plans to
-> convert it to devicetree.
->
-> The conversion never happened, and Debian_on_Buffalo does not provide
-> kernels later than linux-6.1, so it is unlikely to still be useful
-> for a DT conversion in the future.
->
-> Mark the platform for deprecation after the next LTS kernel, which
-> should give any remaining users a few more years of bugfixes.
->
-> Link: https://lore.kernel.org/all/20221019150410.3851944-6-arnd@kernel.or=
-g/
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-Acked-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+--Ew3fU/QzK+CdPJ5y
+Content-Type: application/pgp-signature; name=signature.asc
 
-Thanks,
+-----BEGIN PGP SIGNATURE-----
 
-Gregory
-> ---
->  arch/arm/mach-mv78xx0/Kconfig | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm/mach-mv78xx0/Kconfig b/arch/arm/mach-mv78xx0/Kconfig
-> index 670e6587827e..98b35f5d05ba 100644
-> --- a/arch/arm/mach-mv78xx0/Kconfig
-> +++ b/arch/arm/mach-mv78xx0/Kconfig
-> @@ -1,6 +1,6 @@
->  # SPDX-License-Identifier: GPL-2.0-only
->  menuconfig ARCH_MV78XX0
-> -	bool "Marvell MV78xx0"
-> +	bool "Marvell MV78xx0 (DEPRECATED)"
->  	depends on ARCH_MULTI_V5
->  	depends on CPU_LITTLE_ENDIAN
->  	depends on ATAGS
-> @@ -14,6 +14,8 @@ menuconfig ARCH_MV78XX0
->  	  Support for the following Marvell MV78xx0 series SoCs:
->  	  MV781x0, MV782x0.
->=20=20
-> +	  This platform is scheduled for removal in early 2027.
-> +
->  if ARCH_MV78XX0
->=20=20
->  config MACH_TERASTATION_WXL
-> --=20
-> 2.39.5
->
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCakfg/AAKCRB4tDGHoIJi
+0jYaAP0aSmWIipYQoz1Y9zbqOWoAnynQ5pXZqcKDuusK7Hf54gD/SC1++acH8F08
+FMU2DVs0tWppBFT9gNOmErqDtSCT+QA=
+=K5Z3
+-----END PGP SIGNATURE-----
 
---=20
-Gr=C3=A9gory CLEMENT, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+--Ew3fU/QzK+CdPJ5y--
 
