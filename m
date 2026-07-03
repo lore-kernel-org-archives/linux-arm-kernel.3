@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C0EC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 21:08:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D831AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 21:09:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dbyAPqpVVDj73MIxAp+O7++5oakcBtgyhfQ5MUfv9wA=; b=Osyw5x0i4uPb2DWS/FayOUEJ2T
-	4iP3VN6cbpHQe3rfDKEhH6sUf5extyLz+pMyRN4LHsxMqX5SAvQyGf/igXjpVBtzywHZLUL8YZlqS
-	Gk4QQOSC1r77usSbIbILW3aOTSM2YSFa/lGWrk5/CBUUHJ9mC/KduYVYuqoNGmcfO5gnsJ1w/Uk3K
-	Zs1dpGc2Ror4eATJNoOfO0ZBqVLpZa3OkOfuoa0zFsiRGdDJQ7vGhJp3MAPqemSYi7CFHdYgo12HF
-	fEKqcN2/bKhQir+SDRuW46x/wmRlaP57bkHG7LYSCtoCAcs5DdPxj3arkfoHz+d9bT3awmPTDonhb
-	p4U858Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8nPMkOdgH6vPZv3E0L1/87s6y+9ZPPA8sJI8Ebig5cs=; b=k2iG9pTGKTOFi3uTeCQQaUHBIQ
+	Lwl8FhaTeTC8vKLjheDDCk8pmXh1BLLUHf+LNY4W6nXu5VRfZ5xpF6dy7XTRN1EtLqYMloH64ZAE+
+	zF5JQPq1QmQJxiZtM1rJn32EWkoea29JOsxydttkVVX76geha5qkBjYyla8wjdbl+0VZZWbOJBuhQ
+	GEtl639EHU6Z+IAsKX6d4wmLIICrWdUh3sNqIUqnhjksh4YbHii4NiqMXV1kw7WEENs6+bwdVidLz
+	q9ggj2JNoxPUcJlhRbtAOubCO5mESVyNzLAxuvPw1vsuIq+NoaAh0P+yk/tjYYBCVlgFPUTIskWRC
+	JsdT60eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfl7m-00000007v4k-2aUO;
-	Fri, 03 Jul 2026 21:08:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfl8k-00000007v9M-3A1p;
+	Fri, 03 Jul 2026 21:09:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfl7l-00000007v4e-3nkF
+	id 1wfl8j-00000007v9E-3mKo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 21:08:37 +0000
+	Fri, 03 Jul 2026 21:09:37 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3CAD6600C8
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 21:08:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89ED1F000E9
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 21:08:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 78A2A43673;
+	Fri,  3 Jul 2026 21:09:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 934E31F000E9;
+	Fri,  3 Jul 2026 21:09:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783112916;
-	bh=dbyAPqpVVDj73MIxAp+O7++5oakcBtgyhfQ5MUfv9wA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EGXs2KfkB6nffTeSTIc7TeXdSbtG5TyfFfi8HXXIRrPak5FSAKTk7rkk7I577+6EA
-	 XAkMgJxpdzqmXZkmnNsGvx2N9WGScxDCphG6OYj2t6ThZH9EcQ8f5fjcZTP8j1sLXW
-	 TOrnfpT+XU470zk2ZLlFlagIJYPh4fD+yUzKtE57X3R0L6OiITaWOOjedzDTL6r7Eb
-	 FSZWQxseQkMVZnLRwT1paLKKO+6OSBQVd7P1TOKt50YNnOjMxqpVCsW3iyHvPcRWHv
-	 h57mspi005fZDuk2+rZ+jVqmON8FCpvMMcw6+i+YvG0iQZj2aE5j2kirc23Snsg6Fk
-	 5TqHhW+WxPnXw==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aeb78090edso797694e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 14:08:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rrf1283jajJ+bLmSCbguc3nvGjFzc5iBreUxFESDWQMFcPX2Pq9lCTZ9drVKMFF21rdTFFeS+UVyknDnncBWTTg@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAkYIUX/zaZ1ZMObzGV51/c5ZZsOh9lPsFKQifa2WDJ1M9eVzT
-	xEKIaG1SEXbNvBlLTSLjsMNal073NBLhdRYX5a3MequwCwe056eI8QyerD7bbiXHHEZtff9TD1e
-	UPa9mvOIzf/VlbBbIe9vYJKu5+oc5rA4=
-X-Received: by 2002:a05:6512:8348:b0:5ae:c62b:fc60 with SMTP id
- 2adb3069b0e04-5aed50bb897mr70686e87.54.1783112915808; Fri, 03 Jul 2026
- 14:08:35 -0700 (PDT)
+	s=k20260515; t=1783112977;
+	bh=8nPMkOdgH6vPZv3E0L1/87s6y+9ZPPA8sJI8Ebig5cs=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=S7HEqDSYehX2rE5vhDX8v14E4SNDupI2Ar+VTfduze3wgDCGmtKl3PY0K7NwFtoav
+	 vUyQ6t88vQuJXNk2OXcou2i3wHOKRlgG50hgAMRTrA+ZKyj0znPrtm9taYOMsnqKW2
+	 e/p889jsPO4pPy1DGhsJaUbljXoOXkU8cawVP4lzbCAXV8CdQSrFn/kkywUirB0Tb/
+	 qdMFAN/OfEac0aIrJFBFPZFsEIUEReLQs7fsUymShyoexqeavoi23EWt8wp8lzgbR0
+	 w59zXlXKA3/rCUNZLsZSA6fd8xAkkV7eTNHZAQOJaOzjwCnYxUItdanQl2NeIL3h8/
+	 8q6xNCGlumizQ==
+From: Thomas Gleixner <tglx@kernel.org>
+To: Mark Rutland <mark.rutland@arm.com>, Sneh Mankad
+ <sneh.mankad@oss.qualcomm.com>
+Cc: Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>, Peter Zijlstra
+ <peterz@infradead.org>, "Rafael J. Wysocki" <rafael@kernel.org>, Pavel
+ Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] arm64: Disallow disabling boot CPU based on config
+In-Reply-To: <akfHIH_dZrr5bosu@J2N7QTR9R3>
+References: <20260703-disable_boot_cpu_offline-v2-1-782d16ff58c3@oss.qualcomm.com>
+ <akfHIH_dZrr5bosu@J2N7QTR9R3>
+Date: Fri, 03 Jul 2026 23:09:34 +0200
+Message-ID: <878q7rlr01.ffs@fw13>
 MIME-Version: 1.0
-References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
- <20260701-gpio-nomadik-silent-v1-5-644d10316cef@bootlin.com>
- <CAD++jLmmHXBC9ni0pcVoB2HNK+osBzgirxH7vLHZaANmoe-tpQ@mail.gmail.com> <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
-In-Reply-To: <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 3 Jul 2026 23:08:23 +0200
-X-Gmail-Original-Message-ID: <CAD++jLn1SASRCLjSGsf7JMP9Oo=ij43iM6K8g=wWtZf__Xe3kA@mail.gmail.com>
-X-Gm-Features: AVVi8CfoqwVpbv66dchFn3mu55vZSee6bMlCDU3AfTg-A0SyKBJyg13dDtshHOM
-Message-ID: <CAD++jLn1SASRCLjSGsf7JMP9Oo=ij43iM6K8g=wWtZf__Xe3kA@mail.gmail.com>
-Subject: Re: [PATCH 5/5] gpio: nomadik: drop "chip registered" log on probe success
-To: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
-	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
-	Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,34 +73,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 2, 2026 at 10:34=E2=80=AFAM Th=C3=A9o Lebrun <theo.lebrun@bootl=
-in.com> wrote:
-
-> > I actually don't generally agree, but you are using this driver more th=
-an
-> > me now so let's go with your minimalist dmesg style for this driver.
+On Fri, Jul 03 2026 at 15:28, Mark Rutland wrote:
+> On Fri, Jul 03, 2026 at 04:50:02PM +0530, Sneh Mankad wrote:
+>> +       depends on HOTPLUG_CPU
+>> +       depends on SUSPEND
+>> +       help
+>> +         Disallow boot CPU (CPU0) offline when the suspend_ops->enter()
+>> +         has to be executed by boot CPU.
 >
-> I get from where you stand, but the info level is somewhat strong.
-> Documentation/process/coding-style.rst agrees ("When drivers are
-> working properly they are quiet").
->
-> If you like this log line we can turn it into a lower debug level?
+> As above, I don't think this makse sense as a config option.
 
-My actual preference for the record is not simple.
+Correct. That's pointless as it can be determined at boot time either
+through firmware (ACPI/DT) or if that's not possible for whatever
+reasons then a runtime detection quirk which depends on that particular
+platform.
 
-I prefer noisy talkative dmesg when the platform/system is new,
-and new stuff is being added to the kernel in every release in
-large chunks.
-
-This is when things could go missing and cause regressions
-and it's nice to see a "hello world" in dmesg.
-
-As the platform matures and get full support in the kernel,
-these can be dropped gradually, because the driver can be
-trusted to probe properly.
-
-So, not a simple yes/no position at all.
-
-Yours,
-Linus Walleij
 
