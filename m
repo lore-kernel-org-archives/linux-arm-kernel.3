@@ -4,68 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2A2BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:56:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A0BC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:56:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SIWHnFcEQq2TBgkIFQBCpLfgyHT2aySOS2MIMPq9LZ0=; b=oNSfcVSiZwjQ7ju0x7cbQ3RQaP
-	g4Za5Q4u2sbZsHql3vuTeitbmPDNzQIQFQN23sRXhbzYSFTeneOAZkmWU+sQcNe0LG6P4xppkpkBw
-	cdlzH5qi2ciY8WaBI6ESsu6n2TsheZ0mrhlTEC/jRXEaKs8MhL5wV0iUzEKQ8LN2BjlWzxoccrwla
-	EhgWQdlQ0rSvGIKjToJlRleUKqQasC2C+LqFZucm0+Y0fRMGR2sB23IEPlbpQ1v5lWoYMrjEEwhBe
-	C2LrzNEIJbVo18gOFqY+vO1uO4OAl+v8BSOyPRvXNdw8kdAqp7VzBTfmrrYYTHKlHQ/RWEwyfYP0f
-	M0oKSn2A==;
+	bh=+wQQi5qAJUnUkHX1saOq3zIx6e8dXlHzf8E6xF+VOzM=; b=MCM0A+a2VuQwBIGgMIWgN/Xhb/
+	F6Z+U/nhTSX13Q3X7pUkvyNGKIho0EP9v0Ew69OCc2RMgb2IovEFmWE3ciZdFrb6CChkcvFQMWz49
+	O03JoFZ/HYBWqww8OsT2UZ+bn8qc2Lv7xPp3U115rmLUDWHrMHLFYg5BlpYPWFOSexRs4kNFLqME1
+	ccER06GAJrHR8efKUjlhr5xTGTyAhFW5jMpj3jOh1i+KXe+S+GKV5Y7LEicgr80ZBL2f8yKNKyCwX
+	/z6AsqutKslQk+o2O8IYuRymcQmTlbjBw8ypeUNQAeqhlBrLWM9fapQD314P/ZBcTKNRXHfsji8rI
+	I7vkaQag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcVY-00000006s1w-0rh5;
-	Fri, 03 Jul 2026 11:56:36 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1wfcVf-00000006s9x-1oPY;
+	Fri, 03 Jul 2026 11:56:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcVV-00000006rxY-1TLK
+	id 1wfcVe-00000006s8m-2hwJ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Jul 2026 11:56:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=+wQQi5qAJUnUkHX1saOq3zIx6e8dXlHzf8E6xF+VOzM=; b=jbEUGUGBA+x2zmkkyCWvjR2D+l
+	zOnzZKf+UsxBzB30IK2IdynrvegrFFlz6pruKK59+5jNZJBYqpzUoXKcd+JhmnG3Zl5DhAM23/Nfi
+	jIUpFpeBWLF2nIcqX6M4iGYq3l8XQCW7YN+gXZuECUjRnoJS5AS2cpQdCKzdd3a4duXBpM4wfhlFA
+	rAY7qsuhBQO9GNH/gB2QLEZ7AEb0w2Sb22FJ3V83lxVIv/OLtz28Tptt6Q8Ny96O9CZ0tXj2AkwR7
+	v01C7LcwMukI2IRWFuRgWpwa2PxW5jIYV0bb6TlfPBjDmcbF1ok1YlLZ4l9bnpfEVSXuyLru2kA1u
+	WrCWjjgQ==;
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wfcVb-00000004m7q-1Qcm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:56:35 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-37cab825ec9so476595a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:56:33 -0700 (PDT)
+	Fri, 03 Jul 2026 11:56:41 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-37ff8e0ad0fso489072a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:56:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783079792; x=1783684592; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1783079796; x=1783684596; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=SIWHnFcEQq2TBgkIFQBCpLfgyHT2aySOS2MIMPq9LZ0=;
-        b=aVkMcdQ1NYm9Ak71RhP/9Dccr2DhRPlXfDCzxuhMwM5Co+g2MNQtkbaotJZGvga/bK
-         yAIoFRTOS1zYZZhichq6XVI5RmQ0/5/oAALCOAG2NeKc2wozPfCAouBEZjVYXiyiBLb+
-         my/NiZQ2A0rbV0d1THHGczmXjb7R6mJxnQKts=
+         :message-id:reply-to;
+        bh=+wQQi5qAJUnUkHX1saOq3zIx6e8dXlHzf8E6xF+VOzM=;
+        b=Pw1UV5izLBcVfLLmuKCcIUytLN8zNTkMvqlO/aaCR784lABCiZGmAlPn5baMxRf5Ap
+         aFF6fXn7zsurCDyTW7+DjiGxfk0zQNzFmhBJCYptJFnccii7HnRrTVTPe4uEKwSCuzYg
+         AdaU5V+6biGA6TZBfnvYv2tLjqV17fKSTp25o=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783079792; x=1783684592;
+        d=1e100.net; s=20251104; t=1783079796; x=1783684596;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=SIWHnFcEQq2TBgkIFQBCpLfgyHT2aySOS2MIMPq9LZ0=;
-        b=hXLlPE11LB8CpdSQVEyG/LcKGbEkZVOOPZeP/Ktu6d4U3sTFR6Iuj81m2d4JViFzD3
-         YgCBdKKRuQwbd0pJSEUvIVuyvQP+FReZhFN0I5IKAZPZMxl0tZ9AyAl3Ve0OS+qnkJnA
-         mV7jEIPV2hIRV1/JmZYLl2MOGOuo3AWyNdUoqZUU+dvpfWeBo7iDeA6gYlGB5GU0OxAo
-         DdTG2xF5Q6OpZennf6juEs28cjVoJ5MuFUGWqSidYHgjY+f0swcKwH85ZXeOi2ymANCL
-         FBtFZPnmCeOgENKxNNFnCho9MTyR3odJca0HR5bGoCN6WrzN71FEioojpoREDPFqpwcF
-         5oNA==
-X-Forwarded-Encrypted: i=1; AFNElJ+LhchBYdqqh9u4R0zpImGnj1n0ktnWj/9n3G204ImVSYwxaYzf3/kHQeS63UzTIJ04UGU5vhqn0QXBEdKAcYtH@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBp/m7GAGXSVvZt/DiTWfBOfRF3HIDODf/hGcze9T3pBh9QDFB
-	daUezF9v8tRwPcpfyyFhDq15sIvdtDDdiUIw0jJEDJ0vCkwFNN0c14neo4WAbXGHzA==
-X-Gm-Gg: AfdE7clCT6tw2C6pqXxYWLkqcc1IEmfnDNn6IkjsQWgIkCtcZ/VJ45gebrXmweLJNlH
-	RZhsSd75EnvDB5OsekIbn7Qd/pEmYr3T5U716GLR5VH5vIjCYWMLQJ1B4AbbXq557woZMLJA90q
-	XQhLYpNBsIZf70u0+35yjfbM0qSMWZBlMkqfTpkfd95TCRsTK80t7rmFAG/ZJ46sVgZgWjkwI9j
-	6A3LZQgr99C5rPtUyvT9k/nRGSfG/aQjy4ia3q1xP1jiwt9hIpcgDXub1z2i3LN7md9en9y1bhW
-	NF3HOJjfSWn4EcI8UktjF3UUfd4k1OawPu/L/JgPxS2ZAFZh/E7AOBM/csA474KNUwEeiWKXhXH
-	8TWp8JfD69KDlg1hIPrpLdgQGlVuwkgZ5hcAQ+hjXnKzdHMofq7rzYIlo2zZ1FsUfeJg2G70fPZ
-	5B/lZAEo/AyZN64b03tbhFmkqPUE17iU+uyN8hO0RDoU0MC6cN0xkH4ciU2t0PMvgLrE6/+g==
-X-Received: by 2002:a05:6a20:2d14:b0:3a0:b781:4c78 with SMTP id adf61e73a8af0-3bfed1bf5c0mr13230564637.15.1783079791119;
-        Fri, 03 Jul 2026 04:56:31 -0700 (PDT)
+         :to:cc:subject:date:message-id:reply-to;
+        bh=+wQQi5qAJUnUkHX1saOq3zIx6e8dXlHzf8E6xF+VOzM=;
+        b=QM1kepXQ3gAuM/TZOn03D4zBoRtQs0FDmaAJyL2HvxdIAOBTBR1D13EHlR+Vk2pewe
+         jkcjvKNXpn2EJDoY6NmdB6SJuJWbAKnWXEhc4YsY8iHbeH7C2sIX2Ub/hnk6gyEGi/EQ
+         bvD1jS51fDyMSdM9wssQbTHV68zVfeB9foWslktyLFZuRqbxaVhlF4WmSyY80nkRnM7O
+         UtaVFUESI1MGL70gbptFArN1Ded97Qo1dBPL+UQWmHFvfru9k9adSF4dQev6oVfH0yz3
+         ieHdyvriFL5RZ9ZkXH6KMwGUg8OgKBfaF5wTjDPuEARcbSWI1SJGC2BxQXqXXBPdx+TT
+         ZXDg==
+X-Forwarded-Encrypted: i=1; AFNElJ9UGs/4u2OavRI7+AgqFT3pjMb5tp9CSq/Bk3m2/Mm2m9pF80txkLlkoMm7qNoL9UcdFIvdW86S6CT8ViQE74Cg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpH98bDJqEJOZ1gRH2MXhyN7myr4/Bkh43m4zuMjC94BLuaFaf
+	zEwcWDvu/RtgPXbqYOXu234Qi9OlYE8mUb2OjpGyPBs1ulLZRb8uSuISMWuib/ROeg==
+X-Gm-Gg: AfdE7cmN11tiNiHyT0L/TrIcsL5DPpzuNQ1v+HUxGdM2SVSEsnbbLrf45cpkzMMLMV3
+	fuoYWjDzxWwm431LJjbgKG9Cf1pcArZoYkwUn6H3Gm7fi0TnQARJwzKadlIa2fdHgmzKiwdln2g
+	Tr6Pk7gJKjGuPh5X964Vj1iJBSuyB7eyP5kbVcF9M7Z813AVLqPRuzXM0TXJji2aocl1BTiCoL+
+	XHA2bypPceOH73LY3hHhKy8RnN6yBpYQfuDuPEAM/5ouO9Sh/9YwUB6/YBLWK2Ko1drNkCDtjFn
+	NZg+bhifqDIHEkhvkJ5od1Vukt5drLFp5m6fao9iypsZFhZA7aPC8Fcb11rAwzDlZBnxS8bfNJw
+	/OikWtyVXnVfQn/Pa5axwE1pr35OCzdQC+XiOwby35RvpePm6HGzQC1WoErIR7LdoXos2FVKUeA
+	4o/ZolkEkVDcy6vYwdcYphBBUXUWi99O16rQRC0cWMzzew8TkFNORQte7GqP+Ol8GK66PjaWBF+
+	nMfRv5k
+X-Received: by 2002:a05:6a21:b88:b0:3bf:6222:2e7e with SMTP id adf61e73a8af0-3bfed0e254cmr11946730637.4.1783079795734;
+        Fri, 03 Jul 2026 04:56:35 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:7bc5:6c83:76cd:cbd6])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9e8bd30ca5sm2569540a12.0.2026.07.03.04.56.28
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9e8bd30ca5sm2569540a12.0.2026.07.03.04.56.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 04:56:30 -0700 (PDT)
+        Fri, 03 Jul 2026 04:56:35 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
@@ -81,18 +97,19 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	chrome-platform@lists.linux.dev,
 	linux-input@vger.kernel.org,
 	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 6/7] arm64: dts: mediatek: mt8173-elm-hana: Unmark trackpad supply as always-on
-Date: Fri,  3 Jul 2026 19:55:59 +0800
-Message-ID: <20260703115601.1323491-7-wenst@chromium.org>
+	linux-kernel@vger.kernel.org,
+	stable+noautosel@kernel.org
+Subject: [PATCH v2 7/7] arm64: dts: mediatek: mt8192-asurada-spherion: Add Synaptics trackpad's supply
+Date: Fri,  3 Jul 2026 19:56:00 +0800
+Message-ID: <20260703115601.1323491-8-wenst@chromium.org>
 X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
 In-Reply-To: <20260703115601.1323491-1-wenst@chromium.org>
 References: <20260703115601.1323491-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_045633_390975_2913B8E8 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20260703_125639_550802_14288826 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,58 +124,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Up until now, the MT8173 elm/hana device tree has set the dedicated
-regulator supplying the trackpad as always-on, simply because the Elan
-driver was missing proper delays. As a result the delay for the
-Synaptics trackpad was also omitted, as it was not strictly required
-under such a model and delayed the availability of the trackpad to the
-user.
+The Synaptics trackpad, like the Elan trackpad option, is fed from the
+system 3.3V power rail. Add it to the trackpad device node.
 
-The Elan driver recently gained proper delays after power up, with
-opportunistic skipping of the delay when the regulator was originally
-on. The I2C HID driver gained similar opportunistic delay skipping.
-So has the I2C OF component prober library.
+Also add the correct post-power-on delay, even though in practice it is
+not required. The Synaptics trackpad requires 100ms after power-on (or
+deasserting the reset, whichever comes later) to fully initialize. The
+power is always on and the reset pin is not routed out, so the
+implementation could try skipping the delay.
 
-Now fix the device tree to have the regulator not be always on, and
-let the I2C HID device have the correct post-power-on delay time.
-
+Cc: <stable+noautosel@kernel.org> # Without driver changes only lengthens probe time
+Fixes: 925ebc0cd55c ("arm64: dts: mt8192-asurada-spherion: Add Synaptics trackpad support")
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi | 8 +-------
- arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi      | 1 -
- 2 files changed, 1 insertion(+), 8 deletions(-)
+I think this shouldn't be backported, as backporting it without the
+driver enhancements just delays the trackpad probing with no real
+gains.
+---
+ arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi
-index 1004eb8ea52c..b9e311fcd9a0 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-elm-hana.dtsi
-@@ -62,13 +62,7 @@ trackpad2: trackpad@2c {
- 		pinctrl-0 = <&trackpad_irq>;
- 		reg = <0x2c>;
- 		hid-descr-addr = <0x0020>;
--		/*
--		 * The trackpad needs a post-power-on delay of 100ms,
--		 * but at time of writing, the power supply for it on
--		 * this board is always on. The delay is therefore not
--		 * added to avoid impacting the readiness of the
--		 * trackpad.
--		 */
-+		post-power-on-delay-ms = <100>;
- 		vdd-supply = <&mt6397_vgp6_reg>;
+diff --git a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
+index 163960f58db5..147a8e9a3a71 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8192-asurada-spherion-r0.dts
+@@ -90,6 +90,8 @@ trackpad@2c {
+ 		hid-descr-addr = <0x20>;
+ 		interrupts-extended = <&pio 15 IRQ_TYPE_LEVEL_LOW>;
  		wakeup-source;
++		vdd-supply = <&pp3300_u>;
++		post-power-on-delay-ms = <100>;
  		status = "fail-needs-probe";
-diff --git a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-index a0573bc359fb..6b9f47f515c7 100644
---- a/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi
-@@ -1093,7 +1093,6 @@ mt6397_vgp6_reg: ldo_vgp6 {
- 				regulator-min-microvolt = <3300000>;
- 				regulator-max-microvolt = <3300000>;
- 				regulator-enable-ramp-delay = <218>;
--				regulator-always-on;
- 			};
- 
- 			mt6397_vibr_reg: ldo_vibr {
+ 	};
+ };
 -- 
 2.55.0.rc0.799.gd6f94ed593-goog
 
