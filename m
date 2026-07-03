@@ -4,128 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D0A5C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:03:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7E18C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:03:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MM0aY3IGl5pPmEiIFxxLVMtI88aL1w/wNM1GrGdM4UI=; b=zEPQaQKd1dBfMPU/iKFyKV8wd9
-	PTePrz9G7Ii4XOXi2/jbZmCFltpSq85OiXh5YZpbMpSvNz1LK//DpclNGAG4DJU+YE8/Zrtukb+Bc
-	8j7P9TcMRN6mUYguUV5s7ApWINSzKqnfqY3NSZ8RdO7ft59pQnPqUCshcpdss311hGRXFWWZXkNdg
-	Tmu1GJ8+5GjI3LjI1p6faZI3YhU22P0OMYfuK4oDdt+yFYCyTtjaPoSBcnTekM0MOjH0sOUZ2Tllt
-	It+P2xXb6RZe4K9UJXRhxWVjiBvVOpQsPMzZNjCziXc5rnK6cIFCAulGHqaJJmu0NDYs6b9HVVkYT
-	yDIfl5Xw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Sqs/izjUXlQxLzNznfrFoz35GSBVfbHOxBq9DzMVAxY=; b=yMDPLihSmVT5d0TCAMZIQWUOPc
+	duL1VRbzt8A0FgG5pSWUoN+KSlCz0aLKCUgzEg9ssNgtQmg9nqCwC8wwtHQlBOiLBY9/KPtlNUDbl
+	ANyj9fwKfXKgI7i31pG7ZHrm8Acn/c1x/Vj74/Xk40kSvcbKT1bxusMA3f/4gb/qXcO/iXCXXko0w
+	H2a9yvNPTKA5yph/WOM9IQ+pyuL7SL+Ts0kJ2vTDirU73+iKelZUM5k3ddcv+bqopQq9Tqx/FxEp5
+	XEhRoaz3u/s+HtUuc5vd9o1AU84TaCWzDgDpvWCna5NP0CVQV/smSXTP1mbxyQJTB7lNoLMGyzCEA
+	C8BRHnxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfbfc-00000006kg5-0EJD;
-	Fri, 03 Jul 2026 11:02:56 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wfbgL-00000006ktt-178E;
+	Fri, 03 Jul 2026 11:03:41 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfbfZ-00000006keD-2Zdi
+	id 1wfbgJ-00000006ksL-0024
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:02:54 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id B9E3F75BAC;
-	Fri,  3 Jul 2026 11:02:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783076566; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MM0aY3IGl5pPmEiIFxxLVMtI88aL1w/wNM1GrGdM4UI=;
-	b=PL1iuCueLagwGQFEPwDBm89ilCThUZHzbFuEAczjPi53p8ZF6Z0gcmMgJDVFMiATbuhLrC
-	eFagIKFySqtraTEo1ZC4JGa+sbDyxqwr6SDGY/o//DvqfCSxrumSrgrg1tlPuVq574tHV7
-	5Y93usJOjqmvr4BQBGeuxCpwdGVEv4w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783076566;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MM0aY3IGl5pPmEiIFxxLVMtI88aL1w/wNM1GrGdM4UI=;
-	b=fEDRalz6S/bgrXGEUB6ZQ8+orxvHGWKAvyefYeoSVI+nUJ+jGEyn7XIR75AoOQqbhG2vWM
-	e2DYDaeb3EvLU8Aw==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783076566; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MM0aY3IGl5pPmEiIFxxLVMtI88aL1w/wNM1GrGdM4UI=;
-	b=PL1iuCueLagwGQFEPwDBm89ilCThUZHzbFuEAczjPi53p8ZF6Z0gcmMgJDVFMiATbuhLrC
-	eFagIKFySqtraTEo1ZC4JGa+sbDyxqwr6SDGY/o//DvqfCSxrumSrgrg1tlPuVq574tHV7
-	5Y93usJOjqmvr4BQBGeuxCpwdGVEv4w=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783076566;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MM0aY3IGl5pPmEiIFxxLVMtI88aL1w/wNM1GrGdM4UI=;
-	b=fEDRalz6S/bgrXGEUB6ZQ8+orxvHGWKAvyefYeoSVI+nUJ+jGEyn7XIR75AoOQqbhG2vWM
-	e2DYDaeb3EvLU8Aw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 08D42779AA;
-	Fri,  3 Jul 2026 11:02:45 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id AHcWO9WWR2pMTwAAD6G6ig
-	(envelope-from <clopez@suse.de>); Fri, 03 Jul 2026 11:02:45 +0000
-From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
-To: kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
+	Fri, 03 Jul 2026 11:03:40 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2ca11143dbbso3575495ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:03:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1783076617; x=1783681417; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Sqs/izjUXlQxLzNznfrFoz35GSBVfbHOxBq9DzMVAxY=;
+        b=JWNS2oiN/z7YNtlLmhZwJQqBr9S+XjAcpQfnXl+kAdZTLxYhVSo8F8iVQQSA8HT1jB
+         XXD4nRgEvatSX/vJbxCqsDTzLZPNaOtQrd0edahqAfEkiBpnbPHl58Oyki5w/DhS2IGU
+         43r5OdZTGffna2tazmB8N/5ZBj1wSjLKChOy8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783076617; x=1783681417;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Sqs/izjUXlQxLzNznfrFoz35GSBVfbHOxBq9DzMVAxY=;
+        b=ShxG5mXc6wP1SIXtiXU9p8D9tsr/lMMPoALxK3eKAlWj7g/s+lKNJwFgQibptWyr9p
+         L2muCGtzz2p1YsnrC/+BIDkJ8sC8wH+bjWTwtiuPZHZblBjKhINt/yFKfy2JY90dRwuk
+         Axl5Y8K1x5WNYB6HRu9Xhe8bUVGnIuSgWb1mCtj11gYzLxp9MXGoPjIU4gq/y06Cul8F
+         saqRiWy0XfbXon/C95sBd+QA6hpPnfy5s3gDg2pU1musxxngIz197SwZqxwsa3brTYRs
+         CRwj1cxMobJhEemdOGfz9KH2F2XhHH5Qzmqd0LM0a9SC32KMbuUg5u6r5qn60IsOoTAi
+         aRdQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr3yxrBZk5+0NHOgn5d6rWytSp0LAi/HFauy6Y3cwEvnNqfMopUoy0D0MMM6kCIeXuLusyCO1QzcBaXVJNj6Wk2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1STOux2VZ9yXsksd242XBc34vsW2dRDr/3X8gOQUCoBhl74Ut
+	+1KnoB8JcVT3yqhBIp62KMzpNK5YtvcWo8E1MtDz2zyjUnHaMUZM5vOSx4z7kIuwdw==
+X-Gm-Gg: AfdE7cmh+/QzD8Z0NwU6sbS/lBd+g+XG8SHl084RSHhdaKuHMc8mrJRxL52mI1m6wfU
+	FGwvwokgrwauoaZUKij836iAllakAC3Rj3roVATKMjDulR5pqpNBdfDgveUtzheixDRCQJLTYXe
+	/tpJK2e8x2+eqnUcVgVbUjdfd5azKT8dV6JgV/XWhh0lhyLhnxbXbEhxLwt/w43tNILZ6+sxgw+
+	tON1ZGoaEY8Z13EeRv3w9tMVBVpO+ksnvo47DvYKGkQ26f+LvgNUNZKX+iy6nvPb14Sd2ENPAPS
+	0HZQH21jUU15g16YitRB0P79rxvCbpbbGyvxm06Evkk6lTj4JAG/FFDU17Mftca6ubDfpHIT1NV
+	Zulb5TmNBVJLDPN1fKvXbW1J6tC9wqMeBtJbuFRH10BzHHtMQEE86l0mB8mz0Y6djQauE9ySFxH
+	UQLuEuAfAUEkjWEK/isoMMstjnbvkKiJ8fqVr6X9zC0YMciCM6DRj8+EoOOitZi/0HiGhFnA==
+X-Received: by 2002:a17:902:e54c:b0:2ca:d818:61e5 with SMTP id d9443c01a7336-2cad818638cmr21373785ad.26.1783076617402;
+        Fri, 03 Jul 2026 04:03:37 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:7bc5:6c83:76cd:cbd6])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2cad6f25e15sm7785315ad.13.2026.07.03.04.03.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 04:03:35 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Bartosz Golaszewski <brgl@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Daniel Scally <djrscally@gmail.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-acpi@vger.kernel.org,
+	driver-core@lists.linux.dev,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
-	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH v3 2/2] KVM: arm64: vgic: Mitigate potential LPI registration failure
-Date: Fri,  3 Jul 2026 13:01:30 +0200
-Message-ID: <20260703110130.2609872-4-clopez@suse.de>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260703110130.2609872-2-clopez@suse.de>
-References: <20260703110130.2609872-2-clopez@suse.de>
+	linux-kernel@vger.kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Alan Stern <stern@rowland.harvard.edu>
+Subject: [PATCH v3 00/13] arm64: mediatek: Add M.2 E-key slot on Chromebooks
+Date: Fri,  3 Jul 2026 19:03:01 +0800
+Message-ID: <20260703110317.1283411-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-3.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.995];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_040253_800666_C1E6E76F 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20260703_040339_037681_1094AC36 
+X-CRM114-Status: GOOD (  32.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,63 +113,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mitigate a potential failure when inserting a new LPI into the VGIC LPI
-xarray.
+Hi everyone,
 
-When vgic_add_lpi() is preparing to register a new LPI, it pre-allocates
-an xarray entry using xa_reserve_irq(), so that it can later perform the
-insertion under the xarray lock without allocating.
+This is v3 of my attempt at integrating the power sequencing API into
+the USB core to support the USB connection on M.2 E-key slots. M.2
+E-key was enabled in v7.1-rc1 with just PCIe and UART supported [1].
 
-However, since xa_reserve_irq() is called before acquiring such lock,
-there is a potential race where xa_reserve_irq() observes a populated
-entry, thus not performing the allocation, and another CPU removes that
-entry before the xarray lock is grabbed to perform the insertion.
+Major changes since v2:
+- Removed changes for MT8192 Asurada family: one of the device is
+  shipped with RTL8822CE-VR, which is PCIe + UART and needs more work.
+- Removed changes for USB A ports: VBUS one the type A ports on
+  Chromebooks are not directly controllable from the OS and VBUS is
+  modeled as always on. As such the changes I made don't actually
+  change how the system works.
+- Added new pwrseq_power_is_on() function
+- Make new pwrseq integration effectively OF only by not assigning the
+  port fwnode if the hub's fwnode is an ACPI node
+- Added patch to convert remaining instances of directly setting/clearing
+  USB_PORT_FEAT_POWER to usb_hub_set_port_power()
+- Power sequencing state removed again in favor of state tracking by
+  pwrseq subsystem
+- Power sequencing descriptor again separately requested for HS and SS
+  ports
+- Dropped pwrseq_power_off() call before pwrseq_put(); the latter calls
+  the former implicitly if the power state was left on
+- Squashed DT binding revert and addition into one patch
 
-  CPU0 (Adding new LPI)                      CPU1 (Releasing LPI)
-  =====================                      ===================
-  vgic_add_lpi()
-      /* Entry populated, does not allocate */
-      xa_reserve_irq(.., intid, ..)
-                                            vgic_release_deleted_lpis()
-                                                xa_lock_irqsave()
-                                                vgic_release_lpi_locked()
-                          xarray node freed --> __xa_erase(.., intid)
-                                                xa_unlock_irqrestore()
-      xa_lock_irqsave()
-      xa_load(.., intid) == NULL
-      vgic_try_get_irq_ref(NULL) == false
-      __xa_store(.., intid, irq, 0) <-- xarray node was freed, gfp=0
-                                        cannot allocate, returns -ENOMEM
+- Link to v2:
+  https://lore.kernel.org/all/20260610084053.2059858-1-wenst@chromium.org/
 
-This can happen e.g. if the guest issues a DISCARD while the LPI is
-still referenced from a vCPU's active-pending list (ap_list), and the
-same INTID is re-mapped via MAPTI.
 
-Mitigate this by passing GFP_NOWAIT to __xa_store(), so that the
-allocation can happen under the lock in the rare case that this
-condition is hit.
+Major changes since v1:
+- No longer adding the "index" parameter the power sequencing API
+- Switched from OF graph to fwnode graph APIs
+- Tie "port@" node to usb_port device, and use this device as consumer
+  to acquire power sequencing descriptor
+- Power sequencing descriptor now only tied to USB 2.0 port to avoid
+  double reference
+- Power sequencing state tracking added
+- Link to v1
+  https://lore.kernel.org/all/20260515090149.3169406-1-wenst@chromium.org/
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Fixes: 1d6f83f60f79 ("KVM: arm64: vgic: Store LPIs in an xarray")
-Signed-off-by: Carlos López <clopez@suse.de>
----
- arch/arm64/kvm/vgic/vgic-its.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The series is based on next-20260702.
 
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 577286069368..ace3e59fff97 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -121,7 +121,7 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
- 		 * from the deferred release path, pending cleanup by
- 		 * vgic_release_deleted_lpis(). Evict and free it if present.
- 		 */
--		oldirq = __xa_store(&dist->lpi_xa, intid, irq, 0);
-+		oldirq = __xa_store(&dist->lpi_xa, intid, irq, GFP_NOWAIT);
- 		ret = xa_err(oldirq);
- 		if (!ret && oldirq)
- 			kfree_rcu(oldirq, rcu);
+
+Patch 1 and 2 add new fwnode graph helpers. These are used by the patch
+5 and 8, respectively.
+
+Patch 3 adds a new pwrseq_power_is_on() for a power sequencer consumer
+to query the current request state. Note that this is not the _actual_
+state.
+
+Patch 4 reworks the USB hub driver to return the actual error code from
+hub_configure() in hub_probe(). This is needed in the next patch to
+correctly return -EPROBE_DEFER returned by pwrseq_get() in patch 9.
+
+Patch 5 makes the USB port device associated with a "port@" fwnode if
+available. This depends on patch 1.
+
+Patch 6 changes usb_port_is_power_on() so that |struct usb_port*| is
+passed in instead of |struct usb_hub*|. This patch does not change any
+functionality.
+
+Patch 8 lets the USB hub driver look for power sequencers for each port.
+Currently this only works for M.2 E-key connections, but it could be
+extended to cover other cases. It should also make port reset via turning
+off the port VBUS work, even when VBUS is not directly controlled by the
+hub. This depends on patch 2 and 3 for the new helpers.
+
+Patch 9 reverts an incorrectly modeled OF graph connection for the
+MediaTek XHCI controller and adds a proper representation.
+
+Patch 10 adds matching pwrseq consumer by "port@" node to the M.2 slot
+driver. This is only used for the USB target, but there is no attempt
+to differentiate the connection type. The driver simply tries matching
+the "port@" node first, then falling back to the port parent or device's
+node.
+
+Patch 11 reworks the power sequencing targets for the E-key connector in
+the pcie-m2 driver to add targets for USB and SDIO. The former is used
+later on in this series.
+
+Patches 12 and 13 enable the M.2 E-key slots (or slot-like integration)
+found on MT8195 and MT8188 MediaTek-based Chromebooks. 
+
+
+This series unfortunately spans multiple trees. The way I see it:
+
+  - Patch 1 and 2 go through the driver core, and an immutable tag is
+    provided to be merged together with the USB patches.
+
+  - Patch 3 gets an ack from Bartosz, and goes through the USB tree.
+
+  - Patch 4 through 9 (all the USB related ones) go through the USB
+    tree, along with the dependencies above.
+
+  - Patch 10 and 11 go through the power sequencing tree.
+
+  - Patch 12 and 13 (device tree only) go through the soc tree via the
+    mediatek tree.
+
+Some of us discussed v1 at Embedded Recipes, and I believe Bartosz, Mani
+and I agree on this approach. The debate is likely going to be on
+whether this should be integrated into the USB core or not. I believe it
+should, so that the power sequencing timing is tied to the USB port
+being brought up. I do have a fallback option of just enabling the USB
+power sequencing target inside the M.2 slot driver if a valid OF graph
+connection is seen. But this is less desired for the reason given above.
+
+Please have a look and share your thoughts.
+
+
+Thanks
+ChenYu
+
+
+[1] https://lore.kernel.org/all/20260326-pci-m2-e-v7-0-43324a7866e6@oss.qualcomm.com/
+
+Chen-Yu Tsai (13):
+  device property: Add fwnode_graph_get_port_by_id()
+  device property: Add fwnode_graph_get_next_port_endpoint()
+  power: sequencing: Add pwrseq_power_is_on()
+  usb: hub: Return actual error from hub_configure() in hub_probe()
+  usb: hub: Associate port@ fwnode with USB port device
+  usb: hub: Pass |struct usb_port*| to usb_port_is_power_on()
+  usb: hub: Use usb_hub_set_port_power() to control port power
+    everywhere
+  usb: hub: Power on connected M.2 E-key connectors with power
+    sequencing API
+  dt-bindings: usb: mediatek,mtk-xhci: Switch to ports for USB
+    connections
+  power: sequencing: pcie-m2: support matching on remote "port" node
+  power: sequencing: pcie-m2: Add usb and sdio targets for E-key
+    connector
+  arm64: dts: mediatek: mt8195-cherry: Add M.2 E-key slot
+  arm64: dts: mediatek: mt8188-geralt: Add WiFi/BT as M.2 E-key slot
+
+ .../bindings/usb/mediatek,mtk-xhci.yaml       | 17 +++-
+ .../boot/dts/mediatek/mt8188-geralt.dtsi      | 92 ++++++++++++++++++-
+ .../boot/dts/mediatek/mt8195-cherry.dtsi      | 73 ++++++++++++++-
+ drivers/base/property.c                       | 47 ++++++++++
+ drivers/power/sequencing/core.c               | 18 ++++
+ drivers/power/sequencing/pwrseq-pcie-m2.c     | 52 ++++++++---
+ drivers/usb/Kconfig                           |  1 +
+ drivers/usb/core/hub.c                        | 78 +++++++++++-----
+ drivers/usb/core/hub.h                        | 12 ++-
+ drivers/usb/core/port.c                       | 62 ++++++++++++-
+ include/linux/property.h                      |  3 +
+ include/linux/pwrseq/consumer.h               |  1 +
+ 12 files changed, 401 insertions(+), 55 deletions(-)
+
 -- 
-2.51.0
+2.55.0.rc0.799.gd6f94ed593-goog
 
 
