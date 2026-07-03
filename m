@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A57CAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:44:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23AA3C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rTQPPhDVeTbGbJ1qfR9lTcAhGLsRnezT+O5gDJeLhT4=; b=4rVMKHBtYHlwcWg3HDNa/9WGWh
-	qPEDgyWbD2I87UG66VRGN2nDm5bqiQor1cT1g2cT6UHEfMOBkiesayw8DrMLR98qwEqyphJu/n6wB
-	r8eVWCF3iGx7x4JTx2cgALfZh2bEssT1cFfuQ9UH/v1ColoNyKJWlUktXq6NwPSLa/ddznSnXSI4V
-	x9DowU9waHfxWXYpuQNrEZbrf/DzcoQ63WFE+tGl1ToekgKeDsjn77cSEftoYJFEk2kqAAnnJLGbc
-	jdFFydzsWaYgYRRRA2X+Ny7TBaXvnSL4ZA3hgOeY7fk6p+LXmTaB6pSBgAuBJe3qlC4dMugBbXDfb
-	4URpOVPQ==;
+	bh=UO1z8xJoHZLlfly0VpQlILvMOLZUDXdV8Nv8wm0Dkis=; b=eQ1vQtQOeKnrJLMGpAzugrfti/
+	YSFSh27ZxKkOjGGUsd0BFwbXX60vDCSFxF+tr8IDAoUhUtoF7jXTkDLGfkYgqHLWLfenezaCUBHAR
+	SlZH7H3yoKPU/3zKGrhHJ+8VujkzTW85RlJzuCggG5tVQbGAAQ6jTPdpOCvCsEoKKB7PdWsbeVJnN
+	Z5hkp1qHtOmvmDokzIWTGh9wStT/JYaKf1cWigID8k5ZzaIV6m9158UfYtgONcVVi+AjqccwdeNFD
+	kzyuz13swE1XPXBAbDs13xv2K2+u9845Mjafb24+pH0zzdOSe37VlwAB3vUPIhLB2DxnsPO1VhjGi
+	p89ajKAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdG2-00000006zq3-3snj;
-	Fri, 03 Jul 2026 12:44:38 +0000
+	id 1wfdG4-00000006zqq-1SQ6;
+	Fri, 03 Jul 2026 12:44:40 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdFz-00000006zo8-039W
+	id 1wfdFz-00000006zo3-04xF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:44:36 +0000
-Received: by chaosmail.tech (Postfix) id 7C8601CC222;
-	Fri, 03 Jul 2026 12:44:30 +0000 (UTC)
+	Fri, 03 Jul 2026 12:44:38 +0000
+Received: by chaosmail.tech (Postfix) id 1E1C41CC21F;
+	Fri, 03 Jul 2026 12:44:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1783082671;
+	s=mail; t=1783082669;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=rTQPPhDVeTbGbJ1qfR9lTcAhGLsRnezT+O5gDJeLhT4=;
-	b=nna0ZAbgfE+raie1SEfLKDyU1rZAk2SWuar1szhT9MXZtCV/rnnR774F91hbKNJDVaqP9u
-	Xcx1m6W+YkXgIA/TtSneOwkxrrXyS290mOz50iyJhg4/4uUbyrJ5uDpTWxlsP9n1uaABKw
-	BPSg+7hHoGQFwTYOK8vcleF9QappsC8=
+	bh=UO1z8xJoHZLlfly0VpQlILvMOLZUDXdV8Nv8wm0Dkis=;
+	b=hwmvX7YLo+Eaeq790/UkvPkwitIXG8Ibu/5kzNAp0h3WKL2V1Bp9oRQtXMrfru6eIIsTUo
+	EAZsYfNca0n3XnH6cqrs9cAzsEvAaYeRU/+l5HtqXPHMafv11nc4Zh7XJMqFqZFo50aYaF
+	j4tSMDeZKiy3Hh+BpQwLDHsgP3ElWqk=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Fri, 03 Jul 2026 14:44:13 +0200
-Subject: [PATCH v2 3/3] arm64: dts: apple: Add pmgr-misc nodes to t60xx
+Date: Fri, 03 Jul 2026 14:44:11 +0200
+Subject: [PATCH v2 1/3] dt-bindings: soc: apple: Add Apple PMGR misc
+ controls
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-pmgr-misc-v2-3-4b26ba10c5a4@chaosmail.tech>
+Message-Id: <20260703-pmgr-misc-v2-1-4b26ba10c5a4@chaosmail.tech>
 References: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
 In-Reply-To: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -55,17 +56,16 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Sasha Finkelstein <k@chaosmail.tech>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783082668; l=1610;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783082668; l=2534;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=y/nTCCubfQIHxjED5Vxzczov4TsOcbe98Fn/E9FqjtI=;
- b=NcUH7DaXmKG24ycJYKmxrayyvP32EBz/OBB2MJk3hgPnmt3IsTokCyRAZE7Z/CntY3mXDpMja
- /5TS8hw6kTbDSVyfkdXRuxU2iIPTl64WgrUNAh4B3+Mis3J0cDAIKd8
+ bh=BJVjcPz/91pDy5lAxC0+QPRWdZ2oZGo0sATIv9YLulc=;
+ b=cdXmE8f/Xz3ElHqQOsZwiEfiTKj8buduky9ERZpfPyn9OAz8VBR+OfQUloP3zmEWcEWBohonV
+ lpDGSfmuD8mCoBZXBXQMrMIPSohTT40I1i3tEMX7UQU5hAgRvEgFpAr
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_054435_513011_46434AFD 
-X-CRM114-Status: UNSURE (   8.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_054435_525815_4AF7ECFA 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,50 +80,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Adds the PMGR misc control nodes for M1/2 Pro/Max/Ultra series devices.
+Certain Apple SoCs include additional PMGR power states that are
+controlled via a different "misc" control block. On existing SoCs, this
+includes the fabric and memory controller state.
 
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- arch/arm64/boot/dts/apple/t600x-die0.dtsi | 7 +++++++
- arch/arm64/boot/dts/apple/t602x-die0.dtsi | 7 +++++++
- 2 files changed, 14 insertions(+)
+ Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml | 45 +++++++++++++++++++++++++++++++++++++++++++++
+ MAINTAINERS                                                            |  1 +
+ 2 files changed, 46 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index f715b19efd16..3271d234b483 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -24,6 +24,13 @@ aic: interrupt-controller@28e100000 {
- 		power-domains = <&ps_aic>;
- 	};
- 
-+	pmgr_misc: power-management@28e20c000 {
-+		compatible = "apple,t6000-pmgr-misc";
-+		reg = <0x2 0x8e20c000 0 0x400>,
-+			<0x2 0x8e20c800 0 0x400>;
-+		reg-names = "fabric-ps", "dcs-ps";
-+	};
+diff --git a/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml b/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
+new file mode 100644
+index 000000000000..588100222f89
+--- /dev/null
++++ b/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/soc/apple/apple,t6000-pmgr-misc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
- 	smc: smc@290400000 {
- 		compatible = "apple,t6000-smc", "apple,smc";
- 		reg = <0x2 0x90400000 0x0 0x4000>,
-diff --git a/arch/arm64/boot/dts/apple/t602x-die0.dtsi b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-index 8622ddea7b44..121f2cf75915 100644
---- a/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t602x-die0.dtsi
-@@ -23,6 +23,13 @@ aic: interrupt-controller@28e100000 {
- 		power-domains = <&ps_aic>;
- 	};
- 
-+	pmgr_misc: power-management@28e20c000 {
-+		compatible = "apple,t6020-pmgr-misc";
-+		reg = <0x2 0x8e20c000 0 0x400>,
-+			<0x2 0x8e20c400 0 0x400>;
-+		reg-names = "fabric-ps", "dcs-ps";
-+	};
++title: Apple SoC PMGR Misc Power States
 +
- 	nub_spmi0: spmi@29e114000 {
- 		compatible = "apple,t6020-spmi", "apple,t8103-spmi";
- 		reg = <0x2 0x9e114000 0x0 0x100>;
++maintainers:
++  - Sasha Finkelstein <k@chaosmail.tech>
++
++description: |
++  Certain Apple SoCs include additional PMGR power states that are controlled
++  via a different "misc" control block. This includes the fabric and memory
++  controller states.
++
++properties:
++  compatible:
++    enum:
++      - apple,t6000-pmgr-misc
++      - apple,t6020-pmgr-misc
++
++  reg:
++    maxItems: 2
++
++  reg-names:
++    items:
++      - const: fabric-ps
++      - const: dcs-ps
++
++required:
++  - compatible
++  - reg
++  - reg-names
++
++additionalProperties: false
++
++examples:
++  - |
++    power-management@8e20c000 {
++        compatible = "apple,t6000-pmgr-misc";
++        reg = <0x8e20c000 0x400>,
++              <0x8e20c800 0x400>;
++        reg-names = "fabric-ps", "dcs-ps";
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 15011f5752a9..5a29bb86499f 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2607,6 +2607,7 @@ F:	Documentation/devicetree/bindings/power/apple*
+ F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
+ F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
+ F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
++F:	Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
+ F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
+ F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
+ F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
 
 -- 
 2.55.0
