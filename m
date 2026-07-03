@@ -4,74 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FCFDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C13C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:16:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LVuA3dES9xFx01S3/rxFghM+Ukg8seLr4y0mol4SSE=; b=Tg22+5GjnWjJBPLwi47IV6fCYO
-	2ceYuFKzUC9C+HXvejAxuM0Pf6WAgZsOjqscWPzHR5r0K4EXxR39l2OcJnR9FiUnhvVaN0RfTPccu
-	Hxo99ylr0SSOcv2xFBG1R5B4aEnMH4Y/2ACMU83aUWObmMbcBlLW61OSG5gGrmkgeazftjHcKUGOW
-	ywIrCjjV3N6Yt25OaBtHT4DGvVnztcV7cx34oUO2VwKp/b92C5ipmRSHEUg+GB/S6s7Bnp5KiQ2p5
-	qgrdiR6NsR6z0DRKZDqUq5bupVdgFAxZTE71lDa0esDZcNgBCiYtOZBqSSfrpsc1LzgNUvR0NVVMS
-	A33JdBxg==;
+	bh=gV0Slrjr8IXK+MlTCt7MN9hZHNcIK5BTbT3wdZMhFWk=; b=ffzuqvABqSI2HTGqXe4UtN2soj
+	M67DQedV01m5J757lBW4TAoui7eS1qfrRWE83pOl8LS0zXneTV1b0hOy6nXyaytqQDpqto4n8EVOV
+	VT3/i2+Fi9eiHX5ANXyQz3OfIW+VddR2yRCjlqm1tqVcVumBc8EvINF3sjPWYls2pj7Vhd+E8TQEC
+	8AnyZZ5qXtvMJsrkO8N1EJlUjpmazhDSxerrUQJay4WT/GjrdMM+dntIlhqOgMrqOHhlyqxeBLYCc
+	YqKAYuq6RTpjAnIIb7PDoqOmmL5uFjTpUJ6M+LD4PUFv7MlMX7J1g25bdTRsN0s8l7tCQ6F+MQ5it
+	B1nMeWhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdk7-000000073xy-47p5;
-	Fri, 03 Jul 2026 13:15:43 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1wfdl6-0000000744z-1HrC;
+	Fri, 03 Jul 2026 13:16:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdk4-000000073xS-3K1p
+	id 1wfdl5-0000000744t-1JX5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 13:15:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=7LVuA3dES9xFx01S3/rxFghM+Ukg8seLr4y0mol4SSE=; b=P7
-	2ZYwPK/KAxOnzSjzznp2JAnJbCPV2klqZCb5350KPiIZlkqaEQLcfSKPmwhh2e4BegFSUar3DXaT1
-	runiP28UqE3/sCRPPK3XArNnSdZTY7DFj52dbkvuFrZeuoasojH2d3FiGlM7kYEw58A4E07ZdesGN
-	n+7Ta2fCBAuVcPc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1wfdjw-00AYEi-Ix; Fri, 03 Jul 2026 15:15:32 +0200
-Date: Fri, 3 Jul 2026 15:15:32 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Nazle Asmade, Muhammad Nazim Amirul" <muhammad.nazim.amirul.nazle.asmade@altera.com>
-Cc: "dinguyen@kernel.org" <dinguyen@kernel.org>,
-	"maxime.chevallier@bootlin.com" <maxime.chevallier@bootlin.com>,
-	"rmk+kernel@armlinux.org.uk" <rmk+kernel@armlinux.org.uk>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>,
-	"kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 3/3] net: stmmac: dwmac-socfpga: Add mac-mode DT property
- support
-Message-ID: <431e5388-8406-467a-8053-7104b3a62a76@lunn.ch>
-References: <20260630133108.27244-1-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <20260630133108.27244-4-muhammad.nazim.amirul.nazle.asmade@altera.com>
- <e489be4a-5940-46e5-ae06-b78f1c919352@lunn.ch>
- <f31704f2-cd98-481f-8290-203e3052b738@altera.com>
+	Fri, 03 Jul 2026 13:16:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6EBD7600E1
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 13:16:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 206C11F01558
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 13:16:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783084602;
+	bh=gV0Slrjr8IXK+MlTCt7MN9hZHNcIK5BTbT3wdZMhFWk=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=oSjWQJMVtg8g/LXoUb/K2FqnMziWICTYSrswtHn0oREeAe9aGAEYylsP6FTuQE+dn
+	 wjGcvMuvcRqlVqoh7z8fwaNzIObZDxlRBmXX30cJheTBHAMRiQRW2RuEZByS4wcOe3
+	 jylAsGqYV5LUq0Mtm9kijSAaV4jz7Z1m1+pn3+uswdn7rouFE4CSzcakh1RFvjbTVG
+	 TAo/PBKLlq4cY94y8732frnrFqI0G+57B/6Coa9bTvjuMcke80Ok/wRiEhvPcWYLrq
+	 QZcgKjIj341ZG9DxLr1WSAQ9oGUWetnM5Ixk3cqNtqKBGe3XjpxSF3vLN/YA0yWB72
+	 oPqwysfcEV0eQ==
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-39af6402933so4937161fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 06:16:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoWJ4Eo3WXafiWjF4DnfmxOTOQDoZ8POr8omJaShCEVinGVTp7P6t1OUErxD6ZPo8ygzdoXVTSZ1NRMyH0Y+sUZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyjo4b01ITFyXwrz4OuVXQWQOoA/ahHABFVXVtKANlK/S/JVDIs
+	/s4YuIhxuxqP4wMWvpANvseqM7MEXpeRUN31uwKwNuHLAyaEVX18n/qnNMxcA+LVc+uAzGcKllY
+	s/f1bbjFedkpdG8mLLviGbB0uyYLt1ZQw5azmC29CDQ==
+X-Received: by 2002:a05:651c:2554:10b0:39b:90f:b1dc with SMTP id
+ 38308e7fff4ca-39b36e0af76mr18538581fa.13.1783084600750; Fri, 03 Jul 2026
+ 06:16:40 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 3 Jul 2026 08:16:39 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 3 Jul 2026 08:16:39 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAGXv+5GHFnMj3qr5BcpLCQk25rWYOgnMKUX079ScELs4uqEdVg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <f31704f2-cd98-481f-8290-203e3052b738@altera.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_061540_909230_035EBFA0 
-X-CRM114-Status: GOOD (  13.89  )
+References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-9-wenst@chromium.org>
+ <CAMRc=MdMhr6qAnAtUePbuBbsH=3MzRC+BrL5GssbNTwGjp_ayA@mail.gmail.com> <CAGXv+5GHFnMj3qr5BcpLCQk25rWYOgnMKUX079ScELs4uqEdVg@mail.gmail.com>
+Date: Fri, 3 Jul 2026 08:16:39 -0500
+X-Gmail-Original-Message-ID: <CAMRc=Mdoj204dTwVMeqFwsVt3f4JJUJtk93VL2hDgh7+C60eqw@mail.gmail.com>
+X-Gm-Features: AVVi8CfEGr9ongua6ulDVSCJ0raV9SIaG27LcZHKlrYzQjvFFBvVAoVU8_PqL0s
+Message-ID: <CAMRc=Mdoj204dTwVMeqFwsVt3f4JJUJtk93VL2hDgh7+C60eqw@mail.gmail.com>
+Subject: Re: [PATCH v3 08/13] usb: hub: Power on connected M.2 E-key
+ connectors with power sequencing API
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +97,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > I don't actually see a need for mac-mode. From what you are saying,
-> > there is no choice. The MAC is hard wired to the converter block. So
-> > you can just look at the compatible. You are going to need to use the
-> > compatible anyway, to mask the phy-mode to handle the "MAC" doing the
-> > RGMII delays.
-> > 
-> >        Andrew
-> > 
-> Hi Maxime, Andrew
-> 
-> Thanks for the reviews!
-> 
-> Hi Andrew,
-> 
-> The challenge with using compatible is that the TSN Config2 board has 
-> two ports — only gmac1 uses the GMII-to-RGMII converter, while gmac2 
-> connects directly to its PHY.
+On Fri, 3 Jul 2026 14:58:56 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
+> On Fri, Jul 3, 2026 at 8:41=E2=80=AFPM Bartosz Golaszewski <brgl@kernel.o=
+rg> wrote:
+>>
+>> So this is only needed to not have to track the state in a separate fiel=
+d?
+>
+> Correct. Reading the field is not the problem. Updating it is, as the
+> fields are packed bitfields, and Sashiko suggested that locking would
+> be needed, though it may have been for the peer port, which has since
+> been removed.
+>
 
-The two MACs are not compatible then, and each should have its own
-compatible string. This is all in the SoC .dtsi file, so not really a
-problem.
+I'm not sure if it is. The user controlls the handle. We could argue, it's =
+up
+to them to provide synchroniztion. We only assign the target and pwrseq fie=
+lds
+once in pwrseq_match_device() and only change the powered_on field later wi=
+th
+pwrseq_power_on/off(). Unless the user does something weird, we should be
+alright. Maybe a small note in the kernel doc would be in order.
 
-       Andrew
+Thanks,
+Bartosz
 
