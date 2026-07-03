@@ -4,71 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BEBAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 05:30:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82F2CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 05:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pmNFIi7RnnrypKskw6fwxOk6ivWwb+ik3iVKHlwrVrI=; b=yhJ7IuwMAoa9oiIsE3qkMVjVx0
-	OUgb1J7sn8Tkn6eadT87/MMZjLwlYNu9XRYRtaABjVQlPQpmby11Xr6BB/QM1cys1rxZNskB4M5rS
-	ha12oGTCya8VXcZVURzAUNMxdtrw/HuzGspJ9q9x2Y1XO9reWdQa69da9aCdIcW3rft27le19VXXY
-	v+prxj4SoiOMR8qxLwiH+rQyAAeN3cp9bMTkWAYAXlhE6TkTp5HwCGcO/+ZzlzfQ04TePDVqo4guL
-	1gQjel0g/BQCXQ8lxmh/kpxwiavtqgIhZAwIVnzV5QFL/HV9RjsYDlSKgx2zysPoaYqQEoXnwBfUY
-	I9LEiCYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MA+7HpBscRRKuEVDeL83ihJ4j9C5ymr5oo+IEq87FX8=; b=bd3Aumwr5FFxa4wqIQo1SPW/oy
+	WBh0HIsZa32xVXiB4Yk60rbKwwhR+9cMhRwGocen+K15anJ9FU3yJtCb7j2QgwQrRrilbbB7Wynxg
+	OhOHxZiFgjfxLrQeZlEFijksa+VMbSyq0jBgsyGKj4F5n/ycvYbS9oi2LcVVPTfjuYrLhTo9PjKyW
+	Pf62TKFofK0lpiaQPRb6QHAODda0xB6tEwFvNrUEF8Fy8amfoxLjbhAXN6evWJi3+xp1eYrJIfdXh
+	9PDuoPkrAe8UCO9/Wl384UaneV44K0r2hNGYoDoR2mM+zlsELfhUIQJV2O125daGDqgFtDJHesE0b
+	ORYdTmwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfWUC-000000064G9-3Ed0;
-	Fri, 03 Jul 2026 05:30:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfWUA-000000064FU-1Nfj
+	id 1wfWVR-000000064Y0-0NHU;
+	Fri, 03 Jul 2026 05:32:05 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfWVO-000000064XD-2fep
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 05:30:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 19BAB1D34;
-	Thu,  2 Jul 2026 22:30:40 -0700 (PDT)
-Received: from [10.164.19.15] (unknown [10.164.19.15])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 93E953F673;
-	Thu,  2 Jul 2026 22:30:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783056644; bh=x/FZbZRvlfgDKJ87XGqUbVjYmJN5YLYtikgDpbbk+3s=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gRZT5Aycj8nb9nzE9CkfCAmO1Pk+zt96vwJ0a+6cKk6Wn/mIV1tYxcrUG/53HkHzj
-	 hn2MLdJulVDpzweQyjtnhqxSXAs3RDgKOuCTNjnCpg+4zOinXDuxDvU/Xyloz5ww/k
-	 V36SggskoTyyC6c++z8jGDd4uZBRW8buLuFGqQZY=
-Message-ID: <1ef238fd-232c-4b8a-b28d-cd20db57bcfc@arm.com>
-Date: Fri, 3 Jul 2026 11:00:32 +0530
+	Fri, 03 Jul 2026 05:32:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=snXFZR4w/ijPoiYa5fPM8I/ax2hiPbh7NeYBcFi0rMgVy24/6Isb9wCzae2Tah+Y4q/KQludI5tiZkMB7rkZgpIDnTvZUZPMsdjCYRts+ur9s0w1PVXGkvDTKV2+MCOR1zU1vDIdY57cD7clBtECGgKIgOh2LdYDkZfQRzgtdMNy88YSdh+3uw/X+R61k++rPd9lS5EEyiheUB3XoHgUHORJvIb5kaMFLgzIbwf7FHxxnXhU0F+n6CFQ0M1EkmqhwfrjeNBiz7pLh67vGLAMDJcTyUdvmwHcTtvXVAqwGwt+Bw9VzeNQkqkKzZHsqIo6ZIhyiGYZEfSFUwlTr8C7VA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MA+7HpBscRRKuEVDeL83ihJ4j9C5ymr5oo+IEq87FX8=;
+ b=ACCzVmDpNsic90JhElDbcGtnqHL81/NYEP4RP/DaA5G3i+Z0pVUCPKRqjCFXgvw3c6QQUKXR/NO9OyreiTupiwwgYbNfMANnykZsehZC8M0RhKIEnj/S/+asYddt7Rpgsq0sdtjrYRQOtvu5iMtWI+FK/47YwxOQN+J2dn4TQCXrxDs7oXVlJ57hoIJGN+d2Cj4snHpjsnJ1icZoDSYpeqxgnoNjI+fKkegFe/QzkwfnOAt3ffGP8XE+SqvwKBJhYFapd/k+Hdnr8CMe98+dB3cPPDLXUbxTU+cmD7foeIKQu9IEXtOnYlT8iQ905+G8dfSeyVyoVXDGvE5YWde4yw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MA+7HpBscRRKuEVDeL83ihJ4j9C5ymr5oo+IEq87FX8=;
+ b=RKsvP13V/NEGnwLIlvbE8cN5fwe4LopQUgIYhEod3ZSkIsZC37+HPnpH2TZlIYyFRejP64FbuZl79AxgI9RqbtdLd8YfmnoSLrZx1Pp6O/Yel40BBG71FSUF9rbmUKsCUdWxCrvqVEZ0jj5b0JLiVHWZIUIxDR75IZ7JmTg9j+t90BbeayQ88mpOJmeSw1/FhL9gf/qzVM17Dxq0kNdm9stFL4r9KXAEePRsevCPdwpMVfA7SutnqxD3JefYFlZmeIcR1sUXSOa4uppgYCrJLClI8U1jijUnmm9OWVZRYqxRnsOsRR4guCg29rRT1891TyJjhVtfE94J4+QBF97omg==
+Received: from SJ0PR13CA0060.namprd13.prod.outlook.com (2603:10b6:a03:2c2::35)
+ by DS0PR12MB9040.namprd12.prod.outlook.com (2603:10b6:8:f5::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
+ 2026 05:31:55 +0000
+Received: from BY1PEPF0001AE1C.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c2:cafe::9f) by SJ0PR13CA0060.outlook.office365.com
+ (2603:10b6:a03:2c2::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.3 via Frontend Transport; Fri, 3
+ Jul 2026 05:31:54 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BY1PEPF0001AE1C.mail.protection.outlook.com (10.167.242.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 05:31:54 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
+ 2026 22:31:43 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
+ 2026 22:31:43 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Thu, 2 Jul 2026 22:31:42 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)"
+	<joro@8bytes.org>, Jason Gunthorpe <jgg@nvidia.com>,
+	<linux-tegra@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
+Subject: [PATCH v1 01/11] iommu/tegra241-cmdqv: Publish an LVCMDQ only after it is fully initialized
+Date: Thu, 2 Jul 2026 22:31:27 -0700
+Message-ID: <3e0d9156cd7ade5a5ee0b9a63a326dc324866ddf.1783054570.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1783054570.git.nicolinc@nvidia.com>
+References: <cover.1783054570.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
-To: "David Hildenbrand (Arm)" <david@kernel.org>, muchun.song@linux.dev,
- osalvador@suse.de, akpm@linux-foundation.org, ljs@kernel.org,
- liam@infradead.org
-Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
- lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, rcampbell@nvidia.com, apopple@nvidia.com,
- ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, j-nomura@ce.jp.nec.com,
- nao.horiguchi@gmail.com, ak@linux.intel.com, mel@csn.ul.ie,
- pfalcato@suse.de, jpoimboe@kernel.org, dave.hansen@intel.com,
- tglx@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com
-References: <20260702051341.126509-1-dev.jain@arm.com>
- <20260702051341.126509-7-dev.jain@arm.com>
- <f1bef34f-987a-4a47-99fb-acdeda1c072d@kernel.org>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <f1bef34f-987a-4a47-99fb-acdeda1c072d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE1C:EE_|DS0PR12MB9040:EE_
+X-MS-Office365-Filtering-Correlation-Id: d485cd71-e594-454e-5427-08ded8c464c2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|11063799006|56012099006|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: HXZD5aEFStv2L0xHCfVBS1JnIXjcP6ffAnLoywKTIk5rUVZGVmCXHCza68OU1wCCUdaY5equkmdbXY0fh9bft+u/WVcNLen1GwuH+F1dW+/1CjNzZUml6kdXbAP/wiP7LuqhIGPxDyMHj9Jh1hh8uQF2mn6zGCFusrAQBRRPhBbwX1mFl901nrqKx8N0d+DypIsEfONY2IkGcMywgm58nPAj1bmKvVisf+CQx5rBFjhlfUZm7FjkdyTGLzPLjDQdCARrXiJ8V6N0/U/IBIaIhLXTENT6zMroQLGeGuv4kYke+GPDZn/hwjFARp4lTPFfp7ktmGGmIejqlJRgE8Oz88bBo8o/pYmmexv1UceR2NjmCNU6e72cs9weoX/JjN6mOzRJAzdy0jRbwPKfJLjJbqXxy3CtEOnUyf7i0V36Nv3l/Gzz7dKuPA6mJZi35jzXUoQY/axbNXQDiJqBsZnvEMqUFFbRQh5F3i4PfQpoPiPJG+cF/JOJi5/bqzGWa77Xen4ueqK2HthTbPoL4yoBrrYQ+Mf+JeFZpg5B8ygZkAUiatmDr7fal24cfWaq6Tk+VZ6cExANXNdkV4RGbN+Wia2GB6eT9lD3lxLQS59fGr4i/C+Crh3ogUrmBlWH4jdOldJn/6ZWMSalpzhlZ7of4oHHwHVIcDoXMatGy/027Zj6FINrAgY5qVibecN7jYEZzlhuHYmhFvfPNGVoRdQ0KA==
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: AknsnEeJYtnhw2Gdv5DLR+xa/sSzT+mS1gLN85hJX5doH+v+lx5jxwZk1cJl7EKP6FZ5D+xhkpCs6P0z+gm8sPGhRLaglhYH0US8Wqe7MNyWoaeOIwpDZSud6ya3a17RTlEqUaUifBnIHMCrls02Pc9tnrSeneLdwKVVza1B6jgncjbNTfUMfKgqDzAhgWiNfSxCNuGSnlwB5euvD6Ekg9AAm4D/9ONb+BtLwjWarKtxPAk51U2pkZr9Bq0t95X+1l2nqo2HLcnFloZs7+nnnaSphIwCjwcnWQSQdp61aojp2dfDzSpCdP9V0GKk5xhcmQz2sQYsbdB2rYYt0hU3tBotxRkBp0JsIK6fEWkM8/MPBNMi54e0nDd07Buk2/H8UbaHjnICQoE4iU5X/A+OdLLpZVhtoiIKTFwibRMol67SQrYIkUzrAXclbwf2I3mB
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 05:31:54.8438
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d485cd71-e594-454e-5427-08ded8c464c2
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BY1PEPF0001AE1C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB9040
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_223046_420746_DAD386FB 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20260702_223202_676456_7DB05061 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +128,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tegra241_vintf_init_lvcmdq() stores the freshly allocated vcmdq pointer to
+the vintf->lvcmdqs[] array, before tegra241_vcmdq_alloc_smmu_cmdq() builds
+the vcmdq->cmdq. The error ISR dereferences that cmdq, so a latched LVCMDQ
+error (e.g. one inherited across a kexec) firing in this window would make
+tegra241_vintf0_handle_error() pass the still-zeroed arm_smmu_cmdq down to
+__arm_smmu_cmdq_skip_err(), dereferencing NULL queue register pointers.
 
+Drop the store from tegra241_vintf_init_lvcmdq() and publish the vcmdq at
+the end of the allocation instead, with an smp_store_release() that pairs
+with an smp_load_acquire() in the ISR, which can see a fully built LVCMDQ
+or NULL.
 
-On 02/07/26 9:17 pm, David Hildenbrand (Arm) wrote:
-> On 7/2/26 07:13, Dev Jain wrote:
->> prot_none_hugetlb_entry() is the hugetlb callback for the early
->> mprotect(PROT_NONE) PFN permission walk on x86.
->>
->> The callback passes the decoded PFN to pfn_modify_allowed(). For a
->> hugetlb callback, the pte pointer refers to a hugetlb entry. On
->> architectures where hugetlb entries need huge_ptep_get(), reading that
->> entry with ptep_get() can make the permission check use the wrong PFN.
->>
->> Use huge_ptep_get() before decoding the hugetlb PFN.
->>
->> Currently there is no path which can trigger a bug: huge_ptep_get() is a
->> simple ptep_get() for x86, and the prot_none walk occurs only for x86.
->>
->> So no need to backport - use the correct helper anyways.
->>
->> Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged high MMIO PROT_NONE mappings")
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>  mm/mprotect.c | 8 +++++++-
->>  1 file changed, 7 insertions(+), 1 deletion(-)
->>
->> diff --git a/mm/mprotect.c b/mm/mprotect.c
->> index 9cbf932b028cf..23779632d18bf 100644
->> --- a/mm/mprotect.c
->> +++ b/mm/mprotect.c
->> @@ -699,14 +699,20 @@ static int prot_none_pte_entry(pte_t *pte, unsigned long addr,
->>  		0 : -EACCES;
->>  }
->>  
->> +#ifdef CONFIG_HUGETLB_PAGE
->>  static int prot_none_hugetlb_entry(pte_t *pte, unsigned long hmask,
->>  				   unsigned long addr, unsigned long next,
->>  				   struct mm_walk *walk)
->>  {
->> -	return pfn_modify_allowed(pte_pfn(ptep_get(pte)),
->> +	pte_t entry = huge_ptep_get(walk->mm, addr, pte);
-> 
-> Nit: can be const :)
-> 
->> +
->> +	return pfn_modify_allowed(pte_pfn(entry),
->>  				  *(pgprot_t *)(walk->private)) ?
->>  		0 : -EACCES;
-> 
-> Indentation is odd.
-> 
-> Can we just make this readable?
-> 
-> if (pfn_modify_allowed ...)
-> 	return 0
-> return -EACCESS;
-> 
+The user-owned LVCMDQ allocation moves accordingly, publishing the vcmdq
+once tegra241_vcmdq_hw_init_user() succeeds, using a plain store since a
+user VINTF's lvcmdqs[] has no lockless reader -- the error ISR only walks
+the VINTF0 array.
 
-Sure I'll do this.
+Fixes: 918eb5c856f6 ("iommu/arm-smmu-v3: Add in-kernel support for NVIDIA Tegra241 (Grace) CMDQV")
+Assisted-by: Claude:claude-fable-5
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 25 +++++++++++++------
+ 1 file changed, 17 insertions(+), 8 deletions(-)
 
-
-> 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 67be62a6e7640..f843d607c8134 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -318,12 +318,19 @@ static void tegra241_vintf0_handle_error(struct tegra241_vintf *vintf)
+ 
+ 		while (map) {
+ 			unsigned long lidx = __ffs64(map);
+-			struct tegra241_vcmdq *vcmdq = vintf->lvcmdqs[lidx];
+-			u32 gerror = readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, GERROR));
++			struct tegra241_vcmdq *vcmdq;
++			u32 gerror;
+ 
++			map &= ~BIT_ULL(lidx);
++
++			/* Pairs with smp_store_release() publishing it */
++			vcmdq = smp_load_acquire(&vintf->lvcmdqs[lidx]);
++			if (!vcmdq)
++				continue;
++
++			gerror = readl_relaxed(REG_VCMDQ_PAGE0(vcmdq, GERROR));
+ 			__arm_smmu_cmdq_skip_err(&vintf->cmdqv->smmu, &vcmdq->cmdq);
+ 			writel(gerror, REG_VCMDQ_PAGE0(vcmdq, GERRORN));
+-			map &= ~BIT_ULL(lidx);
+ 		}
+ 	}
+ }
+@@ -666,7 +673,6 @@ static int tegra241_vintf_init_lvcmdq(struct tegra241_vintf *vintf, u16 lidx,
+ 	vcmdq->page0 = cmdqv->base + TEGRA241_VINTFi_LVCMDQ_PAGE0(idx, lidx);
+ 	vcmdq->page1 = cmdqv->base + TEGRA241_VINTFi_LVCMDQ_PAGE1(idx, lidx);
+ 
+-	vintf->lvcmdqs[lidx] = vcmdq;
+ 	return 0;
+ }
+ 
+@@ -705,14 +711,15 @@ tegra241_vintf_alloc_lvcmdq(struct tegra241_vintf *vintf, u16 lidx)
+ 	/* Build an arm_smmu_cmdq for each LVCMDQ */
+ 	ret = tegra241_vcmdq_alloc_smmu_cmdq(vcmdq);
+ 	if (ret)
+-		goto deinit_lvcmdq;
++		goto free_vcmdq;
++
++	/* Pairs with the smp_load_acquire() in the error ISR */
++	smp_store_release(&vintf->lvcmdqs[lidx], vcmdq);
+ 
+ 	dev_dbg(cmdqv->dev,
+ 		"%sallocated\n", lvcmdq_error_header(vcmdq, header, 64));
+ 	return vcmdq;
+ 
+-deinit_lvcmdq:
+-	tegra241_vintf_deinit_lvcmdq(vintf, lidx);
+ free_vcmdq:
+ 	kfree(vcmdq);
+ 	return ERR_PTR(ret);
+@@ -1130,13 +1137,15 @@ static int tegra241_vintf_alloc_lvcmdq_user(struct iommufd_hw_queue *hw_queue,
+ 	if (ret)
+ 		goto unmap_lvcmdq;
+ 
++	/* No lockless reader of a user VINTF's lvcmdqs[]; mutex-serialized */
++	vintf->lvcmdqs[lidx] = vcmdq;
++
+ 	hw_queue->destroy = &tegra241_vintf_destroy_lvcmdq_user;
+ 	mutex_unlock(&vintf->lvcmdq_mutex);
+ 	return 0;
+ 
+ unmap_lvcmdq:
+ 	tegra241_vcmdq_unmap_lvcmdq(vcmdq);
+-	tegra241_vintf_deinit_lvcmdq(vintf, lidx);
+ undepend_vcmdq:
+ 	if (vcmdq->prev)
+ 		iommufd_hw_queue_undepend(vcmdq, vcmdq->prev, core);
+-- 
+2.43.0
 
 
