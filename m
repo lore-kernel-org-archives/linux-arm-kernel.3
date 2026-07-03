@@ -4,143 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F9BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFB1CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:25:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=; b=nGZD9J8sf5+HE4+9Hnt3If6goT
-	ZUHpJCJCXNpXBPNBjp5SXZtfv9LYSDIrIdCkdnuEE3FIz03cRsJE/LaGMQIuIp1RK33wkVOTOsniu
-	xSK8ZgiwdFChEV0BzBWbTYs3+W/0XSRnLgp6dX2VAXYWSOEx5L4rasE/ZEdzV4pEvnWBsUN+tF9Xh
-	KckyfqB2o6Kq1+9WmQrtjsBDFwzQ4F5QP4/qZr5MObtTy3RWuyrzY965bsT4S0XxHL2UyxsXLfSQE
-	C3anSkOx5jwunF0zme0d/cpnC2mZHW310oqtX7T0fM33Eq7a5rbiJzNUibMyYUzSDd55mZzZXfXUA
-	XT49hafw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mHNWeboVzu/sz1+mYHlMeCUdF3GLKwe2wqp3veycPUs=; b=wzrt3sCwBmFFouUBXGX7m67qIg
+	mFOgajLZ8SI77mADSTG83s+KM47ZJrtozVWJ0pMrnhUWJD0NahStqdjBknAELeYqJAGPj1/IUVdIt
+	Cl7pGlWZxQSsj/aMoBdKzws1fNgh39ed1RfVWHm21d98IWAnf0zJMnhTelSYxWY86yrfkDBl11XAA
+	Mp/mQ32ieJKQQKQ601jbmJM7PHn/DLD6UTXOQzICXmSkNyo6BUWzqtIkO8UPc2Qz1lYe1+LWkFjBI
+	Ay+pJYnwsf2cDiLt7CDj8rhDBGMzOmGRP+8vVwO+Cioyw0rRmJKXvDwj77hcMUXhC/6XcMpk6DkLs
+	oe7EUq2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb53-00000006asQ-0POR;
-	Fri, 03 Jul 2026 10:25:09 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfb50-00000006arg-1KAw
+	id 1wfb5B-00000006avC-0pSJ;
+	Fri, 03 Jul 2026 10:25:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfb59-00000006auH-2AoC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 10:25:07 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6635rfFT2994873
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 10:25:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=; b=iJxAZ0lRy9VMvl08
-	AswHq8gG8SVa2G21u2tYKvVg9RmRMC68nB0h4aZiGIs8q5x7RLADvxk/1BTMAjni
-	jU+M3P9rB5BsZ/wOiKw8HBPZpm3lTWVqxY1LrwcZSNaw+43m3FNQOrf5GXa8R6BB
-	kQfK4Ga6v7Bem/tCLOqOiAfOHCJLwWFw95bUhaHzJclBkWs/nygbRj3COWB1aet8
-	NdbXdVU5CfQYp2flEkVGYD/NWyGYP4hayuLopwG+XHMJ2WtXtwC1T3k4mlMZzy6y
-	u4AWbpcMYHNEFfR78OmHrYkC3RDoe1Nla9na3y6xI/y/Twi8jTG5Qt3+Rl4E4cyZ
-	55WlKQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f648n1vj5-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 10:25:05 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c069f73e4so1375211cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 03:25:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783074305; x=1783679105; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=;
-        b=IZSLA1Ikv1VgQwqU5YwkZgaGozwNttVxoJOnrlUCWqvart+ifPf1M0LP042SSCBXob
-         6f94b7TYbtnjob8k2CyPNt0pQcPZ5FETTf7jS75337R7ECMsMSp6nc3YBv3n+fq0EH96
-         fJIAaQHxDHKrVt4zMEkXks4iplGWZ0/oou0qZl3doMgdZVGo68+ry5EuSOU/fDe4cMVh
-         ntF3lkIISIyhhkHy1AmcUWH6WV1PCig/lPM6InlRKU0ZXWLWxm5AJgZuknQfK0h+drcg
-         +lWAZ4EXgi0bg/jD2eZDc7buV2Og6gIsgIANY1ifxSVsldOjh3BclV0WLHs14mZ++eBm
-         vVjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783074305; x=1783679105;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wLeD0IRUCCbH+NWwe2cAI6SCf7hCyLNverNen8uXb/U=;
-        b=SD4l9/Vy0Egiulr4cBmP1aa2L9DazUDV6sKpTUIFwGzfbnuyxJ2Mw4y/D5okY+e4Dy
-         zhBzkRJ6lfsoDjePoGvNahqc9GiF0uFS/ZWrlTqH4arTAMH0gcKoPynF3L2e98h0YHXN
-         4ZQyhsBEMS0I7drE+/EHAZwXBLFGFkqZ5uNs08TB0XlaJAAZ3oxb6iIkqNqBhl/ECc/I
-         WyyKjNBQvnktHB1BKMZ20AwzxYnjmEw4cLDy7qTaTB5Y4YKlCDYuKLTdZUW05dgUpAXW
-         CjXqqOAu5+OGgyVLwB924bWtKfmoyca82Vnbjf61AzCH27Rytx8I+H4/54jrDv/hFE97
-         1hrw==
-X-Forwarded-Encrypted: i=1; AFNElJ/LmzaGxDjhFpuNdAo5RnYF7mmPDIx1UtDbzN1Okfd9pSMycA6Qp0r2AmSPD6+FUnKAZXs0DuMmB414kXK1i58n@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3OnNvPisl2kWaIhZvCzSfXceKu0xouL46y6Xra6iLlah3oWAY
-	hJ2gFB8CfQ1Q8XmCwLMzSN/Um4/5yRyP7i2imgGA4sjupzbTIF1+myvTeEsQPGO8ZA5YRlXW5Jc
-	qcS8d/G2+va8+p1kKUI3l42MngIOVyWLrUcPswn9usorogBujMILPqzv4qB4ARRxnVqb/xE9Hnh
-	I+Yw==
-X-Gm-Gg: AfdE7cmxdJcUyj2BC+hjQkTvT2/C73ADhV7p3GIVYDrpnnlEqGjTGQi5tg3tb9oRTMQ
-	fulhM0dzh26p264xfnaMaX86jzf0g+fe03v69FeAeR1W5r25PPR27doQGv7txxs+0UQml/lJqup
-	VHjlPIKhb3VK2UUpokwnm90ysGPSJlCjXPijI8YgZebCP9NwE5ZOnQXo8LotwGefCNrMcEHWSz5
-	mKXk8gKEx4P3GomB66oEfIRnMVUmVJnqxTjNJG4Qp9sdY/xYCqTUaJL7U1K34GxgMLZYsE5UqDB
-	6zQUDmVkyf54qN9DRiOXcuJyXiFkN+WYQ9f+rQDJUwe1ZO/vZaXalOAUU+FWLCLf30/KyjgqLeC
-	/X/10KfPi7Mz5AaY5FvlMzBBgdrNZOsHLEvM=
-X-Received: by 2002:a05:622a:118e:b0:51c:2324:666 with SMTP id d75a77b69052e-51c26a6b823mr79308891cf.3.1783074304705;
-        Fri, 03 Jul 2026 03:25:04 -0700 (PDT)
-X-Received: by 2002:a05:622a:118e:b0:51c:2324:666 with SMTP id d75a77b69052e-51c26a6b823mr79308631cf.3.1783074304270;
-        Fri, 03 Jul 2026 03:25:04 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62c4a72sm262349166b.43.2026.07.03.03.25.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jul 2026 03:25:03 -0700 (PDT)
-Message-ID: <424aa2d2-aad3-480c-b63e-bc557839971d@oss.qualcomm.com>
-Date: Fri, 3 Jul 2026 12:25:01 +0200
+	Fri, 03 Jul 2026 10:25:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 795301F91;
+	Fri,  3 Jul 2026 03:25:10 -0700 (PDT)
+Received: from thinkpad-e142931.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77A5F3F905;
+	Fri,  3 Jul 2026 03:25:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783074314; bh=ZQ7CAuTPM6Tf9+DTaYp2vlX5tPQhRYzc+U6LC/OQ2LQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d8n/v18VXUB34szM/yrAGV780z+7NVyAa8tqQWd3++dvpUiIZe42DsrEhhvoop3Hv
+	 4gQVbD147+LYcsrJQr1Ld/MG53+LJxvWo91A9QowhOFgTtIC1o6NvjezyDBVRLOb6s
+	 L43MNKKcgmzotD72h/Y//bM9/I0DQk1MT0DLLMN0=
+Date: Fri, 3 Jul 2026 11:24:53 +0100
+From: Wei-Lin Chang <weilin.chang@arm.com>
+To: Itaru Kitayama <itaru.kitayama@fujitsu.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Steffen Eiden <seiden@linux.ibm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 0/6] KVM: arm64: ptdump: Shadow ptdump fixes
+Message-ID: <nzvizmyxj4otyo5itl425vdflimp6pnkuwo4qtwzzsbjobhzco@ygxydualln47>
+References: <20260630121005.1130996-1-weilin.chang@arm.com>
+ <akYLdEuPXEGIZx3E@sm-arm-grace07>
+ <vfzn6kbhyemhkum2s72yucbgj4shn7j3g7qd3iima242yph2fr@vdihx2sfibki>
+ <akbuIDmd_zH9_m6K@sm-arm-grace07>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/7] clk: qcom: Make important ARM32 drivers default
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260703-clk-qcom-defaults-v3-0-78894525e54a@oss.qualcomm.com>
- <20260703-clk-qcom-defaults-v3-4-78894525e54a@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260703-clk-qcom-defaults-v3-4-78894525e54a@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDEwMCBTYWx0ZWRfXxoAEZIvcZ0em
- xOonhlmpauBXn1p79rWngeb3GXoNFCUaZ8D5KWab0BrfioUTzguPjTazPfzgVbqVh4g51QwVkSW
- nIx+2SVdd9BKdbzhe0sa9CpLKGs15Ko=
-X-Proofpoint-ORIG-GUID: VkRZxB5CmRft_cmPqGC7O7ynutb9zLlB
-X-Authority-Analysis: v=2.4 cv=O4wJeh9W c=1 sm=1 tr=0 ts=6a478e01 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22
- a=EUspDBNiAAAA:8 a=YbJbqLu5s_8SUIbSLSYA:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-GUID: VkRZxB5CmRft_cmPqGC7O7ynutb9zLlB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDEwMCBTYWx0ZWRfXyEUx5mwBtgLm
- 9IdmMr0SMxnGXK2LNfxaNsdNsJQv/9L+ev9QEO3N2oUUWu92EexaiGEQSh0OKIYf5k5qCWGkLhw
- It6hwh9HapUy31ZlqYM0N4847fFIljXRhabgaU9jj0WGIf9+Z/jYD7MxA1cgLxhaZZv//WQYG9n
- t93peE+mVqiFtillZGtjZnl8GLra/8VN5nlqM5iUGfnnrhYbwiiqGY2Ep0osDDD8KMZAXVWWxCy
- TwrLfVb69sIichddsXT3GwkyxYz6Kr5rsVZxxXrAK/Br0ZXDDYmQaKT/bo5l74SmodUArCMgqWZ
- INSiVYQmvLO9/mmvl5aauOwQ6NdXAtsRX9OjmeM66N5z88t2cNXMpYV0sSewmaMjkJ9pWH2lazh
- N5565KiM+kYc4+Xugexj5pnDt58/VX9FDPLz8jFyw/yf3qTgOC0rmnGXsNWYks0Ginpuhk9fijl
- sIwM2OsNNm8K1QsUIcw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 priorityscore=1501 bulkscore=0 clxscore=1015 phishscore=0
- suspectscore=0 malwarescore=0 spamscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030100
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akbuIDmd_zH9_m6K@sm-arm-grace07>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_032506_486281_269FD27B 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20260703_032515_638594_960DB64E 
+X-CRM114-Status: GOOD (  35.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,27 +75,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/3/26 12:04 PM, Krzysztof Kozlowski wrote:
-> Clock controller drivers are essential for booting up SoCs and are not
-> really optional for a given platform.  Kernel should not ask users
-> choice of drivers when that choice is obvious and known to the
-> developers that answer should be 'yes' or 'module'.
+On Fri, Jul 03, 2026 at 08:02:56AM +0900, Itaru Kitayama wrote:
+> On Thu, Jul 02, 2026 at 08:41:43AM +0100, Wei-Lin Chang wrote:
+> > On Thu, Jul 02, 2026 at 03:55:48PM +0900, Itaru Kitayama wrote:
+> > > Hi Wei-Lin,
+> > > On Tue, Jun 30, 2026 at 01:09:59PM +0100, Wei-Lin Chang wrote:
+> > > > Hi,
+> > > > 
+> > > > This is v2 of fixing shadow ptdump debugfs files. Unfortunately I couldn't make
+> > > > per mmu ptdump files work after all, mainly because there isn't a clean way to
+> > > > locate the specific nested mmu for each ptdump file as the nested mmus could be
+> > > > freed when the file gets opened. Therefore in this series a single file
+> > > > "shadow_page_tables" is created that dumps all valid mmus' page table
+> > > > information.
+> > > > 
+> > > > An advantage of this is that this new ptdump file have a lifetime identical to
+> > > > other ptdump files i.e. stage2_page_tables, ipa_range, etc., hence avoiding the
+> > > > dentry UAF found last time [1].
+> > > > 
+> > > > With this all ptdump files are only removed when the last kvm reference gets
+> > > > dropped and kvm_destroy_vm_debugfs() is called, in their open(), show()
+> > > > functions the nested mmu array and mmu->pgt are checked with mmu_lock held to
+> > > > prevent UAF.
+> > > > 
+> > > > Patch 1-2: Undo previous shadow ptdump implementation.
+> > > > Patch 3:   Fix a mmu->pgt UAF that happens when ptdump files are read after
+> > > >            mmu->pgt is freed.
+> > > > Patch 4-5: Preparation for the shadow page table dump file.
+> > > > Patch 6:   Implementation of the shadow page table dump file.
+> > > > 
+> > > > The fixes are tested with CONFIG_PROVE_LOCKING,
+> > > > CONFIG_DEBUG_ATOMIC_SLEEP, and CONFIG_KASAN.
+> > > > 
+> > > > Thanks!
+> > > 
+> > > Running your shadow stage 2 kselftest with bpftrace shows me that __kvm_pgtable_stage2_init()
+> > > for shadow stage 2 translation tables are built with ia_bits = 52 and
+> > > start_level = 0, but the debugfs entry for the active shadow stage 2 tables prints
+> > > out that's 3 levels. Is this fully expected?
+> > 
+> > Where is this level information you are seeing from? If it is
+> > "stage2_level", that only reports the number of levels for the canonical
+> > stage-2 (non nested). For nested mmus only the page tables are dumped in
+> > nested/shadow_page_tables.
 > 
-> Switch all Qualcomm clock controller drivers which are chosen in
-> ARM 32-bit qcom defconfig to a default 'yes'.
+> Yes I know. The initial stage 2 translation table structure information is obtained by 
+> instrumenting the kernel using eBPF fexit to __kvm_pgtable_stage2_init().
 > 
-> This has no impact on ARM32 qcom defconfig and ARM64 defconfig
-> include/generated/autoconf.h, however enables a few drivers for ARM32
-> multi_v7 defconfig: IPQ_GCC_4019, QCOM_CLK_APCS_SDX55, MSM_LCC_8960,
-> SDX_GCC_55, QCOM_CLK_RPMH as module, IPQ_GCC_806X, IPQ_LCC_806X and
-> QCOM_A7PLL.  Enabling these on multi_v7 is expected to properly boot
-> these SoCs with defconfig.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> 
-> ---
+> Since you're correctly loopin over nested_mmus array, and the output is
+> correctly shown using the kvm_pgtable information via the kvm_s2_mmu for
+> them, I am confused at this moment.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Two things here:
 
-Konrad
+Firstly ia_bits being 52 is not expected to me, as I didn't change the
+VM's IPA size via KVM_VM_TYPE_ARM_IPA_SIZE in the selftest, to me I
+would expect ia_bits to be 40 (the default). Start level being 0 looks
+normal.
+
+Second thing is I still can't get what you are confused about, if it's
+not about the first point. Note that the "3" in ptdump means it is a
+level 3 mapping, not saying the page tables are using 3 levels.
+
+Happy to discuss more if you clarify. I'll also check the ia_bits when I
+get to it.
+
+Thanks,
+Wei-Lin Chang
+
+> 
+> Thanks,
+> Itaru.
+> 
+> > 
+> > Thanks,
+> > Wei-Lin Chang
+> > 
+> > > 
+> > > Thanks,
+> > > Itaru.
+> > > 
+> > > > 
+> > > > * Changes from v1 ([2]):
+> > > > 
+> > > >   - Move from per mmu ptdump files to one file that will dump all shadow page
+> > > >     tables.
+> > > > 
+> > > > [1]: https://lore.kernel.org/kvmarm/ajty6I7ZqodP4ous@sm-arm-grace07/
+> > > > [2]: https://lore.kernel.org/kvmarm/20260623142443.648972-1-weilin.chang@arm.com/
+> > > > 
+> > > > Wei-Lin Chang (6):
+> > > >   KVM: arm64: ptdump: Remove shadow ptdump files
+> > > >   KVM: arm64: ptdump: Undo making the ptdump code mmu aware
+> > > >   KVM: arm64: ptdump: Fix UAF when mmu->pgt is freed
+> > > >   KVM: arm64: ptdump: Factor out initialization of
+> > > >     kvm_ptdump_guest_state
+> > > >   KVM: arm64: ptdump: Extract kvm_ptdump_guest_open() from canonical
+> > > >     ptdump path
+> > > >   KVM: arm64: ptdump: Introduce the shadow ptdump file
+> > > > 
+> > > >  arch/arm64/include/asm/kvm_host.h |   5 +-
+> > > >  arch/arm64/include/asm/kvm_mmu.h  |   4 -
+> > > >  arch/arm64/kvm/nested.c           |  18 +--
+> > > >  arch/arm64/kvm/ptdump.c           | 185 ++++++++++++++++++++----------
+> > > >  4 files changed, 135 insertions(+), 77 deletions(-)
+> > > > 
+> > > > -- 
+> > > > 2.43.0
+> > > > 
 
