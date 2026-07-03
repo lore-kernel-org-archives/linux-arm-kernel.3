@@ -4,92 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E288C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:10:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8CD5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VqnVxuePfzGralo5ejKJTMgkZosmeyctDuCT0QENgCw=; b=GIGgu0NAX92HY2o5pxHMD2MFk6
-	K69eRMaVhRvI15pLZEApIXli4HA2fpmq4n1r84HZljc7iRRt6yxKpvFv5kJczpEluXnUiui956MDp
-	voMiL90xrCAuUFfm6Ie6CBXUC2A2smLlzlmVf6pw/7piVe9TwA2UvEvd31sAcxXtB4wxFSzYcKysN
-	Ce5xa8hCL4TGvDeQCpCu9uKevgZkrILfskIquZhnKM2gLrbEyI7ZFC3+FOyr1isUeQG+D02sg3Ej2
-	oGwqUvojAwsHpJQBPBRfV2VIdUypeALN0WrH6ggtvWmI9lgAsR8aW7XZpPtV0k9ncRVnZ0TTDDwdU
-	/Lta+2Ng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=guKgZOIo14OV98TBahVEzDDu1t9jxYO9Rj2dFbINeoc=; b=kIztQMcWLj3896
+	oV2phEQ/aB3CVMAS+DdYjQgdxxHXpGvDMu8Zyku00kPHQYjA2pcZmoh6hqhDYRnxW1IUZV9AN9c5T
+	DdBSJRz8K4Scw4HwR1efnQiImEjznvw3ZDKmK5bQH/q3KDx2yqvYqI+VBIxcchTUGKJt3Saf0Euc5
+	RyZwCutM7jGxM0JztteuxGfClCm/L0G5A+4Kem0uN3FAgWlfr9i7Gi+YmAimNnXJLFbzk/r4duWfg
+	4fevJIDSWDX19+wkka7gXRi13TR/lSzzXc7dmLjLUdG0OtoQNm44aT0znR78Mzi/1LHgw1cUBWYQy
+	eXLG6mp0X96ZDv6iEuFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkDb-00000007pab-2W2T;
-	Fri, 03 Jul 2026 20:10:35 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1wfkS3-00000007qJc-0lPg;
+	Fri, 03 Jul 2026 20:25:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkDY-00000007pZv-2jGP
+	id 1wfkS1-00000007qJU-3viz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 20:10:34 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-51c29b46382so4930461cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:10:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783109431; x=1783714231; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VqnVxuePfzGralo5ejKJTMgkZosmeyctDuCT0QENgCw=;
-        b=Eos0Z6AXv75qU7RwQucXQIYVoG534w+nc49oV0r4ZcAJFEpFm1cCdCWhf89N5wxQZe
-         yPW1DDeMSSxv2O+VGA4RsJhMyiffL+8t8PZ7JVnCwl+Bb8hQ6gz486qRhNN18knWjbH+
-         yTm0dTAYiByNOhJLd9gnjCvoz3Czk6OUyn5eRwJm0VD9gulJJOgvOB2n8kb4ijZhx9hm
-         lRfvd9RyC7EKJOkSHbvSTx7vRYFevafwWiAeryv67kGeiqVqkwjggkCpfAbg9XJvVpAz
-         kmBnxo6Er4rkQTvYPONAMmCBweAoly7KxYLcvtd4+IY6VfQpcTe8b7IwHNpcCwjPUHJv
-         OqdA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783109431; x=1783714231;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VqnVxuePfzGralo5ejKJTMgkZosmeyctDuCT0QENgCw=;
-        b=BkB+ZZRHNYAUeHKojSHyRD18GyCRUR0Ogf0rliEyNJIBDkwzc7ohMgndN3Bekx79ff
-         6Ibbp+j2k9jF2zLahRnd+dTpBjPxQBEEyHiZ9XlYkCihy2yncSB3FrsPSr8rpcM9h1SU
-         4Ma+0OHTIbLHWLNpfSusE9Kjj/Z2qV+DYpoM8oFtl5fn2xQMieplU0dRdXHBLA2RTGfk
-         06wDvNxNPW+yjWOD8sEFNWqDtEyXlRP1W9LyzUihWx94CgAw0gk7USPIPbJjyln+0OSF
-         kPLHI80kbpcHFhprGdt2trIFirIvfuQGWgGjE5LIjUwiSwcw4g9qs2UGU28PMMBieGkk
-         BwnQ==
-X-Gm-Message-State: AOJu0YzZRoZXMJorI5fhw1e6qeDlIt1HjqM66yBYDP0VOCoIfzuA3iR4
-	BQ7+K7qqSvy8iFzWRaV9ByQXB2PtDXiV2WwrZn59O07QgcWmWQ8ZZa0K
-X-Gm-Gg: AfdE7clu1lBzmbZ36XUvppW7QFtoGa8DouXTHVtsq/icWr81Mh1fDuoRO66GgYphupP
-	aLGkX6Og/vCNZk9YBhvtXuO8nmyXIQqzWIi3mjq1/6TVJEIr9oM64N40BxoO8v0HIxZeW1rBOzl
-	O2TScDRk6B7ZqVWwQHelUiU17EK5yClsJufDALSS/QhLiKjYwsCjHCBNZk2EtiXPyPBRHkwca8r
-	0TSzjheZ7aq0H7xtJZtzMPpDGjcfafseZjANNRdm/3CQ3UDU65aite8A4a8DCVcG4UQWlRQe+1o
-	9cx7Ya6Uv+SwillvlnWJwxgIOzMozCGb4xacCxhazWpLBptYReG2xPUDXd7sMrkn/Mk88lR3Yfd
-	QzJzU6Q59Ss8v+CfZ3mWyZWW5u7/LYsxgJHvZKWI0GIr/9L/8qe3Ik/Ik01ItGNn5oGusFQwq+/
-	J+NqYq+6O2IvOsIIctpswXtdnp59NdLV9DICTfuNsp6+LTdTCB+NNwNMlTyjTzrdMkkaGREkqv4
-	g==
-X-Received: by 2002:a05:622a:85:b0:51b:ecca:f2e0 with SMTP id d75a77b69052e-51c4c1e6500mr15034181cf.5.1783109430605;
-        Fri, 03 Jul 2026 13:10:30 -0700 (PDT)
-Received: from oklopfer.hsd1.ma.comcast.net (c-73-167-46-184.hsd1.ma.comcast.net. [73.167.46.184])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51c41df52a6sm22259141cf.27.2026.07.03.13.10.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 13:10:29 -0700 (PDT)
-From: Oren Klopfer <oklopfer37@gmail.com>
-To: oklopfer37@gmail.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Thorsten Leemhuis <regressions@leemhuis.info>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] Revert "arm64: dts: rockchip: Further describe the WiFi for the Pinephone Pro"
-Date: Fri,  3 Jul 2026 16:10:10 -0400
-Message-ID: <20260703201010.67311-1-oklopfer37@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260615225014.219115-1-oklopfer37@gmail.com>
-References: <20260615225014.219115-1-oklopfer37@gmail.com>
+	Fri, 03 Jul 2026 20:25:30 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7C55560051;
+	Fri,  3 Jul 2026 20:25:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1AFF1F000E9;
+	Fri,  3 Jul 2026 20:25:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783110328;
+	bh=guKgZOIo14OV98TBahVEzDDu1t9jxYO9Rj2dFbINeoc=;
+	h=From:Subject:Date:To:Cc;
+	b=EJa4+yR+ULFoUC/Ev/WIHKE6vhG584nAwMB/tOp/YrgDczbfT4TPtdW9741mbr87V
+	 Wha6+A+6tjCZ2i+EqCeQ8AVoSawIJD0hbyUt49Oakc0JMR9NxwE4Rzsu88V/5hX5hz
+	 6KzbolPp1ZbjZftUw5LJGwB2KhGXdE8VAMOf6ew73cgW/rZYdB9XSJfYelzTUAyVtu
+	 SjujfQgAzhZTNRKBNFzWvM62fRAE51QxaVEpZFzt6QUsIXINmZ+c8jSDb8KpQb3sb9
+	 OMeAzOyxHU953zaPDAfJYefpjoVyH9c4g4O0o00KV5/Dq4SyRT7Wt5dgwYRqOZeAeW
+	 wqUNumhb8C9kA==
+From: Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v3 00/17] firmware: arm_scmi: Fix SCMI core cleanup paths
+Date: Fri, 03 Jul 2026 21:22:36 +0100
+Message-Id: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_131032_689815_AEA0B729 
-X-CRM114-Status: UNSURE (   9.98  )
-X-CRM114-Notice: Please train this message.
+X-B4-Tracking: v=1; b=H4sIABIaSGoC/2XNTQ6CMBAF4KuQrq3pjwXrynsYQ6BMoYrUtNhoC
+ He3RRNjWL7Me99MyIMz4NEhm5CDYLyxQwx8kyHVVUML2DQxI0ZYTnImsVc3UyrroNTmCR43FVd
+ NIXi9gwrF1d3Bcoij0/mT/aO+gBoTkxqd8aN1r+VloKn31TlZ6YFigrXkTFEQVEp2vIIboN9a1
+ 6LEB/YDCkLXAIsA1QL2QgiuC/4HzPP8BjcxiXwCAQAA
+X-Change-ID: 20260629-scmi_core_fixes-da3cd753b4ea
+To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: Cristian Marussi <cristian.marussi@arm.com>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,70 +71,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 096bd8c679185f898cae9933c6a68650fa26ea4f.
+This series fixes a set of SCMI core and transport lifetime issues found
+around device creation, channel setup failure, notification teardown,
+driver binding and malformed firmware descriptions.
 
-Just as with the Pinebook Pro, there are multiple chipset variants for
-the Pinephone Pro, and multiple firmware binaries for different
-distributions. The change causes issues with some of these combinations,
-and reverting it resolves the issues. See the Closes below for the full
-report.
+Most of these issues were found by Sashiko[1][2] while reviewing the ACPI
+SCMI PCC work[3]. They are posted separately because the problems are
+independent SCMI core, mailbox and virtio transport cleanup bugs, and do
+not depend on the ACPI PCC series.
 
-Similarly with the Pinebook Pro adjustment, the original commit only
-indicates "further description" and not indicative of fixing any
-existing issues, so reverting should not kick any back up.
+Since I started fixing the initial set of issues pointed by sashiko, more
+issues have been identified and hopefully with v3, it really calms down.
+I can only wish 😄.
 
-Fixes: 096bd8c67918 ("arm64: dts: rockchip: Further describe the WiFi for the Pinephone Pro")
-Cc: Heiko Stuebner <heiko@sntech.de>
-Cc: Peter Robinson <pbrobinson@gmail.com>
-Cc: Thorsten Leemhuis <regressions@leemhuis.info>
-Cc: stable@vger.kernel.org
-Closes: https://lore.kernel.org/r/20260607225901.64019-1-oklopfer37@gmail.com/
-Signed-off-by: Oren Klopfer <oklopfer37@gmail.com>
+Fixes tags need to be checked again or even dropped if it is not a stable
+material. Just some placeholders that I thought are appropriated are in place.
+
+The fixes tighten ownership and teardown rules for generated SCMI devices,
+transport devices and transport channels. They make internal transport
+devices reachable by explicit teardown without exposing them to normal SCMI
+driver binding, ensure partially initialized channels are unwound on setup
+failures, and avoid IDR/device lifetime races during probe failure and
+device unbind.
+
+The series also fixes notifier and notification teardown ordering.
+Requested device notifiers are unregistered before protocol IDRs are
+destroyed, RCU is used around requested-device protocol lookups, transport
+callbacks are stopped before notification state is released, and protocol
+bind failures now drop any SCMI handle acquired before probe.
+
+The mailbox transport fixes cover both setup failure unwinding and an early
+interrupt window: mailbox callbacks can run as soon as mbox_request_channel()
+binds the client and starts the controller, so the SCMI mailbox transport
+now publishes the channel state before requesting channels.
+
+The virtio transport fix clears virtio-owned channel state when SCMI
+channels are freed, so devres-managed SCMI message pointers do not survive
+across SCMI driver unbind and rebind.
+
+Summary:
+
+- Fix OF node reference ownership for generated SCMI devices.
+- Allow explicit teardown lookup of internal transport devices.
+- Clean up TX/RX channels when SCMI channel setup fails midway.
+- Fix SCMI device lifetime handling around child lookup and bus ID reuse.
+- Free transport resources when IDR insertion fails after channel setup.
+- Unregister requested-device notifier before active protocol IDR teardown.
+- Unwind mailbox channels on TX receiver and P2A receiver setup failures.
+- Protect requested-device protocol lookup with RCU.
+- Avoid modifying an IDR while iterating it during channel cleanup.
+- Clear the SystemPower singleton flag on SCMI device creation failure.
+- Reject out-of-range DT protocol IDs instead of allowing u8 truncation.
+- Stop transport callbacks before releasing notification state.
+- Publish mailbox channel state before requesting mailbox channels.
+- Use the owning channel ID when tearing down shared transport devices.
+- Drop SCMI handles on protocol bind and device-link failures.
+- Clear virtio channel lists when freeing SCMI virtio channels.
+
+Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
+
+--
+Changes in v3:
+- Added SCMI bus resource release helper so bus IDs are released from
+  destroy, register-failure and final-release paths, and cleared after
+  release to avoid later double-free.
+- Moved SystemPower singleton cleanup into the same resource helper so
+  direct driver-core child release also clears the flag.
+- Removed the unused mailbox P2A unwind label.
+- Published cinfo->handle before transport chan_setup() so early mailbox
+  callbacks have a valid SCMI handle.
+- Added fix to destroy shared transport devices using cinfo->id instead of
+  the IDR iterator key.
+- Added SCMI handle cleanup on device_link_add() failure and
+  BUS_NOTIFY_DRIVER_NOT_BOUND.
+- Added virtio channel cleanup to detach unused virtqueue buffers and clear
+  local channel lists across SCMI unbind/rebind.
+- Link to v2: https://patch.msgid.link/20260701-scmi_core_fixes-v2-0-1f5e85553f73@kernel.org
+
+Changes in v2:
+(Mostly addressing the additional issues found by Sashiko)
+- Added fixes for IDR mutation during channel cleanup.
+- Added SystemPower singleton flag unwind on device creation failure.
+- Added validation to skip out-of-range DT protocol IDs.
+- Moved notification teardown after transport channel cleanup.
+- Published mailbox cinfo before mbox_request_channel() can enable callbacks.
+- Link to v1: https://patch.msgid.link/20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org
+
+[1] https://sashiko.dev/#/patchset/20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com
+[2] https://sashiko.dev/#/patchset/20260630-scmi_core_fixes-v1-0-f932c1e51992@kernel.org
+[3] https://patch.msgid.link/20260525-acpi_scmi_pcc-v2-0-4f38938d08d8@arm.com
+
 ---
+Sudeep Holla (17):
+      firmware: arm_scmi: Fix OF node reference handling
+      firmware: arm_scmi: Fix transport device teardown lookup
+      firmware: arm_scmi: Clean up channels on setup failure
+      firmware: arm_scmi: Fix SCMI device destroy lifetimes
+      firmware: arm_scmi: Free transport channel on IDR failure
+      firmware: arm_scmi: Unregister device notifier before IDR teardown
+      firmware: arm_scmi: Unwind TX receiver mailbox setup failure
+      firmware: arm_scmi: Unwind P2A receiver mailbox setup failure
+      firmware: arm_scmi: Protect device request lookup with RCU
+      firmware: arm_scmi: Avoid IDR updates while cleaning channels
+      firmware: arm_scmi: Clear SystemPower flag on create failure
+      firmware: arm_scmi: Reject out of range DT protocol IDs
+      firmware: arm_scmi: Stop channels before notification teardown
+      firmware: arm_scmi: Publish channel state before mailbox request
+      firmware: arm_scmi: Use channel ID for transport teardown
+      firmware: arm_scmi: Drop handle on protocol bind failures
+      firmware: arm_scmi: Clear virtio channel lists on free
 
-v2:
-- Repair malformed whitespace
+ drivers/firmware/arm_scmi/bus.c                | 89 +++++++++++++++++---------
+ drivers/firmware/arm_scmi/common.h             |  2 +
+ drivers/firmware/arm_scmi/driver.c             | 79 ++++++++++++++---------
+ drivers/firmware/arm_scmi/transports/mailbox.c | 24 +++++--
+ drivers/firmware/arm_scmi/transports/virtio.c  | 17 +++++
+ 5 files changed, 143 insertions(+), 68 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260629-scmi_core_fixes-da3cd753b4ea
 
- .../boot/dts/rockchip/rk3399-pinephone-pro.dts | 18 ------------------
- 1 file changed, 18 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 8d26bd9b7500..d46cdfe3f784 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -734,12 +734,6 @@ light_int_l: light-int-l {
- 		};
- 	};
- 
--	wifi {
--		wifi_host_wake_l: wifi-host-wake-l {
--			rockchip,pins = <4 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
--		};
--	};
--
- 	wireless-bluetooth {
- 		bt_wake_pin: bt-wake-pin {
- 			rockchip,pins = <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
-@@ -766,19 +760,7 @@ &sdio0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&sdio0_bus4 &sdio0_cmd &sdio0_clk>;
- 	sd-uhs-sdr104;
--	#address-cells = <1>;
--	#size-cells = <0>;
- 	status = "okay";
--
--	brcmf: wifi@1 {
--		compatible = "brcm,bcm4329-fmac";
--		reg = <1>;
--		interrupt-parent = <&gpio4>;
--		interrupts = <RK_PD0 IRQ_TYPE_LEVEL_HIGH>;
--		interrupt-names = "host-wake";
--		pinctrl-names = "default";
--		pinctrl-0 = <&wifi_host_wake_l>;
--	};
- };
- 
- &pwm0 {
 -- 
-2.53.0
+Regards,
+Sudeep
+
 
