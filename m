@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E457C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B724C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:57:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kpVK7jHSU6DZTLrF288lYqUeXcyrWXMppgRFJTLSRmE=; b=cWgDJ+zTqgZ7DoQ8QvpOMnHAuy
-	oyZM9W8WVaXlpV71XL3tTDdtLcuO9GCH2MAfdxGRosyhPwViV2jAB1WeGecIayWRPHNu5EY+z8TxP
-	LvBvHkKfHo6xIXZjeHGWdgQuYKE8hxXg4nN87+d4o2HQ10EEt9kVo7mS14ow8f2/q9s3n4HNVG2Lz
-	ekO563TNZMBRshpwfQQfydISMp2aZrtDdHmjQT2yjRG3hGHafZxIthVi0BHMgkOdNcwH6G8CsTm+8
-	a659554ufgvj+EzIBtVO82fSqOr8IWbB6TPgk7rIdCIXsz3TpyPM4YszgOne9js9HgmNELwds7LtX
-	60AAawnA==;
+	bh=EaMysW8ENvaf3rrvLxL52kqIKJ0nwCCn6rGzVpw7LPE=; b=mfS/tkRlv082GojFDq/dsg/1qc
+	0yFd9zDxvUD1Lfd5BwHZiVdrZV1t1k0hoCUfQRePxmGdI/Z9cwiQRGpLbC/xqp8yypVrK3cY6GUen
+	tWijKTwbUXstpn1ENM+VMPaRa0wYPB0lwBua2vqE7QhlQE8EKD0S2x/Q1w+lp5Xm733s4KCXl3aS9
+	cyY8s9uqZwhI0lpt1tCnm0hljvzFFXpREtvZh9uUqU7cs64abJ3I4eSiju3A6QQTTY0zTVpib2uIY
+	o+HNeMKdfahR6+7h9LCC/9DKzIUH+gTwF7KRH4DmL68WEYda2ugT87GeFXjTcFLvZLZKoMWxHbi/j
+	njrZ2HrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZgl-00000006QH6-3WY1;
-	Fri, 03 Jul 2026 08:56:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZgj-00000006QGT-2Go9
+	id 1wfZXM-00000006O8a-0sJZ;
+	Fri, 03 Jul 2026 08:46:16 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfZXH-00000006O4e-1FF4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:55:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C72251F60;
-	Fri,  3 Jul 2026 01:55:51 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.73.238])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF5D23F905;
-	Fri,  3 Jul 2026 01:55:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783068956; bh=+KB54fHhiLJ7QJHqj8KD4+z0cUvnDc9dzs+QfuUqKrU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UPDgItcVp7b5gJHl98aXaC78cmuWm17hyGjnqb1XIfXOjEEtOk493dvXvCa8NvSKZ
-	 ugPsi9QDZ8z/fuWuTv9vkJ1ddjd89GR55lfYDPKRAcQBm4TZdE8f8LEO0Qiw3P20sR
-	 a7Bm+t5A/z1KmjnpJ26F3w/ZYDGrhZyqFFR5ndrg=
-Message-ID: <332b1348-285f-4b4a-9d3d-97f040739703@arm.com>
-Date: Wed, 1 Jul 2026 21:14:27 +0100
+	Fri, 03 Jul 2026 08:46:13 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-493b27c7451so13756125e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 01:46:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783068369; x=1783673169; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EaMysW8ENvaf3rrvLxL52kqIKJ0nwCCn6rGzVpw7LPE=;
+        b=EY9RwCLqu+e4hj9xU2xzr4Gc54z5a3Wt5fTiYD0fiHjLTdkFZTXnvNqSOSRgWZpsJl
+         2ziD1fYDW8StiAmR5Gndq7dJpXn+PT2fajvPZtuiGbNzXr6aKClr7Ud8jl75B0gZjTbi
+         BBZ5BNedRJ6yKbQsK4JRoR86R2C9ZBQRVXLF/681CEf+sBKC2DyKCwN9ZTfSvKo+XV2w
+         HeeutmYWpWAG2qh6Fop5RM3vxLULNAXQVxwvvTyceviq8FoKYTwEskzty6Y/gJRlf5aC
+         y23S4esLt/YcSFIwMdwXO76BO/dyxPPDzSqncLVwOP/SEBpyVeS1rbQzITVkNgsOTb8t
+         GZrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783068369; x=1783673169;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EaMysW8ENvaf3rrvLxL52kqIKJ0nwCCn6rGzVpw7LPE=;
+        b=CGYOZM7+3ANkGrSBfbew4MV5DEGzQbFBJ19hngq2h865haJSJX5aUFtRM+oCJVJkpY
+         g7LEAcjuiKkHVDGESgz65K6YdcDJgIpu0rbhVMkQTHTB/VgSqrRhMUE+S2k/01tiziUv
+         nFAGmFqdw+S1ankfG6hzTpaeGfvXai2p+Es4yVVgkV875Nihs/ANsNADfW/ZDoyuRfLF
+         nPh1i+TsyKdn/QNnwz/N5RpRCDpYc7KuFOPALaeZ8vFUwwQ0+3Y6pheM5G1021yu4aqo
+         jPvjZ8WX3Zdrkow/virUyc9mfNoTIXhCtqwn5xTMjWicJ6rJCnMnYiq725vVvB0/Wbn/
+         y2xg==
+X-Forwarded-Encrypted: i=1; AFNElJ/zc2j55Gk8/4tbv/orSf0hCRTpZVZndCRs3UyhFjyOGEakZV3ENc8C8N2FqE1E6JwE3MzpGsgKnXOpun8ebQma@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpJUesVCIsAuOy/Q7/DOr2QFnOFZaGcVgdSlQEOnkOit7UH5do
+	uM7bQSCL5HeAWxTury5CqfHUpfO1oqpDLzh5tkMSUiXcabW51iEeatWI
+X-Gm-Gg: AfdE7ckdYi/AY89nGaBeS/CqY9KuTndvTgCLClSk4eGkOjjHJhllarYH855aq8PdpBn
+	P922Zsp/zHKm9hsRwg+Aekh8NseQsPmU/Qyhtoozq2wmbN71DJnBdlOp2CpjwD0SEqcmuzGXJgt
+	2/NTFhxG5aaSqol5MYAedc6DOMnYBYTVRiMNS3A+MJs1s27cqdkTHqCaRErkSHQX+Fvv3a9FJf+
+	fE2LD7r83fhTdBdQqso232jSX93PkXTvui5ga96TmPYzuwxrUFf2VHvxQl9FctcdQtXioaL0VeN
+	FmVRDtfNm8EmejJwlp4FdvJ+smLQoFToDmDz5qDfBNvdICLC8XfHBhpXql0dhnFv+SZ589K9w0L
+	GPgNSa+l6p2ubNPfA2KtttlQWt/0NC+O+cYZ3ruGXkvUG56O4fEuJkvGPjgj9xm0mHI1CrJeaVV
+	TcyyHW67yqB4LR93YJN2GP8dF16fBLirlQyur0WGX+FxCuaqlx84O3UOh/x5T24GcpxBXJ9d0dG
+	3CbGe4iM+M5mQ3yF8UKJfvNIJhfCaTa74bS
+X-Received: by 2002:a05:600c:a011:b0:492:7025:13fd with SMTP id 5b1f17b1804b1-493c9b0d55dmr39419845e9.0.1783068369380;
+        Fri, 03 Jul 2026 01:46:09 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cfb6f199sm6335505e9.3.2026.07.03.01.46.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 01:46:08 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: [PATCH v1 02/15] arm64: dts: freescale: imx8mn-var-som: move SD card support to Symphony
+Date: Fri,  3 Jul 2026 10:45:49 +0200
+Message-ID: <87e54dbf65c27944b015335ac699fce7f45369f4.1783067947.git.stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <cover.1783067947.git.stefano.r@variscite.com>
+References: <cover.1783067947.git.stefano.r@variscite.com>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v2 06/15] arm_mpam: propagate MSC read errors for
- __ris_msmon_read()
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-7-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260702162229.4008659-7-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_015557_667168_7A781C6A 
-X-CRM114-Status: GOOD (  22.91  )
+X-CRM114-CacheID: sfid-20260703_014611_361628_B6FECED2 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,119 +110,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-On 7/2/26 17:22, Andre Przywara wrote:
-> Allow the function for RIS accesses to return an error, and propagate
-> read errors from the lower level up.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/resctrl/mpam_devices.c | 35 +++++++++++++++++++++++++++-------
->  1 file changed, 28 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index b259fe20a614..d18c7be86aaa 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -1285,9 +1285,14 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
->  	return overflow_val;
->  }
->  
-> +/*
-> + * This function might be called via smp_call_function_any(), so propagate
-> + * errors inside the arg struct.
-> + */
->  static void __ris_msmon_read(void *arg)
->  {
->  	u64 now;
-> +	int ret;
->  	u32 now32;
->  	bool nrdy = false;
->  	bool config_mismatch;
-> @@ -1326,7 +1331,9 @@ static void __ris_msmon_read(void *arg)
->  	 * Read the existing configuration to avoid re-writing the same values.
->  	 * This saves waiting for 'nrdy' on subsequent reads.
->  	 */
-> -	read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> +	ret = read_msmon_ctl_flt_vals(m, &cur_ctl, &cur_flt);
-> +	if (ret)
-> +		goto out_unlock;
->  
->  	if (mpam_feat_msmon_mbwu_31counter == m->type)
->  		overflow = cur_ctl & MSMON_CFG_x_CTL_OFLOW_STATUS;
-> @@ -1351,7 +1358,9 @@ static void __ris_msmon_read(void *arg)
->  
->  	switch (m->type) {
->  	case mpam_feat_msmon_csu:
-> -		mpam_read_monsel_reg(msc, CSU, &now32);
-> +		ret = mpam_read_monsel_reg(msc, CSU, &now32);
-> +		if (ret)
-> +			goto out_unlock;
->  		nrdy = now32 & MSMON___NRDY;
->  		now = FIELD_GET(MSMON___VALUE, now32);
->  
-> @@ -1371,7 +1380,9 @@ static void __ris_msmon_read(void *arg)
->  			else
->  				now = FIELD_GET(MSMON___L_VALUE, now);
->  		} else {
-> -			mpam_read_monsel_reg(msc, MBWU, &now32);
-> +			ret = mpam_read_monsel_reg(msc, MBWU, &now32);
-> +			if (ret)
-> +				goto out_unlock;
->  			nrdy = now32 & MSMON___NRDY;
->  			now = FIELD_GET(MSMON___VALUE, now32);
->  		}
-> @@ -1402,10 +1413,15 @@ static void __ris_msmon_read(void *arg)
->  	if (nrdy)
->  		m->err = -EBUSY;
->  
-> -	if (m->err)
-> -		return;
-> +	if (!m->err)
-> +		*m->val += now;
+The VAR-SOM-MX8MN module does not provide an onboard SD card slot.
+USDHC2 is routed to the SD card slot on the Symphony carrier board.
 
-Why does this change? Can't you keep this the 'if' statement as before
-and more the 'return' after the '*m->val += now;'?
+Move the USDHC2 node and pinctrl configuration from the SOM device tree
+to imx8mn-var-som-symphony.dts, keeping the SOM dtsi limited to hardware
+present on the module itself.
 
-Thanks,
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+ .../dts/freescale/imx8mn-var-som-symphony.dts | 57 +++++++++++++++++++
+ .../boot/dts/freescale/imx8mn-var-som.dtsi    | 56 ------------------
+ 2 files changed, 57 insertions(+), 56 deletions(-)
 
-Ben
-
-> +
-> +	return;
->  
-> -	*m->val += now;
-> +out_unlock:
-> +	mpam_mon_sel_unlock(msc);
-> +
-> +	m->err = ret;
->  }
->  
->  static int _msmon_read(struct mpam_component *comp, struct mon_read *arg)
-> @@ -1729,6 +1745,7 @@ static int mpam_restore_mbwu_state(void *_ris)
->  {
->  	int i;
->  	u64 val;
-> +	int ret = 0;
->  	struct mon_read mwbu_arg;
->  	struct mpam_msc_ris *ris = _ris;
->  	struct mpam_class *class = ris->vmsc->comp->class;
-> @@ -1741,10 +1758,14 @@ static int mpam_restore_mbwu_state(void *_ris)
->  			mwbu_arg.val = &val;
->  
->  			__ris_msmon_read(&mwbu_arg);
-> +			if (mwbu_arg.err) {
-> +				ret = mwbu_arg.err;
-> +				break;
-> +			}
->  		}
->  	}
->  
-> -	return 0;
-> +	return ret;
->  }
->  
->  /* Call with MSC cfg_lock held */
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
+index b07e71d3adee..7308613a48b2 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
+@@ -28,6 +28,7 @@ reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
+ 		regulator-max-microvolt = <3300000>;
+ 		gpio = <&gpio4 22 GPIO_ACTIVE_HIGH>;
+ 		enable-active-high;
++		off-on-delay-us = <20000>;
+ 	};
+ 
+ 	gpio-keys {
+@@ -200,6 +201,20 @@ usb1_drd_sw: endpoint {
+ 	};
+ };
+ 
++/* SD */
++&usdhc2 {
++	assigned-clocks = <&clk IMX8MN_CLK_USDHC2>;
++	assigned-clock-rates = <200000000>;
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
++	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
++	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
++	cd-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
++	bus-width = <4>;
++	vmmc-supply = <&reg_usdhc2_vmmc>;
++	status = "okay";
++};
++
+ &iomuxc {
+ 	pinctrl_captouch: captouchgrp {
+ 		fsl,pins = <
+@@ -252,4 +267,46 @@ MX8MN_IOMUXC_UART4_RXD_UART4_DCE_RX	0x140
+ 			MX8MN_IOMUXC_UART4_TXD_UART4_DCE_TX	0x140
+ 		>;
+ 	};
++
++	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
++		fsl,pins = <
++			MX8MN_IOMUXC_GPIO1_IO10_GPIO1_IO10	0x41
++		>;
++	};
++
++	pinctrl_usdhc2: usdhc2grp {
++		fsl,pins = <
++			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x190
++			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d0
++			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d0
++			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d0
++			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d0
++			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d0
++			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
++		>;
++	};
++
++	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
++		fsl,pins = <
++			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x194
++			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d4
++			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d4
++			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d4
++			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d4
++			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d4
++			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
++		>;
++	};
++
++	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
++		fsl,pins = <
++			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x196
++			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d6
++			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d6
++			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d6
++			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d6
++			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d6
++			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
++		>;
++	};
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
+index 32f101ef2850..e1d2e2a72e1f 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
+@@ -295,20 +295,6 @@ brcmf: wifi@1 {
+ 	};
+ };
+ 
+-/* SD */
+-&usdhc2 {
+-	assigned-clocks = <&clk IMX8MN_CLK_USDHC2>;
+-	assigned-clock-rates = <200000000>;
+-	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+-	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+-	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+-	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+-	cd-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+-	bus-width = <4>;
+-	vmmc-supply = <&reg_usdhc2_vmmc>;
+-	status = "okay";
+-};
+-
+ /* eMMC */
+ &usdhc3 {
+ 	assigned-clocks = <&clk IMX8MN_CLK_USDHC3_ROOT>;
+@@ -454,48 +440,6 @@ MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3	0x1d6
+ 		>;
+ 	};
+ 
+-	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
+-		fsl,pins = <
+-			MX8MN_IOMUXC_GPIO1_IO10_GPIO1_IO10	0x41
+-		>;
+-	};
+-
+-	pinctrl_usdhc2: usdhc2grp {
+-		fsl,pins = <
+-			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x190
+-			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d0
+-			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d0
+-			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d0
+-			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d0
+-			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d0
+-			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
+-		>;
+-	};
+-
+-	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+-		fsl,pins = <
+-			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x194
+-			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d4
+-			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d4
+-			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d4
+-			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d4
+-			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d4
+-			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
+-		>;
+-	};
+-
+-	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+-		fsl,pins = <
+-			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x196
+-			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d6
+-			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d6
+-			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d6
+-			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d6
+-			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d6
+-			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
+-		>;
+-	};
+-
+ 	pinctrl_usdhc3: usdhc3grp {
+ 		fsl,pins = <
+ 			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK	0x190
+-- 
+2.47.3
 
 
