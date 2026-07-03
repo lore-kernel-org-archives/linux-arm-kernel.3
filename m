@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:20:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E80C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Lh2AAUoB1JC5DGuav624QON15nyQOs3xfpPwsgzzqs=; b=JoHg5Pp5CNLrssUvM/DpcaTCR8
-	f3qt18s4cjV3qkNXl8CTTbju9R2ewFp5BCb+QN9Q3gPOk2Kc+Q3AfhNqtC9rCbpq78ObV1nqm3nFh
-	v5HpmjL/xphgHc52XjNw13FZ4oCWEJ1pC3FgpP/xETA7nQfWYgrU8B+f8y5guOWPBQkhHlrnVbKkW
-	3w4aHBMJF7XeiKnZrZoJP4v95ALgixB11xKecx4ysF7bwSLn5yRz89+5E+oQ5OFS0EO3mG/5bjOZS
-	pd4rauS9tHHcRcNFBHbGEdnGUwrROIqxngXR0HZmGa6rxidpjm2uRsmj4LOxcPbJqQ7AycmyXaYbb
-	vUoiqOxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1lCH77eIOkpyT6UD6CNZ7GGsrspDZ0kqeiwmNw7g46I=; b=4VMICFBB/Bi8mKBI6X+1p/yjmc
+	5N9gnxTvvF88DcB2sZrOpyZZ6eFLiPzjJ+IvgKpODpg8nHFS6AZkroZXfOCnTZTA/1saEnit2qioa
+	O342r72pak56jaS/8gHdtsty6RrkXcMeLSoE77skkhat/Kn/BYxY8pDH/gOyRyBBJKPse92ZkSBqV
+	c4IVc7+57Vt/NnKxlcfXZ21LL0D/SjJZwTtcQruM9dE+mZsiFjkPdW3Gy2mPFJekxzhYjw+fxP7UN
+	uYPOasTKMXzaUI+g0oKoFsY7pzmF5rjblmpmhcUrBEu6IgkeiQlLKyIp+e0T1VyC5OzIUTAFiyAoU
+	akXNmdjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfekz-00000007FCb-0euP;
-	Fri, 03 Jul 2026 14:20:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfenx-00000007FX3-20fq;
+	Fri, 03 Jul 2026 14:23:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfekx-00000007FCT-4BLf
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 14:20:40 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 586A960051;
-	Fri,  3 Jul 2026 14:20:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 026E31F000E9;
-	Fri,  3 Jul 2026 14:20:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783088438;
-	bh=0Lh2AAUoB1JC5DGuav624QON15nyQOs3xfpPwsgzzqs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=CV3eauhPjuGIcDWAuH7jmQQ0azXqPxyCAQx+VyWA76LBoY6RV6Ml8HdSg0GBxbMRe
-	 MMzRFWVsjx3hHjyz2RYpJ/tba2gIgRzZioGO4aW1pNYWs8A2kVnZq+aikpl2QaiGNI
-	 ENNkHklIR9iq7+exGB3mg2GttfiP0KyXXvEv4T34zFPrYLCXbkGza0Z6jQLCtCo+gT
-	 0QhZH+2EGLx1sdF3J8l+/s/vWJFgi/t1MOe7UG439DRWCb3Bh0jmII46SIkiNA1chI
-	 YGsizy5zkRaRy1hIhwIt7woYrNdfo3kFDtlHLOpmR2IpHMuvqBBwJR94QWWVNTr0uS
-	 iOjlAAjfDkpgQ==
-Message-ID: <d12320a3-65fb-4e0d-9f79-69368a708ded@kernel.org>
-Date: Fri, 3 Jul 2026 16:20:34 +0200
+	id 1wfent-00000007FVK-2xQn;
+	Fri, 03 Jul 2026 14:23:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=1lCH77eIOkpyT6UD6CNZ7GGsrspDZ0kqeiwmNw7g46I=; b=TPLyRFDV5oqX2oLuzs2c7r4tay
+	CsE76Bq2bIY/IcZOm78Rj0OUPdsOmW/E9AL0oHE2vGBwCCUqRJcsCspd6RWCkl1FjrzE2yP8VjD5c
+	o69aPl5YR/YB2/DP5acrfQX5WgAfQRCgG5hUs+PQ0JPOIFbH20tsG4BMCh3Wtdwe/bDwna5fkYl6X
+	614NQpT8M06EOrbiSrzhf0Q/XhQycxO4Z8DIPHrXqSu/UCI9OjhdcEJqEf+TEfU95qDXwehdI/KDi
+	WE1Of/5DDRF1pKFiqava9nEWMeJm1Mf4HrwFgoHnT1E/Qxs3G/ag/VLsvkz1bQyWEloSNWnjEjX1H
+	oVkrIpwA==;
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Cunhao Lu <1579567540@qq.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
+ kernel@pengutronix.de, Vincent Mailhol <mailhol@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Quentin Schulz <quentin.schulz@cherry.de>
+Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: Enable CAN controller on
+ RK3588-Tiger-Haikou
+Date: Fri, 03 Jul 2026 16:23:22 +0200
+Message-ID: <3078012.2VHbPRQshP@diego>
+In-Reply-To: <e03fcd5c-de56-4f39-90c2-3ba0636a1cca@cherry.de>
+References: <20260703-master-v4-0-47d40bbf5fda@qq.com>
+ <tencent_F79E849B11AF805A4401BF9F263B1A469907@qq.com>
+ <e03fcd5c-de56-4f39-90c2-3ba0636a1cca@cherry.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: dts: apple: Add pmgr-misc nodes to t60xx
-To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: asahi@lists.linux.dev, Rob Herring <robh@kernel.org>,
- Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
- linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
- <20260703-pmgr-misc-v2-3-4b26ba10c5a4@chaosmail.tech>
-Content-Language: en-US
-From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260703-pmgr-misc-v2-3-4b26ba10c5a4@chaosmail.tech>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_072341_866295_CB029ED6 
+X-CRM114-Status: GOOD (  30.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,19 +71,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Am Freitag, 3. Juli 2026, 16:05:18 Mitteleurop=C3=A4ische Sommerzeit schrie=
+b Quentin Schulz:
+> Hi Heiko, Cunhao,
+>=20
+> On 7/3/26 10:01 AM, Cunhao Lu wrote:
+> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> >=20
+> > CAN0 is piped through the Q7-connector to the CAN-Header on the Haikou
+> > base-board, so enable support for it there.
+> >=20
+> > At least on RK3588-Tiger, the CAN clocks default to 99MHz, limiting
+> > usable CAN bitrates without skew. Errata documentation mentions
+> > 300MHz as the default frequency on RK3568, so replicate this here
+> > to allow more bitrates.
+> >=20
+> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> > Signed-off-by: Cunhao Lu <1579567540@qq.com>
+> > ---
+> >   arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts | 6 ++++++
+> >   1 file changed, 6 insertions(+)
+> >=20
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arc=
+h/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+> > index 873fbeb8daa1..6273e695b039 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
+> > @@ -155,6 +155,12 @@ vddd_audio_1v6: regulator-vddd-audio-1v6 {
+> >   	};
+> >   };
+> >  =20
+> > +&can0 {
+> > +	assigned-clocks =3D <&cru CLK_CAN0>;
+> > +	assigned-clock-rates =3D <300000000>;
+>=20
+> Why is this not SoC-specific? We are only routing the signal from the=20
+> SoC after all.
+
+My main reason was that I have no clue what a reasonable controller
+frequency is. The default on Tiger on boot  is 99MHz, which causes
+problems with accurate rates.
+
+Similarly the controller has issues with low clock rates (erratum 5 if
+I'm not mistaken) and ther Mark wrote that at 300MHz the issue is less
+visible. So I took that frequency, but have no clue what the "right"
+frequency is.
+
+Similarly, only Renesas socs seem to set their can frequency in the DT
+and that to 40MHz.
+
+In the Rockchip vendor-kernel I've seen rates to set to 150MHz, 200MHz
+(or left alone) on a board-level
+
+rk3568-ok3568c.dts even sets both 150MHZ AND 200MHz depending
+on the CAN controller (200 for can0+1, 150 for can2) .
+
+This does suggest the usable frequency being specific to the board-design.
 
 
-On 7/3/26 14:44, Sasha Finkelstein wrote:
-> Adds the PMGR misc control nodes for M1/2 Pro/Max/Ultra series devices.
->
-> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
-> ---
+> If it cannot be put into rk3588-base.dtsi for some reason and is=20
+> product-specific... Why is this in the baseboard DTS and not in the SoM=20
+> DTSI? I would like to avoid our customers to have to copy things over if=
+=20
+> they should just work on their baseboard too if they don't do crazy=20
+> things there.
 
-Reviewed-by: Sven Peter <sven@kernel.org>
+We can of course move the clk-rate to the tiger.dtsi.
+(This should not affect the rest of the series, as I'll be applying the
+dts patches anyway)
 
-Thanks,
+
+Heiko
 
 
-Sven
+> I'll try to find time to test the three CAN controllers on RK3588 Jaguar=
+=20
+> with the CAN1-CAN2-UART4 Mezzanine adapter board and will contribute an=20
+> overlay for that if it goes well. I don't have a CAN-FD adapter though=20
+> but I hope they reused the exact same IP for the three controllers in=20
+> the SoC :)
+
+
+
+
 
