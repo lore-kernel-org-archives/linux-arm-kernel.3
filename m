@@ -4,139 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0883AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E53C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:11:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tnigVu7A6Eur55kca0znXTn0z1z6fhbjZbMpypzdNZI=; b=aiJEgqV+Ytnt29Egk3wnBHjgB1
-	2IZA65lz3zh1e4i0MCIFQxOhuqJkLqx04ck9lMOJpTbJjSssCGUDUgloxm9OeYo3KHBFn9PiKXmD4
-	xB2xLxnp/mjvZ57/zUMStVkPmaIeyYCuqilbsi/hdvStUZis58pE7OMXTepywX/RQJp8UG2lYnkdF
-	rnDqCxlUONOqIDnA9we8G0mmgUYOkEBPKupL3gn0PIzE5UeOjfq7/Jm1K5jhjAX9wAYV0Cj9EqxoK
-	9cc7b1nsld7McNkrMu3HsTs/bWJWJu9sYwiud3BWfqPwcv624XGwNdqTzSwSWHGVEcZ4ibTU+ERzC
-	s0cn848w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=c/9FN+wfWdlHfdf3CNCjehuS7y8C+zSoZKGlcipZ1es=; b=LjViPv4Ln3R83WJqVapKO9MQ+z
+	1OA0fEnQttViVuTVerr0o7dQHGUCNMsHiQH1TDgK1qcGd2lyppsORaIOa65WxD7SwX/D64jj87nwx
+	AY7ehuth3C+V163D7BTJBe5Izcpe7LL4e1MpiMT/0tdFxofL0SmqfACssm/MwA+sskHRV4KDIPPOu
+	KYIVO2yfc0UXyV2zeKMb32bhcLd+MNRKBm34cMiRViAtGc06YyLFgIdYecsCf0Smo6L8cLU/aBse2
+	xoOeQ3FQ/sxLiXWbD2c/LGLauyKFV11Yd8I98XUgQ6RIgn/xIjp2d/ZsN7dtkrx9T8hrzYLRC/YS0
+	y/ejxqoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeWJ-00000007CbL-39ff;
-	Fri, 03 Jul 2026 14:05:31 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wfd9E-00000006xlr-0ngJ;
+	Fri, 03 Jul 2026 12:37:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeWF-00000007CZw-3b6U;
-	Fri, 03 Jul 2026 14:05:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M0EFyvk0yQKuDbfDrogB6mQKmtDsJnlUUZoflwL2jt6XI1NP+exPa9OqAc/7HnXIrT9jtWyUNH6JeYcW5uwmeAuz5OLZkZN1ETSG8v5zTdBIYD8P340AC6y1tghn8DM02cYTs+ZW+sZGYeXfvGQB1t+4NOcMfZDDz6safrQ1DifIKi9QU8u8p/DJWhELKC0EQOuyd8KKIK+gFtJtuTTlTQNt1oca5IVaSM/0xOsj5mNi4eiWRtApJ3a4gfq89UqS3hLl2EusXmrRu4k8ozm9evVwJGqtdQvEBG67ONxtmynq8oBkvVevqhG7KtIjqdT2eoP0bWrB9JAa24jZFpJwbQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tnigVu7A6Eur55kca0znXTn0z1z6fhbjZbMpypzdNZI=;
- b=VNpTOy0PRgN841+N9B3T8AR0Aw/0WjwReCu6JFRJeFbJv/adhavYXIWQ+3L0oTDnu9EnwXYkgW17V1GnfK4LkIyc4dZv7OQ/U5DEMaZe7cDrPqlTqZYN/d9HXTDck0uF4tBsHtRX1ytCSfoU8qn6FbxGB3NJtTFfbu7RBBrJ2M/G6P959h4l96QhLyF7pWjSGjP2t5/zW+JftEagN/kiT97wid5+yQQKUa8+RKRUrxgzw/0ujGY+wEkbxJEyK/jIenON5rBja9zN8s6Qyr9zkFKsz1Fqx9JOKdw3gO3foF5VFI3j7CoL+XAeS0hgLJJXHYkaHitRYzKwucfwYvVjkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tnigVu7A6Eur55kca0znXTn0z1z6fhbjZbMpypzdNZI=;
- b=SWcLvvKNK3iXTFl3H8vMz+lk0yMbvRDOfeBP5fSw2nF9Rfhhn5gvEQo0TuOJxM6grsFd49P9OrjgSiPMBDvNMf5WiYHkZvDqvYbKGXffZY1QteIAosYm03fI2w+5PQrJ1SztJGQr/W3Bn+IsmFrW0uqjC9uOhbh8A4MEFr7tI2s=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from DBBPR04MB7737.eurprd04.prod.outlook.com (2603:10a6:10:1e5::22)
- by DBAPR04MB7414.eurprd04.prod.outlook.com (2603:10a6:10:1a0::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Fri, 3 Jul 2026
- 14:05:20 +0000
-Received: from DBBPR04MB7737.eurprd04.prod.outlook.com
- ([fe80::5960:fb4b:9313:2b00]) by DBBPR04MB7737.eurprd04.prod.outlook.com
- ([fe80::5960:fb4b:9313:2b00%5]) with mapi id 15.21.0181.009; Fri, 3 Jul 2026
- 14:05:20 +0000
-Message-ID: <e03fcd5c-de56-4f39-90c2-3ba0636a1cca@cherry.de>
-Date: Fri, 3 Jul 2026 16:05:18 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: Enable CAN controller on
- RK3588-Tiger-Haikou
-To: Cunhao Lu <1579567540@qq.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
- kernel@pengutronix.de, Vincent Mailhol <mailhol@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20260703-master-v4-0-47d40bbf5fda@qq.com>
- <tencent_F79E849B11AF805A4401BF9F263B1A469907@qq.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <tencent_F79E849B11AF805A4401BF9F263B1A469907@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: WA1PEPF00005B8F.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d8::626) To DBBPR04MB7737.eurprd04.prod.outlook.com
- (2603:10a6:10:1e5::22)
+	id 1wfd9B-00000006xfq-0lNt
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Jul 2026 12:37:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=c/9FN+wfWdlHfdf3CNCjehuS7y8C+zSoZKGlcipZ1es=; b=J9YHvQT2CnqQJ+doxPpdEaHwhB
+	0tkedDuLjQ3zjHOPiPabAPl7ZGO/lD/uHqeETg+TZPyj6Xa4iVw6tmmLFjcKL/c57EwXC6CcotSAK
+	J5KVIZPAv86dlaCK8WrVsbvHmlSMkhfi2Rx7q2r0kFyAc5YbUToa0sPeF608mmIeorRjLodSbbR0Q
+	KABH4NSf7wrt9QgaapiZ0iIzT26OhCXQGZ3UBjdYHBe5kZXva8dDaqW3RvfyTg/JevJqXH7YmSD37
+	1Khjs4DkW6COlTi+noyvsWVA7OXi55lKZHsH+E/f+sRik7LwQ9IzPeDxMH3CE0VL4VqQ+agZHsUJL
+	+eGlvCqg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wfd97-00000004oxG-3ztU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 12:37:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF1B21F60;
+	Fri,  3 Jul 2026 05:37:22 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 255EC3F905;
+	Fri,  3 Jul 2026 05:37:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783082246; bh=+g8iNsr3diBgnLCTy6PLZDZrMvospiQB6qob2wscLQ8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=X2hX5hZCFWvCO9VHTccn9hX+cWDFS0U9YCdNDcxA12U0oi05TCNtZhcZAsjewBlrL
+	 uPPKQwqJpcC8NhVOOT/XfWv88pTboj+eg3tAU7w5KTZ7ufATu7fFx9Z8wx6KYtQqBq
+	 fvOsNmtiVg1xJanjffgpeaTdFgGc4zMMJiOBo5+M=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	brauner@kernel.org,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v5 15/23] firmware: arm_scmi: Add common per-protocol debugfs support
+Date: Fri,  3 Jul 2026 13:35:53 +0100
+Message-ID: <20260703123601.381275-16-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
+References: <20260703123601.381275-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DBBPR04MB7737:EE_|DBAPR04MB7414:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19dfd7a8-6257-432b-025a-08ded90c1e1a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|376014|7416014|366016|11063799006|4143699003|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: nUmGJKV8CIgWTqZTPyIwMgEdaB26sH+DtHEDdHjF5L0saDrNrGjIBONhJngZjVFLzTtVxJEGMWWJR/heZEairWjZKIw5ZgIWAzTilFu0ahSlKfVCoNHO7JAnttEXdnIkzPBjtebt/H3NzXMgwb1Pn/BAL/Jv5k4wd/A5l0B5gfFOB0dcqPixXECJk0uF1uhKg3m19Os+B0Fq0TW8KejcZWXBkouKmKne4KppzvVRRJfsT606wbQxaC+EmtZ/hnaAK0u8cCT/8F8J8Iwe+UUNpZPztlVpoLHavWdUKUUE7HsOHLVZH519VZ7g2wouaXv6X1deqMmLYIdWUt8O6yrANCeQLkJ5CGUak9Ab3RNjckYMH99EnXxY1dzqVqU5Ui0WWX2Q2T5SNjgzmCVApjBRzgsjntXkLehOpAGLJle/epjIIpOHAg9gUf/DwKkPr2TVKBSksIiHJdmhlY4iaHGNUX6zGm2sm6edYH1aDxE6spkB717df3VwDo9AHNQ/Zq3q7s2s3A30wcICQ/A8J0UW5hf4fwPQpVs9JWCZsXeHiYTIpcAwVbGIPQDP1YiHGi8GUPRUzk0N/rDk2/KqahQwdIjDM5+tBkpl84MbvVoKTBX343KF3jbgIEtIEkzwMd7UwoHqDdl5eFSnq2ul2G97re0SgNgALaG1Ph4WhcraGzg=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7737.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(376014)(7416014)(366016)(11063799006)(4143699003)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UFhMVDhCMDR3eEhLOGN6RDFjRkFlb1ZPSWxNMzdZbW56azBXQmNjRFNvYnNI?=
- =?utf-8?B?OWhHSXZOMGp5clpPVUo1VFNtMld0elRDRDEvbGZrUU5nSFQ5cFpJc1Brbjl6?=
- =?utf-8?B?TSt6bzdnUlZzbk43eUpmbE1TbDd2NStId3BEaXRzSXZQMnJueVFrL2ZSWHRo?=
- =?utf-8?B?dFJ3VGNwZHp5WEFYV2loc3ZicDdrWEUwVzFtRCtBd1FvRzBMYlJmK2JrSXJM?=
- =?utf-8?B?YXMxcUNVYjI5clpMU2ZGU2VkN2QvQmc5UzhlYWtjR0pTMkRQblFsZmVLRHZ5?=
- =?utf-8?B?MVlhSUkxMDQvcFZKY2JrRGhlL1gxVHM5QzB5NjBoZ1l4eEpBa0VmaTR5a3NF?=
- =?utf-8?B?TjlkVTk2TUhsUkRrZld6Z25WVTZRZkFBMlg1Tm9QcWI1SDVUVTNha2Uyd3Bw?=
- =?utf-8?B?azg4Q0dhZ3JQaDBUNWdmWjY2UDB2ZmhkME14Z1FqL1JWQjY0RDFEVzBWT3FD?=
- =?utf-8?B?TFoxSW95ZjMvb3FQek9pdlAvU2dtZDR0UG9INlZUTkFoNjE2ZGZRZjNVMmx4?=
- =?utf-8?B?TWJnbjkzN0JiY1YyLzh5M0w2dUVrMUVmdUtvK0JlUXp5VUx5M09sYlBEd0VF?=
- =?utf-8?B?RGh0azB3TU9QNWhTTWlkeVVJdGJwZklXVUxlWUNPaU5IVHp1ay9jVGJTRGQw?=
- =?utf-8?B?dmI5WFRVQ1hJVWh1TUJMT2tQUklLa2V4WTJteFVLcEN1YksrL2dDQ2dLN2lk?=
- =?utf-8?B?dGtET3k3bjN3ZWorTEttRUxuVjdNYzA1VkpZZkhsWE9IcHROaGRwL2dNT2t4?=
- =?utf-8?B?ZUpqNWpRS0JjZS9vbHI0UVdMZ3FXM09lcElTSkE3RDdaM01CYVF2MkhuelVP?=
- =?utf-8?B?ZzdoWDg1VkdmY3FPbHIweFRXMFNlUWYvckNoUzRZcVNaR29JS0Y0UXIxZXEx?=
- =?utf-8?B?K3FVQUtXaG9ZbkFjNTlMdE5BOG9mSzhWaStZa3N4K3Rtd2VIeTlXbFVGWFVo?=
- =?utf-8?B?cGlob3VESkU1S0ZEQTM1bEhuRkdHUlZSNWFueUVsWkdEcWgzRUg0ZUxVOVhz?=
- =?utf-8?B?dXVFTm5jbFNzMm9ZS2V0ZUJzbFRDc0JGTHhmZFJyTmdoQTlIZmJHWVpTTnI3?=
- =?utf-8?B?QUYxN00wNHRTcXhWL2cxS0cxUXdyRWVDY2JOVTNQclhvUmdETFg2OUFjRkdB?=
- =?utf-8?B?eE44TnVzTWYwdU5nMGROd0tVWWIwSmQ3UE5BVjRSZTlNdHZTQTIwUkxRZXh1?=
- =?utf-8?B?NTFCNk9hSUtrbUxMblU2L0llTlZDa0QyUzkra1lnRGI4MitCOWZFTXFqcWdr?=
- =?utf-8?B?Q1dWd1FZZHhDTSt0a1c5V1BsWVFITTA5dy9UQUhpRm9UY3NuaEJLTXdmRVky?=
- =?utf-8?B?UmN3MDJQZmptUUh3RUV4T3ljL2VVTk5Fb29BZ01uOVE3U3ppSGhPYkJEUEZk?=
- =?utf-8?B?MTRNeUZSWmdjbHlYTFYrNXozcFFTU1FYUXhiMDVET0lmbGU1bENFNDB1QSth?=
- =?utf-8?B?SERIZzVHK3lHNEhJMm9rSWRuZGt3RC9qZjF0Qndjc3NlWVd3KzR4SFdYVlkx?=
- =?utf-8?B?L2wyMlVaOS9Sb2hxMi9CQytjUUlwWGFGQ2xhOGhySklpdnR4Z3JyY0RoQnNv?=
- =?utf-8?B?OTJoZStXMXJHTmJEa1VOaEFDUEptUVJlZXNTQm1Sb1o3WTZ5RkNGc3VOTm15?=
- =?utf-8?B?d2dGNnl5UDFycGcyQjNKT2JUUVpLWUVEd3pUR2d4aE5hSzY2d3JqYklqQWhI?=
- =?utf-8?B?b0ROZFJPQlVlUVViZUpqQWtNdUlvVnlHVkdXaG0rYmlYc1g2ZGRBUm9yK1Y4?=
- =?utf-8?B?TmQ0L2E2TTBCMXFmU3FLUzlKbnFMcHdMTXcyQmdpQkNZWGFuanJEUGdYVHpH?=
- =?utf-8?B?M3BKaU04aHhlZnQ3UG4xL2I3TEpzZVJ3enAzSXBxMHJQWDhodjFNQjNWdzFu?=
- =?utf-8?B?bE5kWGZqNENZVVJYQmZxZm5yM2ErZ2RMMnJKR1MzWWViZEpQeFFSZzQwT2xW?=
- =?utf-8?B?Y3V2c2VVMDNuLzZCUG1wWjl2d0pyVXZQZnNQeEdZYnE1Y2V0c2t2MVduR0p4?=
- =?utf-8?B?emo3b0JUNytGQldtNmhQUGFxWTBVN0s3c3RKeDBvUVBKNWFoeFJCaFhSOElV?=
- =?utf-8?B?cml2SEpnQ05vckN2NGFHVFFneEgyYUt2bkZ2cnpEK2NPOTM3VFN2dnBzYksz?=
- =?utf-8?B?SUhZaVhvK3Q2RFRqWEZRdmxWUlZMVXRiM1VzNDF1cDNCTlNFZjZ1bjNGYWFR?=
- =?utf-8?B?ZkRoK1ZlMVhNcGFwS1lZUmlldnR2YW1HcHNUZ3pFY09RK255VkdQTTZuWURV?=
- =?utf-8?B?alhPTVJVdmR4OUFrenJ4anp5NVNMT0ExZjhEYzZNMnhOQWJpYzJkTkkrcUhm?=
- =?utf-8?B?VTNBSzdhcTRsVzdpTmVUaFlhMFp2QUZPRmNkYWYrdGhxb2JYS2Nndz09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19dfd7a8-6257-432b-025a-08ded90c1e1a
-X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7737.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 14:05:20.3375
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jOUpcHPQSVHfcEMGZe49cUk07/lWd3B0iQLMORiJ5bR1ep54BxvGuA0bdBJDOQDkKtgp+9AYH4rabGA77X1GpMP5spu64BIRVyB/Sl4S3nk=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7414
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_070528_378892_1F7FCB3F 
-X-CRM114-Status: GOOD (  19.83  )
+X-CRM114-CacheID: sfid-20260703_133730_368444_B13ABD7A 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,52 +105,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko, Cunhao,
+Allow interested SCMI protocols to register their own specific debugfs
+entries under a common per-instance and per-protocol subtree rooted
+at /sys/kernel/debug/scmi/<N>/protocols/<PROTO_ID>/
 
-On 7/3/26 10:01 AM, Cunhao Lu wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> CAN0 is piped through the Q7-connector to the CAN-Header on the Haikou
-> base-board, so enable support for it there.
-> 
-> At least on RK3588-Tiger, the CAN clocks default to 99MHz, limiting
-> usable CAN bitrates without skew. Errata documentation mentions
-> 300MHz as the default frequency on RK3568, so replicate this here
-> to allow more bitrates.
-> 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> Signed-off-by: Cunhao Lu <1579567540@qq.com>
-> ---
->   arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts | 6 ++++++
->   1 file changed, 6 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> index 873fbeb8daa1..6273e695b039 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> @@ -155,6 +155,12 @@ vddd_audio_1v6: regulator-vddd-audio-1v6 {
->   	};
->   };
->   
-> +&can0 {
-> +	assigned-clocks = <&cru CLK_CAN0>;
-> +	assigned-clock-rates = <300000000>;
+Expose a helper to enable protocol initialization code to get access to
+such per-protocol/per-instance dentries in order to be able to install
+their own dedicated debugfs entries.
 
-Why is this not SoC-specific? We are only routing the signal from the 
-SoC after all.
+Per-protocol debugfs support is configurable and default off.
 
-If it cannot be put into rk3588-base.dtsi for some reason and is 
-product-specific... Why is this in the baseboard DTS and not in the SoM 
-DTSI? I would like to avoid our customers to have to copy things over if 
-they should just work on their baseboard too if they don't do crazy 
-things there.
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+ drivers/firmware/arm_scmi/Kconfig     | 14 +++++++++++++
+ drivers/firmware/arm_scmi/common.h    |  2 ++
+ drivers/firmware/arm_scmi/driver.c    | 29 +++++++++++++++++++++++++++
+ drivers/firmware/arm_scmi/protocols.h |  6 ++++++
+ include/linux/scmi_protocol.h         | 12 ++++++++++-
+ 5 files changed, 62 insertions(+), 1 deletion(-)
 
-I'll try to find time to test the three CAN controllers on RK3588 Jaguar 
-with the CAN1-CAN2-UART4 Mezzanine adapter board and will contribute an 
-overlay for that if it goes well. I don't have a CAN-FD adapter though 
-but I hope they reused the exact same IP for the three controllers in 
-the SoC :)
+diff --git a/drivers/firmware/arm_scmi/Kconfig b/drivers/firmware/arm_scmi/Kconfig
+index e3fb36825978..06d2319420a0 100644
+--- a/drivers/firmware/arm_scmi/Kconfig
++++ b/drivers/firmware/arm_scmi/Kconfig
+@@ -69,6 +69,20 @@ config ARM_SCMI_DEBUG_COUNTERS
+ 	  such useful debug counters. This can be helpful for debugging and
+ 	  SCMI monitoring.
+ 
++config ARM_SCMI_DEBUG_PROTOCOLS
++	bool "Enable SCMI protocols debug"
++	select ARM_SCMI_NEED_DEBUGFS
++	depends on DEBUG_FS
++	default n
++	help
++	  Enables per-protocol specific debug features, where available.
++	  When provided, such per-protocol debugfs entries are grouped
++	  inside a common a subtree named by the protocol number and rooted
++	  under a per-instance 'protocols' directory.
++
++	  Such per-protocol entries subtree structure is freely defined
++	  within the related protocol code.
++
+ config ARM_SCMI_QUIRKS
+ 	bool "Enable SCMI Quirks framework"
+ 	depends on JUMP_LABEL || COMPILE_TEST
+diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
+index b9cd542302fb..8582e56ec488 100644
+--- a/drivers/firmware/arm_scmi/common.h
++++ b/drivers/firmware/arm_scmi/common.h
+@@ -322,6 +322,7 @@ enum debug_counters {
+ /**
+  * struct scmi_debug_info  - Debug common info
+  * @top_dentry: A reference to the top debugfs dentry
++ * @protos: A reference to the top debugfs protocols subdirectory
+  * @name: Name of this SCMI instance
+  * @type: Type of this SCMI instance
+  * @is_atomic: Flag to state if the transport of this instance is atomic
+@@ -329,6 +330,7 @@ enum debug_counters {
+  */
+ struct scmi_debug_info {
+ 	struct dentry *top_dentry;
++	struct dentry *protos;
+ 	const char *name;
+ 	const char *type;
+ 	bool is_atomic;
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index f933b8b9e29c..d54d155e69a8 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -18,6 +18,7 @@
+ 
+ #include <linux/bitmap.h>
+ #include <linux/cleanup.h>
++#include <linux/dcache.h>
+ #include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/export.h>
+@@ -99,6 +100,8 @@ struct scmi_xfers_info {
+  *			has completed.
+  * @ph: An embedded protocol handle that will be passed down to protocol
+  *	initialization code to identify this instance.
++ * @dbg: An optional reference to this protocol top debugfs directory; it will
++ *	 be automatically recursively removed on protocol de-initialization.
+  *
+  * Each protocol is initialized independently once for each SCMI platform in
+  * which is defined by DT and implemented by the SCMI server fw.
+@@ -112,6 +115,7 @@ struct scmi_protocol_instance {
+ 	unsigned int			version;
+ 	unsigned int			negotiated_version;
+ 	struct scmi_protocol_handle	ph;
++	struct dentry			*dbg;
+ };
+ 
+ #define ph_to_pi(h)	container_of(h, struct scmi_protocol_instance, ph)
+@@ -2085,6 +2089,25 @@ static void scmi_common_fastchannel_db_ring(struct scmi_fc_db_info *db)
+ 		SCMI_PROTO_FC_RING_DB(64);
+ }
+ 
++static struct dentry *
++scmi_debugfs_proto_dentry_get(const struct scmi_protocol_handle *ph)
++{
++	struct scmi_protocol_instance *pi = ph_to_pi(ph);
++	struct scmi_info *info = handle_to_scmi_info(pi->handle);
++
++	if (!IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
++		return ERR_PTR(-ENODEV);
++
++	if (!pi->dbg) {
++		char proto_dir[8];
++
++		snprintf(proto_dir, 8, "0x%02X", pi->proto->id);
++		pi->dbg = debugfs_create_dir(proto_dir, info->dbg->protos);
++	}
++
++	return pi->dbg;
++}
++
+ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.extended_name_get = scmi_common_extended_name_get,
+ 	.get_max_msg_size = scmi_common_get_max_msg_size,
+@@ -2095,6 +2118,7 @@ static const struct scmi_proto_helpers_ops helpers_ops = {
+ 	.protocol_msg_check = scmi_protocol_msg_check,
+ 	.fastchannel_init = scmi_common_fastchannel_init,
+ 	.fastchannel_db_ring = scmi_common_fastchannel_db_ring,
++	.debugfs_proto_dentry_get = scmi_debugfs_proto_dentry_get,
+ };
+ 
+ /**
+@@ -2389,6 +2413,8 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 	if (refcount_dec_and_test(&pi->users)) {
+ 		void *gid = pi->gid;
+ 
++		debugfs_remove_recursive(pi->dbg);
++
+ 		if (pi->proto->events)
+ 			scmi_deregister_protocol_events(handle, protocol_id);
+ 
+@@ -3111,6 +3137,9 @@ static struct scmi_debug_info *scmi_debugfs_common_setup(struct scmi_info *info)
+ 	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS))
+ 		scmi_debugfs_counters_setup(dbg, trans);
+ 
++	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_PROTOCOLS))
++		dbg->protos = debugfs_create_dir("protocols", top_dentry);
++
+ 	dbg->top_dentry = top_dentry;
+ 
+ 	if (devm_add_action_or_reset(info->dev,
+diff --git a/drivers/firmware/arm_scmi/protocols.h b/drivers/firmware/arm_scmi/protocols.h
+index cc67e512fb6a..29dc6f14ee6d 100644
+--- a/drivers/firmware/arm_scmi/protocols.h
++++ b/drivers/firmware/arm_scmi/protocols.h
+@@ -11,6 +11,7 @@
+ 
+ #include <linux/bitfield.h>
+ #include <linux/completion.h>
++#include <linux/debugfs.h>
+ #include <linux/device.h>
+ #include <linux/errno.h>
+ #include <linux/kernel.h>
+@@ -280,6 +281,9 @@ struct scmi_fc_info {
+  *		      gathering FC descriptions from the SCMI platform server.
+  * @fastchannel_db_ring: A common helper to ring a FC doorbell.
+  * @get_max_msg_size: A common helper to get the maximum message size.
++ * @debugfs_proto_dentry_get: A common helper to get a per-protocol debugfs top
++ *			      directory to use as a root. It will be
++ *			      recursively removed on protocol de-initialization.
+  */
+ struct scmi_proto_helpers_ops {
+ 	int (*extended_name_get)(const struct scmi_protocol_handle *ph,
+@@ -303,6 +307,8 @@ struct scmi_proto_helpers_ops {
+ 				 u32 *rate_limit);
+ 	void (*fastchannel_db_ring)(struct scmi_fc_db_info *db);
+ 	int (*get_max_msg_size)(const struct scmi_protocol_handle *ph);
++	struct dentry *(*debugfs_proto_dentry_get)
++		(const struct scmi_protocol_handle *ph);
+ };
+ 
+ /**
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index de6b3c7cc959..c932390b9a09 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1126,6 +1126,12 @@ struct scmi_notify_ops {
+  *			 never sleep and act accordingly.
+  *			 An optional atomic threshold value could be returned
+  *			 where configured.
++ * @debugfs_entry_get: method to get, and possibly create, a debugfs dentry
++ *		       rooted under the top debugfs directory for the SCMI
++ *		       instance referred by handle.
++ * @debugfs_entry_put: method to put, and possibly destroy, a debugfs dentry
++ *		       rooted under the top debugfs directory for the SCMI
++ *		       instance referred by handle.
+  * @notify_ops: pointer to set of notifications related operations
+  */
+ struct scmi_handle {
+@@ -1140,7 +1146,11 @@ struct scmi_handle {
+ 	void (*devm_protocol_put)(struct scmi_device *sdev, u8 proto);
+ 	bool (*is_transport_atomic)(const struct scmi_handle *handle,
+ 				    unsigned int *atomic_threshold);
+-
++	struct dentry __must_check *
++		(*debugfs_entry_get)(const struct scmi_handle *handle,
++				     const char *name);
++	void (*debugfs_entry_put)(const struct scmi_handle *handle,
++				  struct dentry *dentry);
+ 	const struct scmi_notify_ops *notify_ops;
+ };
+ 
+-- 
+2.54.0
 
-Cheers,
-Quentin
 
