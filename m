@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AFAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:14:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21BF1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:16:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bd9+Fl0hHkC0IsCWHNBjba99c0PhELLOZqPtml0ia2E=; b=qI39AFkHrA8ej29ZNubeigEftY
-	DVULJn/oWNcm7+bp+kvGo0wOrS52uK+EOhoZbr5D9o+l5LuuWRZTHQKpgnTELcWt8JKa7O/nJlpHm
-	xMQlEULUroM4oINIxpFon7F4xT+02TjLINpCLxYjjRoHiL5z/pKHEhnhMOAALRhdnajwHtOClkra1
-	4e5WNScQpBQqDqy81xE2ShEzrWegf8B0PARw6LEoRHF3FGQ9aal4VwdLlOZlJPPwNWSKbEsqRff40
-	D+om5jxj7zz1UqQ3UJB3pCLe2L3KRrAlKwacPkzeFQmKTdqc9WP+PPINqdtqm30sgakwBu6OJwFRV
-	+ZjolIVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qm11f/zR4qtblmEb9WqIxklnSmRd5ntPO4IgWl784nc=; b=q8OW0QQkO0abvf4fh+zxMs2Dwi
+	9LCrSBU+Xne1prKhGiYgoH7aB/7bo44+/1VuyCaAZnYSb/auC6AnI2X3fUhhZEnOruANrep9pJ8FI
+	KIhA/PMJu5ty5KkVjYO3mlMa+y0VCvi8+1+/AS+ktbMQjwIcdpsrQJ6t0EFUEnTqc2JfVuJJ/0Ae+
+	VfG6Z8oHhDswYcSTLhD1ShpqRA4m/OMyBYVCCacx9B8CFjri4VDdlRLxhsPD9rgTAPs0T/0OZk3S8
+	QrzoJadEz0V2xxVqnXwQS7kzxuWqN58LBFhf9j6iHr/y5Lfc5QfRRTLvup6Y/3kj7hPqiJ0hH0ouL
+	oiJCXYcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcn5-00000006ujB-3O1X;
-	Fri, 03 Jul 2026 12:14:43 +0000
-Received: from mail-gw02.astralinux.ru ([93.188.205.243])
+	id 1wfcoD-00000006utQ-16yk;
+	Fri, 03 Jul 2026 12:15:53 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcn1-00000006uhe-2gGh
+	id 1wfcoA-00000006ut1-0glo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:14:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
-	s=mail; t=1783080866;
-	bh=KWWCjLkg4h9x3km9rFZ2Wfc0d2ZwVc895DbuVuZ74O4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AG6PM/yhZE5mNO0tX1LnotZZjELMcvmJXDmIX/c8ZQZZRmqb4F+z0DwHJeotD5bSo
-	 TMCq+vjZRGTadIb7+1dbJQ4mZJLRTcvuT0XKke14kfpTeDOD8za86PV9FoyLs1RnBQ
-	 3hI1TUZPvcv0wUNdz7lvmh6yV9xjQyEEgBwL4VaFVO6f5DaDS1EN002XeBlTl/3nIZ
-	 ESitHEAvo/Td6xMh19gW7Xf9LS8PoQZ2wjJJgg4NfaYW8k8qFMi0eoi2H+9Z0BLPSO
-	 UpSs8207PQNBTZCwMoiVP4kNBwE+zC461C4uFRpI2f2Hma1MSzkRnZviL7bMuZ78ee
-	 V/9JZ6zwwVMYA==
-Received: from gca-msk-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
-	by mail-gw02.astralinux.ru (Postfix) with ESMTP id E39021F42D;
-	Fri,  3 Jul 2026 15:14:26 +0300 (MSK)
-Received: from new-mail.astralinux.ru (unknown [10.205.207.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-gw02.astralinux.ru (Postfix) with ESMTPS;
-	Fri,  3 Jul 2026 15:14:24 +0300 (MSK)
-Received: from rbta-msk-lt-302690.astralinux.ru (unknown [10.198.56.105])
-	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4gsCNb6Flsz1Q8W;
-	Fri, 03 Jul 2026 15:14:23 +0300 (MSK)
-From: Alexandra Diupina <adiupina@astralinux.ru>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Alexandra Diupina <adiupina@astralinux.ru>,
-	Abel Vesa <abel.vesa@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	NXP Linux Team <linux-imx@nxp.com>,
-	Adam Ford <aford173@gmail.com>,
-	linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jiasheng Jiang <jiasheng@iscas.ac.cn>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Brian Masney <bmasney@redhat.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	imx@lists.linux.dev,
-	lvc-project@linuxtesting.org
-Subject: [PATCH 5.10/5.15] clk: imx: Add check for kcalloc
-Date: Fri,  3 Jul 2026 15:13:38 +0300
-Message-Id: <20260703121338.25747-1-adiupina@astralinux.ru>
-X-Mailer: git-send-email 2.30.2
+	Fri, 03 Jul 2026 12:15:52 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20260703121542epoutp02c9df1f5c62e097a7a2cfc83a4614cda0~_xquWmM4W0030200302epoutp02u
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 12:15:42 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20260703121542epoutp02c9df1f5c62e097a7a2cfc83a4614cda0~_xquWmM4W0030200302epoutp02u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1783080942;
+	bh=qm11f/zR4qtblmEb9WqIxklnSmRd5ntPO4IgWl784nc=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=TkPcDkgCOY2B6XOPzI5ryVssnTiJHrpBeVjczbrd3NyYY1J790URp72ZOsSyF03Nf
+	 NwV9KWIof+h6Q9yfZmknZXy7T77bwK3lt0ZJaZiHyFdDJ1ipWctulCeyy48Y4clget
+	 rNauQ09ZqrmhrS6lH9ByYIBQdw/dK3t76rOrWesA=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20260703121541epcas2p2b791d0a882a31a404f0259e2df2e1138~_xqtpTVl21760017600epcas2p2F;
+	Fri,  3 Jul 2026 12:15:41 +0000 (GMT)
+Received: from epcas2p4.samsung.com (unknown [182.195.38.209]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4gsCQ54kxqz6B9m6; Fri,  3 Jul
+	2026 12:15:41 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20260703121541epcas2p4408a3bbc4a2f9ff6d018cf9a2f5298d2~_xqs3tG1Y1460114601epcas2p4o;
+	Fri,  3 Jul 2026 12:15:41 +0000 (GMT)
+Received: from KORCO090186 (unknown [12.80.211.165]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20260703121541epsmtip14e82d433e2e957a41fbddb55aa76c1ba~_xqsxJ7j_2740427404epsmtip1U;
+	Fri,  3 Jul 2026 12:15:41 +0000 (GMT)
+From: =?utf-8?B?64Ko7JiB66+8?= <youngmin.nam@samsung.com>
+To: "'Alim Akhtar'" <alim.akhtar@samsung.com>, "'Peter Griffin'"
+	<peter.griffin@linaro.org>
+Cc: <krzk@kernel.org>, <s.nawrocki@samsung.com>, <linus.walleij@linaro.org>,
+	<semen.protsenko@linaro.org>, <ivo.ivanov.ivanov1@gmail.com>,
+	<ryu.real@samsung.com>, <d7271.choe@samsung.com>, <shin.son@samsung.com>,
+	<jaewon02.kim@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <youngmin.nam@samsung.com>
+In-Reply-To: <0e6201dd07a8$eb5884d0$c2098e70$@samsung.com>
+Subject: RE: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank entries
+ on Exynos2200/7885/8890/8895
+Date: Fri, 3 Jul 2026 21:15:40 +0900
+Message-ID: <000001dd0ae5$aa491e10$fedb5a30$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-KSMG-AntiPhishing: NotDetected, bases: 2026/07/03 11:40:00
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Envelope-From: adiupina@astralinux.ru
-X-KSMG-AntiSpam-Info: LuaCore: 112 0.3.112 7c8d497b0e572fbfa504a2ee62037c045a8cb4ec, {date_rfc_vio_soft_silent}, {Tracking_ml_letters}, {Tracking_uf_ne_domains}, {Tracking_internal2}, {Tracking_from_domain_doesnt_match_to}, astralinux.ru:7.1.1;new-mail.astralinux.ru:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1, FromAlignment: s
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiSpam-Lua-Profiles: 204227 [Jul 03 2026]
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Version: 6.1.1.22
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2026/07/03 10:45:00 #28371015
-X-KSMG-AntiVirus-Status: NotDetected, skipped
-X-KSMG-LinksScanning: NotDetected, bases: 2026/07/03 11:40:00
-X-KSMG-Message-Action: skipped
-X-KSMG-Rule-ID: 1
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQIr5xjB9BZkcy1LV54fp2FD5N/QnAF3wuMlAatK81MBmh+d8gGktICKtYrtzGA=
+Content-Language: ko
+X-CMS-MailID: 20260703121541epcas2p4408a3bbc4a2f9ff6d018cf9a2f5298d2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251202093027epcas2p24adbd3226dd50b2780baceee6588f3ba
+References: <CGME20251202093027epcas2p24adbd3226dd50b2780baceee6588f3ba@epcas2p2.samsung.com>
+	<20251202093613.852109-1-youngmin.nam@samsung.com>
+	<20251202093613.852109-3-youngmin.nam@samsung.com>
+	<CADrjBPqYT9h_UJKSxBJ_KMQ4yQv4yyTuHaPYjC+K1-6TZj+PXg@mail.gmail.com>
+	<0e6201dd07a8$eb5884d0$c2098e70$@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_051440_033253_A8FAF81D 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260703_051550_887407_0BA352FF 
+X-CRM114-Status: GOOD (  28.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,38 +102,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jiasheng Jiang <jiasheng@iscas.ac.cn>
+Hi Alim
 
-commit ed713e2bc093239ccd380c2ce8ae9e4162f5c037 upstream.
+> -----Original Message-----
+> From: Alim Akhtar <alim.akhtar@samsung.com>
+> Sent: Monday, June 29, 2026 6:23 PM
+> To: 'Peter Griffin' <peter.griffin@linaro.org>; 'Youngmin Nam'
+> <youngmin.nam@samsung.com>
+> Cc: krzk@kernel.org; s.nawrocki@samsung.com; linus.walleij@linaro.org;
+> semen.protsenko@linaro.org; ivo.ivanov.ivanov1@gmail.com;
+> ryu.real@samsung.com; d7271.choe@samsung.com; shin.son@samsung.com;
+> jaewon02.kim@samsung.com; linux-arm-kernel@lists.infradead.org; linux-
+> samsung-soc@vger.kernel.org; linux-gpio@vger.kernel.org; linux-
+> kernel@vger.kernel.org
+> Subject: RE: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank
+> entries on Exynos2200/7885/8890/8895
+> 
+> Hi Krzysztof, Peter
+> 
+> > -----Original Message-----
+> > From: Peter Griffin <peter.griffin@linaro.org>
+> > Sent: Saturday, March 7, 2026 2:47 AM
+> > To: Youngmin Nam <youngmin.nam@samsung.com>
+> > Cc: krzk@kernel.org; s.nawrocki@samsung.com; alim.akhtar@samsung.com;
+> > linus.walleij@linaro.org; semen.protsenko@linaro.org;
+> > ivo.ivanov.ivanov1@gmail.com; ryu.real@samsung.com;
+> > d7271.choe@samsung.com; shin.son@samsung.com;
+> > jaewon02.kim@samsung.com; linux-arm-kernel@lists.infradead.org; linux-
+> > samsung-soc@vger.kernel.org; linux-gpio@vger.kernel.org; linux-
+> > kernel@vger.kernel.org
+> > Subject: Re: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank
+> > entries on
+> > Exynos2200/7885/8890/8895
+> >
+> > Hi Youngmin,
+> >
+> > On Tue, 2 Dec 2025 at 09:30, Youngmin Nam <youngmin.nam@samsung.com>
+> > wrote:
+> > >
+> > > This patch corrects wrong pin bank table definitions for 4 SoCs
+> > > based on their TRMs.
+> > >
+> > > Exynos2200
+> > > - gpq0/1/2 were using EXYNOS_PIN_BANK_EINTN(), which implies a
+> > >   'bank_type_off' layout (.fld_width = {4,1,2,2,2,2}).
+> > > - Per the SoC TRM these banks must use the 'alive' layout
+> > >   (.fld_width = {4,1,4,4}).
+> > > - Switch them to
+> > EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, ...).
+> > >
+> > > Exynos7885
+> > > - etc0, etc1: update bank type to match the SoC TRM.
+> > > - gpq0 is a non-wakeup interrupt bank; change EINTW -> EINTN
+> accordingly.
+> > >
+> > > Exynos8890
+> > > - Per the SoC TRM, rename bank ect0 to gpb3 and mark it as
+> > >   a non-external interrupt bank.
+> > > - gpi1, gpi2: update bank type to match the SoC TRM.
+> > >   exynos8895_bank_type_off (.fld_width = {4,1,2,3,2,2}) ->
+> > >   exynos5433_bank_type_off (.fld_width = {4,1,2,4,2,2})
+> > > - Per the SoC TRM, mark etc1 as a non-external interrupt bank.
+> > > - apply lower case style for hex numbers.
+> > >
+> > > Exynos8895
+> > > - gpa4 is a non-wakeup interrupt bank per the SoC TRM.
+> > >   change EINTW -> EINTN. (The bank_type itself was correct and is kept
+> > >   unchanged.)
+> > > - apply lower case style for hex numbers.
+> > >
+> > > This aligns the pin-bank tables with the documented bitfield layouts
+> > > and wakeup domains. No DT/ABI change.
+> > >
+> > > Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+> > > Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+> > > Reviewed-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+> > > Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
+> > > ---
+> >
+> > This patch contains some worthwhile fixes for multiple Exynos SoCs. Do
+> > you plan to re-send it? I think it would be good to get this merged
+> > (even if there isn't broad agreement around renaming the pinctrl
+> > macros to EXYNOS9_)
+> >
+> Can we relook into this series?
+> AFA EXYNOS9_ macro is concern, Exynos990, Exynos9810 etc already support
+> available upstream.
+> Of course it does not justify why Exynos9, but we can consider all SoCs
+> which has come after 2020 have this newer architecture.
+> Or Just have SAMSUNG_ prefix for all such newer SoC.
+> 
+> A unified Macro help in adding new SoC support without much confusion(like
+> I am trying with Exynos8855)
+> 
+> @Youngmin, will you have some time to re-spin these series?
+> 
 
-As the potential failure of the kcalloc(),
-it should be better to check it in order to
-avoid the dereference of the NULL pointer.
+Sure. Let me re visit my patches and will try.
 
-Fixes: 379c9a24cc23 ("clk: imx: Fix reparenting of UARTs not associated with stdout")
-Signed-off-by: Jiasheng Jiang <jiasheng@iscas.ac.cn>
-Reviewed-by: Abel Vesa <abel.vesa@nxp.com>
-Link: https://lore.kernel.org/r/20220310080257.1988412-1-jiasheng@iscas.ac.cn
-Signed-off-by: Abel Vesa <abel.vesa@nxp.com>
-Signed-off-by: Alexandra Diupina <adiupina@astralinux.ru>
----
-Backport fix for CVE-2022-3114
- drivers/clk/imx/clk.c | 2 ++
- 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/clk/imx/clk.c b/drivers/clk/imx/clk.c
-index d4cf0c7045ab2..be0493e5b494e 100644
---- a/drivers/clk/imx/clk.c
-+++ b/drivers/clk/imx/clk.c
-@@ -173,6 +173,8 @@ void imx_register_uart_clocks(unsigned int clk_count)
- 		int i;
- 
- 		imx_uart_clocks = kcalloc(clk_count, sizeof(struct clk *), GFP_KERNEL);
-+		if (!imx_uart_clocks)
-+			return;
- 
- 		if (!of_stdout)
- 			return;
--- 
-2.47.3
+> > Thanks,
+> >
+> > Peter
+> 
+
+
 
