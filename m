@@ -4,56 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9977C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3925EC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9WmCg5KQV9+WEylsXDnXXYCT0wE60z9FdM4u/lEjPoI=; b=XhWtKEY9zdvGIO
-	ybjYq/yF7hgOZZGuWEriUW6khD0yy79IuSmfi4vcqZ+Ol2p4UY/67yQRvtGrqehvBcB0lm3gO7efz
-	wszxEIfRKQ/mRp4cW5FTjTJxk/3yXdDftsXtINSFzrUlhUH1jakjOntTywAiqOzmEKyk3zJenl5I6
-	3jOxlqGPUfodM1nGCBM5/RK+t3fNTsotGLY8ry5ziuZ6IRNwmIVqjnquSUvb5MwK0dclXShfU6GZR
-	x136hJ5oS4eezQfxQr0mg21vvxv8eUookblJeZ923d98cGjt0JE+1ptnGXhvJlk8eKJwqV+/X/0PZ
-	nhtvBZLlIjTly7irNSsg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cSBAZicOw70sXZv8tzvwPgXXpYujK/cwkizmcQsie/s=; b=zWppOoYD5FCxhbSs/AdLXJZUzy
+	oJ68Etmtyx0C54fd+wb2ak4W+wRyn5i4dwlYF6Y/mY4plgNthqqaj4k6XJUruXctUS4YB8bIK/Nhd
+	3FsVfwc2OHdw4sG5FOjWTiwPpgPduMTJUYa7TP6vLPBTAJixcYl21YnHewdDQ8n6bIDijv3O5m+0j
+	edQjQ9SLFjOuYQmU08fmH7sj8Msx6l7d5vYhm6/tvDMjM1hhluObrPl9DnvbsRdyD4r4aY4cWi/Qn
+	dR3FWPN5f6MM8uM6WsJMkUYAPT7XpH7njBZLPlH3IXSMnW3DOGCku23MoSUCheUU3kTbCBDiIxMw/
+	hn0WEC6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfebp-00000007DJC-2CH6;
-	Fri, 03 Jul 2026 14:11:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfebs-00000007DMg-30lX;
+	Fri, 03 Jul 2026 14:11:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfebo-00000007DID-0oSv;
-	Fri, 03 Jul 2026 14:11:12 +0000
+	id 1wfebq-00000007DKA-3M9N;
+	Fri, 03 Jul 2026 14:11:14 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8612E60051;
-	Fri,  3 Jul 2026 14:11:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A1F1F000E9;
-	Fri,  3 Jul 2026 14:11:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 17579600B0;
+	Fri,  3 Jul 2026 14:11:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44C4E1F000E9;
+	Fri,  3 Jul 2026 14:11:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783087871;
-	bh=9WmCg5KQV9+WEylsXDnXXYCT0wE60z9FdM4u/lEjPoI=;
-	h=From:Subject:Date:To:Cc;
-	b=nP3sDrQWQDE9IxZvNZP/QSicRHCHwVfF/BHyUOXaVCRxjIB5jCBDwzYibyoRXToph
-	 ldcEvnrCdsK8xa+goiRypyrUmgLvnDG96E44OskJ70GILGZeM89jODKVsGl7H0wYvM
-	 Db9xx55VsF1LViL4+9QD1AEwd2T8zM16+ID4ABI0XQ+yr9/1i6RpusfrtO8sEhQk7q
-	 xYfHlms8n9O6RAcjQKSuGGILsXQ+WIP2LmkeSVGO0cvrcdxC9cHCD0NxUz5PiH1QvK
-	 b3kr+lC+5BvBq3Fb90R46T4oxXoVjIDgBwjsC1DkmhlIZy3lJdHf0ntwsFehZps12w
-	 dXEkAtB0rr2DA==
+	s=k20260515; t=1783087873;
+	bh=cSBAZicOw70sXZv8tzvwPgXXpYujK/cwkizmcQsie/s=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=Aihk++G/nz58pqHNUxdVy4BKwRvvyGsULrCHE9gLqEDWDd9/6Cb2Gy7+wl8M+oNT5
+	 84nOJ1+PmUSw+YTlYukSHrWyLWftmNt2VUH+vly/c7BZLqOqFPheET5/WVqBlOiy+V
+	 zW2ITM4wqM7OtKcaoDh8qzYsARDm/l3x/ZCQIfeislW6cdlywRudHGiVTsWKR5IKmY
+	 73ZIFSmxKHzZaYHcAAk4jmdWaUJ1yzafsb8TefZSduxkKZbo2FzSfEGfGrnO3nkv8N
+	 eez2vp/v45FJDs2BOmB9QySPTN1l5XxlaF798RjSvjJ22afLbuKyA5L1zypKWB6OYY
+	 +f4nUM98sVcgw==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH nf-next v4 0/6] Add IPv4 over IPv6 and SIT flowtable SW
- acceleration
-Date: Fri, 03 Jul 2026 16:10:35 +0200
-Message-Id: <20260703-b4-flowtable-sw-accel-ip6ip-v4-0-00398cd12382@kernel.org>
+Date: Fri, 03 Jul 2026 16:10:36 +0200
+Subject: [PATCH nf-next v4 1/6] net: netfilter: Add ether_type to
+ net_device_path_ctx
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/43OQQrCMBQE0KtI1n5JftLEuPIe4iKmPxosaUlKV
- aR3N3SlCOJyGHgzT1YoRypst3qyTFMssU81qPWK+YtLZ4LY1syQo+YNb+CkIHT9bXSnjqDcwHl
- PHcRBxwGM4IJL5VuhDKvCkCnE+6IfWAqQ6D6yYy0usYx9fiyrk1jqvwYmARys89J67y05u79ST
- tRt+nxe4AnfMf0bw4opaUOr0BjU9IXJN0yK35isWKMdblEHiebz2TzPLz7XmRVqAQAA
-X-Change-ID: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
+Message-Id: <20260703-b4-flowtable-sw-accel-ip6ip-v4-1-00398cd12382@kernel.org>
+References: <20260703-b4-flowtable-sw-accel-ip6ip-v4-0-00398cd12382@kernel.org>
+In-Reply-To: <20260703-b4-flowtable-sw-accel-ip6ip-v4-0-00398cd12382@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -82,54 +79,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to IPIP and IP6I6 tunnels, introduce sw acceleration for IPv4 over
-IPv6 and SIT tunnels in the netfilter flowtable infrastructure.
+Add an ether_type field to struct net_device_path_ctx to allow IPv6
+tunnel drivers to select the appropriate L3 protocol based on the
+encapsulated traffic.
+Update the airoha and mtk Ethernet drivers to use the new
+dev_fill_forward_path() signature.
+This is a preliminary patch to enable sw flowtable acceleration for
+IPv4 over IPv6 tunnels.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v4:
-- Rebase on top of nf-next and fixed conflicts.
-- Link to v3: https://lore.kernel.org/r/20260531-b4-flowtable-sw-accel-ip6ip-v3-0-56a2826f3279@kernel.org
+ drivers/net/ethernet/airoha/airoha_ppe.c        | 13 ++++++++-----
+ drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 13 ++++++++-----
+ include/linux/netdevice.h                       |  4 +++-
+ net/core/dev.c                                  |  6 ++++--
+ net/ipv6/ip6_tunnel.c                           |  5 ++++-
+ net/netfilter/nf_flow_table_path.c              |  8 +++++---
+ 6 files changed, 32 insertions(+), 17 deletions(-)
 
-Changes in v3:
-- Drop nf_flow_tunnel_v4_push and nf_flow_tunnel_v6_push routines
-- Rebase on top of net-next tree.
-- Link to v2: https://lore.kernel.org/r/20260506-b4-flowtable-sw-accel-ip6ip-v2-0-439fd427726e@kernel.org
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index e7c78293002a..06d128c67c8c 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -276,7 +276,8 @@ static int airoha_ppe_flow_mangle_ipv4(const struct flow_action_entry *act,
+ 	return 0;
+ }
+ 
+-static int airoha_ppe_get_wdma_info(struct net_device *dev, const u8 *addr,
++static int airoha_ppe_get_wdma_info(struct net_device *dev,
++				    const u8 *addr, __be16 ether_type,
+ 				    struct airoha_wdma_info *info)
+ {
+ 	struct net_device_path_stack stack;
+@@ -287,7 +288,7 @@ static int airoha_ppe_get_wdma_info(struct net_device *dev, const u8 *addr,
+ 		return -ENODEV;
+ 
+ 	rcu_read_lock();
+-	err = dev_fill_forward_path(dev, addr, &stack);
++	err = dev_fill_forward_path(dev, addr, ether_type, &stack);
+ 	rcu_read_unlock();
+ 	if (err)
+ 		return err;
+@@ -331,7 +332,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+ 					struct airoha_foe_entry *hwe,
+ 					struct net_device *netdev, int type,
+ 					struct airoha_flow_data *data,
+-					int l4proto)
++					__be16 ether_type, int l4proto)
+ {
+ 	u32 qdata = FIELD_PREP(AIROHA_FOE_SHAPER_ID, 0x7f), ports_pad, val;
+ 	int wlan_etype = -EINVAL, dsa_port = airoha_get_dsa_port(&netdev);
+@@ -354,7 +355,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+ 		struct airoha_wdma_info info = {};
+ 
+ 		if (!airoha_ppe_get_wdma_info(netdev, data->eth.h_dest,
+-					      &info)) {
++					      ether_type, &info)) {
+ 			val |= FIELD_PREP(AIROHA_FOE_IB2_NBQ, info.idx) |
+ 			       FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT,
+ 					  FE_PSE_PORT_CDM4);
+@@ -1081,6 +1082,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 	struct flow_action_entry *act;
+ 	struct airoha_foe_entry hwe;
+ 	int err, i, offload_type;
++	__be16 ether_type = 0;
+ 	u16 addr_type = 0;
+ 	u8 l4proto = 0;
+ 
+@@ -1107,6 +1109,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 		struct flow_match_basic match;
+ 
+ 		flow_rule_match_basic(rule, &match);
++		ether_type = match.key->n_proto;
+ 		l4proto = match.key->ip_proto;
+ 	} else {
+ 		return -EOPNOTSUPP;
+@@ -1177,7 +1180,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 		return -EINVAL;
+ 
+ 	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
+-					   &data, l4proto);
++					   &data, ether_type, l4proto);
+ 	if (err)
+ 		return err;
+ 
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+index cc8c4ef8038f..2601c17b29c8 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+@@ -89,7 +89,8 @@ mtk_flow_offload_mangle_eth(const struct flow_action_entry *act, void *eth)
+ }
+ 
+ static int
+-mtk_flow_get_wdma_info(struct net_device *dev, const u8 *addr, struct mtk_wdma_info *info)
++mtk_flow_get_wdma_info(struct net_device *dev, const u8 *addr,
++		       __be16 ether_type, struct mtk_wdma_info *info)
+ {
+ 	struct net_device_path_stack stack;
+ 	struct net_device_path *path;
+@@ -102,7 +103,7 @@ mtk_flow_get_wdma_info(struct net_device *dev, const u8 *addr, struct mtk_wdma_i
+ 		return -1;
+ 
+ 	rcu_read_lock();
+-	err = dev_fill_forward_path(dev, addr, &stack);
++	err = dev_fill_forward_path(dev, addr, ether_type, &stack);
+ 	rcu_read_unlock();
+ 	if (err)
+ 		return err;
+@@ -190,12 +191,12 @@ mtk_flow_get_dsa_port(struct net_device **dev)
+ static int
+ mtk_flow_set_output_device(struct mtk_eth *eth, struct mtk_foe_entry *foe,
+ 			   struct net_device *dev, const u8 *dest_mac,
+-			   int *wed_index)
++			   __be16 ether_type, int *wed_index)
+ {
+ 	struct mtk_wdma_info info = {};
+ 	int pse_port, dsa_port, queue;
+ 
+-	if (mtk_flow_get_wdma_info(dev, dest_mac, &info) == 0) {
++	if (mtk_flow_get_wdma_info(dev, dest_mac, ether_type, &info) == 0) {
+ 		mtk_foe_entry_set_wdma(eth, foe, info.wdma_idx, info.queue,
+ 				       info.bss, info.wcid, info.amsdu);
+ 		if (mtk_is_netsys_v2_or_greater(eth)) {
+@@ -273,6 +274,7 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 	struct mtk_flow_data data = {};
+ 	struct mtk_foe_entry foe;
+ 	struct mtk_flow_entry *entry;
++	__be16 ether_type = 0;
+ 	int offload_type = 0;
+ 	int wed_index = -1;
+ 	u16 addr_type = 0;
+@@ -319,6 +321,7 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 		struct flow_match_basic match;
+ 
+ 		flow_rule_match_basic(rule, &match);
++		ether_type = match.key->n_proto;
+ 		l4proto = match.key->ip_proto;
+ 	} else {
+ 		return -EOPNOTSUPP;
+@@ -481,7 +484,7 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 		mtk_foe_entry_set_pppoe(eth, &foe, data.pppoe.sid);
+ 
+ 	err = mtk_flow_set_output_device(eth, &foe, odev, data.eth.h_dest,
+-					 &wed_index);
++					 ether_type, &wed_index);
+ 	if (err)
+ 		return err;
+ 
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 9981d637f8b5..a97aee0e49b2 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -938,6 +938,7 @@ struct net_device_path_stack {
+ struct net_device_path_ctx {
+ 	const struct net_device *dev;
+ 	u8			daddr[ETH_ALEN];
++	__be16			ether_type;
+ 
+ 	int			num_vlans;
+ 	struct {
+@@ -3420,7 +3421,8 @@ void dev_remove_offload(struct packet_offload *po);
+ 
+ int dev_get_iflink(const struct net_device *dev);
+ int dev_fill_metadata_dst(struct net_device *dev, struct sk_buff *skb);
+-int dev_fill_forward_path(const struct net_device *dev, const u8 *daddr,
++int dev_fill_forward_path(const struct net_device *dev,
++			  const u8 *daddr, __be16 ether_type,
+ 			  struct net_device_path_stack *stack);
+ struct net_device *dev_get_by_name(struct net *net, const char *name);
+ struct net_device *dev_get_by_name_rcu(struct net *net, const char *name);
+diff --git a/net/core/dev.c b/net/core/dev.c
+index 4b3d5cfdf6e0..9f5a2da9e9f7 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -750,12 +750,14 @@ static struct net_device_path *dev_fwd_path(struct net_device_path_stack *stack)
+ 	return &stack->path[k];
+ }
+ 
+-int dev_fill_forward_path(const struct net_device *dev, const u8 *daddr,
++int dev_fill_forward_path(const struct net_device *dev,
++			  const u8 *daddr, __be16 ether_type,
+ 			  struct net_device_path_stack *stack)
+ {
+ 	const struct net_device *last_dev;
+ 	struct net_device_path_ctx ctx = {
+-		.dev	= dev,
++		.dev		= dev,
++		.ether_type	= ether_type,
+ 	};
+ 	struct net_device_path *path;
+ 	int ret = 0;
+diff --git a/net/ipv6/ip6_tunnel.c b/net/ipv6/ip6_tunnel.c
+index bf8e40af60b0..38da07101601 100644
+--- a/net/ipv6/ip6_tunnel.c
++++ b/net/ipv6/ip6_tunnel.c
+@@ -1863,7 +1863,10 @@ static int ip6_tnl_fill_forward_path(struct net_device_path_ctx *ctx,
+ 		path->type = DEV_PATH_TUN;
+ 		path->tun.src_v6 = t->parms.laddr;
+ 		path->tun.dst_v6 = t->parms.raddr;
+-		path->tun.l3_proto = IPPROTO_IPV6;
++		if (ctx->ether_type == cpu_to_be16(ETH_P_IP))
++			path->tun.l3_proto = IPPROTO_IPIP;
++		else
++			path->tun.l3_proto = IPPROTO_IPV6;
+ 		path->dev = ctx->dev;
+ 		ctx->dev = dst->dev;
+ 	}
+diff --git a/net/netfilter/nf_flow_table_path.c b/net/netfilter/nf_flow_table_path.c
+index 98c03b487f52..c8011ec36532 100644
+--- a/net/netfilter/nf_flow_table_path.c
++++ b/net/netfilter/nf_flow_table_path.c
+@@ -45,7 +45,8 @@ static bool nft_is_valid_ether_device(const struct net_device *dev)
+ static int nft_dev_fill_forward_path(const struct nf_flow_route *route,
+ 				     const struct dst_entry *dst_cache,
+ 				     const struct nf_conn *ct,
+-				     enum ip_conntrack_dir dir, u8 *ha,
++				     enum ip_conntrack_dir dir,
++				     u8 *ha, __be16 ether_type,
+ 				     struct net_device_path_stack *stack)
+ {
+ 	const void *daddr = &ct->tuplehash[!dir].tuple.src.u3;
+@@ -72,7 +73,7 @@ static int nft_dev_fill_forward_path(const struct nf_flow_route *route,
+ 		return -1;
+ 
+ out:
+-	return dev_fill_forward_path(dev, ha, stack);
++	return dev_fill_forward_path(dev, ha, ether_type, stack);
+ }
+ 
+ struct nft_forward_info {
+@@ -255,7 +256,8 @@ static int nft_dev_forward_path(const struct nft_pktinfo *pkt,
+ 	unsigned char ha[ETH_ALEN];
+ 	int i;
+ 
+-	if (nft_dev_fill_forward_path(route, dst, ct, dir, ha, &stack) < 0 ||
++	if (nft_dev_fill_forward_path(route, dst, ct, dir, ha, pkt->ethertype,
++				      &stack) < 0 ||
+ 	    nft_dev_path_info(&stack, &info, ha, &ft->data) < 0)
+ 		return -ENOENT;
+ 
 
-Changes in v2:
-- Fix MTU check in nf_flow_offload_forward() and in
-  nf_flow_offload_ipv6_forward()
-- Add SIT sw acceleration support
-- Link to v1: https://lore.kernel.org/r/20260505-b4-flowtable-sw-accel-ip6ip-v1-0-9ac39ccc9ea9@kernel.org
-
----
-Lorenzo Bianconi (6):
-      net: netfilter: Add ether_type to net_device_path_ctx
-      net: netfilter: Add encap_proto to flow_offload_tunnel
-      net: netfilter: Add IPv4 over IPv6 tunnel flowtable acceleration
-      selftests: netfilter: nft_flowtable.sh: Add IPv4 over IPv6 flowtable selftest
-      net: netfilter: Add SIT tunnel flowtable acceleration
-      selftests: netfilter: nft_flowtable.sh: Add SIT flowtable selftest
-
- drivers/net/ethernet/airoha/airoha_ppe.c           |  13 +-
- drivers/net/ethernet/mediatek/mtk_ppe_offload.c    |  13 +-
- include/linux/netdevice.h                          |   5 +-
- include/net/netfilter/nf_flow_table.h              |   1 +
- net/core/dev.c                                     |   6 +-
- net/ipv4/ipip.c                                    |   1 +
- net/ipv6/ip6_tunnel.c                              |   6 +-
- net/ipv6/sit.c                                     |  26 ++
- net/netfilter/nf_flow_table_core.c                 |  16 +-
- net/netfilter/nf_flow_table_ip.c                   | 397 +++++++++++++--------
- net/netfilter/nf_flow_table_path.c                 |  20 +-
- tools/testing/selftests/net/netfilter/config       |   1 +
- .../selftests/net/netfilter/nft_flowtable.sh       |  78 +++-
- 13 files changed, 402 insertions(+), 181 deletions(-)
----
-base-commit: 6fb33632323a396c9dc2bb9bea483e013e547d57
-change-id: 20260505-b4-flowtable-sw-accel-ip6ip-7101034cd147
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.55.0
 
 
