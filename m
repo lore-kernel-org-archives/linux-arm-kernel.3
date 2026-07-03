@@ -4,139 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC41C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:00:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC865C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:01:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LoUOh64pOK0N2k3aHaaNEJDWmAd+zqG9lemti22xCJg=; b=TNvyN5FHbWWb9IRMk9HvS38X2N
-	VdBBCbAmj3ctNhJweyjolK/JkAf7LQXPevlQoLTQaE6OCCVL3AIw3g1cGnhSe/i+my10NdpI/wzIE
-	IOfCBeWEQ2HxFzTV1RXAyXKQ2ZZF6LS85KqR3etNAy9s+S2PgQp5y5XgPaQ7nsf3kCDFobqSzcrd0
-	Jpg6mXLrSY4em20cg8Mp7IrgEtpHntuWpPNpQmlcDmMhXSBpIcWHa09uOrsgAWgkqwRjoD2Dxfdc0
-	K6SI8uGKZ41mM+H/kPRzUtnSa4Ipq4FezshwBITnI1XSCSfWbY4wrgcDReF2I5gglgcl4AS/KZFYi
-	RWr+/+Yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y8+5nTQinTYluU4T+esHaTav/NLLL9J4NisG7wsaj7o=; b=m56sbptlZsftDRdBthj99jfxob
+	u5aKX7Y5vSRHb3Kz8Oa1yIgp5lvhY4kkTAA0zw7yysc5Z/vsgYpwvJM0VV8wCVXiPeAB027hqiEsq
+	293EcPoWG14ApnnRCs7ojPYRk1qj7akMhPvVGtmfA/nhRp7+CTbvtGalRifPSde9I811Hl/DkR5H/
+	hdYgOSmAf9ZV0jISdbcaVIHd+WnMjmF4tHpyJE0fQS3NUsiYQgkMLjb1onngD4mvHoLvvxWskfb/7
+	D0bs1wCXgwAj54zLX3vnsDbjQ/5QGAhZzqDbqCPQ+FJ9pdoMdJOltmeSdpWj0mKvp1+GAp05Ixf+m
+	zcuFIcGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeR0-00000007BW4-0Gl4;
-	Fri, 03 Jul 2026 14:00:02 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1wfd92-00000006xSu-0MQo;
+	Fri, 03 Jul 2026 12:37:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeQx-00000007BTt-06Uk;
-	Fri, 03 Jul 2026 14:00:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fQolIkdtUW798ArCYHrm7KvjK9mw/FjXjVhX+K7N7m40K+QvjwHYlipijmS39DdpNaD1MU9gNhXmwZ/hEvgFlM0tcEsIklBaifQ0LvtMielTdEuyHEm49yRPo/XYyjEgtHYuzvZtu/UL/k7DyMZ1rVngWf3Tm+xDXzvM2J/g0+/6oQq+QR1VRhLXf/+LtI5pimMvN7ArTP4LXFJBB1/iIubmrl19qaHbRgSMDxcaOxMye37alW3AEc12ig2pg6Ry5ILjosivN7QW/HTMxhB7oC+XivfurW51LU5JiTS7PJzkvWepdMUQHjTkNdt8NvYXhtPZ2WJjIEVfTQSdIVzETg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LoUOh64pOK0N2k3aHaaNEJDWmAd+zqG9lemti22xCJg=;
- b=fBhMDuX6ayWh8zkTmE3EYP4fPf+sD3t0sjvOr0tZSnj095SanKAEkkWTtbyGVmcJBvzIoEPtxxx2aKwkokx9CkUA+VBlxJoiJLPt8l2QHTUlPKrQ7oFPJJxfOGyPxFKjcRWz0+HYuTDmq10sH/Li4PySje0149LqV65p5Z1VXMqxgXsEQEeC+1ZqcxWi0VnhQDWZWWNtydLFJbPaxbx0VRRdA4expGd/f/n5kzqlne0lGeh0/O6FOX9OK0OamwuBD3pwuvYkBazS2Itf9qeA2DZHtxrtEOkFEpO6p6oKiRNy/MkT2k2bbQzj3ZwgcqMB5JBpzPJaoZcTb0NvqNTuXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LoUOh64pOK0N2k3aHaaNEJDWmAd+zqG9lemti22xCJg=;
- b=aHyqosBgfltba+9gD+We3HcHYWieOphyH+tnotO//eHXcMUjiOowIYBnWl+VWutTiaP1cViadNzlZAApfidtaLM9kgaXF8qJkP6YaxvngH5FHFoOz3E1FjDg11DdF7XTmykQwo7UwKSZsFzxVYNcv7+xVQ623unB5qJRoI2vhU0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from DBBPR04MB7737.eurprd04.prod.outlook.com (2603:10a6:10:1e5::22)
- by AM0PR04MB12075.eurprd04.prod.outlook.com (2603:10a6:20b:740::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Fri, 3 Jul 2026
- 13:59:51 +0000
-Received: from DBBPR04MB7737.eurprd04.prod.outlook.com
- ([fe80::5960:fb4b:9313:2b00]) by DBBPR04MB7737.eurprd04.prod.outlook.com
- ([fe80::5960:fb4b:9313:2b00%5]) with mapi id 15.21.0181.009; Fri, 3 Jul 2026
- 13:59:50 +0000
-Message-ID: <8c5be502-c520-42f5-9f2b-c49c04e99f6a@cherry.de>
-Date: Fri, 3 Jul 2026 15:59:48 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] arm64: dts: rockchip: add CAN-FD nodes for RK3588
-To: Cunhao Lu <1579567540@qq.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
- kernel@pengutronix.de, Vincent Mailhol <mailhol@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20260703-master-v4-0-47d40bbf5fda@qq.com>
- <tencent_48121342466E02301067FDB89BEA68886509@qq.com>
-Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <tencent_48121342466E02301067FDB89BEA68886509@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: WA1PEPF00005B9F.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d8::62a) To DBBPR04MB7737.eurprd04.prod.outlook.com
- (2603:10a6:10:1e5::22)
+	id 1wfd8x-00000006xMh-2r7l
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 03 Jul 2026 12:37:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=y8+5nTQinTYluU4T+esHaTav/NLLL9J4NisG7wsaj7o=; b=amwO6gXuCj+9LicClYcIeXsIRj
+	fdLj6o+nf4S1y2WzsvrW9vZrndcXElBj1o7zBLOffBsSEG8XOzE3J9cNaQX6eBkwTiF2jrCKAHp8U
+	Gp66ZM2BzYV3IESEeOTYqkZsXkGRxPk72f34JaJQ/qKasHVIkn92RCkMhG9fi1xrfnB00co41kJPK
+	7PJQKwYv3LOW0I/FN8KAAFS8OyqvV+wgIGnR9DAZH0b9d3YXUTnUqanpMX/VILUjONLvL+ZiGhef/
+	2mycM0cfpSm4zXX1e8JI064Pme5KbvhQaopr+Yx4jSbYX5m/jemoAAxp27yRlapdidRN3Bd0wkwMt
+	hjGxDkhQ==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wfd8u-00000004ot1-2hwa
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 12:37:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DFD75463D;
+	Fri,  3 Jul 2026 05:37:10 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E09B23F905;
+	Fri,  3 Jul 2026 05:37:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783082235; bh=/xr87WRLIUW3TUqCRFEOgasnRf1iwCevmcSlMkOKxzk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ct/J1H4/nARDlHUBBeLGe+AkQM1cC5J0FbrLOucFyh5LRUg9X1d6jODvQlpEjKIGd
+	 bdH2zdaxs9MYKNmvZotjpvMqQZEeAHdh69X3LwjPFv52ObEj0zPfjRiHjrZ0r2WVZU
+	 VETm1BuVlVXew2t8beL2yQbN8c8LqAb+eCWcQR1U=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	brauner@kernel.org,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v5 12/23] firmware: arm_scmi: Add Telemetry notification support
+Date: Fri,  3 Jul 2026 13:35:50 +0100
+Message-ID: <20260703123601.381275-13-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
+References: <20260703123601.381275-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DBBPR04MB7737:EE_|AM0PR04MB12075:EE_
-X-MS-Office365-Filtering-Correlation-Id: 60f5685f-c362-4817-98cf-08ded90b599e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|23010399003|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: 1tn/OD1Ol++6sMvLrKSjIePFSiIOdT/zJJ/vcq2zxnhmVPNlnLQI41JxDliczjZ6V1h/i2q/A6YY/W6BBHTfuPIqVXbYyozxh7AWxxTSKOfJ7hE48srk8xZGDDBi8gjrgg6nFXew+HTLjjiPnoKo75HzYLuobMupC/jlFkIJ25YzjOveKtkehUwOUz/4pyvcCa2SokEsN3koOAQy8pv7Whsm9MwHT6vKzh9NjrEWVlFhstrrrlQNywoKnrZtMZ0a8CLFtdksz4EsfElghO1uM7Uf5UfIh4ZO363q3evodolLG01+PqR1n63pa+blie4lMmsotnafjHYBFstX/Sh2nUqGfdxUREOxlL1Vl/JDppmAiddojsdPZzW176Antrtj/QQytL7Jabt2k9ZPkVNpQNjG1LRkn+JgppEXZK0WTF0y1aO1qF7mb/6VLkx7e46K5SQVrdD+SuURknCwuo4m7G5cXn1D0wmFBX7+1s41EitnqgTrH4vPD94k112EEAdAag9W1mYtfj1w3MShcfPf8yn7HnQU1VWaid/H7wOhJhK+JxlofktjGg5raDlSXyDDVYjK/9rVZ4SZulB+jwSpy5oWOXvKlLARvWTjYf8RTjOokiRHW370jibIMhLApvCOgQfJh0Tl0/kf8MTfDS8OsTZoFHtealBGV3yX5AqgFNw=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR04MB7737.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(23010399003)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K1FKaWwxRzd3ZjdFZHJja3k2djE5RnZrdkRlVGhTVGJ6aWJFeWMxSUwxbGRT?=
- =?utf-8?B?Qm5QM0xBQlloNmFRb1l6U2dGUHArUzBzNHdsam8vSnF2NmpLWm1RQk80NU43?=
- =?utf-8?B?N2pWMFB1NDE5cHZMR3lJRlIvS2tMRnhtTDQ5ekZhWFdLTkNOUEpXUG8rMVZM?=
- =?utf-8?B?MDY2VGxQeHFQS3pDR0JhRXFJZDJzazRhcnltLzBYQjJnclcvSzlJUzc1UDVU?=
- =?utf-8?B?UHBhMXlxUkFpMVNlWDFVS2dOVVBrM0xIMVlSNTRuYTN1SldZQ21ZSmx6QUFX?=
- =?utf-8?B?bE9CNWF0dmhoV09LcnA3N2diMnhTVXBGWWtrU21wY1dvN1NrR2V4M0JzQWEr?=
- =?utf-8?B?eTN2SDdDVjBmUW42U2tvUHV4alpsTHNrMEY3aVVtUWhiV3NTTW5EQTdzdm9V?=
- =?utf-8?B?ZCtXM2wvemdKZWJScUdtWC81Qm1FaHQ0WVhFQ0FyNldyenhUOW8wUmJkaDlH?=
- =?utf-8?B?SmZVNWVGcCtWeFJPQWtRTytPQ3pqNnI1MzBGOTRkVEowVUYzMWN5Qm04Rzd2?=
- =?utf-8?B?N2tkU2E1TVZVaWZ5YjR2NjIya21IbVI2SFV0ZVVpcEJrT2Jmcm0wNmNmUFUx?=
- =?utf-8?B?bDhjZ292YWhoY2grOWJvRlhuRkNkUGUzUXV4Z2dXcWhoS1pwcG5hVHZVL0hr?=
- =?utf-8?B?QkQyMjBoNzhsU2VSMEcvZnkrd3NDM1pUK01uRnArWmNXMTE2MTJPY0dDUTI3?=
- =?utf-8?B?UStPUEw2QjBhclFLMEtlNlgrc0xMSWQ1UitRQzBaRVpHbm9wNWtvNVk0ZG5t?=
- =?utf-8?B?N3AxV3pnb2pVYXlGSjloK2dvMWl4SDZKZjhuMEtycDhuWXhubnB0aWNsVCtX?=
- =?utf-8?B?a0sxK2NHM09SVytJYXR5M2NGMzU0d1RMbEcwRXZkUzN0R2lpY0pRUHZIMndG?=
- =?utf-8?B?U09uNmtmZzc2bGZMVTRjM2xsTDRPR05JQUhVWWFwUjVmVGRKQ0oreFJsdEJX?=
- =?utf-8?B?SEhLd3JwMWM1dGtnMm9OSjJHdGlrNGdxRkVqZTFUUFZsTkJNTkZMUnBBM1pv?=
- =?utf-8?B?VFJmN3pySG1NTGlHaXVoc2Z2d0J3cTdkRmpwNTVtSXJuNXdJVlVEdi83a3ln?=
- =?utf-8?B?UFJBUHVyRnVQME1vZGhsOEJTRTUrdGJ4NjZVQ3hxSkFaNkJneHdmMTJWenAz?=
- =?utf-8?B?eUdjU0ExdzRSY0pTdWprTG1oNU96WlFXZVhWblhsc1NxWjFvTUlUOG1qdkRI?=
- =?utf-8?B?NTl0azgyZUJBSE9QSXpSRXR4Nlk3OFVjNUNsZXlhTkNFbXo4cG9lMmIrQUJI?=
- =?utf-8?B?MlNnSzNVbVIrbWllT0xWL0l6Q2JBNVVUdDRrQ1lrWGVrR0hkTnI2eHRvbHZS?=
- =?utf-8?B?OHhpMGcydm8rYUN5Y2FSbHBvK1hFMzBYQ29FLzlmeTJ2OTYrSjFrS3RNYmIr?=
- =?utf-8?B?Tm5JWHlaTXJwNXNNa3p4cGxGalZLZzhHUmpmbzZCQ3NTS0VpdytHNHYrWlVv?=
- =?utf-8?B?VEJNbnB0alhQZERKOXRwUjNGVUxTY0pEUjlreDJMdFhpL0JpY2xYNjdGWjR3?=
- =?utf-8?B?aVlMbjJ1V282SW9nUE5Na1M0VkFMWjZuY0pUbDY5OVpwdnJYSXUyZ1g2Mlgy?=
- =?utf-8?B?N2VTV2JrMUREWEU5Q1h5TDB6N3FUU0N6NFJraWFEVzZRdkFCeC80azdWMDZV?=
- =?utf-8?B?S3krVXNGTCsvaEkxV3hmVUZSZkVHckZZK0NsbUQvalpETElIa2dYYWExend6?=
- =?utf-8?B?RWd5azFZMVdMN1VFN1hBeU4rQVJBYUxLYkZ5NWNWU1o3MHNteUpoRFdjUGVK?=
- =?utf-8?B?RjVjczR4bXdsOVZXZWZUQ1NUZTd3anNWN3BwYXZjTGgwYXd2amlUSVdVMm10?=
- =?utf-8?B?aDlSNjJsUktrMUtuRmhNeWVuakR0OXJSYnlkSUFuRFVEZnhZTzVnSlYwQ3Ro?=
- =?utf-8?B?TjRjTThHcHlDd1dEbzY2T0NYOGpVZFVBK0hUODFXdmd2REkrend0YmRKNlBp?=
- =?utf-8?B?d3p5Qll3YVlXek5kLzh4dDg3M3FUdy82SXlJUDd0VW5ja25sOWtIb3lmUHpz?=
- =?utf-8?B?bTNRMzlCRldFc3pYMDF2ZkJOaVd0c2M4Q2VmQk5NZ0loR2laNk1pN21vUW1Y?=
- =?utf-8?B?UGFHWWx2SUt0L0w5dmllSS9HUEVVSFYxczVoYllCb0JRL0lNVUFYQzd3bjRM?=
- =?utf-8?B?UUpTYlFjRFNFYjZSSGpnTFpWQ1BaaVJIL2pJRXNpS0lZTk4wY2RLaVcxU05R?=
- =?utf-8?B?cklTcVRmdGJmdFZQKzEycThxb0srbC9DSFBIb3poSWpPczRWWHJER1ppc1pn?=
- =?utf-8?B?VEM3bzc2djQ2SHdxYW9hTUJBWkxPM3p3eWdyOVhuRGxmT3hzYW9HbHhaSWtV?=
- =?utf-8?B?VGltcVBMa2hnOEtsWi9UUmExOVFEckNWQ21PNTVJZnRya1ZJVExzUT09?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 60f5685f-c362-4817-98cf-08ded90b599e
-X-MS-Exchange-CrossTenant-AuthSource: DBBPR04MB7737.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 13:59:50.7306
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: XEofXrmPaiRGI6ZwEOepkT8rdBToeriMBJkAY3JmzTs7PUWoU3FZocPbaqNrjrt1W4YTlkhi6Fu/qzW4tv6u2OcJz/+s8bEamDrL8JKgBns=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB12075
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_065959_105628_110B0DBD 
-X-CRM114-Status: UNSURE (   6.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_133717_038574_EE3E3E23 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,19 +105,254 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cunhao,
+Add support for notifications to Telemetry protocol and register an
+internal notifier during protocol initialization: any DE value received
+inside a notification payload will be cached for future user consumption.
 
-On 7/3/26 10:01 AM, Cunhao Lu wrote:
-> Describe the three CAN-FD controllers integrated in RK3588 in the base
-> SoC .dtsi.
-> 
-> Add CAN0, CAN1 and CAN2 nodes with their register ranges, interrupts,
-> clocks and resets, and keep them disabled by default so board DTS files
-> can enable them as needed.
-> 
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
+---
+v3 -> v4
+ - use TDE cache to save DEs received via msg payload
+v2 --> v3
+ - changed a few dev_err into traces
+ - split from monolithic telemetry protocol patch
+ - use memcpy_from_le32
+---
+ drivers/firmware/arm_scmi/telemetry.c | 142 +++++++++++++++++++++++---
+ include/linux/scmi_protocol.h         |   9 ++
+ 2 files changed, 138 insertions(+), 13 deletions(-)
 
-Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+diff --git a/drivers/firmware/arm_scmi/telemetry.c b/drivers/firmware/arm_scmi/telemetry.c
+index 1541b94c38cb..2ae96f459017 100644
+--- a/drivers/firmware/arm_scmi/telemetry.c
++++ b/drivers/firmware/arm_scmi/telemetry.c
+@@ -459,12 +459,16 @@ struct telemetry_info {
+ 	struct list_head free_des;
+ 	struct list_head fcs_des;
+ 	struct scmi_telemetry_info info;
++	struct notifier_block telemetry_nb;
+ 	atomic_t rinfo_initializing;
+ 	struct completion rinfo_initdone;
+ 	struct scmi_telemetry_res_info *rinfo;
+ 	struct scmi_telemetry_res_info *(*res_get)(struct telemetry_info *ti);
+ };
+ 
++#define telemetry_nb_to_info(x)	\
++	container_of(x, struct telemetry_info, telemetry_nb)
++
+ static struct scmi_telemetry_res_info *
+ __scmi_telemetry_resources_get(struct telemetry_info *ti);
+ 
+@@ -2443,6 +2447,7 @@ scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
+ 
+ 	while (next < num_dwords) {
+ 		struct payload *payld = (struct payload *)&dwords[next];
++		struct scmi_telemetry_de_sample sample = {};
+ 		struct scmi_telemetry_de *de;
+ 		struct telemetry_de *tde;
+ 		u32 de_id;
+@@ -2450,29 +2455,29 @@ scmi_telemetry_msg_payld_process(struct telemetry_info *ti,
+ 		next += LINE_LENGTH_WORDS(payld);
+ 
+ 		if (DATA_INVALID(payld)) {
+-			dev_err(ti->ph->dev, "MSG - Received INVALID DATA line\n");
++			trace_scmi_tlm_access(PAYLD_ID(payld), "MSG_INVALID", 0, 0);
+ 			continue;
+ 		}
+ 
+ 		de_id = le32_to_cpu(payld->id);
+ 		de = xa_load(&ti->xa_des, de_id);
+ 		if (!de || !de->enabled) {
+-			dev_err(ti->ph->dev,
+-				"MSG - Received INVALID DE - ID:%u  enabled:%c\n",
+-				de_id, de ? (de->enabled ? 'Y' : 'N') : 'X');
++			trace_scmi_tlm_access(de_id, de ? "MSG_DE_DISABLED" :
++					      "MSG_DE_UNKNOWN", 0, 0);
+ 			continue;
+ 		}
+ 
+-		tde = to_tde(de);
+-		guard(mutex)(&tde->mtx);
+-		tde->cached_msg = true;
+-		tde->last_val = LINE_DATA_GET(&payld->tsl);
+-		/* TODO BLK_TS in notification payloads */
+-		tde->last_ts = HAS_LINE_EXT(payld) && LINE_TS_VALID(payld) ?
++		sample.val = LINE_DATA_GET(&payld->tsl);
++		sample.tstamp = HAS_LINE_EXT(payld) && LINE_TS_VALID(payld) ?
+ 			LINE_TSTAMP_GET(&payld->tsl) : 0;
+ 
+-		trace_scmi_tlm_collect(tde->last_ts, tde->de.info->id,
+-				       tde->last_val, "MESSAGE");
++		/* Trace originally read tstamp */
++		trace_scmi_tlm_collect(sample.tstamp, de->info->id, sample.val,
++				       "MESSAGE");
++
++		tde = to_tde(de);
++		tde->cached_msg = true;
++		scmi_telemetry_tde_cache_update(tde, &sample, NULL);
+ 	}
+ }
+ 
+@@ -2590,6 +2595,98 @@ static const struct scmi_telemetry_proto_ops tlm_proto_ops = {
+ 	.reset = scmi_telemetry_reset,
+ };
+ 
++static bool
++scmi_telemetry_notify_supported(const struct scmi_protocol_handle *ph,
++				u8 evt_id, u32 src_id)
++{
++	struct telemetry_info *ti = ph->get_priv(ph);
++
++	return ti->info.continuos_update_support;
++}
++
++static int
++scmi_telemetry_set_notify_enabled(const struct scmi_protocol_handle *ph,
++				  u8 evt_id, u32 src_id, bool enable)
++{
++	return 0;
++}
++
++static void *
++scmi_telemetry_fill_custom_report(const struct scmi_protocol_handle *ph,
++				  u8 evt_id, ktime_t timestamp,
++				  const void *payld, size_t payld_sz,
++				  void *report, u32 *src_id)
++{
++	const struct scmi_telemetry_update_notify_payld *p = payld;
++	struct scmi_telemetry_update_report *r = report;
++
++	/* At least sized as an empty notification */
++	if (payld_sz < sizeof(*p))
++		return NULL;
++
++	r->timestamp = timestamp;
++	r->agent_id = le32_to_cpu(p->agent_id);
++	r->status = le32_to_cpu(p->status);
++	r->num_dwords = le32_to_cpu(p->num_dwords);
++	/*
++	 * Allocated dwords and report are sized as max_msg_size, so as
++	 * to allow for the maximum payload permitted by the configured
++	 * transport. Overflow is not possible since out-of-size messages
++	 * are dropped at the transport layer.
++	 */
++	if (r->num_dwords)
++		memcpy_from_le32(r->dwords, p->array, r->num_dwords);
++
++	*src_id = 0;
++
++	return r;
++}
++
++static const struct scmi_event tlm_events[] = {
++	{
++		.id = SCMI_EVENT_TELEMETRY_UPDATE,
++		.max_payld_sz = 0,
++		.max_report_sz = 0,
++	},
++};
++
++static const struct scmi_event_ops tlm_event_ops = {
++	.is_notify_supported = scmi_telemetry_notify_supported,
++	.set_notify_enabled = scmi_telemetry_set_notify_enabled,
++	.fill_custom_report = scmi_telemetry_fill_custom_report,
++};
++
++static const struct scmi_protocol_events tlm_protocol_events = {
++	.queue_sz = SCMI_PROTO_QUEUE_SZ,
++	.ops = &tlm_event_ops,
++	.evts = tlm_events,
++	.num_events = ARRAY_SIZE(tlm_events),
++	.num_sources = 1,
++};
++
++static int scmi_telemetry_notifier(struct notifier_block *nb,
++				   unsigned long event, void *data)
++{
++	struct scmi_telemetry_update_report *er = data;
++	struct telemetry_info *ti = telemetry_nb_to_info(nb);
++
++	if (er->status) {
++		trace_scmi_tlm_access(0, "BAD_NOTIF_MSG", 0, 0);
++		return NOTIFY_DONE;
++	}
++
++	trace_scmi_tlm_access(0, "TLM_UPDATE_MSG", 0, 0);
++	/* Lookup the embedded DEs in the notification payload ... */
++	if (er->num_dwords)
++		scmi_telemetry_msg_payld_process(ti, er->num_dwords, er->dwords);
++
++	/* ...scan the SHMTI/FCs for any other DE updates. */
++	if (ti->streaming_mode)
++		scmi_telemetry_scan_update(ti);
++
++	return NOTIFY_OK;
++}
++
+ /**
+  * scmi_telemetry_resources_alloc  - Resources allocation
+  * @ti: A reference to the telemetry info descriptor for this instance
+@@ -2838,7 +2935,25 @@ static int scmi_telemetry_protocol_init(const struct scmi_protocol_handle *ph)
+ 
+ 	ti->info.base.version = ph->version;
+ 
+-	return ph->set_priv(ph, ti);
++	ret = ph->set_priv(ph, ti);
++	if (ret)
++		return ret;
++
++	/*
++	 * Register a notifier anyway straight upon protocol initialization
++	 * since there could be some DEs that are ONLY reported by notifications
++	 * even though the chosen collection method was SHMTI/FCs.
++	 */
++	if (ti->info.continuos_update_support) {
++		ti->telemetry_nb.notifier_call = &scmi_telemetry_notifier;
++		ret = ph->notifier_register(ph, SCMI_EVENT_TELEMETRY_UPDATE,
++					    NULL, &ti->telemetry_nb);
++		if (ret)
++			dev_warn(ph->dev,
++				 "Could NOT register Telemetry notifications\n");
++	}
++
++	return ret;
+ }
+ 
+ static const struct scmi_protocol scmi_telemetry = {
+@@ -2846,6 +2961,7 @@ static const struct scmi_protocol scmi_telemetry = {
+ 	.owner = THIS_MODULE,
+ 	.instance_init = &scmi_telemetry_protocol_init,
+ 	.ops = &tlm_proto_ops,
++	.events = &tlm_protocol_events,
+ 	.supported_version = SCMI_PROTOCOL_SUPPORTED_VERSION,
+ };
+ 
+diff --git a/include/linux/scmi_protocol.h b/include/linux/scmi_protocol.h
+index 4d72a5fbf1bc..44ace368fc99 100644
+--- a/include/linux/scmi_protocol.h
++++ b/include/linux/scmi_protocol.h
+@@ -1249,6 +1249,7 @@ enum scmi_notification_events {
+ 	SCMI_EVENT_SYSTEM_POWER_STATE_NOTIFIER = 0x0,
+ 	SCMI_EVENT_POWERCAP_CAP_CHANGED = 0x0,
+ 	SCMI_EVENT_POWERCAP_MEASUREMENTS_CHANGED = 0x1,
++	SCMI_EVENT_TELEMETRY_UPDATE = 0x0,
+ };
+ 
+ struct scmi_power_state_changed_report {
+@@ -1336,4 +1337,12 @@ struct scmi_powercap_meas_changed_report {
+ 	unsigned int	domain_id;
+ 	unsigned int	power;
+ };
++
++struct scmi_telemetry_update_report {
++	ktime_t		timestamp;
++	unsigned int	agent_id;
++	int		status;
++	unsigned int	num_dwords;
++	unsigned int	dwords[];
++};
+ #endif /* _LINUX_SCMI_PROTOCOL_H */
+-- 
+2.54.0
 
-Thanks!
-Quentin
 
