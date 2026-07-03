@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6201AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:44:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FCCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eU2FQIgH5xWBaMkPK6r9ppU5z3DzqJRHlzJbKRcZjyo=; b=ZIn7WiDg7GEBabVmM+yjdWDEzC
-	VFrWef3CWek0ODnpmCaZPQEleugP38z8l9BYFxMNlo6Qmh2HKKQIBFiEfoEjmATRArXbLkRyWQh9Q
-	JHZGj2vXHC8A3Sg9PoBcwUYqm4hOb0z3C+ldCqOkzvE31S4Xpn4zdtRRGEgT1OFGXnb5VkZpOvxvK
-	N3BtCdB7B49CvwUrg3v3N2G/sesP6EzxENtNlRCUd38ZEGRn1P64N1dhLWMo8744CayMsMCK1eWxh
-	6+/ktH5F5U4jW4k6srinEssQQ9SHNBwy6PXCvEkeQIoBh2CqKT6asiocqRCO1zm3+vyVOaXofZ/qa
-	/luyCShA==;
+	bh=vvazE5MS5OSGpGggmWf1tjFQgPXX7WjPrQaucRJ/gW8=; b=gZyiSKY9DkiT/JwmYPA2ZHrPj7
+	62NLAl4bBDhBmBozRbVdo4cHjeYWTRldLdkCO1cLDVcsxYmlsZeuaTh75NumL6H99SpCiqjfMUk/v
+	uZP+jvv9E0eUM/rgN2rcg05juUfZJTCP7P1vkjdxpJwkKlP0AcYB19sGzKMrKd6Jvs6R6qwEEDIJH
+	561n9RVGjYOnbzON2IGHCZB0xmPg+2ENZIAGkKBHtYo9GaDMOlj1eTL+gMl9JGOVLxzkP8L4v2uAN
+	xpDow7a2rT11ONZdvgmPCJIhtbbtBzHHUoMlxefTSYkKUyCTv/SAbQW8tC9Wl6l6ZE66H1UDnFCLD
+	Uet1tYTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdG4-00000006zqG-0Az1;
-	Fri, 03 Jul 2026 12:44:40 +0000
-Received: from chaosmail.tech ([77.81.229.115])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdFz-00000006zo4-02FE
+	id 1wfd96-00000006xYx-1wYY;
+	Fri, 03 Jul 2026 12:37:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfd8H-00000006xDm-3owP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:44:38 +0000
-Received: by chaosmail.tech (Postfix) id C2FA51CC220;
-	Fri, 03 Jul 2026 12:44:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
-	s=mail; t=1783082670;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=eU2FQIgH5xWBaMkPK6r9ppU5z3DzqJRHlzJbKRcZjyo=;
-	b=pM8UqvsFemEdfifppVsEvxDCqPhzz+WMjOQlLWS5IE5L2g6ngjo/HGMYK/7YErZBm0YRyT
-	fLwBc6c7jfaJShA8srzCliRKC95Q26I2cfKhs4yiTTy9jGR2nDRlLG/jysbjQREMBunVxV
-	ndkUUzyiyf4quzhpw75H1JHRezoJCkM=
-From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Fri, 03 Jul 2026 14:44:12 +0200
-Subject: [PATCH v2 2/3] soc: apple: Add driver for Apple PMGR misc controls
+	Fri, 03 Jul 2026 12:37:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 730C8463F;
+	Fri,  3 Jul 2026 05:36:32 -0700 (PDT)
+Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77A063F905;
+	Fri,  3 Jul 2026 05:36:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783082196; bh=LBRQ6wFBIx9uyX3JPutqMO45oA7CkE7M/GSDecI1/6g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ksj6jRDDy32orDxQXaNIZG9l3Ar6cKouJfKYyU+uGE2mHQRPuKRRgwuE3abMhbyLs
+	 5RfzVjjEhL2DWiqWAhOEaVxqZGv01B1gT91aR8GEvmjMYp3AyJfi93otMw6NUAOlO1
+	 8U8tdfLpx8/iAUXrSC+/H86Wf0pROV8nxNDQ7Ou8=
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Cc: sudeep.holla@kernel.org,
+	james.quinlan@broadcom.com,
+	f.fainelli@gmail.com,
+	vincent.guittot@linaro.org,
+	etienne.carriere@st.com,
+	peng.fan@oss.nxp.com,
+	michal.simek@amd.com,
+	d-gole@ti.com,
+	jic23@kernel.org,
+	elif.topuz@arm.com,
+	lukasz.luba@arm.com,
+	philip.radford@arm.com,
+	brauner@kernel.org,
+	david@kernel.org,
+	souvik.chakravarty@arm.com,
+	leitao@kernel.org,
+	kas@kernel.org,
+	puranjay@kernel.org,
+	usama.arif@linux.dev,
+	kernel-team@meta.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v5 02/23] firmware: arm_scmi: Reduce the scope of protocols mutex
+Date: Fri,  3 Jul 2026 13:35:40 +0100
+Message-ID: <20260703123601.381275-3-cristian.marussi@arm.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
+References: <20260703123601.381275-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-pmgr-misc-v2-2-4b26ba10c5a4@chaosmail.tech>
-References: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
-In-Reply-To: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>, Hector Martin <marcan@marcan.st>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783082668; l=6892;
- i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=TCS8wRhNJDs/bUMwVj0j0SqfotnHfcanr0Ri3PypxTw=;
- b=F9XgK3577STcO6YkixRpLh4gx9CcOyowxvebAAvxpO3mu5Nyz/tIdfyqbmNmtsRGdoadNvQNA
- td+Bk4qLskkCvDw3qXcHl9z5a5lSJnTOV+X2+Tr23mG6Xb+ee2+YlW8
-X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
- pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_054435_569779_BA633EE0 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20260703_053638_038540_ACDB5E04 
+X-CRM114-Status: GOOD (  14.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,248 +90,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hector Martin <marcan@marcan.st>
+Currently the mutex dedicated to the protection of the list of registered
+protocols is held during all the protocol initialization phase.
 
-Apple SoCs have PMGR blocks that control a bunch of power-related
-features. Besides the existing device power state controls (which are
-very uniform and handled by apple-pmgr-pwrstate), we also need to manage
-more random registers such as SoC-wide fabric and memory controller
-power states, which have a different interface.
+Such a wide locking region is not needed and causes problem when trying to
+initialize notifications from within a protocol initialization routine.
 
-Add a driver for these kitchen sink controls. Right now it implements
-fabric and memory controller power state switching on system
-standby/s2idle, which saves about 1W of power or so on t60xx platforms.
+Reduce the scope of the protocol mutex.
 
-Signed-off-by: Hector Martin <marcan@marcan.st>
-Co-developed-by: Sasha Finkelstein <k@chaosmail.tech>
-Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/soc/apple/Kconfig           |  10 ++++++++
- drivers/soc/apple/Makefile          |   2 ++
- drivers/soc/apple/apple-pmgr-misc.c | 179 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 191 insertions(+)
+v1-->v2
+ - Fixed improper mixed usage of cleanup and goto constructs
+---
+ drivers/firmware/arm_scmi/driver.c | 49 ++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/soc/apple/Kconfig b/drivers/soc/apple/Kconfig
-index d0ff32182a2b..cad847c90df8 100644
---- a/drivers/soc/apple/Kconfig
-+++ b/drivers/soc/apple/Kconfig
-@@ -16,6 +16,16 @@ config APPLE_MAILBOX
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 8e06e40d1a11..b616b73df957 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2224,7 +2224,6 @@ static void scmi_protocol_version_initialize(struct device *dev,
+  * all resources management is handled via a dedicated per-protocol devres
+  * group.
+  *
+- * Context: Assumes to be called with @protocols_mtx already acquired.
+  * Return: A reference to a freshly allocated and initialized protocol instance
+  *	   or ERR_PTR on failure. On failure the @proto reference is at first
+  *	   put using @scmi_protocol_put() before releasing all the devres group.
+@@ -2270,8 +2269,10 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ 	if (ret)
+ 		goto clean;
  
- 	  Say Y here if you have an Apple SoC.
+-	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1,
+-			GFP_KERNEL);
++	/* Finally register the initialized protocol */
++	mutex_lock(&info->protocols_mtx);
++	ret = idr_alloc(&info->protocols, pi, proto->id, proto->id + 1, GFP_KERNEL);
++	mutex_unlock(&info->protocols_mtx);
+ 	if (ret != proto->id)
+ 		goto clean;
  
-+config APPLE_PMGR_MISC
-+	bool "Apple SoC PMGR miscellaneous support"
-+	depends on PM
-+	help
-+	  The PMGR block in Apple SoCs provides high-level power state
-+	  controls for SoC devices. This driver manages miscellaneous
-+	  power controls.
-+
-+	  Say 'y' here if you have a Pro/Max/Ultra Apple SoC.
-+
- config APPLE_RTKIT
- 	tristate "Apple RTKit co-processor IPC protocol"
- 	depends on APPLE_MAILBOX
-diff --git a/drivers/soc/apple/Makefile b/drivers/soc/apple/Makefile
-index 0b85ab61aefe..0481f7f43b06 100644
---- a/drivers/soc/apple/Makefile
-+++ b/drivers/soc/apple/Makefile
-@@ -3,6 +3,8 @@
- obj-$(CONFIG_APPLE_MAILBOX) += apple-mailbox.o
- apple-mailbox-y = mailbox.o
+@@ -2318,27 +2319,25 @@ scmi_alloc_init_protocol_instance(struct scmi_info *info,
+ static struct scmi_protocol_instance * __must_check
+ scmi_get_protocol_instance(const struct scmi_handle *handle, u8 protocol_id)
+ {
+-	struct scmi_protocol_instance *pi;
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
++	const struct scmi_protocol *proto;
  
-+obj-$(CONFIG_APPLE_PMGR_MISC)	+= apple-pmgr-misc.o
-+
- obj-$(CONFIG_APPLE_RTKIT) += apple-rtkit.o
- apple-rtkit-y = rtkit.o rtkit-crashlog.o
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
+-
+-	if (pi) {
+-		refcount_inc(&pi->users);
+-	} else {
+-		const struct scmi_protocol *proto;
++	scoped_guard(mutex, &info->protocols_mtx) {
++		struct scmi_protocol_instance *pi;
  
-diff --git a/drivers/soc/apple/apple-pmgr-misc.c b/drivers/soc/apple/apple-pmgr-misc.c
-new file mode 100644
-index 000000000000..ae8b34f298e8
---- /dev/null
-+++ b/drivers/soc/apple/apple-pmgr-misc.c
-@@ -0,0 +1,179 @@
-+// SPDX-License-Identifier: GPL-2.0-only OR MIT
-+/*
-+ * Apple SoC PMGR device power state driver
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ */
+-		/* Fails if protocol not registered on bus */
+-		proto = scmi_protocol_get(protocol_id, &info->version);
+-		if (proto)
+-			pi = scmi_alloc_init_protocol_instance(info, proto);
+-		else
+-			pi = ERR_PTR(-EPROBE_DEFER);
++		pi = idr_find(&info->protocols, protocol_id);
++		if (pi) {
++			refcount_inc(&pi->users);
++			return pi;
++		}
+ 	}
+-	mutex_unlock(&info->protocols_mtx);
+ 
+-	return pi;
++	/* Fails if protocol not registered on bus */
++	proto = scmi_protocol_get(protocol_id, &info->version);
++	if (!proto)
++		return ERR_PTR(-EPROBE_DEFER);
 +
-+#include <linux/bitops.h>
-+#include <linux/bitfield.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/module.h>
-+
-+#define APPLE_CLKGEN_PSTATE 0
-+#define APPLE_CLKGEN_PSTATE_DESIRED GENMASK(3, 0)
-+
-+#define SYS_DEV_PSTATE_SUSPEND 1
-+
-+enum sys_device {
-+	DEV_FABRIC,
-+	DEV_DCS,
-+	DEV_MAX,
-+};
-+
-+struct apple_pmgr_sys_device {
-+	void __iomem *base;
-+	u32 active_state;
-+	u32 suspend_state;
-+};
-+
-+struct apple_pmgr_misc_hw {
-+	u32 dev_min_ps[DEV_MAX];
-+};
-+
-+struct apple_pmgr_misc {
-+	struct device *dev;
-+	struct apple_pmgr_sys_device devices[DEV_MAX];
-+};
-+
-+static void apple_pmgr_sys_dev_set_pstate(struct apple_pmgr_misc *misc,
-+					  enum sys_device dev, bool active)
-+{
-+	u32 pstate;
-+	u32 val;
-+
-+	if (!misc->devices[dev].base)
-+		return;
-+
-+	if (active)
-+		pstate = misc->devices[dev].active_state;
-+	else
-+		pstate = misc->devices[dev].suspend_state;
-+
-+	dev_dbg(misc->dev, "set %d ps to pstate %d\n", dev, pstate);
-+
-+	val = readl_relaxed(misc->devices[dev].base + APPLE_CLKGEN_PSTATE);
-+	val &= ~APPLE_CLKGEN_PSTATE_DESIRED;
-+	val |= FIELD_PREP(APPLE_CLKGEN_PSTATE_DESIRED, pstate);
-+	writel_relaxed(val, misc->devices[dev].base + APPLE_CLKGEN_PSTATE);
-+}
-+
-+static int __maybe_unused apple_pmgr_misc_suspend_noirq(struct device *dev)
-+{
-+	struct apple_pmgr_misc *misc = dev_get_drvdata(dev);
-+	int i;
-+
-+	for (i = 0; i < DEV_MAX; i++)
-+		apple_pmgr_sys_dev_set_pstate(misc, i, false);
-+
-+	return 0;
-+}
-+
-+static int __maybe_unused apple_pmgr_misc_resume_noirq(struct device *dev)
-+{
-+	struct apple_pmgr_misc *misc = dev_get_drvdata(dev);
-+	int i;
-+
-+	for (i = 0; i < DEV_MAX; i++)
-+		apple_pmgr_sys_dev_set_pstate(misc, i, true);
-+
-+	return 0;
-+}
-+
-+static bool apple_pmgr_init_device(struct apple_pmgr_misc *misc,
-+				   const struct apple_pmgr_misc_hw *hw,
-+				   enum sys_device dev,
-+				   const char *device_name)
-+{
-+	void __iomem *base;
-+	char name[32];
-+	u32 val;
-+
-+	snprintf(name, sizeof(name), "%s-ps", device_name);
-+
-+	base = devm_platform_ioremap_resource_byname(
-+		to_platform_device(misc->dev), name);
-+	if (IS_ERR(base))
-+		return false;
-+
-+	val = readl_relaxed(base + APPLE_CLKGEN_PSTATE);
-+
-+	misc->devices[dev].base = base;
-+	misc->devices[dev].active_state =
-+		FIELD_GET(APPLE_CLKGEN_PSTATE_DESIRED, val);
-+	misc->devices[dev].suspend_state = hw->dev_min_ps[dev];
-+
-+	return true;
-+}
-+
-+static int apple_pmgr_misc_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	const struct apple_pmgr_misc_hw *hw;
-+	struct apple_pmgr_misc *misc;
-+	int ret = -ENODEV;
-+
-+	misc = devm_kzalloc(dev, sizeof(*misc), GFP_KERNEL);
-+	if (!misc)
-+		return -ENOMEM;
-+
-+	misc->dev = dev;
-+	hw = of_device_get_match_data(dev);
-+	if (!hw)
-+		return -EINVAL;
-+
-+	if (apple_pmgr_init_device(misc, hw, DEV_FABRIC, "fabric"))
-+		ret = 0;
-+
-+	if (apple_pmgr_init_device(misc, hw, DEV_DCS, "dcs"))
-+		ret = 0;
-+
-+	platform_set_drvdata(pdev, misc);
-+
-+	return ret;
-+}
-+
-+static const struct apple_pmgr_misc_hw apple_pmgr_misc_hw_t600x = {
-+	.dev_min_ps = {
-+		[DEV_FABRIC] = SYS_DEV_PSTATE_SUSPEND,
-+		[DEV_DCS] = 7,
-+	},
-+};
-+
-+static const struct apple_pmgr_misc_hw apple_pmgr_misc_hw_t602x = {
-+	.dev_min_ps = {
-+		[DEV_FABRIC] = SYS_DEV_PSTATE_SUSPEND,
-+		[DEV_DCS] = SYS_DEV_PSTATE_SUSPEND,
-+	},
-+};
-+
-+static const struct of_device_id apple_pmgr_misc_of_match[] = {
-+	{ .compatible = "apple,t6000-pmgr-misc", .data = &apple_pmgr_misc_hw_t600x },
-+	{ .compatible = "apple,t6020-pmgr-misc", .data = &apple_pmgr_misc_hw_t602x },
-+	{}
-+};
-+
-+MODULE_DEVICE_TABLE(of, apple_pmgr_misc_of_match);
-+
-+static const struct dev_pm_ops apple_pmgr_misc_pm_ops = {
-+	SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(apple_pmgr_misc_suspend_noirq,
-+				      apple_pmgr_misc_resume_noirq)
-+};
-+
-+static struct platform_driver apple_pmgr_misc_driver = {
-+	.probe = apple_pmgr_misc_probe,
-+	.driver = {
-+		.name = "apple-pmgr-misc",
-+		.of_match_table = apple_pmgr_misc_of_match,
-+		.pm = pm_ptr(&apple_pmgr_misc_pm_ops),
-+	},
-+};
-+
-+MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
-+MODULE_DESCRIPTION("PMGR misc driver for Apple SoCs");
-+MODULE_LICENSE("GPL");
-+
-+module_platform_driver(apple_pmgr_misc_driver);
-
++	return scmi_alloc_init_protocol_instance(info, proto);
+ }
+ 
+ /**
+@@ -2369,10 +2368,11 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 	struct scmi_info *info = handle_to_scmi_info(handle);
+ 	struct scmi_protocol_instance *pi;
+ 
+-	mutex_lock(&info->protocols_mtx);
+-	pi = idr_find(&info->protocols, protocol_id);
+-	if (WARN_ON(!pi))
+-		goto out;
++	scoped_guard(mutex, &info->protocols_mtx) {
++		pi = idr_find(&info->protocols, protocol_id);
++		if (WARN_ON(!pi))
++			return;
++	}
+ 
+ 	if (refcount_dec_and_test(&pi->users)) {
+ 		void *gid = pi->gid;
+@@ -2391,9 +2391,6 @@ void scmi_protocol_release(const struct scmi_handle *handle, u8 protocol_id)
+ 		dev_dbg(handle->dev, "De-Initialized protocol: 0x%X\n",
+ 			protocol_id);
+ 	}
+-
+-out:
+-	mutex_unlock(&info->protocols_mtx);
+ }
+ 
+ void scmi_setup_protocol_implemented(const struct scmi_protocol_handle *ph,
 -- 
-2.55.0
+2.54.0
 
 
