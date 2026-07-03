@@ -4,79 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5351FC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 19:55:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E288C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzaFbJaTPQEVimj2+B8m+XsIpGgYfUGXueT6L5ZQcHk=; b=ls3Zt0KFsc9m45P40JyfdHAF4g
-	SLEjqDR+9uSNxWYFJLlAmXAEGyZFAfcrMfNZBrZKXaeNzSNMRwN6OEA0+7jtwpu+fd1rkyZJIYjEB
-	iCq/1LHfI+6qRNU6jEi0qQaZAgqAe4HAXG8g/raKhJf+R7igiKBuGtgq3xRtNmLdOe1iae++VjjMx
-	9ntpN0Mmqu1qfhZljgZUpXzWBWQBCAOTbYRC6Vqijf3RToJOdE7BuxE6pzCR9uF4aIRKLcsDz89dw
-	jnBc7BiL6BKn6Kv8+W5VdcYIZuI0Wgt7WCOSvU0KQFY3N7bowSRPE4ktIgw2ZlAOpAVT35u29Rr9I
-	sqMRi9LA==;
+	bh=VqnVxuePfzGralo5ejKJTMgkZosmeyctDuCT0QENgCw=; b=GIGgu0NAX92HY2o5pxHMD2MFk6
+	K69eRMaVhRvI15pLZEApIXli4HA2fpmq4n1r84HZljc7iRRt6yxKpvFv5kJczpEluXnUiui956MDp
+	voMiL90xrCAuUFfm6Ie6CBXUC2A2smLlzlmVf6pw/7piVe9TwA2UvEvd31sAcxXtB4wxFSzYcKysN
+	Ce5xa8hCL4TGvDeQCpCu9uKevgZkrILfskIquZhnKM2gLrbEyI7ZFC3+FOyr1isUeQG+D02sg3Ej2
+	oGwqUvojAwsHpJQBPBRfV2VIdUypeALN0WrH6ggtvWmI9lgAsR8aW7XZpPtV0k9ncRVnZ0TTDDwdU
+	/Lta+2Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfjyn-00000007p8k-1Dlf;
-	Fri, 03 Jul 2026 19:55:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1wfkDb-00000007pab-2W2T;
+	Fri, 03 Jul 2026 20:10:35 +0000
+Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfjyk-00000007p8I-2bQG;
-	Fri, 03 Jul 2026 19:55:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783108511;
-	bh=dqOHIAGMWhCgRowmL1u07fCxLEb4Pr3jh8BO4JUIoiI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eO2SeGojJ+r0vQNNXHIuPbEdgQ79bOPQ+EDjyOcfr/k15Tqldg9z173ziGZ8AFx57
-	 0GF75+tgDQbkTObZz/WHIqP008Ea9t8kYQD1e50bf00+Lo9/PEVdA1t/YeMacSj0tE
-	 vJOV3HDESBw7kxAdkUhupmzopq8Ecj/QwhEUQWheeZnTIv8Qv5skakKOAa1cZH5+rV
-	 Vu9dA3ebE2l5IpmG9v+a8ev1VttaF8E/Ddn0uqjCH4T7Dwxj48gUNAsOC7dI+TMzOF
-	 8TWdt4wA936pZ/7z2l5Apw2j+u/++L/hyB0f8jvnYEHP+zdK7iz2Fds5cEIXKbPtT+
-	 GerjIbsFkYB5A==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 650DA17E063B;
-	Fri,  3 Jul 2026 21:55:10 +0200 (CEST)
-Message-ID: <f74ffd53-5776-4fae-a6fe-eeace5c3fc5f@collabora.com>
-Date: Fri, 3 Jul 2026 22:55:09 +0300
+	id 1wfkDY-00000007pZv-2jGP
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 20:10:34 +0000
+Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-51c29b46382so4930461cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:10:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783109431; x=1783714231; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VqnVxuePfzGralo5ejKJTMgkZosmeyctDuCT0QENgCw=;
+        b=Eos0Z6AXv75qU7RwQucXQIYVoG534w+nc49oV0r4ZcAJFEpFm1cCdCWhf89N5wxQZe
+         yPW1DDeMSSxv2O+VGA4RsJhMyiffL+8t8PZ7JVnCwl+Bb8hQ6gz486qRhNN18knWjbH+
+         yTm0dTAYiByNOhJLd9gnjCvoz3Czk6OUyn5eRwJm0VD9gulJJOgvOB2n8kb4ijZhx9hm
+         lRfvd9RyC7EKJOkSHbvSTx7vRYFevafwWiAeryv67kGeiqVqkwjggkCpfAbg9XJvVpAz
+         kmBnxo6Er4rkQTvYPONAMmCBweAoly7KxYLcvtd4+IY6VfQpcTe8b7IwHNpcCwjPUHJv
+         OqdA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783109431; x=1783714231;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=VqnVxuePfzGralo5ejKJTMgkZosmeyctDuCT0QENgCw=;
+        b=BkB+ZZRHNYAUeHKojSHyRD18GyCRUR0Ogf0rliEyNJIBDkwzc7ohMgndN3Bekx79ff
+         6Ibbp+j2k9jF2zLahRnd+dTpBjPxQBEEyHiZ9XlYkCihy2yncSB3FrsPSr8rpcM9h1SU
+         4Ma+0OHTIbLHWLNpfSusE9Kjj/Z2qV+DYpoM8oFtl5fn2xQMieplU0dRdXHBLA2RTGfk
+         06wDvNxNPW+yjWOD8sEFNWqDtEyXlRP1W9LyzUihWx94CgAw0gk7USPIPbJjyln+0OSF
+         kPLHI80kbpcHFhprGdt2trIFirIvfuQGWgGjE5LIjUwiSwcw4g9qs2UGU28PMMBieGkk
+         BwnQ==
+X-Gm-Message-State: AOJu0YzZRoZXMJorI5fhw1e6qeDlIt1HjqM66yBYDP0VOCoIfzuA3iR4
+	BQ7+K7qqSvy8iFzWRaV9ByQXB2PtDXiV2WwrZn59O07QgcWmWQ8ZZa0K
+X-Gm-Gg: AfdE7clu1lBzmbZ36XUvppW7QFtoGa8DouXTHVtsq/icWr81Mh1fDuoRO66GgYphupP
+	aLGkX6Og/vCNZk9YBhvtXuO8nmyXIQqzWIi3mjq1/6TVJEIr9oM64N40BxoO8v0HIxZeW1rBOzl
+	O2TScDRk6B7ZqVWwQHelUiU17EK5yClsJufDALSS/QhLiKjYwsCjHCBNZk2EtiXPyPBRHkwca8r
+	0TSzjheZ7aq0H7xtJZtzMPpDGjcfafseZjANNRdm/3CQ3UDU65aite8A4a8DCVcG4UQWlRQe+1o
+	9cx7Ya6Uv+SwillvlnWJwxgIOzMozCGb4xacCxhazWpLBptYReG2xPUDXd7sMrkn/Mk88lR3Yfd
+	QzJzU6Q59Ss8v+CfZ3mWyZWW5u7/LYsxgJHvZKWI0GIr/9L/8qe3Ik/Ik01ItGNn5oGusFQwq+/
+	J+NqYq+6O2IvOsIIctpswXtdnp59NdLV9DICTfuNsp6+LTdTCB+NNwNMlTyjTzrdMkkaGREkqv4
+	g==
+X-Received: by 2002:a05:622a:85:b0:51b:ecca:f2e0 with SMTP id d75a77b69052e-51c4c1e6500mr15034181cf.5.1783109430605;
+        Fri, 03 Jul 2026 13:10:30 -0700 (PDT)
+Received: from oklopfer.hsd1.ma.comcast.net (c-73-167-46-184.hsd1.ma.comcast.net. [73.167.46.184])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51c41df52a6sm22259141cf.27.2026.07.03.13.10.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 13:10:29 -0700 (PDT)
+From: Oren Klopfer <oklopfer37@gmail.com>
+To: oklopfer37@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Heiko Stuebner <heiko@sntech.de>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Thorsten Leemhuis <regressions@leemhuis.info>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] Revert "arm64: dts: rockchip: Further describe the WiFi for the Pinephone Pro"
+Date: Fri,  3 Jul 2026 16:10:10 -0400
+Message-ID: <20260703201010.67311-1-oklopfer37@gmail.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260615225014.219115-1-oklopfer37@gmail.com>
+References: <20260615225014.219115-1-oklopfer37@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 03/39] drm/display: bridge_connector: Pass HDMI
- capabilities through caps struct
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-3-d79890d00b6a@collabora.com>
- <eqnr2hfclbdkry2jqe2kuufss5kus6qpjblewq35upnjwlhxhl@4awqxpwrnxk2>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <eqnr2hfclbdkry2jqe2kuufss5kus6qpjblewq35upnjwlhxhl@4awqxpwrnxk2>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_125514_843472_62CFEDB0 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20260703_131032_689815_AEA0B729 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,84 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/3/26 5:19 PM, Dmitry Baryshkov wrote:
-> On Thu, Jul 02, 2026 at 05:46:16PM +0300, Cristian Ciocaltea wrote:
->> Switch drm_bridge_connector_init() to
->> drmm_connector_hdmi_init_with_caps(), collecting the bridge's HDMI
->> properties into a stack drm_connector_hdmi_caps so future HDMI 2.x
->> capabilities can be plumbed without growing the argument list.
->>
->> Introduce struct drm_bridge::supported_hdmi_ver to let bridges declare
->> the HDMI specification version they are conformant with, and forward it
->> to the connector layer through the new caps struct so HDMI 2.x features
->> can be gated on real source capability rather than guesswork.
-> 
-> And it's left uninitialized by the bridges, which doesn't mean anything.
-> If you don't want to touch all bridge drivers in one commit, please
-> provide some migration path and hopefully get rid of it by the end of
-> the series. 
+This reverts commit 096bd8c679185f898cae9933c6a68650fa26ea4f.
 
-Sure, one question though: at the end of the migration, would it be fine to
-stick with drmm_connector_hdmi_init_with_caps() and just drop
-drmm_connector_hdmi_init()?  Otherwise I'll rename it back.
+Just as with the Pinebook Pro, there are multiple chipset variants for
+the Pinephone Pro, and multiple firmware binaries for different
+distributions. The change causes issues with some of these combinations,
+and reverting it resolves the issues. See the Closes below for the full
+report.
 
-> At least, there should be a drm_warn() if the version in
-> unsspecified.
+Similarly with the Pinebook Pro adjustment, the original commit only
+indicates "further description" and not indicative of fixing any
+existing issues, so reverting should not kick any back up.
 
-I’ll double-check if any use cases remain that can't be covered by this series.
+Fixes: 096bd8c67918 ("arm64: dts: rockchip: Further describe the WiFi for the Pinephone Pro")
+Cc: Heiko Stuebner <heiko@sntech.de>
+Cc: Peter Robinson <pbrobinson@gmail.com>
+Cc: Thorsten Leemhuis <regressions@leemhuis.info>
+Cc: stable@vger.kernel.org
+Closes: https://lore.kernel.org/r/20260607225901.64019-1-oklopfer37@gmail.com/
+Signed-off-by: Oren Klopfer <oklopfer37@gmail.com>
+---
 
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/display/drm_bridge_connector.c | 29 ++++++++++++++------------
->>  include/drm/drm_bridge.h                       |  6 ++++++
->>  2 files changed, 22 insertions(+), 13 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
->> index 92f8a2d7aab4..796069dbf1a1 100644
->> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
->> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
->> @@ -823,8 +823,10 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->>  	struct drm_connector *connector;
->>  	struct i2c_adapter *ddc = NULL;
->>  	struct drm_bridge *panel_bridge __free(drm_bridge_put) = NULL;
->> -	unsigned int supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444);
->> -	unsigned int max_bpc = 8;
->> +	struct drm_connector_hdmi_caps caps = {
->> +		.supported_formats = BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444),
->> +		.max_bpc = 8,
->> +	};
-> 
-> I'm really not sure that we need separate caps. But if we do, it would
-> make sense to embed it as is in the drm_bridge instead of having the
-> scattered fields.
+v2:
+- Repair malformed whitespace
 
-Ack.
+ .../boot/dts/rockchip/rk3399-pinephone-pro.dts | 18 ------------------
+ 1 file changed, 18 deletions(-)
 
-> 
->>  	bool support_hdcp = false;
->>  	int connector_type;
->>  	int ret;
->> diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
->> index 18f3db367dc1..2d8b5e4c64ba 100644
->> --- a/include/drm/drm_bridge.h
->> +++ b/include/drm/drm_bridge.h
->> @@ -1176,6 +1176,12 @@ struct drm_bridge {
->>  	 */
->>  	const char *product;
->>  
->> +	/**
->> +	 * @supported_hdmi_ver: HDMI version the bridge is conformant with.
->> +	 * This is only relevant if @DRM_BRIDGE_OP_HDMI is set.
->> +	 */
->> +	enum hdmi_version supported_hdmi_ver;
->> +
->>  	/**
->>  	 * @supported_formats: Bitmask of @drm_output_color_format listing
->>  	 * supported output formats. This is only relevant if
->>
->> -- 
->> 2.54.0
->>
-> 
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+index 8d26bd9b7500..d46cdfe3f784 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+@@ -734,12 +734,6 @@ light_int_l: light-int-l {
+ 		};
+ 	};
+ 
+-	wifi {
+-		wifi_host_wake_l: wifi-host-wake-l {
+-			rockchip,pins = <4 RK_PD0 RK_FUNC_GPIO &pcfg_pull_none>;
+-		};
+-	};
+-
+ 	wireless-bluetooth {
+ 		bt_wake_pin: bt-wake-pin {
+ 			rockchip,pins = <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+@@ -766,19 +760,7 @@ &sdio0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&sdio0_bus4 &sdio0_cmd &sdio0_clk>;
+ 	sd-uhs-sdr104;
+-	#address-cells = <1>;
+-	#size-cells = <0>;
+ 	status = "okay";
+-
+-	brcmf: wifi@1 {
+-		compatible = "brcm,bcm4329-fmac";
+-		reg = <1>;
+-		interrupt-parent = <&gpio4>;
+-		interrupts = <RK_PD0 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-names = "host-wake";
+-		pinctrl-names = "default";
+-		pinctrl-0 = <&wifi_host_wake_l>;
+-	};
+ };
+ 
+ &pwm0 {
+-- 
+2.53.0
 
