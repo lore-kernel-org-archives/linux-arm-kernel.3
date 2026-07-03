@@ -4,69 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D396C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 886F3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uDdKdFbdlwmZu2zFHDkhhu7P4u28JySr00/dZqoLoUc=; b=coUg/YAzNzBiF6T5kLHl/OO6Sm
-	2z8LoHnhZy2rniW3jGSpFYb0rFpLIePLnlGbOL0BF2WmfHEf5ihmXm/Jl1bhMVChB5hZGHaVqzz8i
-	dV5qIRvqbcXHjTqdn71Jrhe5ehDa7UzzuaEx04Pvm2EnzdBwnhgVsvdmol9IgHAzCSASYPu/yVlYL
-	kHHxWX8tooRQozEeFCixUNmhKgGchz3qx7w/hwBLFLamSYVRuU2zk51l5XNDbkyYyZpqGWkny9+/H
-	riBODHU14j58ka+z0YWXjbSrZSQIIB535iHfkAGvccKp1aTqp/lwKtS0EW1QfXNByG3R08abQiyU/
-	YjxcEIDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VWY2Crs2joWjAQwhRFf+Tu4H97AY31GvwuXuYsgMjIs=; b=JEhjCgYCb9k1TmNOZOFmOhaRvi
+	ywt1Ub17XLBt7z8I9KPQYD8mvnwBWPnEiwfYduaJMW7Y6s+J4iux2GI64bpcEEDWZsIUuumIk3jtr
+	gAMoaL79yDYbLk5r1A8jy1PXbyJrS1qikTubh4mUhvCbTwrTtdlYWOCqAnv0xg2Z+J6p7KLcAc30W
+	twqxaueeD32Lk/kB6nBY6U3P0Jka6vHJmu/h82NOq3MSdZHjnXjqfU3g1+8h39nXIcVYVuzISCH3o
+	K8HyfEcTYcL2mfwBZLM3uhciTStUg9ST7xjmskdxoJC2CuU3De6Ws3KxMrARwEslFXN77zEYJH1T1
+	NnyHg3iQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfbdE-00000006kFy-3sNP;
-	Fri, 03 Jul 2026 11:00:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfbdC-00000006kFA-1h2O
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:00:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4DC51F91;
-	Fri,  3 Jul 2026 04:00:20 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.73.238])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CCB783F905;
-	Fri,  3 Jul 2026 04:00:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783076425; bh=TpNebW1IXxWV1WsrEiC7MO62rtKGGX2oDgnqi85/x8I=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=dOCCj/XU4ctKn5NSATSM9AP3fvCPqWPFiZn66W/WdHUClbEBWk2d0vqo/OfvZzUpG
-	 o+64VDXywSQhyHUJ9JhBSzK+eqzibXBnPzPHSeitahq/AyM5g92dfFT2aSnFHL+RQb
-	 LR8h26NkkBsI4yqd9uh2vHe8XAQOnX012DHNNQis=
-Message-ID: <df2e5828-5666-463e-84f9-ca1e69955690@arm.com>
-Date: Fri, 3 Jul 2026 12:00:20 +0100
+	id 1wfbfK-00000006kZ2-0x33;
+	Fri, 03 Jul 2026 11:02:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfbfJ-00000006kYs-2KWk;
+	Fri, 03 Jul 2026 11:02:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7D1846001A;
+	Fri,  3 Jul 2026 11:02:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C79C1F000E9;
+	Fri,  3 Jul 2026 11:02:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783076556;
+	bh=VWY2Crs2joWjAQwhRFf+Tu4H97AY31GvwuXuYsgMjIs=;
+	h=From:Date:Subject:To:Cc;
+	b=LCStCaPn43su3iXeUQzmDLqFuQZ4oM0kJD2nJAu3aU0wVEKqYwevTzcilprZaa6cr
+	 H3xX63A8ilzSfrH/+mjCbQZ48UmflToCkPX//KbVdJM22GnWJoPY4VSJ20ynhvHLE5
+	 pYBkH0LoFs6KlytUbhi7HqPqGKoUS1ah4eclgRroLt3i3LpPdRjdTP5cF4iwSTDBfj
+	 V8ofktig5E80kpRPUDiuOsZ6vaWt1I5yFMc3twWuFpkHUy0NTv09y44N5tYTj5fjBM
+	 WyE//yoFUu7gS2wfIlGgWIbibF3EqCmiO5Lvsxkv/JKJO0/y9RPqp/mDwP/Sk7E3OQ
+	 anBQVc9KC1Muw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Fri, 03 Jul 2026 13:02:17 +0200
+Subject: [PATCH net-next] net: airoha: add preliminary support to configure
+ tx hw QoS queue during flowtable offloading
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v2 15/15] arm_mpam: detect and enable MPAM-Fb PCC support
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-16-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260702162229.4008659-16-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_040026_560587_B418DCEA 
-X-CRM114-Status: GOOD (  30.83  )
+Message-Id: <20260703-airoha-hw-qos-queue-stub-v1-1-ef253ffdd093@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQ7CIBBG4as0s3YSCsaKVzEuUP/KbMAyoE2a3
+ l3i8lu8t5GiCJQuw0YFH1HJqWM8DPSIIb3A8uwma+zJTMZxkJJj4PjlJSsvDQ2std3ZOz+NR+f
+ 8bM/U83fBLOt/faWEyglrpdu+/wAEbzSbdAAAAA==
+X-Change-ID: 20260703-airoha-hw-qos-queue-stub-939714339f28
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,215 +74,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Add the plumbing to program the AIROHA_FOE_QID field in the PPE FOE
+entry with a per-flow priority value during flowtable offload. This
+allows the hardware to steer offloaded flows to a specific QoS queue
+on the egress QDMA block for traffic forwarded between two interfaces
+via hardware acceleration, bypassing the kernel forwarding path.
+The priority parameter is currently always zero because netfilter does
+not yet provide a mechanism to pass the skb priority field to the
+flowtable offload driver. Once that support is added in the netfilter
+subsystem, the driver will be able to extract the priority from the
+flow rule and map it to the appropriate hardware queue.
 
-On 7/2/26 17:22, Andre Przywara wrote:
-> The Arm MPAM-Fb specification [1] describes a protocol to access MSC
-> registers through a firmware interface. This requires a shared memory
-> region to hold the message, and a mailbox to trigger the access.
-> For ACPI this is wrapped as a PCC channel, described using existing
-> ACPI abstractions.
-> 
-> Add code to parse those PCC table descriptions associated with an MSC,
-> and store the parsed information in the MSC struct.
-> There can be multiple PCC channels, and each channel can serve multiple
-> MSCs, so we need to keep track of the channel usage, using a list and
-> a refcount.
-> This will be used by the MPAM-Fb access wrapper code.
-> 
-> [1] https://developer.arm.com/documentation/den0144/latest
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> ---
->  drivers/acpi/arm64/mpam.c      |   2 +
->  drivers/resctrl/mpam_devices.c | 113 ++++++++++++++++++++++++++++++++-
->  2 files changed, 113 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/acpi/arm64/mpam.c b/drivers/acpi/arm64/mpam.c
-> index 84963a20c3e7..64bc84bb2029 100644
-> --- a/drivers/acpi/arm64/mpam.c
-> +++ b/drivers/acpi/arm64/mpam.c
-> @@ -256,6 +256,8 @@ static struct platform_device * __init acpi_mpam_parse_msc(struct acpi_mpam_msc_
->  	} else if (iface == MPAM_IFACE_PCC) {
->  		props[next_prop++] = PROPERTY_ENTRY_U32("pcc-channel",
->  							tbl_msc->base_address);
-> +		props[next_prop++] = PROPERTY_ENTRY_U32("msc-id",
-> +							tbl_msc->identifier);
->  	}
->  
->  	acpi_mpam_parse_irqs(pdev, tbl_msc, res, &next_res);
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 4a088e6cd235..35214520bfd4 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -19,6 +19,7 @@
->  #include <linux/irqdesc.h>
->  #include <linux/list.h>
->  #include <linux/lockdep.h>
-> +#include <linux/mailbox_client.h>
->  #include <linux/mutex.h>
->  #include <linux/platform_device.h>
->  #include <linux/printk.h>
-> @@ -27,6 +28,9 @@
->  #include <linux/types.h>
->  #include <linux/workqueue.h>
->  
-> +#include <acpi/pcc.h>
-> +#include <acpi/acpi_io.h>
-> +
->  #include "mpam_internal.h"
->  #include "mpam_fb.h"
->  
-> @@ -50,6 +54,88 @@ static LIST_HEAD(mpam_all_msc);
->  
->  struct srcu_struct mpam_srcu;
->  
-> +/* PCC channels might be serving multiple MSCs, so keep a refcounted list. */
-> +static DEFINE_MUTEX(pcc_chan_list_lock);
-> +static LIST_HEAD(pcc_chan_list);
-> +
-> +static void mpam_pcc_rx_callback(struct mbox_client *cl, void *msg)
-> +{
-> +	/* TODO: wake up tasks blocked on this MSC's PCC channel */
-> +}
-> +
-> +static struct mpam_pcc_chan *mpam_pcc_chan_get(struct device *dev,
-> +					       int subspace_id)
-> +{
-> +	struct mpam_pcc_chan *cur;
-> +
-> +	mutex_lock(&pcc_chan_list_lock);
-> +
-> +	list_for_each_entry(cur, &pcc_chan_list, pcc_chans) {
-> +		if (cur->subspace_id == subspace_id) {
-> +			cur->refcount++;
-> +			mutex_unlock(&pcc_chan_list_lock);
-> +
-> +			return cur;
-> +		}
-> +	}
-> +
-> +	cur = kzalloc_obj(*cur);
-> +	if (!cur) {
-> +		mutex_unlock(&pcc_chan_list_lock);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	cur->pcc_cl.dev = dev;
-> +	cur->pcc_cl.rx_callback = mpam_pcc_rx_callback;
-> +	cur->pcc_cl.tx_block = true;
-> +	cur->pcc_cl.tx_tout = 1000; /* 1s */
-> +
-> +	cur->pcc_chan = pcc_mbox_request_channel(&cur->pcc_cl, subspace_id);
-> +	if (IS_ERR(cur->pcc_chan)) {
-> +		long err = PTR_ERR(cur->pcc_chan);
-> +
-> +		kfree(cur);
-> +		mutex_unlock(&pcc_chan_list_lock);
-> +		return ERR_PTR(err);
-> +	}
-> +
-> +	mutex_init(&cur->pcc_chan_lock);
-> +	cur->subspace_id = subspace_id;
-> +	cur->refcount = 1;
-> +
-> +	list_add_tail(&cur->pcc_chans, &pcc_chan_list);
-> +
-> +	mutex_unlock(&pcc_chan_list_lock);
-> +
-> +	return cur;
-> +}
-> +
-> +static int mpam_pcc_chan_put(struct mpam_pcc_chan *pcc_chan)
-> +{
-> +	struct mpam_pcc_chan *cur, *tmp;
-> +
-> +	if (!pcc_chan)
-> +		return 0;
-> +
-> +	mutex_lock(&pcc_chan_list_lock);
-> +
-> +	list_for_each_entry_safe(cur, tmp, &pcc_chan_list, pcc_chans) {
-> +		if (cur == pcc_chan) {
-> +			if (!--cur->refcount) {
-> +				pcc_mbox_free_channel(cur->pcc_chan);
-> +				list_del(&pcc_chan->pcc_chans);
-> +				kfree(cur);
-> +			}
-> +			mutex_unlock(&pcc_chan_list_lock);
-> +			return 0;
-> +		}
-> +	}
-> +
-> +	mutex_unlock(&pcc_chan_list_lock);
-> +
-> +	return -ENOENT;
-> +}
-> +
->  /*
->   * Number of MSCs that have been probed. Once all MSCs have been probed MPAM
->   * can be enabled.
-> @@ -2202,6 +2288,8 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->  {
->  	struct mpam_msc *msc = platform_get_drvdata(pdev);
->  
-> +	mpam_pcc_chan_put(msc->pcc_chan);
-> +
->  	mutex_lock(&mpam_list_lock);
->  	mpam_msc_destroy(msc);
->  	mutex_unlock(&mpam_list_lock);
-> @@ -2212,7 +2300,7 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->  static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  {
->  	int err;
-> -	u32 tmp;
-> +	u32 pcc_subspace_id;
->  	struct mpam_msc *msc;
->  	struct resource *msc_res;
->  	struct device *dev = &pdev->dev;
-> @@ -2257,7 +2345,8 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  	if (err)
->  		return ERR_PTR(err);
->  
-> -	if (device_property_read_u32(&pdev->dev, "pcc-channel", &tmp))
-> +	if (device_property_read_u32(&pdev->dev, "pcc-channel",
-> +				     &pcc_subspace_id))
->  		msc->iface = MPAM_IFACE_MMIO;
->  	else
->  		msc->iface = MPAM_IFACE_PCC;
-> @@ -2273,6 +2362,26 @@ static struct mpam_msc *do_mpam_msc_drv_probe(struct platform_device *pdev)
->  		}
->  		msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
->  		msc->mapped_hwpage = io;
-> +	} else if (msc->iface == MPAM_IFACE_PCC) {
-> +		u32 msc_id;
-> +
-> +		if (device_property_read_u32(&pdev->dev, "msc-id", &msc_id)) {
-> +			pr_err("missing MPAM-Fb MSC identifier\n");
-> +			return ERR_PTR(-EINVAL);
-> +		}
-> +		msc->mpam_fb_msc_id = msc_id;
-> +
-> +		msc->pcc_chan = mpam_pcc_chan_get(&pdev->dev, pcc_subspace_id);
-> +		if (IS_ERR(msc->pcc_chan)) {
-> +			pr_err("Failed to request MSC PCC channel\n");
-> +			return (void *)msc->pcc_chan;
-> +		}
-> +
-> +		if (msc->pcc_chan->pcc_chan->shmem_size < MPAM_FB_MAX_MSG_SIZE) {
-> +			pr_err("MPAM-Fb PCC channel size too small.\n");
-> +			mpam_pcc_chan_put(msc->pcc_chan);
-> +			return ERR_PTR(-ENOMEM);
-> +		}
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-I think we need a version check here just in case a MPAM-Fb 2.x is released.
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index e7c78293002a..fdb973fc779c 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -331,7 +331,7 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+ 					struct airoha_foe_entry *hwe,
+ 					struct net_device *netdev, int type,
+ 					struct airoha_flow_data *data,
+-					int l4proto)
++					int l4proto, u8 priority)
+ {
+ 	u32 qdata = FIELD_PREP(AIROHA_FOE_SHAPER_ID, 0x7f), ports_pad, val;
+ 	int wlan_etype = -EINVAL, dsa_port = airoha_get_dsa_port(&netdev);
+@@ -386,7 +386,9 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+ 			 */
+ 			channel = dsa_port >= 0 ? dsa_port : port->id;
+ 			channel = channel % AIROHA_NUM_QOS_CHANNELS;
+-			qdata |= FIELD_PREP(AIROHA_FOE_CHANNEL, channel);
++			priority = priority % AIROHA_NUM_QOS_QUEUES;
++			qdata |= FIELD_PREP(AIROHA_FOE_CHANNEL, channel) |
++				 FIELD_PREP(AIROHA_FOE_QID, priority);
+ 
+ 			val |= FIELD_PREP(AIROHA_FOE_IB2_PSE_PORT, pse_port) |
+ 			       AIROHA_FOE_IB2_PSE_QOS;
+@@ -1079,10 +1081,10 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 	struct airoha_flow_data data = {};
+ 	struct net_device *odev = NULL;
+ 	struct flow_action_entry *act;
++	u8 l4proto = 0, priority = 0;
+ 	struct airoha_foe_entry hwe;
+ 	int err, i, offload_type;
+ 	u16 addr_type = 0;
+-	u8 l4proto = 0;
+ 
+ 	if (rhashtable_lookup(&eth->flow_table, &f->cookie,
+ 			      airoha_flow_table_params))
+@@ -1177,7 +1179,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 		return -EINVAL;
+ 
+ 	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
+-					   &data, l4proto);
++					   &data, l4proto, priority);
+ 	if (err)
+ 		return err;
+ 
 
-Thanks,
+---
+base-commit: 9507d09b2b8fc775652f5c5670028daa9d83a2bd
+change-id: 20260703-airoha-hw-qos-queue-stub-939714339f28
 
-Ben
-
->  	} else {
->  		return ERR_PTR(-EINVAL);
->  	}
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
