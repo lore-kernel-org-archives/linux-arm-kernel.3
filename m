@@ -4,128 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF00C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 18:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F6B0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 18:31:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=htvTdVqBj5sQU58rbr9YMzjmDc7fYbUXWR1FudTikW4=; b=pHjrqFfmxpYHfsmKPF82Fwn2U9
-	J/pJ+VaJpttPUSqVwZhfpqJunTVErhs3TMm88RSYZDEjxMDnQehfavSmt4bw4PokyAY2PKNqm/Vkc
-	mQVLKjk35QJOA8RIToVzKLrFkfgn8Gg7ro1icBJGeF4PTMOAjaDk+HyAXh6nBkeESfDN0p96bLTmd
-	P4gKTUk4NWvnT9r0n3R6CrDwuUs6EnO7g/4Djy40GxHjrB9ZA/vltm+WiOH06LOB+ZUlDw/hM7zyR
-	4jCaPqkJr7xeOklGgu+CMRxSFX2IZwObp8KUyUUfkpMSEILi4IfvYqs5kfr2dECwGpAHLbqdJJTQt
-	esiXCxag==;
+	bh=uLFc/USnoLD2hdkK6f4FbXFFpkJWctZScq6uqGjV+8Q=; b=30+ZKvTK+vBqk1cTOfWKZyAK3Q
+	+Z+wuOlHggjQrhHOLE1718fe7vhXCSqxZyTgVFV54VvlAX9FyjUpDoiD/IDonKQblruW9jUHEBgBW
+	fEolbdpKWxJqHMn3uy5/CpM4d8EckxdE8BLSk5LxIVVP7Yr0xGvDC+PNt2lese6k6PrJFGXrg1E4N
+	IRj1wsy7KHPKcaaN6tpnEzMihUBNgwP+2KfAvhp54112xc9EUezs2S78/rrS2ugUpwobvIU6NV4G0
+	ddsgnPUjkAbWzK/zERJbjSvsCp+8nH/sFxzNQhYug0AAKZb35hf2aID/MuaLi+IqDk2N1aZL9c9ZP
+	dvB+vu9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfiVZ-00000007hKe-1nlh;
-	Fri, 03 Jul 2026 18:21:01 +0000
-Received: from mail-eastus2azon11011017.outbound.protection.outlook.com ([52.101.57.17] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wfifC-00000007i1s-30Wr;
+	Fri, 03 Jul 2026 18:30:58 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfiVW-00000007hKI-1vj2
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 18:20:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gnKv9K4VUcyGbiunt8mhvPJs9oa5JZreKIRucuN4bpkMI45nbF3gvjVxUZ1UlEEuII+z1JrhWoy71BHKOMKlSjjojPBL1bJ0+P8S0zd5yiZ0AGJiM6UyZNq3AtwGJzDCn66EwJYk4oA2fbMDIguWHd9F4SFlW5LxcU/wifdagqWqriCpY/2dkKalrEOl8ktbQwX7KbVlsQgDuTmocSxfqNVorodwk3jw5XHJpcAm0bNIXuUwbpJY8jZC508bpudXVAzJm50pqUt0sBfBuG3KphkAePDXCkxjjp/EVGx0ve3gTVi6ZPZUt+qJco4k4N90o5y/0uUadTJMQkcILP0APA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=htvTdVqBj5sQU58rbr9YMzjmDc7fYbUXWR1FudTikW4=;
- b=nx1J4XAYOCkhunezxhQRr0DBB5mjzpBVAkBwfukjZj1nx2I03k7Rcz2pg7JERR7iYGLsAUYxWsMQOXBleIQDPKoaLVnGmDDmhKaFm3ghVzHTg8lIDUjSSWQK39UOVNPbnVqDDTGOvN3ErrllLg7LHwLYq4jXrSv2IKni8S2RoAfTHg3/6VV2LTG96TjfyO2+6skUnUWwsotL/wzc7uIjr5+r9fQ2Wb/iLUizu/Ww8kJ6AfUoszzjLXC9r2DM5lBCISkgdcIsyIj+yLPetofCDmwmH+tpInAZrLkzHgTfg6ooIm/+1UkVhRI1iApo4JSZOJ6oy2kXWFWHaUEciABzcQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=htvTdVqBj5sQU58rbr9YMzjmDc7fYbUXWR1FudTikW4=;
- b=FSjD6aN1KBuox7ZkS+i240aTnBUlxBIGk6mNnoSTU9SMCE5ocvngkqzv3lzwIBbT492k7Iay2/9p2vSD/B+uco9mUYWxPy6MKRfKKjdRk6ZM93EBnz8hV66IMmX8YADfLL4ONWKS9uY2U/BGJVjTumbjgwxBNVw74AEVmKOMGh2EizkCdmkrwd8c3cg3HnBE4nNQqleceGVpypK6wjd0SxlZ8FSGXXMKZIytBTDXNmINd+g8pr8QICsZte0bFDXOnwW3Zf8LkFfS69N+C4FhyKwGIKIxtmBtUV7pEnrPhuHCr6iBZoqdn6ZV+vbCflryKmZCQzFGqmuBDB2vtvK6fw==
-Received: from SJ0PR05CA0124.namprd05.prod.outlook.com (2603:10b6:a03:33d::9)
- by CH3PR12MB9121.namprd12.prod.outlook.com (2603:10b6:610:1a1::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
- 2026 18:20:48 +0000
-Received: from SJ5PEPF000001D7.namprd05.prod.outlook.com
- (2603:10b6:a03:33d:cafe::37) by SJ0PR05CA0124.outlook.office365.com
- (2603:10b6:a03:33d::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Fri, 3
- Jul 2026 18:20:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ5PEPF000001D7.mail.protection.outlook.com (10.167.242.59) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 18:20:48 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Jul
- 2026 11:20:36 -0700
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Jul
- 2026 11:20:36 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 3 Jul 2026 11:20:34 -0700
-Date: Fri, 3 Jul 2026 11:20:34 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Pranjal Shrivastava <praan@google.com>, Mostafa Saleh
-	<smostafa@google.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <kees@kernel.org>, <baolu.lu@linux.intel.com>,
-	<kevin.tian@intel.com>, <miko.lenczewski@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>, <jamien@nvidia.com>
-Subject: Re: [PATCH rc v7 0/7] iommu/arm-smmu-v3: Fix device crash on kdump
- kernel
-Message-ID: <akf9cjLaBLn82lKP@nvidia.com>
-References: <akPX_N0P2EcI_jbV@google.com>
- <akPhuF9pAWaBXzpi@google.com>
- <20260630185942.GF7481@nvidia.com>
- <akUQj2pa1W-MekgF@google.com>
- <akUX3T3fIoN42sdM@google.com>
- <20260702144157.GM7481@nvidia.com>
- <aka7N6oLVq3CoBqn@nvidia.com>
- <20260702235004.GN7481@nvidia.com>
- <akctXFSALBNfYWww@nvidia.com>
- <20260703115716.GO7481@nvidia.com>
+	id 1wfifA-00000007i1C-1Uyn;
+	Fri, 03 Jul 2026 18:30:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=uLFc/USnoLD2hdkK6f4FbXFFpkJWctZScq6uqGjV+8Q=; b=b1Em13SVmD7Gxe4wQguf4VtJvA
+	KQ6XnrbNh6sBpdgYe8/uWZOI08NhZ8Af8uTMIJ913qcXEuuywZwoht0+2Cp2JiuVaqo/jvXGNqEz9
+	o3xuvt3gabxgrQ2Hd/zlHbU9G+FwcAvlbCIBtMnilDfgfwuazZupUHxAyjNPZDZR9OgFV9V1BU0vF
+	ogdLlr5eH7Y0mF/ylKhy9Sg2wTYTHaX/kkrmoDB4IpWQOcfC1n706osycop0ka6lcwDvFJx98Cqap
+	oINWRvxPexdduOl/EEHLOt7SC52t+SwG7wm7vSH2JXlRvDpcH0wdQx1xgv0z6V16Ohdrgp+V6VSu8
+	6b86iuZw==;
+From: Heiko Stuebner <heiko@sntech.de>
+To: Sandy Huang <hjc@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
+ Diogo Silva <diogompaissilva@gmail.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ David Airlie <airlied@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Simona Vetter <simona@ffwll.ch>, linux-arm-kernel@lists.infradead.org,
+ Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ "javierm@redhat.com" <javierm@redhat.com>
+Subject: Re: [PATCH v4] drm/rockchip: Remove dependency on DRM simple helpers
+Date: Fri, 03 Jul 2026 20:30:41 +0200
+Message-ID: <2837071.mvXUDI8C0e@phil>
+In-Reply-To: <CAJpoHp489qKfkfLOX-XPLpOWo86gibZB=NM_dXPbv0yDGmxysg@mail.gmail.com>
+References: <20260608124018.480365-2-diogompaissilva@gmail.com>
+ <CAJpoHp6DnspnA0rirGb6E=A9wCS3eaDn=eFaqmae98Q+39b1PA@mail.gmail.com>
+ <CAJpoHp489qKfkfLOX-XPLpOWo86gibZB=NM_dXPbv0yDGmxysg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20260703115716.GO7481@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001D7:EE_|CH3PR12MB9121:EE_
-X-MS-Office365-Filtering-Correlation-Id: 160d175f-3266-4d04-1c7f-08ded92fce51
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|23010399003|376014|7416014|36860700016|3023799007|56012099006|4143699003|18002099003|6133799003|11063799006|22082099003;
-X-Microsoft-Antispam-Message-Info: EICIZ9+QrRsgb+htE3aFsE4+jbxIl9bMfbso4cN20sGQQoJMwUWs/K5LUBHGKcTzX0oUSTyKRmmLfTLqZmJ+FD4/JQw3CI7HjgBbuBNepfzkx29B+/i1Yo96DZRzw4aTuDvyUgJTtZgaGgXTEvJuXPM20aS8GH74QhiYFSydcTxEviAtaEpUCMMnpNicauhhIuYVuXp8Osi6/NQtKHmr7+BXzKJ6PwjYtcpz5wZxDkWKERdW+9DhpgyzFXVclHl2lP4OiPY0hLlMLr4oybYrwy8hviQfqQ3npJye8bmvd9O65//w0+PJhu4f+XuTM5k+OFMwUqwizZYRpNhEUWTiHo/QR3X1VyQmph3nM9mSFVlHx+iQ9TXlJZtKSTOr0GeFoICzKiCbw0XWpnh/ocEFKS/aeeOIYUyN4LJiOf28VmLa8EnbM8rBjjI0shTp10/wyNy0xGK/uG+4zUcLdQXpr50+AalbdE1Dul0+VZZng/WTLycylZbgj4ueTLzqByrjf5w+VsTjH5nowYeVgej/kvfawyZErPTdbXsYulzhrhla61+UjVLG4409rqau2HieeQ97bzkMf31a42L3wkybMIkEJ/X8hkWj4yDWCpjNo8ygYoGnSEm3sx1YQuiLgDLA8YuWiXy/5C4hS/PMVGJ8SLR+Ajx5fz6Wh47eUhCgduVuHlmWNArC+v6oiuag7cVgk24/VvRRxMr3poBj2kbm+A==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(23010399003)(376014)(7416014)(36860700016)(3023799007)(56012099006)(4143699003)(18002099003)(6133799003)(11063799006)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: xBu/ML5n9FPijZYfFZgwX24b1VzeO4zQbq4Oe5Rp5/a8ptwkAUeu29XstXnGJiU3d9KF6/yTi63RDB9UfD3ig1AmYRlZsQiXKE0kZi0O90+o/RWJQzK6tMYutiJWf94YtezoF/NlmrMQJBocnqRsqlTYQkqnu3laVtrpztC3dKvy+EVpuaqiSNbDP0ZbRArSHM3ogO1dCn0Ml9Dg0Q+idA5dKmwT/JF64N5fGmf5+a/LCdBZI92wIh3sHMNOW/8Guq+QG8mf4Fwwon8t22A5m7FwWLHi6uLThCVn1ObITj8aXM4+6XpISNYd7j02oS/JSRw8Z9i4Upc2gvX3QQsb4+9Az3S/wRsX6DtjSzeWCCuBex3DpGRu9n5Da92beP4NEoQlMz1O8eCD/qYFc4TaZHBwoH1neEIHduCdTjrZkzCe1aOvN9x+NEgJiLHYpdpt
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 18:20:48.0953
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 160d175f-3266-4d04-1c7f-08ded92fce51
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001D7.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9121
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_112058_502451_BD8D162F 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20260703_113056_420390_D551CBA4 
+X-CRM114-Status: GOOD (  18.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,51 +71,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 08:57:16AM -0300, Jason Gunthorpe wrote:
-> On Thu, Jul 02, 2026 at 08:32:44PM -0700, Nicolin Chen wrote:
-> > On Thu, Jul 02, 2026 at 08:50:04PM -0300, Jason Gunthorpe wrote:
-> > > On Thu, Jul 02, 2026 at 12:25:43PM -0700, Nicolin Chen wrote:
-> > > > On Thu, Jul 02, 2026 at 11:41:57AM -0300, Jason Gunthorpe wrote:
-> > > > > The VMIDs that are in-used by the adopted stream table have to be
-> > > > > removed from the idr as well (and similarly for ASID if we don't have
-> > > > > VMID HW support).
-> > > > > 
-> > > > > Then the VMIDs that may be dirtied by the prior kernel remain isolated
-> > > > > and are never re-used by the new kernel. When the new kernel wants to
-> > > > > do DMA it will replace the STE with a new, clean VMID, and there is no
-> > > > > problem.
-> > > > 
-> > > > I see. I assume the reserved VMID for the kdump kernel will be a
-> > > > clean VMID (!=0). That should guarantee different cache tags.
-> > > 
-> > > You will also have to change things to allocate the kernel global vmid
-> > > from the IDR, it will usually be 0 but not for kdump. Then you have to
-> > > find all the places where the 0 is implicitly placed and put in the
-> > > actual value.
-> > 
-> > Hmm, I just realized that all the EL2 commands do not take VMID.
-> 
-> If the EL2 commands are being used then there is no S2 support and no
-> VMID support.
-> 
-> So if you disable kdump when S2 is not supported it also disables it
-> when EL2 would be used, which effectively means it is not supported in
-> a VM.
+Hi Diogo,
 
-Hmm, they are actually not exclusive: e.g. Grace has both.
+Am Donnerstag, 2. Juli 2026, 22:18:58 Mitteleurop=C3=A4ische Sommerzeit sch=
+rieb Diogo Silva:
+> Simple KMS helper are deprecated since they only add an intermediate
+> layer between drivers and the atomic modesetting.
+> This patch removes the drm_simple_encoder_init() helper usage in the
+> rockchip drivers by open coding it and using the encoder atomic helpers
+> directly. This is a step to eventually get rid of this simple KMS helper,
+> once all drivers that use it have been converted.
+>=20
+> Reviewed-by: Javier Martinez Canillas <javierm@redhat.com>
+> Signed-off-by: Diogo Silva <diogompaissilva@gmail.com>
+> ---
+> v4:
+>  - improved commit message based on Javier Canillas feedback
+>=20
+> v3:
+>  - rebase on drm-tip tree
+>=20
+>  drivers/gpu/drm/rockchip/analogix_dp-rockchip.c  | 9 ++++++---
+>  drivers/gpu/drm/rockchip/cdn-dp-core.c           | 9 ++++++---
+>  drivers/gpu/drm/rockchip/dw-mipi-dsi-rockchip.c  | 9 +++++++--
+>  drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c | 8 ++++++--
+>  drivers/gpu/drm/rockchip/dw_dp-rockchip.c        | 1 -
+>  drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c      | 1 -
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c   | 1 -
+>  drivers/gpu/drm/rockchip/rk3066_hdmi.c           | 8 ++++++--
+>  drivers/gpu/drm/rockchip/rockchip_lvds.c         | 9 +++++++--
+>  drivers/gpu/drm/rockchip/rockchip_rgb.c          | 8 ++++++--
+>  10 files changed, 44 insertions(+), 19 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> index 776954c7d052..46c245e35d21 100644
+> --- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+> @@ -30,7 +30,6 @@
+>  #include <drm/drm_of.h>
+>  #include <drm/drm_print.h>
+>  #include <drm/drm_probe_helper.h>
+> -#include <drm/drm_simple_kms_helper.h>
+>=20
+>  #include "rockchip_drm_drv.h"
+>=20
+> @@ -303,6 +302,10 @@ rockchip_dp_drm_encoder_atomic_check(struct
+> drm_encoder *encoder,
+>         return 0;
 
-EL2 is from FEAT_E2H, which is set when
- 1. IDR0.HYP=1
- 2. cpus_have_cap(ARM64_HAS_VIRT_HOST_EXTN)
+the tool you're using to send patches seems broken.
+In the patch all the places that should be tabs are replaced as spaces.
+This of course does not apply.
 
-VMID is from FEAT_TRANS_S2, which is set When
- 1. IDR0_S2P=1
+Ideally use git send-email or b4 for sending patches.
 
-So, host-level stage-1 TLBIs use EL2 commands (no VMID); guest-level
-TLBIs use NH_ commands (with VMID).
-
-Scanning through CDs seems inevitable...
+Also, please don't send new versions as replies to previous ones.
+Tooling can get confused by this, so please start a new thread for
+the next version.
 
 Thanks
-Nicolin
+Heiko
+
+
+
 
