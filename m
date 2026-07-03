@@ -4,85 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D8AC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 05:38:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D24FC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 05:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mtq3LN+KWBSW9lTL9C9FcS9noZX2XKjwf2oyxhAxxI=; b=ncoLqOU8g0eyUA0H28EqM1zTAO
-	Oo/yLF7Wldl6dpXcFZLgoa8BbNJ2vcATDQtyl+wRlO3IUz33wYPV+tsALKO32K3kcgq09r6tD1/hG
-	EJE1BvDg+sT35NGm/KbI8BVBssGHpGShXzo9WhFGRDc1QDYMNQfBo8L/iKCIzwhOyYVR7hZIOW1m9
-	52gJNUHyYFcC7sISNseYgoput6FFa3LgHaXn81tsSZ9jevDPD+h6rIU6+wypgUVOxOggwCUpfAU0K
-	LjaMwFtmw3GCjmJUEH2SBmrdkLbIv//Tl1OQyy2CGSpPKeftg2Ds4d8dthHKY+DjTA8hmNrJ9Po8/
-	EDK/XBDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Message-ID:Date:Content-Transfer-Encoding:Content-Type:Mime-Version:Subject:
+	Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ViqeHQLIZm0HWnSQexz4QSSM3m74KlPcBjrXGGI/Zew=; b=zDAJUi2GYQx6CJ3QEfVpzl8Ruk
+	/kYCMyq+BsjpJF5gITqhdac2YequIPvRDCXqzWMWHqfF02RtAnPkpTeEnaJn+P27mPbOYseMUFjI4
+	cMJrjbd17/Fh8X0s/syjz2EPM42fkZy0nSZs9XLBgvfZpYhNc+jPKpWyG4QdVhGJ0q/IhN6WJOdbj
+	Od93sqLGrTRME+1YZNAqdMv5cdbaq9ccNWKcR1ZFPLVHMjIe9kqHP8jFg5UxdeIXKGjHPX/qFsby1
+	1Pb2vg6T8avVyVZ5oJgeKh5wn0F2+LftCLGKdyWCwlO8kd31Cdzo4lRxxVIYD0vNYH6tRSFtaVx2X
+	xzqjdQBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfWbr-000000065wn-28VT;
-	Fri, 03 Jul 2026 05:38:43 +0000
-Received: from smtp9.infineon.com ([217.10.52.204])
+	id 1wfWfB-000000066Hx-099V;
+	Fri, 03 Jul 2026 05:42:10 +0000
+Received: from out203-205-221-153.mail.qq.com ([203.205.221.153])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfWbo-000000065hq-3EHu;
-	Fri, 03 Jul 2026 05:38:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=infineon.com; i=@infineon.com; q=dns/txt; s=IFXMAIL;
-  t=1783057121; x=1814593121;
-  h=from:to:subject:date:message-id:references:in-reply-to:
-   content-transfer-encoding:mime-version;
-  bh=0mtq3LN+KWBSW9lTL9C9FcS9noZX2XKjwf2oyxhAxxI=;
-  b=UvxqtB1OMPXO5bgVZVjJG1+/3l27xZZqLVc9Ar45KPNhWT2chWDsGDel
-   c5RemGgX/rPiEGP7ktsU9QaDiIotM780zLHq9nE5stAl5Ojwx5cMqueGr
-   o7ml7lNAsm0L/oTUfxuFfP9qdvtIgvW4nqJe5AivBOYzPSgOyj9hF8l+a
-   A=;
-X-CSE-ConnectionGUID: xeHXl9QGQGy8HVZGWnHucA==
-X-CSE-MsgGUID: wWH+KjveQ/qycSHEfAysPg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11835"; a="99571517"
-X-IronPort-AV: E=Sophos;i="6.25,145,1779141600"; 
-   d="scan'208";a="99571517"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO MUCSE812.infineon.com) ([172.23.29.38])
-  by smtp9.infineon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2026 07:35:34 +0200
-Received: from MUCSE815.infineon.com (172.23.29.41) by MUCSE812.infineon.com
- (172.23.29.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Fri, 3 Jul
- 2026 07:35:33 +0200
-Received: from MUCSE815.infineon.com ([fe80::b54c:c0bd:546c:c9be]) by
- MUCSE815.infineon.com ([fe80::b54c:c0bd:546c:c9be%12]) with mapi id
- 15.02.2562.043; Fri, 3 Jul 2026 07:35:33 +0200
-From: <Takahiro.Kuwano@infineon.com>
-To: <manikandan.m@microchip.com>, <pratyush@kernel.org>, <mwalle@kernel.org>,
-	<miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<srini@kernel.org>, <nicolas.ferre@microchip.com>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<linux@armlinux.org.uk>, <richardcochran@gmail.com>, <linusw@kernel.org>,
-	<arnd@arndb.de>, <michael@walle.cc>, <linux-mtd@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-Subject: RE: [PATCH v4 3/7] mtd: spi-nor: sfdp: expose the SFDP as a read-only
- NVMEM device
-Thread-Topic: [PATCH v4 3/7] mtd: spi-nor: sfdp: expose the SFDP as a
- read-only NVMEM device
-Thread-Index: AQHdCHJjppL/9AvAjUSdTTDRPCeZfLZbR6Aw
-Date: Fri, 3 Jul 2026 05:35:33 +0000
-Message-ID: <8f3b422e0b7749b2a47b14a585dd0a0c@infineon.com>
-References: <20260630092406.150587-1-manikandan.m@microchip.com>
- <20260630092406.150587-4-manikandan.m@microchip.com>
-In-Reply-To: <20260630092406.150587-4-manikandan.m@microchip.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.161.6.196]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
+	id 1wfWf8-000000066Gk-3SJw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 05:42:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1783057321; bh=ViqeHQLIZm0HWnSQexz4QSSM3m74KlPcBjrXGGI/Zew=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=CQWXqKrY4WQhgdQBLj533cjlb+QPOFKlA+nk7B29YRJpZHOzSGQ5UwbsSvwogneYp
+	 QCxKZhizxjkhHXVSQQn7BGj3npq5XMTr0FiJeiTUN3gvWB/7SWdGdefwMlEM3HiwBX
+	 Wx6E7mvv1ZbTej5eiu2+j4EF/yjJtMc168HVlB8I=
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-XMAILINFO: NBGkhoQ8491PceFq1cOFzrfl6cKUIB8C33gPhPjpIur5KR6W4qQ36+vEohq5KR
+	 bGdPokva9jQxNFgyFb/Zf7kJsbkoCTODLj1Ke5p61gsjsGiPaOtkQRAoy8rTCxyxhTQBeyF4FyekY
+	 73uyxaZdMdqFI7Jl2f5fEXgEpQ7iHLRhj8RYcUPHTcgRxcUeW9fRW1PTfkFEyRana+WCTkY59rzDR
+	 g6UrARgeeGGpdn0MnE2YlkwPNTAlY00I+LWHGJ8px+WsUjOPZ6HWKHOgVfP+IMuX6uf3BE2sFRvGS
+	 neN000bWmA4Wij4iPe40l6Ws6vXyQdJb7uXiXK0oHo95zQX8OdXrnfPkwiKtZPPJqZHlMckh01EYC
+	 ucInO8HwwMzap+1YxiYdIn/7045WcXw10f4K5giaLoQYOuV3+jRo4yvqGQn1gFQR99zcY66QLSFE7
+	 20jumZIl0hj9PZAaROjipkFpJkO7egEuVUYVCqwn/tT6XaohVH7uEHQz9CiGMSBpNfNnIBB2ui0qs
+	 cmPeL91PvOzPlTzOvm1c3pTE1WPFRkQxoYaOM8KAuaLlasY5ka+a1wUZYLZ4HTr3PDAF5DLZ1MBtm
+	 kinXWMzb/vk70AAncpcacO2fP3L+Dik6eoFOqOiCbrvATDNGMnyx2IjidKt9zDNNte8Iz3+QXQY9n
+	 sbBZKvq4koPVTzwCrQRVxMa3SYIbrnm239E5uLbcUoHZ0p58gIzrNbHhTSI8yEsbzKzmEHcPETB6r
+	 4IxMDbcPNnMViUec9Imsp3INKPJB0XILlV1tJNTuPSK/FPLdRr61NRuQ8JxE8lO1mFqy7AZ8ZaLi2
+	 0Ot49k1RHzqYSc3R/6sINM4QRtUCHGVuwiKecEBQnJr9LbmuHAsSy0MR1UEO/IYSg0lCjGNaoHQIf
+	 VWzhEtLME08xFBylTHtFCPSVjlwDAgUZFE3oON548mTfQM+pznObBLQqvf8hz1zOYNsnwG879O6Mc
+	 zByhMCrKwY0j6yEU/5C3APaP83efQcIBh2A3clfa5z//GdGkpYRLoWoQ5gdDWMCXVXxZERPF9nvnL
+	 1eNJgVWsctkAx9cQxC9j3D9aeYihMb7ZVDXIg
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?TWFyYyBLbGVpbmUtQnVkZGU=?=" <mkl@pengutronix.de>, "=?utf-8?B?aGVpa28=?=" <heiko@sntech.de>
+Cc: "=?utf-8?B?bGludXgtY2Fu?=" <linux-can@vger.kernel.org>, "=?utf-8?B?bWFpbGhvbA==?=" <mailhol@kernel.org>, "=?utf-8?B?a2VybmVs?=" <kernel@pengutronix.de>, "=?utf-8?B?cm9iaA==?=" <robh@kernel.org>, "=?utf-8?B?a3J6aytkdA==?=" <krzk+dt@kernel.org>, "=?utf-8?B?Y29ub3IrZHQ=?=" <conor+dt@kernel.org>, "=?utf-8?B?ZGV2aWNldHJlZQ==?=" <devicetree@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 2/3] can: rockchip: add RK3588 CAN-FD support
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Fri, 3 Jul 2026 13:41:59 +0800
+X-Priority: 3
+Message-ID: <tencent_358CC86827C08D8405142316F9053629D00A@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <tencent_C422347432620914231601BC882C7E604D08@qq.com>
+	<20260702-accelerated-shoebill-of-elevation-76f536-mkl@pengutronix.de>
+In-Reply-To: <20260702-accelerated-shoebill-of-elevation-76f536-mkl@pengutronix.de>
+X-QQ-mid: xmsezb41-0t1783057319tq7q6pl5z
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_223841_134549_B7535CB5 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260702_224207_179922_64471069 
+X-CRM114-Status: GOOD (  14.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,21 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> Register the cached SFDP as a read-only NVMEM device rooted at the
-> flash's "sfdp" child node, exposing it in on-flash byte order. This lets
-> NVMEM cells reference any SFDP data: a fixed-layout for parameters at a
-> known offset, or an nvmem-layout parser for vendor data whose location
-> must be discovered at runtime. The device is only registered when an
-> "sfdp" node is present in the device tree.
->=20
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
-
-SFDP is exposed in sysfs (e.g., /sys/bus/spi/devices/spi0.0/spi-nor/sfdp).
-Why don't you just use this existing entry?
-
-Thanks,
-Takahiro
+SGkgTWFyYywKCj4gVGhlbiBDQU4tRkQgaXMgYnJva2VuLiA6Lwo+Cj4gTWF5YmUgaW4gYSBs
+YXRlciBwYXRjaCB3ZSBjYW4gaGFjayBzb21ldGhpbmcsIHRvIGFsbG93IHdvcmtpbmcKPiBj
+b25maWd1cmF0aW9ucy4KCkkgZGlkIHNvbWUgbW9yZSB0ZXN0cyBhbmQgZm91bmQgdGhhdCB0
+aGUgaW1tZWRpYXRlIGJ1cy1vZmYgd2l0aCBCUlMgaXMKcmVsYXRlZCB0byB0aGUgdHJhbnNt
+aXQgZGVsYXkgY29tcGVuc2F0aW9uIHNldHRpbmcuCgpBZnRlciBzZXR0aW5nIFJLQ0FORkRf
+UkVHX1RSQU5TTUlUX0RFTEFZX0NPTVBFTlNBVElPTiB0byAwLCBpLmUuCmRpc2FibGluZyBU
+REMsIENBTi1GRCB3aXRoIEJSUyB3b3JrcyBvbiBSSzM1ODggaW4gbXkgc2V0dXAuIEkgdGVz
+dGVkIHRoZQpzYW1lIGNvbW1hbmQgd2l0aCA1MDAga2JpdC9zIGFyYml0cmF0aW9uIGJpdHJh
+dGUgYW5kIDEsIDMgYW5kIDUgTWJpdC9zCmRhdGEgYml0cmF0ZS4KClRoZSA1IE1iaXQvcyBk
+YXRhIHBoYXNlIHRlc3Qgc2V0dXAgd2FzOgoKICBDQU4gY2xvY2s6IDMwMCBNSHoKICBjYW4w
+IDwtPiBjYW4xIGRpcmVjdGx5IGNvbm5lY3RlZAogIG5vIG90aGVyIGRldmljZXMgb24gdGhl
+IGJ1cwogIGJ1cyB0ZXJtaW5hdGlvbjogNjAgT2htCgogIGlwIGxpbmsgc2V0IGNhbjAgdHlw
+ZSBjYW4gYml0cmF0ZSA1MDAwMDAgc2FtcGxlLXBvaW50IDAuOCBkYml0cmF0ZSA1MDAwMDAw
+IGRzYW1wbGUtcG9pbnQgMC44IGZkIG9uIGJlcnItcmVwb3J0aW5nIG9uCiAgaXAgbGluayBz
+ZXQgY2FuMSB0eXBlIGNhbiBiaXRyYXRlIDUwMDAwMCBzYW1wbGUtcG9pbnQgMC44IGRiaXRy
+YXRlIDUwMDAwMDAgZHNhbXBsZS1wb2ludCAwLjggZmQgb24gYmVyci1yZXBvcnRpbmcgb24K
+CiAgY2FuZ2VuIGNhbjAgLUkgMiAtTGkgLURpIC1wIDEwIC1mIC1nIDEgLWMzMiAtYgogIGNh
+bnNlcXVlbmNlIC1ydiBjYW4xIC1mCgpUaGUgdGVzdCByYW4gZm9yIDE1IG1pbnV0ZXMuIFRo
+ZSByZWNlaXZlciByZXBvcnRlZCBjb250aW51b3VzIHNlcXVlbmNlCndyYXAtYXJvdW5kIG1l
+c3NhZ2VzLCBlLmcuOgoKICBzZXF1ZW5jZSB3cmFwIGFyb3VuZCAoMCkKICBzZXF1ZW5jZSB3
+cmFwIGFyb3VuZCAoMSkKICAuLi4KICBzZXF1ZW5jZSB3cmFwIGFyb3VuZCAoMzcyMTgpCiAg
+c2VxdWVuY2Ugd3JhcCBhcm91bmQgKDM3MjE5KQoKVGhlIGludGVyZmFjZSBzdGF0aXN0aWNz
+IGFmdGVyIHRoZSB0ZXN0IHdlcmU6CgogIGNhbjA6CiAgICAgICAgICAgIHJlLXN0YXJ0ZWQg
+YnVzLWVycm9ycyBhcmJpdC1sb3N0IGVycm9yLXdhcm4gZXJyb3ItcGFzcyBidXMtb2ZmCiAg
+ICAgICAgICAgIDAgICAgICAgICAgMCAgICAgICAgICAwICAgICAgICAgIDAgICAgICAgICAg
+MCAgICAgICAgICAwCiAgICAgIFJYOiAgYnl0ZXMgcGFja2V0cyBlcnJvcnMgZHJvcHBlZCAg
+bWlzc2VkICAgbWNhc3QKICAgICAgIDE1MDY2NzM1NiA5NTI4Mzc3ICAgICAgMCAgICAgICAw
+ICAgICAgIDAgICAgICAgMAogICAgICBUWDogIGJ5dGVzIHBhY2tldHMgZXJyb3JzIGRyb3Bw
+ZWQgY2FycmllciBjb2xsc25zCiAgICAgICAxNTA2NjczNTYgOTUyODM3NyAgICAgIDAgICAg
+ICAgMCAgICAgICAwICAgICAgIDAKCiAgY2FuMToKICAgICAgICAgICAgcmUtc3RhcnRlZCBi
+dXMtZXJyb3JzIGFyYml0LWxvc3QgZXJyb3Itd2FybiBlcnJvci1wYXNzIGJ1cy1vZmYKICAg
+ICAgICAgICAgMCAgICAgICAgICAwICAgICAgICAgIDAgICAgICAgICAgMCAgICAgICAgICAw
+ICAgICAgICAgIDAKICAgICAgUlg6ICBieXRlcyBwYWNrZXRzIGVycm9ycyBkcm9wcGVkICBt
+aXNzZWQgICBtY2FzdAogICAgICAgMTUwNjY3MzU2IDk1MjgzNzcgICAgICAwICAgICAgIDAg
+ICAgICAgMCAgICAgICAwCiAgICAgIFRYOiAgYnl0ZXMgcGFja2V0cyBlcnJvcnMgZHJvcHBl
+ZCBjYXJyaWVyIGNvbGxzbnMKICAgICAgICAgICAgICAgMCAgICAgICAwICAgICAgMCAgICAg
+ICAwICAgICAgIDAgICAgICAgMAoKVGhlcmUgd2VyZSBubyBidXMgZXJyb3JzIGFuZCBubyBi
+dXMtb2ZmIGV2ZW50cyBpbiB0aGlzIHRlc3QuCgo+IENhbiB5b3UgdXBkYXRlIHRoZSBkZXNj
+cmlwdGlvbiBvZiB0aGUgcXVpcmsgZm9yIHRoZSByazM1ODggYW5kIGFkZCBob3cKPiB0byBy
+ZXByb2R1Y2UgaXQ/CgpXaXRoIFREQyBkaXNhYmxlZCBJIGNhbm5vdCByZXByb2R1Y2UgdGhl
+IEJSUyBidXMtb2ZmIHByb2JsZW0gYW55bW9yZS4KVGhpcyBhbHNvIGxvb2tzIGRpZmZlcmVu
+dCBmcm9tIFJLQ0FORkRfUVVJUktfQ0FORkRfQlJPS0VOLCBzbyBJIGRvIG5vdAp0aGluayBS
+SzM1ODggc2hvdWxkIHVzZSB0aGF0IHF1aXJrLgoKPiBQbGVhc2Uga2VlcCBpdCBkaXNhYmxl
+ZCBmb3Igbm93LgoKR2l2ZW4gdGhlIG5ldyB0ZXN0IHJlc3VsdCwgSSBwbGFuIHRvIHNlbmQg
+djQgd2l0aCB0aGUgUkszNTg4IFREQyByZWdpc3RlcgpzZXQgdG8gMCBhbmQgQ0FOLUZEIGVu
+YWJsZWQgZm9yIFJLMzU4OC4KClJlZ2FyZHMsCkN1bmhhbw==
 
 
