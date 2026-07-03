@@ -4,93 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B207C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:38:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EBFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S2TwJwkErUivpqUKprvkpTHDqhJ7jfsJ3m5N7/IfH3M=; b=df6uMs9xXJAs3gMT+cxIyN5OVk
-	Si6FES33+b7wzM+8H+uE0sTKaOK7EkeWf3DrnysScWFPk/9Bn58jNa41gF2bpinDFgLrx5/CURai8
-	J5BjOczuJo+u/vbK6nqhvsf4Lcntu+vCoaCEHT+gY49y+HSkXKDCPimoIk9kOBpRIj4/JQ+yrrTxv
-	60GDUg0kY0xOsozKvMXV4RichiJDsTsQhULXbuNdDR+0uDYV7lzXF1w8RnJTDHLof6rlZMvpMLIi7
-	rAcCb/1xGGgCB/eo2ouqEEVkg1m9CIAePBPjO49CIpxFAekyKtg+AVeGEZs8jIGCuBeybOp/KaudU
-	BLi6sb1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qXgm5GzWOwTuhle3+8LVl3YercTPiiTjpibd8sA2mJQ=; b=a/ZSIXDSm5m3FZauh4ijm2mBRY
+	P5Tns/FUZ7wHMQV2yY7/sj1pO2VBMrF+KP6JeITZUHEsVFOS1k0ISJDkgdw/7K5CkpTfhgYc65nDE
+	y4FEqCm57gX0nGUBXZoaX/Cy6ylLubrugGwggcyzXnGzOQ6vaTOr9/9H4NBWcVBoFet1rQFddxKdB
+	H21g1iFqbmUoUthJ16gQ2ePD+zQpde02Gb0tcC6edKaOp8YNzwY+lJwrpHDg1fiR4Bv+bJklcEhGx
+	tqiWJiW2i1v18QhWNzkAqiavEBDM3c9bRFI2fz4JbI++H8FrOoCAoRNC10ZnYhX7+2VMarGtuVRLz
+	4nqXcEbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd9g-00000006yYC-05kW;
-	Fri, 03 Jul 2026 12:38:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wfdDN-00000006zLc-1oli;
+	Fri, 03 Jul 2026 12:41:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd9d-00000006yTg-3n0a
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 03 Jul 2026 12:38:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=S2TwJwkErUivpqUKprvkpTHDqhJ7jfsJ3m5N7/IfH3M=; b=rAS0rvlYWTgSTidqpQE10AaT2D
-	KSCGLyV4cKkRZ4aDHvB79UtjFWvmm8sC1MX5aEJRfLov3HQNXPOghAoyjb8DB93JFW86Nn9GJYeou
-	yMZyOP3uHhxQDWeILPH4d26h0H7jjhume7aMx+kcvqTnnfaSyLxTtM2ZXtvRxQA2LUm4v0d+9Ha7j
-	Trk3+PjuIQ10rKgKNtjlFdPBeUJobktErnHpqGAv39NJbqYlesZ6NKnka39hPVlRUk0ygN1sqc160
-	jijU8vKA2TQITetDdcWGm7yNLoFF1O89n9rp1QDnafpELtxMQTHjW9UWoEjgU1vyDlreTqIVxJw3H
-	JCJXfPSg==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wfd9a-00000004p1O-3HH3
+	id 1wfdDL-00000006zL2-1rKn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:38:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F38A11F60;
-	Fri,  3 Jul 2026 05:37:52 -0700 (PDT)
-Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ED1533F905;
-	Fri,  3 Jul 2026 05:37:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783082277; bh=8pxQiZvd3Qhzm7SH6qWb7mFPpu2MRNADR7R2FvMHyb8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OA4y7QHYvH+v6uyd2osto9FFjSUQpVMeM890m82ZpdbqEmlKjowk0/Lf85tP1WvQU
-	 BJzIPve0Yuw2wBR0TA08ooQ2UEzktEOePhnAGrtjoeKxxL7AEGlZl7GQQ2YMIvtfRq
-	 u3R32+zYzlMj0T32EC4KMiaEkWr0QWrP4sju6I/Q=
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Cc: sudeep.holla@kernel.org,
-	james.quinlan@broadcom.com,
-	f.fainelli@gmail.com,
-	vincent.guittot@linaro.org,
-	etienne.carriere@st.com,
-	peng.fan@oss.nxp.com,
-	michal.simek@amd.com,
-	d-gole@ti.com,
-	jic23@kernel.org,
-	elif.topuz@arm.com,
-	lukasz.luba@arm.com,
-	philip.radford@arm.com,
-	brauner@kernel.org,
-	david@kernel.org,
-	souvik.chakravarty@arm.com,
-	leitao@kernel.org,
-	kas@kernel.org,
-	puranjay@kernel.org,
-	usama.arif@linux.dev,
-	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH v5 23/23] [RFC] tools/scmi: Add SCMI Telemetry testing tool
-Date: Fri,  3 Jul 2026 13:36:01 +0100
-Message-ID: <20260703123601.381275-24-cristian.marussi@arm.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
-References: <20260703123601.381275-1-cristian.marussi@arm.com>
+	Fri, 03 Jul 2026 12:41:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 72EF660139
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 12:41:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F6611F00ADE
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 12:41:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783082510;
+	bh=qXgm5GzWOwTuhle3+8LVl3YercTPiiTjpibd8sA2mJQ=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=RFJ3cXjFrvXj3EAIXGb1V96nTHUQE8BbIIIwW8xmrZ6qnwJ264UUc2YVik6MThDfj
+	 Q0a3/qdZuJXwvLicm4ZwMQWqe5l5B3tfrreOjq1h4247jWgvHH/g5vv3VBrBEQd91r
+	 MKvi1l5asPhjpzVd9wIj8cvpZ2QJbeQ9Zk9vE6oEmvwifSEEhDoF/W6UW6JF/O09e8
+	 knXI/PydTKeMTzvCpgYjsgxIkEVl550mi1lePyZ1zrGiV3ViKbE2O3r6X6Fni6Q/61
+	 dHhV/KfaCrEfoA0g89poUWtyArR2OXLRYRuOZXl+Rb/EH7t62ovbdYO0PEWYMVxRv5
+	 u68JHxbXTxKCw==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-3995e22ef81so14655381fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 05:41:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RpEelpVjRMcUWy8B9eP4lDoKysLwdmJl+apIZm9qR0Srg/Up3ROg3K7AWLQxNXbNytkMkxvoCTfrX7qsKKhm9Bj@lists.infradead.org
+X-Gm-Message-State: AOJu0YycSfNb576GPuGCIq4AKX2XuvnO9jd0PskJInDi00cxVk1cvjlo
+	i0/5wLHnvij2CHGM7+ptNLlM9nYBa7ZsQzY5HJ3dN4Pi18Fg34nkUk745E+exjeC9snoVhTya/2
+	ueOC5LgGXYSkje1o/mvnbP++oWc6pKE+1//jskcrbHw==
+X-Received: by 2002:a05:6512:61c5:20b0:5ae:aa02:4c24 with SMTP id
+ 2adb3069b0e04-5aecf506c99mr608732e87.24.1783082508622; Fri, 03 Jul 2026
+ 05:41:48 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 3 Jul 2026 07:41:47 -0500
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Fri, 3 Jul 2026 07:41:47 -0500
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260703110317.1283411-9-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_133759_178191_1C4D722D 
-X-CRM114-Status: GOOD (  18.63  )
+References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-9-wenst@chromium.org>
+Date: Fri, 3 Jul 2026 07:41:47 -0500
+X-Gmail-Original-Message-ID: <CAMRc=MdMhr6qAnAtUePbuBbsH=3MzRC+BrL5GssbNTwGjp_ayA@mail.gmail.com>
+X-Gm-Features: AVVi8CfK6VeOpGIFoyyJEmBt9vHcfAKFmiaoE4w_iEM61JImiWHSHBQUYQ0YLEk
+Message-ID: <CAMRc=MdMhr6qAnAtUePbuBbsH=3MzRC+BrL5GssbNTwGjp_ayA@mail.gmail.com>
+Subject: Re: [PATCH v3 08/13] usb: hub: Power on connected M.2 E-key
+ connectors with power sequencing API
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Manivannan Sadhasivam <mani@kernel.org>, Alan Stern <stern@rowland.harvard.edu>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,715 +94,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a testing tool that exercises the SCMI ioctls UAPI interface: as of
-now the tool simply queries the initial state of the SCMI Telemetry
-subsystem, tries to enable all the existent Data Events and dumps all
-the Telemetry data.
+On Fri, 3 Jul 2026 13:03:09 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
+> The new M.2 E-key connector can have a USB connection. For the USB device
+> on this connector to work, its power must be enabled and the W_DISABLE2#
+> signal deasserted. The connector driver handles this and provides a
+> toggle over the power sequencing API.
+>
+> This feature currently only supports a directly connected (no mux in
+> between) M.2 E-key connector. Existing USB connector types are not
+> covered. The USB A connector was recently added to the onboard devices
+> driver. USB B connectors have historically been managed by the USB
+> gadget or dual-role device controller drivers. USB C connectors are
+> handled by TCPM drivers.
+>
+> The power sequencing API does not know whether a power sequence provider
+> is not needed or not available yet, so we only request it for connectors
+> that we know need it, which at this time is just the E-key connector.
+>
+> On the USB side, the port firmware node (if present) is tied to the
+> usb_port device. This device is used to acquire the power sequencing
+> descriptor. This allows the provider to tell the different ports on one
+> hub apart.
+>
+> This feature is not implemented in the onboard USB devices driver. The
+> power sequencing API expects the consumer device to make the request,
+> but there is no device node to instantiate a platform device to tie
+> the driver to. The connector is not a child node of the USB host or
+> hub, and the graph connection is from a USB port to the connector.
+> And the connector itself already has a driver.
+>
+> Power sequencing is not directly enabled in the connector driver as
+> that would completely decouple the timing of it from the USB subsystem.
+> It would not be possible for the USB subsystem to toggle the power
+> for a power cycle or to disable the port.
+>
+> Also rewrite the existing set_bit() and clear_bit() branches with
+> assign_bit() to make it cleaner.
+>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v2:
+> - Expanded subject to mention power sequencing API
+> - Dropped commit message bit about power sequencing Kconfig symbol change
+>   to bool
+> - Added optional dependency on POWER_SEQUENCING to USB
+> - Split out pwrseq_power_*() calls into separate helpers
+> - Rewrote set_bit() and clear_bit() branches with assign_bit()
+> - Dropped the pwrseq_power_off() before pwrseq_put(): pwrseq_put() does it
+>   automatically.
+> - Removed pwrseq_power_on() from usb_hub_create_port_device(); it will
+>   get called through usb_hub_set_port_power() in hub_activate().
+> - Added checks for port->pwrseq in hub_is_port_power_switchable()
+>
+> - Use separate pwrseq descriptors for HighSpeed and SuperSpeed ports.
+>   This makes things simpler. On the other hand to power cycle a port
+>   userspace needs to toggle it on both the HS and SS ports together.
+> - Dropped pwrseq state tracking again
+>   The power sequencing consumer API already tracks the state internally;
+>   doing it again in |struct usb_port| is not necessary especially now
+>   that the descriptors aren't shared.
+>
+> It's unclear to me how actual hubs reconcile USB_PORT_FEAT_POWER settings
+> from the HS side and SS side. One hub chip vendor said that VBUS_EN for
+> a port is on if the flag is set on either side; however actually testing
+> on one of their hubs showed that VBUS was cut as soon as the flag is
+> cleared on the HS port. Maybe it could be different if a SS device was
+> connected? That scenario was not tested. Testing on another retail
+> bought hub seemed to work exactly as described though: USB_PORT_FEAT_POWER
+> needed to be clear on both HS and SS ports to turn off VBUS.
+>
+> Under this scheme, I'm not sure how the power cycle in hub_port_connect()
+> would work correctly.
+>
+> - Link to v2:
+>   https://lore.kernel.org/all/20260610084053.2059858-1-wenst@chromium.org/
+>
+> Changes since v1:
+> - Switch to fwnode instead of OF
+> - Tie port@ fwnode to usb_port device
+> - Move remote node compatible checking to separate helper
+> - Use usb_port device to request power sequencing descriptor
+> - Drop "index" parameter from pwrseq_get()
+> - Do not get pwrseq descriptor for SuperSpeed port; share one for one
+>   physical port
+> - Add pwrseq state tracking
+> - Link to v1:
+>   https://lore.kernel.org/all/20260515090149.3169406-1-wenst@chromium.org/
+> ---
+>  drivers/usb/Kconfig     |  1 +
+>  drivers/usb/core/hub.c  | 44 +++++++++++++++++++++++++++++-----
+>  drivers/usb/core/hub.h  | 10 +++++++-
+>  drivers/usb/core/port.c | 52 ++++++++++++++++++++++++++++++++++++++++-
+>  4 files changed, 99 insertions(+), 8 deletions(-)
+>
+> diff --git a/drivers/usb/Kconfig b/drivers/usb/Kconfig
+> index abf8c6cdea9e..ef1959363fb1 100644
+> --- a/drivers/usb/Kconfig
+> +++ b/drivers/usb/Kconfig
+> @@ -44,6 +44,7 @@ config USB_ARCH_HAS_HCD
+>  config USB
+>  	tristate "Support for Host-side USB"
+>  	depends on USB_ARCH_HAS_HCD
+> +	depends on POWER_SEQUENCING if POWER_SEQUENCING
+>  	select GENERIC_ALLOCATOR
+>  	select USB_COMMON
+>  	select NLS  # for UTF-8 strings
+> diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
+> index 8ae97e8c26aa..dfa0f5dd75e8 100644
+> --- a/drivers/usb/core/hub.c
+> +++ b/drivers/usb/core/hub.c
+> @@ -32,6 +32,7 @@
+>  #include <linux/mutex.h>
+>  #include <linux/random.h>
+>  #include <linux/pm_qos.h>
+> +#include <linux/pwrseq/consumer.h>
+>  #include <linux/kobject.h>
+>
+>  #include <linux/bitfield.h>
+> @@ -871,6 +872,30 @@ static void hub_tt_work(struct work_struct *work)
+>  	spin_unlock_irqrestore(&hub->tt.lock, flags);
+>  }
+>
+> +static int usb_hub_set_port_pwrseq(struct usb_port *port, bool set)
+> +{
+> +	int ret = 0;
+> +
+> +	if (set)
+> +		ret = pwrseq_power_on(port->pwrseq);
+> +	else
+> +		ret = pwrseq_power_off(port->pwrseq);
+> +
+> +	return ret;
+> +}
+> +
+> +static int usb_hub_restore_port_pwrseq(struct usb_port *port, bool set)
+> +{
+> +	int ret = 0;
+> +
+> +	if (set)
+> +		ret = pwrseq_power_off(port->pwrseq);
+> +	else
+> +		ret = pwrseq_power_on(port->pwrseq);
+> +
+> +	return ret;
+> +}
+> +
+>  /**
+>   * usb_hub_set_port_power - control hub port's power state
+>   * @hdev: USB device belonging to the usb hub
+> @@ -886,20 +911,24 @@ static void hub_tt_work(struct work_struct *work)
+>  int usb_hub_set_port_power(struct usb_device *hdev, struct usb_hub *hub,
+>  			   int port1, bool set)
+>  {
+> +	struct usb_port *pwrseq_port = hub->ports[port1 - 1];
+>  	int ret;
+>
+> +	ret = usb_hub_set_port_pwrseq(pwrseq_port, set);
+> +	if (ret)
+> +		return ret;
+> +
+>  	if (set)
+>  		ret = set_port_feature(hdev, port1, USB_PORT_FEAT_POWER);
+>  	else
+>  		ret = usb_clear_port_feature(hdev, port1, USB_PORT_FEAT_POWER);
+>
+> -	if (ret)
+> +	if (ret) {
+> +		usb_hub_restore_port_pwrseq(pwrseq_port, set);
+>  		return ret;
+> +	}
+>
+> -	if (set)
+> -		set_bit(port1, hub->power_bits);
+> -	else
+> -		clear_bit(port1, hub->power_bits);
+> +	assign_bit(port1, hub->power_bits, set);
+>  	return 0;
+>  }
+>
+> @@ -3249,7 +3278,10 @@ int usb_port_is_power_on(struct usb_port *port, unsigned int portstatus)
+>  			ret = 1;
+>  	}
+>
+> -	return ret;
+> +	if (!port->pwrseq)
+> +		return ret;
+> +
+> +	return ret && pwrseq_power_is_on(port->pwrseq);
 
-Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
----
-Basic implementation just to exercise a few IOCTls: to be refined and
-extended to support a more interactive usage.
+So this is only needed to not have to track the state in a separate field?
 
-v4 --> v5
- - changes to adapt to new chardev/IOCTLs ABI
- - change IOCTLs param to avoid flexible arrays
- - added SHMTIs mmap dump
-v3 --> v4
- - added generation file support
----
- tools/testing/scmi/Makefile |  25 ++
- tools/testing/scmi/stlm.c   | 648 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 673 insertions(+)
- create mode 100644 tools/testing/scmi/Makefile
- create mode 100644 tools/testing/scmi/stlm.c
+>  }
+>
+>  static void usb_lock_port(struct usb_port *port_dev)
+> diff --git a/drivers/usb/core/hub.h b/drivers/usb/core/hub.h
+> index b65d9192379d..99bae6ace4da 100644
+> --- a/drivers/usb/core/hub.h
+> +++ b/drivers/usb/core/hub.h
+> @@ -85,6 +85,7 @@ struct usb_hub {
+>   * @port_owner: port's owner
+>   * @peer: related usb2 and usb3 ports (share the same connector)
+>   * @connector: USB Type-C connector
+> + * @pwrseq: power sequencing descriptor for the port
+>   * @req: default pm qos request for hubs without port power control
+>   * @connect_type: port's connect type
+>   * @state: device state of the usb device attached to the port
+> @@ -104,6 +105,7 @@ struct usb_port {
+>  	struct usb_dev_state *port_owner;
+>  	struct usb_port *peer;
+>  	struct typec_connector *connector;
+> +	struct pwrseq_desc *pwrseq;
+>  	struct dev_pm_qos_request *req;
+>  	enum usb_port_connect_type connect_type;
+>  	enum usb_device_state state;
+> @@ -147,7 +149,13 @@ static inline bool hub_is_port_power_switchable(struct usb_hub *hub)
+>  	if (!hub)
+>  		return false;
+>  	hcs = hub->descriptor->wHubCharacteristics;
+> -	return (le16_to_cpu(hcs) & HUB_CHAR_LPSM) < HUB_CHAR_NO_LPSM;
+> +	if ((le16_to_cpu(hcs) & HUB_CHAR_LPSM) < HUB_CHAR_NO_LPSM)
+> +		return true;
+> +	/* check for controllable external power sequencers */
+> +	for (unsigned int i = 1; i <= hub->hdev->maxchild; i++)
+> +		if (hub->ports[i] && hub->ports[i]->pwrseq)
+> +			return true;
+> +	return false;
+>  }
+>
+>  static inline int hub_is_superspeed(struct usb_device *hdev)
+> diff --git a/drivers/usb/core/port.c b/drivers/usb/core/port.c
+> index 77dbf51f1760..87b8e4f90be6 100644
+> --- a/drivers/usb/core/port.c
+> +++ b/drivers/usb/core/port.c
+> @@ -8,11 +8,14 @@
+>   */
+>
+>  #include <linux/acpi.h>
+> +#include <linux/cleanup.h>
+>  #include <linux/kstrtox.h>
+>  #include <linux/slab.h>
+>  #include <linux/string_choices.h>
+>  #include <linux/sysfs.h>
+>  #include <linux/pm_qos.h>
+> +#include <linux/property.h>
+> +#include <linux/pwrseq/consumer.h>
+>  #include <linux/component.h>
+>  #include <linux/usb/of.h>
+>
+> @@ -29,6 +32,9 @@ static bool usb_port_allow_power_off(struct usb_device *hdev,
+>  	if (hub_is_port_power_switchable(hub))
+>  		return true;
+>
+> +	if (port_dev->pwrseq)
+> +		return true;
+> +
+>  	if (!IS_ENABLED(CONFIG_ACPI))
+>  		return false;
+>
+> @@ -749,6 +755,39 @@ static const struct component_ops connector_ops = {
+>  	.unbind = connector_unbind,
+>  };
+>
+> +static bool port_pwrseq_is_supported(struct usb_port *port_dev)
+> +{
+> +	struct device *dev = &port_dev->dev;
+> +	struct fwnode_handle *port = dev->fwnode;
+> +	struct fwnode_handle *ep __free(fwnode_handle) =
+> +			fwnode_graph_get_next_port_endpoint(port, NULL);
+> +	if (!ep)
+> +		return false;
+> +
+> +	struct fwnode_handle *remote __free(fwnode_handle) =
+> +			fwnode_graph_get_remote_port_parent(ep);
+> +	if (!remote)
+> +		return false;
+> +
+> +	if (!fwnode_device_is_compatible(remote, "pcie-m2-e-connector")) {
+> +		dev_dbg(dev, "remote endpoint %pfw is not a supported connector", remote);
+> +		return false;
+> +	}
+> +
+> +	return true;
+> +}
+> +
+> +static struct pwrseq_desc *usb_hub_port_pwrseq_get(struct usb_port *port_dev)
+> +{
+> +	if (!IS_ENABLED(CONFIG_POWER_SEQUENCING))
+> +		return NULL;
+> +
+> +	if (!port_pwrseq_is_supported(port_dev))
+> +		return NULL;
+> +
+> +	return pwrseq_get(&port_dev->dev, "usb");
+> +}
+> +
+>  int usb_hub_create_port_device(struct usb_hub *hub, int port1)
+>  {
+>  	struct usb_port *port_dev;
+> @@ -809,10 +848,18 @@ int usb_hub_create_port_device(struct usb_hub *hub, int port1)
+>  		goto err_put_kn;
+>  	}
+>
+> +	port_dev->pwrseq = usb_hub_port_pwrseq_get(port_dev);
+> +	if (IS_ERR(port_dev->pwrseq)) {
+> +		retval = PTR_ERR(port_dev->pwrseq);
+> +		dev_err_probe(&port_dev->dev, retval,
+> +			      "failed to get power sequencing descriptor\n");
+> +		goto err_put_kn;
+> +	}
+> +
+>  	retval = component_add(&port_dev->dev, &connector_ops);
+>  	if (retval) {
+>  		dev_warn(&port_dev->dev, "failed to add component\n");
+> -		goto err_put_kn;
+> +		goto err_put_pwrseq;
+>  	}
+>
+>  	find_and_link_peer(hub, port1);
+> @@ -850,6 +897,8 @@ int usb_hub_create_port_device(struct usb_hub *hub, int port1)
+>  	}
+>  	return 0;
+>
+> +err_put_pwrseq:
+> +	pwrseq_put(port_dev->pwrseq);
+>  err_put_kn:
+>  	sysfs_put(port_dev->state_kn);
+>  err_unregister:
+> @@ -866,6 +915,7 @@ void usb_hub_remove_port_device(struct usb_hub *hub, int port1)
+>  	peer = port_dev->peer;
+>  	if (peer)
+>  		unlink_peers(port_dev, peer);
+> +	pwrseq_put(port_dev->pwrseq);
+>  	component_del(&port_dev->dev, &connector_ops);
+>  	sysfs_put(port_dev->state_kn);
+>  	device_unregister(&port_dev->dev);
+> --
+> 2.55.0.rc0.799.gd6f94ed593-goog
+>
+>
 
-diff --git a/tools/testing/scmi/Makefile b/tools/testing/scmi/Makefile
-new file mode 100644
-index 000000000000..a6a101f8398b
---- /dev/null
-+++ b/tools/testing/scmi/Makefile
-@@ -0,0 +1,25 @@
-+# SPDX-License-Identifier: GPL-2.0-or-later
-+
-+CC?=$(CROSS_COMPILE)gcc
-+OBJS = stlm.o
-+
-+CFLAGS=-Wall -static -std=gnu11 -I ../../../include/uapi/
-+ifneq ($(DEBUG), )
-+	CFLAGS+=-O0 -g -ggdb
-+else
-+	CFLAGS+=-static
-+endif
-+
-+all: stlm
-+
-+stlm: $(OBJS)
-+	$(CC) $(CFLAGS) $^ -o $@
-+
-+%.o: %.c
-+	$(CC) $(CFLAGS) -c $<
-+
-+clean:
-+	rm -f *.o
-+	rm -f stlm
-+
-+.PHONY: clean
-diff --git a/tools/testing/scmi/stlm.c b/tools/testing/scmi/stlm.c
-new file mode 100644
-index 000000000000..4d7d19899d5c
---- /dev/null
-+++ b/tools/testing/scmi/stlm.c
-@@ -0,0 +1,648 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <poll.h>
-+#include <stddef.h>
-+#include <stdint.h>
-+#include <stdio.h>
-+#include <stdlib.h>
-+#include <string.h>
-+#include <sys/ioctl.h>
-+#include <sys/mman.h>
-+
-+#include <unistd.h>
-+
-+#include <linux/scmi.h>
-+
-+#define SLEEP_MS	3000
-+
-+#define IOCTL_ERR_STR(_ioctl)	"IOCTL:" #_ioctl
-+
-+struct tlm_de {
-+	struct scmi_tlm_de_info *info;
-+	struct scmi_tlm_de_config cfg;
-+	struct scmi_tlm_de_sample sample;
-+};
-+
-+struct tlm_group {
-+	int fd;
-+	struct scmi_tlm_grp_info *info;
-+	struct scmi_tlm_grp_desc *desc;
-+	struct scmi_tlm_intervals *ivs;
-+};
-+
-+struct tlm_state {
-+	int dfd;
-+	int fd;
-+	int g_dfd;
-+	const char *path;
-+	struct scmi_tlm_base_info info;
-+	struct scmi_tlm_config cfg;
-+	struct scmi_tlm_intervals *ivs;
-+	struct scmi_tlm_shmtis_list *ssl;
-+	unsigned int num_des;
-+	struct tlm_de *des;
-+	unsigned int num_groups;
-+	struct tlm_group *grps;
-+};
-+
-+static inline void dump_state(struct tlm_state *st)
-+{
-+	uint32_t *uuid32 = st->info.de_impl_version;
-+	uint16_t *uuid16 = (uint16_t *)&st->info.de_impl_version[1];
-+	struct scmi_tlm_update_interval *intervals;
-+	struct scmi_tlm_shmti_info *shinfo;
-+
-+	fprintf(stdout, "- SYSTEM TELEMETRY @instance: %s\n\n", st->path);
-+	fprintf(stdout, "+ Version: 0x%08X\n", st->info.version);
-+	fprintf(stdout, "+ DEs#: %d\n", st->info.num_des);
-+	fprintf(stdout, "+ GRPS#: %d\n", st->info.num_groups);
-+	fprintf(stdout, "+ INTRV#: %d\n", st->info.num_intervals);
-+	fprintf(stdout, "+ SHMTIS#: %d\n", st->info.num_shmtis);
-+
-+	fprintf(stdout, "+ UUID: ");
-+	fprintf(stdout, "%X-", uuid32[0]);
-+	fprintf(stdout, "%X-", uuid16[0]);
-+	fprintf(stdout, "%X-", uuid16[1]);
-+	fprintf(stdout, "%X", uuid16[2]);
-+	fprintf(stdout, "%X\n", uuid32[3]);
-+
-+	fprintf(stdout, "\n+ TLM_ENABLED: %d\n", st->cfg.enable);
-+	fprintf(stdout, "+ CURRENT_UPDATE_INTERVAL: %u,%d\n",
-+		st->cfg.active.secs, st->cfg.active.exp);
-+
-+	fprintf(stdout, "+ Found #%u Global Update Intervals\n",
-+		st->ivs->num_intervals);
-+	intervals = (struct scmi_tlm_update_interval *)st->ivs->intervals;
-+	for (int i = 0; i < st->ivs->num_intervals; i++)
-+		fprintf(stdout, "\t[%d]::%u,%d\n", i,
-+			intervals[i].secs, intervals[i].exp);
-+
-+	fprintf(stdout, "+ Found #%u SHMTI areas\n", st->ssl->num_shmtis);
-+	shinfo = (struct scmi_tlm_shmti_info *)st->ssl->shmtis;
-+	for (int i = 0; i < st->ssl->num_shmtis; i++)
-+		fprintf(stdout, "\t[%d]:: FD:%u  LEN:%u\n",
-+			shinfo[i].sid, shinfo[i].fd, shinfo[i].len);
-+
-+	if (st->info.num_des != st->num_des) {
-+		fprintf(stdout, "\n++++++ DES NOT FULLY_ENUMERATED ++++++\n");
-+		fprintf(stdout, "+++ DECLARED:%u  ENUMERATED:%u +++\n",
-+			st->info.num_des, st->num_des);
-+	}
-+
-+	fprintf(stdout, "\n+ Found #%d DEs:\n", st->num_des);
-+	for (int i = 0; i < st->num_des; i++) {
-+		fprintf(stdout, "\t[0x%08X][%s]\n",
-+			st->des[i].info->id, st->des[i].info->name);
-+		fprintf(stdout, "\t\tGRP_ID:0x%08X  SZ:%u  TYPE:%u  UNIT:%u  UNIT_EXP:%d  TS_RATE:%d\n",
-+			st->des[i].info->grp_id, st->des[i].info->data_sz,
-+			st->des[i].info->type, st->des[i].info->unit,
-+			st->des[i].info->unit_exp, st->des[i].info->ts_rate);
-+		fprintf(stdout, "\t\tINST_ID:%u  COMPO_ID:%u  COMPO_TYPE:%u  PERSIST:%u\n\n",
-+			st->des[i].info->instance_id, st->des[i].info->compo_instance_id,
-+			st->des[i].info->compo_type, st->des[i].info->persistent);
-+	}
-+	fprintf(stdout, "\n");
-+
-+	for (int i = 0; i < st->num_des; i++) {
-+		fprintf(stdout, "\t[0x%08X][%s]\t\t%s %s\n\t\t-->> TS:%16llu %016llX\n",
-+			st->des[i].info->id,st->des[i].info->name,
-+			st->des[i].cfg.enable ? "ON" : "OFF",
-+			st->des[i].cfg.t_enable ? "/TS_ON " : "/TS_OFF",
-+			st->des[i].sample.tstamp, st->des[i].sample.val);
-+	}
-+	fprintf(stdout, "\n");
-+
-+	fprintf(stdout, "+ Found %d GRPs: ", st->num_groups);
-+	for (int i = 0; i < st->num_groups; i++) {
-+		struct scmi_tlm_update_interval *grp_intrvs;
-+		struct tlm_group *grp = &st->grps[i];
-+		uint32_t *composing_des;
-+
-+		fprintf(stdout, "\n\tGRP_ID:%d  DES#:%d  INTRVS#:%d\n",
-+			grp->info->grp_id, grp->info->num_des,
-+			grp->info->num_intervals);
-+
-+		fprintf(stdout, "\tGRP Intervals:\n");
-+		grp_intrvs = (struct scmi_tlm_update_interval *)grp->ivs->intervals;
-+		for (int j = 0; j < grp->ivs->num_intervals; j++)
-+			fprintf(stdout, "\t[%d]::%u,%d\n", j,
-+				grp_intrvs[j].secs, grp_intrvs[j].exp);
-+
-+		composing_des = (uint32_t *)grp->desc->composing_des;
-+		fprintf(stdout, "\tCOMPOSING_DES:");
-+		for (int j = 0; j < grp->desc->num_des; j++)
-+			fprintf(stdout, "0x%08X ", composing_des[j]);
-+		fprintf(stdout, "\n");
-+	}
-+}
-+
-+static int discover_base_info(int fd, struct scmi_tlm_base_info *info)
-+{
-+	int ret;
-+
-+	ret = ioctl(fd, SCMI_TLM_GET_INFO, info);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_GET_INFO));
-+		return ret;
-+	}
-+
-+	return ret;
-+}
-+
-+static struct scmi_tlm_des_list *scmi_get_des_list(int fd, int num_des)
-+{
-+	struct scmi_tlm_des_list *dsl;
-+	struct scmi_tlm_de_info *dei;
-+	size_t sz, d_sz;
-+	int ret;
-+
-+	sz = sizeof(*dsl);
-+	dsl = malloc(sz);
-+	if (!dsl)
-+		return NULL;
-+
-+	bzero(dsl, sz);
-+
-+	d_sz = sizeof(*dei) * num_des;
-+	dei = malloc(d_sz);
-+	if (!dei) {
-+		free(dsl);
-+		return NULL;
-+	}
-+
-+	bzero(dei, d_sz);
-+
-+	dsl->num_des = num_des;
-+	dsl->des = (uint64_t)dei;
-+	ret = ioctl(fd, SCMI_TLM_GET_DE_LIST, dsl);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_GET_DE_LIST));
-+		return NULL;
-+	}
-+
-+	return dsl;
-+}
-+
-+static struct tlm_de *enumerate_des(struct tlm_state *st)
-+{
-+	struct scmi_tlm_des_list *dsl;
-+	struct tlm_de *des;
-+
-+	dsl = scmi_get_des_list(st->fd, st->info.num_des);
-+	if (!dsl)
-+		return NULL;
-+
-+	st->num_des = dsl->num_des;
-+	des = malloc(sizeof(*des) * st->num_des);
-+	if (!des)
-+		return NULL;
-+
-+	bzero(des, sizeof(*des) * st->num_des);
-+	for (int i = 0; i < st->num_des; i++) {
-+		struct tlm_de *de = &des[i];
-+		int ret;
-+
-+		de->info = &(((struct scmi_tlm_de_info *)dsl->des)[i]);
-+		de->cfg.id = de->info->id;
-+		ret = ioctl(st->fd, SCMI_TLM_GET_DE_CFG, &de->cfg);
-+		if (ret) {
-+			perror(IOCTL_ERR_STR(SCMI_TLM_GET_DE_CFG));
-+			continue;
-+		}
-+
-+		if (!de->cfg.enable)
-+			continue;
-+
-+		/* Collect initial sample */
-+		de->sample.id = de->info->id;
-+		ret = ioctl(st->fd, SCMI_TLM_GET_DE_VALUE, &de->sample);
-+		if (ret) {
-+			perror(IOCTL_ERR_STR(SCMI_TLM_GET_DE_VALUE));
-+			continue;
-+		}
-+	}
-+
-+	return des;
-+}
-+
-+static int get_current_config(int fd, struct scmi_tlm_config *cfg)
-+{
-+	int ret;
-+
-+	ret = ioctl(fd, SCMI_TLM_GET_CFG, cfg);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_GET_CFG));
-+		return ret;
-+	}
-+
-+	return ret;
-+}
-+
-+static struct scmi_tlm_grps_list *scmi_get_grps_list(int fd, int num_groups)
-+{
-+	struct scmi_tlm_grps_list *gsl;
-+	struct scmi_tlm_grp_info *grps;
-+	size_t sz, grps_sz;
-+	int ret;
-+
-+	sz = sizeof(*gsl);
-+	gsl = malloc(sz);
-+	if (!gsl)
-+		return NULL;
-+
-+	bzero(gsl, sz);
-+	grps_sz = sizeof(*grps) * num_groups;
-+	grps = malloc(grps_sz);
-+	if (!grps) {
-+		free(gsl);
-+		return NULL;
-+	}
-+
-+	gsl->num_grps = num_groups;
-+	gsl->grps = (uint64_t)grps;
-+	ret = ioctl(fd, SCMI_TLM_GET_GRP_LIST, gsl);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_GET_GRP_LIST));
-+		free(grps);
-+		free(gsl);
-+		return NULL;
-+	}
-+
-+	return gsl;
-+}
-+
-+static struct scmi_tlm_intervals *
-+enumerate_intervals(int fd, int num_intervals, unsigned *grp_id)
-+{
-+	struct scmi_tlm_update_interval *intervs;
-+	struct scmi_tlm_intervals *ivs;
-+	size_t sz, i_sz;
-+	int ret;
-+
-+	sz = sizeof(*ivs);
-+	ivs = malloc(sz);
-+	if (!ivs)
-+		return NULL;
-+
-+	bzero(ivs, sz);
-+
-+	i_sz = sizeof(*intervs) * num_intervals;
-+	intervs = malloc(i_sz);
-+	if (!intervs) {
-+		free(ivs);
-+		return NULL;
-+	}
-+
-+	bzero(intervs, i_sz);
-+
-+	ivs->num_intervals = num_intervals;
-+	ivs->intervals = (uint64_t)intervs;
-+	if (grp_id) {
-+		ivs->grp_id = *grp_id;
-+		ivs->flags = SCMI_TLM_INTERV_GROUP;
-+	}
-+
-+	ret = ioctl(fd, SCMI_TLM_GET_INTRVS, ivs);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_GET_INTRVS));
-+		free(ivs);
-+		free(intervs);
-+		return NULL;
-+	}
-+
-+	return ivs;
-+}
-+
-+static struct scmi_tlm_shmtis_list *enumerate_shmtis(struct tlm_state *st)
-+{
-+	struct scmi_tlm_shmti_info *shmtis;
-+	struct scmi_tlm_shmtis_list *ssl;
-+	size_t sz, shmtis_sz;
-+	int ret;
-+
-+	sz = sizeof(*ssl);
-+	ssl = malloc(sz);
-+	if (!ssl)
-+		return NULL;
-+
-+	bzero(ssl, sz);
-+	shmtis_sz = sizeof(*shmtis) * st->info.num_shmtis;
-+	shmtis = malloc(shmtis_sz);
-+	if (!shmtis) {
-+		free(ssl);
-+		return NULL;
-+	}
-+
-+	ssl->num_shmtis = st->info.num_shmtis;
-+	ssl->shmtis = (uint64_t)shmtis;
-+	ret = ioctl(st->fd, SCMI_TLM_GET_SHMTI_LIST, ssl);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_GET_SHMTI_LIST));
-+		free(shmtis);
-+		free(ssl);
-+		return NULL;
-+	}
-+
-+	return ssl;
-+}
-+
-+static struct tlm_group *enumerate_groups(struct tlm_state *st)
-+{
-+	struct scmi_tlm_grps_list *gsl;
-+	struct tlm_group *grps;
-+
-+	gsl = scmi_get_grps_list(st->fd, st->info.num_groups);
-+	if (!gsl)
-+		return NULL;
-+
-+	st->num_groups = gsl->num_grps;
-+	grps = malloc(sizeof(*grps) * st->num_groups);
-+	if (!grps)
-+		return NULL;
-+
-+	bzero(grps, sizeof(*grps) * st->num_groups);
-+	for (int i = 0; i < st->num_groups; i++) {
-+		struct tlm_group *grp = &grps[i];
-+		size_t size, composing_sz;
-+		uint32_t *composing_des;
-+		int ret;
-+
-+		grp->info = &(((struct scmi_tlm_grp_info *)gsl->grps)[i]);
-+		size = sizeof(*grp->desc);
-+		grp->desc = malloc(size);
-+		if (!grp->desc)
-+			return NULL;
-+
-+		bzero(grp->desc, size);
-+		composing_sz = sizeof(uint32_t) * grp->info->num_des;
-+		composing_des = malloc(composing_sz);
-+		if (!composing_des) //XXX BAD Cleanup
-+			return NULL;
-+
-+		grp->desc->grp_id = grp->info->grp_id;
-+		grp->desc->num_des = grp->info->num_des;
-+		grp->desc->composing_des = (uint64_t)composing_des;
-+		ret = ioctl(st->fd, SCMI_TLM_GET_GRP_DESC, grp->desc);
-+		if (ret) {
-+			perror(IOCTL_ERR_STR(SCMI_TLM_GET_GRP_DESC));
-+			continue;
-+		}
-+
-+		grp->ivs = enumerate_intervals(st->fd, grp->info->num_intervals,
-+					       &grp->info->grp_id);
-+	}
-+
-+	return grps;
-+}
-+
-+static int get_tlm_state(const char *path, struct tlm_state *st)
-+{
-+	int ret;
-+
-+	st->dfd = open(path, O_RDONLY);
-+	if (st->dfd < 0) {
-+		perror("open");
-+		return st->dfd;
-+	}
-+
-+	st->fd = openat(st->dfd, "tlm_0", O_RDWR);
-+	if (st->fd < 0) {
-+		perror("openat");
-+		return st->fd;
-+	}
-+
-+	ret = discover_base_info(st->fd, &st->info);
-+	if (ret)
-+		return ret;
-+
-+	st->ivs = enumerate_intervals(st->fd, st->info.num_intervals, NULL);
-+	if (!st->ivs)
-+		return -1;
-+
-+	ret = get_current_config(st->fd, &st->cfg);
-+	if (ret)
-+		return ret;
-+
-+	if (st->info.num_des)
-+		st->des = enumerate_des(st);
-+
-+	if (st->info.num_groups)
-+		st->grps = enumerate_groups(st);
-+
-+	if (st->info.num_shmtis)
-+		st->ssl = enumerate_shmtis(st);
-+
-+	st->path = path;
-+
-+	return 0;
-+}
-+
-+#define MAX_GENERATIONS		5
-+
-+static void get_tlm_generation(struct tlm_state *st)
-+{
-+	int fd, i = 0;
-+	struct pollfd pfds[1];
-+
-+	fd = openat(st->dfd, "generation", O_RDONLY);
-+	if (fd < 0) {
-+		perror("openat");
-+		return ;
-+	}
-+
-+	pfds[0].fd = fd;
-+	pfds[0].events = POLLIN;
-+
-+	do {
-+		int ret;
-+
-+		pfds[0].revents = 0;
-+		ret = poll(pfds, 1, -1);
-+		if (ret < 0 ) {
-+			perror("poll generation");
-+			break;;
-+		}
-+
-+		if (!pfds[0].revents)
-+			continue;
-+
-+		if (pfds[0].revents & POLLIN) {
-+			int n;
-+			char buf[32] = {};
-+
-+			n = read(fd, buf, 32);
-+			if (n < 0) {
-+				perror("read generation");
-+				break;
-+			}
-+
-+			fprintf(stdout, "Generation[%u]: %s\n", i, buf);
-+		}
-+	} while (i++ < MAX_GENERATIONS);
-+
-+	close(fd);
-+}
-+
-+static int dump_shmti(struct scmi_tlm_shmti_info *shmti)
-+{
-+	void *tdcf;
-+	ssize_t bytes = 0;
-+
-+	tdcf = mmap(NULL, shmti->len, PROT_READ, MAP_SHARED, shmti->fd, 0);
-+	if (tdcf == MAP_FAILED) {
-+		fprintf(stderr, "%s\n", strerror(errno));
-+		return -1;
-+	}
-+
-+	tdcf += shmti->offset;
-+	do {
-+		bytes += write(1, tdcf + bytes, shmti->len - bytes);
-+		if (bytes < 0)
-+			return -1;
-+	} while (bytes < shmti->len);
-+
-+	return bytes;
-+}
-+
-+int main(int argc, char **argv)
-+{
-+	const char *tlm_root_instance = "/dev/scmi/";
-+	struct scmi_tlm_data_read *bulk;
-+	struct scmi_tlm_de_config de_cfg = {};
-+	struct scmi_tlm_de_sample *samples;
-+	struct scmi_tlm_shmti_info *shmtis;
-+	size_t bulk_sz, samples_sz;
-+	struct tlm_state st = {};
-+	int ret;
-+
-+	ret = get_tlm_state(tlm_root_instance, &st);
-+	if (ret)
-+		return ret;
-+
-+	if (argc > 1) {
-+		struct scmi_tlm_shmti_info *shmti;
-+		int ret, sid = atoi(argv[1]);
-+
-+		if (sid >= st.ssl->num_shmtis)
-+			return -1;
-+
-+		shmti = &(((struct scmi_tlm_shmti_info *)(st.ssl->shmtis))[sid]);
-+
-+		fprintf(stderr, "Binary DUMP of SHMTI[%u] LEN:%u\n",
-+			shmti->sid, shmti->len);
-+
-+		ret = dump_shmti(shmti);
-+		if (ret < 0)
-+			return ret;
-+
-+		return 0;
-+	}
-+
-+	dump_state(&st);
-+
-+	//get_tlm_generation(&st);
-+	bulk_sz = sizeof(*bulk);
-+	bulk = malloc(bulk_sz);
-+	if (!bulk)
-+		return -1;
-+
-+	bzero(bulk, bulk_sz);
-+	samples_sz = st.info.num_des * sizeof(*samples);
-+	samples = malloc(samples_sz);
-+	if (!samples)
-+		return -1;
-+
-+	bzero(samples, samples_sz);
-+	bulk->samples = (uint64_t)samples;
-+	bulk->num_samples = st.info.num_des;
-+	ret = ioctl(st.fd, SCMI_TLM_SINGLE_SAMPLE, bulk);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_SINGLE_SAMPLE));
-+		return -1;
-+	}
-+
-+	fprintf(stdout, "\n- Single ASYNC read -\n-------------------\n");
-+	for (int i = 0; i < bulk->num_samples; i++)
-+		fprintf(stdout, "0x%08X %016llu %016llX\n",
-+			samples[i].id, samples[i].tstamp, samples[i].val);
-+
-+	fprintf(stdout, "\n--- Enabling ALL DEs with timestamp...\n");
-+	de_cfg.enable = 1;
-+	de_cfg.t_enable = 1;
-+	ret = ioctl(st.fd, SCMI_TLM_SET_ALL_CFG, &de_cfg);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_SET_ALL_CFG));
-+		return ret;
-+	}
-+
-+	bzero(samples, samples_sz);
-+	bulk->num_samples = st.info.num_des;
-+	ret = ioctl(st.fd, SCMI_TLM_BULK_READ, bulk);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_BULK_READ));
-+		return -1;
-+	}
-+
-+	fprintf(stdout, "\n- BULK read -\n-------------------\n");
-+	for (int i = 0; i < bulk->num_samples; i++)
-+		fprintf(stdout, "0x%08X %016llu %016llX\n",
-+			samples[i].id, samples[i].tstamp, samples[i].val);
-+
-+	bzero(samples, samples_sz);
-+	bulk->num_samples = 5;
-+	samples[0].id = 0x1010;
-+	samples[1].id = 0xA001;
-+	samples[2].id = 0xA005;
-+	samples[3].id = 0x2020;
-+	samples[4].id = 0x0003;
-+	ret = ioctl(st.fd, SCMI_TLM_BATCH_READ, bulk);
-+	if (ret) {
-+		perror(IOCTL_ERR_STR(SCMI_TLM_BATCH_READ));
-+		return -1;
-+	}
-+
-+	fprintf(stdout, "\n- BATCH read -\n-------------------\n");
-+	for (int i = 0; i < bulk->num_samples; i++)
-+		fprintf(stdout, "0x%08X %016llu %016llX\n",
-+			samples[i].id, samples[i].tstamp, samples[i].val);
-+
-+	fprintf(stdout, "\n- SHMTI mmap dump -\n-------------------\n");
-+	shmtis = (struct scmi_tlm_shmti_info *)st.ssl->shmtis;
-+	for (int i = 0; i < st.ssl->num_shmtis; i++) {
-+		unsigned long *start, *end;
-+		void *tdcf;
-+		char *buf;
-+
-+		fprintf(stdout, "Mapping SHMTI[%u] - SID:%u  LEN:%u  FD:%u  OFFS:%u\n",
-+			i, shmtis[i].sid, shmtis[i].len, shmtis[i].fd, shmtis[i].offset);
-+
-+		tdcf = mmap(NULL, shmtis[i].len, PROT_READ, MAP_SHARED,
-+			    shmtis[i].fd, 0);
-+		if (tdcf == MAP_FAILED) {
-+			fprintf(stderr, "%s\n", strerror(errno));
-+			return -1;
-+		}
-+
-+		start = tdcf + shmtis[i].offset;
-+		end = tdcf + shmtis[i].offset + shmtis[i].len;
-+
-+		fprintf(stdout, "-----------------------------------------------------\n");
-+		fprintf(stdout, "Mapped SHMTI - SID:%u  %u@%p\n",
-+			shmtis[i].sid, shmtis[i].offset, tdcf);
-+
-+		buf = (char *)start;
-+		for (int j = 0; j < 4; j++)
-+			fprintf(stdout, "%c ", buf[j]);
-+
-+		fprintf(stdout, " ===> ");
-+
-+		buf = ((char *)end) - 4;
-+		for (int j = 0 ; j < 4; j++)
-+			fprintf(stdout, "%c ", buf[j]);
-+		fprintf(stdout, "\n-----------------------------------------------------\n");
-+	}
-+
-+	return 0;
-+}
--- 
-2.54.0
+Looks good to me.
 
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+
+Bart
 
