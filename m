@@ -4,95 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CC3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 15:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08760C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 15:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QGZm4+XMD1ngU96wT2Oojs/SHdS870fkpgs5aUT2QU0=; b=u/q/snf1B/v8jv/sR76HJagOKo
-	E7uqA2SMjB4H5MC5UMvHMPWTLrEDhhiAb39xe/BcIBLiPYay/aFF14+l0ZO87nbHoT6SR5JxVuF9c
-	2Qswsn/4XBV86u9XUd6daoObfBHAnEKJcTErw/dfJL5aY3srjUQAIoKzz7gLbofLvSXjXCLhPdEtc
-	IikUGxdkg4UFxg1+VKD+a6dpYJscCcDyYbDttA82DxL3xc96NlBinRzyVVImFXGodpQg81MdetnPf
-	aiEd9gZT1SL4Z9ofWjrpGkkCAbJQcVmIPSsV5TgTbPmhpC99X114YwCqPUU4mClHGrVWi+X/zyYeq
-	1ZfJGdOQ==;
+	bh=Pf36wxJupHA4Xe6B/0FbJUyw03mQL+xsO5YFqwowTBc=; b=vxD/O9v3NH1ChcaHGiaEDkluoe
+	fzZUhHuhHrshvwIaQCJ5cZfyMdE0lRl/Lme259TwUjBnJomsyA6MMl5gkSaC66nNNg42ljVdqsE+t
+	ax3l66zf7BdGt2rdm471a+I5S/cMjrb6T/0D05IR/EM1TqR6aqbVLcu27l4u7ep4HGLjlBZIE6oJF
+	++AYuTskrO2XIiUkSbpabTdjG5tM2BvE9QfjbndaQ/UGJIopMBXKzQt/4eYxRPgLcvqE3qlASFgjs
+	WsnAjS75N9BTV5gmyzFEcpHNYkIWoURBahVceYr7k0pFItSQGzwTJrp4gLQIQygsIN0/02LmZ2VBL
+	HZ6EuBaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wffnq-00000007P1t-2aEP;
-	Fri, 03 Jul 2026 15:27:42 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1wff4R-00000007Id9-0t7z;
+	Fri, 03 Jul 2026 14:40:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wffno-00000007P1X-1OAs
+	id 1wff4Q-00000007Icu-0H11
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 15:27:41 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-47362928f65so677628f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 08:27:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783092458; x=1783697258; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QGZm4+XMD1ngU96wT2Oojs/SHdS870fkpgs5aUT2QU0=;
-        b=SB/Eaz7kcm41psaA09sfxJSNmJQJMXB8pOuPeMrN8vtxxGqVn4lzjGZnri/tTHeA/G
-         tHZsg160EO+8p829yW5qbE9MWcGprCk1y3eeDRUI03av+Rg4fxpxLNcolaq9eDWW8BsN
-         cwYuHjx/88aR1BW2RdzcZmSbbmtKbW/sqRFF70C0X9TkxtLiumJUgee9e1rcQzaYB3VG
-         cGc5V+bCyokL/Jz5DFr1uzgbpn8Wcp3nNmZrmxlf01DEYkaC4BCKWWAlkLJIcqbmJkIR
-         9itFW/005hiael+/R0XABb5KuQRHdNqcWUMkZ2mQSxhMTYhmoYCvbzEvOqe5ncYEWZy6
-         D/bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783092458; x=1783697258;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QGZm4+XMD1ngU96wT2Oojs/SHdS870fkpgs5aUT2QU0=;
-        b=LdvYmNW3c8RIOBOYOJ8ZuNupRhESlbWK6B2MO6SkOZpbOQRbuV0geMffJLxd9knB1z
-         VqNULAJJ4+kknuNUa1YX3mnpqaXa3JdzcPETbw5vuK4huBRmVzhI32EuDFGuMrh/UeBW
-         sLfvahjAEUfygy+hzIGg2KElukp/YHgSLW/ERp6VvoB44w6VRMRDgvbQ4EfwbDS6yyyP
-         ZQpQg7zG8O0b0ptMN6Mebyi6ibnHjOVg9akqJRTTTgd74dZhtLFk33L4s2GduMRRMKGD
-         pnr3AGAagjl2YKrJGTi4IG5LmlHjxifRsFvA1/YAPhpaz0PYAQIrByq5EiJUPbrnlAZc
-         R5FA==
-X-Forwarded-Encrypted: i=1; AHgh+Romz8QAed3cW5mtPi5SlN2an1Rs0zDR6J27dRIPe1Hp/xq4Tz2yrrQl5z9dh46mm8nEpBKXYftLtJp78/gMxX5j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+chEN6vAWQmEQufdvbW3PY3yiHdNl3e+YRzTpf2YMfq4Cz8DK
-	VkXIPOJaAWWsaLE8LxhMrDBFpDvLgDjj9P2XE8R4I9YKuvR8vGwH0HF+XaA7cg==
-X-Gm-Gg: AfdE7cn/BJ6L/n3VucAE5ffrpcZg6UcyOrpcf+Dc0sO+BrFQ1VYAIbKCK7rwcqZBtnd
-	1kjZVfeJWuHDEee9WnHIW1BsGV7okZb3niCPsiu0xpX5837GOuZRKmBiXYYMDlcig7rGohRzqaX
-	6yfeAzeva9nh2s3MHTkzBqpkRxzYWT8tSD0gwtFT38fY0USCZ9PfsIxFdimJCmPbr1x0CDVLuPx
-	MKSvFV///N2zdn6KVruJy7VkMJI20fHALr8G+HtC8UDKcD30KqGwX0y36CfCDxFSAwV5w2/Kz7M
-	SpN/4x2ePAROTyBSjaUtCQ5ihPcQFkAxy8gXMp/wVTavJWlXM0kSUJnckTv7Vql84TFXMwCtFbH
-	sLAvxa30YWtQpcLsjpzAwhUwQT7/aHue/uF80jPoVAweRgb3P5WCLRwmonL/fx2NPcTc8zRin1H
-	YfHxcIE/IHfpl4V1n7ZxKqDvfRWBzlT1jpbt4xFiyYpjLw0rh5qZduEUkbylX0aq0Yy+z62N4gr
-	wKLurLa6umzmMY6AgYVUK/fXBA=
-X-Received: by 2002:a05:6000:52:b0:46f:f12b:e44b with SMTP id ffacd0b85a97d-4775be03161mr11748719f8f.31.1783092458177;
-        Fri, 03 Jul 2026 08:27:38 -0700 (PDT)
-Received: from Lord-Beerus.station (net-93-144-65-248.cust.vodafonedsl.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0960b06sm85460f8f.28.2026.07.03.08.27.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 08:27:37 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Fri, 03 Jul 2026 14:40:46 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6AE2560051;
+	Fri,  3 Jul 2026 14:40:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D70B1F000E9;
+	Fri,  3 Jul 2026 14:40:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783089645;
+	bh=Pf36wxJupHA4Xe6B/0FbJUyw03mQL+xsO5YFqwowTBc=;
+	h=From:To:Cc:Subject:Date;
+	b=U2CiCfqCnNyy/YHBAdxdljAnfG3k7NegO4Wn7foBU7NR2aRSeV3pX1zV1NVr27gd0
+	 hpsTxJRicXbv7EH0SpA7q9DxAljSe+tBnLWujFOmDKA7z80mIpBpx3NthgNVJFoiIo
+	 1w2KyP1Txy5TxIU2c1EIy+66F6MpRG76hgAQM6K3mMoek9qROuMT+BATVvbHkOQcNt
+	 g4ucBImatA1y2kGPWq7dHp+Rptk185M0K3kMxL406SKp9EEbD3JuiwmpmcqZCNg86W
+	 gqvRoh/0bnOn7rOlRnOorKgBKjmRkuPcwXNxjJmrOpCW7Z7L+Q7UKaMsFgZqU1ijva
+	 wMXRIwOci8Sqg==
+From: Thierry Reding <thierry.reding@kernel.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: Thierry Reding <thierry.reding@kernel.org>,
+	Jon Hunter <jonathanh@nvidia.com>,
+	linux-tegra@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Cc: pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH v1 1/1] arm64: dts: freescale: imx9-var-dart-sonata: fix Ethernet PHY configuration
-Date: Fri,  3 Jul 2026 17:27:31 +0200
-Message-ID: <20260703152731.236793-1-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
+Subject: [GIT PULL 1/3] soc/tegra: pmc: Fixes for v7.2
+Date: Fri,  3 Jul 2026 16:40:35 +0200
+Message-ID: <20260703144042.1190046-1-thierry.reding@kernel.org>
+X-Mailer: git-send-email 2.54.0
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_082740_416613_B068FCD5 
-X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,106 +70,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefano Radaelli <stefano.r@variscite.com>
+From: Thierry Reding <thierry.reding@gmail.com>
 
-Fix the Ethernet PHY description on the DART-MX9 Sonata boards.
+Hi ARM SoC maintainers,
 
-The GPIO previously described as the PHY reset line is actually a
-board-level enable signal required by the PHY. Model it accordingly and
-remove the incorrect reset GPIO description from the PHY nodes.
+The following changes since commit 2cee7da9743396aff1fd13124109c78975c92ad8:
 
-On i.MX91 and i.MX93 the signal is described as a fixed regulator,
-whereas the existing regulator description on i.MX95 is reused.
+  soc/tegra: pmc: Add Tegra238 support (2026-05-31 07:21:15 +0200)
 
-Keeping the PHY enable asserted during boot ensures that Ethernet
-initialization completes successfully.
+are available in the Git repository at:
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../boot/dts/freescale/imx91-var-dart-sonata.dts   | 14 +++++++++++---
- .../boot/dts/freescale/imx93-var-dart-sonata.dts   | 14 +++++++++++---
- .../boot/dts/freescale/imx95-var-dart-sonata.dts   |  3 ---
- 3 files changed, 22 insertions(+), 9 deletions(-)
+  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-7.2-pmc-fixes
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-index 3f0fd321d95f..f7e32f9375f5 100644
---- a/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-var-dart-sonata.dts
-@@ -97,6 +97,17 @@ reg_rgb_sel: regulator-rgb-enable {
- 		enable-active-high;
- 	};
- 
-+	reg_phy1_supply: regulator-phy1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SUPPLY_PHY1";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&pca6408_2 0 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		startup-delay-us = <10000>;
-+		regulator-always-on;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -139,9 +150,6 @@ mdio {
- 		ethphy1: ethernet-phy@1 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <1>;
--			reset-gpios = <&pca6408_2 0 GPIO_ACTIVE_LOW>;
--			reset-assert-us = <15000>;
--			reset-deassert-us = <100000>;
- 
- 			leds {
- 				#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
-index 5513d3b148a2..1ca3ec8330d0 100644
---- a/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-var-dart-sonata.dts
-@@ -103,6 +103,17 @@ reg_vref_1v8: regulator-adc-vref {
- 		regulator-min-microvolt = <1800000>;
- 	};
- 
-+	reg_phy1_supply: regulator-phy1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "SUPPLY_PHY1";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&pca6408_2 0 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+		startup-delay-us = <10000>;
-+		regulator-always-on;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-vmmc-usdhc2 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "VDD_SD2_3V3";
-@@ -180,9 +191,6 @@ mdio {
- 		ethphy1: ethernet-phy@1 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <1>;
--			reset-assert-us = <15000>;
--			reset-deassert-us = <100000>;
--			reset-gpios = <&pca6408_2 0 GPIO_ACTIVE_LOW>;
- 
- 			leds {
- 				#address-cells = <1>;
-diff --git a/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts b/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-index 7a58ad38ffb4..ccf7e77016e4 100644
---- a/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-var-dart-sonata.dts
-@@ -346,9 +346,6 @@ &netc_emdio {
- 	ethphy1: ethernet-phy@1 {
- 		compatible = "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
--		reset-gpios = <&pca6408_2 0 GPIO_ACTIVE_LOW>;
--		reset-assert-us = <10000>;
--		reset-deassert-us = <100000>;
- 
- 		leds {
- 			#address-cells = <1>;
--- 
-2.47.3
+for you to fetch changes up to 813e034925814858cc52e7de321ec4848314e15d:
 
+  soc/tegra: pmc: fix #ifdef block in header (2026-06-22 08:52:46 +0200)
+
+Note that this contains a patch for the Tegra DRM driver that I'm taking
+through this tree rather than drm-misc because the commit that it fixes
+came in through the Tegra tree as well.
+
+Thanks,
+Thierry
+
+----------------------------------------------------------------
+soc/tegra: pmc: Fixes for v7.2
+
+This contains two fixes, one for a bad error unwinding path and another
+for an #ifdef block that wasn't covering all the combinations correctly.
+
+----------------------------------------------------------------
+Arnd Bergmann (1):
+      soc/tegra: pmc: fix #ifdef block in header
+
+Christophe JAILLET (1):
+      drm/tegra: Fix a strange error handling path
+
+ drivers/gpu/drm/tegra/sor.c | 6 ++----
+ include/soc/tegra/pmc.h     | 5 ++++-
+ 2 files changed, 6 insertions(+), 5 deletions(-)
 
