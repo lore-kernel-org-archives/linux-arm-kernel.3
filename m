@@ -4,122 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C736C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923F8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GF/dZxM95AsUU1wWK1B0B/CUui/snGJUvA0tIkHl1DM=; b=IUBZnRBMsDjoiZrBjIhLZhjN7U
-	EUvstRCKFEtp1FUwkuIK09CAohzlUUBvjTLnagPATbH9HSs/EReAvDH7qZbWl84O63nsBOA0mPaI/
-	xYA/4CuHykvPvYm15NoASXhsymZ6KrHnofe52XAuBL8o8eyKqUS+uAnXVuv22xobXLGutYIqGblC6
-	EiA3XWG5Oq0lm1rs5lMbRCIOpctpDEcDxg9bw3Fa0/Dibd86wN5ZsSekqpglC9ILAjFuwFTOmRr4u
-	kLQZo05i8A+bLFr/XSDJsAWW+L4UYWzrQwLlYwKfWwIpS9otFpyGNxdRv8pXpKgKyvr5l8ii2Cgsl
-	sAOozWQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PAqfQAOpMlMDCw8VgFjXaKgS8Em1IBXIvmErmx2w6HY=; b=ccijecZXZ61/tZl9gzpmwlNH17
+	x0yDTYUub3YRDtQFAoA1kwX296O3B4nQUZGd50mLcm7FZrhNxJnS0Ipt2ZGx86mm/Tc8opsKd/Idn
+	0Zl0POQn0phBYb/SAIiSyzg4ZTEcgC3ZhGqq2Bf0s4WH2X/ciXFmii1WX571FNnq3UBunDkXvzfE9
+	P1eUXdSqmqwhiHIIWMtQVEgjW5nJnWcuMMUYRNRjBCV9VXnNpY7Dh4fJQT2TY+grfnXyiIVM7sPQZ
+	ELPCX2EeptP/47LKHJeteRH7117exmoset8VbmgKzJ2NdJsiyI83chJkGFKe1zHchar7oPJ9KfLLq
+	Z285WGTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcMH-00000006qgC-0obT;
-	Fri, 03 Jul 2026 11:47:01 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1wfcMj-00000006qny-1cXo;
+	Fri, 03 Jul 2026 11:47:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcMF-00000006qew-1azj
+	id 1wfcMi-00000006qnb-0FgP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:47:00 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c4436d02cso1394681cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:46:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783079217; x=1783684017; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GF/dZxM95AsUU1wWK1B0B/CUui/snGJUvA0tIkHl1DM=;
-        b=Xy1aYaOiFncPNPaBgRz3lAGW5oBbXx3XKP14lMjT63adHA9QDgtRK2sCiaoKLmLvPN
-         hAHCt4a3SkEb4anpoNTMCKFlZ9wCxIWJ9lgxyjlrU+SkDftB/2YT8O4vpHANthW16bGL
-         bRJ9YXJ810LaVlCzAygN0HUlbCMpTNooTyhNczRZlKiNGKr89rXjBMD9LSlLr3xR1QVr
-         I+d04GoevN1nT2WPlRjrUPs1LKbIxH6qOWb3k5XUf4P7d0+SFkMsyBtuplS4DgW6dSDK
-         M1I8uNwgk2TNzjeBksa3MApInInoB4Z7AkR7JUMZ34kS2/p88zua7JjRrm/Ls08NyxUO
-         GVrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783079217; x=1783684017;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GF/dZxM95AsUU1wWK1B0B/CUui/snGJUvA0tIkHl1DM=;
-        b=hMZoUoa2oNZwIaDauswrUZTt+RIz0+YWnH/HPtCFPels44W9/jR5STIhbeLuMTWVIu
-         Mu7/2S5JmAy+0yxrW4laeoUI1aDxh3h4MQUzrIIAm7meD0kuN223PMv8Idqqny4zz/cZ
-         8k0YAkgMyjHMcpK87YLRvCHvhjE6EnVd3khltWAkwTqgwzj+iM/UycC527FVT8GAhDCB
-         EOyl9VDtIzpZC8GufdSNvsdHP5d78l6mSu7V+7jAwSaKob27GQ9x8RCm/8/FFoJ0Jgxe
-         vso+xjq5dak2wXHzG6BeXHR9N7NRHE4S27OUaDPdw780bcvGspAuh36pC5LBWAWgd65f
-         TgDw==
-X-Forwarded-Encrypted: i=1; AFNElJ9ZBc40W4FC5FGTbGCpd2orI0waAitAqMlIhVvs2pmkp7nXqP78JEI8AO7KMiIzYU6o9Iz5uatZ5eAvvu8R3CAe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3HSbzYC2pL5PbJXZS8jgPTlkizCb+z7YoJGU3YkrQUWYO7i35
-	Cd/nKx87Pczy7jtH1v7+5RGq5PkafJtiB8dIlqub64W8TKOGiVngUUUhG3W7Qk6Y4I8=
-X-Gm-Gg: AfdE7cmrxsVuiEXc+fbFirJy4YyWnEieCa5l0D1ORHrQl6bwFAM+9dm7gflw4I9QIJp
-	PX7DOe2wjhfpGcmp9s2VQvjQpJW57V6gW2ov9mqWiI/w05CjSYDniRRCGiaAk0Vv7sNEuPafPew
-	vdRR/6TDKcrLeplpL5cFC4RXuHV7jN5CC64H4Mz9AgbNLmFE1n3cLmzo81V3aDNeia3UUAeItg8
-	VIVMcDLe2UAavRdgsw7vvM/HZOWkQEVI+RpGhTZonHrvLw4leX07Upaol9fQBQy6fHHumBbGojS
-	CAOnKILF/4Rbarc3d1volraYwIxLbJOVr+d0X1+jsEIPkmPs49A2BPOq/6UjislQ7S8PuZTRDaJ
-	KWYbpZiP10po5VM/TrS7JYrlUA8MjsVz4T4Rf0rymuKIsf5EjuGn7H7rawzXViw5yzHJVcdnbkm
-	JOgNZnQsc2+fokIYhKJui5CKFWoyjiWGZZ5y6jMqUjY3thD+qXpUusrtBuMB4nQM0lSyI=
-X-Received: by 2002:ac8:59d1:0:b0:51c:555:7dea with SMTP id d75a77b69052e-51c2ad42df1mr112307971cf.30.1783079216951;
-        Fri, 03 Jul 2026 04:46:56 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51c4202366csm13366551cf.30.2026.07.03.04.46.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 04:46:56 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wfcMB-00000007ngp-0vd7;
-	Fri, 03 Jul 2026 08:46:55 -0300
-Date: Fri, 3 Jul 2026 08:46:55 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Alexey Kardashevskiy <aik@amd.com>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
-	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
-	Robin Murphy <robin.murphy@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
-	linux-s390@vger.kernel.org,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
-	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>,
-	"Cheloha, Scott" <Scott.Cheloha@amd.com>
-Subject: Re: [PATCH v6 03/20] dma-direct: use DMA_ATTR_CC_SHARED in
- alloc/free paths
-Message-ID: <20260703114655.GW7525@ziepe.ca>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <20260604083959.1265923-4-aneesh.kumar@kernel.org>
- <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
- <20260617154101.GE3577091@ziepe.ca>
- <25155bd6-4348-4aa8-ba70-0a882fc84db9@amd.com>
- <20260630160242.GI7525@ziepe.ca>
- <98800d21-18f6-44d6-9ba0-da9b77567d85@amd.com>
- <20260702144729.GP7525@ziepe.ca>
- <58bb92a9-c5ea-47a3-b19a-934573f15305@amd.com>
+	Fri, 03 Jul 2026 11:47:28 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 861C343BBF
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 11:47:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 693461F00A3F
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 11:47:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783079247;
+	bh=PAqfQAOpMlMDCw8VgFjXaKgS8Em1IBXIvmErmx2w6HY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=PiaJW733uwYb8erG29p49uhNQfoo3dgX4tI31n/7Cka2uYkC899P/0dvWym1mu/Iu
+	 poc2i6mHcgT7zFGmBankKzqZLWdahpops2eopauVNQytOApiTcklTmxJl4+3up/Tu3
+	 qLXVOycUKC9th+4dZhwvg3K0nHqS62HCX4epWVvvPGiKGZlDEGo1Lfxt2pciRgofYx
+	 p4UkSpW92aQMmkkFzVQBy76H6y1NlsIMjle9SYRX9k4cKvLmCGWLI6LnIv7jOel0wp
+	 XDF/ys6Df4nPSbTX5QGVZB6CdkMdPow4vItDPpAxtKylZ+zRcXJo3XBc76lLlYhqmK
+	 OUyAeGOB6lk5A==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39b1f588471so4389901fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:47:27 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrpLx4+pj1JRBIO3MIj4q0EndBz1W0KscZ2oOkanf4FLFEdsVrEdV60HDlqIEBIJc05hs1lJU9H4c41T4ou/fuM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbgZg8RliAQgWqNtCqxkthKMvVSQdoqXbLjEn8oF4cxECgiZbK
+	D1wO7Nj67A9TI/JfoksosKTdWb7ouYsER7A68u+fl8MhctHfaecqvI6t6WbbKrAviO+UsNv2BNO
+	PF8Q0NWv1GLj9+2Io9JckRZNua2UOMtY=
+X-Received: by 2002:a05:6512:a354:b0:5ae:ba3e:a6f6 with SMTP id
+ 2adb3069b0e04-5aec67a2b83mr1899880e87.4.1783079246183; Fri, 03 Jul 2026
+ 04:47:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <58bb92a9-c5ea-47a3-b19a-934573f15305@amd.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_044659_541361_946BEBC9 
-X-CRM114-Status: GOOD (  21.60  )
+References: <20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org> <akd5_G5oA2dxdg89@J2N7QTR9R3>
+In-Reply-To: <akd5_G5oA2dxdg89@J2N7QTR9R3>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 3 Jul 2026 13:47:14 +0200
+X-Gmail-Original-Message-ID: <CAD++jLmnUX0EHpjqGc6Pk3bXr0XTp9r4+rPSNUYVwk+e0JMgTw@mail.gmail.com>
+X-Gm-Features: AVVi8CfUHAbqySS7cIAW-rrONys-5i7T9Hv7PNMZ8MoGQJy-d4zcjDrgoR6pU04
+Message-ID: <CAD++jLmnUX0EHpjqGc6Pk3bXr0XTp9r4+rPSNUYVwk+e0JMgTw@mail.gmail.com>
+Subject: Re: [PATCH v2] RFC: ARM: breakpoint: CFI breakpoints only on demand
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Russell King <linux@armlinux.org.uk>, Nathan Chancellor <nathan@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, 
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	slipher <slipher@protonmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,39 +82,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 08:15:49PM +1000, Alexey Kardashevskiy wrote:
-> On 3/7/26 00:47, Jason Gunthorpe wrote:
-> > On Thu, Jul 02, 2026 at 10:25:16AM +1000, Alexey Kardashevskiy wrote:
-> > 
-> > > > > not externally available so I'll have to trick the DMA layer into
-> > > > > using SWIOTLB (which is still all shared, right?) as I specifically
-> > > > > want to skip page conversions. Setting low DMA mask won't guarantee
-> > > > > that the DMA layer won't allocate a page outside of SWIOTLB and
-> > > > > convert it. Manually do
-> > > > 
-> > > > Why so particular?
-> > > 
-> > > aahhh I missed "pre-". I need a way to get pre-shared pages for my
-> > > sev-guest activities.
-> > 
-> > It sounds to me like you don't, what you are worried about is
-> > optimizing the dma_alloc_coherent flow to avoid fragmentation and all
-> > CC architetures require this optimization.
-> 
-> It is not about fragmentation, it is about unwanted page state
-> changes when few pages are shared for a very short time.
+On Fri, Jul 3, 2026 at 10:59=E2=80=AFAM Mark Rutland <mark.rutland@arm.com>=
+ wrote:
 
-That's really basically the same thing. The responsiblity for
-optimizing the shared/private conversion lies with the DMA API not the
-callers.
+> AFAICT, hw_breakpoint_cfi_handler() is only intended to handle
+> BKPT instructions executed in kernel mode, and even when the kernel is
+> build with CF support, it doesn't make sense to call that for BKPT
+> instructions executed in user mode.
+>
+> On arm64, we have separate paths for BRK exceptions from user mode
+> (do_el0_brk64()) and kernel mode (do_el1_brk64()).
+>
+> Surely you can check kernel_mode(regs) or user_mode(regs) to distinguish
+> the two cases, and only call hw_breakpoint_cfi_handler() when the
+> exception was taken from kernel mode?
 
-> When I needed these pages, I could: get a private page, convert,
-> (possibly trigger RMP and IO PDE smashing if that 4K is backed with
-> 2M), do the VM<->HV communication, convert back to private (and
-> possibly unsmash the page).
+You're right of course... I'll add a check like that and see if this
+solves the problem for the reporter.
 
-IMHO it would be better to use something like dma_pool to amortize the
-coherent allocations instead of trying to hack with swiotlb.
-
-Jason
+Yours,
+Linus Walleij
 
