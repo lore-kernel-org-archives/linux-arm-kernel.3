@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923F8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:47:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8623C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:56:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAqfQAOpMlMDCw8VgFjXaKgS8Em1IBXIvmErmx2w6HY=; b=ccijecZXZ61/tZl9gzpmwlNH17
-	x0yDTYUub3YRDtQFAoA1kwX296O3B4nQUZGd50mLcm7FZrhNxJnS0Ipt2ZGx86mm/Tc8opsKd/Idn
-	0Zl0POQn0phBYb/SAIiSyzg4ZTEcgC3ZhGqq2Bf0s4WH2X/ciXFmii1WX571FNnq3UBunDkXvzfE9
-	P1eUXdSqmqwhiHIIWMtQVEgjW5nJnWcuMMUYRNRjBCV9VXnNpY7Dh4fJQT2TY+grfnXyiIVM7sPQZ
-	ELPCX2EeptP/47LKHJeteRH7117exmoset8VbmgKzJ2NdJsiyI83chJkGFKe1zHchar7oPJ9KfLLq
-	Z285WGTg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0B1463+Qr0zm+lZPP190miffZziNrhNxavOC7rjqnck=; b=Hc2eVWvt4JHub8MW0swhj50bGv
+	3e85E+k4Mj6hzxfsc0VjLzQP0j8a6tcBLp89Amv2D+rHh2o7CtMVKw+g08ngmDD5xTXa/4nVGFC5G
+	pB+vHUl/130C9AGT4Fu+/zweOccs9ZdCEyespDrV1ScBfjkmx+AXTHacbylLp9SM8Ow3876+WyoQ7
+	yrAimq5fpj8v4N3d52kqILdt1bv2EuFiN1bpPGRR1kLxZBbauCfcp554wZL0pZ/nP8RR1IrHE5DDE
+	TLvksLm+a+/fQXYuRx3pWTpgjAT4IeFlki4SH09KuizGl0x3Jogt/0WTS9WUT/2ohnsW/WNByTS3y
+	L4up8O1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcMj-00000006qny-1cXo;
-	Fri, 03 Jul 2026 11:47:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wfcVD-00000006rd9-0iBn;
+	Fri, 03 Jul 2026 11:56:15 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcMi-00000006qnb-0FgP
+	id 1wfcVA-00000006rbx-0Rlf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:47:28 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 861C343BBF
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 11:47:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 693461F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 11:47:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783079247;
-	bh=PAqfQAOpMlMDCw8VgFjXaKgS8Em1IBXIvmErmx2w6HY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=PiaJW733uwYb8erG29p49uhNQfoo3dgX4tI31n/7Cka2uYkC899P/0dvWym1mu/Iu
-	 poc2i6mHcgT7zFGmBankKzqZLWdahpops2eopauVNQytOApiTcklTmxJl4+3up/Tu3
-	 qLXVOycUKC9th+4dZhwvg3K0nHqS62HCX4epWVvvPGiKGZlDEGo1Lfxt2pciRgofYx
-	 p4UkSpW92aQMmkkFzVQBy76H6y1NlsIMjle9SYRX9k4cKvLmCGWLI6LnIv7jOel0wp
-	 XDF/ys6Df4nPSbTX5QGVZB6CdkMdPow4vItDPpAxtKylZ+zRcXJo3XBc76lLlYhqmK
-	 OUyAeGOB6lk5A==
-Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39b1f588471so4389901fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:47:27 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RrpLx4+pj1JRBIO3MIj4q0EndBz1W0KscZ2oOkanf4FLFEdsVrEdV60HDlqIEBIJc05hs1lJU9H4c41T4ou/fuM@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbgZg8RliAQgWqNtCqxkthKMvVSQdoqXbLjEn8oF4cxECgiZbK
-	D1wO7Nj67A9TI/JfoksosKTdWb7ouYsER7A68u+fl8MhctHfaecqvI6t6WbbKrAviO+UsNv2BNO
-	PF8Q0NWv1GLj9+2Io9JckRZNua2UOMtY=
-X-Received: by 2002:a05:6512:a354:b0:5ae:ba3e:a6f6 with SMTP id
- 2adb3069b0e04-5aec67a2b83mr1899880e87.4.1783079246183; Fri, 03 Jul 2026
- 04:47:26 -0700 (PDT)
+	Fri, 03 Jul 2026 11:56:13 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-c88a4d79ba5so314766a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:56:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1783079771; x=1783684571; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0B1463+Qr0zm+lZPP190miffZziNrhNxavOC7rjqnck=;
+        b=EU77Ym/NCah38zQMk6OqUe3TbPVU+fXwjxp36whYyYPGL33y7e9suj3yxaYUmldvwr
+         6aVRMIjRb9EiyqJLsh8gENVlBk2r+lkdaMl8lJ7zHZS4EemUsIRwwc2EQdz505/01SbN
+         ox4BAXnJ6ZERanEKoCFpPubqA5ZbiPsPf7WRo=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783079771; x=1783684571;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0B1463+Qr0zm+lZPP190miffZziNrhNxavOC7rjqnck=;
+        b=JaEbohEruny5OpGlY5YQ6pmBbLUc0cwuFfGrY20Gl6rovza8X7SVnNZT+mnvG8OvnG
+         lUfTIUFAtBYucT+9rKkMSMgJvNYTrwFMbki0+kMuqevsKi1LHxujMBCKQ/0G+Tl8XPM+
+         mAs0m/SRXEBP3z/nIYtJNjXte5IPNeq7WrXwZ8xmfJ/vnJhK+DOPHoGX4YtZI/iY8/1K
+         ee4Dp2D9qno7IWWYgSzzElrKSZtN+GfL4g9qH2MPzXZdQz1EBrXCKCI9EfSDcb1pl66K
+         FnRi89uuDRZOBY6MZeRgp/KsV+bG/tOumajZNlDknNbY9fI30dF91N/oX/sklrFOUiwP
+         16sQ==
+X-Forwarded-Encrypted: i=1; AFNElJ/T/Y2fr+OhN7lEvX5InVMmTu433bm/ITmwgSqh8HwW3xMLmJghrugYjK+XFN43YCEe+1n36Xw44ZPQRvcw1QA6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJ7QNv+2wJD6hml9Dz6fRqUKAhyWFkfOoJ8b/SxjoaRbsubGHs
+	LayQ4i184i05zSjFtXRVaLQ7mv0QgZUpXXOQekm1/jlHd8LV7e5ys7q1a5TfYFJFHw==
+X-Gm-Gg: AfdE7cnd0Bx89ZU1IJmEhuapahVWjY8VQqy49G3jJjoYZcKrb+/lTJs0UWgD8p8Tuow
+	L80PbsNhQzhT39qkLhTJMsxxmmGCxKxycCJiBQPrNtnkuAAQfO2dAoET2nvp9x36cEHrvbAQ0f0
+	ZCPuICk4itMnidA5kRbEnneAgPc/KnaCapU00DZR5M7C5YYtVFfPW0U7ADi+o3MpSWX5xT8gE4l
+	UNimOSAbCS91opWBNs5yDZ1iT3hhhBiID+bWnqG1ReWBRZ0gZjrUmeuwvsAL5JfRs1hzZsn8JCa
+	I3hPIwoRxnRi+Y3FUal8e0jTBHUNUomwfQwnjrm1RFdIun+TqQysHrSE6byeXN0dEbZ/3XSyBPi
+	Jzv56LM1+vLNCN6Ae5O6Qb+5v1iLlGbWGX3dl6vk9FDGnmt/HZd2/2yJf/ScHs1MjwAk4+BGOZv
+	NqUHNStCQB+PedMRynUuEpkN9LTHWJtz/z9D7Guf7oInaiybMobRqsMQaK+EsqmjGJDcrtDA==
+X-Received: by 2002:a05:6a20:1602:b0:3bf:6f30:1ccd with SMTP id adf61e73a8af0-3bfed505340mr13580575637.42.1783079771207;
+        Fri, 03 Jul 2026 04:56:11 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:7bc5:6c83:76cd:cbd6])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9e8bd30ca5sm2569540a12.0.2026.07.03.04.56.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 04:56:10 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jiri Kosina <jikos@kernel.org>,
+	Andi Shyti <andi.shyti@kernel.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	chrome-platform@lists.linux.dev,
+	linux-input@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 0/7] arm64: mediatek: Chromebook trackpad supply fixes
+Date: Fri,  3 Jul 2026 19:55:53 +0800
+Message-ID: <20260703115601.1323491-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.55.0.rc0.799.gd6f94ed593-goog
 MIME-Version: 1.0
-References: <20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org> <akd5_G5oA2dxdg89@J2N7QTR9R3>
-In-Reply-To: <akd5_G5oA2dxdg89@J2N7QTR9R3>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 3 Jul 2026 13:47:14 +0200
-X-Gmail-Original-Message-ID: <CAD++jLmnUX0EHpjqGc6Pk3bXr0XTp9r4+rPSNUYVwk+e0JMgTw@mail.gmail.com>
-X-Gm-Features: AVVi8CfUHAbqySS7cIAW-rrONys-5i7T9Hv7PNMZ8MoGQJy-d4zcjDrgoR6pU04
-Message-ID: <CAD++jLmnUX0EHpjqGc6Pk3bXr0XTp9r4+rPSNUYVwk+e0JMgTw@mail.gmail.com>
-Subject: Re: [PATCH v2] RFC: ARM: breakpoint: CFI breakpoints only on demand
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Russell King <linux@armlinux.org.uk>, Nathan Chancellor <nathan@kernel.org>, 
-	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, 
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
-	slipher <slipher@protonmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_045612_175175_1DEE83B5 
+X-CRM114-Status: GOOD (  21.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,24 +104,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 3, 2026 at 10:59=E2=80=AFAM Mark Rutland <mark.rutland@arm.com>=
- wrote:
+Hi everyone,
 
-> AFAICT, hw_breakpoint_cfi_handler() is only intended to handle
-> BKPT instructions executed in kernel mode, and even when the kernel is
-> build with CF support, it doesn't make sense to call that for BKPT
-> instructions executed in user mode.
->
-> On arm64, we have separate paths for BRK exceptions from user mode
-> (do_el0_brk64()) and kernel mode (do_el1_brk64()).
->
-> Surely you can check kernel_mode(regs) or user_mode(regs) to distinguish
-> the two cases, and only call hw_breakpoint_cfi_handler() when the
-> exception was taken from kernel mode?
+This series fixes the trackpad descriptions on some MediaTek-based
+Chromebooks: either the trackpad's supply was set as always-on to
+workaround missing delays in the driver, or the delay and supply
+are missing from the trackpad's device node.
 
-You're right of course... I'll add a check like that and see if this
-solves the problem for the reporter.
+v1 was just the first patch [1]. It has since grown to cover multiple
+drivers and devices.
 
-Yours,
-Linus Walleij
+
+Patch 1 adds the correct enable delay after enabling the supply regulator
+for the Elan trackpad to initialize. Compared to v1, the delay is now
+skipped if the regulator was already enabled to avoid impacting boot
+time or time before the trackpad is operational.
+
+Patch 2 applies the same logic of skipping the power on delay to the
+i2c-hid-of driver.
+
+Patch 3 applies the same logic of skipping the power on delay to the
+i2c OF component prober library.
+
+Patch 4 adds a delay between when the device node found is enabled and
+when regulator_disable() is called. This gives an asynchronously probing
+driver some time to increment the enable count of their regulator
+reference, thus keeping the device operational and allowing the driver
+to skip the initialization delay.
+
+Patch 5 adds the correct delay for probing trackpads for Hana devices
+to the ChromeOS OF component prober.
+
+Patch 6 removes the "always-on" setting from the trackpad supply for
+Elm / Hana and adds the correct delay to the second source trackpad.
+This corrects the hardware description.
+
+Patch 7 adds the supply and power on delay properties to the Synaptics
+trackpad on the Spherion device. Combined with previous driver changes
+this should cause no actual functional changes or delays.
+
+
+Please take a look. There are no build time dependencies between any
+of the patches, but the DT changes must go in after all the driver
+changes land, especially the first one adding delays to the Elan
+trackpad driver. Otherwise one could potentially end up with a
+non-functional trackpad on the device.
+
+
+Thanks
+ChenYu
+
+[1] https://lore.kernel.org/all/20241001093815.2481899-1-wenst@chromium.org/
+
+Chen-Yu Tsai (7):
+  Input: elan_i2c - Wait for initialization after enabling regulator
+    supply
+  HID: i2c-hid-of: skip post-power-on delay if already powered on
+  i2c: of-prober: skip post-power-on delay if already powered on
+  i2c: of-prober: Defer regulator_disable() on successful probe in
+    simple helper
+  platform/chrome: of_hw_prober: Add delay for hana trackpads
+  arm64: dts: mediatek: mt8173-elm-hana: Unmark trackpad supply as
+    always-on
+  arm64: dts: mediatek: mt8192-asurada-spherion: Add Synaptics
+    trackpad's supply
+
+ .../boot/dts/mediatek/mt8173-elm-hana.dtsi    |  8 +----
+ arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi  |  1 -
+ .../mediatek/mt8192-asurada-spherion-r0.dts   |  2 ++
+ drivers/hid/i2c-hid/i2c-hid-of.c              |  8 ++++-
+ drivers/i2c/i2c-core-of-prober.c              | 29 +++++++++++++++----
+ drivers/input/mouse/elan_i2c_core.c           | 13 +++++++++
+ .../platform/chrome/chromeos_of_hw_prober.c   |  4 +--
+ 7 files changed, 48 insertions(+), 17 deletions(-)
+
+-- 
+2.55.0.rc0.799.gd6f94ed593-goog
+
 
