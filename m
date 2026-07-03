@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 561DDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:25:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D710C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:25:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xsC7twIJ3ucnfIY/XQ0lBk229dOSIqHl6m5TjxkfYO4=; b=SuxP7719bQfQtx01D6gIww/L57
-	KaJQc9luQSGMJojfZrmFpv4M3SN8uH8BT0dfjZmu4m23quEUVQ378qGnaNmu8CnDfVyu96R68951b
-	roOkapx0Mu4sc/VCLrmxhT+KcPA3jqLpdgunZrIKHnGj7uIf/R9wEsYadHl7o9rHPfiDgKuYep8YS
-	yrOuHVGyUyG9MS10Wma2jMALlxA6PPUBWp9wEKthGI2n9GP+J07K8qZTWbzj2t3QpdwhhGjY2nDXy
-	XdqA4zLu/nHmTFhUUBCVFY2hC811za+1WraOBhU802tc1I3sap1JvWJ4rAoFawAmUTuN7HepCnuBw
-	gdKwKVmw==;
+	bh=u5DWrWPIxkt1f50GIPXLPv4ckLJWFETJKFnIXi7eobc=; b=TmfMRqoKHqDStIR7kiI8IlzhXw
+	ipl3s4hrS+zwnZapmpxsPrM/bHfm3XxtHA1blkm+Mb9XuaQ8SCXKSNU+P86TUnLskc+mSDTaJe0jv
+	7Y7pkxVQ8hooi1vRSoyvR/W6d9Z9hzPvGOIXULJffKQxYruwB6+hyERvKPraJFowFR34rr83mjC9T
+	dRxEAEMhPkjOSlKr9ea1rbVmMdiK8K1zyMiUMGKG9w/Bq1sMowbRO/sAuZYEmTnGhcDPZvCD2xyIa
+	EY6uoAJXyEanyT1aEIltUfdmg1akmoiklKDPgfAU3329dq+0AewDiRww3vqJiMvu9h7a1l9F4qg0S
+	ggHe2kdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkS9-00000007qO2-3op0;
-	Fri, 03 Jul 2026 20:25:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfkSM-00000007qia-1LS1;
+	Fri, 03 Jul 2026 20:25:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkS7-00000007qMa-2UZ5
+	id 1wfkSF-00000007qV2-2GWw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 20:25:35 +0000
+	Fri, 03 Jul 2026 20:25:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0F67F600B0;
-	Fri,  3 Jul 2026 20:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 353B31F000E9;
-	Fri,  3 Jul 2026 20:25:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C82142AB1;
+	Fri,  3 Jul 2026 20:25:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E8DA1F00AC4;
+	Fri,  3 Jul 2026 20:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783110334;
-	bh=xsC7twIJ3ucnfIY/XQ0lBk229dOSIqHl6m5TjxkfYO4=;
+	s=k20260515; t=1783110343;
+	bh=u5DWrWPIxkt1f50GIPXLPv4ckLJWFETJKFnIXi7eobc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=f1d5QP4SeOVgzwWX7qaIrKqBl1A18BEuTsOE/7IvZcGCUGWFRFAQNsy1dElparTMb
-	 vYCjrNQfpjoYL3KelYvXj9rT1WZ9nNGZo8sIU9E1yosdp5eH7crT8NQz3pXkU72ssN
-	 08aT6ddhrGWYzkqSu5PYmHOBFBfq5G1NaO7Vn5stplIhd3FumaQldLnRND2X+cfPwX
-	 42uO5zNK9UDnxd+3IsQ7OtlMuugfHJw0LHQBjOzrHzAEu2BbGaGjKLOyouZtGiBLQ2
-	 YxtLG/Cd4fWhZHKiPlfd4CqJ0s/qzTpnnLhzCaRqOQftcKn3nEygNYB6PSR1CYtiGl
-	 XwV60R6zMcxsw==
+	b=AmREA9lrL8acgoKfB3Z4dziNTBYstfyG9klAEvUIbK3pwQXYcnujVfc6um8qhx6ED
+	 B2ndvLT3mbbK5Qt+91znzNSQmxmqCecBoTLwHRnxqsr2b3XU4Iqehuj7Z7rQTfDpWu
+	 RO9vvDqfR8HWRCYZDXfkkkagKtMYurElCUWgb5yC8byRwQePDaZ3Bo4rqQG1b0nTjZ
+	 KU0BhTEldois77kVvMZjyss/px+IKqTrHxgLSorfp3Fx0G86+MaNN8wUbaoFqdYybe
+	 p1n37Aaz4bY7J4aQJwSEJWROe6EkOHRISuwzUCGlDopHRE7rntKccXLu2RJ6mSvtK6
+	 mz2gzll7LtXlw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Fri, 03 Jul 2026 21:22:43 +0100
-Subject: [PATCH v3 07/17] firmware: arm_scmi: Unwind TX receiver mailbox
- setup failure
+Date: Fri, 03 Jul 2026 21:22:52 +0100
+Subject: [PATCH v3 16/17] firmware: arm_scmi: Drop handle on protocol bind
+ failures
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-scmi_core_fixes-v3-7-5bae9766abfc@kernel.org>
+Message-Id: <20260703-scmi_core_fixes-v3-16-5bae9766abfc@kernel.org>
 References: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
 In-Reply-To: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,49 +69,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mailbox_chan_setup() can request an additional unidirectional TX
-receiver channel after successfully acquiring the primary channel. If
-that second request fails, the function returns immediately and leaves
-the primary channel allocated.
+The SCMI bus notifier acquires an SCMI handle when the driver core emits
+BUS_NOTIFY_BIND_DRIVER, before invoking the protocol driver probe
+callback. The protocol probe path only checks whether sdev->handle is
+set.
 
-Unwind the primary mailbox channel before returning the error so probe
-deferral or other setup failures do not leave the channel busy for later
-probe attempts.
+If device_link_add() fails after the handle has been acquired, the
+protocol device can still bind with a valid handle but without the
+dependency link to the SCMI parent. A concurrent parent unbind can then
+miss the child and tear down the SCMI instance while the child still
+holds a handle into it.
 
-Fixes: 9f68ff79ec2c ("firmware: arm_scmi: Add support for unidirectional mailbox channels")
+If the protocol driver probe later fails, for example with
+-EPROBE_DEFER, the driver core emits BUS_NOTIFY_DRIVER_NOT_BOUND rather
+than BUS_NOTIFY_UNBOUND_DRIVER. The SCMI notifier only released the
+handle on BUS_NOTIFY_UNBOUND_DRIVER, so each failed protocol-device bind
+leaked the SCMI instance users refcount and left sdev->handle set after
+the failed probe.
+
+Make the link helper report failure and drop the acquired handle if the
+link cannot be created. Also handle BUS_NOTIFY_DRIVER_NOT_BOUND in the
+same cleanup path used for unbind so failed probes balance the earlier
+BUS_NOTIFY_BIND_DRIVER acquisition.
+
+Fixes: 971fc0665f13 ("firmware: arm_scmi: Move handle get/set helpers")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/transports/mailbox.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/firmware/arm_scmi/driver.c | 31 +++++++++++++++++++++++--------
+ 1 file changed, 23 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/firmware/arm_scmi/transports/mailbox.c b/drivers/firmware/arm_scmi/transports/mailbox.c
-index ae0f67e6cc45..44d45ce838e5 100644
---- a/drivers/firmware/arm_scmi/transports/mailbox.c
-+++ b/drivers/firmware/arm_scmi/transports/mailbox.c
-@@ -225,9 +225,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 		smbox->chan_receiver = mbox_request_channel(cl, a2p_rx_chan);
- 		if (IS_ERR(smbox->chan_receiver)) {
- 			ret = PTR_ERR(smbox->chan_receiver);
-+			smbox->chan_receiver = NULL;
- 			if (ret != -EPROBE_DEFER)
- 				dev_err(cdev, "failed to request SCMI Tx Receiver mailbox\n");
--			return ret;
-+			goto err_free_chan;
- 		}
- 	}
- 
-@@ -246,6 +247,10 @@ static int mailbox_chan_setup(struct scmi_chan_info *cinfo, struct device *dev,
- 	mutex_init(&smbox->chan_lock);
- 
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 12ebf32aa4da..894c3427bc0b 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2629,21 +2629,31 @@ static int scmi_handle_put(const struct scmi_handle *handle)
  	return 0;
-+
-+err_free_chan:
-+	mbox_free_channel(smbox->chan);
-+	return ret;
  }
  
- static int mailbox_chan_free(int id, void *p, void *data)
+-static void scmi_device_link_add(struct device *consumer,
++static bool scmi_device_link_add(struct device *consumer,
+ 				 struct device *supplier)
+ {
+ 	struct device_link *link;
+ 
+ 	link = device_link_add(consumer, supplier, DL_FLAG_AUTOREMOVE_CONSUMER);
+ 
+-	WARN_ON(!link);
++	return !WARN_ON(!link);
++}
++
++static void scmi_clear_handle(struct scmi_device *scmi_dev)
++{
++	if (!scmi_dev->handle)
++		return;
++
++	scmi_handle_put(scmi_dev->handle);
++	scmi_dev->handle = NULL;
+ }
+ 
+ static void scmi_set_handle(struct scmi_device *scmi_dev)
+ {
+ 	scmi_dev->handle = scmi_handle_get(&scmi_dev->dev);
+-	if (scmi_dev->handle)
+-		scmi_device_link_add(&scmi_dev->dev, scmi_dev->handle->dev);
++	if (scmi_dev->handle &&
++	    !scmi_device_link_add(&scmi_dev->dev, scmi_dev->handle->dev))
++		scmi_clear_handle(scmi_dev);
+ }
+ 
+ static int __scmi_xfer_info_init(struct scmi_info *sinfo,
+@@ -2926,6 +2936,7 @@ static int scmi_bus_notifier(struct notifier_block *nb,
+ {
+ 	struct scmi_info *info = bus_nb_to_scmi_info(nb);
+ 	struct scmi_device *sdev = to_scmi_dev(data);
++	const char *status;
+ 
+ 	/* Skip devices of different SCMI instances */
+ 	if (sdev->dev.parent != info->dev)
+@@ -2935,18 +2946,22 @@ static int scmi_bus_notifier(struct notifier_block *nb,
+ 	case BUS_NOTIFY_BIND_DRIVER:
+ 		/* setup handle now as the transport is ready */
+ 		scmi_set_handle(sdev);
++		status = "about to be BOUND.";
++		break;
++	case BUS_NOTIFY_DRIVER_NOT_BOUND:
++		scmi_clear_handle(sdev);
++		status = "NOT BOUND.";
+ 		break;
+ 	case BUS_NOTIFY_UNBOUND_DRIVER:
+-		scmi_handle_put(sdev->handle);
+-		sdev->handle = NULL;
++		scmi_clear_handle(sdev);
++		status = "UNBOUND.";
+ 		break;
+ 	default:
+ 		return NOTIFY_DONE;
+ 	}
+ 
+ 	dev_dbg(info->dev, "Device %s (%s) is now %s\n", dev_name(&sdev->dev),
+-		sdev->name, action == BUS_NOTIFY_BIND_DRIVER ?
+-		"about to be BOUND." : "UNBOUND.");
++		sdev->name, status);
+ 
+ 	return NOTIFY_OK;
+ }
 
 -- 
 2.43.0
