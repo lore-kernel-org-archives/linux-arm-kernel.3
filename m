@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771DDC43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABD7C44500
 	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 08:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,84 +12,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bncZdAxiyDhHVEptV1GKmJZO/emo/e4qlZdeehgb6v0=; b=P8ZCjDaxyMwrO/h9+m+ZHw6XfK
-	vmuAHeTVex7wcnwMS+N55+P9LuoMBW3zM85WS1l0qE+KpZ8IWIWRGoM02iu/Y4PpkDQ5OVJFsOQmy
-	A2wWR1IQu2oUa1nPMwtAaA9hLGpU/3wTxQK15IR9pplDA771/La7fOQ0xWwDCZIAsFhFkaDBqdMMM
-	va3CvAb/yW1YaeV5tmbp2ge0dEQobHC4UgBN7KEiMs3V/otXl3tsYmsM1B72wSYUcGhAgxBYOyj2P
-	ZVFLpQz3ywj4Keq9JYxvgOjk/GGorJUDZUL2kY2XfmopGetV7ELGM2EyF4PLSurFl14N7b+sLbKI+
-	EVh/gDrw==;
+	bh=NdLWa/pjVt7wfAUfDu2zjOc8xJ+YFDbqtxyE/Db1k/o=; b=hKkcM8n++hTsLWwOoQcERiVyJG
+	x1nmgYzQrxm2xpNdB8pWtJR5bzKTdBK7HuyIPboMkJaPo5gqnsyO6Eb1toyTZ6BQkFr56LNJRgAGs
+	G3VxPGXTL87GOBm98guBdqGDCHBCVv08dZl4to7AYwh44OZommr761g7m9SJqYc6EDnvI9AfAwgyh
+	BmpZoU5T7tAfQy9TuPVZMeAkY0JLZQL7pW3ynhvGoG3X+3N4nq77x/gGL3+qto1Khxn8p1rb6lmxc
+	OZW0ICm6hAwbqyfMGrMRrHMIezweA96UX93aSpMQL8NTM9wA2UGdR2IGf64F1Ixh8CYUjov4cbmyt
+	BEc5L/Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfvJE-00000008HCo-1nEe;
-	Sat, 04 Jul 2026 08:01:08 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1wfvJI-00000008HDl-2Fcj;
+	Sat, 04 Jul 2026 08:01:12 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfvJB-00000008HCR-3icH
+	id 1wfvJG-00000008HCs-1PIT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 08:01:07 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-4799b3f7c83so870491f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jul 2026 01:01:04 -0700 (PDT)
+	Sat, 04 Jul 2026 08:01:11 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-493c5220cb7so8864565e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jul 2026 01:01:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783152063; x=1783756863; darn=lists.infradead.org;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bncZdAxiyDhHVEptV1GKmJZO/emo/e4qlZdeehgb6v0=;
-        b=tHdlHtUQP2GzfvnfvkFrQNHLU5dgy7Dr170iN7U826QEBiwD/dl3WbqtY7dmUmnVEq
-         j9ldNR2YuX4mCY4GRRoBfhMsr1tBlhSXr+eBoaJZhYVpvipJbLvMvJAUQzJBDNiZiMNI
-         A0UkiE1hcbeYYKnwurIM6HTxORMUVBRtctPbB6K1tXme9h7kTvuH/ghj9QfQllzNbMWb
-         UejADvguRkHO6Zg6Wy1Zn/o7+02XFKOtnKtsrbytF67pscy1QOVVW2s1kC47/1LOdogJ
-         xAVf8mx9QdTOGV3uwg4532deM8oo0bDtkNPTGVbvYD2/Xzd5huFY7ZwCaeIfV2dQHQna
-         h8wQ==
+        d=gmail.com; s=20251104; t=1783152068; x=1783756868; darn=lists.infradead.org;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NdLWa/pjVt7wfAUfDu2zjOc8xJ+YFDbqtxyE/Db1k/o=;
+        b=hu9WIx/r27ZDrIjNHdg8HXa1NYHjfx5MsUkFOOJx7PKtw7cXfsVYvHMAzbhBwTWYg7
+         N2yzvUUIyUiXVM2NALl4hlOUqfx48cAywbHYzVgIJCw7s0V2azTovZvZsBYo6ezlGAad
+         ovubtn3TWnWahffoSCP/CosuYrkY9ipG3sJmQFtKvJZPuWCtdoaPr7pc6+zJV1yCcDLf
+         vJLSKLrn32T0mxnRckbZ30R/FKcCvUPG5szpa0Mi4H5iKrsf6Fkyq0PJPrI1fQqa1auj
+         FLHhBXXmogb1zv64GfQHYkkMziqPlbUl3yjnBn2p7l/suBPhA5eoTp0YC8r5B89Wswo2
+         FMwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783152063; x=1783756863;
-        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bncZdAxiyDhHVEptV1GKmJZO/emo/e4qlZdeehgb6v0=;
-        b=XL5EyMP7m+sVBG4THA9rQjBwwnQV3YNQhx0/C4kS5UXpJoZkfTiwqO93Mlxjpi6KFn
-         HIFZ7T/MfMSi6N6PTwohESvNTvsa8fJQcrp6+7z08fyRwp9rD0CtsAjaadSYPaAjvcqU
-         Q8YZU1M/KzQSxSGJR/dxQK2MDQ5zTJ13LluDLnY/uk0lMoXS++UMK9peh91njap9WdLt
-         4fJXgPh0vRiB2qxQjrZVPPaTx9paOueUppmfDfeo9nZlLzDw0y9OdYuLRV6GIv6gQSNP
-         cbP2iE98iT/5zfBoihr+9cahK6sYtkFMX/KCt3rqfpotuV7BxNqT2aqnwCWONbB/R4Af
-         Htbg==
-X-Forwarded-Encrypted: i=1; AHgh+RparI/m5z3HIGq7eROQeDzdnNMVWE5XgY1c0MwiFz5tGv6zYtIC8Rp2huiPx80I0xjmVHsDtfSBFkXOH9t+mqy/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzL+o1aRFhR0H/zdoDFBETTxWL2Tk2Jn+6gl3IVlF44zBgvtGnS
-	TA4JsZkgD/AOLCeQUKcQwPwjIzfdST+5Juzwx+mVm+lHj3sWIT6BxpiZ
-X-Gm-Gg: AfdE7clUhlnsgKcNHnkO1h6nhOSkG2H4HmI+yJwaDXQZNhDQ53lpwqy6w7xKAcUXYEl
-	+gZXy6pCyWWpniV21i2smv7Ipaea1verM8BxMlhSr3h+0REx+7VlfeeTOiIac+SjBl4dqDGiYAP
-	ZJxYfKAUOGeClcXATFOvxF0t5eSteyDgHnS1wWT68OWON092kDJRhfF55TF/IVRmX2YpRpLhUOZ
-	p3q4TqlL//fyxixOVfyIYLj0LddADBBEGUQo6/RSU4/zbtDEX6PS/oLT8WQk3uYARqH925hWKUA
-	pjpesDdfikgcoyAFHKQ9jTkntFk1arW5iOB3/tHPzKU6KhTX8piow6K4sWG2conMwx0hKjN7IgI
-	2C50aXt69TstEGYKX9i/r7KLtyj6eICY0udHmYo8ekN3eW387HPJlflpBliEGr/rr1qEmYodnou
-	4HW6GoGe5PexVe8A5Keyxwg9Et
-X-Received: by 2002:a05:6000:2086:b0:472:f8b5:aaca with SMTP id ffacd0b85a97d-47aaa60d3cemr2987044f8f.15.1783152062911;
-        Sat, 04 Jul 2026 01:01:02 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783152068; x=1783756868;
+        h=content-type:mime-version:references:in-reply-to:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=NdLWa/pjVt7wfAUfDu2zjOc8xJ+YFDbqtxyE/Db1k/o=;
+        b=ECTFOr/ODaBoAxYuukM3qD0Ldf6LIt/NuS2pE6BxEb0/QXUXZqNlXyhXSWcnaf+qlc
+         mrROLZAii/mdZewHTeX9c9PM//q832/DyRiYqZNyexFgm/cfW48vtSo1pT8IyToyoFNb
+         oKXPi/hMsMI2VgAmUUj+nIdreaqeydE0dh/AdEx2e2ftYxG0myMJomsO9AQZ/QIBJTlJ
+         +mY76Xc+UXuFUEVo/esSLGG+5ZeiPDnrHG537cgLV69Fp54hly53FansuIM4bMFdjIgF
+         mIBBj9kNnRcafFlKlzz5Xiop8+/FXRNt96xNmQfSpI6Yo073FAcSeU25t5VaH5WvHOMg
+         9Fdw==
+X-Forwarded-Encrypted: i=1; AFNElJ9CbGUXCreDakpZQCRQ3zxcTWujQcjcuPZTOcAndP7H746HVsOVk8sfduGkg+4KGRWlBJuoMpOQBtbp+OMkdxPy@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTFvRAMDP+ltT4JAST98I8OeavLb9n0fDoaeWD+L4yPuyx9Awm
+	IIGfp/dRmjYvROcLYcm/Ww+EFJ2+GKzHQQZAKHl3RLgTTrGtJRiNOuC29WplUU8AlmY=
+X-Gm-Gg: AfdE7cm4uiBKbXQ3f3E3cOevwl682Vf/dd/qWncr+xLC9Ufw+migdwJCVtUyv+/lmi4
+	XkHIjUMsdtGwwF6dVH6M/W8AMyYgR5NlJkHizm2Zect5+E4DzgaB1UtiJvzs+uL1fB2XiS+C6Cj
+	SM7u/2KKu+kt6YGAxqg6X/lg+rKzoHAJ9TyTGmo3FpwSqqlLctFoK6SWjMFFHPCRDz12xAt0O+N
+	5G3MzyTcttsxxrXidL20z+XWptQ/8SQJbLJfFU+4kbDyoTwhARjyqxUwy2Wwk8HL5AMaeuUNrU1
+	y4On968qllyBdra7URCcM7HV+p2OveTPid8Ywit3DHwWwgNsm9ll3J+dTl5s9IRpdg0X2mmvOuO
+	2MAdB/CyD2Lx6lc+DOoLh57DF7HuoIOPCO9x24Se5pcED9+nmKOHg8ntu0Y6yyThZDBId8qSeWx
+	rz00W31Al98ahriRfr5jsVjuFP
+X-Received: by 2002:a05:600c:3f0f:b0:493:c432:f48f with SMTP id 5b1f17b1804b1-493d11895c2mr27432545e9.0.1783152068303;
+        Sat, 04 Jul 2026 01:01:08 -0700 (PDT)
 Received: from strix.localnet ([197.250.51.120])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039ad21sm5967457f8f.20.2026.07.04.01.00.59
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039bcdasm6231470f8f.21.2026.07.04.01.01.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jul 2026 01:01:01 -0700 (PDT)
+        Sat, 04 Jul 2026 01:01:07 -0700 (PDT)
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
+ Brian Masney <bmasney@redhat.com>, Philipp Zabel <p.zabel@pengutronix.de>
 Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 01/12] dt-bindings: soc: zte: Add zx297520v3 top clock and
- reset bindings
-Date: Fri, 03 Jul 2026 20:20:58 +0300
-Message-ID: <az-AzRTTT8qfUWysHYig6Q@gmail.com>
-In-Reply-To: <387ff0d7-256e-4b18-b864-37a0ec3c9d9d@kernel.org>
+Subject: Re: [PATCH v6 11/12] reset: zte: Add a zx297520v3 reset driver
+Date: Fri, 03 Jul 2026 19:19:51 +0300
+Message-ID: <AcQaacfOR3mtrGh-gPN30Q@gmail.com>
+In-Reply-To: <4f12469143f61194c332eb6d911ba090ab58ed95.camel@pengutronix.de>
 References: <20260702-zx29clk-v6-0-377b704f80c4@gmail.com>
- <20260702-zx29clk-v6-1-377b704f80c4@gmail.com>
- <387ff0d7-256e-4b18-b864-37a0ec3c9d9d@kernel.org>
+ <20260702-zx29clk-v6-11-377b704f80c4@gmail.com>
+ <4f12469143f61194c332eb6d911ba090ab58ed95.camel@pengutronix.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPartQJbA9XBiSfGFnWS6QAvhhA";
+Content-Type: multipart/signed; boundary="nextPartpcZktKqnRSCVt1wDyDWmmA";
  micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_010105_979854_E041A64A 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20260704_010110_412871_6F967632 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,76 +103,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPartQJbA9XBiSfGFnWS6QAvhhA
-Content-Transfer-Encoding: 7Bit
+--nextPartpcZktKqnRSCVt1wDyDWmmA
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
 From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
-Date: Fri, 03 Jul 2026 20:20:58 +0300
-Message-ID: <az-AzRTTT8qfUWysHYig6Q@gmail.com>
-In-Reply-To: <387ff0d7-256e-4b18-b864-37a0ec3c9d9d@kernel.org>
+Subject: Re: [PATCH v6 11/12] reset: zte: Add a zx297520v3 reset driver
+Date: Fri, 03 Jul 2026 19:19:51 +0300
+Message-ID: <AcQaacfOR3mtrGh-gPN30Q@gmail.com>
+In-Reply-To: <4f12469143f61194c332eb6d911ba090ab58ed95.camel@pengutronix.de>
 MIME-Version: 1.0
 
-Am Freitag, 3. Juli 2026, 09:26:43 Ostafrikanische Zeit schrieb Krzysztof 
-Kozlowski:
+Hi,
 
-> Also, this cannot be placed in soc. Clock and reset controllers DO NOT
-> go to the soc directory. Place in it clocks.
+Am Freitag, 3. Juli 2026, 12:16:09 Ostafrikanische Zeit schrieb Philipp Zab=
+el:
+> On Do, 2026-07-02 at 23:28 +0300, Stefan D=C3=B6singer wrote:
 
-Even when they contain other functionality like hwlock, usb phy and reboot? 
-Here is the previous discussion that made me move it to soc:
+> > +	rst->map =3D device_node_to_regmap(of_node);
+> > +	if (IS_ERR(rst->map))
+> > +		return dev_err_probe(dev, PTR_ERR(rst->map), "Cannot get=20
+parent syscon
+> > regmap\n");
+> Does your parent even have to be a syscon?
+>=20
+> Could you just create the regmap in the MFD driver and use
+> dev_get_regmap(pdev->dev.parent, NULL) here?
 
-https://lore.kernel.org/linux-arm-kernel/20260621-plywood-straddle-b01f0c45f27c@spud/
+topcrm needs to be a syscon: It has control bits that the watchdog driver w=
+ill=20
+need to access
 
-Likewise, what about the node name: syscon@ or clock-controller@ ? Conor 
-advised me to go with syscon@
+lspcrm no. I am convinced it only has clocks and resets
+
+matrixcrm is yet to be decided. It is involved in the mailbox system to rea=
+d=20
+RAM properties together with the dedicated RAM controller, but I need to do=
+=20
+more investigation. I might drop the syscon depending on the outcome.
+
+Afaiu device_node_to_regmap is supposed to work on on both syscon and non-
+syscon nodes. Am I correct?
+
+> MODULE_DEVICE_TABLE(platform, reset_zx297520v3_ids);
+>=20
+> With that,
+>=20
+>=20
+> Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+
+Thanks for the reviews and advice!
 
 Cheers,
 Stefan
-
---- Quoting the relevant parts from the above link:
-
-> At what point does it make sense to move the bindings from bindings/clock to 
-> bindings/mfd? The controllers are still very clock-heavy. allwinner,*-
-> prcm.yaml look like clock, reset, misc controllers in mfd/ whereas 
-> ingenic,cgu.yaml, sprd,sc9863a-clk.yaml and da8xx-cfgchip.txt are clock + 
-misc 
-> drivers in clock/.
-
-Yeah, to bindings/mfd or bindings/soc/<vendor>. Which I think is mostly
-a judgement call. Two of your devices have at least three functions,
-which I think is enough to make the claim that it's not just a clock
-controller.
-
-> Likewise for the node names: syscon@ or clock-controller@?
-
-If you have syscon in the compatible, then I think it should be syscon
-in the node name as it's more general and makes it clear the device
-isn't just a clock controller.
-
---nextPartQJbA9XBiSfGFnWS6QAvhhA
+--nextPartpcZktKqnRSCVt1wDyDWmmA
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part.
 Content-Transfer-Encoding: 7Bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmpH73obFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiNJIP/juwHA8X9RyBoj+10iQ7
-1g4HaZ2WplDlaXdAXFSUIIPLnRJ1FaxeR/c67EHaFB1UhOCsxGydBunolYNm0ywm
-WcWWVIwLVVEYJK1F4y7klFT+WXmxpxKy+cvUqPE8PTJVSElYKWDIeMlTEpqRsqmM
-rHT8kD85FcYJOKC7LWqwsyc/SvOuG6090G8ST6Says/wbMRgOcndTSWcAOaRy7GA
-hTajEqu9SWKZj9FQhh77k7y52eQO1DQroEJZHANSuy5CFX82VZdJYjIzMEBf395v
-nNCDWMemXUX6Nwn6XoE8BfLcQIoqiReuwtcpqCnndeJsOnNEh7cUQ18B2h+JbBpH
-Ri0Y06+3/aJxcWviyC4R1WuZxs4+8mjHRrRiXmz5oFYoO/I1ySh+ndujzDdF/lQG
-63RgX+idYIgZUNq4fgVq/IpnrVC8fbWvj2XeyRA+mXUx58xWgFLeEcv2iOLux1Bi
-uXgsWzLAjccxDBOKeu1589RFQAC4rnVjlZ0KTmKdhw3IkuNspUEeocm0QBHZZJD8
-/R1aRtSYtfaibMbhn1Cb9lUzYmGwJoNSmrXQ0GIidNtfSjsE7CxbWm074UpAl8qG
-B79r7ULixFkF5pnFr5ExarCVWt93lKOKoOTcUgtFyuBLTVduNR47qfGY2fJd1WiB
-iZ8IMly+LgRwX1l76oyj/IHD
-=s2ps
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmpH4ScbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiqAYP/0PSsCJlf1iqdfLjDzre
+QaoR6ubCMLcjhUyly/jNCsev5VyfG/DKJEZNJuUN676osNwkvtuIc9JEtK3Tn2jS
+PV3HfJ1CebGkpSsUJXGSMLcgzzlmpEZHh/SRwe84z1WE+DXhURLJJ0X+foIrAao0
+q56lNk/EvCOOfurFn1G8kTrU0WeAb1Yl3uGTIB9RiEzmm1QvjlW8oIczLUJ3+CUk
+Y9F2seldqqaOTYoVMvU6FC2PfIf7CrTS+1l9y7pmGDZyGiMJduldvEVq9nhadGEw
+/bBzamiINBn8quw4RR3qFF8K982jGXCF9MWzRgFqWSwrCV0v03n02IYsBTekfSE/
+YYTLTdW+1e66d7MUQ3yxYgv6hnzdXRLJFO31Z9TDCS7SFWlZ49Tzx2sH9YLnXQqZ
+kNisSl3CqxpqsfcQ/3Io/PPTIuFV6f9Q3vrD47AdCZelgv07Wo2px3Xloc2oQt7n
+HFL1bz6vBbES+xSTGPY1TlqtVOz0NSJ3sIKRjfmqZ77TUyaigFs3AzS9GW9559eR
+aSBwKVwLbBJJziQAG09Ce04U5w7QHZ6l7lHer3luAwq1pQmoetuxPuOA2I714Zxs
+grduqqB3KwvuOhsMRBeXbcD99otALxwXBP/ajR6zbuO11G0+yPwjMDau9Ym+3l9z
+37C7wQ37BWNiCWRh6di8m4ab
+=wt6K
 -----END PGP SIGNATURE-----
 
---nextPartQJbA9XBiSfGFnWS6QAvhhA--
+--nextPartpcZktKqnRSCVt1wDyDWmmA--
 
 
 
