@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953FFC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:37:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00497C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:37:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eyxnSl+SAlk1ixTPdXrkFnr6s6HXnRifmslBmcN8Ynk=; b=jlwQk00BOSVGk5RKK2E+vaSMEu
-	0EJW/HRKkBsxfhSm74yHwaY+zl6Z1Baf+/NdTQ/l3UVRg648k4ft4vWJpDnyCtVqA5w9IHaL3pMIB
-	ZhQlL2dEHnY3dXd5xE54BeZ1zNXANUX21R8xguWzg2igXFO6hr4jghjPKDOYdmxpsc3Cid2TReT9l
-	KRvDAfuX5KtSRNsj6ztWJetdg9PKqFO+UcwjrAoHkO8f7saOJuy/pY6dIRvAvMrEVl8l1B7OkL8Nn
-	iXSkG0YtNvkZUC9pQjBADS32QPc8ouPm7ezCrp8mllQT5GBGODRf3oKQzyqeFSInhvYUBoHjl5EgN
-	hbRc4Z2w==;
+	bh=zMfJd1B0NhyQvY4yeAEZmcciy7C5a48PemMKXj9rAho=; b=Z/FaS9Tg6pbgU5paNm79NwFlQm
+	SA5K9o1fOa+svlpBj+d5bu9wQvOnzTECH5lvWY0V40P3HoUMGexfi2TVxMxqHYrUOKL6pafWj9Zzi
+	Zpufix7JdFfH/0j8PM6ynpNs5nYNqCn+MEhTxNb3LK/WBJXEiUjXlaNEd8gsrxs5PP1BOBD4QZQX2
+	GEVBISx7N6JHQE7yEnMn+VU8XjCEcuNoIshWcO8zxs9tL5AYA+iDLxgU+fHAaRtwJ/qGXEg4RyG8A
+	z7bC/M/TI24XmRlIcn9zbaw4VM1UQ9NDRrPLeI7MwOMA1DGHneVfAUiF5e5XS//bl6wptFAZbXn/x
+	RppKkKBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wff1N-00000007HkY-3vW2;
-	Fri, 03 Jul 2026 14:37:37 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wff1Q-00000007Hmc-0tYs;
+	Fri, 03 Jul 2026 14:37:40 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wff1K-00000007Hhl-1e8m
+	id 1wff1L-00000007HiD-13Ud
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 14:37:36 +0000
+	Fri, 03 Jul 2026 14:37:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7986C4E40C67;
-	Fri,  3 Jul 2026 14:37:30 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id C8E281A0E1A;
+	Fri,  3 Jul 2026 14:37:33 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4F6D860300;
-	Fri,  3 Jul 2026 14:37:30 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D8892104C9567;
-	Fri,  3 Jul 2026 16:37:27 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9D87F60300;
+	Fri,  3 Jul 2026 14:37:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D857104C952E;
+	Fri,  3 Jul 2026 16:37:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783089449; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1783089452; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=eyxnSl+SAlk1ixTPdXrkFnr6s6HXnRifmslBmcN8Ynk=;
-	b=vUEHy3Wf3mLQQLoTxlALSzYEY9BEtJkpk5mreSUm+kbB31fVt0AN/P4rv478x7lrq9iQIR
-	obLQaS/Mk92doQ7JtJ3/xPUqfDH/RRrvybmb46zlggVx++7SDe5pnW51nH2xyucyfoBbla
-	Okn+l9S+3FpMX+y08yEusEUFsgoWozHbJ3prTDtUZC5sqBN/2c5+0yzdRoocc0FE92Leak
-	eYKd6p+B/6FLA9+eXmDavEyIp7H2rDhRtykgR9O9gx3+ihUMFrT7OVzbMF1jP4jYxbc8Em
-	VbOqpI+a58JDiTeLNqk6ia9GGzF3g54EvK1DcSDFRsmbLIC2AE/7khLdtFkY1g==
+	bh=zMfJd1B0NhyQvY4yeAEZmcciy7C5a48PemMKXj9rAho=;
+	b=AV3tR8t13IiDQnSHdNJ4djftX5wGo1pBWkeooc3ciWHccNNIJfhzMUcZejasnaK5gTa1KS
+	dbGYWPo96X/ahcalxS3P2zXw9ekxodrFtPi9iz+P8EQKaK+pjwVULb+pm8ooOqZH0FVGd/
+	YmJLldBvKc7/QYb9iIE16x8uAL5K8IBt6M5IXbrS55ir0Jes9UxazGz+g5jUZ0ldY45yEu
+	72OFRGAzDkYNAXj8Zo4hG4hilIGhPu13kDaAwRpiapar2zwQSodvce3jiU58KtHt86ehU+
+	M7OWeDJowZc8a32C8SFo5RDjrTQVs3rzrwwc03itlBwdWWre/Hpcdl6ZBnyRuQ==
 From: "Richard Genoud (TI)" <richard.genoud@bootlin.com>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>
@@ -60,9 +60,9 @@ Cc: Tero Kristo <kristo@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 1/6] dt-bindings: remoteproc: k3-r5f: Add Jacinto LPM memory region
-Date: Fri,  3 Jul 2026 16:37:12 +0200
-Message-ID: <20260703143717.177362-2-richard.genoud@bootlin.com>
+Subject: [PATCH v3 3/6] arm64: dts: ti: k3-j721s2-ti-ipc-firmware: Reserve memory for LPM metadata
+Date: Fri,  3 Jul 2026 16:37:14 +0200
+Message-ID: <20260703143717.177362-4-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260703143717.177362-1-richard.genoud@bootlin.com>
 References: <20260703143717.177362-1-richard.genoud@bootlin.com>
@@ -70,8 +70,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_073734_576527_674D7766 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20260703_073735_429667_B13B32E0 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,8 +86,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Declare a carveout memory region to store LPM metadata on Jacinto
-devices.
+Declare a carveout memory region to store LPM metadata on J721S2.
 
 For Jacinto devices, this memory region is needed for saving ATF context
 and the certificate information of ATF and OPTEE and DM image. This LPM
@@ -98,7 +97,7 @@ U-Boot R5 SPL/TIFS will use this area to save and restore:
 - ATF certificate information
 - OPTEE certificate information
 - DM image (which has been copied in memory at boot time by U-Boot
-R5-SPL)
+  R5-SPL)
 
 At resume, U-Boot R5 SPL is executed and detects that the board is
 resuming (with a flag set in the PMIC), then it:
@@ -111,57 +110,47 @@ resuming (with a flag set in the PMIC), then it:
 
 https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/pm/lpm.html#lpm-msg-lpm-save-addr
 
+As this is used by U-Boot SPL, bootph-pre-ram is added.
+
 NB: This memory region is not part of DM memory (which is not retained
 at suspend)
 
+Signed-off-by: Prasanth Babu Mantena <p-mantena@ti.com>
 Signed-off-by: Richard Genoud (TI) <richard.genoud@bootlin.com>
 ---
- .../bindings/remoteproc/ti,k3-r5f-rproc.yaml   | 18 +++++++++++++++---
- 1 file changed, 15 insertions(+), 3 deletions(-)
+ .../arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-index 14e6b2f817b3..af2acd429974 100644
---- a/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-+++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-r5f-rproc.yaml
-@@ -155,9 +155,10 @@ patternProperties:
-         description: |
-           phandle to the reserved memory nodes to be associated with the
-           remoteproc device. There should be two reserved memory nodes defined
--          for the basic layout or 6 partitions for a detailed layout. The
--          reserved memory nodes should be carveout nodes, and should be defined
--          with a "no-map" property as per the bindings in
-+          for the basic layout, three for the Jacinto layout or 6 partitions
-+          for a detailed layout. The reserved memory nodes should be carveout
-+          nodes, and should be defined with a "no-map" property as per the
-+          bindings in
-           Documentation/devicetree/bindings/reserved-memory/reserved-memory.txt
-         oneOf:
-           - description: Basic layout
-@@ -174,6 +175,12 @@ patternProperties:
-               - description: LPM metadata
-               - description: LPM FS context data and reserved sections
-               - description: DM RM/PM trace and firmware code/data
-+          - description: Jacinto layout
-+            items:
-+              - description: region used for dynamic DMA allocations like vrings and
-+                             vring buffers
-+              - description: region reserved for firmware image sections
-+              - description: LPM metadata
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
+index 5253d028da09..010d20d56927 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-ti-ipc-firmware.dtsi
+@@ -95,6 +95,12 @@ rtos_ipc_memory_region: memory@a8000000 {
+ 		alignment = <0x1000>;
+ 		no-map;
+ 	};
++
++	lpm_memory_region: memory@a9c00000 {
++		reg = <0x00 0xa9c00000 0x00 0x00300000>;
++		no-map;
++		bootph-pre-ram;
++	};
+ };
  
-       memory-region-names:
-         description: |
-@@ -192,6 +199,11 @@ patternProperties:
-               - const: lpm-metadata
-               - const: lpm-context
-               - const: dm-firmware
-+          - description: Jacinto layout
-+            items:
-+              - const: dma
-+              - const: firmware
-+              - const: lpm-metadata
+ &mailbox0_cluster0 {
+@@ -189,8 +195,10 @@ &mcu_r5fss0 {
+ &mcu_r5fss0_core0 {
+ 	mboxes = <&mailbox0_cluster0 &mbox_mcu_r5fss0_core0>;
+ 	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+-			<&mcu_r5fss0_core0_memory_region>;
+-	memory-region-names = "dma", "firmware";
++			<&mcu_r5fss0_core0_memory_region>,
++			<&lpm_memory_region>;
++	memory-region-names = "dma", "firmware", "lpm-metadata";
++	bootph-pre-ram;
+ 	status = "okay";
+ };
  
- # Optional properties:
- # --------------------
 -- 
 2.47.3
 
