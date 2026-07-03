@@ -4,92 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A3EFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3F3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j15GYHy8kYoGfHUO2c0IXPfvulakam5H5cQvz7EN6h0=; b=k8QqQedt0ZxQR14A2Nrs3oGTSA
-	fvrxcdYRE8QvAEVGZmrMfpItFvUbDoKHpjCLuWPsIWb7YKDpE1aoM4rD4A8J8tPwQ6mNLGA0eJT5t
-	dtXfkTR/Uf+vHUftU4P37drXNEMvpY9+IXi2GLSnrKM4cR7/SyOSzpSMfjRTGwUt9pfJZz/eBqY2y
-	SvnPJ3B3MRP5nKBJJJ2yxY5B+lOZtlWCXkbp6CloZ60xsfhm3nKHg1W8IAnrNTBIbb9VhMaC3jXKi
-	1Z9xN6Kr/8U8XvQAdfmticwexUOFV5LjqzGuhnzSoYQY5pXMDFSIqL/IHXpGCoa4VKjGnx3wNFZ/G
-	i+csJ5Zg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2Wz1aK/tf1uvIhKBfTbncNP+19T9GSAicaVpAAdBkS4=; b=nAjRLvyCSyYc6WmS0pZj7mesLe
+	7mFjZNsoOB2CaD+QnJsoLSoYjgpMRxIx3N5aq1ceYUAMnMPqiRUz0orRLJ3vHjg5GChjplD01l7/t
+	Ip+3YUGFW4PzTiAsn3hlhEN5AaTpVe0XH7oKJWqUtvhN4MzbxoZ3kBveObtCAZpy1Z105BDa6DyFf
+	t4Ei2hkO1MGboyUYyHfCTyvANRReFbFlLNlVAwz4iQwBHHmCqAU4ksRUa1r3b7eY2rb6rdHIhyfFH
+	AO/1qYECV7z4zetqAhfFiTKwQU3FaQz+UBsMIXKlHOgSkkKpR+LHjLTfY+ZZ3Voekt28u1YE2gCA2
+	5qVVzUuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfe2C-000000076xz-3wKk;
-	Fri, 03 Jul 2026 13:34:24 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfe29-000000076xJ-0O8V;
-	Fri, 03 Jul 2026 13:34:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783085661; x=1814621661;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=+YDsaVWOUv1RxK+8utVxCX1+Gsf9vT/ItASTLwgreuo=;
-  b=Gj2ig/+LV1aR0y7ZZplV5ve6G48G4O5jhfP2EBF+Q0wF2AW5NDsA2zat
-   7hrXtCZRhyidwEfwrHovSGsQUVLRXQFMYLrXZUGSH4iOhbZrT4g8Fhce/
-   cHnwjGgE1f0Fg+8hJbKJdNcCOO8zwuxzGGnOPKhNahM0YDn3iQLgFtzKg
-   aVu9ch58/O5j9bqMgnMSxeyRxg7yli2hXvCIHPFebxyHK0MU3MCPE9KQj
-   Y/4GZZfLd5tD6FXPDMaWH9wyEtp0CUUZwKRuqZxATs+UMvPWGOzuicwxW
-   knqVBEN5dCLvKZYxmBDkb0EGTmChy9/bvkCwbPXOnFSFw8BD1LtxkFuXH
-   A==;
-X-CSE-ConnectionGUID: Be+eZCbxTPK1QU2Pmb9RVQ==
-X-CSE-MsgGUID: EhBBdDtOTiG9z7CMx1wtqg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11835"; a="101384507"
-X-IronPort-AV: E=Sophos;i="6.25,145,1779174000"; 
-   d="scan'208";a="101384507"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2026 06:34:20 -0700
-X-CSE-ConnectionGUID: 3b2uYpljSmWfiHeJLiq6gA==
-X-CSE-MsgGUID: RU0gKjNQTza5b8+Wtp7g7A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,145,1779174000"; 
-   d="scan'208";a="256690746"
-Received: from carterle-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.80])
-  by ORVIESA003-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2026 06:34:16 -0700
-Date: Fri, 3 Jul 2026 16:34:13 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: Re: [PATCH v3 05/13] usb: hub: Associate port@ fwnode with USB port
- device
-Message-ID: <ake6VXm9XTDr9d-W@ashevche-desk.local>
-References: <20260703110317.1283411-1-wenst@chromium.org>
- <20260703110317.1283411-6-wenst@chromium.org>
- <akeyxn390mVmYo83@ashevche-desk.local>
- <CAGXv+5G3ETTGbgjWJCbQjn9yvRamx4GHPxjWPgmy_aXWUxm0iQ@mail.gmail.com>
+	id 1wfeGB-000000079XY-1BYJ;
+	Fri, 03 Jul 2026 13:48:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfeG8-000000079Wa-2bR7
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 13:48:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0C861570;
+	Fri,  3 Jul 2026 06:48:41 -0700 (PDT)
+Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.29.35])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 600693FAA1;
+	Fri,  3 Jul 2026 06:48:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783086526; bh=XxkgONwo/+IxkTEmohscjRa0/9XApUUoF/50Es1jlUk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rGnfz1jaa2REG4VHXxh0ZrShg9jIeFdm4kN/hwpHtggoCLgHNtEO2mfY8nlgs38hH
+	 65ePFicQWL75k60ZmR/y4cuWJzs0ka/It+VEX2UHPsbzbXe7IyQEG4rSgj6z2xVXdD
+	 1BS0VobwZNdZF/5AhaG54//HWkPYGH3m8IJ7tjXU=
+From: Steven Price <steven.price@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: Steven Price <steven.price@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Subject: [PATCH] arm64: Correct value returned by ESR_ELx_FSC_ADDRSZ_nL()
+Date: Fri,  3 Jul 2026 14:48:35 +0100
+Message-ID: <20260703134837.100109-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGXv+5G3ETTGbgjWJCbQjn9yvRamx4GHPxjWPgmy_aXWUxm0iQ@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_063421_145810_6D4F26EE 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20260703_064848_693408_A2795511 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +70,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 09:25:56PM +0800, Chen-Yu Tsai wrote:
-> On Fri, Jul 3, 2026 at 9:02 PM Andy Shevchenko
-> <andriy.shevchenko@linux.intel.com> wrote:
-> >
-> > On Fri, Jul 03, 2026 at 07:03:06PM +0800, Chen-Yu Tsai wrote:
-> > > When a USB hub port is connected to a connector in a firmware node
-> > > graph, the port itself has a node in the graph.
-> > >
-> > > Associate the port's firmware node with the USB port's device,
-> > > usb_port::dev. This is used in later changes for the M.2 slot power
-> > > sequencing provider to match against the requesting port.
-> > >
-> > > To avoid potential conflicts with ACPI firmware nodes and then causing
-> > > power management issues, only assign the firmware node if the hub's
-> > > firmware node is not an ACPI firmware node.
-> >
-> > Now I'm more confident that it does not mess up with ACPI case.
-> > Reviewed-by: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-> 
-> Thank you and Bartosz for the reviews.
-> 
-> FTR Sashiko pointed out that this is likely leaking a fwnode reference.
-> I will add a fwnode_handle_put() call to usb_hub_remove_port_device()
-> in the next version.
+Address size fault, level -1 is encoded as 0b101001 or 0x29 according to
+the Arm ARM. Correct the value to match the spec. This also matches the
+offset of "level -1 address size fault" in the fault_info array in
+fault.c.
 
-Ah, indeed. The _get call has to have its _put counterpart.
+Fixes: fb8a3eba9c81 ("KVM: arm64: Only read HPFAR_EL2 when value is architecturally valid")
+Signed-off-by: Steven Price <steven.price@arm.com>
+---
+The following hideous link takes you to the relevant chapter of the Arm
+ARM:
 
+https://developer.arm.com/documentation/ddi0487/mc/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D24-AArch64-System-Register-Descriptions/-D24-2-General-system-control-registers/-D24-2-44-ESR-EL1--Exception-Syndrome-Register--EL1-?lang=en
+
+---
+ arch/arm64/include/asm/esr.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index 81c17320a588..f816f5d77f1a 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -131,7 +131,7 @@
+  * Annoyingly, the negative levels for Address size faults aren't laid out
+  * contiguously (or in the desired order)
+  */
+-#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x25 : 0x2C)
++#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x29 : 0x2C)
+ #define ESR_ELx_FSC_ADDRSZ_L(n)		((n) < 0 ? ESR_ELx_FSC_ADDRSZ_nL(n) : \
+ 						   (ESR_ELx_FSC_ADDRSZ + (n)))
+ 
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
 
