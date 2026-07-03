@@ -4,122 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E501C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:01:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC537C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VzZ2b50+1hJqW72GCq/8uO7AfL71O/iXls0EqvEgpO8=; b=fGQe6loLI3f+0cMBT5lb/XJRW6
-	jx1pE4xHXXmwptC9gj3YDjptV+pEiTelGPPqn3Ohsdz/IA4onmZodZcJ0m7I548UcWTOFR8KfpdeO
-	+/8euC4lphCzdzPW88KfAr1gXLRtOVUljJxF8sMqvZexRs5596LLWwDGbsi6HVZeyvmD7jbEIX+30
-	nTYyvnrLUaYfzNoyFVugZ9WiHbv3PBjoTtJSN4QDz+7m1+RZtqwBzGKRD1R30k02dC8OuXCQF5yRB
-	+QKDXduN3tH7jmiwNGhUzIVyimV1K+pElJ8DwtPrB8LAutmc6w/pvhT4mJ/YgviGkH3aFU2H77Use
-	U+6ABhcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Date:Subject:From:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GquEjNpz7LLp5fa0G7ONBtCOsxLa8pv39v8AkakdZAk=; b=tTiNj+tbv5Pt+b
+	5jvloPenm3jpeuHhqUgDzFXGaEjpOTQcng7OcgUyLW5nvltzCt0oaJokGjzq+ufgFod4jkBQa8qeo
+	+W/x5l3pAg/kaxRvpB3ux0cDcCMytK2z9qnT1hYU/ZpxG7ddNLUdX72/GlzyWNrdM+3W0mnfgjVms
+	MpODSeGSa92j5akO9b5ZcF8LOy1gBHBYcs9Ze3qaNBwh1FEXVEeothEZznr3IPB32VjdIROa+GkHZ
+	EouxWLb72Zrlg2p5o2TyXW4Kf2mTx4V3jbvrM3O8/oSMnb/Rs98QnC1FcjymMK7twXNvi2jc1+WtG
+	iVs8Tbm3Ngn7D8FkFcCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfYpe-00000006Jpf-1kuN;
-	Fri, 03 Jul 2026 08:01:06 +0000
-Received: from mail-centralusazon11011022.outbound.protection.outlook.com ([52.101.62.22] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1wfYqL-00000006JyV-3KZR;
+	Fri, 03 Jul 2026 08:01:49 +0000
+Received: from out162-62-57-64.mail.qq.com ([162.62.57.64])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfYpb-00000006Jom-2R8G
+	id 1wfYqI-00000006Jvw-167b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:01:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y7UDU7PRewrMoAYIRRJq0y2tAd6T1dP7s1IqtUzHt6YSW19hNz3czokMR8dbSIgRbeiGa44gy+RYcIF4FAPRiKyWZD64+Apo7HpeP2HFwpXaB/QlUFoLN4YGfPtIAccNEnJuxxfg0KVrNPCdFQEUXvDCYh3EYBeAarvBgQ4CMJBraqCF/u8u4w3wN2dt3zIMdkCAUMDt3u7SUR+6TDHygnqxV6AZhzogCLhMDfeC8dRLGLKEotx2v1O/tK1y8N6TWri+DWnZHERSSrhlCerGfgMyWFETBJHHeyMuFalir3/krCijTUELUGrg3A+VjgJ87yrqmJ7hGdESbNQSPI8D/A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VzZ2b50+1hJqW72GCq/8uO7AfL71O/iXls0EqvEgpO8=;
- b=hcdAopcsdZ/qw5yisQTre2mUlh+fGtPXHaPc/ERraFUWDWhrY4Icng46p2yQWB7cadTr3xelZ+POeQnO+AQS4hOeIFeenwjCp3uBa65LZG+NnYR8AfWZfpT5+cOLgRdPV3KhqirHqW+AdMtBaxNVF0jiKMhp5xxuPRwQnG7UFxkviqSRlkRoT7MmTkIpA05fTrQbL854STqkzjhu4iwLHJeH/650G4hgMthtLl6Dy3czcG/H9rRk12dkgfTg/e2uwXThFBMY0kk9J+Xic2CRzhE5hOjjQfAW/KUaizlTX170MUkm5Rz3cGtsiMSjodjpzDOP6XDp+GwkY9bJ+FMOsA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VzZ2b50+1hJqW72GCq/8uO7AfL71O/iXls0EqvEgpO8=;
- b=Lu2cK+Glzrlls+WvtH+1B8K0h8Hgp5N+MHhSRL9d0HSA/r6H9/Y/OO2pEyouD5AQSVynsBVWgwGTnwRABVwDLdJ1IkXBRrxXqByvdOST4kjeaiUXr30EYla0Mb4Urdby13/JpBFj9gCeix9eMeT8CrCLJhPxTB8EA4k6lxMy4rpfdIfPQJIqhnd44avpzh/mRHSpqpseyG0wN12lX7lc2BXFJDeRTa5v5JamuU+Hi/57mCbKU3J//fSeWKp3sOxhGSZKAUu2j6KdKXPAaUnjv32VRqnfzhCNlbk+S5VFuFFBFFFbRcbcRiTQ3NTIpkQmeB0fD3swbtWOlUDDlfndxw==
-Received: from SN7P220CA0001.NAMP220.PROD.OUTLOOK.COM (2603:10b6:806:123::6)
- by MN2PR12MB4239.namprd12.prod.outlook.com (2603:10b6:208:1d2::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Fri, 3 Jul
- 2026 08:00:56 +0000
-Received: from SN1PEPF0002BA4D.namprd03.prod.outlook.com
- (2603:10b6:806:123:cafe::3c) by SN7P220CA0001.outlook.office365.com
- (2603:10b6:806:123::6) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.11 via Frontend Transport; Fri, 3
- Jul 2026 08:00:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SN1PEPF0002BA4D.mail.protection.outlook.com (10.167.242.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 08:00:56 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Jul
- 2026 01:00:31 -0700
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Jul
- 2026 01:00:31 -0700
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 3 Jul 2026 01:00:29 -0700
-Date: Fri, 3 Jul 2026 01:00:27 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: "Tian, Kevin" <kevin.tian@intel.com>
-CC: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, Lu Baolu
-	<baolu.lu@linux.intel.com>, Robin Murphy <robin.murphy@arm.com>,
-	"joro@8bytes.org" <joro@8bytes.org>, David Woodhouse <dwmw2@infradead.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
-	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 1/5] iommu/arm-smmu-v3-iommufd: Reject unsupported
- bits in invalidation commands
-Message-ID: <akdsG46/j21yzEkU@nvidia.com>
-References: <cover.1782767398.git.nicolinc@nvidia.com>
- <eb89a1c564956d9a2ba1d56bd76d57defac205aa.1782767398.git.nicolinc@nvidia.com>
- <CO1PR11MB4835A412EADC0D56A8BDBBFC8CF42@CO1PR11MB4835.namprd11.prod.outlook.com>
+	Fri, 03 Jul 2026 08:01:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1783065701; bh=GquEjNpz7LLp5fa0G7ONBtCOsxLa8pv39v8AkakdZAk=;
+	h=From:Subject:Date:To:Cc;
+	b=Roe86d270+YLZGJmFvhfkgsPZJCbabRJkZkREyJBSmSJoHNhRqq3GIq8uz+Ggy/b6
+	 O2BnzB1oKCMCBM/5Dac/iPd8Z8hd9b1Kl90+xD2otb6yXVo5xBdhb4ZgLQ8UCTHou8
+	 51SZYRaiEYfwefl+aYzssZ0p+SADCAjguQXaTiq8=
+Received: from ubuntu2204.localdomain ([218.4.149.66])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id 6622C6D; Fri, 03 Jul 2026 16:01:38 +0800
+X-QQ-mid: xmsmtpt1783065698tdnsng46b
+Message-ID: <tencent_42B49B0E68A8659A13EC46A402E41133FC09@qq.com>
+X-QQ-XMAILINFO: M07Ulnfy3VHK8G1moattDV+yMJgDKhR+EsB7PDHBWj61nfSZpJDu2TmnHt/tVC
+	 vqlkQC4qsgCpv13Ww85I55Xo9QcvcJTNxsy4YDjLwjUHzQNndYG8/EPaqRh2GBxwwOLVwGZOiiLb
+	 BRjJy2WjIld1cI5kJlGXwTXd3Gkmy0xAV9TyMt99dP/7ITUcXLgDtFAIkdqr/6J2fbt1YuLcpIy3
+	 gsZLLZVmKPgpR5zP3Uao4XyqoA2WIdnjhtioLPyY/jLW7fzw9vyonmfAlM7CQyrG6u/j6/SO8kWp
+	 IqkR7SBx3vqZegHm4Y46U6Y2l4IoZUUjsHHxd+2UrhPVvF6Wejtw2MHJviHSsobOke1D8qbP40zc
+	 uniLUchfifVT53hTPHH7etZlntIAf5m3r2jlHFRYUswSWnwIED91LHwXD/U7xGzzWgfNZgRIAspJ
+	 fWrxMwt5TdhErbiE1oExCVzl2w6iMxR+5ejSMn6wKp1w5IPNc0uGdclrvHlvAWGrizIprAVjPJ7z
+	 3idxPcv89jseOswZsskDVVr9ZFG/t+tdqETDRSwY6okh1S0Lp5/zg8acTsIsdNYvsQbhxQpeSPMF
+	 +bcSr08ZsmiuLvfUeEDpy0WnEcUSnna9wDKGBngMTKB7cxDHZZO4Ags9aGf/VDbEIY1Pxe6C5Q6a
+	 i41vu2+mi1zRrk50FatWa9RicUn0hK44S7GIFk9BxhUhLsuljT1gzuleO+aZaK2FkX1OSiEfzIXs
+	 GvN4U6WbXVQ8ny9QF+ZUxfYMILoZDyTJqo8NqGJTVPvAJhy7E5XgTT8ZyzGX1EIGV/gxHWVgdj6F
+	 edZzf7hebwJkccNDGQfUnX4QrdCvPCzPLOWrgiS68gx0DW6F524p97KW/jmh5pdTE9UtKr4LrmQ2
+	 qpZenaa514WXSEyU8WSKc1wkQM8H5gh3Icwb/1tUPKoZkyvF3sB1AsfnoB+0fQ3kkNnC7Yl5DyWP
+	 2l8uQAS2sdfKnTD7/WdwgQd9+/yHfjJOWdQ3QMwbdhKhELqPgc/xNH3j3+KAuLUVZEUTgCO7Bd+H
+	 tTp9G+i/nJy37AiD6t0n7IDPi4h4VL3av6D3HUq6bAMxMEuwGb+ULdrmLioBg1uK4LnWYhijNgED
+	 uQ3br8IoViGvWyS2b5OOBeVSQQcbB8e7l6u+lECVubIDBCoewlth/jFdTbVw==
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+From: Cunhao Lu <1579567540@qq.com>
+Subject: [PATCH v4 0/4] can: rockchip: add RK3588 CAN support
+Date: Fri, 03 Jul 2026 16:01:25 +0800
+X-OQ-MSGID: <20260703-master-v4-0-47d40bbf5fda@qq.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <CO1PR11MB4835A412EADC0D56A8BDBBFC8CF42@CO1PR11MB4835.namprd11.prod.outlook.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4D:EE_|MN2PR12MB4239:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2580c79f-1c55-4292-89f5-08ded8d9363c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|376014|1800799024|23010399003|56012099006|11063799006|4143699003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: RwgwlH6JUbfUabuH4j7gZM30WNfgHXo6Hj84eXzDLHLk5M/rteH0+h3xEKUsabLfi1q9nVGMMzqSm440Uimadr5907TcJWzpm4Uqh0mQEezduVnjvtSfbw0s7jH6eb7dnjKEi8u1Enj3CgxGXkKSlNgfH1pZ16Iyf1J8lUXUrnWeJXZ6qhHhyL5jbeKW4L6MpaWowXQvd0V3r95gpHhWeaUk5Oo5ABUPmsGhgVZTCBtrUgBDW0Hcy87jLA4hF8KlhXpAc25icmoiqBltcsjO5R1TlsmaZbpZ9duO4ImG0IqbP/ZEJjmR6c45V/7EWg6y6vydxvL/sli5AgjYyUpnHC6GumC4SLjrBhT7BU/8UxnEXN6cVowTlhXkloSXlMkQyuNWoBv/Vhx0FU6Gwgy+Kq5It4TwDgEX4kVRhyYIM/c7NLCyZB+q9ybugKqf7OaauIxELsW++e/Xghjlgu7jnDnFp6L/ZeJLL93Cu/R2Far4HW0a+Z3lQAbzEvsTfOpKts/qCgsFjr5b47mQEBmMqbrvYI4KbxD/pOYPCHkMkAN7aJIgyvlgSaHb7DOzFEkmAo7bqTVHnqrmdU4EZ2xrS+XkbCg33s4DMpfIEAa3ut5yveZ77cIOjPKCE04KL3kT1xltCl0N9rzfmKLYLW3dYiRrsKUChm9a3BZ+Be8nW59xmwYwafSwM9CCTC1lvzNJGP7tvnNUFZx/ERO4Qyz8KQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(376014)(1800799024)(23010399003)(56012099006)(11063799006)(4143699003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: GnYQiFbkku7SA9lgaRaSiiGbxaSnj/pK+VnyQ7NGX9BWW57LPzEzzEiuzy9kdpbBP2kA4nQWoJ0iE+UsXuraNcIO6n8oSTdekaOLVLTdqSmlcZ3AHrXD1NuWaNAjgQ7d6evFqEfaJfi0CG53pI7Tx/HnAVxImRZigxNMfsTqcHks4wLJ/JZ71+vaKJ3dCSye/A+g8N7r0Hz16mJlGqghDStDcfx6NmmA1irOJpXQAyOEYyCD2J4J0TX31UZulAM+aAl1U73MD6slQvFkSnmzvDh3Q+zLEWNkkO7jsOmO5KuAtCeGubqW3axZU0wjdZEUYk5PEu3XUit9RsiZMZS59QicOsOkAMvwm1C689R1m31Tk9+P5wtzD5xRM5ILYzT5VUR3uu//grRdiawjMn/LIIXjaCDY9v2PlwkBWiWtxdNAHARFeCPmSkztsueTi2Io
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 08:00:56.1079
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2580c79f-1c55-4292-89f5-08ded8d9363c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4D.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4239
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFVsR2oC/zWNQQ7CIBQFr9L8tRgCFqsr72G6oPCxmLRYQKJpu
+ LtQ0+Uk8+atENBbDHBtVvCYbLBuLnA6NKBGOT+QWF0YGGWCnikjkwwRPelUywbsLkxyA0V+eTT
+ 2s4Xu/Z/De3iiinVdjdGG6Px3e0q8enuU79HECSVCt0KjMJoZfluWo3IT9DnnH/9V6iSrAAAA
+X-Change-ID: 20260702-master-8c52be892a3f
+To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
+ Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Cunhao Lu <1579567540@qq.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_010103_630315_C87BFF9B 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20260703_010147_822539_4A995A20 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,26 +93,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 06:20:37AM +0000, Tian, Kevin wrote:
-> > From: Nicolin Chen <nicolinc@nvidia.com>
-> > +	case CMDQ_OP_ATC_INV:
-> > +		/*
-> > +		 * Exclude the Global bit: it makes the SMMU ignore the SID
-> > and
-> > +		 * invalidate the ATC of every device, not just the guest's.
-> > +		 */
-> 
-> I suppose the Global bit in vcmdq is guaranteed by HW to be contained within
-> the vcmdq, then the SMMU will convert it into multiple INV cmds sent to
-> devices associated with the vcmdq?
+Add support for the RK3588 CAN controller.
 
-Actually, this piece is wrong. I double-checked the spec, the
-Global bit isn't about SID but SSID (should be provided too).
-So, the Global bit should be allowed. I need to fix it..
+RK3588 integrates three CAN-FD controllers that are closely related to
+the existing Rockchip CAN-FD IP already supported in the kernel. The
+RK3588 variant is not fully compatible with RK3568v2 because the RX
+FIFO count register field has a different layout.
 
-Similarly for VCMDQ, it is allowed. HW only validates whether
-the given SID/BDF is programmed into the VINTF or not.
+This series therefore:
 
-Thanks (for the question)!
-Nicolin
+- extends the existing Rockchip CAN-FD binding with the
+  rockchip,rk3588-canfd compatible
+- adds a dedicated RK3588 match entry and devtype in the driver
+- describes the three CAN controller nodes in rk3588-base.dtsi
+- enables CAN on the RK3588 Tiger Haikou board
+
+RK3588 encodes RX_FIFO_CNT in bits 7:5 instead of 6:4. This
+difference was found by comparing Rockchip's vendor kernel 6.1 CAN
+support for RK3568 and RK3588, and was also confirmed by runtime
+testing.
+
+RK3588 uses the existing erratum 5 empty-FIFO workaround. Based on
+Heiko's testing, v2 also enables the erratum 6 workaround for extended
+frames being transmitted as standard frames.
+
+CAN-FD is enabled for RK3588. The BRS bus-off issue seen in earlier
+testing was caused by the transmit delay compensation setting. With
+RKCANFD_REG_TRANSMIT_DELAY_COMPENSATION programmed to 0 on RK3588,
+CAN-FD with BRS works in local testing.
+
+Tested on an embedfire,rk3588-lubancat-5io board with can0/can1
+directly connected, no other device on the bus, 60 Ohm bus
+termination, and a 300 MHz CAN clock. The test used 500 kbit/s
+arbitration bitrate and 1, 3 and 5 Mbit/s data bitrates. The 5 Mbit/s
+data phase test ran for 15 minutes with:
+
+  ip link set can0 type can bitrate 500000 sample-point 0.8 dbitrate 5000000 dsample-point 0.8 fd on berr-reporting on
+  ip link set can1 type can bitrate 500000 sample-point 0.8 dbitrate 5000000 dsample-point 0.8 fd on berr-reporting on
+  cangen can0 -I 2 -Li -Di -p 10 -f -g 1 -c32 -b
+  cansequence -rv can1 -f
+
+The receiver reported continuous sequence wrap-around messages up to
+sequence wrap around (37219). Both interfaces reported 9528377 packets
+and 150667356 bytes, with 0 bus-errors, 0 error-warn, 0 error-pass and
+0 bus-off events.
+
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+v3 -> v4:
+- disable TDC on RK3588 by programming
+  RKCANFD_REG_TRANSMIT_DELAY_COMPENSATION to 0
+- drop RKCANFD_QUIRK_CANFD_BROKEN for RK3588 and enable CAN-FD support
+- document successful RK3588 CAN-FD/BRS testing at 500 kbit/s
+  arbitration bitrate and 1, 3 and 5 Mbit/s data bitrates
+- collect Krzysztof's Acked-by tag for the binding patch
+- Link to v3: https://patch.msgid.link/20260703-master-v3-0-6d56de6fd2f3@qq.com
+v2 -> v3:
+- Move the Changelog below ---
+- Collect Heiko's Reviewed-by and the driver patch Tested-by tag
+- Use Co-developed-by for Heiko's RK3588 contributions and add his
+  Signed-off-by
+v1 -> v2:
+- use real author name
+- fold the single-compatible entries into an enum, as suggested by Krzysztof
+- enable the erratum 6 workaround for RK3588 based on Heiko's testing
+- add Heiko's RK3588 Tiger Haikou CAN enablement patch
+- keep RKCANFD_QUIRK_CANFD_BROKEN enabled for RK3588 so CAN-FD stays disabled
+- document the RK3588 CAN-FD/BRS bus-off failure mode
+
+---
+Cunhao Lu (3):
+      dt-bindings: can: rockchip: add rk3588 CAN-FD compatible
+      can: rockchip: add RK3588 CAN support
+      arm64: dts: rockchip: add CAN-FD nodes for RK3588
+
+Heiko Stuebner (1):
+      arm64: dts: rockchip: Enable CAN controller on RK3588-Tiger-Haikou
+
+ .../bindings/net/can/rockchip,rk3568v2-canfd.yaml  |  4 ++-
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      | 39 ++++++++++++++++++++++
+ .../boot/dts/rockchip/rk3588-tiger-haikou.dts      |  6 ++++
+ drivers/net/can/rockchip/rockchip_canfd-core.c     | 17 ++++++++++
+ drivers/net/can/rockchip/rockchip_canfd-rx.c       |  5 ++-
+ drivers/net/can/rockchip/rockchip_canfd.h          | 14 +++++++-
+ 6 files changed, 82 insertions(+), 3 deletions(-)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260702-master-8c52be892a3f
+
+Best regards,
+--  
+Cunhao Lu <1579567540@qq.com>
+
 
