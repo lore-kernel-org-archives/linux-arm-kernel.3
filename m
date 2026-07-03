@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F2DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 06:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24C5CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 06:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NwD4Nh6jVsTYRhYeDtluByQtXRpd4fuJ0RlrPGu+G7Y=; b=ZuKsSkzffjGCg5fpLVTaMD7mHr
-	mZe1bZ5OxDPxy3VEcRWmMMeI0Hg6udMPRkvF1as4LPouAv+rtsDh97OmgaAW/+0lda4XYJerSPDQH
-	JkwCDqkyEQVQA2brVe3mN3SAYk8vvB8RxVHmZhOy5K1HZbRbhTbqSZ+0QZwzOF0etOAl7w146Nyof
-	Xp0era3wtGfwRDvrSIf4mmXSrD+2K3nhYf5tBW/bDlqTP8lCiXPz8D9ABIVbWdybkSnDpDZsLnkp2
-	UANAS85ofiufUEz+54ZjedilWhAi4mEhQ9ZDdaqiqeDfuIQJ2dLA8cI2yl7p/Q7AtHzqFcouOWfUv
-	+GJFMoXA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XAn+sgOJ//YpFHFCj3wQ7fJwCRmUnKUhDxx0gbmShJo=; b=aM+A5Ckx01DaOW7DIMfaiVzZQk
+	lFq61JCIqPuuTXU8mCokMez3c0+xlWHLHdQFgbtOcoCsjvWO+/8NTfOOg+nSCAmEoctL1VUkLs415
+	OJUay2LW+R/jKS/XIe86Uwf86/eASj1ffjixIK6sVtJNuCYCLqXgl+myT6gulhXGPyrZ0ivJ/BUQE
+	LAzx7khvqicLo4kbUdiZjNRhcFQkBPY9RB/nt/Tak239PX2NH+scplb+R3hOYQn1RTrDFQ300R+g8
+	eIFb5pKt/x4P+tIWZxaoLWcTC6mBrDdCiIN47ZAgxrCeUx94a0t/a5NVCddh87CYJwbNmVI+8m2nQ
+	IFFUUXHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXkL-00000006Cjh-2m5L;
-	Fri, 03 Jul 2026 06:51:33 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1wfXkP-00000006ClB-3HKt;
+	Fri, 03 Jul 2026 06:51:37 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXkJ-00000006CjM-2a5v
+	id 1wfXkL-00000006Cjb-2qkL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 06:51:32 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-c1268f71572so196483266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 23:51:30 -0700 (PDT)
+	Fri, 03 Jul 2026 06:51:34 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-c1274802697so19418066b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 23:51:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1783061489; x=1783666289; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NwD4Nh6jVsTYRhYeDtluByQtXRpd4fuJ0RlrPGu+G7Y=;
-        b=b0qXOHs+fPHEyP1CPZ4//j0R9iLuB3q4k9WS13uNgXRXfYksTl0PGvnS1Ju43kR3H9
-         OwgQeZEDW5R4Iqh11YbewBEaU5VB1sMzDhLq3+uGWGmWz9gwQtcVOg27CKlDOy7Ym0jF
-         EDnw/vV7AxQJTQrwMPUejBkhg58YWqZ8f+W5A=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783061489; x=1783666289;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=amarulasolutions.com; s=google; t=1783061492; x=1783666292; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=NwD4Nh6jVsTYRhYeDtluByQtXRpd4fuJ0RlrPGu+G7Y=;
-        b=cbHmIvwP7MTt7gFD19QxlxvpTCyh/IgO9UrZKQYl+Uo7g2FBpU1dCe6OgX1coXgZD1
-         q+5tTFH8hySLplLANJOLKztQUAt58Z/vF0xA2MUZvLfAxq2mUJzDKxexkrVmD3iHvsaB
-         EQtb/s6bwmg7qoyYFeLdsW5ucXfClZwzdGBYVBiPutqGRiaDj0yj+AOf96qH0R+XUR/G
-         JvtvywzjqrbqvYiO+Pxd2e4UmlpArH6qt+CHAq1eXUEvLFgjkPvV5g+GryKtaBu2YeE1
-         fXo+M4Hv+umg/MSrM3WvQ/Sr3Xqjdkb5Xg9ZwmBZxkuZoaLSvoP1X9QB7UiEqDMJDExi
-         jQUA==
-X-Forwarded-Encrypted: i=1; AHgh+Rqh1mDumHKsAsEIpHiYETBD5hv0+p+E9gbRYomTmphA4BAbihjzI8rs+zCgWsGwdwx1A4nm2OVbIMlih3d/1/HI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxydcNAnPcVx3+hwoVyNcOvAx69b0AgcUfWqqtBAsFIHqCgwMXE
-	ZF5hK2wHi+QhFmM79A3Zi4pLKvJh+g0pNeyG8xR4enYHail6O0J1xwbtclKp3bWMSVI=
-X-Gm-Gg: AfdE7cm/GcjAEr0XX/FqqlUMTOuPnzhpEaB308utnSlUfkvCAgRpAituwPFJKXgKo/i
-	qvA8zuQAgun5Z7NJwzOcejY0vZtyM0UFk5cickSv+vC4M4ETOff0jQn2AOztmoDt7CT5WxQ3QWh
-	cPIK7kmgxNyPSz7K6HqnBcww7Y3biOXA+aYnRuepwRZwBkm8F+WZy369FED9L8g8vIDYFAzp1jG
-	/rXeXTanXuOZhp56gNpYu4vg7bHhuA+XaE3ie2bMqgotK6Aq1X88rABhJlZPmNAdf0SLlSHjRfy
-	rVvQGjFCrQ2G6/ZmZn8OPXN+eNxhTqek2tdHim+OC8cqtlcazQZvzb3tem/CJqoxDGBsW3Ix/az
-	EdmHBcL8NH4iw/R042FYk7zX6UHSusSFF5eaKpRAmZu3+YcXHkXkPWIJllVKUVuEYVjGXwYVaEy
-	QIElrK2tN7QdnOO2t50IcT6wT+foorM/uTgSZD7iRxlNRzDTbuGHVQiofi6BPlJC8bBgusUfagH
-	MBbNvQ+iAA=
-X-Received: by 2002:a17:907:c518:b0:c12:b0b7:def with SMTP id a640c23a62f3a-c12c9d6bae4mr133100966b.14.1783061489011;
-        Thu, 02 Jul 2026 23:51:29 -0700 (PDT)
+        bh=XAn+sgOJ//YpFHFCj3wQ7fJwCRmUnKUhDxx0gbmShJo=;
+        b=QSp66Pd0VT1/zqM0MG2j3K033NQZUUoouX6H722Um6qD8X1KNLSrmuswgYPBDIFOek
+         o5wFpmf2DNKzyvPF+xxVGKED7lafDamNuqJedkNwhRXhbiMMnr88Lkx4i+IC1/hYiudh
+         YWOFFhlWVXOcanOso/c5/LQ/fxoRCG0BBNc7M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783061492; x=1783666292;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=XAn+sgOJ//YpFHFCj3wQ7fJwCRmUnKUhDxx0gbmShJo=;
+        b=qZfaH1iGNxf8mXK6W7xZZRT4QpoOqUkoDl2rJiM80gE+hXv/mfCCPIfZTS/B2sW2Bu
+         ZkmZgt8fKhVzeww9X9p+ArVKBxxLud+k1Ba3WNBJlHqTWVMkVocZa+3ksYIONX39i3BB
+         sD5yrHuCdFgtupGMqS2OzFjtwvOJVeNkjIDiOfbUmYolktuPzMjW/4GEW4YDQucbcz8n
+         Z5Q166F8CW6m2jdUQvhLRp1L6b1Lh843dVJ8EBLlQAVqLYrur38sIlyMHIGunLzW3GoZ
+         MwpN9Jh98Zq+r+BvHOt9uDTU1Oo2IfUG2WPHDSrBYYm+YvFNsYtJOpE4+8M6dsnocBtJ
+         O2wA==
+X-Forwarded-Encrypted: i=1; AHgh+RoygQRR+TrpSVGd7wQBBQ4j9XSe/X1ltwomeUXgVKgJz1h2gHExYYf8bL2cB3SzZ+k8uJVnP4x2yFIPRF6n8gdI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKR7/0VrOlUdn8uDliHoTuPJmA9x+GbKx4E346xCqSVvU6ThJ2
+	lrGp3pjR+izFXe+dnWS+OWhbe+W413dhm6NJYSMYA1QZAbpsEUzm2zxI2l+Tfx+Nneo=
+X-Gm-Gg: AfdE7clxIZDJ7/NG36sI7iXjYUzXHgo3CQJt9GU9p22aQX74XIKfzx6cn9y2wMkWPOW
+	PWB1BifN3G5RTomCmcPL6lmsvYCyucq+IMsgLJhicDthXRRz3AHg9HWFpg60MqJ9CC1eKoTLSuS
+	hQTJuT1zP95lV/dnv3DVOKC877Lsq8F1VBGgmyk+0NmmPBzcok9bJF8UgKIlG/flYpH/tK7PfYw
+	MVifvIrqqiir004nQgtDZd6QRmk18d5M17TSatQg9w3PKYy6azuq/82Rxu37wcbOLL0J5klKlb3
+	yiDV0jmUqPEpGdv+KnWUnq2jiVNQmPgquA3NHu20qH2IbUPjqheWDCEeyQi6DMUj8AVJ0TB6SmB
+	XeSOV9luog4cfUZqvmZLwqYBMV+t3I5epwxBJyrAOBd5rj89LHbLNa2P7KU2vBCvTi9XhBbtWEB
+	ia/0Bm3tjTt9jmfRUKlyLMMAQxvo/MKRtvgDnp5RUQ5gQomsVl4tOmCLjyLNchhJrnaPhFldMpz
+	YkrkwoESxA=
+X-Received: by 2002:a17:907:c589:b0:c12:4988:f0ba with SMTP id a640c23a62f3a-c12a9d6ba2emr442460466b.11.1783061491651;
+        Thu, 02 Jul 2026 23:51:31 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.. ([2.196.43.95])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62c4695sm235462866b.44.2026.07.02.23.51.26
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62c4695sm235462866b.44.2026.07.02.23.51.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 23:51:27 -0700 (PDT)
+        Thu, 02 Jul 2026 23:51:30 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: michael@amarulasolutions.com,
@@ -73,35 +74,30 @@ Cc: michael@amarulasolutions.com,
 	francesco.utel@engicam.com,
 	domenico.acri@engicam.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Amelie Delaunay <amelie.delaunay@foss.st.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Bjorn Andersson <andersson@kernel.org>,
 	Christophe Parant <c.parant@phytec.fr>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
 	Himanshu Bhavani <himanshu.bhavani@siliconsignals.io>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Luca Weiss <luca.weiss@fairphone.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Michal Simek <michal.simek@amd.com>,
 	Rob Herring <robh@kernel.org>,
-	Sven Peter <sven@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v7 00/16] arm64: support Engicam MicroGEA-STM32MP257-RMM board
-Date: Fri,  3 Jul 2026 08:48:50 +0200
-Message-ID: <20260703065110.1433283-1-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v7 01/16] dt-bindings: arm: stm32: support Engicam MicroGEA-STM32MP257-RMM board
+Date: Fri,  3 Jul 2026 08:48:51 +0200
+Message-ID: <20260703065110.1433283-2-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260703065110.1433283-1-dario.binacchi@amarulasolutions.com>
+References: <20260703065110.1433283-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_235131_692079_D4C568C4 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20260702_235133_754920_891E0B8A 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,90 +112,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series adds initial support for the Engicam MicroGEA-STM32MP257-RMM
-board based on the MicroGEA-STM32MP257 SoM.
+Add devicetree bindings for Engicam MicroGEA-STM32MP257-RMM board based
+on the Engicam MicroGEA-STM32MP257 SoM (System-on-Module).
 
-The support includes device tree descriptions for both the SoM and the
-carrier board, together with the required pinctrl definitions for the
-peripherals used.
+The use of an enum for a single element is justified by the future
+addition of other boards based on the same SoM.
 
-The series also updates the arm64 defconfig accordingly.
+Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Changes in v7:
-- Add Reviewed-by tag of Olivier Moysan to patch 10/16 "arm64: dts: st: add
-  sai1 pins for stm32mp25"
-- Switch CONFIG_I2C_STM32F7 and CONFIG_SPI_STM32 to modules in
-  arch/arm64/configs/defconfig.
+---
 
-Changes in v6:
-- Update arch/arm64/configs/defconfig to match the current upstream defconfig
-  after merge window changes (no functional changes).
-
-Changes in v5:
-- Add patch 2/16 arm64: dts: st: add power-domains to sdmmc1 on stm32mp231
-- Add patch 3/16 arm64: dts: st: add power-domains to sdmmc1 on stm32mp251
-- Increase slew-rate to <1> of ltdc pins to support the 27 MHz pixel clock
-  and prevent timing violations.
-- Change SDMMC2_CK pin bias from pull-up to bias-disable to avoid signal
-  integrity issues on the clock line
-- Fix touchscreen resolution to 480x854
-- Fix SPI1 CS0 polarity to GPIO_ACTIVE_LOW
-
-Changes in v4:
-- Drop inclusion of stm32mp25xf.dtsi from stm32mp257-engicam-microgea.dtsi
-
-Changes in v3:
-- Add power-domains property in the SDMMC2 node.
-- Drop patch "arm64: defconfig: cleanup the defconfig"
+(no changes since v2)
 
 Changes in v2:
 - Add Acked-by of Conor Dooley for patch 0/1 "dt-bindings: arm: stm32:
   support Engicam MicroGEA-STM32MP257-RMM board"
-- Add resets property to dts CAN node. Suggested by Sashiko.
-- Drop the clocks property from the sai1 node in stm32mp257-engicam-microgea-rmm.dts
-  to avoid overriding the peripheral bus clock reference defined in the base
-  SoC device tree. Suggested by Sashiko.
-- Reference the existing labeled nodes directly at the root level using
-  &sai1a and &sai1b in stm32mp257-engicam-microgea-rmm.dts instead of
-  redefining the entire node structure and redeclaring the labels. Suggested by Sashiko.
-- Drop the #clock-cells property from sai1a and remove the reference to sai1a from
-  the clocks array in sai1b, relying strictly on the st,sync property to handle
-  internal synchronization.
 
-Dario Binacchi (16):
-  dt-bindings: arm: stm32: support Engicam MicroGEA-STM32MP257-RMM board
-  arm64: dts: st: add power-domains to sdmmc1 on stm32mp231
-  arm64: dts: st: add power-domains to sdmmc1 on stm32mp251
-  arm64: dts: st: add SDMMC2 support on stm32mp25
-  arm64: dts: st: add CAN1 support on stm32mp25
-  arm64: dts: st: add i2c1 pins for stm32mp25
-  arm64: dts: st: add ltdc pins for stm32mp25
-  arm64: dts: st: add can1 pins for stm32mp25
-  arm64: dts: st: add pwm2/pwm4 pins for stm32mp25
-  arm64: dts: st: add sai1 pins for stm32mp25
-  arm64: dts: st: add sdmmc2 pins for stm32mp25
-  arm64: dts: st: add spi1 pins for stm32mp25
-  arm64: dts: st: add usart1 pins for stm32mp25
-  arm64: dts: st: support Engicam MicroGEA-STM32MP257 SoM
-  arm64: dts: st: support Engicam MicroGEA-STM32MP257-RMM board
-  arm64: defconfig: enable configs for Engicam  MicroGEA-STM32MP257-RMM
+ Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
- .../devicetree/bindings/arm/stm32/stm32.yaml  |   7 +
- arch/arm64/boot/dts/st/Makefile               |   1 +
- arch/arm64/boot/dts/st/stm32mp231.dtsi        |   1 +
- arch/arm64/boot/dts/st/stm32mp25-pinctrl.dtsi | 328 ++++++++++++++++++
- arch/arm64/boot/dts/st/stm32mp251.dtsi        |  17 +
- arch/arm64/boot/dts/st/stm32mp253.dtsi        |  16 +
- .../st/stm32mp257-engicam-microgea-rmm.dts    | 319 +++++++++++++++++
- .../dts/st/stm32mp257-engicam-microgea.dtsi   |  63 ++++
- arch/arm64/configs/defconfig                  |   4 +
- 9 files changed, 756 insertions(+)
- create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea-rmm.dts
- create mode 100644 arch/arm64/boot/dts/st/stm32mp257-engicam-microgea.dtsi
-
+diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+index c6af3a46364f..c5ce81e3ce45 100644
+--- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
++++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
+@@ -203,6 +203,13 @@ properties:
+               - st,stm32mp257f-ev1
+           - const: st,stm32mp257
+ 
++      - description: Engicam MicroGEA STM32MP257 SoM based Boards
++        items:
++          - enum:
++              - engicam,microgea-stm32mp257-rmm
++          - const: engicam,microgea-stm32mp257
++          - const: st,stm32mp257
++
+       - description: ST STM32MP235 based Boards
+         items:
+           - enum:
 -- 
 2.43.0
 
-base-commit: 4a50a141f05a8d1737661b19ee22ff8455b94409
-branch: stm32mp257d-microgea
 
