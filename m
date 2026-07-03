@@ -4,129 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D31C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CE6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=biosK3lOfbNV5gPf8PkSrrDXTwtDCzEN6gEcCVZoCig=; b=wukQVSuW41JZNrThKlSXrtxVsl
-	oNWiVUvwPX5j445CxpD0EZZBtfKxAfD4/aEXiEbj8qz5RL5fF2xpWC6CTSr2vUZz8jOy/Wo2Vc+GF
-	z/bczjzFfiHm1uchtr6k+02t7Qn4eX/jJZTW0be8D8/z11bQWhbKiRp9iugkOB/XZqffvWdTxJAR7
-	XdQ//8dnADIvS5Kv7cF+NNWpS+oQb2d+G+p+3QzrjSDHgm0cMxPnhlVRvKmRiYGf/TdsPV1ZySsSX
-	nZaXavZYYv4jNlEfFvLIbSAA5PaYUXYfJuD0c9YSVqrkUg6CEQoyHhZAIK8kCPYDOf2DzFbvnk1KD
-	hIedrk1g==;
+	bh=dkTYdOk+qZGx1vOZy+8Wmo8AMnTLzz6lw/t0/fetG38=; b=YSHvPR3QWSXl54iwT8+r6N4nGo
+	WutWDMW2YLOxXBlcV0asJqgPjII3DRDWcllgrBczwLJoUP5QJCc5y5ZikTgCW6mNoPPevhJT9DhWG
+	7uJ1ZjLYUKF3szxxndy7FVjMjBVHaP3e4P1XYRa9g1jcQT1wmv1W1buaTSEJqeVsV7Py1HEx9kI+i
+	+SxkY30m39xTn6HZvitTz4OGI1Uzhx6oGjP+NRguu940h9v9pzgxFd8Ioq3i1DK7pj6G9NQoUi1iy
+	kyPbUR0cnt75glORB+ICyGjYBuWZ8tFtpcl/G7N8GRQaL7CWKISUL5+rv8pmiUcMmCjLT9ytrPotD
+	+RxhiIBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfczh-00000006vtL-0YaA;
-	Fri, 03 Jul 2026 12:27:45 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1wfd0o-00000006wAT-1Yqr;
+	Fri, 03 Jul 2026 12:28:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcze-00000006vqe-20xm
+	id 1wfd0m-00000006wAJ-2x0r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:27:44 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 1DF4F7488C;
-	Fri,  3 Jul 2026 12:27:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783081657; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=biosK3lOfbNV5gPf8PkSrrDXTwtDCzEN6gEcCVZoCig=;
-	b=SDXhQoDlLrwrApXxN6U3+Ee3hFlmEGShX/5oVrbTGLhBDBuy7toG0AE/VG71LguignZPsa
-	2jBAXpibEvHbFVPUbPwfrFZVyn/wBlFV5zGEEgVrli87Rt5U7ooCOEfkF1D+tOwyAvdywm
-	CAMkMkVYcFXy31YNwFua4HpMte38eWY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783081657;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=biosK3lOfbNV5gPf8PkSrrDXTwtDCzEN6gEcCVZoCig=;
-	b=zGjIiGPJvLwR8bfaRiNl1uDoF01feLP/dLIv8PCKfCjjzW9utuXvCU51XlHY07c2RFFuPS
-	oclvFSWWfruC23BQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783081657; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=biosK3lOfbNV5gPf8PkSrrDXTwtDCzEN6gEcCVZoCig=;
-	b=SDXhQoDlLrwrApXxN6U3+Ee3hFlmEGShX/5oVrbTGLhBDBuy7toG0AE/VG71LguignZPsa
-	2jBAXpibEvHbFVPUbPwfrFZVyn/wBlFV5zGEEgVrli87Rt5U7ooCOEfkF1D+tOwyAvdywm
-	CAMkMkVYcFXy31YNwFua4HpMte38eWY=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783081657;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=biosK3lOfbNV5gPf8PkSrrDXTwtDCzEN6gEcCVZoCig=;
-	b=zGjIiGPJvLwR8bfaRiNl1uDoF01feLP/dLIv8PCKfCjjzW9utuXvCU51XlHY07c2RFFuPS
-	oclvFSWWfruC23BQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 542C2779AA;
-	Fri,  3 Jul 2026 12:27:36 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id GABAEbiqR2rGIwAAD6G6ig
-	(envelope-from <clopez@suse.de>); Fri, 03 Jul 2026 12:27:36 +0000
-From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
-To: kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	seiden@linux.ibm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH v4 2/2] KVM: arm64: vgic: Mitigate potential LPI registration failure
-Date: Fri,  3 Jul 2026 14:26:01 +0200
-Message-ID: <20260703122601.2617577-4-clopez@suse.de>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260703122601.2617577-2-clopez@suse.de>
-References: <20260703122601.2617577-2-clopez@suse.de>
+	Fri, 03 Jul 2026 12:28:52 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0996640666;
+	Fri,  3 Jul 2026 12:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0E3A1F000E9;
+	Fri,  3 Jul 2026 12:28:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783081731;
+	bh=dkTYdOk+qZGx1vOZy+8Wmo8AMnTLzz6lw/t0/fetG38=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=HAy0zAAN0V0oYKI/076+aPwefR2vtRvPh5GTlUp5/xm2i+isgY6SMC2krd/wOcpON
+	 AlHPeOnP/bAzGIIC4UXJAc95W049aeiPRN3Fcw+KmpCtQeZbWJQPuLOniOmAxcgd8q
+	 XBR64lXU/eIrP+bksVYPGow8ORJ4VHyB9f4OrBy/jjxP97OE8X9JzNHKK7fwAxuCS2
+	 FogegF5R92gp3sLD0Y9QdB+VzinduTrx6/SvimWEv+kvp0Jn36rdMI+Dspqu9kF6eQ
+	 zWNu9jKVIp4a2gGiQETmTGtDFRkKA9hue5B+90QZASBT6rsjG7cmIZEWn6Ml7fECyC
+	 jhAIha5WE91UA==
+Message-ID: <d90f576c-2713-4067-b4b4-a3790793c4fb@kernel.org>
+Date: Fri, 3 Jul 2026 14:28:39 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: defconfig: Enable ILI7807S DSI panel driver
+To: Nabige Aala <nabige.aala@oss.qualcomm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Krishna Manikandan <quic_mkrishn@quicinc.com>,
+ Loic Poulain <loic.poulain@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20260604-shikra-display-v2-0-b3c1b2b67edc@oss.qualcomm.com>
+ <20260604-shikra-display-v2-2-b3c1b2b67edc@oss.qualcomm.com>
+ <0bbfd60c-236e-43e5-a150-93738961f3de@kernel.org>
+ <c72d2ac6-b1c8-4c96-a0c6-eafe18147ac0@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGPBBMBCgA5AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJp2mE8AAoJEBuTQ307QWKbeaIP
+ /ihHTkTW4KsN/DQ945JJbyu5tI0J80Wue7QyyLPglyKfhgb5cLLNPpOC8cCIJsc7+W3i2P38
+ s2c1cOH6CYGE7E9ur3Vfme8NW2S2I/Z8VC7bZnzyS23wT17LrsdS/qCpx4o8U+pt/xdXDKph
+ EGRYrIEmMpUWvyYzyYKGIe25FtaayIIKpq8eZYyFcp2f/sG5IkOW5uZzHPMPdcm87jU7fyuQ
+ rAU2vx9r+ulUfQ/q9Z2roC/ode3l7t2pN7BCBCsUDp6JCrUyZrtT1e7EbA0ZRP3aOBNk2P2E
+ DQOgJGjGdO5Yx2Y9LFtltu6JbsBJHi1syGRX3AtQYOMc4Y1WGoeZJmMlvKj2ZqqXNkcWi2DS
+ IQEWB0uW6CqFsBBIMGDa+6OzdaVO/uAVXWDWml02Men3CILdI1MbVjoh8ECqYUY7OQ+JJvNN
+ vnliuq5WM3Ghd3jg/LZZrxXjdIginRHFQCjIJYLKpLZWm1/iDFedcfzqRNYmTtqscdCNHW41
+ oT3Z7BmO9xwdjuwBS6nmS6JJwkbf5Ot2QR4pB/DRU7ZwjT1qHe+9r9gF32wXVQatHNGK/VVu
+ sfwOnkdxCWkp/qb2gdQRmZh+SedStWshigH6sNfuHBloF/q+hjMRc8b2m326OZdrbSHwY1Sz
+ vti8Hn7n8NjdHO9LKB7BIdjkA9DA5WsqOuVCzsFNBFVDXDQBEADNkrQYSREUL4D3Gws46JEo
+ Z9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLueMNsWLJBv
+ BaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6eiOMheesVS
+ 5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wAGldWsRxb
+ f3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA6z6lBZn0
+ WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9YegxWKvX
+ XHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt91pFzBSO
+ IpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gUBLHFTg2h
+ YnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/JoFzZ4B0
+ p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu4vXVFBYI
+ GmpyNPYzRm0QPwARAQABwsF2BBgBCgAgAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtBYpsFAmna
+ YUkACgkQG5NDfTtBYptX+BAApg32CkxwNucNEi8WfWA8oKkW0y8YDuY6ORMo9FWNGiT/OTy0
+ vyJrLocrpn86zwfjVp+eCrssPYh8eqJfnWqmYv6ACQtHPYzPZQ3mSo8H97Z01oUxITzCxpXm
+ ZkLgPIqtDPcC2E3dPM/fVxcyowM8XsaMA9wcsaUYrta8toOq2b9tKcjleKMfMrm0gQ9u7wUc
+ QbLkwj6TCLOwucb07GXzLTNF9PZmaDUpKAZjMjmrW+le+SFvQbhamx0rxLWPR0NWntXpbCn+
+ +ACch03p/JyTBVktxFsFyCt7pTPE1kEaeuXBTe/a2D9iQvRxRW19LvuO2e59/u1wYUiH/orz
+ wbIC2S4dBsPAPihL3ztOU1yE86GPyQtSE0kU+/7snnLt4QGi6PChf3t5gnNjAzjUUovO8rgI
+ c+5yN5heq5loYHgK6OQ9OlHzsPHO9e9MOQcKlFycs1pyijFGzDwdNUm/SchK8iWT2QApTx4A
+ K9bCVaboTA2T77QYkRcRJYSsO1alGX0ome/hMLD1daXlkrNUp1HWa3K4iytLRXjCSIorWiGs
+ n+q3krnpXu3TFkA8qtOFZMdnIiFuiq1yLT8hptsV5xh1TA2nsVvSYiaCr3q4s4BKjS/KrLDb
+ qoxzw8ISjdUp4pA85vb6YLCmb39NgidD+7PmAr65lBNveIFynTgsja1rRQ4=
+In-Reply-To: <c72d2ac6-b1c8-4c96-a0c6-eafe18147ac0@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-7.30 / 50.00];
-	REPLY(-4.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	MID_CONTAINS_FROM(1.00)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.994];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[13];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:email,suse.de:mid]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_052742_671999_A160BBE9 
-X-CRM114-Status: GOOD (  14.13  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,65 +132,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mitigate a potential failure when inserting a new LPI into the VGIC LPI
-xarray.
+On 03/07/2026 11:23, Nabige Aala wrote:
+> 
+> On 6/4/2026 6:23 PM, Krzysztof Kozlowski wrote:
+>> On 04/06/2026 14:30, Nabige Aala wrote:
+>>> Enable the ILI7807S 1080x1920 video-mode DSI panel driver as a module,
+>>> used on the Shikra CQM EVK board.
+>>
+>> Does Samsung Shikra CQM EVK have it? I guess no.
+>>
+>> Best regards,
+>> Krzysztof
+> Hi Krzysztof,
+> 
+> I checked internally and found that there is no Samsung specific Shikra 
 
-When vgic_add_lpi() is preparing to register a new LPI, it pre-allocates
-an xarray entry using xa_reserve_irq(), so that it can later perform the
-insertion under the xarray lock without allocating.
+Obviously :) Then think why such name is suitable here... This is not a
+Qualcomm defconfig, I hope that part is obvious.
 
-However, since xa_reserve_irq() is called before acquiring such lock,
-there is a potential race where xa_reserve_irq() observes a populated
-entry, thus not performing the allocation, and another CPU removes that
-entry before the xarray lock is grabbed to perform the insertion.
-
-  CPU0 (Adding new LPI)                      CPU1 (Releasing LPI)
-  =====================                      ===================
-  vgic_add_lpi()
-      /* Entry populated, does not allocate */
-      xa_reserve_irq(.., intid, ..)
-                                            vgic_release_deleted_lpis()
-                                                xa_lock_irqsave()
-                                                vgic_release_lpi_locked()
-                          xarray node freed --> __xa_erase(.., intid)
-                                                xa_unlock_irqrestore()
-      xa_lock_irqsave()
-      xa_load(.., intid) == NULL
-      vgic_try_get_irq_ref(NULL) == false
-      __xa_store(.., intid, irq, 0) <-- xarray node was freed, gfp=0
-                                        cannot allocate, returns -ENOMEM
-
-This can happen e.g. if the guest issues a DISCARD while the LPI is
-still referenced from a vCPU's active-pending list (ap_list), and the
-same INTID is re-mapped via MAPTI.
-
-Mitigate this by passing GFP_NOWAIT to __xa_store(), so that the
-allocation can happen under the lock in the rare case that this
-condition is hit. Add __GFP_ACCOUNT as well to match xa_reserve_irq()'s
-flags.
-
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Fixes: 1d6f83f60f79 ("KVM: arm64: vgic: Store LPIs in an xarray")
-Signed-off-by: Carlos López <clopez@suse.de>
----
- arch/arm64/kvm/vgic/vgic-its.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/kvm/vgic/vgic-its.c b/arch/arm64/kvm/vgic/vgic-its.c
-index 577286069368..327418477c51 100644
---- a/arch/arm64/kvm/vgic/vgic-its.c
-+++ b/arch/arm64/kvm/vgic/vgic-its.c
-@@ -121,7 +121,8 @@ static struct vgic_irq *vgic_add_lpi(struct kvm *kvm, u32 intid,
- 		 * from the deferred release path, pending cleanup by
- 		 * vgic_release_deleted_lpis(). Evict and free it if present.
- 		 */
--		oldirq = __xa_store(&dist->lpi_xa, intid, irq, 0);
-+		oldirq = __xa_store(&dist->lpi_xa, intid, irq,
-+				    GFP_NOWAIT | __GFP_ACCOUNT);
- 		ret = xa_err(oldirq);
- 		if (!ret && oldirq)
- 			kfree_rcu(oldirq, rcu);
--- 
-2.51.0
-
+Best regards,
+Krzysztof
 
