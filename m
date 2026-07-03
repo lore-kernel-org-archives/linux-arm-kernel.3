@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14636C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 04:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37739C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 04:08:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VI2pT8hzOpPde7TrF/3KPRMf+lt+gPsuoueEIsdpiKU=; b=gEIyTs71vIINhieIQGgRvaZCP3
-	cIpaKVfsIj08QFOdwkCGI83/bWDH1g7GXU719E+1CagMketnTmD3UnUKRtK9DlJoUYxkke+hzKk3V
-	b2qTJa5N/AaINY+GgnlOJWQcCQGnsLSE1o85Vfq/YHfeMYb8bZ/rdfbAOgNKnScGoMaftMSgSIWFM
-	yU/Wu4QZUoJmclWztETk3MCqPogcA0tNtJMKcAoJR1LwAghpCRf19a2JrLsMOFZQmp8iaQIm7Rgmd
-	kGZY48NPss9pJP+koU++XRZxTjZrIKZrwI8eS2BRBMXLyXYPV5Ww8KHaZaxgkiFQh8C+8uGvrYClv
-	4fUe63OA==;
+	bh=LohWKwYF3JxEUVI29Te/uH9OM3c8WXtpOa3jpnEQBeY=; b=04rkpJpk7lHTqTGjhMjFcTjbuR
+	J2gYGNERpavXSplOfNifOeKng8N5Iz4sx5NjQXg4atzbyORMDgBl7BzKaSLuv4N9T+4zxirNSNI6a
+	ooUVTpIVFnj7mkBCFyaHtrQLWold00pOe/fPEcMBGdbRTMRCNglT7oJ8VFoqvDwI6rtkLZHTwT4sa
+	cREVEwcCqdst6QQaQYnYPdW3aKGEZCsyn25krqwarpm3Cb+wqc86mxxCvZOmkQw0Nsbe7OUetNo8m
+	FJiwbhv9FgQOxp71kDrlBoDG6sUO1zXQRrRtVpQbjvIEKyaGji1YGSQf6LzYUDaPG6YISrAaJxCEH
+	wGzmtr8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfVCX-00000005yy2-2xA6;
-	Fri, 03 Jul 2026 04:08:29 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1wfVCa-00000005z3L-1hG9;
+	Fri, 03 Jul 2026 04:08:32 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfVCR-00000005ykN-3Trp
+	id 1wfVCS-00000005ymA-2EMO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 04:08:28 +0000
+	Fri, 03 Jul 2026 04:08:29 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aDULJw7BPuLAShqRaaJxgWgU40fceYHovfq8OkECaG+GMX80cWN8nFJOR2v/hsqGmG36hMx7bhfhGDltmjUETEBkXvW5tJoJwJsMHUL/u/oqaxMpoH0GkfyUpv85it9ykDHvCr/VIBYwiRtrSlYj4rzfqQzfRBCQmFZJY4PBa27UsNomuW0cxW/WdhZVtzNCc3pchH8uRdwUzXm07aucYCs5mcL5mzuF5LYPnJJzbfhkjrpYCv2meruc2YBJ36aXv48sTFGYaWjw0NVEZJK9rZ98qP9jq0tHPe4WCgVLFo7gy0B3Rg07jiJ081VFGcgwEMuSOzqcSt7sPSqVWmvreA==
+ b=gVP/GYZCOFncP95kxIFrdoKEgfhZW6zXdfausjjJQ9LPgQ+2rnUsDy+OX+58D3cQ3dhD+yBz0wQ75LrpSAU+O3bMx8UOfkH3P7DztyG5jLCeETLHVPiw78BZFBEs/5DE/ls8yt4a+nltx0SvFbQ7eDYyLtm6P3slgAiqm2O8sHitNJp9c1n01jkUv0uuuEK47AEMywHbwoDH92T7ABZla9sppSthGoB1t9ZSLREYMLYRkv5r5mKvch+k0cRfeHaVfjR9QY5KKx4bhWEfvPR1aBBlA5lR9V5Nkjf6buBTRlmFadk1E/h9vTBfo6nCb4j9HnIWWjGVLuVwQSQ6hW34xw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VI2pT8hzOpPde7TrF/3KPRMf+lt+gPsuoueEIsdpiKU=;
- b=Kggx0cCnUij0GVEq/ZGsID6nULwZvdR4GdAuIcxQeWqPz3qYh8fh38V8Ar0cEF+WWWON0SZVxa4yVqQvoQI+n3NBdByDK0X8kxLktIWFt2SXubCfysnRyq4OjQWNOw17yzQAPJ0E3h48YmThrVpKVBJvB2gsnmbkoNvP2wVIuN2karQtPME1MNaqOI5y5awYsL/CHA+O3gskeWB66L5NkcBNWuCqCUzUhkdNvm7k5uD7XsEwO5q0CPN0Q2bVoG4rbjOsJdX7mAgDYKlUOMRpj8GyZz3x7h7pvvDRBqzBurwsjQXuyPE57as3xwtAuljV5Bzr8cXPRWJ25M5MOl7rNw==
+ bh=LohWKwYF3JxEUVI29Te/uH9OM3c8WXtpOa3jpnEQBeY=;
+ b=qqQyu0zuSGjFwGzaRKbbwftgj8fWbZp9pI359+vdH99Wsfs0H9Y5lckzIc0NmzZxU9Y285QB51ODRDJrDkYqFGPgfbGWUnIH91po5/AtTGZYzdho0CQLPnmxjvY87YiEXkO2lr7qyuk2kaGx3qN3qvcv3R0Vuxnijz26YwQhAXHzIUq2+DfFcgO8wSTsrI8EvKJxMnIz4ue80F/1Y74LPuo+wKsbYXN/UIyAXqJIo4hYYjlfOK0mLRskxxNytjgeCAjqkXuF/u6CHPJfPfy79Gt/mbAKw0H1GHGInJFy0kaiZy4AGMHBzszqc9edOxFmKNlx/z6CY+MdDXhz/43BOw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,18 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VI2pT8hzOpPde7TrF/3KPRMf+lt+gPsuoueEIsdpiKU=;
- b=jjUSQkOz0huQRatN2p6eCbs6uaR/TqIbzIOq/fzW+SgeUME5o+xN1cD+W7DpPF8dY/6EVhyFrHYBrdXl5W7c/N1nl+U5l3PbGsXnWhCHfKC4Ahw4i6V2gO9hmbVoZ1ZvLPTBi/ZPrnp+bns4zpKHF5vXgJLHBzOeCr8J5KwKELH7imMt4q5mo461bJj5OnlHx+5e6Yf/vUOy16DgTlU3q+eVVHt+t+46+PYj5idOMtQWHKkuCH6hqY3YbDF+f0g0j38gE1Cc5cNRIFHoM2oBvpy557zSPrtH+JcPhU8Ee58xK/JiE/tk9GJrEJ+xMRzfMRi/w/xDifHZNOEDkP5Jhw==
-Received: from CY5PR10CA0022.namprd10.prod.outlook.com (2603:10b6:930:1c::28)
- by MN0PR12MB5836.namprd12.prod.outlook.com (2603:10b6:208:37b::14) with
+ bh=LohWKwYF3JxEUVI29Te/uH9OM3c8WXtpOa3jpnEQBeY=;
+ b=Gig7kecMQcN3P9inCoMgl7ZjqqvPuaWs7Q5IVuf3xHLc+nzT2gQA4+K6Z2YV2eispUYJmzRuRHVvVXBLdRRHg5SScl3Gr4PFP3gAyUSEaJD7wfjME1IAqI881GNCX8ZfCkXLcei42UtwPWX8swOxHdm7nPz0p30UHCTkg1hdspy/6AIm5GgrwfEP+uxssOBClJCNj1q/PTAvUF6GsgMbFhrykDBJq7EwyMwMIYFZkA0sEcY7sKRRhiylph+yIphvk234BJ+g1L0v+e8ubhvlG5UlWJkQ+Z54M3ws4x2Lmmfl63IGWw4/H1n2FGBj9w6YZSNjiUiJo8V4YyXqW4gAUQ==
+Received: from CYZPR17CA0023.namprd17.prod.outlook.com (2603:10b6:930:8c::29)
+ by PH7PR12MB7330.namprd12.prod.outlook.com (2603:10b6:510:20d::10) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
- 2026 04:08:13 +0000
-Received: from CY4PEPF0000E9DB.namprd05.prod.outlook.com
- (2603:10b6:930:1c:cafe::17) by CY5PR10CA0022.outlook.office365.com
- (2603:10b6:930:1c::28) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 04:08:10 +0000
+Received: from CY4PEPF0000E9D5.namprd05.prod.outlook.com
+ (2603:10b6:930:8c:cafe::38) by CYZPR17CA0023.outlook.office365.com
+ (2603:10b6:930:8c::29) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.11 via Frontend Transport; Fri, 3
- Jul 2026 04:08:12 +0000
+ Jul 2026 04:08:10 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -60,20 +60,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000E9DB.mail.protection.outlook.com (10.167.241.74) with Microsoft
+ CY4PEPF0000E9D5.mail.protection.outlook.com (10.167.241.68) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 04:08:12 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 04:08:09 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
- 2026 21:07:58 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ 2026 21:07:54 -0700
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
- 2026 21:07:57 -0700
+ 2026 21:07:53 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 2 Jul 2026 21:07:56 -0700
+ Transport; Thu, 2 Jul 2026 21:07:52 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
  Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
@@ -85,9 +85,9 @@ CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
 	<xueshuai@linux.alibaba.com>
-Subject: [PATCH v5 18/18] iommu/arm-smmu-v3: Block ATS for a master upon an ATC invalidation timeout
-Date: Thu, 2 Jul 2026 21:06:43 -0700
-Message-ID: <939885143f3064811685b3f31f6f30f8a713c89e.1783044582.git.nicolinc@nvidia.com>
+Subject: [PATCH v5 15/18] iommu/arm-smmu-v3: Add INV_TYPE_ATS_BROKEN to skip quarantined ATS masters
+Date: Thu, 2 Jul 2026 21:06:40 -0700
+Message-ID: <18ebcb530ae161c5f4e37394ed1d69c5bf010667.1783044582.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1783044582.git.nicolinc@nvidia.com>
 References: <cover.1783044582.git.nicolinc@nvidia.com>
@@ -97,28 +97,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9DB:EE_|MN0PR12MB5836:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4c65e5f-3482-423d-fc5c-08ded8b8b364
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D5:EE_|PH7PR12MB7330:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ef02506-6319-45b5-d6ba-08ded8b8b1b9
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|7416014|23010399003|1800799024|376014|11063799006|18002099003|5023799004|22082099003|3023799007|56012099006;
-X-Microsoft-Antispam-Message-Info: tN1lh2wwpHDWTLdJhSE1+HqNEn4ZijBXpeCZOPkXTJxMnI8IVtwFcSKhpQPL+bi+oxxZC554lLcKQhH9uNenaqV0vGlOAe4Xfc2BmKTeEvZLXFMd5JeNz2gdhn1vs6EqW3ZmDtevHUtnepFKtPs2eVN3lMLVQ+ITUchq9yGMkVgX+2hXG0TCJIAnI+urR2EDJYWEfBFV7nfwaPJ0WGxh0TIcZXZXsPTDN9v8FRYfYCWH502miTCrLYcTTNBtd37W1HyrXoETM/DZOCIhwBhrJSy6UMuBGvmTD/jEbVs8UJTt5EBBLA4cnaJjNM5eqYGh7rTdiePAPixZfLDKp6ewpenUzZ76g7b2UfKD2zJPTH9VymrZn5VXI5eWKhYEx7zCN3o+/Au15pktOS//Vm80Rx9zPepaMr3BDT6ZA8sEUb/6DI4MWxFjvLybRtbCYYv8wmlXzJo6iRJliwDAQpcovgXSBTno29hOjOKzYU1WhrSXd1AuRvAFEeagaFG9HYdm6x/I7G4Pnup2JTAXoxRxfHEDwGh+Z8t/2+9hOmE6gby31xxYHxeVzu0915NUT+s29WAXujOkFeu6hmp1U3yrdhBiKbaG3Tx3wAQpjRKZl27NUwh+SxfM4Cm1zs9BH8AstWv/s3q2yTmjZw8fCRT4nWHACgXozvggWSmFJ32+6V5u87D0dwvKdplD2205jnLK8arGZulGtVoFdya2q9knBQ==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(7416014)(23010399003)(1800799024)(376014)(11063799006)(18002099003)(5023799004)(22082099003)(3023799007)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|23010399003|36860700016|82310400026|22082099003|18002099003|3613699012|6133799003|11063799006|56012099006|3023799007;
+X-Microsoft-Antispam-Message-Info: S64LoRd+3Fb1XZpK6XcGQsA+tJgUFaokKitnBLlL2SQ1M4AKsniPMF4pn3RtG6KIB1W1LPKYAgXJ+KYSh6miPadqADHd1/dV1RjbrAd55FEdgzka9VhZCxvOAigndjB82j7WHbPvVXQ5rLAIwKkPA3JTZ05P+POj4lK+bhP0lYyI0NI1jmz1hQfQqA/IvbLz/87FBcuIFVtVNEuvP7A3bpPntLQdEUwMyKbSZ8kVZxsn4ZxNzCgV/+ar9rw6EZzwHNU4XM2oDhxggRgNnAZVdU8Nf/ZZg9PQQok/P+WO329O9x4MYojn+YQfGLpF2Qnr2qaaer0IVC3wPIjDLE+3nOXlT31bG9sE8ozz9cYswcA8T5CyHjAqiclMERWFUh1byN7/J4tTIXs05NgHI4s+UDkeWpHwBpKR/GPEBGaMDpCdp/hV87ANtgl3NSVMydUy07NuP/BOqBWieddxNJ/jc7zUajVv3v+qJ5oipEP2Bjh9P/keIj4CbC2RVSIpaNrcDFHYunItb0EADyJlMKgkCmNA0oR2LTJnvcOIPw3S8EL0TZcKhQ04jX4+YPZ358jVUIyeK4PcTApaZ5bNBT9k5pZzpg6j8enfoUwFEk0Yti63deTlzn5Yg31XwELmT8qJ4XJbGmFtjjj/CZdaqNJw2aQ4giyXgLTw006xZxGHobs1t94W9ujVnwGaLLfN2GlpWSUvImbgOmvZN+iUuwMttHuBjxP6X1xekw+T0cmpBWC+I52xrSuqpUt0ET173zZf
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(23010399003)(36860700016)(82310400026)(22082099003)(18002099003)(3613699012)(6133799003)(11063799006)(56012099006)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: QFHO1DcQrdw8sgPp8SbAP0YI4Yr+VFQfyaBmCUBnEigKUFEwHjQ+NkWlXOMFfDQLvUHfhGB7gKtbNKl64R1Wt7frlZqoqI4bvp1Z1F/z2feiFnHdzRF6XTSdLnjnzb4q9QUxK35ykoJYbxSfp3n2G7etgc3rIjn5uMC+6P0ygwv/mI+QVbtrONdDpf1fvcGlb9qzB7sokOZBiVbkBLMMt1Xw+iHYs7LYJa5jQXocPYfgVH1fEVTrlMFtor+oWh6pS6ld45ksGAyLo4b1zpQ44RuYDq1/5bORmhqmiML+v537QKjBa0NA/3eC5r0KTKaDyy+ScMFht4Jtg5hVvcxzyre8WdgW0yVe6/C+Owfn0jjl7qE236HEi6n7NA0F+5+GS2rtxbZfk7E4kS6Jm5TbLHCKEBnr7PYWlnnqI5i5Kl2vag7gM1+p55Ijr7OOzShT
+X-MS-Exchange-AntiSpam-MessageData-0: tAuqqoxlc6VKanxggdsKr8fKnJ00owBazSD/lLwmL8XQXmEJFgwsYsKPcwqdUW7n6HK0RTqjv0DF0QVvNRUrosySUiQcQZKl1bqEM7kur3fCQEJFckhBnYU6YsDYeDl5pRqucDApvRljadz6ZiRQ+pl2JS9H+Glwz31sbLsJfRkKFeb0VYB2w3zmw8XOLQg/39VIJoekOVcL5BiZWcRsMCHAuoGvyxkOqXZ+pNrnNjbf8+Qg71CA7M427X39lokYTmenQqgXAL6+QLsxslY9f2fsaHpj3mlzmSZGhHIUGJ9iSIH+n+ODgNMfLLv9w3NxPKij5krxa647K1HZnz/BJ/Jl0Ii+Ufbjyfmxd4bffW+rx7RreL8Ef9bxrM7MFJdvrOjsDNsFlmxnzODOm2ltGelKzpKw8tGC/UZt+rb3kCvNenzCF0WoLWjejZxLHUIk
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 04:08:12.7423
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 04:08:09.9341
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4c65e5f-3482-423d-fc5c-08ded8b8b364
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ef02506-6319-45b5-d6ba-08ded8b8b1b9
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9DB.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D5.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5836
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7330
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_210824_065005_92B43DC9 
-X-CRM114-Status: GOOD (  26.63  )
+X-CRM114-CacheID: sfid-20260702_210824_682670_3EDA12B9 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,309 +133,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a CMD_ATC_INV times out, the SMMU stalls at the trailing CMD_SYNC and
-arm_smmu_cmdq_issue_cmdlist() returns -EIO. The CMDQ HW reports the timeout
-on the CMD_SYNC, not the failing CMD_ATC_INV, so the master that caused it
-cannot be identified from the error alone.
+A subsequent change quarantines a master whose ATC invalidation timed out,
+marking its INV_TYPE_ATS / INV_TYPE_ATS_FULL entries in that domain's invs
+as broken. Clearing STE.EATS makes the SMMU reject the device's ATS but
+does not stop the driver from issuing ATC_INV, so without a marker those
+commands would keep timing out on that master.
 
-cmds->cmds is sorted by SID, so arm_smmu_cmdq_batch_retry() walks the batch
-and re-issues one CMD_ATC_INV per unique ATS SID; a second -EIO can confirm
-which master is broken. arm_smmu_quarantine_ats() then quarantines it:
- - clear STE.EATS on every SID it owns
- - walk master->master_domains marking its INV_TYPE_ATS/_ATS_FULL entries
-   in every domain's invs as INV_TYPE_ATS_BROKEN so later walks skip them
+Add the INV_TYPE_ATS_BROKEN type. __arm_smmu_domain_inv_range() skips it in
+its switch without issuing commands. arm_smmu_inv_is_ats() recognizes it so
+the iter's batch-boundary logic places it next to other ATS group entries.
 
-When a batch carries only one unique Stream ID, the timed-out CMD_SYNC by
-itself identifies the target, in which case quarantine it directly and skip
-the re-issue probes. This is the common case, since it is uncommon for an
-ATS-capable PCI device to have multiple Stream IDs.
+The setter writes cur->type via WRITE_ONCE while the inv_range iter holds
+read_lock on invs->rwlock, so its loads of cur->type and next->type race
+with it. A new arm_smmu_inv_type() helper wraps the load in READ_ONCE, and
+the iter and arm_smmu_inv_cmp() read through it. cur->type is u8 so the
+access is already atomic; READ_ONCE annotates it for KCSAN and matches the
+cur->users pattern.
 
-The marking spans every domain because a master may be attached at the RID
-and at multiple PASIDs; marking only the invs that hit the timeout would
-leave its other invs issuing CMD_ATC_INV that keep timing out. Clearing
-STE.EATS makes the SMMU reject the device's ATS but does not by itself
-stop the driver from issuing CMD_ATC_INV, so the marking is what suppresses
-the recurring timeouts.
+arm_smmu_invs_merge() and arm_smmu_invs_purge() also read cur->type, but
+through a whole-struct copy of the live array that cannot be a READ_ONCE.
+Wrap those copies in data_race(): the u8 load returns the old or flipped
+type, and a stale read at worst yields one more ATC_INV timeout, which
+re-quarantines. The hot-path WRITE_ONCE and READ_ONCE stay; data_race()
+only covers the cold copies that cannot be marked.
 
-The marking is gated on the STE.EATS clear: it runs only after the CFGI_STE
-batch completes successfully. If that batch fails the entries are left as
-ATS/ATS_FULL, so invalidations keep issuing CMD_ATC_INV and re-quarantine
-until the clear is confirmed, rather than suppressing ATC_INV while ATS may
-still be enabled.
+An in-place flip of cur->type to INV_TYPE_ATS_BROKEN must not change its
+sort position, or arm_smmu_invs_merge() and unref() walks would no longer
+match it against an incoming ATS / ATS_FULL identity. Treat all three ATS
+variants as one sort class in arm_smmu_inv_cmp() so a flip stays in place
+and the flipped entry still matches its pre-flip ssid on attach and detach.
 
-The flip to INV_TYPE_ATS_BROKEN is a WRITE_ONCE on inv->type, paired with
-the READ_ONCE in arm_smmu_inv_type(). The invs->rwlock is not taken here:
-the caller holds the read side for the timed-out batch, so taking a write
-side would ABBA-deadlock against a concurrent timeout. It is safe unlocked
-because STE.EATS is cleared first, so a racing CMD_ATC_INV forms no ATC
-entry and at worst times out again.
+No functional change yet; the new type is introduced but never set
+anywhere.
 
-The STE.EATS clear uses try_cmpxchg64() to avoid losing a concurrent
-arm_smmu_write_ste() update to data[1]. try_cmpxchg64() would be UB on the
-Non-Cacheable stream table of a non-coherent SMMU, and a non-atomic
-fallback could revert such a concurrent update (e.g. an S1DSS change). So
-leave a non-coherent SMMU unquarantined, keeping the pre-existing behavior
-of reporting every ATC_INV timeout.
-
-Also force a CMD_SYNC on every sub-batch flush carrying an ATC_INV so the
-timeout is observed at the call site that issued the commands.
-
-Identification is synchronous: each master that keeps timing out adds one
-more CMD_SYNC poll, capped at the ARM_SMMU_POLL_TIMEOUT_US software limit.
-That cap is rarely reached: a non-responding ATC_INV is completed in error
-when the device's PCIe Completion Timeout expires, which defaults to a
-short interval.
-
-Assisted-by: Claude:claude-fable-5
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 201 +++++++++++++++++++-
- 1 file changed, 198 insertions(+), 3 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 12 +++++++-
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 33 +++++++++++++++------
+ 2 files changed, 35 insertions(+), 10 deletions(-)
 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 56e9a94826a12..8eb5684696316 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -736,6 +736,7 @@ enum arm_smmu_inv_type {
+ 	INV_TYPE_S2_VMID_S1_CLEAR,
+ 	INV_TYPE_ATS,
+ 	INV_TYPE_ATS_FULL,
++	INV_TYPE_ATS_BROKEN,
+ };
+ 
+ struct arm_smmu_inv {
+@@ -752,9 +753,18 @@ struct arm_smmu_inv {
+ 	int users; /* users=0 to mark as a trash to be purged */
+ };
+ 
++/* cur->type may flip to INV_TYPE_ATS_BROKEN concurrently with readers */
++static inline u8 arm_smmu_inv_type(const struct arm_smmu_inv *inv)
++{
++	return READ_ONCE(inv->type);
++}
++
+ static inline bool arm_smmu_inv_is_ats(const struct arm_smmu_inv *inv)
+ {
+-	return inv->type == INV_TYPE_ATS || inv->type == INV_TYPE_ATS_FULL;
++	u8 type = arm_smmu_inv_type(inv);
++
++	return type == INV_TYPE_ATS || type == INV_TYPE_ATS_FULL ||
++	       type == INV_TYPE_ATS_BROKEN;
+ }
+ 
+ /**
 diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index fd9a095154c72..528d816479d7f 100644
+index 78e2559bdc491..a18a56ceeb7fb 100644
 --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -109,6 +109,10 @@ static const char * const event_class_str[] = {
- 
- static int arm_smmu_alloc_cd_tables(struct arm_smmu_master *master);
- static bool arm_smmu_ats_supported(struct arm_smmu_master *master);
-+static struct arm_smmu_ste *
-+arm_smmu_get_step_for_sid(struct arm_smmu_device *smmu, u32 sid);
-+static struct arm_smmu_domain *
-+to_smmu_domain_devices(struct iommu_domain *domain);
- 
- static void parse_driver_options(struct arm_smmu_device *smmu)
+@@ -1029,13 +1029,21 @@ arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next, size_t *idx)
+ static int arm_smmu_inv_cmp(const struct arm_smmu_inv *inv_l,
+ 			    const struct arm_smmu_inv *inv_r)
  {
-@@ -920,12 +924,25 @@ static void arm_smmu_cmdq_batch_init_cmd(struct arm_smmu_device *smmu,
- 	cmds->has_ats = false;
- }
- 
-+static void arm_smmu_cmdq_batch_retry(struct arm_smmu_device *smmu,
-+				      struct arm_smmu_cmdq_batch *cmds);
-+
- static int arm_smmu_cmdq_batch_issue(struct arm_smmu_device *smmu,
- 				     struct arm_smmu_cmdq_batch *cmds,
- 				     bool sync)
- {
--	return arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
--					   cmds->num, sync);
-+	int ret = arm_smmu_cmdq_issue_cmdlist(smmu, cmds->cmdq, cmds->cmds,
-+					      cmds->num, sync);
-+
 +	/*
-+	 * The CMDQ HW reports an ATC invalidation timeout at the trailing
-+	 * CMD_SYNC, not at the failing CMD_ATC_INV. Re-issue each unique ATS
-+	 * SID in the batch to identify the unresponsive master and block its
-+	 * ATS so subsequent invalidations make forward progress.
++	 * Treat all ATS types as one class, so an in-place flip to ATS_BROKEN
++	 * preserves the sort order and still matches the original ATS entry.
 +	 */
-+	if (ret == -EIO && cmds->has_ats)
-+		arm_smmu_cmdq_batch_retry(smmu, cmds);
-+	return ret;
++	bool are_ats = arm_smmu_inv_is_ats(inv_l) & arm_smmu_inv_is_ats(inv_r);
++	u8 type_l = arm_smmu_inv_type(inv_l);
++	u8 type_r = arm_smmu_inv_type(inv_r);
++
+ 	if (inv_l->smmu != inv_r->smmu)
+ 		return cmp_int((uintptr_t)inv_l->smmu, (uintptr_t)inv_r->smmu);
+-	if (inv_l->type != inv_r->type)
+-		return cmp_int(inv_l->type, inv_r->type);
++	if (!are_ats && type_l != type_r)
++		return cmp_int(type_l, type_r);
+ 	if (inv_l->id != inv_r->id)
+ 		return cmp_int(inv_l->id, inv_r->id);
+-	if (arm_smmu_inv_is_ats(inv_l))
++	if (are_ats)
+ 		return cmp_int(inv_l->ssid, inv_r->ssid);
+ 	return 0;
  }
+@@ -1121,11 +1129,12 @@ struct arm_smmu_invs *arm_smmu_invs_merge(struct arm_smmu_invs *invs,
+ 		return ERR_PTR(-ENOMEM);
  
- static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
-@@ -941,6 +958,10 @@ static bool arm_smmu_cmdq_batch_force_sync(struct arm_smmu_device *smmu,
- 	    (smmu->options & ARM_SMMU_OPT_CMDQ_FORCE_SYNC))
+ 	new = new_invs->inv;
++	/* data_race(): a racing quarantine may flip ->type; the u8 is safe */
+ 	arm_smmu_invs_for_each_cmp(invs, i, to_merge, j, cmp) {
+ 		if (cmp < 0) {
+-			*new = invs->inv[i];
++			*new = data_race(invs->inv[i]);
+ 		} else if (cmp == 0) {
+-			*new = invs->inv[i];
++			*new = data_race(invs->inv[i]);
+ 			WRITE_ONCE(new->users, READ_ONCE(new->users) + 1);
+ 		} else {
+ 			*new = to_merge->inv[j];
+@@ -1247,8 +1256,9 @@ struct arm_smmu_invs *arm_smmu_invs_purge(struct arm_smmu_invs *invs)
+ 	if (!new_invs)
+ 		return NULL;
+ 
++	/* data_race(): a racing quarantine may flip ->type; the u8 is safe */
+ 	arm_smmu_invs_for_each_entry(invs, i, inv) {
+-		new_invs->inv[num_invs] = *inv;
++		new_invs->inv[num_invs] = data_race(*inv);
+ 		if (arm_smmu_inv_is_ats(inv))
+ 			new_invs->has_ats = true;
+ 		num_invs++;
+@@ -2635,8 +2645,8 @@ static inline bool arm_smmu_invs_end_batch(struct arm_smmu_inv *cur,
+ 	if (cur->smmu != next->smmu)
  		return true;
+ 	/* The batch for S2 TLBI must be done before nested S1 ASIDs */
+-	if (cur->type != INV_TYPE_S2_VMID_S1_CLEAR &&
+-	    next->type == INV_TYPE_S2_VMID_S1_CLEAR)
++	if (arm_smmu_inv_type(cur) != INV_TYPE_S2_VMID_S1_CLEAR &&
++	    arm_smmu_inv_type(next) == INV_TYPE_S2_VMID_S1_CLEAR)
+ 		return true;
+ 	/* ATS must be after a sync of the S1/S2 invalidations */
+ 	if (!arm_smmu_inv_is_ats(cur) && arm_smmu_inv_is_ats(next))
+@@ -2672,7 +2682,7 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
+ 		if (!cmds.num)
+ 			arm_smmu_cmdq_batch_init_cmd(smmu, &cmds, &cmd);
  
-+	/* ATC_INV timeout is reported to CMD_SYNC; catch at the call site */
-+	if (cmds->num == CMDQ_BATCH_ENTRIES && cmds->has_ats)
-+		return true;
-+
- 	return false;
- }
+-		switch (cur->type) {
++		switch (arm_smmu_inv_type(cur)) {
+ 		case INV_TYPE_S1_ASID:
+ 			cmd = arm_smmu_make_cmd_tlbi(cur->size_opcode,
+ 						     cur->id, 0);
+@@ -2706,6 +2716,9 @@ static void __arm_smmu_domain_inv_range(struct arm_smmu_invs *invs,
+ 				arm_smmu_make_cmd_atc_inv_all(cur->id,
+ 							      IOMMU_NO_PASID));
+ 			break;
++		case INV_TYPE_ATS_BROKEN:
++			/* Master is quarantined; skip its ATC_INV */
++			break;
+ 		default:
+ 			WARN_ON_ONCE(1);
+ 			break;
+@@ -3256,6 +3269,8 @@ arm_smmu_master_build_inv(struct arm_smmu_master *master,
+ 		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_ATC_INV;
+ 		cur->ssid = ssid;
+ 		break;
++	case INV_TYPE_ATS_BROKEN:
++		break;
+ 	}
  
-@@ -1014,7 +1035,11 @@ static inline struct arm_smmu_inv *
- arm_smmu_invs_iter_next(struct arm_smmu_invs *invs, size_t next, size_t *idx)
- {
- 	while (true) {
--		if (next >= invs->num_invs) {
-+		/*
-+		 * Lockless readers (arm_smmu_invs_set_ats_broken) pair with the
-+		 * WRITE_ONCE() in arm_smmu_invs_unref(); num_invs only shrinks.
-+		 */
-+		if (next >= READ_ONCE(invs->num_invs)) {
- 			*idx = next;
- 			return NULL;
- 		}
-@@ -2505,6 +2530,176 @@ static int arm_smmu_atc_inv_master(struct arm_smmu_master *master,
- 	return arm_smmu_cmdq_batch_submit(master->smmu, &cmds);
- }
- 
-+static void arm_smmu_invs_set_ats_broken(struct arm_smmu_invs *invs,
-+					 struct arm_smmu_device *smmu, u32 sid)
-+{
-+	struct arm_smmu_inv *inv;
-+	size_t i;
-+
-+	/* arm_smmu_atc_inv_master() submits batches with invs=NULL */
-+	if (!invs)
-+		return;
-+
-+	/*
-+	 * invs->rwlock is deliberately not taken: the caller holds one domain's
-+	 * read side for the timed-out batch, then taking another domain's write
-+	 * side while a concurrent timeout does the reverse would ABBA-deadlock.
-+	 *
-+	 * This indicates some potential races, but they are harmless since EATS
-+	 * was already cleared:
-+	 *  - WRITE_ONCE() may hit a stale invs copy if an attach just installed
-+	 *    a new invs, which might result in another ATC_INV timeout.
-+	 *  - a concurrent invalidation may still issue an ATC_INV that may time
-+	 *    out again.
-+	 */
-+	arm_smmu_invs_for_each_entry(invs, i, inv) {
-+		u8 type = arm_smmu_inv_type(inv);
-+
-+		if (inv->smmu == smmu && inv->id == sid &&
-+		    (type == INV_TYPE_ATS || type == INV_TYPE_ATS_FULL))
-+			WRITE_ONCE(inv->type, INV_TYPE_ATS_BROKEN);
-+	}
-+}
-+
-+/* Find the master by SID and block its ATS at the SMMU */
-+static void arm_smmu_quarantine_ats(struct arm_smmu_device *smmu, u32 stream_id)
-+{
-+	struct arm_smmu_cmd cmd = arm_smmu_make_cmd_op(CMDQ_OP_CFGI_STE);
-+	struct arm_smmu_master_domain *md;
-+	struct arm_smmu_cmdq_batch cmds;
-+	struct arm_smmu_master *master;
-+	struct arm_smmu_invs *invs;
-+	unsigned long flags;
-+	int i;
-+
-+	/*
-+	 * The in-place STE.EATS clear relies on try_cmpxchg64(), which is UB
-+	 * on Non-Cacheable memory. Leave a non-coherent SMMU unquarantined:
-+	 * its invalidations keep issuing ATC_INV and reporting the timeouts.
-+	 */
-+	if (!(smmu->features & ARM_SMMU_FEAT_COHERENCY))
-+		return;
-+
-+	guard(spinlock_irqsave)(&smmu->streams_lock);
-+	master = arm_smmu_find_master(smmu, stream_id);
-+	/*
-+	 * A concurrent hot-unplug can release the master while a stale ATS
-+	 * entry for it still lingers in the invs snapshot being walked here.
-+	 */
-+	if (!master)
-+		return;
-+
-+	/* Clear STE.EATS for every SID and sync to the SMMU */
-+	arm_smmu_cmdq_batch_init_cmd(smmu, &cmds, &cmd);
-+
-+	for (i = 0; i < master->num_streams; i++) {
-+		u32 sid = master->streams[i].id;
-+		struct arm_smmu_ste *ste = arm_smmu_get_step_for_sid(smmu, sid);
-+		__le64 old, new;
-+
-+		/*
-+		 * A concurrent arm_smmu_write_ste() of a domain attachment may
-+		 * overwrite the data[1] and set EATS, which is recoverable by
-+		 * another ATC_INV issued by its arm_smmu_attach_commit().
-+		 */
-+		old = READ_ONCE(ste->data[1]);
-+		do {
-+			new = old & ~cpu_to_le64(STRTAB_STE_1_EATS);
-+		} while (!try_cmpxchg64(&ste->data[1], &old, new));
-+
-+		arm_smmu_cmdq_batch_add_cmd(
-+			smmu, &cmds, arm_smmu_make_cmd_cfgi_ste(sid, true));
-+	}
-+
-+	/*
-+	 * Only proceed to mark the entries broken if the STE.EATS clear above
-+	 * is confirmed; otherwise return so invalidations keep issuing ATC_INV
-+	 * (and re-quarantine) until ATS is actually disabled.
-+	 */
-+	if (arm_smmu_cmdq_batch_submit(smmu, &cmds)) {
-+		dev_err_ratelimited(smmu->dev,
-+				    "failed to disable ATS for master\n");
-+		return;
-+	}
-+
-+	/*
-+	 * Mark this master's ATS entries broken in every domain it is attached,
-+	 * so later invalidations skip the ATC_INV that would time out again.
-+	 */
-+	rcu_read_lock();
-+	spin_lock_irqsave(&master->master_domains_lock, flags);
-+	list_for_each_entry(md, &master->master_domains, master_elm) {
-+		struct arm_smmu_domain *smmu_domain =
-+			to_smmu_domain_devices(md->domain);
-+
-+		if (!smmu_domain)
-+			continue;
-+		invs = rcu_dereference(smmu_domain->invs);
-+		for (i = 0; i < master->num_streams; i++)
-+			arm_smmu_invs_set_ats_broken(invs, smmu,
-+						     master->streams[i].id);
-+	}
-+	spin_unlock_irqrestore(&master->master_domains_lock, flags);
-+	rcu_read_unlock();
-+}
-+
-+/* Re-issue every unique ATS SID in @cmds to identify and quarantine masters. */
-+static void arm_smmu_cmdq_batch_retry(struct arm_smmu_device *smmu,
-+				      struct arm_smmu_cmdq_batch *cmds)
-+{
-+	struct arm_smmu_cmd atc = {};
-+	u32 last_sid = 0;
-+	int nr_sids = 0;
-+	int i;
-+
-+	/*
-+	 * Count unique Stream IDs, taking advantage of the sorted commands. An
-+	 * ATS-capable PCI device rarely has multiple SIDs, so a batch commonly
-+	 * carries a single SID, where a re-issue probe would be pointless.
-+	 */
-+	for (i = 0; i < cmds->num; i++) {
-+		u32 sid;
-+
-+		/* Only ATC_INV commands can time out */
-+		if (FIELD_GET(CMDQ_0_OP, cmds->cmds[i].data[0]) !=
-+		    CMDQ_OP_ATC_INV)
-+			continue;
-+		sid = FIELD_GET(CMDQ_ATC_0_SID, cmds->cmds[i].data[0]);
-+		if (!nr_sids || sid != last_sid) {
-+			nr_sids++;
-+			last_sid = sid;
-+		}
-+	}
-+
-+	/* The timed-out CMD_SYNC already identifies the lone Stream ID */
-+	if (nr_sids == 1) {
-+		arm_smmu_quarantine_ats(smmu, last_sid);
-+		return;
-+	}
-+
-+	for (i = 0; i < cmds->num; i++) {
-+		u32 sid;
-+
-+		if (FIELD_GET(CMDQ_0_OP, cmds->cmds[i].data[0]) !=
-+		    CMDQ_OP_ATC_INV)
-+			continue;
-+
-+		/*
-+		 * One retry per Stream ID. So, only try the first command since
-+		 * commands are sorted. And each dead master costs one CMD_SYNC,
-+		 * bounded by its PCIe Completion Timeout (usually <= 250ms).
-+		 */
-+		sid = FIELD_GET(CMDQ_ATC_0_SID, cmds->cmds[i].data[0]);
-+		if (atc.data[0] &&
-+		    sid == FIELD_GET(CMDQ_ATC_0_SID, atc.data[0]))
-+			continue;
-+
-+		atc = cmds->cmds[i];
-+		if (arm_smmu_cmdq_issue_cmd_p(smmu, &atc, true) == -EIO)
-+			arm_smmu_quarantine_ats(smmu, sid);
-+	}
-+}
-+
- /* IO_PGTABLE API */
- static void arm_smmu_tlb_inv_context(void *cookie)
- {
+ 	return cur;
 -- 
 2.43.0
 
