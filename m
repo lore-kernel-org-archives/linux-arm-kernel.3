@@ -4,58 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3F3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FC7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:49:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2Wz1aK/tf1uvIhKBfTbncNP+19T9GSAicaVpAAdBkS4=; b=nAjRLvyCSyYc6WmS0pZj7mesLe
-	7mFjZNsoOB2CaD+QnJsoLSoYjgpMRxIx3N5aq1ceYUAMnMPqiRUz0orRLJ3vHjg5GChjplD01l7/t
-	Ip+3YUGFW4PzTiAsn3hlhEN5AaTpVe0XH7oKJWqUtvhN4MzbxoZ3kBveObtCAZpy1Z105BDa6DyFf
-	t4Ei2hkO1MGboyUYyHfCTyvANRReFbFlLNlVAwz4iQwBHHmCqAU4ksRUa1r3b7eY2rb6rdHIhyfFH
-	AO/1qYECV7z4zetqAhfFiTKwQU3FaQz+UBsMIXKlHOgSkkKpR+LHjLTfY+ZZ3Voekt28u1YE2gCA2
-	5qVVzUuA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3xTFwb1kkz9JrRcGUxV79lqBnPrw2xUh/ObKoOp+uyI=; b=rRI3iS/tS09prffNwivxE33lLL
+	vdn+PWjp2Ez43G50Rz/u6F9rk8V7ALY/O4bF6HfSaQcVFDvQ4Dk2yF2x5ZQsZfsff6lGXMliAzNYL
+	qffsHu/wNENVN7QBwBDa10uKIIsUhhT+SqMSvRvExxA8m8EYPJjJJJ74cKmyw/lEoaifxCQ2zby+k
+	1QbtlaNeX1MaqL3Guez+jHE+u4sx3E6sKuug5mbA5rn0fzNjdtngoCG0SR+Fth2frpmOHHUmcOYK3
+	9oL2ydYVSggLfMXzySXYBB2wKSaZG+d/SKEO/OriTv2YgStLFvrdfYBAAVP1Lz5dWQa10qMrH/3mf
+	6ks8uyVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeGB-000000079XY-1BYJ;
-	Fri, 03 Jul 2026 13:48:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeG8-000000079Wa-2bR7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 13:48:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B0C861570;
-	Fri,  3 Jul 2026 06:48:41 -0700 (PDT)
-Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.29.35])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 600693FAA1;
-	Fri,  3 Jul 2026 06:48:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783086526; bh=XxkgONwo/+IxkTEmohscjRa0/9XApUUoF/50Es1jlUk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=rGnfz1jaa2REG4VHXxh0ZrShg9jIeFdm4kN/hwpHtggoCLgHNtEO2mfY8nlgs38hH
-	 65ePFicQWL75k60ZmR/y4cuWJzs0ka/It+VEX2UHPsbzbXe7IyQEG4rSgj6z2xVXdD
-	 1BS0VobwZNdZF/5AhaG54//HWkPYGH3m8IJ7tjXU=
-From: Steven Price <steven.price@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Steven Price <steven.price@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Subject: [PATCH] arm64: Correct value returned by ESR_ELx_FSC_ADDRSZ_nL()
-Date: Fri,  3 Jul 2026 14:48:35 +0100
-Message-ID: <20260703134837.100109-1-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wfeGQ-000000079d8-22K0;
+	Fri, 03 Jul 2026 13:49:06 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfeGM-000000079a6-1pwV;
+	Fri, 03 Jul 2026 13:49:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3xTFwb1kkz9JrRcGUxV79lqBnPrw2xUh/ObKoOp+uyI=; b=HxHSuDXQgvnItugfYRvrIiwSFQ
+	7GZ+/DdX3eSdrHO0Uy1Cl6V77+Q3fYAz2AfOYN/pghq13Z/PGh/UwnyV0i4qTGt0l1Lad2M4z506Q
+	IlPslrPcE+eJh8eeOVZsEcP52053o53TeYftj2q0E28/X7wR56AhCu9dpmauENarH9wJkyCsDfyZn
+	J1dhqZEAZJGKPMJw1dwcuiFZ3eXPYTagmSyVkxgRmCnfTUOAbKq0ijQa/cK+IhQw86g0/D442qZjF
+	aPhNPcBkKsfgFeJnKTNbew9Yt8fWentD9ejy/ITc85HXkTZ/lNE1QDD7gh2RXiG7QRfHnvXdECs+A
+	KmhsrjFw==;
+Received: from [189.7.87.67] (helo=[192.168.0.2])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wfeGA-008VUz-Ou; Fri, 03 Jul 2026 15:48:51 +0200
+Message-ID: <8a49c0b6-4390-492f-a8fd-5edba290bb1d@igalia.com>
+Date: Fri, 3 Jul 2026 10:48:45 -0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] pmdomain: bcm: bcm2835-power: Raise ASB poll timeout to
+ 100us
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Ulf Hansson <ulfh@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>
+Cc: linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, kernel-dev@igalia.com
+References: <20260530204636.1115120-1-mcanal@igalia.com>
+ <dc06a108-342d-480f-849d-908b76fce2d3@broadcom.com>
+From: =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>
+Content-Language: en-US
+Autocrypt: addr=mcanal@igalia.com; keydata=
+ xsBNBGcCwywBCADgTji02Sv9zjHo26LXKdCaumcSWglfnJ93rwOCNkHfPIBll85LL9G0J7H8
+ /PmEL9y0LPo9/B3fhIpbD8VhSy9Sqz8qVl1oeqSe/rh3M+GceZbFUPpMSk5pNY9wr5raZ63d
+ gJc1cs8XBhuj1EzeE8qbP6JAmsL+NMEmtkkNPfjhX14yqzHDVSqmAFEsh4Vmw6oaTMXvwQ40
+ SkFjtl3sr20y07cJMDe++tFet2fsfKqQNxwiGBZJsjEMO2T+mW7DuV2pKHr9aifWjABY5EPw
+ G7qbrh+hXgfT+njAVg5+BcLz7w9Ju/7iwDMiIY1hx64Ogrpwykj9bXav35GKobicCAwHABEB
+ AAHNIE1hw61yYSBDYW5hbCA8bWNhbmFsQGlnYWxpYS5jb20+wsCRBBMBCAA7FiEE+ORdfQEW
+ dwcppnfRP/MOinaI+qoFAmcCwywCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgkQ
+ P/MOinaI+qoUBQgAqz2gzUP7K3EBI24+a5FwFlruQGtim85GAJZXToBtzsfGLLVUSCL3aF/5
+ O335Bh6ViSBgxmowIwVJlS/e+L95CkTGzIIMHgyUZfNefR2L3aZA6cgc9z8cfow62Wu8eXnq
+ GM/+WWvrFQb/dBKKuohfBlpThqDWXxhozazCcJYYHradIuOM8zyMtCLDYwPW7Vqmewa+w994
+ 7Lo4CgOhUXVI2jJSBq3sgHEPxiUBOGxvOt1YBg7H9C37BeZYZxFmU8vh7fbOsvhx7Aqu5xV7
+ FG+1ZMfDkv+PixCuGtR5yPPaqU2XdjDC/9mlRWWQTPzg74RLEw5sz/tIHQPPm6ROCACFls7A
+ TQRnAsMsAQgAxTU8dnqzK6vgODTCW2A6SAzcvKztxae4YjRwN1SuGhJR2isJgQHoOH6oCItW
+ Xc1CGAWnci6doh1DJvbbB7uvkQlbeNxeIz0OzHSiB+pb1ssuT31Hz6QZFbX4q+crregPIhr+
+ 0xeDi6Mtu+paYprI7USGFFjDUvJUf36kK0yuF2XUOBlF0beCQ7Jhc+UoI9Akmvl4sHUrZJzX
+ LMeajARnSBXTcig6h6/NFVkr1mi1uuZfIRNCkxCE8QRYebZLSWxBVr3h7dtOUkq2CzL2kRCK
+ T2rKkmYrvBJTqSvfK3Ba7QrDg3szEe+fENpL3gHtH6h/XQF92EOulm5S5o0I+ceREwARAQAB
+ wsB2BBgBCAAgFiEE+ORdfQEWdwcppnfRP/MOinaI+qoFAmcCwywCGwwACgkQP/MOinaI+qpI
+ zQf+NAcNDBXWHGA3lgvYvOU31+ik9bb30xZ7IqK9MIi6TpZqL7cxNwZ+FAK2GbUWhy+/gPkX
+ it2gCAJsjo/QEKJi7Zh8IgHN+jfim942QZOkU+p/YEcvqBvXa0zqW0sYfyAxkrf/OZfTnNNE
+ Tr+uBKNaQGO2vkn5AX5l8zMl9LCH3/Ieaboni35qEhoD/aM0Kpf93PhCvJGbD4n1DnRhrxm1
+ uEdQ6HUjWghEjC+Jh9xUvJco2tUTepw4OwuPxOvtuPTUa1kgixYyG1Jck/67reJzMigeuYFt
+ raV3P8t/6cmtawVjurhnCDuURyhUrjpRhgFp+lW8OGr6pepHol/WFIOQEg==
+In-Reply-To: <dc06a108-342d-480f-849d-908b76fce2d3@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_064848_693408_A2795511 
-X-CRM114-Status: GOOD (  10.03  )
+X-CRM114-CacheID: sfid-20260703_064904_375119_DE111899 
+X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,37 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Address size fault, level -1 is encoded as 0b101001 or 0x29 according to
-the Arm ARM. Correct the value to match the spec. This also matches the
-offset of "level -1 address size fault" in the fault_info array in
-fault.c.
+Hi Ulf,
 
-Fixes: fb8a3eba9c81 ("KVM: arm64: Only read HPFAR_EL2 when value is architecturally valid")
-Signed-off-by: Steven Price <steven.price@arm.com>
----
-The following hideous link takes you to the relevant chapter of the Arm
-ARM:
+Given Florian's ack, could you consider picking up this patch for the pm
+tree? Thanks!
 
-https://developer.arm.com/documentation/ddi0487/mc/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D24-AArch64-System-Register-Descriptions/-D24-2-General-system-control-registers/-D24-2-44-ESR-EL1--Exception-Syndrome-Register--EL1-?lang=en
+Best regards,
+- Maíra
 
----
- arch/arm64/include/asm/esr.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index 81c17320a588..f816f5d77f1a 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -131,7 +131,7 @@
-  * Annoyingly, the negative levels for Address size faults aren't laid out
-  * contiguously (or in the desired order)
-  */
--#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x25 : 0x2C)
-+#define ESR_ELx_FSC_ADDRSZ_nL(n)	((n) == -1 ? 0x29 : 0x2C)
- #define ESR_ELx_FSC_ADDRSZ_L(n)		((n) < 0 ? ESR_ELx_FSC_ADDRSZ_nL(n) : \
- 						   (ESR_ELx_FSC_ADDRSZ + (n)))
- 
--- 
-2.43.0
+On 22/06/26 12:29, Florian Fainelli wrote:
+> 
+> 
+> On 5/30/2026 9:46 PM, Maíra Canal wrote:
+>> Commit 18605b1b936b ("pmdomain: bcm: bcm2835-power: Increase ASB control
+>> timeout") raised the ASB handshake polling budget from 1us to 5us.
+>> Surveying the pmdomain subsystem, 5us is still one of the smallest 
+>> polling
+>> budgets by a wide margin. Comparable handshakes in other drivers use:
+>>
+>>    - 100us : starfive jh71xx-pmu, apple pmgr-pwrstate
+>>    - 1ms   : renesas rcar-sysc, rmobile-sysc (power-on)
+>>    - 10ms  : renesas rcar-gen4-sysc, sunxi sun55i-pck600
+>>    - 1s    : mediatek mtk-pm-domains, mtk-scpsys
+>>
+>> Raise the BCM2835 timeout to 100us, matching analogous drivers. 100us is
+>> still negligible relative to a power-domain transition and gives the V3D
+>> master ASB substantially more headroom to drain under heavy workloads,
+>> assuring us that the timeout is enough for any scenario.
+>>
+>> Signed-off-by: Maíra Canal <mcanal@igalia.com>
+> 
+> Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
+> 
+> The response I got from our design team is that turning of the the 
+> "slave" should be immediate as it does not support multiple outstanding 
+> transactions, it's the "master" that might requiring bleeding out in- 
+> flight transactions and for which a longer timeout seems reasonable.
 
 
