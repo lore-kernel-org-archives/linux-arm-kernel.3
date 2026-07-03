@@ -4,57 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E3F7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCE0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zXSeNRPQkVlVy8DAuJOJGO898fvDtnoZKP7XJxfcRpg=; b=t6QAs8zwSOPM0caMjONMARqK/J
-	UwCEgtASsX1TWSTJuQTQghOTNHHz2wGYvPpF6bOBQbFXQh/CemXRzHg0EnM5Qx18o369FO7jxmOzb
-	hQUNE3DACEHuB2oM72ob+0KKdgUM9pK1mlMLyqRBKgLUIwxwvIKSHZfkxhEsJcjKrd9xfE3LD1u3W
-	rg4DQzctQCWvd0lHaBdjP+1GApmsXVn8fF4TQaE4oJoc8HX9LrquNIs1jNAKjBgjo39V+6CORk8tE
-	lZdjqQuiIUfQQFLsanhy0wVGYjHkNkp9pPYck3ak5BVAihbjrTe+TlVRaaTzykIdXpB6GTTxru6Y5
-	VI0u1GDA==;
+	bh=Y25vXV3t1GCxqlAl1osZrotdon2GGO2WDyL2Qc56+ao=; b=uHPQL0dxHWMz3CHq2cBsBBqcFP
+	dDJhgNBC6Yyq5RXi640xBifx9bN5MXa7qblHtz1yP0GilGjS8xkFczlLdl7zzDSMWHyhyN6yvawnu
+	3lyPNj5rV+uwqx2GXEk44XupHanGUQX+rDARDYdW09sZ8PzplxGsCB6Qbnnoy/mLDPqcAeTGwj8qE
+	Mcx9Wx4/JzfWA4wYhl2OflTLcd2zq8vXIYV7Fgkg55zIRkO5vvSAJUtgWSTdGAl7I4siK2+aZbhlk
+	NSUuR+JY5tNLkVohP2Lm7k8i95r/eWNndLmbY5qQnvn4B+BBQotzM7nmqbNjOq8wzNw9oMINfJLaR
+	sjdQ3PkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkSF-00000007qVJ-1kJY;
-	Fri, 03 Jul 2026 20:25:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfkwz-00000007uEx-1L2n;
+	Fri, 03 Jul 2026 20:57:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkS9-00000007qNr-3rRM
+	id 1wfkwx-00000007uEk-1loK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 20:25:37 +0000
+	Fri, 03 Jul 2026 20:57:27 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A91BD41470;
-	Fri,  3 Jul 2026 20:25:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 062DA1F000E9;
-	Fri,  3 Jul 2026 20:25:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C66BA43B50
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 20:57:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA7AA1F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 20:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783110337;
-	bh=zXSeNRPQkVlVy8DAuJOJGO898fvDtnoZKP7XJxfcRpg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=TJRTCMAWLhIR1wrTquysX7nfDb4cXXlQp/0sj67KDjgDnU4sTeOB2XRa2wzoYw6mI
-	 Z7H1gw/cCSk+55vfkoEaQafIshw6avgaYl/8xHIeL/CVtaadhhVk5dw40NcNTdFYBz
-	 fA0ghqDt3zO0GBjXMBeDc6z8AyxzBvIs+MzGMTUUIu+3UQdBxHJH7ClErNTjtze6C/
-	 Dd7mChDUnmKczlKEm2/t3QynSSKJ2GMnXW80+LWIbto+mPIXqeNKGr3YV3KXy3ZYUJ
-	 FSjLZf59dOtv7v70MjXv0SlM19mA+Y2q0tTAOyTjKDb/jDeLMpVi4jJ4KhwgzuI3/1
-	 ieIeu/TLd+ElA==
-From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Fri, 03 Jul 2026 21:22:46 +0100
-Subject: [PATCH v3 10/17] firmware: arm_scmi: Avoid IDR updates while
- cleaning channels
+	s=k20260515; t=1783112246;
+	bh=Y25vXV3t1GCxqlAl1osZrotdon2GGO2WDyL2Qc56+ao=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=aiQRNQq55eymVHbQFXIbokkf0/A9R+VyD0Z+MDi8MICBy9t/74ZLuWnb/dXsxG+C5
+	 eDUmpx5nsmQEj4OEEfHqck8a0skRlyEVrSUKFMuLngmUujWUaPl18K853LeZ0MzCxo
+	 0/+HPcavAynqDpu8D2TifjvhRoGGPrq6mWcO9WpOp72gTR2qQ2SmBRiSBwvsq93bGf
+	 g4lruNT3uSvWaJEgqd50kLkg1vPHKDUuHRiVhglt6c3icWQrD0f21rmNzlvHxC2Zei
+	 VayNErRxc1Mre1pbvHBRqyVjjI4hAENAbNYfLfh8XHz7G/v5O7OC/tlNWcViN7DtPQ
+	 /A+zIaGrhja/w==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5aea9d606f0so965866e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:57:26 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RrYl1tJ6NYkbWqeST3wYYUszKKHFYyJo2EJoOZCwh22t2cPiZeN+ZKERwdSvSLxYIc+NqeIGX1OLAKjrm1qumq8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZNmCBfpyaXyoNCIVQ8WPBsp5V5pM6gFnsLwI9PfqO7bMEpqb7
+	/usZPs3YueljFZUxjwa7JvyVrRjUuHu3PKKyQNKTMTpOKf866eYNw7Uno+HBNL+nXbGOyCZyQXf
+	ag+OU4pOnLwZnZzrirGKg3BwjLRwHegQ=
+X-Received: by 2002:a05:6512:4041:b0:5ae:bba5:aee8 with SMTP id
+ 2adb3069b0e04-5aed50953famr82424e87.24.1783112245519; Fri, 03 Jul 2026
+ 13:57:25 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-scmi_core_fixes-v3-10-5bae9766abfc@kernel.org>
-References: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
-In-Reply-To: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
-To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Cristian Marussi <cristian.marussi@arm.com>
-X-Mailer: b4 0.15.2
+References: <20260618-ux500-power-domains-v7-1-v1-0-eb5e50b1a588@kernel.org>
+ <20260618-ux500-power-domains-v7-1-v1-9-eb5e50b1a588@kernel.org> <20260702155113.GW2108533@google.com>
+In-Reply-To: <20260702155113.GW2108533@google.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 3 Jul 2026 22:57:12 +0200
+X-Gmail-Original-Message-ID: <CAD++jLnEDzkinxjv6Ce7JRCLy1A5BSHLTBp2KpQ5sOvKUygCtw@mail.gmail.com>
+X-Gm-Features: AVVi8CfHunFNc0klBzqgomE1zDWiF88K1FZrzxv0woj_6dulz5xhJDaFP-6xKg4
+Message-ID: <CAD++jLnEDzkinxjv6Ce7JRCLy1A5BSHLTBp2KpQ5sOvKUygCtw@mail.gmail.com>
+Subject: Re: [PATCH 09/11] regulator: db8500-prcmu: Remove EPOD regulators
+To: Lee Jones <lee@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulfh@kernel.org>, Mark Brown <broonie@kernel.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Vinod Koul <vkoul@kernel.org>, Frank Li <Frank.Li@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	dmaengine@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,51 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scmi_cleanup_channels() walks the TX/RX channel IDRs with
-idr_for_each() to free transport resources and destroy the dedicated
-transport devices before calling idr_destroy().
+On Thu, Jul 2, 2026 at 5:51=E2=80=AFPM Lee Jones <lee@kernel.org> wrote:
+> On Thu, 18 Jun 2026, Linus Walleij wrote:
+>
+> > Remove the obsolete DB8500 PRCMU regulator drivers.
+> >
+> > Drop the regulator build hooks now that EPODs are power domains.
+> >
+> > Keep the MFD cell around because a later patch reuses it for a
+> > small compatibility regulator driver.
+> >
+> > Assisted-by: Codex:gpt-5-5
+> > Signed-off-by: Linus Walleij <linusw@kernel.org>
+> > ---
+> >  drivers/mfd/db8500-prcmu.c             | 239 +---------------
+> >  drivers/regulator/Kconfig              |  12 -
+> >  drivers/regulator/Makefile             |   2 -
+> >  drivers/regulator/db8500-prcmu.c       | 501 -------------------------=
+--------
+> >  drivers/regulator/dbx500-prcmu.c       | 155 ----------
+> >  drivers/regulator/dbx500-prcmu.h       |  55 ----
+> >  include/linux/regulator/db8500-prcmu.h |  38 ---
+> >  7 files changed, 1 insertion(+), 1001 deletions(-)
+>
+> Any deps?
 
-The destroy callback removed each entry from the same IDR being walked.
-That is not needed for this cleanup path, and it is unsafe because
-idr_for_each() has not advanced its radix-tree iterator while the
-callback is running. Removing the current entry from the callback can
-invalidate the iterator state. The callback also cannot be protected by
-rcu_read_lock(), because scmi_device_destroy() may sleep.
+Not really, was planning to split off the stuff that can go
+directly to MFD and resend it with all the ACKs.
 
-Leave IDR teardown to the following idr_destroy() call and keep the
-callback limited to device destruction.
-
-Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
----
- drivers/firmware/arm_scmi/driver.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index a575e661f1e2..ae4b7128276b 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -2886,7 +2886,7 @@ static int scmi_channels_setup(struct scmi_info *info)
- 	return 0;
- }
- 
--static int scmi_chan_destroy(int id, void *p, void *idr)
-+static int scmi_chan_destroy(int id, void *p, void *data)
- {
- 	struct scmi_chan_info *cinfo = p;
- 
-@@ -2898,8 +2898,6 @@ static int scmi_chan_destroy(int id, void *p, void *idr)
- 		cinfo->dev = NULL;
- 	}
- 
--	idr_remove(idr, id);
--
- 	return 0;
- }
- 
-
--- 
-2.43.0
-
+Yours,
+Linus Walleij
 
