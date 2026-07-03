@@ -4,151 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A07C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 16:12:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C46DC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 16:12:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAZBvedpnT1n1TJaLvuO0NRyKDu5mX2BQAxWXLbvPms=; b=iLmRgiTnuhYZH4BPWVhApVpR9L
-	48J8BaeaDmRV/bn1VmMC7Zd2SKXBpqBr4bkvScDGf5A/th7GRUgFMrHx7XjkpReyb2qv6kFN+85vf
-	9hOLhNHLm4LSUIv/vgC0e3zW000vdX4rEWzAtpirCIVexrhSskG2z0U5IlKxmyQehjPBLxy8oiHqu
-	RRdw9dU7uX9CGQXk6nxvjUQ/G/rBery33Wq6CJPMB9Irn5Kok9bPQaxXM0G40VCGCaDJ0pCTcfj1y
-	04CrvpIc9Yn0j1S/yzGUVoQIK3QSkOxHArXxzjM2i0aboqDyoRj1QtqdpA4PICTrzR0+vI/Cb6f5T
-	dpFXttpQ==;
+	bh=JXLTW8jhOKEBrmS8Q7G1prGT8hpi1UKO/oFzodwPFYQ=; b=sfUnkzbU5TYblRbAcDSzYtbrHv
+	K9m16FRVn2YgM5UuvWWETxAWZjgAQYy+jCzCk77A4ojF4Gnncizu29hje2lXb2OnSy9d0xZE8YyWP
+	UGqRxs6rve38duK1GlJAgqV35XHIAL0wbyhMNxSvPdsn4++9yD1IecUsp4fduuqCHsnoD9pPdHgxD
+	kvy7aNnoqGvoioEj2Q50LIMI6erLwe0PWbpy4f5ehB1KA30Cn9Lk24DBMVDsHslXjv59URgk1+yoD
+	bftQ6sPfTt1MT4MmK88QTQPwikPHWjZPFOmJgOqm7INapXhJT7M0TUH3GNyWGXNj9Btt8zOY9s7eL
+	G7n9Cx2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgUp-00000007XOO-2t5G;
-	Fri, 03 Jul 2026 16:12:07 +0000
-Received: from mail-swedencentralazon11013018.outbound.protection.outlook.com ([52.101.83.18] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1wfgVN-00000007XUw-0Ina;
+	Fri, 03 Jul 2026 16:12:41 +0000
+Received: from mail-westus3azon11012048.outbound.protection.outlook.com ([40.107.209.48] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgUm-00000007XNW-21w0
+	id 1wfgVK-00000007XUI-2HKL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 16:12:06 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=OCh4FrAFdJhHC36VNWaJ63emBD94FT2fiTD0jouU8p+GlRfPEa/GMv3vU76Ge73611V6y+hHnIP5pY+WsvjgfzH0bpnTg5Ikr2AZCICIvXvR8uXYFGZqdN3bGqFPmZVPdHWQhmpBgqeDr3DdGVyFYxa9hnosAZHjQAdsBOZPoZ8GS8jGAPVU9wHKlgSNW5X3sFxYRUP1/SDW0ppirPndhk7YDe/Bf0xPG8Q98X1Cuswsvo2ePuQ/e7NuQqscboxT+NSHgdxKYONZ1Fjftjm7rUMBvAGwCrU3o4IVfuc3Hbw0Jscs9NxUsM+Sa/tvuBH76x04rnn3t2nBOd1DWYFIlw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vAZBvedpnT1n1TJaLvuO0NRyKDu5mX2BQAxWXLbvPms=;
- b=afklbHOgTkufdKBKdCYOWhcRGjZ4x9CcTLy40Tzw5PyeJwQb277HQXZezzN4qEn9/FyUi2JENdOVZsExMTDrE+20qx3iMJdM3Q1LaJPdcyzDj64eQ2C6HmI/PoqaGs9CqBH0xlFk3swqKRQcSNHPNMDY40kGt+irRBbsOiXNvZsTVJ+/O1rmAYlT4/P96oYPT+4+gsG3aZDf8USbkzK8sIyD/eMt//lFZnNhxsko6hVM6p2AwG0pwalQVqgaQtrxy3JNIF3yKzobVjp26hI3lwKWrrKCzrb+5LiCgtNPJNqYLT3cEKhuwjHk+3M6u4C+Bmz5j7KmyyqBa/mWbZ6azA==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vAZBvedpnT1n1TJaLvuO0NRyKDu5mX2BQAxWXLbvPms=;
- b=LhGpG2lIb2bYoVaR/d9Frbsh6DbNSgqcgAD/4A6+rcuIeknWwXcx1W1TG0/FczZ5lUWQsipW4Rjpq82TmsIfIaoGXF3gZIqk0lNNJmoZLrHjFGVlo6XROcAWngRQxq2H/qSYT4+paP4eqkoBc0qmX+jMBgNYHcpCgwFJg4pMjZg=
-Received: from DUZPR01CA0023.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46b::17) by AS2PR08MB10350.eurprd08.prod.outlook.com
- (2603:10a6:20b:57a::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Fri, 3 Jul 2026
- 16:11:57 +0000
-Received: from DB1PEPF00050A01.eurprd03.prod.outlook.com
- (2603:10a6:10:46b:cafe::a7) by DUZPR01CA0023.outlook.office365.com
- (2603:10a6:10:46b::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.11 via Frontend Transport; Fri, 3
- Jul 2026 16:11:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DB1PEPF00050A01.mail.protection.outlook.com (10.167.242.43) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Fri, 3 Jul 2026 16:11:57 +0000
+	Fri, 03 Jul 2026 16:12:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XsGi8gTAe3e28nbr7pNzS60TDN811+VAbpmxsI3utAOX4Xxul8HD+8MnQtKgibVx8cpP+XnTSYYxKbhcafxDYsl+tbFM2oASGyGsJ1LJIL5YuEcXJlMhUxCfj221vcKpNU+0FCL7jrQpcX4i0lgdZ3Rf6F2kZ3cfLc978Y+yhS5B+YrIwvTbTpG5toiYilW8Q3cmd6QQ3Pf4GvbdnPp8wk4lbNv+08yz/uIZ+B+HMv2A2KJShiuImsXq4zc86RyOq2x8tSnq/QyAjG3lCs1DMKH825FDU1pPJBucqXINXjF/S6JN7LCsL5mwtEBViFyTvsu0NHrTZU4fPLSIORTIdw==
+ b=Yy5iR+z8MNAg8jQJnqKQU3z1yPKIezUu3bwVxjz6+TdO0cQ3BmPFbL1DCV+kf222kyZFPe6KbZsLsEPrnqaa6AqyA0q4FcUVXEB0o2UDFHKOpQferRTgbRI+uPF424YIJJvu/+1qnrjOGlyu5d4zLZtxE9ebvSwFeSQcK1excVbpcGan9TO1ZvgsgY4QDXe76tsnsk4V4ujLKuLx5lx7h7wGhaCVUxeuIvc27G3ILH/EaSsV9vEofyvlk7N/j1XDemIfdeQHwQTsaBKIrnKLOP8kESMPP4J/ug/C9a9XDuewDl/5Z6+0gPyHEEYLo+MiskwP1Gb5RPMKJ2YwSxEGqA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vAZBvedpnT1n1TJaLvuO0NRyKDu5mX2BQAxWXLbvPms=;
- b=n2PEY1RhxsgARTjL7U/am9muRSOHS4gI/sXUS9lqrjuf+tZesGFDiSs2pdWI3T3RAkjWIR/dIOwEvdWWwbw5JVlvurXrhkZFTsP8VR+k5xr/tebQ7rWTf2An1rwXxwq6tUUPq4ttEormp007yxWdBFPHYokj7fatgxLhAxzoQYSK8V2qxmGXOQeIYsL3GXCAA8WdlZmmctP3FVJKciHhpD3IVO6PTRbSp1d33LtxDdQRdmQ3XNLbdIdPyFjx9yf+hbSKRMEJTBiWLO1qZ0bCauXmfNUa5qgG4nnQEz6E3SerYjvZFVZuf2r3IGIb5qkXCD6wM95qtqCC45QzvE/rog==
+ bh=JXLTW8jhOKEBrmS8Q7G1prGT8hpi1UKO/oFzodwPFYQ=;
+ b=JI+RwfeuwzRJ4p4ZHoSdmKTmFJxAvjGlHOxPtnM92sRgzJt5ie6SIuxi1yNBMxxbn0SwlihJSiJXpP3CfCkOIl3jo+3M51jUOVJNzqUOkdWu1L7QXc7IEKnRVZLzUu4RQLqVo2/xbDXsxsavfVcoVN68PrOxIbFYb47Tepjb94zA4W7DP2NKB3n8lppNUlq0zw8BMmh7mqt2gwCOUaJbLd34yHtnxFgfoJJskpU76SEfNv6nxprDMU08tUQf+DBnvJZD5HZLQllZXfORyLcmwgBSPgfCgXO9mqKw+D9OUO/qAUBgnbtK1iHMQNyQXXDeJNMJu6+PAxapd9MlxOe4eA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vAZBvedpnT1n1TJaLvuO0NRyKDu5mX2BQAxWXLbvPms=;
- b=LhGpG2lIb2bYoVaR/d9Frbsh6DbNSgqcgAD/4A6+rcuIeknWwXcx1W1TG0/FczZ5lUWQsipW4Rjpq82TmsIfIaoGXF3gZIqk0lNNJmoZLrHjFGVlo6XROcAWngRQxq2H/qSYT4+paP4eqkoBc0qmX+jMBgNYHcpCgwFJg4pMjZg=
-Received: from DU2PR08MB7310.eurprd08.prod.outlook.com (2603:10a6:10:2e5::5)
- by PAWPR08MB8840.eurprd08.prod.outlook.com (2603:10a6:102:339::8) with
+ bh=JXLTW8jhOKEBrmS8Q7G1prGT8hpi1UKO/oFzodwPFYQ=;
+ b=faxf8YQEEgwwFkou2vKHXnx/V5RrBc57NyDJNNPSd/2h/3eWdTKWHZ4R+PnFMePNCB4TWk3fplvhQNdIqmr+3MEpksC3cGZHdJlv7jvviz1vic8w9SfwPIOg0x3oHGGvP/Djvk5h+OMgole8Xuqx07XqnKasZUme3abefA2cyIW51IrdAGwveMYYlqMii4m32H6Ng1YO00yGVxzB+7cZvQduPip3DJfTXXnoX/AZoqxZ/GlNL7CiUjCUVi8A0HgKhFg15R3f/boZSfL3nZU3ZLVe93vBFeoZhhw50jjVAO12COkl0j8/1AtG5oEhIGid73+Vrr4FM3b2LP74qNp6Ug==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by MN2PR12MB4126.namprd12.prod.outlook.com (2603:10b6:208:199::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
- 2026 16:10:54 +0000
-Received: from DU2PR08MB7310.eurprd08.prod.outlook.com
- ([fe80::e007:b494:8a24:1fc0]) by DU2PR08MB7310.eurprd08.prod.outlook.com
- ([fe80::e007:b494:8a24:1fc0%4]) with mapi id 15.21.0181.009; Fri, 3 Jul 2026
- 16:10:54 +0000
-From: Sascha Bischoff <Sascha.Bischoff@arm.com>
-To: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
-CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
-	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: [PATCH v3 40/40] Documentation: KVM: Add the VGICv5 IRS save/restore
- sequences
-Thread-Topic: [PATCH v3 40/40] Documentation: KVM: Add the VGICv5 IRS
- save/restore sequences
-Thread-Index: AQHdCwaGWZyp/UYhi06QbTc/qwOUHA==
-Date: Fri, 3 Jul 2026 16:10:54 +0000
-Message-ID: <20260703154811.3355680-41-sascha.bischoff@arm.com>
-References: <20260703154811.3355680-1-sascha.bischoff@arm.com>
-In-Reply-To: <20260703154811.3355680-1-sascha.bischoff@arm.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-mailer: git-send-email 2.34.1
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: DU2PR08MB7310:EE_|PAWPR08MB8840:EE_|DB1PEPF00050A01:EE_|AS2PR08MB10350:EE_
-X-MS-Office365-Filtering-Correlation-Id: 91b88698-9b9e-420c-0803-08ded91dce6c
-x-checkrecipientrouted: true
-nodisclaimer: true
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Fri, 3 Jul
+ 2026 16:12:30 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::299d:f5e0:3550:1528%4]) with mapi id 15.21.0181.008; Fri, 3 Jul 2026
+ 16:12:30 +0000
+Date: Fri, 3 Jul 2026 13:12:28 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Vijayanand Jitta <vijayanand.jitta@oss.qualcomm.com>
+Cc: "Joerg Roedel (AMD)" <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>, linux-arm-msm@vger.kernel.org,
+	iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Add support for contiguous hint bit
+Message-ID: <20260703161228.GA1948451@nvidia.com>
+References: <20260618-iommu_contig_hint-v1-1-4502a59e6388@oss.qualcomm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260618-iommu_contig_hint-v1-1-4502a59e6388@oss.qualcomm.com>
+X-ClientProxiedBy: BL1P222CA0030.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:208:2c7::35) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|MN2PR12MB4126:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef208dc2-7d4c-44ae-14af-08ded91de1d4
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|38070700021|18002099003|22082099003|5023799004|11063799006|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info-Original: P5lW1L3Qfqa3Hrvbj30nHkhRMX6YX3Ad6t+N8L3kSqTEucQs9pQzRVgeOV8865BEBCH4rYhztnX0wA/vpLqjJxhUsQm53Hg5OgGOeI3HRtGvMkOR3/qUHrsyLUgnnS5RzBQb/7cEtcZ0srUikHcDo0aCflK+C766phLxSzY2M59Kz/ReP1tiFh5+Vt/TNnkxkFc189AP/mNdA9eRbcL4XeVBf4jOFztR7KEscuGGDzcnGw4fHvYuAyPaAPFTeQfX/JHIsGq9UX5/IzodOYsbjyrMFkDe2RVYS46LIkspdw4D4gjFnKHIUCSlEiNH46m/KTJqbYeZTH6unwyWa4vACdSd8bRY/juyUcbUDl/APGA1s4VzyxyrIy1CatK3ZpW86h9TfUWbaOgTdZT8s/unB3G70FWrksQ7kMaMF9Oj2GFM2yY+JrAFQlgXMMJrQ970v4CTb03H6gUASDzn7tx3v3wlg0BRukZR09jlWuTg+llSw/hOq/HW6wXvLjqjbPHIqPwFUhTEgyntWtFvIvGR8Okfwi9tcrJU+OvP5hi/TZWyoVc64emmSoAGOp+IJIsF8YqwKCfCvFZCAXkYjUdLc+gTyakUjF9e/82Oj/O0ZD6dqaXb58mndlfZTBu6r7zz4O7zEiBhag0QI43eTKSxr7oSoPwfXB7ytDCWek/wFVApxQmXl3Dhej8gJwfQKdcvoUWr40r4pIBQ2jojrJyfrraEZRZsNrOtuY+v7ifXu84=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR08MB7310.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(38070700021)(18002099003)(22082099003)(5023799004)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: okk5CyUxjgw8pB90vEGqg8DoYaUWE5bD2myW1+a2Vpk596zZfutWgeM0nX56vdA+VzT2xwOFTwUfyRad9CB6uPnmcTE9StqM5YQLf8wK5ovOxyEY04C4W+urzKGb+BtS+fKNIK+ePIG3tku0DgM6RpktI4CwxyvKiuSzkv7ssO8GlYLMvTvtYPJC4sA9xYZF5vYZZtAg7sOTqCAZ819/EPiekOQSh23Voz7CtT58j8U8/sEF13M+BBochtbD+ajc6neD3/B1P7gsnIxXNHiwZgdRhSwrmqzjesE8UXAr28kewrjA+MBX7x2sgrr+7SSZ5V575hQNcDIbcJHYvC7Jsg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR08MB8840
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DB1PEPF00050A01.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: f1465790-55ef-4f31-8fda-08ded91da8fb
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|14060799003|1800799024|82310400026|23010399003|35042699022|376014|18002099003|22082099003|11063799006|5023799004|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: Fq7ym0MGSK1nltXwdZ6bT+5AjJx7vuIc/iRP67/wRDlApIL9TLp87wFEWmqJ/MY+HG9QRsb0RdjEQFCjrU8kjL4esLSnagXpr6yUVLRhBMzldNVtuVqUfXucaUj1Xo43bZ40ms0dKShU0ZuwnfHEm4Au2z0RPIL0ZmAZ00PhdMAbOLWcmhGh1c0H0Uppg3aimFAf7JR7Hx3ba5IjbFNKAnmgdS4ldkInFs/v7PzJSLXo1vM8W2xVS6No25sWw3hh4VyIfB/8ZzSPUeY/x43lXBB59fT0LtNcm45EgIsRfqUzyVDaBNFzxsNXxV5QibmBruuC1zGMVMF57GT7a6kVweE8gLfH7VvWWxJc0NKLmnIBAUdVKmqFVWsC2B2rcwF0H06Op/ybADX2MQOTBF1fMm5ehXuQUGObn6zTGGQb01J8EpOrPSmz74KP52sxHkeHV1h6PFu2IYi508Q0A/4pik8x3z1RV6cavCHhQ8S1O6jAKs5XWx2MW+mo+6XNXOHnQTR4OpxP9DN5LqkeGt9/n1/iuP1agqwDGG+/C4qe405POrAHq/enh3HLj2Vl81HeEnGGjjZbiirzVgUmH5Ot0UNV2gv9nqJF+BIlBpSHqZqrOl7IxSnjRDJu1DV8ygMRpmhg0ECqSBZZcI4dMcOy2AtNzkI60F8WmhCzLbBtj3dZbAcowtRa5MH4ef5T2oY/lKBXKVvxSmqjlWJMDSS1Yw==
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(14060799003)(1800799024)(82310400026)(23010399003)(35042699022)(376014)(18002099003)(22082099003)(11063799006)(5023799004)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|376014|3122999027|18002099003|22082099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info: 62YwuFVZsu4LoT/qCRs6h3JJuB1eTBsIhJkUVYQ235JISbrh4+y6KbuOdDh/pvDu/ONYOi66o3KbgSJYHD5wvL9llt8a8vjJDvVahZTEidaz30ffkT6XjlYcHUcxB+3sdT/jjfadGw62FQSBgABGkv3GXAA5X+A6tJjOH4Xopu0PKoGlJ+ijX2fLHDhnBlapQ6OBxtIcCTVWwncqM39dFH2w5DZXMFvsRrHdD2HvNzRwv8tykqEYbmADZgquBvlqU72a6RWlAR707boZVsRDplMZuHk0miBfJtCXacpNsP1PksCvfE0gRdi1mdZQBr08OpJcImtlWuEn3+0DMoIp9dRMtRZH3WhwWW12ShTEFVdmUs490YyYwJhGTDhWN6IHVHbPfsTQ9k+nFNdF52vcwpJ7sNXTrJp/e+Huw9ZBsbVoUrpZOhe+h1x8lCZDbYWE9aiEjTcQ3kZ0avFntmSejNHNp4Jsq2lf3jWGCYiNxY/0EqCT1/7R9s/WForyP0/0TVxKjC/n7xqjPfSq/JqkZUhqtOIHTzbhryUCLrxhhR7+7HMqv56J8XwObJepmDf8SlXExrzeiFgGeND2/Fp4oX3SUXGzQowjNyRUwZ1wcVukZvkgD56VOE4aCEj+tu5LpjhXzMuQjv6QJE6EbnHCQsVqt1nGW0Zy5fkzRwql300=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(376014)(3122999027)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: sxESNPJ1Hhmzp6igg2vimblSQFDnwiL5oC5whUSOTWPDIRKvv8l2AesAEEmewYfzEYPGXaW6+p4ZSvI/gtwkAXLPy2UBAw0QetGWvv0fh7EwQUiE6ebajQLEN3EqBfIU095sOzazkaL29dtc0BOjl58l0s3zPAZ9vOiF3JeTyWbQ2FGJMt2epPSrvkyGTnqBt/4qPbTY7xjHDRNwN4OCINW0N8VLiyHonmbUYQdUHUqLc4Ch8AnzbyHnlch4eJp7XlgURxPDidALdaZ3TgLirkzNy2vRLrW8EP1Go+oPngda/VA3b3Hnb2rHKJvYrIdtOaNVGzHSJ4CMpg6PEPTnAFGHYC0ynEcmaAcOrwzQ4JOUcE0gvPpBiuAfeBE33yCcTU5oJDK9FKxM6TwQDFoV7yhX7NQUp4SU752wU3BB8feUToD6Qe8bUKSD94ikWlyc
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 16:11:57.2627
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?M8AAp3SneTMOTkWb9w8Kvoold81xtE5Hg4nIQonhHc8FNXlDgd6dN122J53L?=
+ =?us-ascii?Q?8DcuooPE0hHzCobuUBG74iBit9Q4mLMdPzhAS/M88Kbts5ejILjjXvBLxw4z?=
+ =?us-ascii?Q?UfCNJQxO67fRCnpzJ7V4RydomZU+QUuHlnUGnEzqSk2gqDzUChWtG1yRj4A6?=
+ =?us-ascii?Q?HhN290sZXQ5/Mgj41ZKUd1WuV8rZ3Jr9Jros4Qt0xBst1mdy/EIZ9OQaOLcq?=
+ =?us-ascii?Q?OQZkVSQM0yG893olezWUZM/eCaAYuWK64AycPDqwioxcDWeialWBYRRhFz3J?=
+ =?us-ascii?Q?w1sSrCtf6E1tbu6FRN0DTO6X1qwXdTh774BnJutTRHPLIgzl+BXyrsnotecT?=
+ =?us-ascii?Q?fKdlzdcA1yKxwzZdvkdqDvOA7QTYgXgXZ09af+Hgiyn4ikvpfhnbJanvkQ3r?=
+ =?us-ascii?Q?I5VHo75lvDH2vGwXPgRfDpiVSKH/Tbs5zkWd4/JgriwkEUopyHEVk8bDPJJf?=
+ =?us-ascii?Q?XVPpgMV59AoqdTmMK9KobPtA6WMehhdx+mOESSOfBiKQPSDImX58mX4IA0K9?=
+ =?us-ascii?Q?+aQnBQoGDN/yuqQR3oOCmfH7pgP91uuTSEuRTyJ2h0VcNkYuB0oMJRBM7qrW?=
+ =?us-ascii?Q?FwvYVjVoD+1drxR7HWQcxpG54fnXjPjAdyXJmGXCn05y8YHZkF1OwvhG3JNE?=
+ =?us-ascii?Q?Eow9q4bRU0JRW7I1Ko4sioSZN84XgamGJ8sxb88ESSMiL7mbWlWjY4d19ZLg?=
+ =?us-ascii?Q?yBOmXc8j/0pEUhHA8eVi1KFr65i2D2nMzKs5ZGELvhYm8fRXzUbBCnHJXQ+j?=
+ =?us-ascii?Q?fhVwU1+7HbX1aa07JVel4rSbg5LfsC1v8u2ViImpBW60PO459VYPwjLdZU64?=
+ =?us-ascii?Q?lO8bQltPzlqvQreIW6XbUFylsBZM4MdodHgnc7TeC9XhrYG0UThTy9mhIiXn?=
+ =?us-ascii?Q?mox3eIZz9JUgrpjWYP5gFmRgLjzZBHz8Eu5TEzLLNHzs5uCA35kwrklkPexn?=
+ =?us-ascii?Q?vEkkZpP3oTwPHoGcsi4SDCupJjWgJOjmb6Y6TNEXav35ki+2mlFxzufAq7ZB?=
+ =?us-ascii?Q?cVceNgFGybBTEejDo5i8rSvFhZr+eiJezWi4hs4Oaol3Fu1FpTK7OoT08LYB?=
+ =?us-ascii?Q?6byl7z5cpwOMQ/IBumdJbkTbD5MyJugw5/i14/eAkmaBwauSW2Jx7AUoHE7b?=
+ =?us-ascii?Q?2bpQAPm8XNZi6GN6WL4ogyMMj67yNbRK+CqA6WL7br8KrST/unDtDZlmz67b?=
+ =?us-ascii?Q?ZJsy3bt0UuJ1rnSJaNziEieNSJOeCNMS+asc9ufl5tNtpSFrzLsNLGBSJwRd?=
+ =?us-ascii?Q?rpXtWjwevgXOs5HhvsBxyckJRxr0IQSl3v69H+7V5ZITF6UsXQ1iMfgkfVzx?=
+ =?us-ascii?Q?OnlIhrKG+AIT3cS87utriUID2jaAc7n9chsKYebzyEV/KIp3HXBKGoZJT7tZ?=
+ =?us-ascii?Q?rDkDztKq8b5TC/exXY/2OFEXseAtS1/fUrvdDlhBF13gen9VoVF1c4F8rWmA?=
+ =?us-ascii?Q?aTeVwt/VJCbUFFIsWX9hm33lNtySecD0PETkLsjYAxUQ7u7GcYw7l7vDj/qI?=
+ =?us-ascii?Q?vEpqk4ZkLsB0CDGe4hQEa0YupH2hgMvzr/aKq9kYPFL8g9oWPwvG1qdyAF3e?=
+ =?us-ascii?Q?xm6zjkIfcPf/LoPEcxquqsOWf//1A4dR7Auyaq3NPMCq7Aox1Hato30f5l7y?=
+ =?us-ascii?Q?C3mljyfT/wcyYBUfm6nMMdwKvw6YboFmw6FcGJnzhX5NxKCdYzfjQZJJDBqe?=
+ =?us-ascii?Q?CpXSJHwq+qtUvp22GGFhCRHUop5lVMgZZNCu+zPxdHSGF/A0?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef208dc2-7d4c-44ae-14af-08ded91de1d4
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 16:12:30.1096
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 91b88698-9b9e-420c-0803-08ded91dce6c
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00050A01.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB10350
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: FiHttKE89YYNw02nbZaQPXNb3XIm3Z/rumY1x/KYo5wm/3+LaO+U4RLSsOpFzuzx
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4126
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_091204_685240_C6814AA8 
-X-CRM114-Status: GOOD (  11.88  )
+X-CRM114-CacheID: sfid-20260703_091238_591870_8CBA9ACF 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,104 +137,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When saving/restoring the state of the GICv5 IRS, it is important that
-it happens in the correct order. Failure to do so will almost
-certainly result in failing to restore a guest that is capable of
-handling interrupts correctly.
+On Thu, Jun 18, 2026 at 02:32:09PM +0530, Vijayanand Jitta wrote:
+> From: Prakash Gupta <prakash.gupta@oss.qualcomm.com>
+> 
+> Add support for the contiguous hint (CONT) bit in ARM LPAE page tables.
+> When a set of consecutive PTEs map a naturally-aligned contiguous block
+> of memory, the CONT bit can be set on all entries in the group to allow
+> the hardware to combine them into a single TLB entry, improving TLB
+> utilization.
+> 
+> The contiguous hint sizes per granule are:
+> 
+>   Page Size | CONT PTE |  PMD  | CONT PMD
+>   ----------+----------+-------+---------
+>       4K    |   64K    |   2M  |   32M
+>      16K    |    2M    |  32M  |    1G
+>      64K    |    2M    | 512M  |   16G
 
-On a save, the ISTs must be saved prior to saving the guest's memory
-as the guest's LPI IST is written to guest memory. Conversely, on
-restore the guest's memory must be restored prior to restoring the
-ISTs.
+My series to convert smmuv3 to the iommupt takes care of this and
+supports all the orders too. I'd rather we move forward with that then
+try to patch up this.
 
-It is important to restore the IRS MMIO registers by first restoring
-the IRS_IDx registers as they define the capabilities of the IRS, and
-are used as part of creating and managing ISTs and SPIs.
+> Support is gated behind CONFIG_IOMMU_IO_PGTABLE_CONTIG_HINT, which
+> provides a compile-time opt-out for hardware affected by SMMU errata
+> related to the contiguous bit.
 
-In order to restore the ISTs themselves, the IRS_IST_CFGR must be
-restored prior to the IRS_IST_BASER. KVM uses these restored registers
-when KVM_DEV_ARM_VGIC_GRP_IST is restored to determine whether a guest
-LPI IST exists, how large it must be, and where the guest-provided
-migration storage lives. The host LPI IST is allocated and populated
-as part of restoring KVM_DEV_ARM_VGIC_GRP_IST.
+I reviewed the errata and didn't find any related to contig that
+required disabling contig, the driver was OK with the ones I
+found.. Did you find something specific?
 
-At this stage the remaining MMIO registers can be restored. The SPI
-IST gets extracted from a userspace provided buffer, and is
-transferred to the host-allocated SPI IST. The LPI IST is extracted
-from guest memory, and is written to the host-allocated LPI IST.
+> On the unmapping side, the CONT bit is cleared from all PTEs in the
+> affected contiguous group before any individual entry is invalidated,
+> following the Break-Before-Make requirement of the architecture.
 
-As a general rule, the IRS_*_STATUSR registers can be ignored on
-restore. They are not userspace writable.
+BBM means you make it non-present and flush, it doesn't mean you clear
+CONT, this is wrong..
 
-Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
----
- .../virt/kvm/devices/arm-vgic-v5.rst          | 45 +++++++++++++++++++
- 1 file changed, 45 insertions(+)
-
-diff --git a/Documentation/virt/kvm/devices/arm-vgic-v5.rst b/Documentation=
-/virt/kvm/devices/arm-vgic-v5.rst
-index 0ee0fe9308fc9..188851f22f9eb 100644
---- a/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-+++ b/Documentation/virt/kvm/devices/arm-vgic-v5.rst
-@@ -232,3 +232,48 @@ Groups:
-                    or tracking pending interrupts
-       -ETIMEDOUT   An IRS save/VM operation timed out
-       =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D  =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
-+
-+IRS Save Sequence:
-+------------------
-+
-+The following operations are required when saving the virtual GICv5 IRS:
-+
-+a) Save the ISTs by issuing KVM_GET_DEVICE_ATTR on KVM_DEV_ARM_VGIC_GRP_IS=
-T.
-+b) Save the IRS MMIO register state by issuing KVM_GET_DEVICE_ATTR on
-+   KVM_DEV_ARM_VGIC_GRP_IRS_REGS.
-+
-+These two steps may be performed in either order. However, the guest memor=
-y
-+must be serialised after the ISTs have been saved, as saving the LPI IST w=
-rites
-+the IST state back into guest memory.
-+
-+IRS Restore Sequence:
-+---------------------
-+
-+The following ordering must be followed when restoring the virtual GICv5 a=
-nd
-+IRS:
-+
-+a) Create vCPUs.
-+b) Provide the IRS base address by issuing KVM_SET_DEVICE_ATTR on
-+   KVM_DEV_ARM_VGIC_GRP_ADDR
-+c) Restore the number of SPIs by issuing KVM_SET_DEVICE_ATTR on
-+   KVM_DEV_ARM_VGIC_GRP_NR_IRQS.
-+d) Initialise the GIC - this sets up the default state and creates the SPI
-+   IST - by issuing KVM_SET_DEVICE_ATTR on KVM_DEV_ARM_VGIC_GRP_CTRL with
-+   KVM_DEV_ARM_VGIC_CTRL_INIT
-+e) Restore guest memory.
-+f) Restore the IRS MMIO register state by issuing KVM_SET_DEVICE_ATTR on
-+   KVM_DEV_ARM_VGIC_GRP_IRS_REGS. KVM uses the restored IRS_IST_CFGR and
-+   IRS_IST_BASER state to allocate the LPI IST during the following step.
-+g) Restore the ISTs by issuing KVM_SET_DEVICE_ATTR on
-+   KVM_DEV_ARM_VGIC_GRP_IST.
-+
-+The number of SPIs must be restored before VGIC initialization because
-+initialization allocates the SPI state and fixes the SPI range exposed by =
-the
-+IRS ID registers.
-+
-+The various ``*_STATUSR`` registers are observational state in the current=
- KVM
-+implementation. Userspace may save them for validation or debugging purpos=
-es,
-+but they are not required as restore input and do not need to be replayed =
-during
-+restore.
-+
-+Then vCPUs can be started.
---=20
-2.34.1
+Jason
 
