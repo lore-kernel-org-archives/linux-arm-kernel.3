@@ -4,83 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8029DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 15:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2629C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 15:26:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qIVGJcDfvA5ZwpQKNPuEjeP78VvaCq6n4AxhxUcG/F8=; b=wjWL10xrDyzO83JbJbkaa6mV0t
-	V2mOkcpZoPbekb0n6LwWjpHsEJRNR4OGTg0Ff0Y3cQ/2oF/wM6w+9iDDaZdlt0q3BAMQccf7YIl0i
-	L9oLvtDMF4QwhroJ3U7MdI5xDkUGA+nC8rFJ2d8VHLZFgjUz+yOIi/Qy9jCUVOFsNcQhhpyx0TIpC
-	8ArInnp2twySH72XCdIb3i86/XLJueHF3rEKVwycQSu6GVLNfHHvNGLA7UnLVNsgqTJb3tu/hrgeB
-	vCOZlOKe05NQNFo/iR7OQt8NrYXvZKpmkNYOUU+AY/dfFcNtrPp2LN5JdzXhlgI3VCH0z/D4hLmTk
-	2tN+Orbg==;
+	bh=SS+zfB7x3WM2aFm3VJh+jRc3SyKH56pLc+VNUMeznOo=; b=2OtXbWw+lUiW3IumHtZlpcIy19
+	Z1RcW6duxsGLjde5AjXaFs34UH+lIrRolf1yRO1xjL66up8YGGAKsXdgB4gL1vAtMuEpfx5FF5VtF
+	84w+xNldP3hSJ48MDNyA4fhc/aEFWeUHOUcOyC2hO7wrNogU6DSOFLeFq8cy+SNtqjwpGKkP/9EDh
+	bmHswOw3LDnp66XhRKqCRZHZzwUwk/bfGlEIsy5zF0ZU+uLvPSVy0SBjrTadNwEaK1mJi/zo/BsJn
+	++Xtzv4rZBAMVX70rmHSyay4fkVAz7c0KzM7oKxd89JrXNtoe13wZy1h0x7N7MURdUBr18357Vifk
+	X2P4xIwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wffj4-00000007OCT-07L4;
-	Fri, 03 Jul 2026 15:22:46 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1wffmX-00000007Orc-1pq5;
+	Fri, 03 Jul 2026 15:26:21 +0000
+Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wffj1-00000007O96-2GNE
+	id 1wffmS-00000007Oqh-2tTP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 15:22:44 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D11091A0E22;
-	Fri,  3 Jul 2026 15:22:41 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A645760300;
-	Fri,  3 Jul 2026 15:22:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 14CC5104C952E;
-	Fri,  3 Jul 2026 17:22:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783092160; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=qIVGJcDfvA5ZwpQKNPuEjeP78VvaCq6n4AxhxUcG/F8=;
-	b=tEU7CuTohFUte7Uxofd/BDZ3rp9SvjYA1AV43V/vdIK0AI6NUgHSOdIGWTcXPE8hHkWCJ2
-	piOyMPm2BEpZOFvoVk8A1cdRW2cv8kGUqRhLmvkCMeNzeq71CGfvrHgDVwGCdSaAqs1uyK
-	ycQ8m5CFW2e8y+gwsrmzgijSmhAAjqGn19zxXzCNopcsy6oMxvWin2A/yXFwFrV43frexP
-	1AIE4WAsUZw5fqAIcELgWUa+lNYCueOGCViHPyD1aBU357XO4oa6BD9yhAVN5caKeicIeS
-	31km40s2sgu47abjUfUz+Y9RbJTAGrOLMAlDiVsru8ftZFVRuTQiLTAS8bb3fg==
-From: Richard Genoud <richard.genoud@bootlin.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>
-Cc: Paul Kocialkowski <paulk@sys-base.io>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	John Stultz <jstultz@google.com>,
-	Joao Schim <joao@schimsalabim.eu>,
-	bigunclemax@gmail.com,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v7 4/4] MAINTAINERS: Add entry on Allwinner sun8i/H616 PWM driver
-Date: Fri,  3 Jul 2026 17:22:15 +0200
-Message-ID: <20260703152215.192859-5-richard.genoud@bootlin.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260703152215.192859-1-richard.genoud@bootlin.com>
-References: <20260703152215.192859-1-richard.genoud@bootlin.com>
+	Fri, 03 Jul 2026 15:26:20 +0000
+Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-c88cc025f54so425324a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 08:26:16 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783092376; cv=none;
+        d=google.com; s=arc-20260327;
+        b=DN2tLUKQCfS5Z0Q8vc/Qc/PHhuBy8p9dIf9gsMaL8kM4VncKFvWVIxOwypXIVpji0u
+         iN7iwO+Lkj1GlcZF+fgmy4YvGxtNHiQQl+Og33/Qbn3pN4b9gDEFIZb0I+fD6DhOdFSj
+         9WL/0EjAVd1CE5OXS3+xjDbloaCYh3kysinlHToufLPMgjoAp83vkH/ejGDEkqYfeKNC
+         b1cEcjuogRJyFXm7jgqDb1iYngixxj3ie/KXA/DLdtgVtNdyRtKfs/TR8xQt03j6v/Ig
+         Phd6cnA4B67tJuRQXxXLQyZUP4EqqlPKK/myoSYPtPA1nKb5t3+seZpaTlY2Q1T1gGV3
+         JaRw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SS+zfB7x3WM2aFm3VJh+jRc3SyKH56pLc+VNUMeznOo=;
+        fh=DybuPvq2OWgFcWFb9kmQhmt5Nu7Y6geKzCg6Kp+TVL8=;
+        b=sP6IfeiAw3/2fk0dFGFVvnI+3nenSEXKB7nEdo/iw257UerljkmRH5q0BpprUTyAg9
+         CX9QHgZzgBZwSfclpZOH76vnawQJigC8ybZqg1AyfDVX57K/XNLSqu8etOcwicgvvrIy
+         JV6zYfnhhHTGnKpA7z47/W2tv98OSMfTPr5lHMi9PXSRd/lT4MWhhuP0ofHVU+7Iy7pY
+         Ij4juE2qTq6kas9SWJSnHixBYhSADSVcBqV7lapuKFdXGQ+fdcVCnQfxH+qFDu6ZxZ7s
+         YtBTYsL2Tr0wFHnu9ts8ypMgmXPMAzybT4oG0rwXIT+nJPpcka99JAkfiZsuAM3+/2dJ
+         Gx+A==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thingy.jp; s=google; t=1783092376; x=1783697176; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SS+zfB7x3WM2aFm3VJh+jRc3SyKH56pLc+VNUMeznOo=;
+        b=DFZKiCJD+/AKbCAoWKvWxU2sqMxQW/YXoPIXz27QU1NWRpin9QCMc7SRqE5b/EFPoa
+         WyjT+AeBgSqOc3RppmUmolzk6/ZaPScaeDeIhS2yR0nch9w2qdl9HeqofyJgirGwMuhU
+         drBrSaMwcOuW6Rhjh/At1EbKbM3phBi2KqQvA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783092376; x=1783697176;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SS+zfB7x3WM2aFm3VJh+jRc3SyKH56pLc+VNUMeznOo=;
+        b=TuvpIcDRRxYat6KVQETaeQMcgc6wwdmU4DM61rUSuke+hg0Q3Us2t6Knyh9E9l6FGd
+         YvAxgffipnxbEgAxK5JlaaWw9OgDTd1D0lDk8Lx+5sgb0Sp5Q5sCCuPfuSNCjRum1Ttw
+         QbH//Pec6MR3srYDOLJhq6Yj+OX1GiqBlLADaJODt2nyzKWhAJhisEi7Bpv6wOosAsHL
+         AFlci+j1ReX4kS/zGDxwfi6Oqwf5pfTTzroKHIh1HDGTda2TMNFIYr0n+d653dYe1SD0
+         VF5VTYhu/3TAz/b9NKVTUnm5bQRs/B4dAVQe/qadptx0TfsbHOIGTTnw/dJuZf4SgKNp
+         Uafg==
+X-Forwarded-Encrypted: i=1; AFNElJ+KMPmyJqm02EfpkS/gZx6fjmJlNp8waBxYFQKOv12dOLuvsVUWzEbbFNEEUiYxoMBrr+F94fUjxKdf7g386onP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx13udnXy1uH1p+g0fz2K2EzNqMsxRBJYGdNvTBc8P5oGFdPg5y
+	LM4ovO0dzy7MOQndzCILIdYasa2llQBhQbvllqLv3zSNAXsdmaXUam4dLlRik1Vyh+bSmOgnOv4
+	RJ9KseDqDBD/6Wp3giPPoGNjdk5UsvgQNCA8oWzMhIksaP7drq6+MPlI=
+X-Gm-Gg: AfdE7cloh6kkA4F8i7J+Fw9oXoiSdx898rp52grN6SvQeWN0al8WKPlcKBnMNnN6HoG
+	QQ0k7MI3jOogY/StlH5HNJn7NjVpifc/n96Bj+biyk9i0KVJZvKMTu4aMEwEfqfsFffj24vDBFF
+	jE8nXX6sBUa4TsZ23NhoiygYCfvtFS6pqfNYMqjP2Q3SdFC/wSJdks2dI7FLE0devaZ40HJ4QMF
+	S6J2dlQEP4OH3W0iUV5EcPrbzRILuG5gEKON388bapjLJeJmJdxk84qazirpmjauaQ7UkoT2ra9
+	4NocPY1pm0nUblJBO03Q4xM2CB/O0Kg=
+X-Received: by 2002:a05:6a21:48d:b0:3bf:6c08:fb9d with SMTP id
+ adf61e73a8af0-3c03c715558mr313481637.49.1783092375859; Fri, 03 Jul 2026
+ 08:26:15 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20260608153421.26910-1-dbgh9129@gmail.com> <CACrCO_W7jHY6WMZbPsUHHHWFK-yBHayS-5UcQeeyOGiFUcV2eQ@mail.gmail.com>
+In-Reply-To: <CACrCO_W7jHY6WMZbPsUHHHWFK-yBHayS-5UcQeeyOGiFUcV2eQ@mail.gmail.com>
+From: Daniel Palmer <daniel@thingy.jp>
+Date: Sat, 4 Jul 2026 00:26:03 +0900
+X-Gm-Features: AVVi8CcuonzVYVsLxC5kmgxp7B9IWfvFFHxlhiyNFf5P7OQRPqAL1Y3ZvwkzEG0
+Message-ID: <CAFr9PXnK=x0ODqvaS1gfa=Judd8LeQEk9CR-+xvnQKcZGMKDQQ@mail.gmail.com>
+Subject: Re: [PATCH v1] ARM: mstar: Drop OF node references after mapping
+To: =?UTF-8?B?7LWc7Jyg7Zi4?= <dbgh9129@gmail.com>
+Cc: Romain Perier <romain.perier@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_082243_753729_9EB70B63 
-X-CRM114-Status: UNSURE (   8.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_082616_727173_D9FD3BE4 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,30 +113,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer of Allwinner SUN8I PWM driver.
+Hi,
 
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- MAINTAINERS | 5 +++++
- 1 file changed, 5 insertions(+)
+On Fri, 3 Jul 2026 at 06:11, =EC=B5=9C=EC=9C=A0=ED=98=B8 <dbgh9129@gmail.co=
+m> wrote:
+>
+> Hi,
+>
+> Just a gentle ping on this patch.
+>
+> I would appreciate any feedback when you have a chance to review this.
+>
+> Thanks
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 15011f5752a9..51ca159bcaf1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -919,6 +919,11 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/hwlock/allwinner,sun6i-a31-hwspinlock.yaml
- F:	drivers/hwspinlock/sun6i_hwspinlock.c
- 
-+ALLWINNER SUN8I PWM DRIVER
-+M:	Richard Genoud <richard.genoud@bootlin.com>
-+S:	Maintained
-+F:	drivers/pwm/pwm-sun8i.c
-+
- ALLWINNER THERMAL DRIVER
- M:	Vasily Khoruzhick <anarsoul@gmail.com>
- M:	Yangtao Li <tiny.windzz@gmail.com>
--- 
-2.47.3
+In my opinion this doesn't really do anything. But since people are
+sending the same patches (I guess because they have a tool finding
+common patterns) I would accept a patch just to stop getting the same
+patch again. :)
 
+If we have to do this is there not a cleanup helper we can use to let
+the compiler do it?
+
+Thanks,
+
+Daniel
+
+- Sorry for the spam, gmail did its gmail thing where it decided I
+want html email despite telling it I want plaintext in the settings.
 
