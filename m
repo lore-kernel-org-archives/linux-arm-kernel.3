@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E33C3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D296C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RuUQ330Wqy0+ts8WmIurUgrhiRmcX3sIxVlWL9Prdqg=; b=dUr6Kc+y+pFZ3w+rmwCYvWUJCu
-	FmDkVBrk+TlHkhJ2l+Ilqq9cn9wMLw6eO1JFXaee0JuSAE/X8c7IXg2yKr36Hmx9mHj03nWma2yRQ
-	djK4HRiHvQwNir6Ji31n0pb6+g6Po1cEmYLzuyIHxzxb/WTfytEvXqvuSaBK3ScKykcCCUNRKZoVV
-	XB2kL9r9oJY3COiNjOY/LRGLb/5JkUgC9qW+L1MuwPmFCvHAEcMCqF/cqI5t6QBUIFH5MLqnuHg2J
-	BoGzI6KefLSSwBfQJ2zpfSLwSdnRIwXjSgsDRF9MwQSi+IqbW4xkZl5ZIBDDUw0cmz+BUog8OqDNA
-	uA6PMTrA==;
+	bh=ExOHSK3CI7w8Qx7zhNqd6+97gfyapZZ4gckpH8gnop8=; b=HLT4YcqGNHtA5hWHsQzcZCHAY1
+	X+EESTcJ+HKstkuV6F98MCUqDo+fz/mSQ8H/Lnpxq3shIQpqKC/yMUBG8C8GpeYlLcPUuqN3UHP32
+	aceincMtwRKuQrlTvOJFBinFXjuNVR1jImKiyXs8WQs0IyP8F43MQ1f1ujY7XJyvExaGDUid5kzkR
+	tOvjZLSqbs+vyFs1Fpca/rYMFJ9pRvENM4lbnBbsXhhAyYDpITzRHavRDNgmEeL3+r5bQoNaZ8Qot
+	eTQZ0CnQwTctclMscZjdFWTV9eZ9uR2tW7lI8r8Ar/5eS0JuGJHQrTs0E9Hy0JBq55vINaxCefGVe
+	toxNxrCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdSJ-000000071Nz-2OY3;
-	Fri, 03 Jul 2026 12:57:19 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1wfdSx-000000071WP-2w0x;
+	Fri, 03 Jul 2026 12:57:59 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfdSH-000000071NV-1UPe;
-	Fri, 03 Jul 2026 12:57:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783083438; x=1814619438;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=QqusrYjfaWkybx2fPqLba4i2Sxky75V7VYsL+SP5Rao=;
-  b=SJi8YBQuqR1Zz+Z1Ji1EJDcKTlJK2+G5+iqab8RT/c0kSpQ6WCv0fI6u
-   XJdpBYFsKtTjOBDLGhgIWktXiInNhmYun6xa+0cEt/wY/qnEa1ZP2vikt
-   MLTUb+Hpu7mt5nY6npFxzHxih1nllsmU4NW99eQ9F+9R1C8O8Ds7tm2aP
-   yY882c0/ePRXzH/RJS3X2cnZY4klOFdWfhrArIT7NTIQLkOObXjYQnj5n
-   /l1+XzBal1Ogpd1vbUPq66SI64NXaDZ+2tpb6T9oIZUwSGq2eUjeDVwkj
-   a0V7U9fjFPxmkLRz7fbB0RbzDUNRu13BsGnZxmuHleKdyHFtCXZsATRFa
-   w==;
-X-CSE-ConnectionGUID: /hWI3JHHTeCIqqm7ptqtKA==
-X-CSE-MsgGUID: w6qIhjN4RfCDOvH8T+Hw6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11835"; a="83819183"
-X-IronPort-AV: E=Sophos;i="6.25,145,1779174000"; 
-   d="scan'208";a="83819183"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2026 05:57:16 -0700
-X-CSE-ConnectionGUID: fWi3FGauSZCt5t0+ix7MsA==
-X-CSE-MsgGUID: zg506o79Sd21UCgCUHNsyg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,145,1779174000"; 
-   d="scan'208";a="277436452"
-Received: from carterle-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.80])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Jul 2026 05:57:10 -0700
-Date: Fri, 3 Jul 2026 15:57:08 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Daniel Scally <djrscally@gmail.com>,
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-acpi@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Alan Stern <stern@rowland.harvard.edu>
-Subject: Re: [PATCH v3 10/13] power: sequencing: pcie-m2: support matching on
- remote "port" node
-Message-ID: <akexpAPFMD4zNlvx@ashevche-desk.local>
-References: <20260703110317.1283411-1-wenst@chromium.org>
- <20260703110317.1283411-11-wenst@chromium.org>
+	id 1wfdSu-000000071V4-2ami;
+	Fri, 03 Jul 2026 12:57:58 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1783083472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ExOHSK3CI7w8Qx7zhNqd6+97gfyapZZ4gckpH8gnop8=;
+	b=gFDJJDMoLngo4YmHo0ybSQlBpP1891OHy9boiilNkhlrNk7irpKYyPH1gA8782eZZg1cJC
+	zIwmgaL6mlnakEtCcinhZ40DqDZ2uKPR1IVDQOQITD1EINWKhCBWIQHl1Q7Wde0H0wCQ1N
+	v4uDbikok2cI9yx4ceqs7LzFGkIwjGlxrWTjLQx7wtIPliR1DE6mVEppE5KrAhm6o+izNJ
+	jTk6GpaBgdR7wrDL8bPSa2h9/wEixZSwOjVaChigplU1yZxlKhWHnSdojbjkdkuw2vtoO9
+	U+C0saXH0ExMiUi2v9XxOvwC4DQvv37XScA8FO7oKHDxH5nwrVFcdkZ5Zsz+Bw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1783083472;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ExOHSK3CI7w8Qx7zhNqd6+97gfyapZZ4gckpH8gnop8=;
+	b=v1RWWjRx6NJRFvACEhlyvXJxTa3oTzptyUySp2/ZfBTTsP7MKcfIMBECLVHncRNsz3jHxJ
+	MSdOhQ9ywN74rNCw==
+To: Andrew Murray <amurray@thegoodpenguin.co.uk>, Jonathan Corbet
+ <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Russell King
+ <linux@armlinux.org.uk>, Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>, Petr Mladek <pmladek@suse.com>,
+ Steven Rostedt <rostedt@goodmis.org>, Sergey Senozhatsky
+ <senozhatsky@chromium.org>, Andrew Morton <akpm@linux-foundation.org>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Clark Williams
+ <clrkwllms@kernel.org>, Randy Dunlap <rdunlap@infradead.org>, Linus
+ Torvalds <torvalds@linux-foundation.org>, Greg Kroah-Hartman
+ <gregkh@linuxfoundation.org>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+ Andrew Murray <amurray@thegoodpenguin.co.uk>
+Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
+ emiting code
+In-Reply-To: <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
+References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
+ <20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
+Date: Fri, 03 Jul 2026 15:03:51 +0206
+Message-ID: <87zf08w7qo.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260703110317.1283411-11-wenst@chromium.org>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_055717_432692_510F9F97 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20260703_055756_837073_0EB70A0F 
+X-CRM114-Status: GOOD (  18.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,45 +88,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 07:03:11PM +0800, Chen-Yu Tsai wrote:
-> A USB hub can have multiple ports, and this driver needs to
-> differentiate which port is being matched to. The USB hub driver now
-> associates the "port" node with the usb_port device, so here we can
-> use the remote "port" node to check for a match. Then fall back to
-> the remote device node for the other connection types.
-> 
-> Also rewrite the existing "remote == dev_of_node(dev)" with
-> device_match_of_node() for consistency.
+Hi,
 
-...
+Sorry I am so late to this party.
 
->  	for_each_endpoint_of_node(ctx->of_node, endpoint) {
-> +		/* USB port devices are tied to the port nodes. */
-> +		struct device_node *remote_port __free(device_node) =
-> +				of_graph_get_remote_port(endpoint);
-> +
-> +		if (remote_port && device_match_of_node(dev, remote_port))
+On 2026-06-30, Andrew Murray <amurray@thegoodpenguin.co.uk> wrote:
+> diff --git a/include/linux/console.h b/include/linux/console.h
+> index d624200cfc1708bf73925892a466efe0c95c5586..3478b556c0eb9579530409dc6fbb9b5a8bff581c 100644
+> --- a/include/linux/console.h
+> +++ b/include/linux/console.h
+> @@ -290,6 +290,8 @@ struct nbcon_context {
+>   * @outbuf:		Pointer to the text buffer for output
+>   * @len:		Length to write
+>   * @unsafe_takeover:	If a hostile takeover in an unsafe state has occurred
+> + * @emitted:		The write context attempted to emit the message. Might
+> + *			be incomplete.
+>   * @cpu:		CPU on which the message was generated
+>   * @pid:		PID of the task that generated the message
+>   * @comm:		Name of the task that generated the message
+> @@ -298,7 +300,8 @@ struct nbcon_write_context {
+>  	struct nbcon_context	__private ctxt;
+>  	char			*outbuf;
+>  	unsigned int		len;
+> -	bool			unsafe_takeover;
+> +	unsigned char		unsafe_takeover : 1;
+> +	unsigned char		emitted		: 1;
 
-Dup NULL check. _match_of_node() already does that and it seems follows
-the same logic here. So dropping it should not change how it functions.
+This is the wrong structure to add this flag. This structure is for
+the nbcon drivers.
 
-> +			return PWRSEQ_MATCH_OK;
-> +
-> +		/* Try the remote port parent for other types. */
->  		struct device_node *remote __free(device_node) =
->  				of_graph_get_remote_port_parent(endpoint);
-> -		if (remote && (remote == dev_of_node(dev)))
-> +
-> +		if (remote && device_match_of_node(dev, remote))
+struct nbcon_context would be the correct structure.
 
-Ditto.
-
->  			return PWRSEQ_MATCH_OK;
+> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+> index 4b03b019cd5ee25d68e9ace84392045e91241a7f..ae45cb0589c0effafc66f1756bdaecd1c1e53ab9 100644
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1525,6 +1532,8 @@ bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
 >  	}
+>  
+>  	progress = nbcon_emit_one(&wctxt, use_atomic);
+> +	if (progress && wctxt.emitted)
+> +		printk_delay(use_atomic);
+>  
+>  	if (use_atomic) {
+>  		start_critical_timings();
 
--- 
-With Best Regards,
-Andy Shevchenko
+This is too deep (also pointed out by Sashiko) because it multiplies the
+delay times the number of consoles. For the legacy printing, it would be
+more appropriate to put the delay inside console_flush_all() and
+legacy_kthread_func().
 
+> @@ -1584,6 +1593,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>  			if (!nbcon_context_try_acquire(ctxt, false))
+>  				return -EPERM;
+>  
+> +			wctxt.emitted = 0;
+> +
+>  			/*
+>  			 * nbcon_emit_next_record() returns false when
+>  			 * the console was handed over or taken over.
+> @@ -1600,6 +1611,8 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>  			if (nbcon_seq_read(con) < stop_seq)
+>  				err = -ENOENT;
+>  			break;
+> +		} else if (wctxt.emitted > 0) {
+> +			printk_delay(true);
 
+@emitted is a flag:
+
+		} else if (wctxt.emitted) {
+
+> diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
+> index cc203327247aa4f81f55b907c66ac88f30ce6da8..5278d9cb19e4177a00998fba5c1438251e033578 100644
+> --- a/kernel/printk/printk.c
+> +++ b/kernel/printk/printk.c
+> @@ -3211,6 +3208,8 @@ static bool console_emit_next_record(struct console *con, bool *handover, int co
+>  		*handover = console_lock_spinning_disable_and_check(cookie);
+>  		printk_safe_exit_irqrestore(flags);
+>  	}
+> +	printk_delay(true);
+> +
+
+Again, too deep. Let console_flush_all() and legacy_kthread_func()
+perform the delay appropriately between each message.
+
+John Ogness
 
