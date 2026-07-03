@@ -4,82 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA1FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:13:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AFAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZW1+Rwj2Zkkg4xFxLw7inao2NDBuiKLZLReMOE1kdHk=; b=SzpkibjoTUR3WD8AAOs4F9ScMo
-	wHTNVOuJMgKMR/HvcE9EnOPcrPUErQA0WAaVtYB4OWJbT/+u/uzgP0MBdqW0Dx742G7U9orgUJn+v
-	XYpnbEu6yseQMB62kAmcYorPfYvVCuWkZ3wJe2Umi1iWO0RDypfNACd/+1NX1Gjv+8+JS1UnMzTXE
-	fOSe3K7p8pu461dWqCMNoSqCnXPCAseVXk76RDIfaV0in+oiRFXqCQPjS/U+swiLLsNiRlmUbyA94
-	FU02zn6ppyNff+AfdK05kqTQo8iQcTIP+9mIYfsgzX1Ouk2N6h90NF0vsxk66akh/wMvuyeUVjm4b
-	UM8D6xww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bd9+Fl0hHkC0IsCWHNBjba99c0PhELLOZqPtml0ia2E=; b=qI39AFkHrA8ej29ZNubeigEftY
+	DVULJn/oWNcm7+bp+kvGo0wOrS52uK+EOhoZbr5D9o+l5LuuWRZTHQKpgnTELcWt8JKa7O/nJlpHm
+	xMQlEULUroM4oINIxpFon7F4xT+02TjLINpCLxYjjRoHiL5z/pKHEhnhMOAALRhdnajwHtOClkra1
+	4e5WNScQpBQqDqy81xE2ShEzrWegf8B0PARw6LEoRHF3FGQ9aal4VwdLlOZlJPPwNWSKbEsqRff40
+	D+om5jxj7zz1UqQ3UJB3pCLe2L3KRrAlKwacPkzeFQmKTdqc9WP+PPINqdtqm30sgakwBu6OJwFRV
+	+ZjolIVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfclM-00000006uaF-20RS;
-	Fri, 03 Jul 2026 12:12:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wfcn5-00000006ujB-3O1X;
+	Fri, 03 Jul 2026 12:14:43 +0000
+Received: from mail-gw02.astralinux.ru ([93.188.205.243])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfclL-00000006ua0-2BXl
+	id 1wfcn1-00000006uhe-2gGh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:12:55 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3B03D43E83
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 12:12:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18F201F00A3E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 12:12:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783080775;
-	bh=ZW1+Rwj2Zkkg4xFxLw7inao2NDBuiKLZLReMOE1kdHk=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc;
-	b=V13+C1TO7e0BLup6/ZXRFCVqSB8pr91oUvp+sZqGgDu6dy35z5ppYNo0lSuhKJf1f
-	 vWZ5VzzvMkh6hoWyk1wdjkd//bAC1zhiP0ugdLwRvhYzJAIbRnGx1D76pMjOdo1k09
-	 1ZUqjXfwW0JozzdJ4gTapT02eIULAj+Q0nw4EIDW+B5+ZavUQA7EZwi3FFbE8D5gOz
-	 D3D8CInjn2ciHTHbs6DLk5Zl+AWG5YXG4gR3X2WSFDVsNqohzwWXIqSer0SUApbXqU
-	 zlj2Ddp1yY39dCBH8RwqN4GhbP9u5/BPm7Xdp6VcIqfcI6DZaRLauZombNCO7ssslT
-	 hMOavJL5+escg==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5aebba706b3so536518e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 05:12:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+RqmDCeOpAKt3+5ovS0rNBCpU7eh7pbubChvCFe0x5ugHf/0il8rd8noSFWjfyFlyMjzqNRf/+A8VDjGhUtQCfQk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx/WpWY8+3BFUjf5/3b7lTsI5DrU/R2zOWusxxLTtE2IrQ5q8c
-	oCzfqat50YFt/Fo37jtyr3sUho2ZAmACv4jRv948TXm1snB2SBGUXgfwGlZq4k0TCAUxMoEBDkq
-	R6okyH91NDx5JURy3HAH2bXKhpdPRxNpFZe3b2x7oMg==
-X-Received: by 2002:a05:6512:6383:b0:5ae:a702:6528 with SMTP id
- 2adb3069b0e04-5aec67ac494mr2230940e87.26.1783080773854; Fri, 03 Jul 2026
- 05:12:53 -0700 (PDT)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 3 Jul 2026 07:12:52 -0500
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Fri, 3 Jul 2026 07:12:52 -0500
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <20260703110317.1283411-8-wenst@chromium.org>
+	Fri, 03 Jul 2026 12:14:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=astralinux.ru;
+	s=mail; t=1783080866;
+	bh=KWWCjLkg4h9x3km9rFZ2Wfc0d2ZwVc895DbuVuZ74O4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=AG6PM/yhZE5mNO0tX1LnotZZjELMcvmJXDmIX/c8ZQZZRmqb4F+z0DwHJeotD5bSo
+	 TMCq+vjZRGTadIb7+1dbJQ4mZJLRTcvuT0XKke14kfpTeDOD8za86PV9FoyLs1RnBQ
+	 3hI1TUZPvcv0wUNdz7lvmh6yV9xjQyEEgBwL4VaFVO6f5DaDS1EN002XeBlTl/3nIZ
+	 ESitHEAvo/Td6xMh19gW7Xf9LS8PoQZ2wjJJgg4NfaYW8k8qFMi0eoi2H+9Z0BLPSO
+	 UpSs8207PQNBTZCwMoiVP4kNBwE+zC461C4uFRpI2f2Hma1MSzkRnZviL7bMuZ78ee
+	 V/9JZ6zwwVMYA==
+Received: from gca-msk-a-srv-ksmg01.astralinux.ru (localhost [127.0.0.1])
+	by mail-gw02.astralinux.ru (Postfix) with ESMTP id E39021F42D;
+	Fri,  3 Jul 2026 15:14:26 +0300 (MSK)
+Received: from new-mail.astralinux.ru (unknown [10.205.207.6])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-gw02.astralinux.ru (Postfix) with ESMTPS;
+	Fri,  3 Jul 2026 15:14:24 +0300 (MSK)
+Received: from rbta-msk-lt-302690.astralinux.ru (unknown [10.198.56.105])
+	by new-mail.astralinux.ru (Postfix) with ESMTPA id 4gsCNb6Flsz1Q8W;
+	Fri, 03 Jul 2026 15:14:23 +0300 (MSK)
+From: Alexandra Diupina <adiupina@astralinux.ru>
+To: stable@vger.kernel.org,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Alexandra Diupina <adiupina@astralinux.ru>,
+	Abel Vesa <abel.vesa@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	NXP Linux Team <linux-imx@nxp.com>,
+	Adam Ford <aford173@gmail.com>,
+	linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jiasheng Jiang <jiasheng@iscas.ac.cn>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Brian Masney <bmasney@redhat.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	imx@lists.linux.dev,
+	lvc-project@linuxtesting.org
+Subject: [PATCH 5.10/5.15] clk: imx: Add check for kcalloc
+Date: Fri,  3 Jul 2026 15:13:38 +0300
+Message-Id: <20260703121338.25747-1-adiupina@astralinux.ru>
+X-Mailer: git-send-email 2.30.2
 MIME-Version: 1.0
-References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-8-wenst@chromium.org>
-Date: Fri, 3 Jul 2026 07:12:52 -0500
-X-Gmail-Original-Message-ID: <CAMRc=McpxD325uVPO5NNZ=47DQgCBrD+uTOKUzoHTgbkPhqtiA@mail.gmail.com>
-X-Gm-Features: AVVi8CftwarX-Z8K0VV5KkzRZ0nUoORfEc2vkRQt3p7UOG6R8Lwo7yu86B3HXFw
-Message-ID: <CAMRc=McpxD325uVPO5NNZ=47DQgCBrD+uTOKUzoHTgbkPhqtiA@mail.gmail.com>
-Subject: Re: [PATCH v3 07/13] usb: hub: Use usb_hub_set_port_power() to
- control port power everywhere
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
-	Alan Stern <stern@rowland.harvard.edu>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-KSMG-AntiPhishing: NotDetected, bases: 2026/07/03 11:40:00
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Envelope-From: adiupina@astralinux.ru
+X-KSMG-AntiSpam-Info: LuaCore: 112 0.3.112 7c8d497b0e572fbfa504a2ee62037c045a8cb4ec, {date_rfc_vio_soft_silent}, {Tracking_ml_letters}, {Tracking_uf_ne_domains}, {Tracking_internal2}, {Tracking_from_domain_doesnt_match_to}, astralinux.ru:7.1.1;new-mail.astralinux.ru:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1, FromAlignment: s
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiSpam-Lua-Profiles: 204227 [Jul 03 2026]
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Version: 6.1.1.22
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.1.0.7854, bases: 2026/07/03 10:45:00 #28371015
+X-KSMG-AntiVirus-Status: NotDetected, skipped
+X-KSMG-LinksScanning: NotDetected, bases: 2026/07/03 11:40:00
+X-KSMG-Message-Action: skipped
+X-KSMG-Rule-ID: 1
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_051440_033253_A8FAF81D 
+X-CRM114-Status: GOOD (  10.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,16 +110,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Jul 2026 13:03:08 +0200, Chen-Yu Tsai <wenst@chromium.org> said:
-> There are still some instances in the USB hub driver where port power is
-> directly controlled by toggling the USB_PORT_FEAT_POWER feature flag.
->
-> Switch these instances over to usb_hub_set_port_power() so that only one
-> unified function to do this exists. This makes adding external power
-> control with the power sequencing API easier and consistently applied.
->
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> ---
+From: Jiasheng Jiang <jiasheng@iscas.ac.cn>
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+commit ed713e2bc093239ccd380c2ce8ae9e4162f5c037 upstream.
+
+As the potential failure of the kcalloc(),
+it should be better to check it in order to
+avoid the dereference of the NULL pointer.
+
+Fixes: 379c9a24cc23 ("clk: imx: Fix reparenting of UARTs not associated with stdout")
+Signed-off-by: Jiasheng Jiang <jiasheng@iscas.ac.cn>
+Reviewed-by: Abel Vesa <abel.vesa@nxp.com>
+Link: https://lore.kernel.org/r/20220310080257.1988412-1-jiasheng@iscas.ac.cn
+Signed-off-by: Abel Vesa <abel.vesa@nxp.com>
+Signed-off-by: Alexandra Diupina <adiupina@astralinux.ru>
+---
+Backport fix for CVE-2022-3114
+ drivers/clk/imx/clk.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/drivers/clk/imx/clk.c b/drivers/clk/imx/clk.c
+index d4cf0c7045ab2..be0493e5b494e 100644
+--- a/drivers/clk/imx/clk.c
++++ b/drivers/clk/imx/clk.c
+@@ -173,6 +173,8 @@ void imx_register_uart_clocks(unsigned int clk_count)
+ 		int i;
+ 
+ 		imx_uart_clocks = kcalloc(clk_count, sizeof(struct clk *), GFP_KERNEL);
++		if (!imx_uart_clocks)
++			return;
+ 
+ 		if (!of_stdout)
+ 			return;
+-- 
+2.47.3
 
