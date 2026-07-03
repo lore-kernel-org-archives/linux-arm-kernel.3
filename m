@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74BF7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:37:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4F2C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:37:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mS7Fsq/iJChdO1hpwr/l2Vg7F3ujEn9sQyPNvayGzFE=; b=HiL4v8zXVzuwyf6bKY9ELvpZuW
-	3MWlPEthQaTgX+qqSXCIw9DOPQ4sgMuEgJyLBQ1xso8lsMifwL/ApbFr+vBMhEljzseVhac9WxU8s
-	JCVRyCIBGHLikKDTRwltN7D7bolr6sxZs9m3RoG729kHR0JxfCe7xFHUg++xW07a5ea0swj5lE9U3
-	qjIOSU1psIzAiRJWvHbReFI7DifUcMbVNZY+h/+mxVuamOsur9gwzeEBsj00Jw35e6dUuWZ13ItAi
-	WskqvXSnOxl+R4gdAtmh3TuKRtaeVZJBnPy5iTG8zG1CsIxaic6osUtJctENUAkQ+lhe4LiUENSXp
-	sdQjwXSQ==;
+	bh=1skMGyWcIwP6d/wajOmln3d7RvV3oP+0pDqfsh/2McQ=; b=DyAMgNDEZRP9L0MvD580mcrrR3
+	kBi1XmWcb2QWsfBp6TjPJbEp4HZKA1GtSpwNqZeeRYZ0RCZvSnD7G3g9Jk6jsswSlpxPz6LGIq95l
+	Uf9rO64RuSyL45yI77G5XCYVsGdIn7hpa/A2IBmLMnEnOEoXQM/rPL9YfHcunJ0on41T+6tfgaVzi
+	2C1VDaCKVw3mTshmMrW0MkCu+3E6/p7ON8mxwP5AB6W9mMhtz5ChFTlSYuWoe5ErR5NDR7FtBNKI+
+	KnTTWn8MNxzP6COAfBDe8upGpQ5Y8B9Y+oXRQpChlHSaa3c9gPfm3/wfRrMk2mY5DeKchAlpzr9Of
+	LoXwdbcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd8p-00000006xI7-3zdC;
+	id 1wfd8p-00000006xHu-3Yc4;
 	Fri, 03 Jul 2026 12:37:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfd8o-00000006xHV-1okp
+	id 1wfd8o-00000006xHW-1olH
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 03 Jul 2026 12:37:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=mS7Fsq/iJChdO1hpwr/l2Vg7F3ujEn9sQyPNvayGzFE=; b=el5akIhKNB/33egNSNeus4u32b
-	qm80F2gjF8It+8aIN1z2fEE+O9KcAlNjyZVce9vzrMiWA8IoQXuo8AkkPt/3JjGto3txZcEOnSvqJ
-	7Ix2zpFbuDMhNFLm/MTHQm5YNbkU6ZYLZTiredKgn0uT3Affp0l9fwbyUKXCGYBaA+Db0gaME1Qxy
-	FJDrPF1C8fKYh9igvc3W2KpElp34EJkUBtBi3f81VTJFbFcW56RSRTNzun+T2QEHrudBXIDlCfi5G
-	uz0eUhzVqQQJHlYMHW0WxxHU6lYBEFxLGr8ksIIURN8buhqCF/ZozjQCPtmP3YO4Z2UOt0183kxVj
-	cGOFWAZA==;
+	bh=1skMGyWcIwP6d/wajOmln3d7RvV3oP+0pDqfsh/2McQ=; b=A8CMRzIj+TUwIW3P8IcjidoNyo
+	AtudEhqvGfUBienlJFCMqqy8pBRNuuwygqMBSoNob8xWhxkzcs3DL/cDALBCgp4Ly47evqZx7uxrQ
+	0lwq5BbIZTHVlc6yZBPpL65Y6BQ0JUyRvbQmCCudt7Qy9j78rPWIEG/DAOiaFTRiUzzw0zOv9zMfF
+	xcmamn6pIZSQkZVAxkbjTPKXQ/30Jrnn4rKeiYeAhpO0/OwrdsUh1CTfELIqFX6HiY52uIr3hCICL
+	3JtnKkUkVCM9ZCEyzr5gC5TJDrk+CHFxE3s/P19j5BBHH03/qB8NokBWkALACu8bPvJIzlU/HnR5s
+	mNK2oBfA==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wfd8l-00000004ot1-1on8
+	id 1wfd8l-00000004ot2-1huh
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 03 Jul 2026 12:37:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BE7F464B;
-	Fri,  3 Jul 2026 05:36:44 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2B435464D;
+	Fri,  3 Jul 2026 05:36:48 -0700 (PDT)
 Received: from pluto.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B00493F905;
-	Fri,  3 Jul 2026 05:36:44 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0BF5B3F905;
+	Fri,  3 Jul 2026 05:36:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783082208; bh=9vZoBgzFE2THNFE8s+a0rg1bPJg4MV54NAwQFcIi1xY=;
+	t=1783082212; bh=CwJGWGgRXKnupukDLWD6QwCAt4HaM/Pbt3pAL9OqFfU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=vmLr0bc8rixPDm3Bhskx0gu1HYDr9nHMWteRfb195hI+99jFudJIj5q8nDU1l/qqu
-	 dOMD23rIRgtBlgIHctGwU/c/aLhdyFuMkuCIrYJ1nmmuUK8RGqqkbHReIDlULcDJCd
-	 61Q+PDpJFnR80HDpKHr3XF0DpdIAuMtDZnh9py+Q=
+	b=pageB8FmTnNaCaGnvQhqJPW3qlxO8x9iRLnCK7cALK1gPy9K262WacBo3LmiFJVBq
+	 34b3rvvDdhgXJf5ASXR0T2YWIE9r26Kiv35ayI45/869esyFpdb+j35UUXZlIomN08
+	 3gK5oz2AvZx6tVY/uoy9FnVdPl60CXpob19tKGJk=
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -79,22 +79,18 @@ Cc: sudeep.holla@kernel.org,
 	puranjay@kernel.org,
 	usama.arif@linux.dev,
 	kernel-team@meta.com,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: [PATCH v5 05/23] dt-bindings: firmware: arm,scmi: Add support for telemetry protocol
-Date: Fri,  3 Jul 2026 13:35:43 +0100
-Message-ID: <20260703123601.381275-6-cristian.marussi@arm.com>
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: [PATCH v5 06/23] include: trace: Add Telemetry trace events
+Date: Fri,  3 Jul 2026 13:35:44 +0100
+Message-ID: <20260703123601.381275-7-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260703123601.381275-1-cristian.marussi@arm.com>
 References: <20260703123601.381275-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_133707_696663_99160035 
-X-CRM114-Status: UNSURE (   7.64  )
+X-CRM114-CacheID: sfid-20260703_133707_778812_402C3191 
+X-CRM114-Status: UNSURE (   9.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,42 +106,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new SCMI v4.0 Telemetry protocol bindings definitions.
+Add custom traces to report Telemetry failed accesses and to report when DE
+values are updated internally after a notification is processed.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
-v3 --> v4
- - changed protocol number to lowercase 1b
- - fixed misplaced block for protocol 0x1b
+ include/trace/events/scmi.h | 48 ++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 47 insertions(+), 1 deletion(-)
 
-Cc: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org
----
- Documentation/devicetree/bindings/firmware/arm,scmi.yaml | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-index d06cca9273c4..be733f8d60a0 100644
---- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-+++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-@@ -324,6 +324,14 @@ properties:
-     required:
-       - reg
+diff --git a/include/trace/events/scmi.h b/include/trace/events/scmi.h
+index 703b7bb68e44..b70b26e467b8 100644
+--- a/include/trace/events/scmi.h
++++ b/include/trace/events/scmi.h
+@@ -7,7 +7,8 @@
  
-+  protocol@1b:
-+    $ref: '#/$defs/protocol-node'
-+    unevaluatedProperties: false
-+
-+    properties:
-+      reg:
-+        const: 0x1b
-+
- unevaluatedProperties: false
+ #include <linux/tracepoint.h>
  
- $defs:
+-#define TRACE_SCMI_MAX_TAG_LEN	6
++#define TRACE_SCMI_MAX_TAG_LEN		6
++#define TRACE_SCMI_TLM_MAX_TAG_LEN	16
+ 
+ TRACE_EVENT(scmi_fc_call,
+ 	TP_PROTO(u8 protocol_id, u8 msg_id, u32 res_id, u32 val1, u32 val2),
+@@ -180,6 +181,51 @@ TRACE_EVENT(scmi_msg_dump,
+ 		  __entry->tag, __entry->msg_id, __entry->seq, __entry->status,
+ 		__print_hex_str(__get_dynamic_array(cmd), __entry->len))
+ );
++
++TRACE_EVENT(scmi_tlm_access,
++	TP_PROTO(u64 de_id, unsigned char *tag, u64 startm, u64 endm),
++	TP_ARGS(de_id, tag, startm, endm),
++
++	TP_STRUCT__entry(
++		__field(u64, de_id)
++		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
++		__field(u64, startm)
++		__field(u64, endm)
++	),
++
++	TP_fast_assign(
++		__entry->de_id = de_id;
++		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
++		__entry->startm = startm;
++		__entry->endm = endm;
++	),
++
++	TP_printk("de_id=0x%llX [%s] - startm=%016llX endm=%016llX",
++		  __entry->de_id, __entry->tag, __entry->startm, __entry->endm)
++);
++
++TRACE_EVENT(scmi_tlm_collect,
++	TP_PROTO(u64 ts, u64 de_id, u64 value, unsigned char *tag),
++	TP_ARGS(ts, de_id, value, tag),
++
++	TP_STRUCT__entry(
++		__field(u64, ts)
++		__field(u64, de_id)
++		__field(u64, value)
++		__array(char, tag, TRACE_SCMI_TLM_MAX_TAG_LEN)
++	),
++
++	TP_fast_assign(
++		__entry->ts = ts;
++		__entry->de_id = de_id;
++		__entry->value = value;
++		strscpy(__entry->tag, tag, TRACE_SCMI_TLM_MAX_TAG_LEN);
++	),
++
++	TP_printk("ts=%llu  de_id=0x%04llX  value=%016llu [%s]",
++		  __entry->ts, __entry->de_id, __entry->value, __entry->tag)
++);
++
+ #endif /* _TRACE_SCMI_H */
+ 
+ /* This part must be outside protection */
 -- 
 2.54.0
 
