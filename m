@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A5CC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 04:08:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C6E4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 04:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8UhTEhfqHqHnPeFNM86QHlVk2WKDMucC+478CCVzCFg=; b=hC8rlJwuZNYv2khC2d88kw6zdI
-	ucx5enDTPMkQEAR7R5Lvn4GhbfDNBeh4r2Ou2kV7boR+OxZB9PwWKoka9Qclu8Pzp8gJQULvstoMP
-	+RNjtIm4A/RMYjZwia8Skn7mPOo+/z5xVTFZtuAtnK5c7wrl2w3b9nbXeIm3tUIpF2cN7xdTi3fPC
-	0QIBExn99NPr6QnrU2R4jZ8zO2MLGGLclSm7Hwg1DhwqtfF/6ba/ySwdVdmhIF7cMZg85EMQRWfs2
-	PLo/negqLHBziYdXO46p/n4g0sZOjBA5eXEx3LR474kKOtncm1PVgiAiPrvOF3wESpCSFqliBinSL
-	UN18U+xg==;
+	bh=8phYxe2oZX5gFeHZ6L4BL+FSqa9OgTY7oCLF+wu9QXg=; b=Xvz0/HDb3GZYfmcjT3HP/XoDFV
+	0P92jK1/IJfqqgWmK5hGCQWSkoQa4kfB7t8r9qYc8NNq0kFiTVbOtrzFRLkvTILivtm6qpB51PIuJ
+	ss+5EBWYM3UgMw4W8wLkfJE3nahSGpeRiv9gjVmPk4+Oz+/TGI0a28h8QE8OAbVGWNIHgbIVoPN8z
+	lvsTv88IbKzT/loZGJPwiXQs5Ja0d14jZuNrD5MMAtytBvA+r7zMGfgpFZ9eJoy0Z2XKCNwm8T4Rb
+	UbXSeiGTZOc8ZQZiVFkDnQ33g9rnxPvp1fDa6V07KvChS/n9ZURp+JJGVaYqruuTT6u+4KKcxakRs
+	jmB8Y6Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfVCA-00000005yHJ-0jOZ;
-	Fri, 03 Jul 2026 04:08:06 +0000
-Received: from mail-eastus2azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c110::3] helo=BN8PR05CU002.outbound.protection.outlook.com)
+	id 1wfVCD-00000005yMn-3Mx5;
+	Fri, 03 Jul 2026 04:08:09 +0000
+Received: from mail-northcentralusazon11013069.outbound.protection.outlook.com ([40.107.201.69] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfVC6-00000005yDA-0ch1
+	id 1wfVCB-00000005yIL-257x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 04:08:03 +0000
+	Fri, 03 Jul 2026 04:08:08 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=psxf7dsnKJAv2gZVacvxfaDQiiSXLhdHPTuST0XYFk6BGerGHmhGA7wsfE2sZ5PoLQ3f6/0sgWYaUQJCeYOk5H5mT12PtJc9VutSdAL7h/6c10dfKNY6geln1+7YoeCzMuKceLR7QfKtqwnSaTFiJTFFBnuiyue7/tsS1KzVFZTAIZGnkJFzbzP4LsGjRPc6upEVA6Lhyk7QOSa+Qc0V7wnh4rxjMuc2+OLJl3VATCJi7Jzg1KG+CZGt1cQjbaNVx7slzMvu23+rGFn7M78jR23YMC+7hGnQvjZUvxb7rrZlS4jl/IyimRQ+AvSISfaOWG2yEljVMh2Y4iB3TLnmUA==
+ b=rr7BkfM08K+i47GF/lIA1FrO0+JnmsYggu67FW4Dc4jiyx+oNlbZn0hfoHT/7Wp5lRwat5U3thhi/U7w4pfsqtXWHfioACRMwLIK74IkFAYTGUmKFj4oARQFwZgIALvY4ADjT+g4ndzScEyScRoPtvFD8P02llmYXniwaXlnHJrvMsEq75MmU+ezwcXiL1J4hPVLJOOigeH1kSR2EBFX71s8nQdxhUA5trdVhKWNzOxhAZPWIxu5ObSU28Z4zMjZQ1e/BRO1fOlv58RnKpzsNERHwMWkq0Mrq1Lj2/JFodWpOLQfpKZhrqAKjzGjMWol0wQLFDP/9CagWqj5ycTOEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8UhTEhfqHqHnPeFNM86QHlVk2WKDMucC+478CCVzCFg=;
- b=UN2USN1thmZhNNQJgkF6Ja/Sz3gjpCM63rFfJx8g7/cTTSf1cb85OZ9R0vjO8mTdX8FwTv5+q+WDHBAU34Hje1cFNaUBIXhRQ5glGIVU6oHVjplZaUsVJjQrR3HOplJVJBgGDC1pmAftuDpbk4dq9wv3uNSc1DejQL13Afr16fQ8v8LVvRbpULKCBNpcZA10FXnCiJOS358FWt+jIRe4G+5lNnq/KBg4cJTzLBy/8V7EWGx/44C/HpIOObkttH5yeGZbQuJSJw4D+3mb2t8DghuLu4KJN+OZiCKvSu/VA3jDWOFvMUEdFxAN2qwtSqawXDv2gh6AVDpefExz/BuX5g==
+ bh=8phYxe2oZX5gFeHZ6L4BL+FSqa9OgTY7oCLF+wu9QXg=;
+ b=W4mvXfT+ChA+0CCs1xBSgDvDKeT4+e7TVS8tIK13qaSa2iB5o1/MEMA3E/MNLgAp57K3WtrpUdtrtsj/cWs5dh9ab30u7bifJR8omX8fOmNd26ULIuYB6jwratOxFdmuz90oHeuJ4+Xx2JlanNN9/PqOCvyFt2ChBbbNy+TFsInSOflzMs1D8TmolPmAcYvblmswOOE/T5FZYOU2Tc5YYFHX+NVgutADM4IsS+ofGM0CsRaSrrg7RLdo/rMvCqe7FBYwLJPp0BBSnCtp3XjageAhlfE2+b/A8sOmrN/FFLLoBHCxx0iT30aYdwze/mO5hpgD85+f1LYwE3wJOC7j8Q==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
  dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8UhTEhfqHqHnPeFNM86QHlVk2WKDMucC+478CCVzCFg=;
- b=P04nCC1ttumPr30hZgDRXSufuTsoCIacwxf91Va+l/nBqS5SKYu+XDFPm2+Ink+Z7DkxLN6Cm/Z6aIJzs+VoejswYceBkqpqnozl38ksHpZFozyksWavTXPhoh4ilCYnM6by1HX14rqtvmFKU9mgPzBNItncM4VsisFkmZ/yRFDWKF1MO/x5T5UrJ/Vu5KmlLZniwJt6pqAQb+VJuav9BUpgsAJOqkdRWEwg+s3salHT5OKQSUmmf6762H8wKgBQamLrQhWOdU+2Anrb5EsudyMky85+kTfE/vPhkPfbPKJhp1eA08pLYIiRHnbZSxM/kn3yTqMWWpcitgh5wrFacg==
-Received: from SN7PR04CA0189.namprd04.prod.outlook.com (2603:10b6:806:126::14)
- by SJ0PR12MB6926.namprd12.prod.outlook.com (2603:10b6:a03:485::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Fri, 3 Jul 2026
- 04:07:52 +0000
-Received: from SA2PEPF00001504.namprd04.prod.outlook.com
- (2603:10b6:806:126:cafe::7a) by SN7PR04CA0189.outlook.office365.com
- (2603:10b6:806:126::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.8 via Frontend Transport; Fri, 3
- Jul 2026 04:07:51 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ bh=8phYxe2oZX5gFeHZ6L4BL+FSqa9OgTY7oCLF+wu9QXg=;
+ b=D6pG8peWiZLvX1M2rOaAU8kc6+Sf0xpG+JroFQdVm4QXOD2SL/fsYEV+S4iP0eyNcVhCJArqfWq7p8gaStKDzMsuW19ky+v0hU2rpnY7UAsgxXu5Fp+bn+SGdMOr46f90Rz3Muw3glMcrSx6b30D+FhbmTeYC6d2fHtMaKgYb2iUQkuvt0ZR5ek0cKdOKT9fMHCvLwZPLbbSqEwjV0KZ7v+9sMjtP+aRfzEpV5EqHAQ25RgaraYx+c7ac53fUxM759LvoWJdz+Il+i6nuti4tzGDG/8VvCGgpOEAz34NRorFvzoW7SWXLChAbeoAAVauEMBphIhCMJR9aFDaZJ/8wA==
+Received: from DS7P220CA0119.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:25f::11) by
+ DS7PR12MB8204.namprd12.prod.outlook.com (2603:10b6:8:e1::9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.10; Fri, 3 Jul 2026 04:07:57 +0000
+Received: from CY4PEPF0000E9D6.namprd05.prod.outlook.com
+ (2603:10b6:8:25f:cafe::33) by DS7P220CA0119.outlook.office365.com
+ (2603:10b6:8:25f::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.11 via Frontend Transport; Fri, 3
+ Jul 2026 04:07:57 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
 Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SA2PEPF00001504.mail.protection.outlook.com (10.167.242.36) with Microsoft
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CY4PEPF0000E9D6.mail.protection.outlook.com (10.167.241.69) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 04:07:51 +0000
+ 15.21.181.6 via Frontend Transport; Fri, 3 Jul 2026 04:07:57 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
- 2026 21:07:35 -0700
+ 2026 21:07:43 -0700
 Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail201.nvidia.com
  (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 2 Jul
- 2026 21:07:34 -0700
+ 2026 21:07:42 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
  (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Thu, 2 Jul 2026 21:07:33 -0700
+ Transport; Thu, 2 Jul 2026 21:07:41 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg
  Roedel" <joro@8bytes.org>, Bjorn Helgaas <bhelgaas@google.com>, "Jason
@@ -85,9 +84,9 @@ CC: "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
 	<linux-pci@vger.kernel.org>, <vsethi@nvidia.com>, Shuai Xue
 	<xueshuai@linux.alibaba.com>
-Subject: [PATCH v5 03/18] PCI: Propagate FLR return values to callers
-Date: Thu, 2 Jul 2026 21:06:28 -0700
-Message-ID: <b00acbe0755fa5999491368eaac26a78d522e2ed.1783044582.git.nicolinc@nvidia.com>
+Subject: [PATCH v5 08/18] iommu/arm-smmu-v3: Skip remaining GERROR causes on SFM
+Date: Thu, 2 Jul 2026 21:06:33 -0700
+Message-ID: <87ac4c46207f8e9903cc6a6f6f1b46995145cb64.1783044582.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1783044582.git.nicolinc@nvidia.com>
 References: <cover.1783044582.git.nicolinc@nvidia.com>
@@ -97,28 +96,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00001504:EE_|SJ0PR12MB6926:EE_
-X-MS-Office365-Filtering-Correlation-Id: 01f0f2b8-9300-4c37-6d61-08ded8b8a6d2
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D6:EE_|DS7PR12MB8204:EE_
+X-MS-Office365-Filtering-Correlation-Id: aa37bb83-00ab-4b6d-230e-08ded8b8aa5f
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|36860700016|7416014|376014|1800799024|82310400026|11063799006|18002099003|22082099003|6133799003|5023799004|56012099006;
-X-Microsoft-Antispam-Message-Info: OTLpokAwdfP28hd/f/ZEdkoK7ephGKWVhXpwzyTlf1pgcH/MXJRr3ApyYPwMBzwJ4MYHeDknLbo2MUV7IUpLuhcX+0H8gwIkvky3HaT9RzGRagNUimv7iKvZGUdqDlHumzEhlRarR/sruObP9cAwmVXsmRKyuOhubJeEvifrYudLO0icqA0j+G9Mks5DrXD8rk2jZotBQF4KTnym2xARcMfGdGimaXbj0yn3d5eiKFlqM/4/DlgpxF1ylxYaZuEALtKbjO0opiI30SPQ9mSBd+vDE0S5jlw3tSIDmU81icY5GGvR+h2Pl5QSNbgVR+nKF2IU+ANSawcC/8d7dugcCD4O3kVLjTdTkcjO07peLZKeayhgodFfpx5aFcqJkoUjZq+4w3kx+gAPLnwLIIGhQKiWFt7gPpAhKOMSo50vtEWWshv7dysqrOrf3Zu5zsvDzJz4LRuLeg710THxUNFIv9VHbprws3vAQZ/Ak7sCacNj26DKjdZZ1pqdTPlWOBkhizs34bOcb/65wjUaC3BmBHoGldzmvFSztnHK1EouC2GyGYbEK6O4NGgwTsAczNFRVs9bL/qMWBvHqbrfuLsm8gcZ77DsDcr3+PuOMxa2YjY8ybKO920R9yy7s/EFtr9INiKFPaRO+W1MJi10Q3DhvclokTdcJOo0nt1pjL/200P4d/DKnsmfRRhGFg9nvf81jubtcROevq21+BeotZDnJw==
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(7416014)(376014)(1800799024)(82310400026)(11063799006)(18002099003)(22082099003)(6133799003)(5023799004)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|23010399003|376014|7416014|1800799024|36860700016|6133799003|11063799006|56012099006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: wCMNeWX3hc+W/U/K/DeGSqX9SuY/i62o2GAOtdbZZq+Upy1RKiendI/kETXb2lKCjWK0jRQietj4EqoX4R3AS/EoLNUBiM8YYoKI5zgiXXBOVu7HnLaZUUEH8Q29XMl8Dr7Oc2TIXyIVZR8s68ZbZDIVZ9HDDa++Ux0iIr7C/jD2dX/93V/IfA9Pgp/2pcR3dGcEKmVm/pommu7OndDijtUtyI5u7jzcZlgVQqvx5gthSm1c9MCNOJYo7i3xBpeIipDQGRccPLcvau5bJLbOWBStQ73Eaw6cFqOrsNuRjGPptS1hmO0vXu+BiDheFcuaiB1sQZCaUdi4sBfE57lNp9Q5yUlPAEyhYGSKSShgaJvFEnJEgF/YkwKK8lsINnrgXoxZgpPVkMapj/aSgAZschqgxrv0ObI+fovYTJOB+n3iCJFHxPcoCfDWJZDoJo+UyfiXluhSa9pozyfLShePp3QlVuKQCYQ+E+Hd1uakkhD5SWWVkUIHv5sD1iFW+e34nXeQhpiyZR5LpVs7CyM6P+pSGRvZZpZDbW30lx9YLdvJTEj9/K4gNrTW+S7z7X4ZyVouiyrJsMG4tZAns2OjG8Aw5ZsWFaXBTGpCKNiq0PA3Ib09ZIIlkdmAQCxXR1lg9vUl3ElgsdS+Ri3kHCQv9jUns1DOlAa1oPNzs1EwPUBVwYaHA1s7SY2i8nz5MTxBAxogiXPLoMThet2gvw7s7w==
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(376014)(7416014)(1800799024)(36860700016)(6133799003)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: LNicIyQGjx9vtqAoukTuG4UA88bl85o5Xx17gDNRezdayqfpRre3GaFBkHZotoQkDrYBMnkk84v5u3Atyrn3YiE+1aX3YAdAYwWsXGITEglWOEEotvS5jMdNMj+eSyCEHYKYbb4MO2NzUsiJ08rutwpndPk0hs/hn2Cti1Remru7FBvNwWjpW9G6tc0a+fzZVsC6AGfXcJ/u3ygyAX5IorzqyBzOf5WA8z3O4iVKHGPiCEB5VmlZQgnWbEHjFPzcbUKt8EtJ3VjgWLTGUvvXby+Gq18zpOi8rkhZZhME3qKTii/OTpPUhHMIsnilnjPTYGWG42XM5hnTETKRcPXDEZ5xvEKd9R6VzaHVOz5BcaS2eiPWeSdh5bC3ZHwe4pKSLkVTKfbWgz2ObWDPxcL3k2nlv3eCG529EHWa4nazzCcKU2QgUe4C6HBlvX7kFASh
+X-MS-Exchange-AntiSpam-MessageData-0: 5lohrFsqCxMCleY4rz54GodPXK6dI13Zj15etSWVeorQh9IubJukPxroDiXEq+K7RPso1SNtRhynXD3D7K21neG9YmxBz455XOM2MweYVfbbQKziC0aeB96kZwu/d4roUWiL2Sz+K2NW+KVR+YhQdxYt8SrQjUeDqyVSgQiuVqN+Pv5qw9hUiUucOOgEx4B9WtOgDG2XYrYDoRwVc7dIc8bBLHXRctBHZYKSDzScM0tfxuDSSPSTAcifsSxbuniUdGXcHU8mihn9qquitAe+vGv1heH1qhfHQbc1knk0kRaBlqudls00zCBvboX5GqFLzQWSykjDglqsNz+aVeEE1pYXveW8OWdNa/FOdtDLDXmMVhAyQeUgq+UsiqCQCj3/w9Uk22c0Lz+50o9GygpbyvXWgCTZvTHFQeQ184vA2AX57HpcNp8nTEpD/PofspvQ
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 04:07:51.6230
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 04:07:57.6034
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 01f0f2b8-9300-4c37-6d61-08ded8b8a6d2
+X-MS-Exchange-CrossTenant-Network-Message-Id: aa37bb83-00ab-4b6d-230e-08ded8b8aa5f
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00001504.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D6.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6926
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8204
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_210802_212352_32D3ACF3 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20260702_210807_539120_D08F254C 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,184 +132,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A reset failure implies that the device might be unreliable. E.g. its ATC
-might still retain stale entries. Thus, the IOMMU layer cannot trust this
-device to resume its ATS function that can lead to memory corruption. So,
-a subsequent change to pci_dev_reset_iommu_done() will keep such a failed
-device blocked instead of recovering its IOMMU pathway.
+When the SMMU enters Service Failure Mode (SFM), arm_smmu_device_disable()
+clears CR0 and the SMMU stops processing requests entirely. The remaining
+GERROR causes (MSI write aborts, PRIQ/EVTQ aborts, CMDQ_ERR) are moot at
+that point: the cmdq is dead so arm_smmu_cmdq_skip_err() would just twiddle
+bookkeeping for a queue nobody's reading, and the per-cause dev_warn lines
+add little diagnostic value beyond the SFM message itself.
 
-Several quirk functions in the pci_dev_reset_methods array call pcie_flr()
-but discard its return value and unconditionally report success, hiding a
-failed reset from __pci_reset_function_locked(). Return the value instead.
+Ack the GERROR before arm_smmu_device_disable() and return. Acking before
+the multi-ms disable wait keeps a level-triggered IRQ source from re-firing
+the handler. The writel+return here duplicates the non-SFM tail because a
+subsequent commit will give the two paths different locking. SFM is one-way
+and the SMMU does not generate new GERROR causes, so the ack is final.
 
-Nothing is short-circuited on failure: each quirk still runs its restore or
-settle steps as before, and reset_hinic_vf_dev() also reports its firmware
-FLR-completion timeout, keeping an earlier pcie_flr() error if any.
-
-Note that a kept pcie_flr() error does not misreport a normal reset: as per
-the erratum in commit 411e2a43d210e ("PCI: Work around Huawei Intelligent
-NIC VF FLR erratum"), the VF responds to config reads before its firmware
-completes the reset processing, so pci_dev_wait() returns promptly instead
-of timing out.
-
-However, pcie_flr() reports a device that did not come back after the FLR
-as -ENOTTY, and __pci_reset_function_locked() takes any -ENOTTY as "try the
-next method". Since these quirks have always returned success, escalating
-would be a new and harmful behavior: the next method is typically the plain
-"flr" method, which would re-run the same FLR without the extra steps the
-quirk wraps around its pcie_flr() call. Add quirk_flr_err() converting that
--ENOTTY to -ETIMEDOUT, so the cascade still stops at the quirk as before.
-The early "not applicable" -ENOTTY returns are left intact, and they still
-ask the caller to try the next method.
-
-Convert it at the quirk level rather than in pcie_flr() or pci_dev_wait(),
-because those also serve the native "flr"/"af_flr"/"pm" methods, where the
--ENOTTY on timeout is deliberate per commit 91295d79d658 ("PCI: Handle FLR
-failure and allow other reset types"): a timed-out native FLR escalates to
-a stronger reset (e.g. bus reset), which skips no workaround there and may
-recover the device. Converting in the core would also change the value seen
-by every direct pcie_flr() caller.
-
-This is not a bug fix, since these functions have always returned success
-and the propagated values are only consumed by incoming work.
-
-Suggested-by: Kevin Tian <kevin.tian@intel.com>
-Assisted-by: Claude:claude-fable-5
+Assisted-by: Claude:claude-opus-4-7
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/pci/quirks.c | 43 ++++++++++++++++++++++++++++++-------------
- 1 file changed, 30 insertions(+), 13 deletions(-)
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-index 8ecd1bc561d28..7f6d1574fe2bf 100644
---- a/drivers/pci/quirks.c
-+++ b/drivers/pci/quirks.c
-@@ -3934,6 +3934,18 @@ DECLARE_PCI_FIXUP_SUSPEND_LATE(PCI_VENDOR_ID_INTEL,
-  * reset a single function if other methods (e.g. FLR, PM D0->D3) are
-  * not available.
-  */
-+
-+/*
-+ * pcie_flr() reports a device that did not come back after the FLR as -ENOTTY.
-+ * The caller __pci_reset_function_locked() takes that as "try the next method"
-+ * and ignores the error, which is wrong for the quirk functions below. Return
-+ * -ETIMEDOUT instead.
-+ */
-+static int quirk_flr_err(int err)
-+{
-+	return err == -ENOTTY ? -ETIMEDOUT : err;
-+}
-+
- static int reset_intel_82599_sfp_virtfn(struct pci_dev *dev, bool probe)
- {
- 	/*
-@@ -3945,7 +3957,7 @@ static int reset_intel_82599_sfp_virtfn(struct pci_dev *dev, bool probe)
- 	 * supported.
- 	 */
- 	if (!probe)
--		pcie_flr(dev);
-+		return quirk_flr_err(pcie_flr(dev));
- 	return 0;
- }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index da29e523d78b7..8a4edefeec770 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2315,8 +2315,11 @@ static irqreturn_t arm_smmu_gerror_handler(int irq, void *dev)
+ 		 active);
  
-@@ -4003,6 +4015,7 @@ static int reset_chelsio_generic_dev(struct pci_dev *dev, bool probe)
- {
- 	u16 old_command;
- 	u16 msix_flags;
-+	int ret;
+ 	if (active & GERROR_SFM_ERR) {
++		/* SMMU is being disabled, so other errors don't matter */
++		writel(gerror, smmu->base + ARM_SMMU_GERRORN);
+ 		dev_err(smmu->dev, "device has entered Service Failure Mode!\n");
+ 		arm_smmu_device_disable(smmu);
++		return IRQ_HANDLED;
+ 	}
  
- 	/*
- 	 * If this isn't a Chelsio T4-based device, return -ENOTTY indicating
-@@ -4048,16 +4061,15 @@ static int reset_chelsio_generic_dev(struct pci_dev *dev, bool probe)
- 				      PCI_MSIX_FLAGS_ENABLE |
- 				      PCI_MSIX_FLAGS_MASKALL);
- 
--	pcie_flr(dev);
-+	ret = quirk_flr_err(pcie_flr(dev));
- 
- 	/*
- 	 * Restore the configuration information (BAR values, etc.) including
--	 * the original PCI Configuration Space Command word, and return
--	 * success.
-+	 * the original PCI Configuration Space Command word.
- 	 */
- 	pci_restore_state(dev);
- 	pci_write_config_word(dev, PCI_COMMAND, old_command);
--	return 0;
-+	return ret;
- }
- 
- #define PCI_DEVICE_ID_INTEL_82599_SFP_VF   0x10ed
-@@ -4140,9 +4152,7 @@ static int nvme_disable_and_flr(struct pci_dev *dev, bool probe)
- 
- 	pci_iounmap(dev, bar);
- 
--	pcie_flr(dev);
--
--	return 0;
-+	return quirk_flr_err(pcie_flr(dev));
- }
- 
- /*
-@@ -4154,14 +4164,17 @@ static int nvme_disable_and_flr(struct pci_dev *dev, bool probe)
-  */
- static int delay_250ms_after_flr(struct pci_dev *dev, bool probe)
- {
-+	int ret;
-+
- 	if (probe)
- 		return pcie_reset_flr(dev, PCI_RESET_PROBE);
- 
--	pcie_reset_flr(dev, PCI_RESET_DO_RESET);
-+	ret = quirk_flr_err(pcie_reset_flr(dev, PCI_RESET_DO_RESET));
- 
-+	/* Settle the device even on a failed FLR */
- 	msleep(250);
- 
--	return 0;
-+	return ret;
- }
- 
- #define PCI_DEVICE_ID_HINIC_VF      0x375E
-@@ -4177,6 +4190,7 @@ static int reset_hinic_vf_dev(struct pci_dev *pdev, bool probe)
- 	unsigned long timeout;
- 	void __iomem *bar;
- 	u32 val;
-+	int ret;
- 
- 	if (probe)
- 		return 0;
-@@ -4197,12 +4211,13 @@ static int reset_hinic_vf_dev(struct pci_dev *pdev, bool probe)
- 	val = val | HINIC_VF_FLR_PROC_BIT;
- 	iowrite32be(val, bar + HINIC_VF_OP);
- 
--	pcie_flr(pdev);
-+	ret = quirk_flr_err(pcie_flr(pdev));
- 
- 	/*
- 	 * The device must recapture its Bus and Device Numbers after FLR
- 	 * in order generate Completions.  Issue a config write to let the
--	 * device capture this information.
-+	 * device capture this information. Note that pcie_flr() can fail
-+	 * after the reset is asserted. So, recapture it unconditionally.
- 	 */
- 	pci_write_config_word(pdev, PCI_VENDOR_ID, 0);
- 
-@@ -4220,11 +4235,13 @@ static int reset_hinic_vf_dev(struct pci_dev *pdev, bool probe)
- 		goto reset_complete;
- 
- 	pci_warn(pdev, "Reset dev timeout, FLR ack reg: %#010x\n", val);
-+	/* Preserve pcie_flr()'s error if it failed before the device ack stage */
-+	ret = ret ? : -ETIMEDOUT;
- 
- reset_complete:
- 	pci_iounmap(pdev, bar);
- 
--	return 0;
-+	return ret;
- }
- 
- static const struct pci_dev_reset_methods pci_dev_reset_methods[] = {
+ 	if (active & GERROR_MSI_GERROR_ABT_ERR)
 -- 
 2.43.0
 
