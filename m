@@ -4,160 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15210C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:16:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F96C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:21:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IBVMhNGGtTnLBZyGOG8H8b9TrV4fbJMm6cRAgaU9WDY=; b=SfGwj5LuqrIL12eyxJOsXENGr7
-	OG6519wS1Sj/V3yHBIoPkfFFGo2qT8D7I4OX6C5XTSCL17fFdqo5xMtBez70SyVsHNqj3rApzeaMQ
-	mJw6hm6r6cx1DN82bX+1Ws0dQQmgSJxS86w2xWytD7uwFv1RXv97ATY7RPY2lM7fAz9Nxrj2WXBI0
-	+nlgs3olkFffKvQb+tfluk5xBvwNC2oMGPMiJkdLbogiHH97K8T9F+KCt/7rieKkiM4QloKMVSKZQ
-	BqSnSbAv1K22JOkOHL7TqSblkeAJIwyuLIyEG0l4m9MvpgfHXUO3MQlRxkSDUeCvN4/+doR42sYF/
-	z1fcNm+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZPRUjDwMrZAbF6fJGgjWgznfOUhgHM/af5VhyMMGGzQ=; b=BKYkO0mM1E8YEQMwnGXx0K8aEd
+	RVZLIVwOPcyTeKA6OfjsIf8yo9J4HElVWu55BcOsbmnswLObH+Vxko8w/vGU3Io/VCwN0VSwucqlK
+	yzmLd5O8p2H342WcwIVbSzBOx38cGpYZbaDtENf85P24XTFOjjfelZsqVK8wUttz4iWE2T/xJUO07
+	KM9+rrlNzzp8kNx7z9nYdfONaH3wLkB2tNe0R3ekOinlmDRCY4WaKImj7/6D6D3TYlbfQUspaw+nY
+	CKSIG40wHfYq90Czs3bhO4prWB55RMy+SQx3qNwm4liAB3vdAIIb74uIK56bCwBVuCoAwOKbuIHG+
+	lKNdAPbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfawM-00000006ZcJ-3YIl;
-	Fri, 03 Jul 2026 10:16:10 +0000
-Received: from mail-westus3azon11010063.outbound.protection.outlook.com ([52.101.201.63] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1wfb0z-00000006a8o-2Ufs;
+	Fri, 03 Jul 2026 10:20:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfawJ-00000006ZaH-0NO4
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 10:16:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=oggyBYgpf0LgGqj0VM2/ibVSCa+uoObFCptdBTOseoiJeAMRMZfoUKiwC7dqeeGcxR/jspzQDbhQ5I8nDhHOyEkUE98RyMDS2nHYgA1hbOyAFuBdruJp8sWGA2HRT5vO+6Gsie5vYWmJ0aFwfv6cPCUE+1gm/UY58F4H50MIAi53AQe1GSLXZJyBDwFIdJUix5kXTM61LPiTB7SAX/rjwTPN5LIfKAoBUfJo3NN0CeBzz5g0yb8O7EIfeLJOvWhBwsUlKAzy7xrY74Dgfse8UtGPjKu7uVydNPIL61ZE9T4ktdM44WkJ2jIibeNt+A7KLn3iRrXnWoRz5OYjY5QRTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IBVMhNGGtTnLBZyGOG8H8b9TrV4fbJMm6cRAgaU9WDY=;
- b=ugGsr0SZn2ldjEOdCO0TvxfZ5lb5hnioRK/+bPZOjHfTVeYAW22wTtgW04D5BtQJG8bcxr6+eBRGjbxu5TJeqShdZDPk3akMi5wloywy8n0eqHIl8JdwJY5Id6a8l4zKJMJUKql3PhEKqSmHktGnodP/Of6wLP/rsPtgrPQF81nD7PZMnSYi+mTppHAesqel4oj1YE63vAaHMQa1ywhKDyw61HRpaLPsmGQjYGw67ArOpDeguq5AfK6f68ju4zJxl9HJBTKsmrOrffLVhfhGWOpHaEu3A/F7W2PbFK8msKDyN8RpKrNBT2yNT6T7mUjRwLO7fT+jauLf72jf4qGIkA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IBVMhNGGtTnLBZyGOG8H8b9TrV4fbJMm6cRAgaU9WDY=;
- b=UEycZv4Qi1wa4Se+BkowHJj6ptewku3pXsIaNs4z4Eb87IcWXvuPl3w3uMRxxxIjUb+o5jGw7VO8QqYvDs9WMSXOBoDQu9gxmZ4S2eG/UvN0amU9EXpmu+cjPHJfKZs4rBaGmwxcAR8uXY2ouSorTzKWDIJsqcY3V8IOhQwO+Z0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SA1PR12MB999228.namprd12.prod.outlook.com
- (2603:10b6:806:4db::10) by DS7PR12MB6309.namprd12.prod.outlook.com
- (2603:10b6:8:96::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
- 2026 10:15:59 +0000
-Received: from SA1PR12MB999228.namprd12.prod.outlook.com
- ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
- ([fe80::4dba:119e:8e7c:37b3%4]) with mapi id 15.21.0181.009; Fri, 3 Jul 2026
- 10:15:59 +0000
-Message-ID: <58bb92a9-c5ea-47a3-b19a-934573f15305@amd.com>
-Date: Fri, 3 Jul 2026 20:15:49 +1000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 03/20] dma-direct: use DMA_ATTR_CC_SHARED in alloc/free
- paths
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
- iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
- Robin Murphy <robin.murphy@arm.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
- Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
- Suzuki K Poulose <Suzuki.Poulose@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Jiri Pirko <jiri@resnulli.us>,
- Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
- Dan Williams <dan.j.williams@intel.com>, Xu Yilun
- <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
- Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>,
- "Cheloha, Scott" <Scott.Cheloha@amd.com>
-References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
- <20260604083959.1265923-4-aneesh.kumar@kernel.org>
- <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
- <20260617154101.GE3577091@ziepe.ca>
- <25155bd6-4348-4aa8-ba70-0a882fc84db9@amd.com>
- <20260630160242.GI7525@ziepe.ca>
- <98800d21-18f6-44d6-9ba0-da9b77567d85@amd.com>
- <20260702144729.GP7525@ziepe.ca>
-Content-Language: en-US
-From: Alexey Kardashevskiy <aik@amd.com>
-In-Reply-To: <20260702144729.GP7525@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SY5P282CA0165.AUSP282.PROD.OUTLOOK.COM
- (2603:10c6:10:24a::15) To SA1PR12MB999228.namprd12.prod.outlook.com
- (2603:10b6:806:4db::10)
+	id 1wfb0y-00000006a8P-0iSI;
+	Fri, 03 Jul 2026 10:20:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E0D6443808;
+	Fri,  3 Jul 2026 10:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 915EC1F000E9;
+	Fri,  3 Jul 2026 10:20:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783074054;
+	bh=ZPRUjDwMrZAbF6fJGgjWgznfOUhgHM/af5VhyMMGGzQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=F4S3Dy7vLMZgBhj7UCqBvjp7mzSuBWMNBDq6Iviel9rIuDWstawXddpKaEjAyynL/
+	 6E76Th8kGRjDswvQ/XAxTl52xqhfcgDC6d0SkZpmznOxL4rfnWarCH45TXvcuGGNQS
+	 9kPgVNGCd7suDm7gWRv5W4AI4S9nQr42Bp7V97kKhuPYPaWa6fMlVOB51lsjZ1Wtqm
+	 7jwJK8WCVa6owazYnl+vd/Z0AVF3PquzNPskDcjbw/SRz4kBtBMRQV/H6603ty8CbO
+	 utuOMyWAZPx4kguiwDOKVdemHE9FSlnpLrSIAu/54ruHHaRVV0sOAk4Wj59KLq2tCU
+	 YYVkHhCodvNeQ==
+Message-ID: <9da51cde-cc89-405c-afb8-ccdc37879770@kernel.org>
+Date: Fri, 3 Jul 2026 12:20:35 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|DS7PR12MB6309:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd4c620f-8fca-436c-552c-08ded8ec1430
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|56012099006|4143699003|6133799003|11063799006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: y7r87hAgRGbWF+BoU5Rwk0nsXIRRgL0NNBybQpriNyOJ7AAP9Ybdglt/ag7GOb+C9GMpdoamzlHl9c69WvqoZ+LiQp0JWEExkYpjbLhOLrlLcNtQcFjdHo7a46UVRf6SmXTazLu7MJO4ZEGQI1aZvnTvo75nnahaVySuyddGFoYcby5T5xO6q111AASYmmsItHw8ayvMD8b4D2OBjRJyoCzn6EfPJMzwt0clN8xe8+DTyDClC6C8xhgKZL4An33KCZzGyxQUpDA+xN9rz4LQiYgCCYwowBVXUELtv7HzYaSN38LHMKIE8/r+CauXRRavlgkMdonBz6rrIZN5eCYraO3etvR62ouND6Dfy8Rqq6MF8dzSHts0jxe31MpcQAwY+6cAqQxRX/NV54kd6tGO57ene15SDpXILOxS2xpAc+uWMOMqWfLxxt4Ot8WhPyCGHII+stH6fRSaI6QNk3wSnGJ4G5eAfPZLtQavqlMC3EDKCm3gRsm/JkR5jcooBQSSf22qk8X3tbJMVCG0yqDREnUIOAeH1vmKVSjet/igkwNipxfU6ryMpSNUmjRZ6GMF2tJoKSxoYbnJC0OE8IZx+iIIEpC3g67Bv4nrUhUPJLte4Ri7yj3Iio55PgT35GUqMyq4j+3XA/yZ3z2HjtSi9kI8t9RLiHYl7rMi7OEAAus=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(56012099006)(4143699003)(6133799003)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SEE5L0FtUDE0bEIzVVAyOHVFck1YWEJKYkgrTlNyUko4UHM2UlZ6UkM5dmZo?=
- =?utf-8?B?SnpWT0hjMHVzUTlrMjVLT2V3VTZoM1NzTHNsc0djeGdDa2xvMjBSY1Npa1Va?=
- =?utf-8?B?RVFhd0MycStGcjM3QkMxUjdORlA2TGpaZElwbEhiTExBcFI3YS8zeWZzM0ZB?=
- =?utf-8?B?TmNIenJOTDhyN2pOL2RHZlFUcFJ6OFR3blBPUlJQMS9IWXZkRlpRK2JiQUNY?=
- =?utf-8?B?RGp6aTdQa1RVNzByR0VOODdwbVppb1g4eEZtRHhxcHo3ZS9pVEN5V3J0UXdZ?=
- =?utf-8?B?ME1mMFR2SC81a2pvV2IrZ0JKRmI2Rm4xZzY3YkJRNkU5cS9ZTWs4dWVMWExj?=
- =?utf-8?B?ZGQ2WVg0VzFuL0FsMTVNT0ZpRjU0K0VBTHB5K0xwSWdtRzJRTmtSQlJYL1JN?=
- =?utf-8?B?WGhzK2wrU1M1TUFVaDVlNmN4d1NpaWp1QjhHV2g1QXpZTDl5Ujh5a2pHakk5?=
- =?utf-8?B?WnBTUTVUU1IyM0hjdVJFL3RQWWV6UHArZndqZnVlV3NUTmhZOVE4cVNMa3Vv?=
- =?utf-8?B?Um50UVNiYWZJM0lRaUxmUlE1bWhyUU0xM1FzblVqQ0RPdHJ2U2QzWGx0SEdw?=
- =?utf-8?B?eElXblJkQjlmdGNWVFBaU01vVFJBUnFVRW5DcEtBK0tkR0EwcXJFSVRHR3pw?=
- =?utf-8?B?OFcxN3VOSk85Sk0vQVMwcjlFQ2NWcnBSd0F1Lys2dEFiWjJ3T1VxeDZzOUh5?=
- =?utf-8?B?UjhGVjdscHBoVnN4czBKNTdxTUErMnFtM25JL1ZQY3p1M2VWS2NNeDVNTXRn?=
- =?utf-8?B?SURNK0xKUCtrWGZiREt3R09pS3VUZkVvcm1SejFPWjBCVGVmcDdUWExlNnI4?=
- =?utf-8?B?b2ZLSjhVQjNyZUNSNTNFUEVoQmNpOGtCclBrSmVmZkhYUW1JdTUzV0NJTVRo?=
- =?utf-8?B?ZXE3cFRvNzNVd1NxNzNPN3psUFhXUy8zbktsMFJDTXNPV0l6UjVTckdMakla?=
- =?utf-8?B?bVpKSkNHTjgvbVE3YmxRTEJaZURlTVJGOXF5MU1rMFRhcVo1TS9tZ2pTUWdK?=
- =?utf-8?B?eXFpckhNdUpNTkJMdzZnT3Q4dE1MYVU5b3hCczJpUUNpUnVQR0dJRHJ6M1pQ?=
- =?utf-8?B?Ukxid3J4eTBNc2hGb1RqY0RNeTBqejUyVC9VZzg0LzNzL1M0ZlZITVd2aVZ0?=
- =?utf-8?B?akZWQVRtRVZXVnRydFZLM2RzSU9KaTZoVzBXR3Q5NEJDZjUxbVB0NUpUTlg3?=
- =?utf-8?B?Uyt1VXpteVpKekhwdnJxdUUwcEpqVUlieWdvMDM0QVVQQ0xjOTB2OUVDZHZO?=
- =?utf-8?B?UWM2TEdQSi93bFB0NmhGa3RDVUpwcGNoS3BRdE5ZaHpOZ3E5NExKVkRHNy9n?=
- =?utf-8?B?VWgrNDVHOHBnaDlaeEI1QVowbC9IY2RMcW9LbHdOc1libWN3QTB4VkFpK3Zv?=
- =?utf-8?B?dWFIQ1ZoVDJ3NHg0N1Z3WDZvK29lRFEyQlFtb0U5MDRZd2FXVklCQ2grWWNn?=
- =?utf-8?B?WVRwR3JMTERla05lcStLK3RQWW56QzBWTVZ1RGRFd3ZCSVJKOHNtOG0xSThz?=
- =?utf-8?B?b1A3YkMwUWVWdlE3Wk9MZGJmTUdzU3RWclhuY25nZnhzK0haWkRQYkZUK0RS?=
- =?utf-8?B?TVJ0OWh2UUpEQUtuaXJBTTRFREorSjJET2RLVnVqTUJ4RUFkL1hUYUc2WVZl?=
- =?utf-8?B?Z0ZLVkFlM2pMMXQ0VXNMcGZuVWRTQmliakNhZWt6Rjg1Q2J4K3lnSEZiMmdX?=
- =?utf-8?B?clhYWnFPaGNQQ0tBZXF2TEdEb1RFbmNwMXdBckJlQXpMZEFlRnErSGZncDdn?=
- =?utf-8?B?a3Z5QTZoT2hrVUtHNUlHL25rRUdoTWY0dUptTlNDWUNZNFlGTzc0ajM2WHFr?=
- =?utf-8?B?OTA4dUNyQklLQjRzaVNRenpVVFc1YWdtWVE5dWw2cmU5Z01oMDZvZHZobUtv?=
- =?utf-8?B?ZEtkcUdqMG9HVUxWa1h4YVZIdi9EbGtCSHB6L2lDQjlieXlUYjBuanRSS0tp?=
- =?utf-8?B?OFRwSjBRODdBYXZBZnBDaFJySFdtcDR2ZW9VckJjSFZFN3VBOUFRR3JlVzl0?=
- =?utf-8?B?U0JDN0pIRHNyVXdud2tPUCtpOEFacldSaUVTTWcvUG94YnRnTWRyTE52eFZ4?=
- =?utf-8?B?RGI1d1d6NDFaVmRaRUIyazJ1bmR4bCtJbTlrQU5UZ2ZlSEkxeWFRRnVGVito?=
- =?utf-8?B?U1V1ZDcvSkpmS3gyQ1RCdVRqZ0hVWk8vTWxFYVpXL2RpakNLaHg0RVNBUnB5?=
- =?utf-8?B?NTZxK2JLVEFJemIyYk54ZURETVZNcENRM2RBU3V3UW82Wis3YU9leGp4NzlR?=
- =?utf-8?B?eWFhTDljcEdRbzJhYWtDSSt6U21LT201QTRMelR6b2gvcmx6VDNDTTVGdklP?=
- =?utf-8?B?WWVneXg1T1QwNWR3MkhIeGg5emF5cmNxTWNTYllkaEU3TkltQm5yUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd4c620f-8fca-436c-552c-08ded8ec1430
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 10:15:59.6633
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AzwBfwuFS/Shf2EaUGk5hugTlMbxb3ika7JIX0/7voBlCugtw1Eznw2wOM6zcYJr08Aqu9NLsK+c6+mYScreFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6309
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_031608_094738_416A1C35 
-X-CRM114-Status: GOOD (  14.54  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v11 1/7] dt-bindings: phy: document the serdes
+ PHY on sa8255p
+To: Geert Uytterhoeven <geert@linux-m68k.org>,
+ Bartosz Golaszewski <brgl@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Shawn Guo <shawnguo@kernel.org>, Fabio Estevam <festevam@gmail.com>,
+ Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+ Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Magnus Damm <magnus.damm@gmail.com>, Maxime Ripard <mripard@kernel.org>,
+ Christophe Roullier <christophe.roullier@foss.st.com>,
+ Radu Rendec <rrendec@redhat.com>, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, Drew Fustini
+ <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+ linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+ imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-riscv@lists.infradead.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+ Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+References: <20260629-qcom-sa8255p-emac-v11-0-1b7fb95b51f9@oss.qualcomm.com>
+ <20260629-qcom-sa8255p-emac-v11-1-1b7fb95b51f9@oss.qualcomm.com>
+ <CAMuHMdXen+E-Ai51aWBa_KV9W8Fz2cQPpT-FG_kQ7akhrrYa_A@mail.gmail.com>
+ <CAMRc=Me3jaZXiXa1sFXr=8Do4sCd+XN1pKTcWC8-0j78SjCkKA@mail.gmail.com>
+ <CAMuHMdVUBgG0EFB16OxHisbxx-sBvDKvBPNZdpyDnmBrnX4ptQ@mail.gmail.com>
+ <akOZFIowVvprnAMf@vaman>
+ <CAMRc=MfBcOhbj=ETxy2Xz9o_nyzykrEhKAc3jYi6V5_jMZEE3Q@mail.gmail.com>
+ <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAMuHMdXNG=C=XcioQUEN1M7cQgKhO0AxUyg5X+TWb2rQ3-H3fw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,41 +148,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/7/26 00:47, Jason Gunthorpe wrote:
-> On Thu, Jul 02, 2026 at 10:25:16AM +1000, Alexey Kardashevskiy wrote:
+On 02/07/2026 11:16, Geert Uytterhoeven wrote:
+> Hi Bartosz,
 > 
->>>> not externally available so I'll have to trick the DMA layer into
->>>> using SWIOTLB (which is still all shared, right?) as I specifically
->>>> want to skip page conversions. Setting low DMA mask won't guarantee
->>>> that the DMA layer won't allocate a page outside of SWIOTLB and
->>>> convert it. Manually do
+> On Thu, 2 Jul 2026 at 11:12, Bartosz Golaszewski <brgl@kernel.org> wrote:
+>> On Tue, 30 Jun 2026 12:23:16 +0200, Vinod Koul <vkoul@kernel.org> said:
+>>> On 29-06-26, 16:51, Geert Uytterhoeven wrote:
+>>>>> Russell King asked me to put the PHY logic for SCMI pm domains into the PHY
+>>>>> driver instead of the MAC driver where it was previously. Instead of cramming
+>>>>> both HLOS and firmware handling into the same driver, I figured it makes more
+>>>>> sense to have a dedicated, cleaner driver as the two share very little code (if
+>>>>> any).
+>>>>
+>>>> I think you are mixing up DT bindings and driver implementation?
 >>>
->>> Why so particular?
+>>> Should the bindings change if we have different driver and firmware
+>>> implementations? Isn't binding supposed to be agnostic of
+>>> implementations..?
 >>
->> aahhh I missed "pre-". I need a way to get pre-shared pages for my
->> sev-guest activities.
+>> I've thought about it some more and I believe this question is philosophical in
+>> nature.
+>>
+>> sa8775p and sa8255p are *the same* hardware. I can flash different firmware on
+>> the same Lemans Ride board and it becomes one or the other. Yet they are not
+>> described by the same DTS and the bindings differ as well. I don't see why we
+>> wouldn't allow the same approach for the this PHY.
+>>
+>> We treat it as different HW variant when it's managed by firmware - just like
+>> we do with the rest of the SoC.
 > 
-> It sounds to me like you don't, what you are worried about is
-> optimizing the dma_alloc_coherent flow to avoid fragmentation and all
-> CC architetures require this optimization.
+> DT describes hardware, not software policy.
 
-It is not about fragmentation, it is about unwanted page state changes when few pages are shared for a very short time.
+So everything is fine here. Bartosz described the hardware how it is
+available to the software (OS).
 
-When I needed these pages, I could: get a private page, convert, (possibly trigger RMP and IO PDE smashing if that 4K is backed with 2M), do the VM<->HV communication, convert back to private (and possibly unsmash the page).
-
-Or ask swiotlb for these already shared pages, and skip all of the above.
-
-How would defragmentation help here? It is two or zero conversions.
-
-> So I'm strongly against you trying to open code something in your
-> driver. Use the DMA API as-is. Propose general DMA API improvements to
-> reduce the fragmentation problem. It is a real problem.
-> 
-> Jason
-
--- 
-Alexey
-
+Best regards,
+Krzysztof
 
