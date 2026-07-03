@@ -4,68 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFA50C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 06:21:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB2AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 06:22:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Ce5xDFXpby+V5V73K8roz6+RbThLVkSsONzOsCEDrhU=; b=oHOZuPtvPSYHPrVt0I27zcIAYx
-	WOoR9R14J7VHPZ5GJ6yPdU1y95gBA82V2O0tvE1kshAoY5QYoicIrTEWnoPGPUQ+pewD9t9wKJM2C
-	P1b+tpxLOTwwoB6FPXK1+HbPoNLmTpky7wDaaSoLSCs/GKCdlOkAKcSNUppWhpH0paJ5XDbCiaPap
-	kX9VL9SvfFEWWWXaNfcfX928+OS41hhwXs8CJyuiWq2PNU7V49HlSWeCw0FAHO+YkZPYFuZOYSS+4
-	HdSJgLEFPOVS/W+pqixYE6ui63eJXGyLc7bGEnuLDPkqkf8LARsoto5zUBOlyxXEIFKz24y77BZFI
-	FpPecknQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLUgc1dIxQ8zpPf+Lth8u+VgGauojS++bdW8iJNH2IU=; b=X0aelB2m+IoMIlY8HuLEVJM03o
+	niIasDS3dP7bOWRNJJVvRPyOZo9ou4QzRj2JyJp2MEL34Y8jNP+eg4aPqbhHWVNkJka7N6WAuIDPV
+	NLu/5rMxUMB+slNb8hOoi5vki5p8Oma4e2gbQu1uxuxSijaZsg+MeY2o+H2HECEJTHj8YcsjJgCZO
+	gXxpthSk/VXoLQWJNz0U/e1T8NFrrBw8dJ+mf9iIwnfYqHR+fbNhNR1A3MMAvgO9NlJVixBlZEa49
+	r5sdmzkq2ENW4xdnMNFDA2qhPSmFvhbEQAVNdOrLErKkOTYNa5eNPcHuPd++FuNJLSCBEZnmTv3dp
+	nHQAKq6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXHT-0000000694y-47lT;
-	Fri, 03 Jul 2026 06:21:43 +0000
-Received: from m16.mail.163.com ([117.135.210.4])
+	id 1wfXIQ-000000069B2-0VVs;
+	Fri, 03 Jul 2026 06:22:42 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXHP-0000000694V-18dT
+	id 1wfXIO-000000069Ae-1Dkn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 06:21:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ce
-	5xDFXpby+V5V73K8roz6+RbThLVkSsONzOsCEDrhU=; b=DfKyCIWWay1NPfCwCr
-	SSLWQlYzMGqHp2YD2vy+XejkjwViXE2JiUefRFSDIxXuQxVir8q7ploNkIqtCJCH
-	6J8wYHRw7UC26L0O75miFAFp3T7dMZJhVxYRgWs4c1y8VCmOJIHqBCCa7+HZt9gX
-	0GIjMZr59OfUmb/5oj/xB6QS8=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id PigvCgDXvwnDVEdqd70GFw--.62912S2;
-	Fri, 03 Jul 2026 14:20:53 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: sven@kernel.org,
-	j@jannau.net,
-	neal@gompa.dev,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org,
-	marcan@marcan.st,
-	maz@kernel.org
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3] cpufreq: apple-soc: Fix OPP table cleanup
-Date: Fri,  3 Jul 2026 14:20:49 +0800
-Message-Id: <20260703062049.1459175-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 03 Jul 2026 06:22:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1783059760; x=1814595760;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=6pf7+cv2kpzrtz7hRmcU10uKhKTHzuIKFF0gB+wNN88=;
+  b=Mascs/FO51ZQaiCAyy48XLSLJUmFfC679X0hk985pB4Wu+NRThsOUJnh
+   Zw4U76sxVkGEBsDEnh9Cz8UbNcN1N2zRL8te1ZXDF9p4EBgGTy9ud2Eci
+   ctvyxYxE+cfHr1BmD5UOrFirFeWfZ1fO+Xx4UD59S+wzKIcLvEPz1Sczf
+   5aBJ4JagZ6RYg1CtiKRynk46mGw3BoZMZooKX4hKmIA5g46u8tow7rgyz
+   QCWGcrvqnaAZfoCDifbdVQql2jgswO1ywjJn9ryKxdrkw0nRHZk8Jxj7H
+   q7QXrPhqEXJjgTyjA1ns3btlMFsNdgzqisHCssmY0ZPoLiohob8H3CE5v
+   A==;
+X-CSE-ConnectionGUID: 0XFkwp45T3WuVdtfEPwVpg==
+X-CSE-MsgGUID: sjxguEXIRPiQ6T1a3xxe7g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11835"; a="109356628"
+X-IronPort-AV: E=Sophos;i="6.25,145,1779174000"; 
+   d="scan'208";a="109356628"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2026 23:22:39 -0700
+X-CSE-ConnectionGUID: Lz4IVKNvSuePuG6/T2wSOw==
+X-CSE-MsgGUID: YPHNmTumTqO6CyK1Ux+SiQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.25,145,1779174000"; 
+   d="scan'208";a="257366732"
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jul 2026 23:22:36 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43; Thu, 2 Jul 2026 23:22:35 -0700
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43 via Frontend Transport; Thu, 2 Jul 2026 23:22:35 -0700
+Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.9) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.43; Thu, 2 Jul 2026 23:22:34 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bfYSXyKKaWDo0CRPQ6aLi/zHRFwxf7KLQ4wt49I4zJhhYPgfJu/OZW4yq9zXBTFtZp120Psyqtshv+z+BfvaHts2wHjADvPwYHcJtgQ3NvLIwVoCvsHcHsk6b6Ss32WM2GzqRGu1TiCIWR1zA/KnNrWqKPALyovLpGwSG0tv7BnBV/7f8gU0POywFcuxrLbcgkvuXKwYEfZV1ejwa83Mv9qwpC3SF5JMgVyPV4RpBhRlSPiwVJNxZseG1JsQwYXXYmESRNH5lkTZiyqT8EWts/MbW25FY+cDuw1ZzAygBK9bGM19OUXKIb7tW10npPxh9dOLhgHokD8u9PSqe9LqLQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MLUgc1dIxQ8zpPf+Lth8u+VgGauojS++bdW8iJNH2IU=;
+ b=rOjwoKpaPD1GvY3tFx6/cXgUERt8KXCRs9Wsl3wJYxVjB25FvmlZJAv6rHZRcYA9I3CpaEjQF/F0DW4rfjlVN97louCNzKjLfdg9DHl1VZflioqcbTJVqg52GyLIbBHWEY1XZJV6ByGRsWzTqk2tAkj3Tc5tir4e7ofriVe4fK5W/EpJY8Kp47EsxPHEffmpi2YqeFA240cBEzKgTZcUeZxR3C9LQsINQYTm6LKLXF5jy1REoF+y3wo5Ca87mCVXXVpN8lIZKmH1CDJvAJvUhw8U58MU70k8Q24BecC7aTV17drLMUy8G92wLea+y4XR4Q6Km2D1Pmd247jUa6MQzw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from CO1PR11MB4835.namprd11.prod.outlook.com (2603:10b6:303:9e::22)
+ by IA0PR11MB7308.namprd11.prod.outlook.com (2603:10b6:208:436::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Fri, 3 Jul 2026
+ 06:22:32 +0000
+Received: from CO1PR11MB4835.namprd11.prod.outlook.com
+ ([fe80::d051:d948:c209:9225]) by CO1PR11MB4835.namprd11.prod.outlook.com
+ ([fe80::d051:d948:c209:9225%5]) with mapi id 15.21.0181.008; Fri, 3 Jul 2026
+ 06:22:32 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Nicolin Chen <nicolinc@nvidia.com>, Will Deacon <will@kernel.org>, "Jason
+ Gunthorpe" <jgg@nvidia.com>, Lu Baolu <baolu.lu@linux.intel.com>
+CC: Robin Murphy <robin.murphy@arm.com>, "joro@8bytes.org" <joro@8bytes.org>,
+	David Woodhouse <dwmw2@infradead.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "iommu@lists.linux.dev"
+	<iommu@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v1 3/5] iommufd/selftest: Convert cache invalidation mocks
+ to the core array loop
+Thread-Topic: [PATCH v1 3/5] iommufd/selftest: Convert cache invalidation
+ mocks to the core array loop
+Thread-Index: AQHdCAyWrljS4ESx1Eiv1d4OolXrqLZbWGQw
+Date: Fri, 3 Jul 2026 06:22:31 +0000
+Message-ID: <CO1PR11MB4835D085E8C2BD6D5BED39D78CF42@CO1PR11MB4835.namprd11.prod.outlook.com>
+References: <cover.1782767398.git.nicolinc@nvidia.com>
+ <0b590a04fe2d38d696d0e31e37d8afdb1b6725f2.1782767398.git.nicolinc@nvidia.com>
+In-Reply-To: <0b590a04fe2d38d696d0e31e37d8afdb1b6725f2.1782767398.git.nicolinc@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CO1PR11MB4835:EE_|IA0PR11MB7308:EE_
+x-ms-office365-filtering-correlation-id: a6977cd7-abfd-4aeb-b07d-08ded8cb7707
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|23010399003|38070700021|11063799006|18002099003|4143699003|5023799004|22082099003|56012099006|6133799003;
+x-microsoft-antispam-message-info: lO03W9/yI59x0H5QvnlcVPLst0wUQg5zqLiY7OqMS9nxMO0POZgkvkYbaJU/gIMrOoU4RNeZDChxWPboIWb2Gf97Epnfq7BUAtwFT9RGbbV2ycUKlsHOo0wBR4F/PjgdZKQzpW/5ZPfP330kUOL6TgB9LA4t7aLj0NPE64wEUbbACJfF8hPzDRjYbIBDOXGWdA07wZtx9i1bsaWuj323gx/qwrpzytFN9R0atHFBX7FzUOKla8HjV/274emyiOLj71/GvIVxbPeIHXvsUNW6A1cjWwtBI0Sbl0iHq/W6VBXVov5yDifhyrTpKzUWi7TXt+mlk6Nu6ZAr0ai7az6dDcvOo8JaXFHxRDR8kPTbG0ZZTEadSesj52h3g2mcT5F6sOmk5Ia8k0aWhh7JIyk/NzwqdTyYcmR7uInNhz69xTY40F++EP4gJCCQAvnMheq9RlH0DvBNhaqVcgbba3S/IIAT+iVDVp8fpD/+cN+tqEh17nsvYFCpUVzho+wj0CQ5I4SX8/CLuQnil/50Rnfz8c/Is+GQ00hZBUEt+mXsas1v84nuLXiRYZ6/GxWKUnnuwEhtWpqz+x+6EqSEFxVesw4YBXy/cTgdG8nJXlFCmXw/Y2mkTWnuqr/GH+ethvrMprP/vkxCHiWJEWfhAOrxSq0ZH0UBavjcQLtG5LQ+TojTBcCjeFUvSWRIqQrhua29s3WO73DLc/uIDmHvPKOebK+RJsESvyT1rzfzIqqHQZ4=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB4835.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(23010399003)(38070700021)(11063799006)(18002099003)(4143699003)(5023799004)(22082099003)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?IAWWWl+71/7LxwKp+gqPp3m9riEWWbRrYmDkzA9cvJJfhfBvGU/7+8eW9hgW?=
+ =?us-ascii?Q?kL0EZ0ipCwd14Q07XiVXVSjAfOOweXOlgXfPbkhwTxucP+H1hDTCBM/S0k2/?=
+ =?us-ascii?Q?nqf6c0D7S9oNMa01GAmpZ2N5V1MF8yfwtbqvErP0FhvmOksoOTN14LpLeAzF?=
+ =?us-ascii?Q?tzx5b/BiG/cV2jcs3Ldu9rqqDnEC8E6oY7+C+gnmiF3P6txYqRWmPj5msGna?=
+ =?us-ascii?Q?2n0u0o4hLSDqfH9Bc0Yw88oqvx6cST4lAObMXDLTxQIX85NT3y4bR+SXvaXP?=
+ =?us-ascii?Q?kduebO7p9Zrunbki/EOb0TmVqU5036kLZygVpeoQBdp9jZsQDFO7ZkKQqDJ9?=
+ =?us-ascii?Q?2Ud77mKZklMWqSZG0AMCLI4rjmFryfzAK28Z0/7JVolMoUx+ia5lzlf2Xduf?=
+ =?us-ascii?Q?nulubKHEKIkQ6vS+AvXMeJYQT+ucHPGGhnfAjmIhV0e4rHO4keSJn3QMFcg0?=
+ =?us-ascii?Q?D/JizqKgZI4UZGTnBlTVcC1VQFAXTxflxYkjuUkdor1X5GHLQf6z8nWJVWZz?=
+ =?us-ascii?Q?wIkxYQDU8QHCDQUhV6Opio1lSvvfrSD1XCbaO/4paoFHWMoc9Pho8WkVoij9?=
+ =?us-ascii?Q?wNgvuGx8pYSApIL0ePDtuRL/F6FjbY07v6CPL3j3kgCkYwa2PAoG+qyucBLg?=
+ =?us-ascii?Q?gLSBFH+PlzNvxDZlJywmb/i8dJGwgFqLy/AeD6T+g5cEcZmhMSG0Fx7ZHKGw?=
+ =?us-ascii?Q?M2Tmms4ONtwPLvfzOEcG+sys9nczQDxUdrxEy5Y4BOTF3vk8kOgHHx/XV+Xu?=
+ =?us-ascii?Q?bdppWUrwIKTPq6TKCX1w+EdrfYHxBfMathIHoF0U0riZnrFERGnDq9MmTMkC?=
+ =?us-ascii?Q?zGHOUI+jXQzUl2yQLZmcnoVhUS5fYhAkHGcJwON+HJ9jxTK4sAevlunXxuVH?=
+ =?us-ascii?Q?7vf3Qxc4fSxo2LPmgmdHpTEMfm89vckN2hMPnG/RnKW9daw9YDZwPTx/OG1c?=
+ =?us-ascii?Q?BxfDR6zZWMNicsrknZUXzB5EfdGGnG47poF6aFilbLsmkO0gN3oJs9be3EDR?=
+ =?us-ascii?Q?/Dh7Z89Dol1nDJJQqYgr8PUye9TkAYDclAsx4OnX7yCEJDGdZ/NPwr6RGnCt?=
+ =?us-ascii?Q?TUjmRkTZVQ4YEyJTZ2xmP4k+hrPyq2/pa0JBirBxHDi6ttSHDozXnlfuLb17?=
+ =?us-ascii?Q?IKwaPn9fhN85Pk1ZSnnq1A5YjThM3Zete1kA7wG14XgGdxmZDKhubWyYb/ch?=
+ =?us-ascii?Q?auW5PISpuvjSfs/LrFhfBH135cqGNH9RDxiuk6L4ptX4k2yZf1LCnS6VKA/P?=
+ =?us-ascii?Q?Y5AL6eZb43RtAAAgdVHrs9SJDsK09eYAwdZst0W7mAUiAwFw9CPlN6cSYMED?=
+ =?us-ascii?Q?ts+leObMxoiNmNMS0UgWjwpSaidohw0DOjtQLbxejqUzqVU9cvQdK/IUniHu?=
+ =?us-ascii?Q?3SID+PfFKmraXsYfeVrsJ8JR1BHpI1kZGMyzFEPnZM8nhk0Qy6JV1YPk2yA4?=
+ =?us-ascii?Q?OFodOlExuoP+mEhko0zRWjCI7Btlr83lHCr707wviq7tn0QCkiD+5vp6GNKs?=
+ =?us-ascii?Q?Zw3bF/xyPaal3/jPyN6SeIW/vwt6RpoLA2XFXRVOGXgU38vyrT79DgGVJaNS?=
+ =?us-ascii?Q?6LupMYUENbfd9uellcbJ26ETVvK6CJlJ/55nXettaIsMYky0y8OYPJSYk9O1?=
+ =?us-ascii?Q?IQ+QpTe/u6ZKxRr3U6l2OUu92dGSlDe3ct9c2E6SfEZkqMCTQlQbzRWMMBH8?=
+ =?us-ascii?Q?hu/nm0nTajKJ6gZ1eNW191jNIAuCQZCpVX6roa9FXjNUL9i/?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PigvCgDXvwnDVEdqd70GFw--.62912S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXw47trykWrWDKw4UJF48tFb_yoWrJr45pF
-	W5WFW5Kr95GFn7tw45JF4j93W7tw4DJ3yUK3y7Gw1Svw17ZF1vg3W8GFyUuF95CF95JFy3
-	AryUtay7uay8JaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUUhL8UUUUU=
-X-Originating-IP: [240e:604:311:e68d:2f6a:d106:3961:26d7]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbCxgayIWpHVMZSzgAA3w
+X-Exchange-RoutingPolicyChecked: BY/z12Q3OLUVsWxdYjYXLquwfzfeVvT1ysRGXuV2AQ5AC5DQBB0d/V/tlIs16WO4ncbqHVsr+j2s6od9E0ompVfkHLcqGu892C0aBaLgs/L0cqQWV16JKMh7WP+vPRkvw+rmBarLgCUXSYPalxvPt10yVPaUVH+0JlrPoYqOWmFI6+oa6R0G21sWEccQj/wrJstZVLy4U5JkWkQ/ZjjhJua3pDl3CKiKoEKZs5rRo/Sf2jnZHbElDO7gCi+wt07N/nuP+lCrSBhaRAeq9UneMRxtWRQyy9K6viDKna1k9lB5kb+nEfrWU3YnzkGzwp6oM0lSXVJsIwLMPxLeBOAmTQ==
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB4835.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a6977cd7-abfd-4aeb-b07d-08ded8cb7707
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Jul 2026 06:22:31.9519
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: U8ksiONz0dOu6ed/yOM6BhRalr+1/XGH15bSWQTV+TpU9/TWyMqHRENrGIJPrsh68o7dCnVc6s9s2ATcxLgtJA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB7308
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_232140_865244_DBA6569C 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20260702_232240_344470_BEF63387 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,114 +180,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-apple_soc_cpufreq_init() adds OPP tables from firmware, but
-some failure paths do not remove them. The driver also uses
-dev_pm_opp_remove_all_dynamic(), which is not the right cleanup
-helper for OPP tables loaded from firmware.
+> From: Nicolin Chen <nicolinc@nvidia.com>
+> Sent: Tuesday, June 30, 2026 5:16 AM
+>
+> +	/*
+> +	 * The core re-invokes this op for the remaining requests, so handle
+> one
+> +	 * request per call. A zero-length array only probes the type,
+> validated
+> +	 * above.
+> +	 */
+> +	if (!array->entry_num)
+> +		goto out;
+>=20
 
-Use the cpumask OPP helper after the policy CPU mask has been
-populated. Pair it with the matching cpumask remove helper on
-failure paths and in apple_soc_cpufreq_exit(). This also removes
-the separate dev_pm_opp_set_sharing_cpus() call, as the cpumask
-helper loads the DT OPP tables for all CPUs in the policy.
+it's clearer to directly return 0 here.
 
-Fixes: 6286bbb40576 ("cpufreq: apple-soc: Add new driver to control Apple SoC CPU P-states")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
-Changes in v2:
- - Remove unnecessary cleanup calls.
- - Remove OPP table from apple_soc_cpufreq_exit(). Thanks, Viresh!
-Changes in v3:
- - Add Fixes and Cc stable tags.
- - Use cpumask OPP helpers.
- - Reorder init and failure cleanup. Thanks, Viresh!
----
- drivers/cpufreq/apple-soc-cpufreq.c | 36 +++++++++++------------------
- 1 file changed, 14 insertions(+), 22 deletions(-)
-
-diff --git a/drivers/cpufreq/apple-soc-cpufreq.c b/drivers/cpufreq/apple-soc-cpufreq.c
-index 638e5bf72185..3f64f266e695 100644
---- a/drivers/cpufreq/apple-soc-cpufreq.c
-+++ b/drivers/cpufreq/apple-soc-cpufreq.c
-@@ -249,21 +249,19 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
- 		return -ENODEV;
- 	}
- 
--	ret = dev_pm_opp_of_add_table(cpu_dev);
--	if (ret < 0) {
--		dev_err(cpu_dev, "%s: failed to add OPP table: %d\n", __func__, ret);
--		return ret;
--	}
-+	priv = kzalloc_obj(*priv);
-+	if (!priv)
-+		return -ENOMEM;
- 
- 	ret = apple_soc_cpufreq_find_cluster(policy, &reg_base, &info);
- 	if (ret) {
- 		dev_err(cpu_dev, "%s: failed to get cluster info: %d\n", __func__, ret);
--		return ret;
-+		goto out_free_priv;
- 	}
- 
--	ret = dev_pm_opp_set_sharing_cpus(cpu_dev, policy->cpus);
--	if (ret) {
--		dev_err(cpu_dev, "%s: failed to mark OPPs as shared: %d\n", __func__, ret);
-+	ret = dev_pm_opp_of_cpumask_add_table(policy->cpus);
-+	if (ret < 0) {
-+		dev_err(cpu_dev, "%s: failed to add OPP table: %d\n", __func__, ret);
- 		goto out_iounmap;
- 	}
- 
-@@ -271,19 +269,13 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
- 	if (ret <= 0) {
- 		dev_dbg(cpu_dev, "OPP table is not ready, deferring probe\n");
- 		ret = -EPROBE_DEFER;
--		goto out_free_opp;
--	}
--
--	priv = kzalloc_obj(*priv);
--	if (!priv) {
--		ret = -ENOMEM;
--		goto out_free_opp;
-+		goto out_free_table;
- 	}
- 
- 	ret = dev_pm_opp_init_cpufreq_table(cpu_dev, &freq_table);
- 	if (ret) {
- 		dev_err(cpu_dev, "failed to init cpufreq table: %d\n", ret);
--		goto out_free_priv;
-+		goto out_free_table;
- 	}
- 
- 	/* Get OPP levels (p-state indexes) and stash them in driver_data */
-@@ -318,12 +310,12 @@ static int apple_soc_cpufreq_init(struct cpufreq_policy *policy)
- 
- out_free_cpufreq_table:
- 	dev_pm_opp_free_cpufreq_table(cpu_dev, &freq_table);
--out_free_priv:
--	kfree(priv);
--out_free_opp:
--	dev_pm_opp_remove_all_dynamic(cpu_dev);
-+out_free_table:
-+	dev_pm_opp_of_cpumask_remove_table(policy->cpus);
- out_iounmap:
- 	iounmap(reg_base);
-+out_free_priv:
-+	kfree(priv);
- 	return ret;
- }
- 
-@@ -332,7 +324,7 @@ static void apple_soc_cpufreq_exit(struct cpufreq_policy *policy)
- 	struct apple_cpu_priv *priv = policy->driver_data;
- 
- 	dev_pm_opp_free_cpufreq_table(priv->cpu_dev, &policy->freq_table);
--	dev_pm_opp_remove_all_dynamic(priv->cpu_dev);
-+	dev_pm_opp_of_cpumask_remove_table(policy->cpus);
- 	iounmap(priv->reg_base);
- 	kfree(priv);
- }
--- 
-2.25.1
-
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
