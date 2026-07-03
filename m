@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFEEC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 19:32:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 477DEC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 19:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cnd+FpZivjd6PvNXwrpkV5RkK7lGOLmjLrtRdNFWBX0=; b=mop5xBokD9wbGzHt9+hW2UGI8B
-	RW1SiPt63FJJqA8pyK5l8uZpHjv2aM3Ela4Aa364fsWvpGT85WrPmz8dWqBOBf393lNGiQYbFQtvn
-	W60ch0lHpq+UgtYA2Gtd0V55PxzLWf6hWKGC5xLhCSddU7L4gG0qOKoXnZNb+b0fqibdyvqP98Spa
-	CeDWgHjPukgyE00E+NEVq1sZcEJoni9cIUj2gZsIaY3Voi8EZtFnrmcVnJXI7qCGO2WR2k3QVP9dt
-	eyodys7a98RS2dEiXZ89MqwhT1QqeYDD0uUg/YZnVzG/Ot1BzLsg8iTflhBwwqkonIkqKUpT1m6SJ
-	tgN7UGyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NcHQd/8XSBa7MNTS4wISQ1H39Zw3/ARkiAwQE2EKLP0=; b=04EE/UoSVaXg9a33XpMsC6jEk4
+	lX70qJNmqXwQIyQLuZE6A8ihcAcwuHQb9HdEiZV8f9qp4y0JXxyAdTIKqHKPBkKX0zRXwGi8SZyLC
+	TOpYK1yqIx++NBYZ4v9VkWiaVIpk7/Gkn0hkGq4VKEvr0LiEgMLXlQq0uLyxZmhYvClqc+Cpp1uv/
+	PUk1f/9HN1E0RNAmbKvOhJIdeWHg07CiHxFSwIuM2aCTNRoKwPNbsJeIJVJIs3lCz4hNHs5K1AhBW
+	17CltwG0T4JYK/OhM2czRAuct/Ve3kKlv9KGX2jQJX+EgHWnb864C+JPoAAtsgApOLKQPg9iz2U8O
+	mpO6KDFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfjcI-00000007mio-49uO;
-	Fri, 03 Jul 2026 19:32:03 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wfjrD-00000007oA7-1czd;
+	Fri, 03 Jul 2026 19:47:27 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfjcG-00000007miP-3qd0;
-	Fri, 03 Jul 2026 19:32:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783107116;
-	bh=9mEfzfMpXzi/PI86I3udvtpmEeCij5/2kHbzCL6MdYk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=O2fS9XPpR8F6qkTMQK+ZCzOVuqMufBkuxy8eo9++0QRKRFXSR97w0iAB27ngTAHFu
-	 nAOQ28/7lkGXYXJiq2CNS2nhMV0hJa79en4WDy0OU7/fxOPJuyCNlZnu80YXD1KYCJ
-	 SIKAs8yncAcDAoC649khlJwCFU1iOngEALKZMUIqar2lmFCJdFVqwi49Fk1wwuULHJ
-	 KnjJcdriTjBLStX7oNe16JfpNHApF8neVxElgsPSJbOxAcwRDn8V8xcsGYerZTXAkK
-	 BoTsRAXLyNQVPTaOoJiDtnqg5fmgLZLH6MatuKYeudEKiQkcU+E9oPZjG1aZdlyyhE
-	 AAZvcYC0ha72Q==
-Received: from [100.64.0.241] (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id ABB8B17E087B;
-	Fri,  3 Jul 2026 21:31:55 +0200 (CEST)
-Message-ID: <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
-Date: Fri, 3 Jul 2026 22:31:55 +0300
+	id 1wfjrA-00000007o9b-3s0L
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 19:47:26 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-806449d108aso11921587b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 12:47:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783108044; x=1783712844; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NcHQd/8XSBa7MNTS4wISQ1H39Zw3/ARkiAwQE2EKLP0=;
+        b=g18vx6Lo7DXQZ9pm/B46/J9HIAEV1lGJotc35Shoxc3LOzk9HyRA08sJZYwn29tEaB
+         qkP6i7OOIY/BcZZz+fhR8WFd2E6OMqBkfDU69Vu4f62WFeSZAbfojfQE/YXWGutPsAZY
+         Fx6i3xggVSPBZ9SA5Ba1xTMypj7yZlfdmP+Oy/DXbK7YKcsvoPbZS+FSYTGZk8sMfpHG
+         JFoxRdfLY9s/3mE1BTBM5IVMVSJvTkAYO9PvljBBDF27//Q2Sff42qdxLzmMEWlq7XCF
+         TDmpigqtqtdECgS6IIoboxn0k3G99QBbscrMnEkHt3H09rn0aeQqCm/73xXANbzXojbN
+         JdEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783108044; x=1783712844;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=NcHQd/8XSBa7MNTS4wISQ1H39Zw3/ARkiAwQE2EKLP0=;
+        b=NyV9t0o0hxLFs0xP4bOPlARh5Zbw2fMcvJX3xveUwNN8JjcWLaY4bJ6F7lWU3QkpJ7
+         ZekRoGrStHh+nXIPMTG01F/aNmTuqkpRe1rw0/nU9Y1ekpAQ44zMTV5r+MPmymp8+b1P
+         8SPiHmuEawakwtn5C8awKosoKt7pyrhPfPOrWig9VLiwmFmZZ/PNvnoAmHYQKHjx7nZM
+         mzp1yAbDZGHh73ma4mgKvbPAY9nGuZWbxZTmHE9IzHYHVNtbrfiJsXtuc/MoxubCtaxX
+         Gv5TCcn9R+D4oQDUsc5UrD3tbMlajuqG0vvfW8uzfTm3WINAjORaXSk6X0qPzJawOben
+         ON9g==
+X-Forwarded-Encrypted: i=1; AHgh+RqUruYYvMmsgweriWihJq9hzwsEDdMNWzMF78zl7VDEUdxJ8HNbgmkMXVdA4QO3J/WHpHXSMSDrfWDQ1OZktAl8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6rWwHbtKZp11UPl+S+tAcxwqOxm+0Xb/X6VDo7BNg9GJ1IQvj
+	v3fAvU5zMH7jLFX6aoYlmR2L1lGtc2lhDE6ttEavJ0XlXC+p7tgVEJGl
+X-Gm-Gg: AfdE7cmNMRexLPjszyIgKizGvr4Iyjjs1u6bOEqcCeRjVIkbWMoiOPogvDTD0iVasOa
+	4Vu4xlueMvN6Zip0hNGZMpPy3lhmuIMHNhm9okCXb1fnR2Hz4Q93KKPtDBYK5k7OkJKWkJUOHrK
+	p9s2QMW3m7Q4Y1mmZLvFmptZl3xzS8eIVDdZvIVw4YjRRcK9+UKN7ki3LAp07VAFhrjSi/IzD3K
+	eTFnYPHQapPHRAOsqZrGXFUCcGfTapmGwv/vbS1P4YifEGni+3/8H91XSStW2eMWhwWWJFlrybP
+	1csc+IOHC0eh+JcjEGXXr79TqqMr8Cb36aKMk1jWhaUNF+bZeJo46FKcWMLCy9HuXF8iF1hBOnI
+	jyai+zhNLigmfZB251bsKtKKqCh/tJ7p8gQRcPcAx7oIFhmTga60XvBo7s2PJEpU9HxpI7/8AGb
+	xhmCG4VogJU3K1BlDQGOL814G0XwoJdHbHXhVEwEFk0ZH8a8KUxg==
+X-Received: by 2002:a05:690c:9c09:b0:80b:de5d:bfc7 with SMTP id 00721157ae682-8173a4dcf05mr6515877b3.54.1783108043369;
+        Fri, 03 Jul 2026 12:47:23 -0700 (PDT)
+Received: from suesslenovo ([24.176.128.175])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-817212bd978sm2590887b3.37.2026.07.03.12.47.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 12:47:22 -0700 (PDT)
+Date: Fri, 3 Jul 2026 15:47:21 -0400
+From: Justin Suess <utilityemal77@gmail.com>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>
+Subject: Re: [PATCH 2/4] media: rc: sunxi-cir: add support for the A523
+Message-ID: <akgKeqUhWWThWKco@suesslenovo>
+References: <20260702214750.3428694-1-utilityemal77@gmail.com>
+ <20260702214750.3428694-3-utilityemal77@gmail.com>
+ <309f6601-2358-4a2d-9696-0849d69ade52@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
- init helper
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
- =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
- kernel@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
- <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
- <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <309f6601-2358-4a2d-9696-0849d69ade52@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_123201_295183_CAB426DA 
-X-CRM114-Status: GOOD (  40.32  )
+X-CRM114-CacheID: sfid-20260703_124725_028431_2C0CD8E4 
+X-CRM114-Status: GOOD (  75.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,385 +106,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
-
-Thanks for your quick review!
-
-On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
-> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
->> In preparation for adding HDMI 2.x source capabilities, introduce struct
->> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
->> helper.
->>
->> The existing drmm_connector_hdmi_init() helper currently takes
->> individual capability arguments such as supported_formats and max_bpc.
->> Adding more HDMI-specific arguments to that function would not scale
->> well, so move those values into a dedicated capabilities structure and
->> implement the existing helper as a wrapper around the new caps-based
->> interface.
+On Fri, Jul 03, 2026 at 11:11:59AM +0200, Andre Przywara wrote:
+> On Thu,  2 Jul 2026 17:47:48 -0400
+> Justin Suess <utilityemal77@gmail.com> wrote:
 > 
-> I think, it was an intention of Maxime: make sure that every driver is
-> forced to provide some values here. With the struct-based init it is
-> easy to overlook or to ommit a value.
-
-Agreed that the struct-based init loses the compile-time guarantee that every
-argument is explicitly provided - that's a real downside.  
-
-I'd argue it's recoverable, though: the init helper validates the mandatory
-fields, so a driver that omits a required value gets rejected at init time
-rather than silently misconfigured.  The "you must provide sane values" property
-is expected to be preserved, just enforced at runtime instead of by the
-compiler. 
-
-The main motivation for the struct is scalability/maintainability as we add HDMI
-2.x capabilities: new fields go into the struct rather than growing the helper's
-argument list, so existing callers don't need churny signature updates on every
-extension.
-
-FWIW, in the previous revision we discussed addressing the concern with a
-callback instead.  Sadly, I had to discard that approach, as it proved not
-flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
-would have required either stateful callbacks, or storing redundant/temporary
-cap data in driver-private structures just to satisfy the callback.
-
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/gpu/drm/drm_connector.c | 202 +++++++++++++++++++++++++++-------------
->>  include/drm/drm_connector.h     |  55 +++++++++++
->>  2 files changed, 193 insertions(+), 64 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
->> index 8b4baed060f3..c7ce6b7bd8b0 100644
->> --- a/drivers/gpu/drm/drm_connector.c
->> +++ b/drivers/gpu/drm/drm_connector.c
->> @@ -542,6 +542,137 @@ int drmm_connector_init(struct drm_device *dev,
->>  }
->>  EXPORT_SYMBOL(drmm_connector_init);
->>  
->> +/**
->> + * drmm_connector_hdmi_init_with_caps - Init a preallocated HDMI connector
->> + * @dev: DRM device
->> + * @connector: A pointer to the HDMI connector to init
->> + * @vendor: HDMI Controller Vendor name
->> + * @product: HDMI Controller Product name
->> + * @funcs: callbacks for this connector
->> + * @hdmi_funcs: HDMI-related callbacks for this connector
->> + * @connector_type: user visible type of the connector
->> + * @ddc: optional pointer to the associated ddc adapter
->> + * @caps: optional HDMI connector capabilities
->> + *
->> + * Initialises a preallocated HDMI connector. Connectors can be
->> + * subclassed as part of driver connector objects.
->> + *
->> + * Cleanup is automatically handled with a call to
->> + * drm_connector_cleanup() in a DRM-managed action.
->> + *
->> + * The connector structure should be allocated with drmm_kzalloc().
->> + *
->> + * The @drm_connector_funcs.destroy hook must be NULL.
->> + *
->> + * Returns:
->> + * Zero on success, error code on failure.
->> + */
->> +int drmm_connector_hdmi_init_with_caps(struct drm_device *dev,
->> +				       struct drm_connector *connector,
->> +				       const char *vendor, const char *product,
->> +				       const struct drm_connector_funcs *funcs,
->> +				       const struct drm_connector_hdmi_funcs *hdmi_funcs,
->> +				       int connector_type,
->> +				       struct i2c_adapter *ddc,
->> +				       const struct drm_connector_hdmi_caps *caps)
->> +{
->> +	int ret;
->> +
->> +	if (!vendor || !product)
->> +		return -EINVAL;
->> +
->> +	if ((strlen(vendor) > DRM_CONNECTOR_HDMI_VENDOR_LEN) ||
->> +	    (strlen(product) > DRM_CONNECTOR_HDMI_PRODUCT_LEN))
->> +		return -EINVAL;
->> +
->> +	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
->> +	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
->> +		return -EINVAL;
->> +
->> +	if (!caps)
->> +		return -EINVAL;
->> +
->> +	if (!caps->supported_formats ||
->> +	    !(caps->supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
->> +		return -EINVAL;
->> +
->> +	if (connector->ycbcr_420_allowed !=
->> +	    !!(caps->supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
->> +		return -EINVAL;
->> +
->> +	if (!(caps->max_bpc == 8 || caps->max_bpc == 10 || caps->max_bpc == 12))
->> +		return -EINVAL;
->> +
->> +	if (!hdmi_funcs->avi.clear_infoframe ||
->> +	    !hdmi_funcs->avi.write_infoframe ||
->> +	    !hdmi_funcs->hdmi.clear_infoframe ||
->> +	    !hdmi_funcs->hdmi.write_infoframe)
->> +		return -EINVAL;
->> +
->> +	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
->> +	if (ret)
->> +		return ret;
->> +
->> +	connector->hdmi.supported_formats = caps->supported_formats;
->> +
->> +	/*
->> +	 * The supported HDMI version can be used to infer the maximum TMDS
->> +	 * character rate allowed by the specification. Some controllers,
->> +	 * however, may support a lower rate than that version would imply.
->> +	 *
->> +	 * A non-zero caps->max_tmds_char_rate lets drivers override the
->> +	 * inferred limit with the actual controller capability. A value of
->> +	 * zero keeps the default limit inferred from supported_hdmi_ver.
->> +	 */
->> +	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0)
->> +		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
->> +	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3)
->> +		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
->> +	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0)
->> +		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
->> +
->> +	if (caps->max_tmds_char_rate) {
->> +		if (caps->max_tmds_char_rate > connector->hdmi.max_tmds_char_rate)
->> +			return -EINVAL;
->> +		connector->hdmi.max_tmds_char_rate = caps->max_tmds_char_rate;
->> +	}
+> Hi Justin,
 > 
-> Here I'd totally suggest something simpler:
+> many thanks for sending this!
 > 
-> if (!caps->max_tmds_char_rate) {
-> 	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0)
-> 		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
-> 	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3)
-> 		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
-> 	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0)
-> 		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
-> }
-
-My intention was to check that a driver-supplied caps->max_tmds_char_rate
-doesn't exceed the spec-permitted maximum for the declared supported_hdmi_ver.
-With the simplified form, a driver could declare e.g. HDMI 1.4 but pass a
-2.0-level char rate, and we'd silently accept it.  
-
-Also, we'd still need to handle the supplied value in the non-zero case:
-
-} else {
-    connector->hdmi.max_tmds_char_rate = caps->max_tmds_char_rate;
-}
-
-So the net reduction is smaller than it looks.
-
->> +
->> +	strtomem_pad(connector->hdmi.vendor, vendor, 0);
->> +	strtomem_pad(connector->hdmi.product, product, 0);
->> +
->> +	/*
->> +	 * drm_connector_attach_max_bpc_property() requires the
->> +	 * connector to have a state.
->> +	 */
->> +	if (connector->funcs->atomic_create_state) {
->> +		struct drm_connector_state *state;
->> +
->> +		state = connector->funcs->atomic_create_state(connector);
->> +		if (IS_ERR(state))
->> +			return PTR_ERR(state);
->> +
->> +		connector->state = state;
->> +	} else if (connector->funcs->reset) {
->> +		connector->funcs->reset(connector);
->> +	}
->> +
->> +	drm_connector_attach_max_bpc_property(connector, 8, caps->max_bpc);
->> +	connector->max_bpc = caps->max_bpc;
+> > The A523 (sun55i) has a newer revision of the CIR receiver IP. Two
+> > register fields that do not exist on older SoCs must be programmed
+> > for reception to work:
+> > 
+> >  - CTL bits [7:6] select which pulse polarities are captured into the
+> >    RX FIFO. The reset value of 0 captures nothing, so program "both
+> >    pulse" mode, which captures regardless of header polarity.
 > 
-> If you don't like the max_bpc argument, let's do it other way:
+> Are you sure about that? The manual says that *both* the 0b00 (reset
+> default) and 0b01 values capture both edges, and actually the H6, A133
+> and H616 have the same bits, and it apparently works there.
+>
+No, actually. I literally just live dumped the registers on the vendor
+kernel, (my android tv came pre-rooted for some reason) and interpreted
+the purpose from the BSP source.
+
+I am actually unaware there was such a manual. If you could point me to
+it that'd be great.
+> I don't see those bits documented in the A64 (and earlier), but haven't
+> checked yet whether they exist there regardless or have an effect.
+> So I think we should force those bits either to 0 or to 1, depending on how
+> those bits behave on A64 and before, and how compatible this is with H6,
+> A133, H616. I will try to run some experiments on the weekend.
+>
+Appreciate it!
+
+I'll wait for the results of that experiment, I don't feel confident
+enough that I wouldn't break things by even forcing the register to zero
+without hardware to test on. So I preserved the existing behavior for the non
+X98qpro+ board to be safe.
+
+> >  - SPLCFG (the sample configuration register) bits [1:0] select the
+> >    sample clock as a division of the module clock, replacing the
+> >    fixed module clock / 64 sample rate of the older IP.
 > 
-> if (connector->max_bpc < 8)
-> 	return -EINVAL;
-
-If I follow correctly, you suggest dropping max_bpc from the caps struct and
-letting drivers set connector->max_bpc before calling the init helper, leaving
-the core to only do the reject. 
-
-Also note we actually have a more restricted check above:
-
-if (!(caps->max_bpc == 8 || caps->max_bpc == 10 || caps->max_bpc == 12))
-    return -EINVAL;
-
-I'd still keep max_bpc in the struct, assuming we can move further with the
-caps approach.
-
-> if (connector->max_bpc > 8)
-> 	drm_connector_attach_hdr_output_metadata_property(connector);
+> That's not fully correct: even the A20(!) has these two bits, actually
+> there is a third bit, held in bit 24 (because reasons). All those bits
+> reset to 0, which is encoded as /64, so this is where the rate comes
+> from. And sunxi_ir_probe() sets the IR clock to 8MHz, which should end
+> up as 24MHz / 3, on all chips, including the A523.
 > 
+> So what is going on here? Is the manual wrong, about those bits, or the
+> clock sources?
+> Can you point to the BSP sources, if you used those?
+>
+
+Actually I relied on a script running sunxi-dump on the vendor
+kernel and dumping the registers for an initial implementation.
+
+It didn't work, and I was getting stuck. (probably my sampling script
+didn't dump the registers fast enough and didn't include all of the ones
+needed).
+
+Then I found https://github.com/chainsx/linux-sun55iw3-vendor
+
+And saw this
+
+  #define IR_SAMPLE_DEV		(0x2 << 0)	/* 24MHz/256 =93750Hz (~10.7us)*/
+
+for the clock rate.
+
+And then this one:
+
+  #define IR_BOTH_PULSE		(0x1 << 6)
+
+As and saw it being used as the pulse polarity.
+
+(above are in bsp/drivers/ir-rx/sunxi-ir-rx.c)
+
+And figured to give this one a try because everything I tried before
+messing with the existing constants in mainline failed, and this was
+the primary construct that didn't match up with mainline. 
+
+Those two things were enough to get it working perfectly on my hardware.
+
+So this is more based on "this is what worked on the hardware" + a
+cursory read of the vendor source than based on any hardware technical
+document or manual... I should have been more upfront about that.
+
+So please point me to this manual and I can revise and figure out WHY
+this works and improve this patch series. 
+
+> >    module clock / 256, which together with the 24 MHz module clock
 > 
->> +
->> +	if (caps->max_bpc > 8)
->> +		drm_connector_attach_hdr_output_metadata_property(connector);
->> +
->> +	ret = drm_connector_attach_color_format_property(connector,
->> +							 caps->supported_formats);
->> +	if (ret)
->> +		return ret;
->> +
->> +	connector->hdmi.funcs = hdmi_funcs;
->> +
->> +	return 0;
->> +}
->> +EXPORT_SYMBOL(drmm_connector_hdmi_init_with_caps);
->> +
->>  /**
->>   * drmm_connector_hdmi_init - Init a preallocated HDMI connector
->>   * @dev: DRM device
->> @@ -578,71 +709,14 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
->>  			     unsigned long supported_formats,
->>  			     unsigned int max_bpc)
->>  {
->> -	int ret;
->> +	struct drm_connector_hdmi_caps caps = {
->> +		.supported_formats = supported_formats,
->> +		.max_bpc = max_bpc,
->> +	};
->>  
->> -	if (!vendor || !product)
->> -		return -EINVAL;
->> -
->> -	if ((strlen(vendor) > DRM_CONNECTOR_HDMI_VENDOR_LEN) ||
->> -	    (strlen(product) > DRM_CONNECTOR_HDMI_PRODUCT_LEN))
->> -		return -EINVAL;
->> -
->> -	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
->> -	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
->> -		return -EINVAL;
->> -
->> -	if (!supported_formats || !(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
->> -		return -EINVAL;
->> -
->> -	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
->> -		return -EINVAL;
->> -
->> -	if (!(max_bpc == 8 || max_bpc == 10 || max_bpc == 12))
->> -		return -EINVAL;
->> -
->> -	if (!hdmi_funcs->avi.clear_infoframe ||
->> -	    !hdmi_funcs->avi.write_infoframe ||
->> -	    !hdmi_funcs->hdmi.clear_infoframe ||
->> -	    !hdmi_funcs->hdmi.write_infoframe)
->> -		return -EINVAL;
->> -
->> -	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
->> -	if (ret)
->> -		return ret;
->> -
->> -	connector->hdmi.supported_formats = supported_formats;
->> -	strtomem_pad(connector->hdmi.vendor, vendor, 0);
->> -	strtomem_pad(connector->hdmi.product, product, 0);
->> -
->> -	/*
->> -	 * drm_connector_attach_max_bpc_property() requires the
->> -	 * connector to have a state.
->> -	 */
->> -	if (connector->funcs->atomic_create_state) {
->> -		struct drm_connector_state *state;
->> -
->> -		state = connector->funcs->atomic_create_state(connector);
->> -		if (IS_ERR(state))
->> -			return PTR_ERR(state);
->> -
->> -		connector->state = state;
->> -	} else if (connector->funcs->reset) {
->> -		connector->funcs->reset(connector);
->> -	}
->> -
->> -	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
->> -	connector->max_bpc = max_bpc;
->> -
->> -	if (max_bpc > 8)
->> -		drm_connector_attach_hdr_output_metadata_property(connector);
->> -
->> -	ret = drm_connector_attach_color_format_property(connector, supported_formats);
->> -	if (ret)
->> -		return ret;
->> -
->> -	connector->hdmi.funcs = hdmi_funcs;
->> -
->> -	return 0;
->> +	return drmm_connector_hdmi_init_with_caps(dev, connector, vendor,
->> +						  product, funcs, hdmi_funcs,
->> +						  connector_type, ddc, &caps);
->>  }
->>  EXPORT_SYMBOL(drmm_connector_hdmi_init);
->>  
->> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
->> index af075c38f4db..961a729d0869 100644
->> --- a/include/drm/drm_connector.h
->> +++ b/include/drm/drm_connector.h
->> @@ -2029,6 +2029,47 @@ struct drm_connector_hdmi_audio {
->>  	int dai_port;
->>  };
->>  
->> +/**
->> + * struct drm_connector_hdmi_caps - HDMI capabilities structure
->> + *
->> + * This structure is required to initialize the connector using
->> + * drmm_connector_hdmi_init_with_caps().
->> + */
->> +struct drm_connector_hdmi_caps {
->> +	/**
->> +	 * @supported_hdmi_ver:
->> +	 *
->> +	 * Maximum HDMI specification version supported by the controller side
->> +	 * of this connector. This describes the controller capability only;
->> +	 * the effective link capabilities may be further restricted by the
->> +	 * sink, bridge, or mode validation.
->> +	 *
->> +	 * HDMI_VERSION_UNKNOWN means legacy/default behaviour.
+> Why is the A523 mod clock set to 24 MHz? You seem to do this in the DT,
+> overriding the 8MHz default? The driver clearly has a clk_set_rate() call
+> with that default 8MHz as an argument, and I don't think we should deviate
+> from that, unless there are good reasons. The sample clock should be more of
+> a driver/subsystem decision, not a a device one.
 > 
-> What would it actually mean here? Every chip has some version of HDMI
-> standard it conforms to.
 
-HDMI_VERSION_UNKNOWN only exists for the legacy drmm_connector_hdmi_init()
-wrapper, which doesn't pass a version - in that case the code keeps the
-pre-existing behaviour (no version-inferred TMDS limit). Once all callers
-migrate to the caps-based API, supported_hdmi_ver becomes mandatory.
+See above. This is just what worked on the hardware, and what the vendor
+set. And it worked so I sent it. I didn't have access to the manual...
 
-Given that, I'd simply drop the "legacy/default behaviour" statement, unless you
-have a better suggestion.
+but agreed this needs justification and not just a handwaving "works on
+my machine".
 
->> +	 */
->> +	enum hdmi_version supported_hdmi_ver;
->> +
->> +	/**
->> +	 * @supported_formats:
->> +	 *
->> +	 * Bitmask of @drm_output_color_format listing supported output formats.
->> +	 */
->> +	unsigned long supported_formats;
->> +
->> +	/**
->> +	 * @max_tmds_char_rate:
->> +	 *
->> +	 * Maximum TMDS character rate supported by the source, in Hz.
->> +	 * A value of 0 means the core should use the default limit implied by
->> +	 * @supported_hdmi_ver.
->> +	 */
->> +	unsigned long long max_tmds_char_rate;
->> +
->> +	/**
->> +	 * @max_bpc: Maximum bits per char the HDMI connector supports.
->> +	 */
->> +	unsigned int max_bpc;
->> +};
->> +
->>  /*
->>   * struct drm_connector_hdmi - DRM Connector HDMI-related structure
->>   */
+> >    used on the A523 gives a 10.7 μs sample period, close to the 8 μs
+> >    of the previous 8 MHz / 64 configuration, and keeps the default
+> >    125 ms idle timeout representable in the 8-bit idle threshold
+> 
+> This is some good info that helps people understand the reasoning behind
+> those timing values. Please put this in a comment near the top of the file.
+> But actually: how does this compute? With an 8us sample clock period, the
+> 8-bit ATHR field only covers 2 ms. And I don't see us setting the ATHC bit
+> to bump this by 128.
+> 
+I'll include it and anything else I can glean from your testing, and if
+you can point me to the manual.
+
+Thanks for the swift review, sorry should have made more obvious up
+front this was a "tweaking until it works" implementation, not a ground
+up spec based implementation.
+
+> Cheers,
+> Andre
+> 
+> >    field.
+> > 
+> > Parameterize the sample divisor in the resolution/timeout
+> > calculations, which older SoCs keep at the fixed 64, and add the
+> > A523 quirks and compatible.
+> > 
+> > Signed-off-by: Justin Suess <utilityemal77@gmail.com>
+> > ---
+> >  drivers/media/rc/sunxi-cir.c | 76 ++++++++++++++++++++++++++++++------
+> >  1 file changed, 63 insertions(+), 13 deletions(-)
+> > 
+> > diff --git a/drivers/media/rc/sunxi-cir.c b/drivers/media/rc/sunxi-cir.c
+> > index cb4c56bf0752..82ada9dc0347 100644
+> > --- a/drivers/media/rc/sunxi-cir.c
+> > +++ b/drivers/media/rc/sunxi-cir.c
+> > @@ -31,6 +31,11 @@
+> >  /* CIR mode */
+> >  #define REG_CTL_MD			(BIT(4) | BIT(5))
+> > +/* Pulse mode selector (bits [7:6]) */
+> > +#define REG_CTL_PMD(m)			((m) << 6)
+> > +/* Capture both pulse polarities */
+> > +#define REG_CTL_PMD_BOTH		REG_CTL_PMD(1)
+> > +
+> >  /* Rx Config */
+> >  #define SUNXI_IR_RXCTL_REG    0x10
+> >  /* Pulse Polarity Invert flag */
+> > @@ -66,6 +71,13 @@
+> >  /* IR Sample Config */
+> >  #define SUNXI_IR_CIR_REG      0x34
+> > +/*
+> > + * Sample clock divider select (bits [1:0]), present on newer IP revisions
+> > + * (e.g. sun55i). Selects the sample clock as a fraction of the module clock;
+> > + * must be programmed for the sampler to run. Older SoCs lack the field and
+> > + * use a fixed module-clock/64 sample rate, so they leave it 0.
+> > + */
+> > +#define REG_CIR_SDIV(val)    ((val) & GENMASK(1, 0))
+> >  /* CIR_REG register noise threshold */
+> >  #define REG_CIR_NTHR(val)    (((val) << 2) & (GENMASK(7, 2)))
+> >  /* CIR_REG register idle threshold */
+> > @@ -73,6 +85,8 @@
+> >  /* Required frequency for IR0 or IR1 clock in CIR mode (default) */
+> >  #define SUNXI_IR_BASE_CLK     8000000
+> > +/* Default sample clock divisor: module clock / 64 (legacy fixed rate) */
+> > +#define SUNXI_IR_SAMPLE_DIV   64
+> >  /* Noise threshold in samples  */
+> >  #define SUNXI_IR_RXNOISE      1
+> > @@ -81,10 +95,18 @@
+> >   *
+> >   * @has_reset: SoC needs reset deasserted.
+> >   * @fifo_size: size of the fifo.
+> > + * @both_pulse: program the CTRL pulse-mode field (newer IP revisions).
+> 
+> As mentioned above, those bits exist in earlier IP as well. Typically
+> non-implemented bits in Allwinner IP as RES0, so I think we can program them
+> unconditionally (and should on H6/A133/H616) and don't need a quirks flag.
+> 
+Yeah, probably just setting them to zero is *fine* for the non-a523
+hardware, but I didn't want to send patches for hardware I can't test.
+
+Last thing I want to do is make someones TV remote stop working.
+
+If your experiments reveal forcing zero is OK, than I'll default to
+that.
+
+> > + * @sample_div_sel: value for the SPLCFG sample-clock divider field (0 on
+> > + *		    legacy SoCs that lack the field).
+> 
+> Same here: those bits exist back to the A20, even. And their meaning didn't
+> change, if I see this correctly. So no quirk needed, instead we should
+> program them explicitly to the value we want (probably 0).
+> 
+Sounds good
+> > + * @sample_divisor: module-clock divisor that yields the sample clock; matches
+> > + *		    @sample_div_sel on newer IP, or the fixed /64 on legacy SoCs.
+> 
+> That looks odd: why do we have that value in the first place? Following the
+> things I mention above, the divisor shouldn't be different on the A523. And
+> also, I think we should just do the math in the driver, and calculate the
+> divisor, based on some timing requirement. Which could be something like:
+> aim for a clock period of 8us. Though all the parameters seem to be stable:
+> the 24 MHz OSC input, the dividers in the mod clock, and the post dividers
+> in register 0x34. So there wouldn't be much of a calculation, really. But I
+> still think the driver can figure this out itself, and doesn't need explicit
+> telling of a divisor.
+> 
+This is just what worked for me; and what the vendor did. But you're
+right, we shouldn't trust it if the quality of the bsp code is anything
+to go off of.
+
+> So I think we would need a separate patch to fix up driver operation before
+> A523. Then the A523 bits should go on top of this. And maybe make this two
+> patches, one for the edge sample bits, one for the clock calculation.
+> 
+Easy enough. I'll wait on your experiments, please send whatever you
+found here while I prepare the seperate patches, and I'll adjust before
+resending (no rush on the results, all I'd need is you forcing the
+register to zero and verifying it works)
+
+(and please if you could drop me this manual, would have saved me a lot of time!
+I couldn't find it anywhere!)
+
+Justin
+> Cheers,
+> Andre
+> 
+> >   */
+> >  struct sunxi_ir_quirks {
+> >  	bool		has_reset;
+> >  	int		fifo_size;
+> > +	bool		both_pulse;
+> > +	u8		sample_div_sel;
+> > +	u32		sample_divisor;
+> >  };
+> >  struct sunxi_ir {
+> > @@ -92,6 +114,9 @@ struct sunxi_ir {
+> >  	void __iomem    *base;
+> >  	int             irq;
+> >  	int		fifo_size;
+> > +	bool		both_pulse;
+> > +	u8		sample_div_sel;
+> > +	u32		sample_divisor;
+> >  	struct clk      *clk;
+> >  	struct clk      *apb_clk;
+> >  	struct reset_control *rst;
+> > @@ -140,17 +165,19 @@ static irqreturn_t sunxi_ir_irq(int irqno, void *dev_id)
+> >  }
+> >  /* Convert idle threshold to usec */
+> > -static unsigned int sunxi_ithr_to_usec(unsigned int base_clk, unsigned int ithr)
+> > +static unsigned int sunxi_ithr_to_usec(unsigned int base_clk, unsigned int div,
+> > +				       unsigned int ithr)
+> >  {
+> >  	return DIV_ROUND_CLOSEST(USEC_PER_SEC * (ithr + 1),
+> > -				 base_clk / (128 * 64));
+> > +				 base_clk / (128 * div));
+> >  }
+> >  /* Convert usec to idle threshold */
+> > -static unsigned int sunxi_usec_to_ithr(unsigned int base_clk, unsigned int usec)
+> > +static unsigned int sunxi_usec_to_ithr(unsigned int base_clk, unsigned int div,
+> > +				       unsigned int usec)
+> >  {
+> >  	/* make sure we don't end up with a timeout less than requested */
+> > -	return DIV_ROUND_UP((base_clk / (128 * 64)) * usec,  USEC_PER_SEC) - 1;
+> > +	return DIV_ROUND_UP((base_clk / (128 * div)) * usec,  USEC_PER_SEC) - 1;
+> >  }
+> >  static int sunxi_ir_set_timeout(struct rc_dev *rc_dev, unsigned int timeout)
+> > @@ -158,15 +185,17 @@ static int sunxi_ir_set_timeout(struct rc_dev *rc_dev, unsigned int timeout)
+> >  	struct sunxi_ir *ir = rc_dev->priv;
+> >  	unsigned int base_clk = clk_get_rate(ir->clk);
+> > -	unsigned int ithr = sunxi_usec_to_ithr(base_clk, timeout);
+> > +	unsigned int ithr = sunxi_usec_to_ithr(base_clk, ir->sample_divisor,
+> > +					       timeout);
+> >  	dev_dbg(rc_dev->dev.parent, "setting idle threshold to %u\n", ithr);
+> > -	/* Set noise threshold and idle threshold */
+> > -	writel(REG_CIR_NTHR(SUNXI_IR_RXNOISE) | REG_CIR_ITHR(ithr),
+> > +	/* Set sample clock divider, noise threshold and idle threshold */
+> > +	writel(REG_CIR_SDIV(ir->sample_div_sel) |
+> > +	       REG_CIR_NTHR(SUNXI_IR_RXNOISE) | REG_CIR_ITHR(ithr),
+> >  	       ir->base + SUNXI_IR_CIR_REG);
+> > -	rc_dev->timeout = sunxi_ithr_to_usec(base_clk, ithr);
+> > +	rc_dev->timeout = sunxi_ithr_to_usec(base_clk, ir->sample_divisor, ithr);
+> >  	return 0;
+> >  }
+> > @@ -193,8 +222,14 @@ static int sunxi_ir_hw_init(struct device *dev)
+> >  		goto exit_disable_apb_clk;
+> >  	}
+> > -	/* Enable CIR Mode */
+> > -	writel(REG_CTL_MD, ir->base + SUNXI_IR_CTL_REG);
+> > +	/*
+> > +	 * Enable CIR Mode. On newer IP revisions the pulse-mode field must
+> > +	 * also be set, otherwise no pulses are captured into the RX FIFO.
+> > +	 */
+> > +	tmp = REG_CTL_MD;
+> > +	if (ir->both_pulse)
+> > +		tmp |= REG_CTL_PMD_BOTH;
+> > +	writel(tmp, ir->base + SUNXI_IR_CTL_REG);
+> >  	/* Set noise threshold and idle threshold */
+> >  	sunxi_ir_set_timeout(ir->rc, ir->rc->timeout);
+> > @@ -271,6 +306,9 @@ static int sunxi_ir_probe(struct platform_device *pdev)
+> >  	}
+> >  	ir->fifo_size = quirks->fifo_size;
+> > +	ir->both_pulse = quirks->both_pulse;
+> > +	ir->sample_div_sel = quirks->sample_div_sel;
+> > +	ir->sample_divisor = quirks->sample_divisor ?: SUNXI_IR_SAMPLE_DIV;
+> >  	/* Clock */
+> >  	ir->apb_clk = devm_clk_get(dev, "apb");
+> > @@ -325,10 +363,10 @@ static int sunxi_ir_probe(struct platform_device *pdev)
+> >  	ir->rc->dev.parent = dev;
+> >  	ir->rc->allowed_protocols = RC_PROTO_BIT_ALL_IR_DECODER;
+> >  	/* Frequency after IR internal divider with sample period in us */
+> > -	ir->rc->rx_resolution = (USEC_PER_SEC / (b_clk_freq / 64));
+> > +	ir->rc->rx_resolution = (USEC_PER_SEC / (b_clk_freq / ir->sample_divisor));
+> >  	ir->rc->timeout = IR_DEFAULT_TIMEOUT;
+> > -	ir->rc->min_timeout = sunxi_ithr_to_usec(b_clk_freq, 0);
+> > -	ir->rc->max_timeout = sunxi_ithr_to_usec(b_clk_freq, 255);
+> > +	ir->rc->min_timeout = sunxi_ithr_to_usec(b_clk_freq, ir->sample_divisor, 0);
+> > +	ir->rc->max_timeout = sunxi_ithr_to_usec(b_clk_freq, ir->sample_divisor, 255);
+> >  	ir->rc->s_timeout = sunxi_ir_set_timeout;
+> >  	ir->rc->driver_name = SUNXI_IR_DEV;
+> > @@ -395,6 +433,14 @@ static const struct sunxi_ir_quirks sun6i_a31_ir_quirks = {
+> >  	.fifo_size = 64,
+> >  };
+> > +static const struct sunxi_ir_quirks sun55i_a523_ir_quirks = {
+> > +	.has_reset = true,
+> > +	.fifo_size = 64,
+> > +	.both_pulse = true,
+> > +	.sample_div_sel = 2,	/* sample clock = module clock / 256 */
+> > +	.sample_divisor = 256,
+> > +};
+> > +
+> >  static const struct of_device_id sunxi_ir_match[] = {
+> >  	{
+> >  		.compatible = "allwinner,sun4i-a10-ir",
+> > @@ -408,6 +454,10 @@ static const struct of_device_id sunxi_ir_match[] = {
+> >  		.compatible = "allwinner,sun6i-a31-ir",
+> >  		.data = &sun6i_a31_ir_quirks,
+> >  	},
+> > +	{
+> > +		.compatible = "allwinner,sun55i-a523-ir",
+> > +		.data = &sun55i_a523_ir_quirks,
+> > +	},
+> >  	{}
+> >  };
+> >  MODULE_DEVICE_TABLE(of, sunxi_ir_match);
 > 
 
