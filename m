@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F5BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA4D0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9HuOiOpXWxzQFq7LM08YqEZVME2FhpwkWkeqQztWEGM=; b=hUVOoWHESEv7DyKbLRtnUdAoRI
-	4oCLaj2mesuyG1bOJd/Z8xiXtVw0gxMkvyZYfxCIZBaFGKrky8Z5uaGuzjslrLlcFr0fcaH20AuQY
-	OnfRG0dZPzJTCIQ/khaVl8HSt2jR4DvQQVzEUp4Ch/3CBM4sBuA708hKxUrr74gAMMP7QQeqne/Ip
-	ccrV3wTPXHFXZBKo4psOMdqCV0n0jsV1UjATP3+ct3012veAyCeG8ZCaIpN0sh8LJzi7zFtZ2otRF
-	BCXgPvtyz3kpfhei3Q1IhmSJwlo9AedwGe0nmrvVeVEW9maFYoU5Y0DLSQEn01805SEt+BZu3aCqJ
-	LsVea/Ag==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MrvD4ysnBUSiqqKfFU24MbUtfA6jQII4JW3QordojR8=; b=hsMvsFo1RLJwLLADmD/t1uhBtD
+	TSzQyPNDeKY5H6+ALXfdsgALkMNT6+QDqRsDktNW85us/O95YefFEcFCHR/aSUAEwEjtIAK6gmuLw
+	DbNdJ4f8LFFqQNjOQ1ta9eYSwLo6VNb9cMbRYYYV1XHuS9AZickkttV3Ous/EO9TFpBqDuGHQyJou
+	tZKdTN3cX8KgE6ryNhVYACTSvo6CrdpaFrqctJCQytdbfEoL+/cVMSbZkKmcZQQkGfbnR0Dlk/AiU
+	eqR1S82iLqTfH2eYsOJm4fNICP/w2CzKTuq2djojZISHjKgwTDrz87aCpw4nzAnkzfUs5tv5Jy7CQ
+	S/Jhp6iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcHt-00000006pPc-2BIX;
-	Fri, 03 Jul 2026 11:42:29 +0000
+	id 1wfcI1-00000006pRq-2bKu;
+	Fri, 03 Jul 2026 11:42:37 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcHq-00000006pP0-2riU
+	id 1wfcHz-00000006pQw-177E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:42:27 +0000
+	Fri, 03 Jul 2026 11:42:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85C691F91;
-	Fri,  3 Jul 2026 04:42:19 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CE8CA1FC4;
+	Fri,  3 Jul 2026 04:42:29 -0700 (PDT)
 Received: from cesw-amp-gbt-1s-m12830-01.blr.arm.com (cesw-amp-gbt-1s-m12830-01.blr.arm.com [10.164.195.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9D32C3F673;
-	Fri,  3 Jul 2026 04:42:14 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 746DF3F673;
+	Fri,  3 Jul 2026 04:42:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783078943; bh=gjAG24FmQiHMD3ERiShpuM0M9pe6oRmukL9/yTrH5G4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=tU7XRuHLJ8qyLSmm0z3GT/NObLP7sbopONklJMUamJbe4XQiIsNTvQhhwaMeM5nvW
-	 UfcASUHl08SMUxPmqsVcp+LGj79dgKL8jhPQuukkEy0RhyyW6gwnpfScCLO6l9KK/M
-	 JJVfz/sfLE7mngUB217h6HcadLLuV+4raCBnC6cM=
+	t=1783078954; bh=AQZap/nO3QOWdmBME1D8S/QnzexpIaKu0FkaoBnYCDw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ChmdZguIcwq+gbFANUj06T8ixoLKDm7ElI3FTPt3rVY2FhgYf4zdNmCdcx3GXnc09
+	 yN1Wyvali5Hcevy9BtFOkUpoEe0FB+kPRvhN1aTyCsK4Sk/BC5ZEc6eLBJGlQSsUO4
+	 3lO31Kmy2StVH9amzSTZiDwRvCYmBmM+cKo+ypuY=
 From: Dev Jain <dev.jain@arm.com>
 To: muchun.song@linux.dev,
 	osalvador@suse.de,
@@ -76,17 +76,19 @@ Cc: Dev Jain <dev.jain@arm.com>,
 	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	ryan.roberts@arm.com,
-	anshuman.khandual@arm.com
-Subject: [PATCH v3 0/6] Fix incorrect access of hugetlb pte entries
-Date: Fri,  3 Jul 2026 11:41:53 +0000
-Message-ID: <20260703114202.365553-1-dev.jain@arm.com>
+	anshuman.khandual@arm.com,
+	stable@vger.kernel.org
+Subject: [PATCH v3 1/6] arm64: make huge_ptep_get handled unaligned addresses
+Date: Fri,  3 Jul 2026 11:41:54 +0000
+Message-ID: <20260703114202.365553-2-dev.jain@arm.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260703114202.365553-1-dev.jain@arm.com>
+References: <20260703114202.365553-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_044226_758374_A65A0390 
-X-CRM114-Status: UNSURE (   9.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260703_044235_347148_EEA84224 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +103,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are various places which use ptep_get() to get the pte entry
-corresponding to a hugetlb folio. Some arches (like s390) have special
-handling to compute the pteval, so they provide huge_ptep_get(). Use this
-helper consistently.
+huge_ptep_get() can be handed a virtual address pointing to the middle of
+a contpmd/contpte mapped hugetlb folio (examples of callers are
+pagemap_hugetlb_range, page_mapped_in_vma).
 
-Additionally, some code paths may provide huge_ptep_get with an unaligned
-address. This is a problem on arm64 (I checked other arches and it looks
-fine for them), which is fixed in patch 1. The fix is made to be
-backport-friendly: the cleaner fix would be to perhaps pass the hstate
-to huge_ptep_get() - that is wider churn and we can do that later.
+The arm64 helper rewalks the pgtables in find_num_contig to answer whether
+the huge pte we have maps a contpmd or a contpte hugetlb folio, and
+returns CONT_PMDS or CONT_PTES, so that it can collect a/d bits over the
+contiguous ptes. We can falsely return CONT_PTES instead of CONT_PMDS
+if the addr is not aligned.
 
+Fix this by aligning the pmdp pointer down to a contpmd base before
+checking equality with the passed huge pte pointer, to correctly answer
+whether the huge pte is the base of a contpmd block.
+
+Fixes: 29cb80519689 ("arm64: hugetlb: Cleanup huge_pte size discovery mechanisms")
+Cc: stable@vger.kernel.org
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
-v2->v3:
- - Place comment at appropriate place in patches 2 and 3
- - Modify indentation in patch 2, patch 6
+ arch/arm64/mm/hugetlbpage.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-v1->v2:
- - Add patch 1
- - Mention s390 in cover letter
-
-Dev Jain (6):
-  arm64: make huge_ptep_get handled unaligned addresses
-  mm/rmap: use huge_ptep_get() in try_to_unmap_one()
-  mm/rmap: use huge_ptep_get() in try_to_migrate_one()
-  mm/migrate: use huge_ptep_get() in remove_migration_pte()
-  mm/page_vma_mapped: use huge_ptep_get() for hugetlb
-  mm/mprotect: use huge_ptep_get() for hugetlb
-
- arch/arm64/mm/hugetlbpage.c |  2 +-
- include/linux/hugetlb.h     |  2 ++
- mm/migrate.c                |  6 +++++-
- mm/mprotect.c               | 12 +++++++++---
- mm/page_vma_mapped.c        |  8 +++++++-
- mm/rmap.c                   | 32 ++++++++++++++++++++------------
- 6 files changed, 44 insertions(+), 18 deletions(-)
-
+diff --git a/arch/arm64/mm/hugetlbpage.c b/arch/arm64/mm/hugetlbpage.c
+index 30772a909aea3..8e799c1fe0aa6 100644
+--- a/arch/arm64/mm/hugetlbpage.c
++++ b/arch/arm64/mm/hugetlbpage.c
+@@ -87,7 +87,7 @@ static int find_num_contig(struct mm_struct *mm, unsigned long addr,
+ 	p4dp = p4d_offset(pgdp, addr);
+ 	pudp = pud_offset(p4dp, addr);
+ 	pmdp = pmd_offset(pudp, addr);
+-	if ((pte_t *)pmdp == ptep) {
++	if ((pte_t *)PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS) == ptep) {
+ 		*pgsize = PMD_SIZE;
+ 		return CONT_PMDS;
+ 	}
 -- 
 2.43.0
 
