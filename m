@@ -4,65 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC486C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:25:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2987AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 12:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yCrLXsnLx/b2bMi+9G8HMMh37OcPMJMjpgwdLJka8XQ=; b=Rkyb6EFm+F518/vCp1+JBwR/T3
-	gsiA9P3ynmEEAtNKAhOU/Kh6Aetaa8IYNB371oYyvgm98yN/z/rVWynzMcsJzWSZU0JZ0omcnylW2
-	1JFKr88oA8YAO/Amk/vSMsOANV0TGPGKI4gMsfcH77SxuDyODahiF7bJMvjlOPH6sVBwinccevia/
-	MX3etnsjXMLd5hX2MrUYSZkMLW4GQKpeC3IHr//fIpF8n5jfMWUfaas3OajBfWriw9ZnH985yMgxm
-	caPNaNhv1N7rnIv8iVVtUJ08aHQsWZPs9oQ7LlBVMVMN0OOYgYSIY1s7n6sS/1Hp/I1xAjua0dzep
-	Wapr29ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=z0l//AzH2HTZT5yTyy4Dvdztx+UanKNGZzbJYyisHgU=; b=vH4RHVul2n32ip99bRxxPNUu1J
+	AE+dsj134qJUfAsLxXfu1IlEEMqe00KzstLnuILK9az3mOvLiqWA8n3inIdQlNjb5qPLkt5dKEo9C
+	h3It/7cWlh2BYX6uQzLLEZTwu8SioO28UbD26TPytx0IkF0gUyEWV+HdY/0xaLmOG6nBypZr4v/Um
+	++nqKDRiUZZhSm3kkDrIcduy24U/exChlQVdlNYsijMf/orEq4OJ1Af31fUjZ909dQ40Yv4NRbxhK
+	B+T0/N3f7YWAir55XSBga3fyMuynWnaRe+79PckSLaVtJ85/MlS0pxla0pU3QdDl6fMSswqvxT6ZC
+	4ODne1gQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcxg-00000006vZg-27Jo;
-	Fri, 03 Jul 2026 12:25:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wfczb-00000006vps-3Xh9;
+	Fri, 03 Jul 2026 12:27:39 +0000
+Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcxe-00000006vZE-2OmA
+	id 1wfczZ-00000006vos-08rj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 12:25:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id A6A006001A;
-	Fri,  3 Jul 2026 12:25:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1CBFD1F000E9;
-	Fri,  3 Jul 2026 12:25:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783081536;
-	bh=yCrLXsnLx/b2bMi+9G8HMMh37OcPMJMjpgwdLJka8XQ=;
-	h=From:Date:Subject:To:Cc;
-	b=nyIH+P7ck3fnFVUNe7Gaz9WIiYCAF3iWjigoDnKd1sFIOYEu7h4FEnWsN5ZQBSKmg
-	 cVWqG6n3vaVT+tucS1oCyuyFavWTWgSgt1cTnYPvtNvmAfcw7ntdDQbd8u0PAfsP8E
-	 Msu6Y4X0Za4zm4ATH5DZtoGzuCLnavqVnV2R+SziNZfjrrKbur1c277HQs/lKK0HoU
-	 cFqu9Palj5NQQjvowIVyANf4UXX4IHS8ZOep2DviWFJicCS6JToxzWSYrYvfHgCbGP
-	 biRhMDP1cBM+osZvduW7vXx6iCOG/5KbVALwgr04UaSC5fbkPXoZC5WnZCNHDcmeok
-	 yPYf5SF+VEF/w==
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 03 Jul 2026 14:25:27 +0200
-Subject: [PATCH v4] ARM: breakpoint: CFI breakpoints only on demand
+	Fri, 03 Jul 2026 12:27:38 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 077C572B71;
+	Fri,  3 Jul 2026 12:27:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783081655; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=z0l//AzH2HTZT5yTyy4Dvdztx+UanKNGZzbJYyisHgU=;
+	b=0AMLsZcUNV2HQ/hEY7zLJFcidNm+mTIiNPKnT/MQgSzLWkA36TCiy2Ut0hq3TExlu71cSx
+	JLl9jd6ZNnHv/vhh2ujzfkgBHam9Ps1BUBWrHTgK/ejvc6E/V8r6GBEUfhG1sOTTCFZ5CK
+	+DTzSTHao+Kgeo5i+uHJTCuqvq1VFDA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783081655;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=z0l//AzH2HTZT5yTyy4Dvdztx+UanKNGZzbJYyisHgU=;
+	b=sJv+21ucU8geHw4xoPX1fzF4rdBpGZkiOwmGRj+1SmzoRrYVvk712GtqjKvO/wBZZYMe6y
+	0KbHfyeZU7/uqJCA==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783081655; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=z0l//AzH2HTZT5yTyy4Dvdztx+UanKNGZzbJYyisHgU=;
+	b=0AMLsZcUNV2HQ/hEY7zLJFcidNm+mTIiNPKnT/MQgSzLWkA36TCiy2Ut0hq3TExlu71cSx
+	JLl9jd6ZNnHv/vhh2ujzfkgBHam9Ps1BUBWrHTgK/ejvc6E/V8r6GBEUfhG1sOTTCFZ5CK
+	+DTzSTHao+Kgeo5i+uHJTCuqvq1VFDA=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783081655;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=z0l//AzH2HTZT5yTyy4Dvdztx+UanKNGZzbJYyisHgU=;
+	b=sJv+21ucU8geHw4xoPX1fzF4rdBpGZkiOwmGRj+1SmzoRrYVvk712GtqjKvO/wBZZYMe6y
+	0KbHfyeZU7/uqJCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 383EE779AA;
+	Fri,  3 Jul 2026 12:27:34 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 1L7SCLaqR2rGIwAAD6G6ig
+	(envelope-from <clopez@suse.de>); Fri, 03 Jul 2026 12:27:34 +0000
+From: =?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
+To: kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	seiden@linux.ibm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	=?UTF-8?q?Carlos=20L=C3=B3pez?= <clopez@suse.de>
+Subject: [PATCH v4 0/2] KVM: arm64: vgic: Fix racy LPI release and re-registration handling
+Date: Fri,  3 Jul 2026 14:25:59 +0200
+Message-ID: <20260703122601.2617577-2-clopez@suse.de>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-arm32-cfi-bug-v4-1-c26acb640a8f@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NTQ6CMBCG4auYrq2ZTkuxrryHcUHrAPUHTItEY
- 7i7BRdGjS6/ZJ537ixS8BTZanZngXoffdukoeYz5uqiqYj7XdoMATVo1LwIJ4nclZ7bS8UFlNZ
- oyJVxiiVzDlT669TbbJ87XuyeXDdGxovax64Nt+lhL8a7X+1ecMELpXObQQYO7PpAoaHjog0VG
- +M9vngO4pNj4saWBjEzkgC+uPzLZeIkncwJ7RIK9caHYXgAmZpBfDsBAAA=
-X-Change-ID: 20260626-arm32-cfi-bug-10fb960749c4
-To: Russell King <linux@armlinux.org.uk>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, 
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org, 
- slipher <slipher@protonmail.com>, Mark Rutland <mark.rutland@arm.com>, 
- Linus Walleij <linusw@kernel.org>, Will Deacon <will@kernel.org>, 
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-3.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.993];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[12];
+	MIME_TRACE(0.00)[0:+];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_052737_220722_2C84821E 
+X-CRM114-Status: UNSURE (   8.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,93 +134,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This removes the stub hw_breakpoint_cfi_handler() from ARM, making
-it not steal breakpoint type 0x03 (ARM_ENTRY_CFI_BREAKPOINT) unless
-CFI is actively used in the kernel.
+Fix a couple of potential issues that could arise from racy LPI release
+and re-registration for the same INTID.
 
-When not instrumenting with CFI, or when a breakpoint is issued in
-userspace, we fall through to return 1 from hw_breakpoint_pending()
-"unhandled fault" so userspace can make use of this breakpoint.
+The issue fixed in patch 1 can manifest itself through either a
+leaked LPI structure, or a prematurely deleted LPI. The issue fixed
+in patch 2 could materialize as a spurious -ENOMEM failure when
+registering an LPI.
 
-Tested with LKDTM and this command line:
-echo CFI_FORWARD_PROTO > /sys/kernel/debug/provoke-crash/DIRECT
-still works as expected.
+v4:
+* Add __GFP_ACCOUNT to patch 2 (Sashiko).
 
-Fixes: c3f89986fde7 ("ARM: 9391/2: hw_breakpoint: Handle CFI breakpoints")
-Reported-by: slipher <slipher@protonmail.com>
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
-Closes: https://lore.kernel.org/lkml/kJqktbpLphg_Pk5I5SPptgTLjl3E3eq5mN5UzCslyFj7Q1Irp-wDid4mj5eQVd2iZtRGXgeZd8goq195EkXdjyt864YMc8mVb2B9NGH91NQ=@protonmail.com/
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
-Trying to solve the CFI bug. Let's see of this first
-approach is acceptable for the reporter.
----
-Changes in v4:
-- Dodge the BKPT if we are coming from userspace!
-- Would be great if the reporter can test this with and without
-  CONFIG_CFI.
-- Link to v3: https://patch.msgid.link/20260701-arm32-cfi-bug-v3-1-e3c37e2b80a4@kernel.org
+v3:
+* Use refcount_dec_and_lock_irqsave() instead of unconditionally
+  grabbing the xarray lock in patch 1.
+* Add patch 2.
 
-Changes in v3:
-- Actually strip the RFC prefix...
-- Link to v2: https://patch.msgid.link/20260701-arm32-cfi-bug-v2-1-9bf922593e00@kernel.org
+v2:
+* Address Sashiko's review. Fix the direct release path by decrementing
+  the refcount under the xarray spinlock, preventing a UAF that would
+  have been introduced in v1.
 
-Changes in v2:
-- Resending as non-RFC so it can be applied as a band-aid.
-- Link to v1: https://patch.msgid.link/20260626-arm32-cfi-bug-v1-1-a467b5050c0b@kernel.org
 
-To: Will Deacon <will@kernel.org>
-To: Mark Rutland <mark.rutland@arm.com>
-To: Russell King <linux@armlinux.org.uk>
-To: Kees Cook <kees@kernel.org>
-To: Sami Tolvanen <samitolvanen@google.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Linus Walleij <linusw@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-perf-users@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
- arch/arm/kernel/hw_breakpoint.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
+Carlos López (2):
+  KVM: arm64: vgic: Fix race between LPI release and re-registration
+  KVM: arm64: vgic: Mitigate potential LPI registration failure
 
-diff --git a/arch/arm/kernel/hw_breakpoint.c b/arch/arm/kernel/hw_breakpoint.c
-index cd4b34c96e35..38feb30dfb5f 100644
---- a/arch/arm/kernel/hw_breakpoint.c
-+++ b/arch/arm/kernel/hw_breakpoint.c
-@@ -929,10 +929,6 @@ static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
- 		break;
- 	}
- }
--#else
--static void hw_breakpoint_cfi_handler(struct pt_regs *regs)
--{
--}
- #endif
- 
- /*
-@@ -964,9 +960,14 @@ static int hw_breakpoint_pending(unsigned long addr, unsigned int fsr,
- 	case ARM_ENTRY_SYNC_WATCHPOINT:
- 		watchpoint_handler(addr, fsr, regs);
- 		break;
-+#ifdef CONFIG_CFI
- 	case ARM_ENTRY_CFI_BREAKPOINT:
--		hw_breakpoint_cfi_handler(regs);
-+		if (user_mode(regs))
-+			ret = 1; /* Don't handle userspace BKPT */
-+		else
-+			hw_breakpoint_cfi_handler(regs);
- 		break;
-+#endif
- 	default:
- 		ret = 1; /* Unhandled fault. */
- 	}
+ arch/arm64/kvm/vgic/vgic-its.c | 11 ++++++++++-
+ arch/arm64/kvm/vgic/vgic.c     | 10 ++++++----
+ 2 files changed, 16 insertions(+), 5 deletions(-)
 
----
-base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
-change-id: 20260626-arm32-cfi-bug-10fb960749c4
 
-Best regards,
---  
-Linus Walleij <linusw@kernel.org>
+base-commit: 1ee27dacbe5dc4def481794d899d67b0d4570094
+-- 
+2.51.0
 
 
