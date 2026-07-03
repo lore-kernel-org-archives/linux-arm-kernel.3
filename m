@@ -4,99 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98129C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:35:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0EDC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o57AaR11oY74r7NNNrEra2MutbnOlIvU5mENPfvHh4o=; b=tgioBnsVF0HPkLq5ZKi3boDWNI
-	1Bdhd5zDl9pkTl6yJ5ctEp+nBAkh+aEPY9C928IREJvp19W1HMgfrr1MW9CRVMU0MuOXxGLZIPYBO
-	rhNgjqt+dXEZJtHX/NPyLTL4z26rgc7Atef11xIOx8sD2I6CCK16jadh8+HbNNdn+mti6M2lkMP3v
-	dJETiV1NzDQrB7ybjQy6m9L95i7blF2W+i9PGXWDzy2qTrJBsgpBeYKhktr4QM69ys6QPCBvnmWF2
-	z3xlkMtV18zevBh/77FqpooKTDv5fogIEt3ecHqgr71HLGDqOHQs55LNJKUKz4bbMLjblypx4w5dU
-	lLvPDapw==;
+	bh=2d5kwEQJ4zj6pWZ0cwELlzSxpmKyMsiG0qTFS7qufTg=; b=ksOxFF2YLt/kSTxP1ex2DE4O/1
+	/Gx22FZ0OvXArBccXJNzp1ll2zt/ETr0t1c36I2p1ehHBEpSldUzQRFcdlt4HPUBjjgiVlAoKRcUu
+	kFZqZQCuBwshUbGDt/wA7W8lb5mONMl/LBwxYDiUmyCjEkqOFlwbEGdMEfXnJvfSRh0znd9LF6VJ9
+	JVylF3hcyu9chxMEfQ8giYwL6b3rqBkEZb5uKDS/BiUva60GLiMkPSCUNsBgYA1aGY2e0T5hlS1ty
+	4H58iRpEwc6A1BcrWWybcPCeiCjXiBmi402kVTsw67+D9BLwuAP4P3ct83pPa31dc2uIrySXseCTd
+	NIgtiwvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkc0-00000007s09-0z8V;
-	Fri, 03 Jul 2026 20:35:48 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wfkcB-00000007s5H-1ZX9;
+	Fri, 03 Jul 2026 20:35:59 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkbx-00000007ryj-1Nb7
+	id 1wfkc7-00000007s3F-1MXo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 20:35:46 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 663KPRXv890134
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 20:35:45 GMT
+	Fri, 03 Jul 2026 20:35:56 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 663KPZwO972986
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 20:35:54 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	o57AaR11oY74r7NNNrEra2MutbnOlIvU5mENPfvHh4o=; b=OomLeSBGdaXwW9nF
-	k4zirJkKvIjQMNSCeeMHkgHg2Nu41+fTSH1hESfZCyqPqxPLdnBB6nyVzOsIP/1f
-	npgRwIiurTWf0CEL6Q4jBVciA4VGbDTS9eCvC1/E1fOh+eaNJsRF/lSRshNXlsxB
-	6pte5e140Wu3DOMLOzi5j74PoHdWQ+fRbH69UNzrVI/nOaQ/mRVRuorfoj4DlS7q
-	aPbzZbNv8igCLD7FJa0Qx42Lwm2LKb7lsaBxh9pp95l5SHgjqdjWUe9cAJT0hmYy
-	DSST4wfvfyJ8TwNN3aOfVPy66dRhq/kUMyzHieWnfmv0eXLU0R5jMx9FNZp2QMO+
-	epyy/Q==
+	2d5kwEQJ4zj6pWZ0cwELlzSxpmKyMsiG0qTFS7qufTg=; b=kbXCX3ZfPE8xGbMt
+	vMJtWU22XsCFV4p57+53pKeA3sF8erE5WGjuAIJ4v446eiEkXE9zyhh9NUiRUtAV
+	vtfMB12w8Zz7nIM3aJN8gA/DmwzV0BKfCjhOp3EVC4ygnbJAzWsHakrDG4oyQqt+
+	nG3cBLf8FbOA6iGXzcsCDQbwZYAI67JatbACMAOe+6vCX0AyEq7EJrxcz3AGLtfo
+	qBoQg8XhoCRmU5wJTrTsMd1eqsCOXQpB9KeAyrASJwukltn14xq18TPfZY57Z0Bi
+	b7pMwGhGFFb5tNuFjx1PGGYtj9SN/GmngMJfETIFQlcjhqyyIifDM1pqW3uDuvwz
+	HJ+mog==
 Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f67j030ng-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f6b03a386-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 20:35:44 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-37e1f96b248so1552027a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:35:44 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 20:35:54 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-37fc0aaa94cso1478820a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:35:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783110944; x=1783715744; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1783110953; x=1783715753; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=o57AaR11oY74r7NNNrEra2MutbnOlIvU5mENPfvHh4o=;
-        b=HuoaTNyn+8Hok8pHOi6ZZ2gR3rCF7u8lkY+WT2UdFWWX41vKmO+xbWF4KhT5Aibi0J
-         X1EFCoc/Y9C8Dgg+fKPfXPuAq1/EhNCAlyS1+I6YJ5LC5EdMudY6zOvewAC6ATjTKnoS
-         CPMPavwlog20+GeiUteZSItD6NqfCzR5jR83eEbRxpH2MnAXTPBfEdCKEvB2xTpFy6ZJ
-         yzSpo8uuCi5ad5AVkbGFfZxH33IzH2YAAUtuJOx7/k7/GZ4xd5ZT+OXv/wzS8wWNdCMp
-         7OVhhbyEdz8j/IMjuKSGR7AuygwYWyrO25oHK/adC/mTSI4d2dyl0OvHl6aRA1iSSMSP
-         mKsQ==
+        bh=2d5kwEQJ4zj6pWZ0cwELlzSxpmKyMsiG0qTFS7qufTg=;
+        b=QVm8AWPt1X7yO6xMyeAkFbl6ZXd8f5mBK+vjGrMTRMXVq3je9Xq6t68DB6Ds6x8LQR
+         RkZV4h4hzn0mffHy4D36yXbklSazmillUgar1KICoTLWX4ANl5k9YNKNuSbxXyZptFO6
+         boJ2BpUZUREiBF3rCQkZw9tVZb+OQR5eWVBzDtjaSsqEnLifIBoJsDZeEjyDDQX7jJjP
+         9zKvfhkvoos79K7Rw/CKoTt40XeV9hEU/aqa08DlVXG2di1xZeWinwvvDc/GkV35w4+p
+         O60UXXG3KjKD1cldbgOJqzj5YfJkfX5TS8lCiez3klfJnPpILeDmtsIKCAmfbcAqcNXE
+         oWzA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783110944; x=1783715744;
+        d=1e100.net; s=20251104; t=1783110953; x=1783715753;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=o57AaR11oY74r7NNNrEra2MutbnOlIvU5mENPfvHh4o=;
-        b=KRNJYd5mVJwfX9KBkC/UwkVTKJtDLCUfSs2/BXKlD/0W8EvQ/iwExFlnVyvwhVIggZ
-         JsliVV9AOIsCAdTRl+/diaIEyMYhECcHBiRdWbDHjShQgFVCE7u31ujaeyDCj+vCDizr
-         qobdu93X8y8Pn2Kndx4M2g8phCOCCxKB4opRzqkqmSspEZIJJiVhyStZ4822+zySm2eE
-         8b5Bwoty+lDu3FYK3pJ7/pxmYYvmX8fUDNN/iO5N3fOsYUbmICvP/P2TcIpRMvzXEqcw
-         /1O/MXa7XwzW1Z6cAOxn2G2LpnPGXvJyG5KduqX+OKbcfvbgEiJI2mLEWjy1RMEpbhDe
-         YVMg==
-X-Forwarded-Encrypted: i=1; AHgh+RqfkfWwkoUueEv9KvbshSYqDTrOcEJjh8CsSwE+8FoywXgUL7Yhzuo/pf6voc61h9Z7NiM6ngVwomXr2p4PDDzf@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywi9elBIVkHSSZIPB6xjdOaq67JE6y5nyRskCgAfR2uw0StCNHV
-	LoDnaIWLTOPYcNbYpm9FrqsX5kJ+hzDOqmbq/CfSHCnEDiSLsRRs+pfhmcHlJrUUv3qDpS3Xl+A
-	/KHbxJa1Gb2HQkaYrtRq1nHMctt/Hq1s+Gp5FFK95EzXhU0Fx54XqF26ocaQo/3FyLFoXOi9yJL
-	wpjQ==
-X-Gm-Gg: AfdE7clp3KY9Yz9jCoMfl/yE7hwesvXzWy39U5Eiz6G+AIr11VhPxhVUnI6QxlqqGaZ
-	1r84hYie60u4G8Muyb4cBTDerAP9glsYBxGX6Ia7/yijetIA5J+tEEfm+JSpQAzKr2VZA61+RP0
-	qHt5zh4I6puT8QUmQQBivrKMF4OKKLSXOEmI0kE1dLL+TcAfmePfmye5IXgvP3WvhQggoYte4fD
-	7CBc4vBd2rFBo072g97TVjWVs7YYexvkWXRurdSHmi/IwQA7ijAxNLw/iTHyek/0AZnGrU4Ih0/
-	iQvV+TXfDrMk6QnqaoQPgsrRx54gXVwOsRg0z2Rjy0tZHr9zC5/kFhRBww2S/0LN0hk4T9EeuHQ
-	qf60FD10ERANFGTfUH6YwZMbp9TJWeyDvQjo=
-X-Received: by 2002:a17:90b:3808:b0:37f:9ce0:af31 with SMTP id 98e67ed59e1d1-3829f4e6e58mr957987a91.28.1783110944161;
-        Fri, 03 Jul 2026 13:35:44 -0700 (PDT)
-X-Received: by 2002:a17:90b:3808:b0:37f:9ce0:af31 with SMTP id 98e67ed59e1d1-3829f4e6e58mr957959a91.28.1783110943675;
-        Fri, 03 Jul 2026 13:35:43 -0700 (PDT)
+        bh=2d5kwEQJ4zj6pWZ0cwELlzSxpmKyMsiG0qTFS7qufTg=;
+        b=ahmfi5cklZ/VdOwPITqybxxJCIyZXr/g8sTWRCDGsRznsVdzdMQ+PTSpD54Uw5OcsM
+         NKIdAKNRmjBegMiLdPyJvN2bgPGV4ns1bokTWSBWwXGHResMPrYaGDiS/lB7eBP99IMQ
+         w+AiFBXR1LFU4iqQvEBvKNrIfO3KOfkM3ear398N/PHogQSyx3MuF+SUykvqhuQtmEX4
+         pTuFmK4F3sV0/AMty7L3LfDxfRR6vgYHrjUKYmuUnCdB0dzEO7T1WMUQwKECnhJChDVN
+         vP4Ex9crhTm30HFb1Yjw/poWx0KuvzHvmqEzjsRuHL4MJsItHrAbyhMgcH2KBogU5dOd
+         C7NQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rqa8AdfvbEgK7phSdnS7vCowInTIRurhmtTKpEUukSlTzkMjZCe+LWqsHaICSq12QRX4yrko7PvZAA/pof7RLCK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw12DyIVm///YND/jtN8kbHofl2u6vk/Dk9okyblsHjZQ3HbdgR
+	QxVTIQFWh3oztc2zcsfmU/jX2+jWUotumeyOSOpuJsEk9ml547N63FAnczEo1Bl6IkGz69zqi/y
+	UTjTPAifnTGOIywgdvZe82et4a386rTO4cQMG2bOhL+HAtDYH5cDV8q+awqi74reXN/bn3TXgng
+	lSGA==
+X-Gm-Gg: AfdE7cnAbpAQkvdtiyS+yOol2++Vp3PmzxFW1o3IWBmGb8q6izk/28L25snGYtbkYAH
+	XS1VixCLarMxxMZ9x5xCipKSJ8alnYETzTeNot+0MohD6iv5Jn3o7D+iDW3d2aCvsAwwZ6UTMT9
+	rrRGjUKvjevd1nO/CwV7mT3Tu6S3l8X+IXFnXml5VMQRKC/SVKsnL4roOc3wM2WluFUFRAgjCFM
+	BSZntvIGb6ReQDjIq70Rl1yzqcl8+2jkqObDdYSiWEHVh56Wh2WmJGLvBUFe+wNhDgmufQyf4Yy
+	NYbRHGDr1lj3EoJ60jXaC/EG9MnFs5Wlmi37qDsCBIaOX8llupqvakOkDaO+TyesFQOQd6z7vcJ
+	G8LnmVVvKthegP68oHRj779r2dIDape9D55Q=
+X-Received: by 2002:a17:90b:51:b0:37e:2053:348f with SMTP id 98e67ed59e1d1-3829f7e86c6mr859261a91.25.1783110953173;
+        Fri, 03 Jul 2026 13:35:53 -0700 (PDT)
+X-Received: by 2002:a17:90b:51:b0:37e:2053:348f with SMTP id 98e67ed59e1d1-3829f7e86c6mr859230a91.25.1783110952611;
+        Fri, 03 Jul 2026 13:35:52 -0700 (PDT)
 Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0b7b9a8asm24815567eec.2.2026.07.03.13.35.35
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0b7b9a8asm24815567eec.2.2026.07.03.13.35.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 13:35:43 -0700 (PDT)
+        Fri, 03 Jul 2026 13:35:52 -0700 (PDT)
 From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Date: Sat, 04 Jul 2026 02:04:29 +0530
-Subject: [PATCH v4 3/9] dt-bindings: arm-smmu: Document GPU SMMU for Shikra
- SoC
+Date: Sat, 04 Jul 2026 02:04:30 +0530
+Subject: [PATCH v4 4/9] arm64: dts: qcom: shikra: Add Adreno SMMU node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260704-shikra-gpu-v4-3-90cf1a52e539@oss.qualcomm.com>
+Message-Id: <20260704-shikra-gpu-v4-4-90cf1a52e539@oss.qualcomm.com>
 References: <20260704-shikra-gpu-v4-0-90cf1a52e539@oss.qualcomm.com>
 In-Reply-To: <20260704-shikra-gpu-v4-0-90cf1a52e539@oss.qualcomm.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
@@ -119,45 +118,46 @@ Cc: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
         freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
         iommu@lists.linux.dev, Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783110907; l=1298;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783110907; l=1898;
  i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
- bh=2jQmU1XEfwX7ksFDjORvPn6m0bWV65j9hgt3Tl3GEMo=;
- b=KNwcyIU5VqC/XQr4QH/U8KJlsgyT01EHf38v8j5tlJ2UjyZDi/yhU6ttLhTIayHlMRgIJ0PKZ
- lcgwcjlSFQYDI5rA10heEZb2fIAwdN9cVwv6HJVUEhVI+ZiVqtcHGSt
+ bh=EYNcq3OFs2Ql/wREKtEM5ji0GMxwTnKnJ9RpGAjMe6E=;
+ b=VV53sBo/O5fZ+NGsyhq4LtyFTf/b+WQ8uGjvE91A7dZXdXWNqRQAjopFaqZ2FFIMEKi2ZmO1b
+ iWCZ4r056a9Aa6iGB0aED9govTFpDOH8j0BvDycAX5GdmmELVWBCWVb
 X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
  pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
-X-Proofpoint-GUID: 0IpuuJBZE6rTfvQrM8CT6NyhHBu7rgcr
-X-Proofpoint-ORIG-GUID: 0IpuuJBZE6rTfvQrM8CT6NyhHBu7rgcr
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDIwOCBTYWx0ZWRfX48AVpXD91Mas
- sguYJbIAOZWTuTN77y5atedTGBHsfpS9nY5E2Bk5PBFZztw8TdWnDNW1ArWfuT1sn1lEOmx77G3
- 7dreT7hwpEtaKEL7NXVyAt4qBJlkirM=
-X-Authority-Analysis: v=2.4 cv=Yuc/gYYX c=1 sm=1 tr=0 ts=6a481d20 cx=c_pps
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDIwOCBTYWx0ZWRfX1W+DBAUipibn
+ O9fOSAmk4jROH15UAQ8Gm64IkbfZjZi8Jw59ET+RSDmbmb90fkfDbyOgRaeLTIrMduqdoGwTkeO
+ jPNP0fJhvdKyzyQrMzB9P/GaqDLGaFU=
+X-Proofpoint-GUID: 2XGxrDyeNyEYzuzUp572t__ssBRGudiK
+X-Authority-Analysis: v=2.4 cv=FoY1OWrq c=1 sm=1 tr=0 ts=6a481d2a cx=c_pps
  a=0uOsjrqzRL749jD1oC5vDA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
  a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=iEDX-NX4Me02MYkbRrQA:9 a=QEXdDO2ut3YA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=EUspDBNiAAAA:8 a=zTWU315qYGxAnKAOPQ0A:9 a=QEXdDO2ut3YA:10
  a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDIwOCBTYWx0ZWRfX9zc/He4wG/F7
- jkqqhCJPwIv0OLgadj/9H7pVNyQbXVgd0It8wB25P7PwAcpenwd2tfs2Wi3ZuVTrBQz+6F1Q7vd
- oDLx9BWkHl+FIwVr02HryJMIjvYFQ24uKilZ5YxJLu2pH+o1/FKR8DaQ64c3vN6RN6CctM9/Smb
- NQ4gVyr/ck080yKV4c9YkC59T4bApEF5teGmHP56+ucB8B5jVpqsQrByURbewh9mgLXcPp8OsDM
- oseCcpzm18vYQmS2OG18iBfq2BNxFto+FhfFOoNQxjJFe4AYaHg6b61izwQUChUwbRr1sHgLloU
- 4mV5LuYP1qZEHztb/KWfWqomxPbS5r3L5mEOo6/9JguC9upNv6PsuiDnKG5SA3b/+7rOWpTepbI
- Y8IK6BOKjU2G30EJAJheR1Q2ZWAokBG7sQg3HIfr7zd50KKMUuePKWvUDcWTZESLeCp0kBUIVKh
- /U6q/lhV2TFxvmpYxIw==
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDIwOCBTYWx0ZWRfX6ep1A7jBTCPS
+ t5XkerGXW0dqa6XAHoQPPy79lUgG1jVztMJE2UxhbUHnAocdXscVBHREyC85YuMKoQGtu8MvYJZ
+ mJGWtFckYG184oB6SyIoxY8WhgAiVD+HNxUmBRQT+oMgY+BVvoXsGIezaV1ltabGUfua+CA7Vsn
+ st3nxmWgj74r7PZdHb5hz6PYT6p4OTdWNactDg7uTw+y1CpDf4MFhvJQnymzzEH0E/os1b6rbzL
+ EBtZ9UWKahhC54KEqlibLC6mMGm3X98meMs80o5qxkifXmHYzuhm/+iD20YF98CHp5gFTexrZNe
+ /6+jxfzVQQIxvcNnoxHrH3U+H6e6jS1YA0GqcLXfLRahXyemUr6zQmY/JVlXhb3/8N9Ah8mpbID
+ z34mZk/7dEw2zudxjXCenH58DvYQaP51aALSOepDoRjLlN+edtknU8dV7N8Akb7UZD/SIcoR8kR
+ z6f0l2qh599G6os9oSQ==
+X-Proofpoint-ORIG-GUID: 2XGxrDyeNyEYzuzUp572t__ssBRGudiK
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-03_04,2026-07-03_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 malwarescore=0 impostorscore=0 suspectscore=0 phishscore=0
- bulkscore=0 clxscore=1015 adultscore=0 priorityscore=1501 lowpriorityscore=0
+ phishscore=0 clxscore=1015 malwarescore=0 adultscore=0 suspectscore=0
+ spamscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0 impostorscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030208
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_133545_380396_A3818667 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20260703_133555_483327_F55BC381 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,36 +174,56 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
 
-Add specific compatible strings to document the GPU SMMU present
-in the Shikra SoC.
+Add the Adreno GPU IOMMU (adreno_smmu) node for the Shikra SoC.
 
 Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 ---
- Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/qcom/shikra.dtsi | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-index a701dec2fa0a..ad15fda5c25e 100644
---- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-+++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
-@@ -108,6 +108,7 @@ properties:
-               - qcom,sc7280-smmu-500
-               - qcom,sc8180x-smmu-500
-               - qcom,sc8280xp-smmu-500
-+              - qcom,shikra-smmu-500
-               - qcom,sm6115-smmu-500
-               - qcom,sm6125-smmu-500
-               - qcom,sm8150-smmu-500
-@@ -543,6 +544,7 @@ allOf:
-             - enum:
-                 - qcom,milos-smmu-500
-                 - qcom,sar2130p-smmu-500
-+                - qcom,shikra-smmu-500
-                 - qcom,sm8550-smmu-500
-                 - qcom,sm8650-smmu-500
-                 - qcom,x1e80100-smmu-500
+diff --git a/arch/arm64/boot/dts/qcom/shikra.dtsi b/arch/arm64/boot/dts/qcom/shikra.dtsi
+index be443b362576..bb11e832d9a6 100644
+--- a/arch/arm64/boot/dts/qcom/shikra.dtsi
++++ b/arch/arm64/boot/dts/qcom/shikra.dtsi
+@@ -2005,6 +2005,35 @@ gpucc: clock-controller@5990000 {
+ 			#power-domain-cells = <1>;
+ 		};
+ 
++		adreno_smmu: iommu@59a0000 {
++			compatible = "qcom,shikra-smmu-500", "qcom,adreno-smmu",
++				     "qcom,smmu-500", "arm,mmu-500";
++			reg = <0x0 0x059a0000 0x0 0x10000>;
++			#iommu-cells = <2>;
++			#global-interrupts = <1>;
++
++			interrupts = <GIC_SPI 163 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 169 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 170 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 171 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 173 IRQ_TYPE_LEVEL_HIGH 0>,
++				     <GIC_SPI 174 IRQ_TYPE_LEVEL_HIGH 0>;
++
++			clocks = <&gpucc GPU_CC_HLOS1_VOTE_GPU_SMMU_CLK>,
++				 <&gcc GCC_GPU_MEMNOC_GFX_CLK>,
++				 <&gcc GCC_GPU_SNOC_DVM_GFX_CLK>,
++				 <&gpucc GPU_CC_AHB_CLK>;
++			clock-names = "hlos",
++				      "bus",
++				      "iface",
++				      "ahb";
++
++			power-domains = <&gpucc GPU_CX_GDSC>;
++		};
++
+ 		dispcc: clock-controller@5f00000 {
+ 			compatible = "qcom,shikra-dispcc", "qcom,qcm2290-dispcc";
+ 			reg = <0x0 0x05f00000 0x0 0x20000>;
 
 -- 
 2.54.0
