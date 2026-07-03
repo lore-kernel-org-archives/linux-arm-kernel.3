@@ -4,91 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C762C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 02:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF505C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 02:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1WNmyXfiKAM36ME7UbhR9USc1y3foO9e6ZaB6KYxC4=; b=pKtObskGhXronC20NpChjuTxXE
-	48qAJoWdMlgsI31O/VgnTIslpbjzoizPxKlVojvqnN4KB0VwAh/GdOe4EqmtIKdTsvODtJ8FFU9X/
-	xZ9vnS6LadTCQv3a/gknyoSyNTle+iTrV4ogA/eISAb4Dy8HQkc8g5ieRyDFbhk58wfXDNqiy0JUH
-	RFYTkXxBL55lVtXM6TCfmjOTEk8lToMQ365KXV/TlH1SrqfGr33AFF1axOFYi6UDlZu2tKkErTSZi
-	APQC6zVAy8Kx0uh9fNqh9kTwj99BErf9nw5p+RyWaA3cdOaO9xQBO55zx3UivERtYFAJCGO2OI46S
-	lIeRI0kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JlV3zJ5RwhKne2jUh8CcjrZlF2RdUTEpohrGS1TCb5w=; b=CpWalhB7xET6z52Owfe1y2J6Jg
+	werI1lUodognClcXBIq33YkahExzeV87nMQzgKLvRKsW3OQIPhlIXPBqlhI73OT5rHaeGwilPAROf
+	vZuiKwrPUPfB4Bct4nf6+fKHCQPwqiYP8wQ7Wyl0KqkG275GHrf9KG3c/GH2J5aw5PpJ44XZOCWxz
+	TQ5N+Dm0F6sKh5/n9qzKwcAlTP80H2Kg3YyKjSx3b/9JqkAWZMirjmNyEZ7WKGZBZlAzZR1CyHlqz
+	eqtOaBDuKVYmOxK+jT2D4PDzzIH8xpk969mUBY0CIEU+sVKsp33n5VVhkEvjgzr82zQ6IlJWs714A
+	YCgaX/Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfTmO-00000005tYm-3iGS;
-	Fri, 03 Jul 2026 02:37:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wfU5T-00000005uWD-1BZx;
+	Fri, 03 Jul 2026 02:57:07 +0000
+Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfTmN-00000005tXo-3HQf;
-	Fri, 03 Jul 2026 02:37:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=W1WNmyXfiKAM36ME7UbhR9USc1y3foO9e6ZaB6KYxC4=; b=ftNlAVBmMeKXMmnj19bQgUwFVk
-	EYhcB9soOG6OJhI1zsqv7AhSeeeimQKc8jZyPoE8RGCysTBkP3pKHj7r7UEFi7bcVO0/Xlqns9uwn
-	LPCJe2ISOLCfGnIZYdz9pF3CrP6K8xNJP5ck7GYM3SYM58PSEDhClh9YL2P24nY92jfWGfBFpCafb
-	HqTH7vZ0Ij7i9FdHne1PFm0+8E4Wpx/r97Cac3uALzpHD2pVB9SYluRIo2yotJe0ee6DQJw5LyMfQ
-	iOMQk6ySV0eKk0JTmgtLowUv16icOI7f3lJFUTI2v9fy/vSPP/f+rq0Nz3ZUnrLJod8W3AC3QkoiI
-	Y9HUOFwA==;
-Received: from out162-62-57-64.mail.qq.com ([162.62.57.64])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wfTmJ-00000004PRg-1k3c;
-	Fri, 03 Jul 2026 02:37:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1783046235; bh=W1WNmyXfiKAM36ME7UbhR9USc1y3foO9e6ZaB6KYxC4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=PuL0v0y8o7liRr5TS+dyej9yGUlhqQ+tSbNCJWRVryhY2a9NZXjpAZsAU+YzzsDrd
-	 ApOOAvvrRnhoy95r2OsNtPK4zNa48IHagaQWgNbDf4ACeUgWuJDRb2b+FKoGxWN/yk
-	 TRvLO4Ymnn94hmdlIENyiiWEKE36cMBjHjULnM18=
-Received: from ubuntu2204.localdomain ([218.4.149.66])
-	by newxmesmtplogicsvrszb51-0.qq.com (NewEsmtp) with SMTP
-	id 8F90EEF9; Fri, 03 Jul 2026 10:35:57 +0800
-X-QQ-mid: xmsmtpt1783046159thgca6hq9
-Message-ID: <tencent_3E31CBEFAE0986665A26322171642BC00B05@qq.com>
-X-QQ-XMAILINFO: M2dBUVw0X9hna0qxGzNtZpQZdHEzG6U8CofjXX/U6lyToJIjryaiK8k2rQLlek
-	 KTe4kLB0BuX+ZgeiYyTw0voeRkCHy5LNabXYJRSawig4Z31o+wypQpNg+JnH5ot6jGtkcCsf03zH
-	 ggLB3+KYKSBIP8QBOwp3tKp5N+BnPedPX9/yqDDNYN+aGrTyFju/H2lCw5Ugl1Nyy+s7YcJYst3w
-	 wCdvQ0LdG7TpepiCEmtwVcFL3+Tg0gNwrdzHRunibQYJcG8zmN90ifuhmKPTH4kao7CRlstlriA3
-	 DKukeOhEe3UwB/Gp5C/FqR+6oazYA2WNbR8AipLlqkI0mjmhssilswpbWprpV5a7hoCNQni0o8YM
-	 isWuEtgZh0EBDHj7wFtoVP8qlp9zthz4+DqrOHGuUxYdPcb6QexjWoxll+FUUTLtBumKmxTt/DhQ
-	 Jam2227Ke/QgtRd2CjCG7c6cxTPLWTro2BKx1HTAfrfjHVTPGXWSsqV9HEdFxyk3pmnHH8oQE55s
-	 7zFT5qh2ai+4Js6Z+3eESabiT9v41RQEDI0IKh/ql9Me4aOsEFEJ4P9UOymxIpR104nB0jsCwHcW
-	 GfwkFTBCsGxSctTPkRSzzwo5Klc63i04GiI+DeLWx9uKS+WY8lJMop3VslYN7jbD0xd/bgQtd1FE
-	 mXfDeHhr7/Dv32/0r6z4FuTPutsJ2y6VZ02z3XD1Lrh2+O3rpKB5QifElcyDnirFQajq82qVA1fo
-	 7eYlfS2yARaEY0UsfXLL4TOP4jbYFqekfF0k7MtI1ZE9zUe7RdsPzuHTiPSM7XdiRoJTyMnOpaWx
-	 cZvxZc6TnXZHtKqBv5qjw82589CdiZO7mlIz/eLrkFTRzDhUfINt+f1j3Ry23rKMdwgd4A2QX13q
-	 tsANUn0bsFnxQN8Bgj0afD3J9CunjU5SpgWDNKDgSJNzD6WRUVWSUbn/u4DrO0m8BJdg5BG8Tozs
-	 X79kjk9ajtAKxyLXifoYDtUB5KFhsncr0nvosIXT7w9HnXTvetQo0J2NjA7Dz7pxyWH9eCtKRo60
-	 nLaExEfOmkEWibiYmqpJTEyIE2itRmIR+3Iw/ViAtQeSW2e9VQmlgqv/Jd/3RpmGpoi3mVz9dG5d
-	 AQ/77++x4WoSy0fkbx8atTMFiIyZ49/jNWVtjVgkHwufiMvzc=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Cunhao Lu <1579567540@qq.com>
-Date: Fri, 03 Jul 2026 10:35:40 +0800
-Subject: [PATCH v3 1/4] dt-bindings: can: rockchip: add rk3588 CAN-FD
- compatible
+	id 1wfU5Q-00000005uVQ-0wYM
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 02:57:06 +0000
+Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c9ef3e1337fso61212a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 19:57:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783047423; x=1783652223; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JlV3zJ5RwhKne2jUh8CcjrZlF2RdUTEpohrGS1TCb5w=;
+        b=EkH+AHiS+cU3QilD7Q3Fh+CO/3SDcvRSsdNGZIVOC8mWu4z8BPhcNPyqTjaxCdosWn
+         ymXqtyAI9Cfm8UA6yWdmBXSwHG0ruLFBFB1crVTz6d5vdcTl+QGdCqpBKnM55rrpniRx
+         FQujtO+FTvUZJyAdB0V0mtRtuLR644tOYxHs29qmdSt4jNTDEkpZNsoECqE0yD5BuLz0
+         wJaRY4Y0qduMSmJZgrPIV5eMH2XWpcSOUQTK2o5wiQd0C/+71BOz/qESNb2095WCGxeS
+         780fcM/eZkIaRtgCT0JUYGIf6bvMd+ruKoe1K8z774X0sgbbT6+uCznzD43XSU08zxNg
+         kD9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783047423; x=1783652223;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JlV3zJ5RwhKne2jUh8CcjrZlF2RdUTEpohrGS1TCb5w=;
+        b=NBF+n/jzCcXE9q/xe1UVnJ0mKCHPaboNsW4EHUbDAk1DxxkF+PAYMk56rcQG541A85
+         HuY6iA9ATYPesSD+Eyi1ICYWAK+kiWpptjWmFcbLlcYRYZ5JWiP86kIwj18k2cUu+cWY
+         YouO9WfPlD7KNLTRlE0uvFC8zZGYHB/FGV1dwYXuN7PT8Ux/ACi3Hhv/gERPbDjdQb4D
+         P1N5buT8QQo7qnt3g5Ses6a2wLiHGqJhIH1b+zrppbx5mlF6nu9/a3vsZhptf4yRVgwk
+         BCpfC4WbtDyEfOclzOmWq0ZnbEyZ8vPRyW9mN4K1L7+kAUQkUEB4j/g8yHKcUOhIkt+p
+         I81Q==
+X-Forwarded-Encrypted: i=1; AFNElJ/TdE7sIomNiluVXuDUB4+vcB7nh3FTWg6KIjge0NF/5I0b1So8qQ4y5L88z4GTj0c9hLIqIfN6cm8Me11DEc0a@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy9f+7FOioy/PT/D7hSWeHlSXHZ2lKJj7jeQWCz345AhKNWEuv6
+	SxRghcpZfVme4Bu9Mv1Zona4uSNTAay1DOunZ0RTEGNEOkGB9gzFVsbd9TlQDA==
+X-Gm-Gg: AfdE7cnzbM7C2L6ma+8eoWzKZbc6eebtx/0S6/g4RmarLeIW5H29oQK7MARFLv9v5c8
+	of7czafsxkDPvvpSTKCTOUXKSzkAf/YIk4O4RCx/DjwsHvAcPjqNzgC64UFvH9/m0e/t7Ey0yZs
+	dLgcKSqp1j0XJnluRymRE7ig/2Oit5QsQ8C6UmxNpjgzzTxIUldAmUPrW2EMMQrYp246YZS2QK2
+	men6llK0wrdcpLT5krpC3Zp1rVcuuYd0t2SxdK6gan9tMJ7UDzWYFlprQUpVmkOAgxRiO5NJMBQ
+	8PBw85EKhO7t18YRxgagmnVT7uI3HXHV+2jgFzyxZfgj1esnHLNP0WjgeXBAJKnhQ0urKK6Fb53
+	qLaT/al1BLbkb+1I+393ytbDXOfZZ1LubmPrUz1Pcvl3drW5cnDBhPD9ip8AWfUjLHFC8b20lAo
+	yoicxDxr82hamTv7itvVdcJGEbK3vkLrcoODw7GWkXet/81lf/VJVE53tC+zE=
+X-Received: by 2002:a05:6a21:4516:b0:398:9379:d04d with SMTP id adf61e73a8af0-3bfed22ecacmr9856159637.24.1783047422829;
+        Thu, 02 Jul 2026 19:57:02 -0700 (PDT)
+Received: from fabio-Precision-3551.. ([2804:1b3:a800:5116:5334:8739:4661:fde2])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c7fa65asm14645620c88.6.2026.07.02.19.56.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Jul 2026 19:57:02 -0700 (PDT)
+From: Fabio Estevam <festevam@gmail.com>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Fabio Estevam <festevam@nabladev.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Fix rk3588s-roc-pc audio description
+Date: Thu,  2 Jul 2026 23:56:48 -0300
+Message-ID: <20260703025648.180135-1-festevam@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260703-master-v3-1-6d56de6fd2f3@qq.com>
-References: <20260703-master-v3-0-6d56de6fd2f3@qq.com>
-In-Reply-To: <20260703-master-v3-0-6d56de6fd2f3@qq.com>
-To: Marc Kleine-Budde <mkl@pengutronix.de>, kernel@pengutronix.de, 
- Vincent Mailhol <mailhol@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Cunhao Lu <1579567540@qq.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_033720_083452_1AC1AC59 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20260702_195704_296865_26935C67 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,45 +101,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RK3588 integrates a Rockchip CAN-FD controller variant that is not
-fully compatible with RK3568v2. The RX FIFO count register field is
-encoded in bits 7:5 on RK3588, while RK3568v2 uses bits 6:4.
+From: Fabio Estevam <festevam@nabladev.com>
 
-Add a dedicated rockchip,rk3588-canfd compatible to describe this
-variant. Do not use rockchip,rk3568v2-canfd as a fallback, because that
-would describe a register layout that does not match the hardware.
+The rk3588s-roc-pc ES8388 codec is connected to the i2s0_8ch audio
+interface.  Use the matching I2S0 MCLK output for the codec clock
+instead of I2S1.
 
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Using the I2S1 MCLK can leave the ALSA PCM running while the codec has
+no usable master clock for the active audio path, resulting in silent
+headphone output.
+
+Also make the CPU DAI provide bitclock and frame clock.  This matches
+the active Rockchip I2S controller side and avoids relying on the codec
+to drive the bus clocks.
+
+Route the headphone output to LOUT2 and ROUT2, matching the old 5.10
+BSP device tree.  LOUT1 and ROUT1 are used for the speaker route there,
+so using them for the headphone widget can leave the headphone jack
+silent even while the ALSA path is active.
+
+The old BSP also used hp-con-gpio on GPIO1_A4.  Model that GPIO as a
+simple audio amplifier so DAPM enables the headphone connection when the
+headphone path is active.
+
+Cc: stable@vger.kernel.org
+Fixes: 7f9509791507 ("arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC")
+Signed-off-by: Fabio Estevam <festevam@nabladev.com>
 ---
-v2 -> v3:
-- Move the Changelog below ---
-- Collect Heiko's Reviewed-by tag
-v1 -> v2:
-- Use enum for the single-compatible entries, as suggested by Krzysztof.
-- Reword the commit message to explain the hardware difference instead
-  of referring to Linux driver match data.
----
- .../devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml          | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ .../boot/dts/rockchip/rk3588s-roc-pc.dts      | 23 +++++++++++++------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-index a077c0330013..81e2b6dfeb02 100644
---- a/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-+++ b/Documentation/devicetree/bindings/net/can/rockchip,rk3568v2-canfd.yaml
-@@ -16,7 +16,9 @@ allOf:
- properties:
-   compatible:
-     oneOf:
--      - const: rockchip,rk3568v2-canfd
-+      - enum:
-+          - rockchip,rk3568v2-canfd
-+          - rockchip,rk3588-canfd
-       - items:
-           - const: rockchip,rk3568v3-canfd
-           - const: rockchip,rk3568v2-canfd
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
+index d534d662c40f..99853880aaac 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
+@@ -23,16 +23,19 @@ analog-sound {
+ 		compatible = "simple-audio-card";
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&hp_detect>;
++		simple-audio-card,aux-devs = <&headphones_amp>;
+ 		simple-audio-card,name = "rockchip,es8388";
+-		simple-audio-card,bitclock-master = <&masterdai>;
++		simple-audio-card,bitclock-master = <&cpudai>;
+ 		simple-audio-card,format = "i2s";
+-		simple-audio-card,frame-master = <&masterdai>;
++		simple-audio-card,frame-master = <&cpudai>;
+ 		simple-audio-card,hp-det-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_LOW>;
+ 		simple-audio-card,mclk-fs = <256>;
+ 		simple-audio-card,pin-switches = "Headphones";
+ 		simple-audio-card,routing =
+-			"Headphones", "LOUT1",
+-			"Headphones", "ROUT1",
++			"Headphones", "Headphone Amp OUTL",
++			"Headphones", "Headphone Amp OUTR",
++			"Headphone Amp INL", "LOUT2",
++			"Headphone Amp INR", "ROUT2",
+ 			"LINPUT1", "Microphone Jack",
+ 			"RINPUT1", "Microphone Jack",
+ 			"LINPUT2", "Onboard Microphone",
+@@ -47,11 +50,17 @@ masterdai: simple-audio-card,codec {
+ 			system-clock-frequency = <12288000>;
+ 		};
+ 
+-		simple-audio-card,cpu {
++		cpudai: simple-audio-card,cpu {
+ 			sound-dai = <&i2s0_8ch>;
+ 		};
+ 	};
+ 
++	headphones_amp: audio-amplifier-headphones {
++		compatible = "simple-audio-amplifier";
++		enable-gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
++		sound-name-prefix = "Headphone Amp";
++	};
++
+ 	chosen {
+ 		stdout-path = "serial2:1500000n8";
+ 	};
+@@ -327,12 +336,12 @@ &i2c3 {
+ 	es8388: audio-codec@11 {
+ 		compatible = "everest,es8388", "everest,es8328";
+ 		reg = <0x11>;
+-		clocks = <&cru I2S1_8CH_MCLKOUT>;
++		clocks = <&cru I2S0_8CH_MCLKOUT>;
+ 		AVDD-supply = <&vcc_3v3_s0>;
+ 		DVDD-supply = <&vcc_1v8_s0>;
+ 		HPVDD-supply = <&vcc_3v3_s0>;
+ 		PVDD-supply = <&vcc_3v3_s0>;
+-		assigned-clocks = <&cru I2S1_8CH_MCLKOUT>;
++		assigned-clocks = <&cru I2S0_8CH_MCLKOUT>;
+ 		assigned-clock-rates = <12288000>;
+ 		#sound-dai-cells = <0>;
+ 	};
 -- 
-2.34.1
+2.43.0
 
 
