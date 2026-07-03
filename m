@@ -4,101 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31531C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 16:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD065C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 16:59:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dq50xUh9vnokWwn/2MgFrw6Bt3+wGtcUaeVmHV+z9uw=; b=yH3/0v3PeEwsPs4Xaip6Ec32bn
-	Wh+cdXlSfTNMV0vjy/FPi4qA1JLyWNlQtvFdwA/nOg9ozaCI2l41YWMM6sCQB8goAtJm0O8TXqAmC
-	A2xLUz1CrbG7uQcIr5ZUVT6pIyq31XGGFCemiO4iLCxvila2Uq6zw4+hYFHIl7rcF5LwT6jMA+A6d
-	6Wnn63PfUq+InS55KNjNVo/bKl5t7dAU5GUts+dybgTuToefqE2Z/01rzWEGk9sb75qkTk/NaRjY6
-	fC0CbK0zBuGH5+spYwoeASJEYmrmsOVS46n/+SebotW/MfDnnMACgKdWPM+hr8pTPClOTco+rB1VV
-	1DVvevGA==;
+	bh=j4fjgNakpX6GsuTiddiSQxuWPFVXr9GRxsHhqq40J8g=; b=uA0bRINawlrXSkQWzc8aYfQjIN
+	fSGCgNzf6fBkwcD/e4cwWJCusxjB3qeACn0EwAR1abpPwjhVO8Dv8ixOfDlQBpHN/mL42X4+bmb09
+	I7ferZF47FUkEX2w9yFhzRZoEnNIPXRNSErBzc/g/+XPXVv1/N3UyoOEdAEdbt/Q+mrY2c6MfFrsP
+	+XQK34T/BwLuf9uS75wA6ac8UoJwHPVwZ7y/X+lBkXWl21b9QI2lWb9QRWSE09awH92jbaEjnmz2i
+	uxqnVFwowY3H7G1j43BhlCEBbGJNuJU8aCwQKUS5nIUnsIpEXhP3JmiGmJKB9JBsuvSIEbX1mh+sM
+	nr0kGalA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgur-00000007Yti-42Kw;
-	Fri, 03 Jul 2026 16:39:01 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wfhF1-00000007Zr3-3SBT;
+	Fri, 03 Jul 2026 16:59:52 +0000
+Received: from confino.investici.org ([93.190.126.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfguo-00000007Ysx-2QYo
+	id 1wfhEx-00000007ZpL-2bmI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 16:39:00 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-490cf3000f0so6668465e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 09:38:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783096737; x=1783701537; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=Dq50xUh9vnokWwn/2MgFrw6Bt3+wGtcUaeVmHV+z9uw=;
-        b=hhl7JWS1pnmErZoewkJPCTVeMjCXDuMZB1c/MhIzLlf1wzhsj1lsvZzTfclzIsTsW9
-         DxMA+HHmx/j0SB4hGY0Z1jh/5VQMlFlplgmed0rewhrv43EdleIgc/Q3ZfwJ11VGk9Nn
-         dqSOpWDWierGXYXUwyQme+i50dWdXaYEER6AWDruwVvRZGB7h62rPkGwkOFx3VVMcuPG
-         aRRzs5XMO9+mrF3ODPxtmD76PVjOhwGUvfInvI0wTZxKknpqeydxlOwJsouC5TPvJZHT
-         tLIm6torFofqLdY7JZIq1Ig4HueJgPZTVu5YOhi/tp+77Ntlam+D/2nS/M4UvpOZ78Ww
-         303Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783096737; x=1783701537;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Dq50xUh9vnokWwn/2MgFrw6Bt3+wGtcUaeVmHV+z9uw=;
-        b=b1zIl9DZ3KtSluU6IkbpQ+Pz7iPyejGT5jadYhNuzzBrN41XaLgoTkVKVdPHsY+wIQ
-         4p8HI+3pdoK56QDc+nex0anWmzUrAXvEQCqBYUJv+rz8NC3JKdiDwo1iOajAg8fjXgbP
-         It3CmZxoHPyKiT5K79ulsGgpQeqMSzc9W7rsvyBhZOIo1gsyT124eK/fahFRD9/oz9Wp
-         Jd93TMCYMD2mOvOXrlF61xtGSrLQ1+AOeCV5VffGLFF2YzqWrAl+Ox9sBhu+3sEffZUT
-         4JPCzKliHchu3JqMp5h4i1RwWb4XhQxMaFDgiVZo89UaHHYSvceRJmb/3HDO2kY7VBcj
-         bnzQ==
-X-Forwarded-Encrypted: i=1; AFNElJ/l6vfXHQxf7TapQo9Tf1ugKBvV+ayLtWJSB/VMBpddhbByHA38dKkZIIHWuRmPnXHBzME1OPe9K390WzmgF8PS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyy3qZVk+lOJOn10C8DmP5CKD8KYiAflU2bPVSwXCPjCyT+rC+8
-	FuKZiMoh9w7UaQaECAg+FQc0aZAJQRbyNL0ZjNb9vtAX2YWmjcMN9/u9
-X-Gm-Gg: AfdE7cnA3sEWmfSZBuXYeWG3o2wj97pKuT6MAfmDSSu0UFZfd1DxHTKzQ4JeYGyxtoC
-	uWQlxGOT0GAQGeSRaA1zTjssLCg0sVO2wHlkIjYPq7KM1hZE4TqgTITnm0Sc/AGvNbdESLoFAtP
-	qOjLoeC8FqNbbeCGSMMLIYtvZbs5/Ni2Iu0YPQkk/bu0MudUP3tAO5A1Z+YhsU2gVvXwKqAPQeo
-	Ri3hXOcQs8OtfQ4ZcWvYpEj3kBK7E7NovDldZcwud9N6zs4L7TNbDoMneHrb+rtslhCYr69ItOa
-	ubmKi5HyuziTsyj0Zb+VTYssUEDpS7b/cMAZFK4A9KmLWKBOu2+1PPbCpTvk1eZWrMz+jj0euUj
-	D4//xGR9NbrictuIzV3jMa974D1vGbjc/bZ0Mwh9KmenVYe/TQmCfVS7vqHgLj2UvHjcVlzcgPg
-	fYlWn6/QPb++40g5JjU6iu98WXR9gjtKIB7sDu6a0QU9on2RRlXR7KP55+F7D9YNgyP7rmKhjAe
-	pz3S//A
-X-Received: by 2002:a05:600c:8105:b0:493:aaa2:f034 with SMTP id 5b1f17b1804b1-493d11f6cfamr400035e9.26.1783096736053;
-        Fri, 03 Jul 2026 09:38:56 -0700 (PDT)
-Received: from [10.128.11.240] (195-23-151-163.net.novis.pt. [195.23.151.163])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cce040b4sm82259395e9.10.2026.07.03.09.38.54
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 03 Jul 2026 09:38:55 -0700 (PDT)
-Message-ID: <c4c658e5-9c67-4e19-aeab-39d98aa71f45@gmail.com>
-Date: Fri, 3 Jul 2026 17:38:53 +0100
+	Fri, 03 Jul 2026 16:59:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
+	s=stigmate; t=1783097973;
+	bh=j4fjgNakpX6GsuTiddiSQxuWPFVXr9GRxsHhqq40J8g=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=nSoV1OlAteAOdyTDmN43NkMQNImXQf/VyY0mHwKTVicJhqOaDdDvgJYw8irq19BHW
+	 /SLnWpPTpOF4iuIQqnifHUEdcbkPVP9gpVIhZ5Zt1RKMTZYyBV+3+pGQXMbOHPAfzB
+	 NgiMV3q9ZWh2D+os60pWqlr+NSGSGEooUbmnlffE=
+Received: from mx1.investici.org (unknown [127.0.0.1])
+	by confino.investici.org (Postfix) with ESMTP id 4gsKjd5HYwz1154;
+	Fri, 03 Jul 2026 16:59:33 +0000 (UTC)
+Received: by mx1.investici.org (Postfix) id 4gsKjd1qdPz1141;
+	Fri, 03 Jul 2026 16:59:33 +0000 (UTC)
+Date: Fri, 03 Jul 2026 17:59:32 +0100
+From: Bradley Morgan <include@grrlz.net>
+To: Marc Zyngier <maz@kernel.org>
+CC: Leonardo Bras <leo.bras@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Quentin Perret <qperret@google.com>,
+ Vincent Donnefort <vdonnefort@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v4=5D_KVM=3A_arm64=3A_Record_whe?=
+ =?US-ASCII?Q?ther_pKVM_stage_2_mapping_is_cacheable?=
+In-Reply-To: <86pl15pfqa.wl-maz@kernel.org>
+References: <20260701192428.17430-1-include@grrlz.net> <86qzllpy1g.wl-maz@kernel.org> <akZJIm6mTza7qAuu@LeoBrasDK> <6495D546-8FC7-4A31-B18C-88F34E1B64BB@grrlz.net> <86pl15pfqa.wl-maz@kernel.org>
+Message-ID: <A209F36E-52C2-4094-9034-9046AF6CB342@grrlz.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/3] pwm: rp1: Add RP1 PWM controller driver
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
- linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Naushir Patuck <naush@raspberrypi.com>,
- Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-References: <cover.1780670224.git.andrea.porta@suse.com>
- <f8dd46a553351adaf9d29fbba9f98e803b672fe7.1780670224.git.andrea.porta@suse.com>
- <0b6a7f41-b753-48dc-b46e-77aaf0e999f4@gmail.com> <ai-dNlC1_nbQTy5Z@monoceros>
- <6babbdea-fa93-4cd7-8198-5cd3accc34cc@gmail.com>
- <akfNrGoa0bitVSu9@apocalypse>
-Content-Language: en-US
-From: Julian Braha <julianbraha@gmail.com>
-In-Reply-To: <akfNrGoa0bitVSu9@apocalypse>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_093858_613823_E334D604 
-X-CRM114-Status: UNSURE (   9.24  )
+X-CRM114-CacheID: sfid-20260703_095948_107857_00762378 
+X-CRM114-Status: UNSURE (   7.15  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,15 +78,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+On July 2, 2026 4:34:53 PM GMT+01:00, Marc Zyngier <maz@kernel.org> wrote:
+>On Thu, 02 Jul 2026 15:52:14 +0100,
+>Bradley Morgan <include@grrlz.net> wrote:
+>> 
+>> I'll test it. If it's good. I'll do
+>> 
+>> Suggested-by? Or co-developed by?
+>
+>Sb if you want, definitely not Cdb. More importantly, I expect to you
+>to follow the process described at [1]. Nothing there is optional.
+>
+>Thanks,
+>
+>	M.
+>
+>[1]
+>https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst
+>
+>
 
-On 7/3/26 15:56, Andrea della Porta wrote:
-> Honestly I don't have a strong opinion on that, but documenting is basically
-> the same than just selecting the option (well with the addition of the #), so
-> not really a difference. If there's no major concern about that I also wouuld
-> prefer to expicitly declare teh selecion of REGMAP_MMIO. 
 
-My preference seems to be unpopular, so I've adjusted my reviews.
+Hey, I've reviewed your code, LGTM, in a week (or when you tell me
+discussion
+is over)
 
-- Julian Braha
+I'll do V5! :)
+
+I'll see if there is any modifications I can do to shorten
+it, (of course if it fixes the bug)
+
+Thanks maz for writing the fixed patch.
+
+Thanks!
 
