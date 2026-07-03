@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E80C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:23:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54995C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1lCH77eIOkpyT6UD6CNZ7GGsrspDZ0kqeiwmNw7g46I=; b=4VMICFBB/Bi8mKBI6X+1p/yjmc
-	5N9gnxTvvF88DcB2sZrOpyZZ6eFLiPzjJ+IvgKpODpg8nHFS6AZkroZXfOCnTZTA/1saEnit2qioa
-	O342r72pak56jaS/8gHdtsty6RrkXcMeLSoE77skkhat/Kn/BYxY8pDH/gOyRyBBJKPse92ZkSBqV
-	c4IVc7+57Vt/NnKxlcfXZ21LL0D/SjJZwTtcQruM9dE+mZsiFjkPdW3Gy2mPFJekxzhYjw+fxP7UN
-	uYPOasTKMXzaUI+g0oKoFsY7pzmF5rjblmpmhcUrBEu6IgkeiQlLKyIp+e0T1VyC5OzIUTAFiyAoU
-	akXNmdjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wKuBmxQ8JnReynxOFnIhAbMgNLWozbwQA/XogGS5Wg0=; b=GXbwNSOYzzhUm7hJ3xv4UHP9TT
+	XQA1q21Mo+1mQiNWr+/9UjQKwAaxG6mKIH9D4Q+rMsDASkv7Q3xi0P269pR3x6a6mAkYQjIo0i3O4
+	4x64x8VFKGbuZLWE4WZigHxa++Avqre7OWrM+B8VEbrGG2QnxQ76HTmz0BodTbHX9bD5yLTzhyKWa
+	msm8BL99S0OFAJBZnSoclP+2H72wqmFBBzs0MPy8/MeLuswRlVD2WU+5q1pk6cUCvWCUbUC29kTPy
+	n8xOttO/urUBAJ1dvj7yD9N5YCtrthdWlhZ/Z56jRbZorOJFZ7B3p8wW6VqIAFju2lyI/30qgmFTk
+	ZsytVW+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfenx-00000007FX3-20fq;
-	Fri, 03 Jul 2026 14:23:45 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1wfer9-00000007G9V-0Fu2;
+	Fri, 03 Jul 2026 14:27:03 +0000
+Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfent-00000007FVK-2xQn;
-	Fri, 03 Jul 2026 14:23:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=1lCH77eIOkpyT6UD6CNZ7GGsrspDZ0kqeiwmNw7g46I=; b=TPLyRFDV5oqX2oLuzs2c7r4tay
-	CsE76Bq2bIY/IcZOm78Rj0OUPdsOmW/E9AL0oHE2vGBwCCUqRJcsCspd6RWCkl1FjrzE2yP8VjD5c
-	o69aPl5YR/YB2/DP5acrfQX5WgAfQRCgG5hUs+PQ0JPOIFbH20tsG4BMCh3Wtdwe/bDwna5fkYl6X
-	614NQpT8M06EOrbiSrzhf0Q/XhQycxO4Z8DIPHrXqSu/UCI9OjhdcEJqEf+TEfU95qDXwehdI/KDi
-	WE1Of/5DDRF1pKFiqava9nEWMeJm1Mf4HrwFgoHnT1E/Qxs3G/ag/VLsvkz1bQyWEloSNWnjEjX1H
-	oVkrIpwA==;
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Cunhao Lu <1579567540@qq.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
- kernel@pengutronix.de, Vincent Mailhol <mailhol@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Quentin Schulz <quentin.schulz@cherry.de>
-Cc: linux-can@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: Re: [PATCH v4 4/4] arm64: dts: rockchip: Enable CAN controller on
- RK3588-Tiger-Haikou
-Date: Fri, 03 Jul 2026 16:23:22 +0200
-Message-ID: <3078012.2VHbPRQshP@diego>
-In-Reply-To: <e03fcd5c-de56-4f39-90c2-3ba0636a1cca@cherry.de>
-References: <20260703-master-v4-0-47d40bbf5fda@qq.com>
- <tencent_F79E849B11AF805A4401BF9F263B1A469907@qq.com>
- <e03fcd5c-de56-4f39-90c2-3ba0636a1cca@cherry.de>
+	id 1wfer3-00000007G94-3O68
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 14:27:01 +0000
+Received: by chaosmail.tech (Postfix) id E47031CC21E;
+	Fri, 03 Jul 2026 14:26:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
+	s=mail; t=1783088814;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wKuBmxQ8JnReynxOFnIhAbMgNLWozbwQA/XogGS5Wg0=;
+	b=TU+tJkDB8A+jF6w/GXb8peZBii67lRfq1fEtlzuSt6mglAZbbU23DaZiCXxZQl/KGU7SGr
+	Ix0bQX9x99yQ5wJH6oPtozF49LXN1rhCvgs28k3bekzPY75tv+GSYsT/dKd8lBJ9Hx6yIO
+	dEBy7ydKaLP40tT+f8XXgrq7FXrVbD4=
+Content-Type: text/plain;
+	charset=us-ascii
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH v2 2/3] soc: apple: Add driver for Apple PMGR misc
+ controls
+From: Sasha Finkelstein <k@chaosmail.tech>
+In-Reply-To: <3e7a26e0-5ba5-4440-acd1-ac9547e1d403@kernel.org>
+Date: Fri, 3 Jul 2026 16:26:43 +0200
+Cc: asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>,
+ Janne Grunau <j@jannau.net>,
+ Hector Martin <marcan@marcan.st>,
+ Neal Gompa <neal@gompa.dev>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Content-Transfer-Encoding: 7bit
+Message-Id: <4A1676D4-8B60-40E4-8E21-59DF4657BEC6@chaosmail.tech>
+References: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
+ <20260703-pmgr-misc-v2-2-4b26ba10c5a4@chaosmail.tech>
+ <3e7a26e0-5ba5-4440-acd1-ac9547e1d403@kernel.org>
+To: Sven Peter <sven@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_072341_866295_CB029ED6 
-X-CRM114-Status: GOOD (  30.82  )
+X-CRM114-CacheID: sfid-20260703_072658_309895_FE15A572 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,87 +81,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Freitag, 3. Juli 2026, 16:05:18 Mitteleurop=C3=A4ische Sommerzeit schrie=
-b Quentin Schulz:
-> Hi Heiko, Cunhao,
->=20
-> On 7/3/26 10:01 AM, Cunhao Lu wrote:
-> > From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> >=20
-> > CAN0 is piped through the Q7-connector to the CAN-Header on the Haikou
-> > base-board, so enable support for it there.
-> >=20
-> > At least on RK3588-Tiger, the CAN clocks default to 99MHz, limiting
-> > usable CAN bitrates without skew. Errata documentation mentions
-> > 300MHz as the default frequency on RK3568, so replicate this here
-> > to allow more bitrates.
-> >=20
-> > Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> > Signed-off-by: Cunhao Lu <1579567540@qq.com>
-> > ---
-> >   arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts | 6 ++++++
-> >   1 file changed, 6 insertions(+)
-> >=20
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts b/arc=
-h/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> > index 873fbeb8daa1..6273e695b039 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dts
-> > @@ -155,6 +155,12 @@ vddd_audio_1v6: regulator-vddd-audio-1v6 {
-> >   	};
-> >   };
-> >  =20
-> > +&can0 {
-> > +	assigned-clocks =3D <&cru CLK_CAN0>;
-> > +	assigned-clock-rates =3D <300000000>;
->=20
-> Why is this not SoC-specific? We are only routing the signal from the=20
-> SoC after all.
+On Jul 3, 2026, at 16:19, Sven Peter <sven@kernel.org> wrote:
+> 
+> Do we know what 7 means here? would be nice to also have that #defined
 
-My main reason was that I have no clue what a reasonable controller
-frequency is. The default on Tiger on boot  is 99MHz, which causes
-problems with accurate rates.
-
-Similarly the controller has issues with low clock rates (erratum 5 if
-I'm not mistaken) and ther Mark wrote that at 300MHz the issue is less
-visible. So I took that frequency, but have no clue what the "right"
-frequency is.
-
-Similarly, only Renesas socs seem to set their can frequency in the DT
-and that to 40MHz.
-
-In the Rockchip vendor-kernel I've seen rates to set to 150MHz, 200MHz
-(or left alone) on a board-level
-
-rk3568-ok3568c.dts even sets both 150MHZ AND 200MHz depending
-on the CAN controller (200 for can0+1, 150 for can2) .
-
-This does suggest the usable frequency being specific to the board-design.
-
-
-> If it cannot be put into rk3588-base.dtsi for some reason and is=20
-> product-specific... Why is this in the baseboard DTS and not in the SoM=20
-> DTSI? I would like to avoid our customers to have to copy things over if=
-=20
-> they should just work on their baseboard too if they don't do crazy=20
-> things there.
-
-We can of course move the clk-rate to the tiger.dtsi.
-(This should not affect the rest of the series, as I'll be applying the
-dts patches anyway)
-
-
-Heiko
-
-
-> I'll try to find time to test the three CAN controllers on RK3588 Jaguar=
-=20
-> with the CAN1-CAN2-UART4 Mezzanine adapter board and will contribute an=20
-> overlay for that if it goes well. I don't have a CAN-FD adapter though=20
-> but I hope they reused the exact same IP for the three controllers in=20
-> the SoC :)
-
-
-
+We do not. Probably a way to pick a clock multiplier or something
+similar. On t600x, setting it too low results in other blocks failing
+to power up after sleep.
 
 
