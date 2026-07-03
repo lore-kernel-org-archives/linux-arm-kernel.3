@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63884C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 07:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4D3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 07:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BYUf5jpeeFNHTY2X7TgaM5z1JSe/yTWkhSIIi2NBE4M=; b=Mstl0mqBk0Hl/xMCFpi278+w31
-	ImDxJpvPYdhpunQgrx4jRuTEB+9WVW+iceoPvaY2371uHu9dVkbb1PGfErHgUrR9u9/XRHrH56mnK
-	d/vzaepBD+mrpTSzOcWKUS92i3fXo0cBqs0LEZeS8/sbEim9Tas3LVrZxpy5gwT5AVc8Y60/95Q5p
-	Vl3cHwePckjM8YfwX/v7f9WpGlM6dDO2yPJjf6sYH18idGv3ChPmcSPbkU5q+tbOI8DpBB70qST5Y
-	61yTchreNfgmUwM70ieS9WPEXbJiGqmd/Oq/W3jaQXY+XcDQTQfkDvUG5sfGd8BiSPYMjB05TNFhK
-	b71cSoIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VYkuNdTognQIs2j+ybtTEz5f3IFZB3kjG5rBVAxVSaM=; b=IyNM+wrTimFwFNlBGUzIr17+xz
+	fQrVDLSvcpb88OGq7+1T1T9CCE3yNqPN9dKxa3qxSlutYWfR7ozVN0XcfkqComw6YS3GHiVNUO2R8
+	d106sJ77k/s7zE4kU1kSglPpxcy5iYLoPgoWzXR1KSiCEnFgR74FEKho5OjEUyETECoC5j6wZK2Nf
+	kDo5F2FgCBDiE/2PsumGIu2wByOTVlP/ukG7IxlLoBWhYD0WkJbK4sIQ5bFEIuVlXMV1zyiycWerz
+	r+9u3PZLiorkxxwNSQLj+8xXIoLDf8SHt+YfhEpYziYVLWkOvHyrIryWCHGKAiOoH/Nebf8sWQuFH
+	WBOivJaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfYV4-00000006HlQ-1ggC;
-	Fri, 03 Jul 2026 07:39:50 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wfYcA-00000006IaV-1Nbc;
+	Fri, 03 Jul 2026 07:47:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfYV1-00000006Hkt-3Vj0;
-	Fri, 03 Jul 2026 07:39:49 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowADXu+JAZ0dqs0PAFg--.12816S2;
-	Fri, 03 Jul 2026 15:39:44 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Vladimir Zapolskiy <vz@kernel.org>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	linux-mtd@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Pengpeng Hou <pengpeng@iscas.ac.cn>
-Subject: [PATCH v2] mtd: rawnand: lpc32xx_slc: fail DMA transfer on completion timeout
-Date: Fri,  3 Jul 2026 15:39:43 +0800
-Message-ID: <20260703073943.43373-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wfYc9-00000006IaI-1IUL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Jul 2026 07:47:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 49E8E4334D;
+	Fri,  3 Jul 2026 07:47:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1F631F000E9;
+	Fri,  3 Jul 2026 07:47:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783064826;
+	bh=VYkuNdTognQIs2j+ybtTEz5f3IFZB3kjG5rBVAxVSaM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XDQnTspIWcNXp/iZYRnAdTmyF2+BZNOIsb2B0d6w5ZGv6rTiLrS06GVstEJsx2H+z
+	 Gh1WrKQnTkmAaLbBhn90LC+oQvA8JigS9iZYvP33VMNde1iU7EaEtVXwNLol/UTtPt
+	 +ltMHM3ngQKV9+5hT5hsQNDTtkF8cYOpEB0mpiMlMTloJCM6PFXxMTQEzTtQakqrGP
+	 /ZUEWYaHzzeVIkGuOqt8rF5dB1QjLVIGmK7KTDvxkltjk3HlzWg2CDtwyY5hFA7g53
+	 Fu+TFtzYMUhDrf7FtRWTl6EGc0aqGTTRz80jpUo8QGM9zbI8bCkX00JDUwU7N4QMK7
+	 9ocyd5BaU9jUg==
+Date: Fri, 3 Jul 2026 08:47:01 +0100
+From: Lee Jones <lee@kernel.org>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Fabrice Gasnier <fabrice.gasnier@foss.st.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mfd: stm32-timers: depopulate child devices on populate
+ failure
+Message-ID: <20260703074701.GE2108533@google.com>
+References: <20260615063042.36397-1-pengpeng@iscas.ac.cn>
+ <20260701214250.GD2108533@google.com>
+ <20260703065016.97181-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADXu+JAZ0dqs0PAFg--.12816S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZFy8WF17Cw18WFy3ZrW5KFg_yoW8uFyfpa
-	10kwnIkr4jqr43Kr4UCa1Uu3W5Wa1rArW7K3sIvw4ruws5Zr4jvF9Y9FyqqF45tFZ5CF47
-	XFZ5tFn8Cr1UA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUGVWUXwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUZYFZUUUUU=
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_003948_255288_2AFB4D0E 
-X-CRM114-Status: GOOD (  10.60  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260703065016.97181-1-pengpeng@iscas.ac.cn>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,61 +74,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-lpc32xx_xmit_dma() waits for the DMA completion callback but ignores
-wait_for_completion_timeout(). A timed out DMA transfer is therefore
-unmapped and reported as successful to the NAND read/write path.
+On Fri, 03 Jul 2026, Pengpeng Hou wrote:
 
-Return -ETIMEDOUT when the completion wait expires. Terminate the DMA
-channel before unmapping the scatterlist so the timed out transfer cannot
-continue to access the buffer after the error is returned.
+> Hi Lee,
+> 
+> Thanks for taking a look.
+> 
+> I checked devm_of_platform_populate(), but I don't think it covers this
+> particular failure path on its own.
+> 
+> devm_of_platform_populate() only installs the devres cleanup after
+> of_platform_populate() has returned success.  If of_platform_populate()
+> returns an error after creating some earlier children, the helper just
+> frees its devres record and those partial children are not depopulated.
+> 
+> For stm32-timers, I think we still need the explicit ordering used by
+> remove: depopulate children before stm32_timers_dma_remove().  The child
+> drivers get the parent drvdata, and the PWM child can call the parent
+> stm32_timers_dma_burst_read() helper, so releasing the parent DMA
+> channels while partially-created children remain would keep the same
+> ordering problem the remove path avoids.
+> 
+> I agree the inline unwind is not the clearest form.  I can send a v2
+> using a normal goto unwind label and a short comment explaining the
+> partial-populate case, unless you prefer a different shape.
 
-Fixes: 2944a44da09e ("mtd: add LPC32xx SLC NAND driver")
-Cc: stable@vger.kernel.org
-Reviewed-by: Vladimir Zapolskiy <vz@kernel.org>
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
-Changes since v1: https://lore.kernel.org/all/20260624144127.69075-1-pengpeng@iscas.ac.cn/
-- add Fixes and Cc stable tags as requested by Miquel
-- carry Vladimir's Reviewed-by tag
+I'm not concerned about where in the file the call sits.  Calls like
+this that fail usually do so cleanly.  I think this deserves a wider
+piece of work that ensures that of_platform_populate() doesn't leave
+dangling resources when it fails.
 
- drivers/mtd/nand/raw/lpc32xx_slc.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Also, why doesn't every call to of_platform_populate() have this?
 
-diff --git a/drivers/mtd/nand/raw/lpc32xx_slc.c b/drivers/mtd/nand/raw/lpc32xx_slc.c
-index 3ca30e7dce33..10c8080207f4 100644
---- a/drivers/mtd/nand/raw/lpc32xx_slc.c
-+++ b/drivers/mtd/nand/raw/lpc32xx_slc.c
-@@ -430,6 +430,7 @@ static int lpc32xx_xmit_dma(struct mtd_info *mtd, dma_addr_t dma,
- 	struct dma_async_tx_descriptor *desc;
- 	int flags = DMA_CTRL_ACK | DMA_PREP_INTERRUPT;
- 	int res;
-+	unsigned long time_left;
- 
- 	host->dma_slave_config.direction = dir;
- 	host->dma_slave_config.src_addr = dma;
-@@ -467,12 +468,19 @@ static int lpc32xx_xmit_dma(struct mtd_info *mtd, dma_addr_t dma,
- 	dmaengine_submit(desc);
- 	dma_async_issue_pending(host->dma_chan);
- 
--	wait_for_completion_timeout(&host->comp, msecs_to_jiffies(1000));
-+	time_left = wait_for_completion_timeout(&host->comp,
-+						msecs_to_jiffies(1000));
-+	if (!time_left) {
-+		dmaengine_terminate_sync(host->dma_chan);
-+		res = -ETIMEDOUT;
-+	} else {
-+		res = 0;
-+	}
- 
- 	dma_unmap_sg(host->dma_chan->device->dev, &host->sgl, 1,
- 		     DMA_BIDIRECTIONAL);
- 
--	return 0;
-+	return res;
- out1:
- 	dma_unmap_sg(host->dma_chan->device->dev, &host->sgl, 1,
- 		     DMA_BIDIRECTIONAL);
 -- 
-2.53.0
-
+Lee Jones
 
