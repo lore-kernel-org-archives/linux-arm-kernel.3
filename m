@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F70FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60C4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:20:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H/pY379yEp2lOmdP4C0Z6JIWkDx1GiP2307SZe16gLA=; b=ZkKPZ4ZJOGzTDBBPpERi16+U6y
-	flTOgh/+J0ZQloyI2/dYq7RvQUI6Mi7f/aG55sWw1H7ktOVE8ivvcQronzYMCymnUJVcK3NC3fc54
-	RYmYgMzNlX6oRuNjn9zIqoRLAydauhzODvoPAzHctgB1mSd1XTdFRd1C5XGl9sYnSchJnkoO0bpDn
-	M1VigRNn20Kn6wvrOlBsIPoELeVmQxAsiLjUTIgsUPHngwBFkJqSL82rRCALAMAu4xlfPwobwnpJO
-	ekhlg8h0fLsckRsi6gMaSZEUmmgPz0il0VQS350diAiLoGhvN7mvGOqIV0lIqFwHHjlZ4pkFSjK5F
-	psBgnPeg==;
+	bh=0Lh2AAUoB1JC5DGuav624QON15nyQOs3xfpPwsgzzqs=; b=JoHg5Pp5CNLrssUvM/DpcaTCR8
+	f3qt18s4cjV3qkNXl8CTTbju9R2ewFp5BCb+QN9Q3gPOk2Kc+Q3AfhNqtC9rCbpq78ObV1nqm3nFh
+	v5HpmjL/xphgHc52XjNw13FZ4oCWEJ1pC3FgpP/xETA7nQfWYgrU8B+f8y5guOWPBQkhHlrnVbKkW
+	3w4aHBMJF7XeiKnZrZoJP4v95ALgixB11xKecx4ysF7bwSLn5yRz89+5E+oQ5OFS0EO3mG/5bjOZS
+	pd4rauS9tHHcRcNFBHbGEdnGUwrROIqxngXR0HZmGa6rxidpjm2uRsmj4LOxcPbJqQ7AycmyXaYbb
+	vUoiqOxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfejl-00000007F0Q-46PY;
-	Fri, 03 Jul 2026 14:19:25 +0000
+	id 1wfekz-00000007FCb-0euP;
+	Fri, 03 Jul 2026 14:20:41 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfejk-00000007F01-29QU
+	id 1wfekx-00000007FCT-4BLf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 14:19:24 +0000
+	Fri, 03 Jul 2026 14:20:40 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 926E660051;
-	Fri,  3 Jul 2026 14:19:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BD461F000E9;
-	Fri,  3 Jul 2026 14:19:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 586A960051;
+	Fri,  3 Jul 2026 14:20:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 026E31F000E9;
+	Fri,  3 Jul 2026 14:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783088363;
-	bh=H/pY379yEp2lOmdP4C0Z6JIWkDx1GiP2307SZe16gLA=;
+	s=k20260515; t=1783088438;
+	bh=0Lh2AAUoB1JC5DGuav624QON15nyQOs3xfpPwsgzzqs=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=ACuoiLw+PBVIzBrWKvIoNo05VcH7C/YELcrVEvtlUG/0yUjz4zdPeAChwsYJ+wAyW
-	 3Ih4/iNLP2lsr4Bohpo8k8359ISyss15W5oiRjloFjJdYC+frHwNVL3jWntHPeOBzT
-	 3OLnRjs7F2jsRN39p9EIMdAyBfUxv5Bs2sXC+RP7sE4eMLsOg0ws77uZSc51L1XyBe
-	 2/2AqICf+c9XX+VsWMOdi9vRGu3luRtNuRBow2Y/PvSQogmWw3iDlw2L1bwt4VX5dv
-	 g/J5/ctC/DxsfdqcT6rosI/zvTtKZakhJjJGKhXVBgX8nnAvHB1r9xGsALjDbZnr0c
-	 PsYKnmvhysj9Q==
-Message-ID: <3e7a26e0-5ba5-4440-acd1-ac9547e1d403@kernel.org>
-Date: Fri, 3 Jul 2026 16:19:19 +0200
+	b=CV3eauhPjuGIcDWAuH7jmQQ0azXqPxyCAQx+VyWA76LBoY6RV6Ml8HdSg0GBxbMRe
+	 MMzRFWVsjx3hHjyz2RYpJ/tba2gIgRzZioGO4aW1pNYWs8A2kVnZq+aikpl2QaiGNI
+	 ENNkHklIR9iq7+exGB3mg2GttfiP0KyXXvEv4T34zFPrYLCXbkGza0Z6jQLCtCo+gT
+	 0QhZH+2EGLx1sdF3J8l+/s/vWJFgi/t1MOe7UG439DRWCb3Bh0jmII46SIkiNA1chI
+	 YGsizy5zkRaRy1hIhwIt7woYrNdfo3kFDtlHLOpmR2IpHMuvqBBwJR94QWWVNTr0uS
+	 iOjlAAjfDkpgQ==
+Message-ID: <d12320a3-65fb-4e0d-9f79-69368a708ded@kernel.org>
+Date: Fri, 3 Jul 2026 16:20:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] soc: apple: Add driver for Apple PMGR misc
- controls
+Subject: Re: [PATCH v2 3/3] arm64: dts: apple: Add pmgr-misc nodes to t60xx
 To: Sasha Finkelstein <k@chaosmail.tech>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Janne Grunau <j@jannau.net>,
- Hector Martin <marcan@marcan.st>, Neal Gompa <neal@gompa.dev>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: asahi@lists.linux.dev, Rob Herring <robh@kernel.org>,
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>,
+ linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 References: <20260703-pmgr-misc-v2-0-4b26ba10c5a4@chaosmail.tech>
- <20260703-pmgr-misc-v2-2-4b26ba10c5a4@chaosmail.tech>
+ <20260703-pmgr-misc-v2-3-4b26ba10c5a4@chaosmail.tech>
 Content-Language: en-US
 From: Sven Peter <sven@kernel.org>
-In-Reply-To: <20260703-pmgr-misc-v2-2-4b26ba10c5a4@chaosmail.tech>
+In-Reply-To: <20260703-pmgr-misc-v2-3-4b26ba10c5a4@chaosmail.tech>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -77,97 +76,17 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-Just a few nits in case you need another version, this otherwise looks 
-good to me
-
 
 On 7/3/26 14:44, Sasha Finkelstein wrote:
-> From: Hector Martin <marcan@marcan.st>
+> Adds the PMGR misc control nodes for M1/2 Pro/Max/Ultra series devices.
 >
-> Apple SoCs have PMGR blocks that control a bunch of power-related
-> features. Besides the existing device power state controls (which are
-> very uniform and handled by apple-pmgr-pwrstate), we also need to manage
-> more random registers such as SoC-wide fabric and memory controller
-> power states, which have a different interface.
->
-> Add a driver for these kitchen sink controls. Right now it implements
-> fabric and memory controller power state switching on system
-> standby/s2idle, which saves about 1W of power or so on t60xx platforms.
->
-> Signed-off-by: Hector Martin <marcan@marcan.st>
-> Co-developed-by: Sasha Finkelstein <k@chaosmail.tech>
 > Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 > ---
 
-[...]
-
-> @@ -0,0 +1,179 @@
-> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
-> +/*
-> + * Apple SoC PMGR device power state driver
-> + *
-> + * Copyright The Asahi Linux Contributors
-> + */
-> +
-> +#include <linux/bitops.h>
-> +#include <linux/bitfield.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/module.h>
-this should be a few lines up to keep the includes in alphabetical order
-
-> +
-> +#define APPLE_CLKGEN_PSTATE 0
-> +#define APPLE_CLKGEN_PSTATE_DESIRED GENMASK(3, 0)
-> +
-[...]
-> +
-> +static void apple_pmgr_sys_dev_set_pstate(struct apple_pmgr_misc *misc,
-> +					  enum sys_device dev, bool active)
-> +{
-> +	u32 pstate;
-> +	u32 val;
-> +
-> +	if (!misc->devices[dev].base)
-> +		return;
-> +
-> +	if (active)
-> +		pstate = misc->devices[dev].active_state;
-> +	else
-> +		pstate = misc->devices[dev].suspend_state;
-> +
-> +	dev_dbg(misc->dev, "set %d ps to pstate %d\n", dev, pstate);
-> +
-> +	val = readl_relaxed(misc->devices[dev].base + APPLE_CLKGEN_PSTATE);
-> +	val &= ~APPLE_CLKGEN_PSTATE_DESIRED;
-> +	val |= FIELD_PREP(APPLE_CLKGEN_PSTATE_DESIRED, pstate);
-> +	writel_relaxed(val, misc->devices[dev].base + APPLE_CLKGEN_PSTATE);
-
-There's also FIELD_MODIFY now.
-
-> +}
-> +
-[...]
-> +
-> +static const struct apple_pmgr_misc_hw apple_pmgr_misc_hw_t600x = {
-> +	.dev_min_ps = {
-> +		[DEV_FABRIC] = SYS_DEV_PSTATE_SUSPEND,
-> +		[DEV_DCS] = 7,
-
-Do we know what 7 means here? would be nice to also have that #defined
-
-Either way,
-
 Reviewed-by: Sven Peter <sven@kernel.org>
 
-
-Best,
+Thanks,
 
 
 Sven
-
-
-
 
