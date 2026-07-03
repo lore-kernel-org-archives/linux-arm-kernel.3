@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999B3C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB97AC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 20:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/DBjfiTkQjWpInLO+GuoBUdnqw07CczsiP3GK9pBlKE=; b=b2l6559VQtT0lKKZzzLO0fZVeO
-	lWpCZ1RPe8aYKUFTnqU80serSmeUgtQfa6A7faciDMMHgpRmH4QY6/QzrdZl5b5MGkq3Mq2qGmzRR
-	XRMwbXim+dUa308F1blfNiesknLjgge0/geMbqyBrd+dmaDhF4KbHcKOmAtPySMZpcsFglYiUGPCb
-	uZDyRP2aMlBYMPu29GNkfsYIUSePiSSLD/RerUJEMqvFrf7BbdSJ0oCvkmAizXF1NbUPkQfxjIjcB
-	Ffw9eaT+oKG+oXTI6WAJeT3GmaC6r2t56ErlYEmswIxbscZQguI1shfn+jR0EWj3GAt9FLO6ZqAWc
-	kix2h7jA==;
+	bh=d/7EUxOp1Rp5nNa6XSHuUC0PLSSoDYH2XwSQzLt6MQc=; b=yXHyGZxo1GB0PgYUI/t0/qCT8d
+	hn61u37deJqCtYfAjUfNwnEBjeyj374JlJ+aA9AUYQJwgShErdWWce4pZlV5aP1GYVDWvPnmyMDrK
+	CT+676FH/71d06IznFYZA3EG3Y2ZQSQPOncOZrxOkLeIBp+KmdxvZM/4U5lHMX4SbwQk+Dj2+GSqm
+	k8a/kpfEC60/dSVhnZKyC9l7a4XnWpag4sZgL2onbws7S6IMdtw7M40kVe+TXNPmohLz/gIlO4s1v
+	avBNRW7NUbr0WixJ2re96ud5uwJtaVbm5D88WFcM9YWU5q9mgoFA1wx6LeWVSpiqaNJbV63tESdd7
+	ExX7f0xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkSM-00000007qiw-1o1Y;
+	id 1wfkSM-00000007qi8-0gzw;
 	Fri, 03 Jul 2026 20:25:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkSG-00000007qYE-45oF
+	id 1wfkSE-00000007qU9-2Q8H
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 20:25:45 +0000
+	Fri, 03 Jul 2026 20:25:42 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 698B960051;
-	Fri,  3 Jul 2026 20:25:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8A71F000E9;
-	Fri,  3 Jul 2026 20:25:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 58FDD42D80;
+	Fri,  3 Jul 2026 20:25:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE7F71F00A3A;
+	Fri,  3 Jul 2026 20:25:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783110344;
-	bh=/DBjfiTkQjWpInLO+GuoBUdnqw07CczsiP3GK9pBlKE=;
+	s=k20260515; t=1783110342;
+	bh=d/7EUxOp1Rp5nNa6XSHuUC0PLSSoDYH2XwSQzLt6MQc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LcCRUK40OencMpEG3MrcMqvWnjn7pHyqRYE34CUXUUxamK/NXIcfDH1/SwaqYLQ+L
-	 TbmPc4vdCSYtfTpbVpDujOL15Y5pe6VPvVf+6OkI4tV+bHTTUnBCpYe0p9MgEw204e
-	 o2/xI4XJqsVsxCqY1i8Syl7PHtYHs2lnA7KZJr6qR1zD/YpJLu0onASoeiWKM/M3qe
-	 ePlbSJVBOZvfoBY/dY4XF+z6t0KkP7nDYVrT0Xx007J5pJqHUyajK9kN3mkCKSz1vq
-	 0ATiVJNWVuxJS5Hf6bBhmwrTVrDUjvKbgwLPCpKMKramFSArXe9auncRBK2o1LOV9f
-	 zrZz57T2Kglzg==
+	b=HJQMr2E1M+u9PGGay5bjx/kyp1vAgTs2MFwGi6yQM+vDYQYSPHmwDSYdbhNwFLgYw
+	 ySLuB68TkxLZt/FYF3EV8pxDe8S3sLMgWmpdVWaSpJNwhCMp0Enyte80LPgIREHeSb
+	 wFOeJTWyhCriAN2GhZvZUMIpj9V2KUKp8TZKKm9rt9ONayLiVveGu8juAAMs9HNJY9
+	 44EeSJTdg1vDn8HMUF164uFgvg+2Nqyx6ueOdkojKZ+QDxNxiYGEjDvoaQI67iQAhk
+	 A2Jb1fTEHBZrnE25qCv8ghKIkQB2XYvYqJDkfolA4YVSY4i/X8kZkkbfx+/bylwpwk
+	 NuqljgsBPd2Cw==
 From: Sudeep Holla <sudeep.holla@kernel.org>
-Date: Fri, 03 Jul 2026 21:22:53 +0100
-Subject: [PATCH v3 17/17] firmware: arm_scmi: Clear virtio channel lists on
- free
+Date: Fri, 03 Jul 2026 21:22:51 +0100
+Subject: [PATCH v3 15/17] firmware: arm_scmi: Use channel ID for transport
+ teardown
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260703-scmi_core_fixes-v3-17-5bae9766abfc@kernel.org>
+Message-Id: <20260703-scmi_core_fixes-v3-15-5bae9766abfc@kernel.org>
 References: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
 In-Reply-To: <20260703-scmi_core_fixes-v3-0-5bae9766abfc@kernel.org>
 To: arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org
@@ -69,62 +69,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SCMI virtio messages are allocated with devres against the SCMI
-platform device, while the virtio channel structures are owned by the
-virtio device and can survive SCMI driver unbind and rebind.
+SCMI protocols can share the BASE transport channel when firmware does
+not describe a dedicated channel for the protocol. In that case multiple
+IDR entries can point at the same scmi_chan_info, whose owning transport
+device was created with cinfo->id.
 
-virtio_chan_free() only synchronizes channel shutdown. It leaves message
-pointers on the channel free list, and possibly on the deferred pending
-list or virtqueue, until SCMI devres later frees the messages. A
-subsequent SCMI bind can then reuse stale list entries and dereference
-freed memory.
+scmi_chan_destroy() used the IDR iterator key when destroying the
+transport device. If an alias entry is visited before the owning channel
+entry, the lookup can miss the device because the iterator key does not
+match the protocol ID used when the transport device was created. The
+code then clears cinfo->dev, so the later owning entry skips teardown and
+leaks the transport device.
 
-After synchronized shutdown, detach any unused virtqueue buffers and
-reinitialize both local message lists so no SCMI-devres message pointers
-remain in virtio channel state.
+Destroy the transport device using cinfo->id, which is the protocol ID
+that owns the channel and was used when creating the transport device.
 
-Fixes: 5ffc1c4cb896 ("firmware: arm_scmi: Fix devres allocation device in virtio transport")
+Fixes: 05a2801d8b90 ("firmware: arm_scmi: Use dedicated devices to initialize channels")
 Reported-by: Sashiko <sashiko-bot@kernel.org>
 Signed-off-by: Sudeep Holla <sudeep.holla@kernel.org>
 ---
- drivers/firmware/arm_scmi/transports/virtio.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ drivers/firmware/arm_scmi/driver.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/firmware/arm_scmi/transports/virtio.c b/drivers/firmware/arm_scmi/transports/virtio.c
-index 3282d8271839..c4738b866d62 100644
---- a/drivers/firmware/arm_scmi/transports/virtio.c
-+++ b/drivers/firmware/arm_scmi/transports/virtio.c
-@@ -178,6 +178,22 @@ static void scmi_vio_channel_cleanup_sync(struct scmi_vio_channel *vioch)
- 	wait_for_completion(vioch->shutdown_done);
- }
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index df574961875c..12ebf32aa4da 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -2896,7 +2896,7 @@ static int scmi_chan_destroy(int id, void *p, void *data)
+ 		struct scmi_info *info = handle_to_scmi_info(cinfo->handle);
+ 		struct scmi_device *sdev = to_scmi_dev(cinfo->dev);
  
-+static void scmi_vio_channel_cleanup(struct scmi_vio_channel *vioch)
-+{
-+	unsigned long flags;
-+
-+	while (virtqueue_detach_unused_buf(vioch->vqueue))
-+		;
-+
-+	spin_lock_irqsave(&vioch->free_lock, flags);
-+	INIT_LIST_HEAD(&vioch->free_list);
-+	spin_unlock_irqrestore(&vioch->free_lock, flags);
-+
-+	spin_lock_irqsave(&vioch->pending_lock, flags);
-+	INIT_LIST_HEAD(&vioch->pending_cmds_list);
-+	spin_unlock_irqrestore(&vioch->pending_lock, flags);
-+}
-+
- /* Assumes to be called with vio channel acquired already */
- static struct scmi_vio_msg *
- scmi_virtio_get_free_msg(struct scmi_vio_channel *vioch)
-@@ -484,6 +500,7 @@ static int virtio_chan_free(int id, void *p, void *data)
- 	 */
- 	virtio_break_device(vioch->vqueue->vdev);
- 	scmi_vio_channel_cleanup_sync(vioch);
-+	scmi_vio_channel_cleanup(vioch);
+-		scmi_device_destroy(info->dev, id, sdev->name);
++		scmi_device_destroy(info->dev, cinfo->id, sdev->name);
+ 		cinfo->dev = NULL;
+ 	}
  
- 	return 0;
- }
 
 -- 
 2.43.0
