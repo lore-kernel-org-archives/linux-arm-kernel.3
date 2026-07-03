@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D46CC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 06:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4E40C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 06:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G5wRK8UQUntkfKxBkcuhYJT69Pdd0Q05Ua1EKGESaNA=; b=RrWzYgSMPVvVTbfRnqJz5hMIM5
-	JK3xHKADgMVZilSezKShEPO9dpodNlVTSoEN6QDygi1PP1CoTt9f1V4XnOC5lJPL8DS4Ke3Y7jQD/
-	rZ7taIfSUNyxonDYWkWDZmAhT3fmmPD3VeVs5fCQnDMNSyn9JPBYaNf54fttXdQW13RD1Mkb9cKSF
-	aJwIuj9tNTJM2hDmUFho2slhcPwAZRJOAaw4z8y7XavsXsj2deUuwrHrTCOqb9vcK5WmUAXmJfVMu
-	8PdvZPTn5HzVDIdHx6vpkIg4HDeFQ6mOT+RxzKh2lCeiJcCuIWpdgXIMIGxEyAO7sWS6bSPJJa/YX
-	CnXbH2Ag==;
+	bh=kjf+9zwLvFnbMj2uY67jnA57NYs5qvgfofKcphxJQbw=; b=EBtFDSoVpuMlTqMoMtYXC3O3hc
+	uZO9gsrs/BdRt6qlKW/u08sprGnB0L3g3UrxcAYwxTIuT6Jx9Cp0lNzTj5KzjHlnllXEXc8P6u7Hm
+	QbCBI2/EY4RhUjDUdW9qER1sgQoyk6N1zJ9eowrWprJfU5eK2xhGCUufw4+EABXs0dziZ0/pHUlCH
+	wLXt0Dylh+kocBnCJUyiON/onmyKREOy0yhMVUrdRr0VgVDd/ya4/mwLkDWCKzXLovnrRKaZzyf1o
+	FRnK7ANmPgRQviILHUMySMZS0bqkl8YUFc9NquukAxYIl8PPPKhwKCb2aPo21t3J5DzFhgTBLxM2/
+	9oHOe9Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXkR-00000006Cmy-40q5;
-	Fri, 03 Jul 2026 06:51:39 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1wfXkU-00000006Cok-0jQ9;
+	Fri, 03 Jul 2026 06:51:42 +0000
+Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfXkO-00000006CkH-1nFt
+	id 1wfXkR-00000006ClP-10nK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 06:51:37 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-68bd9fce347so442423a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 23:51:35 -0700 (PDT)
+	Fri, 03 Jul 2026 06:51:40 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-c125ba77577so15994466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 23:51:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1783061494; x=1783666294; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1783061497; x=1783666297; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G5wRK8UQUntkfKxBkcuhYJT69Pdd0Q05Ua1EKGESaNA=;
-        b=lFVajDpZPqrcmZ4S+L7Icjs3BCxx3dC3fuHkDCkzqOg4BShVKGQ97QWUWy29WWULUh
-         YOVuvqZOrzE8fdydZBDvf2cqKc8GhCoSYjBqNWMXyGSLCAkpkrlnyV2VAhTYVKPqXcwM
-         01eFMzvUXq7Hnn1omvwnC3CR2qyY9Gaoq4VHM=
+         :message-id:reply-to:content-type;
+        bh=kjf+9zwLvFnbMj2uY67jnA57NYs5qvgfofKcphxJQbw=;
+        b=ddCFuPqLMc76sCkiNHnrGitE5Q31J7CtEprQzxcHdmY79YJk9Hl5J8/dJaj3eMEzBL
+         LP/hAYxr2I+LPOyk33yGNwSay1MktRW27M3KHwXcf2CV8vV2PG8QI0m8d3MXwudgHuWr
+         F/QOJuppM1ktJMqc/bMwFO+4x6SYpdtksJ3PE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783061494; x=1783666294;
+        d=1e100.net; s=20251104; t=1783061497; x=1783666297;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=G5wRK8UQUntkfKxBkcuhYJT69Pdd0Q05Ua1EKGESaNA=;
-        b=ZFR0dcQY7OSrFLqvVs/SMQTbb4pEMH3jTRPIAZuVRZ1JzY7iH5jsbRZOdFlfI8FKAr
-         O7Uw4N0nxGs8xhiWzRyTfkGQUNOx60MzfxqbLdlKIRgK1n7v5dlSEyEuq5rZujzFyt0y
-         ebSQaCPYq+REU/3l50b22UYwI+86kf83LRv8qyxnQkEO2REOldVaBFj+oO/Nm3++StMf
-         w56VYhyv2EquL4zfj0+TcPjr3C+o4iumVSrXNdCrKuj/Vhugwrgi2MwEVTpUafBrnb5Y
-         g5gmE16wVM71ioTOGxB0BW6kCmBjOGi8pZXiWnQbOE3M5gY2f5BBTQGnotH+uvJxATRC
-         egkQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpPn2mntmn7dQftTVEMkMRFRBfjDrUgQrDWuXkLQ724VKGCFcVIuYrHjiWdXeRIM8H5P116zNdxITb/Lrb74XeF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yynz/RtQPN43Xf2muVRUpIWzRLEGwjRqhiN6TSoBsQvWUJWoxBZ
-	+skD3QzEjnFr40oiWwpExjTQIPfG3d7HLpljqKQBRP5j18KLrZ4iItKvVwAxsY9ZM/I=
-X-Gm-Gg: AfdE7clJITHIbbCAQcj2jbQ4PhI9QTuTeHyoDbK0+67sBcd3rZnQ7nbX26fBfQb64fE
-	tQVUyaVmHooJWZLHTjmRMCxwt+3hj5RB5anXfO998MyM42Iy7K8HulgzSUuf1EL1TMf4PG0pVZ1
-	ZBv96u7RhvT6gSRuIzNG4LvUqDAFexyn2cFOdtSziCORsbRjZDCyZjRRj7pOKDEEW3btGCYbGKS
-	xYlk4l7Ik5sPhhESbPmJooXMZV1mswchnBSmAn8Ffff/tv9xRcPA01/c6SpY8OPJlGhXEMRkk+S
-	iFBuw9SnZy2/PSIAT7o1+9jPDKYceV9Hc6zXvkEjbtNA+MhjuzaxjnDgPxcp4g3lH/1YvAfNj6r
-	Kp/SepC6BIq4bv5I5anBYFNL/3BOgtPZuvOWNt/FBuny5+M3ja34PAN4PUClUVFw+NcwsZ7Jm4a
-	IoJjPBvpOgcSRPtMD/1aJDs2VO1rvOAnaNbSYbmJ0nVrCtGeiCvb/ccLt7Bfmr0iGWxlTAFbNoS
-	bqakvvOkUeeLeL3HTpOzw==
-X-Received: by 2002:a17:907:9444:b0:c12:6201:c4c6 with SMTP id a640c23a62f3a-c12a9d18f73mr399200966b.11.1783061494426;
-        Thu, 02 Jul 2026 23:51:34 -0700 (PDT)
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=kjf+9zwLvFnbMj2uY67jnA57NYs5qvgfofKcphxJQbw=;
+        b=XwGD7tWpu7TmGfcPQ5kqXcRLxcklu+Adg5p1TI23o7HE0VCjAWF7xLoUID0vLjUeSe
+         Y+hzkSmdFepSCk0EaXFsS0Cytrc+Nsq3cOZTkK1mJMbXM4gLaYezXBegWca1LdQaQdLj
+         8/CrAt/kPrQP9irnj2uMP9LBg85Vpn51yhluFdX0NpreVVRYVC/ICHsXf9WVVBYXpsa2
+         9tUwbtXTIOlRtB7pJSE2EnsOcVvGccR8ndWeXiUQ1boUfttGvstpgc5MpTV5H/lmS7fp
+         94l5tCHjJyuwiHsoYn+1Cq7sr74XOgT2oF/I3O+OPczxWHGueNbG5k+oy1CklPLZ8pzX
+         x0vw==
+X-Forwarded-Encrypted: i=1; AHgh+RrMwBkvfLgjR7maWrk0AU4pACH8e2O+pV4ovWYf/SwLk2YXQKhsWCFC7SwF75JX5Kyh2UASB2ADPMtrzJeEkaB8@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9q3JfIypmQ7L41E+x+nQ9fW6iRHlIm9vIKkmI91nrswQKxQk7
+	hFACFUNZk/iLM1LWJMahPpfRgaajJwhxyuJBq9y+HfCS0aXsGiMCzq180W3QDHZxmdg=
+X-Gm-Gg: AfdE7cngT5QRDiqH7WgGeh7djCpn8Mx9TUml2teFX7h39eZJAF3aGxuqjJVOysQEIkT
+	GBnzhU30JAIzA1YZ9S73Tquw7xKYPQC6UHyqJfP3vabUYKhJpwcSGe/atRHlm9mOKUYKYAYwS1F
+	ix7zjpOnqpjZys/YxotIOuxQMyzQ8wzsaxvfr547H9OSxOAoJJyUvEe7HY1HORsNq2CF3NNDhrc
+	lLI2zzT/11fEDCwGVNpUx+F324iq+sXKnZyETE+OnBrI3iB2GlPed10fxkQ98uaZ4pfBtX6HO0I
+	Uk6vCVgKNMZ1avDaq1fUAguEpWe/WlJZIvFEkJQF8gvh9AJstG8t2yo0usGsvvBg3EgqfRx6z66
+	gwTydNCVzzcsonrwmsAR1YgPTb51LeR9xgt4X1lVDaHaAcnulBtJtCnwf3ga9F3Jg403Yg+2Koq
+	8LXYmBUzcwC8qTFssqCTC5f+UdLyHfYvWzeiiLdGrMhToqrWVT1ZdVor1FsBAmSEImupYc9dG5Z
+	1pkWRjy0andY/TmGhV4Ew==
+X-Received: by 2002:a17:906:2091:b0:c12:4c5b:f170 with SMTP id a640c23a62f3a-c12ae898b32mr296340666b.62.1783061497131;
+        Thu, 02 Jul 2026 23:51:37 -0700 (PDT)
 Received: from dario-ThinkPad-P14s-Gen-5.. ([2.196.43.95])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62c4695sm235462866b.44.2026.07.02.23.51.31
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62c4695sm235462866b.44.2026.07.02.23.51.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 23:51:33 -0700 (PDT)
+        Thu, 02 Jul 2026 23:51:36 -0700 (PDT)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: michael@amarulasolutions.com,
@@ -82,17 +82,17 @@ Cc: michael@amarulasolutions.com,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v7 02/16] arm64: dts: st: add power-domains to sdmmc1 on stm32mp231
-Date: Fri,  3 Jul 2026 08:48:52 +0200
-Message-ID: <20260703065110.1433283-3-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v7 03/16] arm64: dts: st: add power-domains to sdmmc1 on stm32mp251
+Date: Fri,  3 Jul 2026 08:48:53 +0200
+Message-ID: <20260703065110.1433283-4-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260703065110.1433283-1-dario.binacchi@amarulasolutions.com>
 References: <20260703065110.1433283-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_235136_474199_EFA3F473 
-X-CRM114-Status: UNSURE (   9.70  )
+X-CRM114-CacheID: sfid-20260702_235139_292796_C41629A8 
+X-CRM114-Status: UNSURE (   9.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,18 +121,18 @@ Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 Changes in v5:
 - Added in version 5. Suggested by Sashiko.
 
- arch/arm64/boot/dts/st/stm32mp231.dtsi | 1 +
+ arch/arm64/boot/dts/st/stm32mp251.dtsi | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp231.dtsi b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-index 9e1d240888ff..0feb8943efae 100644
---- a/arch/arm64/boot/dts/st/stm32mp231.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp231.dtsi
-@@ -727,6 +727,7 @@ sdmmc1: mmc@48220000 {
+diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+index 9c63fdb5a885..ae36d703532c 100644
+--- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
++++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
+@@ -1664,6 +1664,7 @@ sdmmc1: mmc@48220000 {
  				cap-mmc-highspeed;
  				max-frequency = <120000000>;
  				access-controllers = <&rifsc 76>;
-+				power-domains = <&cluster_pd>;
++				power-domains = <&CLUSTER_PD>;
  				status = "disabled";
  			};
  
