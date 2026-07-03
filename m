@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37F72C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 19:25:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFEEC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 19:32:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3NXmfnDT9ccdJDht6GSlGH0hP5z1VNfXLI97+RVOH2w=; b=hcOyElRN7t+S337Pvr8eMBbqlR
-	hsPR4ZmaZwzTepvJBPpzwCMDP0s63zmHCIaCyIrpNsVPjzXgDky6ijc3eTMCVKhKiwGIJdzmQ9wqu
-	VZcaaEGH4ZK4Af4uyIR65rMiIfhH1xwBBzrCAuLJ1d/C9zTpA1QGHrhZbbD6VyWwM7uNQIHBIqHjE
-	bwpaAufWGbKJFfYs4rzzFiG3/WWKdzaCH9RguK4ScAjLU0TRzmbh2FwGBciVDEgthsi9SEXPSfA0E
-	Gi3DjqrTUWL37OBRxNzFzz0WRsakZl2CyLdjBL4Q9qJNY9DTv6zFbXa7T9GhcsqcYf4K+ZAokRiLh
-	l6jRMiuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cnd+FpZivjd6PvNXwrpkV5RkK7lGOLmjLrtRdNFWBX0=; b=mop5xBokD9wbGzHt9+hW2UGI8B
+	RW1SiPt63FJJqA8pyK5l8uZpHjv2aM3Ela4Aa364fsWvpGT85WrPmz8dWqBOBf393lNGiQYbFQtvn
+	W60ch0lHpq+UgtYA2Gtd0V55PxzLWf6hWKGC5xLhCSddU7L4gG0qOKoXnZNb+b0fqibdyvqP98Spa
+	CeDWgHjPukgyE00E+NEVq1sZcEJoni9cIUj2gZsIaY3Voi8EZtFnrmcVnJXI7qCGO2WR2k3QVP9dt
+	eyodys7a98RS2dEiXZ89MqwhT1QqeYDD0uUg/YZnVzG/Ot1BzLsg8iTflhBwwqkonIkqKUpT1m6SJ
+	tgN7UGyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfjVZ-00000007mTv-1EEm;
-	Fri, 03 Jul 2026 19:25:05 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1wfjcI-00000007mio-49uO;
+	Fri, 03 Jul 2026 19:32:03 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfjVW-00000007mTW-2InA
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 19:25:03 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-9204711e831so70875985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 12:25:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783106701; x=1783711501; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3NXmfnDT9ccdJDht6GSlGH0hP5z1VNfXLI97+RVOH2w=;
-        b=ejOtA4WE7OPzu6G63RKe/0HPs4iJ2kEPzFYLd7ZWyZOlRVAnXGUOaqFUb2aNj3lS2R
-         COlI2yQvdzD/U7VOFRAKuN1ibNXhHNQiajXY539RF1RXJnbxNmCuQE1rmhk75rapFyCQ
-         9gNWFApUCkUDv2i5M4zG9c0wUBEKwcAE8xfToQqhczxhlQGhB5qpEgHQkmhNwf9XfSsD
-         xrWC7nc6OTcJPGgZEBxWuE+NfKivclDbK6UGvTf8soYryPC1CMyJm+GUKWAwASilaXy3
-         yUXuOhhxsUFZqFpfo/6vzIGsggp7EpMbrlgCos6EEGdnGeOcKc/lr0U2jWW5g5XhzmmC
-         /9Iw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783106701; x=1783711501;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3NXmfnDT9ccdJDht6GSlGH0hP5z1VNfXLI97+RVOH2w=;
-        b=gxDiueV+k2xj0NGvWOgjiZ3RsVNVVTu57WVRrpGoAcevzXqIciTi8DG4nEp/zbQXaY
-         JXeSD2psA9r53HiS+yHuqNmG1kHDS8oGAgvs7KTQ3Sq3rcI3rODbbqxXQjsXWvl6TtMO
-         3QCb46eD2Gf3HSY8DXRc5OgVU9PZXqfoAeE8Crq6Zcu0CEs60PRlZvHgMRGbydThfDys
-         L5os245rVj3W9gCPLtSyeycDjPSlAWJJ+oOOOdr292S8tnvjYNI952s3LmzpN7y+NAw+
-         bazV0VzPAUJhVC9DJAcANaRCbMm30fN4bCXoUy2e2YhLT9bu24A7QD5T9yPtM8kH5oba
-         i9aA==
-X-Forwarded-Encrypted: i=1; AFNElJ/9J+hfOFunGVJx2yst9IzVhKVccY0+RrJdy5S6lGwkq9OlnPuOnXlVm2nbOAflT1oFq//vxEjp0E8qkE5AH6IE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxotDwq7H2LdmYWEE4V/pqK+eFhUnTCOHJs60a2RlZ5maMOG2HR
-	U16ICYGItmfqq+qwcm730/xMTIdcLNAKqEJm7hMFGRe9RMPg0m8CRoEXdAiZmBsL4m2Iogs6uUb
-	WBtA5
-X-Gm-Gg: AfdE7clJAcrJ7kYNbcx0sIeFoOjpuDS3F1+7sFdh02SLKyUYMWPWxtI39MZgCTdcbXu
-	lzvOIZIlt6CtWqj1ICtARojfr61aVmwCW0iedy8PBpbVHC3RAkvqg0SHUi9qSX0D1SWNNBHhFfX
-	5ehGTh2t9tLSH6pkOWZJrFVcA2/2qqrjWOiTnkJuul3kAxRW/8BClNqoFjyrZDx8rD9Z7Qe5DEY
-	qriBHNEhZeSd79VxJEg9bHepeh/ZSyDXj4021WDgERsibh9/mkSQ8nzZxW/nrfdVhPASTiwnKWr
-	9qAWwhygjCo+Pehmy/YFPkryasR+4h9cOVlHPC6snsqjexYQl6FtTuRk3Lvyff8vnDTx1Gt6Fwn
-	pKYEjFDuD4CyCIdvSgSUDQXVpwTlY2I5IWkxgAwADzX2W8YyP0PQV4IeIk6P6lG523teAgV1kcn
-	Tg7MevlgBzHCoXK6qYPFCGM8ya0wfH+GTqlH+j0kRrrhz4c17dSiKMeV7tXgMip+COsFY=
-X-Received: by 2002:a05:620a:414e:b0:92e:57ec:a4d7 with SMTP id af79cd13be357-92e9a4ed968mr109865685a.73.1783106700898;
-        Fri, 03 Jul 2026 12:25:00 -0700 (PDT)
-Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-92e90ccdf8dsm225956185a.37.2026.07.03.12.24.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 12:25:00 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wfjVT-00000008UHZ-0qcN;
-	Fri, 03 Jul 2026 16:24:59 -0300
-Date: Fri, 3 Jul 2026 16:24:59 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, joro@8bytes.org, jpb@kernel.org,
-	catalin.marinas@arm.com, yangyicong@hisilicon.com,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	stable@vger.kernel.org
-Subject: Re: [PATCH] iommu/arm-smmu-v3: Add HAFT support for SVA
-Message-ID: <20260703192459.GB1978949@ziepe.ca>
-References: <878cd6bcbbe2d5677d2f63da13294c148268552c.1782927917.git.robin.murphy@arm.com>
- <20260703164914.GY7525@ziepe.ca>
- <6465c885-3a9d-4c0b-ab74-7665e274ae72@arm.com>
+	id 1wfjcG-00000007miP-3qd0;
+	Fri, 03 Jul 2026 19:32:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783107116;
+	bh=9mEfzfMpXzi/PI86I3udvtpmEeCij5/2kHbzCL6MdYk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O2fS9XPpR8F6qkTMQK+ZCzOVuqMufBkuxy8eo9++0QRKRFXSR97w0iAB27ngTAHFu
+	 nAOQ28/7lkGXYXJiq2CNS2nhMV0hJa79en4WDy0OU7/fxOPJuyCNlZnu80YXD1KYCJ
+	 SIKAs8yncAcDAoC649khlJwCFU1iOngEALKZMUIqar2lmFCJdFVqwi49Fk1wwuULHJ
+	 KnjJcdriTjBLStX7oNe16JfpNHApF8neVxElgsPSJbOxAcwRDn8V8xcsGYerZTXAkK
+	 BoTsRAXLyNQVPTaOoJiDtnqg5fmgLZLH6MatuKYeudEKiQkcU+E9oPZjG1aZdlyyhE
+	 AAZvcYC0ha72Q==
+Received: from [100.64.0.241] (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id ABB8B17E087B;
+	Fri,  3 Jul 2026 21:31:55 +0200 (CEST)
+Message-ID: <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
+Date: Fri, 3 Jul 2026 22:31:55 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6465c885-3a9d-4c0b-ab74-7665e274ae72@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Daniel Stone <daniels@collabora.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
+ <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_122502_618918_EE10D50B 
-X-CRM114-Status: GOOD (  27.53  )
+X-CRM114-CacheID: sfid-20260703_123201_295183_CAB426DA 
+X-CRM114-Status: GOOD (  40.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,59 +91,385 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 07:57:04PM +0100, Robin Murphy wrote:
-> On 03/07/2026 5:49 pm, Jason Gunthorpe wrote:
-> > On Wed, Jul 01, 2026 at 06:45:17PM +0100, Robin Murphy wrote:
-> > 
-> > > @@ -211,6 +213,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
-> > >   	if (system_supports_bbml2_noabort())
-> > >   		feat_mask |= ARM_SMMU_FEAT_BBML2;
-> > > +	if (system_supports_haft())
-> > > +		feat_mask |= ARM_SMMU_FEAT_HAFT;
-> > 
-> > I fear this is going to make SVA stop working on systems it currently
-> > does work on, so it might be a major regression.
-> > 
-> > SMMU HTTU is not a commonly implemented feature.. I think of all the
-> > NVIDIA ARM chips only one supports it. Given that a quick internal
-> > check is raising concerns this will be breaking for us. We need to
-> > check in more detail which cores have HAFT.
-> > 
-> > Breaking already deployed SVA would be a major functional regression.
-> > 
-> > I think this should start by just enabling SMMU HAFT when CPU HAFT is
-> > on, when possible. Maybe print a warning on the mismatch instead of
-> > failing.
-> > 
-> > Since we can't break already deployed SVA a full solution would either
-> > have to somehow turn off CPU HAFT or we ignore the gap in the AF
-> > updates..
+Hi Dmitry,
+
+Thanks for your quick review!
+
+On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+> On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+>> In preparation for adding HDMI 2.x source capabilities, introduce struct
+>> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+>> helper.
+>>
+>> The existing drmm_connector_hdmi_init() helper currently takes
+>> individual capability arguments such as supported_formats and max_bpc.
+>> Adding more HDMI-specific arguments to that function would not scale
+>> well, so move those values into a dedicated capabilities structure and
+>> implement the existing helper as a wrapper around the new caps-based
+>> interface.
 > 
-> TBH I do not know how bad the implications of
-> pmd_young()/pmdp_test_and_clear_young() returning a false-negative are, but
-> if we aren't considering mismatched CPUs harmless then surely the same must
-> apply for SVA. In the POE/GCS cases all that can really be broken is users'
-> expectations, if they've opted in to additional security features, but also
-> opted in to SVA wherein those features can't protect against DMA. Here,
-> though, it's the kernel mm layer itself that's impacted, and I'm not
-> confident to say that that isn't more serious.
+> I think, it was an intention of Maxime: make sure that every driver is
+> forced to provide some values here. With the struct-based init it is
+> easy to overlook or to ommit a value.
 
-This has come up a few times now where the SMMU and CPU
-incompatibilities in ARM's IP are causing real headaches.
+Agreed that the struct-based init loses the compile-time guarantee that every
+argument is explicitly provided - that's a real downside.  
 
-Let's give it some time and I can say for certain if we have impacted
-chips or not. I was able to confirm the server chips are OK, but there
-is still some concern about the embedded chips..
+I'd argue it's recoverable, though: the init helper validates the mandatory
+fields, so a driver that omits a required value gets rejected at init time
+rather than silently misconfigured.  The "you must provide sane values" property
+is expected to be preserved, just enforced at runtime instead of by the
+compiler. 
 
-I also don't know how harmless it is to ignore the aging. I thought
-the PTE was designed to be backwards compatible, but I never looked at
-how AF works..
+The main motivation for the struct is scalability/maintainability as we add HDMI
+2.x capabilities: new fields go into the struct rather than growing the helper's
+argument list, so existing callers don't need churny signature updates on every
+extension.
 
-> Making HAFT depend on !SVA could only easily be done at the config
-> level, which seems arguably even more over-reaching
+FWIW, in the previous revision we discussed addressing the concern with a
+callback instead.  Sadly, I had to discard that approach, as it proved not
+flexible enough, e.g. drm_bridge_connector_init() computes caps dynamically, and
+would have required either stateful callbacks, or storing redundant/temporary
+cap data in driver-private structures just to satisfy the callback.
 
-Yeah, but if you could build a custom embedded kernel with HAFT
-disabled in kconfig maybe that is enough for some people.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/gpu/drm/drm_connector.c | 202 +++++++++++++++++++++++++++-------------
+>>  include/drm/drm_connector.h     |  55 +++++++++++
+>>  2 files changed, 193 insertions(+), 64 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/drm_connector.c b/drivers/gpu/drm/drm_connector.c
+>> index 8b4baed060f3..c7ce6b7bd8b0 100644
+>> --- a/drivers/gpu/drm/drm_connector.c
+>> +++ b/drivers/gpu/drm/drm_connector.c
+>> @@ -542,6 +542,137 @@ int drmm_connector_init(struct drm_device *dev,
+>>  }
+>>  EXPORT_SYMBOL(drmm_connector_init);
+>>  
+>> +/**
+>> + * drmm_connector_hdmi_init_with_caps - Init a preallocated HDMI connector
+>> + * @dev: DRM device
+>> + * @connector: A pointer to the HDMI connector to init
+>> + * @vendor: HDMI Controller Vendor name
+>> + * @product: HDMI Controller Product name
+>> + * @funcs: callbacks for this connector
+>> + * @hdmi_funcs: HDMI-related callbacks for this connector
+>> + * @connector_type: user visible type of the connector
+>> + * @ddc: optional pointer to the associated ddc adapter
+>> + * @caps: optional HDMI connector capabilities
+>> + *
+>> + * Initialises a preallocated HDMI connector. Connectors can be
+>> + * subclassed as part of driver connector objects.
+>> + *
+>> + * Cleanup is automatically handled with a call to
+>> + * drm_connector_cleanup() in a DRM-managed action.
+>> + *
+>> + * The connector structure should be allocated with drmm_kzalloc().
+>> + *
+>> + * The @drm_connector_funcs.destroy hook must be NULL.
+>> + *
+>> + * Returns:
+>> + * Zero on success, error code on failure.
+>> + */
+>> +int drmm_connector_hdmi_init_with_caps(struct drm_device *dev,
+>> +				       struct drm_connector *connector,
+>> +				       const char *vendor, const char *product,
+>> +				       const struct drm_connector_funcs *funcs,
+>> +				       const struct drm_connector_hdmi_funcs *hdmi_funcs,
+>> +				       int connector_type,
+>> +				       struct i2c_adapter *ddc,
+>> +				       const struct drm_connector_hdmi_caps *caps)
+>> +{
+>> +	int ret;
+>> +
+>> +	if (!vendor || !product)
+>> +		return -EINVAL;
+>> +
+>> +	if ((strlen(vendor) > DRM_CONNECTOR_HDMI_VENDOR_LEN) ||
+>> +	    (strlen(product) > DRM_CONNECTOR_HDMI_PRODUCT_LEN))
+>> +		return -EINVAL;
+>> +
+>> +	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
+>> +	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
+>> +		return -EINVAL;
+>> +
+>> +	if (!caps)
+>> +		return -EINVAL;
+>> +
+>> +	if (!caps->supported_formats ||
+>> +	    !(caps->supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
+>> +		return -EINVAL;
+>> +
+>> +	if (connector->ycbcr_420_allowed !=
+>> +	    !!(caps->supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
+>> +		return -EINVAL;
+>> +
+>> +	if (!(caps->max_bpc == 8 || caps->max_bpc == 10 || caps->max_bpc == 12))
+>> +		return -EINVAL;
+>> +
+>> +	if (!hdmi_funcs->avi.clear_infoframe ||
+>> +	    !hdmi_funcs->avi.write_infoframe ||
+>> +	    !hdmi_funcs->hdmi.clear_infoframe ||
+>> +	    !hdmi_funcs->hdmi.write_infoframe)
+>> +		return -EINVAL;
+>> +
+>> +	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	connector->hdmi.supported_formats = caps->supported_formats;
+>> +
+>> +	/*
+>> +	 * The supported HDMI version can be used to infer the maximum TMDS
+>> +	 * character rate allowed by the specification. Some controllers,
+>> +	 * however, may support a lower rate than that version would imply.
+>> +	 *
+>> +	 * A non-zero caps->max_tmds_char_rate lets drivers override the
+>> +	 * inferred limit with the actual controller capability. A value of
+>> +	 * zero keeps the default limit inferred from supported_hdmi_ver.
+>> +	 */
+>> +	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0)
+>> +		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
+>> +	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3)
+>> +		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+>> +	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0)
+>> +		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
+>> +
+>> +	if (caps->max_tmds_char_rate) {
+>> +		if (caps->max_tmds_char_rate > connector->hdmi.max_tmds_char_rate)
+>> +			return -EINVAL;
+>> +		connector->hdmi.max_tmds_char_rate = caps->max_tmds_char_rate;
+>> +	}
+> 
+> Here I'd totally suggest something simpler:
+> 
+> if (!caps->max_tmds_char_rate) {
+> 	if (caps->supported_hdmi_ver >= HDMI_VERSION_2_0)
+> 		connector->hdmi.max_tmds_char_rate = HDMI_2_0_TMDS_CHAR_RATE_MAX_HZ;
+> 	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_3)
+> 		connector->hdmi.max_tmds_char_rate = HDMI_1_3_TMDS_CHAR_RATE_MAX_HZ;
+> 	else if (caps->supported_hdmi_ver >= HDMI_VERSION_1_0)
+> 		connector->hdmi.max_tmds_char_rate = HDMI_1_0_TMDS_CHAR_RATE_MAX_HZ;
+> }
 
-Jason
+My intention was to check that a driver-supplied caps->max_tmds_char_rate
+doesn't exceed the spec-permitted maximum for the declared supported_hdmi_ver.
+With the simplified form, a driver could declare e.g. HDMI 1.4 but pass a
+2.0-level char rate, and we'd silently accept it.  
+
+Also, we'd still need to handle the supplied value in the non-zero case:
+
+} else {
+    connector->hdmi.max_tmds_char_rate = caps->max_tmds_char_rate;
+}
+
+So the net reduction is smaller than it looks.
+
+>> +
+>> +	strtomem_pad(connector->hdmi.vendor, vendor, 0);
+>> +	strtomem_pad(connector->hdmi.product, product, 0);
+>> +
+>> +	/*
+>> +	 * drm_connector_attach_max_bpc_property() requires the
+>> +	 * connector to have a state.
+>> +	 */
+>> +	if (connector->funcs->atomic_create_state) {
+>> +		struct drm_connector_state *state;
+>> +
+>> +		state = connector->funcs->atomic_create_state(connector);
+>> +		if (IS_ERR(state))
+>> +			return PTR_ERR(state);
+>> +
+>> +		connector->state = state;
+>> +	} else if (connector->funcs->reset) {
+>> +		connector->funcs->reset(connector);
+>> +	}
+>> +
+>> +	drm_connector_attach_max_bpc_property(connector, 8, caps->max_bpc);
+>> +	connector->max_bpc = caps->max_bpc;
+> 
+> If you don't like the max_bpc argument, let's do it other way:
+> 
+> if (connector->max_bpc < 8)
+> 	return -EINVAL;
+
+If I follow correctly, you suggest dropping max_bpc from the caps struct and
+letting drivers set connector->max_bpc before calling the init helper, leaving
+the core to only do the reject. 
+
+Also note we actually have a more restricted check above:
+
+if (!(caps->max_bpc == 8 || caps->max_bpc == 10 || caps->max_bpc == 12))
+    return -EINVAL;
+
+I'd still keep max_bpc in the struct, assuming we can move further with the
+caps approach.
+
+> if (connector->max_bpc > 8)
+> 	drm_connector_attach_hdr_output_metadata_property(connector);
+> 
+> 
+>> +
+>> +	if (caps->max_bpc > 8)
+>> +		drm_connector_attach_hdr_output_metadata_property(connector);
+>> +
+>> +	ret = drm_connector_attach_color_format_property(connector,
+>> +							 caps->supported_formats);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	connector->hdmi.funcs = hdmi_funcs;
+>> +
+>> +	return 0;
+>> +}
+>> +EXPORT_SYMBOL(drmm_connector_hdmi_init_with_caps);
+>> +
+>>  /**
+>>   * drmm_connector_hdmi_init - Init a preallocated HDMI connector
+>>   * @dev: DRM device
+>> @@ -578,71 +709,14 @@ int drmm_connector_hdmi_init(struct drm_device *dev,
+>>  			     unsigned long supported_formats,
+>>  			     unsigned int max_bpc)
+>>  {
+>> -	int ret;
+>> +	struct drm_connector_hdmi_caps caps = {
+>> +		.supported_formats = supported_formats,
+>> +		.max_bpc = max_bpc,
+>> +	};
+>>  
+>> -	if (!vendor || !product)
+>> -		return -EINVAL;
+>> -
+>> -	if ((strlen(vendor) > DRM_CONNECTOR_HDMI_VENDOR_LEN) ||
+>> -	    (strlen(product) > DRM_CONNECTOR_HDMI_PRODUCT_LEN))
+>> -		return -EINVAL;
+>> -
+>> -	if (!(connector_type == DRM_MODE_CONNECTOR_HDMIA ||
+>> -	      connector_type == DRM_MODE_CONNECTOR_HDMIB))
+>> -		return -EINVAL;
+>> -
+>> -	if (!supported_formats || !(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_RGB444)))
+>> -		return -EINVAL;
+>> -
+>> -	if (connector->ycbcr_420_allowed != !!(supported_formats & BIT(DRM_OUTPUT_COLOR_FORMAT_YCBCR420)))
+>> -		return -EINVAL;
+>> -
+>> -	if (!(max_bpc == 8 || max_bpc == 10 || max_bpc == 12))
+>> -		return -EINVAL;
+>> -
+>> -	if (!hdmi_funcs->avi.clear_infoframe ||
+>> -	    !hdmi_funcs->avi.write_infoframe ||
+>> -	    !hdmi_funcs->hdmi.clear_infoframe ||
+>> -	    !hdmi_funcs->hdmi.write_infoframe)
+>> -		return -EINVAL;
+>> -
+>> -	ret = drmm_connector_init(dev, connector, funcs, connector_type, ddc);
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	connector->hdmi.supported_formats = supported_formats;
+>> -	strtomem_pad(connector->hdmi.vendor, vendor, 0);
+>> -	strtomem_pad(connector->hdmi.product, product, 0);
+>> -
+>> -	/*
+>> -	 * drm_connector_attach_max_bpc_property() requires the
+>> -	 * connector to have a state.
+>> -	 */
+>> -	if (connector->funcs->atomic_create_state) {
+>> -		struct drm_connector_state *state;
+>> -
+>> -		state = connector->funcs->atomic_create_state(connector);
+>> -		if (IS_ERR(state))
+>> -			return PTR_ERR(state);
+>> -
+>> -		connector->state = state;
+>> -	} else if (connector->funcs->reset) {
+>> -		connector->funcs->reset(connector);
+>> -	}
+>> -
+>> -	drm_connector_attach_max_bpc_property(connector, 8, max_bpc);
+>> -	connector->max_bpc = max_bpc;
+>> -
+>> -	if (max_bpc > 8)
+>> -		drm_connector_attach_hdr_output_metadata_property(connector);
+>> -
+>> -	ret = drm_connector_attach_color_format_property(connector, supported_formats);
+>> -	if (ret)
+>> -		return ret;
+>> -
+>> -	connector->hdmi.funcs = hdmi_funcs;
+>> -
+>> -	return 0;
+>> +	return drmm_connector_hdmi_init_with_caps(dev, connector, vendor,
+>> +						  product, funcs, hdmi_funcs,
+>> +						  connector_type, ddc, &caps);
+>>  }
+>>  EXPORT_SYMBOL(drmm_connector_hdmi_init);
+>>  
+>> diff --git a/include/drm/drm_connector.h b/include/drm/drm_connector.h
+>> index af075c38f4db..961a729d0869 100644
+>> --- a/include/drm/drm_connector.h
+>> +++ b/include/drm/drm_connector.h
+>> @@ -2029,6 +2029,47 @@ struct drm_connector_hdmi_audio {
+>>  	int dai_port;
+>>  };
+>>  
+>> +/**
+>> + * struct drm_connector_hdmi_caps - HDMI capabilities structure
+>> + *
+>> + * This structure is required to initialize the connector using
+>> + * drmm_connector_hdmi_init_with_caps().
+>> + */
+>> +struct drm_connector_hdmi_caps {
+>> +	/**
+>> +	 * @supported_hdmi_ver:
+>> +	 *
+>> +	 * Maximum HDMI specification version supported by the controller side
+>> +	 * of this connector. This describes the controller capability only;
+>> +	 * the effective link capabilities may be further restricted by the
+>> +	 * sink, bridge, or mode validation.
+>> +	 *
+>> +	 * HDMI_VERSION_UNKNOWN means legacy/default behaviour.
+> 
+> What would it actually mean here? Every chip has some version of HDMI
+> standard it conforms to.
+
+HDMI_VERSION_UNKNOWN only exists for the legacy drmm_connector_hdmi_init()
+wrapper, which doesn't pass a version - in that case the code keeps the
+pre-existing behaviour (no version-inferred TMDS limit). Once all callers
+migrate to the caps-based API, supported_hdmi_ver becomes mandatory.
+
+Given that, I'd simply drop the "legacy/default behaviour" statement, unless you
+have a better suggestion.
+
+>> +	 */
+>> +	enum hdmi_version supported_hdmi_ver;
+>> +
+>> +	/**
+>> +	 * @supported_formats:
+>> +	 *
+>> +	 * Bitmask of @drm_output_color_format listing supported output formats.
+>> +	 */
+>> +	unsigned long supported_formats;
+>> +
+>> +	/**
+>> +	 * @max_tmds_char_rate:
+>> +	 *
+>> +	 * Maximum TMDS character rate supported by the source, in Hz.
+>> +	 * A value of 0 means the core should use the default limit implied by
+>> +	 * @supported_hdmi_ver.
+>> +	 */
+>> +	unsigned long long max_tmds_char_rate;
+>> +
+>> +	/**
+>> +	 * @max_bpc: Maximum bits per char the HDMI connector supports.
+>> +	 */
+>> +	unsigned int max_bpc;
+>> +};
+>> +
+>>  /*
+>>   * struct drm_connector_hdmi - DRM Connector HDMI-related structure
+>>   */
+> 
 
