@@ -4,90 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FCBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C736C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 11:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OBfQ0Y2amoW1Wn3Q1LbOQJjLWTvXYln7NjUvp5UVSjM=; b=t2eaqKLJ5l1GeNW+UWiVVnhUGI
-	21+9twzqcY4ud7O58mYgy+7cXFE7OphWuK+LBf/lleCjwfdxjf/8BGLfrFXouNBRKN16d+qw6MXvV
-	/Tifu5IpptQrFiaFs9Q0O5Pz/ZCwlLv2Xly00f+KYYmuuZJJZ3qHbK5p5kjbR7xcY46mYhPJpoTHF
-	FcCRVq069ciOKV6AsMkTVVxInPTSPIuFRSo975yOl+r6vuqUeIRROjOdTiPaoc7xdMPhbHceIJoZ6
-	VO3q+P+M3d2GF0IPhcW03j7AOi8mWSLmOm5+jqoDd8s7lfI+9JtISRmCKmQr/Pp4+FfB/lqcmyCyI
-	xGoIRwTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GF/dZxM95AsUU1wWK1B0B/CUui/snGJUvA0tIkHl1DM=; b=IUBZnRBMsDjoiZrBjIhLZhjN7U
+	EUvstRCKFEtp1FUwkuIK09CAohzlUUBvjTLnagPATbH9HSs/EReAvDH7qZbWl84O63nsBOA0mPaI/
+	xYA/4CuHykvPvYm15NoASXhsymZ6KrHnofe52XAuBL8o8eyKqUS+uAnXVuv22xobXLGutYIqGblC6
+	EiA3XWG5Oq0lm1rs5lMbRCIOpctpDEcDxg9bw3Fa0/Dibd86wN5ZsSekqpglC9ILAjFuwFTOmRr4u
+	kLQZo05i8A+bLFr/XSDJsAWW+L4UYWzrQwLlYwKfWwIpS9otFpyGNxdRv8pXpKgKyvr5l8ii2Cgsl
+	sAOozWQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcIp-00000006pw8-1v5v;
-	Fri, 03 Jul 2026 11:43:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfcIm-00000006puA-3jQz
+	id 1wfcMH-00000006qgC-0obT;
+	Fri, 03 Jul 2026 11:47:01 +0000
+Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfcMF-00000006qew-1azj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 11:43:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3DF41E2F;
-	Fri,  3 Jul 2026 04:43:19 -0700 (PDT)
-Received: from cesw-amp-gbt-1s-m12830-01.blr.arm.com (cesw-amp-gbt-1s-m12830-01.blr.arm.com [10.164.195.31])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BC5943FAA1;
-	Fri,  3 Jul 2026 04:43:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783079004; bh=9JD/rGnP4z6sxKxaETbXjsBJM6V+qvu6dbKpCu5ZUWA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=tVEge0BjP5FjjmbkU4psRvLiJd6bT9jhj1hm1Pa4vOf3rdbXx6C7YaGHpoigAPzqO
-	 vKdTkxgcIiMBdS93gKBCSr4GR2SegSbmQlxjG4YynzgaC0GjPSQiSEhJAQWBhw6M0z
-	 NnXaV/42Hn1Ubhy+dmLVElzAxQsZflcB0qbag9k0=
-From: Dev Jain <dev.jain@arm.com>
-To: muchun.song@linux.dev,
-	osalvador@suse.de,
-	akpm@linux-foundation.org,
-	ljs@kernel.org,
-	david@kernel.org,
-	liam@infradead.org
-Cc: Dev Jain <dev.jain@arm.com>,
-	riel@surriel.com,
-	vbabka@kernel.org,
-	harry@kernel.org,
-	jannh@google.com,
-	lance.yang@linux.dev,
-	kas@kernel.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	apopple@nvidia.com,
-	rcampbell@nvidia.com,
-	ziy@nvidia.com,
-	matthew.brost@intel.com,
-	joshua.hahnjy@gmail.com,
-	rakie.kim@sk.com,
-	byungchul@sk.com,
-	gourry@gourry.net,
-	ying.huang@linux.alibaba.com,
-	ak@linux.intel.com,
-	nao.horiguchi@gmail.com,
-	mel@csn.ul.ie,
-	j-nomura@ce.jp.nec.com,
-	pfalcato@suse.de,
-	tglx@kernel.org,
-	dave.hansen@intel.com,
-	jpoimboe@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	ryan.roberts@arm.com,
-	anshuman.khandual@arm.com
-Subject: [PATCH v3 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
-Date: Fri,  3 Jul 2026 11:41:59 +0000
-Message-ID: <20260703114202.365553-7-dev.jain@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260703114202.365553-1-dev.jain@arm.com>
-References: <20260703114202.365553-1-dev.jain@arm.com>
+	Fri, 03 Jul 2026 11:47:00 +0000
+Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-51c4436d02cso1394681cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 04:46:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1783079217; x=1783684017; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GF/dZxM95AsUU1wWK1B0B/CUui/snGJUvA0tIkHl1DM=;
+        b=Xy1aYaOiFncPNPaBgRz3lAGW5oBbXx3XKP14lMjT63adHA9QDgtRK2sCiaoKLmLvPN
+         hAHCt4a3SkEb4anpoNTMCKFlZ9wCxIWJ9lgxyjlrU+SkDftB/2YT8O4vpHANthW16bGL
+         bRJ9YXJ810LaVlCzAygN0HUlbCMpTNooTyhNczRZlKiNGKr89rXjBMD9LSlLr3xR1QVr
+         I+d04GoevN1nT2WPlRjrUPs1LKbIxH6qOWb3k5XUf4P7d0+SFkMsyBtuplS4DgW6dSDK
+         M1I8uNwgk2TNzjeBksa3MApInInoB4Z7AkR7JUMZ34kS2/p88zua7JjRrm/Ls08NyxUO
+         GVrQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783079217; x=1783684017;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GF/dZxM95AsUU1wWK1B0B/CUui/snGJUvA0tIkHl1DM=;
+        b=hMZoUoa2oNZwIaDauswrUZTt+RIz0+YWnH/HPtCFPels44W9/jR5STIhbeLuMTWVIu
+         Mu7/2S5JmAy+0yxrW4laeoUI1aDxh3h4MQUzrIIAm7meD0kuN223PMv8Idqqny4zz/cZ
+         8k0YAkgMyjHMcpK87YLRvCHvhjE6EnVd3khltWAkwTqgwzj+iM/UycC527FVT8GAhDCB
+         EOyl9VDtIzpZC8GufdSNvsdHP5d78l6mSu7V+7jAwSaKob27GQ9x8RCm/8/FFoJ0Jgxe
+         vso+xjq5dak2wXHzG6BeXHR9N7NRHE4S27OUaDPdw780bcvGspAuh36pC5LBWAWgd65f
+         TgDw==
+X-Forwarded-Encrypted: i=1; AFNElJ9ZBc40W4FC5FGTbGCpd2orI0waAitAqMlIhVvs2pmkp7nXqP78JEI8AO7KMiIzYU6o9Iz5uatZ5eAvvu8R3CAe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3HSbzYC2pL5PbJXZS8jgPTlkizCb+z7YoJGU3YkrQUWYO7i35
+	Cd/nKx87Pczy7jtH1v7+5RGq5PkafJtiB8dIlqub64W8TKOGiVngUUUhG3W7Qk6Y4I8=
+X-Gm-Gg: AfdE7cmrxsVuiEXc+fbFirJy4YyWnEieCa5l0D1ORHrQl6bwFAM+9dm7gflw4I9QIJp
+	PX7DOe2wjhfpGcmp9s2VQvjQpJW57V6gW2ov9mqWiI/w05CjSYDniRRCGiaAk0Vv7sNEuPafPew
+	vdRR/6TDKcrLeplpL5cFC4RXuHV7jN5CC64H4Mz9AgbNLmFE1n3cLmzo81V3aDNeia3UUAeItg8
+	VIVMcDLe2UAavRdgsw7vvM/HZOWkQEVI+RpGhTZonHrvLw4leX07Upaol9fQBQy6fHHumBbGojS
+	CAOnKILF/4Rbarc3d1volraYwIxLbJOVr+d0X1+jsEIPkmPs49A2BPOq/6UjislQ7S8PuZTRDaJ
+	KWYbpZiP10po5VM/TrS7JYrlUA8MjsVz4T4Rf0rymuKIsf5EjuGn7H7rawzXViw5yzHJVcdnbkm
+	JOgNZnQsc2+fokIYhKJui5CKFWoyjiWGZZ5y6jMqUjY3thD+qXpUusrtBuMB4nQM0lSyI=
+X-Received: by 2002:ac8:59d1:0:b0:51c:555:7dea with SMTP id d75a77b69052e-51c2ad42df1mr112307971cf.30.1783079216951;
+        Fri, 03 Jul 2026 04:46:56 -0700 (PDT)
+Received: from ziepe.ca (crbknf0213w-47-54-130-67.pppoe-dynamic.high-speed.nl.bellaliant.net. [47.54.130.67])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-51c4202366csm13366551cf.30.2026.07.03.04.46.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 04:46:56 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1wfcMB-00000007ngp-0vd7;
+	Fri, 03 Jul 2026 08:46:55 -0300
+Date: Fri, 3 Jul 2026 08:46:55 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Alexey Kardashevskiy <aik@amd.com>
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org,
+	Jiri Pirko <jiri@nvidia.com>, Michael Kelley <mhklinux@outlook.com>,
+	"Cheloha, Scott" <Scott.Cheloha@amd.com>
+Subject: Re: [PATCH v6 03/20] dma-direct: use DMA_ATTR_CC_SHARED in
+ alloc/free paths
+Message-ID: <20260703114655.GW7525@ziepe.ca>
+References: <20260604083959.1265923-1-aneesh.kumar@kernel.org>
+ <20260604083959.1265923-4-aneesh.kumar@kernel.org>
+ <845d0c8a-6d51-47aa-8e0b-8381e733444a@amd.com>
+ <20260617154101.GE3577091@ziepe.ca>
+ <25155bd6-4348-4aa8-ba70-0a882fc84db9@amd.com>
+ <20260630160242.GI7525@ziepe.ca>
+ <98800d21-18f6-44d6-9ba0-da9b77567d85@amd.com>
+ <20260702144729.GP7525@ziepe.ca>
+ <58bb92a9-c5ea-47a3-b19a-934573f15305@amd.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <58bb92a9-c5ea-47a3-b19a-934573f15305@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_044324_980751_5B551D43 
-X-CRM114-Status: GOOD (  11.29  )
+X-CRM114-CacheID: sfid-20260703_044659_541361_946BEBC9 
+X-CRM114-Status: GOOD (  21.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,57 +134,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-prot_none_hugetlb_entry() is the hugetlb callback for the early
-mprotect(PROT_NONE) PFN permission walk on x86.
+On Fri, Jul 03, 2026 at 08:15:49PM +1000, Alexey Kardashevskiy wrote:
+> On 3/7/26 00:47, Jason Gunthorpe wrote:
+> > On Thu, Jul 02, 2026 at 10:25:16AM +1000, Alexey Kardashevskiy wrote:
+> > 
+> > > > > not externally available so I'll have to trick the DMA layer into
+> > > > > using SWIOTLB (which is still all shared, right?) as I specifically
+> > > > > want to skip page conversions. Setting low DMA mask won't guarantee
+> > > > > that the DMA layer won't allocate a page outside of SWIOTLB and
+> > > > > convert it. Manually do
+> > > > 
+> > > > Why so particular?
+> > > 
+> > > aahhh I missed "pre-". I need a way to get pre-shared pages for my
+> > > sev-guest activities.
+> > 
+> > It sounds to me like you don't, what you are worried about is
+> > optimizing the dma_alloc_coherent flow to avoid fragmentation and all
+> > CC architetures require this optimization.
+> 
+> It is not about fragmentation, it is about unwanted page state
+> changes when few pages are shared for a very short time.
 
-The callback passes the decoded PFN to pfn_modify_allowed(). For a
-hugetlb callback, the pte pointer refers to a hugetlb entry. On
-architectures where hugetlb entries need huge_ptep_get(), reading that
-entry with ptep_get() can make the permission check use the wrong PFN.
+That's really basically the same thing. The responsiblity for
+optimizing the shared/private conversion lies with the DMA API not the
+callers.
 
-Use huge_ptep_get() before decoding the hugetlb PFN.
+> When I needed these pages, I could: get a private page, convert,
+> (possibly trigger RMP and IO PDE smashing if that 4K is backed with
+> 2M), do the VM<->HV communication, convert back to private (and
+> possibly unsmash the page).
 
-Currently there is no path which can trigger a bug: huge_ptep_get() is a
-simple ptep_get() for x86, and the prot_none walk occurs only for x86.
+IMHO it would be better to use something like dma_pool to amortize the
+coherent allocations instead of trying to hack with swiotlb.
 
-So no need to backport - use the correct helper anyways.
-
-Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged high MMIO PROT_NONE mappings")
-Reviewed-by: Muchun Song <muchun.song@linux.dev>
-Signed-off-by: Dev Jain <dev.jain@arm.com>
----
- mm/mprotect.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
-
-diff --git a/mm/mprotect.c b/mm/mprotect.c
-index 9cbf932b028cf..6360d8a378023 100644
---- a/mm/mprotect.c
-+++ b/mm/mprotect.c
-@@ -699,14 +699,20 @@ static int prot_none_pte_entry(pte_t *pte, unsigned long addr,
- 		0 : -EACCES;
- }
- 
-+#ifdef CONFIG_HUGETLB_PAGE
- static int prot_none_hugetlb_entry(pte_t *pte, unsigned long hmask,
- 				   unsigned long addr, unsigned long next,
- 				   struct mm_walk *walk)
- {
--	return pfn_modify_allowed(pte_pfn(ptep_get(pte)),
--				  *(pgprot_t *)(walk->private)) ?
--		0 : -EACCES;
-+	const pte_t entry = huge_ptep_get(walk->mm, addr, pte);
-+
-+	if (pfn_modify_allowed(pte_pfn(entry), *(pgprot_t *)(walk->private)))
-+		return 0;
-+	return -EACCESS;
- }
-+#else
-+#define prot_none_hugetlb_entry	NULL
-+#endif
- 
- static int prot_none_test(unsigned long addr, unsigned long next,
- 			  struct mm_walk *walk)
--- 
-2.43.0
-
+Jason
 
