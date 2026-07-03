@@ -4,97 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55CD2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:49:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AAF5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 14:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtbeAb4anjju2Gg5Hr2svmQH8LAj1CgUb05x/8fx3ZI=; b=kNZpWGxlMMBZIPcsO5nM4qiEkZ
-	ceMfQdATws3E5xWJVc9+UwaYC0Rh3JZiU5VuWvQvjXxzDoPgX3+9gYi/cp2tLxpQat+Ul5tLom08W
-	IySSTbMXsZ+as399bX1FKEHUUBfkuFhewYHOiRtgVz7of7ThhJm9NFkoFoNltEmxgRSK93aNhNnOw
-	A7f6uLVtkn6+1y2lhMcKC+ddhlqjGEnZ5WGOvooKV+hhCReDdySwhsQ49OY8pW3RARFzvedRhWBp6
-	sLY2gA2kLmsluL+OHy5ntiGlDrvMkXfOqvp6m9rmhU8eBiQEWQnFU7FpXIWFCF2wLrsYgxrWkKz3M
-	aUGW9XoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Yv5c3aAX22MotkI1huu0Usc8fAYg0ktXennCOkB+608=; b=zEflHW6rvWd/QHOFAsOGO+l9em
+	HBfP0VrT4irV3a1yC50kyX6DvfoUSqB+k82Raf8YYDcScXJwKOKrFbrBz/LajJFXB6Hiyw04lOC8Q
+	exKWtWbngOJ1oDj4xQpqyZvY2xQujpR1pNMGjyxPi7d85XmfgTZRAmFQolptbGK5HhQ+fjJVtWn2I
+	K4bWrWY9cJdb/v68uWGOiwlve+pjdahUfRJyQ1iNpMe8jeMz7jIvGGPLItJlowuDgFM4yRQLU+/a3
+	XNmweRMSn+E3QHmxRE4I+zeDcl5qSCIrskEN+DuKXauI6k4H+rVQfPV7gtCGNQEFvZEoeF0pHWIDr
+	pLxMeDHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wffCN-00000007Jg2-1Iac;
-	Fri, 03 Jul 2026 14:48:59 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wffDY-00000007Jpb-2oqk;
+	Fri, 03 Jul 2026 14:50:12 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wffCI-00000007Jf9-0Uvj
+	id 1wffDW-00000007Jon-1efS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 14:48:57 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493c2b3dc8bso4124305e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 07:48:52 -0700 (PDT)
+	Fri, 03 Jul 2026 14:50:11 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-47488efcf30so436518f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 07:50:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1783090131; x=1783694931; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=RtbeAb4anjju2Gg5Hr2svmQH8LAj1CgUb05x/8fx3ZI=;
-        b=Y8oK4/uuV/H2elAqajhmVEEyu1z02FQrgRuCYlxfxpnRwfIerHx/4KDGa2OSN1hhey
-         IkHiPDTkOtZ/JOGl9vT8X+mJIlwCGVO5MmIv+LUt0M80rqlrlHcOFoNEb6qdGcWXhha7
-         zggbBBcwd4oiZQ1jkuQlwiZEt89PXKDiVcrW064or9HQFEK3mwIp0bZ8zLGK8vol3kuH
-         FHhYwI7thXeYfn3rIUDTYAzvtuic+i+2XVwUwow4zh6IupFrN4jRZT3FZc2/3487ZFzn
-         woEg214ZG3J1Agpy03SCv3/uyePr1YUAo1h7KwECbRRpf+c+rCORQd3YARc73myQXz9m
-         H0cA==
+        d=gmail.com; s=20251104; t=1783090208; x=1783695008; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Yv5c3aAX22MotkI1huu0Usc8fAYg0ktXennCOkB+608=;
+        b=JncYAhhiSDZbx5zMfX65BtxE/rUOelYXZix20BwHh79sKUb7z5AEZjaupvuJfS9gxx
+         +XcwIJiGfINVupFa/DtvAxMKe5Mj9awutpsMvzv2bqEiFGuts7V/6owXZTmN8oKk1ZiW
+         eAfXLReQWG/3YVsq5ob5Xu1XPLyMmTeNpR0skOnjKj27qEx2piomBcBw5o2puNUb4rN2
+         Q5rSqMylRpD6VZFy58T6kSOb7HMvNqS39WFCKDVJe85vgYazNNWFFf6H11sO1NVbLRCO
+         Am6ZvHjRxIsCNiERVpMaJ40vOuFcvBjTP28OyqBrKRYFyJyLX0cLHTrYmaJwfeyLb0oh
+         npyQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783090131; x=1783694931;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RtbeAb4anjju2Gg5Hr2svmQH8LAj1CgUb05x/8fx3ZI=;
-        b=HWHHF2LucbDRf377GAC/vIIMQ32LqiDYjVLGNihYSIKv4qn+m4yfSHLd3t7b5XjbkZ
-         QAuag5JSPGncb3JvUT7MWosOqQ5805S+FJN1Xjtt4XL2fe0sfk/GZuUNqXcRdAQ+zbSY
-         DiS2idHzH99vN4Wo3K1gl8kyQQ3Tlm0KcutddfWqTIh5cbzd3+aIAG/wHxdy+ZKwgoob
-         p0vigx5Be4lGaDkdhhW7Jnu9/RdpvV+nvfEUHseeQq4IkIr7JtTsv6LC8HguWF1wL5k2
-         wLOEGMV7B3YcmZfwS/VJGB9WE7xkX6ZKxf9PdLRqW2MGnNW2Cf2qWrFDhsiFxwaCE/1f
-         e/VA==
-X-Forwarded-Encrypted: i=1; AFNElJ94NhWHEz+zz0bXAOADI22gLcumAyHfPQ6SH1Sl8saG5+hKBJ03mBa3CW5c0e5xyB7XF5Rd/VXArQ7+S9zSvCJ+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQjbDTdP5UexjiQJtzKnaAbMyop69vYUEQyl3au9bXdvcrzY6R
-	T+dxBzKFmXbTarwFVf3YkP8aSwIubTPZy5iW+An+s/FMZpS/3Al72CjP2ys9+zOqTyU=
-X-Gm-Gg: AfdE7cmYnPuOdDr66/7CfwdK4vlDF9vnXgSvwxL+dgLLbl9VxhAg91CwfrPABMNi6a5
-	hTkMIt4hipuWMekeuP/j8OZA3hulr98a4OLBK65aVdAmJxbEq7pFBjd84GDToMxxhVUvkG0Vmum
-	gjX5VEcVe8jSdLH0SuZV3clkPjvayvanfis1lk10v8NcNrcGkRzD7gHBYdap3ae4yV52EjtmgFc
-	CLwXXKkjktZRRhe42MP10WQCY3rxcBlPBA6yi8g18J6O3GQKqWLa4Zl8/+isDxNKJCS/9h2ksXm
-	hZEEQjCCdZx5HF22iGKEBFuXZfeg78B4+EJ58m21nZ88DoLV6amSd9uIFK0ekvKXkhEHIZKMinN
-	MIzK7U8xztIacHWuEI47HI83oPMkBPYm/TDKGnJmLvfjRhBso6EMQP+nAt5QvYuEsbUEPGv54+q
-	QmHRxK3+kBRmY=
-X-Received: by 2002:a05:600c:34c5:b0:493:bc4a:e7d3 with SMTP id 5b1f17b1804b1-493d0f4efa6mr1735385e9.39.1783090131280;
-        Fri, 03 Jul 2026 07:48:51 -0700 (PDT)
-Received: from localhost ([195.94.145.62])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493c637568dsm149767675e9.4.2026.07.03.07.48.50
+        d=1e100.net; s=20251104; t=1783090208; x=1783695008;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Yv5c3aAX22MotkI1huu0Usc8fAYg0ktXennCOkB+608=;
+        b=XureS0kV5Q3YJua5WYVw7oAL3Kn1tLO1+edhn3a5C5+DZapix7fcsBeJn3ZUDGgY55
+         y249ug0CDi9pJBdrH3RYcL3IqvrqCqR7xgQPPVU1qtWA4g1gSJwwVsdLm14Ry5xfJzRe
+         PHx4fxlqPqjLva22UhR3ctlmP4LAXYjGPTj5cb6klKNhfsLI5DmLFFnIVpc5EOHCiUE9
+         SoYMnzo72LuvKieDK/bKYYSDgTXCu7+kiCorwOCX7CcTYwgV/ECV+qf9B7xxaNtkf/Iy
+         MSKJx/925G6NUozsfSElPI85EBc0ByElH9wAvxn12YNmDamRGs4+/9wpB/2ICAlCDpJc
+         89iQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqAYT3FuCICz1BHaLiKAXSSY5Ka77r+MGUfvBYUxsKLYunkVTcrGH7sYAOfKwdJxIcRJ0dcA7362M0ly9GgHQ3J@lists.infradead.org
+X-Gm-Message-State: AOJu0YyKl2tT90MKIoe+hEeQLrvqRbhbaBvzj0UfWOfZhMpNa+5oufZo
+	CGMuLG0eJcarqVwa+oaMlReLHJfkB/BQXkTfRknnlNKSeOKnveeUKkQD
+X-Gm-Gg: AfdE7cm7AfVLF7p57uRTP8U2c7sMxMHq71CH3LedvoNKtJTVn6jeF+MHc1xkhW06ajS
+	dxQZ9wBVAf7izn6ArdLHnki69C5oROOqU++YFd28xTRuBEBd3QOzD87YXO3HQ2lWJA2i5BbIU0f
+	B5jG6G9iQ8HYZn0FQea9JfGS9xgKw2aqcXRzYvCgQnY4ebGiAAbuXOeENZbsOg/9jjJZMLq1tSA
+	/Am5hh/A2awSYMejOqbzmYgFt1OYHLP7rNdXUYZL8ZM2gXfLx3KyJ4Ll+vp8c4T02/puzGy0mLv
+	ZQS5sQSH28lGbiz5yZfEi/wsEbhXM6IRyXY2TwulrBPICUzao7/BRD0X8iBLDB2QW1WJFj7LKI9
+	e/OyhdgCeqXCWYdzz6j8/LV/rDktVH/c1l3sVz+kSCewB8hn3R9N/Woqvijv9T+bvO++xN42yIj
+	z33HlesL5OqadakEuwaRHNQ81dy5lIKevCnfj68s8g/uleI9FNYJAsVJTHDN/1Jebl8WOpI61Aa
+	PGyfRveBSGMnleddNMSB1L9e/I=
+X-Received: by 2002:a5d:5f42:0:b0:46b:cab9:f697 with SMTP id ffacd0b85a97d-47758bca818mr13901139f8f.24.1783090208322;
+        Fri, 03 Jul 2026 07:50:08 -0700 (PDT)
+Received: from Lord-Beerus.station (net-93-144-65-248.cust.vodafonedsl.it. [93.144.65.248])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-477db8a4ad4sm20087616f8f.11.2026.07.03.07.50.06
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Jul 2026 07:48:50 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Fri, 3 Jul 2026 16:52:17 +0200
-To: Sean Young <sean@mess.org>
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	linux-pwm@vger.kernel.org, Rob Herring <robh@kernel.org>,
+        Fri, 03 Jul 2026 07:50:07 -0700 (PDT)
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Cc: pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Naushir Patuck <naush@raspberrypi.com>,
-	Stanimir Varbanov <svarbanov@suse.de>, mbrugger@suse.com
-Subject: Re: [PATCH v5 2/3] pwm: rp1: Add RP1 PWM controller driver
-Message-ID: <akfMoQfzmEEiH9VC@apocalypse>
-References: <cover.1780670224.git.andrea.porta@suse.com>
- <f8dd46a553351adaf9d29fbba9f98e803b672fe7.1780670224.git.andrea.porta@suse.com>
- <aiwX2YWVJnDNTNiu@extorris.mess.org>
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Subject: [PATCH v1 1/1] arm64: dts: freescale: imx95-var-dart: enable NETC block control
+Date: Fri,  3 Jul 2026 16:49:22 +0200
+Message-ID: <20260703144922.231608-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aiwX2YWVJnDNTNiu@extorris.mess.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_074854_167040_E620D009 
-X-CRM114-Status: GOOD (  30.24  )
+X-CRM114-CacheID: sfid-20260703_075010_460783_DEE3DDDB 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,104 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+From: Stefano Radaelli <stefano.r@variscite.com>
 
-On 15:29 Fri 12 Jun     , Sean Young wrote:
-> On Fri, Jun 12, 2026 at 04:01:27PM +0200, Andrea della Porta wrote:
-> > From: Naushir Patuck <naush@raspberrypi.com>
-> > 
-> > The Raspberry Pi RP1 southbridge features an embedded PWM
-> > controller with 4 output channels, alongside an RPM interface
-> > to read the fan speed on the Raspberry Pi 5.
-> > 
-> > Add the supporting driver.
-> > 
+Enable the NETC block control node on the DART-MX95 SoM.
 
-<...snip...>
-> 
-> I don't understand the point of the clk_enabled field. If the probe
-> function succeeds, then clk_enabled = true. It is set to false during
-> suspend, but after suspend the only thing which can follow is resume,
-> I think. In resume, we set it in to true again unconditionally. So
-> it is always true, no?
+This is required for the NETC Ethernet ports to be enabled and used.
 
-It's true unless enabling the clock again in rp1_pwm_resume() will fail.
-That will trap the unbalanced condition mentioned by Uwe in:
-https://lore.kernel.org/all/adiW1tBC8Imd14LD@monoceros/
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+ arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> 
-> > +};
-> > +
-> > +struct rp1_pwm_waveform {
-> > +	u32 period_ticks;
-> > +	u32 duty_ticks;
-> > +	bool enabled;
-> > +	bool inverted_polarity;
-> > +};
-> > +
+diff --git a/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi b/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
+index d43270a1d907..174ded589d6f 100644
+--- a/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95-var-dart.dtsi
+@@ -178,6 +178,10 @@ &mu7 {
+ 	status = "okay";
+ };
+ 
++&netc_blk_ctrl {
++	status = "okay";
++};
++
+ &netc_emdio {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_emdio>, <&pinctrl_phy0res>;
+-- 
+2.47.3
 
-<...snip...>
-
-> > +
-> > +	/*
-> > +	 * The period is limited to U32_MAX, and it will be decremented by one later
-> > +	 * to allow 100% duty cycle.
-> > +	 */
-> > +	if (period_ticks > U32_MAX) {
-> > +		period_ticks = U32_MAX;
-> > +	} else if (period_ticks < 2) {
-> > +		period_ticks = 2;
-> > +		ret = 1;
-> > +	}
-> 
-> period_ticks = clamp(period_ticks, 2, U32_MAX);
-> 
-> Although that misses out the `ret = 1;` which I am not sure about anyway.
-
-But we need that ret = 1 to announce that values have been rounded.
-
-> 
-> > +
-> > +	duty_ticks = mul_u64_u64_div_u64(wf->duty_length_ns, clk_rate, NSEC_PER_SEC);
-> > +	duty_ticks = min(duty_ticks, period_ticks);
-> > +	offset_ticks = mul_u64_u64_div_u64(wf->duty_offset_ns, clk_rate, NSEC_PER_SEC);
-> > +	if (offset_ticks >= period_ticks)
-> > +		offset_ticks %= period_ticks;
-> > +	if (duty_ticks && offset_ticks &&
-> > +		ret = dev_err_probe(dev, -EINVAL, "Clock rate > 1 GHz is not supported\n");
-
-<...snip...>
-
-> > +		goto err_disable_clk;
-> > +	}
-> > +	rp1->clk_rate = clk_rate;
-> > +
-> > +	chip->ops = &rp1_pwm_ops;
-> 
-> Can we add the following please:
-> 
-> 	 chip->atomic = true; 
-> 
-> This means that the pwm can be controlled from atomic context (not process
-> context) using pwm_apply_atomic(). This is very helpful for the pwm-ir-tx
-> driver, which produces a much more faithful IR signal in atomic context.
-> 
-> Using pwm for infrared tx is much nicer than using gpio which bit bangs
-> the IR signal and holds the CPU with interrupts disabled for upto one second.
-> 
-> As far as I can see there is no sleeping code in these code paths, so we
-> should be fine.
-
-Sure, added.
-
-Many thanks,
-Andrea
-
-> 
-> Thanks,
-> 
-> Sean
->
-
-<...snip...>
 
