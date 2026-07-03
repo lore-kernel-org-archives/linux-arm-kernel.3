@@ -4,75 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AB4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 07:46:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771DDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 08:01:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-ID:Subject:From:CC:To:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=34vNWbXe9tXff0tvnC0WcH98XXWhqm99ucJyEx2XldY=; b=k06hHZZ3YpQNTQyUdTWtZP0itJ
-	/h+o4SiZbRKHLYcFN0pCUPnJ6OueQFcBmGE599AmN9sRhDV3KKKV8SgKewvNUc1Ilo72FXfMxhRR4
-	TtVnBhb594C7w7m2MAAdWZWjE7amI9Cd6xEFg2ITeVpQDOacZGdnbzKHSh2s+t7vF+/xsuhud4/An
-	3ptcLlTqWdvnZoLaj2E1dVSdxr9MVr+6HPKbHtjpmOlz6Az0R+lvdPJbsbeCePRibgdSG43HOSZxa
-	mlVJl/DM3usao5oZ6pPUuBewiBgVnFHaNyZKhTvgR7c3lGIFag8+oY0AER4/ZPHdTrAiNWmzjekOd
-	wPZykesQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bncZdAxiyDhHVEptV1GKmJZO/emo/e4qlZdeehgb6v0=; b=P8ZCjDaxyMwrO/h9+m+ZHw6XfK
+	vmuAHeTVex7wcnwMS+N55+P9LuoMBW3zM85WS1l0qE+KpZ8IWIWRGoM02iu/Y4PpkDQ5OVJFsOQmy
+	A2wWR1IQu2oUa1nPMwtAaA9hLGpU/3wTxQK15IR9pplDA771/La7fOQ0xWwDCZIAsFhFkaDBqdMMM
+	va3CvAb/yW1YaeV5tmbp2ge0dEQobHC4UgBN7KEiMs3V/otXl3tsYmsM1B72wSYUcGhAgxBYOyj2P
+	ZVFLpQz3ywj4Keq9JYxvgOjk/GGorJUDZUL2kY2XfmopGetV7ELGM2EyF4PLSurFl14N7b+sLbKI+
+	EVh/gDrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfv54-00000008Gng-3BOR;
-	Sat, 04 Jul 2026 07:46:30 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wfvJE-00000008HCo-1nEe;
+	Sat, 04 Jul 2026 08:01:08 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfv51-00000008GnL-1W12
+	id 1wfvJB-00000008HCR-3icH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 07:46:29 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=34vNWbXe9tXff0tvnC0WcH98XXWhqm99ucJyEx2XldY=;
-	b=3lUxwxsODXylrwAAueb3Y3T+dtOigJ1WSNjGIlJ5lmfqowv7O6vWcBeZTjB8k6eK8FxQ4VZ67
-	Ts2cepUHIT+r5Kk+WUNOP6VuJcOpgNS9M10jxIHlEsVgXsflpQqJyWQ3zhwCkKmkg+N4HjMyhAz
-	FCfGcho3JiDDhzohIU0sXxA=
-Received: from mail.maildlp.com (unknown [172.19.163.104])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gsjB62BhTzRhTy;
-	Sat,  4 Jul 2026 15:37:02 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 86E4740594;
-	Sat,  4 Jul 2026 15:46:12 +0800 (CST)
-Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 4 Jul 2026 15:46:12 +0800
-Received: from [10.67.146.137] (10.67.146.137) by
- kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 4 Jul 2026 15:46:11 +0800
-To: Marc Zyngier <maz@kernel.org>, <oupton@kernel.org>, <joey.gouly@arm.com>,
-	<seiden@linux.ibm.com>, <suzuki.poulose@arm.com>, <yuzenghui@huawei.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-CC: "guoyang (C)" <guoyang2@huawei.com>, "huanglingyan (A)"
-	<huanglingyan2@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>
-From: Tangnianyao <tangnianyao@huawei.com>
-Subject: Question about the "TLBs and I-cache are private to each vCPU"
- guarantee with VTTBR_EL2.CnP
-Message-ID: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
-Date: Sat, 4 Jul 2026 15:45:56 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+	Sat, 04 Jul 2026 08:01:07 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-4799b3f7c83so870491f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jul 2026 01:01:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783152063; x=1783756863; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bncZdAxiyDhHVEptV1GKmJZO/emo/e4qlZdeehgb6v0=;
+        b=tHdlHtUQP2GzfvnfvkFrQNHLU5dgy7Dr170iN7U826QEBiwD/dl3WbqtY7dmUmnVEq
+         j9ldNR2YuX4mCY4GRRoBfhMsr1tBlhSXr+eBoaJZhYVpvipJbLvMvJAUQzJBDNiZiMNI
+         A0UkiE1hcbeYYKnwurIM6HTxORMUVBRtctPbB6K1tXme9h7kTvuH/ghj9QfQllzNbMWb
+         UejADvguRkHO6Zg6Wy1Zn/o7+02XFKOtnKtsrbytF67pscy1QOVVW2s1kC47/1LOdogJ
+         xAVf8mx9QdTOGV3uwg4532deM8oo0bDtkNPTGVbvYD2/Xzd5huFY7ZwCaeIfV2dQHQna
+         h8wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783152063; x=1783756863;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bncZdAxiyDhHVEptV1GKmJZO/emo/e4qlZdeehgb6v0=;
+        b=XL5EyMP7m+sVBG4THA9rQjBwwnQV3YNQhx0/C4kS5UXpJoZkfTiwqO93Mlxjpi6KFn
+         HIFZ7T/MfMSi6N6PTwohESvNTvsa8fJQcrp6+7z08fyRwp9rD0CtsAjaadSYPaAjvcqU
+         Q8YZU1M/KzQSxSGJR/dxQK2MDQ5zTJ13LluDLnY/uk0lMoXS++UMK9peh91njap9WdLt
+         4fJXgPh0vRiB2qxQjrZVPPaTx9paOueUppmfDfeo9nZlLzDw0y9OdYuLRV6GIv6gQSNP
+         cbP2iE98iT/5zfBoihr+9cahK6sYtkFMX/KCt3rqfpotuV7BxNqT2aqnwCWONbB/R4Af
+         Htbg==
+X-Forwarded-Encrypted: i=1; AHgh+RparI/m5z3HIGq7eROQeDzdnNMVWE5XgY1c0MwiFz5tGv6zYtIC8Rp2huiPx80I0xjmVHsDtfSBFkXOH9t+mqy/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL+o1aRFhR0H/zdoDFBETTxWL2Tk2Jn+6gl3IVlF44zBgvtGnS
+	TA4JsZkgD/AOLCeQUKcQwPwjIzfdST+5Juzwx+mVm+lHj3sWIT6BxpiZ
+X-Gm-Gg: AfdE7clUhlnsgKcNHnkO1h6nhOSkG2H4HmI+yJwaDXQZNhDQ53lpwqy6w7xKAcUXYEl
+	+gZXy6pCyWWpniV21i2smv7Ipaea1verM8BxMlhSr3h+0REx+7VlfeeTOiIac+SjBl4dqDGiYAP
+	ZJxYfKAUOGeClcXATFOvxF0t5eSteyDgHnS1wWT68OWON092kDJRhfF55TF/IVRmX2YpRpLhUOZ
+	p3q4TqlL//fyxixOVfyIYLj0LddADBBEGUQo6/RSU4/zbtDEX6PS/oLT8WQk3uYARqH925hWKUA
+	pjpesDdfikgcoyAFHKQ9jTkntFk1arW5iOB3/tHPzKU6KhTX8piow6K4sWG2conMwx0hKjN7IgI
+	2C50aXt69TstEGYKX9i/r7KLtyj6eICY0udHmYo8ekN3eW387HPJlflpBliEGr/rr1qEmYodnou
+	4HW6GoGe5PexVe8A5Keyxwg9Et
+X-Received: by 2002:a05:6000:2086:b0:472:f8b5:aaca with SMTP id ffacd0b85a97d-47aaa60d3cemr2987044f8f.15.1783152062911;
+        Sat, 04 Jul 2026 01:01:02 -0700 (PDT)
+Received: from strix.localnet ([197.250.51.120])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039ad21sm5967457f8f.20.2026.07.04.01.00.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 04 Jul 2026 01:01:01 -0700 (PDT)
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Brian Masney <bmasney@redhat.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 01/12] dt-bindings: soc: zte: Add zx297520v3 top clock and
+ reset bindings
+Date: Fri, 03 Jul 2026 20:20:58 +0300
+Message-ID: <az-AzRTTT8qfUWysHYig6Q@gmail.com>
+In-Reply-To: <387ff0d7-256e-4b18-b864-37a0ec3c9d9d@kernel.org>
+References: <20260702-zx29clk-v6-0-377b704f80c4@gmail.com>
+ <20260702-zx29clk-v6-1-377b704f80c4@gmail.com>
+ <387ff0d7-256e-4b18-b864-37a0ec3c9d9d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Content-Language: en-US
-X-Originating-IP: [10.67.146.137]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemq500001.china.huawei.com (7.202.195.224)
+Content-Type: multipart/signed; boundary="nextPartQJbA9XBiSfGFnWS6QAvhhA";
+ micalg="pgp-sha256"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_004627_897637_1AB826C7 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260704_010105_979854_E041A64A 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,29 +104,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, all
+--nextPartQJbA9XBiSfGFnWS6QAvhhA
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Stefan =?UTF-8?B?RMO2c2luZ2Vy?= <stefandoesinger@gmail.com>
+Date: Fri, 03 Jul 2026 20:20:58 +0300
+Message-ID: <az-AzRTTT8qfUWysHYig6Q@gmail.com>
+In-Reply-To: <387ff0d7-256e-4b18-b864-37a0ec3c9d9d@kernel.org>
+MIME-Version: 1.0
 
-I'm trying to understand the TLB and I-cache invalidation in
-`kvm_arch_vcpu_load()` that is intended to "guarantee that both TLBs and
-I-cache are private to each vCPU".
+Am Freitag, 3. Juli 2026, 09:26:43 Ostafrikanische Zeit schrieb Krzysztof 
+Kozlowski:
 
-As I understand it, when `VTTBR_EL2.CnP == 1`, `__kvm_flush_cpu_context()`
-only performs a local TLB and I-cache invalidation, which does not seem
-sufficient to guarantee that property.
+> Also, this cannot be placed in soc. Clock and reset controllers DO NOT
+> go to the soc directory. Place in it clocks.
 
-In fact, even if the invalidation were extended to the Inner Shareable
-domain, it still seems difficult to guarantee “TLBs and I-cache are
-private to each vCPU”, when `VTTBR_EL2.CnP == 1`, as long as multiple
-vCPUs from the same VM may be running concurrently on different PEs.
+Even when they contain other functionality like hwlock, usb phy and reboot? 
+Here is the previous discussion that made me move it to soc:
 
-So I have two questions:
+https://lore.kernel.org/linux-arm-kernel/20260621-plywood-straddle-b01f0c45f27c@spud/
 
-1. What is the rationale behind the comment that "guarantee that both TLBs
-and I-cache are private to each vCPU"?
-2. Should the effect of `VTTBR_EL2.CnP` be taken into account when
-reasoning about this guarantee?
+Likewise, what about the node name: syscon@ or clock-controller@ ? Conor 
+advised me to go with syscon@
 
-Thanks
-Nianyao Tang
+Cheers,
+Stefan
+
+--- Quoting the relevant parts from the above link:
+
+> At what point does it make sense to move the bindings from bindings/clock to 
+> bindings/mfd? The controllers are still very clock-heavy. allwinner,*-
+> prcm.yaml look like clock, reset, misc controllers in mfd/ whereas 
+> ingenic,cgu.yaml, sprd,sc9863a-clk.yaml and da8xx-cfgchip.txt are clock + 
+misc 
+> drivers in clock/.
+
+Yeah, to bindings/mfd or bindings/soc/<vendor>. Which I think is mostly
+a judgement call. Two of your devices have at least three functions,
+which I think is enough to make the claim that it's not just a clock
+controller.
+
+> Likewise for the node names: syscon@ or clock-controller@?
+
+If you have syscon in the compatible, then I think it should be syscon
+in the node name as it's more general and makes it clear the device
+isn't just a clock controller.
+
+--nextPartQJbA9XBiSfGFnWS6QAvhhA
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAABCAA5FiEEQxb0tqoFWyeVMl1sPRO8yFRPGiIFAmpH73obFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMiwyAAoJED0TvMhUTxoiNJIP/juwHA8X9RyBoj+10iQ7
+1g4HaZ2WplDlaXdAXFSUIIPLnRJ1FaxeR/c67EHaFB1UhOCsxGydBunolYNm0ywm
+WcWWVIwLVVEYJK1F4y7klFT+WXmxpxKy+cvUqPE8PTJVSElYKWDIeMlTEpqRsqmM
+rHT8kD85FcYJOKC7LWqwsyc/SvOuG6090G8ST6Says/wbMRgOcndTSWcAOaRy7GA
+hTajEqu9SWKZj9FQhh77k7y52eQO1DQroEJZHANSuy5CFX82VZdJYjIzMEBf395v
+nNCDWMemXUX6Nwn6XoE8BfLcQIoqiReuwtcpqCnndeJsOnNEh7cUQ18B2h+JbBpH
+Ri0Y06+3/aJxcWviyC4R1WuZxs4+8mjHRrRiXmz5oFYoO/I1ySh+ndujzDdF/lQG
+63RgX+idYIgZUNq4fgVq/IpnrVC8fbWvj2XeyRA+mXUx58xWgFLeEcv2iOLux1Bi
+uXgsWzLAjccxDBOKeu1589RFQAC4rnVjlZ0KTmKdhw3IkuNspUEeocm0QBHZZJD8
+/R1aRtSYtfaibMbhn1Cb9lUzYmGwJoNSmrXQ0GIidNtfSjsE7CxbWm074UpAl8qG
+B79r7ULixFkF5pnFr5ExarCVWt93lKOKoOTcUgtFyuBLTVduNR47qfGY2fJd1WiB
+iZ8IMly+LgRwX1l76oyj/IHD
+=s2ps
+-----END PGP SIGNATURE-----
+
+--nextPartQJbA9XBiSfGFnWS6QAvhhA--
+
+
 
 
