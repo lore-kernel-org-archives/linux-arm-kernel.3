@@ -4,65 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C473C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 15:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F73FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 15:52:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3tFkhV9y3YSpG7ZFQq6X18e4oKX1Jy1S3KYwLSR0WpE=; b=fgZ+uIa6utVxSN9aXjCeesPYEx
-	YOga8WT50PhkEjjBxVqs2Sing1ZVv2ogI9uziXyqzyjFfpHecaGQVtoJH3WPyazk0KiTilNAWewZX
-	TZxnGmVSgKAA3x8WH88VSbmNKWXl7+sjh7aQeXKR4aejVAb0oyt3Tgqmzl3cJgyzmBV4Bm9ay6gdy
-	1AAfFT8j44pPhUT3NM5ieqcgC3mqb6MzBpjf6wudrCh7o9xiw9UCMozXDcSS042mwmDZUFMwGx8s+
-	/ia8m+6uTSgRA6NmOcFIhPHbXe0U9NcW+weaJmlfEnKLcIG9BA3xgb1YrqON5e9GxVQt/wPLrpk1f
-	5Se55bUA==;
+	bh=pvq4ZTKhaTZQ53GNsD599tKwpxxf3JS9e1zecB9mH4E=; b=sZ5PkXJmosZmg0uBXUn/iVgqPV
+	0ZshP5VD5jWIUZIiIGxsPjuA6/AJln6QEc7a5/0RU+ozoAwRyAXFudjFhwZeONXvbU7edDG1AJrC0
+	4t/SKs6jCwBy3JpZcE9924ok5lfhsngM6uhJwyTk3PrIA2Ok3U8fwNjZVDGNkXUaPcnLKSN0ld7Vy
+	ZMue+i/Fhscm3I2qqXTb7rxcoMwk4wD2NKKR/yLM64ri0RtUnxh6CfVIrZIRskAcHa14WniBkQ+Q8
+	O+wOmKWFovBHg15ixk0I5FO451ALCICCZ65JRRhPRkxWdFYVQ1Sc369ZGOvO+cJhu408SNUjIlyj/
+	gB2VbIMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgBE-00000007Rzd-173E;
-	Fri, 03 Jul 2026 15:51:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wfgBf-00000007S9Z-27dz;
+	Fri, 03 Jul 2026 15:52:19 +0000
+Received: from mail-northeuropeazon11012000.outbound.protection.outlook.com ([52.101.66.0] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfgBC-00000007Ryr-3YCx
+	id 1wfgBc-00000007S7f-3vBj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 15:51:50 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EBB0960051;
-	Fri,  3 Jul 2026 15:51:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 361A11F000E9;
-	Fri,  3 Jul 2026 15:51:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783093909;
-	bh=3tFkhV9y3YSpG7ZFQq6X18e4oKX1Jy1S3KYwLSR0WpE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=S1W87LOQhTm4vC9qjjU6evSDA7cIZuPkpXGHrVl4l/Y2SBeuvoH3TBVUAYI6gg35B
-	 VMDwmFQDailxQp2+c++0GbmJHxuzaTy2XN9S6wp83hs4sHDycopFzFEGVwUjMObiUT
-	 Je63NveeqJD6Bam9yHz6UZ0bTDCVl+eHpKGJeEkLKBIr4CyfnngUwG0MCmPLcc6/4h
-	 yYOYIyfExN+aPu8V3GrcFy8GRZPzFJMaCxni28KSWA1qdJf88B3BNZpkckITHIPCoh
-	 KkZzB4kXLBDry3iqhIgrM+IQPgQdLa6f1pP+eq1R4oAkPxZVWlMrXwRqEHg1yYZr22
-	 9/n+cUnD34acg==
-Date: Fri, 3 Jul 2026 16:51:43 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: Sneh Mankad <sneh.mankad@oss.qualcomm.com>
-Cc: Thomas Gleixner <tglx@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@oss.qualcomm.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2] arm64: Disallow disabling boot CPU based on config
-Message-ID: <20260703-competent-adaptable-coot-f8daaf@sudeepholla>
-References: <20260703-disable_boot_cpu_offline-v2-1-782d16ff58c3@oss.qualcomm.com>
+	Fri, 03 Jul 2026 15:52:18 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=XMld08bMrj/5BxIhUdTXXFeeU81HqtDvJUn7evivW0Tzc3Aj6rmuJbURFCCGMOjszYoG2BLKW3xlklNRclktjNO9Sk8X8Wt2RfwaXJqEbvqKuQNWXUvgnPG3lozZESQJRJAgBVophTF//FlhsfgmxLk+/02lpfDkKz1iieVbkGaTC1g9+xEgEEaUuKVRZA8atZzolrKLNNCMlmgZfvE3eTzT8rcmClBDj6/JFQFDkX95xJKIFJyxUdIvEEgO58/tNG7FcipUhKr6om2lxGsnJTwsoIYab2/pFmM8Jew7odR8Kggdy0h1OEgNcshTFuywl2t5k0CCInJAtyom97Pk/A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pvq4ZTKhaTZQ53GNsD599tKwpxxf3JS9e1zecB9mH4E=;
+ b=eNlPyiL9hPecRC6q+x4nfL1Csbo/CSx+8unNnIJRA/o5rYXUPy17rcSRGQSfYgqsWtn/qfWYh07qtUKcCGYKjrZDSXvp2FDKONTvqjh9a5+dhHzkIiSoGFDoz6PeiOThUvjB675C783dI/g8mlJ2i415q0WtTUV7MteAEXMrpxHmJGg2HeTqVSRb0GI96Qz2Q7IZHMjpVcdqQq/zR4CEWxywOIawa+CQlniFtUmfzNza56ubMg+x1pTvY5LjWvHjQsfqeHMe3HCf87kevROS5s7rM0MjB2Xq+n6SyuJGkVpTRJ5uewVMVEZDlxaKOsy4Ec7TXlnfkjztAURHRpZzJQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pvq4ZTKhaTZQ53GNsD599tKwpxxf3JS9e1zecB9mH4E=;
+ b=lsLlTw1/SO6XMCISmytXtFmDfyH6wxBw5XdYHzbwb0lLyZbkQgTN5KeBJM7UY7fiU7ed3+hqIRIf4kGNUfazrgSDySW2DPlo7HGlzQhqobhHxEBcKQQovP6hL5vTFvSnZ4OgB1yLXBxV/Jx2mZem9HCpXEKxG0AONioSRULjB3w=
+Received: from DUZPR01CA0112.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bb::11) by GV2PR08MB8365.eurprd08.prod.outlook.com
+ (2603:10a6:150:bd::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
+ 2026 15:52:08 +0000
+Received: from DU6PEPF0000B622.eurprd02.prod.outlook.com
+ (2603:10a6:10:4bb:cafe::1b) by DUZPR01CA0112.outlook.office365.com
+ (2603:10a6:10:4bb::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.11 via Frontend Transport; Fri, 3
+ Jul 2026 15:52:08 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000B622.mail.protection.outlook.com (10.167.8.139) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
+ via Frontend Transport; Fri, 3 Jul 2026 15:52:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HW5YcArX9oh4b0d2s62UJJCDH6T1J5woT9Wq97cauo96tywOQj0de8CjmoJOMcpdvs8Hjq4FmfgiM7rAT28cWupMV49tAMhiotS1lwUi2XOrd5My6Rhx8C8mo2oAUn3RS/M6L4AKfBumEh+H9FeR5BkMAD/TrIaEh+eAaLheEmN8ynFSzwGAUHk4NB7m4VI9eydZLtGutu7h/ufxy2aAIMlpPlWmZwufz9oeMZemFGz3mgUxIVsBUSyZV+SiVY/yQHrEvzq0d9bTOF+38GNlfrzBlB1Jq6slzAsU6r8Gc2gOtjcKcqF758EyiqbY5p5bvmomoUxQTaWyQmwdgHoybQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pvq4ZTKhaTZQ53GNsD599tKwpxxf3JS9e1zecB9mH4E=;
+ b=ek8J65YPqEsF1rZ1umH5zmEj2FafikeGD8O6lQ38StZCetg198J3ZUwbhbLSgYp6wzurfPkDLWcpzbVZjnhyErEFw5p5dfqDM9uyFTPcEP4LFfpI/Y9Vum8GtoJlqxE85lpQKzK/GiXhiuHfoO+bM2617RUZE2RSqfYS8/yACiOHMl6JAw+mC07Q5LZE3TiBxV/1oombUi6+GFodlsFX38pvK4D8qn52fLVwL6ESZ9R953WhFDfRG/qVj7znPwLBrzdJmeHcC7Pi9RuXjGJmzhTl8lisq6XTO3BkZg3D1joj97+nnt7wqqxp3FAgqjV6dc/CHdy2y7TSCfI3QRbTNA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pvq4ZTKhaTZQ53GNsD599tKwpxxf3JS9e1zecB9mH4E=;
+ b=lsLlTw1/SO6XMCISmytXtFmDfyH6wxBw5XdYHzbwb0lLyZbkQgTN5KeBJM7UY7fiU7ed3+hqIRIf4kGNUfazrgSDySW2DPlo7HGlzQhqobhHxEBcKQQovP6hL5vTFvSnZ4OgB1yLXBxV/Jx2mZem9HCpXEKxG0AONioSRULjB3w=
+Received: from DU2PR08MB7310.eurprd08.prod.outlook.com (2603:10a6:10:2e5::5)
+ by DB4PR08MB8055.eurprd08.prod.outlook.com (2603:10a6:10:388::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Fri, 3 Jul
+ 2026 15:51:03 +0000
+Received: from DU2PR08MB7310.eurprd08.prod.outlook.com
+ ([fe80::e007:b494:8a24:1fc0]) by DU2PR08MB7310.eurprd08.prod.outlook.com
+ ([fe80::e007:b494:8a24:1fc0%4]) with mapi id 15.21.0181.009; Fri, 3 Jul 2026
+ 15:51:03 +0000
+From: Sascha Bischoff <Sascha.Bischoff@arm.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "kvm@vger.kernel.org" <kvm@vger.kernel.org>
+CC: nd <nd@arm.com>, "maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, Joey Gouly
+	<Joey.Gouly@arm.com>, Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>, "peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: [PATCH v3 01/40] irqchip/gic-v5: Allow KVM setup without a
+ maintenance IRQ
+Thread-Topic: [PATCH v3 01/40] irqchip/gic-v5: Allow KVM setup without a
+ maintenance IRQ
+Thread-Index: AQHdCwPAaXwuP3H1AUGZkiZkxLYj6A==
+Date: Fri, 3 Jul 2026 15:51:03 +0000
+Message-ID: <20260703154811.3355680-2-sascha.bischoff@arm.com>
+References: <20260703154811.3355680-1-sascha.bischoff@arm.com>
+In-Reply-To: <20260703154811.3355680-1-sascha.bischoff@arm.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.34.1
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+x-ms-traffictypediagnostic: DU2PR08MB7310:EE_|DB4PR08MB8055:EE_|DU6PEPF0000B622:EE_|GV2PR08MB8365:EE_
+X-MS-Office365-Filtering-Correlation-Id: 168395ea-84bf-4284-1276-08ded91b0976
+x-checkrecipientrouted: true
+nodisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|23010399003|18002099003|5023799004|56012099006|22082099003|11063799006|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: HURtmarANXk5G/nnoMYsyHA/2df3XiOlrUTaQY1/UJ+adr+rn5v3F+V+e/PgtFsG6K4zBJw2wbXL0JRCzl5Z3BdrnjZ0ZK1X9Vggf+nVVQFifBzgE3m6uqICUrWsVnBVRSpPzBqula51le7QEb8IIJwYQLoCGoeVHKG0nBdZwympiZptHHuC6BJKNM9gTbmrpdVTsNkIGxhj6Pxnn6PLd9/yUs/cIa/4zQCunEyCveCyi9a5iw6NDCzfgHjnLEf1RvT7QZt9pC9h4MRco1LBiy1u1hQuG/CMCBril6zo2L429MW47+L46iuZU6papaF5Z2axJ5cxW3cLz2kwNq1mWhbHVNhlx1QYkYhLHSMLA9N+F0qQWC3lWPWhNTBIsKkNtXkj+GhPr44zKvtKxlUOZ8R2ePlyQxYIrBmMMWaZhQVRwA58B57HMqL01th7voZFlCmZdmlnbydGAOTib/UNPpIliwyEmKUzLBgD0Ia2lm41OV2eDaHS9orDw7kjjUW1oLLeMeUEIHzi0Wgk0ARXE7Kfgqopi+/Cqx7PCbLhzC/i1NtwvqCyMG8uxNUEC1kt90LMm6O234wKAt9zLHBWEjq9cZ7vwDq/OtTwMEfAvGIyk5MixPY8riNJNXwCkw7l3m0SrUXlfaFnwSa7sWzEydRFgXTJvjg/lMLQde7zAU8BTnPfDO271g3s0zrb2qhycUEL1ZoZAO5XfllJeZoc4BCg1cz8j0KABC4gwue937Y=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR08MB7310.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(23010399003)(18002099003)(5023799004)(56012099006)(22082099003)(11063799006)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260703-disable_boot_cpu_offline-v2-1-782d16ff58c3@oss.qualcomm.com>
+X-Exchange-RoutingPolicyChecked: WgjpwU8jkfUMTt+QpheuKdrVLGlpRk8k8ipV2RwZ1L+ygUJD8uTkoeNN5oHfcBa/1zSoatBkhxn9LNesNY7P5T2k5Ms4lNB50tGobQfyCGZi55L1YN0UEEoX90WUbpq8+Zbq9OztLSxxeopsObjJNF+QqcSA0+dQy4123zUAcujAAAfF1J2tf+pJp0xAYLXuzkvwIWpml2U0mJJkSlXejxLl2RkPkswcUD9nDFr0D8cre0qc22ibG0oRd1xEUhPEsVB3sgn6iRnH5m2RqvM7PWGTd88evJ750RXQD2g3eu/uZeh8Ukmb5Xi8iUpkSzZnaXl0PaRdS3E5NTFQ8/wSVg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR08MB8055
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B622.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: c5b9a844-1188-450c-4331-08ded91ae30c
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|35042699022|14060799003|23010399003|376014|11063799006|56012099006|5023799004|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info: XpfJwPKqqrGdeGPsFrDIOG/sQq4nm5jcSpFK1nRLjL3acbHPFcfpCK4obeSPkDfaO2GLQsN/ynW/crXxW/62Enm5zw22ValXoBGmGCr4+1Q+sjswebewNU/FiDlKm1MrjB8Pb5Z9qNysB695uE+fXfbyCrPSX36rQpMYWhWw5qVW8vpQfsu9IsAV6ZVZq/AXlphRPSute+UG4y2olXAExk7D/KMbcqxsTLDsJNUJdEwHNDANVSUU/5yi/NCNf5qZ+t6bH8PZ1qmqsbNSn+gh0GH+SXoD6oDrJZFGdJu7rwdNOzz0XhoNXOBxnvKTHJEioBg6MGEfJ6WHT7nyyAHxy1dEXGNZ+gB85HoJU50Zoobbdp5qh8U1vcCGzWzkxHoUl6wfIFGXCk5om9MEQIEPq8kF6ZapFvBvT2/gG1/5cbVuIVZZPkj/9ypH8/Wey2zIqLoh9/tV8XagMfa/Fl43bBQEchyLTr4osI3zRTzbE7HOWUJLIJm2lPhoai0QP2x/gaXErAlheQDe/SUdExkxxK4cP6L+wwBnC6bJj9ziS/pi6mi24zw8ES4BdcprbG5t3BkU1oPcTiy1bQGiONq6K72GHGPsoCvjdXUJexPwn49TaKEjTFHAPIz4T6ymiH1XGhp4SPDMTq5JdpCQ1gyWKKU+xXh9uprExbwYOQXF9Ea8QHiXAenkQuMp3AAwJUNZYQwulvSaN91JbLR/u3KLgQ==
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(35042699022)(14060799003)(23010399003)(376014)(11063799006)(56012099006)(5023799004)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: MVa/UVjY1tAorvfsAD84Ve/UdZQbYMFDCGVD/AsETBGdvo94h5vM+cXAsCC19h1aa6CHmyV72tuVMoKyGxgjpCihHT/9inGT+fpVzYtAtfHW/Qs/635EptwhSxusXIE/bzDUc727yhrfj3+8MOFzuY4VtFDSUZc1o4FQrCXxvDXAQm4fnSs6uSKnj5UufFHjgmiWmCmXiK5N4Pm0SvjmOOqolyhaknumYNn9JFbeodbK+/QaCKP4B9gwAIfoExf6QVuLxwVjP/v0oCB0uYUVlS3mIyHg1apSVFLQaPUNEXfZPbRAU0MQ0eEDWmzNejKj2ui08a5TBHc++Fp6Del4aOyKui86qmZIu/hu7xBF/ihzvuJi3xM0wdE/yYyE8OR3LF5KEd6/x8917SthYHdfS7BAygJja+KnEDBkQ+//BK5UHD6YbWnsZxLrPlUprYZh
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jul 2026 15:52:07.8286
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 168395ea-84bf-4284-1276-08ded91b0976
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B622.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB8365
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_085217_022481_F66BD1EB 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +163,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(It is always good to cc all PSCI maintainer for any ARM64 CPU
-hotpug/suspend related changes)
+GICv5 does not require a virtual CPU interface maintenance interrupt
+for native GCIE operation. The interrupt is only needed when
+FEAT_GCIE_LEGACY is present, as the legacy GICv3 interface still
+relies on maintenance IRQ delivery.
 
-On Fri, Jul 03, 2026 at 04:50:02PM +0530, Sneh Mankad wrote:
-> The Qualcomm SoCs like LeMans, Monaco support suspend to ram which leads
-> the SoC to ACPI S3 similar state where SoC is turned off and DDR is
-> retained. The hardware design on these SoCs forces a constraint to suspend
-> and resume the system on boot CPU / CPU0.
->
-And you fail to explain why they have that constraint.
+Stop rejecting KVM setup solely because the maintenance interrupt is
+absent. Parse the interrupt if present, but if none is described and
+the system does not advertise FEAT_GCIE_LEGACY, tell KVM that no
+maintenance interrupt is required.
 
-Is it because some secure context is not allowed to migrate ?
+This lets native GICv5 KVM support be registered on systems that do
+not provide a maintenance interrupt, while requiring a maintenance
+interrupt for GICv3-capable systems.
 
-We already have a mechanism for that in place and this hack is not at all
-required.
+Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+---
+ drivers/irqchip/irq-gic-v5.c | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
--- 
-Regards,
-Sudeep
+diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+index e9d1795235a66..c04523a438cee 100644
+--- a/drivers/irqchip/irq-gic-v5.c
++++ b/drivers/irqchip/irq-gic-v5.c
+@@ -1143,10 +1143,18 @@ static void __init gic_of_setup_kvm_info(struct dev=
+ice_node *node)
+ 	/* GIC Virtual CPU interface maintenance interrupt */
+ 	gic_v5_kvm_info.no_maint_irq_mask =3D false;
+ 	gic_v5_kvm_info.maint_irq =3D irq_of_parse_and_map(node, 0);
+-	if (!gic_v5_kvm_info.maint_irq) {
+-		pr_warn("cannot find GICv5 virtual CPU interface maintenance interrupt\n=
+");
+-		return;
+-	}
++
++	/*
++	 * We require an MI if we have legacy support, but don't, otherwise.
++	 * Given that there's an existing flag to convey that an MI isn't
++	 * needed, we (ab)use it to tell KVM that the MI isn't needed if we
++	 * don't support legacy.
++	 *
++	 * The check for ARM64_HAS_GICV5_LEGACY explicitly doesn't use
++	 * cpus_have_final_cap() here as we run too early.
++	 */
++	if (!cpus_have_cap(ARM64_HAS_GICV5_LEGACY) && !gic_v5_kvm_info.maint_irq)
++		gic_v5_kvm_info.no_maint_irq_mask =3D true;
+=20
+ 	vgic_set_kvm_info(&gic_v5_kvm_info);
+ }
+--=20
+2.34.1
 
