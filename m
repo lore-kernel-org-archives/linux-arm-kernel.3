@@ -4,103 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7154C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 21:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56C0EC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 21:08:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mRs+IJvtl+S/Pu16c/TYvy9/SL0ko1Fkla/ifix+DNU=; b=gXaBK1zO6fumgOtdJ9O7OBcefl
-	0b5T9dPcCu4VXRzZx7TXzMdV22yvwIut0mRxuim3oqeTS2D9N/LN414JgqwXowW2UrC2euif1xUYs
-	fV4GR3hwSVkfOBBmm7cTLRMR1lzzOX87Oohft1kIbkZamfCVH+fabbxcpC0xLZWtzNo6b4tUko9gg
-	6KaNSEu5VZzd2898EoZgbZJjl9ZO0cQVAb6dHOR5zlLLAlb7KaxnMFC75ZYYM0m52gWen0/BA/grF
-	Xv69LCGTAHM7yKTWeXGipP8k+mJ1JdkoJy2X63WpHcBgWIarV7+4nGxhnEhdhUUxCnznd3in9eOVr
-	o8NMgPWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dbyAPqpVVDj73MIxAp+O7++5oakcBtgyhfQ5MUfv9wA=; b=Osyw5x0i4uPb2DWS/FayOUEJ2T
+	4iP3VN6cbpHQe3rfDKEhH6sUf5extyLz+pMyRN4LHsxMqX5SAvQyGf/igXjpVBtzywHZLUL8YZlqS
+	Gk4QQOSC1r77usSbIbILW3aOTSM2YSFa/lGWrk5/CBUUHJ9mC/KduYVYuqoNGmcfO5gnsJ1w/Uk3K
+	Zs1dpGc2Ror4eATJNoOfO0ZBqVLpZa3OkOfuoa0zFsiRGdDJQ7vGhJp3MAPqemSYi7CFHdYgo12HF
+	fEKqcN2/bKhQir+SDRuW46x/wmRlaP57bkHG7LYSCtoCAcs5DdPxj3arkfoHz+d9bT3awmPTDonhb
+	p4U858Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkQM-00000007q7k-3Zrh;
-	Fri, 03 Jul 2026 20:23:46 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1wfl7m-00000007v4k-2aUO;
+	Fri, 03 Jul 2026 21:08:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfkQJ-00000007q6t-43lH
+	id 1wfl7l-00000007v4e-3nkF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 20:23:45 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-845e363246aso925290b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:23:43 -0700 (PDT)
-ARC-Seal: i=1; a=rsa-sha256; t=1783110223; cv=none;
-        d=google.com; s=arc-20260327;
-        b=Hyqtn8ed8NSboHAMnfi5PZkVVKHklsmZhkQYk66XwIZPpzGhS4/pgT4G97igHkG8f5
-         PuLXyNlNI9U4gTjLDJsTo11fCUlZfjgNLRkn1+vs6Vr8onz9a+TzW4ud4MuoetgZhegO
-         vEUoZOOjI10PyvZxwIjmZDBznHdWDRYUgSoSd9Indzh3TsrAVTaNWpEr7yv6v4G6rb7d
-         cpdATnwIVZbscyupS60GagPJM4EI1bprEaivTRvIie+KHJwZ/lzRarnxOGXfZUkHbWTd
-         P6LzB64r2bw4n3qhWM37iKD04AhCPFzizhLClugq7ticdIa8+mGqFvL3Bh0frQG4PeM4
-         aqKg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=mRs+IJvtl+S/Pu16c/TYvy9/SL0ko1Fkla/ifix+DNU=;
-        fh=pIcsAwgECnFWm+N9co0rcwKCy+B87kcd2fMCXvRb0d0=;
-        b=VVmRdCXrgg71fHu6Uf4vT6IQO1q5xz58KwbrGTzde+AdUUNxkHZiBCpdnp84ZVCSIi
-         tFfW4bxCqjSZ6CkHhAnDJezWD9EHwBfPDyY3ZKnx/qdMBtVp+oxh8QnmuvKVNTdpBebZ
-         Jz8AXubX4ZL8ge9ZvFZfzoG/jLJRzAbhYrSG9HbgpvxsQ2g6kQKF4Cf45OaB7s8KFIEl
-         hSwozGrRSZErC7ziIWWZMzEbWq4XmLB7swBieR2UmmJz+oWvXQcj1uOrENoT8NopUHMu
-         gNwjDJ0oEGMoym5in/lwCAWijKDTEkI6SSMzznNpQSpy15Vbnip9ML52BaW7/yEgucBV
-         7Png==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783110223; x=1783715023; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=mRs+IJvtl+S/Pu16c/TYvy9/SL0ko1Fkla/ifix+DNU=;
-        b=k3Iluaya8hJrN7cNlbmRU0xGKGa2o1waN5X1FTHdfKjpaujdg9g2dPw2sFA1NPMalg
-         d9f5zcK5UNnWIHwSEKZfu0VZkF5ezJlfZIKaKw7rmWy0XXveUCr7xcgaGUbvG+QO6dMQ
-         bPSqSi/MJ8kmoQi21lX1sdb7BEevkpSaETFLClDehOPvjX7T7CLTF/DxB4Je8P+d1hsQ
-         TmKLOx+VNpW8h98NJW1lXEYYJmCUoR8zSu2QRYhJBYhpQusfClY3Kb/jJCCBTrhmkKVW
-         gwQRhPFefg1Fs0+j7V0oS9SRruHIGk3wmONfIRabkopF+3tGOMBZCLtvHwOGpv4teW/U
-         NInw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783110223; x=1783715023;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mRs+IJvtl+S/Pu16c/TYvy9/SL0ko1Fkla/ifix+DNU=;
-        b=gGqLFx+qs0WafDe94kMRf/jji3Ll/8bpxY8UCl6sAwDrRCa8Kn9/esPMbYzvDl+tr9
-         uOehu5m+TDxn77hBhjmnMPUdD81hsGhA0rHbf9IlMhnSo/Wu+MJioQU994YAnGNL73/j
-         rfwVm7MDSKXgE7a+4gLWo3v/9TZ8n0gb9pmaTT2LQimhe5KK4gsQPWOiyTRvqjOBGN5S
-         w82Yp9rdRvhJiDJOq+Psuyh49xhYY/SM1gQS8vPP1ASQx2PmYpeeIW3frS037tvki5ML
-         OUekdbuJe/Zp6ho9d6p1ukEAopPWhm2ajHwDWb05uHQW+LD6QkLbXNE2lQ2O1bz1JryO
-         W/KA==
-X-Forwarded-Encrypted: i=1; AFNElJ9SskbiJlr6yecsHH3qVDw3d/fs1aGDR5FOwNAmkz55FJFE0WxIIK6cL32xIyRh/SOO4/I/chqD9lSTll/T+lRL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2/gQxKfxAwxvfCjasOVFqqdNWymwrT5zL4B/zfvomqEBYF8cj
-	XuT7VwgerwQy/5rkBc4mkKeALI0YcieXnlNN3hatWe8YCTEdEzZx2DLpCxxQdQ3OZM6E1oHOL2O
-	MdDfEINk9YRWAHFRGMI7IdotbFXJNGPo=
-X-Gm-Gg: AfdE7ck3PUehbI7dbG/q58yliz3bhDTipzZr99sthTXj4i/Zg5GgUjo+BCBNix/ztiq
-	tV9c/XmKKRXd3mJxUGa3HWGHk0R2McGHcjHADelNGIjCKPQUbUUohsCg0tVj5dgjE9DRXtsjZgx
-	tl85ByYshppr8LaR0mVdhkceqJq1hmYrCSUqvKZ7jBWyz/8a7JvrE6h7MMs7CqUw85gWiwSK7Ba
-	aPbqb6MGZI64S3tTUg3dKCCyo4XWMplV8wOpfupU68C6aCpq/mKIiUcV85Xw0sSUYmOvA1gYbEh
-	5v6mUnHVLiQ2kLQY4pOe7n3sp09tAHoat5uufvE+Gq2BDO5ygj3yseyasbe2nR8=
-X-Received: by 2002:a05:6a00:1f09:b0:847:80f5:c612 with SMTP id
- d2e1a72fcca58-847f6dac812mr791279b3a.15.1783110222915; Fri, 03 Jul 2026
- 13:23:42 -0700 (PDT)
+	Fri, 03 Jul 2026 21:08:37 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3CAD6600C8
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 21:08:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E89ED1F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Jul 2026 21:08:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783112916;
+	bh=dbyAPqpVVDj73MIxAp+O7++5oakcBtgyhfQ5MUfv9wA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=EGXs2KfkB6nffTeSTIc7TeXdSbtG5TyfFfi8HXXIRrPak5FSAKTk7rkk7I577+6EA
+	 XAkMgJxpdzqmXZkmnNsGvx2N9WGScxDCphG6OYj2t6ThZH9EcQ8f5fjcZTP8j1sLXW
+	 TOrnfpT+XU470zk2ZLlFlagIJYPh4fD+yUzKtE57X3R0L6OiITaWOOjedzDTL6r7Eb
+	 FSZWQxseQkMVZnLRwT1paLKKO+6OSBQVd7P1TOKt50YNnOjMxqpVCsW3iyHvPcRWHv
+	 h57mspi005fZDuk2+rZ+jVqmON8FCpvMMcw6+i+YvG0iQZj2aE5j2kirc23Snsg6Fk
+	 5TqHhW+WxPnXw==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5aeb78090edso797694e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 14:08:36 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Rrf1283jajJ+bLmSCbguc3nvGjFzc5iBreUxFESDWQMFcPX2Pq9lCTZ9drVKMFF21rdTFFeS+UVyknDnncBWTTg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAkYIUX/zaZ1ZMObzGV51/c5ZZsOh9lPsFKQifa2WDJ1M9eVzT
+	xEKIaG1SEXbNvBlLTSLjsMNal073NBLhdRYX5a3MequwCwe056eI8QyerD7bbiXHHEZtff9TD1e
+	UPa9mvOIzf/VlbBbIe9vYJKu5+oc5rA4=
+X-Received: by 2002:a05:6512:8348:b0:5ae:c62b:fc60 with SMTP id
+ 2adb3069b0e04-5aed50bb897mr70686e87.54.1783112915808; Fri, 03 Jul 2026
+ 14:08:35 -0700 (PDT)
 MIME-Version: 1.0
-References: <20260703-nanopi-m6-v1-0-8344a1559519@gmail.com> <DJOWHH5K7P76.3JPJVO47K1SZE@cknow-tech.com>
-In-Reply-To: <DJOWHH5K7P76.3JPJVO47K1SZE@cknow-tech.com>
-From: Joachim Eastwood <joachim.eastwood@gmail.com>
-Date: Fri, 3 Jul 2026 22:23:32 +0200
-X-Gm-Features: AVVi8CckAXJDSb96QzP_ICWB4DkiCnysZhniMzHMp6xtZ-2xIzGSQUlvFXbFqdo
-Message-ID: <CAPSPb=tZ1FenNfEM5P+DWcksKvpQjyQQjAWTRdyxb7=YYxY_rw@mail.gmail.com>
-Subject: Re: [PATCH 00/12] arm64: dts: rockchip: Add NanoPi M6 board
-To: Diederik de Haas <diederik@cknow-tech.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20260701-gpio-nomadik-silent-v1-0-644d10316cef@bootlin.com>
+ <20260701-gpio-nomadik-silent-v1-5-644d10316cef@bootlin.com>
+ <CAD++jLmmHXBC9ni0pcVoB2HNK+osBzgirxH7vLHZaANmoe-tpQ@mail.gmail.com> <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
+In-Reply-To: <DJNY3N48KALQ.1JASSQTBU3GTN@bootlin.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Fri, 3 Jul 2026 23:08:23 +0200
+X-Gmail-Original-Message-ID: <CAD++jLn1SASRCLjSGsf7JMP9Oo=ij43iM6K8g=wWtZf__Xe3kA@mail.gmail.com>
+X-Gm-Features: AVVi8CfoqwVpbv66dchFn3mu55vZSee6bMlCDU3AfTg-A0SyKBJyg13dDtshHOM
+Message-ID: <CAD++jLn1SASRCLjSGsf7JMP9Oo=ij43iM6K8g=wWtZf__Xe3kA@mail.gmail.com>
+Subject: Re: [PATCH 5/5] gpio: nomadik: drop "chip registered" log on probe success
+To: =?UTF-8?B?VGjDqW8gTGVicnVu?= <theo.lebrun@bootlin.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+	Gregory CLEMENT <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
+	Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_132344_014151_DF2AE0A7 
-X-CRM114-Status: GOOD (  22.33  )
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,55 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Diederik,
+On Thu, Jul 2, 2026 at 10:34=E2=80=AFAM Th=C3=A9o Lebrun <theo.lebrun@bootl=
+in.com> wrote:
 
-On Fri, 3 Jul 2026 at 13:30, Diederik de Haas <diederik@cknow-tech.com> wrote:
+> > I actually don't generally agree, but you are using this driver more th=
+an
+> > me now so let's go with your minimalist dmesg style for this driver.
 >
-> On Fri Jul 3, 2026 at 12:07 AM CEST, Joachim Eastwood via B4 Relay wrote:
-> > This patch series add support for the NanoPi M6. This board is very
-> > similar to the NanoPi R6C and R6S boards which are already supported.
-> >
-> > Main differences:
-> > * M.2 M-key slot with PCIe (Also present on R6C)
-> > * M.2 E-key slot with PCIe and USB (from hub)
-> > * 1 additional USB 2.0 port from an on-board USB hub
-> > * RT5616 audio CODEC
+> I get from where you stand, but the info level is somewhat strong.
+> Documentation/process/coding-style.rst agrees ("When drivers are
+> working properly they are quiet").
 >
-> This seems to be the M6 (2405 aka 'V1')?
-Yes, correct. This patch set is for the original M6 board. V1 if you like.
+> If you like this log line we can turn it into a lower debug level?
 
-> Because there is now also a M6V2 (2603), which uses an ES8389 CODEC:
-> https://www.friendlyelec.com/index.php?route=product/product&path=69&product_id=319
-I did notice there was a new version, but I hadn't given it much thought.
+My actual preference for the record is not simple.
 
-> Is it useful to already take the 2 M6 variants into account with this patch set?
-Yes, I think you are right.
+I prefer noisy talkative dmesg when the platform/system is new,
+and new stuff is being added to the kernel in every release in
+large chunks.
 
-How about this setup:
-rk3588s-nanopi-m6.dtsi
-rk3588s-nanopi-m6v1.dts
-rk3588s-nanopi-m6v2.dts
-This mimics the setup for the R6 series boards with rk3588s-nanopi-r6.dtsi
-and rk3588s-nanopi-r6[cs].dts.
+This is when things could go missing and cause regressions
+and it's nice to see a "hello world" in dmesg.
 
-Note that I will not make the v2 board part of this patchset since I
-am unable to
-test it. But as you said we can take it into account now.
+As the platform matures and get full support in the kernel,
+these can be dropped gradually, because the driver can be
+trusted to probe properly.
 
-If you have no objections I will integrate this setup into versions 2
-of this patch set.
-Thanks for the feedback!
+So, not a simple yes/no position at all.
 
-> https://wiki.friendlyelec.com/wiki/index.php/NanoPi_M6#Schematic.2C_PCB_CAD_File
-> https://wiki.friendlyelec.com/wiki/index.php/NanoPi_M6V2#Schematic.2C_PCB_CAD_File
-I did a quick comparison of the schematics and noticed the following
-differences:
-* New CODEC; ES8389
-* A new "User" button connected to a gpio line.
-* Different USB 2.0 hub: CH334P (may not be relevant for DT)
-* Different USB PD power solution (not relevant for DT)
-
-
-best regards,
-Joachim Eastwood
+Yours,
+Linus Walleij
 
