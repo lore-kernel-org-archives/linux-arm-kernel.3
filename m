@@ -4,64 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37ABDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:53:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66C48C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 13:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SYg5rG2HPKPWthdUihGR59FRhOsM4oileXM6pJLxo/c=; b=l0UbE3mh85BBGWIjXkat/KG3o7
-	n7lNqB8V9fGALLepPCyiMWC1PWjNe/nnspu73nIrWGIELmuzslXsdL2RHI70hTCyTpdOCVksPXTXz
-	SE0M5nwZ6agL1QcPx4LFIRGjUsFtHnuKMVBGCyPmspxSTXw97uWcWrTTdMMcXr+/uDHBVbXCQHoxZ
-	lpty/b8sNA2fWP2elc7D3nPdBD0Xd3ZjobeuBwhxq99N1VfMWD6A4xqI3Ykx0b7RXO4ZutKUpEOk4
-	8ORtdOSjD5lTImO3MtF1DkFSRCwsH2TY6AZHmodODZAM7TtDpZtwL0gGd8F7OnMSW5xiQ6XOZ1/PO
-	mxUjmFjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A2ITQjqnGvmrPumq1Lg0UMR0KWK9aB/bRTHDo6yM0WA=; b=OA4w/lCbY1MTyx115N/zaHt7YL
+	dHEUV8VfhMNTsN86g3thE+ftqS2tGgrt6JzUn+zhnN0cqTtofP93bxF4JPx0gZ5xnRdjFxOw8ILAr
+	sNG3We5piE+KJq2cGUvj0cmrAAKORtLZCLR1PKMgBl4rA75JtbbhpArQrwHBHnADOz0430lTSYLo8
+	TT3iygoebZhTJhXAq79/m3xtYoYEOtmE0okn5ChRPUuwX+MCIjRMymTB595PbGMFqmrUT09cEj+qc
+	WdgByEsiHpgeLdaSvNmNn/cCZCEDJnUJiRWCnc3j3fJKUjSMbRInjyWT7+q5SaIpokEa9Hfq6CnJf
+	Egny7OkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeKD-00000007AS2-1PPa;
-	Fri, 03 Jul 2026 13:53:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfeKB-00000007ART-2QAx
+	id 1wfeMZ-00000007Ao7-3UFm;
+	Fri, 03 Jul 2026 13:55:27 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfeMX-00000007AmK-1D8C
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 13:53:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A3801570;
-	Fri,  3 Jul 2026 06:52:54 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C78843F85F;
-	Fri,  3 Jul 2026 06:52:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783086778; bh=Me6gmkaDjGZ/schb+RcR4K/Q/82u1DCsmp9vVOmmDmM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=fZrIn5XfQIvAcd0b69t8CmMai85U02ASBX0X/4as/KCW8Jodcldpa/pH5V10eQgHq
-	 9auHzyf8i2oM6zFGh8cV2I8qCTmcq5p4qHfBFzB7TbCG+cdRRlSNnjHTJTsDmbUhWf
-	 7RPvEds2OQQYqzxgTEbpq8Efep2fU3R2hTVIuI/k=
-Message-ID: <72ccedfb-742c-4af7-8439-0f37fff2853d@arm.com>
-Date: Fri, 3 Jul 2026 15:52:38 +0200
+	Fri, 03 Jul 2026 13:55:26 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 663BNeBS2994867
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Jul 2026 13:55:23 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=A2ITQjqnGvmrPumq1Lg0UMR0
+	KWK9aB/bRTHDo6yM0WA=; b=WjRsnbQEoSG7b92R0ZHl5mxPd1UIQKYnvZMVzomx
+	MzHsDMeryy5x6TXfxX0Tv8dq//hHUNGrc2b9/t9ZHQpa0LFvZu7Es/oKlZGSXnvL
+	ZDXje4lzvun+y49QVm6VJXIyqpDUe+cez/zFSYIE0F3EYFFXCBhmsFuJFzFv+i4o
+	n427a128BNFRHaYQevpHlf2skfYMLhKdi9gWmNClTd1WRlU4f8HpbPYwVbNG1jvE
+	BEKoq4hV8T/gHHQ5Znz7eMQpMEXm9rGhJgjDF4EMmiWxUxn7EwvQvl6oRfns81kA
+	OPuzlDpG6yJiqKh38J3u4O/RtD1gl4+of15QEPjoV4sj2w==
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f648n2nrg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 13:55:23 +0000 (GMT)
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5954c5fbcc7so465519e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Jul 2026 06:55:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783086923; x=1783691723; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=A2ITQjqnGvmrPumq1Lg0UMR0KWK9aB/bRTHDo6yM0WA=;
+        b=Wm0WuLcMrCISeZqqmmye1qel0+CK0oaXu74JfD38jvTigKQRBPHN6TSWuc31j3d4sr
+         Z/ZPhJucDKw/avgVwUt0SsSyqlJ0w3cHySUZ21tcBgXITdt3W2sEuuHPk6jLq0Uklm+r
+         vRwjNU7sTL74F4Lb1zgLiyD4BQO0Sw1tZAV88L48GYel1eUBY+LmkBcvKgWcURpEretr
+         ytR0thMn3kHjlSohMBDdrG7/CNYAdvZhc6UEWdNu74XP1Q0ML2bIEY/4HVvnproNc2hk
+         2s4Or6VMWpK+7jElpBzQtDXxxu99oGNjsSKc+Mqr63mi0Z8f0J5sVePW4iR8McKGD0cK
+         B7pA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783086923; x=1783691723;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=A2ITQjqnGvmrPumq1Lg0UMR0KWK9aB/bRTHDo6yM0WA=;
+        b=M4L2nUEKN9bT60m6L+aSOpRfIxUvtrJNE4SnLr39NFj84BIBapAhqbMJVns1oeVvQy
+         VJPVkGxQ5/doaFiW1PWTuE6939h0sXy8NvIEVsCqkFNCw+Hl0TLPYJo4HS/oDQt9UfpM
+         BsywRnzTaR2DSJipd8z7nZoJYlMbnJ5rTdJ6doNK1vBd7uSDfN8bGxJrv1ClHM6v6v8n
+         Ubf5oWFiXHwljbsHWJ6Gw+nB+9NiF/B8fdfr2eq+lusTGwY6UtJ2OKJAHJKAfVVqnSJf
+         uee4Kwoea6rwrvzxpdAW0M5GQMp6Bqw/i5E7zCJCJzmiTBfXkE7KaNOz0j+Sv0seIE1J
+         Fcvw==
+X-Forwarded-Encrypted: i=1; AHgh+RpMAJhd5IVbt9zNyyroofGHF2ZutW0elTVUP+gVyHLdjg+xcL8/bf7GVubuXJF0hS/Zk/A/t3Ussl+h+y2WEvMp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRkCwHqbWv3RAQdWq43CNf4VAJvF44k0hibkwlKv7Z0tcXNMRU
+	fKUGQLc4EFWe0zCpHBvGwcJruYnw5T8lfG23KQqzhvYVZipkAfAgarueCMX6MUTNBStMlgLXCJx
+	JhhdJf1JTUvYxQQL8pOvkXqOBZd9jNLAxwhZBUorP6Pi31fh1CH5DFThPjXiBRcy2GGqjts5NxH
+	YxZQ==
+X-Gm-Gg: AfdE7cl+BT/iRraNSYwXmBvMuLySLKiV6ZnvLIpbiu6HrQ1BsUJ1L/ZdGdvRVSXwod0
+	9UcvUJdOPNMYgxx8QwteyhdCG/kHvOJv9J1mL/cgoIOH4BDKwd2jQEZywD7gsq9Knv11sDec7c8
+	zafefd6NMgHO7DRvzWB+qxqErQBxkPGIuhHSlHrKFYoAgiTKZKaGfKgu7Wdgmx02xM8IKF9mD9S
+	k/rd4RJ0ZtvXeagWp+iFoOaOYz8+oUy2MQbeOJUt6+wIysm+1hOwQIxvmR6yXAAHCv9V+RkLM8V
+	iEJJRH7+aUJ41ByDQbAN1z3iu5uoAyG3CffMjY9FJya7wCZUcayXozbXXQKQRawwQ84pTZbYDUU
+	bt5yieiKc0DJi8Wp8+hBu8s/7TKghwG3qUgTymhIMvY3MeyQEB8CXWdqVpe074FDtlxxASiACLA
+	3R9F1IKa+Ku6ZWAinaUYNU2y4M
+X-Received: by 2002:a05:6122:1785:b0:5a2:5669:d6d7 with SMTP id 71dfb90a1353d-5bddf66e951mr3967951e0c.9.1783086922951;
+        Fri, 03 Jul 2026 06:55:22 -0700 (PDT)
+X-Received: by 2002:a05:6122:1785:b0:5a2:5669:d6d7 with SMTP id 71dfb90a1353d-5bddf66e951mr3967937e0c.9.1783086922479;
+        Fri, 03 Jul 2026 06:55:22 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aed13bfde7sm487894e87.56.2026.07.03.06.55.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Jul 2026 06:55:21 -0700 (PDT)
+Date: Fri, 3 Jul 2026 16:55:19 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Luca Ceresoli <luca.ceresoli@bootlin.com>,
+        Sandy Huang <hjc@rock-chips.com>,
+        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Daniel Stone <daniels@collabora.com>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+        kernel@collabora.com, dri-devel@lists.freedesktop.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 01/39] video/hdmi: Introduce HDMI version enum
+Message-ID: <vnledtvhanfj7owf6wbu35up55jv7vsb5qvd5vmv6cgzfo4pox@dbvfatear4vx>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-1-d79890d00b6a@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] pinctrl: sunxi: convert to GPIO_GENERIC
-To: Bartosz Golaszewski <brgl@kernel.org>, Linus Walleij <linusw@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>
-Cc: linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
- Icenowy Zheng <uwu@icenowy.me>, Jerome Brunet <jbrunet@baylibre.com>
-References: <20260313000652.11470-1-andre.przywara@arm.com>
- <a4cfb10e4701da0649ef648136496a962be5870d.camel@icenowy.me>
- <20260315014205.471d6834@ryzen.lan>
- <CAMRc=MeorQJvA8TBosjnDU+x-FD6GhkbXwXOjCD0nmCs16ERfQ@mail.gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <CAMRc=MeorQJvA8TBosjnDU+x-FD6GhkbXwXOjCD0nmCs16ERfQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-1-d79890d00b6a@collabora.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzAzMDEzNyBTYWx0ZWRfX4GaAInDytpnb
+ YCi6DEuPDtBHO7AMKLd7B5PlGxSUvr+h3DJJfliKuWjiZlq/QoFtjRzYzEnCVSMwgkFWS1Egl46
+ sKeKLYTmbd912OXK7ulcDA1jIcwNl34=
+X-Proofpoint-ORIG-GUID: 51C8FtnKENjFBuLPRqCLUoVM5ZkMU0Fp
+X-Authority-Analysis: v=2.4 cv=O4wJeh9W c=1 sm=1 tr=0 ts=6a47bf4b cx=c_pps
+ a=+D9SDfe9YZWTjADjLiQY5g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=QX4gbG5DAAAA:8
+ a=EUspDBNiAAAA:8 a=VFBjkeCnKAITTyYkkK0A:9 a=CjuIK1q_8ugA:10
+ a=vmgOmaN-Xu0dpDh8OwbV:22 a=AbAUZ8qAyYyZVLSsDulk:22
+X-Proofpoint-GUID: 51C8FtnKENjFBuLPRqCLUoVM5ZkMU0Fp
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzAzMDEzNyBTYWx0ZWRfX36Vm9b7zIWss
+ uAPay0aDxSNLE6jZH+kVb3h0XdEaDVeXwK6dHRRQTixPY/ZR8PedpaXnngCJq7iklxaDQrQinyh
+ 33+kr81GYk9KAI756SZPgxoVaY9R7NXtfC4apWQd1CB9DrHnpraiC1lF81+YSFsWYEezTclM9I5
+ Tlg+miSvfBGIhZjYRwzEnL2Ugd7RX4cXeTKvgDi6yNqhyqog/9SFk6PzHqC5/uceqnZcGVqG7Cs
+ OEEUmgRneBVqIis4aLaymkuzMZRh8sDrwqOdEmb2qz1Rca9ZAtA5opjum1Dp/uAsN/nHEUtYzGx
+ zGbNpU2ikQiGjVGvOrs7ryglL6gM0VJgaVwTfQunj2IzNMxqciTE5obvJRLSxUsp9hLiUjIj8sF
+ YLc1iXjFYvP4zzPaU+tkBHhiCiGU7s6D9KL9IylgJd9Lb683Bf/482vaEAQ/IFFnvQdlnR6vyrt
+ OfksX1dELC62yZI8FXg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-03_02,2026-06-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 priorityscore=1501 bulkscore=0 clxscore=1015 phishscore=0
+ suspectscore=0 malwarescore=0 spamscore=0 adultscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607030137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_065259_709136_320D98C3 
-X-CRM114-Status: GOOD (  28.42  )
+X-CRM114-CacheID: sfid-20260703_065525_437294_64E65AFF 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,104 +164,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz, Linus,
-
-so I wanted to come back to this, posting a A733 v2, with this patch 
-included, and was wondering what the consensus on this matter would be?
-
-...
-
-On 3/16/26 09:57, Bartosz Golaszewski wrote:
-> On Sun, 15 Mar 2026 01:42:05 +0100, Andre Przywara
-> <andre.przywara@arm.com> said:
->> On Sat, 14 Mar 2026 13:14:25 +0800
->> Icenowy Zheng <uwu@icenowy.me> wrote:
->>
->>> 在 2026-03-13五的 01:06 +0100，Andre Przywara写道：
->>>> Allwinner SoCs combine pinmuxing and GPIO control in one device/MMIO
->>>> register frame. So far we were instantiating one GPIO chip per
->>>> pinctrl
->>>> device, which covers multiple banks of up to 32 GPIO pins per bank.
->>>> The
->>>> GPIO numbers were set to match the absolute pin numbers, even across
->>>> the
->>>> typically two instances of the pinctrl device.
->>>>
->>>> Convert the GPIO part of the sunxi pinctrl over to use the
->>>> gpio_generic
->>>> framework. This alone allows to remove some sunxi specific code,
->>>> which
->>>> is replaced with the existing generic code. This will become even
->>>> more
->>>> useful with the upcoming A733 support, which adds set and clear
->>>> registers for the output.
->>>> As a side effect this also changes the GPIO device and number
->>>> allocation: Each bank is now represented by its own gpio_chip, with
->>>> only
->>>> as many pins as there are actually implemented. The numbering is left
->>>> up
->>>
->>> Ah, is this a userspace API break?
-
-So to summarise: yes, the user visible number in /sys/class/gpio would 
-change. For a start, there would be up to a dozen gpiochip's now, 
-instead of the just two before. But at the moment they are somewhat 
-inconsistently named: the current labels are just <addr>.pinctrl, you 
-would need to know that 300b000 is the primary controller. This is of 
-course SoC specific, and DOES differ between generations of Allwinner 
-chips. With this patch we get the bank number appended to the label, so 
-it becomes something like: 300b000.pinctrl-PD, which is grep-able even.
-
-As for users being affected by this change: that's hard to say, there 
-seem to be a lot of silent users there (not being visible in mainline 
-discussions), also a lot of people using these boards in a very embedded 
-way. My hunch is that still quite some people use the sysfs interface, 
-because it's so convenient to use from the shell, and many compile their 
-own kernels. At the same time I am sure those people could adapt to any 
-new scheme.
-
->> Was that ever a guaranteed user space API? Or just something
->> that everyone relied on because it was always the same (until it
->> wasn't)? Similar to /dev/mmcblk0 being the SD card?
-
-
->> And ignoring the ill-fated old-style sysfs interface for now, how does
->> this work with libgpiod? Would it still use the absolute pin numbers?
->>
->> I mean looking at that warning about the forced GPIO numbering we
->> get, using base = -1 seems to be the recommended way?
->>
+On Thu, Jul 02, 2026 at 05:46:14PM +0300, Cristian Ciocaltea wrote:
+> Add an enum to represent HDMI specification versions.  This will be used
+> by upcoming changes to associate HDMI connectors and bridges with a
+> maximum supported version and to simplify handling of version-dependent
+> features.
 > 
-> My view is this: for libgpiod, there are no absolute GPIO numbers and the
-> ordering of GPIO chip character devices is not guaranteed.
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  include/linux/hdmi.h | 12 ++++++++++++
+>  1 file changed, 12 insertions(+)
 > 
-> For sysfs: userspace may rightfully expect the global numbering to stay the
-> same. I don't like it but this is the kernel policy.
 
-Does it matter anyhow that this interface is deprecated, and even hidden 
-behind CONFIG_EXPERT?
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-> Here however, there's another thing: the fact that a single GPIO chips is now
-> split into several. I don't mind it but if someone complains, it would have
-> to be reverted.
 
-Who would care, and are there other effects outside of the sysfs 
-numbering? I mean we always had two GPIO chips before (because of two 
-instances of pinctrl IP in most Allwinner SoCs), one with one or two 
-banks, one with up to 11. Now it's at least consistently one bank per 
-chip, without gaps.
-
-So personally I am leaning towards doing the change: most users can 
-typically adapt - or they don't care because they don't update their 
-kernels (beyond stable revisions). And to address the naming 
-ambiguities, we could push for more gpio-line-names. That would make 
-finding a GPIO much safer and easier, and works either way.
-
-But if this patch's ABI breakage is a showstopper, I would need to know, 
-so that I can rebase the A733 pinctrl patches without this one being the 
-first patch in the series.
-
-Cheers,
-Andre
-
+-- 
+With best wishes
+Dmitry
 
