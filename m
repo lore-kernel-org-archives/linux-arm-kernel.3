@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DD1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:42:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBD17C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 08:44:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46uAHiHZLf4qr6sshFmprJq0bXtFIUciq41XYjGyH64=; b=JR6FksuCj6OgKIr9Rt/50rTaVp
-	0nvK62Jn8HROcYEbFB459WBklAOf+lwezDkqVU/ANK4lXt0zULm2WQJ8xHeK949ayoB670cWc+dnr
-	FjJ1vu2pmeymITUyayvPsAOdo8DP1dTT6FIk2E6iNtD5k+6A7gmClppMv5CISaOAmatQoizNsO1We
-	0/qfnWs2Hz6/esQtEZYVk8GSRl7/xz4QfCa+OzEmy3tjdAQNgqcsj/l6GqwMbPy1oEQa20mCDWVjO
-	qwjICNEV9R7BaM4TrigQxnHVp/UOqWPJrozpcKGqD5SoaxZEWqfxS+FfmZkqCtJFx4ns4ioRqoyXv
-	xPEu1y+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xbiv26FHbfLf0wVsvdHwVvR9Wk+crDjoJ+R6NvqGcgM=; b=u5lB+SeV8XVmyqcRy8TPG/Bgaw
+	aHMPkBcFi108lc0hEvQ7l54af5flFU0/OP9OgjSRqWobxYdbnqxVSgNm/JiCKHaQz8Wa5uiO7o17a
+	Qa53gpD85axhZOSuGod3zJaVh8+0IXG3Pz3gLSmxpMLUFsHi0Fcigwh55ZfQJgkDqfywAo+fWptP9
+	nvBdgZN6cPk5Sfn7TfQSGMANEb478i5x4YSgbDv6JpME3Xmb+EcBg6IBa8lhhgRdxjcMazHUuf/0q
+	AhJ0Zk0i7pRqoD15qmdqkf2Fxz348ccFHGayZvqy05qJqC5k03nA5WFcyC31zVRerUAqSIpdgDM/c
+	+a5wqABw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZTg-00000006Nei-17EV;
-	Fri, 03 Jul 2026 08:42:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfZTe-00000006NeJ-13V3
+	id 1wfZVg-00000006Npu-3Clh;
+	Fri, 03 Jul 2026 08:44:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfZVe-00000006Nph-3pOl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 08:42:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3FE8F1F60;
-	Fri,  3 Jul 2026 01:42:20 -0700 (PDT)
-Received: from [10.211.55.3] (unknown [10.57.73.238])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A2B93F905;
-	Fri,  3 Jul 2026 01:42:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783068144; bh=qPN+0EoXG8L0C7DiygFnkIw7nf3VUC+KuOM6KpifZ7o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XaKFecEsN7h+h2apNY8Z5g5/vb6bQ8rBudcHUdrG+LIyv62g4MFnziVs7rErL/mOH
-	 JIv2BmjgLfeoUjXKH5MdWvdQ3zmKcxHfRIZSgjQo7wtUdTrp05GtUza/5xKeoDWO+K
-	 G2meiIX+/C8s2tppnOtBnTkhwI0ddASocLXfKZiM=
-Message-ID: <a628a34f-fd1a-4bd1-ba45-73d49922cc13@arm.com>
-Date: Wed, 1 Jul 2026 21:00:56 +0100
+	Fri, 03 Jul 2026 08:44:31 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0073160051;
+	Fri,  3 Jul 2026 08:44:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8679B1F000E9;
+	Fri,  3 Jul 2026 08:44:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783068269;
+	bh=Xbiv26FHbfLf0wVsvdHwVvR9Wk+crDjoJ+R6NvqGcgM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=SsfpiLy9yFYoaVhOKrn3YF4pqDQ6u3afASgqNCHEaDaoz8Bs8/vPhCPQL26k/4z9Y
+	 8YQufP6hG5gyCyWEHKO1cyrMbelALLjg+mUkS2Sncr9TeEq0cMcSYxaPDirWrUNfq9
+	 Usftl62Kgewx0Cr3QRURS0OOcksnaI/A1kKkv1OaIzqJDBC9TBACAAsW/c6haJxd6n
+	 L28DgRLNKneBBViOw7tpWdFb0LM0v1RfqPpFaQ5fnu0/Cwf+01ZphnInFCIeXpI1pP
+	 H89s8f8qSa6xy0o10kHlUwaifghXpuSx+9F17r6mZqZAscnOhPBlCIIlZrTch1V9R9
+	 cqtbIAy04/tuQ==
+Date: Fri, 3 Jul 2026 01:44:28 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Carlos =?iso-8859-1?Q?L=F3pez?= <clopez@suse.de>
+Cc: kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v2] KVM: arm64: vgic: Fix race between LPI release and
+ re-registration
+Message-ID: <akd2bIjF34e3m6TQ@kernel.org>
+References: <20260703021508.2593100-2-clopez@suse.de>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v2 03/15] arm_mpam: propagate MSC read errors for hw_probe
- functions
-To: Andre Przywara <andre.przywara@arm.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- James Morse <james.morse@arm.com>,
- Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
-Cc: Jonathan Cameron <jic23@kernel.org>,
- Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
- Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
- Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
- Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260702162229.4008659-1-andre.przywara@arm.com>
- <20260702162229.4008659-4-andre.przywara@arm.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <20260702162229.4008659-4-andre.przywara@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260703_014226_392331_D2776074 
-X-CRM114-Status: GOOD (  21.30  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260703021508.2593100-2-clopez@suse.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,200 +76,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andre,
+Hi Carlos,
 
-On 7/2/26 17:22, Andre Przywara wrote:
-> Allow the functions probing for MSC hardware and features to return an
-> error, and propagate read errors from the lower level up.
+Thanks for reporting this ugly bug.
+
+On Fri, Jul 03, 2026 at 04:15:08AM +0200, Carlos López wrote:
+> To fix the direct release path, move the reference count drop inside
+> the xarray lock, making sure that vgic_add_lpi() never encounters the
+> to-be-released LPI.
+
+As Sashiko pointed out, this is going to massively regress performance
+of LPI injection. I don't think this is going to be a viable option.
+
+> To fix the deferred release path, since the refcount drop must happen
+> under a raw spinlock, the same solution does not work. Instead, update
+> vgic_add_lpi(), so that if it evicts a non-NULL refcount=0 LPI from the
+> xarray, it takes on the responsibility of releasing it. If this happens,
+> vgic_release_deleted_lpis() will iterate the xarray normally and will
+> simply not find the already released structure.
 > 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Reported-by: Claude:claude-opus-4-6
+> Fixes: 3a08a6ca7c37 ("KVM: arm64: vgic-v3: Use bare refcount for VGIC LPIs")
+> Fixes: d54594accf73 ("KVM: arm64: vgic-v3: Erase LPIs from xarray outside of raw spinlocks")
+> Signed-off-by: Carlos López <clopez@suse.de>
 > ---
->  drivers/resctrl/mpam_devices.c | 62 ++++++++++++++++++++++++----------
->  1 file changed, 44 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index ce8738adb6ff..011d1e3544d7 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -800,20 +800,22 @@ static bool mpam_ris_hw_probe_csu_nrdy(struct mpam_msc_ris *ris)
->  	mpam_write_monsel_reg(msc, CFG_CSU_CTL, ctl_val);
->  
->  	_mpam_write_monsel_reg(msc, MSMON_CSU, MSMON___NRDY);
-> -	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
-> +	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
-> +		return false;
+> v2:
+> * Address Sashiko's review. Fix the direct release path by decrementing the
+>   refcount under the xarray spinlock, preventing a UAF that would have been
+>   introduced in v1.
 
-This early return leaves the mon_sel lock held.
+So I actually agree with your approach in v1, vgic_release_lpi_locked()
+should do an __xa_cmpxchg() to only erase if the to-be-deleted IRQ that
+it owns remains in the xarray.
 
->  	can_set = now & MSMON___NRDY;
+I believe the UAF could've been avoided by unconditionally calling
+kfree_rcu() in vgic_release_lpi_locked() and not attempting to cleanup
+dead LPIs in vgic_add_lpi(). IOW, whoever takes the refcount of an LPI
+to 0 always has the responsibility of freeing it.
 
-As you're adding early returns to this function does it make sense to
-return early if can_set is false?
+Maybe below would be enough?
 
 Thanks,
+Oliver
 
-Ben
-
->  
->  	_mpam_write_monsel_reg(msc, MSMON_CSU, 0);
->  	/* Configuration change to try and coax hardware into setting nrdy */
->  	mpam_write_monsel_reg(msc, CFG_CSU_FLT, 0x1);
-> -	_mpam_read_monsel_reg(msc, MSMON_CSU, &now);
-> +	if (_mpam_read_monsel_reg(msc, MSMON_CSU, &now))
-> +		return false;
->  	can_clear = !(now & MSMON___NRDY);
->  	mpam_mon_sel_unlock(msc);
->  
->  	return (!can_set || !can_clear);
->  }
->  
-> -static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
-> +static int mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  {
->  	int err;
->  	struct mpam_msc *msc = ris->vmsc->msc;
-> @@ -828,7 +830,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  	if (FIELD_GET(MPAMF_IDR_HAS_CCAP_PART, ris->idr)) {
->  		u32 ccap_features;
->  
-> -		mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
-> +		err = mpam_read_partsel_reg(msc, CCAP_IDR, &ccap_features);
-> +		if (err)
-> +			return err;
->  
->  		props->cmax_wd = FIELD_GET(MPAMF_CCAP_IDR_CMAX_WD, ccap_features);
->  		if (props->cmax_wd &&
-> @@ -853,7 +857,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  	if (FIELD_GET(MPAMF_IDR_HAS_CPOR_PART, ris->idr)) {
->  		u32 cpor_features;
->  
-> -		mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
-> +		err = mpam_read_partsel_reg(msc, CPOR_IDR, &cpor_features);
-> +		if (err)
-> +			return err;
->  
->  		props->cpbm_wd = FIELD_GET(MPAMF_CPOR_IDR_CPBM_WD, cpor_features);
->  		if (props->cpbm_wd)
-> @@ -863,8 +869,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  	/* Memory bandwidth partitioning */
->  	if (FIELD_GET(MPAMF_IDR_HAS_MBW_PART, ris->idr)) {
->  		u32 mbw_features;
-> -
-> -		mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
-> +		err = mpam_read_partsel_reg(msc, MBW_IDR, &mbw_features);
-> +		if (err)
-> +			return err;
->  
->  		/* portion bitmap resolution */
->  		props->mbw_pbm_bits = FIELD_GET(MPAMF_MBW_IDR_BWPBM_WD, mbw_features);
-> @@ -893,8 +900,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  	/* Priority partitioning */
->  	if (FIELD_GET(MPAMF_IDR_HAS_PRI_PART, ris->idr)) {
->  		u32 pri_features;
-> -
-> -		mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
-> +		err = mpam_read_partsel_reg(msc, PRI_IDR, &pri_features);
-> +		if (err)
-> +			return err;
->  
->  		props->intpri_wd = FIELD_GET(MPAMF_PRI_IDR_INTPRI_WD, pri_features);
->  		if (props->intpri_wd && FIELD_GET(MPAMF_PRI_IDR_HAS_INTPRI, pri_features)) {
-> @@ -915,7 +923,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  	if (FIELD_GET(MPAMF_IDR_HAS_MSMON, ris->idr)) {
->  		u32 msmon_features;
->  
-> -		mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
-> +		err = mpam_read_partsel_reg(msc, MSMON_IDR, &msmon_features);
-> +		if (err)
-> +			return err;
->  
->  		/*
->  		 * If the firmware max-nrdy-us property is missing, the
-> @@ -928,7 +938,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  		if (FIELD_GET(MPAMF_MSMON_IDR_MSMON_CSU, msmon_features)) {
->  			u32 csumonidr;
->  
-> -			mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
-> +			err = mpam_read_partsel_reg(msc, CSUMON_IDR, &csumonidr);
-> +			if (err)
-> +				return err;
->  
->  			props->num_csu_mon = FIELD_GET(MPAMF_CSUMON_IDR_NUM_MON, csumonidr);
->  			if (props->num_csu_mon) {
-> @@ -954,7 +966,9 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  			bool has_long;
->  			u32 mbwumon_idr;
->  
-> -			mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
-> +			err = mpam_read_partsel_reg(msc, MBWUMON_IDR, &mbwumon_idr);
-> +			if (err)
-> +				return err;
->  
->  			props->num_mbwu_mon = FIELD_GET(MPAMF_MBWUMON_IDR_NUM_MON, mbwumon_idr);
->  			if (props->num_mbwu_mon) {
-> @@ -987,16 +1001,22 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
->  		u16 partid_max;
->  		u32 nrwidr;
->  
-> -		mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
-> +		err = mpam_read_partsel_reg(msc, PARTID_NRW_IDR, &nrwidr);
-> +		if (err)
-> +			return err;
-> +
->  		partid_max = FIELD_GET(MPAMF_PARTID_NRW_IDR_INTPARTID_MAX, nrwidr);
->  
->  		mpam_set_feature(mpam_feat_partid_nrw, props);
->  		msc->partid_max = min(msc->partid_max, partid_max);
->  	}
-> +
-> +	return 0;
->  }
->  
->  static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  {
-> +	int ret;
->  	u64 idr;
->  	u16 partid_max;
->  	u8 ris_idx, pmg_max;
-> @@ -1012,10 +1032,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  
->  	/* Grab an IDR value to find out how many RIS there are */
->  	mutex_lock(&msc->part_sel_lock);
-> -	mpam_msc_read_idr(msc, &idr);
-> -	mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
-> -
-> +	ret = mpam_msc_read_idr(msc, &idr);
-> +	if (!ret)
-> +		ret = mpam_read_partsel_reg(msc, IIDR, &msc->iidr);
->  	mutex_unlock(&msc->part_sel_lock);
-> +	if (ret)
-> +		return ret;
->  
->  	mpam_enable_quirks(msc);
->  
-> @@ -1028,8 +1050,10 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  	for (ris_idx = 0; ris_idx <= msc->ris_max; ris_idx++) {
->  		mutex_lock(&msc->part_sel_lock);
->  		__mpam_part_sel(ris_idx, 0, msc);
-> -		mpam_msc_read_idr(msc, &idr);
-> +		ret = mpam_msc_read_idr(msc, &idr);
->  		mutex_unlock(&msc->part_sel_lock);
-> +		if (ret)
-> +			return ret;
->  
->  		partid_max = FIELD_GET(MPAMF_IDR_PARTID_MAX, idr);
->  		pmg_max = FIELD_GET(MPAMF_IDR_PMG_MAX, idr);
-> @@ -1046,8 +1070,10 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
->  
->  		mutex_lock(&msc->part_sel_lock);
->  		__mpam_part_sel(ris_idx, 0, msc);
-> -		mpam_ris_hw_probe(ris);
-> +		ret = mpam_ris_hw_probe(ris);
->  		mutex_unlock(&msc->part_sel_lock);
-> +		if (ret)
-> +			return ret;
->  	}
->  
->  	/* Clear any stale errors */
-
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 5a4768d8cd4f..4c79e1096af4 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -132,7 +132,14 @@ struct vgic_irq *vgic_get_vcpu_irq(struct kvm_vcpu *vcpu, u32 intid)
+ static void vgic_release_lpi_locked(struct vgic_dist *dist, struct vgic_irq *irq)
+ {
+ 	lockdep_assert_held(&dist->lpi_xa.xa_lock);
+-	__xa_erase(&dist->lpi_xa, irq->intid);
++
++	/*
++	 * Another LPI could've been inserted prior to taking the xa_lock, as
++	 * vgic_add_lpi() can only take a reference on a pre-existing LPI if
++	 * the refcount is nonzero. While freeing the object is always done here,
++	 * only delete the entry @INTID if it is this IRQ.
++	 */
++	__xa_cmpxchg(&dist->lpi_xa, irq->intid, irq, NULL, 0);
+ 	kfree_rcu(irq, rcu);
+ }
+ 
 
