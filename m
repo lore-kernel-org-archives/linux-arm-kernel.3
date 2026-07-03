@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF505C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 02:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C875C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 03:03:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JlV3zJ5RwhKne2jUh8CcjrZlF2RdUTEpohrGS1TCb5w=; b=CpWalhB7xET6z52Owfe1y2J6Jg
-	werI1lUodognClcXBIq33YkahExzeV87nMQzgKLvRKsW3OQIPhlIXPBqlhI73OT5rHaeGwilPAROf
-	vZuiKwrPUPfB4Bct4nf6+fKHCQPwqiYP8wQ7Wyl0KqkG275GHrf9KG3c/GH2J5aw5PpJ44XZOCWxz
-	TQ5N+Dm0F6sKh5/n9qzKwcAlTP80H2Kg3YyKjSx3b/9JqkAWZMirjmNyEZ7WKGZBZlAzZR1CyHlqz
-	eqtOaBDuKVYmOxK+jT2D4PDzzIH8xpk969mUBY0CIEU+sVKsp33n5VVhkEvjgzr82zQ6IlJWs714A
-	YCgaX/Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9KIw1JGQpC7MaKU2LH1yR3Wzmy24qmeDvk0zXFo5SAw=; b=c5eoPoyV8eVknp1twhnDqDDc/0
+	xiDm8Glr9s3QLNngByULCcql7aCgPCWRhgIYM/edGrjvAaQIaRo0r+Eveia8pg0Fa1LR3aTf42/an
+	fpPDe+J8by6SXjfpShP6isomO+6kvzIuC9iRNUcITRc5WFZGO2FgyeYGXD4kPFfLHR+WfAjKtDOB3
+	s6Ti9QwgoWCT7ZbM4jG4IfYpRHM/8RD23I3Oohk1oPpt38jkjBk82BKYVHqkDbZD2leazKCbQrrD0
+	7W8G046sXekBq88kjxT1ouOlxC/QwzL1Qc2WMNW9zhdykvy+89dGirAW2IicA6ODrF41qrQxCUgFF
+	G9pQXuFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfU5T-00000005uWD-1BZx;
-	Fri, 03 Jul 2026 02:57:07 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfU5Q-00000005uVQ-0wYM
+	id 1wfUBT-00000005ut8-0yp3;
+	Fri, 03 Jul 2026 03:03:19 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfUBR-00000005urx-05xZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 02:57:06 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c9ef3e1337fso61212a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Jul 2026 19:57:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783047423; x=1783652223; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JlV3zJ5RwhKne2jUh8CcjrZlF2RdUTEpohrGS1TCb5w=;
-        b=EkH+AHiS+cU3QilD7Q3Fh+CO/3SDcvRSsdNGZIVOC8mWu4z8BPhcNPyqTjaxCdosWn
-         ymXqtyAI9Cfm8UA6yWdmBXSwHG0ruLFBFB1crVTz6d5vdcTl+QGdCqpBKnM55rrpniRx
-         FQujtO+FTvUZJyAdB0V0mtRtuLR644tOYxHs29qmdSt4jNTDEkpZNsoECqE0yD5BuLz0
-         wJaRY4Y0qduMSmJZgrPIV5eMH2XWpcSOUQTK2o5wiQd0C/+71BOz/qESNb2095WCGxeS
-         780fcM/eZkIaRtgCT0JUYGIf6bvMd+ruKoe1K8z774X0sgbbT6+uCznzD43XSU08zxNg
-         kD9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783047423; x=1783652223;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JlV3zJ5RwhKne2jUh8CcjrZlF2RdUTEpohrGS1TCb5w=;
-        b=NBF+n/jzCcXE9q/xe1UVnJ0mKCHPaboNsW4EHUbDAk1DxxkF+PAYMk56rcQG541A85
-         HuY6iA9ATYPesSD+Eyi1ICYWAK+kiWpptjWmFcbLlcYRYZ5JWiP86kIwj18k2cUu+cWY
-         YouO9WfPlD7KNLTRlE0uvFC8zZGYHB/FGV1dwYXuN7PT8Ux/ACi3Hhv/gERPbDjdQb4D
-         P1N5buT8QQo7qnt3g5Ses6a2wLiHGqJhIH1b+zrppbx5mlF6nu9/a3vsZhptf4yRVgwk
-         BCpfC4WbtDyEfOclzOmWq0ZnbEyZ8vPRyW9mN4K1L7+kAUQkUEB4j/g8yHKcUOhIkt+p
-         I81Q==
-X-Forwarded-Encrypted: i=1; AFNElJ/TdE7sIomNiluVXuDUB4+vcB7nh3FTWg6KIjge0NF/5I0b1So8qQ4y5L88z4GTj0c9hLIqIfN6cm8Me11DEc0a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9f+7FOioy/PT/D7hSWeHlSXHZ2lKJj7jeQWCz345AhKNWEuv6
-	SxRghcpZfVme4Bu9Mv1Zona4uSNTAay1DOunZ0RTEGNEOkGB9gzFVsbd9TlQDA==
-X-Gm-Gg: AfdE7cnzbM7C2L6ma+8eoWzKZbc6eebtx/0S6/g4RmarLeIW5H29oQK7MARFLv9v5c8
-	of7czafsxkDPvvpSTKCTOUXKSzkAf/YIk4O4RCx/DjwsHvAcPjqNzgC64UFvH9/m0e/t7Ey0yZs
-	dLgcKSqp1j0XJnluRymRE7ig/2Oit5QsQ8C6UmxNpjgzzTxIUldAmUPrW2EMMQrYp246YZS2QK2
-	men6llK0wrdcpLT5krpC3Zp1rVcuuYd0t2SxdK6gan9tMJ7UDzWYFlprQUpVmkOAgxRiO5NJMBQ
-	8PBw85EKhO7t18YRxgagmnVT7uI3HXHV+2jgFzyxZfgj1esnHLNP0WjgeXBAJKnhQ0urKK6Fb53
-	qLaT/al1BLbkb+1I+393ytbDXOfZZ1LubmPrUz1Pcvl3drW5cnDBhPD9ip8AWfUjLHFC8b20lAo
-	yoicxDxr82hamTv7itvVdcJGEbK3vkLrcoODw7GWkXet/81lf/VJVE53tC+zE=
-X-Received: by 2002:a05:6a21:4516:b0:398:9379:d04d with SMTP id adf61e73a8af0-3bfed22ecacmr9856159637.24.1783047422829;
-        Thu, 02 Jul 2026 19:57:02 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:1b3:a800:5116:5334:8739:4661:fde2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c7fa65asm14645620c88.6.2026.07.02.19.56.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Jul 2026 19:57:02 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Fabio Estevam <festevam@nabladev.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix rk3588s-roc-pc audio description
-Date: Thu,  2 Jul 2026 23:56:48 -0300
-Message-ID: <20260703025648.180135-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 03 Jul 2026 03:03:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E48C422D7;
+	Thu,  2 Jul 2026 20:03:08 -0700 (PDT)
+Received: from localhost (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8940F3F673;
+	Thu,  2 Jul 2026 20:03:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783047793; bh=efnEm+W+VtLCuut/dmb71mCG6+tWP/oTrs9sNNtx4cg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UjTLuIAsvwzssMNef6cyBWug9GJal49GKFuVcxgfGednLxs1e+gG5uETzE3UevRJG
+	 +DU0XyVSa1Y29wcDwIHFWKVxrh9p0lS7vbrWqvRJAhxj+yHlqn6/wCF3Yhl4+tD/hu
+	 HRSfa/o/e0pTJRrtWJ6Pfl//U2V5lTpdxvcE809k=
+Date: Fri, 3 Jul 2026 08:33:09 +0530
+From: Linu Cherian <linu.cherian@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/5] arm64: cpufeature: Extend bbml3 support list
+Message-ID: <akcmbZHGMo_56Z2R@a079125.arm.com>
+References: <20260701094131.677636-1-linu.cherian@arm.com>
+ <20260701094131.677636-6-linu.cherian@arm.com>
+ <akZBqNTTGXch6I9n@J2N7QTR9R3>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <akZBqNTTGXch6I9n@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260702_195704_296865_26935C67 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20260702_200317_294629_5EAE0017 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,99 +74,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Fabio Estevam <festevam@nabladev.com>
+Hi Mark,
 
-The rk3588s-roc-pc ES8388 codec is connected to the i2s0_8ch audio
-interface.  Use the matching I2S0 MCLK output for the codec clock
-instead of I2S1.
+On Thu, Jul 02, 2026 at 11:47:04AM +0100, Mark Rutland wrote:
+> On Wed, Jul 01, 2026 at 03:11:31PM +0530, Linu Cherian wrote:
+> > Add below cpus to the midr list, which supports
+> > BBML3 but don't advertise through MMFR2 ID.
+> > 
+> > Cortex A520(AE)
+> > Cortex A715
+> > Cortex A720(AE)
+> > Cortex A725
+> > Neoverse N3
+> > C1-Nano
+> > C1-Pro
+> > C1-Ultra
+> > C1-Premium
+> > 
+> > Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+> > ---
+> >  arch/arm64/kernel/cpufeature.c | 9 +++++++++
+> >  1 file changed, 9 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > index d754b1b7da77..9b806c1c60aa 100644
+> > --- a/arch/arm64/kernel/cpufeature.c
+> > +++ b/arch/arm64/kernel/cpufeature.c
+> > @@ -2142,6 +2142,15 @@ bool cpu_supports_bbml3(void)
+> >  		MIDR_ALL_VERSIONS(MIDR_NVIDIA_OLYMPUS),
+> >  		MIDR_ALL_VERSIONS(MIDR_AMPERE1),
+> >  		MIDR_ALL_VERSIONS(MIDR_AMPERE1A),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A520AE),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A715),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A720AE),
+> > +		MIDR_ALL_VERSIONS(MIDR_CORTEX_A725),
+> > +		MIDR_ALL_VERSIONS(MIDR_NEOVERSE_N3),
+> > +		MIDR_ALL_VERSIONS(MIDR_C1_NANO),
+> > +		MIDR_ALL_VERSIONS(MIDR_C1_PRO),
+> > +		MIDR_REV_RANGE(MIDR_C1_ULTRA, 1, 1, 0xf),
+> > +		MIDR_REV_RANGE(MIDR_C1_PREMIUM, 1, 1, 0xf),
+> 
+> Why do these two have a range? The commit message didn't mention this.
 
-Using the I2S1 MCLK can leave the ALSA PCM running while the codec has
-no usable master clock for the active audio path, resulting in silent
-headphone output.
+C1 ultra and C1 Premium has BBM related errata until r1p0.
+Will mention that in commit message.
 
-Also make the CPU DAI provide bitclock and frame clock.  This matches
-the active Rockchip I2S controller side and avoids relying on the codec
-to drive the bus clocks.
-
-Route the headphone output to LOUT2 and ROUT2, matching the old 5.10
-BSP device tree.  LOUT1 and ROUT1 are used for the speaker route there,
-so using them for the headphone widget can leave the headphone jack
-silent even while the ALSA path is active.
-
-The old BSP also used hp-con-gpio on GPIO1_A4.  Model that GPIO as a
-simple audio amplifier so DAPM enables the headphone connection when the
-headphone path is active.
-
-Cc: stable@vger.kernel.org
-Fixes: 7f9509791507 ("arm64: dts: rockchip: add DTs for Firefly ROC-RK3588S-PC")
-Signed-off-by: Fabio Estevam <festevam@nabladev.com>
----
- .../boot/dts/rockchip/rk3588s-roc-pc.dts      | 23 +++++++++++++------
- 1 file changed, 16 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts b/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
-index d534d662c40f..99853880aaac 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dts
-@@ -23,16 +23,19 @@ analog-sound {
- 		compatible = "simple-audio-card";
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&hp_detect>;
-+		simple-audio-card,aux-devs = <&headphones_amp>;
- 		simple-audio-card,name = "rockchip,es8388";
--		simple-audio-card,bitclock-master = <&masterdai>;
-+		simple-audio-card,bitclock-master = <&cpudai>;
- 		simple-audio-card,format = "i2s";
--		simple-audio-card,frame-master = <&masterdai>;
-+		simple-audio-card,frame-master = <&cpudai>;
- 		simple-audio-card,hp-det-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_LOW>;
- 		simple-audio-card,mclk-fs = <256>;
- 		simple-audio-card,pin-switches = "Headphones";
- 		simple-audio-card,routing =
--			"Headphones", "LOUT1",
--			"Headphones", "ROUT1",
-+			"Headphones", "Headphone Amp OUTL",
-+			"Headphones", "Headphone Amp OUTR",
-+			"Headphone Amp INL", "LOUT2",
-+			"Headphone Amp INR", "ROUT2",
- 			"LINPUT1", "Microphone Jack",
- 			"RINPUT1", "Microphone Jack",
- 			"LINPUT2", "Onboard Microphone",
-@@ -47,11 +50,17 @@ masterdai: simple-audio-card,codec {
- 			system-clock-frequency = <12288000>;
- 		};
- 
--		simple-audio-card,cpu {
-+		cpudai: simple-audio-card,cpu {
- 			sound-dai = <&i2s0_8ch>;
- 		};
- 	};
- 
-+	headphones_amp: audio-amplifier-headphones {
-+		compatible = "simple-audio-amplifier";
-+		enable-gpios = <&gpio1 RK_PA4 GPIO_ACTIVE_HIGH>;
-+		sound-name-prefix = "Headphone Amp";
-+	};
-+
- 	chosen {
- 		stdout-path = "serial2:1500000n8";
- 	};
-@@ -327,12 +336,12 @@ &i2c3 {
- 	es8388: audio-codec@11 {
- 		compatible = "everest,es8388", "everest,es8328";
- 		reg = <0x11>;
--		clocks = <&cru I2S1_8CH_MCLKOUT>;
-+		clocks = <&cru I2S0_8CH_MCLKOUT>;
- 		AVDD-supply = <&vcc_3v3_s0>;
- 		DVDD-supply = <&vcc_1v8_s0>;
- 		HPVDD-supply = <&vcc_3v3_s0>;
- 		PVDD-supply = <&vcc_3v3_s0>;
--		assigned-clocks = <&cru I2S1_8CH_MCLKOUT>;
-+		assigned-clocks = <&cru I2S0_8CH_MCLKOUT>;
- 		assigned-clock-rates = <12288000>;
- 		#sound-dai-cells = <0>;
- 	};
--- 
-2.43.0
+Thanks,
+Linu Cherian.
 
 
