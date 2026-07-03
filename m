@@ -4,62 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78ACAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:56:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 569CEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Jul 2026 10:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mhfiHCKdYvrlYZO8ujaC1v3Y0eErVrUk0qO97RPQE08=; b=oS+9jSYRtJo3eiGuEYrDoGSTmW
-	RZ41xI6h99Dim8Nl9qfNcNcdjfSlJ93oojA/jpjWJpYTOVY6OldxCy/MRTkyFTcpeytnDccn2WT7Z
-	OmtsEswjzDgxbuUOa+fw1o3zLexM8J0COGWLNaK4cpTsHchGe3HMyThnfL5omGJF/4dFwwchhW2Bp
-	YgVGpC288RxEiouN4mn/ErBGRmaLonak/1dFT4w4Bcv0barxh9d0EG7elW/SScC4FXchlQODbLu7n
-	K6r0yWNvcYg2LtM5cAzlzOvGBPcJIYyctlQA48nq8rDXDywc7MLdfqqshKUydqwGDyiR9gneYMPQV
-	RCk8jSzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CmGr1LsCvRq8WX79ooawn41VBpzZWSzROGsoa7z/P2s=; b=ZrnimsC+GJzfrlLil4+h+YAzuG
+	/08Gf7RUS2404PrSCdw9655gB56gG88Cfoh99CN1SqTZz/B/ocxl2OJfMYZ68zae4JXt8UbHP7Q5X
+	jS2u6LEsTeYj6YEmMaxzA9lHjWCIFsihyMX2iWerpzRQzOyFtqeQd8lm9YIgialp3O5LkWB+0L2S9
+	oMag7L6lw54TwpGVS9uIUd6imaQIpLHCiygTpafpqiMgvB/dV6F2YjoX7IXWbtaqGwc/gcgK5FD2E
+	oP9OI17siY1Q2ZNIBaHp+EyDDaxSn3hvM/B3AsFsF9MH0L3BPyN2OtRCl9UUPSJI1yTzWrPHKpfSX
+	k3ouOkLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfbZ1-00000006jR1-28vU;
-	Fri, 03 Jul 2026 10:56:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfbZ0-00000006jQq-0dyG
+	id 1wfbZE-00000006jTl-3Gn3;
+	Fri, 03 Jul 2026 10:56:20 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wfbZB-00000006jSh-3FM1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Jul 2026 10:56:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14B6D600E1;
-	Fri,  3 Jul 2026 10:56:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C577F1F00A3A;
-	Fri,  3 Jul 2026 10:56:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783076164;
-	bh=mhfiHCKdYvrlYZO8ujaC1v3Y0eErVrUk0qO97RPQE08=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=MKi35CdVFHIEik2dQrgbSGfmmclJyVDVZtQeqE2EtxE5Am9uNMzvkasxkWaQRCA3D
-	 GJ8UqFKmrqtmumL7Ce+KkcRmnNnuQFh8+u20PcceWaghv91cxJgmPcO1CCmeaQD3T/
-	 1Ss869E2aDVXG3TxZu/3GO+GRUsQ+lQafRv0OGIsP+raTASS1UAVsm2M18cebtqJOw
-	 /Uc4M0wHquEWB4q6+QhaH1beWx1PJIy8tKWJ4aAiGGD2RNtnymPE/UcB0OfkZtdBLt
-	 ZE+QG9aa4S5/z1fD3mxghDvvprTnsRmk7T95D1apC44vXfpWW3UquSmWtrvw5lpR7l
-	 qcK9Y8+wpXP4Q==
-Date: Fri, 3 Jul 2026 12:56:00 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Justin Suess <utilityemal77@gmail.com>
-Cc: Sean Young <sean@mess.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Maxime Ripard <mripard@kernel.org>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH 1/4] media: dt-bindings: allwinner,sun4i-a10-ir: add A523
- compatible
-Message-ID: <20260703-versed-locust-of-agility-d76fda@quoll>
-References: <20260702214750.3428694-1-utilityemal77@gmail.com>
- <20260702214750.3428694-2-utilityemal77@gmail.com>
+	Fri, 03 Jul 2026 10:56:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11EC11F91;
+	Fri,  3 Jul 2026 03:56:12 -0700 (PDT)
+Received: from [10.211.55.3] (unknown [10.57.73.238])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 405E13F905;
+	Fri,  3 Jul 2026 03:56:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783076176; bh=ib+jJeqAaNrgnlTJcoYJ6GWsMpg4EWkroOHnmx53RzI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dq3gTaOglJw3duLPTmbmtELC62r50lAPmCDJJTHO+w2qzB6g/CyyuOToBNHbUOXZT
+	 ULsg2vAvZo6Ho7U5E1FHwj7ioUb5Lw6vwBO5a0t5DoUxnJPVOV3RcyiEbVlbReHkxd
+	 kSN8oMq5oJLa34wGP+E3WjG/8VW7NTKRfGjVaEqs=
+Message-ID: <f418f531-bc0b-4bff-a96f-121034c6c693@arm.com>
+Date: Fri, 3 Jul 2026 11:54:55 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260702214750.3428694-2-utilityemal77@gmail.com>
+User-Agent: Thunderbird Daily
+Subject: Re: [PATCH v2 14/15] arm_mpam: prevent MPAM-Fb accesses inside IRQ
+ handler
+To: Andre Przywara <andre.przywara@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ James Morse <james.morse@arm.com>,
+ Reinette Chatre <reinette.chatre@intel.com>, Fenghua Yu <fenghuay@nvidia.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+ Srivathsa L Rao <srivathsa.rao@oss.qualcomm.com>,
+ Ganapatrao Kulkarni <ganapatrao.kulkarni@oss.qualcomm.com>,
+ Trilok Soni <tsoni@quicinc.com>, Srinivas Ramana <sramana@qti.qualcomm.com>,
+ Niyas Sait <niyas.sait@arm.com>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260702162229.4008659-1-andre.przywara@arm.com>
+ <20260702162229.4008659-15-andre.przywara@arm.com>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <20260702162229.4008659-15-andre.przywara@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260703_035617_996333_3626F2A1 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,43 +82,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 05:47:47PM -0400, Justin Suess wrote:
-> The A523 (sun55i) contains a newer revision of the sunxi CIR receiver.
-> It is not backwards-compatible with the A31 programming model: the
-> control register has a pulse capture mode field (bits [7:6]) that
-> resets to a value which captures no pulses at all, and the sample
-> clock divider is now selectable via SPLCFG bits [1:0] instead of
-> being fixed at the old module clock / 64.
+Hi Andre,
+
+On 7/2/26 17:22, Andre Przywara wrote:
+> When an MPAM MSC gets into an error condition, it can trigger an error
+> IRQ. We cannot really do much about those errors, but we at least query
+> and log the error, then disable MPAM functionality.
 > 
-> Since a kernel driving it as an A31 CIR receives nothing, add the
-> compatible as a standalone entry rather than under the
-> allwinner,sun6i-a31-ir fallback.
+> This error report relies on reading the MSC's error status register
+> (ESR) in the IRQ handler, which is not possible for MPAM-Fb based
+> MSC accesses, since they involve mailbox routines that might sleep.
+> The same is true for clearing the interrupt at the source, which
+> requires MSC access.
 > 
-> Signed-off-by: Justin Suess <utilityemal77@gmail.com>
+> For simplicity just skip the ESR read when the MSC is not using direct
+> MMIO accesses, and just ignore the pending interrupts. We will wrap up
+> MPAM functionality regardless, knowing the exact error value will not
+> change that.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 > ---
->  .../devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml        | 1 +
->  1 file changed, 1 insertion(+)
+>  drivers/resctrl/mpam_devices.c | 35 +++++++++++++++++++---------------
+>  1 file changed, 20 insertions(+), 15 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
-> index 42dfe22ad5f1..06656058ce91 100644
-> --- a/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
-> +++ b/Documentation/devicetree/bindings/media/allwinner,sun4i-a10-ir.yaml
-> @@ -19,6 +19,7 @@ properties:
->        - const: allwinner,sun4i-a10-ir
->        - const: allwinner,sun5i-a13-ir
->        - const: allwinner,sun6i-a31-ir
-> +      - const: allwinner,sun55i-a523-ir
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index b858ff389bff..4a088e6cd235 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -2639,7 +2639,7 @@ static int mpam_disable_msc_ecr(void *_msc)
+>  
+>  static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>  {
+> -	u64 reg;
+> +	u64 reg = 0;
+>  	u16 partid;
+>  	u8 errcode, pmg, ris;
+>  
+> @@ -2648,25 +2648,30 @@ static irqreturn_t __mpam_irq_handler(int irq, struct mpam_msc *msc)
+>  					   &msc->accessibility)))
+>  		return IRQ_NONE;
+>  
+> -	mpam_msc_read_esr(msc, &reg);
+> +	/* MPAM-Fb MSC accesses cannot be done in atomic context. */
+> +	if (msc->iface == MPAM_IFACE_MMIO) {
+> +		mpam_msc_read_esr(msc, &reg);
+>  
+> -	errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> -	if (!errcode)
+> -		return IRQ_NONE;
+> +		errcode = FIELD_GET(MPAMF_ESR_ERRCODE, reg);
+> +		if (!errcode)
+> +			return IRQ_NONE;
+>  
+> -	/* Clear level triggered irq */
+> -	mpam_msc_clear_esr(msc);
+> +		/* Clear level triggered irq */
+> +		mpam_msc_clear_esr(msc);
+>  
+> -	partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+> -	pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> -	ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+> +		partid = FIELD_GET(MPAMF_ESR_PARTID_MON, reg);
+> +		pmg = FIELD_GET(MPAMF_ESR_PMG, reg);
+> +		ris = FIELD_GET(MPAMF_ESR_RIS, reg);
+>  
+> -	pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> -			   msc->id, mpam_errcode_names[errcode], partid, pmg,
+> -			   ris);
+> +		pr_err_ratelimited("error irq from msc:%u '%s', partid:%u, pmg: %u, ris: %u\n",
+> +				   msc->id, mpam_errcode_names[errcode], partid,
+> +				   pmg, ris);
+>  
+> -	/* Disable this interrupt. */
+> -	mpam_disable_msc_ecr(msc);
+> +		/* Disable this interrupt. */
+> +		mpam_disable_msc_ecr(msc);
 
-I assume you are adding it in expected order that Allwinner is
-following, not just randomly at the end of any list.
+As an error interrupt is final can we just disable the IRQ? Is it
+useful? I see there is a function disable_irq_no_sync().
 
-Also, please change all above entries to one enum, can be the same
-commit.
+> +	} else {
+> +		pr_err_ratelimited("unknown error irq from msc:%u\n", msc->id);
 
+Should we report by irq number?
+As MSC may share interrupts we don't know which MSC caused the error irq
+at this point. On MMIO platforms we read the ESR to establish this.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Thanks,
 
-Best regards,
-Krzysztof
+Ben
+
+> +	}
+>  
+>  	/* Are we racing with the thread disabling MPAM? */
+>  	if (!mpam_is_enabled())
 
 
