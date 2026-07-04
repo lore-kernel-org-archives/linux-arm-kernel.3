@@ -4,71 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2745C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 12:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 883D4C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 12:47:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DRiztJVM/qkYZyhkFYpvYvD4OFRtK8O6HUAq2udZdnA=; b=2gfIVtBsOHUiU7shIFy8PwoeN5
-	WqYXui/ymGDmY9jWS6cvhFOnQc2DkCsbeBGI5GzGldLkY5xHywEG8XSpoeHMxQVHjreSoQdQ9XmNE
-	4pqDp1bINo+YeRbNpfm7Jme0BtOCbqbT12B5GqGlOIGiZ2JLSw8abXvJiWL6uIoUGwU8x3WPIOrUU
-	lhZyD7OgnINgzpq9JTVTecIfEE4ApebUr5y5WN8QJKgvgqYWaWQWP1REK8Hgk+HwlmPyEBNuC6Rrr
-	H/bz3NuZClLKdTups9DZ6idNMT2MZ+9yp1sc/PM/zbAZ6kW5JIdzob3L9CvhXUWpNk/KKLCMlWEqK
-	WFAIxlYw==;
+	bh=DSopaZRgPpL0KY92Lt0HxUz65nngHTif/3wvnAu5v0w=; b=hMrG+Kxt7CXb+ACliSHVE1JJWQ
+	eGSNwBPOnWa9C1QB9xB7eoTstByPNXPeQ5aJ7o72VbPuK3Ty7oqW/yurg+jUWFmvFHGW86e4jHP4K
+	z1dTC8rBDPHVyAesGqLFwpirxnYbQ1DzYq5B8kFJCmgt9yyi+1OmEU5d+2417GsgvdngFwjKqsJ4C
+	Q4GcSKGEcJcAPoFuaJuywtHAUHUFNDa7CWy87o2Z3zakV1Wh/ppCIfVuyfFeUwN18qQlxCgRuWRUn
+	KHjUR+GDXr1z6FcXhAC0nMLskHz5W5TunJ+bpw26edjtpN8CXRcd9ZrqrftGiEFLH5pqZrFH36GH4
+	L1qI8QFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfzjv-00000008RxK-3mlm;
-	Sat, 04 Jul 2026 12:44:59 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wfzlx-00000008S6x-0egt;
+	Sat, 04 Jul 2026 12:47:05 +0000
+Received: from fout-b4-smtp.messagingengine.com ([202.12.124.147])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfzjt-00000008Rwm-06KM;
-	Sat, 04 Jul 2026 12:44:58 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowADXu+JDAElqeFXWFg--.22738S2;
-	Sat, 04 Jul 2026 20:44:51 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Yassine Oudjana <y.oudjana@protonmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	linux-clk@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] clk: mediatek: mt6735-vdecsys: add missing MODULE_DEVICE_TABLE()
-Date: Sat,  4 Jul 2026 20:44:50 +0800
-Message-ID: <20260704124450.11035-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	id 1wfzlu-00000008S6S-0rG6;
+	Sat, 04 Jul 2026 12:47:03 +0000
+Received: from phl-compute-07.internal (phl-compute-07.internal [10.202.2.47])
+	by mailfout.stl.internal (Postfix) with ESMTP id 4F6A41D00066;
+	Sat,  4 Jul 2026 08:46:57 -0400 (EDT)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-07.internal (MEProxy); Sat, 04 Jul 2026 08:46:57 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mm.st; h=cc:cc
+	:content-type:content-type:date:date:from:from:in-reply-to
+	:message-id:mime-version:reply-to:subject:subject:to:to; s=fm2;
+	 t=1783169217; x=1783255617; bh=DSopaZRgPpL0KY92Lt0HxUz65nngHTif
+	/3wvnAu5v0w=; b=eMsI5LtMgPSmOZR9XlwDS73uj1zvGaPqDbCFB6Wk+DmtX5GI
+	4osRs+h2KoSrKs0ZeWM31185xOgVHWYryCp3NqGmjJklbcGVUlu9ZEDZHN9THo91
+	aKt69TslCHE8q2tsX0Ya/nxNPYhZahdiQ7CGEke2bgTXMl+fYdO+8CcRU6/dkLbM
+	bbOJ4qXUncVAToM31AUT7v8aXhqAeY87iXsNQBdrn1EYIuIKM39TUj8zMiX2v7dZ
+	au6hzxkopqM+hxbC7bH6ID6SypPJXmhiQ1HnfK4kpEc8TNdBnaiy77gVhnqxvhtX
+	4Yhj0mqukZoCojCClgTSAcE7g6Vj0xfoY+lpSg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:message-id
+	:mime-version:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783169217; x=
+	1783255617; bh=DSopaZRgPpL0KY92Lt0HxUz65nngHTif/3wvnAu5v0w=; b=M
+	gRylLIgIByTJQQH8oJsO+H+QaYuJoU43hSBCS8RKrtRCZ0Tqgi3KUI0HU2+Oob8G
+	U/GRB97cVKpQO6iVWzn4aKqyYnDuuxAKlDHYnTjKGiFxEr0A6PmvLYq/KbG3wISL
+	UdBlmp6pDV1QXE7JONwdY5db0fWRr+h0LGW9isZ2w7C4PzyippxlLCSQbFamOv9e
+	88MhYX1XxjUg5+AuXa47XstSPFokkiPfGBi/4EBIzHzSZLzy8FYpOZjpKaGF7Xco
+	SMBNomO48E4Sj3SDHPqp1lcRZyvXqExC5n8BDU5Sk4u3HKpTYNgAOBM3GW561jNv
+	3oX9dXlbyVyktgdjnmPQA==
+X-ME-Sender: <xms:wABJaiFtrN-UwK_mBD5BCoRn_wVufERpJyodcWfRW0Ng7qZqK0eb_A>
+    <xme:wABJargtVCG2zee3WOvnv_VMcf1RTVjZBSaLEQUUQoLlESRTKAnCnD_4EnCltAwwC
+    h3fqyXQPNab7ctvTINfLOFRm0bqsEAGSOPXDGGkCiJFCE0RuqtT4g>
+X-ME-Received: <xmr:wABJanuJBRES_74U_fiQe3IeV1-t6wwv5SNzLe4iCjpyGSDfnx1j9DSE2ZKTKUYpKgWbdZf6NT756Ll4QQ>
+X-ME-Proxy-Cause: dmFkZTFr3i3xkzXRpTDUGWiH0crRTBA4ga4Wskl6XzSwqcORPAWlvCH6ez+ye+BrZRSPRy
+    DNQY6ViUjFBZd1tkQjeVlXy5FVwQiCSafw/OoUDdznp10hgACBRGZJUa0TZNyBeUnjb7nU
+    zrB2tZjGr3sZIq17zYcT3iL4Roe2mF3K/xcWf8y1ZGhkLXTs8dkpUJrR6uVntvy/+FV8jd
+    xP/HhVmnHlip6SqPBd7U4H9VVEf9TfB6Ryni5TVgWJn7K3Ckcz3auvRJfo4+oQEsa5ZZFg
+    mjVFj2gXHWdl/Zc4g5jCASsTC7/fEA3oN+gnq2jlzt0GalADbg/0sV8lrdNSgp9HCgV2nJ
+    uV1YASE7z7xho27iC0zHR1bpvF8DFYF0RZ2c298pIQvv+aeb2f5urf2yhQ2iwQmOfG1FE6
+    DLtL+D77Ex3AvFPoknNrFvYLe2bQ9PSXjXFL+KCllF5qG/hYBhnb0fVg8bmWrrOVcco5N7
+    HFxkGzCFdcTV/s8msB0v6zLcr06/A5MQG8Yu7IRepibf0hVcjTeLTpKWKL6Osg5FCVQ467
+    FlSfRch3vwAlTRuaqwV+ACXyN9/5WE+QDLHHaWIrdUkFYXJsHdci5RPVRfhv02JOyvFoV9
+    2Flw7hY5T1ttj+cRhytF15MwtVS5oqrH0JJwKYD4PMAAxmIRhBjr/bBJpCog
+X-ME-Proxy: <xmx:wABJamuRvAK97eBZ1gduVR6IjlYyKoNm2OjDgY1lDt9M9hdekCc9Gw>
+    <xmx:wABJakFQ4mQlfUNBe6Y7bLAU-Ho0pLuhMNQgNoMolCVDSPQOJ8A7UQ>
+    <xmx:wABJapNkR5lBnQDwratSsoFfgVgO7xOCGiPJYYax1HUvpn_X8Mxs-Q>
+    <xmx:wABJarL_EGmO2LMTngk8FxMGm9XbvvPaSGtwtIO4nopYFlRoffdofA>
+    <xmx:wQBJan3GDxjRwzPw8M42UB9Ni777O_LUW1BFgW3z4_cnd3AXhjdzM8V6>
+Feedback-ID: i4e034308:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
+ 4 Jul 2026 08:46:55 -0400 (EDT)
+Date: Sat, 4 Jul 2026 15:46:52 +0300
+From: Vsevolod Kozlov <zaba@mm.st>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, David Petry <petry103@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: fan speed control for FriendlyELEC
+ CM3588 NAS
+Message-ID: <akkAvJap-MtbKp8B@Vsevolods-MacBook-Pro.local>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADXu+JDAElqeFXWFg--.22738S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtr45uw1rurW7Aw4DuryrtFb_yoWktFXEkr
-	1DXrZrZr1jgryvkFWftFs3ZFW29an5ZFykJF93KrWIq347CrnrZws2g39IqryUWryxZFnx
-	Xr93WF18CFW7ZjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUba8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Cr0_Gr1UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr
-	1lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWxJVW8Jr1lIxAIcVC2z280aVCY1x0267AKxVWxJr0_GcJvcS
-	sGvfC2KfnxnUUI43ZEXa7VU1go2UUUUUU==
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_054457_460420_62DC7B31 
-X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-CacheID: sfid-20260704_054702_691763_0CC477B7 
+X-CRM114-Status: UNSURE (   9.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,32 +107,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver has an OF match table wired to .of_match_table, but does
-not export the table with MODULE_DEVICE_TABLE().
+The FriendlyELEC CM3588 NAS kit is often supplied with a case and a fan.
+Enable control of the speed of the fan using the trip points and cooling
+maps from rk3588-nanopc-t6.dtsi as a reference.
 
-Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-information is generated for OF based module autoloading.
-
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the platform driver, and the missing module alias publication.
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Signed-off-by: Vsevolod Kozlov <zaba@mm.st>
 ---
- drivers/clk/mediatek/clk-mt6735-vdecsys.c | 1 +
- 1 file changed, 1 insertion(+)
+ .../rk3588-friendlyelec-cm3588-nas.dts        | 31 +++++++++++++++++++
+ 1 file changed, 31 insertions(+)
 
-diff --git a/drivers/clk/mediatek/clk-mt6735-vdecsys.c b/drivers/clk/mediatek/clk-mt6735-vdecsys.c
-index 8817085fc1db..d53ebf92e878 100644
---- a/drivers/clk/mediatek/clk-mt6735-vdecsys.c
-+++ b/drivers/clk/mediatek/clk-mt6735-vdecsys.c
-@@ -63,6 +63,7 @@ static const struct of_device_id of_match_mt6735_vdecsys[] = {
- 	{ .compatible = "mediatek,mt6735-vdecsys", .data = &vdecsys_clks },
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, of_match_mt6735_vdecsys);
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+index 0dce96ca8c28..f4c34da61c4d 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dts
+@@ -12,6 +12,7 @@
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ #include <dt-bindings/soc/rockchip,vop2.h>
++#include <dt-bindings/thermal/thermal.h>
+ #include <dt-bindings/usb/pd.h>
+ #include "rk3588-friendlyelec-cm3588.dtsi"
  
- static struct platform_driver clk_mt6735_vdecsys = {
- 	.probe = mtk_clk_simple_probe,
+@@ -457,6 +458,36 @@ &i2c8 {
+ 	status = "okay";
+ };
+ 
++&package_thermal {
++	polling-delay = <1000>;
++
++	trips {
++		package_warm: package-warm {
++			temperature = <55000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++
++		package_hot: package-hot {
++			temperature = <65000>;
++			hysteresis = <2000>;
++			type = "active";
++		};
++	};
++
++	cooling-maps {
++		map0 {
++			trip = <&package_warm>;
++			cooling-device = <&fan THERMAL_NO_LIMIT 1>;
++		};
++
++		map1 {
++			trip = <&package_hot>;
++			cooling-device = <&fan 2 THERMAL_NO_LIMIT>;
++		};
++	};
++};
++
+ &pcie2x1l0 {
+ 	/* 2. M.2 socket, CON14: pcie30phy port0 lane1, @fe170000 */
+ 	max-link-speed = <3>;
+-- 
+2.47.3
 
 
