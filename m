@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D20FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 12:19:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46D72C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 12:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y27DqO5qYAulJWQUgoWwhHgv/2/LLh4/HG7iEmlDXG4=; b=gNYmL+M72QM62pINin+rCKL7v1
-	x/Op3XDeDIjyMqgL7TNgchtuk170rvsoglOduWPWYo8HKzfIgN5pTqzlGna43YijWSGF2f5/2hzs/
-	5eY6giP7B0keNyO5kcGEU+3t6xeZkJLamLSun54RB1D/2Y39+Vn2jJxR6/ZogQEDnnj9XgE83bk6o
-	BoKO9ZZ9DfIZ91U47JWZfi2MmBfCvJ7VAuzrjCB4c3VdBS2oh5UJCmF3i84MKZvS/M5xtx9eYaggQ
-	PS+ukrPTSizi7f363Jx0KU50JefQjM2biT0qCiXIPnkIbYgDHdIDSgff6Vn+SHYOxVQ2OoO6dslY/
-	0YI2FaSw==;
+	bh=wFrtowCccFzvcX8ht4iQxcPq13CaOxhU4whNIXr1DpQ=; b=IrYaD+/i2aLYzlMcQ+TQanzMEq
+	VMCQQPDuzdlpq9BWtdjr0yg39SNzYnw4S4fpeQSiNikmihV0HtcEaN+4n3+nj/ZS9MtLTL1j9En7H
+	HMPymz7Fe4ft5BILbVtOwGW/THBD2MNKP9odM1KaaK4Kqnz2rWduxXk2QL/k+OV0BiBnW60UKkBiJ
+	wbJKI69wor7emGN6DeG35CtAOHAzgqBt0rYqfelUnCLoZgJB/TuGVa2fulFAGlD6CP0vwhWRa2v6p
+	A9/PIB0etG2mNd5rk4L7ApSj72Eo7CR2HB4W3qnja6Fa8aFEDN06ghApVNqEfbye6Y5nIAUzLUNz3
+	qSTdWnbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfzKl-00000008PLB-33aH;
-	Sat, 04 Jul 2026 12:18:59 +0000
+	id 1wfzLu-00000008PQt-3iMq;
+	Sat, 04 Jul 2026 12:20:10 +0000
 Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wfzKi-00000008PKp-1a1u
+	id 1wfzLr-00000008PQY-3jze
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 12:18:58 +0000
+	Sat, 04 Jul 2026 12:20:09 +0000
 Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowABnTOMt+khqswrWFg--.11327S2;
-	Sat, 04 Jul 2026 20:18:54 +0800 (CST)
+	by APP-03 (Coremail) with SMTP id rQCowAC3vcR1+khqFg3WFg--.11298S2;
+	Sat, 04 Jul 2026 20:20:05 +0800 (CST)
 From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Linus Walleij <linusw@kernel.org>,
-	Imre Kaloz <kaloz@openwrt.org>
+To: Chester Lin <chester62515@gmail.com>,
+	Matthias Brugger <mbrugger@suse.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	NXP S32 Linux Team <s32@nxp.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>
 Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rtc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] soc: ixp4xx: qmgr: add missing MODULE_DEVICE_TABLE()
-Date: Sat,  4 Jul 2026 20:18:51 +0800
-Message-ID: <20260704121851.63805-1-pengpeng@iscas.ac.cn>
+Subject: [PATCH] rtc: s32g: add missing MODULE_DEVICE_TABLE()
+Date: Sat,  4 Jul 2026 20:20:03 +0800
+Message-ID: <20260704122003.70108-1-pengpeng@iscas.ac.cn>
 X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowABnTOMt+khqswrWFg--.11327S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrtr45uw1rurW7Aw4DuryrtFb_yoWDCrbEkr
-	y8XrZ7WF1UGryvkay3Krs3Zry09ayxur93tr1vqFySqw1fX347JFZ5ZrsxGa45JrW8tF9x
-	WryDXF1rCFWagjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb4kFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+X-CM-TRANSID: rQCowAC3vcR1+khqFg3WFg--.11298S2
+X-Coremail-Antispam: 1UD129KBjvdXoWrtr45uw1rurW7Aw4DuryrtFb_yoWDZFXEkF
+	ykZrs7W3WkurWkKws3trZ3Ar1Ika4vgrykJr95K3sa9ay7Aw4xJaykCanxtw1DGrWxtF98
+	Ar1kWFy8GrW2gjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb4kFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
 	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
 	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
 	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
 	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
+	jxv20xvE14v26r126r1DMcIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
 	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWU
-	AVWUtwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
-	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_JF0_Jw1lIxkG
+	tVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14
+	v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkG
 	c2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI
 	0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26F4j6r4U
-	JwCI42IY6I8E87Iv6xkF7I0E14v26F4UJVW0obIYCTnIWIevJa73UjIFyTuYvjfUOWrWUU
+	JwCI42IY6I8E87Iv6xkF7I0E14v26F4UJVW0obIYCTnIWIevJa73UjIFyTuYvjfUw5l8UU
 	UUU
 X-Originating-IP: [111.196.245.140]
 X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_051857_496336_5A84383A 
-X-CRM114-Status: UNSURE (   8.17  )
+X-CRM114-CacheID: sfid-20260704_052008_311364_F924402D 
+X-CRM114-Status: UNSURE (   7.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,20 +95,20 @@ the platform driver, and the missing module alias publication.
 
 Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 ---
- drivers/soc/ixp4xx/ixp4xx-qmgr.c | 1 +
+ drivers/rtc/rtc-s32g.c | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/ixp4xx/ixp4xx-qmgr.c b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-index 475e229039e3..e3ad0e0237a7 100644
---- a/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-+++ b/drivers/soc/ixp4xx/ixp4xx-qmgr.c
-@@ -454,6 +454,7 @@ static const struct of_device_id ixp4xx_qmgr_of_match[] = {
-         },
- 	{},
+diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
+index 3a0818e972eb..86716192d10f 100644
+--- a/drivers/rtc/rtc-s32g.c
++++ b/drivers/rtc/rtc-s32g.c
+@@ -366,6 +366,7 @@ static const struct of_device_id rtc_dt_ids[] = {
+ 	{ .compatible = "nxp,s32g2-rtc", .data = &rtc_s32g2_data },
+ 	{ /* sentinel */ },
  };
-+MODULE_DEVICE_TABLE(of, ixp4xx_qmgr_of_match);
++MODULE_DEVICE_TABLE(of, rtc_dt_ids);
  
- static struct platform_driver ixp4xx_qmgr_driver = {
- 	.driver = {
+ static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
+ 			 s32g_rtc_suspend, s32g_rtc_resume);
 
 
