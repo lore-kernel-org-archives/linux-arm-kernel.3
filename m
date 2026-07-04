@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AABBDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 14:22:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11ACC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 14:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gKSm7rIc5n9tWg7a0XJc9GGyaUYz7rX65FqoNZLGJqQ=; b=zPag9mtpPTRHuXL40+EDYCb247
-	lEnh0AVLxQ7n1j1C4iqGaEIg/iy7BEsdxQrtKI21Y9FDXhl9/EiVbsDfvjvMTKBCbvXf2wH4EhBr/
-	tlJZIpRkq6ppGqjaCIG+97a4XaFhNpyd1i9uHXIGdua8ScJXXj53gAbh9HxJah+yMNAvivOn5z0Op
-	00Qz6R8AF1Jjmp9CrS+IHHodLymzgKpqEgRpWdEikXImNhygrLlriEgYnXmHk97RXL0I2ma7tMfBS
-	eQrFGqTu6YV7q633mmzUwn0MKQRAfU94XajXolEcgVlPGEw1FoyLgFZ9s8voCGx0Q4eopk04/6kTv
-	d+yBiZwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
+	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+I/WnwI4brAJvUkUNNsBltfUHLQpGgvBdsLqClF3mvw=; b=YjNsrYCnKup1Cb
+	FHMSfQRAl/N/ECqc3mDxBHy/mMDJ32NMMXri0Wo4rysz8S84b+/PylTd9ehwZVRRn84to2V9CZNGe
+	5gZwXQVV8sZr1TmBdGhf+HrGSUrEXlj9ZZnrfTZCywl7dOdXgA8wVAmahxPcvwYUNQFP5xNwoZLJS
+	MbTUGCjBPATXQPuVxItgEBt6TLQPTZrvJKmF7nvFf172i2aF4706H5r6/FiSsMBIvwoGfx1VKxu/8
+	G1+2J+lXitPQo8VsqyI/390H79eZW0oYQUrQskHGYDnyYa+8Iy57fcg9FS0I+W+YK5EPDlxeFd3em
+	KC6J+qDKNoa0swvCc6CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1Fj-00000008VEF-0RdG;
-	Sat, 04 Jul 2026 14:21:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wg1eb-00000008Vqf-0kXW;
+	Sat, 04 Jul 2026 14:47:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1Fh-00000008VE4-40B7;
-	Sat, 04 Jul 2026 14:21:54 +0000
+	id 1wg1ea-00000008VqU-0PXg
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 04 Jul 2026 14:47:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B34776001A;
-	Sat,  4 Jul 2026 14:21:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE1991F000E9;
-	Sat,  4 Jul 2026 14:21:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 656D7436F7;
+	Sat,  4 Jul 2026 14:47:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7528D1F00A3A;
+	Sat,  4 Jul 2026 14:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783174912;
-	bh=gKSm7rIc5n9tWg7a0XJc9GGyaUYz7rX65FqoNZLGJqQ=;
-	h=From:Date:Subject:To:Cc;
-	b=mF4XiaXojCm4JUT+iUgovxPxOtZwrJUZJ/KN4x5HdunoTS2k5X5N6UhaZWfyrdRox
-	 ZxMWjJqfjbnaa1zL5YgTuEEvkNvM9BXSHlaE87MHXgF4PkpBd1S/sHKWBQ7DOiLLFA
-	 NDz/hnlCcgT/x9AialtNBhoH1N1SM/0vnxYHMM5OxumRHJUvajGc4mcp70/ZtMP7pP
-	 /CRyLrbPRvrqLFagKdVQUHxWeMVT9mFBBlcGrNrF4imTNCUYq0Zuo5gXiyqHuO1yUu
-	 qlyRQ95c5TSo5UIxJWZ7yk5OWafRCHIoLmUALBEVX7F89NBJC2mU92Sx/z0S21MXIM
-	 W4XaxqIi7HGyw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 04 Jul 2026 16:21:38 +0200
-Subject: [PATCH net] net: airoha: fix ETS channel derivation in
- airoha_tc_setup_qdisc_ets()
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1783176455;
+	bh=+I/WnwI4brAJvUkUNNsBltfUHLQpGgvBdsLqClF3mvw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=JSEc6BT+xL6E8Q99P5Q6yjxXDxYvDwWcaNXBcOFslW7noYfOhYBks8SmBnXmfXrHn
+	 TZghAGS1TUi5SWfPm5iLDbXobb6PzSNr0JdKge7G7Fy7vmOlGK65cVzAFHhWWT4tRx
+	 gEk7znUn1DxFqJ07XFrTdr87z2IU/jdyBY9+Kdyml096qOJgBtqPx7lz2uQO+IRwx+
+	 5vgycX+066RKhrkdV/gqufFvixBSXPQ76j3Lk7muQAIaQPz47sBI5trcxTieU2pOAy
+	 hvFyOnnSJHFIHh9SrSGXv9y1wdDyBo3bTml5NdZ725MJnzBcbRJMSjS3EjTAQ1VuD1
+	 3CPO4aHN2hT6w==
+Date: Sat, 4 Jul 2026 23:47:30 +0900
+From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
+To: Pu Hu <hupu@transsion.com>
+Subject: Re: [RFC 0/2] arm64: kprobes: Fix single-step fault and reentry
+ handling
+Message-Id: <20260704234730.46d51c47d75e7d208e7bec9f@kernel.org>
+In-Reply-To: <89c389ad-7e80-463b-9c1a-31a2e7dae814@transsion.com>
+References: <20260701121448.3926-1-hupu@transsion.com>
+	<20260701224345.c3a215ece3660a0cbae67645@kernel.org>
+	<ec11e9ca-ae7c-49c3-ae7b-47a70e9f86af@transsion.com>
+	<a6504443-8708-4f6b-819f-2052615d37df@transsion.com>
+	<89c389ad-7e80-463b-9c1a-31a2e7dae814@transsion.com>
+X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260704-airoha-ets-handle-fix-v1-1-42516b3549a1@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MSwqEMBAFrxJ6bUP80OJcZXARzFMbJA6JDILk7
- tPMsl7x6qGCrCj0cg9lfLXomQzaxtGyh7SBNRpT5zvxox84aD73wLgKm48HeNWbZWlFIvrYT0L
- 2/WTY/O++KeGiudYfUjnaemwAAAA=
-X-Change-ID: 20260704-airoha-ets-handle-fix-6c166de3d396
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,46 +69,281 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Hongyan Xia <hongyan.xia@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "naveen@kernel.org" <naveen@kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "will@kernel.org" <will@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Derive the hardware QoS channel from opt->parent instead of opt->handle
-in airoha_tc_setup_qdisc_ets(). The ETS qdisc handle is either
-user-specified or auto-allocated by qdisc_alloc_handle() and bears no
-relation to the HTB leaf classid that identifies the hardware channel.
-HTB derives the channel from TC_H_MIN(opt->classid), and ETS is always
-attached as a child of an HTB leaf, so its opt->parent matches that
-classid. Using opt->handle instead can cause two ETS qdiscs on different
-HTB leaves to collide on the same hardware channel, corrupting scheduler
-configuration and stats.
+Hi Pu Hu,
 
-Fixes: 20bf7d07c956 ("net: airoha: Add sched ETS offload support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+Can you update this by rebasing on top of arm64 tree
+(git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git)
+and update your signed-off-by with your name.
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 59001fd4b6f7..fac2aaefffff 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2504,8 +2504,7 @@ static int airoha_tc_setup_qdisc_ets(struct net_device *dev,
- 	if (opt->parent == TC_H_ROOT)
- 		return -EINVAL;
- 
--	channel = TC_H_MAJ(opt->handle) >> 16;
--	channel = channel % AIROHA_NUM_QOS_CHANNELS;
-+	channel = TC_H_MIN(opt->parent) % AIROHA_NUM_QOS_CHANNELS;
- 
- 	switch (opt->command) {
- 	case TC_ETS_REPLACE:
+Thank you,
 
----
-base-commit: d6456743424721a837e1509b912f362caaeecd97
-change-id: 20260704-airoha-ets-handle-fix-6c166de3d396
+On Thu, 2 Jul 2026 10:09:51 +0000
+Pu Hu <hupu@transsion.com> wrote:
 
-Best regards,
+> On 7/2/2026 6:07 PM, hupu wrote:
+> > On 7/1/2026 9:56 PM, Pu Hu wrote:
+> >> On 7/1/2026 9:43 PM, Masami Hiramatsu wrote:
+> >>> On Wed, 1 Jul 2026 12:14:54 +0000
+> >>> Pu Hu <hupu@transsion.com> wrote:
+> >>>
+> >>>> From: hupu <hupu@transsion.com>
+> >>>>
+> ...
+> ...>
+> > I will send the complete test case in a follow-up email.
+> > 
+> > Thanks,
+> > hupu
+> > 
+> 
+> Hi maintainers,
+> 
+> As mentioned in my previous email, below is the complete test case I 
+> used to reproduce the arm64 kprobe crash on mainline.
+> 
+> It contains:
+> 
+>    - a small kprobe module that probes folio_wait_bit_common()
+>    - a userspace program that repeatedly triggers file-backed page faults
+>    - a Makefile to build both parts
+> 
+> Depending on the local build environment, the following variables in the
+> Makefile may need to be adjusted:
+> 
+>      CROSS_COMPILE
+>      KERN_DIR
+>      DEST_PATH
+> 
+> Thanks,
+> Pu Hu
+> 
+> ---
+> 
+> 
+> diff --git a/misc/kprobe/Makefile b/misc/kprobe/Makefile
+> new file mode 100755
+> index 0000000..14c00c0
+> --- /dev/null
+> +++ b/misc/kprobe/Makefile
+> @@ -0,0 +1,36 @@
+> +PWD                            := $(shell pwd)
+> +ARCH                   ?= arm64
+> +CROSS_COMPILE  ?= aarch64-dumpstack-linux-gnu-
+> +KERN_DIR               ?= $(PWD)/../../output/build-mainline
+> +DEST_PATH              ?= $(PWD)/../../output
+> +Q                              := @
+> +
+> +UNIT_TEST              := fault_stress
+> +UNIT_TEST_SRC  := fault_stress.c
+> +
+> +KP_MOD                 := kp_folio
+> +obj-m                  := $(KP_MOD).o
+> +
+> +USER_CFLAGS            := -static -g -O0 -fno-omit-frame-pointer 
+> -fasynchronous-unwind-tables
+> +USER_LIBS              := -lm -lpthread
+> +EXTRA_CFLAGS   += -I$(KERN_DIR)
+> +
+> +.PHONY: all modules user clean
+> +
+> +all: modules user install
+> +
+> +modules:
+> +       $(Q)$(MAKE) -C $(KERN_DIR) M=$(PWD) 
+> EXTRA_CFLAGS="$(EXTRA_CFLAGS)" ARCH=$(ARCH) 
+> CROSS_COMPILE=$(CROSS_COMPILE) modules
+> +
+> +user:
+> +       $(Q)$(CROSS_COMPILE)gcc $(USER_CFLAGS) $(UNIT_TEST_SRC) -o 
+> $(UNIT_TEST) $(USER_LIBS)
+> +
+> +install:
+> +       $(Q)mkdir -p $(DEST_PATH)
+> +       $(Q)cp -f *.ko $(DEST_PATH)/
+> +       $(Q)cp -f $(UNIT_TEST) $(DEST_PATH)/
+> +
+> +clean:
+> +       $(Q)$(MAKE) -C $(KERN_DIR) M=$(PWD) clean
+> +       $(Q)rm -f $(UNIT_TEST)
+> +       $(Q)rm -f $(DEST_PATH)/$(UNIT_TEST) $(DEST_PATH)/*.ko
+> diff --git a/misc/kprobe/fault_stress.c b/misc/kprobe/fault_stress.c
+> new file mode 100755
+> index 0000000..10150ff
+> --- /dev/null
+> +++ b/misc/kprobe/fault_stress.c
+> @@ -0,0 +1,96 @@
+> +#define _GNU_SOURCE
+> +#include <fcntl.h>
+> +#include <pthread.h>
+> +#include <sched.h>
+> +#include <stdio.h>
+> +#include <stdlib.h>
+> +#include <string.h>
+> +#include <sys/mman.h>
+> +#include <sys/stat.h>
+> +#include <sys/types.h>
+> +#include <unistd.h>
+> +
+> +#define FILE_SIZE   (256UL * 1024 * 1024)
+> +#define NR_THREADS  8
+> +
+> +static void deep_call(int n)
+> +{
+> +       volatile char buf[4096];
+> +
+> +       memset((void *)buf, n, sizeof(buf));
+> +
+> +       if (n > 0)
+> +               deep_call(n - 1);
+> +       else
+> +               sched_yield();
+> +}
+> +
+> +static void *worker(void *arg)
+> +{
+> +       const char *path = arg;
+> +       int fd;
+> +       char *map;
+> +       unsigned long i;
+> +       volatile unsigned long sum = 0;
+> +
+> +       fd = open(path, O_RDONLY);
+> +       if (fd < 0) {
+> +               perror("open");
+> +               return NULL;
+> +       }
+> +
+> +       map = mmap(NULL, FILE_SIZE, PROT_READ, MAP_PRIVATE, fd, 0);
+> +       if (map == MAP_FAILED) {
+> +               perror("mmap");
+> +               close(fd);
+> +               return NULL;
+> +       }
+> +
+> +       for (;;) {
+> +               /*
+> +                * Drop the pages backing this mapping from the current 
+> process.
+> +                * Subsequent accesses are more likely to trigger 
+> file-backed
+> +                * page faults again.
+> +                */
+> +               madvise(map, FILE_SIZE, MADV_DONTNEED);
+> +
+> +               for (i = 0; i < FILE_SIZE; i += 4096 * 17) {
+> +                       sum += map[i];
+> +                       deep_call(64);
+> +               }
+> +       }
+> +
+> +       munmap(map, FILE_SIZE);
+> +       close(fd);
+> +       return NULL;
+> +}
+> +
+> +int main(void)
+> +{
+> +       pthread_t th[NR_THREADS];
+> +       const char *path = "/tmp/fault_stress_file";
+> +       int fd;
+> +       int i;
+> +
+> +       fd = open(path, O_CREAT | O_RDWR, 0644);
+> +       if (fd < 0) {
+> +               perror("open file");
+> +               return 1;
+> +       }
+> +
+> +       if (ftruncate(fd, FILE_SIZE) < 0) {
+> +               perror("ftruncate");
+> +               return 1;
+> +       }
+> +
+> +       close(fd);
+> +
+> +       for (i = 0; i < NR_THREADS; i++)
+> +               pthread_create(&th[i], NULL, worker, (void *)path);
+> +
+> +       for (i = 0; i < NR_THREADS; i++)
+> +               pthread_join(th[i], NULL);
+> +
+> +       return 0;
+> +}
+> +
+> diff --git a/misc/kprobe/kp_folio.c b/misc/kprobe/kp_folio.c
+> new file mode 100755
+> index 0000000..c8f3e1d
+> --- /dev/null
+> +++ b/misc/kprobe/kp_folio.c
+> @@ -0,0 +1,60 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +#include <linux/module.h>
+> +#include <linux/kernel.h>
+> +#include <linux/kprobes.h>
+> +#include <linux/sched.h>
+> +#include <linux/atomic.h>
+> +#include <linux/ratelimit.h>
+> +
+> +static atomic64_t kp_hit_count = ATOMIC64_INIT(0);
+> +
+> +static int folio_wait_bit_common_handler(
+> +                       struct kprobe *p,^M
+> +                       struct pt_regs *regs)
+> +{
+> +       unsigned long hit;
+> +
+> +       hit = atomic64_inc_return(&kp_hit_count);
+> +
+> +       pr_info("kp_folio: hit=%lu comm=%s tgid=%d tid=%d\n",
+> +               hit, current->comm, current->tgid, current->pid);
+> +
+> +       return 0;
+> +}
+> +
+> +static struct kprobe kp_folio_wait_bit_common = {
+> +       .symbol_name = "folio_wait_bit_common",
+> +       .pre_handler = folio_wait_bit_common_handler,
+> +};
+> +
+> +static int __init kp_folio_init(void)
+> +{
+> +       int ret;
+> +
+> +       ret = register_kprobe(&kp_folio_wait_bit_common);
+> +       if (ret < 0) {
+> +               pr_err("kp_folio: register_kprobe failed, ret=%d\n", ret);
+> +               return ret;
+> +       }
+> +
+> +       pr_info("kp_folio: kprobe registered at %pS, addr=%px\n",
+> +               kp_folio_wait_bit_common.addr,
+> +               kp_folio_wait_bit_common.addr);
+> +
+> +       return 0;
+> +}
+> +
+> +static void __exit kp_folio_exit(void)
+> +{
+> +       unregister_kprobe(&kp_folio_wait_bit_common);
+> +
+> +       pr_info("kp_folio: kprobe unregistered, total hits=%lld\n",
+> +               atomic64_read(&kp_hit_count));
+> +}
+> +
+> +module_init(kp_folio_init);
+> +module_exit(kp_folio_exit);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("hupu <hupu@transsion.com>");
+> +MODULE_DESCRIPTION("simple kprobe reproducer for folio_wait_bit_common");
+> 
+> 
+
+
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Masami Hiramatsu (Google) <mhiramat@kernel.org>
 
