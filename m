@@ -4,55 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774A5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 19:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF722C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 19:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JGgiWXJNS4hqvmIJPvOtAPs9Wwg2oZlyqbXWGMcSc4g=; b=dAKl+csvvSquLfiQBPaRGKS6MP
-	l8qR4vD1xAV0kYNjaTUHccwirrctpnW7MpjnvON+KiG4nh0jNpUiYQF+tS7KO+Mv/SlBROYq7Ipr8
-	olSvHAJiMjXK+CxaMOArxG5pIpEP/OMmjjV7WeLU65Eg69ZwoKwf5RCeiFMsw72lenQoydoqGYYTh
-	IEkquejFoMNocsQtzVeiL7yOow2vYp7Po6qXNRpU4IWPUcChvxy0aeoRJrYRfUjk4QBJCtuEE1S4n
-	qV05icqzHPpgjWryiy+dXHfJOugqw2wp1NdcvtroYiQqtmU5vJ+yO6HhQQaBlrOjIsHD6p1xasaI6
-	zbl6Gj9A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6hhUGyc+mT3QeW23DP6O9D/tS3OeqgAHNIRcWRxe91w=; b=YmeKes4Zi8vYNwts22kONcQiQF
+	cTlbtNwakClX2ns42+fPkQjBYgZqljjmRUHFJM1X/ufv94mak8dX31Pv9vCAnY3kivIhbZ7nkXUvM
+	gqph/RXqwWu6vvhrASrFa8u+JCPR2CcCIDHaca8gjnIZ/fONLwUujoTmNKRcb0fXMGgf1rlMLP4Le
+	ltRoSmKnUsrS92GsvGYmtca0b9Ji1OgfzsLSflVOVGCNSJS14gzazkTUZ2ibf0D3MbwkEuOCbOXBv
+	n4VPkk0GfGnphA6RyRTFOcvp4d/H3yw8lRSrtzCs+a04SgT1izsjSW1GBEkPLXoYHDFVo01MaP8Ln
+	7QBDC4Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg5vx-00000008hRM-0Gah;
-	Sat, 04 Jul 2026 19:21:49 +0000
+	id 1wg5vw-00000008hRI-48Oq;
+	Sat, 04 Jul 2026 19:21:48 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg5vv-00000008hQf-32Mz;
+	id 1wg5vv-00000008hQg-3291;
 	Sat, 04 Jul 2026 19:21:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6A9B26136D;
+	by tor.source.kernel.org (Postfix) with ESMTP id 63A8A60052;
 	Sat,  4 Jul 2026 19:21:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 05023C2BCF5;
-	Sat,  4 Jul 2026 19:21:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E73C1C19425;
+	Sat,  4 Jul 2026 19:21:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783192906;
-	bh=9DFNETMVj1y6LqC/8kUN3WRmPvqY/OPjVK2Q0keBtQY=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=KTTKJ3Wo1+iTpUO6RLNmFPhaZcHopQhdx3qcxxzYSYkhEP1jZRDlR7sUJBD9jSmuU
-	 6jFWG003Y9IJM4hqYWoBQY86wkKzNklI/tIvCbLDbmY8XhnCqkZFwXmEXemf7365a0
-	 WMbe/P9DbaIubW13XVp9lEWXeP6rdDrX1awILgD1BotVEMuBgWMpoyfFs2xzl43/mp
-	 NlOU2W3C85iamvyCMS9AtLlLpMbvFB7h0YhuHeQujWDThKtDRD3YQxJaPYUICYxPYs
-	 L0OLZIP4EVPXdXlR9gU577rgPgLyl3wk0fScB7rUigtP/PfQZ6H+9YuayEa0fnaHKU
-	 HXeLotrmYwQeQ==
+	bh=DrmEnoWmyWcxAHLbfs449WCtfzaKrN+jtcI2xYUq4jM=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=s2h+J/PXSLPoVCq5HoZTcJWZRH1TyzEPI1fBa+lUbkvKpeQ/NWU+exS23rgQz7aMQ
+	 WpOVKdlRcl+UqJnX1PVFgWzykvpOWO6KwqSyqRwmHEoJj52Rk0nYj9OJi42o3n+TeY
+	 8WIOBZ9zYUxytb+hjtyGGqWYbNt7qHipnHuGcdvHaXFRFB0FF9RgVS6RMqKMdrC46i
+	 Q04QiOw5CUK4EpGPFNoorpG/p7iBzCGQfnF+ANTiI5/HkyLkCzcFVc6/MKS5G77cy8
+	 OoHmT7YmCGh9uF/ABrS9Duz5rKQruZQZHlLFvAeLx5xrArJAS0czltsB/3OdRIG/+G
+	 JxRPrkaXntVDg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DB2AEC44501;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C05C3C43458;
 	Sat,  4 Jul 2026 19:21:45 +0000 (UTC)
 From: Roman Vivchar via B4 Relay <devnull+rva333.protonmail.com@kernel.org>
-Date: Sat, 04 Jul 2026 22:21:43 +0300
-Subject: [PATCH 2/2] ARM: dts: mediatek: mt6572: add cache data
+Subject: [PATCH 0/2] ARM: dts: mediatek: mt6572 DT cleanup + cache info
+Date: Sat, 04 Jul 2026 22:21:41 +0300
+Message-Id: <20260704-6572-phase1-v1-0-61c2fe6be19c@protonmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260704-6572-phase1-v1-2-61c2fe6be19c@protonmail.com>
-References: <20260704-6572-phase1-v1-0-61c2fe6be19c@protonmail.com>
-In-Reply-To: <20260704-6572-phase1-v1-0-61c2fe6be19c@protonmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMTQqAIBBA4avErBNUMqGrRIt+xpwWFk5FEN49q
+ +W3eO8GxkjI0BQ3RDyJaQ0Zqixg9H2YUdCUDVrqWlpZidpYLTbfMyohVTUZowZnnYZcbBEdXd+
+ t7X7zMSw47u8CUnoAi2ZjYW8AAAA=
+X-Change-ID: 20260704-6572-phase1-014d551bf7f2
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Matthias Brugger <matthias.bgg@gmail.com>, 
@@ -61,11 +63,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Roman Vivchar <rva333@protonmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783192904; l=1386;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783192904; l=1091;
  i=rva333@protonmail.com; s=20260510; h=from:subject:message-id;
- bh=SDakxdcc7QkbCtbafL/keArn3jI3hsMDqsWxhluf3lA=;
- b=D6OZSx1nW4RarZ2Josaqo2/lJX3OtNQVawPvXYZ6zqjyvMR9rd8EDHavRzVnU8ZJGSlS5jPk8
- qV0iizoUJQRDBHuwp3dg0lIrPrwJg3+6W0GS5SHerkv6m32DIAxNnSI
+ bh=DrmEnoWmyWcxAHLbfs449WCtfzaKrN+jtcI2xYUq4jM=;
+ b=nNNWxh6dknyQMeqBS+KrQhlN0NrksqTdzm8NiuX/by9b77T9D8qEXOtuC8k79UQS8ERkyIADj
+ qgfY6gpSNb8CKCHewkxtdNFWWAFO1ei7BN4q//uqqMkR2wju2Q+JzwK
 X-Developer-Key: i=rva333@protonmail.com; a=ed25519;
  pk=zww/nWjBGoQ4POXCG0BV6fx2iuXK6jx77rsKPA5YK5Y=
 X-Endpoint-Received: by B4 Relay for rva333@protonmail.com/20260510 with
@@ -86,60 +88,34 @@ Reply-To: rva333@protonmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roman Vivchar <rva333@protonmail.com>
+This series replaces legacy clock naming like uart_clk, system_clk and
+rtc_clk with clk-*FREQ* equivalents. It also adds L1 and L2 cache info
+to properly describe hardware.
 
-MediaTek mt6572 includes 32 KB I-cache and D-cache, and 256 KB L2 cache.
+Note that patch 1 doesn't break DT ABI. The changed clock node names
+and labels are consumed only by phandles, and there are no drivers
+relying on the legacy names.
 
-Add information about cache size, cache line size and cache sets to the
-devicetree.
+As a brief heads-up, this series is a small part of an ongoing effort
+to upstream mt6572 support. In my kernel tree, I have brought up clocks,
+pinctrl, eMMC/microSD, cpufreq, thermal, DRM, GPU and more. I plan to
+send those series in the near future.
 
 Signed-off-by: Roman Vivchar <rva333@protonmail.com>
 ---
- arch/arm/boot/dts/mediatek/mt6572.dtsi | 23 +++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
+Roman Vivchar (2):
+      ARM: dts: mediatek: mt6572: rename fixed clocks
+      ARM: dts: mediatek: mt6572: add cache data
 
-diff --git a/arch/arm/boot/dts/mediatek/mt6572.dtsi b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-index fa0e5df766c2..5716505dc9e4 100644
---- a/arch/arm/boot/dts/mediatek/mt6572.dtsi
-+++ b/arch/arm/boot/dts/mediatek/mt6572.dtsi
-@@ -20,11 +20,34 @@ cpu@0 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a7";
- 			reg = <0x0>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
- 		};
- 		cpu@1 {
- 			device_type = "cpu";
- 			compatible = "arm,cortex-a7";
- 			reg = <0x1>;
-+			i-cache-size = <32768>;
-+			i-cache-line-size = <64>;
-+			i-cache-sets = <256>;
-+			d-cache-size = <32768>;
-+			d-cache-line-size = <64>;
-+			d-cache-sets = <128>;
-+			next-level-cache = <&l2>;
-+		};
-+
-+		l2: l2-cache {
-+			compatible = "cache";
-+			cache-level = <2>;
-+			cache-size = <262144>;
-+			cache-line-size = <64>;
-+			cache-sets = <512>;
-+			cache-unified;
- 		};
- 	};
- 
+ arch/arm/boot/dts/mediatek/mt6572.dtsi | 35 ++++++++++++++++++++++++++++------
+ 1 file changed, 29 insertions(+), 6 deletions(-)
+---
+base-commit: 8cd9520d35a6c38db6567e97dd93b1f11f185dc6
+change-id: 20260704-6572-phase1-014d551bf7f2
 
--- 
-2.54.0
+Best regards,
+--  
+Roman Vivchar <rva333@protonmail.com>
 
 
 
