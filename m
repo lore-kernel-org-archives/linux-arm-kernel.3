@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8593CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 14:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212BFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 15:04:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HMZjFgCnK4BG1UhsWumnII7xCxYwlRHtY7CwcOaC6gE=; b=Ea3ZEOZLnfLQcE2TTH3zNljKPs
-	5WiXxHT6VooN4SLxmJkI5YDGjf9OtLMzp13iJVPquQjDM94AZdrfh1md93M9WGWe9zLiWJqomZbTl
-	5balu+S5mLi1u/XLeQj3K+hfqhnoPo8JbLJdiGr+TRwvxxoh2jDnfBA/qdVycieX0uVIFCDIbsXwE
-	VVHKDqy8bjlkYPQAanvpJtqApYMukielgMI7b8hmFg1xYcdTsdPoSmyswpLJG85Jj5sbPFTztiJR+
-	heSnLKBoSCGo4LYgIUZECTpd1ke76ySERhN0bTl6ZEDNhzpg70ibFOf3ZpOP1Xk2956sg3bernHmZ
-	w2EQPWxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VjGv2jwfhO33Q9S3U3t9y+ZOqdHqIWWvQqM0uaBcpcQ=; b=WCYSNNdufWhkrOMKaN91PvDqqh
+	YnrLQjhXdLz/1qEKRxEqLieK/ANSOGCI/jsBhZRm8nCQIKkkNqNSBSEW4j42v5cjoOE/n53aBuh0F
+	/7w6R8woqI3QNn+sHSc7VwsnzLj0Y8W1dNjq43bWY8wX8L0AwglXgFTj2B0pHa5IHcTCE8Ls8jJ7R
+	bXD7If3+SrkFxTi/sf6m4edNzreH1+nVbBwFLtLS95+NCa8EoXDkJOOiKc3DJEfHYqHKjxQ4TvQ/p
+	6HwI/m0+k8MHB3qd82xwisKo0J+hRtOJ9HY2jqNS04SYGkOvMmYBf9rHMHgVIZOCYg7GhZwkb0UUI
+	ksv5HzfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1iI-00000008W0B-3p5S;
-	Sat, 04 Jul 2026 14:51:26 +0000
-Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
+	id 1wg1uK-00000008WXT-3EYS;
+	Sat, 04 Jul 2026 15:03:52 +0000
+Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1iF-00000008Vzg-1NJT
+	id 1wg1uI-00000008WX8-0O5p
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 14:51:25 +0000
-Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
-	by mail.mindbit.ro (Postfix) with ESMTPSA id AC6D4C24ED;
-	Sat,  4 Jul 2026 17:51:11 +0300 (EEST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro AC6D4C24ED
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
-	s=default; t=1783176672;
-	bh=HMZjFgCnK4BG1UhsWumnII7xCxYwlRHtY7CwcOaC6gE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=pzEli5Bhrxl8Qe8nK6PlPlfEOwCA5ylVy0AqrC0P9t4wXF+rwSBKiQ36djn7E6QJq
-	 lSHWh1rPFXrhz/YyS+7eXqANMyLTppT8l9qCSwfx6fdOEb3K+CLaFDSJ8RwNnLLkif
-	 Wt1S8Vq+qEcu742uTKPxmB8ePl6Ajb7ikr59B+qFmc6XrVibsdaO2wsNDU9WQWx+ZZ
-	 aeKsic2PjSVGl9Fm1gSqJbp5R4qU/h+Spckd6CdRMZ33iAUtFsKjr5qKfvD50bjqJ6
-	 61Oz3jFe5U2WcJeAwBbScihBc0twRYxs6oxgyEY2E+GS4uHpx6Ydx00umN9qYCokcF
-	 iUvaBImTcp/Jw==
-Message-ID: <24de1fda7ed76615b2c24fe0352b5b1cb35038d6.camel@rendec.net>
-Subject: Re: [PATCH v4 1/6] irqchip/gic-v3-its: Fix memleak in
- its_probe_one()
-From: Radu Rendec <radu@rendec.net>
-To: Kemeng Shi <shikemeng@huaweicloud.com>, maz@kernel.org, tglx@kernel.org,
- 	jason@lakedaemon.net, lpieralisi@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Date: Sat, 04 Jul 2026 10:51:09 -0400
-In-Reply-To: <20260702033050.1583-2-shikemeng@huaweicloud.com>
-References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
-	 <20260702033050.1583-2-shikemeng@huaweicloud.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+	Sat, 04 Jul 2026 15:03:51 +0000
+Received: from localhost.localdomain (unknown [111.196.245.140])
+	by APP-05 (Coremail) with SMTP id zQCowABnus3SIElqjPfaFg--.1873S2;
+	Sat, 04 Jul 2026 23:03:47 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: imx: imx8qxp-lpcg: add missing MODULE_DEVICE_TABLE()
+Date: Sat,  4 Jul 2026 23:01:41 +0800
+Message-ID: <20260704150344.59563-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABnus3SIElqjPfaFg--.1873S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xw47WF43Aw43JF17XrWkWFg_yoWkWFb_uF
+	18ur4fWFW8CryYk3WUKr4fZryIva47ur1kXFyIqasxta4DZr13JFZ2gwsxXw1UGry8JFZ8
+	XwnrWF48urW29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUb3AFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26F4j6r4UJwCI42IY6I8E87Iv6xkF7I0E14v26F4UJVW0obIYCT
+	nIWIevJa73UjIFyTuYvjfUFL05UUUUU
+X-Originating-IP: [111.196.245.140]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_075123_674771_8AAD192F 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20260704_080350_517630_F4C3A77E 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2026-07-02 at 11:30 +0800, Kemeng Shi wrote:
-> Fix collection leak when its_init_domain() failed in its_probe_one().
->=20
-> Fixes: 4c21f3c26ecc2 ("irqchip: GICv3: ITS: DT probing and initialization=
-")
-> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
-> ---
-> =C2=A0drivers/irqchip/irq-gic-v3-its.c | 4 +++-
-> =C2=A01 file changed, 3 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
-3-its.c
-> index 291d7668cc8d..d721b6101e0a 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -5326,7 +5326,7 @@ static int __init its_probe_one(struct its_node *it=
-s)
-> =C2=A0
-> =C2=A0	err =3D its_init_domain(its);
-> =C2=A0	if (err)
-> -		goto out_free_tables;
-> +		goto out_free_col;
-> =C2=A0
-> =C2=A0	raw_spin_lock(&its_lock);
-> =C2=A0	list_add(&its->entry, &its_nodes);
-> @@ -5334,6 +5334,8 @@ static int __init its_probe_one(struct its_node *it=
-s)
-> =C2=A0
-> =C2=A0	return 0;
-> =C2=A0
-> +out_free_col:
-> +	kfree(its->collections);
-> =C2=A0out_free_tables:
-> =C2=A0	its_free_tables(its);
-> =C2=A0out_free_cmd:
+The driver has a match table for the of bus wired into its driver
+structure, but the table is not exported with MODULE_DEVICE_TABLE().
 
-Reviewed-by: Radu Rendec <radu@rendec.net>
+Add the missing MODULE_DEVICE_TABLE() entry so module alias information
+is generated for automatic module loading.
+
+This is a source-level fix.  It does not claim dynamic hardware
+reproduction; the evidence is the driver-owned match table, its use by
+the driver registration structure, and the missing module alias
+publication.
+
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/clk/imx/clk-imx8qxp-lpcg.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+index 1dae3410ee99..f0cf6cf91899 100644
+--- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
++++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
+@@ -354,6 +354,7 @@ static const struct of_device_id imx8qxp_lpcg_match[] = {
+ 	{ .compatible = "fsl,imx8qxp-lpcg", NULL },
+ 	{ /* sentinel */ }
+ };
++MODULE_DEVICE_TABLE(of, imx8qxp_lpcg_match);
+ 
+ static struct platform_driver imx8qxp_lpcg_clk_driver = {
+ 	.driver = {
+-- 
+2.53.0
+
 
