@@ -4,60 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11ACC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 14:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8593CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 14:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+I/WnwI4brAJvUkUNNsBltfUHLQpGgvBdsLqClF3mvw=; b=YjNsrYCnKup1Cb
-	FHMSfQRAl/N/ECqc3mDxBHy/mMDJ32NMMXri0Wo4rysz8S84b+/PylTd9ehwZVRRn84to2V9CZNGe
-	5gZwXQVV8sZr1TmBdGhf+HrGSUrEXlj9ZZnrfTZCywl7dOdXgA8wVAmahxPcvwYUNQFP5xNwoZLJS
-	MbTUGCjBPATXQPuVxItgEBt6TLQPTZrvJKmF7nvFf172i2aF4706H5r6/FiSsMBIvwoGfx1VKxu/8
-	G1+2J+lXitPQo8VsqyI/390H79eZW0oYQUrQskHGYDnyYa+8Iy57fcg9FS0I+W+YK5EPDlxeFd3em
-	KC6J+qDKNoa0swvCc6CQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HMZjFgCnK4BG1UhsWumnII7xCxYwlRHtY7CwcOaC6gE=; b=Ea3ZEOZLnfLQcE2TTH3zNljKPs
+	5WiXxHT6VooN4SLxmJkI5YDGjf9OtLMzp13iJVPquQjDM94AZdrfh1md93M9WGWe9zLiWJqomZbTl
+	5balu+S5mLi1u/XLeQj3K+hfqhnoPo8JbLJdiGr+TRwvxxoh2jDnfBA/qdVycieX0uVIFCDIbsXwE
+	VVHKDqy8bjlkYPQAanvpJtqApYMukielgMI7b8hmFg1xYcdTsdPoSmyswpLJG85Jj5sbPFTztiJR+
+	heSnLKBoSCGo4LYgIUZECTpd1ke76ySERhN0bTl6ZEDNhzpg70ibFOf3ZpOP1Xk2956sg3bernHmZ
+	w2EQPWxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1eb-00000008Vqf-0kXW;
-	Sat, 04 Jul 2026 14:47:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wg1iI-00000008W0B-3p5S;
+	Sat, 04 Jul 2026 14:51:26 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1ea-00000008VqU-0PXg
+	id 1wg1iF-00000008Vzg-1NJT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 14:47:36 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 656D7436F7;
-	Sat,  4 Jul 2026 14:47:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7528D1F00A3A;
-	Sat,  4 Jul 2026 14:47:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783176455;
-	bh=+I/WnwI4brAJvUkUNNsBltfUHLQpGgvBdsLqClF3mvw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=JSEc6BT+xL6E8Q99P5Q6yjxXDxYvDwWcaNXBcOFslW7noYfOhYBks8SmBnXmfXrHn
-	 TZghAGS1TUi5SWfPm5iLDbXobb6PzSNr0JdKge7G7Fy7vmOlGK65cVzAFHhWWT4tRx
-	 gEk7znUn1DxFqJ07XFrTdr87z2IU/jdyBY9+Kdyml096qOJgBtqPx7lz2uQO+IRwx+
-	 5vgycX+066RKhrkdV/gqufFvixBSXPQ76j3Lk7muQAIaQPz47sBI5trcxTieU2pOAy
-	 hvFyOnnSJHFIHh9SrSGXv9y1wdDyBo3bTml5NdZ725MJnzBcbRJMSjS3EjTAQ1VuD1
-	 3CPO4aHN2hT6w==
-Date: Sat, 4 Jul 2026 23:47:30 +0900
-From: Masami Hiramatsu (Google) <mhiramat@kernel.org>
-To: Pu Hu <hupu@transsion.com>
-Subject: Re: [RFC 0/2] arm64: kprobes: Fix single-step fault and reentry
- handling
-Message-Id: <20260704234730.46d51c47d75e7d208e7bec9f@kernel.org>
-In-Reply-To: <89c389ad-7e80-463b-9c1a-31a2e7dae814@transsion.com>
-References: <20260701121448.3926-1-hupu@transsion.com>
-	<20260701224345.c3a215ece3660a0cbae67645@kernel.org>
-	<ec11e9ca-ae7c-49c3-ae7b-47a70e9f86af@transsion.com>
-	<a6504443-8708-4f6b-819f-2052615d37df@transsion.com>
-	<89c389ad-7e80-463b-9c1a-31a2e7dae814@transsion.com>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	Sat, 04 Jul 2026 14:51:25 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id AC6D4C24ED;
+	Sat,  4 Jul 2026 17:51:11 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro AC6D4C24ED
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1783176672;
+	bh=HMZjFgCnK4BG1UhsWumnII7xCxYwlRHtY7CwcOaC6gE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=pzEli5Bhrxl8Qe8nK6PlPlfEOwCA5ylVy0AqrC0P9t4wXF+rwSBKiQ36djn7E6QJq
+	 lSHWh1rPFXrhz/YyS+7eXqANMyLTppT8l9qCSwfx6fdOEb3K+CLaFDSJ8RwNnLLkif
+	 Wt1S8Vq+qEcu742uTKPxmB8ePl6Ajb7ikr59B+qFmc6XrVibsdaO2wsNDU9WQWx+ZZ
+	 aeKsic2PjSVGl9Fm1gSqJbp5R4qU/h+Spckd6CdRMZ33iAUtFsKjr5qKfvD50bjqJ6
+	 61Oz3jFe5U2WcJeAwBbScihBc0twRYxs6oxgyEY2E+GS4uHpx6Ydx00umN9qYCokcF
+	 iUvaBImTcp/Jw==
+Message-ID: <24de1fda7ed76615b2c24fe0352b5b1cb35038d6.camel@rendec.net>
+Subject: Re: [PATCH v4 1/6] irqchip/gic-v3-its: Fix memleak in
+ its_probe_one()
+From: Radu Rendec <radu@rendec.net>
+To: Kemeng Shi <shikemeng@huaweicloud.com>, maz@kernel.org, tglx@kernel.org,
+ 	jason@lakedaemon.net, lpieralisi@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Sat, 04 Jul 2026 10:51:09 -0400
+In-Reply-To: <20260702033050.1583-2-shikemeng@huaweicloud.com>
+References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
+	 <20260702033050.1583-2-shikemeng@huaweicloud.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
+MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260704_075123_674771_8AAD192F 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,281 +70,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Hongyan Xia <hongyan.xia@transsion.com>, Jiazi Li <jiazi.li@transsion.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>, "naveen@kernel.org" <naveen@kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>, "will@kernel.org" <will@kernel.org>, "davem@davemloft.net" <davem@davemloft.net>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pu Hu,
-
-Can you update this by rebasing on top of arm64 tree
-(git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git)
-and update your signed-off-by with your name.
-
-Thank you,
-
-On Thu, 2 Jul 2026 10:09:51 +0000
-Pu Hu <hupu@transsion.com> wrote:
-
-> On 7/2/2026 6:07 PM, hupu wrote:
-> > On 7/1/2026 9:56 PM, Pu Hu wrote:
-> >> On 7/1/2026 9:43 PM, Masami Hiramatsu wrote:
-> >>> On Wed, 1 Jul 2026 12:14:54 +0000
-> >>> Pu Hu <hupu@transsion.com> wrote:
-> >>>
-> >>>> From: hupu <hupu@transsion.com>
-> >>>>
-> ...
-> ...>
-> > I will send the complete test case in a follow-up email.
-> > 
-> > Thanks,
-> > hupu
-> > 
-> 
-> Hi maintainers,
-> 
-> As mentioned in my previous email, below is the complete test case I 
-> used to reproduce the arm64 kprobe crash on mainline.
-> 
-> It contains:
-> 
->    - a small kprobe module that probes folio_wait_bit_common()
->    - a userspace program that repeatedly triggers file-backed page faults
->    - a Makefile to build both parts
-> 
-> Depending on the local build environment, the following variables in the
-> Makefile may need to be adjusted:
-> 
->      CROSS_COMPILE
->      KERN_DIR
->      DEST_PATH
-> 
-> Thanks,
-> Pu Hu
-> 
+On Thu, 2026-07-02 at 11:30 +0800, Kemeng Shi wrote:
+> Fix collection leak when its_init_domain() failed in its_probe_one().
+>=20
+> Fixes: 4c21f3c26ecc2 ("irqchip: GICv3: ITS: DT probing and initialization=
+")
+> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
 > ---
-> 
-> 
-> diff --git a/misc/kprobe/Makefile b/misc/kprobe/Makefile
-> new file mode 100755
-> index 0000000..14c00c0
-> --- /dev/null
-> +++ b/misc/kprobe/Makefile
-> @@ -0,0 +1,36 @@
-> +PWD                            := $(shell pwd)
-> +ARCH                   ?= arm64
-> +CROSS_COMPILE  ?= aarch64-dumpstack-linux-gnu-
-> +KERN_DIR               ?= $(PWD)/../../output/build-mainline
-> +DEST_PATH              ?= $(PWD)/../../output
-> +Q                              := @
-> +
-> +UNIT_TEST              := fault_stress
-> +UNIT_TEST_SRC  := fault_stress.c
-> +
-> +KP_MOD                 := kp_folio
-> +obj-m                  := $(KP_MOD).o
-> +
-> +USER_CFLAGS            := -static -g -O0 -fno-omit-frame-pointer 
-> -fasynchronous-unwind-tables
-> +USER_LIBS              := -lm -lpthread
-> +EXTRA_CFLAGS   += -I$(KERN_DIR)
-> +
-> +.PHONY: all modules user clean
-> +
-> +all: modules user install
-> +
-> +modules:
-> +       $(Q)$(MAKE) -C $(KERN_DIR) M=$(PWD) 
-> EXTRA_CFLAGS="$(EXTRA_CFLAGS)" ARCH=$(ARCH) 
-> CROSS_COMPILE=$(CROSS_COMPILE) modules
-> +
-> +user:
-> +       $(Q)$(CROSS_COMPILE)gcc $(USER_CFLAGS) $(UNIT_TEST_SRC) -o 
-> $(UNIT_TEST) $(USER_LIBS)
-> +
-> +install:
-> +       $(Q)mkdir -p $(DEST_PATH)
-> +       $(Q)cp -f *.ko $(DEST_PATH)/
-> +       $(Q)cp -f $(UNIT_TEST) $(DEST_PATH)/
-> +
-> +clean:
-> +       $(Q)$(MAKE) -C $(KERN_DIR) M=$(PWD) clean
-> +       $(Q)rm -f $(UNIT_TEST)
-> +       $(Q)rm -f $(DEST_PATH)/$(UNIT_TEST) $(DEST_PATH)/*.ko
-> diff --git a/misc/kprobe/fault_stress.c b/misc/kprobe/fault_stress.c
-> new file mode 100755
-> index 0000000..10150ff
-> --- /dev/null
-> +++ b/misc/kprobe/fault_stress.c
-> @@ -0,0 +1,96 @@
-> +#define _GNU_SOURCE
-> +#include <fcntl.h>
-> +#include <pthread.h>
-> +#include <sched.h>
-> +#include <stdio.h>
-> +#include <stdlib.h>
-> +#include <string.h>
-> +#include <sys/mman.h>
-> +#include <sys/stat.h>
-> +#include <sys/types.h>
-> +#include <unistd.h>
-> +
-> +#define FILE_SIZE   (256UL * 1024 * 1024)
-> +#define NR_THREADS  8
-> +
-> +static void deep_call(int n)
-> +{
-> +       volatile char buf[4096];
-> +
-> +       memset((void *)buf, n, sizeof(buf));
-> +
-> +       if (n > 0)
-> +               deep_call(n - 1);
-> +       else
-> +               sched_yield();
-> +}
-> +
-> +static void *worker(void *arg)
-> +{
-> +       const char *path = arg;
-> +       int fd;
-> +       char *map;
-> +       unsigned long i;
-> +       volatile unsigned long sum = 0;
-> +
-> +       fd = open(path, O_RDONLY);
-> +       if (fd < 0) {
-> +               perror("open");
-> +               return NULL;
-> +       }
-> +
-> +       map = mmap(NULL, FILE_SIZE, PROT_READ, MAP_PRIVATE, fd, 0);
-> +       if (map == MAP_FAILED) {
-> +               perror("mmap");
-> +               close(fd);
-> +               return NULL;
-> +       }
-> +
-> +       for (;;) {
-> +               /*
-> +                * Drop the pages backing this mapping from the current 
-> process.
-> +                * Subsequent accesses are more likely to trigger 
-> file-backed
-> +                * page faults again.
-> +                */
-> +               madvise(map, FILE_SIZE, MADV_DONTNEED);
-> +
-> +               for (i = 0; i < FILE_SIZE; i += 4096 * 17) {
-> +                       sum += map[i];
-> +                       deep_call(64);
-> +               }
-> +       }
-> +
-> +       munmap(map, FILE_SIZE);
-> +       close(fd);
-> +       return NULL;
-> +}
-> +
-> +int main(void)
-> +{
-> +       pthread_t th[NR_THREADS];
-> +       const char *path = "/tmp/fault_stress_file";
-> +       int fd;
-> +       int i;
-> +
-> +       fd = open(path, O_CREAT | O_RDWR, 0644);
-> +       if (fd < 0) {
-> +               perror("open file");
-> +               return 1;
-> +       }
-> +
-> +       if (ftruncate(fd, FILE_SIZE) < 0) {
-> +               perror("ftruncate");
-> +               return 1;
-> +       }
-> +
-> +       close(fd);
-> +
-> +       for (i = 0; i < NR_THREADS; i++)
-> +               pthread_create(&th[i], NULL, worker, (void *)path);
-> +
-> +       for (i = 0; i < NR_THREADS; i++)
-> +               pthread_join(th[i], NULL);
-> +
-> +       return 0;
-> +}
-> +
-> diff --git a/misc/kprobe/kp_folio.c b/misc/kprobe/kp_folio.c
-> new file mode 100755
-> index 0000000..c8f3e1d
-> --- /dev/null
-> +++ b/misc/kprobe/kp_folio.c
-> @@ -0,0 +1,60 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#include <linux/module.h>
-> +#include <linux/kernel.h>
-> +#include <linux/kprobes.h>
-> +#include <linux/sched.h>
-> +#include <linux/atomic.h>
-> +#include <linux/ratelimit.h>
-> +
-> +static atomic64_t kp_hit_count = ATOMIC64_INIT(0);
-> +
-> +static int folio_wait_bit_common_handler(
-> +                       struct kprobe *p,^M
-> +                       struct pt_regs *regs)
-> +{
-> +       unsigned long hit;
-> +
-> +       hit = atomic64_inc_return(&kp_hit_count);
-> +
-> +       pr_info("kp_folio: hit=%lu comm=%s tgid=%d tid=%d\n",
-> +               hit, current->comm, current->tgid, current->pid);
-> +
-> +       return 0;
-> +}
-> +
-> +static struct kprobe kp_folio_wait_bit_common = {
-> +       .symbol_name = "folio_wait_bit_common",
-> +       .pre_handler = folio_wait_bit_common_handler,
-> +};
-> +
-> +static int __init kp_folio_init(void)
-> +{
-> +       int ret;
-> +
-> +       ret = register_kprobe(&kp_folio_wait_bit_common);
-> +       if (ret < 0) {
-> +               pr_err("kp_folio: register_kprobe failed, ret=%d\n", ret);
-> +               return ret;
-> +       }
-> +
-> +       pr_info("kp_folio: kprobe registered at %pS, addr=%px\n",
-> +               kp_folio_wait_bit_common.addr,
-> +               kp_folio_wait_bit_common.addr);
-> +
-> +       return 0;
-> +}
-> +
-> +static void __exit kp_folio_exit(void)
-> +{
-> +       unregister_kprobe(&kp_folio_wait_bit_common);
-> +
-> +       pr_info("kp_folio: kprobe unregistered, total hits=%lld\n",
-> +               atomic64_read(&kp_hit_count));
-> +}
-> +
-> +module_init(kp_folio_init);
-> +module_exit(kp_folio_exit);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_AUTHOR("hupu <hupu@transsion.com>");
-> +MODULE_DESCRIPTION("simple kprobe reproducer for folio_wait_bit_common");
-> 
-> 
+> =C2=A0drivers/irqchip/irq-gic-v3-its.c | 4 +++-
+> =C2=A01 file changed, 3 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
+3-its.c
+> index 291d7668cc8d..d721b6101e0a 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -5326,7 +5326,7 @@ static int __init its_probe_one(struct its_node *it=
+s)
+> =C2=A0
+> =C2=A0	err =3D its_init_domain(its);
+> =C2=A0	if (err)
+> -		goto out_free_tables;
+> +		goto out_free_col;
+> =C2=A0
+> =C2=A0	raw_spin_lock(&its_lock);
+> =C2=A0	list_add(&its->entry, &its_nodes);
+> @@ -5334,6 +5334,8 @@ static int __init its_probe_one(struct its_node *it=
+s)
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0
+> +out_free_col:
+> +	kfree(its->collections);
+> =C2=A0out_free_tables:
+> =C2=A0	its_free_tables(its);
+> =C2=A0out_free_cmd:
 
-
--- 
-Masami Hiramatsu (Google) <mhiramat@kernel.org>
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
