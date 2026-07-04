@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F7EC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 17:15:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C173C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 17:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=baNPOtnreWkoR3AhhTVFf+uOWjoLtova69oE/tcCCJk=; b=4dSqw2/w/I5xatr6zy3CxGQRqi
-	5MTaMNmg3oNHlIAQ5Mwga/vjLwBFBewojX8F/s4S6DywSPDzbhUQ7UsE6ocuXVU/TuhGu6U4R4MgE
-	80+KLKrzcCEXdVCZgbl2e5HfkSpDDo1kxpbhBOzmFywNeQPamMfA2TJp2Ca8VX+VjBygtnnvunXb8
-	Nwgji+Oyw+LrX3ah+TPghQsgnbZQt11q6xSSPkL9Zbnn+6Awcu0A7oAeKLbIzjF+o6pf6tOws8tIZ
-	WO9+c2fNAU0ou4zh2mXdZdNQnvEJSy5V+poZ8LeitH+NMN+8VGjYeeTqLPH3uEDMC/WbJLPRlOxiR
-	iM8PiFRg==;
+	bh=JsQaU9uZZtvn5+lIZrSejmQfTd4zI1y5dE5Iy0qO9rc=; b=koIkiicn/7+EvAcJgLXzkf0VUW
+	TamSoPye9A8Mc6aLml6VGK7H0JIazpqjELGRkLR1Kc7iM0HoiA0fyE1e6CXCmm1Njy17WwK9K0RY4
+	h53AgtQycOiwS0Nehxhjyp7Lvhk13pDP/FB3hQGNzn6lCCNsyzuczfPQDSl1SFmTx+neB64vxB8vT
+	KGEEua+JlYg1g09VYkPdms4CNDyKnX89WCYkQKU3UmSqoFlgPYDf11cvVfKDBVYE84vAjqxIFK472
+	OgxYTQGkIB3fE5UTvWb5+2gIWjdKmR23Bqfa+zZ4UuJZEoWzEn1On95pnNbRDGHur82RFoWND9zEo
+	B8b1uhpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg3xW-00000008bKo-1Ysy;
-	Sat, 04 Jul 2026 17:15:18 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1wg3xr-00000008bQK-21bB;
+	Sat, 04 Jul 2026 17:15:39 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg3xU-00000008bK4-1G9f
+	id 1wg3xp-00000008bP0-1ea2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 17:15:17 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-8475eca3a66so2302525b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jul 2026 10:15:16 -0700 (PDT)
+	Sat, 04 Jul 2026 17:15:38 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-84532e3dbf7so1558588b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jul 2026 10:15:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783185315; x=1783790115; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783185336; x=1783790136; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=baNPOtnreWkoR3AhhTVFf+uOWjoLtova69oE/tcCCJk=;
-        b=mHI4EjS++PGmBnGbhrOe71fKi1szrO94IiQEpkTOwLCMnUEwvUymgfcQUyrkO90qOq
-         uD3DfRXWnI8Ceb1V4FFQhkz00BXucoVUUKd83H+F3z5EsCO18pHlyszaDrT7iUF5252N
-         vEJcPnc8z1QWT49Z3YENGWstmAsWtOaoWEW1oWaqRDzZcykjexTmiZ0KK9DurctPQ6oH
-         B9XBNsqcIMYJCd3egR+7xOA64VoyKK6XGH/Eqv/pE/yiLQjR/Y32Vd2C6acQ6r7LWOJ/
-         v/NaRDm2YSTcCjsxbeJ4+SJvm3SaWKcFbiLAs2HdjJriXGsFthadcusUG94KtcrWXvc8
-         WBgw==
+        bh=JsQaU9uZZtvn5+lIZrSejmQfTd4zI1y5dE5Iy0qO9rc=;
+        b=UcoN80KON11rZ8Et9hY//fwyKk3jOX9atmTo0cXv4rxQ93FFSXYgO119GH0/bJCiNj
+         PIgyg/JkHBupbIlaoCensrJgkzewzE8os/NnFn8bJ/vtkGwtqU1cntZrHti3ZLea2umw
+         Fal0CwhrQXxnWso7vWBZmUP97f7y0XWQNDFUbfq61xQy1M7P+okhpGyyIXigAM9yHVip
+         IdYaL1MxpRrlzBnGdHuWKK0rSIysAAvCLnJaye/qluAiyRu4pkxAhlhvObJFp5S1TJPn
+         EvqA0dRSXP0T/pDLZLuDNhbbyd1BfW+bLpmHNP6nSB6B0Z3bveAsTLolIdn4nGUdoJu+
+         3YtA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783185315; x=1783790115;
+        d=1e100.net; s=20251104; t=1783185336; x=1783790136;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=baNPOtnreWkoR3AhhTVFf+uOWjoLtova69oE/tcCCJk=;
-        b=Mn0AxRYRNiJq+drUy1+RLvNNt09R4iQ6TskJMf5s4zIL2WkWmFosz4dr1trrO/8Wi3
-         eyKgpF3I4LPENR+LF+hqsJc6LuHOwUHLwC2w5OuEWHNLHR3YZa3brLj0+uwQIBgkllSl
-         N80597YNqB+5rI69OBc1cWpgili48wZE1OjPxDX9sUgTmO2OO5gCEmAxAiozJc7KY+Fk
-         n+d/t56BEF9TsAtFVr+PSolRBIqo6+vT11b7eP+/KXeAnvbwDcpbdJgjhSFBDoa8VQDU
-         2A7k+X/w/tbeinvxosOSTn+z3xytHNJ5X30rGaCvke2/MLqiVrG5Y52yTyUPPngHr7sa
-         XFwA==
-X-Forwarded-Encrypted: i=1; AHgh+RqhzenyN86RDCLCnxWuy/2Mj5ey40JhBM/GbU8Sf7B7/2JtexqqcMqs8n1/QcoA66xyQCYQ9G/m/UCKM6gfj5Wz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwM42W0D02nGpwclFqqd4UJCZ44xPM9YNzBAsiu75vLuxixTV3
-	fa1gnkVkpkzZNLh0ePpRWECeGAyf1+4Ag2b9AOSf03ZgHEhxCx8amXj3
-X-Gm-Gg: AfdE7cntlrKFp4mXB5GLbJ2nGvCoc7H72msxWHa6VwfI/viWCFPeGn1RNl/8utUBsU0
-	pLAwCChF5w+Ehltje8Lb5XY3EhE8qIXWGOtwMnFd1tHwMy4QLEZblEAv3gwGXXF/JrGQmFLxnJu
-	16IbXLUOhHG/Z5G1SCbGXl+e+PJFOVqmaR0WBPRHw7KwwRHEX1YOShwk0al8GPvWvWGX2f0tA/V
-	XbQoK5K5VgMRrqYD3f2OAuHqLibNZw/rmNYhtC6Iu4At889vA8K+H9BrScLxWU+LkkMkiD2PNei
-	nRe0Javc7UdsiBslLRofeyqUQNhNL0Ms9NGluFz3gcVPihf6mtCP2I15ZHuhqmz9wCF972XMd8c
-	LzSgqaUiinBuSRhh0yEtdB400oDWsHHFZiSA1ELiVsvCoC27KpJIp4lOQtxlt77yRapWZogno9P
-	6pOeBL
-X-Received: by 2002:a05:6a00:1c86:b0:82f:9407:d167 with SMTP id d2e1a72fcca58-847f6ee42c4mr3927100b3a.38.1783185315280;
-        Sat, 04 Jul 2026 10:15:15 -0700 (PDT)
+        bh=JsQaU9uZZtvn5+lIZrSejmQfTd4zI1y5dE5Iy0qO9rc=;
+        b=UbXg6J+OdujRoZ/i/CWA99pdqZT1FZJaYzZNqT42bCJx+gKwSSvNJL8SCzUmf58p9N
+         5gqX7YBblt4KpfWXSx6ETYDxL7Kb1nc+dLGgxapywUmvptnrQA+s+aeY376cyMQ6HEDN
+         2C4xNvCxbPxPcESThcTuVJH7sxUImhcvjrQbNit47jQh/I+CMdvElLgMCay8GhPixmLP
+         AlZ5I8ZfsxrXDJaop4RERVi1V8FLI64WcLZV0AcnpVIZckk6uXVSrFhwbbgZhMBVnta3
+         N1UFUvTaNJSNl4moMI0Sevd665LzMuxF51RaifmsrsTXuNc03xNPvhT8cOtFnRRx4Yy6
+         OHeg==
+X-Forwarded-Encrypted: i=1; AFNElJ+89i+IZzPWaCqwB5coVpq2cph9dfDgN84/ASHy6tvd/q3QgQpNvo/ETOyTUIRnJS9PqMnveI3+QZ8l8H3ogt6X@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVishZ/jzb9Yqo300GUTgmZJD2rjiGm/apKgEaKia4R/n3+sYf
+	uM87c9HkCR8WtkKKUe/oH500GZm6tukuWzokIPbKGIear2q4nq+GvHmk
+X-Gm-Gg: AfdE7cnRAjRpJKiXpdd4mu2pz1/COY7znlkAyhOyLZ7FtlnHHVgAadK/paaVxR3Lr2r
+	ub3/q2jrdUlxanJeQtd8Oa6NJeamfKz7r5MVobVXuTreg0TEF98VjDQSUI+DeQuRcyRDRr4/Pap
+	ltQ0m8CCCii0osRif2BuqV4GEqjyBrwTOWowkXakKL+61xAsTQkxslSrKI60FGat8VJYIH5DZIW
+	GZKTbZTteRvUFOfjE5XBvMoLhNoaozwEKqxGpdQ3DD9yfjxc4WxFhsd4RQ14rl72Fb6tTc0pkx8
+	RD1ZxzqFRt5Ijdmmu0Zi0u0zRcv0+tXzjKsNSLVKxbfFlfW5swbx8boopXeixIrf/lQpRnZMizs
+	GExCr2eVSF7dZRiJDCgi6mtgdid4j3nrlD3J7lTZFt3P/7cssUXwdtmd7QVBsoemX9zCIR0ecPG
+	PkjjSA
+X-Received: by 2002:a05:6a00:3305:b0:847:902a:57c1 with SMTP id d2e1a72fcca58-847f6f84d6fmr4092931b3a.57.1783185336159;
+        Sat, 04 Jul 2026 10:15:36 -0700 (PDT)
 Received: from archlinux ([212.192.12.80])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6d498adsm1379101b3a.32.2026.07.04.10.14.58
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6d498adsm1379101b3a.32.2026.07.04.10.15.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jul 2026 10:15:14 -0700 (PDT)
+        Sat, 04 Jul 2026 10:15:35 -0700 (PDT)
 From: Mikhail Kalashnikov <iuncuim@gmail.com>
 To: Vasily Khoruzhick <anarsoul@gmail.com>,
 	Yangtao Li <tiny.windzz@gmail.com>,
@@ -88,17 +88,17 @@ Cc: linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v5 2/5] thermal/drivers/sun8i: replace devm_reset_control_get to devm_reset_control_get_shared_deasserted
-Date: Sun,  5 Jul 2026 01:14:08 +0800
-Message-ID: <20260704171411.1413349-3-iuncuim@gmail.com>
+Subject: [PATCH v5 3/5] thermal/drivers/sun8i: get calibration data from two nvmem cells
+Date: Sun,  5 Jul 2026 01:14:09 +0800
+Message-ID: <20260704171411.1413349-4-iuncuim@gmail.com>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20260704171411.1413349-1-iuncuim@gmail.com>
 References: <20260704171411.1413349-1-iuncuim@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_101516_342740_161C0939 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20260704_101537_433925_0C2A5C58 
+X-CRM114-Status: GOOD (  21.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,54 +113,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 processor has two temperature controllers, but they share a
-common reset line. Make it shared with the shared variant of
-devm_reset_control_get(), and also simplify the driver by switching to
-devm_reset_control_get_shared_deasserted().
+The A523 processor has calibration data in two nvmem cells. To be able to
+add support, the ability to add data from two cells into one array must be
+added.
 
 Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 ---
- drivers/thermal/sun8i_thermal.c | 16 +---------------
- 1 file changed, 1 insertion(+), 15 deletions(-)
+ drivers/thermal/sun8i_thermal.c | 80 +++++++++++++++++++++------------
+ 1 file changed, 51 insertions(+), 29 deletions(-)
 
 diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
-index 226747906..df0c26970 100644
+index df0c26970..3bdd62aa8 100644
 --- a/drivers/thermal/sun8i_thermal.c
 +++ b/drivers/thermal/sun8i_thermal.c
-@@ -342,11 +342,6 @@ static int sun8i_ths_calibrate(struct ths_device *tmdev)
+@@ -301,43 +301,65 @@ static int sun50i_h6_ths_calibrate(struct ths_device *tmdev,
+ 
+ static int sun8i_ths_calibrate(struct ths_device *tmdev)
+ {
+-	struct nvmem_cell *calcell;
++	struct nvmem_cell *calcell = NULL;
+ 	struct device *dev = tmdev->dev;
+-	u16 *caldata;
+-	size_t callen;
++	struct device_node *np = dev_of_node(dev);
++	struct property *prop;
++	const char *cellname;
++	u8 *caldata = NULL;
++	size_t callen = 0;
+ 	int ret = 0;
+ 
+-	calcell = nvmem_cell_get(dev, "calibration");
+-	if (IS_ERR(calcell)) {
+-		if (PTR_ERR(calcell) == -EPROBE_DEFER)
+-			return -EPROBE_DEFER;
+-		/*
+-		 * Even if the external calibration data stored in sid is
+-		 * not accessible, the THS hardware can still work, although
+-		 * the data won't be so accurate.
+-		 *
+-		 * The default value of calibration register is 0x800 for
+-		 * every sensor, and the calibration value is usually 0x7xx
+-		 * or 0x8xx, so they won't be away from the default value
+-		 * for a lot.
+-		 *
+-		 * So here we do not return error if the calibration data is
+-		 * not available, except the probe needs deferring.
+-		 */
+-		goto out;
+-	}
++	of_property_for_each_string(np, "nvmem-cell-names", prop, cellname) {
++		size_t len;
++		u8 *caldatapart;
++
++		calcell = of_nvmem_cell_get(np, cellname);
++		if (IS_ERR(calcell)) {
++			if (PTR_ERR(calcell) == -EPROBE_DEFER)
++				return -EPROBE_DEFER;
++			/*
++			 * Even if the external calibration data stored in sid is
++			 * not accessible, the THS hardware can still work, although
++			 * the data won't be so accurate.
++			 *
++			 * The default value of calibration register is 0x800 for
++			 * every sensor, and the calibration value is usually 0x7xx
++			 * or 0x8xx, so they won't be away from the default value
++			 * for a lot.
++			 *
++			 * So here we do not return error if the calibration data is
++			 * not available, except the probe needs deferring.
++			 */
++			goto out;
++		}
++
++		caldatapart = nvmem_cell_read(calcell, &len);
++		nvmem_cell_put(calcell);
++		calcell = NULL;
++		if (IS_ERR(caldatapart)) {
++			ret = PTR_ERR(caldatapart);
++			goto out;
++		}
++
++		caldata = devm_krealloc(dev, caldata, callen + len, GFP_KERNEL);
++		if (!caldata) {
++			kfree(caldatapart);
++			ret = -ENOMEM;
++			goto out;
++		}
+ 
+-	caldata = nvmem_cell_read(calcell, &callen);
+-	if (IS_ERR(caldata)) {
+-		ret = PTR_ERR(caldata);
+-		goto out;
++		memcpy(caldata + callen, caldatapart, len);
++		callen += len;
++		kfree(caldatapart);
+ 	}
+ 
+-	tmdev->chip->calibrate(tmdev, caldata, callen);
++	tmdev->chip->calibrate(tmdev, (u16 *)caldata, callen);
+ 
+-	kfree(caldata);
++	devm_kfree(dev, caldata);
++	caldata = NULL;
+ out:
+-	if (!IS_ERR(calcell))
++	if (!IS_ERR_OR_NULL(calcell))
+ 		nvmem_cell_put(calcell);
  	return ret;
  }
- 
--static void sun8i_ths_reset_control_assert(void *data)
--{
--	reset_control_assert(data);
--}
--
- static struct regmap *sun8i_ths_get_sram_regmap(struct device_node *node)
- {
- 	struct platform_device *sram_pdev;
-@@ -389,19 +384,10 @@ static int sun8i_ths_resource_init(struct ths_device *tmdev)
- 		return PTR_ERR(tmdev->regmap);
- 
- 	if (tmdev->chip->has_bus_clk_reset) {
--		tmdev->reset = devm_reset_control_get(dev, NULL);
-+		tmdev->reset = devm_reset_control_get_shared_deasserted(dev, NULL);
- 		if (IS_ERR(tmdev->reset))
- 			return PTR_ERR(tmdev->reset);
- 
--		ret = reset_control_deassert(tmdev->reset);
--		if (ret)
--			return ret;
--
--		ret = devm_add_action_or_reset(dev, sun8i_ths_reset_control_assert,
--					       tmdev->reset);
--		if (ret)
--			return ret;
--
- 		tmdev->bus_clk = devm_clk_get_enabled(&pdev->dev, "bus");
- 		if (IS_ERR(tmdev->bus_clk))
- 			return PTR_ERR(tmdev->bus_clk);
 -- 
 2.55.0
 
