@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 212BFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 15:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7FBDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 15:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VjGv2jwfhO33Q9S3U3t9y+ZOqdHqIWWvQqM0uaBcpcQ=; b=WCYSNNdufWhkrOMKaN91PvDqqh
-	YnrLQjhXdLz/1qEKRxEqLieK/ANSOGCI/jsBhZRm8nCQIKkkNqNSBSEW4j42v5cjoOE/n53aBuh0F
-	/7w6R8woqI3QNn+sHSc7VwsnzLj0Y8W1dNjq43bWY8wX8L0AwglXgFTj2B0pHa5IHcTCE8Ls8jJ7R
-	bXD7If3+SrkFxTi/sf6m4edNzreH1+nVbBwFLtLS95+NCa8EoXDkJOOiKc3DJEfHYqHKjxQ4TvQ/p
-	6HwI/m0+k8MHB3qd82xwisKo0J+hRtOJ9HY2jqNS04SYGkOvMmYBf9rHMHgVIZOCYg7GhZwkb0UUI
-	ksv5HzfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yUQJK8Ya9BR/9ttPEZaGzgZ9Fa9Nq8mqGT0mdKxFiLA=; b=oZo6E7wtc7gj+x8gmDQNLo4s6u
+	cG5Kpa6Jko2FlpWw7n/7YP/X5AyjuwaTGiJbo1Wo4hjGovyvr9sJOJAxzzDH98Xm/SM1DjpTp37Wi
+	DQ1vi4gx74PD+upyy67FnZ5vfWi+PhzZ+UL1s8wH8TgbN17rUOD+9XGg4wmNVmtzQvu2u0ffHiWcA
+	zrAOmUMHkyusriYEuDKI2claAIHM/jMO/mxh0y4TCRCZGig2I3owDRNIzYjI7SkOJziDzkHTM5W0G
+	+KUbH4N+t07TLHw7TocZzCSJkvBIsEnDhCT8V4zO/xqi8Bz2IeTQGp1YAOSm9iERQGaIG3wsvzIzt
+	MZP4pXoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1uK-00000008WXT-3EYS;
-	Sat, 04 Jul 2026 15:03:52 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wg1z7-00000008Wip-1LuE;
+	Sat, 04 Jul 2026 15:08:49 +0000
+Received: from xs1.mindbit.ro ([80.86.107.70] helo=mail.mindbit.ro)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wg1uI-00000008WX8-0O5p
+	id 1wg1z5-00000008WiS-05tH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 15:03:51 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowABnus3SIElqjPfaFg--.1873S2;
-	Sat, 04 Jul 2026 23:03:47 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	linux-clk@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] clk: imx: imx8qxp-lpcg: add missing MODULE_DEVICE_TABLE()
-Date: Sat,  4 Jul 2026 23:01:41 +0800
-Message-ID: <20260704150344.59563-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+	Sat, 04 Jul 2026 15:08:48 +0000
+Received: from dog.kanata.rendec.net (pool-174-112-193-187.cpe.net.cable.rogers.com [174.112.193.187])
+	by mail.mindbit.ro (Postfix) with ESMTPSA id 8BBC6C24ED;
+	Sat,  4 Jul 2026 18:08:43 +0300 (EEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.mindbit.ro 8BBC6C24ED
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rendec.net;
+	s=default; t=1783177724;
+	bh=yUQJK8Ya9BR/9ttPEZaGzgZ9Fa9Nq8mqGT0mdKxFiLA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=EMh7typJLGNWJcArEcDwLqP4del8SWCSqw0yYSiaizWQjF/zVTExvNtTM7LAueUfe
+	 qqyV/DMRG99wkdkLZa0r3+UXYb8AeEgyWY+RCXf/+WgTFfvg7i4wY0yBjecH0ir29s
+	 WvJ1JSjfacRYrMNJkSmyc4cf7KhTD5h9XIXcppjhX2Lr0sNK8U0oQlVLxaLHSEnkOI
+	 qskvu1Ii4hW5ABCH0tsBurCenCMpI8a4ddEAdozf38lmKD77Pd9jO27795nnp3015t
+	 YhN1qFYasN7zcElfKVaINCc0qlHg12Mo85VWQMLm+QydBqoZZ0dmWxNH/YJxdB1djH
+	 1w5f8v2e2Nmdg==
+Message-ID: <79883533905997905b7bd84f3df0174af65f6c6d.camel@rendec.net>
+Subject: Re: [PATCH v4 2/6] irqchip/gic-v3-its: Fix its node leak in
+ gic_acpi_parse_madt_its()
+From: Radu Rendec <radu@rendec.net>
+To: Kemeng Shi <shikemeng@huaweicloud.com>, maz@kernel.org, tglx@kernel.org,
+ 	jason@lakedaemon.net, lpieralisi@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Sat, 04 Jul 2026 11:08:41 -0400
+In-Reply-To: <20260702033050.1583-3-shikemeng@huaweicloud.com>
+References: <20260702033050.1583-1-shikemeng@huaweicloud.com>
+	 <20260702033050.1583-3-shikemeng@huaweicloud.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.58.3 (3.58.3-1.fc43) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABnus3SIElqjPfaFg--.1873S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Xw47WF43Aw43JF17XrWkWFg_yoWkWFb_uF
-	18ur4fWFW8CryYk3WUKr4fZryIva47ur1kXFyIqasxta4DZr13JFZ2gwsxXw1UGry8JFZ8
-	XwnrWF48urW29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUb3AFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWxJVW8Jr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
-	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
-	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
-	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
-	MIIF0xvEx4A2jsIE14v26F4j6r4UJwCI42IY6I8E87Iv6xkF7I0E14v26F4UJVW0obIYCT
-	nIWIevJa73UjIFyTuYvjfUFL05UUUUU
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_080350_517630_F4C3A77E 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260704_080847_238258_27CBB719 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +73,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver has a match table for the of bus wired into its driver
-structure, but the table is not exported with MODULE_DEVICE_TABLE().
+On Thu, 2026-07-02 at 11:30 +0800, Kemeng Shi wrote:
+> Fix its node leak when its_probe_one() failed in
+> gic_acpi_parse_madt_its().
+>=20
+> Fixes: 9585a495ac936 ("irqchip/gic-v3-its: Split allocation from initiali=
+sation of its_node")
+> Signed-off-by: Kemeng Shi <shikemeng@huaweicloud.com>
+> ---
+> =C2=A0drivers/irqchip/irq-gic-v3-its.c | 8 ++++++--
+> =C2=A01 file changed, 6 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v=
+3-its.c
+> index d721b6101e0a..3e4edcb64065 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -5747,9 +5747,13 @@ static int __init gic_acpi_parse_madt_its(union ac=
+pi_subtable_headers *header,
+> =C2=A0		its->flags |=3D ITS_FLAGS_FORCE_NON_SHAREABLE;
+> =C2=A0
+> =C2=A0	err =3D its_probe_one(its);
+> -	if (!err)
+> -		return 0;
+> +	if (err)
+> +		goto probe_err;
+> +
+> +	return 0;
+> =C2=A0
+> +probe_err:
+> +	its_node_destroy(its);
+> =C2=A0node_err:
+> =C2=A0	iort_deregister_domain_token(its_entry->translation_id);
+> =C2=A0dom_err:
 
-Add the missing MODULE_DEVICE_TABLE() entry so module alias information
-is generated for automatic module loading.
-
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the driver registration structure, and the missing module alias
-publication.
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/clk/imx/clk-imx8qxp-lpcg.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/clk/imx/clk-imx8qxp-lpcg.c b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-index 1dae3410ee99..f0cf6cf91899 100644
---- a/drivers/clk/imx/clk-imx8qxp-lpcg.c
-+++ b/drivers/clk/imx/clk-imx8qxp-lpcg.c
-@@ -354,6 +354,7 @@ static const struct of_device_id imx8qxp_lpcg_match[] = {
- 	{ .compatible = "fsl,imx8qxp-lpcg", NULL },
- 	{ /* sentinel */ }
- };
-+MODULE_DEVICE_TABLE(of, imx8qxp_lpcg_match);
- 
- static struct platform_driver imx8qxp_lpcg_clk_driver = {
- 	.driver = {
--- 
-2.53.0
-
+Reviewed-by: Radu Rendec <radu@rendec.net>
 
