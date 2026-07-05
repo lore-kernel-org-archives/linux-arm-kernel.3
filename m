@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FAF3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 16:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A25C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 16:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=R4nai0spS4xz/sy9X2FqTj+eO3xeqrH21m//XxXvR6k=; b=v0un5FgKYmW9v0LHVG7Zo/KPDv
-	ABGlqAEGghR9isiYNqJnuqbmNhfUlwAmW3iN4mOQh/FeEq4EHQq6vDsVBkXYEjhai9sFDvvx4ofHm
-	Nh7ieX45swb2g9/iGn/85Tn12HnEIQb8DDN8i76TKUL8WFL1hK3jQpdCp8nsSdshidXSYll4vKNcX
-	FW5/z8zL9ZFhh4nykIWZ2xFTek/mny8JcRhyilQ8i1d2vQQgjFuW+9HGhXNoGv4Pz+ZTsLCKHaL1O
-	9GxF0m70jId+/Wvh7v1TOtGSAUvrvD2yNGoFypwbv1BLnBU3wXE0IDIXvo3+G+OMIEmC7r833/h0h
-	CleEfiCA==;
+	bh=inqQYC9Nnuk7LQATOBE0fYD9nNEE+MN3hpNMd5FAQ58=; b=Eo9gRU+XWtZxuhXFUcZZ5WZgCP
+	NrjPP8YKnQlvzMCM4uLuaeDDJt6vXzviAgqcBVgOapiYJUbNvk6nqnWYgQ3IoeV6HPD41Vr4tf9H+
+	mTd9mQlbM9arolaQ1QZ9MIpkomdiH5yIwgQJtJMHWn2Mljh3npSPaMCo8YpJuD6Sqg7coEBz9O1Oe
+	1gsHOaGgLaUWvHiEOooiZ6ZVeUCqMoFXI5sS/WPU6m8WgPdrWqNG9KPysqgl/TOgDOzNRrVy6o1oj
+	AuqYxIABykz/amM0WVus6jtVHfZvwu5F6E6lyOHvT4WGi5zMKY9QK22E7fLQukqEVsEp2y4iUFotY
+	QdpZbWvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgPog-00000009Twy-0eNY;
-	Sun, 05 Jul 2026 16:35:38 +0000
+	id 1wgPp4-00000009U0q-15Fw;
+	Sun, 05 Jul 2026 16:36:02 +0000
 Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgPoc-00000009TwF-0jbP
+	id 1wgPp2-00000009U06-0NpC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 16:35:37 +0000
+	Sun, 05 Jul 2026 16:36:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:mime-version:content-transfer-encoding; s=k1; bh=R4nai0spS4xz/s
-	y9X2FqTj+eO3xeqrH21m//XxXvR6k=; b=Mb9xW01AMDeQmGNCk/doumAlIlkjGD
-	roB5XhSPIwOCCU7lqGRk48xN+ova6KodZkaNC3hgYJYeGwWA0FGH08IBIwV5YUID
-	qcmYIxwtVxJIelKE7clOHJJXYZDu2s+ppaivdcdurq150jCz2WV7klrveqyVaEPT
-	uphMP3MvY97OZZfFWMl8MJ+Eui9LXvbB6FhWy4HaNzWFEo7XsosLKxxMTQaPhcz1
-	OYWMi9XedufpUsQKe+kX26jObb6bzWJdMJwyZarGQNBK7ICj5AMcv1ojNibZ2kB+
-	75Z0MKWFyZfXZrT+edUxJGLgHU+dPqW3v8MMEP1N9Nol0uqQPJufWH4g==
-Received: (qmail 2287049 invoked from network); 5 Jul 2026 18:35:27 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 5 Jul 2026 18:35:27 +0200
-X-UD-Smtp-Session: l3s3148p1@1N/Lvt9V8XdtKjFj
+	:mime-version:content-transfer-encoding; s=k1; bh=inqQYC9Nnuk7LQ
+	ATOBE0fYD9nNEE+MN3hpNMd5FAQ58=; b=CLKxkZdirAzgQDWRv6H5kqkMdzhwNn
+	KH8nqC0WhBGR8Ol64Z29kLIY+itzhQ2wWubMmLv2U9OaKQRyp3J/u1sbqeyhxrDl
+	aBgupDQ+i9gPlq3+M9Vs5JT3CZhIbYOtQHetdLHNRYHJxW6QwA51787pCxMAgC76
+	dk6fbZeQAkofZ3k4nZD4a6hFl0iySi1wUWUheKP7xSQOefaP+wh7b1VTdJUy4ZNZ
+	AsbBVnj7/5om3yq8QQ3ZGldVXlV+dH/h0rBnDfaYx4XBCxB4nh44HwvSyTwgeGxQ
+	D/+5kVeyer65C6NYCZs2QE4qQDGGDQRtKNrccXny0bYcl5tC5fDsikfw==
+Received: (qmail 2287250 invoked from network); 5 Jul 2026 18:35:57 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 5 Jul 2026 18:35:57 +0200
+X-UD-Smtp-Session: l3s3148p1@w1yXwN9Vp0ZtKjFj
 From: Wolfram Sang <wsa+renesas@sang-engineering.com>
 To: linux-kernel@vger.kernel.org
 Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-clk@vger.kernel.org,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	David Airlie <airlied@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	Fabio Estevam <festevam@gmail.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	imx@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH] clk: mediatek: remove unneeded 'fast_io' parameter in regmap_config
-Date: Sun,  5 Jul 2026 18:35:24 +0200
-Message-ID: <20260705163523.1797-2-wsa+renesas@sang-engineering.com>
+	linux-rockchip@lists.infradead.org,
+	Liu Ying <victor.liu@nxp.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Robert Foss <rfoss@kernel.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH 0/3] drm: remove unneeded 'fast_io' parameter in regmap_config
+Date: Sun,  5 Jul 2026 18:35:35 +0200
+Message-ID: <20260705163536.1850-5-wsa+renesas@sang-engineering.com>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_093535_099150_8A411C90 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260705_093600_427254_C632BDD4 
+X-CRM114-Status: UNSURE (   7.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +92,30 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 When using MMIO with regmap, fast_io is implied. No need to set it
-again.
+again. No dependencies, can be applied directly to the subsystem tree.
+Buildbot is happy, too.
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
-No dependencies, can be applied directly to the subsystem tree. Buildbot is
-happy, too.
 
- drivers/clk/mediatek/clk-mt8196-vlpckgen.c | 1 -
- 1 file changed, 1 deletion(-)
+Wolfram Sang (3):
+  drm/bridge: remove unneeded 'fast_io' parameter in regmap_config
+  drm/imx: remove unneeded 'fast_io' parameter in regmap_config
+  drm/rockchip: remove unneeded 'fast_io' parameter in regmap_config
 
-diff --git a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
-index 7dcc164627c5..ee88dc4a231a 100644
---- a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
-+++ b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
-@@ -629,7 +629,6 @@ static const struct regmap_config vlpckgen_regmap_config = {
- 	.val_bits = 32,
- 	.reg_stride = 4,
- 	.max_register = 0x1000,
--	.fast_io = true,
- };
- 
- static int clk_mt8196_vlp_probe(struct platform_device *pdev)
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c          | 1 -
+ drivers/gpu/drm/bridge/synopsys/dw-mipi-dsi2.c   | 1 -
+ drivers/gpu/drm/imx/dc/dc-cf.c                   | 1 -
+ drivers/gpu/drm/imx/dc/dc-de.c                   | 1 -
+ drivers/gpu/drm/imx/dc/dc-ed.c                   | 2 --
+ drivers/gpu/drm/imx/dc/dc-fg.c                   | 1 -
+ drivers/gpu/drm/imx/dc/dc-fl.c                   | 1 -
+ drivers/gpu/drm/imx/dc/dc-fw.c                   | 2 --
+ drivers/gpu/drm/imx/dc/dc-ic.c                   | 1 -
+ drivers/gpu/drm/imx/dc/dc-lb.c                   | 2 --
+ drivers/gpu/drm/imx/dc/dc-tc.c                   | 1 -
+ drivers/gpu/drm/imx/ipuv3/imx-tve.c              | 2 --
+ drivers/gpu/drm/rockchip/dw-mipi-dsi2-rockchip.c | 1 -
+ 13 files changed, 17 deletions(-)
+
 -- 
 2.51.0
 
