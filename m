@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BEB5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 08:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB551C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 08:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FY5V3ybuTyP3BCRlKYUCOlT9nQq4kQeCRIYQZC7cP8A=; b=pdK3hVClKJnkviSIUxmuVsM13Q
-	x5RD9A3qOoCy1M3iYU/1P7gVCNUPp7RvQElIhLMBQLWrQLirnpBVqR1t38T7TNZqp1fYO/BTv111v
-	pNbeJs2ncopjC/gGOsotLCDjNwAN1B03osKtfP37prE56841b1iREBn+7OGkgB/x07oWH8RfuF9WU
-	ZE5/mYLaZgxlW2eAELqmEq82NKB9D9Ibgunx7IXin/4c8PYWvArzlmvPqGxY9kfkV3tSMSiooXAen
-	+vfTqO4QiK6DoFyqZ83PD+6FR8jlDMan0N1kWWLXMOF1mBzg8DkVhDXeP79IDODmNiXT6R4QpMy0e
-	578EMLag==;
+	bh=prpZ6ly4VFfl4n6al3JZv9fRgCNo6yfifsG2b985ARY=; b=ALvj/eQMyCyNXkgqB8i5ULRqBM
+	Cl6WJQ65Cao4/vlnDuzqLvrOqfCUN8c78obo/EbluonmQ4NKqqv24uNRAdx7xV0c0p4y4PL18zQzz
+	2U9lkEEmRP404CX+VqLOjQi5oIPrVEb9GHuuRqKI7ix9bXyMGE7nFV5mySJ2FZ8pbdmT/flddQ2Tk
+	eYPNmHJaVoelBWWIq9zUyfrW/OhjUz2GjYMlZ9OCeiU8bieyEg7xh+pUOpKBQfmYPM8HIjouG1mgp
+	jYXq/0JKGVRUiELf3D/CkPGrpgmbA9KL54TXvgTuZqcYf1gfPh0Vqkcz+ai7VAYTr2VVWaMiJ6e+a
+	uQUshP9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgI1y-0000000974k-3Jec;
+	id 1wgI1y-0000000974a-2wuq;
 	Sun, 05 Jul 2026 08:16:50 +0000
 Received: from chaosmail.tech ([77.81.229.115])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgI1r-000000096zz-4ANb
+	id 1wgI1r-00000009707-48CC
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 05 Jul 2026 08:16:47 +0000
-Received: by chaosmail.tech (Postfix) id 6A2B71CC220;
-	Sun, 05 Jul 2026 08:16:38 +0000 (UTC)
+Received: by chaosmail.tech (Postfix) id 2531F1CC222;
+	Sun, 05 Jul 2026 08:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chaosmail.tech;
 	s=mail; t=1783239399;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FY5V3ybuTyP3BCRlKYUCOlT9nQq4kQeCRIYQZC7cP8A=;
-	b=rNPxMRq37Gd5Jk+HFJ18Ai2gtJZXgxNd5DLMGUbQaqmV5spNOEE29KqHrJwRsu/YgGKF9D
-	YmzmDLZN5kSHUNZ+tti1zIlczbVvw8QkBbldI8UXh3rtKFcPGPQJc3It+VHOoC8gBZOUIT
-	qZQ5TDiQwplpFR2tbKohmMEnnEWZZYo=
+	bh=prpZ6ly4VFfl4n6al3JZv9fRgCNo6yfifsG2b985ARY=;
+	b=pLJgdhqdT8gd7i6E2o97KqRRyJfCVVO18hlqMigLvNfHbho+o9U+JfjDBj1qzuyKYOaNtf
+	HE7CQwSKXFUYOqnLTblwg6R7Ap3bTDIuyo/oy7RNTYJdjOpWW5H6HInGyd6TcumR9bLTuB
+	oKgwky2oND1WVHI1sx0dEzHrn6SjThk=
 From: Sasha Finkelstein <k@chaosmail.tech>
-Date: Sun, 05 Jul 2026 10:16:30 +0200
-Subject: [PATCH v3 1/3] dt-bindings: soc: apple: Add Apple PMGR misc
- controls
+Date: Sun, 05 Jul 2026 10:16:31 +0200
+Subject: [PATCH v3 2/3] soc: apple: Add driver for Apple PMGR misc controls
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260705-pmgr-misc-v3-1-51b75fed6f73@chaosmail.tech>
+Message-Id: <20260705-pmgr-misc-v3-2-51b75fed6f73@chaosmail.tech>
 References: <20260705-pmgr-misc-v3-0-51b75fed6f73@chaosmail.tech>
 In-Reply-To: <20260705-pmgr-misc-v3-0-51b75fed6f73@chaosmail.tech>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -55,18 +54,17 @@ To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Sasha Finkelstein <k@chaosmail.tech>, 
- Conor Dooley <conor.dooley@microchip.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783239397; l=2590;
+ Sasha Finkelstein <k@chaosmail.tech>, Hector Martin <marcan@marcan.st>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783239397; l=6983;
  i=k@chaosmail.tech; s=20241124; h=from:subject:message-id;
- bh=P24n1VnjIAcMi/bOzGDdsOVAqL1wKs/zn7VIp+SXEA0=;
- b=f3FzkoBSxFnmOl7AZ/a6oqgJaBjg6PUUGT37JaMOMChlcglgwqrKx2e0aj1PAvce/Qef+rT7I
- mNnFr+4ejaaBqDNhUCDcpGZvmhVRKI9vGDdPV9mE0CzrfH2DtkXsL+X
+ bh=qvGvUy2VfSYui5lKfl8YNCUOe1mtea+zebBwogt7mDs=;
+ b=iIebY6+toGjW2w0MndjOaLEQWODsGtrCtHVieTKg00YyBiisKmb0NxREeuf19Gi6oDFi4dZx2
+ eDC2BHi6imQB6c26jZfqVp0zKYilK0TdId/czy1DvJCkQJ8ygbLEjqC
 X-Developer-Key: i=k@chaosmail.tech; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_011644_508431_DEF29B7D 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20260705_011644_528387_773CD795 
+X-CRM114-Status: GOOD (  20.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +79,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Certain Apple SoCs include additional PMGR power states that are
-controlled via a different "misc" control block. On existing SoCs, this
-includes the fabric and memory controller state.
+From: Hector Martin <marcan@marcan.st>
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Apple SoCs have PMGR blocks that control a bunch of power-related
+features. Besides the existing device power state controls (which are
+very uniform and handled by apple-pmgr-pwrstate), we also need to manage
+more random registers such as SoC-wide fabric and memory controller
+power states, which have a different interface.
+
+Add a driver for these kitchen sink controls. Right now it implements
+fabric and memory controller power state switching on system
+standby/s2idle, which saves about 1W of power or so on t60xx platforms.
+
+Signed-off-by: Hector Martin <marcan@marcan.st>
+Reviewed-by: Sven Peter <sven@kernel.org>
+Co-developed-by: Sasha Finkelstein <k@chaosmail.tech>
 Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
 ---
- Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml | 45 +++++++++++++++++++++++++++++++++++++++++++++
- MAINTAINERS                                                            |  1 +
- 2 files changed, 46 insertions(+)
+ drivers/soc/apple/Kconfig           |  10 ++++++++
+ drivers/soc/apple/Makefile          |   2 ++
+ drivers/soc/apple/apple-pmgr-misc.c | 181 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 193 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml b/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
+diff --git a/drivers/soc/apple/Kconfig b/drivers/soc/apple/Kconfig
+index d0ff32182a2b..db30c0ade948 100644
+--- a/drivers/soc/apple/Kconfig
++++ b/drivers/soc/apple/Kconfig
+@@ -16,6 +16,16 @@ config APPLE_MAILBOX
+ 
+ 	  Say Y here if you have an Apple SoC.
+ 
++config APPLE_PMGR_MISC
++	tristate "Apple SoC PMGR miscellaneous support"
++	depends on PM
++	help
++	  The PMGR block in Apple SoCs provides high-level power state
++	  controls for SoC devices. This driver manages miscellaneous
++	  power controls.
++
++	  Say 'y' here if you have a Pro/Max/Ultra Apple SoC.
++
+ config APPLE_RTKIT
+ 	tristate "Apple RTKit co-processor IPC protocol"
+ 	depends on APPLE_MAILBOX
+diff --git a/drivers/soc/apple/Makefile b/drivers/soc/apple/Makefile
+index 0b85ab61aefe..0481f7f43b06 100644
+--- a/drivers/soc/apple/Makefile
++++ b/drivers/soc/apple/Makefile
+@@ -3,6 +3,8 @@
+ obj-$(CONFIG_APPLE_MAILBOX) += apple-mailbox.o
+ apple-mailbox-y = mailbox.o
+ 
++obj-$(CONFIG_APPLE_PMGR_MISC)	+= apple-pmgr-misc.o
++
+ obj-$(CONFIG_APPLE_RTKIT) += apple-rtkit.o
+ apple-rtkit-y = rtkit.o rtkit-crashlog.o
+ 
+diff --git a/drivers/soc/apple/apple-pmgr-misc.c b/drivers/soc/apple/apple-pmgr-misc.c
 new file mode 100644
-index 000000000000..588100222f89
+index 000000000000..7db29f7de329
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
-@@ -0,0 +1,45 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/soc/apple/apple,t6000-pmgr-misc.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++++ b/drivers/soc/apple/apple-pmgr-misc.c
+@@ -0,0 +1,181 @@
++// SPDX-License-Identifier: GPL-2.0-only OR MIT
++/*
++ * Apple SoC PMGR device power state driver
++ *
++ * Copyright The Asahi Linux Contributors
++ */
 +
-+title: Apple SoC PMGR Misc Power States
++#include <linux/bitfield.h>
++#include <linux/bitops.h>
++#include <linux/err.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/platform_device.h>
 +
-+maintainers:
-+  - Sasha Finkelstein <k@chaosmail.tech>
++#define APPLE_CLKGEN_PSTATE 0
++#define APPLE_CLKGEN_PSTATE_DESIRED GENMASK(3, 0)
 +
-+description: |
-+  Certain Apple SoCs include additional PMGR power states that are controlled
-+  via a different "misc" control block. This includes the fabric and memory
-+  controller states.
++#define DCS_DEV_PSTATE_MIN_T600X 7
++#define SYS_DEV_PSTATE_SUSPEND 1
 +
-+properties:
-+  compatible:
-+    enum:
-+      - apple,t6000-pmgr-misc
-+      - apple,t6020-pmgr-misc
++enum sys_device {
++	DEV_FABRIC,
++	DEV_DCS,
++	DEV_MAX,
++};
 +
-+  reg:
-+    maxItems: 2
++struct apple_pmgr_sys_device {
++	void __iomem *base;
++	u32 active_state;
++	u32 suspend_state;
++};
 +
-+  reg-names:
-+    items:
-+      - const: fabric-ps
-+      - const: dcs-ps
++struct apple_pmgr_misc_hw {
++	u32 dev_min_ps[DEV_MAX];
++};
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
++struct apple_pmgr_misc {
++	struct device *dev;
++	struct apple_pmgr_sys_device devices[DEV_MAX];
++};
 +
-+additionalProperties: false
++static void apple_pmgr_sys_dev_set_pstate(struct apple_pmgr_misc *misc,
++					  enum sys_device dev, bool active)
++{
++	u32 pstate;
++	u32 val;
 +
-+examples:
-+  - |
-+    power-management@8e20c000 {
-+        compatible = "apple,t6000-pmgr-misc";
-+        reg = <0x8e20c000 0x400>,
-+              <0x8e20c800 0x400>;
-+        reg-names = "fabric-ps", "dcs-ps";
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 15011f5752a9..5a29bb86499f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2607,6 +2607,7 @@ F:	Documentation/devicetree/bindings/power/apple*
- F:	Documentation/devicetree/bindings/power/reset/apple,smc-reboot.yaml
- F:	Documentation/devicetree/bindings/pwm/apple,s5l-fpwm.yaml
- F:	Documentation/devicetree/bindings/rtc/apple,smc-rtc.yaml
-+F:	Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml
- F:	Documentation/devicetree/bindings/spi/apple,spi.yaml
- F:	Documentation/devicetree/bindings/spmi/apple,spmi.yaml
- F:	Documentation/devicetree/bindings/usb/apple,dwc3.yaml
++	if (!misc->devices[dev].base)
++		return;
++
++	if (active)
++		pstate = misc->devices[dev].active_state;
++	else
++		pstate = misc->devices[dev].suspend_state;
++
++	dev_dbg(misc->dev, "set %d ps to pstate %d\n", dev, pstate);
++
++	val = readl_relaxed(misc->devices[dev].base + APPLE_CLKGEN_PSTATE);
++	FIELD_MODIFY(APPLE_CLKGEN_PSTATE_DESIRED, &val, pstate);
++	writel_relaxed(val, misc->devices[dev].base + APPLE_CLKGEN_PSTATE);
++}
++
++static int __maybe_unused apple_pmgr_misc_suspend_noirq(struct device *dev)
++{
++	struct apple_pmgr_misc *misc = dev_get_drvdata(dev);
++	int i;
++
++	for (i = 0; i < DEV_MAX; i++)
++		apple_pmgr_sys_dev_set_pstate(misc, i, false);
++
++	return 0;
++}
++
++static int __maybe_unused apple_pmgr_misc_resume_noirq(struct device *dev)
++{
++	struct apple_pmgr_misc *misc = dev_get_drvdata(dev);
++	int i;
++
++	for (i = 0; i < DEV_MAX; i++)
++		apple_pmgr_sys_dev_set_pstate(misc, i, true);
++
++	return 0;
++}
++
++static int apple_pmgr_init_device(struct apple_pmgr_misc *misc,
++				  const struct apple_pmgr_misc_hw *hw,
++				  enum sys_device dev,
++				  const char *device_name)
++{
++	void __iomem *base;
++	char name[32];
++	u32 val;
++
++	snprintf(name, sizeof(name), "%s-ps", device_name);
++
++	base = devm_platform_ioremap_resource_byname(
++		to_platform_device(misc->dev), name);
++	if (IS_ERR(base))
++		return PTR_ERR(base);
++
++	val = readl_relaxed(base + APPLE_CLKGEN_PSTATE);
++
++	misc->devices[dev].base = base;
++	misc->devices[dev].active_state =
++		FIELD_GET(APPLE_CLKGEN_PSTATE_DESIRED, val);
++	misc->devices[dev].suspend_state = hw->dev_min_ps[dev];
++
++	return 0;
++}
++
++static int apple_pmgr_misc_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	const struct apple_pmgr_misc_hw *hw;
++	struct apple_pmgr_misc *misc;
++	int ret;
++
++	misc = devm_kzalloc(dev, sizeof(*misc), GFP_KERNEL);
++	if (!misc)
++		return -ENOMEM;
++
++	misc->dev = dev;
++	hw = of_device_get_match_data(dev);
++	if (!hw)
++		return -EINVAL;
++
++	ret = apple_pmgr_init_device(misc, hw, DEV_FABRIC, "fabric");
++	if (ret)
++		return ret;
++
++	ret = apple_pmgr_init_device(misc, hw, DEV_DCS, "dcs");
++	if (ret)
++		return ret;
++
++	platform_set_drvdata(pdev, misc);
++
++	return 0;
++}
++
++static const struct apple_pmgr_misc_hw apple_pmgr_misc_hw_t600x = {
++	.dev_min_ps = {
++		[DEV_FABRIC] = SYS_DEV_PSTATE_SUSPEND,
++		[DEV_DCS] = DCS_DEV_PSTATE_MIN_T600X,
++	},
++};
++
++static const struct apple_pmgr_misc_hw apple_pmgr_misc_hw_t602x = {
++	.dev_min_ps = {
++		[DEV_FABRIC] = SYS_DEV_PSTATE_SUSPEND,
++		[DEV_DCS] = SYS_DEV_PSTATE_SUSPEND,
++	},
++};
++
++static const struct of_device_id apple_pmgr_misc_of_match[] = {
++	{ .compatible = "apple,t6000-pmgr-misc", .data = &apple_pmgr_misc_hw_t600x },
++	{ .compatible = "apple,t6020-pmgr-misc", .data = &apple_pmgr_misc_hw_t602x },
++	{}
++};
++
++MODULE_DEVICE_TABLE(of, apple_pmgr_misc_of_match);
++
++static const struct dev_pm_ops apple_pmgr_misc_pm_ops = {
++	SET_NOIRQ_SYSTEM_SLEEP_PM_OPS(apple_pmgr_misc_suspend_noirq,
++				      apple_pmgr_misc_resume_noirq)
++};
++
++static struct platform_driver apple_pmgr_misc_driver = {
++	.probe = apple_pmgr_misc_probe,
++	.driver = {
++		.name = "apple-pmgr-misc",
++		.of_match_table = apple_pmgr_misc_of_match,
++		.pm = pm_ptr(&apple_pmgr_misc_pm_ops),
++	},
++};
++
++MODULE_AUTHOR("Hector Martin <marcan@marcan.st>");
++MODULE_DESCRIPTION("PMGR misc driver for Apple SoCs");
++MODULE_LICENSE("GPL");
++
++module_platform_driver(apple_pmgr_misc_driver);
 
 -- 
 2.55.0
