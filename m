@@ -4,176 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F165C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 08:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6F1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 08:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ndfVqAmPo3iQfnhYOKFfySpgzEMRA+MgI6ceVnbgHX0=; b=aU5o6KNu82hbiZjsae70r6qKVg
-	8reKnDbs1JyyGqTaZeDqc3mn9oznxUpkQpgA0q0iGyo4nrv2aGxIC3wLol+CvJuTBU2Y6Q+3K0b0/
-	ibelswDU/TLkAgLfzi3GdQXAdlNyjUHFkqIVjbnWLuMd+OJGBmOZiBFvKznUm/GS3BF1I8DwFj4wx
-	YsUST6nHGV0iF9b6E0TGQyAJlxVzdI+ORAQxWi6EDVuBBKtbA3/vkkurG/YSlfhuQG36r2YFjC+vv
-	kGD/wS74F5U8VpDKaOFSKngOKWljG1JsF37DyQGn5T6boqkg8D2SFuoJyPVCe7IKZjtQsa0cxs0c9
-	2drcHQPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dTixSXqM1M3nFZ6wcRAermlWHzTw0peN+qhtvG6hqcg=; b=kQdW94eP1xTpMihYdbCs33YDBe
+	wzdlfqDV+6jVqVMSjFR56ePzvaq/zr5MihGVyFm/rrmMzT7J0lQTehT7oobpN8x7jtsO4js50V/JL
+	Kkd9c80MjTeAT1UDYFHZlZyex9CHPP4MI7zN27dLJa1qvyqJwBwsZv91skfH9YLbOmkcdEH1wWwk+
+	vtbTbjaZ/CLdbgMsgJ/rPqfEfgLNcobBVtPNfxcbvGaHJIg6a0KRJCL5xcOP47DO3LPU/9FfeN3zR
+	iRNcYkur4aBg6w2fXMMY22n/BAzCqFLzZiB6EIlNkMDpxtWzQxqULYCKXRFFC4/HREu0XiW0pVDds
+	+RKcSHJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgIXF-00000009AF0-2Ued;
-	Sun, 05 Jul 2026 08:49:09 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1wgIYK-00000009AMC-3GH8;
+	Sun, 05 Jul 2026 08:50:16 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgIXD-00000009AEe-0BBP
+	id 1wgIYI-00000009ALI-2DqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 08:49:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783241347; x=1814777347;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=GwTIOjTSSjXLzWPRlwcmcnJu7YrMwxa+XqgIWPWbeqI=;
-  b=GL2HdPtU1D2mPdQhF+hvtoUd+R4ck/aozQH2xtG1cVoCmp8GWkiAHrmf
-   b6txF+qZVjwqYznN7+Uxe3T250Dp5wMDMPnrZ8Eed4hYHv80MqI4vxwAw
-   W247zKsUfu1q+/SFYyIfG0STeHyeUK8YVkutv450q5MYo2cZL2Yc4SaEv
-   7tQ9Siu0zKzi1WTsSztCR/RkVOPeXwrfeBH5l0kIXlARHLaILKmd+Md8u
-   NF8cArcSlhMGkpfqVnSFrWWqBzoBcbDZRw2ZVnM/tXgey7oru66hP1oXL
-   PTzcUZg1VXbGOaY7jw2oJBKO4WK64uQ6fvPhaYGZY55t1yFvRjQlBdpaR
-   Q==;
-X-CSE-ConnectionGUID: eL0VBbIXRI2h8IbEM4BTMw==
-X-CSE-MsgGUID: 8snrTzrhS6e4mbjaEhfvdw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11837"; a="84030813"
-X-IronPort-AV: E=Sophos;i="6.25,149,1779174000"; 
-   d="scan'208";a="84030813"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jul 2026 01:49:06 -0700
-X-CSE-ConnectionGUID: ztRKKjdIRharw0f3BSJq5Q==
-X-CSE-MsgGUID: Xg+ornBYTKO/rcxJjWkNbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,149,1779174000"; 
-   d="scan'208";a="276669942"
-Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
-  by fmviesa002.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jul 2026 01:49:06 -0700
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Sun, 5 Jul 2026 01:49:05 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43 via Frontend Transport; Sun, 5 Jul 2026 01:49:05 -0700
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.50) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.43; Sun, 5 Jul 2026 01:48:57 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HsGv4WfpUJ6ysA2/30RRFOKn5z1FNzKHl5cJ929ljXQvRcnQ8UtwGV2JTeOUPDZT8Mdpqoc8l4kWuE+FSsHxUsr04FAkqk+BM1xu+XGSKEK/qM3YonPvKMpeTq/0so/SIZ/ef8XBlEoEtyq+lbHsjO9BDPCnJsoD2orOCn0R8XFVdpSRUSg4f5ThtJ4Mi/3vW4ZUEElUEAkAGhSbS7sCBYUs+yQGiqln2RrX0ZnYQ9oxiUmP3Y5NouMEFcVz8Gughs/BmHaAInfeToMcDgsAQM0N5sGj3NKJ555C9ITh5H7nzwW0+6i+SDxHQLQ4uq3SAIrWcnwUrq2J+IfgsKnynw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ndfVqAmPo3iQfnhYOKFfySpgzEMRA+MgI6ceVnbgHX0=;
- b=XC+r+x939r3Ia3YWnPICKp41atIwUiLcDAEIwiZrxM0RyJkk8wFM9NbYzJE8+W0pjhag9BOeCZq31JHdWYKiBFXInAsk7fRHc/Dg8uE6XD1Ahqp4K5IgmfYsFG9mHS7LRIYW6W6AJILKedjykiqHFiaGNE5sEKu4FODyf9bfqY6Ta0UU+7bVkOYVRPCyeabd6ywPA+0HtT9ivvv3dEgHo1Mt85aaYz5GBaIqVXh6TRWgQxTinbp7JfJD2fEteiNB5wp5z6293i7TMhStFnEXnvk2YZJNILRF6elkkQmyrHBNQLzW2fd2SfuZWwz24G22P3IB1Kf9eDKN15ivClHs1Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by SN7PR11MB7993.namprd11.prod.outlook.com (2603:10b6:806:2e5::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Sun, 5 Jul 2026
- 08:48:55 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.21.0181.010; Sun, 5 Jul 2026
- 08:48:54 +0000
-Message-ID: <f623b4fc-c983-47c4-834e-722148f531c5@intel.com>
-Date: Sun, 5 Jul 2026 11:48:49 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/7] mmc: sdhci-esdhc-imx: remove unnecessary
- mmc_card_wake_sdio_irq check for tuning save/restore
-To: <ziniu.wang_1@oss.nxp.com>, <ulfh@kernel.org>, <haibo.chen@nxp.com>,
-	<Frank.Li@nxp.com>
-CC: <s.hauer@pengutronix.de>, <kernel@pengutronix.de>, <festevam@gmail.com>,
-	<imx@lists.linux.dev>, <linux-mmc@vger.kernel.org>, <s32@nxp.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260703104208.3426374-1-ziniu.wang_1@oss.nxp.com>
- <20260703104208.3426374-2-ziniu.wang_1@oss.nxp.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20260703104208.3426374-2-ziniu.wang_1@oss.nxp.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0306.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b7::16) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Sun, 05 Jul 2026 08:50:16 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493bb510ce4so14454295e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 01:50:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1783241412; x=1783846212; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dTixSXqM1M3nFZ6wcRAermlWHzTw0peN+qhtvG6hqcg=;
+        b=HNh/uHIjcI/0LFYvoe5QPUDWAoPGqqKyKcs8WIp+hd9md1Z4UeK0nVHe0W0SUiT+2V
+         u2b0aLNZB6HPCxHE0Y8MceXDa7oi2IDxq6KYdxAo/hase3kugEnjbvneTYWW5A/ikI57
+         BrZyjUDmXZvxeXVNyAIxEyLPlvC7gVt3/aoe4z106V+zvPqZ9r4jbdgPK/lMiSw36/j7
+         bLNoaO5u9OYO8Msihz0s94t+PVLILQai9cFvXta93S6DJ5yMULWyeonJaJlo10wT9X5c
+         6GOidfE1sq2s+Ppzznwy8CCLtfTcokw+oh0JnzN39QD3wvTr+sUJWJ7M0UEbC5Lxnf/P
+         rzoQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783241412; x=1783846212;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dTixSXqM1M3nFZ6wcRAermlWHzTw0peN+qhtvG6hqcg=;
+        b=ftvcAxLUIjgpH6ix3weCw3VDEs/2r/kcRYHetmnvOUWYIcfL6HGg6nhcag2ziovyJp
+         kKZu3yXGfnWfaOlPscDpZ+136/dqs2B7koO1rwb/0IqnGyhSHiuLm4rBgCb9f9LRuoVd
+         SlVh2ga1Il0EebG4LkL5WHSUrgkExYHwq6dzyL3ep0ugfDUxncm/D2psOpLzQulyAJZB
+         0xHBZNPPmecYlM2CyhdAHruqRdFDiTjgz0Nm22Y+FIbONDBmbTEU72yj7GMEMjEdPtqF
+         F79gyQ7NiSwsdhJsUsCg6Rrtl4s/7aT/M+XHxOryUTR/vhx4hB/i/jJyPwA+FyruUFut
+         q5aw==
+X-Forwarded-Encrypted: i=1; AFNElJ8I0Cwj5px/Oly4D8guHjyvETzL0gd8B+oEpTPjweiAJFDr4yHhpKMCt2CsQTfJnwZ3U66lmGHO1lb+sxv2KYP/@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn0i1ivS/i4FnuU4ArZ5BmrXLP7FVV4/F593N/h/eowslXQViO
+	va5KAsr417cohkwaCZHAN4Yh0teoin2GO4nk6LA6nNHqpwG7n63TFM/cJt/YUWJlEvg=
+X-Gm-Gg: AfdE7cl6CTVFzqGbhVO9Omj3x0LmFVsdaNfCC5SbvkdLhwFPfwP0o0Y0Z1OnZ3Nxkh7
+	Qc+2sz7hz9guJ3H+wIkZUhJFU1//CcadS+w9jt/ShkQzetrh55aT7odwY1XL3Vq0GxQ4wsUK2xr
+	GFa98OvQR8n7hOVnU5i0kilhF6MSEvOVqEW34oDknrBdI3nFAjZnCMRBdU1sOHPldmzxjw9AILN
+	8dv6Kwfgyj/Q6ASf5chgEk7ueMoZOe2U3jon4EUgE3BfaAan3WNve4wHF/8VB72HvzTy6JEQ2ij
+	JUpKVCWZYpMG1Dxy7ndFv0P/TLphkJ37OycDiGZM4t9/eeg/92HHkfNsVUqbGpnyG+zrZGlqpp+
+	Ib4T3sbjiorGhRoO5yfsZBsA3FT1zz7hUyvls7KFn2ZlduZh5n+9l9djRBaYtwIh8L60cS3vCwc
+	G5kDlDyJNz+43LkRr/hg==
+X-Received: by 2002:a05:600c:8b17:b0:493:bdaf:83a7 with SMTP id 5b1f17b1804b1-493d11f8c55mr65567935e9.28.1783241412156;
+        Sun, 05 Jul 2026 01:50:12 -0700 (PDT)
+Received: from localhost ([2a02:8071:56d1:2de0:1d24:d58d:2b65:c291])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47aa0960b06sm13667826f8f.28.2026.07.05.01.50.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jul 2026 01:50:11 -0700 (PDT)
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>
+To: Arnd Bergmann <arnd@arndb.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Linus Walleij <linusw@kernel.org>
+Cc: Drew Fustini <fustini@kernel.org>,
+	soc@lists.linux.dev,
+	Imre Kaloz <kaloz@openwrt.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] ARM: Don't let ARMv5 platforms select USE_OF
+Date: Sun,  5 Jul 2026 10:50:00 +0200
+Message-ID: <20260705085000.3510576-2-u.kleine-koenig@baylibre.com>
+X-Mailer: git-send-email 2.55.0.11.g153666a7d9bb
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|SN7PR11MB7993:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d3ff6ee-5b4e-4e79-137a-08deda723ebf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|23010399003|7416014|376014|22082099003|18002099003|4143699003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: d96K4atO62Vf+P6edujBPA71lMk56vaPpRtmqL5rt5KTkUg1jsFcV6aXoWBtP09atkdNtOIwhsgCXAk87SS2wj4K7zxwlR7lbPRcSTqrVxOGxC+dW5HGFle8XPadU0pHEoraisS5vUXvlVRKPhNkx0GBBoWFCh23f66XmeylxttvynLVLrAi2qpyFlsRUPYW5cbGoA7Kv9af22tK2SKvsqf+Vn3S0f8YuSoRQBPzL9HiZ2xTXoKR1Q0Pc8QpGECOQnKHUDMrjpd0QxhdNmWXayvJuf6oqIvrK22gCmKXBPK+pmL6gzH1HQZ1iNM+JJEqIGGJ3PXAIQ6AJA8jU8+TZs7te9WreQwLHwiN6Vp+e9xTVLcA3xn9REyU0mb122y7fE7xH7VWoVuxk9x9W6Ptsk2UVtGhaCnPt9yp5BERFgygIQRaXeIFWR39xCvJ8MWvFi6n2w6w8DC8POz/phtaxpiwTclZ7vC7fbxKpHYJzVAmuXSmcW8XV0+1/uqtWsOkil+f59g2IvzMFpMh3eNaum8+muwG/hLgXs80mu68xIbPfBYGTzPyPAwCwU/psraWiEAGpfJ0SbKHmjp3jxNeVsACnzGVH4BZpCDEUZyiPK0qBlsQnsIEBNVEx2syq0NZJ507Py2x8QChGKZfLFBp/qQWa4ZTN2LLZsNyd0vme7k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(23010399003)(7416014)(376014)(22082099003)(18002099003)(4143699003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?S2Qrck1oM0ZYZS9hd21pM2JhQVVzMVN2SUhaKzRaM3FVMHptOGxnNXpTdUhB?=
- =?utf-8?B?eWkxVmVVbTZ6QUswZmRsdDc3bDBXS2tyeXlRM25mT00xOW9kcm5PRHB0ek43?=
- =?utf-8?B?RS9GYWlscStSTkI1ekV3Wmd4cDlyYXdoOHJCY0QycTA0b1VuYkFWdmpsTU1W?=
- =?utf-8?B?NERjVFFBOFFFaS94RDVaQzkxR28vcytpVkdvbDdIZDFJNnVhRzBaanhLTDJI?=
- =?utf-8?B?b0llWXE2cGFVVHBHRE9rNUJkQW9UcWxnTW5Hd2p0b2NIbnRPdDdnZ0VJYjBV?=
- =?utf-8?B?TktMWWhjaWlUcVBLcWZFenQwMFpTRDREamJwMDJtU2VUSnFaUU05akdld3c3?=
- =?utf-8?B?eG5iSHFva00yS1dFVWcvN2xuRkI1cERJTUxKSERLV2NJbzlZRzhTOCtmVy8w?=
- =?utf-8?B?YzQ1d2Z3TDlybXdNMHVvREJjcXlhc1BocXk4TU16a3BmSnUvcVZBNmRUSGU2?=
- =?utf-8?B?L1p4K3BvQ1g0bDUrQUZqRDFtZG02V1cwWnhSalBxODRwb1ZZUE95N21nZmli?=
- =?utf-8?B?MTduQ0c2MTNhSzJQYlE0RC94OVh3NTUwTjloY2FxWFoweUszV25sTzYremtr?=
- =?utf-8?B?c0NiOWUvQWtZSlNJbXBYOTQzZHhIQmdUL2lFc3hFc0M4WGVKdm54S09iazJz?=
- =?utf-8?B?b2pnMmp1K2wxdXU0S25BVnJZMzdYMXBRdHNxOVZMekhJakp0L29xM0F2bDAv?=
- =?utf-8?B?QjdWT3ZzZmxtcXloejFEd3ZCTGh0Zlo3TXZBRTkycGtZK3NGKzZuVTl6alIr?=
- =?utf-8?B?MmxjRFBkYkJLYkNyTy83TlVMcTFjOXliR0xwZnQwWlVid0htNmw1QmVNSEk2?=
- =?utf-8?B?cGc4enBFenpqMVhGMDlEMlpEaElzRCsxL3kxR2RGNytxZTJUSUlidUI0WG9J?=
- =?utf-8?B?M0FIclppQ1ZXaEdpVmlZQkQ2STlPTWg5a05LZWhxZ0thaW9RNEtwMGx0ZlJS?=
- =?utf-8?B?aFVPaHJDMXViWHZXVFNFWENmUllQaE5PQ2ZVa01HSVZGOFFaSHRlMUhHb0o1?=
- =?utf-8?B?VHJ3TmNhUzZLZmZtdXd5WHhtbzgyZVpKYlkrcjIwQ0cvdHYrM0w2YzNQd0pF?=
- =?utf-8?B?U3NnZXVycnQvZ1ptc0ZrZ0pseVEyQjhRNVlMdTBGSnVFUFNubjZOSm1Nc2l5?=
- =?utf-8?B?SHRBY1VYUjZLcGxqVjN2Ti9FWmprRU5WZU5JcEhvY0FGYzEycEJTTFhDTjUr?=
- =?utf-8?B?RStJK3JxYVdVOC9yNm8vWU4yTGJzZmw4ZmhyMWRPVGVLOTVPYjRXODJoODBN?=
- =?utf-8?B?QWZGcklsQytsakwyd050aFVLYVJxTHEyK2pKNG02Nkh5MWw2cFg2UnV5VndF?=
- =?utf-8?B?ZlU1Z3RxVUw3UG45dUtTRnZtaklUNHpxdUJRNTFlR2JvdUk1TjNFempacUZW?=
- =?utf-8?B?QW5taWVpT3MzdjRxV040Qk5IMkFMd3MwTEdaK21zcU00RnNTUG5zL1ZaUmpw?=
- =?utf-8?B?RW1DdjViQytrUWhFM2hpTWdCSExMTGp6eEhCODJ3ZlRZdWpiWlBhVWcyYWdr?=
- =?utf-8?B?MWNSVVVSc2kxSUFzUXBnS2JiWk93aGRMWHZxRzJoWVVMNGpmSzdyZnZ5NVFv?=
- =?utf-8?B?UFQ5MGsvdUhrS3A5TVVoQWVRQmRnMnp0bUFuQ01nUFhoSFNWbnA4bTJHeVdE?=
- =?utf-8?B?YjV6QzFKZmI1WjVreG4yUU9Ub0hRN21rT0NJUGluL2JIaWJoUHcwU2JaaEZV?=
- =?utf-8?B?M0xqU3pjeEt2R2ZOVmVuRlovK0ZEMlFDcUZvbjMrT25pWUlIeldTaE1qYmtp?=
- =?utf-8?B?eDJPZWhUa2VDVTJKZTVxc0luRTJBcVdIa0h5dS9Bb3NEdUpRd0hKbklCcEtT?=
- =?utf-8?B?SnVFUHNtWFFzTGV6UnNtbGE2K3M2WmlsVVZnM28vcUJSYzk3dlA5Qmw5ZjdM?=
- =?utf-8?B?UThDNHNsOE5Edm44Nm9TS1ovK0w4dURTR2VVRi94YmE5OTlPOHVDZzlHQlUv?=
- =?utf-8?B?N2JPZnBxbkVOYTNKTWQwdktVWTB4cHFtbTdkb3dIREhOOXhiTFFkYWNVSWF4?=
- =?utf-8?B?b0NzRCtsZjF4TTFFNUQxRXNIZ3RjamdoUlkwTk42ek9aUkRKeDBSME9JUElF?=
- =?utf-8?B?ZGd4L1dvc1UxazdIcmpiUDNsL0FxemxpaWNOdXZDTUR5WStNUXhiOHFzNGhW?=
- =?utf-8?B?QzlHUVBBdHErOWd4cjBUWktQTTg2N09tYUJIcGZ5QURha3MvdjYwSi9Pb296?=
- =?utf-8?B?ZUlyUzJUYWZUaU9FWHkrdk43QzJtVHZtYU1FNklleEdYUU1KMU95L1N4WU9F?=
- =?utf-8?B?cU9PNnRaV2Z6WHhWV28yYWEvN0RqR1VwUThkbWxRdEZnNEphd1NKMXZyMHNC?=
- =?utf-8?B?djZmdFlBMnhaT2xsNHJlVEJkVDQ1enZiVzBVZ2JjWTNnSnowSXFIUT09?=
-X-Exchange-RoutingPolicyChecked: pnNPQOqojVjNFuTWaMWZFQlIFJP02eMIBh8PaIH/+nYcbtyrrHuqM7qfq8Foe+6UrBR5KhePs6urq8/Lhh07AzPJBNiuG9sDakyO3wct/ATa4eI9JHAB9tS4v+u3YAYLu20BAj5/ahP+pDxHvst3CMgSqvMs2QK6Ajw5aGMwH8EboBF7wGvva/vpFnqgR8gJTrlwwcvY5C2mMJG3HqTPEOI1e/3MWopH5zLbJONzY119ps/634sh+WjLFsoFGLnYOMiXuqfAiI9O6BosizCPemgC1VCMmCj4ZxdNX1Gw2DFUG+9zVvDJU06OpP/AmmUInWoxcMC83YNkE8gsqoTnKQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d3ff6ee-5b4e-4e79-137a-08deda723ebf
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jul 2026 08:48:54.9087
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ufxxU6aPDGIVSdEshz/slGqF3qSEADitK+sF5V493nLCWyY1s20ftv2b+rX/bSqhcGfkmlYng0O4rwzugsBYJA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7993
-X-OriginatorOrg: intel.com
+Content-Type: text/plain; charset=UTF-8
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2014; i=u.kleine-koenig@baylibre.com; h=from:subject; bh=UACOGRi5zwKM/GlH3MUrcVH7NTPYPiS/pta0KBrGtsQ=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBqShq4ZQaUz2sgd5mn3XqmqSu5yqtJWJAFqNvOW 1EMngDN2a+JATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCakoauAAKCRCPgPtYfRL+ TtF6CACsq3oN9xBSWZAYF+udT8In3FGzcI9+Kw+Z3Vn2Z1skdF5IJvOLCcP1jCbNLc8YbiimQNY ZvhF7mbdQh8XIIHBlPjLdf/UpxTcTzTUv8KioedjFEfcCyA1ZKGtCUel4HvdfS2WDAX/6XtCu+8 4y44kavClHYDRVKgm0jVdd236wmzgwS87b8XWELqHeMmTcS9kxr8g9fPVMVlbtZ5lWfSB4OSy7j Ha4Pmv/3X5PYZY5yJCmdP/AwKlv57EICLpwEpIuaP7bsAnRnQgJ0mxjJXVROSjhiRLhmuTni5D6 IhCOcjT3ukfqUSw122Aj5K6lNeFvaAa3qLU7wCslL3lF1dWP
+X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_014907_132788_D975365D 
-X-CRM114-Status: GOOD (  21.36  )
+X-CRM114-CacheID: sfid-20260705_015014_587466_23930E0C 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,55 +107,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/07/2026 13:42, ziniu.wang_1@oss.nxp.com wrote:
-> From: Luke Wang <ziniu.wang_1@nxp.com>
-> 
-> The tuning save/restore during system PM is conditioned on
-> mmc_card_wake_sdio_irq(), but this check is unrelated to whether
-> tuning values need to be preserved. The actual requirement is that
-> the card keeps power during suspend and the controller is a uSDHC.
-> 
-> SDIO devices using out-of-band GPIO wakeup maintain power during
-> suspend but do not set the SDIO IRQ wake flag. In this case the
-> tuning delay values are not saved/restored.
-> 
-> Remove the unnecessary mmc_card_wake_sdio_irq() condition from both
-> the suspend save and resume restore paths.
-> 
-> Fixes: c63d25cdc59a ("mmc: sdhci-esdhc-imx: Save tuning value when card stays powered in suspend")
-> Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> Reviewed-by: Haibo Chen <haibo.chen@nxp.com>
-> Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
+USE_OF is already selected by ARM (unless ARCH_FOOTBRIDGE || ARCH_RPC ||
+ARCH_SA1100; these all conflict with ARCH_MULTI_V5). So there is no need
+for an explicit select and it can be dropped.
 
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
+Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+---
+Hello,
 
-> ---
->  drivers/mmc/host/sdhci-esdhc-imx.c | 6 ++----
->  1 file changed, 2 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-> index 18ecddd6df6f..6526d65538de 100644
-> --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> @@ -2064,8 +2064,7 @@ static int sdhci_esdhc_suspend(struct device *dev)
->  	 * to save the tuning delay value just in case the usdhc
->  	 * lost power during system PM.
->  	 */
-> -	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-> -	    esdhc_is_usdhc(imx_data))
-> +	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data))
->  		sdhc_esdhc_tuning_save(host);
->  
->  	if (device_may_wakeup(dev)) {
-> @@ -2124,8 +2123,7 @@ static int sdhci_esdhc_resume(struct device *dev)
->  	 * restore the saved tuning delay value for the device which keep
->  	 * power during system PM.
->  	 */
-> -	if (mmc_card_keep_power(host->mmc) && mmc_card_wake_sdio_irq(host->mmc) &&
-> -	    esdhc_is_usdhc(imx_data))
-> +	if (mmc_card_keep_power(host->mmc) && esdhc_is_usdhc(imx_data))
->  		sdhc_esdhc_tuning_restore(host);
->  
->  	pm_runtime_put_autosuspend(dev);
+If I should split this patch by mach-*, tell me, but I think it's simple
+enough and these architectures don't move much, so getting this in via
+armsoc should be fine?!
+
+Best regards
+Uwe
+
+ arch/arm/mach-ixp4xx/Kconfig | 1 -
+ arch/arm/mach-pxa/Kconfig    | 3 ---
+ 2 files changed, 4 deletions(-)
+
+diff --git a/arch/arm/mach-ixp4xx/Kconfig b/arch/arm/mach-ixp4xx/Kconfig
+index cb46802f5ce5..7f812020e082 100644
+--- a/arch/arm/mach-ixp4xx/Kconfig
++++ b/arch/arm/mach-ixp4xx/Kconfig
+@@ -14,6 +14,5 @@ menuconfig ARCH_IXP4XX
+ 	select IXP4XX_TIMER
+ 	select USB_EHCI_BIG_ENDIAN_DESC
+ 	select USB_EHCI_BIG_ENDIAN_MMIO
+-	select USE_OF
+ 	help
+ 	  Support for Intel's IXP4XX (XScale) family of processors.
+diff --git a/arch/arm/mach-pxa/Kconfig b/arch/arm/mach-pxa/Kconfig
+index 66e26990e2c8..c478fb8a6f78 100644
+--- a/arch/arm/mach-pxa/Kconfig
++++ b/arch/arm/mach-pxa/Kconfig
+@@ -22,7 +22,6 @@ config MACH_PXA25X_DT
+ 	select PINCTRL
+ 	select POWER_SUPPLY
+ 	select PXA25x
+-	select USE_OF
+ 	help
+ 	  Include support for Marvell PXA25x based platforms using
+ 	  the device tree. Needn't select any other machine while
+@@ -33,7 +32,6 @@ config MACH_PXA27X_DT
+ 	select PINCTRL
+ 	select POWER_SUPPLY
+ 	select PXA27x
+-	select USE_OF
+ 	help
+ 	  Include support for Marvell PXA27x based platforms using
+ 	  the device tree. Needn't select any other machine while
+@@ -47,7 +45,6 @@ config MACH_PXA3XX_DT
+ 	select PINCTRL
+ 	select POWER_SUPPLY
+ 	select PXA3xx
+-	select USE_OF
+ 	help
+ 	  Include support for Marvell PXA3xx based platforms using
+ 	  the device tree. Needn't select any other machine while
+
+base-commit: 2b763db0c2763d6bf73d7d3e69665222d1f377cf
+-- 
+2.55.0.11.g153666a7d9bb
 
 
