@@ -4,70 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF007C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 21:38:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91993C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 22:15:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y1UXtT8BmOoe/s7y9k9MbPlbWZSkBpQj1qefN9muTjc=; b=2A+/l3Tmq47nm+F5gnHsNrJGQP
-	iVmmZU+apwLjyH4Fm9jLPdszz08M2DmxJhuSbroMgMAaqbFMgW7TZm5o12yCnGTLXYAVpGwhZwfOU
-	yPvDgaBHrDCbbS0ftw3nmRQFSxejSKa/He+jiU4Qv5MoTEwdPHf9mbyPqTSfZvyLT8S5tBsNMcIbN
-	vb+P+lAdpvRuceeXkEZpYQyvEfvaQl4QYj7hVzQ2rrG+vVrILRL0WaiunZ48EEgz/JnUAj76upOO4
-	xgemVvRRuVf8pAcf+7R6prWmfko5itjHuhBWU+U7ovPOK7wO99l160aPpetr1edlXP/wHh7BJdHil
-	NQgadw/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=11yOC0xBtLrR48kPHbjyx49hKbhUR9JVSCNhFRbbv1M=; b=CKDoRk0ieip8DrTQPy5WKlPceC
+	PqdBemA1+IoZ7D/l3jVjUnXf3ZxjkfULFAEQIQWVM1z4PJJvWMN42zYbJEctYC13GGezCuCjC6Pd6
+	aqdznBGkQLeIP6h3VcDScEDqzizX3mLrAQ1DBGRZwDBTx+nQN0YUnes3mbC4p4cY6rjfNj8hAoLW0
+	j7ifsgO4Ogz3/q3o5W2aZTvxC6hhLNdbkC8KkCFKhi1MceOhvyYHjk7cZr7CDjsCdHeHXdVernHq9
+	sd1y0+IpxajzC8Dk0HyBydBB4i/4WThy7FDVQNqUzHW2iKC/K//mwET+Fku1sjr2BAL7GWoWcpn49
+	9gLYKYkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgUXu-0000000A4nq-2luX;
-	Sun, 05 Jul 2026 21:38:38 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wgV7b-0000000ACkH-2d0x;
+	Sun, 05 Jul 2026 22:15:31 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgUXq-0000000A4lY-3oUX
+	id 1wgV7Z-0000000ACjD-2ddh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 21:38:37 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 629834E40C02;
-	Sun,  5 Jul 2026 21:38:31 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 35EB0601A2;
-	Sun,  5 Jul 2026 21:38:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 568AF11BB95F0;
-	Sun,  5 Jul 2026 23:38:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783287510; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=Y1UXtT8BmOoe/s7y9k9MbPlbWZSkBpQj1qefN9muTjc=;
-	b=f1C3e1rNwou+Okt6VZ8A38DgopxU0B2JHBR8wohTm2+ApRM9tmAnvP+BNoCh8yQeySo1Nj
-	E6fCAYJ7JhR2CYLH/IyvaGs/RzFCzaSfyDYkkMhKjy/w3VyAuVQ+ylvTL1Z3nKmTP+TzF4
-	qGA4X61SG1NCHMBbRQs80q/WKHO8l6RheElkrckh2+SvlFJCOQv1O0T9JrxXgjNDQ7G/Dd
-	kAqulb+mG90oXfQdlJazkq6pSjj+iElLLCqg1nCcItjF0CsBhUAU6lTBFLQYrCWjrKV/XM
-	S4L/rWssIMrEblxnfGpiwc36B20dxvOs1MSDC0vtxv/RY9b+r2C7M1jYdODFuw==
-Date: Sun, 5 Jul 2026 23:38:27 +0200
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>,
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Subject: Re: [PATCH v3 2/8] dt-bindings: rtc: sun6i: add sun60i-a733 support
-Message-ID: <202607052138277aa6b793@mail.local>
-References: <20260702-a733-rtc-v3-0-eb2580374de6@baylibre.com>
- <20260702-a733-rtc-v3-2-eb2580374de6@baylibre.com>
+	Sun, 05 Jul 2026 22:15:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C98A3600BB;
+	Sun,  5 Jul 2026 22:15:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81DFB1F000E9;
+	Sun,  5 Jul 2026 22:15:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783289728;
+	bh=11yOC0xBtLrR48kPHbjyx49hKbhUR9JVSCNhFRbbv1M=;
+	h=From:Date:Subject:To:Cc;
+	b=C5ImS2oDsK4ztlCK2n2lRz5+vFc6Vm+tWzW8kDPfGJ5yjM5XKgpmAVI95O33T3TsV
+	 6ead3aHOLsMYqRLCiXh2fXD+j99UYzkTIQraZVgg5dT7+DYlEUI1MrNX+FczN93eQ+
+	 3JPDywXkTs8LIVYT4ML1cW0xNiXT5jyZf1HTnAI8LxgTxmf2L+ByIWiD8kzunm08IP
+	 xK0RhS6uDV7zRqDZdbhNRRWgKrp+tGQuX7+TMOafytzZUOIPRoNjIYeedEfvNiPaJd
+	 LUPVRWB83FjYE4Vca5h8wdB5ym46SE48xslcGa4kbJY9hvtkj5yzXzRbBfO2Rz5q4o
+	 B9qhEshmlenVA==
+From: Linus Walleij <linusw@kernel.org>
+Date: Mon, 06 Jul 2026 00:15:24 +0200
+Subject: [PATCH] RFC: ARM: dts: ixp4xx: Fix interrupt-map weirdness
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260702-a733-rtc-v3-2-eb2580374de6@baylibre.com>
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_143836_329632_49F0B0CB 
-X-CRM114-Status: GOOD (  14.61  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-ixp4xx-dts-gpio-cells-v1-1-98fa3ba0ad2d@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMQQ6CMBBG4auQWTtJKYjiVQwLbH9hDIGmg6QJ4
+ e5WXX6L93ZSRIHSrdgpYhOVZc4oTwW5sZ8HsPhsssY25mLOLCnUKbFflYcgCztMkzK8Lau69bD
+ tlXIbIp6Sft9797e+Hy+49Tuj4/gAioL1bXkAAAA=
+X-Change-ID: 20260705-ixp4xx-dts-gpio-cells-ed21349de298
+To: Imre Kaloz <kaloz@openwrt.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+ Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.15.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,51 +73,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/07/2026 10:10:01+0200, Jerome Brunet wrote:
-> Add a new rtc compatible for the sun60i-a733 SoC and new IDs for the
-> peripheral oscillator clock gates of this SoC.
-> 
-> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Building the DTBs for IXP4xx results in a few thousand lines
+of this:
 
-> ---
->  Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml | 1 +
->  include/dt-bindings/clock/sun6i-rtc.h                              | 4 ++++
->  2 files changed, 5 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-> index 959a012c626f..f2b91186ed37 100644
-> --- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-> +++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-> @@ -33,6 +33,7 @@ properties:
->            - enum:
->                - allwinner,sun20i-d1-rtc
->                - allwinner,sun55i-a523-rtc
-> +              - allwinner,sun60i-a733-rtc
->            - const: allwinner,sun50i-r329-rtc
->  
->    reg:
-> diff --git a/include/dt-bindings/clock/sun6i-rtc.h b/include/dt-bindings/clock/sun6i-rtc.h
-> index 3bd3aa3d57ce..5132a393ca4b 100644
-> --- a/include/dt-bindings/clock/sun6i-rtc.h
-> +++ b/include/dt-bindings/clock/sun6i-rtc.h
-> @@ -6,5 +6,9 @@
->  #define CLK_OSC32K		0
->  #define CLK_OSC32K_FANOUT	1
->  #define CLK_IOSC		2
-> +#define CLK_HOSC_UFS		8
-> +#define CLK_HOSC_HDMI		9
-> +#define CLK_HOSC_SERDES0	10
-> +#define CLK_HOSC_SERDES1	11
->  
->  #endif /* _DT_BINDINGS_CLK_SUN6I_RTC_H_ */
-> 
-> -- 
-> 2.47.3
-> 
+arch/arm/boot/dts/intel/ixp/intel-ixp42x-adi-coyote.dts:68.4-78.31:
+  Warning (interrupt_map): /soc/pci@c0000000:interrupt-map:
+  Missing property '#address-cells' in node /soc/gpio@c8004000,
+  using 0 as fallback
+(...)
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+I don't understand why an *interrupt* map needs address-cells, but
+I suppose I am missing something. I have not seen this before but
+it started appearing.
+
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+ arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi b/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi
+index 0adeccabd4fe..b6ef98a88c4e 100644
+--- a/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp4xx.dtsi
+@@ -114,6 +114,7 @@ gpio0: gpio@c8004000 {
+ 			reg = <0xc8004000 0x1000>;
+ 			gpio-controller;
+ 			#gpio-cells = <2>;
++			#address-cells = <0>;
+ 			interrupt-controller;
+ 			#interrupt-cells = <2>;
+ 		};
+
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260705-ixp4xx-dts-gpio-cells-ed21349de298
+
+Best regards,
+--  
+Linus Walleij <linusw@kernel.org>
+
 
