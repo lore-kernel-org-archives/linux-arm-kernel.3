@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D15C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 12:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180EAC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 13:17:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wz4aJVJnm03NmMAAn4VkW1gKrEfbr09NM4rUeKWhQuI=; b=M9/P7HlD+Fbmyk4GF0Fl7CgnXJ
-	Ze6CMYL26fkMfqwGlvPOvdI1pFF16y1q3DJ+6h3g2gTzfMYGRo7uRebfHtgGXmjNmeTPgEfJJc3wA
-	0/7ULjMx1f3owtxvi2i1u7hNvUPGJuBu+BfjkndbJELbucv6ZQGJBYaUiXO2PyEJpeGzlIiewycTY
-	Bk14foCmaK+1YvEho2PEhCF56eRt+aErw6f/eBhApWyyT04lHjN+NrBD/FQagTEpEC14FcheOHyYW
-	bVrtkofJ9uiS9fNY+qd5QVOAOle6BTNsUby7CyJKJ6N99h+d1YpGQ23iLAN9lEeddksh+shfuZxuO
-	HIWFbzCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ljbLLNXdPRMRrFNl8paEjzbRJ44yAbxs18opzD0RacA=; b=3pkxidzWxkHq/fwYcDWt+6wJhC
+	9ihAf679Dpg22vmM5ytaEgZLmO0FN3ikGd8vifFG+hv9papEYjF1d+nW2MX+ARtCivPVoBEP3uCX9
+	++M04cE5iH1yHeuqxq2KEGJ+KdT9+svjB/MDMH6zYjyuxUDR4lsmk/y1A4pK2dCPabt2z3lu6ADd7
+	5HCHnPkNekzxXVgPxf88TlDSpjZ17ofXeU4htZFDmucglbjgJ61FDfwUYrkYqjg5egohR1Sld4sTl
+	UxpmnVExqmMl9QKB8nn447r4kBkF41XCJVs34hrvRqA9WejmhP8wg8vf36mQnF6dnv4uJG5mBVYmv
+	mezpYP3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgMLw-00000009JMD-1n9e;
-	Sun, 05 Jul 2026 12:53:44 +0000
-Received: from mout-p-201.mailbox.org ([80.241.56.171])
+	id 1wgMj4-00000009KBW-146w;
+	Sun, 05 Jul 2026 13:17:38 +0000
+Received: from mail.cyberchaos.dev ([195.39.247.168])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgMLu-00000009JLl-0h4O
+	id 1wgMj1-00000009KB5-2H23
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 12:53:43 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4gtS8v0dlpz9ttN;
-	Sun,  5 Jul 2026 14:53:35 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783256015;
+	Sun, 05 Jul 2026 13:17:36 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1783257453;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=wz4aJVJnm03NmMAAn4VkW1gKrEfbr09NM4rUeKWhQuI=;
-	b=HkyBt8GEUigNtYGx6Kz76fT31Q/i00IxuN97Ba/amJhBbRD7umdCMp8M9VQk1RNcR+Ek0B
-	Ng2DrdPyslID+ksmOfHfRJXT8UTEwmplHHYNGMebeZYmRlQCBDM0jWjam2MuIHTJI4Y77c
-	Z6SGg+B4YcfPNpg8ZbMC5WedEOpsPct5c1vLIEy7Y6KhSH3KoN3TmvrkqyHgsZnzHG9nbK
-	y7kc7dn775jLiKYx5D7ZYQDhj38mTGdddGOKx4IOI7YYTonzrlUdMfmQahdu0xaZPzbrty
-	cjVldQdIbaf/6kY70UQ3+VR9zRlkLd17hkcIkKjAGfacDW6dJpebKAtEzz+h0g==
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783256013;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=wz4aJVJnm03NmMAAn4VkW1gKrEfbr09NM4rUeKWhQuI=;
-	b=yb6Gz8HzZ4qBR8B8XAh8DqJSK+H6pMi8Oth+TdB5DelXAbIaTsG2kwo2qlpszBF4DGrwsD
-	FRCEFeYkNKB2dAdev2GSr/NE5c9y04aa7axnycOWWb1bl1hk9Gn96zaa6aSq/XRtR1Hi5x
-	oob95xfTkCkE6ceZEnIkYqBM9UVFW/ezLD7jX1lPy/qk2rL/klp9NwIVXE1s6HzUCIEooH
-	Y3XuB+sQtstK2OCF8/jfyuRRjQxblZe2UETsBTdkdsVBDE6lObJvdOv1aTNdrarQ910L8e
-	LB7hwN5QTR0hOiw/bft+SeIPexbI+Y0k7ttFLZXVSyRK7U0s3+PSAS+L/81uew==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH] arm64: dts: renesas: sparrow-hawk: Always enable edge connector I2C busses
-Date: Sun,  5 Jul 2026 14:52:46 +0200
-Message-ID: <20260705125324.13519-1-marek.vasut+renesas@mailbox.org>
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ljbLLNXdPRMRrFNl8paEjzbRJ44yAbxs18opzD0RacA=;
+	b=GC4ATiQR/ykmmCKqubMjENw/3Xr6Ci0ZJQmyTzl15/JXn3E6/pfeQcovEEOuDBcKtE3gfu
+	DjB3MY6wtvGouS8itJVrGfsoLVvmmHq0yuz2TFZ0ME7c5gP2zy5j0SnWc51bwMJk7fgihV
+	we9t/adlMPacke8u70uo7RdEBAmx8FE=
+Date: Sun, 05 Jul 2026 15:17:22 +0200
+Subject: [PATCH 03/10] dt-bindings: watchdog: apple,wdt: Add t8132
+ compatible
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: kyf8qh67uftqszxe71j5suhbdm8fs1bz
-X-MBO-RS-ID: 88e8264257d96620000
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260705-apple-m4-initial-devicetrees-v1-3-e5655ee56523@cyberchaos.dev>
+References: <20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev>
+In-Reply-To: <20260705-apple-m4-initial-devicetrees-v1-0-e5655ee56523@cyberchaos.dev>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Sven Peter <sven@kernel.org>, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Thomas Gleixner <tglx@kernel.org>, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, Hector Martin <marcan@marcan.st>, 
+ Linus Walleij <linusw@kernel.org>, Mark Kettenis <kettenis@openbsd.org>, 
+ Andi Shyti <andi.shyti@kernel.org>, 
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
+ Sasha Finkelstein <k@chaosmail.tech>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-watchdog@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, linux-pwm@vger.kernel.org, 
+ Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_055342_364604_3EA0F1C4 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20260705_061735_820398_30DA2809 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,61 +81,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The interfaces on the edge connector of Retronix R-Car V4H Sparrow Hawk
-board may be controlled from userspace using matching userspace tooling
-that includes e.g. i2c-tools. Enable the edge connector I2C busses I2C3
-and I2C4 to allow userspace applications to use those busses and access
-peripherals attached to those busses.
+The watchdog on the Apple silicon t8132 (M4) SoC is compatible with the
+existing driver. Add "apple,t8132-wdt" as SoC specific compatible under
+"apple,t8103-wdt" used by the driver.
 
-Co-developed-by: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
-Signed-off-by: Yuya Hamamachi <yuya.hamamachi.sx@renesas.com>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
- .../boot/dts/renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso     | 1 -
- arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts           | 2 ++
- 2 files changed, 2 insertions(+), 1 deletion(-)
+The M4 wdt block additionally has a secondary watchdog, which is
+disabled by m1n1 and can safely be ignored by Linux.
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso
-index c730ef39c7d7d..6f10310140b9b 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk-fan-argon40.dtso
-@@ -41,7 +41,6 @@ &i2c3 {
- 	#address-cells = <1>;
- 	#size-cells = <0>;
- 	clock-frequency = <400000>;
--	status = "okay";
- 
- 	pwmhat: pwm@1a {
- 		compatible = "argon40,fan-hat";
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-index af680290ce817..a6294fd32daee 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a779g3-sparrow-hawk.dts
-@@ -498,6 +498,7 @@ &i2c3 {
- 	#size-cells = <0>;
- 	pinctrl-0 = <&i2c3_pins>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- /* Page 31 / IO_CN */
-@@ -506,6 +507,7 @@ &i2c4 {
- 	#size-cells = <0>;
- 	pinctrl-0 = <&i2c4_pins>;
- 	pinctrl-names = "default";
-+	status = "okay";
- };
- 
- /* Page 18 / POWER_CORE and Page 19 / POWER_PMIC */
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+---
+ Documentation/devicetree/bindings/watchdog/apple,wdt.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+index 845b5e8b5abc..b99e7913e398 100644
+--- a/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/apple,wdt.yaml
+@@ -19,6 +19,7 @@ properties:
+           - enum:
+               - apple,t6020-wdt
+               - apple,t8122-wdt
++              - apple,t8132-wdt
+           - const: apple,t8103-wdt
+       - items:
+           - enum:
+
 -- 
-2.53.0
+2.54.0
 
 
