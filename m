@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87462C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 19:14:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFDB1C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 19:14:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G3eyPuG/7N0ePFJ/qBb/yJdx1/OQTbqvhMmqlXZb7jM=; b=OJjVrLLN4s+Hkh5d7HWTFJLcFC
-	4foBf7umkUIOUyPxkLhXLIj91UbW3dfKHTDYkbSL6fDz+BzNqVYxQur25/0OusQBVuZGJzgVan9p+
-	KeneaAAknP7DRklst3ESm+r8QYvpl4U7HJauk2sP62ZEXMYO36tVAVcdRYC39EeDbVeiZNbZvzQCj
-	O/kY+rej4N8OjLRtzdspy+KH74i/gfFU43AfBZJFxkApnfOdjkACBZwkl/Dmdq6YjQqYqn6+9clpX
-	m0YTVhYQ/Eh+kXQ8YupOz8w5cqvpUvDPvpPgsRDvcJrb8mdeFK/xBRq8nwRvgWgGoyj4xnOPeIXjP
-	apq3SooA==;
+	bh=bPcQkNch1dlro+P09FAFemSnMdYXsI9mjXSoWgS8Puc=; b=mMYXXnytftMQaf4iqYVrr4Sz5Z
+	jZxB+x0kEqXBtMNntCwk/rHYJGDgpI0nznIWnL7r6Zi3iGJyThEalss117H26jSjDpcujVfp7saym
+	tWzOx+cowUmUVJbySdUd5vfr0LsVTnCddCd+tH0tN1BpAPeLtIiAHqEzu0FA59vuIZhD2jWauU/nL
+	FKuAshPhJmhVNdiK1YJlbecr1wNEzYbvbxdUk0wZPFZOzVsgQXoTW1kLLMttl8lJ+SuGgAZuKyXZF
+	a+z5k+xaDymWIwW+vsuijBomEFh2B2mcuoQp6g3Fy+lhEGkymFVtoMGKsjAI88LVW3ursbdaHWNcK
+	aZfmwtmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgSII-00000009alK-0HR4;
-	Sun, 05 Jul 2026 19:14:22 +0000
+	id 1wgSIL-00000009ao7-2LuE;
+	Sun, 05 Jul 2026 19:14:25 +0000
 Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgSID-00000009ajL-1PKN
+	id 1wgSIJ-00000009amB-1ndr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 19:14:18 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-493c2c0b9a8so20592545e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 12:14:16 -0700 (PDT)
+	Sun, 05 Jul 2026 19:14:24 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4921eed3fa2so15359245e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 12:14:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783278855; x=1783883655; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783278862; x=1783883662; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=G3eyPuG/7N0ePFJ/qBb/yJdx1/OQTbqvhMmqlXZb7jM=;
-        b=OOfcEkudWyi89NmM4RnbpNghGzbPNExJ3FqDZ0oFL2iWBeO7PRPLO2NOkHxSc6H1bP
-         G+dVOWI/Won7Woc8ChmnuPiqooBeInDrkBoRjp2XZWg7c9HzddfqL+tvIXWoa+oE6LUf
-         YjbyPar+nyJP9TiixtS/8CkR1hW/KUBV/pIuGTFGmDbSiOJ4EQcNYacyHJgLVORN/zM5
-         JhDO2p9wF9HvEWP6GIralGAT4SC9iSFgpjPD8DKJCg9SjDiK1SA+rs1CrDWBN660Sqxt
-         D3vZ7FxsOk3FDKJyHMPy50qyzIpvPrumQAyaAqOJsUYw8JPOLQn6p7xlmqTmCjSsXqpj
-         quPw==
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bPcQkNch1dlro+P09FAFemSnMdYXsI9mjXSoWgS8Puc=;
+        b=Ov6uqR3znrAnmsoL9CEl0W8GEdM+rQW4WuH+Dse8/kip9EbYARgUNNEVA7RGcZYq92
+         dqQzgoRB1JYN3Ti0f3IMAObtYq9qcAHuExAyu52lNKX25nzEfKnFUdIeN6m89AmXqgwX
+         ybWyd8qs9GEiyCtjrV4EQNEDDDW9f0W7Hr5TxVVlh/s07V5tFegZb1t0Cuc9YJ4U6xFk
+         2CY+7ofc3SEcLyTt925RaTBWibvIMux9mGJbc/v7gcMHBRb7gvbzhxhQWAnptuJhpQIB
+         ncjIhZf23xTIkaTzdXOw15onuu/RMmurNXx05vmIZ8msKvos0f+BSdqThlxG8KpuF/3q
+         7Omg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783278855; x=1783883655;
+        d=1e100.net; s=20251104; t=1783278862; x=1783883662;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=G3eyPuG/7N0ePFJ/qBb/yJdx1/OQTbqvhMmqlXZb7jM=;
-        b=b8QdstJu5aTjZTLNuD9HUY23b8WkE4+UMkfcUJ1c/nPUDpav3vYSXqrnaal2/Yev54
-         Bcs03ldT4vfDtwt+tR0L/zQso3l6x90A5WqbzmO0nGWi2E1hTRYvQrwjioW49M6ycqW2
-         T1vQDKF59SsfC8TAvVWB3cVHebjmGO3/VpZnBEXbaf9oIieARRvOpSpidVJIdfyEbLT/
-         Zrz94wqrRmTDmJplfDuwvFpX5BtjpI7zJ6MLRQXa72zt3W5E1GzrpcQGuQUI0C0gDd/Z
-         9NvWQ6oeuC8fFm7ptYk42QfqE08MJKuQH9X3TZ9+qxksbf8tlfVm0orIk2xPVlR4jxJ3
-         uWxg==
-X-Forwarded-Encrypted: i=1; AHgh+RqnKjzm4PXZrqv69bektloiVa7GfSqWje7eLNFYYWOLqidu/DaUtnGAFsU3N0Oc8wfBLtOtnxTslKJTFnDjh5G1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVul4Fp/4ShJzYPOVw/P8crskJ36Sgl9ehJcFJ21u8PH/J1/bV
-	JuTQ44nhJZiIYtAQQL/fgHzFbNfpUyjfTGxod7uHBqwJ6VNQtUvDdkU=
-X-Gm-Gg: AfdE7ckUk2GhCQuln2akG+UH8nQtKkcLnWmSPHNLCXGhNkYz/ekFQsEe2FcLE3mOV9b
-	Iq3XsyODDRNWcVp4uViSNGdlmSZmWcAG9fr6J9xAOoefgzvbr/7tL/bukO/vrhTMPWmOaqMtZ7d
-	GGNIiIpnkJAEemwy4Ih/dQOBQww4KYqS99mBj+5S8SuVP4iDOWtaCuZTOHwcDvhXiCDoQpE6LvS
-	HZjEGgz93YeC7p23ltd++HiM8xMjBx2GG+E2czGWaQilzo1ANfD6kkk0N3npYqGibppyCNOrLO+
-	iIkA4zB00qJcomNSmsDkPczWi6VjOxHSWz7F3XQKFVF2UekE1gv8iuaklhq7Npx9D3LOG9suL0M
-	982BgR4jfnucaF1m5l1ArpWXR8UYkm9OukC9y9WUnSbauIwnZwgwFiZuVmwFDLdSrIRTM2/Wejp
-	09QkBpJD7bIOKVTFjbbm6DsFTzIy5VKkU0SZS7ezgF
-X-Received: by 2002:a05:600c:628f:b0:493:bf84:53d8 with SMTP id 5b1f17b1804b1-493d11d7d55mr92320425e9.9.1783278855325;
-        Sun, 05 Jul 2026 12:14:15 -0700 (PDT)
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=bPcQkNch1dlro+P09FAFemSnMdYXsI9mjXSoWgS8Puc=;
+        b=PhuWgD/fpRU12YSG9xXNDmr5l6aizizB6rpWO4JtIN72VkcYP3bZOu3uYDvOMr/rIl
+         mcMiSWkYZawEQa9npl5TexDUoUAndWcdtRNRbmONZDnYw1CJ+RBXROSv5BLXbYWddml7
+         9o/EgWDNTYAti4O0nO9ISpEjgyqI0/V2hXLPm9PYxYY86u8JdRC+xbF9EzdpqVgfMWoh
+         jzpqFz1S4OVtNbO67X1fJX9HlKr7DzjQBkS31Bkg7J59sxcsM03zrZZ42E9dRUeBnWcO
+         WE2AoI87c1FUq4nme1CPaBoAMpJEi16ie+tihH5aqBBSbrVC3zi56RlJaW8dn7zb4CMO
+         SPOQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpceLhnKTOTZD21/e6Jj1XOUomdRSw3WYPXNlJwiRGveQ/C/EF/ymGZ4JGKeSjJtJIWCiUqLGpbKFAAHE7z1osV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKWzqDMU1w8nytM/HbcexeS5Ai26jidfQyRcltp4lfiZFAqqd4
+	y7RLKT9jT2fZjIYmC4rdqrYWjA22nv5e9YvSRRWroWCDYyXUKsE0OMY=
+X-Gm-Gg: AfdE7cmyvytZJNghusJ9c3AZGBjgV9rtr9orXzKI/mFlM21n2COfXWUsK/8Kq42MFGN
+	6OleJUh41R+fOBLY2ELXd2y9YuzcC1tjJhEenhn5pQBKRXKuzxAdZKPWlkEFz/hjplREfQul5y2
+	RuTil6ImGAhPJOy0EITrqCbNW7xx0D2EnF81Ksr8AoDoMS9SmFwkppzuEpUHn9ppr+Neoe/yUYJ
+	ISeDvxHomqIitOioEYYrppb3p93WUgZHjBQe9+3gSmav6+5eJjMtrDbMxDRlQQf9nRGZ/KkzJkO
+	5DDk7hNqjVsUg4WcEiQU2dYL8oufNz/5dc845XjvPtbBcJRPuQE98yQ/bpqYHANn/XUeRmbt9yB
+	/Tp79KbGLiSa/MlW+xbrAlKjKSGMOKmUiqqCAzvLNQDaL+zHvuJwUk2usqf/a/l4/VKSEVrac8e
+	qbf1RmEKKY6bKx3FMC/PSV8kqpKF2p+Q==
+X-Received: by 2002:a05:600c:3f0a:b0:493:bfad:9d99 with SMTP id 5b1f17b1804b1-493d11db690mr80342755e9.13.1783278861616;
+        Sun, 05 Jul 2026 12:14:21 -0700 (PDT)
 Received: from [192.168.1.67] ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0960634sm19209528f8f.26.2026.07.05.12.14.13
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0960634sm19209528f8f.26.2026.07.05.12.14.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jul 2026 12:14:14 -0700 (PDT)
+        Sun, 05 Jul 2026 12:14:20 -0700 (PDT)
 From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-Date: Sun, 05 Jul 2026 21:13:35 +0200
-Subject: [PATCH RFC 01/13] iommu: arm-smmu-qcom: Configure lpac device with
- split address space
+Date: Sun, 05 Jul 2026 21:13:38 +0200
+Subject: [PATCH RFC 04/13] arm64: dts: qcom: sm8650: move smmu sid 1 to new
+ lpac device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260705-descriptive-name-lpac-upstream-v1-1-01d50c3e0c99@gmail.com>
+Message-Id: <20260705-descriptive-name-lpac-upstream-v1-4-01d50c3e0c99@gmail.com>
 References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
 In-Reply-To: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
 To: Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, 
@@ -99,16 +98,16 @@ Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
  dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
  devicetree@vger.kernel.org, Anna Maniscalco <anna.maniscalco2000@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783278851; l=2198;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783278851; l=1315;
  i=anna.maniscalco2000@gmail.com; s=20240815; h=from:subject:message-id;
- bh=TOpopsFtZ1PPnGuz7Qdse1Rb2dSOsjvazts1+j2Qsuk=;
- b=swnPSg6jJwnfwPpO2lUtsliGm7jHo9gqL51QEmCML+oAIm1zPDuCFHYdt3TNVGcjeXVx38cVC
- 13fGjbA8BMDAB0TZwyRx8GCJenaSAUzrSU2r89a5X2KYaRbtynBvrSe
+ bh=W9JuocKrQv+AohpUo+PmkcNR8I1xfDAl+4Cp7RFtojI=;
+ b=kEwYPS/vxpnj4j1Y93tuTQI1VkpzxodgIkiDcPohzvaSRPC/w1pcsAEP4JHxHA84titeQ5f9H
+ M3dIrUAZLjTC7VIAtRzh7eh4qQ+kjl3T5Nk55cOzsLMoPsgmplJk+HF
 X-Developer-Key: i=anna.maniscalco2000@gmail.com; a=ed25519;
  pk=0zicFb38tVla+iHRo4kWpOMsmtUrpGBEa7LkFF81lyY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_121417_394637_542527CB 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20260705_121423_498710_8DE615BA 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,65 +122,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We want the context bank used by LPAC to use split address space just
-like GFX.
+Previously both SID 0 and 1 where associated with the same domain.
+
+When LPAC is not used this is needed so firmware can acces memory when
+initializing using the same page table as GFX.
+
+To use LPAC however we need to move SID 1 to a different device.
 
 Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
 ---
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ arch/arm64/boot/dts/qcom/sm8650.dtsi | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index edd41b5a3b6a..48a590aaeb5e 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -35,6 +35,8 @@
- static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
- 	{ .compatible = "qcom,adreno",
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,lpac",
-+			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
- 	{ .compatible = "qcom,adreno-gmu",
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
- 	{ .compatible = "qcom,adreno-smmu",
-@@ -217,6 +219,7 @@ static void qcom_adreno_smmu_set_prr_addr(const void *cookie, phys_addr_t page_a
- }
+diff --git a/arch/arm64/boot/dts/qcom/sm8650.dtsi b/arch/arm64/boot/dts/qcom/sm8650.dtsi
+index 1604bc8cff37..44e5f9d4b335 100644
+--- a/arch/arm64/boot/dts/qcom/sm8650.dtsi
++++ b/arch/arm64/boot/dts/qcom/sm8650.dtsi
+@@ -4133,6 +4133,13 @@ tcsr: clock-controller@1fc0000 {
+ 			#reset-cells = <1>;
+ 		};
  
- #define QCOM_ADRENO_SMMU_GPU_SID 0
-+#define QCOM_ADRENO_SMMU_LPAC_SID 1
++		lpac: lpac@3d00000 {
++			compatible = "qcom,lpac";
++			reg = <0x0 0x03d00000 0x0 0x61000>;
++
++			iommus = <&adreno_smmu 1 0x0>;
++		};
++
+ 		gpu: gpu@3d00000 {
+ 			compatible = "qcom,adreno-43051401", "qcom,adreno";
+ 			reg = <0x0 0x03d00000 0x0 0x40000>,
+@@ -4144,8 +4151,9 @@ gpu: gpu@3d00000 {
  
- static bool qcom_adreno_smmu_is_gpu_device(struct device *dev)
- {
-@@ -230,7 +233,8 @@ static bool qcom_adreno_smmu_is_gpu_device(struct device *dev)
- 	for (i = 0; i < fwspec->num_ids; i++) {
- 		u16 sid = FIELD_GET(ARM_SMMU_SMR_ID, fwspec->ids[i]);
+ 			interrupts = <GIC_SPI 300 IRQ_TYPE_LEVEL_HIGH 0>;
  
--		if (sid == QCOM_ADRENO_SMMU_GPU_SID)
-+		if (sid == QCOM_ADRENO_SMMU_GPU_SID ||
-+		    sid == QCOM_ADRENO_SMMU_LPAC_SID)
- 			return true;
- 	}
+-			iommus = <&adreno_smmu 0 0x0>,
+-				 <&adreno_smmu 1 0x0>;
++			iommus = <&adreno_smmu 0 0x0>;
++
++			qcom,lpac= <&lpac>;
  
-@@ -305,9 +309,9 @@ static int qcom_adreno_smmu_alloc_context_bank(struct arm_smmu_domain *smmu_doma
- 	 */
- 	if (qcom_adreno_smmu_is_gpu_device(dev)) {
- 		start = 0;
--		count = 1;
-+		count = 2;
- 	} else {
--		start = 1;
-+		start = 2;
- 		count = smmu->num_context_banks;
- 	}
+ 			operating-points-v2 = <&gpu_opp_table>;
  
-@@ -394,6 +398,7 @@ static int qcom_adreno_smmu_init_context(struct arm_smmu_domain *smmu_domain,
- 
- static const struct of_device_id qcom_smmu_client_of_match[] __maybe_unused = {
- 	{ .compatible = "qcom,adreno" },
-+	{ .compatible = "qcom,lpac" },
- 	{ .compatible = "qcom,adreno-gmu" },
- 	{ .compatible = "qcom,glymur-mdss" },
- 	{ .compatible = "qcom,mdp4" },
 
 -- 
 2.54.0
