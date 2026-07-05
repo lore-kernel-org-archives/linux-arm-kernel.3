@@ -4,65 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AC2BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 09:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CDB7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 09:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kEQyb/LC51AZrqltCLED85HWv0m0zHup+ymLpFMfzG4=; b=Jhh/hPGVfT2kqyuTMScB3NYpB8
-	PlL8nVXXJFXOlo8Xo46YbFCIhkXZAPV1UvBN9DXeKWQOyJPpDv9HegSxOWWhOvfaTSGBEGA33+0RS
-	spG85+PCzo3VzAkjCCDi7loEYmxa2dXp2KYwvPL5vg5gYl6w/G+Igk2TkzpceZE1AZnJX733kkzKE
-	3zjPZ8kXgC2vwHvj7D7oucnJOC/6Lv1AopNjmsmUUMkJyO3UcbAP/t75wgKe0phhks1EqhGrJHmjC
-	V2M291qznyS4W7NDEyWV35kJK4HHiC1gItAjFJbsnsLp/Xne/wX44wNReL33zXzeQBg812pbH4kbS
-	i3PsRUUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LSMTXVruDIRjjnXmceDngK0jOBafJI+Ml0R1gPtkUcI=; b=v05ueOogm0KqujwLf2BP+kLFd6
+	/t3CErs19svM5A2G/YkhL/x2fJtmo56TVNZQG4H1Cf7HuHplcIeM9ZshX5wCtcIw2PtoXTU4DU0aj
+	o4eEKLQj+LsJ9LiHFwXMa8JnZTn3kfZ3AOuQGW7N4/ynpRH1DpF3YMhKx5DJ1lpN/KI8e85iJKxL1
+	7Zw9POmuJkyQTxH7DmbbrYhiYnLonzngW6xtnWNyxbPM0tJqrQxJfEhHPdEd3aSNsuPdAhsNi9sjD
+	mnyLmZYeA4EZWRYMAFhLtiWxA417mvC8YBzi6ADXPW4jfOEkM0ABVQUfEbfmdy7ZpDqLwfCfbykPN
+	f4DQKrlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgJ5Y-00000009CBr-1XHp;
-	Sun, 05 Jul 2026 09:24:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgJFx-00000009CUr-251I;
+	Sun, 05 Jul 2026 09:35:21 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgJ5W-00000009CBl-3Jnm
+	id 1wgJFu-00000009CUW-3lVv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 09:24:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CF4760052;
-	Sun,  5 Jul 2026 09:24:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BDFD1F000E9;
-	Sun,  5 Jul 2026 09:24:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783243473;
-	bh=kEQyb/LC51AZrqltCLED85HWv0m0zHup+ymLpFMfzG4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=BCKw8uE8aeaPxfe9eF1fQSsTL861gYyhSbiXpG5pH4bY2YJJkieCmsPNwUO+z6grC
-	 bIRKnNU/FaubAQkUEjecAVRT11Y/yuTTb2ZQ/axaesBbKuOSMWGwbqr7yVeCz+3GPS
-	 ReIdTYJY1vWWQ/NI3Mi9Suq94/M9F5EpjR+4KKXN16wz85f68flyWEGv/5ccclJLxT
-	 iCy7yZJW2Tb4B9kDknwVidSyEDAf42RK0BB3g70RKMwVGOsBqX+4fpvFEeGFmNIgg1
-	 9rddmR/jjV1f+k/e+f7yNnFayGe+ryD5DbWFlOdClc5vhaXw3Di3iHiXX5oWXYu9U7
-	 rY0LMCb36PrLA==
-Date: Sun, 5 Jul 2026 11:24:29 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Mikhail Kalashnikov <iuncuim@gmail.com>
-Cc: Vasily Khoruzhick <anarsoul@gmail.com>, 
-	Yangtao Li <tiny.windzz@gmail.com>, "Rafael J . Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@kernel.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 1/5] dt-bindings: thermal: sun8i: Add A523 THS0/1
- controllers
-Message-ID: <20260705-agate-partridge-of-biology-1a44ae@quoll>
-References: <20260704171411.1413349-1-iuncuim@gmail.com>
- <20260704171411.1413349-2-iuncuim@gmail.com>
+	Sun, 05 Jul 2026 09:35:20 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id A8EC214000E2;
+	Sun,  5 Jul 2026 05:35:15 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Sun, 05 Jul 2026 05:35:15 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1783244115;
+	 x=1783330515; bh=LSMTXVruDIRjjnXmceDngK0jOBafJI+Ml0R1gPtkUcI=; b=
+	AE5jLDrwbHf+vRixt4gAnNacgHEDARWAOZnsZ1ybgvxkGM5HwMd3u6pOFDScyrQ6
+	SDvx5ef/5/XjVz1aR/gzt7lZz3UpXmbdkHt1Fivj1Mc58ni+y4jELUcQI8i8pXJY
+	qyVDFffKv+KnVRvyhdwGDnB3qO+2WrOv2GFsi768gCaJcvtKGBM1H4CHE+yDN+76
+	MdC5nBPbr6wLjTrAM8iFYbULVwavCs/b92bfWM9uJXlcsHI2Bk8R9bD3k1DSX7af
+	oKIFQpZJVTW5fa7z7R9Nb0ZdYp/ReouxShD/8N8G/ZYX3y5K3By2vTke+xVqaczu
+	hs+vzucaa7qgQbVDjrExRQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783244115; x=
+	1783330515; bh=LSMTXVruDIRjjnXmceDngK0jOBafJI+Ml0R1gPtkUcI=; b=L
+	Fw15hzssiDDgxmbJwsv1SZzPFmqFSTUJukSFOGvIKx/YB79hixV+qt/9uawmgJRA
+	tAWCTDjWd9VW9P9eP0UKy/8OmVmgTEqz14PMNBDZSBxyXoqiFgLw17dzlwTWQXuq
+	VlIfUn1DqNdapJAX47T7q8QpFZOBMNNHZ7DqqDoRYtT8kSLkN5LrYgNMIuFIvfA8
+	kHl9W/zCRCBGcESMfcVdaHh3JzwxO7xO2CwfVqiATQk+DAd08kvyF3etuXmaPtCo
+	Iy8TNH4R2IT8zXuySunpmQhvU2pNM1Fs3u2dbMUCVltitbgPqnfeDn+p5fdCHwNX
+	M1lv+OIGrmVsVLBuw19Ig==
+X-ME-Sender: <xms:UiVKahnHnDInyNSB3OZZRYqhQoouplTV3MSja4rXzb6TJC4Jd1UvFA>
+    <xme:UiVKanoPPHweIZfqqLy2IB1geEPY27qCaVwo5m_uoMkocpmJoaMaCsRGu1dHFdjsx
+    Z_2I6pQuJkwuh9qusNPP8zK_9iAHaXl0ChL53oXmGITAXgMg6OD4TqW>
+X-ME-Proxy-Cause: dmFkZTF3pnwFZPirFYTFt8PAub3hCi9T3P7hmDxFcXyeP15oLDFgTlcs9QGPjThyW6zZga
+    tVI9vbe6pbo0MOCfo2i/53HFVfSJ0e2NweFXqtPTlAoyPQ3mvF+tliJ6/XLoRO+24qpPxA
+    GEDwzgYX5UKBJSxg3f0XB8wb3A/ptnESl1EkF4/5jRBKtAQR1Jjk/+bIlPvzTH1/hMfJa+
+    TSK6OCibcG4ScnCREQppL5oFfDT09wB++iTu5oR37hBNo+u7gNLfmKl63M1dGobJIdOQWE
+    QHbFohEssvH+oL63OFT3mvliLOiae2cc0hYm+w7nvNZgFOkXeofSg72M8GDeZDiTSNn/Qi
+    DfhxTM/wCzid4wa+faTSZBjx1KT9W7UWJZ+AeqmvGVKt/gVaOnPVdKoebtlFZyIhfqKbcl
+    AQ+lFBsM93dvn1Fnogl/kELNts5Xnls29tOr2BJS2Z8qJfhL/j+mtgwL/Beb8le52cMwdr
+    zSyjCaDGdGcVW27YAfEB4D+Qhfpf6yR+poCPEXiHHqhG13ormKRzyMK4h5NUT/rNg/O4XK
+    c9OCguadSE0IZvJ+R1g5MqjZSphTXnqs5hBd1cDpxRn03KDdfZs/WrMq/bTaNFCzjsI3MO
+    D0vW0+qSJaXs0tHEdKhrr04UTxl3Fi/VXzb6c8lF1BpwjovRvofM2oiByStw
+X-ME-Proxy: <xmx:UiVKapgx8ntcP7YeJwT7bRQMnuIcMuQCG3FK2ZTqlx6-5BaZ9jY5tA>
+    <xmx:UiVKakYsODm2R4KRU697r2dI-kJvLWxQdH8Eccymr-F_j17MrhxnJg>
+    <xmx:UiVKalXfKdamc6WoRWk3US8en4yflN2lG7VeIjiaIkXPzXUgbqkgYA>
+    <xmx:UiVKasEURMyjItbiVhTuFnBuBC99alvkAmLlQNCtR2WAhjWktotZbQ>
+    <xmx:UyVKarGhdiznsWF-IMVqWaTxDMsqK3bDhCcoyVjTBxMLTjbVxYiZQEpk>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1453F1820086; Sun,  5 Jul 2026 05:35:14 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: ARgniXuJ1PtZ
+Date: Sun, 05 Jul 2026 11:34:53 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ "Krzysztof Kozlowski" <krzk@kernel.org>,
+ "Alexandre Belloni" <alexandre.belloni@bootlin.com>,
+ "Linus Walleij" <linusw@kernel.org>
+Cc: "Drew Fustini" <fustini@kernel.org>, soc@lists.linux.dev,
+ "Imre Kaloz" <kaloz@openwrt.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Daniel Mack" <daniel@zonque.org>,
+ "Haojian Zhuang" <haojian.zhuang@gmail.com>,
+ "Robert Jarzmik" <robert.jarzmik@free.fr>,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <d5ded362-abe4-4e6b-9585-a2a75dba27a7@app.fastmail.com>
+In-Reply-To: <20260705085000.3510576-2-u.kleine-koenig@baylibre.com>
+References: <20260705085000.3510576-2-u.kleine-koenig@baylibre.com>
+Subject: Re: [PATCH] ARM: Don't let ARMv5 platforms select USE_OF
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260704171411.1413349-2-iuncuim@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260705_023519_467608_580C9000 
+X-CRM114-Status: GOOD (  10.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,118 +115,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 05, 2026 at 01:14:07AM +0800, Mikhail Kalashnikov wrote:
-> Add dt-bindings description of the thermal sensors in the A523 processor.
-> 
-> The controllers require activation of the additional frequency of the
-> associated gpadc controller, so a mod clock property required.
-> 
-> The calibration data for both thermal controllers (THS0, THS1) is split
-> across two nvmem cells at different offsets, requiring the two cells
-> to be read and merged. To maintain backward compatibility, the name of
-> the old cell remains "calibration" and the new cell is named
-> "calibration-second-part".
-> 
-> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
-> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+On Sun, Jul 5, 2026, at 10:50, Uwe Kleine-K=C3=B6nig (The Capable Hub) w=
+rote:
+> USE_OF is already selected by ARM (unless ARCH_FOOTBRIDGE || ARCH_RPC =
+||
+> ARCH_SA1100; these all conflict with ARCH_MULTI_V5). So there is no ne=
+ed
+> for an explicit select and it can be dropped.
+>
+> Signed-off-by: Uwe Kleine-K=C3=B6nig (The Capable Hub) <u.kleine-koeni=
+g@baylibre.com>
+
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+
 > ---
->  .../thermal/allwinner,sun8i-a83t-ths.yaml     | 54 +++++++++++++++++--
->  1 file changed, 51 insertions(+), 3 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> index 3e61689f6..6f5b2f3b9 100644
-> --- a/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> +++ b/Documentation/devicetree/bindings/thermal/allwinner,sun8i-a83t-ths.yaml
-> @@ -24,6 +24,8 @@ properties:
->        - allwinner,sun50i-h5-ths
->        - allwinner,sun50i-h6-ths
->        - allwinner,sun50i-h616-ths
-> +      - allwinner,sun55i-a523-ths0
-> +      - allwinner,sun55i-a523-ths1
->  
->    clocks:
->      minItems: 1
-> @@ -47,11 +49,16 @@ properties:
->      maxItems: 1
->  
->    nvmem-cells:
-> -    maxItems: 1
-> -    description: Calibration data for thermal sensors
-> +    minItems: 1
-> +    items:
-> +      - description: Calibration data for thermal sensors
-> +      - description: Additional cell in case of separate calibration data
->  
->    nvmem-cell-names:
-> -    const: calibration
-> +    minItems: 1
-> +    items:
-> +      - const: calibration
-> +      - const: calibration-second-part
->  
->    allwinner,sram:
->      maxItems: 1
-> @@ -107,6 +114,7 @@ allOf:
->              enum:
->                - allwinner,sun8i-h3-ths
->                - allwinner,sun20i-d1-ths
-> +              - allwinner,sun55i-a523-ths0
->  
->      then:
->        properties:
-> @@ -132,6 +140,29 @@ allOf:
->          - clock-names
->          - resets
->  
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - allwinner,sun55i-a523-ths0
-> +              - allwinner,sun55i-a523-ths1
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 2
+> Hello,
+>
+> If I should split this patch by mach-*, tell me, but I think it's simp=
+le
+> enough and these architectures don't move much, so getting this in via
+> armsoc should be fine?!
 
-Missing clock-names
+Hi Uwe,
 
-Look at other variants here, how they did it.
+I'd prefer it as a combined patch, but either way is fine with me.
 
-> +        nvmem-cells:
-> +          minItems: 2
-> +        nvmem-cell-names:
-> +          minItems: 2
-> +    else:
-> +      properties:
-> +        nvmem-cells:
-> +          maxItems: 1
-> +        nvmem-cell-names:
+Please send this to soc@lists.linux.dev in a few days with any
+Acks you have received by then.
 
-maxItems instead
-
-> +          items:
-> +            - const: calibration
-> +
->  required:
->    - compatible
->    - reg
-> @@ -176,4 +207,21 @@ examples:
->          #thermal-sensor-cells = <1>;
->      };
->  
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/clock/sun55i-a523-ccu.h>
-> +    #include <dt-bindings/reset/sun55i-a523-ccu.h>
-> +
-> +    thermal-sensor@2009400 {
-
-You already have three examples, it is enough. Drop. Actually two would be
-enough already...
-
-Best regards,
-Krzysztof
-
+     Arnd
 
