@@ -4,73 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C63C7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 00:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A07C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 05:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wXBPiUXtTBzPiG/OO9nSYN5SFbRoLROSnaL86URReuM=; b=xUJfQApv1+KRWKm6SID1FlH7v+
-	FVgM9FX5/6mHr5QGbEso6kwiO/xLy3ITnIbgZS30QnIZHZcDv7qNPZ44rjt43RLgqW3zbP2uzCNlu
-	E1LULleFqpYa22n9jwsVbjRdjM4occqAuOPTmXaPR2W1znNaQeKBMKRkNpdChg3Xqp32I4ky6D6DF
-	+eBg9B7difRKBOvkMG30pucajne0QvMaFtgQS3Ni+1L1mVXfu+EDgk1DmRPMdo0N3sHLEVAtodbNi
-	PQoUHKuBmfr5nAc2Gu9yRB40VpBrllWjOMa12HLGtyBfuM+iHwLJxNslmMxl6x/PkkXBWkmIcIXCD
-	oyMG3XHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q/K+U8RtoxLD4AghOpbVPDReXNYLDr3EnrdkatDMFKI=; b=depNXUM6Q3xlAOgymKvNpA86p8
+	N3C6AQYLFn6+0w7sby2VVtJXrm/ujtAC3e1n6WhNMVZuhDmeL10lSdUgb+2hbpKl9BmKMKfvK4msp
+	Yp+JXJd8Yzf1DklYSjbA/RxlR+HlyET9TPzSK87n735tZ+piXBEwm+bJV64ueI+H9NFAwXXfokqVg
+	jMEeWBEQDYdZTbDMmhWAnMep7uFS4RCQcGwkPiT3V+EJfU3jHD/Ff+dsEJzfouLCQ4x4JlVmqg2o0
+	r9VcyuHmZ23DPKUj2zMAtNZBGEb8chOMvDRC+snJPr3BwOuwK+hIpQXHRnmYBB2kwZtJ58Bv0yVkT
+	Nfq47dmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgAaU-00000008rv4-13Su;
-	Sun, 05 Jul 2026 00:19:58 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1wgFSs-00000008zau-2CDd;
+	Sun, 05 Jul 2026 05:32:26 +0000
+Received: from abb.hmeau.com ([180.181.231.80])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgAaQ-00000008ruh-3UCY
+	id 1wgFSm-00000008za5-3rFr
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 00:19:56 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-03 (Coremail) with SMTP id rQCowADX69IVo0lqH9PfFg--.16085S2;
-	Sun, 05 Jul 2026 08:19:33 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Linus Walleij <linusw@kernel.org>,
-	Imre Kaloz <kaloz@openwrt.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org,
+	Sun, 05 Jul 2026 05:32:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=gondor.apana.org.au; s=h01; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:cc:to:subject:message-id:date:
+	from:content-type:reply-to; bh=Q/K+U8RtoxLD4AghOpbVPDReXNYLDr3EnrdkatDMFKI=; 
+	b=X+WJuUyWUjHYzWpqdqapexUVrgyBQZT1Pc5O+SOae4rK/M+b/qEX0B2uV0ZT+jxEO5Z4bu+kOjB
+	n8w7tNN5YNn1KemIoF5C8t7mQ77lxuUsKJ/0wc6TzawVTKuFsNf2HHoQyh4W8ZYeRM5jOND6boBr0
+	EbtzDSgWkgEYyxC37aQh2qyimIdfIQlPqyEpag6AerPj4UoOsEeFzbs7MvPkmkiCk52CWfDtjVtiO
+	FsvCNLTt2bB4mvRDaxVyBsaPOBnO5290J7Y1CKIF9FoL4GEBVg6VRltkYXbCz+dpJvIMe5wVTw/uX
+	QDPiSMg34S9wNBK2LoaXW3xA+LTFEqFpXNMg==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.98.2 #2 (Debian))
+	id 1wgFSP-0000000Aje9-1lDo;
+	Sun, 05 Jul 2026 13:31:58 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 05 Jul 2026 13:31:57 +0800
+Date: Sun, 5 Jul 2026 13:31:57 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Thorsten Blum <thorsten.blum@linux.dev>
+Cc: Olivia Mackall <olivia@selenic.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: xscale: ixp4xx: add missing MODULE_DEVICE_TABLE()
-Date: Sun,  5 Jul 2026 08:19:31 +0800
-Message-ID: <20260705001931.74149-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
+Subject: Re: [PATCH] hwrng: atmel - drop __maybe_unused from atmel_trng_pm_ops
+Message-ID: <aknsTUIswYXFKBm1@gondor.apana.org.au>
+References: <20260606131755.10132-2-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowADX69IVo0lqH9PfFg--.16085S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7Xw47WF43Aw43JF17XrWkWFg_yoWkGFcE9r
-	W8WrWfua1UCF90ka1akrsxZry09aykWrn3tryIqrWYqFy3Xr17JrZ5Crn3JwnxGr18KF98
-	Jr9rXF10ka42yjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbaxFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gr
-	1j6F4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02
-	628vn2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4
-	IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1r
-	MI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJV
-	WUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j
-	6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYx
-	BIdaVFxhVjvjDU0xZFpf9x0JUL0edUUUUU=
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260606131755.10132-2-thorsten.blum@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_171955_249962_E310D70D 
-X-CRM114-Status: UNSURE (   9.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260704_223220_984666_A09F3D61 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,35 +76,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The driver has a match table for the of bus wired into its driver
-structure, but the table is not exported with MODULE_DEVICE_TABLE().
+On Sat, Jun 06, 2026 at 03:17:54PM +0200, Thorsten Blum wrote:
+> Since atmel_trng_driver keeps atmel_trng_pm_ops referenced and pm_ptr()
+> uses IS_ENABLED(), which allows the compiler to optimize away unused
+> variables, drop the redundant __maybe_unused annotation.
+> 
+> Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+> ---
+>  drivers/char/hw_random/atmel-rng.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Add the missing MODULE_DEVICE_TABLE() entry so module alias information
-is generated for automatic module loading.
-
-This is a source-level fix.  It does not claim dynamic hardware
-reproduction; the evidence is the driver-owned match table, its use by
-the driver registration structure, and the missing module alias
-publication.
-
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
- drivers/net/ethernet/xscale/ixp4xx_eth.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/net/ethernet/xscale/ixp4xx_eth.c b/drivers/net/ethernet/xscale/ixp4xx_eth.c
-index b0faa0f1780d..3c6a300386c5 100644
---- a/drivers/net/ethernet/xscale/ixp4xx_eth.c
-+++ b/drivers/net/ethernet/xscale/ixp4xx_eth.c
-@@ -1606,6 +1606,7 @@ static const struct of_device_id ixp4xx_eth_of_match[] = {
- 	},
- 	{ },
- };
-+MODULE_DEVICE_TABLE(of, ixp4xx_eth_of_match);
- 
- static struct platform_driver ixp4xx_eth_driver = {
- 	.driver = {
+Patch applied.  Thanks.
 -- 
-2.53.0
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
