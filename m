@@ -4,59 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB83C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 15:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FAF3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 16:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=io7fziVF0EDiJceoQQ23O8K+4Z5fhxhO3oQyipBc12U=; b=0VcD/Nd9DqjVk1B7i42p0MplXt
-	sN8atV9CjPsPVkrCNNLRzYADpImOZuXWFVhtyUI8DSsvEVtWVUkSdU4sfqMNN88MsJtDxtQggOLk2
-	dOZyai4tz8RPc6oEQ/dx6W5x8746lqzfBUPVaIQGNOyTblYRFITOmnq0EGBG7d7NcmlZbV8JWtABp
-	tQ8TOGwhywfz5WoFyrE6gfbHI/Ktc1MNzGuTb+NV91URkD4X4+p/UPyr07oVbCq5z8H9U7FU0cFh6
-	MAfVXPG+0XCPV99KKlFSZX7ev2A0SKm5+pS01Og24wGkP58jINNhWgvBZYTab/SgC/iwLyQrT3Bcr
-	eG82X2Gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R4nai0spS4xz/sy9X2FqTj+eO3xeqrH21m//XxXvR6k=; b=v0un5FgKYmW9v0LHVG7Zo/KPDv
+	ABGlqAEGghR9isiYNqJnuqbmNhfUlwAmW3iN4mOQh/FeEq4EHQq6vDsVBkXYEjhai9sFDvvx4ofHm
+	Nh7ieX45swb2g9/iGn/85Tn12HnEIQb8DDN8i76TKUL8WFL1hK3jQpdCp8nsSdshidXSYll4vKNcX
+	FW5/z8zL9ZFhh4nykIWZ2xFTek/mny8JcRhyilQ8i1d2vQQgjFuW+9HGhXNoGv4Pz+ZTsLCKHaL1O
+	9GxF0m70jId+/Wvh7v1TOtGSAUvrvD2yNGoFypwbv1BLnBU3wXE0IDIXvo3+G+OMIEmC7r833/h0h
+	CleEfiCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgP1T-00000009SPT-3UR8;
-	Sun, 05 Jul 2026 15:44:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgP1R-00000009SOw-3D33
+	id 1wgPog-00000009Twy-0eNY;
+	Sun, 05 Jul 2026 16:35:38 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgPoc-00000009TwF-0jbP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 15:44:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9676E1D6F;
-	Sun,  5 Jul 2026 08:44:36 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 880F83F85F;
-	Sun,  5 Jul 2026 08:44:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783266280; bh=fQRjZa+S6Xi4bdBWEAt7FeBg9kKZ3+ndjEKF5cmPHI0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FuaHMpLNu43wurjTvtxwwOOHAXtbuv6ityFN4KpZ96sYeTxyVgh7SUBsMrHrNgsIz
-	 BeY6TEBFeo0INWLRxcBlM/yUgRiQpSHbp1CQgW2elJbs/jlWAEdWpianencZSbKkfN
-	 IsrqB0VbIH5z59QsRNV7UUp3uh6FTVCzVb9Oqh9I=
-Date: Sun, 5 Jul 2026 16:44:38 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: will@kernel.org, mark.rutland@arm.com,
+	Sun, 05 Jul 2026 16:35:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=from:to:cc:subject:date:message-id
+	:mime-version:content-transfer-encoding; s=k1; bh=R4nai0spS4xz/s
+	y9X2FqTj+eO3xeqrH21m//XxXvR6k=; b=Mb9xW01AMDeQmGNCk/doumAlIlkjGD
+	roB5XhSPIwOCCU7lqGRk48xN+ova6KodZkaNC3hgYJYeGwWA0FGH08IBIwV5YUID
+	qcmYIxwtVxJIelKE7clOHJJXYZDu2s+ppaivdcdurq150jCz2WV7klrveqyVaEPT
+	uphMP3MvY97OZZfFWMl8MJ+Eui9LXvbB6FhWy4HaNzWFEo7XsosLKxxMTQaPhcz1
+	OYWMi9XedufpUsQKe+kX26jObb6bzWJdMJwyZarGQNBK7ICj5AMcv1ojNibZ2kB+
+	75Z0MKWFyZfXZrT+edUxJGLgHU+dPqW3v8MMEP1N9Nol0uqQPJufWH4g==
+Received: (qmail 2287049 invoked from network); 5 Jul 2026 18:35:27 +0200
+Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 5 Jul 2026 18:35:27 +0200
+X-UD-Smtp-Session: l3s3148p1@1N/Lvt9V8XdtKjFj
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: linux-kernel@vger.kernel.org
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, ilkka@os.amperecomputing.com
-Subject: Re: [PATCH 3/5] perf/arm-cmn: Refactor event filter data
-Message-ID: <20260705154438.GA710301@e132581.arm.com>
-References: <cover.1782830759.git.robin.murphy@arm.com>
- <d638212f5a5993eae5e262dd5be596b8d2b8fa5f.1782830759.git.robin.murphy@arm.com>
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH] clk: mediatek: remove unneeded 'fast_io' parameter in regmap_config
+Date: Sun,  5 Jul 2026 18:35:24 +0200
+Message-ID: <20260705163523.1797-2-wsa+renesas@sang-engineering.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d638212f5a5993eae5e262dd5be596b8d2b8fa5f.1782830759.git.robin.murphy@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_084445_933004_5556DF8E 
-X-CRM114-Status: UNSURE (   9.02  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260705_093535_099150_8A411C90 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,37 +73,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 04:19:18PM +0100, Robin Murphy wrote:
+When using MMIO with regmap, fast_io is implied. No need to set it
+again.
 
-[...]
+Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+---
+No dependencies, can be applied directly to the subsystem tree. Buildbot is
+happy, too.
 
-> +struct arm_cmn_filter_attr {
-> +	enum cmn_filter_select sel;
-> +	u8 val;
-> +};
+ drivers/clk/mediatek/clk-mt8196-vlpckgen.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-> -#define _CMN_EVENT_ATTR(_model, _name, _type, _eventid, _filter, _fsel)\
-> +#define _CMN_EVENT_ATTR(_model, _name, _type, _eventid, _filter, ...)	\
->  	(&((struct arm_cmn_event_attr[]) {{				\
->  		.attr = __ATTR(_name, 0444, arm_cmn_event_show, NULL),	\
->  		.model = _model,					\
->  		.type = _type,						\
->  		.eventid = _eventid,					\
-> -		.filter = _filter,					\
-> -		.fsel = _fsel,						\
-> +		.filter = {{_filter}},					\
+diff --git a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
+index 7dcc164627c5..ee88dc4a231a 100644
+--- a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
++++ b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
+@@ -629,7 +629,6 @@ static const struct regmap_config vlpckgen_regmap_config = {
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+ 	.max_register = 0x1000,
+-	.fast_io = true,
+ };
+ 
+ static int clk_mt8196_vlp_probe(struct platform_device *pdev)
+-- 
+2.51.0
 
-This patch might break as the "val" field is never initialized. Should
-it use two parameters "_fa, _fb" instead?
-
-#define _CMN_EVENT_ATTR(_model, _name, _type, _eventid, _fa, _fb, ...) \
-      (&((struct arm_cmn_event_attr[]) {{                              \
-              ...                                                      \
-              .filter = {{_fa, _fb}},                                  \
-
-Although the issue is fixed by a later patch, I think it is good to
-correct this patch for bisection.
-
-Thanks,
-Leo
 
