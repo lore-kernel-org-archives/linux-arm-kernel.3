@@ -4,67 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D429EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 16:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CCAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 16:57:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GAELMdD28uRnWdmZM6U9lfBnfk6B8A+WDHptdWUHPCM=; b=Ymum5/vkjEth5+CBO74PAYoqKr
-	yCvj62HLqgIumwdDKAwqFGDB8SybRVl5hlSFY7AHfTZW/nAqUgiM5tc0fCH/pWuzarxfwq555KD6D
-	y1vW60HfMc0F6oTOxUE3qhzgi2d5MtzwnJL4pzZFSEhuHZ5gjR/ymo3LMDhW8v92T8UgQHMhH42gh
-	RTFdENoPn4/cIY57pGjMwQClx9OPRfdX91IqrXUILA5ADVtkfgZyRD07S+Ufi723yVSEPPs4qTIkv
-	6Hw7dCL4guUs1/s+H/xk+/2n1RCm+14xX2OkupCYDcfzsBNSKJ675Yvq8Lyem0VDAUeutk9hVj7z+
-	XYQh0UjQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P3Ks4mocpdIEXUivuFMkzFbV286Z/TWBxR+6eAPxe6s=; b=iQqg9U0cAx0VA6NG1RJSuyzXRP
+	IdOOK48f9lVEpm1LJpsPavMi/nmgcXkBWM9gS0YBdUsvrnhiFAhQo/O+jacfkpaVrM9GGOndJbGCr
+	rcFak0ubv3Mf0/HUX7aV1ZC5Yx4kVwHWRsmLIn1EVDWqkSTtU2YqGnfmgBPRC2N1mxBiucA88/9d0
+	4makINFK2q/gbwigEc0k5cBv5odpJtLg/fZK6r+ufdca4J/VLYkcJKr/s3JUhpUz9nxuv8mlbpqya
+	EwTUCK20NHivqJfSOWAzraDOL0Kb+v1AHYiSGjllv/SozgVr05B8Lu9qSOS96D1Y1iNDZ6pyLHXUg
+	xwCf6tfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgPwC-00000009UWE-0zX9;
-	Sun, 05 Jul 2026 16:43:24 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1wgQ9u-00000009Uvp-1lCE;
+	Sun, 05 Jul 2026 16:57:34 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgPw9-00000009UVq-2cPs
+	id 1wgQ9r-00000009UvP-3i8g
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 16:43:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:mime-version:content-transfer-encoding; s=k1; bh=GAELMdD28uRnWd
-	mZM6U9lfBnfk6B8A+WDHptdWUHPCM=; b=PdRaf902Qlmj0nfltRVYKhEPRG7ixa
-	dzPjp1QeBSg0xA9eDxJeXTcuhE4Vj+cC5BAwPr493DDoPdt67APbf41qt4cebozj
-	74+wnJIqTIDcUvw/a0+YEKk0/ns24ENUq+5kuS0JMrnCB68zk0k2kKl1I+ELGAuz
-	7pnvNq1uUGxmTWfaO58/fxDb8XBPAmP/Z0NpMpE4ESgv9NBPtdalLrFYeNTbqA+z
-	5iI3T76rl5gRNCRS6iZAKVddDrJoQF02L42MUN0KRkOAsGcqQkZaNl5XHp531QeX
-	Rcq9E7kB4FI0b+QdaI2nQQx8xv81ZyCHn2t8A1Ut5RP//XdEvu/VsHmg==
-Received: (qmail 2289317 invoked from network); 5 Jul 2026 18:43:18 +0200
-Received: by mail.zeus03.de with ESMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 5 Jul 2026 18:43:18 +0200
-X-UD-Smtp-Session: l3s3148p1@QWjd2t9VkCltKjFj
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-kernel@vger.kernel.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Vasily Khoruzhick <anarsoul@gmail.com>,
-	Yangtao Li <tiny.windzz@gmail.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	linux-pm@vger.kernel.org,
+	Sun, 05 Jul 2026 16:57:33 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493bab44440so11225045e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 09:57:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783270650; x=1783875450; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P3Ks4mocpdIEXUivuFMkzFbV286Z/TWBxR+6eAPxe6s=;
+        b=YgrVxtN284D7GGcau+rDCxSkqk0G0jQFdLmN8+ElK9412NCKiHMpYuxk7iK/0V+JEx
+         PyKLsqwn9gUABTk0SKNfxkJxzIG3plYma+ocqRHNTTaxZtkMRqCXsj9+Fg10syCkNqTV
+         A8pqXILHnIZ/94VLYpROzv0fkRHpVBehRMrIY14rApCXrkNqxp13/BNDRF8XFY8Y7LiO
+         qn6EH7xjrefPzMOwxCq5S+GyXc9BHxmfHf7gzR3PChcD5kaFKSDZtx0ehbd/C5UwylRK
+         KmnzvNaPMIKHhOAXd4XOICf2f70of38H/BG+eV2f2916bfPvyL8VSY3JL0X3Jn+361uM
+         4N2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783270650; x=1783875450;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=P3Ks4mocpdIEXUivuFMkzFbV286Z/TWBxR+6eAPxe6s=;
+        b=ocdFEiJL6J1e157mu0YwCDZAnjor8GzEAotJf5jlmS2bWH1TxiyRHt+JudLlbcVdtW
+         oeGMJD0o2qMuDwDVBP4u3rU1n9FdNdIe2+ZM79chBdk523VSTi4WiqfsiYPppV+AZXNC
+         F5/FSHtXh0co8IpGkCkiM+eZ0Bksl7/JQhaHU0kOQGarZrfUdJ1+Ewm1zkgOW+SThWQk
+         +24OuqE2y9Y1ZFmgkUKGLdRYyFUTlBN/a860zO4pUwCp6uSieTlQemYwrOtBWqbJ/wHt
+         KvYKWZ45tA4OhpNbONrGbqybOWzXMs90xhZZ4q6DoGc/rzQQYbpZHQvObG+PiOs2yPZ6
+         3/wA==
+X-Forwarded-Encrypted: i=1; AHgh+RpOGPPg3XFINGLD2jIq6A7GH5lhlGbawtiT/r0KmEr4OwWhgctZ+Qx2PGwEwv1nP3HO4vlFVoDYELF3GDacNfao@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQ8rrNMoxncAAFQQkAiLaZRNlQMjaANB543xpuxEebKCqZMIKH
+	iLkPA51nrpjPYZTJfueg0mAN+L1KFYzJlN4W3+Ve0HyaK2f03fQBvB7d
+X-Gm-Gg: AfdE7cleUOQO560qp0RYwZ168ejqX8Oknyn1X1G1Cl44bXxdcXzLQHyzUVDvFiEzYU0
+	u76BK4gV/CvZ9Sr0Os/j5a/pi7kucv1QpxD9R+jK2KoBqlpBBjiZwcsmtC+8t2uXoI8CZ++Ax7G
+	pcCJGzWdJIzS/+BTB0OMH9psCvJItNsvhqLMJTNySmcbljrL79CIiprOAN7rJdYxMrjuPCPcUyS
+	BCujbjqWi1FJ0SKyx3+t8rBX6zeNGnU61axGjRbuIEFxW0KmjyVjHLF8faHb/L1BOBYnRFXZOdU
+	Fyj5Bb43a5g5tupI2mjbM++H2st8hhe6Lw6PsxWgSMtT7MTxj1M/yZU2AcvmtJ8Cu+RyJwAVIIk
+	JblQ4s6ITCDVPwltoUEtnSbgYyGe88bFdQy4BUcNSMB98ZLJMCHkKSQem+ZZ6RiHWQ1EEgHjEad
+	7uEchIuaWZ9cNzGk48
+X-Received: by 2002:a05:600c:46c4:b0:493:bee0:4360 with SMTP id 5b1f17b1804b1-493d159b8fdmr65120135e9.17.1783270649788;
+        Sun, 05 Jul 2026 09:57:29 -0700 (PDT)
+Received: from avermoal ([185.13.176.155])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cce12c40sm363764965e9.13.2026.07.05.09.57.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jul 2026 09:57:29 -0700 (PDT)
+From: Mikhail Lukianchikov <avermoal@gmail.com>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-iio@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH] thermal: remove unneeded 'fast_io' parameter in regmap_config
-Date: Sun,  5 Jul 2026 18:43:12 +0200
-Message-ID: <20260705164311.2273-2-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.51.0
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: iio: adc: convert Xilinx XADC bindings to YAML
+Date: Sun,  5 Jul 2026 22:56:20 +0600
+Message-ID: <20260705165620.9818-1-avermoal@gmail.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <d7607a98-f5e1-417f-ad64-d0029c9de662@kernel.org>
+References: <d7607a98-f5e1-417f-ad64-d0029c9de662@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_094321_955703_4873B6AF 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260705_095731_966470_663BF33A 
+X-CRM114-Status: GOOD (  10.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,43 +107,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When using MMIO with regmap, fast_io is implied. No need to set it
-again.
+>> Convert the Xilinx XADC binding documentation from .txt to YAML format.
+>> This conversion is part of the ongoing effort to migrate all DT bindings
+>> to a machine-verifiable schema.
+>
+>Sorry, but what effort exactly? Where is this effort documented? Do you
+>have a mentor if this is some sort of mentorship effort?
+>
+>And if this is ongoing effort then don't duplicate:
+>https://lore.kernel.org/all/?q=dfn%3Axilinx-xadc.txt
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
-No dependencies, can be applied directly to the subsystem tree. Buildbot is
-happy, too.
+Hello Krzyszof,
 
- drivers/thermal/armada_thermal.c | 1 -
- drivers/thermal/sun8i_thermal.c  | 1 -
- 2 files changed, 2 deletions(-)
+Thank you for feedback.
 
-diff --git a/drivers/thermal/armada_thermal.c b/drivers/thermal/armada_thermal.c
-index c2fbdb534f61..252d5afecea1 100644
---- a/drivers/thermal/armada_thermal.c
-+++ b/drivers/thermal/armada_thermal.c
-@@ -722,7 +722,6 @@ static const struct regmap_config armada_thermal_regmap_config = {
- 	.reg_bits = 32,
- 	.reg_stride = 4,
- 	.val_bits = 32,
--	.fast_io = true,
- };
- 
- static int armada_thermal_probe_legacy(struct platform_device *pdev,
-diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_thermal.c
-index 22674790629a..284684137c43 100644
---- a/drivers/thermal/sun8i_thermal.c
-+++ b/drivers/thermal/sun8i_thermal.c
-@@ -149,7 +149,6 @@ static const struct regmap_config config = {
- 	.reg_bits = 32,
- 	.val_bits = 32,
- 	.reg_stride = 4,
--	.fast_io = true,
- 	.max_register = 0xfc,
- };
- 
--- 
-2.51.0
+I'm the newbie at Linux kernel developers community,
+and sorry for my mistakes in sending commits.
 
+I'll answer your questions.
+I am not part of any official mentorship program,
+I just decided to try to contribute to the development of the Linux kernel.
+Yes, it's a ongoing effort, and to be honest, this effort is the general
+community initiative to convert all DT bindings from .txt to .yaml. I didn't know that work
+on this file was already underway.
+
+Tell me, should I continue working in this case?
+
+Best regards
+Mikhail
 
