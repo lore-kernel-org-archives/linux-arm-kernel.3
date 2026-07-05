@@ -4,88 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D92C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 18:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C0CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 18:24:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGtsisFYQ3ZsoB2jg7Gl9tLznZoCpOpVvTrcNSu1WWg=; b=YkcOeB96uqt5J/MKK7bMfkwawC
-	adgkAZ8j74mT7uZ1S0xrQhLAVOexp4UpuE+5jSXlaAtRts7S9cABUuR0XF2LOtRq6m7M8DHlqvVnF
-	8qtAeNSnF6ntod9dpLGurPGFjiOUB2CvbilSn3Ybd/a+6n01pqyZZs0mDV5fV4zBZopmpocAVI3es
-	h9imWChU4I0+HzOChV2JsSEV5rE3A4e9GvrWeHU6qdeLdB4ljnWIw4wdrzl6cglujcOdhAivhSsOf
-	KPzJ7MP5JCpnvzAHkGhgSXC34ee8mc9tfDJpTpBS3mz19M1r8+mPP7nFESiMc5XwF6hUDKW8gjhDb
-	2OFekg8A==;
+	bh=Y9Eduw3F2r8prTlRcBvKLTOC0P9f8Jgk7j2YnKSkr7s=; b=nWD16QI25qvfeGCX+BX67USKf/
+	lV1DIUFphKvczWAi38w0bihMWlwa/KhWotxnD1hX+DWuI6ewiVACn+Ewh62AM5r99pGLyc0e3SNpv
+	TiJe25lk15V93FMDWAODqnblRK7caMzO+xViIk9fBg55ogGDEw9E1/IkBl9AZCH19mMI/I6Md/9eT
+	XBcrw/dwDvXVp96oRLXfdaIBazFU1DETKg8L1mopf34rsNyqew4fxxR7QqdGehSc28QX54eWc0kWo
+	xo7do2TgPinZDK+wy/7fo1NBHOOA/oguia3x7SeDP+Kp18cL261gSxm8jFJrDpi2aELJ0t1fRnPFv
+	BcVPWVwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgRSH-00000009Yil-44D9;
-	Sun, 05 Jul 2026 18:20:37 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wgQtg-00000009X7V-0hCp;
+	Sun, 05 Jul 2026 17:44:52 +0000
+Received: from mail-oo1-xc33.google.com ([2607:f8b0:4864:20::c33])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgRSE-00000009Yhz-46GU
+	id 1wgQtd-00000009X77-0nyT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 18:20:36 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c9bd2f8bf7so32156935ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 11:20:34 -0700 (PDT)
+	Sun, 05 Jul 2026 17:44:50 +0000
+Received: by mail-oo1-xc33.google.com with SMTP id 006d021491bc7-6a15ca0d761so1512866eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 10:44:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783275634; x=1783880434; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1783273488; x=1783878288; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=uGtsisFYQ3ZsoB2jg7Gl9tLznZoCpOpVvTrcNSu1WWg=;
-        b=Fjr4N1zBo3U9Nw3+/31R5uchCBBt48Yp7R/hvVf73yhDopXZdV8swoGv17CbLCLZ7V
-         O2zS5trriNf4swROsMKHXVTZnlI7/xzVTC/UbSW1zdXya9LKs14QjuE60NPNxHbTJV/u
-         dm381k2OXKK6/828MD8Ct4TBU2eAh/bcCIV1FAbgYqFNqz5IpriZUU/+Y2o7QMI9YydN
-         Lm+f2nwnIfXiGRtT1t+2vV1Pm1i4OUY9AafT5BT2Hr1OUTFMMMvEC5+HDJNu6/0tpWLY
-         fXnbhPIbUw3sChcJHgo4Rua9IzgraORdRcdRff8eWnDe+ZdnsVzgYsA+4XbltDp/PG7c
-         lgkw==
+        bh=Y9Eduw3F2r8prTlRcBvKLTOC0P9f8Jgk7j2YnKSkr7s=;
+        b=CYF5TiEM/s5eNbhfExjsvixxoqQKfizZz8KmeIsg/4ps5IUo2QEIfDpb2bAN1oP3XR
+         kT5IM4QeWjoCrSInoTcHxWPhl9aw/1Om2Dd8hEwwlHmnZ5oAiev5rSnYI76mua6VZHzp
+         XQ4Jbla4iEqBhQN7G66gyyk0BQLCtIjw/8Zc9S+GgCGJ98zU7oCeKAvWn+vLeLFAzgRN
+         0VgKn4Sxu1a+AvloKcZeLaBsvRCWFcCnKm2YXm88xjmWN2R5nOe3PCS7HEDUvMcXWaIW
+         OQdHC8F2gy8eyKe0XQAximyY+n1kh0+g0r7y68hUE7ywUtBvj4QBE7mi/guMTAJcRk0P
+         OyNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783275634; x=1783880434;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=uGtsisFYQ3ZsoB2jg7Gl9tLznZoCpOpVvTrcNSu1WWg=;
-        b=W5NRpTci4GClKYpOgnrtNdwPsnedKzleLKiY3apBPa6lMc/LPjyj7An4iNSv4uTCry
-         RbHYAu4TSLqzcvSBPoYHOdqJ7JyCwJadSU+gPXz+P2wmMBFp2BJb6OFTbXCq9SHcS/rV
-         oXkb4oy3EHvvBRz1caJv7QCSKoAhsbQKO8rS4Se8xewuMP6aJki0ua2BFTpPyHGHVgwr
-         rnRUMwhAQZG4xcJl3HfYpZ69AQ+MRyCr3anHe2zOw3dbOCO/WNrxAf2+EbqXIwcSQS7M
-         6zsrq2TlCsX3X2D2cDNeN+vTvRmmKKBVPWlzF5dohOqFL6KJb+A3tgwH0KGFuGLDTbO9
-         +LhA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr1r2tpJEs7yKASfVA0Z4DBZ/Y33trNfF9Nl715p/toyWkfdJ0DDu7xcyzJUiUU7q2LqrIiVeiMr4c6WkjpFDaS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz+cxvWtReuirahoAFytdoZ8JnNfaEPgemYOTuVHttxu8F6vje
-	w7RbO5v5Tpw7gP1sZ2Awjs0t3J1OWBRfa1dIVfeNMfQLx1ItILhDQAUm
-X-Gm-Gg: AfdE7cnJFaVa3OBa/hndZgTqk4wlGhKHFBfBkX8byv79McoyDq4Kcs2xfhRiSG9JE/V
-	4jP97Oroo9z9QN5kP+ZKv7i9Yc95Bdn8GKztCcaLt8P2G/9n/EfSSW3KzTYHH6KmDgo7lZeIIK1
-	tYZi77OhPpuhM8AwCEIFB+D7H2Ywk+q6KVn2NHb2IDmHX0LfoHh6UAN7NPXuc44WD0So826fYcY
-	fWnLU3VfK4X1gAN1jmCWcERgX+3Y3xZ5xmPnVNTgPUZsZsw+OhkrJAIRfWYIg5w+7OAww6dR5XP
-	Ap12tWFhTysR+sdWefG+twRUiYcwpoA4ESal8EpC7o1kmcoCGeSmyZ01J3lCrzg93PbGGQDkHw2
-	mkLft3f6/xyvGGo4K84w93Q3BT//hzb4o/8CrsHeliY7DpQN4deaQgL3Idz7g40L+daYLamqTJQ
-	Lhe2migiDP8fwHW+9IlhRxCoVIuElN8TFP/zquigKCg+RyT+xKq4g+iVzyQso0SardtAU+B/qXF
-	p/kCjVPNDUxWqpj
-X-Received: by 2002:a17:90b:528e:b0:380:9699:ae98 with SMTP id 98e67ed59e1d1-381120f7aeamr13586199a91.8.1783275633209;
-        Sun, 05 Jul 2026 11:20:33 -0700 (PDT)
-Received: from MacBookPro.tail6abcb.ts.net ([2804:7f0:460:b8cc:e161:f046:ac0f:f27f])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0bb7fe46sm51230319eec.14.2026.07.05.11.20.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 05 Jul 2026 11:20:32 -0700 (PDT)
-From: Brian Mayer <bleemayer@gmail.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2] arm64: dts: rockchip: add HYM8563 RTC to Radxa CM5 IO board
-Date: Sun,  5 Jul 2026 15:19:19 -0300
-Message-ID: <20260705181920.8633-1-bleemayer@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <2960762.AiC22s8V5E@diego>
-References: <2960762.AiC22s8V5E@diego>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20251104; t=1783273488; x=1783878288;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Y9Eduw3F2r8prTlRcBvKLTOC0P9f8Jgk7j2YnKSkr7s=;
+        b=kt+piiZbMIuWqpnIGBZsUz9CqbWGoZADOAmrweSbtM/xSpmks9FGBoPdnIhl+qSquJ
+         y4bPO/1AlRP8/8URXLp0lb3s61GNbsNtd4j3U5WSgB/gelVN6aKrww2ZIMsapvI/6a8n
+         ZyongCQDKfL3rr4AVgAa9IkVHpY6MubODTOH7Be7INe2Ueu+qGdAPIauTopm8s+oWJ7i
+         Ou+pqHDhoEqofvTpE9B2uSVYkwM6ljRbJvyGGJoAs/bSfwSRuQx4eJT3vWTLMyAzxVCw
+         dPiIjXcTSqeOfzqnr1wCMfeocP5EI2DKw5p1JfMXTXXqgTppP0jtH1nLwrfrzUxBoyTp
+         wKlA==
+X-Forwarded-Encrypted: i=1; AFNElJ+fM34/OEKc3BALK6PQytsEHMlRxYCQ7FYy/m0c0Bfs1RKkXMzuvxS6LedxVBXPZSoF/7zlcs9AJu+wRz56BKY4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxe1XGGOcP3c9NJfPz8Tj59xALZv0VkbcSRFqpx2nFEPcVu2Nc1
+	XfrV/L/wrK7dnPVTymxVB7YWVlGwSfvWiKYsYvYg7e2V2i5EMIrMHCBU
+X-Gm-Gg: AfdE7clPAF7BU9jwAMe5VH4zFeaaDAs6xHpJBfXL6waZmdR05aoka3nKxW8QCsRSFt8
+	JAuifMRywRrnCkjnNI0nC/nNYa3z611pvftNbe2N+Tedd4uHNm4V03IbJsKDbCe8s0y+eFxUAFd
+	xXOleb+TPHmNdttUml7sLvkIjLANuS9kwBj71IRO6quhClrzQEvECn6SAMqZMNnTUKJYLjcxhaw
+	w8noI8eAfduWFycOMkuvBQK+ZgD9/pNOUWSR6Blw2E/oArLg6Ai0DAwQS+cQvpIfoc3/FOCpYSL
+	DlkRUsmTUERowKez41FwJTHmrPvLOWWNB5HfR6zmsOuGWDUThfYXUAv+zPNS+EkBBiZ1a0QXF5i
+	b1HZL75wosA52btzp25i738OhaHI8I+gejs6bJhSqmD/D1i+TZ6hZR/cgwsn/DXR/TYco1eY3UG
+	mFYaNLNiIjuHBUxv7dZgNNEaXHuOmwDqNpkVDmo/k=
+X-Received: by 2002:a05:6820:16a7:b0:6a1:99fd:5a00 with SMTP id 006d021491bc7-6a32f4dd926mr4682006eaf.27.1783273488142;
+        Sun, 05 Jul 2026 10:44:48 -0700 (PDT)
+Received: from localhost (23-88-128-2.fttp.usinternet.com. [23.88.128.2])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-44cfb1bb17fsm7877267fac.5.2026.07.05.10.44.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 05 Jul 2026 10:44:47 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 05 Jul 2026 12:44:46 -0500
+Message-Id: <DJQTOY88KR1E.1U2393N7KUH12@gmail.com>
+Cc: "Jonathan Cameron" <jic23@kernel.org>, "David Lechner"
+ <dlechner@baylibre.com>, =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ "Andy Shevchenko" <andy@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Michal Simek"
+ <michal.simek@amd.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] dt-bindings: iio: adc: convert Xilinx XADC bindings to
+ YAML
+From: "Maxwell Doose" <m32285159@gmail.com>
+To: "Mikhail Lukianchikov" <avermoal@gmail.com>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <d7607a98-f5e1-417f-ad64-d0029c9de662@kernel.org>
+ <20260705165620.9818-1-avermoal@gmail.com>
+In-Reply-To: <20260705165620.9818-1-avermoal@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_112035_009804_DB648C9E 
-X-CRM114-Status: GOOD (  14.50  )
+X-CRM114-CacheID: sfid-20260705_104449_241840_6A1AA372 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,79 +107,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello again, to clarify: I tested the v1 patch in my radxa cm5, but since
-this v2 only contains name changes I didn't test. I added the missing
-agent tag and am sending the patch inline. Thanks.
+On Sun Jul 5, 2026 at 11:56 AM CDT
+Mikhail Lukianchikov <avermoal@gmail.com> wrote:
 
-The Radxa CM5 IO carrier has a Haoyu HYM8563 real-time clock on I2C6 at
-address 0x51, with its interrupt line on GPIO0_B0 and a CR1220 backup
-battery holder. Without a device tree node, no /dev/rtc* appears even
-when CONFIG_RTC_DRV_HYM8563 is enabled.
+>>> Convert the Xilinx XADC binding documentation from .txt to YAML format.
+>>> This conversion is part of the ongoing effort to migrate all DT binding=
+s
+>>> to a machine-verifiable schema.
+>>
+>>Sorry, but what effort exactly? Where is this effort documented? Do you
+>>have a mentor if this is some sort of mentorship effort?
+>>
+>>And if this is ongoing effort then don't duplicate:
+>>https://lore.kernel.org/all/?q=3Ddfn%3Axilinx-xadc.txt
+>
+> Hello Krzyszof,
+>
+> Thank you for feedback.
+>
+> I'm the newbie at Linux kernel developers community,
+> and sorry for my mistakes in sending commits.
+>
 
-Describe the RTC, wire the interrupt pin with a pull-up, mark it as a
-wakeup source, and point the rtc0 alias at it so RTC_HCTOSYS/SYSTOHC use
-the external clock. Wiring matches Radxa's downstream board support and
-uses schematic names for the rtc_int_l pinctrl entry.
+No worries, we've all done it at some point. If you're looking for stuff
+to do then the todo in drivers/iio/ was just recently updated. There are
+still a handful of drivers also in iio that still need conversions to
+guard()().
 
-Assisted-by: Grok:grok-build
-Signed-off-by: Brian Mayer <bleemayer@gmail.com>
----
- .../dts/rockchip/rk3588s-radxa-cm5-io.dts     | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+>
+> I'll answer your questions.
+> I am not part of any official mentorship program,
+> I just decided to try to contribute to the development of the Linux kerne=
+l.
+> Yes, it's a ongoing effort, and to be honest, this effort is the general
+> community initiative to convert all DT bindings from .txt to .yaml. I did=
+n't know that work
+> on this file was already underway.
+>
+> Tell me, should I continue working in this case?
+>
 
-Changes in v2:
-- Rename pinctrl to rtc_int_l / rtc-int-l to match schematics
-- Drop Tested-by (covered by Signed-off-by)
-- Add Assisted-by: Grok:grok-build
-- Send inline with git send-email (not as attachment)
+After looking at the link Krzysztof sent you it looks like it's already
+being done, so I'd recommend dropping this one.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-index af4a9bc01..d22db4d18 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
-@@ -19,6 +19,7 @@ / {
- 	aliases {
- 		ethernet0 = &gmac1;
- 		mmc1 = &sdmmc;
-+		rtc0 = &hym8563;
- 	};
- 
- 	chosen {
-@@ -198,6 +199,18 @@ usbc0_dp_altmode_mux: endpoint {
- 			};
- 		};
- 	};
-+
-+	hym8563: rtc@51 {
-+		compatible = "haoyu,hym8563";
-+		reg = <0x51>;
-+		#clock-cells = <0>;
-+		clock-output-names = "hym8563";
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&rtc_int_l>;
-+		wakeup-source;
-+	};
- };
- 
- &i2s5_8ch {
-@@ -221,6 +234,12 @@ usbc0_int: usbc0-int {
- 		};
- 	};
- 
-+	hym8563 {
-+		rtc_int_l: rtc-int-l {
-+			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
- 	hdmi {
- 		hdmi0_tx_on_h: hdmi0-tx-on-h {
- 			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-
-base-commit: 87320be9f0d24fce67631b7eef919f0b79c3e45c
--- 
-2.54.0
-
+--=20
+best regards,
+max
 
