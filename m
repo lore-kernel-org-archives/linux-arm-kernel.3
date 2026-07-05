@@ -4,58 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ED39C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 19:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B031C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 19:25:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fbSruFJvwcJrm9Np0k2TBS8pdvnZhYTtboREcCieCvM=; b=W9LhllOx+/lVvorKNfCGJT3JZh
-	bzZExSZFTQfSEGljIndpqgUFKxjZBLjzK4yUkFNcuEr3RSnrP7u1EJFF3YOPcOk2YckWOWt7qwWUG
-	Jy2NZo+yMAyr0pmo6UN2WncSzETKvQ6ijfXC9Ln++SfVkJ6x27f62XqJ9los/L9T4nJkNJRylIr2U
-	dwWt7EBErAzZfJjpQ3tHeGpU9zlwmS3Lml0ZjpBdJCVbZIabyKbxo8ed3QAsvz1tRK3I9UiKXuT66
-	2bgRmD8s6ZXNqMUDfWRz2cqQKvT1tFPUlNyw1wdPbwuuLrO5eGRboZovA4xXyndlF9xaxavgv+2ll
-	7/4uJhtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OPI+ApKqdzBUwz1sXIFVIUKT6N0yjrQCNo8ScPon0rE=; b=Cl6Z+ZTNWnxYuWnBxglU+yI4za
+	zzOvbH2m2qx3D8CES5/cJVf2Y+xo/Ds7jALUyHXPktJTL2eN93ZbRq23gAofmbLSJkKwAY9IG6Mvk
+	FGgb1YGmOo3fRQyHnWGpWQd2mtGfTTdlai2KJhwLhFLXpsetEuAB3Am9hQ7ObEvr3WPhYRhbXC0+W
+	XZHn2L/yXnCXdL2ZwV1m/H6kGnVvpGrxnJ/s7Kxp3dbg/09oypzPNTyGZINwEUOMPS0l52AO2hooC
+	u5wK/IpZ7sL5qsNTz2sYthjIoLOeK/WUXXVljGN7IEmtYvpAkDGxfxl58EDtFBiN2R3sDJEZ+UgZc
+	ZXyM7j5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgSRR-00000009cfO-3ZSg;
-	Sun, 05 Jul 2026 19:23:49 +0000
-Received: from confino.investici.org ([93.190.126.19])
+	id 1wgSTP-00000009cmq-0LkD;
+	Sun, 05 Jul 2026 19:25:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgSRO-00000009cew-1B1M
+	id 1wgSTN-00000009cmi-2SaP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 19:23:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=grrlz.net;
-	s=stigmate; t=1783279419;
-	bh=fbSruFJvwcJrm9Np0k2TBS8pdvnZhYTtboREcCieCvM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o7YpzpWs4B2dC5RkIu5471ohJxZ/iDiv8mWlAD+iNAzGhhRb+Etmu+n9J8kQqRCw0
-	 oEsHC4cp2teZBzlQ7/+3Ur8Sh3RtBnUgG3dvB8thg9Tli8wVPGWgw5vmilzE85qwGc
-	 0OpUMGy3Q8/qP6hkSeQ6UxPhda4Pn2DNF47kGmxI=
-Received: from mx1.investici.org (unknown [127.0.0.1])
-	by confino.investici.org (Postfix) with ESMTP id 4gtcpz0Qc4z10yF;
-	Sun, 05 Jul 2026 19:23:39 +0000 (UTC)
-Received: by mx1.investici.org (Postfix) id 4gtcpy2vNbz10y4;
-	Sun, 05 Jul 2026 19:23:38 +0000 (UTC)
-From: Bradley Morgan <include@grrlz.net>
-To: Catalin Marinas <catalin.marinas@arm.com>,
+	Sun, 05 Jul 2026 19:25:49 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A7CC941915;
+	Sun,  5 Jul 2026 19:25:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88CD51F000E9;
+	Sun,  5 Jul 2026 19:25:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783279548;
+	bh=OPI+ApKqdzBUwz1sXIFVIUKT6N0yjrQCNo8ScPon0rE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=QKAn6fqmHWbVb6fQ26XB5SXr8dfPE/yyl6eeEnIY4buUZrRYYnOLCXflQL468TJXv
+	 g2bWXPkBhcuLddlkoEPAdslZykWk5gnMk1i7KQtunwTrY+f6LUH7AqI2tUlvRkLnSZ
+	 7JnRUD+nuA01QSzTm+gvIoizkdplV7cQBK00trh3Evme0/iaawGzFmWFjoqHSPG8G3
+	 Yi+nvqlGxjXJ9RZC4kO3SjRvVxIsKL1w5XPlr7GxqBHJah9PWmDDmZ6RgACsKdLXf9
+	 /gm7Ffyk72sC4AG1pQ6wpkcQ2ITzqetGFl46xPxtLoDUn4YH/tuuvVT6FI5d41fk9j
+	 vgl+yMGcSPNRA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgSTK-00000001frG-14pI;
+	Sun, 05 Jul 2026 19:25:46 +0000
+Date: Sun, 05 Jul 2026 20:27:34 +0100
+Message-ID: <87echh6xuh.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Dev Jain <dev.jain@arm.com>
+Cc: Bradley Morgan <include@grrlz.net>,
+	Oliver Upton <oupton@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	Bradley Morgan <include@grrlz.net>
-Cc: linux-arm-kernel@lists.infradead.org,
+	Quentin Perret <qperret@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: sleep: dedup the sleep_save_stash slot lookup
-Date: Sun,  5 Jul 2026 19:23:31 +0000
-Message-ID: <20260705192331.23150-3-include@grrlz.net>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260705192331.23150-1-include@grrlz.net>
-References: <20260705192331.23150-1-include@grrlz.net>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_122346_782240_3DEE7DEE 
-X-CRM114-Status: GOOD (  12.55  )
+Subject: Re: [PATCH v4] KVM: arm64: Record whether pKVM stage 2 mapping is cacheable
+In-Reply-To: <a3b2423e-d8bc-4713-90ef-5bfac7079834@arm.com>
+References: <20260701192428.17430-1-include@grrlz.net>
+	<a3b2423e-d8bc-4713-90ef-5bfac7079834@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: dev.jain@arm.com, include@grrlz.net, oupton@kernel.org, tabba@google.com, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,95 +93,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Both __cpu_suspend_enter() and _cpu_resume() open code the same MPIDR
-hash lookup. Factor it into a get_sleep_stash_slot macro.
+On Sun, 05 Jul 2026 15:08:58 +0100,
+Dev Jain <dev.jain@arm.com> wrote:
+> 
+> 
+> 
+> On 02/07/26 12:54 am, Bradley Morgan wrote:
+> > pKVM keeps its own mapping list for stage 2 operations. Its flush path
+> > uses that list directly, so it lost the PTE attribute check done by the
+> > generic stage 2 walker.
+> > 
+> > Record whether a mapping is cacheable and skip cache maintenance for
+> > mappings that are not cacheable.
+> > 
+> > Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
+> 
+> Is Fixes tag required? If I am reading correctly, Arm ARM says this:
+> 
+> "For VA-based cache maintenance instructions, the instruction operates on the
+> caches regardless of the memory type and cacheability attributes marked for
+> the memory address in the VMSA translation table entries. This means that
+> the effects of the cache maintenance instructions can apply regardless of:
+>   Whether the address accessed:
+>     Is Normal memory or Device memory.
+>     Has the Cacheable attribute or the Non-cacheable attribute."
+> 
+> So nothing goes wrong if we do dcache clean for non-cacheable
+> memory.
 
-Signed-off-by: Bradley Morgan <include@grrlz.net>
----
- arch/arm64/kernel/sleep.S | 55 +++++++++++++++++++++------------------
- 1 file changed, 30 insertions(+), 25 deletions(-)
+Two things:
 
-diff --git a/arch/arm64/kernel/sleep.S b/arch/arm64/kernel/sleep.S
-index e112b8537f10..8820a131aef7 100644
---- a/arch/arm64/kernel/sleep.S
-+++ b/arch/arm64/kernel/sleep.S
-@@ -64,6 +64,31 @@
- 	lsr	\mask ,\mask, \rs3
- 	orr	\dst, \dst, \mask		// dst|=(aff3>>rs3)
- 	.endm
-+
-+/*
-+ * Compute the address of the current CPU's entry in sleep_save_stash,
-+ * i.e. &sleep_save_stash[hash(MPIDR_EL1)].
-+ *
-+ * @slot: output register
-+ *
-+ * Clobbers: x2 - x8
-+ */
-+	.macro get_sleep_stash_slot slot
-+	mpidr_hash_assert_distinct \slot, x2
-+	mrs	x3, mpidr_el1
-+	adr_l	x2, mpidr_hash
-+	ldr	x8, [x2, #MPIDR_HASH_MASK]
-+	/*
-+	 * Following code relies on the struct mpidr_hash
-+	 * members size.
-+	 */
-+	ldp	w4, w5, [x2, #MPIDR_HASH_SHIFTS]
-+	ldp	w6, w7, [x2, #(MPIDR_HASH_SHIFTS + 8)]
-+	compute_mpidr_hash x2, x4, x5, x6, x7, x3, x8
-+	ldr_l	\slot, sleep_save_stash
-+	add	\slot, \slot, x2, lsl #3
-+	.endm
-+
- /*
-  * Save CPU state in the provided sleep_stack_data area, and publish its
-  * location for cpu_resume()'s use in sleep_save_stash.
-@@ -88,19 +113,8 @@ SYM_FUNC_START(__cpu_suspend_enter)
- 	mov	x2, sp
- 	str	x2, [x0, #SLEEP_STACK_DATA_SYSTEM_REGS + CPU_CTX_SP]
- 
--	/* find the mpidr_hash */
--	ldr_l	x1, sleep_save_stash
--	mrs	x7, mpidr_el1
--	adr_l	x9, mpidr_hash
--	ldr	x10, [x9, #MPIDR_HASH_MASK]
--	/*
--	 * Following code relies on the struct mpidr_hash
--	 * members size.
--	 */
--	ldp	w3, w4, [x9, #MPIDR_HASH_SHIFTS]
--	ldp	w5, w6, [x9, #(MPIDR_HASH_SHIFTS + 8)]
--	compute_mpidr_hash x8, x3, x4, x5, x6, x7, x10
--	add	x1, x1, x8, lsl #3
-+	/* find this CPU's slot in sleep_save_stash */
-+	get_sleep_stash_slot x1
- 
- 	str	x0, [x1]
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
-@@ -131,18 +145,9 @@ SYM_FUNC_START(_cpu_resume)
- 	mov	x0, x19
- 	bl	finalise_el2
- 
--	mrs	x1, mpidr_el1
--	adr_l	x8, mpidr_hash		// x8 = struct mpidr_hash virt address
--
--	/* retrieve mpidr_hash members to compute the hash */
--	ldr	x2, [x8, #MPIDR_HASH_MASK]
--	ldp	w3, w4, [x8, #MPIDR_HASH_SHIFTS]
--	ldp	w5, w6, [x8, #(MPIDR_HASH_SHIFTS + 8)]
--	compute_mpidr_hash x7, x3, x4, x5, x6, x1, x2
--
--	/* x7 contains hash index, let's use it to grab context pointer */
--	ldr_l	x0, sleep_save_stash
--	ldr	x0, [x0, x7, lsl #3]
-+	/* grab this CPU's context pointer from sleep_save_stash */
-+	get_sleep_stash_slot x0
-+	ldr	x0, [x0]
- 	add	x29, x0, #SLEEP_STACK_DATA_CALLEE_REGS
- 	add	x0, x0, #SLEEP_STACK_DATA_SYSTEM_REGS
- 	/* load sp from context */
+- having to perform CMOs for something that is not *expected* to be
+  cacheable is both pointless and a contradiction of the intent
+
+- what you quote is about the nature of the *mapping*, and not the
+  memory that is being mapped. Cleaning a dirty cache line on an
+  unsuspecting MMIO endpoint is never going to end nicely. Just have a
+  try.
+
+My reading of all this is that a fix indeed is required, and therefore
+a Fixes tag *must* be present.
+
+	M.
+
 -- 
-2.53.0
-
+Jazz isn't dead. It just smells funny.
 
