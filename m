@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB463C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 14:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83843C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 14:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ME+6HlD+08OSFpQWIBYN3eSrff9bfZygMLpwYCEDWAo=; b=iU97bkKA/hD7KkbsoU9X3pjKkM
-	NDEYU/cWyklf2ptSkOrJNHz2z0ijPsg/Abxq2d+3ys4X7RM1XTVDXgEH8wyZ5at1Pp7hBHJlaEhUb
-	Jxv+A3Xc1a8HUVfD+wJCxMXF5pAbOeErYB0HOcuSD5dOetgOi4IfeMQw1fz6xAf+yv6iUyvvrIOSt
-	jjuZkpNLkNl74HtLZOWoYAImUWAR8UPacWqDRltt4EihQe24FFS0o2Tv8tsyontqcGGoV1gMaclkn
-	8OoRmrGs8vhHzIvDRClDlnDpaWf1HZrEO6HC8Awq/EUV9vcuUCQpRYMmZX8k4+3Ym1RvHElPQDTOM
-	aFmrkwxw==;
+	bh=Wu44kjt2jgbV0ZflrkPNRFsVj1L2e1+MVXtOhpoAnqY=; b=NcxTEhOr+43EjOgxCGEclCo01m
+	wQpi6fms5CYzS0ALF+0Gl8ZOe6p7UanTS4vt8bJ8mF8aUJptxD73ZAIYC4Ore9nA2OCAmQCjXONiC
+	nEMuOnxvo1YsLCk+F6TAg4Yc5UGkem4VRHGPlSZ5YLo8s0ZAOp8mvhkVHEmp2xzPU8BoG/bNpMwJg
+	Zicxplp7MvzH/Vyp+sV+GhzENp3l7KL351tUZ4VptHbiNorHtQ2AOOs7J7hKRl/bk/YO1B3g7fDFz
+	d2fNXLD0a8Pgt8gsUkqVYmBft8wGAeRZY2ErxieHE/g0bdI6KmFKtOLBwCDUhvT/U+uPKS50lLutQ
+	nBL4Z5og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgNqr-00000009OFs-0L37;
-	Sun, 05 Jul 2026 14:29:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wgNqv-00000009OGe-0mZS;
+	Sun, 05 Jul 2026 14:29:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgNqp-00000009OFl-3jgU
+	id 1wgNqt-00000009OGC-2erU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 14:29:43 +0000
+	Sun, 05 Jul 2026 14:29:47 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADC444389E;
-	Sun,  5 Jul 2026 14:29:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C93C81F000E9;
-	Sun,  5 Jul 2026 14:29:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E380543B02;
+	Sun,  5 Jul 2026 14:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A7A21F000E9;
+	Sun,  5 Jul 2026 14:29:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783261781;
-	bh=ME+6HlD+08OSFpQWIBYN3eSrff9bfZygMLpwYCEDWAo=;
+	s=k20260515; t=1783261786;
+	bh=Wu44kjt2jgbV0ZflrkPNRFsVj1L2e1+MVXtOhpoAnqY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IpbWHNL4aDE28VUq7IZtUjfCn/nl9ZeT8TI5RezI4FqO61dP6vpN3LUIztZD5X/Ix
-	 JdqMyS3n/L5rY/kTYGAhgsRu+GB4YlQD5QhkGF/3Cg0DjBmlKr+gbudAZfi9/sNRc/
-	 52SQQTO/hUuZzMGGipFVTAjJg0zjI1nulzuT8lXYpK/V8n4VO3Rz79FoaW4jowZzZ0
-	 CpxilAAHS23Fu4CfTNd05JnzDRPTy15IaWw9vtumtN+pXvRqPgguepv2l/lxqgfH/k
-	 4D6OE8qxhfdN94LFaDakfO2GQIbH9pAp3aCqbPtdubX29XemcBUuGxp/RC7PPjDCje
-	 Gi90nllJfFWiA==
+	b=UNDCx/n8I/gXJ25IhVcUDEQvWQLjfcQ5SxCtsV4I15uNFUNIImmKDGglWr1Qoopl5
+	 75hc0Muq/lWlgZiDPs1oKifpCNcYJqho87JPaqaE94cSEX2KVGMtg60XmDBYF5p1L4
+	 m+v34mp/26hMz2XaSYHizt/Ht2qmlffvYBaU9IReIaYY4zMafCH70a+PTWUQ08F4E0
+	 FJqlVTAx3cLevPs0GJ+vOTCFIxYpcCrWA3R0diLQuDiK/4NzdjC3ZGRc3+WdakYz4W
+	 4J505RQ716dhefE9Nvt0qKWoCE1OOlEUBoPLX4a75f58lJdIM1JhLK1Wp8LDmz7osg
+	 wpAh5nV1CMSRQ==
 From: Sven Peter <sven@kernel.org>
 To: Janne Grunau <j@jannau.net>,
 	Neal Gompa <neal@gompa.dev>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Joshua Peisach <jpeisach@ubuntu.com>,
-	Michael Reeves <michael.reeves077@gmail.com>
-Cc: Sven Peter <sven@kernel.org>,
 	asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: apple: t8122: Fix I2C resources
-Date: Sun,  5 Jul 2026 16:29:27 +0200
-Message-ID: <178326164442.9177.5710655356580684765.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Sven Peter <sven@kernel.org>
+Subject: Re: [PATCH] soc: apple: sart: require device link for consumers
+Date: Sun,  5 Jul 2026 16:29:28 +0200
+Message-ID: <178326164441.9177.8657526397419269575.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260629-t8122-i2c-fix-v1-1-cec044001550@gmail.com>
-References: <20260629-t8122-i2c-fix-v1-1-cec044001550@gmail.com>
+In-Reply-To: <20260616005346.7862-1-pengpeng@iscas.ac.cn>
+References: <20260616005346.7862-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,20 +73,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Jun 2026 20:01:01 +1000, Michael Reeves wrote:
-> Correct the MMIO ranges and IRQs for T8122 I2C controllers.
-> They were mistakenly incorrect in the original commit. This
-> fix is required for i2c dependent hardware to function
-> correctly, i.e. audio codecs.
+On Tue, 16 Jun 2026 08:53:46 +0800, Pengpeng Hou wrote:
+> devm_apple_sart_get() obtains the supplier platform device and attempts
+> to create a runtime-PM device link to it, but it ignores device_link_add()
+> failure.  A consumer can then continue without the dependency that keeps
+> the SART supplier ordered and runtime-PM reachable.
 > 
-> Tested on J613 (MacBook Air M3).
+> Treat a failed device link as an error and drop the supplier device
+> reference before returning.
 > 
 > [...]
 
 Applied to sven/linux (apple-soc/fixes-7.2), thanks!
 
-[1/1] arm64: dts: apple: t8122: Fix I2C resources
-      https://github.com/AsahiLinux/linux/commit/09780b4b4bdc
+[1/1] soc: apple: sart: require device link for consumers
+      https://github.com/AsahiLinux/linux/commit/36887b488b253
 
 Best regards,
 -- 
