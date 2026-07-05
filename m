@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3FFCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Jul 2026 23:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F7E8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 00:17:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ijJ32Xash5Jt49SnX7A5/BLB4XwCy86Iuli9undALZU=; b=uvHI2Fh4sZj3Au7Bs4e6vFB5ce
-	eLeRWvFryyRFWZ/sFTidg+RiRn7OxsSc+IdWyEDhTkvLJ5F8W6Er+/aFg9i3Ex/zbUS8ub9qHPkgt
-	5UAo/0yQyRE1uS8EKqJkCQe31c0i2iMdLccqoY9thNptlbwfjPgBIBE7jUU3YkHlwtUWTKRbTCbI4
-	iTevqibv8FVhGKKfryWHhCG4oN8vG9EGKJotJVa/xdOmxwM0PpkTbYEoXYkmq1XmnMDuvFwnZxmvq
-	ypoyB2KOACB+YjK+Qu/vnDNwItS6ZkXsGVpk2+ZsGWE+MwlR//DK2m/5d/jngOd6Vkur4EZ3qccn2
-	L8vnNnOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nOKb+wufvcM82s/Xuk0gNrNJ3EhGCTQNgvUNuZ74klk=; b=GPz0mi0nPwUilyWAn8qr0H3I24
+	8tAOLP0M1u4hUKEvPdFbhWxvnlSB54sfA52qrcotlsoLAuB7XJKnb0m1paf+XHekO5fzIWPH/L3bf
+	Z9OH80INCr5PQQpN2EfgyYDWclYkqfwPHwb9HGuNi0zq8Z/KkDAB8MKyOXkW+iPA8+gKoOxeN9j7r
+	9GnurVFM6DLNo45cXfkKCNnRHp31jystYEhX7jTYs3y1ls3Pbl3ED+T41ue46vEp0QqP+Scu7HGxA
+	9p8/XDbE9c8Yf/kdU2I9uLWOFhRdarrNeYWk/agrrRFNJU1GLx7Z9vRiKUlcqrvfzOe5n1pzH3sR9
+	NBY+hU5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgA26-00000008r39-17s1;
-	Sat, 04 Jul 2026 23:44:26 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1wgAXq-00000008roW-3q0E;
+	Sun, 05 Jul 2026 00:17:14 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgA23-00000008r2Q-11Tm
+	id 1wgAXn-00000008roC-0i0a
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Jul 2026 23:44:24 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2cac59f8b64so19800095ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 04 Jul 2026 16:44:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783208662; x=1783813462; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ijJ32Xash5Jt49SnX7A5/BLB4XwCy86Iuli9undALZU=;
-        b=j1a5KlUNHdY9MzOcWItsxi6PvaZxtGUQFK7q7kn7b9IxXeCgza4fUIEKqpqjQ1bQ3M
-         NFxFpe1yyySz4Obm4vohCOVxoEXDw6SmAr587z2lcte5GbLTjBbBpU4qKZpE3HxWrVLb
-         p563SsnlYX+PUnImTIjjPlTNsPpYM0+HMbG/tWLDAs/Gz6MbC5xxeg1weO3gZiOVsrsi
-         jQ0tYUC7zXcUS7S3YIMNcbIsAhzhpRv0oZ4/kGTUWBobk8w54WFh2nEnfseDzLNW6IgP
-         NtYWkJOq2lk9SeOO8fKztDUb/bWrIKL3XM/hQzc+sy8SO72lk3VFpr0T/nd5oU2+Y1D3
-         d3Cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783208662; x=1783813462;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ijJ32Xash5Jt49SnX7A5/BLB4XwCy86Iuli9undALZU=;
-        b=ZRA+5Loux/DI1RVFTnt2DVugbfOQ8CZkaZ6fl1thARRbzbWX0fOryrcG5+ua4EPVY0
-         7r0GqIYU1da4IGbXWodqW0tf+cd+XfLsFee9AnDvfce0X+eFNJTk2hr4ZXb7wqP0GxIH
-         395SvWMJZDbuDCZNuKpJJSv+ynkraAinuaXEy6byC184ogzUjw33dYDkmedsuZG9HDE2
-         k2QlixVQ0XJXTdV92poyv9t3TZg2it+JOE5GjOpK5NKt+jYAuNAYdJjYiX5pAon+BX8k
-         Le0XuogtIhr0RKqmCfgcUvWElqU35oOdeJTGJZkFDu+g8lYEkuxZTuLLeDpVOm2oYneR
-         tDgA==
-X-Forwarded-Encrypted: i=1; AHgh+Rpce7A5mkOC0RvIY9p0kFdD7YMkDViopPbsjOY+Ua5u9dD58M8OMmia/m/Z4ErE8AT05rfIYMdpFJOsT86dIR7w@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxy0ErK/qqjqp7EtlBGqOlalNDEbOMWl39HSZftIUASPhAN/1nH
-	0OjNeBrXyq7HV0rAaqC3ELRk28AiB6xCFkUqA1rmlwol0rlVAWgU6RtL
-X-Gm-Gg: AfdE7cknQqr4GbopXfrY8/GnNeKm04aHc7i39BUnRheFUtRMyE82Ezyh7Y8WMh5k3zf
-	QYJVeMd2ZpGANkFgQ5wsUVeaXFqCnzTNiDlRWQBsk/0BY35pFeQ1goPizhYDr9zPBN9OsVjCj2e
-	oS6qPo9qW0z+H+xa6VoUNp9lGj2g1WV/vybWQ2WNR6hEsKTwMdugmA9fQCCEgQDKnhOBD4EPUmH
-	taUto8p18ICccW5W0VFMIQbDJSuhi7MEUwKXVaSjatd4t3+ZUQY3X6lIUxZ7YF0eIPqhF8pu8Xy
-	IUHcPT6PKdTIhuku694b3G6YH4BOIsFBGJfYOuLvoLdrOQqNQ3bT+9ew8iSgMx9Y6Ncwq+ch+J4
-	FbVenXKlcQViNbIvcf+wCpYxKnm04UdlkEMw8my8ynfpBDlE7SN/MFzjOQDRoOJv4iDyOlCotJ+
-	dUZ0F6IHeA5JkHGmlZO7tYk5owksR/FQUiETscDHJR710C1GRG/Be0FQN1hR90fNDm
-X-Received: by 2002:a17:902:db05:b0:2ca:6c8:abd8 with SMTP id d9443c01a7336-2cbb74ff24dmr43520125ad.12.1783208662110;
-        Sat, 04 Jul 2026 16:44:22 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:3f90:534a:314e:e11d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c7ef188sm34410696c88.2.2026.07.04.16.44.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 04 Jul 2026 16:44:21 -0700 (PDT)
-Date: Sat, 4 Jul 2026 16:44:18 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Benson Leung <bleung@chromium.org>, 
-	Tzung-Bi Shih <tzungbi@kernel.org>, Jiri Kosina <jikos@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev, linux-input@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/7] Input: elan_i2c - Wait for initialization after
- enabling regulator supply
-Message-ID: <akmZOC_J2ZTl4zLX@google.com>
-References: <20260703115601.1323491-1-wenst@chromium.org>
- <20260703115601.1323491-2-wenst@chromium.org>
+	Sun, 05 Jul 2026 00:17:13 +0000
+Received: from localhost.localdomain (unknown [111.196.245.140])
+	by APP-03 (Coremail) with SMTP id rQCowAAXBayDoklqvszfFg--.15806S2;
+	Sun, 05 Jul 2026 08:17:07 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	linux-clk@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] clk: imx: imx8qxp: add missing MODULE_DEVICE_TABLE()
+Date: Sun,  5 Jul 2026 08:17:05 +0800
+Message-ID: <20260705001705.70400-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260703115601.1323491-2-wenst@chromium.org>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAAXBayDoklqvszfFg--.15806S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Xw47WF43Aw43JF17XrWkWFg_yoWkGrX_Cr
+	y8Wr1xWr48CFZYk3W7Gr1furyI9w47ur1kXFyvqa43Ja4UZr13GFZ2gwsIqw1UGrW0yFZ8
+	XwnrWry8Cry2kjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUba8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
+	Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AKxVW8Jr
+	0_Cr1UM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
+	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFV
+	Cjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWl
+	x4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r
+	1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_
+	JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcS
+	sGvfC2KfnxnUUI43ZEXa7VUb_Ma5UUUUU==
+X-Originating-IP: [111.196.245.140]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260704_164423_288813_D5601BC3 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260704_171711_591456_3ED30D8E 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+The driver has a match table for the of bus wired into its driver
+structure, but the table is not exported with MODULE_DEVICE_TABLE().
 
-On Fri, Jul 03, 2026 at 07:55:54PM +0800, Chen-Yu Tsai wrote:
-> Elan trackpad controllers require some delay after enabling power to
-> the controller for the hardware and firmware to initialize:
-> 
->   - 2ms for hardware initialization
->   - 100ms for firmware initialization
-> 
-> Until then, the hardware will not respond to I2C transfers. This was
-> observed on the MT8173 Chromebooks after the regulator supply for the
-> trackpad was changed to "not always on".
-> 
-> Add proper delays after regulator_enable() calls. To avoid impacting
-> the boot time of existing devices that have the power rails always on,
-> skip the delay if the regulator supply was already enabled. In this
-> case the regulator is either always on, was on by default at power up,
-> or was left on by some other driver, such as the I2C OF component
-> prober. Either way the controller has had ample time to initialize.
+Add the missing MODULE_DEVICE_TABLE() entry so module alias information
+is generated for automatic module loading.
 
-Unfortunately we do not know that [it had ample time]. For this code be
-reliable we need to record the time at which given regulator was turned
-on and then execute/adjust the delay as needed. Until we have it we need
-to assume the regulator was enabled at the time of regulator_enable()
-call.
+This is a source-level fix.  It does not claim dynamic hardware
+reproduction; the evidence is the driver-owned match table, its use by
+the driver registration structure, and the missing module alias
+publication.
 
-I am not concerned with increased boot time too much given the driver is
-set up for asynchronous probing.
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/clk/imx/clk-imx8qxp.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-Thanks.
-
+diff --git a/drivers/clk/imx/clk-imx8qxp.c b/drivers/clk/imx/clk-imx8qxp.c
+index c781425a005e..1f6d9f45dad7 100644
+--- a/drivers/clk/imx/clk-imx8qxp.c
++++ b/drivers/clk/imx/clk-imx8qxp.c
+@@ -337,6 +337,7 @@ static const struct of_device_id imx8qxp_match[] = {
+ 	{ .compatible = "fsl,imx8qm-clk", &imx_clk_scu_rsrc_imx8qm, },
+ 	{ /* sentinel */ }
+ };
++MODULE_DEVICE_TABLE(of, imx8qxp_match);
+ 
+ static struct platform_driver imx8qxp_clk_driver = {
+ 	.driver = {
 -- 
-Dmitry
+2.53.0
+
 
