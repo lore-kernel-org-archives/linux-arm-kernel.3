@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEE1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 13:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D04CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 14:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ptgJWZIsX40jO6cPpRKjQdeEPxbPXOrzES3xheV45dk=; b=YLQszQxDEBC2W6CdnyONFjJazT
-	AHUxeRcZjnfBjtjDoUfF7AjIQFsWMnwLS2bBCNRENjIYnWPYUG0/ryPrnvZc6Q8F2SPa747SflUp4
-	pz6KdiUAYTnpBhMRSpQIGMNVKZE0unxwusj0dfGob4YPEPUjhlpcONCLNFos26SBWUfk829CNvvyo
-	cf8Mt6udTXToWBzNQMohSAQZtX21Qa2EV5LNcnXnumbH/cMK8aLdLmNO2GrLPOBU2BfUdnAyx7TsQ
-	GpS9KmoPm5zdxdM8EECjMPBqzVfmqnENbRJsG7u9fR2J4Yh1p1KVE+khcZxky5jppj1uilYSkhNCL
-	zM0+p24Q==;
+	bh=0YYhQMOz/PyXYUbG48Ccz4JDrVYHGg9nJndc/1zSGn8=; b=MFGH3LvoXYImBbhfHLge28rt9M
+	mlMYeW+nwVC/Xm0Fe0299owFrproc8/kakrpjnJKQ/xr0U9W2A9ZJEIPs+uehYLmynGtYH8YLlGGN
+	m3tRQUg9yxucdHqkWEgYi35+S+3kS2028xoZPqCQQ4dlLfEQRNMN+khaNpd0XBD/hg9Q0+9GCwnq4
+	tMuUtPEt+/JtfGAVRcKaeAyEWCuZd1sqjMWKEGdTichLutZvTG1HyBQMaslmCXlKX7JdeazvYHmph
+	wBHmJ77dPeKfLArubYGYyAN8lDWByFY3GZTJb3gqdWJ/2mTyKdrIbDg6FNZl8N3JA1XybSxT4kuZ0
+	nYlKzItw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgNFE-00000009MJH-0kIH;
-	Sun, 05 Jul 2026 13:50:52 +0000
-Received: from out203-205-221-236.mail.qq.com ([203.205.221.236])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgNFA-00000009MI2-0rT9;
-	Sun, 05 Jul 2026 13:50:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1783259444; bh=ptgJWZIsX40jO6cPpRKjQdeEPxbPXOrzES3xheV45dk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=pUGtZFZKQqvSwsZUjz6BNbqy8P3MvSlkAumXiAOXKwYyNYnOcs4OkgytUePqRoEwl
-	 HU2ywkpuJIprZ9YHKtekZjxKu0mUmH+eiVNF0Aqkv75GMjuhg+7ZpEFSsnfzM4M+dF
-	 DA4m7RiOZcP3IumOgrBygDqE/EQZ+SU2qBRWgErg=
-Received: from AERO17.taila7786d.ts.net ([112.43.117.189])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id CA0A8E0E; Sun, 05 Jul 2026 21:50:32 +0800
-X-QQ-mid: xmsmtpt1783259437t28oiiu80
-Message-ID: <tencent_B1442A024A02EFD704ECC0F098F663588209@qq.com>
-X-QQ-XMAILINFO: NuGpsYW8pZ+AqoI3ue2b7Jwtso/wx9Ppt3m474UdRjBsrXBJPuOaiOiqvRULXY
-	 lTJcdGr+1LVkuqVBzlpvUVs/v17ZU84o3DueR5OSElbSXP/64fy/XK2fQl0gP8/Zcv9zH4LZ3iCS
-	 VJMeWTwl3iRLZbSWwlR+lvXCy7wvFh8bZab5yoGfRaH42SYjCFPmDsLa18zMXH0f0PJZnE57HB4G
-	 hDHf4fS/Zlho6SZgGdnuFe+5AoXPNmKXXlwKIVUANUvqblUGgZXEW3uL4wKXJUzji6oGrwuaZveC
-	 IAZm2sWK3CZpOfMEKp7w7/jupqbcsnftLAz+gEDGiW8HOs02r7Tm54qSWyb92qaCV7vl6mdIo5nj
-	 UWDvir79a2psorJV1Nx7Rt8ORpx0k0BKFTCOhvX29830AkJVdfBcDiTY5j3Ovjx5ChByH/zMAbP+
-	 0JvbCVcDI69WCexbxjsHSLk0AKtzk9JC3ZOgddooGMKY8Lm/c8H6kcvlmP1GfZkN/5cf+HOtTGLP
-	 V1nE1SuVDpQ04PXLiez+Etz4KRguKta/ShtUQ6v8naH+CHwf20b5k2eIwN3iMmmy4wJUrO3JlGxX
-	 MeMgRIGLQ9rcuv6R9eIGiykU2hJMabmC0MvBfrBiYyNLkBtMwM+Asu3ufMDveV7Q2hjYGgpUGZ4r
-	 zC3WfLgQd8NIUMqowA/gJCiZJmEavebp3NpG19xU5QKxV9WY32bN1ivQAEs8h11tHynl2ieaVwrF
-	 /WiLZHQ98QR0/7I+wPbd2Dhwf/wdhFkXr3jfOjknSrH1Xn873UZ5UOFYwYtM8eW/vcJgHfDpfWzF
-	 wmjcPGuj6NUq5/GqcAMhND0bTPZKKemgohLBywzHNdWN96mixuGV15QIJ/wc7hPeKXNGCaPbycJ7
-	 pkcOka3Qbcinc4yaKQzJ6o3bV7COQWseYsIdkS21Ibp/CBL/2tWxbEhdkWrksaffRUipU5m9YvU9
-	 IgPF0FUiOqMbIBFSVWhooudmCD0idsJWRY9G7clenT0QIQHPijcZNrF1ufIXk1QsmTQ5cQn6J3k/
-	 KFr9TKFM80Rh/+t8rY
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-From: LemonFan-maker <2254650260@qq.com>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4 board
-Date: Sun,  5 Jul 2026 21:50:13 +0800
-X-OQ-MSGID: <20260705135014.1004166-2-2254650260@qq.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260705135014.1004166-1-2254650260@qq.com>
-References: <20260705135014.1004166-1-2254650260@qq.com>
+	id 1wgNWz-00000009NEr-1YHL;
+	Sun, 05 Jul 2026 14:09:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgNWw-00000009NES-1cjt
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Jul 2026 14:09:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A5F0F1D31;
+	Sun,  5 Jul 2026 07:09:03 -0700 (PDT)
+Received: from [10.57.73.233] (unknown [10.57.73.233])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DDBC23F905;
+	Sun,  5 Jul 2026 07:09:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783260548; bh=tton+mxcFxiJVWf32c1zvDyubZlrW/ZkabAOaNPXrwM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J8qSZd0SBfShFknERJGrB1ZVz4rGkhg/AUDMTWxX1ycbLO792EFw8JwVkczZfWPCL
+	 NYmP7NSnxtBRMjxfN+oMb0u+viwuxDaZNNlrgSNCgaETnsrQS1sXQY1AN7zd92Y4zt
+	 IgHQnBWYv5cuEoLqzyYuWCFm49MY1Jd+eAPJTX70=
+Message-ID: <a3b2423e-d8bc-4713-90ef-5bfac7079834@arm.com>
+Date: Sun, 5 Jul 2026 19:38:58 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4] KVM: arm64: Record whether pKVM stage 2 mapping is
+ cacheable
+To: Bradley Morgan <include@grrlz.net>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>
+Cc: Fuad Tabba <tabba@google.com>, Joey Gouly <joey.gouly@arm.com>,
+ Steffen Eiden <seiden@linux.ibm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Quentin Perret <qperret@google.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20260701192428.17430-1-include@grrlz.net>
+Content-Language: en-US
+From: Dev Jain <dev.jain@arm.com>
+In-Reply-To: <20260701192428.17430-1-include@grrlz.net>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_065048_566042_DA0F166E 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260705_070910_639363_108B0C6E 
+X-CRM114-Status: GOOD (  21.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +77,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LubanCat 4 is a single board computer based on the Rockchip
-RK3588S SoC.
 
-Specification:
-- Rockchip RK3588S
-- 4/8/16GB LPDDR4X
-- 32/64/128GB eMMC 5.1
-- microSD slot
-- HDMI 2.1 Type-A
-- Gigabit Ethernet (JLSemi JL21xx PHY)
-- Mini PCIe (PCIe 2.0 x1)
-- USB-C (with FUSB302 typec controller)
-- USB 3.0 Type-A x1
-- USB 2.0 Type-A x2
-- 3.5mm audio jack (ES8388 codec)
-- HYM8563 RTC
-- PWM fan header
-- 40-pin GPIO header
 
-Signed-off-by: LemonFan-maker <2254650260@qq.com>
----
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+On 02/07/26 12:54 am, Bradley Morgan wrote:
+> pKVM keeps its own mapping list for stage 2 operations. Its flush path
+> uses that list directly, so it lost the PTE attribute check done by the
+> generic stage 2 walker.
+> 
+> Record whether a mapping is cacheable and skip cache maintenance for
+> mappings that are not cacheable.
+> 
+> Fixes: e912efed485a ("KVM: arm64: Introduce the EL1 pKVM MMU")
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index aa66a15be233..44b005bc709a 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -191,6 +191,11 @@ properties:
-           - const: embedfire,lubancat-2
-           - const: rockchip,rk3568
- 
-+      - description: EmbedFire LubanCat 4
-+        items:
-+          - const: embedfire,lubancat-4
-+          - const: rockchip,rk3588s
-+
-       - description: Engicam PX30.Core C.TOUCH 2.0
-         items:
-           - const: engicam,px30-core-ctouch2
--- 
-2.55.0
+Is Fixes tag required? If I am reading correctly, Arm ARM says this:
+
+"For VA-based cache maintenance instructions, the instruction operates on the
+caches regardless of the memory type and cacheability attributes marked for
+the memory address in the VMSA translation table entries. This means that
+the effects of the cache maintenance instructions can apply regardless of:
+  Whether the address accessed:
+    Is Normal memory or Device memory.
+    Has the Cacheable attribute or the Non-cacheable attribute."
+
+So nothing goes wrong if we do dcache clean for non-cacheable memory.
+
+> Signed-off-by: Bradley Morgan <include@grrlz.net>
+> ---
+> Changes since V3:
+> - addressed some review :)
+> 
+>  arch/arm64/kvm/pkvm.c | 51 ++++++++++++++++++++++++++++++++++---------
+>  1 file changed, 41 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 053e4f733e4b..6d1cad890c7e 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -302,9 +302,32 @@ static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
+>  	return m->gfn * PAGE_SIZE;
+>  }
+>  
+> +#define PKVM_MAPPING_NR_PAGES_MASK     GENMASK_ULL(47, 0)
+> +#define PKVM_MAPPING_NC                        BIT_ULL(48)
+> +
+> +static u64 pkvm_mapping_nr_pages(struct pkvm_mapping *m)
+> +{
+> +	return m->nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> +}
+> +
+> +static bool pkvm_mapping_is_nc(struct pkvm_mapping *m)
+> +{
+> +	return m->nr_pages & PKVM_MAPPING_NC;
+> +}
+> +
+> +static void pkvm_mapping_set_nr_pages(struct pkvm_mapping *m, u64 nr_pages,
+> +				      bool nc)
+> +{
+> +	WARN_ON_ONCE(nr_pages & ~PKVM_MAPPING_NR_PAGES_MASK);
+> +
+> +	m->nr_pages = nr_pages & PKVM_MAPPING_NR_PAGES_MASK;
+> +	if (nc)
+> +		m->nr_pages |= PKVM_MAPPING_NC;
+> +}
+> +
+>  static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
+>  {
+> -	return (m->gfn + m->nr_pages) * PAGE_SIZE - 1;
+> +	return (m->gfn + pkvm_mapping_nr_pages(m)) * PAGE_SIZE - 1;
+>  }
+>  
+>  INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
+> @@ -350,7 +373,7 @@ static int __pkvm_pgtable_stage2_reclaim(struct kvm_pgtable *pgt, u64 start, u64
+>  			continue;
+>  
+>  		page = pfn_to_page(mapping->pfn);
+> -		WARN_ON_ONCE(mapping->nr_pages != 1);
+> +	       WARN_ON_ONCE(pkvm_mapping_nr_pages(mapping) != 1);
+>  		unpin_user_pages_dirty_lock(&page, 1, true);
+>  		account_locked_vm(current->mm, 1, false);
+>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> @@ -369,7 +392,7 @@ static int __pkvm_pgtable_stage2_unshare(struct kvm_pgtable *pgt, u64 start, u64
+>  
+>  	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
+>  		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn,
+> -					mapping->nr_pages);
+> +				       pkvm_mapping_nr_pages(mapping));
+>  		if (WARN_ON(ret))
+>  			return ret;
+>  		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+> @@ -448,7 +471,7 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  		 * permission faults are handled in the relax_perms() path.
+>  		 */
+>  		if (mapping) {
+> -			if (size == (mapping->nr_pages * PAGE_SIZE))
+> +			if (size == (pkvm_mapping_nr_pages(mapping) * PAGE_SIZE))
+>  				return -EAGAIN;
+>  
+>  			/*
+> @@ -472,7 +495,9 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+>  	swap(mapping, cache->mapping);
+>  	mapping->gfn = gfn;
+>  	mapping->pfn = pfn;
+> -	mapping->nr_pages = size / PAGE_SIZE;
+> +	pkvm_mapping_set_nr_pages(mapping, size / PAGE_SIZE,
+> +				  (prot & (KVM_PGTABLE_PROT_DEVICE |
+> +					   KVM_PGTABLE_PROT_NORMAL_NC)));
+>  	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+>  
+>  	return ret;
+> @@ -503,7 +528,7 @@ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	lockdep_assert_held(&kvm->mmu_lock);
+>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+>  		ret = kvm_call_hyp_nvhe(__pkvm_host_wrprotect_guest, handle, mapping->gfn,
+> -					mapping->nr_pages);
+> +				       pkvm_mapping_nr_pages(mapping));
+>  		if (WARN_ON(ret))
+>  			break;
+>  	}
+> @@ -517,9 +542,13 @@ int pkvm_pgtable_stage2_flush(struct kvm_pgtable *pgt, u64 addr, u64 size)
+>  	struct pkvm_mapping *mapping;
+>  
+>  	lockdep_assert_held(&kvm->mmu_lock);
+> -	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> +	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+> +		if (pkvm_mapping_is_nc(mapping))
+> +			continue;
+> +
+>  		__clean_dcache_guest_page(pfn_to_kaddr(mapping->pfn),
+> -					  PAGE_SIZE * mapping->nr_pages);
+> +					  PAGE_SIZE * pkvm_mapping_nr_pages(mapping));
+> +	}
+>  
+>  	return 0;
+>  }
+> @@ -536,8 +565,10 @@ bool pkvm_pgtable_stage2_test_clear_young(struct kvm_pgtable *pgt, u64 addr, u64
+>  
+>  	lockdep_assert_held(&kvm->mmu_lock);
+>  	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping)
+> -		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest, handle, mapping->gfn,
+> -					   mapping->nr_pages, mkold);
+> +		young |= kvm_call_hyp_nvhe(__pkvm_host_test_clear_young_guest,
+> +					   handle, mapping->gfn,
+> +					   pkvm_mapping_nr_pages(mapping),
+> +					   mkold);
+>  
+>  	return young;
+>  }
 
 
