@@ -4,75 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7BBBC44502
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 17:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D92C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 18:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSIhiCvRo5P9jTHg6jbzEKDNhagZjmhPUVsXSsYFY54=; b=jKFqeYFrS7c9f3oPK9BvnQ23yq
-	rkn+ul4fLIwEDOWwygXKrQCNX5PWHu37pxm6pB0wfyvqmol8b1YT7oQ+/RoVJt/cSv/uD7ARuI9Es
-	N8Xk2qssy0t/yFQsAlZgRZEEjOIULhfyTRlRWIOaAPqgP7fu6W7oehW+P/4uOinKIAR2+nWtauHGw
-	2tOcMO4YQJa6Z7BxgUoSNCsoJ9J8IiBhQoKgXY7DW/GYal0FV+uHg+oRLoxkD9f6IdoOasHCNBR1P
-	5ukG5ubvzGIdeI4ngjTz6zXvoz6a2o+5V7qJNdTn0yBWEs3bIe8BfxLcgBIFpqOmUI9IcNx7IRCuE
-	A6fT7leQ==;
+	bh=uGtsisFYQ3ZsoB2jg7Gl9tLznZoCpOpVvTrcNSu1WWg=; b=YkcOeB96uqt5J/MKK7bMfkwawC
+	adgkAZ8j74mT7uZ1S0xrQhLAVOexp4UpuE+5jSXlaAtRts7S9cABUuR0XF2LOtRq6m7M8DHlqvVnF
+	8qtAeNSnF6ntod9dpLGurPGFjiOUB2CvbilSn3Ybd/a+6n01pqyZZs0mDV5fV4zBZopmpocAVI3es
+	h9imWChU4I0+HzOChV2JsSEV5rE3A4e9GvrWeHU6qdeLdB4ljnWIw4wdrzl6cglujcOdhAivhSsOf
+	KPzJ7MP5JCpnvzAHkGhgSXC34ee8mc9tfDJpTpBS3mz19M1r8+mPP7nFESiMc5XwF6hUDKW8gjhDb
+	2OFekg8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgR6Q-00000009XSV-16HJ;
-	Sun, 05 Jul 2026 17:58:02 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1wgRSH-00000009Yil-44D9;
+	Sun, 05 Jul 2026 18:20:37 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgR6M-00000009XQQ-0nLC
+	id 1wgRSE-00000009Yhz-46GU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 17:58:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Cc:To:In-Reply-To:References:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZSIhiCvRo5P9jTHg6jbzEKDNhagZjmhPUVsXSsYFY54=; b=A+NHr6NbZDiiQf65Vk9do6Jb5H
-	ew3f4xmpB5VxiiqpnYYhL35rfMDDPRYks4Dn/94dOX6hCro7qYGdZEJ6EP3q9j0pRoq6nRL3IyAtR
-	FOqaaI/PuA01PJl6I8rGpS+tthpfl114ZtdEVAZtfs01nyQx9YHEQUO4KoRxFE/++wGfClfyw0TS2
-	uUAHa2tCjleQwNxQtgPjnwODaeKSFrT7Q/AlYX4dVTEN+KcpslTUuuKoKAsRtm3EItPWmvihw2+g7
-	cNnRtBdHTrQG6LOAQP8CU9MCXExxtZr7TMuc92HQVu8QiL59W/ZhOJwpkxt1AX7nZxDe/bsV6EKjE
-	1stAuksg==;
-Received: from 201-69-111-23.dial-up.telesp.net.br ([201.69.111.23] helo=[192.168.15.100])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256) (Exim)
-	id 1wgR5n-009PnY-JQ; Sun, 05 Jul 2026 19:57:23 +0200
-From: =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-Date: Sun, 05 Jul 2026 14:56:52 -0300
-Subject: [PATCH v4 2/5] arm64: vdso: Prepare for robust futex unlock
- support
+	Sun, 05 Jul 2026 18:20:36 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2c9bd2f8bf7so32156935ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 11:20:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783275634; x=1783880434; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uGtsisFYQ3ZsoB2jg7Gl9tLznZoCpOpVvTrcNSu1WWg=;
+        b=Fjr4N1zBo3U9Nw3+/31R5uchCBBt48Yp7R/hvVf73yhDopXZdV8swoGv17CbLCLZ7V
+         O2zS5trriNf4swROsMKHXVTZnlI7/xzVTC/UbSW1zdXya9LKs14QjuE60NPNxHbTJV/u
+         dm381k2OXKK6/828MD8Ct4TBU2eAh/bcCIV1FAbgYqFNqz5IpriZUU/+Y2o7QMI9YydN
+         Lm+f2nwnIfXiGRtT1t+2vV1Pm1i4OUY9AafT5BT2Hr1OUTFMMMvEC5+HDJNu6/0tpWLY
+         fXnbhPIbUw3sChcJHgo4Rua9IzgraORdRcdRff8eWnDe+ZdnsVzgYsA+4XbltDp/PG7c
+         lgkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783275634; x=1783880434;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=uGtsisFYQ3ZsoB2jg7Gl9tLznZoCpOpVvTrcNSu1WWg=;
+        b=W5NRpTci4GClKYpOgnrtNdwPsnedKzleLKiY3apBPa6lMc/LPjyj7An4iNSv4uTCry
+         RbHYAu4TSLqzcvSBPoYHOdqJ7JyCwJadSU+gPXz+P2wmMBFp2BJb6OFTbXCq9SHcS/rV
+         oXkb4oy3EHvvBRz1caJv7QCSKoAhsbQKO8rS4Se8xewuMP6aJki0ua2BFTpPyHGHVgwr
+         rnRUMwhAQZG4xcJl3HfYpZ69AQ+MRyCr3anHe2zOw3dbOCO/WNrxAf2+EbqXIwcSQS7M
+         6zsrq2TlCsX3X2D2cDNeN+vTvRmmKKBVPWlzF5dohOqFL6KJb+A3tgwH0KGFuGLDTbO9
+         +LhA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr1r2tpJEs7yKASfVA0Z4DBZ/Y33trNfF9Nl715p/toyWkfdJ0DDu7xcyzJUiUU7q2LqrIiVeiMr4c6WkjpFDaS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyz+cxvWtReuirahoAFytdoZ8JnNfaEPgemYOTuVHttxu8F6vje
+	w7RbO5v5Tpw7gP1sZ2Awjs0t3J1OWBRfa1dIVfeNMfQLx1ItILhDQAUm
+X-Gm-Gg: AfdE7cnJFaVa3OBa/hndZgTqk4wlGhKHFBfBkX8byv79McoyDq4Kcs2xfhRiSG9JE/V
+	4jP97Oroo9z9QN5kP+ZKv7i9Yc95Bdn8GKztCcaLt8P2G/9n/EfSSW3KzTYHH6KmDgo7lZeIIK1
+	tYZi77OhPpuhM8AwCEIFB+D7H2Ywk+q6KVn2NHb2IDmHX0LfoHh6UAN7NPXuc44WD0So826fYcY
+	fWnLU3VfK4X1gAN1jmCWcERgX+3Y3xZ5xmPnVNTgPUZsZsw+OhkrJAIRfWYIg5w+7OAww6dR5XP
+	Ap12tWFhTysR+sdWefG+twRUiYcwpoA4ESal8EpC7o1kmcoCGeSmyZ01J3lCrzg93PbGGQDkHw2
+	mkLft3f6/xyvGGo4K84w93Q3BT//hzb4o/8CrsHeliY7DpQN4deaQgL3Idz7g40L+daYLamqTJQ
+	Lhe2migiDP8fwHW+9IlhRxCoVIuElN8TFP/zquigKCg+RyT+xKq4g+iVzyQso0SardtAU+B/qXF
+	p/kCjVPNDUxWqpj
+X-Received: by 2002:a17:90b:528e:b0:380:9699:ae98 with SMTP id 98e67ed59e1d1-381120f7aeamr13586199a91.8.1783275633209;
+        Sun, 05 Jul 2026 11:20:33 -0700 (PDT)
+Received: from MacBookPro.tail6abcb.ts.net ([2804:7f0:460:b8cc:e161:f046:ac0f:f27f])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0bb7fe46sm51230319eec.14.2026.07.05.11.20.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 05 Jul 2026 11:20:32 -0700 (PDT)
+From: Brian Mayer <bleemayer@gmail.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v2] arm64: dts: rockchip: add HYM8563 RTC to Radxa CM5 IO board
+Date: Sun,  5 Jul 2026 15:19:19 -0300
+Message-ID: <20260705181920.8633-1-bleemayer@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <2960762.AiC22s8V5E@diego>
+References: <2960762.AiC22s8V5E@diego>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20260705-tonyk-robust_arm-v4-2-e0fd0fa259d3@igalia.com>
-References: <20260705-tonyk-robust_arm-v4-0-e0fd0fa259d3@igalia.com>
-In-Reply-To: <20260705-tonyk-robust_arm-v4-0-e0fd0fa259d3@igalia.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@kernel.org>, 
- Mark Rutland <mark.rutland@arm.com>, 
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, 
- Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
- Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
- Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>, 
- Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>, 
- Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>, 
- Arnd Bergmann <arnd@arndb.de>, Uros Bizjak <ubizjak@gmail.com>, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
- "Liam R. Howlett" <liam@infradead.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-arch@vger.kernel.org, kernel-dev@igalia.com, 
- LKML <linux-kernel@vger.kernel.org>, 
- =?utf-8?q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
-X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_105758_227990_3E6EBD00 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20260705_112035_009804_DB648C9E 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +100,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There will be a VDSO function to unlock non-contended robust futexes in
-user space. The unlock sequence is racy vs. clearing the list_pending_op
-pointer in the task's robust list head. To plug this race the kernel needs
-to know the critical section window so it can clear the pointer when the
-task is interrupted within that race window. The window is determined by
-labels in the inline assembly.
+Hello again, to clarify: I tested the v1 patch in my radxa cm5, but since
+this v2 only contains name changes I didn't test. I added the missing
+agent tag and am sending the patch inline. Thanks.
 
-Signed-off-by: André Almeida <andrealmeid@igalia.com>
+The Radxa CM5 IO carrier has a Haoyu HYM8563 real-time clock on I2C6 at
+address 0x51, with its interrupt line on GPIO0_B0 and a CR1220 backup
+battery holder. Without a device tree node, no /dev/rtc* appears even
+when CONFIG_RTC_DRV_HYM8563 is enabled.
+
+Describe the RTC, wire the interrupt pin with a pull-up, mark it as a
+wakeup source, and point the rtc0 alias at it so RTC_HCTOSYS/SYSTOHC use
+the external clock. Wiring matches Radxa's downstream board support and
+uses schematic names for the rtc_int_l pinctrl entry.
+
+Assisted-by: Grok:grok-build
+Signed-off-by: Brian Mayer <bleemayer@gmail.com>
 ---
-v4:
-- Guard symbols from vdso.lds.S with ifdef
-- drop update_ips() from sigpage remap function
+ .../dts/rockchip/rk3588s-radxa-cm5-io.dts     | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-v3:
- - Fix adding vdso base addr twice
- - Call vdso_futex_robust_unlock_update_ips() on remap as well
-v2:
- - Fixed linker not finding VDSO symbols
----
- arch/arm64/kernel/vdso.c          | 23 +++++++++++++++++++++++
- arch/arm64/kernel/vdso/vdso.lds.S |  9 +++++++++
- 2 files changed, 32 insertions(+)
+Changes in v2:
+- Rename pinctrl to rtc_int_l / rtc-int-l to match schematics
+- Drop Tested-by (covered by Signed-off-by)
+- Add Assisted-by: Grok:grok-build
+- Send inline with git send-email (not as attachment)
 
-diff --git a/arch/arm64/kernel/vdso.c b/arch/arm64/kernel/vdso.c
-index 592dd8668de4..283b38684ef7 100644
---- a/arch/arm64/kernel/vdso.c
-+++ b/arch/arm64/kernel/vdso.c
-@@ -11,6 +11,7 @@
- #include <linux/clocksource.h>
- #include <linux/elf.h>
- #include <linux/err.h>
-+#include <linux/futex.h>
- #include <linux/errno.h>
- #include <linux/gfp.h>
- #include <linux/kernel.h>
-@@ -57,11 +58,31 @@ static struct vdso_abi_info vdso_info[] __ro_after_init = {
- #endif /* CONFIG_COMPAT_VDSO */
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
+index af4a9bc01..d22db4d18 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588s-radxa-cm5-io.dts
+@@ -19,6 +19,7 @@ / {
+ 	aliases {
+ 		ethernet0 = &gmac1;
+ 		mmc1 = &sdmmc;
++		rtc0 = &hym8563;
+ 	};
+ 
+ 	chosen {
+@@ -198,6 +199,18 @@ usbc0_dp_altmode_mux: endpoint {
+ 			};
+ 		};
+ 	};
++
++	hym8563: rtc@51 {
++		compatible = "haoyu,hym8563";
++		reg = <0x51>;
++		#clock-cells = <0>;
++		clock-output-names = "hym8563";
++		interrupt-parent = <&gpio0>;
++		interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rtc_int_l>;
++		wakeup-source;
++	};
  };
  
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+static void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm)
-+{
-+	unsigned long vdso = (unsigned long) mm->context.vdso;
-+	struct futex_mm_data *fd = &mm->futex;
-+	uintptr_t success, end;
-+
-+	if (abi == VDSO_ABI_AA64) {
-+		success = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_success);
-+		end = (uintptr_t) VDSO_SYMBOL(vdso, futex_list64_try_unlock_cs_end);
-+
-+		futex_set_vdso_cs_range(fd, 0, success, end, false);
-+	}
-+}
-+#else
-+static inline void vdso_futex_robust_unlock_update_ips(enum vdso_abi abi, struct mm_struct *mm) { }
-+#endif /* CONFIG_FUTEX_ROBUST_UNLOCK */
-+
- static int vdso_mremap(const struct vm_special_mapping *sm,
- 		struct vm_area_struct *new_vma)
- {
- 	current->mm->context.vdso = (void *)new_vma->vm_start;
- 
-+	vdso_futex_robust_unlock_update_ips(VDSO_ABI_AA64, current->mm);
-+
- 	return 0;
- }
- 
-@@ -134,6 +155,8 @@ static int __setup_additional_pages(enum vdso_abi abi,
- 	if (IS_ERR(ret))
- 		goto up_fail;
- 
-+	vdso_futex_robust_unlock_update_ips(abi, mm);
-+
- 	return 0;
- 
- up_fail:
-diff --git a/arch/arm64/kernel/vdso/vdso.lds.S b/arch/arm64/kernel/vdso/vdso.lds.S
-index 52314be29191..225f59bb81d1 100644
---- a/arch/arm64/kernel/vdso/vdso.lds.S
-+++ b/arch/arm64/kernel/vdso/vdso.lds.S
-@@ -104,6 +104,9 @@ VERSION
- 		__kernel_clock_gettime;
- 		__kernel_clock_getres;
- 		__kernel_getrandom;
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+		__vdso_futex_robust_list64_try_unlock;
-+#endif
- 	local: *;
+ &i2s5_8ch {
+@@ -221,6 +234,12 @@ usbc0_int: usbc0-int {
+ 		};
  	};
- }
-@@ -112,3 +115,9 @@ VERSION
-  * Make the sigreturn code visible to the kernel.
-  */
- VDSO_sigtramp		= __kernel_rt_sigreturn;
+ 
++	hym8563 {
++		rtc_int_l: rtc-int-l {
++			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
++		};
++	};
 +
-+#ifdef CONFIG_FUTEX_ROBUST_UNLOCK
-+VDSO_futex_list64_try_unlock_cs_start = __futex_list64_try_unlock_cs_start;
-+VDSO_futex_list64_try_unlock_cs_success = __futex_list64_try_unlock_cs_success;
-+VDSO_futex_list64_try_unlock_cs_end = __futex_list64_try_unlock_cs_end;
-+#endif
+ 	hdmi {
+ 		hdmi0_tx_on_h: hdmi0-tx-on-h {
+ 			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
 
+base-commit: 87320be9f0d24fce67631b7eef919f0b79c3e45c
 -- 
 2.54.0
 
