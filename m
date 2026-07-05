@@ -4,77 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A155AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 22:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB0F3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 23:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
-	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XzP4IrwF64OOqXOnzQR9aMpiMXv9vAON16c9GzABhuU=; b=lVRPvJiqrxqdvYCx8niIDdFg1+
-	ycOXXo+Ft98A/ghluGckkeX0ox0y/vUf4GdioOG7IiyYUZbZ0rd7nz+x4DUQLTdGjQj51aXKry+mm
-	YdofGRQ+/Fo5l2Wpd9zeQhVgN8zOhqctl6jcZJnvQqBKd/wdOxQ4619wrNvYO7WNd10K4qhFpazrk
-	sE+nYjzEzjeFJEwqLBZb75Nb6j5PmhBCQjF6YQ4siuadfWDIrx+XRmIp9NAndqR1vaDHItBskqDPj
-	VnF7+5pQbdGkOnwNII3Vic+SL11MDYseSNrXWbe6lvjwFMzH/jN6YjE3UlfmqFSy9KEJEnieI1PxJ
-	5U2l+sPg==;
+	bh=ffPL0UFrnUQ1Z40lCU566ipIccROYO67WvnBVyYNZdI=; b=Z/uV2MNotzuWsc/SeW9fXkFrXE
+	2yoGVPJ831BVSIwR5tzyY7wdubgyDCn+DM7a3GYsJeS8uxmpkttv4bXYpmD2dsvZKGWWmEa5u0FYc
+	ZLMgL11YHrafZsgcQRmKmWfuyX6rVWLoToCYAyBerZevcm3J7PmT6mK7BTscaqYzVVeGhje7E6xUP
+	vavZxdgAYUXt2HpD0rJNEEO6LphCHB+ch+xtnUHb5MXoOMse0CIRSuu0AMOr2wlMmdqdKeu1Ja4uR
+	dS9hW0TFJDlpW7G84b1FQk8fi/fXrwAuZcskemNPljEohfXpx9/r5qPgdNORgSLu02/1wDgS73uwX
+	18L9kVQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgVCO-0000000ADyN-0uoX;
-	Sun, 05 Jul 2026 22:20:28 +0000
-Received: from out-189.mta0.migadu.com ([2001:41d0:1004:224b::bd])
+	id 1wgVtM-0000000Af9J-0rnl;
+	Sun, 05 Jul 2026 23:04:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgVCK-0000000ADwI-475b
+	id 1wgVtL-0000000Af8s-12BS
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 22:20:26 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1783290019;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=XzP4IrwF64OOqXOnzQR9aMpiMXv9vAON16c9GzABhuU=;
-	b=N1Wvfg7Dq10Z/RxZQ+tgS9JhIQqoRQ/28Z90K5duhdeFQNuVR5zMBM40gudTQDrMhxZ7By
-	99luTqRHljddy0yN7kDEVVODul5MmXZ0Uk/umkixPZuR/JQP0GcTx6grrwAFFJ8H+92Qud
-	NHeYbi0IRDMV1X1WiE+MtmFnDrwzcO3pz7B6+aGvZ5yX2hPsrYHk0zISLnGdLAzwZ8p2Gp
-	U/3NBKqeu5uQnzizL+j2E/L1JKsk2V7tqtyepoHi0YC2+tsD9L9UxlXW56LCoC5ojWgnvh
-	mJoSMHesEs9hbaQRUHuS6v6hSc8LxMfaXpQYzyChEttuAJ7VGnujAOLH2OSIyA==
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 06 Jul 2026 00:20:13 +0200
-Message-Id: <DJQZJUFLM425.2J87266L7CGT8@cknow-tech.com>
-Subject: Re: [PATCH 2/9] drm/rockchip: vop2: Reset AXI and DCLK to improve
- robustness
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Cristian Ciocaltea" <cristian.ciocaltea@collabora.com>, "Diederik de
- Haas" <diederik@cknow-tech.com>, "Sandy Huang" <hjc@rock-chips.com>,
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, "Andy Yan"
- <andy.yan@rock-chips.com>, "David Airlie" <airlied@gmail.com>, "Simona
- Vetter" <simona@ffwll.ch>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley"
- <conor+dt@kernel.org>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Andrzej
- Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Luca
- Ceresoli" <luca.ceresoli@bootlin.com>
-Cc: <kernel@collabora.com>, "Andy Yan" <andyshrk@163.com>,
- <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20260617-dw-hdmi-qp-yuv-v1-0-a665cfd06d7d@collabora.com>
- <20260617-dw-hdmi-qp-yuv-v1-2-a665cfd06d7d@collabora.com>
- <DJQO8Q4J2LDP.1G8I4FVF6J7TK@cknow-tech.com>
- <c8242f5c-ec74-489e-b378-f225ec3a0135@collabora.com>
-In-Reply-To: <c8242f5c-ec74-489e-b378-f225ec3a0135@collabora.com>
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_152025_414966_850742D5 
-X-CRM114-Status: GOOD (  12.82  )
+	Sun, 05 Jul 2026 23:04:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 17F1260018;
+	Sun,  5 Jul 2026 23:04:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61DF91F000E9;
+	Sun,  5 Jul 2026 23:04:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783292689;
+	bh=ffPL0UFrnUQ1Z40lCU566ipIccROYO67WvnBVyYNZdI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XCydvWeY14IYadK6Q1p2izwTDC1cpJJjymXJh8NisKblE0fxFIsSZvN1AWHRjftHC
+	 tsVgxfupLAr+xmdbvHmjXay8zSv/8lceEb3EZ2gsorJRDv+7e6Be9qc2XM5Rs5DqXE
+	 RIzBZiepND+5Q7KEPWYdapKSpsUAuDtAi9q5lz3LqWXhc0/bbzWxd4aaln5RkXx7Ak
+	 F8XUW2Hea8zvkElkW/UJvklhEmrTdvIsgHKmc9immPEEgNCN0c81Y2/l59PZvGksGQ
+	 MzIaSC7Jj9sIW253ppXt6cIRHTBXs5RBP14NFkZborA1+4IaKVM0BrgOOeNX3Sq8sR
+	 AtKFSzLD2NEMQ==
+Date: Mon, 6 Jul 2026 00:04:43 +0100
+From: Jonathan Cameron <jic23@kernel.org>
+To: "Maxwell Doose" <m32285159@gmail.com>
+Cc: "Mikhail Lukianchikov" <avermoal@gmail.com>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "David Lechner" <dlechner@baylibre.com>, Nuno
+ =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>, "Andy Shevchenko" <andy@kernel.org>,
+ "Rob Herring" <robh@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Michal Simek" <michal.simek@amd.com>, <linux-iio@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] dt-bindings: iio: adc: convert Xilinx XADC bindings to
+ YAML
+Message-ID: <20260706000443.13c3446a@jic23-huawei>
+In-Reply-To: <DJQTOY88KR1E.1U2393N7KUH12@gmail.com>
+References: <d7607a98-f5e1-417f-ad64-d0029c9de662@kernel.org>
+	<20260705165620.9818-1-avermoal@gmail.com>
+	<DJQTOY88KR1E.1U2393N7KUH12@gmail.com>
+X-Mailer: Claws Mail 4.4.0 (GTK 3.24.52; x86_64-pc-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,55 +77,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+On Sun, 05 Jul 2026 12:44:46 -0500
+"Maxwell Doose" <m32285159@gmail.com> wrote:
 
-On Sun Jul 5, 2026 at 10:46 PM CEST, Cristian Ciocaltea wrote:
-> On 7/5/26 4:28 PM, Diederik de Haas wrote:
->> On Wed Jun 17, 2026 at 8:52 PM CEST, Cristian Ciocaltea wrote:
->>> Assert the AXI reset in the CRTC disable path, and the VP DCLK reset in
->>> the enable path.
->>>
->>> These resets are intended to leave the hardware in a clean state for th=
-e
->>> next use, helping recover from exceptions such as IOMMU page faults, as
->>> well as to prevent random display output glitches, such as a blank
->>> image, observed when switching modes that also change the color format,
->>> e.g. from RGB to YUV420 and vice versa.
->>>
->>> For now this seems to affect only the RK3588, hence the resets are
->>> optional and will be provided in the device tree for this SoC only.
->>=20
->> Why do you think it only effect RK3588?=20
->
-> My findings are exclusively in the context of validating YUV support for =
-DW HDMI
-> QP, hence targeting RK3588 and RK3576.  Since RK3576 didn't exhibit any
-> anomalies, I concluded the resets are needed just for RK3588.
+> On Sun Jul 5, 2026 at 11:56 AM CDT
+> Mikhail Lukianchikov <avermoal@gmail.com> wrote:
+> 
+> >>> Convert the Xilinx XADC binding documentation from .txt to YAML format.
+> >>> This conversion is part of the ongoing effort to migrate all DT bindings
+> >>> to a machine-verifiable schema.  
+> >>
+> >>Sorry, but what effort exactly? Where is this effort documented? Do you
+> >>have a mentor if this is some sort of mentorship effort?
+> >>
+> >>And if this is ongoing effort then don't duplicate:
+> >>https://lore.kernel.org/all/?q=dfn%3Axilinx-xadc.txt  
+> >
+> > Hello Krzyszof,
+> >
+> > Thank you for feedback.
+> >
+> > I'm the newbie at Linux kernel developers community,
+> > and sorry for my mistakes in sending commits.
+> >  
+> 
+> No worries, we've all done it at some point. If you're looking for stuff
+> to do then the todo in drivers/iio/ was just recently updated. There are
+> still a handful of drivers also in iio that still need conversions to
+> guard()().
+Tweak that to 'may benefit from'.  I don't want people doing that blindly
+with assumption it is always a good idea! :)
 
-Ok, that's indeed a different technology stack.
+> 
+> >
+> > I'll answer your questions.
+> > I am not part of any official mentorship program,
+> > I just decided to try to contribute to the development of the Linux kernel.
+> > Yes, it's a ongoing effort, and to be honest, this effort is the general
+> > community initiative to convert all DT bindings from .txt to .yaml. I didn't know that work
+> > on this file was already underway.
+> >
+> > Tell me, should I continue working in this case?
+> >  
+> 
+> After looking at the link Krzysztof sent you it looks like it's already
+> being done, so I'd recommend dropping this one.
+> 
 
->> I reported about my RK3568 test here:
->> https://lore.kernel.org/linux-rockchip/DFRU6ODDM71P.3NQGLRK8IVDUY@cknow-=
-tech.com/
->> "I then went on to try LibreELEC's builds. The artifacts I (sometimes)
->> saw, were gone :-D OTOH, I did get several major issues 'in return',
->> like rk_iommu Page fault resulting in a black screen and the only way to
->> 'recover' from it, was a reboot."
->>=20
->> And I reported some more test results here:
->> https://forum.libreelec.tv/thread/29953-le13-testing-for-rk3288-rk3328-r=
-k3399-rk3566-rk3568-rk3576-rk3588/?postID=3D204691#post204691
->>=20
->> That seems to me a (strong) indication it also affects RK3566/RK3568?
->
-> If coincidentally this helps improve the reliability of some of the older=
- SoCs
-> as well, the resets can easily be added to the corresponding DTs and subm=
-itted
-> as a follow-up series.
-
-Agreed. Thanks :)
-
-Cheers,
-  Diederik
 
