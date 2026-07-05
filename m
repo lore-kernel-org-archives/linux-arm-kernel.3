@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC2CAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 09:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AB90C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 09:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XZhM/0+OvqhrwsSvTpUuB05s8KN//HqjSTRLZy1Sajk=; b=oLTU111JQZSC8B/aEbgj0JPfCt
-	GodJRDlJ7JWhMfrfmeAjwDX5LIT/TeSmFjgemXHnoubGerGDznLd3WNU3UPerHgHtHrHzjOadddzg
-	DOeA8cDL0eePIJ2wFXtrpU2BYPHD56fzx6YyYi7pX2ZR7MXW/i87f3XybeZmPdt2wCFIiq1nnmCTq
-	FdBFubpYUVpk2b8Ht3oXsOKEDWM+6XCcbuwLzeVHCGFH0EG6Jog2l8R6+3iUN8OWdrhlkBHFJX5Tx
-	13g0UvQKGXitAPXojc3RLqT9akwzZuKar++pmNj1GwyqDK4/9AV5W+JYuiFjNXWlxPnzIO1krnioU
-	Y4pqxAvQ==;
+	bh=dsyrHL7oxH+rFy0BGzwR2ub9eQ0OD8OJoWa48oeALqQ=; b=NPH7CVAQ6HdKK9yzUwwv+2ZpL8
+	7QYO7cmlFnQC3XFN/SW6LUKPEzp2InTquxY9YBDa1pnXHwt6UV4t/Jy3Jy80ma+dN/iiX0YAvY8D8
+	8MULMWSItephgoRUW0QxFxloDLPhaMg7yA3DJOocn60Z/VMFu69Jm6qzWddzciNzVj6uwNlumZazm
+	UaHT1RVXZ5X4wq84G5azajhNhvSSPZ3lxwGqRy5FVzvM9pNqZolMytbw/SsH31xOFN53a3oLvKLbQ
+	0lY1S+gA62hGjUZy/kxa2/ioqv7XrndzIWtLZPJEkAJ6EAPjW/4duJtv9jIBmrGC1orrnRup8G0QZ
+	PAMv3GFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgJJS-00000009Cjc-0zrG;
-	Sun, 05 Jul 2026 09:38:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgJNS-00000009CtC-37qy;
+	Sun, 05 Jul 2026 09:43:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgJJQ-00000009CjT-2vht
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 09:38:56 +0000
+	id 1wgJNR-00000009Ct0-0eI8;
+	Sun, 05 Jul 2026 09:43:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 098B440715;
-	Sun,  5 Jul 2026 09:38:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F30DC1F000E9;
-	Sun,  5 Jul 2026 09:38:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7AA6E40BC8;
+	Sun,  5 Jul 2026 09:43:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D1EB1F000E9;
+	Sun,  5 Jul 2026 09:43:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783244335;
-	bh=XZhM/0+OvqhrwsSvTpUuB05s8KN//HqjSTRLZy1Sajk=;
+	s=k20260515; t=1783244584;
+	bh=dsyrHL7oxH+rFy0BGzwR2ub9eQ0OD8OJoWa48oeALqQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Ry21T4sYhIVr7FwMl4zizXNPV327UPOoEoUqQKDU0r3Q5w2GTM+4y3CofylaqxlzH
-	 yz4tN5puBXEQX0i+FEXpuCFdkKCOpW3y3BftZrm9+EQjNT2Hrvh8xE5R21PCDV2PNW
-	 hvAPGp+RtiEkxsfPrz4W46aWlbZxTrfQTQnSnl7/MqkELjGWyeUrFASMJiD0XTgOG9
-	 IcvSiJkzioBzeZFTx33D1qgKLA50gwtO3oyutXlLNDqjW+ENMxBfDbn6QkVpVOZkye
-	 VrUPCtfbeXiN1BurU3JcEhg7BQSOLkBVD5UlKYUFxBxaY1qsUodZrDr7bXwK1fch9W
-	 WWcy8YmeiOJWg==
-Date: Sun, 5 Jul 2026 11:38:52 +0200
+	b=mUQtXevhy8s3LQcF3BAkcUi3LxRGrAs0KPtq3+NhdepMB7mtyV3kfZN0aQL/IjLxJ
+	 6RAull5oOdcedpdnZwMkRQYjevKR2aeJy7/Zg55AVqPEOrTabTunzMyAtkLhZFO+AJ
+	 yAu+/RK0xRvDqOCzwCk5Hnb+jeKqmRs+jgS05j2UcHKdef38WaZO7ZRC/jU3yU4DNe
+	 BjY3zKFrXn1sM+TYsIjBxdL4lSM8y7Cw9W0Xk4PJmvoO09invbXzxmBPxwKYTBHMW7
+	 PhP0Sp0+k7xr1CWLtGPf4KrXcUasfXYcWeavofl1W6LAghuh6g/w/QrnJNsaQpvOAv
+	 YAX5CnGGpf2OA==
+Date: Sun, 5 Jul 2026 11:43:00 +0200
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, aiqun.yu@oss.qualcomm.com, 
-	tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com, yijie.yang@oss.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] dt-bindings: arm-smmu: qcom: Add compatible for Maili
- SoC
-Message-ID: <20260705-hungry-dolphin-of-spirit-c74e4b@quoll>
-References: <20260703-maili-smmu-v3-1-b48de6f5ae4a@oss.qualcomm.com>
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
+	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, driver-core@lists.linux.dev, 
+	linux-pm@vger.kernel.org, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>
+Subject: Re: [PATCH v3 09/13] dt-bindings: usb: mediatek,mtk-xhci: Switch to
+ ports for USB connections
+Message-ID: <20260705-miraculous-mini-gibbon-d6cb6a@quoll>
+References: <20260703110317.1283411-1-wenst@chromium.org>
+ <20260703110317.1283411-10-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260703-maili-smmu-v3-1-b48de6f5ae4a@oss.qualcomm.com>
+In-Reply-To: <20260703110317.1283411-10-wenst@chromium.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,12 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 12:50:33AM -0700, Jingyi Wang wrote:
-> Qualcomm Maili SoC includes apps smmu that implements arm,mmu-500,
-> which is used to translate device-visible virtual addresses to
-> physical addresses. Add compatible for it.
+On Fri, Jul 03, 2026 at 07:03:10PM +0800, Chen-Yu Tsai wrote:
+> This reverts commit 454a1e3cd36c113341d7b71e8e691c6e47ab4a8a.
 > 
-> Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
+> MediaTek's XHCI implementation supports both USB 2.0 High Speed (HS)
+> and USB 3.x Super Speed (SS). The block can also be synthesized with
+> either HS-only capability or HS+SS capability. The SSUSB controller
+> handles the device or gadget mode. Saying that SSUSB handles the HS
+> portion is wrong.
+> 
+> For example, on the MT8195, the first two instances support both HS and
+> SS, while the latter two instances support only HS.
+> 
+> Switch to a "ports" sub-node for describing USB connections. Port 1 is
+> Super Speed if the controller is SS-capable, otherwise it is High Speed.
+> Port 2 is High Speed if SS-capable. This port mapping scheme directly
+> matches what the hardware returns in its capability registers.
+> 
+> Fixes: 454a1e3cd36c ("dt-bindings: usb: mediatek,mtk-xhci: Add port for SuperSpeed EP")
+> Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> ---
+> Changes since v1:
+> - Squashed DT binding revert and addition together
+> - Dropped reviewed-by from Bartosz
+> ---
+>  .../bindings/usb/mediatek,mtk-xhci.yaml         | 17 +++++++++++++----
+>  1 file changed, 13 insertions(+), 4 deletions(-)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
