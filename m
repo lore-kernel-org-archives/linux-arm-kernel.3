@@ -4,93 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB0AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 11:06:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00158C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 12:01:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6Oquh24DvrkOPCF2fJclrR7ZjjQ1IhHgVpf5JxW1uNE=; b=FYj4deZNt4eTE4Yarrd0o/4Gkm
-	7EQBEUanfXWc1D+DWc/456CNM0cXlPAfPxhdCpNXd924EIqmWKCT19yCfWxDfPCLcvO2trTDg2zx/
-	LnZkz99XkeQGQBQIdoiFlTBI5zaMgdfyMktp1tkLiBtyCzNOdHtvG1UfOoj5xQiTJjtnhnZpRsDb7
-	GN87H7Pfjl0LouFV22WmIjQw81UaFVTgI7YSpJRQctz13PNeMzYaTrMFItmXbxLGTO42Ilf7pEzcD
-	PIfVGTdrV9nkQY4cSv5S4HQDk8nIEnpT4KPn8YWW1S5xCqe9WvAL5AYp2H8AkFVvcSg+fa6ZZ5K+n
-	pQyG6feQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8VB/Yde9WwUZSzHZNla+a60srDPe+CyYZ3Qn4u6zv1U=; b=ZghosJdMOJ9pja2j01ijBLS8e1
+	fzCKMvLGBbjBdFZd1Y9nBZ2tkHvpKqh9omVFhoUXvOJPwzQgIs0DG+Z/UrjuUQXdgUK10MB3pb4tZ
+	2QAwWEK7g3+TPaD4Je6rbLe7/Sp2w2Doe2uHKMbPloeD0wqygXlSMbAKs2wj0CYZCYEgOwOEAeyWO
+	4UhoeGr9V+Zmb12UzVV2kps9ToSyxiIf6IAHOrC+14casScyvCcUMc+tUEHp80j6kcX+1N3r4mA+1
+	vbWvI6Hrxq1C5BvPww0wIXpr986VwYgRkFQpQ+yTEMRI+Fnardv3oxuiYIyM2ZL59nCNsZpu5o7OW
+	QJ350h0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgKce-00000009Fgc-3h8D;
-	Sun, 05 Jul 2026 11:02:52 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1wgLXZ-00000009HWc-0TN6;
+	Sun, 05 Jul 2026 12:01:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgKcb-00000009FgE-2NPZ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 11:02:50 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-3817f800c8bso1292982a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 04:02:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783249368; x=1783854168; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6Oquh24DvrkOPCF2fJclrR7ZjjQ1IhHgVpf5JxW1uNE=;
-        b=WrJMOEXfOGNA6Ym9zNMDN7PsR+ZNa1hub0QQg+u6CNYBWHbPYrMQ1hVHj9QoZ0uj4p
-         rUV+4yk9TqbLyzxUWhxJepN01Ji87//hevTp3H9nn9Lbj/4QxF/dcuZWecEfVgkU1T9v
-         Ohc/Kd9zpH+ijD0fmuUxp95tGnn8/eopMCMp910LfukH4jZsIs9fQlFLN/uwSl86RelM
-         zcGULPdQiEp0HKkl1UPeU0BtFhp7LaMiJ4fs+Rp1EhHHNwRzEZrFMxb48DH9PIpfwlmd
-         ut4QZMlr5c2ssNk+ShTiugiIr68Zh/kfGa+rsYuuIsRuCWgYV3EzDgN6ZToYDiLVSayY
-         Pjyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783249368; x=1783854168;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6Oquh24DvrkOPCF2fJclrR7ZjjQ1IhHgVpf5JxW1uNE=;
-        b=XsKrPNy0JbTq5tjV17l+xeEU2xtuC72SFE/ua9AxqQkELNNT0BbUMZX558hGbUXHXc
-         z1lzyCfwjR7G6dWRImO6PVOev5tzYS3b9G0ISdrgOIFrtRYZ6eTBZMKNZTaZRvRO8tqy
-         t2uz17X0e1JWbFbBz6fLVEbo+oIXFclToyvho5W9SKaaUIm2Kv9c9YvWkEPlk0P6vgXv
-         pG2Cm72+z8klR7M4aoCtTY7gJ9VG445Ci/o4tAHBfjo2lF0qTIT1n5tKRqWkW8NUCUG2
-         x6965mOMugfGmfa6m2jeU3/IvesnqKvmF6tvsTXI33sQpd0wdDmRp0x6D76YCIvTeE1w
-         wKuw==
-X-Forwarded-Encrypted: i=1; AHgh+RpDDvLAj9MU5+2lXGfnykZlSeoBLWpoZJMNx4tLMbRRdLn8yR5WAyAyGYgUI/QBZvZeLQ6dwj0k6sn2BUggLJFd@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhBpqEpkaU4UMoU7HghKc9h4I3okTn0PB6SRAZjfBCaGVxc3MQ
-	ps44J9XUGztdPjG/ggLF2x/9NECixQgGzi4zXjEzdS7E96grMAag5Y6S
-X-Gm-Gg: AfdE7cnCNxRbM75RmURxj3D5xR1YkttoUSzJztUPGgU1z0S36kQOe41wNUJ3pfxHPPL
-	iJtlkTKNkfewd+Ty8GIq/uYZXBBpRmhgOsgXYWOChJfwqTi0zchkA+oQm8EqBe+uWSFGs7shPPz
-	geQDgWkvnE3+kRnKOblSM9z07ecBt3AXGSPgyYERk1Cl3k10MzrqlWIAjmAv1VAa1X77+Qa6JKL
-	eNgTzUqU9ZUAnA0YHeyNGjB5ggY9UI5+trflSZIOkKCGDfjGGtZBxydm6peHXktWWE5xiVk8ihe
-	v8yT19cwiDew4UuFWDDM1NyLyWzbxsz/HrZVuJM0nl5mUKtmpW7FoxLzvuqY4d3iGx5N/xVkx6D
-	n5pNc7jDqkig3O12Fk2SBZod8te46u0p4D1UC9HTrmfjBgDF4oFmhNUZHVbOwXG/lZ4J9DVVLiN
-	TfpD/tnt9iWEw=
-X-Received: by 2002:a17:90b:2886:b0:368:d839:28d5 with SMTP id 98e67ed59e1d1-3829f0074b6mr6040067a91.18.1783249367936;
-        Sun, 05 Jul 2026 04:02:47 -0700 (PDT)
-Received: from ubuntu.. ([2405:201:8026:213e:8312:822e:57c6:3816])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f38ee1333sm25067156eec.24.2026.07.05.04.02.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jul 2026 04:02:47 -0700 (PDT)
-From: mdshahid03@gmail.com
-To: Inki Dae <inki.dae@samsung.com>,
-	Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>,
-	David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Mohammad Shahid <mdshahid03@gmail.com>
-Subject: [PATCH] drm/exynos: vidi: use memdup_user() instead of kmalloc() and copy_from_user()
-Date: Sun,  5 Jul 2026 16:32:21 +0530
-Message-ID: <20260705110221.153481-1-mdshahid03@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	id 1wgLXY-00000009HWR-0Lxt;
+	Sun, 05 Jul 2026 12:01:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7747141B70;
+	Sun,  5 Jul 2026 12:01:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58D151F000E9;
+	Sun,  5 Jul 2026 12:01:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783252899;
+	bh=8VB/Yde9WwUZSzHZNla+a60srDPe+CyYZ3Qn4u6zv1U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=d7HINp2y+EbqNdMnO9hjINkAv1BTljVXoU9l/WQkQylgqp1wUqygEwKuykG4iF/TO
+	 oBHZIuEZGTiKKxP/vO1bsyvQCd8uoCYkDQDuLGLs21awr0o8gLYA8M5dLpmFFEnoZF
+	 yXnJ/3UbOWi2qbjLhMWThhR1cK3YIx1CQNIuz3NVlWqxv7LQjjwhl+dnDkO3WfePkg
+	 O2h22C5QJUtsIjJPQkNUyDkC0Luq8xuLJ4vmMxon6UuKomitHxqm+K/ZbPFift0HAa
+	 X9LV7W8D5bZQ7yR+aOGYI70QVWsWt/vQ5R7I5widBxjVeg7hGgeg4nFX35UmVxRLbc
+	 RAVB2W8TqgdOw==
+Received: from johan by xi.lan with local (Exim 4.99.4)
+	(envelope-from <johan@kernel.org>)
+	id 1wgLXU-00000001PSw-45fs;
+	Sun, 05 Jul 2026 14:01:36 +0200
+Date: Sun, 5 Jul 2026 14:01:36 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] drm/mediatek: mtk_hdmi: Fix DDC adapter double put in v2
+Message-ID: <akpHoM1a4r64iIhi@hovoldconsulting.com>
+References: <20260704174113.255485-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_040249_632487_FFA16A4E 
-X-CRM114-Status: GOOD (  11.35  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260704174113.255485-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,43 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mohammad Shahid <mdshahid03@gmail.com>
+On Sun, Jul 05, 2026 at 01:41:13AM +0800, Guangshuo Li wrote:
+> mtk_hdmi_common_probe() gets the DDC adapter with
+> of_find_i2c_adapter_by_node() and registers a devm action to release the
+> adapter device reference with put_device().
+> 
+> The HDMI v2 remove callback also calls i2c_put_adapter() on the same DDC
+> adapter. This is not paired with the find helper and it drops the adapter
+> device reference before the devm action drops it again.
 
-Use memdup_user() to replace the open-coded kmalloc() and
-copy_from_user() sequence.
+You should mention that i2c_put_adapter() also puts a module reference
+that was never taken (of_find_i2c_adapter_by_node() does not take a
+module reference, unlike of_get_i2c_adapter_by_node()).
 
-This simplifies the code while preserving the existing behavior.
+> Remove the extra i2c_put_adapter() call from the HDMI v2 remove callback
+> and let the common devm action release the adapter device reference.
+> 
+> Fixes: 9545bae5c8ac ("drm/mediatek: mtk_hdmi: Fix probe device leaks")
 
-This issue was reported by memdup_user.cocci.
+This is clearly not the change that introduced the issue as this driver
+did not exist when it was merged.
 
-Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
----
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 11 +++--------
- 1 file changed, 3 insertions(+), 8 deletions(-)
+This should be:
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index 67bbf9b8bc0e..183671de711e 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -273,14 +273,9 @@ int vidi_connection_ioctl(struct drm_device *drm_dev, void *data,
- 
- 		size = (hdr.extensions + 1) * EDID_LENGTH;
- 
--		edid_buf = kmalloc(size, GFP_KERNEL);
--		if (!edid_buf)
--			return -ENOMEM;
--
--		if (copy_from_user(edid_buf, edid_userptr, size)) {
--			kfree(edid_buf);
--			return -EFAULT;
--		}
-+		edid_buf = memdup_user(edid_userptr, size);
-+		if (IS_ERR(edid_buf))
-+			return PTR_ERR(edid_buf);
- 
- 		drm_edid = drm_edid_alloc(edid_buf, size);
- 		kfree(edid_buf);
--- 
-2.43.0
+Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
 
+You should also CC stable.
+
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+> ---
+>  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 3 ---
+>  1 file changed, 3 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> index 7bbf463056c9..e668506daf67 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> @@ -1501,9 +1501,6 @@ static int mtk_hdmi_v2_probe(struct platform_device *pdev)
+>  
+>  static void mtk_hdmi_v2_remove(struct platform_device *pdev)
+>  {
+> -	struct mtk_hdmi *hdmi = platform_get_drvdata(pdev);
+> -
+> -	i2c_put_adapter(hdmi->ddc_adpt);
+>  }
+
+There's no point in keeping the empty remove() callback.
+
+>  static const struct of_device_id mtk_drm_hdmi_v2_of_ids[] = {
+
+Johan
 
