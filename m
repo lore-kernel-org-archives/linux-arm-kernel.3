@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A59C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 10:03:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE24AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Jul 2026 10:35:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pDEKBMzxtfd1t81QTTS0mKCc2r/kk0TOgUYvyF3Wozc=; b=RWmsjcvTmDlySedkzMYl1YDejf
-	c8hqeG7Updiufq4OoMLCbSmO/HvkGDFwaMNaxEdAqTuHXUnLzW8Uw7nhDNbY28Z+A/KgTRb9Pyo8G
-	TsVyqzMdrELxoyD86P+JxpBnOEXn20D2OAPcQXQ+T5C+Hgx21ZKjH6qiN4tXxqsbFZ5DEo0PBVPOo
-	1sb45hGA033h1MY4EgED58yT/EwBkOZFD7ODnM/iIK5lV8CdJRkUa0tfVS8vdEvrW9ye18KAibE0s
-	C1MnIsTqISROwZswIiPsZK96XCv4/8mHarxISgThKizcuosNWEwVQInmyZ1Kitb9LCQBGafeZ4nU4
-	SP6ax7Wg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uc2/OX4P4+qZ8YfdxG54xkPztMxglA34ZXzI4is0OPI=; b=E9C3kiRBf0nSw4YW7RQh+ATGhS
+	oAyLcUr5pVTUVcucmR5rS2zkUiBTjPB2iom8ReLpO0dnezd9aatU9QA5ebGEs73c2MeR3xPGtcFv/
+	oNQ8Zt1SYTZhHNjANByyLcoeIR1xR8R3TDPgjSHDRjxyjhSIZP+M9uU8hwtkl8s5cG9CmW5gSbby5
+	8n+w9xi8esbOkt4nqnuPSSNXmbisLwGsHqu5xNJ1ZSWZbWHtdlV/JQJSXLHd936U7VXr0nlRsoijB
+	tEOwaxlsTQXS6QlzpnF38Uu/4HYOJ8B+A7CTu1xi7302qGUvVVxYdNkWq5NysW+rznmog+Xe28/g2
+	Udjm8Jtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgJgl-00000009DcD-3Diy;
-	Sun, 05 Jul 2026 10:03:03 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wgKBz-00000009ErI-3n5t;
+	Sun, 05 Jul 2026 10:35:19 +0000
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgJgj-00000009Dbj-0nn1
+	id 1wgKBx-00000009Eqm-02cx
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Jul 2026 10:03:02 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1783245778;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=pDEKBMzxtfd1t81QTTS0mKCc2r/kk0TOgUYvyF3Wozc=;
-	b=LousD6wRMzVFqXUzpSNpjGwmxGow/0r4SwEOGd89WzTH7MEVTiqY6CctryUwoTb1n10xdB
-	PcZC4s9mXiw0eLEAZ/JTzl6u34OWqrqgF542TaB8yx3M0kfCJTtdTdD/eTfllx4kq4HkvS
-	z0UzMgrnqkRbIcshgWq6rmrzpWzCkd0=
-Date: Sun, 05 Jul 2026 12:02:36 +0200
-Subject: [PATCH] arch: arm64: add early_param idle=<wfi|yield|nop>
+	Sun, 05 Jul 2026 10:35:18 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-842358aaf36so959614b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 03:35:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783247716; x=1783852516; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uc2/OX4P4+qZ8YfdxG54xkPztMxglA34ZXzI4is0OPI=;
+        b=DfAUWTH20Wwpfpau759oHRMHPLH9XVtoT9us8w/IdLKZXZ91fxWyhYpP1DvFkskcb8
+         i6Stv+rNZicHKylWYHiT59kSETA5VLREcR8YCY7H6yQCc7CMVSinOyxGu2+RiJee0WOr
+         sCjbiWq/vW7k/1E4r4N5mRu/JzCuesSrS+yWr4KBcHp7QBcaADueC+yL1y7gF8WasStJ
+         QfedSm/tpgv3tUK4tWCzM77/nN98ox7ooaiJ5Z6kvgSzospJxjOmdpGRl+b/ccXLmc+X
+         oO5D507XvP3Bb46JlnDa+pyI5IeLqdZmOBX6+AbJWj6zAPWgZlfpBkTWdsMVplP0q7L1
+         HJGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783247716; x=1783852516;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=uc2/OX4P4+qZ8YfdxG54xkPztMxglA34ZXzI4is0OPI=;
+        b=pUBStu3wPOIYdrta1BRM0j1YxVzbfWRC5zQ3r6zi723p1bz6I22Cge1+DeMrtm12LD
+         ZYW80hN7pYqdpa6h8w7OqO9eRevEer4CrVSygdP2+nAMoW+Hf476LKY7qjNmlhU+3GSe
+         aoQE6Sd8WgH1wTUYR7dspEAqMC6Wfks3yWUuXzgUapNfa6FV33aO4oWQls1YkifNqIZd
+         eyyEvXoNMcBIHfHc8DkPYPqEChsD/rkbpdQpkFrgM2WWI7wVmvx2EA4oqjX6kNj5fmEc
+         Q45m6xDK1h2/PViAWtGWMPAlDVyIrrt1ZEoTmjHJrTwQ8yJRs6cov513ia3dj9yRhNQw
+         Ii2g==
+X-Forwarded-Encrypted: i=1; AHgh+RrEl8AABrcPS/fuHtMF3S2+NT6wMM5GmC6MQJ8opLEEWCJJzTc0N0LvQcr1e/6je/RJUo9naKZBwCeOZ+QzUiGR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9hSH83qnQjGvsp+w85Gd7H4vbQNdszBhx+qyclxXyka1Li3DW
+	NttnacYdmsPvwgu5cBnu1B/eJdj2eos7omMuhdw7BjR6hPK7fxrQCTku
+X-Gm-Gg: AfdE7cnCer1bMRlwsIWcrHsxB09RMKjR/qvsu+gKaliZffFq43fAfoKSQ+anJAU6wMw
+	gJLs9KSL5uRNOJLVy9GXY8TKfm/imrf8XA7VTdwTpx8sAP3dqfs9NzkHxjAATdFXgQpJCEdR5zc
+	52ZF47g2KmT8IUX3+36vyqFwum00Ji+zluoIj/iRGJw0rZUzs002cBka4p84fWDrTNvA6a4FKFo
+	lBgcI2vKTgX5j7M0hANjue/DVg8yUyDT5+loi4S27++qxr+u5CY4P5tJG/i9uP6Z/PnTaa+pNCk
+	JDvQz1hHALVvifdhgOmK39JP25ibATwOVzDuUufI78J7ROvzYEv97NTwLRD+CNVEhjoCZZatzL1
+	LO+8IW6wU0FQ83WoHmOwrqrgDM9Iw8ieGASBbdEJBPQ846Mj2iX4vFRJ0okVnii2lkeKKKtY=
+X-Received: by 2002:a05:6a00:2e1d:b0:845:d286:1fb6 with SMTP id d2e1a72fcca58-847f6fa9cfdmr5543003b3a.52.1783247715985;
+        Sun, 05 Jul 2026 03:35:15 -0700 (PDT)
+Received: from lgs.. ([2001:250:5800:1000::f280])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6d82382sm2129385b3a.49.2026.07.05.03.35.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jul 2026 03:35:15 -0700 (PDT)
+From: Guangshuo Li <lgs201920130244@gmail.com>
+To: Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Guangshuo Li <lgs201920130244@gmail.com>
+Subject: [PATCH] pmdomain: arm: scmi: Check pm_genpd_init() in probe
+Date: Sun,  5 Jul 2026 18:32:56 +0800
+Message-ID: <20260705103256.284467-1-lgs201920130244@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260705-arm64-idle-param-v1-1-7454249f473f@cyberchaos.dev>
-X-B4-Tracking: v=1; b=H4sIALsrSmoC/yXMUQqDMBCE4avIPjewDdVAr1L6sE1HXalWNlYE8
- e6m+vgNzL9SgikS3YuVDLMm/Q4Z10tBsZWhgdN3Nnn2FQcunVhf3fL4gRvFpHfRhzoyAoRLyrf
- RUOtyJB/P0+n36hCnf4e2bQe9JnZCdAAAAA==
-X-Change-ID: 20260705-arm64-idle-param-c27fc0e7ea05
-To: Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, asahi@lists.linux.dev, 
- Yureka Lilian <yureka@cyberchaos.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_030301_502111_0B4FDBD5 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20260705_033517_052463_E9A6CCF9 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,158 +100,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Overriding the idle mechanism might be useful for debugging, performance
-testing and on platforms where the WFI instruction misbehaves, such as
-Apple Silicon SoCs.
+scmi_pm_domain_probe() stores each domain in the onecell domains array
+after calling pm_genpd_init(), but it ignores the return value from
+pm_genpd_init().
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+If pm_genpd_init() fails, the genpd has not been added to the global
+genpd list. The probe code nevertheless stores the genpd pointer in the
+domains array. A later provider registration failure then unwinds the
+array with pm_genpd_remove(), which can try to remove a genpd that was
+never registered.
+
+Check the return value from pm_genpd_init() and only store successfully
+initialized domains in the onecell array. On failure, unwind the domains
+that were already initialized.
+
+Fixes: 7458f72cc28f ("pmdomain: arm: scmi: Fix genpd leak on provider registration failure")
+Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 ---
-Thanks to Will Daecon for suggesting this path, since, when treating the WFI
-misbehavior as an erratum, we had difficulties telling when the alternatives
-should be applied. This solution is more flexible and leaves it up to
-bootloader to add the appropriate idle= parameter as a workaround.
----
- Documentation/admin-guide/kernel-parameters.txt | 23 ++++++++++++++++++
- arch/arm64/kernel/idle.c                        | 31 +++++++++++++++++++++++--
- arch/arm64/kernel/idle.h                        | 11 +++++++++
- arch/arm64/lib/delay.c                          |  7 +++++-
- 4 files changed, 69 insertions(+), 3 deletions(-)
+ drivers/pmdomain/arm/scmi_pm_domain.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index b2d7d3540ded..d7f5471edf8f 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2239,6 +2239,29 @@ Kernel parameters
+diff --git a/drivers/pmdomain/arm/scmi_pm_domain.c b/drivers/pmdomain/arm/scmi_pm_domain.c
+index 3d73aef21d2f..a60189ea32a8 100644
+--- a/drivers/pmdomain/arm/scmi_pm_domain.c
++++ b/drivers/pmdomain/arm/scmi_pm_domain.c
+@@ -99,8 +99,12 @@ static int scmi_pm_domain_probe(struct scmi_device *sdev)
+ 		scmi_pd->genpd.power_on = scmi_pd_power_on;
+ 		scmi_pd->genpd.flags = GENPD_FLAG_ACTIVE_WAKEUP;
  
- 			idle=nomwait: Disable mwait for CPU C-states
+-		pm_genpd_init(&scmi_pd->genpd, NULL,
+-			      state == SCMI_POWER_STATE_GENERIC_OFF);
++		ret = pm_genpd_init(&scmi_pd->genpd, NULL,
++				    state == SCMI_POWER_STATE_GENERIC_OFF);
++		if (ret) {
++			dev_err_probe(dev, ret, "failed to init domain %d\n", i);
++			goto err_rm_genpds;
++		}
  
-+			[ARM64,EARLY]
-+			Format: idle=wfi, idle=yield, idle=nop
-+
-+			idle=wfi: Use the WFI (Wait For Interrupt) hint
-+			instruction in the idle loop. This is the default and
-+			allows the CPU to enter a low-power state until an
-+			interrupt arrives.
-+
-+			idle=yield: Use the YIELD hint instruction instead of
-+			WFI. CPUs supporting simultaneous multi-threading (SMT),
-+			can continue executing another thread when the current
-+			thread reaches the idle loop. This will make the CPUs
-+			eat more power, but may be useful to get slightly better
-+			performance in some applications, since the CPUs will
-+			not enter a low-power state.
-+
-+			idle=nop: Do not execute any idle instruction in the
-+			idle loop. This is useful on platforms where WFI
-+			misbehaves, leading to system instability or loss of CPU
-+			state. This will make the CPUs eat more power, but may
-+			give slightly better performance in some applications,
-+			since the CPUs will not enter a low-power state.
-+
- 	idxd.sva=	[HW]
- 			Format: <bool>
- 			Allow force disabling of Shared Virtual Memory (SVA)
-diff --git a/arch/arm64/kernel/idle.c b/arch/arm64/kernel/idle.c
-index 05cfb347ec26..018bcc812d45 100644
---- a/arch/arm64/kernel/idle.c
-+++ b/arch/arm64/kernel/idle.c
-@@ -11,6 +11,28 @@
- #include <asm/cpufeature.h>
- #include <asm/sysreg.h>
- 
-+#include "idle.h"
-+
-+enum idle_mode idle = WFI;
-+
-+/* User can over-ride above with "idle=<wfi|yield|nop>" in cmdline */
-+static int __init setup_idle(char *s)
-+{
-+	if (!s)
-+		return -1;
-+	else if (!strcmp(s, "wfi"))
-+		idle = WFI;
-+	else if (!strcmp(s, "yield"))
-+		idle = YIELD;
-+	else if (!strcmp(s, "nop"))
-+		idle = NOP;
-+	else
-+		return -1;
-+
-+	return 0;
-+}
-+early_param("idle", setup_idle);
-+
- /*
-  *	cpu_do_idle()
-  *
-@@ -26,8 +48,13 @@ void __cpuidle cpu_do_idle(void)
- 
- 	arm_cpuidle_save_irq_context(&context);
- 
--	dsb(sy);
--	wfi();
-+	if (likely(idle == WFI)) {
-+		dsb(sy);
-+		wfi();
-+	} else if (idle == YIELD) {
-+		dsb(sy);
-+		asm volatile("yield" ::: "memory");
-+	}
- 
- 	arm_cpuidle_restore_irq_context(&context);
- }
-diff --git a/arch/arm64/kernel/idle.h b/arch/arm64/kernel/idle.h
-new file mode 100644
-index 000000000000..350b758ea215
---- /dev/null
-+++ b/arch/arm64/kernel/idle.h
-@@ -0,0 +1,11 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef __ARM64_KERNEL_IDLE_H
-+#define __ARM64_KERNEL_IDLE_H
-+
-+enum idle_mode {
-+	WFI,
-+	YIELD,
-+	NOP,
-+};
-+
-+#endif
-diff --git a/arch/arm64/lib/delay.c b/arch/arm64/lib/delay.c
-index e278e060e78a..d6fd09466abc 100644
---- a/arch/arm64/lib/delay.c
-+++ b/arch/arm64/lib/delay.c
-@@ -15,9 +15,13 @@
- 
- #include <clocksource/arm_arch_timer.h>
- 
-+#include "../kernel/idle.h"
-+
- #define USECS_TO_CYCLES(time_usecs)			\
- 	xloops_to_cycles((time_usecs) * 0x10C7UL)
- 
-+extern enum idle_mode idle;
-+
- static inline unsigned long xloops_to_cycles(unsigned long xloops)
- {
- 	return (xloops * loops_per_jiffy * HZ) >> 32;
-@@ -49,7 +53,8 @@ void __delay(unsigned long cycles)
- 		 * Start with WFIT. If an interrupt makes us resume
- 		 * early, use a WFET loop to complete the delay.
- 		 */
--		wfit(end);
-+		if (likely(idle == WFI))
-+			wfit(end);
- 		while ((__delay_cycles() - start) < cycles)
- 			wfet(end);
- 	} else 	if (arch_timer_evtstrm_available()) {
-
----
-base-commit: 96cb07bd64bf4d3c8c9159636314c6fbdd9b9881
-change-id: 20260705-arm64-idle-param-c27fc0e7ea05
-
-Best regards,
---  
-Yureka Lilian <yureka@cyberchaos.dev>
+ 		domains[i] = &scmi_pd->genpd;
+ 	}
+-- 
+2.43.0
 
 
