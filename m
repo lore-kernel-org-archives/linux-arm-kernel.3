@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02326C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3B3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:38:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xqBkhvyelySc3loJx/J76CZgVdNYoTTPG8StLA3hSFU=; b=AlUs0gUc5sY8JUzlGV/7PgToAE
-	LRXer/itNeiTuoI1GyA42wjzJMUBHAx301irJt4HlTJEOxr5xcqpAj67Yng/cks98JLx/albuTcT+
-	JlqvPRi46XzkZ4hYQs+cebYS9bMmUeCJrsegyrwzZ4bkWuN0i6akWO6BdT7ZDCqNkzVgzsxE2sSMK
-	ezHfew7F0QjJS0EsvlTpkx53jn3gmFFk8fdcrM0UCYrl2h6C/CsAiu2F/R8nPZGUNKcN9wqgnsGzG
-	Qb7bMRRNJCxT7C9Y9CkkoWG3u6MFBa+kCTSzn0/7zWxS9XJJshXKOXyJb3yq8GC6iqWSzfAWGiSt4
-	fhgIq32w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=35CpdFffP/62zFF5JjwRjV4NgkfUPe4DE5l0yRpJh9w=; b=WoaZVe2M0tnVuJ
+	CJDO+g0FqIgDMkDiRhwIru1YusMBaQUbXeHsYvxFN08wscV6lCrqV7UI30q0v+6jPT9LZ+shapspI
+	GtE7POqvVKcZMx/R4WgIpLMXg+D7tSnqAm9Tx+BOq0VRPqdViv1dPdXSRvYxqF9ANG5MytkiNsVrr
+	X3ftLZSJ3msbC3lf0FV/e7OJ6TA9PrCkxrKgs1pArZ2Zfxvn6fLakVB9pdjccz+DHxXYYkzh/aUf0
+	hJU4PdW43RZ7N4HWPbxQn+GOdX3oJIf63GGXoXo5S9vyuRpU5DaHyEiYibLdeIVg/LuvZxrUkcIYp
+	rTnQDyVaw81sqgQz8bGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrvh-0000000Dj9d-2OB9;
-	Mon, 06 Jul 2026 22:36:45 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1wgrxd-0000000Djfa-44jI;
+	Mon, 06 Jul 2026 22:38:45 +0000
+Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrvc-0000000Dj2f-1qFx
+	id 1wgrxa-0000000Djdu-2YLz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 22:36:42 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-472326ca506so2344464f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 15:36:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783377398; x=1783982198; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xqBkhvyelySc3loJx/J76CZgVdNYoTTPG8StLA3hSFU=;
-        b=g6N1aKTlEbTeV2cihkx40ECxnyZP/crLC3Pw5LEd1ucw2VjkMe+GboqQLjvfSGpZjt
-         93dPVfo/3ROOetbKthwvl2C4+tIUJjHU1YzsYwK4rTHzkjrMmOiInG6cMqGunncSShKv
-         wTbfFWKFXD0mcXU4e5q7TyWcMAFBV9opu96gGh9TWy9lZIh0qiC6Iomjb0rkfRm9ZVu3
-         IW4xjq38hFJVfnPivM2WbdiuDR7b9322VBJMat0+e6fp66NaYS6VqHtaUWfLzEh/f3gG
-         7U+oY1BNYg9dz3AhmtqT+k5xH4OPcDBn89/dEB2rZpy0+c+fpcoTUhu3WJVMtJs+s3U9
-         pj2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783377398; x=1783982198;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xqBkhvyelySc3loJx/J76CZgVdNYoTTPG8StLA3hSFU=;
-        b=Gx3MjewnDy+ivcZ0s8R73kBDB1Lv0d5baSYQHP5w3eox/0ev5iwVAWANc+AmeiBXkA
-         A+re/qdKTj1p1XSCvsWA96PDb/xR+IsHR4VibmwyocZCjR6Q2ASMFnMzUcgnjzrCewSQ
-         GnP6G/QpDemgpGcqkphQE6TfVVa41yZf69YgEYwMsNlzlVB5uE9TXK6yZFc6k9CoS6rb
-         eqDgo+nEMjlJ1xam30iGxb1wxM48K0ol5ZgCo+3lUg/fYlObyzix+zhOSHoyRWzly+Ys
-         G8FrIRHmiop/6E+zzI1D1B2x4l8JdnBz//91kdMuhbm68cH/XzpH4gh4JL7WxGtuVCLr
-         7mIg==
-X-Forwarded-Encrypted: i=1; AHgh+RqIfBzUNass4Z2aPABLsA/dHinhMKloxC344TSUV9gn4arvTdhh0pjqJJBr9MVkTsJxL715t2j4LsEebz2uN9vA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8KvgyibEAS2t9buiL/bOpe+hINKtKDERQbHmAR2EPrexm+pac
-	12DI/itlFg6AINzkUPWykfPHGW9gKhWmLD5FH4usTnKxPn5LJfb7BqyZ
-X-Gm-Gg: AfdE7clbU00VFXiIENuJdJ9ffgM6vuXn2Hv0B1S/DpVQi4E9LrHLBv3zN+ZSzpdeHB+
-	4F2iGCDff5qS9EiyRZRSGPRK9acczZ3NDsEY7Qs/AMpvG/yrRp9PhOi3Adym9rnvl68DUv+mkjd
-	F7kRFAY3pPXT1468uAn44EN9XHQP9QJKO6RRKnbJqJQiHxyC3NvLubVrZTXf9IebyH32tfOHYci
-	JQJfxH0vkyPa7NznFWzabUV9iZcSBn8nRq41bO8wSS5zz9C8M7VFsNt3s7rNHz9C+hYNbSs+3rU
-	Kw+9qd7jDr2WpGE8TuD8JNG6f8WpIs5drIzx5WVJkw2p+ko2eLEdyV5l+Md28ivRaBihKLrV1wp
-	F+nuQtBiL12s1LjQGtVvjR0+zK6Vb5kcPLikwd8RyzoE1zx9H+nfJGmkaRw0meMkufB4SRZJgHk
-	8piCCepoQ5Ce6ePojbPJERJlNmehWKKwsUuGh/8cubulT11RNa5xAS1XdgPL3Yow==
-X-Received: by 2002:a5d:6382:0:b0:462:fdf2:3a50 with SMTP id ffacd0b85a97d-47de66a309emr1878338f8f.32.1783377398441;
-        Mon, 06 Jul 2026 15:36:38 -0700 (PDT)
-Received: from turbine.fritz.box (p5785b224.dip0.t-ipconnect.de. [87.133.178.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9e4d6da9sm27491387f8f.12.2026.07.06.15.36.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 15:36:37 -0700 (PDT)
-From: Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Louis Chauvet <louis.chauvet@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
-Subject: [RFC PATCH v1 2/2] arm64: dts: rockchip: fix gadget hot-plug on ODROID-M1S micro-USB
-Date: Tue,  7 Jul 2026 00:36:27 +0200
-Message-ID: <20260706223627.113814-3-andreas.zdziarstek@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
-References: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
+	Mon, 06 Jul 2026 22:38:44 +0000
+From: Yureka Lilian <yureka@cyberchaos.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
+	s=mail; t=1783377517;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=35CpdFffP/62zFF5JjwRjV4NgkfUPe4DE5l0yRpJh9w=;
+	b=EFwSFZCzFdnTBKxiciPLYWB8xFR/ASGaIUHatC0RJr/dZ1rOgbrDi3YZJliwaYZxr0k8tM
+	EiJetuC90ZV8OKDOHRczEbJZPILydlCdz1H+LvjAaQHa3SBtRIZi12rQklMUL+AIAVA5Y0
+	pzHEXKpEGbzS4lnXgTuwoBHyAuHIjiU=
+Subject: [PATCH 0/2] PCI: apple: Integrate pwrctrl API
+Date: Tue, 07 Jul 2026 00:38:26 +0200
+Message-Id: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGIuTGoC/yXMwQrDIBCE4VeRPUfQECzkVUoPcZ20W4IVbdpA8
+ N1rk8vAd5h/p4IsKDSqnTI+UuQVG2yniB9TvENLaKbe9M5cjNNTSgt0YmnzzYjahGDhw2x5YGq
+ 3lDHLdiSvt9Nl9U/w+9+hWn/+ljMSdAAAAA==
+X-Change-ID: 20260706-apple-pcie-pwren-0dd1ebdf1c4c
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Marc Zyngier <maz@kernel.org>, 
+ Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_153640_646744_4A541DC5 
-X-CRM114-Status: GOOD (  14.74  )
+X-CRM114-CacheID: sfid-20260706_153842_879367_0062EAC8 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Referencing the vcc5v0_usb2_otg switch as phy-supply of the OTG port
-makes the phy core enable it as soon as the USB controller powers the
-PHY, so the board permanently drives its own 5 V onto the micro-USB
-connector's VBUS pin. That blinds the PHY's session detection: VBUSDET
-(fed from connector VBUS through the on-board 10k/15k divider) is
-always high, no bvalid edge can ever occur on plug or unplug, and the
-OTG state machine never wakes from its initial state. A USB gadget
-only enumerates if the cable is already attached at power-on. It also
-back-drives 5 V against the host port.
+Hi all,
 
-The inno-usb2 driver has no role-managed VBUS supply support, and the
-practical use of this port is as the board's USB device/download port.
-Separate Type-A ports are available for host functions.
+this is my attempt at using the pci-pwrctrl framework to power on the
+PCIe-connected WiFi and SD card reader on Apple Silicon Macs.
+Back in 2022, Hector Martin proposed a custom solution for this[1].
+Since then, the pci-pwrctrl framework has evolved and
+pci-pwrctrl-generic seems to be the way to do this nowadays.
+Device tree changes for t600x are included as an example for how this
+could be used.
 
-Drop the phy-supply so the port never sources VBUS and pin the
-controller to dr_mode="peripheral" to match that.
+Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
+Link[2]: https://lwn.net/Articles/1052333/
 
-Fixes: 10dc64fe0f98 ("arm64: dts: rockchip: Add Hardkernel ODROID-M1S")
-Signed-off-by: Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
+Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
 ---
- arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Yureka Lilian (2):
+      PCI: apple: Integrate pwrctrl API
+      arm64: dts: apple: t600x: Add PCIe pwren gpios
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dts b/arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dts
-index 33bc5249d729..d9d4a31373a0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-odroid-m1s.dts
-@@ -602,6 +602,7 @@ &usb_host0_ohci {
- };
- 
- &usb_host0_xhci {
-+	dr_mode = "peripheral";
- 	status = "okay";
- };
- 
-@@ -627,7 +628,6 @@ &usb2phy0_host {
- };
- 
- &usb2phy0_otg {
--	phy-supply = <&vcc5v0_usb2_otg>;
- 	status = "okay";
- };
- 
--- 
-2.53.0
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi      |  4 ++++
+ arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 16 +++++++++++++++
+ arch/arm64/boot/dts/apple/t600x-j375.dtsi      | 27 ++++++++++++++++++++++++++
+ drivers/pci/controller/Kconfig                 |  1 +
+ drivers/pci/controller/pcie-apple.c            | 16 +++++++++++++++
+ 5 files changed, 64 insertions(+)
+---
+base-commit: 8e9685d3c41c35dd1b37df70d854137abcb2fbac
+change-id: 20260706-apple-pcie-pwren-0dd1ebdf1c4c
+
+Best regards,
+--  
+Yureka Lilian <yureka@cyberchaos.dev>
 
 
