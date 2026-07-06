@@ -4,102 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99178C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:22:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567E6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVNfxXIhfRbzejobq0Bw+fm1oMgBFxUSiDv+/DvkLmA=; b=fjmKTc3Clh0UnOYukMdsC7cFqM
-	QHuVZtgSg+b0mwyyBpYe91H1U0p3Cn7hQslMI02l1jKktgmo3uk7xSuSRE3AnoVIqjwGTRLX1N4am
-	lPL5rfy1cDYM27vy9MWwd+W/lQueRhYPBKs9bx7UxQDVxztVJ6lfcUImY/4dcXbrmAGYLIXcHpPwf
-	HD0mUEKwTU1qyE4Pf4rIrj/QvFJNMXT/Kpt1Ncsqd5y6dFoP8uEclCNDvdhuCqRzZ1gk9qQDW6MUg
-	+QYwp1HhxTOfnu0fPO71gGonq1ojrTwxpZ09yIAiO8DgEUka5Pp4NWrLIqsKAIkH9MPPNENdR33r3
-	CTq4mgNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ThmdWFoUi9SJhoiWKeVyJUwaJ8zMIfm7djT8Y8A3Rq8=; b=3p+PgmT3cVBTo16K1OZdwZThUY
+	R0qOMNcFc+GSkEaQz/PvdgxfO/iSKjQreagEwwlptdOhY7JOEHuIsPZL4GTDphn98UDg3HC5WjxLv
+	kx1cFtXOqDoeA24TkcgHkn2dZAtdQPYoT8PU2C4OQ/PJ3T03x9N6BFgB86powRisRCsVPhAdZBoRL
+	caiU9C7//5Vka2NKpZoHGniEeQSYViT6Pdxg10SbKUCKiPgcuoSOAakY0KEZ7ngIxEvLXrjwicFez
+	82wp/FlpWYOmtm+Q1aR+/hvH7VeHRtBnsNQoJRSTLvdmXHev0P0FL4eOM9ogjGD646GTEXItJPSQ0
+	I3ErhfGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkDb-0000000Ck2n-0XU5;
-	Mon, 06 Jul 2026 14:22:43 +0000
-Received: from mail-vk1-xa33.google.com ([2607:f8b0:4864:20::a33])
+	id 1wgkIO-0000000CkXN-0kWr;
+	Mon, 06 Jul 2026 14:27:40 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkDX-0000000Ck0H-1PAu
+	id 1wgkIL-0000000CkWY-2ppz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:22:42 +0000
-Received: by mail-vk1-xa33.google.com with SMTP id 71dfb90a1353d-5bc4a1130adso635912e0c.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 07:22:38 -0700 (PDT)
+	Mon, 06 Jul 2026 14:27:38 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-493c83474ddso28490965e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 07:27:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20251104.gappssmtp.com; s=20251104; t=1783347757; x=1783952557; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=MVNfxXIhfRbzejobq0Bw+fm1oMgBFxUSiDv+/DvkLmA=;
-        b=oYb44oVrA+PcwQTqnJJZ9Se4zjoTAEOb4TOFhfzvonAfzBfLxPEbW2ESvlDyL5zINz
-         cOk6gE5Wxng6HXmRka9tNv0cHI+Jr4ZV98KKgj3Da0arLxjUtZmdiXauXn+driXvG+RQ
-         LOFEzMRI7Ns/OTKH34FSKY5k59YCtK0UQeHnM3a103yXa7xGUN6MtQVYsnSoWWRuytSp
-         nnyXDAfgBrjN5DGdWDoAoS9XRhYDob11DblaH3AI0wdm0PNQfzO9VN1YI/Og2KA3I4pE
-         BWz+CQ8+Rg081xg0a1i4eWw2rgAa0UwFmEnYb4gu9eW9ymC+hRt0yRJucxMFelRUw7Fs
-         P46A==
+        d=gmail.com; s=20251104; t=1783348056; x=1783952856; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ThmdWFoUi9SJhoiWKeVyJUwaJ8zMIfm7djT8Y8A3Rq8=;
+        b=me4GLqK3CWwWhmpX88s88XP4bdnemK8KFQz3B4aPUHJIuSlmQRYSufoz95mC6hOUIQ
+         YFV2x7lTtpubq06Gyh10eWWu5I/qhEcbk4FA6pwpdg8Q4KySS5wsmIbIoQqm7ORYcW/e
+         4XBqjzDRP3mIY1/qJXLNzDN1CoXShkt5yHoXk5r3P43rFJZjR9xd9JMpQ0Rgy/28kJEH
+         4OvI/g7CyCnfKSPa6IBswiAeFwN9gDNdz8Zj4xWbCAJla565GFjO9oq3lszZ/kco45EA
+         VyK6PJZdnR/kofLbsKLI55p4iDJo04Y0uSD4Rxd4331m+nc+wU35DS/4AEJAHLhdr/ou
+         imag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783347757; x=1783952557;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MVNfxXIhfRbzejobq0Bw+fm1oMgBFxUSiDv+/DvkLmA=;
-        b=MmVR5OFl2ihMPQFHecFk+P+/XjpilPaRy8T7Hq5LAGIyi7yswsoHFDNYTcm+G3F3kh
-         XU2QKifXHhYBbPLfaPMmtBz1OcGbQ+Jbde43O8X+C64JeTONZC8wg+TKV3QlsoRRy9Hp
-         fWCLbiKygL3NSFcuXOhx7Yx2bfQLX/EGvHULDV/ZQGZ6JDF8PX9s4/dyeONBwEzuVlOc
-         p9X3LRrxn5haCzAxHZCq1i71nJoZTQGQPAldHGdc3MzWARCPvrZpSnkYa/3BNIEDt5xX
-         pm5FLbeh5bX1Q2rfIBGQz++6RFDw5XyPywGy4sO+HxeM5Ul9qdWpcQJuz2gMylh4eb6j
-         18Jw==
-X-Forwarded-Encrypted: i=1; AHgh+RrA5duL+a+b57a22WQE0Ll08/hmZ1S8LLyvbrebWAXBjF5anR0d6BReUooCXtzAdM4Ampp4h3qmLzn7bNLzm2g+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb6j+g8i9T18TyK9pFBJw31Z2hHbiEyWvJaZE07ZTn12EiA9+k
-	mTPSGi51zC6PsAECFos8yan4HUyyp+RohLrcJxxj57WkUn6+/uZ47JFvXpZeTKyRrCs=
-X-Gm-Gg: AfdE7cmiujo4oPbjb9WeVf30RZ/Kc7Ix6ATSCseekhbvdudXQlYpbkmajTIjqrRfEmJ
-	c3R0h8G2R8hDQIq0+OoXyJ224ZweuPgR/Po5qBPRZDLWA9cwSiMY3GaZ5oXu12cLTJDMwnhax7y
-	Xf3sObL7IRZmnmgSYLT9BhkGYEkJ/7/TC3jnHwQtJYcMU0JNcT5I6w4snfZ3fuQdeI5nd7L/ZZM
-	8HUFxtftlaE/0SDjFP2b1z416VAo3vJG02N1KS+40trVGiRpPQgtdXZ3VtMs/ndvCntgLDSoeax
-	ZA63+Hd7M4QtCRClbc6LW5xPMsNjktY9TOScVGvUjYIIwIy0ojB3KUGXKndDSTw8+DyywLPXpeS
-	+1h9uongmfeEvNyAM3Fm3z7Wqtw+VOTw7tWvo9JfERKuXEiOoURPnqVTjEBruob1/iG880Gu6tf
-	zrl54saGJLEYDgVBSe6A==
-X-Received: by 2002:a05:6122:3386:b0:5bd:a214:c933 with SMTP id 71dfb90a1353d-5be909062cfmr455408e0c.14.1783347757252;
-        Mon, 06 Jul 2026 07:22:37 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:15:e06b::c41? ([2606:6d00:15:e06b::c41])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-969838c1449sm5287075241.5.2026.07.06.07.22.35
+        d=1e100.net; s=20251104; t=1783348056; x=1783952856;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ThmdWFoUi9SJhoiWKeVyJUwaJ8zMIfm7djT8Y8A3Rq8=;
+        b=l0rCR8eHFhyMFSlfW74N+an+pSrq5G7FsUI5Dei1U47AP+POBdai/gW1rypT+lBG+f
+         DmM5iiOa0J4AQfeGFc+jyi2UjpUxWuGjYr3BIznsUEe6uuD+dF1/SfhY8Y+eNciDIRH2
+         5WHSUog7IzsoeJdxsCd0YFf+k8wd9DueT8QWR8bcYHvg3ODkYxhAvmMVKTP8pFIyjsY6
+         e8iczHiOYObow07D02736GT0OTzeIF1gqEOqiNBcqMrqMHxrk/CpAx/888TXaiab7OXu
+         EjM9cVaPU/O1BF7W3tHh+Ntur0mLyayclssyKcA5P3xAvXFamQr3aWDhnwnV7fSNJwWA
+         cTGA==
+X-Forwarded-Encrypted: i=1; AHgh+RrsQhdnAgBoWAOkhO72+ksCRK+Wrh/6YoN8XJt1IOmivQHZvcEQaFydBi/12EBFLB1fUOAbzJNPYFPg0cmENzfR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqoQwJ7AWb5Jkah6PnehZrI+67oHq3AwKsVwzO/To2FSvV02G3
+	xNHmm2bBLAP4hPE6ngp5RabUUn5/0Rd7N8eFSJyCPbr4jJ/F0PH3nzok
+X-Gm-Gg: AfdE7ckxtpchBjow7Bc15b90PZ1RHB1y5nbeqg3bicvdoSN7UiqJU1PEPMwsMt7kWOC
+	wPIdysrE87y68xo7Zw7nYiH+p+EUKtNsAlRpzc9ZYHa8W02s/JPkCuTKCGlEYJ/4Aym7RfWAKvf
+	hGMkF2WCwdlETMkXh2k6zALppHPrqOdbJMmJ1q/J2eVKeUb1CsVIvOUPhBcR3ei5OUSbg4Naygz
+	eieWaIQpcw+myNSs5aecKpHxWiGka9+EvxXGe+A1IZKVj24OCx6814QVIPtNIpaH7XWKJk10z3n
+	p1XoHxHuUp1QtB/g3HOvKRLP/eNT3GqLlveIwPFqTWz4UlKWaUG0VBb6+YTsSCF/wimCW0UkMQC
+	qtStOBxqn8mSqVejAdWEoxofpT32qjMConA1lIWI0kBSI8hqFD3hYaPXJs+3VCsJS+vmZQlKj56
+	TJxHiUlv955I1auCXvkBM1DMGXa3WcVvdBL4FQjqBubUSIjtODeJhEBr+6nrY=
+X-Received: by 2002:a05:600c:8b6f:b0:493:a7bc:5bcf with SMTP id 5b1f17b1804b1-493df08cf98mr8234245e9.24.1783348055423;
+        Mon, 06 Jul 2026 07:27:35 -0700 (PDT)
+Received: from osama.. ([2a02:908:1b8:2060:bfda:c630:e88a:7a7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493ccdab27dsm268422715e9.4.2026.07.06.07.27.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 07:22:36 -0700 (PDT)
-Message-ID: <ba54b43f90b46960ce4e57f99ead11e4200d283d.camel@ndufresne.ca>
-Subject: Re: [PATCH] media: rockchip: rga: quiesce IRQ before releasing m2m
- state
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Fan Wu <fanwu01@zju.edu.cn>, jacob-chen@iotwrt.com, 
-	ezequiel@vanguardiasur.com.ar
-Cc: mchehab@kernel.org, heiko@sntech.de, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Mon, 06 Jul 2026 10:22:34 -0400
-In-Reply-To: <20260704022853.77291-1-fanwu01@zju.edu.cn>
-References: <20260704022853.77291-1-fanwu01@zju.edu.cn>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-IuzSpdkevxjAGzKTKZh1"
-User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
+        Mon, 06 Jul 2026 07:27:34 -0700 (PDT)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>
+Subject: [PATCH] drm/imx: check parallel-display drm_bridge_attach
+Date: Mon,  6 Jul 2026 16:27:32 +0200
+Message-ID: <20260706142732.49397-1-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_072239_537861_22204F0B 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20260706_072737_723319_85485F4C 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,119 +107,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+check drm_bridge_attach() in parallel-display.c, aligns with ldb/hdmi.
 
---=-IuzSpdkevxjAGzKTKZh1
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+---
+ drivers/gpu/drm/imx/ipuv3/parallel-display.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Hi,
+diff --git a/drivers/gpu/drm/imx/ipuv3/parallel-display.c b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+index eb75827394f8..fd48845877cc 100644
+--- a/drivers/gpu/drm/imx/ipuv3/parallel-display.c
++++ b/drivers/gpu/drm/imx/ipuv3/parallel-display.c
+@@ -210,7 +210,9 @@ static int imx_pd_bind(struct device *dev, struct device *master, void *data)
+ 	if (ret)
+ 		return ret;
+ 
+-	drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++	if (ret)
++		return ret;
+ 
+ 	connector = drm_bridge_connector_init(drm, encoder);
+ 	if (IS_ERR(connector))
+-- 
+2.43.0
 
-Le samedi 04 juillet 2026 =C3=A0 02:28 +0000, Fan Wu a =C3=A9crit=C2=A0:
-> rga_probe() requests the interrupt with devm_request_irq(), so devres
-> does not release the IRQ until after rga_remove() returns. rga_remove()
-> currently releases rga->m2m_dev before that point.
->=20
-> rga_isr() uses rga->m2m_dev through v4l2_m2m_job_finish(),
-> leaving a window where an interrupt can run after the m2m device has been
-> released.
-
-I have a doubt that this can really happen for this type of hardware. Its n=
-ot a
-free-running HW that emits IRQ randomly, plus we have the abort sequence th=
-at
-ensure all jobs are completed before we pull it down.
-
->=20
-> Unregister the video device first to stop new userspace submissions, then
-> free the devm-managed IRQ explicitly before releasing the m2m device. Mov=
-e
-> the command buffer release after the IRQ teardown as well, so it is not
-> released while a completion interrupt can still arrive.
->=20
-> Store the IRQ number in struct rockchip_rga so rga_remove() can free the
-> IRQ without looking it up again.
->=20
-> Fixes: f7e7b48e6d79 ("[media] rockchip/rga: v4l2 m2m support")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
->=20
-> ---
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index 43f6a8d..118887a 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -828,6 +828,8 @@ static int rga_probe(struct platform_device *pdev)
-> =C2=A0		goto err_put_clk;
-> =C2=A0	}
-> =C2=A0
-> +	rga->irq =3D irq;
-> +
-> =C2=A0	ret =3D devm_request_irq(rga->dev, irq, rga_isr, 0,
-> =C2=A0			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev_name(rga->dev), rga);
-> =C2=A0	if (ret < 0) {
-> @@ -919,13 +921,21 @@ static void rga_remove(struct platform_device *pdev=
-)
-> =C2=A0{
-> =C2=A0	struct rockchip_rga *rga =3D platform_get_drvdata(pdev);
-> =C2=A0
-> -	dma_free_attrs(rga->dev, RGA_CMDBUF_SIZE, rga->cmdbuf_virt,
-> -		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rga->cmdbuf_phy, DMA_ATTR_WRITE_C=
-OMBINE);
-> -
-> =C2=A0	v4l2_info(&rga->v4l2_dev, "Removing\n");
-> =C2=A0
-> -	v4l2_m2m_release(rga->m2m_dev);
-> =C2=A0	video_unregister_device(rga->vfd);
-> +
-> +	/*
-> +	 * The IRQ was requested with devm_request_irq() and is freed by devm
-> +	 * only after this function returns. Free it explicitly here, after the
-> +	 * video device is unregistered, but before v4l2_m2m_release() frees
-> +	 * rga->m2m_dev, which rga_isr() dereferences via v4l2_m2m_job_finish()=
-.
-> +	 */
-> +	devm_free_irq(rga->dev, rga->irq, rga);
-
-I'm not saying we cannot do that, but its quite verbose for something that
-probably can't happen in practice.
-
-Nicolas
-
-> +
-> +	dma_free_attrs(rga->dev, RGA_CMDBUF_SIZE, rga->cmdbuf_virt,
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 rga->cmdbuf_phy, DMA_ATTR_WRITE_C=
-OMBINE);
-> +	v4l2_m2m_release(rga->m2m_dev);
-> =C2=A0	v4l2_device_unregister(&rga->v4l2_dev);
-> =C2=A0
-> =C2=A0	pm_runtime_disable(rga->dev);
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/pl=
-atform/rockchip/rga/rga.h
-> index 72a28b1..f76c45b 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -81,6 +81,7 @@ struct rockchip_rga {
-> =C2=A0	struct device *dev;
-> =C2=A0	struct regmap *grf;
-> =C2=A0	void __iomem *regs;
-> +	int irq;
-> =C2=A0	struct clk *sclk;
-> =C2=A0	struct clk *aclk;
-> =C2=A0	struct clk *hclk;
->=20
-
---=-IuzSpdkevxjAGzKTKZh1
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaku6KgAKCRDZQZRRKWBy
-9JZSAQC1dbw91+G7+3PPOBNBtgKbdRlVtvIxd5JJz6bxqWFUcAD8D8YnicY3DZw9
-ETebtopePbd1jSVCQw+7hxWTjoNzVw8=
-=N0fp
------END PGP SIGNATURE-----
-
---=-IuzSpdkevxjAGzKTKZh1--
 
