@@ -4,160 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D29C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EB5C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:44:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7ewoKopFZWDSHXaKQpbm185Ui8l9dwnR4N9LGUyBmM=; b=ufFus6lepkj/R26KJnpAI+y3Pm
-	PMeZT06zsD5BIQkVD+AuCU6gtjj6M7VqkCvvHTiN7aSVdQnh1h1qq/hwjNuVxxRT/s/yq3LxKe1bg
-	ZHn8G1kXM1+tDVR0mmeauCaEQRiWkxpCtwBeJOm0gVQJeApls8EbrmJDyaX6eAJXhXJbAFFMWdJt+
-	+2CDrMk9Jn2cnHwbXd8SOWG5v+gTq5wHXVlyT96cKP1AmsjFcbs33/mF4Jduj3QVd3GGHEqbZAzi9
-	TWVYQ4otE31kwoSifbTW6vOw/Q7iwoUHTIQJ5tATtwQ+h0rsRo0iaSuMWTAAQ/qCVOebP33RUlaOb
-	z2hpFQYw==;
+	bh=ZH7fYg3BL+IXLhasZWhU5qOs2NRzPPtU/E+Uj4YHFoU=; b=OlZwoCpBMX23F3ecjPXd0Aw3Ag
+	ZYi711U+zLHYWRH/zXJQvVUs8OoUdpIT4D8y6zrxRrSfKoGLxkjaN1Z795CljMEkdvEP+w6bbPea1
+	5H+VkViBboLbiw6Ep0nEzZYIZ/q+7J93LgBLmK5eVQFwlmSJy74IeTRNXOpDACOP5ccp2eGsHlWj6
+	Eer57naDSAJmsPmRNdPVabnzpcZC8w1Z1/OAlgKL+SmMF9ZPYkSDetwdmj1Ta/hXE7v3P12/4HcPV
+	yVkMQGXIOpimwGI/6g9guQUQP2SmO2DP5A9KKMXWplMH0vhpwzb0ZM+Rpb665SD3YxJM+ssWFTYvL
+	31kAbisQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgewC-0000000BsFp-2tg0;
+	id 1wgewC-0000000BsGW-406L;
 	Mon, 06 Jul 2026 08:44:24 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgew3-0000000BsA4-2Odz
+	id 1wgewA-0000000BsDv-24DO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:44:21 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6668N2Mi4072458
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 08:44:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	z7ewoKopFZWDSHXaKQpbm185Ui8l9dwnR4N9LGUyBmM=; b=WBg5WWbVCp2776Y0
-	GL5MhGPOmGbuGB1bYx85IqFwSE/YFbWe0cwzCSx1i3UCsmY/uYq7VE5bvpvbuy2S
-	cog0YFdB57IQ+RCJd5CjP54/2i2MDUtgcHLzY12hTt4iWBp5e7t54UzUxGucerVZ
-	/OxxEHL/x2bp3DLwZLsCk4+HjNqFxcz7IPRV+cTW/6XjwnGkHpGyyCK0gAEnBlN/
-	mDVZaZXzu6DT57CTUO77jc6AfsPXKofcXNOrlfdPrqpRTduzHt+66mSlxaaa9Baf
-	AzjJR72lfUpiZHX1GVfYSkEUAavCp9yE/QHVdWMzPC6naR2UTdk5ArV0wpOixKxc
-	ee/SAQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88t882sb-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 08:44:15 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-51c27616421so10810971cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 01:44:14 -0700 (PDT)
+	Mon, 06 Jul 2026 08:44:23 +0000
+Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-382a3fe0d28so1918210a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 01:44:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783327454; x=1783932254; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=z7ewoKopFZWDSHXaKQpbm185Ui8l9dwnR4N9LGUyBmM=;
-        b=aqyOElnNFTbWb+Ehm7x5jvh7K5G1UcdjrXWfoDOaZCcuezK2stgCJGWSS3JwU5uxrg
-         QheC9p02j/VwjybPiYbEeYSiRttTm5gXgZe6j+VtfYQCvGrC3BYtfWegUOO4XKH8ivk7
-         Qww4rAaG8SWuc9OGhSa3b3N4dv9r9ALElmGbMRY/2jvEGs5Q3Gjqg7viCIKQ0yycQC1Y
-         aMw1bUz0+3+fIkxdEZ6m4FQPbkqt9rlk3+EXCbhGUfzgWSpRgfahjyjdwn+oFgtXOPML
-         WIUjD0QuB5NCJQZaHLL1g++IiIhFSuFOP1lK56HUZCFSPQwVT+tt6x4wWiTaHnrUtWCh
-         sf/A==
+        d=gmail.com; s=20251104; t=1783327462; x=1783932262; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZH7fYg3BL+IXLhasZWhU5qOs2NRzPPtU/E+Uj4YHFoU=;
+        b=Iru4ucz8UkxIQuKAMujmXVqOwgLt0ns/O5Z4s3L6lUdmvXsbphf+SuLOkHBlhcbRTm
+         J7xckeAu48cRlA5gVT2KhbyH0pAd3jgU7Ggkjd8HytexQL9qhaxdvRnJ9XRwlAK/905g
+         n2OtllQNBozAA4W5zYdTi8kTut3JQE9iNQ4b54KDZ4omHuvLArX53MOvil5b3LqJUOGo
+         zTHX189kpN0kyIo7K2kVp63rzZS9j5aNmVcIytySPWxr2NiPUCsn8LPJFwwwXI4354bb
+         xm2dwPznBKxvyr27GC1v9rC69sg0fXP1i+4chQTU6xCmC/GwH2+7twS6VrbYEZEKvssu
+         kXHA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783327454; x=1783932254;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=z7ewoKopFZWDSHXaKQpbm185Ui8l9dwnR4N9LGUyBmM=;
-        b=Tb8qdXjydASpJosnRwEYLjAU4GxKvzV9lHnHu/Tm2fWSs9qmwpX4wuH/34p/l0ctvZ
-         /SlrIZsXXA5TMHSRCfmZ892zSbco0/dN6KYubpVebUC/8sRCv5Ys+NgyLlqIK9oQqzCD
-         vuE5KbINtH7hLkEbD5jAf16w2zsl9ybovPNeOPgK9KoZDOiC+j8LP8NLrVQvuv9e6slp
-         c0B/BQ36//dbBASaoQYxck2qNN7NEqxTIq1P9ynxQUtWiTGejEjltMmL98lp1u8v+6Qw
-         oLxmNFisOKxSZxKAqZHdKThqnVeAWCSTu9AoYBBdMl8s91fyCgyAAVRq+6RVsHJucd8q
-         PaoQ==
-X-Forwarded-Encrypted: i=1; AHgh+RpyyoApfc3ZYmY84+prDDxBI9pWCRafS6a6sugPePb1ZZhO8dPv+1sQ+ii3vh9K424QG4ekLp2p4XY4/o2XtpQF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwX5CYa2Nbd7YnSSefIC2eAJkqoVUiqnJxqV7aTot+nfRSTJ12
-	omXmQdH1GBi1UZ6s7grrsraSbE7xUbKg3NoUL1bmZ6q2VhLZb6OZvQ5LMipl23EhYNuvXiP/Pkk
-	AyaTpS9aZDa9PLL1RAMjFOxc8EKhyNj1drfouiHVeTlus/u377dUZH89hTQ8lNTPVRISztBvRCt
-	NngQ==
-X-Gm-Gg: AfdE7cl9DAJpkUlkP5RJTjJ/Wn5h6VcPU5B4G/51FIUAo9OKIBnG+qZICrYVP20482J
-	vXhgRD/7h2cXF81MqZo5XcEnUXGhs21XSP3v+2tbcVaX7kBylXjT0NRjF4kBDNzRc4OVsfZdOhe
-	vHyfxWXfNC11AAxyYM8m+sTATtY0tDAtqK2PQ0WEDwg3umFO+1a5ovg/FaXby/fRVCI51DoVQbS
-	BrONPhPnhw5dLf+r3NLLzAsBfbTRj+xZIVfB5vZaoGee9hvfHs8dzu4U37aZEUwVXFXIVmxXJWi
-	TWxk0eavCVERHd4BudPGnisC37aUHPs6skX5ABPNi7szTj4iBM4vV8GP1PYmteYlzWN983XNQU8
-	H8IHVIRUJjeH92TQhM577su0r/lenJAoCEMU=
-X-Received: by 2002:a05:622a:349:b0:51c:d16:b498 with SMTP id d75a77b69052e-51c4bf1e961mr84275831cf.10.1783327454094;
-        Mon, 06 Jul 2026 01:44:14 -0700 (PDT)
-X-Received: by 2002:a05:622a:349:b0:51c:d16:b498 with SMTP id d75a77b69052e-51c4bf1e961mr84275551cf.10.1783327453661;
-        Mon, 06 Jul 2026 01:44:13 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b62fc72dsm702939866b.63.2026.07.06.01.44.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 01:44:12 -0700 (PDT)
-Message-ID: <93b78299-866f-4a3c-9423-a990d9a7d4cd@oss.qualcomm.com>
-Date: Mon, 6 Jul 2026 10:44:10 +0200
+        d=1e100.net; s=20251104; t=1783327462; x=1783932262;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZH7fYg3BL+IXLhasZWhU5qOs2NRzPPtU/E+Uj4YHFoU=;
+        b=ch4hXh9SaeKE/nR8h2SJMZeZy6Q571+Qso/OMpsRM7XvQfn0CE+1IeJnDlpCdDReb8
+         0bPJvcX8xveoFyNdMFjR4mdb/jCqeRit5ZBWKGom9CmMFdg2Fn6PqG66KiEJbir7ihTe
+         erslInF21wmO1zE5a5fLgmjd/0oVEK+9l3wKDM1dzRUWwsbCejMZfQgNZboYFvXsYFOy
+         hp3kYG+mBdBSGkmPs6IPtqEXZP28nEA/LwTbfiUIx0qgIv6reiy+YMnH1D3VSPIcncNk
+         vBLCqN6A+W0+gSJlwRI9e5lkj6ez2FuMFZF6hPKwWN8RJ7W8kCijk/x5e+CsMiwpuv1B
+         36pw==
+X-Forwarded-Encrypted: i=1; AHgh+RqyOKtn+F1eg831E5C/JbZQeea2KyYFzckubyK7kvFAZr4zqXp6ig0kAymZx5FXw33SOZlPrIM/Kyv6Gip5zGYk@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPGMGYBf9zXgOEdeS7C0SEAmudXwRHOL5BPPAUpS+CKS3Inrq7
+	MDo2ugT2/17yoDz+iHlvJqYVRpLjI5dE1yttc8XFuuXpxScAjd3mN9aa
+X-Gm-Gg: AfdE7cnH1e8NOVW039Vfc+lQcDuROjwz9pxwDos7NoUzRgOIFOv7CS6m/tSqhEYFiVX
+	piLg69fUMIW1KX0O5DoaYn14o9bJFomntTO/FcMX7mgqSMe425oZTNO+fIXDMVsLR3v2lW11ePR
+	BYGNcKAa0NJ/DopcYIBzn4+hAnmrVnwqk2FufSr0oMtWfkqXf9PE17npGGQBotPbdXxHCXAijGT
+	0FXyabvjWof7wapOdYsKQPZ/wdlUKoEjSSE0al/OlVSWlwxZjGQCy871mQosbLMlEWNW89JMLHf
+	7lMAB4UaCX7INbPtw7W2OioDoQhLXHe/yfyeL13+2USdjd6YbXSTwvxpDGfx+3saosVYOUJjNiA
+	D9irUO5nsJ/gOCNX1ZGWr96kWRyZXBSr0aDuWRNaXMBhhSrIjQCW9Iny0g+SFxCP7GuekNS7KPH
+	6BuLDJvbFkcR/R7wKCQG0fImfJXkmQYTlEKX0=
+X-Received: by 2002:a17:90b:5544:b0:37e:1c8f:3dff with SMTP id 98e67ed59e1d1-382808b3fd5mr9240351a91.11.1783327461600;
+        Mon, 06 Jul 2026 01:44:21 -0700 (PDT)
+Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3812815c10fsm4524635a91.13.2026.07.06.01.44.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 01:44:21 -0700 (PDT)
+From: Wen Jiang <jiangwenxiaomi@gmail.com>
+X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
+To: akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	linux-mm@kvack.org,
+	urezki@gmail.com,
+	will@kernel.org
+Cc: Xueyuan.chen21@gmail.com,
+	ajd@linux.ibm.com,
+	anshuman.khandual@arm.com,
+	david@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rppt@kernel.org,
+	ryan.roberts@arm.com,
+	dev.jain@arm.com,
+	baohua@kernel.org,
+	shanghaoqiang@xiaomi.com,
+	Wen Jiang <jiangwen6@xiaomi.com>,
+	Xueyuan Chen <xueyuan.chen21@gmail.com>
+Subject: [PATCH v5 6/6] mm/vmalloc: align vm_area so vmap() can batch mappings
+Date: Mon,  6 Jul 2026 16:42:32 +0800
+Message-Id: <20260706084232.177786-7-jiangwen6@xiaomi.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260706084232.177786-1-jiangwen6@xiaomi.com>
+References: <20260706084232.177786-1-jiangwen6@xiaomi.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 10/13] drm/msm: initialize LPAC ring
-To: Anna Maniscalco <anna.maniscalco2000@gmail.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        devicetree@vger.kernel.org
-References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
- <20260705-descriptive-name-lpac-upstream-v1-10-01d50c3e0c99@gmail.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260705-descriptive-name-lpac-upstream-v1-10-01d50c3e0c99@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4NyBTYWx0ZWRfX/YobgFlf7Ud5
- 8uiwEyjDuHcseyc5uf22EVri+HbTgWacqNMI6zv0AqjhzRUyvfYqqKWGGrkTXZGSTVCd32W43pQ
- e2muBLB0mqQVJ5V5maSHJcPFW9gpajU=
-X-Proofpoint-GUID: 5lrw6YneJFFjUz9guifxDT9p1Br54EZ1
-X-Authority-Analysis: v=2.4 cv=C6zZDwP+ c=1 sm=1 tr=0 ts=6a4b6adf cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=pGLkceISAAAA:8 a=NiyOziKYwqrvXK6gfTIA:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: 5lrw6YneJFFjUz9guifxDT9p1Br54EZ1
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4NyBTYWx0ZWRfX84EKw3UddLWk
- 1f14c+BDgoD+oHKhJiBJbIkgXIpo2MJQOjT3t5NMelR/34dGh4blTnKiKIemeEsYnKPs0C7TZE0
- zKNUWgsIXtzpIHJBCBxmdX4xoRdXCh0IOuMmZybNTsIjsJnQolIHKQLRd/huX2J4bQM6n9jc6MN
- OoNL2p0eMxoQ1x5shijvSBl1pbiQ8dFTBhI/zwGtUm2VSyMmnxtiMrpVUIAZArLh2sN5kgGkT90
- i6TB8vi36VFLo2GQQt9WKU5BPtQnfqsMcRPc29KxI3WumengDZCXJi8rz2myxawabpQybQSVqEn
- jlZL+AO8vNImubcYTh+6bsXGmfVdADN+pnVTToaqQH3HPo72lLek1X155XWTfEnsRMMsvBso/K3
- KcS3cV/3YZZ38uKvfGCI3/LBuuJ08OFSgHKBTNR15Ul2M1XvMC44Yd/FTUB7r8w5nN3x9BKJ/z8
- YO5ohs1jQwIp6s1JFeA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607060087
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_014416_264035_E147DD74 
-X-CRM114-Status: GOOD (  12.87  )
+X-CRM114-CacheID: sfid-20260706_014422_539386_7EDD38CB 
+X-CRM114-Status: GOOD (  13.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,29 +114,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/5/26 9:13 PM, Anna Maniscalco wrote:
-> Program all the register needed to start up LPAC and send initialization
-> sequence.
-> 
-> Additionally, now that the LPAC ring is live, make the code aware of it.
-> 
-> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-> ---
+From: "Barry Song (Xiaomi)" <baohua@kernel.org>
 
-I believe some/all of these writes need to be guarded by if (has_lpac),
-as many GPUs lack these registers and there may be side effects on
-others
+Try to align the vmap virtual address to PMD_SHIFT or a
+larger PTE mapping size hinted by the architecture, so
+contiguous pages can be batch-mapped when setting PMD or
+PTE entries. We do not expect any significant overhead for
+this.
 
+Add __get_vm_area_node_aligned_caller() as a wrapper over
+__get_vm_area_node() to simplify repeated calls with fixed
+arguments.
 
-[...]
+Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
+Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
+Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+---
+ mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
 
->  		a6xx_gpu->shadow = msm_gem_kernel_new(gpu->dev,
-> -						      sizeof(u32) * gpu->nr_rings,
-> +						      sizeof(u32) * (gpu->nr_rings + !!gpu->lpac_rb),
+diff --git a/mm/vmalloc.c b/mm/vmalloc.c
+index db0492151ad08..2ac805cdf18ad 100644
+--- a/mm/vmalloc.c
++++ b/mm/vmalloc.c
+@@ -3314,6 +3314,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
+ 				  NUMA_NO_NODE, GFP_KERNEL, caller);
+ }
+ 
++static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
++		unsigned long align, unsigned long flags, const void *caller)
++{
++	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
++				  VMALLOC_START, VMALLOC_END,
++				  NUMA_NO_NODE, GFP_KERNEL, caller);
++}
++
+ /**
+  * find_vm_area - find a continuous kernel virtual area
+  * @addr:	  base address
+@@ -3626,6 +3634,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
+ 	return err;
+ }
+ 
++static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
++		unsigned long flags, pgprot_t prot, const void *caller)
++{
++	struct vm_struct *vm_area;
++	unsigned int shift;
++
++	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
++		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
++				flags, caller);
++		if (vm_area)
++			return vm_area;
++	}
++
++	shift = arch_vmap_pte_supported_shift(size);
++	if (shift > PAGE_SHIFT) {
++		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
++				flags, caller);
++		if (vm_area)
++			return vm_area;
++	}
++
++	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
++}
++
+ /**
+  * vmap - map an array of pages into virtually contiguous space
+  * @pages: array of page pointers
+@@ -3664,7 +3696,8 @@ void *vmap(struct page **pages, unsigned int count,
+ 		return NULL;
+ 
+ 	size = (unsigned long)count << PAGE_SHIFT;
+-	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
++	area = vmap_get_aligned_vm_area(size, flags, prot,
++				__builtin_return_address(0));
+ 	if (!area)
+ 		return NULL;
+ 
+-- 
+2.34.1
 
-Should we rename nr_rings to something like nr_XXX_rings
-where XXX is some uarch-generic (i.e. not SQE because we also
-support pre-a6xx) name for the main number cruncher?
-
-Konrad
 
