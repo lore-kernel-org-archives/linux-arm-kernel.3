@@ -4,118 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2EBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:05:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FE62C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HB/QsivMV6qWr9y2CPSHM/Jiflu/9yz1TINj7TpNXM=; b=Gql2z6UliLLVER0m/c8pdKSB9A
-	fuQlA8lYj+1ZyRo2ThVTsqwE7QXsNlJxlHuWn1Ptg1hzhCYDLFocAGAEomePkOcHF+HeaxdrHwfoD
-	kJ9NRQDPlfGs8rAP7ay46wTIwftGWnGUrjrqHXyQBuuld7adbdKyvttwPGQ6msaoBnp4C7G4gId0H
-	A3B4XU0DnNU5kC4Qq+48WkrQt/PtHeUJ6N5FAKkuEWP2ZvN/XbTz2T6rgAgfQvZyxs51k59w3iDk1
-	SJqJVwMA0qoavMP0ppDRcU4JAcZ6bsxKuANZ0IW+jDwWku6C6OYEuaJgctPLf33R2GqiDGwoOASRn
-	+/HkIypg==;
+	bh=x+dMgeYg3vp8uR4IWwPvG3GLWdqMGuZq9OQxJmfSw+g=; b=bhVz0DiNhNoJkZ1Yky+gqDhB65
+	X+Wvy8Jjc6inlq/57H5ImeXWQrWFkrLwFXg/f7DsN0yIuRSdDHSxLYWOw09iLKlMMIq454K4Dt4l6
+	TcOBT7oI78U6I++q6TxZAZT30j8aH1BjgMDJMe5y0caKwtCmBEBfD27/lj3dbUckEeXEdRnlW4ESV
+	IFV1jia8g0JFqzHu6Cifz/QH1wczAQMsQqHzvnd1DUfj5fIW+Pyy1iwVoskXDmT5E5Rj+5WhSENWa
+	6feZ9G+xM5GkJc9tiyt0n4jfrxxr1o4wuojADTHxJ+r+1KAj6eAuFDQntje90CasiskQx+CsZ6sCW
+	JXzVq0CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjwM-0000000CgWH-0yru;
-	Mon, 06 Jul 2026 14:04:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgk0R-0000000CgqA-30ZJ;
+	Mon, 06 Jul 2026 14:09:07 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjwL-0000000CgW8-2WxF
+	id 1wgk0O-0000000Cgpa-2ZzI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:04:53 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1BCC740A20;
-	Mon,  6 Jul 2026 14:04:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC5F1F000E9;
-	Mon,  6 Jul 2026 14:04:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783346693;
-	bh=3HB/QsivMV6qWr9y2CPSHM/Jiflu/9yz1TINj7TpNXM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=LVRF9RdIrTzGO0Bfsx7LCsKDeyf7GKmtw9uAODtySDa9Zd1uxJMLkW1alzCidCpKV
-	 VV7j2iriGN1wWGo+cBvGIj4/n/87u54zHGRQHNSzMz/2CcYVOgoEJWl4Sywp5uK19G
-	 P+IdwMVkiVejxuPAnRxnc7VtXTlYW6zxRCqiUaY2TF6Bmzlq+QwX3+jzJoka9Zvy8I
-	 dOGTFq6y3jwJYOYnj9+CzPPw/kRAnFHlq5xIIhavv9jT/4K0tOKzSDsFUIwVjfF5jd
-	 WN8ieiYcggZUjYwWP4/WnvVuQxV+FxBj/BYtoCfxNXnCAfY4PzMoz0ejP4LDX8tynn
-	 np2O1anyHPS8A==
-Message-ID: <2b9d60a2-8698-46b0-80ae-b8747a66a85b@kernel.org>
-Date: Mon, 6 Jul 2026 16:04:40 +0200
+	Mon, 06 Jul 2026 14:09:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1783346925; x=1783951725; i=smoch@web.de;
+	bh=x+dMgeYg3vp8uR4IWwPvG3GLWdqMGuZq9OQxJmfSw+g=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=DvYMblHQFw+lHv1R+QxKw/ze57U2IzWLgC6tFXm5AOaVXQEgLYhcS+bu4uC9CpzG
+	 48v1lMIhtfv8RA1+ad25F5jnDkMM5W+PQup/HuFMV836lMiiZUKPvamNjnexGRLs/
+	 AOWz4h/6+IG2a7gqSur7LHO9lu6uUyCEVP3n7FW9zvOPTNctA7S6uJy7JUyNwPXzi
+	 SibBsYUk9DHsZKCnYoUuq5GiTcuCOgncYSbWi1uViX9tCTp8X+bwu0t7lnuEuH1jT
+	 Zbc4E8BNj3dbAjaG7XObhdc24PicCizD2Ul4V+gjp4BQPbXefSWwgzvD0mk84+qHW
+	 xQysreOS+Osx3ojDag==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MnX1L-1xPO4f31uf-00iEUd; Mon, 06
+ Jul 2026 16:08:44 +0200
+Message-ID: <a42a7e16-1798-4db5-9f03-ba608a700645@web.de>
+Date: Mon, 6 Jul 2026 16:08:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/6] arm64: make huge_ptep_get handled unaligned
- addresses
-To: Dev Jain <dev.jain@arm.com>, Andrew Morton <akpm@linux-foundation.org>
-Cc: muchun.song@linux.dev, osalvador@suse.de, ljs@kernel.org,
- liam@infradead.org, riel@surriel.com, vbabka@kernel.org, harry@kernel.org,
- jannh@google.com, lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, apopple@nvidia.com, rcampbell@nvidia.com,
- ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, ak@linux.intel.com, nao.horiguchi@gmail.com,
- mel@csn.ul.ie, j-nomura@ce.jp.nec.com, pfalcato@suse.de, tglx@kernel.org,
- dave.hansen@intel.com, jpoimboe@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com, stable@vger.kernel.org
-References: <20260703114202.365553-1-dev.jain@arm.com>
- <20260703114202.365553-2-dev.jain@arm.com>
- <20260705003559.8b124d2b94b685cc2e4e77ae@linux-foundation.org>
- <8fdbe0d6-87fd-441c-b6d2-baac380f6fb3@arm.com>
- <4b4e8007-3747-457a-85cc-d1003e1c8fe2@kernel.org>
- <39a13445-dc6f-4a75-92b8-f4a122c63b89@arm.com>
- <7ac558fd-1081-456b-b997-c7321241cf8c@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <7ac558fd-1081-456b-b997-c7321241cf8c@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v1] PCI: imx6: Fix i.MX6Q/DL boot hang by separating PHY
+ power and reference clock control
+To: hongxing.zhu@oss.nxp.com, frank.li@nxp.com, l.stach@pengutronix.de,
+ lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+ robh@kernel.org, bhelgaas@google.com, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com
+Cc: linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+ Richard Zhu <hongxing.zhu@nxp.com>
+References: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
+Content-Language: en-US, de-DE
+From: Soeren Moch <smoch@web.de>
+In-Reply-To: <20260706030629.3264320-1-hongxing.zhu@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:T9p+qbyfID9HIhIhmPZHjmpdresrG+cB278lPfBe7i+UxYMPZQh
+ OFuojKMqgrCFCx8HcEGYfCEj8Ctv+05igkPcM5sZyrF2xL6L+jHW/ikOX3a4OgbLhIeZkvS
+ tasn77MhCLgyzKi5K9lShhCy2/6f9X70VrZXBPpMa/t3B1FcDQxDoVs0ApO8RE/EmX2Bd5O
+ nvUXmvU4vbTQ+/jA7tGZw==
+UI-OutboundReport: notjunk:1;M01:P0:+2vMXAlor9M=;Posf8YOdz4WB8iXJFJDqsQGSOBx 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 mjvQvi+5j0hAZaagjDJXIjmFndqZGR9mYrOa5gZ
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_070905_049066_E1089D25 
+X-CRM114-Status: GOOD (  24.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,42 +87,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 12:54, Dev Jain wrote:
-> 
-> 
-> On 06/07/26 4:22 pm, Dev Jain wrote:
->>
->>
->> On 06/07/26 2:15 pm, David Hildenbrand (Arm) wrote:
->>>
->>> Even worse, right? We could walk 128 entries, when we really should just walk 16
->>> (IIRC) entries, possibly reading garbage or even worse, into a memory hole at
->>> the end of memory?
->>
->> Hmm I was thinking that the checks pte_dirty() and pte_young() wouldn't care whether
->> the pte is garbage. But, we could actually dereference a ptep pointer not having
->> backing memory at all.
->>
->> Does the following sound good?
->>
->> "On systems where CONT_PTES != CONT_PMDS (meaning page size is 16K), we could collect
->> excess a/d bit state, meaning extra work for the kernel. Even worse, we may iterate
->> beyond the PTE table and dereference a garbage ptep pointer to access physical
->> memory we don't own. Since the ptep pointer is a linear map address, we may run off
->> the end of the linear map, dereference a VA not mapped into the kernel pgtables and
->> cause kernel panic."
->>
->> Although I checked on arm64, there is no case in which there is a hole after the
->> linear map, but still that assumption shouldn't be made.
-> 
-> Oh but we could access a linear map address which corresponds to a DRAM hole, meaning
-> there is no entry in the kernel pgtable.
 
-Yes, exactly. With debug-pagealloc and things like that we might have many holes
-in the direct map.
 
--- 
-Cheers,
+On 06.07.26 05:06, hongxing.zhu@oss.nxp.com wrote:
+> From: Richard Zhu <hongxing.zhu@nxp.com>
+>
+> Commit 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulator=
+s")
+> introduced a boot hang on i.MX6Q/DL variants by changing the initializat=
+ion
+> sequence.
+>
+> The issue stems from coupling PHY power (TEST_PD) and reference clock
+> (REF_CLK_EN) control in imx6q_pcie_enable_ref_clk(). When these are
+> managed together, the timing between PHY power-up and reference clock
+> enablement cannot be properly controlled, leading to initialization
+> failures.
+>
+> Fix this by separating the two concerns:
+>
+> - Move PHY power control (TEST_PD) to imx6q_pcie_core_reset() where it
+>    logically belongs with reset operations. This ensures PHY power state
+>    is managed as part of the core reset sequence.
+>
+> - Update imx6qp_pcie_core_reset() to call imx6q_pcie_core_reset() for
+>    shared PHY power management, avoiding code duplication.
+>
+> - Make imx6q_pcie_enable_ref_clk() responsible only for reference clock
+>    (REF_CLK_EN) control, simplifying its purpose.
+>
+> - Remove the 10us delay workaround from imx6q_pcie_enable_ref_clk() as
+>    proper sequencing is now handled by the core_reset functions.
+>
+> This refactoring ensures PHY power is controlled during reset
+> operations, fixing the boot hang while improving code maintainability.
+>
+> Fixes: 610fa91d9863 ("PCI: imx6: Assert PERST# before enabling regulator=
+s")
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+With this patch on top of v7.2-rc2 I see everything booting, lspci shows
+the root complex, but no PCIe device behind it.
+Tested on a i.MX6Q based tbs2910 board.
 
-David
+For me it is not clear whether this fail to detect PCIe devices is related
+to the patches in question, the reset timing, or something else. Needs
+further investigation.
+
+Regards,
+Soeren
+> ---
+>   drivers/pci/controller/dwc/pci-imx6.c | 43 +++++++++++----------------
+>   1 file changed, 18 insertions(+), 25 deletions(-)
+>
+> diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/control=
+ler/dwc/pci-imx6.c
+> index ea0b4eb03c1d0..6924a06bde305 100644
+> --- a/drivers/pci/controller/dwc/pci-imx6.c
+> +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> @@ -680,21 +680,12 @@ static int imx_pcie_attach_pd(struct device *dev)
+>  =20
+>   static int imx6q_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool e=
+nable)
+>   {
+> -	if (enable) {
+> -		/* power up core phy and enable ref clock */
+> -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_=
+TEST_PD);
+> -		/*
+> -		 * The async reset input need ref clock to sync internally,
+> -		 * when the ref clock comes after reset, internal synced
+> -		 * reset time is too short, cannot meet the requirement.
+> -		 * Add a ~10us delay here.
+> -		 */
+> -		usleep_range(10, 100);
+> -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_RE=
+F_CLK_EN);
+> -	} else {
+> -		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_=
+REF_CLK_EN);
+> -		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TE=
+ST_PD);
+> -	}
+> +	if (enable)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_REF_CLK_EN);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_REF_CLK_EN);
+>  =20
+>   	return 0;
+>   }
+> @@ -823,23 +814,25 @@ static int imx6sx_pcie_core_reset(struct imx_pcie =
+*imx_pcie, bool assert)
+>   	return 0;
+>   }
+>  =20
+> -static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool asser=
+t)
+> +static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert=
+)
+>   {
+> -	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_=
+SW_RST,
+> -			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+> -	if (!assert)
+> -		usleep_range(200, 500);
+> +	if (assert)
+> +		regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				IMX6Q_GPR1_PCIE_TEST_PD);
+> +	else
+> +		regmap_clear_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1,
+> +				  IMX6Q_GPR1_PCIE_TEST_PD);
+>  =20
+>   	return 0;
+>   }
+>  =20
+> -static int imx6q_pcie_core_reset(struct imx_pcie *imx_pcie, bool assert=
+)
+> +static int imx6qp_pcie_core_reset(struct imx_pcie *imx_pcie, bool asser=
+t)
+>   {
+> +	imx6q_pcie_core_reset(imx_pcie, assert);
+> +	regmap_update_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_=
+SW_RST,
+> +			   assert ? IMX6Q_GPR1_PCIE_SW_RST : 0);
+>   	if (!assert)
+> -		return 0;
+> -
+> -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_TES=
+T_PD);
+> -	regmap_set_bits(imx_pcie->iomuxc_gpr, IOMUXC_GPR1, IMX6Q_GPR1_PCIE_REF=
+_CLK_EN);
+> +		usleep_range(200, 500);
+>  =20
+>   	return 0;
+>   }
+
 
