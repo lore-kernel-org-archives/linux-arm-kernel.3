@@ -4,141 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B9BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 00:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AD9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 01:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qjYYU5MdcHMT84Wjl0yNDrZfZdaLTw7OHcRSQorQSzE=; b=wOixJdGkddiEe05/X/OrgVcY9/
-	YsuyRHUUD2p0Spx6hxIA0Bc8shrDCAxtci1Epw24AoxhasTcte5toG3UUREhWZObJ6kh3lY42XWO6
-	kEbd+6BSstXqkU9p5qNGH7STEqVdWU2iOoMFsvM5Xo8ArhJ4DgWdPGN/8MWc1odUS9QTlwHtRn0rf
-	MwKqc1Lo/pvOyh7Bp2WtLE8wyCS6lchkLWlRPji4bzMJcTDpJpUhzAZqZOJklyWjAgCgY1KJIZoUW
-	TXbd+qYQqwkTIDkx2sYLbW8828C0wzvHd7fdwPxCn9e7+YFKZDn4xChXniULQfZmwXNjygXBCmyDo
-	0LK7OwpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9cOKDvsufxQGk9XeiIZRCmZ8VGYdEpdgIWI857YjLG0=; b=jGjVkfNFHhaOn4
+	uqVZC4TozPaUZ/q3Uj0V9qMPXz/tgOCxyD4Pzau9KitupwDuJAu0U8FNfYkm1vghBomNkR7loxD+6
+	znTcPJk0LvKXWzXoiZg0B3EyWNvrrmo0tt+Q75ChirqqkIkRfwh9AuXRJIjQX4BO/Nx9uD7zhqD4M
+	nPd5ojGlgM4IN7wMlx5tTFZkE5IuR1e9b/cA4l+txAxFXyXw+Q12vytXQl87RlH05huD370Rvwlso
+	K1Vos85jYwFHXYBtg+T2nQaDiNbnFXtAMRWfeDgsaCR17SieMi7D9SBqPZ9B/7KpeJL4wZBWoJCEd
+	5BxKpDJ2Eu0ixTUiaX8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgXJ9-0000000Autt-1SK8;
-	Mon, 06 Jul 2026 00:35:35 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wgY9K-0000000BBzQ-1Fpq;
+	Mon, 06 Jul 2026 01:29:30 +0000
+Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgXJ6-0000000Aurh-19bL
+	id 1wgY9I-0000000BBxc-05Mk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 00:35:33 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665LxE3C2868070
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 00:35:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	qjYYU5MdcHMT84Wjl0yNDrZfZdaLTw7OHcRSQorQSzE=; b=CD3cUqaAegJB4e65
-	l05cjqYkNSEGBRSi30tpdxmoIOjXbYTHz4LmamSYt/F6+AMmWpsNGkgehh9rh9CR
-	fY8da+SdeMDmN4BCSyoiKPMJyMpgc75KNDqSSyv5G4WjyRin4yhHvtSGIqps2di4
-	D1uI2inlFoXz6N7ynEw5G7wWxaYF/MMISXPbFzM3nl1ryvUqwW+VRiZKfpRgtml/
-	mPhWtO+j4eB1Sa7T3+Gl5HqIwJQS4y/nnrj08U5FqcXMsBhuQ1oxL6iqVjvxV1Zi
-	YVkqaEY7vSgQcsBoqqZp4sxM6qSyqy2PAieLMsTI0iyi9Ypc67oqXZdb0kG6Mv5a
-	NNStoQ==
-Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f6s4suv1e-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 00:35:31 +0000 (GMT)
-Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-37d4f23eb37so4272539a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 17:35:31 -0700 (PDT)
+	Mon, 06 Jul 2026 01:29:29 +0000
+Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-c96d2bebca3so1270515a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 18:29:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783298130; x=1783902930; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qjYYU5MdcHMT84Wjl0yNDrZfZdaLTw7OHcRSQorQSzE=;
-        b=cGd4hcPPAhFIU49mLlzKdaa6xNSsvRFIacuuVz5eQUmd9eBP7mbPNO4zuSfthexdct
-         K7oSpc5I+PnDHy0MlxdrK7e4j7jf8aQQQC407MeqriSB2jiGCLN17WhZ/5HIDNbhLiZD
-         eD4m7DbQ4wWYZnEmQLPaSHwSq600yrDam5P0mNTohHChFwtHkEXaQ/18JsF8ZQiMVjXk
-         BIbKl+4ZItqNNMi8kz+mfKYJ1tqqUIRROsrbG8ApZJct4K6Wp86WMH4ZavOZUAfG0DjV
-         zzNb8q5+5SiKHjcNkcD9PnUcLA5X1TztUeao+31tGwX9uyXasEr3MvThlaBrFygdzbYt
-         dZdw==
+        d=gmail.com; s=20251104; t=1783301367; x=1783906167; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9cOKDvsufxQGk9XeiIZRCmZ8VGYdEpdgIWI857YjLG0=;
+        b=C8C2bfsa/Rlhhn9Fey+MYKCHCYXKyYR1R5HV64uLtd39hyS6A7507ajqPEnho5lCkv
+         8ZJsKlC/AfyxQaV8uTy3j+2N0tZVBMxycOHmmN+/DwqlXQBnIsxmsGa36uq6V+MLpcbw
+         ibyw+Mc7dXNzdfSVhwxl7m+YyOZ+i8rzVr08T0zkNnZWhj2xC0TTZXy96zMXxc0WK+ca
+         IPFWSbRr2ram27q3FB+5VsTgjMpGKyZ38fCrTbzaoghoaQIW4ZkW2zp2wKqu7f26osC0
+         ak687sKvK4Mfj4jrE4CrbvxIMiZRzXo6ygqyQ6zZAiYGGkbL2mdzbwtCKVe0T5u/55XJ
+         Dn9w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783298130; x=1783902930;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qjYYU5MdcHMT84Wjl0yNDrZfZdaLTw7OHcRSQorQSzE=;
-        b=MrHQucn8WmwuDRMkrPHh6/yve04F2pCsysqOB84F/CCwBuaoEYtIoe8KChPpdysTQK
-         HgoIzVpI+jUO3HfIhcuMJwUtub/qtsFZX70KoPLR9UZlE90AppMooDjMA3wI7MzEmxCu
-         l3z0ZR5z+fTjjEIj75YeIbcV8HHLCwjLCDkbAVks97KCOLf5BPU8Bp1yjCywTtgzN+H5
-         ztTXQsgn12WtEvfndgDhhBrRbKdKp4s+qhGqjPnXlo6Rf9OCMI0uYFkDBLtvpxfjI9Ga
-         QMUGRpnkziKvx8fW1whDOlVxCfSYUXTUepW6Qm8cuTXSK5alhe/733xjx10RrBVmfxJn
-         w80Q==
-X-Forwarded-Encrypted: i=1; AHgh+Rqi5Xm12qehSEwchtos+/3EOzzf4VnuqS1JB4Av299p6zHaIrXTAYcPCbDAUqCfdG5ozcBsAJv4OYzH8c33oii0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYxfPXGrAHIqTvBuaOJcCdCCkFcGqHMZHUm3AWav4tadLQgz40
-	byJREdKALupc436MYnRJpwz3Yhw2X8GYHEj4+FcLBG1LwhkgUQMTYZIG0SGuzdXgeYPfZ8u8EXl
-	FdpKg3RnCD0OSLvdS7VnZQV5GhJHiVa2A7Z2F5YZZE9PXXM3IJpqcVcua8NYOtbtXXf9aW3Zu7t
-	S4MQ==
-X-Gm-Gg: AfdE7clWJFppx4Q/SZI5VEeMC3praAejaRe6meNrREGrPZ/7YkFm0CkFtMxvFiGRY8T
-	SccOi3TxZJWYc8C8jersBovKVGr+MXAes++KQtcKtyNblmzpqLCfGP3avsjGJWSoRUUALJvOznE
-	AS6dk/eWMhnbyWcZWGU9EjR0OKnbl+DZAO3otUu+Aw0yBBFScTdzFcJ2fkou88TWggd0g/1J+E/
-	Dilphdwfe3HeE4JDDfhAV+MhtvcdjusY+bTQjNMq51yWG7gLpi4+TemkamLvYNZ3SCdq3j9jkRS
-	ANpxenug3u+G0xoWJTzyNZjP1fBWhEpEadnGNQbXcZEgnwtEp8x3046/YtD9EgmbxCR/LmSGjz3
-	G539aY2Ddz8bF4viumn4FRpB6TKsKiqD+c1BOnh8QQo3J56E7cBCiRgAvAHS2gY+VICUWqZ5qUU
-	Bn
-X-Received: by 2002:a05:6300:141:b0:3b3:f46:1eea with SMTP id adf61e73a8af0-3c03e208a9bmr8362713637.7.1783298130400;
-        Sun, 05 Jul 2026 17:35:30 -0700 (PDT)
-X-Received: by 2002:a05:6300:141:b0:3b3:f46:1eea with SMTP id adf61e73a8af0-3c03e208a9bmr8362690637.7.1783298129919;
-        Sun, 05 Jul 2026 17:35:29 -0700 (PDT)
-Received: from [10.133.33.154] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c9e921cd139sm5158166a12.23.2026.07.05.17.35.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 05 Jul 2026 17:35:29 -0700 (PDT)
-Message-ID: <cc416479-0754-4787-a2ce-7af6fb7158ab@oss.qualcomm.com>
-Date: Mon, 6 Jul 2026 08:35:26 +0800
+        d=1e100.net; s=20251104; t=1783301367; x=1783906167;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9cOKDvsufxQGk9XeiIZRCmZ8VGYdEpdgIWI857YjLG0=;
+        b=JaC0b2G81YA6gG7vM95iln0Moc1X8lrkqBrU8aFdUARblor/pnE5SuwLWnwA8y4MdV
+         aVqgWNBdcn1r2tQET50NC6ew0mJzbB50VTCrMdvU6XeejuyGAnG6Xedf6Vs1Qwl+Akrv
+         P7oZ/DnjKfqiEkDA0dzw9k7fxadU9zaG3gFTfzGJq3fFYF5SVS9JwHWAyM9oUiDYOzj1
+         qvSIebppMkHONWQ2lri4+ho4uHHmpPAWAI/ZODF6Yb/zSfcnJ1XIWxeMWb6FHdDa98R9
+         5W/TlGWzD4DzcXqARVZ5q8ngFWSfMdg32mHF40DkANURUWWJJTmu0BEufksNVZA7ia7r
+         otDQ==
+X-Forwarded-Encrypted: i=1; AHgh+RrmYknTcwIs6fMkUhL+SzyGQ6P3RWwgkbHDL/j2X9idla3bGhoHVu3I0R9PoA16OnkFC7MJabWItRNEHWYCWo9A@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhSgJMhS8fzdLp39CtYUMfKluClpvdj6IoYlCnweLm914xZ9ZX
+	FKVWgvZfuJb/tyYQqhfcw4epMeiDI/c5/+oebnzvgKTdOQWZrqyOjOvnyl+iTw==
+X-Gm-Gg: AfdE7cmo5YWqtvuXbk75rhEeaDjSV77ogK3cdyK/Ic2fj0zQbAlf9KaXME7tUzZE2ec
+	EPwF4cfu6n57NX3CWnjkDDguwAyZRsNoYCIY45av31M7nEYXjYB7ONC4v1K2Amlcmtad10jrJFJ
+	ln/A+zT6VFPlXl9rijrkfSHrcZLRDOkRwQyE8/c7APRi4vHGkDl/PaoffWtTk9XETky5gjxfBeI
+	mCskasy1H5eKKkTN8IGplULY+L5Vdanm0Z1Of+DZITdT6c2HTGxQ0dlI2gXKa92vewD+q5WQBdy
+	j+hVA7ls4Bm7DMTWHq7Xx9dExbODVEs43kdPDuxIlEDbw0m+H7+e2XoOdnTVpYrwwfBQHmU9+gU
+	TvHF4KH1S2twQBXsmDs8H5MZrZSU5DXxCS0xfoqQ3WGIRzJL6zUhKIyLjLkqjd8Rlo6Alt2gFrX
+	PacJk6W0HaglnxkygIa0qK94pL2AjxmFcC/RFP2t/g+qWr4TE9Mb9rlKj3R3E/IJpG+eAB4GwfL
+	a84v0AXtcJUKQ==
+X-Received: by 2002:a05:6a21:6da9:b0:3bd:229c:dcab with SMTP id adf61e73a8af0-3c03e290082mr9979127637.17.1783301367094;
+        Sun, 05 Jul 2026 18:29:27 -0700 (PDT)
+Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:bf6:81d1:bcfe:9d1c])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b3c7ef5b3sm63084524c88.1.2026.07.05.18.29.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 05 Jul 2026 18:29:26 -0700 (PDT)
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Subject: [PATCH 0/7] ARM: orion: convert legacy gpio-keys to software nodes
+Date: Sun, 05 Jul 2026 18:29:17 -0700
+Message-Id: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: dummy: add missing MODULE_DEVICE_TABLE()
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@arm.com>, James Clark <james.clark@linaro.org>,
-        Leo Yan <leo.yan@arm.com>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20260704121621.48544-1-pengpeng@iscas.ac.cn>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <20260704121621.48544-1-pengpeng@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDAwMyBTYWx0ZWRfX3qqjI4q+bo2o
- Aw8kBugBFXPuFfqqto19ZBN9f0pQwmvVdJXdbakCgZ7+L/8nxN2qpGJuqLD4IKoVjsEJ/5VHmd4
- 2ChB/Umo9hGfOdGtOtF6+6r1ujaPyOA=
-X-Proofpoint-ORIG-GUID: bOgEcbt9aVV50zQto8kQvy1RHRmdQj7e
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDAwMyBTYWx0ZWRfXxzISqMCViAeV
- z9GKZovlxATjwsSMtV+bi0ReoAHenPdZ1SpaGELtSZWr2uwXP1YYw3r+5nrrmJjygArzsgC/tKe
- sNbpFLrWxoMwrpRaPgpSmjYOqPjZxM7Ej7yiSrJcRq/pgi1PIGou2Kvh9EhTe+1zo1H12+9ieg5
- r58wkeEQYXCGHE6atRgbwsqNQcwBAxNz26i5rkJltI40iaXlMe4h1amW1SRztJyGx08IZGTgzcf
- qDRAHWJ8h5CToYUVpJ2ywASmm9XbAApc8iedGJzPq0uavhJiXq+Y+7GW+8wo5J44NHeo/9CNAjO
- xGFtUT5nHQ5NlgC7xT/S/mP7qu3sx1dMmfAYjv3o4m24/kXdtd0UTrEtYQOuWeuA1HEw9UFVVNZ
- gLGKeuhiPADnH2hWfkCOaiNDuUAbCIeVQmHuGrAUsrwAKjqF+zOsB2VlmFP8hLWZ887yv+yNizV
- onxQu/TMV3dePCpHuEg==
-X-Proofpoint-GUID: bOgEcbt9aVV50zQto8kQvy1RHRmdQj7e
-X-Authority-Analysis: v=2.4 cv=ZfQt8MVA c=1 sm=1 tr=0 ts=6a4af853 cx=c_pps
- a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=fBs5-pIvW3lKeRPO0CEA:9 a=QEXdDO2ut3YA:10
- a=iS9zxrgQBfv6-_F4QbHw:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 impostorscore=0 adultscore=0 phishscore=0
- priorityscore=1501 clxscore=1015 suspectscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060003
+X-B4-Tracking: v=1; b=H4sIAO0ES2oC/yXMUQrCMBCE4auUfXYhicUaryI+pO2oK5hIttZA6
+ d0b9fGDmX8hRRYonZqFMmZRSbHC7hoa7iHewDJWkzPuYDrTcsp1wc+5O5ZiWD8xjWAP3wZ4uw/
+ OUr2+Mq5Sftnz5W999w8M07dF67oBFUFBjXgAAAA=
+X-Change-ID: 20260704-orion-mv78xx0-swnode-9e94ae913a21
+To: Andrew Lunn <andrew@lunn.ch>, 
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+ Gregory Clement <gregory.clement@bootlin.com>
+Cc: Russell King <linux@armlinux.org.uk>, 
+ Bartosz Golaszewski <brgl@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16-dev-b242f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_173532_335230_72F8E4BE 
-X-CRM114-Status: GOOD (  21.08  )
+X-CRM114-CacheID: sfid-20260705_182928_066035_5634CCEF 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,47 +105,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This patch series converts Marvell Orion and MV78xx0 board setup files
+from legacy platform data to software nodes with the eventual goal of
+dropping support for legacy gpio API and platform data from gpio-keys
+driver.
 
+The series registers static software nodes for Orion GPIO controllers
+during gpiochip registration in orion_gpio_init(), allowing board setups
+to reference GPIO controllers via PROPERTY_ENTRY_GPIO(). It then converts
+gpio-keys setups to software nodes across MV78xx0 and Orion5x boards
+(Buffalo WXL, DNS-323, MV2120, Net2Big, QNAP TS-209, and TS-409).
 
-On 7/4/2026 8:16 PM, Pengpeng Hou wrote:
-> The driver has an OF match table wired to .of_match_table, but does
-> not export the table with MODULE_DEVICE_TABLE().
-> 
-> Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-> information is generated for OF based module autoloading.
-> 
-> This is a source-level fix.  It does not claim dynamic hardware
-> reproduction; the evidence is the driver-owned match table, its use by
-> the platform driver, and the missing module alias publication.
-> 
+Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+---
+Dmitry Torokhov (7):
+      ARM: orion: register software nodes for GPIO chips
+      ARM: mv78xx0: buffalo-wxl: convert gpio-keys to use software nodes
+      ARM: orion5x: dns323: convert gpio-keys to use software nodes
+      ARM: orion5x: mv2120: convert gpio-keys to use software nodes
+      ARM: orion5x: net2big: convert gpio-keys to use software nodes
+      ARM: orion5x: ts209: convert gpio-keys to use software nodes
+      ARM: orion5x: ts409: convert gpio-keys to use software nodes
 
-Thanks for fixing the autoload issue.
-Please add the fixes tag for the fix patch.
+ arch/arm/mach-mv78xx0/buffalo-wxl-setup.c     | 50 ++++++++------
+ arch/arm/mach-orion5x/dns323-setup.c          | 98 +++++++++++++++++----------
+ arch/arm/mach-orion5x/mv2120-setup.c          | 68 ++++++++++++-------
+ arch/arm/mach-orion5x/net2big-setup.c         | 94 ++++++++++++++++---------
+ arch/arm/mach-orion5x/ts209-setup.c           | 70 ++++++++++++-------
+ arch/arm/mach-orion5x/ts409-setup.c           | 69 ++++++++++++-------
+ arch/arm/plat-orion/gpio.c                    | 10 +++
+ arch/arm/plat-orion/include/plat/orion-gpio.h |  3 +
+ 8 files changed, 303 insertions(+), 159 deletions(-)
+---
+base-commit: 2b763db0c2763d6bf73d7d3e69665222d1f377cf
+change-id: 20260704-orion-mv78xx0-swnode-9e94ae913a21
 
-Fixes: 9d3ba0b6c056 ("Coresight: Add coresight dummy driver")
+Thanks.
 
-With the tag:
-
-Reviewed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
-> ---
->   drivers/hwtracing/coresight/coresight-dummy.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/hwtracing/coresight/coresight-dummy.c
-> index c176a2f57300..04880d38feb7 100644
-> --- a/drivers/hwtracing/coresight/coresight-dummy.c
-> +++ b/drivers/hwtracing/coresight/coresight-dummy.c
-> @@ -212,6 +212,7 @@ static const struct of_device_id dummy_match[] = {
->   	{.compatible = "arm,coresight-dummy-sink"},
->   	{},
->   };
-> +MODULE_DEVICE_TABLE(of, dummy_match);
->   
->   static struct platform_driver dummy_driver = {
->   	.probe	= dummy_probe,
-> 
-> 
+-- 
+Dmitry
 
 
