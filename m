@@ -4,78 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82A9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:09:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE9CC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:09:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7uGc6qOcbWaZba6BNWE0w8BupLDIVpLKSnAAYXy5/LA=; b=o/jPWKxkFhMOIr0qHh3Tv2w0Q9
-	Tgx2aeqhyEHV97i9a3YYn1yzNlOd58zIBgLN1iIKG3O4ptT9PSuvkTC6iPWuo8MzmvUwbPYfDHpm3
-	F/4NhZKwElWpvBGSTOHa/bz5U+jThZsky9/cRyj3H1/TI2QANM+fhOhr91YmMn0fv5m4sxmnuAhEF
-	VbsHEhQbivJ5gwlCokjeYXpRg2MFAG4OWPuIfBT5VtPUeHp7Iw6oraR/r9CIkqHx4MrwNR/Choymt
-	quCRvdEFSpjCMRUdvINaDSbF7d+dVkSwXtU5QhEpFNfGTFDa+MXYzXkFJdiZwAleLCy8O50Tjraxh
-	VLpg+1Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RFEQ6Jvqg8zxhLp0H6oiyajuwS0jJDK62kNSimaPeVY=; b=m7DwmTT8mPa8+yNWTy22T+vMC+
+	LzHU+MYI6Mu2wp9+vDsPvrOSj8EJvSFXra/IGR9CGG8QCoLdumW770dPz0YuGWSJ+USLunDvhajts
+	5gww475n5P/AakwbL+LysMvAfITzGZMh5Q8X7Iik+w8mkElukZUjBSNaNm7WYJvQy3RJfjV7gHfuN
+	pd9KKgUIISbO05q7ausnsU5n+Jr0vJyMH8TBAq5gghMh6gaN4jztei7LPxG2OgtEudZ5yp34bJJ6Z
+	Nel1QocImc5VCYQw2SnBDfkWUFDO5/3ziewRbFCvL53YLsRWU2Jv6LrEIlbwrGcHIrzVnHjBSKU3T
+	s+KT/MEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkwN-0000000CqTc-3dtt;
-	Mon, 06 Jul 2026 15:08:59 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1wgkwY-0000000CqXH-05JS;
+	Mon, 06 Jul 2026 15:09:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkwL-0000000CqSx-1H9v;
-	Mon, 06 Jul 2026 15:08:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1783350530; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KPsfhiRXCf62s1OD5a77dlrT765LM4geTQwnspwwaF9iA/UClFJYyjZUR4d3iN/yC6N2YWJRetoZuZE8jlBLA7N094NXjiAbQhoNzY0YflKhrKmEBhCAjL8yWZpCgRjFSoMrCapRg26glxeeXxgWPXSIn2PPSz5Uj3qjO2qzYnc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1783350530; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7uGc6qOcbWaZba6BNWE0w8BupLDIVpLKSnAAYXy5/LA=; 
-	b=jQGUTSXzm8Mz6Xjfgj9ThaozJ27mZRqyH6el57aksBAjvwtN8IIXkXd1MrtGY4+l5iLjw3siFb+ydDfXTMXXt/f0T7FOqN2Wqr/D9Q1zir5TAOocBimrfMx4nbyEjkIkrvFHwaVAD9mNNx7kvkfU3gDtgClNmbWVbECcRv3hDLc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=rong.moe;
-	spf=pass  smtp.mailfrom=i@rong.moe;
-	dmarc=pass header.from=<i@rong.moe>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1783350530;
-	s=zmail2048; d=rong.moe; i=i@rong.moe;
-	h=Date:Date:From:From:To:To:CC:Subject:Subject:In-Reply-To:References:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To:Cc;
-	bh=7uGc6qOcbWaZba6BNWE0w8BupLDIVpLKSnAAYXy5/LA=;
-	b=q3eQUZ0IqazpyaqParrDoAt0z0vmwXbsUOt4onTMMj6Nz4XaPBzoBWotFlgj3u5k
-	qqWOzGVVOys8PF+9feZuAG73he9MsoxJKSIvtPjqNpYfnVbbZ7TxfHfBloIQsU7Q2BT
-	lazx5YDOFKqXDLxtdjJzna5ZnoTtS3q90/iAtcf4goTXwUKUj4MS2uWLsswNXJg3+YO
-	2yyu/R4QwqZcYD7iuP4QrpnQxXBI99yY1VCSSnm7hE2FP6PlRs+j3HiHJ9Mki0c1eAs
-	vh2XGViNiGsIzurkI8O3MR2Vd9pqXfn9TYDU1JDZxYTcZC194hJbNRAL6tdu925HPGG
-	tB/6zmwXHA==
-Received: by mx.zohomail.com with SMTPS id 1783350527830956.3838171300544;
-	Mon, 6 Jul 2026 08:08:47 -0700 (PDT)
-Date: Mon, 06 Jul 2026 23:08:36 +0800
-From: Rong Zhang <i@rong.moe>
-To: Rafael Passos <rafael@rcpassos.me>, Marcel Holtmann <marcel@holtmann.org>,
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
- =?UTF-8?B?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
- =?UTF-8?B?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
- =?UTF-8?B?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
- linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v2=5D_Bluetooth=3A_Properly_disable_rem?=
- =?US-ASCII?Q?ote_wakeup_for_MT7922/MT7925_on_Ryzen_platform?=
-User-Agent: Thunderbird for Android
-In-Reply-To: <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
-References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe> <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
-Message-ID: <79D5F3E6-8F40-4422-BB2D-16691E377394@rong.moe>
+	id 1wgkwX-0000000CqWi-0I8e
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 15:09:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id A5DB543BFD;
+	Mon,  6 Jul 2026 15:09:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 358651F000E9;
+	Mon,  6 Jul 2026 15:09:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783350548;
+	bh=RFEQ6Jvqg8zxhLp0H6oiyajuwS0jJDK62kNSimaPeVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CBNXdRyYi4VeB2kuzdVU7OsMlkFmTfM3ZH+WRmQe5P1iYgzuKqXKYbLA/YtSlrz2z
+	 YDDWblOeEaaa5JVOdYfounIsSFsEiVNi2JMm3+0UlVx+9ajofPLwceyrEBd8owVGKx
+	 l720FtjH6DSmYZ43rg2Iy9iwuAL21st5UbK6bJhnPC+2J8GiUA/bq7MguD95Hb8TpA
+	 vGqDQFQN9b0bWO2rYPso6r1UOK4ILEQhjypsp4MnTriE8nzgNQ8B5NIC1BJS7o4oJr
+	 h1g/U2zI8z+qKsLSZ8+P4nm++NYlkzZlb4xo02UlcvN7jAC1cRGJvLgiqbJDP86FOw
+	 3SqZS8+EtJ9Xw==
+Date: Mon, 6 Jul 2026 16:09:04 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v7 1/6] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260706-camouflaged-quaint-harrier-764b3b@sudeepholla>
+References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
+ <20260611130429.295516-2-aneesh.kumar@kernel.org>
+ <20260706-belligerent-excellent-saluki-a4e431@sudeepholla>
+ <yq5a4iici3u3.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_080857_405216_1353F4AC 
-X-CRM114-Status: UNSURE (   7.35  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <yq5a4iici3u3.fsf@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +82,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rafael,=20
+On Mon, Jul 06, 2026 at 08:05:00PM +0530, Aneesh Kumar K.V wrote:
+> Sudeep Holla <sudeep.holla@kernel.org> writes:
+> 
+> > On Thu, Jun 11, 2026 at 06:34:24PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> 
+> ...
+> 
+> >> +#define to_arm_smccc_driver(d) \
+> >> +	container_of_const(d, struct arm_smccc_driver, driver)
+> >> +
+> >> +int arm_smccc_driver_register(struct arm_smccc_driver *driver,
+> >> +		struct module *owner, const char *mod_name);
+> >> +void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
+> >> +struct arm_smccc_device *arm_smccc_device_register(const char *name);
+> >> +void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
+> >> +
+> >
+> > I may be overthinking but what will happen if HAVE_ARM_SMCCC_DISCOVERY=n
+> > and some driver is compiled using this header ? It should be fine if it
+> > fails to compile, just thinking out loud if we need to handle that are not.
+> > As long as all the drivers using these depends on HAVE_ARM_SMCCC_DISCOVERY
+> > it should be fine I think.
+> 
+> This will result in a build failure. The driver should either select
+> HAVE_ARM_SMCCC_DISCOVERY or depend on HAVE_ARM_SMCCC_DISCOVERY.
+> 
 
-=E4=BA=8E 2026=E5=B9=B47=E6=9C=886=E6=97=A5 GMT+08:00 22:53:17=EF=BC=8CRaf=
-ael Passos <rafael@rcpassos=2Eme> =E5=86=99=E9=81=93=EF=BC=9A
->I was having issues with Bluetooth on the ASRock B850M with MT7925=2E
->I tested this and other patches in my investigation process=2E
->My issue was a platform bug causing a failure in USB enumeration
->before the driver path (unrelated to the patch)=2E
+That should be fine for now.
+
+> >
+> >> +#define arm_smccc_register(driver) \
+> >> +	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
+> >> +#define arm_smccc_unregister(driver) \
+> >> +	arm_smccc_driver_unregister(driver)
+> >> +
+> >> +#define module_arm_smccc_driver(__arm_smccc_driver) \
+> >> +	module_driver(__arm_smccc_driver, arm_smccc_register, \
+> >> +		      arm_smccc_unregister)
+> >> +
+> >> +extern const struct bus_type arm_smccc_bus_type;
+> >> +
+> >> +#endif /* __LINUX_ARM_SMCCC_BUS_H */
+> >> diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+> >> index 23ff24080dfd..c9cee8c5a0b2 100644
+> >> --- a/include/linux/mod_devicetable.h
+> >> +++ b/include/linux/mod_devicetable.h
+> >
+> > This file seems to be reworked recently, so you need to rebase it moving
+> > smccc specific changes to separate file I think.
+> >
+> 
+> Do we need to add a separate file? I was able to rebase the series on
+> 7.2-rc1
+> 
+
+Then could be something changed between -rc1 to -rc2, I couldn't apply the
+patch.
+
+
+[...]
+
+> >> +
+> >> +/**
+> >> + * struct arm_smccc_device_id - Arm SMCCC bus device identifier
+> >> + * @name: SMCCC device name
+> >> + * @driver_data: driver data
+> >> + */
+> >> +struct arm_smccc_device_id {
+> >> +	char name[ARM_SMCCC_NAME_SIZE];
+> >> +	kernel_ulong_t driver_data;
+> >
+> > Can't find any users of the above driver_data ?
+> > Is it for future ? If so, can you add details on how it is supposed to be used
+> > if you don't want to drop it.
+> >
+> 
+> That would depend on the driver, wouldn’t it? I was comparing this with
+> struct auxiliary_device_id, and very few drivers use driver_data;
+> mei_gsc_probe() is one example.
+> 
+
+Indeed, but I don't see any attempt to use it currently which is fine but
+I also fail how this can be used in future in SMCCC context.
+
+IIUC driver_data is a per-match-entry cookie. It is useful when one driver
+supports multiple IDs and wants each ID to select  slightly different
+behavior.
+
+The issues as I see are:
+1. No driver is using it in this series.
+2. The SMCCC bus match code finds the matching table entry, but then
+   throws it away. It is not passed to probe for example.
+
+> I am not sure there is a generic rule here. IIUC, it provides a place
+> where a driver can add driver-specific data that can be used during the
+> probe routine.
 >
->I can confirm this patch does not introduce regressions on this platform=
-=2E
->I tested system power cycling and suspension,
->and also BT/Wifi adapter enable/disable=2E
->Patch applied on top of mailine (7=2E2 rc1)=2E
->
->Tested-by: Rafael Passos <rafael@rcpassos=2Eme>
 
-Thanks a lot for your testing!
+How is that possible unless we either add a function like
 
-Your issue sounds related to the remote wakeup issue I am addressing=2E Af=
-ter triggering the remote wakeup bug, rebooting the platform without a powe=
-r cycle [1] always causes a failure in USB enumeration before the driver pa=
-th=2E
+  |  const struct arm_smccc_device_id *
+  |  arm_smccc_get_device_id(struct arm_smccc_device *sdev);
 
-[1]: power off, unplug AC, wait for a while, plug AC, power on=2E
+to get the pointer to the id_table or that driver_data from the probe.
 
-Thanks,
-Rong
+Or change probe to receive the matched ID/driver_data:
 
->
->Thanks,
->Rafael Passos
+  int (*probe)(struct arm_smccc_device *sdev,
+  	     const struct arm_smccc_device_id *id);
+
+Please drop it if you have no plans to use it or see any future usage.
+
+-- 
+Regards,
+Sudeep
 
