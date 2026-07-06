@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FDB6C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96897C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zStigLhV4Yy76Iea0IqvLSUMMxu60sak2zphCm7EfOk=; b=RHAh5NjrXttUpMBeuWD+s8Oeme
-	XEh3DlcAqX9RXI91hm5oVIHhDpjdxPW6wk/GjC5YWxbgIKEQHOQdzLL/0zrg1OlabSug9XbKvX3VY
-	072BTpQgtIEzZ7UqOh0lfEd7GyXyOQwG+qG9ATHBQ9PhSIA7ofHdmzDBWOFQjkcSbMcFg9N3YPdC2
-	UvshLSjnFWTfXL4q2cBSbIy5aw9iDqCS59vJnHWBVPu9Rfipt/aCPSZCaRClFO1NrGNw9JYzZwVoQ
-	YuoYD1+fQrBzkvZJvQYbWp4zuufHGgPhODqmYwC0bwiDkqTiPfJDHPk/TIWqsGXoIOR3JOHcQk+nZ
-	MVWuewaw==;
+	bh=EOqkUDsv5XJ17vS/j5aT7uotSI4Ixxqz/D40PV17aqI=; b=OC2F0CHgNk4LaA2HDdFPvESJsk
+	XTxPKm4VnxbSHZDHoRiYSh7ZR6ZXiM/jhWG4oxMfKE8+8Q7NyPy92zBZofVQmTkioqKjb2jECjOaZ
+	UQVgVskt/EYhBbWnG+XM/p4CpdOYirHyoQ+zvTVE7XMotzVCtJnR8NWHOg4sSbjHkkU51g7ZDXDFM
+	+giQTJizuC609IqDjBdBh7JtVTTdCudKU9XnfxCbuPryHg5/eMmB2wyQC1rjMrvwPLU6eGELfdIuz
+	X/QvgvaN92gNcB3pD3DUTH7ANXaPUdbnjP0MxDDZyzYQKOpH8XXiQO+qhbeN06mkKGu+blS5nwrrs
+	6LA6AQ/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgg83-0000000C7qY-2Bg1;
-	Mon, 06 Jul 2026 10:00:43 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1wggBX-0000000C8Yh-0mqs;
+	Mon, 06 Jul 2026 10:04:19 +0000
+Received: from www3579.sakura.ne.jp ([49.212.243.89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgg7m-0000000C7ch-3HU3
+	id 1wggBT-0000000C8WH-4Anx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:00:28 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783332024;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zStigLhV4Yy76Iea0IqvLSUMMxu60sak2zphCm7EfOk=;
-	b=iuobw5QS4Xtp45eR4Rh5O0Bx+kMpy8ANDVhYw0pqwm+PC4kChkVbRgoCqRx2hmuabplV65
-	o/BKe8hubzpkety+mZEJm+aAXRfs5qeWSXUCpLc5rkz797Ec58I3P5SUO+SQZZlbsFuKJ2
-	nW+cuDxS3yL+qbbn1WXvkUajBNgOmfs=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v4 8/8] KVM: arm64: Implement lazy vCPU state sync for non-protected guests
-Date: Mon,  6 Jul 2026 10:59:27 +0100
-Message-Id: <20260706095927.560795-9-fuad.tabba@linux.dev>
-In-Reply-To: <20260706095927.560795-1-fuad.tabba@linux.dev>
-References: <20260706095927.560795-1-fuad.tabba@linux.dev>
+	Mon, 06 Jul 2026 10:04:17 +0000
+Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
+	(authenticated bits=0)
+	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 666A3TQ9013128
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Mon, 6 Jul 2026 19:03:44 +0900 (JST)
+	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
+DKIM-Signature: a=rsa-sha256; bh=EOqkUDsv5XJ17vS/j5aT7uotSI4Ixxqz/D40PV17aqI=;
+        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
+        h=From:Message-Id:To:Subject:Date;
+        s=rs20250326; t=1783332225; v=1;
+        b=s/ghIKxSDtVNfX7MFsw6AaZQWfLbG5tXYeZW6UwQT7bUdTfVzCzfyCvXDFPuWo2i
+         Z4OrlStkcN19MU77BIIfSdBE0ASz83ZdbsdWnII9NYEw/ZJ0RAASV30U9K2yMOw5
+         tnHynYH5B1SoAN51XjRZU2y/4CP4GcAc4JEpN8AbdeV/MoQfjpLWttwpfT6UtsDE
+         IcmL1WwQzi+jVVAGzWm8W4nWG7gYUfdDA4zjk8O6rkp/QU1UiEqkYDg3rv0zGd8m
+         T5q8Ulhe5fYkjeoLNoixzTlU+6t+nGZhMPe3YI84qZCFeWokCbb6rC5dqfvPUPc7
+         JedCCLWsq7LFUm1g+JDPXg==
+From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Date: Mon, 06 Jul 2026 19:03:29 +0900
+Subject: [PATCH v8 6/7] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-hybrid-v8-6-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+In-Reply-To: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
+        Joey Gouly <joey.gouly@arm.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Zenghui Yu <yuzenghui@huawei.com>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+        linux-kselftest@vger.kernel.org,
+        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+X-Mailer: b4 0.16-dev-925f5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_030026_975138_4761F44E 
-X-CRM114-Status: GOOD (  25.30  )
+X-CRM114-CacheID: sfid-20260706_030416_267954_02118355 
+X-CRM114-Status: GOOD (  19.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,249 +84,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pKVM copies a non-protected guest's register context between the host
-and the hypervisor on every world switch, even when the host never
-inspects it. Defer the copy: on entry, flush the host context into the
-hyp vCPU only when the host marked it dirty (PKVM_HOST_STATE_DIRTY); on
-exit, leave it in the hyp vCPU and copy it back only when the host needs
-it, via a __pkvm_vcpu_sync_state hypercall or at vcpu put. A protected
-guest's context is copied as before, since lazy sync only helps where
-the host is trusted to see the guest's registers.
+Introduce the KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY attribute to
+create a "fixed-counters-only" PMU.
 
-PC and PSTATE are the exception: they are copied back on every exit so
-the kvm_exit tracepoint reports the guest's real exit PC, and the run
-loop's vcpu_mode_is_bad_32bit() and SError-masking checks evaluate the
-guest's current PSTATE rather than the value left by the previous sync.
+Much like KVM_ARM_VCPU_PMU_V3_IRQ and other read-write attributes, this
+attribute provides a getter that facilitates kernel and userspace
+debugging/testing.
 
-The host needs the full context when it is about to read it (trap
-handling) or write it (the SError injection that writes ESR_EL1). Sync
-both from handle_exit_early(), which runs non-preemptible so the loaded
-hyp vCPU is stable without a preempt guard.
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
 ---
- arch/arm64/include/asm/kvm_asm.h   |  1 +
- arch/arm64/include/asm/kvm_host.h  |  2 +
- arch/arm64/kvm/arm.c               |  7 +++
- arch/arm64/kvm/handle_exit.c       | 23 ++++++++
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 86 ++++++++++++++++++++++++++++--
- 5 files changed, 114 insertions(+), 5 deletions(-)
+ Documentation/virt/kvm/devices/vcpu.rst | 32 ++++++++++++++++++++++++++++----
+ arch/arm64/include/uapi/asm/kvm.h       |  1 +
+ arch/arm64/kvm/pmu-emul.c               | 26 +++++++++++++++++++++++++-
+ 3 files changed, 54 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 043495f7fc78b..6e1135b3ded44 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -113,6 +113,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_finalize_teardown_vm,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_sync_state,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
+diff --git a/Documentation/virt/kvm/devices/vcpu.rst b/Documentation/virt/kvm/devices/vcpu.rst
+index 5e3805820010..58a6639c0196 100644
+--- a/Documentation/virt/kvm/devices/vcpu.rst
++++ b/Documentation/virt/kvm/devices/vcpu.rst
+@@ -71,7 +71,8 @@ irqchip.
+ 	 -ENODEV  PMUv3 not supported or GIC not initialized
+ 	 -ENXIO   PMUv3 not properly configured or in-kernel irqchip not
+ 	 	  configured as required prior to calling this attribute
+-	 -EBUSY   PMUv3 already initialized or a VCPU has already run
++	 -EBUSY   PMUv3 already initialized, a VCPU has already run or
++		  FIXED_COUNTERS_ONLY has already been set
+ 	 -EINVAL  Invalid filter range
+ 	 =======  ======================================================
  
- 	MARKER(__KVM_HOST_SMCCC_FUNC_MAX)
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index bae2c4f92ef5c..86d45bc8f4959 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1051,6 +1051,8 @@ struct kvm_vcpu_arch {
- #define INCREMENT_PC		__vcpu_single_flag(iflags, BIT(1))
- /* Target EL/MODE (not a single flag, but let's abuse the macro) */
- #define EXCEPT_MASK		__vcpu_single_flag(iflags, GENMASK(3, 1))
-+/* Host-set: the hyp flushes the non-protected vCPU state in on entry */
-+#define PKVM_HOST_STATE_DIRTY	__vcpu_single_flag(iflags, BIT(4))
+@@ -113,14 +114,14 @@ using event 0x11 (CPU_CYCLES).
  
- /* Helpers to encode exceptions with minimum fuss */
- #define __EXCEPT_MASK_VAL	unpack_vcpu_flag(EXCEPT_MASK)
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 50adfff75be82..ace7b67fe1cc8 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -735,6 +735,10 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
- 	if (is_protected_kvm_enabled()) {
- 		kvm_call_hyp(__vgic_v3_save_aprs, &vcpu->arch.vgic_cpu.vgic_v3);
- 		kvm_call_hyp_nvhe(__pkvm_vcpu_put);
+ :Returns:
+ 
+-	 =======  ====================================================
++	 =======  ===========================================================
+ 	 -EBUSY   PMUv3 already initialized, a VCPU has already run or
+-                  an event filter has already been set
++                  an event filter or FIXED_COUNTERS_ONLY has already been set
+ 	 -EFAULT  Error accessing the PMU identifier
+ 	 -ENXIO   PMU not found
+ 	 -ENODEV  PMUv3 not supported or GIC not initialized
+ 	 -ENOMEM  Could not allocate memory
+-	 =======  ====================================================
++	 =======  ===========================================================
+ 
+ Request that the VCPU uses the specified hardware PMU when creating guest events
+ for the purpose of PMU emulation. The PMU identifier can be read from the "type"
+@@ -162,6 +163,29 @@ explicitly selected, or the number of counters is out of range for the
+ selected PMU. Selecting a new PMU cancels the effect of setting this
+ attribute.
+ 
++1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
++------------------------------------------------------
 +
-+		/* __pkvm_vcpu_put implies a sync of the state */
-+		if (!kvm_vm_is_protected(vcpu->kvm))
-+			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
++:Parameters: no additional parameter in kvm_device_attr.addr
++
++:Returns:
++
++	 =======  ==================================================
++	 -EBUSY   PMUv3 already initialized, a VCPU has already run,
++		  an event filter has already been set or
++		  a hardware PMU has already been specified
++	 -ENXIO   Attempted to get before setting
++	 -ENODEV  Attempted to set while PMUv3 not supported
++	 =======  ==================================================
++
++If set, KVM emulates PMUv3 without programmable event counters. Only fixed
++counters are exposed to the guest: the cycle counter today, and the instruction
++counter if support for FEAT_PMUv3_ICNTR is added.
++
++With programmable counters disabled, the VCPU can run on any physical CPU.
++This is particularly useful on heterogeneous systems where different hardware
++PMUs cover different physical CPUs. All VCPUs in a VM share this attribute.
++
+ 2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
+ =================================
+ 
+diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+index 1c13bfa2d38a..39a1a1e412e6 100644
+--- a/arch/arm64/include/uapi/asm/kvm.h
++++ b/arch/arm64/include/uapi/asm/kvm.h
+@@ -437,6 +437,7 @@ enum {
+ #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
+ #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
+ #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
++#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY	5
+ #define KVM_ARM_VCPU_TIMER_CTRL		1
+ #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
+ #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 40cad183376c..ad9ff4d0d89c 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -1149,11 +1149,13 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 		arm_pmu = entry->arm_pmu;
+ 		if (arm_pmu->pmu.type == pmu_id) {
+ 			if (kvm_vm_has_ran_once(kvm) ||
++			    kvm_pmu_fixed_counters_only(kvm) ||
+ 			    (kvm->arch.pmu_filter && kvm->arch.arm_pmu != arm_pmu)) {
+ 				ret = -EBUSY;
+ 				break;
+ 			}
+ 
++			set_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags);
+ 			kvm_arm_set_pmu(kvm, arm_pmu);
+ 			cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
+ 			ret = 0;
+@@ -1164,6 +1166,22 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
+ 	return ret;
+ }
+ 
++static int kvm_arm_pmu_v3_set_pmu_fixed_counters_only(struct kvm_vcpu *vcpu)
++{
++	struct kvm *kvm = vcpu->kvm;
++
++	lockdep_assert_held(&kvm->arch.config_lock);
++
++	if (kvm_vm_has_ran_once(kvm) || kvm->arch.pmu_filter ||
++	    test_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags))
++		return -EBUSY;
++
++	set_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
++	kvm_arm_set_nr_counters(kvm, 0);
++
++	return 0;
++}
++
+ static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
+ {
+ 	struct kvm *kvm = vcpu->kvm;
+@@ -1238,7 +1256,7 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 		     filter.action != KVM_PMU_EVENT_DENY))
+ 			return -EINVAL;
+ 
+-		if (kvm_vm_has_ran_once(kvm))
++		if (kvm_vm_has_ran_once(kvm) || kvm_pmu_fixed_counters_only(kvm))
+ 			return -EBUSY;
+ 
+ 		if (!kvm->arch.pmu_filter) {
+@@ -1283,6 +1301,8 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 
+ 		return kvm_arm_pmu_v3_set_nr_counters(vcpu, n);
+ 	}
++	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
++		return kvm_arm_pmu_v3_set_pmu_fixed_counters_only(vcpu);
+ 	case KVM_ARM_VCPU_PMU_V3_INIT:
+ 		return kvm_arm_pmu_v3_init(vcpu);
+ 	}
+@@ -1309,6 +1329,9 @@ int kvm_arm_pmu_v3_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 		irq = vcpu->arch.pmu.irq_num;
+ 		return put_user(irq, uaddr);
+ 	}
++	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
++		if (kvm_pmu_fixed_counters_only(vcpu->kvm))
++			return 0;
  	}
  
- 	kvm_vcpu_put_debug(vcpu);
-@@ -966,6 +970,9 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
- 		return ret;
- 
- 	if (is_protected_kvm_enabled()) {
-+		/* Start with the vcpu in a dirty state */
-+		if (!kvm_vm_is_protected(vcpu->kvm))
-+			vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
- 		ret = pkvm_create_hyp_vm(kvm);
- 		if (ret)
- 			return ret;
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index 54aedf93c78b6..29108e5c0206e 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -486,9 +486,32 @@ int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
+ 	return -ENXIO;
+@@ -1322,6 +1345,7 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+ 	case KVM_ARM_VCPU_PMU_V3_FILTER:
+ 	case KVM_ARM_VCPU_PMU_V3_SET_PMU:
+ 	case KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS:
++	case KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY:
+ 		if (kvm_vcpu_has_pmu(vcpu))
+ 			return 0;
  	}
- }
- 
-+static void handle_exit_pkvm_state(struct kvm_vcpu *vcpu, int exception_index)
-+{
-+	int exception_code = ARM_EXCEPTION_CODE(exception_index);
-+
-+	if (!is_protected_kvm_enabled() || kvm_vm_is_protected(vcpu->kvm))
-+		return;
-+
-+	/*
-+	 * Sync the context back when the host will read (trap) or write
-+	 * (SError) it. Preempt-off here, so the loaded hyp vCPU is stable.
-+	 */
-+	if (exception_code == ARM_EXCEPTION_TRAP ||
-+	    exception_code == ARM_EXCEPTION_EL1_SERROR ||
-+	    ARM_SERROR_PENDING(exception_index)) {
-+		kvm_call_hyp_nvhe(__pkvm_vcpu_sync_state);
-+		vcpu_set_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-+	} else {
-+		vcpu_clear_flag(vcpu, PKVM_HOST_STATE_DIRTY);
-+	}
-+}
-+
- /* For exit types that need handling before we can be preempted */
- void handle_exit_early(struct kvm_vcpu *vcpu, int exception_index)
- {
-+	handle_exit_pkvm_state(vcpu, exception_index);
-+
- 	if (ARM_SERROR_PENDING(exception_index)) {
- 		if (this_cpu_has_cap(ARM64_HAS_RAS_EXTN)) {
- 			u64 disr = kvm_vcpu_get_disr(vcpu);
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 2db56146ec493..4a8445b636e60 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -143,6 +143,48 @@ static void sync_hyp_vgic_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- 		host_cpu_if->vgic_lr[i] = hyp_cpu_if->vgic_lr[i];
- }
- 
-+static void __copy_vcpu_state(const struct kvm_vcpu *from_vcpu,
-+			      struct kvm_vcpu *to_vcpu)
-+{
-+	int i;
-+
-+	to_vcpu->arch.ctxt.regs		= from_vcpu->arch.ctxt.regs;
-+	to_vcpu->arch.ctxt.spsr_abt	= from_vcpu->arch.ctxt.spsr_abt;
-+	to_vcpu->arch.ctxt.spsr_und	= from_vcpu->arch.ctxt.spsr_und;
-+	to_vcpu->arch.ctxt.spsr_irq	= from_vcpu->arch.ctxt.spsr_irq;
-+	to_vcpu->arch.ctxt.spsr_fiq	= from_vcpu->arch.ctxt.spsr_fiq;
-+	to_vcpu->arch.ctxt.fp_regs	= from_vcpu->arch.ctxt.fp_regs;
-+
-+	/*
-+	 * Copy the sysregs, but don't mess with the timer state which
-+	 * is directly handled by EL1 and is expected to be preserved.
-+	 * enum vcpu_sysreg is sparse: VNCR-mapped registers take values
-+	 * derived from their VNCR page offset, so the timer registers do
-+	 * not form a contiguous numeric range and must be skipped by name.
-+	 */
-+	for (i = 1; i < NR_SYS_REGS; i++) {
-+		switch (i) {
-+		case CNTVOFF_EL2:
-+		case CNTV_CVAL_EL0:
-+		case CNTV_CTL_EL0:
-+		case CNTP_CVAL_EL0:
-+		case CNTP_CTL_EL0:
-+			continue;
-+		}
-+		to_vcpu->arch.ctxt.sys_regs[i] = from_vcpu->arch.ctxt.sys_regs[i];
-+	}
-+}
-+
-+static void sync_hyp_vcpu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	__copy_vcpu_state(&hyp_vcpu->vcpu, hyp_vcpu->host_vcpu);
-+}
-+
-+static void flush_hyp_vcpu_state(struct pkvm_hyp_vcpu *hyp_vcpu)
-+{
-+	__copy_vcpu_state(hyp_vcpu->host_vcpu, &hyp_vcpu->vcpu);
-+}
-+
- static void flush_debug_state(struct pkvm_hyp_vcpu *hyp_vcpu)
- {
- 	struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-@@ -172,7 +214,17 @@ static void flush_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	fpsimd_sve_flush();
- 	flush_debug_state(hyp_vcpu);
- 
--	hyp_vcpu->vcpu.arch.ctxt	= host_vcpu->arch.ctxt;
-+	/*
-+	 * If we deal with a non-protected guest and the state is potentially
-+	 * dirty (from a host perspective), copy the state back into the hyp
-+	 * vcpu.
-+	 */
-+	if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-+		if (vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY))
-+			flush_hyp_vcpu_state(hyp_vcpu);
-+	} else {
-+		hyp_vcpu->vcpu.arch.ctxt = host_vcpu->arch.ctxt;
-+	}
- 
- 	/* __hyp_running_vcpu must be NULL in a guest context. */
- 	hyp_vcpu->vcpu.arch.ctxt.__hyp_running_vcpu = NULL;
-@@ -203,9 +255,13 @@ static void sync_hyp_vcpu(struct pkvm_hyp_vcpu *hyp_vcpu)
- 	fpsimd_sve_sync(&hyp_vcpu->vcpu);
- 	sync_debug_state(hyp_vcpu);
- 
--	host_vcpu->arch.ctxt		= hyp_vcpu->vcpu.arch.ctxt;
--
--	host_vcpu->arch.hcr_el2		= hyp_vcpu->vcpu.arch.hcr_el2;
-+	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-+		host_vcpu->arch.ctxt = hyp_vcpu->vcpu.arch.ctxt;
-+	} else {
-+		/* Keep PC (tracepoint) and PSTATE (vcpu_mode_is_bad_32bit) current. */
-+		host_vcpu->arch.ctxt.regs.pc = hyp_vcpu->vcpu.arch.ctxt.regs.pc;
-+		host_vcpu->arch.ctxt.regs.pstate = hyp_vcpu->vcpu.arch.ctxt.regs.pstate;
-+	}
- 
- 	host_vcpu->arch.fault		= hyp_vcpu->vcpu.arch.fault;
- 
-@@ -239,8 +295,27 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
- {
- 	struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
- 
--	if (hyp_vcpu)
-+	if (hyp_vcpu) {
-+		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-+
-+		if (!pkvm_hyp_vcpu_is_protected(hyp_vcpu) &&
-+		    !vcpu_get_flag(host_vcpu, PKVM_HOST_STATE_DIRTY)) {
-+			sync_hyp_vcpu_state(hyp_vcpu);
-+		}
-+
- 		pkvm_put_hyp_vcpu(hyp_vcpu);
-+	}
-+}
-+
-+static void handle___pkvm_vcpu_sync_state(struct kvm_cpu_context *host_ctxt)
-+{
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+
-+	hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
-+	if (!hyp_vcpu || pkvm_hyp_vcpu_is_protected(hyp_vcpu))
-+		return;
-+
-+	sync_hyp_vcpu_state(hyp_vcpu);
- }
- 
- static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
-@@ -871,6 +946,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_finalize_teardown_vm),
- 	HANDLE_FUNC(__pkvm_vcpu_load),
- 	HANDLE_FUNC(__pkvm_vcpu_put),
-+	HANDLE_FUNC(__pkvm_vcpu_sync_state),
- 	HANDLE_FUNC(__pkvm_tlb_flush_vmid),
- };
- 
+
 -- 
-2.39.5
+2.55.0
 
 
