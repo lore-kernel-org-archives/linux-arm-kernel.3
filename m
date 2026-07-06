@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86622C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAADC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=15lXngfbV3oHOC8Vn3lhHZSCcqaMFAt4guZPgjqF3Ck=; b=NeZLWKSg5vMAbLZvb3wql9ZJ/j
-	QcbYSAtc0Us87LgwrdimhSblNTV4VdcvsIYyW8qC+/kuTAkbo5vs+coIHoxMqZK/sVrbHnsYi1OSb
-	mBZTmhy8G+4HrIfsBrRfuwm0kAJ5WIkdXXd35C0O10nh1GdUFoNZHIDWgaZ9AFhVCeZP9rWwNbUD4
-	P9C2iKmlQIQOhf/6cPK7HuTjSTm1iA2BfIV4W2CpZOm9e0daF+stOnS0XspEh1ZHTvw0Fw9ebt+ja
-	EXO+9SbMw3qW9skTdflUH/vDtZS+99adKFU150AEZITfi8cyIttVLRlLWi7S7bg6sI2a83i77WKZB
-	97u2QeHw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yAJbvFky4pXbE6G3CrtVZQ+RGiAcp1hVwbCEVyEV8E0=; b=NDe5mCi93LR5/VJEDmzTGXXmG4
+	BXCiL12901NVovqu47On64snl8mvf/y5MbRiqy+fJfUdNAsZ51P3PNtgNqWcIvzVgcpTy7zaP5kzL
+	08pC0Q2fm23zKPQQGHjg8OKaUX+GdGGcuCqgaRYw4ltC20ADY8iCFRiL3QT1eBO0Od880o6x/D61C
+	UMr/mDje84eav/MYFy63Rc92lMn5RdKEcLdmtNj9YJKSD5oF4GxbAt+biDNqKV6zuYRFuBjbhRO5p
+	c/8NQSOLrHZefh0AcbtumjNiKVj7jpTJKjorOWrDD52q6rdMNyYfJPeSbWCkcK/brCWdwE7ZczIST
+	e1kNpAGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrva-0000000Dj25-28a6;
-	Mon, 06 Jul 2026 22:36:38 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wgrve-0000000Dj5p-2P5Y;
+	Mon, 06 Jul 2026 22:36:42 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrvY-0000000Dj0s-2OE4
+	id 1wgrvb-0000000Dj1v-0IUy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 22:36:37 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493b27c7451so466235e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 15:36:35 -0700 (PDT)
+	Mon, 06 Jul 2026 22:36:40 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-4703bc0a99aso1936551f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 15:36:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783377394; x=1783982194; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=15lXngfbV3oHOC8Vn3lhHZSCcqaMFAt4guZPgjqF3Ck=;
-        b=CZY9EZb7oRHkolW6jEO9Ri4eCEB2HW+7AfVvVJcpzE0VWT+Mie0NLy5adDZ6C7P5lP
-         uO+PVlhO1qGeks2NjpvS7ym3RuGypls2i9iaZ5LZHttmBmvAOmihBfC6tm61NjUztzsU
-         iz5OcIzp9kSQKxZWhME8zLvotBqUT492BLfEYiD8revsRvEPD+JoxdcRotR2LzfKtNmV
-         HauYbxlp7stFfX+dlw7itO2lux8gazG1MJm93AX7E/3QHuSRQ9UcA53G1QebfZjDbv7a
-         ZaSn1Cd8pRqUUq/R0e6J0o9PYPBdrCFHDOe3rzUZvgd5otIGpk/jbKb+spqCsaWyNRjC
-         UhuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783377394; x=1783982194;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20251104; t=1783377397; x=1783982197; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=15lXngfbV3oHOC8Vn3lhHZSCcqaMFAt4guZPgjqF3Ck=;
-        b=loTkFq7Qt/6Xg+IMtM3Gw4061krpEAdEQ8pQv39UYr2amJCOS5DXmXcqjkGBd0rvcw
-         DDHzeoZ25uBOL/fJRfAcKsSx7ZDZDY6z+DbODCVTp5fbejXzG0EG741dQrmcbeds7SS6
-         QRV8R1H8U1knKph0Pc28oFUC/mdiZRZQXq3BfpMivdvk7kkJnUmbaYtPkaixmgnoGryQ
-         wPLnaY7QFP/aw5iVmKXKXnIc8a8CSjtRvp6CwOMLAUFVcn4QNhZ1q3GRI5DafPVWOuJU
-         lRaNUsQqgXnIw8DBayI46KksmLv1o50em8rcmdVDIX4WFPMoJe1bZz+1uQN46KQcxsPY
-         1nPA==
-X-Forwarded-Encrypted: i=1; AHgh+RqXUCW9RppTCX+kXbfAEMjG5JRoSGYyBebkNSnoq0O5IlXXVnFI+VKDsJ5MfhxhP9cDt6FspM3hdodZLfhO7Rkq@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLFdMQIdZKf/Tkt4xICzgYTOJNTl0O12hPU9KRtNhJCM5/SAUX
-	pL9HWp1m42F3DGUPuUfTYdc8fhMIPio2YWI1tlyLjylrpHIzcXmokdJE
-X-Gm-Gg: AfdE7cnzQqG6pIqyfu0pLWvzGXQPyoISOQn/B6UhExV+jBVTxLD0K+wsl2tPKCoWiQC
-	kHkdCblcokotH9GZVTnMdRG1DlFjjes+iEatiPubDg5/6AoBjX2UW5N60SNeTw/BneLBWZJ0Rko
-	MI/+ijww82Lxh8FjO3TVAFPCabS0B0LHFcd7HOV3vMbSWNe/CLQxl8DOlDZuD8VFg1+scE3TKQN
-	3KepU632UY5lWtGAcJC/QNlY3bSK0+dUQnSUjkDdQgDOETd8XIWfUedO10HjC6h0/W1NjmYJd6d
-	TuqCEI95w65ciYKawiH961wiUwcqI1GJiLtjA1JSIL9LBhO0/t6FIawnbuxg0+bODjxuPhvkVxt
-	EmOt13DUVIA2Xtp39cWt61ZN3wwx4cgqWYvjNDDq+hmdbe9v+/4NdHVHiqg0jjtdqfnPEImn/v8
-	/ETw96szSWszabFT75MUdfAR1eiof695eTZzb/ulupEtoxJeqs5CxdeCFDzqBzRw==
-X-Received: by 2002:a05:600c:1595:b0:490:55d9:149a with SMTP id 5b1f17b1804b1-493e104d170mr977625e9.18.1783377394164;
-        Mon, 06 Jul 2026 15:36:34 -0700 (PDT)
+        bh=yAJbvFky4pXbE6G3CrtVZQ+RGiAcp1hVwbCEVyEV8E0=;
+        b=CeQ/U4+KBSVQcoHBP+knAMCPl86HCVWpFJe5qQTE2S3ldgHce/En0OuEFGp+AVCH3l
+         fupCE+XdFPA+sifte2M9cknOOqamm31podLD0qxSrZ4fdgi0qXGw0nj5SscyMs7IceGw
+         ntonf7LA/VY/2c2leRoeAzYlLUcQV9VdCWcASv+IcF6IjSTkQAGpzkkNTJsnQqMj+8Um
+         zAl9LR5fMYaap2mvyqyRKiI8peKg3oAl7s5jbeSCEKtUF5PsrIbBydbJbWN25ANB7Qt9
+         Rmf8sxxXXGGvTeKxWjNsG2xMZgM7RhnrYPhLzQ2Ax1KeV2X6zrvkD+aYqdMqAbbxk0uR
+         5vqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783377397; x=1783982197;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=yAJbvFky4pXbE6G3CrtVZQ+RGiAcp1hVwbCEVyEV8E0=;
+        b=bO8R6t0JRqBZevoCtxPk7uhrcnblaqbg6JUGEdMzqFSUy0ub3FgbjjIWp/QjLJYq6s
+         rvJe2HNaqS2swmgZJZmLy/WRujuya1PXULmE56jSUzzrkFJ2SHQsDn13W+xTaxVf+QS0
+         n6yf6ebhRMwmXYVUGFOl5h9YourJrXDBIKAMM4Q49cGb1/cNMXqsG/Oswi5XmlSmI9xl
+         XKBoqoKdcFHEimrGIewlrCFrgAA7HEVcIavN1IWxAgiLcX3A6Pfx7tSwpsxKrJGoNR8r
+         jC5jqpw61cXkfC1a3H+K/fhMLbhd7Zc8feL26NKZMBa1CudqurZvAV3Bz76xXchY3GjI
+         NyXw==
+X-Forwarded-Encrypted: i=1; AHgh+RrhRlCuClZRJPLwJ/4e0VRleZ+lBlMD5VBQkSbA1eO2UlsEqzHDWdRmAMrrt1oRWQ9gyC63bAlDORJa3X9H2kpe@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvnhpFUNf+QWcLKcdLY9GmZ04pv27VQiiDQQ7mhNnvbK5HRjTq
+	MlrDD9VqO6SRE2mzlBaPyB93C/t/vNY4My5D/jztWuwND+PypRmSSOTr
+X-Gm-Gg: AfdE7ckUUWeO7sn854c17mNWACDtN1WwD8x4179xtjuKmlnHUp064wVgjaHqkjMxHXb
+	BYmFRdPeUZ0Czs98xEqGqEHbGjZG0siA29gB+Hi4IapgoJ+pIBJh+lLI7MnY/m5zBhjlKTwJiNj
+	LB4N4GZg4FZD+YPo8gO9stpgR0gTQ9Gh4hHY408C0aQ8M2U2L8foiSzYSLV3iE8aQ9YRzZal9wQ
+	oVIB6Ar/5h9cRavsPEGdOrm09z99PIkRMjm98VQkGQ/TrrCzHv6wMjBzv/V07Kv7Dyyc71iMhzR
+	ewlbtmbHo87f+DNZLvbl277Jg8qeE+874LVGLAd87Al5Y6fzut/2VuNd9Omzk5wz1dMm35vrtMi
+	aE9o0+L54/zHNtWL5Rnb0372IFR5tuCpYAjDbrid5a/HA48qPncbxDJ0vaNy+DVfGxsMsBPO13+
+	dw+PetncVQO+ixm58lXvwNVjHrfMXOxDF2A5rYd4J0Khs7qcLdan0WATuJr7hgIA==
+X-Received: by 2002:adf:f043:0:b0:475:cd6f:720a with SMTP id ffacd0b85a97d-47de666af65mr1504971f8f.1.1783377397013;
+        Mon, 06 Jul 2026 15:36:37 -0700 (PDT)
 Received: from turbine.fritz.box (p5785b224.dip0.t-ipconnect.de. [87.133.178.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9e4d6da9sm27491387f8f.12.2026.07.06.15.36.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9e4d6da9sm27491387f8f.12.2026.07.06.15.36.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 15:36:33 -0700 (PDT)
+        Mon, 06 Jul 2026 15:36:35 -0700 (PDT)
 From: Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>
@@ -86,15 +87,17 @@ Cc: Heiko Stuebner <heiko@sntech.de>,
 	linux-usb@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
-Subject: [RFC PATCH v1 0/2] phy: rockchip: inno-usb2: fix USB gadget hot-plug on peripheral-only OTG ports
-Date: Tue,  7 Jul 2026 00:36:25 +0200
-Message-ID: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
+Subject: [RFC PATCH v1 1/2] phy: rockchip: inno-usb2: keep peripheral-only OTG port active
+Date: Tue,  7 Jul 2026 00:36:26 +0200
+Message-ID: <20260706223627.113814-2-andreas.zdziarstek@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
+References: <20260706223627.113814-1-andreas.zdziarstek@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_153636_638917_E86C9502 
-X-CRM114-Status: GOOD (  22.83  )
+X-CRM114-CacheID: sfid-20260706_153639_143578_1AE9ADCC 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,86 +112,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+The OTG state machine autonomously suspends the OTG port whenever it
+decides no usable VBUS session is present. On the initial sample after
+init, when a dedicated charger is detected, on peripheral disconnect
+and on host-session end. It calls rockchip_usb2phy_power_off()
+directly, underneath the USB controller.
 
-I had an interesting time trying out the USB OTG micro-USB port on the
-Odroid-M1S (Rockchip RK3566) on the mainline Kernel. My intention was to
-set up a cdc_ncm+cdc_acm peripheral gadget as a hot-pluggable debug
-port.
+For a dr_mode="peripheral" port this kills the USB gadget on any boot
+without an attached cable. The state machine suspends the port shortly
+after init, resulting in "failed to enable ep0out", ep0 start transfer
+returns -EINVAL). The gadget remains unrecoverable in user space
+afterwards.
 
-For the most part that went swimmingly. Just not quite with the
-hot-plugging. The apparent first problem was that peripheral mode only
-works if the host is connected at boot time of the RK3566 Kernel,
-regardless if the dr_mode settings is "otg" or "peripheral". When no
-connection is present at boot, gadget setup fails with a
-"failed to enable ep0out" error and the port seems to end up in an
-unrecoverable state afterwards.
+Skip the state machine's autonomous power-offs when the port is
+peripheral-only. VBUS detection, extcon signalling and charger
+detection are unaffected, and controller-initiated power management
+via phy_power_on()/phy_power_off() keeps working.
 
-I investigated a little as to why. With my very limited understanding
-of the subsystems involved, I think I have identified some problems.
-All seem largely related to each other.
-
-* The M1S references its 5V OTG VBUS switch as phy-supply of the OTG
-  port in its DT. The phy core unconditionally enables that on phy
-  power_on. From then on it powers its own VBUSDET input, making further
-  cable VBUS detection impossible. Also, apparently, after reading the
-  schematic, that means even with a cable connected at boot (and
-  peripheral mode therefore working), the board will try to back-power
-  the host. Seems my host port is pretty robust, luckily.
-* The inno-usb2 driver seems to generally lack DRP power supply VBUS
-  switching support? At least PHY and VBUS supply are semantically
-  treated the same.
-* The inno-usb2 driver's state machine powers off the Phy in several
-  places: on an initial no-VBUS sample, on DCP detection and on
-  disconnect. That seems to happen unrelated to controller-initiated
-  phy_power_on/off calls and looks like the main cause the gadget setup
-  fails and then borks the controller state.
-
-My proposed fixes are in two places:
-
-* set the micro-USB M1S port to "peripheral" in DTS and remove the
-  supply node. The board has two USB-A host ports, so device mode is the
-  most likely usage scenario for the microUSB and real compliant DRP
-  does not seem to be in the cards in the current state. Also, this
-  fixes the potentially harmful back-powering issue. (2nd patch)
-* keep the inno-usb2 phy driver from autonomously powering off when in
-  peripheral mode. This makes hot-plugging and gadget-setup without a
-  connected cable work. (1st patch)
-
-This "works great for me". No issues whatsoever with the M1S in device
-mode. I can plug/unplug/replug at will at any time, rock solid.
-
-However, I am also doubting myself if I have completely misunderstood
-the whole Dual-Role status quo and should have just done something
-differently.
-
-Also even if I am right about the problems, I would agree with anyone
-saying that this isn't the "proper" fix for the whole situation. It
-seems the rockchip vendor kernel is doing DRP related stuff differently,
-e.g. an additional vbus-supply setting in DT with apparent support for
-VBUS role-switching. Fully automatic OTG with gadget support *should*
-be possible to do. Possibly a lot of work, though.
-
-Still, I would say having a solid peripheral-only option including
-hot-plugging is an improvement to the status-quo.
-
-Host-only configs in other DTs should be unaffected as the inno-usb2
-changes won't matter there. The autonomous power-off will still happen,
-for better or worse.
-
-Would love to get some insights on this from the experts.
-
-Cheers,
-Andy
-
-Andreas Zdziarstek (2):
-  phy: rockchip: inno-usb2: keep peripheral-only OTG port active
-  arm64: dts: rockchip: fix gadget hot-plug on ODROID-M1S micro-USB
-
- .../boot/dts/rockchip/rk3566-odroid-m1s.dts   |  2 +-
+Signed-off-by: Andreas Zdziarstek <andreas.zdziarstek@gmail.com>
+---
  drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 27 +++++++++++++++----
- 2 files changed, 23 insertions(+), 6 deletions(-)
+ 1 file changed, 22 insertions(+), 5 deletions(-)
 
+diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+index 7d8a533f24ae..9b138b7aaeb8 100644
+--- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
++++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
+@@ -670,6 +670,23 @@ static const struct phy_ops rockchip_usb2phy_ops = {
+ 	.owner		= THIS_MODULE,
+ };
+ 
++/*
++ * Autonomous power-off from the OTG state machine or charger detection.
++ *
++ * A peripheral-only port shouldn't be power-gated behind the controller's
++ * back. If the gadget (re)binds while the PHY is suspended, the
++ * controller's ep0 setup fails and the gadget stays dead even when a VBUS
++ * session appears later. Keep the phy active on peripheral ports for
++ * correct connection detection.
++ */
++static void rockchip_usb2phy_sm_power_off(struct rockchip_usb2phy_port *rport)
++{
++	if (rport->mode == USB_DR_MODE_PERIPHERAL)
++		return;
++
++	rockchip_usb2phy_power_off(rport->phy);
++}
++
+ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
+ {
+ 	struct rockchip_usb2phy_port *rport =
+@@ -693,7 +710,7 @@ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
+ 	case OTG_STATE_UNDEFINED:
+ 		rport->state = OTG_STATE_B_IDLE;
+ 		if (!vbus_attach)
+-			rockchip_usb2phy_power_off(rport->phy);
++			rockchip_usb2phy_sm_power_off(rport);
+ 		fallthrough;
+ 	case OTG_STATE_B_IDLE:
+ 		if (extcon_get_state(rphy->edev, EXTCON_USB_HOST) > 0) {
+@@ -719,7 +736,7 @@ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
+ 					break;
+ 				case POWER_SUPPLY_TYPE_USB_DCP:
+ 					dev_dbg(&rport->phy->dev, "dcp cable is connected\n");
+-					rockchip_usb2phy_power_off(rport->phy);
++					rockchip_usb2phy_sm_power_off(rport);
+ 					notify_charger = true;
+ 					sch_work = true;
+ 					cable = EXTCON_CHG_USB_DCP;
+@@ -765,7 +782,7 @@ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
+ 			rphy->chg_type = POWER_SUPPLY_TYPE_UNKNOWN;
+ 			rport->state = OTG_STATE_B_IDLE;
+ 			delay = 0;
+-			rockchip_usb2phy_power_off(rport->phy);
++			rockchip_usb2phy_sm_power_off(rport);
+ 		}
+ 		sch_work = true;
+ 		break;
+@@ -773,7 +790,7 @@ static void rockchip_usb2phy_otg_sm_work(struct work_struct *work)
+ 		if (extcon_get_state(rphy->edev, EXTCON_USB_HOST) == 0) {
+ 			dev_dbg(&rport->phy->dev, "usb otg host disconnect\n");
+ 			rport->state = OTG_STATE_B_IDLE;
+-			rockchip_usb2phy_power_off(rport->phy);
++			rockchip_usb2phy_sm_power_off(rport);
+ 		}
+ 		break;
+ 	default:
+@@ -838,7 +855,7 @@ static void rockchip_chg_detect_work(struct work_struct *work)
+ 	switch (rphy->chg_state) {
+ 	case USB_CHG_STATE_UNDEFINED:
+ 		if (!rport->suspended && !vbus_attach)
+-			rockchip_usb2phy_power_off(rport->phy);
++			rockchip_usb2phy_sm_power_off(rport);
+ 		/* put the controller in non-driving mode */
+ 		if (!vbus_attach)
+ 			property_enable(rphy->grf, &rphy->phy_cfg->chg_det.opmode, false);
 -- 
 2.53.0
 
