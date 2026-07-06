@@ -4,151 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55AB8C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:43:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F589C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BB4lpeiXim0wbuTUAvHSuHSqTMSPi9b5YzO93wu8PkQ=; b=XDsf+IyS7q6EVUEriwSxQMgBBq
-	8J2pnqL+lEKMKA/os+FXgYi+rxYJjMgTjyLlVeKLScARgJxdr2ahzucwZiVbfdzHwIQJG5anU5Xxu
-	4DVcaFeTs4ky5NebcEulZZ6qE0hkPsYGgbr54evQHUXVIh9dvaAohcYKv3jEbraTrQbyJyPDmPEy0
-	7jwO9WzHfdEoxDm9M8SYB8UPIP+b2bMGbCLinhgrny+Wbyi1CIlyY8/JHED2JccB9SwJ9R03HPWnW
-	Vxv92McB7mbtALR+6MfczQSG+WRToslrnR9Kn1JbLiY70BvogBx2Jsm9/H4UPRxJGk1TwyUQ+dX71
-	8anebDwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T0YdnKT7KteZeJoh6QnuAYHusK3x4bTj+tOcDqFBpH0=; b=V0WQC1UNjc4GuY0UCjC3QFn8MP
+	11X/mKzUxx13l/kOvG+GYf6CBoevUnW6GYqvyzJrZRwLnJgtMFuETkeDeJ58u4UUT0EeDEdTH5egM
+	I6jr4gkIGGz3cbkHGcvQ+lV/IJgE3Zt1wGkKOerM1hQTyvwF8NSPYcvJFeh67W7A1i+sstatgKBeJ
+	Th8AQnGS20CAZFmeKYuoLtIvVCQGRKIwH4nwkqUmNmpgspGL/aUIobJqsLJVe7/1U8SPDX8u8Szvz
+	MwvW+vQWMHSxRx1w3miVYhaEXRQKHUOEnTZ/K+5Dn35i6C1yG+o7F2aMOJGsQ5s2VS3f4uaPoV5hI
+	Nl+d2FbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkXO-0000000Cmhl-42lQ;
-	Mon, 06 Jul 2026 14:43:10 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1wgkZ1-0000000CmuP-2Wmm;
+	Mon, 06 Jul 2026 14:44:51 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkXM-0000000CmhD-3gkS
+	id 1wgkYy-0000000CmtG-0y08
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:43:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yUT1X8sEqJimv7aSgSp9pg7Jc8w8opvXxWq9tUYqHjr6xsAhlOXo/qTHMqpFVCaYVW+AqWlvHnfdLZp4P91uVFaIuxuHvPo1iyar+15rQbEJhF0s2cON5354GnObdIS14w4idf2gt8QSDIgP6RE7D34QyhMHNjrOwdNdU/RdJ2WlWjyCYoHkgNAS3cXgqV8eV2nd4zzC65UOvD4S5FGaVoX+lGNLuDWV2IuPtw76joRc7S/0YLx4jbR8Ob57tQ6HjYk+X2hqGXqrbcGhdU2w5tZRv4m0ueKeLqlbH7FL6nUdynznf+k+4un7aHBhmr+onOZ9ybp3TWZwEIjCEkvzvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BB4lpeiXim0wbuTUAvHSuHSqTMSPi9b5YzO93wu8PkQ=;
- b=AKtUGMElIgYhIoNtbV3CYS6SHTUjaIaTZ+hyZePMivzAp+klIYmTiKTaD17pndc7Uer2AeS5x/ZmY1rszwSd/CWUEkAYlGlGUqSKCU8DDGghadTgjZKIZGI7RBZBPQDeQokCW7IHic0WyQQObVj83cPY96ENoI8ENMUwpYXsACMsPABHPcJD79LnXBKmuWDketEmkIiVNufygfX9Bz6UPbRLBHOH9q0XatKwYCF3fRfLCzu/1Raow/kffb4RRBqXfObX6/L76xcZNhvx6LqkaDA/gJ5BdVbbsf4H5iBxGmw1NRnwMpB9pFot5j7uzT9NbEXoTtmSzvaq1x+etIMY0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BB4lpeiXim0wbuTUAvHSuHSqTMSPi9b5YzO93wu8PkQ=;
- b=ANyTN1TMCOQ79Aas1nJj2QFXEdxcaK1/HLr3PPp+RA+/AZQqopkfwxZYaApymtaCG0kH2BzJ28rBo0H2L1dhJaPULB7/itV8zVMn/rORYTv/VeszlIedX+14vifD0I/Xd9eOTG86NhqH1rXZpLdfkxLJGl0fscYQIR3/Ok0FHvKIJPxwWPtN1ZOlO8LhaGPoKgHdxMdK8cfJUak6PcyFk0jPQmRhw+yduaPpdWCXZgiu3kvsfM+NLVPxcsnRhOzvOqw5oYKG39aQHWLH/maxaFJTAhIEdlGnCmZgRm8LsfqBJdGpBLy92LeRNnMYkwNHNk7GVA74FUXrfKJlvIxPZQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VE1PR04MB7390.eurprd04.prod.outlook.com (2603:10a6:800:1aa::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
- 2026 14:43:03 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
- 14:43:03 +0000
-From: Frank.Li@oss.nxp.com
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	bhelgaas@google.com,
-	hongxing.zhu@nxp.com,
-	l.stach@pengutronix.de,
-	"Sherry Sun (OSS)" <sherry.sun@oss.nxp.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	imx@lists.linux.dev,
-	linux-pci@vger.kernel.org,
+	Mon, 06 Jul 2026 14:44:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=T0YdnKT7KteZeJoh6QnuAYHusK3x4bTj+tOcDqFBpH0=; b=og3D7/CYJX8UEjk2kx94vwZGcI
+	AP1R3eFY1UjLGBnYLHkGEvwRsJCiTKvwMySnPlJAscDo+pmW+rbKvUwRwamilRimtm5Y5alAShuTP
+	dCDQdn65aUrUNob9k4MLo5/DkJ3XAqqEgR4K1OwrPYmJRCpT/b1R/ZeSdFG7XKMZGTuatqW/eMQgk
+	OfnRAWKuRNw567zLKx2JPCd8Mbe5UsaJVhGdjflarwgqGx7aXxFvru6HOdkws5X7lzqzfvixdHluF
+	6rOMvINJ9kE0VJM9DAkRyZCNkeLNlJ8TfCwwAsQJqLhtaHdPdp9n+yNw81g5wTbzXUsfem/uby3At
+	Ay1/IVzg==;
+Received: from sslproxy07.your-server.de ([78.47.199.104])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1wgkYu-000K6p-1W;
+	Mon, 06 Jul 2026 16:44:44 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <nora.schiffer@ew.tq-group.com>)
+	id 1wgkYu-0006Gb-0P;
+	Mon, 06 Jul 2026 16:44:44 +0200
+From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	sherry.sun@nxp.com
-Subject: Re: (subset) [PATCH V5 0/7]PCI: imx6: Integrate pwrctrl API and update device trees
-Date: Mon,  6 Jul 2026 10:42:56 -0400
-Message-ID: <178334889913.1328922.3977960494060423278.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260701105234.198987-1-sherry.sun@oss.nxp.com>
-References: <20260701105234.198987-1-sherry.sun@oss.nxp.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA0PR12CA0010.namprd12.prod.outlook.com
- (2603:10b6:806:6f::15) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	linux@ew.tq-group.com,
+	Alexander Feilke <Alexander.Feilke@ew.tq-group.com>,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v2 1/2] arm64: dts: ti: k3-am642-tqma64xxl: add ospi0 vcc-supply
+Date: Mon,  6 Jul 2026 16:43:58 +0200
+Message-ID: <aaec2ddf7cecb58ca0af37d4f03afec571804757.1783348781.git.nora.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VE1PR04MB7390:EE_
-X-MS-Office365-Filtering-Correlation-Id: 549dc4e6-09c9-4864-a7e2-08dedb6ce1e5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|19092799006|366016|921020|22082099003|18002099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: PdZ+sKIT1ozPmgAofBZa+2Qbw8MUEFbh7mED7hoqUFII32Lktcj8mDpwzzCV+ZqOv2tFt4CGhcyRiwUuH88vB4MrfWizXIvqTzsgbWhpHJNeuK+ztg4edVB5CPewhuoE/V5oTSRu2W3trXidYWTzE+TQAPXMrksLlOj+RE4RtMgZn6BM+kT8chRW6kF2h738NbzpHe4EAwkKqDuKM3Dy7+vgWUtu4w+wgDd+774q+wNxNBudlI4pZfofQsspXWzVIo4gbDwXTM+PHCh9RLHf3L/VJz7QjRgRgZ/uTYZUTUtREF1VYGIZTWKZ4TUsGzLKCKRN9vie/5LU/QESBeZ4FnRSQAvBcVfEtskpxPBUJM1UI4derqoTX2MNk7JS54KO36LZzMHhlEwWZ0RvsaabR3VUyFyGH65qJ7gMXcbbzs3qB8uhHF7S3RmQrYjtWFFEOuZvUSuab3qLhhBLQs1yIQQAmRvtBelCpRmxiYP2ZUmI4K4qTszRbqJLF2wtfIVVubEhBSynPf79819ZkmwA/nibc+R1Ibam01BH+CAHMXEGNGo1x0TakDi2Dnn4b2zhpIDjDHFeOsJTng7/8BTHyOcDOK07xnFo0n9R7FGvwxqzBywSCojnzMCunF8X0T6Z8AIt4r4xS+Pd4vg1x/IeJWa3baMyWlfs9CklAMscudCAr7TkNlrDiS9LUqvmJvk9EQ/ybRqguEsdXgqKtZidpQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(19092799006)(366016)(921020)(22082099003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?clJrRkxTeFRrZGwyVFE2L1lPM29FQUpHeGcvUTN0b0FIaVljdnFKS2ZZOUdl?=
- =?utf-8?B?cWpHNmVWNVNYbGRYRkduSlJQZlRUcXlmSlhYeFkvUGFNWk1BUWNXb0pwbVI5?=
- =?utf-8?B?blovaFhUNk9pbTgyUEprRkxtSUlHbXg2OTRZZXVvdXpVTGk0K1Rrb1dqSUZy?=
- =?utf-8?B?dGRQS1JwbGErV1Vvc1YyaFVxYm1PRCsxMUM1clpCRHE2SWtQOE1MaThDNEVi?=
- =?utf-8?B?VW9GcVQ4aEQrRkhRMjlVdkRSbnFDVndtZUNLdWdva05oV0owanlsTWNlZW55?=
- =?utf-8?B?TWpUZWlsd0Jka1A5aEhadGpza01wNW5qNWlJakJvRDRoQmI4MHpDelFUNTYr?=
- =?utf-8?B?UlMrUVoweWFGZjArRVdFbnhtaWc3MTUvSGhLa0Fnb2RHa01QMzdqd2xHc096?=
- =?utf-8?B?U2VXVk5Sb1FxVlFmVjErbTNyRVZGQWlDMGJRY0Nld1ArZFRsWVBSMWlqcTdP?=
- =?utf-8?B?cVdjeUJJTHBHVHhtOHVsdEZneEV1dkNoQjJWdHNldkFFbWFwTEIvT2V2T0s1?=
- =?utf-8?B?TXlxcDJaVHJOdkdlZnh1a0x1Y1N5dlkwQ3VReUR3WCt2c3Z1ODV0UGVRMThm?=
- =?utf-8?B?M0lCbVJwcTNyam1mdUZNampBYUFlSzRDY0JzS00wbjRyZnUzWU5KZDlaY2Yw?=
- =?utf-8?B?RXpkQXkwTVg4OWIycDY2djQyQytSUEE4QzBZOXBQM0VXZDZuelZtNHJqdFJi?=
- =?utf-8?B?Yjllc1hKSE0xblBXSlRFZjhzMmpONXgrczBxMnZXMFNxcks5VTY3YUJPMER0?=
- =?utf-8?B?REI5MWxaWUd1YU1xSmdvWFZvNUcxdzM3UG9WOTFUZlhHdEZWV2VVakxFcFdJ?=
- =?utf-8?B?MlFBeEdPNzI4K3kyeTFmQzBWVXVvdVFEQ1lUZ2M0SWgveFp2NnhFb2RocStq?=
- =?utf-8?B?Q0JIbVdmRVdMU1BJSTV4cjhjc0U5TmVubi9oR1NXREt1UGlscUxyOWsySjJF?=
- =?utf-8?B?dWUyRkcvK0t6NjFDamlsNDkzcDZGUGJESjIrMFlmNUR2M2hnRFVqajdYR0s1?=
- =?utf-8?B?bnErekNqUFdtUlN4ZGxOemZ4cThqQjVQSFhZZlBrLytIVTlJaVZYejJqOTdL?=
- =?utf-8?B?Mkl2d3Q0NGF0Ny9pckVOallkVjNDN3VMdy9jeTlMUjVPL05wb3kyMk8xbzZQ?=
- =?utf-8?B?ZjJjRkJLeE5rVzZrREcyUnVJK1FsbUFHZFplVVFGRTcvV21zRnhKc1hXTWJU?=
- =?utf-8?B?QXJsM1hubmlzeGdqZ2pwOGI4dmxrNFk4bDg3T0tEVFhPOTFxYjgxOEl0UUJo?=
- =?utf-8?B?OEhxZmR3L3lId1JkNUFTNWUvMmw2bTFQcVpFZGVkTHhYSnJTVG83SVJWUnNk?=
- =?utf-8?B?MlFhWFo1UExEQU5CdjJxckYrcytzUk8xVjdSMVNVeHNZTHFGeGJ3ekc3SDh3?=
- =?utf-8?B?Q1JteTZYUWZIUnZYR1YzNmNDMzNOTGRlZitlU05HY3JYYXcvQ0d1K2NXTFRl?=
- =?utf-8?B?dzZ0MnhtWVFYUERDZWhWdjRoUGp5TlBtcFBsb3NTajE5OFVqSk1yQUVtVzJj?=
- =?utf-8?B?TElYZHV3MU9sV2xBeDZ3K3FGdEtwZXNjVUF3T0trRE5VbHgxY1Jnc0FMR29h?=
- =?utf-8?B?RFlVQjV3Rk1JS2RzbW5jb0tZSnhPNHdvUVcyWFJrNUlVS1FrdEFKTjhFdXUr?=
- =?utf-8?B?N0ZpaVpVQUhPd2d0M2Q0bHVVL0JmMVp6TVdsb1FzVUM5a0JkMjFXWlJUVjk2?=
- =?utf-8?B?S1UxVnZSMG94UFBhQUhOVmEwUytPNXpGSFMvVEgwamdwb2cvYlExMVhib0hI?=
- =?utf-8?B?aXIwcFlhQkZLakVDK3ZDT01wNmdINlJnTWwzMXhvbnYzMG1JUll4Y3hsNDRC?=
- =?utf-8?B?SGE1b0k4TDRkNnhnbFZZckx1SGh2WDcyYis5aVdOYXBqODNvRFNWbC9DcU9F?=
- =?utf-8?B?d0hBOFE2Z2FCNzNQaG9GNkhtZVU4OHFySC9TZyt3ZlV1WXFWVkhmYnNvWmN2?=
- =?utf-8?B?MHdDMUpxRFd3TC9JVFhIN25vdGswNmU4aHZaV1VIWkpDRjBOc05MM04wWjNB?=
- =?utf-8?B?ZXJoL1VkdEZyNmhmdU1tWmNiQzNKOXRaQXgwVlFPZFIvN056ZGY1eWNycVht?=
- =?utf-8?B?VUlpS1AwUUNEWjRGbDFBejd0akRxOGxuclNNTWJ3SEVZQ2x3MmRIWGd3blgr?=
- =?utf-8?B?TGR2VTZVdUlSRmwrNTdITmVXRi9vRU5KczljT3lXNGxLMkdMRzVtbmNjeWtL?=
- =?utf-8?B?ZWRxNlVLRXZQd2RuRjZZVHJlYitMc3UrQUxrMXdvWDc3MEsyOHI4THJjTU5H?=
- =?utf-8?B?eWdPQnZFV0JtVFAyN2pVYmZ2R3lyOGI2NGRnUm9aSlRtNlhVd3A4WnNhM1lD?=
- =?utf-8?B?RVBuSG12Qmp1ZmRORTlvbnJhVFBRa3NnejU0WFJKTkpZdWRtYW1FSkxudWQ1?=
- =?utf-8?Q?P9luLY1l/6RadeMQ=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 549dc4e6-09c9-4864-a7e2-08dedb6ce1e5
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 14:43:03.0062
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: GsXsIOommex1leC6amUKQdue7DFSJ/1PjL7HR4HwLnUfBJOhMrH0PokTkd1MwsSZ/LBLh8R+3U5oTJKOEZWaXaSQa5Ohll2XaNvnRh8PqFj8+JMzDycpQaiHV5TO3sYd
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7390
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28052/Mon Jul  6 08:24:35 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_074308_938449_29789F6A 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20260706_074448_372329_D5B04249 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,41 +89,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+From: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
 
+Add missing vcc-supply to ospi0 flash.
 
-On Wed, 01 Jul 2026 18:52:27 +0800, Sherry Sun (OSS) wrote:
-> From: Sherry Sun <sherry.sun@nxp.com>
->
-> This series integrates the PCI pwrctrl framework into the pci-imx6
-> driver and updates i.MX EVK board device trees to support it.
->
-> Patches 2-8 update device trees for i.MX EVK boards which maintained
-> by NXP to move power supply properties from the PCIe controller node
-> to the Root Port child node, which is required for pwrctrl framework.
-> Affected boards:
-> - i.MX6Q/DL SABRESD
-> - i.MX6SX SDB
-> - i.MX8MM EVK
-> - i.MX8MP EVK
-> - i.MX8MQ EVK
-> - i.MX8DXL/QM/QXP EVK
-> - i.MX95 15x15/19x19 EVK
->
-> [...]
+Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+---
 
-Applied, thanks!
+v2: no changes
 
-[1/7] arm: dts: imx6qdl-sabresd: Add power supply property to Root Port node
-      commit: c6458ea4dee9a61dd67599edfc8b2a39bdfceee2
-[2/7] arm: dts: imx6sx-sdb: Add power supply property to Root Port node
-      commit: fb3efa82b5076353a7ab17c62a62e7c0724d2f97
+ arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
 
-Change tags to ARM: dts
+diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+index dde19d0784e31..fe4cb49934bef 100644
+--- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
+@@ -106,6 +106,7 @@ flash@0 {
+ 		spi-tx-bus-width = <8>;
+ 		spi-rx-bus-width = <8>;
+ 		spi-max-frequency = <84000000>;
++		vcc-supply = <&reg_1v8>;
+ 		bootph-all;
+ 		cdns,tshsl-ns = <60>;
+ 		cdns,tsd2d-ns = <60>;
+-- 
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
-Frank
-
-Best regards,
---
-Frank Li <Frank.Li@nxp.com>
 
