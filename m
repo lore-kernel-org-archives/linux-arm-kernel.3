@@ -4,129 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4245DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E643CC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s9n6tsDLu0c4N30evfB9JHjeraziDAONy2Yyx3LR1Uo=; b=mN/gfpt0JDvNLFaDjHD/h0ZHO+
-	dzaXbq+zJcP31hUSWS33o3VvEsVxVWEDMfQuHIvcXGr7BzAwOHm/tyjuv5qbsHGnX3h7ejoCNnV5A
-	NA16FLJUrOfxPnuCFBIPfaNegR3CJK76pbVnSmZZsRWeyXnZ5Vdzf/n7vayW0oOX1OePt6QvPm6b3
-	Tn9niFSGsry0mfL8yk5AOJuDU+erqHY/VfRQTriZTUADp/epQJUpZA+sPwvmDKw9HfWLn2iYEIpAw
-	XM5G+7BSY6eBOJIjpJSSVZHNj73hP+cTkArSyD1YDNtAbuvQ2HugeP0SVDOuXigNYatrdEHT6C1xx
-	+kUGec0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0KqFlUzI+r7fz8PgRhgJxiSLsepZs7soxZuF0t57/Ms=; b=mmhkVrLCzpWbzoLwywDrm0SsgP
+	UfUKvUIbzsNj2Bvmf+JiK76FOOQsV3B381h3yoryzQAh1/zX43hkyVPpwlH0QVwXUF63KlAyyMVxX
+	dWwwWwFNgseP4d5WhWgg26y7GD8c3pS5nEnrH3SUWdSaGZ/KRyM2yhJ7AvBRe8osiNSXSJNHd1Za5
+	CDxfHYiDP8ElLqK80yCg3V0WdoMpWnVgUcRvshwqmHTBVRPrw5DDu64iOm81opO0OFqcrNAYcG1+B
+	kVvh0sYnJimlBjGQvBx9zwFaRoOQ0WmKYWBFKwl4xMVruhWe/b7m5wffkMaZYjJJG8q1iZVaBpZGW
+	bRK39Mlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghtc-0000000CPqc-2KrZ;
-	Mon, 06 Jul 2026 11:53:56 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wghvN-0000000CQE9-473H;
+	Mon, 06 Jul 2026 11:55:45 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghta-0000000CPq0-39zJ
+	id 1wghvJ-0000000CQC9-055m
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:53:55 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666BIZgD041409;
-	Mon, 6 Jul 2026 11:53:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=s9n6tsDLu0c4N30evfB9JHjeraziDA
-	ONy2Yyx3LR1Uo=; b=sio/hwru4xGhv4JXyM+22CEoogEV0e3ss5O3zcOV3rKpOd
-	gNngkW2l+nCt3A98Jf8yXqnZNq5CX2lgHaArIl7begVnzGKB0s2DtrTopunBo0kS
-	9mW7Tp+LLsYjUkqkioSE8JQICBQG87Q0z8ORjR2F+vA0N5q7DbJfmfTS/Iv8kpui
-	SpEXjuv5MqI4CWO/SFbV4tQo6kklXCc9VVar+8ptAOaZbDRtO5ruMYF+IQ71BAs7
-	2tItj4DckoyACFVzmKUkCaKAcrNTmqbRMvoM5DCc5PQizuR/YP8YsSjbuNPJWMAH
-	zMm6btCfymWrsWeSvR6S0xk/E2qOhlAEWjnwa0Uw==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6qkn9arx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 11:53:44 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 666BneZW007900;
-	Mon, 6 Jul 2026 11:53:43 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7f6xw2q6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 11:53:43 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 666BraRD46727626
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 11:53:36 GMT
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C6AC92004B;
-	Mon,  6 Jul 2026 11:53:36 +0000 (GMT)
-Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C471D20043;
-	Mon,  6 Jul 2026 11:53:35 +0000 (GMT)
-Received: from osiris (unknown [9.111.31.209])
-	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon,  6 Jul 2026 11:53:35 +0000 (GMT)
-Date: Mon, 6 Jul 2026 13:53:34 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Janosch Frank <frankja@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 19/27] s390: Introduce Start Arm Execution instruction
-Message-ID: <20260706115334.104396-P-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-20-seiden@linux.ibm.com>
- <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
+	Mon, 06 Jul 2026 11:55:44 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783338937;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=0KqFlUzI+r7fz8PgRhgJxiSLsepZs7soxZuF0t57/Ms=;
+	b=RPo4BBm4aFVqEWQ9X2uWnhT6L/zSSk1BSwIwOxf83fMSxGrVOPE+oS9itsN1gpgRxm7QbX
+	AuA4dTuQ1xdyN6LMfnQXrz+A9Czsvc324ya/QDBEI2wiZLd3WpphMQLzoHP3LjLi+waey2
+	Im7j7sakINsdCXsiP9ctbbZKB7y8XKA=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Christoffer Dall <christoffer.dall@linaro.org>,
+	Victor Kamensky <victor.kamensky@linaro.org>,
+	Fuad Tabba <tabba@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 0/2] KVM: arm64: Fix and test MMIO sign-extending loads
+Date: Mon,  6 Jul 2026 12:55:20 +0100
+Message-Id: <20260706115522.954913-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Q/XiJY2a c=1 sm=1 tr=0 ts=6a4b9748 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=ERqXt4YBi1nz3Ag4VCMA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-GUID: fETsMo4dD4Y6qi9C3CNdK4GHSlsqbE4I
-X-Proofpoint-ORIG-GUID: fETsMo4dD4Y6qi9C3CNdK4GHSlsqbE4I
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEyMCBTYWx0ZWRfXzzTt3U/+SU+e
- f3uSEwUff5DwXPiE4hB24nxIGXCWoeGm93R1bnNIjw0sfzY7ZTUlOYH5y3iASau5Uxqnmkjtry5
- YuwmFpVIVAQiwJqxsWq0Tdt490mKokk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEyMCBTYWx0ZWRfXxSx+4RrXjjI+
- EDEfQd7qDuHkSsHHsu9xPSn7cjGAyVKvOduFbg9HiyXtGzWRplnDfZpM2Si5isqm4lSGdyvlTKK
- aDFC5tUypUvDo5jyQgeShhh7n5OvtHIZ0FHbsSgNyCV+pLlhZXHI1MejXd854HIdR8H3wXhJ62u
- gccMZ9VgTUXDj7gcQDQjrcAYHpJbu8hsskWZPeadD/BOeI7EKu7mOywHK2GNWYl7zhAL9JXVfS/
- V7NNOZG2URgUzzsRmSlrKcxnVSZ2rQewz/a4VwiARX3W1Vt+hzGFHnKEATV1xVkN39payD+Tns4
- FGrePitja1Y/Zam+lM0x7XlahyirIWPV0WaLALaqCTw9xvK0TPjwg/fWNVjrT+1zA6BowOcPuHA
- bt6i3D257ca61V8o7/Qgmz4nLs4n0VbiOk0rsr4Q4SPogs+Sa1SZzc/YD7jblIzItdcXdRr3vcG
- WzCP+8n1omaYTrxrLAA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
- bulkscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060120
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_045354_913731_044AED7B 
-X-CRM114-Status: GOOD (  24.18  )
+X-CRM114-CacheID: sfid-20260706_045543_304673_63AB9B8E 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,54 +76,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:17:02PM +0200, Janosch Frank wrote:
-> On 7/6/26 10:52, Steffen Eiden wrote:
-> > The Start Arm Execution (SAE) instruction is the centerpiece for
-> > executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
-> > enable accelerated execution of arm64 virtual machines. SAE expects the
-> > physical address of a control block as the only argument.
-> > 
-> > The host is responsible to save & restore
-> >   - GPRs 0-13
-> >   - access register 0-15
-> >   - breaking event register (BEAR)
-> >   - vector/floating point registers
-> > between SAE executions to guarantee host consistency.
-> > 
-> > GPRs and BEAR are save and restores in the asm functions. The other
-> > register are handled in within C code. Access registers are handled in a
-> > later patch and SVEs will be handled when they are introduced in a
-> > future series. Most arm64 registers are handled by a satellite block
-> > called save_area. Some registers, frequently used by hypervisors, are
-> > placed into the SAE control block itself.
-> > 
-> > Enlighten asm/kvm_host_types.h for the new header variant. The new
-> > header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
-> > is defined.
-> > 
-> 
-> [...]
-> 
-> > +	u64	gpr[31];		/* 0x0300  */
-> > +	u64	_03f8;			/* 0x03f8  */
-> > +
-> > +	union {
-> > +		u64	icptd[8];		/* 0x0400 */
-> > +		/* validity-interception reason; icptr 0x01 */
-> > +#define SAE_VIR_UNKNOWN		0x00
-> > +#define SAE_VIR_UNSUPP_FORMAT	0x01
-> > +#define SAE_VIR_MSO_BOUNDS	0x02
-> > +#define SAE_VIR_MSLA		0x03
-> > +#define SAE_VIR_MGPAS		0x04
-> > +#define SAE_VIR_INVAL_SYSREG	0x05
-> > +#define SAE_VIR_HOST_CONTROL	0x06
-> > +#define SAE_VIR_SCA		0x07
-> > +#define SAE_VIR_MSO_ALIGN	0x08
-> > +#define SAE_VIR_HLC		0x09
-> > +#define SAE_VIR_IRPTC		0x0a
-> 
-> Will these ever be used for something?
+Hi folks,
 
-I'll remove them.
+Changes since v2 [1]:
+  - Patch 2: dropped the second make_el0_accessible() call and the
+    el0_be_loads_end symbol; the EL0 code page does not need its
+    user-access bit set because it is fetched, not loaded. (sashiko)
+
+Oliver's Reviewed-by is on patch 1 only: the code there is unchanged
+since v1.
+
+A sign-extending load (LDRSB/LDRSH/LDRSW) from emulated MMIO returns a
+zero-extended value rather than the sign-extended one the architecture
+requires; vcpu_data_host_to_guest() strips the sign bits when it masks
+the data to the access width.
+
+If my git archeology is right, the masking dates to 2014 (b30070862edbd,
+big-endian support) and has been wrong ever since, but sign-extending
+loads from device memory are rare enough that nobody hit it. Patch 1
+fixes it; patch 2 adds a selftest so it doesn't regress.
+
+Both passes run under QEMU, which reports mixed-endian support.
+
+Based on Linux 7.2-rc2 (8cdeaa50eae8d).
+
+Cheers,
+/fuad
+
+[1] https://lore.kernel.org/all/20260625144807.2603272-1-fuad.tabba@linux.dev/
+
+Fuad Tabba (2):
+  KVM: arm64: Fix sign-extension of MMIO loads
+  KVM: arm64: selftests: Add MMIO sign-extending load test
+
+ arch/arm64/kvm/mmio.c                         |   7 +-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../selftests/kvm/arm64/mmio_sign_ext.c       | 255 ++++++++++++++++++
+ 3 files changed, 260 insertions(+), 3 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/mmio_sign_ext.c
+
+-- 
+2.39.5
 
 
