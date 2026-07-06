@@ -4,134 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD48C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB996C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:22:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2xXUF1+tANGO4rchO/7NUHjXRde5fmDVApNTawt8okA=; b=NmV8Br1svy2gzFQa3bUTa4gOnG
-	COEtzL5i52xKCnsrcJbWUo2pu8QZfvNKYEZVy8KkMMR4eLy3+yJHWheFNROYF/fxsmNf3uc5kO+Of
-	09ZMhXrGf5SMXfM3O/heR3cMz/XhJ0jh0x3S+l5OmBVLD0uQ8qLsZBI+HbviOvuwZDGkuLBgmueuA
-	3iozwiSVxdWcrQD3ZgycpLai8sbCxkMS/Atqkje7TKqAjOS5vqfX8jJAC7pRdmrtqKI5k7sc8nWhc
-	qK0RQBUsun15Yo+QzVuMMMe4YHzM5dTufe5dDy8cVJ1eroosLSYSKZF8814EHH6YKlqbhgd2vO/xg
-	S9qXNO7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uUvnPsKjuQP6yuyXtFheND9PsoKrcpl/rPytE4I0hA8=; b=J74hYVr/k40JbSF2kR0joNwEPs
+	1ZRK6j4khAletSR8mJFn4mCGpTTnMHNQjAz3tiJ7GxDIc9egLhaIuvNEhTiwpBqnSMlptNe7iH1Nr
+	UvYt38kCVINqEIpPde05xBJNAuoZca0ItVRj2RxBncxqXCGkNpY1C4W7r0eOtVijF189Q+/vORcL7
+	oIKNIVroi+UQOcSOPJngl8ZaOv4SvzALqseeDm+bld7Pb5vOd90nxuz2e5uZbDL2oHwtnQ4VJT2Uz
+	Dh8w+3uvwH1NJ47gjy5XwPZgyccDpv2JX2LnZlztSuQRxt0k/DvuwyEmStG15iSRxgJv1yCXKlp/Q
+	YvyycEdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghLM-0000000CLUu-0zbo;
-	Mon, 06 Jul 2026 11:18:32 +0000
-Received: from mail-norwayeastazon11013004.outbound.protection.outlook.com ([40.107.159.4] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wghPW-0000000CM3X-2sep;
+	Mon, 06 Jul 2026 11:22:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghLJ-0000000CLUG-215h
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:18:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y0BDwirRAMOB7Nk2IfAoA3bJjk89mT0dfiCcz9+rQB2PBlA9/NLmg+DPyVLehW0BJRNxcC60bIV6luaxJcxMJ/h5IWhy6zwGYN2XOIrzX8mavUnMsNUQCv9wKxd6BYfnoSAtally0Gh8yN+2JdEBKWYAiDyzOTJirECn30KkkB4uAZTZJLrfMyzxT1l7ALGbGlXgaWaoNTa9kX9re3aF/O/fIui4AUvedF0n4Y1SlqPzpwbemBC94VwKcWuZVXbi3Qic0ELzJHOV7gHZXJL0m7uGBKRLVYDMpwROFkwp/MEJG4/GZpUhnEhgl2D64nxTDpunBJ9+pCIVvtBjOV0QlA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=2xXUF1+tANGO4rchO/7NUHjXRde5fmDVApNTawt8okA=;
- b=W9q0NAs07FMogN7l9M77h86f05D436YD4sI9djoF3LlyyzXwi/YxQKLSD3ZaJIYylE77bgULN+EoEOl3y111uzzxejIEwCrp+rvewfp4O/D2mLrjOzhxEEEEb67CujlhC0O0ohL6Ya1OKOXytZ0agkxmjqnugYxqlUFUXlXQ8KJiJSKeH2OtKtqhWxEcnIxpRDH77RPpg+vX7AEVHDP6S/rxjxdiTWyDVng0uo1beQO2OxeFFrZq7NVyRB6eWKdhv20p2/lbH8KewdSDE4uswaizkrcjNZVKq3UW0RLO9vJzNSkRO0CIIXjwj8bJNCWjPVIgG0aSQMRtqbq86eTW3w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=2xXUF1+tANGO4rchO/7NUHjXRde5fmDVApNTawt8okA=;
- b=W7HJPUdRsggvyASth6Blg7v1B6oX3UJaNsAZDhCDiljfDibQS6lM3IQpcld+2ehcWMKRJQ+khyC7+2mJgZtbeF854prlXUK8Z3rl0bBg33o348kudKzz1R5FsepfVECWxfYYYnOhih5T9MDzU580uPdJaRHPfBzi2wl9tR+lvjFbfz+vhMXObP0PTO7l/bKGAjBg4XSh9MI3PvKS4gjB4SnRLuWFZTz0G3iuECvLYMbP1VqZU+Kgsjm4OyZP1x9MXPn9O+C7ByiLdIKhsMIUqrb3M5zqR0uAQIyyaFDWPVjCrQ2b7O0xGBzvgwDFLcD0ig8UQ0zGZItVTv/S50K3eg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AM0PR04MB12076.eurprd04.prod.outlook.com (2603:10a6:20b:743::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Mon, 6 Jul 2026
- 11:18:24 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%3]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
- 11:18:24 +0000
-Date: Mon, 6 Jul 2026 19:21:53 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v2 04/15] arm64: dts: freescale: imx8mn-var-som: Update
- FEC support with MaxLinear PHY
-Message-ID: <akuP0TkjaZVuHPb2@shlinux89>
-References: <cover.1783330236.git.stefano.r@variscite.com>
- <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
-X-ClientProxiedBy: SI2PR02CA0004.apcprd02.prod.outlook.com
- (2603:1096:4:194::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	id 1wghPU-0000000CM3D-3Lqs;
+	Mon, 06 Jul 2026 11:22:48 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F42A40C2E;
+	Mon,  6 Jul 2026 11:22:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9140E1F000E9;
+	Mon,  6 Jul 2026 11:22:40 +0000 (UTC)
+Message-ID: <95b20f95-37c4-49a6-8952-e023597d9fd3@linux-m68k.org>
+Date: Mon, 6 Jul 2026 21:22:35 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AM0PR04MB12076:EE_
-X-MS-Office365-Filtering-Correlation-Id: 46958528-4f58-415e-63a6-08dedb504b60
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|18002099003|56012099006|4143699003|11063799006|6133799003|22082099003;
-X-Microsoft-Antispam-Message-Info: GSPU5OlzRhlAOuPch0pePGR0ZV0DrPYUc17pLKegzy/44Brt0vD2SLg8P9yB3my4TXUSY+tzo7OuW7iOw9rC8ZHGX7e0kgMIT+DxaemjoXo8/wZLM4qnFuoew7XSklnIm31FENv1CkM03AXgVYwtWr9qAPhASuLAgxhEFPI02cfBdHcdadWcpp73Vd49s2pYIMCFYfiBEE5PX9g4MtBiaBcQ1p16lmSB1B35zPI5MARbvKn5QiVsxkH6GJaeM8+78eJU1uYt73Bvkta2MLGgJxS0O7niQsrsNm8krggJ7WVZphK7zN0NhTgmDkvNUn04uUBldZpTV6T1tlGtYgMV6/6+5A5eTJkfqVOVJ627UBXDEiS7ePPZwzTuheQJxPgbAqkaj08UeFnRTAqaYiaf9vg0JzPhUDp9Wt2z7D/WnSoHSPGpFhZR/gvigL0Zr8k0w6uscpWG8c1wkkNUh0jDWak4PkU6IZtRcKiAKTac6JC7sCOYsKzKk0Xa+8ZlZLwAqqkBq/pXEUUxPHq4x4bBXpzCKkhk/k06hUz6LgUPUkr8gpeHf3aNXJ+0+QKNryqNdb3lcLGE4/uopXs8mIFwjimbUu9skVbdVuqeXT5WsAJzWCes93UQzXN/wjBOQCMZi3ORZFvtbwcFTITdQ83JH+S9WOxvDg1Yz7xOY4JpECE=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(18002099003)(56012099006)(4143699003)(11063799006)(6133799003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rA8SA5687kAlmbpE+SCZvLPgG5wGanRA/Vp0qKB81E2A/tRuokBEoGYCe5jn?=
- =?us-ascii?Q?68qd5G4Dlln7TWRuMMZh02uuJmfGVkTZxFfQRbyZ55OtKa9r91MMCaor9YgN?=
- =?us-ascii?Q?YJrZBLpKr1xid3Ix8TRwwIBcEOKPThWrbpQ2LJMGoin+I520h0r68uHg3spQ?=
- =?us-ascii?Q?P6/6195gSGMyAoS/PAOyqufPuTuJgN4wqVdmxex6JtL5rpv6gLyHAafqC59l?=
- =?us-ascii?Q?r/ftmEO/EhNPkiRWM1U00jjWPBydVX/kHrw4tXobuXZ5RHi6JhhnxV6jK+IK?=
- =?us-ascii?Q?hroGgdat/n1nXvWO2QBnVeSBZG/7FFdEVS9GhNqFMwMmqgJwcjk77Z5yhAsi?=
- =?us-ascii?Q?yfBg3mC396vP9aIt3h19taXV1MCfiaPjzbxjMIEtICG7/P7eHpphsc/gbSZH?=
- =?us-ascii?Q?+tAve0H/tY0Uh4OXYpTqaOycvjz3QJ2BFCb8LPFmEmx5Kvf1O5RwhWbS2LRE?=
- =?us-ascii?Q?fZx+tXQnZXR8WWgy9+5qnDFBVpENUeM1ldwNKzPucFUFJL9KTQbQT+jR84t/?=
- =?us-ascii?Q?pkITX+ErIvA4QaWAd4E0U0DhlXz+pqp1lsqbzv6lgY2enncBLwMYwtqhb+7m?=
- =?us-ascii?Q?kfxrHjQLDEipdJBvIA03Z9OXeO7fXV0V+lyXIvaCREPrxxbQQL5MSLyiu9gX?=
- =?us-ascii?Q?Chu5kcA8aVwfBgXTPjf5KxDFcuHRQKg1DZFaN6gmwSDDhAdwMw1B1dnhcf6c?=
- =?us-ascii?Q?aAQjiNJOJ/adaqtoZs8XZnQZyHnzhOJ/F7ztN05ankqPnSKLjUzMpPaaGxbX?=
- =?us-ascii?Q?I9F5XYhoMVowSutsjnezFcYiIRk0iquhaY1sVeAZzLi+6J1D27r+it9+cZJr?=
- =?us-ascii?Q?AZL2AEQeA9nJFVR1RLL7oTtoUUWDD/tyZDVFVtFUGhhpAPkhaTUO3JF6u5as?=
- =?us-ascii?Q?KTZCAkU+jrHVEyzsQpq077w9RWqdRlTDd6OJKfZMN7944uL2JCqCO1nKLPqP?=
- =?us-ascii?Q?Dk0436fH6HHlqwLNqHqb3g8acPsZH7kYXgOc+lJ72C4RUO5E+ue5a9IX4sG4?=
- =?us-ascii?Q?tLpiszxpoJrtwRb1jrL4ahoZfF3Yi/LhEt+DbPB0Xf4uUD59QO9wd8tA0IZS?=
- =?us-ascii?Q?cXYNOYVUcQ0hCLuZ159+I25F00m8/wfgVDHD7wgHrXuVbxB270ELdqGy5yJV?=
- =?us-ascii?Q?mXDPw9dXNvuQPpvNHlLIwtcZY+e2eKy5ziEOJ3lcPEOf+babQkl1CKma8gu2?=
- =?us-ascii?Q?R6QrcgFk9+ZKnUQpxAsyVFH45+MyE0+1Dt4RklAK5efwFfMbvnwo8VHwGxmM?=
- =?us-ascii?Q?ymp3HT8vVBg1FFauDyLKgnhFbZTF6apLz0OE8VslAC4y35dkUvfsYfyO11Kb?=
- =?us-ascii?Q?HKCEAHZkybI9rWymSlidObUif3gCVBHjyr/JHG4N6w6aH7/vnrhgmuLJAmTd?=
- =?us-ascii?Q?AxMkRi9l0uQjGkYg4FTDnqQdg6mt7y3NBrSUcq4QycfE78Fy+d/OO/tG7RWU?=
- =?us-ascii?Q?eDQ6pHaQy6rtb/8pD7+MMTJx3XL+WJLLXdoOwAOJHOwd5bkq1uUw/pOpb2h1?=
- =?us-ascii?Q?Uz6TO5DHuAOug/Ubtsu/ZoL/iLTz3aFPpeENFA5+RUnCBaxzLOoHry8zyUJJ?=
- =?us-ascii?Q?pnXLOqydztfymOvAqybpaQwsZT9bCFnHK3F9m/5LIRQzevAJ70L8kJrll3zo?=
- =?us-ascii?Q?k7jbmixTaEJGhyLMQwnSPAzgaFLBQT5ETMAKkVnJsIUe/YRur6uHaFifyW9G?=
- =?us-ascii?Q?jUTx+V++WED0b3FA6EOvQNU26QYM3LynUKDUI7LwEi5+p90mWpU6yvdlsCTC?=
- =?us-ascii?Q?Onf90iGssm8w5HaySkTqyheAIpo8xe3kzdQvemfavsTE/kpEXrvC?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 46958528-4f58-415e-63a6-08dedb504b60
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 11:18:24.4340
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: d6y6/BR37bdAz6n31Qn0xjqoHIRvoPFVqpPwXz0Xxl5NL6vwC/Wphyw0vRrtXOzhQv2c3CtPOF3zaFiZtsmqsWc2Mqtqyssg5FgTsWNI/6LRjqDxei6fLkXONYYPoKL8
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB12076
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_041829_524803_6C3F2D33 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/13] m68k/coldfire: replace linux/gpio.h inclusions
+To: Arnd Bergmann <arnd@kernel.org>, linux-gpio@vger.kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>, Bartosz Golaszewski <brgl@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ Gregory Clement <gregory.clement@bootlin.com>, Frank Li <Frank.Li@nxp.com>,
+ Robert Jarzmik <robert.jarzmik@free.fr>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Hauke Mehrtens <hauke@hauke-m.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?=
+ <zajec5@gmail.com>, Yoshinori Sato <ysato@users.sourceforge.jp>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Linus Walleij <linusw@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Dominik Brodowski <linux@dominikbrodowski.net>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
+ linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+ linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-media@vger.kernel.org, netdev@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org
+References: <20260629132633.1300009-1-arnd@kernel.org>
+ <20260629132633.1300009-3-arnd@kernel.org>
+Content-Language: en-US
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <20260629132633.1300009-3-arnd@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,26 +79,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 11:34:34AM +0200, Stefano Radaelli wrote:
->From: Stefano Radaelli <stefano.r@variscite.com>
->
->Update the FEC Ethernet controller on the i.MX8MN VAR-SOM to match the
->latest SOM hardware revision using the integrated MaxLinear MXL86110 PHY.
->
->Add the PHY VDDIO supply regulator and adjust reset timings.
->
->The PHY LED signals originate on the SOM, but the actual LEDs are part
->of the carrier implementation (RJ45 connector). Move the LED
->configuration to the Symphony carrier device tree, matching the
->evaluation board LED wiring.
->
->Wake-on-LAN via magic packet is not supported at the VAR-SOM level and
->is therefore not enabled in the SOM device tree nor in the official
->evaluation carrier board configuration (symphony).
->Designs requiring WoL support may enable it in their own carrier-specific
->device trees if properly integrated at the hardware level.
->
->Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Hi Arnd,
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+On 29/6/26 23:26, Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> linux/gpio.h should no longer be used, convert these instead to
+> linux/gpio/legacy.h for coldfire.
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+
+For the ColdFire changes, LGTM:
+
+Reviewed-by: Greg Ungerer <gerg@linux-m68k.com>
+
+Regards
+Greg
+
+
+
+> ---
+>   arch/m68k/coldfire/device.c     | 2 +-
+>   arch/m68k/include/asm/mcfgpio.h | 2 +-
+>   2 files changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/m68k/coldfire/device.c b/arch/m68k/coldfire/device.c
+> index 1420bae0964f..9a0258acd998 100644
+> --- a/arch/m68k/coldfire/device.c
+> +++ b/arch/m68k/coldfire/device.c
+> @@ -12,7 +12,7 @@
+>   #include <linux/init.h>
+>   #include <linux/io.h>
+>   #include <linux/spi/spi.h>
+> -#include <linux/gpio.h>
+> +#include <linux/gpio/legacy.h>
+>   #include <linux/fec.h>
+>   #include <linux/dmaengine.h>
+>   #include <asm/traps.h>
+> diff --git a/arch/m68k/include/asm/mcfgpio.h b/arch/m68k/include/asm/mcfgpio.h
+> index 7103cfa4edb6..29726aa40eb6 100644
+> --- a/arch/m68k/include/asm/mcfgpio.h
+> +++ b/arch/m68k/include/asm/mcfgpio.h
+> @@ -16,7 +16,7 @@ int __mcfgpio_request(unsigned gpio);
+>   void __mcfgpio_free(unsigned gpio);
+>   
+>   #ifdef CONFIG_GPIOLIB
+> -#include <linux/gpio.h>
+> +#include <linux/gpio/legacy.h>
+>   #else
+>   
+>   /* our alternate 'gpiolib' functions */
+
 
