@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C478C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 783E6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:37:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DgG06+fPhBUefxG+g15sZ2YExh0h/ruMjb8SnPH6H+g=; b=aKlowj1LpbLlYGkvdTBDz+/xHb
-	oy1JgEU4sGYdpxYKZPFByqRPyBrpZNHAnx2z5pl0IckcvFLL2WpDTydVWXG+8AIxjtOho6X4Dm1hD
-	T5xQ+0cHYhFkhQJOI8WIYVf8852EbV7n6Q1g1ugw8nrxJJ8G/aP3sZclZv3Tg0hsj2enZ82BTQ/XL
-	gw80BoWddOvU5RaPQpXKTAan0l7F0lkshoAomda/EJ5AU9xOmQ7FKRQSaJS4sY0ZOoQKmUbAUJvmo
-	/4171yCXRKv9JKzmgdWvXkm/InCWzYaHFOwYlkSk6ER45MlomdYdZh/XY1a6GY2YiujfVc+9ZC2T6
-	7sjKCr0g==;
+	bh=VjcZmBFuXjLsV7sfYoSAPXXZPZioIsyWeSwOGddaHg0=; b=FJ6RrcmUdLAPmlhN/T0UsGsfv7
+	8YNKDObGHBOEB0OwHMzfh55y/73fmrAcDCeiDYD0bBFeNvSCaeuySo8Z3YotA448ESMc1GH6RRzw1
+	AyG1fMGC0wHk9neYQw70WnKXVjt74fEiHWoT/vb/jFU4QONVQkyqeeH7XqgsEQANnzLefC/zOIlDl
+	0pHkqkjK/J40q7ojzic2WoxPor1kcZeS5zDJz73KQB0GhfJsncUCwrWgS3B0uusRKmaFPXXvzw6H6
+	4XNBoHgSpbh0hI15pV3dn91wocfxW+E/zDG+bkTWJO8b5qNN+OP4KkPOsrpdFqrQnzXcbofD9fGAc
+	imj9CQuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcwt-0000000BdNJ-1f73;
-	Mon, 06 Jul 2026 06:36:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgcxS-0000000BdU3-2M15;
+	Mon, 06 Jul 2026 06:37:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcwr-0000000BdMw-1MEA
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 06:36:57 +0000
+	id 1wgcxR-0000000BdTY-2LQ4;
+	Mon, 06 Jul 2026 06:37:33 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD46C4081D;
-	Mon,  6 Jul 2026 06:36:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7465C1F000E9;
-	Mon,  6 Jul 2026 06:36:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8AAFC60018;
+	Mon,  6 Jul 2026 06:37:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EFA11F00A3A;
+	Mon,  6 Jul 2026 06:37:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783319816;
-	bh=DgG06+fPhBUefxG+g15sZ2YExh0h/ruMjb8SnPH6H+g=;
+	s=k20260515; t=1783319852;
+	bh=VjcZmBFuXjLsV7sfYoSAPXXZPZioIsyWeSwOGddaHg0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ljqRKau9DCFpA3AklvnxUyEXQF+DlQ4bo0jmiHb9FTBi0BiNyfJlYGIAoZKmmV1Rd
-	 78hccCK9z0lFtUb2/08OsSZNR/Pi5+h/5rLi1hpnrxlMtDgVjOjbPjDIdKLjtaahIU
-	 GpIZyvi3nllQMc/bgvupFzCbkdpIl9wlgqyHvtWeh4fqfkOquRJ8EGp/Qvwgl4xxzu
-	 3O5NWIkBJzsu+bWpTPQjhXAa8IUEwO5O2xHAy4S52J3Ys0V/u29PSPLAcMu2RPUsyE
-	 EwyFBcFZXGkNSl6z7c/nlw8dmQ40+1esWLB8jmB4ETd0kbE9QCw+0B30vYu34Ozvdf
-	 2NdYKatgV9IWQ==
-Date: Mon, 6 Jul 2026 08:36:52 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
-	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Sean Paul <sean@poorly.run>, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v2 2/8] dt-bindings: display/msm: gpu: Document Adreno 840
-Message-ID: <20260706-radiant-shark-of-calibration-ac2d13@quoll>
-References: <20260705-kaana-gpu-dt-v2-0-6ac53de56314@oss.qualcomm.com>
- <20260705-kaana-gpu-dt-v2-2-6ac53de56314@oss.qualcomm.com>
+	b=YDyKS0SaRDvwlaShaJjV9biNKvr0BeBb2h3WIkgVUVMOtl/pqz7jwholBzal2OxMX
+	 FJFO0GE0tFw3/VQuPzqDai2SnLB219yrF4noFlP6D6luh0uwUu+TmSh8sTgYmFJly0
+	 S/KmJOPJe1oDQDBJPrEP6lKy6DMjAWS/XKAxktdISW3zP2sTCIsGevRz1DSwlXWCnp
+	 A62U9+WLtsCIQ/1RoRqwTojDt0iwpFIFT3kDapWfqoPF9ZWz8nDDWaxeFJcrPgfTIf
+	 e4sFc8+idj5v1sMgInW8l0tEcSH1fa7qE1vJ/UYlmvIOHzefPNJF4kfD1jKeLXQ+fH
+	 vWF6kuxUltseQ==
+Received: from johan by xi.lan with local (Exim 4.99.4)
+	(envelope-from <johan@kernel.org>)
+	id 1wgcxN-00000001Y5w-1Pmp;
+	Mon, 06 Jul 2026 08:37:29 +0200
+Date: Mon, 6 Jul 2026 08:37:29 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>,
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] drm/mediatek: mtk_hdmi: Fix DDC adapter double put in
+ v2
+Message-ID: <aktNKSUuxVYLpqsJ@hovoldconsulting.com>
+References: <20260706015507.453222-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260705-kaana-gpu-dt-v2-2-6ac53de56314@oss.qualcomm.com>
+In-Reply-To: <20260706015507.453222-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,20 +80,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 05, 2026 at 01:30:06PM +0530, Akhil P Oommen wrote:
-> Adreno 840 GPU found in Kaanapali chipsets belongs to the A8x family.
-> It is a new IP which features the new slice architecture with 3 slices,
-> raytracing support, and the highest GMEM size seen so far on a Snapdragon
-> mobile chipsets. Update the dt bindings documentation to describe this GPU.
+On Mon, Jul 06, 2026 at 09:55:07AM +0800, Guangshuo Li wrote:
+> mtk_hdmi_common_probe() gets the DDC adapter with
+> of_find_i2c_adapter_by_node() and registers a devm action to release the
+> adapter device reference with put_device().
 > 
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> The HDMI v2 remove callback also calls i2c_put_adapter() on the same DDC
+> adapter. This is not paired with of_find_i2c_adapter_by_node(): it drops
+> the adapter device reference before the devm action drops it again, and
+> it also puts a module reference that was never taken.
+> 
+> Remove the extra i2c_put_adapter() call and drop the now-empty HDMI v2
+> remove callback. The common devm action releases the adapter device
+> reference.
+> 
+> Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT8188")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
 > ---
->  Documentation/devicetree/bindings/display/msm/gpu.yaml | 2 ++
->  1 file changed, 2 insertions(+)
+> v2:
+>   - Drop the empty remove callback, as suggested by Johan Hovold.
+>   - Mention that i2c_put_adapter() also drops a module reference that was
+>     never taken.
+>   - Fix the Fixes tag.
+>   - Add Cc stable.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Please remember to CC reviewers:
 
-Best regards,
-Krzysztof
-
+Reviewed-by: Johan Hovold <johan@kernel.org>
 
