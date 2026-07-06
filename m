@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF631C44500
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC659C44501
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:53:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OmJ0hDLaVvUY1ksjcuFBSGBnqfk3VPAGlx/m71U2knw=; b=xPORniiwqOLNuaa3mC02QLE4Dh
-	Jv6ilfJOK9SRFjCrG/Wx7roGEhIDHZI0CAa9cV92jmMOgJhoDHfnykFcA1gWTpLI8jHhRDVW4pFor
-	JWsmEXMGAsIQKNPtvqJjB6Co/XNDzp4Hoao0qAScvl0sLXR3GuSrQeg5bHeUhxL+GmTOCq8+CxHao
-	Vc0Lzva69WD/sUG0cbJ9w2elpca8QHYuuzMQrJFVP+5yexZqS04ondYZD0GepslZMLfVzz2wuYr3q
-	4/G1LL4gezso4Fi8euD2FLhoi+kDVG8J96Xcn89sOWSWfDuNkcfNmsp+SULc41S2OwbZy+smNKHUF
-	TzV6XRYQ==;
+	bh=jdfV4gjAQoM6YhGbrkpvppHExlPgcIe2wv/vQSF28G4=; b=H6pAkDFMp0UFslFgBSunzx+Odc
+	YSeWV2u7Vo3I/JpktZjBcrOHoFOjb6vmRT6P7LfEDxchsS45S7FsmDxjybImWBCiCkKr4G8cujxuY
+	gSeyObIlUNhtaQLxkCk8oJjRd3hxUCjqUGQ7A8s03Ho2xEDzaroZFkhNMMVQP380knQKaCi11Hdu0
+	uapQK0sL2e/qLOSoT/qsqNALl+ylSwlaRmGwrEqZHtsPq4fJ3p2o4qUDB1SPpIwpUC3hk8kP7fyyQ
+	ReX5LwVqEteDgvzeED1JYSvzydiKIwKm6dyjPhyrq8al8IHo1yJD3P+bPoyax01Yq1mDu1n7R04Od
+	hOahBWJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4s-0000000Buzm-1yL3;
-	Mon, 06 Jul 2026 08:53:22 +0000
+	id 1wgf4x-0000000Bv9w-2cDA;
+	Mon, 06 Jul 2026 08:53:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4a-0000000BuaL-1ZKO
+	id 1wgf4d-0000000Budi-0A2D
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Jul 2026 08:53:04 +0000
+	Mon, 06 Jul 2026 08:53:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=OmJ0hDLaVvUY1ksjcuFBSGBnqfk3VPAGlx/m71U2knw=; b=PRfBeTrGntuZIgASKAHOikmaJV
-	O1kf74XnTWFvU4rlsTAc/7IiB7uoy+sT6u+KPqObpthoVeAvLncSQ/V+UrYXM5DHBIZfe/Yw/mL7M
-	T+m5Vu4AEjJ6H03+iX7PHDZxnCRUghB1sR+KpdT0un8Dc9D4Jeiyg8cOkTDKFzFduXE5rJehe21KE
-	r/H/6xWS9V2FVJky/NZ/9mNiBeShL5UmgrVAue4rWoTQhydTUdXq2bi5rMoZtFjrpLlh4+RLnmq3O
-	esTIXVSHwXRZWt6VaCWdS0gbMPgE0unlU2RgI5qSzHWvpAzQ0Tk/dpsi8I6uTx7ICsft27QN2ahgR
-	N+qbuDyA==;
+	bh=jdfV4gjAQoM6YhGbrkpvppHExlPgcIe2wv/vQSF28G4=; b=PV57xgJKLgzz/Uj9lB3DIxiTMk
+	dC53fYpBzZdolXod3DImbxpPCKaSJGWOKB/Q7xxeM0Lp58xkMK034qQXav3tTwCaMlNtdk/QBCmj6
+	8sGpuPSgoudW8bimDibsuX6NsG2sDA/uVpjxIkhGJjVoxiAtVx6oksJt7EfK7ukfu0yRSxMkWjhVD
+	bNbjkdfyialRq7cWmQGUyisKAzGmU5e7VXOcIU9GArJ9tZrMHSOh9XgcFyxrtMY4pgndfdRqnil/j
+	j8sCFtTwYdb1Hm/5lI/tixlUcqb414Y8ci7k4UexVMp5HWWkP4Jfm5MbSmmlWdG+d63Q4CZZj0ZLw
+	GJQMPh4g==;
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wgf4X-00000006LI0-0f3Y
+	id 1wgf4Z-00000006LIy-32K2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:53:03 +0000
+	Mon, 06 Jul 2026 08:53:05 +0000
 Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MISvD2304385;
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIAep2303805;
 	Mon, 6 Jul 2026 08:52:46 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=OmJ0hDLaVvUY1ksjc
-	uFBSGBnqfk3VPAGlx/m71U2knw=; b=dEFWaB3xx7cHhtUwK+Sa0POwRmBvQ5598
-	O4+3yYSYVmIihSViK+0WuPZ38X8ZeaRsPm85ygiXM/EMP79Co39D/+y26EY47H5q
-	DHmMl+q4wY3iDbtXiobUqBm5HcszM9ClkvJlqgDCFN4e+YHB1cqNQxAQdpcKb2qE
-	ltAIaJpeRuaM9wrnu5NC9gHgUA9z9xPYnCtvz4YoNpkKuiR2/cmze/mPSa9xCcZJ
-	B/mSwJj3WrVshP0MtalOBuP/R+uLPjtgf4EIF5nbfCP3mPmRSHKFkOUdv330N7DJ
-	e2DYaiFFv7sgRAhcP9AyvTplhN5DL1K1wZQt2Ah8OHS/7N0cBm/4Q==
+	:mime-version:references:subject:to; s=pp1; bh=jdfV4gjAQoM6YhGbr
+	kpvppHExlPgcIe2wv/vQSF28G4=; b=j+6xs0tbmoYMG3fWUSJ5plN4xNMc/bv9D
+	eU9rXfnlqB1UfhjYtmvIaANQW9IO04WCS0xBp1F/RFz/l6lpgcHuxPkg5WoKCffw
+	5kDYfHebi1rxJG2ROvIT/Mq1BP+DhcVLbFz7ypUpA0sYhne4LIZoPoBsAg38i1Mb
+	l7Wc99xotMAxoFXVT565dA2ogHnCTgOGIBbKNzULPpTUA/PAWZQPa5Pbht+nWE4i
+	JGD0qLN1IjFy1Uo9VbcPrdzh8k2HvmKeMZtenb/jzI77vnLG+g+3/O7BBEauvpfo
+	lygp3nd40K58BZnBansA+0lcd4d/KciQqyPlsWD7GzQDbBQ0F+Uhw==
 Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sp3gk7x-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sp3gk7y-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Mon, 06 Jul 2026 08:52:46 +0000 (GMT)
 Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nmTp006242;
+	by ppma13.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668neG7005794;
 	Mon, 6 Jul 2026 08:52:45 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7eqfvk9w-1
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7eqfvk9x-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:44 +0000 (GMT)
+	Mon, 06 Jul 2026 08:52:45 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qbuw34931026
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qcAM31720152
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 08:52:37 GMT
+	Mon, 6 Jul 2026 08:52:38 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2FC7A20043;
+	by IMSVA (Postfix) with ESMTP id 054FA20043;
+	Mon,  6 Jul 2026 08:52:38 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 975BC2004B;
 	Mon,  6 Jul 2026 08:52:37 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id C195D2004B;
-	Mon,  6 Jul 2026 08:52:36 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  6 Jul 2026 08:52:36 +0000 (GMT)
+	Mon,  6 Jul 2026 08:52:37 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -103,9 +103,9 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v4 17/27] KVM: s390: Refactor prefix handling into a separate file
-Date: Mon,  6 Jul 2026 10:52:17 +0200
-Message-ID: <20260706085229.979525-18-seiden@linux.ibm.com>
+Subject: [PATCH v4 19/27] s390: Introduce Start Arm Execution instruction
+Date: Mon,  6 Jul 2026 10:52:19 +0200
+Message-ID: <20260706085229.979525-20-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
 References: <20260706085229.979525-1-seiden@linux.ibm.com>
@@ -115,20 +115,20 @@ X-TM-AS-GCONF: 00
 X-Authority-Analysis: v=2.4 cv=KsJ9H2WN c=1 sm=1 tr=0 ts=6a4b6cde cx=c_pps
  a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=4SwaMfgYKtkue4rGTFgA:9
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfXwhIA+ZsRgaqz
- g5XjuRmzQbbDgcMwBeEXFV278TP9qe+t3dkSbqecHVEQfnUZlmKXvGnuroUuzyKXgyNIZcffCve
- QWs9BrLEzhHp92L25CvobwmDJiBZSPU=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX3b5f9p245PM0
- iYx6z0PDv+QlF25cIdgLK3HZXrFZ5zC9+6PUjqGHLzJy7vge+VfAcaEP+2C9tEsLMul0anhPGh8
- MNd3ob0+xkEI1QJIRw0OcZU54GLV3dvgPmvmR/gfpL2y8OfpkNMLH7XkNm1CayC0IGn3s/kNSWK
- FDG8i05RYfbJTZmIwP2cDyZslHkut7vxkJwVkiOakgyt5Y+wFS66TqjdxhDyd1T1ar01fZoGjT2
- giM+/m5CZTIdQdy/UNfuBSOer2lsDCYRqR56lV+oVloDcOK6F/5J1qQ4P/fnfiYqyfr0vMUZwhp
- +2OdYa9xhSnakBKHKjvWhWvn6f0mU6jvAH2s2UW+nei6J0xcLsqWufbB+8Jpkm13mXFTd11IF/s
- qHgH7GvLuOSnydMePZL9qGio68p1NfXzaU4zW80pwg+2qJSMtRynzUArwHj9+ou+e09FGq0SfU8
- x9PdBlgQ8EpaIDJlMdg==
-X-Proofpoint-ORIG-GUID: reMhww7am3AtjMpnP4olDrOh3tmugeN-
-X-Proofpoint-GUID: reMhww7am3AtjMpnP4olDrOh3tmugeN-
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=fi3W0JNvqw8oYKyNxrkA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX9z9HBmQfJxs0
+ 7OeqoJIVWdDJV/h2nS5Xk/cQsLPn/nTnaNJu5+kY5LnjSzFsN47UXSw0FDHcM5B/NTcC3QeJLA8
+ ZTHexrpP8NI5J0sOgPd8xFas+acL0CU=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX6HAmUynkhvTS
+ 79smnv2MV8ug4e9YorZcInyBPK/+qqG72UEAUYyJ0/wmJU0TpsVHT8jgHDhIshWqSZjoj1UePQP
+ NfoYCHGyhwEj6AyJ2bamlt/h8NRtEx7Q2qyoTBAfvYkH47zEEzLyYx3cj33L2v4jCZgZtmITYRH
+ Rj8n3UI8xExVDW8YLkENbVLrFDUh7J5T6xLw0i4ikj5LX26fSS7r6QhGB3MdWulyuaXVgIXTsA5
+ cCPMGws/rj18t5W0fZjf1DWXdPpzcuKailbSt2xqeNc1qQ15KhRkfCw2LBlHXAKngD9Yp/nVi7+
+ l0gDvloFv0tSx3XjWsxsMGkoxKY7FUwJHE42zEiwXUBk+J9ZCvJK4ScdwOUVK63GlvSK80tjvZs
+ lMOw5zzBUqzJGIFyQ9H+U/3KA/S5EC0OLnYXj2IYQ5edjSrdDFpciRzMtUPMxPrWbS7MImHcpNn
+ 7gtejTD47iXehaiYqYw==
+X-Proofpoint-ORIG-GUID: SkKKRSPGQj86pcqWmEb5tBDU6DmbvGvo
+X-Proofpoint-GUID: SkKKRSPGQj86pcqWmEb5tBDU6DmbvGvo
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
@@ -138,8 +138,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_095301_672139_2BC8A9C9 
-X-CRM114-Status: GOOD (  28.26  )
+X-CRM114-CacheID: sfid-20260706_095304_249993_042B9CB0 
+X-CRM114-Status: GOOD (  26.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,348 +154,356 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Split prefix page tracking into prefix.c/h with conditional compilation
-via prefix-stubs.c for KVM for non-s390 guests. Enables gmap reuse by
-other KVM implementations that don't use prefix pages. The prefix
-tracking is conditional on the Makefile variable KVM_MANAGES_S390_GUEST.
+The Start Arm Execution (SAE) instruction is the centerpiece for
+executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
+enable accelerated execution of arm64 virtual machines. SAE expects the
+physical address of a control block as the only argument.
 
-No functional changes.
+The host is responsible to save & restore
+ - GPRs 0-13
+ - access register 0-15
+ - breaking event register (BEAR)
+ - vector/floating point registers
+between SAE executions to guarantee host consistency.
 
+GPRs and BEAR are save and restores in the asm functions. The other
+register are handled in within C code. Access registers are handled in a
+later patch and SVEs will be handled when they are introduced in a
+future series. Most arm64 registers are handled by a satellite block
+called save_area. Some registers, frequently used by hypervisors, are
+placed into the SAE control block itself.
+
+Enlighten asm/kvm_host_types.h for the new header variant. The new
+header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
+is defined.
+
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/kvm/gmap/Makefile       |  4 +-
- arch/s390/kvm/gmap/dat.c          | 48 -------------------
- arch/s390/kvm/gmap/gmap.c         | 23 ---------
- arch/s390/kvm/gmap/gmap.h         | 11 +----
- arch/s390/kvm/gmap/prefix-stubs.c | 21 ++++++++
- arch/s390/kvm/gmap/prefix.c       | 80 +++++++++++++++++++++++++++++++
- arch/s390/kvm/gmap/prefix.h       | 68 ++++++++++++++++++++++++++
- 7 files changed, 173 insertions(+), 82 deletions(-)
- create mode 100644 arch/s390/kvm/gmap/prefix-stubs.c
- create mode 100644 arch/s390/kvm/gmap/prefix.c
- create mode 100644 arch/s390/kvm/gmap/prefix.h
+ arch/s390/include/asm/asm-prototypes.h       |   1 +
+ arch/s390/include/asm/kvm_host_arm64_types.h | 129 +++++++++++++++++++
+ arch/s390/include/asm/kvm_host_types.h       |   4 +
+ arch/s390/include/asm/sae.h                  |  56 ++++++++
+ arch/s390/include/asm/stacktrace.h           |   5 +
+ arch/s390/kernel/asm-offsets.c               |   1 +
+ arch/s390/kernel/entry.S                     |  25 ++++
+ arch/s390/tools/opcodes.txt                  |   3 +
+ 8 files changed, 224 insertions(+)
+ create mode 100644 arch/s390/include/asm/kvm_host_arm64_types.h
+ create mode 100644 arch/s390/include/asm/sae.h
 
-diff --git a/arch/s390/kvm/gmap/Makefile b/arch/s390/kvm/gmap/Makefile
-index a49c7e36b71c..4ca7635d1d0e 100644
---- a/arch/s390/kvm/gmap/Makefile
-+++ b/arch/s390/kvm/gmap/Makefile
-@@ -4,7 +4,9 @@ GMAP ?= ../gmap
+diff --git a/arch/s390/include/asm/asm-prototypes.h b/arch/s390/include/asm/asm-prototypes.h
+index d4da4436d02b..faa2afb259a1 100644
+--- a/arch/s390/include/asm/asm-prototypes.h
++++ b/arch/s390/include/asm/asm-prototypes.h
+@@ -6,6 +6,7 @@
+ #include <asm/bug.h>
+ #include <asm/fpu.h>
+ #include <asm/nospec-branch.h>
++#include <asm/sae.h>
+ #include <asm-generic/asm-prototypes.h>
  
- # Enable s390-specific guest management features (storage keys and CMMA)
- KVM_MANAGES_S390_GUEST ?= y
-+USE_PREFIX_STUB := $(if $(filter y,$(KVM_MANAGES_S390_GUEST)),n,y)
- 
- kvm-y += $(GMAP)/dat.o $(GMAP)/gmap.o $(GMAP)/faultin.o $(GMAP)/mmu.o
- 
--kvm-$(KVM_MANAGES_S390_GUEST) += $(GMAP)/sk.o $(GMAP)/cmma.o
-+kvm-$(KVM_MANAGES_S390_GUEST) += $(GMAP)/sk.o $(GMAP)/cmma.o $(GMAP)/prefix.o
-+kvm-$(USE_PREFIX_STUB) += $(GMAP)/prefix-stubs.o
-diff --git a/arch/s390/kvm/gmap/dat.c b/arch/s390/kvm/gmap/dat.c
-index 6114ff442837..4a9847139534 100644
---- a/arch/s390/kvm/gmap/dat.c
-+++ b/arch/s390/kvm/gmap/dat.c
-@@ -777,51 +777,3 @@ bool dat_test_age_gfn(union asce asce, gfn_t start, gfn_t end)
- {
- 	return _dat_walk_gfn_range(start, end, asce, &test_age_ops, 0, NULL) > 0;
- }
--
--static long dat_set_pn_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
--{
--	union crste newcrste, oldcrste;
--	int *n = walk->priv;
--
--	do {
--		oldcrste = READ_ONCE(*crstep);
--		if (!oldcrste.h.fc || oldcrste.h.i || oldcrste.h.p)
--			return 0;
--		if (oldcrste.s.fc1.prefix_notif)
--			break;
--		newcrste = oldcrste;
--		newcrste.s.fc1.prefix_notif = 1;
--	} while (!dat_crstep_xchg_atomic(crstep, oldcrste, newcrste, gfn, walk->asce));
--	*n = 2;
--	return 0;
--}
--
--static long dat_set_pn_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
--{
--	int *n = walk->priv;
--	union pgste pgste;
--
--	pgste = pgste_get_lock(ptep);
--	if (!ptep->h.i && !ptep->h.p) {
--		pgste.prefix_notif = 1;
--		*n += 1;
--	}
--	pgste_set_unlock(ptep, pgste);
--	return 0;
--}
--
--int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
--{
--	static const struct dat_walk_ops ops = {
--		.pte_entry = dat_set_pn_pte,
--		.pmd_entry = dat_set_pn_crste,
--		.pud_entry = dat_set_pn_crste,
--	};
--
--	int n = 0;
--
--	_dat_walk_gfn_range(gfn, gfn + 2, asce, &ops, DAT_WALK_IGN_HOLES, &n);
--	if (n != 2)
--		return -EAGAIN;
--	return 0;
--}
-diff --git a/arch/s390/kvm/gmap/gmap.c b/arch/s390/kvm/gmap/gmap.c
-index 4ade7794e990..3dcd1d4c6a29 100644
---- a/arch/s390/kvm/gmap/gmap.c
-+++ b/arch/s390/kvm/gmap/gmap.c
-@@ -254,29 +254,6 @@ int s390_replace_asce(struct gmap *gmap)
- 	return 0;
- }
- 
--bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
--{
--	struct kvm *kvm = gmap->kvm;
--	struct kvm_vcpu *vcpu;
--	gfn_t prefix_gfn;
--	unsigned long i;
--
--	if (is_shadow(gmap))
--		return false;
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		/* Match against both prefix pages */
--		prefix_gfn = gpa_to_gfn(kvm_s390_get_prefix(vcpu));
--		if (prefix_gfn < end && gfn <= prefix_gfn + 1) {
--			if (hint && kvm_s390_is_in_sie(vcpu))
--				return false;
--			VCPU_EVENT(vcpu, 2, "gmap notifier for %llx-%llx",
--				   gfn_to_gpa(gfn), gfn_to_gpa(end));
--			kvm_s390_sync_request(KVM_REQ_REFRESH_GUEST_PREFIX, vcpu);
--		}
--	}
--	return true;
--}
--
- struct clear_young_pte_priv {
- 	struct gmap *gmap;
- 	bool young;
-diff --git a/arch/s390/kvm/gmap/gmap.h b/arch/s390/kvm/gmap/gmap.h
-index aa65fe724fdb..0500c8c6c9ca 100644
---- a/arch/s390/kvm/gmap/gmap.h
-+++ b/arch/s390/kvm/gmap/gmap.h
-@@ -13,6 +13,7 @@
- #include <linux/kvm_host.h>
- 
- #include "dat.h"
-+#include "prefix.h"
- 
- /**
-  * enum gmap_flags - Flags of a gmap.
-@@ -158,16 +159,6 @@ static inline void gmap_handle_vsie_unshadow_event(struct gmap *parent, gfn_t gf
- 		_gmap_handle_vsie_unshadow_event(parent, gfn);
- }
- 
--static inline bool gmap_mkold_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end)
--{
--	return _gmap_unmap_prefix(gmap, gfn, end, true);
--}
--
--static inline bool gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end)
--{
--	return _gmap_unmap_prefix(gmap, gfn, end, false);
--}
--
- /**
-  * pte_needs_unshadow() -- Check if the pte operations triggers unshadowing.
-  * @oldpte: the previous value for the guest pte.
-diff --git a/arch/s390/kvm/gmap/prefix-stubs.c b/arch/s390/kvm/gmap/prefix-stubs.c
+ #endif /* _ASM_S390_PROTOTYPES_H */
+diff --git a/arch/s390/include/asm/kvm_host_arm64_types.h b/arch/s390/include/asm/kvm_host_arm64_types.h
 new file mode 100644
-index 000000000000..d1d6286f454a
+index 000000000000..3882d5462a05
 --- /dev/null
-+++ b/arch/s390/kvm/gmap/prefix-stubs.c
-@@ -0,0 +1,21 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * These stubs are used when building gmap for non-s390 guests
-+ * that don't need prefix page tracking.
-+ */
-+
-+#include <linux/kvm_host.h>
-+#include <linux/kvm_types.h>
-+
-+#include "dat.h"
-+#include "prefix.h"
-+
-+bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
-+{
-+	return true;
-+}
-+
-+int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
-+{
-+	return 0;
-+}
-diff --git a/arch/s390/kvm/gmap/prefix.c b/arch/s390/kvm/gmap/prefix.c
-new file mode 100644
-index 000000000000..44caffed2da1
---- /dev/null
-+++ b/arch/s390/kvm/gmap/prefix.c
-@@ -0,0 +1,80 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/kvm_host.h>
-+#include <linux/kvm_types.h>
-+
-+#include "gmap.h"
-+#include "dat.h"
-+#include "prefix.h"
-+#include "../s390/s390.h"
-+
-+bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint)
-+{
-+	struct kvm *kvm = gmap->kvm;
-+	struct kvm_vcpu *vcpu;
-+	gfn_t prefix_gfn;
-+	unsigned long i;
-+
-+	if (is_shadow(gmap))
-+		return false;
-+	kvm_for_each_vcpu(i, vcpu, kvm) {
-+		/* Match against both prefix pages */
-+		prefix_gfn = gpa_to_gfn(kvm_s390_get_prefix(vcpu));
-+		if (prefix_gfn < end && gfn <= prefix_gfn + 1) {
-+			if (hint && kvm_s390_is_in_sie(vcpu))
-+				return false;
-+			VCPU_EVENT(vcpu, 2, "gmap notifier for %llx-%llx",
-+				   gfn_to_gpa(gfn), gfn_to_gpa(end));
-+			kvm_s390_sync_request(KVM_REQ_REFRESH_GUEST_PREFIX, vcpu);
-+		}
-+	}
-+	return true;
-+}
-+
-+static long dat_set_pn_crste(union crste *crstep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
-+{
-+	union crste newcrste, oldcrste;
-+	int *n = walk->priv;
-+
-+	do {
-+		oldcrste = READ_ONCE(*crstep);
-+		if (!oldcrste.h.fc || oldcrste.h.i || oldcrste.h.p)
-+			return 0;
-+		if (oldcrste.s.fc1.prefix_notif)
-+			break;
-+		newcrste = oldcrste;
-+		newcrste.s.fc1.prefix_notif = 1;
-+	} while (!dat_crstep_xchg_atomic(crstep, oldcrste, newcrste, gfn, walk->asce));
-+	*n = 2;
-+	return 0;
-+}
-+
-+static long dat_set_pn_pte(union pte *ptep, gfn_t gfn, gfn_t next, struct dat_walk *walk)
-+{
-+	int *n = walk->priv;
-+	union pgste pgste;
-+
-+	pgste = pgste_get_lock(ptep);
-+	if (!ptep->h.i && !ptep->h.p) {
-+		pgste.prefix_notif = 1;
-+		*n += 1;
-+	}
-+	pgste_set_unlock(ptep, pgste);
-+	return 0;
-+}
-+
-+int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn)
-+{
-+	static const struct dat_walk_ops ops = {
-+		.pte_entry = dat_set_pn_pte,
-+		.pmd_entry = dat_set_pn_crste,
-+		.pud_entry = dat_set_pn_crste,
-+	};
-+
-+	int n = 0;
-+
-+	_dat_walk_gfn_range(gfn, gfn + 2, asce, &ops, DAT_WALK_IGN_HOLES, &n);
-+	if (n != 2)
-+		return -EAGAIN;
-+	return 0;
-+}
-diff --git a/arch/s390/kvm/gmap/prefix.h b/arch/s390/kvm/gmap/prefix.h
-new file mode 100644
-index 000000000000..f1f3ace24f03
---- /dev/null
-+++ b/arch/s390/kvm/gmap/prefix.h
-@@ -0,0 +1,68 @@
++++ b/arch/s390/include/asm/kvm_host_arm64_types.h
+@@ -0,0 +1,129 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef ARCH_KVM_GMAP_PREFIX_H
-+#define ARCH_KVM_GMAP_PREFIX_H
++#ifndef ASM_KVM_HOST_ARM64_TYPES_H
++#define ASM_KVM_HOST_ARM64_TYPES_H
 +
 +#include <linux/types.h>
 +#include <linux/kvm_types.h>
++#include <linux/compiler_attributes.h>
++#include <asm/page.h>
++#include <asm/fault.h>
 +
-+struct gmap;
-+union asce;
++struct kvm_sae_block {
++	u64	_0000[16];		/* 0x0000 */
++#define SAE_ICPTR_SPURIOUS			0x00
++#define SAE_ICPTR_VALIDITY			0x01
++#define SAE_ICPTR_HOST_ACCESS_EXCEPTION		0x02
++#define SAE_ICPTR_SYNCHRONOUS_EXCEPTION		0x03
++#define SAE_ICPTR_TIMER				0x04
++#define SAE_ICPTR_PE_INTERCOMM			0x05
++#define SAE_ICPTR_GUEST_ADDRESS_SIZE		0x06
++#define SAE_ICPTR_STOP				0x07
++#define SAE_ICPTR_SYSTEM_REGISTER		0x08
++#define SAE_ICPTR_PMU				0x09
++#define SAE_ICPTR_MAINTENANCE			0x0a
++	u8	icptr;			/* 0x0080 */
++	u8	_0081[7];		/* 0x0081 */
++	u64	scad;			/* 0x0088 */
++	u64	_0090[16];		/* 0x00b0 */
++	u32	cntp_ctl;		/* 0x0110 */
++	u32	cntv_ctl;		/* 0x0114 */
++	u8	irq_ctl;		/* 0x0118 */
++	u8	_0119[7];		/* 0x0119 */
++	struct {
++		u64	ich_hcr_el2;	/* 0x0120 */
++		u64	ich_vmcr_el2;	/* 0x0128 */
++		u64	ich_ap0r0_el2;	/* 0x0130 */
++		u64	ich_ap1r0_el2;	/* 0x0138 */
++		u64	_0140[2];	/* 0x0140 */
++		u64	ich_lrn_el2[4];	/* 0x0150 */
++		u64	_0170[4];	/* 0x0170 */
++	} ic_regs;
++	u64	_0190[12];		/* 0x0190 */
++	u64	contextidr_el1;		/* 0x01f0 */
++	u32	wip;			/* 0x01f8 */
++	u32	_01fc;			/* 0x01fc */
++#define SAE_SD_FORMAT_0                 0x00
++	u8	sdf;			/* 0x0200  */
++	u8	_0201[7];		/* 0x0201  */
++	u64	mso;			/* 0x0208  */
++	u64	msl;			/* 0x0210  */
++	u64	hbasce;			/* 0x0218  */
++	u64	_0220;			/* 0x0220  */
++	u64	gpto;			/* 0x0228  */
++	u64	ic;			/* 0x0230  */
++	u64	ec;			/* 0x0238  */
++	u64	save_area;		/* 0x0240  */
++	u64	_0248[7];		/* 0x0248  */
++	u8	_0280[6];		/* 0x0280  */
++	u16	lrcpua;			/* 0x0286  */
++	u64	pstate;			/* 0x0288  */
++	u64	pc;			/* 0x0290  */
++	u64	sp_el0;			/* 0x0298  */
++	u64	sp_el1;			/* 0x02a0  */
++	u64	_02a8;			/* 0x02a8  */
++	u64	fpcr;			/* 0x02b0  */
++	u64	fpsr;			/* 0x02b8  */
++	u16	sve_pregs[16];		/* 0x02c0  */
++	u16	sve_ffr;		/* 0x02e0  */
++	u8	_02e2[6];		/* 0x02e2  */
++	u64	_02e8[3];		/* 0x02e8  */
++
++	u64	gpr[31];		/* 0x0300  */
++	u64	_03f8;			/* 0x03f8  */
++
++	union {
++		u64	icptd[8];		/* 0x0400 */
++		/* validity-interception reason; icptr 0x01 */
++#define SAE_VIR_UNKNOWN		0x00
++#define SAE_VIR_UNSUPP_FORMAT	0x01
++#define SAE_VIR_MSO_BOUNDS	0x02
++#define SAE_VIR_MSLA		0x03
++#define SAE_VIR_MGPAS		0x04
++#define SAE_VIR_INVAL_SYSREG	0x05
++#define SAE_VIR_HOST_CONTROL	0x06
++#define SAE_VIR_SCA		0x07
++#define SAE_VIR_MSO_ALIGN	0x08
++#define SAE_VIR_HLC		0x09
++#define SAE_VIR_IRPTC		0x0a
++		u16 vir;			/* 0x0400 */
++		/* host access interception details; icptr 0x02 */
++		struct {
++			u64		esr_elz;	/* 0x0400 */
++			u8		_0408[6];	/* 0x0408 */
++			u16		pic;		/* 0x040e */
++			union teid	teid;		/* 0x0410 */
++			gva_t		far_elz;	/* 0x0418 */
++			gva_t		vaddr;		/* 0x0420 */
++			u64		suppl;		/* 0x0428 */
++			u8		gltl;		/* 0x0430 */
++			u8		_0431[7];	/* 0x0431 */
++			u64		_0438;		/* 0x0438 */
++		} hai;
++		/* exception-interception details; icptr 0x03 */
++		struct {
++			u64	esr_elz;		/* 0x0400 */
++			u64	_0408[2];		/* 0x0408 */
++			gva_t	far_elz;		/* 0x0418 */
++		} trap;
++		/* timer-interception reason; icptr 0x04 */
++#define SAE_IR_TIMER_ID_VIRT		BIT(6)
++#define SAE_IR_TIMER_ID_PHYS		BIT(7)
++		u8	tir;			/* 0x0400 */
++	};
++	u64	_0440[376];			/* 0x0440 */
++} __packed __aligned(PAGE_SIZE);
++static_assert(sizeof(struct kvm_sae_block) == PAGE_SIZE);
++
++struct kvm_sae_save_area {
++#define SAE_SAVE_AREA_FORMAT_0	0x00
++	u8	saf;		/* 0x0000 */
++	u8	_0001[5];	/* 0x0001 */
++#define SAE_SAS_VALID		BIT(0)
++	u16	sas;		/* 0x0006 */
++	u64	sdo;		/* 0x0008 */
++	u64	_0010[2];	/* 0x0010 */
++	u64	regs[508];	/* 0x0020 */
++} __packed __aligned(PAGE_SIZE);
++static_assert(sizeof(struct kvm_sae_save_area) == PAGE_SIZE);
++
++#endif /* ASM_KVM_HOST_ARM64_TYPES_H */
+diff --git a/arch/s390/include/asm/kvm_host_types.h b/arch/s390/include/asm/kvm_host_types.h
+index e5bdba07cab0..d308739ebcf5 100644
+--- a/arch/s390/include/asm/kvm_host_types.h
++++ b/arch/s390/include/asm/kvm_host_types.h
+@@ -3,6 +3,10 @@
+ #ifndef ASM_KVM_HOST_TYPES_H
+ #define ASM_KVM_HOST_TYPES_H
+ 
++#ifdef KVM_S390_ARM64
++#include <asm/kvm_host_arm64_types.h>
++#else
+ #include <asm/kvm_host_s390_types.h>
++#endif /* KVM_S390_ARM64 */
+ 
+ #endif /* ASM_KVM_HOST_TYPES_H */
+diff --git a/arch/s390/include/asm/sae.h b/arch/s390/include/asm/sae.h
+new file mode 100644
+index 000000000000..fe010a1a7729
+--- /dev/null
++++ b/arch/s390/include/asm/sae.h
+@@ -0,0 +1,56 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef __ASM_S390_SAE_H
++#define __ASM_S390_SAE_H
++
++#include "linux/linkage.h"
++#include <linux/types.h>
++
++/* defined in arch/s390/kernel/entry.S */
++asmlinkage int __sae64a(phys_addr_t sae_block_phys);
++
++#ifndef __ASSEMBLER__
++#include <linux/io.h>
++#include <asm/kvm_host_arm64_types.h>
 +
 +/**
-+ * _gmap_unmap_prefix() - Notify vCPUs if prefix pages are affected
-+ * @gmap: The gmap
-+ * @gfn: Start of the range
-+ * @end: End of the range (exclusive)
-+ * @hint: If true, skip notification if vCPU is in SIE
-+ *
-+ * Check if any vCPU's prefix pages fall within the given range and
-+ * request prefix refresh if needed.
-+ *
-+ * Return: false if notification was skipped due to hint, true otherwise
++ * __sae64a() - Start Arm Execution
 + */
-+bool _gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end, bool hint);
-+
-+/**
-+ * dat_set_prefix_notif_bit() - Set prefix notification bits
-+ * @asce: The address space control element
-+ * @gfn: Guest frame number of the prefix area
-+ *
-+ * Set the prefix notification bit in the page table entries for the
-+ * two prefix pages starting at @gfn.
-+ *
-+ * Return: 0 on success, -EAGAIN if not all bits could be set
-+ */
-+int dat_set_prefix_notif_bit(union asce asce, gfn_t gfn);
-+
-+/**
-+ * gmap_mkold_prefix() - Mark prefix pages as old
-+ * @gmap: The gmap
-+ * @gfn: Start of the range
-+ * @end: End of the range (exclusive)
-+ *
-+ * Inline wrapper that calls _gmap_unmap_prefix with hint=true.
-+ *
-+ * Return: Result from _gmap_unmap_prefix
-+ */
-+static inline bool gmap_mkold_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end)
++static inline void sae64a(struct kvm_sae_block *sae_block)
 +{
-+	return _gmap_unmap_prefix(gmap, gfn, end, true);
++	__sae64a(virt_to_phys(sae_block));
 +}
 +
 +/**
-+ * gmap_unmap_prefix() - Unconditionally notify about prefix pages
-+ * @gmap: The gmap
-+ * @gfn: Start of the range
-+ * @end: End of the range (exclusive)
++ * stiasrm() - STore and Invalidate Arm System Register Multiple
++ * @save_area: Pointer to SAE save area
 + *
-+ * Inline wrapper that calls _gmap_unmap_prefix with hint=false.
-+ *
-+ * Return: Result from _gmap_unmap_prefix
++ * Store the guest system register to the save area.
++ * The values in the guest are not valid anymore..
 + */
-+static inline bool gmap_unmap_prefix(struct gmap *gmap, gfn_t gfn, gfn_t end)
++static __always_inline void stiasrm(struct kvm_sae_save_area *save_area)
 +{
-+	return _gmap_unmap_prefix(gmap, gfn, end, false);
++	asm volatile(
++		"	.insn	rre,0xb9a70000,%[r1],0\n"
++		: "+m"(*save_area)
++		: [r1] "a"(save_area)
++	);
 +}
 +
-+#endif /* ARCH_KVM_GMAP_PREFIX_H */
++/**
++ * lasrm() - Load Arm System Register Multiple
++ *
++ * @save_area: Pointer to SAE save area
++ *
++ * Load the system registers from save_area into the guest.
++ */
++static __always_inline void lasrm(struct kvm_sae_save_area *save_area)
++{
++	asm volatile(
++		"	.insn	rre,0xb9a60000,%[r1],0\n"
++		:
++		: "m"(*save_area), [r1] "a"(save_area)
++	);
++}
++
++#endif /* !__ASSEMBLER__ */
++#endif /* __ASM_S390_SAE_H */
+diff --git a/arch/s390/include/asm/stacktrace.h b/arch/s390/include/asm/stacktrace.h
+index ac3606c3babe..2d332d7c8145 100644
+--- a/arch/s390/include/asm/stacktrace.h
++++ b/arch/s390/include/asm/stacktrace.h
+@@ -59,6 +59,7 @@ static inline bool on_stack(struct stack_info *info,
+ struct stack_frame {
+ 	union {
+ 		unsigned long empty[9];
++		/* SIE stack frame */
+ 		struct {
+ 			unsigned long sie_control_block;
+ 			unsigned long sie_savearea;
+@@ -68,6 +69,10 @@ struct stack_frame {
+ 			unsigned long sie_guest_asce;
+ 			unsigned long sie_irq;
+ 		};
++		/* SAE stack frame */
++		struct {
++			unsigned long sae_bear;
++		};
+ 	};
+ 	unsigned long gprs[10];
+ 	unsigned long back_chain;
+diff --git a/arch/s390/kernel/asm-offsets.c b/arch/s390/kernel/asm-offsets.c
+index f6dd2b67dcee..f9f9c2246074 100644
+--- a/arch/s390/kernel/asm-offsets.c
++++ b/arch/s390/kernel/asm-offsets.c
+@@ -70,6 +70,7 @@ int main(void)
+ 	OFFSET(__SF_SIE_CONTROL_PHYS, stack_frame, sie_control_block_phys);
+ 	OFFSET(__SF_SIE_GUEST_ASCE, stack_frame, sie_guest_asce);
+ 	OFFSET(__SF_SIE_IRQ, stack_frame, sie_irq);
++	OFFSET(__SF_SAE_BEAR, stack_frame, sae_bear);
+ 	DEFINE(STACK_FRAME_OVERHEAD, sizeof(struct stack_frame));
+ 	BLANK();
+ 	OFFSET(__SFUSER_BACKCHAIN, stack_frame_user, back_chain);
+diff --git a/arch/s390/kernel/entry.S b/arch/s390/kernel/entry.S
+index 9572620fcaa6..248bea26921b 100644
+--- a/arch/s390/kernel/entry.S
++++ b/arch/s390/kernel/entry.S
+@@ -244,6 +244,31 @@ EXPORT_SYMBOL(__sie64a)
+ EXPORT_SYMBOL(sie_exit)
+ #endif
+ 
++#if IS_ENABLED(CONFIG_KVM_ARM64)
++/*
++ * __sae64a calling convention:
++ * %r2 pointer to sae control block physical address
++ */
++SYM_FUNC_START(__sae64a)
++	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
++	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
++	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
++# Let the next instruction be NOP to avoid triggering a machine check
++# and handling it in a guest as result of the instruction execution.
++	nopr	7
++	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
++	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
++	xgr	%r0,%r0				# clear guest registers to
++	xgr	%r1,%r1				# prevent speculative use
++	xgr	%r3,%r3
++	xgr	%r2,%r2
++	xgr	%r4,%r4
++	xgr	%r5,%r5
++	BR_EX	%r14
++SYM_FUNC_END(__sae64a)
++EXPORT_SYMBOL(__sae64a)
++#endif
++
+ /*
+  * SVC interrupt handler routine. System calls are synchronous events and
+  * are entered with interrupts disabled.
+diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
+index def2659f6602..0e4773c94af0 100644
+--- a/arch/s390/tools/opcodes.txt
++++ b/arch/s390/tools/opcodes.txt
+@@ -594,6 +594,9 @@ b9a0	clp	RRF_U0RR
+ b9a1	tpei	RRE_RR
+ b9a2	ptf	RRE_R0
+ b9a4	uvc	RRF_URR
++b9a5	sae	RRE_R0
++b9a6	lasrm	RRE_R0
++b9a7	stiasrm	RRE_R0
+ b9aa	lptea	RRF_RURR2
+ b9ab	essa	RRF_U0RR
+ b9ac	irbm	RRE_RR
 -- 
 2.53.0
 
