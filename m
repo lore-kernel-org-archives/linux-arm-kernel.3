@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125E4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 16:44:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D49BBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 16:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ut0uwGUHWw94blqbm1llRwcmHPYES1flSFqSaCMAUek=; b=rlrBZetvlqniuR1kjF7XAtC96N
-	5emuCRvfVQImgmHuIeoveQHp7n6jvSEe6iniajIZaCxIRhFgrQvsVGzyWPRjvcWXlwdlZW3blbneX
-	wkDKQn8/iB3jTIu9WcYdCWYhdlPx/b0CHfME6BRBX2NxLvWMyoX7K/ST0yaQyVcSFpM6TL/cwXjJo
-	3oOdGMZKS/+dz1uYAEdFfJ9oSd8YdVSsy7B/xRNwREba7E4AhvBhlcWtxJ0JerLB6h5YKw2y0Xpi6
-	23sNj16g7lII0fdYVgERxb99D8RKE2jSoxq7YyqZPD7kNmGUv3FPDbp3JrK3aoA6kHJirMobNIRL4
-	Dz6flXXA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=LB2/p+oWL4RCfKiVWgBz4FzWrGlF5lzHpnv1b38gamw=; b=D4YY7IieJWZ45I
+	wqYJ23sc11A5NH+BEEFu3Vpzog7iBbwfl+aSTWcl+UxCUuD0CmU0KhpM1Me7M4OUojTQ+0Csb4YB/
+	xIfmBXZX6irDdhaEJFsfusYku/GyiWaY5TtiyeEOLhPAWNw7ViYyIXRiudNRSWjOEiInSMwxgA/h9
+	SZrL1gxRMdUJE0tBCbL59MGlUdHAVVOAEPT1zAJs9FcYTdrWVD3++mGh6Zi2aFBKYXEAqMthi9ToT
+	nJN16bIx+/nt93l/aXFbhh2Vm24BJfe1MFx2UArCW10mWLxuC0zA7LI71jKdIFtUdqDUeZSnrEnh2
+	rqLFAULSn6GqZplmI8VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmQG-0000000D6MH-3pV2;
-	Mon, 06 Jul 2026 16:43:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgmU0-0000000D6bt-1KhW;
+	Mon, 06 Jul 2026 16:47:48 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmQF-0000000D6M0-1Q1V
+	id 1wgmTy-0000000D6bn-2iZq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 16:43:55 +0000
+	Mon, 06 Jul 2026 16:47:46 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8A3240495;
-	Mon,  6 Jul 2026 16:43:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01EF61F000E9;
-	Mon,  6 Jul 2026 16:43:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C1590600DA
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 16:47:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 688111F0155B
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 16:47:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783356234;
-	bh=ut0uwGUHWw94blqbm1llRwcmHPYES1flSFqSaCMAUek=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=fba2E7g5/hQ1iwXdVKgfv7Ph9Gnt4E2HMHIqPhiVfcCBpy5DTgnudHerNmBviyqSo
-	 6KgbJzKLB7/dSkzQGFujwwJj0EMXk7nn+gSj0IpqJfxDpWInrQQrdOD6BZAZY9tNBb
-	 0x+dM/NFZK9we+73Jt3aV/n9PEmtlj2XPupkRgZS9uOnR3ZKSLhW5afpJ5Ir9uRoju
-	 +CS9gp3ib1vnkoeqifIQj6MHP0JChc6jnExvu7G8bLRkDVX8eKQJCF7OsEE8WGytAS
-	 yVVJWNmx+UIfcMe28FLyobhnG653Fw9SAFaIPDtHsqnzO+QyJi0hD8NMVw3JPLyFss
-	 r9wBSOzTjly6w==
-Date: Mon, 6 Jul 2026 18:43:44 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-pci@vger.kernel.org, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] PCI: dwc: Determine whether iMSI is used before
- calling .init
-Message-ID: <4qyn4fljtb3cbzcmfpkdomkm7vqnwn2rfbtqng4iwmtvfd4bpj@t6kkw53erl7f>
-References: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
- <20260701203918.63189-2-marek.vasut+renesas@mailbox.org>
+	s=k20260515; t=1783356465;
+	bh=LB2/p+oWL4RCfKiVWgBz4FzWrGlF5lzHpnv1b38gamw=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
+	b=QmN0xgzGzQ+V0jLldCISuCSfKjJIAhVQGbwgK/x7q8s0S+B4d1sytLyrP18xGpJ6f
+	 PDWIyLHJjvr6jXOZOOI6wnOq5P6hyBaiM1AaL1B7I0jgo+GADFe/L5XY7UHGRNpS5M
+	 MJr+lF+9uWI/154nJIJrRzwHdKrkZrhVA2ZOJF2Cr/qaIdhNnlbDMvEoVgE+iSQqop
+	 1eRmkB3QZfNZ9OU7O/iAB+JnEYfK3KgYO6XmCNFrtTi8DCGunqKCRD3wu3nX+UH7Fj
+	 1iVjR23hsmbkiZCH8axJAB6CKx1I3KzGP0gjUgVn7Js+DrcNWgLzG4+JTfOuLPDDFx
+	 WkBtuhs0kktPQ==
+Received: by mail-lj1-f169.google.com with SMTP id 38308e7fff4ca-39af6402933so27065931fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 09:47:45 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+RoWAoAJ5QhC7H88UJGBbGqREaez9vraVcPCDaP1X/916BX+ylCN0UQn+5xY0fj6KswBY51+R6YpWXg6Iqr/UJNt@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVhMklVc0xX5YHb1f6om+ock+rBMzs3TYoDauNksc9/3gTp8RV
+	Uw1H6z0jTdmHYHa8t6BiLLjz1wtrEmCaikHJkuFaFx8Fh1Df5gtMfY0LBGXRYS9+APg0w6SCGdz
+	VSfHRWhtIU5YtfO1vt3lhTkPTWz8GiQM=
+X-Received: by 2002:a05:651c:549:b0:39b:5a79:ebdf with SMTP id
+ 38308e7fff4ca-39c5ffcf5a0mr3892111fa.20.1783356463703; Mon, 06 Jul 2026
+ 09:47:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260701203918.63189-2-marek.vasut+renesas@mailbox.org>
+References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com> <20260706-a733-rtc-v4-9-f330728db3d3@baylibre.com>
+In-Reply-To: <20260706-a733-rtc-v4-9-f330728db3d3@baylibre.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 7 Jul 2026 00:47:30 +0800
+X-Gmail-Original-Message-ID: <CAGb2v67AXz=TPzNFnRMS9-vweL+6g5T57dwwYCdorwdi8HWcjA@mail.gmail.com>
+X-Gm-Features: AVVi8CdByrsX-9_IhDg4o1yi7VabBipaYBE9WpxkiCIMPZgcujnRc2dyQoLeBWQ
+Message-ID: <CAGb2v67AXz=TPzNFnRMS9-vweL+6g5T57dwwYCdorwdi8HWcjA@mail.gmail.com>
+Subject: Re: [PATCH v4 9/9] clk: sunxi-ng: sun6i-rtc: add a733 support
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Junhui Liu <junhui.liu@pigmoral.tech>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Maxime Ripard <mripard@kernel.org>, linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,82 +82,216 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jul 01, 2026 at 10:37:44PM +0200, Marek Vasut wrote:
-> The R-Car Gen4 PCIe controller integration configures MSI registers
-> in the controller driver .init callback, because those registers
-> have to be configured while PERST signal is asserted, and the PERST
-> signal is asserted across the controller driver .init callback.
-> 
-> The registers have to be configured differently in case the iMSI is
-> or is not used. Assign pp->use_imsi_rx before the controller driver
-> .init callback is called, so the controller driver .init callback
-> implementation can use the pp->use_imsi_rx value.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-
-LGTM!
-
-- Mani
-
+On Mon, Jul 6, 2026 at 5:32=E2=80=AFPM Jerome Brunet <jbrunet@baylibre.com>=
+ wrote:
+>
+> Add support for the sun60i a733 CCU RTC.
+>
+> Compared to the a523, this SoC has a different input oscillator divider
+> which auto-detects the oscillator rate and select a divider to provide
+> a fixed 32768Hz clock. It also provides several phy reference clocks
+> with dedicated clock gates.
+>
+> Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 > ---
-> Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Manivannan Sadhasivam <mani@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-doc@vger.kernel.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linux-pci@vger.kernel.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
-> V3: New patch
-> ---
->  drivers/pci/controller/dwc/pcie-designware-host.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index 06722259d2e37..f5a38e6fd8d79 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -587,6 +587,12 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
->  	if (ret)
->  		return ret;
->  
-> +	if (pci_msi_enabled()) {
-> +		pp->use_imsi_rx = !(pp->ops->msi_init ||
-> +				    of_property_present(np, "msi-parent") ||
-> +				    of_property_present(np, "msi-map"));
-> +	}
+>  drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 73 ++++++++++++++++++++++++++++++=
+++++--
+>  drivers/clk/sunxi-ng/ccu-sun6i-rtc.h |  2 +-
+>  2 files changed, 71 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/=
+ccu-sun6i-rtc.c
+> index 25dd87e78eb7..6b71bbd80255 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+> +++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+> @@ -44,9 +44,13 @@
+>  #define DCXO_CTRL_REG                  0x160
+>  #define DCXO_CTRL_CLK16M_RC_EN         BIT(0)
+>
+> +#define DCXO_GATING_REG                        0x16c
 > +
->  	if (pp->ops->init) {
->  		ret = pp->ops->init(pp);
->  		if (ret)
-> @@ -594,10 +600,6 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
->  	}
->  
->  	if (pci_msi_enabled()) {
-> -		pp->use_imsi_rx = !(pp->ops->msi_init ||
-> -				     of_property_present(np, "msi-parent") ||
-> -				     of_property_present(np, "msi-map"));
-> -
->  		/*
->  		 * For the use_imsi_rx case the default assignment is handled
->  		 * in the dw_pcie_msi_host_init().
-> -- 
-> 2.53.0
-> 
+>  struct sun6i_rtc_match_data {
+>         bool                            have_ext_osc32k         : 1;
+>         bool                            have_iosc_calibration   : 1;
+> +       bool                            have_dcxo_status        : 1;
+> +       bool                            have_phy_ref_gates      : 1;
+>         bool                            rtc_32k_single_parent   : 1;
+>         const struct clk_parent_data    *osc32k_fanout_parents;
+>         u8                              osc32k_fanout_nparents;
+> @@ -213,7 +217,12 @@ static struct ccu_mux osc32k_clk =3D {
+>         },
+>  };
+>
+> -/* This falls back to the global name for fwnodes without a named refere=
+nce. */
+> +/*
+> + * This falls back to the global name for fwnodes without a named refere=
+nce.
+> + * NOTE: osc24M name might be misleading the oscillator could also be a =
+26MHz
+> + * or a 19.2MHz one starting with the a733. The original name is kept an=
+yway
+> + * in case anything is relying on it.
+> + */
+>  static const struct clk_parent_data osc24M[] =3D {
+>         { .fw_name =3D "hosc", .name =3D "osc24M" }
+>  };
+> @@ -227,8 +236,28 @@ static struct clk_fixed_factor osc24M_32k_div_clk =
+=3D {
+>                                             0),
+>  };
+>
+> -static SUNXI_CCU_GATE_HW(osc24M_32k_clk, "osc24M-32k", &osc24M_32k_div_c=
+lk.hw,
+> -                        LOSC_OUT_GATING_REG, BIT(16), 0);
+> +static struct clk_div_table osc24M_32k_div_a733_table[] =3D {
+> +       { .val =3D 0, .div =3D 732 },
+> +       { .val =3D 1, .div =3D 586 },
+> +       { .val =3D 2, .div =3D 793 },
+> +       { .val =3D 3, .div =3D 732 },
+> +       { /* Sentinel */ },
+> +};
+> +
+> +static struct ccu_div osc24M_32k_div_a733_clk =3D {
+> +       .enable =3D BIT(1),
+> +       .div    =3D _SUNXI_CCU_DIV_TABLE(14, 2, osc24M_32k_div_a733_table=
+),
+> +       .common =3D {
+> +               .reg            =3D DCXO_CTRL_REG,
+> +               .hw.init        =3D CLK_HW_INIT_PARENTS_DATA("osc24M-32k-=
+div",
+> +                                                          osc24M,
+> +                                                          &ccu_rodiv_ops=
+,
+> +                                                          0),
+> +       },
+> +};
+> +
+> +static SUNXI_CCU_GATE(osc24M_32k_clk, "osc24M-32k", "osc24M-32k-div",
 
--- 
-மணிவண்ணன் சதாசிவம்
+I'm not a big fan of using global clock parent names, especially when we
+can have proper struct clk_hw pointer references. However in this case
+it seems unavoidable without making a huge mess.
+
+> +                     LOSC_OUT_GATING_REG, BIT(16), 0);
+>
+>  static const struct clk_hw *rtc_32k_parents[] =3D {
+>         &osc32k_clk.common.hw,
+> @@ -267,6 +296,15 @@ static struct ccu_mux osc32k_fanout_clk =3D {
+>         },
+>  };
+>
+> +static SUNXI_CCU_GATE_FW(hosc_serdes1_clk, "hosc-serdes1", "hosc",
+> +                     DCXO_GATING_REG, BIT(5), 0);
+> +static SUNXI_CCU_GATE_FW(hosc_serdes0_clk, "hosc-serdes0", "hosc",
+> +                     DCXO_GATING_REG, BIT(4), 0);
+> +static SUNXI_CCU_GATE_FW(hosc_hdmi_clk, "hosc-hdmi", "hosc",
+> +                     DCXO_GATING_REG, BIT(1), 0);
+> +static SUNXI_CCU_GATE_FW(hosc_ufs_clk, "hosc-ufs", "hosc",
+> +                     DCXO_GATING_REG, BIT(0), 0);
+> +
+>  static struct ccu_common *sun6i_rtc_ccu_clks[] =3D {
+>         &iosc_clk,
+>         &iosc_32k_clk,
+> @@ -275,6 +313,11 @@ static struct ccu_common *sun6i_rtc_ccu_clks[] =3D {
+>         &osc24M_32k_clk.common,
+>         &rtc_32k_clk.common,
+>         &osc32k_fanout_clk.common,
+> +       &osc24M_32k_div_a733_clk.common,
+> +       &hosc_serdes1_clk.common,
+> +       &hosc_serdes0_clk.common,
+> +       &hosc_hdmi_clk.common,
+> +       &hosc_ufs_clk.common,
+>  };
+>
+>  static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks =3D {
+> @@ -288,6 +331,10 @@ static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_c=
+lks =3D {
+>                 [CLK_OSC24M_32K]        =3D &osc24M_32k_clk.common.hw,
+>                 [CLK_RTC_32K]           =3D &rtc_32k_clk.common.hw,
+>                 [CLK_OSC24M_32K_DIV]    =3D &osc24M_32k_div_clk.hw,
+> +               [CLK_HOSC_UFS]          =3D &hosc_ufs_clk.common.hw,
+> +               [CLK_HOSC_HDMI]         =3D &hosc_hdmi_clk.common.hw,
+> +               [CLK_HOSC_SERDES0]      =3D &hosc_serdes0_clk.common.hw,
+> +               [CLK_HOSC_SERDES1]      =3D &hosc_serdes1_clk.common.hw,
+>         },
+>  };
+>
+> @@ -330,6 +377,15 @@ static const struct sun6i_rtc_match_data sun55i_a523=
+_rtc_ccu_data =3D {
+>         .osc32k_fanout_nparents =3D ARRAY_SIZE(sun50i_r329_osc32k_fanout_=
+parents),
+>  };
+>
+> +static const struct sun6i_rtc_match_data sun60i_a733_rtc_ccu_data =3D {
+> +       .have_ext_osc32k        =3D true,
+> +       .have_iosc_calibration  =3D true,
+> +       .have_dcxo_status       =3D true,
+> +       .have_phy_ref_gates     =3D true,
+> +       .osc32k_fanout_parents  =3D sun50i_r329_osc32k_fanout_parents,
+> +       .osc32k_fanout_nparents =3D ARRAY_SIZE(sun50i_r329_osc32k_fanout_=
+parents),
+> +};
+> +
+>  static const struct of_device_id sun6i_rtc_ccu_match[] =3D {
+>         {
+>                 .compatible     =3D "allwinner,sun50i-h616-rtc",
+> @@ -343,6 +399,10 @@ static const struct of_device_id sun6i_rtc_ccu_match=
+[] =3D {
+>                 .compatible     =3D "allwinner,sun55i-a523-rtc",
+>                 .data           =3D &sun55i_a523_rtc_ccu_data,
+>         },
+> +       {
+> +               .compatible     =3D "allwinner,sun60i-a733-rtc",
+> +               .data           =3D &sun60i_a733_rtc_ccu_data,
+> +       },
+>         {},
+>  };
+>  MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
+> @@ -375,6 +435,13 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __i=
+omem *reg)
+>         osc32k_fanout_init_data.parent_data =3D data->osc32k_fanout_paren=
+ts;
+>         osc32k_fanout_init_data.num_parents =3D data->osc32k_fanout_npare=
+nts;
+>
+> +       if (data->have_dcxo_status)
+> +               sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =3D
+> +                       &osc24M_32k_div_a733_clk.common.hw;
+> +
+> +       if (!data->have_phy_ref_gates)
+> +               sun6i_rtc_ccu_hw_clks.num =3D CLK_OSC24M_32K_DIV + 1;
+
+Maybe keep the old CLK_NUMBER macro and call the new one CLK_NUMBER_A733?
+The point is to not directly use a random macro + 1 here.
+
+Otherwise,
+
+Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+
+> +
+>         return devm_sunxi_ccu_probe(dev, reg, &sun6i_rtc_ccu_desc);
+>  }
+>
+> diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h b/drivers/clk/sunxi-ng/=
+ccu-sun6i-rtc.h
+> index ab7b92b47f59..4f4f4cb00f1d 100644
+> --- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
+> +++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
+> @@ -11,6 +11,6 @@
+>  #define CLK_RTC_32K            6
+>  #define CLK_OSC24M_32K_DIV     7
+>
+> -#define CLK_NUMBER             (CLK_OSC24M_32K_DIV + 1)
+> +#define CLK_NUMBER             (CLK_HOSC_SERDES1 + 1)
+>
+>  #endif /* _CCU_SUN6I_RTC_H */
+>
+> --
+> 2.47.3
+>
 
