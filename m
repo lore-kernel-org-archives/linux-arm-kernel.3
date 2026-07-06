@@ -4,104 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 20:27:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 708D8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 20:34:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ZL/DegmvXGzHdZTvgWnc7Fc8nL2OkgclVE6j97WTc4=; b=RZjx+syKZp0PO15tGLWEqnqO6a
-	tfmQi0JUaWdr3x/3esxwL8Z6qcGRASXuEmjfPRzhxZ4vEb+9gamOXsC1yq+hupCP8yhmr9/fwwMG6
-	lnRTF8bMQeR5oszbYolUW+zg/0pez8w9J6mfSkcsRMWbz72GllFqTppF/d2HF1n2m136GexBMJeH3
-	Z3f2oxY8jlX1wNxOlNL/uN8+Y5MIV6tfNBxxZ5t7DIUvgU5yJiHQ5x5Y/u9HMOdFyYVeQqXaQs08x
-	wXfaLTzd4tRsaAhDvRiDBlQno0MnlkV6D/XqH+zz+d1X9VywIQLVoNbM71vWPYXZHL+a7ewjekslo
-	1cUxTgpA==;
+	bh=ICjdoME0JwWsU+/ij6M8X9yZNnPoOxQqARhN6EoKhzc=; b=XOwfA5zBn03wd1yEXU6KNGsqyL
+	WfxZSbsbt/mUEwxpypgqda0VV9NayWSGSfjnzRb2xQZCIYvTcV4uuA4mDJarluk+8zCvb4updUS/O
+	tgbqWN8T/2OKClUofaUeUZIfjETgk5CBmZrWrwMoieY4alxMiyoGk6ayBwBXdneCFmEuaynMGbQe/
+	YkrHuhDcEMcVo/dB9cId8mA8mxfOkm0ZmI8e3FC30SAnRiakr26ZpS0YnLIYOxPojlsIIrFgZN/z7
+	AdQ6blgsLEPSRSRyGHXsr+gTRwJeqVht+TgcmJOCuRT+VjS/v1GzjtVtTzWIPnbt1fJh6aBJwrmOq
+	f2d0tHAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpug-0000000DYOG-2cmC;
-	Mon, 06 Jul 2026 20:27:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wgq16-0000000DYyq-2cg7;
+	Mon, 06 Jul 2026 20:34:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpud-0000000DYNK-0iMt
+	id 1wgq15-0000000DYya-1MAv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 20:27:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783369649;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8ZL/DegmvXGzHdZTvgWnc7Fc8nL2OkgclVE6j97WTc4=;
-	b=WYgPzt86eBmXeUdXEPZxKU4fOQ4xxq6NI+OjoK3c0gEmRC8FMyXtU8EWJWNNF9Qf/kXB6J
-	d04D26I6Rt9PigsLZLcXo5sWVI2qLN/h4YZ0SxnDsPAzlSJVfO7+kpkxWDGNL6xLqxUepF
-	O1zCXHwaViCv1fBWTmrkpXf2FtbJoL4=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-133-pH0dSylSMsmWNfQ_AtWUfA-1; Mon, 06 Jul 2026 16:27:27 -0400
-X-MC-Unique: pH0dSylSMsmWNfQ_AtWUfA-1
-X-Mimecast-MFC-AGG-ID: pH0dSylSMsmWNfQ_AtWUfA_1783369647
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-5174a23afcbso34964981cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:27:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783369647; x=1783974447;
-        h=user-agent:in-reply-to:content-disposition:content-type
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8ZL/DegmvXGzHdZTvgWnc7Fc8nL2OkgclVE6j97WTc4=;
-        b=MlhUatRxkW2mWRjVFxlkp1CJv0yYz81AEL2EIoPvXBNZaCij4HU3egTYFQrfvFt9Zi
-         aHL0zwxGoaiAQDZcKpoFejX/kmRXjWqNNURlT/AeI5Qtn5dy2CV4Oj/rkq3ndhJuo5kc
-         hxMUzD3UQn0rsaG2uc18C3MgF1Oy+mpzKLnkRNdPOGyn9qLgWB2JZwFT1E6SOy6EvEJ0
-         apqWbz6/w3DUPckBwrRxoH0xIKBv6gmNc21oABBabHgS1ZrLEWSevsuaqtyCehWhQ3Ji
-         veUMryatqKM5QNBihHTzn1n8/KDl347VNYEkVdekFO5JjSlVULuXUp3yP3E3pddf4InO
-         Rgaw==
-X-Forwarded-Encrypted: i=1; AHgh+RoKXBa7CD2+s56FQ35/r3JYGhd7MUpef7ctjhy1DFEUj6cyma/IBHfsrg5SAGUgii66tybLe3YukxcYPX4V5s/3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxT1vW+ih4ePtlxTyGDRwUc+Z1J93qOyDLy9p7tMMWlCWPvPAsD
-	T4kVbL+Wzg568+B9RCrU9GH+YYNQQDmTD9IBisdHSF7i6+ObMfnqQkA2jAYd8uxpfKROKME7vmn
-	uLZSPoIDrvwdO7XZe7SIxIexZE8g+vZ/VfsXORLsDaZCbqx67vKF0N6bv5s/xn5ijxj3ciFL3lq
-	pE
-X-Gm-Gg: AfdE7clFe2uVYDmtZlYJdu9lQ9wTXTN8z40ueCBog4S0rUJrBzYmq57tlC3/yXaBs6z
-	mawhKeEFev/VunYwG3gLWzVgTY12jUyR6qq4pvyUZz+9/53Yxr3BowToyjmqa/fSnOKiYjiaeOj
-	1P7yl529nZ9Y7cyeoxUdZrnZSedqjEawliMLBJuidVxG3wySP7Un7GqziIcXvYJcXO/lR92ULwH
-	W3mp89yw9wXDuepgAlZNIResGiYEj6Hu5fHrmHqbc88q4XwGVgcr1LV1wXKU0eNCgEWJLAvOC0u
-	1fXI+CVhEkUejxT3TX603ryvgI6xtpBlgVAfNB54+VVIPRJ+TYL33guu4cJsgg1wXlQG59VM0Xp
-	O62sZatKd6oHfDDo2AKOpecPGEKAEbcgQsrBamXuRftWRaQ==
-X-Received: by 2002:ac8:7c4f:0:b0:519:51b1:e764 with SMTP id d75a77b69052e-51c7485370amr25568711cf.47.1783369646961;
-        Mon, 06 Jul 2026 13:27:26 -0700 (PDT)
-X-Received: by 2002:ac8:7c4f:0:b0:519:51b1:e764 with SMTP id d75a77b69052e-51c7485370amr25568441cf.47.1783369646512;
-        Mon, 06 Jul 2026 13:27:26 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f46e371f44sm152788386d6.2.2026.07.06.13.27.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 13:27:25 -0700 (PDT)
-Date: Mon, 6 Jul 2026 16:27:23 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Myeonghun Pak <mhun512@gmail.com>
-Cc: Yassine Oudjana <y.oudjana@protonmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Ijae Kim <ae878000@gmail.com>
-Subject: Re: [PATCH v2] clk: mediatek: mt6735: Unregister PLLs on probe
- failure
-Message-ID: <akwPq7TlOnu2ExKk@redhat.com>
-References: <20260624062409.45678-1-mhun512@gmail.com>
-MIME-Version: 1.0
-In-Reply-To: <20260624062409.45678-1-mhun512@gmail.com>
-User-Agent: Mutt/2.3.2 (2026-04-26)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: u4LpaWKGsCoEkNxc_zOtSNGIJf77dghHRStUCZRQrW4_1783369647
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_132731_413559_F502D79E 
-X-CRM114-Status: GOOD (  12.32  )
+	Mon, 06 Jul 2026 20:34:11 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id CB44C600C3;
+	Mon,  6 Jul 2026 20:34:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E3521F000E9;
+	Mon,  6 Jul 2026 20:34:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783370048;
+	bh=ICjdoME0JwWsU+/ij6M8X9yZNnPoOxQqARhN6EoKhzc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=AF9KK0LKjBLYXlId0LcJAPAvyA3G7m8eikBSrbGWTdTFnF9qMIPBRMBFugibY3s+o
+	 pRFBN4JoJ6S8AK9Fndz+NQl/9fkNvVoUX61h/oiV5PnMfYOR6MBS0S/LzuJsFi8e+g
+	 SWeTH0ZtDn23NuqcjxbJUGx2zXXKraHAP/G42EiTTD/+zTKbMGV1b5WAqa+ItqE+Tq
+	 fzwWLGivvASXAZ8cVs8mMwNk6jv+5UW1vevvASTfp55dSFMPIgPn3yolDYNUXoyaIo
+	 eiXY6XruA/kMLcaPAOG0tio0Kr2iQZD6vin1SdDp//W0GOuL7PeRFQRiHFkX4Q9C7g
+	 5wtpcdYyV1ngg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgq10-0000000280c-0vix;
+	Mon, 06 Jul 2026 20:34:06 +0000
+Date: Mon, 06 Jul 2026 21:35:54 +0100
+Message-ID: <87bjcj7t5h.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 23/27] KVM: s390: arm64: Implement required functions
+In-Reply-To: <20260706085229.979525-24-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-24-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,21 +109,324 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 03:23:55PM +0900, Myeonghun Pak wrote:
-> mtk_clk_register_plls() registers the apmixedsys PLL clocks manually, while
-> clk_mt6735_apmixed_remove() unregisters them on driver removal.
+On Mon, 06 Jul 2026 09:52:23 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
 > 
-> If devm_of_clk_add_hw_provider() fails after the PLL registration succeeds,
-> probe returns the error directly and the remove callback is not run. This
-> leaves the registered PLL clocks behind on the probe failure path.
+> Implement the mostly trivial functions that the shared arm64 (kvm)
+> code & headers oblige s390 to implement.
 > 
-> Unregister the PLLs in that failure branch before returning the error.
+> Implement a very basic smccc handler that (non-compliantly) is just able
+> to stop a vcpu.
 > 
-> Fixes: 43c04ed79189 ("clk: mediatek: Add drivers for MediaTek MT6735 main clock and reset drivers")
-> Co-developed-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Ijae Kim <ae878000@gmail.com>
-> Signed-off-by: Myeonghun Pak <mhun512@gmail.com>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/s390/include/arm64/kvm_emulate.h | 135 ++++++++++++++++++++++++++
+>  arch/s390/include/arm64/kvm_nested.h  |  11 +++
+>  arch/s390/kvm/arm64/handle_exit.c     | 110 +++++++++++++++++++++
+>  arch/s390/kvm/arm64/inject_fault.c    |  21 ++++
+>  4 files changed, 277 insertions(+)
+>  create mode 100644 arch/s390/include/arm64/kvm_emulate.h
+>  create mode 100644 arch/s390/include/arm64/kvm_nested.h
+>  create mode 100644 arch/s390/kvm/arm64/handle_exit.c
+>  create mode 100644 arch/s390/kvm/arm64/inject_fault.c
+> 
+> diff --git a/arch/s390/include/arm64/kvm_emulate.h b/arch/s390/include/arm64/kvm_emulate.h
+> new file mode 100644
+> index 000000000000..6ad21398f86f
+> --- /dev/null
+> +++ b/arch/s390/include/arm64/kvm_emulate.h
+> @@ -0,0 +1,135 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef __S390_ARM64_KVM_EMULATE_H__
+> +#define __S390_ARM64_KVM_EMULATE_H__
+> +
+> +#include <asm/fault.h>
+> +#include <asm/ptrace.h>
+> +#include <linux/kvm_host.h>
+> +
+> +#include <arm64/kvm_arm.h>
+> +#include <arm64/sysreg.h>
+> +
+> +static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
+> +{
+> +	return (unsigned long *)&vcpu->arch.sae_block.pc;
+> +}
+> +
+> +static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
+> +{
+> +	return (unsigned long *)&vcpu->arch.sae_block.pstate;
+> +}
+> +
+> +static __always_inline unsigned long *vcpu_sp_el0(const struct kvm_vcpu *vcpu)
+> +{
+> +	return (unsigned long *)&vcpu->arch.sae_block.sp_el0;
+> +}
+> +
+> +static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.sae_block.hai.esr_elz;
+> +}
+> +
+> +static __always_inline unsigned long kvm_vcpu_get_hfar(const struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.sae_block.hai.far_elz;
+> +}
+> +
+> +static __always_inline phys_addr_t kvm_vcpu_get_fault_ipa(const struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.sae_block.hai.teid.addr * PAGE_SIZE;
+> +}
+> +
+> +static inline u16 kvm_vcpu_fault_pic(const struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.sae_block.hai.pic & PGM_INT_CODE_MASK;
+> +}
+> +
+> +static __always_inline
+> +bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
+> +{
+> +	return kvm_vcpu_fault_pic(vcpu) == PGM_PROTECTION;
+> +}
+> +
+> +static __always_inline bool kvm_condition_valid(const struct kvm_vcpu *vcpu)
+> +{
+> +	return true;
+> +}
+> +
+> +static __always_inline bool vcpu_el1_is_32bit(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static inline void vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+> +{
+> +	vcpu->arch.hcr_elz = HCR_E2H | HCR_RW | HCR_AMO | HCR_IMO | HCR_FMO |
+> +			     HCR_PTW;
+> +	/* traps */
+> +	vcpu->arch.hcr_elz |= HCR_TSC | HCR_TID1 | HCR_TID2 | HCR_TID3 |
+> +			      HCR_TID4 | HCR_TID5 | HCR_TIDCP;
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+Since this is new code, consider using the generated symbols
+(HCR_EL2_*). I intend to get rid of the compat symbols at some point.
 
+> +}
+> +
+> +static inline unsigned long vcpu_get_vsesr(struct kvm_vcpu *vcpu)
+> +{
+> +	WARN(true, "not implemented, just feat RAS");
+
+WARN_ONCE() should be enough. And really, this code shouldn't be
+reachable at all.
+
+> +
+> +	return 0L;
+> +}
+> +
+> +static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
+> +{
+> +	WARN(true, "not implemented, just feat RAS");
+
+Same thing.
+
+> +}
+> +
+> +static inline bool vcpu_el2_tge_is_set(const struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static inline int kvm_vcpu_abt_gltl(struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->arch.sae_block.hai.gltl;
+> +}
+> +
+> +static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static inline bool is_nested_ctxt(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static inline bool vcpu_mode_priv(const struct kvm_vcpu *vcpu)
+> +{
+> +	u32 mode = *vcpu_cpsr(vcpu) & PSR_MODE_MASK;
+> +
+> +	return mode != PSR_MODE_EL0t;
+> +}
+> +
+> +#define SPSR_SS BIT(21)
+
+We may be better off defining SPSR_ELx in the sysreg file and use that
+all over the place.
+
+> +
+> +static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
+> +{
+> +	*vcpu_pc(vcpu) += 4;
+> +	*vcpu_cpsr(vcpu) &= ~PSR_BTYPE_MASK;
+> +
+> +	/* advance the singlestep state machine */
+> +	*vcpu_cpsr(vcpu) &= ~SPSR_SS;
+> +}
+> +
+> +#include <arm64/kvm_emulate-part.h>
+> +
+> +#endif /* __S390_ARM64_KVM_EMULATE_H__ */
+> diff --git a/arch/s390/include/arm64/kvm_nested.h b/arch/s390/include/arm64/kvm_nested.h
+> new file mode 100644
+> index 000000000000..e950b1a10c41
+> --- /dev/null
+> +++ b/arch/s390/include/arm64/kvm_nested.h
+> @@ -0,0 +1,11 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +
+> +#ifndef ASM_KVM_NESTED_H
+> +#define ASM_KVM_NESTED_H
+> +
+> +static inline bool vcpu_has_nv(const struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +#endif /* ASM_KVM_NESTED_H */
+> diff --git a/arch/s390/kvm/arm64/handle_exit.c b/arch/s390/kvm/arm64/handle_exit.c
+> new file mode 100644
+> index 000000000000..a0ebe5ffa19a
+> --- /dev/null
+> +++ b/arch/s390/kvm/arm64/handle_exit.c
+> @@ -0,0 +1,110 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +#include <linux/kvm_host.h>
+> +
+> +#include <arm64/esr.h>
+> +#include <arm64/kvm_emulate.h>
+> +
+> +typedef int (*exit_handle_fn)(struct kvm_vcpu *);
+> +exit_handle_fn arm_exit_handlers[ESR_ELx_EC_MAX + 1];
+> +
+> +#define __INCL_GEN_ARM_FILE
+> +#include "generated/handle_exit.inc"
+> +#undef __INCL_GEN_ARM_FILE
+> +
+> +#define PSCI_0_2_FN_SYSTEM_OFF		0x84000008
+> +#define PSCI_RET_NOT_SUPPORTED		-1
+> +#define PSCI_RET_INTERNAL_FAILURE	-6
+
+All of this exists in include/uapi/linux/psci.h.
+
+> +/*
+> + * Temporary smc/hvc handler. Non-compliant implementation (features missing).
+> + * Implements only system off so that test programs are able to end their execution
+> + */
+> +static int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
+> +{
+> +	u32 func_id = vcpu_get_reg(vcpu, 0);
+> +	u64 val = PSCI_RET_NOT_SUPPORTED;
+> +	int ret = 1;
+> +
+> +	if (func_id == PSCI_0_2_FN_SYSTEM_OFF) {
+> +		spin_lock(&vcpu->arch.mp_state_lock);
+> +		WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
+> +		spin_unlock(&vcpu->arch.mp_state_lock);
+
+scoped_guard()?
+
+> +		kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
+> +		memset(&vcpu->run->system_event, 0,
+> +		       sizeof(vcpu->run->system_event));
+> +		vcpu->run->system_event.type = KVM_SYSTEM_EVENT_SHUTDOWN;
+> +		vcpu->run->system_event.ndata = 1;
+> +		vcpu->run->system_event.data[0] = 0;
+> +		vcpu->run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
+> +		val = PSCI_RET_INTERNAL_FAILURE;
+> +		ret = 0;
+> +	}
+> +	vcpu_set_reg(vcpu, 0, val);
+> +
+> +	return ret;
+> +}
+> +
+> +static int handle_hvc(struct kvm_vcpu *vcpu)
+> +{
+> +	vcpu->stat.hvc_exit_stat++;
+> +	return kvm_smccc_call_handler(vcpu);
+> +}
+> +
+> +exit_handle_fn arm_exit_handlers[] = {
+> +	[0 ... ESR_ELx_EC_MAX]	= kvm_handle_unknown_ec,
+> +	[ESR_ELx_EC_HVC64]	= handle_hvc,
+> +};
+> +
+> +/* manually copied from arch/arm64/kernel/traps.c */
+> +static const char * const esr_class_str[] = {
+> +	[0 ... ESR_ELx_EC_MAX]		= "UNRECOGNIZED EC",
+> +	[ESR_ELx_EC_UNKNOWN]		= "Unknown/Uncategorized",
+> +	[ESR_ELx_EC_WFx]		= "WFI/WFE",
+> +	[ESR_ELx_EC_CP15_32]		= "CP15 MCR/MRC",
+> +	[ESR_ELx_EC_CP15_64]		= "CP15 MCRR/MRRC",
+> +	[ESR_ELx_EC_CP14_MR]		= "CP14 MCR/MRC",
+> +	[ESR_ELx_EC_CP14_LS]		= "CP14 LDC/STC",
+> +	[ESR_ELx_EC_FP_ASIMD]		= "ASIMD",
+> +	[ESR_ELx_EC_CP10_ID]		= "CP10 MRC/VMRS",
+> +	[ESR_ELx_EC_PAC]		= "PAC",
+> +	[ESR_ELx_EC_CP14_64]		= "CP14 MCRR/MRRC",
+> +	[ESR_ELx_EC_BTI]		= "BTI",
+> +	[ESR_ELx_EC_ILL]		= "PSTATE.IL",
+> +	[ESR_ELx_EC_SVC32]		= "SVC (AArch32)",
+> +	[ESR_ELx_EC_HVC32]		= "HVC (AArch32)",
+> +	[ESR_ELx_EC_SMC32]		= "SMC (AArch32)",
+> +	[ESR_ELx_EC_SVC64]		= "SVC (AArch64)",
+> +	[ESR_ELx_EC_HVC64]		= "HVC (AArch64)",
+> +	[ESR_ELx_EC_SMC64]		= "SMC (AArch64)",
+> +	[ESR_ELx_EC_SYS64]		= "MSR/MRS (AArch64)",
+> +	[ESR_ELx_EC_SVE]		= "SVE",
+> +	[ESR_ELx_EC_ERET]		= "ERET/ERETAA/ERETAB",
+> +	[ESR_ELx_EC_FPAC]		= "FPAC",
+> +	[ESR_ELx_EC_SME]		= "SME",
+> +	[ESR_ELx_EC_IMP_DEF]		= "EL3 IMP DEF",
+> +	[ESR_ELx_EC_IABT_LOW]		= "IABT (lower EL)",
+> +	[ESR_ELx_EC_IABT_CUR]		= "IABT (current EL)",
+> +	[ESR_ELx_EC_PC_ALIGN]		= "PC Alignment",
+> +	[ESR_ELx_EC_DABT_LOW]		= "DABT (lower EL)",
+> +	[ESR_ELx_EC_DABT_CUR]		= "DABT (current EL)",
+> +	[ESR_ELx_EC_SP_ALIGN]		= "SP Alignment",
+> +	[ESR_ELx_EC_MOPS]		= "MOPS",
+> +	[ESR_ELx_EC_FP_EXC32]		= "FP (AArch32)",
+> +	[ESR_ELx_EC_FP_EXC64]		= "FP (AArch64)",
+> +	[ESR_ELx_EC_GCS]		= "Guarded Control Stack",
+> +	[ESR_ELx_EC_SERROR]		= "SError",
+> +	[ESR_ELx_EC_BREAKPT_LOW]	= "Breakpoint (lower EL)",
+> +	[ESR_ELx_EC_BREAKPT_CUR]	= "Breakpoint (current EL)",
+> +	[ESR_ELx_EC_SOFTSTP_LOW]	= "Software Step (lower EL)",
+> +	[ESR_ELx_EC_SOFTSTP_CUR]	= "Software Step (current EL)",
+> +	[ESR_ELx_EC_WATCHPT_LOW]	= "Watchpoint (lower EL)",
+> +	[ESR_ELx_EC_WATCHPT_CUR]	= "Watchpoint (current EL)",
+> +	[ESR_ELx_EC_BKPT32]		= "BKPT (AArch32)",
+> +	[ESR_ELx_EC_VECTOR32]		= "Vector catch (AArch32)",
+> +	[ESR_ELx_EC_BRK64]		= "BRK (AArch64)",
+> +};
+
+There are a lot of AArch32-specific ECs here that you may not need.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
