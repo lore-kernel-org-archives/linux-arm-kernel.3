@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9922EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41B1EC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A8yVLhTNEHVMtNZQvE8C0mepFF5QZRCcqOIZQc7Y7/o=; b=BrNpNloC6AyRITNLgRGzKdWl1A
-	oMDLWvSBvg6ltt0MEF1E8fl+Mlz34SUF+YkW8Jj2MNxXoNuS4Wb31a637dr4Ai0oYTQ3zCDcZsBGa
-	6D+njYAv8nC1RTscXNXlSyHJ0xKQStyv4FQK6BvJWvldhfZ+2ncNI0yRbdd+uf3qaNhe04p/TjnRY
-	DtiKOofono7YxRvz+YR8VhsMuhD+EX8xRO6UhUigDwa4aql2Yfh8fbPnHIQTntpIiq15OmGzRcUd0
-	/cwDfALxi7/yEtq8dWNFD3TZ9u8RicNHdC5D6SHDc2rUyKbm8wyhbpPK2fXFKDWQoXdA4lEBspHa+
-	LTktZU4w==;
+	bh=xLKpclR6TzU06Q17+5WVq9H2iJLIm9bYLUOwqelsQHs=; b=IoMFk8OYPW9Xp4lS/Kb+Lw3Hsh
+	Z4QKnGXIyHeI/iaZ/Q+UX4ovm9Gj9unFTvwWUXG+dZa+puIjy2LRgHpS3UxofqP232Eok0thgEndG
+	/thySSQzUwTj6DahFvocK2DgVsE/5A/lO2Bu5wEqXBF246je8bWOPiApQXUv72Rz6v32niopCIn6G
+	+kP2woZDz2Puq70zV6ABfm9Hak48ehMrTX/AFbSY15yyMQ6PUUbDpiuGyIxDdTgENxNdcThPWKWwL
+	NtpaAKGJSnN9lGQQ83OleUfQSsRSRt4s1A2H1dPEdqLUyFingQP8/cJVmHw26kRGv5l+8OkDMZQeD
+	Ubdc2RRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgoLz-0000000DMu3-31T1;
-	Mon, 06 Jul 2026 18:47:41 +0000
-Received: from mail-westusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c001::5] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1wgoM2-0000000DMvP-26p4;
+	Mon, 06 Jul 2026 18:47:42 +0000
+Received: from mail-westus3azon11010038.outbound.protection.outlook.com ([52.101.201.38] helo=PH7PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgoLx-0000000DMtC-1vpn
+	id 1wgoLy-0000000DMta-1E0A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 18:47:38 +0000
+	Mon, 06 Jul 2026 18:47:41 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B0tX0HFJAxfbaauH6zF2KahUeA2hs8KB8WdkJHju05usoW+HEZOnreUgy1EyqYuuro/cq9M60eydwk+IDa6DNUOZd+sTzlTMBfBOvfYKyhqWIVzVBbK/slsETBsGC/LgeSGYodxSXz0CHydiNik5gH0L+ftliigyMMqJ1fL330l/tJ9Ym4K8ADbILAGu5pEdkzDhqnqGHArXz3KS2mVZho96XXcTUWH5gvHuolscCSG3aOb9jQUoeGNkifq2UeY2KaQKdRvf9fNvJYYkgYVoYqqQVXwSBitk6YcYek4GfmDKJVrmNcc65R4YMhGPJJdcX/V6tvzmyVOvGVO4Dse0FA==
+ b=Jsh+O3osU18meIQYgWrEltbFWczagqA6jyZjmSFo4GQdULfqrS+iEu2JxToTPBdu6TwCbBMVbO+0623h3j+ILqLrOfXtg2gcndT6FOuag9GFmkFas6S0K7H6NLV4u06VBDB/Pu6zUEcptLhD8Fv5tll/+VDomF6frBXODXU3NpJXAPH0jgiqqMLUjOQ2RqC3Adwjphaje46UdiP79zp53WxVPweW9XHYIWYJO6ntE/T9nXZlm1o/cp3gnmtxzqrgZYSksQI/nMyzWypHLCZYU+V9lIz38OVFAUcpjT9bLHjpIaKREZrItHu+sWfnx5mnUlmJ3U1/SI6HKgAuQ/EoZw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=A8yVLhTNEHVMtNZQvE8C0mepFF5QZRCcqOIZQc7Y7/o=;
- b=QanEk7caQ2mMP7WnwRKdzFiDPDdWV90xcu60SiO9efbd7ZOV3rTWobIItqZ2hmPwemRwz9vzVlJWvuiLX/c/njhGwwVWn5PDldFJnxxKewt4QJ42/mLOVP7W93dQANai6mTS/xWieW8gToG+D33Q4jgIM/EDBlXeegGerjEGqaiX9WswWgi2Re+n3h2hpo3+u2U3pZ1ebbC306Sn7C0B8d0kWyy2Ch2CgP0XA1cQVOOPfUhe4aogYPJz0T8wuiDJrCN0opHbWLb5IdGhsVluxFEwBoep1VrmmdtPFeF3ZPDp9/MktWHaHzizuKbC3nZxNFOw6xXtJa5gDu1T/AGnzw==
+ bh=xLKpclR6TzU06Q17+5WVq9H2iJLIm9bYLUOwqelsQHs=;
+ b=WGAq0IC43RQtybYp6uJxjAum8ZI/2oEpS7MoeArpJvXZg5PusqMy1oIEvJFGpZriZmNxVeaZC1oiUv13lQO7JdSA+E/PLITMswcw1ALlqbrZ8e/OZ1P6qqq+ojttFt2bOUeawThCYPHGDQlplN6mV6k9XfcTmbW3l5NOvLE+SABGtdzIrV1PJ1UWbnktg4theNaTyAMIZxS25WZ3Hy2FUjQ4SzgysqGNLd8XlsXWHJhzmjCgrA43h25Pdeq8zttv8ZfWB3kaBuru0vr2HH/MgmSHyKb2K+A/9OkOKEWpEHruD1OVnXHNYqFebpzqqH+Fy43dPaZQfLa65+HvDqvkbA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -41,17 +41,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=A8yVLhTNEHVMtNZQvE8C0mepFF5QZRCcqOIZQc7Y7/o=;
- b=b1F60/pAdVmWkS4XqMoV0RTsyya91u7oU0/JLP0wE5ROqbUrXqOWd8/APpGr640/47nFPCL475LLwYRUK986mus4kE2QfoDdSbH2jdNO9dSzDMGlfS0A2geKsq9chbLSpaa5LL5KwMjjt3CIN8zbE5ldw9x3Rnf9OLIFf7gbn6ZCx5O5w12CfArNZK5tgkHBEbRyzy0Lm0x2pI0cUsFqMSOlKYMVXxYZZsmSU0q4BxeMg+dZgf3EmvhFwHUi3jUo8D0yc3XkPEvqQaIDSERxi51VJhRC88nAOk93krPHFNlgZQZfa1CZCPPzV9mF9lT8ysFXSoP9FeP85Uxn6moPlQ==
-Received: from DSZP220CA0009.NAMP220.PROD.OUTLOOK.COM (2603:10b6:5:280::16) by
- CY8PR12MB8361.namprd12.prod.outlook.com (2603:10b6:930:7b::18) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.10; Mon, 6 Jul 2026 18:47:27 +0000
-Received: from DS1PEPF00017094.namprd03.prod.outlook.com
- (2603:10b6:5:280:cafe::73) by DSZP220CA0009.outlook.office365.com
- (2603:10b6:5:280::16) with Microsoft SMTP Server (version=TLS1_3,
+ bh=xLKpclR6TzU06Q17+5WVq9H2iJLIm9bYLUOwqelsQHs=;
+ b=pqIc+OB3oZ8liRNs5ShqBoogHfInc4of95GRwTS4kP8GU9uVfkPPT1UW2o6B1CV3G0apgj+R3nL1ZCmYZbVZj80XAy7zGWEAAyLJqN0Ih0FQZHsUXqI8Aks7k0S9+SFovHKdBBLhUwJQxB1DsRtgh0bCsEDqwDBeah4jbWE94CgiH1BlUyk5gtrZBedivqXesV1QO60uKAnpvPaTTL6EkftKZyxkHwAdl+7qK6uKJIrFF2avYIqf5k8ZLylgHS0MXTljOrZrU7v1voZcf9GENuFOE3B7qgq5UUTMY7oY/IfaKmlqKOQQZapoe2QVX4V45EBbRb+KUZPPkHuh33Fyyw==
+Received: from DS1P220CA0009.NAMP220.PROD.OUTLOOK.COM (2603:10b6:8:455::15) by
+ SN7PR12MB7853.namprd12.prod.outlook.com (2603:10b6:806:348::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Mon, 6 Jul
+ 2026 18:47:26 +0000
+Received: from DS1PEPF00017095.namprd03.prod.outlook.com
+ (2603:10b6:8:455:cafe::92) by DS1P220CA0009.outlook.office365.com
+ (2603:10b6:8:455::15) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Mon, 6
- Jul 2026 18:47:27 +0000
+ Jul 2026 18:47:26 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
  smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -59,29 +60,29 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.232 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.232) by
- DS1PEPF00017094.mail.protection.outlook.com (10.167.17.137) with Microsoft
+ DS1PEPF00017095.mail.protection.outlook.com (10.167.17.138) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.21.181.6 via Frontend Transport; Mon, 6 Jul 2026 18:47:26 +0000
 Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.43; Mon, 6 Jul
- 2026 11:47:12 -0700
+ 2026 11:47:11 -0700
 Received: from drhqmail203.nvidia.com (10.126.190.182) by
  drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
  15.2.2562.20; Mon, 6 Jul 2026 11:47:11 -0700
 Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
  (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 6 Jul 2026 11:47:11 -0700
+ Transport; Mon, 6 Jul 2026 11:47:10 -0700
 From: Nicolin Chen <nicolinc@nvidia.com>
 To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>, "Kevin
  Tian" <kevin.tian@intel.com>, Lu Baolu <baolu.lu@linux.intel.com>
 CC: Robin Murphy <robin.murphy@arm.com>, <joro@8bytes.org>, David Woodhouse
 	<dwmw2@infradead.org>, <linux-arm-kernel@lists.infradead.org>,
 	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 3/5] iommufd/selftest: Convert cache invalidation mocks to the core array loop
-Date: Mon, 6 Jul 2026 11:46:53 -0700
-Message-ID: <764d9bed428b588939b9270469fa0145662dfc4a.1783363477.git.nicolinc@nvidia.com>
+Subject: [PATCH v2 2/5] iommufd: Iterate the cache invalidation array in the core
+Date: Mon, 6 Jul 2026 11:46:52 -0700
+Message-ID: <56c0672b01fed759f65bea21b749909d087549f8.1783363477.git.nicolinc@nvidia.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1783363477.git.nicolinc@nvidia.com>
 References: <cover.1783363477.git.nicolinc@nvidia.com>
@@ -91,28 +92,28 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017094:EE_|CY8PR12MB8361:EE_
-X-MS-Office365-Filtering-Correlation-Id: 662cc67d-5673-42ae-1322-08dedb8f0686
+X-MS-TrafficTypeDiagnostic: DS1PEPF00017095:EE_|SN7PR12MB7853:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7e14bcf4-66a0-4391-d425-08dedb8f0612
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|82310400026|376014|36860700016|18002099003|6133799003|11063799006|5023799004|22082099003|56012099006;
-X-Microsoft-Antispam-Message-Info: GzQ3c917EhuJFYz76NURqtECKgEFmf5FQvjrUkBSXxv8GkTJEqj7WLbXhhLIdfCiBunL6NfKHOwYFsKC9IBot7jGZ0kaV21nIg8acjpu52FIadeHuKhRBbTEKCd78US1avz66DCNoaTCO12ZYpPTkwNx+RPEH4QA64pDsZmhhRa8UQCFL0kaSi0fc6DGa9ScuFPFhOpBgYPVVTR+jOT9fYsWkvlvFZHMRwLCW0SpiqAScS61WG37khLdQ42QHY6nGE3I7WfZRahfn1VMqxjFST8Rp+jMZjt4Ihzw9UEaUXdzg+DGBYh/kZh8BxjytBgsRSFCdbsvAyAJtloOfnbkV+J2mOMVuzMGd/CSq6GK6+hMRd8zIHIYiu7LQFBgDs5MBIEmXopfVnwG6QcsVF38m4+97xL7OZs8BITQXql8RbEmj1B+S145l8mbQzO4JfMd4YJhzv7eiMhXjHOGzS0VO9UJlY8Sr3BrjSLqmr+9YdyulMbdxwo+lHDdCfSVYGma3+CyHInob8Mg9RNVflGchPzfk/FHMtgP2XMtJyZqjV3C+NqLm9DoFFyzKRxmP4st98Q1CtxZd7wbF8IPUqMUFYZE0HVOpr3awPFWDrjNwU8fjV0t3s3YcuIvMUsBNN7jf/3rc2at7bks0UMcMAYk42MBdmQqSD6fDnX6MljG3MaPuWrxOs2gyFtNFckxV7EViiHDYEUd7SUGrcgQ69aNrg==
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(82310400026)(376014)(36860700016)(18002099003)(6133799003)(11063799006)(5023799004)(22082099003)(56012099006);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700016|1800799024|23010399003|376014|22082099003|18002099003|3023799007|5023799004|11063799006|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: Y4SjWaTo3v8GSFynVzmNaEzgFx7OVoBnQR3gcm0V6RaB5cyU9cLCyZ3GLPrqLDB6zm5XTPqG8lu8XP44Wzy5leGq9CCk2HSpNBZKeqIsanlp72Uhi/LoNPBMEYNXj0LsyJQG8cfBrMzBHoCuBGe4LP+o1xanLUOznv1wZRSgPqt/b4wF8m0LvVr1XVbA7b/1yTq4Zdky/nuXia+I6YfD4SX8l3D5RsH+z9vAeRN2MuRKKXJyFSmicoOj/kAwCRpu2jUMm3yBn/6rSNAsR3RbhN5oJ42CUzgDPekrDAObqqpegsLLHBmITMveylRo3MvLrUDoZmbERyUa8laBuJUEzgVBYEYhobttjPW9v9xLm6twSFyC7i4Dd0ov1qNIwnzrJgzNXfDkexoPx1fCqGPTQ3HcKXuYSdQV4HEmmglbE5FMyrlHDOtXlo8w/qnJsnlonGRwcv5i52aVov56Pu8H5TcrR666D6CWFUoQ/lgCjd2a5KHelLB/+nsWk97f89eH6HaGAwn6f6mbCFuW2DeaqVXsHuFCtfupuygtDp4GzQGqpLUBGjEnoY5k30QBfSPY4h8Xrl7xeyRWi0UiSTAzv7u3R4e85MxTIz/GFZteHY0hP7svFegEmR8gmNnF2UWEXGaMFyu9fxeVJofjtW0rMbyolPD6P9Y1QJ2eXyxHjYWjnJo7a0zCHWRWiUKFdqHxyS48kx6QrmD40MIOlrrEdA==
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(1800799024)(23010399003)(376014)(22082099003)(18002099003)(3023799007)(5023799004)(11063799006)(56012099006)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: oHK+W9vA3Ob6wunihK1QxvOPa6Tpf3D+sHAgheJYCfgd8Vd+KDf2JStpz3ikhcOuJ62HYhdInOUnehNakekoV9vHg6Oo30BuhWkjlgr+M009w49ykkZ0rSsX9aNrj2Rl1JBRUbGTyxEgpsPC/o31Bwe/f0yt1fx2LKz/WWiOYSBpRQ36I5JvzXoqHCBkCq95ToldoRDn4PCuB/ShlU9UH2OcrzBOAGeOIYa5DhyiQhab3JTt9xaqy0HFD0+8FGBT3cUCMuWEa1GEqXnHC6fhqbQz0/9u7R0NEoC5cz/sOHeRoqC5k5e0cio/IYhfGLxy0MFfZGJP/vKd4MRRg0HqQPajJyQLxl7KOSTuNIH5hTGKh/1bO05PxublS2mj+vOf3FmiDhd0uAp72jQa5qX3+GsInOrBRm5YNzg7d1reuOnm6Ieihtrx50kzA3QmHN9M
+X-MS-Exchange-AntiSpam-MessageData-0: 2aVMQWwjp7y6JM3sjzzVq+1DEgGDVOb2FIrs7IxqdhtVTED5rmx7QSSBB47Iz8a1695R62rxLzfpa8b7Jbah7qSSWyaMQKYMnZZLnTZjJtk8IBjNz1hmeEJk7cVs5taTN7u6pHSrK0BtE8Jv9RJ1P5IPDq6EcCDAmnWjq9jxM8IvZKDgONeeIeG+/DXRxlxzumF0XDQ/gvU947silot39yfarB8uHvZfyQOoWrX4vjMUuCZqy2yLLkTFPO9T5ltkUulkZ4+/IQW6ktnGzs7t8HyoA8qaXvqUCdvvBTvpm0l8df1BvdXhzbl9EGbL2sw45WPjMlBwvV567kSPYHKdrYsitiCoFtj7gdCnwlNEz4bn/FfzC0ZnrITbkpvp8FRvHSQ+AB+UrGGyBVD0/JSe2to7BB4wfOrtIlhnAJ8vt/gr5pcojfmkU78nPsAoEmru
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 18:47:26.8063
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 18:47:26.0511
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 662cc67d-5673-42ae-1322-08dedb8f0686
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7e14bcf4-66a0-4391-d425-08dedb8f0612
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017094.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017095.namprd03.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB8361
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7853
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_114737_504587_4D093744 
-X-CRM114-Status: GOOD (  21.23  )
+X-CRM114-CacheID: sfid-20260706_114738_337581_20879098 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,214 +128,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The vIOMMU and the nested-domain selftest invalidation mocks each used to
-walk the whole request array on their own, with the vIOMMU mock even
-allocating a buffer sized to the entire array in order to do so first.
+The cache invalidation ops, cache_invalidate_user() for a nested HWPT and
+the cache_invalidate() for a vIOMMU, are each handed the full user request
+array and report how many of the array entries they handled by setting the
+array->entry_num. Every driver therefore implements its own loop over the
+array, and a driver wanting to process that array in fixed-size chunks
+(e.g. to issue commands out of a fixed-size on-stack buffer) has to carry
+the loop and its sub-array bookkeeping all on its own.
 
-The iommufd core now iterates the request array itself and re-invokes the
-op with the not-yet-handled sub-array, so handle just a single request per
-call out of the front of that sub-array and report one handled entry via
-the array->entry_num. Drop both of the loops and the kzalloc_objs() in the
-viommu callback function, and keep returning a success for an empty array
-as a probe of the selftest data type.
+Move the iteration into the iommufd core instead. Invoke the op with a
+sub-array that starts at the first not-yet-handled entry, let it handle a
+prefix of that sub-array and report the count via array->entry_num, then
+advance the base pointer and re-invoke the op until the entire array has
+been consumed or until the op returns an error along the way.
 
+A driver that handles the entire window in one single call, as all of the
+current drivers happen to do, finishes the loop in just one pass, so this
+does not change any of the existing behavior. It instead lets each of the
+drivers convert to bounded chunk processing on its own, done by each of the
+subsequent changes.
+
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
 Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 Assisted-by: Claude:claude-opus-4-8
 Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- drivers/iommu/iommufd/selftest.c | 147 +++++++++++++++----------------
- 1 file changed, 72 insertions(+), 75 deletions(-)
+ include/linux/iommu.h                |  6 ++++--
+ include/linux/iommufd.h              |  2 ++
+ drivers/iommu/iommufd/hw_pagetable.c | 25 +++++++++++++++----------
+ 3 files changed, 21 insertions(+), 12 deletions(-)
 
-diff --git a/drivers/iommu/iommufd/selftest.c b/drivers/iommu/iommufd/selftest.c
-index af07c642a5260..75846cf1f9c44 100644
---- a/drivers/iommu/iommufd/selftest.c
-+++ b/drivers/iommu/iommufd/selftest.c
-@@ -631,70 +631,63 @@ mock_viommu_alloc_domain_nested(struct iommufd_viommu *viommu, u32 flags,
- static int mock_viommu_cache_invalidate(struct iommufd_viommu *viommu,
- 					struct iommu_user_data_array *array)
- {
--	struct iommu_viommu_invalidate_selftest *cmds;
--	struct iommu_viommu_invalidate_selftest *cur;
--	struct iommu_viommu_invalidate_selftest *end;
--	int rc;
-+	struct iommu_viommu_invalidate_selftest cmd;
-+	struct mock_dev *mdev;
-+	struct device *dev;
-+	u32 processed = 0;
-+	int rc = 0;
-+	int i;
- 
--	/* A zero-length array is allowed to validate the array type */
--	if (array->entry_num == 0 &&
--	    array->type == IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST) {
--		array->entry_num = 0;
--		return 0;
-+	if (array->type != IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST) {
-+		rc = -EINVAL;
-+		goto out;
- 	}
- 
--	cmds = kzalloc_objs(*cmds, array->entry_num);
--	if (!cmds)
--		return -ENOMEM;
--	cur = cmds;
--	end = cmds + array->entry_num;
-+	/*
-+	 * The core re-invokes this op for the remaining requests, so handle one
-+	 * request per call. A zero-length array only probes the type, validated
-+	 * above.
-+	 */
-+	if (!array->entry_num)
-+		return 0;
- 
--	static_assert(sizeof(*cmds) == 3 * sizeof(u32));
--	rc = iommu_copy_struct_from_full_user_array(
--		cmds, sizeof(*cmds), array,
--		IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST);
-+	rc = iommu_copy_struct_from_user_array(
-+		&cmd, array, IOMMU_VIOMMU_INVALIDATE_DATA_SELFTEST, 0,
-+		cache_id);
- 	if (rc)
+diff --git a/include/linux/iommu.h b/include/linux/iommu.h
+index d20aa6f6863ab..969758f87e445 100644
+--- a/include/linux/iommu.h
++++ b/include/linux/iommu.h
+@@ -773,8 +773,10 @@ struct iommu_ops {
+  *                         passes in the cache invalidation requests, in form
+  *                         of a driver data structure. The driver must update
+  *                         array->entry_num to report the number of handled
+- *                         invalidation requests. The driver data structure
+- *                         must be defined in include/uapi/linux/iommufd.h
++ *                         invalidation requests. A driver may handle fewer than
++ *                         the requested, in which case the core re-invokes the
++ *                         op for the remainder. The driver data structure must
++ *                         be defined in include/uapi/linux/iommufd.h
+  * @iova_to_phys: translate iova to physical address
+  * @enforce_cache_coherency: Prevent any kind of DMA from bypassing IOMMU_CACHE,
+  *                           including no-snoop TLPs on PCIe or other platform
+diff --git a/include/linux/iommufd.h b/include/linux/iommufd.h
+index 6e7efe83bc5d8..3087f5b2def84 100644
+--- a/include/linux/iommufd.h
++++ b/include/linux/iommufd.h
+@@ -154,6 +154,8 @@ struct iommufd_hw_queue {
+  *                    The @array passes in the cache invalidation requests, in
+  *                    form of a driver data structure. A driver must update the
+  *                    array->entry_num to report the number of handled requests.
++ *                    A driver may handle fewer than the requested entry_num, in
++ *                    which case the core re-invokes the op for the remainder.
+  *                    The data structure of the array entry must be defined in
+  *                    include/uapi/linux/iommufd.h
+  * @vdevice_size: Size of the driver-defined vDEVICE structure per this vIOMMU
+diff --git a/drivers/iommu/iommufd/hw_pagetable.c b/drivers/iommu/iommufd/hw_pagetable.c
+index 623cc608ca0cd..644daf18849f4 100644
+--- a/drivers/iommu/iommufd/hw_pagetable.c
++++ b/drivers/iommu/iommufd/hw_pagetable.c
+@@ -501,6 +501,8 @@ int iommufd_hwpt_invalidate(struct iommufd_ucmd *ucmd)
+ 		.entry_len = cmd->entry_len,
+ 		.entry_num = cmd->entry_num,
+ 	};
++	struct iommufd_hw_pagetable *hwpt = NULL;
++	struct iommufd_viommu *viommu = NULL;
+ 	struct iommufd_object *pt_obj;
+ 	u32 done_num = 0;
+ 	int rc;
+@@ -527,31 +529,34 @@ int iommufd_hwpt_invalidate(struct iommufd_ucmd *ucmd)
  		goto out;
- 
--	while (cur != end) {
--		struct mock_dev *mdev;
--		struct device *dev;
--		int i;
--
--		if (cur->flags & ~IOMMU_TEST_INVALIDATE_FLAG_ALL) {
--			rc = -EOPNOTSUPP;
--			goto out;
--		}
--
--		if (cur->cache_id > MOCK_DEV_CACHE_ID_MAX) {
--			rc = -EINVAL;
--			goto out;
--		}
-+	if (cmd.flags & ~IOMMU_TEST_INVALIDATE_FLAG_ALL) {
-+		rc = -EOPNOTSUPP;
-+		goto out;
-+	}
- 
--		xa_lock(&viommu->vdevs);
--		dev = iommufd_viommu_find_dev(viommu,
--					      (unsigned long)cur->vdev_id);
--		if (!dev) {
--			xa_unlock(&viommu->vdevs);
--			rc = -EINVAL;
--			goto out;
--		}
--		mdev = container_of(dev, struct mock_dev, dev);
-+	if (cmd.cache_id > MOCK_DEV_CACHE_ID_MAX) {
-+		rc = -EINVAL;
-+		goto out;
-+	}
- 
--		if (cur->flags & IOMMU_TEST_INVALIDATE_FLAG_ALL) {
--			/* Invalidate all cache entries and ignore cache_id */
--			for (i = 0; i < MOCK_DEV_CACHE_NUM; i++)
--				mdev->cache[i] = 0;
--		} else {
--			mdev->cache[cur->cache_id] = 0;
--		}
-+	xa_lock(&viommu->vdevs);
-+	dev = iommufd_viommu_find_dev(viommu, (unsigned long)cmd.vdev_id);
-+	if (!dev) {
- 		xa_unlock(&viommu->vdevs);
--
--		cur++;
-+		rc = -EINVAL;
-+		goto out;
-+	}
-+	mdev = container_of(dev, struct mock_dev, dev);
-+
-+	if (cmd.flags & IOMMU_TEST_INVALIDATE_FLAG_ALL) {
-+		/* Invalidate all cache entries and ignore cache_id */
-+		for (i = 0; i < MOCK_DEV_CACHE_NUM; i++)
-+			mdev->cache[i] = 0;
-+	} else {
-+		mdev->cache[cmd.cache_id] = 0;
  	}
-+	xa_unlock(&viommu->vdevs);
-+
-+	processed = 1;
- out:
--	array->entry_num = cur - cmds;
--	kfree(cmds);
-+	array->entry_num = processed;
- 	return rc;
- }
- 
-@@ -875,42 +868,46 @@ mock_domain_cache_invalidate_user(struct iommu_domain *domain,
- 	struct mock_iommu_domain_nested *mock_nested = to_mock_nested(domain);
- 	struct iommu_hwpt_invalidate_selftest inv;
- 	u32 processed = 0;
--	int i = 0, j;
- 	int rc = 0;
-+	int i;
- 
- 	if (array->type != IOMMU_HWPT_INVALIDATE_DATA_SELFTEST) {
+ 	if (pt_obj->type == IOMMUFD_OBJ_HWPT_NESTED) {
+-		struct iommufd_hw_pagetable *hwpt =
+-			container_of(pt_obj, struct iommufd_hw_pagetable, obj);
+-
++		hwpt = container_of(pt_obj, struct iommufd_hw_pagetable, obj);
+ 		if (!hwpt->domain->ops ||
+ 		    !hwpt->domain->ops->cache_invalidate_user) {
+ 			rc = -EOPNOTSUPP;
+ 			goto out_put_pt;
+ 		}
+-		rc = hwpt->domain->ops->cache_invalidate_user(hwpt->domain,
+-							      &data_array);
+ 	} else if (pt_obj->type == IOMMUFD_OBJ_VIOMMU) {
+-		struct iommufd_viommu *viommu =
+-			container_of(pt_obj, struct iommufd_viommu, obj);
+-
++		viommu = container_of(pt_obj, struct iommufd_viommu, obj);
+ 		if (!viommu->ops || !viommu->ops->cache_invalidate) {
+ 			rc = -EOPNOTSUPP;
+ 			goto out_put_pt;
+ 		}
+-		rc = viommu->ops->cache_invalidate(viommu, &data_array);
+ 	} else {
  		rc = -EINVAL;
- 		goto out;
+ 		goto out_put_pt;
  	}
  
--	for ( ; i < array->entry_num; i++) {
--		rc = iommu_copy_struct_from_user_array(&inv, array,
--						       IOMMU_HWPT_INVALIDATE_DATA_SELFTEST,
--						       i, iotlb_id);
--		if (rc)
--			break;
-+	/*
-+	 * The core re-invokes this op for the remaining requests, so handle one
-+	 * request per call. A zero-length array only probes the type, validated
-+	 * above.
-+	 */
-+	if (!array->entry_num)
-+		return 0;
+-	done_num = data_array.entry_num;
++	do {
++		if (viommu)
++			rc = viommu->ops->cache_invalidate(viommu, &data_array);
++		else
++			rc = hwpt->domain->ops->cache_invalidate_user(
++				hwpt->domain, &data_array);
++
++		done_num += data_array.entry_num;
++		data_array.uptr += data_array.entry_num * data_array.entry_len;
++		data_array.entry_num = cmd->entry_num - done_num;
++	} while (!rc && done_num != cmd->entry_num);
  
--		if (inv.flags & ~IOMMU_TEST_INVALIDATE_FLAG_ALL) {
--			rc = -EOPNOTSUPP;
--			break;
--		}
-+	rc = iommu_copy_struct_from_user_array(
-+		&inv, array, IOMMU_HWPT_INVALIDATE_DATA_SELFTEST, 0, iotlb_id);
-+	if (rc)
-+		goto out;
- 
--		if (inv.iotlb_id > MOCK_NESTED_DOMAIN_IOTLB_ID_MAX) {
--			rc = -EINVAL;
--			break;
--		}
-+	if (inv.flags & ~IOMMU_TEST_INVALIDATE_FLAG_ALL) {
-+		rc = -EOPNOTSUPP;
-+		goto out;
-+	}
- 
--		if (inv.flags & IOMMU_TEST_INVALIDATE_FLAG_ALL) {
--			/* Invalidate all mock iotlb entries and ignore iotlb_id */
--			for (j = 0; j < MOCK_NESTED_DOMAIN_IOTLB_NUM; j++)
--				mock_nested->iotlb[j] = 0;
--		} else {
--			mock_nested->iotlb[inv.iotlb_id] = 0;
--		}
-+	if (inv.iotlb_id > MOCK_NESTED_DOMAIN_IOTLB_ID_MAX) {
-+		rc = -EINVAL;
-+		goto out;
-+	}
- 
--		processed++;
-+	if (inv.flags & IOMMU_TEST_INVALIDATE_FLAG_ALL) {
-+		/* Invalidate all mock iotlb entries and ignore iotlb_id */
-+		for (i = 0; i < MOCK_NESTED_DOMAIN_IOTLB_NUM; i++)
-+			mock_nested->iotlb[i] = 0;
-+	} else {
-+		mock_nested->iotlb[inv.iotlb_id] = 0;
- 	}
- 
-+	processed = 1;
- out:
- 	array->entry_num = processed;
- 	return rc;
+ out_put_pt:
+ 	iommufd_put_object(ucmd->ictx, pt_obj);
 -- 
 2.43.0
 
