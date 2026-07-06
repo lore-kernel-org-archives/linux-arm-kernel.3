@@ -4,112 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33D5C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:33:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8FF7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9owqjjgV0H2CtePOueZPc6abek2AjkJLNAZcj3bC1qU=; b=acCGouIuCpekiFbUIz/w5rmuZW
-	lLmt1Ec+LbEDCiQF9nU1YbMosjvUIvq2PIqHdBMbcvdl41HkPmLjxW/6QgJJem0X3vRqTnKuC5d16
-	FCe62URmfhn0/trgoxV+XYWHxY8hJ4/89sUzt6xsZ+uLa4zaNBUp4I5RZXlWJC3t5RScBDJq9cqEF
-	0echT3fUhbrTTAiOc62YoPgUOD2ntXn4ytFnq6sWWhE1hgxAvMHcBmo716Q7KE6G6Tw+merGnWr0d
-	5OUSnxboBL5XPFVMNuUQxl9/dh6tejad1jC2C0m5zdklfSVBJERSokorWHvP/sEfTOKt799nr5xo/
-	H32OWmJQ==;
+	bh=CqI3glLxpjkIaZ4hS8KAt+z85sv8/xneAfqqjsT0BtM=; b=0tnloBBvAArehPgQ9B/+HNOyUN
+	BhpB8TxMSuziM3xpYH7TvbfEpAB/M0cdYbo2s8gcuj3NLzFoprNhROW9jR2D5vMtxbws1ckJ7jYOW
+	Fanh4Nhk5RqjIAeSeJn0Jof9oXEU+uavLU0162OpG96Ec5ZVmI8LLSNl6IwV9ZUsZ+bGyywIVPx0t
+	g6elP8ScOdjeSlqGmCbyv8jmlwTb3MOPscVuTnnu7cihhN/m9NnlQ5wUY4NQtnis89aCLIPBnTKqy
+	CH8v200I78uId/i+dt9HcTWAfsxd6hWoRdyPh8EVxCQecITPM9AM8eEEcBulzKPXWPbr1GUvke7JF
+	RVW1a8bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfhJ-0000000C29S-3stH;
-	Mon, 06 Jul 2026 09:33:05 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1wgfhi-0000000C2WI-2kfj;
+	Mon, 06 Jul 2026 09:33:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfh1-0000000C1wy-0u99
+	id 1wgfhe-0000000C2Sj-31XU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:32:49 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-4798bea72f9so1676662f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:32:46 -0700 (PDT)
+	Mon, 06 Jul 2026 09:33:28 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66693rte107424
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 09:33:26 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CqI3glLxpjkIaZ4hS8KAt+z85sv8/xneAfqqjsT0BtM=; b=oV4pdxOFkkgiwhy3
+	KqQkRC/eNXZnrAUtWwLiMjuiM9z75nTKAlsexWfvJ06t8B6RMx1uhJ3n+CvmsGvq
+	ijj3ukeTsKiOA9rME3WLIRqParkCUvFsqEPrM7NAllVPF69cpNKHrm7/RWwAT6kM
+	vMg+2abWKTLmYA+EcGRmtq16AxOY8VT0/lyNrcjvYE8Iu/KXBPmqxB0UsElSBR3Z
+	/QKljMdrTPLdXnr2gHXPBVEsuD31Zvk0qxhQQ62aXHKcLHuRx5e3q4ykx1HopZd1
+	leEUczyCwW6zfkO30AlDmc8rEN5RBb+JoFUOWU3w7EBRRWhjz0nS5NRLA6eAMcwo
+	cVsUTg==
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f891ur6p0-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 09:33:26 +0000 (GMT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-8ef4a54f86fso7563976d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:33:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783330365; x=1783935165; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9owqjjgV0H2CtePOueZPc6abek2AjkJLNAZcj3bC1qU=;
-        b=QkOwp/Kdf27XWaTSSXtV7j4yXgOL1sRcpVYeqtqbEzVCL/Ru3euCgbYVhU/vx+HmWV
-         PgVDm1v4VEmMKvthKPM8s87R3Fl/VJQKLF5/Wxzzi0vdvKmbSyMyeHLYn3pz6BU5kR3v
-         m5hnav0wTMiprCDqZS4k0FDaBCPtqlOxeQaFzCof7+qHr1ZA2F2aa3yqFcAXbqmje5CB
-         TjcWC3gKKZF7F245snG/hiP7q+nbwLxGlp5eLr4efLRyb/fxX1FirA39VuTLlZicV30S
-         Xp25og1joIBpdXL/9En5nzt9r7PRY8F6KhQ9hUs9Bz+GV4g0qtrnkCS/PKo2qiHpQ/FM
-         6n/g==
+        d=oss.qualcomm.com; s=google; t=1783330405; x=1783935205; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CqI3glLxpjkIaZ4hS8KAt+z85sv8/xneAfqqjsT0BtM=;
+        b=Uw+Zi/POqNV9a0S4gHdeN625ZR0bxN2yDgME2jBbsOhAt3ZQOYqtqLPXKJMVoUvoO8
+         1V52Y11B+6SXfdzHNIbpo/lrN+jeEwK/Bi/E+SrRaq/YxwJmZac1jRgtoLMwEkCkK3Oc
+         Z7VVJzF/I2HZtYYsVvOCjNKBz8H9+Da+/0IrcWouZDqncG6KpNJ6YLoO65Ye5DK2DqpR
+         ypKoh5Yi5t9cTo2t1URFf8uzCO6hiZqOrqveHNq8DqMzbc8BiUvq045U1VNaH8Lw94mV
+         6zFU5+6sbiQ6yEs95aBVor+/qQfbZ0468n0/KejvNetS0eQfENEuEn7kUYlJeKanVTnx
+         9Odw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783330365; x=1783935165;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=9owqjjgV0H2CtePOueZPc6abek2AjkJLNAZcj3bC1qU=;
-        b=VlLHze5yjpZ/jwnNo1rveqeGXpmjFccqEznOcwxxaB0qUpq68Tu7/INcSHKdSiI+7i
-         DVV17J67ZbP4onfVQIoSnoHESHoOksRjU9wgQUrlmL03nd4PC9Ps1iG9eyWHBRI5g68o
-         gCoHzfXBTqvEuAcj9z4A1xfb80vh82DN20WF712dEMVuHBUnRRyy8FKmVFQy9Fxn+sZo
-         pIHx2rrqfNkSy+a7ws+TWwvjtde5vvhKXBFuN2IvBnFZT+XgUpppXEWa22cGfhPYh13y
-         mLsMvHeuQHt95JHoUFL5oNb9morJ9E0KVcu0kDq8x0K1esHpGFr96Pp/N6miUWWvrBcC
-         UM8A==
-X-Forwarded-Encrypted: i=1; AHgh+RrSh853aJeCaUSELFjs4IggYrbUACfg6D6uWqNatfEvOuBFy1vpPiBh3O0dCsjkgt9r8s+RXA4Te2EPKQu1R62M@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuvKfHT3Ae/SWWcuY6tVDp0UJhnzkuGxlFc9s8vHcLltm87C8h
-	h1yvOAiNj9HW4fZ1CvWbL4LNAYeyLSyhXykMlx8YDx/25Vy2kFz8LAhYAtDjgG7ltlM=
-X-Gm-Gg: AfdE7cmfPVglIvvRackypjejDxO2yD/ywdm3eae6ZDyEu8xFwV9cqBv4Pbnb3w3k0i3
-	OUZcnTGsLSxb8wURzw4QDmbocuTDxf/i+8MI/rYnrCOvKnN4XPP+iABfrF2QB9XysYM3UvtPqPe
-	uj7VRw/Psh9CW8KggJvd7/lb3wtJ6JRGlkphLnAV83aIHo3EjQFN4OBSsR95Yho4yXHY4l1J1BY
-	xOv3Y/Qv0etQUf0ndFdjrMgXzOpL9vM2WdUpFvnXMfLxFY58rzXsCPyyj6zTRBO6cDWX2PnOCeM
-	tRftVkbPre6CS02aKukJjAclPQxcqClkLMvBzxX8Nf/ybG4v3oGNMBr87VJfqF73TcNV1KojH2s
-	mWekJEm5FVWeilqxJuod9ABVVSp0yAOaam7vYE7FgtpfeEFfcv8bJ4CCEUucIrkWriGdG6p6xCO
-	6ZzWZP6MI/9GU=
-X-Received: by 2002:a5d:5849:0:b0:47b:69a5:7263 with SMTP id ffacd0b85a97d-47b69a573dfmr9254906f8f.5.1783330365342;
-        Mon, 06 Jul 2026 02:32:45 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:1495:8c97:96f4:dff8])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47a9e4d83bdsm23661288f8f.13.2026.07.06.02.32.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 02:32:44 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Mon, 06 Jul 2026 11:32:17 +0200
-Subject: [PATCH v4 9/9] clk: sunxi-ng: sun6i-rtc: add a733 support
+        d=1e100.net; s=20251104; t=1783330405; x=1783935205;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CqI3glLxpjkIaZ4hS8KAt+z85sv8/xneAfqqjsT0BtM=;
+        b=f9ScjEtvn7lFymzX7cuAxAb0iswOFMG0/+zTaLknp+KFjfqfO3sMFN9s+0PMk6WZMY
+         KibzmeUVfzDQNbfal1+yL9luizOK9u8QFAWfau1aX+8XPGDjhPJoKO3ekv+U5xuDFAb3
+         SFR/Ce8QV7uz3RBRpiUZGq6XkOLNYeeU6k3RcgtZsqFpOqjFJ2+VtirvTusbNlU7T9DB
+         lPQCc8ohdnD5lKb9pu1zIdkIPLp6yerNKcoO0vZ5N7jtfcInbGrPEX/Wx6fHJnEvuou/
+         4XIgNhwLCKEwq7jpR+bwcu9l5AddhCL94vAxWMxnpgHWmZm7hyxtpX0GXHokXCrdxcx6
+         2R7w==
+X-Forwarded-Encrypted: i=1; AHgh+RqyQSl9pru3ZZygxipumP/7b2ZrrcwxBVAByihv5ZYlmKL0oK+6tR8icv7ivmdBUFlMtk8TjvZNIuXzP2/BLft2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPxQcFAZpICxn3i7sWFt3TQ8UhhLPo6I4VoDT0SPPxvMzr2wej
+	JMvm/eXIrS9tr7xAJmeIxh+8dmEkxxpxdUB6rSL4zZezybzChueBfsNX7SHIu7KSpXyVd36gdRT
+	kYgaeF+w9n1SDluYbp7r7fuCh0uxPnczZo1PASUB+8I1Tv2+UXxOddJs/cPid7QDLgFecz19bSe
+	CwdQ==
+X-Gm-Gg: AfdE7cl3qBBxh92yI4egSeOD9hBHPYiEH/0nhyL/yXVRrmudpvBSAdzJtfKOHuP6YHe
+	R+pTQXx0pV1hcEhUZdxmvnZnfO8kYTRCYulzhD/01tnSqGYz+6DcPqD2gfSa7F14WaSGU0r45HD
+	rXX8PxRUb/6bad6Y+j5gO2YfILzVsje5nd7s1GMccHWbNKTxilXu/W7rPY1mv1pyqbxuoVB+iVS
+	Cz72ldu2Y5kDnTMJhdyMdMh0cZqIg7igq/0Zwn/qQ2jDeJjJMi8a1LsEM+qn1KOyqqjrcN7lEBU
+	qAMD35mkW7nkkpPtlJynApbfWAwaX0mhIesMxzTXBsmSekA/j58hsWuJ6C/vWhnUPg8wjLemzGT
+	8BC3LSZgZUP1+EiVjDw342BAQNapmogAtg+s=
+X-Received: by 2002:a05:6214:2503:b0:8e9:f5de:d5fd with SMTP id 6a1803df08f44-8f74caaf417mr106703756d6.10.1783330403626;
+        Mon, 06 Jul 2026 02:33:23 -0700 (PDT)
+X-Received: by 2002:a05:6214:2503:b0:8e9:f5de:d5fd with SMTP id 6a1803df08f44-8f74caaf417mr106701416d6.10.1783330398707;
+        Mon, 06 Jul 2026 02:33:18 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19d9e701sm3807545a12.21.2026.07.06.02.33.14
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 02:33:17 -0700 (PDT)
+Message-ID: <14c366e5-f030-401e-b51b-62d833f9dde9@oss.qualcomm.com>
+Date: Mon, 6 Jul 2026 11:33:14 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/8] arm64: dts: qcom: kaanapali: add the GPU SMMU node
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov
+ <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        Qingqing Zhou <quic_qqzhou@quicinc.com>
+References: <20260705-kaana-gpu-dt-v2-0-6ac53de56314@oss.qualcomm.com>
+ <20260705-kaana-gpu-dt-v2-3-6ac53de56314@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260705-kaana-gpu-dt-v2-3-6ac53de56314@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-a733-rtc-v4-9-f330728db3d3@baylibre.com>
-References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-In-Reply-To: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5987; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=rBendd4uuEhgkyP4RE0zkVRJMkAWDgIQr5V1OAvN0oA=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqS3Ynn47pumsEX0UV9EbWmou0XZTJh6Gx0sej3
- bEXMXj48giJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakt2JwAKCRDm/A8cN/La
- hbJuD/9QQ/F/99Cf3KupflAYPk1jey3tzzrofcnCl/hF4pb6PB7BUqKs+BdeGrf6o0Wto8aVcb/
- fu1HDNDwe1awevbgyx4JvK7EhbsDPRWZMlXzwx6P5lbjVPJnbtqmpb2X8oOLMRGlfjmCpVajlxq
- 5U6NQbkqUT3xqfzEY1wlcm/tfnageqOvkKCZsfD/6rMTI4DGwAqXG4cMmkAQ7MBWYkKRnuy9m3W
- vrPG2Tnmp9tK8ILEJsDiJH8o+0d3Zyq8HCXzgLt6jrx+ltIJeRDm1cnsvIhwag7cYqPJOPwtNgl
- eGW+52PAmGvjrX3o08dBNu1+LMoOlhWdB5Nm854YlCUbbhkxoz6WFix+A43o7SLHeOqqlGuCm4/
- F2P9/7lqvcNhUG+zlpZg2fa/JaiPKGtpnPNJ6HWeAxQd8FrJS1ObdHiBFZlxjSpo40qwdHcb9nY
- E8ORZ3Y1OiDuF5yiqQz89rjI+1e65aSDwzg5Oxurprl/zmvG09xmeBPGqiBiPu++gCZVVF6d+30
- c/u5zJOF1hqysswfOqArQJFuDXMTMsLdRJFKcpENWPUuGgpBD3cn8SmDW64X0zABHhzOhq5RCs+
- cKIk5bfCF7E7TYH97YBHvSkR63nLqU4RTu44eTx9u/DYb+2dK6oWKYCGNYP6H+NME0A3YIgSnV1
- 3dbt6hiOlyMyy7g==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+X-Proofpoint-GUID: IJyDHMX5P0T6H6yvw3HbhHJ5ihy5b60T
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA5NiBTYWx0ZWRfXxi5J369kGfTR
+ cJbnD+t4z9W8oV6ktW3d3rVYcbyf/YNXfGGap7MN3W0PlvqWPJ6zhuSDAN4lpmBA06PmQ2sOjvH
+ UlQn2WL9PN1vc6KdLdvCH9GP5wcrYMU=
+X-Authority-Analysis: v=2.4 cv=Mo1iLWae c=1 sm=1 tr=0 ts=6a4b7666 cx=c_pps
+ a=UgVkIMxJMSkC9lv97toC5g==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=54KNg95dvv-uSQ5X8vIA:9 a=QEXdDO2ut3YA:10
+ a=1HOtulTD9v-eNWfpl4qZ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA5NiBTYWx0ZWRfX0zrcq6Z/RUBU
+ VmoL1hNtjpV/M8qUCaTFkAh3b2yifwBEdnCtsWRaml+suArDF7xd/V6USBe9/9uKd1Y3C4W4q7Z
+ d/HorAPVkhbbqso7e5RPjeEFnWvM3Sfzh7HTiHOH/AebqJZuvfOXunfE4SNVm9F2IiR+2+EkC9F
+ zzE64Z/h38LFQ2BybcriFYiDynQqWTcAKUrOP2GCOSlgHhSTFja5i4FRSkcFbEOXK3/QYBBe/GX
+ z+3b1RZX0VkcZ7YBH3euuxlEEN7dg0T4eCqEwRXblMdZ4sdvCHJ45S2uMMDqDBXo/OvfYYjrui/
+ 48kAPbYjx0tIexhYGJCB74w7hGBe24QTysFs0qt3W8EMSoYfFeqbGXq7fVQZxacSJiyNwMsWIPb
+ EQDsE4oVvq74owHtlYXy6t9Q4YRgFIZjh8Ye+zi6Ab8ATazdyzCYQTtduo6unIthpfn+zwXXqra
+ 4gsCkUfCPAUBttOamyw==
+X-Proofpoint-ORIG-GUID: IJyDHMX5P0T6H6yvw3HbhHJ5ihy5b60T
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 impostorscore=0 bulkscore=0 adultscore=0 priorityscore=1501
+ suspectscore=0 spamscore=0 phishscore=0 lowpriorityscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060096
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_023248_246329_F3167240 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20260706_023326_791467_44C37AC4 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,176 +169,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the sun60i a733 CCU RTC.
+On 7/5/26 10:00 AM, Akhil P Oommen wrote:
+> From: Qingqing Zhou <quic_qqzhou@quicinc.com>
+> 
+> Add the Adreno GPU SMMU node for kaanapali platform.
+> 
+> Signed-off-by: Qingqing Zhou <quic_qqzhou@quicinc.com>
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
+>  arch/arm64/boot/dts/qcom/kaanapali.dtsi | 43 +++++++++++++++++++++++++++++++++
+>  1 file changed, 43 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/kaanapali.dtsi b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
+> index 7aa9653bd456..19eceecc2a19 100644
+> --- a/arch/arm64/boot/dts/qcom/kaanapali.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/kaanapali.dtsi
+> @@ -2601,6 +2601,49 @@ gpucc: clock-controller@3d90000 {
+>  			#power-domain-cells = <1>;
+>  		};
+>  
+> +		adreno_smmu: iommu@3da0000 {
+> +			compatible = "qcom,kaanapali-smmu-500",
+> +				     "qcom,adreno-smmu",
+> +				     "qcom,smmu-500",
+> +				     "arm,mmu-500";
+> +			reg = <0x0 0x03da0000 0x0 0x40000>;
+> +			#iommu-cells = <2>;
+> +			#global-interrupts = <1>;
+> +			dma-coherent;
+> +
+> +			power-domains = <&gpucc GPU_CC_CX_GDSC>;
+> +
+> +			clocks = <&gpucc GPU_CC_GPU_SMMU_VOTE_CLK>;
+> +			clock-names = "hlos";
 
-Compared to the a523, this SoC has a different input oscillator divider
-which auto-detects the oscillator rate and select a divider to provide
-a fixed 32768Hz clock. It also provides several phy reference clocks
-with dedicated clock gates.
+Let's match the property order of glymur.dtsi
 
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 73 ++++++++++++++++++++++++++++++++++--
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.h |  2 +-
- 2 files changed, 71 insertions(+), 4 deletions(-)
+for the contents
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 25dd87e78eb7..6b71bbd80255 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -44,9 +44,13 @@
- #define DCXO_CTRL_REG			0x160
- #define DCXO_CTRL_CLK16M_RC_EN		BIT(0)
- 
-+#define DCXO_GATING_REG			0x16c
-+
- struct sun6i_rtc_match_data {
- 	bool				have_ext_osc32k		: 1;
- 	bool				have_iosc_calibration	: 1;
-+	bool				have_dcxo_status	: 1;
-+	bool				have_phy_ref_gates	: 1;
- 	bool				rtc_32k_single_parent	: 1;
- 	const struct clk_parent_data	*osc32k_fanout_parents;
- 	u8				osc32k_fanout_nparents;
-@@ -213,7 +217,12 @@ static struct ccu_mux osc32k_clk = {
- 	},
- };
- 
--/* This falls back to the global name for fwnodes without a named reference. */
-+/*
-+ * This falls back to the global name for fwnodes without a named reference.
-+ * NOTE: osc24M name might be misleading the oscillator could also be a 26MHz
-+ * or a 19.2MHz one starting with the a733. The original name is kept anyway
-+ * in case anything is relying on it.
-+ */
- static const struct clk_parent_data osc24M[] = {
- 	{ .fw_name = "hosc", .name = "osc24M" }
- };
-@@ -227,8 +236,28 @@ static struct clk_fixed_factor osc24M_32k_div_clk = {
- 					    0),
- };
- 
--static SUNXI_CCU_GATE_HW(osc24M_32k_clk, "osc24M-32k", &osc24M_32k_div_clk.hw,
--			 LOSC_OUT_GATING_REG, BIT(16), 0);
-+static struct clk_div_table osc24M_32k_div_a733_table[] = {
-+	{ .val = 0, .div = 732 },
-+	{ .val = 1, .div = 586 },
-+	{ .val = 2, .div = 793 },
-+	{ .val = 3, .div = 732 },
-+	{ /* Sentinel */ },
-+};
-+
-+static struct ccu_div osc24M_32k_div_a733_clk = {
-+	.enable = BIT(1),
-+	.div	= _SUNXI_CCU_DIV_TABLE(14, 2, osc24M_32k_div_a733_table),
-+	.common	= {
-+		.reg		= DCXO_CTRL_REG,
-+		.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc24M-32k-div",
-+							   osc24M,
-+							   &ccu_rodiv_ops,
-+							   0),
-+	},
-+};
-+
-+static SUNXI_CCU_GATE(osc24M_32k_clk, "osc24M-32k", "osc24M-32k-div",
-+		      LOSC_OUT_GATING_REG, BIT(16), 0);
- 
- static const struct clk_hw *rtc_32k_parents[] = {
- 	&osc32k_clk.common.hw,
-@@ -267,6 +296,15 @@ static struct ccu_mux osc32k_fanout_clk = {
- 	},
- };
- 
-+static SUNXI_CCU_GATE_FW(hosc_serdes1_clk, "hosc-serdes1", "hosc",
-+		      DCXO_GATING_REG, BIT(5), 0);
-+static SUNXI_CCU_GATE_FW(hosc_serdes0_clk, "hosc-serdes0", "hosc",
-+		      DCXO_GATING_REG, BIT(4), 0);
-+static SUNXI_CCU_GATE_FW(hosc_hdmi_clk, "hosc-hdmi", "hosc",
-+		      DCXO_GATING_REG, BIT(1), 0);
-+static SUNXI_CCU_GATE_FW(hosc_ufs_clk, "hosc-ufs", "hosc",
-+		      DCXO_GATING_REG, BIT(0), 0);
-+
- static struct ccu_common *sun6i_rtc_ccu_clks[] = {
- 	&iosc_clk,
- 	&iosc_32k_clk,
-@@ -275,6 +313,11 @@ static struct ccu_common *sun6i_rtc_ccu_clks[] = {
- 	&osc24M_32k_clk.common,
- 	&rtc_32k_clk.common,
- 	&osc32k_fanout_clk.common,
-+	&osc24M_32k_div_a733_clk.common,
-+	&hosc_serdes1_clk.common,
-+	&hosc_serdes0_clk.common,
-+	&hosc_hdmi_clk.common,
-+	&hosc_ufs_clk.common,
- };
- 
- static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
-@@ -288,6 +331,10 @@ static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
- 		[CLK_OSC24M_32K]	= &osc24M_32k_clk.common.hw,
- 		[CLK_RTC_32K]		= &rtc_32k_clk.common.hw,
- 		[CLK_OSC24M_32K_DIV]	= &osc24M_32k_div_clk.hw,
-+		[CLK_HOSC_UFS]		= &hosc_ufs_clk.common.hw,
-+		[CLK_HOSC_HDMI]		= &hosc_hdmi_clk.common.hw,
-+		[CLK_HOSC_SERDES0]	= &hosc_serdes0_clk.common.hw,
-+		[CLK_HOSC_SERDES1]	= &hosc_serdes1_clk.common.hw,
- 	},
- };
- 
-@@ -330,6 +377,15 @@ static const struct sun6i_rtc_match_data sun55i_a523_rtc_ccu_data = {
- 	.osc32k_fanout_nparents	= ARRAY_SIZE(sun50i_r329_osc32k_fanout_parents),
- };
- 
-+static const struct sun6i_rtc_match_data sun60i_a733_rtc_ccu_data = {
-+	.have_ext_osc32k	= true,
-+	.have_iosc_calibration	= true,
-+	.have_dcxo_status	= true,
-+	.have_phy_ref_gates	= true,
-+	.osc32k_fanout_parents	= sun50i_r329_osc32k_fanout_parents,
-+	.osc32k_fanout_nparents	= ARRAY_SIZE(sun50i_r329_osc32k_fanout_parents),
-+};
-+
- static const struct of_device_id sun6i_rtc_ccu_match[] = {
- 	{
- 		.compatible	= "allwinner,sun50i-h616-rtc",
-@@ -343,6 +399,10 @@ static const struct of_device_id sun6i_rtc_ccu_match[] = {
- 		.compatible	= "allwinner,sun55i-a523-rtc",
- 		.data		= &sun55i_a523_rtc_ccu_data,
- 	},
-+	{
-+		.compatible	= "allwinner,sun60i-a733-rtc",
-+		.data		= &sun60i_a733_rtc_ccu_data,
-+	},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
-@@ -375,6 +435,13 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 	osc32k_fanout_init_data.parent_data = data->osc32k_fanout_parents;
- 	osc32k_fanout_init_data.num_parents = data->osc32k_fanout_nparents;
- 
-+	if (data->have_dcxo_status)
-+		sun6i_rtc_ccu_hw_clks.hws[CLK_OSC24M_32K_DIV] =
-+			&osc24M_32k_div_a733_clk.common.hw;
-+
-+	if (!data->have_phy_ref_gates)
-+		sun6i_rtc_ccu_hw_clks.num = CLK_OSC24M_32K_DIV + 1;
-+
- 	return devm_sunxi_ccu_probe(dev, reg, &sun6i_rtc_ccu_desc);
- }
- 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-index ab7b92b47f59..4f4f4cb00f1d 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
-@@ -11,6 +11,6 @@
- #define CLK_RTC_32K		6
- #define CLK_OSC24M_32K_DIV	7
- 
--#define CLK_NUMBER		(CLK_OSC24M_32K_DIV + 1)
-+#define CLK_NUMBER		(CLK_HOSC_SERDES1 + 1)
- 
- #endif /* _CCU_SUN6I_RTC_H */
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
--- 
-2.47.3
-
+Konrad
 
