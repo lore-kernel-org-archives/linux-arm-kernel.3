@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D74C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2191C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=D8wm8Qiid14jSIYOVluI1+tJsGYMTl3nXbbBAT6YG0Q=; b=S/ocQJZHKtfNWh7sD/DPgcaV4j
-	b/4jS5CsZJmI/hIU1H4hyLbJWJVjZcmP46Jm1TXRdrutu3pHfu6QVRII3TYLHmLm4JtMeG5ocSzyM
-	5jydu35Sp6Iz4X5F0i166imfKgTmqV3PELb/YnT1ZamhrKyS9ZSbEcKPxo7a9HKORqSSKaxjh8V+A
-	EBaKQNMebmycj5LMQfFMPXjNI+73D5G+46hlF3LpSsG+rdF4BujHwK0Iv+Km+JhdaUz8L8YgM8oar
-	5tapVDLyWbb+zc02vTQc51EyqQX+4/vm6mik8hu/MoPEkfJNaWWxJSyz1JdgGdeCSYUeFRBWHM+GE
-	ZJiC/Olg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FyC6uLd4SG/eFVU0+S/jOwpK4vgRdKg92Yml7ndQ0uQ=; b=f5C2/zpirCy03vS0tWMq9cIjL1
+	8ckrwavR4M/896oGtxlde1uuraO6RcEBB1NdPnnmwTK85emYLP0KvQrVGa7OcizBTbBndu86lUaUg
+	TRFl0R/nDqPfFzlR7T2/f+u4slKnCk/dvlkIa3Zt2mZ6B/ZVS9JH81L9hL0tuIbZFFqXh3D4gd5qx
+	4P94f741KVkbtzLF9BboaOgiCqEvvi1mPgBG/0FfEUJmJPD0MQvcX9qVUeGuGTaLiIWwYAfpnpuCV
+	/dfqwq6HiVCEUFPYAn8vcOoPB/hozJNMlJpYa/pVyZkrySysk+DiDPipdX1cgxt+TknpbtqCqadvU
+	bLOz3QmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgd1L-0000000Be5Q-4Aj0;
-	Mon, 06 Jul 2026 06:41:35 +0000
-Received: from mailgw.kylinos.cn ([124.126.103.232])
+	id 1wgd8B-0000000BegP-2qM1;
+	Mon, 06 Jul 2026 06:48:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgd1I-0000000Be4p-3cnO
+	id 1wgd8A-0000000BegJ-2ByB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 06:41:34 +0000
-X-UUID: b69ecaaa790511f1aa26b74ffac11d73-20260706
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.12,REQID:d20ce86f-3bbb-488a-9048-541473a1002f,IP:0,U
-	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
-	N:release,TS:-25
-X-CID-META: VersionHash:e7bac3a,CLOUDID:a415efcf5264c8eaf3c6ec4dda9f1c01,BulkI
-	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
-	DM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
-	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: b69ecaaa790511f1aa26b74ffac11d73-20260706
-X-User: zenghongling@kylinos.cn
-Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
-	(envelope-from <zenghongling@kylinos.cn>)
-	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
-	with ESMTP id 1445086435; Mon, 06 Jul 2026 14:41:27 +0800
-From: Hongling Zeng <zenghongling@kylinos.cn>
-To: vkoul@kernel.org,
-	Frank.Li@kernel.org,
-	wens@kernel.org,
-	jernej.skrabec@gmail.com,
-	samuel@sholland.org
-Cc: dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	zhongling0719@126.com,
-	Hongling Zeng <zenghongling@kylinos.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] dmaengine: sun6i: Fix physical channel index in interrupt handler
-Date: Mon,  6 Jul 2026 14:41:23 +0800
-Message-Id: <20260706064123.66035-1-zenghongling@kylinos.cn>
-X-Mailer: git-send-email 2.25.1
+	Mon, 06 Jul 2026 06:48:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C116E61383;
+	Mon,  6 Jul 2026 06:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A5F31F000E9;
+	Mon,  6 Jul 2026 06:48:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783320517;
+	bh=FyC6uLd4SG/eFVU0+S/jOwpK4vgRdKg92Yml7ndQ0uQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aNpwPhaQw9RIwCkkdYM+Niad6l8inxvBTg0uE6F6r3bChE4b981OUFGWu1hzEQi4D
+	 QtjyaZ0fsHh8nyTQd0PBJTpZa9R57N7+sV0jGHJTosRn+vuYgLLhF7jDDyCi5YrmYw
+	 QAwj9EupMCxF4iKQxwo4eEmOSHweRJkgbmt0XHpZB4UvlTEFv7WvJWRCP/WtV/s0gu
+	 m/5p0g9xtzBXKcpMnrMhT/IhJC4OOMgSSvBfdaNm6RDmZrZ/pnYyqTt2gY7+gRghSN
+	 Zgo+d6oli8+2zZuQsiQ1QZ9M87MezP1ngGMO1lGmTvuTM51nlx+IVB4UUwYIjCRwYR
+	 Fi0hf5vrgKTWw==
+Date: Mon, 6 Jul 2026 08:48:34 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Paul Louvel <paul.louvel@bootlin.com>
+Cc: Qiang Zhao <qiang.zhao@nxp.com>, 
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 03/12] dt-bindings: soc: fsl: qe: Convert QE GPIO to DT
+ schema
+Message-ID: <20260706-piquant-arboreal-panda-b810f2@quoll>
+References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
+ <20260703-qe-pic-gpios-v1-3-6c3e706e27dc@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_234133_216960_77CE6DF4 
-X-CRM114-Status: GOOD (  10.81  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260703-qe-pic-gpios-v1-3-6c3e706e27dc@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,39 +76,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The interrupt handler iterates over register banks in the outer loop
-(i = 0, 1, ...), where each bank covers DMA_IRQ_CHAN_NR (8) channels.
-However, the physical channel lookup uses only the inner loop index j,
-ignoring the bank offset i.
+On Fri, Jul 03, 2026 at 03:30:11PM +0200, Paul Louvel wrote:
+> diff --git a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
+> new file mode 100644
+> index 000000000000..1af99339ff40
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
+> @@ -0,0 +1,45 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/fsl,mpc8323-qe-pario-bank.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Freescale QUICC Engine Parallel I/O (QE PARIO) GPIO Bank
+> +
+> +maintainers:
+> +  - Christophe Leroy <christophe.leroy@csgroup.eu>
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - items:
+> +          - enum:
+> +              - fsl,mpc8360-qe-pario-bank
+> +              - fsl,mpc8569-qe-pario-bank
 
-This means for SoCs with more than 8 DMA channels, interrupts from
-physical channels 8 and above are incorrectly routed to physical
-channels 0-7. This can falsely complete descriptors for unrelated
-channels, potentially causing silent memory corruption.
+None of these were in the old binding. You need to mention and
+explain (WHY) the changes you are doing to the binding during the
+conversion.
 
-Fix by using the absolute channel index (i * DMA_IRQ_CHAN_NR + j).
+> +          - const: fsl,mpc8323-qe-pario-bank
+> +      - const: fsl,mpc8323-qe-pario-bank
 
-Fixes: 555859308723 ("dmaengine: sun6i: Add driver for the Allwinner A31 DMA controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
----
- drivers/dma/sun6i-dma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
-index a6487971ad09..fcc88a74d821 100644
---- a/drivers/dma/sun6i-dma.c
-+++ b/drivers/dma/sun6i-dma.c
-@@ -559,7 +559,7 @@ static irqreturn_t sun6i_dma_interrupt(int irq, void *dev_id)
- 		writel(status, sdev->base + DMA_IRQ_STAT(i));
- 
- 		for (j = 0; (j < DMA_IRQ_CHAN_NR) && status; j++) {
--			pchan = sdev->pchans + j;
-+			pchan = sdev->pchans + i * DMA_IRQ_CHAN_NR + j;
- 			vchan = pchan->vchan;
- 			if (vchan && (status & vchan->irq_type)) {
- 				if (vchan->cyclic) {
--- 
-2.25.1
+Best regards,
+Krzysztof
 
 
