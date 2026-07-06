@@ -4,82 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ACA9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F300C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UySQoeOiZiTRx4ilIF+QUO5yfR3H2LiGVWZLk1eEu4k=; b=fc2AlDJG5maWoZNqFYCHQYmrdg
-	7rTUZ1kzWvYxD669IHI0DwaQKlAiAbK3XTLsK8ou8lhQxot7ctPoUrfKFngKXZqgUD4vy50tXS9oV
-	5it+iXdKKTWsno9ckKqnGqBqBOpaVF1M5szNSUSVVgnYV1bQ8mGgcHgf72tzdtd3mDog1wwiUGeR0
-	xDysx3G8KOJOra318O1o2Gs4JqZdSoBqFvIkYFyJg2wuR6eo96kcvR6oNmvFFoNDzrT/WSvpEN9IX
-	JDZNAXtkvF0wky61qBVTLN+VwidGetyjcNBTqQQ7ToSS9VzpCDPwZPtCO4GJBEWJNXYlim3W5Nogk
-	ZXzrJpJw==;
+	bh=hRS5SFBTU6Qi819haKCrqH2cAVM4+2Tt7xhwcQ+yyIY=; b=mbzpnHiJR7CR3pPrX+xL8li48A
+	VdfXVmDcNPv/+GBOLsXUTivuTE/kAmNknhYaQlcKFkmPp0BAqACJpfKfv03Ce0VpmQjT1aLOmyAlm
+	o8lgMkpOOt6XcFxFks7yv74F88rFx7dBA572N9p8a4q2jfEttLWJkgWJrbADt8/mAUnMJwg/BJpjN
+	1L6w13n/IO3iN9dBhpqUzLE617hVX3phGRMHpFVOmlYogJCIJyifgtXWn4263Ha4zNvaVNw9L1rs0
+	BZUVPH/SCpx6k5o759yit8meaqCSndjmTUgSDQF8ikcPIabKKj/pZX5an7HvVefUEpT6KM7NlploB
+	xcou/2jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglIF-0000000CtPe-0nQI;
-	Mon, 06 Jul 2026 15:31:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglIE-0000000CtOs-1jKE;
-	Mon, 06 Jul 2026 15:31:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9EA0D61389;
-	Mon,  6 Jul 2026 15:31:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E2AC1F000E9;
-	Mon,  6 Jul 2026 15:31:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783351893;
-	bh=UySQoeOiZiTRx4ilIF+QUO5yfR3H2LiGVWZLk1eEu4k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=WLv+ANFN1Csm2ZjBU/d+YjV9w+/draJy3PgU/mXwkjs0YmKzUxeA8N0a1Q5PfhBwn
-	 KF8A4mUfowE7OOIHRIIzmlPXE7eyZ6UKRIRx01twwFMH5mPfPZFOhGmysvYCqNW0qs
-	 Fp0W8YGcXzQ/9BQGpR9uWA1KGUpUWhlb/lg6UvBUHWMkJFZx24SMskU1KzdHsBkbQF
-	 ur9GxGcylwov8LhchXn/yLNh2nHgzUU4ioYrsoOwQ43oWvndjcLzq0gNATuN00VYzC
-	 koJcoDuTkGZOmwXaqwKI2JtaT/GYThWLRYvHzWAOsg7A2gI21o7gWkBgKmlhgiG52i
-	 69+PqK/zPIR5Q==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wglIB-000000020uA-10FB;
-	Mon, 06 Jul 2026 15:31:31 +0000
-Date: Mon, 06 Jul 2026 16:31:30 +0100
-Message-ID: <86echgp225.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: John <therealgraysky@proton.me>
-Cc: Mark Rutland <mark.rutland@arm.com>,	Daniel Lezcano
- <daniel.lezcano@kernel.org>,	Thomas Gleixner <tglx@kernel.org>,	Rob Herring
- <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
- <conor+dt@kernel.org>,	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,	"Ivan T. Ivanov"
- <iivanov@suse.de>,	Stefan Wahren <wahrenst@gmx.net>,	Andrea della Porta
- <andrea.porta@suse.com>,	Peter Robinson <pbrobinson@gmail.com>,	Stanimir
- Varbanov <svarbanov@suse.de>,	=?UTF-8?B?TWHDrXJh?= Canal
- <mcanal@igalia.com>,	Gregor Herburger <gregor.herburger@linutronix.de>,
-	"linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,	"linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>,	"devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>,	"linux-rpi-kernel@lists.infradead.org"
- <linux-rpi-kernel@lists.infradead.org>
-Subject: Re: [REGRESSION] Raspberry Pi 5 (BCM2712) hangs at boot since d87773de9efe  (arm_arch_timer: default to EL2 virtual timer under VHE)
-In-Reply-To: <vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
-References: <oTZ1wsFlcf4l8zMuD8DYCCvff35nVbFn7gTb5_vrUPSJtjVBSTmGti8S3KnbVdVWJEzP1QRbWma6UYYXyi6v2J0fl61khniPROEhsdxMIz8=@proton.me>
-	<86h5mcp4em.wl-maz@kernel.org>
-	<vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: therealgraysky@proton.me, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, iivanov@suse.de, wahrenst@gmx.net, andrea.porta@suse.com, pbrobinson@gmail.com, svarbanov@suse.de, mcanal@igalia.com, gregor.herburger@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1wglK7-0000000CtZQ-2f17;
+	Mon, 06 Jul 2026 15:33:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wglK5-0000000CtYm-0EL8
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 15:33:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 819BD236D;
+	Mon,  6 Jul 2026 08:33:21 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BA623F7B4;
+	Mon,  6 Jul 2026 08:33:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783352005; bh=maL0BNYhvr2QfHPnX5dCkuL2XYtxHjcR0qs6j+Dl0A8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YghzYDnFDXnaph394rzzwrEwATxrs/wW6+lZ2Qrw68ZBJdHA7p5IraQmQiErm0KDH
+	 WR67beGRF7VN0Lg+v0GzYKhxZ4/gj2B0d6cqHaWRU8vSRGpY5kt96r/NJLaB2vUvF5
+	 rCFzZnWkjrJXbJxKYirQoHPViCiP/w8JtQerwLqk=
+Date: Mon, 6 Jul 2026 16:33:17 +0100
+From: Mark Rutland <mark.rutland@arm.com>
+To: Tangnianyao <tangnianyao@huawei.com>
+Cc: Marc Zyngier <maz@kernel.org>, Wei-Lin Chang <weilin.chang@arm.com>,
+	oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, "guoyang (C)" <guoyang2@huawei.com>,
+	"huanglingyan (A)" <huanglingyan2@huawei.com>,
+	"Wangzhou (B)" <wangzhou1@hisilicon.com>
+Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
+ guarantee with VTTBR_EL2.CnP
+Message-ID: <akvKvePWiu4pB47Q@J2N7QTR9R3.cambridge.arm.com>
+References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
+ <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
+ <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
+ <86o6gkpokm.wl-maz@kernel.org>
+ <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
+ <86jyr8pkw8.wl-maz@kernel.org>
+ <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_083329_234193_7B97DE04 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,74 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 16:20:13 +0100,
-John <therealgraysky@proton.me> wrote:
+On Mon, Jul 06, 2026 at 10:15:04PM +0800, Tangnianyao wrote:
+> Two SMT threads(PE0,PE1) on the same physical core share TLB.
+
+Critially those are *NOT* allowed to share entries allocated with
+CnP==0, and are only allowed to share entries where CnP was enabled at
+stage 1 (and stage 2 if applicable).
+
+Please see the ARM ARM:
+
+  https://developer.arm.com/documentation/ddi0487/mc/
+
+Specifically, section D8.12.3.4 "Common not private translations":
+
+  https://developer.arm.com/documentation/ddi0487/mc/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-16-Translation-Lookaside-Buffers/-D8-16-3-Use-of-ASIDs-and-VMIDs-to-reduce-TLB-maintenance-requirements
+
+> VM0 has 2 vcpus, vcpu0 and vcpu1 that share all architectural context
+> except the address translation context.
 > 
-> On Monday, July 6th, 2026 at 10:40 AM, Marc Zyngier <maz@kernel.org> wrote:
+> Vcpu0 may observe TLB entries that are supposed to be private to vcpu1
+> in the following case:
 > 
-> > On Mon, 06 Jul 2026 15:13:27 +0100,
-> > John <therealgraysky@proton.me> wrote:
-> > >
-> > > Since commit d87773de9efe ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE"), the Raspberry Pi 5 (BCM2712, arm64) hangs during boot on v7.2-rc1 and later. Reverting that commit on top of v7.2-rc2 boots reliably. Found by bisection.
-> > >
-> > > Environment: - Raspberry Pi 5 Model B, arm64, device-tree boot (no ACPI) - CPUs start at EL2 with VHE - Mainline v7.2-rc1 and v7.2-rc2
-> > >
-> > > Symptom: - Silent hang early in driver probe; no panic or oops. Boot banner shows
-> > >   "arch_timer: cp15 timer running at 54.00MHz (hyp-virt)". The first blocking, timer-backed wait during probe never returns because the EL2 virtual timer's interrupt is not delivered on this SoC, so clockevents are dead. The softlockup/hung-task detectors can't fire either, since they depend on the same dead timer.
-> > >
-> > 
-> > Is that a guess? Or do you know something we don't? Or worse, is this
-> > report entirely AI generated?
-> 
-> Hi Marc - I'm not a programmer, but I can use git. I performed the
-> bisect, and verification steps by hand. I am convinced the bisect is
-> correct based on the restoration of booting.
+>     PE0(core0,smt0)         PE1(core0,smt1)
+> vcpu0 load           
+> vcpu0 va->pa0        
+> vcpu0 put            
+>                                        vcpu1 load
+>                                        vcpu1 flush local tlb
+>                                        vcpu1 modify desc to va->pa1
+> vcpu0 load
+> vcpu0 hit *va->pa1*
 
-I have no doubt about this, as this is a symptom that has been wildly
-reported on the list already.
+How is CnP managed in this example?
 
-> 
-> My RPi5B freezes when booting into d87773de9e and reverting it gives a clean boot.
-> 
-> I used Opus to analyze the result of the bisect in concert with the
-> logs I captured from the serial console. I also used it to summarize
-> everything into a concise bug report. I can't vouch for the accuracy
-> of the interpretation, but I can confirm the problematic commit and
-> restoration of function.
+If *either* of the vCPUs don't set TTBRn_EL1.CnP, that is not permitted
+to happen.
 
-And that's the problem. Pointing to the problematic patch is perfectly
-fine. Asserting a root cause for the problem without any material
-evidence is not good. Only the designers of the SoC can give us that
-answer, and so far they have seemingly avoided communicating on this.
+If *both* of the vCPUs set TTBRn_EL1.CnP, then surely that is
+indistinguishable from physical CPUs:
 
-> 
-> 
-> > Again, how do you know it isn't functional? Could it be, for example,
-> > that the firmware has not configured the interrupt correctly?
-> 
-> I cannot. In the future, when I use these tools, I will scope the
-> ask to just factual content, rather than allowing them to speculate.
+    PE0(core0,smt0)         PE1(core0,smt1)
+    cpu0 va->pa0        
+                            cpu1 flush local tlb
+                            cpu1 modify desc to va->pa1
+    cpu0 hit *va->pa1*
 
-Thank you for that.
-
-> > A proposed fix has been posted at [1]. Until we hear from the
-> > implementer about the state of the HW, it is difficult to do anything.
-> > 
-> > 	M.
-> > 
-> > [1] https://lore.kernel.org/all/878q898ulx.wl-maz@kernel.org/
-> 
-> Thank you for linking that! I applied it on top of 7.2-rc2 (with d87773de9efe intact) and got a clean boot.
-
-Great. Now all we need is an explanation, and we can go back to
-business as usual.
-
-Florian?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Mark. 
 
