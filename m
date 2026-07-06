@@ -4,112 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3616C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:48:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E26F7C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lN3qfnGv2mWPUFitS8eH6rc3luHq/Jj38kDJNXJBKwg=; b=SjOPX7EgS1Pz04/29IG4HJZmad
-	Au5HugFV0ar4uPHqrUNKVLS831e/JPt/1myQhwj1sLo7wgpMthAb+xenhXGhjczCytoojMfkcHo/M
-	AfSJOel40CmJX65S1AxPDkqoQHgCgPIr0pAROIVovzmQRDV+W3xtAw6uRiWV5b4P9wBVDPDbKgPwI
-	Dmle1YPDnHC/Z0raPrYK6VSPRtKB60AEcN9Wx8K9jyvIIMvOAftQASx9ViuyEX0t+JL4GF3hxeipF
-	qDpa3V6xLYvhhiSJt2E02Ki0DDI2YM+RAxEivOQ9Lzl5gT4JPHqloBdEuRN6bV4xJnhnBDDGWkkCA
-	uL3+qqfA==;
+	bh=4G2+USFAeZTDisSq/eM4nDWS0t6QootkKLNwL7GEI6s=; b=j9Dkn9sbQm9q8tD4H4kEBh/ers
+	PiR/hAw6G8G70CgzgHCwXvVlQopgAjNENIjgPvw0e/Y5TkMCyxj2xz+Pz2yB1rqpWxxaZHRM6RRk+
+	I5me6IN+QxZmyx2kfxJPk4XcSU8iiYRql0VG85ZLxLl3o+2y3vvB3xjsPt+kJyu/yvtBIuyu9gJBt
+	kBKcp66KAf+dFxKsdVJOpsWfwli8F/lJqCYWqrOMkW/e9hoeLY4LVLRktd4x269cmH9ZTta3AZ7Kj
+	IzblmXasxg3Hde/wZ1HoNsAqfM0GgoArUvicIi+GC0cuqirMMr9iI0gjb8h4SbMMopQGG/s8q1tZ/
+	lfWtYvqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf0H-0000000BtXm-1k40;
-	Mon, 06 Jul 2026 08:48:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgf0R-0000000Btb1-2DiX;
+	Mon, 06 Jul 2026 08:48:47 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf0C-0000000BtWT-0odv
+	id 1wgf0N-0000000BtYM-1tjf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:48:34 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED61143450;
-	Mon,  6 Jul 2026 08:48:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D6F31F000E9;
-	Mon,  6 Jul 2026 08:48:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783327711;
-	bh=lN3qfnGv2mWPUFitS8eH6rc3luHq/Jj38kDJNXJBKwg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=FGj65VGSdMdhxSSuTQdDhOaSiWA/zKrbfoat2AmTWZkxL6IwSsaDTuy0v5M+bMAmp
-	 8OqoFSD3iopUyYQvnnGd4NF+YsDW9uVpHdaVltjQjlFM+JmDTyjnqawe/tAZDaCQsU
-	 ej+lNJlviXjNtDjJ216p0X5rozammss/TTWrTml4Lq60XYrAqG7tWdIiim9nmRnsyQ
-	 hK7X8SB9sCkcQPYjSlK5E4WhEdN7iGlUoWcdcTYKBHe/b+Ui+rr4CeHMdU9fhsAEpK
-	 UlLEWBDkhSy149BWGidGDV2UMm0m57ByTSgDYqoo6DZbqTQhsoBOQER13AkPFDKr1K
-	 2cdp4uQbIefAQ==
-Message-ID: <41f08ccd-39dd-4b69-8ddf-60da848fef6a@kernel.org>
-Date: Mon, 6 Jul 2026 10:48:21 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
-To: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
- akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
-Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
- lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, apopple@nvidia.com, rcampbell@nvidia.com,
- ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
- rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
- ying.huang@linux.alibaba.com, ak@linux.intel.com, nao.horiguchi@gmail.com,
- mel@csn.ul.ie, j-nomura@ce.jp.nec.com, pfalcato@suse.de, tglx@kernel.org,
- dave.hansen@intel.com, jpoimboe@kernel.org, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
- anshuman.khandual@arm.com
-References: <20260703114202.365553-1-dev.jain@arm.com>
- <20260703114202.365553-7-dev.jain@arm.com>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20260703114202.365553-7-dev.jain@arm.com>
+	Mon, 06 Jul 2026 08:48:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 29905C8EC65;
+	Mon,  6 Jul 2026 08:48:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 17D68601A2;
+	Mon,  6 Jul 2026 08:48:39 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6922C11BB9D9D;
+	Mon,  6 Jul 2026 10:48:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783327717; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=4G2+USFAeZTDisSq/eM4nDWS0t6QootkKLNwL7GEI6s=;
+	b=gW1AZif3NdWuwJpcaSREpPyyzuzLVd6yQeWN/RWYlglDm0RwfTJdyVqzGj2HaxYgqGb15r
+	SI5y5Jtp6apxHnFT3jd5CKjLqUDoukQNNZ6T47eGareIAu+Vj0a+MwOm6j17N2t5v+Itsy
+	I6bmUZdZ1Xn4YFbvDRlORuo/quhrnQyqTdRLXtYOMjuuevVQjLX7KR00jqSc/EHkmD812F
+	LkIoPE9qnTCZ7hVcb36epMNvJ35G+b4CplTfizscLw+l9t4n6lh6SkRn5Ohq4SROCD5iVb
+	iphsKW7hpvYrGOOv2tSBXA6qa3bHMKVscFwAojrisvLbZNZaqPgshagL764ZOw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Date: Mon, 06 Jul 2026 10:48:32 +0200
+Message-Id: <DJRCWXDUGFY8.1AIUFSEBFTG94@bootlin.com>
+Cc: "Qiang Zhao" <qiang.zhao@nxp.com>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Linus Walleij" <linusw@kernel.org>,
+ "Bartosz Golaszewski" <brgl@kernel.org>, "Madhavan Srinivasan"
+ <maddy@linux.ibm.com>, "Michael Ellerman" <mpe@ellerman.id.au>, "Nicholas
+ Piggin" <npiggin@gmail.com>, <linuxppc-dev@lists.ozlabs.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 04/12] dt-bindings: soc: fsl: qe: Add support of IRQ in
+ QE GPIO
+From: "Paul Louvel" <paul.louvel@bootlin.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Paul Louvel"
+ <paul.louvel@bootlin.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
+ <20260703-qe-pic-gpios-v1-4-6c3e706e27dc@bootlin.com>
+ <20260706-elfish-cornflower-bullfinch-604e0a@quoll>
+In-Reply-To: <20260706-elfish-cornflower-bullfinch-604e0a@quoll>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_014843_825061_03F40B19 
+X-CRM114-Status: GOOD (  23.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,31 +87,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/3/26 13:41, Dev Jain wrote:
-> prot_none_hugetlb_entry() is the hugetlb callback for the early
-> mprotect(PROT_NONE) PFN permission walk on x86.
-> 
-> The callback passes the decoded PFN to pfn_modify_allowed(). For a
-> hugetlb callback, the pte pointer refers to a hugetlb entry. On
-> architectures where hugetlb entries need huge_ptep_get(), reading that
-> entry with ptep_get() can make the permission check use the wrong PFN.
-> 
-> Use huge_ptep_get() before decoding the hugetlb PFN.
-> 
-> Currently there is no path which can trigger a bug: huge_ptep_get() is a
-> simple ptep_get() for x86, and the prot_none walk occurs only for x86.
-> 
-> So no need to backport - use the correct helper anyways.
-> 
-> Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged high MMIO PROT_NONE mappings")
-> Reviewed-by: Muchun Song <muchun.song@linux.dev>
-> Signed-off-by: Dev Jain <dev.jain@arm.com>
-> ---
+On Mon Jul 6, 2026 at 8:52 AM CEST, Krzysztof Kozlowski wrote:
+> On Fri, Jul 03, 2026 at 03:30:12PM +0200, Paul Louvel wrote:
+>> Some QE GPIO pins have an associated interrupt line in the QE PIC to
+>> signal state changes on the pin.  Add the corresponding
+>> interrupt-controller / nexus properties to the QE GPIO binding.
+>>=20
+>> Because the GPIO controller does not perform any interrupt handling
+>> itself, a nexus node (interrupt-map) is used to map each GPIO line
+>> supporting IRQ to the parent QE PIC interrupt domain.
+>>=20
+>> As the QE PIC can be configured to generate an interrupt on either a
+>> high-to-low transition or any change in signal state, three
+>> interrupt-map entries are needed per GPIO pin that can yield an
+>> interrupt (falling, both, and the "none" case which defaults to both in
+>> QE PIC).  This overhead is necessary because the interrupt-map-pass-thru
+>> property is not part of the DT specification.
+>>=20
+>> The interrupt-map property is optional: it is not required for GPIO
+>> banks that have no interrupt capable GPIO line (e.g. port D on MPC8323),
+>> or when interrupt functionality is not used.
+>>=20
+>> Update the example to show a scenario where each bank supports a
+>> different numbers of IRQs, or no IRQs at all.
+>>=20
+>> Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
+>> ---
+>>  .../bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml   | 69 +++++++++++++++=
+++++++-
+>>  1 file changed, 66 insertions(+), 3 deletions(-)
+>>=20
+>> diff --git a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario=
+-bank.yaml b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-ba=
+nk.yaml
+>> index 1af99339ff40..0c849a5698f4 100644
+>> --- a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.y=
+aml
+>> +++ b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.y=
+aml
+>> @@ -27,6 +27,17 @@ properties:
+>>    "#gpio-cells":
+>>      const: 2
+>> =20
+>> +  "#address-cells":
+>> +    const: 0
+>> +
+>> +  "#interrupt-cells":
+>> +    const: 2
+>> +
+>
+> If this has interrupt-cells, then it is a nexus, thus why isn't this
+> also a "interrupt-controller"?
 
-Acked-by: David Hildenbrand (Arm) <david@kernel.org>
+Because these these banks are not interrupt controllers.
+Interrupts are handled by the QE PIC, and the GPIO controller does not do a=
+ny
+interrupt handling itself.
+In this setup, does it really needs an "interrupt-controller" property?
 
--- 
-Cheers,
+>
+>> +  interrupt-map:
+>> +    description: |
+>> +      Specifies the mapping of GPIO lines to the parent interrupt contr=
+oller, as the
+>> +      GPIO controller does not do interrupt handling itself.
+>> +
+>>  required:
+>>    - compatible
+>>    - reg
+>> @@ -37,9 +48,61 @@ additionalProperties: false
+>> =20
+>>  examples:
+>>    - |
+>> -    gpio-controller@1400 {
+>> -        compatible =3D "fsl,mpc8360-qe-pario-bank", "fsl,mpc8323-qe-par=
+io-bank";
+>> -        reg =3D <0x1400 0x18>;
+>
+> I don't get why you rewrite existing example instead of adding new one.
 
-David
+I could yes.
+
+>
+>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>> +
+>> +    pic: interrupt-controller {
+>> +      interrupt-controller;
+>> +      #address-cells =3D <0>;
+>> +      #interrupt-cells =3D <2>;
+>> +    };
+>
+> Drop node, irrelevant.
+>
+>> +
+>> +    gpio-controller@1418 {
+>> +        #gpio-cells =3D <2>;
+>> +        #address-cells =3D <0>;
+>> +        #interrupt-cells =3D <2>;
+>> +        compatible =3D "fsl,mpc8323-qe-pario-bank";
+>> +        reg =3D <0x1418 0x18>;
+>
+> And now you are not following DTS coding style.
+>
+>>          gpio-controller;
+>> +        interrupt-map =3D <
+>> +          7 IRQ_TYPE_EDGE_FALLING  &pic 4 IRQ_TYPE_EDGE_FALLING
+>> +          7 IRQ_TYPE_EDGE_BOTH     &pic 4 IRQ_TYPE_EDGE_BOTH
+>> +          7 0                      &pic 4 IRQ_TYPE_NONE
+>> +
+>> +          9 IRQ_TYPE_EDGE_FALLING  &pic 5 IRQ_TYPE_EDGE_FALLING
+>> +          9 IRQ_TYPE_EDGE_BOTH     &pic 5 IRQ_TYPE_EDGE_BOTH
+>> +          9 0                      &pic 5 IRQ_TYPE_NONE
+>> +
+>> +          25 IRQ_TYPE_EDGE_FALLING &pic 6 IRQ_TYPE_EDGE_FALLING
+>> +          25 IRQ_TYPE_EDGE_BOTH    &pic 6 IRQ_TYPE_EDGE_BOTH
+>> +          25 0                     &pic 6 IRQ_TYPE_NONE
+>> +
+>> +          27 IRQ_TYPE_EDGE_FALLING &pic 7 IRQ_TYPE_EDGE_FALLING
+>> +          27 IRQ_TYPE_EDGE_BOTH    &pic 7 IRQ_TYPE_EDGE_BOTH
+>> +          27 0                     &pic 7 IRQ_TYPE_NONE
+>> +        >;
+>> +    };
+>> +
+>> +    gpio-controller@1430 {
+>>          #gpio-cells =3D <2>;
+>
+> So two new examples? But old one was wrong?
+>
+>> +        #address-cells =3D <0>;
+>> +        #interrupt-cells =3D <2>;
+>> +        compatible =3D "fsl,mpc8323-qe-pario-bank";
+>> +        reg =3D <0x1430 0x18>;
+>> +        gpio-controller;
+>> +        interrupt-map =3D <
+>> +          24 IRQ_TYPE_EDGE_FALLING &pic 8 IRQ_TYPE_EDGE_FALLING
+>> +          24 IRQ_TYPE_EDGE_BOTH    &pic 8 IRQ_TYPE_EDGE_BOTH
+>> +          24 0                     &pic 8 IRQ_TYPE_NONE
+>> +
+>> +          29 IRQ_TYPE_EDGE_FALLING &pic 9 IRQ_TYPE_EDGE_FALLING
+>> +          29 IRQ_TYPE_EDGE_BOTH    &pic 9 IRQ_TYPE_EDGE_BOTH
+>> +          29 0                     &pic 9 IRQ_TYPE_NONE
+>> +        >;
+>> +    };
+>> +
+>> +    gpio-controller@1448 {
+>> +        #gpio-cells =3D <2>;
+>> +        compatible =3D "fsl,mpc8323-qe-pario-bank";
+>
+> Wait, three examples? But isn't this the same as previous one?
+
+I wanted to outline that each bank do not have the same number of GPIO line=
+s
+that support interrupts.
+
+>
+>> +        reg =3D <0x1448 0x18>;
+>> +        gpio-controller;
+>>      };
+>>=20
+>> --=20
+>> 2.55.0
+>>=20
+
+Thanks,
+Paul.
+
+
+
+
+--=20
+Paul Louvel, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
