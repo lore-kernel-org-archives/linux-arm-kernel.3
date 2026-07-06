@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91506C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:53:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F055C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37O/GVmlQ7WUeZfOluuAeNU/TKXRrGR3niG0ZdI4IQU=; b=08XKHL2jqskNmrfmApzSk4IIAx
-	/Wez9EY3BhbogbGDsvkfU5sePHmkB1Tg9usNOY9m8ox1/Cc3r0mdf/JKSJXMfqBHqGoy9nvnPV0oZ
-	+igs+JAmJN4+tw+OmV341f/AEOb0ckYXwPngeENow7P57sePBWzCMN34dxVg4TrcTLH2xGFqvcKcj
-	8+PaNcGz6kxlKzxkey/7KzLAU9++FIdYkX0gKHYs9K9E9Tyxs84D850BqkeXiYqfJ65Jj5VYG1Q0e
-	zhsq5d7WGF2nBP4F7MI4pmgdgGQAa5ahX68sML0r+cDYHGwgKyZBkrLgmK5JUO6UlORMT2LsU5nJn
-	zr3oruew==;
+	bh=FygMkskWWauJrTWGr4Lk4tJwoERu7VPvRrn22eMwQrE=; b=gcuu7TFyGbQsnsiy8AI+AaNF8r
+	RAbmplpsUNkmuza9xDWwcLy33/5BXLqxSSuRBTPL3JQBVtC0J8EOf3rzGDvVrgd/govI5Lpyl6WN9
+	Tl8ZUrhBXtT5GK0E4s9zZS6P8XDpMq9bB5cnxIhba0OHkLRZnws7b2x7ha3bRbcdjpnsAkdAKbMWv
+	yWtyYjnDsiamuYJPKhCnNf5HpIN0Ojq2NeVztXBn4tv7kgPcPJ33B9ihlXrBsN3Q1MLNj2zbnYh2n
+	u2g/CMvR+ZUyjR8m7iujp1GmqLKO5GaVVUeaW6fWANKrMZZiW1EjsjV2VPus88yybOMRJfrTTyEwX
+	QKN5ApSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4d-0000000Buge-4AlX;
-	Mon, 06 Jul 2026 08:53:08 +0000
+	id 1wgf4d-0000000Bufz-3Br1;
+	Mon, 06 Jul 2026 08:53:07 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4U-0000000BuTn-3vkt
+	id 1wgf4T-0000000BuSR-46QF
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Jul 2026 08:52:59 +0000
+	Mon, 06 Jul 2026 08:52:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=37O/GVmlQ7WUeZfOluuAeNU/TKXRrGR3niG0ZdI4IQU=; b=Nbzaca1ePhdji+EWkzlveGfxIh
-	vaDXgcNbPQDALeq/XeQP+bR2ebsmg3xXvO5V3rWRzq7FwaPHdqVYWv/Qa4K6vrULp9d0npY8F6OR+
-	WQVqiRHzuiroQ61B0mFaJXIidu2OONuFSXoKVGFjwkj5SUIfovS9Ctr4Da2gnbXgTepgkbyXb+xsw
-	egKncIjXB2ijlg2p0rP3txhbpVH6rtETITKN5t4bcSFw7PvQZMpUEO5lhL+8M08iT5huXIrEaPjRB
-	ruH3xOQk7ox+xy+UxMIJ4+zZqVVcAIdN1WxCbthQV7TLWqn2n94q/SdX6HOpyPCK8QHbl0CQzTsyS
-	15lgdQ8Q==;
+	bh=FygMkskWWauJrTWGr4Lk4tJwoERu7VPvRrn22eMwQrE=; b=KIXueHo/LtPey9+7I7A1eHg0hH
+	xFK+0GJpq1EVy56JSwdBnamXiwtSbbOCuzSvTLBdNxKVPRdPpb6GoXUJf0tlXF+ZY3mEqRouzCwuN
+	ESxbvcC/Xh6jd/3KYMny3t7cbygfS1U6wY9EZB//SLhYmm6D9HwuiLrC313O1lEIiu+OhCMjxO0jM
+	+VXdcxPy4oHaB8+RS2xi1DKBtajkzuAsecJutKhaacw0qto4Z2BtcHW3RRfb8tpmI8UhC5QcNNApa
+	g1WbWk95o1ZgKYmB0kQeillnuBKb0tRwoz0lTZNe6DYJV8RcXcSiGxbmLvlzVY6+lTMKof82WkZl3
+	K+RKAw+w==;
 Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wgf4R-00000006LFh-3MnP
+	id 1wgf4R-00000006LFc-0LAL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:52:57 +0000
+	Mon, 06 Jul 2026 08:52:56 +0000
 Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIY6L1515286;
-	Mon, 6 Jul 2026 08:52:46 GMT
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIXdo1515271;
+	Mon, 6 Jul 2026 08:52:42 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=37O/GVmlQ7WUeZfOl
-	uuAeNU/TKXRrGR3niG0ZdI4IQU=; b=WmLoeCSvlh9obQPBwOXeOFA1+qEV8VO6E
-	kDlMKQ2ECl+VODa1bd0H4lWF4ZLOAq2jFKGum7BoVZW0uFRyT6nJfCcGCa/M8jyJ
-	/9NRDeDrKVm2ZL9h4zRZNur7VMtA0hT4FsxKi4ZtuYXxEZU7jWWMV7BathzEbae5
-	r7CeTv8HPB1bnLys+n2mO4qYuJ2usxip7LpzzRuC1SMvqhPu29rQac764wjlK5+w
-	8IzwIzrBnZhZD6UTuMdNJ8WlH8q5Ki+PYjoqGmoprN5K6rtcvB+jcja3jPVY169E
-	VOJQGOtoRIPYGOERE9lQsRxXTkl1C12uQaC1V2ekb6mZtF/vPOziA==
+	:mime-version:references:subject:to; s=pp1; bh=FygMkskWWauJrTWGr
+	4Lk4tJwoERu7VPvRrn22eMwQrE=; b=Ojvvnk4FGriyUQ8tASVOGwG/gb8SoC/Nt
+	P4NeK1n8K4cpk5XJzD84ZkgLS8zgWj/fARzFgBokssiZxQm60O0NXaiFlQxmsZYa
+	0tCrNzW+YuX5rkiobSUf9GzWTgGJdSxsUs1X0qTS1jpgdY02iYMnnC9w2T750qDn
+	ziUu5u30+oYclr5BF7FZC1aeqC377Fg+Tyof+LSlHrLU9HxYzxNK2LDqh7IlQoww
+	7EVM/ct5mE7PRtwjE8ltpmnQIBKeLmZ+sM9MOnZyp4hgDWWxmQ1Us5D93mB6asLO
+	r8NUTEvlsnbsi492VqVogdNMTSVPlxzXThuVehuu8Gm8w8QqMyFYw==
 Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6rkdh6vm-1
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6rkdh6v5-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:46 +0000 (GMT)
+	Mon, 06 Jul 2026 08:52:42 +0000 (GMT)
 Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nm6c022915;
-	Mon, 6 Jul 2026 08:52:45 GMT
-Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7e0h4qe0-1
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668ndsf022416;
+	Mon, 6 Jul 2026 08:52:41 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7e0h4qdn-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:45 +0000 (GMT)
+	Mon, 06 Jul 2026 08:52:41 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qcE114811560
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qYAE56754512
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 08:52:39 GMT
+	Mon, 6 Jul 2026 08:52:34 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id CDFA420040;
-	Mon,  6 Jul 2026 08:52:38 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 16A5A20040;
+	Mon,  6 Jul 2026 08:52:34 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 735B52004B;
-	Mon,  6 Jul 2026 08:52:38 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id B05B12004B;
+	Mon,  6 Jul 2026 08:52:33 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  6 Jul 2026 08:52:38 +0000 (GMT)
+	Mon,  6 Jul 2026 08:52:33 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -103,32 +103,32 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v4 21/27] s390/hwcaps: Report SAE support as hwcap
-Date: Mon,  6 Jul 2026 10:52:21 +0200
-Message-ID: <20260706085229.979525-22-seiden@linux.ibm.com>
+Subject: [PATCH v4 10/27] KVM: arm64: Refactor core-reset into a separate function
+Date: Mon,  6 Jul 2026 10:52:10 +0200
+Message-ID: <20260706085229.979525-11-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
 References: <20260706085229.979525-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=M7J97Sws c=1 sm=1 tr=0 ts=6a4b6cde cx=c_pps
+X-Authority-Analysis: v=2.4 cv=M7J97Sws c=1 sm=1 tr=0 ts=6a4b6cda cx=c_pps
  a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=MMtvGDNtdIwsdepEW5QA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX3LFzXaqOp2vI
- cxMzO2jfp5S8vn31VR+dzZ4VH8lwGtSmwdLIB5820AsD8yLKjtUknjpUeIxE3J024tEzIBx264W
- prM7jVHGWxqwK9ZK3sg6Cmk0n9iM5S82foWV/xicwd3ynJY6zYPy7slFEnBDI9X3AbHGtngJNHZ
- YRkcFtFvbwOmxe3BSYanx4meRoPit1BArcWyNEBTC4bie6G8c2nAG6VLzZDj+Artm+ZZ2kd2Xg3
- Ml3KmDJrZmrd/LK7HNbaQNdlCXP6SfdpSRNrH9MMdho8KtYmlo1yo0CxeFhGCUUhONrvPJGk4Vk
- rZTda45tYCsMlLLpe+5uLJrdylPrX64frElBVvG1xLV0ZlNipMcmYoYUXsRHF5nmcRMBubqGmwc
- 2G27y1FgPzLpot/qjq/Dxp9CwzyKx6e5DbWUBJ5qOV/GRqYr1bGGrbUEHwILkt/vDOKRGeG5PQY
- Osmc91Kk+SzkjVzm4fg==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX9Ym6myaCWJG0
- Trm2rWmPmbay/soLvkSdnU9CcbzRtftSomOVfqLh8pNXSjM+0LCYmvgYnktbw9sNDbBag5GhcvA
- dBmYn+AXa/BuDLptrT+3kDIfn9Uf8BQ=
-X-Proofpoint-GUID: 4Cyx8GMJTLOQKR5J7phq5SKoY35iq4Wb
-X-Proofpoint-ORIG-GUID: 4Cyx8GMJTLOQKR5J7phq5SKoY35iq4Wb
+ a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=mG5WgqR7HocGrkJ2-aYA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX+2pc5gaR5lgs
+ McArzd/Wvdx9+a1cJuc200vfLPgSiPywgyBj2/v5tIbBaa2zh5E9q0/HRhTaS/kE/eH2+Ab+Atk
+ kDBKDpr8qaVmTJZDVrfjsd8jTu4GBEe3HXzZ4L45AT9llKFmmwq2MOxoq6558QNYOD4xNMkJer7
+ /MSm8/ZeCdlM/9k4gemye5btVledPljG7uAuEYZzXkAlQQhRDqf4E5MMZDsmJY0auZg6ArZOu8B
+ Foz7X5kjFQMwvRfPfWw2iNu08hZb2mzmWomaFniCn9TkWx5W+6y6GfMEmRdQ7fK6rFVntSJD2nb
+ aO1xfBlZHSwuoWbyNH1IIeH29e+aKvC4EkrAH88HmVgNqnbkyf+iBX8UN606Co41O1d0e7GHdU5
+ lgWE5l4ebCH8IdW7LabhxZtm/cUrfKv3RzE0T0D2VQvtop1MD+nnIWVNdEljrP0nay1PrmAsY6H
+ La3Bxp8jUALwpCnuC4w==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX8++TuY1nZ9P2
+ J1rGyJSUuljWtfChmpd8M5NkJcxvY0SpkBPKwZaoNHLlcJeaQ9ddL4oDKStdEOguNRHptFcZo5e
+ FUDpT+dp39CRF8xEdjiBD1kXIxmi238=
+X-Proofpoint-GUID: -OKD7cXNc3gJJKyLlheCLezqMa4UyYV3
+X-Proofpoint-ORIG-GUID: -OKD7cXNc3gJJKyLlheCLezqMa4UyYV3
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
@@ -138,8 +138,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_095256_309180_2C7CC780 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20260706_095255_395223_90DEF3E3 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,95 +154,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hendrik Brueckner <brueckner@linux.ibm.com>
+Move the reset of the arm core register into a separate function and
+share it with s390.
 
-Report SAE support as hwcap (and /proc/cpuinfo)
+No functional change.
 
-Signed-off-by: Hendrik Brueckner <brueckner@linux.ibm.com>
 Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- arch/s390/include/asm/elf.h    | 2 ++
- arch/s390/include/asm/sclp.h   | 5 ++++-
- arch/s390/kernel/processor.c   | 3 +++
- drivers/s390/char/sclp_early.c | 1 +
- 4 files changed, 10 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/reset.c | 45 ++++++++++++++++++++++++++----------------
+ 1 file changed, 28 insertions(+), 17 deletions(-)
 
-diff --git a/arch/s390/include/asm/elf.h b/arch/s390/include/asm/elf.h
-index bb63fa4d20bb..ad3108ecfb07 100644
---- a/arch/s390/include/asm/elf.h
-+++ b/arch/s390/include/asm/elf.h
-@@ -123,6 +123,7 @@ enum {
- 	HWCAP_NR_NNPA		= 20,
- 	HWCAP_NR_PCI_MIO	= 21,
- 	HWCAP_NR_SIE		= 22,
-+	HWCAP_NR_SAE		= 23,
- 	HWCAP_NR_MAX
- };
- 
-@@ -150,6 +151,7 @@ enum {
- #define HWCAP_NNPA		BIT(HWCAP_NR_NNPA)
- #define HWCAP_PCI_MIO		BIT(HWCAP_NR_PCI_MIO)
- #define HWCAP_SIE		BIT(HWCAP_NR_SIE)
-+#define HWCAP_SAE		BIT(HWCAP_NR_SAE)
- 
- /*
-  * These are used to set parameters in the core dumps.
-diff --git a/arch/s390/include/asm/sclp.h b/arch/s390/include/asm/sclp.h
-index f2d490558054..f669569cf78d 100644
---- a/arch/s390/include/asm/sclp.h
-+++ b/arch/s390/include/asm/sclp.h
-@@ -53,7 +53,9 @@ struct sclp_core_entry {
- 	u8 siif : 1;
- 	u8 sigpif : 1;
- 	u8 : 3;
--	u8 reserved2[3];
-+	u8 aef: 1;
-+	u8 : 7;
-+	u8 reserved2[2];
- 	u8 : 2;
- 	u8 ib : 1;
- 	u8 cei : 1;
-@@ -106,6 +108,7 @@ struct sclp_info {
- 	unsigned char has_aeni : 1;
- 	unsigned char has_aisi : 1;
- 	unsigned char has_astfleie2 : 1;
-+	unsigned char has_aef : 1;
- 	unsigned int ibc;
- 	unsigned int mtid;
- 	unsigned int mtid_cp;
-diff --git a/arch/s390/kernel/processor.c b/arch/s390/kernel/processor.c
-index e33a3eccda56..6da55a158027 100644
---- a/arch/s390/kernel/processor.c
-+++ b/arch/s390/kernel/processor.c
-@@ -150,6 +150,7 @@ static void show_cpu_summary(struct seq_file *m, void *v)
- 		[HWCAP_NR_NNPA]		= "nnpa",
- 		[HWCAP_NR_PCI_MIO]	= "pcimio",
- 		[HWCAP_NR_SIE]		= "sie",
-+		[HWCAP_NR_SAE]		= "sae",
- 	};
- 	int i, cpu;
- 
-@@ -254,6 +255,8 @@ static int __init setup_hwcaps(void)
- 	/* virtualization support */
- 	if (sclp.has_sief2)
- 		elf_hwcap |= HWCAP_SIE;
-+	if (sclp.has_aef)
-+		elf_hwcap |= HWCAP_SAE;
- 
- 	return 0;
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 1ce3b26cc1ae..81d9f0faede2 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -172,6 +172,33 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+ 		memset(vcpu->arch.sve_state, 0, vcpu_sve_state_size(vcpu));
  }
-diff --git a/drivers/s390/char/sclp_early.c b/drivers/s390/char/sclp_early.c
-index 22dd797e6229..e58d24b95bd1 100644
---- a/drivers/s390/char/sclp_early.c
-+++ b/drivers/s390/char/sclp_early.c
-@@ -96,6 +96,7 @@ static void __init sclp_early_facilities_detect(void)
- 		sclp.has_ib = cpue->ib;
- 		sclp.has_cei = cpue->cei;
- 		sclp.has_skey = cpue->skey;
-+		sclp.has_aef = cpue->aef;
- 		break;
+ 
++#ifdef ARM64_S390_COMMON
++static void kvm_reset_vcpu_core_regs(struct kvm_vcpu *vcpu)
++{
++	u32 pstate;
++
++	if (vcpu_el1_is_32bit(vcpu))
++		pstate = VCPU_RESET_PSTATE_SVC;
++	else if (vcpu_has_nv(vcpu))
++		pstate = VCPU_RESET_PSTATE_EL2;
++	else
++		pstate = VCPU_RESET_PSTATE_EL1;
++
++	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
++	*vcpu_pc(vcpu) = 0;
++	*vcpu_sp_el0(vcpu) = 0;
++	memset(kvm_vcpu_get_vregs(vcpu), 0, sizeof(*kvm_vcpu_get_vregs(vcpu)));
++	memset(kvm_vcpu_get_fpsr(vcpu), 0, sizeof(*kvm_vcpu_get_fpsr(vcpu)));
++	memset(kvm_vcpu_get_fpcr(vcpu), 0, sizeof(*kvm_vcpu_get_fpcr(vcpu)));
++	vcpu->arch.ctxt.spsr_abt = 0;
++	vcpu->arch.ctxt.spsr_und = 0;
++	vcpu->arch.ctxt.spsr_irq = 0;
++	vcpu->arch.ctxt.spsr_fiq = 0;
++	*vcpu_cpsr(vcpu) = pstate;
++}
++
++#endif /* ARM64_S390_COMMON */
++
+ /**
+  * kvm_reset_vcpu - sets core registers and sys_regs to reset value
+  * @vcpu: The VCPU pointer
+@@ -194,7 +221,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ {
+ 	struct vcpu_reset_state reset_state;
+ 	bool loaded;
+-	u32 pstate;
+ 
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+ 	reset_state = vcpu->arch.reset_state;
+@@ -213,23 +239,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 		kvm_vcpu_reset_sve(vcpu);
  	}
  
+-	if (vcpu_el1_is_32bit(vcpu))
+-		pstate = VCPU_RESET_PSTATE_SVC;
+-	else if (vcpu_has_nv(vcpu))
+-		pstate = VCPU_RESET_PSTATE_EL2;
+-	else
+-		pstate = VCPU_RESET_PSTATE_EL1;
+-
+ 	/* Reset core registers */
+-	memset(vcpu_gp_regs(vcpu), 0, sizeof(vcpu_gp_regs(vcpu)));
+-	*vcpu_pc(vcpu) = 0;
+-	*vcpu_sp_el0(vcpu) = 0;
+-	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
+-	vcpu->arch.ctxt.spsr_abt = 0;
+-	vcpu->arch.ctxt.spsr_und = 0;
+-	vcpu->arch.ctxt.spsr_irq = 0;
+-	vcpu->arch.ctxt.spsr_fiq = 0;
+-	*vcpu_cpsr(vcpu) = pstate;
++	kvm_reset_vcpu_core_regs(vcpu);
+ 
+ 	/* Reset system registers */
+ 	kvm_reset_sys_regs(vcpu);
 -- 
 2.53.0
 
