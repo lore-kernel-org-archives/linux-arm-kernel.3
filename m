@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE11EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 02:43:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704D9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 02:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N3kGAvCynLkyyOssWqBW+4FeNDDI7MPAA96aRb7/syU=; b=U7kMBzlXcJn8VXKqER4H/r1+Jq
-	mgdhIyoM/BQUw+XGraVkJIfQvs1eDXbt818INCpuLLtzEBr43chgiTRqWbxPuzGO4kxtfJvMEkWMA
-	+h4n4fziSEzEI/RHdaJR2V3Z2axA8T4qG8dcmsbKiUCo/Nl6BYsxrcpXqeVl1P+Fnk5mb+0Zzcug4
-	nYGQWd6afJjKuWc8rhoVwOpQPs2MR9966WmA2MRt9wiWgxOybVNc/1q8UQ605Kzg3cWmuxyMd/fxT
-	SEsTtHQF3NOb45rbfuYeRtDS6GcxFNlpeKB6Wgy7RcD1QpuahW6SWtl/MXzEYxf5lQRMRjSaUFb+h
-	1h3fJWAA==;
+	bh=umFuia/uR3Mpl68nr587ATF0YjOBIMF0pqeEO8SyWqA=; b=Hqrf1uEux/uksAWH98n6D22t+P
+	FNh5Hy2NcP06l/PWjUYXU7x6EwXlstT3YEoJNJgUZS9wSk6d2ITLN25NtiJUSXEDF9vHwkGiYDJze
+	xtq795cUL95+SuVH4R88kiPs9wZmYs+uMGnSIINSuefG0SYF7wYIeBiS3fdUzxN9nqvmz5m1Gh2Yy
+	T2LUTG0rw/Oven+9KkASMCwBoKunTkL7JeGRNnCS42a3DLLXD/5P2pHZFeLVXcaezid5m9i8fOduw
+	Vs1dmyg9m0xe6Hb1AL0+O6UI4pdpdyUIgICjSXON+ULQItTpaIkuh8SJVJC8RKA4TPzauuO2xJhZZ
+	yzdnAd1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZJ3-0000000BPpZ-3FFo;
-	Mon, 06 Jul 2026 02:43:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZIy-0000000BPmH-0i72;
+	id 1wgZIy-0000000BPmv-2cej;
 	Mon, 06 Jul 2026 02:43:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgZIx-0000000BPm5-2xU9;
+	Mon, 06 Jul 2026 02:43:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E730260018;
+	by sea.source.kernel.org (Postfix) with ESMTP id C624943D05;
 	Mon,  6 Jul 2026 02:43:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 93682C2BCF5;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A2E06C2BCB8;
 	Mon,  6 Jul 2026 02:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1783305810;
-	bh=RdHJ5I75Tcbgivqf+f/sQIrZyTTONH3eIvRriKAVuhk=;
+	bh=BP3Iyfs6C5UPNFRIIV/0n+AQzmZGr/qNrx/ZTsVwliI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=OIrdOyn++q3OekiH1zDQY4tqQ750ZnIn66/vXdQv8Re0k+xQFZA9VZc3w2FthjsXj
-	 BeZBXZ5Uoc/tcFRnELL7ZbuqrEQrU+nC7+tgMzpP/21zpDace43pp9JX8FynOK5dCf
-	 ya0h4dakRTpBTcO4ntA9CGvjxwTFWwkG2pTklBsRnrVR+NzevYoSOeHOjBsPdd/fWW
-	 +mBQ9XhI8hROno7oc/IacKGYyhMQznEyFUQqhMBxdOjWpnhlnddtTn6PZ2H7PFRrJ5
-	 yX+Gn87z80xe+Nfa7mv2eZr8cdrhl9NQC6b8vl648OkSQU7osNDEwSU5BnJlZp6Wpm
-	 +u3hj/RpGwCFA==
+	b=TW4c/3ohfU5NQEsuq/Ly/Vhkk0eX7+9PB2+7YgYVopVq/23pRYgb3Q/q7gBYIdb8Y
+	 3b/4tKHONRt4Ru0mUv+f1QFGUk5DOWUUHiZkQeW0E5UN57BKO3njSgMQhgBPCoQ7WU
+	 XUoK9iOVk9uXHYWmBalGJ0fI/9yDUjQwGTG9sHqHokdHt58aHKFuwEPUnHyflYONpg
+	 ribWNmYZy6KJq2YBvOFBI07ScjThZFM3LgUM+PU4nq+WixT3euLkeAOMiONe8/6Gt7
+	 6/0ustOxEykTUwj3XBM/JF512sY34it630JMJFhH/3ZtqBHv638i0E1PK2CWD7ixFL
+	 jya+PeX+xpyGQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 73FECC44500;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 83D75C44501;
 	Mon,  6 Jul 2026 02:43:30 +0000 (UTC)
 From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Mon, 06 Jul 2026 02:43:27 +0000
-Subject: [PATCH 1/2] dt-bindings: media: meson6-ir: Add Amlogic A9 IR
- compatible
+Date: Mon, 06 Jul 2026 02:43:28 +0000
+Subject: [PATCH 2/2] arm64: dts: amlogic: a9: Add IR controller support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-a9-ir-v1-1-4f082ca8aaf1@amlogic.com>
+Message-Id: <20260706-a9-ir-v1-2-4f082ca8aaf1@amlogic.com>
 References: <20260706-a9-ir-v1-0-4f082ca8aaf1@amlogic.com>
 In-Reply-To: <20260706-a9-ir-v1-0-4f082ca8aaf1@amlogic.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -64,11 +63,11 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
  linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783305808; l=1001;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783305808; l=1999;
  i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=zbm1gpme/ld1wK4sUZ5JpKgpU+xuYVReKQPeHKlYNSc=;
- b=HW66s1CZtmd6uNLpNkxRqmusfq/dDOVZlGpW/vZYF/lQfw1W9ziZFq4h6okqg13y93in2GZA3
- DStB+h1BUCKA2+Us+plj3yL28IDY8ygsKhsljLbuxRcyv2XfNe4+4V3
+ bh=zFrCQ/4LL7v8cXwBeBaMK1lFT/U3mMj2TYJXY49GEuE=;
+ b=rFxorohK+9RKciBUQ5U2kSjVGHirLUr10V6m8Y0NbHAsF/lOl8FTZriVfx0+1BNsI7fxPqsMj
+ q0YwkUEM0A6AKT3DPhAqeHIY8Ka6J7IRoQjUG/USTxdaDKIIUZP5Dlh
 X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
  pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
 X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
@@ -91,31 +90,64 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-Document the Amlogic A9 IR controller compatible string. The A9 IR
-controller shares the same implementation as the Meson S4 IR block,
-so add "amlogic,a9-ir" with "amlogic,meson-s4-ir" as the fallback
-compatible.
+Add the IR controller node for the Amlogic A9 SoC and describe the
+corresponding remote input pin configuration.
+
+Enable the IR controller on the Amlogic A9 A311Y3 BY401 board with the
+proper pinctrl setting.
 
 Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- Documentation/devicetree/bindings/media/amlogic,meson6-ir.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts |  6 ++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi             | 14 ++++++++++++++
+ 2 files changed, 20 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/media/amlogic,meson6-ir.yaml b/Documentation/devicetree/bindings/media/amlogic,meson6-ir.yaml
-index 0f95fe8dd9ac..db9387e43eff 100644
---- a/Documentation/devicetree/bindings/media/amlogic,meson6-ir.yaml
-+++ b/Documentation/devicetree/bindings/media/amlogic,meson6-ir.yaml
-@@ -23,6 +23,10 @@ properties:
-       - items:
-           - const: amlogic,meson-gx-ir
-           - const: amlogic,meson-gxbb-ir
-+      - items:
-+          - enum:
-+              - amlogic,a9-ir
-+          - const: amlogic,meson-s4-ir
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
+index a6b380ca47a5..044d1e8e086c 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
+@@ -38,3 +38,9 @@ secmon_reserved: secmon@5000000 {
+ &uart_b {
+ 	status = "okay";
+ };
++
++&ir {
++	status = "okay";
++	pinctrl-0 = <&remote_pins>;
++	pinctrl-names = "default";
++};
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+index b0e0fadeed82..72d1cc88c9e6 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
+@@ -241,6 +241,13 @@ test_n: gpio@c0 {
+ 					#gpio-cells = <2>;
+ 					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
+ 				};
++
++				func-ir-in {
++					remote_pins: group-remote-pins {
++						pinmux = <AML_PINMUX(AMLOGIC_GPIO_D, 5, 1)>;
++						bias-disable;
++					};
++				};
+ 			};
  
-   reg:
-     maxItems: 1
+ 			gpio_ao_intc: interrupt-controller@4080 {
+@@ -254,6 +261,13 @@ gpio_ao_intc: interrupt-controller@4080 {
+ 					394 395 396 397 398 399 400 401 402 403>;
+ 			};
+ 
++			ir: ir@14080 {
++				compatible = "amlogic,a9-ir", "amlogic,meson-s4-ir";
++				reg = <0x0 0x14080 0x0 0x30>;
++				interrupts = <GIC_SPI 413 IRQ_TYPE_EDGE_RISING>;
++				status = "disabled";
++			};
++
+ 			uart_b: serial@1e000 {
+ 				compatible = "amlogic,a9-uart",
+ 					     "amlogic,meson-s4-uart";
 
 -- 
 2.52.0
