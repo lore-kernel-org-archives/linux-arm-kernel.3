@@ -4,75 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704D9C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 02:43:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD0C4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 02:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=umFuia/uR3Mpl68nr587ATF0YjOBIMF0pqeEO8SyWqA=; b=Hqrf1uEux/uksAWH98n6D22t+P
-	FNh5Hy2NcP06l/PWjUYXU7x6EwXlstT3YEoJNJgUZS9wSk6d2ITLN25NtiJUSXEDF9vHwkGiYDJze
-	xtq795cUL95+SuVH4R88kiPs9wZmYs+uMGnSIINSuefG0SYF7wYIeBiS3fdUzxN9nqvmz5m1Gh2Yy
-	T2LUTG0rw/Oven+9KkASMCwBoKunTkL7JeGRNnCS42a3DLLXD/5P2pHZFeLVXcaezid5m9i8fOduw
-	Vs1dmyg9m0xe6Hb1AL0+O6UI4pdpdyUIgICjSXON+ULQItTpaIkuh8SJVJC8RKA4TPzauuO2xJhZZ
-	yzdnAd1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UZTyIBSRDOP/XkKhj5OJBprAVtSv39vOpmIrevTNv+k=; b=Wtk+2+iaVZs0ydOxxuQi16XBF6
+	mSwCuG7tuMbwxT2OHMtrYeWTC5x+IckTiGz51hQR8uh1q5JzpJUWYVQ066Xe4cH+FH/VW+cK1SLJE
+	QKtEfXOp7Gp+cNKeYguYutlX9E1AkUcpPByXUB7SVXaIDm4TfU44iZiGXD1lPXBaFI6AcLXYvpibi
+	owmOmA/ngzc1d1FxBCN30R23QforWTDDQcx4fvElGG5ODHZDLqWQbHeV8foGX3FsUqR0PhEtlsz/f
+	tHOFktjLRl0HJEJCI+h+yjrrCkCZWN1VwrgdXg/kKnvm7ju9ZnDpeU71nAImpFshqhRN2y9TIuU/P
+	csMTNDgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZIy-0000000BPmv-2cej;
-	Mon, 06 Jul 2026 02:43:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1wgZKA-0000000BQ2l-0EbH;
+	Mon, 06 Jul 2026 02:44:46 +0000
+Received: from mail-francesouthazon11011043.outbound.protection.outlook.com ([40.107.130.43] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZIx-0000000BPm5-2xU9;
-	Mon, 06 Jul 2026 02:43:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C624943D05;
-	Mon,  6 Jul 2026 02:43:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A2E06C2BCB8;
-	Mon,  6 Jul 2026 02:43:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1783305810;
-	bh=BP3Iyfs6C5UPNFRIIV/0n+AQzmZGr/qNrx/ZTsVwliI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=TW4c/3ohfU5NQEsuq/Ly/Vhkk0eX7+9PB2+7YgYVopVq/23pRYgb3Q/q7gBYIdb8Y
-	 3b/4tKHONRt4Ru0mUv+f1QFGUk5DOWUUHiZkQeW0E5UN57BKO3njSgMQhgBPCoQ7WU
-	 XUoK9iOVk9uXHYWmBalGJ0fI/9yDUjQwGTG9sHqHokdHt58aHKFuwEPUnHyflYONpg
-	 ribWNmYZy6KJq2YBvOFBI07ScjThZFM3LgUM+PU4nq+WixT3euLkeAOMiONe8/6Gt7
-	 6/0ustOxEykTUwj3XBM/JF512sY34it630JMJFhH/3ZtqBHv638i0E1PK2CWD7ixFL
-	 jya+PeX+xpyGQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 83D75C44501;
-	Mon,  6 Jul 2026 02:43:30 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Mon, 06 Jul 2026 02:43:28 +0000
-Subject: [PATCH 2/2] arm64: dts: amlogic: a9: Add IR controller support
+	id 1wgZK6-0000000BQ2C-2lzE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 02:44:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pFdIQmMc/Art+dLbFwNjO1a9sUvBWKxQSWZ12J84zRYx7SHxa/uZG/inGUd2JXS9S/Rbg7mNq7o6nrRvt+E1m2p9N3JKW3uNxaCeLRGUtnVGWESHtvYq+YZVuVCbr22lV/JTeayJnQqEZLJsUrfDS9cdcUv1Njqb4xk/Pv3Hb4GsLP8hkMJso6HHn5XHkLfj27nBxJuxrcnPwC3ZDhuz/euyIHvqSiGDuhIdyLpIPAsTTzlJhcm+Dxfxcrnwhvy3KZelhhMIWpq5ZMXiHQ9Uwl5cyFd7bzggmIOYT9Zuy+uqqalHyVy6NGcw3cD8vE1MHvkYV8QpLsnxWdNjBKz+eA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UZTyIBSRDOP/XkKhj5OJBprAVtSv39vOpmIrevTNv+k=;
+ b=F3z/zdSv7oJr9ULj2qMoLY8+CLFesnXeFl+FyVuddF6S2mw5HFnPntMIloDPE6RASd2nTcyExTHZshK9u8yXqo3Qrw60kg0znF5ItVgZjtxQ9NIBgdBLfOq1DbWoclcB9tUCPtHVpHHLvXxS/O8my8m5k1nYZrEOwLMEs/p9BedMl0VLYrIhfEuN4ykVLNV29W17Eehf9D89siQkzAcSwja+NY1A9w8nZRKNqs4SyrxFJr7fXQSpxJaPvdTfeRJNDCD7VA4HZtIOUk9kYGizLZugMvhcTAUrkogoYlQutyAE8hGyka6TnhzrGw4Ci9iRL4wbyl75zmoQGK2EEGuTvw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UZTyIBSRDOP/XkKhj5OJBprAVtSv39vOpmIrevTNv+k=;
+ b=wPgMtMYd1j0jwWoHx5VDb+ERP8WkK3OqAXsFTdBACakZgjWqABtKDEkbOIMNvHmTwFPawSxi+CHsF+afE4a5LElHYAIbSSGb4IJLEmmI7bD05yH0lJz0Yury4zLdF1Whkz07wx9u6bwv8orB3ifa3C4ONg0NNCg3QOqvGAAZijOmGkdA0myzb5xX9HOJlWFsO1j/zDWMZ7CdQn2QDKN+1OCkXnby1SaQeDEnsCcc4NvCxhcMXgFtTU8XAuzeshjsNNyhzk92pdPIcDlEKx4biXLnOzhzfBCg/T3RSUaLLl9B471K+C9hHhe4Q/BtadHyn6zV5ZCx9SUbtzDlOikOqQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by PA4PR04MB9440.eurprd04.prod.outlook.com (2603:10a6:102:2ac::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Mon, 6 Jul
+ 2026 02:44:35 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
+ 02:44:34 +0000
+From: hongxing.zhu@oss.nxp.com
+To: frank.li@nxp.com,
+	jingoohan1@gmail.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] PCI: dwc: Add force_l2 flag for platforms requiring L2 entry without D3cold
+Date: Mon,  6 Jul 2026 10:47:52 +0800
+Message-Id: <20260706024752.3256106-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: MA0PR01CA0095.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:af::6) To PAXPR04MB8096.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c7::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-a9-ir-v1-2-4f082ca8aaf1@amlogic.com>
-References: <20260706-a9-ir-v1-0-4f082ca8aaf1@amlogic.com>
-In-Reply-To: <20260706-a9-ir-v1-0-4f082ca8aaf1@amlogic.com>
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783305808; l=1999;
- i=xianwei.zhao@amlogic.com; s=20251216; h=from:subject:message-id;
- bh=zFrCQ/4LL7v8cXwBeBaMK1lFT/U3mMj2TYJXY49GEuE=;
- b=rFxorohK+9RKciBUQ5U2kSjVGHirLUr10V6m8Y0NbHAsF/lOl8FTZriVfx0+1BNsI7fxPqsMj
- q0YwkUEM0A6AKT3DPhAqeHIY8Ka6J7IRoQjUG/USTxdaDKIIUZP5Dlh
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=dWwxtWCxC6FHRurOmxEtr34SuBYU+WJowV/ZmRJ7H+k=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20251216 with
- auth_id=578
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|PA4PR04MB9440:EE_
+X-MS-Office365-Filtering-Correlation-Id: bbed836f-a0f6-4260-f1fb-08dedb088358
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|23010399003|921020|18002099003|11063799006|5023799004|56012099006|6133799003;
+X-Microsoft-Antispam-Message-Info: 9jHAAvT6gGkJ+H0tqeefHCUHoWL149T+UW55T9E2Zp6HJM+yf1ZhGnpeRFMyNodW3jD5Yq62+mCgCoN6pTAAsLvvu7QgaBOIldmylMQ76FvGcE4AflToCvR9wDvnuZy8ayL9rQA4YIhHbOsGxIB9W0ufT0a+JKXhuFm0DyrSJDHRd7bMPUqoh+DFeWFBa4xzsJry5wnEYLRbhDdQnGWLj3fLWRfu9lahS5mbfucGokv4tubY/AsmKP93/TEmStK1xI69Vr/jBDYWqgtF8B4AVWifZx6UB4PMhdpPy3zonkeNsItl4uoxDc9LzolErSiQ4ggNGb6P0phTDBMUC9ePH0c9LTvaCqJPYtA2tiT46P6LNhk2HqZsz/ZNvdrXL6fjhWvzQby2EcqJk9YZsgYCFzQVKGy5gbDJgE5alcOsjphTyiV48sBh2zU2gNuNMMs4LHSDPckHOs3s6KXG3Wp3Uhvz0KGehPmDcIOYt75NY/rLcJw6cwQ5hqCMc6Gf6f0nk6FGaOTmfQAF3pdUUQ/y90eAbqKJrmJ6ma0mQ429OGw9/sWSrK3SjxP10xvcNGQ7TkE9Ch8/vvfbSZjfZs4jI+8jeWjVtUH8gXM2voKJEIbKv81yReEPjOGLDu2hN093U9dkGbZIg9bxM6A8TWeupqBj17aEy1PQnNDMOJ3IWdFP18YWVGwaCYrIakdTa3QfClVb9o10GrvWcE5vRj5GBA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(23010399003)(921020)(18002099003)(11063799006)(5023799004)(56012099006)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LzNUyph6KM7NcOnNnbio8XAKgcHfxZ7nyWTZRoueHFKOPV/dnMKvJodQ8Xi8?=
+ =?us-ascii?Q?voHI5FN4w4UmmfZnMSNlxK2avsNv79iHSEXJOkot+wrhNfKXuvL3n4VU+QKE?=
+ =?us-ascii?Q?PkrD7fz4/Q1YGg+l0emaefwYEbIZBZFcZ00x6zkLGbZnjnOl3JuG7prKY+gv?=
+ =?us-ascii?Q?3qdSXFrv5B6Vo8uiJExyCHjkwjsmMB7arQImkSFlkzF5Uorj6HudH83s35TT?=
+ =?us-ascii?Q?6NxG3iH09ghleHft91DntfWcK4pwoabxAPICTLK32lzm1a3QYrDxZkM5cYbl?=
+ =?us-ascii?Q?hlpmYMxZEQH6J6MIav5bA8PAnLdrsX/ailws1/tYxKtobSeSxG/bbb+KmF/e?=
+ =?us-ascii?Q?+vInDC+NnNEiVENVelHGsKV2KpjnbQlAWT/F4Ib3v4xVPKG/0H98Ldo6DdCU?=
+ =?us-ascii?Q?mgKSSE4peQoI0Vsd1tcMovnQZ1iIAIOB3csp15ziuxHf/T3tthl4D2o+o0TT?=
+ =?us-ascii?Q?A5kTw0K1Z2COqewQAMF/MC3opAtciI9uruFP7na7G9B12EB1nW7AeM5MyEtS?=
+ =?us-ascii?Q?1PF8DJFC6al7SPZfr73i46CO5Rs/WxTCxN2v5VyGmk/B4Y8IVu/1rI0fKD0V?=
+ =?us-ascii?Q?jbah0VJgC58cmBav1hA1yLOQHTwYdTcH1SCRqXT0YZ2ocFOErIXPYdF2HWtB?=
+ =?us-ascii?Q?AB/2xLQgiCvFj55qbOEZbkfN7PaXyJvTtxyvJMLKP4fElZhXco6uP3YSxj6K?=
+ =?us-ascii?Q?ucgBAt48oO9ZMaBzCfJkUBsJO90SjpPz4mTkSHB551kd2DKRaLYsSyul+9xW?=
+ =?us-ascii?Q?yCp5HSfM64aLFCo2TTRtQ8vOFkihTGxkCnKJgB2gcOSidUGFHHlDl/O1QO8r?=
+ =?us-ascii?Q?bWA6BUAM/AKhNvZ5lRYeErQ0oDJw0allK7dtY5KjtnTRvdukPLpBlnuwkepp?=
+ =?us-ascii?Q?XRzSZOASZtFL6ju14K+8wVm9kHc4NK3Y2dmeA2QGAbLWZJyT4OTLtD5vV5zl?=
+ =?us-ascii?Q?nBQzD3+5MV6HcSOWiQDehlnZ0EOBfLS/ZSAgJ46K4IUnjI8UhmXpdHpkMjdo?=
+ =?us-ascii?Q?O6NQGbHCvHNdTrcaJ1oDm2QYESasGUgvuGwECKFc80OUYZkkkn50Jwps8LH4?=
+ =?us-ascii?Q?7k08vyFKSrhYDtz6WD6DF48jijNmZiqYmnvoYtEjG2v1zZeRoubBvtZz7Il+?=
+ =?us-ascii?Q?AVJH6VkJ18/9nyvXf5zNVSeuYCF5JnKvZqz1JTxNUs1dIBApZ9IUqBjrc8gS?=
+ =?us-ascii?Q?EwT2ZRhyxLF8dc1z1TEWvlpe6jVUhamuOih1em0099JZHPfuFnJXiHUGzZI3?=
+ =?us-ascii?Q?2/WvMQewibDclDvtT7ILRI42nDk9bHQmfYZiefg4GdPFl7FIY2e1Mx2DuAQG?=
+ =?us-ascii?Q?q5dzsEO4Lwkscr+e/IWjGUQNN6ITfIFTQ4SFyYYVQmF8orxpqdEBX12G+MfP?=
+ =?us-ascii?Q?rzaZEDx2+PhcrJ5Y9j51AbneDFmL6lQPoSZ8M+VyCJUN0ZCHaAVnvShAED5L?=
+ =?us-ascii?Q?BD/JmZNWQAcH096PJOK4qlF6+npAZsH7stAoxMr9jpW0mtFnNNkscGXmC1az?=
+ =?us-ascii?Q?NMEY+DUImtlF2MdWkG1t61T2UxqgpaTBlX8u2Sv65mcoaD89ZWc8T6mvIM3A?=
+ =?us-ascii?Q?aUcgdoz9eoA13h1t+6Ei7fcPtsVhK6h5vMuRkPCp/qNV08QcnEPWc6fAtAHs?=
+ =?us-ascii?Q?OBaDNtvHuEoa5GR92TrSoWh2KX+IKw8TxYlf/8j39Rb6fiSX6S2r+KssOOTw?=
+ =?us-ascii?Q?UJFTuqhAi6cnkjoUZLHYcTniV9ZdeO18j7X742iW91n9Fl8pdeI7S/u49N6G?=
+ =?us-ascii?Q?3Q7Sed/oTlPNmx+ea840tQ+5x4R4sKNGM12QVXk+Z1HMgMX9SyT/?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bbed836f-a0f6-4260-f1fb-08dedb088358
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 02:44:34.8193
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UHgskAFX5+ul9ZJZUcdHd4D/N2nNcNy3JpJyzyBHTP99NviGKO2RhxeCtx0i+OLGJdfsxWFgt2Erpr+ZqjroI3Zdu1I/M4IGp+DjXThVtudsxxbjxUlO/v4CgTFi64hi
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9440
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260705_194442_724260_5DBB4D47 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +144,85 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-Add the IR controller node for the Amlogic A9 SoC and describe the
-corresponding remote input pin configuration.
+Some platforms like i.MX have their PCIe RC controllers powered off
+during system suspend, requiring full re-initialization on resume.
+These platforms need to enter L2 state to properly notify endpoints
+before power loss, even when D3cold is not supported.
 
-Enable the IR controller on the Amlogic A9 A311Y3 BY401 board with the
-proper pinctrl setting.
+Add a force_l2 flag to allow platform drivers to request L2 entry
+during suspend regardless of D3cold capability, and enable it for
+i.MX PCIe controllers.
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
- arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts |  6 ++++++
- arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi             | 14 ++++++++++++++
- 2 files changed, 20 insertions(+)
+ drivers/pci/controller/dwc/pci-imx6.c             | 5 +++++
+ drivers/pci/controller/dwc/pcie-designware-host.c | 8 ++++++--
+ drivers/pci/controller/dwc/pcie-designware.h      | 5 +++++
+ 3 files changed, 16 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-index a6b380ca47a5..044d1e8e086c 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9-a311y3-by401.dts
-@@ -38,3 +38,9 @@ secmon_reserved: secmon@5000000 {
- &uart_b {
- 	status = "okay";
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index f55a68f60eea9..ea0b4eb03c1d0 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -1966,6 +1966,11 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		 */
+ 		imx_pcie_add_lut_by_rid(imx_pcie, 0);
+ 	} else {
++		/*
++		 * i.MX RC is powered off during suspend, force L2 entry to
++		 * ensure proper endpoint notification before power loss.
++		 */
++		pci->pp.force_l2 = true;
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
+ 			pci->pp.skip_l23_ready = true;
+ 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+index 06722259d2e37..e3f022d2d453a 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -1222,14 +1222,18 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+ 
+ int dw_pcie_suspend_noirq(struct dw_pcie *pci)
+ {
+-	bool pme_capable = false;
++	bool d3cold, pme_capable = false;
+ 	int ret = 0;
+ 	u32 val;
+ 
+ 	if (!dw_pcie_link_up(pci))
+ 		goto stop_link;
+ 
+-	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
++	d3cold = pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable);
++	/*
++	 * Enter L2 if D3cold is possible or platform requires forced L2 entry
++	 */
++	if (!d3cold && !pci->pp.force_l2)
+ 		return 0;
+ 
+ 	if (pci->pp.ops->pme_turn_off) {
+diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+index de4b245b1758c..5e88459e0cfa0 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.h
++++ b/drivers/pci/controller/dwc/pcie-designware.h
+@@ -471,6 +471,11 @@ struct dw_pcie_rp {
+ 	bool			native_ecam;
+ 	bool                    skip_l23_ready;
+ 	bool			skip_pwrctrl_off;
++	/*
++	 * Force L2 entry even if D3cold not possible (e.g., when RC loses
++	 * power).
++	 */
++	bool                    force_l2;
  };
-+
-+&ir {
-+	status = "okay";
-+	pinctrl-0 = <&remote_pins>;
-+	pinctrl-names = "default";
-+};
-diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-index b0e0fadeed82..72d1cc88c9e6 100644
---- a/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-+++ b/arch/arm64/boot/dts/amlogic/amlogic-a9.dtsi
-@@ -241,6 +241,13 @@ test_n: gpio@c0 {
- 					#gpio-cells = <2>;
- 					gpio-ranges = <&aobus_pinctrl 0 (AMLOGIC_GPIO_TEST_N<<8) 1>;
- 				};
-+
-+				func-ir-in {
-+					remote_pins: group-remote-pins {
-+						pinmux = <AML_PINMUX(AMLOGIC_GPIO_D, 5, 1)>;
-+						bias-disable;
-+					};
-+				};
- 			};
  
- 			gpio_ao_intc: interrupt-controller@4080 {
-@@ -254,6 +261,13 @@ gpio_ao_intc: interrupt-controller@4080 {
- 					394 395 396 397 398 399 400 401 402 403>;
- 			};
- 
-+			ir: ir@14080 {
-+				compatible = "amlogic,a9-ir", "amlogic,meson-s4-ir";
-+				reg = <0x0 0x14080 0x0 0x30>;
-+				interrupts = <GIC_SPI 413 IRQ_TYPE_EDGE_RISING>;
-+				status = "disabled";
-+			};
-+
- 			uart_b: serial@1e000 {
- 				compatible = "amlogic,a9-uart",
- 					     "amlogic,meson-s4-uart";
-
+ struct dw_pcie_ep_ops {
 -- 
-2.52.0
-
+2.34.1
 
 
