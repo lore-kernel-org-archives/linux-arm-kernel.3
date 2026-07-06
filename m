@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EECCC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8CDC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:45:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NztMN+lrRBAPGyb+j4gGNyxW1xmIwWsR49eJg2k55sk=; b=jH0B6uwCSXdq3L
-	j3srSQ7ogUWGdRsPvaaoPN5aQig9SphPPi6Uu8411hpM4P6Cz3FFOwm+Pj3SOZFi1tuRNAVVIefV4
-	D4KwPAWb30HE5T2XRPikM94YsRENVbDwzrT/kXdtUUvTi41HiW4faKdvfzbzmw3X2wq4bgVYy5GoV
-	8pyfKd7O0Gd8DuvgBR+e8Ill8+0DZDHSFriZP2CSBxNokQ1p9+76YhvqYoDayXMne9M19r26K0N/u
-	WZHuCeR7O1dY7SDORF1u3gTG9li7TfgoqhTegQ/8ipBlCb0641C6bNDZS7Ddv/Lks+BYo9BJYY/bq
-	FezYBwdWj9jeVNLsrigA==;
+	List-Owner; bh=4JV6Ghql4IDGmfldChmufQMKWcQfpiOBpg09SOYCfKY=; b=v2XFoY/rwi2bem
+	4uN6+fGlGh8aiTgzF5gjv+Q1Xv0h3rhq/5RXrvagytzBbMdXQmgwX7gcxy9cuctFX6fI6UNaZTbES
+	HvruTqDD24zvcpiqskzD0rKw5Gx93+Xya3aaU0YqbSUBBUiGhKwePDoLmSWnE7Sc3q43N+FeZ1On/
+	Q3g2ZCxdn1SYI7FmHdrMPzmD/jRgeMLzqg2Zdma6XxoSKvcuYzIRstpJqPXd0M6E8wV9cL9CQbiqL
+	0KOrBAfAr3xNGuwY5XPCHOTfvyiNTjPiKyQ0gnppltiRE3rC4qwMD4FJ2gjRQX3Y9CEbVr0O03C/j
+	GaV659Ic4nITMBMobJNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjav-0000000CdOY-1ofv;
-	Mon, 06 Jul 2026 13:42:45 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjas-0000000Cd7w-0C9p;
-	Mon, 06 Jul 2026 13:42:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783345347;
-	bh=+iOjTAdA4oCabpofL+K7pRzUfLApeuQa4aammB14sWA=;
-	h=From:Subject:Date:To:Cc:From;
-	b=knO00BEAGmqnYTyt4Z8i+g8SH3CgUXg0FwMtnpsXn16/qMUv53F877rFtJxFjZQAu
-	 xYCDrL/ewCCiMG5SBIucxYkDPWqn3zi1SAZn/x6AoMYM6cEMWMWJl0MYmUWrYsbxGz
-	 Wi/fiYQdWvgFy0noT0rK9iOGNSzgROsiqh5szIPNyDGZ3z16j4EwHVWTIRr9QAlqkJ
-	 QHzbrY0dF4QQ3Lj1CllsfkLYR2BbaQ0Imq2tSbdAy1pN8oqMXcL4Qd9TbOJNdv5Aqa
-	 ymhhKZ2kGC29tVdqXX9pl7uIG88Vto/y25g8f+jXbDJwpIgOLpcRARjTacVWbhkWMm
-	 n9nuCw2+fHvKg==
-Received: from [192.168.0.15] (unknown [100.64.0.170])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1074717E010F;
-	Mon, 06 Jul 2026 15:42:25 +0200 (CEST)
-From: Detlev Casanova <detlev.casanova@collabora.com>
-Subject: [PATCH v3 0/5] media: Add fdinfo support for v4l2 drivers
-Date: Mon, 06 Jul 2026 09:42:17 -0400
-Message-Id: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
+	id 1wgjdH-0000000Ce2N-1uF8;
+	Mon, 06 Jul 2026 13:45:11 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgjdD-0000000Ce1a-2ieE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 13:45:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15CB32BCB;
+	Mon,  6 Jul 2026 06:45:02 -0700 (PDT)
+Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D02643F7B4;
+	Mon,  6 Jul 2026 06:45:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783345506; bh=kQ7pz4P/cUhYpuGjRm2udnUEft8z8JWI3bKYkeGjZYI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=da4x+G2F8HJ1vOtSqECuqiWcMzbk8QTrwvFQ9+KpcE/5SkTfu4mzsiTOwLZ0T2iVC
+	 NVdoprTJcVRWKvbbk7tDxxFV1CyOfMWs4mT5NJcj7+XTNj0H/YjRZA5RE1vvD+nCSc
+	 nSgEa09zVBm0yph8QHYsbbIQUW3DN9Nv7Pk/vTTc=
+From: Andre Przywara <andre.przywara@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>
+Subject: [PATCH v3 0/8] Arm Live Firmware Activation (LFA) support
+Date: Mon,  6 Jul 2026 15:44:40 +0200
+Message-ID: <20260706134455.132091-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/2XNTQrCMBQE4KtI1kaSV0lbV95DXOTnxUZqI0kNS
- undTSqC2OXAzDcTiRgcRnLYTCRgctH5IYdquyG6k8MFqTM5E2AgmOCMpn0PVBpDrXGD9VTWLbM
- apaqgJXl1D2jdcxFP50+OD3VFPRamNDoXRx9ey2XipffVYaUnThmtoQLOpdKN4Eft+14qH+RO+
- xspDwl+jXptQDYMtA22jUYm5L8xz/MbcIXnTQgBAAA=
-X-Change-ID: 20260610-v4l2-add-fdinfo-a790fceab329
-To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Heiko Stuebner <heiko@sntech.de>
-Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, kernel@collabora.com, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Christopher Healy <healych@amazon.com>
-X-Mailer: b4 0.15.2
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_064242_269270_710FE421 
-X-CRM114-Status: GOOD (  17.42  )
+X-CRM114-CacheID: sfid-20260706_064507_802571_1B23FD64 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,101 +64,153 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-fdinfo is useful to poll information from the driver.
-Unlike the ftrace interface, it lets userspace tools get a snapshot of
-the state of the driver at their own pace, instead of getting events for
-each driver status change.
+Hi all,
 
-This works better to get information like HW usage time or clock
-frequencies, as well as memory usage.
-This patch set focuses on mem2mem drivers that are per-frame based and
-an implementation is proposed for the Verisilicon Hantro and Rockchip
-rkvdec drivers, limited to main clock frequency and HW usage time, as
-well as HW cycles counting in Hantro.
+this is version 3 of the Live Firmware Activation kernel support. The
+device part of the code now relies on Aneesh's SMCCC bus patches[1],
+which solves some problems rather nicely. I also added the formerly
+missing sysfs ABI documentation. Based on v7.2-rc1, plus the first
+two patches from Aneesh's series. More detailed changelog below.
+==============================
 
-Even though it is not used yet, per core fields are appended with 
-`-<core_id>` to support multi-core drivers.
+This series implements the kernel side support of the Arm Live
+Firmware Activation (LFA) specification [2]. LFA enables the activation
+of updated firmware components without requiring a system reboot,
+reducing downtime and allowing quicker deployment of critical bug fixes
+in environments such as data centers and hyperscale systems.
+It requires explicit firmware support, both via an agent running in EL3
+(for instance in TF-A, already merged), but also in the firmware
+component to be activated. TF-RMM recently merged support for this.
 
-To ease support in drivers, a v4l2_metrics struct is added.
-It stores metrics information and provides helper functions to write
-the fdinfo file in a standard way.
+Unlike the usual firmware update process (which may use tools like
+fwupd), LFA focuses solely on the activation of an already updated
+firmware component, called "pending activation" in LFA lingo. This works
+by signalling the LFA agent (part of the EL3 runtime firmware) via an
+SMC call, which then does the heavy lifting of the live update, in
+cooperation with the to-be-updated firmware component.
 
-An example of usage of this from userspace is implemented in v4l2top:
+Key features of the driver:
+* Detects LFA support in system firmware (EL3).
+* Lists all firmware components that support live activation, identified
+  by their GUID.
+* Exposes component attributes (e.g., activation capability, and
+  activation pending) via sysfs under /sys/firmware/lfa/<GUID>/.
+* Provides interfaces to:
+  - Trigger activation of an updated firmware component.
+  - Cancel an ongoing activation if required.
+A more detailed list of features can be found in patch 2/8.
+Based on v7.2-rc1.
 
-https://github.com/cazou/v4l2top (Check the upstream branch)
+This work is conceptually similar to Intel’s Platform Firmware Runtime
+Update and telemetry (PFRUT) [3] and TDX module updates [4], but
+targets Arm platforms. The driver has been used to successfully activate
+a Realm Management Monitor (RMM) firmware image in a controlled test
+environment. RMM is analogous to Intel’s TDX module.
 
-checkpatch.pl warning: The 2 arguments in the show_fdinfo callback
-definition are kept unnamed to match with the rest of the struct
-definition.
+There is effort on similar work from the OCP [5]. Future work may
+include integration with utilities like fwupd to automatically select
+the appropriate driver, based on platform architecture, for Live/Runtime
+firmware updates.
 
-Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
----
-Changes in v3:
-- Rename the fdinfo key prefix from "media-" to "v4l2-", and "stats" to
-  "metrics"
-- Restructure the documentation to have mandatory and optional keys
-- Add core ID to fields
-- Add HW cycles count support
-- Add ABI documentation
-- Link to v2: https://patch.msgid.link/20260617-v4l2-add-fdinfo-v2-0-d298e98ce06a@collabora.com
-
-Changes in v2:
-- Simplify key/value pairs by removing repeated <eng> suffix
-- Add media type support
-- Add v4l2_stats helpers
-- Add support in rkvdec too
-- Link to v1: https://patch.msgid.link/20260612-v4l2-add-fdinfo-v1-0-723211abc861@collabora.com
-
-To: Mauro Carvalho Chehab <mchehab@kernel.org>
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>
-To: Detlev Casanova <detlev.casanova@collabora.com>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: kernel@collabora.com
-Cc: linux-media@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-arm-kernel@lists.infradead.org
-
----
-Christopher Healy (2):
-      docs: media: add documentation for V4L2 driver usage metrics
-      media: hantro: Add per-context fdinfo usage metrics
-
-Detlev Casanova (3):
-      media: v4l2: Add callback for show_fdinfo
-      media: v4l2-core: Add v4l2-metrics interface
-      media: rkvdec: Add per-context fdinfo usage metrics
-
- Documentation/ABI/testing/procfs-fdinfo-v4l2       | 129 +++++++++++++++++++
- .../userspace-api/media/drivers/index.rst          |   1 +
- .../media/drivers/v4l2-usage-metrics.rst           | 137 +++++++++++++++++++++
- drivers/media/platform/rockchip/rkvdec/rkvdec.c    |  19 +++
- drivers/media/platform/rockchip/rkvdec/rkvdec.h    |   1 +
- drivers/media/platform/verisilicon/hantro.h        |   3 +
- drivers/media/platform/verisilicon/hantro_drv.c    |  19 +++
- drivers/media/platform/verisilicon/hantro_hw.h     |   1 +
- .../platform/verisilicon/rockchip_vpu981_regs.h    |   1 +
- .../media/platform/verisilicon/rockchip_vpu_hw.c   |   6 +
- drivers/media/v4l2-core/Makefile                   |   2 +-
- drivers/media/v4l2-core/v4l2-dev.c                 |  12 ++
- drivers/media/v4l2-core/v4l2-fh.c                  |   3 +
- drivers/media/v4l2-core/v4l2-metrics.c             |  78 ++++++++++++
- include/media/v4l2-dev.h                           |   1 +
- include/media/v4l2-fh.h                            |   2 +
- include/media/v4l2-metrics.h                       |  47 +++++++
- 17 files changed, 461 insertions(+), 1 deletion(-)
----
-base-commit: 3c587e0b08bd3c4853a22792b9166b7457870165
-change-id: 20260610-v4l2-add-fdinfo-a790fceab329
+Please have a look, test and comment!
 
 Best regards,
---  
-Detlev Casanova <detlev.casanova@collabora.com>
+Salman and Andre
+
+Changes in v3:
+- change node name in DT binding example
+- move SMCCC function identifiers into generic SMCCC header
+- rework to use the new SMCCC bus instead of a using a faux device
+- add missing workqueue cleanup in probe() routine
+- squash former patch v2 3/8 into base patch
+- use get_image_name() more consistently
+- also consider -LFA_BUSY return in activate call
+
+Changes in v2:
+- restrict build to arm64 (the LFA spec only supports AArch64)
+- rename and extend central data structure to fw_image
+- use separate GPR register sets for some SMC calls
+- provide wrapper for error messages to prevent out-of-bound access
+- return GUID in the "name" sysfs file when image is unknown
+- fix wrong attribute in pending version number show function
+- add missing include files and order them properly
+- fix memory leaks in error cleanup paths
+- handle lifetime using embedded kobjects and a kset
+- drop global lfa_lock, use kset list lock and kobject refcount instead
+- add DT binding documentation
+- add timeout and watchdog re-arming (contributed by Veda)
+- relax timeout period and do not block while waiting
+- register ACPI notification (contributed by Veda) and DT interrupt 
+- refactor ACPI notification code to allow sharing with DT code
+- use faux device instead of platform driver
+- add auto_activate file to control automatic activation
+- introduce rwsem mutex to prevent using stale sequence ID
+- use labels and goto instead of infinite loop when retrying activation
+- initialise workqueue only once (thanks to Nirmoy)
+- various cleanups on reported messages and code formatting
+- rebase on top of v7.0-rc1
+
+Changes in v1:
+- Updated SMCCC version 1.1 to 1.2 per the LFA specification requirement.
+- Changed "image_props" array to a linked list to support the dynamic
+  removal and addition of firmware images.
+- Added code to refresh firmware images following a successful activation.
+- Added a work_queue to handle the removal of firmware image attribute
+  from it's respective kobject "_store" handle.
+- Refactored prime and activate into separate functions.
+- Kernel config for LFA now defaults to "y" i.e. included by default.
+- Added individual kernel attribute files removal when removing the
+  respective kobjects using kobject_put().
+- mutex_lock added to activate_fw_image() and prime_fw_image() calls.
+- Renamed create_fw_inventory to update_fw_image_node.
+- Renamed create_fw_images_tree to update_fw_images_tree.
+- Added two more attributes due to specs update from bet0 to bet1:
+  current_version: For retrieval of the current firmware's version info.
+  pending_version: For retrieval of the pending firmware's version info.
+- Minor changes such as, improved firmware image names, and code comments.
+- do...while loops refactored to for(;;) loops.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20260611130429.295516-1-aneesh.kumar@kernel.org/
+[2] https://developer.arm.com/documentation/den0147/latest/
+[3] https://lore.kernel.org/all/cover.1631025237.git.yu.c.chen@intel.com/
+[4] https://lore.kernel.org/all/20250523095322.88774-1-chao.gao@intel.com/
+[5] https://www.opencompute.org/documents/hyperscale-cpu-impactless-firmware-updates-requirements-specification-v0-7-9-29-2025-pdf
+
+Andre Przywara (5):
+  dt-bindings: arm: Add Live Firmware Activation
+  firmware: smccc: lfa: Add auto_activate sysfs file
+  firmware: smccc: lfa: Register DT interrupt
+  firmware: smccc: lfa: introduce SMC access lock
+  firmware: smccc: lfa: add sysfs ABI documentation
+
+Salman Nabi (1):
+  firmware: smccc: Add support for Live Firmware Activation (LFA)
+
+Vedashree Vidwans (2):
+  firmware: smccc: lfa: Add timeout and trigger watchdog
+  firmware: smccc: lfa: Register ACPI notification
+
+ Documentation/ABI/testing/sysfs-firmware-lfa  | 106 ++
+ .../devicetree/bindings/arm/arm,lfa.yaml      |  45 +
+ drivers/firmware/smccc/Kconfig                |  10 +
+ drivers/firmware/smccc/Makefile               |   1 +
+ drivers/firmware/smccc/lfa_fw.c               | 988 ++++++++++++++++++
+ drivers/firmware/smccc/smccc.c                |   5 +
+ include/linux/arm-smccc.h                     |  15 +
+ 7 files changed, 1170 insertions(+)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-lfa
+ create mode 100644 Documentation/devicetree/bindings/arm/arm,lfa.yaml
+ create mode 100644 drivers/firmware/smccc/lfa_fw.c
+
+
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+prerequisite-patch-id: 64fa2209c9eee2084861ba13f0bdfdac312b19b0
+prerequisite-patch-id: fe1ca1a9aeb94623c79bf66366c76bfb8645b581
+-- 
+2.43.0
 
 
