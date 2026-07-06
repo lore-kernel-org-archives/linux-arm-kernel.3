@@ -4,102 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 863FCC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0109FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:42:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m6RbzNK+eNCezcWvhoJEyPH0JtE0jxe26kaL9SwOJjI=; b=lFGbjyfNYYesRitEZ5hDLYp9ve
-	qouxAgKBA68Drxi1aTzfFvB64ApdGw+rbTnW3rRsUcnNI0BogFY9YDmyXKU4yjYtrHsyO76gKsB92
-	gh8kaVhM4TFqENgDBwPWvolM2HSCwTiL5UXXCz5EndmVJtLrupUpr25QxcTjOaYq2+F1f+L/7ENMf
-	uyRw2/WEo1u+725rx5FvMHxvUSWEhe8zu6pL3XCQKCHXi33J/FALMBIctueCi9hJFe5/fvz81FEeQ
-	1nfNR/StBD5Xahi+TqH0j8ox2DJptwjoNzs/f57t2UX4HssUUVYRvuzWPELpONYj/4nR1gBg5IooM
-	rGC3dtxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gXQkycuyZrdfubY+a8etURqHKk4IqlvevFVov045YPE=; b=eUG4WUordarABfH/xIhCiWRl+k
+	9N3X10A1jqXkDJYBDPr4jErFW2GDDQmTKb4Agw1cqXyVS4rjYzM+V+nfV72LDI2ndR/bSDSESm5GL
+	TKImZjZWvrv/sWBjdyZkOjALMHvsmMzGY50Vym6K2mHok1bgd56hXg+xcqlqKo9ZBRV6wdJHKDruG
+	VjIQKJOtnxK9L2oC6F3kutsEtxuRrM6SFlzLLjm2S+hx9Ft1ZykBoStU+gSNYJOGVB6TJTDCC+JYT
+	pS28ZWney9iFDTWleEN4V285MQ6Y/OuwwAvLWSGl9cyTs900fl0OZcwhx1kH6rlBoC3RMjh1eH3MT
+	8McaqlFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjZ2-0000000CctP-0YI8;
-	Mon, 06 Jul 2026 13:40:49 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1wgjaf-0000000Cd86-3O0J;
+	Mon, 06 Jul 2026 13:42:29 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjYz-0000000Ccsh-1kzw
+	id 1wgjaf-0000000Cd7x-0xdm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:40:46 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-493c7902f47so18255245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:40:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1783345243; x=1783950043; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=m6RbzNK+eNCezcWvhoJEyPH0JtE0jxe26kaL9SwOJjI=;
-        b=Ht6BvdS0uoiSmmdTdPESkQxL9dg/B5aGUprMbP4oOUR2vjHlkcfHEjs3xt0WGpH6de
-         9x1Z2o2egqOFD4XIFY78cWquVKlx6a/+UbmQ6DEi9s0Z9KebwVWi4vuIJQc+gxaviZle
-         QqwJnd45KNZ1Y9p2idXQE1k1/Mzt7+mqwHySTT141iC5qramY7zrbVxi5ft0ScQkxuSC
-         2xq2m7UKCwWYNfZgYGuGYa78tnm3jLiAjk0eyAFtkzdu6ofalIqVzPubwddGFT4WNxPW
-         a6zRavBxmKXfwzU2vkwOALsIocvHUV+yOTGaOHtNkLr34oQwAHeQaDkIBVBAe+7ofpnX
-         hX+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783345243; x=1783950043;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=m6RbzNK+eNCezcWvhoJEyPH0JtE0jxe26kaL9SwOJjI=;
-        b=BpzCIn5nt8y6PYIBV+QSHQUIkVhrgxLbQwaPECwAmwTQieIjDULADdfteTpKq46Sak
-         jYxDXC0a9GLXEYEYEvbhmaUtq6JMkH/DJL0PC3tdjYVgwz42VR/caEYoT4w8Hg6lxouD
-         jLobV+iaJs4Nf8DYw42G+LdPRZ6NouH4IiSC3G/M5AZHvIsaTwp82kufuEUx7qZRKo2A
-         fjmZvcjFv+SG0plx1dYrXF6SYGWejWnVxnbnRpUoC5h5UFI0ch92KWefMAGnOirjvbvC
-         wjFRDl5+iTdO44+1ameShwsA2ESbaRC7DdBJ8FDsZPndQ2p3D5AOHGCZ6r5QXmJxXukY
-         RQPA==
-X-Forwarded-Encrypted: i=1; AHgh+RqwtFYQvAY2mnw1uTaPGA8MCpxHPH9GRYHxBmgpzeqqzK9YjVjhX+zFHM7qzgS2WjAHHPjC9FDoSV4JlcefEWsI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3DxXIXY0k9d6JzJXDJX41YbgnET5FZvEDd91zvtaOkympdTkO
-	5vOojmQdo+Et2NbidYa95jHdtgnJtWW0vAjWOTfhcMbaOCMp82I2TLLFzaF/2Pyf9VF1AR/iMOp
-	NrEZYyIk=
-X-Gm-Gg: AfdE7clFDy42OsZCO0Jzx2M2Bc0E9K2KBUfhpLrKKW4m+3+b29XKOF3iIeaJM7otywn
-	tDGzV5IORQ+b6q4Mlc5fMQStMKANRDlKvQW0GGV1tL32whkRU6zojm3zMyNDsA5XMeSmT+2Z2XL
-	bSmjaiqomdhqtpyUGjM/iqRgPa4N0RAzJmfoJFngF26Yj1odhEwgFEEFaYBOzOqHwpuZO5HkLB5
-	xHBqw7HVbIqL5MX0O6YQ/W3qZg5Y8qedtzFbcodagQeuGJRgI+6h8HL6Yj7Jj+qw8OT0PqbU/jZ
-	hVU3rSTyEyFLnAvVD+KXvlG6byMR6Jv80BV3gxRZpO0T5/tyI+a2EMS4hqoyTVBSupGl6v24Em6
-	rsVsZHW8CuvggHYG4dpYwobS5BY8OuiOjc7cIbUEmk8MKPK5vErfEwz/eLCnME7KbQrZBbF2c/Y
-	3dBcJUGGDiJDlK97WrKS13nOBPaoz/nPKVLRs=
-X-Received: by 2002:a05:600c:8b70:b0:493:b6e4:fb2b with SMTP id 5b1f17b1804b1-493df06e943mr6108015e9.25.1783345243589;
-        Mon, 06 Jul 2026 06:40:43 -0700 (PDT)
-Received: from localhost.localdomain ([2a00:6d43:105:c401:e307:1a37:2e76:ce91])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0f214d2sm24424868f8f.33.2026.07.06.06.40.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 06:40:43 -0700 (PDT)
-From: Marco Crivellari <marco.crivellari@suse.com>
-To: linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: Tejun Heo <tj@kernel.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	MD Danish Anwar <danishanwar@ti.com>,
-	Roger Quadros <rogerq@kernel.org>,
+	Mon, 06 Jul 2026 13:42:29 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7FAE442E4D;
+	Mon,  6 Jul 2026 13:42:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37CE11F000E9;
+	Mon,  6 Jul 2026 13:42:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783345348;
+	bh=gXQkycuyZrdfubY+a8etURqHKk4IqlvevFVov045YPE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=MyTUEFo+V8Urr2g/vi7rndXCyW+0VLn2hck1DNdkKhva7mSObnt3GYs6H3d1v3hK2
+	 1TEFyhfmmbXArlLTvIQhrsqFCwqyADwS+LVYNQ6G2RN7xDV96Hgd1pKXP/BOR0qEY6
+	 YIVYXs3JBwYYR5wjRxTrhFGO6SlfmE/XW880EnxFSxulA3EzvwnoyGuQS4G7OwJlmU
+	 tE3cwfhh4IxggHX4IMOWUIWlcOf/88vGjd6IlfgFYkaD8pYIBT3VuvHANC8OLDoHIA
+	 k0BAKkE0+1fxXVDXVUMFu0kRSY3YlZ4x0Ca+73lDkNDaDGsrE54C4a3ECtbhgV9uen
+	 Bzo4jyQVdJExA==
+X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
+From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: linux-coco@lists.linux.dev, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Richard Cheng <icheng@nvidia.com>
-Subject: [PATCH net-next v2 2/5] net: ti: icssg-stats: Move long delayed work on system_dfl_long_wq
-Date: Mon,  6 Jul 2026 15:40:25 +0200
-Message-ID: <20260706134033.244295-3-marco.crivellari@suse.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260706134033.244295-1-marco.crivellari@suse.com>
-References: <20260706134033.244295-1-marco.crivellari@suse.com>
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v5 02/10] irqchip/gic-v3-its: Align shared ITS
+ allocations to the CoCo shared granule size
+In-Reply-To: <86ik6sp7fc.wl-maz@kernel.org>
+References: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
+ <20260706060432.1375570-3-aneesh.kumar@kernel.org>
+ <86ik6sp7fc.wl-maz@kernel.org>
+Date: Mon, 06 Jul 2026 19:12:17 +0530
+Message-ID: <yq5a7bn8i69y.fsf@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_064045_477562_5E424E36 
-X-CRM114-Status: GOOD (  13.24  )
+Content-Type: text/plain
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,50 +80,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently the code enqueue work items using {queue|mod}_delayed_work(),
-using system_long_wq. This workqueue should be used when long works are
-expected and it is a per-cpu workqueue.
+Marc Zyngier <maz@kernel.org> writes:
 
-The function(s) end up calling __queue_delayed_work(), which set a global
-timer that could fire anywhere, enqueuing the work where the timer fired.
+> On Mon, 06 Jul 2026 07:04:24 +0100,
+> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+>> 
+>> ITS tables allocated by the coco guest are shared with the hypervisor.
+>> These allocations must satisfy the host shared-buffer granule size so that
+>> the full converted range is safe for host access.
+>> 
+>> Allocate ITS pages using a size rounded up to the shared granule size and
+>> use the same allocation order when encrypting, decrypting and freeing the
+>> memory. Also grow the ITT cache in shared-granule sized chunks instead of
+>> assuming PAGE_SIZE is sufficient.
+>> 
+>> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+>> ---
+>>  drivers/irqchip/irq-gic-v3-its.c | 17 +++++++++++------
+>>  1 file changed, 11 insertions(+), 6 deletions(-)
+>> 
+>> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+>> index b57d81ad33a0..5d6d38aa0dae 100644
+>> --- a/drivers/irqchip/irq-gic-v3-its.c
+>> +++ b/drivers/irqchip/irq-gic-v3-its.c
+>> @@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
+>>  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+>>  					 unsigned int order)
+>>  {
+>> +	unsigned int alloc_order;
+>>  	struct page *page;
+>>  	int ret = 0;
+>>  
+>> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
+>> -
+>> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+>> +	page = alloc_pages_node(node, gfp | gfp_flags_quirk, alloc_order);
+>>  	if (!page)
+>>  		return NULL;
+>>  
+>>  	ret = set_memory_decrypted((unsigned long)page_address(page),
+>> -				   1 << order);
+>> +				   1 << alloc_order);
+>>  	/*
+>>  	 * If set_memory_decrypted() fails then we don't know what state the
+>>  	 * page is in, so we can't free it. Instead we leak it.
+>> @@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
+>>  
+>>  static void its_free_pages(void *addr, unsigned int order)
+>>  {
+>> +	int alloc_order;
+>> +
+>> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+>>  	/*
+>>  	 * If the memory cannot be encrypted again then we must leak the pages.
+>>  	 * set_memory_encrypted() will already have WARNed.
+>>  	 */
+>> -	if (set_memory_encrypted((unsigned long)addr, 1 << order))
+>> +	if (set_memory_encrypted((unsigned long)addr, 1 << alloc_order))
+>>  		return;
+>> -	free_pages((unsigned long)addr, order);
+>> +	free_pages((unsigned long)addr, alloc_order);
+>
+> The comments I had in [1] are still applicable.
+>
+> 	M.
+>
+> [1] https://lore.kernel.org/all/86zf2ozrb8.wl-maz@kernel.org/
+>
 
-Unbound works could benefit from scheduler task placement, to optimize
-performance and power consumption. Long work shouldn't stick to a single
-CPU.
+I renamed it to alloc_order to make it clear that it refers to the
+allocation order rather than the requested order. If you feel strongly
+about not introducing another variable, I'll drop the new variable.
 
-Recently, a new unbound workqueue specific for long running work has
-been added:
-
-    c116737e972e ("workqueue: Add system_dfl_long_wq for long unbound works")
-
-Since the workqueue work doesn't rely on per-cpu variables, there is no
-obvious reason that justify the use of a per-cpu workqueue. So change
-system_long_wq with system_dfl_long_wq so that the work may benefit from
-scheduler task placement.
-
-Cc: MD Danish Anwar <danishanwar@ti.com>
-Cc: Roger Quadros <rogerq@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
-Signed-off-by: Marco Crivellari <marco.crivellari@suse.com>
-Reviewed-by: Richard Cheng <icheng@nvidia.com>
----
- drivers/net/ethernet/ti/icssg/icssg_stats.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_stats.c b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-index 7159baa0155c..7d6d6692d819 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_stats.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_stats.c
-@@ -69,7 +69,7 @@ void icssg_stats_work_handler(struct work_struct *work)
- 						stats_work.work);
- 	emac_update_hardware_stats(emac);
- 
--	queue_delayed_work(system_long_wq, &emac->stats_work,
-+	queue_delayed_work(system_dfl_long_wq, &emac->stats_work,
- 			   msecs_to_jiffies((STATS_TIME_LIMIT_1G_MS * 1000) / emac->speed));
- }
- EXPORT_SYMBOL_GPL(icssg_stats_work_handler);
--- 
-2.54.0
-
+-aneesh
 
