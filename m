@@ -4,102 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31EB5C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08053C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:44:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZH7fYg3BL+IXLhasZWhU5qOs2NRzPPtU/E+Uj4YHFoU=; b=OlZwoCpBMX23F3ecjPXd0Aw3Ag
-	ZYi711U+zLHYWRH/zXJQvVUs8OoUdpIT4D8y6zrxRrSfKoGLxkjaN1Z795CljMEkdvEP+w6bbPea1
-	5H+VkViBboLbiw6Ep0nEzZYIZ/q+7J93LgBLmK5eVQFwlmSJy74IeTRNXOpDACOP5ccp2eGsHlWj6
-	Eer57naDSAJmsPmRNdPVabnzpcZC8w1Z1/OAlgKL+SmMF9ZPYkSDetwdmj1Ta/hXE7v3P12/4HcPV
-	yVkMQGXIOpimwGI/6g9guQUQP2SmO2DP5A9KKMXWplMH0vhpwzb0ZM+Rpb665SD3YxJM+ssWFTYvL
-	31kAbisQ==;
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ynBehp/e+5UDX2OsiA0z9yw11qXvDPkoc1yWE4YmUD4=; b=q81CrnqrUUIVNf4mEeAoRwlRVH
+	4fTqXyv2ASIJd/N5XwjrYFLZsRDn70KS/e91nYUYWgzYPDXcQO2x/Zox48WRNVf+jvqL8ArhqZsr/
+	/UTNC7NzhOj4Y6Cwq5CJwwodt2PigxPoIAqyZZgFXVKFdyJ8MRkwVCbsUD5S2a6JQ0X3Y9SQ+2fkr
+	amq93CXm8VK0rxCxara5/hQA3LFFwI+zJJbjmC83L5h31aRWJefRq9xum9gGIwu8yWw7/CWpa9Kxd
+	5smIrMHkmmmJKDVHd57YYhwgfXSJCHqWjB9j/pva25CS05xEI+CYFou94JCV4e90kuRQICnqFCYkN
+	kJ5xOo0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgewC-0000000BsGW-406L;
-	Mon, 06 Jul 2026 08:44:24 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1wgewX-0000000BsSc-27Gs;
+	Mon, 06 Jul 2026 08:44:45 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgewA-0000000BsDv-24DO
+	id 1wgewV-0000000BsQe-0HFp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:44:23 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-382a3fe0d28so1918210a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 01:44:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783327462; x=1783932262; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZH7fYg3BL+IXLhasZWhU5qOs2NRzPPtU/E+Uj4YHFoU=;
-        b=Iru4ucz8UkxIQuKAMujmXVqOwgLt0ns/O5Z4s3L6lUdmvXsbphf+SuLOkHBlhcbRTm
-         J7xckeAu48cRlA5gVT2KhbyH0pAd3jgU7Ggkjd8HytexQL9qhaxdvRnJ9XRwlAK/905g
-         n2OtllQNBozAA4W5zYdTi8kTut3JQE9iNQ4b54KDZ4omHuvLArX53MOvil5b3LqJUOGo
-         zTHX189kpN0kyIo7K2kVp63rzZS9j5aNmVcIytySPWxr2NiPUCsn8LPJFwwwXI4354bb
-         xm2dwPznBKxvyr27GC1v9rC69sg0fXP1i+4chQTU6xCmC/GwH2+7twS6VrbYEZEKvssu
-         kXHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783327462; x=1783932262;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZH7fYg3BL+IXLhasZWhU5qOs2NRzPPtU/E+Uj4YHFoU=;
-        b=ch4hXh9SaeKE/nR8h2SJMZeZy6Q571+Qso/OMpsRM7XvQfn0CE+1IeJnDlpCdDReb8
-         0bPJvcX8xveoFyNdMFjR4mdb/jCqeRit5ZBWKGom9CmMFdg2Fn6PqG66KiEJbir7ihTe
-         erslInF21wmO1zE5a5fLgmjd/0oVEK+9l3wKDM1dzRUWwsbCejMZfQgNZboYFvXsYFOy
-         hp3kYG+mBdBSGkmPs6IPtqEXZP28nEA/LwTbfiUIx0qgIv6reiy+YMnH1D3VSPIcncNk
-         vBLCqN6A+W0+gSJlwRI9e5lkj6ez2FuMFZF6hPKwWN8RJ7W8kCijk/x5e+CsMiwpuv1B
-         36pw==
-X-Forwarded-Encrypted: i=1; AHgh+RqyOKtn+F1eg831E5C/JbZQeea2KyYFzckubyK7kvFAZr4zqXp6ig0kAymZx5FXw33SOZlPrIM/Kyv6Gip5zGYk@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPGMGYBf9zXgOEdeS7C0SEAmudXwRHOL5BPPAUpS+CKS3Inrq7
-	MDo2ugT2/17yoDz+iHlvJqYVRpLjI5dE1yttc8XFuuXpxScAjd3mN9aa
-X-Gm-Gg: AfdE7cnH1e8NOVW039Vfc+lQcDuROjwz9pxwDos7NoUzRgOIFOv7CS6m/tSqhEYFiVX
-	piLg69fUMIW1KX0O5DoaYn14o9bJFomntTO/FcMX7mgqSMe425oZTNO+fIXDMVsLR3v2lW11ePR
-	BYGNcKAa0NJ/DopcYIBzn4+hAnmrVnwqk2FufSr0oMtWfkqXf9PE17npGGQBotPbdXxHCXAijGT
-	0FXyabvjWof7wapOdYsKQPZ/wdlUKoEjSSE0al/OlVSWlwxZjGQCy871mQosbLMlEWNW89JMLHf
-	7lMAB4UaCX7INbPtw7W2OioDoQhLXHe/yfyeL13+2USdjd6YbXSTwvxpDGfx+3saosVYOUJjNiA
-	D9irUO5nsJ/gOCNX1ZGWr96kWRyZXBSr0aDuWRNaXMBhhSrIjQCW9Iny0g+SFxCP7GuekNS7KPH
-	6BuLDJvbFkcR/R7wKCQG0fImfJXkmQYTlEKX0=
-X-Received: by 2002:a17:90b:5544:b0:37e:1c8f:3dff with SMTP id 98e67ed59e1d1-382808b3fd5mr9240351a91.11.1783327461600;
-        Mon, 06 Jul 2026 01:44:21 -0700 (PDT)
-Received: from mi-OptiPlex-7060.mioffice.cn ([43.224.245.234])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3812815c10fsm4524635a91.13.2026.07.06.01.44.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 01:44:21 -0700 (PDT)
-From: Wen Jiang <jiangwenxiaomi@gmail.com>
-X-Google-Original-From: Wen Jiang <jiangwen6@xiaomi.com>
-To: akpm@linux-foundation.org,
-	catalin.marinas@arm.com,
-	linux-mm@kvack.org,
-	urezki@gmail.com,
-	will@kernel.org
-Cc: Xueyuan.chen21@gmail.com,
-	ajd@linux.ibm.com,
-	anshuman.khandual@arm.com,
-	david@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	rppt@kernel.org,
-	ryan.roberts@arm.com,
-	dev.jain@arm.com,
-	baohua@kernel.org,
-	shanghaoqiang@xiaomi.com,
-	Wen Jiang <jiangwen6@xiaomi.com>,
-	Xueyuan Chen <xueyuan.chen21@gmail.com>
-Subject: [PATCH v5 6/6] mm/vmalloc: align vm_area so vmap() can batch mappings
-Date: Mon,  6 Jul 2026 16:42:32 +0800
-Message-Id: <20260706084232.177786-7-jiangwen6@xiaomi.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260706084232.177786-1-jiangwen6@xiaomi.com>
-References: <20260706084232.177786-1-jiangwen6@xiaomi.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_014422_539386_7EDD38CB 
-X-CRM114-Status: GOOD (  13.21  )
+	Mon, 06 Jul 2026 08:44:44 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3DC6561389;
+	Mon,  6 Jul 2026 08:44:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5E321F000E9;
+	Mon,  6 Jul 2026 08:44:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783327481;
+	bh=ynBehp/e+5UDX2OsiA0z9yw11qXvDPkoc1yWE4YmUD4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=ia2RdqcoPPXTApLrLLxQ5POjKJGnNSItA83mY7F5eQC/Sb/6t5YSHXpqJQn1JEQIn
+	 JObQWvRS72s/MRMm+qXIjsVOypPkLL13fxDB8zNXsz4y+kC3c4vOSDjhQ/g3vY828X
+	 PAX92woR9o+KTp4Y/aeSxpw32GVE2O4H4wfwhtUN8IlO4OuNXi6r57IjBhfmhFXWFA
+	 3Rbf4Jd3cEaeyjMYNiA1lktw0NB8pMoc+/tzriQH1u0HvOrPD55I8Avf/W/5k7lG4u
+	 foq3gcvpu+x/XKwZK0g2SXMZos1iiUpzQUW3kmWCw48XkAFV2vM4jFZyZwGiEbzU+c
+	 K7UA+xXARgWuQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgewR-00000001p3s-3TfR;
+	Mon, 06 Jul 2026 08:44:39 +0000
+Date: Mon, 06 Jul 2026 09:44:39 +0100
+Message-ID: <86jyr8pkw8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Tangnianyao <tangnianyao@huawei.com>
+Cc: Wei-Lin Chang <weilin.chang@arm.com>,
+	<oupton@kernel.org>,
+	<joey.gouly@arm.com>,
+	<seiden@linux.ibm.com>,
+	<suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>,
+	<catalin.marinas@arm.com>,
+	<will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>,
+	"guoyang (C)" <guoyang2@huawei.com>,
+	"huanglingyan (A)" <huanglingyan2@huawei.com>,
+	"Wangzhou (B)"
+	<wangzhou1@hisilicon.com>
+Subject: Re: Question about the "TLBs and I-cache are private to each vCPU" guarantee with VTTBR_EL2.CnP
+In-Reply-To: <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
+References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
+	<xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
+	<292b5734-9005-6db0-da08-3da04628e620@huawei.com>
+	<86o6gkpokm.wl-maz@kernel.org>
+	<21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tangnianyao@huawei.com, weilin.chang@arm.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, guoyang2@huawei.com, huanglingyan2@huawei.com, wangzhou1@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,86 +98,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Barry Song (Xiaomi)" <baohua@kernel.org>
+On Mon, 06 Jul 2026 09:25:46 +0100,
+Tangnianyao <tangnianyao@huawei.com> wrote:
+>=20
+>=20
+>=20
+> On 7/6/2026 15:25, Marc Zyngier wrote:
+> > On Mon, 06 Jul 2026 04:30:30 +0100,
+> > Tangnianyao <tangnianyao@huawei.com> wrote:
+> >>
+> >>
+> >> On 7/6/2026 1:28, Wei-Lin Chang wrote:
+> >>> Hi,
+> >>>
+> >>> Let me try to answer this:
+> >>>
+> >>> On Sat, Jul 04, 2026 at 03:45:56PM +0800, Tangnianyao wrote:
+> >>>> Hi, all
+> >>>>
+> >>>> I'm trying to understand the TLB and I-cache invalidation in
+> >>>> `kvm_arch_vcpu_load()` that is intended to "guarantee that both TLBs=
+ and
+> >>>> I-cache are private to each vCPU".
+> >>>>
+> >>>> As I understand it, when `VTTBR_EL2.CnP =3D=3D 1`, `__kvm_flush_cpu_=
+context()`
+> >>>> only performs a local TLB and I-cache invalidation, which does not s=
+eem
+> >>>> sufficient to guarantee that property.
+> >>>>
+> >>>> In fact, even if the invalidation were extended to the Inner Shareab=
+le
+> >>>> domain, it still seems difficult to guarantee =E2=80=9CTLBs and I-ca=
+che are
+> >>>> private to each vCPU=E2=80=9D, when `VTTBR_EL2.CnP =3D=3D 1`, as lon=
+g as multiple
+> >>>> vCPUs from the same VM may be running concurrently on different PEs.
+> >>> I think you have missed that when 2 stages are involved, both stages
+> >>> have to set CnP =3D=3D 1 in order to share TLB entries (Arm ARM R_ZVR=
+ZW).
+> >>> So if TLB entry sharing happens, the guest kernel must have allowed it
+> >>> in the first place (by setting TTBR0/1_EL1.CnP =3D=3D 1), hence accid=
+ental
+> >>> sharing that you are worried about won't happen.
+> >>>
+> >>> __kvm_flush_cpu_context() is solving problems that occur when multiple
+> >>> vCPUs of a VM are multiplexed on a single physical CPU.
+> >> Thanks for you answer.
+> >>
+> >> If guest kernel allow TLB shared across CPUs by setting TTBR0/1_EL1.Cn=
+P =3D=3D 1,
+> >> does kvm still need to guarantee that TLBs are private to each vCPU?
+> > Yes, because there is nothing that describes which physical CPUs
+> > actually share TLBs. So the only possible course of action is to
+> > ignore what the guest says and fallback to something that is safe.
+> >
+> >>>> So I have two questions:
+> >>>>
+> >>>> 1. What is the rationale behind the comment that "guarantee that bot=
+h TLBs
+> >>>> and I-cache are private to each vCPU"?
+> >>> I assume you are asking why keeping both TLBs and I-cache private per
+> >>> each vCPU is required. The fundamental answer is that each physical C=
+PU
+> >>> is expected to have its own TLB and I-cache, so we must uphold that
+> >>> property for vCPUs as well. vCPUs can be scheduled on the same physic=
+al
+> >>> CPU, and use the same physical TLB/I-cache, obviously, so extra
+> >>> invalidations need to be done.
+> >> Let's assume that both Stage-1 CnP and Stage-2 CnP are enabled.
+> >>
+> >> As I understand it, the architecture permits TLB to be shared by multi=
+ple
+> >> PEs within an Inner Shareable domain. Right?
+> >>
+> >> If an implementation allows TLB entries to be shared in this way, it s=
+eems
+> >> that the current invalidation performed by kvm would no longer be suff=
+icient
+> >> to guarantee that TLBs are private to each vCPU.
+> > Care to explain why?
+> >
+> > The core assumption is that a TLBI take effect on all the PEs the TLB
+> > is shared with. If this doesn't work, then CnP is unusable, because it
+> > is then impossible to guarantee that a translation will be refetched
+> > (you could always hit in another PEs TLBs). Such an implementation
+> > would be terminally broken.
+> >
+> > 	M.
+> >
+> For example:
+> Sharing the TLB between the two SMT threads of the same physical core can
+> reduce hardware cost while increasing the effective TLB coverage.
 
-Try to align the vmap virtual address to PMD_SHIFT or a
-larger PTE mapping size hinted by the architecture, so
-contiguous pages can be batch-mapped when setting PMD or
-PTE entries. We do not expect any significant overhead for
-this.
+I have a precise idea of what TLB sharing can achieve.
 
-Add __get_vm_area_node_aligned_caller() as a wrapper over
-__get_vm_area_node() to simplify repeated calls with fixed
-arguments.
+> A local TLBI take effect on the whole TLB shared by the two SMT threads,
+> with the sharing enabled by CnP.
+>=20
+> In this scenario, enabling CnP in KVM appears to break the guarantee that
+> TLBs are private to each vCPU when multiple vCPUs of the same VM run
+> concurrently on different SMT threads of the same PE.
 
-Signed-off-by: Barry Song (Xiaomi) <baohua@kernel.org>
-Signed-off-by: Wen Jiang <jiangwen6@xiaomi.com>
-Tested-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
----
- mm/vmalloc.c | 35 ++++++++++++++++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+Please stop inventing your own terminology. A PE *is* a thread in the
+architecture. There is no such thing as "threads of the same PE".
 
-diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index db0492151ad08..2ac805cdf18ad 100644
---- a/mm/vmalloc.c
-+++ b/mm/vmalloc.c
-@@ -3314,6 +3314,14 @@ struct vm_struct *get_vm_area_caller(unsigned long size, unsigned long flags,
- 				  NUMA_NO_NODE, GFP_KERNEL, caller);
- }
- 
-+static struct vm_struct *__get_vm_area_node_aligned_caller(unsigned long size,
-+		unsigned long align, unsigned long flags, const void *caller)
-+{
-+	return __get_vm_area_node(size, align, PAGE_SHIFT, flags,
-+				  VMALLOC_START, VMALLOC_END,
-+				  NUMA_NO_NODE, GFP_KERNEL, caller);
-+}
-+
- /**
-  * find_vm_area - find a continuous kernel virtual area
-  * @addr:	  base address
-@@ -3626,6 +3634,30 @@ static int vmap_pages_range_batched(unsigned long addr, unsigned long end,
- 	return err;
- }
- 
-+static struct vm_struct *vmap_get_aligned_vm_area(unsigned long size,
-+		unsigned long flags, pgprot_t prot, const void *caller)
-+{
-+	struct vm_struct *vm_area;
-+	unsigned int shift;
-+
-+	if (arch_vmap_pmd_supported(prot) && size >= PMD_SIZE) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, PMD_SIZE,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	shift = arch_vmap_pte_supported_shift(size);
-+	if (shift > PAGE_SHIFT) {
-+		vm_area = __get_vm_area_node_aligned_caller(size, 1UL << shift,
-+				flags, caller);
-+		if (vm_area)
-+			return vm_area;
-+	}
-+
-+	return __get_vm_area_node_aligned_caller(size, PAGE_SIZE, flags, caller);
-+}
-+
- /**
-  * vmap - map an array of pages into virtually contiguous space
-  * @pages: array of page pointers
-@@ -3664,7 +3696,8 @@ void *vmap(struct page **pages, unsigned int count,
- 		return NULL;
- 
- 	size = (unsigned long)count << PAGE_SHIFT;
--	area = get_vm_area_caller(size, flags, __builtin_return_address(0));
-+	area = vmap_get_aligned_vm_area(size, flags, prot,
-+				__builtin_return_address(0));
- 	if (!area)
- 		return NULL;
- 
--- 
-2.34.1
+But more to the point: if TLBI invalidates the relevant TLBs for all
+the PEs that share them, *why* isn't the current KVM behaviour not
+enough to ensure that the vcpu will not hit old TLBs that are there as
+a result of a vcpu having run there previously?
 
+Please explain.
+
+	M.
+
+--=20
+Without deviation from the norm, progress is not possible.
 
