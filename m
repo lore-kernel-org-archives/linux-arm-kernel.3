@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84EFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E8D8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tWf6/Ryhn4/D0YoaG/94TirMZBE2/5qPaMdIEL3nxDk=; b=3GkAHh3AsAsuF/fn3msaXTIi5v
-	WyhNIjADOX7Vsnsx606kixAEIDp1qVPICiuSvnO/q2v8qQPihfdSBIjqfUW3p/afqhU89ORPOdQL9
-	TKwyJFas4W8Vuyixsz1Qd6xdkZ1WZpDZNJcFg600gCFPe7pSQ56Adj+uDorfUWiMLqyf1KwhdRkMS
-	UxHttBfJGLp5M0ev81CeCaX8Xx4/Jx5O3SGSQGyu2nf4yF67TV8TqHjwRxu5R2BMPF5euSR7A6VZW
-	yPfU/vtTXk93CgTCldmNavv3/BRs6XR0HFnaq1F2pJbTeUoIp2pyMddkF/fliPah17ad56omg73E6
-	TvdhIxoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eJOIv5y3265WBGZLY+kMBJBpQgKZfZP/G0nDS8Gem9g=; b=fKRFY0HUL4qYtIntFSB4u2lij9
+	82UZWzjkRYGcxneKBI4ceG8XfZonodkVyf6WwxMPNZ65XvLJZsAZv+/ZkuBu+njtUtfD9M8WVlhwH
+	3t63oJdACQoOf8mdHDX093ubtK5kNluz3zZh4K44iF+pyN0r8fOl7YE2SJ4Zq3f8VrP0y3L5RHC3h
+	TaQU+PK+9c09GKD5Yos/QoLWrsMgT1RgDbz9+VP+CgZq8qh2A0Rr2DO0ant/KKQ63HWn0Hh1dfowK
+	27nQ3+3VewPieQ4q6J4tnbhIL5MzBgfHgHf9rYBisStbRb6T+YAbZfSuDJ9+w9d12egJwrfhHW6Xy
+	aBsMN0aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgguE-0000000CGfA-2s0b;
-	Mon, 06 Jul 2026 10:50:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgguC-0000000CGe6-3Dre
+	id 1wgg7e-0000000C7Ya-1vWq;
+	Mon, 06 Jul 2026 10:00:18 +0000
+Received: from out-184.mta0.migadu.com ([91.218.175.184])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgg7a-0000000C7WE-1Qr8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:50:29 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 347092BC4
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 03:50:22 -0700 (PDT)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4F2703F85F
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 03:50:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783335026; bh=BOxCbahYeMXBie3ntQ0u/5h11UMYD4HNYtTnrFGC5LA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BWGKe4CBdeec3sUNFz/cLfgLvwFyCOWjmq3s9Q1EvMuLusrJuDcQ2U10Pnn0dRdNE
-	 6wnH6avlbX8yECd5YbZF7S/R4qFRLLraGcJuwvW9ZBximFiA7JWumGyQ8EKwcTdIyG
-	 jXnSKDaMsz7qs+cVziaWcQgEo8SE8YJ2+uQ7ni6E=
-Date: Mon, 6 Jul 2026 11:50:17 +0100
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Mon, 06 Jul 2026 10:00:15 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783332011;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=eJOIv5y3265WBGZLY+kMBJBpQgKZfZP/G0nDS8Gem9g=;
+	b=g/EZZRFfWN+wCBLZj9wtI+5kFaF3Maqv+QzzHa8QegiwNg403lrERPfJz31hC//8BkuT3t
+	4y5fNbSIk5PhX7dcrMi6BhWouSuKfMMkMJKffl2d95UKA4tqrIFd0J5wD2ke4hHi1V4/H2
+	vlQy+VHxpGzdWoWeaI+Pj8MOcRaAKmc=
+From: Fuad Tabba <fuad.tabba@linux.dev>
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: arm: Correct indentation
-Message-ID: <akuIad1FdhC9rTqE@e142607>
-References: <20260706101942.341681-2-krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Steffen Eiden <seiden@linux.ibm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Sebastian Ene <sebastianene@google.com>,
+	Hyunwoo Kim <imv4bel@gmail.com>,
+	Fuad Tabba <tabba@google.com>
+Subject: [PATCH v4 2/8] KVM: arm64: Make vcpu_{read,write}_sys_reg available to HYP code
+Date: Mon,  6 Jul 2026 10:59:21 +0100
+Message-Id: <20260706095927.560795-3-fuad.tabba@linux.dev>
+In-Reply-To: <20260706095927.560795-1-fuad.tabba@linux.dev>
+References: <20260706095927.560795-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260706101942.341681-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_035028_882853_45255F54 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20260706_030014_672880_F42F40A5 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,146 +80,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 12:19:43PM +0200, Krzysztof Kozlowski wrote:
-> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
-> No functional impact (same DTB).
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->
+The vcpu_{read,write}_sys_reg() accessors are host-only, so helpers
+built on them such as kvm_vcpu_set_be()/kvm_vcpu_is_be() cannot be
+shared with hyp code. exception.c already wraps them in
+__vcpu_{read,write}_sys_reg(), which pick the host- or hyp-side accessor
+via has_vhe() and so are valid in any context.
 
-Acked-by: Liviu Dudau <liviu.dudau@arm.com>
+Move those wrappers to kvm_emulate.h as kvm_vcpu_{read,write}_sys_reg()
+and switch the callers over, so a follow-up series can share that
+emulation code at EL2.
 
-Best regards,
-Liviu
+No functional change intended.
 
-> ---
-> 
-> Ongoing bigger work for all bindings and DTS with built-in checker (dt-check-style).
-> ---
->  arch/arm/boot/dts/arm/arm-realview-eb.dtsi     | 2 +-
->  arch/arm/boot/dts/arm/arm-realview-pb1176.dts  | 2 +-
->  arch/arm/boot/dts/arm/arm-realview-pb11mp.dts  | 6 +++---
->  arch/arm/boot/dts/arm/arm-realview-pbx.dtsi    | 6 +++---
->  arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts | 4 ++--
->  5 files changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/arm/arm-realview-eb.dtsi b/arch/arm/boot/dts/arm/arm-realview-eb.dtsi
-> index ae370d4eb9d8..f90e28ee4cb9 100644
-> --- a/arch/arm/boot/dts/arm/arm-realview-eb.dtsi
-> +++ b/arch/arm/boot/dts/arm/arm-realview-eb.dtsi
-> @@ -51,7 +51,7 @@ vmmc: regulator-vmmc {
->  		regulator-min-microvolt = <3300000>;
->  		regulator-max-microvolt = <3300000>;
->  		regulator-boot-on;
-> -        };
-> +	};
->  
->  	xtal24mhz: mclk: kmiclk: sspclk: uartclk: wdogclk: clock-24000000 {
->  		#clock-cells = <0>;
-> diff --git a/arch/arm/boot/dts/arm/arm-realview-pb1176.dts b/arch/arm/boot/dts/arm/arm-realview-pb1176.dts
-> index a75d8b107fe1..1cd095496832 100644
-> --- a/arch/arm/boot/dts/arm/arm-realview-pb1176.dts
-> +++ b/arch/arm/boot/dts/arm/arm-realview-pb1176.dts
-> @@ -53,7 +53,7 @@ vmmc: regulator-vmmc {
->  		regulator-min-microvolt = <3300000>;
->  		regulator-max-microvolt = <3300000>;
->  		regulator-boot-on;
-> -        };
-> +	};
->  
->  	veth: regulator-veth {
->  		compatible = "regulator-fixed";
-> diff --git a/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts b/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts
-> index 59c78def83f2..635b09030f60 100644
-> --- a/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts
-> +++ b/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts
-> @@ -153,7 +153,7 @@ vmmc: regulator-vmmc {
->  		regulator-min-microvolt = <3300000>;
->  		regulator-max-microvolt = <3300000>;
->  		regulator-boot-on;
-> -        };
-> +	};
->  
->  	veth: regulator-veth {
->  		compatible = "regulator-fixed";
-> @@ -544,7 +544,7 @@ timer01: timer@10011000 {
->  			interrupts = <0 1 IRQ_TYPE_LEVEL_HIGH>;
->  			arm,sp804-has-irq = <1>;
->  			clocks = <&sp810_syscon 0>,
-> -			         <&sp810_syscon 1>,
-> +				 <&sp810_syscon 1>,
->  				 <&pclk>;
->  			clock-names = "timer0clk",
->  				    "timer1clk",
-> @@ -558,7 +558,7 @@ timer23: timer@10012000 {
->  			interrupts = <0 2 IRQ_TYPE_LEVEL_HIGH>;
->  			arm,sp804-has-irq = <1>;
->  			clocks = <&sp810_syscon 2>,
-> -			         <&sp810_syscon 3>,
-> +				 <&sp810_syscon 3>,
->  				 <&pclk>;
->  			clock-names = "timer0clk",
->  				    "timer1clk",
-> diff --git a/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi b/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi
-> index 0d3d96ffa6e6..366c8baefe8c 100644
-> --- a/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi
-> +++ b/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi
-> @@ -52,7 +52,7 @@ vmmc: regulator-vmmc {
->  		regulator-min-microvolt = <3300000>;
->  		regulator-max-microvolt = <3300000>;
->  		regulator-boot-on;
-> -        };
-> +	};
->  
->  	veth: regulator-veth {
->  		compatible = "regulator-fixed";
-> @@ -373,7 +373,7 @@ timer01: timer@10011000 {
->  			compatible = "arm,sp804", "arm,primecell";
->  			reg = <0x10011000 0x1000>;
->  			clocks = <&sp810_syscon0 0>,
-> -			         <&sp810_syscon0 1>,
-> +				 <&sp810_syscon0 1>,
->  				 <&pclk>;
->  			clock-names = "timerclk0",
->  				    "timerclk1",
-> @@ -384,7 +384,7 @@ timer23: timer@10012000 {
->  			compatible = "arm,sp804", "arm,primecell";
->  			reg = <0x10012000 0x1000>;
->  			clocks = <&sp810_syscon0 2>,
-> -			         <&sp810_syscon0 3>,
-> +				 <&sp810_syscon0 3>,
->  				 <&pclk>;
->  			clock-names = "timerclk2",
->  				    "timerclk3",
-> diff --git a/arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts b/arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts
-> index 6ef23c53d2d8..64f87e6c12bf 100644
-> --- a/arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts
-> +++ b/arch/arm/boot/dts/arm/vexpress-v2p-ca15_a7.dts
-> @@ -209,11 +209,11 @@ dma@7ff00000 {
->  		clock-names = "apb_pclk";
->  	};
->  
-> -        scc@7fff0000 {
-> +	scc@7fff0000 {
->  		compatible = "arm,vexpress-scc,v2p-ca15_a7", "arm,vexpress-scc";
->  		reg = <0 0x7fff0000 0 0x1000>;
->  		interrupts = <0 95 4>;
-> -        };
-> +	};
->  
->  	timer {
->  		compatible = "arm,armv7-timer";
-> -- 
-> 2.53.0
-> 
+Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
+---
+ arch/arm64/include/asm/kvm_emulate.h | 22 +++++++++++++++---
+ arch/arm64/kvm/hyp/exception.c       | 34 ++++++++--------------------
+ 2 files changed, 28 insertions(+), 28 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 5bf3d7e1d92c7..80b30fead3d16 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -506,6 +506,22 @@ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+ 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+ }
+ 
++static inline u64 kvm_vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
++{
++	if (has_vhe())
++		return vcpu_read_sys_reg(vcpu, reg);
++
++	return __vcpu_sys_reg(vcpu, reg);
++}
++
++static inline void kvm_vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
++{
++	if (has_vhe())
++		vcpu_write_sys_reg(vcpu, val, reg);
++	else
++		__vcpu_assign_sys_reg(vcpu, reg, val);
++}
++
+ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+ {
+ 	if (vcpu_mode_is_32bit(vcpu)) {
+@@ -516,9 +532,9 @@ static inline void kvm_vcpu_set_be(struct kvm_vcpu *vcpu)
+ 
+ 		r = vcpu_has_nv(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
+ 
+-		sctlr = vcpu_read_sys_reg(vcpu, r);
++		sctlr = kvm_vcpu_read_sys_reg(vcpu, r);
+ 		sctlr |= SCTLR_ELx_EE;
+-		vcpu_write_sys_reg(vcpu, sctlr, r);
++		kvm_vcpu_write_sys_reg(vcpu, sctlr, r);
+ 	}
+ }
+ 
+@@ -533,7 +549,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
+ 	r = is_hyp_ctxt(vcpu) ? SCTLR_EL2 : SCTLR_EL1;
+ 	bit = vcpu_mode_priv(vcpu) ? SCTLR_ELx_EE : SCTLR_EL1_E0E;
+ 
+-	return vcpu_read_sys_reg(vcpu, r) & bit;
++	return kvm_vcpu_read_sys_reg(vcpu, r) & bit;
+ }
+ 
+ static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
+diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+index bef40ddb16dbc..2cb68dc7d441e 100644
+--- a/arch/arm64/kvm/hyp/exception.c
++++ b/arch/arm64/kvm/hyp/exception.c
+@@ -20,22 +20,6 @@
+ #error Hypervisor code only!
+ #endif
+ 
+-static inline u64 __vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, int reg)
+-{
+-	if (has_vhe())
+-		return vcpu_read_sys_reg(vcpu, reg);
+-
+-	return __vcpu_sys_reg(vcpu, reg);
+-}
+-
+-static inline void __vcpu_write_sys_reg(struct kvm_vcpu *vcpu, u64 val, int reg)
+-{
+-	if (has_vhe())
+-		vcpu_write_sys_reg(vcpu, val, reg);
+-	else
+-		__vcpu_assign_sys_reg(vcpu, reg, val);
+-}
+-
+ static void __vcpu_write_spsr(struct kvm_vcpu *vcpu, unsigned long target_mode,
+ 			      u64 val)
+ {
+@@ -101,14 +85,14 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+ 
+ 	switch (target_mode) {
+ 	case PSR_MODE_EL1h:
+-		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
+-		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+-		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
++		vbar = kvm_vcpu_read_sys_reg(vcpu, VBAR_EL1);
++		sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++		kvm_vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
+ 		break;
+ 	case PSR_MODE_EL2h:
+-		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
+-		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
+-		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
++		vbar = kvm_vcpu_read_sys_reg(vcpu, VBAR_EL2);
++		sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL2);
++		kvm_vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
+ 		break;
+ 	default:
+ 		/* Don't do that */
+@@ -185,7 +169,7 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
+  */
+ static unsigned long get_except32_cpsr(struct kvm_vcpu *vcpu, u32 mode)
+ {
+-	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++	u32 sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+ 	unsigned long old, new;
+ 
+ 	old = *vcpu_cpsr(vcpu);
+@@ -281,7 +265,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ {
+ 	unsigned long spsr = *vcpu_cpsr(vcpu);
+ 	bool is_thumb = (spsr & PSR_AA32_T_BIT);
+-	u32 sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
++	u32 sctlr = kvm_vcpu_read_sys_reg(vcpu, SCTLR_EL1);
+ 	u32 return_address;
+ 
+ 	*vcpu_cpsr(vcpu) = get_except32_cpsr(vcpu, mode);
+@@ -305,7 +289,7 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+ 	if (sctlr & (1 << 13))
+ 		vect_offset += 0xffff0000;
+ 	else /* always have security exceptions */
+-		vect_offset += __vcpu_read_sys_reg(vcpu, VBAR_EL1);
++		vect_offset += kvm_vcpu_read_sys_reg(vcpu, VBAR_EL1);
+ 
+ 	*vcpu_pc(vcpu) = vect_offset;
+ }
 -- 
-====================
-| I would like to |
-| fix the world,  |
-| but they're not |
-| giving me the   |
- \ source code!  /
-  ---------------
-    ¯\_(ツ)_/¯
+2.39.5
+
 
