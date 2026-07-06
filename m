@@ -4,82 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC9AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E937C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lr2T/VNgeTFspDjmoHod2aovQh7y4rJk7xKdeAYkRu0=; b=e2k5zyzAdZ4rmA
-	eMf/Z71wS/vfwlAB9bflf2I2hCZLgfNSYfSqNDHhUDJiQMqUwy+wf1nCGyhUulE7tjkHC1jHWpxf7
-	4DBNtb+4h0yNjO0QqEv0/VbWQ8xbRXHwTWcGGbGEvCakzL1tHdAUeLlikLgICLigobk3F7h4a3T07
-	My+igO1O75qsapeVFc/tEWsRjJsA3KrDsnSmsDze9zls0g7DC+2s/TQ8zuDxUGMjV41OTk6bNk6Si
-	OfdIyIMSQ9QT6mSnIoRO55jHK2dbGtHz2cWvL7DVl254zhzaH365F/f35LVc+A2Fwd0yjNk2WOj5o
-	hC5V/vH6cOD2WEDmuZdA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MLyPjG5C5L4PyonbjPrLAmmPBiN4HQfMBWtrcgyX/W0=; b=RCEhQDWGw6aMVhIN3IsE414RAm
+	iYEXzENVL61oIQVQrv7h8dL6bkyMleTziGk3ZksKZrJeKWnxz7TQifgy+7a6RHEs7K4FSfR4px0lT
+	rPT54tjv8lySjrk1Uunk/FiXMFmsKKbsPStArN3uuk1xgO6XJQQ2ju0A7soFYBoqa56oGwY0lgw7Z
+	/+ch/Ujo5V8WkV1mym15XKF9E4vLPH/QZLk7qs6bbwFGeo3hRriEYa+gK2vqCLCB/5iKMK+MuyFT3
+	eUarcrEtAxa9YE4aqOSBfBjUgl+2zSk8Au8NQngiNOoYUgB2m6zxVjMN7ScTlzFh3qb++9+/tG1F1
+	pwT5PEWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfPp-0000000Bydq-06ou;
-	Mon, 06 Jul 2026 09:15:01 +0000
-Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
+	id 1wgfPx-0000000Byix-379A;
+	Mon, 06 Jul 2026 09:15:09 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfPl-0000000BycD-3UPC
+	id 1wgfPs-0000000Byfs-3F7a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:14:59 +0000
-Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-8478cc93299so3054772b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:14:57 -0700 (PDT)
+	Mon, 06 Jul 2026 09:15:08 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-8454160043aso2738658b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:15:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783329296; x=1783934096; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lr2T/VNgeTFspDjmoHod2aovQh7y4rJk7xKdeAYkRu0=;
-        b=FgcmWG6XSaAhTOfdZ+NY9tg0E1pTOaYkrtHms40VSDCxUEvMi8lxEnKC6xhb4XX0dJ
-         D5t3RL/nFCY+6fZXn6jvzEEU4Xz2Kscx2wAs8/Vh0Vv+LYsZ8f40UbR8IN4JjJqSrMdJ
-         QCIqDlZJeJC2QtjvhczImzL2bTFqM6b3I9eoGb6Y4dodYqqzIzwy0N5LoBNsVeJ76V4Q
-         0d67xuoTtnhS7fFvrRMF2rL2sDsZOtiiR40886nazrcBHqRY2jnE1SJV88v7M3TqkhYc
-         N3nFPrT0yrwGW27RQfM9rze8vSv2ftZnIBjTJUg1YP4XFYum+yog+UCeROUt0drmGjBz
-         Bsgg==
+        d=gmail.com; s=20251104; t=1783329304; x=1783934104; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MLyPjG5C5L4PyonbjPrLAmmPBiN4HQfMBWtrcgyX/W0=;
+        b=Q9tuw93A05vq2GL3eGI64TU3D/b7YhoT8WikETLlm+9K/6dPSBw+YuE+0I2yx7FQ/h
+         lQ0CUfvTT/0ojWxHyAxyrgYpY6CKO/9dcFF5t6YWncJRqnOx0nsoTDGmI7ev+Pqv7sY+
+         2IBqvm5FFGavMUtZFor9IdAt+nkvyolFgZiQWLbxulTUjdM+E5GuY4ZfWkoV/GO0dGzZ
+         e5ghZ3gAgKDdatxlBadtmGwNvOdvisimodKTQHgsegkp5ayAEpCpf0pzzyxoqm4mJeA9
+         npTG4qZSs2cnClCwtj8QvF0kbCvmYGc9vfDYaQGXJDNsUoaeASKJjcLgKyjJopzieVre
+         tUFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783329296; x=1783934096;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lr2T/VNgeTFspDjmoHod2aovQh7y4rJk7xKdeAYkRu0=;
-        b=nJEaTacyBFwjNMMQsXLQTId3XOORZGU0w9gT7I3SO/cn53fBJYgTWVcYz5/arCq1IR
-         c5/rTRARkVANgNK2xIHPpb7Gx7906UDU56Ap9DkxIPJ334I0V4OXb9yblnlG6ZsuAWs1
-         zlzxzud4P8Y8x+Opt4LNW5HisnRUMGFIuVL8zKseR1AcnLtD5NxfHzVsN7t5xxKn71G2
-         aRwsXy2j5AwHBUFDWWW+bM5g3t68yr5N6ppk+wlO2/ezll0+hXWGlKAl/Le6R0B35g8N
-         avnBAxPx7u6VzhyblMXShiaqUwP0ky5Fx0aQG+fBAhO5L9J7pXixJAX7m08ZveUwVC6T
-         C9Eg==
-X-Forwarded-Encrypted: i=1; AHgh+Rq6kjDCA7xzbX8hCMag7b/Scls8vuumeKcowFB9TPyA62zwY5+tRG83Zn2gVs0ZlyLaOECrqiTlkHatg5Ugq06R@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKXujLwoXVr97+toOLDZK8bKEEik04Zk+kbT3/vDnpOmn4yHNd
-	aIUwBN6jD/2lgmNup4+RWLHP0vNDRJHUOaxpyzKuVWI9Ka0uEJ2SJSY683UP6Hv/Id8=
-X-Gm-Gg: AfdE7clbOVAkF/IaSSjM34nQ982/DkCB0paDmo+KcoWPC4KWOzzaYlJVrIEwpQdByjI
-	uwBoTVjkklUWBzmBKA0wLv3VFOpyNiFqbYjb3RsvzpvNWQJYnqQ3dp06ZUHocKurDKBrIK3PRb5
-	jRQpAH5p5P+2eWGkEmUm6pw0vjiI1x+wZrqv87FIvOGyH1RDxHUPmbvN63znZCr2Qjcu8G84AxR
-	qvxf5epQLD2ZIQSysrlrDvu7ehM4q0qshK39cV6TJhxH1MdH7HZp/UQlp/n6Wr68CGq25dWWqTN
-	ZXIWkWYV5I651f9IfQiA/nBtaXtZFhg/K4+uQ5fFVcErCG6sGc4O2UvivMWxhYxxCJzKlpP17SI
-	mKQSBnQwXPbUwPqF0SZ4ccQWZYUrT5eWsVV3W5aWSJgE9dO4ikLe/pDjgHJdPmH0gDwFjwUJtPj
-	5cZQ2qiEvtQknmDz9y3eEqPKZS
-X-Received: by 2002:a05:6a00:928f:b0:842:80c5:c420 with SMTP id d2e1a72fcca58-847f6ef68camr8193652b3a.40.1783329295132;
-        Mon, 06 Jul 2026 02:14:55 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783329304; x=1783934104;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MLyPjG5C5L4PyonbjPrLAmmPBiN4HQfMBWtrcgyX/W0=;
+        b=onCWJezY1H2g5AmbNHtPC7JPvwS45Bso83wb1SbstlQeQ04HJxFRuCGOIHEDrm/jLV
+         LfJzowMkbPaYdAmsW6+/f6V6IBOUoDxwmsH5uTsvBVAOJkOnXMTtZvk88w6ujRUHaGaU
+         gBVVV7wUXp5NyshrIb2pK1s8fAftB8LH/5MRdU1FvcXXUqFsFt7FO72ZwMtZ1SqiJ9ZA
+         oIJs8Ts9l0XkDDMviC8r0jxaVT17BwTj5g7rioOSZNzIJAGCgOZYg6+N3Q8MhErD/6nE
+         p5PYzDV0XSYcDDa4SZbdMBqLNgmNQGtmPZs10MuEbQr0P7gJFscSoDDEUqADE3DZH6RU
+         QsPQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq1XNrTUx88S9lAzldE4gKokr266VsEiSkf+kFixPMIQ8tFAdG7eMzS6zU7Y8UjY9qeFYP8IHsP0tU1rsotp1sv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBLHC9GDGDRR37Dw908iMtHD9BiyhHj3pUCKYKS6KcrPE71Qdz
+	00dXOvJiscHxxz5FyPn93y2TkFHRSu3t/xRmbNM9gVCQcaV/JwwFfF8DOPfTsqbFSsc=
+X-Gm-Gg: AfdE7cnhN/qZTgUnO74SHfC/YUabJnxPX9oJN8YIHYVD+y6DJLr5VlaYDvdD3ObZaic
+	XbU9Vm6KMaqUcxUR7TbkulsW5t19FRqlFKOazBDLpUnPPBVM4mvWk6Ju8/dIOUW5bNjLBj1uqbH
+	3kyB0l/JM9TSWZddGPhmM9rkH4CwCV25ryYkYbzulQxlMWbgGooEos9ji+9TrwbJW6kygBHsOut
+	TYGumhqR66l5WPu3CzhWUZnG/kyZf0UmY5m+y/BGRReor3I7+JVYbV+EtrbO92dclFe00K9ZLBZ
+	4btILZ7n/bNolN/8NFJJQlY3dM1KJbhEdSynpzRL12MMzcB4LnvBPn/nXBKWuMSdmdsc0tQe7/9
+	5qtI3OJ+QPEmY3uisejgKe9ZTw+wNI9mlz8Zx8Xzfwf0ain/+oIhsSJaDTfBH3nSmDI42iWX/Da
+	oGPBQlnsczD6HIAvLhgTm9RnG/
+X-Received: by 2002:a05:6a00:928d:b0:846:c7f4:74d with SMTP id d2e1a72fcca58-847f6f4dc63mr9274624b3a.41.1783329304103;
+        Mon, 06 Jul 2026 02:15:04 -0700 (PDT)
 Received: from [192.168.1.101] ([218.194.36.79])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6db29d1sm3445963b3a.53.2026.07.06.02.14.47
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6db29d1sm3445963b3a.53.2026.07.06.02.14.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 02:14:54 -0700 (PDT)
+        Mon, 06 Jul 2026 02:15:03 -0700 (PDT)
 From: Yanan He <grumpycat921013@gmail.com>
-Subject: [PATCH v2 0/5] ARM: rockchip: rv1126: Add support for Alientek
- ATK-DLRV1126
-Date: Mon, 06 Jul 2026 17:14:40 +0800
-Message-Id: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
+Date: Mon, 06 Jul 2026 17:14:41 +0800
+Subject: [PATCH v2 1/5] dt-bindings: vendor-prefixes: add alientek
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
- vPSU3UzU4B8JSMDIzMDM0ML3aIyQ0MjM93EnMzUvJLUbN2UHKhIiqVJYlJKcpqFqYWBElB7QVF
- qWmYF2OjoWAi/uDQpKzW5BGSeUm0tAHxpGmR8AAAA
-X-Change-ID: 20260618-rv1126-alientek-dlrv1126-d94abdcf8580
+Message-Id: <20260706-rv1126-alientek-dlrv1126-v2-1-ff3176ca362b@gmail.com>
+References: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
+In-Reply-To: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
  Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -96,16 +95,16 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
  Yanan He <grumpycat921013@gmail.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783329286; l=2237;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783329286; l=883;
  i=grumpycat921013@gmail.com; s=20260618; h=from:subject:message-id;
- bh=cLIYaTp8BMdNpvmeNN9IHEGffrelsNbt22peLlfH/xI=;
- b=n9ZjERAhzjx2V7crs7HJzpo3tqAmQ8t8NqGgffNufU3uJAKs2gRa4YnXgybLrwGB6BscbMpTf
- 6R7McTRg+88CmER536i37fi+k30MyFTlhzIpbLcmMPD4KH0VhdznWAN
+ bh=mcE6Yk5jQAt+Yt1V2EfWURtYiAgr7yrD8IJBZ/7gloY=;
+ b=BxvGMeEMOJIcDK1cuZcQyswYfSolbuWRu2T2E+i4BOAKIXIhu8SvtnBgIthxgHZ8eezTIYref
+ jRshprlBawRB4rPkB+L3GtuaunnK7RYifBztV8pZ/pbn8jfugmoNo2I
 X-Developer-Key: i=grumpycat921013@gmail.com; a=ed25519;
  pk=oWrY8KwXIunZWlYBV76NG2A3V4p1bJ+aD45Mr56ErTw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_021457_869655_E0AC46C5 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20260706_021504_825362_9B5EB862 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,54 +119,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ATK-DLRV1126 board consists of a CLRV1126F core module and a
-DLRV1126 carrier board. The core module contains the Rockchip RV1126
-SoC, eMMC and RK809 PMIC. The carrier board provides Gigabit Ethernet,
-SD card, AP6212 WiFi and Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and
-audio connectors.
+Add a vendor prefix for Alientek, a board and module vendor used by the
+ATK-DLRV1126 board.
 
-This series adds the Alientek vendor prefix and board compatible, updates
-the Motorcomm PHY driver to consume an optional external PHY reference
-clock, adds missing RV1126 SoC description pieces, and finally adds the
-CLRV1126F core module and DLRV1126 carrier board device trees.
-
-The board was tested with Ethernet/NFS boot, eMMC, SD card, SDIO WiFi
-enumeration, Bluetooth LE scanning, RTC, ADC keys, GPIO LEDs and RK809
-audio card registration.
-
-Changes in v2:
-- Model CLK_GMAC_ETHERNET_OUT as an external PHY clock consumed by the
-  YT8531 PHY instead of keeping it alive from dwmac-rk.
-- Add optional clock enable support to the YT8531 path in the Motorcomm
-  PHY driver.
-- Use phy-mode = "rgmii-id" for the Alientek DLRV1126 GMAC.
-- Keep the PHY reference clock in the ethernet-phy node, following the
-  rk3588-tiger.dtsi pattern.
-
+Link: https://en.alientek.com
 Signed-off-by: Yanan He <grumpycat921013@gmail.com>
 ---
-Yanan He (5):
-      dt-bindings: vendor-prefixes: add alientek
-      dt-bindings: arm: rockchip: Add Alientek DLRV1126
-      net: phy: motorcomm: Enable optional clock for YT8531
-      ARM: dts: rockchip: Add RV1126 I2C5
-      ARM: dts: rockchip: Add Alientek DLRV1126
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
- .../devicetree/bindings/arm/rockchip.yaml          |   7 +
- .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
- arch/arm/boot/dts/rockchip/Makefile                |   1 +
- .../dts/rockchip/rv1126-alientek-clrv1126f.dtsi    | 277 +++++++++++++++++++++
- .../boot/dts/rockchip/rv1126-alientek-dlrv1126.dts | 256 +++++++++++++++++++
- arch/arm/boot/dts/rockchip/rv1126-pinctrl.dtsi     |  10 +
- arch/arm/boot/dts/rockchip/rv1126.dtsi             |  15 ++
- drivers/net/phy/motorcomm.c                        |   7 +
- 8 files changed, 575 insertions(+)
----
-base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
-change-id: 20260618-rv1126-alientek-dlrv1126-d94abdcf8580
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 396044f368e7..914d5a8fd628 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -88,6 +88,8 @@ patternProperties:
+     description: ALFA Network Inc.
+   "^algoltek,.*":
+     description: AlgolTek, Inc.
++  "^alientek,.*":
++    description: Guangzhou Xingyi Intelligent Technology Co., Ltd.
+   "^allegro,.*":
+     description: Allegro DVT
+   "^allegromicro,.*":
 
-Best regards,
---  
-Yanan He <grumpycat921013@gmail.com>
+-- 
+2.54.0
 
 
