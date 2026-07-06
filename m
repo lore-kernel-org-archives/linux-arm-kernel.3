@@ -4,80 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0D7C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1F40C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:27:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v4FdqJvosPko5czYRrhhNlwZrhnoPDJZNAF44CKBIgw=; b=ITGRrWt2Za1NHPpsomOrqczglW
-	awMKoIIKGcKu6wA2Sg0wohj6lCJeSSTV2KqcXMSCmnAnvS/qk2piaU0JfhJruiWqU7yRRZiiaUYW7
-	LdoolNqa7rxr2iaXixKtKTAl/EotHkqDK/9k18m9hP6r4mI6Hy8558tucj434apawdSR1e08SdaCQ
-	spVYo8IMWXFjBEEDo6KSQVfNdbnZiDXeXvydnk/QSxtk5CuODwySY3T9ntJHvdA02X7Ju5/x+jLe4
-	xzs6ffb74P2dEs4Vavs/XOGyb32xY9adqhomW7isALbkX9AJwRnXaG2x4EC/U4tC74ssQBStW9egf
-	csAKKmLw==;
+	bh=FbNlnCUzmA8Q8RudJAiPNZWwoLt4HvmES37Xr8snSwo=; b=cyn8oCJ5a2Y5coJ+oala3JZhuV
+	V9B7DBq7c2UFSiFRxQrHWYZ+Ci9VzuEPdbOI8mh9mpeP6inthCuCvSGbBMiq7q+qeYJy7cgAhNbth
+	4D+sqlAYB34kZoUaKuGZevlV10Ca/UAudtrXBJ2IvJsGZ8g9HKgysKoHs7Ct7FkQOPV6TsTcxk36K
+	4b5TKW3r5ezgNyWISGYZrq4XDSAtLZnDaP3MDEUMvrJDfgXnkFz1bSy7QanIvu4DkwHZc3ZfHQ8s0
+	PnVFTxRYAhIHpuWg1qXZsSTGQndq/7q9FmygC3brogxP3xkuKSjpwSn7wpt0zRgHKx3eRR3mtawyX
+	bHvREH7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgeeP-0000000Box9-03Bx;
-	Mon, 06 Jul 2026 08:26:01 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wgefv-0000000BpAX-0omO;
+	Mon, 06 Jul 2026 08:27:35 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgeeJ-0000000BowN-2bAo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:25:59 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=v4FdqJvosPko5czYRrhhNlwZrhnoPDJZNAF44CKBIgw=;
-	b=yRyhSjHmg8xHc3laHVlNNk8GwIsBQ+p3A5QoB6CXkKneF229G2n/jiQBC7IZjodBiK8jF+IRK
-	MUtt780CxaPMW8NHPSCzjaOL5vEL1pN/BxexONNhSzOkDmlinWz+OMaH861WRvRaR6yJV1HNiVD
-	UJ41OYl5IE5yl98dYayxxes=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gtxzW1C9YzpSvQ;
-	Mon,  6 Jul 2026 16:17:11 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id BF20040579;
-	Mon,  6 Jul 2026 16:25:47 +0800 (CST)
-Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 6 Jul 2026 16:25:47 +0800
-Received: from [10.67.146.137] (10.67.146.137) by
- kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 6 Jul 2026 16:25:46 +0800
-Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
- guarantee with VTTBR_EL2.CnP
-To: Marc Zyngier <maz@kernel.org>
-CC: Wei-Lin Chang <weilin.chang@arm.com>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <seiden@linux.ibm.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, "guoyang (C)" <guoyang2@huawei.com>,
-	"huanglingyan (A)" <huanglingyan2@huawei.com>, "Wangzhou (B)"
-	<wangzhou1@hisilicon.com>
-References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
- <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
- <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
- <86o6gkpokm.wl-maz@kernel.org>
-From: Tangnianyao <tangnianyao@huawei.com>
-Message-ID: <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
-Date: Mon, 6 Jul 2026 16:25:46 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
- Thunderbird/52.2.1
+	id 1wgefq-0000000Bp9j-0fwg;
+	Mon, 06 Jul 2026 08:27:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783326447;
+	bh=NkIZmh+s/VjlejKVHahLAUu+YBVSswgxPaKaVGW3dvI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KEmsYLTk8g2i1/b1AtD63hLseWnA7yL1At/puOH3wj17FmCA6Bn1HWvv5dQlt3GqO
+	 CikRqyhgnQTISwAG/QoYTrvLC87QRO01vdkScdOuKmRaGNKp3CcFTqEbCHIOkeQ/oH
+	 A+Cisw2qmt/WCpv6SJ6y++f0HjmNbnUVVq+Ei+VLjr0FdkYx1YYcfqBpkEgHBmXRIB
+	 2XuGc80RjYTnoH+EG4+JAxi/wSeKmCTfHkeW/Ntm84oWqogT6ncUX0GxaHWRzdeOnq
+	 Vc3CjbvHiCEU5GotgIJL518Ui4CF2kLHA99Cn3nPGWJQ1stE40DZ2LaxNI7nLiFo/f
+	 h3nW+pIM3VfyA==
+Received: from [100.64.1.21] (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2049517E018C;
+	Mon, 06 Jul 2026 10:27:27 +0200 (CEST)
+Message-ID: <efaffb1b-1084-40f1-8d32-2679f0a425ab@collabora.com>
+Date: Mon, 6 Jul 2026 10:27:26 +0200
 MIME-Version: 1.0
-In-Reply-To: <86o6gkpokm.wl-maz@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: mediatek: remove unneeded 'fast_io' parameter in
+ regmap_config
+To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
+ linux-kernel@vger.kernel.org
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20260705163523.1797-2-wsa+renesas@sang-engineering.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-X-Originating-IP: [10.67.146.137]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemq500001.china.huawei.com (7.202.195.224)
+In-Reply-To: <20260705163523.1797-2-wsa+renesas@sang-engineering.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_012558_127087_602C46D3 
-X-CRM114-Status: GOOD (  26.54  )
+X-CRM114-CacheID: sfid-20260706_012730_357393_217C98D9 
+X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,87 +79,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 7/5/26 18:35, Wolfram Sang wrote:
+> When using MMIO with regmap, fast_io is implied. No need to set it
+> again.
+> 
+> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-On 7/6/2026 15:25, Marc Zyngier wrote:
-> On Mon, 06 Jul 2026 04:30:30 +0100,
-> Tangnianyao <tangnianyao@huawei.com> wrote:
->>
->>
->> On 7/6/2026 1:28, Wei-Lin Chang wrote:
->>> Hi,
->>>
->>> Let me try to answer this:
->>>
->>> On Sat, Jul 04, 2026 at 03:45:56PM +0800, Tangnianyao wrote:
->>>> Hi, all
->>>>
->>>> I'm trying to understand the TLB and I-cache invalidation in
->>>> `kvm_arch_vcpu_load()` that is intended to "guarantee that both TLBs and
->>>> I-cache are private to each vCPU".
->>>>
->>>> As I understand it, when `VTTBR_EL2.CnP == 1`, `__kvm_flush_cpu_context()`
->>>> only performs a local TLB and I-cache invalidation, which does not seem
->>>> sufficient to guarantee that property.
->>>>
->>>> In fact, even if the invalidation were extended to the Inner Shareable
->>>> domain, it still seems difficult to guarantee “TLBs and I-cache are
->>>> private to each vCPU”, when `VTTBR_EL2.CnP == 1`, as long as multiple
->>>> vCPUs from the same VM may be running concurrently on different PEs.
->>> I think you have missed that when 2 stages are involved, both stages
->>> have to set CnP == 1 in order to share TLB entries (Arm ARM R_ZVRZW).
->>> So if TLB entry sharing happens, the guest kernel must have allowed it
->>> in the first place (by setting TTBR0/1_EL1.CnP == 1), hence accidental
->>> sharing that you are worried about won't happen.
->>>
->>> __kvm_flush_cpu_context() is solving problems that occur when multiple
->>> vCPUs of a VM are multiplexed on a single physical CPU.
->> Thanks for you answer.
->>
->> If guest kernel allow TLB shared across CPUs by setting TTBR0/1_EL1.CnP == 1,
->> does kvm still need to guarantee that TLBs are private to each vCPU?
-> Yes, because there is nothing that describes which physical CPUs
-> actually share TLBs. So the only possible course of action is to
-> ignore what the guest says and fallback to something that is safe.
->
->>>> So I have two questions:
->>>>
->>>> 1. What is the rationale behind the comment that "guarantee that both TLBs
->>>> and I-cache are private to each vCPU"?
->>> I assume you are asking why keeping both TLBs and I-cache private per
->>> each vCPU is required. The fundamental answer is that each physical CPU
->>> is expected to have its own TLB and I-cache, so we must uphold that
->>> property for vCPUs as well. vCPUs can be scheduled on the same physical
->>> CPU, and use the same physical TLB/I-cache, obviously, so extra
->>> invalidations need to be done.
->> Let's assume that both Stage-1 CnP and Stage-2 CnP are enabled.
->>
->> As I understand it, the architecture permits TLB to be shared by multiple
->> PEs within an Inner Shareable domain. Right?
->>
->> If an implementation allows TLB entries to be shared in this way, it seems
->> that the current invalidation performed by kvm would no longer be sufficient
->> to guarantee that TLBs are private to each vCPU.
-> Care to explain why?
->
-> The core assumption is that a TLBI take effect on all the PEs the TLB
-> is shared with. If this doesn't work, then CnP is unusable, because it
-> is then impossible to guarantee that a translation will be refetched
-> (you could always hit in another PEs TLBs). Such an implementation
-> would be terminally broken.
->
-> 	M.
->
-For example:
-Sharing the TLB between the two SMT threads of the same physical core can
-reduce hardware cost while increasing the effective TLB coverage.
-A local TLBI take effect on the whole TLB shared by the two SMT threads,
-with the sharing enabled by CnP.
-
-In this scenario, enabling CnP in KVM appears to break the guarantee that
-TLBs are private to each vCPU when multiple vCPUs of the same VM run
-concurrently on different SMT threads of the same PE.
-
-Thanks
-Nianyao Tang
 
