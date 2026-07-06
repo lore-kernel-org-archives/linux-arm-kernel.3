@@ -4,163 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F285C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42DCEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Exr9HRZ35htIMckdohTfbIyqKI1BuQ817SEBISKcs/c=; b=pNYQo4joKlTQ8VAR6L9JCLocln
-	KeHKQt9jcPILtBk5NRgXE9Gk5btfgnDu8w0LTzeuJIrItMywVazTuSwx7jiaoQnUivCeh3fsTsSk4
-	FrehkVgZAMeg6G7NT3jrZPI2mX/XYzkyxiw3DNIhMkPFGcHWR4hZaYE2+bkKgR+3Y1Y7+yUvBrNDH
-	qn3iRkX3C3WTjMG0ZqiQY7fcUMlBX5hWSFX/ex5obOXh6R/N5ykKFgACB8k7MhRhKKZ336FQV216q
-	/o8jnvH5K2vyUllEVoiRblYcGJGSWLepDT3nRoYDfuKIlpKQPYruwzK7aPzH11EuIiLWGxrfCy+ap
-	CNuLAmVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b0A44HOo06DPQTnDCUPqJ4UMJjyqFyasJ88lIL5lLZ8=; b=UXMyHmbBg3a3861+3SMiuLzclP
+	mwWM50DK6k+b+0hxwdZT11cPDzSxRhE6ZfKbBWwQ3Ls0NfDwAJxojqQXdNfH0EoZaHIxKaBA4G9WA
+	NqRoMAd0uEXGMpVCbAXwSZQ/IlDBz5vhR+JWGZB7jrI4pDqHUVcQyujpgfKjvBrQjWEgprxLWAaux
+	p5fUnbrAeAZQbqV/Oc98weLdR8rmi02WtS5ItM+cyYxx8S7kw2CqhPzbIVOZo73TAX8lgYVWnpQcH
+	jiCvjGB4CscR6eeOwHE4SJ73/F79pbKWb+FD+EN+8nl3+UULQDMVAoj13c/6pAkxgXAwf0E9J47l6
+	gZPoLUAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjMW-0000000CbLo-00Ot;
-	Mon, 06 Jul 2026 13:27:52 +0000
-Received: from mx0a-001ae601.pphosted.com ([67.231.149.25] helo=mx0b-001ae601.pphosted.com)
+	id 1wgjQv-0000000Cbk2-2ege;
+	Mon, 06 Jul 2026 13:32:25 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjMT-0000000CbL7-05Si;
-	Mon, 06 Jul 2026 13:27:50 +0000
-Received: from pps.filterd (m0077473.ppops.net [127.0.0.1])
-	by mx0a-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6664uRpd164142;
-	Mon, 6 Jul 2026 08:27:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=Exr9HRZ35htIMckdoh
-	TfbIyqKI1BuQ817SEBISKcs/c=; b=YqW7YnX5Vbx0ss06HN1rZEcp3sSoU/ykxi
-	iVZ1xJwDQXff8gNxgCRbRb+DHkmmH9oOQO2RaQm/OJxhG3C1oN/kJkHHsWH1eE03
-	Eq6kHgkQucJY1eHA6I6ituII86jwB2BcG1asbPrDl7IGo5xcyV2+D1OY2Kdbbtbd
-	THqWoI4RCCOgZYnypJvghduMxztpOCE/SAKPL/TBHlihxMU9JSGQlN5vgjjgG/k7
-	ugG2EuEoe6WtCSNlxZbKHKwy4i2Gg5jV961mBGx2l5YFPsEbkNkxWEWiN8T31+vN
-	drTlMa9NCRaMWeO5Q6Vc2ls517j/RTqWuPa3JCuclNstJOGTiJHA==
-Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11020094.outbound.protection.outlook.com [52.101.193.94])
-	by mx0a-001ae601.pphosted.com (PPS) with ESMTPS id 4f6yjxjc7p-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:27:20 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jVIFvZwJn5GrfM6nwm58M0C3BbjPfgsBr2Vd/FmWJS2he5ogAcDvFkp4yBUIs5ISjm9Il5O4BQ3qzZD4l68UBj+QnDuV/DvqQIL1vKrTDQdaq1HbALAIwQyfIR/+g7r5mxC5MNsIbjaiNnAPEcI8ZvWAlWvgFh9plnqvW6zRHX8Zk/CB3b1k7rebra+z7wLYmghAWnp9qyaasCzrYh1Pz2dtw+U/TVEoODMU9hcyCfSPj+AXVv+5JaUJpqdJorYS9a0t23QlEXOOhmlzE3BG8p4q3LGmnpvPG7l95JeKeGSi/uziodrhip+2l29QI0iO18m462O6DYFk4vClSQcv2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Exr9HRZ35htIMckdohTfbIyqKI1BuQ817SEBISKcs/c=;
- b=i2Bx3Z+Tt6B5GN11XXOa5wYHrx6gPMy9h6vPqex2ffUk1oZtWFgdaSI354p7J8txyNKQrLvp0GYoOAsnS6HwNkHHzKZW2NCA3VEOwUHGNg3YKSg5Jmg7GSpCKFmsbm8gu6FANhzwyykR12ewTA3PsVmWMK+zePi6JTPPf+1b9OTXvlOpsRHcJcK+uoRTU10vhdq+hNzscxm3k5nNhBm1pFhdow3+gbfoNJO7pzMfyKx3LNI76svDrFZQvJR3RAXIISPah3cfvBRPdlKGbeeTWI85okwS2Bm/0rMH1PJ2gKiGeTnSsPs5hKyp6dbHnFpuLgnkSwaEwxJDzaYzit4EdA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=arndb.de
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
+	id 1wgjQs-0000000CbjZ-3MLL
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 13:32:23 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666AxBJc238111
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 13:32:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	b0A44HOo06DPQTnDCUPqJ4UMJjyqFyasJ88lIL5lLZ8=; b=fG+3SBywJZ4CROyC
+	EBkvPSthGbsziZkeQ7K40QVe4l60fKx8Uz2ijBpMSp1CBVrM+HI0Qd48bpu+Nzhi
+	b04ix3wRfk0Y6Vz8Brg9AsqOEADGYxOTg6YXVxaP6tiB5K+NL9xWmAIQdcSDsoja
+	45b2aDZ3euian4+uXjzxtwYvwI7wgwpW24xN4DoAEA0dPPY4VKGbbtifFuvCkpGD
+	W08lRaoc5vSPjy7BTnjfbHHH1tS2o+s/64gN7WIJ9Qc5EPV85CK276mNfFiZO5Kz
+	6EK8MGQwRIYJLD/vCqeLfFfNvZBogj1cBhA/mt27j0jVSHDY5xiaxoDqHwFtLlDE
+	9x26Mg==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88t896uq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:32:22 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-84696ed3b24so4843197b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:32:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Exr9HRZ35htIMckdohTfbIyqKI1BuQ817SEBISKcs/c=;
- b=Etk2dMGylqhLsMpvuFwq6Cwgm+axaDsNq3FauUxVSNM8gCuzbZU7zx0aqauRc7OJlK6Yj+ach0BeIQUGW4GtaEd5g3H4qrx9nJ3Jp0Q0SQcz2sMaXBD3JnmoAgQfB6WigPTOZTasg9kl+JAJs3mhDqSr4dsV9WpVSeAcAyf49F0=
-Received: from SA1P222CA0090.NAMP222.PROD.OUTLOOK.COM (2603:10b6:806:35e::22)
- by CY5PR19MB6243.namprd19.prod.outlook.com (2603:10b6:930:25::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Mon, 6 Jul
- 2026 13:27:14 +0000
-Received: from SN1PEPF00026369.namprd02.prod.outlook.com
- (2603:10b6:806:35e:cafe::9e) by SA1P222CA0090.outlook.office365.com
- (2603:10b6:806:35e::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Mon, 6
- Jul 2026 13:27:13 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- SN1PEPF00026369.mail.protection.outlook.com (10.167.241.134) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Mon, 6 Jul 2026 13:27:12 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id 8C8B4406541;
-	Mon,  6 Jul 2026 13:27:11 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 706A1820244;
-	Mon,  6 Jul 2026 13:27:11 +0000 (UTC)
-Date: Mon, 6 Jul 2026 14:27:10 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: phucduc.bui@gmail.com
-Cc: Mark Brown <broonie@kernel.org>, Takashi Iwai <tiwai@suse.com>,
-        Nick Li <nick.li@foursemi.com>,
-        Herve Codina <herve.codina@bootlin.com>,
-        Support Opensource <support.opensource@diasemi.com>,
-        Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Richard Fitzgerald <rf@opensource.cirrus.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-        Baojun Xu <baojun.xu@ti.com>, Sen Wang <sen@ti.com>,
-        Oder Chiou <oder_chiou@realtek.com>, Linus Walleij <linusw@kernel.org>,
-        Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-        u.kleine-koenig@baylibre.com, Zhang Yi <zhangyi@everest-semi.com>,
-        Marco Crivellari <marco.crivellari@suse.com>,
-        Kees Cook <kees@kernel.org>, HyeongJun An <sammiee5311@gmail.com>,
-        Arnd Bergmann <arnd@arndb.de>, Qianfeng Rong <rongqianfeng@vivo.com>,
-        linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org,
-        patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 11/27] ASoC: codecs: madera: Use guard() for mutex locks
-Message-ID: <akutLhJX+YL54gPW@opensource.cirrus.com>
-References: <20260630063449.503996-1-phucduc.bui@gmail.com>
- <20260630063449.503996-12-phucduc.bui@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260630063449.503996-12-phucduc.bui@gmail.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00026369:EE_|CY5PR19MB6243:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3717b20e-5ae2-4201-c80f-08dedb624a1a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|23010399003|376014|7416014|61400799027|82310400026|4143699003|11063799006|16102099003|22082099003|56012099006|18002099003;
-X-Microsoft-Antispam-Message-Info: RAgRUEMHu5EXSV30q7VM3e8IisWJrWZwIp8LZwFeqG6cviNwQ1P7+L+eo6OKXNomyRx7okut82nUC1W290NsXC2N3CzH21UFL0OLIF+nB4//XFYP2jsjpCa9wjCFlEuWUrNOCgqJa4M3laqfSrGrudIQHqsgSAXUHMgl58pNnHyJDsEIwA2e2mGo6S9OLCp3bjySn5ajl9n2Rh96EwyYcnTOVCEX9XEXJTMbVzQlEs1vV1Qp2Zs/FO+34aT/mvvqsyjhjnGpXAbLjVxJi1deFyrfpvPfeBBmAimzhiSaMj+8d00FnXAp4lFWj9aqFFYCIuJ5Ihu3+z12h8pEEDXuWUb4A2PWSCo+3/HnH9EWKDpI0MMWfl72oX213Bh5d/zmPODM/PHdgmGVMMx67ad/Sig9OzBLQpuDjHIWND1Fzys+RcfwO9Oh3mbyRQV13S1lwr01r8YvdQm7L8cmLW7A0/rgqRvcAmDYXx0mpVpwHsSsqnpO2Vsc7yXiP1dGEP9c3QE+5T8CIZdOJNhhoSgySIFvQmTQ6sHsvrLR1sOPU2Bg/P9D8URlYnUWckflO0k3DIim0tIavdJ67Zs1zLa2pL2+T3GDFPD+iWLmUNfqu0kui3F/HShXqi2MYZ0HRfJeslpdemwhqbevG7KruKZpkIX2Kf9Bpudx9ItcqN5m6Zv3MM3LfGk3TA/P1cu/EmxO5vCKnMtKQi1rNuuRZkD/Og==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(7416014)(61400799027)(82310400026)(4143699003)(11063799006)(16102099003)(22082099003)(56012099006)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: BYLrnBm03FbZiniQbA3LTM+ANsGO+i+1FZgpjYIv4ZsMt/pk5U1zy4PHdEcZTCqT1wi0Rm+g+ySw4nJeFjmOC7fu6PRhW9SezLflOvlW0fE8HaA5679o0gSvVz5x7pKnYQbCTmwf0Xfa8e2jpwODm9nQWEbezKHq8jLqk+7YmncYekk2ZofE17VISAqeCmDQpP+mBrPn3l6WNLYzvctjfUZf7QHZ2euL4EzwMie7hdwi5mS4SyScbQDofpD5QwuHioyrGSASLQuLqqwfea+TzvOP2A+zmGJ8tTjSr/KGMOmrUIVk4jq5svfi01fSWDrX+0a4tV9dfZXsOqonOhywaHooZkF5GRLJ8sJynKI5ecZ23uF/D3SzF+HPBbQb9JHY/5zcazAFxa/9Ed5hg0YcPt9gP/FLLQ211RHAKFWS57x6nWXjgXYYwa8b/2brFfkk
-X-Exchange-RoutingPolicyChecked: gZGJP5GG3vAM2zzceWjU+pVmOLpVm3b6ucX+T4oEHWEkJIj4Vb9PkjhjC034xBIrm35p2xrQly9cAqxhgXJE9ma9ARu7naSc3qQ09yxQ+RB8AzW/Jd7lrfVbQCniel0D1GzP9jLkxgncFWkRB2OcOUtWRox1Rk1hg8wCYoGuhQqZZGsXUylV1McapvtrUaasv6ldO4xQ7pzd2W/VfM7qEFJoirGhM0XQOiOPRMUKxdW7lMLLPVGvkMBUrpwKQfnda968pcllGxCwDnYz0HiHN1NRtGVJmtNkQhtWsyBhYx+GrUmOcLj6+MF7ofZT8wNsGZ+tuif5wtF92nMm4fhwvw==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 13:27:12.7111
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3717b20e-5ae2-4201-c80f-08dedb624a1a
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SN1PEPF00026369.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR19MB6243
-X-Authority-Analysis: v=2.4 cv=Fo81OWrq c=1 sm=1 tr=0 ts=6a4bad38 cx=c_pps
- a=R0VBx4CaF46Y8RBs4q2Lkw==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=Dj2-6B8FqX4mGL0U3gbX:22
- a=pGLkceISAAAA:8 a=w1d2syhTAAAA:8 a=2LXkwXwYv1G787AwtbYA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEzNiBTYWx0ZWRfXwTog97vMthHC
- +IxH5nwq2h3uGT1wEiRMm2oWWLLLyXXbqodcstifrPKW2HA2sQ79yfsioysppm7/3U6Rcb4O8gk
- kaBGdaVzYTVXP71umnOh/hn/jQ8wYrc=
-X-Proofpoint-GUID: rq18B9KK57Vxs1UMPugcMdC4Dzu1LRyU
-X-Proofpoint-ORIG-GUID: rq18B9KK57Vxs1UMPugcMdC4Dzu1LRyU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEzNiBTYWx0ZWRfX33NIHcFxaTBO
- EBCT7MR8QUtDcZoq5KhI+QqXfMDh5rSd0sTJAUBdUhHwDi/6CBk5QwFHGspSOp4gqpXCwow4oNy
- LuknjImelQiieyCdgW1yCtEMZjk9wPu3x3B7jDRub5ym1KHAMhibD9db6TSGa9RPUVmbNuYcFz1
- HUVNJWSkElea4kGLwUZ//7DLbbyVAJ2vLSQ075Xt8SZ97q3BFYIFu1iCs8nu0hIpPvUapdZlgMZ
- JVtQrn23F4zpGUbXr1cX/3MUU61OzUcx6MO1BzPz4REay8rVekhKxcIGky980jlxWzg9JYZrt/e
- reOuiYiZqo0553z3Q3FIxQR6doex6VLCIvJu3KSclENVXahIXNPmjeRrmkAD+tvgqJ6c93LOJY8
- ZGlbGFszmb0yjInmiuYjcVwq/WBHd2tld8eThTzZoZN0MDaOP7a7KQZ2Jtc6Pwj5yXlpS7hbBC4
- bkQWEPT9pR+XnpODWFg==
-X-Proofpoint-Spam-Reason: safe
+        d=oss.qualcomm.com; s=google; t=1783344741; x=1783949541; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=b0A44HOo06DPQTnDCUPqJ4UMJjyqFyasJ88lIL5lLZ8=;
+        b=BB1e2kmeS/p7VEHFPDdCSUxfsxTnH8VS4nrBoie69YFcsomX9DmqZJX7gmWS7rFThn
+         aNnFZ1zmxJgvYo+E0kTXvY9flDlpFbAZirtOvKR7thDO2tj7NnO6+DaEpxcbEtJQcKn0
+         WC5Y0aDfIJIt6Ex0zdikdcZb8Feiph6eDevJp13utO5XnlyqCk5T0Ap/X/Q7mTjRWd5V
+         R8qhJLPCuP7OmYZ+mvNSCT6BvXq47FQWcPMPF8UsRYbkIivHktyxzCVUNyCl4yIhtBi1
+         WSt/KHcKFp9gLN8hCR7MuaPKIvVeEXKVIFytdXO7Yj1NcWS+CCQM7x9JA623cNcStJKV
+         zsEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783344741; x=1783949541;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=b0A44HOo06DPQTnDCUPqJ4UMJjyqFyasJ88lIL5lLZ8=;
+        b=ZZltGXyhdxYdtpZY40G04LueSDCslToEZUSJ4XLgz9MGrDKGkF4QLEkniAtyvVnYwD
+         cSGg14+ww7JYwev/ANwCqLlrKDX5z+Fa30XX5oVmDC7TEJwqCrZhkIFcI9em+A9KSqn5
+         GGkyZ8Dr+MPs9uQ0A3KBp+R9521ARzlGPa625wLGfZh47A1KRsgpj+EMzmKdPniXUzHg
+         3dpc28VQkSmpUCeYgs+0AVkO08ayulvTU2em6p0L3zLqWq1LyuPAd2yEAlyZF4pf6mGx
+         NxSLTFgruUPzEXB0h0dddUdIJXPK4ePHIHmJGegGOaW35Dwnw2FBGcEjOGF4deRarl/n
+         7ZKQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rr2j33S8GgENwc5p43YCfYxE1KvnlxGHNvBJrzqIX6zFQSCznlx0oWxynkvPvXNakyRDTYGsoMi+bp4h6OPlk+j@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyQb4cxsgLJyN3snj/I8hV/qgYqrqOyt+5E+kR9kK+VmZrdDBj
+	Bcw0HPpozc7rlghK4A9N32LeUTtYfkb/OqyNlq3F6LkCqiGeh22i7SFjeXi2XgIv3Z8xw4OgNvr
+	7KDkcfRzj3MO3BZVM1mbsI9eSyAKQxm1UpjSofHLwro2mxLGE0jjjNOiY3ieGM0IJZv3RaJ3eDO
+	Cg6g==
+X-Gm-Gg: AfdE7ckn60DuODxXJYmeE7rn5sKpsP3LFKEET5qciRlRTjkS7ESJenCJ9gvrVYOmyAc
+	xzybeulQ9x2Y48+enQnmqB8w+pcXBxjdG0B2aneY66dkYADzC6XaU5uFDL3aJUDzpf06p94IMtc
+	22R9FhI7yvWByFZPLZkaMl6N3WWVyyRsuKvLzNhFoa4xirqeMVYfEdywe4b1DvoVLhrfr8tUtAx
+	9PvMCpwrb8zcg54jUrVR18fbAk6aTx8hGYHjJHtI8J5qTeXsJXqDawaiIZuVbMJMQsZBebWmTRr
+	b99he1hHsM6HdKkov9MFaQWoBucwmw/48mQ/4428ernoVQAn1X4OpmD0uxlBrxNS/aJg9WLZIKk
+	nkIiP0R/G0SJKffQ=
+X-Received: by 2002:a05:6a00:c8d:b0:847:8f8a:a055 with SMTP id d2e1a72fcca58-84826bea1afmr615691b3a.17.1783344741257;
+        Mon, 06 Jul 2026 06:32:21 -0700 (PDT)
+X-Received: by 2002:a05:6a00:c8d:b0:847:8f8a:a055 with SMTP id d2e1a72fcca58-84826bea1afmr615631b3a.17.1783344740650;
+        Mon, 06 Jul 2026 06:32:20 -0700 (PDT)
+Received: from localhost ([151.243.38.149])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6d82382sm3762898b3a.49.2026.07.06.06.32.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 06:32:20 -0700 (PDT)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 06 Jul 2026 21:32:03 +0800
+Message-Id: <DJRIY04KAKRH.2XJRADHKJ4G55@oss.qualcomm.com>
+Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+        <linux-aspeed@lists.ozlabs.org>,
+        <linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
+        <xen-devel@lists.xenproject.org>
+Subject: Re: [PATCH 2/9] drm/aspeed: replace struct drm_simple_display_pipe
+ with regular atomic helpers
+From: "Ze Huang" <ze.huang@oss.qualcomm.com>
+To: "Thomas Zimmermann" <tzimmermann@suse.de>,
+        "Ze Huang"
+ <ze.huang@oss.qualcomm.com>,
+        "Alexey Brodkin" <abrodkin@synopsys.com>,
+        "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
+        "Maxime Ripard"
+ <mripard@kernel.org>,
+        "David Airlie" <airlied@gmail.com>, "Simona Vetter"
+ <simona@ffwll.ch>,
+        "Joel Stanley" <joel@jms.id.au>,
+        "Andrew Jeffery"
+ <andrew@codeconstruct.com.au>,
+        "Frank Li" <Frank.Li@nxp.com>,
+        "Sascha
+ Hauer" <s.hauer@pengutronix.de>,
+        "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>,
+        "Fabio Estevam" <festevam@gmail.com>,
+        "Linus
+ Walleij" <linusw@kernel.org>,
+        "Hans de Goede" <hansg@kernel.org>,
+        "Alex
+ Lanzano" <lanzano.alex@gmail.com>,
+        "Oleksandr Andrushchenko"
+ <oleksandr_andrushchenko@epam.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com> <20260705-drm-simple-kms-removal-v1-2-b4e1ca053623@oss.qualcomm.com> <4e35e133-364a-4743-9ca0-f0799bdf28f8@suse.de>
+In-Reply-To: <4e35e133-364a-4743-9ca0-f0799bdf28f8@suse.de>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEzNyBTYWx0ZWRfX/vOKBiUnzzB3
+ hgXQaH1ruuH6e/FkuhCGEWKJyXqYrILnaw6bj45YIrEu7RkAadAxm6a/4LyA6IhPIkCaz5Ul/tZ
+ fmHXTG0fKgYi9qd1gciaxSKv8idwQDA=
+X-Proofpoint-GUID: byGwwgsd0OyGPRk1cFfTDzC6smv_FCWf
+X-Authority-Analysis: v=2.4 cv=C6zZDwP+ c=1 sm=1 tr=0 ts=6a4bae66 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=cNux22OjBTKCC6TmznXXXA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=OF-i8N8vVdU2NhfsQ9oA:9 a=QEXdDO2ut3YA:10
+ a=2VI0MkxyNR6bbpdq8BZq:22
+X-Proofpoint-ORIG-GUID: byGwwgsd0OyGPRk1cFfTDzC6smv_FCWf
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEzNyBTYWx0ZWRfX5x/Gzz8H1hbc
+ 8lIxkTAy8inAcLQHmL7jwgAsdrz/ZiIxeYgNKeoa8TXupab3ldzMFx0JCwQmnAsRb5jwcRR2rYn
+ RUfXEXqPsztIgYhCuWVyPpdQ59VBiagAWnLoJ3okN5dshxtieK703j2CUz9N4o8Ttp0K1QOM7Nj
+ I+ZYLNMIAqIpN/J04623AZ3XSPgn1DRpFM0OUD/ScbtjN8kYnuFixxgBFNa/RP08lh4LGKCnKho
+ wvma1Mt3hG4HecpVboQ8j3bK7EgShIppgqSJE7DnriPogCtBtMsvFCh3f5Dae2z2b5QX2mOv8+N
+ jb/GGbDLVRNBRFd1+wFmz27MyUBqs4GBeBJ1iTVaJGqnJMdHEpX6aVsW2emTQChu2aiFU5ol4M+
+ O6HEfKiB12dvSg68OhoZh+mwteRw0KLPMT31nUC5Au1lJZKfqwXAkCB25LNhQ47XcA7OVzjaC7N
+ L7BQ3gZebbgmyah+GFQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607060137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_062749_065703_4AA9AC50 
-X-CRM114-Status: UNSURE (   9.44  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_063222_846255_9D77D488 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,17 +174,300 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 30, 2026 at 01:34:33PM +0700, phucduc.bui@gmail.com wrote:
-> From: bui duc phuc <phucduc.bui@gmail.com>
-> 
-> Clean up the code using guard() for mutex locks.
-> Merely code refactoring, and no behavior change.
-> 
-> Signed-off-by: bui duc phuc <phucduc.bui@gmail.com>
-> ---
+On Mon Jul 6, 2026 at 4:31 PM CST, Thomas Zimmermann wrote:
+> Hi,
+>
+> common points from my arcgpu review applied here as well. See below for=
+=20
+> a new other things.
+>
+> Am 04.07.26 um 20:31 schrieb Ze Huang:
+>> Replace simple display pipe with explicit plane, CRTC and encoder
+>> objects. Move callbacks to plane and CRTC helpers, with vblank handling
+>> through drm_crtc_funcs.
+>>
+>> This removes intermediate simple-pipe layer and uses standard atomic
+>> helper wiring.
+>>
+>> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+>> ---
+>>   drivers/gpu/drm/aspeed/aspeed_gfx.h      |   5 +-
+>>   drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c | 156 +++++++++++++++++++++++=
+--------
+>>   drivers/gpu/drm/aspeed/aspeed_gfx_drv.c  |   3 +-
+>>   3 files changed, 123 insertions(+), 41 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx.h b/drivers/gpu/drm/aspee=
+d/aspeed_gfx.h
+>> index 4e6a442c3886..a34811564c0d 100644
+>> --- a/drivers/gpu/drm/aspeed/aspeed_gfx.h
+>> +++ b/drivers/gpu/drm/aspeed/aspeed_gfx.h
+>> @@ -2,7 +2,6 @@
+>>   /* Copyright 2018 IBM Corporation */
+>>  =20
+>>   #include <drm/drm_device.h>
+>> -#include <drm/drm_simple_kms_helper.h>
+>>  =20
+>>   struct aspeed_gfx {
+>>   	struct drm_device		drm;
+>> @@ -17,7 +16,9 @@ struct aspeed_gfx {
+>>   	u32				throd_val;
+>>   	u32				scan_line_max;
+>>  =20
+>> -	struct drm_simple_display_pipe	pipe;
+>> +	struct drm_plane		plane;
+>> +	struct drm_crtc			crtc;
+>> +	struct drm_encoder		encoder;
+>>   	struct drm_connector		connector;
+>>   };
+>>   #define to_aspeed_gfx(x) container_of(x, struct aspeed_gfx, drm)
+>> diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c b/drivers/gpu/drm/=
+aspeed/aspeed_gfx_crtc.c
+>> index 7877a57b8e26..3294795c31c4 100644
+>> --- a/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c
+>> +++ b/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c
+>> @@ -5,6 +5,8 @@
+>>   #include <linux/reset.h>
+>>   #include <linux/regmap.h>
+>>  =20
+>> +#include <drm/drm_atomic.h>
+>> +#include <drm/drm_atomic_helper.h>
+>>   #include <drm/drm_device.h>
+>>   #include <drm/drm_fb_dma_helper.h>
+>>   #include <drm/drm_fourcc.h>
+>> @@ -12,20 +14,13 @@
+>>   #include <drm/drm_gem_atomic_helper.h>
+>>   #include <drm/drm_gem_dma_helper.h>
+>>   #include <drm/drm_panel.h>
+>> -#include <drm/drm_simple_kms_helper.h>
+>>   #include <drm/drm_vblank.h>
+>>  =20
+>>   #include "aspeed_gfx.h"
+>>  =20
+>> -static struct aspeed_gfx *
+>> -drm_pipe_to_aspeed_gfx(struct drm_simple_display_pipe *pipe)
+>> -{
+>> -	return container_of(pipe, struct aspeed_gfx, pipe);
+>> -}
+>> -
+>
+> Please create a new helper
+>
+>  =C2=A0 struct drm_aspeed_gfx *to_aspeed_gfx(drm_device *drm)
+>
+> that does the upcast.
+>
 
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+Will do
 
-Thanks,
-Charles
+>>   static int aspeed_gfx_set_pixel_fmt(struct aspeed_gfx *priv, u32 *bpp)
+>>   {
+>> -	struct drm_crtc *crtc =3D &priv->pipe.crtc;
+>> +	struct drm_crtc *crtc =3D &priv->crtc;
+>>   	struct drm_device *drm =3D crtc->dev;
+>>   	const u32 format =3D crtc->primary->state->fb->format->format;
+>>   	u32 ctrl1;
+>> @@ -79,7 +74,7 @@ static void aspeed_gfx_disable_controller(struct aspee=
+d_gfx *priv)
+>>  =20
+>>   static void aspeed_gfx_crtc_mode_set_nofb(struct aspeed_gfx *priv)
+>>   {
+>> -	struct drm_display_mode *m =3D &priv->pipe.crtc.state->adjusted_mode;
+>> +	struct drm_display_mode *m =3D &priv->crtc.state->adjusted_mode;
+>>   	u32 ctrl1, d_offset, t_count, bpp;
+>>   	int err;
+>>  =20
+>> @@ -139,33 +134,31 @@ static void aspeed_gfx_crtc_mode_set_nofb(struct a=
+speed_gfx *priv)
+>>   	writel(priv->throd_val, priv->base + CRT_THROD);
+>>   }
+>>  =20
+>> -static void aspeed_gfx_pipe_enable(struct drm_simple_display_pipe *pipe=
+,
+>> -			      struct drm_crtc_state *crtc_state,
+>> -			      struct drm_plane_state *plane_state)
+>> +static void aspeed_gfx_crtc_helper_atomic_enable(struct drm_crtc *crtc,
+>> +						 struct drm_atomic_commit *state)
+>
+> Please see my comment on arcgpu for the new naming of 'state'.
+>
+
+OK
+
+>>   {
+>> -	struct aspeed_gfx *priv =3D drm_pipe_to_aspeed_gfx(pipe);
+>> -	struct drm_crtc *crtc =3D &pipe->crtc;
+>> +	struct aspeed_gfx *priv =3D container_of(crtc, struct aspeed_gfx, crtc=
+);
+>
+> Please use=C2=A0 your helper=C2=A0 to_aspeed_gfx(crtc->dev)=C2=A0 to do t=
+he upcast.=C2=A0=20
+> Here any in other places.
+>
+
+OK
+
+>>  =20
+>>   	aspeed_gfx_crtc_mode_set_nofb(priv);
+>>   	aspeed_gfx_enable_controller(priv);
+>>   	drm_crtc_vblank_on(crtc);
+>>   }
+>>  =20
+>> -static void aspeed_gfx_pipe_disable(struct drm_simple_display_pipe *pip=
+e)
+>> +static void aspeed_gfx_crtc_helper_atomic_disable(struct drm_crtc *crtc=
+,
+>> +						  struct drm_atomic_commit *state)
+>>   {
+>> -	struct aspeed_gfx *priv =3D drm_pipe_to_aspeed_gfx(pipe);
+>> -	struct drm_crtc *crtc =3D &pipe->crtc;
+>> +	struct aspeed_gfx *priv =3D container_of(crtc, struct aspeed_gfx, crtc=
+);
+>
+> Another upcast issue
+>
+
+Acknowledged
+
+>>  =20
+>>   	drm_crtc_vblank_off(crtc);
+>>   	aspeed_gfx_disable_controller(priv);
+>>   }
+>>  =20
+>> -static void aspeed_gfx_pipe_update(struct drm_simple_display_pipe *pipe=
+,
+>> -				   struct drm_plane_state *plane_state)
+>> +static void aspeed_gfx_plane_helper_atomic_update(struct drm_plane *pla=
+ne,
+>> +						  struct drm_atomic_commit *state)
+>>   {
+>> -	struct aspeed_gfx *priv =3D drm_pipe_to_aspeed_gfx(pipe);
+>> -	struct drm_crtc *crtc =3D &pipe->crtc;
+>> -	struct drm_framebuffer *fb =3D pipe->plane.state->fb;
+>> +	struct aspeed_gfx *priv =3D container_of(plane, struct aspeed_gfx, pla=
+ne);
+>
+> to_aspeed_gfx(plane->dev)
+>
+
+Acknowledged
+
+>> +	struct drm_crtc *crtc =3D &priv->crtc;
+>> +	struct drm_framebuffer *fb =3D plane->state->fb;
+>>   	struct drm_pending_vblank_event *event;
+>>   	struct drm_gem_dma_object *gem;
+>>  =20
+>> @@ -190,9 +183,9 @@ static void aspeed_gfx_pipe_update(struct drm_simple=
+_display_pipe *pipe,
+>>   	writel(gem->dma_addr, priv->base + CRT_ADDR);
+>>   }
+>>  =20
+>> -static int aspeed_gfx_enable_vblank(struct drm_simple_display_pipe *pip=
+e)
+>> +static int aspeed_gfx_crtc_enable_vblank(struct drm_crtc *crtc)
+>>   {
+>> -	struct aspeed_gfx *priv =3D drm_pipe_to_aspeed_gfx(pipe);
+>> +	struct aspeed_gfx *priv =3D container_of(crtc, struct aspeed_gfx, crtc=
+);
+>>   	u32 reg =3D readl(priv->base + CRT_CTRL1);
+>>  =20
+>>   	/* Clear pending VBLANK IRQ */
+>> @@ -204,9 +197,9 @@ static int aspeed_gfx_enable_vblank(struct drm_simpl=
+e_display_pipe *pipe)
+>>   	return 0;
+>>   }
+>>  =20
+>> -static void aspeed_gfx_disable_vblank(struct drm_simple_display_pipe *p=
+ipe)
+>> +static void aspeed_gfx_crtc_disable_vblank(struct drm_crtc *crtc)
+>>   {
+>> -	struct aspeed_gfx *priv =3D drm_pipe_to_aspeed_gfx(pipe);
+>> +	struct aspeed_gfx *priv =3D container_of(crtc, struct aspeed_gfx, crtc=
+);
+>>   	u32 reg =3D readl(priv->base + CRT_CTRL1);
+>>  =20
+>>   	reg &=3D ~CRT_CTRL_VERTICAL_INTR_EN;
+>> @@ -216,12 +209,75 @@ static void aspeed_gfx_disable_vblank(struct drm_s=
+imple_display_pipe *pipe)
+>>   	writel(reg | CRT_CTRL_VERTICAL_INTR_STS, priv->base + CRT_CTRL1);
+>>   }
+>>  =20
+>> -static const struct drm_simple_display_pipe_funcs aspeed_gfx_funcs =3D =
+{
+>> -	.enable		=3D aspeed_gfx_pipe_enable,
+>> -	.disable	=3D aspeed_gfx_pipe_disable,
+>> -	.update		=3D aspeed_gfx_pipe_update,
+>> -	.enable_vblank	=3D aspeed_gfx_enable_vblank,
+>> -	.disable_vblank	=3D aspeed_gfx_disable_vblank,
+>> +static int aspeed_gfx_plane_helper_atomic_check(struct drm_plane *plane=
+,
+>> +						struct drm_atomic_commit *state)
+>> +{
+>> +	struct drm_plane_state *plane_state =3D drm_atomic_get_new_plane_state=
+(state, plane);
+>> +	struct drm_crtc *crtc =3D plane_state->crtc;
+>> +	struct drm_crtc_state *crtc_state =3D NULL;
+>> +	int ret;
+>> +
+>> +	if (crtc)
+>> +		crtc_state =3D drm_atomic_get_new_crtc_state(state, crtc);
+>> +
+>> +	ret =3D drm_atomic_helper_check_plane_state(plane_state, crtc_state,
+>> +						  DRM_PLANE_NO_SCALING,
+>> +						  DRM_PLANE_NO_SCALING,
+>> +						  false, false);
+>> +	return ret;
+>> +}
+>
+> Return directly.
+>
+
+OK
+
+>> +
+>> +static const struct drm_plane_helper_funcs aspeed_gfx_plane_helper_func=
+s =3D {
+>> +	.prepare_fb	=3D drm_gem_plane_helper_prepare_fb,
+>> +	.atomic_check	=3D aspeed_gfx_plane_helper_atomic_check,
+>> +	.atomic_update	=3D aspeed_gfx_plane_helper_atomic_update,
+>> +};
+>> +
+>> +static const struct drm_plane_funcs aspeed_gfx_plane_funcs =3D {
+>> +	.update_plane		=3D drm_atomic_helper_update_plane,
+>> +	.disable_plane		=3D drm_atomic_helper_disable_plane,
+>> +	.destroy		=3D drm_plane_cleanup,
+>> +	.reset			=3D drm_atomic_helper_plane_reset,
+>> +	.atomic_duplicate_state	=3D drm_atomic_helper_plane_duplicate_state,
+>> +	.atomic_destroy_state	=3D drm_atomic_helper_plane_destroy_state,
+>> +};
+>> +
+>> +static int aspeed_gfx_crtc_helper_atomic_check(struct drm_crtc *crtc,
+>> +					       struct drm_atomic_commit *state)
+>> +{
+>> +	struct drm_crtc_state *crtc_state =3D drm_atomic_get_new_crtc_state(st=
+ate, crtc);
+>> +	int ret;
+>> +
+>> +	if (!crtc_state->enable)
+>> +		goto out;
+>> +
+>> +	ret =3D drm_atomic_helper_check_crtc_primary_plane(crtc_state);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +out:
+>> +	return drm_atomic_add_affected_planes(state, crtc);
+>> +}
+>
+> See arcpgu on a possible style improvement.
+>
+
+Will do, thanks
+
+
+> Best regards
+> Thomas
+>
+
+[ ... ]
 
