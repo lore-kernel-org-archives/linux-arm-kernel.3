@@ -4,91 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65DB1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:47:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3616C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K1JM3iR83U/G0YDsw5gW97fJ9sEdX5VFtPwLyKf8wMA=; b=DME/GrZ4n9waVPwpdaTWlkurCs
-	Owrdnp/upbeWYggLP5c0HDJFhILT69WQKZwuOcQib391w79beDD6mgO7kmF3sqNzZuNbzsNjx2cCK
-	U9V88ZPDn9Ne3MI0e/ssM6qsG2ibGxTN9+/APb5rPvlMH9NLSSetgeJDuS4Tk3CM3fm80qqq1+QOv
-	bNsRSif7twhD3akw+6yPCqLkQFjvP8pKK14GD9P7CbXIisS1yMCdvSzCRIzYjNhWh8BcV3bT12V5y
-	XYkZ/6FoiFZ1xk/ywwupG6MejMFNMmzHMHC7u4h1lYWxmdiyyMZfI39GV7PLTF9p0ZjGzZQKLqd2N
-	qqWyiKIw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lN3qfnGv2mWPUFitS8eH6rc3luHq/Jj38kDJNXJBKwg=; b=SjOPX7EgS1Pz04/29IG4HJZmad
+	Au5HugFV0ar4uPHqrUNKVLS831e/JPt/1myQhwj1sLo7wgpMthAb+xenhXGhjczCytoojMfkcHo/M
+	AfSJOel40CmJX65S1AxPDkqoQHgCgPIr0pAROIVovzmQRDV+W3xtAw6uRiWV5b4P9wBVDPDbKgPwI
+	Dmle1YPDnHC/Z0raPrYK6VSPRtKB60AEcN9Wx8K9jyvIIMvOAftQASx9ViuyEX0t+JL4GF3hxeipF
+	qDpa3V6xLYvhhiSJt2E02Ki0DDI2YM+RAxEivOQ9Lzl5gT4JPHqloBdEuRN6bV4xJnhnBDDGWkkCA
+	uL3+qqfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgez2-0000000Bt6W-3EVh;
-	Mon, 06 Jul 2026 08:47:21 +0000
+	id 1wgf0H-0000000BtXm-1k40;
+	Mon, 06 Jul 2026 08:48:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgeyw-0000000Bt3V-3J83
+	id 1wgf0C-0000000BtWT-0odv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:47:14 +0000
+	Mon, 06 Jul 2026 08:48:34 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4953C40B26;
-	Mon,  6 Jul 2026 08:47:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3E811F00A3D;
-	Mon,  6 Jul 2026 08:47:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id ED61143450;
+	Mon,  6 Jul 2026 08:48:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D6F31F000E9;
+	Mon,  6 Jul 2026 08:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783327634;
-	bh=K1JM3iR83U/G0YDsw5gW97fJ9sEdX5VFtPwLyKf8wMA=;
-	h=From:To:Cc:Subject:Date;
-	b=T5K4LDaTnrTLInmxYLGFhXguJrdgMjUW0A9lkms0OMmpbpCHlvsMmu+R4JSqbmaFr
-	 4LXRKG23mYEpyL1zLv0NXIAf8jE8vVbW0GR8GtrzkWjxLeDWTs/KUSr/sXt1WVahYp
-	 JgCyggNjlKCeq+FPUnmAD7hMNn18DxA2bp4dcPcoUcbqVc+1j3ZI4yz9J5+PB7v4zh
-	 GhYYfSc67sDMu+IvaIo0Au0+iYpRDcg9A1qq/mbiOFE+ojLCWGvWbY5z9Fy34LzRXF
-	 keKR0t0B9K/AxR+pkZjKO2RBcx9LLEk6a58mqon2/t6PfsVUyW2tkEIwKtm1NWaQWA
-	 lyasFhRtAtm1g==
-Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 0556FF40069;
-	Mon,  6 Jul 2026 04:47:13 -0400 (EDT)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-09.internal (MEProxy); Mon, 06 Jul 2026 04:47:13 -0400
-X-ME-Sender: <xms:kGtLapuqRIBO2s0WTzd7lweDFzYv8Ik_LePIrmSkKJdqvXGyYy3p9Q>
-    <xme:kGtLavIxEg2dI37Nt_5rD_ofEBr1vqBjLxUZgpkzsBZnGKzWQcjeB0MJD-LfhLuot
-    QYMchK5mxUDpu3PhcppiyYqRwMlCy0Tt2IVxmg9NijYwn1Ir9XivO2f>
-X-ME-Received: <xmr:kGtLagqTpEpFNtP6jHzjcMRuxK7uzerWiBpbbo6ALvZImfw-k6_xQfBXAWLYjw>
-X-ME-Proxy-Cause: dmFkZTFgLk5M9VxGft6rFuXGnGCOxsoVsLfH/QhMWdGsWlLYZ+tvZp1fr+XMDadXHgzDSl
-    y6Q9gczpCt+E83q0zkJrtfwUsirjdQSNVdeURUQWhISVyyJ4XB/Y7Pyg9Hl7/mqlBl7Qcn
-    qwlFvgz+uVlNLAiUHQQMtYxXqcFTn9MB5S+hZyCmdDngmC/3Ia+GlwR3CrsOCy/aWlfsUz
-    zV54lUI+sNsGL3WP17ea0EMmkmiCyq/64WDRqlzED74cjLv/UBUIr24yghmQmxiaXp4xC5
-    9zyCq9IDeqXQNDvjPod3FKqKBUnS2uLzL5XGYdbfrQ4O9oYFLYXUmlE8guOhUXF3e6pZbo
-    FNCVgo6+FoYet0fxGa5N/bknHEQjATOo6auOEvli93NPdiztZguBZntImJ4QsA04v/j4JG
-    92QiU0HND4/uQ7zJ7d1mq9u4c0d5kX8Waiydpy773aqR99TW5k2sHIsJl06F+RadfXTgVY
-    0VLZUt2wErQ1BX1zgI6oARS3y3q+Drry6n2QAfTCpfslHDSnID88icpTCXwPwpC3hkUTVk
-    UIbhObQFXnCFUqokK+rifqHyB5PrDpYvArl2VIBllJ7Dnk8VhFbfeXHj/q2Tw6Nn1fr54i
-    Il5/sLo+IcM51e+x/KwqBlvIB6XlLXprGbVl2M81nsfhHezQ9+Rn3pnJEscQ
-X-ME-Proxy: <xmx:kGtLaqWKK3tzlUX-X3zhMvyJkfZSJBwtpAxKK2z7irwA061-6KoiVw>
-    <xmx:kGtLat2TrT2zg8axIIMLuTjh93ssPmvlSYJVLKDi5kVQXkpNZb6ibw>
-    <xmx:kGtLapTK_FsSnoU5mi89Ti_4fa2Xd0ujN5fdD1huN6pLUZeXX3b__Q>
-    <xmx:kGtLahTBfYC-cIoaKxyzqEhuIEyssCfPvuy_14nWnn4WyUEqG8rpwA>
-    <xmx:kWtLaqVskaUZaBMHKxRhdpmq_E7k_bBrjYAV7nQWCi8g9EX8ZmN1e4Er>
-Feedback-ID: i10464835:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 6 Jul 2026 04:47:12 -0400 (EDT)
-From: "Kiryl Shutsemau (Meta)" <kas@kernel.org>
-To: Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pranjal Shrivastava <praan@google.com>,
-	Breno Leitao <leitao@debian.org>,
-	Kyle McMartin <jkkm@meta.com>,
-	Usama Arif <usama.arif@linux.dev>,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	"Kiryl Shutsemau (Meta)" <kas@kernel.org>
-Subject: [PATCH v3] iommu/arm-smmu-v3: Shrink command/event/PRI queues in kdump kernel
-Date: Mon,  6 Jul 2026 09:47:08 +0100
-Message-ID: <20260706084708.8072-1-kas@kernel.org>
-X-Mailer: git-send-email 2.54.0
+	s=k20260515; t=1783327711;
+	bh=lN3qfnGv2mWPUFitS8eH6rc3luHq/Jj38kDJNXJBKwg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=FGj65VGSdMdhxSSuTQdDhOaSiWA/zKrbfoat2AmTWZkxL6IwSsaDTuy0v5M+bMAmp
+	 8OqoFSD3iopUyYQvnnGd4NF+YsDW9uVpHdaVltjQjlFM+JmDTyjnqawe/tAZDaCQsU
+	 ej+lNJlviXjNtDjJ216p0X5rozammss/TTWrTml4Lq60XYrAqG7tWdIiim9nmRnsyQ
+	 hK7X8SB9sCkcQPYjSlK5E4WhEdN7iGlUoWcdcTYKBHe/b+Ui+rr4CeHMdU9fhsAEpK
+	 UlLEWBDkhSy149BWGidGDV2UMm0m57ByTSgDYqoo6DZbqTQhsoBOQER13AkPFDKr1K
+	 2cdp4uQbIefAQ==
+Message-ID: <41f08ccd-39dd-4b69-8ddf-60da848fef6a@kernel.org>
+Date: Mon, 6 Jul 2026 10:48:21 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/6] mm/mprotect: use huge_ptep_get() for hugetlb
+To: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
+ akpm@linux-foundation.org, ljs@kernel.org, liam@infradead.org
+Cc: riel@surriel.com, vbabka@kernel.org, harry@kernel.org, jannh@google.com,
+ lance.yang@linux.dev, kas@kernel.org, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, apopple@nvidia.com, rcampbell@nvidia.com,
+ ziy@nvidia.com, matthew.brost@intel.com, joshua.hahnjy@gmail.com,
+ rakie.kim@sk.com, byungchul@sk.com, gourry@gourry.net,
+ ying.huang@linux.alibaba.com, ak@linux.intel.com, nao.horiguchi@gmail.com,
+ mel@csn.ul.ie, j-nomura@ce.jp.nec.com, pfalcato@suse.de, tglx@kernel.org,
+ dave.hansen@intel.com, jpoimboe@kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, linux-arm-kernel@lists.infradead.org, ryan.roberts@arm.com,
+ anshuman.khandual@arm.com
+References: <20260703114202.365553-1-dev.jain@arm.com>
+ <20260703114202.365553-7-dev.jain@arm.com>
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=david@kernel.org; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20260703114202.365553-7-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +124,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All SMMU queues are sized from the maxima the hardware advertises in IDR1,
-which can be several megabytes each, and are allocated at probe. The kdump
-kernel already disables the event and PRI queues (arm_smmu_device_reset()
-drops CR0_EVTQEN/CR0_PRIQEN) but still allocates them at full size. On
-systems with many SMMUv3 instances that cost is paid per instance and adds
-up to tens of megabytes of coherent DMA in the capture kernel.
+On 7/3/26 13:41, Dev Jain wrote:
+> prot_none_hugetlb_entry() is the hugetlb callback for the early
+> mprotect(PROT_NONE) PFN permission walk on x86.
+> 
+> The callback passes the decoded PFN to pfn_modify_allowed(). For a
+> hugetlb callback, the pte pointer refers to a hugetlb entry. On
+> architectures where hugetlb entries need huge_ptep_get(), reading that
+> entry with ptep_get() can make the permission check use the wrong PFN.
+> 
+> Use huge_ptep_get() before decoding the hugetlb PFN.
+> 
+> Currently there is no path which can trigger a bug: huge_ptep_get() is a
+> simple ptep_get() for x86, and the prot_none walk occurs only for x86.
+> 
+> So no need to backport - use the correct helper anyways.
+> 
+> Fixes: 42e4089c7890 ("x86/speculation/l1tf: Disallow non privileged high MMIO PROT_NONE mappings")
+> Reviewed-by: Muchun Song <muchun.song@linux.dev>
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
 
-A kdump capture kernel runs from a small crashkernel reservation and only
-has to drive the few devices used to save the dump, so deep queues serve
-no purpose. The queues are not on the DMA data path, so dump throughput is
-unaffected; a shallower command queue only bounds how many commands may be
-in flight before a sync, which does not matter for the capture kernel's
-small device count and modest I/O.
+Acked-by: David Hildenbrand (Arm) <david@kernel.org>
 
-Clamp every queue to a single page when is_kdump_kernel() is true. Doing
-it in arm_smmu_init_one_queue() covers the command, event and PRI queues
-in one place. The command queue still holds at least one batch plus a sync
-(256 entries on a 4K-page kernel, well above CMDQ_BATCH_ENTRIES), so
-command batching keeps working.
-
-Suggested-by: Kyle McMartin <jkkm@meta.com>
-Signed-off-by: Kiryl Shutsemau (Meta) <kas@kernel.org>
-Reviewed-by: Breno Leitao <leitao@debian.org>
-Reviewed-by: Pranjal Shrivastava <praan@google.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
-Tested-by: Nicolin Chen <nicolinc@nvidia.com>
----
-v3:
- - Reword the commit message: all SMMU queues are sized from IDR1, and the
-   event/PRI queues, though disabled in kdump, are still allocated
-   (Pranjal Shrivastava).
- - Collect Reviewed-by from Pranjal, Jason and Nicolin; Tested-by from
-   Nicolin.
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index e8d7dbe495f0..a4ec4a59e527 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -4414,6 +4414,20 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
- {
- 	size_t qsz;
- 
-+	/*
-+	 * A kdump capture kernel runs from a small crashkernel reservation and
-+	 * only has to drive the few devices used to save the dump, so there is
-+	 * no point sizing the queues for the (multi-megabyte) maxima the
-+	 * hardware advertises. Clamp each queue to a single page. ent_sz_shift
-+	 * is the log2 of the entry size in bytes (dwords * 8).
-+	 */
-+	if (is_kdump_kernel()) {
-+		u32 ent_sz_shift = ilog2(dwords) + 3;
-+
-+		q->llq.max_n_shift = min(q->llq.max_n_shift,
-+					 PAGE_SHIFT - ent_sz_shift);
-+	}
-+
- 	do {
- 		qsz = ((1 << q->llq.max_n_shift) * dwords) << 3;
- 		q->base = dmam_alloc_coherent(smmu->dev, qsz, &q->base_dma,
 -- 
-2.54.0
+Cheers,
 
+David
 
