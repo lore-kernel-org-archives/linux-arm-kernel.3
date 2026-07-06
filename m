@@ -4,116 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BB2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226C6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ryDaMDdUIlJtmHnTUoGTHsXnTD+6T4wqV6GsP0/9lPI=; b=mUUKCyzYKRmcxYYMomP3zVyzR3
-	1Vt3tAeHJqwviN04CwIm4CI3vNhw7ZYZPnFkBmOa1yy/e7tzrThaA2Ddtta3tpB1bUQATa0iQ50eJ
-	JHMaWBN57AEGNcpl+NZJlzUarKDvVdKpt8QDuvXYkngNfsS8oTp8QTuDPiCCY5nlvg4rj4T7iED7a
-	bSJmVa6GKqR3TDUvu/WFSgaE9SjDgATxkSJLu2gfa8DRXPAadKhsCFP6aCuMNK/aNHe/HMIZKcf9i
-	f63hIC+rFRfDvVfetEYX4tqozMh/67uRry+Z8d5wyTF1eOJmRvJ7CgCp56q18L0I4kGgNnqy1865J
-	Nj6qIaBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=; b=m8gVwJWp6WvzQH/d7BfsIMyoDZ
+	CGwaQTSBChpGdmcFxOjyIZXVqHoEIfC+RGj2XWqKsFzO/GOjwTvv7OdWBvMye6b6kddG0o5SthxOW
+	xYOwy6XEEhci99AYiHVwl+lZ+Gfb49a/CmwcQlIgHqBiZ0fQwSSPlgE2VzVpdpRusUL0Wl3uHpV5h
+	LZXqccdh/N4nEDhc8gcX/nlITb1S9MZK844u5jyJtnEC317DGCDEBty/I6pZAUUIPL8SRAiKN5zdJ
+	CuH2EoCr8yAnCe7WZcaiiRFqAa4Bcv7vAK6K32VVCD1VPwPyINkDdv4iR/ITmAncmTXRzBUA99xzl
+	hTKxiKpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpNX-0000000DUZt-1hq2;
-	Mon, 06 Jul 2026 19:53:19 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1wgpQR-0000000DUof-3Oii;
+	Mon, 06 Jul 2026 19:56:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpNU-0000000DUZP-1yye
+	id 1wgpQP-0000000DUnz-0bdB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 19:53:17 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-92e5cb052edso253241185a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 12:53:15 -0700 (PDT)
+	Mon, 06 Jul 2026 19:56:18 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666FF8ut990252
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 19:56:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=; b=ST78Cn0CaHEAkBgQ
+	hRRjEv4Z/xXKv2pMOPJkqYAqsxxiYT8or41dWgrQWnOH9cJiSAgKRORgiMr+lok9
+	5tyUYKpaSbfYS4wJTiwDGn9JsKqgBBt8PD6L37SJO1XXQ6gva5mwocEWJqFYDvc0
+	ujpTfltzo75l9CEPP7rBpbZQAj/QCeetpwFJ8pdaN1+N3cKJfH8YVq+W8vKza5WL
+	Bha+6cda/Q0xM9PkaiwdIU6hXe+Afqo151kx0J3vFMLm9fp+o2IlYBtKOAzYFcG7
+	0cWdN2uBMOoZUjYHvGBZtdePiaG3jV1Y7aC1gOPh+jPcdnnYhpcyK3T8k4iNmKGq
+	IYfdeQ==
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a3gtpdg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 19:56:15 +0000 (GMT)
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c88cfe287e1so2473225a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 12:56:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1783367595; x=1783972395; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ryDaMDdUIlJtmHnTUoGTHsXnTD+6T4wqV6GsP0/9lPI=;
-        b=ZTcvCQx6u70qPLUe3Q1obEwPEO32aqkS1IeBOIqDFqoglbBrpCrpOxJp5mf7YBGDt9
-         HqTUEbM1Kas8aXxYC75f3v9JmHTSz6J2+A/ST1kOOuDVBySrb/DEJOoiFzgpTe4lIAh1
-         SCjTdA2pK4jsADumMykpXSOGrFeG2gevjx+DE0IrwNfE0LDp3JaPLw56GpgZfgRsjo5i
-         CjzaZAw11JQ95jUY4pfOMClDvjwjHs2DtSpoKLlzoe2ArqfymiW9FidFcN6VE2AXR5Wj
-         32V5JzKuSQhO/IKZpdASPbMdRcgUNn9cXQv5OIh8EhGR8o15d4Os+iUxzwuIHJVs4Jlq
-         WLcg==
+        d=oss.qualcomm.com; s=google; t=1783367775; x=1783972575; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=;
+        b=jL7bcK6RvGeO9Mf9kH/FVDRQk20IZICM/fjwAd42duPgEGTgz8f29KJbTm/Z+nNC4B
+         pAs847lGqo2FSv3J7Vhfo0y42F2dc0MCyltYxR+hyGESVxSF5MR5+RG9pYf27eeEd0Pg
+         Xco/8BdxCqTNtPu8XknnWJdqUL6WGbUJURrFMcsnUy98ea5W5vJP0J308qFLFOX/9Mca
+         JWVPIor6kqKjnOdh6qjHsKu1ZcWE822xDZciadLR4MIc6o6PaGel2QOGNpVOU5wwHRp3
+         wbwx/G1qlPWc9q5Q5+8qT+SO3/u4YKlSp9lkSBGOMwYKhP4AfVqkvbAtWJxFn7rramTU
+         XYxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783367595; x=1783972395;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ryDaMDdUIlJtmHnTUoGTHsXnTD+6T4wqV6GsP0/9lPI=;
-        b=UCuwQp/Ysfs+29dRdwct1CmjYXwLK02dITgNTKEWeVyhBqeJPm/juA/xROQKVlEse5
-         IKDEzirBZSPbl8cjjd1qDPiuJurqvJ08QfqMTH0REdLxZMb9m2xT8kgqi1ukOR26G2uQ
-         ShedXdC1J1aA6936NkgJSKHoS/6FNlJWaYZeNQgJjPEh8BJGzt1x23OSk8hWn+QSgHxK
-         iH/xYAsCGlOaB6lz3rXEfpW1/3HGcIVVOEj+zGEDZbLOxq1vhoCK9O7ulOCPeZAI2Dd7
-         KvV6/ncQTRM8pvAeGrRW/MCGS+dDfME9AlI+eyAtTUBn1Tnpd59ZGX9SNus4afK8/QGi
-         6JEw==
-X-Forwarded-Encrypted: i=1; AHgh+RqgDM+5/2k1UqHPr3bfjOwnIQAwtLeD1KDOJWN0UZ3pRo+1InlJoc3DdVIjv/52ICemV8bcwkFuAzbyZdu9ItPg@lists.infradead.org
-X-Gm-Message-State: AOJu0YxH60a0ofHydNoZY+Xa+1KILErgQ9wlG4ji8K/iVn5Hjqix6AZ6
-	5JgYqoRucTcwEZ1ko7hfJ1SE/yREINQEU/kZz8LEmdVpj7TNg6jM9C35O5tECNXstHg=
-X-Gm-Gg: AfdE7ckrA8o//rdqfJRBQ1bIUmT5ggycZgbxdRkzWbFxKrsXvt6n4Pgd7H20gGKTDyO
-	kLDRlp5+gg3vIgyh9hsxtIIAMvePo3z6z+qXVjjw+oiCnvLU4fegRaGng6Y27I80EepBdn043Fu
-	m09/MyX1vp8EuL2DiCmnm889SLeRg199KNpSqN5FSkcYvb1hgpz4Pd83XGH9uRK/0X1ftWrTEgB
-	rismYs7FdEtg7gFSeTqaZBHkr2RzQu8l1NPwCORhA4XgbMLPNm5E5i/LtwK19V5VyQoToWO7s85
-	lQ7ZSu50TsMwyQFYVx1nSOLOJCuT6tyCCbcv/od2yO6fmhBIEbExJ95TPppq7K2EAEzit9CJuPy
-	leWwTgcq0HBqHh/UgVbGhNdNoMqss6efAa/LimMHNFLckdG4AhrP7LEIStqB3
-X-Received: by 2002:a05:620a:1791:b0:92e:4773:5a05 with SMTP id af79cd13be357-92ebb52f990mr273301285a.4.1783367594962;
-        Mon, 06 Jul 2026 12:53:14 -0700 (PDT)
-Received: from ziepe.ca ([159.2.72.92])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-92e90cce037sm988196785a.38.2026.07.06.12.53.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 12:53:14 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1wgpNR-00000000euT-3bF7;
-	Mon, 06 Jul 2026 16:53:13 -0300
-Date: Mon, 6 Jul 2026 16:53:13 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 01/27] VFIO: take reference to the KVM module
-Message-ID: <20260706195313.GE118978@ziepe.ca>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-2-seiden@linux.ibm.com>
+        d=1e100.net; s=20251104; t=1783367775; x=1783972575;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=;
+        b=c7519ky1jp6wFRrk2w0peaYPDeK+HOoLyREqvxINBmH1oVe8v8tUL7jJvXCj8VOp8R
+         Fw96XecbP/w3Aox9fMm6BLHtaXdBl1T8tBPoH/q6NFddZK8Zn7f8ovn9x5LMDd/OpFBZ
+         y8izh6Ijiw+shb65XEXpLDbPRMHYi3wgzlsoFgvsEqJTCGyr14GX4vPPrnj1bR20UYoR
+         MWRMfWWc7nPpV96/30LUdsav+jYhsvxMAHadVanm3TSLOLuIdCxe8a5t58/usxcxKc4I
+         XhbjNFxGi5XVnIipMZ1e6xQKxJ8tjZ9x2x76TBU5aV5BW6anu6LzbIV84KFfXbQgczdo
+         pYQA==
+X-Forwarded-Encrypted: i=1; AHgh+RpUoXgy35mOhzkECbNvFUh1d2zpERnbEfmiHXRYy5SD7eDmEudqQ49N8vUFKYG1BQnUzNgwHAOMnyj7aALpDFdQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy20SH3CuhMOcx0LSZxxofxmnJiM/ErahDB/q7tKUygGViJLSWc
+	b9Z5a+LoHW/WN7WQa+c3pCd++Ehco9o+dqUSgqmgh4mTURAOZCEV5ATAXN8jBh3K39TbY5HuJTR
+	DQDgoVo8eKyBHbujEUVNM5Dr8W590gmthhGeVQzrq2jd5Ns3bSvsp7RTneCBE+8uebmok/MSH+V
+	rh5XHcBFLKfA==
+X-Gm-Gg: AfdE7ckY1ofi5+4IP1PwwO9k3a/hqdCcWKbNipBwmkDZLaJ8fbI7Q1k5aGW6WhPycsu
+	5e8AlE058sxEGaajgP9GooX0iiqGY9rZnsWb1OqgnM98u1aKyXJXxYwpeTRBxhEzBLRD1yzoJKj
+	n2EjsvR5/1BMz1b0m7GEP28J7Jf+rmPVfnjLqCANoyl2Zd0ejzPhW9oT9g3Jz3ZCidyju9nwClQ
+	jovjOHdSzEuslyGiXA+7bCmjQJnrjgIpLlYRBIsSWGcYmoVP9z7L3s8BXKASELU7/gUSP4fTwCI
+	rDMctb+P6KJz4oKNImmW64U3yBHpznfsnaSeVecaYsxNY0d5xxj4O63VWRhTheY0ue7VhLKsBIU
+	sPem5qHGrq3dxhONpxGMhwW2OxSzq2IztpOc=
+X-Received: by 2002:a05:6a20:5499:b0:3bf:9e25:1a18 with SMTP id adf61e73a8af0-3c08ef55ba0mr2517875637.52.1783367774857;
+        Mon, 06 Jul 2026 12:56:14 -0700 (PDT)
+X-Received: by 2002:a05:6a20:5499:b0:3bf:9e25:1a18 with SMTP id adf61e73a8af0-3c08ef55ba0mr2517836637.52.1783367774370;
+        Mon, 06 Jul 2026 12:56:14 -0700 (PDT)
+Received: from [192.168.1.9] ([106.222.230.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0b816a42sm90197173eec.9.2026.07.06.12.56.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 12:56:13 -0700 (PDT)
+Message-ID: <3dea2be9-7c72-4c5a-865c-139837d294c1@oss.qualcomm.com>
+Date: Tue, 7 Jul 2026 01:26:02 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260706085229.979525-2-seiden@linux.ibm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/8] drm/msm/a6xx: Add Adreno 722 support
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>
+References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
+ <20260705-eliza-gpu-v1-3-c9f1354dbd29@oss.qualcomm.com>
+ <f1d1db6e-068d-4b31-b53a-02bdac9d945e@oss.qualcomm.com>
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <f1d1db6e-068d-4b31-b53a-02bdac9d945e@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: oiSBj3O3z9-4wfXFBpCXpYoic8Bi-jq6
+X-Proofpoint-ORIG-GUID: oiSBj3O3z9-4wfXFBpCXpYoic8Bi-jq6
+X-Authority-Analysis: v=2.4 cv=CPYamxrD c=1 sm=1 tr=0 ts=6a4c085f cx=c_pps
+ a=rz3CxIlbcmazkYymdCej/Q==:117 a=fsdq8dFr2Uux402FS9br8A==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
+ a=EUspDBNiAAAA:8 a=Gg-SMJLLMV3ST4U2SEgA:9 a=QEXdDO2ut3YA:10
+ a=bFCP_H2QrGi7Okbo017w:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDIwMSBTYWx0ZWRfX9CjxyuOQRu/X
+ ZlseD6wTNsJ5ilepj5HtbbpKyTx0SXuekDj7fpApZ52neULg+ImBKpZSRk+kAsjMnHB/g6wMHCe
+ E/OaD8W3X0U9ApJcouifDi2a+35J9GcJMGcs1Rj3IUOElu9NvSKn2fNak4zUDtCpy2/NPWvgjYA
+ JZwoiAQL4iTrhWS2QiLMvOfRfZ8Ge3EQbWlVlzQWxT/spycS36A2lMF4S8vtar0GVb4PC48xd/0
+ AlDNXG+XfSHWL94G7aLox1an6DY5v4UkaJIRELVMNgxsZvDuC5pnHilaoHZurZyNBedPuTvHwVn
+ LliOvuGse2Sm264qkdyu+nwTOvM/JuelNzcMjgBUwN90Q3ypQv4y4HAz7j7p21cIs5n3UGj8Evv
+ UWKzNMghnjATm8PItfLepjIHPcbIp8sP9cC7/3GIHaFpHkfYWUoe+3Ko0T4a3/re4Syf2KEW2Ot
+ W5YIWSzV6CLtanzF2Ig==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDIwMSBTYWx0ZWRfXyK1dJaJo27A2
+ /G4nf8SdKzxq++Uwh/TEHuWiMJxBjnqYjus/gSIfiwc3yhuM9Wcqc40Np4u/r4wFx2hhzZqkYy1
+ +NEUXM80NXg4UgZoLPUxChfP4jORWhY=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_02,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 adultscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
+ malwarescore=0 phishscore=0 bulkscore=0 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060201
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_125316_516758_A19E9FAB 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20260706_125617_195082_42D3E01F 
+X-CRM114-Status: GOOD (  20.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,15 +168,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 10:52:01AM +0200, Steffen Eiden wrote:
-> From: Paolo Bonzini <pbonzini@redhat.com>
+On 7/6/2026 2:29 PM, Konrad Dybcio wrote:
+> On 7/5/26 10:14 AM, Akhil P Oommen wrote:
+>> From: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
+>>
+>> Add support for Adreno A722, a member of the GEN1 A7xx family. It is
+>> derived from A730 and shares the same IP-level configurations: HWCG
+>> registers, protected registers, GBIF CX registers and gmu_cgc_mode.
+>> Major differences include lower cache/core counts, 1MB GMEM, no
+>> Concurrent Binning & LPAC support. Some of the peripheral blocks like
+>> RSCC are from A740 that resulted in updates to RSC layout.
+>>
+>> Add a new entry to the catalog to describe the usual configuration and
+>> few additional fixup mainly due to missing CB/LPAC features and updated
+>> RSC layout.
+>>
+>> Signed-off-by: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>> ---
 > 
-> VFIO is implicitly taking a reference to the KVM module between
-> vfio_device_get_kvm_safe and vfio_device_put_kvm, thanks to
-> symbol_get and symbol_put.
+> [...]
+> 
+>> --- a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+>> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+>> @@ -710,7 +710,8 @@ static void a6xx_gmu_rpmh_init(struct a6xx_gmu *gmu)
+>>  	gmu_write_rscc(gmu, REG_A6XX_RSCC_HIDDEN_TCS_CMD0_DATA + 2, 0);
+>>  	gmu_write_rscc(gmu, REG_A6XX_RSCC_HIDDEN_TCS_CMD0_ADDR + 2, 0);
+>>  	gmu_write_rscc(gmu, REG_A6XX_RSCC_HIDDEN_TCS_CMD0_DATA + 4,
+>> -		       adreno_is_a740_family(adreno_gpu) ? 0x80000021 : 0x80000000);
+>> +		       (adreno_is_a740_family(adreno_gpu) ||
+>> +			adreno_is_a722(adreno_gpu)) ? 0x80000021 : 0x80000000);
+> 
+> This is a discrepancy vs kgsl (did you look at gen7_14 instead of
+> gen7_17? did you test this on device?)
 
-I thought we weren't doing this approach? Use the struct file as the
-kvm handle. I thought I saw patches doing that already?
+Both 7_17 and 7_14 are same GPU IP. Yes, this was tested on Eliza MTP.	
 
-Jason
+> 
+> [...]
+> 
+>>  	/* The second spin of A7xx GPUs messed with some register offsets.. */
+>> -	if (adreno_is_a740_family(adreno_gpu))
+>> +	if (adreno_is_a740_family(adreno_gpu) || adreno_is_a722(adreno_gpu))
+>>  		seqmem0_drv0_reg = REG_A7XX_RSCC_SEQ_MEM_0_DRV0_A740;
+> 
+> Likewise
+> 
+> [...]
+> 
+>>  	/* The second spin of A7xx GPUs messed with some register offsets.. */
+>> -	if (adreno_is_a740_family(adreno_gpu) || adreno_is_a8xx(adreno_gpu))
+>> +	if (adreno_is_a740_family(adreno_gpu) || adreno_is_a722(adreno_gpu) ||
+>> +	    adreno_is_a8xx(adreno_gpu))
+>>  		seqmem_off = 4;
+> 
+> Likewise
+> 
+>>  
+>>  	/* Make sure there are no outstanding RPMh votes */
+>> @@ -1100,7 +1104,8 @@ static void a6xx_gmu_rpmh_off(struct a6xx_gmu *gmu)
+>>  	gmu_poll_timeout_rscc(gmu, REG_A6XX_RSCC_TCS3_DRV0_STATUS + seqmem_off,
+>>  		val, (val & 1), 100, 1000);
+>>  
+>> -	if (!adreno_is_a740_family(adreno_gpu) && !adreno_is_a8xx(adreno_gpu))
+>> +	if (!adreno_is_a740_family(adreno_gpu) && !adreno_is_a722(adreno_gpu) &&
+>> +	    !adreno_is_a8xx(adreno_gpu))
+>>  		return;
+> 
+> Likewise
+> 
+> You also need to if-out concurrent binning for this SKU
+
+You mean the PM4 pkts? If yes, fw will skip them as NOP.
+
+-Akhil.
+> 
+> Konrad
+
 
