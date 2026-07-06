@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69AE2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:32:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B42FC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rHNoM5YOqmuEFsBCD4vOioHygdVjHI2mw0dlIWWfPx0=; b=H04Ev28hEqs7MdLo9I9M72wueW
-	D2Az6ab7woDblUgv6sNdSy0HCE2kPFBGfhmndLIiljHp9IcW5EpP8il2U4XqH3oydxZlmbeoxSuxG
-	vyEUbBY8iLL2/we/yodZzvQPc/CIXkeH68B/B6xffKTbESxCkgiezVUK9xzbn+9XBe4+1wyE8wOGq
-	xzMhcbT38kXD4Dgz/lTALPfvAnWZs7BwadQkZpTY+Iqi+/llf/6ePY3plIqPAaBZAtzxFNNT49yGx
-	X6wi94E+rtUimZD1Jp0V/7TW+GVx79apuWRx/7MTAQNiCeAGaSK9TkXsh31dT/o/nsG2bLNNdJUGP
-	70i0YC+w==;
+	bh=1QZ/tzJaIkMNpKGsZtD20B+8zLkYYTOKlJtJuY0qjaA=; b=m8RoDCBqt6U1Z8shqSUhw7jmdb
+	IsqQKOwpIukp8EJC7lcZk7VyfKDLkLiZekbAUVjhjRybihd7JIqBgkcaDZKwR4NpIKIlZ+OF0bLpI
+	P45iMKW/TmoxwrEIV22AVTUrWchteiHnK5TLdSgdioC1fPy1uJGliFIiaGavK95OdGU12Y9wo0cl2
+	O2aVLItaeMOMcYekCHi7lYIoB/2sEdes1ZLCVbF14Zlo2ZZLPm+W+jZKpyRhvpppQknVC4Y7Mqzzy
+	2pkZ9YYOrA5032kZhv4A2JYy2PoFt+DZphSgAMF8sEK8ZppVOFDTisfbjh/xxqZmeO6Md74tut5DT
+	aTVkFLjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfgt-0000000C1sR-25Xf;
-	Mon, 06 Jul 2026 09:32:39 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wgfgx-0000000C1v9-2ugQ;
+	Mon, 06 Jul 2026 09:32:43 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfgm-0000000C1pa-2Smq
+	id 1wgfgq-0000000C1qe-2dXs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:32:36 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-493c2b3dc8bso19239855e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:32:31 -0700 (PDT)
+	Mon, 06 Jul 2026 09:32:39 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493d92b7db3so10801865e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:32:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783330351; x=1783935151; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1783330355; x=1783935155; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=rHNoM5YOqmuEFsBCD4vOioHygdVjHI2mw0dlIWWfPx0=;
-        b=aB+qK2IttH46GunXoUDWFBDB2LvJgDpdVPj5W0q1+OyIu/y+i6+t2gXzA1CW7d4Q79
-         g54pw0a+Cz/17PvVyOHlknV/2QGG2mKpzHJaWnq+t+mNePak3J+yXjFekj79I24/ABFm
-         EbkeNQsEV7NyORtEV0iiIMHj+p8umZyBYshIWUdtkud2TM5X/unaQ0ZkpHZ5Sn+d+tvO
-         506I408Mcvoh03hYEd6c9N6ArYj1Gf1j4iVw3RChiL0ozhc0EX5RSKnLHkRKX69LQb/n
-         JPTWsUwhbRXworSQqLJuOgv8vEe5c6xVhY80Gv0tCRLAa66j+1Wyvl/ggAX3fF2A+vhv
-         xDIw==
+        bh=1QZ/tzJaIkMNpKGsZtD20B+8zLkYYTOKlJtJuY0qjaA=;
+        b=UY0cvVCptCt8OCzahQ4+zcoxGs/M4wwisVlATqAICtuWzAnj95je6Myt0L47S8Unkj
+         oD0Z52+mGWRcRyWm/3u71J/BpW9XUI598ebUjGBW23iP7pTysftMo0QLsbg8LcdfMJEk
+         FFn410jODGq+Qi7JU2o15VsvDvdyHEz6cZyuRpyG3QEpMR24k7bVwEy1Wdyy1fX+yISY
+         SqaA/vmi6fWsnVJcAEQNvofeeoCt/n1qZyGpxcxS2qfIT105OFej+0+CPKHM/EGCV3aw
+         +sRHc8cfuscchbW4i8FnyrOgt8FW2YeGdaM/BgDJrwcs9hyXpNqngLgL/BVUhqPBDJ1E
+         0Y7A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783330351; x=1783935151;
+        d=1e100.net; s=20251104; t=1783330355; x=1783935155;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=rHNoM5YOqmuEFsBCD4vOioHygdVjHI2mw0dlIWWfPx0=;
-        b=H+ffEKWq6KogqDaEyJv7gfVdZVqdka6y6A5dR8MwzowA6dpIl5Fsi/08RrG6etkVPj
-         0r/yNCyKwwkX14vSJ1nUEoDKNMnLs+yR8qW0HHNFnfzkwyc0rWBi4dh2/UiEAhPZMhFP
-         BQzm2fIMpT2sSr3sbaS+5tTQY8TOIennknNrgduVPTJhRHWmZzg9EzLS6UuspMDjrh4R
-         7hwGZfNh9KZoOrxqeyRjP925rCDXriR3G7PSKRpWakZP3gMerQ3ujxo1SZOsRblF+G57
-         oXJMF76LLxr+7yLcailNUAJIu5r9GzrS+VvuDgxTz7ABB4v/f6/kdWi/zG5urHyAfYzb
-         UP/A==
-X-Forwarded-Encrypted: i=1; AHgh+Rr17G+gxXc8xeQA5QknGT21/cxlrnIwavhkQtMZWskn4HKVXrX5ulZplGtAv2uR8JqA83gcxczVsmiYkHWFyizt@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqQ35DtRSEazBblNZauIIZTzHzRa1Fi8Fb0r3PH33Ff7Df6CVW
-	AvZvyflybf74CSqL6RKTNFEPamq1DjuwNasltqZJB4nirzpQovTs0Gljm++DWLyJIL0=
-X-Gm-Gg: AfdE7cnsksm+zNNW9z1226F2rb6QlbfoEoosQ9vWN5FHLShpUqVMj7Rj1DvC0ZW3VKw
-	htXCE4rWuAe1Pw33MxpdLzrsN5nJ36AnH0UhBRL4a72bLPkF0p6RqEns8bbYDgtHXj98XfeXKoa
-	pFNyr2q7PUbsTqxIWvRXyyAF2vqtrOi1fuodINElkYfBs7MoLE25XdSp6fJTMojQnQ2wD7apZ4l
-	G4LBg1pfgw5TeNcxNgImx1IUR0NpDvJVyCS/dijpaGyLtbmZkXgYUgI67ELB8jfdWWcrbHZ00nm
-	AFGio8uQ275tIRpUhPDN2c+mo+un3V/lXRpZddG4NvcDQqluiaAWG3y4K1U7sR49OOW4dX/LbqM
-	hyS/JaKipocgD29ijYDCIxcXs+gAgum6KurxRl8fEDLVue2aJPpKWtxMCZaVxSWeCxvlwjJ0bSn
-	Ybt+TI2g2CMQc=
-X-Received: by 2002:a05:600c:524a:b0:493:bcba:3d5f with SMTP id 5b1f17b1804b1-493d11d7fecmr118661335e9.13.1783330348753;
-        Mon, 06 Jul 2026 02:32:28 -0700 (PDT)
+        bh=1QZ/tzJaIkMNpKGsZtD20B+8zLkYYTOKlJtJuY0qjaA=;
+        b=Z3M+ga2KzJjfP+SZUQkHurZjRB/NR4ESNehZb+Iz4noFsRb6tjdFLjrAJyM7MxVDvL
+         +Och4FcCweGzJ22piLcCCZeGOp9qcj3/VM8PxFtVmixkHpng4JqgV7CmN/gyg0a2a0R4
+         bDlxUYH8QpkHTfVSoUAaTi/0wEjGJftPZY4ar6oa+RCFO45rzgxk8zJNyFd7oPvfB7Kb
+         f6MyYDDI/VUkie/nit11RxMARxaeQTgcIEY91XALWGaL74YxRXid1NjbHptfE7sCOfq3
+         QH8KDeGzhXdo94feFZF56HkEeTVf2qeIz8tT7wzeiVP1hgZmpUXvYbOgGps6GKc2xvmz
+         6esA==
+X-Forwarded-Encrypted: i=1; AHgh+RpdBm+nKEKamJ5C5xPY8dAbZnk8JRiUPV5aD8xfD/V8xpvAdcROuumRff+hcZWVwlRUXdQ775Q9vl6TTx9n8i4+@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYixfWGz3Z/DJPmYUXKM3ERSSyzLkxDsJiwoBipbadyAUFjqry
+	EnLA6VlIc6QgOpjbGQzU7ZLAwvyWJ6/RXiiDhZAySs69AqLJNHRxZzsBW+JC55hf5Hc=
+X-Gm-Gg: AfdE7ckOOW1oiGBZKZkuKL+35YCKcVkyqINCxwkEMDA9zrcI9rH4+0nOq26d8DCnlXQ
+	HT01y6O7Mka6jbc1/+XY68KkLqvdYcz4tIUVsSKMB8hwTw8QUc572DzHj4SUuS7MMIBOaKQORbT
+	7CMnzzJE9i8B/HHa58nIY/auWpCIKGfFHmGXqTzm3dItEpsG173ZWY6bbOWS9YnoVZpQOj5YQtW
+	FxcouUqv2CWua7h3COv/8pKBhqCHMwmgKEa4hmP+avx/9ZZQtdgkLE2jKw2twhllX7kjGBphInX
+	JDomKS6ebX0TE6RzcsoGNc+GUX66n04otLdhzXVWK7g6GUJdroJoWHSpRfs4aRPDAoSCbTQ9zvG
+	ogj3C3yienONHlsus+ctQtuhTlOm15ppAj74ZAK1FOXpIDtJ9F2VL10JzSkGxLVrwmOsH6c7WAh
+	Peh1AGBBZhiBY=
+X-Received: by 2002:a05:600c:811a:b0:493:bc92:ba9a with SMTP id 5b1f17b1804b1-493d11d7e5bmr93766755e9.13.1783330354669;
+        Mon, 06 Jul 2026 02:32:34 -0700 (PDT)
 Received: from localhost ([2a01:e0a:3c5:5fb1:1495:8c97:96f4:dff8])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47aa0f213e8sm20505835f8f.34.2026.07.06.02.32.28
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-493be4a343csm317962395e9.0.2026.07.06.02.32.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 02:32:28 -0700 (PDT)
+        Mon, 06 Jul 2026 02:32:34 -0700 (PDT)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Mon, 06 Jul 2026 11:32:09 +0200
-Subject: [PATCH v4 1/9] dt-bindings: rtc: sun6i: no clock-output-names on
- h616/r329
+Date: Mon, 06 Jul 2026 11:32:12 +0200
+Subject: [PATCH v4 4/9] clk: sunxi-ng: sun6i-rtc: clean up DT usage
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-a733-rtc-v4-1-f330728db3d3@baylibre.com>
+Message-Id: <20260706-a733-rtc-v4-4-f330728db3d3@baylibre.com>
 References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
 In-Reply-To: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
 To: Junhui Liu <junhui.liu@pigmoral.tech>, 
@@ -90,28 +89,27 @@ To: Junhui Liu <junhui.liu@pigmoral.tech>,
 Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Sashiko <sashiko-bot@kernel.org>, Conor Dooley <conor.dooley@microchip.com>, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1343; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=WTrYWpPBbp5/IQCt79i6cOc1+cJ+5cUXj7Xxnm4AgUM=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqS3YgZ1kmVhbAFJg++nhyvscPyVSYf6qHpsfzf
- Q5jILv6M+OJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakt2IAAKCRDm/A8cN/La
- hS2yD/9JC6LOTzoSad/DXBsiHV19K0GF3iopYtiTD2yka1JwfFAt56fW4Ql6js+tCDHjIR/8dNl
- ZCcQ37QX7+/ncxfGw35t5noFVL4eEv+HD0mAHkuiruSHXdtTQcc3TtTCtFdxRdg0WfjEIPUjCVl
- ecRZ3eMUxmbWUPEsSh6keNgpfZbmb+fow923az1r05IuTJZPvHCrp+h7kMHfAUfQv3jBW+Jitn2
- z1mXPL3Gp3GYRKAlruc7+fiwvN2dTZyzAH3v1Yzz+fLxz37C+XyK0djx/bbXdr1fLifB5rkCDSB
- 14rD40d8cmUaKNROMLYfXMRTclaPfpxDyXldQLSn+0monEBssPO/tacKg32NUKJZ60Pc6oEKfYc
- tYxLDc0BE6z5jWxIC77CfkVuWwZULNDFT2BJPAKuj71gyThxusvr9rMIHlRu80ZFQY1xnZnOv52
- PBXVB9zZvmQkdbA7vZPwVVF7Rokh16UAHovkwZe+qOU99rQlDp+VaJSqXqYYqvxZTl4YE9Yf3N2
- AHiykcCHHT5HwgOsR/UlVThdLgH3dAvBJVF+7dnb+/e6T46AhEnI8WmeR66G8k+XgfXFh2ot6Lz
- wxebV68uC56VToYtAcrpAYtv9FpCPDy3HxCM8xErN232vbr9iAZPYICXQbCYACoOJTgIwdI/WY5
- /pSukiBC+wiN44Q==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2679; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=0uBL/FtS3qxYddEpWPm85zwv8RTdX1Kl9yqgj170ams=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqS3YjAlK/wAezwRG/Br2o9jTucmyJPFDAgWQJK
+ NGnH+1LXpCJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakt2IwAKCRDm/A8cN/La
+ heKGEACVs19xz8UT8PIIUFWAjitE9+NBDWhZaJDxvNcUM0SxaCYy96bafmU0d+a2rqtLufr//KC
+ Z6WuhTQ7tHSglmlAJYJGPYFWh6rGPUtCTUvd6+nEaLUUGiCfk0VnOtJDTlgka/thanIyvG7C8Ib
+ CnWqoMTk4qimPYytuWrTsIffWAuOUIrOsz3DfO3rvDqFU+n+PfI9lXD3+kAY4OLnh2iVuDKk3g+
+ wOoaaCddMgxevDmh28+DckALZ5DPj8b4mmDtYdJBfeq+8wB8rH0oTYXMh2YvS6Il5dFLoEkTesb
+ X4HEJd8dKaMDVGMIi6Sn+USIZuuIWRpydFCalXQxQhSz8AmNYW/nCF+Kv2J6olyH/yehTqdaqFZ
+ RBfacTRrrZVF4K8KO7E1a2eCcFAlV/AXQqFKWqIw1Kljn6x0vMJm64IKq37s0/pMu/tFHpL1Mul
+ /hdDazToGy9fdBo48oMitjchP2j3noiOnFZqGn2ZZuqc89RBwRcaiOaEiqxUfDo/74XQe7Z7xls
+ cR1ohmd0I1POV7Gp+SKuS8PGZcKzfAISw3A1AnGb7pkYQCf8PsrpXM9ofPeLziH85FqvKJo++9c
+ TDK8n6R4fNRVe3j3kH5AZRPFsgn4ijCQKyayBO9Ak2WcrTkCbVATnAi74NLyP+BzTG5fVygyNJe
+ Ke9epCWPHbybvhA==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_023232_648778_44D5AFD3 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20260706_023236_700760_D38B156F 
+X-CRM114-Status: GOOD (  18.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,42 +124,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On h616 and r329 chips, clock output names are never defined through DT and
-are not meant to be. Just disallow the property for those chips.
+With sun6i-rtc compatible devices, the "ext-osc32k" clock input
+is optional for the devices that support this input (r329 and onward).
 
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: http://lore.kernel.org/r/20260629125305.0DF981F000E9@smtp.kernel.org
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Probably preparing for older SoC support, the driver does something funny
+when parsing DT. It check if "ext-osc32k" is present in the clock-names and
+if it is not, it uses the first clock as "ext-osc32k". This clock will
+actually be the rtc bus clock so what the driver does is wrong.
+
+At the moment, the driver does not support the older SoCs that would have
+an external 32k clock provided on index #0 so just remove this quirk.
+
 Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- .../devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml     | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 23 +++--------------------
+ 1 file changed, 3 insertions(+), 20 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-index 9df5cdb6f63f..959a012c626f 100644
---- a/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-+++ b/Documentation/devicetree/bindings/rtc/allwinner,sun6i-a31-rtc.yaml
-@@ -175,6 +175,18 @@ allOf:
-         interrupts:
-           minItems: 2
+diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+index f6bfeba009e8..0f528bfaed00 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
++++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+@@ -191,10 +191,8 @@ static struct ccu_common iosc_32k_clk = {
+ 					 CLK_GET_RATE_NOCACHE),
+ };
  
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - allwinner,sun50i-h616-rtc
-+              - allwinner,sun50i-r329-rtc
-+
-+    then:
-+      properties:
-+        clock-output-names: false
-+
- required:
-   - "#clock-cells"
-   - compatible
+-static const struct clk_hw *ext_osc32k[] = { NULL }; /* updated during probe */
+-
+-static SUNXI_CCU_GATE_HWS(ext_osc32k_gate_clk, "ext-osc32k-gate",
+-			  ext_osc32k, 0x0, BIT(4), 0);
++static SUNXI_CCU_GATE_FW(ext_osc32k_gate_clk, "ext-osc32k-gate",
++			  "ext-osc32k", 0x0, BIT(4), 0);
+ 
+ static const struct clk_hw *osc32k_parents[] = {
+ 	&iosc_32k_clk.hw,
+@@ -352,7 +350,6 @@ MODULE_DEVICE_TABLE(of, sun6i_rtc_ccu_match);
+ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+ {
+ 	const struct sun6i_rtc_match_data *data;
+-	struct clk *ext_osc32k_clk = NULL;
+ 	const struct of_device_id *match;
+ 
+ 	/* This driver is only used for newer variants of the hardware. */
+@@ -363,21 +360,7 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
+ 	data = match->data;
+ 	have_iosc_calibration = data->have_iosc_calibration;
+ 
+-	if (data->have_ext_osc32k) {
+-		const char *fw_name;
+-
+-		/* ext-osc32k was the only input clock in the old binding. */
+-		fw_name = of_property_present(dev->of_node, "clock-names")
+-			? "ext-osc32k" : NULL;
+-		ext_osc32k_clk = devm_clk_get_optional(dev, fw_name);
+-		if (IS_ERR(ext_osc32k_clk))
+-			return PTR_ERR(ext_osc32k_clk);
+-	}
+-
+-	if (ext_osc32k_clk) {
+-		/* Link ext-osc32k-gate to its parent. */
+-		*ext_osc32k = __clk_get_hw(ext_osc32k_clk);
+-	} else {
++	if (!data->have_ext_osc32k) {
+ 		/* ext-osc32k-gate is an orphan, so do not register it. */
+ 		sun6i_rtc_ccu_hw_clks.hws[CLK_EXT_OSC32K_GATE] = NULL;
+ 		osc32k_init_data.num_parents = 1;
 
 -- 
 2.47.3
