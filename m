@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC922C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:47:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7BA1C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:54:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Xw8oKErKJugwoULnyAAaflBVsSMulF1hLp82YBU5bbo=; b=lt7wYTg4w2ru9AVpd5Iu7joj8e
-	S55pXZ0wq7FFv1lfm+0G0ijVK/ytWN5JpEo21NdXbdflp64xt/dQK+FlNmXBw/opl0JGAMWkOdtdY
-	ibdGsqvqd7fwHmnEGQeAnbPkKpUf+NrzApbZT+gZRbnvLLKqCG5aNRuXJJ/tuMZQHrlp6OXBqu5E6
-	U1cojMe+SHcmBdtscODWOT1yMsWjvKOlpm6l7KZKWr4AXrca6Z/fPhK8EIaHaL2t8MroINTYCBqNn
-	98xTwVbXDie+0ha5TMZnbm1HWaqAFoJeEc67uNCH2h+QuC9uCfd9KaMxMrX9fQljgzqIb4wzDxOYD
-	978jb2yw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Mime-Version:Content-Transfer-Encoding:To:From:Cc:Subject:Message-Id:Date:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GUkyk/4FJ+l7g40rHdo7hpp51HEwukBFxiiyIWeaPf0=; b=MC+SjAlG2NpwD61cccuoneVL8L
+	+HuGcRs0ms4eecHwp6Kr6OW0YalQlAbLkWK8xTZntw1mYZLFCehjWKxTD6KCG6dFPLoLSLe3bicVs
+	Uh3a4XtGmG1VEYuMxNysF0xHP0XBSN/ftcXa4u7458qM5qDAbRcOcRUajVXwU3sT6SFoga/PBDQ4+
+	PBztE2MCYZhvhxWnWSCJgQ6ZOk+pu1j7ZxkenjK3GyPmDQqht7S698XMenxPjMmls24eLkPfX+Jmf
+	g2RO3v1+2fUD56mHYz9bx+puRkgmQNkgGbQ2qp3t3zrAB6FfujLdqzhLls7kXn9V+RBLOgFz3Q8Ag
+	1l56IDaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkbe-0000000CnXh-2KWb;
-	Mon, 06 Jul 2026 14:47:34 +0000
-Received: from smtp25.cstnet.cn ([159.226.251.25] helo=cstnet.cn)
+	id 1wgkhp-0000000Co9C-26lt;
+	Mon, 06 Jul 2026 14:53:57 +0000
+Received: from sendmail.purelymail.com ([34.202.193.197])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkbW-0000000CnVF-2rUm
+	id 1wgkhm-0000000Co8T-4BdX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:47:30 +0000
-Received: from localhost.localdomain (unknown [111.196.245.140])
-	by APP-05 (Coremail) with SMTP id zQCowABHntH6v0tqN487Fw--.49535S2;
-	Mon, 06 Jul 2026 22:47:22 +0800 (CST)
-From: Pengpeng Hou <pengpeng@iscas.ac.cn>
-To: Santosh Shilimkar <ssantosh@kernel.org>,
-	Nishanth Menon <nm@ti.com>
-Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
-	Sandeep Nair <sandeep_n@ti.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] soc: ti: knav_qmss: remove debugfs file on teardown
-Date: Mon,  6 Jul 2026 22:47:06 +0800
-Message-ID: <20260706144706.96313-1-pengpeng@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABHntH6v0tqN487Fw--.49535S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ZFyxZw18uFWfKF47JFyxKrg_yoW8KryDpa
-	ykuFyfCry0ka1a9345Ar4UZFyfA3s3AF1xJrWxZ3sYyF1Ut34rXrW7Ga4jvFWrXrZ5tF42
-	qr4Ut3s8Xr4UAwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkG14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
-	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
-	jxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
-	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v26r12
-	6r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI
-	0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCIc40Y
-	0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxV
-	W8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1l
-	IxAIcVC2z280aVCY1x0267AKxVW8Jr0_Cr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUIfO7UUU
-	UU=
-X-Originating-IP: [111.196.245.140]
-X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
+	Mon, 06 Jul 2026 14:53:56 +0000
+DKIM-Signature: a=rsa-sha256; b=OPHaaWS/h1hJ0iUeP8n30+fHAUp9db2Ut/nSah4+HsvX2bSjsyAmHK1ZjlchIKnq3+29MIgLIk08YMluoB2E59KNLzrJ1Y2adLp7XbJOvMOuvJC921AhN8CAVarGzUkHYdjv7LrmSsl8f4apCGJbYzY5WEmfuq++zmWl4YkMskQ3z+itWE9tdZG3vuV0V4iWRwvwR8Be6yoUb3ebqK7iMEKkl0SlSrvnA3CRgK3k0KzI8D0J1xO3GMwsb2GzVWHPCdIIIMNhLZfYOfDtKmNhfrA8ejoysKVxmx4iddCx6JE9IDqyIiduEZPgDtLJ0u/iQi8PpZGL2XnopXhGtD1V2g==; s=purelymail3; d=rcpassos.me; v=1; bh=GUkyk/4FJ+l7g40rHdo7hpp51HEwukBFxiiyIWeaPf0=; h=Received:Date:Subject:From:To;
+DKIM-Signature: a=rsa-sha256; b=FQTyH4+plKzkKO3IEcpfytstiws8fLmw1tmp9kkBmVX+9R0BtnlIaH26Uf1z8FqnmdPYIxa5O0UK/6R1TGTz4t2s9DhBZ8UyHdHEiqkbVZcdmZTg8OxYEH4xVfOyVOp90ycOcb3mEmxgv+4Jy5vYYRw2wAPIxnFb4/8Xj/SbbPFLk22GcTtkiLkRqs7Z16P2RSL8yJAv1cU4cZFh2ajJwA85PBlp8kcU35gjt5Kpeyv9QqOR8W3+3jdCwhnCojX1hhI7C5b59LSe/Ngglo5Y4K2U50DSKgUtD3UkYxQBxQph/M7l6oAbyRwd9pTfb8zlJs11Rj21jCGxtCu9EHErhQ==; s=purelymail3; d=purelymail.com; v=1; bh=GUkyk/4FJ+l7g40rHdo7hpp51HEwukBFxiiyIWeaPf0=; h=Feedback-ID:Received:Date:Subject:From:To;
+Feedback-ID: 45355:7809:null:purelymail
+X-Pm-Original-To: linux-arm-kernel@lists.infradead.org
+Received: by smtp.purelymail.com (Purelymail SMTP) with ESMTPSA id -2012387389;
+          (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+          Mon, 06 Jul 2026 14:53:19 +0000 (UTC)
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 06 Jul 2026 11:53:17 -0300
+Message-Id: <DJRKO72HWZOI.QJYJUAC45QOJ@rcpassos.me>
+Subject: Re: [PATCH v2] Bluetooth: Properly disable remote wakeup for
+ MT7922/MT7925 on Ryzen platform
+Cc: "Luiz Augusto von Dentz" <luiz.von.dentz@intel.com>,
+ =?utf-8?b?Q2hyaXMgTHUgKOmZuOeomuazkyk=?= <Chris.Lu@mediatek.com>,
+ =?utf-8?b?V2lsbC1DWSBMZWUgKOadjuaUv+epjik=?= <Will-CY.Lee@mediatek.com>,
+ =?utf-8?b?U1MgV3UgKOW3q+aGsuasoyk=?= <ss.wu@mediatek.com>,
+ <linux-bluetooth@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-mediatek@lists.infradead.org>
+From: "Rafael Passos" <rafael@rcpassos.me>
+To: "Rong Zhang" <i@rong.moe>, "Marcel Holtmann" <marcel@holtmann.org>,
+ "Luiz Augusto von Dentz" <luiz.dentz@gmail.com>, "Matthias Brugger"
+ <matthias.bgg@gmail.com>, "AngeloGioacchino Del Regno"
+ <angelogioacchino.delregno@collabora.com>
+Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0
+X-Mailer: aerc 0.21.0
+References: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
+In-Reply-To: <20260701-btmtk-ryzen-remote-wakeup-v2-1-767ac7907472@rong.moe>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_074727_086522_CAF338CB 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20260706_075355_145256_39C52C52 
+X-CRM114-Status: UNSURE (   6.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,67 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-knav_queue_probe() creates the global qmss debugfs file whose show
-callback reads the global knav_qdev state. knav_queue_remove() tears
-down the queue manager resources but leaves the debugfs file published.
+I was having issues with Bluetooth on the ASRock B850M with MT7925.
+I tested this and other patches in my investigation process.
+My issue was a platform bug causing a failure in USB enumeration
+before the driver path (unrelated to the patch).
 
-Save the debugfs dentry in struct knav_device and remove it during
-teardown before the resources used by the show callback are released.
-While touching the debugfs_create_file() call, spell the unchanged read-
-only file mode as 0444.
+I can confirm this patch does not introduce regressions on this platform.
+I tested system power cycling and suspension,
+and also BT/Wifi adapter enable/disable.
+Patch applied on top of mailine (7.2 rc1).
 
-Fixes: 41f93af900a2 ("soc: ti: add Keystone Navigator QMSS driver")
-Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
----
-Changes since v1:
-- rebase on current linux/master
-- store the debugfs dentry in struct knav_device instead of a separate
-  global variable, as suggested by Nishanth
-- spell the unchanged debugfs file mode as 0444 and document it
-- keep the existing device_ready handling and current knav_qdev naming
+Tested-by: Rafael Passos <rafael@rcpassos.me>
 
- drivers/soc/ti/knav_qmss.h       | 1 +
- drivers/soc/ti/knav_qmss_queue.c | 7 +++++--
- 2 files changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/soc/ti/knav_qmss.h b/drivers/soc/ti/knav_qmss.h
-index 037dc1b36645..8a624fbda84a 100644
---- a/drivers/soc/ti/knav_qmss.h
-+++ b/drivers/soc/ti/knav_qmss.h
-@@ -304,6 +304,7 @@ struct knav_device {
- 	struct list_head			pools;
- 	struct list_head			pdsps;
- 	struct list_head			qmgrs;
-+	struct dentry				*debugfs_file;
- 	enum qmss_version			version;
- };
- 
-diff --git a/drivers/soc/ti/knav_qmss_queue.c b/drivers/soc/ti/knav_qmss_queue.c
-index 7410b63af0e6..2d564c2937d4 100644
---- a/drivers/soc/ti/knav_qmss_queue.c
-+++ b/drivers/soc/ti/knav_qmss_queue.c
-@@ -1849,8 +1849,9 @@ static int knav_queue_probe(struct platform_device *pdev)
- 		goto err;
- 	}
- 
--	debugfs_create_file("qmss", S_IFREG | S_IRUGO, NULL, NULL,
--			    &knav_queue_debug_fops);
-+	knav_qdev->debugfs_file =
-+		debugfs_create_file("qmss", 0444, NULL, NULL,
-+				    &knav_queue_debug_fops);
- 	device_ready = true;
- 	return 0;
- 
-@@ -1868,6 +1869,8 @@ static void knav_queue_remove(struct platform_device *pdev)
- 	struct knav_device *kdev = platform_get_drvdata(pdev);
- 
- 	device_ready = false;
-+	debugfs_remove(kdev->debugfs_file);
-+	kdev->debugfs_file = NULL;
- 	knav_queue_stop_pdsps(kdev);
- 	knav_queue_free_regions(kdev);
- 	knav_free_queue_ranges(kdev);
--- 
-2.43.0
-
+Thanks,
+Rafael Passos
 
