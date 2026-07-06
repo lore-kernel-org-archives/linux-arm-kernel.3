@@ -4,70 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA29C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 16:07:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC14C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 16:18:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jK0KN7Bucz6vfDUM7vE2lUH4KLFzZACqiILRmnLe6E8=; b=ugeP9lxF40nUh7nr85kMYri+Ar
-	lvxqcuH/FgdyHflBSku/XmT08UB5kxAgLdOsenee/exxhPiGOP+rZo4KmT8vT3ihu+trFgVO/4QCT
-	Sesxttjhdbm3ZBCG53X8pLhUJXW++a8zMKSrg+j8KAANxcCITgfmyl7pwVPTHI7RPaHS0esRi9xFm
-	thUC8OcJBXMWDN7kTTvEJ7SuqABDunNm65sji83DYtTX39BOQmMZHBBijOhPpyUyU6uGsDiLff/rB
-	mqT4Eg+0G2AouU6p5vAwQHMbQvnlFR9K+vyIkEfLRGMJAnGkwPCXSQI+cY+Byd9RNax2dx/3w72vp
-	nTB3F+dQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tfbCqchrlviXWCGPv/jztbOY6XLQs0x4v6xEVILnr0I=; b=H3Hb6qVn5PzaAX4JjC6ubwsynv
+	iPqkY8IVb0EqLmo/3WKFv4HH+BIhl9TZwq85ClMMzceZ64qaAle2P/3OfLY1lPFrNerznSkGj5o7W
+	paRx4c2NxLM8XZEd+08Zfv4qlphXUJ2WgKl2r+gteR9hXe9GKiSvav+8a9sT8JlZWuCPnukZxS5FG
+	UI5gxx3px4UOgRPL3Plzso8RjunnYJnEiJ4SheImVQuA1QZUUaixjVAwRQxPlI+k3Lk3g3vL25NFn
+	C+X+dI2GPYII2MMBnSHZxPDt3xvnMwbeHB2Php6mXdOl/aL+L/XIwHSG+do5UVm/vMCrHGoWBjDmp
+	fpcdizsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglqc-0000000Czbo-2sBp;
-	Mon, 06 Jul 2026 16:07:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglqa-0000000CzZp-1s2X
+	id 1wgm1f-0000000D1Ob-0dkW;
+	Mon, 06 Jul 2026 16:18:31 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgm1Z-0000000D1Mw-4AOc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 16:07:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 019971BB2;
-	Mon,  6 Jul 2026 09:06:59 -0700 (PDT)
-Received: from e134344.cambridge.arm.com (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 403C83FAF5;
-	Mon,  6 Jul 2026 09:06:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783354023; bh=FZH5MxnpjfLTJ//KHNbvgVhVHhpJXozCKcJhXPjEpn4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=N7ilMqZhTo0tK8yYMimtwN7fv0wiaIHBzvl6tcWC0rMWeBvRfpnBi/NGUr9Q7pNEJ
-	 j4vk1iRiUncqohJW99j36I0hcTTRjiSaLJXPpDCQvmyf61HRZknWKhgeVi6Af6Zx+Z
-	 2OCFXBKDVlqeekyvxCTn3DFfdgtJPLUnoKub0JlY=
-From: Ben Horgan <ben.horgan@arm.com>
-To: ben.horgan@arm.com
-Cc: james.morse@arm.com,
-	reinette.chatre@intel.com,
-	fenghuay@nvidia.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	tglx@linutronix.de,
-	mingo@redhat.com,
-	bp@alien8.de,
-	dave.hansen@linux.intel.com,
-	hpa@zytor.com,
-	corbet@lwn.net,
-	x86@kernel.org,
-	linux-doc@vger.kernel.org,
-	dave.martin@arm.com,
-	Dave Martin <Dave.Martin@arm.com>,
-	Ben Horgan <Ben.Horgan@arm.com>
-Subject: [PATCH v4 3/3] fs/resctrl: Factor MBA parse-time conversion to be per-arch
-Date: Mon,  6 Jul 2026 17:06:39 +0100
-Message-ID: <20260706160639.2136674-4-ben.horgan@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260706160639.2136674-1-ben.horgan@arm.com>
-References: <20260706160639.2136674-1-ben.horgan@arm.com>
+	Mon, 06 Jul 2026 16:18:29 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-47de008b020so690329f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 09:18:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20251104.gappssmtp.com; s=20251104; t=1783354701; x=1783959501; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=tfbCqchrlviXWCGPv/jztbOY6XLQs0x4v6xEVILnr0I=;
+        b=bjCyCkSupj5qNUQYJeGndmipRRA+ap95dpEOYex9JQhD9jZJwUW61F4Ih8Oxey+Z3p
+         4xwpj0YNQ0SebN/QKpR9sLaFhLcSqR79tRF61uldrCckf0w/Y1lHjt7SXVqwz+stw1dn
+         9iA3bc5VbGFQTzLq5jmwH+JdS1tKQAsGPpYbgqN9r4q2vOcgebrJAjV+YMn4/E17ZG5O
+         atlnM+q2i9EXz5xGpX/GGQs/plbU/xL3qCyyktffSaFV7h3d/lqnY8Jj/e33onROBfXA
+         TOTA0VC3/XjLQexFyjk/G3TjFlwiozk62wI3iEvRFDseUPqILgQSxzvvW7FOMzvD7wAQ
+         jSow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783354701; x=1783959501;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tfbCqchrlviXWCGPv/jztbOY6XLQs0x4v6xEVILnr0I=;
+        b=KhaJ9j66vmXpL2JInKZvKyNqIEx4CGMaGHfMmANi/lSJGNi41+SsvPQS7KVQqm1j6T
+         GP+i0c2jOSWsop1L+C7xbQB3qDqXtXmyaKsBMw2S2txmaF8i+1Os02Moe1gbLxWPjNBG
+         zHgPKBn1lrhaJgsMQuuXG6NT/Qsxo2EEsaKYyNsM7tczBkQAf5gAqt5ZVk2ypesnsjyF
+         ilJX9WGzFpSs4bdKjb4Q2ymraoCkGshyCVj5uqpBig/gWNUpOZWuwKaV/RHGH7/gbCQx
+         cZVi8K41TDXjDw7U0ibaWjYc30/viGDza/vQInB+Xh3dt4Osm9CgmPc67l8ES2c2+QPJ
+         slQg==
+X-Forwarded-Encrypted: i=1; AHgh+Rqi9myW44IApEVdA5p+qFTt04EwBXfEOXi3U2zx6+jN39IlEpLtgwrr5s2m4Bt1I1NVI1OnGQlCkkNre7j53VG5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz19LJJA/syhxRIkKIuJEUY4o+fRXu/8ZUbrBXe79A1xy3N2QKC
+	MfNirk+TXZpOjiPgav0ncV2/BrOyq4u2yLbLRzmkuCHvtcoPE4XoCh5A/s9SwMSKkyQ=
+X-Gm-Gg: AfdE7ckmwiDSA7VO/1IFxlZu0HyYIAIwNNRg6X8For02a5JhKqcRjB1923+TeeU5eSt
+	6HX4SC1sgY1qiGeuvfu8aerO6JO+NHDT139ojpCDEpCox6I5rHjsYLa7vmEPf3f+7yJlG0MCmXz
+	AqFIuQlJ6mkEB3lKzAV8CsL7zgClLc9AePFW27gYgVf48CkKUVm2bbb3HRUCuKxKTMOZqqs6mN8
+	s1Im9TY1vYjAKwh4lLLhuZyH6RXGcU/4WF3Qz2SLkbyUXMDvkfdX48YF5rJwZ1Jlsxbi11vZWTo
+	2yL23+XdUqv6kHvznAKfX6FLlF5pl0uyPa1ua//2zisgglUT0wM2IVvmw7xz8jlOpe3uPnToKnC
+	frhvW8ZIzeB/bmE6ayj1yUoIkmY2a6JiEHnrM9HCm3NNcUznuQ9/3UWqESx3lGjn+ufdioLHkFL
+	xpcFs8yOo7O2TMswqD3ry3NlCuqxszT6GKQvlXKk+2ceXA3YY8/WzNEgBJVP/okPCuPRcE7lXlY
+	jzlLORkBwRlEEDTfBHfdUf/F9SiQnD2nZWu+LUz4PPaJ8zihenj2ILmzcJEsZhLC5Tiuw5vOQ==
+X-Received: by 2002:a5d:6f06:0:b0:460:d18:865c with SMTP id ffacd0b85a97d-479343d1d48mr18732847f8f.1.1783354700990;
+        Mon, 06 Jul 2026 09:18:20 -0700 (PDT)
+Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ad69519c2sm27210959f8f.37.2026.07.06.09.18.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 09:18:20 -0700 (PDT)
+From: Daniel Thompson <daniel@riscstar.com>
+Date: Mon, 06 Jul 2026 17:17:58 +0100
+Subject: [PATCH] net: stmmac: Avoid freeing and re-requesting IRQ during
+ XDP set prog
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-tc956x-stmmac-no_irq_teardown-v1-1-df009d0272bf@riscstar.com>
+X-B4-Tracking: v=1; b=H4sIADXVS2oC/x3MQQqDMBAAwK/Inl2IAaPpV0QkjWu7B5O6CVYQ/
+ 27wOJc5IZEwJXhVJwjtnDiGgqauwH9d+BDyXAxaaaM6ZTB725oDU15X5zHEiWWbMjmZ4z9g77r
+ W6rddet9AOX5CCx/PP4zXdQO0r0DCbwAAAA==
+X-Change-ID: 20260706-tc956x-stmmac-no_irq_teardown-8a7592b9f8c1
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+ Jesper Dangaard Brouer <hawk@kernel.org>, 
+ John Fastabend <john.fastabend@gmail.com>, 
+ Stanislav Fomichev <sdf@fomichev.me>
+Cc: Alex Elder <elder@riscstar.com>, netdev@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ bpf@vger.kernel.org, Daniel Thompson <daniel@riscstar.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5016; i=daniel@riscstar.com;
+ h=from:subject:message-id; bh=ouoDiKxWTnKt6awRW6bwvPT2mUd8MHBQltXVbya7+3Y=;
+ b=owEBbQKS/ZANAwAKAXzjJV0594ihAcsmYgBqS9U84VEoQ7ihoE0hX+1OTuNAmOcBS548F96qN
+ 5yoLvilNcCJAjMEAAEKAB0WIQQvNUFTUPeVarpwrPB84yVdOfeIoQUCakvVPAAKCRB84yVdOfeI
+ oZRjD/4loyK8Dfw5UMFNwkUH9J6/cduTpTFyaslQOTZJTESnRVyseHrhkeVw7cHf3Fi6SVgNmiG
+ 5yiOYnCAl2WRYSqjGDED6k0mI8ZSVLsz7XS0yFVoke/YtvpQFMAzF/OwWv+Y8iLVLBcQcYlOqYz
+ KH4EWYUIQILEvgWHcqWoRmMylNh5ynvN//1ZfG6AISVM/NW7aWToqxh3gC6Mact5sUGFCaScdF2
+ O29pPBz6ZWdVJO0sS/Ru7Jw3mK25+al+R4RO3zNF+RpnFy78jIqme7dronYMV59e0vqgrJMG4Eg
+ VoqmBXNq2AQNiYIJsOCY+zvvaeOPkhovbZqHWOx3+TVLvj2s2Ycf1aUjJfzWg2fE9IxiqWHuTL3
+ 261j9O07uS0cnFKvYVPJjQrUpLhYaE9W7jb+KZDnrf/rBDrGC92b4AQhjy2ZDxK8aY7n+zUgtMv
+ jehciE0ZzbEy8695AZ1hGEqAkefjWmgAI4QEv4VZWMdJwiCi7q8r3/jGZ0fgft7+XKVwGiZ1+YQ
+ rmTGklEohkpxwxFUPQ+AqbHT6avTd7ViPUjfiRMUk2E6M2Brjqdo7vYN5W5pWLJooqG+hJw3zuW
+ 3Ryqi2C43hWrDS5bmTTMPtY649iAbbgYk8jVLjtT09V7pFHRRAYSZRa5ISCIdBXICaMnEahwzri
+ n33WXOa1mrqhCAg==
+X-Developer-Key: i=daniel@riscstar.com; a=openpgp;
+ fpr=E38BE19861669213F6E2661AA8A4E3BC5B7B28BE
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_090704_578715_B8011940 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20260706_091826_323862_424268DC 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,104 +128,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Martin <Dave.Martin@arm.com>
+Currently stmmac will run a full cycle of IRQ tear down and setup when
+setting up a new XDP program. This makes tuning TSN systems difficult
+because whenever a new XDP program is installed then the irq threads will
+be stopped and restarted which will undo any thread tuning.
 
-The control value parser for the MB resource currently coerces the memory
-bandwidth percentage value from userspace to be an exact multiple of the
-rdt_resource::resctrl_membw::bw_gran parameter.
+The problem is avoided by removing stmmac_free_irq()/stmmac_request_irq()
+from stmmac_xdp_release()/stmmac_xdp_open().
 
-On MPAM systems, this results in somewhat worse-than-worst-case rounding, since
-the bandwidth granularity advertised to resctrl by the MPAM driver is in general
-only an approximation to the actual hardware granularity on these systems, and
-the hardware bandwidth allocation control value is not natively a percentage --
-necessitating a further conversion in the resctrl_arch_update_domains() path,
-regardless of the conversion done at parse time.
+stmmac_free_irq() implicitly synchronizes interrupts and, with that
+removed, I was unable to prove that later actions in
+stmmac_xdp_release() are safe when there are concurrent interrupts. To
+avoid problems let's also move the code to disable DMA interrupts earlier
+in the sequence and explicitly sync the interrupts handler(s).
 
-For MPAM and x86 use their custom pre-prepared parse-time conversion,
-resctrl_arch_preconvert_bw(). This will avoid accumulated error from rounding
-the value twice on MPAM systems. For x86 systems there is no functional change.
-
-Clarify the documentation, but avoid overly exact promises.
-
-Clamping to bw_min and bw_max still feels generic: leave it in the core code,
-for now.
-
-[ BH: Split out x86 specific changes ]
-Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-Signed-off-by: Ben Horgan <Ben.Horgan@arm.com>
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Reinette Chatre <reinette.chatre@intel.com>
+Signed-off-by: Daniel Thompson <daniel@riscstar.com>
 ---
-Changes since v3:
-Parameter order swap (Reinette)
-Reflow commit message to use 80 characters (Reinette)
-Adjust comment line length (Reinette)
-Add Reinette's R-b
+This patch was developed (and tested) as part of the TC956x work that
+Alex Elder and I have been working on. However the change should work with
+any driver that uses the stmmac core so it makes sense to submit it as
+a separate patch.
 ---
- Documentation/filesystems/resctrl.rst | 17 +++++++++--------
- fs/resctrl/ctrlmondata.c              |  6 +++---
- 2 files changed, 12 insertions(+), 11 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 61 ++++++++++++++++++-----
+ 1 file changed, 48 insertions(+), 13 deletions(-)
 
-diff --git a/Documentation/filesystems/resctrl.rst b/Documentation/filesystems/resctrl.rst
-index e4b66af55ffb..e4448c20c72e 100644
---- a/Documentation/filesystems/resctrl.rst
-+++ b/Documentation/filesystems/resctrl.rst
-@@ -236,12 +236,11 @@ with respect to allocation:
- 		user can request.
- 
- "bandwidth_gran":
--		The granularity in which the memory bandwidth
--		percentage is allocated. The allocated
--		b/w percentage is rounded off to the next
--		control step available on the hardware. The
--		available bandwidth control steps are:
--		min_bandwidth + N * bandwidth_gran.
-+		The approximate granularity in which the memory bandwidth
-+		percentage is allocated. The allocated bandwidth percentage
-+		is rounded up to the next control step available on the
-+		hardware. The available hardware steps are no larger than
-+		this value.
- 
- "delay_linear":
- 		Indicates if the delay scale is linear or
-@@ -881,8 +880,10 @@ The minimum bandwidth percentage value for each cpu model is predefined
- and can be looked up through "info/MB/min_bandwidth". The bandwidth
- granularity that is allocated is also dependent on the cpu model and can
- be looked up at "info/MB/bandwidth_gran". The available bandwidth
--control steps are: min_bw + N * bw_gran. Intermediate values are rounded
--to the next control step available on the hardware.
-+control steps are, approximately, min_bw + N * bw_gran.  The steps may
-+appear irregular due to rounding to an exact percentage: bw_gran is the
-+maximum interval between the percentage values corresponding to any two
-+adjacent steps in the hardware.
- 
- The bandwidth throttling is a core specific mechanism on some of Intel
- SKUs. Using a high bandwidth and a low bandwidth setting on two threads
-diff --git a/fs/resctrl/ctrlmondata.c b/fs/resctrl/ctrlmondata.c
-index 9a7dfc48cb2e..62c9c6b24d54 100644
---- a/fs/resctrl/ctrlmondata.c
-+++ b/fs/resctrl/ctrlmondata.c
-@@ -37,8 +37,8 @@ typedef int (ctrlval_parser_t)(struct rdt_parse_data *data,
- /*
-  * Check whether MBA bandwidth percentage value is correct. The value is
-  * checked against the minimum and max bandwidth values specified by the
-- * hardware. The allocated bandwidth percentage is rounded to the next
-- * control step available on the hardware.
-+ * hardware. The allocated bandwidth percentage is converted as appropriate
-+ * for consumption by the specific hardware driver.
-  */
- static bool bw_validate(char *buf, u32 *data, struct rdt_resource *r)
- {
-@@ -71,7 +71,7 @@ static bool bw_validate(char *buf, u32 *data, struct rdt_resource *r)
- 		return false;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 2a0d7eff88d3ff1ffa57e224c25f9e77bc28ed10..acd145f1f3069fde6043a9118c793758c5c8f4c0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -2531,6 +2531,23 @@ static void stmmac_enable_all_dma_irq(struct stmmac_priv *priv)
  	}
- 
--	*data = roundup(bw, (unsigned long)r->membw.bw_gran);
-+	*data = resctrl_arch_preconvert_bw(r, bw);
- 	return true;
  }
  
++static void stmmac_disable_all_dma_irq(struct stmmac_priv *priv)
++{
++	u8 rx_channels_count = priv->plat->rx_queues_to_use;
++	u8 tx_channels_count = priv->plat->tx_queues_to_use;
++	u8 dma_csr_ch = max(rx_channels_count, tx_channels_count);
++	u8 chan;
++
++	for (chan = 0; chan < dma_csr_ch; chan++) {
++		struct stmmac_channel *ch = &priv->channel[chan];
++		unsigned long flags;
++
++		spin_lock_irqsave(&ch->lock, flags);
++		stmmac_disable_dma_irq(priv, priv->ioaddr, chan, 1, 1);
++		spin_unlock_irqrestore(&ch->lock, flags);
++	}
++}
++
+ /**
+  * stmmac_start_all_dma - start all RX and TX DMA channels
+  * @priv: driver private structure
+@@ -3814,6 +3831,33 @@ static void stmmac_free_irq(struct net_device *dev,
+ 	}
+ }
+ 
++static void stmmac_synchronize_irq(struct net_device *dev)
++{
++	struct stmmac_priv *priv = netdev_priv(dev);
++	struct stmmac_msi *msi = priv->msi;
++	int j;
++
++	for (j = priv->plat->tx_queues_to_use - 1; msi && j >= 0; j--) {
++		if (msi->tx_irq[j] > 0)
++			synchronize_irq(msi->tx_irq[j]);
++	}
++
++	for (j = priv->plat->rx_queues_to_use - 1; msi && j >= 0; j--) {
++		if (msi->rx_irq[j] > 0)
++			synchronize_irq(msi->rx_irq[j]);
++	}
++
++	if (msi && msi->sfty_ue_irq > 0 && msi->sfty_ue_irq != dev->irq)
++		synchronize_irq(msi->sfty_ue_irq);
++	if (msi && msi->sfty_ce_irq > 0 && msi->sfty_ce_irq != dev->irq)
++		synchronize_irq(msi->sfty_ce_irq);
++	if (priv->wol_irq > 0 && priv->wol_irq != dev->irq)
++		synchronize_irq(priv->wol_irq);
++	if (priv->sfty_irq > 0 && priv->sfty_irq != dev->irq)
++		synchronize_irq(priv->sfty_irq);
++	synchronize_irq(dev->irq);
++}
++
+ static int stmmac_msi_init(struct stmmac_priv *priv,
+ 			   struct stmmac_resources *res)
+ {
+@@ -7108,8 +7152,9 @@ void stmmac_xdp_release(struct net_device *dev)
+ 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+ 		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+ 
+-	/* Free the IRQ lines */
+-	stmmac_free_irq(dev, REQ_IRQ_ERR_ALL, 0);
++	/* Silence DMA interrupts */
++	stmmac_disable_all_dma_irq(priv);
++	stmmac_synchronize_irq(dev);
+ 
+ 	/* Stop TX/RX DMA channels */
+ 	stmmac_stop_all_dma(priv);
+@@ -7156,10 +7201,8 @@ int stmmac_xdp_open(struct net_device *dev)
+ 	stmmac_reset_queues_param(priv);
+ 
+ 	/* DMA CSR Channel configuration */
+-	for (chan = 0; chan < dma_csr_ch; chan++) {
++	for (chan = 0; chan < dma_csr_ch; chan++)
+ 		stmmac_init_chan(priv, priv->ioaddr, priv->plat->dma_cfg, chan);
+-		stmmac_disable_dma_irq(priv, priv->ioaddr, chan, 1, 1);
+-	}
+ 
+ 	/* Adjust Split header */
+ 	sph_en = (priv->hw->rx_csum > 0) && priv->sph_active;
+@@ -7197,10 +7240,6 @@ int stmmac_xdp_open(struct net_device *dev)
+ 	/* Start Rx & Tx DMA Channels */
+ 	stmmac_start_all_dma(priv);
+ 
+-	ret = stmmac_request_irq(dev);
+-	if (ret)
+-		goto irq_error;
+-
+ 	/* Enable NAPI process*/
+ 	stmmac_enable_all_queues(priv);
+ 	netif_carrier_on(dev);
+@@ -7209,10 +7248,6 @@ int stmmac_xdp_open(struct net_device *dev)
+ 
+ 	return 0;
+ 
+-irq_error:
+-	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
+-		hrtimer_cancel(&priv->dma_conf.tx_queue[chan].txtimer);
+-
+ init_error:
+ 	free_dma_desc_resources(priv, &priv->dma_conf);
+ dma_desc_error:
+
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260706-tc956x-stmmac-no_irq_teardown-8a7592b9f8c1
+
+Best regards,
 -- 
-2.43.0
+Daniel Thompson <daniel@riscstar.com>
 
 
