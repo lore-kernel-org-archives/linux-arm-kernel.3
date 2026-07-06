@@ -4,155 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:28:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25001C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=; b=aGA/yZVroj0F/lhRtSK1wx4t3A
-	5VGxd4406q7vcd5zTiQidzBdQcezRUNRJhNJMmwvX36vYllnfSD59yesn5ci67DAHDLzM0v6sHIVL
-	IkSWD88hLfeKFVeywZPi5y9JU74O5gZww9El0AmlUzmAhGOSh8KhuzzfEZNjibHSrbhHTmPRxTxWa
-	TY3RxnHSUDoOc5/DGyTqjuNqRU3YTBDs7VjMJVzmr8SIc6bXh+zNypWZHuT2CVivs4r/O4QjSknrB
-	Ib1v6PMQS7WWF6BIIuNC6qBk+0fvkJGWpCa/uxQfU7gx/lC2IJhSCHJg3CTql0/+R+w2mxEfQVpd+
-	IP3jXk6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=wrEtuZnNKTHhXzzXH6FBZuUyiD4QdjI7aUV2ges9QRI=; b=UzIBkw63Bo1hDy
+	i99mD+mEfkmnBRmRwPVL6ZkF2LXwp9F39XvQASjC85/g+agezdk8IHUxwm1wK/IbX3rNqL5ZtRIS3
+	gIwli1ES/1YJKde7S1dclfcm4d/Q49vpTVELISPsSZgc1Qngz0d8fxearGMboWJeOK1IrxLbW9kPW
+	ayW6FhH2n0TV/ci2ujO2uImzyKom6//EW3eELtkG/WHBR3O3JeRWhWi0eU00fMnvPOfdorSU2qW7L
+	xJ/Wz4SDDP+ACB8ME6xz8NSHnl8BQorMhZOe5PmFYX+IKEB8dyF6CzSlXQ2zO+ob1MVg75C83OSAK
+	CsW9FwVIe6i1sDJ5MhzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqrT-0000000DdMY-3lWy;
-	Mon, 06 Jul 2026 21:28:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wgquV-0000000DddE-2zZb;
+	Mon, 06 Jul 2026 21:31:27 +0000
+Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqrR-0000000DdM6-0XEj
+	id 1wgquT-0000000DdcF-4AXq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 21:28:18 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666KDtjN1495406
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 21:28:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=; b=B6vUTsF+PZo2s8op
-	k91yrrH8BFLXGcc1v+dH/Y87y48/xr52B74MZi5C5tje3zjT50YWFG9LgR5OFtoj
-	uZrN7jvmayh/z0oeFDCqXT95ZjU7vAfo76FtEQpevDbYtyoExwqDWadJCmmPwgTc
-	X+VB1dDee4x4WOaXZ1LWivrvuBv7hagIygLM4VZwgi+L+Zc8stvPbySIbh++poei
-	UNgwUeZDOlZ1IgxfltcCPkwhSNd6fQYwfEhuzWUHmZhj//qsu3VpZbg+YQdRF0/v
-	XQgqErqLYI0rzGYUWqLwQ8gYh0IDHmtYvPATrhY3u2NOpORD50A8YO+sRN7Z5QAU
-	RtbGIw==
-Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88t8b9pj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 21:28:16 +0000 (GMT)
-Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-737d34a0dc8so3759642137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 14:28:16 -0700 (PDT)
+	Mon, 06 Jul 2026 21:31:27 +0000
+Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-7e9dc0f5900so38747a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 14:31:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783373295; x=1783978095; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+        d=google.com; s=20251104; t=1783373484; x=1783978284; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=;
-        b=TRT8HVA+wbQ2ZbNf4Yf0dj3fM3rxNTkS4CWJGgRavnlEXV5YqARKwgAZyMYDmh/nwR
-         DnzWPrMJn1wY24DZmd30j9bVE7eRisYsCE7/iR/VHeRLIvZQEJZr2i8eauVjDr4469x+
-         XytB6Ujb6kVMNEwzfjyEofKdu7S+q9JMLfgiJ2GaGPWlJ3lIcnalDneEk5VBkFnOAh3/
-         I6GK2lctJPSSCyMjlxUh/aIJLnw1+NE2MRdFkaOyEWuJXyCFuU9xQnLkqnaDFg0ziXgT
-         DQhYB9nV4VGRGC616t8hwDpjyxYhnKWfjFHF6xQ9G+Z1jpUbFOLW8AQoFhRu+oxNsy1A
-         hT/g==
+        bh=wrEtuZnNKTHhXzzXH6FBZuUyiD4QdjI7aUV2ges9QRI=;
+        b=Wz0SEgdMFpE0+JF/tQbsHfJprnl8yBvjlEXLnpuR2lR+rj5vHie8QBFKLJGcdIkc4m
+         ItGN7b2hhhCpM9zdzJQ8lwtHMvLzvlWPq+Wj6D738vYsVKyInY/ya3ytI9aSm/ilHVhc
+         TtyHp+YLI/PN8tBUY8BFg1J9UTXECVS4uYkke1LRAXbkl+0eEew2kjdBUUr7gWKcTMZF
+         Imp7qSoy5gKD7nMh/LyWarWD+i4qbc9wKBhPbIGA6XkzHADJ9isfDs08k2Pc7BLO8jEV
+         /McxhnJZA4DteIt1PEI+6Y/GnKsx0vhEGvYK7dRgabXiltv3tXMED4HV3Zc8yjPcOFaw
+         qE5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783373295; x=1783978095;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20251104; t=1783373484; x=1783978284;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=;
-        b=X03dXoRpYplfMjo8pFCPQuvOr0qM8eQ5S2ODYMwHzUUGxGOpDxP5fHhCqItsHEq3e6
-         dWiorDGSugnMHm8MvuklU8mPmv2KF5eilZD7d4NOsyupnRiCX4ENAQU9HjMRlGuTFVUf
-         fjZXKwo/pk0Geh6V8RFfUQ1o+eaZFtQn+cFrIDOrnba72h2wphyghx5LbyymM0a0tbUg
-         tRZ/HsdYzNuQ2MZ02uIGEdKUM1XBw1rVwWghf2Wo84kErPskxsQEUm+HMCQYlTFzxlpD
-         UB20izT59+ViJMOLGNEeh+CQERQ2s61uNCN2OBMPObSaCCrs5kI1M2zww8DFCpl4NUGG
-         EPVA==
-X-Forwarded-Encrypted: i=1; AHgh+RrW/amjHvJ0+cyipA6dMn3I5OIn3btCXTdEPqgYCcX437PvGog350t1K6gVimoNLoraIm06vTtPqgam/HLkiZkj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvY8lv3ONiK344u4zj9yBnz6IU2MF6bnPiHzQDf+AgcGSiRXuS
-	a7eidPux6rCVwWeHLydXNURa4QESrlexit8xXSX0eNZt0EvF2FVZ4anQ5Z04ibdGGUwY2PEMfYe
-	zm4JS/r9YmBxve2L4IJ8WJtB0gR8a9HLaeyi4uFv1vCZcF97+cN9JGsbRTNA9lSSOJ9VT4EjzeU
-	WxgA==
-X-Gm-Gg: AfdE7cmDJYr5uC68z3tRokfXexKK17s0YwrQbIjVEOkzTuXod1sLMd6qeAtEoExT+Z6
-	illeqkU/N/0p0GbmktFtSF2aBg6Y8pKYXP0orUeqPcBiJKSuw59UmSqyTQco7kgezgTh64sYWG/
-	BnIpy2CnrsAznkjYIk+YdT7dsYnnKRV5F1gh+lI8RVFxakcb5pbGVQNs4cxciEoqe/r2WUnUK9k
-	vC2UUqu+acEf4urjaZHbXvJ6/4j0/0kvK2VKWz9MwconqD2U4Ks4J99jIyQmAN4F4fR0tSh6lUP
-	5MHnosvGL0pVVWGwf4BU3+cbxL+Zxd70OGYBH2sjI2Fb0SrYpDeRo0I7Ouv0D5NULQN8p3SRVfo
-	MovzFkdIRObxtA6aw39MUBR4PH1qiLRPKmKkNPDB8iCFNMel1+AwD7ZGkElnlTqH2NtsULK8skc
-	h3OoB7wC8+vfOgaAFVmGO63450
-X-Received: by 2002:a05:6102:598c:b0:744:a3fd:410a with SMTP id ada2fe7eead31-744b7d6e301mr1160560137.14.1783373295348;
-        Mon, 06 Jul 2026 14:28:15 -0700 (PDT)
-X-Received: by 2002:a05:6102:598c:b0:744:a3fd:410a with SMTP id ada2fe7eead31-744b7d6e301mr1160536137.14.1783373294919;
-        Mon, 06 Jul 2026 14:28:14 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aed13839bbsm3150167e87.35.2026.07.06.14.28.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 14:28:11 -0700 (PDT)
-Date: Tue, 7 Jul 2026 00:28:09 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-Subject: Re: [PATCH v5 6/7] arm64: dts: qcom: shikra: Add GPU cooling
-Message-ID: <cikq6wyljzdlyuopvxno7fipifzc7f2zc6hs2ligiu5esnljui@5mxhammibgpc>
-References: <20260707-shikra-gpu-v5-0-d2f373912d3f@oss.qualcomm.com>
- <20260707-shikra-gpu-v5-6-d2f373912d3f@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20260707-shikra-gpu-v5-6-d2f373912d3f@oss.qualcomm.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDIxNyBTYWx0ZWRfXwvW+fIHCb7WF
- t+vk9kuUONNDPWpf70mXoO6nC58iMF/1iem0+OuUs0868lJTP29i4EztcJcL5yWWx2lRRCJooTH
- PqrRFDQoMXB9QY3seUYRsFIfQAyYPDk=
-X-Proofpoint-GUID: 0R3nFvE0AutMYR9bYKmGhuZ5YdhzG86k
-X-Authority-Analysis: v=2.4 cv=C6zZDwP+ c=1 sm=1 tr=0 ts=6a4c1df0 cx=c_pps
- a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
- a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=wZTYHpkevF83xUmX0v8A:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
- a=crWF4MFLhNY0qMRaF8an:22
-X-Proofpoint-ORIG-GUID: 0R3nFvE0AutMYR9bYKmGhuZ5YdhzG86k
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDIxNyBTYWx0ZWRfX3gZn41q8VRye
- eGdG0EMp3z3up5vUN7TEPsHR4eTKYncvWHtIuDy5F4vIaTzsdlu/YwzgCHoM21phueGvSx5kSoJ
- Xnx7qUZQ1x4CCqxDc/tXcRCBjgw1OjScHIdwbgLlOCHW/svBzDvdLOvu2nv/dGo0NqBJYngP/NF
- J64ha2UXh3EABpPpvhZ7HcdWTrj3ijrjlkckd4jvx8tmR/9VDw2yqg+CGtxjZCKyO100ylZtDWf
- Nw+bCnoKuWg8tDnV7IwACCS+PkWUHF5/aJd0LO9DLH1FTrnrkjlQzUvZcUqXwwLjWpBNyX7UHWZ
- 2MGqCVdo4NDge/ZY4b3WdTbCpGIwB9zzO0lp+HWgeKifbhI29Ux9pQOeIgD+CrksMoW516RVViq
- m6DdClN8JDP014xQBnw2MSTYWK0utn2HZSZBJ15PKfnxxEucbiiY5ZpPn7Xa4AhwRaa2m7M0qBf
- CWaxoAnEXWmWFzD6qHA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_03,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607060217
+        bh=wrEtuZnNKTHhXzzXH6FBZuUyiD4QdjI7aUV2ges9QRI=;
+        b=kXRiPri9gYowwe/I8itUrS/C4ea30407EQU0WJKBczoJYv8KMwDVg2PdotC4/gkk40
+         m1BGkIYV7+6tUMEpH5/Eqv3BDJ5HDUCSbWkpBIBU+5vxcqimzLmdzOR+lkYZAur/hrgl
+         U9pTg7RSM9UVsKY014AY0M7Ez3pAf7DR9X2IRkHNkofhdehCTom4uRdY3WjwDsmRPPpC
+         llPjidGkUr5KRTjy2iUZ0pNGKALy1io685STul8CLAGoFj/NyJCboHhngDqZruvqg3Mh
+         xITje9N8ZP6gn/J57JWXiEi3usovletvaUUhH2sYCOEKvlxMONQ+cKM1fPVz6jADL4X3
+         JSyA==
+X-Forwarded-Encrypted: i=1; AFNElJ/euqGa8o4tRJpmeI5v/km212pnqmfXLAhQrSmoHVYuGvJpIUU9J+fgCnlscVLOMX7UDvtuV5R2+nb+teG5r5r7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwNzndHZCRsVak1mdiT44yLaAjt6xO9SZhT+ufVqa/pfdkpOBym
+	E+5nvYI2Zkpt/gbm1S0r+7ux1oIBbJIdT9gUc32wG1QpOdUp+DDV3QkgQ50Cht7d1y2S2yLJzV7
+	OLCNzuVI1plKnOWz4SbBchPSP+g==
+X-Received: from ioel1.prod.google.com ([2002:a05:6602:2761:b0:9a7:ea8a:6db6])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6820:c92:b0:6a1:93a5:cd70 with SMTP id 006d021491bc7-6a35c45cbfbmr12190eaf.31.1783373483917;
+ Mon, 06 Jul 2026 14:31:23 -0700 (PDT)
+Date: Mon, 06 Jul 2026 21:31:22 +0000
+In-Reply-To: <akWhad3U5VNjWzxu@kernel.org> (message from Oliver Upton on Wed,
+ 1 Jul 2026 16:23:21 -0700)
+Mime-Version: 1.0
+Message-ID: <gsntqzlf6c0l.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH 0/5] Backport ARM64 VHE boot fixes to 6.6.y
+From: Colton Lewis <coltonlewis@google.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: stable@vger.kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, james.morse@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_142817_169662_5DE8A168 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20260706_143126_040509_ABFB206E 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,28 +90,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 02:34:38AM +0530, Akhil P Oommen wrote:
-> From: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-> 
-> Unlike the CPU, the GPU does not throttle its speed automatically when it
-> reaches high temperatures.
-> 
-> Set up GPU cooling by throttling the GPU speed when reaching 115°C. And
-> use a passive polling delay to ensure more than one "passive" thermal
-> point is considered when throttling the GPU thermal zones.
+Hi Oliver, thanks for reviewing.
 
-I'm not sure I can parse this sentence. How does polling delay affect
-number of thermal points to be considered?
+Oliver Upton <oupton@kernel.org> writes:
 
-> 
-> Signed-off-by: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
->  arch/arm64/boot/dts/qcom/shikra.dtsi | 16 +++++++++++++++-
->  1 file changed, 15 insertions(+), 1 deletion(-)
-> 
+> The subject prefix should be "[PATCH 6.6 0/5]" so people know right up
+> front where this is going.
 
--- 
-With best wishes
-Dmitry
+I'll make sure to include that in the subject.
+
+
+> On Wed, Jul 01, 2026 at 08:43:37PM +0000, Colton Lewis wrote:
+>> This series backports VHE CPU boot fixes to the 6.6.y stable branch.
+
+>> These fixes are already present in the 6.12.y stable branch (and
+>> newer), but are missing in 6.6.y. They are required to enable booting
+>> L1 guests with nested virtualization enabled (kvm-arm.mode=nested).
+
+> It's a bit worse than this. The architecture retroactively made
+> FEAT_E2H0 an optional feature, there are now implementations in the wild
+> that do not support the feature.
+
+Good to know. I'll include that context in my next cover letter.
+
+>> Without these patches, a 6.6.y guest boots with HCR_EL2.E2H
+>> incorrectly configured (because it misses VHE-only detection or early
+>> initialization), causing early boot hangs/trap loops.
+
+>> Conflict resolutions:
+>> - Patch 4 (KVM: arm64: Initialize HCR_EL2.E2H early) had conflicts in
+>>    arch/arm64/kvm/hyp/nvhe/hyp-init.S due to differences in state
+>>    initialization. Resolved by extracting EL2 state initialization into
+>>    __kvm_init_el2_state.
+>> - Patch 5 (arm64: Revamp HCR_EL2.E2H RES1 detection) had conflicts in
+>>    arch/arm64/include/asm/el2_setup.h. Resolved by using raw msr hcr_el2
+>>    instead of the missing msr_hcr_el2 macro.
+
+
+>> Marc Zyngier (4):
+>>    arm64: sysreg: Add layout for ID_AA64MMFR4_EL1
+>>    arm64: Treat HCR_EL2.E2H as RES1 when ID_AA64MMFR4_EL1.E2H0 is
+>>      negative
+>>    arm64: Fix early handling of FEAT_E2H0 not being implemented
+>>    arm64: Revamp HCR_EL2.E2H RES1 detection
+
+>> Mark Rutland (1):
+>>    KVM: arm64: Initialize HCR_EL2.E2H early
+
+>>   arch/arm64/include/asm/el2_setup.h | 52 ++++++++++++++++++++++++++++++
+>>   arch/arm64/kernel/head.S           | 17 +++-------
+>>   arch/arm64/kvm/hyp/nvhe/hyp-init.S | 16 +++++++--
+>>   arch/arm64/tools/sysreg            | 37 +++++++++++++++++++++
+>>   4 files changed, 107 insertions(+), 15 deletions(-)
+
+
+>> base-commit: d1cfde2d5d15be14123bdd1689162bd27f995a90
+>> --
+>> 2.55.0.rc2.803.g1fd1e6609c-goog
+
 
