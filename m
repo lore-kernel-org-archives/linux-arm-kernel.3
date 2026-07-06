@@ -4,73 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06467C44500
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDC06C43458
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nCwZNeDZlJVGlaWCLeWYvbGvxte1zenM4jubK+YhaG0=; b=nSgMqJj1OqOzV08IifwZkI3C6d
-	C/jG0yYjmzRwXtFnId9jACCZ7NUMKJcUnTG4UHKKZb7x/boIeTQwWDKCn3z2PztF7wJAo8TlPQQl3
-	Ft9MZFCKeN46ttAWxAgNRc2ESP8lz4mvKR5uSEuz+NBZ/14vkFdTe5+w1bMMbiuYT++l2KRCbiDoe
-	D1wT3jFmYdg1OV8Ln/9V+S5DZ9gQdI5hpVkWcvDFON5vHTnei57dgvfR8W77Vn28UJUfv7YkYQT2U
-	jhv/m1Nc9Ck7HVH2k3Kjzd3yPqIntS5HDt5ui5rJqXYG2l0eQSaXHVpb8BmjfhWseFCi7gVy/RKq7
-	tmdVkXaA==;
+	bh=1ZFMxJ4WY9L/AhejN1XNCOeUtwifJmbyAtlJAOc91pM=; b=1iyxKhzjwalhASwU5LGYIth1Nl
+	T0x6MB23igmQoskP+O24stO9zZ0/PZkn98VpJzy6pN5eIu9bQMHLLnSsnVnHmTw3Dlg6P2RDPAEV0
+	rtJDCFBgk5wyJYAbbdu4VFqvQbZzbv7DVqWb6IyuPNjKSavIKCDzjoUrytRBytJUY5UAF0MheZxnQ
+	gUFn+8fsEGI1aI9u7BAwI8dAE97WjHZ/RkiFuMaUDdIZ8kTsWNArXPJvA25TADuyaewJ5KFNCZjhD
+	QbKFJrysaeqBB1BzNXlHLPGbE0xn1PqtF8exy5sECYE+ehm4W/cNoELV8o0aZ/wcL4qPvhulAEsrF
+	bDYzLp3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggGJ-0000000C9VH-2sjl;
+	id 1wggGJ-0000000C9Ur-26Kj;
 	Mon, 06 Jul 2026 10:09:15 +0000
-Received: from www3579.sakura.ne.jp ([49.212.243.89])
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggGB-0000000C9R6-1Ylw
+	id 1wggGB-0000000C9R3-0Hby
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 06 Jul 2026 10:09:09 +0000
-Received: from h183.csg.ci.i.u-tokyo.ac.jp (h183.csg.ci.i.u-tokyo.ac.jp [133.11.54.183])
-	(authenticated bits=0)
-	by www3579.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 666A3TQ4013128
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Mon, 6 Jul 2026 19:03:43 +0900 (JST)
-	(envelope-from odaki@rsg.ci.i.u-tokyo.ac.jp)
-DKIM-Signature: a=rsa-sha256; bh=nCwZNeDZlJVGlaWCLeWYvbGvxte1zenM4jubK+YhaG0=;
-        c=relaxed/relaxed; d=rsg.ci.i.u-tokyo.ac.jp;
-        h=From:Message-Id:To:Subject:Date;
-        s=rs20250326; t=1783332223; v=1;
-        b=DU1X6V895JVkXdpTIAHNPQNWV5xjYrmYk8nt6k0TwVv2ESbhpC7q09iWxmCFBnSM
-         LjlIq0647f8DMew/wQ0GlTAwmY+reFS9YOSeIUPzsVQz5wTxfpuIQmim3mGYqOJ8
-         1INSgWTuy2fUXrfv1+YN9KCwKDaBYeGH3szy2HijVP4BJwNBlqd1RrkufE/DmfRG
-         o3Q88L81VzlPKx4sdBFXTtZwWvsRFVuWNPqIbRA3eoy4rGDA5BvZwCPg7s7Zzbgg
-         OeptxjvHbFbfkXxPccrcR1BvsKXMwrqPP24wl7HFYMrxPnGTTI9V5BUY8Hnji/py
-         zuI1kyA7vN5/z7NMNtqtLg==
-From: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Date: Mon, 06 Jul 2026 19:03:24 +0900
-Subject: [PATCH v8 1/7] KVM: arm64: Disallow vPMU when pPMUs do not cover
- all CPUs
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-6647bc8f900so3768888d50.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 03:09:06 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783332545; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rBbKh9nFK1a2KcTpVgwK3LTpHMC3Aq0QiLHRk/hCfrRcQnmEzWEEWk0gUxLO9zeMAw
+         sxVIuGgs4n/h0XQyML2tgxh9/1jXD7sMWxKYiIC2d9O9QkUkZb/pVPiGMsgJUg/n7VmT
+         cM1nIgw3iowEDszhX1Bvtx07APMio42pF7E2h9sb3KpC/tYYjKft5SnFIXK3+45Pkcz5
+         SWgskmXWaL4vRh5BG4Vycb1XxWjKF434oPBPIciKwXXhZlo7hTwwPE0Pw9CVs7ZgU0dR
+         PT37a6j82UhazkI+gu72xloCwGIMMUh/ScH/1/XoMX77kyFhGhmEjzEdnaFRceoOvcYr
+         zOcw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1ZFMxJ4WY9L/AhejN1XNCOeUtwifJmbyAtlJAOc91pM=;
+        fh=N63mUPtd5IiF0X49fx58GYbi2p4Wuf7QZVnNpnkciOA=;
+        b=QlJwN8mQYrhWM49svPd7ln1vrAmlc1a5gX99/axXb8xgPG26hiPFVMdkDeTnG5fD/n
+         16ZwJCjC+zQNovBgX/hDEiBn8laCY3Z5nt2dOYr5P7Ot0gTeydPJo0vLo1fSskUKRkQK
+         fe2KUpIcVH0PupDmQ05+V2IlDtMR5BN60ImWl591ESrgehU0YaFglpnQGkIXg+0QjF6e
+         j7hhNicdw7cEsjtiEj7hYPXd4s2Lc3BEcr7xlI/C83uH8CdfLmefYadx03QWWlU4Dz8c
+         9J5/f/K/33XI3de/lekaw4/ww4CuumHmiOcnJvc/dGC22EGRQIF8H4D/6XVYARkU6tua
+         aYeg==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1783332545; x=1783937345; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1ZFMxJ4WY9L/AhejN1XNCOeUtwifJmbyAtlJAOc91pM=;
+        b=Vfny7kM+Fqchh66rVwt42UQMcSbjFZppUIW/R/NdAkfGhe9IJbQDIUv5KHtFUnpg3U
+         YjUBbZzmFrKUk5+20CgeiNyH1e/UQULOwt026VuFuh3ExdZCJZmQefM3z6BLnksgVB3a
+         e1Stf+6Xtz1XZlTM4l3pp9at4z+9hBSqjH4cY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783332545; x=1783937345;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1ZFMxJ4WY9L/AhejN1XNCOeUtwifJmbyAtlJAOc91pM=;
+        b=AHVayrg+OpPD/5CjSbtaZhVXUvARw3LanrG+8Yd2XqxJEs04FPSoIFxFQcA2EwtYaN
+         7WP2OtFBU1I9vxXY4SQ8xX1LqKIdVyYJRXhOvZnN/Ia5lRLvdWasQyShFvyCARDyoXo1
+         M6NUAU8+xycMLHyc/ytlj0WfLh1Vri4eRJsI9dw/8KoLeyhlYVm2Hc72g2c4tgHTvWDQ
+         YiPoU8qlPoynwnmGcfnwLlPKOO4h+iZafA+rH49opKjFNBrYLPgSI/0IlPatSCbZvGQu
+         omX5uejj95etubYZSMYjrF5CDlt7mupL/uJCQGWm3rU2/cfuesuhsKxcwMsvjTdwSOho
+         lCsg==
+X-Forwarded-Encrypted: i=1; AHgh+Rrgakdp1YJLfWIGkxReObpeG5mSyxqWq3+oxR7ndymS1DryvEWCqLplmxyjWXBfjKfULJhoBsPgKtHYGkeQEa4W@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJy3z+kfh8kd0nK4MIjTT+MDgLElsrCEUhia0PGjy6KS7l3dFX
+	KmXsny48k+euq2qexiygo94nQgVowHF6EnPeKsfusDJ4aoW8xaKbSuPxiV3/Z7dhDm8cwvSfohZ
+	Eiu5muDKzIVX9mBTDBYKGDmvP2JJmlnBRv0FXYbGk
+X-Gm-Gg: AfdE7cn75f79z38tUd6oFj9uBqEQqA2F8qE9q2JiR+x72QdF16hKLBD6CNS/qJl4YLM
+	b9k9ETsH82KYJwTjLsquEI0wMNqSpnSAJSiRsp4b9S6CZICUqADeaVqgYlnaaLD+bfNJTtFuyvo
+	iNvHmMGNYC2ZHrJvB1SHWWgXDmBJukoXOibffdp3myuvWB3FWw2FeJBl+N5FHBChwhO3xh72ROR
+	dCJmQG8jXQ/a4MYaUlqfKF07MRBMg8xGEKOiLrPExTUo+7Bw0XL46A/LCAHzWLOYU3UBCcN8HI9
+	nvCx+Ed9rBkSFTvb1jSA3P+qNKE=
+X-Received: by 2002:a05:690e:120c:b0:652:5567:b3ec with SMTP id
+ 956f58d0204a3-66652e2416cmr8660052d50.37.1783332545405; Mon, 06 Jul 2026
+ 03:09:05 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-hybrid-v8-1-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
-In-Reply-To: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-        Joey Gouly <joey.gouly@arm.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Zenghui Yu <yuzenghui@huawei.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <shuah@kernel.org>, Shuah Khan <skhan@linuxfoundation.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-        devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-        linux-kselftest@vger.kernel.org,
-        Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-X-Mailer: b4 0.16-dev-925f5
+References: <20260703115601.1323491-1-wenst@chromium.org> <20260703115601.1323491-2-wenst@chromium.org>
+ <akmZOC_J2ZTl4zLX@google.com>
+In-Reply-To: <akmZOC_J2ZTl4zLX@google.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 6 Jul 2026 18:08:54 +0800
+X-Gm-Features: AVVi8CdednA09-ELXrMS4uc6xSUtulA0xKkThvjfCvkhmpOamhA7IkBdQY8wb_E
+Message-ID: <CAGXv+5H_SXO0DtN9wjrXyAvuzG+CkYh2-4eMg=biOSsFV=E1=Q@mail.gmail.com>
+Subject: Re: [PATCH v2 1/7] Input: elan_i2c - Wait for initialization after
+ enabling regulator supply
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Benson Leung <bleung@chromium.org>, Tzung-Bi Shih <tzungbi@kernel.org>, Jiri Kosina <jikos@kernel.org>, 
+	Andi Shyti <andi.shyti@kernel.org>, linux-mediatek@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	chrome-platform@lists.linux.dev, linux-input@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_030907_635649_E3C9666D 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20260706_030907_152396_AFD86F50 
+X-CRM114-Status: GOOD (  23.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,133 +120,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit ec3eb9ed6081 ("KVM: arm64: PMU: Disallow vPMU on non-uniform
-PMUVer") made KVM reject vPMU unless the system-wide PMUVer is usable.
-That covers systems where PMUv3 is absent or non-uniform, as well as
-systems where IMPDEF PMUv3 sysreg traps are unavailable.
+On Sun, Jul 5, 2026 at 7:44=E2=80=AFAM Dmitry Torokhov
+<dmitry.torokhov@gmail.com> wrote:
+>
+> Hi Chen-Yu,
+>
+> On Fri, Jul 03, 2026 at 07:55:54PM +0800, Chen-Yu Tsai wrote:
+> > Elan trackpad controllers require some delay after enabling power to
+> > the controller for the hardware and firmware to initialize:
+> >
+> >   - 2ms for hardware initialization
+> >   - 100ms for firmware initialization
+> >
+> > Until then, the hardware will not respond to I2C transfers. This was
+> > observed on the MT8173 Chromebooks after the regulator supply for the
+> > trackpad was changed to "not always on".
+> >
+> > Add proper delays after regulator_enable() calls. To avoid impacting
+> > the boot time of existing devices that have the power rails always on,
+> > skip the delay if the regulator supply was already enabled. In this
+> > case the regulator is either always on, was on by default at power up,
+> > or was left on by some other driver, such as the I2C OF component
+> > prober. Either way the controller has had ample time to initialize.
+>
+> Unfortunately we do not know that [it had ample time]. For this code be
+> reliable we need to record the time at which given regulator was turned
+> on and then execute/adjust the delay as needed. Until we have it we need
+> to assume the regulator was enabled at the time of regulator_enable()
+> call.
+>
+> I am not concerned with increased boot time too much given the driver is
+> set up for asynchronous probing.
 
-However, KVM can still accept vPMU when all CPUs uniformly trap PMUv3
-sysregs, but the pPMUs registered with KVM only cover a subset of
-possible CPUs.
+I'm a bit confused since you raised the issue for ACPI platforms that don't
+go through the regulator API. Now you're saying it's not a big issue?
 
-Reject vPMU unless the registered pPMUs cover every possible CPU.
-This avoids carrying support for partial pPMU coverage into the
-fixed-counters-only UAPI introduced later in the series.
+Either way I will add some new regulator consumer APIs to handle this.
+This needs to be in the regulator core to prevent race conditions, such
+as when one thread deems the delay is enough just when another disables
+the regulator.
 
-Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
----
- arch/arm64/kvm/arm.c      | 16 +++++++++++++---
- arch/arm64/kvm/pmu-emul.c | 20 ++++++++++++++++++--
- include/kvm/arm_pmu.h     |  6 +++---
- 3 files changed, 34 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 29f48f2c63ec..68767bb08285 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -1527,14 +1527,19 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 	return -EINVAL;
- }
- 
--static unsigned long system_supported_vcpu_features(void)
-+static long system_supported_vcpu_features(void)
- {
- 	unsigned long features = KVM_VCPU_VALID_FEATURES;
-+	int r;
- 
- 	if (!cpus_have_final_cap(ARM64_HAS_32BIT_EL1))
- 		clear_bit(KVM_ARM_VCPU_EL1_32BIT, &features);
- 
--	if (!kvm_supports_guest_pmuv3())
-+	r = kvm_supports_guest_pmuv3();
-+	if (r < 0)
-+		return r;
-+
-+	if (!r)
- 		clear_bit(KVM_ARM_VCPU_PMU_V3, &features);
- 
- 	if (!system_supports_sve())
-@@ -1555,6 +1560,7 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
- 					const struct kvm_vcpu_init *init)
- {
- 	unsigned long features = init->features[0];
-+	long r;
- 	int i;
- 
- 	if (features & ~KVM_VCPU_VALID_FEATURES)
-@@ -1565,7 +1571,11 @@ static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
- 			return -ENOENT;
- 	}
- 
--	if (features & ~system_supported_vcpu_features())
-+	r = system_supported_vcpu_features();
-+	if (r < 0)
-+		return r;
-+
-+	if (features & ~r)
- 		return -EINVAL;
- 
- 	/*
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index c816db5d6761..f50bb9d9a1e7 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -24,10 +24,26 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc);
- static void kvm_pmu_release_perf_event(struct kvm_pmc *pmc);
- static bool kvm_pmu_counter_is_enabled(struct kvm_pmc *pmc);
- 
--bool kvm_supports_guest_pmuv3(void)
-+int kvm_supports_guest_pmuv3(void)
- {
-+	cpumask_var_t cpus __free(free_cpumask_var) = CPUMASK_VAR_NULL;
-+	struct arm_pmu_entry *entry;
-+
-+	if (!alloc_cpumask_var(&cpus, GFP_KERNEL))
-+		return -ENOMEM;
-+
-+	cpumask_copy(cpus, cpu_possible_mask);
-+
- 	guard(mutex)(&arm_pmus_lock);
--	return !list_empty(&arm_pmus);
-+
-+	list_for_each_entry(entry, &arm_pmus, entry) {
-+		struct arm_pmu *pmu = entry->arm_pmu;
-+
-+		if (!cpumask_andnot(cpus, cpus, &pmu->supported_cpus))
-+			return 1;
-+	}
-+
-+	return 0;
- }
- 
- static struct kvm_vcpu *kvm_pmc_to_vcpu(const struct kvm_pmc *pmc)
-diff --git a/include/kvm/arm_pmu.h b/include/kvm/arm_pmu.h
-index 0a36a3d5c894..354f06edfdee 100644
---- a/include/kvm/arm_pmu.h
-+++ b/include/kvm/arm_pmu.h
-@@ -40,7 +40,7 @@ struct arm_pmu_entry {
- 	struct arm_pmu *arm_pmu;
- };
- 
--bool kvm_supports_guest_pmuv3(void);
-+int kvm_supports_guest_pmuv3(void);
- #define kvm_arm_pmu_irq_initialized(v)	((v)->arch.pmu.irq_num != 0)
- u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu, u64 select_idx);
- void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu, u64 select_idx, u64 val);
-@@ -99,9 +99,9 @@ void kvm_pmu_nested_transition(struct kvm_vcpu *vcpu);
- struct kvm_pmu {
- };
- 
--static inline bool kvm_supports_guest_pmuv3(void)
-+static inline int kvm_supports_guest_pmuv3(void)
- {
--	return false;
-+	return 0;
- }
- 
- #define kvm_arm_pmu_irq_initialized(v)	(false)
-
--- 
-2.55.0
-
+ChenYu
 
