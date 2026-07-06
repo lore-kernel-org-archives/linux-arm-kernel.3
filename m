@@ -4,61 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A796C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:59:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9371C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 07:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+lATJnRQ7o/rbZhmJ9nDyBRy1H+M8W2CRQDVnlKZxk=; b=VwHHg4UbvZXotiGy7p+qfpke0d
-	GJ7BZkzbigze+tbZLa0V8KyY4sSoENQMa7cCneVKYnpUryWQRz2bF8J4Y5l6xQU0HHmcbM4Iu3LcG
-	mFuDUYaK9hof6uF9iGIr0v5WS2v2SefC+rsYbESiWx70uzHOVU8n/qeQ6Gsdz/PCd5JWlVzEAIw7h
-	KE5MjW5Ft2NkGxewduweiWyTC3sa60hgddUTaDNQa6uCICOaBf5h69Cqa7FyawmejHxCOhOhs09F4
-	xi8hYEkpy1dSir5l1j9zNk0rDK4XfYifk7jOPNKN+7vZVENWgN3vjf6t7+520bp3wMdOUCWOJ6WrG
-	kp3QLFBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V7ae6Big9lEnsgC6x/x+CbgGqgGKE1/N3oXBt4Z5PxQ=; b=SNfOjozOb+MGakodCMie1su7QU
+	ApfnyzR2GgTLdFOkGlWR0d1sbqJxjHadgHoOwRP1O84Q2V8aVrx+5RZKrRGTaweYLmYEY9eJHTFuZ
+	py0vEVbLthjQgX64UYLFsrujDB3Pfg7TGSm7rzcS1+y7/f5uD60Zm7wWaUSbUEhW35zAiUyT2fH3z
+	D9qrG7YqKAKceQ2w3YjjSPLqRIhWCJ4iP4U3HCRhkgLt/Y8XMQCS/BQoU5zXbfoWpHhD/fPHRqlEo
+	uHUbsF3rwZ6/OWcRYX0GtksOfT5BXRjpIN2raL5b41Z+TlvujM/VD9/xqqQa/56aG82Ba1l0uGeOe
+	lSNbNGkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdIX-0000000BgBm-3VZH;
-	Mon, 06 Jul 2026 06:59:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wgdJa-0000000BgMn-0KRq;
+	Mon, 06 Jul 2026 07:00:26 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdIV-0000000BgBH-2N6f;
-	Mon, 06 Jul 2026 06:59:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06BEE61832;
-	Mon,  6 Jul 2026 06:59:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4BA1F000E9;
-	Mon,  6 Jul 2026 06:59:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783321158;
-	bh=y+lATJnRQ7o/rbZhmJ9nDyBRy1H+M8W2CRQDVnlKZxk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=oL0ztYX+YNmtoYG/oyXLUbewaxBWatkFUwLtGfQ86IxklFQhTfIx26NBKNAS+OrrX
-	 JP1c2umXnXGYQFDiE4fl9s5alDIRS0YuDD+GO/Op/k+MOoWQswTLgAvYD/vCkCkPri
-	 oB3nLJmWKBMxGBqVmUObu9kNh/r1AHQJD5g2quRDfhhjJEU5mzVr2a9rlj//nto0Eh
-	 RMxhojNjZ+hNQ1Wmo0lkcDxVIi3V7b/KxQUJmsE729kB8D98CCqJFwAf/Z1uiFXFB3
-	 9vRX7wE8ZxPWVIy/vvABsFwe1jBDjqMLDIWpygLllZzlfrfHK0k1eX4sUuUZwOhCV2
-	 97XS0lIkljExg==
-Date: Mon, 6 Jul 2026 08:59:13 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: media: meson6-ir: Add Amlogic A9 IR
- compatible
-Message-ID: <20260706-quantum-celadon-tench-c2f28d@quoll>
-References: <20260706-a9-ir-v1-0-4f082ca8aaf1@amlogic.com>
- <20260706-a9-ir-v1-1-4f082ca8aaf1@amlogic.com>
+	id 1wgdJX-0000000BgMG-2E8b
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 07:00:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HSbAI9RMlWp4B8dbIXFHder4ZM6v/75tP+ZkDJR8LK4cX7MON6QRFujc99QKZZv2ls1lQOz8DQ6dUTs21X7d+Yv7M1+TQrG6YO5VttmPXZr1vP4x9rdQLIPVacXtUosWOS//XUkyUAS+LP75SCXooHqGpKwhmPvcC5fUNmdrLd9C8Syg3veAfuH4sZczpbcIqqiLA9gVB+Ntb8P4TXK2wS3jcNNUgwNf/Dszt8ol50TqYVo3xpEDiC96f52iqNVruCKu7PJci3VyX+RlRNKB6v+VmbUuVBVEBb711IMMsKQAAbTSLOGW/VQ06GcmOXnOUtvANPFcHslgAROWr2ZoeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=V7ae6Big9lEnsgC6x/x+CbgGqgGKE1/N3oXBt4Z5PxQ=;
+ b=UXRpxrkfg0AcSB5iHett5iLdoCyP6dJK9F8S90NpNrr8g1slYA+DtnULTHkx9MKwUEhlyIZ5S2oCwcG60kH5kJDUv7UB8CbHfL3jA9OzTh7eJZ9lTf5vfDtteK5mPuHwf+jWTMp7RP8kbQ+ytKD5RDPrvVCLOPABMGatO/Ok7hs8uQDzVWDuW+6U0nAw+xnYQJA+TbW8JwCYzKbysvKbBx8J9YsCN59hFUO+wYL8Orwp5gghYy4F5N8FsyWUhBefq0hPayxnN8Ho8UqTvPR2NxbcymL9W5Y6r/5D/78k6eyk+Aqvr1j2RuYM6eOZ8XFEgJ82UCodyHXsmfFwBuxk7A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=V7ae6Big9lEnsgC6x/x+CbgGqgGKE1/N3oXBt4Z5PxQ=;
+ b=IkGXZgFcu+YTa8dT+vZNrZKmh7r27cf5/B+XEJDhKv/8rYM43ke4YJdnSAaecl/TP73edPDM5OExFPfBKcdw/ZoNrAK3zcoWlGpa9PlqwO8BetlQsKhn6TAOMka9C5gDWlBetn0DpsGjgtTYOIua8ZYveEbQiVjlwz4sl6hkaeA2sU7GN+r7xVhXLeG0e/ZbuV0vaFK+deBarGMeXLMOiQUlOcsIkQZbAiAkzbZ5+KpVevgyCm7p/NyaG4wwTE1ataH8AdMZvekZYnMw+mb+3vzF5cvc3bRQIYvMpQQlQAZEmx8/OPrgxwOMv7wSOH10I6LBl98F7SJkV+aEskchLQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by GV1PR04MB10918.eurprd04.prod.outlook.com (2603:10a6:150:207::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Mon, 6 Jul 2026
+ 07:00:17 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
+ 07:00:16 +0000
+From: hongxing.zhu@oss.nxp.com
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] PCI: imx6: Update MPLLB bandwidth for i.MX95 PCIe Gen3 stability
+Date: Mon,  6 Jul 2026 15:03:40 +0800
+Message-Id: <20260706070340.3603150-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2PR04CA0199.apcprd04.prod.outlook.com
+ (2603:1096:4:187::13) To PAXPR04MB8096.eurprd04.prod.outlook.com
+ (2603:10a6:102:1c7::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260706-a9-ir-v1-1-4f082ca8aaf1@amlogic.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|GV1PR04MB10918:EE_
+X-MS-Office365-Filtering-Correlation-Id: 85d92bbe-8472-49fa-04c1-08dedb2c3b7f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|23010399003|376014|19092799006|1800799024|366016|921020|56012099006|11063799006|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info: QmRzf5U/RF/hk128cX7MGTRi/MRrZpdzxp4ZtrkFO34KH9j8GaEIrSfSlC+8ypdDUeWPgudu3h+7vvNjDjtSARvhFzBjMVoZ6MkKw30iUsM61+nbnp3PV18xA3qPVhg8Fun55KL2FD2geA9FJA3Zjf8/+tTZQVWdhIfkU2nRREENPSS7DJMZrFK1A4TiL2P5yjwKOSxUjvCT5Bd4JKtqignXJywz50ycWMbUGfR0ZJbOm5bvp7NluQV3YHSJlP7nT90qgkkr2QP+Htb/bIn6P2WvyOl9ijPUpc0IHIjwCCCY6QvxJp1uWP0nBFtMU5cDHy5G0ifcn/Z5PCYmadWjk04WgyJsS3fqizMWRL37KYcZyE/CwAcFiHdSiRZcRbY2ZoE8141m5PsGMycQvgly8HVZL4+SLf6bFzwON+vQgykWwSh7POfiJuCWTu67F7JG13ebn2FSsVKtPlrOeKVIYIyd8cpgCa7V+iOtFAniQzTRvZKiFRy+Vv8Jgl5I7iHcanaZSatiOKoPH+0lngKgT3fcR/UyDlW6m0E1WsoiZVJQ0SQvjXfy49sh7je+N38Feptm/QL3Gmoycm1nsOmTFeGZV7r6I/6+NyQuBtUEYmEkCkgZliNYL1/DlB65WFVOTe5k6SLJIhZ0W4YzTn28qn1wC+c5C/4s7F/PoSDtwR/ZCF72cj1n/g0MdEbkiuLYBP8lJJF/lOTW5R5qXknwgA==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(23010399003)(376014)(19092799006)(1800799024)(366016)(921020)(56012099006)(11063799006)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?VJ/fFRz0jBeAOlHsEhmngSy0mVRMWQyT4zno9lXLF7NXYAorGbLu5xSvBVo5?=
+ =?us-ascii?Q?iEDXWS8EAbq+X8+C3IfrahJ7jYX8ZRijAaEiQoOmnDkqH4KAjITUkcfvBckT?=
+ =?us-ascii?Q?9blED0vRYRlfusvUfS5Tl4yJKMXRhXBMh2N/0YX1BrlaNLXF4OwIhusON/0Y?=
+ =?us-ascii?Q?j52/P0iZ1EmdLeI8R7SuFHA+IkgmeVxGgBeyMeYx1zm2jydCoD4JrPq0rhTs?=
+ =?us-ascii?Q?O1D6t5qPKcu7dsX4PzT6NE0xb9hFGQNF8wHiFrRbOuJQPHLLpMMqeOZjCEtu?=
+ =?us-ascii?Q?MLKoBGNymnL9TDvllZZPCd9+vLOWDMoibJsiaB2jyjAtKDxD3sTyw3JahM87?=
+ =?us-ascii?Q?eteVH8FMMB/+mpfUpY7wCmOT9olC7vxTVGV2k6YHowLe4ZYELJedeeT25qkC?=
+ =?us-ascii?Q?00F9FjLilDVK5HDPRAwo9jT0T4wARBFafLmEOkV4RptXH2IcgOnXFi8eykxx?=
+ =?us-ascii?Q?bME8TD1MdGGJJNzF8M0wL0P6FKK5XlV63WmSkqQn0S0rUIcwaqFpHjHDEpvj?=
+ =?us-ascii?Q?0nCUydfycueJAgcJjLP8Z8Likfti4ZyYS/e5+nOv6aUbLqYFdMPJT5f5mvuH?=
+ =?us-ascii?Q?92DsSUV+YNhr5f9thmH+mEUeXTI1PRifBpl70Nhh2LPmyeO1CZPUyi3hLDvk?=
+ =?us-ascii?Q?xkrQUtAZmk/zv9pNBYx5vJIkFZtPF9+Mm+lOh5pLQrAa0mHMwZDVdfvDxdl6?=
+ =?us-ascii?Q?wgNDYVbgytFTzXHHfDly/5J7hRwS6oAPY14nbFMciHyOI7VssvOGpNJmExLi?=
+ =?us-ascii?Q?iUqJKOIJOIHTsT8bJBR8OlJ8qHpau6Kni4CUb9qC3rAiy3cDHb+xL21GlYXb?=
+ =?us-ascii?Q?zo4ioIoOn6K5T1WB3Z790cLuL0PleCIboW0evZUgSKnYt6TgLTU8A4rz1EKC?=
+ =?us-ascii?Q?qEHQWvqqY5RSMP5oWCULzGO61k+pGZ1gHotws//eLQEYwwXxtQaIsFX2uHSQ?=
+ =?us-ascii?Q?e3PyPETKmyfDTHcnMxHrXwEZ7PSGmJs0WE5bhb6gJUEgJT/Wie1IAZ2B+K8i?=
+ =?us-ascii?Q?iszpyFmFLAG0hgk5CKAuxWODMj7h/+xV3m6dl687gsbfMiCgdp1IIswOZ34k?=
+ =?us-ascii?Q?CxT6YnRuJlBAe9XKpS27ciHBkcqfPi5x1hwyJqcKB9PWVtLbysmL38NoyTlI?=
+ =?us-ascii?Q?J1nZ7ETQkesE/ajObPsMOOjY6OSY/Q3/q5UB4OwgqdIuVlmP3az2CFC3uv4h?=
+ =?us-ascii?Q?1NESz43bZsUe7xfhTfcsvGQaImWcLgDpuDnSZwTMta/PAaCamDB/ycBHzFfX?=
+ =?us-ascii?Q?16GFk7YSPMKtq/ja7NXtTzpy0HFdP4+KQTskp3mOikNRP7FFDmy+3vdi/nRT?=
+ =?us-ascii?Q?4jiSjKKqpdKBv4LhYFPI4hlQgy6GpWlrrgJG4t5gk9n1rzNSU1cbM8riEv+N?=
+ =?us-ascii?Q?whIQbF9NS5XuCeJR9mCMfIT5OGhtkSvQBq3TajMx6jM2XHMbu0yHsbH94ZVm?=
+ =?us-ascii?Q?JR1jpLBry7fC3eozG2mjkC0R0Cd5kvjtvdVzoDFugU8ZBI06fGZ9F2bj7MV3?=
+ =?us-ascii?Q?LwqgMWMhm0z+EcV9mBHwI9FE+SUHhBW90QEMKxovAulak8cHjilhHqDW+JPl?=
+ =?us-ascii?Q?BJA5dv8UEUUvQu+r05MalOlz0kTHlL6UjgcnXoxshAX/tSrbyqnOS206wmmd?=
+ =?us-ascii?Q?wfttQ7f+2wYizZbx0RlHMLpMoM2x/MqGOCT0p4piR+epyu3TdQeiyMAaoa88?=
+ =?us-ascii?Q?Ue9li/PTq+6/AOMemfiM75b4Rr+nNHj6WG6esK8geEHi6bUrVOrcMSUavhqV?=
+ =?us-ascii?Q?X4yJttfi1I8BAlAK5HgMCu+jWRboY4sAYpOraoJ2r5tXXQXGsgU7?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 85d92bbe-8472-49fa-04c1-08dedb2c3b7f
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 07:00:16.3195
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: p7i5thbPcC/nGvgotKgLt4U1d3ddLXKeLUHFzKstIuxH7k4WfLoHGzM6EChl6JomuvYM3SNwf9xV4M3KREdcF7r2+/XXJZxwC1EY0ZpGstMomDWXKhSgJJ2iSikMn+MJ
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10918
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_000023_577478_BB058213 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,20 +147,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 02:43:27AM +0000, Xianwei Zhao wrote:
-> Document the Amlogic A9 IR controller compatible string. The A9 IR
-> controller shares the same implementation as the Meson S4 IR block,
-> so add "amlogic,a9-ir" with "amlogic,meson-s4-ir" as the fallback
-> compatible.
-> 
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> ---
->  Documentation/devicetree/bindings/media/amlogic,meson6-ir.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Bandwidth marginality was observed during i.MX95 Gen3 PCIe tests with
+the default MPLLB_BINDWIDTH value. This margin degradation worsens
+across voltage and temperature (VT) variations and different test
+matrices, potentially causing link stability issues.
 
-Best regards,
-Krzysztof
+Testing with MPLLB_BINDWIDTH value of 140 (0x8c) shows significant
+improvement in bandwidth margins across all VT conditions and test
+scenarios.
+
+Implement PHY register write helper function and configure:
+- MPLLB_BW_OVRD_IN = 140 (0x8c) for improved bandwidth margin
+- MPLLB_BW_OVRD_EN to enable the override
+
+This ensures robust PCIe Gen3 performance across all operating
+conditions.
+
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+---
+ drivers/pci/controller/dwc/pci-imx6.c | 31 +++++++++++++++++++++++----
+ 1 file changed, 27 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 6924a06bde305..023145b0dd2c7 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -80,6 +80,15 @@
+ #define IMX95_SID_MASK				GENMASK(5, 0)
+ #define IMX95_MAX_LUT				32
+ 
++#define IMX95_PCIE_PHY_REG_ADDR			0x3008
++#define IMX95_PCIE_PHY_REG_EN			BIT(31)
++#define IMX95_PCIE_PHY_REG_ADDR_MASK		GENMASK(15, 0)
++#define IMX95_PCIE_PHY_REG_DATA			0x300c
++#define IMX95_PCIE_PHY_MPLLB_OVRD_IN		0x2004
++#define IMX95_PCIE_PHY_MPLLB_BW_OVRD_EN		0x400
++#define IMX95_PCIE_PHY_MPLLB_BW_OVRD_IN		0x2005
++#define IMX95_PCIE_PHY_MPLLB_BW			0x8c
++
+ #define IMX95_PCIE_RST_CTRL			0x3010
+ #define IMX95_PCIE_COLD_RST			BIT(0)
+ 
+@@ -269,6 +278,20 @@ static int imx95_pcie_select_ref_clk_src(struct imx_pcie *imx_pcie)
+ 	return 0;
+ }
+ 
++static void imx95_pcie_phy_write(struct imx_pcie *imx_pcie, int addr, u16 data)
++{
++	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_0,
++			   IMX95_PCIE_PHY_CR_PARA_SEL,
++			   IMX95_PCIE_PHY_CR_PARA_SEL);
++
++	fsleep(200);
++	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
++			   IMX95_PCIE_PHY_REG_EN, IMX95_PCIE_PHY_REG_EN);
++	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_ADDR,
++			   IMX95_PCIE_PHY_REG_ADDR_MASK, addr);
++	regmap_write(imx_pcie->iomuxc_gpr, IMX95_PCIE_PHY_REG_DATA, data);
++}
++
+ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+ {
+ 	/*
+@@ -284,10 +307,10 @@ static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)
+ 	regmap_set_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+ 			IMX95_PCIE_SYS_AUX_PWR_DET);
+ 
+-	regmap_update_bits(imx_pcie->iomuxc_gpr,
+-			IMX95_PCIE_SS_RW_REG_0,
+-			IMX95_PCIE_PHY_CR_PARA_SEL,
+-			IMX95_PCIE_PHY_CR_PARA_SEL);
++	imx95_pcie_phy_write(imx_pcie, IMX95_PCIE_PHY_MPLLB_BW_OVRD_IN,
++			     IMX95_PCIE_PHY_MPLLB_BW);
++	imx95_pcie_phy_write(imx_pcie, IMX95_PCIE_PHY_MPLLB_OVRD_IN,
++			     IMX95_PCIE_PHY_MPLLB_BW_OVRD_EN);
+ 
+ 	return 0;
+ }
+-- 
+2.34.1
 
 
