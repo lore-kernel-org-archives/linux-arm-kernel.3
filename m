@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D056BC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:22:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C0D7C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:26:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PyFc6hx7btg2QrJ34MAq5ZRc19BwZ2UZKdQ3fQVYlpw=; b=PlMHUtlkStYTrEl0H8TxeulrCq
-	2RxffPmc8xqBnjHbgp9MVyTLT8nexa5xIZshfy7IxxuwVL1wbXRYFxMkFR354EAIPpi5Ot7yyiIYG
-	lUrISpKHY8cl6M8PfNoK1yTNkYgNerWPyMqioBFezp0cezAsChaKZNJaI0GN36Mx7TSkce+/GNpgu
-	BCcqg5Vxkjd7sWWrQvRLIFW5VbfBYgXuCGSo7Unnj19EvER2dZizluBOPTj53HFI77owvJ87hg4o5
-	h6iyG9l9ddSfivuiL8H6EO7hg8/KE/yHJmImvK170h+CJAGEJAAf4pXO3ja3taJXSmSgWjt+TbkbY
-	hUXvjJAg==;
+	bh=v4FdqJvosPko5czYRrhhNlwZrhnoPDJZNAF44CKBIgw=; b=ITGRrWt2Za1NHPpsomOrqczglW
+	awMKoIIKGcKu6wA2Sg0wohj6lCJeSSTV2KqcXMSCmnAnvS/qk2piaU0JfhJruiWqU7yRRZiiaUYW7
+	LdoolNqa7rxr2iaXixKtKTAl/EotHkqDK/9k18m9hP6r4mI6Hy8558tucj434apawdSR1e08SdaCQ
+	spVYo8IMWXFjBEEDo6KSQVfNdbnZiDXeXvydnk/QSxtk5CuODwySY3T9ntJHvdA02X7Ju5/x+jLe4
+	xzs6ffb74P2dEs4Vavs/XOGyb32xY9adqhomW7isALbkX9AJwRnXaG2x4EC/U4tC74ssQBStW9egf
+	csAKKmLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgebD-0000000BoWk-1x2P;
-	Mon, 06 Jul 2026 08:22:43 +0000
-Received: from out-186.mta0.migadu.com ([91.218.175.186])
+	id 1wgeeP-0000000Box9-03Bx;
+	Mon, 06 Jul 2026 08:26:01 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgebA-0000000BoWK-2bye
+	id 1wgeeJ-0000000BowN-2bAo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:22:41 +0000
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 06 Jul 2026 16:22:24 +0800
-Message-Id: <DJRCCWQOT4TA.1OPAZI88KOWLW@oss.qualcomm.com>
-Cc: <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
- <linux-aspeed@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
- <imx@lists.linux.dev>, <xen-devel@lists.xenproject.org>
-Subject: Re: [PATCH 0/9] drm: replace simple display pipe users with atomic
- helpers
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Ze Huang" <ze.huang@oss.qualcomm.com>
-To: "Thomas Zimmermann" <tzimmermann@suse.de>, "Ze Huang"
- <ze.huang@oss.qualcomm.com>, "Alexey Brodkin" <abrodkin@synopsys.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "David Airlie" <airlied@gmail.com>, "Simona Vetter"
- <simona@ffwll.ch>, "Joel Stanley" <joel@jms.id.au>, "Andrew Jeffery"
- <andrew@codeconstruct.com.au>, "Frank Li" <Frank.Li@nxp.com>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Linus
- Walleij" <linusw@kernel.org>, "Hans de Goede" <hansg@kernel.org>, "Alex
- Lanzano" <lanzano.alex@gmail.com>, "Oleksandr Andrushchenko"
- <oleksandr_andrushchenko@epam.com>
-References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com> <9612bb41-db52-4169-a7fa-e57268d69e24@suse.de>
-In-Reply-To: <9612bb41-db52-4169-a7fa-e57268d69e24@suse.de>
-X-Migadu-Flow: FLOW_OUT
+	Mon, 06 Jul 2026 08:25:59 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=v4FdqJvosPko5czYRrhhNlwZrhnoPDJZNAF44CKBIgw=;
+	b=yRyhSjHmg8xHc3laHVlNNk8GwIsBQ+p3A5QoB6CXkKneF229G2n/jiQBC7IZjodBiK8jF+IRK
+	MUtt780CxaPMW8NHPSCzjaOL5vEL1pN/BxexONNhSzOkDmlinWz+OMaH861WRvRaR6yJV1HNiVD
+	UJ41OYl5IE5yl98dYayxxes=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gtxzW1C9YzpSvQ;
+	Mon,  6 Jul 2026 16:17:11 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id BF20040579;
+	Mon,  6 Jul 2026 16:25:47 +0800 (CST)
+Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 6 Jul 2026 16:25:47 +0800
+Received: from [10.67.146.137] (10.67.146.137) by
+ kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 6 Jul 2026 16:25:46 +0800
+Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
+ guarantee with VTTBR_EL2.CnP
+To: Marc Zyngier <maz@kernel.org>
+CC: Wei-Lin Chang <weilin.chang@arm.com>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <seiden@linux.ibm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, "guoyang (C)" <guoyang2@huawei.com>,
+	"huanglingyan (A)" <huanglingyan2@huawei.com>, "Wangzhou (B)"
+	<wangzhou1@hisilicon.com>
+References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
+ <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
+ <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
+ <86o6gkpokm.wl-maz@kernel.org>
+From: Tangnianyao <tangnianyao@huawei.com>
+Message-ID: <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
+Date: Mon, 6 Jul 2026 16:25:46 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
+MIME-Version: 1.0
+In-Reply-To: <86o6gkpokm.wl-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Content-Language: en-US
+X-Originating-IP: [10.67.146.137]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemq500001.china.huawei.com (7.202.195.224)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_012240_802363_80F390EB 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20260706_012558_127087_602C46D3 
+X-CRM114-Status: GOOD (  26.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,80 +92,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jul 6, 2026 at 3:27 PM CST, Thomas Zimmermann wrote:
-> Hi
+
+
+On 7/6/2026 15:25, Marc Zyngier wrote:
+> On Mon, 06 Jul 2026 04:30:30 +0100,
+> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>
+>>
+>> On 7/6/2026 1:28, Wei-Lin Chang wrote:
+>>> Hi,
+>>>
+>>> Let me try to answer this:
+>>>
+>>> On Sat, Jul 04, 2026 at 03:45:56PM +0800, Tangnianyao wrote:
+>>>> Hi, all
+>>>>
+>>>> I'm trying to understand the TLB and I-cache invalidation in
+>>>> `kvm_arch_vcpu_load()` that is intended to "guarantee that both TLBs and
+>>>> I-cache are private to each vCPU".
+>>>>
+>>>> As I understand it, when `VTTBR_EL2.CnP == 1`, `__kvm_flush_cpu_context()`
+>>>> only performs a local TLB and I-cache invalidation, which does not seem
+>>>> sufficient to guarantee that property.
+>>>>
+>>>> In fact, even if the invalidation were extended to the Inner Shareable
+>>>> domain, it still seems difficult to guarantee “TLBs and I-cache are
+>>>> private to each vCPU”, when `VTTBR_EL2.CnP == 1`, as long as multiple
+>>>> vCPUs from the same VM may be running concurrently on different PEs.
+>>> I think you have missed that when 2 stages are involved, both stages
+>>> have to set CnP == 1 in order to share TLB entries (Arm ARM R_ZVRZW).
+>>> So if TLB entry sharing happens, the guest kernel must have allowed it
+>>> in the first place (by setting TTBR0/1_EL1.CnP == 1), hence accidental
+>>> sharing that you are worried about won't happen.
+>>>
+>>> __kvm_flush_cpu_context() is solving problems that occur when multiple
+>>> vCPUs of a VM are multiplexed on a single physical CPU.
+>> Thanks for you answer.
+>>
+>> If guest kernel allow TLB shared across CPUs by setting TTBR0/1_EL1.CnP == 1,
+>> does kvm still need to guarantee that TLBs are private to each vCPU?
+> Yes, because there is nothing that describes which physical CPUs
+> actually share TLBs. So the only possible course of action is to
+> ignore what the guest says and fallback to something that is safe.
 >
-> Am 04.07.26 um 20:31 schrieb Ze Huang:
->> struct drm_simple_display_pipe was meant to simplify simple DRM
->> drivers, but instead adds an extra wrapper around normal DRM atomic
->> helper setup. As noted in Documentation/gpu/todo.rst, remaining users
->> should be converted to regular atomic helpers and stop depending on the
->> simple-KMS interfaces.
+>>>> So I have two questions:
+>>>>
+>>>> 1. What is the rationale behind the comment that "guarantee that both TLBs
+>>>> and I-cache are private to each vCPU"?
+>>> I assume you are asking why keeping both TLBs and I-cache private per
+>>> each vCPU is required. The fundamental answer is that each physical CPU
+>>> is expected to have its own TLB and I-cache, so we must uphold that
+>>> property for vCPUs as well. vCPUs can be scheduled on the same physical
+>>> CPU, and use the same physical TLB/I-cache, obviously, so extra
+>>> invalidations need to be done.
+>> Let's assume that both Stage-1 CnP and Stage-2 CnP are enabled.
 >>
->> This series converts the following drivers:
+>> As I understand it, the architecture permits TLB to be shared by multiple
+>> PEs within an Inner Shareable domain. Right?
 >>
->>    - arcpgu
->>    - aspeed
->>    - imx lcdc
->>    - mcde
->>    - pl111
->>    - gm12u320
->>    - repaper
->>    - tve200
->>    - xen frontend
->>
->> Each patch replaces drm_simple_display_pipe_init() with explicit
->> primary plane, CRTC and encoder setup, and moves the old simple-pipe
->> callbacks into regular plane and CRTC helper callbacks named according
->> to local driver conventions.
->>
->> The conversions preserve helper behavior that used to be implicit in
->> drm_simple_kms_helper.c, including plane-state validation, CRTC
->> primary-plane checks, affected-plane propagation, framebuffer prepare
->> handling, and existing event/vblank flow where applicable.
->>
->> Result is less helper indirection and more explicit driver-side atomic
->> wiring, with no remaining simple-KMS dependency in these drivers.
->>
->> These changes are build-tested only. No hardware testing has been
->> performed on the affected devices.
+>> If an implementation allows TLB entries to be shared in this way, it seems
+>> that the current invalidation performed by kvm would no longer be sufficient
+>> to guarantee that TLBs are private to each vCPU.
+> Care to explain why?
 >
-> Thanks a lot for the series. That's quite a nice cleanup.=C2=A0 Did you u=
-se=20
-> any AI to create these patches?
+> The core assumption is that a TLBI take effect on all the PEs the TLB
+> is shared with. If this doesn't work, then CnP is unusable, because it
+> is then impossible to guarantee that a translation will be refetched
+> (you could always hit in another PEs TLBs). Such an implementation
+> would be terminally broken.
 >
-
-Hi Thomas,
-
-Yes, I did. I wrote the first two conversion patches (arcpgu and
-aspeed) myself to understand the migration pattern. For the remaining
-drivers, I used GPT-5.5 to help with the repetitive boilerplate
-conversion.
-
-I should have reviewed the generated code more carefully before sending
-the series. The sashiko-bot feedback shows that I missed several important
-details, including commit-local state handling, the implicit NULL fb /
-visibility checks from simple-KMS, and vblank/pageflip event ordering.
-I am now going through these issues more carefully and working out the
-correct fixes before sending a v2.
-
-Do you expect AI assistance to be mentioned in the cover letter or commit
-messages in some specific form? If there is a preferred tag or wording
-for this, I will use it in v2.
-
-For issues that appear to be pre-existing but are exposed or carried over
-by the migration, which is better?
-
-1. Include them as separate prep/fix patches at the beginning of the v2
-series, before the corresponding conversion patches; or
-2. address those pre-existing issues in a separate follow-up series?
-
-Thanks for your time and review. :)
-
-> Best regards
-> Thomas
+> 	M.
 >
+For example:
+Sharing the TLB between the two SMT threads of the same physical core can
+reduce hardware cost while increasing the effective TLB coverage.
+A local TLBI take effect on the whole TLB shared by the two SMT threads,
+with the sharing enabled by CnP.
 
-Best regards,
-Ze
+In this scenario, enabling CnP in KVM appears to break the guarantee that
+TLBs are private to each vCPU when multiple vCPUs of the same VM run
+concurrently on different SMT threads of the same PE.
+
+Thanks
+Nianyao Tang
 
