@@ -4,77 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74254C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D1AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:27:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Date:Subject:Cc:To:From:Message-ID:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RWhSVJVORFM0nmb44FtaW2rLu6vW8nVH7CmnaXSUUlY=; b=mKArKyYsQ9O6wjG2z9epDvIAho
-	lPHQ512IvyPxWBfTlgQBSR0BgGspHCPUZjMTARDZWTXab3SeV2ozMZcaREmL318WB7WX3h6unpRAm
-	jNHSIbDG6LS80zMG3vlPro0rjNrTPRZ84gN715qXBxb/hqziQqGtv1+Cdgu3Vyi19Y1tYubGiNeLf
-	Hb9MaohBV/IktapcJ9qbY0lJ3yNgcsJDRMDAvt6C2bBP38doCuS9J2P2qOcfsAc/jwpQZTQCGrUbb
-	xTPHx5BsfB/19zk/LbeOXIAOEu8AkX/jjEHufVAFOtLpgXON1Bm80dD7Hl1k4h+sINhxPD6m5Nixa
-	cXO0I8gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T9lDsB/+NcYvsgur+jzOVo5SNmXQlABei/7lUjSJfZI=; b=utWqSqyL6aUHafrHkk5+QjiK47
+	M9s1VG0kk57MS9XiZwjZPD8AyeeHrti3V7aayu9A77n1LdT5vJ+94W8K2twg8GHiLYnj+iJgjY9np
+	jYmbMrx7NWdr3h89ejsqJucmQzbsJEKGCx+Ovm6pStjn+Ki41P0slEEHwpszHAHUjwic6x8RzXP1Q
+	jZhGEtwg/LjbVIll/wNZHEXVqa/zhmCQWQbd04MoXGGZ3+WOCQTe61UT0npc0uXEZIEe28PKMh8DZ
+	I3tbANLWkKWEJIn2AFZkx2YHe+M0RKy0BXP+Ai+6zbHs2gLpwlRd9anbtpt26127V/BPTbVmzGnN8
+	m4r8QBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqol-0000000Dd0g-1SIe;
-	Mon, 06 Jul 2026 21:25:31 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.52])
+	id 1wgqq4-0000000DdDN-300c;
+	Mon, 06 Jul 2026 21:26:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqoi-0000000Dczz-2LHJ;
-	Mon, 06 Jul 2026 21:25:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1783373126; bh=RWhSVJVORFM0nmb44FtaW2rLu6vW8nVH7CmnaXSUUlY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=MpTHLDMf6w4zJ8tCB4YVUh06nMl3l9QCUpYqfRSp8H0Q7yA14nxkJ/pI3tSCxEe0i
-	 dtx1g3h/8xTeqXGoX8r4LlFOVxpr8X2qhrlpD/KIbgo2sKZ6x3aJwNhKFsM1WdFsoP
-	 CNeeA3pbe04Hob8q1AzUVBvOp+JAKow7skOs/Gwg=
-Received: from AERO17.taila7786d.ts.net ([220.171.158.107])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id 6571E26E; Tue, 07 Jul 2026 05:25:23 +0800
-X-QQ-mid: xmsmtpt1783373123tq31asxge
-Message-ID: <tencent_3C137FCC795067C558C9C8BD86C03C180006@qq.com>
-X-QQ-XMAILINFO: MZtEYADUG4AgQcDlRbWn1WAYZSJBgI9Ur13Tuyix8/SlyXAxMGATkk2TqiTkWi
-	 cd9D+8sLM3rvBNt2nAE7U2MKbAkBLIIdiWO5NpFcVHLReRy3G/F1ntrcewIwGoGc2UBRpgBieu9Q
-	 vn2qWspL1HxLiDycBA2G1I85B/440dKVV+UY31gGM0qaksP00AY9rHvY12a7Grrrl6XiQig7WOS0
-	 D6nzKkSg+RfUBSElxCvORLulzUR3Dvvxxi29V6WFPQ92I8Ext3n8V0Y2112k1Gqw4gd0OI7sVCip
-	 8DMwRSvjx+Ip1PdRVpmAYoW9Pu7y4EYZ80RMoJ7XH7wsI9S5Gx+pOfBj8pWdRnZlH1F1rK5LlqDJ
-	 +mT74c7RXjzfvdIkBCccXnynkdMefDK5QLmzNrH+0q0rbIKsFNOPqAITrCTJ+fxrfUWrb0qq/jov
-	 t1L5h3MYHMsLMS0djET+/AxjSL3aHjc+Auxr0OaSRPALqpdFR4uqHJErLHQIw6O/fZhaTFUKLgkB
-	 hArBfdIo2XRfvIkAK/njoCtJeIuscGzXFs+at43BZVU5h71osTuuiTEi9rjEy+jKVvl1Fzositcf
-	 CWwf/Ro05ptkWLkLmpXR+Afoa0t1YbexlMOeJpxL0CPImp4LHja6jacg6SOfnbEFNJi7WcPGV3In
-	 Xc1XBp0ApgaPeE0OAS4rhi1YV9sztw7XLWdIzSJZ88/DPEpOdaFiLNuIfUET/O5w8CpXVFyQZ8tv
-	 UuDTWevZdGWK3Un0rX3ZCO2XpJYW9N97yGQw/ss8C9P2BIpbDvHZ2w2TbBMvC2VsggNZqIjVry+G
-	 5QwlNONZ2EE0dPH3QrkbMxbu9eMBoRVYfmKiBdfSzkw7b4P1qjJ7AYOMFhTe98l1vfEnnJ10Nhto
-	 co36NeFmqMvVG7FypqQhkZ1LRs3LKZ1OFzNjvt3kM+r63OQfdMb8LuRCfPSLtxycMLzJyFSpPQTq
-	 X9ebEL60O637wcDdLcX7s624vDWd85k5ksmJWj0X8b4rFIfbNXsFVOWZo3qMmTguAhh58+0wBVMO
-	 amNrdRZhMGEw1h+L8/t+RH2rFNup4CNRWZ3XVKYggtrik/V8WvIPxXquI65kE=
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Pufan Jin <2254650260@qq.com>
-To: Conor Dooley <conor@kernel.org>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-rockchip@lists.infradead.org,
+	id 1wgqq3-0000000DdDA-1mk6
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 21:26:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id CECB041749;
+	Mon,  6 Jul 2026 21:26:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACFFC1F000E9;
+	Mon,  6 Jul 2026 21:26:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783373210;
+	bh=T9lDsB/+NcYvsgur+jzOVo5SNmXQlABei/7lUjSJfZI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=je6eqx5rUBP2UGCChKvezCJTL51nWqAmpUjT9xlKJI+oSC+RKx6pgAaMNVkuB7qc9
+	 KTpP8JMIJZoG9DkSHlZoaP6bOwMx5AZTpAbT2P7pTpwZguH8e0NCUU2VQZo5lijMxi
+	 DpoCH1iCRve2Gy1ot1kYaOGm5xcOZkzfIhkIb+YVDCtIEutXhbOAbp+i/u/eZ2IX+0
+	 FnWSPCTwm8pwD6uTa1BCDwevfQJ79kJtt1UkqItVpJ4PjVil6D9JNAqExLbys1F6vs
+	 KW8NLTtKCppJNXy23XDymbrKnUR9k8QNvU3/DDvAj4jdzIULiZt5QBOUkLOuzPs9P8
+	 FPidM6Zafwerw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgqq0-000000028nF-33rS;
+	Mon, 06 Jul 2026 21:26:48 +0000
+Date: Mon, 06 Jul 2026 22:28:37 +0100
+Message-ID: <877bn77qpm.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: rockchip: Add EmbedFire LubanCat 4 board
-Date: Tue,  7 Jul 2026 05:24:28 +0800
-X-OQ-MSGID: <20260706212429.691312-1-2254650260@qq.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20260705-matriarch-epic-37add5cb97b8@spud>
-References: <20260705135014.1004166-1-2254650260@qq.com> <tencent_B1442A024A02EFD704ECC0F098F663588209@qq.com> <20260705-palatable-hardening-48f73a84244c@spud> <20260705-matriarch-epic-37add5cb97b8@spud>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_142528_914750_497AA11B 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 08/27] KVM: arm64: Prepare sharing arm64 code with s390
+In-Reply-To: <20260706085229.979525-9-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-9-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +109,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 05, 2026 at 03:38:00PM +0100, Conor Dooley wrote:
-> On Sun, Jul 05, 2026 at 03:37:00PM +0100, Conor Dooley wrote:
-> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> > pw-bot: not-applicable
->
-> Actually no, I just noticed you're not using your real name/a known
-> identity. un-acked until you sort that out.
+On Mon, 06 Jul 2026 09:52:08 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> Mark functions that s390 can use to implement arm on s390 as shared
+> functions.
+> 
+> No functional change.
+> 
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/arm64/kvm/arm.c         |  3 +++
+>  arch/arm64/kvm/guest.c       |  3 +++
+>  arch/arm64/kvm/handle_exit.c |  6 ++++++
+>  arch/arm64/kvm/mmio.c        | 14 ++++++++++++++
+>  arch/arm64/kvm/reset.c       |  3 +++
+>  5 files changed, 29 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 50adfff75be8..c992308b2dce 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -1580,6 +1580,7 @@ static unsigned long system_supported_vcpu_features(void)
+>  	return features;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
+>  					const struct kvm_vcpu_init *init)
+>  {
+> @@ -1628,6 +1629,8 @@ static bool kvm_vcpu_init_changed(struct kvm_vcpu *vcpu,
+>  			     KVM_VCPU_MAX_FEATURES);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static int kvm_setup_vcpu(struct kvm_vcpu *vcpu)
+>  {
+>  	struct kvm *kvm = vcpu->kvm;
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index b01d6622b872..5a202cfd27bc 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -543,6 +543,7 @@ int kvm_arch_vcpu_ioctl_set_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
+>  	return -EINVAL;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static int copy_core_reg_indices(const struct kvm_vcpu *vcpu,
+>  				 u64 __user *uindices)
+>  {
+> @@ -591,6 +592,8 @@ static unsigned long num_core_regs(const struct kvm_vcpu *vcpu)
+>  	return copy_core_reg_indices(vcpu, NULL);
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
+>  {
+>  	const unsigned int slices = vcpu_sve_slices(vcpu);
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index 54aedf93c78b..d511af145ee6 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -213,6 +213,7 @@ static int kvm_handle_guest_debug(struct kvm_vcpu *vcpu)
+>  	return 0;
+>  }
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static int kvm_handle_unknown_ec(struct kvm_vcpu *vcpu)
+>  {
+>  	u64 esr = kvm_vcpu_get_esr(vcpu);
+> @@ -224,6 +225,8 @@ static int kvm_handle_unknown_ec(struct kvm_vcpu *vcpu)
+>  	return 1;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /*
+>   * Guest access to SVE registers should be routed to this handler only
+>   * when the system doesn't support SVE.
+> @@ -404,6 +407,7 @@ static exit_handle_fn arm_exit_handlers[] = {
+>  	[ESR_ELx_EC_GCS]	= kvm_handle_gcs,
+>  };
+>  
+> +#ifdef ARM64_S390_COMMON
+>  static exit_handle_fn kvm_get_exit_handler(struct kvm_vcpu *vcpu)
+>  {
+>  	u64 esr = kvm_vcpu_get_esr(vcpu);
+> @@ -439,6 +443,8 @@ static int handle_trap_exceptions(struct kvm_vcpu *vcpu)
+>  	return handled;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  /*
+>   * Return > 0 to return to guest, < 0 on error, 0 (and set exit_reason) on
+>   * proper exit to userspace.
+> diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
+> index e2285ed8c91d..876d56dd5b64 100644
+> --- a/arch/arm64/kvm/mmio.c
+> +++ b/arch/arm64/kvm/mmio.c
+> @@ -10,6 +10,7 @@
+>  
+>  #include "trace.h"
+>  
+> +#ifdef ARM64_S390_COMMON
+>  void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data)
+>  {
+>  	void *datap = NULL;
+> @@ -135,8 +136,11 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
+>  		if (!kvm_vcpu_dabt_issf(vcpu))
+>  			data = data & 0xffffffff;
+>  
+> +#endif /* ARM64_S390_COMMON */
+>  		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
+>  			       &data);
+> +		//TODO  tracing
+> +#ifdef ARM64_S390_COMMON
 
-Apologies for the confusion. My real name is Jin Pufan.
-In v2 I will change the author identity to:
+Irk. The deal is that you lift full functions, not cherry-pick which
+lines you want. Just define empty stubs for the trace nonsense, and be
+done with it. But not this, please!
 
-    From: Pufan Jin <2254650260@qq.com>
-    Signed-off-by: Pufan Jin <2254650260@qq.com>
+	M.
 
-(family name Jin, given name Pufan; using given-name-first Latin
-order as is customary on the list.) The Copyright line in the
-DTS will be updated to match.
-
-Thanks for the review, and sorry for the noise.
-
-Pufan Jin
-
+-- 
+Jazz isn't dead. It just smells funny.
 
