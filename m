@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B3FBC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:24:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C478C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3bOyRrRg5NIlkC5Gzfb0zGlziitAdyLpprj4mRwqvjg=; b=hAMgwmNnJxGLvSY7kANf/dyoUm
-	FoJEVnmKR43AOTjpNnAY+z/fQvWcsNOlU/8XnrnPiVWmaXn+QUibmwlAvoRzC+akFoFCD81tKOfuo
-	J81Gv0rnLGyd0M6rAK56s50dicZSJGWUvxpHN4egR5GQ6oatCZQGpfcGATGNW/xPfQhT+6azszlK1
-	bNEkIo/iW9TJRkRlOq3bnVk2VU8bAeEqePFpDzF+UereGKtkiuXeF5VIHIkkHpsmjzyPM13NrJdsP
-	j++cdu5zjF0hxWdNHSawbkaxrf1N2gAmGLyAYFHUrYz6SQ2nvhibYrXPfxQEVQ05VUHf6/DWjVwxl
-	v9PDcz+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DgG06+fPhBUefxG+g15sZ2YExh0h/ruMjb8SnPH6H+g=; b=aKlowj1LpbLlYGkvdTBDz+/xHb
+	oy1JgEU4sGYdpxYKZPFByqRPyBrpZNHAnx2z5pl0IckcvFLL2WpDTydVWXG+8AIxjtOho6X4Dm1hD
+	T5xQ+0cHYhFkhQJOI8WIYVf8852EbV7n6Q1g1ugw8nrxJJ8G/aP3sZclZv3Tg0hsj2enZ82BTQ/XL
+	gw80BoWddOvU5RaPQpXKTAan0l7F0lkshoAomda/EJ5AU9xOmQ7FKRQSaJS4sY0ZOoQKmUbAUJvmo
+	/4171yCXRKv9JKzmgdWvXkm/InCWzYaHFOwYlkSk6ER45MlomdYdZh/XY1a6GY2YiujfVc+9ZC2T6
+	7sjKCr0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgckq-0000000BbvO-2aqL;
-	Mon, 06 Jul 2026 06:24:32 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wgcwt-0000000BdNJ-1f73;
+	Mon, 06 Jul 2026 06:36:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgckl-0000000BbpE-3Vts
+	id 1wgcwr-0000000BdMw-1MEA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 06:24:29 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EBE72C8EC62;
-	Mon,  6 Jul 2026 06:24:38 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 03266601A2;
-	Mon,  6 Jul 2026 06:24:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A3BA311BB9890;
-	Mon,  6 Jul 2026 08:24:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783319065; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=3bOyRrRg5NIlkC5Gzfb0zGlziitAdyLpprj4mRwqvjg=;
-	b=pvRygfjRsbhnPbjgQMAL1BobYAHz2+arIhrGO1DgS3B3ozPBukv2jm5F0UBoWWrLuomOnC
-	dcJriaqYD0ry2xhp0blTjPRbJ4eq5Cfm+3Tmi75PtDbolpHDg6lo7JeMrB+N7sGq7BGpth
-	11o4FJUofilF5j2cKg1pCSpyZfRulA1aYXJV8JQz6UMqKfr3QtuhKmdl+mum6ZzHas0QqS
-	qAvP9uOOkULVL6Omn5PQ4pYDHtUOTKRnbuWaV55npFKCx4U3whfZDPfHxGpzc5TLCfvvtz
-	DTFyks8KuZPEP2gmCFi/uOEjD/b9BXjyRlkST4lCnT0mAfEoBhIdALDheRntUA==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>
-Cc: Richard Weinberger <richard@nod.at>, 
- Vignesh Raghavendra <vigneshr@ti.com>, Vladimir Zapolskiy <vz@kernel.org>, 
- Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>, 
- linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-In-Reply-To: <20260703073943.43373-1-pengpeng@iscas.ac.cn>
-References: <20260703073943.43373-1-pengpeng@iscas.ac.cn>
-Subject: Re: [PATCH v2] mtd: rawnand: lpc32xx_slc: fail DMA transfer on
- completion timeout
-Message-Id: <178331906452.868671.4337256162199028270.b4-ty@bootlin.com>
-Date: Mon, 06 Jul 2026 08:24:24 +0200
+	Mon, 06 Jul 2026 06:36:57 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id AD46C4081D;
+	Mon,  6 Jul 2026 06:36:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7465C1F000E9;
+	Mon,  6 Jul 2026 06:36:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783319816;
+	bh=DgG06+fPhBUefxG+g15sZ2YExh0h/ruMjb8SnPH6H+g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=ljqRKau9DCFpA3AklvnxUyEXQF+DlQ4bo0jmiHb9FTBi0BiNyfJlYGIAoZKmmV1Rd
+	 78hccCK9z0lFtUb2/08OsSZNR/Pi5+h/5rLi1hpnrxlMtDgVjOjbPjDIdKLjtaahIU
+	 GpIZyvi3nllQMc/bgvupFzCbkdpIl9wlgqyHvtWeh4fqfkOquRJ8EGp/Qvwgl4xxzu
+	 3O5NWIkBJzsu+bWpTPQjhXAa8IUEwO5O2xHAy4S52J3Ys0V/u29PSPLAcMu2RPUsyE
+	 EwyFBcFZXGkNSl6z7c/nlw8dmQ40+1esWLB8jmB4ETd0kbE9QCw+0B30vYu34Ozvdf
+	 2NdYKatgV9IWQ==
+Date: Mon, 6 Jul 2026 08:36:52 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Sean Paul <sean@poorly.run>, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 2/8] dt-bindings: display/msm: gpu: Document Adreno 840
+Message-ID: <20260706-radiant-shark-of-calibration-ac2d13@quoll>
+References: <20260705-kaana-gpu-dt-v2-0-6ac53de56314@oss.qualcomm.com>
+ <20260705-kaana-gpu-dt-v2-2-6ac53de56314@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_232428_056840_6B101250 
-X-CRM114-Status: UNSURE (   6.71  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260705-kaana-gpu-dt-v2-2-6ac53de56314@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,26 +79,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Jul 2026 15:39:43 +0800, Pengpeng Hou wrote:
-> lpc32xx_xmit_dma() waits for the DMA completion callback but ignores
-> wait_for_completion_timeout(). A timed out DMA transfer is therefore
-> unmapped and reported as successful to the NAND read/write path.
+On Sun, Jul 05, 2026 at 01:30:06PM +0530, Akhil P Oommen wrote:
+> Adreno 840 GPU found in Kaanapali chipsets belongs to the A8x family.
+> It is a new IP which features the new slice architecture with 3 slices,
+> raytracing support, and the highest GMEM size seen so far on a Snapdragon
+> mobile chipsets. Update the dt bindings documentation to describe this GPU.
 > 
-> Return -ETIMEDOUT when the completion wait expires. Terminate the DMA
-> channel before unmapping the scatterlist so the timed out transfer cannot
-> continue to access the buffer after the error is returned.
-> 
-> [...]
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/display/msm/gpu.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-Applied to mtd/fixes, thanks!
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-[1/1] mtd: rawnand: lpc32xx_slc: fail DMA transfer on completion timeout
-      commit: 17a8ce84964f243c8f89dc7353ac7e8d3137bc74
-
-Patche(s) should be available on mtd/linux.git and will be
-part of the next PR (provided that no robot complains by then).
-
-Kind regards,
-Miquèl
+Best regards,
+Krzysztof
 
 
