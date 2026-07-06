@@ -4,89 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B16F7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:09:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF56DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:13:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dC+XXyXD/yQ5FRMJcO/PAU3VyED8Rl70beuaZTa3v3g=; b=Lp+i+zwUj+IYjMYKtwAgVQTibZ
-	rNvng0ByHkNfgahAWaEgs+dKa6hNSC8EUN1Zs/CPY3b+Q8c++MOu2z6zU+lHBWsm0Ha0ARRdlzffW
-	YF4i0bDC4ip1GbOoHRoeVCUgUhI5iNV2ElhjFS2qjKLX3cLerMei1iHYi/p1MG2aBEJbzmtA2U1Zc
-	8UNuSikecCQyFR00hSEXMujPXE4rpTppqzSq1R2yKY/s8mzd8HlPToc8JI5165knCmFcaHtA1eQNL
-	GyUyAzEt5YQtE6LiU1Oq7FDklJJMCo8e1bYevYYI2mtrlpHl1ODN6VrBW4uOe9aKn7eLOVNGEvKC3
-	i8mr+Nyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3VUxjcvyG7o7DixEmYl5pZcfD8TvxQHqFhtXA36U/44=; b=PzoajHKatClhMdaO1XriJMa3O2
+	Za8SKkEDiH9jgXLuC8hYW/uLynusSU/M8ax5MkE/9jAXiCAxSOw1I2sK2uAEwS3FK1CSzZyX8N8s9
+	LK4rnBNZd0CurV1+G4fLxR13xXEoMHnQ6Az/n5Cd5CNcfevQiL8+rN8/8HDXdmlax6g3dzYfmAChI
+	zPFB1LGaCQkIaVUlmTNChWpobuHSDZqcUlCBdqC6PoCG6fQI6ompbEnwX68d9Y404j12nDP9HgZD4
+	ROj0VT1GayTvSMsZi2tMPxU6nKzfYh0RSBXXha/4PbOWGbl1MFS561yU5a4iwtz3ZFs/V9Y5StiN6
+	AjqVxi3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrUk-0000000Dh6n-3p1Q;
-	Mon, 06 Jul 2026 22:08:54 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1wgrZU-0000000DhMb-1ZIJ;
+	Mon, 06 Jul 2026 22:13:48 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrUh-0000000Dh6T-46ew
+	id 1wgrZR-0000000DhM2-26qZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 22:08:53 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-381ed661712so3109570a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 15:08:50 -0700 (PDT)
+	Mon, 06 Jul 2026 22:13:46 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-475881b9a4bso3045633f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 15:13:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783375730; x=1783980530; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dC+XXyXD/yQ5FRMJcO/PAU3VyED8Rl70beuaZTa3v3g=;
-        b=H0oPQH3T4bM+DLBM3gIRL8Hxr2rqhdSGcIUjK+WtFdHRrW+v+RbwtgGNtKupCSVthB
-         YJxSbdOrhrF7uKPeystkSdco5VNcJqU33rZ9w96dZoJEo5d3i3d6YukwexQasSw80G64
-         ZL6X/ke9NyU9/SNk54BVhO7AmwwrAve8HjBQBmVFBKegqN5HkoXjfEv5L6DExS8Y5HhG
-         oUIBrKkhP34B5wnOA8TrNLCyXNzCppMbXnSRkf+1Hx4aAbRpj5ba6tYVOMvmgITOcMnL
-         GKOteMKjxcZHTTe8tYSC59qn/sRJFi7Y9EzWlOx/wSN8v4k6o+H0L0eNz1gKAIyBpOsg
-         Kfag==
+        d=gmail.com; s=20251104; t=1783376023; x=1783980823; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3VUxjcvyG7o7DixEmYl5pZcfD8TvxQHqFhtXA36U/44=;
+        b=RU3ZTeaer7tRxHruQbdJoXViI/YO9xv6owj3yC2g2b+EwuW+9HbUSLygJC1bloDg0N
+         VgAhbUKz2vJB6SwFm1+kQUwCyYHx2/LIi0bMPLa/iQrHFLUnE6cPes6pbOwyroLbHv1d
+         x1SOuXckzBtXQUxXdWQqgceVkE/VOWT+7VkoTEb6KFMAAkpkujDHThcQTJa3Qbm/mtvF
+         0eqTh3mlJzLbaTeAyhLRQDKlj4PhSVQXIFOhm8wvaG6xLEgUqhcyfdpkgBnH9uReMp3u
+         VqCXLRyblj11m09lWok9yzLNlcot9BxgNeaD6JmcuQ2jj9HE2SafQyQ155k+PYOpHuyA
+         99XQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783375730; x=1783980530;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dC+XXyXD/yQ5FRMJcO/PAU3VyED8Rl70beuaZTa3v3g=;
-        b=bRQNT3w9WdUKDy7ja+5aIUiv9Rl8OanNTQR75/yTyiI87aplRzirYT+wXLbdsefFxG
-         sdD4zeEbSH5HcgQIic9JcQuHwfwcx8rM+7DGlNJEQf1pD7jLQ5Pv17KQHhkFBZNNKfmv
-         lk6eMxRdr9zI3xgpzDp4moF6BpKM2Qs7AHyazJjcMhpU0h/Jl78z4UMPycUUt4TUzje1
-         U759acVOwoALrtZS1tIwlW4ASa+GXP1vT5SBfmTk7D0WguKGqpnnCETTLk1AaSkN8R+P
-         sJdSjvKUrwQPiEGz63RqCVCXsCJ9nLVp9bXcO+4miysZ3GLCsfEF8tMiWvg4nX8nn1XJ
-         qOCQ==
-X-Forwarded-Encrypted: i=1; AHgh+RoTGVupcIAqSIU+A0l4/L+u8UNvjd0wTnAr2NC6vsHQgFPeDcY64pHyr0Drt0gZmbou52kHsypebNCdDJY8BeYH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi0CMFp9E9NkgO6V8jsfNUCkCr6OTqVSvjGMZy73k3oQW5Nc16
-	aSr+yw4lJ8ZENsOmBhXPKPRAV01laQXy6l/RlaAICdwPYpq7gCVNND8b
-X-Gm-Gg: AfdE7clnQ+L5uPF6dvfD4YaB5Zpmafywx0WL979trVVtFu2MR2LGOLAcHKJZm1qWf14
-	j0b/LTYBJ6AcUUoVlWVbrYu2pjhrH8YbqC2ILyYcg3psisVLvmbzjcgrJmvSqViNIeLvWIHejuF
-	QaXRJT9otwklDqfDHfvUHLL0YTuUBWu9yhtcOyTbrSMtxDvnHV9K57J2fEF8z0KCLz3LckQ8px6
-	bCrgjARsJ3nNjuGRsMHmohqLc9lSkl/GttTaTFl1g2Hwpdzv2ozk5QQIX04T06frMLf5j62vpyp
-	VAuHIGKdzbVEYAr2osvLd7PkBNixevG4mU6hzrrwhOLuaM7BAz5Dh8LMA/32hbphSUNBcgrztUT
-	v9nykCYAByyUeytnYdh8zHh5QO7rPxUtHNQxphwxQMRlLIVej3GtOoK9QtSyhmPf0q5u3vVjpcU
-	GEMb1hflufdgt5MCgXI1xYyv2KBDCtWQ4SZnJffSvc8XGC5vOg+YVUY8NmbuAEx+9b
-X-Received: by 2002:a17:90b:58cb:b0:381:50ab:1594 with SMTP id 98e67ed59e1d1-387578948e6mr2517184a91.27.1783375730122;
-        Mon, 06 Jul 2026 15:08:50 -0700 (PDT)
-Received: from google.com ([2a00:79e0:2ebe:8:d89b:1fdd:a8f2:dbeb])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-31174a56723sm757465eec.18.2026.07.06.15.08.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 15:08:48 -0700 (PDT)
-Date: Mon, 6 Jul 2026 15:08:45 -0700
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Andrew Lunn <andrew@lunn.ch>, 
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, Gregory Clement <gregory.clement@bootlin.com>, 
-	Russell King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] ARM: orion: convert legacy gpio-keys to software
- nodes
-Message-ID: <akwm0xsquU3tu_Rk@google.com>
-References: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
- <fc4f8eb9-7da0-4e65-b93f-e54f101de351@app.fastmail.com>
+        d=1e100.net; s=20251104; t=1783376023; x=1783980823;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3VUxjcvyG7o7DixEmYl5pZcfD8TvxQHqFhtXA36U/44=;
+        b=RPQKWHUbDdDME39ql/7UDksE370PAdErboAMYSbrn9KflOT47Z/jtejzMjCV73dbxw
+         ZHgeJ+rgA0oXgOrSacNih10DarFUzZQ+LhdUPKtHnJanIHM9J4Sg2QoxMvJpCG0DYFtO
+         jQFzQ1WZi0AiFLwHWIp+YEoJCEHx6kdMTm+9WxceO81xMeqEAUtSYVYComMWcIONEYW7
+         Es+501/Twr5ohbUM+mF7MbE3Is1bAXd5l/r26VuhOka/ErMH/5z3lTCjhHyBztaRWo75
+         EtL+KUqyHic3418O+7lyG0/GDMwR67h1jIZwZ5IFS/+A7auRLh/zFQ1UGOkzUNGOEe8M
+         8XFQ==
+X-Forwarded-Encrypted: i=1; AHgh+RqwsRMkPRb5xnOz1M80QBXxap5L/HABXUteXOA3D3M6yX7jGkFtpzm+riYxXark71cCuOi0k4+bg6gv29/9dyGZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRjg+z8nQELwPJFHIvetP8az7aMgK+ONQyRGkm5rntDlkPki3U
+	ypUd19abe+7x7Bs4dH+PVrP6vAKrbxbLUJp3XSaA0SyFJmdIU5nR5LEvCjrfi7jSaA==
+X-Gm-Gg: AfdE7cl4A3T83LW6kS7nhRyZFWkvznax0G5rh6+PCRyg7vVOSPrg3H8V0hZqP+iTyqa
+	fmMmoWJI/mx+8i16XBjGFwQqJ+F3jiGGqfKakWP3pIfbEnm5Ls63NUDdDW4fIoZ4KVqzWxpsMQf
+	GhbxMZHMmuVtLJ1OaqnnrXkkgcRHntq0tsp3q5PLQlbXe0Z1LaoL2ih7sx/timAz9ucwpKnpNRs
+	q3yf8clHDd8xu2BRO/05Losim5g2SrSrvcHhL3le8THvkFiIj8xpwAXQF5s1bJXjHONb/yqBwru
+	qa4PzMWW/q3DO6BEhHydMyymnF8VGLOfAbJlwk30uX8I/rTItU0LBYwfTGc4dhKWV3heXQsFZcp
+	db4GbrIViaHeMrymETjhBIPCB8rumLeGZaLvEcqN1eCcel7ci+9nK1ku9RirpYQPePiruMPMCg6
+	FIz7oKY18sl6RNUYyP+A2b+e6HfXZhULP5aUX9BDu+++/59/hSNVDgr2CicMbLtMUgMP1WrA==
+X-Received: by 2002:a5d:45ce:0:b0:476:c622:d41f with SMTP id ffacd0b85a97d-47de66dd5e9mr1597139f8f.47.1783376022918;
+        Mon, 06 Jul 2026 15:13:42 -0700 (PDT)
+Received: from ?IPV6:2001:b07:2ec:601d:4b26:1672:75c7:805a? ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039afacsm26722332f8f.19.2026.07.06.15.13.41
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 15:13:42 -0700 (PDT)
+Message-ID: <ad91c7ec-83db-402b-bec3-3821dbc607f8@gmail.com>
+Date: Tue, 7 Jul 2026 00:13:40 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <fc4f8eb9-7da0-4e65-b93f-e54f101de351@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 10/13] drm/msm: initialize LPAC ring
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+ Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar
+ <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+ devicetree@vger.kernel.org
+References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
+ <20260705-descriptive-name-lpac-upstream-v1-10-01d50c3e0c99@gmail.com>
+ <93b78299-866f-4a3c-9423-a990d9a7d4cd@oss.qualcomm.com>
+ <64a919ab-8b36-45fe-8da8-5eaaf4d55359@gmail.com>
+ <2a556ca0-d276-4c56-a44e-9d8b92a3af6b@oss.qualcomm.com>
+Content-Language: en-US
+From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+In-Reply-To: <2a556ca0-d276-4c56-a44e-9d8b92a3af6b@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_150852_023550_10A9B9DD 
-X-CRM114-Status: GOOD (  27.96  )
+X-CRM114-CacheID: sfid-20260706_151345_559327_2C41A761 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,52 +121,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 08:50:36AM +0200, Arnd Bergmann wrote:
-> On Mon, Jul 6, 2026, at 03:29, Dmitry Torokhov wrote:
-> > This patch series converts Marvell Orion and MV78xx0 board setup files
-> > from legacy platform data to software nodes with the eventual goal of
-> > dropping support for legacy gpio API and platform data from gpio-keys
-> > driver.
-> >
-> > The series registers static software nodes for Orion GPIO controllers
-> > during gpiochip registration in orion_gpio_init(), allowing board setups
-> > to reference GPIO controllers via PROPERTY_ENTRY_GPIO(). It then converts
-> > gpio-keys setups to software nodes across MV78xx0 and Orion5x boards
-> > (Buffalo WXL, DNS-323, MV2120, Net2Big, QNAP TS-209, and TS-409).
-> >
-> > Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-> 
-> Hi Dmitry,
-> 
-> These all look good to me. Unless there is an objection from the
-> platform maintainers, I'd suggest you can send them directly to
-> soc@lists.linux.dev for inclusion in 7.3, or alternatively
-> keep them together with any other gpio-keys patches you have in
-> the input tree if that lets you finish off the platform_data
-> support in the driver more quickly.
+On 7/6/26 11:56 PM, Akhil P Oommen wrote:
+> On 7/6/2026 4:37 PM, Anna Maniscalco wrote:
+>> On 7/6/26 10:44 AM, Konrad Dybcio wrote:
+>>> On 7/5/26 9:13 PM, Anna Maniscalco wrote:
+>>>> Program all the register needed to start up LPAC and send initialization
+>>>> sequence.
+>>>>
+>>>> Additionally, now that the LPAC ring is live, make the code aware of it.
+>>>>
+>>>> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+>>>> ---
+>>> I believe some/all of these writes need to be guarded by if (has_lpac),
+>>> as many GPUs lack these registers and there may be side effects on
+>>> others
+>> That's correct yeah. I'm not sure what has_lpac should be though.
+>>
+>> Something we add to catalog? Or checking if it is a gen that has LPAC?
+> We can introduce a new QUIRK (ADRENO_QUIRK_LPAC?).
+>
+>>>
+>>> [...]
+>>>
+>>>>            a6xx_gpu->shadow = msm_gem_kernel_new(gpu->dev,
+>>>> -                              sizeof(u32) * gpu->nr_rings,
+>>>> +                              sizeof(u32) * (gpu->nr_rings + !!gpu-
+>>>>> lpac_rb),
+>>> Should we rename nr_rings to something like nr_XXX_rings
+>>> where XXX is some uarch-generic (i.e. not SQE because we also
+>>> support pre-a6xx) name for the main number cruncher?
+>> Qualcom calls it GC so nr_gc_rings perhaps?
+> How about nr_gfx_rings as those rings can handle graphics workload?
+That could be more intuitive yeah
+>
+> -Akhil.
+>
+>>> Konrad
+>>
+>> Best regards,
 
-Maybe I should create an immutable branch(es) for both myself and soc
-tree to pull from?
 
-I also have a few more converted drivers.
-
-> 
-> As you probably saw, I have sent the patches to mark all these
-> board files as deprecated in 7.3, with the plan to finally
-> remove them in 7.4. I don't think there are any users left,
-> so it probably doesn't matter either way. 
-> 
-> Are you planning to also resend
-> https://lore.kernel.org/all/20240819045813.2154642-14-dmitry.torokhov@gmail.com/ ?
-
-Yes, I need to rebase/refresh it.
-
-> 
-> I think that is the only Arm board file we'll have left
-> in 7.4 using gpio_keys.
-
-Thanks.
-
+Best regards,
 -- 
-Dmitry
+Anna Maniscalco <anna.maniscalco2000@gmail.com>
+
 
