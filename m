@@ -4,135 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD0C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 02:44:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72D5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 03:04:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UZTyIBSRDOP/XkKhj5OJBprAVtSv39vOpmIrevTNv+k=; b=Wtk+2+iaVZs0ydOxxuQi16XBF6
-	mSwCuG7tuMbwxT2OHMtrYeWTC5x+IckTiGz51hQR8uh1q5JzpJUWYVQ066Xe4cH+FH/VW+cK1SLJE
-	QKtEfXOp7Gp+cNKeYguYutlX9E1AkUcpPByXUB7SVXaIDm4TfU44iZiGXD1lPXBaFI6AcLXYvpibi
-	owmOmA/ngzc1d1FxBCN30R23QforWTDDQcx4fvElGG5ODHZDLqWQbHeV8foGX3FsUqR0PhEtlsz/f
-	tHOFktjLRl0HJEJCI+h+yjrrCkCZWN1VwrgdXg/kKnvm7ju9ZnDpeU71nAImpFshqhRN2y9TIuU/P
-	csMTNDgw==;
+	bh=vKJ7xzengbkfAdFBwm+k44uQtr5zhvv79q7ML5IHq6g=; b=H0tyNBAe4JXV4M/JEVADTvTZu8
+	C2b/z0G31VxAYWZsicLaEti3A/1sIoXcHA5tQ4EU9x1mjT0hAvw9g3cMW6dZOzEqdsyoiSt1+1iB/
+	BIoP8EO7xU+6uYlDWTaTzjk4qvyJ/JaFXBrkO7tzooHcCjLmKXpowURvxmFlfPeZSwCPxJbCfwsql
+	wyHeMSBqkT8D2EyYLK1QFGCI/bNbxl/zo8KhJ7FSaTBdQ5vsp/2FGWyzlbqsb19ExNzS9qOhvFEm+
+	d+Tc3LHdHA/dLA6RnZY4DAGsWrOTRa3iKKAbs1s4nvw/w//cGznedVzCxF2RWmF6vQsDrPSI3hR5s
+	u7DPll4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZKA-0000000BQ2l-0EbH;
-	Mon, 06 Jul 2026 02:44:46 +0000
-Received: from mail-francesouthazon11011043.outbound.protection.outlook.com ([40.107.130.43] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wgZcn-0000000BRNH-3mr1;
+	Mon, 06 Jul 2026 03:04:01 +0000
+Received: from mailgw.kylinos.cn ([124.126.103.232])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgZK6-0000000BQ2C-2lzE
+	id 1wgZcl-0000000BRMr-16Cg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 02:44:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pFdIQmMc/Art+dLbFwNjO1a9sUvBWKxQSWZ12J84zRYx7SHxa/uZG/inGUd2JXS9S/Rbg7mNq7o6nrRvt+E1m2p9N3JKW3uNxaCeLRGUtnVGWESHtvYq+YZVuVCbr22lV/JTeayJnQqEZLJsUrfDS9cdcUv1Njqb4xk/Pv3Hb4GsLP8hkMJso6HHn5XHkLfj27nBxJuxrcnPwC3ZDhuz/euyIHvqSiGDuhIdyLpIPAsTTzlJhcm+Dxfxcrnwhvy3KZelhhMIWpq5ZMXiHQ9Uwl5cyFd7bzggmIOYT9Zuy+uqqalHyVy6NGcw3cD8vE1MHvkYV8QpLsnxWdNjBKz+eA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UZTyIBSRDOP/XkKhj5OJBprAVtSv39vOpmIrevTNv+k=;
- b=F3z/zdSv7oJr9ULj2qMoLY8+CLFesnXeFl+FyVuddF6S2mw5HFnPntMIloDPE6RASd2nTcyExTHZshK9u8yXqo3Qrw60kg0znF5ItVgZjtxQ9NIBgdBLfOq1DbWoclcB9tUCPtHVpHHLvXxS/O8my8m5k1nYZrEOwLMEs/p9BedMl0VLYrIhfEuN4ykVLNV29W17Eehf9D89siQkzAcSwja+NY1A9w8nZRKNqs4SyrxFJr7fXQSpxJaPvdTfeRJNDCD7VA4HZtIOUk9kYGizLZugMvhcTAUrkogoYlQutyAE8hGyka6TnhzrGw4Ci9iRL4wbyl75zmoQGK2EEGuTvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UZTyIBSRDOP/XkKhj5OJBprAVtSv39vOpmIrevTNv+k=;
- b=wPgMtMYd1j0jwWoHx5VDb+ERP8WkK3OqAXsFTdBACakZgjWqABtKDEkbOIMNvHmTwFPawSxi+CHsF+afE4a5LElHYAIbSSGb4IJLEmmI7bD05yH0lJz0Yury4zLdF1Whkz07wx9u6bwv8orB3ifa3C4ONg0NNCg3QOqvGAAZijOmGkdA0myzb5xX9HOJlWFsO1j/zDWMZ7CdQn2QDKN+1OCkXnby1SaQeDEnsCcc4NvCxhcMXgFtTU8XAuzeshjsNNyhzk92pdPIcDlEKx4biXLnOzhzfBCg/T3RSUaLLl9B471K+C9hHhe4Q/BtadHyn6zV5ZCx9SUbtzDlOikOqQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
- by PA4PR04MB9440.eurprd04.prod.outlook.com (2603:10a6:102:2ac::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Mon, 6 Jul
- 2026 02:44:35 +0000
-Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
- ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
- 02:44:34 +0000
-From: hongxing.zhu@oss.nxp.com
-To: frank.li@nxp.com,
-	jingoohan1@gmail.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	robh@kernel.org,
-	bhelgaas@google.com,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
+	Mon, 06 Jul 2026 03:04:01 +0000
+X-UUID: 5213dc4278e711f1aa26b74ffac11d73-20260706
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.12,REQID:9fc9bb35-8aa5-4db3-b7c1-9c1112277b5f,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:e7bac3a,CLOUDID:8be11dd4efe86fb9ab476a1e2276960f,BulkI
+	D:nil,BulkQuantity:0,Recheck:0,SF:102|850|865|898,TC:nil,Content:0|15|50,E
+	DM:-3,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA
+	:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5213dc4278e711f1aa26b74ffac11d73-20260706
+X-User: zenghongling@kylinos.cn
+Received: from localhost.localdomain [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zenghongling@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 674881238; Mon, 06 Jul 2026 11:03:53 +0800
+From: Hongling Zeng <zenghongling@kylinos.cn>
+To: vkoul@kernel.org,
+	Frank.Li@kernel.org,
+	wens@kernel.org,
+	jernej.skrabec@gmail.com,
+	samuel@sholland.org,
+	mripard@kernel.org,
+	arnd@arndb.de
+Cc: dmaengine@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
+	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v1] PCI: dwc: Add force_l2 flag for platforms requiring L2 entry without D3cold
-Date: Mon,  6 Jul 2026 10:47:52 +0800
-Message-Id: <20260706024752.3256106-1-hongxing.zhu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: MA0PR01CA0095.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:af::6) To PAXPR04MB8096.eurprd04.prod.outlook.com
- (2603:10a6:102:1c7::19)
+	zhongling0719@126.com,
+	Hongling Zeng <zenghongling@kylinos.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] dmaengine: sun6i: Fix potential deadlock on sdev->lock
+Date: Mon,  6 Jul 2026 11:03:47 +0800
+Message-Id: <20260706030347.22730-1-zenghongling@kylinos.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|PA4PR04MB9440:EE_
-X-MS-Office365-Filtering-Correlation-Id: bbed836f-a0f6-4260-f1fb-08dedb088358
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|23010399003|921020|18002099003|11063799006|5023799004|56012099006|6133799003;
-X-Microsoft-Antispam-Message-Info: 9jHAAvT6gGkJ+H0tqeefHCUHoWL149T+UW55T9E2Zp6HJM+yf1ZhGnpeRFMyNodW3jD5Yq62+mCgCoN6pTAAsLvvu7QgaBOIldmylMQ76FvGcE4AflToCvR9wDvnuZy8ayL9rQA4YIhHbOsGxIB9W0ufT0a+JKXhuFm0DyrSJDHRd7bMPUqoh+DFeWFBa4xzsJry5wnEYLRbhDdQnGWLj3fLWRfu9lahS5mbfucGokv4tubY/AsmKP93/TEmStK1xI69Vr/jBDYWqgtF8B4AVWifZx6UB4PMhdpPy3zonkeNsItl4uoxDc9LzolErSiQ4ggNGb6P0phTDBMUC9ePH0c9LTvaCqJPYtA2tiT46P6LNhk2HqZsz/ZNvdrXL6fjhWvzQby2EcqJk9YZsgYCFzQVKGy5gbDJgE5alcOsjphTyiV48sBh2zU2gNuNMMs4LHSDPckHOs3s6KXG3Wp3Uhvz0KGehPmDcIOYt75NY/rLcJw6cwQ5hqCMc6Gf6f0nk6FGaOTmfQAF3pdUUQ/y90eAbqKJrmJ6ma0mQ429OGw9/sWSrK3SjxP10xvcNGQ7TkE9Ch8/vvfbSZjfZs4jI+8jeWjVtUH8gXM2voKJEIbKv81yReEPjOGLDu2hN093U9dkGbZIg9bxM6A8TWeupqBj17aEy1PQnNDMOJ3IWdFP18YWVGwaCYrIakdTa3QfClVb9o10GrvWcE5vRj5GBA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(23010399003)(921020)(18002099003)(11063799006)(5023799004)(56012099006)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LzNUyph6KM7NcOnNnbio8XAKgcHfxZ7nyWTZRoueHFKOPV/dnMKvJodQ8Xi8?=
- =?us-ascii?Q?voHI5FN4w4UmmfZnMSNlxK2avsNv79iHSEXJOkot+wrhNfKXuvL3n4VU+QKE?=
- =?us-ascii?Q?PkrD7fz4/Q1YGg+l0emaefwYEbIZBZFcZ00x6zkLGbZnjnOl3JuG7prKY+gv?=
- =?us-ascii?Q?3qdSXFrv5B6Vo8uiJExyCHjkwjsmMB7arQImkSFlkzF5Uorj6HudH83s35TT?=
- =?us-ascii?Q?6NxG3iH09ghleHft91DntfWcK4pwoabxAPICTLK32lzm1a3QYrDxZkM5cYbl?=
- =?us-ascii?Q?hlpmYMxZEQH6J6MIav5bA8PAnLdrsX/ailws1/tYxKtobSeSxG/bbb+KmF/e?=
- =?us-ascii?Q?+vInDC+NnNEiVENVelHGsKV2KpjnbQlAWT/F4Ib3v4xVPKG/0H98Ldo6DdCU?=
- =?us-ascii?Q?mgKSSE4peQoI0Vsd1tcMovnQZ1iIAIOB3csp15ziuxHf/T3tthl4D2o+o0TT?=
- =?us-ascii?Q?A5kTw0K1Z2COqewQAMF/MC3opAtciI9uruFP7na7G9B12EB1nW7AeM5MyEtS?=
- =?us-ascii?Q?1PF8DJFC6al7SPZfr73i46CO5Rs/WxTCxN2v5VyGmk/B4Y8IVu/1rI0fKD0V?=
- =?us-ascii?Q?jbah0VJgC58cmBav1hA1yLOQHTwYdTcH1SCRqXT0YZ2ocFOErIXPYdF2HWtB?=
- =?us-ascii?Q?AB/2xLQgiCvFj55qbOEZbkfN7PaXyJvTtxyvJMLKP4fElZhXco6uP3YSxj6K?=
- =?us-ascii?Q?ucgBAt48oO9ZMaBzCfJkUBsJO90SjpPz4mTkSHB551kd2DKRaLYsSyul+9xW?=
- =?us-ascii?Q?yCp5HSfM64aLFCo2TTRtQ8vOFkihTGxkCnKJgB2gcOSidUGFHHlDl/O1QO8r?=
- =?us-ascii?Q?bWA6BUAM/AKhNvZ5lRYeErQ0oDJw0allK7dtY5KjtnTRvdukPLpBlnuwkepp?=
- =?us-ascii?Q?XRzSZOASZtFL6ju14K+8wVm9kHc4NK3Y2dmeA2QGAbLWZJyT4OTLtD5vV5zl?=
- =?us-ascii?Q?nBQzD3+5MV6HcSOWiQDehlnZ0EOBfLS/ZSAgJ46K4IUnjI8UhmXpdHpkMjdo?=
- =?us-ascii?Q?O6NQGbHCvHNdTrcaJ1oDm2QYESasGUgvuGwECKFc80OUYZkkkn50Jwps8LH4?=
- =?us-ascii?Q?7k08vyFKSrhYDtz6WD6DF48jijNmZiqYmnvoYtEjG2v1zZeRoubBvtZz7Il+?=
- =?us-ascii?Q?AVJH6VkJ18/9nyvXf5zNVSeuYCF5JnKvZqz1JTxNUs1dIBApZ9IUqBjrc8gS?=
- =?us-ascii?Q?EwT2ZRhyxLF8dc1z1TEWvlpe6jVUhamuOih1em0099JZHPfuFnJXiHUGzZI3?=
- =?us-ascii?Q?2/WvMQewibDclDvtT7ILRI42nDk9bHQmfYZiefg4GdPFl7FIY2e1Mx2DuAQG?=
- =?us-ascii?Q?q5dzsEO4Lwkscr+e/IWjGUQNN6ITfIFTQ4SFyYYVQmF8orxpqdEBX12G+MfP?=
- =?us-ascii?Q?rzaZEDx2+PhcrJ5Y9j51AbneDFmL6lQPoSZ8M+VyCJUN0ZCHaAVnvShAED5L?=
- =?us-ascii?Q?BD/JmZNWQAcH096PJOK4qlF6+npAZsH7stAoxMr9jpW0mtFnNNkscGXmC1az?=
- =?us-ascii?Q?NMEY+DUImtlF2MdWkG1t61T2UxqgpaTBlX8u2Sv65mcoaD89ZWc8T6mvIM3A?=
- =?us-ascii?Q?aUcgdoz9eoA13h1t+6Ei7fcPtsVhK6h5vMuRkPCp/qNV08QcnEPWc6fAtAHs?=
- =?us-ascii?Q?OBaDNtvHuEoa5GR92TrSoWh2KX+IKw8TxYlf/8j39Rb6fiSX6S2r+KssOOTw?=
- =?us-ascii?Q?UJFTuqhAi6cnkjoUZLHYcTniV9ZdeO18j7X742iW91n9Fl8pdeI7S/u49N6G?=
- =?us-ascii?Q?3Q7Sed/oTlPNmx+ea840tQ+5x4R4sKNGM12QVXk+Z1HMgMX9SyT/?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: bbed836f-a0f6-4260-f1fb-08dedb088358
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 02:44:34.8193
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UHgskAFX5+ul9ZJZUcdHd4D/N2nNcNy3JpJyzyBHTP99NviGKO2RhxeCtx0i+OLGJdfsxWFgt2Erpr+ZqjroI3Zdu1I/M4IGp+DjXThVtudsxxbjxUlO/v4CgTFi64hi
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9440
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_194442_724260_5DBB4D47 
-X-CRM114-Status: GOOD (  15.44  )
+X-CRM114-CacheID: sfid-20260705_200359_610658_EDE3D596 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,82 +84,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Richard Zhu <hongxing.zhu@nxp.com>
+sun6i_dma_terminate_all() and sun6i_dma_pause() acquire sdev->lock
+with plain spin_lock() from process context. If a DMA interrupt fires
+on the same CPU while the lock is held, the interrupt handler schedules
+sun6i_dma_tasklet(), which runs in softirq context and attempts to
+acquire the same lock with spin_lock_irq(), causing a deadlock.
 
-Some platforms like i.MX have their PCIe RC controllers powered off
-during system suspend, requiring full re-initialization on resume.
-These platforms need to enter L2 state to properly notify endpoints
-before power loss, even when D3cold is not supported.
+Fix by using spin_lock_irq() to disable interrupts while holding
+sdev->lock, consistent with other call sites.
 
-Add a force_l2 flag to allow platform drivers to request L2 entry
-during suspend regardless of D3cold capability, and enable it for
-i.MX PCIe controllers.
+Fixes: ba489fd46ab6 ("dmaengine: sun6i: Add support for Allwinner A31 DMA controller")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hongling Zeng <zenghongling@kylinos.cn>
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
- drivers/pci/controller/dwc/pci-imx6.c             | 5 +++++
- drivers/pci/controller/dwc/pcie-designware-host.c | 8 ++++++--
- drivers/pci/controller/dwc/pcie-designware.h      | 5 +++++
- 3 files changed, 16 insertions(+), 2 deletions(-)
+Change in v2:
+ -Fix by using spin_lock_irqsave() and spin_unlock_irqrestore() to
+  disable interrupts while holding sdev->lock and properly save/restore
+  interrupt state.
+ -Fix inconsistent locking pattern in sun6i_dma_resume() and
+  sun6i_dma_issue_pending().
+---
+ drivers/dma/sun6i-dma.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
-index f55a68f60eea9..ea0b4eb03c1d0 100644
---- a/drivers/pci/controller/dwc/pci-imx6.c
-+++ b/drivers/pci/controller/dwc/pci-imx6.c
-@@ -1966,6 +1966,11 @@ static int imx_pcie_probe(struct platform_device *pdev)
- 		 */
- 		imx_pcie_add_lut_by_rid(imx_pcie, 0);
+diff --git a/drivers/dma/sun6i-dma.c b/drivers/dma/sun6i-dma.c
+index a9a254dbf8cb..742a0822a8da 100644
+--- a/drivers/dma/sun6i-dma.c
++++ b/drivers/dma/sun6i-dma.c
+@@ -891,6 +891,7 @@ static int sun6i_dma_pause(struct dma_chan *chan)
+ 	struct sun6i_dma_dev *sdev = to_sun6i_dma_dev(chan->device);
+ 	struct sun6i_vchan *vchan = to_sun6i_vchan(chan);
+ 	struct sun6i_pchan *pchan = vchan->phy;
++	unsigned long flags;
+ 
+ 	dev_dbg(chan2dev(chan), "vchan %p: pause\n", &vchan->vc);
+ 
+@@ -898,9 +899,9 @@ static int sun6i_dma_pause(struct dma_chan *chan)
+ 		writel(DMA_CHAN_PAUSE_PAUSE,
+ 		       pchan->base + DMA_CHAN_PAUSE);
  	} else {
-+		/*
-+		 * i.MX RC is powered off during suspend, force L2 entry to
-+		 * ensure proper endpoint notification before power loss.
-+		 */
-+		pci->pp.force_l2 = true;
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_SKIP_L23_READY))
- 			pci->pp.skip_l23_ready = true;
- 		if (imx_check_flag(imx_pcie, IMX_PCIE_FLAG_KEEP_MSI_CAP))
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 06722259d2e37..e3f022d2d453a 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -1222,14 +1222,18 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+-		spin_lock(&sdev->lock);
++		spin_lock_irqsave(&sdev->lock, flags);
+ 		list_del_init(&vchan->node);
+-		spin_unlock(&sdev->lock);
++		spin_unlock_irqrestore(&sdev->lock, flags);
+ 	}
  
- int dw_pcie_suspend_noirq(struct dw_pcie *pci)
- {
--	bool pme_capable = false;
-+	bool d3cold, pme_capable = false;
- 	int ret = 0;
- 	u32 val;
+ 	return 0;
+@@ -921,9 +922,9 @@ static int sun6i_dma_resume(struct dma_chan *chan)
+ 		writel(DMA_CHAN_PAUSE_RESUME,
+ 		       pchan->base + DMA_CHAN_PAUSE);
+ 	} else if (!list_empty(&vchan->vc.desc_issued)) {
+-		spin_lock(&sdev->lock);
++		spin_lock_irq(&sdev->lock);
+ 		list_add_tail(&vchan->node, &sdev->pending);
+-		spin_unlock(&sdev->lock);
++		spin_unlock_irq(&sdev->lock);
+ 	}
  
- 	if (!dw_pcie_link_up(pci))
- 		goto stop_link;
+ 	spin_unlock_irqrestore(&vchan->vc.lock, flags);
+@@ -939,9 +940,9 @@ static int sun6i_dma_terminate_all(struct dma_chan *chan)
+ 	unsigned long flags;
+ 	LIST_HEAD(head);
  
--	if (!pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable))
-+	d3cold = pci_host_common_d3cold_possible(pci->pp.bridge, &pme_capable);
-+	/*
-+	 * Enter L2 if D3cold is possible or platform requires forced L2 entry
-+	 */
-+	if (!d3cold && !pci->pp.force_l2)
- 		return 0;
+-	spin_lock(&sdev->lock);
++	spin_lock_irqsave(&sdev->lock, flags);
+ 	list_del_init(&vchan->node);
+-	spin_unlock(&sdev->lock);
++	spin_unlock_irqrestore(&sdev->lock, flags);
  
- 	if (pci->pp.ops->pme_turn_off) {
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index de4b245b1758c..5e88459e0cfa0 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -471,6 +471,11 @@ struct dw_pcie_rp {
- 	bool			native_ecam;
- 	bool                    skip_l23_ready;
- 	bool			skip_pwrctrl_off;
-+	/*
-+	 * Force L2 entry even if D3cold not possible (e.g., when RC loses
-+	 * power).
-+	 */
-+	bool                    force_l2;
- };
+ 	spin_lock_irqsave(&vchan->vc.lock, flags);
  
- struct dw_pcie_ep_ops {
+@@ -1021,7 +1022,7 @@ static void sun6i_dma_issue_pending(struct dma_chan *chan)
+ 	spin_lock_irqsave(&vchan->vc.lock, flags);
+ 
+ 	if (vchan_issue_pending(&vchan->vc)) {
+-		spin_lock(&sdev->lock);
++		spin_lock_irq(&sdev->lock);
+ 
+ 		if (!vchan->phy && list_empty(&vchan->node)) {
+ 			list_add_tail(&vchan->node, &sdev->pending);
+@@ -1030,7 +1031,7 @@ static void sun6i_dma_issue_pending(struct dma_chan *chan)
+ 				&vchan->vc);
+ 		}
+ 
+-		spin_unlock(&sdev->lock);
++		spin_unlock_irq(&sdev->lock);
+ 	} else {
+ 		dev_dbg(chan2dev(chan), "vchan %p: nothing to issue\n",
+ 			&vchan->vc);
 -- 
-2.34.1
+2.25.1
 
 
