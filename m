@@ -4,147 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A0CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:34:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF0F6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSQZGRjg5lLnMOYLCUmQsWzLoM89Q+/ECnt37+s2J5k=; b=WWCsXDS91uUOTBGm4OwiMUdFyt
-	RK6+2SwmUsNuv2Ci/xnzf6Hu6doU5kR86jfLGv8/cdlsvRdr0AypDzBrNpVXtx0WmJ46xymzHeNuO
-	7KeGbWwHxNwSWrZP2yeyQzKus8duhGqmcVMHBL4jfG6MdR+a4pRwXozYARPybyp0eKfcEFjW8BG9n
-	Zm8aqOfD7N+/OZcvSUYPkgcUGnbjS3oSN9zi0qkQbMJjTD3ZCOfhNPcoeXNGRxW1CQIQ/6nCRTm/O
-	SL6LwQ82meG0kiZWVT9K9QQa5M/h9+/uB82k4DWaaV/K7+q+jAnU1f7oRlH++OxYYyrnbuC7sae0i
-	k3ITCvRA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:To:Subject
+	:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AMZ9xp7y5bHKEdOaS2kXZI2hSTQYBvR28eonKzc//j4=; b=r/JgsgkgRZWWPV
+	/a+A4GXGzhfEEVOZtYQVhkVw/caLSQoZlSCAGWkcsYPil7ZLdimjvhJEEqsb6hZ4Eo9g1tDOmB4R6
+	iXZwFDdF8mK2FDQYpnu6xcQWgFobx8tlOluYJSJy3SuTnPr23T+rpybfrwwe6uRecGJXxx9d8tQsj
+	dZHdGBNJIzsYlJlggLFJlwjwN4+xeU7f6VU46ni3uh90vrTpy3qKw2ZLsQ1jbgr64ng7nM0hzLIgU
+	E0/9ZxalsDWfPH4SRYDSjmBrbk3Zec5+FrzUiWEpCmMb4xKasfG3fTUTbXN3Rlm10rNg3N8wj0FO3
+	UhW6Rx+dHZo6nwQ3EcOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkOn-0000000Cl8D-0Q7e;
-	Mon, 06 Jul 2026 14:34:17 +0000
-Received: from mail-westeuropeazon11013033.outbound.protection.outlook.com ([52.101.72.33] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkOl-0000000Cl7d-0zJe
+	id 1wgkOz-0000000ClCy-1dxe;
+	Mon, 06 Jul 2026 14:34:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgkOw-0000000ClBR-1o0o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:34:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JPc2ErXJCDANmHVyc8fDAeYFhZy9QTNFO+al9W+SjJC3itHu9fx7m8rkxX+KX5cgcN2litlCdvZs4Ynnj/rYXJ67G31e+JJfU+635fn07rUrlVzMJKuVZD2Ps5d78ZwcKuXBZ7fep+IhjljmN1ilHEDssh/KLd+mXEo2IVWpDgXtGrmB7PUl1zkwQuAoxJyXk05TWC2Z/MZrcEbGbGmefDm1nITjIstLFbifwkklav9KntlJJeCdzizXGj3rDIRcF9K8ARwLm0oBeyFnD6rucN6pT9mL9sEXws8rLLtqnGc23PI1meTZx/J0+zuzkS64IYrNZDuC6WGz6/+hFG30og==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QSQZGRjg5lLnMOYLCUmQsWzLoM89Q+/ECnt37+s2J5k=;
- b=r9xplxBaI0HDINJk/mu6yLsCj4ifYk7mXIJgIiW8A3PbenAin6tYJW9FyoSC5max0MViACCjrfDzYtRAJW/9aDdye7EjhhuoA2+O3JmdofxzJSNJdw3cC+Keqx5BMzhAIj/v8tDxVKnWzc/BjoFDpuLsTrQXSJr0fbIe+3AeboLRJFdopW9uJEmoqJim8Apmtiyoar4tqUNcAu23c1G8sypj+FEURt7CtlIZ61FABU/zlIQGSYfUfak9uFjVHICIfCbr3hauW8XzjrXm8yNLpQyYoZy/MJ61zZ4tp1SjPC7E2w2JB1SzUPwmxrcwAMUmPfQQ4E4zYV1bbrkB6+8N8g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QSQZGRjg5lLnMOYLCUmQsWzLoM89Q+/ECnt37+s2J5k=;
- b=WNIydgTulqPxGhDAVN2ZSRLBANe6awUVVfm4qFrwMaXEI8hdaR4Fxogi2w5MR+cUV8YQsG8kPXfFL3d/MuQhcYZfQLgV12oKmZeL1JVIkxvjQ8xySyQIvwkcHrDFQzerLNhZRDqeSmSIMOM1M5zdjDdc0n1qaG1SgY6gdLoL9C191cgUmxTZOKlXCXsu8CjUlk3yXSBu/eELnocwZ7wJrrB7L0cu1FlclzH67SxLT7LdihYDw8Mp05lZNlIxx7kdHH9oqZLxEhHid0cXvtGroSh+eJon9O+xmKL/xfV5NbZ0NJxyyhlBRgLkeg/ei8ScAQ2l08u616GM0Vwbu3dYvA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DBBPR04MB7644.eurprd04.prod.outlook.com (2603:10a6:10:20c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
- 2026 14:34:10 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
- 14:34:10 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Subject: Re: [PATCH v2 1/1] arm64: dts: freescale: imx95-var-dart: enable NETC block control
-Date: Mon,  6 Jul 2026 10:34:03 -0400
-Message-ID: <178334843945.1322704.12903397336861257926.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260703150649.234680-1-stefano.r@variscite.com>
-References: <20260703150649.234680-1-stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SN7PR04CA0231.namprd04.prod.outlook.com
- (2603:10b6:806:127::26) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	Mon, 06 Jul 2026 14:34:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31E092BCB;
+	Mon,  6 Jul 2026 07:34:21 -0700 (PDT)
+Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C83E53F905;
+	Mon,  6 Jul 2026 07:34:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783348465; bh=Vs1EJjWipMEUQx/EtTmy21EQD4uqVPjCq3MCJhBMO2w=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LK2C9n//iu5QSQzGMG8mUBP0RartY9DTplEpZcskp779RdHPQFp+0rxS9vi/ZCl2p
+	 Dmb+R5JgRLR31dtmYA0Q8xoK3o6FA9h9GSC37PKZzt5xOIpRg5PkycZUF5yHmCGS+G
+	 pwB/CcvqArQvcZWGbisRTZzcTBjtJxSerYgSLIDs=
+Message-ID: <bb6127e7-d650-4bc1-8a4b-a6c21107f66f@arm.com>
+Date: Mon, 6 Jul 2026 16:34:23 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DBBPR04MB7644:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5af9043c-17f8-45ec-13d0-08dedb6ba477
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|366016|7416014|1800799024|376014|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: oEBvxQiiyvXP+N75YTrCiKqSd2gnwhZLzRf10MESe6IEfCaUNbRxRatm9qevDa4lczI0JFQFb2MhgUzR4EGgxuMvewt/pBQk4bK5K0rM3pd6QBwxhH3wfXcvxIySTqBPQPFdZotJHG4/YjSA7XRw/nja1hieVaWDgw5DR8PzVi8kva6d+kbyhZaoIfRLWo/Ku80UmELwox5DZz9p0nsLSwLlW2o46tXnmw6RkJzW/SIDZASyasKmQVqDh3T8KoHFU/Wrl7DFM1TPxlJq3Raj3qBLGIu5KPu40Xw6Xfz5TaDxZAyixA+vz3ngRpij/GXP4OXDM/RQLKTRbxEOHN3rvt7cpeVydnrQ/VlXTzaWDt72hcyKPjNFfoClx/wqvyHqEo4wrAUTlmch76x3RVKf/Ln3MxdMRFwGyx1VldtZlD6kSgYymwdvZRZXk3I0Pl+/5Z9UN8+6mMxX9xBVvap83PJNSXuDCem+gea3CERlLe2gdeXO0s+sXEXl3EEjk8+nVuRu9+uk5kdSPPg+4arzVZL/Gnz3EoBBrk4x4nIQ4U7mBT5DsaCUTtugP83D0DIkldCPRxfQfB8OQrCnVFRcN8Ve0LTfQdh5GFrSI4GfpVH1N0PSJ1y3mFgepji8JSlxYAHXc7BZfxPt/oVTSFj8zyh4tJxNddmF1hquRDZoCdc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(366016)(7416014)(1800799024)(376014)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDRaT3RGOXZZWU5LZG9VRlF4dWkreDE4NmdMTlpUQlRVMjcrd2VhUGtuQU1J?=
- =?utf-8?B?cXAwWWZnSUlXa1dFRCsvbGdiNGZ3VVBGZzNYMG5HNGROSDZwWG1PN0xNaGNj?=
- =?utf-8?B?UTFKaFlXcGJva2hKWU9iN3kxa1A3ZXdiZjhKb3RRdlRlV2t6NFhvMFFVNnB2?=
- =?utf-8?B?UUE0NTFiQk5UcHBqbCtRM01tMUQ0bFRad2trRkJzNE1NT1JpaGR0UTJXU0dB?=
- =?utf-8?B?aWlXNjlSc0VrbitzVHdVMkNTS2RyTWdBdE92UUhDWkRLMGtUZXdYSXhiNGox?=
- =?utf-8?B?TzhPa0tUalRQeXdFczVyYU02TmFid0lESksrQXJFT0l0bVNoeGhFaXFqTjNM?=
- =?utf-8?B?dHUxd0dMNzUxd2Z0RWtTMVVQUDU2M1E5dVdFdkVPWStKSDBha2pZNEtpL0hn?=
- =?utf-8?B?Z1V6RldvTzJmdmZWSGE1dFgzWjBrK0dML0VHSmNVb0J4WUlJTDZJemhoNHFY?=
- =?utf-8?B?RUg5VWVvdGFQaVBVdGthM2IzU1JWaGRjaTVHMVRwdStCOFM1aVZoL0dXY3A3?=
- =?utf-8?B?TWJablhVRU9xMlJnMlRWZlZOYkxEZXVyTGZwM1hVc0FHUmtsMFBRZ2dyMVVs?=
- =?utf-8?B?T0svWW55SnU0MnBzbkx2ZlpMQTZyb0w0RWpQa2doUzNja251UmVBVWJNTVBu?=
- =?utf-8?B?UDRVQytYbS9xR3BydkYreDFqRlBXQUhTd3JrSFNzTWVYS2N0dE1QNW5RTkpI?=
- =?utf-8?B?ZlJVVU5DbDVzNGZGYlJ0blpURjhBU202elNNYlBXOHh5Wm5HM2xtYW9sNzVM?=
- =?utf-8?B?Ti9pOEdTb2tWOE9zcDUzRzRFcUNHOEZwNGxBSGVkMmc4UXJvMkFCTG9OY1hM?=
- =?utf-8?B?cFFuaHdLTU4vOGY3YTVmbmNtY2RqYVdtN3dhWWlORVMxMnRBeC9vYWhoMVcv?=
- =?utf-8?B?R2cyYk5aeXo0TDZTVFl1MzdYcUVuek9LeGdkejNwTTFHRjdFYU5tUmFkL09a?=
- =?utf-8?B?cCtHcnkxL2dram1vaUt6aXJNT3B1OWUyS2d6d2N3Sk5nTVl1b2c1NWRkK2VW?=
- =?utf-8?B?U1dSeFRzMDkyREE5V0ZqZS9iZDI2V2hoV25RVnp3WFdSSzMyb29lRXR4VXB6?=
- =?utf-8?B?dUxsMEdNVXZPaXEvd3RFUDhYUTh5aUczRHNEWUV5SkFXYUpSSk14YjhGSjhK?=
- =?utf-8?B?V3NUMU5rVVBCaTBxWnduK3F0Uzl4ZGdFYVNNSXBSZVpNbXRWTmd0MmlYRUFj?=
- =?utf-8?B?TmV4ZVpaUWUzQ0NjeEwxT3BlOUpUSkhyc3IyUTNDcHR4Q0ZtaGZhODF1V1d3?=
- =?utf-8?B?cVlsNlBLTCszZUFLZWU1RHlMeVluVjB6ZWpCYXR0dzFCdk9Rdm1aZFB2WmRk?=
- =?utf-8?B?ZVRqZmovRks5RE54cjVxZ2QvMWE5em1GbytJV0htTmZOODhxbTYrV3dqeFRX?=
- =?utf-8?B?T3NHUGljMGUweE5VNnFNaU5LRldQek5WM3FjTk8wSTNFVXZvMzZsenBqZW9D?=
- =?utf-8?B?dHRPME4rL1RWRHY5VnFtZ1VUb3NnRWFEUXRqYTI2dURsREFQRHBLZmUwNWFk?=
- =?utf-8?B?bGhVTTVyS0hTelJHRk1SMzVybk1pY1lGREErWmVhMVdOeW5Pdm1NeGFRRjBP?=
- =?utf-8?B?OGJzZzBoZ2djQ0h5aG1tVFNFc0FaemZhZlZpNTlwamVTQWU5N0NHN09XeUF3?=
- =?utf-8?B?TXJqK0RnSFBKVXdsQ1lvRC80aFppSG9GTzNqMlphWm9VRVY3V044WDJEa1Va?=
- =?utf-8?B?bWZYWHVkbjFvcmRoeDBDZDYwYUhyeGRWNHFldkFURVp3L1NMUzdnTnBMWU5I?=
- =?utf-8?B?TXM3SERzM0tJREJpc3pEZVVpNHhyY0hvaTBLcWViYTYva05FY2IwRzV2WkYx?=
- =?utf-8?B?QVI3M3dTdzRIT2lmKyt5VE4wUytNdHF4dmFLQVcxSUlJUFJURkd5enZqL0lz?=
- =?utf-8?B?akZYejhrL2pnRGEyVHNlVUxMSzVLVGZsM0U3dEhYWm9sQ0tIdHk0dll3R1ZP?=
- =?utf-8?B?M2VRQk9jT3ZueHFxY3Y2cmpZc1hEWVVzdmtDV1ExQW5CQmpFZGUvNDFsbWtT?=
- =?utf-8?B?eWc0aDZSVm5SZlJqMzJ4N3Z3bTN2cEFLeEI4anpiZmRvZmdaY0dKdnZVZWEw?=
- =?utf-8?B?YXpCL1lwckVEQzRQVElncllRZ0hmdWIzY2poSW5ZTGR5VlFMcW54dkVBaElq?=
- =?utf-8?B?K240V2t2YVJXWlJzZ2ZjTGNpS0NCL2VsYVkvSzlJVCtLLy92cThDeHYwQkRy?=
- =?utf-8?B?U1VFSEw2R1JJcmo3VC9YandmUExHNDloVDFuUDM4a25YR1BpWGZCQVIvUEFa?=
- =?utf-8?B?WDhtM1J4WFQ1WVVvVlNSV25YNjdickJQOWZvTEl1L1hoWDlvbG84OGdBRDls?=
- =?utf-8?B?ZmUxTFhiKytLdXE2UFNoUmFGNkJRODBuMXVqd3YvUkIwRDNXZFd0cUxlaEla?=
- =?utf-8?Q?VaIyWPae4R34Ltx8=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5af9043c-17f8-45ec-13d0-08dedb6ba477
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 14:34:10.3052
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7Q6hfl0ZIJ03DeB9qVtOtFNeaVg7MCBVGUyQra4k03RrJK8D2yVxGDE+SBYXG3xFTiIfwEIr1Qx828INSTXCT2XuV2vwAs8Bi2AZexkqn8JyGYpV5Z0Hpu2WjMMTZ9PO
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBBPR04MB7644
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/8] firmware: smccc: lfa: Add auto_activate sysfs file
+To: Nirmoy Das <nirmoyd@nvidia.com>, Mark Rutland <mark.rutland@arm.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Sudeep Holla <sudeep.holla@kernel.org>
+References: <20260317103336.1273582-1-andre.przywara@arm.com>
+ <20260317103336.1273582-7-andre.przywara@arm.com>
+ <483b7983-44c8-4a17-9db5-61b950a41ffa@nvidia.com>
+Content-Language: en-GB
+From: Andre Przywara <andre.przywara@arm.com>
+In-Reply-To: <483b7983-44c8-4a17-9db5-61b950a41ffa@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_073415_277292_789C1D68 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_073426_554436_7AE9F570 
+X-CRM114-Status: GOOD (  29.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,24 +69,156 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, linux-kernel@vger.kernel.org, vwadekar@nvidia.com, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Hi Nirmoy,
 
+thanks for your replies and comments, I think I incorporated every one 
+in the v3 post. However this one here is a bit tricky ...
 
-On Fri, 03 Jul 2026 17:06:49 +0200, Stefano Radaelli wrote:
-> Enable the NETC and NETCMIX block control nodes on the DART-MX95 SoM.
+On 6/24/26 21:45, Nirmoy Das wrote:
+> Hi Andre,
 > 
-> These block control nodes are required to enable and use the NETC
-> Ethernet ports.
+> On 17.03.26 12:33, Andre Przywara wrote:
+>> The Arm LFA spec places control over the actual activation process in
+>> the hands of the non-secure host OS. An platform initiated interrupt or
+>> notification signals the availability of an updateable firmware image,
+>> but does not necessarily need to trigger it automatically.
+>>
+>> Add a sysfs control file that guards such automatic activation. If an
+>> administrator wants to allow automatic platform initiated updates, they
+>> can activate that by echoing a "1" into the auto_activate file in the
+>> respective sysfs directory. Any incoming notification would then result
+>> in the activation triggered.
+>>
+>> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+>> ---
+>>   drivers/firmware/smccc/lfa_fw.c | 34 ++++++++++++++++++++++++++++++---
+>>   1 file changed, 31 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/ 
+>> lfa_fw.c
+>> index f20ea45cdbd9..5dc531e462eb 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+>> @@ -101,6 +101,7 @@ enum image_attr_names {
+>>       LFA_ATTR_FORCE_CPU_RENDEZVOUS,
+>>       LFA_ATTR_ACTIVATE,
+>>       LFA_ATTR_CANCEL,
+>> +    LFA_ATTR_AUTO_ACTIVATE,
+>>       LFA_ATTR_NR_IMAGES
+>>   };
+>> @@ -115,6 +116,7 @@ struct fw_image {
+>>       bool may_reset_cpu;
+>>       bool cpu_rendezvous;
+>>       bool cpu_rendezvous_forced;
+>> +    bool auto_activate;
+>>       struct kobj_attribute image_attrs[LFA_ATTR_NR_IMAGES];
+>>   };
+>> @@ -561,6 +563,28 @@ static ssize_t cancel_store(struct kobject *kobj, 
+>> struct kobj_attribute *attr,
+>>       return count;
+>>   }
+>> +static ssize_t auto_activate_store(struct kobject *kobj,
+>> +                   struct kobj_attribute *attr,
+>> +                   const char *buf, size_t count)
+>> +{
+>> +    struct fw_image *image = kobj_to_fw_image(kobj);
+>> +    int ret;
+>> +
+>> +    ret = kstrtobool(buf, &image->auto_activate);
+>> +    if (ret)
+>> +        return ret;
+>> +
+>> +    return count;
+>> +}
+>> +
+>> +static ssize_t auto_activate_show(struct kobject *kobj,
+>> +                  struct kobj_attribute *attr, char *buf)
+>> +{
+>> +    struct fw_image *image = kobj_to_fw_image(kobj);
+>> +
+>> +    return sysfs_emit(buf, "%d\n", image->auto_activate);
+>> +}
+>> +
+>>   static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
+>>       [LFA_ATTR_NAME]            = __ATTR_RO(name),
+>>       [LFA_ATTR_CURRENT_VERSION]    = __ATTR_RO(current_version),
+>> @@ -571,7 +595,8 @@ static struct kobj_attribute 
+>> image_attrs_group[LFA_ATTR_NR_IMAGES] = {
+>>       [LFA_ATTR_CPU_RENDEZVOUS]    = __ATTR_RO(cpu_rendezvous),
+>>       [LFA_ATTR_FORCE_CPU_RENDEZVOUS]    = 
+>> __ATTR_RW(force_cpu_rendezvous),
+>>       [LFA_ATTR_ACTIVATE]        = __ATTR_WO(activate),
+>> -    [LFA_ATTR_CANCEL]        = __ATTR_WO(cancel)
+>> +    [LFA_ATTR_CANCEL]        = __ATTR_WO(cancel),
+>> +    [LFA_ATTR_AUTO_ACTIVATE]    = __ATTR_RW(auto_activate),
+>>   };
+>>   static void init_image_default_attrs(void)
+>> @@ -640,6 +665,7 @@ static int update_fw_image_node(char *fw_uuid, int 
+>> seq_id,
+>>       image->kobj.kset = lfa_kset;
+>>       image->image_name = image_name;
+>>       image->cpu_rendezvous_forced = true;
+>> +    image->auto_activate = false;
+> 
+> 
+> I think sysadmins should be able to automate setting this at boot and
+> after firmware inventory changes.
+> 
+> A udev rule matching /sys/firmware/lfa/<uuid>/auto_activate did not work
+> when I tried it, since those entries are plain kobjects under
+> /sys/firmware. The arm-lfa faux device worked better as the event anchor,
 
-Applied, thanks!
+I like that idea, however with the change from faux device to the SMCCC 
+bus this doesn't work as easily anymore. There would be still a device 
+somewhere, but I don't know how this is mapped to udev.
+Since you seem to know more about it, can you please check how the 
+changed patch set behaves in this respect? And ideally let us know what 
+it would take to adapt the uevent code the new version?
 
-[1/1] arm64: dts: freescale: imx95-var-dart: enable NETC block control
-      commit: 5206b2eec56ee5d50b02a0aac2c8a66f76556d37
+Cheers,
+Andre
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+
+> with something like:
+> 
+>    if (lfa_dev)
+>            kobject_uevent(&lfa_dev->dev.kobj, KOBJ_CHANGE);
+> 
+> Then userspace can use:
+> 
+>    ACTION=="add|change", SUBSYSTEM=="faux", KERNEL=="arm-lfa", \
+>            RUN+="/usr/sbin/lfa-auto-activate"
+> 
+> What do you think about adding such a notification in v3?
+> 
+> Regards,
+> Nirmoy
+> 
+> 
+>>       set_image_flags(image, seq_id, image_flags, reg_current_ver,
+>>               reg_pending_ver);
+>>       if (kobject_init_and_add(&image->kobj, &image_ktype, NULL,
+>> @@ -709,7 +735,8 @@ static int update_fw_images_tree(void)
+>>   /*
+>>    * Go through all FW images in a loop and trigger activation
+>> - * of all activatible and pending images.
+>> + * of all activatible and pending images, but only if automatic
+>> + * activation for that image is allowed.
+>>    * We have to restart enumeration after every triggered activation,
+>>    * since the firmware images might have changed during the activation.
+>>    */
+>> @@ -728,7 +755,8 @@ static int activate_pending_image(void)
+>>               continue; /* Invalid FW component */
+>>           update_fw_image_pending(image);
+>> -        if (image->activation_capable && image->activation_pending) {
+>> +        if (image->activation_capable && image->activation_pending &&
+>> +            image->auto_activate) {
+>>               found_pending = true;
+>>               break;
+>>           }
+
 
