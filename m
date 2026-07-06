@@ -4,133 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CE50C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB19C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Hr2NPUTo7WR2HUFRKWBr6+C1/10nbPAmkGq80diRQC8=; b=18PbQgNf1vKDSQXZL2cYVPSl9V
-	weIA/L7pR7DIKOnP6+4zaKTDExzUFChWecVRdC/yxpryFL8PGbDmUScJnXxnlqJTX21SH3GxasSjQ
-	4Ycet0IZutRBaZSbmwGYmnMnRH24oITgJs1pEwth0kPSKeudlotYcIj9cbz7c8LBsKNGXXn7dyk2N
-	qemP/q1PGxv6gLJX6K7tmYMR4lzAs37UaQouKPwAEnSvc5e9EhWgMB5lNJsUoKB0D78mgiI99tZJb
-	2X5ECQ9jzR7+4EoBfmU0CXGXtvV0ogMJBiBEJ4MzQZ7sUtG5a1hRUuTskkgDeqDfSMftT6nMvOB8S
-	IGWuzaYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nZ7xCp940lKXmz4uQJ0f3D2aRgCUjhm0aQj61Hq0smk=; b=eVt6pWSe1JfU2jvCCaDaDTQlzo
+	QL5pc4mEEYlbqmq6LbxKrhc27TKT9Vjv7vXpoJdJJLqvlp7x7RDG0/r8b7zyazOQi3BNBc9DLY3VJ
+	SJyk0iP+o1Ojz6Ah/Mfl+9IVpLtsglL51O6oRmHhrN93mDJCTInTcwmKYWpi4BIp2P9SuvsG28yr0
+	OuQVWKHgZi4I9yJ8QudqXhyKsSTyh6dDep4wXmw5EdR0svKaVGKvuL0S3E2AKDY9SV6T9rTSGvWcd
+	PoCjWgqd4adwDaoSCvFe2pY468QAECPrCz82qEpWmEe9TOfy9nfvludRfoB2zUvE1j0Z7BAgONtiI
+	5ai9KkdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgp0m-0000000DQxI-18xH;
-	Mon, 06 Jul 2026 19:29:48 +0000
-Received: from mail-northeuropeazon11012012.outbound.protection.outlook.com ([52.101.66.12] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1wgp3X-0000000DRFP-2hQw;
+	Mon, 06 Jul 2026 19:32:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgp0j-0000000DQwQ-2WHB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 19:29:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vlq7sqCWYGkEGbwDN5lScNJ4qi2B2fv9QyiBbz2X+p2tKBaqjXqA7Syk84hadgkvJDqzmsoTRoB67XonkKNqvwYQou3Hnc6oC9GGAFwiNHldZTMggdebr3K0Qw9JSZsc8QeDW6ajSLz3g9TE1peCTZViSg5NsvxhajYukxYxtwAe4KBNQB/nmD5l4G60tDzyabu43GCvzU/jtgX+dI2DJPGQ+kBFEcn25AteyI+fLaIEyZrM73Cf7RYm3oYF5b8lRtRbrILBg7aUHlZqXAhbWcakP7WND8KN/97zw2BYHdGhacpDCBF6mBliPyrYU0E3CxM9he56INOa3Fj9bk6w7g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Hr2NPUTo7WR2HUFRKWBr6+C1/10nbPAmkGq80diRQC8=;
- b=a0iLWhx/Op/Ny2ba/LsNQ2C/F7vLqoehETibuAfqagcSMLebJ2dDy2AMj7PVbo45I8wFLCUZeVnYgWXtW3JjgMQTz52N+stMiBFBFtVPhUjiNFZK4mkrgQJDwTu2lNKOhteOWqhGsBoMhdkZkYoabl6n+EbkXsWB3+A/UG/owUHHWq8PGReYBfs0CjyJjHwcN9FdvDoFcu5ZLXqz87jvBx7E5Y0dnebP+kEkdkSrVxygzqaKTpNohzL7isAZwUaIl5q2v+Gx1S3OqFfE51abU6KFz/UKnAMpkBgVK1NKqzMOox82BWMUXd/jRijGlem2A5/Yw0iBkCjrN211cr4UrA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Hr2NPUTo7WR2HUFRKWBr6+C1/10nbPAmkGq80diRQC8=;
- b=m6Ae9ilRNfQ9jlEJZK7+s4YDsrL1JZjseKawD8lVHmbM2EdCmu2tU0A46NWMXsrBj+pak7cGPsAGobV+5/sDjrLJkN3xd51FsfwwViIjFJLmQPZPd0EwSQdD9fDLALkQMwnGr6WMjnlU5+XxxyshGGOypaRGns1tpTdoZlsis35TNm1TKyy6BdPDQ6XZMQRMkvkbPmX5anFebhyp8qYays59S7OJIBk4hSkbUK3ssvQhR/mHS8rWND3i4RwMeI9i2O9gMk56ab/MPRkYaY4hLjwZuI1PmY7oFXKnCaX7TKIVEC+JRuS9Wzx/U0NSwEqLL9yo12dSvV+32Jiw+n7PCQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by VI0PR04MB10832.eurprd04.prod.outlook.com (2603:10a6:800:267::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Mon, 6 Jul 2026
- 19:29:40 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
- 19:29:40 +0000
-From: Frank.Li@oss.nxp.com
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Linus Walleij <linusw@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v3 1/1] dt-bindings: mfd: st,stmpe: fix typo st,stmpe601 (should be st,stmpe610)
-Date: Mon,  6 Jul 2026 15:29:32 -0400
-Message-ID: <20260706192932.1573584-1-Frank.Li@oss.nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: PH1PEPF0001330D.namprd07.prod.outlook.com
- (2603:10b6:518:1::1c) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
+	id 1wgp3V-0000000DRE7-0lVl;
+	Mon, 06 Jul 2026 19:32:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783366354;
+	bh=/oiDzG1yPzVXvmDyvrB8YcOt78K9ESwEa+Uivy/4TVI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jzUm9I2+94tXdgxin0lHHVbT5SjP9gQvniyFq9/P+prpO2RgMgBy5SWBi5dZHyVCD
+	 b7v+iF1m0cDa+1m9T6MAOCQmvF43QmqysM35fdylK6u57JeOBEF5LAmbFb6GKC0vTa
+	 am+ug3xx1SN45wS/F1kmgrHEMgCE8bCQWlK/5YFYN5NOb3wv94xfUri3Z9Lu8xSrzL
+	 NbchZVXOROLgkS13D06gJ4bF6oCWLr0RJmvT63lY44j6vH8bNaCgMwrkmvs3SuMRWc
+	 u5XK7E7oNXQRPJwB4gWMqR4mbiHlq+O9jvEDP5Krbs30rnsCcPaecpWuuuVa9VIyTq
+	 mmWhiJvPMG2Tg==
+Received: from localhost (unknown [100.64.0.241])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3DD5A17E0D56;
+	Mon, 06 Jul 2026 21:32:34 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 06 Jul 2026 22:32:13 +0300
+Subject: [PATCH v2 01/13] dt-bindings: display: vop2: Add missing reset
+ properties
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI0PR04MB10832:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffd667e7-f4ce-4bdc-5fbb-08dedb94ec46
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|18002099003|56012099006|3023799007|11063799006|921020;
-X-Microsoft-Antispam-Message-Info: bFaWm3eJ9vMwJkorrFlysTWa4kZBcO1lErJE/POUPCk+GyPLZoynPlX48t/cf2Ef4wmbyBl8pjrUn9pcS75ec+hjXZhnwbXQyUQ9Pym9eWOFPPVXyyT0BnHJ2axmO35NoWoipKaUvhVaXgH93fiHvkKeSxBu0EBC+aBqU5QHfub2n1L91jEDv1tHUrVoLD4rEME2W12Q/OIwNtN1S6JP+boyV4ACNM2BSgOhpKfScEGe5VrE8xX93pWRf7CtRC5qHPST7Lm1rwJwDJNKBh0xkwgH3ORJtf1Lare1VDb4y10Xwxft6PNdHAdUaMjD0Uh104vr06ZiMWxdgiffeFywjVEpgHqJsijUte2yvf5hc/0iN7jmvaKugB0HzVnI05OMPKUmRGp7K4Y9P8mMByNmkYF9+wOX5fz1D4lCINnVS90laApFG4b01RblUotvHwzavyzQ+lyBkIRsTzX9zWX6Gr7879LbEZkb7UEhJsMS6AgjiQ8yayXJahw34fsf3EXUO50vNK5x6/7oM9l9N1km/jFvxIKQ5genkigxkDWfXEMkZJLAcYpbPePe86CxA5wTgRMXrETAQ0VkJFthOvXJJcmgIPzP6k7fIrCn3YqGdDkx4vLDngeMGY+KLA+nHGyfpj7w5t8PFMakAKkYAVUUonGTsAIsi2oWxV1WiRaIsIkvnt4qXt5+TCm0gsDLtwDDtwrXqnazInAYwNT/5+agQA==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(18002099003)(56012099006)(3023799007)(11063799006)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6KWsn5DBMUryfFF8eR0woaWBBI6WufXLq4sUNnkrM6wxzebFlx9452c6b2la?=
- =?us-ascii?Q?WBsJxObPowmMMwdIWrH6ShxMCiLpE4fIQJIJ6vfKhCxz59xDJa7lEN8ArBOb?=
- =?us-ascii?Q?ab6CvDmELfzPvsL4xQb9mkYtSwLbjZsVQjRwZFzC8DrdHne9onL+xc7DEeon?=
- =?us-ascii?Q?Z2ZZOyi2+LfRD9xfEKjd3RAJuApzt+xK+6C3wR5RBlmKU4dHceJirqQZ8zWI?=
- =?us-ascii?Q?fVwR0PN3gDapIcV+Y2bRopd2lj59G8Vj4qyq5E9Qr3bMoXVicHbKnEzVLTaH?=
- =?us-ascii?Q?Wmvn8osiFJbTB8SexNgRFtbelu9bHHf2cYFxBPMjNs/jim5zGZoJ2R1+PKPh?=
- =?us-ascii?Q?xMhj0biFyQ61E3iH9lxolrTbIWjZDyeb/PMtG1P2eC9aE2rL9eOu31GJ9RJQ?=
- =?us-ascii?Q?bMUCQGmiDfZ4YDwFi2Htm5kMbhc+sdmJ6Fjsq6rlzc7zUPl2sS8VNbg6gUv1?=
- =?us-ascii?Q?kugYW4YgB9IdW/mH0H4nAmOmoInsQvaFTka1LqauSoUtnUbty6ngOiP4h3Mq?=
- =?us-ascii?Q?gnL9E+9gcOUEq/HPLEKx1clWX1876khueMgeoCtN5NxdNZ1WOHxBm4qnUFqe?=
- =?us-ascii?Q?Re3d3bx/IjjI0NXUyWLeUf4j+SrNbzLAdONXGFrzGbyw1PXM8n0bjia9wVGV?=
- =?us-ascii?Q?f0gaoU9eeyFqMFLekxlNatk4u0LZcCwZ0fxSEUqAWXD+iPtmFGPlxvYWnEPw?=
- =?us-ascii?Q?j45ZtvYguiWAgbjwPvHzPOr6RuhOKXfiHiNtETglYTojneha5XiehMbTcUE/?=
- =?us-ascii?Q?VQqxbj3NKwMQDGq6Dn1/Bf/9gtBCF/Dwt+FB8sYeaVtXA5Xg8BBTW6xw6Ma2?=
- =?us-ascii?Q?hUiu47kiO3ovZZwp9vSXAlb5DLH8nYh0Kq2ZhlaaotS6R4mA1HiWPG8Kyarj?=
- =?us-ascii?Q?ZBcQoCrLe0xZzx7diz2xVEyttJFgMU1gQ3AAoSyap7F6r1C8HtHKXRZ3uBKA?=
- =?us-ascii?Q?FVovLl6EmydVnvkbFiXsVUlcvBDOfBjyj1o3AaqXwDsLT+brFoCT6oPhsBSi?=
- =?us-ascii?Q?r1nlLn8SMBQ+biC6mronrqQFttpOTQuUG6xb3Wyog7VebzyTc47f5Nxqzdzu?=
- =?us-ascii?Q?JZ5Gg6JCypbMETYMvhoxCeVBFtPAAm4mHNNxkT5k8S0FpZ/GxlB3vX1YkfaG?=
- =?us-ascii?Q?tf/Zhe5nJy1mZQsWBxU8P9NU21qNNluiJkkcyWEMfFLtlBOc4Y9G8BvBLgk/?=
- =?us-ascii?Q?IQVujA+LQfEoSk6Fy9kYekf6KbCZqSYfVN+O5/5yyahMJ/Af00EIBj949H2S?=
- =?us-ascii?Q?KXoeLkovc4FHBQRxg/uN4jGsbY+utTityxY7SQOsu5eTGAhLR9ICJaFyoR5D?=
- =?us-ascii?Q?cWzJZ2qEarEfP1ugQ1vjP1Wwfpu0265l6QE09faMVzYfnEt0OS8/NLCEQBj1?=
- =?us-ascii?Q?KOeYvMYcGDMm85/N5khF1q34EnI+H1tok1IKAYNTX5by+sqDSvWuwo9p06cr?=
- =?us-ascii?Q?gpQcNhZ812XRGr4oSkxHnbTSAxuc4C28ZAhJ/s1YADzmTv3SoNF8LsCLqHqU?=
- =?us-ascii?Q?xKFBitSRMDf9YijighEjY/FZDTkuX6ur8sCCSnBSSGI8JG5OHun+RYzTzOFt?=
- =?us-ascii?Q?l9ZC9ooDGfiHPcmHFCa7RlNQ31erw2wen17jUR4ijMz5I63KMP5TxFRzRDVr?=
- =?us-ascii?Q?l4mgJU4+cjxInwFCCcwTUANYlDIVqmyqP6B50OmnWhrgJLSbiIAgof+4ayTG?=
- =?us-ascii?Q?4AwZHlLLxpxkI11+bkoViX2dsBCZiu4pcavsf44n6LTqMD3hFmCScGsvpveH?=
- =?us-ascii?Q?X2z4TziocnYC993Kha+S7RFGoJQTKnt7MEKhm9IZg6ivC4GK3Cqk?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffd667e7-f4ce-4bdc-5fbb-08dedb94ec46
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 19:29:40.0919
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EA2CVOdwo7TTAipXryCw0UlKnAZXH6tHmTyaqyQNgEr5jzVCB8s1eG/UjCBOEx8xq0Gqeq54wx6Nxtakj2VgtkLe1eiCRg7i5xQ5mALZJogUzq9QDc2xPRYjca1STLEG
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10832
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-dw-hdmi-qp-yuv-v2-1-b91beb33dedf@collabora.com>
+References: <20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com>
+In-Reply-To: <20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_122945_647952_9B54DAC0 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20260706_123237_371247_2589860C 
+X-CRM114-Status: UNSURE (   9.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,44 +90,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+Document the VOP2 resets corresponding to the AXI, AHB and DCLK_VP0..2
+clocks, which are common to all supported SoCs, plus DCLK_VP3 which is
+provided only on RK3588.
 
-The compatible string "st,stmpe601" is a typo and does not correspond to
-any existing STMPE device in either the driver or DTS files. The correct
-compatible string is "st,stmpe610".
+While at it, move 'iommus' in the example up into the expected position
+to keep the properties in alphabetical order.
 
-Fix the typo to ensure proper schema matching and eliminate the
-following CHECK_DTBS warning:
-  imx53-m53evk.dtb: /soc/bus@60000000/i2c@63fc4000/touchscreen@41: failed to match any schema with compatible: ['st,stmpe610']
-
-Fixes: e10038ce1ba9 ("dt-bindings: mfd: Convert STMPE to YAML schema")
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
-changes in v3
-- add fixes tag
-- add Linus Walleij review tags
+ .../bindings/display/rockchip/rockchip-vop2.yaml   | 46 +++++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 2 deletions(-)
 
-changes in v2
-- fix typo st,stmpe601
----
- Documentation/devicetree/bindings/mfd/st,stmpe.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+index 93da1fb9adc4..f993cef0323b 100644
+--- a/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
++++ b/Documentation/devicetree/bindings/display/rockchip/rockchip-vop2.yaml
+@@ -82,6 +82,20 @@ properties:
+       - {}
+       - {}
+ 
++  resets:
++    minItems: 5
++    maxItems: 6
++
++  reset-names:
++    minItems: 5
++    items:
++      - const: axi
++      - const: ahb
++      - const: dclk_vp0
++      - const: dclk_vp1
++      - const: dclk_vp2
++      - const: dclk_vp3
++
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
+     description:
+@@ -148,6 +162,12 @@ allOf:
+         clock-names:
+           maxItems: 5
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -194,6 +214,12 @@ allOf:
+             - {}
+             - const: pll_hdmiphy0
+ 
++        resets:
++          maxItems: 5
++
++        reset-names:
++          maxItems: 5
++
+         interrupts:
+           minItems: 4
+ 
+@@ -246,6 +272,12 @@ allOf:
+             - const: pll_hdmiphy0
+             - const: pll_hdmiphy1
+ 
++        resets:
++          minItems: 6
++
++        reset-names:
++          minItems: 6
++
+         interrupts:
+           maxItems: 1
+ 
+@@ -289,9 +321,19 @@ examples:
+                               "dclk_vp0",
+                               "dclk_vp1",
+                               "dclk_vp2";
+-                power-domains = <&power RK3568_PD_VO>;
+-                rockchip,grf = <&grf>;
+                 iommus = <&vop_mmu>;
++                power-domains = <&power RK3568_PD_VO>;
++                resets = <&cru SRST_A_VOP>,
++                         <&cru SRST_H_VOP>,
++                         <&cru SRST_VOP0>,
++                         <&cru SRST_VOP1>,
++                         <&cru SRST_VOP2>;
++                reset-names = "axi",
++                              "ahb",
++                              "dclk_vp0",
++                              "dclk_vp1",
++                              "dclk_vp2";
++                rockchip,grf = <&grf>;
+                 vop_out: ports {
+                     #address-cells = <1>;
+                     #size-cells = <0>;
 
-diff --git a/Documentation/devicetree/bindings/mfd/st,stmpe.yaml b/Documentation/devicetree/bindings/mfd/st,stmpe.yaml
-index 4bb05d544901c..ddb27ae64ba37 100644
---- a/Documentation/devicetree/bindings/mfd/st,stmpe.yaml
-+++ b/Documentation/devicetree/bindings/mfd/st,stmpe.yaml
-@@ -20,7 +20,7 @@ allOf:
- properties:
-   compatible:
-     enum:
--      - st,stmpe601
-+      - st,stmpe610
-       - st,stmpe801
-       - st,stmpe811
-       - st,stmpe1600
 -- 
-2.43.0
+2.54.0
 
 
