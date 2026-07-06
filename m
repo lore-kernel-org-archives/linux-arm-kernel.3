@@ -4,68 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A86EBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4245DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QHNamPKjhT26TDn8HJD8lZwpsva7nZLItuVVWrKgxw=; b=avg0tIDEzyw6GTnHLSNal3NMTd
-	sk2yWEsAJMgzrmmSjKbQUe4OHbFBSprqDGD0Kj67oGW4bQgUwjRAs+TD5kC/DDwpHunSRLtCRFxHT
-	vmWsi+VzZaQJDAmaBDkjBcsy3JOG5lWCzx2fM39MaLb/7b00dSBj57b7wVKWyWKitfXdkDuctA3w9
-	GSyvCMVGELuGe1By/p3zVuMP/T9l8DFFxKKzItlREsXF2zbZcj43sR5f8kgUEWae2YJLWTIMY74qa
-	4Xzvt9T/7Zr5FEzKEuLwjtSSSozvyYMyTY6lX14tEOAHjJoD2p0gPCcKD4uDHUe6HPWypHWdJRTYq
-	iFt5MO2g==;
+	bh=s9n6tsDLu0c4N30evfB9JHjeraziDAONy2Yyx3LR1Uo=; b=mN/gfpt0JDvNLFaDjHD/h0ZHO+
+	dzaXbq+zJcP31hUSWS33o3VvEsVxVWEDMfQuHIvcXGr7BzAwOHm/tyjuv5qbsHGnX3h7ejoCNnV5A
+	NA16FLJUrOfxPnuCFBIPfaNegR3CJK76pbVnSmZZsRWeyXnZ5Vdzf/n7vayW0oOX1OePt6QvPm6b3
+	Tn9niFSGsry0mfL8yk5AOJuDU+erqHY/VfRQTriZTUADp/epQJUpZA+sPwvmDKw9HfWLn2iYEIpAw
+	XM5G+7BSY6eBOJIjpJSSVZHNj73hP+cTkArSyD1YDNtAbuvQ2HugeP0SVDOuXigNYatrdEHT6C1xx
+	+kUGec0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghbi-0000000CNvY-0RmL;
-	Mon, 06 Jul 2026 11:35:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wghtc-0000000CPqc-2KrZ;
+	Mon, 06 Jul 2026 11:53:56 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghbf-0000000CNuy-0DcO
+	id 1wghta-0000000CPq0-39zJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:35:23 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8588A40BD6;
-	Mon,  6 Jul 2026 11:35:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD121F000E9;
-	Mon,  6 Jul 2026 11:35:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783337722;
-	bh=0QHNamPKjhT26TDn8HJD8lZwpsva7nZLItuVVWrKgxw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LnZg5pDEl/YbyVjvwLOdIOB1fd9xeufnLnBVYTn0yFjkwQQIcH/hNpokUZSQy81nI
-	 Spk/ZSjZ9g7PzB3NrgPGutQ6yasP/oh/KcXyhOA7G+NNoDKfyVkahcCARefSEusPPd
-	 9ESC0k1S0n21ErvIbvmbVNonMDp9tDga79CSgtxsK+iQDTZETBcdpeon56Z51rmBuq
-	 Pd8iZquPGPJmc1tKS/jqug3yEQQV5ne1CjuIlC/S4fVHYPp5DPp3DhY+Y1/m+BphcR
-	 jB3agjkuOkEyqA4LZShAiXpXsEVdLsZxMJE4MIAH6qAINS4fzz5Y/z3aMvjcdGDBLI
-	 JQJWBfcaB9XSw==
-Date: Mon, 6 Jul 2026 14:35:14 +0300
-From: Mike Rapoport <rppt@kernel.org>
-To: Adrian =?utf-8?Q?Barna=C5=9B?= <abarnas@google.com>
-Cc: Brendan Jackman <brendan.jackman@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>, Christoph Lameter <cl@gentwo.org>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Brendan Jackman <jackmanb@google.com>, owner-linux-mm@kvack.org
-Subject: Re: [RFC PATCH 3/6] arm64: mm: fix restoring linear map permissions
- on execmem cache clean
-Message-ID: <akuS8uhjPBhI5mzZ@kernel.org>
-References: <20260611130144.1385343-1-abarnas@google.com>
- <20260611130144.1385343-4-abarnas@google.com>
- <DJ69RCVRBO0Y.3JCYSW50IC4RC@linux.dev>
- <aiuyoy8Kmr9yU4GM@kernel.org>
- <ajK6w3YTFpVaUl3v@google.com>
+	Mon, 06 Jul 2026 11:53:55 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666BIZgD041409;
+	Mon, 6 Jul 2026 11:53:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=s9n6tsDLu0c4N30evfB9JHjeraziDA
+	ONy2Yyx3LR1Uo=; b=sio/hwru4xGhv4JXyM+22CEoogEV0e3ss5O3zcOV3rKpOd
+	gNngkW2l+nCt3A98Jf8yXqnZNq5CX2lgHaArIl7begVnzGKB0s2DtrTopunBo0kS
+	9mW7Tp+LLsYjUkqkioSE8JQICBQG87Q0z8ORjR2F+vA0N5q7DbJfmfTS/Iv8kpui
+	SpEXjuv5MqI4CWO/SFbV4tQo6kklXCc9VVar+8ptAOaZbDRtO5ruMYF+IQ71BAs7
+	2tItj4DckoyACFVzmKUkCaKAcrNTmqbRMvoM5DCc5PQizuR/YP8YsSjbuNPJWMAH
+	zMm6btCfymWrsWeSvR6S0xk/E2qOhlAEWjnwa0Uw==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6qkn9arx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 11:53:44 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 666BneZW007900;
+	Mon, 6 Jul 2026 11:53:43 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7f6xw2q6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 11:53:43 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 666BraRD46727626
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jul 2026 11:53:36 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C6AC92004B;
+	Mon,  6 Jul 2026 11:53:36 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C471D20043;
+	Mon,  6 Jul 2026 11:53:35 +0000 (GMT)
+Received: from osiris (unknown [9.111.31.209])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon,  6 Jul 2026 11:53:35 +0000 (GMT)
+Date: Mon, 6 Jul 2026 13:53:34 +0200
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: Janosch Frank <frankja@linux.ibm.com>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 19/27] s390: Introduce Start Arm Execution instruction
+Message-ID: <20260706115334.104396-P-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+ <20260706085229.979525-20-seiden@linux.ibm.com>
+ <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ajK6w3YTFpVaUl3v@google.com>
+In-Reply-To: <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=Q/XiJY2a c=1 sm=1 tr=0 ts=6a4b9748 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=ERqXt4YBi1nz3Ag4VCMA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-GUID: fETsMo4dD4Y6qi9C3CNdK4GHSlsqbE4I
+X-Proofpoint-ORIG-GUID: fETsMo4dD4Y6qi9C3CNdK4GHSlsqbE4I
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEyMCBTYWx0ZWRfXzzTt3U/+SU+e
+ f3uSEwUff5DwXPiE4hB24nxIGXCWoeGm93R1bnNIjw0sfzY7ZTUlOYH5y3iASau5Uxqnmkjtry5
+ YuwmFpVIVAQiwJqxsWq0Tdt490mKokk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEyMCBTYWx0ZWRfXxSx+4RrXjjI+
+ EDEfQd7qDuHkSsHHsu9xPSn7cjGAyVKvOduFbg9HiyXtGzWRplnDfZpM2Si5isqm4lSGdyvlTKK
+ aDFC5tUypUvDo5jyQgeShhh7n5OvtHIZ0FHbsSgNyCV+pLlhZXHI1MejXd854HIdR8H3wXhJ62u
+ gccMZ9VgTUXDj7gcQDQjrcAYHpJbu8hsskWZPeadD/BOeI7EKu7mOywHK2GNWYl7zhAL9JXVfS/
+ V7NNOZG2URgUzzsRmSlrKcxnVSZ2rQewz/a4VwiARX3W1Vt+hzGFHnKEATV1xVkN39payD+Tns4
+ FGrePitja1Y/Zam+lM0x7XlahyirIWPV0WaLALaqCTw9xvK0TPjwg/fWNVjrT+1zA6BowOcPuHA
+ bt6i3D257ca61V8o7/Qgmz4nLs4n0VbiOk0rsr4Q4SPogs+Sa1SZzc/YD7jblIzItdcXdRr3vcG
+ WzCP+8n1omaYTrxrLAA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
+ bulkscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060120
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_045354_913731_044AED7B 
+X-CRM114-Status: GOOD (  24.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,33 +141,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Adrian,
-
-On Wed, Jun 17, 2026 at 03:18:27PM +0000, Adrian Barnaś wrote:
+On Mon, Jul 06, 2026 at 01:17:02PM +0200, Janosch Frank wrote:
+> On 7/6/26 10:52, Steffen Eiden wrote:
+> > The Start Arm Execution (SAE) instruction is the centerpiece for
+> > executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
+> > enable accelerated execution of arm64 virtual machines. SAE expects the
+> > physical address of a control block as the only argument.
+> > 
+> > The host is responsible to save & restore
+> >   - GPRs 0-13
+> >   - access register 0-15
+> >   - breaking event register (BEAR)
+> >   - vector/floating point registers
+> > between SAE executions to guarantee host consistency.
+> > 
+> > GPRs and BEAR are save and restores in the asm functions. The other
+> > register are handled in within C code. Access registers are handled in a
+> > later patch and SVEs will be handled when they are introduced in a
+> > future series. Most arm64 registers are handled by a satellite block
+> > called save_area. Some registers, frequently used by hypervisors, are
+> > placed into the SAE control block itself.
+> > 
+> > Enlighten asm/kvm_host_types.h for the new header variant. The new
+> > header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
+> > is defined.
+> > 
 > 
-> Following your suggestion, I can put together a preparatory patch series to
-> refactor the set_direct_map_* APIs to accept a nr_pages parameter. This
-> refactoring would also allow us to drop the redundant set_area_direct_map
-> helper. I could then rebase the rox_cache series on top of that.
-
-I've been looking at something related and I was already half way through
-adding numpages to set_direct_map when I remembered this conversation :)
-
-Here's what I have for now:
-
-https://git.kernel.org/pub/scm/linux/kernel/git/rppt/linux.git/log/?h=direct-map/v0
-
-This is only lightly build tested for arm64 and x86.
-
-As this is WIP, things may change there, but I hope it can save you some
-time with your arm64 ROX cache work.
-
-> Does this sound like a good path forward?
+> [...]
 > 
-> Thanks,
-> Adrian
+> > +	u64	gpr[31];		/* 0x0300  */
+> > +	u64	_03f8;			/* 0x03f8  */
+> > +
+> > +	union {
+> > +		u64	icptd[8];		/* 0x0400 */
+> > +		/* validity-interception reason; icptr 0x01 */
+> > +#define SAE_VIR_UNKNOWN		0x00
+> > +#define SAE_VIR_UNSUPP_FORMAT	0x01
+> > +#define SAE_VIR_MSO_BOUNDS	0x02
+> > +#define SAE_VIR_MSLA		0x03
+> > +#define SAE_VIR_MGPAS		0x04
+> > +#define SAE_VIR_INVAL_SYSREG	0x05
+> > +#define SAE_VIR_HOST_CONTROL	0x06
+> > +#define SAE_VIR_SCA		0x07
+> > +#define SAE_VIR_MSO_ALIGN	0x08
+> > +#define SAE_VIR_HLC		0x09
+> > +#define SAE_VIR_IRPTC		0x0a
+> 
+> Will these ever be used for something?
 
--- 
-Sincerely yours,
-Mike.
+I'll remove them.
+
 
