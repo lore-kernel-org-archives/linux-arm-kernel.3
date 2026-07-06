@@ -4,68 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E25C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:00:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA1E2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lRjC8sbxSnb8bmyPxIrTX3A1cB87UfAbp+R6QRvhw8=; b=3KcTSriT2eqRR/usf7kNP7Tc5l
-	HsqOKyQRPICzi2x8mhW2HwnDvilGZSb2Ee/pR/cVamlcptzPtH8ZrBoW20wAcCH9khUDbzuMHoWgC
-	C8D6QSAMeRak66wWl8DFmx8fBayzBzSbbYpi8r62hjFi2iVLPF+ugrvIJkgt7emxAHiCaZ1aTof0r
-	P3M9KcFASBj8ZnugXa5fH3TApRSKn+SX5G8kvyEbjg2H38aJp2GkTnnrF6ux7zctSjC2dkGVOycyq
-	bZgBZfaqRW0i9aYz6ydORGffF47EGQy3pV5QpOOzBGCXZsDBdfwO5uAWvy0wE0nPBBtfCmx581CD5
-	LHMHtrvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y64q1rOVJRV8XgnWzacRRJCI5ERmLc/qdiLuRcjP4a4=; b=12PkPpX7aLzEFDoUBcWu4XzG3r
+	TWh3AC+z0PuDb0aNAARbFZn4U4UNUqCNQFOgtIkTsSqG+LncysaAUYCipf4ck50OTY52SkNc4rtiH
+	p9EG/oGRd3xXbHkePs/Gl/cbOLbjuBILabD15PW8piPLP8eGljgv1yiEdEJI2lAERVDiD6ZFisZ5b
+	Ruk7GNbWe+rXUi2ttm5pfMzwAvDeeUKG2GGihYCiD7eyh7O3XKaTCNZQB51EMiC4PfK4UzQrglsMd
+	qMP3CaMowrxsoRgypv3GTPwZ+lU44T0XaoO6MYNifwvgbeYrRSZaf/DCBfBYokLGk7ExEa2pllHPY
+	qnAW8nWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgg7o-0000000C7f3-06ZV;
-	Mon, 06 Jul 2026 10:00:28 +0000
-Received: from out-178.mta0.migadu.com ([91.218.175.178])
+	id 1wgg85-0000000C7su-2ha2;
+	Mon, 06 Jul 2026 10:00:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgg7i-0000000C7a5-1ITV
+	id 1wgg82-0000000C7oh-2NAK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:00:25 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783332020;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0lRjC8sbxSnb8bmyPxIrTX3A1cB87UfAbp+R6QRvhw8=;
-	b=ccN8xrQZANpnNdfgcB3j2ficsXu24P2kgC8S0nwjsVKVk26330zVAlh9APcKRQ/NSBLE9c
-	PwD93prPLoOzVVaO+XG8lRS8HTcqldu4LV/dc2Ia8SmFMvXtDUvpJqkvi4D8Od1WND2daz
-	4SqEJhSXeW4dRVSO3t70U4B21JU0Kk8=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Sebastian Ene <sebastianene@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v4 6/8] KVM: arm64: Minimise EL2's exposure of host VGIC state during world switch
-Date: Mon,  6 Jul 2026 10:59:25 +0100
-Message-Id: <20260706095927.560795-7-fuad.tabba@linux.dev>
-In-Reply-To: <20260706095927.560795-1-fuad.tabba@linux.dev>
-References: <20260706095927.560795-1-fuad.tabba@linux.dev>
+	Mon, 06 Jul 2026 10:00:42 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E9FBE4083C
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 10:00:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE3E61F000E9
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 10:00:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783332041;
+	bh=y64q1rOVJRV8XgnWzacRRJCI5ERmLc/qdiLuRcjP4a4=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc;
+	b=a92Cx0Yx95nitvrpm9IZYZyQRkVgeDmk3TYr4cA44b1O1HGWIo9HO7YP3wUUo24i6
+	 yJYW/nICKrSvZi1ftKhRbdtBCBAHG+2lvfSA3BUCyDpPUpfYaKOzOWIDC7PL8vyoMD
+	 SSbdEffQNZcauKyVHfyGkC0q2vtaLf1Rrt0OOeU+UU9Ydi3DTU7X9Gcvh2D4srTjfl
+	 Jxx5euA8t83wgJacLozCBxc117rpFle6XlrjBLK/kjxtHSmXjTOBLVVU1JWsVXcYeq
+	 YGvZ8IpocYS8z9YsisiXpStKnElkBU3WZwyVc+KLqfh87/4qlrztuq/qvxHpGPbZre
+	 4i67NEDHI+vWA==
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-39af64026dcso22277351fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 03:00:41 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AHgh+Ro+3EIlMbDgPg0MvQPwZWEBWS0VvQWiQiqrJlQSLVg4irff+xs+i4hBqNaGKRCcJh5dn3EUiz3SdGnigN0nelBP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvFMpAuxxT4qHOCwh5CpnsFyoR3ei1Nm131edxf+51/BK4oRop
+	9VBCyB1SGpGr9/WNMXIHHcdq0aSZWKaatr1JJQ8OpxeWs+/qfvvkM5PASbGnPCmZMrg2xkcMh5G
+	SQasAQOX86613EK+SYkGNXKvQraHHICH63LKs0FGmrQ==
+X-Received: by 2002:a05:651c:1987:b0:39b:8b6:2ef5 with SMTP id
+ 38308e7fff4ca-39b53dc2376mr16221831fa.37.1783332040596; Mon, 06 Jul 2026
+ 03:00:40 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 6 Jul 2026 03:00:38 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 6 Jul 2026 03:00:38 -0700
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_030023_549457_3998B616 
-X-CRM114-Status: GOOD (  14.44  )
+References: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
+Date: Mon, 6 Jul 2026 03:00:38 -0700
+X-Gmail-Original-Message-ID: <CAMRc=Meik0TZb0SVqOFNGq9rNxaTkUjoWDDyrUJ_jpeC6F-_+Q@mail.gmail.com>
+X-Gm-Features: AVVi8Cd_vTiB1-2lXKJ5QQiOBjkZqXBIiW8idxZ7MnJk6oKjPDQqHOTb03-acoI
+Message-ID: <CAMRc=Meik0TZb0SVqOFNGq9rNxaTkUjoWDDyrUJ_jpeC6F-_+Q@mail.gmail.com>
+Subject: Re: [PATCH 0/7] ARM: orion: convert legacy gpio-keys to software nodes
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Russell King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>, 
+	Gregory Clement <gregory.clement@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,125 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Marc Zyngier <maz@kernel.org>
+On Mon, 6 Jul 2026 03:29:17 +0200, Dmitry Torokhov
+<dmitry.torokhov@gmail.com> said:
+> This patch series converts Marvell Orion and MV78xx0 board setup files
+> from legacy platform data to software nodes with the eventual goal of
+> dropping support for legacy gpio API and platform data from gpio-keys
+> driver.
+>
+> The series registers static software nodes for Orion GPIO controllers
+> during gpiochip registration in orion_gpio_init(), allowing board setups
+> to reference GPIO controllers via PROPERTY_ENTRY_GPIO(). It then converts
+> gpio-keys setups to software nodes across MV78xx0 and Orion5x boards
+> (Buffalo WXL, DNS-323, MV2120, Net2Big, QNAP TS-209, and TS-409).
+>
+> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+> ---
+> Dmitry Torokhov (7):
+>       ARM: orion: register software nodes for GPIO chips
+>       ARM: mv78xx0: buffalo-wxl: convert gpio-keys to use software nodes
+>       ARM: orion5x: dns323: convert gpio-keys to use software nodes
+>       ARM: orion5x: mv2120: convert gpio-keys to use software nodes
+>       ARM: orion5x: net2big: convert gpio-keys to use software nodes
+>       ARM: orion5x: ts209: convert gpio-keys to use software nodes
+>       ARM: orion5x: ts409: convert gpio-keys to use software nodes
+>
+>  arch/arm/mach-mv78xx0/buffalo-wxl-setup.c     | 50 ++++++++------
+>  arch/arm/mach-orion5x/dns323-setup.c          | 98 +++++++++++++++++----------
+>  arch/arm/mach-orion5x/mv2120-setup.c          | 68 ++++++++++++-------
+>  arch/arm/mach-orion5x/net2big-setup.c         | 94 ++++++++++++++++---------
+>  arch/arm/mach-orion5x/ts209-setup.c           | 70 ++++++++++++-------
+>  arch/arm/mach-orion5x/ts409-setup.c           | 69 ++++++++++++-------
+>  arch/arm/plat-orion/gpio.c                    | 10 +++
+>  arch/arm/plat-orion/include/plat/orion-gpio.h |  3 +
+>  8 files changed, 303 insertions(+), 159 deletions(-)
+> ---
+> base-commit: 2b763db0c2763d6bf73d7d3e69665222d1f377cf
+> change-id: 20260704-orion-mv78xx0-swnode-9e94ae913a21
+>
+> Thanks.
+>
+> --
+> Dmitry
+>
+>
 
-The host passes a vgic_v3_cpu_if pointer to the __vgic_v3_save_aprs and
-__vgic_v3_restore_vmcr_aprs hypercalls, which EL2 dereferences
-wholesale. That exposes the host's full VGIC emulation state to the
-hypervisor, against pKVM's isolation goals.
-
-Recover the host vCPU from the supplied cpu_if via container_of() and
-copy only vgic_vmcr and the active priority registers between EL2's
-hyp-side state and the host vCPU, so EL2 no longer dereferences the
-host's vgic_v3_cpu_if directly.
-
-Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 67 ++++++++++++++++++++++++++++--
- 1 file changed, 63 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 45d717889f6ea..f3233ee343a39 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -7,6 +7,8 @@
- #include <hyp/adjust_pc.h>
- #include <hyp/switch.h>
- 
-+#include <linux/irqchip/arm-gic-v3.h>
-+
- #include <asm/pgtable-types.h>
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
-@@ -239,6 +241,16 @@ static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
- 		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);		\
- 	})
- 
-+#define get_host_hyp_vcpus_from_vgic_v3_cpu_if(ctxt, regnr, hyp_vcpup)		\
-+	({									\
-+		DECLARE_REG(struct vgic_v3_cpu_if *, cif, ctxt, regnr);\
-+		struct kvm_vcpu *__vcpu = container_of(cif,			\
-+						       struct kvm_vcpu,		\
-+						       arch.vgic_cpu.vgic_v3);	\
-+										\
-+		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);			\
-+	})
-+
- static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
- {
- 	struct pkvm_hyp_vcpu *hyp_vcpu;
-@@ -508,16 +520,63 @@ static void handle___vgic_v3_init_lrs(struct kvm_cpu_context *host_ctxt)
- 
- static void handle___vgic_v3_save_aprs(struct kvm_cpu_context *host_ctxt)
- {
--	DECLARE_REG(struct vgic_v3_cpu_if *, cpu_if, host_ctxt, 1);
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+	struct kvm_vcpu *host_vcpu;
- 
--	__vgic_v3_save_aprs(kern_hyp_va(cpu_if));
-+	host_vcpu = get_host_hyp_vcpus_from_vgic_v3_cpu_if(host_ctxt, 1,
-+							   &hyp_vcpu);
-+	if (!host_vcpu)
-+		return;
-+
-+	if (unlikely(hyp_vcpu)) {
-+		struct vgic_v3_cpu_if *hyp_cpu_if, *host_cpu_if;
-+		int i;
-+
-+		hyp_cpu_if = &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
-+		__vgic_v3_save_aprs(hyp_cpu_if);
-+
-+		host_cpu_if = &host_vcpu->arch.vgic_cpu.vgic_v3;
-+		host_cpu_if->vgic_vmcr = hyp_cpu_if->vgic_vmcr;
-+		for (i = 0; i < ARRAY_SIZE(host_cpu_if->vgic_ap0r); i++) {
-+			host_cpu_if->vgic_ap0r[i] = hyp_cpu_if->vgic_ap0r[i];
-+			host_cpu_if->vgic_ap1r[i] = hyp_cpu_if->vgic_ap1r[i];
-+		}
-+	} else {
-+		__vgic_v3_save_aprs(&host_vcpu->arch.vgic_cpu.vgic_v3);
-+	}
- }
- 
- static void handle___vgic_v3_restore_vmcr_aprs(struct kvm_cpu_context *host_ctxt)
- {
--	DECLARE_REG(struct vgic_v3_cpu_if *, cpu_if, host_ctxt, 1);
-+	struct pkvm_hyp_vcpu *hyp_vcpu;
-+	struct kvm_vcpu *host_vcpu;
- 
--	__vgic_v3_restore_vmcr_aprs(kern_hyp_va(cpu_if));
-+	host_vcpu = get_host_hyp_vcpus_from_vgic_v3_cpu_if(host_ctxt, 1,
-+							   &hyp_vcpu);
-+	if (!host_vcpu)
-+		return;
-+
-+	if (unlikely(hyp_vcpu)) {
-+		struct vgic_v3_cpu_if *hyp_cpu_if, *host_cpu_if;
-+		int i;
-+
-+		hyp_cpu_if = &hyp_vcpu->vcpu.arch.vgic_cpu.vgic_v3;
-+		host_cpu_if = &host_vcpu->arch.vgic_cpu.vgic_v3;
-+
-+		hyp_cpu_if->vgic_vmcr = host_cpu_if->vgic_vmcr;
-+		/* Should be a one-off */
-+		hyp_cpu_if->vgic_sre = (ICC_SRE_EL1_DIB |
-+					ICC_SRE_EL1_DFB |
-+					ICC_SRE_EL1_SRE);
-+		for (i = 0; i < ARRAY_SIZE(host_cpu_if->vgic_ap0r); i++) {
-+			hyp_cpu_if->vgic_ap0r[i] = host_cpu_if->vgic_ap0r[i];
-+			hyp_cpu_if->vgic_ap1r[i] = host_cpu_if->vgic_ap1r[i];
-+		}
-+
-+		__vgic_v3_restore_vmcr_aprs(hyp_cpu_if);
-+	} else {
-+		__vgic_v3_restore_vmcr_aprs(&host_vcpu->arch.vgic_cpu.vgic_v3);
-+	}
- }
- 
- static void handle___pkvm_init(struct kvm_cpu_context *host_ctxt)
--- 
-2.39.5
-
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
