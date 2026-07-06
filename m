@@ -4,73 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDD3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E6CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kfFPiegXNTBdwL7ERGkc+qHbAJDd2t8DcXD4UdKo670=; b=1mXCWKy6zNUF5PdL/DRTeCOomc
-	XrPndfPEKDB0rjTaysMtGCHj/WpqpdYW2mSzjc+Vwk7ZwG0OLD5rICN6ph4STnSS0MWXAzy3Nkbu7
-	ZS9zAgASFxYLSLcu4NIa08PJ+Gp/+7uruw5464wTqgQA4L+h1F+aNt85CDlRG0aEQbZiVbdL0QqHO
-	8mcUq7TfVzwvfB3EVJ3iUklirfe6mdycf3KKv4RnWR0xbMENL/JfpUGcTCGdknFBX/Q0YakrTKBt9
-	bCXI4SHluhsgRDU+yPNaNcd7G3i8QyYeMOsVuuehKvB6Ozk7ScpZ/7iTc3rCdW4DnlJTanxPxC7eQ
-	w1DjMgBg==;
+	bh=D6oxv9x4Bb9P3Ee/2ovo5eCbeGWm/VpAePCJrUzRHSU=; b=A0DqeTqOujX8KPjG0FJH5SXrsg
+	mMu3G60erlF0IcCk88CnFwQGCAS9pbOWkuiht1F1VvSO900HtjWAstJbttEMJ6bfUjeBa4hwcQHGs
+	1m1vfbTaTQQoAeOtHSICyNCoagLybHvKuDxrLRoWHuab6Qp3ibckepduRfF0tj4mD0jN2Rdl87sQL
+	s3Q/+YHnWMFoAn7coRkw5xdxO9vgtIfHiYF19CZ+81UK9Ju1LEwyl1SUt/6khpahkl3mV4OPjeb3x
+	mtUKUgLUTz+Ji1sUMYmk8SP4fW5c3Xsol2tl8X51RZqFmI3tBDfRTzeFDBt2EnMN8vECWk3h5oC1t
+	dlSuBazg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf8W-0000000BwjX-29RS;
-	Mon, 06 Jul 2026 08:57:08 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1wgf9R-0000000Bwrb-3NjY;
+	Mon, 06 Jul 2026 08:58:05 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf8R-0000000Bwij-1I7E
+	id 1wgf9P-0000000Bwr8-2Bx3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:57:07 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6F1644E40CA6;
-	Mon,  6 Jul 2026 08:56:59 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 2C3F2601A2;
-	Mon,  6 Jul 2026 08:56:59 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6433611BB9BF5;
-	Mon,  6 Jul 2026 10:56:55 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783328218; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=kfFPiegXNTBdwL7ERGkc+qHbAJDd2t8DcXD4UdKo670=;
-	b=226LxmgDjx9k9eSuB9lzIsww26Zz8Ic9NQLh0i4uMKUs5Gns2LhFiuf3n4DK4rypNVQe6A
-	/TpEfY4XWaVCUItIlaFrreQ60DyDdR4yrIhQ7Ifkk9ediqJJ2qtvj5eNbgG2rYPxTMINl5
-	QsFHXtk2CV2yU84tHFQIqppoEDMmr6XdW0fhgucdghDZOnx/TxPtMEEUhG8myLxd0CUBa4
-	+nmESPjYRIUYipXI5FEiL+Dc7T2FY2aE/d1SC9wXNZJQ2ZpqDc3Rmj96g4Bxos7X2yrQfw
-	MoilbPUhQ3q+DMaGgK9IdAQ/+MinohXiBRAcDgWPzwvaqv3OMIbAC9w90W8ARg==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 06 Jul 2026 10:56:54 +0200
-Message-Id: <DJRD3C0919EP.CTZYPXDY93HI@bootlin.com>
-Cc: <linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
- <linux-gpio@vger.kernel.org>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 08/12] soc: fsl: qe: Convert to generic IRQ chip
-From: "Paul Louvel" <paul.louvel@bootlin.com>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "Paul Louvel"
- <paul.louvel@bootlin.com>, "Qiang Zhao" <qiang.zhao@nxp.com>, "Thomas
- Gleixner" <tglx@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Linus Walleij" <linusw@kernel.org>, "Bartosz Golaszewski"
- <brgl@kernel.org>, "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Michael
- Ellerman" <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>
-X-Mailer: aerc 0.21.0-0-g5549850facc2
-References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
- <20260703-qe-pic-gpios-v1-8-6c3e706e27dc@bootlin.com>
- <34946670-2a76-47fa-af82-3d70cdc9d8f0@kernel.org>
-In-Reply-To: <34946670-2a76-47fa-af82-3d70cdc9d8f0@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+	Mon, 06 Jul 2026 08:58:04 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIGQ82303956;
+	Mon, 6 Jul 2026 08:52:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=D6oxv9x4Bb9P3Ee/2
+	ovo5eCbeGWm/VpAePCJrUzRHSU=; b=Ps2OROHUooewZb7+mEVpzRfxgMuAY9bCv
+	Ur80F5THLWLHP8/EKTGfsRlB6ONirx1qfkr+qAOjBgxu+sG1t8xP2JlLuytY2Kkt
+	7R2q+zc6gKJsfGxEpgH/HfpLHLPL02PvWNgCfl5JeqwHQYH1mxT9a+R3RMh9WXt8
+	1yWd4wyBaSLbXEXoUckr33ZglkEmlGiIlk8aHCHOcnpgUvZistpkEWWeILiJSJdj
+	GGGkv9nA9vQUXmKAszVM+6+etdXbv75Wyf7NlzKF06tir9kKp//NoZQFsLojBtLL
+	hOUxAl1T8qurbyRADeuQnwTsHVdQh1DKUoHOzsUL9VkJN/NZpYyGA==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sp3gk8c-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 08:52:50 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nbb1009549;
+	Mon, 6 Jul 2026 08:52:49 GMT
+Received: from smtprelay01.fra02v.mail.ibm.com ([9.218.2.227])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7cgpw1bs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 08:52:49 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay01.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qfEp51118460
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jul 2026 08:52:41 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7327B20040;
+	Mon,  6 Jul 2026 08:52:41 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0F24720043;
+	Mon,  6 Jul 2026 08:52:41 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  6 Jul 2026 08:52:41 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v4 27/27] KVM: s390: arm64: Enable KVM_ARM64 config and Kbuild
+Date: Mon,  6 Jul 2026 10:52:27 +0200
+Message-ID: <20260706085229.979525-28-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=KsJ9H2WN c=1 sm=1 tr=0 ts=6a4b6ce2 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=iQ6ETzBq9ecOQQE5vZCe:22 a=VnNF1IyMAAAA:8 a=Zz3svKs3IDGlfYr5LI8A:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX6RrfVRnzEcq6
+ 7Clgvq/luVzxVx67cX/lm/7Xcw2jKGfWn+hmGtBBNiVsYwvIjF8KF7GLSI8TSmgM8UJC75SEB12
+ NjGYHXMkb9HdU6njeIUi9LaKlApQ53g=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX7/Md+HucprUM
+ GA+WJMr5pW0SbIIcEvpbNbV/v6AZ4/1fFSeNWZJNkhL7BWAuVh4LUAxicJhfPjw3hlM33KkzB8G
+ 8tWxxGaZo7MPuPVBISi08efKl/44EgvwniNBUGMdaDx5WcjIZyP+XvI7azUYc6iTMjOTiMKaCVp
+ 9PSDNus8VIrS3hPztsXp3IExz5aSQjVZzHLG8BDm9HVBXd+YRj4zCNPebeSrn8Gs7fNhytJQQk+
+ c8aTY6/3g+H9m7k2ma1Bbt55b+B4grqouRgRDMXgKd/T73bK+rw/fR/6UgsfQoZTunoe07ap30i
+ 1Ssrt4CCQ12J8fbTJnueX9NLNujijI6dblZ5xJEeNiFWnb8JlANaPrAvH6bi4GEudZh8Zx89xnR
+ BlSqI858mQO7SRKc+89WWC+b05djQYJbQ0aYyYfJf5Y8+hiAWmHnT/PBGRMy4sgYrFjmC4pUMhP
+ rbxw7OaAZSX1LKf5G3w==
+X-Proofpoint-ORIG-GUID: _cQCSZ6FXMns0UX9qBwA0Hcy3pgX859Q
+X-Proofpoint-GUID: _cQCSZ6FXMns0UX9qBwA0Hcy3pgX859Q
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 spamscore=0 adultscore=0 clxscore=1015
+ suspectscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_015705_910193_D7C437E6 
-X-CRM114-Status: GOOD (  25.75  )
+X-CRM114-CacheID: sfid-20260706_015803_573172_FD530274 
+X-CRM114-Status: GOOD (  21.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,302 +139,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon Jul 6, 2026 at 9:29 AM CEST, Christophe Leroy (CS GROUP) wrote:
-> Hi Paul,
->
-> Le 03/07/2026 =C3=A0 15:30, Paul Louvel a =C3=A9crit=C2=A0:
->> The generic IRQ chip framework is available to handle IRQ chips. Using
->> this framework for the QE interrupt controller allows to simplify the
->> driver. Indeed, the framework internally handles operations coded
->> directly in the driver.
->>=20
->> Add a select dependency to GENERIC_IRQ_CHIP in the PPC platform Kconfig.
->>=20
->> Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
->> ---
->>   arch/powerpc/platforms/Kconfig   |   1 +
->>   drivers/soc/fsl/qe/qe_ports_ic.c | 103 ++++++++++++++++++++++++++-----=
---------
->>   2 files changed, 70 insertions(+), 34 deletions(-)
->>=20
->> diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kco=
-nfig
->> index c4e61843d9d9..b0b3a80f8cde 100644
->> --- a/arch/powerpc/platforms/Kconfig
->> +++ b/arch/powerpc/platforms/Kconfig
->> @@ -232,6 +232,7 @@ config QE_GPIO
->>   	bool "QE GPIO support"
->>   	depends on QUICC_ENGINE
->>   	select GPIOLIB
->> +	select GENERIC_IRQ_CHIP
->>   	help
->>   	  Say Y here if you're going to use hardware that connects to the
->>   	  QE GPIOs.
->> diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_po=
-rts_ic.c
->> index c8b73b0aa233..d022aa224f6d 100644
->> --- a/drivers/soc/fsl/qe/qe_ports_ic.c
->> +++ b/drivers/soc/fsl/qe/qe_ports_ic.c
->> @@ -20,63 +20,65 @@ struct qepic_data {
->>   	void __iomem *reg;
->>   	struct irq_domain *host;
->>   	int irq;
->> +	struct irq_chip_generic *gc;
->>   };
->>  =20
->>   static void qepic_mask(struct irq_data *d)
->>   {
->> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
->>  =20
->> -	clrbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
->> +	clrbits32(gc->reg_base + ct->regs.mask, d->mask);
->
-> Is there a real added value with this change ?
->
-> Previously we had:
->
-> 00000000 <qepic_mask>:
->     0:	81 03 00 18 	lwz     r8,24(r3)
->     4:	81 28 00 00 	lwz     r9,0(r8)
->     8:	7c 00 04 ac 	hwsync
->     c:	81 29 00 10 	lwz     r9,16(r9)
->    10:	0c 09 00 00 	twi     0,r9,0
->    14:	4c 00 01 2c 	isync
->    18:	80 e3 00 08 	lwz     r7,8(r3)
->    1c:	3d 40 80 00 	lis     r10,-32768
->    20:	81 08 00 00 	lwz     r8,0(r8)
->    24:	7d 4a 3c 30 	srw     r10,r10,r7
->    28:	7d 29 50 78 	andc    r9,r9,r10
->    2c:	7c 00 04 ac 	hwsync
->    30:	91 28 00 10 	stw     r9,16(r8)
->    34:	4e 80 00 20 	blr
->
-> Now we have:
->
-> 00000000 <qepic_mask>:
->     0:	80 e3 00 18 	lwz     r7,24(r3)
->     4:	81 03 00 10 	lwz     r8,16(r3)
->     8:	81 27 00 00 	lwz     r9,0(r7)
->     c:	81 48 00 94 	lwz     r10,148(r8)
->    10:	7d 29 52 14 	add     r9,r9,r10
->    14:	7c 00 04 ac 	hwsync
->    18:	81 49 00 00 	lwz     r10,0(r9)
->    1c:	0c 0a 00 00 	twi     0,r10,0
->    20:	4c 00 01 2c 	isync
->    24:	80 c3 00 00 	lwz     r6,0(r3)
->    28:	81 27 00 00 	lwz     r9,0(r7)
->    2c:	81 08 00 94 	lwz     r8,148(r8)
->    30:	7d 4a 30 78 	andc    r10,r10,r6
->    34:	7d 29 42 14 	add     r9,r9,r8
->    38:	7c 00 04 ac 	hwsync
->    3c:	91 49 00 00 	stw     r10,0(r9)
->    40:	4e 80 00 20 	blr
->
-> We now have three more indirect loads (8x lwz instead of 5x), for=20
-> loading some value which is already known at compile time.
->
->
->>   }
->>  =20
->>   static void qepic_unmask(struct irq_data *d)
->>   {
->> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
->>  =20
->> -	setbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
->> +	setbits32(gc->reg_base + ct->regs.mask, d->mask);
->>   }
->>  =20
->>   static void qepic_end(struct irq_data *d)
->>   {
->> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
->>  =20
->> -	out_be32(data->reg + CEPIER, 1 << (31 - irqd_to_hwirq(d)));
->> +	out_be32(gc->reg_base + ct->regs.eoi, d->mask);
->> +}
->> +
->> +static void qepic_calc_mask(struct irq_data *d)
->> +{
->> +	d->mask =3D 1 << (31 - irqd_to_hwirq(d));
->>   }
->>  =20
->>   static int qepic_set_type(struct irq_data *d, unsigned int flow_type)
->>   {
->> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
->> -	unsigned int vec =3D (unsigned int)irqd_to_hwirq(d);
->> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
->> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
->>  =20
->>   	switch (flow_type & IRQ_TYPE_SENSE_MASK) {
->>   	case IRQ_TYPE_EDGE_FALLING:
->> -		setbits32(data->reg + CEPICR, 1 << (31 - vec));
->> +		setbits32(gc->reg_base + ct->regs.type, d->mask);
->>   		return 0;
->>   	case IRQ_TYPE_EDGE_BOTH:
->>   	case IRQ_TYPE_NONE:
->> -		clrbits32(data->reg + CEPICR, 1 << (31 - vec));
->> +		clrbits32(gc->reg_base + ct->regs.type, d->mask);
->>   		return 0;
->>   	}
->>   	return -EINVAL;
->>   }
->>  =20
->> -static struct irq_chip qepic =3D {
->> -	.name =3D "QEPIC",
->> -	.irq_mask =3D qepic_mask,
->> -	.irq_unmask =3D qepic_unmask,
->> -	.irq_eoi =3D qepic_end,
->> -	.irq_set_type =3D qepic_set_type,
->> -};
->> -
->>   static void qepic_cascade(struct irq_desc *desc)
->>   {
->>   	struct qepic_data *data =3D irq_desc_get_handler_data(desc);
->> +	struct irq_chip_type *ct =3D data->gc->chip_types;
->>   	struct irq_chip *chip =3D irq_desc_get_chip(desc);
->>   	unsigned long event, bit;
->>  =20
->>   	chained_irq_enter(chip, desc);
->>  =20
->> -	event =3D in_be32(data->reg + CEPIER);
->> +	event =3D in_be32(data->gc->reg_base + ct->regs.eoi);
->>   	if (!event) {
->>   		handle_bad_irq(desc);
->>   		goto out;
->> @@ -89,33 +91,64 @@ static void qepic_cascade(struct irq_desc *desc)
->>   	chained_irq_exit(chip, desc);
->>   }
->>  =20
->> -static int qepic_host_map(struct irq_domain *h, unsigned int virq, irq_=
-hw_number_t hw)
->> +static int qepic_chip_init(struct irq_chip_generic *gc)
->>   {
->> -	irq_set_chip_data(virq, h->host_data);
->> -	irq_set_chip_and_handler(virq, &qepic, handle_fasteoi_irq);
->> +	struct irq_chip_type *ct =3D gc->chip_types;
->> +
->> +	ct->regs.mask =3D CEPIMR;
->> +	ct->chip.irq_mask =3D qepic_mask;
->> +	ct->chip.irq_unmask =3D qepic_unmask;
->> +	ct->regs.eoi =3D CEPIER;
->> +	ct->chip.irq_eoi =3D qepic_end;
->> +	ct->regs.type =3D CEPICR;
->> +	ct->chip.irq_set_type =3D qepic_set_type;
->> +	ct->chip.irq_calc_mask =3D qepic_calc_mask;
->
-> Are ct->regs.mask, ct->regs.eoi and ct->regs.type used anywhere else=20
-> than locally in qepic_{mask/unmask/end/set_type} ?
+Add all Kbuild/Makefile configurations to build a second KVM module on
+s390 implementing the arm64-KVM API. To prevent symbol conflicts with
+kvm-s390 all internal symbols in kvm-arm64 are mangled if compiled as
+built-in. The new module ins named kvm-arm64.
 
-No they are not.
-The main purpose of these registers is that they are used in the generic ir=
-q
-chip framework functions like irq_gc_mask_set_bit(), which we dropped earli=
-er in
-favor of using our own hooks.
-At this stage, if you consider that the instructions overhead of the functi=
-ons
-above is already too much, it is better to get rid of the framework complet=
-ly
-then.
+As in this case the build does not go through the normal build process
+the module parameter handling would be messed up. By forcing
+KBUILD_MODNAME to kvm-arm64 all parameters are at the same location and
+not at object/basename of the object file the parameter is introduced.
 
->
-> Christophe
->
->> +
->>   	return 0;
->>   }
->>  =20
->> -static const struct irq_domain_ops qepic_host_ops =3D {
->> -	.map =3D qepic_host_map,
->> -};
->> +static int qepic_domain_init(struct irq_domain *d)
->> +{
->> +	struct qepic_data *data =3D d->host_data;
->>  =20
->> -static void qepic_remove(void *res)
->> +	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
->> +
->> +	return 0;
->> +}
->> +
->> +static void qepic_domain_exit(struct irq_domain *d)
->>   {
->> -	struct qepic_data *data =3D res;
->> +	struct qepic_data *data =3D d->host_data;
->>  =20
->>   	irq_set_chained_handler_and_data(data->irq, NULL, NULL);
->> -	irq_domain_remove(data->host);
->>   }
->>  =20
->>   static int qepic_probe(struct platform_device *pdev)
->>   {
->> +	struct irq_domain_chip_generic_info dgc_info =3D {
->> +		.name		=3D "QEPIC",
->> +		.handler	=3D handle_fasteoi_irq,
->> +		.irqs_per_chip	=3D 32,
->> +		.num_ct		=3D 1,
->> +		.init		=3D qepic_chip_init,
->> +	};
->> +	struct irq_domain_info d_info =3D {
->> +		.fwnode		=3D of_fwnode_handle(pdev->dev.of_node),
->> +		.domain_flags	=3D IRQ_DOMAIN_FLAG_DESTROY_GC,
->> +		.size		=3D 32,
->> +		.hwirq_max	=3D 32,
->> +		.ops		=3D &irq_generic_chip_ops,
->> +		.dgc_info	=3D &dgc_info,
->> +		.init		=3D qepic_domain_init,
->> +		.exit		=3D qepic_domain_exit,
->> +	};
->>   	struct device *dev =3D &pdev->dev;
->>   	struct qepic_data *data;
->>  =20
->>   	data =3D devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
->>   	if (!data)
->>   		return -ENOMEM;
->> +	d_info.host_data =3D data;
->>  =20
->>   	data->reg =3D devm_platform_ioremap_resource(pdev, 0);
->>   	if (IS_ERR(data->reg))
->> @@ -125,14 +158,16 @@ static int qepic_probe(struct platform_device *pde=
-v)
->>   	if (data->irq < 0)
->>   		return data->irq;
->>  =20
->> -	data->host =3D irq_domain_create_linear(dev_fwnode(dev), 32, &qepic_ho=
-st_ops, data);
->> -	if (!data->host)
->> -		return -ENODEV;
->> +	data->host =3D devm_irq_domain_instantiate(dev, &d_info);
->> +	if (IS_ERR(data->host))
->> +		return PTR_ERR(data->host);
->>  =20
->> -	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
->> -
->> -	return devm_add_action_or_reset(dev, qepic_remove, data);
->> +	data->gc =3D irq_get_domain_generic_chip(data->host, 0);
->> +	if (!data->gc)
->> +		return -ENODEV;
->> +	data->gc->reg_base =3D data->reg;
->>  =20
->> +	return 0;
->>   }
->>  =20
->>   static const struct of_device_id qepic_match[] =3D {
->>=20
+Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+Co-developed-by: Gautam Gala <ggala@linux.ibm.com>
+Signed-off-by: Gautam Gala <ggala@linux.ibm.com>
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/s390/configs/defconfig  |  1 +
+ arch/s390/include/asm/Kbuild |  3 ++
+ arch/s390/kvm/Kconfig        |  1 +
+ arch/s390/kvm/Makefile       |  1 +
+ arch/s390/kvm/arm64/Kconfig  | 23 +++++++++
+ arch/s390/kvm/arm64/Makefile | 94 ++++++++++++++++++++++++++++++++++++
+ 6 files changed, 123 insertions(+)
+ create mode 100644 arch/s390/kvm/arm64/Kconfig
+ create mode 100644 arch/s390/kvm/arm64/Makefile
 
-Thanks,
-Paul.
-
-
-
---=20
-Paul Louvel, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
+index 327ab4a3933c..20de85c96e9e 100644
+--- a/arch/s390/configs/defconfig
++++ b/arch/s390/configs/defconfig
+@@ -62,6 +62,7 @@ CONFIG_CMM=m
+ CONFIG_APPLDATA_BASE=y
+ CONFIG_S390_HYPFS_FS=y
+ CONFIG_KVM_S390=m
++CONFIG_KVM_ARM64=m
+ CONFIG_S390_UNWIND_SELFTEST=m
+ CONFIG_S390_KPROBES_SANITY_TEST=m
+ CONFIG_S390_MODULES_SANITY_TEST=m
+diff --git a/arch/s390/include/asm/Kbuild b/arch/s390/include/asm/Kbuild
+index 0c1fc47c3ba0..f6fd67d1c651 100644
+--- a/arch/s390/include/asm/Kbuild
++++ b/arch/s390/include/asm/Kbuild
+@@ -8,3 +8,6 @@ generic-y += asm-offsets.h
+ generic-y += mcs_spinlock.h
+ generic-y += mmzone.h
+ generic-y += ring_buffer.h
++
++generated-y += sysreg-gen-defs.h
++generated-y += kvm_arm64_modname.h
+diff --git a/arch/s390/kvm/Kconfig b/arch/s390/kvm/Kconfig
+index f8d4a9a38dae..bbae58aa8bc4 100644
+--- a/arch/s390/kvm/Kconfig
++++ b/arch/s390/kvm/Kconfig
+@@ -20,5 +20,6 @@ config KVM
+ 	tristate
+ 
+ source "arch/s390/kvm/s390/Kconfig"
++source "arch/s390/kvm/arm64/Kconfig"
+ 
+ endif # VIRTUALIZATION
+diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
+index c43d7dffca13..38bdd7c9b42d 100644
+--- a/arch/s390/kvm/Makefile
++++ b/arch/s390/kvm/Makefile
+@@ -4,3 +4,4 @@
+ # Copyright IBM Corp. 2008
+ 
+ obj-$(CONFIG_KVM_S390) += s390/
++obj-$(CONFIG_KVM_ARM64) += arm64/
+diff --git a/arch/s390/kvm/arm64/Kconfig b/arch/s390/kvm/arm64/Kconfig
+new file mode 100644
+index 000000000000..99a7fc3b71c0
+--- /dev/null
++++ b/arch/s390/kvm/arm64/Kconfig
+@@ -0,0 +1,23 @@
++# SPDX-License-Identifier: GPL-2.0
++
++config KVM_ARM64
++	def_tristate y
++	prompt "Kernel-based Virtual Machine (KVM) support for arm64 guests"
++	depends on HAS_IOMEM
++	select KVM
++	select KVM_VFIO
++	select IRQ_BYPASS_MANAGER
++	select SCHED_INFO
++	select XARRAY_MULTI
++	select KVM_COMMON
++	select HAVE_KVM_CPU_RELAX_INTERCEPT
++	select HAVE_KVM_MSI
++	select HAVE_KVM_IRQCHIP
++	select HAVE_KVM_IRQ_ROUTING
++	select HAVE_KVM_VCPU_RUN_PID_CHANGE
++	select KVM_GENERIC_PRE_FAULT_MEMORY
++	select GUEST_PERF_EVENTS if PERF_EVENTS
++	help
++	  Support hosting virtualized arm64 guest machines on s390 host machines.
++
++	  If unsure, say N.
+diff --git a/arch/s390/kvm/arm64/Makefile b/arch/s390/kvm/arm64/Makefile
+new file mode 100644
+index 000000000000..566040725ab5
+--- /dev/null
++++ b/arch/s390/kvm/arm64/Makefile
+@@ -0,0 +1,94 @@
++# SPDX-License-Identifier: GPL-2.0
++
++KVM := ../../../../virt/kvm
++include $(srctree)/virt/kvm/Makefile.kvm
++KVM_MANAGES_S390_GUEST = n
++include $(srctree)/arch/s390/kvm/gmap/Makefile
++include $(src)/Makefile.gen
++
++ccflags-y += -I $(src) -I $(objtree)/$(obj) -I$(srctree)/arch/s390/kvm/gmap -I$(srctree)/arch/arm64/include -I$(srctree)/arch/arm64/kvm -DKVM_S390_ARM64
++
++kvm-arm64-obj := \
++	arm.o \
++	guest.o \
++	handle_exit.o \
++	inject_fault.o \
++	mmu.o \
++	mmio.o \
++	reset.o \
++
++kvm-arm64-obj += $(patsubst %.o,%-arm64.o,$(kvm-y))
++
++targets += $(kvm-arm64-obj)
++
++$(obj)/%-arm64.o: $(src)/%.c FORCE
++	@mkdir -p $(dir $@)
++	$(call if_changed_rule,cc_o_c)
++
++ifeq ($(CONFIG_KVM_ARM64),m)
++
++kvm-arm64-y = $(kvm-arm64-obj)
++
++else ifeq ($(CONFIG_KVM_ARM64),y)
++
++KVM_ARM64_GEN_DIR := $(objtree)/arch/${SRCARCH}/include/generated/asm
++KVM_ARM64_MODNAME_H := $(KVM_ARM64_GEN_DIR)/kvm_arm64_modname.h
++ccflags-y += -include $(KVM_ARM64_MODNAME_H)
++
++targets += $(KVM_ARM64_MODNAME_H)
++
++quiet_cmd_kvm_arm64_modname_h = GEN     $@
++      cmd_kvm_arm64_modname_h = { \
++	echo '/* Automatically generated; do not edit. */'; \
++	echo '\#ifndef _KVM_ARM64_MODNAME_H'; \
++	echo '\#define _KVM_ARM64_MODNAME_H'; \
++	echo '\#undef KBUILD_MODNAME'; \
++	echo '\#define KBUILD_MODNAME "kvm_arm64"'; \
++	echo '\#endif /* _KVM_ARM64_MODNAME_H */'; \
++	} > $@
++
++$(addprefix $(obj)/,$(kvm-arm64-obj)): $(KVM_ARM64_MODNAME_H)
++
++$(KVM_ARM64_MODNAME_H):
++	@mkdir -p $(KVM_ARM64_GEN_DIR)
++	$(call cmd,kvm_arm64_modname_h)
++
++prereq-o-cmd = $(foreach o, $(filter %.o, $^), $(dir $(o)).$(notdir $(o)).cmd)
++cmd_gen_symversions_o = \
++	grep --no-filename "^\#SYMVER" $(prereq-o-cmd) >> $(dot-target).cmd || true
++
++define rule_ld_o_o
++	$(call cmd_and_savecmd,ld)
++	$(call cmd,gen_symversions_o)
++endef
++
++LDFLAGS_kvm-unnamespaced.o := -r --whole-archive
++$(obj)/kvm-unnamespaced.o: $(addprefix $(obj)/,$(kvm-arm64-obj)) FORCE
++	$(call if_changed_rule,ld_o_o)
++
++# Make list of symbols to localize.
++# Collect normal/exported symbols. Use dict as set for deduplication.
++# TODO extract do script
++quiet_cmd_nm_filter = NMFLTR  $@
++	cmd_nm_filter = $(NM) -jU $< | sort -u > $@
++
++$(obj)/kvm_symbol_list: $(obj)/kvm-unnamespaced.o FORCE
++	$(call if_changed,nm_filter)
++
++define rule_oc_o_o
++	$(call cmd_and_savecmd,objcopy)
++	$(call cmd,gen_objtooldep)
++	$(call cmd,gen_symversions_o)
++endef
++
++OBJCOPYFLAGS_kvm-namespaced.o := -O default --localize-symbols=$(obj)/kvm_symbol_list
++$(obj)/kvm-namespaced.o: $(obj)/kvm-unnamespaced.o $(obj)/kvm_symbol_list FORCE
++	$(call if_changed_rule,oc_o_o)
++
++kvm-arm64-y = kvm-namespaced.o
++
++targets += kvm-unnamespaced.o kvm_symbol_list kvm-namespaced.o
++
++endif
++
++obj-$(CONFIG_KVM_ARM64) += kvm-arm64.o
+-- 
+2.53.0
 
 
