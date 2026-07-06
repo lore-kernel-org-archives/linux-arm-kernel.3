@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45D5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:05:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CE8C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:05:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9yCa15UdSNTilz8kPcvrpDVJ1NX5mcsjOV3wxcM11SI=; b=oaSR4MTF8bOIOYL901WnkUCXzN
-	yB3M1fVR0rM8Jd8ViiL/bqauz6CdiHp9v6dTCColFq4pB/D7Nsdpj3ZNdPXW82WFcr+Sp79o1XX6c
-	KDBIxhb1VXwbU42j0vbY9OrXnK3T+5asKlbMbPfF0WNBhNbLaOKoN/iiFcgpY1aSBDavde1drRkqI
-	Ak3UHEDkFkVFONI/h8Ls3JQzyptjF3wZ926AQMkU4/ApN7giYpHLWvVMIVsC4K6sAKRnt/stHm4Dn
-	8Rw/YkcgWhlz43GOYBh6NdH5a6N1NbzlmpJ5dqM4/mgOhoU02y5IX2XbL+VRozLW7xD9JuETzI5WZ
-	gSWBmKMA==;
+	bh=r/6QCDeil0i4wpPLRy/lh5myzwbTMSRGajg6rLXjcnQ=; b=HhFqwtnKDCguWxV0n3zDyBizpS
+	HjaagtIg8xV7Oz2Oy//VM6n5r3UlfAUsDN6WgukcOtz0jq+jCLX2YajqqhczkcuD+7FzZijwARKYL
+	WjIGiNv9wJrL9h5pkBw0sSC61Ffn+fiyFnqgvMn5aK8T8j7y5UCYyTwH/22m2YNsyZ4ENlbcVLeqX
+	bbg/INz/RtXZx3VjTtku9UwSUUPPHNoak+skkQC5pGhLIS9/BH/k/DEomUCYeM8VfLuvLkmQOBM6N
+	eXuv6fVO6VVQFinpxEoDAz7Jhxf5W4l3MiVby19I8J5s6z8HNl2jngq7MbpcAbX2h/kosG21iS6ax
+	5bOSwPqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcRs-0000000BZ5f-2gAW;
-	Mon, 06 Jul 2026 06:04:56 +0000
+	id 1wgcRz-0000000BZ82-32KB;
+	Mon, 06 Jul 2026 06:05:03 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcRr-0000000BZ5W-2Q7C
+	id 1wgcRy-0000000BZ7L-2JSs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 06:04:55 +0000
+	Mon, 06 Jul 2026 06:05:02 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D73C600BB;
+	by tor.source.kernel.org (Postfix) with ESMTP id 0436D600BB;
+	Mon,  6 Jul 2026 06:05:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96A2A1F000E9;
 	Mon,  6 Jul 2026 06:04:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553DB1F00A3A;
-	Mon,  6 Jul 2026 06:04:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783317894;
-	bh=9yCa15UdSNTilz8kPcvrpDVJ1NX5mcsjOV3wxcM11SI=;
+	s=k20260515; t=1783317901;
+	bh=r/6QCDeil0i4wpPLRy/lh5myzwbTMSRGajg6rLXjcnQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oaHBKusRrH3Y2ilylkIH9d0RsAMENchHR7eS8HqrdSQJ52O+CCOzBdV6jZddtpdU8
-	 /eKWJF9Jsozfx5NaFN/1VAKLrBbhQCjZ4i9jFQhPVnN646zhGad9YWscawBzYx285L
-	 klC1SGv1BXQwomDn9gmR2nU7UgHurqliT+s9EflGjDn9G/YhTCoH240yvV2iH5JSLH
-	 bUbM2oCK9GDc2EqY91jDshGRPy42N4eWC2K5FK/iPiq+RV1+hIFDB7sYkEhmYDKKkF
-	 wpoPscSuZ8IBXD36GnNnULpR0XH42dTAA1jfuadu27cyxx2KMLNuPV8+ZjQOEp9d4m
-	 PmguWNr7Mi7jg==
+	b=AeQvRqngK209IZbTEJdvoEFXWzsasnIiz0BF4GHk03AcWpk81M2iDCjTl4avLbvD7
+	 hAvYX22sB47e9A54rbl/U86iI6fuKU7lb6JnqE2f597IJ3VLp+bsp3eavf2VXQ0Iwh
+	 8Bfaa+V1OEbvGg8y8TCPVnEA5t4n9LHIY5bFOX71vwTF74RLqlD/C2Gj5+pTZinGSQ
+	 lgC2CALzEgO+JfsSFHHh7uWFiuk2jd16MZAPXlPa1ch/4hkq7bxNX+9dP2wLz45//P
+	 aWQkggnoQKBqp1BVKpXaqviWku5PXU9EL9Vcr+wJcCCHlXecKym1SpLjJ0tJMkU2wA
+	 RiFBu6r3vhuWQ==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	kvmarm@lists.linux.dev,
@@ -58,9 +58,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Thomas Gleixner <tglx@kernel.org>,
 	Will Deacon <will@kernel.org>
-Subject: [PATCH v5 01/10] mm/mem_encrypt: Add helpers for shared-buffer alignment
-Date: Mon,  6 Jul 2026 11:34:23 +0530
-Message-ID: <20260706060432.1375570-2-aneesh.kumar@kernel.org>
+Subject: [PATCH v5 02/10] irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared granule size
+Date: Mon,  6 Jul 2026 11:34:24 +0530
+Message-ID: <20260706060432.1375570-3-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
 References: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
@@ -80,53 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-confidential-computing guests may require shared buffers with alignment
-larger than the guest page size. As these buffers are shared with the host,
-which may manage shared/private state at a different page-size granularity,
-the required alignment must account for the host's page size as well.
+ITS tables allocated by the coco guest are shared with the hypervisor.
+These allocations must satisfy the host shared-buffer granule size so that
+the full converted range is safe for host access.
 
-Add helpers for querying the shared-buffer granule size and for rounding
-sizes up to that granule. The generic implementation defaults to PAGE_SIZE
-so that existing architectures keep their current behaviour unless they
-override the granule size.
+Allocate ITS pages using a size rounded up to the shared granule size and
+use the same allocation order when encrypting, decrypting and freeing the
+memory. Also grow the ITT cache in shared-granule sized chunks instead of
+assuming PAGE_SIZE is sufficient.
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- include/linux/mem_encrypt.h | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/irqchip/irq-gic-v3-its.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
 
-diff --git a/include/linux/mem_encrypt.h b/include/linux/mem_encrypt.h
-index 07584c5e36fb..5d2a868f8d3d 100644
---- a/include/linux/mem_encrypt.h
-+++ b/include/linux/mem_encrypt.h
-@@ -11,6 +11,8 @@
- #define __MEM_ENCRYPT_H__
+diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+index b57d81ad33a0..5d6d38aa0dae 100644
+--- a/drivers/irqchip/irq-gic-v3-its.c
++++ b/drivers/irqchip/irq-gic-v3-its.c
+@@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
+ static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+ 					 unsigned int order)
+ {
++	unsigned int alloc_order;
+ 	struct page *page;
+ 	int ret = 0;
  
- #ifndef __ASSEMBLY__
-+#include <linux/align.h>
-+#include <vdso/page.h>
+-	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
+-
++	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
++	page = alloc_pages_node(node, gfp | gfp_flags_quirk, alloc_order);
+ 	if (!page)
+ 		return NULL;
  
- #ifdef CONFIG_ARCH_HAS_MEM_ENCRYPT
+ 	ret = set_memory_decrypted((unsigned long)page_address(page),
+-				   1 << order);
++				   1 << alloc_order);
+ 	/*
+ 	 * If set_memory_decrypted() fails then we don't know what state the
+ 	 * page is in, so we can't free it. Instead we leak it.
+@@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
  
-@@ -54,6 +56,18 @@
- #define dma_addr_canonical(x)		(x)
- #endif
- 
-+#ifndef mem_cc_shared_granule_size
-+static inline size_t mem_cc_shared_granule_size(void)
-+{
-+	return PAGE_SIZE;
-+}
-+#endif
+ static void its_free_pages(void *addr, unsigned int order)
+ {
++	int alloc_order;
 +
-+static inline size_t mem_cc_align_to_shared_granule(size_t size)
-+{
-+	return ALIGN(size, mem_cc_shared_granule_size());
-+}
-+
- #endif	/* __ASSEMBLY__ */
++	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+ 	/*
+ 	 * If the memory cannot be encrypted again then we must leak the pages.
+ 	 * set_memory_encrypted() will already have WARNed.
+ 	 */
+-	if (set_memory_encrypted((unsigned long)addr, 1 << order))
++	if (set_memory_encrypted((unsigned long)addr, 1 << alloc_order))
+ 		return;
+-	free_pages((unsigned long)addr, order);
++	free_pages((unsigned long)addr, alloc_order);
+ }
  
- #endif	/* __MEM_ENCRYPT_H__ */
+ static struct gen_pool *itt_pool;
+@@ -272,7 +276,8 @@ static void *itt_alloc_pool(int node, int size)
+ 		if (!page)
+ 			break;
+ 
+-		gen_pool_add(itt_pool, (unsigned long)page_address(page), PAGE_SIZE, node);
++		gen_pool_add(itt_pool, (unsigned long)page_address(page),
++			     mem_cc_align_to_shared_granule(PAGE_SIZE), node);
+ 	} while (!addr);
+ 
+ 	return (void *)addr;
 -- 
 2.43.0
 
