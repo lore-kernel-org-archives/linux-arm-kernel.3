@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29905C43602
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47966C44502
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,74 +12,59 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=; b=yYRytLzu+56qIeneMRnTLwQUqH
-	qQBoSIbaQIEXybC4aTrsJ/w2QxSHuv1tJ8WdzqT0cmxUFRE07nBNj8jieCh/2y70htZ2wjRw1kasT
-	JlKx18aVlHanxV66/HZQTqHS2EcrecJyfi4lRotn0TsQa3KfRya6VnKel4JvAxaKL7w8wYSrDPTyy
-	LCecW29w0FsGXatbwR60Qx0/s9efQyxspcc9iLDK8Y8iwzlvq2FAoI0WzLnWpAD4xiBpHPWraVTYA
-	hLDsvd7g5tmhb01ZEewhLxuEOq2IvTnDY1fnMVUtPG4bpfjT/4QMcHiNWkC7ELfvyRR2mRg6oxhbt
-	StYdpxkQ==;
+	bh=mMzZELxNMWkvZmpbYeYedfqqEOctYU5iyYuamj2u6LM=; b=zgL23xOgywKjA3HPpXR1Cae5Md
+	7MChXJFapDQQn7rqqX/QpTqJFr6Y7c6oo2reCaVc7RyAInewSeMjJgWoFbhveFwANhn5HeUYs0SyL
+	h/y7JfZKbkJdYlr6IC+qzHmsD3T3BtgKUcH4zb1s1kv/S5x6wtUWT9gJNJSuHefQtzMQZkyA413OF
+	TqKdnCcIMLd5oPFCEKaxGZsnHAEl2FI51pGRG2RyeTQCM28VJoEfDtY+YKkz+SJCzeGpA3KTV2VsD
+	unSnUo7luo9zUJt9CVnWvnj4JQj+s8hDtuj9hcw+oD31w0MuOPEYrjV4Kk6CG/p2jNtQNgARUQOV+
+	FM0EZaQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnWm-0000000DFoL-30NS;
-	Mon, 06 Jul 2026 17:54:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnWi-0000000DFh7-13d0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Jul 2026 17:54:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=; b=q1p5sOflw1tF70jtE1SEdtKLZi
-	WExttkWMpLc9B1p3B0be/I3/vDldo7AapNehPgbthTJ0z+YRNoNxs1qGrArIiqs1UBOucDLNfyR/U
-	6vdPNPmnm8v4HW7oet7ORi3MHjry4swXcIsaHnc1vVFwY6WGpjqDqAi0Pfge8Uxpm1Gh9pJ5MCPJg
-	ZTdILyW+jXbhqveto9qpp4I6Zhmt6OsrR7rb64RypvsJ0bDMH34iEt37c9gUQzRf6T/vOXUutjVNe
-	az9O31D3tR+B4n7EcgFgbBFix8/egLy3niOF1Wao/Q+RL/4r9Mi3eBTsnBIQW+A8l8+offcqFoJ48
-	p0mLZW1A==;
+	id 1wgnWl-0000000DFla-2S7C;
+	Mon, 06 Jul 2026 17:54:43 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wgnWf-00000006p5Q-1d0s
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgnWZ-0000000DFbG-3jae
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:54:39 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-493a7fa8481so294185e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:54:36 -0700 (PDT)
+	Mon, 06 Jul 2026 17:54:37 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-493c619bb52so23525385e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:54:31 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783360476; x=1783965276; darn=lists.infradead.org;
+        d=google.com; s=20251104; t=1783360470; x=1783965270; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=;
-        b=LFgYt4LgVIGB0dEewJyGmdWk4MJZCyrXnXi/E8tgRaOglvtIrVYx2h/jgfr39S/RcO
-         FAjxkc1VzXgpFuDKXMpmOEWid0qRzMVsy4MWTr5gyEfnrc1LhH1JMxjdxwDeubBVnH19
-         5TRJ5BMzq36cSa+k7kywmw8l6nyDIjWEG0WL6uaM6TSh8EjDn3Nyg6SA2I2auG3R1nak
-         sdzYyULwdCQXNzPbt2QkwqQdjE61cEQJkS+F3KChuXJYai9mnhO1GDgfAGpx4/7PZqeJ
-         7u+2I/LQfMgAz/AP4RISrpAkJBRYFB6ZfJuh+oSDPM+eL+oV5WCIjFzOJGlY5ajW9Llu
-         3lpg==
+        bh=mMzZELxNMWkvZmpbYeYedfqqEOctYU5iyYuamj2u6LM=;
+        b=C604P2a6qelUe5AzwRtKix45OWi4QRcBJE/b7Pd2tJjyg2YFvmW2vA44LdMtGnUW7m
+         FBPgoYMHHy3Xo88jST3YJrtLHupyv0NWEe6Hq0V0Ug2d7PGXyYSijtxTtsnXa25W8WpC
+         6TmbZqTBBGMUlTQbywQRw2E07trW9mqcnGDO3B/fIGBNvsBVG89JERw2XbmeCk2YiE8I
+         xL1Az6utqjsRfXO3H2ySxHsmicSlkMqTu9L9FQXWTjFtHQjrBMn5u0uF+N1eql646rVd
+         9DUrTi+/XJ9nGVVYJkBpDLazMxMDyntDd2bsKIpbAouArxVoAYFnstONrdMO7Hzqf4r6
+         ItLQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783360476; x=1783965276;
+        d=1e100.net; s=20251104; t=1783360470; x=1783965270;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=;
-        b=oeZm69XGG1cn3B1uELhkwFEfdTSLeo/hZMgfwFGUYcayVtpu+4eCHd5+BdCUukGFVi
-         DIhJKmqnUnIDSWqzTG1X1d2p2t2HX5x/OaSHBGAVEv1Isu71Gzb2rKpOz+uuMkSI+t4U
-         o6NUDwvMzQ1E68XFmlbd9w9nZG3OqpSKxGz/Lh7BTunTnO+aRlq5zFKcpqVDnNCt1FZM
-         iRhviOUT7HiQjoTIGuTY90BBpAxDxBi48/N4hXvIt0IDsGvBSjbYRWuoW9xwEltKOYrb
-         fdFCFX1ukpLXWCrPW4N2OQnVqroOax0KC80Eeb3uKShijy7N0D9nTzI+e1bHbEUcGUgY
-         PSnQ==
-X-Gm-Message-State: AOJu0YzcPYGzxa7g9jZvYtRRRIaJSR7rJHJFBq4SbW4b8IC/HOR0jUDE
-	PA+EuFsE+ubzoSou0N04i4ozgI4J/dfdYqYuRQTYeWmnRWN0IQvZAPK/BBfRO3ox37GHdTgMU1C
-	Bz5vvmHn8BVi0a/1enzJ0aw==
-X-Received: from wmbfp12.prod.google.com ([2002:a05:600c:698c:b0:493:bc2d:feac])
+        bh=mMzZELxNMWkvZmpbYeYedfqqEOctYU5iyYuamj2u6LM=;
+        b=DJR4FU4NrG94q8WeAFkzkuHB71v0dfhEJnpfVfvMch4fhBOETTtwMGCO1Ba+N/BbqG
+         MJJOFjD/RrUiVskLfsWUZdWeFbv2Rb+tdDnQ00wMDKLEYCfFPLSzx6Qqiv6/FTPZDlm3
+         ZbfSyf/JuQNu/Rpa8SZscLihOAbNu/m8VICw5razmtZeN0gMa4EukgQMDwNyWjkRMYvL
+         XrWa0aWO3P4fo6qyJIQqZz8yLDqc/0knPTNfzPtjIL65GG/0awMMf1r6FxSGtJE0DWo9
+         TM4XyukRuh6R83FC0+Ygz2pP3SkIsg62FnubXIlEimuqK5NdhWZk3BhzMkqCM+wKOetB
+         6y5A==
+X-Gm-Message-State: AOJu0YyF9VKjA8oXsW+lTfcnycnB/U9JVJ6QCxY0AdSKZibikkV28NPX
+	vTgsm81DsFgn+M2wvlFAlpLYBS6Pqa+KSs/ClRUrA0Z2y3UU2kHUtFF6sJTLJzEZp4xbEHqX+LJ
+	QmLU5Jx0CpxKdnNaYAhe48w==
+X-Received: from wmhf18.prod.google.com ([2002:a7b:cc12:0:b0:492:4659:9cd8])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1993:b0:492:6f5c:fd8c with SMTP id 5b1f17b1804b1-493decec719mr17728345e9.15.1783360475525;
- Mon, 06 Jul 2026 10:54:35 -0700 (PDT)
-Date: Mon,  6 Jul 2026 18:54:09 +0100
+ 2002:a05:600c:19c6:b0:493:b03c:5650 with SMTP id 5b1f17b1804b1-493df06d8cdmr18355405e9.19.1783360469509;
+ Mon, 06 Jul 2026 10:54:29 -0700 (PDT)
+Date: Mon,  6 Jul 2026 18:54:04 +0100
 In-Reply-To: <20260706175415.2604046-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260706175415.2604046-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
-Message-ID: <20260706175415.2604046-13-vdonnefort@google.com>
-Subject: [PATCH v2 12/18] KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
+Message-ID: <20260706175415.2604046-8-vdonnefort@google.com>
+Subject: [PATCH v2 07/18] KVM: arm64: Add pkvm_hyp_req infrastructure
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -89,8 +74,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_185437_588521_8D7993D7 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20260706_105432_007468_01DF402D 
+X-CRM114-Status: GOOD (  18.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +90,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kern_hyp_va() is idempotent for the hypervisor linear space. This is
-handy for nVHE hypervisor callers handling kvm_vcpu or kvm_arch
-pointers. Those pointers can originate from the hypervisor space (when
-protected mode is enabled, we don't trust the kernel and the hypervisor
-uses its own copy) or from the kernel space (we do trust the kernel in
-"non-protected" nVHE).
+Introduce a struct pkvm_hyp_req to enable the pKVM hypervisor to request
+resources from the host.
 
-This idempotence does not hold for addresses within the hypervisor
-private range, like the ones you get from the pKVM heap allocator
-(hyp_alloc()). To resolve this, filter out non-kernel addresses based on
-PAGE_OFFSET.
+Provide serialisation helpers to transport these requests via SMCCC
+registers (starting from a2):
 
-Leave the assembly version untouched as it has no current users.
+  pkvm_hyp_req_to_smccc() to encode into the SMCCC args.
+  smccc_to_pkvm_hyp_req() to decode them.
+
+When the hypervisor raises a request, the host must handle it and retry
+the HVC. To automate this sequence, introduce the pkvm_call_hyp_req()
+macro. This intercepts pending requests, invokes the handler and retries
+the HVC.
+
+Additionally, introduce a trace event to track the handling of these
+requests.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index 6eae7e7e2a68..d60e5f2de10c 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -126,6 +126,9 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
-  * replace the instructions with `nop`s.
-  */
- #ifndef __KVM_VHE_HYPERVISOR__
-+	if (!is_ttbr1_addr(v))
-+		return v;
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index 870f7870bb62..0be1469e7874 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -203,6 +203,95 @@ struct pkvm_mapping {
+ 	u64 __subtree_last;	/* Internal member for interval tree */
+ };
+ 
++enum pkvm_hyp_req_type {
++	PKVM_HYP_NO_REQ = 0,
++	__PKVM_HYP_REQ_TYPE_MAX,
++};
 +
- 	asm volatile(ALTERNATIVE_CB("and %0, %0, #1\n"         /* mask with va_mask */
- 				    "ror %0, %0, #1\n"         /* rotate to the first tag bit */
- 				    "add %0, %0, #0\n"         /* insert the low 12 bits of the tag */
++#define PKVM_HYP_REQ_SMCCC_ARG_SIZE_MAX \
++	(sizeof(struct arm_smccc_res) - offsetof(struct arm_smccc_res, a2) - 1)
++
++struct pkvm_hyp_req {
++	u8 type;
++	union {
++		struct {
++			u32	nr_pages;
++		} mem;
++		struct {
++			/* Helper for SMCCC encoding/decoding */
++			u8	args[PKVM_HYP_REQ_SMCCC_ARG_SIZE_MAX];
++		} args;
++	};
++};
++
++static inline size_t pkvm_hyp_req_arg_size(u8 type)
++{
++	switch (type) {
++	case PKVM_HYP_NO_REQ:
++		return 0;
++	default:
++		WARN_ON(1);
++	}
++
++	return 0;
++}
++
++/* Encode the pending pkvm_hyp_req type into the SMCCC args */
++static inline void
++pkvm_hyp_req_to_smccc(struct kvm_cpu_context *host_ctxt, struct pkvm_hyp_req *req)
++{
++	u8 *dst, type = req->type;
++	size_t size;
++
++	if (type == PKVM_HYP_NO_REQ || type >= __PKVM_HYP_REQ_TYPE_MAX) {
++		host_ctxt->regs.regs[2] = 0;
++		return;
++	}
++
++	size = pkvm_hyp_req_arg_size(type);
++	if (WARN_ON(size > PKVM_HYP_REQ_SMCCC_ARG_SIZE_MAX))
++		return;
++
++	dst = (u8 *)&host_ctxt->regs.regs[2];
++	*dst = type;
++
++	memcpy(dst + 1, &req->args, size);
++}
++
++/* Return true if a pkvm_hyp_req has been decoded from the SMCCC args */
++static inline bool smccc_to_pkvm_hyp_req(struct pkvm_hyp_req *req, struct arm_smccc_res *res)
++{
++	u8 *src = (u8 *)res + offsetof(struct arm_smccc_res, a2);
++	u8 type = *src;
++
++	if (type == PKVM_HYP_NO_REQ || type >= __PKVM_HYP_REQ_TYPE_MAX)
++		return false;
++
++	req->type = type;
++	memcpy(&req->args, src + 1, pkvm_hyp_req_arg_size(type));
++
++	return true;
++}
++
++int __pkvm_handle_smccc_req(struct arm_smccc_res *res);
++
++#define pkvm_call_hyp_req(f, ...)								\
++({												\
++	struct arm_smccc_res __res;								\
++	int __ret;										\
++	do {											\
++		__ret = -1;									\
++		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f), ##__VA_ARGS__, &__res);		\
++		if (WARN_ON(__res.a0 != SMCCC_RET_SUCCESS))					\
++			break;									\
++		__ret = __res.a1;								\
++		if (!__ret)									\
++			break;									\
++		__ret = __pkvm_handle_smccc_req(&__res);					\
++	} while (!__ret);									\
++	__ret;											\
++})
++
+ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 			     struct kvm_pgtable_mm_ops *mm_ops);
+ void pkvm_pgtable_stage2_destroy_range(struct kvm_pgtable *pgt,
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index e2c8714e8ccc..5ba8b81b8c6c 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -16,6 +16,9 @@
+ 
+ #include "hyp_constants.h"
+ 
++#define CREATE_TRACE_POINTS
++#include "trace_pkvm.h"
++
+ DEFINE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+ 
+ static struct memblock_region *hyp_memory = kvm_nvhe_sym(hyp_memory);
+@@ -617,3 +620,25 @@ bool pkvm_force_reclaim_guest_page(phys_addr_t phys)
+ 
+ 	return !ret || ret == -EAGAIN;
+ }
++
++static int pkvm_handle_hyp_req(struct pkvm_hyp_req *req)
++{
++	int ret = -EINVAL;
++
++	switch (req->type) {
++	}
++
++	trace_kvm_handle_pkvm_hyp_req(req, ret);
++
++	return ret;
++}
++
++int __pkvm_handle_smccc_req(struct arm_smccc_res *res)
++{
++	struct pkvm_hyp_req req;
++
++	if (smccc_to_pkvm_hyp_req(&req, res))
++		return pkvm_handle_hyp_req(&req);
++
++	return res->a1;
++}
+diff --git a/arch/arm64/kvm/trace_pkvm.h b/arch/arm64/kvm/trace_pkvm.h
+new file mode 100644
+index 000000000000..4bf57c12e7de
+--- /dev/null
++++ b/arch/arm64/kvm/trace_pkvm.h
+@@ -0,0 +1,37 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#if !defined(_TRACE_PKVM_ARM64_KVM_H) || defined(TRACE_HEADER_MULTI_READ)
++#define _TRACE_PKVM_ARM64_KVM_H
++
++#include <linux/tracepoint.h>
++#include <asm/kvm_pkvm.h>
++
++#undef TRACE_SYSTEM
++#define TRACE_SYSTEM kvm
++
++TRACE_EVENT(kvm_handle_pkvm_hyp_req,
++	TP_PROTO(struct pkvm_hyp_req *req, int ret),
++	TP_ARGS(req, ret),
++
++	TP_STRUCT__entry(
++		__field(u8,	type)
++		__field(int,	ret)
++	),
++
++	TP_fast_assign(
++		__entry->type = req->type;
++		__entry->ret = ret;
++	),
++
++	TP_printk("type: %u ret: %d",
++		  __entry->type, __entry->ret)
++);
++
++#endif /* _TRACE_PKVM_ARM64_KVM_H */
++
++#undef TRACE_INCLUDE_PATH
++#define TRACE_INCLUDE_PATH .
++#undef TRACE_INCLUDE_FILE
++#define TRACE_INCLUDE_FILE trace_pkvm
++
++/* This part must be outside protection */
++#include <trace/define_trace.h>
 -- 
 2.55.0.rc2.803.g1fd1e6609c-goog
 
