@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CB3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DFDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mMQ2Xie2wUa3t0qTLF8B0m0iI1bHVzIWrvZCHGGovPU=; b=qr+AXLYXiRLbjpYY6foUK+XZFa
-	v1TGo7nOp036lH5ZvERJHPDmj1bc1M6e33PhwUNF9lOg78nnDp+M0WqGWMmXJSM+sOPSVrqsTMpXn
-	TmiKVFAySyWxF6QTrOqGdqkhMXccIbtSvo9Dnusodj2hJARBXOA8ZRcZsiOkhIKdD0mDtxiwMzBtw
-	fdthGx5VjiVlea0TbA9Ph3PwGoXtGKxsUTtSgMqyuiDf85RSgl6+lNKohoVksJDPq6Ddqy0Dmnuzj
-	o1rvw/9IFnT1wE4RWobsRgAUYS/R5UbaCkOUchJJVCdGk5264W/iPMraKAtF+lhNiOOKJP6M3fBc6
-	e+Gm1Lxw==;
+	bh=ptobWscVWFitUE7YzTMPHgY1rovNIaVBt3vxnNpD814=; b=IhSFCuoA7EsMtdbXMJqkBc/fx5
+	1WVo+ORpQc+kRl9Dlac010+6Yf9pi/Ke9Le6AfwFRbUR0Z2RHPKdA0Pj94YL4PCCLAjPsZShHnM2Q
+	vPZN3Nqz8CVIO3xKmbQYEAIlFgGmZ69+VEWMX7HzvfF/Z0OO1Hum9eshkTnWS/PeywP1uyAyhM9QQ
+	BXzNp4HKOV7GIeQ65Th/c086Tke/V2R5ZAviYdmdWLOWiCjbKt+v7H/+VhD2ceODuQDkZDF1JhJuG
+	phJ9v4N5NLoCMSTRYot8ahg66WAhkhwf3Xw+uFbcvRZfVr1vkUt//z18ONeg+ca1TYrBfINeneLWX
+	B2IUcVHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgg7e-0000000C7Yj-2ONO;
-	Mon, 06 Jul 2026 10:00:18 +0000
-Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
+	id 1wgg7n-0000000C7eh-3dSx;
+	Mon, 06 Jul 2026 10:00:27 +0000
+Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgg7c-0000000C7Wj-1DN5
+	id 1wgg7g-0000000C7Zj-12sf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:00:17 +0000
+	Mon, 06 Jul 2026 10:00:24 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783332013;
+	t=1783332018;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mMQ2Xie2wUa3t0qTLF8B0m0iI1bHVzIWrvZCHGGovPU=;
-	b=VGt1ZoGrD3wpg264qlwZRBAxIlDiEsGY9x2p2OQ8ZOqNRRHfDmtFQls9yWDtMLzEAYewYH
-	m8hbFc/l1NEn9jT9a0m6W08FWT82mnIOPlO0SnURyS5vjRF6nuTbh0aX6Ejt4/SlHhdAbo
-	7IWcrmmY9Cl/0aFKdHp6agRTU3Ny5SU=
+	bh=ptobWscVWFitUE7YzTMPHgY1rovNIaVBt3vxnNpD814=;
+	b=s4cdR49Yr2rb9ze+maFjEypkXSnarlnRGxtqdR3AqctZ+CG4pFQdEZReeYYypcaPewQ0+H
+	c9Zz9zpzJQYSyqRwGdstgZc5z/0OnZcG8NPpRIc3Ohe5E5/TbOPizUb8GLXTMnmILxIa6w
+	UwhnbJR6mgOXlKX+CN+jxbtuRkZtows=
 From: Fuad Tabba <fuad.tabba@linux.dev>
 To: Marc Zyngier <maz@kernel.org>,
 	Oliver Upton <oupton@kernel.org>,
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Sebastian Ene <sebastianene@google.com>,
 	Hyunwoo Kim <imv4bel@gmail.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v4 3/8] KVM: arm64: Factor out reusable vCPU reset helpers
-Date: Mon,  6 Jul 2026 10:59:22 +0100
-Message-Id: <20260706095927.560795-4-fuad.tabba@linux.dev>
+Subject: [PATCH v4 5/8] KVM: arm64: Add host and hypervisor vCPU lookup primitives
+Date: Mon,  6 Jul 2026 10:59:24 +0100
+Message-Id: <20260706095927.560795-6-fuad.tabba@linux.dev>
 In-Reply-To: <20260706095927.560795-1-fuad.tabba@linux.dev>
 References: <20260706095927.560795-1-fuad.tabba@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_030016_487105_32E2E26A 
-X-CRM114-Status: GOOD (  17.37  )
+X-CRM114-CacheID: sfid-20260706_030023_554810_BCBC9D6C 
+X-CRM114-Status: GOOD (  14.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,201 +80,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pull the reusable pieces out of kvm_reset_vcpu(): expose the reset
-PSTATE values in kvm_arm.h, and split the core register reset and the
-PSCI-driven reset into kvm_reset_vcpu_core() and kvm_reset_vcpu_psci().
-A follow-up series reuses these to reset protected vCPUs at EL2.
+From: Marc Zyngier <maz@kernel.org>
+
+The nVHE hypervisor repeatedly resolves a host vCPU into the EL2
+address space and validates that the loaded hyp vCPU matches it, with
+that logic open-coded in each handler.
+
+Add __get_host_hyp_vcpus() and the get_host_hyp_vcpus() macro, which
+translate the host vCPU into the hypervisor's address space and, when
+pKVM is enabled, also return the loaded hyp vCPU if it matches. If pKVM
+is enabled but the loaded hyp vCPU does not correspond to the requested
+host vCPU, both the host and hyp vCPU are returned as NULL. Convert
+handle___kvm_vcpu_run() to use it.
 
 No functional change intended.
 
 Reviewed-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Co-developed-by: Fuad Tabba <fuad.tabba@linux.dev>
 Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
 ---
- arch/arm64/include/asm/kvm_arm.h     | 12 ++++++
- arch/arm64/include/asm/kvm_emulate.h | 57 ++++++++++++++++++++++++++
- arch/arm64/kvm/reset.c               | 60 ++--------------------------
- 3 files changed, 72 insertions(+), 57 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 52 ++++++++++++++++++++++--------
+ 1 file changed, 38 insertions(+), 14 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 3f9233b5a1308..aba4ec09acd23 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -348,4 +348,16 @@
- 	{ PSR_AA32_MODE_UND,	"32-bit UND" },	\
- 	{ PSR_AA32_MODE_SYS,	"32-bit SYS" }
- 
-+/*
-+ * ARMv8 Reset Values
-+ */
-+#define VCPU_RESET_PSTATE_EL1	(PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
-+				 PSR_F_BIT | PSR_D_BIT)
-+
-+#define VCPU_RESET_PSTATE_EL2	(PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
-+				 PSR_F_BIT | PSR_D_BIT)
-+
-+#define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
-+				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
-+
- #endif /* __ARM64_KVM_ARM_H__ */
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index 80b30fead3d16..2385d8855fcfd 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -704,4 +704,61 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
- 			vcpu->arch.hcrx_el2 |= HCRX_EL2_EnASR;
- 	}
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index d3c69de698f48..45d717889f6ea 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -214,14 +214,45 @@ static void handle___pkvm_vcpu_put(struct kvm_cpu_context *host_ctxt)
+ 		pkvm_put_hyp_vcpu(hyp_vcpu);
  }
-+
-+/* Reset a vcpu's core registers. */
-+static inline void kvm_reset_vcpu_core(struct kvm_vcpu *vcpu)
-+{
-+	u32 pstate;
-+
-+	if (vcpu_el1_is_32bit(vcpu))
-+		pstate = VCPU_RESET_PSTATE_SVC;
-+	else if (vcpu_has_nv(vcpu))
-+		pstate = VCPU_RESET_PSTATE_EL2;
-+	else
-+		pstate = VCPU_RESET_PSTATE_EL1;
-+
-+	/* Reset core registers */
-+	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
-+	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
-+	vcpu->arch.ctxt.spsr_abt = 0;
-+	vcpu->arch.ctxt.spsr_und = 0;
-+	vcpu->arch.ctxt.spsr_irq = 0;
-+	vcpu->arch.ctxt.spsr_fiq = 0;
-+	vcpu_gp_regs(vcpu)->pstate = pstate;
-+}
-+
-+/* PSCI reset handling for a vcpu. */
-+static inline void kvm_reset_vcpu_psci(struct kvm_vcpu *vcpu,
-+				       struct vcpu_reset_state *reset_state)
-+{
-+	unsigned long target_pc = reset_state->pc;
-+
-+	/* Gracefully handle Thumb2 entry point */
-+	if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
-+		target_pc &= ~1UL;
-+		vcpu_set_thumb(vcpu);
+ 
+-static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++static struct kvm_vcpu *__get_host_hyp_vcpus(struct kvm_vcpu *arg,
++					     struct pkvm_hyp_vcpu **hyp_vcpup)
+ {
+-	DECLARE_REG(struct kvm_vcpu *, host_vcpu, host_ctxt, 1);
+-	int ret;
++	struct kvm_vcpu *host_vcpu = kern_hyp_va(arg);
++	struct pkvm_hyp_vcpu *hyp_vcpu = NULL;
+ 
+ 	if (unlikely(is_protected_kvm_enabled())) {
+-		struct pkvm_hyp_vcpu *hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
++		hyp_vcpu = pkvm_get_loaded_hyp_vcpu();
+ 
++		if (!hyp_vcpu || hyp_vcpu->host_vcpu != host_vcpu) {
++			hyp_vcpu = NULL;
++			host_vcpu = NULL;
++		}
 +	}
 +
-+	/* Propagate caller endianness */
-+	if (reset_state->be)
-+		kvm_vcpu_set_be(vcpu);
-+
-+	*vcpu_pc(vcpu) = target_pc;
-+
-+	/*
-+	 * We may come from a state where either a PC update was
-+	 * pending (SMC call resulting in PC being increpented to
-+	 * skip the SMC) or a pending exception. Make sure we get
-+	 * rid of all that, as this cannot be valid out of reset.
-+	 *
-+	 * Note that clearing the exception mask also clears PC
-+	 * updates, but that's an implementation detail, and we
-+	 * really want to make it explicit.
-+	 */
-+	vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
-+	vcpu_clear_flag(vcpu, EXCEPT_MASK);
-+	vcpu_clear_flag(vcpu, INCREMENT_PC);
-+	vcpu_set_reg(vcpu, 0, reset_state->r0);
++	*hyp_vcpup = hyp_vcpu;
++	return host_vcpu;
 +}
 +
- #endif /* __ARM64_KVM_EMULATE_H__ */
-diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
-index b963fd975aaca..10eb7249aa9e8 100644
---- a/arch/arm64/kvm/reset.c
-+++ b/arch/arm64/kvm/reset.c
-@@ -34,18 +34,6 @@
- static u32 __ro_after_init kvm_ipa_limit;
- unsigned int __ro_after_init kvm_host_sve_max_vl;
++#define get_host_hyp_vcpus(ctxt, regnr, hyp_vcpup)			\
++	({								\
++		DECLARE_REG(struct kvm_vcpu *, __vcpu, ctxt, regnr);	\
++		__get_host_hyp_vcpus(__vcpu, hyp_vcpup);		\
++	})
++
++static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
++{
++	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *host_vcpu;
++	int ret;
++
++	host_vcpu = get_host_hyp_vcpus(host_ctxt, 1, &hyp_vcpu);
++
++	if (!host_vcpu) {
++		ret = -EINVAL;
++		goto out;
++	}
++
++	if (unlikely(hyp_vcpu)) {
+ 		/*
+ 		 * KVM (and pKVM) doesn't support SME guests for now, and
+ 		 * ensures that SME features aren't enabled in pstate when
+@@ -233,23 +264,16 @@ static void handle___kvm_vcpu_run(struct kvm_cpu_context *host_ctxt)
+ 			goto out;
+ 		}
  
--/*
-- * ARMv8 Reset Values
-- */
--#define VCPU_RESET_PSTATE_EL1	(PSR_MODE_EL1h | PSR_A_BIT | PSR_I_BIT | \
--				 PSR_F_BIT | PSR_D_BIT)
--
--#define VCPU_RESET_PSTATE_EL2	(PSR_MODE_EL2h | PSR_A_BIT | PSR_I_BIT | \
--				 PSR_F_BIT | PSR_D_BIT)
--
--#define VCPU_RESET_PSTATE_SVC	(PSR_AA32_MODE_SVC | PSR_AA32_A_BIT | \
--				 PSR_AA32_I_BIT | PSR_AA32_F_BIT)
--
- unsigned int __ro_after_init kvm_sve_max_vl;
- 
- int __init kvm_arm_init_sve(void)
-@@ -191,7 +179,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- {
- 	struct vcpu_reset_state reset_state;
- 	bool loaded;
--	u32 pstate;
- 
- 	spin_lock(&vcpu->arch.mp_state_lock);
- 	reset_state = vcpu->arch.reset_state;
-@@ -210,21 +197,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 		kvm_vcpu_reset_sve(vcpu);
- 	}
- 
--	if (vcpu_el1_is_32bit(vcpu))
--		pstate = VCPU_RESET_PSTATE_SVC;
--	else if (vcpu_has_nv(vcpu))
--		pstate = VCPU_RESET_PSTATE_EL2;
--	else
--		pstate = VCPU_RESET_PSTATE_EL1;
--
- 	/* Reset core registers */
--	memset(vcpu_gp_regs(vcpu), 0, sizeof(*vcpu_gp_regs(vcpu)));
--	memset(&vcpu->arch.ctxt.fp_regs, 0, sizeof(vcpu->arch.ctxt.fp_regs));
--	vcpu->arch.ctxt.spsr_abt = 0;
--	vcpu->arch.ctxt.spsr_und = 0;
--	vcpu->arch.ctxt.spsr_irq = 0;
--	vcpu->arch.ctxt.spsr_fiq = 0;
--	vcpu_gp_regs(vcpu)->pstate = pstate;
-+	kvm_reset_vcpu_core(vcpu);
- 
- 	/* Reset system registers */
- 	kvm_reset_sys_regs(vcpu);
-@@ -233,36 +207,8 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
- 	 * Additional reset state handling that PSCI may have imposed on us.
- 	 * Must be done after all the sys_reg reset.
- 	 */
--	if (reset_state.reset) {
--		unsigned long target_pc = reset_state.pc;
--
--		/* Gracefully handle Thumb2 entry point */
--		if (vcpu_mode_is_32bit(vcpu) && (target_pc & 1)) {
--			target_pc &= ~1UL;
--			vcpu_set_thumb(vcpu);
+-		if (!hyp_vcpu) {
+-			ret = -EINVAL;
+-			goto out;
 -		}
 -
--		/* Propagate caller endianness */
--		if (reset_state.be)
--			kvm_vcpu_set_be(vcpu);
--
--		*vcpu_pc(vcpu) = target_pc;
--
--		/*
--		 * We may come from a state where either a PC update was
--		 * pending (SMC call resulting in PC being increpented to
--		 * skip the SMC) or a pending exception. Make sure we get
--		 * rid of all that, as this cannot be valid out of reset.
--		 *
--		 * Note that clearing the exception mask also clears PC
--		 * updates, but that's an implementation detail, and we
--		 * really want to make it explicit.
--		 */
--		vcpu_clear_flag(vcpu, PENDING_EXCEPTION);
--		vcpu_clear_flag(vcpu, EXCEPT_MASK);
--		vcpu_clear_flag(vcpu, INCREMENT_PC);
--		vcpu_set_reg(vcpu, 0, reset_state.r0);
--	}
-+	if (reset_state.reset)
-+		kvm_reset_vcpu_psci(vcpu, &reset_state);
+ 		flush_hyp_vcpu(hyp_vcpu);
  
- 	/* Reset timer */
- 	kvm_timer_vcpu_reset(vcpu);
+ 		ret = __kvm_vcpu_run(&hyp_vcpu->vcpu);
+ 
+ 		sync_hyp_vcpu(hyp_vcpu);
+ 	} else {
+-		struct kvm_vcpu *vcpu = kern_hyp_va(host_vcpu);
+-
+ 		/* The host is fully trusted, run its vCPU directly. */
+-		fpsimd_lazy_switch_to_guest(vcpu);
+-		ret = __kvm_vcpu_run(vcpu);
+-		fpsimd_lazy_switch_to_host(vcpu);
++		fpsimd_lazy_switch_to_guest(host_vcpu);
++		ret = __kvm_vcpu_run(host_vcpu);
++		fpsimd_lazy_switch_to_host(host_vcpu);
+ 	}
+ out:
+ 	cpu_reg(host_ctxt, 1) =  ret;
 -- 
 2.39.5
 
