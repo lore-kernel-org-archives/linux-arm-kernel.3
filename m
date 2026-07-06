@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AD97C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C99BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 22:55:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2MYdzoSewcFcQWVr1xi0SARyuuH/Y7lXURwUtog43pY=; b=vJdvO2GDNth2ACoLJ1Lu2jIx/+
-	SZgYqeVpcw9dgFWToWjn9PHytIlytlJ4J8SrXGRSnAL3ovZR6PD36n1KctSQzUCAuUx+1Umfrc/yM
-	fFRTk/0SPV6/RpJBlCqmjoEXJU9FlrjiosKhv/wVux18Tp1JHJqzhZ8l8wbhRHQtXa5JDtdJIK1qO
-	ULq3y50dZuW9lpQXt8keK5zV2jZwEm6qkR1auLj0khteCeDLOqHMsPD3S7KBFGaFLmsEWF0a99Jif
-	ixOAygWAd1aF+nrSI3bREa+TvbqjvVGnnR/Zi/y6vUBr+wFyjWux5Y1Iy2ohPY1vIkQcxJ8kgaEbT
-	N4Uvk0Aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Subject:Message-ID:MIME-Version:To:Cc:Date:References:Content-Type:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yqOChaSZ5mNzOHjnrSQyl4fbvGS4SDgoUW14pbM5IrM=; b=DXi6cskko0p701DDpRfG36Q8Cn
+	c4RZkLDqR/wOLN2qcSZCa5VK3CwAvqclB4ZCqJ3OzFTG3OKTCqbd/jx+/1wQqMLy+QFOpipZT173I
+	1bR9ltMYbdfX7XMlXprznOUD5PTNJVZ7OSvmFB5uoa2HZW4rgTi656+TcXnwD4EUvA6lEVkQOu5lk
+	H3KviNiv11HnI+FUEvgGryZ59wm3Fu1UQUZ7quYugTbecljST+FRZWGQW2063uxLIFElfZupL7fyw
+	+36scRnVnkqxdRsWf+BP7l8N86GifHlsKjyuk/MrtmHQJKr+rtGdd/VfSj4bXYUBpYodVTQUO5ZQo
+	5++dmFhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrxg-0000000Djgj-0Nar;
-	Mon, 06 Jul 2026 22:38:48 +0000
-Received: from mail.cyberchaos.dev ([2a0f:4ac0::3a11])
+	id 1wgsDV-0000000Dkgs-28wp;
+	Mon, 06 Jul 2026 22:55:09 +0000
+Received: from mx.nabladev.com ([2a00:f820:417:0:178:251:229:89])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgrxc-0000000Djeh-0vuO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 22:38:45 +0000
-From: Yureka Lilian <yureka@cyberchaos.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cyberchaos.dev;
-	s=mail; t=1783377522;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2MYdzoSewcFcQWVr1xi0SARyuuH/Y7lXURwUtog43pY=;
-	b=ogXyt1qeaC0mL0e/L8Uq+VzkHdS7iKaPeWOctmTgKN4+XG+0TRitSM359QiWNzhBDfA9Td
-	IoaXjAe+NJ04ZV2xVxK0VRqaexmDFiPis0Le4g7gAd8qhfuatgVL5ICvRJm387y/gzh1pi
-	9l+NQxDg9U984Yh6P4dDezjV5bDJXCY=
-Date: Tue, 07 Jul 2026 00:38:28 +0200
-Subject: [PATCH 2/2] arm64: dts: apple: t600x: Add PCIe pwren gpios
-MIME-Version: 1.0
+	id 1wgsDS-0000000Dkfv-16Jh;
+	Mon, 06 Jul 2026 22:55:07 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPA id A6517118E9C;
+	Tue,  7 Jul 2026 00:54:44 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1783378498;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=yqOChaSZ5mNzOHjnrSQyl4fbvGS4SDgoUW14pbM5IrM=;
+	b=N91q2DVrLhVhaY1zfNR7RwfRtnj3hnyquGke4MS17FCPbX3MDC1NPENUl8gIPyS2ir68pu
+	GgskTiNDkSOU27umVmvh3sZgOXjWOx1S1qcfhEiRprC5tTBDEQSeFcTyhg6OtcfSl5QDRP
+	Y6AGozqKXTV7SaaJczcFbneu9i/QrAdQFcAbz5op3wzvCwJT/XH5RlKYa1czGLbFVMy3ee
+	DHQQxdb1eohVsJrjMn378/bsPNcLIlf67fbMyk+Fj3GEiS6Mr+j1lR1ecsJHZxwtWi35ki
+	h7faeL/UF1XN6SEw23+jcYlADtsCJUr6m+9XvMHkc3AAGqYzp9zRmfsjZ0CUGw==
+From: "Fabio Estevam" <festevam@nabladev.com>
+In-Reply-To: <20260706195818.3906949-1-sjg@chromium.org>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-apple-pcie-pwren-v1-2-5a281b182fe2@cyberchaos.dev>
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
-In-Reply-To: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Marc Zyngier <maz@kernel.org>, 
- Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Neal Gompa <neal@gompa.dev>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, 
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, Yureka Lilian <yureka@cyberchaos.dev>
+References: <20260706195818.3906949-1-sjg@chromium.org>
+Date: Tue, 07 Jul 2026 00:54:44 +0200
+Cc: "Heiko Stuebner" <heiko@sntech.de>, linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, "Albert Aribaud" <albert.u.boot@aribaud.net>, "Andy Shevchenko" <andy@kernel.org>, "Bartosz Golaszewski" <brgl@kernel.org>, "Brian Masney" <bmasney@redhat.com>, "Chukun Pan" <amadeus@jmu.edu.cn>, "Conor Dooley" <conor+dt@kernel.org>, "David Lechner" <dlechner@baylibre.com>, "FUKAUMI Naoki" <naoki@radxa.com>, "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>, "Guenter Roeck" <linux@roeck-us.net>, "Jamie Iles" <jamie@jamieiles.com>, "Jeffy Chen" <jeffy.chen@rock-chips.com>, "Jiri Slaby" <jirislaby@kernel.org>, "Jonas Karlman" <jonas@kwiboo.se>, "Jonathan Cameron" <jic23@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Linus Walleij" <linusw@kernel.org>, "Michael Opdenacker" <michael.opdenacker@rootcommit.com>, "Michael Riesch" <michael.riesch@collabora.com>, "Michael Turquette" <mturquette@baylibre.com>,
+ =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>, "Rob Herring" <robh@kernel.org>, "Stephen Boyd" <sboyd@kernel.org>, "Ulf Hansson" <ulfh@kernel.org>, "Wim Van Sebroeck" <wim@linux-watchdog.org>, "Yao Zi" <ziyao@disroot.org>, "huang lin" <hl@rock-chips.com>, linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org, linux-serial@vger.kernel.org, linux-watchdog@vger.kernel.org
+To: "Simon Glass" <sjg@chromium.org>
+MIME-Version: 1.0
+Message-ID: <882555c4-e1a3-0a0a-6830-b824b93cf3ac@nabladev.com>
+Subject: =?utf-8?q?Re=3A?= [PATCH 00/12] Add support for the Rockchip RV1106 and 
+ RV1103
+User-Agent: SOGoMail 5.12.8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: None
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_153844_465802_8360A204 
-X-CRM114-Status: GOOD (  11.91  )
+X-CRM114-CacheID: sfid-20260706_155506_522058_9142908C 
+X-CRM114-Status: UNSURE (   5.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,161 +71,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For the MacBook Pro and Mac Studio devices using the M1 Pro/Max/Ultra
-SoCs, add the appropriate fixed regulators for enabling the peripherals
-connected to the PCIe ports (WiFi, SD card reader and USB xHCI), which
-are controlled by GPIOs connected to the SMC.
-Set the regulators as the power-supply of the respective PCIe port, so
-that the endpoints are powered on before probing the ports.
+Hi Simon,
 
-Add the 'pciclass,0604' compatible string to the PCIe bridge nodes in
-the SoC to allow the pci-pwrctrl-generic driver to bind to them.
+On Monday, July 06, 2026 16:57 -03, Simon Glass <sjg@chromium.org> wrot=
+e:
 
-Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
----
- arch/arm64/boot/dts/apple/t600x-die0.dtsi      |  4 ++++
- arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi | 16 +++++++++++++++
- arch/arm64/boot/dts/apple/t600x-j375.dtsi      | 27 ++++++++++++++++++++++++++
- 3 files changed, 47 insertions(+)
+> The series follows the structure of the recently merged RV1103B
+> support. The clock driver is ported from the vendor kernel and is the
 
-diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-index f715b19efd16..53a633a3c652 100644
---- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
-@@ -449,6 +449,7 @@ pcie0: pcie@590000000 {
- 		pinctrl-names = "default";
- 
- 		port00: pci@0,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x0 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 4 GPIO_ACTIVE_LOW>;
-@@ -468,6 +469,7 @@ port00: pci@0,0 {
- 		};
- 
- 		port01: pci@1,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x800 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 5 GPIO_ACTIVE_LOW>;
-@@ -487,6 +489,7 @@ port01: pci@1,0 {
- 		};
- 
- 		port02: pci@2,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x1000 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 6 GPIO_ACTIVE_LOW>;
-@@ -507,6 +510,7 @@ port02: pci@2,0 {
- 		};
- 
- 		port03: pci@3,0 {
-+			compatible = "pciclass,0604";
- 			device_type = "pci";
- 			reg = <0x1800 0x0 0x0 0x0 0x0>;
- 			reset-gpios = <&pinctrl_ap 7 GPIO_ACTIVE_LOW>;
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index fee84f809a9c..7954cbbe4514 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -55,6 +55,20 @@ led-0 {
- 			default-state = "keep";
- 		};
- 	};
-+
-+	vreg_pcie0_port0: regulator-pcie0-port0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port0";
-+		gpio = <&smc_gpio 13 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	vreg_pcie0_port1: regulator-pcie0-port1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port1";
-+		gpio = <&smc_gpio 26 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
- };
- 
- &serial0 {
-@@ -176,6 +190,7 @@ &nco_clkref {
- /* PCIe devices */
- &port00 {
- 	/* WLAN */
-+	power-supply = <&vreg_pcie0_port0>;
- 	bus-range = <1 1>;
- 	wifi0: wifi@0,0 {
- 		compatible = "pci14e4,4433";
-@@ -195,6 +210,7 @@ bluetooth0: bluetooth@0,1 {
- 
- &port01 {
- 	/* SD card reader */
-+	power-supply = <&vreg_pcie0_port1>;
- 	bus-range = <2 2>;
- 	sdhci0: mmc@0,0 {
- 		compatible = "pci17a0,9755";
-diff --git a/arch/arm64/boot/dts/apple/t600x-j375.dtsi b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-index 8a1494949e4c..412b2fe109be 100644
---- a/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j375.dtsi
-@@ -42,6 +42,30 @@ memory@10000000000 {
- 		device_type = "memory";
- 		reg = <0x100 0 0x2 0>; /* To be filled by loader */
- 	};
-+
-+	/* WLAN/BT */
-+	vreg_pcie0_port0: regulator-pcie0-port0 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port0";
-+		gpio = <&smc_gpio 13 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	/* SD card reader */
-+	vreg_pcie0_port1: regulator-pcie0-port1 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port1";
-+		gpio = <&smc_gpio 26 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
-+	/* USB xHCI */
-+	vreg_pcie0_port3: regulator-pcie0-port3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pwren-pcie0-port3";
-+		gpio = <&smc_gpio 20 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
- };
- 
- &serial0 {
-@@ -356,6 +380,7 @@ &nco_clkref {
- /* PCIe devices */
- &port00 {
- 	/* WLAN */
-+	power-supply = <&vreg_pcie0_port0>;
- 	bus-range = <1 1>;
- 	wifi0: wifi@0,0 {
- 		compatible = "pci14e4,4433";
-@@ -375,6 +400,7 @@ bluetooth0: bluetooth@0,1 {
- 
- &port01 {
- 	/* SD card reader */
-+	power-supply = <&vreg_pcie0_port1>;
- 	bus-range = <2 2>;
- 	sdhci0: mmc@0,0 {
- 		compatible = "pci17a0,9755";
-@@ -397,6 +423,7 @@ ethernet0: ethernet@0,0 {
- 
- &port03 {
- 	/* USB xHCI */
-+	power-supply = <&vreg_pcie0_port3>;
- 	bus-range = <4 4>;
- 	status = "okay";
- };
+When I submitted the initial version of the RV1103B series, I received =
+feedback to split it into subsystems.=20
 
--- 
-2.54.0
+You should do the same here and submit it per subsystem:
+ARM, clock, pinctrl, serial, mmc, watchdog, and iio.
 
 
