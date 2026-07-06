@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E23EAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7C4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0z2y6LE/QNiaZie2U6t5hcyeaoflSldXfYCObvCylqs=; b=pjkoNjqyiSFeELFyWWXFcWxa+V
-	rK9taW0vkLfVeR3B5nrZE36uwlgkjRg5CWWhdrJHa16gUbloF5dUV/NWwgd8Q4ZtMhLOaSKsk9Leg
-	YUOGCl/aBwiOy72LJL+fg+zvIYMvj1EzVZr8nf64+eZZOcw7TIV0OEPu7b6uuqdv1SZ+vLI5IHGsR
-	Q1M+DW+U9BRhJ6+SYEGDBj4bT0oLifklUFKu9597xZqcTEsyo6m+6eM+eIlABSHL5jyTWARI/nzaq
-	1xfckUExWQ4x7d2/0V11EsxgZ3JN/7Cp5AHkM2ZNqoNlONJxTVzDVNi0NReaNqOHsMw1S6apzXpYh
-	HPZV1AnA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/6gQJkVc8chfusT4r5IjgpjYkjlawNBR+J0R/Ujpvs8=; b=gRU1JtSuuXvATb/OzgWScgzjkK
+	s2uRzOw6Q6kX0SSr1rRHnql26nAqRqexYo+31Bhw6whnWR4djjzrcvQZuMAnIf5VRVizgKwfDYnZQ
+	21Fh/grUuKCfHf2/G1tHTletJYCKxipLyCGw9JJDjFXWmwGeKPj+5f8YCZegZMm8k5WRgoMddW+Tx
+	Y70RHcS28KR+zRD5Rr+PIl2VoqJ4G7G/FE8RAZ93rfo8EBHraWzAaiYgiQwOFqkbWG+YXnUKF1s/y
+	2tk78NQ6Nbqal0lqyeYtY3znsBC+d8vxbwWcGhbwjl/c5pqN2HVwvf49wuyk8STwMbNsDPX4gsyit
+	seQExXyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfWD-0000000C0AF-1pVA;
-	Mon, 06 Jul 2026 09:21:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfWB-0000000C095-0Opo
+	id 1wgfX4-0000000C0N6-2XVN;
+	Mon, 06 Jul 2026 09:22:30 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgfX1-0000000C0MV-1hKE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:21:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B61E228C7;
-	Mon,  6 Jul 2026 02:21:27 -0700 (PDT)
-Received: from [192.168.178.24] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CEDE33F7B4;
-	Mon,  6 Jul 2026 02:21:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783329692; bh=1JBo9aYBrCOqV4k9LD/HWHclWEQxNqoysZ2Aob1Jdtk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=bhpNUUzzt7h988FqRrP93aumvnNVwYOtonMg08GWB5J4D2QYAtvsZbkUt66scOHwj
-	 ixJ3LsVaTnTKR2mM8yIrdRGyh0Di9+GPvIAxUO0+LvWPjK0YNmPtGZuJoVtJB7DLf9
-	 E7alh2RhRaJMc+GFTWlk490rDd51ivOycSXaDojU=
-Message-ID: <97a674a3-4833-4aa6-a9a2-3ab5472ee4b3@arm.com>
-Date: Mon, 6 Jul 2026 11:21:29 +0200
+	Mon, 06 Jul 2026 09:22:29 +0000
+Received: from localhost.localdomain (unknown [111.196.245.140])
+	by APP-01 (Coremail) with SMTP id qwCowAD3mNHRc0tqRjvxBA--.35066S2;
+	Mon, 06 Jul 2026 17:22:25 +0800 (CST)
+From: Pengpeng Hou <pengpeng@iscas.ac.cn>
+To: Markus Mayer <mmayer@broadcom.com>
+Cc: Pengpeng Hou <pengpeng@iscas.ac.cn>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] memory: brcmstb_dpfe: validate firmware section sizes
+Date: Mon,  6 Jul 2026 17:22:23 +0800
+Message-ID: <20260706092223.78541-1-pengpeng@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: allwinner: a523: add IR receiver node
-To: Justin Suess <utilityemal77@gmail.com>, Sean Young <sean@mess.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Sashiko <sashiko-bot@kernel.org>
-References: <20260702214750.3428694-1-utilityemal77@gmail.com>
- <20260702214750.3428694-4-utilityemal77@gmail.com>
-Content-Language: en-GB
-From: Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20260702214750.3428694-4-utilityemal77@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowAD3mNHRc0tqRjvxBA--.35066S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Aw1xCrWxuFyUur1UXr4Dtwb_yoW8XrW5pF
+	13CFyaqr4UJas3KrsFywn2vay3C3WfKay2gFyxuasYq343Kr18CFyDtry5uFWktrWrA3W3
+	XF1DJF4UCas3JrJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkK14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jw0_WrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
+	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
+	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r126r1DMIIY
+	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Gr0_Xr1lIxAIcVC0I7IYx2IY6xkF7I0E14
+	v26F4j6r4UJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_
+	Cr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjd-PU
+	UUUUU==
+X-Originating-IP: [111.196.245.140]
+X-CM-SenderInfo: pshqw1xhqjqxpvfd2hldfou0/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_022135_216260_E691644B 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20260706_022227_807693_656310B3 
+X-CRM114-Status: GOOD (  10.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,79 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Justin,
+__verify_firmware() reads a firmware header and sums declared
+data and instruction section sizes with a trailing checksum.
 
-I checked the numbers below against the manual, they match up: MMIO base 
-address, interrupt number, clocks and resets.
+Require the image to contain the header and checksum, and check each
+declared section against the remaining firmware size before computing the
+final total.
 
-One thing I figured is that the A523/T527 contains another CIR-RX 
-instance, in the "CPUX" domain. That's used for instance on the 
-Avaota-A1. So we need another node describing this instance.
+Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+---
+ drivers/memory/brcmstb_dpfe.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Some more below...
-
-On 7/2/26 23:47, Justin Suess wrote:
-> The A523 has a CIR receiver in the RTC power domain, clocked from the
-> R-CCU, with its RX signal available on PL11.
-> 
-> Clock the module directly from the 24 MHz host oscillator; the driver
-> selects a /256 sample divider on this SoC, giving a sample period
-> close to the legacy 8 MHz / 64 configuration of older SoCs.
-> 
-> Keep the node disabled by default; boards with an IR receiver can
-> enable it.
-> 
-> Signed-off-by: Justin Suess <utilityemal77@gmail.com>
-> ---
->   .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 19 +++++++++++++++++++
->   1 file changed, 19 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> index ca6a16807049..5e46c4b1ee61 100644
-> --- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> @@ -927,6 +927,25 @@ r_i2c_pins: r-i2c-pins {
->   				allwinner,pinmux = <2>;
->   				function = "r_i2c0";
->   			};
-> +
-> +			r_ir_rx_pin: r-ir-rx-pin {
-> +				pins = "PL11";
-> +				allwinner,pinmux = <2>;
-> +				function = "s_cir";
-> +			};
-> +		};
-> +
-> +		r_ir: ir@7040000 {
-> +			compatible = "allwinner,sun55i-a523-ir";
-
-As mentioned in the other email, I think we can use the fallback 
-compatible, so add this here.
-
-> +			reg = <0x07040000 0x400>;
-> +			interrupts = <GIC_SPI 167 IRQ_TYPE_LEVEL_HIGH>;
-> +			clocks = <&r_ccu CLK_BUS_R_IR_RX>, <&r_ccu CLK_R_IR_RX>;
-> +			clock-names = "apb", "ir";
-> +			clock-frequency = <24000000>;
-
-As said in the other email, I think this property is misnamed and 
-misleading, just drop it, and let the driver select the sample rate.
-
-> +			resets = <&r_ccu RST_BUS_R_IR_RX>;
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&r_ir_rx_pin>;
-
-There is another pin which carries the R-IR-RX signal, on pin PM8. In 
-those cases we do not add the pinctrl properties to the .dtsi DT node, 
-but let each board add it, right next to where they enable the IP.
-So please drop those two lines from here.
-
-Cheers,
-Andre
-
-> +			status = "disabled";
->   		};
->   
->   		pck600: power-controller@7060000 {
+diff --git a/drivers/memory/brcmstb_dpfe.c b/drivers/memory/brcmstb_dpfe.c
+index 08d9e05b1b33..6846e3dac3d3 100644
+--- a/drivers/memory/brcmstb_dpfe.c
++++ b/drivers/memory/brcmstb_dpfe.c
+@@ -522,6 +522,9 @@ static int __verify_firmware(struct init_data *init,
+ 	bool is_big_endian = false;
+ 	const u32 *chksum_ptr;
+ 
++	if (fw->size < sizeof(*header) + sizeof(*chksum_ptr))
++		return ERR_INVALID_SIZE;
++
+ 	if (header->magic == DPFE_BE_MAGIC)
+ 		is_big_endian = true;
+ 	else if (header->magic != DPFE_LE_MAGIC)
+@@ -539,6 +542,13 @@ static int __verify_firmware(struct init_data *init,
+ 	if ((dmem_size % sizeof(u32)) != 0 || (imem_size % sizeof(u32)) != 0)
+ 		return ERR_INVALID_SIZE;
+ 
++	if (dmem_size > fw->size - sizeof(*header) - sizeof(*chksum_ptr))
++		return ERR_INVALID_SIZE;
++
++	if (imem_size > fw->size - sizeof(*header) - sizeof(*chksum_ptr) -
++	    dmem_size)
++		return ERR_INVALID_SIZE;
++
+ 	/*
+ 	 * The header + the data section + the instruction section + the
+ 	 * checksum must be equal to the total firmware size.
+-- 
+2.43.0
 
 
