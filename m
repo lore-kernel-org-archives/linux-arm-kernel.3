@@ -4,127 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA7FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:54:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BDD3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Li6gf12hAVgnrcQMRKBAW8mit/RTxYfiQBsAUHsrvAc=; b=DS8+kcXgkXyYvh4uQN6/b+TI+N
-	q3+QJgjMGEKZfv+eCrb8xog39kAfQuC5C9uQR+Vpwzu4Xk7oFUFkWuY0q8h1/8Og2NdIrs4DXl8Jo
-	YGkMxyX5MYutvTJrGrYqbaPe5fqaC6fd7hSLVLxZQR9Bpd8dro7+AVRW7E5rfLBcOTZLzby0Sd4gY
-	0a9T8dloMKH0yw7DSPlH0VqMAcS1M11LBSHWFSBRa/FuQQtqIVYzGxTz6gRKx4tQrjzzDCDzSZwTV
-	oEdTFET97axT/LDqWWr21kG7lcLQXJTSFRYBElTgnWxcConBYLhDvrUUZixksOL/VxxuFEDEBAFSw
-	L2dI0PXA==;
+	bh=kfFPiegXNTBdwL7ERGkc+qHbAJDd2t8DcXD4UdKo670=; b=1mXCWKy6zNUF5PdL/DRTeCOomc
+	XrPndfPEKDB0rjTaysMtGCHj/WpqpdYW2mSzjc+Vwk7ZwG0OLD5rICN6ph4STnSS0MWXAzy3Nkbu7
+	ZS9zAgASFxYLSLcu4NIa08PJ+Gp/+7uruw5464wTqgQA4L+h1F+aNt85CDlRG0aEQbZiVbdL0QqHO
+	8mcUq7TfVzwvfB3EVJ3iUklirfe6mdycf3KKv4RnWR0xbMENL/JfpUGcTCGdknFBX/Q0YakrTKBt9
+	bCXI4SHluhsgRDU+yPNaNcd7G3i8QyYeMOsVuuehKvB6Ozk7ScpZ/7iTc3rCdW4DnlJTanxPxC7eQ
+	w1DjMgBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf5O-0000000BvsU-3xGk;
-	Mon, 06 Jul 2026 08:53:54 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wgf8W-0000000BwjX-29RS;
+	Mon, 06 Jul 2026 08:57:08 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4f-0000000Bui0-2DV5
+	id 1wgf8R-0000000Bwij-1I7E
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:53:15 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MICWb2427563;
-	Mon, 6 Jul 2026 08:52:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=Li6gf12hAVgnrcQMR
-	KBAW8mit/RTxYfiQBsAUHsrvAc=; b=VeHeyRhiJQ9Jh+lNcUfnh3edqRCqq+saX
-	s0EjImaCKSNKH90bPWXWQVdQl3BQPEsHyuABX5jEWR95S/ZsNu2NamQyjGQPlyN3
-	lVcI+eVOvOmOPaIkSUwrebAtRAHVX2cyV3AA70SEEXPtAWyUZJja1URxMPZu/GCd
-	7BbwvjjyWFaBLGqWdDWq/0gCnSJAjUtpX45pdOqtOc79hW+/iejqROYL6UC4jkHH
-	cdvmgHztj/zOFfID+H34c0IKMpsqhJPqU+8WemMX2hqPs5STKgIzjclVbM/LsIrD
-	MarlDLq+H5OZn/vSNxzItF+q23VOshki14t5Na7bN6zPppuIgrbSQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6suqgfr0-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:48 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nlDQ013565;
-	Mon, 6 Jul 2026 08:52:47 GMT
-Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7dgjvtwv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:46 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qexA31195518
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 08:52:40 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2068120043;
-	Mon,  6 Jul 2026 08:52:40 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B1B8D2004B;
-	Mon,  6 Jul 2026 08:52:39 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  6 Jul 2026 08:52:39 +0000 (GMT)
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>,
-        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v4 24/27] KVM: s390: arm64: Implement vm/vcpu create destroy.
-Date: Mon,  6 Jul 2026 10:52:24 +0200
-Message-ID: <20260706085229.979525-25-seiden@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX0iOoq2ynL/HI
- 8ZvbME1I2vURn4ob+w1BOarafhwNts7tCllMpsmpt1UJ62ddNKQyyUfCg+V3zhx4M3BpcgbQ6WS
- sEX86sxmtlngHn0+o8oPB4rvtZH+GlA=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX/sZ82hthYEik
- FGfczWVLRLKEkKZ6oU5FJjkLz+wnrTtIPplBNVTBXQccBjBAYvM/tkryZ5fBcmUu4WqWQYc+Cwo
- xDTZopuRyIpe5S79cRLXtu3/3jiVJKebMekUy/sor9TL5O1RDyLjiwH90u1EmpBiOmhakEDpRai
- jt3vEmQuIMzVFp8bL1VnaCJzlum7JmXs1CIln8AZ+aEcGwRm9HuTDLcI2GVWJwallNXB00QrBzO
- Mqcd4kJ5SOgc+1oj8XyFjpB5JA/RTBwR54k/r9xxNjKiKSUlznQ1RJyKLJANDKTScW+CmVeza8D
- xXnYb2UcQZ3Sd/0BkqKHyuEw6tUjkNy3+ezjHmYveWBWc/Auj2GnNKw58D5mmm2au8P7ZLqeouD
- bDYZ+Ix6ONfZmIs4X13Pd8RA0cQNCGu5oh3hNIAfSh+O/ii1J3FNzbpICZs74no4TMDW5/0T2St
- PsX6U9oq/fn4qWk/VZw==
-X-Proofpoint-GUID: BUFx-AIXLPFsCVnkZ6gnQhALKYvUzBsj
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a4b6ce0 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=hmv6UK7aqt4SIrmmsBkA:9
-X-Proofpoint-ORIG-GUID: BUFx-AIXLPFsCVnkZ6gnQhALKYvUzBsj
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
+	Mon, 06 Jul 2026 08:57:07 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6F1644E40CA6;
+	Mon,  6 Jul 2026 08:56:59 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2C3F2601A2;
+	Mon,  6 Jul 2026 08:56:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6433611BB9BF5;
+	Mon,  6 Jul 2026 10:56:55 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783328218; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=kfFPiegXNTBdwL7ERGkc+qHbAJDd2t8DcXD4UdKo670=;
+	b=226LxmgDjx9k9eSuB9lzIsww26Zz8Ic9NQLh0i4uMKUs5Gns2LhFiuf3n4DK4rypNVQe6A
+	/TpEfY4XWaVCUItIlaFrreQ60DyDdR4yrIhQ7Ifkk9ediqJJ2qtvj5eNbgG2rYPxTMINl5
+	QsFHXtk2CV2yU84tHFQIqppoEDMmr6XdW0fhgucdghDZOnx/TxPtMEEUhG8myLxd0CUBa4
+	+nmESPjYRIUYipXI5FEiL+Dc7T2FY2aE/d1SC9wXNZJQ2ZpqDc3Rmj96g4Bxos7X2yrQfw
+	MoilbPUhQ3q+DMaGgK9IdAQ/+MinohXiBRAcDgWPzwvaqv3OMIbAC9w90W8ARg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 06 Jul 2026 10:56:54 +0200
+Message-Id: <DJRD3C0919EP.CTZYPXDY93HI@bootlin.com>
+Cc: <linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+ <linux-gpio@vger.kernel.org>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 08/12] soc: fsl: qe: Convert to generic IRQ chip
+From: "Paul Louvel" <paul.louvel@bootlin.com>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, "Paul Louvel"
+ <paul.louvel@bootlin.com>, "Qiang Zhao" <qiang.zhao@nxp.com>, "Thomas
+ Gleixner" <tglx@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Linus Walleij" <linusw@kernel.org>, "Bartosz Golaszewski"
+ <brgl@kernel.org>, "Madhavan Srinivasan" <maddy@linux.ibm.com>, "Michael
+ Ellerman" <mpe@ellerman.id.au>, "Nicholas Piggin" <npiggin@gmail.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
+ <20260703-qe-pic-gpios-v1-8-6c3e706e27dc@bootlin.com>
+ <34946670-2a76-47fa-af82-3d70cdc9d8f0@kernel.org>
+In-Reply-To: <34946670-2a76-47fa-af82-3d70cdc9d8f0@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_015310_617735_8B53E286 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20260706_015705_910193_D7C437E6 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,402 +85,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement init and destroy IOCTLS for vcpu and vm.
-Implement arch vm IOCTL. Use s390 gmap.
+On Mon Jul 6, 2026 at 9:29 AM CEST, Christophe Leroy (CS GROUP) wrote:
+> Hi Paul,
+>
+> Le 03/07/2026 =C3=A0 15:30, Paul Louvel a =C3=A9crit=C2=A0:
+>> The generic IRQ chip framework is available to handle IRQ chips. Using
+>> this framework for the QE interrupt controller allows to simplify the
+>> driver. Indeed, the framework internally handles operations coded
+>> directly in the driver.
+>>=20
+>> Add a select dependency to GENERIC_IRQ_CHIP in the PPC platform Kconfig.
+>>=20
+>> Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
+>> ---
+>>   arch/powerpc/platforms/Kconfig   |   1 +
+>>   drivers/soc/fsl/qe/qe_ports_ic.c | 103 ++++++++++++++++++++++++++-----=
+--------
+>>   2 files changed, 70 insertions(+), 34 deletions(-)
+>>=20
+>> diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kco=
+nfig
+>> index c4e61843d9d9..b0b3a80f8cde 100644
+>> --- a/arch/powerpc/platforms/Kconfig
+>> +++ b/arch/powerpc/platforms/Kconfig
+>> @@ -232,6 +232,7 @@ config QE_GPIO
+>>   	bool "QE GPIO support"
+>>   	depends on QUICC_ENGINE
+>>   	select GPIOLIB
+>> +	select GENERIC_IRQ_CHIP
+>>   	help
+>>   	  Say Y here if you're going to use hardware that connects to the
+>>   	  QE GPIOs.
+>> diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_po=
+rts_ic.c
+>> index c8b73b0aa233..d022aa224f6d 100644
+>> --- a/drivers/soc/fsl/qe/qe_ports_ic.c
+>> +++ b/drivers/soc/fsl/qe/qe_ports_ic.c
+>> @@ -20,63 +20,65 @@ struct qepic_data {
+>>   	void __iomem *reg;
+>>   	struct irq_domain *host;
+>>   	int irq;
+>> +	struct irq_chip_generic *gc;
+>>   };
+>>  =20
+>>   static void qepic_mask(struct irq_data *d)
+>>   {
+>> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
+>>  =20
+>> -	clrbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
+>> +	clrbits32(gc->reg_base + ct->regs.mask, d->mask);
+>
+> Is there a real added value with this change ?
+>
+> Previously we had:
+>
+> 00000000 <qepic_mask>:
+>     0:	81 03 00 18 	lwz     r8,24(r3)
+>     4:	81 28 00 00 	lwz     r9,0(r8)
+>     8:	7c 00 04 ac 	hwsync
+>     c:	81 29 00 10 	lwz     r9,16(r9)
+>    10:	0c 09 00 00 	twi     0,r9,0
+>    14:	4c 00 01 2c 	isync
+>    18:	80 e3 00 08 	lwz     r7,8(r3)
+>    1c:	3d 40 80 00 	lis     r10,-32768
+>    20:	81 08 00 00 	lwz     r8,0(r8)
+>    24:	7d 4a 3c 30 	srw     r10,r10,r7
+>    28:	7d 29 50 78 	andc    r9,r9,r10
+>    2c:	7c 00 04 ac 	hwsync
+>    30:	91 28 00 10 	stw     r9,16(r8)
+>    34:	4e 80 00 20 	blr
+>
+> Now we have:
+>
+> 00000000 <qepic_mask>:
+>     0:	80 e3 00 18 	lwz     r7,24(r3)
+>     4:	81 03 00 10 	lwz     r8,16(r3)
+>     8:	81 27 00 00 	lwz     r9,0(r7)
+>     c:	81 48 00 94 	lwz     r10,148(r8)
+>    10:	7d 29 52 14 	add     r9,r9,r10
+>    14:	7c 00 04 ac 	hwsync
+>    18:	81 49 00 00 	lwz     r10,0(r9)
+>    1c:	0c 0a 00 00 	twi     0,r10,0
+>    20:	4c 00 01 2c 	isync
+>    24:	80 c3 00 00 	lwz     r6,0(r3)
+>    28:	81 27 00 00 	lwz     r9,0(r7)
+>    2c:	81 08 00 94 	lwz     r8,148(r8)
+>    30:	7d 4a 30 78 	andc    r10,r10,r6
+>    34:	7d 29 42 14 	add     r9,r9,r8
+>    38:	7c 00 04 ac 	hwsync
+>    3c:	91 49 00 00 	stw     r10,0(r9)
+>    40:	4e 80 00 20 	blr
+>
+> We now have three more indirect loads (8x lwz instead of 5x), for=20
+> loading some value which is already known at compile time.
+>
+>
+>>   }
+>>  =20
+>>   static void qepic_unmask(struct irq_data *d)
+>>   {
+>> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
+>>  =20
+>> -	setbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
+>> +	setbits32(gc->reg_base + ct->regs.mask, d->mask);
+>>   }
+>>  =20
+>>   static void qepic_end(struct irq_data *d)
+>>   {
+>> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
+>>  =20
+>> -	out_be32(data->reg + CEPIER, 1 << (31 - irqd_to_hwirq(d)));
+>> +	out_be32(gc->reg_base + ct->regs.eoi, d->mask);
+>> +}
+>> +
+>> +static void qepic_calc_mask(struct irq_data *d)
+>> +{
+>> +	d->mask =3D 1 << (31 - irqd_to_hwirq(d));
+>>   }
+>>  =20
+>>   static int qepic_set_type(struct irq_data *d, unsigned int flow_type)
+>>   {
+>> -	struct qepic_data *data =3D irq_data_get_irq_chip_data(d);
+>> -	unsigned int vec =3D (unsigned int)irqd_to_hwirq(d);
+>> +	struct irq_chip_generic *gc =3D irq_data_get_irq_chip_data(d);
+>> +	struct irq_chip_type *ct =3D irq_data_get_chip_type(d);
+>>  =20
+>>   	switch (flow_type & IRQ_TYPE_SENSE_MASK) {
+>>   	case IRQ_TYPE_EDGE_FALLING:
+>> -		setbits32(data->reg + CEPICR, 1 << (31 - vec));
+>> +		setbits32(gc->reg_base + ct->regs.type, d->mask);
+>>   		return 0;
+>>   	case IRQ_TYPE_EDGE_BOTH:
+>>   	case IRQ_TYPE_NONE:
+>> -		clrbits32(data->reg + CEPICR, 1 << (31 - vec));
+>> +		clrbits32(gc->reg_base + ct->regs.type, d->mask);
+>>   		return 0;
+>>   	}
+>>   	return -EINVAL;
+>>   }
+>>  =20
+>> -static struct irq_chip qepic =3D {
+>> -	.name =3D "QEPIC",
+>> -	.irq_mask =3D qepic_mask,
+>> -	.irq_unmask =3D qepic_unmask,
+>> -	.irq_eoi =3D qepic_end,
+>> -	.irq_set_type =3D qepic_set_type,
+>> -};
+>> -
+>>   static void qepic_cascade(struct irq_desc *desc)
+>>   {
+>>   	struct qepic_data *data =3D irq_desc_get_handler_data(desc);
+>> +	struct irq_chip_type *ct =3D data->gc->chip_types;
+>>   	struct irq_chip *chip =3D irq_desc_get_chip(desc);
+>>   	unsigned long event, bit;
+>>  =20
+>>   	chained_irq_enter(chip, desc);
+>>  =20
+>> -	event =3D in_be32(data->reg + CEPIER);
+>> +	event =3D in_be32(data->gc->reg_base + ct->regs.eoi);
+>>   	if (!event) {
+>>   		handle_bad_irq(desc);
+>>   		goto out;
+>> @@ -89,33 +91,64 @@ static void qepic_cascade(struct irq_desc *desc)
+>>   	chained_irq_exit(chip, desc);
+>>   }
+>>  =20
+>> -static int qepic_host_map(struct irq_domain *h, unsigned int virq, irq_=
+hw_number_t hw)
+>> +static int qepic_chip_init(struct irq_chip_generic *gc)
+>>   {
+>> -	irq_set_chip_data(virq, h->host_data);
+>> -	irq_set_chip_and_handler(virq, &qepic, handle_fasteoi_irq);
+>> +	struct irq_chip_type *ct =3D gc->chip_types;
+>> +
+>> +	ct->regs.mask =3D CEPIMR;
+>> +	ct->chip.irq_mask =3D qepic_mask;
+>> +	ct->chip.irq_unmask =3D qepic_unmask;
+>> +	ct->regs.eoi =3D CEPIER;
+>> +	ct->chip.irq_eoi =3D qepic_end;
+>> +	ct->regs.type =3D CEPICR;
+>> +	ct->chip.irq_set_type =3D qepic_set_type;
+>> +	ct->chip.irq_calc_mask =3D qepic_calc_mask;
+>
+> Are ct->regs.mask, ct->regs.eoi and ct->regs.type used anywhere else=20
+> than locally in qepic_{mask/unmask/end/set_type} ?
 
-Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
-Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
-Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
-Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
-Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
-Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
----
- arch/s390/kvm/arm64/arm.c       | 190 ++++++++++++++++++++++++++++++++
- arch/s390/kvm/arm64/arm.h       |  56 ++++++++++
- arch/s390/kvm/gmap/faultin.c    |   5 +
- arch/s390/kvm/gmap/gmap.c       |   4 +
- arch/s390/kvm/gmap/trace-gmap.h |  13 +++
- 5 files changed, 268 insertions(+)
+No they are not.
+The main purpose of these registers is that they are used in the generic ir=
+q
+chip framework functions like irq_gc_mask_set_bit(), which we dropped earli=
+er in
+favor of using our own hooks.
+At this stage, if you consider that the instructions overhead of the functi=
+ons
+above is already too much, it is better to get rid of the framework complet=
+ly
+then.
 
-diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
-index 19249ec5c539..3a4092698fae 100644
---- a/arch/s390/kvm/arm64/arm.c
-+++ b/arch/s390/kvm/arm64/arm.c
-@@ -8,6 +8,10 @@
- #include <linux/kvm_types.h>
- #include <linux/kvm_host.h>
- 
-+#include <arm64/kvm_mmu.h>
-+
-+#include <gmap.h>
-+
- #include "arm.h"
- 
- static unsigned long system_supported_vcpu_features(void);
-@@ -31,6 +35,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
- 		break;
- 	case KVM_CAP_IOEVENTFD:
- 	case KVM_CAP_ARM_USER_IRQ:
-+	case KVM_CAP_PRE_FAULT_MEMORY:
- 		ret = 1;
- 		break;
- 	default:
-@@ -51,6 +56,82 @@ static u64 kvm_max_guest_address(void)
- 	return ALIGN_DOWN(max_addr + 1, 1 << 30) - 1;
- }
- 
-+static int kvm_gmap_init(struct kvm *kvm)
-+{
-+	struct crst_table *table;
-+
-+	kvm->arch.gmap = gmap_new(kvm, gpa_to_gfn(kvm->arch.guest_phys_size));
-+
-+	if (!kvm->arch.gmap)
-+		return -ENOMEM;
-+
-+	/* arm64 (on s390) do not have pfault */
-+	clear_bit(GMAP_FLAG_PFAULT_ENABLED, &kvm->arch.gmap->flags);
-+	set_bit(GMAP_FLAG_ALLOW_HPAGE_1M, &kvm->arch.gmap->flags);
-+
-+	table = dereference_asce(kvm->arch.gmap->asce);
-+	crst_table_init((void *)table, _CRSTE_HOLE(table->crstes[0].h.tt).val);
-+
-+	return 0;
-+}
-+
-+static int kvm_vm_type_ipa_size_shift(unsigned long type)
-+{
-+	int phys_shift;
-+
-+	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
-+	if (phys_shift) {
-+		if (phys_shift > get_kvm_ipa_limit() ||
-+		    phys_shift < ARM64_MIN_PARANGE_BITS)
-+			return -EINVAL;
-+	} else {
-+		phys_shift = KVM_PHYS_SHIFT;
-+		if (phys_shift > get_kvm_ipa_limit()) {
-+			pr_warn_once("%s using unsupported default IPA limit\n",
-+				     current->comm);
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return phys_shift;
-+}
-+
-+int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
-+{
-+	char debug_name[32];
-+	int ret;
-+
-+	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
-+		return -EINVAL;
-+
-+	ret = kvm_vm_type_ipa_size_shift(type);
-+	if (ret < 0)
-+		return ret;
-+	kvm->arch.guest_phys_size = 1UL << ret;
-+
-+	mutex_init(&kvm->arch.config_lock);
-+	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
-+
-+	snprintf(debug_name, sizeof(debug_name), "kvm-arm64-%u", current->pid);
-+	kvm->arch.dbf = debug_register(debug_name, 32, 1, 7 * sizeof(long));
-+	if (!kvm->arch.dbf)
-+		return -ENOMEM;
-+	debug_register_view(kvm->arch.dbf, &debug_sprintf_view);
-+
-+	ret = kvm_gmap_init(kvm);
-+	if (ret)
-+		goto out_err;
-+	kvm->arch.mem_limit = kvm_max_guest_address();
-+
-+	VM_EVENT(kvm, 3, "vm created with type %lu", type);
-+	return 0;
-+
-+out_err:
-+	debug_unregister(kvm->arch.dbf);
-+
-+	return ret;
-+}
-+
- vm_fault_t kvm_arch_vcpu_fault(struct kvm_vcpu *vcpu, struct vm_fault *vmf)
- {
- 	return VM_FAULT_SIGBUS;
-@@ -62,6 +143,13 @@ long kvm_arch_dev_ioctl(struct file *filp,
- 	return -EINVAL;
- }
- 
-+void kvm_arch_destroy_vm(struct kvm *kvm)
-+{
-+	kvm_destroy_vcpus(kvm);
-+	debug_unregister(kvm->arch.dbf);
-+	kvm->arch.gmap = gmap_put(kvm->arch.gmap);
-+}
-+
- u32 get_kvm_ipa_limit(void)
- {
- 	return fls64(kvm_max_guest_address() + 1) - 1;
-@@ -72,10 +160,39 @@ int kvm_arch_vcpu_precreate(struct kvm *kvm, unsigned int id)
- 	return 0;
- }
- 
-+int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
-+{
-+	struct kvm_sae_block *sae_block = &vcpu->arch.sae_block;
-+
-+	spin_lock_init(&vcpu->arch.mp_state_lock);
-+
-+	/* Force users to call KVM_ARM_VCPU_INIT */
-+	vcpu_clear_flag(vcpu, VCPU_INITIALIZED);
-+
-+	vcpu->arch.mc = kvm_s390_new_mmu_cache();
-+	if (!vcpu->arch.mc)
-+		return -ENOMEM;
-+
-+	sae_block->hbasce = vcpu->kvm->arch.gmap->asce.val;
-+	sae_block->mso = 0L;
-+	sae_block->msl = kvm_max_guest_address();
-+
-+	VM_EVENT(vcpu->kvm, 3, "create cpu %d at 0x%p, sae block at 0x%p, satellite at 0x%p",
-+		 vcpu->vcpu_id, vcpu, &vcpu->arch.sae_block, &vcpu->arch.save_area);
-+	return 0;
-+}
-+
- void kvm_arch_vcpu_postcreate(struct kvm_vcpu *vcpu)
- {
- }
- 
-+void kvm_arch_vcpu_destroy(struct kvm_vcpu *vcpu)
-+{
-+	kvm_s390_free_mmu_cache(vcpu->arch.mc);
-+
-+	VCPU_EVENT(vcpu, 3, "%s", "free cpu");
-+}
-+
- void kvm_arch_vcpu_blocking(struct kvm_vcpu *vcpu)
- {
- }
-@@ -113,6 +230,58 @@ int kvm_vm_ioctl_irq_line(struct kvm *kvm, struct kvm_irq_level *irq_level,
- 	return 0;
- }
- 
-+int kvm_vm_ioctl_get_dirty_log(struct kvm *kvm,
-+			       struct kvm_dirty_log *log)
-+{
-+	return gmap_get_dirty_log(kvm, log);
-+}
-+
-+bool kvm_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	scoped_guard(read_lock, &kvm->mmu_lock)
-+		return gmap_age_gfn(kvm->arch.gmap, range->start, range->end);
-+}
-+
-+void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
-+{
-+	gfn_t last_gfn = memslot->base_gfn + memslot->npages;
-+
-+	scoped_guard(read_lock, &kvm->mmu_lock)
-+		gmap_sync_dirty_log(kvm->arch.gmap, memslot->base_gfn, last_gfn);
-+}
-+
-+int kvm_arch_prepare_memory_region(struct kvm *kvm,
-+				   const struct kvm_memory_slot *old,
-+				   struct kvm_memory_slot *new,
-+				   enum kvm_mr_change change)
-+{
-+	return gmap_prepare_memory_region(kvm, old, new, change);
-+}
-+
-+void kvm_arch_commit_memory_region(struct kvm *kvm,
-+				   struct kvm_memory_slot *old,
-+				   const struct kvm_memory_slot *new,
-+				   enum kvm_mr_change change)
-+{
-+	gmap_commit_memory_region(kvm, old, new, change);
-+}
-+
-+bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	return gmap_unmap_gfn_range(kvm->arch.gmap, range->slot, range->start, range->end);
-+}
-+
-+bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
-+{
-+	return gmap_test_age_gfn(kvm, range);
-+}
-+
-+long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-+				    struct kvm_pre_fault_memory *range)
-+{
-+	return gmap_pre_fault_memory(vcpu, range);
-+}
-+
- void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- 					     struct kvm_memory_slot *slot,
- 					     gfn_t gfn_offset,
-@@ -120,6 +289,27 @@ void kvm_arch_mmu_enable_log_dirty_pt_masked(struct kvm *kvm,
- {
- }
- 
-+int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
-+{
-+	void __user *argp = (void __user *)arg;
-+
-+	switch (ioctl) {
-+	case KVM_ARM_PREFERRED_TARGET: {
-+		struct kvm_vcpu_init init = {
-+			.target = KVM_ARM_TARGET_GENERIC_V8,
-+		};
-+
-+		if (copy_to_user(argp, &init, sizeof(init)))
-+			return -EFAULT;
-+
-+		return 0;
-+	}
-+
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- bool kvm_arch_irqchip_in_kernel(struct kvm *kvm)
- {
- 	return false;
-diff --git a/arch/s390/kvm/arm64/arm.h b/arch/s390/kvm/arm64/arm.h
-index a3db254462c0..244c2b7a136f 100644
---- a/arch/s390/kvm/arm64/arm.h
-+++ b/arch/s390/kvm/arm64/arm.h
-@@ -2,6 +2,62 @@
- #ifndef ARCH_S390_KVM_ARM64_H
- #define ARCH_S390_KVM_ARM64_H
- 
-+#include <linux/kvm_host.h>
-+
- #define KVM_DEV_NAME "kvm-arm64"
- 
-+#define VM_EVENT(d_kvm, d_loglevel, d_string, d_args...)\
-+do { \
-+	debug_sprintf_event((d_kvm)->arch.dbf, d_loglevel, KVM_DEV_NAME ": " d_string "\n", d_args); \
-+} while (0)
-+
-+#define VCPU_EVENT(d_vcpu, d_loglevel, d_string, d_args...)			\
-+	do {									\
-+		debug_sprintf_event(						\
-+			(d_vcpu)->kvm->arch.dbf, d_loglevel,			\
-+			KVM_DEV_NAME " %02d[%016llx-%016llx]: " d_string "\n",	\
-+			(d_vcpu)->vcpu_id, (d_vcpu)->arch.sae_block.pstate,	\
-+			(d_vcpu)->arch.sae_block.pc, d_args);			\
-+	} while (0)
-+
-+static __always_inline bool kvm_s390_is_in_sie(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+static __always_inline int kvm_is_ucontrol(struct kvm *kvm)
-+{
-+	return 0;
-+}
-+
-+static __always_inline int __kvm_s390_pv_destroy_page(struct page *page)
-+{
-+	return 0;
-+}
-+
-+static __always_inline void kvm_s390_vsie_gmap_notifier(struct gmap *gmap, gpa_t start, gpa_t end)
-+{
-+}
-+
-+static __always_inline int kvm_s390_pv_get_handle(struct kvm *kvm)
-+{
-+	return 0;
-+}
-+
-+static __always_inline int kvm_s390_is_migration_mode(struct kvm *kvm)
-+{
-+	return false;
-+}
-+
-+static __always_inline bool kvm_arch_setup_async_pf(struct kvm_vcpu *vcpu)
-+{
-+	return false;
-+}
-+
-+/* should never be called */
-+static __always_inline int kvm_s390_vm_stop_migration(struct kvm *kvm)
-+{
-+	return -EINVAL;
-+}
-+
- #endif /* ARCH_S390_KVM_ARM64_H */
-diff --git a/arch/s390/kvm/gmap/faultin.c b/arch/s390/kvm/gmap/faultin.c
-index 713914dc8eb2..b417ba575e6e 100644
---- a/arch/s390/kvm/gmap/faultin.c
-+++ b/arch/s390/kvm/gmap/faultin.c
-@@ -10,6 +10,11 @@
- 
- #include "gmap.h"
- #include "faultin.h"
-+#ifdef KVM_S390_ARM64
-+#include "arm.h"
-+#else
-+#include "s390.h"
-+#endif
- 
- #define CREATE_TRACE_POINTS
- #include "trace-gmap.h"
-diff --git a/arch/s390/kvm/gmap/gmap.c b/arch/s390/kvm/gmap/gmap.c
-index 3dcd1d4c6a29..b2ba6ee85fef 100644
---- a/arch/s390/kvm/gmap/gmap.c
-+++ b/arch/s390/kvm/gmap/gmap.c
-@@ -24,7 +24,11 @@
- #include "cmma.h"
- 
- #include "gmap.h"
-+#ifdef KVM_S390_ARM64
-+#include "arm.h"
-+#else
- #include "s390.h"
-+#endif
- #include "faultin.h"
- 
- static int gmap_limit_to_type(gfn_t limit)
-diff --git a/arch/s390/kvm/gmap/trace-gmap.h b/arch/s390/kvm/gmap/trace-gmap.h
-index 78559298932c..25f8a527fdde 100644
---- a/arch/s390/kvm/gmap/trace-gmap.h
-+++ b/arch/s390/kvm/gmap/trace-gmap.h
-@@ -10,6 +10,18 @@
- #undef TRACE_INCLUDE_FILE
- #define TRACE_INCLUDE_FILE trace-gmap
- 
-+#ifdef KVM_S390_ARM64
-+#define __KVM_FIELDS \
-+	__field(unsigned long, pstate) \
-+	__field(unsigned long, pc)
-+#define __KVM_ASSIGN ({\
-+	__entry->pstate = vcpu->arch.sae_block.pstate; \
-+	__entry->pc = vcpu->arch.sae_block.pc; \
-+	})
-+#define __KVM_PRINT \
-+	__entry->pstate, \
-+	__entry->pc
-+#else
- #define __KVM_FIELDS \
- 	__field(unsigned long, pswmask) \
- 	__field(unsigned long, pswaddr)
-@@ -20,6 +32,7 @@
- #define __KVM_PRINT \
- 	__entry->pswmask,\
- 	__entry->pswaddr
-+#endif
- 
- TRACE_EVENT(kvm_s390_major_guest_pfault,
- 	    TP_PROTO(struct kvm_vcpu *vcpu),
--- 
-2.53.0
+>
+> Christophe
+>
+>> +
+>>   	return 0;
+>>   }
+>>  =20
+>> -static const struct irq_domain_ops qepic_host_ops =3D {
+>> -	.map =3D qepic_host_map,
+>> -};
+>> +static int qepic_domain_init(struct irq_domain *d)
+>> +{
+>> +	struct qepic_data *data =3D d->host_data;
+>>  =20
+>> -static void qepic_remove(void *res)
+>> +	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void qepic_domain_exit(struct irq_domain *d)
+>>   {
+>> -	struct qepic_data *data =3D res;
+>> +	struct qepic_data *data =3D d->host_data;
+>>  =20
+>>   	irq_set_chained_handler_and_data(data->irq, NULL, NULL);
+>> -	irq_domain_remove(data->host);
+>>   }
+>>  =20
+>>   static int qepic_probe(struct platform_device *pdev)
+>>   {
+>> +	struct irq_domain_chip_generic_info dgc_info =3D {
+>> +		.name		=3D "QEPIC",
+>> +		.handler	=3D handle_fasteoi_irq,
+>> +		.irqs_per_chip	=3D 32,
+>> +		.num_ct		=3D 1,
+>> +		.init		=3D qepic_chip_init,
+>> +	};
+>> +	struct irq_domain_info d_info =3D {
+>> +		.fwnode		=3D of_fwnode_handle(pdev->dev.of_node),
+>> +		.domain_flags	=3D IRQ_DOMAIN_FLAG_DESTROY_GC,
+>> +		.size		=3D 32,
+>> +		.hwirq_max	=3D 32,
+>> +		.ops		=3D &irq_generic_chip_ops,
+>> +		.dgc_info	=3D &dgc_info,
+>> +		.init		=3D qepic_domain_init,
+>> +		.exit		=3D qepic_domain_exit,
+>> +	};
+>>   	struct device *dev =3D &pdev->dev;
+>>   	struct qepic_data *data;
+>>  =20
+>>   	data =3D devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+>>   	if (!data)
+>>   		return -ENOMEM;
+>> +	d_info.host_data =3D data;
+>>  =20
+>>   	data->reg =3D devm_platform_ioremap_resource(pdev, 0);
+>>   	if (IS_ERR(data->reg))
+>> @@ -125,14 +158,16 @@ static int qepic_probe(struct platform_device *pde=
+v)
+>>   	if (data->irq < 0)
+>>   		return data->irq;
+>>  =20
+>> -	data->host =3D irq_domain_create_linear(dev_fwnode(dev), 32, &qepic_ho=
+st_ops, data);
+>> -	if (!data->host)
+>> -		return -ENODEV;
+>> +	data->host =3D devm_irq_domain_instantiate(dev, &d_info);
+>> +	if (IS_ERR(data->host))
+>> +		return PTR_ERR(data->host);
+>>  =20
+>> -	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
+>> -
+>> -	return devm_add_action_or_reset(dev, qepic_remove, data);
+>> +	data->gc =3D irq_get_domain_generic_chip(data->host, 0);
+>> +	if (!data->gc)
+>> +		return -ENODEV;
+>> +	data->gc->reg_base =3D data->reg;
+>>  =20
+>> +	return 0;
+>>   }
+>>  =20
+>>   static const struct of_device_id qepic_match[] =3D {
+>>=20
+
+Thanks,
+Paul.
+
+
+
+--=20
+Paul Louvel, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
 
