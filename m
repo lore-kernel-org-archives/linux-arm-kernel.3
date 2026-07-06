@@ -4,93 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 027C7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 23:29:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B49D6C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 23:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gcBgjqeSOfuptOO3Y+Jfj7CL+AEDlaiqctCql/yUeXE=; b=B0TD3f8UxvXO9xJXCQQgxOhfLQ
-	OL+RqNQ3+l095fazO+0DGqV8tAHyJLSW5NIJICuaSYy26pNjIaP5NLsTO3FHd0hrMcwfmxwHvdr2J
-	UnZi8j3hakKUJyhaPb1FrmYv7es3bN/U9m53rbtU4zHa1KTTehHpuiICWs2hqHwZjyYAQj0ysffyC
-	aEwY+m7OC7WpoKxq1XPOthdknEAt/u5dUN8SLWVpjSEA7sSZ8apIeT50h9qmmiaVeg/P40lIAdUaf
-	KcrKJ44I8mLjmahmmEexRStZpsA9lsXLHZtXSJgtII2tjTvoKCIRqExE67cG15zjVriLoxq+zGfUe
-	rvBmf7Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	Subject:Cc:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yxU8CHzvkTqWab+IeF9EPpfT2XdfzFSqHKpwnRwHBpU=; b=xugy+uyc10hxWY+PnWXmqZEsp+
+	t2p2JB1YfodoGtC7ShIPUynEFYvtyFuteKjIvdB7LZ7Inp2fi0XtSlhW9J43AyWJLzsaaZIvKptse
+	V2F/9DAKw8vPUhbMOPKiyEafeZxezwesZ62uvn2nIdpRKY8NIUbD049liGeckbUCPxfnKVmTz5qAB
+	muQKte8b856z1XYkmFcfdVQ12U6PPoM8G6Bd3dhdAM1pttuimHZFJTt1RZBm33DunqaQB0FgBtZOd
+	B4WJ6vDUDV5gyNk2G3ngUWxWbbm7meRxm/CDEcYvppbKvR34QpVijsN3xBm31HxHFA6hh4NCEP1KK
+	5tNcXQjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgskN-0000000DnRj-2fjP;
-	Mon, 06 Jul 2026 23:29:07 +0000
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
+	id 1wgskl-0000000DnWG-37fZ;
+	Mon, 06 Jul 2026 23:29:31 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgskK-0000000DnQt-3KaK
+	id 1wgski-0000000DnVP-1FIf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 23:29:06 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-8efcfdb2b43so26608296d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 16:29:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783380543; x=1783985343; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gcBgjqeSOfuptOO3Y+Jfj7CL+AEDlaiqctCql/yUeXE=;
-        b=jGUA/qzsWQUYhXfHBoJSAs8MD+xWujQLDaEnpL4wO69Inu0V8wF+V8v/6Sefx7vdK7
-         7AFA7lCUiUpf0Z628EEFlLeMOATxjXxrY5F0hIUCGTzVhqVYH5P1DKnk29lQasbBCSOH
-         OFzertDGWkY0bAwXHL+8L+ZbnKslB2AzwztSRYGq3cGnZKTB6ze3vzpCZE60/jYtoixo
-         6wZoAxiM8AeL8Jmi+Qi6Y5q0/DQL77A0/M/cIrg/A28BsB8gvOav101IqMErhRMcoPB8
-         Lo/4NggTMToQi3Bm+5MU127Gxcy9y9sl7CUNnf6vczRGvHyL3D4cem0SWbd3uhsMEBMz
-         wcsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783380543; x=1783985343;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gcBgjqeSOfuptOO3Y+Jfj7CL+AEDlaiqctCql/yUeXE=;
-        b=Ipj9vJo73bSFLSX108qVGw2/wZ9oI5iPs5EQBf/wzOjof0bDFrKatE5ZbQ/9ps+9wm
-         WTpta52iT6FX2q6/vZtxAoGiCWoZec8lFK1atctNWDI+E2IP0ytZVNKPPpEVtFDGyHeZ
-         IUScjHm8+2d5oEZV7NVoqRAmuDg0t1oniziQPnGQ/k9iCgWpSCtlH9AUyL4uiypSQV6v
-         F+sXLEAKZ6W4mLGZiyxR7v7rkn5Zubyh910xqX21flwmH9X97WnEtUr2bJ76VqHfv5Uo
-         G3mTvwlHYmIVSZ83CHIdriSLH2k9cYh7ogCGwIq3azu51tkcFuIAyqLiIULd5oglWU2U
-         BsEQ==
-X-Forwarded-Encrypted: i=1; AHgh+Rpg2i+Qqf8YmM4jplYvS9xge3UN/dSzrljcXJoWc1US5pZyWlkr2mYu9A3n4vJRcipAyKEY9rcDEiNO9aRHCs9n@lists.infradead.org
-X-Gm-Message-State: AOJu0YytcOXiq7rAdajtq2m/XWfunUQRb9YRhNI6CUm6B2u3Wk9XDA8M
-	jhWGpN5oqPu2sn0yoFKf7KrDq/z1Nj/hCEOFeMpZROsaDjtYHB+5NyLg
-X-Gm-Gg: AfdE7cmTCADjn10a9+i/+P+0TgK6JeKP9OP4zct2N0X0hBncbZBy3N3unJhSTkkwxpE
-	ZAxD4PPOD3c7oJKre07dtXtKCSEIeNEKhbsFl96UTMXIBrPDjj67y5YUcJ3maSLOcKKPXdh5QO8
-	FFe+Krk6XW+3u4D5kdn3MuvhDzvkqwiW0ZrvAOZwaXTmlEMK+i4MGv/cELs3OXcC45j7Ajv828S
-	wDuKcIZHWOgu69h8n07E+v4lyrdu12I6EnPv0k0GkWRzIeG1swhj1WjsX/xurCeEtL8MolCcx/f
-	VwIlb1HIaCdMmqoa0YC7m1YIOrNgvS7GPkXkRnW+t0+vQgcQEMSR4ZWTLL88T5GzGVEETv0ElQJ
-	18r/jSEOFraDh60Ry36AeGrl5LgaWr64kH4k529U58C6vptHzb5sUlALb8/ghQiU+ILgM0LLY/J
-	jIvP42Al0mlPNs99NjRUZUV/ODw02qTKMsZwdE5kGSScoX2e1JQz/5iHATiav5KKZdQywpCcyOR
-	DG/k3IQ9uP2cLU6Pl4P
-X-Received: by 2002:a05:6214:5701:b0:8f0:11df:c80d with SMTP id 6a1803df08f44-8fcb56c8c27mr39823556d6.42.1783380542597;
-        Mon, 06 Jul 2026 16:29:02 -0700 (PDT)
-Received: from ryzen.lan ([2601:644:8000:7a86::e34])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8f471de83f8sm148902706d6.33.2026.07.06.16.28.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 16:29:01 -0700 (PDT)
-From: Rosen Penev <rosenp@gmail.com>
-To: linux-wireless@vger.kernel.org
-Cc: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rosen Penev <rosenp@gmail.com>,
-	linux-kernel@vger.kernel.org (open list:ARM/Mediatek SoC support),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Mediatek SoC support),
-	linux-mediatek@lists.infradead.org (moderated list:ARM/Mediatek SoC support)
-Subject: [PATCHv2 wireless] wifi: mt76: fix MAC address for non OF pcie cards
-Date: Mon,  6 Jul 2026 16:28:57 -0700
-Message-ID: <20260706232857.807044-1-rosenp@gmail.com>
-X-Mailer: git-send-email 2.55.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Mon, 06 Jul 2026 23:29:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ubuntu.com;
+ h=In-Reply-To: References: From: Subject: Cc: To: Message-Id: Date:
+ Content-Type: Content-Transfer-Encoding: Mime-Version; q=dns/txt;
+ s=fe-953a8a3ca9; t=1783380567;
+ bh=yxU8CHzvkTqWab+IeF9EPpfT2XdfzFSqHKpwnRwHBpU=;
+ b=C99IDKw7CnTdbLDlnuCaqIs3LwVfqkOroAXJJFE+52dHHsMC0o1Q00r5YK7Gh36q5Z7YmfcOD
+ arch1Opc7DhDKfEB91xnmsTRFECnO898uJd8oFn5OcdFaW+5hmDhGVu7n+kx+uyXcFiyyaHdKrC
+ aKqlOLsCuSFINJrPtD0yxixQHYmfhut4xGlZxGUMtxJJLnxI0h/UrtqPrhaomrPt91O4R9jvqoW
+ 017SRadaFZr1atQakd6H7BGqF40o4O/b4lqOMbaCy8BvOlXSK1r4kqpokZ4aXGFGqAiS8TmgUwV
+ u2U2x0XAvNKW2btkBSyccJR0qfX3Urq72+PyfnjtKwlQ==
+X-Forward-Email-ID: 6a4c3a4e49befa328926c594
+X-Forward-Email-Sender: rfc822; jpeisach@ubuntu.com, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.9.7
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8; format=Flowed
+Date: Mon, 06 Jul 2026 19:29:15 -0400
+Message-Id: <DJRVN972B27A.XI5EE88SRI89@ubuntu.com>
+To: "Sasha Finkelstein" <k@chaosmail.tech>, "Sven Peter" <sven@kernel.org>,
+ "Janne Grunau" <j@jannau.net>, "Neal Gompa" <neal@gompa.dev>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>
+Cc: <asahi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Conor
+ Dooley" <conor.dooley@microchip.com>, "Hector Martin" <marcan@marcan.st>
+Subject: Re: [PATCH v3 0/3] soc: apple: Add "PMGR misc" power controls
+ driver
+From: "Joshua Peisach" <jpeisach@ubuntu.com>
+X-Mailer: aerc 0.21.0
+References: <20260705-pmgr-misc-v3-0-51b75fed6f73@chaosmail.tech>
+In-Reply-To: <20260705-pmgr-misc-v3-0-51b75fed6f73@chaosmail.tech>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_162904_841012_6D0A48F1 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260706_162928_339194_06547CBC 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,38 +80,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If seems the check for err is wrong as the proper macaddr gets written
-to from the EEPROM itself. Meaning checking err from of_get_mac_address is
-wrong as the proper macaddr has been written by this point.
+On Sun Jul 5, 2026 at 4:16 AM EDT, Sasha Finkelstein wrote:
+> Certain Apple SoCs have additional power state controls that are using
+> a separate "misc" mmio interface. Currently this includes the fabric
+> and memory controllers on pro/max/ultra SoCs.
+>
+> This series adds a driver to put those in a low power state when the
+> machine enters sleep. The power savings are SoC-dependent and are
+> around 1W.
+>
+> Signed-off-by: Sasha Finkelstein <k@chaosmail.tech>
+> ---
+> Changes in v3:
+> - Remove ability to probe only one control, it is not used anyway
+> - Allow building as module
+> - Style fixes
+> - Link to v2: https://patch.msgid.link/20260703-pmgr-misc-v2-0-4b26ba10c5=
+a4@chaosmail.tech
+>
+> Changes in v2:
+> - Error handling fixes
+> - Reword binding description
+> - Link to v1: https://patch.msgid.link/20260702-pmgr-misc-v1-0-4f075a3a95=
+c1@chaosmail.tech
+>
+> ---
+> Hector Martin (1):
+>       soc: apple: Add driver for Apple PMGR misc controls
+>
+> Sasha Finkelstein (2):
+>       dt-bindings: soc: apple: Add Apple PMGR misc controls
+>       arm64: dts: apple: Add pmgr-misc nodes to t60xx
+>
+>  Documentation/devicetree/bindings/soc/apple/apple,t6000-pmgr-misc.yaml |=
+  45 +++++++++++++++++++++++++++
+>  MAINTAINERS                                                            |=
+   1 +
+>  arch/arm64/boot/dts/apple/t600x-die0.dtsi                              |=
+   7 +++++
+>  arch/arm64/boot/dts/apple/t602x-die0.dtsi                              |=
+   7 +++++
+>  drivers/soc/apple/Kconfig                                              |=
+  10 ++++++
+>  drivers/soc/apple/Makefile                                             |=
+   2 ++
+>  drivers/soc/apple/apple-pmgr-misc.c                                    |=
+ 181 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+++++++++++++++++++++++++++++++++++++
+>  7 files changed, 253 insertions(+)
+> ---
+> base-commit: e5d9690657844a2645a518cdf838206f6daf513e
+> change-id: 20260702-pmgr-misc-ae1cbd5bc2c7
+>
+> Best regards,
+> -- =20
+> Sasha Finkelstein <k@chaosmail.tech>
 
-Reported-by: Klara Modin <klarasmodin@gmail.com>
-Closes: https://lore.kernel.org/all/ajRmlyx_AEGybykL@soda.int.kasm.eu/
-Reported-by: Tobias Klausmann <klausman@schwarzvogel.de>
-Closes:
-https://lore.kernel.org/linux-wireless/30a90714-02d8-45f2-a7f1-4cfe0627d50b@skade.local/
-Fixes: 31ee1582717e ("wifi: mt76: fix of_get_mac_address error handling")
-Signed-off-by: Rosen Penev <rosenp@gmail.com>
-Tested-by: Tobias Klausmann <klausman@schwarzvogel.de>
-Tested-by: Klara Modin <klarasmodin@gmail.com>
----
- v2: add extra tags and target wireless
- drivers/net/wireless/mediatek/mt76/eeprom.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Seems fine.
 
-diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
-index b99d7452800f..afdb73661866 100644
---- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-+++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-@@ -181,7 +181,7 @@ mt76_eeprom_override(struct mt76_phy *phy)
- 	if (err == -EPROBE_DEFER)
- 		return err;
- 
--	if (err) {
-+	if (!is_valid_ether_addr(phy->macaddr)) {
- 		eth_random_addr(phy->macaddr);
- 		dev_info(dev->dev,
- 			 "Invalid MAC address, using random address %pM\n",
--- 
-2.55.0
-
+Reviewed-by: Joshua Peisach <jpeisach@ubuntu.com>
 
