@@ -4,68 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C668C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:58:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E8DC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xfa02w+2R7v85UsHbfc8c8fBDDDTcGtnNT9og3+/x+Y=; b=SY3qxc/9Lis6HHrlEXAHcYfD+V
-	wwO1QFPmLNVX/a++GYHZL4WHpKe5Y12WKup1JtWTmsK0Bx3nAL9jM6xLnYV9VhdfEdgBtLDryQHBl
-	Udq1mvjCk3nV89z2JX+4blKPg0xWSKKFOna2sY0gdxtJ1Z4YHYHPUWsdjKSFH44y0EXN+riOwLheg
-	d7h7MmMNI9M0x70ZiEe1Fh+NY0nOt/l3mwxFBLWB0dB0umS7XcQmzAvXgpG67S0OW+doSdMJooGDt
-	bQXCeipOYtcpuV+mI6Z3wrdV5tI+osohYo5aISUlbksaW4TN4RmvLsZ0YdwA44HLuLaU9nYy7qytp
-	oMbAbDTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Iq2547hWkLyPSn5vKecOMarotbQZRKymJ/MEe/TR2/0=; b=vq3SBRA5I8rghq8zfHt1txfFTs
+	BcR1KUrS8EWywuERsGYrZ2q9zLObwpCxWv09kXfRBEqatPYHPPduARh6GUlnuRdmQwkTpdeBsUs5S
+	CZeJlWItHb67xcTj3THhNxvg3I99UHqvCL6KG40O7UQ6IalGFBoyjhxftQSJNXfaBJ+MR6qCkD7FV
+	Wb//gmNG5tpxS3URy/NfVY4PHTBPkZVcOCGI/t6DxlgIlNHx4EnKxDvzieYNQcVUaDBY7VSVqSqgx
+	geU0iVen4CLZzzAdtGjvpSURtDdJc8UbXIhZ7+kjQ12mpTIA15qMwC9ZZRuIWd9RAohqgEsnGe54g
+	Tvrl4xbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnaH-0000000DH9J-2nHG;
-	Mon, 06 Jul 2026 17:58:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgnbS-0000000DHHm-3sa9;
+	Mon, 06 Jul 2026 17:59:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnaF-0000000DH8y-0HZ9
+	id 1wgnbQ-0000000DHHI-2Oxi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:58:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 389A9600AE;
-	Mon,  6 Jul 2026 17:58:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A83771F000E9;
-	Mon,  6 Jul 2026 17:58:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783360697;
-	bh=Xfa02w+2R7v85UsHbfc8c8fBDDDTcGtnNT9og3+/x+Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=l/EoXkqEqLzf/RmDFKoleUlyWGN8jKQKxq88TU+k7AINCMlouqbeFvDNtMG1ujBD0
-	 daO+DPr9pYbKdvKxoQu38X0ZYp1smDFej9Nm24s6FwslOX+7mIbZnPFTFajOX3N+Lx
-	 uHvR+9g0G8rKkVBPNnzYKihpTCv8aP4sg0oR4ct0Xw7Oy7bpgmGTdHo24nyLjp+uTQ
-	 SxzKfmEUvtM8MGXPQbAL4s27RmkpJ9I3v9p3/nrB1Ubo+h+TUiFVG27qZJcqGAvCI1
-	 aKXOvLUS0HrAjs7XNVArgFq+aXnLaJEkr0mQZzY11Yfvlti/0vf1GKWx7Rh2OgdSmU
-	 ui4UATs+PWTKA==
-Date: Mon, 6 Jul 2026 10:58:16 -0700
-From: Oliver Upton <oupton@kernel.org>
-To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
-	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v8 6/7] KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
-Message-ID: <akvsuBcqCCzlrBLk@kernel.org>
-References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
- <20260706-hybrid-v8-6-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+	Mon, 06 Jul 2026 17:59:33 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666FF78u833027
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 17:59:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Iq2547hWkLyPSn5vKecOMarotbQZRKymJ/MEe/TR2/0=; b=D9dS6ZtggisbxqVw
+	VXNH20ZxC6/PiGXHw90REEh6dwZDMS/8Jps1l/TWXPucoikMfgj6/7kXVq/NKlNl
+	vJS6Q0k+mxlZuBPzq9yJYF3aNmV/jEWJTFacqRhoMZWDgMY567uc3dRVdSsfe0X9
+	zW2U7ywrsTYVhbudEW1+hSMxaMQ3ynWaUvrj29AwT6OdeXJx39z984puadx2X8LL
+	uROqcqcMF2JbosjruZSiUG/4pYiTo3vkztm09jTeaeQsjHUR06VnXyhoEkdXVfkf
+	O/eI2ovfqvxDE019fdtnxBb6v8DHB40rJ8lpwmcD3rJbRtBa2qrKvEtsd3K7ycM9
+	j9S81Q==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a98j5j4-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 17:59:31 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92e695a3b28so6879585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:59:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783360770; x=1783965570; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Iq2547hWkLyPSn5vKecOMarotbQZRKymJ/MEe/TR2/0=;
+        b=WnWI16ihvJYJ7nMV1BlgRHAyuHMwRYa5hIhTcfXnHDIUOQlld3kexrgZXOa2v5I1SA
+         /0U8bGIYz9ams+Z9apeK4Ad8VdlHp7AAoV3axzM4ps2UoSHIhnV8pUj3UHAI/cVvtj40
+         8ceOgVfGFKlGdq/Xg/qC4DxhD49FdfG9u81YKwbjPTG38dXh5MV6fn+Mu0ZFUZuylmWf
+         jqR7nNuMNeC+5RxiYRqVMOJ6rbhGxpMrft3dr7XScvTOO5VfvFLwT3wrbaTjvEeZdS6A
+         ewcpdIcmM0/7vIiSFgw33xppuWa2mKzjFeHQ04YHP3CFuNnXQ+rZsn2OSkY91noKfquy
+         9VtA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783360770; x=1783965570;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Iq2547hWkLyPSn5vKecOMarotbQZRKymJ/MEe/TR2/0=;
+        b=PrBiqAzk+P4v1bD5TFkQePfHwjhZ0it6WxvrFkN6clxTwE7u1jaSBMSpaQOIGhFJx/
+         2AMpY064jE4bvqRl4ipQXmLxHq2H7fa7elFuBpiH2b+Fits/Tkg4Y1A9t7QvEQHqIVsa
+         Qw/xm22+5/HNQg/afcCV97d/RHScTYBRY4+qVxmOB62vn6G5Zge5h9yi9Dvl1F/btcOp
+         qK9kZHWHwM7VzEw/wWnr1az4DTRR/sRbO0d9yI/Sh+ubnnKufuE9EMsFDcMo36EX1pRr
+         aHspMwCq8SkGtCxAjnIbS0p0/p8OiORrUydRAPnavyouPT7MPXargraRM5VDgbW6rgFe
+         uNug==
+X-Forwarded-Encrypted: i=1; AHgh+RreAPqkdwHbKHe0izP7E5Rrw5IvQolIrMn8uQCOTnyt5JrzyjHs5Ui/44oGSL/MpOtjF1OPJUrbfPRhFe3yGyfn@lists.infradead.org
+X-Gm-Message-State: AOJu0YydNdiunVdL/9D6TDhrnucALT2Zgt8oov67wozJ2/KbxfCH/kOc
+	fKFHeAf/5zpACx/ibIChzsOVjl01FZ6LpwXgoiuxwPsOE2ywBVz0I0fGbwG7NmJpcTqe1OqfBc8
+	/BQMMEkoBaUFDo8W9DftnPGcfmq97TPdx0kvgcP5uQWqB0SZT4xW+4r2wKy4SjuZ4+zrJ6fCAL1
+	Ylug==
+X-Gm-Gg: AfdE7cnzcxebgIt+x/mH7d6UJnh3Ri8OZZDrp/uF3BSB/0QyqWQ/nI1OCIZ8lltdpQu
+	AASjXu7nLbZHE8AsXaWWhH8xH0pQ/mUrj0dd5liO91cTGf7MmzV31bNp/+vTO07hc4jjT5e0MgW
+	OEd3MmUE9dco8dl5Af+4mkianCK3t0U7tDpsvlf9bkmqu+6aqmlgDbIAqD1hMB36fv10HSOI5jk
+	SY3l1eMea4UeqXcHHZNnvlXOwQ8ueVHG5JcSmz1fS4AjFeLX1tM71JtRq+cDR4VwrxpofnZZyQk
+	17yvYkkNcqEKhC3DudpUKmxl9SOehEbYqRGzzeQYfES0lR482CHAcGLUxe0CvjrKK2cUBiVwJys
+	eGTah4VVA5ntbq3qS+XaLwlin1SSVf4KhPDYPynLP
+X-Received: by 2002:a05:620a:3944:b0:929:7356:2e51 with SMTP id af79cd13be357-92e8b29ea49mr2099262285a.11.1783360770241;
+        Mon, 06 Jul 2026 10:59:30 -0700 (PDT)
+X-Received: by 2002:a05:620a:3944:b0:929:7356:2e51 with SMTP id af79cd13be357-92e8b29ea49mr2099257485a.11.1783360769800;
+        Mon, 06 Jul 2026 10:59:29 -0700 (PDT)
+Received: from [192.168.1.110] ([178.197.223.174])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e01c00c0sm727595e9.5.2026.07.06.10.59.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 10:59:29 -0700 (PDT)
+Message-ID: <0c6ddedf-df46-48a3-8810-8ac36c06d507@oss.qualcomm.com>
+Date: Mon, 6 Jul 2026 19:59:27 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260706-hybrid-v8-6-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: aspeed: Correct indentation
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+References: <20260706101930.341635-2-krzysztof.kozlowski@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20260706101930.341635-2-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=SpigLvO0 c=1 sm=1 tr=0 ts=6a4bed03 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=LetsCp1wghxSMK_TJDwA:9 a=QEXdDO2ut3YA:10
+ a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDE4MSBTYWx0ZWRfX/vdybFYW7XTa
+ ALEP+AiSYj7T/djbsurEYYAQKO9BSKIvxwt/wLz8hSAH0TtxmuU/rItu16qVtFYkxmw4QGJVcn/
+ l+17XwPRCqeFyEcyjDOKJwLtxUT8W8nsmxO82FJ7YG3rdfNCYloN4kx18s7M3ezHxKXY9Cf2rNH
+ czqNdB7bDXf3n72CeKmOYU32wSySpI2uh4P+2BQ7T7ktj7Ha+CQOf8lIU5h1VVWmHLjOHkORhT8
+ X9nAv8pCWd7EWpsEy+//TTL3OBZdo1l4XIw+Uq2/wSkxS5SwGNCkd4JwnLCzZHCRCatq24M/U3B
+ gPvjltiybueXvqQK44x+T56qSc1LAP7wQxld5eUkafiJlS/xT/iaIagT6/FjMHMUO6XEJ8r1buv
+ PjTAz+ko9TYkq3EG2iGovrYGYHJarLtLjxi/zQGGL1Xql6dhTRz2PvZcvWwFALUc8LgHvqwG1td
+ 91mI/40DhxrNW9p4AbA==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDE4MSBTYWx0ZWRfXwgJF1RiyFmcM
+ bHIOSxnd37ZRzgWyQZoyNC1BXlZrjqN5INjKedeLJPCH0Ur7+q1Cxn6qpGBUxepAUj2zLjrPu/U
+ sDuF42ugqP4vxuU/9JU/4UvcDIzh4qs=
+X-Proofpoint-GUID: 6JHDZS6OBuK_V-0NXoAgW7zUJsp19Mp8
+X-Proofpoint-ORIG-GUID: 6JHDZS6OBuK_V-0NXoAgW7zUJsp19Mp8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_02,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060181
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_105932_623638_FE6EFBDF 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,116 +150,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 07:03:29PM +0900, Akihiko Odaki wrote:
-> +1.6 ATTRIBUTE: KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY
-> +------------------------------------------------------
-> +
-> +:Parameters: no additional parameter in kvm_device_attr.addr
-> +
-> +:Returns:
-> +
-> +	 =======  ==================================================
-> +	 -EBUSY   PMUv3 already initialized, a VCPU has already run,
-> +		  an event filter has already been set or
-> +		  a hardware PMU has already been specified
-> +	 -ENXIO   Attempted to get before setting
-> +	 -ENODEV  Attempted to set while PMUv3 not supported
-> +	 =======  ==================================================
-> +
-> +If set, KVM emulates PMUv3 without programmable event counters. Only fixed
-> +counters are exposed to the guest: the cycle counter today, and the instruction
-> +counter if support for FEAT_PMUv3_ICNTR is added.
+On 06/07/2026 12:19, Krzysztof Kozlowski wrote:
+> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
+> No functional impact (same DTB).
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> Ongoing bigger work for all bindings and DTS with built-in checker (dt-check-style).
+> ---
 
-Drop the mention of cycle counter and FEAT_PMUv3_ICNTR, I want to avoid
-the argument later down the line when ICNTR support is added to this
-mode.
 
-The expectation is that the VMM discovers the feature set using the ID
-registers just like every other CPU feature. KVM documentation doesn't
-need to describe the architecture.
+I will have v2.
 
-> +With programmable counters disabled, the VCPU can run on any physical CPU.
-> +This is particularly useful on heterogeneous systems where different hardware
-> +PMUs cover different physical CPUs. All VCPUs in a VM share this attribute.
-
-  When this attribute is enabled, the vCPU can run on any physical CPU
-  that has a PMU, regardless of the underlying implementation. This
-  attribute is VM-scoped.
-
-The documentation is focused on unambiguously representing the UAPI, not
-providing application recommendations.
-
->  2. GROUP: KVM_ARM_VCPU_TIMER_CTRL
->  =================================
->  
-> diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
-> index 1c13bfa2d38a..39a1a1e412e6 100644
-> --- a/arch/arm64/include/uapi/asm/kvm.h
-> +++ b/arch/arm64/include/uapi/asm/kvm.h
-> @@ -437,6 +437,7 @@ enum {
->  #define   KVM_ARM_VCPU_PMU_V3_FILTER		2
->  #define   KVM_ARM_VCPU_PMU_V3_SET_PMU		3
->  #define   KVM_ARM_VCPU_PMU_V3_SET_NR_COUNTERS	4
-> +#define   KVM_ARM_VCPU_PMU_V3_FIXED_COUNTERS_ONLY	5
->  #define KVM_ARM_VCPU_TIMER_CTRL		1
->  #define   KVM_ARM_VCPU_TIMER_IRQ_VTIMER		0
->  #define   KVM_ARM_VCPU_TIMER_IRQ_PTIMER		1
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 40cad183376c..ad9ff4d0d89c 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -1149,11 +1149,13 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->  		arm_pmu = entry->arm_pmu;
->  		if (arm_pmu->pmu.type == pmu_id) {
->  			if (kvm_vm_has_ran_once(kvm) ||
-> +			    kvm_pmu_fixed_counters_only(kvm) ||
->  			    (kvm->arch.pmu_filter && kvm->arch.arm_pmu != arm_pmu)) {
->  				ret = -EBUSY;
->  				break;
->  			}
->  
-> +			set_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags);
-
-Why is this flag necessary? kvm->arch.arm_pmu is NULL if no PMU
-implementation was selected by userspace.
-
->  			kvm_arm_set_pmu(kvm, arm_pmu);
->  			cpumask_copy(kvm->arch.supported_cpus, &arm_pmu->supported_cpus);
->  			ret = 0;
-> @@ -1164,6 +1166,22 @@ static int kvm_arm_pmu_v3_set_pmu(struct kvm_vcpu *vcpu, int pmu_id)
->  	return ret;
->  }
->  
-> +static int kvm_arm_pmu_v3_set_pmu_fixed_counters_only(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm *kvm = vcpu->kvm;
-> +
-> +	lockdep_assert_held(&kvm->arch.config_lock);
-> +
-> +	if (kvm_vm_has_ran_once(kvm) || kvm->arch.pmu_filter ||
-> +	    test_bit(KVM_ARCH_FLAG_PMU_V3_EXPLICIT, &kvm->arch.flags))
-> +		return -EBUSY;
-> +
-> +	set_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
-> +	kvm_arm_set_nr_counters(kvm, 0);
-> +
-> +	return 0;
-> +}
-> +
->  static int kvm_arm_pmu_v3_set_nr_counters(struct kvm_vcpu *vcpu, unsigned int n)
->  {
->  	struct kvm *kvm = vcpu->kvm;
-> @@ -1238,7 +1256,7 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
->  		     filter.action != KVM_PMU_EVENT_DENY))
->  			return -EINVAL;
->  
-> -		if (kvm_vm_has_ran_once(kvm))
-> +		if (kvm_vm_has_ran_once(kvm) || kvm_pmu_fixed_counters_only(kvm))
-
-There's no reason for doing this, just let userspace create an event
-filter. Even with the current PMU implementation it's possible that the
-fixed cycle counter gets filtered.
-
-Thanks,
-Oliver
+Best regards,
+Krzysztof
 
