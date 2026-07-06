@@ -4,97 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF1FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355FBC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Sqd3XyZRZ7mToF9qruwihDtHEuHFOqUkYKMPnP/8Zw=; b=CBpHyvrC1AVAIvK29F404oAket
-	ly4e6bEYzUYfoE2tWRyMJgI8KASrNVJXHgoGpK8SCjbB8Donzv/40VmEjKO6QsjA8q6E1JfrTTi+O
-	pTaXwwFaSqQv1KFAeFM1WRtcHEfJ6W2UG+W43KswRNu0J5+VQjjLg/X8qvPebBt7Z6ll3JxSkkQWq
-	/UQPQVtA23xtXBlAscMGnM3TqQUbvN2YO6uhQEUbxur6VsPnc0sQbSTDgPgcVbqAob7wNkI8Az3hL
-	iR8kh3qHSO8VrE4XOPItzVeCVYVCFkdPAYQPFlaK/lVh8fmn5LfdH/Nk+wCkD+Vm4jlbtpIFdupv6
-	l4sfSetQ==;
+	bh=27TFgIkJwi3EqtbH1wXpLiyy+tC4lD8wNt7kzzWLi+E=; b=txw+lQq3AEadRtBH6dEYYRl+pI
+	XjWnIha2xIVO/hhArdDq7cLjKbWZR1N3Al7CCdlUtMcSG7uecygHCJJKlpLpPiMB5wBFjoV9ao5jD
+	Pk/GXjNUHwuoYe1/ogEFASrhn91swCCS9EHdb3CtGU8gC+GinupFmRV331i/KfLGlFgHzPqpYnABH
+	fbBk3V0iM+F90yGUPC6e2wlTuQW/152XAgVTt+Y6FEaSIpAzGGXugtJkwTkQex98vWkHjFCyrXLGp
+	fQ9AoeMXyl3HkhjvTvEYR/+jAt+myC+4CNFvq7JKp17C0qJYIESb4f2sKL0sXhSW8zIVf/UravDC5
+	MA38wtKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqkL-0000000DcQV-1TWE;
-	Mon, 06 Jul 2026 21:20:57 +0000
+	id 1wgqmp-0000000DcfH-2qaI;
+	Mon, 06 Jul 2026 21:23:31 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqkK-0000000DcQL-137D
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 21:20:56 +0000
+	id 1wgqmo-0000000Dcf8-23ED;
+	Mon, 06 Jul 2026 21:23:30 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id A851F4035D;
-	Mon,  6 Jul 2026 21:20:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A2531F000E9;
-	Mon,  6 Jul 2026 21:20:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C75F419CD;
+	Mon,  6 Jul 2026 21:23:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7B341F000E9;
+	Mon,  6 Jul 2026 21:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783372855;
-	bh=5Sqd3XyZRZ7mToF9qruwihDtHEuHFOqUkYKMPnP/8Zw=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HEe/qBxvfIG40doMjqy8CEwsagb3+aDZEILs/R6IZyVX3w9E8IseQLo8GtUJcLVlF
-	 YpX3aEYWCgwO50aVxpSJj30xdWExIOZcO9TViA1UgcfBZaRQ9lNz0LahFh0hbF4GTE
-	 zwJam9SkAUzCcmcZLWBmxnWwfBCw94bDgYjyXZZqrvguJqTkJuWWA/fardm6I0JdsT
-	 mMNuJmb0tsyIOx94YP9xuUrlFCUuILyx+8OczSpX9cU4LA5YM43A5k5XStojtI4qwB
-	 rm1MpUVGrg3Tiqv9Nc419ohM6Q+pX5vVgYtNsW0ZUUPtXQeALTZrPVOEycNzzLN6Wy
-	 gzLZRrG9ngtJg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wgqkG-000000028i5-2u0y;
-	Mon, 06 Jul 2026 21:20:52 +0000
-Date: Mon, 06 Jul 2026 22:22:41 +0100
-Message-ID: <878q7n7qzi.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
+	s=k20260515; t=1783373008;
+	bh=27TFgIkJwi3EqtbH1wXpLiyy+tC4lD8wNt7kzzWLi+E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=nVB9hw2IFy/VhHo8e4wIoh65JSm5oMvDEsmkYxIhiCxoX2F+0i+JFyMuYohMD48og
+	 mv8SmEGwyckIlhxaPxU8mpwLdIELEJgMTAaMQGTzun998n3SXPXqLyVGXTKqU8p+zX
+	 OBSUDwJAFM6hIGH0TIeLNTBsnUZSvEsKM4/oPFQRtAMmsIG8aHKRbas6eg2iwqC14B
+	 8aOAWq6DUzLi8HMjko1b/acnHduLgIUnLKGmd3xUS5uY39s5mfYE+EyPtul2he7owg
+	 LIqPuXIB+8kgNSHWVn3hsjgBHRAzrpPZl6gbfhQsFkOvqKiIe+SfzU8kZlVpeSJ217
+	 c58wwCLLUvx5A==
+Date: Mon, 6 Jul 2026 23:23:25 +0200
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+To: Aniket Negi <aniket.negi03@gmail.com>
+Cc: netdev@vger.kernel.org, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, aniket.negi@airoha.com,
+	kuldeep.malik@airoha.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Christian Marangi <ansuelsmth@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 07/27] arm64: Prepare sharing arm64 headers with s390
-In-Reply-To: <20260706085229.979525-8-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
-	<20260706085229.979525-8-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v4] net: airoha: fix MIB stats collection to be
+ lossless
+Message-ID: <akwczc23LOGbKfMl@lore-desk>
+References: <20260706154730.36949-1-aniket.negi03@gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WnHbkR8+FLUtLHFk"
+Content-Disposition: inline
+In-Reply-To: <20260706154730.36949-1-aniket.negi03@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,422 +77,472 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 09:52:07 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
-> 
-> Prepare the sharing of arm64 headers with s390 by marking the shared
-> regions or add a comment that the whole file is shared.
-> The regions are marked with:
-> 
->  #define ARM64_S390_COMMON
-> 
->  /* insert shared definitions here */
-> 
->  #endif /* ARM64_S390_COMMON */
-> 
-> The preprocessor symbol ARM64_S390_COMMON is always defined for arm64.
-> Reduce the include scope where possible and beneficial for s390.
-> No functional change.
-> 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+
+--WnHbkR8+FLUtLHFk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+> REG_FE_GDM_MIB_CLEAR after every read creates a race window where
+> packets arriving between read and clear are lost from statistics.
+>=20
+> Switch to a delta-based approach instead:
+>=20
+> - 64-bit H+L registers (ok pkts/bytes, E64..L1023): read absolute
+>   hardware total directly; use a local variable and max(new, old)
+>   clamping to prevent intermediate visibility and torn-read regression.
+>=20
+> - 32-bit registers (drops, bc, mc, errors, runt, long): accumulate
+>   (u32)(curr - prev) into a 64-bit software counter; unsigned
+>   subtraction handles wrap-around transparently.
+>=20
+> - tx/rx_len[0] ([0,64] bucket): combines RUNT_CNT (32-bit, delta via
+>   tx_runt/rx_runt) and E64_CNT (64-bit, absolute) into a single
+>   assignment using a local accumulator to avoid double-counting.
+>=20
+> Clear MIB counters once in airoha_fe_init() to establish a clean
+> baseline, preventing spurious stats from pre-driver activity (kexec,
+> driver rebind, warm reboot).
+>=20
+> Merge airoha_dev_get_hw_stats() into airoha_update_hw_stats() and
+> move stats_lock inside. Plain spin_lock() is correct: the function
+> is only called from ndo_get_stats64() in process context. Each dev
+> refreshes only its own MIB counters; sibling devs on a shared GDM3/4
+> port are polled when their own netdev is queried.
+>=20
+> Fixes: 8f4695fb67b2 ("net: airoha: better handle MIBs for GDM ports with =
+multiple devs attached")
+> Signed-off-by: Aniket Negi <aniket.negi03@gmail.com>
+> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  arch/arm64/Makefile                  |  2 ++
->  arch/arm64/include/asm/brk-imm.h     |  1 +
->  arch/arm64/include/asm/esr.h         |  5 +++--
->  arch/arm64/include/asm/kvm_arm.h     |  6 ++++--
->  arch/arm64/include/asm/kvm_emulate.h | 19 ++++++++++++++++++
->  arch/arm64/include/asm/kvm_host.h    | 28 +++++++++++++++++++++++++++
->  arch/arm64/include/asm/kvm_mmu.h     |  6 ++++++
->  arch/arm64/include/asm/ptrace.h      |  9 +++++++++
->  arch/arm64/include/asm/sysreg.h      | 29 +++++++++++++++++++++++++---
->  9 files changed, 98 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-> index 6b005c8fef70..1cd7cd94a855 100644
-> --- a/arch/arm64/Makefile
-> +++ b/arch/arm64/Makefile
-> @@ -43,7 +43,9 @@ CC_FLAGS_NO_FPU	:= -mgeneral-regs-only
->  KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
->  		   $(compat_vdso) $(cc_has_k_constraint)
->  KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
-> +KBUILD_CFLAGS	+= -DARM64_S390_COMMON
->  KBUILD_AFLAGS	+= $(compat_vdso)
-> +KBUILD_AFLAGS	+= -DARM64_S390_COMMON
->  
->  ifeq ($(call rustc-min-version, 108500),y)
->  KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
-> diff --git a/arch/arm64/include/asm/brk-imm.h b/arch/arm64/include/asm/brk-imm.h
-> index beb42c62b6ac..dd2d153dc0d8 100644
-> --- a/arch/arm64/include/asm/brk-imm.h
-> +++ b/arch/arm64/include/asm/brk-imm.h
-> @@ -2,6 +2,7 @@
->  /*
->   * Copyright (C) 2012 ARM Ltd.
->   */
-> +/* Whole file is shared with s390 */
->  
->  #ifndef __ASM_BRK_IMM_H
->  #define __ASM_BRK_IMM_H
-> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-> index 81c17320a588..e25b742b09ac 100644
-> --- a/arch/arm64/include/asm/esr.h
-> +++ b/arch/arm64/include/asm/esr.h
-> @@ -3,11 +3,12 @@
->   * Copyright (C) 2013 - ARM Ltd
->   * Author: Marc Zyngier <marc.zyngier@arm.com>
->   */
-> +/* Whole file is shared with s390 */
->  
->  #ifndef __ASM_ESR_H
->  #define __ASM_ESR_H
->  
-> -#include <asm/memory.h>
-> +#include <asm/brk-imm.h>
->  #include <asm/sysreg.h>
->  
->  #define ESR_ELx_EC_UNKNOWN	UL(0x00)
-> @@ -435,7 +436,7 @@
->  #define ESR_ELx_IT_GCSPOPX		7
->  
->  #ifndef __ASSEMBLER__
-> -#include <asm/types.h>
-> +#include <linux/types.h>
->  
->  static inline unsigned long esr_brk_comment(unsigned long esr)
+> Changes in v4:
+> - Add max(new, old) clamping for 64-bit H+L register pairs to ensure
+>   monotonically non-decreasing stats despite torn reads between H and L
+> - Use local variable (tmp) for all 64-bit H+L computations to prevent
+>   lockless readers from seeing intermediate values during piecewise write
+> - Add one-shot MIB counter clear in airoha_fe_init() to establish a
+>   clean baseline (kexec, driver rebind, warm reboot)
+> - Document sibling dev polling design in commit message
+>=20
+> Changes in v3:
+> - Link to V2: https://lore.kernel.org/20260701173941.314795-1-aniket.negi=
+03@gmail.com/
+> - Add Acked-by tag from Lorenzo
+> - Rename from tx_runt_cnt to tx_runt, tx_long_cnt to tx_long,
+>   tx_runt_accum64 to tx_runt64
+> - Rename from rx_runt_cnt to rx_runt, rx_long_cnt to rx_long,
+>   rx_runt_accum64 to rx_runt64
+> - Condense the marked comments in V2, remove new line after comment
+>=20
+> Changes in v2:
+> - Store _CNT_L register reads in val before adding to stats, improving
+>   readability (suggested by Lorenzo Bianconi)
+> - Fix double-counting bug in the RUNT+E64 combined bucket: previously
+>   "+=3D" for E64 re-added the full absolute counter each poll; now a
+>   dedicated tx_runt_accum64/rx_runt_accum64 accumulator holds the
+>   running RUNT delta, and tx_len[0] is assigned (not accumulated) each
+>   poll as runt_accum64 + E64_abs
+> - Replace 7-element tx_len[]/rx_len[] shadow arrays in mib_prev with
+>   focused tx_runt_cnt/tx_long_cnt and rx_runt_cnt/rx_long_cnt fields;
+>   only RUNT and LONG are 32-bit and need wrap-around tracking
+> - Rename inner struct hw_prev_stats to mib_prev; rename accumulator
+>   fields to tx_runt_accum64/rx_runt_accum64 for clarity
+> - Fix comment alignment in mib_prev struct block
+> - Rename airoha_dev_get_hw_stats() to airoha_update_hw_stats() and
+>   move the port spin_lock inside, removing the separate wrapper
+>=20
+>  drivers/net/ethernet/airoha/airoha_eth.c | 183 +++++++++++++++--------
+>  drivers/net/ethernet/airoha/airoha_eth.h |  27 ++++
+>  2 files changed, 144 insertions(+), 66 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ether=
+net/airoha/airoha_eth.c
+> index 59001fd4b6f7..2d032cc6dfca 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -493,6 +493,8 @@ static void airoha_fe_crsn_qsel_init(struct airoha_et=
+h *eth)
+> =20
+>  static int airoha_fe_init(struct airoha_eth *eth)
 >  {
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 3f9233b5a130..cc4175176f94 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -3,14 +3,16 @@
->   * Copyright (C) 2012,2013 - ARM Ltd
->   * Author: Marc Zyngier <marc.zyngier@arm.com>
->   */
-> +/* Whole file is shared with s390 */
->  
->  #ifndef __ARM64_KVM_ARM_H__
->  #define __ARM64_KVM_ARM_H__
->  
-> +#include <linux/const.h>
-> +#include <linux/bits.h>
-> +#include <linux/types.h>
->  #include <asm/esr.h>
-> -#include <asm/memory.h>
->  #include <asm/sysreg.h>
-> -#include <asm/types.h>
->  
->  /*
->   * Because I'm terribly lazy and that repainting the whole of the KVM
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index 5bf3d7e1d92c..a1c92d2436ae 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -44,13 +44,18 @@ enum exception_type {
->  bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
->  void kvm_skip_instr32(struct kvm_vcpu *vcpu);
->  
-> +#ifdef ARM64_S390_COMMON
->  void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-> +#endif /* ARM64_S390_COMMON */
->  void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
->  int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
-> +#ifdef ARM64_S390_COMMON
->  int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
-> +#endif /* ARM64_S390_COMMON */
->  int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
->  void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
->  
-> +#ifdef ARM64_S390_COMMON
->  static inline int kvm_inject_sea_dabt(struct kvm_vcpu *vcpu, u64 addr)
+> +	int i;
+> +
+>  	airoha_fe_maccr_init(eth);
+> =20
+>  	/* PSE IQ reserve */
+> @@ -586,6 +588,14 @@ static int airoha_fe_init(struct airoha_eth *eth)
+>  	/* enable 1:N vlan action, init vlan table */
+>  	airoha_fe_set(eth, REG_MC_VLAN_EN, MC_VLAN_EN_MASK);
+> =20
+> +	/* Clear MIB counters to establish clean baseline for delta tracking.
+> +	 * This prevents spurious statistics from pre-driver activity (e.g.,
+> +	 * kexec, driver rebind, warm reboot) on first poll.
+> +	 */
+> +	for (i =3D AIROHA_GDM1_IDX; i <=3D AIROHA_GDM4_IDX; i++)
+> +		airoha_fe_set(eth, REG_FE_GDM_MIB_CLEAR(i),
+> +			      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
+
+This configuration is not needed since we reset FE at module load.
+
+> +
+>  	return airoha_fe_mc_vlan_clear(eth);
+>  }
+> =20
+> @@ -1686,11 +1696,14 @@ static void airoha_qdma_stop_napi(struct airoha_q=
+dma *qdma)
+>  	}
+>  }
+> =20
+> -static void airoha_dev_get_hw_stats(struct airoha_gdm_dev *dev)
+> +static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
 >  {
->  	return kvm_inject_sea(vcpu, false, addr);
-> @@ -61,6 +66,8 @@ static inline int kvm_inject_sea_iabt(struct kvm_vcpu *vcpu, u64 addr)
->  	return kvm_inject_sea(vcpu, true, addr);
+>  	struct airoha_gdm_port *port =3D dev->port;
+>  	struct airoha_eth *eth =3D dev->eth;
+>  	u32 val, i =3D 0;
+> +	u64 tmp, prev;
+
+nit: tmp is not so meaningful, maybe better something like data?
+
+> +
+> +	spin_lock(&port->stats_lock);
+> =20
+>  	/* Read relevant MIB for GDM with multiple port attached */
+>  	if (port->id =3D=3D AIROHA_GDM3_IDX || port->id =3D=3D AIROHA_GDM4_IDX)
+> @@ -1701,152 +1714,190 @@ static void airoha_dev_get_hw_stats(struct airo=
+ha_gdm_dev *dev)
+> =20
+>  	u64_stats_update_begin(&dev->stats.syncp);
+> =20
+> -	/* TX */
+> +	/* TX - 64-bit H+L registers: hw accumulates the total, read directly.
+> +	 * Use local variable to prevent readers from seeing intermediate value=
+s.
+> +	 * Clamp to prevent regression from torn reads between H and L.
+> +	 */
+> +	prev =3D dev->stats.tx_ok_pkts;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_H(port->id));
+> -	dev->stats.tx_ok_pkts +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+
+nit: data =3D (u64)val << 32;
+
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_PKT_CNT_L(port->id));
+> -	dev->stats.tx_ok_pkts +=3D val;
+> +	tmp |=3D val;
+
+nit: I would prefer "+" instead of "|"
+
+> +	dev->stats.tx_ok_pkts =3D max(tmp, prev);
+
+nit: please drop prev and just do:
+	dev->stats.tx_ok_pkts =3D max(data, dev->stats.tx_ok_pkts);
+
+please redo it for all the occurrences.
+
+Regards,
+Lorenzo
+
+> =20
+> +	prev =3D dev->stats.tx_ok_bytes;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_H(port->id));
+> -	dev->stats.tx_ok_bytes +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_OK_BYTE_CNT_L(port->id));
+> -	dev->stats.tx_ok_bytes +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.tx_ok_bytes =3D max(tmp, prev);
+> =20
+> +	/* TX - 32-bit registers: accumulate delta to handle wrap-around. */
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_DROP_CNT(port->id));
+> -	dev->stats.tx_drops +=3D val;
+> +	dev->stats.tx_drops +=3D (u32)(val - dev->stats.mib_prev.tx_drops);
+> +	dev->stats.mib_prev.tx_drops =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_BC_CNT(port->id));
+> -	dev->stats.tx_broadcast +=3D val;
+> +	dev->stats.tx_broadcast +=3D (u32)(val - dev->stats.mib_prev.tx_broadca=
+st);
+> +	dev->stats.mib_prev.tx_broadcast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_MC_CNT(port->id));
+> -	dev->stats.tx_multicast +=3D val;
+> +	dev->stats.tx_multicast +=3D (u32)(val - dev->stats.mib_prev.tx_multica=
+st);
+> +	dev->stats.mib_prev.tx_multicast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_RUNT_CNT(port->id));
+> -	dev->stats.tx_len[i] +=3D val;
+> +	dev->stats.mib_prev.tx_runt64 +=3D
+> +		(u32)(val - dev->stats.mib_prev.tx_runt);
+> +	dev->stats.mib_prev.tx_runt =3D val;
+> =20
+> +	/* tx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute). */
+> +	tmp =3D dev->stats.mib_prev.tx_runt64;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	tmp +=3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_E64_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	tmp +=3D val;
+> +	dev->stats.tx_len[i++] =3D tmp;
+> =20
+> +	prev =3D dev->stats.tx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L64_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.tx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.tx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L127_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.tx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.tx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L255_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.tx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.tx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L511_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.tx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.tx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_H(port->id));
+> -	dev->stats.tx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_L1023_CNT_L(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.tx_len[i++] =3D max(tmp, prev);
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_TX_ETH_LONG_CNT(port->id));
+> -	dev->stats.tx_len[i++] +=3D val;
+> +	dev->stats.tx_len[i++] +=3D (u32)(val - dev->stats.mib_prev.tx_long);
+> +	dev->stats.mib_prev.tx_long =3D val;
+> =20
+>  	/* RX */
+> +	prev =3D dev->stats.rx_ok_pkts;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_H(port->id));
+> -	dev->stats.rx_ok_pkts +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_PKT_CNT_L(port->id));
+> -	dev->stats.rx_ok_pkts +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_ok_pkts =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.rx_ok_bytes;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_H(port->id));
+> -	dev->stats.rx_ok_bytes +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OK_BYTE_CNT_L(port->id));
+> -	dev->stats.rx_ok_bytes +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_ok_bytes =3D max(tmp, prev);
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_DROP_CNT(port->id));
+> -	dev->stats.rx_drops +=3D val;
+> +	dev->stats.rx_drops +=3D (u32)(val - dev->stats.mib_prev.rx_drops);
+> +	dev->stats.mib_prev.rx_drops =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_BC_CNT(port->id));
+> -	dev->stats.rx_broadcast +=3D val;
+> +	dev->stats.rx_broadcast +=3D (u32)(val - dev->stats.mib_prev.rx_broadca=
+st);
+> +	dev->stats.mib_prev.rx_broadcast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_MC_CNT(port->id));
+> -	dev->stats.rx_multicast +=3D val;
+> +	dev->stats.rx_multicast +=3D (u32)(val - dev->stats.mib_prev.rx_multica=
+st);
+> +	dev->stats.mib_prev.rx_multicast =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ERROR_DROP_CNT(port->id));
+> -	dev->stats.rx_errors +=3D val;
+> +	dev->stats.rx_errors +=3D (u32)(val - dev->stats.mib_prev.rx_errors);
+> +	dev->stats.mib_prev.rx_errors =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_CRC_ERR_CNT(port->id));
+> -	dev->stats.rx_crc_error +=3D val;
+> +	dev->stats.rx_crc_error +=3D (u32)(val - dev->stats.mib_prev.rx_crc_err=
+or);
+> +	dev->stats.mib_prev.rx_crc_error =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_OVERFLOW_DROP_CNT(port->id));
+> -	dev->stats.rx_over_errors +=3D val;
+> +	dev->stats.rx_over_errors +=3D (u32)(val - dev->stats.mib_prev.rx_over_=
+errors);
+> +	dev->stats.mib_prev.rx_over_errors =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_FRAG_CNT(port->id));
+> -	dev->stats.rx_fragment +=3D val;
+> +	dev->stats.rx_fragment +=3D (u32)(val - dev->stats.mib_prev.rx_fragment=
+);
+> +	dev->stats.mib_prev.rx_fragment =3D val;
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_JABBER_CNT(port->id));
+> -	dev->stats.rx_jabber +=3D val;
+> +	dev->stats.rx_jabber +=3D (u32)(val - dev->stats.mib_prev.rx_jabber);
+> +	dev->stats.mib_prev.rx_jabber =3D val;
+> =20
+>  	i =3D 0;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_RUNT_CNT(port->id));
+> -	dev->stats.rx_len[i] +=3D val;
+> +	dev->stats.mib_prev.rx_runt64 +=3D
+> +		(u32)(val - dev->stats.mib_prev.rx_runt);
+> +	dev->stats.mib_prev.rx_runt =3D val;
+> =20
+> +	/* rx_len[0]: RUNT (32-bit, delta) + E64 (64-bit, absolute). */
+> +	tmp =3D dev->stats.mib_prev.rx_runt64;
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	tmp +=3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_E64_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	tmp +=3D val;
+> +	dev->stats.rx_len[i++] =3D tmp;
+> =20
+> +	prev =3D dev->stats.rx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L64_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.rx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L127_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.rx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L255_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.rx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L511_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_len[i++] =3D max(tmp, prev);
+> =20
+> +	prev =3D dev->stats.rx_len[i];
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_H(port->id));
+> -	dev->stats.rx_len[i] +=3D ((u64)val << 32);
+> +	tmp =3D ((u64)val << 32);
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_L1023_CNT_L(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	tmp |=3D val;
+> +	dev->stats.rx_len[i++] =3D max(tmp, prev);
+> =20
+>  	val =3D airoha_fe_rr(eth, REG_FE_GDM_RX_ETH_LONG_CNT(port->id));
+> -	dev->stats.rx_len[i++] +=3D val;
+> +	dev->stats.rx_len[i] +=3D (u32)(val - dev->stats.mib_prev.rx_long);
+> +	dev->stats.mib_prev.rx_long =3D val;
+> =20
+>  	u64_stats_update_end(&dev->stats.syncp);
+> -}
+> -
+> -static void airoha_update_hw_stats(struct airoha_gdm_dev *dev)
+> -{
+> -	struct airoha_gdm_port *port =3D dev->port;
+> -	int i;
+> -
+> -	spin_lock(&port->stats_lock);
+> -
+> -	for (i =3D 0; i < ARRAY_SIZE(port->devs); i++) {
+> -		if (port->devs[i])
+> -			airoha_dev_get_hw_stats(port->devs[i]);
+> -	}
+> -
+> -	/* Reset MIB counters */
+> -	airoha_fe_set(dev->eth, REG_FE_GDM_MIB_CLEAR(port->id),
+> -		      FE_GDM_MIB_RX_CLEAR_MASK | FE_GDM_MIB_TX_CLEAR_MASK);
+> =20
+>  	spin_unlock(&port->stats_lock);
 >  }
->  
-> +#endif /* ARM64_S390_COMMON */
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ether=
+net/airoha/airoha_eth.h
+> index f6d01a8e8da1..fe934f9ffe8a 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -245,6 +245,33 @@ struct airoha_hw_stats {
+>  	u64 rx_fragment;
+>  	u64 rx_jabber;
+>  	u64 rx_len[7];
 > +
->  static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
->  {
->  	/*
-> @@ -159,6 +166,7 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
->  	*vcpu_cpsr(vcpu) |= PSR_AA32_T_BIT;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  /*
->   * vcpu_get_reg and vcpu_set_reg should always be passed a register number
->   * coming from a read of ESR_EL2. Otherwise, it may give the wrong result on
-> @@ -177,6 +185,8 @@ static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
->  		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
->  {
->  	switch (ctxt->regs.pstate & (PSR_MODE32_BIT | PSR_MODE_MASK)) {
-> @@ -360,6 +370,7 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
->  	return vcpu->arch.fault.disr_el1;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
->  {
->  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
-> @@ -437,6 +448,8 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
->  	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static inline
->  bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
->  {
-> @@ -477,6 +490,7 @@ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
->  	return ESR_ELx_SYS64_ISS_RT(esr);
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
->  {
->  	if (kvm_vcpu_abt_iss1tw(vcpu)) {
-> @@ -501,6 +515,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
->  	return kvm_vcpu_dabt_iswrite(vcpu);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
->  {
->  	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
-> @@ -536,6 +552,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
->  	return vcpu_read_sys_reg(vcpu, r) & bit;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
->  						    unsigned long data,
->  						    unsigned int len)
-> @@ -611,6 +628,8 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
->  		vcpu_set_flag((v), e);					\
->  	} while (0)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
+> +	struct {
+> +		/* Previous HW register values for 32-bit counter delta
+> +		 * tracking. Storing the last seen value and accumulating
+> +		 * (u32)(curr - prev) into the 64-bit software counter
+> +		 * handles wrap-around transparently via unsigned arithmetic.
+> +		 * tx_runt64/rx_runt64 hold the running sum of runt deltas.
+> +		 * These fields are never reported to userspace.
+> +		 */
+> +		u32 tx_drops;
+> +		u32 tx_broadcast;
+> +		u32 tx_multicast;
+> +		u32 tx_runt;
+> +		u32 tx_long;
+> +		u64 tx_runt64;
+> +		u32 rx_drops;
+> +		u32 rx_broadcast;
+> +		u32 rx_multicast;
+> +		u32 rx_errors;
+> +		u32 rx_crc_error;
+> +		u32 rx_over_errors;
+> +		u32 rx_fragment;
+> +		u32 rx_jabber;
+> +		u32 rx_runt;
+> +		u32 rx_long;
+> +		u64 rx_runt64;
+> +	} mib_prev;
+>  };
+> =20
+>  enum {
+>=20
+> base-commit: a225f8c20712713406ae47024b8df42deacddd4a
+> --=20
+> 2.43.0
+>=20
 
-It'd be worth looking at an initial patch reorganising this file to
-minimise the number of such markers. This is equally valid for other
-files in this patch.
+--WnHbkR8+FLUtLHFk
+Content-Type: application/pgp-signature; name=signature.asc
 
-[...]
+-----BEGIN PGP SIGNATURE-----
 
-> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-> index 6eae7e7e2a68..b782cae771fe 100644
-> --- a/arch/arm64/include/asm/kvm_mmu.h
-> +++ b/arch/arm64/include/asm/kvm_mmu.h
-> @@ -142,12 +142,15 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
->  
->  extern u32 __hyp_va_bits;
->  
-> +#ifdef ARM64_S390_COMMON
->  /*
->   * We currently support using a VM-specified IPA size. For backward
->   * compatibility, the default IPA size is fixed to 40bits.
->   */
->  #define KVM_PHYS_SHIFT	(40)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #define kvm_phys_shift(mmu)		VTCR_EL2_IPA((mmu)->vtcr)
->  #define kvm_phys_size(mmu)		(_AC(1, ULL) << kvm_phys_shift(mmu))
->  #define kvm_phys_mask(mmu)		(kvm_phys_size(mmu) - _AC(1, ULL))
-> @@ -178,9 +181,12 @@ void stage2_unmap_vm(struct kvm *kvm);
->  int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type);
->  void kvm_uninit_stage2_mmu(struct kvm *kvm);
->  void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu);
-> +#ifdef ARM64_S390_COMMON
->  int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
->  			  phys_addr_t pa, unsigned long size, bool writable);
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCakwczQAKCRA6cBh0uS2t
+rBCKAQC+t+Uk1YQUuW7zW8Xam5tO2kvAT2JkCmZ6g+zMs6KRiQD+NkCws3mXiPdf
+mKF6Cmo1mB+XD+N4TKGFuJBRX/jq0QY=
+=NZnX
+-----END PGP SIGNATURE-----
 
-This only serves a purpose for GICv2, and I really hope your HW will
-not implement this. You should probably find a way to avoid dragging
-stuff that doesn't make sense on s390.
-
->
-> +#endif /* ARM64_S390_COMMON */
-> +
->  int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
->  int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
->  
-> diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-> index 39582511ad72..6eb122eb5fa6 100644
-> --- a/arch/arm64/include/asm/ptrace.h
-> +++ b/arch/arm64/include/asm/ptrace.h
-> @@ -10,8 +10,13 @@
->  
->  #include <asm/cpufeature.h>
->  
-> +#ifdef ARM64_S390_COMMON
-> +#include <asm/sysreg.h>
-> +
->  #include <uapi/asm/ptrace.h>
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /* Current Exception Level values, as contained in CurrentEL */
->  #define CurrentEL_EL1		(1 << 2)
->  #define CurrentEL_EL2		(2 << 2)
-> @@ -28,6 +33,8 @@
->  
->  #define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
->  
-> +#ifdef ARM64_S390_COMMON
-> +
->  /* Additional SPSR bits not exposed in the UABI */
->  #define PSR_MODE_THREAD_BIT	(1 << 0)
->  #define PSR_IL_BIT		(1 << 20)
-> @@ -68,6 +75,8 @@
->  #define PSR_AA32_IT_MASK	0x0600fc00	/* If-Then execution state mask */
->  #define PSR_AA32_GE_MASK	0x000f0000
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #ifdef CONFIG_CPU_BIG_ENDIAN
->  #define PSR_AA32_ENDSTATE	PSR_AA32_E_BIT
->  #else
-> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> index 4bfdac9401bd..58912a6b6fcd 100644
-> --- a/arch/arm64/include/asm/sysreg.h
-> +++ b/arch/arm64/include/asm/sysreg.h
-> @@ -9,13 +9,17 @@
->  #ifndef __ASM_SYSREG_H
->  #define __ASM_SYSREG_H
->  
-> +#ifdef ARM64_S390_COMMON
->  #include <linux/bits.h>
-> +#endif /* ARM64_S390_COMMON */
->  #include <linux/stringify.h>
->  #include <linux/kasan-tags.h>
->  #include <linux/kconfig.h>
->  
->  #include <asm/gpr-num.h>
->  
-> +#ifdef ARM64_S390_COMMON
-> +
->  /*
->   * ARMv8 ARM reserves the following encoding for system registers:
->   * (Ref: ARMv8 ARM, Section: "System instruction class encoding overview",
-> @@ -50,6 +54,8 @@
->  #define sys_reg_CRm(id)	(((id) >> CRm_shift) & CRm_mask)
->  #define sys_reg_Op2(id)	(((id) >> Op2_shift) & Op2_mask)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #ifndef CONFIG_BROKEN_GAS_INST
->  
->  #ifdef __ASSEMBLER__
-> @@ -79,6 +85,8 @@
->  
->  #endif	/* CONFIG_BROKEN_GAS_INST */
->  
-> +#ifdef ARM64_S390_COMMON
-> +
->  /*
->   * Instructions for modifying PSTATE fields.
->   * As per Arm ARM for v8-A, Section "C.5.1.3 op0 == 0b00, architectural hints,
-> @@ -91,8 +99,6 @@
->   */
->  #define pstate_field(op1, op2)		((op1) << Op1_shift | (op2) << Op2_shift)
->  #define PSTATE_Imm_shift		CRm_shift
-> -#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
-> -#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
->  
->  #define PSTATE_PAN			pstate_field(0, 4)
->  #define PSTATE_UAO			pstate_field(0, 3)
-> @@ -100,6 +106,11 @@
->  #define PSTATE_DIT			pstate_field(3, 2)
->  #define PSTATE_TCO			pstate_field(3, 4)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
-> +#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
-> +#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
-> +
->  #define SET_PSTATE_PAN(x)		SET_PSTATE((x), PAN)
->  #define SET_PSTATE_UAO(x)		SET_PSTATE((x), UAO)
->  #define SET_PSTATE_SSBS(x)		SET_PSTATE((x), SSBS)
-> @@ -123,6 +134,8 @@
->  #define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
->  #define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
-
-What is the reason to avoid dragging these definitions? They seem
-extremely similar to the rest.
-
->
-> +#ifdef ARM64_S390_COMMON
-> +
->  /* Data cache zero operations */
->  #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
->  #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
-> @@ -835,6 +848,8 @@
->  #define SCTLR_ELx_A	 (BIT(1))
->  #define SCTLR_ELx_M	 (BIT(0))
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #ifdef CONFIG_CPU_BIG_ENDIAN
->  #define ENDIAN_SET_EL2		SCTLR_ELx_EE
->  #else
-> @@ -869,6 +884,8 @@
->  	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
->  	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
->  
-> +#ifdef ARM64_S390_COMMON
-> +
->  /* MAIR_ELx memory attributes (used by Linux) */
->  #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
->  #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
-> @@ -1105,6 +1122,8 @@
->  #define GICV5_GICR_CDNMIA_TYPE_MASK	GENMASK_ULL(31, 29)
->  #define GICV5_GICR_CDNMIA_ID_MASK	GENMASK_ULL(23, 0)
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
->  #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
->  
-> @@ -1254,6 +1273,8 @@
->  	par;								\
->  })
->  
-> +#ifdef ARM64_S390_COMMON
-> +
->  #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
->  
->  #define SYS_FIELD_GET(reg, field, val)		\
-> @@ -1266,6 +1287,8 @@
->  		 FIELD_PREP(reg##_##field##_MASK,	\
->  			    SYS_FIELD_VALUE(reg, field, val))
->  
-> -#endif
-> +#endif /* ARM64_S390_COMMON */
-> +
-> +#endif /* __ASSEMBLER__ */
->  
->  #endif	/* __ASM_SYSREG_H */
-
-Overall, the fine-grained tagging is a bit hard to read, and there is
-no obvious rationale on why some bits are needed, and not others are
-not.
-
-It definitely looks more manageable than the previous iteration, but
-as I said above, it would benefit from a less scattergun approach.
-
-Thanks,
-
-	M.
-
--- 
-Jazz isn't dead. It just smells funny.
+--WnHbkR8+FLUtLHFk--
 
