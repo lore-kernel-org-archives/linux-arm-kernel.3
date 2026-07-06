@@ -4,68 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25ECDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:38:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD45CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RSikxvuz0fdarLrs2WLzUhq/9C36cPYevojeibE+zuk=; b=P8Fbve3sCFUNKc9XNVPyQSMjg3
-	F7qxoPkJ+vT4PtyiIVdYJ6bKMWuwbkBfZ2dJkInaE6P+YZP1qNAdYiD3jO6Oug8UXL4zUMXIkOWkO
-	fBLAP7x6tFH6ZsQ2N5lyv8zhkoUSagWPMYddxIk5xGwVjw3e8VDgqFMBwopqpiyZ0WHcw905lj2qW
-	VARF6hHXA3zz/yx4LWJG+i844zdQ9f0B4zMsX0jy8KHevvxQhrWraXKr3uuDH9/pBW4OayEOaDEbU
-	+WQxXvrlx3RR07I3tN+WnGaBMi7bWj6kYtA4lAS8WCq5IsMU/+1+f+HIsVHa/pNHuM3XKGjgQE0KJ
-	qk1rhgDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hTWjwgCXxt6hTw08btnLGEppuERjf0VGtYBDsq6fShs=; b=qSpR4h+Jum9sXnLe2nKDcWI2CK
+	WMZ4gl0hLkCNNFkh3J26fD4uuWROyykP0kEyyDOrzbH2u4YWzgGFDWyWn6K7W/Nl6gbITAqlS0iar
+	DpKd75X/HmCdboNS2QWed4eSsw/By5NZ3BMvB1OdIIKp1K8ZJmiEahjSwUAIpNlxIe9Znhwj+nSTQ
+	6i7fG4efhH9amrYr0EHwWBzav4y6IKXCHEigzgWvKOvnY0CHqouyQINPVmpTzJKR/YB4RBu5anebi
+	9jPFYIW99GJhgVi4mdp3O/nLDOKnUHizZ+EdUdZIKdbMCh+tE5LPtYmuA2s5WZ+bv27muqyrP9LBK
+	hRMvVAAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglPD-0000000CvBL-2eQc;
-	Mon, 06 Jul 2026 15:38:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wglQd-0000000CvMc-3sOc;
+	Mon, 06 Jul 2026 15:40:15 +0000
+Received: from mail-westeuropeazon11013046.outbound.protection.outlook.com ([52.101.72.46] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglPC-0000000CvB2-36yf
+	id 1wglQb-0000000CvLy-1dZ9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 15:38:46 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5EAD94199C;
-	Mon,  6 Jul 2026 15:38:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1AE51F000E9;
-	Mon,  6 Jul 2026 15:38:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783352326;
-	bh=RSikxvuz0fdarLrs2WLzUhq/9C36cPYevojeibE+zuk=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=EPY9l92BO8O5jYYnl7h9lLRbSlM0BEJa0uue0aFoOPStybvib7DPxEXFDhCT+/87B
-	 yFDDSSH4qFc8BCqDrkinXt+2bQ4aLt5Y5iSoigcYq4fFFmmCEhIC1kseBeMaLAyZ8v
-	 gFuMzofG6T70blVK6EPNMTncsGWWv/WjzDMB9DQgHdcfFyJEsuhclX92JoFgrDLhaf
-	 WhcUfPJez+GKPnMMvuQKkL+kXGW9ZmeZOJKbF0z8yx7t71U/aeVfPiTnLUdk8IRw4v
-	 QbGps9GIFsnFluaOH2xyhsq879YyNdu/TZ/VwmHRR/yrbxz+7Y/hnZImqhCuxN8pEG
-	 FlCpnEx4ehuKw==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
- Jerome Brunet <jbrunet@baylibre.com>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Sashiko <sashiko-bot@kernel.org>, Conor Dooley <conor.dooley@microchip.com>
-In-Reply-To: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-Subject: Re: (subset) [PATCH v4 0/9] clk: sun6i-rtc: Add support for
- Allwinner A733 SoC
-Message-Id: <178335232274.3929059.7231678940771555249.b4-ty@kernel.org>
-Date: Mon, 06 Jul 2026 23:38:42 +0800
-MIME-Version: 1.0
+	Mon, 06 Jul 2026 15:40:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AhgZEmCp/652AAAqUPntraD00QkfK8PitJRPIU2emUiTbnQd/MG2YOko8ChSwZU4bnPddLd3UTf9nOI0CnB/FEZF9trxzHr+5EVJpucuKsmb/RlWg+6GHxwF6T33uaDVnLTFdLqO6Y21jWgENe2Iz9eLjPNruaFj//PZ4VrDfcLRKRHQ6WXA95wIT/00w4C2WhCA70Mfrq+MkvHAFVV1U5d4LqkZJMPY7V9MKPF5QO39WXjsNKsp7vD+WuTDtFe8B6ssdg1t9jh2DdRuaq1Dgo6pHSaA4qXtSah5h4HwF39OctMKjk3udl2qqs+cVTdz/42h/hlwJRn+ken92c1udQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hTWjwgCXxt6hTw08btnLGEppuERjf0VGtYBDsq6fShs=;
+ b=wwSyzsJN0qYTNoPMkci/8PAsNR5VScTDh3DNq+LtCyAgpmLQsTvvTEjqMFhuF+1XwmE5t7FAXTP5//MsgKA4rhV4eDxjcm8WsYdiUiGiI/lD3UD+ar2kT8re91KQePiWCOAzoecMLlGErxdb9gaoecBwIaFNAWZkJkR6Lpp3OG71EbQaW6J7E8qjJfdtyDmmi+aWmonyu/w1Nbm/teXpjQ7U7T/TPmblADE5MDuH7PYWAVwNEPE9pgXXitjS1YUDtt+q0cd2rrPMy7tDiIMd8jrkLs4pf2C5v4W8wQNXzZvwZjJYiMqEFOLdgyRCWVe4JKt0xuk/bhcmJ8W4c1Yg2A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hTWjwgCXxt6hTw08btnLGEppuERjf0VGtYBDsq6fShs=;
+ b=SLj7S0ShSaFSlQZ3cbAbEriaurpPNpl093S2VkMNZBvxJ0/1MjqPNWhaB9NcPiFgErH7Cpac5mmO0pohQ6riNTQZPF2JiJKk1JTT13z5YRynRBH9VYhbVHgv33BPoAsY26oeZHvF1uj/2nSZxPefK9WlBLYIqdMQKx4rhFTE6j0CxeyLX7WkjWm8YINdBRSDU5gCz4r8OUcMFiH9qDRgmfeFM6SeE1JZ25PZpgamYzJ8o9f7D/p2Vx+4qjCtG+F56L+H7FcM3wePuyR1GF2hcEpOY1aTJ2hjqXXMFymhjYAl2t/4RaSv7S+ku7cVpA1V44S2NFZLfhid24M+81NSFw==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by GV2PR04MB11141.eurprd04.prod.outlook.com (2603:10a6:150:27c::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Mon, 6 Jul
+ 2026 15:40:02 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::b4c0:6119:2228:2ceb%5]) with mapi id 15.21.0159.018; Mon, 6 Jul 2026
+ 15:40:02 +0000
+From: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>
+To: "Shenwei Wang (OSS)" <shenwei.wang@oss.nxp.com>, Linus Walleij
+	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Jonathan Corbet
+	<corbet@lwn.net>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson
+	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Frank
+ Li <frank.li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>
+CC: Shuah Khan <skhan@linuxfoundation.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Shenwei Wang
+	<shenwei.wang@nxp.com>, Peng Fan <peng.fan@nxp.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, "b-padhi@ti.com"
+	<b-padhi@ti.com>, Andrew Lunn <andrew@lunn.ch>
+Subject: RE: [PATCH v14 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
+Thread-Topic: [PATCH v14 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
+Thread-Index: AQHdBLru379VkC1WBkywqUjM2ZB4D7ZgsfEQ
+Date: Mon, 6 Jul 2026 15:40:02 +0000
+Message-ID: <PAXPR04MB91855056638F0028BCC5F9EF89F12@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
+In-Reply-To: <20260625155432.815185-1-shenwei.wang@oss.nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+x-ms-exchange-messagesentrepresentingtype: 1
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|GV2PR04MB11141:EE_
+x-ms-office365-filtering-correlation-id: f31e02ae-ef3b-4912-01cd-08dedb74d83e
+x-ms-exchange-sharedmailbox-routingagent-processed: True
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|23010399003|7416014|376014|38070700021|921020|22082099003|56012099006|11063799006|18002099003;
+x-microsoft-antispam-message-info: S7zmNnAmCKQEErbnl8zODtu8aDcXEvW5phtHdxD8HIxH3YuI7HgNu9dtYzb03GlPQ9i8jUc6Q+DqEB3M3xF49kBpImz+cAILH5W15pxPdIdd9k7Fs9NkJrZY+hmHd4ivERxQGvRENV7sxNqrzHxZRf/xazD0T9jP9flWLISIoEceBs92EK4uJq9BGmgyc+k3GD6sVIC6nxWbnCzCr2yJlQ7x2LUr3nfva0M/CXZcF1Pwpm9MocQIrGHB3HMHKM6OWcYMGpli7nfSfUzW9WBnV10eGTKYTlUvqm8O3I4yZxHxNM3JvUiQx+9YRh2+n+AiyFhzFP23GuO6XwlyLXM/rJE9SO9lnJu5WR/XqKjakOjjBrcGbwjD9HVI5yjcx7Kr8Qh2aHVrEdg4KZnBmB5LNahnmy9LLpqwxZo5SBoUlmQlyal7wtqIAIDwNrvIiFCM/ZPMqeQYTqaKM6Eci8eoa2QEGybyWDxWTSI+fbNNK6Dr3cxjoKgFWCO4YB4SgjVKS8QyZSjQoY0aKVdRaiCNXXZuFFwSQOxI9sWTsjgjfVUEqsYYV+vRMWJhgqB5ET4lt9oP5n0PSfeEVgDGIYXj5hCMxjUIp/LpPZXxkq9x8oF1QnuHmit0wFPcxPVT0SL6fJZjDnlRoSSMUcDfLQ5HglhDKg6kQIP69n9xJ2DV5ffG6kCJEduSMYyXhtsEFXJt4fgjsoqkupnHKENVgwKQho4PkVeKeTcYs7pqx7IBzpiM0xYnRc/j9DZ6NDsBim5R
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(23010399003)(7416014)(376014)(38070700021)(921020)(22082099003)(56012099006)(11063799006)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?c2tXQzVMQVhOR0JobWxvUk1PMWkvS0xvZzhvdjJYNDFIelJzV3ZCOG4xaUhh?=
+ =?utf-8?B?MkhGUmtQTWVtRXhlejZ5bGZSZ1Vvb3htQXYvYTNRUzE5NEJ2aGI4bWVNRHNY?=
+ =?utf-8?B?eFpvbXFmQ0tSR0NDMVhhdnJqazI0NURjYTB1VnExL0tpRFJQL2ZyNndaM25m?=
+ =?utf-8?B?QVF6M1pWQUhtRkRRaEpXeEtqdUIyQWlETXowbEVTQlZFV0w3SXZPM2ozK1FE?=
+ =?utf-8?B?NXR2TWtFRkN6Q3JWK0dTVjduVFBBNDN0cUQ4SGtOUXFIVlZwY0paS0llNTZk?=
+ =?utf-8?B?SGlLZVZDQTdsMmlWTDl5RTNIL2pRczF6UjRHcVFzRHlTUDFUM1gyT29VM0Vp?=
+ =?utf-8?B?WDVsMGRYRUdaRVNVRHBNeXdONzlxSXZpSmkxY2p3Z1lGUllTRTlXTTM1NEpt?=
+ =?utf-8?B?N013NjV1bXRuTmRSU2NvN0ZPQzR5QmZGd3Z0Z1QyT0hyVFl5MmlPa0JYblFP?=
+ =?utf-8?B?UU1KcWZ2S0VHTmd6VWJRMHI0SVphWVpFeTRDankvZDJMZlgxT2h0RTRxZHJV?=
+ =?utf-8?B?ZXdiVVhRMEhieDVSZHBwcVNmb1k1ei9RZzZVcWxoZnVCZ0VSeTlyNHp5amt0?=
+ =?utf-8?B?cFVFZ1pNYUlMUlhSMHBBaThVcWwrZTRuU1VXOFV0QlYvejRlbmp0MjMxM0t2?=
+ =?utf-8?B?SG1HZWFOMFpReGFhN3pqVmpDLzBwRStsV2JsdXBaRFJnKzZQUFZIUnpqK2l4?=
+ =?utf-8?B?QVp3bnBtcWNMZzRpV0J2SXBuTGNqT2l0ck5QRktmcUEyK0paU0t4K0lFaDRR?=
+ =?utf-8?B?bFdDVDlnNC9JU0t4RGtaZ1ZrWDkwdVdJS1lHaXljNDROemFnS3ozVkRSc0Iv?=
+ =?utf-8?B?U0dZc2JHbVpLM09yUytpQ1J0em9TN0hRbWlvNUk4T3k2VXpONDA2MDdpT00v?=
+ =?utf-8?B?NENUbFI5djlZdk1meVloSWVQenNMTTd1ekc2OVo3NW0xU2FVcS9FWXdhbDJn?=
+ =?utf-8?B?ZVdYR0dqUU4wSm9NclJiajNkckwwS0pxRFJOS2Z2UmpRUm5SVXhSejhRYW11?=
+ =?utf-8?B?Q1Njd3VMd0V1TkFURzQ3ZmgxL2lkVzhQWHZLTWUwcG1yTk9UQmUyS1BVbTlo?=
+ =?utf-8?B?K1lGQ0ltZ3hXM282TWVEOURzdFB5K3Nmd2haenhwTHpLR0xHQTUrekVCYkpm?=
+ =?utf-8?B?Zkd3REZVNlA5UGU0OFVCVG1vNHJ6RlMxSXo3TWZycTEvQitGdkpTUUJyRGtL?=
+ =?utf-8?B?YjE5dGVuUWlOcmp1TFN5RTV5b2d0bVVkWDZVekRnWjV4KytRNHhCYzJWeFVS?=
+ =?utf-8?B?Y201S1Y4MnlyWXk2Z0NNcms5UnphTTcvNXdzL3FhSGZ2TkxpTU9US2V4dGg1?=
+ =?utf-8?B?K3NqakRqaHZaWFRLbXZXTWxydlA5OEtvb2JqTDNtSzhBRU9zcHVqL0U1Szhp?=
+ =?utf-8?B?UUpUSEZaU0xVSzJxSHRkUUFNK29NM2xBTU5ndmRVcGhOVmpNMmgra3BnTm9u?=
+ =?utf-8?B?a1hWR3ZRY1hwaW9sR3ArcXlMNDhDU3ZRYVRGbmlhNG1FMnBKNHllMnAwL3h1?=
+ =?utf-8?B?L0dxQmtSKysvRlU3U1FpUVU2UXpGN1h0YS84OXp5TkpuSWE4bmRvUzZGTVFJ?=
+ =?utf-8?B?YWNpa1NZdTg4MVRmZzUyWkJvczdwOEtiVG1DRHpPRGRlbXV2N3RkakRvUVVa?=
+ =?utf-8?B?VFJCSC96djZGTmtFOTRFaGVpV1Q4cklFZkRoTGVucGpDVEdVSXVTRmFNdnpj?=
+ =?utf-8?B?aUZockE2STlBelpkOFN2MEhacXpyVTRRV0VUVDY2MmpQVHo1OWMxTkd0ckY3?=
+ =?utf-8?B?SXZDZ2lGY3R5a2pLRS9EZ3h1TjArS01ZOWh6S2UydGNCNkg5S0VURVJHL2g5?=
+ =?utf-8?B?ZjlHWmpURU00NU1ESmllbXVicXpGem9kMm1HTG4ySmxlamRObXQzSmhwdWQ4?=
+ =?utf-8?B?OUhyTEVkb2pFL1J0SFhIRktSYlhaWFdtcmRCT1MrYUZoWlQ2NmMxRkRGRERx?=
+ =?utf-8?B?MFNralFPQmNhRXV1Q0JsZG43RGxIcmJKWXJBVWVVZzVrcEFZbXlJQlJVMnJh?=
+ =?utf-8?B?V1R1dWVOSmNVeENFK3VZcDVXS0NWeDNpbTFQK0FTRitmRnNTc2c4NzF2SEht?=
+ =?utf-8?B?djBwdGxMRWYyZm1zR0Rtek9PS3kvWHVmV004dUtEdi81a2t1SHo5S25rWlFn?=
+ =?utf-8?B?VXNPVUx3dDdreXBHaVpKamM5R2dQdnpDL0ZiaFpUd1ZOQW9KdHVnN2VaY1RX?=
+ =?utf-8?B?Z0N0TkdCamtSQnpLZExyQ3UvQ01hYTU1aVgzaWJ5djJlTzZWTmg1RldyZ2RQ?=
+ =?utf-8?B?ak1XL0JWZ093eTEzS00yVWw0MUU3OWVtOFNYYmdxYnBLQ05BQllwQmxnSlhX?=
+ =?utf-8?B?a0JkM3pSSGUwc2UyUzRBcW9HV0w0WEI5S1dMZ2pSRWdqcnFhdUk2dz09?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f31e02ae-ef3b-4912-01cd-08dedb74d83e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Jul 2026 15:40:02.3497
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: UDMryE9elejx8Enkj5mAPlMXN00HApQecChHRUMdSppLgNnw7Hrg7e4Jk5OGAQMA4dwcpFvqY2L/ZF4IkAfICA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11141
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_084013_471227_E10DE0CF 
+X-CRM114-Status: GOOD (  14.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,38 +165,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 11:32:08 +0200, Jerome Brunet wrote:
-> Add support for the Allwinner A733 RTC and its internal Clock Control
-> Unit (CCU). Reuse the rtc-sun6i rtc driver while introducing a new
-> SoC-specific RTC CCU driver to handle the hardware's evolved clock
-> structure.
-> 
-> The A733 implementation supports hardware detection of three external
-> crystal frequencies (19.2MHz, 24MHz and 26MHz), which is represented in
-> the driver via read-only divider operations. Implement logic to derive a
-> normalized 32kHz reference from these DCXO sources using fixed
-> pre-dividers. Additionally, provide several new DCXO gate clocks for
-> peripherals, including SerDes, HDMI, and UFS.
-> 
-> [...]
-
-Applied to sunxi/clk-for-7.3 in sunxi, thanks!
-
-[1/9] dt-bindings: rtc: sun6i: no clock-output-names on h616/r329
-      https://git.kernel.org/sunxi/linux/c/7b9f8fe9c9e0
-[2/9] dt-bindings: rtc: sun6i: add sun60i-a733 support
-      https://git.kernel.org/sunxi/linux/c/38d6b194a21c
-[3/9] clk: sunxi-ng: fix ccu probe clock unregister on error
-      https://git.kernel.org/sunxi/linux/c/81f4ddc9f7e0
-[4/9] clk: sunxi-ng: sun6i-rtc: clean up DT usage
-      https://git.kernel.org/sunxi/linux/c/192c6220e14d
-[5/9] clk: sunxi-ng: sun6i-rtc: Add feature bit for IOSC calibration
-      https://git.kernel.org/sunxi/linux/c/d2fcd82ca07d
-[7/9] clk: sunxi-ng: mux: remove unneeded export
-      https://git.kernel.org/sunxi/linux/c/c52b5090bf1e
-
-Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
-
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogU2hlbndlaSBXYW5nIChP
+U1MpDQo+IFNlbnQ6IFRodXJzZGF5LCBKdW5lIDI1LCAyMDI2IDEwOjU1IEFNDQo+IFRvOiBMaW51
+cyBXYWxsZWlqIDxsaW51c3dAa2VybmVsLm9yZz47IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJyZ2xA
+a2VybmVsLm9yZz47DQo+IEpvbmF0aGFuIENvcmJldCA8Y29yYmV0QGx3bi5uZXQ+OyBSb2IgSGVy
+cmluZyA8cm9iaEBrZXJuZWwub3JnPjsgS3J6eXN6dG9mDQo+IEtvemxvd3NraSA8a3J6aytkdEBr
+ZXJuZWwub3JnPjsgQ29ub3IgRG9vbGV5IDxjb25vcitkdEBrZXJuZWwub3JnPjsgQmpvcm4NCj4g
+QW5kZXJzc29uIDxhbmRlcnNzb25Aa2VybmVsLm9yZz47IE1hdGhpZXUgUG9pcmllcg0KPiA8bWF0
+aGlldS5wb2lyaWVyQGxpbmFyby5vcmc+OyBGcmFuayBMaSA8ZnJhbmsubGlAbnhwLmNvbT47IFNh
+c2NoYSBIYXVlcg0KPiA8cy5oYXVlckBwZW5ndXRyb25peC5kZT4NCj4gQ2M6IFNodWFoIEtoYW4g
+PHNraGFuQGxpbnV4Zm91bmRhdGlvbi5vcmc+OyBsaW51eC1ncGlvQHZnZXIua2VybmVsLm9yZzsg
+bGludXgtDQo+IGRvY0B2Z2VyLmtlcm5lbC5vcmc7IGxpbnV4LWtlcm5lbEB2Z2VyLmtlcm5lbC5v
+cmc7IFBlbmd1dHJvbml4IEtlcm5lbCBUZWFtDQo+IDxrZXJuZWxAcGVuZ3V0cm9uaXguZGU+OyBG
+YWJpbyBFc3RldmFtIDxmZXN0ZXZhbUBnbWFpbC5jb20+OyBTaGVud2VpDQo+IFdhbmcgPHNoZW53
+ZWkud2FuZ0BueHAuY29tPjsgUGVuZyBGYW4gPHBlbmcuZmFuQG54cC5jb20+Ow0KPiBkZXZpY2V0
+cmVlQHZnZXIua2VybmVsLm9yZzsgbGludXgtcmVtb3RlcHJvY0B2Z2VyLmtlcm5lbC5vcmc7DQo+
+IGlteEBsaXN0cy5saW51eC5kZXY7IGxpbnV4LWFybS1rZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9y
+ZzsgZGwtbGludXgtaW14IDxsaW51eC0NCj4gaW14QG54cC5jb20+OyBBcm5hdWQgUE9VTElRVUVO
+IDxhcm5hdWQucG91bGlxdWVuQGZvc3Muc3QuY29tPjsgYi0NCj4gcGFkaGlAdGkuY29tOyBBbmRy
+ZXcgTHVubiA8YW5kcmV3QGx1bm4uY2g+DQo+IFN1YmplY3Q6IFtQQVRDSCB2MTQgMC81XSBFbmFi
+bGUgUmVtb3RlIEdQSU8gb3ZlciBSUE1TRyBvbiBpLk1YIFBsYXRmb3JtDQo+IA0KPiBGcm9tOiBT
+aGVud2VpIFdhbmcgPHNoZW53ZWkud2FuZ0BueHAuY29tPg0KPiANCj4gU3VwcG9ydCB0aGUgcmVt
+b3RlIGRldmljZXMgb24gdGhlIHJlbW90ZSBwcm9jZXNzb3IgdmlhIHRoZSBSUE1TRyBidXMgb24g
+aS5NWA0KPiBwbGF0Zm9ybS4NCj4gDQo+IENoYW5nZXMgaW4gdjE0Og0KPiAgLSBVcGRhdGUgZ3Bp
+by1ycG1zZy5yc3QgcGVyIE1hdGhpZXXigJlzIGZlZWRiYWNrLg0KDQpIaSBNYXRoaWV1LCANCg0K
+Q291bGQgeW91IHBsZWFzZSBsZXQgbWUga25vdyBpZiB5b3UgaGF2ZSBhbnkgZnVydGhlciBjb21t
+ZW50cyBvbiB0aGlzIHZlcnNpb24/DQoNClRoYW5rcywNClNoZW53ZWkNCg0KPiAgLSBBbGlnbiB0
+aGUgcnBtc2ctZ3BpbyBkcml2ZXIgd2l0aCB0aGUgcmV2aXNlZCBncGlvLXJwbXNnLnJzdC4NCj4g
+IC0gTW9kaWZ5IHJwbXNnLWNvcmUgdG8gZW5hYmxlIHByZWZpeC1iYXNlZCBtYXRjaGluZyBvZiBS
+UE1TRyBkZXZpY2UgSURzLg0KPiANCj4gQ2hhbmdlcyBpbiB2MTM6DQo+ICAtIGRyb3AgdGhlIHN1
+cHBvcnQgZm9yIGxlZ2FjeSBOWFAgZmlybXdhcmUuDQo+ICAtIHJlbW92ZSB0aGUgZml4ZWRfdXAg
+aG9va3MgZnJvbSB0aGUgcnBtc2cgZ3BpbyBkcml2ZXIuDQo+ICAtIGNvZGUgY2xlYW51cC4NCj4g
+DQoNCg==
 
