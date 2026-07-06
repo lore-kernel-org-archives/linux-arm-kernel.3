@@ -4,144 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A87EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:42:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B60B7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:44:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wZzheGRlsfoWHphf+vMzevybnf7yYRErojFNsdmSejg=; b=U2YUGShq+r2sNn00ZM7DLn3rYZ
-	eL+fb8O/QhGWGonFv1vrjUzdcKbCt6y1IhC1Oyx5AIiN687npLCRn3y/Cp8lWx6Vk9dwEIF4DnFp2
-	0qs+Iw2i9a7bsvM2NZGJFzfRyoYl5XTXeroZZso37WuZa1QywU6OI4eu4WnIQq3zVsY4zP04+oHr9
-	1cl/bbc5KUz7CSTc1Q/hpBcmGMsXkQ6IyZv+8uk4sejSnKTUTEXoauc62uUnE2dWHx3NgYdrb6qHr
-	aMD3d/P9dW6qtrhmQDtkVadv2Uz5PBf1vqtBrXIrIuF78bA+s79et68keztMAQuG9uxLZyP1VLkDc
-	s7FIVcRQ==;
+	bh=frnQFusfT7+zqiZrlJxNpJYyEtPIwtYA5/ws7Q9gAkc=; b=PRmiL6hKhFq86VdRutVkG6rtRJ
+	CO5dY8KzDelA4yvgG0Q1pcf7UnVJ4fgffFKMPGnoez5youazFtRnnTs2RqXn4EZ4aj09VERxhNvlO
+	u0FmZXVPB4xEY3tm2G7IKUbIbYiUtss0iISXL58fVk7vGHLyG7EJ2kS4bUManPiLg3PcgfkJ7Mj6a
+	cwmi215CZyUtVcJ7fk8sdmOV06Yh2/y5ALabcif5JtKLAZ14TE19uAegZ9Q1O0Cq/32v09G8GD5pZ
+	Dq0+BPKd0cKsEyuKtTz4CaXIjMD6rUKeoJnUcFHgS3brSf0NYLmP1R2siFdZPJdIC2c+GLF/QTA+m
+	8ZZgtisA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnKw-0000000DEQ6-3R89;
-	Mon, 06 Jul 2026 17:42:30 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wgnMZ-0000000DEWt-03wh;
+	Mon, 06 Jul 2026 17:44:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnKu-0000000DEPh-3Pag
+	id 1wgnMX-0000000DEWl-2xoY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:42:30 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666FF66T982432
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 17:42:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=wZzheGRlsfoWHphf+vMzevyb
-	nf7yYRErojFNsdmSejg=; b=PWSQ74ISsra20N0G3LSYA3WMfBSwhAUFaTIdS6Kd
-	s7b7U4sT9uJgx/4zLi6Gh+/pDZeAlEpdi8DxP/0Ag/rvG0QAxqFyNzgsvelXXUBl
-	KacXcsVNei7i3mZ6PMzcDyCT07PKfl88Y6vHgIOfT/pglQWDqqXV47vP/g/g+8o1
-	zGDFxFHVSMPFDOLslQH3DFqD7tD1BvBUnb4MW99E3JRC1Zct9fOgJjhHyO2w0R8p
-	4MeC/MfzDfQwCCL+q2dINDgbKX4SfVA3/SPer2vel1P2vzpK3x87pmADDeL9go/l
-	oAyLS3PI/H5ImY8q7BmgOQeEOf83kFzBZ0jvrfhTRcPBLg==
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f89qpj7xu-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 17:42:27 +0000 (GMT)
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5bd797e447cso4581583e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:42:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783359747; x=1783964547; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wZzheGRlsfoWHphf+vMzevybnf7yYRErojFNsdmSejg=;
-        b=LD3864nSsJjWrKPS82fGcJBnGVhGMrBT1I62Zb972bCvdh2lzXT1+k3S4sLs/neMRN
-         hbL5Gyiy9AmwvSFitnx/5H4t+N8Epr9rkhwDuaL228OctBjnjzFrmcfPeBEAkl5SlqgD
-         cqV3DEBDU7tBbYjR+K8FVhTV1F/NHm+LvJuPPivbpU5BvyilHq2rHmdHkE2VqlBUaGcv
-         L+M9HxCppyIAUmz8krbnHuEI3+q88Z9HxwtQsPqD7+Q+qTlftryxvsEz41P5LTX/1b1/
-         G64THWlRPBIrhyG+5OakLRqYYO8KOjmizxR4ujL6iROyCClhn2DaMJ/2W9mzv00IgpDQ
-         TgLA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783359747; x=1783964547;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wZzheGRlsfoWHphf+vMzevybnf7yYRErojFNsdmSejg=;
-        b=hi8fPbLK1GSyc97OeeWFW87xGO0DjOr1a0a5xguzPL7dZR7JZ7T4yUstpE9Ye6licc
-         2C9QvPn0exDguhlTT/16+v4g/mzHSfRL5Ou3huOyJJDz9dSsM3B1gHSK9Jt+AcusPb/z
-         pKQntAGFqeJVW4bVbTTppx5x+2YAFUSjg8N1qTXIgesrSBgg0qFlZcJx5LIdg5N3uSef
-         /XiZslhH6gc6rFHLmWeBePi8EffZDY83OGyLuNfDo0ZHf15P9L7Og3y/hOxWoT1mYuYY
-         ozoRH5xE4MWEoqRKegOsHfk8ZE1y9hHo5PS+kiLrZ6sz00zVV9+Mir0I40xuyq84MYvp
-         pw5g==
-X-Forwarded-Encrypted: i=1; AHgh+Rp+f10/SeTSBk5r4oRka5V0YdFRzbS/Q9gO0YPK01Q3ZWLDarihgzVy2k7shug7AC2UdoH1/nKtHltjl0zaK6ie@lists.infradead.org
-X-Gm-Message-State: AOJu0YzI8JI6GttsRXs/nexucRyICG0+kUJMgxhrQUyoK1bKtythqL+9
-	yA+ObgzHXf31LPawbES1oy+HmmbUkrRwExHN7n8pXvptW8/aCnYiWu7s/bWY+ust/Wh2Fp9UOvt
-	1Xj37c2nbZ0n3c0PaxG/fB4zB4EapjEc+Tb5XofZKa0w5QFarrW7s/l2qx9qYuDqxMMSHrxkgFq
-	nTdQ==
-X-Gm-Gg: AfdE7cm6Dko04OG90LCEh5cNbfFU/qIJYopL8zPahiK0Hi7S3v6ioQwNypYYKXYI97G
-	mCrEnD8E3EbxCueBg18WQZKQfyUtYlZSH1nsiQnO6pucGmV6sWXv0pM7BnuWBG7fLpgo16zrB/H
-	UDeBHUM4aS5O1AsjEyCuwBD/LAS2swM7ZyB19bu/2FDmEhxriaX9Q8gVQtHrtKbv611MbU3rEr4
-	o/wiO66DwqnMfnZXE858Jjhze5waLLb+awqNbjgWYVV/2BijWWL3vbHvvDHHQOs5j5fA4XjMKUs
-	5wLYsfAgtwFIBl4ukS6T/vZDeXT0hEpYkAs4FWXES1axSbqzohn8L6y8beUEZ2CwMVD/l+OM3SD
-	m8Cig2Tv/6k/+1kldY6PBmGejtBfQjVO/CfgjEa4M5Gj4B7UAu1uqa2PkWADwY0j9sbKAucKsMt
-	yVNsfWl37Rf8R6tF1ZULh/gUGZ
-X-Received: by 2002:a05:6122:32c4:b0:59e:feb7:8a5b with SMTP id 71dfb90a1353d-5be8953a62fmr939547e0c.0.1783359747087;
-        Mon, 06 Jul 2026 10:42:27 -0700 (PDT)
-X-Received: by 2002:a05:6122:32c4:b0:59e:feb7:8a5b with SMTP id 71dfb90a1353d-5be8953a62fmr939531e0c.0.1783359746659;
-        Mon, 06 Jul 2026 10:42:26 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aed13c8c1asm3007595e87.81.2026.07.06.10.42.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 10:42:24 -0700 (PDT)
-Date: Mon, 6 Jul 2026 20:42:22 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v3 3/6] arm64: dts: qcom: kodiak: Add GEM_NOC
- interconnect for adreno SMMU
-Message-ID: <h6opbtr2ced3sannj3ym573qc2sjk7ek3clpto5j5mtqfrfk6w@34sk2zraoqtj>
-References: <20260706-smmu_interconnect_addition-v3-0-afdca0125a65@oss.qualcomm.com>
- <20260706-smmu_interconnect_addition-v3-3-afdca0125a65@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260706-smmu_interconnect_addition-v3-3-afdca0125a65@oss.qualcomm.com>
-X-Authority-Analysis: v=2.4 cv=c6qbhx9l c=1 sm=1 tr=0 ts=6a4be903 cx=c_pps
- a=wuOIiItHwq1biOnFUQQHKA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=LVq_GggcSHk3DsAf1gkA:9 a=CjuIK1q_8ugA:10 a=XD7yVLdPMpWraOa8Un9W:22
-X-Proofpoint-ORIG-GUID: KDQXUsJEU3YS7SVW-gTSmUcpdbS6S8Nc
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDE3OCBTYWx0ZWRfX24/jjuDCfa+F
- 0SUxJoP0tfpnQ9vaot9mTINeTMIC0LMeHTUVrs7z+m+ciuceNFg8SdoSLmAqDHBJYQ9YBtoaUS3
- dzTfDM12mK1ioe4N5VrMYOny8Rq6qtWC16hw4Anjz0wv0L9A4rL1pUDdbgtMFCtrIcRNGzvFFQQ
- G64C5txGJpdiBfdCsfDT8SuuQfUd84Au5/BvgMGk+J4fyfSxFOCcHImXINskZTc63vX5hKAyB61
- UxaRrNoHEP85BDGteeirB9JxpgfKB2LW8pWQVDGigCu+NW8bhZQ3qOdKIiIjwCjcilZ8DBHr720
- qT7xVEj916NJbl8kP4qy/2mv3YsOdvd1q7QO9idf3lTyqQGNq6MTVw3PVUrhdC+4mPp+8Ecq+fF
- 9LRc3+QXKU/HIZ4PH4uQkmak8fzpwnJYY0NPuPjl3i6J+4J3WMqq6IVdCMLaXgM0gyjNrtPNVn1
- UnFlAzOyin2qDVy5e+w==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDE3OCBTYWx0ZWRfX7XXYQ4jORGtj
- H9sD/m56AuFuE2u2ogGkvLIR8ftAFokqPSAqjCIKZn3QosztYT5+KE70RsG7SFdx9qc5ZJ8jVIw
- Xk6zF6r+Wqasc1amOHBuBp2okbYnOaQ=
-X-Proofpoint-GUID: KDQXUsJEU3YS7SVW-gTSmUcpdbS6S8Nc
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_02,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 adultscore=0
- lowpriorityscore=0 priorityscore=1501 clxscore=1015 spamscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607060178
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_104228_990314_40237B9A 
-X-CRM114-Status: GOOD (  20.03  )
+	Mon, 06 Jul 2026 17:44:09 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6726942E16;
+	Mon,  6 Jul 2026 17:44:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED8191F000E9;
+	Mon,  6 Jul 2026 17:44:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783359849;
+	bh=frnQFusfT7+zqiZrlJxNpJYyEtPIwtYA5/ws7Q9gAkc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=gvOfA70Ao/AlKfxPTs5UKQfoR1IxQQsSJZzOSlPCk46BZ5j5NgI+/c7iRXlGcSHzs
+	 Z5eaBB41yC7bxRaU7eXoXLj/321K5Yin3erXamGkTy2qErQ4titZCbd6FnlWvmeJWy
+	 ZSM1bDT4qmLtNLR5VR8Yk/pLMEhWVCpP8xXPCdY/nDQszkIiOMJUm1w0HvaiB4JwYq
+	 z3frqKRGVIZs48rrbSDI4DsF+TPtgkunYuQ5UaoIKHtFlx8lqDabjcNoovDDGLdQIF
+	 huXlwYZV84lWtc/1Su3BuGdbCGTOOgBleUvIPMz7WvJaamtFVSruM8vBmwwNrWQciF
+	 bLCwzW8dvCMpg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgnMU-000000024DS-2U8z;
+	Mon, 06 Jul 2026 17:44:06 +0000
+Date: Mon, 06 Jul 2026 18:44:06 +0100
+Message-ID: <86cxx0ovx5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 09/27] KVM: arm64: Access elements of vcpu_gp_regs individually
+In-Reply-To: <20260706085229.979525-10-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-10-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,42 +109,243 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 10:26:36PM +0530, Bibek Kumar Patro wrote:
-> On Kodiak platforms, the Adreno SMMU requires a bandwidth vote on
-> the GEM_NOC path (MASTER_GPU_TCU -> SLAVE_EBI1) before its registers
-> are accessible. Without this vote, the SMMU may become unreachable,
-> leading to intermittent probe failures and runtime issues.
+On Mon, 06 Jul 2026 09:52:09 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
 > 
-> Add the required interconnect to ensure reliable register access.
+> While for arm64 the members of vcpu_gp_regs are allocated continuous
+> this is not necessarily true for other architectures implementing ARM.
 > 
-> Signed-off-by: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+> Let vcpu_gp_regs() no longer return the address of the user_pt_regs in
+> the vcpu context but the address of the gp-register array field in the
+> user_pt_reg struct.
+
+That's an interesting change of semantics, because this excludes PC
+from the GPRs. This is valid on AArch64, but wrong for AArch32 (PC
+really is R15, and is just another GPR).
+
+It isn't a huge deal, and nothing breaks, but that's something that
+you may want to capture.
+
+>
+> Share the gp register functions with s390.
+> 
+> No functional change.
+> 
+> Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 > ---
->  arch/arm64/boot/dts/qcom/kodiak.dtsi | 2 ++
->  1 file changed, 2 insertions(+)
+>  arch/arm64/include/asm/kvm_emulate.h       | 13 +++++++++----
+>  arch/arm64/include/asm/kvm_host.h          |  8 +++++++-
+>  arch/arm64/kvm/guest.c                     | 19 +++++++++++--------
+>  arch/arm64/kvm/hyp/exception.c             |  7 +++++--
+>  arch/arm64/kvm/hyp/include/hyp/adjust_pc.h |  4 ++--
+>  arch/arm64/kvm/hyp/include/hyp/switch.h    |  6 +++---
+>  arch/arm64/kvm/reset.c                     |  6 ++++--
+>  7 files changed, 41 insertions(+), 22 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/kodiak.dtsi b/arch/arm64/boot/dts/qcom/kodiak.dtsi
-> index 90e50c245c0c..721526f023dd 100644
-> --- a/arch/arm64/boot/dts/qcom/kodiak.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/kodiak.dtsi
-> @@ -3389,6 +3389,8 @@ adreno_smmu: iommu@3da0000 {
+> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+> index a1c92d2436ae..15d6d6a08d37 100644
+> --- a/arch/arm64/include/asm/kvm_emulate.h
+> +++ b/arch/arm64/include/asm/kvm_emulate.h
+> @@ -140,12 +140,17 @@ static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
 >  
->  			power-domains = <&gpucc GPU_CC_CX_GDSC>;
->  			dma-coherent;
-> +			interconnects = <&gem_noc MASTER_GPU_TCU QCOM_ICC_TAG_ALWAYS
-> +					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ALWAYS>;
-
-Why is it ALWAYS? Would it be better to declare it as ACTIVE_ONLY and
-then drop the extra suspend/resume play?
-
->  		};
+>  static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
+>  {
+> -	return (unsigned long *)&vcpu_gp_regs(vcpu)->pc;
+> +	return (unsigned long *)&vcpu->arch.ctxt.regs.pc;
+>  }
 >  
->  		gfx_0_tbu: tbu@3dd9000 {
-> 
-> -- 
-> 2.34.1
-> 
+>  static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
+>  {
+> -	return (unsigned long *)&vcpu_gp_regs(vcpu)->pstate;
+> +	return (unsigned long *)&vcpu->arch.ctxt.regs.pstate;
+> +}
+> +
+> +static __always_inline unsigned long *vcpu_sp_el0(const struct kvm_vcpu *vcpu)
+> +{
+> +	return (unsigned long *)&vcpu->arch.ctxt.regs.sp;
+>  }
+>  
+>  static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
+> @@ -175,14 +180,14 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
+>  static __always_inline unsigned long vcpu_get_reg(const struct kvm_vcpu *vcpu,
+>  					 u8 reg_num)
+>  {
+> -	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)->regs[reg_num];
+> +	return (reg_num == 31) ? 0 : vcpu_gp_regs(vcpu)[reg_num];
+>  }
+>  
+>  static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
+>  				unsigned long val)
+>  {
+>  	if (reg_num != 31)
+> -		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
+> +		vcpu_gp_regs(vcpu)[reg_num] = val;
+>  }
+>  
+>  #endif /* ARM64_S390_COMMON */
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index ae9f76378218..2fce38fd9152 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -1170,7 +1170,7 @@ struct kvm_vcpu_arch {
+>  #define vcpu_clear_on_unsupported_cpu(vcpu)				\
+>  	vcpu_clear_flag(vcpu, ON_UNSUPPORTED_CPU)
+>  
+> -#define vcpu_gp_regs(v)		(&(v)->arch.ctxt.regs)
+> +#define vcpu_gp_regs(v)		((v)->arch.ctxt.regs.regs)
+>
+>  /*
+>   * Only use __vcpu_sys_reg/ctxt_sys_reg if you know you want the
+> @@ -1201,6 +1201,12 @@ static inline u64 *___ctxt_sys_reg(const struct kvm_cpu_context *ctxt, int r)
+>  
+>  #define ctxt_sys_reg(c,r)	(*__ctxt_sys_reg(c,r))
+>  
+> +#define kvm_vcpu_get_sp_el1(__vcpu) (__ctxt_sys_reg(&(__vcpu)->arch.ctxt, SP_EL1))
+> +#define kvm_vcpu_get_vreg(__vcpu, _n) (&(__vcpu)->arch.ctxt.fp_regs.vregs[_n])
+> +#define kvm_vcpu_get_vregs(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.vregs)
+> +#define kvm_vcpu_get_fpsr(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.fpsr)
+> +#define kvm_vcpu_get_fpcr(__vcpu) (&(__vcpu)->arch.ctxt.fp_regs.fpcr)
+> +
+>  u64 kvm_vcpu_apply_reg_masks(const struct kvm_vcpu *, enum vcpu_sysreg, u64);
+>  
+>  #define __vcpu_assign_sys_reg(v, r, val)				\
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index 5a202cfd27bc..5e1e1faa98c2 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -62,6 +62,7 @@ const struct kvm_stats_header kvm_vcpu_stats_header = {
+>  		       sizeof(kvm_vcpu_stats_desc),
+>  };
+>  
+> +#ifdef ARM64_S390_COMMON
+
+I really think this patch (and a few others) needs splitting. What I'd
+like to see is a prefix to this series adding the required arm64
+rework, and only in a subsequent patch add the "make this shared"
+attributes.
+
+Also, quite a lot of this patch is about using the existing accessors
+instead of an open-coded version. These changes should be standalone.
+
+>  static bool core_reg_offset_is_vreg(u64 off)
+>  {
+>  	return off >= KVM_REG_ARM_CORE_REG(fp_regs.vregs) &&
+> @@ -134,19 +135,19 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	     KVM_REG_ARM_CORE_REG(regs.regs[30]):
+>  		off -= KVM_REG_ARM_CORE_REG(regs.regs[0]);
+>  		off /= 2;
+> -		return &vcpu->arch.ctxt.regs.regs[off];
+> +		return &vcpu_gp_regs(vcpu)[off];
+>  
+>  	case KVM_REG_ARM_CORE_REG(regs.sp):
+> -		return &vcpu->arch.ctxt.regs.sp;
+> +		return vcpu_sp_el0(vcpu);
+>  
+>  	case KVM_REG_ARM_CORE_REG(regs.pc):
+> -		return &vcpu->arch.ctxt.regs.pc;
+> +		return vcpu_pc(vcpu);
+>  
+>  	case KVM_REG_ARM_CORE_REG(regs.pstate):
+> -		return &vcpu->arch.ctxt.regs.pstate;
+> +		return vcpu_cpsr(vcpu);
+>  
+>  	case KVM_REG_ARM_CORE_REG(sp_el1):
+> -		return __ctxt_sys_reg(&vcpu->arch.ctxt, SP_EL1);
+> +		return  kvm_vcpu_get_sp_el1(vcpu);
+>  
+>  	case KVM_REG_ARM_CORE_REG(elr_el1):
+>  		return __ctxt_sys_reg(&vcpu->arch.ctxt, ELR_EL1);
+> @@ -170,13 +171,13 @@ static void *core_reg_addr(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	     KVM_REG_ARM_CORE_REG(fp_regs.vregs[31]):
+>  		off -= KVM_REG_ARM_CORE_REG(fp_regs.vregs[0]);
+>  		off /= 4;
+> -		return &vcpu->arch.ctxt.fp_regs.vregs[off];
+> +		return kvm_vcpu_get_vreg(vcpu, off);
+>  
+>  	case KVM_REG_ARM_CORE_REG(fp_regs.fpsr):
+> -		return &vcpu->arch.ctxt.fp_regs.fpsr;
+> +		return  kvm_vcpu_get_fpsr(vcpu);
+>  
+>  	case KVM_REG_ARM_CORE_REG(fp_regs.fpcr):
+> -		return &vcpu->arch.ctxt.fp_regs.fpcr;
+> +		return  kvm_vcpu_get_fpcr(vcpu);
+
+Odd additional spaces (3 instances).
+
+>  
+>  	default:
+>  		return NULL;
+> @@ -306,6 +307,8 @@ static int set_core_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg)
+>  	return err;
+>  }
+>  
+> +#endif /* ARM64_S390_COMMON */
+> +
+>  #define vq_word(vq) (((vq) - SVE_VQ_MIN) / 64)
+>  #define vq_mask(vq) ((u64)1 << ((vq) - SVE_VQ_MIN) % 64)
+>  #define vq_present(vqs, vq) (!!((vqs)[vq_word(vq)] & vq_mask(vq)))
+> diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
+> index bef40ddb16db..82611442a2d1 100644
+> --- a/arch/arm64/kvm/hyp/exception.c
+> +++ b/arch/arm64/kvm/hyp/exception.c
+> @@ -277,6 +277,9 @@ static const u8 return_offsets[8][2] = {
+>  	[7] = { 4, 4 },		/* FIQ, unused */
+>  };
+>  
+> +#define OFFSETOF_PT_REG(__r) offsetof(struct user_pt_regs, __r)
+> +#define COMPAT_IDX(__c) ((OFFSETOF_PT_REG(__c) - OFFSETOF_PT_REG(regs[0])) / sizeof(u64))
+> +
+
+Oh $gawd, this is... awful.
+
+>  static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+>  {
+>  	unsigned long spsr = *vcpu_cpsr(vcpu);
+> @@ -292,12 +295,12 @@ static void enter_exception32(struct kvm_vcpu *vcpu, u32 mode, u32 vect_offset)
+>  	switch(mode) {
+>  	case PSR_AA32_MODE_ABT:
+>  		__vcpu_write_spsr_abt(vcpu, host_spsr_to_spsr32(spsr));
+> -		vcpu_gp_regs(vcpu)->compat_lr_abt = return_address;
+> +		vcpu_gp_regs(vcpu)[COMPAT_IDX(compat_lr_abt)] = return_address;
+>  		break;
+
+Stupid idea: why don't you simply have new #defines that make the
+register number standalone, and make ptrace.h use that? Something line
+this (which can obviously be extended to all the compat registers):
+
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 39582511ad72f..2d3d324d2598e 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -104,6 +104,10 @@
+ #define COMPAT_USER_SZ	296
+ 
+ /* Architecturally defined mapping between AArch32 and AArch64 registers */
++enum aarch32_reg_mapping {
++	__compat_lr_und = 22,
++};
++
+ #define compat_usr(x)	regs[(x)]
+ #define compat_fp	regs[11]
+ #define compat_sp	regs[13]
+@@ -115,7 +119,7 @@
+ #define compat_sp_svc	regs[19]
+ #define compat_lr_abt	regs[20]
+ #define compat_sp_abt	regs[21]
+-#define compat_lr_und	regs[22]
++#define compat_lr_und	regs[__compat_lr_und]
+ #define compat_sp_und	regs[23]
+ #define compat_r8_fiq	regs[24]
+ #define compat_r9_fiq	regs[25]
+
+and then your #defines from hell can go?
+
+Thanks,
+
+	M.
 
 -- 
-With best wishes
-Dmitry
+Without deviation from the norm, progress is not possible.
 
