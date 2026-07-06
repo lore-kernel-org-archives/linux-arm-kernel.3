@@ -4,144 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD0DC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:18:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010A3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YOxRusCSvDS7I6PNHmslnpo+9Tmz+Dk0zTJT/ahx32w=; b=r/qm8ojvvXeR/3q32AJDnN/oal
-	yZ0gO6cy86XKLzrXBrZD30YqsR+XJmotsE1Ba8uoywTpI83Kso8uxP4bnuGbNVAbldfMXO/BKCWg7
-	HoiAaR222Gx6lXmVrVLqhG45ImZaWXRN7Rk509vI0uLKSV1xE+rhFPLMmnLhIf2TMocxny9icKYXf
-	zPoJctb7es/Dk22DdBMAUe5VB1CgXeg/XXC4chVMMY6I8WDcIYL/QK2k82+EMcgJlqhy3YKml5bqa
-	4qHwiT5ZnPz61Od99ULyHs9jvkTtiEoD2Pl9qDu3OERBBrrFBylLadDlOuKJfbd9+ucti/3NmlsYq
-	j73d6Y1Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aDo8MoMAOCaiYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=; b=fibKqG9DDt0AFeVSxE7Z0Cnj1q
+	hxQYKldYpPCVRSaSSfJ42N3z8CJgESJyFUzi9QcLwfpk3Yt+KqCn2fO5N5Jgo+YYjn4qt9/y04qNQ
+	8DnT++ZTOeL+x6qsWvP726NdrnInUU7BrAd1kglS1UUO+qFd/++3NmU503xWdF1fMXoPR8sx0BpxL
+	8BEKxcxM92M2F//7BzGD6jMKy1DSRNGcs2gfXXXQZ+UYosON6PQQrDUUbhWbqXmuZxaZntuhbyZRr
+	bf9/vNrkzoOzIg2mc1ebbIhYS7ggEkkg00q0EN8nW44I0dRBJ0YMZyvW5u4jWZqStxNX8/lsPYuyX
+	9XSYicNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggP6-0000000CB0f-0IAX;
-	Mon, 06 Jul 2026 10:18:20 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wggPO-0000000CB7U-1vIg;
+	Mon, 06 Jul 2026 10:18:38 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggOz-0000000CAzJ-1ZE5
+	id 1wggPI-0000000CB4T-3t6u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:18:19 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6669pbQA237498
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 10:18:12 GMT
+	Mon, 06 Jul 2026 10:18:37 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666A3r1S122980
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 10:18:32 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=YOxRusCSvDS7I6PNHmslnpo+9Tmz+Dk0zTJ
-	T/ahx32w=; b=KofZJpnuoLzgMQt1azBgIa8LhaR473v4IzQcssOr1ykYPurgVfO
-	IfypWmSjp5QZHM45xSp1ahWdkyb5Kx/SfhnH3AbJLIKxJJo8OQfkoXXXOWXJfLjf
-	MW2kFE3+swoDIU7E0w9p+yjjrue2UjOn2LH3SSaZ2sIcYe2vSLDMV3cZz7uCmuO0
-	dNus+pAIhbGu/Jpitlr+bXAQ2+gmHrWgrHGsRwZeFDnTOp8zj6uM4dVbTJ7uz+62
-	+PnPft3M93YFfO6406SpmBisitSsO15UsyCKYFBCccekyGqNQ0cRN+sEWA6ggyGI
-	2Hj9GBe3mq2sd0adXdLECw//i68Oum0H32g==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a3r03ke-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=aDo8MoMAOCa
+	iYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=; b=XGMI8M3e4LdeqaHl9ceYdOhSket
+	+h0mjNB3HwKueGnasSlh3QfXzk9ZYYKlH4x2V2VsMlxMImqCSvbBmHF3FCDoFdWM
+	RItxRkWbERwmCVd+IYoGbWssvARDPpG6gKwFRhUNPfMFGDtIHG+jCVvGJbkhrS/G
+	N6oJekey7owg15tHsGqB3VNx0+1kv/JhbqdJ/FZKLepFbOmi8Ur4d5eFBZpPdjh2
+	xYwxwiPYeIdjJQBavV0LQRfHpeZFqzNOMfcAithZ2jzfKgEkJwqnn9qXh6lgNVLD
+	w7a4jJ2sYRA5pm8QyJrRjplZKMI6OYGIVBPYMghw8eKb/6UCRJVFRKAAiYA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a98g1yt-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:18:12 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92e9a2b95b5so439474985a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 03:18:12 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:18:32 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e82060977so296175885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 03:18:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783333092; x=1783937892; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YOxRusCSvDS7I6PNHmslnpo+9Tmz+Dk0zTJT/ahx32w=;
-        b=eu4IH+kQ2xZs8ZCjvJV3EmyURq9M8DOfQVSjH6o+fexUF5SVboxwApXB11TR6g7BeM
-         gewFThQLx2SgrNY0bjRJkebJne38h45WZN0zG+J/seqBJth0WSMbq9LH1E0udI3F0khB
-         QuHt/NemOSjT1OTpiLprBR2NgCZjsdnpoCUHKlY9IRV7jnWbPrBI4xV/IzFLHhkZ4aax
-         txS5pc4b9gzVbfvlY0fyiSLPPjFF2V28u3YpQrhN6ESuSe8yxlBHF5s3agTMv+JpkCAB
-         ic7ruAYENV2wfi+Ly4SYjFDmKvNkjZeVJP1OPc2R+KRt9+IVUwYwE7Vau8Gj2qxdNNu9
-         Ss9Q==
+        d=oss.qualcomm.com; s=google; t=1783333111; x=1783937911; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aDo8MoMAOCaiYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=;
+        b=RSqKaTpmeoybbtA42boj8BcIngjT2+0Eoe97drxXGIVU+05hVRqJU8q0+xAezN6dVN
+         HnCeZ3ELfHOohIZrvzsYLaUsiVdIxmrp7xi0QXcrB3xmIGVrUnidv/3aYEQEwUSq1tm0
+         NO8kA5DjmhC1UeFOs6wPdhUH1s+AiKI+mAYEQ+UakmmPBzrhd0rI6pHmRJwEqN5hWnfY
+         H9ZszlGXD/Ph+Ka9vuppkz7Weq1T5uKAwdUvspTXf/ONo8GxoI1hBaulztydQfFjuMbz
+         1gIM8gx+ODjiVFVvkiBj4O0PO729bY5NZcnt3qDOMUbV9b4Fy3DJ9Dv1mCdsFmrRsrom
+         NStw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783333092; x=1783937892;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YOxRusCSvDS7I6PNHmslnpo+9Tmz+Dk0zTJT/ahx32w=;
-        b=LsQrGmr8HJYoK7i1cD2PHf1PYFKQMQS4eEMmgLEp5serSV6M6/rhIXgXJL4FBswTL2
-         wRT3LdtzEDwm0KJPLgHLMBKDANvfzZM5l3GyQo91jloJ5Hn049I2bVlJ4k15Ed4mDT+M
-         O62PNIjk7mGxOFveFPGOzre839pub/zc7W6agkwOxlTui3h5lLakB0ali+4DRd+Z8v6S
-         +IqQoGnogEfX0xF21t/nrVqAydGLvCaXFULg6SqV4PZ9QtV0+KNprv0634YxXXGuWatG
-         mA80+DfakeEIC4knbaCTAIWe9ch4am1ee57qTDebiLhs1At36gkjere5CMUvEPSd/WB2
-         nR1A==
-X-Forwarded-Encrypted: i=1; AHgh+Rp82ZUt2EOWntyaHy3XlVJVj7fI3Q6liot2BIcLvKgtfaGGyE6G48LG8eQqSJna25MiT56ARKlmDFX4DLfd5AiU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC0qqBbt7m5lLsoM35Xn5yQcBgTMwP1OJm7G4O3sas1En0egRw
-	ZYKHW0ULBmPZT+yVNBGiMRXREXGUu+JpjnDTwKX/QqYw6dwYBpkbw8aq45v5dgipFSXgjXBbGBC
-	9lOe46u5oJIfqFsi8v5sskI9J0PmA7ylXp8TfxyPR1SDfXZu7UAvu0KhSLQzZb8rP6iseGc8OyM
-	5EheB8qG7LZg==
-X-Gm-Gg: AfdE7cmSOTk+dBbSzrfyTJDuAu1hew8RHebS2xCmPEUNZFy+POlda4x2GeEXLCmO9oB
-	6pWwW8e9Sn5cjcxW/R0mO3ngwNkmIQdJ3Onmwwv0UMxQIwkBoFNdyQfhpUzMvULHsOYY1/O66yz
-	JgMDIEBQ9ODfXALIHNmnKfx7oyUBeQZu7lF/Nzles9zc5aJnvC1BqiIYDN1+VahpHY0dPCP9I8y
-	YgOarYmByW7LG1KM8434nAvYLgCyvrwS5zkT5FBmyzeCAxqQuHE8qrO9Syd7fRNqnUC+Z+gXBH3
-	m+B/nbcwSLDWvKXgPFG3pj6PR2LDk0Df500bo0ALfd40Zz/hgXQIGKyn6stDCh1XvlJ0W6ETzLF
-	gsaVCfOYLhQHqw/XIcBq2odom81Y=
-X-Received: by 2002:a05:620a:28c6:b0:915:cda5:27ff with SMTP id af79cd13be357-92e9a419d02mr1433501885a.45.1783333091629;
-        Mon, 06 Jul 2026 03:18:11 -0700 (PDT)
-X-Received: by 2002:a05:620a:28c6:b0:915:cda5:27ff with SMTP id af79cd13be357-92e9a419d02mr1433498685a.45.1783333091198;
-        Mon, 06 Jul 2026 03:18:11 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783333111; x=1783937911;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=aDo8MoMAOCaiYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=;
+        b=sYHQHYPqFvT9TN+oe9mCkChavOFGSxUd8ppETn+RRfXIiIz6UAW306ufC907DRpQDB
+         0XSCFpnjXYg0uN1cmWix7bhLrXceiLodezu5i06Groig/KVWqXrB/vW/WY9XJuCSFsva
+         ylmjH4/gHsEdS/xQmcKgfj8L2TqXYdUklF6SQ3SgUcXxzQDeg8Mj4PmRPV5Qpphra6Tt
+         /Cwrzqwtq1fnIiD8po0WeY13oYhEEy+XSXvCcQVY0ARdc3CNzqCytIa3WYvNVMzsu+WK
+         Fmypf+lFJTuH5bSVdf1lHaqCzLaqC9YEXOGgj5msPwJrEzj1dn+Wikb7FhZ0T0xqYOOU
+         tZ7A==
+X-Forwarded-Encrypted: i=1; AHgh+RoVM82Ox5qUTj0kYCyXIkVGu2e/WJ9Wf6poCclbfsRpgQSbB4WCcP7z2MyxwMQs9k9N4lZFaTq5dVwZATq3wMa5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzZJwx4/uiYamejzqeEjhdIn8EnzsDYMwCIuCOG9JvMJJczHYq
+	oeT0hYGHuTIvlUQUCuxn/nvtE9a6hJM69weqmTvDln67jsnaKsIiPQGB4Ar768tDaL3H9wnvXum
+	MceK/KCEe60HS3L+CTQYp9gNacPTsPHPtath9JPbm0fEl5xbWu9QfVIlQPgvC7KzEBQf20bzGat
+	L1eA==
+X-Gm-Gg: AfdE7cl2VHYRh7H4KiTHm9pViiyPHqUbEtlWMTvYIrSuwauYj3ZKvgaO1pIHWmc0Sk5
+	upVGhpZpf4LBy16H6pUTfgUeQuloHS6rp8kHeaQpolzDXyO5aTlWjO4JsvvJD01Wbz1JXwqE7Ys
+	qUeweXbLzEzrDXdyU54dOo4T7ApmZK+93Ichr5vC7F75Ph1P0xaXQwhQpLdsUb7qMaRJ/Z7iLjh
+	pG5ZrNItX/RoCxhjxlFcVU4nQ6+kP/e0kSMzBgiD2/rSWQWQz3F5qKVEPOwVRdMBTWDPaFJcCUy
+	l6bCyOU+1iYUfLVUnaWoblWy4oegoJn/npu+DwjL6KlfUHr8709dk3kswXTGCsTZTo/+e/jdhrz
+	cfuyqg6R37tQ0OeL5ZDd8e6/EFPk=
+X-Received: by 2002:a05:620a:4515:b0:914:bfca:7d12 with SMTP id af79cd13be357-92e8b25e823mr1742914885a.5.1783333111410;
+        Mon, 06 Jul 2026 03:18:31 -0700 (PDT)
+X-Received: by 2002:a05:620a:4515:b0:914:bfca:7d12 with SMTP id af79cd13be357-92e8b25e823mr1742910985a.5.1783333110963;
+        Mon, 06 Jul 2026 03:18:30 -0700 (PDT)
 Received: from quoll ([178.197.223.174])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d910sm22908219f8f.6.2026.07.06.03.18.09
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039bcdasm24350402f8f.21.2026.07.06.03.18.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 03:18:10 -0700 (PDT)
+        Mon, 06 Jul 2026 03:18:30 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Alexey Charkov <alchark@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>,
-        Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
+To: Viresh Kumar <vireshk@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] ARM: dts: vt8500: Correct indentation
-Date: Mon,  6 Jul 2026 12:18:06 +0200
-Message-ID: <20260706101805.341103-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 2/2] ARM: dts: st: ste: Correct indentation
+Date: Mon,  6 Jul 2026 12:18:25 +0200
+Message-ID: <20260706101823.341230-4-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9358; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=H6KNydM5/kYWRRkSb9JhYDs9KRF2JwdOUGo8ZBhBSdg=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqS4DdWRr618BD6n+v72aPfU7piRnjbUGZ3ff19
- 7shAwUCRM+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCakuA3QAKCRDBN2bmhouD
- 1ymbD/44EELK7GM4tuQyf4OS7D/GuIBBPCiMScUvUvyWeVoouoJ7WcFakJcz7E2ccrezGBwPNp0
- EQePwIl9nYrGdZRn89OUSXWXVR6cuos1Keha1zi9pViwB3H3Sw+fXoDCrQp2LlFWbtuzIZfc1D6
- oReVAlhiZFdwejsOCfhCkmeiyZzfVbJH9eY9/we4QqAFJ8UO/LyOidZpHRidmml2SZv29f2usmp
- MJ6LUSsX7UHbCezS8Ff6MBSuQZmyoHyCEoiqWJoVY0J8RbDIXi1nbCK189Y9uMqrLh4aXTpKKtI
- XwkJt8jG6StWZNYBtTRRAH69vXgYxjPIPcRybqF1CWLpEb4RfqAsFaX63B8lKMgaaoAKlRczJZm
- MAdB2Y5qEKZ6AYSdQZdOPWlWQbMTyANOe6tqC+EGhSRzE5whydQRpusC766lfPClj6PLCeHVhsX
- +bXTN9VbEaUkB0mnkYrQs3dhD46NVJMKZxGLHp3hRgU5MILWHttXdgHQ/Gpr0/ovsKojWANpll+
- yqwpq8vmmpIMFlE7pRx5L9ozTacpva3Vd11HthGXpks0TaNYIT6J80sQc+o7tqESRYqW1PTW8VN
- 6xoejiorr12JvFS3PB9qiLaqfh9YkfYym3Rsg2f7Viu9HBy3q/wdrStiye4RLQSaoDjqLARCsR1 zx8C8uwbH07CBlg==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4345; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=J8fceL42EKDgvezoHCZX2Tw8NeF3KSJd25+8oOQeLGI=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqS4Dw2EQXufGRpxmk5Rid8ltVbS+lkrBjNViET
+ 5KJPgUjwJ2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCakuA8AAKCRDBN2bmhouD
+ 12yzD/9SExFX4onHKFPfLA2LoB8/Wmf/a4TbrVGowWDUpYIEAW7kjaLY5UE5bwnLJ10Ts71c8Xt
+ NhoixDDypxaKj9292THd1+wjz+ObgyF+v4sispqlf09zNod65LSjwtmyqeUHOQiqaEagEVcdKdq
+ RFmbshpoNYzXAdykDP1ic999xNf4FSsBjhhftj43fIvcXOJpsJjXV02Zcrh3vMKOYbsicQqtPfm
+ zV2wlQBoSQeOSyCEGYyrSi3ajC5k4OrSLm1MwCt9G0RdSf4jV43fEQFXCpjCx/leZlYbEjmXIq3
+ rFDsxk87DZHu06J1KokFnhfE608C0/dYhtVU+4y8N4bD2B3diusPwoZlTP+GdWKuxs4jH05iI3V
+ Jw+bQQT7DoWRaTqsGhqhCyyO8Mmq72iyIwXXr/PdSy47b8WxgemCN8N8lq6e0Dv/Ttecuq5Kl4+
+ zS2XVQOt/i7K9nA7kbt4cSY5XSCoaIxwHlZziByCygpunhWczLXROG45OglIlu3ihl4Q6/hj6+y
+ 5ZeGCTXJbGa+ydGZ/j6wLhErFaXKQ87Z1uISvqqxZPiPmt4MphL67A++UQDODn/ce2voCtSGJP2
+ NqvtDdpXNKInXwlJ4DFd6Zzqci9Tfs/OC36P1C3rFzoculNd1+TeB9wLCgEvW5VhjOxCAf58vqi IHiBC3T5YlH31kA==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfXz5LfaDQnTlrz
- LJOreTeQVZndjwNVSaP/r23ZcSbGDiJj3LrVjmn0wkbLPpdoXPPdHcaRSPms1757320gGZHc+tb
- HcLfJsca/im19/kJlsOnr6DH/HsgCqn6in/cMS4PfIgxHqQWeaSL73YL4NoId1cfwP4j/nL1Lk3
- W98VfmquEEOICZE4QXdEYqOD24T7sjQ24pN4e0zgKhQM+bPN98ep7pdcXkNACIiPVwuLGk//h83
- 8SKNzlCpflqCVBPJSFQ5Hf74ivQdlQLcUGrC4mtAbdvNbR3vOabuhDHA3rXew9jOROGn2jK4dnO
- OV2uwMNKnAXZK3UsOeHfiZuVOBLudM1trGVmomxvIldxYJTRzF9NOm09FwxocCsRCEdw5nE3zvE
- DOH/qkfoR+KlimwiGGMj3BlcAN7q+UBU969Ywh70mw2lSz+Q4NALlgv9cSnFpcQSeCFoSKvGzsV
- HxvDvUeYIQQ99ugj80A==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX/aFKhhPxqqAQ
- 6V9fsseBniAc83/RMgr3oTsiDMBu5lGTSREHOBK9ttjz9ytcqrwsO5CAbjJt1bi0csLD9hsriaa
- wnuv8AnL8z+Q/Tj6AwLfi4KC/HpqiWM=
-X-Proofpoint-GUID: _gz8SAFcMpVBVmmhkkWF8iO0VYl80Cto
-X-Proofpoint-ORIG-GUID: _gz8SAFcMpVBVmmhkkWF8iO0VYl80Cto
-X-Authority-Analysis: v=2.4 cv=OKcXGyaB c=1 sm=1 tr=0 ts=6a4b80e4 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
+X-Authority-Analysis: v=2.4 cv=SpigLvO0 c=1 sm=1 tr=0 ts=6a4b80f8 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
  a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
- a=YIy-g2JZa4JrWsc84VAA:9 a=PEH46H7Ffwr30OY-TuGO:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
+ a=muePWa0SRqB7cAwnof0A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX1AU1nizoF65I
+ nbUmDoHGGKyLB9b8LXhoHwoFStbK/IKhDZyZYAsOFF8UHdTvYXdV2ey15jwj1F/nEXBvQkySTPc
+ xC1/0b6qtbmS1cDh2f+klFN/HLL0ztKAGxq2qeHSzkjJEie19SowRZUA1PKdLEuUnXhg2qi6Chv
+ HjVupi5kFHqaZL4TtbEXDMxMUPSAzHVgfRnWUDCjjq4scBl9nRbLbMOW1jhA3ExVk1+DwhdWy/N
+ oz8dHP1E8vQW46Z/grLM9kELC4x2sXfWaz2/OaXydrG9WPY0FB8VWkNRJdcWmuk/Rkbp1HPgluA
+ PC5NsaXsDjvsTOHoSUYVIVb/4QVkoRuF+C27AuCPFFlpcS/EwnHhE/BdhqPhobDzxuiYwpR7yEC
+ 36Hm6NUfUz2oeGAt0F0v6M6QnewzxiH/0dkBvxO8a2VQriYUIHTLgHtcFqFignbKir65jdnxlaY
+ MWiutziFVkMuC+LMb5Q==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX0BX22tIvKill
+ eyj7xWMBG4nSWskc53noF61fJoDMVykTcH7QjKqQ8SJIPMOx0wTT51KMK/FWGikPMj3hrwqRSfI
+ 45hn0LVlG+Vvts0yZXGfujtPD4XwsQs=
+X-Proofpoint-GUID: mAssbeiE71-pqdVoYObnZ0rw8pq_V1Du
+X-Proofpoint-ORIG-GUID: mAssbeiE71-pqdVoYObnZ0rw8pq_V1Du
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-06_01,2026-07-03_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 adultscore=0 malwarescore=0 clxscore=1015 suspectscore=0
- spamscore=0 phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0
+ malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_031813_543073_F3381BEE 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20260706_031832_995579_59620D53 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,277 +169,106 @@ Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Ongoing bigger work for all bindings and DTS with built-in checker (dt-check-style).
 ---
- arch/arm/boot/dts/vt8500/wm8505.dtsi |   4 +-
- arch/arm/boot/dts/vt8500/wm8650.dtsi |   8 +--
- arch/arm/boot/dts/vt8500/wm8750.dtsi | 104 +++++++++++++--------------
- arch/arm/boot/dts/vt8500/wm8850.dtsi |  54 +++++++-------
- 4 files changed, 85 insertions(+), 85 deletions(-)
+ arch/arm/boot/dts/st/ste-dbx5x0.dtsi              | 2 +-
+ arch/arm/boot/dts/st/ste-href.dtsi                | 2 +-
+ arch/arm/boot/dts/st/ste-snowball.dts             | 2 +-
+ arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts | 2 +-
+ arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts | 2 +-
+ arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts   | 2 +-
+ arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts | 2 +-
+ 7 files changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index 915adbf6e1e0..40fa00f82fad 100644
---- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -21,14 +21,14 @@ cpu@0 {
- 		};
- 	};
+diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
+index 0f87abeddc33..25a20fafc6b9 100644
+--- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
++++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
+@@ -1119,7 +1119,7 @@ msp2: msp@80117000 {
  
-- 	aliases {
-+	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 		serial2 = &uart2;
- 		serial3 = &uart3;
- 		serial4 = &uart4;
- 		serial5 = &uart5;
-- 	};
-+	};
+ 			dmas = <&dma 14 0 0x12>, /* Logical  - DevToMem - HighPrio */
+ 			       <&dma 14 1 0x19>; /* Physical Chan 1 - MemToDev
+-                                                    HighPrio - Fixed */
++						    HighPrio - Fixed */
+ 			dma-names = "rx", "tx";
  
- 	soc {
- 		#address-cells = <1>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 82eef7504364..d27a6aac8aa4 100644
---- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -21,7 +21,7 @@ cpu@0 {
- 		};
- 	};
- 
-- 	aliases {
-+	aliases {
- 		serial0 = &uart0;
- 		serial1 = &uart1;
- 	};
-@@ -147,12 +147,12 @@ clkddr: ddr {
- 				};
- 
- 				clkuart0: uart0 {
-- 					#clock-cells = <0>;
-- 					compatible = "via,vt8500-device-clock";
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
- 					clocks = <&ref24>;
- 					enable-reg = <0x250>;
- 					enable-bit = <1>;
-- 				};
-+				};
- 
- 				clkuart1: uart1 {
- 					#clock-cells = <0>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index 5342b7fe4ef8..d8c21097784d 100644
---- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -168,37 +168,37 @@ clkuart1: uart1 {
- 					enable-bit = <25>;
- 				};
- 
--                                clkuart2: uart2 {
--                                        #clock-cells = <0>;
--                                        compatible = "via,vt8500-device-clock";
--                                        clocks = <&ref24>;
--                                        enable-reg = <0x254>;
--                                        enable-bit = <26>;
--                                };
-+				clkuart2: uart2 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&ref24>;
-+					enable-reg = <0x254>;
-+					enable-bit = <26>;
-+				};
- 
--                                clkuart3: uart3 {
--                                        #clock-cells = <0>;
--                                        compatible = "via,vt8500-device-clock";
--                                        clocks = <&ref24>;
--                                        enable-reg = <0x254>;
--                                        enable-bit = <27>;
--                                };
-+				clkuart3: uart3 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&ref24>;
-+					enable-reg = <0x254>;
-+					enable-bit = <27>;
-+				};
- 
--                                clkuart4: uart4 {
--                                        #clock-cells = <0>;
--                                        compatible = "via,vt8500-device-clock";
--                                        clocks = <&ref24>;
--                                        enable-reg = <0x254>;
--                                        enable-bit = <28>;
--                                };
-+				clkuart4: uart4 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&ref24>;
-+					enable-reg = <0x254>;
-+					enable-bit = <28>;
-+				};
- 
--                                clkuart5: uart5 {
--                                        #clock-cells = <0>;
--                                        compatible = "via,vt8500-device-clock";
--                                        clocks = <&ref24>;
--                                        enable-reg = <0x254>;
--                                        enable-bit = <29>;
--                                };
-+				clkuart5: uart5 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&ref24>;
-+					enable-reg = <0x254>;
-+					enable-bit = <29>;
-+				};
- 
- 				clkpwm: pwm {
- 					#clock-cells = <0>;
-@@ -286,37 +286,37 @@ uart1: serial@d82b0000 {
- 			status = "disabled";
- 		};
- 
--                uart2: serial@d8210000 {
--                        compatible = "via,vt8500-uart";
--                        reg = <0xd8210000 0x1040>;
--                        interrupts = <47>;
--                        clocks = <&clkuart2>;
-+		uart2: serial@d8210000 {
-+			compatible = "via,vt8500-uart";
-+			reg = <0xd8210000 0x1040>;
-+			interrupts = <47>;
-+			clocks = <&clkuart2>;
- 			status = "disabled";
--                };
-+		};
- 
--                uart3: serial@d82c0000 {
--                        compatible = "via,vt8500-uart";
--                        reg = <0xd82c0000 0x1040>;
--                        interrupts = <50>;
--                        clocks = <&clkuart3>;
-+		uart3: serial@d82c0000 {
-+			compatible = "via,vt8500-uart";
-+			reg = <0xd82c0000 0x1040>;
-+			interrupts = <50>;
-+			clocks = <&clkuart3>;
- 			status = "disabled";
--                };
-+		};
- 
--                uart4: serial@d8370000 {
--                        compatible = "via,vt8500-uart";
--                        reg = <0xd8370000 0x1040>;
--                        interrupts = <30>;
--                        clocks = <&clkuart4>;
-+		uart4: serial@d8370000 {
-+			compatible = "via,vt8500-uart";
-+			reg = <0xd8370000 0x1040>;
-+			interrupts = <30>;
-+			clocks = <&clkuart4>;
- 			status = "disabled";
--                };
-+		};
- 
--                uart5: serial@d8380000 {
--                        compatible = "via,vt8500-uart";
--                        reg = <0xd8380000 0x1040>;
--                        interrupts = <43>;
--                        clocks = <&clkuart5>;
-+		uart5: serial@d8380000 {
-+			compatible = "via,vt8500-uart";
-+			reg = <0xd8380000 0x1040>;
-+			interrupts = <43>;
-+			clocks = <&clkuart5>;
- 			status = "disabled";
--                };
-+		};
- 
- 		rtc@d8100000 {
- 			compatible = "via,vt8500-rtc";
-diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-index 58109aa05f74..a17ac3515985 100644
---- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-@@ -179,21 +179,21 @@ clkuart1: uart1 {
- 					enable-bit = <25>;
- 				};
- 
--                                clkuart2: uart2 {
--                                        #clock-cells = <0>;
--                                        compatible = "via,vt8500-device-clock";
--                                        clocks = <&ref24>;
--                                        enable-reg = <0x254>;
--                                        enable-bit = <26>;
--                                };
-+				clkuart2: uart2 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&ref24>;
-+					enable-reg = <0x254>;
-+					enable-bit = <26>;
-+				};
- 
--                                clkuart3: uart3 {
--                                        #clock-cells = <0>;
--                                        compatible = "via,vt8500-device-clock";
--                                        clocks = <&ref24>;
--                                        enable-reg = <0x254>;
--                                        enable-bit = <27>;
--                                };
-+				clkuart3: uart3 {
-+					#clock-cells = <0>;
-+					compatible = "via,vt8500-device-clock";
-+					clocks = <&ref24>;
-+					enable-reg = <0x254>;
-+					enable-bit = <27>;
-+				};
- 
- 				clkpwm: pwm {
- 					#clock-cells = <0>;
-@@ -273,21 +273,21 @@ uart1: serial@d82b0000 {
- 			status = "disabled";
- 		};
- 
--                uart2: serial@d8210000 {
--                        compatible = "via,vt8500-uart";
--                        reg = <0xd8210000 0x1040>;
--                        interrupts = <47>;
--                        clocks = <&clkuart2>;
-+		uart2: serial@d8210000 {
-+			compatible = "via,vt8500-uart";
-+			reg = <0xd8210000 0x1040>;
-+			interrupts = <47>;
-+			clocks = <&clkuart2>;
- 			status = "disabled";
--                };
-+		};
- 
--                uart3: serial@d82c0000 {
--                        compatible = "via,vt8500-uart";
--                        reg = <0xd82c0000 0x1040>;
--                        interrupts = <50>;
--                        clocks = <&clkuart3>;
-+		uart3: serial@d82c0000 {
-+			compatible = "via,vt8500-uart";
-+			reg = <0xd82c0000 0x1040>;
-+			interrupts = <50>;
-+			clocks = <&clkuart3>;
- 			status = "disabled";
--                };
-+		};
- 
- 		rtc@d8100000 {
- 			compatible = "via,vt8500-rtc";
-@@ -308,7 +308,7 @@ ethernet@d8004000 {
- 			compatible = "via,vt8500-rhine";
- 			reg = <0xd8004000 0x100>;
- 			interrupts = <10>;
--                };
-+		};
- 
- 		l2_cache: cache-controller@d9000000 {
- 			compatible = "arm,pl310-cache";
+ 			clocks = <&prcc_kclk 2 3>, <&prcc_pclk 2 5>;
+diff --git a/arch/arm/boot/dts/st/ste-href.dtsi b/arch/arm/boot/dts/st/ste-href.dtsi
+index fbf0309e108f..a85d87665610 100644
+--- a/arch/arm/boot/dts/st/ste-href.dtsi
++++ b/arch/arm/boot/dts/st/ste-href.dtsi
+@@ -207,7 +207,7 @@ mmc@80005000 {
+ 		// On-board eMMC
+ 		mmc@80114000 {
+ 			arm,primecell-periphid = <0x10480180>;
+-		        max-frequency = <100000000>;
++			max-frequency = <100000000>;
+ 			bus-width = <8>;
+ 			cap-mmc-highspeed;
+ 			non-removable;
+diff --git a/arch/arm/boot/dts/st/ste-snowball.dts b/arch/arm/boot/dts/st/ste-snowball.dts
+index 1322abfc7acf..14ed1079ff6c 100644
+--- a/arch/arm/boot/dts/st/ste-snowball.dts
++++ b/arch/arm/boot/dts/st/ste-snowball.dts
+@@ -295,7 +295,7 @@ mmc@80005000 {
+ 		// On-board eMMC
+ 		mmc@80114000 {
+ 			arm,primecell-periphid = <0x10480180>;
+-		        max-frequency = <100000000>;
++			max-frequency = <100000000>;
+ 			bus-width = <8>;
+ 			cap-mmc-highspeed;
+ 			no-sdio;
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts
+index ad9a20ccaaeb..0c3eef7a294a 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts
+@@ -402,7 +402,7 @@ wifi@1 {
+ 		/* eMMC */
+ 		mmc@80005000 {
+ 			arm,primecell-periphid = <0x10480180>;
+-		        max-frequency = <50000000>;
++			max-frequency = <50000000>;
+ 			bus-width = <8>;
+ 			non-removable;
+ 			cap-mmc-highspeed;
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
+index 64562a3a262c..18fb7263058e 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
+@@ -452,7 +452,7 @@ wifi@1 {
+ 		/* eMMC */
+ 		mmc@80005000 {
+ 			arm,primecell-periphid = <0x10480180>;
+-		        max-frequency = <50000000>;
++			max-frequency = <50000000>;
+ 			bus-width = <8>;
+ 			non-removable;
+ 			cap-mmc-highspeed;
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts
+index cdb147dcc1db..c34d43a2b750 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts
+@@ -274,7 +274,7 @@ wifi@1 {
+ 		 */
+ 		mmc@80005000 {
+ 			arm,primecell-periphid = <0x10480180>;
+-		        max-frequency = <100000000>;
++			max-frequency = <100000000>;
+ 			bus-width = <8>;
+ 			non-removable;
+ 			cap-mmc-highspeed;
+diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts
+index 064d6fee8821..7bf4287f6e13 100644
+--- a/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts
++++ b/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts
+@@ -253,7 +253,7 @@ wifi@1 {
+ 		 */
+ 		mmc@80005000 {
+ 			arm,primecell-periphid = <0x10480180>;
+-		        max-frequency = <100000000>;
++			max-frequency = <100000000>;
+ 			bus-width = <8>;
+ 			non-removable;
+ 			cap-mmc-highspeed;
 -- 
 2.53.0
 
