@@ -4,67 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305C8C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F9DC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o90i0cfZoLQRDEd07HRcrIoHeZh+FDlGHtKxB6iNI3Y=; b=MMGl3ZZYFy2Xwz9HK7d7gZu3RL
-	9YFTfdRp7U+68gvc0GqQDtSxVO4D89TLLojALLbYgZMX7458k76jSIIWAoE2YJk3ls0kXA2O1+e4A
-	nXqwUoKneQVE2vqreFCKhOOMag9EcW0vQePWq079kdGPb+970EHXXJCkIzxqkaPuxLl3zvoyABYIA
-	AxeOt8vkvFPycrUiPrABBAMQPdh/IbwLALpzWB4w7YmEV2FoGqErkM1abnLA9UczIaHQ1ZmOfmInW
-	9ZjCuNJtEE1k44gyQrtO4brmY+vmnMBgLEN27aUnXudieBn4lghDssB/If6LONawhJBApog8ReNHG
-	7hZVAMOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fv2kNiSYpp/mwiQNvruO0GBGKpPCowAj63Sbzft+biE=; b=z/0tN9C0D8/NL6HShVCnqllOv5
+	7VQ0deIYY633c3Kjbezj8JmhqYl/JzzoFsVUskV+YjABbranPFqMzg77RXdaiWzRmQ4jrYJ5CxCMO
+	ES+j5TYXkv/nNlYIOLE7fHGRYSWe4vZqZBpNTGZ1hG2+22seX4bZ4f1MiD9WezVMQR9P9Df3QVlfk
+	gjlw8BBTC8IgWDwERySOB/n4YYsIE1w0nUlKpjA01Oa6+KSQoreAG+vpq08K2TxgXW2SKZsq/TQkY
+	MAz5UKyWahU8MpHQkOo05GB+4xwltSPY8+VVxNdURhZOqY7mqvh6WxnrVfHayiNaypW20lVOqYhqp
+	4w2DSMgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjDe-0000000CYL2-1aUE;
-	Mon, 06 Jul 2026 13:18:42 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgjFv-0000000CZ32-23Mk;
+	Mon, 06 Jul 2026 13:21:03 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjDd-0000000CYKr-2gA5
+	id 1wgjFn-0000000CYmr-02S9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:18:41 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0940E43587;
-	Mon,  6 Jul 2026 13:18:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 648E71F000E9;
-	Mon,  6 Jul 2026 13:18:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783343920;
-	bh=o90i0cfZoLQRDEd07HRcrIoHeZh+FDlGHtKxB6iNI3Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OWbqZfzTjukjCzOtpI+vcCyyKg07CpN2ldAOpni3JjhkAkDxWhIsBCzUf286cmC9q
-	 yrE2uqIKA2KRLWx86P74/nxaNx/kFtX3BB3M23nsEVwTtEUirt6bvFBE70dUwfzoEM
-	 ny2qx0VQb+Z36+yFeQ3AmMS6XqBtpE/FPkbtN+rxNyJ7Kl0Dwysluo5K6ILluGm1nR
-	 m8ZcANJm4bSevE7vxYLN1zrEy/cRUeszik1g5Zky8oIU5XHxUs2NBeOpHJZkHx/FUf
-	 a4s1NienhNgGtHkksFdrnd8pXON5QdTn0GkaDA658UZak6YIkJXmtMr1cOZ7HnDCl1
-	 h1WeH/xT21RHA==
-Date: Mon, 6 Jul 2026 14:18:36 +0100
-From: Sudeep Holla <sudeep.holla@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v7 1/6] firmware: smccc: Add an Arm SMCCC bus
-Message-ID: <20260706-belligerent-excellent-saluki-a4e431@sudeepholla>
-References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
- <20260611130429.295516-2-aneesh.kumar@kernel.org>
+	Mon, 06 Jul 2026 13:20:57 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666AxOU4245767
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 13:20:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	fv2kNiSYpp/mwiQNvruO0GBGKpPCowAj63Sbzft+biE=; b=c4J4l9dcCWrHvoWD
+	eCzTpSsWzXRAgEXSysa9R/0WpEZSOxZYh5qSd5sHzPl5d71nqgDncIZSvX7Yrw1v
+	dLtJ0wMe6kRFF8a4GCTjO71INYcBa++KzXjhSh3W7YiUsFUDfmMTqglGaKd49e/3
+	f1bsn2LyofXuMpusUrHRmnffH6BL53RTH/1gMTpEm8LDukKvKjXvDLDKTP7VZv3X
+	y2KaO8llWE/XgrPNJhkn3UY9zEWnHzz7BPvwCUeQ5rjEpRoX+yLpeN883lMp47Vb
+	T+5CDVgmfEJ3sPlOdecqa9yXK6Yg1WTMMoOcAPm+5mKVSIphlt3xxtom/HkMTP56
+	tFVGmQ==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a98gqmn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:20:54 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-59d595bfd94so1055002e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:20:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783344053; x=1783948853; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fv2kNiSYpp/mwiQNvruO0GBGKpPCowAj63Sbzft+biE=;
+        b=Lmu771MrwdjMbeYrsc3pKFEYkovVpZO5DnWCkfkQKdJ3OejAqaqvTRkoMVB0wsHYH+
+         gjCFiYN2VpjejYqPamU3Od/HsdX7+WzRTQ+mi/xA2urt9HGKD9KnNUcROnk5mYEeFnyy
+         eWyrxoY6gg4tQ5pM3ojvTb8BsFvSDTrBEuAxuP/Q0vkqSrMXSkmyeYieOvu+EDj8+XWP
+         YwTYwMGw+DB9yJwFu7SLOQ2DUZqry/AqMO8dIyllHSAFzEXX3iSAjR7sncD1U1V68zQv
+         ghmninZcP8fk/nkADZNbIQzzRiwFH9ygKJhiJJjAlNacDMzG9JQgNOOrltuu42LKp3hd
+         nYiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783344053; x=1783948853;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=fv2kNiSYpp/mwiQNvruO0GBGKpPCowAj63Sbzft+biE=;
+        b=BrzxehGqKtt8vwArrwwZCnrZCNIsqL6yD4CaPM1U4h4fzjaFyJ6TnqpN5jzSHvCjNx
+         Sd8zYOaJqlJUqM7f8iwB2hlJKbqwbqLhl1ZI9mrs6U5Tbru88Owg+n5rSf5vKGu0PDwT
+         ol5Ows6ztJcSQx63KRj22iXAL1j1IfUspecjd8M4R1kqdAjrJEfqC29UPAmowi77zHXG
+         Ac5egA3u8ai4BEhXSem93UmQ5cLZnLFZ52PpUKZSGjLo2mRAQe+LzOptzYhzd6MnPsW9
+         BizhYxKIZqrBursXAROiSF6ZKSAxLkiMgFw/cEpqD17paw0ALaEjv6O8LJSb2+Q+06gr
+         V/yw==
+X-Forwarded-Encrypted: i=1; AHgh+Rpe8YaNFdhO3/xYx8r9uH+FJr5vTmQ8r2A8/pX91/bXcEQcVr9Ayzjxen1F+RM8h1aw3Wh8epYqXV+mwCHy4wkN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoCrtD/xU+hhFOqYW11Up9CuHGwTF2JUu/4ZBMfDstyoYS64at
+	tnjPi6iRE6XbJn1Ro8Jz32xJlNFs9OP6R+nvFdErzl25jeb1OsX0H7LwB5ztKgJpN5RKrDhA/Rk
+	lp9swOKH+GBFWF+TliZd+me9akK186JYqcuh7ygL38aJJpBzjF87JBireN9Ph7EvE8IiOqyEy1U
+	zCHA==
+X-Gm-Gg: AfdE7ckDvoJf2IneUH/FioFY1gOyVUSN2QPsKPh37WkmKpk9fL9kzePKLZIkJ2P+Syr
+	CTB/oybf8g+gTDRPkP3a3+VbYJvLWEyvh6Y2wSamY0yUjyWulXcWiN5d3nsk6fihotPCvxIdO3Z
+	g5wNtgl7chAOMsf+dkX9YSpamupVsSEuKkCS9omwDMQl1zmjVkBfoRrmnBRrTtqXxBo277oEXch
+	HQ+5wq65psNvyL3YuvLRX3sTOJ9r9WEHLyt83dDJ6iKTTkJzqwGDYfl7nKz8p9lBHuTISDBdStG
+	SxloQVfL8wedKINTXcPMS0TXiSLdwkH3a/RbSxrUR6fyL3G7Y6QlUpmSwX+zOYXacJNkBOAd3dk
+	xECTqXczUo54uv6WORRth+Zz9RW9kwZzC59UBNHKc
+X-Received: by 2002:a05:6122:4d07:b0:5bd:aba5:3830 with SMTP id 71dfb90a1353d-5be89537d9emr273838e0c.0.1783344053397;
+        Mon, 06 Jul 2026 06:20:53 -0700 (PDT)
+X-Received: by 2002:a05:6122:4d07:b0:5bd:aba5:3830 with SMTP id 71dfb90a1353d-5be89537d9emr273804e0c.0.1783344052852;
+        Mon, 06 Jul 2026 06:20:52 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:86f0:c42b:ef4c:d3bb])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ad69519c2sm25910584f8f.37.2026.07.06.06.20.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 06:20:52 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Date: Mon, 06 Jul 2026 15:20:20 +0200
+Subject: [PATCH net-next v12 5/7] net: stmmac: qcom-ethqos: reuse the
+ address of ethqos_emac_driver_data
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260611130429.295516-2-aneesh.kumar@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-qcom-sa8255p-emac-v12-5-e3ab1ecf2901@oss.qualcomm.com>
+References: <20260706-qcom-sa8255p-emac-v12-0-e3ab1ecf2901@oss.qualcomm.com>
+In-Reply-To: <20260706-qcom-sa8255p-emac-v12-0-e3ab1ecf2901@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Vinod Koul <vkoul@kernel.org>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Chen-Yu Tsai <wens@kernel.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>,
+        Fabio Estevam <festevam@gmail.com>,
+        Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+        Romain Gantois <romain.gantois@bootlin.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Magnus Damm <magnus.damm@gmail.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Christophe Roullier <christophe.roullier@foss.st.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Radu Rendec <rrendec@redhat.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Drew Fustini <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+        linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+        imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+        linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+        linux-riscv@lists.infradead.org, brgl@kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5525;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=DZwv1shl0TUtjDQMbmf7p8enNrlmK99dKcZ4kwPIp8U=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqS6uf3y3xcnGJBzldDQcP1Gvdu36/YPVnRiucD
+ rasQBf6RzOJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCakurnwAKCRAFnS7L/zaE
+ w1fLD/9hd0BgIb9hVJYMbf6fTbBgU23ib1oILj+2s+xFhKiLcjSO77OrgbdGCE4chR2ObV4hCwO
+ oFmk55GX0mryjsCZQ2a9orFkFOIMZC3E7sPkG9AV20SPFxLzD9w1z/jG5xpduAz4oOYbOCfdZNo
+ 4op0zdzC/8mSk94sKrKAWL690pN9vbgEkZ2tXCz3BJAyIepf6vRTf6f39Gi1/bkvH9aE3T8RXgS
+ kCXSUarLusOK7zXSrhc1y0Ph5sjEkLcbsOqXjH/TRUkICTR+VcVvKyMAtc22q/WQzYrSN8lJ1fw
+ UwdaFJd8Ttw0UW7hSQlv99XXaqBFnkZxZAFZsgIAhzwpGOxhdQt/L3T3FKC+6RICO+HcvApYw2H
+ 8eXE88o6UpTBgWtfNdioDOeI5CId17EferHTZWwg/ujOTBzrXnozaTlss4mdqHhJXDbopmG0CYY
+ XExTsItYWONAZUtPWIjpQlaOF05HiPQzdhcXCchEL7Oxf3kPLxzIrPaCFiQF4oNxk1i6iqXm7T2
+ W93zrAhOZHlYT34CBzFVGXF5XlDyjdvxSVyTwVk8KIr/Fp4lP81W3dWqXsXSnFwPDC/Sivrnyom
+ 0pmXxjblCX01B46rJauGIVskRhjtWUTfGOHBF1oXOGsBPlzHw8uohG7ROPX/K9PklNdpYwm0q/y
+ sOrK4uXRfg1vsBQ==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Authority-Analysis: v=2.4 cv=SpigLvO0 c=1 sm=1 tr=0 ts=6a4babb6 cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
+ a=uYDRVFWwO1WiFYTZPIgA:9 a=QEXdDO2ut3YA:10 a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEzNiBTYWx0ZWRfX+DoSrmFRor/w
+ CCUgVlLQDQXgtXf/qCZpJLwc2enQW0f+Wf0e/PmE5S9sa3dOWl2mxWGMTC5n1fydGIat9fhkcVv
+ ITMCp03Wih+2WO4cLswNVzdQ/SeMfBzeBTAM/Z5A83HcTod4HLoAVGEwHaI55MOMtu+hpUVGhMg
+ PkCHw6A/7/1NLIsfd8WAgO4sfb8uFD30yx33Y9kYNLD5cl/BQ2Do7aEcoR6z/dMl2MqHNvdeuXj
+ xHlUMcUnJzl89Q0lLDxS08J1uEtsAFBJgZbq+jRD37zSjvfgSKLE+TIZyS5BjPYD+ErZ59GInqS
+ dsxUVzFTM69iJKcHgrDPFOo+yVrIkpiAEg7QAKqiMvQZZyvs5Ho4hWNb23x1tvuKvHmHTDEUz9+
+ P8kFlqGbBYDIDO55PCfFVd/a6JLg2bu3FT0hOydgyYB3K012B5F4Oj1NLLL+H5bMyAOrnqGhw6h
+ K5LYQcAL/quTHRYjlmQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEzNiBTYWx0ZWRfXz8DAcZhqwvFK
+ u8jKSIGCvNujsvZ/zvXDIhXGk3eJFsi/7AqPP9EP9gQom7Fnp5DtrzaiDB8cNP1e0inP/enLpLK
+ +j84yMVC25NjfTBvimbnUIWyt6Z7pvU=
+X-Proofpoint-GUID: pOUGl6Ve1Wk9PsVvmAN1uix5iZ1WlNT7
+X-Proofpoint-ORIG-GUID: pOUGl6Ve1Wk9PsVvmAN1uix5iZ1WlNT7
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060136
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_062055_136786_68E8E143 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,365 +198,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 11, 2026 at 06:34:24PM +0530, Aneesh Kumar K.V (Arm) wrote:
-> SMCCC-discovered firmware services are currently represented by separate
-> platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
-> represent independent DT/ACPI-described platform resources; they are
-> features of the SMCCC firmware interface.
-> 
-> Add an Arm SMCCC bus for services discovered through the SMCCC firmware
-> interface. The bus provides SMCCC device and driver registration helpers,
-> name-based matching, modalias generation, and a sysfs modalias attribute so
-> SMCCC service drivers can bind to discovered firmware services and autoload
-> as modules.
-> 
-> Follow-up changes can then register SMCCC firmware services as arm-smccc
-> devices instead of creating independent per-feature platform devices.
-> 
-> Based on arm_ffa code
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  drivers/firmware/smccc/Makefile   |   2 +-
->  drivers/firmware/smccc/bus.c      | 164 ++++++++++++++++++++++++++++++
->  include/linux/arm-smccc-bus.h     |  49 +++++++++
->  include/linux/mod_devicetable.h   |  13 +++
->  scripts/mod/devicetable-offsets.c |   3 +
->  scripts/mod/file2alias.c          |   8 ++
->  6 files changed, 238 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/firmware/smccc/bus.c
->  create mode 100644 include/linux/arm-smccc-bus.h
-> 
-> diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
-> index 40d19144a860..68bbff1407b8 100644
-> --- a/drivers/firmware/smccc/Makefile
-> +++ b/drivers/firmware/smccc/Makefile
-> @@ -1,4 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0
->  #
-> -obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
-> +obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= bus.o smccc.o kvm_guest.o
->  obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
-> diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
-> new file mode 100644
-> index 000000000000..fe7e893130ce
-> --- /dev/null
-> +++ b/drivers/firmware/smccc/bus.c
-> @@ -0,0 +1,164 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2026 Arm Limited
-> + */
-> +
-> +#include <linux/arm-smccc-bus.h>
-> +#include <linux/idr.h>
-> +#include <linux/slab.h>
-> +
-> +static DEFINE_IDA(arm_smccc_bus_id);
-> +
-> +static int arm_smccc_bus_match(struct device *dev,
-> +		const struct device_driver *drv)
-> +{
-> +	const struct arm_smccc_device_id *id_table;
-> +	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-> +
-> +	id_table = to_arm_smccc_driver(drv)->id_table;
-> +	if (!id_table)
-> +		return 0;
-> +
+Instead of needlessly copying the fields of ethqos_emac_driver_data into
+struct qcom_ethqos, just use the address of the former as a reference.
+It's .rodata after all. This is done in order to avoid having either two
+calls to of_device_get_match_data() or having to extend the latter with
+another field when adding support for SCMI.
 
-Any reason for not having this check when registering the driver also so
-that it becomes a must to register ? I remember vaguely adding this as fix to
-FF-A driver recently.
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 37 ++++++++--------------
+ 1 file changed, 14 insertions(+), 23 deletions(-)
 
-> +	while (id_table->name[0]) {
-> +		if (!strcmp(smccc_dev->name, id_table->name))
-> +			return 1;
-> +		id_table++;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int arm_smccc_bus_probe(struct device *dev)
-> +{
-> +	struct arm_smccc_driver *smccc_drv = to_arm_smccc_driver(dev->driver);
-> +
-> +	return smccc_drv->probe(to_arm_smccc_device(dev));
-> +}
-> +
-> +static void arm_smccc_bus_remove(struct device *dev)
-> +{
-> +	struct arm_smccc_driver *smcc_drv = to_arm_smccc_driver(dev->driver);
-> +
-> +	if (smcc_drv->remove)
-> +		smcc_drv->remove(to_arm_smccc_device(dev));
-> +}
-> +
-> +static int arm_smccc_bus_uevent(const struct device *dev,
-> +		struct kobj_uevent_env *env)
-> +{
-> +	const struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-> +
-> +	return add_uevent_var(env, "MODALIAS=" ARM_SMCCC_MODULE_PREFIX "%s",
-> +			      smccc_dev->name);
-> +}
-> +
-> +static ssize_t modalias_show(struct device *dev,
-> +		struct device_attribute *attr, char *buf)
-> +{
-> +	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-> +
-> +	return sysfs_emit(buf, ARM_SMCCC_MODULE_PREFIX "%s\n", smccc_dev->name);
-> +}
-> +static DEVICE_ATTR_RO(modalias);
-> +
-> +static struct attribute *arm_smccc_device_attrs[] = {
-> +	&dev_attr_modalias.attr,
-> +	NULL,
-> +};
-> +ATTRIBUTE_GROUPS(arm_smccc_device);
-> +
-> +const struct bus_type arm_smccc_bus_type = {
-> +	.name = "arm_smccc",
-> +	.match = arm_smccc_bus_match,
-> +	.probe = arm_smccc_bus_probe,
-> +	.remove = arm_smccc_bus_remove,
-> +	.uevent = arm_smccc_bus_uevent,
-> +	.dev_groups = arm_smccc_device_groups,
-> +};
-> +EXPORT_SYMBOL_GPL(arm_smccc_bus_type);
-> +
-> +int arm_smccc_driver_register(struct arm_smccc_driver *driver,
-> +		struct module *owner, const char *mod_name)
-> +{
-> +	if (!driver->probe)
-> +		return -EINVAL;
-> +
-> +	driver->driver.bus = &arm_smccc_bus_type;
-> +	driver->driver.name = driver->name;
-> +	driver->driver.owner = owner;
-> +	driver->driver.mod_name = mod_name;
-> +
-> +	return driver_register(&driver->driver);
-> +}
-> +EXPORT_SYMBOL_GPL(arm_smccc_driver_register);
-> +
-> +void arm_smccc_driver_unregister(struct arm_smccc_driver *driver)
-> +{
-> +	driver_unregister(&driver->driver);
-> +}
-> +EXPORT_SYMBOL_GPL(arm_smccc_driver_unregister);
-> +
-> +static void arm_smccc_release_device(struct device *dev)
-> +{
-> +	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
-> +
-> +	ida_free(&arm_smccc_bus_id, smccc_dev->id);
-> +	kfree(smccc_dev);
-> +}
-> +
-> +struct arm_smccc_device *arm_smccc_device_register(const char *name)
-> +{
-> +	struct arm_smccc_device *smccc_dev;
-> +	int id, ret;
-> +
-> +	id = ida_alloc_min(&arm_smccc_bus_id, 1, GFP_KERNEL);
-> +	if (id < 0)
-> +		return ERR_PTR(id);
-> +
-> +	smccc_dev = kzalloc_obj(*smccc_dev);
-> +	if (!smccc_dev) {
-> +		ida_free(&arm_smccc_bus_id, id);
-> +		return ERR_PTR(-ENOMEM);
-> +	}
-> +
-> +	smccc_dev->id = id;
-> +	if (strscpy(smccc_dev->name, name) < 0) {
-
-Since this is exported symbol and one can call arm_smccc_device_register(ptr)
-where ptr = NULL, won't it blow up then ? IIUC strscpy() handles NULL dst
-but doesn't check for NULL src.
-
-> +		kfree(smccc_dev);
-> +		ida_free(&arm_smccc_bus_id, id);
-> +		return ERR_PTR(-EINVAL);
-> +	}
-> +	smccc_dev->dev.bus = &arm_smccc_bus_type;
-> +	smccc_dev->dev.release = arm_smccc_release_device;
-> +
-> +	ret = dev_set_name(&smccc_dev->dev, "%s-%d", smccc_dev->name, id);
-> +	if (ret) {
-> +		kfree(smccc_dev);
-> +		ida_free(&arm_smccc_bus_id, id);
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	ret = device_register(&smccc_dev->dev);
-> +	if (ret) {
-> +		put_device(&smccc_dev->dev);
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	return smccc_dev;
-> +}
-> +EXPORT_SYMBOL_GPL(arm_smccc_device_register);
-> +
-> +void arm_smccc_device_unregister(struct arm_smccc_device *smccc_dev)
-> +{
-> +	if (!smccc_dev)
-> +		return;
-> +
-> +	device_unregister(&smccc_dev->dev);
-> +}
-> +EXPORT_SYMBOL_GPL(arm_smccc_device_unregister);
-> +
-> +static int __init arm_smccc_bus_init(void)
-> +{
-> +	return bus_register(&arm_smccc_bus_type);
-> +}
-> +subsys_initcall(arm_smccc_bus_init);
-> +
-> diff --git a/include/linux/arm-smccc-bus.h b/include/linux/arm-smccc-bus.h
-> new file mode 100644
-> index 000000000000..188891441e57
-> --- /dev/null
-> +++ b/include/linux/arm-smccc-bus.h
-> @@ -0,0 +1,49 @@
-> +/* SPDX-License-Identifier: GPL-2.0-only */
-> +/*
-> + * Copyright (C) 2026 Arm Limited
-> + */
-> +#ifndef __LINUX_ARM_SMCCC_BUS_H
-> +#define __LINUX_ARM_SMCCC_BUS_H
-> +
-> +#include <linux/device.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +
-> +struct arm_smccc_device {
-> +	int id;
-> +	char name[ARM_SMCCC_NAME_SIZE];
-> +	struct device dev;
-> +};
-> +
-> +#define to_arm_smccc_device(d) container_of(d, struct arm_smccc_device, dev)
-> +
-> +struct arm_smccc_driver {
-> +	const char *name;
-> +	int (*probe)(struct arm_smccc_device *sdev);
-> +	void (*remove)(struct arm_smccc_device *sdev);
-> +	const struct arm_smccc_device_id *id_table;
-> +
-> +	struct device_driver driver;
-> +};
-> +
-> +#define to_arm_smccc_driver(d) \
-> +	container_of_const(d, struct arm_smccc_driver, driver)
-> +
-> +int arm_smccc_driver_register(struct arm_smccc_driver *driver,
-> +		struct module *owner, const char *mod_name);
-> +void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
-> +struct arm_smccc_device *arm_smccc_device_register(const char *name);
-> +void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
-> +
-
-I may be overthinking but what will happen if HAVE_ARM_SMCCC_DISCOVERY=n
-and some driver is compiled using this header ? It should be fine if it
-fails to compile, just thinking out loud if we need to handle that are not.
-As long as all the drivers using these depends on HAVE_ARM_SMCCC_DISCOVERY
-it should be fine I think.
-
-> +#define arm_smccc_register(driver) \
-> +	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
-> +#define arm_smccc_unregister(driver) \
-> +	arm_smccc_driver_unregister(driver)
-> +
-> +#define module_arm_smccc_driver(__arm_smccc_driver) \
-> +	module_driver(__arm_smccc_driver, arm_smccc_register, \
-> +		      arm_smccc_unregister)
-> +
-> +extern const struct bus_type arm_smccc_bus_type;
-> +
-> +#endif /* __LINUX_ARM_SMCCC_BUS_H */
-> diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
-> index 23ff24080dfd..c9cee8c5a0b2 100644
-> --- a/include/linux/mod_devicetable.h
-> +++ b/include/linux/mod_devicetable.h
-
-This file seems to be reworked recently, so you need to rebase it moving
-smccc specific changes to separate file I think.
-
-> @@ -876,6 +876,19 @@ struct auxiliary_device_id {
->  	kernel_ulong_t driver_data;
->  };
->  
-> +#define ARM_SMCCC_NAME_SIZE 40
-> +#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
-> +
-> +/**
-> + * struct arm_smccc_device_id - Arm SMCCC bus device identifier
-> + * @name: SMCCC device name
-> + * @driver_data: driver data
-> + */
-> +struct arm_smccc_device_id {
-> +	char name[ARM_SMCCC_NAME_SIZE];
-> +	kernel_ulong_t driver_data;
-
-Can't find any users of the above driver_data ?
-Is it for future ? If so, can you add details on how it is supposed to be used
-if you don't want to drop it.
-
-> +};
-> +
->  /* Surface System Aggregator Module */
->  
->  #define SSAM_MATCH_TARGET	0x1
-> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
-> index b4178c42d08f..a485011ff137 100644
-> --- a/scripts/mod/devicetable-offsets.c
-> +++ b/scripts/mod/devicetable-offsets.c
-> @@ -254,6 +254,9 @@ int main(void)
->  	DEVID(auxiliary_device_id);
->  	DEVID_FIELD(auxiliary_device_id, name);
->  
-> +	DEVID(arm_smccc_device_id);
-> +	DEVID_FIELD(arm_smccc_device_id, name);
-> +
->  	DEVID(ssam_device_id);
->  	DEVID_FIELD(ssam_device_id, match_flags);
->  	DEVID_FIELD(ssam_device_id, domain);
-> diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
-> index 2ad87a74bb03..92d3917f27cc 100644
-> --- a/scripts/mod/file2alias.c
-> +++ b/scripts/mod/file2alias.c
-> @@ -1323,6 +1323,13 @@ static void do_auxiliary_entry(struct module *mod, void *symval)
->  	module_alias_printf(mod, false, AUXILIARY_MODULE_PREFIX "%s", *name);
->  }
->  
-> +static void do_arm_smccc_entry(struct module *mod, void *symval)
-> +{
-> +	DEF_FIELD_ADDR(symval, arm_smccc_device_id, name);
-> +
-> +	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "%s", *name);
-> +}
-> +
->  /*
->   * Looks like: ssam:dNcNtNiNfN
->   *
-> @@ -1493,6 +1500,7 @@ static const struct devtable devtable[] = {
->  	{"mhi", SIZE_mhi_device_id, do_mhi_entry},
->  	{"mhi_ep", SIZE_mhi_device_id, do_mhi_ep_entry},
->  	{"auxiliary", SIZE_auxiliary_device_id, do_auxiliary_entry},
-> +	{"arm_smccc", SIZE_arm_smccc_device_id, do_arm_smccc_entry},
->  	{"ssam", SIZE_ssam_device_id, do_ssam_entry},
->  	{"dfl", SIZE_dfl_device_id, do_dfl_entry},
->  	{"ishtp", SIZE_ishtp_device_id, do_ishtp_entry},
-> -- 
-> 2.43.0
-> 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index 47b70b5e706f221c01f1c0ae3b1acafae6641165..fa3447b90315672d706d5ce7d710bdec6214e4e6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -103,12 +103,7 @@ struct qcom_ethqos {
+ 	struct clk *link_clk;
+ 	struct phy *serdes_phy;
+ 	phy_interface_t phy_mode;
+-
+-	const struct ethqos_emac_por *rgmii_por;
+-	unsigned int num_rgmii_por;
+-	bool rgmii_config_loopback_en;
+-	bool has_emac_ge_3;
+-	bool needs_sgmii_loopback;
++	const struct ethqos_emac_driver_data *data;
+ };
+ 
+ static u32 rgmii_readl(struct qcom_ethqos *ethqos, unsigned int offset)
+@@ -189,7 +184,7 @@ static int ethqos_set_clk_tx_rate(void *bsp_priv, struct clk *clk_tx_i,
+ static void
+ qcom_ethqos_set_sgmii_loopback(struct qcom_ethqos *ethqos, bool enable)
+ {
+-	if (!ethqos->needs_sgmii_loopback ||
++	if (!ethqos->data->needs_sgmii_loopback ||
+ 	    ethqos->phy_mode != PHY_INTERFACE_MODE_2500BASEX)
+ 		return;
+ 
+@@ -322,7 +317,7 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+ 	/* Set DLL_EN */
+ 	rgmii_setmask(ethqos, SDCC_DLL_CONFIG_DLL_EN, SDCC_HC_REG_DLL_CONFIG);
+ 
+-	if (!ethqos->has_emac_ge_3) {
++	if (!ethqos->data->has_emac_ge_3) {
+ 		rgmii_clrmask(ethqos, SDCC_DLL_MCLK_GATING_EN,
+ 			      SDCC_HC_REG_DLL_CONFIG);
+ 
+@@ -352,7 +347,7 @@ static int ethqos_dll_configure(struct qcom_ethqos *ethqos)
+ 	rgmii_setmask(ethqos, SDCC_DLL_CONFIG2_DDR_CAL_EN,
+ 		      SDCC_HC_REG_DLL_CONFIG2);
+ 
+-	if (!ethqos->has_emac_ge_3) {
++	if (!ethqos->data->has_emac_ge_3) {
+ 		rgmii_clrmask(ethqos, SDCC_DLL_CONFIG2_DLL_CLOCK_DIS,
+ 			      SDCC_HC_REG_DLL_CONFIG2);
+ 
+@@ -432,7 +427,7 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 	rgmii_clrmask(ethqos, RGMII_CONFIG2_RSVD_CONFIG15,
+ 		      RGMII_IO_MACRO_CONFIG2);
+ 
+-	if (speed == SPEED_1000 || ethqos->has_emac_ge_3)
++	if (speed == SPEED_1000 || ethqos->data->has_emac_ge_3)
+ 		rgmii_setmask(ethqos, RGMII_CONFIG2_RX_PROG_SWAP,
+ 			      RGMII_IO_MACRO_CONFIG2);
+ 	else
+@@ -456,7 +451,7 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 		 * in practice this becomes PRG_RCLK_DLY = 52 * 4 /
+ 		 *  (2 * RX delay ns)
+ 		 */
+-		if (ethqos->has_emac_ge_3) {
++		if (ethqos->data->has_emac_ge_3) {
+ 			/* 0.9 ns */
+ 			prg_rclk_dly = 115;
+ 		} else {
+@@ -472,7 +467,7 @@ static int ethqos_rgmii_macro_init(struct qcom_ethqos *ethqos, int speed)
+ 			      SDCC_HC_REG_DDR_CONFIG);
+ 	}
+ 
+-	if (ethqos->rgmii_config_loopback_en)
++	if (ethqos->data->rgmii_config_loopback_en)
+ 		loopback = RGMII_CONFIG_LOOPBACK_EN;
+ 	else
+ 		loopback = 0;
+@@ -495,9 +490,9 @@ static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
+ 	dev = &ethqos->pdev->dev;
+ 
+ 	/* Reset to POR values and enable clk */
+-	for (i = 0; i < ethqos->num_rgmii_por; i++)
+-		rgmii_writel(ethqos, ethqos->rgmii_por[i].value,
+-			     ethqos->rgmii_por[i].offset);
++	for (i = 0; i < ethqos->data->num_rgmii_por; i++)
++		rgmii_writel(ethqos, ethqos->data->rgmii_por[i].value,
++			     ethqos->data->rgmii_por[i].offset);
+ 
+ 	ethqos_set_func_clk_en(ethqos);
+ 
+@@ -511,7 +506,7 @@ static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
+ 	rgmii_setmask(ethqos, SDCC_DLL_CONFIG_PDN,
+ 		      SDCC_HC_REG_DLL_CONFIG);
+ 
+-	if (ethqos->has_emac_ge_3) {
++	if (ethqos->data->has_emac_ge_3) {
+ 		if (speed == SPEED_1000) {
+ 			rgmii_writel(ethqos, 0x1800000, SDCC_TEST_CTL);
+ 			rgmii_writel(ethqos, 0x2C010800, SDCC_USR_CTL);
+@@ -538,7 +533,7 @@ static void ethqos_fix_mac_speed_rgmii(void *bsp_priv,
+ 			      SDCC_HC_REG_DLL_CONFIG);
+ 
+ 		/* Set USR_CTL bit 26 with mask of 3 bits */
+-		if (!ethqos->has_emac_ge_3)
++		if (!ethqos->data->has_emac_ge_3)
+ 			rgmii_updatel(ethqos, GENMASK(26, 24), BIT(26),
+ 				      SDCC_USR_CTL);
+ 
+@@ -743,11 +738,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 				     "Failed to map rgmii resource\n");
+ 
+ 	data = of_device_get_match_data(dev);
+-	ethqos->rgmii_por = data->rgmii_por;
+-	ethqos->num_rgmii_por = data->num_rgmii_por;
+-	ethqos->rgmii_config_loopback_en = data->rgmii_config_loopback_en;
+-	ethqos->has_emac_ge_3 = data->has_emac_ge_3;
+-	ethqos->needs_sgmii_loopback = data->needs_sgmii_loopback;
++	ethqos->data = data;
+ 
+ 	ethqos->link_clk = devm_clk_get(dev, data->link_clk_name ?: "rgmii");
+ 	if (IS_ERR(ethqos->link_clk))
+@@ -784,7 +775,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
+ 	plat_dat->dump_debug_regs = rgmii_dump;
+ 	plat_dat->ptp_clk_freq_config = ethqos_ptp_clk_freq_config;
+ 	plat_dat->core_type = DWMAC_CORE_GMAC4;
+-	if (ethqos->has_emac_ge_3)
++	if (data->has_emac_ge_3)
+ 		plat_dat->dwmac4_addrs = &data->dwmac4_addrs;
+ 	plat_dat->pmt = true;
+ 	if (of_property_read_bool(np, "snps,tso"))
 
 -- 
-Regards,
-Sudeep
+2.47.3
+
 
