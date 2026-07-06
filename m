@@ -4,80 +4,187 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D91C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C45C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uLviVLYgT3tLYFzYiI6Zru82tyxHPobIeBJDsXCYEGE=; b=eBZhGWak1stmX2Z6tgshpY4Xm7
-	fOFNCs56K5HLp8aaQWa+bBi9B/EK6s/PEn1zlPr/os23VESw2LbT9DGEcamkI7etZ5C04dD94dq5S
-	f/ty0HsAuapit9J30jiITVDjGtOaEOfY4zj/3+dNf8KWWDi6qigNQLOAdLZdS6A/IUocRqTOyORCH
-	WBqqLkhb1pu2OQn8XeuZUsAevJJii5MOcrITfnxmH+qVL7Gp3s1kzVz7tBN0YOY57NqkkVYK4oKAi
-	lfaxEHexzmiRI3qJaDVznPqKqN1WXHl2JpltOk05xNPqEbBgxATfcMFwOPnYB2H/JnMM5r4pSxwN9
-	qdRulwXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RyU4Ifafpyh/FLtyPoayXjzPbwMU/X5o2UFaqrYzldE=; b=cD1AVALRPp4ZJyQsc9MRdgXI7i
+	yYKy15DPxj1V8qreAktmnVKkqoghGC+hX65laVG7raVWSV3T/gnF+dbtlATSJKlYld2h3IWbjN/Ak
+	fK/ouAGKEYBAHFfrY8Q/vyuEMktJruOgli4108TB5CRWdU44md3JHFRLRxGTZGTcZwJBn1+ISFVhK
+	lYBOtysp3FZEQ52+IdVgZWMxbfpWVpohDue0bvEsBmT6J02XwbLrBTlBrPZSRchYWDg9UZrAszWOL
+	amAxzJeKnMf9R6ELpWqIpiKT4fsD/HmZsSz05j8JuiNLdIdbJ3gxCE5f2HG+mE2KjSLr0oH3rPCZr
+	PIovOSaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjU3-0000000CcLT-1w9A;
-	Mon, 06 Jul 2026 13:35:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgjFr-0000000CYvi-0o0N;
+	Mon, 06 Jul 2026 13:20:59 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjU2-0000000CcLE-3EIA
+	id 1wgjFk-0000000CYiQ-0bgL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:35:38 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF6C4600DA;
-	Mon,  6 Jul 2026 13:35:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A14D01F000E9;
-	Mon,  6 Jul 2026 13:35:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783344937;
-	bh=uLviVLYgT3tLYFzYiI6Zru82tyxHPobIeBJDsXCYEGE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=W8mktv82qSURqSaR4khAQUk7rv+HF7NlRSLA73tWAmclaNwHXS+dyT8h0BbeTLW0C
-	 IXGQIHoi2kXpNIfZ6FMDRgPPHMAED6HnuJsb54jXSgdLzf1f/N6BkJH2uxa7wyHhAF
-	 ae6RJ6bfyviz/WHMgMJvpzqwht6LnYKSSzPufbKA65RL1MgU/lt8wtduUw+vXyMiQf
-	 wUWTR1RWuUh4hLbeNPgaSaCumyKdkLkFnF/yFAf4jSipK2FJST7DJlYo8OtxANoWWn
-	 Q8DvCEmW1TfJecSDxSkbRbLpcwqNRIFqUCsXgqYOyl68zhSonQh4CakRGWKadO6rU2
-	 WoBbUPcDWwiJQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wgjTz-00000001xgl-2Wl5;
-	Mon, 06 Jul 2026 13:35:35 +0000
-Date: Mon, 06 Jul 2026 14:35:35 +0100
-Message-ID: <86ik6sp7fc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v5 02/10] irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared granule size
-In-Reply-To: <20260706060432.1375570-3-aneesh.kumar@kernel.org>
-References: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
-	<20260706060432.1375570-3-aneesh.kumar@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-coco@lists.linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, catalin.marinas@arm.com, jgg@ziepe.ca, m.szyprowski@samsung.com, robin.murphy@arm.com, steven.price@arm.com, suzuki.poulose@arm.com, tglx@kernel.org, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 06 Jul 2026 13:20:55 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666Ax669391044
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 13:20:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	RyU4Ifafpyh/FLtyPoayXjzPbwMU/X5o2UFaqrYzldE=; b=fOxq+7SIXv5TAgp+
+	3LhNERn5LTVoVpsJSWbou+OhJo7ZPhM68du15CUsbeYhDP1hDtmE5fsEssdy7A4A
+	LQdOp9g7rc1wqNg6bAwqx6XeV1bISNfWRVcPN+cn0G7KI4hh+iln1RcWr74AOYBX
+	vpTWpBfMRXMYiG/OmstFA4Iiu5+3JA8SF32Mzad2tcatFqPmB+ySf+Lvc06tWzUh
+	9Eu/+yeFDSBSpQDc/c4MyGQVcoRu+aFF9mAZiSeT4LSd8AjA9VdnJ0BR8RZQcKyp
+	+a842pp2cuRnyHbSrT+RfzGrotV/cUhyXVsRgnTVIlzDHeZTUsqTi8CKa+Wh9NxP
+	ZTiSrg==
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f89kgrwpd-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:20:51 +0000 (GMT)
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-59d595bfd94so1054969e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:20:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783344051; x=1783948851; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=RyU4Ifafpyh/FLtyPoayXjzPbwMU/X5o2UFaqrYzldE=;
+        b=WG4/E7+g37PLuE5n6RAk8kI8q17GQZwPj8JuXc6tVLzTGdKNMvqVlEnRCjECftYZ5C
+         zn2numVjPppPcLLOUHMX4vMJbrUj7bect1O46Qqu+97uH9XDOLWP6L2XNkoPkkGuPB8p
+         xoNoG709HEZxZFUgfxq3BH3M4Ynjbtwr+V2HmuPydHKRSwyIyqg3OoCbf/N/zgIWihnh
+         mwJ2CZwz05UjW9YdfIBuTquytUZSIy3f+sfzYT6PRmRL+rImkUUwPU+D9JEliGlSpAk2
+         KcN61qF5mdleHS3cJ3w0efQpHuAGlzL+2C5KpIctjPBcMKSntUoi1FA+ByI+JDezxjTQ
+         qc0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783344051; x=1783948851;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=RyU4Ifafpyh/FLtyPoayXjzPbwMU/X5o2UFaqrYzldE=;
+        b=WpveV2MUnAzhp1Uts2zp7O01RCXRNPrAiBqfZxcWGFpoQJLqr2s6nNnWNEsRH6RpAe
+         eVYqQ4Ul0LnIJM2YdyjVGJzQhWiThp7jIaWtSXYyYYYHnlxIDb5CKXg3q01uUyFr9rnq
+         3z8ocHfkzt55jHgl2cOfFsCQCrqQiWVjb7wmuDTNvJOEiW04wL+hfrXnjK4BZevFtjvO
+         LEsy6l0xqj26U7Jt/7fRTODBbwGH7FSLqCSTyMfBGq5CrLYBp42ffnpq9JymAsI3RVYU
+         9ji5S++enBAb0Sm0n9Rmrbkxr1JRbLePhILTkPaVU0x6BdGNHv027jUj1B1EKW9IchsM
+         zR9w==
+X-Forwarded-Encrypted: i=1; AHgh+Rp8tDkb55WXzhwhYgzPGCoEMjxXBROAW0rhYTom6xjdTAptjHz4bYLOf75JeHGw5qKhZQ3WLOCy5BjJCOFEg35P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzgn9gRiBRZ9M2Y1dwwM6mAMQgSo5QuXCPk97Uy0IvFdupc6eKV
+	MEE/pR+A5oFM4Mr14Z3KH8jUXiaBlYt3fpN9UmQhuAcSyALQLCLdXcgFUXZU7bZ7pgUGrKYRr0i
+	S8N412cRjn4YvXLVQF1EbH8uCizZFiEU0m41WIybnjAlvxfOVuoDD9R+YHBQBvFdQ1//2OQgKyQ
+	1m7g==
+X-Gm-Gg: AfdE7clIiisf7VY7822RY5VKSXpAol6qzGzj45djO1WYaCHseNSqO+mYfXbHzyARKqS
+	DdefytLzUkV7vrIKmgbuRLzTdh5F9mXPCViZB2uHc3fvmwdX4t2kqvwrbMj5YktR56UiZ1T+ajx
+	lgG3+vrBEV/sDmikxvbrcdUn6scoar1gQOvfobzUsv1sstze8Or0lvYV0bTBJDMucdQfZgDgsie
+	UVvpgz7aq5j7rlVtJTVzF0iyebOUPaKrTVlwiBWb2kNb+5IWOAGYUtzQfsy2M7XzttIPsJ43MQR
+	k7jxSazgIZYFg3g4lBC5twfZxZTwVjyCelakQvJybZ6LszeiLAhNFWnzQPoKUUmMfgHZsLI0pXA
+	9EqfbZChIBRyaZ1ncOCroy23xA+qs52H7wAuIEm+O
+X-Received: by 2002:a05:6122:46aa:b0:5bd:b0de:a736 with SMTP id 71dfb90a1353d-5be907a7dd5mr257995e0c.8.1783344050544;
+        Mon, 06 Jul 2026 06:20:50 -0700 (PDT)
+X-Received: by 2002:a05:6122:46aa:b0:5bd:b0de:a736 with SMTP id 71dfb90a1353d-5be907a7dd5mr257980e0c.8.1783344050114;
+        Mon, 06 Jul 2026 06:20:50 -0700 (PDT)
+Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:86f0:c42b:ef4c:d3bb])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ad69519c2sm25910584f8f.37.2026.07.06.06.20.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 06:20:47 -0700 (PDT)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Date: Mon, 06 Jul 2026 15:20:19 +0200
+Subject: [PATCH net-next v12 4/7] net: stmmac: qcom-ethqos: set serdes mode
+ before powerup
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-qcom-sa8255p-emac-v12-4-e3ab1ecf2901@oss.qualcomm.com>
+References: <20260706-qcom-sa8255p-emac-v12-0-e3ab1ecf2901@oss.qualcomm.com>
+In-Reply-To: <20260706-qcom-sa8255p-emac-v12-0-e3ab1ecf2901@oss.qualcomm.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Vinod Koul <vkoul@kernel.org>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Chen-Yu Tsai <wens@kernel.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>, Shawn Guo <shawnguo@kernel.org>,
+        Fabio Estevam <festevam@gmail.com>,
+        Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>,
+        Romain Gantois <romain.gantois@bootlin.com>,
+        Geert Uytterhoeven <geert+renesas@glider.be>,
+        Magnus Damm <magnus.damm@gmail.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Christophe Roullier <christophe.roullier@foss.st.com>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Radu Rendec <rrendec@redhat.com>
+Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Drew Fustini <dfustini@tenstorrent.com>, linux-sunxi@lists.linux.dev,
+        linux-amlogic@lists.infradead.org, linux-mips@vger.kernel.org,
+        imx@lists.linux.dev, linux-renesas-soc@vger.kernel.org,
+        linux-rockchip@lists.infradead.org, sophgo@lists.linux.dev,
+        linux-riscv@lists.infradead.org, brgl@kernel.org,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1365;
+ i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=Rq+TDPdqhF6BqR973VgYSIdLvxRoWPIkY3OnfX0xzLQ=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBqS6uetN8tQ35/MLf6WrNwnnyMDIulOdtwR7ChU
+ fVGHHk3r0yJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCakurngAKCRAFnS7L/zaE
+ w8OHEACRZI6ADieQbUC6leO3XRgj+gxRGg9lhMPexr8/DmUnblo/bE9rhFIw9azo7F31pSedXgU
+ S2ZoMQph7d2IdVgsEFK68vmpeM7kbfHOmOspoTr9OTFAFVAYFLbvrdnvg31npbXMuipX44t9wMC
+ z0+KpQSH7EuJRWn/0SdKx0hpl2F0NLAZBBYm/mOkxDC6oQ98L9KSVeAiZMTA2QN2e7RN3b8i5Y8
+ +Tb/X2ZVbZ8KzjhAlymhR0hTk9QVAqHuFn+v0A4lMylebluozCzeMmS0lnaJoUAtkKBVoSGEZWp
+ f7eVuChzu8R/i7CFuQ1d1uEjd4nCrXvk9N59kEJBCfVqIMUpcEzqt5Ud3i+1EvxEdD/9I6kTWIP
+ Y1lgCr4T+O1AWH+b73x4EX8ls/BOq9lu0fO7MKzfbtfBIooYGgt9QUdToMMAQo4UTIIi/ceTYVu
+ v72RM+zndt/2RWOsztsZXIsL3al5/9bCuw6E5b/HCWspMa0wbY00BI4wjanae9j4xJOKn5rLcx6
+ kIEAGq+V0wVSxA//bEl3l+PDVS4jmieG559Qag5yL91dx6yD2+rHPj2gZCqzne+G1SYGWadfHDF
+ 676mCUJMBbrWaoAvNa6yFRi/PFlYGtxv+3Y/FSRc92uis4NqvNkI1J7u6XwuXAnF0UEbshJlPNV
+ Cr51n3bq9Qj1y7g==
+X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
+ fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-Proofpoint-GUID: HgG3bf3JToxafOuUnqZAZgdPLpkl3_en
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEzNiBTYWx0ZWRfXzqfb04brgVG5
+ qrn+eZtz8r4hntnGOzaWhk3sm5/ISQsf8qYItNwMbSCZAn2IBrnqOa/SFi70nfguWnxhrzV5vEN
+ 2rs0JUlsdzzbbjWAJmAWkHP5T1lERQEdUTqJEe9XJWSgLrWTvpWT6UM6UHVUcHc075oLlNsF0Mk
+ r+jJz5/kwCaZSs8nXiDlP+Z5BGvaYAnf79cp3RCX0Q42dmKdZzpgV2zcWcW67C+0tMWXWWWe8NF
+ atk2fyoSyx11GGYbuWMKPJSJypFTH9y0Z4asma5ajn779u3DW4FNVPNQegh/pewFREv0ail2wBc
+ YTU5JWQaw7tokNL0zI4AEBeBgpxU7mDdmmK/Zai0irg2jxs5NrBpsrSlq3Vn3zQ46QmY3+WBvDt
+ L5xyqxp7ZucWEEWrf1ZP3PFXMeb3K5Q5v/XrlamcnmNg3hc30Jzqib9pd6O6j0WRZn0ZHH5HVfa
+ saaXZyxtaF5x6/caqGQ==
+X-Proofpoint-ORIG-GUID: HgG3bf3JToxafOuUnqZAZgdPLpkl3_en
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEzNiBTYWx0ZWRfX1fCNjitA1BgM
+ je8N8tDhTafvZofVzKcy0vsBwRas1i3IfysJ9feAl5x1FY2dv74L8RGF56tfQASkRBmyk2ZbFb5
+ ronTwGudDQejkMJctdQKgjjOlIg6fRw=
+X-Authority-Analysis: v=2.4 cv=c6Sbhx9l c=1 sm=1 tr=0 ts=6a4babb3 cx=c_pps
+ a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22 a=EUspDBNiAAAA:8
+ a=lIIuVyqIMTwqdMfQNTsA:9 a=QEXdDO2ut3YA:10 a=tNoRWFLymzeba-QzToBc:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 clxscore=1015
+ adultscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607060136
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_062053_558084_BC565581 
+X-CRM114-Status: GOOD (  17.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +199,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 07:04:24 +0100,
-"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
-> 
-> ITS tables allocated by the coco guest are shared with the hypervisor.
-> These allocations must satisfy the host shared-buffer granule size so that
-> the full converted range is safe for host access.
-> 
-> Allocate ITS pages using a size rounded up to the shared granule size and
-> use the same allocation order when encrypting, decrypting and freeing the
-> memory. Also grow the ITT cache in shared-granule sized chunks instead of
-> assuming PAGE_SIZE is sufficient.
-> 
-> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> ---
->  drivers/irqchip/irq-gic-v3-its.c | 17 +++++++++++------
->  1 file changed, 11 insertions(+), 6 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> index b57d81ad33a0..5d6d38aa0dae 100644
-> --- a/drivers/irqchip/irq-gic-v3-its.c
-> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> @@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
->  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
->  					 unsigned int order)
->  {
-> +	unsigned int alloc_order;
->  	struct page *page;
->  	int ret = 0;
->  
-> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
-> -
-> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
-> +	page = alloc_pages_node(node, gfp | gfp_flags_quirk, alloc_order);
->  	if (!page)
->  		return NULL;
->  
->  	ret = set_memory_decrypted((unsigned long)page_address(page),
-> -				   1 << order);
-> +				   1 << alloc_order);
->  	/*
->  	 * If set_memory_decrypted() fails then we don't know what state the
->  	 * page is in, so we can't free it. Instead we leak it.
-> @@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
->  
->  static void its_free_pages(void *addr, unsigned int order)
->  {
-> +	int alloc_order;
-> +
-> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
->  	/*
->  	 * If the memory cannot be encrypted again then we must leak the pages.
->  	 * set_memory_encrypted() will already have WARNed.
->  	 */
-> -	if (set_memory_encrypted((unsigned long)addr, 1 << order))
-> +	if (set_memory_encrypted((unsigned long)addr, 1 << alloc_order))
->  		return;
-> -	free_pages((unsigned long)addr, order);
-> +	free_pages((unsigned long)addr, alloc_order);
+Call phy_set_mode_ext() before phy_power_on() in
+qcom_ethqos_serdes_powerup(). This is harmless for existing users but on
+SCMI systems this is required for the PHY driver to select the right
+performance level - which translates to the link speed. This is done
+ahead of adding support for the firmware-managed EMAC on Qualcomm sa8255p.
 
-The comments I had in [1] are still applicable.
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
-	M.
-
-[1] https://lore.kernel.org/all/86zf2ozrb8.wl-maz@kernel.org/
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+index ac7d6d3e205a1ab5b391def879d6f1033a0961b6..47b70b5e706f221c01f1c0ae3b1acafae6641165 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+@@ -601,10 +601,19 @@ static int qcom_ethqos_serdes_powerup(struct net_device *ndev, void *priv)
+ 	if (ret)
+ 		return ret;
+ 
++	ret = phy_set_mode_ext(ethqos->serdes_phy, PHY_MODE_ETHERNET,
++			       ethqos->phy_mode);
++	if (ret)
++		goto err_out;
++
+ 	ret = phy_power_on(ethqos->serdes_phy);
+ 	if (ret)
+-		phy_exit(ethqos->serdes_phy);
++		goto err_out;
+ 
++	return 0;
++
++err_out:
++	phy_exit(ethqos->serdes_phy);
+ 	return ret;
+ }
+ 
 
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
 
