@@ -4,132 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F3CEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BCD0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 12:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tj+23oywlRnO3Y+5JLlSRU3ga/eLwNTnH+xgyNne3Vw=; b=f+AVWdlixrv97eXYbd70JJiJ9L
-	3tyWU0R8s/yborWPwkScUkQ57CDwUnizrYa49jV66B4lJScBrUOQse/9r6nyx+wV39wNa/6CPr2A4
-	8Gi92gyiWSRRH1uVbstjxRIRsSQVBmQ8F8lgnRknkt9ZCU5/7sVmpt4rp4S2e6/FupnsA/dgweptW
-	UXU5AVP8Rej1582sA1mbFngLD1vUgs5dBzM27COapU529+2sMsGPKyRlN1qu5Kd2qqj4zTVJjXPPV
-	jbMGmqbrMKf4zww70cWx48IutA9YfuFaM53UlC0duYI7vTzUmqX8Ph6IX3QvoLNf+End/KBbisXUo
-	5DwUpc2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8snBFycLLNi9qU1IeT3KB6bAs3SJcvGC3OYCjgzvXfM=; b=xXvRuZZU1+MA/do1SxONDh27Td
+	b9PmNqohhTtwdlwW9wpKqUTslRIqt45SnA3BcE9/32dGF5s7CeTzlRrC78z+ydBYZkgdWnu6nu411
+	kZJZ61lvVLIJ2ZhUZvUiXnYtvFVJDEWIVj2M3r3Zo0Q5fFJTMLUg3P170iUC0ocJMs9t+N/+1ha1X
+	0B8TaoSG+ZFppxKZoNhCoWn6ryg+s2P7v346+E9kiyrz4QMOjrYyQom0MdZra6Aam1MFEPSh/kMoR
+	n1JlwSZwG3cY9Y+I08JBDpGbEV1wEsfWY02zTPOkNNVtA9+DLKXzud01KqTIZIZXlHENq8xMiR9I1
+	O/YZ9llQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghyE-0000000CQxL-2db7;
-	Mon, 06 Jul 2026 11:58:42 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1wgiA4-0000000CRmw-3VeH;
+	Mon, 06 Jul 2026 12:10:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghyC-0000000CQwq-1ask
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:58:41 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666BIMoU041179;
-	Mon, 6 Jul 2026 11:58:28 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=tj+23o
-	ywlRnO3Y+5JLlSRU3ga/eLwNTnH+xgyNne3Vw=; b=i4sWTmK5+VR1PoSNWVxdXk
-	rt3DjDXyMiiQHiL4kHX7+684aNXrXz7widiZUazpiQWgknYy+n/n1JrWaK0Yvuhr
-	Y6tVWr6fXpXboiNPwJ0PFQlk+CV5XPxjW6m2Xp2lQ/1th8V8JBDZbKPRJS8/RW7d
-	qr57Q9L6koRqaEEyJifvLzjL3XnQPgTb+RqASci+BBQts9GORDQY08sQhGwF4BLZ
-	g2WOLF5x2nI6cmFQ3/QgohjIWhe/R31KJ3PJWN0E4DxR9dMnDM3hqk8I7mOsy74J
-	CabeMyYHsdnYaOjWu/1MmJr4LTj4DYY43FAh0wuiRo8VHdzaNqTt/H+m6xTgsbKQ
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6qkn9b92-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 11:58:28 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 666Bnbxe016482;
-	Mon, 6 Jul 2026 11:58:27 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7cvvwjr1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 11:58:27 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 666BwKEX45941006
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 11:58:20 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 257152004B;
-	Mon,  6 Jul 2026 11:58:20 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 23BB120040;
-	Mon,  6 Jul 2026 11:58:19 +0000 (GMT)
-Received: from osiris (unknown [9.111.31.209])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon,  6 Jul 2026 11:58:19 +0000 (GMT)
-Date: Mon, 6 Jul 2026 13:58:17 +0200
-From: Steffen Eiden <seiden@linux.ibm.com>
-To: Christian Borntraeger <borntraeger@linux.ibm.com>
-Cc: Janosch Frank <frankja@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 19/27] s390: Introduce Start Arm Execution instruction
-Message-ID: <20260706115817.104396-Q-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-20-seiden@linux.ibm.com>
- <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
- <721266da-db8f-4385-87c1-ca26c430892c@linux.ibm.com>
+	id 1wgiA3-0000000CRml-42Oe;
+	Mon, 06 Jul 2026 12:10:55 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 66F4C438A6;
+	Mon,  6 Jul 2026 12:10:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C8E81F000E9;
+	Mon,  6 Jul 2026 12:10:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783339855;
+	bh=8snBFycLLNi9qU1IeT3KB6bAs3SJcvGC3OYCjgzvXfM=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=nXnWlBh76NylCYK6AVFUt0/27OcxlxECYEJ1uynKMGp7CzpsLG7/N07jTSSZKh/br
+	 PvQ2nwgHUBxbZGflZFFPmn4tr9X8Y5oHAs+T8g9OW1YfqgIweBo9biELqxyY8PzYu5
+	 YFDBn6QDiEtoYZ6q4OvnvWeYEOYHditP+yRCI4xDG2KUxmCLAbM67FwZIsvDMhUVqR
+	 hGmiA9QJq8FpM7v+Do05xaVvGXcux7kDy5sK1IR+MBSAbGHlkzB2v62bBrpvpeFUDR
+	 in5yqdOTaGB48I7d9eo/4w08gmbDmTXXVqGjCdJRceuEn74F1BZwyLNYF97V+CetCQ
+	 CMbt4LYS0Vsiw==
+From: Mark Brown <broonie@kernel.org>
+To: linux-sound@vger.kernel.org, Rosen Penev <rosenp@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20260630013024.1500623-1-rosenp@gmail.com>
+References: <20260630013024.1500623-1-rosenp@gmail.com>
+Subject: Re: [PATCH] ASoC: mediatek: mt2701: add COMPILE_TEST
+Message-Id: <178333982019.57168.4166829438358170291.b4-ty@b4>
+Date: Mon, 06 Jul 2026 13:10:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <721266da-db8f-4385-87c1-ca26c430892c@linux.ibm.com>
-X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=Q/XiJY2a c=1 sm=1 tr=0 ts=6a4b9864 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=8nJEP1OIZ-IA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=Y2IxJ9c9Rs8Kov3niI8_:22 a=FTWlFeZUYPafzdOhfvQA:9
- a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
-X-Proofpoint-GUID: P9k7z7Z_-LJ633J5h5ZAbGS_1o5NSp29
-X-Proofpoint-ORIG-GUID: P9k7z7Z_-LJ633J5h5ZAbGS_1o5NSp29
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEyMCBTYWx0ZWRfX86pjNKnjcEBv
- O1NRzWszvfaa3PA8qtTL/+y+PePzWaM1r8x16LoGaPRLdmAwbVhoI1m8XgW6n8wlRCI37pP8985
- Ji6iI1DvV2kxFN0JUtdutIAez+z40DI=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEyMCBTYWx0ZWRfXycyknJwSF+9d
- s22nUFQOtFXZ6AmwRN0W9n/PRaxHVLXKaEcPYiJzNb64Y8UZMRBRgKfFSKLfkgvGQZedtR2/pB2
- +1UiEhzN/Cr7ghUZaDXkLW3x1T+RVzpLgAlvSLu2of4XBOOkKTZGw8YN1Wq04aRSDI0+o6CcgcF
- Lf34IY3kmhxg2vnKd2rMECRSgqqxyXC5hU4iR5xcUT0XlLZuOQWXpoAW8u+1d8tvGGOU9aIS4k/
- Q21n45b2zSEqlc9iU5x6SYbFsyd4JB5A6MT4WS9WMMt74mZLhuOVUC+W7JLdH3UfLpHZ8SqjEsI
- CGcVQq4iJji2cBRtqu5OWKQGiIjS0lCAUmrNknec0vDk+8M6I8dFqCjYg+R3L3az5RpMf+Vw3xn
- p2xckP5k+7TSqORnSLYGyka9/CnIceFidfl3WJ21jlOfj/5ij9r2NuTzr8oN9vPEKm4gOcEmAOH
- 26Qq12rBNLKJclH+PaQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501
- bulkscore=0 clxscore=1015 lowpriorityscore=0 suspectscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060120
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_045840_537634_A161542D 
-X-CRM114-Status: GOOD (  24.35  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.16-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1097; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=OoYt5/FLa8cfw+ebFTGdV7Ok9pvk/dN1eTsnx9v3r3I=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBqS5tM0nUKpujawiRpuMWmCY41b6wwmFjzwPU7y
+ nlAUlwf1h6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCakubTAAKCRAk1otyXVSH
+ 0IWJB/0btqNM6vlHAJ/MYKW3PR2aATMobzbzCatcnsuflfVS9G7UGsBNQY3M1ms+TrttiVLPjK9
+ bwb8DUZmQK7+7lFnwtgwXddD8zkCxGCl47c3Xv9UuiglNxWIoiilMMRU7KKFWqp6nnwzHuS60MO
+ YzFbHRuLpFKqzEMkvESjQfd6CkMWLVQ5Z5VHqjyfoYK3pL3zaMV8PBhKiPo2haxuCYNme3YlXpw
+ YexPj3M4+lzy3oI2yyOejpf3h8u/aUCunUe0hJIHI43wt5S4AvtwC8YMsNF0QURsyMbAF3LLfV7
+ U2WfsZKJiat4a/Sf3GPEPZxaVqrVRQk9EmdVNrGiqJ4ROLVv
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,34 +82,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:30:20PM +0200, Christian Borntraeger wrote:
-> 
-> 
-> Am 06.07.26 um 13:17 schrieb Janosch Frank:
-> 
-> > > +SYM_FUNC_START(__sae64a)
-> > > +    stmg    %r6,%r14,__SF_GPRS(%r15)    # store kernel registers
-> > > +    STBEAR    __SF_SAE_BEAR(%r15)        # save breaking event address register
-> > > +    .insn    rre,0xb9a50000,%r2,0        # Start Arm Execution
-> > > +# Let the next instruction be NOP to avoid triggering a machine check
-> > > +# and handling it in a guest as result of the instruction execution.
-> > 
-> > @Christian:
-> > I have the feeling things got lost in translation when this comment was written.
-> > How would we trigger a MCHECK by having an instruction after SIE/SAE?
-> > AFAIU this allows us to have a label which we can check in the mcheck handler to decide who triggered the mcheck.
-> 
-> the original rationale was that some machine checks are nullifying some are terminating. So the PSW might point
-> to SAE or the instruction afterwards for a guest machine check.
-> In SIE, we use that nop to account any machine check on that nop as a guest machine check.
-> 
-> > 
-> > Without the label the comment and NOP are useless as far as I can see.
-> > So we need to decide if this still applies and then either remove it or add sae handling to mcck_int_handler and maybe other mcheck functions.
-> 
-> We plan to get more information on the machine checks for sae so we might no longer need that.
-> But this series does not yet contain the machine check handling. Maybe its better to remove comment and
-> nop and introduce that later when we add machine check handling and if still needed.
+On Mon, 29 Jun 2026 18:30:24 -0700, Rosen Penev wrote:
+> ASoC: mediatek: mt2701: add COMPILE_TEST
 
-Ok I'll remove the comment and the nop for the next round.
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-7.3
+
+Thanks!
+
+[1/1] ASoC: mediatek: mt2701: add COMPILE_TEST
+      https://git.kernel.org/broonie/sound/c/ae2e2f1ff1e8
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
