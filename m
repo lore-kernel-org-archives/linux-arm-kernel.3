@@ -4,113 +4,175 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518D5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9CBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:17:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gpZvamYw9AnVrZnk1GFQEFXSHxgLU3wS0Rp+AMjlVD0=; b=Fnp5r8L5MXL39zgREz4CGdiq3+
-	A8pHSS2M/948VfrFw7OBnE0i+cQCuWZKWw0xt90i1XZ1mvTKmNpej/T5Wjaa6ACnGFiXSgNDQWcJN
-	1aNBkMrGYvhVOAmV8/JL4GkJMq/xrZwtPZIyHoztljIRq86OTbB/ab0Vh3IF2l2NElEB+aS/c9F6n
-	ejvDtSEZxKTWjFG8EdYNDppbnoA5wPTxZWkHlrgkykWxNDWaFgzUdQt93t4YQxxP1hbU2O87QraMz
-	QrfJRRB41Zx51wBwE0DuzerKr8okAJ7UHvJAke9GlsgmAtRNnm3qjJCak7ljjP9INHhBz2bZaCVW+
-	YtfZjF4Q==;
+	bh=ZJTBwGjSNZDKHvbuJOa1scVEvsZc8DeSukn7IhD19hA=; b=u9rsUKiYC/DVMNLaBzMbY57Ih9
+	5r7YyW8NyokR7OQZN7tsnEJx21wvPG2byKs8LCc+S9/d3WGnCq8aTb/1MWrfD0CHq7piYvOHP5uvj
+	qO9CgdqZ/w3YI1hW3TqQjg7DREndiO7W0vEu84ACS8BtVDUsCoaS2fEmUcQ2J+4UnagVUlHAqdZkN
+	LuCxJ3IRmMweE/luq/j3luVQvijJsFADCtxEleUkz/1GhRPaMyWze7LPsUl594qOn1iMIWNXedJdn
+	rTtmUcarL9kuvZ9hV5hzv5GGEoB0tub5i6kLHkO3+fYmxnIM/K4DLbL7mRbeKD2o2ta6h+4C6IccU
+	MmI5RlGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfgx-0000000C1vs-3mLw;
-	Mon, 06 Jul 2026 09:32:43 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1wghKH-0000000CLIc-00z0;
+	Mon, 06 Jul 2026 11:17:25 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfgs-0000000C1rl-3mWZ
+	id 1wghKE-0000000CLI6-3eiC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:32:40 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-493b6f1b14bso10916065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:32:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783330357; x=1783935157; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gpZvamYw9AnVrZnk1GFQEFXSHxgLU3wS0Rp+AMjlVD0=;
-        b=jaW1GmVs6FC1NloXsOfJC0rOIym9J4dwOPTcwy5IeFHmfKwD6lBk7HvSTerkPOmhxK
-         U2TekarSrcqC4/m3VeCP5eBFvepHmtcnFL8vC8lPhVSZc44soY9zpxq2KPbWxEZtPXVi
-         VFo5ZpImnaxmvS/i1jRkaPDRTenUyxgJEtns1t2S9Xm/tKe5s80+xHs8hWyvl1fIlbt7
-         paQpj1yD68Jbj6Cn9bttobbXiiePrvzWuBQfnbYDeEpOXPEWHCdvHm/k3iKy8gG5wQbJ
-         gJENblhNr+MWO0IREz2XSN9Fal/5omis7vQm4FUZh4loCWsLucJzcMynm94P0yGgWXvu
-         qOQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783330357; x=1783935157;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=gpZvamYw9AnVrZnk1GFQEFXSHxgLU3wS0Rp+AMjlVD0=;
-        b=UEOAhz/p0p0mKx1NZAp9zzn2h9PHLcmfO9GYq/6+l39uBbt2LvMjfBnbkLt1Ag1xd1
-         NegLakidIrNSiNV0NC8MEJNa39sUwiaYqWEelMxLjfAwci/t1zrjeESQu8+otZ5axHIW
-         eJzIPCmi5mlX0U8TrJgfC+aaoETx709xKNWD5sedyRugKDpeUZyuN3BRXg3cdOJpR1Yl
-         6TRNMw1EJ24u/dsNsD5NK1xkP5cTHv2h6bE4Rv6ym/2bvytaWbHdIJSgKbaw3UR3TToA
-         74YMY4lkRew1+lTQsI79P+WIv0p8rX7EP1g+czssxwYGaNR2J6Or8u/ejWCU6uOkDo6A
-         6iFA==
-X-Forwarded-Encrypted: i=1; AHgh+RqnkU2bAGc0lErc4sQu1LsDglY2VvwQ9NLqMgoGUJ7sCN3xgJnQ9Ju8jzqkDAYOL98ve3DKxwcNuPDFjk2iBZai@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBmegM1tmL/a13VyS1G1h9WRv0X2BjCuQ7P3b/eEhswPMKsg2+
-	Sh77sC8gWpJhkHGwQAZs2MfjHDxSJc+nSXVE9YdXsPWCtE05V2+AjN6/feWlhOoRg/c=
-X-Gm-Gg: AfdE7ckoZBScuewEzVXcDke40Tr5BpwW8JDAmYSaPnG+r3odTvTCsMal9BBSTG2Vlzv
-	5apwJG/WwzHBwGDWikXq4CqV7RiGtTY51PA33Wblt2WK/B3n94nuevBf4bA8w8APJjHl0U7vITp
-	9oHPbZf+D9TbshSolIkNLt/wDhX/xnSLuC7nM/l2nmWNaGP1iwjaBa4aDJXKel6b2KOUOBmmogf
-	3YHryUqUD0kl3Pmic9xajcYx8UwN8wOi4wqGZdchdg6Bm6VDGnMJk3qCajEl1f7GkBbZycGwOk1
-	FnyXvkNjpCA1gZijUwgDnMn+41C+aRi5UU3TPH27sX1Cp9cCHqEvX6m6Iyvn38JRgaXi9CmTr2R
-	30JPQDD/mAYU7gYYTd886to7DdAahjohdaPlTnpYLbIijpFRZXiJYlEuStns+Umkm+rYMqZ6hPQ
-	TnQO/5hjNHq1k=
-X-Received: by 2002:a05:600c:c118:b0:492:3e66:6c84 with SMTP id 5b1f17b1804b1-493d11f918cmr92947785e9.30.1783330356762;
-        Mon, 06 Jul 2026 02:32:36 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:1495:8c97:96f4:dff8])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-493bef11338sm377772315e9.1.2026.07.06.02.32.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 02:32:36 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Mon, 06 Jul 2026 11:32:13 +0200
-Subject: [PATCH v4 5/9] clk: sunxi-ng: sun6i-rtc: Add feature bit for IOSC
- calibration
+	Mon, 06 Jul 2026 11:17:24 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6669IR2B4015302;
+	Mon, 6 Jul 2026 11:17:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=ZJTBwG
+	jSNZDKHvbuJOa1scVEvsZc8DeSukn7IhD19hA=; b=WLRDPsB7kST9YOfgb4OG/o
+	/idedUb65mvL/dYnwo6NeMtsL2tLXklY1qz6UtmEO+JojrFszgejDDVSdLREM1md
+	lx26nlSelJaVcNyeUzdro30GLR+DQDgGuNGTzYBCG3mfo4Vdbg6eDWjhhBZkX7bY
+	Z17GENWETp3naR6Ex0X9F0xD+dQJpOLBjbAUtiGM1o71QOLPE0DOYv4dQhAkhfsM
+	AIuuPfmj4ZINmJcIQD3pODFCl+dO6zzw0LxwZhBzsO/kI8rUbKS+qDBWhf9+P2Xm
+	KVVLRByjfKmWlKNeCR5IXejV13PSLDSMdMQ+AwMu5eKVyPYzCWNnZ8njW2VZPmWg
+	==
+Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6suqh09d-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 11:17:12 +0000 (GMT)
+Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 666AnZoZ011804;
+	Mon, 6 Jul 2026 11:17:11 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7f6xvygu-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 11:17:11 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 666BH4XH47382910
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jul 2026 11:17:04 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 043672004B;
+	Mon,  6 Jul 2026 11:17:04 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 44C3E20043;
+	Mon,  6 Jul 2026 11:17:03 +0000 (GMT)
+Received: from [9.87.152.232] (unknown [9.87.152.232])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  6 Jul 2026 11:17:03 +0000 (GMT)
+Message-ID: <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
+Date: Mon, 6 Jul 2026 13:17:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 19/27] s390: Introduce Start Arm Execution instruction
+To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
+        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter
+ <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik
+ <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+ <20260706085229.979525-20-seiden@linux.ibm.com>
+Content-Language: en-US
+From: Janosch Frank <frankja@linux.ibm.com>
+Autocrypt: addr=frankja@linux.ibm.com; keydata=
+ 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
+In-Reply-To: <20260706085229.979525-20-seiden@linux.ibm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-a733-rtc-v4-5-f330728db3d3@baylibre.com>
-References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-In-Reply-To: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Maxime Ripard <mripard@kernel.org>
-Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3560; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=LjKLqtELI/k5Bm86qG39EiNLmLLQg2pvRCFKcypyAtM=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqS3Ykm1EkaDJ069gqM3tqzZUAo6EzOomoBvrrG
- TY60PbIiaqJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakt2JAAKCRDm/A8cN/La
- hY6PEACcL49Jv+12kjoAQsDpUPA5V1xw9VbQsEtOPVlm9vqqWLHZwoaPT4wAlORrO3AdWbLsP99
- 3Va3GrObwSKZUgSScUTpAR9hNRd4uB9ay8wsEnI5doSKc0OxjECZvx5YIFWne9fn5wvJSY4dABo
- Nd1qkF+KcOd+L3w+z1WMzohuFIjRPeYo03b4QghplwZxrZrOO3erSNWE/6WdDYAVfiqCz8ozF7T
- sOBaTPh2Ya9YSPxG8OvqNnj8m1N/ozmgUCXMacKz6ZkiZUSWhwNSKytFZLrzlQHAV6d68XpK3Bd
- ztEjka3alClmehE5im7V14RfDcdAlcVDAIrxt2BCWmSHynOdEeykUKnkDaLBjC0VB3J9S0mK/Ea
- rfPUwIey53EGCzJWVafrOw20jOAmZYKXKC9jrmjmGIrrPI3kuQ9cb3jK+OlPdg2Dty7QiTX0Vnv
- smnFnurV6vL6UW4exhKbzae8TERopeRgMXTYpc1OYQuFqA7ayOUzRGbgj7eo/IIxrdfk1Am/LDz
- x9P69Vo0/ZnQUBQfQJD9pJPD30bDdiqSBFh4IGlArPzp/azMB7F7CxxS3rXjTlYfNTQAOOxYVQ4
- VUMsLMUDKkFUmjJH3j5UYg9xA0MhEEwbjcDiIPXoe9Lohy72G0WpUdGGtMMf45iETg/TYiK8S3/
- FwG9c4GpEzDcYfw==
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEwOSBTYWx0ZWRfX+xIhLAcxsHLZ
+ f9Rbt2L9sMzlOlmiuaBV/trvtk8Anz1boO8La5Yq1tJHC7H3MZNacc8bOMQw6jP++eds89zWf1c
+ MEgJALXgnggU4S1OJ4pEZm3L8/U61oY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEwOSBTYWx0ZWRfX9ItXXrPx0Eho
+ MmApuRdym0zu+BWxo5RNN6GkY8w39oZAbnexTdQm5nGWemvBHbHTn5ImhU2uxdbIc640QO5JJ7S
+ ORDTZyxBetxbGjI5rDL6iT/JkykMuxpAUtzyMnd7pNyRzmFGoqDM5vJRsSsndrF7X5NLKBKiF2n
+ 9ULgONVX3kTRr7wZiasCa/Kj7lBgGRD5nW3HJ3wS9sk+nCETJqKjTUjcKtVn/3QfZXX8f7dNQXD
+ tr3EIOr6166Qmd7FaYHAaPvo5kCZsgHHn/h1Sh/9EExEw8O2mn1dZBpAs+C+UUM3C6MbneotCpS
+ Jirktf+vB3gWVsMQfPho5GS5qVJGDnzM183J3nrsSOJFbdLH0CcnnPZ6odYjkHAcCx618puJT56
+ jDTuaCF8qHvJmkcrAS53tFsaf+Wcq9ul8sq7GFuiioaqIfaNg2+GetOhOi+oidUSzpRLpzoP+hC
+ KlkAjUufKmO3Yyhl/Pg==
+X-Proofpoint-GUID: osnHUPaW3GcYLybZTEv5viafEL5-tZh3
+X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a4b8eb8 cx=c_pps
+ a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=yZFHy3xYVWHLONAxsiAA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: osnHUPaW3GcYLybZTEv5viafEL5-tZh3
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060109
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_023239_520408_5F4E1657 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20260706_041722_926619_42DDD053 
+X-CRM114-Status: GOOD (  25.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,107 +187,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Junhui Liu <junhui.liu@pigmoral.tech>
+On 7/6/26 10:52, Steffen Eiden wrote:
+> The Start Arm Execution (SAE) instruction is the centerpiece for
+> executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
+> enable accelerated execution of arm64 virtual machines. SAE expects the
+> physical address of a control block as the only argument.
+> 
+> The host is responsible to save & restore
+>   - GPRs 0-13
+>   - access register 0-15
+>   - breaking event register (BEAR)
+>   - vector/floating point registers
+> between SAE executions to guarantee host consistency.
+> 
+> GPRs and BEAR are save and restores in the asm functions. The other
+> register are handled in within C code. Access registers are handled in a
+> later patch and SVEs will be handled when they are introduced in a
+> future series. Most arm64 registers are handled by a satellite block
+> called save_area. Some registers, frequently used by hypervisors, are
+> placed into the SAE control block itself.
+> 
+> Enlighten asm/kvm_host_types.h for the new header variant. The new
+> header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
+> is defined.
+> 
 
-The sun6i-rtc CCU driver currently uses a global static variable to
-denote whether calibration is supported, which makes IOSC operations
-tightly coupled to this file.
+[...]
 
-Convert this into a feature bit to decouple the logic. This allows the
-IOSC clock code to be moved into a shared module for reuse by other SoCs.
+> +	u64	gpr[31];		/* 0x0300  */
+> +	u64	_03f8;			/* 0x03f8  */
+> +
+> +	union {
+> +		u64	icptd[8];		/* 0x0400 */
+> +		/* validity-interception reason; icptr 0x01 */
+> +#define SAE_VIR_UNKNOWN		0x00
+> +#define SAE_VIR_UNSUPP_FORMAT	0x01
+> +#define SAE_VIR_MSO_BOUNDS	0x02
+> +#define SAE_VIR_MSLA		0x03
+> +#define SAE_VIR_MGPAS		0x04
+> +#define SAE_VIR_INVAL_SYSREG	0x05
+> +#define SAE_VIR_HOST_CONTROL	0x06
+> +#define SAE_VIR_SCA		0x07
+> +#define SAE_VIR_MSO_ALIGN	0x08
+> +#define SAE_VIR_HLC		0x09
+> +#define SAE_VIR_IRPTC		0x0a
 
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
-Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
----
- drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 17 +++++++++--------
- drivers/clk/sunxi-ng/ccu_common.h    |  1 +
- 2 files changed, 10 insertions(+), 8 deletions(-)
+Will these ever be used for something?
 
-diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-index 0f528bfaed00..b24c8b196e66 100644
---- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-+++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
-@@ -52,8 +52,6 @@ struct sun6i_rtc_match_data {
- 	u8				osc32k_fanout_nparents;
- };
- 
--static bool have_iosc_calibration;
--
- static int ccu_iosc_enable(struct clk_hw *hw)
- {
- 	struct ccu_common *cm = hw_to_ccu_common(hw);
-@@ -80,7 +78,7 @@ static unsigned long ccu_iosc_recalc_rate(struct clk_hw *hw,
- {
- 	struct ccu_common *cm = hw_to_ccu_common(hw);
- 
--	if (have_iosc_calibration) {
-+	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
- 		u32 reg = readl(cm->base + IOSC_CLK_CALI_REG);
- 
- 		/*
-@@ -119,7 +117,7 @@ static int ccu_iosc_32k_prepare(struct clk_hw *hw)
- 	struct ccu_common *cm = hw_to_ccu_common(hw);
- 	u32 val;
- 
--	if (!have_iosc_calibration)
-+	if (!(cm->features & CCU_FEATURE_IOSC_CALIBRATION))
- 		return 0;
- 
- 	val = readl(cm->base + IOSC_CLK_CALI_REG);
-@@ -134,7 +132,7 @@ static void ccu_iosc_32k_unprepare(struct clk_hw *hw)
- 	struct ccu_common *cm = hw_to_ccu_common(hw);
- 	u32 val;
- 
--	if (!have_iosc_calibration)
-+	if (!(cm->features & CCU_FEATURE_IOSC_CALIBRATION))
- 		return;
- 
- 	val = readl(cm->base + IOSC_CLK_CALI_REG);
-@@ -148,7 +146,7 @@ static unsigned long ccu_iosc_32k_recalc_rate(struct clk_hw *hw,
- 	struct ccu_common *cm = hw_to_ccu_common(hw);
- 	u32 val;
- 
--	if (have_iosc_calibration) {
-+	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
- 		val = readl(cm->base + IOSC_CLK_CALI_REG);
- 
- 		/* Assume the calibrated 32k clock is accurate. */
-@@ -167,7 +165,7 @@ static unsigned long ccu_iosc_32k_recalc_accuracy(struct clk_hw *hw,
- 	struct ccu_common *cm = hw_to_ccu_common(hw);
- 	u32 val;
- 
--	if (have_iosc_calibration) {
-+	if (cm->features & CCU_FEATURE_IOSC_CALIBRATION) {
- 		val = readl(cm->base + IOSC_CLK_CALI_REG);
- 
- 		/* Assume the calibrated 32k clock is accurate. */
-@@ -358,7 +356,10 @@ int sun6i_rtc_ccu_probe(struct device *dev, void __iomem *reg)
- 		return 0;
- 
- 	data = match->data;
--	have_iosc_calibration = data->have_iosc_calibration;
-+	if (data->have_iosc_calibration) {
-+		iosc_clk.features |= CCU_FEATURE_IOSC_CALIBRATION;
-+		iosc_32k_clk.features |= CCU_FEATURE_IOSC_CALIBRATION;
-+	}
- 
- 	if (!data->have_ext_osc32k) {
- 		/* ext-osc32k-gate is an orphan, so do not register it. */
-diff --git a/drivers/clk/sunxi-ng/ccu_common.h b/drivers/clk/sunxi-ng/ccu_common.h
-index bbec283b9d99..d9dc24ad5503 100644
---- a/drivers/clk/sunxi-ng/ccu_common.h
-+++ b/drivers/clk/sunxi-ng/ccu_common.h
-@@ -21,6 +21,7 @@
- #define CCU_FEATURE_CLOSEST_RATE	BIT(9)
- #define CCU_FEATURE_DUAL_DIV		BIT(10)
- #define CCU_FEATURE_UPDATE_BIT		BIT(11)
-+#define CCU_FEATURE_IOSC_CALIBRATION	BIT(12)
- 
- /* MMC timing mode switch bit */
- #define CCU_MMC_NEW_TIMING_MODE		BIT(30)
 
--- 
-2.47.3
+
+> +		u16 vir;			/* 0x0400 */
+> +		/* host access interception details; icptr 0x02 */
+> +		struct {
+> +			u64		esr_elz;	/* 0x0400 */
+> +			u8		_0408[6];	/* 0x0408 */
+> +			u16		pic;		/* 0x040e */
+> +			union teid	teid;		/* 0x0410 */
+> +			gva_t		far_elz;	/* 0x0418 */
+> +			gva_t		vaddr;		/* 0x0420 */
+> +			u64		suppl;		/* 0x0428 */
+> +			u8		gltl;		/* 0x0430 */
+> +			u8		_0431[7];	/* 0x0431 */
+> +			u64		_0438;		/* 0x0438 */
+> +		} hai;
+> +		/* exception-interception details; icptr 0x03 */
+> +		struct {
+> +			u64	esr_elz;		/* 0x0400 */
+> +			u64	_0408[2];		/* 0x0408 */
+> +			gva_t	far_elz;		/* 0x0418 */
+> +		} trap;
+> +		/* timer-interception reason; icptr 0x04 */
+> +#define SAE_IR_TIMER_ID_VIRT		BIT(6)
+> +#define SAE_IR_TIMER_ID_PHYS		BIT(7)
+> +		u8	tir;			/* 0x0400 */
+> +	};
+> +	u64	_0440[376];			/* 0x0440 */
+> +} __packed __aligned(PAGE_SIZE);
+> +static_assert(sizeof(struct kvm_sae_block) == PAGE_SIZE);
+> +
+
+[...]
+
+> +#if IS_ENABLED(CONFIG_KVM_ARM64)
+> +/*
+> + * __sae64a calling convention:
+> + * %r2 pointer to sae control block physical address
+> + */
+> +SYM_FUNC_START(__sae64a)
+> +	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
+> +	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
+> +	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
+> +# Let the next instruction be NOP to avoid triggering a machine check
+> +# and handling it in a guest as result of the instruction execution.
+
+@Christian:
+I have the feeling things got lost in translation when this comment was 
+written.
+How would we trigger a MCHECK by having an instruction after SIE/SAE?
+AFAIU this allows us to have a label which we can check in the mcheck 
+handler to decide who triggered the mcheck.
+
+Without the label the comment and NOP are useless as far as I can see.
+So we need to decide if this still applies and then either remove it or 
+add sae handling to mcck_int_handler and maybe other mcheck functions.
+
+> +	nopr	7
+> +	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
+> +	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
+> +	xgr	%r0,%r0				# clear guest registers to
+> +	xgr	%r1,%r1				# prevent speculative use
+> +	xgr	%r3,%r3
+> +	xgr	%r2,%r2
+> +	xgr	%r4,%r4
+> +	xgr	%r5,%r5
+> +	BR_EX	%r14
+> +SYM_FUNC_END(__sae64a)
+> +EXPORT_SYMBOL(__sae64a)
+> +#endif
+> +
+>   /*
+>    * SVC interrupt handler routine. System calls are synchronous events and
+>    * are entered with interrupts disabled.
+> diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
+> index def2659f6602..0e4773c94af0 100644
+> --- a/arch/s390/tools/opcodes.txt
+> +++ b/arch/s390/tools/opcodes.txt
+> @@ -594,6 +594,9 @@ b9a0	clp	RRF_U0RR
+>   b9a1	tpei	RRE_RR
+>   b9a2	ptf	RRE_R0
+>   b9a4	uvc	RRF_URR
+> +b9a5	sae	RRE_R0
+> +b9a6	lasrm	RRE_R0
+> +b9a7	stiasrm	RRE_R0
+>   b9aa	lptea	RRF_RURR2
+>   b9ab	essa	RRF_U0RR
+>   b9ac	irbm	RRE_RR
 
 
