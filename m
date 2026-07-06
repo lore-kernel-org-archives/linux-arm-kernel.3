@@ -4,156 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226C6C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:56:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D067C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:59:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=; b=m8gVwJWp6WvzQH/d7BfsIMyoDZ
-	CGwaQTSBChpGdmcFxOjyIZXVqHoEIfC+RGj2XWqKsFzO/GOjwTvv7OdWBvMye6b6kddG0o5SthxOW
-	xYOwy6XEEhci99AYiHVwl+lZ+Gfb49a/CmwcQlIgHqBiZ0fQwSSPlgE2VzVpdpRusUL0Wl3uHpV5h
-	LZXqccdh/N4nEDhc8gcX/nlITb1S9MZK844u5jyJtnEC317DGCDEBty/I6pZAUUIPL8SRAiKN5zdJ
-	CuH2EoCr8yAnCe7WZcaiiRFqAa4Bcv7vAK6K32VVCD1VPwPyINkDdv4iR/ITmAncmTXRzBUA99xzl
-	hTKxiKpQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YlT3WnM+OJST3BZ/4dqDMJmxXkYErU65jgqgDcmWdqE=; b=cyr9k/ewia9BA1GhqMUrM29qXH
+	wsb56FcA9hJsSAUZ385ltm32vLozIibDjliRRcLdzUCxZdjOX3pJg1MBDJud4QBRIDbaFF6pnKIFT
+	n2XSDAQNnuYfg6YrDfl1hiI7O8UXKJYdRlAUgj9mT4ll+0CvOBgMc3NQS3mLeEsnkLEq6y02nYn7h
+	Rgk4dp/dShc6OIIPbYarbT3CZUuHhYPHu0CzEyVrZab5iobP6mGkqZbu1aSSgh5tz6H6sZlggUKY2
+	W8+EZG7IWo3wTVUpxAR9kz4HLe19SLv64h1jUBIBcjUcv3H0lF0pQCIUeubhUc4+Ri9szbUU8DIpM
+	ccPf38Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpQR-0000000DUof-3Oii;
-	Mon, 06 Jul 2026 19:56:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wgpT1-0000000DV2Z-118Y;
+	Mon, 06 Jul 2026 19:58:59 +0000
+Received: from mail-ot1-x334.google.com ([2607:f8b0:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpQP-0000000DUnz-0bdB
+	id 1wgpSx-0000000DV1q-1RAM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 19:56:18 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666FF8ut990252
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 19:56:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=; b=ST78Cn0CaHEAkBgQ
-	hRRjEv4Z/xXKv2pMOPJkqYAqsxxiYT8or41dWgrQWnOH9cJiSAgKRORgiMr+lok9
-	5tyUYKpaSbfYS4wJTiwDGn9JsKqgBBt8PD6L37SJO1XXQ6gva5mwocEWJqFYDvc0
-	ujpTfltzo75l9CEPP7rBpbZQAj/QCeetpwFJ8pdaN1+N3cKJfH8YVq+W8vKza5WL
-	Bha+6cda/Q0xM9PkaiwdIU6hXe+Afqo151kx0J3vFMLm9fp+o2IlYBtKOAzYFcG7
-	0cWdN2uBMOoZUjYHvGBZtdePiaG3jV1Y7aC1gOPh+jPcdnnYhpcyK3T8k4iNmKGq
-	IYfdeQ==
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a3gtpdg-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 19:56:15 +0000 (GMT)
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-c88cfe287e1so2473225a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 12:56:15 -0700 (PDT)
+	Mon, 06 Jul 2026 19:58:57 +0000
+Received: by mail-ot1-x334.google.com with SMTP id 46e09a7af769-7e9f69ee6f4so2996578a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 12:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783367775; x=1783972575; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=;
-        b=jL7bcK6RvGeO9Mf9kH/FVDRQk20IZICM/fjwAd42duPgEGTgz8f29KJbTm/Z+nNC4B
-         pAs847lGqo2FSv3J7Vhfo0y42F2dc0MCyltYxR+hyGESVxSF5MR5+RG9pYf27eeEd0Pg
-         Xco/8BdxCqTNtPu8XknnWJdqUL6WGbUJURrFMcsnUy98ea5W5vJP0J308qFLFOX/9Mca
-         JWVPIor6kqKjnOdh6qjHsKu1ZcWE822xDZciadLR4MIc6o6PaGel2QOGNpVOU5wwHRp3
-         wbwx/G1qlPWc9q5Q5+8qT+SO3/u4YKlSp9lkSBGOMwYKhP4AfVqkvbAtWJxFn7rramTU
-         XYxQ==
+        d=chromium.org; s=google; t=1783367933; x=1783972733; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YlT3WnM+OJST3BZ/4dqDMJmxXkYErU65jgqgDcmWdqE=;
+        b=Dfw4NNRq0VcJu1LYJQkK+htFhBM2FEJmkXGAK1CiBIHQ5vwzNCdfam+7QwaqNrUQQ7
+         s4NLHk1uuWzCnEjaQbFasatZHkY6WrhjMlZv27nIlpND6tUHZZTLoCTdlPjHE4IRaOL+
+         Zub+l7fiLDT0OZVA/q+q8xfm5Im5GOTQSmBw8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783367775; x=1783972575;
-        h=content-transfer-encoding:content-type:in-reply-to:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20251104; t=1783367933; x=1783972733;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=CVprqCFVdEAD2aWCw5Q12fLKvWtWmKiMoP9O+awDYus=;
-        b=c7519ky1jp6wFRrk2w0peaYPDeK+HOoLyREqvxINBmH1oVe8v8tUL7jJvXCj8VOp8R
-         Fw96XecbP/w3Aox9fMm6BLHtaXdBl1T8tBPoH/q6NFddZK8Zn7f8ovn9x5LMDd/OpFBZ
-         y8izh6Ijiw+shb65XEXpLDbPRMHYi3wgzlsoFgvsEqJTCGyr14GX4vPPrnj1bR20UYoR
-         MWRMfWWc7nPpV96/30LUdsav+jYhsvxMAHadVanm3TSLOLuIdCxe8a5t58/usxcxKc4I
-         XhbjNFxGi5XVnIipMZ1e6xQKxJ8tjZ9x2x76TBU5aV5BW6anu6LzbIV84KFfXbQgczdo
-         pYQA==
-X-Forwarded-Encrypted: i=1; AHgh+RpUoXgy35mOhzkECbNvFUh1d2zpERnbEfmiHXRYy5SD7eDmEudqQ49N8vUFKYG1BQnUzNgwHAOMnyj7aALpDFdQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy20SH3CuhMOcx0LSZxxofxmnJiM/ErahDB/q7tKUygGViJLSWc
-	b9Z5a+LoHW/WN7WQa+c3pCd++Ehco9o+dqUSgqmgh4mTURAOZCEV5ATAXN8jBh3K39TbY5HuJTR
-	DQDgoVo8eKyBHbujEUVNM5Dr8W590gmthhGeVQzrq2jd5Ns3bSvsp7RTneCBE+8uebmok/MSH+V
-	rh5XHcBFLKfA==
-X-Gm-Gg: AfdE7ckY1ofi5+4IP1PwwO9k3a/hqdCcWKbNipBwmkDZLaJ8fbI7Q1k5aGW6WhPycsu
-	5e8AlE058sxEGaajgP9GooX0iiqGY9rZnsWb1OqgnM98u1aKyXJXxYwpeTRBxhEzBLRD1yzoJKj
-	n2EjsvR5/1BMz1b0m7GEP28J7Jf+rmPVfnjLqCANoyl2Zd0ejzPhW9oT9g3Jz3ZCidyju9nwClQ
-	jovjOHdSzEuslyGiXA+7bCmjQJnrjgIpLlYRBIsSWGcYmoVP9z7L3s8BXKASELU7/gUSP4fTwCI
-	rDMctb+P6KJz4oKNImmW64U3yBHpznfsnaSeVecaYsxNY0d5xxj4O63VWRhTheY0ue7VhLKsBIU
-	sPem5qHGrq3dxhONpxGMhwW2OxSzq2IztpOc=
-X-Received: by 2002:a05:6a20:5499:b0:3bf:9e25:1a18 with SMTP id adf61e73a8af0-3c08ef55ba0mr2517875637.52.1783367774857;
-        Mon, 06 Jul 2026 12:56:14 -0700 (PDT)
-X-Received: by 2002:a05:6a20:5499:b0:3bf:9e25:1a18 with SMTP id adf61e73a8af0-3c08ef55ba0mr2517836637.52.1783367774370;
-        Mon, 06 Jul 2026 12:56:14 -0700 (PDT)
-Received: from [192.168.1.9] ([106.222.230.254])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-30f0b816a42sm90197173eec.9.2026.07.06.12.56.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 12:56:13 -0700 (PDT)
-Message-ID: <3dea2be9-7c72-4c5a-865c-139837d294c1@oss.qualcomm.com>
-Date: Tue, 7 Jul 2026 01:26:02 +0530
+        bh=YlT3WnM+OJST3BZ/4dqDMJmxXkYErU65jgqgDcmWdqE=;
+        b=sXeL/5fpztbunbxMJ1OSrrOcgoYwBqfmWaaAqmp1sWojNTR8JgN5f/5zWKddmYxFqV
+         7ytoeeCzQd+VUv8utHTFJO9iJDh8JqNGElwaGkRD9n0zgCcz/X9K9pmff7t1ArX9MNwo
+         itOdEILPssBtuW/cwWAHCLz7vZrrwSKOIMoow35dKnW3honQ6QXQH39uIwjTP6EpvfmO
+         B64Y8Yrkwjk9Z/QjmvF6fPCKPhOZ3uIUFfg9hECw5Z7O17Y40IflcHyGhu0B2WvcVs37
+         TRMNqlmdMxdLzD8mBWsUrB7R9zlGCFwPW1KMQSIIMRow95KgPuj3gWGtxVTVgrsXR2/N
+         wE/A==
+X-Forwarded-Encrypted: i=1; AFNElJ8wLRv8Qz7fst2KTaGntbMuNniEEQnFBHqCs+ltaQbmow4af1pWoxe5iWNZyeArRFhM6S/WR0fm7EwMr/Ayi+cS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyheAifXjVPy6Nu6H3KYmXDi0ur3TKWWutsrZ1JnE5NKz1+Ilr1
+	FjfjzP8h9rOvykg2Ujhs/JKrQfLZJNxvWNK9ufgtskuFuaLUAVRI7ywbBjBuy2D9Gg==
+X-Gm-Gg: AfdE7cm7vsBNllkDMuor/8auwRfgZ+mvAQyDZODSUi1hqoMHPtHZZ3GOPsZuXmxBHyY
+	HxJthP0o+nQC77fVBBqSGQ1TJ5dPTEooH9pL2I+afbqFB80/gK5pnETxKeuMjg23M6Gdj2+2hZi
+	jWGtaghIRHidTm7ia5Z9pK93AW/4pU+TW0fGHDtDMmJ9KLXwkcETI7VIIQo0TgA2VvqJlgboXZ7
+	HZg298hWOCnOk8fOC5sCtBVY5DsFTUMYfoxfam9mi4/v/S+/fBORjHjNecnItfuMLG7tJfFf5wy
+	sQlydNMO+DucUULH9og1dpm/V70l3IXS2xcb6wYIFjwl0auv5KmERFecN7Sqbg9kWo9bu3iHgAH
+	KiIuz632boyqDhBr8dgQMN8x9bEr2573liISPJ/2EDxk9GMtH696wJCUvFaekrZyZYcgDEftqcp
+	FwPNQGvhM=
+X-Received: by 2002:a05:6830:4882:b0:7e9:3765:79c2 with SMTP id 46e09a7af769-7ebb22251dfmr1322732a34.12.1783367933546;
+        Mon, 06 Jul 2026 12:58:53 -0700 (PDT)
+Received: from chromium.org ([174.51.25.52])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7eb542d017csm12161834a34.8.2026.07.06.12.58.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 12:58:52 -0700 (PDT)
+From: Simon Glass <sjg@chromium.org>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Fabio Estevam <festevam@nabladev.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Simon Glass <sjg@chromium.org>,
+	Albert Aribaud <albert.u.boot@aribaud.net>,
+	Andy Shevchenko <andy@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Brian Masney <bmasney@redhat.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Lechner <dlechner@baylibre.com>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jamie Iles <jamie@jamieiles.com>,
+	Jeffy Chen <jeffy.chen@rock-chips.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	=?UTF-8?q?Nuno=20S=C3=A1?= <nuno.sa@analog.com>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Ulf Hansson <ulfh@kernel.org>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Yao Zi <ziyao@disroot.org>,
+	huang lin <hl@rock-chips.com>,
+	linux-clk@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-watchdog@vger.kernel.org
+Subject: [PATCH 00/12] Add support for the Rockchip RV1106 and RV1103
+Date: Mon,  6 Jul 2026 13:57:56 -0600
+Message-ID: <20260706195818.3906949-1-sjg@chromium.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] drm/msm/a6xx: Add Adreno 722 support
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
- <20260705-eliza-gpu-v1-3-c9f1354dbd29@oss.qualcomm.com>
- <f1d1db6e-068d-4b31-b53a-02bdac9d945e@oss.qualcomm.com>
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <f1d1db6e-068d-4b31-b53a-02bdac9d945e@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: oiSBj3O3z9-4wfXFBpCXpYoic8Bi-jq6
-X-Proofpoint-ORIG-GUID: oiSBj3O3z9-4wfXFBpCXpYoic8Bi-jq6
-X-Authority-Analysis: v=2.4 cv=CPYamxrD c=1 sm=1 tr=0 ts=6a4c085f cx=c_pps
- a=rz3CxIlbcmazkYymdCej/Q==:117 a=fsdq8dFr2Uux402FS9br8A==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=Gg-SMJLLMV3ST4U2SEgA:9 a=QEXdDO2ut3YA:10
- a=bFCP_H2QrGi7Okbo017w:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDIwMSBTYWx0ZWRfX9CjxyuOQRu/X
- ZlseD6wTNsJ5ilepj5HtbbpKyTx0SXuekDj7fpApZ52neULg+ImBKpZSRk+kAsjMnHB/g6wMHCe
- E/OaD8W3X0U9ApJcouifDi2a+35J9GcJMGcs1Rj3IUOElu9NvSKn2fNak4zUDtCpy2/NPWvgjYA
- JZwoiAQL4iTrhWS2QiLMvOfRfZ8Ge3EQbWlVlzQWxT/spycS36A2lMF4S8vtar0GVb4PC48xd/0
- AlDNXG+XfSHWL94G7aLox1an6DY5v4UkaJIRELVMNgxsZvDuC5pnHilaoHZurZyNBedPuTvHwVn
- LliOvuGse2Sm264qkdyu+nwTOvM/JuelNzcMjgBUwN90Q3ypQv4y4HAz7j7p21cIs5n3UGj8Evv
- UWKzNMghnjATm8PItfLepjIHPcbIp8sP9cC7/3GIHaFpHkfYWUoe+3Ko0T4a3/re4Syf2KEW2Ot
- W5YIWSzV6CLtanzF2Ig==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDIwMSBTYWx0ZWRfXyK1dJaJo27A2
- /G4nf8SdKzxq++Uwh/TEHuWiMJxBjnqYjus/gSIfiwc3yhuM9Wcqc40Np4u/r4wFx2hhzZqkYy1
- +NEUXM80NXg4UgZoLPUxChfP4jORWhY=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_02,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 adultscore=0 clxscore=1015 priorityscore=1501 suspectscore=0
- malwarescore=0 phishscore=0 bulkscore=0 lowpriorityscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060201
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_125617_195082_42D3E01F 
-X-CRM114-Status: GOOD (  20.32  )
+X-CRM114-CacheID: sfid-20260706_125855_430304_DF5879DC 
+X-CRM114-Status: GOOD (  17.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,81 +129,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/2026 2:29 PM, Konrad Dybcio wrote:
-> On 7/5/26 10:14 AM, Akhil P Oommen wrote:
->> From: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
->>
->> Add support for Adreno A722, a member of the GEN1 A7xx family. It is
->> derived from A730 and shares the same IP-level configurations: HWCG
->> registers, protected registers, GBIF CX registers and gmu_cgc_mode.
->> Major differences include lower cache/core counts, 1MB GMEM, no
->> Concurrent Binning & LPAC support. Some of the peripheral blocks like
->> RSCC are from A740 that resulted in updates to RSC layout.
->>
->> Add a new entry to the catalog to describe the usual configuration and
->> few additional fixup mainly due to missing CB/LPAC features and updated
->> RSC layout.
->>
->> Signed-off-by: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>
->> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->> ---
-> 
-> [...]
-> 
->> --- a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
->> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
->> @@ -710,7 +710,8 @@ static void a6xx_gmu_rpmh_init(struct a6xx_gmu *gmu)
->>  	gmu_write_rscc(gmu, REG_A6XX_RSCC_HIDDEN_TCS_CMD0_DATA + 2, 0);
->>  	gmu_write_rscc(gmu, REG_A6XX_RSCC_HIDDEN_TCS_CMD0_ADDR + 2, 0);
->>  	gmu_write_rscc(gmu, REG_A6XX_RSCC_HIDDEN_TCS_CMD0_DATA + 4,
->> -		       adreno_is_a740_family(adreno_gpu) ? 0x80000021 : 0x80000000);
->> +		       (adreno_is_a740_family(adreno_gpu) ||
->> +			adreno_is_a722(adreno_gpu)) ? 0x80000021 : 0x80000000);
-> 
-> This is a discrepancy vs kgsl (did you look at gen7_14 instead of
-> gen7_17? did you test this on device?)
+This series adds initial support for the Rockchip RV1106, a Cortex-A7
+SoC aimed at IP cameras, and its RV1103 package variant, together with
+the Luckfox Pico Mini B, a small and widely available RV1103 board.
 
-Both 7_17 and 7_14 are same GPU IP. Yes, this was tested on Eliza MTP.	
+The series follows the structure of the recently merged RV1103B
+support. The clock driver is ported from the vendor kernel and is the
+work of Elaine Zhang; the pinctrl data also comes from the vendor
+kernel. The clock binding header keeps the vendor clock IDs. As with
+the RV1103B, no resets are exposed yet and the CPU pvtpll is
+initialised but not calibrated.
 
-> 
-> [...]
-> 
->>  	/* The second spin of A7xx GPUs messed with some register offsets.. */
->> -	if (adreno_is_a740_family(adreno_gpu))
->> +	if (adreno_is_a740_family(adreno_gpu) || adreno_is_a722(adreno_gpu))
->>  		seqmem0_drv0_reg = REG_A7XX_RSCC_SEQ_MEM_0_DRV0_A740;
-> 
-> Likewise
-> 
-> [...]
-> 
->>  	/* The second spin of A7xx GPUs messed with some register offsets.. */
->> -	if (adreno_is_a740_family(adreno_gpu) || adreno_is_a8xx(adreno_gpu))
->> +	if (adreno_is_a740_family(adreno_gpu) || adreno_is_a722(adreno_gpu) ||
->> +	    adreno_is_a8xx(adreno_gpu))
->>  		seqmem_off = 4;
-> 
-> Likewise
-> 
->>  
->>  	/* Make sure there are no outstanding RPMh votes */
->> @@ -1100,7 +1104,8 @@ static void a6xx_gmu_rpmh_off(struct a6xx_gmu *gmu)
->>  	gmu_poll_timeout_rscc(gmu, REG_A6XX_RSCC_TCS3_DRV0_STATUS + seqmem_off,
->>  		val, (val & 1), 100, 1000);
->>  
->> -	if (!adreno_is_a740_family(adreno_gpu) && !adreno_is_a8xx(adreno_gpu))
->> +	if (!adreno_is_a740_family(adreno_gpu) && !adreno_is_a722(adreno_gpu) &&
->> +	    !adreno_is_a8xx(adreno_gpu))
->>  		return;
-> 
-> Likewise
-> 
-> You also need to if-out concurrent binning for this SKU
+The devicetrees cover the devices needed for a basic system: UARTs,
+SD/eMMC, the SPI flash controller, SARADC, watchdog, GPIO and pinctrl.
 
-You mean the PM4 pkts? If yes, fw will skip them as NOP.
+The series is tested on the Luckfox Pico Mini B: the kernel boots to
+the rootfs wait with a working console on UART2, timers, pinctrl and
+GPIO, and an SD card running at high speed. It builds with W=1 without
+warnings and dt_binding_check and dtbs_check are clean.
 
--Akhil.
-> 
-> Konrad
+
+Simon Glass (12):
+  dt-bindings: clock: rockchip: Add RV1106 CRU support
+  clk: rockchip: Add clock controller for the RV1106
+  dt-bindings: pinctrl: rockchip: Add RV1106 compatible
+  pinctrl: rockchip: Add RV1106 pinctrl support
+  dt-bindings: soc: rockchip: grf: Add RV1106 compatibles
+  dt-bindings: serial: snps-dw-apb-uart: Add RV1106 compatible
+  dt-bindings: mmc: rockchip-dw-mshc: Add RV1106 compatible
+  dt-bindings: watchdog: snps,dw-wdt: Add RV1106 compatible
+  dt-bindings: iio: adc: rockchip-saradc: Add RV1106 compatible
+  ARM: dts: rockchip: Add support for RV1106 and RV1103
+  dt-bindings: arm: rockchip: Add Luckfox Pico Mini B
+  ARM: dts: rockchip: Add Luckfox Pico Mini B
+
+ .../devicetree/bindings/arm/rockchip.yaml     |    5 +
+ .../bindings/clock/rockchip,rv1106-cru.yaml   |   59 +
+ .../bindings/iio/adc/rockchip-saradc.yaml     |    3 +
+ .../bindings/mmc/rockchip-dw-mshc.yaml        |    1 +
+ .../bindings/pinctrl/rockchip,pinctrl.yaml    |    1 +
+ .../bindings/serial/snps-dw-apb-uart.yaml     |    1 +
+ .../devicetree/bindings/soc/rockchip/grf.yaml |   30 +
+ .../bindings/watchdog/snps,dw-wdt.yaml        |    1 +
+ arch/arm/boot/dts/rockchip/Makefile           |    1 +
+ .../rockchip/rv1103-luckfox-pico-mini-b.dts   |   93 ++
+ arch/arm/boot/dts/rockchip/rv1103.dtsi        |   12 +
+ .../arm/boot/dts/rockchip/rv1106-pinctrl.dtsi | 1398 +++++++++++++++++
+ arch/arm/boot/dts/rockchip/rv1106.dtsi        |  299 ++++
+ drivers/clk/rockchip/Kconfig                  |    7 +
+ drivers/clk/rockchip/Makefile                 |    1 +
+ drivers/clk/rockchip/clk-rv1106.c             | 1107 +++++++++++++
+ drivers/pinctrl/pinctrl-rockchip.c            |  208 +++
+ drivers/pinctrl/pinctrl-rockchip.h            |    1 +
+ .../dt-bindings/clock/rockchip,rv1106-cru.h   |  301 ++++
+ 19 files changed, 3529 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rv1106-cru.yaml
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1103-luckfox-pico-mini-b.dts
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1103.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1106-pinctrl.dtsi
+ create mode 100644 arch/arm/boot/dts/rockchip/rv1106.dtsi
+ create mode 100644 drivers/clk/rockchip/clk-rv1106.c
+ create mode 100644 include/dt-bindings/clock/rockchip,rv1106-cru.h
+
+---
+base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
+branch: rv1106a
+
+-- 
+2.43.0
 
 
