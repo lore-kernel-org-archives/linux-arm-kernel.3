@@ -4,97 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D1AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:27:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F36FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 21:28:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T9lDsB/+NcYvsgur+jzOVo5SNmXQlABei/7lUjSJfZI=; b=utWqSqyL6aUHafrHkk5+QjiK47
-	M9s1VG0kk57MS9XiZwjZPD8AyeeHrti3V7aayu9A77n1LdT5vJ+94W8K2twg8GHiLYnj+iJgjY9np
-	jYmbMrx7NWdr3h89ejsqJucmQzbsJEKGCx+Ovm6pStjn+Ki41P0slEEHwpszHAHUjwic6x8RzXP1Q
-	jZhGEtwg/LjbVIll/wNZHEXVqa/zhmCQWQbd04MoXGGZ3+WOCQTe61UT0npc0uXEZIEe28PKMh8DZ
-	I3tbANLWkKWEJIn2AFZkx2YHe+M0RKy0BXP+Ai+6zbHs2gLpwlRd9anbtpt26127V/BPTbVmzGnN8
-	m4r8QBsQ==;
+	bh=XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=; b=aGA/yZVroj0F/lhRtSK1wx4t3A
+	5VGxd4406q7vcd5zTiQidzBdQcezRUNRJhNJMmwvX36vYllnfSD59yesn5ci67DAHDLzM0v6sHIVL
+	IkSWD88hLfeKFVeywZPi5y9JU74O5gZww9El0AmlUzmAhGOSh8KhuzzfEZNjibHSrbhHTmPRxTxWa
+	TY3RxnHSUDoOc5/DGyTqjuNqRU3YTBDs7VjMJVzmr8SIc6bXh+zNypWZHuT2CVivs4r/O4QjSknrB
+	Ib1v6PMQS7WWF6BIIuNC6qBk+0fvkJGWpCa/uxQfU7gx/lC2IJhSCHJg3CTql0/+R+w2mxEfQVpd+
+	IP3jXk6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqq4-0000000DdDN-300c;
-	Mon, 06 Jul 2026 21:26:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgqrT-0000000DdMY-3lWy;
+	Mon, 06 Jul 2026 21:28:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgqq3-0000000DdDA-1mk6
+	id 1wgqrR-0000000DdM6-0XEj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 21:26:51 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id CECB041749;
-	Mon,  6 Jul 2026 21:26:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACFFC1F000E9;
-	Mon,  6 Jul 2026 21:26:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783373210;
-	bh=T9lDsB/+NcYvsgur+jzOVo5SNmXQlABei/7lUjSJfZI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=je6eqx5rUBP2UGCChKvezCJTL51nWqAmpUjT9xlKJI+oSC+RKx6pgAaMNVkuB7qc9
-	 KTpP8JMIJZoG9DkSHlZoaP6bOwMx5AZTpAbT2P7pTpwZguH8e0NCUU2VQZo5lijMxi
-	 DpoCH1iCRve2Gy1ot1kYaOGm5xcOZkzfIhkIb+YVDCtIEutXhbOAbp+i/u/eZ2IX+0
-	 FnWSPCTwm8pwD6uTa1BCDwevfQJ79kJtt1UkqItVpJ4PjVil6D9JNAqExLbys1F6vs
-	 KW8NLTtKCppJNXy23XDymbrKnUR9k8QNvU3/DDvAj4jdzIULiZt5QBOUkLOuzPs9P8
-	 FPidM6Zafwerw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wgqq0-000000028nF-33rS;
-	Mon, 06 Jul 2026 21:26:48 +0000
-Date: Mon, 06 Jul 2026 22:28:37 +0100
-Message-ID: <877bn77qpm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steffen Eiden <seiden@linux.ibm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Grapentin <gra@linux.ibm.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	David Hildenbrand <david@kernel.org>,
-	Friedrich Welter <fritz@linux.ibm.com>,
-	Gautam Gala <ggala@linux.ibm.com>,
-	Hariharan Mari <hari55@linux.ibm.com>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Hendrik Brueckner <brueckner@linux.ibm.com>,
-	Ilya Leoshkevich <iii@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Nico Boehr <nrb@linux.ibm.com>,
-	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-	Oliver Upton <oupton@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sven Schnelle <svens@linux.ibm.com>,
-	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-	Vasily Gorbik <gor@linux.ibm.com>,
-	Will Deacon <will@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 08/27] KVM: arm64: Prepare sharing arm64 code with s390
-In-Reply-To: <20260706085229.979525-9-seiden@linux.ibm.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
-	<20260706085229.979525-9-seiden@linux.ibm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 06 Jul 2026 21:28:18 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666KDtjN1495406
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 21:28:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=; b=B6vUTsF+PZo2s8op
+	k91yrrH8BFLXGcc1v+dH/Y87y48/xr52B74MZi5C5tje3zjT50YWFG9LgR5OFtoj
+	uZrN7jvmayh/z0oeFDCqXT95ZjU7vAfo76FtEQpevDbYtyoExwqDWadJCmmPwgTc
+	X+VB1dDee4x4WOaXZ1LWivrvuBv7hagIygLM4VZwgi+L+Zc8stvPbySIbh++poei
+	UNgwUeZDOlZ1IgxfltcCPkwhSNd6fQYwfEhuzWUHmZhj//qsu3VpZbg+YQdRF0/v
+	XQgqErqLYI0rzGYUWqLwQ8gYh0IDHmtYvPATrhY3u2NOpORD50A8YO+sRN7Z5QAU
+	RtbGIw==
+Received: from mail-vs1-f70.google.com (mail-vs1-f70.google.com [209.85.217.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88t8b9pj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 21:28:16 +0000 (GMT)
+Received: by mail-vs1-f70.google.com with SMTP id ada2fe7eead31-737d34a0dc8so3759642137.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 14:28:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783373295; x=1783978095; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=;
+        b=TRT8HVA+wbQ2ZbNf4Yf0dj3fM3rxNTkS4CWJGgRavnlEXV5YqARKwgAZyMYDmh/nwR
+         DnzWPrMJn1wY24DZmd30j9bVE7eRisYsCE7/iR/VHeRLIvZQEJZr2i8eauVjDr4469x+
+         XytB6Ujb6kVMNEwzfjyEofKdu7S+q9JMLfgiJ2GaGPWlJ3lIcnalDneEk5VBkFnOAh3/
+         I6GK2lctJPSSCyMjlxUh/aIJLnw1+NE2MRdFkaOyEWuJXyCFuU9xQnLkqnaDFg0ziXgT
+         DQhYB9nV4VGRGC616t8hwDpjyxYhnKWfjFHF6xQ9G+Z1jpUbFOLW8AQoFhRu+oxNsy1A
+         hT/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783373295; x=1783978095;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XVyKUn6Qgeu8Cw9tv/zF53VSVfQF2ch+8IMvAUMaMtg=;
+        b=X03dXoRpYplfMjo8pFCPQuvOr0qM8eQ5S2ODYMwHzUUGxGOpDxP5fHhCqItsHEq3e6
+         dWiorDGSugnMHm8MvuklU8mPmv2KF5eilZD7d4NOsyupnRiCX4ENAQU9HjMRlGuTFVUf
+         fjZXKwo/pk0Geh6V8RFfUQ1o+eaZFtQn+cFrIDOrnba72h2wphyghx5LbyymM0a0tbUg
+         tRZ/HsdYzNuQ2MZ02uIGEdKUM1XBw1rVwWghf2Wo84kErPskxsQEUm+HMCQYlTFzxlpD
+         UB20izT59+ViJMOLGNEeh+CQERQ2s61uNCN2OBMPObSaCCrs5kI1M2zww8DFCpl4NUGG
+         EPVA==
+X-Forwarded-Encrypted: i=1; AHgh+RrW/amjHvJ0+cyipA6dMn3I5OIn3btCXTdEPqgYCcX437PvGog350t1K6gVimoNLoraIm06vTtPqgam/HLkiZkj@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvY8lv3ONiK344u4zj9yBnz6IU2MF6bnPiHzQDf+AgcGSiRXuS
+	a7eidPux6rCVwWeHLydXNURa4QESrlexit8xXSX0eNZt0EvF2FVZ4anQ5Z04ibdGGUwY2PEMfYe
+	zm4JS/r9YmBxve2L4IJ8WJtB0gR8a9HLaeyi4uFv1vCZcF97+cN9JGsbRTNA9lSSOJ9VT4EjzeU
+	WxgA==
+X-Gm-Gg: AfdE7cmDJYr5uC68z3tRokfXexKK17s0YwrQbIjVEOkzTuXod1sLMd6qeAtEoExT+Z6
+	illeqkU/N/0p0GbmktFtSF2aBg6Y8pKYXP0orUeqPcBiJKSuw59UmSqyTQco7kgezgTh64sYWG/
+	BnIpy2CnrsAznkjYIk+YdT7dsYnnKRV5F1gh+lI8RVFxakcb5pbGVQNs4cxciEoqe/r2WUnUK9k
+	vC2UUqu+acEf4urjaZHbXvJ6/4j0/0kvK2VKWz9MwconqD2U4Ks4J99jIyQmAN4F4fR0tSh6lUP
+	5MHnosvGL0pVVWGwf4BU3+cbxL+Zxd70OGYBH2sjI2Fb0SrYpDeRo0I7Ouv0D5NULQN8p3SRVfo
+	MovzFkdIRObxtA6aw39MUBR4PH1qiLRPKmKkNPDB8iCFNMel1+AwD7ZGkElnlTqH2NtsULK8skc
+	h3OoB7wC8+vfOgaAFVmGO63450
+X-Received: by 2002:a05:6102:598c:b0:744:a3fd:410a with SMTP id ada2fe7eead31-744b7d6e301mr1160560137.14.1783373295348;
+        Mon, 06 Jul 2026 14:28:15 -0700 (PDT)
+X-Received: by 2002:a05:6102:598c:b0:744:a3fd:410a with SMTP id ada2fe7eead31-744b7d6e301mr1160536137.14.1783373294919;
+        Mon, 06 Jul 2026 14:28:14 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5aed13839bbsm3150167e87.35.2026.07.06.14.28.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 14:28:11 -0700 (PDT)
+Date: Tue, 7 Jul 2026 00:28:09 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, Aastha Pandey <aastha.pandey@oss.qualcomm.com>
+Subject: Re: [PATCH v5 6/7] arm64: dts: qcom: shikra: Add GPU cooling
+Message-ID: <cikq6wyljzdlyuopvxno7fipifzc7f2zc6hs2ligiu5esnljui@5mxhammibgpc>
+References: <20260707-shikra-gpu-v5-0-d2f373912d3f@oss.qualcomm.com>
+ <20260707-shikra-gpu-v5-6-d2f373912d3f@oss.qualcomm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260707-shikra-gpu-v5-6-d2f373912d3f@oss.qualcomm.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDIxNyBTYWx0ZWRfXwvW+fIHCb7WF
+ t+vk9kuUONNDPWpf70mXoO6nC58iMF/1iem0+OuUs0868lJTP29i4EztcJcL5yWWx2lRRCJooTH
+ PqrRFDQoMXB9QY3seUYRsFIfQAyYPDk=
+X-Proofpoint-GUID: 0R3nFvE0AutMYR9bYKmGhuZ5YdhzG86k
+X-Authority-Analysis: v=2.4 cv=C6zZDwP+ c=1 sm=1 tr=0 ts=6a4c1df0 cx=c_pps
+ a=N1BjEkVkxJi3uNfLdpvX3g==:117 a=xqWC_Br6kY4A:10 a=8nJEP1OIZ-IA:10
+ a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
+ a=wZTYHpkevF83xUmX0v8A:9 a=3ZKOabzyN94A:10 a=wPNLvfGTeEIA:10
+ a=crWF4MFLhNY0qMRaF8an:22
+X-Proofpoint-ORIG-GUID: 0R3nFvE0AutMYR9bYKmGhuZ5YdhzG86k
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDIxNyBTYWx0ZWRfX3gZn41q8VRye
+ eGdG0EMp3z3up5vUN7TEPsHR4eTKYncvWHtIuDy5F4vIaTzsdlu/YwzgCHoM21phueGvSx5kSoJ
+ Xnx7qUZQ1x4CCqxDc/tXcRCBjgw1OjScHIdwbgLlOCHW/svBzDvdLOvu2nv/dGo0NqBJYngP/NF
+ J64ha2UXh3EABpPpvhZ7HcdWTrj3ijrjlkckd4jvx8tmR/9VDw2yqg+CGtxjZCKyO100ylZtDWf
+ Nw+bCnoKuWg8tDnV7IwACCS+PkWUHF5/aJd0LO9DLH1FTrnrkjlQzUvZcUqXwwLjWpBNyX7UHWZ
+ 2MGqCVdo4NDge/ZY4b3WdTbCpGIwB9zzO0lp+HWgeKifbhI29Ux9pQOeIgD+CrksMoW516RVViq
+ m6DdClN8JDP014xQBnw2MSTYWK0utn2HZSZBJ15PKfnxxEucbiiY5ZpPn7Xa4AhwRaa2m7M0qBf
+ CWaxoAnEXWmWFzD6qHA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_03,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607060217
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_142817_169662_5DE8A168 
+X-CRM114-Status: GOOD (  16.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,131 +167,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 09:52:08 +0100,
-Steffen Eiden <seiden@linux.ibm.com> wrote:
+On Tue, Jul 07, 2026 at 02:34:38AM +0530, Akhil P Oommen wrote:
+> From: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
 > 
-> Mark functions that s390 can use to implement arm on s390 as shared
-> functions.
+> Unlike the CPU, the GPU does not throttle its speed automatically when it
+> reaches high temperatures.
 > 
-> No functional change.
+> Set up GPU cooling by throttling the GPU speed when reaching 115°C. And
+> use a passive polling delay to ensure more than one "passive" thermal
+> point is considered when throttling the GPU thermal zones.
+
+I'm not sure I can parse this sentence. How does polling delay affect
+number of thermal points to be considered?
+
 > 
-> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> Signed-off-by: Aastha Pandey <aastha.pandey@oss.qualcomm.com>
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 > ---
->  arch/arm64/kvm/arm.c         |  3 +++
->  arch/arm64/kvm/guest.c       |  3 +++
->  arch/arm64/kvm/handle_exit.c |  6 ++++++
->  arch/arm64/kvm/mmio.c        | 14 ++++++++++++++
->  arch/arm64/kvm/reset.c       |  3 +++
->  5 files changed, 29 insertions(+)
+>  arch/arm64/boot/dts/qcom/shikra.dtsi | 16 +++++++++++++++-
+>  1 file changed, 15 insertions(+), 1 deletion(-)
 > 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 50adfff75be8..c992308b2dce 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1580,6 +1580,7 @@ static unsigned long system_supported_vcpu_features(void)
->  	return features;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static int kvm_vcpu_init_check_features(struct kvm_vcpu *vcpu,
->  					const struct kvm_vcpu_init *init)
->  {
-> @@ -1628,6 +1629,8 @@ static bool kvm_vcpu_init_changed(struct kvm_vcpu *vcpu,
->  			     KVM_VCPU_MAX_FEATURES);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static int kvm_setup_vcpu(struct kvm_vcpu *vcpu)
->  {
->  	struct kvm *kvm = vcpu->kvm;
-> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
-> index b01d6622b872..5a202cfd27bc 100644
-> --- a/arch/arm64/kvm/guest.c
-> +++ b/arch/arm64/kvm/guest.c
-> @@ -543,6 +543,7 @@ int kvm_arch_vcpu_ioctl_set_regs(struct kvm_vcpu *vcpu, struct kvm_regs *regs)
->  	return -EINVAL;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static int copy_core_reg_indices(const struct kvm_vcpu *vcpu,
->  				 u64 __user *uindices)
->  {
-> @@ -591,6 +592,8 @@ static unsigned long num_core_regs(const struct kvm_vcpu *vcpu)
->  	return copy_core_reg_indices(vcpu, NULL);
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  static unsigned long num_sve_regs(const struct kvm_vcpu *vcpu)
->  {
->  	const unsigned int slices = vcpu_sve_slices(vcpu);
-> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> index 54aedf93c78b..d511af145ee6 100644
-> --- a/arch/arm64/kvm/handle_exit.c
-> +++ b/arch/arm64/kvm/handle_exit.c
-> @@ -213,6 +213,7 @@ static int kvm_handle_guest_debug(struct kvm_vcpu *vcpu)
->  	return 0;
->  }
->  
-> +#ifdef ARM64_S390_COMMON
->  static int kvm_handle_unknown_ec(struct kvm_vcpu *vcpu)
->  {
->  	u64 esr = kvm_vcpu_get_esr(vcpu);
-> @@ -224,6 +225,8 @@ static int kvm_handle_unknown_ec(struct kvm_vcpu *vcpu)
->  	return 1;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /*
->   * Guest access to SVE registers should be routed to this handler only
->   * when the system doesn't support SVE.
-> @@ -404,6 +407,7 @@ static exit_handle_fn arm_exit_handlers[] = {
->  	[ESR_ELx_EC_GCS]	= kvm_handle_gcs,
->  };
->  
-> +#ifdef ARM64_S390_COMMON
->  static exit_handle_fn kvm_get_exit_handler(struct kvm_vcpu *vcpu)
->  {
->  	u64 esr = kvm_vcpu_get_esr(vcpu);
-> @@ -439,6 +443,8 @@ static int handle_trap_exceptions(struct kvm_vcpu *vcpu)
->  	return handled;
->  }
->  
-> +#endif /* ARM64_S390_COMMON */
-> +
->  /*
->   * Return > 0 to return to guest, < 0 on error, 0 (and set exit_reason) on
->   * proper exit to userspace.
-> diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-> index e2285ed8c91d..876d56dd5b64 100644
-> --- a/arch/arm64/kvm/mmio.c
-> +++ b/arch/arm64/kvm/mmio.c
-> @@ -10,6 +10,7 @@
->  
->  #include "trace.h"
->  
-> +#ifdef ARM64_S390_COMMON
->  void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data)
->  {
->  	void *datap = NULL;
-> @@ -135,8 +136,11 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
->  		if (!kvm_vcpu_dabt_issf(vcpu))
->  			data = data & 0xffffffff;
->  
-> +#endif /* ARM64_S390_COMMON */
->  		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
->  			       &data);
-> +		//TODO  tracing
-> +#ifdef ARM64_S390_COMMON
-
-Irk. The deal is that you lift full functions, not cherry-pick which
-lines you want. Just define empty stubs for the trace nonsense, and be
-done with it. But not this, please!
-
-	M.
 
 -- 
-Jazz isn't dead. It just smells funny.
+With best wishes
+Dmitry
 
