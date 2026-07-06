@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2AE5C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B54C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jA188Me9AgAO7O1Is8f9n+gtNtSnCCBgUgpsHEqHR9Q=; b=uO9EJS8FBnxSOepBhbeukqJWef
-	0vk0LeRys8nWHBqlIil3LaN/Qjfb04U5AGf0G/Ez95TM4cu/vvIhztfINZkrkF5RyDrhmU2EpzL7T
-	WGNIO7L3jjhtVZjYJGX53EO6RVivNhVTGsnnPNK+2jlChhy/v/6FSO40yHnlB63lUNrBBx7CgbS5y
-	Hi9BR+fSOd0VegPqjW3FclY3/9dpJuJUzAMjycgwh9JX30bC6dUtIm4gEzeT4Yas+18GevPMKqR2U
-	4Yg10ayhjvtsbEhD16DsfRYmguQHG9gY9yfwMEspTFb5nHknAh4yWsrbnd3OhaATZc7Vp5Re4Zcsg
-	RRRA+ziQ==;
+	bh=8A51OX/9my7e6tIHaoARVbxZ+6ZmCrlNFfVyyluoI3Y=; b=Yx3KUyv0A8a0Trq1oPLd4RfB+N
+	9gJXvFJkCR52qYP246XweD1rLdTCBzD4h0rpKH4930FerqBXteqhjz9CSjg94RGaARt/zkLp+PBoT
+	zjuBzYJZQpHz+Ta8qw1tzP0V6EGRUmUDvyGSyOnu6VgiPCmMp4kUbrn81S8j69pL6IT1tXtP5NxhG
+	YVcjL5kcjXbNrPIepJ3OxhDITDOPX2dN406QsXJJOiYEDy4wD/PXA8aTFFI4zvgCrdC2q7N23Eo0F
+	9qlAmOTtfX4HGVACdrrfANBwrsU8Xkq7x9YUdvBq9ckyZPjBIi1zq0he5GrBTMc9zFcBPaxKBDRA6
+	LClnwmNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgl7u-0000000CrvW-1y9S;
-	Mon, 06 Jul 2026 15:20:54 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1wgl8c-0000000Cs6a-3hiv;
+	Mon, 06 Jul 2026 15:21:38 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgl7r-0000000Crtz-1mWd
+	id 1wgl8a-0000000Cs5T-09Zx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 15:20:52 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-493d92b7db3so14869265e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 08:20:50 -0700 (PDT)
+	Mon, 06 Jul 2026 15:21:37 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-471eeac43bfso3548239f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 08:21:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1783351250; x=1783956050; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+        d=suse.com; s=google; t=1783351294; x=1783956094; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=jA188Me9AgAO7O1Is8f9n+gtNtSnCCBgUgpsHEqHR9Q=;
-        b=QD6uJ36cOVFS9t4d4oHmzuLKYuAG/cCplJ+1ZXR4fMb8eHoYFTypn02tmMik82UEP9
-         gxtD7zu6OFy2PuRlUh4dPMyl4F53ndZ3iFmgh1E7cQiIWiWSCIRdWFmZO78Nmz9G5Jvz
-         U4ZWzCAryMtjoNTvcmLNcku04qlrgtWVGNYzG9inSSWY4uu8QDcyS3n9q7ij+d+41yl/
-         LnLzdVgbhtUrm1eQB0xFQempEHVdQ4DOqPootrKME9dklHub/u9y4qduenpdlb9WtE5S
-         3cxRFr2j7LOFMyuwao/GKhiLV8Xuqgiu8XIjVO/lbAEHKlIBxC+oU9OxIioDqu4HVuk/
-         MTow==
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=8A51OX/9my7e6tIHaoARVbxZ+6ZmCrlNFfVyyluoI3Y=;
+        b=MbwGqcZH0BcyVHSi5iw/Ek8XtT9S0ZC+eoCC4ri41iodbWinriB7mTsvHE8gsF4xsf
+         VpgRgRv4ueL0zSa8Mb97F4dTpwGaXrcQmWw6SPoqldhVBhfJBq4EtppTMvOj+UQqXR3b
+         wawCWHAmEuCPYQE4kUvfe60kLLA0PlWENYEWeh2Or2vpDl/FY+Qq8H/zDLjt170+xLqA
+         8zxZaYybT3F0xssZrgXYZns8Ww+k56e6GSLDPB2c5E4VGLV4WmL+FGll95vVpOfi+CQd
+         XfeO6SAZPeFw+Gx7ZtTrTYzBMU04i5RW6bngxq4jOsyk11XuOXhoRtwGZnlsFbqYA3Hn
+         m+NQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783351250; x=1783956050;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+        d=1e100.net; s=20251104; t=1783351294; x=1783956094;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=jA188Me9AgAO7O1Is8f9n+gtNtSnCCBgUgpsHEqHR9Q=;
-        b=bKMrZtCeyfjmJphWUvwPzn2OKtzyTilQF3XQYbgT4WEhgwtMTQVAbnV0zUuZkc1g71
-         +TrB2+t7LysSWFhZQRBwrPURUQkTzOhGAYydl9gj7njo1zZ0rpX3p7gT7kSzWxM46yz6
-         81l2dEKmYvdTRxPJ1YtgN4GMzOU6n6bMtA2mYC1xD+r1MkiHKnci+9DKri+HAFXjKcwS
-         FmRt1K4lFqjlWIWyZwhC84dJ0UWVipWedQQHJCPYBa/nmUiR52j61I72zPGZRZJKwA8T
-         wQ4PsBUAWg1g0CoOee63l9la7XBc/L0luS4Uqyyrj9kI/ShAyaZubLpSgbEESPVdckPF
-         Y//Q==
-X-Forwarded-Encrypted: i=1; AHgh+RrZmx1h/WWylOZReHmyGKAfeZ5gJOO7PuW1cv30r1RtXA1qf4171og7d5wvF4k8vihhYRC1RBuQHFUBa3ni10IL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxzw1eANaN3NcS/yJmNsKa6Ei5dk0MM/+ewd3JQOYUzXhbsgKHG
-	jnuPrBawF1jF93qCjmifn+D/BYZGjNXOjz75K6I5XMyg/PHEED0xJJGHLKRGVX/P9Hk=
-X-Gm-Gg: AfdE7clRmOLdBHhF5Boeuhsh2SPWXyFsW0YYU61PlSb17dNeQTKQ7LEsF8sa9qXyPJZ
-	ZfouAfswjUCanCiZ0SR2AlNNiD/N5rHuuRoqQ4oATyDjRhzOXHS2sRc6UUl23upEdw6Wxxwj8we
-	0pwLWoLRHaDhzHUW1fQQwL4VV/U663ANc6okLtRZ0MoC+gYXKJcEhp61tAKPeGfaL+xyILvBgNw
-	nRuRCCbMJJdyHbthTPDohdpAZLB90OaMN4BkS7A4iusZm8LDp0MJAP8cyzbQqWUyTixr4zXlXaG
-	1Xj+60rsrQ3a873Rant3H1x6pC60DpygELzOc0KHnfUZWdcljff/N3CYb+Uq0AVDKNPozDFBIX6
-	GZQ9GRrV7GVT1/7eQXzP4Erro1+Z4d18rxdgGgMmQNne/n0DhLKY8LT1Wga9ID1cnsBSeM1KjUm
-	UYobcq8bllxJXVl6R7O1Gxpt4wJIykNGKfwzaJeJio4LTgAAwpTgzPXjBZ/SEA
-X-Received: by 2002:a05:600c:19cc:b0:492:5145:f054 with SMTP id 5b1f17b1804b1-493df0930a6mr12030995e9.26.1783351249504;
-        Mon, 06 Jul 2026 08:20:49 -0700 (PDT)
+         :message-id:reply-to;
+        bh=8A51OX/9my7e6tIHaoARVbxZ+6ZmCrlNFfVyyluoI3Y=;
+        b=ZtXgZcYySaGKxrRjN0/O0bVtwa/kwJMJUTc+rrem0QYHMxCf512RGldSrEProW2RH6
+         zKCvm/irvqgdIsp11/KKMo0UjvhAT3AYPlObmaVqfjpqJJYFMXVuysiUVZUS/lkzdlkF
+         c4b15v9mLNsmyFVDTKlGEVtijUCxiOQLIGJGc9yeYjr41T3WgibA0M+TAu0EbvwfbRbA
+         7CEI6xoR6Fu4PXGO94ptECO8zvA2UBDTJAHhs/HJIi9Np+6dYdvymMASgQYwSL1Y049h
+         36DkLxOtk/qL5GieCzOwycnaAfG0jWEFIWFntczZRJ3SJ2xY2woDfmRTN4HkZy8If2o5
+         TF7g==
+X-Forwarded-Encrypted: i=1; AHgh+RrMtZlX7qM7tbntc7+oiNK6H5SvCXhGZsfLjL8+tVgiAjtK/23+A9rrTUjUAA3JIfvLvUTnpyMQE73dzhzFLGzp@lists.infradead.org
+X-Gm-Message-State: AOJu0YycjFbeNLnvZR9xFayfgcYUfKBw78uBe93FMWJMwPt2hEGgilCH
+	XxORZCWJzrwlhYJuKpz1ACX0XANyuCm4dTHTyUNcefoEinLImoECkv/WvD6FDseLwWU=
+X-Gm-Gg: AfdE7cknPYTs6MPgIu8M/6kIWjlI2epiy/o17vrqIQ6ewf4dStqvm1TOyT2DmWAg2Gt
+	KbrsLfdQicvwBlCpN43qzANIYXjAJSQJOpFE4XRJ8M+aQHy2Ifl/58uDaoEc3M78TT6/0F69AMP
+	fxGiNxJwIXcP3JzwE873dVtEmbLA6EkTYkOke0/LFlBqIXa6WzjYOySJDJi9GMR+k+CASCz3IkL
+	toURWf3Y1IGFmDFuVOHUkGEBGz+nkIj+w9+dCgJ0JY2uu00C4GptLqbXbX0AKxYW1Q9j/CalllJ
+	PtkozM+IEd/w94MbP3Fagp1WuVLLdTZR6ASTdtzt8/FPt7BS5RL03ZOjtzLZ1dpkO2GEZya8iki
+	McfQyD/Z6jiz1MdrbczQGSR3gBHb6f+SOb7v7fH8kcjugQRVyLVcgoImWHCsGQPq++pQHIZDd3Z
+	CY3xUiplttkXJE17O+ONeszpbE8BKUdRgjf74E/pa5aFFFgcAHdJ5OEV7AuN0a
+X-Received: by 2002:adf:e40e:0:b0:475:f0c2:75a6 with SMTP id ffacd0b85a97d-47de66f2e70mr580585f8f.55.1783351294208;
+        Mon, 06 Jul 2026 08:21:34 -0700 (PDT)
 Received: from [192.168.1.136] (48.85-85-171.dynamic.clientes.euskaltel.es. [85.85.171.48])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa0960634sm27008175f8f.26.2026.07.06.08.20.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa09608d4sm26469667f8f.25.2026.07.06.08.21.31
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 08:20:48 -0700 (PDT)
-Message-ID: <42e9c942-5b96-4cd4-a25b-51d1a7e8eff7@suse.com>
-Date: Mon, 6 Jul 2026 17:20:43 +0200
+        Mon, 06 Jul 2026 08:21:33 -0700 (PDT)
+Message-ID: <747bb78f-5ebf-40cf-9922-98e69920a9d8@suse.com>
+Date: Mon, 6 Jul 2026 17:21:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] pmdomain: mediatek: Add support for Direct CTL simple
- power sequence
+Subject: Re: [PATCH 4/4] pmdomain: mediatek: Add support for MT8196 HFRP
+ DirectCTL domains
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  ulfh@kernel.org
 Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
@@ -86,7 +85,7 @@ Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
  justin.yeh@mediatek.com, kernel@collabora.com
 References: <20260701121920.19347-1-angelogioacchino.delregno@collabora.com>
- <20260701121920.19347-4-angelogioacchino.delregno@collabora.com>
+ <20260701121920.19347-5-angelogioacchino.delregno@collabora.com>
 Content-Language: en-US, ca-ES, es-ES
 From: Matthias Brugger <mbrugger@suse.com>
 Autocrypt: addr=mbrugger@suse.com; keydata=
@@ -132,12 +131,12 @@ Autocrypt: addr=mbrugger@suse.com; keydata=
  LV6nybxdRG/jp8ZQdQQixPA9azZDzuTu+NjKtzIA5qtfZfmm8xC+kAwAMZ/ZnfCsKwN0bbnD
  YfO3B5Q131ASmu0kbwY03Mw4PhxDzZNrt4a89Y95dq5YkMtVH2Me1ZP063cFCCYCkvEAK/C8
  PVrr2NoUqi/bxI8fFQJD1jVj8K0=
-In-Reply-To: <20260701121920.19347-4-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20260701121920.19347-5-angelogioacchino.delregno@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_082051_529783_62B44E40 
-X-CRM114-Status: GOOD (  31.16  )
+X-CRM114-CacheID: sfid-20260706_082136_120973_062E125F 
+X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,219 +154,78 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 On 01/07/2026 14:19, AngeloGioacchino Del Regno wrote:
-> Some new SoCs like MT8196, MT6991, and others, have got one
-> additional power controller (usually in the HFRP Multimedia
-> block) which needs a simplified power on/off sequence while
-> using Direct Control strategy.
-> 
-> Domains using the "simple power sequence" are not backed by
-> the RTFF hardware, have no Bus Protection mechanism, lacks
-> the ISO, PWR_ON, PWR_ON_2ND bits, and therefore get enabled
-> automatically after getting out of reset.
-> 
-> This simple power sequence is then a subset of the full one
-> as only needs the enablement of the specific power domain's
-> clock input and reset (where, again, after getting out of
-> reset, the ISO and PWR_ON bits are automatically internally
-> getting flipped) to enable or disable (power on or off).
-> 
-> Moreover, the simple power sequence power domains guarantee
-> that they always get enabled/disabled after executing the
-> relevant power sequence (on/off) so, differently from the
-> others, there is also no need to poll for a PWR_ACK.
+> Add support for the power domains provided by the HFRPSYS Power
+> Controller of the MT8196 SoC.
+> Those control power to the eDP and DP Transmitter IPs.
 > 
 > Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 Reviewed-by: Matthias Brugger <matthias.bgg@gmail.com>
 
 > ---
->   drivers/pmdomain/mediatek/mtk-pm-domains.c | 87 ++++++++++++++++++----
->   drivers/pmdomain/mediatek/mtk-pm-domains.h |  1 +
->   2 files changed, 72 insertions(+), 16 deletions(-)
+>   drivers/pmdomain/mediatek/mt8196-pm-domains.h | 27 +++++++++++++++++++
+>   drivers/pmdomain/mediatek/mtk-pm-domains.c    |  4 +++
+>   2 files changed, 31 insertions(+)
 > 
+> diff --git a/drivers/pmdomain/mediatek/mt8196-pm-domains.h b/drivers/pmdomain/mediatek/mt8196-pm-domains.h
+> index 2e4b28720659..d704c9fa9337 100644
+> --- a/drivers/pmdomain/mediatek/mt8196-pm-domains.h
+> +++ b/drivers/pmdomain/mediatek/mt8196-pm-domains.h
+> @@ -602,6 +602,27 @@ static const struct scpsys_hwv_domain_data hfrpsys_hwv_domain_data_mt8196[] = {
+>   	},
+>   };
+>   
+> +static const struct scpsys_domain_data hfrpsys_domain_data_mt8196[] = {
+> +	[MT8196_POWER_DOMAIN_EDPTX] = {
+> +		.name = "edp-tx",
+> +		.sta_mask = MT8196_PWR_ACK,
+> +		.sta2nd_mask = MT8196_PWR_ACK_2ND,
+> +		.ctl_offs = 0x74,
+> +		.pwr_sta_offs = 0x74,
+> +		.pwr_sta2nd_offs = 0x74,
+> +		.caps = MTK_SCPD_SIMPLE_PWRSEQ,
+> +	},
+> +	[MT8196_POWER_DOMAIN_DPTX] = {
+> +		.name = "dp-tx",
+> +		.sta_mask = MT8196_PWR_ACK,
+> +		.sta2nd_mask = MT8196_PWR_ACK_2ND,
+> +		.ctl_offs = 0x78,
+> +		.pwr_sta_offs = 0x78,
+> +		.pwr_sta2nd_offs = 0x78,
+> +		.caps = MTK_SCPD_SIMPLE_PWRSEQ,
+> +	},
+> +};
+> +
+>   static const struct scpsys_soc_data mt8196_scpsys_data = {
+>   	.domains_data = scpsys_domain_data_mt8196,
+>   	.num_domains = ARRAY_SIZE(scpsys_domain_data_mt8196),
+> @@ -616,6 +637,12 @@ static const struct scpsys_soc_data mt8196_scpsys_hwv_data = {
+>   	.type = SCPSYS_MTCMOS_TYPE_HW_VOTER,
+>   };
+>   
+> +static const struct scpsys_soc_data mt8196_hfrpsys_data = {
+> +	.domains_data = hfrpsys_domain_data_mt8196,
+> +	.num_domains = ARRAY_SIZE(hfrpsys_domain_data_mt8196),
+> +	.type = SCPSYS_MTCMOS_TYPE_DIRECT_CTL,
+> +};
+> +
+>   static const struct scpsys_soc_data mt8196_hfrpsys_hwv_data = {
+>   	.hwv_domains_data = hfrpsys_hwv_domain_data_mt8196,
+>   	.num_hwv_domains = ARRAY_SIZE(hfrpsys_hwv_domain_data_mt8196),
 > diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> index db543d4b1813..5276adea1d04 100644
+> index 5276adea1d04..f69cf69ba0f6 100644
 > --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
 > +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> @@ -549,9 +549,11 @@ static int scpsys_ctl_pwrseq_on(struct scpsys_domain *pd)
->   	return 0;
->   }
->   
-> -static void scpsys_ctl_pwrseq_off(struct scpsys_domain *pd)
-> +static int scpsys_ctl_pwrseq_off(struct scpsys_domain *pd)
->   {
->   	struct scpsys *scpsys = pd->scpsys;
-> +	bool tmp;
-> +	int ret;
->   
->   	switch (pd->data->rtff_type) {
->   	case SCPSYS_RTFF_TYPE_GENERIC:
-> @@ -583,6 +585,41 @@ static void scpsys_ctl_pwrseq_off(struct scpsys_domain *pd)
->   	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
->   	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_2ND_BIT);
->   	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_BIT);
-> +
-> +	/* wait until PWR_ACK = 0 */
-> +	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, !tmp, MTK_POLL_DELAY_US,
-> +				 MTK_POLL_TIMEOUT);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static int scpsys_simple_pwrseq_on(struct scpsys_domain *pd)
-> +{
-> +	struct scpsys *scpsys = pd->scpsys;
-> +
-> +	/* Enable subsys clock input and trigger power domain reset state */
-> +	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
-> +	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
-> +
-> +	/* Wait for the hardware to stabilize */
-> +	udelay(1);
-> +
-> +	/* Get out of reset: set power on */
-> +	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
-> +
-> +	return 0;
-> +}
-> +
-> +static int scpsys_simple_pwrseq_off(struct scpsys_domain *pd)
-> +{
-> +	struct scpsys *scpsys = pd->scpsys;
-> +
-> +	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
-> +	regmap_set_bits(scpsys->base, pd->data->ctl_offs, PWR_CLK_DIS_BIT);
-> +
-> +	return 0;
->   }
->   
->   static int scpsys_modem_pwrseq_on(struct scpsys_domain *pd)
-> @@ -605,14 +642,24 @@ static int scpsys_modem_pwrseq_on(struct scpsys_domain *pd)
->   	return 0;
->   }
->   
-> -static void scpsys_modem_pwrseq_off(struct scpsys_domain *pd)
-> +static int scpsys_modem_pwrseq_off(struct scpsys_domain *pd)
->   {
->   	struct scpsys *scpsys = pd->scpsys;
-> +	bool tmp;
-> +	int ret;
->   
->   	regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_ON_BIT);
->   
->   	if (!MTK_SCPD_CAPS(pd, MTK_SCPD_SKIP_RESET_B))
->   		regmap_clear_bits(scpsys->base, pd->data->ctl_offs, PWR_RST_B_BIT);
-> +
-> +	/* wait until PWR_ACK = 0 */
-> +	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, !tmp, MTK_POLL_DELAY_US,
-> +				 MTK_POLL_TIMEOUT);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	return 0;
->   }
->   
->   static int scpsys_power_on(struct generic_pm_domain *genpd)
-> @@ -635,6 +682,8 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
->   
->   	if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_PWRSEQ))
->   		ret = scpsys_modem_pwrseq_on(pd);
-> +	else if (MTK_SCPD_CAPS(pd, MTK_SCPD_SIMPLE_PWRSEQ))
-> +		ret = scpsys_simple_pwrseq_on(pd);
->   	else
->   		ret = scpsys_ctl_pwrseq_on(pd);
->   
-> @@ -662,9 +711,11 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
->   			goto err_pwr_ack;
->   	}
->   
-> -	ret = scpsys_sram_enable(pd);
-> -	if (ret < 0)
-> -		goto err_disable_subsys_clks;
-> +	if (!MTK_SCPD_CAPS(pd, MTK_SCPD_SIMPLE_PWRSEQ)) {
-> +		ret = scpsys_sram_enable(pd);
-> +		if (ret < 0)
-> +			goto err_disable_subsys_clks;
-> +	}
->   
->   	ret = scpsys_bus_protect_disable(pd, 0);
->   	if (ret < 0)
-> @@ -682,7 +733,8 @@ static int scpsys_power_on(struct generic_pm_domain *genpd)
->   err_enable_bus_protect:
->   	scpsys_bus_protect_enable(pd, 0);
->   err_disable_sram:
-> -	scpsys_sram_disable(pd);
-> +	if (!MTK_SCPD_CAPS(pd, MTK_SCPD_SIMPLE_PWRSEQ))
-> +		scpsys_sram_disable(pd);
->   err_disable_subsys_clks:
->   	if (!MTK_SCPD_CAPS(pd, MTK_SCPD_STRICT_BUS_PROTECTION))
->   		clk_bulk_disable_unprepare(pd->num_subsys_clks,
-> @@ -698,16 +750,17 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
->   {
->   	struct scpsys_domain *pd = container_of(genpd, struct scpsys_domain, genpd);
->   	struct scpsys *scpsys = pd->scpsys;
-> -	bool tmp;
->   	int ret;
->   
->   	ret = scpsys_bus_protect_enable(pd, 0);
->   	if (ret < 0)
->   		return ret;
->   
-> -	ret = scpsys_sram_disable(pd);
-> -	if (ret < 0)
-> -		return ret;
-> +	if (!MTK_SCPD_CAPS(pd, MTK_SCPD_SIMPLE_PWRSEQ)) {
-> +		ret = scpsys_sram_disable(pd);
-> +		if (ret < 0)
-> +			return ret;
-> +	}
->   
->   	if (pd->data->ext_buck_iso_offs && MTK_SCPD_CAPS(pd, MTK_SCPD_EXT_BUCK_ISO))
->   		regmap_set_bits(scpsys->base, pd->data->ext_buck_iso_offs,
-> @@ -721,15 +774,11 @@ static int scpsys_power_off(struct generic_pm_domain *genpd)
->   
->   	if (MTK_SCPD_CAPS(pd, MTK_SCPD_MODEM_PWRSEQ))
->   		scpsys_modem_pwrseq_off(pd);
-> +	else if (MTK_SCPD_CAPS(pd, MTK_SCPD_SIMPLE_PWRSEQ))
-> +		ret = scpsys_simple_pwrseq_off(pd);
->   	else
->   		scpsys_ctl_pwrseq_off(pd);
->   
-> -	/* wait until PWR_ACK = 0 */
-> -	ret = readx_poll_timeout(scpsys_domain_is_on, pd, tmp, !tmp, MTK_POLL_DELAY_US,
-> -				 MTK_POLL_TIMEOUT);
-> -	if (ret < 0)
-> -		return ret;
-> -
->   	clk_bulk_disable_unprepare(pd->num_clks, pd->clks);
->   
->   	scpsys_regulator_disable(pd->supply);
-> @@ -1083,6 +1132,12 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->   		regmap[2] = NULL;
->   	}
->   
-> +	/* If no access controllers are needed, don't allocate and don't fail */
-> +	if (num_regmaps == 0) {
-> +		scpsys->bus_prot = NULL;
-> +		return 0;
-> +	}
-> +
->   	scpsys->bus_prot = devm_kmalloc_array(dev, num_regmaps,
->   					      sizeof(*scpsys->bus_prot), GFP_KERNEL);
->   	if (!scpsys->bus_prot)
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.h b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-> index a5dca24cbc2f..092403de66fa 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.h
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.h
-> @@ -17,6 +17,7 @@
->   #define MTK_SCPD_MODEM_PWRSEQ		BIT(10)
->   #define MTK_SCPD_SKIP_RESET_B		BIT(11)
->   #define MTK_SCPD_INFRA_PWR_CTL		BIT(12)
-> +#define MTK_SCPD_SIMPLE_PWRSEQ		BIT(13)
->   #define MTK_SCPD_CAPS(_scpd, _x)	((_scpd)->data ?		\
->   					 (_scpd)->data->caps & (_x) :	\
->   					 (_scpd)->hwv_data->caps & (_x))
+> @@ -1252,6 +1252,10 @@ static const struct of_device_id scpsys_of_match[] = {
+>   		.compatible = "mediatek,mt8196-power-controller",
+>   		.data = &mt8196_scpsys_data,
+>   	},
+> +	{
+> +		.compatible = "mediatek,mt8196-hfrp-power-controller",
+> +		.data = &mt8196_hfrpsys_data,
+> +	},
+>   	{
+>   		.compatible = "mediatek,mt8196-hwv-hfrp-power-controller",
+>   		.data = &mt8196_hfrpsys_hwv_data,
 
 
