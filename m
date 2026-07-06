@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC67CC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A21C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:37:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Odrk/M0uzEm06cV07YV8KYxA41sO4LNg6nGCO1QYWbA=; b=bfOZOSU3pRZCDVbw44071sKpkq
-	NU4o5OBHE9pOxgsKD7R8lZAQmisBenzJlqS09IbyC1A9Fb165vpyTWyxN+v+I6DqpUfIN+79LnvPl
-	wUP2svIhFKNoXl0EZiQJFIs18VPR9n2lzC1bcC5MDHsuekfdtRRIMUZ/as3nBRvHY6hyTParUxsOa
-	6fmuvXMpBu/MjRoqUNsQnZzEhav7QSFDPsbtDPLtfCtsGJ4U9QMe7oB1M/EIlqpn1D6KrJe5KR2BX
-	rOLH3gKurjBcZmlDLngs6QjPsNLNAL867pCY17/v0azlbmtm7jld88BQBmvdZVvd7LMcESXoFWzEc
-	NZWeSQ/w==;
+	bh=v2R7RMzgtl4p0GUyY1wULxMAxNHG70RoVQmfeFubRL8=; b=j3dkPVX5B8Lnc4ugyDTUBJjiDa
+	ep5fQwRajKsx7dMvndHB/kK0lUVQ8IOJcxR+MLRFYobQFt9IPOOES99OHDSlyhxxVoNqKtJm8PXhF
+	qX059DtBaDMWRlpA1uwDYp1I665LGP2ky9On1zyAp80+pqeEIgZdiaYVZ10cnHikqMy8PHUE4OqSg
+	CkPUM/XAJ9aaQYRhOsDDCqosYYWrZ1twGaV5M8aYJ8vl3Bd3IW1uTB+BP9xii22mNafAo03Lyh2Os
+	YUw0ujMxyHSMGAjF/CadSBKhFXTJjqWNvJiGd//g4iTaWEYWPoIzptc5sA14jBt58oLrUHg7bD6Rn
+	h3pGjfLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgn9E-0000000DCl7-0uhy;
-	Mon, 06 Jul 2026 17:30:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgnGM-0000000DDV1-0GUr;
+	Mon, 06 Jul 2026 17:37:46 +0000
+Received: from mail-24418.protonmail.ch ([109.224.244.18])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgn9B-0000000DCkR-3Lot
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:30:22 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id E69056138B;
-	Mon,  6 Jul 2026 17:30:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A3FE1F000E9;
-	Mon,  6 Jul 2026 17:30:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783359020;
-	bh=Odrk/M0uzEm06cV07YV8KYxA41sO4LNg6nGCO1QYWbA=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=Wd6dZxqfLTij3E3ieK9/A/CoDuen7mpydkFdkhqPhOg0DaeBl60WQuThd6GsVfabH
-	 IOaX4v5EHfYicBSXFw40C0eLYNv0OIl/Fr0GxAqLfg9R7uMk3YATC7VxRyoZNSUnyx
-	 LMaGMJgC5cRSjkR6USf/b31dzx1lvebBQ+ejbtf3icth/WsE97fPukMT/F1o/+jrVw
-	 iX0yhdUXUzHEjHJISW+32BRRxMjke6TBaCSckth2NXTu6EUzXgDsIyoidO8NqLhpou
-	 XiFPb2Tyihcxn86x4DlE3lCGN/j+O4EAvTyjE4wOm1zqNn1gGcqxTtUVJpMOjOQI+i
-	 xqNbsUC+zHPyA==
-From: Chen-Yu Tsai <wens@kernel.org>
-To: maarten.lankhorst@linux.intel.com, mripard@kernel.org, 
- tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, 
- jernej.skrabec@gmail.com, samuel@sholland.org, 
- Wentao Liang <vulab@iscas.ac.cn>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org
-In-Reply-To: <20260607030950.83636-1-vulab@iscas.ac.cn>
-References: <20260607030950.83636-1-vulab@iscas.ac.cn>
-Subject: Re: [PATCH] drm/sun4i: fix refcount leak in
- sun4i_backend_init_sat()
-Message-Id: <178335901812.4027169.1529206377701282403.b4-ty@kernel.org>
-Date: Tue, 07 Jul 2026 01:30:18 +0800
+	id 1wgnGI-0000000DDUO-2yn7;
+	Mon, 06 Jul 2026 17:37:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1783359456; x=1783618656;
+	bh=v2R7RMzgtl4p0GUyY1wULxMAxNHG70RoVQmfeFubRL8=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=Tmwz7SmHDAgLUbBdkKgYKpJS7gp59kkKj6XRcI2cpJdIOO9cBKlV0r14p9wHsP4zH
+	 b0dOACHWQ3AHO9qcXZmjzwPPlM20znCP9hiR/NrvjwKfsUMcw/fXVOCMc68m88bNvh
+	 x0ErvReN98A48O/teawZ9bv7Fs09pMTfd+w+izmN/j6gHmFq26/4wKoNQi9jW4VdOc
+	 luyEcOG8T4e9IVdV2LV1yfiidJ8MvkaeASsTcCagXZdubT4W3MUQXF4iV6CvhGnnjh
+	 9yZBn0fc6TdEWmlvgYoZKVCN2fN+btC3fpmF7jwR80JwhlurzVYWkqXH7F7pl9qvAf
+	 t9MKIMhCdmlTQ==
+Date: Mon, 06 Jul 2026 17:37:28 +0000
+To: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Sean Wang <sean.wang@mediatek.com>, Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+From: Zakariya Hadrami <zkh1@proton.me>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, linux-watchdog@vger.kernel.org, Zakariya Hadrami <zkh1@proton.me>
+Subject: Re: [PATCH v2 0/5] ARM: Basic support for Amazon ford tablet (MT8127)
+Message-ID: <20260706-mt8127-amazon-ford-basic-v2-0-akvkMzQcnDB-79Ya@proton.me>
+In-Reply-To: <20260617-mt8127-amazon-ford-basic-v2-0-6859e29e72a8@proton.me>
+References: <20260617-mt8127-amazon-ford-basic-v2-0-6859e29e72a8@proton.me>
+Feedback-ID: 198761268:user:proton
+X-Pm-Message-ID: 879d977e9a35ea1cee412757959b56d4f370c935
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_103743_538511_4AE63564 
+X-CRM114-Status: UNSURE (   5.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,25 +69,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 07 Jun 2026 03:09:50 +0000, Wentao Liang wrote:
-> When sun4i_backend_init_sat() calls reset_control_deassert() it
-> increments the deassert_count of the reset controller, and must
-> pair that with a reset_control_assert() call to decrement it.
-> In the error path where clk_prepare_enable() fails, the function
-> returns immediately without calling reset_control_assert(), leaking
-> the reference count.  Other error paths, like the devm_clk_get()
-> failure, correctly jump to the err_assert_reset label which performs
-> the missing assert.
-> 
-> [...]
+Hi everyone,
 
-Applied to drm-misc-next in drm-misc, thanks!
+Gentle ping regarding the last 3 patches of this v2 series. First two docum=
+entation
+patches were kindly reviewed respectively by Mr. Roeck and Mr. Kozlowski.
 
-[1/1] drm/sun4i: fix refcount leak in sun4i_backend_init_sat()
-      commit: f7a56ff6240e6fd0cb36a3c0a911a1cd54789ce2
+Link to the full v2 series thread:
+=09https://lore.kernel.org/all/20260617-mt8127-amazon-ford-basic-v2-0-6859e=
+29e72a8@proton.me
 
+Thank you very much.
+
+--=20
 Best regards,
--- 
-Chen-Yu Tsai <wens@kernel.org>
+Zakariya
 
 
