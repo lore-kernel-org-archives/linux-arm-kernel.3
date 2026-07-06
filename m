@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 960AAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EB0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:39:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xy8ZAHUZN1wDyXUZpqHr7pd7Qxsxq2dcB4YVK2d78UM=; b=AZLl6LnWBj4bdPwb6LnAOI/8tL
-	0mMpT/op3cEF5NAgCYu8/cu0ErXchSwwqNAbip3eKRWM4xe5enMauMDNZ/HugFThdiVPqgxI/DZaI
-	8N4gVfjElNucXJCWa8zSXDJyUxj+zKIip5JDibaSCMYg4fqmtbLrHoxPqdZVm4HWKcrkQI/kUpDRm
-	kI0+f4uQ8WtFekF5mtYQrXBU+3dTshPyc2cHPI6bco+uNSRcU3Kh7s2ozlC8oUO2Ck3Zi01NaFFKB
-	OIlxcXx/TcGwK/J85viJh1LZy9J0ENHi5xnY10TNvRB64rWyGNCqlU8q8ScXQ3ycrSZN1zf6c5qza
-	CaE+Y59g==;
+	bh=3Ijv0Cx5Er5paIrljXWxNnEthBLXb9Gwgrh0LYZ8Nqw=; b=1ujhJU6E4oVtk8iPidMz9rUxSp
+	/PNI1Mp2LzPjKyVerf8RQcduOKMfCFtrYY477F4cBI1Jmd8XlNzkjObNhxds6ntIZ3tvOhnbkbsH9
+	YJRDdmw3h9MFAGhsKKJ8ZMFBR2a7+tlLX9tWq1cOcrxeUwUpoYXzER5sGRmLe+Qp8xM0obNjEG4hp
+	muokx2zOH9UntODh4ooHgN3UzeVqKZMigQYPBqeWnZ6Yhr6ipZFPI+c8mC8h+0RnURDSytE/OM11L
+	n6dPRd3Ha0oP0LyiRJMiSjYpB4idPzeaRuPa/e32bACeF36zMxKufgTcz0gvs1a7c15PvsuGNlo85
+	87uIRvRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnHp-0000000DDlc-2ZyG;
-	Mon, 06 Jul 2026 17:39:17 +0000
+	id 1wgnIG-0000000DDuJ-3AlN;
+	Mon, 06 Jul 2026 17:39:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnHo-0000000DDl9-0Afq
+	id 1wgnIF-0000000DDtm-2DZq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:39:16 +0000
+	Mon, 06 Jul 2026 17:39:43 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F05E42B18;
-	Mon,  6 Jul 2026 17:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 193131F000E9;
-	Mon,  6 Jul 2026 17:39:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 47DF1401DA;
+	Mon,  6 Jul 2026 17:39:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 053371F000E9;
+	Mon,  6 Jul 2026 17:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783359555;
-	bh=Xy8ZAHUZN1wDyXUZpqHr7pd7Qxsxq2dcB4YVK2d78UM=;
+	s=k20260515; t=1783359583;
+	bh=3Ijv0Cx5Er5paIrljXWxNnEthBLXb9Gwgrh0LYZ8Nqw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=d2725Cv2SbkjroOwXMCQ90Zndp1LCuuP+oxD7Hh1kJOXd4cBLnMayT8qAJelXWBI8
-	 wxwtlzFw59VLpTzpvISqrJp7o8+KHZg2XbWqJtSV2ePjsrcZMQM9+7wxE1AtoN8lhP
-	 oOEZaDxRF15LYlsQQ3CJIiEW6aiz2tpMHHO1reqpVuHFtdyTssr3YAJLHHuxNYl7x0
-	 9CtYw7IRPgP8iZr/D26YVgqq17gzEp8bdc9vcEPf4+W1tivITxsqzgFgkIgsVj1a9a
-	 EbMcEECvf7SpMo9X7E8VDwa04ifSCb2J8VD32DgfuB+EDAm3wNAzgeb+YwhbE4ooAB
-	 HblcgOXbvch/g==
-Date: Mon, 6 Jul 2026 18:39:03 +0100
+	b=TgNzUPmbDuK7hGi3J7/zuV/uS/0cUt8v9gLyj+gZ/skpvQQEi+BK6ozF3jo3SjnzN
+	 bdBSuXMfcPtDUXjzzDbzT3RzSvSaEcT6IeQCxQENaVKAjd22BFLSyiNRKRvE1lS4MW
+	 qjREb9gfmwYZXokBPNNanyyVJD83WVIkQyffI+yvLhYB2Gbo8rrIjejishdnRPDrd6
+	 ABr8f8fI366cENbWaTCLp+xdDwsYPQ8n44I8kGZbdKxk9KV22JGTZl3/7OcsMOjB/a
+	 PSa3hCeiHMWTX5rAoNlGb0mk9Woi6gCnFDzFxfqZbqMbtTL4l273Wa2qNvoOrInwFd
+	 OKHpzKAhl9W5A==
+Date: Mon, 6 Jul 2026 18:39:32 +0100
 From: Will Deacon <will@kernel.org>
 To: Jinjie Ruan <ruanjinjie@huawei.com>
 Cc: catalin.marinas@arm.com, tsbogend@alpha.franken.de, tglx@kernel.org,
@@ -63,16 +63,15 @@ Cc: catalin.marinas@arm.com, tsbogend@alpha.franken.de, tglx@kernel.org,
 	chang.seok.bae@intel.com, tim.c.chen@linux.intel.com,
 	x86@kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v3 00/12] arm64: Add HOTPLUG_PARALLEL support for
- secondary CPUs
-Message-ID: <akvoN5vvQaW3MdmI@willie-the-truck>
+Subject: Re: [PATCH v3 05/12] arm64: smp: Defer RCU registration during
+ secondary CPU bringup
+Message-ID: <akvoVCNFwDorQg6y@willie-the-truck>
 References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <ajvKkLw5bL-FT5JC@willie-the-truck>
- <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
+ <20260624092537.2916971-6-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <32d41a67-cf37-4079-8218-bed2b73bbf14@huawei.com>
+In-Reply-To: <20260624092537.2916971-6-ruanjinjie@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,38 +86,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jinjie,
+On Wed, Jun 24, 2026 at 05:25:30PM +0800, Jinjie Ruan wrote:
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index c14b179c595d..87f92cf9ffa8 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -35,6 +35,7 @@
+>  #include <linux/kgdb.h>
+>  #include <linux/kvm_host.h>
+>  #include <linux/nmi.h>
+> +#include <linux/lockdep.h>
+>  
+>  #include <asm/alternative.h>
+>  #include <asm/atomic.h>
+> @@ -215,15 +216,23 @@ asmlinkage notrace void secondary_start_kernel(void)
+>  	if (system_uses_irq_prio_masking())
+>  		init_gic_priority_masking();
+>  
+> -	rcutree_report_cpu_starting(cpu);
+> -	trace_hardirqs_off();
+> +	lockdep_hardirqs_off(CALLER_ADDR0);
+>  
+> +	/*
+> +	 * Since RCU is still offline on this CPU, any nested native printk
+> +	 * or lock acquisition would normally trigger a false-positive
+> +	 * "suspicious RCU usage" lockdep splat.
+> +	 */
+> +	lockdep_off();
 
-On Thu, Jun 25, 2026 at 09:34:36AM +0800, Jinjie Ruan wrote:
-> On 6/24/2026 8:16 PM, Will Deacon wrote:
-> > Please just give me the time I asked for. If you want to help out in the
-> > meantime, there are plenty of patches that need reviewing...
-> 
-> It was a mistake on my part, and I sincerely apologize for wasting
-> community review resources and disrupting your schedule.
-> 
-> I will absolutely back off now and wait for your official series. Lesson
-> learned. Thanks for your patience and for calling me out on this.
+On the flip side, should we really be taking locks at this point? I'm
+actually quite sympathetic to lockdep here and I worry that disabling
+it briefly is going to hide real problems down the line.
 
-So I've mostly got the old series back on its feet:
+ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting() earlier") was to
+handle the useless print in cpuinfo_detect_icache_policy(), but I've
+decided just to remove that one. So I think the remaining prints we have
+to worry about in this early boot code are from error paths in the
+CPU feature detection logic (check_local_cpu_capabilities()).
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+Given that those error paths should all be fatal, perhaps we could
+rework cpu_die_early() and cpu_panic_kernel() as macros that take a
+string argument and either call printk_deferred() (similarly to what you
+suggested in a previous version of your series [1]) or do the
+lockdep_off() there before a pr_crit().
 
-but there are still two issues left to resolve:
-
-  1. The printing that can happen before RCU has started. Although I've
-     reduced this somewhat, there are still error paths in e.g.
-     verify_local_cpu_capabilities() that print a message before dying.
-
-  2. check_local_cpu_capabilities() can mutate the system capability
-     state via update_cpu_capabilities(), so it's really dodgy running
-     that prior to synchronisation.
-
-Since you've added patches in this series that try to tackle these
-problems, I'll reply on those two so we can figure out how we would like
-to proceed.
-
-Cheers,
+What do you think?
 
 Will
+
+[1] https://lore.kernel.org/all/20260618092444.1316336-4-ruanjinjie@huawei.com/
 
