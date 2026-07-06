@@ -4,74 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3EB0C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:39:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190EFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Ijv0Cx5Er5paIrljXWxNnEthBLXb9Gwgrh0LYZ8Nqw=; b=1ujhJU6E4oVtk8iPidMz9rUxSp
-	/PNI1Mp2LzPjKyVerf8RQcduOKMfCFtrYY477F4cBI1Jmd8XlNzkjObNhxds6ntIZ3tvOhnbkbsH9
-	YJRDdmw3h9MFAGhsKKJ8ZMFBR2a7+tlLX9tWq1cOcrxeUwUpoYXzER5sGRmLe+Qp8xM0obNjEG4hp
-	muokx2zOH9UntODh4ooHgN3UzeVqKZMigQYPBqeWnZ6Yhr6ipZFPI+c8mC8h+0RnURDSytE/OM11L
-	n6dPRd3Ha0oP0LyiRJMiSjYpB4idPzeaRuPa/e32bACeF36zMxKufgTcz0gvs1a7c15PvsuGNlo85
-	87uIRvRQ==;
+	bh=9uBedfQnt54K3ZMGv2Ss49+XG5FadQKRRqu0gaUuWt0=; b=tyRoXm/bxeqKsI23sX/lfa0UAJ
+	vSHC+KtsTSl1pIerjBqBWIESx1Rr+uwg3fFOvpgUIR0/Jykh0eT1EifmUL9tJVY3pVi7ciult69cf
+	hhhurNCVuqTZxMTkHHjGq5dzqP4kITuzO9G0PdBcb28CxEJUyIvBL1XImDij5IY7oC7uBwLShuD2l
+	kWpD0to+QHcVMoZJ0UZpTD+Z2j0F6LKxlq9J4W1CUl4t3VtXceiZFbTh7bby37dl7rfwloBJOvcmg
+	Z7wQ7JImV0sb9WOKSlGjo7bWFq98yKVPeIlEzvhIUgm4fUYvulvJzICs0xfBrxN9QAjhXFuaSelSN
+	ACgDkmVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnIG-0000000DDuJ-3AlN;
-	Mon, 06 Jul 2026 17:39:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnIF-0000000DDtm-2DZq
+	id 1wgnIL-0000000DDwH-3gUi;
+	Mon, 06 Jul 2026 17:39:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgnIG-0000000DDtr-0X6a
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:39:43 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 47DF1401DA;
-	Mon,  6 Jul 2026 17:39:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 053371F000E9;
-	Mon,  6 Jul 2026 17:39:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783359583;
-	bh=3Ijv0Cx5Er5paIrljXWxNnEthBLXb9Gwgrh0LYZ8Nqw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=TgNzUPmbDuK7hGi3J7/zuV/uS/0cUt8v9gLyj+gZ/skpvQQEi+BK6ozF3jo3SjnzN
-	 bdBSuXMfcPtDUXjzzDbzT3RzSvSaEcT6IeQCxQENaVKAjd22BFLSyiNRKRvE1lS4MW
-	 qjREb9gfmwYZXokBPNNanyyVJD83WVIkQyffI+yvLhYB2Gbo8rrIjejishdnRPDrd6
-	 ABr8f8fI366cENbWaTCLp+xdDwsYPQ8n44I8kGZbdKxk9KV22JGTZl3/7OcsMOjB/a
-	 PSa3hCeiHMWTX5rAoNlGb0mk9Woi6gCnFDzFxfqZbqMbtTL4l273Wa2qNvoOrInwFd
-	 OKHpzKAhl9W5A==
-Date: Mon, 6 Jul 2026 18:39:32 +0100
-From: Will Deacon <will@kernel.org>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, tsbogend@alpha.franken.de, tglx@kernel.org,
-	mingo@redhat.com, bp@alien8.de, dave.hansen@linux.intel.com,
-	hpa@zytor.com, peterz@infradead.org, kees@kernel.org,
-	nathan@kernel.org, linusw@kernel.org, ojeda@kernel.org,
-	david.kaplan@amd.com, lukas.bulwahn@redhat.com,
-	ryan.roberts@arm.com, maz@kernel.org, timothy.hayes@arm.com,
-	lpieralisi@kernel.org, thuth@redhat.com, menglong8.dong@gmail.com,
-	oupton@kernel.org, yeoreum.yun@arm.com, miko.lenczewski@arm.com,
-	broonie@kernel.org, kevin.brodsky@arm.com, james.clark@linaro.org,
-	yangyicong@hisilicon.com, tabba@google.com, osandov@fb.com,
-	arnd@arndb.de, anshuman.khandual@arm.com, david@kernel.org,
-	akpm@linux-foundation.org, ljs@kernel.org, dev.jain@arm.com,
-	yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
-	kprateek.nayak@amd.com, chenl311@chinatelecom.cn,
-	sshegde@linux.ibm.com, thorsten.blum@linux.dev,
-	chang.seok.bae@intel.com, tim.c.chen@linux.intel.com,
-	x86@kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org
-Subject: Re: [PATCH v3 05/12] arm64: smp: Defer RCU registration during
- secondary CPU bringup
-Message-ID: <akvoVCNFwDorQg6y@willie-the-truck>
-References: <20260624092537.2916971-1-ruanjinjie@huawei.com>
- <20260624092537.2916971-6-ruanjinjie@huawei.com>
+	Mon, 06 Jul 2026 17:39:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F31EF1713;
+	Mon,  6 Jul 2026 10:39:38 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFC553F7B4;
+	Mon,  6 Jul 2026 10:39:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783359583; bh=MBHDaVGsVT42vMuQT2poxN3PmStbNC+U0bdHG1zQRAQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZvT1HN0o81jEnYn9V3MXwMiZuVTPkj6Fc2819z233/FpG6TlTrtnUI8qs+bKW6NyU
+	 kg3Q/rygvNqYmzOVsr9WS4p75wH9B7TovzQ3wq2DtFZptYkR6ROVqjZs5NyDo1ZRzW
+	 skwyPFHTzs2KmaMzIoD4QAobC4lIdRmssfiThccg=
+Date: Mon, 6 Jul 2026 18:39:40 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <20260706173940.GB1024232@e132581.arm.com>
+References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+ <20260629090007.1718746-9-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260624092537.2916971-6-ruanjinjie@huawei.com>
+In-Reply-To: <20260629090007.1718746-9-yeoreum.yun@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_103944_291613_EA0D59D0 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,53 +72,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 24, 2026 at 05:25:30PM +0800, Jinjie Ruan wrote:
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index c14b179c595d..87f92cf9ffa8 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -35,6 +35,7 @@
->  #include <linux/kgdb.h>
->  #include <linux/kvm_host.h>
->  #include <linux/nmi.h>
-> +#include <linux/lockdep.h>
+On Mon, Jun 29, 2026 at 10:00:01AM +0100, Yeoreum Yun wrote:
+
+[...]
+
+> @@ -922,25 +950,7 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>  {
+>  	struct etmv4_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>  	struct etm4_enable_arg arg = { };
+> -	unsigned long cfg_hash;
+> -	int ret, preset;
+> -
+> -	/* enable any config activated by configfs */
+> -	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> -	if (cfg_hash) {
+> -		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+> -		if (ret) {
+> -			etm4_release_trace_id(drvdata);
+> -			return ret;
+> -		}
+> -	}
+> -
+> -	raw_spin_lock(&drvdata->spinlock);
+> -
+> -	drvdata->trcid = path->trace_id;
+> -
+> -	/* Tracer will never be paused in sysfs mode */
+> -	drvdata->paused = false;
+> +	int ret;
 >  
->  #include <asm/alternative.h>
->  #include <asm/atomic.h>
-> @@ -215,15 +216,23 @@ asmlinkage notrace void secondary_start_kernel(void)
->  	if (system_uses_irq_prio_masking())
->  		init_gic_priority_masking();
+>  	/*
+>  	 * Executing etm4_enable_hw on the cpu whose ETM is being enabled
+> @@ -948,20 +958,20 @@ static int etm4_enable_sysfs(struct coresight_device *csdev, struct coresight_pa
+>  	 */
+>  	arg.drvdata = drvdata;
+>  	arg.path = path;
+> +
+> +	raw_spin_lock(&drvdata->spinlock);
+> +	arg.config = drvdata->config;
+> +	raw_spin_unlock(&drvdata->spinlock);
+> +
+>  	ret = smp_call_function_single(drvdata->cpu,
+>  				       etm4_enable_sysfs_smp_call, &arg, 1);
+>  	if (!ret)
+>  		ret = arg.rc;
+>  	if (!ret)
+> -		drvdata->sticky_enable = true;
+> -
+> -	if (ret)
+> +		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+> +	else
+>  		etm4_release_trace_id(drvdata);
 >  
-> -	rcutree_report_cpu_starting(cpu);
-> -	trace_hardirqs_off();
-> +	lockdep_hardirqs_off(CALLER_ADDR0);
->  
-> +	/*
-> +	 * Since RCU is still offline on this CPU, any nested native printk
-> +	 * or lock acquisition would normally trigger a false-positive
-> +	 * "suspicious RCU usage" lockdep splat.
-> +	 */
-> +	lockdep_off();
+> -	raw_spin_unlock(&drvdata->spinlock);
+> -
+> -	if (!ret)
+> -		dev_dbg(&csdev->dev, "ETM tracing enabled\n");
+>  	return ret;
+>  }
 
-On the flip side, should we really be taking locks at this point? I'm
-actually quite sympathetic to lockdep here and I worry that disabling
-it briefly is going to hide real problems down the line.
+This is most valuable change for me, as now we will have much clear
+scope for what is protected ("drvdata->config").
 
-ce3d31ad3cac ("arm64/smp: Move rcu_cpu_starting() earlier") was to
-handle the useless print in cpuinfo_detect_icache_policy(), but I've
-decided just to remove that one. So I think the remaining prints we have
-to worry about in this early boot code are from error paths in the
-CPU feature detection logic (check_local_cpu_capabilities()).
+However, a corner case was mentioned by Sashiko:
 
-Given that those error paths should all be fatal, perhaps we could
-rework cpu_die_early() and cpu_panic_kernel() as macros that take a
-string argument and either call printk_deferred() (similarly to what you
-suggested in a previous version of your series [1]) or do the
-lockdep_off() there before a pr_crit().
+ | It appears etm4_enable_hw() modifies drvdata->ss_status while executing
+ | via IPI, but sshot_ctrl_store() can modify the same array concurrently
+ | from process context since the lock is no longer held across the
+ | smp_call_function_single() call.
 
-What do you think?
+"drvdata->ss_status" is a race condition between SMP call and sysfs
+knobs. Should we change to spinlock_irqsave/irqrestore when access
+drvdata->ss_status?
 
-Will
-
-[1] https://lore.kernel.org/all/20260618092444.1316336-4-ruanjinjie@huawei.com/
+Thanks,
+Leo
 
