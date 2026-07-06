@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29E4CC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29905C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQiMVMx4zM7AUICQBs4M4uVBI5SQsJSaNu2y2QlLlKE=; b=OC4uuINepQvKFh/fgyxZ/qXI0T
-	+5I/88B5tbpBNVfN/cPcAsXJbntbL2cITOfOO3/wakTs/fTjQRsRLTft4iXcWlghRAR5/6kYT2C0x
-	Y/7JxTZWHP1kL4ddqxbQL/0zqJwiB7e2BptDueZaXztFPLdM9fTQ3kebt7vPcEyyIJAo1GHZwUDAa
-	6cZepCfOyB6iwNYRUPFjdex1A9Acn6vDLKmEOXPcgnQaVbIIMLQYAELJyVjISt40x+Y/SIa0E6X5I
-	t2v7Y/ZwjAH9NM7HsnCWb5AKZWiwBv34oYg7aiZMUFpt6g78v+ULYdYWRw0fsVDhf5LnVWYVBBY1v
-	GydR9U+w==;
+	bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=; b=yYRytLzu+56qIeneMRnTLwQUqH
+	qQBoSIbaQIEXybC4aTrsJ/w2QxSHuv1tJ8WdzqT0cmxUFRE07nBNj8jieCh/2y70htZ2wjRw1kasT
+	JlKx18aVlHanxV66/HZQTqHS2EcrecJyfi4lRotn0TsQa3KfRya6VnKel4JvAxaKL7w8wYSrDPTyy
+	LCecW29w0FsGXatbwR60Qx0/s9efQyxspcc9iLDK8Y8iwzlvq2FAoI0WzLnWpAD4xiBpHPWraVTYA
+	hLDsvd7g5tmhb01ZEewhLxuEOq2IvTnDY1fnMVUtPG4bpfjT/4QMcHiNWkC7ELfvyRR2mRg6oxhbt
+	StYdpxkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnWm-0000000DFn2-0b5U;
+	id 1wgnWm-0000000DFoL-30NS;
 	Mon, 06 Jul 2026 17:54:44 +0000
-Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnWg-0000000DFdv-2ajs
+	id 1wgnWi-0000000DFh7-13d0
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 06 Jul 2026 17:54:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=; b=q1p5sOflw1tF70jtE1SEdtKLZi
+	WExttkWMpLc9B1p3B0be/I3/vDldo7AapNehPgbthTJ0z+YRNoNxs1qGrArIiqs1UBOucDLNfyR/U
+	6vdPNPmnm8v4HW7oet7ORi3MHjry4swXcIsaHnc1vVFwY6WGpjqDqAi0Pfge8Uxpm1Gh9pJ5MCPJg
+	ZTdILyW+jXbhqveto9qpp4I6Zhmt6OsrR7rb64RypvsJ0bDMH34iEt37c9gUQzRf6T/vOXUutjVNe
+	az9O31D3tR+B4n7EcgFgbBFix8/egLy3niOF1Wao/Q+RL/4r9Mi3eBTsnBIQW+A8l8+offcqFoJ48
+	p0mLZW1A==;
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wgnWf-00000006p5Q-1d0s
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 06 Jul 2026 17:54:39 +0000
-Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-69848ba0656so3035713a12.0
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-493a7fa8481so294185e9.1
         for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:54:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783360475; x=1783965275; darn=lists.infradead.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TQiMVMx4zM7AUICQBs4M4uVBI5SQsJSaNu2y2QlLlKE=;
-        b=DU9D17zdUAF/h0Py+jwoRUKV3i3YM13+ULDa8R3eMH27ERnjup2DjN/nxX/q3vpcuy
-         KOkWp3xT5TBme1GNxYvH51H6KhjIlcmq5Gz4EUuqRcIXzuaZaIWViOeAZ9Xe4yj7Yzdi
-         81zm3Y5Z2Dd8/LBQqJme3XHFot6fglf9R/ckVzpCB559nUdyAXOWYcXxuVr49Xo/b5CS
-         lrYbWWplO05h/vvyvZ7Y6Vx8WHrSLksr2dbglLIYW+N+IvaRYNZhVWoGj2uKeyCBoHze
-         gtum4G78yV1C+yFVhHXDmSZwSAkfBTtUSjc5HqLa+cwxRaAVoajd0HfY7zOR/g8Jpagk
-         g2lA==
+        d=google.com; s=20251104; t=1783360476; x=1783965276; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=;
+        b=LFgYt4LgVIGB0dEewJyGmdWk4MJZCyrXnXi/E8tgRaOglvtIrVYx2h/jgfr39S/RcO
+         FAjxkc1VzXgpFuDKXMpmOEWid0qRzMVsy4MWTr5gyEfnrc1LhH1JMxjdxwDeubBVnH19
+         5TRJ5BMzq36cSa+k7kywmw8l6nyDIjWEG0WL6uaM6TSh8EjDn3Nyg6SA2I2auG3R1nak
+         sdzYyULwdCQXNzPbt2QkwqQdjE61cEQJkS+F3KChuXJYai9mnhO1GDgfAGpx4/7PZqeJ
+         7u+2I/LQfMgAz/AP4RISrpAkJBRYFB6ZfJuh+oSDPM+eL+oV5WCIjFzOJGlY5ajW9Llu
+         3lpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783360475; x=1783965275;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TQiMVMx4zM7AUICQBs4M4uVBI5SQsJSaNu2y2QlLlKE=;
-        b=DCXApgFALu0VCYogoGxziar62A1u+jrpDkmmM1EgJzLYOgoKuulnwxszgRbcdfBQxJ
-         46zDnAWmBIJrm9JWug6PtFjwI2gaXN98Dlpq6ammZZ12RcfcYEYR9Om8FUZO1XdVvPcl
-         jRZnUzuVTAZIeZzWnxR/cFagW8GtHzeIqOBwmvYwnDLFafI5xEDvHIOsc5ysw/B5wmUt
-         UHD/4K/2pYUeKkmIhu3y+UnZgH43/udznTZy3Mi/kjGqHuPxuL3emKdkLhjRyfG8WTRC
-         AgY5qEG/y4iCidAMwfnLDCc3esPQ10DoqGPylc3oZie1bbafDLacl57WQlgcKPsR7SQP
-         qxIg==
-X-Gm-Message-State: AOJu0YxuGuus6HXeLwZ+xpbxk5ZvGu/FRwxhauWfTx4yjx5GgndbRvtH
-	3tBaMbLQjqKrwhKBs/7s9HFoGmM2tgeNY/7Z6QHEhKXPuHDerefYFCI1T+EiWVF6pUwKVvLFh5X
-	8nY24ztmuoY6xe8CptJSCNg==
-X-Received: from edrl12.prod.google.com ([2002:aa7:c3cc:0:b0:698:c100:5437])
+        d=1e100.net; s=20251104; t=1783360476; x=1783965276;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zboxgN5bMNXSf6lrUmEWx4BFr4AoapL6ahNKlrvd4RE=;
+        b=oeZm69XGG1cn3B1uELhkwFEfdTSLeo/hZMgfwFGUYcayVtpu+4eCHd5+BdCUukGFVi
+         DIhJKmqnUnIDSWqzTG1X1d2p2t2HX5x/OaSHBGAVEv1Isu71Gzb2rKpOz+uuMkSI+t4U
+         o6NUDwvMzQ1E68XFmlbd9w9nZG3OqpSKxGz/Lh7BTunTnO+aRlq5zFKcpqVDnNCt1FZM
+         iRhviOUT7HiQjoTIGuTY90BBpAxDxBi48/N4hXvIt0IDsGvBSjbYRWuoW9xwEltKOYrb
+         fdFCFX1ukpLXWCrPW4N2OQnVqroOax0KC80Eeb3uKShijy7N0D9nTzI+e1bHbEUcGUgY
+         PSnQ==
+X-Gm-Message-State: AOJu0YzcPYGzxa7g9jZvYtRRRIaJSR7rJHJFBq4SbW4b8IC/HOR0jUDE
+	PA+EuFsE+ubzoSou0N04i4ozgI4J/dfdYqYuRQTYeWmnRWN0IQvZAPK/BBfRO3ox37GHdTgMU1C
+	Bz5vvmHn8BVi0a/1enzJ0aw==
+X-Received: from wmbfp12.prod.google.com ([2002:a05:600c:698c:b0:493:bc2d:feac])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6402:516f:b0:69a:6f1:d2f5 with SMTP id 4fb4d7f45d1cf-69a85c49758mr744077a12.40.1783360474512;
- Mon, 06 Jul 2026 10:54:34 -0700 (PDT)
-Date: Mon,  6 Jul 2026 18:54:08 +0100
+ 2002:a05:600c:1993:b0:492:6f5c:fd8c with SMTP id 5b1f17b1804b1-493decec719mr17728345e9.15.1783360475525;
+ Mon, 06 Jul 2026 10:54:35 -0700 (PDT)
+Date: Mon,  6 Jul 2026 18:54:09 +0100
 In-Reply-To: <20260706175415.2604046-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20260706175415.2604046-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
-Message-ID: <20260706175415.2604046-12-vdonnefort@google.com>
-Subject: [PATCH v2 11/18] KVM: arm64: Add a shrinker for pKVM
+Message-ID: <20260706175415.2604046-13-vdonnefort@google.com>
+Subject: [PATCH v2 12/18] KVM: arm64: Filter out non-kernel addresses in kern_hyp_va
 From: Vincent Donnefort <vdonnefort@google.com>
 To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
 	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
@@ -76,8 +89,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_105438_730673_454179A0 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20260706_185437_588521_8D7993D7 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Integrate the pKVM memory reclaim interface with the host's memory
-management subsystem.
+kern_hyp_va() is idempotent for the hypervisor linear space. This is
+handy for nVHE hypervisor callers handling kvm_vcpu or kvm_arch
+pointers. Those pointers can originate from the hypervisor space (when
+protected mode is enabled, we don't trust the kernel and the hypervisor
+uses its own copy) or from the kernel space (we do trust the kernel in
+"non-protected" nVHE).
 
-This allows the host to automatically recover unused memory fom the
-hypervisor's heap allocator when the host is under memory pressure.
+This idempotence does not hold for addresses within the hypervisor
+private range, like the ones you get from the pKVM heap allocator
+(hyp_alloc()). To resolve this, filter out non-kernel addresses based on
+PAGE_OFFSET.
+
+Leave the assembly version untouched as it has no current users.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 50adfff75be8..3dc2b9d2c322 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -122,6 +122,8 @@ static bool vgic_present, kvm_arm_initialised;
- 
- static DEFINE_PER_CPU(unsigned char, kvm_hyp_initialized);
- 
-+static struct shrinker *pkvm_shrinker;
+diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+index 6eae7e7e2a68..d60e5f2de10c 100644
+--- a/arch/arm64/include/asm/kvm_mmu.h
++++ b/arch/arm64/include/asm/kvm_mmu.h
+@@ -126,6 +126,9 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
+  * replace the instructions with `nop`s.
+  */
+ #ifndef __KVM_VHE_HYPERVISOR__
++	if (!is_ttbr1_addr(v))
++		return v;
 +
- bool is_kvm_arm_initialised(void)
- {
- 	return kvm_arm_initialised;
-@@ -2526,8 +2528,8 @@ static void __init teardown_hyp_mode(void)
- 		}
- 
- 		free_pages(kvm_nvhe_sym(kvm_arm_hyp_percpu_base)[cpu], nvhe_percpu_order());
--
- 	}
-+	shrinker_free(pkvm_shrinker);
- }
- 
- static int __init do_pkvm_init(u32 hyp_va_bits)
-@@ -2713,6 +2715,18 @@ static void pkvm_hyp_init_ptrauth(void)
- 	}
- }
- 
-+static unsigned long
-+pkvm_shrinker_count(struct shrinker *shrink, struct shrink_control *sc)
-+{
-+	return pkvm_hyp_reclaimable(PKVM_TOPUP_HYP_ALLOC) ?: SHRINK_EMPTY;
-+}
-+
-+static unsigned long
-+pkvm_shrinker_scan(struct shrinker *shrink, struct shrink_control *sc)
-+{
-+	return pkvm_hyp_reclaim(PKVM_TOPUP_HYP_ALLOC, sc->nr_to_scan);
-+}
-+
- /* Inits Hyp-mode on all online CPUs */
- static int __init init_hyp_mode(void)
- {
-@@ -2883,6 +2897,16 @@ static int __init init_hyp_mode(void)
- 			kvm_err("Failed to init hyp memory protection\n");
- 			goto out_err;
- 		}
-+
-+		pkvm_shrinker = shrinker_alloc(0, "pkvm");
-+		if (pkvm_shrinker) {
-+			pkvm_shrinker->count_objects = pkvm_shrinker_count;
-+			pkvm_shrinker->scan_objects = pkvm_shrinker_scan;
-+			shrinker_register(pkvm_shrinker);
-+		} else {
-+			kvm_err("Failed to register shrinker for pKVM\n");
-+		}
-+
- 	}
- 
- 	return 0;
+ 	asm volatile(ALTERNATIVE_CB("and %0, %0, #1\n"         /* mask with va_mask */
+ 				    "ror %0, %0, #1\n"         /* rotate to the first tag bit */
+ 				    "add %0, %0, #0\n"         /* insert the low 12 bits of the tag */
 -- 
 2.55.0.rc2.803.g1fd1e6609c-goog
 
