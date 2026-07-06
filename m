@@ -4,155 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5511CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:28:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ACA9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Eomb3JuyWkDvmD5FE1h5a+nV25tHrQe7LrxK41ZEy9U=; b=BCKd9zTnDMZAUzZR3pCOXGzrea
-	9mO1C+6ofwlywZY8GrOKWXRYN8JTrmx1wVZMyJQMYOHT4qSy30vtQD9z/yB/ZuELE4LCFkIZ0cIu+
-	h5640iQ+GIQj5HqmZKKYVZIs4czkm1+ppWIxVfXLoeFgGH8tVihP3f1yul0UDn5IV9Xn3jrbBGmEY
-	WY7htNUqWO63Wi3jafO65p8yuFnvIuzEEBVrIIi9DMBXZeR4vNA2ht+nQxeH66zmyMoqeBQRJ+hCU
-	YeKzxNqfy7xL9vHAmcPEnAtrvDmsKSZPvpElIYBxAwPN28KTTpyDOVGq+ZxVqnjB7EAZusvFpmrdI
-	GANfbHEA==;
+	bh=UySQoeOiZiTRx4ilIF+QUO5yfR3H2LiGVWZLk1eEu4k=; b=fc2AlDJG5maWoZNqFYCHQYmrdg
+	7rTUZ1kzWvYxD669IHI0DwaQKlAiAbK3XTLsK8ou8lhQxot7ctPoUrfKFngKXZqgUD4vy50tXS9oV
+	5it+iXdKKTWsno9ckKqnGqBqBOpaVF1M5szNSUSVVgnYV1bQ8mGgcHgf72tzdtd3mDog1wwiUGeR0
+	xDysx3G8KOJOra318O1o2Gs4JqZdSoBqFvIkYFyJg2wuR6eo96kcvR6oNmvFFoNDzrT/WSvpEN9IX
+	JDZNAXtkvF0wky61qBVTLN+VwidGetyjcNBTqQQ7ToSS9VzpCDPwZPtCO4GJBEWJNXYlim3W5Nogk
+	ZXzrJpJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglEq-0000000Csw2-3v5A;
-	Mon, 06 Jul 2026 15:28:04 +0000
-Received: from mail-norwayeastazon11013045.outbound.protection.outlook.com ([40.107.159.45] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1wglIF-0000000CtPe-0nQI;
+	Mon, 06 Jul 2026 15:31:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglEo-0000000Cstt-2Y0B
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 15:28:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gtQdL9RVP9mqMikWLTt5Ik4IntzWrJpkm/3IxKeP06okgpOo3zk/uErVslBV4uc0x7MIoTlJMfNbzphvmlZ74Q5bKXb10jVw5SvPOrni4Dsxdwp12r52SJdCj9jj2xrrd1AYIVEKJUV7fDHOav+ZFi+qC5kjcHx8eWlN9Hp1g4ZuqdnCej+aPmkRxokHR2HqMwINA0KxK7yiqIRwxOsW0zY9/KKeUM40SxM+8y0V3Z5wxjTz+d4zE12W+2o0NG8D90purK6ocamTnDg9F9euIznJI/c666LKT2nBIqcQHVlvuH0jC+6nxlibcqdv48o23aCul/ITto1BNZZFnOILIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Eomb3JuyWkDvmD5FE1h5a+nV25tHrQe7LrxK41ZEy9U=;
- b=GZQiSlQsYGK4yTnBo6XNJr9lQV8kqIgrKN2N+jr7yApxrZEmkhq6RoBlNH4FFfv2HphxtR4BBKazjJXqhztRnl6TCLlt0PthKVj5D0x4Cjg15r6nCgrMkRtWOXkNDeoA93A13Kcyi0JdfpuSMsoLZ0QIT7ChUjLC8bTsVR8orouvEvpKjnPr8RnD2TZAyxbD1Ki8xpVmJPeQXRZawA5ckNKl2FI3wABBtwq9bOzFkBlVRxPuopx/acvfKPbVnZG30MXjKKO/t+U0Z6RtcCrEt6nFVDN9K7Rh8oKAZxgG5apoqRsGtRvM5Z8QG48XHEZ2AXgbuU6NSGJYLukWvWCQWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Eomb3JuyWkDvmD5FE1h5a+nV25tHrQe7LrxK41ZEy9U=;
- b=Oe22bWa2ePHahvQskE8LWxIhy3Zb7KsO8ZSpC5FM5ebZ8+Pi/iVp1rFmKWSMNYr9jx2htj2Lt+IhmClsXW6PVjLt8bC9iveF5/gAaYoH+DMvHUrdqotGxYVHaAfpKzLbgmfGD6Ng2BiyQr2Q2PRG7WxsdqCNB2NKNd/T5cYJKkqilC0sHTvuqNAxjsIyg6qFK8rvj9wvExURyja/vrxAMHJSPhr1wBCC8wNnrE9dQV7Q2T53oV3jl0O7vLMp8XylO0w06u3zINS1zeetMX3wkCt2y8ej3mWnzb6sthYSybay46kl7jxXSMiu1zRqNVj7uuY7cRL5l0r58uiYmmZODQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by PR3PR04MB7483.eurprd04.prod.outlook.com (2603:10a6:102:86::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
- 2026 15:27:58 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
- 15:27:58 +0000
-From: Frank.Li@oss.nxp.com
-To: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: Frank Li <Frank.Li@nxp.com>,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Josua Mayer <josua@solid-run.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
-	Maud Spierings <maudspierings@gocontroll.com>,
-	Francesco Dolcini <francesco.dolcini@toradex.com>,
-	Hugo Villeneuve <hvilleneuve@dimonoff.com>
-Subject: Re: [PATCH v6 0/3] Add support for Variscite DART-MX8M-PLUS and Sonata board
-Date: Mon,  6 Jul 2026 11:27:38 -0400
-Message-ID: <178335164745.1364211.8204247462803241878.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1782898728.git.stefano.r@variscite.com>
-References: <cover.1782898728.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: PH0PR07CA0048.namprd07.prod.outlook.com
- (2603:10b6:510:e::23) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7483:EE_
-X-MS-Office365-Filtering-Correlation-Id: 832f3864-1dc5-4798-19ab-08dedb732837
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|366016|376014|7416014|22082099003|18002099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: /v2beoo8zTHnxZd+tbj40vxSYHDRLdSSHUn2bHZgduMCyaVWBc6H6MF3QCXAadJECEaEE6xHzOkvuR40Xe06fho9JMLk22IEuZ4w9UIHva95z1VhiAk8ctU0pNL18IY+DzMy+zc46PdXQrdxhnp6nTtjKqnTGoazQzJlIMDMVqd/LZRg1U3TfhZU/wpKHhJhunJRmDdHci65cg37Xd9jlwgFiWsqKK/ju1GNZMMw9MkqhRtDaCUOlX1B0YO2jBY6jJ7HcmdAMyc3yPXzjIrlkZVKdNYBS6djuoV7vMjxyANQlVpYHWrjOri2ErBG23jBe2IjFibPN74pPtUzc9mNg7TvGAsFgmxstukP4T00vg1bY3uoSX2DxiEImkiDzMkGK196sqj+e/Vemfy08Ov/0burXij4dPyKM00S1OQuldsXP0TY3QYrUp0Ei1clpQKNv/x4KLC8ERUGAtNwgKnt1UTtXLz289Yb87lF4g+9BnpT4Gg/AbcoaqoY1TjGBL1L8aLyuno9XW9X2HwLM6ISDpFK9WOIW3l88ipspEnWbY00yjGNm/hsmPYQch/bgV18Il1G71fbVu2fr/6Qxp1GenAOmmNq87isXlq5A7EO8xhJUigU7V9Urk+EyL18JVRi3cTvmaXZTb4iBByJuve8tZlqa/PmrUHnowJ+XI/njy4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(366016)(376014)(7416014)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WTNtRmF0LzRVWUFMcHQxbzg1VEtlU3NIc0NIRXN0WkZrNDlzNDU5VE9mS3FL?=
- =?utf-8?B?UFh4VFNHSzZ1dDFCMnZoc2t5TUFMK2FLNkMvd3FjRk1RRWNZS25oLzlvYTh6?=
- =?utf-8?B?SExEZlRCc3NsbzJWek9lR09XN1pGdlAxS0xXL3orSlQ1cG55eFA3MGpDYmZh?=
- =?utf-8?B?b0NsejgzRXp3R0ZpemdiREVBNCt1TXdoT3NFSnhpMGlOVG1zc0NNdzczRjBx?=
- =?utf-8?B?UFYyZmFBWm5DSzBBSTJxNFgxK1pub1VVMDJwNVJzZDE4eERqaThjNThKMkl2?=
- =?utf-8?B?cFNQMzZrRFhyV2J4ZC9FWkFmeVJIZ2d5SEtIM3BjRm1CcmNVeG9QUDRsVjk4?=
- =?utf-8?B?VXBiZmRvbUt5S3ZXN0pKTW50ZTlzamN2dm11OGYrdlRPeTF3VFdML0JqM0RY?=
- =?utf-8?B?Rk5iaVdxR2JiSkFmRWZzSFlYalV0MTB1bXMwcnlrZGlhc0ZHaGNHRDQ1MEtm?=
- =?utf-8?B?TWhWSjViTE1nZlphK0EyWEt6Szh0Y2szbXMvcDNHRytXRVgrcmZLT0wrQTB5?=
- =?utf-8?B?Y1NQY21iQkptRTlLUFEyUVlPQlIwVkplcGN1YWNXVGpuWW5BYVprMk1LWTZz?=
- =?utf-8?B?RXU0SnQybnllOHgrNmswd2UwNzF4WUdyTGozelpjOW9XOXVxQWhlUUMvdjcv?=
- =?utf-8?B?dENhNWxsZm8rYWx3WVRqMUQ5K1MydHIvSWlnWGFPcWlweTRSTit0Q2d3QmNi?=
- =?utf-8?B?eVdiTTBKc2Z3RHZ2WWtweDVQVUZlSGEyYThhZ0NSeVZLYkZWWlY1TUNDMmtV?=
- =?utf-8?B?N1dmNlJzYzlpeTNiVGJjc0hjbHNaaUNsaEV4NDVYeFJWblc3cUNTcS90cjl4?=
- =?utf-8?B?dXVwRjA1VTN1c0pNVjhRQWJRbGVuRDM1cHFYU1BScEJyZHJCQWxtRForZE5y?=
- =?utf-8?B?YzE4RWs2c2pEbUFFMjF1dytZbXB0NHo0b2JqL1p4T2FHYVgzVmpuQWlaSXY2?=
- =?utf-8?B?eWlPeDllLzVjb0NvL3BLWkdOekREMHUxWWRiNU8vTldFNXV1Um8xWXEra3VN?=
- =?utf-8?B?SDRMZENkdmhNUUxxL3VacE5zRzFiOC9xS0oyaUNOVVgxLy96a05NeWF4QndJ?=
- =?utf-8?B?WjJCQjJDZS9HYmpGNkVXZ29kTWp5ZWpYVVJCVEdRMkl6anV5a2J4aEhBeWJo?=
- =?utf-8?B?UGhhU2plQ2ZMdTlhN05BTURtWlMrV2xBZTNITHdJWW5SdDRnQ1d1amJvQXNs?=
- =?utf-8?B?US9xTnc5UWhJWHplcmxWU3dPT3UreS91aGFyZkMxWDB1VjRscnNLY2xyZ2V2?=
- =?utf-8?B?VVBBeWxETXArK0pjaW1tQUllTnVSZ2ZEM2hQdmFYOXpJb0RlR1pzTkdYSWZ2?=
- =?utf-8?B?SGVWQjJaamdzMFhObXdoU09JWktKSlQvUWZBNjNIVFI5aUNPR0RJdmgrZDFB?=
- =?utf-8?B?RWZCUnZESU95K3Qyd1hpMm95RmgzUVhJVlBuMXhwaFBjekNoZFRlWmt5Rk9i?=
- =?utf-8?B?T2tCYmRkaVVNZjdmMDVXSUErM2lIMXdUOTdwTlhqZXRNL3V3anRETEYvamhr?=
- =?utf-8?B?M09Fb2NCNkNEWkNRZ0s3emQ5SU5JWERGWlZGYmFRUEtUVmVFRG5hTWRPVTFn?=
- =?utf-8?B?WFZmSGFqcHFBZDZXdFlaRjJiWGdXdDV3cm5SYmg0UGtBbjMwdnhSZmxHcHpF?=
- =?utf-8?B?VzF6V3FVS3JQRTUxMVVSL09HZkVSVUNRQlRqak9qcW45eHlldGN5V1lEMkNs?=
- =?utf-8?B?NzZFRkZrY2pRT2Z1OU1XRlI0NE82MC9qUVh1Vm45UkNVVXhBUUxNNFZ2eEU2?=
- =?utf-8?B?WThxbXZTUEhvY3Bwc3pSVDFYWDhkcktyOVRMRWtvZWxFNnBkUmRPLzZNRUl2?=
- =?utf-8?B?VW40WTdIb1pjbi9UUm56dlZySjhRQno0c0FiSUpMU29Oc09zK1E3Q3dMVXh5?=
- =?utf-8?B?cUdPek9qSzhxazh6S3BNZ1E1N1FHdDVWazFOenhJQlhKSFBnci9GYklKYkQx?=
- =?utf-8?B?T0c2T1NwL0pjNkdWUE42a3FkUStmQ1R4eTAybjBaWk9vVUdodzVnM1FPZXJ5?=
- =?utf-8?B?YkVXQUh0ajh5VjFWVnJ3anVxRGttOG95Rm85RDEzaGJRb1ZSdnIxN3NwUWNn?=
- =?utf-8?B?SzkvSmJKREFCMDRGUXpCNnl5Vmx0VFAzakdDcWZyY0grNnpwc3k2TEJTWWRv?=
- =?utf-8?B?NjV5QzNpdE9wNU13ZElvY3ZnREQzYnhwUGE3RUd3MGkvRFNCSG9OWTY5b1k3?=
- =?utf-8?B?WXhpOTFyZ280RU5kM0hmVHdLMndRZUxHTTNBeHBQeS9BelFtV1VNVHk1MWdT?=
- =?utf-8?B?TGFaMzFvQWVFZlNrYjBOM2pIcHVSdllRNXdIS0dTUDBRWFFNNVBZaVl4NnVz?=
- =?utf-8?B?cUxQT2F4czV1MnN0aFY0NGUrSDB6Ukg3K2FwK2VKbU1zVEQ1czdmNUNRWGdr?=
- =?utf-8?Q?TjLu+xyqG/RkwYEwAxDVk/np77PoKZba/aOWl?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 832f3864-1dc5-4798-19ab-08dedb732837
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 15:27:57.8748
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: pLCZdVTkmIWSp70c7HATN4KW/9Yu0E6Jpzy0KEWtEf3iElHHE6yl5pD5ihu4+4C/A9nAc/4DkG/FDzwuwAhE3aaGpAECe6TyUF2EziQcTeVHrzmG/9aWRA20Hdw6fSFu
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7483
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_082802_654234_4FA26C35 
-X-CRM114-Status: GOOD (  11.75  )
+	id 1wglIE-0000000CtOs-1jKE;
+	Mon, 06 Jul 2026 15:31:34 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9EA0D61389;
+	Mon,  6 Jul 2026 15:31:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E2AC1F000E9;
+	Mon,  6 Jul 2026 15:31:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783351893;
+	bh=UySQoeOiZiTRx4ilIF+QUO5yfR3H2LiGVWZLk1eEu4k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=WLv+ANFN1Csm2ZjBU/d+YjV9w+/draJy3PgU/mXwkjs0YmKzUxeA8N0a1Q5PfhBwn
+	 KF8A4mUfowE7OOIHRIIzmlPXE7eyZ6UKRIRx01twwFMH5mPfPZFOhGmysvYCqNW0qs
+	 Fp0W8YGcXzQ/9BQGpR9uWA1KGUpUWhlb/lg6UvBUHWMkJFZx24SMskU1KzdHsBkbQF
+	 ur9GxGcylwov8LhchXn/yLNh2nHgzUU4ioYrsoOwQ43oWvndjcLzq0gNATuN00VYzC
+	 koJcoDuTkGZOmwXaqwKI2JtaT/GYThWLRYvHzWAOsg7A2gI21o7gWkBgKmlhgiG52i
+	 69+PqK/zPIR5Q==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wglIB-000000020uA-10FB;
+	Mon, 06 Jul 2026 15:31:31 +0000
+Date: Mon, 06 Jul 2026 16:31:30 +0100
+Message-ID: <86echgp225.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: John <therealgraysky@proton.me>
+Cc: Mark Rutland <mark.rutland@arm.com>,	Daniel Lezcano
+ <daniel.lezcano@kernel.org>,	Thomas Gleixner <tglx@kernel.org>,	Rob Herring
+ <robh@kernel.org>,	Krzysztof Kozlowski <krzk+dt@kernel.org>,	Conor Dooley
+ <conor+dt@kernel.org>,	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,	"Ivan T. Ivanov"
+ <iivanov@suse.de>,	Stefan Wahren <wahrenst@gmx.net>,	Andrea della Porta
+ <andrea.porta@suse.com>,	Peter Robinson <pbrobinson@gmail.com>,	Stanimir
+ Varbanov <svarbanov@suse.de>,	=?UTF-8?B?TWHDrXJh?= Canal
+ <mcanal@igalia.com>,	Gregor Herburger <gregor.herburger@linutronix.de>,
+	"linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,	"linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>,	"devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>,	"linux-rpi-kernel@lists.infradead.org"
+ <linux-rpi-kernel@lists.infradead.org>
+Subject: Re: [REGRESSION] Raspberry Pi 5 (BCM2712) hangs at boot since d87773de9efe  (arm_arch_timer: default to EL2 virtual timer under VHE)
+In-Reply-To: <vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
+References: <oTZ1wsFlcf4l8zMuD8DYCCvff35nVbFn7gTb5_vrUPSJtjVBSTmGti8S3KnbVdVWJEzP1QRbWma6UYYXyi6v2J0fl61khniPROEhsdxMIz8=@proton.me>
+	<86h5mcp4em.wl-maz@kernel.org>
+	<vUQ4-RaOlZaTlasD0DLGmWOWcVLQXYYK_yid3Tsqeyi53CPsTCpOvXSGZiz0RAyxsxCzWTXOe4zK8rzOLdtDXiVu-xBjp2VkPz9JRj9QUWA=@proton.me>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: therealgraysky@proton.me, mark.rutland@arm.com, daniel.lezcano@kernel.org, tglx@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, iivanov@suse.de, wahrenst@gmx.net, andrea.porta@suse.com, pbrobinson@gmail.com, svarbanov@suse.de, mcanal@igalia.com, gregor.herburger@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,29 +94,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
-
-
-On Wed, 01 Jul 2026 12:05:54 +0200, Stefano Radaelli wrote:
-> This patch series adds support for the Variscite DART-MX8M-PLUS
-> system on module and the Sonata carrier board.
+On Mon, 06 Jul 2026 16:20:13 +0100,
+John <therealgraysky@proton.me> wrote:
 > 
-> The series includes:
-> - SOM device tree with on-module peripherals
-> - Sonata carrier board device tree with board-specific features
+> On Monday, July 6th, 2026 at 10:40 AM, Marc Zyngier <maz@kernel.org> wrote:
 > 
-> [...]
+> > On Mon, 06 Jul 2026 15:13:27 +0100,
+> > John <therealgraysky@proton.me> wrote:
+> > >
+> > > Since commit d87773de9efe ("clocksource/drivers/arm_arch_timer: Default to EL2 virtual timer when running VHE"), the Raspberry Pi 5 (BCM2712, arm64) hangs during boot on v7.2-rc1 and later. Reverting that commit on top of v7.2-rc2 boots reliably. Found by bisection.
+> > >
+> > > Environment: - Raspberry Pi 5 Model B, arm64, device-tree boot (no ACPI) - CPUs start at EL2 with VHE - Mainline v7.2-rc1 and v7.2-rc2
+> > >
+> > > Symptom: - Silent hang early in driver probe; no panic or oops. Boot banner shows
+> > >   "arch_timer: cp15 timer running at 54.00MHz (hyp-virt)". The first blocking, timer-backed wait during probe never returns because the EL2 virtual timer's interrupt is not delivered on this SoC, so clockevents are dead. The softlockup/hung-task detectors can't fire either, since they depend on the same dead timer.
+> > >
+> > 
+> > Is that a guess? Or do you know something we don't? Or worse, is this
+> > report entirely AI generated?
+> 
+> Hi Marc - I'm not a programmer, but I can use git. I performed the
+> bisect, and verification steps by hand. I am convinced the bisect is
+> correct based on the restoration of booting.
 
-Applied, thanks!
+I have no doubt about this, as this is a symptom that has been wildly
+reported on the list already.
 
-[1/3] dt-bindings: arm: fsl: add Variscite DART-MX8M PLUS Boards
-      commit: 77c0d4cfd43353e8bdebc4eab8e579518e2dbf5f
-[2/3] arm64: dts: freescale: Add support for Variscite DART-MX8M-PLUS
-      commit: d08607aa231e026cd94b4c33077f8b8d28731952
-[3/3] arm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
-      commit: 41cd3d91ca8595f48cae5169ff8e4089c88670f2
+> 
+> My RPi5B freezes when booting into d87773de9e and reverting it gives a clean boot.
+> 
+> I used Opus to analyze the result of the bisect in concert with the
+> logs I captured from the serial console. I also used it to summarize
+> everything into a concise bug report. I can't vouch for the accuracy
+> of the interpretation, but I can confirm the problematic commit and
+> restoration of function.
 
-Best regards,
+And that's the problem. Pointing to the problematic patch is perfectly
+fine. Asserting a root cause for the problem without any material
+evidence is not good. Only the designers of the SoC can give us that
+answer, and so far they have seemingly avoided communicating on this.
+
+> 
+> 
+> > Again, how do you know it isn't functional? Could it be, for example,
+> > that the firmware has not configured the interrupt correctly?
+> 
+> I cannot. In the future, when I use these tools, I will scope the
+> ask to just factual content, rather than allowing them to speculate.
+
+Thank you for that.
+
+> > A proposed fix has been posted at [1]. Until we hear from the
+> > implementer about the state of the HW, it is difficult to do anything.
+> > 
+> > 	M.
+> > 
+> > [1] https://lore.kernel.org/all/878q898ulx.wl-maz@kernel.org/
+> 
+> Thank you for linking that! I applied it on top of 7.2-rc2 (with d87773de9efe intact) and got a clean boot.
+
+Great. Now all we need is an explanation, and we can go back to
+business as usual.
+
+Florian?
+
+Thanks,
+
+	M.
+
 -- 
-Frank Li <Frank.Li@nxp.com>
+Without deviation from the norm, progress is not possible.
 
