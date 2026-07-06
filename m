@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7C0C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745AFC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zvdZUX0l4cd+ylAABJxQg390G4+5Q/O6H9vExdJFkvI=; b=bm9SyJbjhApN55
-	rRzyqc/RgB/U7kq286xA0U0KW4FNgbDVW4s3doAwnHvstZyA8dkStXcJv1P2bL3TwUWo11kcvgz90
-	ElwmVB4AFi8MQ0laGA2WRmbCId5YApEom21WOm1WAAj+cCmA8wQjE00z6Pb4HC8maW3fos+pQrQWu
-	w7i5WXqqNzMN5zPclVSQ2vAfxIvIz0jBwKQtYXaPYkGOypywZh2rj3CrNz9HORVT3oyjgvIfTbXW3
-	jDWZ/BpPwmzugWt/LY7B+tZtxydOPAmalTmHVKj5FGdStNKO1OAxJV6fF//jWfWTQA4310OuT8J2C
-	QaSh2sWPdOUptNGO6Qng==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rv+Ab6X2lqNCnc03z+rqpnPNSgA4rKenxzvyqhIq+ik=; b=dgi6OlcCieprjsGInUUL6QKOMn
+	+6Egh0kVJcTOZFnHuI5wc20EPDgWcpY4UgIYbvZy8zHPpnkp6aLfFPSKYOcepE+LEP2dfI8tn2x4H
+	f+Hzk9OamUsRm+/KjbMsmkzB5V3CGR88Wnw43x43GF+3kNcUY5A9KHexP8RziDCXZaKWPnXTWf6ld
+	WCbgoFz89hyagkL9RHKgdZFogToCAh/iU41L3X5YBZ6hD1vx00JZKxqSd+Lx7c9J3z29GE+Cd5U3S
+	lCGKr0MsQLKvO25oFZ1BhTZO6HaJ2lH/LSVQHNkShE6G/786VNYok8H62DL/jtzuKNyGAYDS42uV4
+	EO38iaLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjdd-0000000CeKs-2PJR;
-	Mon, 06 Jul 2026 13:45:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjdb-0000000CeHa-1MNj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Jul 2026 13:45:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=zvdZUX0l4cd+ylAABJxQg390G4+5Q/O6H9vExdJFkvI=; b=KWH/W8fgXEJUikhTmd9NH7vfzF
-	Nt/paETNMraQUsRyVd7XlcrH8JICvJtKl51mCGStx4qScCW/bHUOb+oEURxWiV1zWL7uBi52k8tWC
-	0/kBeJqmvffI/+mlT5J0yExycTpPM75x3D3YjYZJbW+xncG7b7HSPVt7sEdCs2ttH7y+5fsxf1MK9
-	V77NkyRyRJhOUH+Hmy9EkrwhvWhNbFY20+6SjxOh60B/7AY1WL1bR5JwEPBhBfiQ8W2iPWXWHLPHj
-	aB6X4NZDvE7ezY7pH8AQ4Ojl94ltZvvvRfm3G2KkCgw8M3gZMgY6PQQH2v9Ha2i+RFTE0oIQKaKW8
-	/ddZ0P4w==;
+	id 1wgje5-0000000Cefx-0D8K;
+	Mon, 06 Jul 2026 13:46:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wgjdY-00000006bkc-0u5e
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgje1-0000000CecF-3NqM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:45:30 +0000
+	Mon, 06 Jul 2026 13:45:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 472D12BCB;
-	Mon,  6 Jul 2026 06:45:22 -0700 (PDT)
-Received: from e142021.fritz.box (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 175673F7B4;
-	Mon,  6 Jul 2026 06:45:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF27A2BCB;
+	Mon,  6 Jul 2026 06:45:50 -0700 (PDT)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC5143F7B4;
+	Mon,  6 Jul 2026 06:45:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783345526; bh=eWM2Uc20uezc/VY2nEKwIedQtKj3pH+Xyrai98h2U9w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=lmP8xkZKjMdEGH/xJL05qB6qpzyYIDNShAIuw3f+1C16ziPXsw3PU3FUik3NhM4/S
-	 nHmF3D7VAE9uHlkKwLZH0UC5VeYRZ6Htr45/6XbNYxkrOCMF3zhNpl4npxTTar1CAs
-	 e6NDUaKXc7kSGJ6QAdaWPxoTX/1VdTkT0aeS/uko=
-From: Andre Przywara <andre.przywara@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Sudeep Holla <sudeep.holla@kernel.org>
-Subject: [PATCH v3 7/8] firmware: smccc: lfa: introduce SMC access lock
-Date: Mon,  6 Jul 2026 15:44:47 +0200
-Message-ID: <20260706134455.132091-8-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260706134455.132091-1-andre.przywara@arm.com>
-References: <20260706134455.132091-1-andre.przywara@arm.com>
+	t=1783345555; bh=th5EeEUXoKQ4TR+tt8Q4dRhijquxd6smyNGP3zo6QQ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=W2GppfMXasQ5lro8a8fcRVZt6AaeV3Kv1GyrpwouxSCIkurP5XyZ5uM1j5Mv4LcZ0
+	 uJyqjvtz6yhrlYwU06Ed30KbDASihPN65fQLvfrApSb6ShTvM3uJax/A0+nN+Ht/Lu
+	 mHi79WNThvdn+2afPlBMLscumLB8yTFp0FBYagGY=
+Date: Mon, 6 Jul 2026 14:45:49 +0100
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: David Hildenbrand <david.hildenbrand@arm.com>
+Cc: pbonzini@redhat.com, kvm@vger.kernel.org, seanjc@google.com,
+	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	fuad.tabba@linux.dev, mark.rutland@arm.com
+Subject: Re: [RFC PATCH 1/3] KVM: guest_memfd: Use memslot id to keep track
+ of associated memslots
+Message-ID: <akuxjY-VRrmcybjZ@raptor>
+References: <20260702142912.6395-1-alexandru.elisei@arm.com>
+ <20260702142912.6395-2-alexandru.elisei@arm.com>
+ <8a24f016-6f0f-4322-b646-d843f6fa481e@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8a24f016-6f0f-4322-b646-d843f6fa481e@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_144528_686149_6857E4D6 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20260706_064557_938182_6D127561 
+X-CRM114-Status: GOOD (  58.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,182 +71,215 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Conor Dooley <conor+dt@kernel.org>, vsethi@nvidia.com, Salman Nabi <salman.nabi@arm.com>, Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org, Varun Wadekar <vwadekar@nvidia.com>, Trilok Soni <trilokkumar.soni@oss.qualcomm.com>, devicetree@vger.kernel.org, Nirmoy Das <nirmoyd@nvidia.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After a successful live activation, the list of firmware images might
-change, which also affects the sequence IDs. We store the sequence
-ID in a data structure and connect it to its GUID, which is the
-identifier used to access certain image properties from userland.
-When an activation is happening, the sequence ID associations might
-change at any point, so we must be sure to not use any previously
-learned sequence ID during this time.
+Hi David,
 
-Protect the association between a sequence ID and a firmware image
-(its GUID, really) by a reader/writer lock. In this case it's a R/W
-semaphore, so it can sleep and we can hold it for longer, also
-concurrent SMC calls are not blocked on each other, it's just an
-activation that blocks calls.
+Thanks for having a look.
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- drivers/firmware/smccc/lfa_fw.c | 38 +++++++++++++++++++++++++++++++--
- 1 file changed, 36 insertions(+), 2 deletions(-)
+On Mon, Jul 06, 2026 at 09:14:59AM +0200, David Hildenbrand wrote:
+> On 7/2/26 16:29, Alexandru Elisei wrote:
+> > To enable memslot operations, KVM maintains two arrays of memslots, and an
+> > RCU pointer to the active (in use) array. Changes are made first to the
+> > inactive array, and the RCU pointer is updated to point to the inactive
+> > array, which becomes active.
+> > 
+> > The guest_memfd file maintains an xarray of pointers to memslots that use
+> > it as the memory provider. After the RCU pointer to the active memslots is
+> > updated and until SRCU is synchronized, readers can observe the old or the
+> > new value for the active array, and therefore the old or the new pointer
+> > for a given memslot.  For memslot creation or deletion that is not an issue
+> > for guest_memfd, as readers will either read the same memslot pointer saved
+> > by the guest_memfd file, or a non-existing memslot.
+> > 
+> > But when changing the flags for a memslot, readers can read two different
+> > and non-NULL memslot pointers. Since there is no easy way to ensure that
+> > the memslot pointer that the guest_memfd stores is consistent with both
+> > views at the same time, modify how the guest_memfd file keeps track of the
+> > associated memslots: instead of storing the pointer directly, store the
+> > memslot id and address space id (as_id), and use that to reach the memslot
+> > in the active list of memslots.
+> > 
+> > This only changes how guest_memfd keeps track of memslots, userspace is not
+> > allowed to make changes to a memslot yet.
+> > 
+> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > ---
+> >  virt/kvm/guest_memfd.c | 95 +++++++++++++++++++++++++++++++++++-------
+> >  1 file changed, 80 insertions(+), 15 deletions(-)
+> > 
+> > diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+> > index db57c5766ab6..43ef8e908aaf 100644
+> > --- a/virt/kvm/guest_memfd.c
+> > +++ b/virt/kvm/guest_memfd.c
+> > @@ -25,6 +25,7 @@ struct gmem_file {
+> >  	struct kvm *kvm;
+> >  	struct xarray bindings;
+> >  	struct list_head entry;
+> > +	bool found_memslot;	/* Used for balancing invalidations when punching a hole */
+> 
+> Probabably best to document what it means, not only what it is used for (and
+> maybe document above the member if you end up with more text).
 
-diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-index 2a9c2a90b1bb..44f8baec4c92 100644
---- a/drivers/firmware/smccc/lfa_fw.c
-+++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -19,6 +19,7 @@
- #include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/psci.h>
-+#include <linux/rwsem.h>
- #include <linux/stop_machine.h>
- #include <linux/string.h>
- #include <linux/sysfs.h>
-@@ -145,6 +146,16 @@ static struct workqueue_struct *fw_images_update_wq;
- static struct work_struct fw_images_update_work;
- static struct attribute *image_default_attrs[LFA_ATTR_NR_IMAGES + 1];
- 
-+/*
-+ * A successful image activation might change the number of available images,
-+ * leading to a re-order and thus re-assignment of the sequence IDs.
-+ * The lock protects the connection between a firmware image (through its
-+ * user visible UUID) and the sequence IDs. Anyone doing an SMC call with
-+ * a sequence ID needs to take the readers lock. Doing an activation requires
-+ * the writer lock, as that process might change the assocications.
-+ */
-+struct rw_semaphore smc_lock;
-+
- static const struct attribute_group image_attr_group = {
- 	.attrs = image_default_attrs,
+Sure, this is how I changed it:
+
+diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+index 210bdd76f0aa..3cee64047bce 100644
+--- a/virt/kvm/guest_memfd.c
++++ b/virt/kvm/guest_memfd.c
+@@ -25,7 +25,13 @@ struct gmem_file {
+        struct kvm *kvm;
+        struct xarray bindings;
+        struct list_head entry;
+-       bool found_memslot;     /* Used for balancing invalidations when punching a hole */
++       /*
++        * Keeps track of whether memory has been unmapped during secondary MMU
++        * invalidation, to keep the invalidate start and end calls balanced.
++        *
++        * Accessed while holding the inode->i_mapping lock in exclusive mode.
++        */
++       bool memslot_invalidated;
  };
-@@ -241,6 +252,7 @@ static unsigned long get_nr_lfa_components(void)
- 	reg.a0 = ARM_SMCCC_LFA_GET_INFO;
- 	reg.a1 = 0; /* lfa_info_selector = 0 */
- 
-+	/* No need for the smc_lock, since no sequence IDs are involved. */
- 	arm_smccc_1_2_invoke(&reg, &reg);
- 	if (reg.a0 != LFA_SUCCESS)
- 		return reg.a0;
-@@ -261,9 +273,11 @@ static int lfa_cancel(void *data)
- 	struct fw_image *image = data;
- 	struct arm_smccc_1_2_regs reg = { 0 };
- 
-+	down_read(&smc_lock);
- 	reg.a0 = ARM_SMCCC_LFA_CANCEL;
- 	reg.a1 = image->fw_seq_id;
- 	arm_smccc_1_2_invoke(&reg, &reg);
-+	up_read(&smc_lock);
- 
- 	/*
- 	 * When firmware activation is called with "skip_cpu_rendezvous=1",
-@@ -320,6 +334,7 @@ static int activate_fw_image(struct fw_image *image)
- 	int ret;
- 
- retry:
-+	down_write(&smc_lock);
- 	if (image->cpu_rendezvous_forced || image->cpu_rendezvous)
- 		ret = stop_machine(call_lfa_activate, image, cpu_online_mask);
- 	else
-@@ -327,10 +342,13 @@ static int activate_fw_image(struct fw_image *image)
- 
- 	if (!ret) {
- 		update_fw_images_tree();
-+		up_write(&smc_lock);
- 
- 		return 0;
- 	}
- 
-+	up_write(&smc_lock);
-+
- 	/* SMC returned with call_again flag set, or with LFA_BUSY */
- 	if (ret == -LFA_CALL_AGAIN || ret == -LFA_BUSY) {
- 		if (ktime_before(ktime_get(), end)) {
-@@ -370,8 +388,11 @@ static int prime_fw_image(struct fw_image *image)
- 	 * be called again.
- 	 * reg.a1 will become 0 once the prime process completes.
- 	 */
-+	down_read(&smc_lock);
- 	reg.a1 = image->fw_seq_id;
- 	arm_smccc_1_2_invoke(&reg, &res);
-+	up_read(&smc_lock);
-+
- 	if ((long)res.a0 < 0) {
- 		pr_err("LFA_PRIME for image %s failed: %s\n",
- 		       get_image_name(image),
-@@ -418,7 +439,7 @@ static ssize_t activation_capable_show(struct kobject *kobj,
- 	return sysfs_emit(buf, "%d\n", image->activation_capable);
- }
- 
--static void update_fw_image_pending(struct fw_image *image)
-+static void _update_fw_image_pending(struct fw_image *image)
- {
- 	struct arm_smccc_1_2_regs reg = { 0 };
- 
-@@ -430,6 +451,13 @@ static void update_fw_image_pending(struct fw_image *image)
- 		image->activation_pending = !!(reg.a3 & BIT(1));
- }
- 
-+static void update_fw_image_pending(struct fw_image *image)
-+{
-+	down_read(&smc_lock);
-+	_update_fw_image_pending(image);
-+	up_read(&smc_lock);
-+}
-+
- static ssize_t activation_pending_show(struct kobject *kobj,
- 				       struct kobj_attribute *attr, char *buf)
- {
-@@ -504,9 +532,11 @@ static ssize_t pending_version_show(struct kobject *kobj,
- 	 * Similar to activation pending, this value can change following an
- 	 * update, we need to retrieve fresh info instead of stale information.
- 	 */
-+	down_read(&smc_lock);
- 	reg.a0 = ARM_SMCCC_LFA_GET_INVENTORY;
- 	reg.a1 = image->fw_seq_id;
- 	arm_smccc_1_2_invoke(&reg, &reg);
-+	up_read(&smc_lock);
- 	if (reg.a0 == LFA_SUCCESS) {
- 		if (reg.a5 != 0 && image->activation_pending) {
- 			u32 maj, min;
-@@ -740,6 +770,7 @@ static int activate_pending_image(void)
- 	struct fw_image *image;
- 	int ret;
- 
-+	down_read(&smc_lock);
- 	spin_lock(&lfa_kset->list_lock);
- 	list_for_each_entry(kobj, &lfa_kset->list, entry) {
- 		image = kobj_to_fw_image(kobj);
-@@ -747,7 +778,7 @@ static int activate_pending_image(void)
- 		if (image->fw_seq_id == -1)
- 			continue; /* Invalid FW component */
- 
--		update_fw_image_pending(image);
-+		_update_fw_image_pending(image);
- 		if (image->activation_capable && image->activation_pending &&
- 		    image->auto_activate) {
- 			found_pending = true;
-@@ -755,6 +786,7 @@ static int activate_pending_image(void)
- 		}
- 	}
- 	spin_unlock(&lfa_kset->list_lock);
-+	up_read(&smc_lock);
- 
- 	if (!found_pending)
- 		return -ENOENT;
-@@ -901,6 +933,8 @@ static int lfa_smccc_probe(struct arm_smccc_device *sdev)
- 		return -ENOMEM;
- 	}
- 
-+	init_rwsem(&smc_lock);
-+
- 	err = update_fw_images_tree();
- 	if (err != 0) {
- 		kset_unregister(lfa_kset);
--- 
-2.43.0
 
+Hopefully the new name is better.
+
+> 
+> >  };
+> >  
+> >  struct gmem_inode {
+> > @@ -43,6 +44,29 @@ static __always_inline struct gmem_inode *GMEM_I(struct inode *inode)
+> >  #define kvm_gmem_for_each_file(f, inode) \
+> >  	list_for_each_entry(f, &GMEM_I(inode)->gmem_file_list, entry)
+> >  
+> > +static void *memslot_to_xa_value(struct kvm_memory_slot *slot)
+> > +{
+> > +	WARN_ON_ONCE(sizeof(slot->as_id) > 16);
+> > +	WARN_ON_ONCE(sizeof(slot->id) > 16);
+> > +	WARN_ON_ONCE(sizeof(slot->as_id) + sizeof(slot->id) > sizeof(unsigned long));
+> 
+> These can just be BUILD_BUG_ON() I suppose.
+
+That's a good idea, will do.
+
+> 
+> > +
+> > +	return xa_mk_value(((unsigned long)slot->as_id) << 16 | (unsigned long)slot->id);
+> 
+> The latter "(unsigned long)" should not be required.
+
+Indeed.
+
+> 
+> > +}
+> > +
+> > +static struct kvm_memory_slot *xa_value_to_memslot(struct kvm *kvm, const void *entry)
+> > +{
+> 
+> The following can all be const.
+> 
+> > +	unsigned long full_id = xa_to_value(entry);
+> > +	u16 as_id = (full_id >> 16) & U16_MAX;
+> 
+> Why the "& U16_MAX" here?
+> 
+> (1) It's an u16
+> 
+> (2) memslot_to_xa_value() never stores anything in there.
+> 
+> > +	short id = full_id & U16_MAX;
+> 
+> Same here. And I wonder why you are not also using an u16 here.
+
+I wanted to make it clear that everything should fit in a u16, I think I
+wrote this code before the WARN_ON_ONCE in memslot_to_xa_value() above and
+I forgot to change it.
+
+I will clean it up.
+
+> 
+> > +
+> > +	/*
+> > +	 * Do not ignore KVM_MEMSLOT_INVALID memslots, as we want
+> > +	 * ->error_remove_folio(), when it races with memslot deletion, to have
+> > +	 *  unmapped the memory upon completion.
+> > +	 */
+> > +	return id_to_memslot(__kvm_memslots(kvm, as_id), id);
+> > +}
+> > +
+> >  /**
+> >   * folio_file_pfn - like folio_file_page, but return a pfn.
+> >   * @folio: The folio which contains this index.
+> > @@ -157,7 +181,7 @@ static enum kvm_gfn_range_filter kvm_gmem_get_invalidate_filter(struct inode *in
+> >  	return KVM_FILTER_PRIVATE;
+> >  }
+> >  
+> > -static void __kvm_gmem_invalidate_start(struct gmem_file *f, pgoff_t start,
+> > +static bool __kvm_gmem_invalidate_start(struct gmem_file *f, pgoff_t start,
+> >  					pgoff_t end,
+> >  					enum kvm_gfn_range_filter attr_filter)
+> >  {
+> > @@ -165,9 +189,15 @@ static void __kvm_gmem_invalidate_start(struct gmem_file *f, pgoff_t start,
+> >  	struct kvm_memory_slot *slot;
+> >  	struct kvm *kvm = f->kvm;
+> >  	unsigned long index;
+> > +	void *entry;
+> > +
+> > +	xa_for_each_range(&f->bindings, index, entry, start, end - 1) {
+> > +		pgoff_t pgoff;
+> >  
+> > -	xa_for_each_range(&f->bindings, index, slot, start, end - 1) {
+> > -		pgoff_t pgoff = slot->gmem.pgoff;
+> > +		slot = xa_value_to_memslot(kvm, entry);
+> 
+> That now gets more expensive. id_to_memslot() uses a hashtable, but there is
+> certainly more pointer chasing going on now.
+
+Yes, a hashtable search, plus a few more pointer dereferences and an
+srcu_read_lock()/unlock() pair is more expensive than accessing the memslot
+pointer directly from f->bindings.
+
+Depending on the range, kvm_mmu_unmap_gfn_range() can be quite expensive.
+gfn_range->may_block is set, this communicates to the arch code that they
+can resched periodically if the range is too big (at least, that's what it
+means on arm64, which sleeps every THP sized address range, chosen
+empirically as to stop RCU from complaining). Plus, there's also the TLB
+flush at the end. My gut feeling is that the extra overhead from how the
+memslot is found is insignificant in this case, but I don't have the
+numbers to back it up. I can try to get some numbers, if you think that
+would be useful?
+
+But that's when there's actually a range to unmap from the secondary MMU.
+Let's say there's no range. The invalidations are performed when:
+
+1. The file is closed.
+2. Userspace punches a hole in the file.
+3. Memory error.
+
+I'm going to assume that the memory error happens very rarely, so it's not
+worth to optimize for it.
+
+Userspace closes the file when the VM is being destroyed, does it matter if
+it's slightly slower, considering how many other things are usually
+unmapped and/or freed during VM teardown? I don't know the answer to that.
+
+As for userspace punching a hole. Two situations here:
+
+(a) No memslots are using the file. I think it's unlikely for userspace to
+punch a hole in a file when it's not being used by any VMs (am I wrong?)
+
+(b) There are memslots using the file, but the memory hasn't been mapped
+yet by a secondary MMU. In that case, the arch code will still walk the
+secondary MMU page tables. Considering that punching a hole also requires a
+transition from userspace to the kernel and back, I don't think that the
+overhead will be noticeable.
+
+What do you think? Do you think my analysis is correct or have I missed
+something?
+
+I'm very willing to consider another approach if you think we can do it
+better.
+
+Thanks,
+Alex
 
