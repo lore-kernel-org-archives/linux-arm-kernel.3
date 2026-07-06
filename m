@@ -4,62 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 745AFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:46:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 749A9C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rv+Ab6X2lqNCnc03z+rqpnPNSgA4rKenxzvyqhIq+ik=; b=dgi6OlcCieprjsGInUUL6QKOMn
-	+6Egh0kVJcTOZFnHuI5wc20EPDgWcpY4UgIYbvZy8zHPpnkp6aLfFPSKYOcepE+LEP2dfI8tn2x4H
-	f+Hzk9OamUsRm+/KjbMsmkzB5V3CGR88Wnw43x43GF+3kNcUY5A9KHexP8RziDCXZaKWPnXTWf6ld
-	WCbgoFz89hyagkL9RHKgdZFogToCAh/iU41L3X5YBZ6hD1vx00JZKxqSd+Lx7c9J3z29GE+Cd5U3S
-	lCGKr0MsQLKvO25oFZ1BhTZO6HaJ2lH/LSVQHNkShE6G/786VNYok8H62DL/jtzuKNyGAYDS42uV4
-	EO38iaLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qlt7gyOtAmEFrvc2qOzoMo9OkzF+3UzobU8kULMEyjE=; b=y0G+C5Xt+4HpIevw1wbS7EA3TU
+	gXXRHc3EidZlkmHE/rlAlslrA7Z4Izy04ARhuMDsiV9SpiUYo4MIRzvy4W7YuWtwJ2UZdF+8KNU2O
+	zXb83OhDHbcE/0mutw186jN07DPn+cT2Gzfb/jAvNP6+W24DdDMZwBoXek2sEOe2YkuSnfSRJkdew
+	cSlKc9X2kVONXuysE3WWYmEHdkfgnajcy0Fbn0U/ex+UI3TRLpX4u0zo2fm/ZH2n9eibVv+q4Xx/N
+	PyPM2GPQWqxLDXsQeoKrUkXQptSFMVmoCSdEUrdLNWtB89nn0YaIsRo0mEZ0CfoOp50BvdwEfNVfF
+	mY0P/l0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgje5-0000000Cefx-0D8K;
-	Mon, 06 Jul 2026 13:46:01 +0000
+	id 1wgjtA-0000000Cg9c-2t0W;
+	Mon, 06 Jul 2026 14:01:36 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgje1-0000000CecF-3NqM
+	id 1wgjt8-0000000Cg9A-1NmM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:45:59 +0000
+	Mon, 06 Jul 2026 14:01:35 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF27A2BCB;
-	Mon,  6 Jul 2026 06:45:50 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC5143F7B4;
-	Mon,  6 Jul 2026 06:45:52 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA6892BCB;
+	Mon,  6 Jul 2026 07:01:28 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1F79E3F7B4;
+	Mon,  6 Jul 2026 07:01:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783345555; bh=th5EeEUXoKQ4TR+tt8Q4dRhijquxd6smyNGP3zo6QQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W2GppfMXasQ5lro8a8fcRVZt6AaeV3Kv1GyrpwouxSCIkurP5XyZ5uM1j5Mv4LcZ0
-	 uJyqjvtz6yhrlYwU06Ed30KbDASihPN65fQLvfrApSb6ShTvM3uJax/A0+nN+Ht/Lu
-	 mHi79WNThvdn+2afPlBMLscumLB8yTFp0FBYagGY=
-Date: Mon, 6 Jul 2026 14:45:49 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: David Hildenbrand <david.hildenbrand@arm.com>
-Cc: pbonzini@redhat.com, kvm@vger.kernel.org, seanjc@google.com,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	fuad.tabba@linux.dev, mark.rutland@arm.com
-Subject: Re: [RFC PATCH 1/3] KVM: guest_memfd: Use memslot id to keep track
- of associated memslots
-Message-ID: <akuxjY-VRrmcybjZ@raptor>
-References: <20260702142912.6395-1-alexandru.elisei@arm.com>
- <20260702142912.6395-2-alexandru.elisei@arm.com>
- <8a24f016-6f0f-4322-b646-d843f6fa481e@arm.com>
+	t=1783346493; bh=+oN658RgH9K/lAIMCdUeIY2Kt33aA1hzIvXPSf3IE5g=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=lEFY1Rdig2oEpz4BrvC0JKnSfTlRJptRPbVsfRu2RwWrm1wSluz9NtO4DHEzW5khu
+	 AtYbRZv5jnqRrGXEWAFWUDxH6i1d0KYXPavUNPM9vsnePRaj+osYyterI5ho0/r5IJ
+	 nWgHLLRf+GGC3pRJDorVzlXs2O2xEvuLeG00NEDQ=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Marc Zyngier <maz@kernel.org>,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	liuyonglong@huawei.com,
+	Jonathan.Cameron@huawei.com,
+	yezhenyu2@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
+Date: Mon,  6 Jul 2026 15:01:28 +0100
+Message-ID: <aku1N23Szkta9uA6@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com> <20260225040421.2683931-4-zhengtian10@huawei.com> <ahzUUDAMoHtDFJD3@inochi.infowork> <864ijmvdpy.wl-maz@kernel.org> <ah1KLrpYBXSMM91H@inochi.infowork> <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <8a24f016-6f0f-4322-b646-d843f6fa481e@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_064557_938182_6D127561 
-X-CRM114-Status: GOOD (  58.81  )
+X-CRM114-CacheID: sfid-20260706_070134_448647_022B0560 
+X-CRM114-Status: GOOD (  46.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,212 +90,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi David,
-
-Thanks for having a look.
-
-On Mon, Jul 06, 2026 at 09:14:59AM +0200, David Hildenbrand wrote:
-> On 7/2/26 16:29, Alexandru Elisei wrote:
-> > To enable memslot operations, KVM maintains two arrays of memslots, and an
-> > RCU pointer to the active (in use) array. Changes are made first to the
-> > inactive array, and the RCU pointer is updated to point to the inactive
-> > array, which becomes active.
+On Fri, Jun 05, 2026 at 04:29:49PM +0800, Tian Zheng wrote:
+> 
+> On 6/1/2026 5:05 PM, Inochi Amaoto wrote:
+> > On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
+> > > On Mon, 01 Jun 2026 01:50:22 +0100,
+> > > Inochi Amaoto <inochiama@gmail.com> wrote:
+> > > > On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
+> > > > > From: eillon <yezhenyu2@huawei.com>
+> > > > > 
+> > > > > Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+> > > > > indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
+> > > > > to notify the user of the feature.
+> > > > > 
+> > > > > Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+> > > > > ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+> > > > > cannot be determined at KVM initialization, an IOCTL interface is
+> > > > > required.
+> > > > > 
+> > > > > Actually exposing the new capability to user space happens in a later
+> > > > > patch.
+> > > > > 
+> > > > > Signed-off-by: eillon <yezhenyu2@huawei.com>
+> > > > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> > > > > ---
+> > > > >   arch/arm64/include/asm/cpufeature.h |  5 +++++
+> > > > >   arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+> > > > >   arch/arm64/tools/cpucaps            |  1 +
+> > > > >   include/uapi/linux/kvm.h            |  1 +
+> > > > >   tools/include/uapi/linux/kvm.h      |  1 +
+> > > > >   5 files changed, 20 insertions(+)
+> > > > > 
+> > > > > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> > > > > index 4de51f8d92cb..dcc2e2cad5ad 100644
+> > > > > --- a/arch/arm64/include/asm/cpufeature.h
+> > > > > +++ b/arch/arm64/include/asm/cpufeature.h
+> > > > > @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+> > > > >   	return cpus_have_final_cap(ARM64_HAFT);
+> > > > >   }
+> > > > > 
+> > > > > +static inline bool system_supports_hdbss(void)
+> > > > > +{
+> > > > > +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+> > > > > +}
+> > > > > +
+> > > > >   static __always_inline bool system_supports_mpam(void)
+> > > > >   {
+> > > > >   	return alternative_has_cap_unlikely(ARM64_MPAM);
+> > > > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > > > index c31f8e17732a..348b0afffc3e 100644
+> > > > > --- a/arch/arm64/kernel/cpufeature.c
+> > > > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > > > @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> > > > >   	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+> > > > >   }
+> > > > > 
+> > > > > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
+> > > > > +{
+> > > > > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
+> > > > > +}
+> > > > > +
+> > > > >   bool cpu_supports_bbml2_noabort(void)
+> > > > >   {
+> > > > >   	/*
+> > > > > @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+> > > > >   		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+> > > > >   	},
+> > > > >   #endif
+> > > > > +	{
+> > > > > +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+> > > > > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> > > > > +		.capability = ARM64_HAS_HDBSS,
+> > > > > +		.matches = has_vhe_hdbss,
+> > > > > +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+> > > > > +	},
+> > > > >   	{
+> > > > >   		.desc = "CRC32 instructions",
+> > > > >   		.capability = ARM64_HAS_CRC32,
+> > > > > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> > > > > index 7261553b644b..f6ece5b85532 100644
+> > > > > --- a/arch/arm64/tools/cpucaps
+> > > > > +++ b/arch/arm64/tools/cpucaps
+> > > > > @@ -68,6 +68,7 @@ HAS_VA52
+> > > > >   HAS_VIRT_HOST_EXTN
+> > > > >   HAS_WFXT
+> > > > >   HAS_XNX
+> > > > > +HAS_HDBSS
+> > > > >   HAFT
+> > > > >   HW_DBM
+> > > > >   KVM_HVHE
+> > > > 
+> > > > > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> > > > > index 65500f5db379..15ee42cdbd51 100644
+> > > > > --- a/include/uapi/linux/kvm.h
+> > > > > +++ b/include/uapi/linux/kvm.h
+> > > > > @@ -985,6 +985,7 @@ struct kvm_enable_cap {
+> > > > >   #define KVM_CAP_ARM_SEA_TO_USER 245
+> > > > >   #define KVM_CAP_S390_USER_OPEREXEC 246
+> > > > >   #define KVM_CAP_S390_KEYOP 247
+> > > > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+> > > > > 
+> > > > >   struct kvm_irq_routing_irqchip {
+> > > > >   	__u32 irqchip;
+> > > > > diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
+> > > > > index dddb781b0507..93e0a1e14dc7 100644
+> > > > > --- a/tools/include/uapi/linux/kvm.h
+> > > > > +++ b/tools/include/uapi/linux/kvm.h
+> > > > > @@ -974,6 +974,7 @@ struct kvm_enable_cap {
+> > > > >   #define KVM_CAP_GUEST_MEMFD_FLAGS 244
+> > > > >   #define KVM_CAP_ARM_SEA_TO_USER 245
+> > > > >   #define KVM_CAP_S390_USER_OPEREXEC 246
+> > > > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+> > > > > 
+> > > > >   struct kvm_irq_routing_irqchip {
+> > > > >   	__u32 irqchip;
+> > > > > --
+> > > > > 2.33.0
+> > > > > 
+> > > > Instead of having these architecture specific capability, I wonder if
+> > > > we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
+> > > > other architecture supports similar things can reuse this capability,
+> > > What of the existing stuff doing the same thing? x86's PML, to start
+> > > with?
+> > > 
+> > In fact I think the HDBSS is the first one with non-fixed size.
+> > Although there is a in process RISC-V extension for it, there will
+> > be a long story to make it ratified.
 > > 
-> > The guest_memfd file maintains an xarray of pointers to memslots that use
-> > it as the memory provider. After the RCU pointer to the active memslots is
-> > updated and until SRCU is synchronized, readers can observe the old or the
-> > new value for the active array, and therefore the old or the new pointer
-> > for a given memslot.  For memslot creation or deletion that is not an issue
-> > for guest_memfd, as readers will either read the same memslot pointer saved
-> > by the guest_memfd file, or a non-existing memslot.
-> > 
-> > But when changing the flags for a memslot, readers can read two different
-> > and non-NULL memslot pointers. Since there is no easy way to ensure that
-> > the memslot pointer that the guest_memfd stores is consistent with both
-> > views at the same time, modify how the guest_memfd file keeps track of the
-> > associated memslots: instead of storing the pointer directly, store the
-> > memslot id and address space id (as_id), and use that to reach the memslot
-> > in the active list of memslots.
-> > 
-> > This only changes how guest_memfd keeps track of memslots, userspace is not
-> > allowed to make changes to a memslot yet.
-> > 
-> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> > ---
-> >  virt/kvm/guest_memfd.c | 95 +++++++++++++++++++++++++++++++++++-------
-> >  1 file changed, 80 insertions(+), 15 deletions(-)
-> > 
-> > diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> > index db57c5766ab6..43ef8e908aaf 100644
-> > --- a/virt/kvm/guest_memfd.c
-> > +++ b/virt/kvm/guest_memfd.c
-> > @@ -25,6 +25,7 @@ struct gmem_file {
-> >  	struct kvm *kvm;
-> >  	struct xarray bindings;
-> >  	struct list_head entry;
-> > +	bool found_memslot;	/* Used for balancing invalidations when punching a hole */
+> > > > For this generic thing I suggest, the getter returns the max support
+> > > > entry count (or the buffer size) it supports like the dirty ring
+> > > > capability. And the setter just let the architecture set the parameters
+> > > > based on the user request.
+> > > This looks wrong on a number of levels.
+> > > 
+> > > - If you want something generic, there is the existing dirty
+> > >    log/bitmap. How this stuff is populated is none of the user's
+> > >    business (trapping write accesses, dirty bit collection from the
+> > >    PTs, or HW-generated log), and we don't need an extra feature for
+> > >    it. Performance will obviously suck, but that's what you pay for
+> > >    something abstracted and cross-architecture.
+> > > 
+> > > - If you want something architecture specific, then it can't be
+> > >    generic, by definition. You get the raw speed and compatibility with
+> > >    other arch-specific extensions.
+> > > 
+> > OK, I agree, it is better to keep this thing arch-specific. Doing a
+> > generic thing does not benefit too much, I have made a mistake on
+> > it. Thanks for your kindly explanation.
 > 
-> Probabably best to document what it means, not only what it is used for (and
-> maybe document above the member if you end up with more text).
-
-Sure, this is how I changed it:
-
-diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 210bdd76f0aa..3cee64047bce 100644
---- a/virt/kvm/guest_memfd.c
-+++ b/virt/kvm/guest_memfd.c
-@@ -25,7 +25,13 @@ struct gmem_file {
-        struct kvm *kvm;
-        struct xarray bindings;
-        struct list_head entry;
--       bool found_memslot;     /* Used for balancing invalidations when punching a hole */
-+       /*
-+        * Keeps track of whether memory has been unmapped during secondary MMU
-+        * invalidation, to keep the invalidate start and end calls balanced.
-+        *
-+        * Accessed while holding the inode->i_mapping lock in exclusive mode.
-+        */
-+       bool memslot_invalidated;
- };
-
-Hopefully the new name is better.
-
 > 
-> >  };
-> >  
-> >  struct gmem_inode {
-> > @@ -43,6 +44,29 @@ static __always_inline struct gmem_inode *GMEM_I(struct inode *inode)
-> >  #define kvm_gmem_for_each_file(f, inode) \
-> >  	list_for_each_entry(f, &GMEM_I(inode)->gmem_file_list, entry)
-> >  
-> > +static void *memslot_to_xa_value(struct kvm_memory_slot *slot)
-> > +{
-> > +	WARN_ON_ONCE(sizeof(slot->as_id) > 16);
-> > +	WARN_ON_ONCE(sizeof(slot->id) > 16);
-> > +	WARN_ON_ONCE(sizeof(slot->as_id) + sizeof(slot->id) > sizeof(unsigned long));
+> Awesome. Thanks for the review.
 > 
-> These can just be BUILD_BUG_ON() I suppose.
-
-That's a good idea, will do.
-
+> I agree with Marc—keeping this ARM-specific is the right approach.
+> Also, in v4 we're removing the ioctl interface entirely. HDBSS will be
+> auto-enabled during migration setup and auto-disabled when migration
+> completes, so the capability naming issue becomes moot.
 > 
-> > +
-> > +	return xa_mk_value(((unsigned long)slot->as_id) << 16 | (unsigned long)slot->id);
-> 
-> The latter "(unsigned long)" should not be required.
+> I plan to post v4 with the updated approach soon.
 
-Indeed.
+Hi Tian,
 
-> 
-> > +}
-> > +
-> > +static struct kvm_memory_slot *xa_value_to_memslot(struct kvm *kvm, const void *entry)
-> > +{
-> 
-> The following can all be const.
-> 
-> > +	unsigned long full_id = xa_to_value(entry);
-> > +	u16 as_id = (full_id >> 16) & U16_MAX;
-> 
-> Why the "& U16_MAX" here?
-> 
-> (1) It's an u16
-> 
-> (2) memslot_to_xa_value() never stores anything in there.
-> 
-> > +	short id = full_id & U16_MAX;
-> 
-> Same here. And I wonder why you are not also using an u16 here.
+Any updates in the v4?
+Please let me know if you want help in any kind, in regards to this 
+patchset. 
 
-I wanted to make it clear that everything should fit in a u16, I think I
-wrote this code before the WARN_ON_ONCE in memslot_to_xa_value() above and
-I forgot to change it.
-
-I will clean it up.
-
-> 
-> > +
-> > +	/*
-> > +	 * Do not ignore KVM_MEMSLOT_INVALID memslots, as we want
-> > +	 * ->error_remove_folio(), when it races with memslot deletion, to have
-> > +	 *  unmapped the memory upon completion.
-> > +	 */
-> > +	return id_to_memslot(__kvm_memslots(kvm, as_id), id);
-> > +}
-> > +
-> >  /**
-> >   * folio_file_pfn - like folio_file_page, but return a pfn.
-> >   * @folio: The folio which contains this index.
-> > @@ -157,7 +181,7 @@ static enum kvm_gfn_range_filter kvm_gmem_get_invalidate_filter(struct inode *in
-> >  	return KVM_FILTER_PRIVATE;
-> >  }
-> >  
-> > -static void __kvm_gmem_invalidate_start(struct gmem_file *f, pgoff_t start,
-> > +static bool __kvm_gmem_invalidate_start(struct gmem_file *f, pgoff_t start,
-> >  					pgoff_t end,
-> >  					enum kvm_gfn_range_filter attr_filter)
-> >  {
-> > @@ -165,9 +189,15 @@ static void __kvm_gmem_invalidate_start(struct gmem_file *f, pgoff_t start,
-> >  	struct kvm_memory_slot *slot;
-> >  	struct kvm *kvm = f->kvm;
-> >  	unsigned long index;
-> > +	void *entry;
-> > +
-> > +	xa_for_each_range(&f->bindings, index, entry, start, end - 1) {
-> > +		pgoff_t pgoff;
-> >  
-> > -	xa_for_each_range(&f->bindings, index, slot, start, end - 1) {
-> > -		pgoff_t pgoff = slot->gmem.pgoff;
-> > +		slot = xa_value_to_memslot(kvm, entry);
-> 
-> That now gets more expensive. id_to_memslot() uses a hashtable, but there is
-> certainly more pointer chasing going on now.
-
-Yes, a hashtable search, plus a few more pointer dereferences and an
-srcu_read_lock()/unlock() pair is more expensive than accessing the memslot
-pointer directly from f->bindings.
-
-Depending on the range, kvm_mmu_unmap_gfn_range() can be quite expensive.
-gfn_range->may_block is set, this communicates to the arch code that they
-can resched periodically if the range is too big (at least, that's what it
-means on arm64, which sleeps every THP sized address range, chosen
-empirically as to stop RCU from complaining). Plus, there's also the TLB
-flush at the end. My gut feeling is that the extra overhead from how the
-memslot is found is insignificant in this case, but I don't have the
-numbers to back it up. I can try to get some numbers, if you think that
-would be useful?
-
-But that's when there's actually a range to unmap from the secondary MMU.
-Let's say there's no range. The invalidations are performed when:
-
-1. The file is closed.
-2. Userspace punches a hole in the file.
-3. Memory error.
-
-I'm going to assume that the memory error happens very rarely, so it's not
-worth to optimize for it.
-
-Userspace closes the file when the VM is being destroyed, does it matter if
-it's slightly slower, considering how many other things are usually
-unmapped and/or freed during VM teardown? I don't know the answer to that.
-
-As for userspace punching a hole. Two situations here:
-
-(a) No memslots are using the file. I think it's unlikely for userspace to
-punch a hole in a file when it's not being used by any VMs (am I wrong?)
-
-(b) There are memslots using the file, but the memory hasn't been mapped
-yet by a secondary MMU. In that case, the arch code will still walk the
-secondary MMU page tables. Considering that punching a hole also requires a
-transition from userspace to the kernel and back, I don't think that the
-overhead will be noticeable.
-
-What do you think? Do you think my analysis is correct or have I missed
-something?
-
-I'm very willing to consider another approach if you think we can do it
-better.
-
-Thanks,
-Alex
+Thanks!
+Leo
 
