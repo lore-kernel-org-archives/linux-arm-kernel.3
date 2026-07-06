@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35319C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 05:33:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDC2EC44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 05:36:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Date:Content-Transfer-Encoding:Message-ID:Subject:Cc:To:From:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SOxmxrLdE0o2ByegkDWaIJB5M4sfIIwYcWx4GQBLsJc=; b=lzI7qFPguZse+Od9IloIULvuLp
-	DiEe3/2AvDVEs9rUT+hf1PwynfRltv8+pVlXrHx6BJLq2FJA7F/Z7FcWxAbzG/1rU8xhyDrwYvRnU
-	KDE/jePgi89N9ULDx4aEU9B65uq05OZ8Nv9UHWhBz3vkLtgyZs8ajuv7+Dg08JQQiUuL7MVjS5ZJn
-	xJcU6qMHYgs5zJC3eeP5Qs6EUmrbqGxkrUkL3YDBL7Yxg/ucQRcJx1fnws/JI0w5AjNBeSEU48OpO
-	uHlcDyzwTxXogovm6583X+RtsPqZyVF0B3JunxnU4Lkl06d47zm0CcWGStkL1Zoh3B3OLErvhszTG
-	D/1dswaA==;
+	bh=6EWYr0B0T6MJB6/mLSDvnMyy0BKYgtBqgW5b/m3QzQE=; b=leNZkqWPGWVCoOxf629kwaFeHt
+	WTqhD26etyihFnsDx/QunGAcZXyqC3TjN0Ynvpy4yudhEw+LCw8P0cpvHW3+OMt9ADWW5N1vvGwes
+	gtghm7L5AqOz418cENRFYerDmEtWdhezhjADyocIaZGnk7br7nmJ3LWzbG/mn2WfTivl08+r3UiBl
+	WBq0hJfjrYkVxKTznOtfUDN1GqX9eXh5zavrwMxFJjkNFrMe0wtD+dYWlmccu9QdrBrI2DE056rws
+	ktC5OTRq0aFxLtR1qziGi+WOXp2IYdozJkpYmPTrhZVYQtI8gbEKe6QYQyj3VsYN8m4hMOcf1ycPd
+	oiz8WuXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgbwp-0000000BXF9-0gCQ;
-	Mon, 06 Jul 2026 05:32:52 +0000
-Received: from a9-24.smtp-out.amazonses.com ([54.240.9.24])
+	id 1wgc06-0000000BXQs-1x1M;
+	Mon, 06 Jul 2026 05:36:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgbwn-0000000BXEo-1W3N
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 05:32:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
-	d=c127.dev; t=1783315965;
-	h=From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
-	bh=WE1BiFWnuVTqqmoH9eO0D5/X1+StHQ9spZ9M78Luwyg=;
-	b=2CAk/lY1vtY3ORTa9R6Sx21qdZojOgL8vgn/nnSybJTsC1u9ZUySW1KBNpN/nIpE
-	AVfR8ssm0jxZkFuHM6Xg8x+6ASktDymbP8Eeh0fX/EYs0PWpAZae8Z9gGwRvBhKdWYu
-	PXtu/m4WM67n9u2/JhXniIVwRg46LHYV5ud3jv54=
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
-	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1783315965;
-	h=From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
-	bh=WE1BiFWnuVTqqmoH9eO0D5/X1+StHQ9spZ9M78Luwyg=;
-	b=M2t5S0UR1IAa21PcPl+UI8epEJ9WQ1cIwGhDBbgllCzF7KBx0ph6jofN+aQTbCRO
-	FTmxvRnEkhiSONz/h7UkC7rBd3JRNVSF7F/+F3iDJC0Yq1g8RX2jCK1sYneuO3GHg8A
-	/oRUWGeGhdzZZfktdTaaDsAyoO826IPwobbJbm7k=
-X-Mailer: git-send-email 2.55.0
-From: Johan Alvarado <contact@c127.dev>
-To: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
-	alexandre.torgue@foss.st.com
-Cc: Jose.Abreu@synopsys.com, pavel@ucw.cz, netdev@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	contact@c127.dev
-Subject: [PATCH net] net: stmmac: raise TX completion interrupt at the end
- of an xmit burst
-Message-ID: <0100019f35ea26e0-42ad009c-01ab-4a8f-b126-fa65fbacae5c-000000@email.amazonses.com>
-Content-Transfer-Encoding: quoted-printable
-Date: Mon, 6 Jul 2026 05:32:45 +0000
+	id 1wgc04-0000000BXQf-3O7q;
+	Mon, 06 Jul 2026 05:36:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4DF0141E89;
+	Mon,  6 Jul 2026 05:36:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 2FD4AC2BCB8;
+	Mon,  6 Jul 2026 05:36:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1783316171;
+	bh=N7/MvJhYUGrKV9Q70bL4Q1CmZHVRIk+QiqHWcOh3IWY=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=mef8iKmMX/lACumsghUSCgFN6P0gtmJj6dNNaRx8Negkp65Fa2xEPXJkzOqWuU3rs
+	 OVIV8HcS3s6moeeKhdkvvlzcg1fHVrqYAKBOcUGAfnjQ0223Q7JXRRevqdRZJzU9O7
+	 Jb2K4+Zrg8r+o/gY9ZAPm2DalpYuJyLG0AJz5RfUyfyzgzGL4JmexszlAfjNB8Kq0y
+	 S1NMvIaZvdw7jHgbYDEsS2DFXHki8w1MUMMQ8tj11P2C67T5Os+3WQK8PdYcw6WdHH
+	 S+282MjZj2YGdUwMsb6wGUsFHhlZja7SldmlL6Xfbg7nU06ZF357uzX25aSBFDTokj
+	 /0T6f1vycBKaw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 0E328C43458;
+	Mon,  6 Jul 2026 05:36:11 +0000 (UTC)
+From: Jian Hu via B4 Relay <devnull+jian.hu.amlogic.com@kernel.org>
+Date: Mon, 06 Jul 2026 13:36:03 +0800
+Subject: [PATCH] soc: amlogic: clk-measure: Mark the clock measure table as
+ __initconst
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Feedback-ID: :1.us-east-1.z4rHY0qbNtjoW80ZyzVy+DEul17RQEOMT7FC66S60ffkhLWkV35D8ZWXVyxJY1/89bAuLCem4GFJq1VXsxM0u6ZfZbvT1qSjDUeuZG9/Lxk1uINIqi7CenEa93u+fNllqnJMZ0quaBrclhnmtzdFllG4KHSjZOEcaGLa1BWoSpA=:1.us-east-1.epbACCJLarUaEI78XZoGREJ9LamRjxMH5pM2kZb64rA=:AmazonSES
-X-SES-Outgoing: 2026.07.06-54.240.9.24
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_223249_514539_920DADEE 
-X-CRM114-Status: GOOD (  14.00  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260706-clkmsr_optimization-v1-1-70f5aae6e60b@amlogic.com>
+X-B4-Tracking: v=1; b=H4sIAMI+S2oC/x2MQQqAIBAAvxJ7Ttg6ZPSViFDbaiktVCIK/550H
+ JiZFwJ5pgBd8YKniwMfLkNVFmBW5RYSPGWGGusGJTbC7JsNfjzOyJYfFbMvdEuVmSTqmQhyeXq
+ a+f6v/ZDSB4ltrM1lAAAA
+X-Change-ID: 20260706-clkmsr_optimization-b8e1cd70bfee
+To: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Jian Hu <jian.hu@amlogic.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783316169; l=3839;
+ i=jian.hu@amlogic.com; s=20260415; h=from:subject:message-id;
+ bh=n3+FWab2iM1pkmUi4HdCeGFTpcygj++bqfpdmrSHV1Q=;
+ b=7PcHvkINB/VwMB1qf+9rKl1NuPq4ZemkkoFmBNTRfTGPIwr6Mi06cbHn4Drh0+fUK8c7OMovV
+ Z+DCrLY0u8MBB3j34bpdU4H4xXZG+wFelO0nW9w7TTnQfhJ2e9rQeNT
+X-Developer-Key: i=jian.hu@amlogic.com; a=ed25519;
+ pk=zHUE+rNtH9z+Sb8au1/elWknjFQmy5QDVkBoxleuOIA=
+X-Endpoint-Received: by B4 Relay for jian.hu@amlogic.com/20260415 with
+ auth_id=735
+X-Original-From: Jian Hu <jian.hu@amlogic.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,143 +83,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jian.hu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TX mitigation logic only sets the Interrupt on Completion bit once
-every tx_coal_frames descriptors (STMMAC_TX_FRAMES =3D 25), with the
-tx_coal_timer hrtimer (STMMAC_COAL_TX_TIMER =3D 5000 us) as the only
-fallback. TX skbs are freed exclusively from the TX completion path,
-so any flow that keeps fewer than 25 frames in flight has all of its
-skbs held for up to 5 ms after transmission.
+From: Jian Hu <jian.hu@amlogic.com>
 
-Paced flows never queue =
-enough frames to reach the frame threshold:
-TCP Small Queues caps the =
-amount of unfreed data at roughly two pacing
-intervals worth, which at =
-moderate pacing rates is only a couple of
-packets. Every small burst then =
-stalls until the coalesce timer fires,
-and throughput collapses to =
-approximately tsq_limit / tx_coal_timer
-regardless of link capacity.
+The clock measure table is only used during initialization, and the
+table data is copied to the msr_table field of struct meson_msr_data.
 
-This is easily reproducible with BBR, which paces its output and thus
-keeps only a few frames in flight at a time. On a YT6801
-(dwmac-motorcomm) equipped Orange Pi 5 Pro, a BBR upload over a ~23 ms
-RTT path is capped at 5.24 Mbit/s, while CUBIC reaches 207 Mbit/s on
-the same path. BBR measures the stalled send rate as the path
-bandwidth and locks its estimate near the floor, so the connection
-never recovers. Lowering the coalesce settings with ethtool -C
-(tx-usecs 100 tx-frames 1) lifts the same transfer to 447 Mbit/s,
-confirming the mechanism.
+Mark it as __initconst so it can be freed after kernel initialization.
+Taking T7 as an example, this frees approximately 5 KB of memory,
+saving some runtime memory.
 
-Fix this by setting the IC bit on the last =
-descriptor of every xmit
-burst, i.e. whenever netdev_xmit_more() reports =
-that no further frames
-are pending in the current dequeue batch. =
-Frame-based coalescing still
-applies within a burst, bulk traffic keeps =
-batching through qdisc bulk
-dequeue and NAPI polling, and the coalesce =
-timer becomes a pure
-fallback instead of the primary completion mechanism =
-for lightly
-queued flows.
-
-tx-frames 0 keeps its meaning of timer-based =
-mitigation only.
-
-Fixes: da2024510031 ("net: stmmac: Tune-up default =
-coalesce settings")
-Signed-off-by: Johan Alvarado <contact@c127.dev>
+Signed-off-by: Jian Hu <jian.hu@amlogic.com>
 ---
-Notes for reviewers (not for the changelog):
+ drivers/soc/amlogic/meson-clk-measure.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-Tested on an Orange Pi 5 Pro =
-(RK3588, Motorcomm YT6801 PCIe GbE via
-dwmac-motorcomm), iperf3 upload to a=
- public server over a ~23 ms RTT
-path, coalesce settings left at their =
-shipped values (tx-usecs 5000,
-tx-frames 25):
+diff --git a/drivers/soc/amlogic/meson-clk-measure.c b/drivers/soc/amlogic/meson-clk-measure.c
+index 8c4f3cc8c8ab..e1cf67fad83c 100644
+--- a/drivers/soc/amlogic/meson-clk-measure.c
++++ b/drivers/soc/amlogic/meson-clk-measure.c
+@@ -55,7 +55,7 @@ struct meson_msr {
+ #define CLK_MSR_ID(__id, __name) \
+ 	[__id] = {.id = __id, .name = __name,}
+ 
+-static const struct meson_msr_id clk_msr_m8[] = {
++static const struct meson_msr_id clk_msr_m8[] __initconst = {
+ 	CLK_MSR_ID(0, "ring_osc_out_ee0"),
+ 	CLK_MSR_ID(1, "ring_osc_out_ee1"),
+ 	CLK_MSR_ID(2, "ring_osc_out_ee2"),
+@@ -104,7 +104,7 @@ static const struct meson_msr_id clk_msr_m8[] = {
+ 	CLK_MSR_ID(63, "mipi_csi_cfg"),
+ };
+ 
+-static const struct meson_msr_id clk_msr_gx[] = {
++static const struct meson_msr_id clk_msr_gx[] __initconst = {
+ 	CLK_MSR_ID(0, "ring_osc_out_ee_0"),
+ 	CLK_MSR_ID(1, "ring_osc_out_ee_1"),
+ 	CLK_MSR_ID(2, "ring_osc_out_ee_2"),
+@@ -174,7 +174,7 @@ static const struct meson_msr_id clk_msr_gx[] = {
+ 	CLK_MSR_ID(82, "ge2d"),
+ };
+ 
+-static const struct meson_msr_id clk_msr_axg[] = {
++static const struct meson_msr_id clk_msr_axg[] __initconst = {
+ 	CLK_MSR_ID(0, "ring_osc_out_ee_0"),
+ 	CLK_MSR_ID(1, "ring_osc_out_ee_1"),
+ 	CLK_MSR_ID(2, "ring_osc_out_ee_2"),
+@@ -248,7 +248,7 @@ static const struct meson_msr_id clk_msr_axg[] = {
+ 	CLK_MSR_ID(109, "audio_locker_in"),
+ };
+ 
+-static const struct meson_msr_id clk_msr_g12a[] = {
++static const struct meson_msr_id clk_msr_g12a[] __initconst = {
+ 	CLK_MSR_ID(0, "ring_osc_out_ee_0"),
+ 	CLK_MSR_ID(1, "ring_osc_out_ee_1"),
+ 	CLK_MSR_ID(2, "ring_osc_out_ee_2"),
+@@ -364,7 +364,7 @@ static const struct meson_msr_id clk_msr_g12a[] = {
+ 	CLK_MSR_ID(122, "audio_pdm_dclk"),
+ };
+ 
+-static const struct meson_msr_id clk_msr_sm1[] = {
++static const struct meson_msr_id clk_msr_sm1[] __initconst = {
+ 	CLK_MSR_ID(0, "ring_osc_out_ee_0"),
+ 	CLK_MSR_ID(1, "ring_osc_out_ee_1"),
+ 	CLK_MSR_ID(2, "ring_osc_out_ee_2"),
+@@ -494,7 +494,7 @@ static const struct meson_msr_id clk_msr_sm1[] = {
+ 	CLK_MSR_ID(127, "csi2_data"),
+ };
+ 
+-static const struct meson_msr_id clk_msr_c3[] = {
++static const struct meson_msr_id clk_msr_c3[] __initconst = {
+ 	CLK_MSR_ID(0,	"sys_clk"),
+ 	CLK_MSR_ID(1,	"axi_clk"),
+ 	CLK_MSR_ID(2,	"rtc_clk"),
+@@ -634,7 +634,7 @@ static const struct meson_msr_id clk_msr_c3[] = {
+ 
+ };
+ 
+-static const struct meson_msr_id clk_msr_s4[] = {
++static const struct meson_msr_id clk_msr_s4[] __initconst = {
+ 	CLK_MSR_ID(0, "sys_clk"),
+ 	CLK_MSR_ID(1, "axi_clk"),
+ 	CLK_MSR_ID(2, "rtc_clk"),
+@@ -787,7 +787,7 @@ static const struct meson_msr_id clk_msr_s4[] = {
+ 
+ };
+ 
+-static const struct meson_msr_id clk_msr_a1[] = {
++static const struct meson_msr_id clk_msr_a1[] __initconst = {
+ 	CLK_MSR_ID(0, "tdmout_b_sclk"),
+ 	CLK_MSR_ID(1, "tdmout_a_sclk"),
+ 	CLK_MSR_ID(2, "tdmin_lb_sclk"),
+@@ -843,7 +843,7 @@ static const struct meson_msr_id clk_msr_a1[] = {
+ 	CLK_MSR_ID(61, "osc_ring_ramb"),
+ };
+ 
+-static const struct meson_msr_id clk_msr_t7[] = {
++static const struct meson_msr_id clk_msr_t7[] __initconst = {
+ 	CLK_MSR_ID(0, "sys"),
+ 	CLK_MSR_ID(1, "axi"),
+ 	CLK_MSR_ID(2, "rtc"),
 
-  before, BBR:    5.24 =
-Mbit/s (cwnd pinned, bw estimate ~6 Mbit/s)
-  before, CUBIC:  207 Mbit/s
-  after,  BBR:    447 Mbit/s
+---
+base-commit: 4336e970ec6890fbd424128c352564a9c1dd514a
+change-id: 20260706-clkmsr_optimization-b8e1cd70bfee
 
-Interrupt overhead stays sane: ~3.3k NIC =
-IRQs/s total at 447 Mbit/s
-(~38 kpps), i.e. roughly 12 packets per =
-interrupt, since qdisc bulk
-dequeue plus NAPI polling still coalesce within=
- bursts.
+Best regards,
+-- 
+Jian Hu <jian.hu@amlogic.com>
 
-The 5000 us STMMAC_COAL_TX_TIMER value postdates the tagged =
-commit
-(it was 1000 us back then); the stall mechanism is the same, only =
-the
-throughput ceiling differs, hence the Fixes tag on the frame-count
-change.
-
-The XSK/XDP TX paths keep their frame-count-only IC logic: there =
-is
-no skb/TSQ backpressure on those paths, and netdev_xmit_more() is not
-meaningful outside ndo_start_xmit.
-
-The same completion starvation was =
-reported by Pavel Machek in 2016
-(UDP burst pauses, back then a 40 ms =
-low-res timer):
-https://lore.kernel.org/netdev/20161123105125.GA26394@amd/
-His patch disabling TX coalescing entirely was rejected in favour of
-"a real solution":
-https://lore.kernel.org/netdev/20161205122711.=
-GA30774@amd/
-The subsequent hrtimer conversion fixed the timer resolution =
-but kept
-the timer as the only completion mechanism for lightly queued =
-flows;
-this patch adds the missing burst-end interrupt.
-
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/net/ethernet/stmicro=
-/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 2a0d7eff88d3..ddf4ac03538d 100644
---- a/drivers/net/ethernet/stmicro/=
-stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.=
-c
-@@ -4626,6 +4626,8 @@ static netdev_tx_t stmmac_tso_xmit(struct sk_buff =
-*skb, struct net_device *dev)
- 		set_ic =3D true;
- 	else if (!=
-priv->tx_coal_frames[queue])
- 		set_ic =3D false;
-+	else if (!=
-netdev_xmit_more())
-+		set_ic =3D true;
- 	else if (tx_packets > =
-priv->tx_coal_frames[queue])
- 		set_ic =3D true;
- 	else if =
-((tx_q->tx_count_frames %
-@@ -4910,6 +4912,8 @@ static netdev_tx_t =
-stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		set_ic =3D true;
- 	else if (!priv->tx_coal_frames[queue])
- 		set_ic =3D false;
-+	else if (!netdev_xmit_more())
-+		set_ic =3D true;
- 	else if (tx_packets > priv->tx_coal_frames[queue])
- 		set_ic =3D true;
- 	else if ((tx_q->tx_count_frames %
---=20
-2.55.0
 
 
