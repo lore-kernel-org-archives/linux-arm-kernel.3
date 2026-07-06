@@ -4,144 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC4C4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D2CC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:31:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ss++j/cSmkbiHOulJpM8+5G1YFhsVDd06RmldNjS1k=; b=1e/oF48n7v2mAfosYKbgzjUgfS
-	Y3FRyGBJovUY7uSSDQ6y34fwPMDDj6X9o830/+Gqmxw+u3z29P0r6LOqlZkO+eR5JocdynTpbXs6H
-	V/MIqIcB3ptqZhhl0TF4KvaGqLK5COhfisNfHEE7Lcx4985fKRE6Cj1nHpfrS50/rCY5E8g7VJUF5
-	Fmxx9mblSzpScPqIiWdhxML0+2BcT6l6yHR4UmRG1vZoV6IDQSWEr/OaRG8jWkADLR/NrfBtZPQEE
-	V/fz7e6B7g9rGwrKDFY6u/ou4sTIlaaKaC7bweCqoAR6mF7xurR+hGgr1oenWoI1H+yEpXIzOj90E
-	rWgZ+yyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LEJv5GyWiRmG2lSUuloOO2+UEipCg7jbRxfrhXUgk8s=; b=QeE4sCSCSNKvV4he69oiSX4HcU
+	T9Tng2N1E0xSkOGdjbPVc3dxiQYsp+QxfNUDTnZtPlVm4bYFTZA4pj90oHdNDpE+t13G36BkLngCa
+	vfyRVr96vus5FEdji4Xq6LnMTyF+90MJedsA37DS4EHMr0ISeZgpdl46o6Zvo0z0KsDugaQTgqKkB
+	y7rIW3icaPbxi+2yrMrJ3bwqUSULg2UZqDj6fyzJvU+qKVSUOQ7S6xBJUmREzT4MmkLd8U9TeGPvv
+	ymDq47f6DAtYNr58lVVZDq6TSRoskqFlNECCPGZEbNrLobvA37htwyN3Aehsa618U/sNT3Ql3LZvF
+	TlHPhkJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkKg-0000000CkmO-1qLD;
-	Mon, 06 Jul 2026 14:30:02 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wgk6S-0000000ChjD-2cg3;
+	Mon, 06 Jul 2026 14:15:20 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkKd-0000000CklK-1nXv
+	id 1wgk6P-0000000ChiI-1cXv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:30:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZvctVKYtUhs7IATMXzIdEfDIhyT/VU9RwSTswgR1B3qjG9jdUttRCjPx8JofKGg3ZdWnf5SO6f99Qyy0Muk4n6FhyWS0bJBo2UFDZ/mmCbV8s2LyffOv16FMvltGEyqg+Z9tACCYlzD8+z+y+rywHpbViTiYCf6m+ssLnyZOU8typ0TmuCPrGEuZmOJTI+OGzrUs7tIuCA62Ld37DpZ2hGRKW6WVibtper9dZRPZ0q3jqf8TX8fvKbEuaHPwyvn/ExANS/HwIfV6tK6SEbcJrNhyM+BZnhHO9AyqHSRMBWP9VDAmh2QatNwj2xhiUNv37K3qA9vhM68XP8EBHaCNsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8ss++j/cSmkbiHOulJpM8+5G1YFhsVDd06RmldNjS1k=;
- b=emtE9lD5n5WFYIJS9cRwqX8zTgd7kI+eqRNb9fzLwkX1qIqTxtzGGZxzF/iAHDo5bb0OOn7oBxvnsGd9J9ctgrAMcZxD1DT/J2e89qD7O3pkhmM8lkDNqxxCpdNazBFhg9+9s3ZygEMzdBeET88eDrMBCO4B9mMqN/i9Xe0qZ/3FmiIL3QQK31zs83v4QD8G/Goi4IwWQSrtTrEFu4XR8b4ktapaGm8pIW+DEtp2wTs3udRdyViGN3+vjJVgT+VxqLLYDaP470WLgAWsma+lvSKMRfu1x0LHF2B76qRpQBiQpcDzi9Uz9b2g/0Jj9XQh+U0Z43Yxc7+VmXa8viHL7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8ss++j/cSmkbiHOulJpM8+5G1YFhsVDd06RmldNjS1k=;
- b=KORif6DnOsSooQ9gNimnwLyBFHor4DL2bn+uqr1XCsTDqOC0y7ShnGEyEXR1WRbT3mgaIxJ54+y6oUEHNkYOShA2niT+s4badn7LLyB60kbtR3rsE/Uec1xE+A87HZFO+jYKhFCZqxgsvaeoBJ1HRWZjesFg7RkJuEjI8d7fHAqIDmz2ui1GfwyaojX2elnNv6s9TBck/K/WLgAFs/l83PHkuagaYYFt5Xl3qc54Ctdhf0hdLgakFu9Uc0mfCJlELPy+OWzxk1OwNhYTqiAosPxXKtLoth9Yw0DI3AyG5Wef2eIP4p9FYo0cqqXiSSFQwjGVQwCquHk5A2iLVLlWew==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
- by DU4PR04MB10460.eurprd04.prod.outlook.com (2603:10a6:10:567::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Mon, 6 Jul
- 2026 14:29:50 +0000
-Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
- ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
- 14:29:50 +0000
-From: Frank.Li@oss.nxp.com
-To: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH] ARM: dts: nxp: ls: Correct indentation
-Date: Mon,  6 Jul 2026 10:29:43 -0400
-Message-ID: <178334817276.1319341.8269579854399142820.b4-ty@b4>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260706101834.341292-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260706101834.341292-2-krzysztof.kozlowski@oss.qualcomm.com>
+	Mon, 06 Jul 2026 14:15:19 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=LEJv5GyWiRmG2lSUuloOO2+UEipCg7jbRxfrhXUgk8s=;
+	b=41tMsLXMaDSYZJPXIupOQyQvb/gpqtDKslYG4fVwdZxBpGOjnW1vcH8VebS+y9NQsh6CqKZcO
+	uSjqIilj09n3cowX5IoRtYcC0hk5wlZzZF+Srsrb5YASwLtv4t1PXDZ9xFMyjYstbfK1DqrnKCM
+	kFdeNgQVKTmIQ8P3fZ0lD8w=
+Received: from mail.maildlp.com (unknown [172.19.162.92])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4gv5jr67xRzmV7V;
+	Mon,  6 Jul 2026 22:05:52 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id F268540565;
+	Mon,  6 Jul 2026 22:15:05 +0800 (CST)
+Received: from kwepemq500001.china.huawei.com (7.202.195.224) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 6 Jul 2026 22:15:05 +0800
+Received: from [10.67.146.137] (10.67.146.137) by
+ kwepemq500001.china.huawei.com (7.202.195.224) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 6 Jul 2026 22:15:04 +0800
+Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
+ guarantee with VTTBR_EL2.CnP
+To: Marc Zyngier <maz@kernel.org>
+CC: Wei-Lin Chang <weilin.chang@arm.com>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <seiden@linux.ibm.com>, <suzuki.poulose@arm.com>,
+	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, "guoyang (C)" <guoyang2@huawei.com>,
+	"huanglingyan (A)" <huanglingyan2@huawei.com>, "Wangzhou (B)"
+	<wangzhou1@hisilicon.com>
+References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
+ <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
+ <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
+ <86o6gkpokm.wl-maz@kernel.org>
+ <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
+ <86jyr8pkw8.wl-maz@kernel.org>
+From: Tangnianyao <tangnianyao@huawei.com>
+Message-ID: <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
+Date: Mon, 6 Jul 2026 22:15:04 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101
+ Thunderbird/52.2.1
+MIME-Version: 1.0
+In-Reply-To: <86jyr8pkw8.wl-maz@kernel.org>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SA0PR13CA0012.namprd13.prod.outlook.com
- (2603:10b6:806:130::17) To GV2PR04MB11799.eurprd04.prod.outlook.com
- (2603:10a6:150:2cf::9)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|DU4PR04MB10460:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb90dc7d-456d-4622-1989-08dedb6b093c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|23010399003|19092799006|366016|7416014|376014|921020|18002099003|22082099003|11063799006|56012099006;
-X-Microsoft-Antispam-Message-Info: MED9bz4qtLc0qQm41HWHgD3JVy5wyHtSU8HZNPFsrpDdeI8gcmvnzA2ZHu0MFcY+5DJbwKkfETLdJbha4qBK/0wfu6mYraJBjMsWJIxYNaGG0wIzd2jtFg0rQQR8y4fyH57M7UUGjCR+2axwd8euHQf8Z8z79qzSzj9oqn2HJA6N+73h7XpHTB1lEmQ1xFnnfSRx1ucQUxuWWjVwUjkEulk6EUgvT7FRiQSy7HRdIQwD81GvcggKlT5sfI6LLoO5Z4P73BsmiR1/XemQUCzb9PfLdHZjgOFRegJKWiAQ6OQhq+L5qDCgl9kkI5N5qnbuZc6GfGNz/Sw65Lt5VF2d8UQWZ1ETCgpEtXBotj23oyKJCAQ9kDPISjEDuiOJDVkkAqOqrHntspoa8hzeoaMJkPPdykkXuWJHVrXaCpkFx5HTnp2xBzpPNP/p0nppHPltiKiLO10mOBZSOSQlcwBzfddFI+vYzCyF+op0/70yRkWxpyqqVgnXhWC75YIdWZ6xOCmHs8xbZ0JWSQdIA4jWGEbRZf83pjP+SrY0pZAKLjTcmyaXkZZSnDjd3Hgz2dCG0Od1dfIUq3jGM2ysVhqIYfeZ4u1/mZJTYdUxXrnXXb7lSJ9Jmsac0re14dK9eFLrxXWs2wJbIDgDwc3cvq2g3RjJwudnPv0nM4QmvI88wP1/EFSP7cnP+1l9rCm5l6HyIkLfY9trdGMnmltBimCkRQ==
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(19092799006)(366016)(7416014)(376014)(921020)(18002099003)(22082099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VHFFaUVNV3JybUNpNzZrWlJVYU10T0VyRDZBcXdRWDBLMGlITVJSUGg5N3hz?=
- =?utf-8?B?SHhTYTlLcmYwMnFzRkwzamRYRDBtVFhUOUxoRVRYN2hiUFkzN09iczlZNlZl?=
- =?utf-8?B?ZEtZbCtidHRGVjBaVHp4bTFZMEREMlZlT2F3RHdnVTNoaVlmTFFPUFBrL2s4?=
- =?utf-8?B?NkFaWFRMaHgzN0d4bUx5RkI0dlp0V1p5dkZGQ0VSaWMzVW9XU1VIaFQ0VFFi?=
- =?utf-8?B?SnEzbXZiTVJVc0ZmZTZFZEszVUR6RUZaSDA1T3JuMVJDRlhEUXVlSlVuN1F3?=
- =?utf-8?B?R1pLKzVET0trZXpzNlFETGxIM1RIZllNKzlRWG1tUUtzRktNZWFlYXFEZElJ?=
- =?utf-8?B?TlpMSUUrWGMxSThhUHF6SE1YOWZublM4RDQ4NmkzcDRqQkloM05xSlFxZEhO?=
- =?utf-8?B?WGtTSk4vTXhPYjZrRHF6bGtpSEdDYjBOZVc1M2dUT0hrSFFDa0M0ZFN3bDho?=
- =?utf-8?B?L0R0a1plMnpHT0tZOGZYbGVWN2lWZk1CZTlMdGhZOXBvNGNVOGJaL0RmRVlV?=
- =?utf-8?B?OW54KzV3Wlc1bmxHeDgxL1hJYnVybnBmVCtnZlRUNXFCajNPYndXdnc5WkVW?=
- =?utf-8?B?UGJoeVZOSU9NSUpwN2Z1SWVRZTYydXVPVHNRaUpJUDVOT00zemZFRzBkU0F2?=
- =?utf-8?B?dElKclVJeThzRDMySXQ5ZzFSUStWU0RHVEJSWmhjVEx2RlhZS2tTR001M3VW?=
- =?utf-8?B?em5naUFpaDhJNG9KMlZqSjFhOFoySHR0VTd2MXQwVWE0b09vNzA5M2tuQkxK?=
- =?utf-8?B?czhoT2huQlJuR3hwRnBJTVZXRkNWdDFxNmYxbUY5KytrdmFXZlRuRDREUmI0?=
- =?utf-8?B?WE1qN2lrenBWK2JhbjN2TjBFSXlxdGwvVnlBSmwyOWFoQXFsNkk3dzNRYmpE?=
- =?utf-8?B?aVFGU05DZmIxcG5DUm5ibXBydVhacnM2and4aFlaVVRxdzdJVWpUazcwc1By?=
- =?utf-8?B?RU1BYWRWWC8yS29QK3lSVERtZVNxeFlBYmNyY1lpMFRHN3dCeFFQOENUNkw5?=
- =?utf-8?B?ODRkdTBwR00wMytJSktVTkliaFpKVkVLdDZKVlpkUkZJa1VWL01HbFBJempm?=
- =?utf-8?B?MUt2QThKZEVxK0JEeGZ2citnN0FhWFptME81YUZML3dRVEtKMDdTbWl3N25y?=
- =?utf-8?B?S3hMMDJvSWdJTlU0amtjb0hTMVA0ajNoaTR6TzJnanI3NTkvU1lNbFBNUC9m?=
- =?utf-8?B?VWI2b0NmOGJucFNiNU1VeXQ1WVJIVENZOWloMGloQ1NuakRFdVhFaXh2ekNI?=
- =?utf-8?B?Qm9meG5ZRFlpK0VhZnEvYWg0K1FRZDQxNEE1TW1Sc1hweGdYdTFQcW1hTWsy?=
- =?utf-8?B?R3lwVTNYbEJEYllUaHFXVXFkaXhsbzJORFAwb2haWkE5TGQxaDc0b0hnVGZI?=
- =?utf-8?B?ZnBTUEMwMzVsSDlSWFZ4VHlzRVoxLzJqcktWamZZT2xpWFdOQ1Nqd1d0cUsv?=
- =?utf-8?B?WTNxWXR5UVQralJDOXBncDdTY3FpUy9TUVRaYXdjSXRxaXNLVTlSajJtL1By?=
- =?utf-8?B?U09PYVZManJYRTBKTWRwL0pIcVhGczV0aHpwQjl0dXQ1ZExteHNLV1NJcW1F?=
- =?utf-8?B?dDJHSWsxRm1tYURsbnNMVWFtbVc5Q3Z4VHlUZmFkeW0ybHc4b090dFdpeFhT?=
- =?utf-8?B?Sjg0cXh6NnE0YlpSMSs5VHNWQ005OUpMdnZKdlFBeTBJQVlhTkRaYmpiaTVN?=
- =?utf-8?B?ZGFKVUk0TFFxWVVWN2oxR0ErazM4NzArVmJ5Z1pIQzF6TmVKWWxkRitBRWpI?=
- =?utf-8?B?eFRjeTRIcGp5L2plQksyRS9ycUdLQ2E0L2lOa0VtTTVkQTJibEkxMHJTRXoz?=
- =?utf-8?B?UG1aRk82R1ljVnNGcERrVlVmaHc1U1dJU1pMMkU3NXhpbEdhSzFxMnhxQjRo?=
- =?utf-8?B?amsxUzlzS3pFckpmNlpVMm5DWEo2YlJrcHpGeVhWekI4aWRFTnNickxRa0lT?=
- =?utf-8?B?VVBhWHk5YnE4eGsrRkxqQjBOSHFsdm1vdWJwTW1rdG0reWMwUG1lUVlGSE5Z?=
- =?utf-8?B?bEpzbzV2OG5ZcHM2WmNpYjF1c0VqM1NWRWw1WitRMEt6U2F0TXljTEdnVnk3?=
- =?utf-8?B?ZDM0d2U0TDV1SE0xKzA1UWZVd1VZL3BKaysyZXloTXNLQk90R01OdFFuWitO?=
- =?utf-8?B?VnZUdnU1UUFzeTZzYzNmZmRhY1h5ZVltZEo4TDZPSlNGMzZydkttQUZ0MGJO?=
- =?utf-8?B?RklreGhXeFJLQkFpR1lIY3lxM093NjEyYTl6b3RMYnFqR3ZmdWY4SG1sN0JR?=
- =?utf-8?B?MkZna1F5dGV3NjgxbXVscFMzd2ZTM0k0ZGJFTkVlZVRZMUFIb0x0OS9ZNTJG?=
- =?utf-8?B?YXQ3SXdpZllSMGZTZHNjcStBYXdrOTBXaEtPQk1nbjlyWjg5Z3hSR1pDT2I5?=
- =?utf-8?Q?WTGN5+u8FWRcZPdaIDky3ObL14uqzKqzlmf6O?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb90dc7d-456d-4622-1989-08dedb6b093c
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 14:29:50.0240
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 4F2zSm9Pl9uDtY5NqyzicwgX7TBsG8M1bwKdqWj/GdpumfsDSj8RTz7etgax55aTsKhDnrQXCkL/H7ussxfx9V+IjmC+4DGI1iPrYMIYqnzTn6m4huxjSg6fRNVeuCGr
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10460
+Content-Language: en-US
+X-Originating-IP: [10.67.146.137]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemq500001.china.huawei.com (7.202.195.224)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_072959_473236_28491323 
-X-CRM114-Status: UNSURE (   6.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_071518_108603_68B7F43F 
+X-CRM114-Status: GOOD (  27.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,19 +94,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
 
 
-On Mon, 06 Jul 2026 12:18:35 +0200, Krzysztof Kozlowski wrote:
-> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
-> No functional impact (same DTB).
+On 7/6/2026 16:44, Marc Zyngier wrote:
+> On Mon, 06 Jul 2026 09:25:46 +0100,
+> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>
+>>
+>> On 7/6/2026 15:25, Marc Zyngier wrote:
+>>> On Mon, 06 Jul 2026 04:30:30 +0100,
+>>> Tangnianyao <tangnianyao@huawei.com> wrote:
+>>>>
+>>>> On 7/6/2026 1:28, Wei-Lin Chang wrote:
+>>>>> Hi,
+>>>>>
+>>>>> Let me try to answer this:
+>>>>>
+>>>>> On Sat, Jul 04, 2026 at 03:45:56PM +0800, Tangnianyao wrote:
+>>>>>> Hi, all
+>>>>>>
+>>>>>> I'm trying to understand the TLB and I-cache invalidation in
+>>>>>> `kvm_arch_vcpu_load()` that is intended to "guarantee that both TLBs and
+>>>>>> I-cache are private to each vCPU".
+>>>>>>
+>>>>>> As I understand it, when `VTTBR_EL2.CnP == 1`, `__kvm_flush_cpu_context()`
+>>>>>> only performs a local TLB and I-cache invalidation, which does not seem
+>>>>>> sufficient to guarantee that property.
+>>>>>>
+>>>>>> In fact, even if the invalidation were extended to the Inner Shareable
+>>>>>> domain, it still seems difficult to guarantee “TLBs and I-cache are
+>>>>>> private to each vCPU”, when `VTTBR_EL2.CnP == 1`, as long as multiple
+>>>>>> vCPUs from the same VM may be running concurrently on different PEs.
+>>>>> I think you have missed that when 2 stages are involved, both stages
+>>>>> have to set CnP == 1 in order to share TLB entries (Arm ARM R_ZVRZW).
+>>>>> So if TLB entry sharing happens, the guest kernel must have allowed it
+>>>>> in the first place (by setting TTBR0/1_EL1.CnP == 1), hence accidental
+>>>>> sharing that you are worried about won't happen.
+>>>>>
+>>>>> __kvm_flush_cpu_context() is solving problems that occur when multiple
+>>>>> vCPUs of a VM are multiplexed on a single physical CPU.
+>>>> Thanks for you answer.
+>>>>
+>>>> If guest kernel allow TLB shared across CPUs by setting TTBR0/1_EL1.CnP == 1,
+>>>> does kvm still need to guarantee that TLBs are private to each vCPU?
+>>> Yes, because there is nothing that describes which physical CPUs
+>>> actually share TLBs. So the only possible course of action is to
+>>> ignore what the guest says and fallback to something that is safe.
+>>>
+>>>>>> So I have two questions:
+>>>>>>
+>>>>>> 1. What is the rationale behind the comment that "guarantee that both TLBs
+>>>>>> and I-cache are private to each vCPU"?
+>>>>> I assume you are asking why keeping both TLBs and I-cache private per
+>>>>> each vCPU is required. The fundamental answer is that each physical CPU
+>>>>> is expected to have its own TLB and I-cache, so we must uphold that
+>>>>> property for vCPUs as well. vCPUs can be scheduled on the same physical
+>>>>> CPU, and use the same physical TLB/I-cache, obviously, so extra
+>>>>> invalidations need to be done.
+>>>> Let's assume that both Stage-1 CnP and Stage-2 CnP are enabled.
+>>>>
+>>>> As I understand it, the architecture permits TLB to be shared by multiple
+>>>> PEs within an Inner Shareable domain. Right?
+>>>>
+>>>> If an implementation allows TLB entries to be shared in this way, it seems
+>>>> that the current invalidation performed by kvm would no longer be sufficient
+>>>> to guarantee that TLBs are private to each vCPU.
+>>> Care to explain why?
+>>>
+>>> The core assumption is that a TLBI take effect on all the PEs the TLB
+>>> is shared with. If this doesn't work, then CnP is unusable, because it
+>>> is then impossible to guarantee that a translation will be refetched
+>>> (you could always hit in another PEs TLBs). Such an implementation
+>>> would be terminally broken.
+>>>
+>>> 	M.
+>>>
+>> For example:
+>> Sharing the TLB between the two SMT threads of the same physical core can
+>> reduce hardware cost while increasing the effective TLB coverage.
+> I have a precise idea of what TLB sharing can achieve.
+>
+>> A local TLBI take effect on the whole TLB shared by the two SMT threads,
+>> with the sharing enabled by CnP.
+>>
+>> In this scenario, enabling CnP in KVM appears to break the guarantee that
+>> TLBs are private to each vCPU when multiple vCPUs of the same VM run
+>> concurrently on different SMT threads of the same PE.
+> Please stop inventing your own terminology. A PE *is* a thread in the
+> architecture. There is no such thing as "threads of the same PE".
+>
+> But more to the point: if TLBI invalidates the relevant TLBs for all
+> the PEs that share them, *why* isn't the current KVM behaviour not
+> enough to ensure that the vcpu will not hit old TLBs that are there as
+> a result of a vcpu having run there previously?
+>
+> Please explain.
+>
+> 	M.
+>
 
-Applied, thanks!
+Two SMT threads(PE0,PE1) on the same physical core share TLB.
 
-[1/1] ARM: dts: nxp: ls: Correct indentation
-      commit: b99bc64c0fd91d0dea4147919184b7c8db9c615b
+VM0 has 2 vcpus, vcpu0 and vcpu1 that share all architectural context
+except the address translation context.
 
-Best regards,
--- 
-Frank Li <Frank.Li@nxp.com>
+Vcpu0 may observe TLB entries that are supposed to be private to vcpu1
+in the following case:
+
+    PE0(core0,smt0)         PE1(core0,smt1)
+vcpu0 load           
+vcpu0 va->pa0        
+vcpu0 put            
+                                       vcpu1 load
+                                       vcpu1 flush local tlb
+                                       vcpu1 modify desc to va->pa1
+vcpu0 load
+vcpu0 hit *va->pa1*
+
+
+Thanks
+Nianyao Tang
 
