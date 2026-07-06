@@ -4,97 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 715EDC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 20:00:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB34C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 20:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uUPjVrLwJsJVzn4Q29xfovXMjcBST4SjV69WBu8CmHY=; b=jaRWaJftIdUWen5sB0xFU0JTFJ
-	snsnEewZAjWNTbIM2r/Ukzcf8N77ejd+mlmySYjPPEIZ9dds3QqGSyYXFuLOVKAaBniNpXavGlwyy
-	XDTAnMigozlRkQMy9WebakXqI8WEklQXHdsPZPIqWscHljHuySTpaFKOPVmSkiFppphguf4rbvUi4
-	jn2AtqAWCX6rQwmpeTOEOVUYp2ke4Ix8gXCBoyQHTpRKRbtr28Jtg434lDEgG+UiZvilnyKMNl30J
-	RYHpzoCHGjty/I7QSP1gNPbheLg/KDn7M+bSH1tWp8SekJtv859MbxvsGQr2I/OG4i/ohkquFjbbQ
-	zGQvtv/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JBmxobDW/MHje2f4xBTmx9aIBxPjJtJsCEI+DZFs4H4=; b=NQx+KlZ8UygSUC+teTYJ6E1hgO
+	EMpRguwLtpjbts3nWOrp5a1IV1OhCwwNpER2EYU0C/QYKNyrFREKsXkBMuqz9qnG3ZI0nrHRAZYQz
+	7tuF+9sBBLebtqBy97FqQy4hMEYhwowKSDzQ5jQtd/I2BzdUTxsRwBT6hkaLN+796RgKjRvlMbrmr
+	OabTfOSUoU9dM9/PmOL9cimWqCf3BoopRtzYLIKr2vGT8MnCk7D4jyDJhzLdLhczbdlQ8m8cJ0XIm
+	HJS0AoJghIjLN79XZDQmJFDYbbWSCnpxYNUzamq6zrFK3/HB2/9c4oMK3k/MxUFCHjGKrEFo6dkLo
+	CJE6lfAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpTp-0000000DVrT-3fDZ;
-	Mon, 06 Jul 2026 19:59:49 +0000
-Received: from mail-ot1-x32a.google.com ([2607:f8b0:4864:20::32a])
+	id 1wgpVb-0000000DWiF-4BLP;
+	Mon, 06 Jul 2026 20:01:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpTf-0000000DVZP-0nyw
+	id 1wgpVY-0000000DWhW-43lk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 19:59:41 +0000
-Received: by mail-ot1-x32a.google.com with SMTP id 46e09a7af769-7ea9c6ea7deso2560955a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 12:59:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1783367978; x=1783972778; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uUPjVrLwJsJVzn4Q29xfovXMjcBST4SjV69WBu8CmHY=;
-        b=Z7r692jVaXwp0aUmmEl8fOYkO9WcSk+RjWqdXlFNJ1uEAf0Nau3VJzgmTb7ixaoHMS
-         O8rr2jBV4yQroLS3RzqKVk9yvdyFUTutZTAgWNmIxqqo4azXEEf8tCsbUICY4S25FFYP
-         I0eALF+JeR9scidKmeFdrJS1rPeRy4SLyE6yE=
+	Mon, 06 Jul 2026 20:01:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783368095;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JBmxobDW/MHje2f4xBTmx9aIBxPjJtJsCEI+DZFs4H4=;
+	b=csDsfXS8I1UfzI/MbvtARWHu9vsvttxlqvLr1wY0YAYAv7l+XAiAuYHmMIJGYeDA/lxmSQ
+	CbVaomcWFLLXjArsOi8i0tpDKz260Co9//AkqtAa+ePgTsBRUf3iuVl9s27YAIXqyHobi9
+	xrWMoSB6Gpf5Eje+B5PIQ5nKQg0XatQ=
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
+ [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-259-Lvzuw82_Pou4fgtpg6giEA-1; Mon, 06 Jul 2026 16:01:34 -0400
+X-MC-Unique: Lvzuw82_Pou4fgtpg6giEA-1
+X-Mimecast-MFC-AGG-ID: Lvzuw82_Pou4fgtpg6giEA_1783368093
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92d1cae5939so345413585a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:01:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783367978; x=1783972778;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20251104; t=1783368093; x=1783972893;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=uUPjVrLwJsJVzn4Q29xfovXMjcBST4SjV69WBu8CmHY=;
-        b=WWnQZoqgCfWl1LM80q5ET8hVo56I4Q2z/72jvLqA/3Ml+BBpydn/Nl2HH2yA4cStgv
-         nk/ICoSf/TBemT1OqYZ1gSO5fnbhy8HllCH2dOr7nEWbXZbeJrdRY+SImTElTA5UK39U
-         1IMi3Cc1QXO1An3VW2BZuloigvXnWCz2yUPWOy16LmAqm3QZiePgRO8ZHRomVAP21WXi
-         Cl1VftC8rFwzSvnKkgYw9L7RoHZeQv/fSHvX+4J0X7f6s0uqpnZPXIHqNCkuB70f3hZS
-         9buQ+zfn8RpJfvjJS791iWR/l35TSLTqbvbhtTYfhvt7i2tUJLhfgvJKYVgbNXw0yq14
-         b+qQ==
-X-Forwarded-Encrypted: i=1; AFNElJ+f77P0vYkED9cMKVP+u+x84FD81XPrZMYtQJovjcN9IIYPjGhzMzSXD88bIPbbSGdSpZH0ILk6GDF7q3pdAFiT@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJIQ6Xd9cgfG8G05LPrRVR3IAtOs5F3kKcodhwBClhiWz7+GJc
-	bs4JEk787pulQTx0j/J0ccHdeA1LB6F2+hoLWsp/Cb3qmwmSyA5aPCS0+rVMoIVi6Q==
-X-Gm-Gg: AfdE7clKIxgsWdx86hi50y4AAQJunGx2NWQmCxQYLsE9b5mFeljD+KYCgTdqNUz8poJ
-	yfBWGFUbvW36JICnV5aHeOzZBcT3zwJC2yMEh2+SobXKu29ITCCCFjCmfrNZ+gqxRP3891+fdt8
-	M3SYvtfMQWDBR5PH7IyNWLzec6Nt5SbAqy4FHROkLC/eem+6iGlqGSuhlNsBTj1fhQGVp/E4O79
-	MkRbcHSqVA3GUAD7nK+kKdO7n7aSrMYye9kTxcJa9n2ca6f5am3fl1xxpSJUpCFr2DVh68Kes6F
-	Q/YLzQBqG0afls4teKcrV2zPVShcNDwM1WT4sGWb8UWpR4y5WDNwO9I9/7iEWUFiayZIJLoQupW
-	LufpW82dc8ceA0i7O/PGAU2lAWzkmhvY9gtHtIIdoQHTZz6c4LGTlUG1ML8/0zdzn6xAqIwZDPk
-	zrsOGbQUI=
-X-Received: by 2002:a05:6830:82e8:b0:7d7:58b0:7685 with SMTP id 46e09a7af769-7ebb22cee36mr1427105a34.13.1783367977773;
-        Mon, 06 Jul 2026 12:59:37 -0700 (PDT)
-Received: from chromium.org ([174.51.25.52])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7eb542d017csm12161834a34.8.2026.07.06.12.59.36
+        bh=JBmxobDW/MHje2f4xBTmx9aIBxPjJtJsCEI+DZFs4H4=;
+        b=IviMOLTGWB8turXbSgT3qOPyyznsCNDIm2QzGMMfWBEujWQOeuIvxPq0b7EW+w5ubD
+         fRcIJE8OgXjRLlD5P+TOOD87AQJBOuAxPwj8xN6GTfQIz0bbLx+8kzT3nLclljA6VzRf
+         UbzJQt0Q+BiOsL5aa2d9H7Mu1Dn6YXDGDWe2dreq/sAWAlIWWZ61x7gSpG+WHXvTo6DS
+         HCKwmXf+NynG6vcDBMf/2Eo5Lc876afWld+glBADykAWMSA8VSBlQpky+/K3zBApSkKx
+         g9PQ+M/NGJL8AWfiAR3Hx9RNLjrPNJi8FKrpdWJigl6mnLedxqMn3wSpw2bPZ77rZsk4
+         LcsA==
+X-Forwarded-Encrypted: i=1; AHgh+Rr+jLvOwQGBzL9uYwDxVFF0AWzLqfCON9OSQkKmQiKowZNYmLWiGN7H1TpMquOPe4Dd0d/xEF3kQOE0kryOnQIf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ0nvGkGLybgxQxVdNZgWyhRHdoi06k7ADRi/W0+ltkEZ3bIBu
+	dMc1yp2yCGTrnUp7a92TrieOVOS9cKyWq+sZ/TvypmoBLkHX0ussYB3mmryfrKLeF1Y9cuw78QN
+	yXjaZaBoXuGEvJ7OwNovDLnBTn5cZDhwZmI/lmG2RTw1fMgDMRKRGI6BTC/jXMqiJHmwNkD/7le
+	RN
+X-Gm-Gg: AfdE7cnl52XDCKgPadxb/HJA4kdYm91ml5qWNaqLpuzqAsuFmDJHbPyjL5jLjOozBvR
+	2vC2WD83XdzHE+rPBHEq9yWiYkwcxN3URxXMnhtAl0GzvJ8qVv3UKv46IsxJKXgqSwr8iooOv1h
+	X64O09VWuXEbuSNm5JO7aItPIv6wbRLfzslw6EvBvRB6zi1JqYPAT6tyor5ieneOwEZPYNOyXTw
+	OsV0YtT7kNGzVXYHWLqIbGli6Fvav15H0Zp3nr4lYS9W8E5A4NjCV112pQLgz7z7mCgkVbnVnRQ
+	Ummsmo5hdfU3uTQCIGJQkJe88jf3MGMAcUSAFmAdBgEDKSR3TJpBwp3mH1rCWFFEBshPisfW1q+
+	Yvpz80v4ouWTUcikH6qznEEihqduWBYcE//8E34quIeoOAw==
+X-Received: by 2002:a05:620a:170c:b0:92e:9cb3:3f71 with SMTP id af79cd13be357-92ebb56bfa3mr271399685a.36.1783368093391;
+        Mon, 06 Jul 2026 13:01:33 -0700 (PDT)
+X-Received: by 2002:a05:620a:170c:b0:92e:9cb3:3f71 with SMTP id af79cd13be357-92ebb56bfa3mr271386185a.36.1783368091707;
+        Mon, 06 Jul 2026 13:01:31 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-92e90b81342sm1006981285a.7.2026.07.06.13.01.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 12:59:37 -0700 (PDT)
-From: Simon Glass <sjg@chromium.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Fabio Estevam <festevam@nabladev.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Simon Glass <sjg@chromium.org>,
-	Albert Aribaud <albert.u.boot@aribaud.net>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Jeffy Chen <jeffy.chen@rock-chips.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Michael Opdenacker <michael.opdenacker@rootcommit.com>,
-	Rob Herring <robh@kernel.org>,
-	huang lin <hl@rock-chips.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 11/12] dt-bindings: arm: rockchip: Add Luckfox Pico Mini B
-Date: Mon,  6 Jul 2026 13:58:07 -0600
-Message-ID: <20260706195818.3906949-12-sjg@chromium.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260706195818.3906949-1-sjg@chromium.org>
-References: <20260706195818.3906949-1-sjg@chromium.org>
+        Mon, 06 Jul 2026 13:01:30 -0700 (PDT)
+Date: Mon, 6 Jul 2026 16:01:28 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Akari Tsuyukusa <akkun11.open@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	Miles Chen <miles.chen@mediatek.com>,
+	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
+	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
+	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH] clk: mediatek: fix memory leak on module removal
+Message-ID: <akwJmKqZJS1sJzFk@redhat.com>
+References: <20260629142348.273766-1-akkun11.open@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260629142348.273766-1-akkun11.open@gmail.com>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: k4HEtZl3P2jYOgn0-VybDIGJp1uUT16akK1mIazyZLA_1783368093
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_125939_779535_F49445A8 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20260706_130137_080208_8E4A3DBF 
+X-CRM114-Status: GOOD (  21.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +116,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible for the Luckfox Pico Mini B, a small board using
-the Rockchip RV1103 with 64MB of in-package DDR2 and a 128MB SPI NAND.
+Hi Akari,
 
-Signed-off-by: Simon Glass <sjg@chromium.org>
----
+On Mon, Jun 29, 2026 at 11:23:40PM +0900, Akari Tsuyukusa wrote:
+> Some MediaTek clock drivers do not call platform_set_drvdata() during
+> probe(), but their remove() callback calls platform_get_drvdata(). This
+> results in platform_get_drvdata() returning NULL, which leads to calling
+> mtk_free_clk_data(NULL) -> kfree(NULL).
+> Therefore, the actual clk_data is never released, causing a memory leak.
+> 
+> Fix this by calling platform_set_drvdata() during probe.
+> 
+> Fixes: 124294ff468f ("clk: mediatek: mt8192: Move apmixedsys clock driver to its own file")
+> Fixes: 4c02c9af3cb9 ("clk: mediatek: mt8173: Break down clock drivers and allow module build")
+> Fixes: 54b7026f011e ("clk: mediatek: mt8135-apmixedsys: Convert to platform_driver and module")
+> Fixes: c50e2ea6507b ("clk: mediatek: mt7622-apmixedsys: Add .remove() callback for module build")
+> Fixes: 0d363282bb0c ("clk: mediatek: Add MediaTek Helio X10 MT6795 clock drivers")
+> Fixes: c6368ce86435 ("clk: mediatek: mt2712-apmixedsys: Add .remove() callback for module build")
+> Fixes: 838b86331c5e ("clk: mediatek: mt7622: Move infracfg to clk-mt7622-infracfg.c")
+> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
+> ---
+>  drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 1 +
+>  drivers/clk/mediatek/clk-mt6795-apmixedsys.c | 1 +
+>  drivers/clk/mediatek/clk-mt6795-infracfg.c   | 1 +
+>  drivers/clk/mediatek/clk-mt6795-pericfg.c    | 1 +
+>  drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 1 +
+>  drivers/clk/mediatek/clk-mt7622-infracfg.c   | 1 +
+>  drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 1 +
+>  drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 1 +
+>  drivers/clk/mediatek/clk-mt8173-infracfg.c   | 1 +
+>  drivers/clk/mediatek/clk-mt8192-apmixedsys.c | 1 +
+>  10 files changed, 10 insertions(+)
+> 
+> diff --git a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+> index 54b18e9f83f8..24522fc24019 100644
+> --- a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
+> @@ -129,6 +129,7 @@ static int clk_mt2712_apmixed_probe(struct platform_device *pdev)
+>  		goto unregister_plls;
+>  	}
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
 
- Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
- 1 file changed, 5 insertions(+)
+Please add a newline before the return.
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index 1a9dde18626d..711029ee78af 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -813,6 +813,11 @@ properties:
-           - const: netxeon,r89
-           - const: rockchip,rk3288
- 
-+      - description: Luckfox Pico Mini B
-+        items:
-+          - const: luckfox,pico-mini-b
-+          - const: rockchip,rv1103
-+
-       - description: Onion Omega4 Evaluation board
-         items:
-           - const: onion,omega4-evb
--- 
-2.43.0
+Also, please split each fix out into their own patch to make backporting
+to downstream kernels easier.
+
+Brian
+
+
+>  
+>  unregister_plls:
+> diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+> index 123d5d7fea85..b607592a7c37 100644
+> --- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+> @@ -175,6 +175,7 @@ static int clk_mt6795_apmixed_probe(struct platform_device *pdev)
+>  	dev_dbg(dev, "Performing initial setup for MD1\n");
+>  	clk_mt6795_apmixed_setup_md1(base);
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_ref2usb:
+> diff --git a/drivers/clk/mediatek/clk-mt6795-infracfg.c b/drivers/clk/mediatek/clk-mt6795-infracfg.c
+> index e4559569f5b0..12146bb3b726 100644
+> --- a/drivers/clk/mediatek/clk-mt6795-infracfg.c
+> +++ b/drivers/clk/mediatek/clk-mt6795-infracfg.c
+> @@ -116,6 +116,7 @@ static int clk_mt6795_infracfg_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto unregister_cpumuxes;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_cpumuxes:
+> diff --git a/drivers/clk/mediatek/clk-mt6795-pericfg.c b/drivers/clk/mediatek/clk-mt6795-pericfg.c
+> index d48240eb2a67..28faeb2e657a 100644
+> --- a/drivers/clk/mediatek/clk-mt6795-pericfg.c
+> +++ b/drivers/clk/mediatek/clk-mt6795-pericfg.c
+> @@ -125,6 +125,7 @@ static int clk_mt6795_pericfg_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto unregister_composites;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_composites:
+> diff --git a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
+> index 8a29eaab0cfc..a9fc2e5536b3 100644
+> --- a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
+> @@ -109,6 +109,7 @@ static int clk_mt7622_apmixed_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto unregister_gates;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_gates:
+> diff --git a/drivers/clk/mediatek/clk-mt7622-infracfg.c b/drivers/clk/mediatek/clk-mt7622-infracfg.c
+> index cfdf3b07c3e0..b44baf521d2f 100644
+> --- a/drivers/clk/mediatek/clk-mt7622-infracfg.c
+> +++ b/drivers/clk/mediatek/clk-mt7622-infracfg.c
+> @@ -90,6 +90,7 @@ static int clk_mt7622_infracfg_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto unregister_cpumuxes;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_cpumuxes:
+> diff --git a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
+> index 19e4ee489ec3..41e5cfbcbb76 100644
+> --- a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
+> @@ -66,6 +66,7 @@ static int clk_mt8135_apmixed_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto unregister_plls;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_plls:
+> diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+> index d7d416172ab3..fe36d2eac3da 100644
+> --- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+> @@ -179,6 +179,7 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
+>  	if (r)
+>  		goto unregister_ref2usb;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_ref2usb:
+> diff --git a/drivers/clk/mediatek/clk-mt8173-infracfg.c b/drivers/clk/mediatek/clk-mt8173-infracfg.c
+> index fa2d1d557e04..b923b73c64f6 100644
+> --- a/drivers/clk/mediatek/clk-mt8173-infracfg.c
+> +++ b/drivers/clk/mediatek/clk-mt8173-infracfg.c
+> @@ -128,6 +128,7 @@ static int clk_mt8173_infracfg_probe(struct platform_device *pdev)
+>  	if (r)
+>  		goto unregister_clk_hw;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return 0;
+>  
+>  unregister_clk_hw:
+> diff --git a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+> index b0563a285bd6..446c55b77777 100644
+> --- a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+> @@ -176,6 +176,7 @@ static int clk_mt8192_apmixed_probe(struct platform_device *pdev)
+>  	if (r)
+>  		goto unregister_gates;
+>  
+> +	platform_set_drvdata(pdev, clk_data);
+>  	return r;
+>  
+>  unregister_gates:
+> -- 
+> 2.54.0
+> 
 
 
