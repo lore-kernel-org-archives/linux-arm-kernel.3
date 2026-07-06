@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F1FDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D91C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:35:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tSn2TI80J+UegCliUYsZ26GExcU41GhAhGl5IETiEZ0=; b=wMYYjUH1A5yqRdS8pkE3r/KuhX
-	XnQQbMDJbTGTFeZ2+f82CWX+CVVqkgclzmQmmPVJbJA3pANXvfnZmPbwUuyb8RZxYzEM/OCx9Q5JC
-	hhaqfRLw/VOQ3RFVgBJa7K+Urc79IqtjtpeOHlg2uj4eIqPKF6kwx/l/B/SKRJtTk6CcrzVojcX/J
-	LYzh9IiW5cI4X+SQa0cleH0Df8ea2r6Lk6G/6hw6f66pWcSpItvARRQufeq/FWenJPnWub/UGMqW5
-	JAC/j1+0GBVol+XSz5z/8Swed7bC+O5TF101gUBUGZoiqnyen/QpQu/drnzBK+ymtOjn52FlygKBs
-	XrYs/imw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uLviVLYgT3tLYFzYiI6Zru82tyxHPobIeBJDsXCYEGE=; b=eBZhGWak1stmX2Z6tgshpY4Xm7
+	fOFNCs56K5HLp8aaQWa+bBi9B/EK6s/PEn1zlPr/os23VESw2LbT9DGEcamkI7etZ5C04dD94dq5S
+	f/ty0HsAuapit9J30jiITVDjGtOaEOfY4zj/3+dNf8KWWDi6qigNQLOAdLZdS6A/IUocRqTOyORCH
+	WBqqLkhb1pu2OQn8XeuZUsAevJJii5MOcrITfnxmH+qVL7Gp3s1kzVz7tBN0YOY57NqkkVYK4oKAi
+	lfaxEHexzmiRI3qJaDVznPqKqN1WXHl2JpltOk05xNPqEbBgxATfcMFwOPnYB2H/JnMM5r4pSxwN9
+	qdRulwXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjTS-0000000CcCp-1MCv;
-	Mon, 06 Jul 2026 13:35:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wgjU3-0000000CcLT-1w9A;
+	Mon, 06 Jul 2026 13:35:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjTQ-0000000CcC2-3IZL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Jul 2026 13:35:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=tSn2TI80J+UegCliUYsZ26GExcU41GhAhGl5IETiEZ0=; b=A/c5mEVJOxJy/A/DOAQLHoi5Tw
-	bb8jnGsHzcwA1QTJkp+qBad+Bjhptj3csNr2jRmEgcSbFRnxwhzsG4vRXOLnZ2bCvWzIR3ET6ZtQJ
-	Zr0S14c1pWPYVN6HPwR6NRutZolSGSZyvrr0hDTRZaVfdVHg/o99Zco4u9HbeYZSQNUuFbwfJ0LrY
-	RolW2wrU+xdjH1cuCz3WkhdZ1FLp4AuqmiZQxK8m7BiWZThxD1lJeulMMoi6THcYw1gLW1TYLg2VE
-	gzWuQzkL4zoN9w7fxxWudFkKx8FZK09lTfdXR8/CKJUGkOFvQdGumiz4b22Go1khQ8/oM89QiNuWu
-	V3T8IG5g==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wgjTN-00000006bAK-2CPR
+	id 1wgjU2-0000000CcLE-3EIA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:34:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7D1CB2BCB;
-	Mon,  6 Jul 2026 06:34:50 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D2FC43F7B4;
-	Mon,  6 Jul 2026 06:34:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783344894; bh=VyHPLux82Rci3c+vTXx+cTmtDCScjcUWQV8D3CLeEWw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q0+BgtDP9dWJYHe6oO4gick6tJiBot33ghJdx+VvYpT6IygxKwb5+BUIR4qr+fMYF
-	 JItlX30Uz2BW9OqeEE7WiXgVKuCsvBniGYayF0ZXCJskMI61bsu14AzQ271JOdpK1J
-	 a4HXf54jmzLrZUIoJZHcfaECF0FrjBq3Ffpmb9N0=
-Message-ID: <7f360e5d-fe43-4c85-a501-58db5a7dabcb@arm.com>
-Date: Mon, 6 Jul 2026 14:34:49 +0100
-MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v4 5/5] arm64: mpam: Add memory bandwidth usage (MBWU)
- documentation
-To: Fenghua Yu <fenghuay@nvidia.com>,
- Reinette Chatre <reinette.chatre@intel.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jic23@kernel.org, kobak@nvidia.com,
- lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, peternewman@google.com,
- punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
- rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
- x86@kernel.org
-References: <20260520212458.1797221-1-ben.horgan@arm.com>
- <20260520212458.1797221-6-ben.horgan@arm.com>
- <4b0552cc-85cc-40b6-ab65-6b7620149f74@intel.com>
- <0ebb1365-9883-4974-9e8f-05c2eaa01fb1@arm.com>
- <b2dae9c4-d0b3-4ec2-884a-569020039b5f@intel.com>
- <5bba66e2-f671-4bdb-a2e5-f2cf9fb1f9f4@arm.com>
- <c7d6acae-cf47-40e9-9937-116303d8dd53@nvidia.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <c7d6acae-cf47-40e9-9937-116303d8dd53@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_143458_211238_F91B57D8 
-X-CRM114-Status: GOOD (  22.43  )
+	Mon, 06 Jul 2026 13:35:38 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id EF6C4600DA;
+	Mon,  6 Jul 2026 13:35:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A14D01F000E9;
+	Mon,  6 Jul 2026 13:35:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783344937;
+	bh=uLviVLYgT3tLYFzYiI6Zru82tyxHPobIeBJDsXCYEGE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=W8mktv82qSURqSaR4khAQUk7rv+HF7NlRSLA73tWAmclaNwHXS+dyT8h0BbeTLW0C
+	 IXGQIHoi2kXpNIfZ6FMDRgPPHMAED6HnuJsb54jXSgdLzf1f/N6BkJH2uxa7wyHhAF
+	 ae6RJ6bfyviz/WHMgMJvpzqwht6LnYKSSzPufbKA65RL1MgU/lt8wtduUw+vXyMiQf
+	 wUWTR1RWuUh4hLbeNPgaSaCumyKdkLkFnF/yFAf4jSipK2FJST7DJlYo8OtxANoWWn
+	 Q8DvCEmW1TfJecSDxSkbRbLpcwqNRIFqUCsXgqYOyl68zhSonQh4CakRGWKadO6rU2
+	 WoBbUPcDWwiJQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgjTz-00000001xgl-2Wl5;
+	Mon, 06 Jul 2026 13:35:35 +0000
+Date: Mon, 06 Jul 2026 14:35:35 +0100
+Message-ID: <86ik6sp7fc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v5 02/10] irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared granule size
+In-Reply-To: <20260706060432.1375570-3-aneesh.kumar@kernel.org>
+References: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
+	<20260706060432.1375570-3-aneesh.kumar@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-coco@lists.linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, catalin.marinas@arm.com, jgg@ziepe.ca, m.szyprowski@samsung.com, robin.murphy@arm.com, steven.price@arm.com, suzuki.poulose@arm.com, tglx@kernel.org, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,124 +92,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
-
-On 7/2/26 16:46, Fenghua Yu wrote:
-> Hi, Ben,
+On Mon, 06 Jul 2026 07:04:24 +0100,
+"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
 > 
-> On 7/2/26 07:58, Ben Horgan wrote:
->> Hi Reinette,
->>
->> On 7/2/26 15:46, Reinette Chatre wrote:
->>> Hi Ben,
->>>
->>> On 7/2/26 2:20 AM, Ben Horgan wrote:
->>>> On 7/1/26 23:38, Reinette Chatre wrote:
->>>>> On 5/20/26 2:24 PM, Ben Horgan wrote:
->>>
->>> ...
->>>
->>>>>> --- a/Documentation/arch/arm64/mpam.rst
->>>>>> +++ b/Documentation/arch/arm64/mpam.rst
->>>>>> @@ -65,6 +65,23 @@ The supported features are:
->>>>>>     there is at least one CSU monitor on each MSC that makes up
->>>>>> the L3 group.
->>>>>>     Exposing CSU counters from other caches or devices is not
->>>>>> supported.
->>>>>>   +* Memory Bandwidth Usage (MBWU) on or after the L3 cache. 
->>>>>> resctrl uses the
->>>>>> +  L3 cache-id to identify where the memory bandwidth is measured.
->>>>>> For this
->>>>>> +  reason the platform must have an L3 cache with cache-id's
->>>>>> supplied by
->>>>>> +  firmware. (It doesn't need to support MPAM.)
+> ITS tables allocated by the coco guest are shared with the hypervisor.
+> These allocations must satisfy the host shared-buffer granule size so that
+> the full converted range is safe for host access.
 > 
-> s/It/The platform/?
-
-ok
-
+> Allocate ITS pages using a size rounded up to the shared granule size and
+> use the same allocation order when encrypting, decrypting and freeing the
+> memory. Also grow the ITT cache in shared-granule sized chunks instead of
+> assuming PAGE_SIZE is sufficient.
 > 
->>>>>> +
->>>>>> +  Memory bandwidth monitoring makes use of MBWU monitors in each
->>>>>> MSC that
->>>>>> +  makes up the L3 group. If the memory bandwidth monitoring is on
->>>>>> the memory
->>>>>> +  rather than the L3 then there must be a single global L3 as
->>>>>> otherwise it
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  drivers/irqchip/irq-gic-v3-its.c | 17 +++++++++++------
+>  1 file changed, 11 insertions(+), 6 deletions(-)
 > 
-> s/a single global L3/a single global L3 cache id/?
+> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> index b57d81ad33a0..5d6d38aa0dae 100644
+> --- a/drivers/irqchip/irq-gic-v3-its.c
+> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> @@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
+>  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+>  					 unsigned int order)
+>  {
+> +	unsigned int alloc_order;
+>  	struct page *page;
+>  	int ret = 0;
+>  
+> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
+> -
+> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+> +	page = alloc_pages_node(node, gfp | gfp_flags_quirk, alloc_order);
+>  	if (!page)
+>  		return NULL;
+>  
+>  	ret = set_memory_decrypted((unsigned long)page_address(page),
+> -				   1 << order);
+> +				   1 << alloc_order);
+>  	/*
+>  	 * If set_memory_decrypted() fails then we don't know what state the
+>  	 * page is in, so we can't free it. Instead we leak it.
+> @@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
+>  
+>  static void its_free_pages(void *addr, unsigned int order)
+>  {
+> +	int alloc_order;
+> +
+> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+>  	/*
+>  	 * If the memory cannot be encrypted again then we must leak the pages.
+>  	 * set_memory_encrypted() will already have WARNed.
+>  	 */
+> -	if (set_memory_encrypted((unsigned long)addr, 1 << order))
+> +	if (set_memory_encrypted((unsigned long)addr, 1 << alloc_order))
+>  		return;
+> -	free_pages((unsigned long)addr, order);
+> +	free_pages((unsigned long)addr, alloc_order);
 
-"a single global L3" seems better to me. This is just saying that the L3
-is or appears to be a single L3 cache. A consequence of which is that it
-will have a single cache id.
+The comments I had in [1] are still applicable.
 
-> 
->>>>>> +  is unknown which L3 the traffic came from.
->>>>>> +
->>>>>> +  To expose 'mbm_total_bytes', the topology of the group of MSC
->>>>>> chosen must
->>>>>> +  match the topology of the L3 cache so that the cache-id's can be
->>>>>> +  repainted. For example: Platforms with Memory bandwidth
->>>>>> monitors on
->>>>>> +  CPU-less NUMA nodes cannot expose 'mbm_total_bytes' as these
->>>>>> nodes do not
->>>>>> +  have a corresponding L3 cache. 'mbm_local_bytes' is not exposed
->>>>>> as MPAM
-> 
-> Maybe remove the CPU-less example here since you will add CPU-less info
-> later?
-> 
-> The CPU-less patches will update this document accordingly.
+	M.
 
-I think this can stay until then. It is mentioned after this that the
-restrictions are not fundamental.
+[1] https://lore.kernel.org/all/86zf2ozrb8.wl-maz@kernel.org/
 
-Thanks,
-
-Ben
-
-> 
->>>>>> +  cannot distinguish local traffic from global traffic.
->>>>>
->>>>> Hopefully we can get to a point where memory bandwidth monitoring
->>>>> data from
->>>>> CPU-less NUMA nodes can be exposed via resctrl. When considering
->>>>> such possible
->>>>
->>>> Thank you for your interest here. I hope so too.
->>>>
->>>>> future I think it may make this work easier to build on if the
->>>>> documentation
->>>>> focuses on what the current implementation supports and leave room for
->>>>> future enhancements by not constraining user space expectation with
->>>>> an absolute
->>>>> like "CPU-less NUMA nodes cannot expose 'mbm_total_bytes'".
->>>>
->>>> The intention was to describe the current limitations but I do see how
->>>> this can come across as fundamental problems rather than just that we
->>>> need to do some more work to establish how this can be done and
->>>> implement it.
->>>>
->>>> How about if I add this paragraph at the end?
->>>>
->>>> All these restrictions based on L3 cache are due to resctrl, currently,
->>>> only supporting monitoring at the scope of the L3 scope. It is expected
->>>
->>> How about "at L3 scope" instead of "at the scope of the L3 scope"?
->>
->> Sure, that reads better.
->>
->> Ben
->>
->>>
->>>> that going forward more MBWU monitors can be exposed to the user after
->>>> support for more monitoring scopes is added to resctrl.
->>> Looks good to me, thank you.
->>>
->>> Reinette
->>
-> Thanks.
-> 
-> -Fenghua
-
+-- 
+Without deviation from the norm, progress is not possible.
 
