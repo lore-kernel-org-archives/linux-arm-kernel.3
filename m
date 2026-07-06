@@ -4,157 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2621C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64F1FC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oDj+GWBjiBSeF5JpgYDOTVoWkRnCXYhtIDJ7JnjDj8U=; b=PzG88KygPZjDSiNx4omI4YU9JF
-	lgfT0tCpox8jYWCXy1QAmcdNV608/FSQWCKPiE0w3o2Thn4mPvpcJijYdaW/dQ7Vwe7fmZYCZU013
-	dxjP0sJKHI283ofKMcpmiNXDzdC7MQtnntyGoDxm9iqzty6h1mz8GY5gfdfszsi75+Eq0tnw8+G6J
-	AVQdTdk7vMh6ZuDnqigd9gB2CTo9mDIstTDa15H+a0ko7NonTIe4l/4HERXgNXaXrA/XWz9xgcM4H
-	AZYa7YTNZAU7wyb4V4W5v954TJIbWsewjGLZBwaMjw+U0e/x8SA3V0Qa0p5q8yngjFj9M97IfGP4Y
-	v/4glrbg==;
+	bh=VhyXP5vSSTAH6LlcsHqRNXbRvToXpKcr3B3MWyVvrzM=; b=SSlRBceSzEHhS5Jd0VAkKzKue7
+	KUI4CBQRbilFmq6LXM3ukvZwyLa72dyTfve4fcMpLFOnFKRsjc7335RWup+2eJ4htAKmQ41H/jN22
+	p2v8EHaD2PZqboBVbhECqZShxZ6K0Jkx66kyhTSvHffeP3GLBb7gY7PH23XKui8V+LMLq3GSQ+9Pf
+	+bZ+i2Q1a4gy+6sJ4ANFv1xb8YEfRbPwGikyCzbqrRAYr9big4pw8UvnV97XJYgmWZhVUpXXs8W5Y
+	G4yoIYZjEVL++xofgH/TGaFp5sQDSZiF5dlpiss09vVcSQ+AFuXvt8+cCmBk7d6BkYHnByIfYlphl
+	n9Dmp4eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf0x-0000000BtpP-0yHf;
-	Mon, 06 Jul 2026 08:49:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wgf4S-0000000BuQg-27Kh;
+	Mon, 06 Jul 2026 08:52:56 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf0u-0000000Bto2-1qhH
+	id 1wgf4K-0000000BuLK-43tT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:49:17 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66641VbE3615509
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 08:49:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	oDj+GWBjiBSeF5JpgYDOTVoWkRnCXYhtIDJ7JnjDj8U=; b=SaqEcrQZixh8kqJX
-	NIbjiiJv30noknviAqvmMqgcd9dLg97+KHUy1B+DowDAtFZdbHov2MJOyoJff6iq
-	rqDYW2t4byAMNskkfn2DEmteAKvkbmtwdfnzzGWPM9pYwk9ipzRkB/unQDpp8wQO
-	spC9sxDTJrVufwRQlROqiocRM89e1lPBV1O8a+WO5Ti9EHzSmsRDEWPLvWF6owNB
-	KQMo662zF2+8K0WTRQ81OMSHEK20fKVNoKuj+ARZc+lVli3a93Wr8++tSyhr4abz
-	mQhBlKRhfEKrta7A91FCOx0fOf8vmN+8cT/qCJhPL0qbIjn1JKUVPpUrlbkgGQV5
-	z0EtTA==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f6td3dbw0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 08:49:16 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-8efd48cbe2eso7066776d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 01:49:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783327755; x=1783932555; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=oDj+GWBjiBSeF5JpgYDOTVoWkRnCXYhtIDJ7JnjDj8U=;
-        b=VL06+7jGQz5wXNX2CP6DPDUXXPDiQiWqbx/x4Q0W4uXSr2M/U2xOl0iqBVAe6GL12G
-         b3pnHvdUt0CRSK1nN3wA25pIsWoPlwOCSYbTUTk6/gtJn4PCftnfVIF2MWxGCP1mZxj5
-         xLzBsE+s/JW0V1kMIAahTvbGyhb78QCfXFSFB1hNj84HXHD4sGCUoCMnkn7Po6Xs5Nmn
-         xaxGAOodNIVbOpEuA0iJmKzdS15fOLFmL11kB63Mvpsqxfkk5RQAhiVCjhMgJw+a4a28
-         9oS1rLwGupO/3Oscpq5kmNfL/1zGFvL0ORbSV36GcB8ZDYUVi0eP0X/yOCmyNZSUJFDp
-         4cpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783327755; x=1783932555;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oDj+GWBjiBSeF5JpgYDOTVoWkRnCXYhtIDJ7JnjDj8U=;
-        b=X+l6WM3gQ7QGTejRye9gBakVpAH6mRfBLNyySuJ6unMTP8Nu+SX/ZHzmo20OtuHFL0
-         Mb33hXQ/CVzrh+8VVQkpUtikypuawtvFIKALbkqxrSZBvujoOlAy7dGJHz+BJgVBeNWS
-         raoCxc/6f/fGzxQn1ACDWIB3+YeujkADOKJCZH6JoAek3N8BmGknhJoWrx6eGbomgmG2
-         RM5oLhg67C6S9xzFDgnCZQ56HJ4FGTAEYZSoWL1nd8yjlN6JM4IlfDm9LkdE8ZJfN4TH
-         dptvLX4KnDvNIGMS5gRjeHSyTEoHZLRkzD7B8qXNd8AEe3X/fdV1/lU5O8nHmBRH+B/H
-         qmfw==
-X-Forwarded-Encrypted: i=1; AHgh+Rr2vOMkIhRYQggaPfzL5u7l/402xu0CrO95y2cm0bgvIRmeSxZ0jb7eEp8LLLZcarR15kVxCN+IFo0sa2iEnrht@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywi17vb0IY3b7Q+vvBeMIroCWuLnFTJa2MzwCqZeRw7DLD1ngsH
-	i/7xOkDSb1eFL3g7jv8trRExv0JdXAGn1YZBiCBPoRNivk3l3Baog9gLs9pjBS6c4SWHj4diOGd
-	cTVg9KPU6387HEbDOlKSq0WyRoJ84f7YKJ0PcO8BL5P2rXnvk/ROClJxirxFEmLyfae+zFB9RkP
-	NZXg==
-X-Gm-Gg: AfdE7clvH0gXKVnUBvREk1TGP89DKz4GPH5651j/nBHX5OnTZIq79BwdLgVwJoQmz7I
-	9tS48GmqRUQqlePKUvxUNAbRpRBmFbiEY91N4knd+NElzYGPot0OosYpWxFuhMAdF55rRtoVTB1
-	UlgH5pYSD6Llj5q6vKSwDWmSDMmcOiNwl+JEVdr2QjVvgV+AevUhD538g2y3q8TjPYCa09nKRed
-	3jCNsoR87tOHblXHe3E0rFoyUg9uoyzdpfpEcgB5+2kga/iBI2X31xDXjyqOUmA+2OPFgWMPwlc
-	kRiPtxdOjC0GSRIEnl+IP9qZZcPrjFguFKIFF6qzNYApyyN2M9vblqY1NycCpve5u/JiB3fDprh
-	xZ5x/QooKQ6BY+SRmeoch1YOaiDF4AZI+isE=
-X-Received: by 2002:a05:6214:5181:b0:8f1:7139:d6a8 with SMTP id 6a1803df08f44-8f749a7315fmr109103956d6.2.1783327755084;
-        Mon, 06 Jul 2026 01:49:15 -0700 (PDT)
-X-Received: by 2002:a05:6214:5181:b0:8f1:7139:d6a8 with SMTP id 6a1803df08f44-8f749a7315fmr109103826d6.2.1783327754703;
-        Mon, 06 Jul 2026 01:49:14 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19cd88aesm3455501a12.3.2026.07.06.01.49.10
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 01:49:13 -0700 (PDT)
-Message-ID: <a4f31004-8e74-447b-988a-e3250859e74a@oss.qualcomm.com>
-Date: Mon, 6 Jul 2026 10:49:09 +0200
+	Mon, 06 Jul 2026 08:52:50 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIBW02197637;
+	Mon, 6 Jul 2026 08:52:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=VhyXP5vSSTAH6Llcs
+	HqRNXbRvToXpKcr3B3MWyVvrzM=; b=IK4cPMj2uHlwPuAkAQG4TTz1zW967Sv8k
+	CpI3CuBV1vHDy9y3AkXIbYG5SMQfJN50ETPbN8PdN9g2xWEeKcGajeiww0JoMuNF
+	DDm3D+E8UaV7M6F9KMDD/xvYFa4zxF2aTFfabpm/ElyEwGODEfIfyj/nbDNVG283
+	QKRobjC5oqSjLnwFu08TaZHKDR7oG1HSOsP0gvQie6f8FQ5/+n4JS2kE05ujAT5m
+	xW6etnsOfayHqWlYCREWrUSxTmguHGVJZY8MTBsPgQpIzppmCCiWpsDHVTZQSY68
+	yj8p7nWpDhe+U4cvAsIjJq4u6UG61SYVOI1W0t5jWDxK0yF8upm7Q==
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sw4ghew-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 08:52:40 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668ndrp023223;
+	Mon, 6 Jul 2026 08:52:39 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7cvvvyh4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 08:52:38 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qVbU25887390
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jul 2026 08:52:31 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 28B7F20040;
+	Mon,  6 Jul 2026 08:52:31 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C290E2004E;
+	Mon,  6 Jul 2026 08:52:30 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  6 Jul 2026 08:52:30 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v4 03/27] KVM, vfio: remove symbol_get(kvm_put_kvm) from vfio
+Date: Mon,  6 Jul 2026 10:52:03 +0200
+Message-ID: <20260706085229.979525-4-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] drm/msm/a6xx: Rename GBIF_CX_CONFIG to a A6XX-
- variant register
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
- <20260705-eliza-gpu-v1-2-c9f1354dbd29@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260705-eliza-gpu-v1-2-c9f1354dbd29@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX+BCUim83OjjA
- +f6d76IFGszQ/dtKq7iYe599fN4do8jfN7PDLJ4cR+BpS/FNg5+vZLujTAQPndW51S7DKB1j5Ma
- 1DOctZmALqaJpuGf8Bph255j50syRbg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX4qvnlmMq6FwN
- P4yHsM9YkL2CrjNDUUPEIcjbuimfUpOg3AMt89J1MeINO2Qvht1U8hV6V6zmzy0fSpQzzJZW5dt
- FxlJTr14yxIP8TUqJhjUMhPYiUhrGmoyUmvQI0QfjVAXm5fGGeGn2izwSayHWs5B/wWdt8vn2Fn
- kkYsxo6n7XM+za5rd7NDjGAYnB86urWxLOzMaGioo6xWIZ20r67kh32uvudDRx6fZeT09l114qA
- PJi/9q2KM/uL3mRVTBpA+5jlZkNkaQj4unhlvgfZ/ol2gmTWkEy5zYbX7tMTT1kPCX63RrdNz1R
- qv5CkedpX68Gid2wGMbx2Nf3WsVjQf/JrSqpihM3Lv7zOCleRrnsXSU5Ri3IwohylccCK6Vy/UW
- 44/pGtLOws+j0XCavrjPwphHZp3YCfoKhkIveDdsLQid+SmdkNHLq1Doq5rCLoT3jbS1jjvl0iT
- K9hvdF97ssN8RCyeJ9Q==
-X-Proofpoint-GUID: r6bHpusu5ufMa_CVPSwPOVftEUl56IJS
-X-Proofpoint-ORIG-GUID: r6bHpusu5ufMa_CVPSwPOVftEUl56IJS
-X-Authority-Analysis: v=2.4 cv=b9GCJNGx c=1 sm=1 tr=0 ts=6a4b6c0c cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
- a=EUspDBNiAAAA:8 a=m8Bw7PwqJOGBpySAz2gA:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: hJi40U7MfPaskyH7CtMQyiFhKQ7HXHzv
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX3Ws4NFA6EA1l
+ gRblKAaCLgPzILuk5ivIJa0isWOw37HKT6ly3FC4VST6rWsrlTeEXgom9Urdxl8X5b0OFMGGy9D
+ QRYjtAaPqS7Mnk3jMaYvhc6HvgE1WGqKjM7UEoYXkEPY2cQsSZ8AW9a/PH4ERI5nPhdTdVex7pZ
+ JmgYQuat64pOeTh6QRCL4/Uh+Y7eikHo9+r9+CM42peAu+y8MWggtbxEs35Y0OgRJ/aoR70YsFf
+ aIG5VSKK5/vFN8iBcGgufU5smE7mKUA/cNsfGcRxsQNQYe0IpDR5nqZPmJy8qH4bhGFIrP89CW3
+ ofkH0f6JZwryLQWEhHR32HetWm1tay4odATafKy8nosdNN2wLU9Cpy6sQiyHdVjkZ3YoHv3MwTf
+ J6EzKsv06aL5WMbLR6/0yUnmk/4KSgacQjKRuDLIBiq3DgByA0ly0gnYbTFL2AtjMrQQPIblzzP
+ aR8Zb1kK1W26GV1IIGQ==
+X-Proofpoint-ORIG-GUID: hJi40U7MfPaskyH7CtMQyiFhKQ7HXHzv
+X-Authority-Analysis: v=2.4 cv=FqQ1OWrq c=1 sm=1 tr=0 ts=6a4b6cd8 cx=c_pps
+ a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=U7nrCbtTmkRpXpFmAIza:22 a=20KFwNOVAAAA:8 a=VnNF1IyMAAAA:8 a=r1p2_3pzAAAA:8
+ a=Iid1VeoRPhL8jyw1u-UA:9 a=r_pkcD-q9-ctt7trBg_g:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX6dTeKarU6+Dl
+ rXEsQpvzX0dp0ZJU6qUxA7JpXUtzfh801V5PbZaUXbmKDmZzt9sahlvWGltEuOXaRxKWdxDC4NO
+ MZEEVnW16ZqkUrAUzGlJT/t28uJP7Vk=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 spamscore=0 lowpriorityscore=0 clxscore=1015
- phishscore=0 malwarescore=0 adultscore=0 priorityscore=1501 bulkscore=0
+ adultscore=0 impostorscore=0 clxscore=1015 malwarescore=0 lowpriorityscore=0
+ priorityscore=1501 bulkscore=0 suspectscore=0 spamscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_014916_511998_777CDA58 
-X-CRM114-Status: GOOD (  11.81  )
+X-CRM114-CacheID: sfid-20260706_015249_016606_AAB1EAB7 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,17 +140,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/5/26 10:14 AM, Akhil P Oommen wrote:
-> The GBIF_CX_CONFIG register exists on GPUs prior to A8XX (it is used on
-> A722, for example), so it should be tagged as an A6XX variant to match
-> the register spec. Widen its variant range from "A8XX-" to "A6XX-" in the
-> register XML and rename the generated macro accordingly at all existing
-> usage sites.
-> 
-> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> ---
+From: Paolo Bonzini <pbonzini@redhat.com>
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Right now, KVM and VFIO are using symbol_get to access each other's
+symbols because of a circular reference between the modules, as well
+as to avoid loading them unnecessarily.
 
-Konrad
+The remaining use in VFIO is for kvm_put_kvm, which is not inline
+because it needs to call kvm_destroy_vm.  However, storing the
+address of kvm_destroy_vm in the "struct kvm" is enough to remove
+the dependency from VFIO.
+
+This also makes it possible to direct kvm_put_kvm to either the arm64
+or the s390 implementation of kvm_destroy_vm.
+
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
+Acked-by: Alex Williamson <alex@shazbot.org>
+---
+ drivers/vfio/vfio_main.c  | 24 +++---------------------
+ include/linux/kvm_host.h  |  1 -
+ include/linux/kvm_types.h |  9 +++++++++
+ include/linux/vfio.h      |  1 -
+ virt/kvm/kvm_main.c       |  9 ++-------
+ 5 files changed, 14 insertions(+), 30 deletions(-)
+
+diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
+index b7b8b45f1cec..6bddea4d384f 100644
+--- a/drivers/vfio/vfio_main.c
++++ b/drivers/vfio/vfio_main.c
+@@ -17,7 +17,7 @@
+ #include <linux/idr.h>
+ #include <linux/iommu.h>
+ #if IS_ENABLED(CONFIG_KVM)
+-#include <linux/kvm_host.h>
++#include <linux/kvm_types.h>
+ #endif
+ #include <linux/list.h>
+ #include <linux/miscdevice.h>
+@@ -451,9 +451,6 @@ EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
+ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm,
+ 			      struct module *kvm_module)
+ {
+-	void (*pfn)(struct kvm *kvm);
+-	bool ret;
+-
+ 	lockdep_assert_held(&device->dev_set->lock);
+ 
+ 	if (!kvm)
+@@ -462,21 +459,13 @@ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm,
+ 	if (!try_module_get(kvm_module))
+ 		return;
+ 
+-	pfn = symbol_get(kvm_put_kvm);
+-	if (WARN_ON(!pfn))
++	if (!kvm_get_kvm_safe(kvm))
+ 		goto out_put_mod;
+ 
+-	ret = kvm_get_kvm_safe(kvm);
+-	if (!ret)
+-		goto out_put_sym;
+-
+-	device->put_kvm = pfn;
+ 	device->kvm = kvm;
+ 	device->kvm_module = kvm_module;
+ 	return;
+ 
+-out_put_sym:
+-	symbol_put(kvm_put_kvm);
+ out_put_mod:
+ 	module_put(kvm_module);
+ }
+@@ -488,14 +477,7 @@ void vfio_device_put_kvm(struct vfio_device *device)
+ 	if (!device->kvm)
+ 		return;
+ 
+-	if (WARN_ON(!device->put_kvm))
+-		goto clear;
+-
+-	device->put_kvm(device->kvm);
+-	device->put_kvm = NULL;
+-	symbol_put(kvm_put_kvm);
+-
+-clear:
++	kvm_put_kvm(device->kvm);
+ 	device->kvm = NULL;
+ 	module_put(device->kvm_module);
+ 	device->kvm_module = NULL;
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 015d02018109..1f967b1d68b9 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1072,7 +1072,6 @@ static inline void kvm_irqfd_exit(void)
+ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module);
+ void kvm_exit(void);
+ 
+-void kvm_put_kvm(struct kvm *kvm);
+ bool file_is_kvm(struct file *file);
+ void kvm_put_kvm_no_destroy(struct kvm *kvm);
+ 
+diff --git a/include/linux/kvm_types.h b/include/linux/kvm_types.h
+index add7cc2016e8..aadee536771a 100644
+--- a/include/linux/kvm_types.h
++++ b/include/linux/kvm_types.h
+@@ -144,6 +144,7 @@ struct kvm_vcpu_stat_generic {
+ 
+ struct kvm_refcount {
+ 	refcount_t users_count;
++	void (*destroy)(struct kvm *kvm);
+ };
+ 
+ static inline void kvm_get_kvm(struct kvm *kvm)
+@@ -164,6 +165,14 @@ static inline bool kvm_get_kvm_safe(struct kvm *kvm)
+ 	return refcount_inc_not_zero(&rc->users_count);
+ }
+ 
++static inline void kvm_put_kvm(struct kvm *kvm)
++{
++	struct kvm_refcount *rc = (struct kvm_refcount *)kvm;
++
++	if (refcount_dec_and_test(&rc->users_count))
++		rc->destroy(kvm);
++}
++
+ #endif /* !__ASSEMBLER__ */
+ 
+ #endif /* __KVM_TYPES_H__ */
+diff --git a/include/linux/vfio.h b/include/linux/vfio.h
+index 5bfec0339804..81f04e60ebfd 100644
+--- a/include/linux/vfio.h
++++ b/include/linux/vfio.h
+@@ -67,7 +67,6 @@ struct vfio_device {
+ 	unsigned int open_count;
+ 	struct completion comp;
+ 	struct iommufd_access *iommufd_access;
+-	void (*put_kvm)(struct kvm *kvm);
+ 	struct inode *inode;
+ #if IS_ENABLED(CONFIG_IOMMUFD)
+ 	struct iommufd_device *iommufd_device;
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 7dec697ce35a..271884089f58 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -119,6 +119,7 @@ static struct dentry *kvm_debugfs_dir;
+ 
+ static const struct file_operations stat_fops_per_vm;
+ 
++static void kvm_destroy_vm(struct kvm *kvm);
+ static long kvm_vcpu_ioctl(struct file *file, unsigned int ioctl,
+ 			   unsigned long arg);
+ #ifdef CONFIG_KVM_COMPAT
+@@ -1148,6 +1149,7 @@ static struct kvm *kvm_create_vm(unsigned long type, const char *fdname)
+ 
+ 	BUILD_BUG_ON(offsetof(struct kvm, rc) != 0);
+ 	refcount_set(&kvm->rc.users_count, 1);
++	kvm->rc.destroy = kvm_destroy_vm;
+ 
+ 	for (i = 0; i < kvm_arch_nr_memslot_as_ids(kvm); i++) {
+ 		for (j = 0; j < 2; j++) {
+@@ -1310,13 +1312,6 @@ static void kvm_destroy_vm(struct kvm *kvm)
+ 	mmdrop(mm);
+ }
+ 
+-void kvm_put_kvm(struct kvm *kvm)
+-{
+-	if (refcount_dec_and_test(&kvm->rc.users_count))
+-		kvm_destroy_vm(kvm);
+-}
+-EXPORT_SYMBOL_GPL(kvm_put_kvm);
+-
+ /*
+  * Used to put a reference that was taken on behalf of an object associated
+  * with a user-visible file descriptor, e.g. a vcpu or device, if installation
+-- 
+2.53.0
+
 
