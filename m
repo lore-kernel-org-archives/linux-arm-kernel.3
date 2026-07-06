@@ -4,104 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB34C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 20:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBA74C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 20:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBmxobDW/MHje2f4xBTmx9aIBxPjJtJsCEI+DZFs4H4=; b=NQx+KlZ8UygSUC+teTYJ6E1hgO
-	EMpRguwLtpjbts3nWOrp5a1IV1OhCwwNpER2EYU0C/QYKNyrFREKsXkBMuqz9qnG3ZI0nrHRAZYQz
-	7tuF+9sBBLebtqBy97FqQy4hMEYhwowKSDzQ5jQtd/I2BzdUTxsRwBT6hkaLN+796RgKjRvlMbrmr
-	OabTfOSUoU9dM9/PmOL9cimWqCf3BoopRtzYLIKr2vGT8MnCk7D4jyDJhzLdLhczbdlQ8m8cJ0XIm
-	HJS0AoJghIjLN79XZDQmJFDYbbWSCnpxYNUzamq6zrFK3/HB2/9c4oMK3k/MxUFCHjGKrEFo6dkLo
-	CJE6lfAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wf1YrJ/RXa7Do+NSaW/+5hNmmnFSR5P/RAWYq4RDJg4=; b=il4/D49IFQzz++zGMk5AR4A3Eg
+	Vq1+h5rnK6Gs+E/6YGTWDtRzelTiIK2rJnZ27E+DJSsG9Z6CBuRztM2huwM7E1mPxvj5aW0KmwStg
+	e08Wjk4e6r5pwUPOBXR/XcG7NqiI34hxLEsubvMiyfGHwKZMkAIx4L2bqtODxtP5hG2eYANQIwL1m
+	rAN8EgUOIugXxrTn7PRs9B2wJEHUFIhj98KgX1FCHet50ZevX6yqfeKINPUs6vd1HWNUpv9BqgyjU
+	mXsdKX79JJ5TTNZGo3d8O/rA/V2qFsR2VZ9ZU7cvoQHG1C5N+UB6dN3v8F0Ea9M0ikJPSHRA7WTLW
+	rpoRkvHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpVb-0000000DWiF-4BLP;
-	Mon, 06 Jul 2026 20:01:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wgpa9-0000000DX1C-3p6w;
+	Mon, 06 Jul 2026 20:06:21 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgpVY-0000000DWhW-43lk
+	id 1wgpa8-0000000DX0m-0P11
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 20:01:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783368095;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JBmxobDW/MHje2f4xBTmx9aIBxPjJtJsCEI+DZFs4H4=;
-	b=csDsfXS8I1UfzI/MbvtARWHu9vsvttxlqvLr1wY0YAYAv7l+XAiAuYHmMIJGYeDA/lxmSQ
-	CbVaomcWFLLXjArsOi8i0tpDKz260Co9//AkqtAa+ePgTsBRUf3iuVl9s27YAIXqyHobi9
-	xrWMoSB6Gpf5Eje+B5PIQ5nKQg0XatQ=
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
- [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-259-Lvzuw82_Pou4fgtpg6giEA-1; Mon, 06 Jul 2026 16:01:34 -0400
-X-MC-Unique: Lvzuw82_Pou4fgtpg6giEA-1
-X-Mimecast-MFC-AGG-ID: Lvzuw82_Pou4fgtpg6giEA_1783368093
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-92d1cae5939so345413585a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:01:34 -0700 (PDT)
+	Mon, 06 Jul 2026 20:06:21 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666FF8KR833190
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 20:06:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Wf1YrJ/RXa7Do+NSaW/+5hNmmnFSR5P/RAWYq4RDJg4=; b=A2+sA/pflXJxmGj9
+	59ZriII2fhNp2WN0kzFToRm19PyG1ZzN3ZtAxwpUgIULN/i4b8olLkZucYfJgs9n
+	sOH3W3gsdYm1pifuiPBorvFjOIT4YWzjDMPX5chFwUGIKJMYF/vipp7Bj3PlW9Ab
+	Wd9+U4wfP23RFtxGBNJCzF/hErbix8L3deUOtvXK9tTCd/1NLObqo/xJ6rrsYGnp
+	W0OfZyGPiohlFIowqWLlfwjN7wjQJXAdzAEDDe3OASOZm6ojJHPUiDrWHaiQJNqV
+	mkfgSG4xC3pHLYsBvRTUTfOb9S/M6dND7ItLTZnSwktZgkxMrSPgpu8BwcVVWywr
+	aAwSCw==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a98jm2r-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 20:06:19 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-37fca5f21b1so172604a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 13:06:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783368379; x=1783973179; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Wf1YrJ/RXa7Do+NSaW/+5hNmmnFSR5P/RAWYq4RDJg4=;
+        b=AqsQGyNwOwlJ5MhyYxO+CjC7hRBBB6tsD+R5a+gdT4myZ6e6PH5KpEP7klFKG3PDIN
+         0ZUHAzoENxoqsEjcATLFOMHtSxNS10p4Gc7N1R/wer7Lk0+InNpJn/sszQh0QtUqZHmZ
+         Ib0gXsqidIkyqBpAbxeQFH7gIWX1Kb/BGPZdfxEbB+CeBfFhFsNLujHl+ywk/RyLJLwq
+         xWRovq94fi8Thuur5aT5bbkjgFE7DxgbPKjOoiTtzxp6QzFm0j1ijYeXVzTaTU/w/P8G
+         UoBOGMIo5Ii0n0OGVIUUbp4RU2UD9OWyngNxfFXIgF77IpIK+tSHK2dgnIg6/Hl2rZPu
+         oQ9A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783368093; x=1783972893;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JBmxobDW/MHje2f4xBTmx9aIBxPjJtJsCEI+DZFs4H4=;
-        b=IviMOLTGWB8turXbSgT3qOPyyznsCNDIm2QzGMMfWBEujWQOeuIvxPq0b7EW+w5ubD
-         fRcIJE8OgXjRLlD5P+TOOD87AQJBOuAxPwj8xN6GTfQIz0bbLx+8kzT3nLclljA6VzRf
-         UbzJQt0Q+BiOsL5aa2d9H7Mu1Dn6YXDGDWe2dreq/sAWAlIWWZ61x7gSpG+WHXvTo6DS
-         HCKwmXf+NynG6vcDBMf/2Eo5Lc876afWld+glBADykAWMSA8VSBlQpky+/K3zBApSkKx
-         g9PQ+M/NGJL8AWfiAR3Hx9RNLjrPNJi8FKrpdWJigl6mnLedxqMn3wSpw2bPZ77rZsk4
-         LcsA==
-X-Forwarded-Encrypted: i=1; AHgh+Rr+jLvOwQGBzL9uYwDxVFF0AWzLqfCON9OSQkKmQiKowZNYmLWiGN7H1TpMquOPe4Dd0d/xEF3kQOE0kryOnQIf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJ0nvGkGLybgxQxVdNZgWyhRHdoi06k7ADRi/W0+ltkEZ3bIBu
-	dMc1yp2yCGTrnUp7a92TrieOVOS9cKyWq+sZ/TvypmoBLkHX0ussYB3mmryfrKLeF1Y9cuw78QN
-	yXjaZaBoXuGEvJ7OwNovDLnBTn5cZDhwZmI/lmG2RTw1fMgDMRKRGI6BTC/jXMqiJHmwNkD/7le
-	RN
-X-Gm-Gg: AfdE7cnl52XDCKgPadxb/HJA4kdYm91ml5qWNaqLpuzqAsuFmDJHbPyjL5jLjOozBvR
-	2vC2WD83XdzHE+rPBHEq9yWiYkwcxN3URxXMnhtAl0GzvJ8qVv3UKv46IsxJKXgqSwr8iooOv1h
-	X64O09VWuXEbuSNm5JO7aItPIv6wbRLfzslw6EvBvRB6zi1JqYPAT6tyor5ieneOwEZPYNOyXTw
-	OsV0YtT7kNGzVXYHWLqIbGli6Fvav15H0Zp3nr4lYS9W8E5A4NjCV112pQLgz7z7mCgkVbnVnRQ
-	Ummsmo5hdfU3uTQCIGJQkJe88jf3MGMAcUSAFmAdBgEDKSR3TJpBwp3mH1rCWFFEBshPisfW1q+
-	Yvpz80v4ouWTUcikH6qznEEihqduWBYcE//8E34quIeoOAw==
-X-Received: by 2002:a05:620a:170c:b0:92e:9cb3:3f71 with SMTP id af79cd13be357-92ebb56bfa3mr271399685a.36.1783368093391;
-        Mon, 06 Jul 2026 13:01:33 -0700 (PDT)
-X-Received: by 2002:a05:620a:170c:b0:92e:9cb3:3f71 with SMTP id af79cd13be357-92ebb56bfa3mr271386185a.36.1783368091707;
-        Mon, 06 Jul 2026 13:01:31 -0700 (PDT)
-Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-92e90b81342sm1006981285a.7.2026.07.06.13.01.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 13:01:30 -0700 (PDT)
-Date: Mon, 6 Jul 2026 16:01:28 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Akari Tsuyukusa <akkun11.open@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wenst@chromium.org>,
-	Miles Chen <miles.chen@mediatek.com>,
-	"open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
-	"open list:ARM/Mediatek SoC support" <linux-kernel@vger.kernel.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-arm-kernel@lists.infradead.org>,
-	"moderated list:ARM/Mediatek SoC support" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH] clk: mediatek: fix memory leak on module removal
-Message-ID: <akwJmKqZJS1sJzFk@redhat.com>
-References: <20260629142348.273766-1-akkun11.open@gmail.com>
+        d=1e100.net; s=20251104; t=1783368379; x=1783973179;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Wf1YrJ/RXa7Do+NSaW/+5hNmmnFSR5P/RAWYq4RDJg4=;
+        b=JjjTIrDrHjDuBBTipbgiWetXFDoJ5SlOmLXra57ilo271gAoW6YVfCwE1SjUTHdo9Z
+         ObBlg76BXGLGuH/Hdw6VWCTu3EHCt+Y3L5V+ZDTN/Ntc3wbD7veKQW8LaHnodpQrlNY+
+         tNIMK+z5ls+tARmtgyy7Irjp6oTlJ0GSSASRtWvlzVz//1K7T9W+I4NS+1g/+u82hF6d
+         A990w87gwW1TaS75GtTA77c2mqzXSW7OC2jRb/oEmD2aBGFdtLZQyhlAZxAraNqiVD16
+         q+kjwSOUQUR0tzum3j31nozTurNPz4OLiu/GmrL4rAN9azi0qRCzklPxSVQjU+cVf8kL
+         w2JQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rq4ykrUo+O/AovfTiF0kDS5HyKLOWgGcB7hOmf6hBmTv4Ouak/su76HTfly5bNXLzkPV03rZwE9WQyKNGxbILz9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYUWGR1bx+Vq/wLKyjiFQVfZlCiJGaoq3PUmGK7nQbDyl1Bejy
+	VtlSoLPBS1S4MlpjUWdhYUeQT4l5zj2FaXKrgmnIzx0vXJ4TgHEi2bxiTWPbw3SpNgeQ+vOgRSb
+	dTnahRNli9gt7RTR+m8BNCzq9WsFIDrKaRxXNaXbW9Y6RTTyfFcSGL/4chi/WMS3iiFjzjWZA2q
+	uZRQ==
+X-Gm-Gg: AfdE7ckvKVFB3Q3A3MwrcgzcTffcuag8wQavuW+2IcvhdOExyO/NwZsIgeWmnTTJmqW
+	KpBWKb5aWWI9O1IAexlBolO9D2cdpZxy7jNFk3ABHxVhTaGjugDW9qKgbF99bH4da5unmvI6j6E
+	3MfGgxNg8pbFIJUxjCiOXuJkFrmiRkpVNmOiCTLI6K3Oi3XQSIKF0ho+yoUb7s0QlW7Q5WlWZLP
+	tllT7O2xwFvLsBFPod2YMj+X8rlAiSTIvOT75PeiF3yGAmc8nJhu6qBvPNN+Ovxb2r5GAWs2H28
+	wgNqgcsXmmYz/dKkKG1CvSuCQj4hYh3UZwYR5VRpmHBY0vZWfQsYpTcyHFjcKX0dHn54db4QMxP
+	kTYVBFDHbcSXqTPlG2TkP57nlPZAbM/MKTWE=
+X-Received: by 2002:a17:90b:2888:b0:35f:bb17:39f with SMTP id 98e67ed59e1d1-38112066822mr17984604a91.1.1783368378705;
+        Mon, 06 Jul 2026 13:06:18 -0700 (PDT)
+X-Received: by 2002:a17:90b:2888:b0:35f:bb17:39f with SMTP id 98e67ed59e1d1-38112066822mr17984531a91.1.1783368377972;
+        Mon, 06 Jul 2026 13:06:17 -0700 (PDT)
+Received: from [192.168.1.9] ([106.222.230.254])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-311747f5982sm47949eec.5.2026.07.06.13.06.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 13:06:17 -0700 (PDT)
+Message-ID: <b11cdc41-e88b-4815-9349-453f1bd5f14c@oss.qualcomm.com>
+Date: Tue, 7 Jul 2026 01:36:07 +0530
 MIME-Version: 1.0
-In-Reply-To: <20260629142348.273766-1-akkun11.open@gmail.com>
-User-Agent: Mutt/2.3.2 (2026-04-26)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: k4HEtZl3P2jYOgn0-VybDIGJp1uUT16akK1mIazyZLA_1783368093
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] arm64: dts: qcom: Add GPU support for Kaanapali
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov
+ <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+References: <20260705-kaana-gpu-dt-v2-0-6ac53de56314@oss.qualcomm.com>
+ <20260705-kaana-gpu-dt-v2-5-6ac53de56314@oss.qualcomm.com>
+ <e2b7e03f-911b-41cd-8ac4-044492e2bdbc@oss.qualcomm.com>
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <e2b7e03f-911b-41cd-8ac4-044492e2bdbc@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=SpigLvO0 c=1 sm=1 tr=0 ts=6a4c0abb cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=fsdq8dFr2Uux402FS9br8A==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=ZaZH7ke036cbytEKeQwA:9 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDIwMiBTYWx0ZWRfX619y5Ftcquio
+ EN+9xiBumU5zgxBH29sQPxdVCEMlVXFJW74s1QVeLKJl1nH+DLyRxnn8GhV9OcGeoyTL/2n/ZeX
+ K8dlWu0ezoSI6ArfdI2wWSf8yhAJnIhllZdCRK9+UERu3zLbEIbdtL1eRo7iA0eBfqW2LZqTOG3
+ enPf801gr1YlcwNZ2YczqSPrr1npU3s8pZAvonDC6FUAMVBZ2JkkmU/rj46qbR7thz75dk3UpI2
+ 5F98O4v+czptzh8+/VWPxIXIvfxz+NxbnvpSovBt+tUylX1QC+jgRLQiqHtL+MSc7xKSulq4uDW
+ yTrhGz5M9KePHBj9NvmReTN775KyxcvyTwK7GwhNE8lrizwQ6C+bnNlm0alpb23+NRFVorf3qLC
+ UedN7NzfmodbRItGESdSGES9NWz9IKRdmm2Y30Y5SyhrM1GmMq5CWvSJqmzsmsaGigPszdfde5q
+ y6ZRPf239miJDjdckdw==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDIwMiBTYWx0ZWRfX17SZFUC5OLtF
+ h7bnj30b+8w/ZyzAGnwsMlVXol0FbHtMwjxwIQgkCZrgJbGRshBS+8pBHTUWQUjpadsg8YvtD6c
+ sKtjkH2HbC9oA5X5VjOAOXxxu2SwRco=
+X-Proofpoint-GUID: t49t6kgpSHeB4q2hgGzHwVmqCIQJzThE
+X-Proofpoint-ORIG-GUID: t49t6kgpSHeB4q2hgGzHwVmqCIQJzThE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_02,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060202
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_130137_080208_8E4A3DBF 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20260706_130620_146525_CCFE02E1 
+X-CRM114-Status: GOOD (  18.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,169 +170,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Akari,
-
-On Mon, Jun 29, 2026 at 11:23:40PM +0900, Akari Tsuyukusa wrote:
-> Some MediaTek clock drivers do not call platform_set_drvdata() during
-> probe(), but their remove() callback calls platform_get_drvdata(). This
-> results in platform_get_drvdata() returning NULL, which leads to calling
-> mtk_free_clk_data(NULL) -> kfree(NULL).
-> Therefore, the actual clk_data is never released, causing a memory leak.
+On 7/6/2026 3:07 PM, Konrad Dybcio wrote:
+> On 7/5/26 10:00 AM, Akhil P Oommen wrote:
+>> Adreno 840 present in Kaanapali SoC is the second generation GPU in
+>> A8x family. It is based on the new slice architecture with 3 slices,
+>> higher GMEM/caches etc.
+>>
+>> There is some re-arrangement in the reglist to properly cover maximum
+>> register region. Other than this, the DT description is mostly similar
+>> to the existing chipsets except the OPP tables.
+>>
+>> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+>> ---
 > 
-> Fix this by calling platform_set_drvdata() during probe.
+> [...]
 > 
-> Fixes: 124294ff468f ("clk: mediatek: mt8192: Move apmixedsys clock driver to its own file")
-> Fixes: 4c02c9af3cb9 ("clk: mediatek: mt8173: Break down clock drivers and allow module build")
-> Fixes: 54b7026f011e ("clk: mediatek: mt8135-apmixedsys: Convert to platform_driver and module")
-> Fixes: c50e2ea6507b ("clk: mediatek: mt7622-apmixedsys: Add .remove() callback for module build")
-> Fixes: 0d363282bb0c ("clk: mediatek: Add MediaTek Helio X10 MT6795 clock drivers")
-> Fixes: c6368ce86435 ("clk: mediatek: mt2712-apmixedsys: Add .remove() callback for module build")
-> Fixes: 838b86331c5e ("clk: mediatek: mt7622: Move infracfg to clk-mt7622-infracfg.c")
-> Signed-off-by: Akari Tsuyukusa <akkun11.open@gmail.com>
-> ---
->  drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 1 +
->  drivers/clk/mediatek/clk-mt6795-apmixedsys.c | 1 +
->  drivers/clk/mediatek/clk-mt6795-infracfg.c   | 1 +
->  drivers/clk/mediatek/clk-mt6795-pericfg.c    | 1 +
->  drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 1 +
->  drivers/clk/mediatek/clk-mt7622-infracfg.c   | 1 +
->  drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 1 +
->  drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 1 +
->  drivers/clk/mediatek/clk-mt8173-infracfg.c   | 1 +
->  drivers/clk/mediatek/clk-mt8192-apmixedsys.c | 1 +
->  10 files changed, 10 insertions(+)
+>> +			qcom,gmu = <&gmu>;
+>> +			#cooling-cells = <2>;
+>> +
+>> +			nvmem-cells = <&gpu_speed_bin>;
+>> +			nvmem-cell-names = "speed_bin";
 > 
-> diff --git a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-> index 54b18e9f83f8..24522fc24019 100644
-> --- a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-> +++ b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-> @@ -129,6 +129,7 @@ static int clk_mt2712_apmixed_probe(struct platform_device *pdev)
->  		goto unregister_plls;
->  	}
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
+> This looks good to me, but I thought that on a8x, we're supposed to use
+> the freq limiting register in CX_MISC - is either of them preferred?
+> Or are they just hardwired to the same thing by chance
 
-Please add a newline before the return.
+I believe the other register would work, but I don't have a fused hw to
+test. OTOH, this is what is commercialized.
 
-Also, please split each fix out into their own patch to make backporting
-to downstream kernels easier.
+Btw, the CX_MISC register is not present in all A8x GPUs, for eg: Pakala.
 
-Brian
+-Akhil.
 
-
->  
->  unregister_plls:
-> diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-> index 123d5d7fea85..b607592a7c37 100644
-> --- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-> +++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-> @@ -175,6 +175,7 @@ static int clk_mt6795_apmixed_probe(struct platform_device *pdev)
->  	dev_dbg(dev, "Performing initial setup for MD1\n");
->  	clk_mt6795_apmixed_setup_md1(base);
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_ref2usb:
-> diff --git a/drivers/clk/mediatek/clk-mt6795-infracfg.c b/drivers/clk/mediatek/clk-mt6795-infracfg.c
-> index e4559569f5b0..12146bb3b726 100644
-> --- a/drivers/clk/mediatek/clk-mt6795-infracfg.c
-> +++ b/drivers/clk/mediatek/clk-mt6795-infracfg.c
-> @@ -116,6 +116,7 @@ static int clk_mt6795_infracfg_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto unregister_cpumuxes;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_cpumuxes:
-> diff --git a/drivers/clk/mediatek/clk-mt6795-pericfg.c b/drivers/clk/mediatek/clk-mt6795-pericfg.c
-> index d48240eb2a67..28faeb2e657a 100644
-> --- a/drivers/clk/mediatek/clk-mt6795-pericfg.c
-> +++ b/drivers/clk/mediatek/clk-mt6795-pericfg.c
-> @@ -125,6 +125,7 @@ static int clk_mt6795_pericfg_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto unregister_composites;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_composites:
-> diff --git a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-> index 8a29eaab0cfc..a9fc2e5536b3 100644
-> --- a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-> +++ b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-> @@ -109,6 +109,7 @@ static int clk_mt7622_apmixed_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto unregister_gates;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_gates:
-> diff --git a/drivers/clk/mediatek/clk-mt7622-infracfg.c b/drivers/clk/mediatek/clk-mt7622-infracfg.c
-> index cfdf3b07c3e0..b44baf521d2f 100644
-> --- a/drivers/clk/mediatek/clk-mt7622-infracfg.c
-> +++ b/drivers/clk/mediatek/clk-mt7622-infracfg.c
-> @@ -90,6 +90,7 @@ static int clk_mt7622_infracfg_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto unregister_cpumuxes;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_cpumuxes:
-> diff --git a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-> index 19e4ee489ec3..41e5cfbcbb76 100644
-> --- a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-> +++ b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-> @@ -66,6 +66,7 @@ static int clk_mt8135_apmixed_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto unregister_plls;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_plls:
-> diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-> index d7d416172ab3..fe36d2eac3da 100644
-> --- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-> +++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-> @@ -179,6 +179,7 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
->  	if (r)
->  		goto unregister_ref2usb;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_ref2usb:
-> diff --git a/drivers/clk/mediatek/clk-mt8173-infracfg.c b/drivers/clk/mediatek/clk-mt8173-infracfg.c
-> index fa2d1d557e04..b923b73c64f6 100644
-> --- a/drivers/clk/mediatek/clk-mt8173-infracfg.c
-> +++ b/drivers/clk/mediatek/clk-mt8173-infracfg.c
-> @@ -128,6 +128,7 @@ static int clk_mt8173_infracfg_probe(struct platform_device *pdev)
->  	if (r)
->  		goto unregister_clk_hw;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return 0;
->  
->  unregister_clk_hw:
-> diff --git a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-> index b0563a285bd6..446c55b77777 100644
-> --- a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-> +++ b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-> @@ -176,6 +176,7 @@ static int clk_mt8192_apmixed_probe(struct platform_device *pdev)
->  	if (r)
->  		goto unregister_gates;
->  
-> +	platform_set_drvdata(pdev, clk_data);
->  	return r;
->  
->  unregister_gates:
-> -- 
-> 2.54.0
 > 
+> Konrad
 
 
