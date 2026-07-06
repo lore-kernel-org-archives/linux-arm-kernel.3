@@ -4,58 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D61C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3EB2C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:03:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OdKd6q7VVmZu6vE+fSrmTrzPYB3Oq3rv09sQ4SZzZFw=; b=YwRgpUG7PajS+B8X7wc/BosWAV
-	ieW3RSC8S1u7iQ2/DoIKcuFU983PpvS8X4Ytu0ODXpnmM3A8eDD8vMWZclONf08LtmrhPnD0Rk+sT
-	RNkZcoRwD1HhzmKnukbKUxTaKUGnlCxFNgHrNoJkW8eXkc/6Ou5LFjrP3e9AKFqR4gBsTH5Nwn55D
-	mLdm+fgeHE+DYBwMwiq+oSv8zlkjA8ym7GrLzJtaN6usWTI+Ga70gE4LhpXA+85V+wTsdzDLGwIfV
-	Xe7zqm3FN/kNoWwgRJZJkAaiUSzYih2wj0lzQEduSwj1WNE0eXomI09jK14fpqgq266OS3zeRqKtG
-	PbsbS0qQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TulnqDkg59FUxryL3ptCGcm21LX3Mt6uGVOMyyGg9JE=; b=SaUxGUyGq3KPXFkKJsgcX2927r
+	PYVc7WuyJZIZ44yCPJ3fomRIsuqDJDm3Im6Q/hByXALUkf7bnpmQoOCv1QGOw2rmWffcveEgYq2iQ
+	DQ/LWmJKNwaYhopdLIEgYdLx3W+RTBP5qovT3q85zIsbJYo0qRdnJNpvFbiO5sUZ1UZo6bDsHGcaW
+	kJ9fl+t9hhXHAO4T0sLbKZKH7bbhVr/5OkKyjVnxYOGmgzi4kNdhQu2V5mF65s/aX8LLyNlBbEbt8
+	jwvMXb0SrcTLuRo2swHkP7VaoE/a1gCq7EJtlqUZe+YEeSzl4HuRaD9vq1zWngnHSLhZQ3dcJyGPh
+	IsEa/sUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgoSF-0000000DNrx-3uVT;
-	Mon, 06 Jul 2026 18:54:07 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgob1-0000000DPCp-3Iyy;
+	Mon, 06 Jul 2026 19:03:11 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgoSE-0000000DNre-1y9k;
-	Mon, 06 Jul 2026 18:54:06 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6F5EB600AE;
-	Mon,  6 Jul 2026 18:54:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B30A81F000E9;
-	Mon,  6 Jul 2026 18:54:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783364045;
-	bh=OdKd6q7VVmZu6vE+fSrmTrzPYB3Oq3rv09sQ4SZzZFw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=XtnFv4zfkYmOH5NoiBju7aItKcdcotaeM+w4X0SQQxIlnvTwnfs7Pp8xiGajI9WrF
-	 SyHOyBQlclZFtZiIUsPSb/5oEAyI48EqWJLwS3NQaFRX0XlJL5/MhXVWYtDg4wsUuX
-	 PUY2hF6WODRklwNwud9lg4pgObeKThWR9eNpifzb5WYiRS50+/ol5i1lTpqvU4w8BS
-	 rHyc6AQiLCo9cZBcCdzM5QdCGVIxRJZ5ubOSuK7Y/CBgMC9xibHPZAD3RZ2JFJxZ5p
-	 SDFZNRNJVD0FtRPU+q/onEjtettFj6WCmP8FEO/3S482xlmr9iQjrBgDRuADxXfoYw
-	 8U8JczjBDKYpQ==
-Date: Mon, 6 Jul 2026 12:54:03 -0600
-From: Keith Busch <kbusch@kernel.org>
-To: Gui-Dong Han <hanguidong02@gmail.com>
-Cc: sven@kernel.org, linux-nvme@lists.infradead.org, axboe@kernel.dk,
-	hch@lst.de, sagi@grimberg.me, j@jannau.net, neal@gompa.dev,
-	asahi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, baijiaju1990@gmail.com
-Subject: Re: [PATCH v2] nvme-apple: Use acquire/release for queue enabled
- state
-Message-ID: <akv5y0wqV76xKZmj@kbusch-mbp>
-References: <20260618021543.3866850-1-hanguidong02@gmail.com>
+	id 1wgoay-0000000DPCD-24lW
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 19:03:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=TulnqDkg59FUxryL3ptCGcm21LX3Mt6uGVOMyyGg9JE=; b=UeVAjPhIMhfIm2xnQeMe5orSBM
+	uayF73MrVjbGWrJ25XxvjD2d25sNcK0zKrEuCZ82LjAw0ZU2VY2I+URjnSfvinmrbXu1YmDqqm6le
+	lQnl1a2bJF9kSMa2iHXsJay31dO7/QtzAV/P26NJeLBC/YIMhr/eqLnc6nBh5BuA/p86n3A3KefI7
+	0S9+ugrrdYnUv7PBoJ/TnAP9FXIUHA+82RsgblFGeidTyscKAxv7hibM7s50UyhHsHXpxwOz/HWZz
+	yjqf8JFo4bYrckHItBIeesMLfLAgznr2qV/vSng4KMoVZzw9xaImOty3UnWZrWV4nSv97nxlt04+A
+	t0yEeGcw==;
+Received: from 189-68-33-146.dsl.telesp.net.br ([189.68.33.146] helo=[192.168.15.100])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1wgoaH-009svi-EM; Mon, 06 Jul 2026 21:02:25 +0200
+Message-ID: <84ed46a8-54db-4f48-9d59-5c06cd020c03@igalia.com>
+Date: Mon, 6 Jul 2026 16:02:17 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260618021543.3866850-1-hanguidong02@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/5] arm64: vdso: Implement
+ __vdso_futex_robust_try_unlock()
+To: Thomas Gleixner <tglx@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Carlos O'Donell <carlos@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Florian Weimer <fweimer@redhat.com>, Rich Felker <dalias@aerifal.cx>,
+ Torvald Riegel <triegel@redhat.com>, Darren Hart <dvhart@infradead.org>,
+ Ingo Molnar <mingo@kernel.org>, Davidlohr Bueso <dave@stgolabs.net>,
+ Arnd Bergmann <arnd@arndb.de>, Uros Bizjak <ubizjak@gmail.com>,
+ =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+ "Liam R. Howlett" <liam@infradead.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, kernel-dev@igalia.com
+References: <20260705-tonyk-robust_arm-v4-0-e0fd0fa259d3@igalia.com>
+ <87qzlhjick.ffs@fw13>
+Content-Language: en-US
+From: =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>
+In-Reply-To: <87qzlhjick.ffs@fw13>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_120308_533945_73E6FDDD 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,17 +87,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 18, 2026 at 10:15:43AM +0800, Gui-Dong Han wrote:
-> apple_nvme_init_queue() initializes queue state and then marks the queue
-> enabled. The interrupt and request paths check enabled before using that
-> queue state.
-> 
-> The old wmb() after WRITE_ONCE(enabled, true) does not publish the
-> earlier initialization before enabled becomes visible. Use a release store
-> when enabling the queue and acquire loads when testing it.
-> 
-> Although the shutdown-side enabled accesses are not used for publishing
-> queue initialization, use helpers for them as well for consistency.
+Thomas!
 
-Thanks, applied to nvme-7.3.
+Em 05/07/2026 17:23, Thomas Gleixner escreveu:
+> On Sun, Jul 05 2026 at 14:56, André Almeida wrote:
+>> As explained in the Testing section above, we developed a test that puts
+>> breakpoints in the code to test if a user code being interrupted really clears
+>> the op_pending pointer. This test wasn't initially working because of this check
+>> at futex_fixup_robust_unlock():
+>>
+>>          /*
+>>           * Avoid dereferencing current->mm if not returning from interrupt.
+>>           * current->rseq.event is going to be used subsequently, so bringing the
+>>           * cache line in is not a big deal.
+>>           */
+>>          if (!current->rseq.event.user_irq)
+>> 		return;
+>>
+>> rseq.event.user_irq was always false during my tests, and it prevents the fixup
+>> to happen. I figured out that arm64_syscall_enter_from_user_mode() was the
+>> issue because it doesn't set user_irq to true when the task comes from a
+>> syscall.
+> 
+> I have no idea what you are babbling about.
+> 
+> A syscall enter never sets user_irq to true. It's only set to true when
+> an interrupt/exception entry comes from user space, i.e. via
+> 
+>      irqentry_enter_from_user_mode()
+>          rseq_note_user_irq_entry()
+> 
+
+Sorry for the babbling, you are right. I got confused by analyzing the 
+kernel stack trace after running the tests and wrongly thought that I 
+spotted something missing. Please ignore patch 1/5.
+
+> No?
+> 
+> Thanks,
+> 
+>          tglx
+> 
+
 
