@@ -4,84 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90610C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 07:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1881C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 07:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3P8yOozKPJARJM21q75q44Lclkmu0wTSf8D8yqBpx/o=; b=OOXqpcxGpfEIzuSbnSDXHy4EBK
-	MwF8BM+kyU6Da87lbj2JU3/BGUURUSEmTgZolGJ71UsVOarirH7PEj2MeXsKF+q0yn5cmx9wuOZ5B
-	GufXiE1apTm8qlbwcn2Wkfd9xxdAd9M7w+jp+FUkN7u4IAk0/EmYvJ6O7tbGtGQAMeQ6Zf2q6MUrE
-	n7TRhtoLXy+Da3cufROhHCRp278gbgb7WLa5DuU3DB578+86WfRpsGY0MEBhP5GORSfhU4Zqvvy1V
-	3MOa9yt13myY1Q31n1NPqOm7Edll4NPUbrU2BqMPrgrAU/fzkMupa3pamk861FzrTtn1b0Ja3ztOm
-	J6/+7G3Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=; b=DvYRxe7Xd1gd51qr+/LkmSxjsr
+	Ufid7z75N/adwHXb+bBcBalwk4oRJSVI+l9TA1wQMaGMhB18QXOzrBCkNyndnT4S33o2yTUacRyCz
+	HoEHKdP0xaCZ07/686Ksjrpclo5yYnApETz8zeB9hqCfvlgjyfVEFnScWWsRsxsyZ0xhVHjspMC9Q
+	gCH6yy1G7Jwlus6l2+xF8Hajpj468LmcxeS+YZBSy+/iuzDaFrQVFGPoeXy7+0jXWJ8YbLA3izRiW
+	30dnBhXlqrZcSL5z8op3DF84D4rIk/aEuqVn60GoVDouswwXYEIjK9hsrDOp8xy1/Nr6grJVIOpL5
+	7F4DUNkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdhg-0000000BjBy-2vpT;
-	Mon, 06 Jul 2026 07:25:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wgdkA-0000000BjVT-0c0k;
+	Mon, 06 Jul 2026 07:27:54 +0000
+Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdhe-0000000BjBW-0OZ9
+	id 1wgdk7-0000000BjUt-2iP1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 07:25:19 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id D9C08600BB;
-	Mon,  6 Jul 2026 07:25:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C75E1F000E9;
-	Mon,  6 Jul 2026 07:25:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783322716;
-	bh=3P8yOozKPJARJM21q75q44Lclkmu0wTSf8D8yqBpx/o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TNPFh48fTeuufjfskbih05Phrn1j7m20l/pafVdd9/Nh+fuv7rZJCEzPubHUvoZL6
-	 utiTItzc9m9yHk0dh5PbB26vqWpEQan0HttwilfEz1M/VOX4+I5kcrq8Ls55e6WUVh
-	 c2+38AN+db3lFXHIIB4IY4jZVtwaRhPJPw9KOVvnrXelKcwBWnOWtyiiBIj1hdx+aM
-	 n7ljNSQ1AnaLKBYfP1qPX1xYA7ifu1EsHmW4HZ/yJpm3iSycPohQjxpBdu/6GOgQ5m
-	 bJaivbMvG2Hh4kJg1UvfJqGudncxLBjI1Op6Qppl9Ok47WUVbgdooczlhBWQGNsSke
-	 l5F0NsWgA+96g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wgdha-00000001nC5-16mh;
-	Mon, 06 Jul 2026 07:25:14 +0000
-Date: Mon, 06 Jul 2026 08:25:13 +0100
-Message-ID: <86o6gkpokm.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Tangnianyao <tangnianyao@huawei.com>
-Cc: Wei-Lin Chang <weilin.chang@arm.com>,
-	<oupton@kernel.org>,
-	<joey.gouly@arm.com>,
-	<seiden@linux.ibm.com>,
-	<suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>,
-	<catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>,
-	"guoyang (C)" <guoyang2@huawei.com>,
-	"huanglingyan (A)"
-	<huanglingyan2@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>
-Subject: Re: Question about the "TLBs and I-cache are private to each vCPU" guarantee with VTTBR_EL2.CnP
-In-Reply-To: <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
-References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
-	<xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
-	<292b5734-9005-6db0-da08-3da04628e620@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tangnianyao@huawei.com, weilin.chang@arm.com, oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, guoyang2@huawei.com, huanglingyan2@huawei.com, wangzhou1@hisilicon.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 06 Jul 2026 07:27:53 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 3F04575D1A;
+	Mon,  6 Jul 2026 07:27:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783322868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
+	b=0wpOaniIIGdIp6z0GgnhUgcX7Ud0CNlgNZsCsQlsgePgV/syB4GI+NetQO74Bu88DWebkJ
+	JV4RcnUvOxIyYy8sZyMKhb2UP77fMvZEMirZrApFrnCjD5L+0SYMYo+ZFQQ5lID32YXDF1
+	lItEzeSK46VQqsmy5ExgcL0vPlIuQ7Y=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783322868;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
+	b=vRZoMy4mlXVDCDDzBHVKqK0jVdeF3GKGuTQBv6rpUASi6BEc+d8w4iSN5qdOKqb9Ez4Cpc
+	/dCOcX9RcSAElJAA==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1783322868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
+	b=0wpOaniIIGdIp6z0GgnhUgcX7Ud0CNlgNZsCsQlsgePgV/syB4GI+NetQO74Bu88DWebkJ
+	JV4RcnUvOxIyYy8sZyMKhb2UP77fMvZEMirZrApFrnCjD5L+0SYMYo+ZFQQ5lID32YXDF1
+	lItEzeSK46VQqsmy5ExgcL0vPlIuQ7Y=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1783322868;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
+	b=vRZoMy4mlXVDCDDzBHVKqK0jVdeF3GKGuTQBv6rpUASi6BEc+d8w4iSN5qdOKqb9Ez4Cpc
+	/dCOcX9RcSAElJAA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A3D21779AA;
+	Mon,  6 Jul 2026 07:27:47 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id WgXvJfNYS2pBcQAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Mon, 06 Jul 2026 07:27:47 +0000
+Message-ID: <9612bb41-db52-4169-a7fa-e57268d69e24@suse.de>
+Date: Mon, 6 Jul 2026 09:27:47 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/9] drm: replace simple display pipe users with atomic
+ helpers
+To: Ze Huang <ze.huang@oss.qualcomm.com>,
+ Alexey Brodkin <abrodkin@synopsys.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
+ Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
+ Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev, xen-devel@lists.xenproject.org
+References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
+Content-Language: en-US
+From: Thomas Zimmermann <tzimmermann@suse.de>
+Autocrypt: addr=tzimmermann@suse.de; keydata=
+ xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
+ XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
+ BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
+ hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
+ 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
+ AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
+ AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
+ AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
+ lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
+ U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
+ vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
+ 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
+ j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
+ T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
+ 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
+ GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
+ hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
+ EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
+ C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
+ yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
+ SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
+ Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
+ 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
+In-Reply-To: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-0.997];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[22];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TAGGED_RCPT(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,qualcomm.com:email,imap1.dmz-prg2.suse.org:helo]
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_002751_986677_7CB1F4D1 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,88 +171,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 04:30:30 +0100,
-Tangnianyao <tangnianyao@huawei.com> wrote:
->=20
->=20
->=20
-> On 7/6/2026 1:28, Wei-Lin Chang wrote:
-> > Hi,
-> >
-> > Let me try to answer this:
-> >
-> > On Sat, Jul 04, 2026 at 03:45:56PM +0800, Tangnianyao wrote:
-> >> Hi, all
-> >>
-> >> I'm trying to understand the TLB and I-cache invalidation in
-> >> `kvm_arch_vcpu_load()` that is intended to "guarantee that both TLBs a=
-nd
-> >> I-cache are private to each vCPU".
-> >>
-> >> As I understand it, when `VTTBR_EL2.CnP =3D=3D 1`, `__kvm_flush_cpu_co=
-ntext()`
-> >> only performs a local TLB and I-cache invalidation, which does not seem
-> >> sufficient to guarantee that property.
-> >>
-> >> In fact, even if the invalidation were extended to the Inner Shareable
-> >> domain, it still seems difficult to guarantee =E2=80=9CTLBs and I-cach=
-e are
-> >> private to each vCPU=E2=80=9D, when `VTTBR_EL2.CnP =3D=3D 1`, as long =
-as multiple
-> >> vCPUs from the same VM may be running concurrently on different PEs.
-> > I think you have missed that when 2 stages are involved, both stages
-> > have to set CnP =3D=3D 1 in order to share TLB entries (Arm ARM R_ZVRZW=
-).
-> > So if TLB entry sharing happens, the guest kernel must have allowed it
-> > in the first place (by setting TTBR0/1_EL1.CnP =3D=3D 1), hence acciden=
-tal
-> > sharing that you are worried about won't happen.
-> >
-> > __kvm_flush_cpu_context() is solving problems that occur when multiple
-> > vCPUs of a VM are multiplexed on a single physical CPU.
->=20
-> Thanks for you answer.
->=20
-> If guest kernel allow TLB shared across CPUs by setting TTBR0/1_EL1.CnP =
-=3D=3D 1,
-> does kvm still need to guarantee that TLBs are private to each vCPU?
+Hi
 
-Yes, because there is nothing that describes which physical CPUs
-actually share TLBs. So the only possible course of action is to
-ignore what the guest says and fallback to something that is safe.
+Am 04.07.26 um 20:31 schrieb Ze Huang:
+> struct drm_simple_display_pipe was meant to simplify simple DRM
+> drivers, but instead adds an extra wrapper around normal DRM atomic
+> helper setup. As noted in Documentation/gpu/todo.rst, remaining users
+> should be converted to regular atomic helpers and stop depending on the
+> simple-KMS interfaces.
+>
+> This series converts the following drivers:
+>
+>    - arcpgu
+>    - aspeed
+>    - imx lcdc
+>    - mcde
+>    - pl111
+>    - gm12u320
+>    - repaper
+>    - tve200
+>    - xen frontend
+>
+> Each patch replaces drm_simple_display_pipe_init() with explicit
+> primary plane, CRTC and encoder setup, and moves the old simple-pipe
+> callbacks into regular plane and CRTC helper callbacks named according
+> to local driver conventions.
+>
+> The conversions preserve helper behavior that used to be implicit in
+> drm_simple_kms_helper.c, including plane-state validation, CRTC
+> primary-plane checks, affected-plane propagation, framebuffer prepare
+> handling, and existing event/vblank flow where applicable.
+>
+> Result is less helper indirection and more explicit driver-side atomic
+> wiring, with no remaining simple-KMS dependency in these drivers.
+>
+> These changes are build-tested only. No hardware testing has been
+> performed on the affected devices.
+
+Thanks a lot for the series. That's quite a nice cleanup.  Did you use 
+any AI to create these patches?
+
+Best regards
+Thomas
 
 >
-> >> So I have two questions:
-> >>
-> >> 1. What is the rationale behind the comment that "guarantee that both =
-TLBs
-> >> and I-cache are private to each vCPU"?
-> > I assume you are asking why keeping both TLBs and I-cache private per
-> > each vCPU is required. The fundamental answer is that each physical CPU
-> > is expected to have its own TLB and I-cache, so we must uphold that
-> > property for vCPUs as well. vCPUs can be scheduled on the same physical
-> > CPU, and use the same physical TLB/I-cache, obviously, so extra
-> > invalidations need to be done.
-> Let's assume that both Stage-1 CnP and Stage-2 CnP are enabled.
->=20
-> As I understand it, the architecture permits TLB to be shared by multiple
-> PEs within an Inner Shareable domain. Right?
->=20
-> If an implementation allows TLB entries to be shared in this way, it seems
-> that the current invalidation performed by kvm would no longer be suffici=
-ent
-> to guarantee that TLBs are private to each vCPU.
+> This series is based on drm-next-2026-06-27.
+>
+> Thanks,
+> Ze Huang
+>
+> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+> ---
+> Ze Huang (9):
+>        drm/arcpgu: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/aspeed: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/imx: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/mcde: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/pl111: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/gm12u320: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/repaper: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/tve200: replace struct drm_simple_display_pipe with regular atomic helpers
+>        drm/xen: replace struct drm_simple_display_pipe with regular atomic helpers
+>
+>   drivers/gpu/drm/aspeed/aspeed_gfx.h      |   5 +-
+>   drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c | 156 ++++++++++++++++------
+>   drivers/gpu/drm/aspeed/aspeed_gfx_drv.c  |   3 +-
+>   drivers/gpu/drm/imx/lcdc/imx-lcdc.c      | 178 ++++++++++++++++++-------
+>   drivers/gpu/drm/mcde/mcde_display.c      | 162 ++++++++++++++++------
+>   drivers/gpu/drm/mcde/mcde_drm.h          |   6 +-
+>   drivers/gpu/drm/mcde/mcde_drv.c          |   3 +-
+>   drivers/gpu/drm/pl111/pl111_display.c    | 174 ++++++++++++++++++------
+>   drivers/gpu/drm/pl111/pl111_drm.h        |   5 +-
+>   drivers/gpu/drm/pl111/pl111_drv.c        |   3 +-
+>   drivers/gpu/drm/tiny/arcpgu.c            | 165 ++++++++++++++++++-----
+>   drivers/gpu/drm/tiny/gm12u320.c          | 128 ++++++++++++++----
+>   drivers/gpu/drm/tiny/repaper.c           | 130 ++++++++++++++----
+>   drivers/gpu/drm/tve200/tve200_display.c  | 221 +++++++++++++++++++++----------
+>   drivers/gpu/drm/tve200/tve200_drm.h      |   6 +-
+>   drivers/gpu/drm/tve200/tve200_drv.c      |  17 ++-
+>   drivers/gpu/drm/xen/xen_drm_front.h      |   6 +-
+>   drivers/gpu/drm/xen/xen_drm_front_kms.c  | 177 +++++++++++++++++++------
+>   18 files changed, 1164 insertions(+), 381 deletions(-)
+> ---
+> base-commit: 3696d07837d1df13a5603d77f667685e7dfb3c53
+> change-id: 20260704-drm-simple-kms-removal-01a031c6a129
+>
+> Best regards,
+> --
+> Ze Huang <ze.huang@oss.qualcomm.com>
+>
 
-Care to explain why?
+-- 
+--
+Thomas Zimmermann
+Graphics Driver Developer
+SUSE Software Solutions Germany GmbH
+Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
+GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
-The core assumption is that a TLBI take effect on all the PEs the TLB
-is shared with. If this doesn't work, then CnP is unusable, because it
-is then impossible to guarantee that a translation will be refetched
-(you could always hit in another PEs TLBs). Such an implementation
-would be terminally broken.
 
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
 
