@@ -4,112 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59909C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FD87C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N6Mfmmv9Z1KLwW+rFeY1Xe/RVdzdCKnap/t46NltcPk=; b=lBpu4cW04iUYRRVLU6gKzHFu0G
-	wJIOQoyKYyD4Fg1t3WuOq5Es2FXj8mOpWjyk4nnARtwuLj79x+YvAjXRdZcfyajwCMerQTBLNBL6h
-	BaSc9at8cHtFtFZk03LeSzWKS13gHExgxDvJd2SzOMX3CgDBeEg2EUKDI5jAYwvDQNhhymouYSYKD
-	mc2fz0+lrNqpRNobQWGY5tcZZHSLcl+SSr3Ig12ODrgyqdQyejDoVH5qGmPH1jnleMa2OWTyzrNWa
-	jGW8jsQ7VT+OUilnBT27QF7RR7D2NP1Bieajbvv4evf6z4Y/Uk6s8F/hv3KgjRz/972+wPxATzQZT
-	BlwmoQfw==;
+	bh=tUHCisuScEtc1kpgEniw1SQHEHnjG8D0qhIWEGCMudA=; b=b39i2peU2ejyHvhlseZJI193w9
+	a5TcwgCO/b3zYrX2IoulaFOJFC9T/2G4aFJL+tC7wNjDMtcspIi3OcWeNeLo95wV6Ap9Uq4OHdNjA
+	VJgfbzPtPVxCxkwu6J0zH95XqFJEWSqV9N/Rfaic9KA4BTjltz0KQBsh24ZetN3jdX+yGcnH3RMe4
+	o0lqDQDwMqM3eojkyU1UnCaUj6EfNPTquzsYJSD5kck0d+6axNSxUUR7xdPGYrFoIkus91FBUt3Ns
+	xNBrtW+yFEQrchjjTxcxUTEXN587mcB8WYMul9Iy/dQiJdNGDmPZ3H17mZwNEvuyIV9IH9SffyYzi
+	Ob/ss5Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgj2c-0000000CX5Z-3Sn6;
-	Mon, 06 Jul 2026 13:07:18 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1wgj52-0000000CXMR-0lbz;
+	Mon, 06 Jul 2026 13:09:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgj2b-0000000CX43-0Lk8
+	id 1wgj4z-0000000CXLm-1wX5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:07:18 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-473987fc217so334750f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:07:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783343235; x=1783948035; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=N6Mfmmv9Z1KLwW+rFeY1Xe/RVdzdCKnap/t46NltcPk=;
-        b=fQKd2/TTQtejzna3jCMlVod0viWjNc1Ibd4pQ9jcBxTTGnX0QJ3qbcfKjUS5lWk7SS
-         6m2rWkMJdGj2vBNYUzVKwXuMrlJaYDm5EBzGCXBembEYyOvDkGVQcTnx3vhZnXRapQWI
-         nsnhjPMJuhDvH/YQG26H/E2BRqr6rPGXDw/ECJAi0GK0qL6aJDljyBT/RvUYfLKXn3Ps
-         epA2nyyyYhdAhAhTFuzelNdWHteBrAYS9jG84zBH6k8tuzXgfjMDLHFnxx0VB+abeeYS
-         MwBLi8DtmJHNZf6dfPm074KdJaAaDgFU9J7W2WG028WoennBQMjvUP8DBFTvLzeAiT3K
-         puZQ==
+	Mon, 06 Jul 2026 13:09:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783343384;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tUHCisuScEtc1kpgEniw1SQHEHnjG8D0qhIWEGCMudA=;
+	b=Pz/8Vo6rDnLyvAaMWe2b7mQwsltpk+qoOKSbGNII57Aw+9UOiP82NMDS5eThTEX43fjmkm
+	LfwXeSTnkw0Y5pOtNzP8MVq5rUYOEzeYEpqT+vM/RvAuLFZnh7NANS8UFNzzBQHrNb/ndo
+	5roTgCn3WSWFxfPvDurl5UM+zUdxq6U=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-616--WhHUDdxPVO7nOgNBBZAMw-1; Mon, 06 Jul 2026 09:09:42 -0400
+X-MC-Unique: -WhHUDdxPVO7nOgNBBZAMw-1
+X-Mimecast-MFC-AGG-ID: -WhHUDdxPVO7nOgNBBZAMw_1783343381
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-490a767c7dcso24222745e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:09:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783343235; x=1783948035;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=N6Mfmmv9Z1KLwW+rFeY1Xe/RVdzdCKnap/t46NltcPk=;
-        b=M8ytXLrA6vBPkex7lJJRZlqcrEfQd+Yh67peXoumR4Nkp10/ein7pu/OS2Ksia2Mdy
-         QsF7r7GGL27JVtHg5uqOYe/0ZkCBKNRou0ArMBURAn2iXKIKhBsNG0xBKxBtsvKoFkfH
-         l+waes5ELwpMa6LUxw9aEo2HeQCgvtxsiTGB5tHNsN1mqsVk/TsU9w5UnOBqGM+j67WY
-         PBNphkhDqkB8N2q7u2SoHjsj6JG1E5MQZN7qZSh3SCa8ku/QW4PMvUBt53zn2Q21BnvE
-         L+Qv6QpQmN5wZWiZwzUaBoU8tCfZ3oRR5wHXCxPJsSIuG42yFpV1TkfPqIU9ukwGZdHl
-         Hv6w==
-X-Forwarded-Encrypted: i=1; AHgh+Rp1e8Zde6qX9ukgj5NlkYITlHraXhnGoXXSymafGngbgAtJfpxy8DebEUQ+qiJThy6OAlZdELkL08o1qfVFEgnj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBi2UQdehhZbdw5pWmtxVCFZedMfLfBthtADs0KXJ5HQJS0a0S
-	mB2mBH1+FAUUG1wwT8uX87fP6cSw3sOhUSeSKIT8GD4/mgYyq8OsQIHW
-X-Gm-Gg: AfdE7clUjI6Hqj/1TYWwCGAu7wdVFaL68bp8IjUCezdyH823PC77ikerQSnN22dJy+Y
-	TjV0xcTKxflOnoRPdkknGvb2H1OAiuQNTVY7ivIXOe0m+qybt+ztb5Gx0wdjVEtutnnc6EGGrSp
-	jjofECypUK2BNc1w+KNM2yWvERsQFmxa4CujEBcj7tWlNoC50uY56pCjluT88uxhh0EZk5ay2G4
-	1sHvl11I6blTMKpIWvF5tsZdjpgJsqAeSeOrMPJz95NHCnjEkhLRiHJh+bh2GaTWOSkjcjAUmGP
-	fdmixT9pz/6Oq+02boSPye79M2xV0L6xM8AcWFqu+6XXxkpyZYEm0BZ0wWp5rN/WloH2kpskLUQ
-	n6JZeyqejGu/tYBeiDcthb1KU/qorAtQovbV5WGGhdnx7TF+yeCfO0PJ8SLNL3PMc2BY/dfLKca
-	HwF836W4E7hphGd27SN7YGey5yKWlePrl/WtioQ14Zg7IO17cfjcJbjF8BsmX53BUuti+3vdQJt
-	KrXFoU3VVLZF9ihSGQdXpRke8LKLGwPq0g=
-X-Received: by 2002:a05:6000:46ca:b0:474:2edc:c0a8 with SMTP id ffacd0b85a97d-47aab57d3admr4208341f8f.4.1783343234997;
-        Mon, 06 Jul 2026 06:07:14 -0700 (PDT)
-Received: from debian.lan (vmi1894487.contaboserver.net. [154.26.158.71])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47a9de1d8f1sm24515956f8f.3.2026.07.06.06.06.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 06:07:14 -0700 (PDT)
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Lance Yang <lance.yang@linux.dev>,
-	Jann Horn <jannh@google.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Mike Rapoport <rppt@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	Zi Yan <ziy@nvidia.com>,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Nico Pache <npache@redhat.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Barry Song <baohua@kernel.org>,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Xueyuan Chen <xueyuan.chen21@gmail.com>
-Subject: [RFC PATCH v3 3/3] x86/mm: add set_direct_map_ro_noflush()
-Date: Mon,  6 Jul 2026 21:04:40 +0800
-Message-ID: <20260706130440.9295-4-xueyuan.chen21@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20260706130440.9295-1-xueyuan.chen21@gmail.com>
-References: <20260706130440.9295-1-xueyuan.chen21@gmail.com>
+        d=1e100.net; s=20251104; t=1783343381; x=1783948181;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tUHCisuScEtc1kpgEniw1SQHEHnjG8D0qhIWEGCMudA=;
+        b=buHz3Alb3+dsCWkFIxjpcCghgTvfV/IC1YD66NS36pMIl+LFqFEiiK2OVmvEf5MLKQ
+         KQqvnTrZMezB145J9n9oI2kHQbSEzH9Hgd8SDyxVZUxuPM5ZFh3R0bceWnCklN9a+36T
+         r1eYTYoNYYS62WTqa6aK0tAOD/yBQgtrh8lWkFmKZfY/qbYornEGbHc8A3ZCdvAGc8MC
+         5HXIYpD+QS5TOKFDGsYWQ38StnT57MUvNOeE5eeWeJPgHspOfvF/rlN9Wtu7hk2b/HrZ
+         e6xUj/47v142fWVQlQM4pIRTmnaphPk0noZJ0a+cnoCm467salGgz4zcMGboeoJEPhuL
+         WT/Q==
+X-Forwarded-Encrypted: i=1; AHgh+Rr3xxK/We2recb0SO+ybmmaSQFNhzYH/85ii4FsIz36wmDHxJifnYwGU4/nPigKTfVIpArng3uae3v0YxsyOG0D@lists.infradead.org
+X-Gm-Message-State: AOJu0YzioogbU8QjKN0p5AW3lmKInl0UdbLPATqtt0kd3Uwlb9tTKvJk
+	w/TEJdvem4g8ADtYucX/cgmVRgBslZLqSahVTEvRPsvfqGXwuetBtfAJFMQ1ADGDFWhP1QgUF8m
+	mO8vMcm+Ax+RKHkYFDaAd+YzH3IOZNmStOoA7aj3wsvWZTUHA7zCyzslQxMP+bfbljW9upXrJ++
+	fh
+X-Gm-Gg: AfdE7cmP3/5tTbC6ioGBa3Gjb+GnZgsAltEwFfcevkm6qiceJUAOie6SXeDoP0c/IyR
+	TlK6RWiqJDh02iflKD2Num8kc9Ri3gRadMpQ2FystmFe8p6+zIcapXd15LhcPgRxKO8pX4wwSem
+	aFK0vlsbWyR0ZpxpBlMwlNBe26emPzjcXs0clD2+CVclefDDItEZ3Vof0QmzirUEJx8fwmxCn5I
+	IDKrS8PtuGplXV4JE/V/PLpQngj1yONzggk/OZD9SJC8uWm6sZ1aTcuRHrlxYiSjToXYvm+w07s
+	83D7BJAbsXinghTEv5sbs9vp2GuXx/2/WVIG1e/Wf61ujxBDa78dTVpX1mtLwQ9PVwxhMpjDWes
+	hn6YtL5zDdPOmK5GKN65JEhe2vXmiqtwqFZbesE0mzxci4FAgXkCQbI3gGyGiEEMbaTG0kZw0Nv
+	cyI+/AsWzSQ+QV
+X-Received: by 2002:a05:600c:3f16:b0:492:454c:347c with SMTP id 5b1f17b1804b1-493df066413mr4850905e9.7.1783343381394;
+        Mon, 06 Jul 2026 06:09:41 -0700 (PDT)
+X-Received: by 2002:a05:600c:3f16:b0:492:454c:347c with SMTP id 5b1f17b1804b1-493df066413mr4850375e9.7.1783343380895;
+        Mon, 06 Jul 2026 06:09:40 -0700 (PDT)
+Received: from ?IPV6:2a0d:3344:5521:6b10:58fd:68f:7756:389d? ([2a0d:3344:5521:6b10:58fd:68f:7756:389d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47ad69519c2sm25839803f8f.37.2026.07.06.06.09.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Jul 2026 06:09:40 -0700 (PDT)
+Message-ID: <8e5eb97d-dfaf-47a1-8572-b3252a2c7ed3@redhat.com>
+Date: Mon, 6 Jul 2026 15:09:37 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v9 6/6] riscv: dts: eswin:
+ eic7700-hifive-premier-p550: enable Ethernet controller
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org
+Cc: ningyu@eswincomputing.com, linmin@eswincomputing.com,
+ alexandre.torgue@foss.st.com, mcoquelin.stm32@gmail.com,
+ pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
+ maxime.chevallier@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, linux-riscv@lists.infradead.org,
+ palmer@dabbelt.com, pjw@kernel.org, weishangjuan@eswincomputing.com,
+ horms@kernel.org, alex@ghiti.fr, lee@kernel.org, wens@kernel.org,
+ lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, netdev@vger.kernel.org, rmk+kernel@armlinux.org.uk,
+ aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+References: <20260630063123.1118-1-lizhi2@eswincomputing.com>
+ <20260630063445.1226-1-lizhi2@eswincomputing.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20260630063445.1226-1-lizhi2@eswincomputing.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: jutlrWySnPEjzPw7aS7sEkcvyia5bVzrZvQcrO66cFA_1783343381
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_060717_140919_87814E35 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20260706_060945_585187_436BA01A 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,61 +123,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+On 6/30/26 8:34 AM, lizhi2@eswincomputing.com wrote:
+> From: Zhi Li <lizhi2@eswincomputing.com>
+> 
+> Enable the on-board Gigabit Ethernet controller on the
+> HiFive Premier P550 development board.
+> 
+> This patch is included only to provide the DTS context for reviewing the
+> binding and driver changes in this series.
+> 
+> The upstream DTS series will be submitted separately after the binding
+> and driver changes are finalized.
+> 
+> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
 
-Implement set_direct_map_ro_noflush() for x86 using CPA directly on the
-passed direct-map address. Clear _PAGE_RW and _PAGE_DIRTY, keep alias
-checks disabled like the existing direct-map _noflush helpers, and leave
-TLB invalidation to the caller.
+@Rob, Krzysztof, Conor: I see this patch is not listed in the devicetree
+PW, but I think it needs explicit acks from relevant SMEs. Could you
+please have a look?
 
-Co-developed-by: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Lance Yang <lance.yang@linux.dev>
-Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
----
- arch/x86/include/asm/set_memory.h |  2 ++
- arch/x86/mm/pat/set_memory.c      | 15 +++++++++++++++
- 2 files changed, 17 insertions(+)
+Thanks!
 
-diff --git a/arch/x86/include/asm/set_memory.h b/arch/x86/include/asm/set_memory.h
-index 4362c26aa992..bd3817e06052 100644
---- a/arch/x86/include/asm/set_memory.h
-+++ b/arch/x86/include/asm/set_memory.h
-@@ -89,6 +89,8 @@ int set_pages_rw(struct page *page, int numpages);
- int set_direct_map_invalid_noflush(struct page *page);
- int set_direct_map_default_noflush(struct page *page);
- int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
-+int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages);
-+#define set_direct_map_ro_noflush set_direct_map_ro_noflush
- bool kernel_page_present(struct page *page);
- 
- extern int kernel_set_to_readonly;
-diff --git a/arch/x86/mm/pat/set_memory.c b/arch/x86/mm/pat/set_memory.c
-index d023a40a1e03..5987f4c84f6f 100644
---- a/arch/x86/mm/pat/set_memory.c
-+++ b/arch/x86/mm/pat/set_memory.c
-@@ -2662,6 +2662,21 @@ int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid)
- 	return __set_pages_np(page, nr);
- }
- 
-+int set_direct_map_ro_noflush(const void *addr, unsigned long nr_pages)
-+{
-+	unsigned long tempaddr = (unsigned long)addr;
-+	struct cpa_data cpa = {
-+		.vaddr = &tempaddr,
-+		.pgd = NULL,
-+		.numpages = nr_pages,
-+		.mask_set = __pgprot(0),
-+		.mask_clr = __pgprot(_PAGE_RW | _PAGE_DIRTY),
-+		.flags = CPA_NO_CHECK_ALIAS,
-+	};
-+
-+	return __change_page_attr_set_clr(&cpa, 1);
-+}
-+
- #ifdef CONFIG_DEBUG_PAGEALLOC
- void __kernel_map_pages(struct page *page, int numpages, int enable)
- {
--- 
-2.49.0
+Paolo
 
 
