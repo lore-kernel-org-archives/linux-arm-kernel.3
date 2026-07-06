@@ -4,114 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1EB2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DAE0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:34:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3IUhPhmdKFY/hvP+RYH3Pc2WHx3JLJjsr6cul6j9Vdw=; b=vdCbYlY+MRicusiAzAE6G1grtu
-	n+hwD6FL43kVh6Qu8oXgqhDb/0e+fvdfGL51qOms9jHOoXG8TaghcKH/U6xDFXdvbhhiVKypEBrSK
-	XjJGxQrdVVdUzAMwL3RFcT8Q7sk81ET6b+g1MggqLLrv0J8ORyebv4iNswOrDsy4Qp8JBEpQ4dwqt
-	zJn7K7Y8crUtf2TrgN4D+/EcIJbSbFR8ooVxFiBx0s+gPBU4GZHK4VcFld1In2g6zmj6GwTf6odKr
-	BmLoffCekn8dRTrmUDPNwYher0q1pUb9UmeTwNIk7XrtYLfS5Ha1Cm7kjEnjHXjqcAknEZGcU7UVE
-	Bth0sUmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vo7wFz5VSU0y8XZ0qkTfFRkiT8Oyp/XHu8Zv4m4Ra9Y=; b=MrUxgnR60Oqowwlx4o9sSmf9DQ
+	OsAkoYFK75n+SHhrcCyh9wDdHP6nvkXIYobuhhXg+stu6Q5h7ezEfcWBx3vJ2Pr4y5fWCvvclpGVl
+	9+FDbb5pNVvFhQqxVrvYZjNYvudshThnnubL9G449TP/vUF3MVrFPHvwZLw6bT8O5aeDXZQbwulWz
+	wDy+JESKr3SVeS3YPCZexN3HoUeFVkynvRPMWTUetidhGNde5jd2ZBqfz42RtgaS1TQvGCiTHUrfS
+	HaxduFhoJ1A9DvwxBa9EQYZjFDBkwkNH5JEuNeumrcBceng6CJDM0JZDbcmpHGvTqcdVVldqzbJHQ
+	IVUT2q3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjSi-0000000CbzF-0GCn;
-	Mon, 06 Jul 2026 13:34:16 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wgjSu-0000000Cc3C-0hYC;
+	Mon, 06 Jul 2026 13:34:28 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjSf-0000000Cbxp-2bgV
+	id 1wgjSr-0000000Cbyv-2EPk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:34:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783344852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3IUhPhmdKFY/hvP+RYH3Pc2WHx3JLJjsr6cul6j9Vdw=;
-	b=UgHDiD5+p4jHRHz3loAVDv53c6P0U518zV9K8JGqJVjs0UM7nwGPiS17Hv0qSkm19KaLsj
-	ZPjMGmt8ImcLu4iujXfp1sDN6BsPByMMf2pmRdhfX5D1EMUBua5WSBAlWd+giaJ1nsVmfP
-	jU/d41P2LEzkcfU/izyQvpLhmXIAxPQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-658-lkJ8xpvCMGeVsPPggaEpIw-1; Mon, 06 Jul 2026 09:34:09 -0400
-X-MC-Unique: lkJ8xpvCMGeVsPPggaEpIw-1
-X-Mimecast-MFC-AGG-ID: lkJ8xpvCMGeVsPPggaEpIw_1783344848
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-493d742c668so11819675e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 06:34:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783344848; x=1783949648;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3IUhPhmdKFY/hvP+RYH3Pc2WHx3JLJjsr6cul6j9Vdw=;
-        b=dZi5ZWQF7isO437GAeJv9/RIRTN7tUbI8HeeXvHhHconRjOPWdv7J3SCtgTJPJPyBl
-         uCvQOghgtxxL4lMICKrS0T9YpK+mxXwCyDH9C3SfUbX6aEbuFdusRqlI6KFib0detFZX
-         ODzwbyt0XKQ6Lhas88YAZd5OJnPhA2alu0qJFotHP73xEoID81XHrUYuv3BYum6dIvqG
-         DePDtb5DDgyGZ6mpHBL93+22hSdi+ClZDjvDceqei0zQEiScuWmJqdEdPpurQ7evslpI
-         MU8OQ/mrK9eamVSFFVW05pfTX2RC2UZX87+u1lPAM0hD6ZY29w4osm/Dm1ljpzy2j8o4
-         JI8w==
-X-Forwarded-Encrypted: i=1; AHgh+RpNMmXyrK6yH25w6/cg2QMqq9WBslUIuN/+tskNIbFmIjLD9MDIyanlPZAyyWIN/UICx2nI3+kzhInHlgj1igez@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPNEozpdlnbV1jK94qKmI4QPOVasMK8pdGrrqt27xmI6el5AVe
-	CaDLk9w3PIWxHwcrpju99xf9qIVKIbP+XZJ/aHXLSWLqEqfvhl3RfgXdDUlbyjwokteYNkbiOmJ
-	Ab2/E39WrJmeXDtj6Xyme8eer2j3fHvxv1+KpbuoqG6kSiZ7aiNJMvSuOG8RuoPRYq8CiQpb06S
-	ud
-X-Gm-Gg: AfdE7clYc12VNZ+MWeFBSTuUcB3+Mzuu/LRzExnr1dLqTctfUTBqEEPZiK1kMy4oQ+1
-	fOfBS/KwD4rLqeID2YdLV2KmweiBTMCDE59ijpb8wH5t/Z6o0YpiIkjuDNrezMkVuhq1gUVAyNt
-	UEqVaL5rjK6uSDjWwuhNje/6Wiqh0BtcFSUpbsvQKYXHjaG6z+xU6IjValwcEV1ZKJVYXppZ7wQ
-	nmyxbHsGJa4qmBxuxVXTQoRBq/72YgSVvS5QV4H6ZUS/FCFErLBZvpVVqQSXlqza4Xrf4pcHEzY
-	481XlFuat6L2viHjIyNUb757WdEdGOXpCQSO+lRtxmsYng2p5W6p++acgklNZxCVckYSMvPuQrs
-	1VJ40HdHFzHk7a5PY8heiaTrj3t3kO5Eyox3AujDLpy1HZOmg30dAPL7fEhljGBPJJGvQoePvr6
-	+aX0ZWnjc3oWHM
-X-Received: by 2002:a05:600c:6085:b0:493:bc97:916b with SMTP id 5b1f17b1804b1-493df0929f2mr5699495e9.26.1783344847676;
-        Mon, 06 Jul 2026 06:34:07 -0700 (PDT)
-X-Received: by 2002:a05:600c:6085:b0:493:bc97:916b with SMTP id 5b1f17b1804b1-493df0929f2mr5698905e9.26.1783344847212;
-        Mon, 06 Jul 2026 06:34:07 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:5521:6b10:58fd:68f:7756:389d? ([2a0d:3344:5521:6b10:58fd:68f:7756:389d])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493ccd9d607sm357583515e9.2.2026.07.06.06.34.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 06:34:06 -0700 (PDT)
-Message-ID: <b95dda96-ee50-449c-9d23-3de490d3ab1f@redhat.com>
-Date: Mon, 6 Jul 2026 15:34:04 +0200
+	Mon, 06 Jul 2026 13:34:27 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=vo7wFz5VSU0y8XZ0qkTfFRkiT8Oyp/XHu8Zv4m4Ra9Y=;
+	b=dO/Fr9E0YKPJtLDFpAOHpi1tZX/ID7ZeNcZrfs2DwtQBLUOoYUiirofd1H5efHVq4ZgwoENGh
+	BfHmK3w+eduvHlRpuhFrOITMkIGbd8v47j5qHKdFWt1YICJ0XHbHeF6MtDy7Pl7dopbgCdN2G9L
+	QWc7wTnbh8GBAoJ9F83MgXg=
+Received: from mail.maildlp.com (unknown [172.19.163.200])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4gv4pW494fzLlSL;
+	Mon,  6 Jul 2026 21:24:51 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 77A684055B;
+	Mon,  6 Jul 2026 21:34:04 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Mon, 6 Jul 2026 21:34:03 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <xiqi2@huawei.com>, <akpm@linux-foundation.org>, <linux@armlinux.org.uk>,
+	<david@kernel.org>, <ljs@kernel.org>, <liam@infradead.org>,
+	<vbabka@kernel.org>, <rppt@kernel.org>, <surenb@google.com>,
+	<mhocko@suse.com>, <linusw@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<sunnanyong@huawei.com>, <xieyuanbin1@huawei.com>, <linux-mm@kvack.org>,
+	<lilinjie8@huawei.com>, <liaohua4@huawei.com>
+Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault() under CONFIG_DEBUG_USER
+Date: Mon, 6 Jul 2026 21:32:47 +0800
+Message-ID: <20260706133247.145485-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260626073048.3595106-2-xiqi2@huawei.com>
+References: <20260626073048.3595106-2-xiqi2@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 6/6] riscv: dts: eswin:
- eic7700-hifive-premier-p550: enable Ethernet controller
-To: Conor Dooley <conor@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- ningyu@eswincomputing.com, linmin@eswincomputing.com,
- alexandre.torgue@foss.st.com, mcoquelin.stm32@gmail.com,
- pinkesh.vaghela@einfochips.com, pritesh.patel@einfochips.com,
- maxime.chevallier@bootlin.com, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-riscv@lists.infradead.org,
- palmer@dabbelt.com, pjw@kernel.org, weishangjuan@eswincomputing.com,
- horms@kernel.org, alex@ghiti.fr, lee@kernel.org, wens@kernel.org,
- lizhi2@eswincomputing.com, devicetree@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, netdev@vger.kernel.org, rmk+kernel@armlinux.org.uk,
- aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
-References: <20260630063123.1118-1-lizhi2@eswincomputing.com>
- <20260630063445.1226-1-lizhi2@eswincomputing.com>
- <8e5eb97d-dfaf-47a1-8572-b3252a2c7ed3@redhat.com>
- <20260706-confess-dagger-e60b5fad57e8@spud>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20260706-confess-dagger-e60b5fad57e8@spud>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Yeh8FJRK16nRajamlIi58E0nVMWRf3-TthAjrbIQ9ME_1783344848
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_063413_734284_E76E79CC 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20260706_063426_058690_4BE99917 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,39 +81,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 3:21 PM, Conor Dooley wrote:
-> On Mon, Jul 06, 2026 at 03:09:37PM +0200, Paolo Abeni wrote:
->> On 6/30/26 8:34 AM, lizhi2@eswincomputing.com wrote:
->>> From: Zhi Li <lizhi2@eswincomputing.com>
->>>
->>> Enable the on-board Gigabit Ethernet controller on the
->>> HiFive Premier P550 development board.
->>>
->>> This patch is included only to provide the DTS context for reviewing the
->>> binding and driver changes in this series.
->>>
->>> The upstream DTS series will be submitted separately after the binding
->>> and driver changes are finalized.
->>>
->>> Signed-off-by: Zhi Li <lizhi2@eswincomputing.com>
->>
->> @Rob, Krzysztof, Conor: I see this patch is not listed in the devicetree
->> PW, but I think it needs explicit acks from relevant SMEs. Could you
->> please have a look?
-> 
-> We do not typical provide tags from dts patches, but that's irrelevant
-> for you, because this (and effectively all other dts) patch(es) should
-> not go through the net tree to begin with.
-> Instead, the platform maintainers should review and/or apply it.
-> 
-> Additionally, it seems the contributor's commit message suggests
-> that they didn't intend this patch to be applied at all?
+On Fri, 26 Jun 2026 15:30:47 +0800, Qi Xi wrote:
+> @@ -181,7 +181,9 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+>  		pr_err("8<--- cut here ---\n");
+>  		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
+>  		       tsk->comm, sig, addr, fsr);
+> +		mmap_read_lock(tsk->mm);
+>  		show_pte(KERN_ERR, tsk->mm, addr);
+> +		mmap_read_unlock(tsk->mm);
+>  		show_regs(regs);
+>  	}
+>  #endif
 
-Thanks for the head-up.
+I found that this fix does not completely solve the problem. For a user
+fault, the addr could also be a kernel address. For arm32/x86, the kernel
+address space and user address space share the same pgd page table,
+but the kernel address space's page table is not protected by
+current->mm->mmap_lock.
 
-I noticed a bit too late that part of the discussion about this patch
-did not land on the netdev ML; a new revision is expected.
+I have written a use case to construct and verify this point. When A user
+program accesses a kernel address and triggers __do_user_fault(),
+show_pte() will directly print the kernel page table.
 
-/P
+So, I suggest that:
+```c
+	if (user_mode(regs)) {
+		struct mm_struct *const pt_mm = addr >= TASK_SIZE ?
+			&init_mm : current->mm;
 
+		mmap_read_lock(pt_mm);
+		show_pte(KERN_ALERT, pt_mm, addr);
+		mmap_read_unlock(pt_mm);
+	} else {
+		// .. keep nothing change
+		show_pte(KERN_ALERT, current->mm, addr);
+	}
+```
+
+I have read this article:
+Link: https://docs.kernel.org/mm/process_addrs.html
+`mmap_read_lock(&init_mm)` should be able to ensure that the kernel
+address's page tables can be traversed. But I'm not quite sure if
+`mmap_read_lock(&current->mm)` provides protection for user-space non-VMA
+addresses?
+
+Also cc to mm maintainers:
+Cc: David Hildenbrand <david@kernel.org>
+Cc: Lorenzo Stoakes <ljs@kernel.org>
+Cc: Liam R. Howlett <liam@infradead.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>
+Cc: Mike Rapoport <rppt@kernel.org>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Michal Hocko <mhocko@suse.com>
+Cc: Linus Walleij <linusw@kernel.org>
 
