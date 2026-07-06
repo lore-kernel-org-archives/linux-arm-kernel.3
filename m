@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B659C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC22C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tnGNgckrfMN5riJU0+EyO5bSrI5TeMB+APj46UlT0eQ=; b=z3sPL2+8n/EBGGJDiDfDhvtRxT
-	62ttTLgzcamTcJjmnBtv7kvMEgSXVaknAXEFU23lF7m625TmgL+ymxpbKlAwHgn4BCtJfX7teoMvI
-	z7ZMBHaPRnqsUt5nOXUWTxAvbPh2A4Rm/0egumfPKp7AuPZXn1a49OxS7JK9Nscb68Qn9qlEWkW9U
-	7+nAnLpHMbJfeIkJR8wFB+JRKkyzHqljGK077RiLXDcufrQ5z0fs9m+I2vM7JtFgsgm8MeMvysf0I
-	NQcoCzuMZC7Qni/5yJzvCDPD27MRIlD7xNaH14TWT3IgQ/tW4ne0XuRsahlDZCkBu0DJ1fo/PF/db
-	iRT+mLoQ==;
+	bh=uPFVNwluaDHC3CEMB8gO3w/tu4Lx/YZVGRBCadZXVxk=; b=zEfvUhG1dvJ5dBkXjMy7F/qrgo
+	vu2NPbmUMxWwMp7E2l2/UfSag3tIX8RPf14613GcnWG8bfNCKfzFK92ssMaUfCsG9Y2ubcJGRbNQI
+	1/n4ssIY18gaYvtAkNb9hZA/kLJB7zXbYq+ZcrkYoq1FzMYI/93bOKU4TvGm3wu+CQmw2wJ+Ltkiv
+	aRprcvfR2nf05giQQ7aW3pkQFLdRJuhgb+uoqpr4gdvwSERPk6KR2xWfpIjHy1owm9x8kzVlJweRq
+	9dI+obMTTZ4AcwlEMc7Z3eCmVKVmTHJEotoyzOPt3hSoXP5Jk/OXXeVujLbbfFovI1P0aQAS/Vav9
+	S2xbHY6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgp3b-0000000DRJO-062N;
-	Mon, 06 Jul 2026 19:32:43 +0000
+	id 1wgp3e-0000000DRQp-3lxH;
+	Mon, 06 Jul 2026 19:32:46 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgp3V-0000000DRE8-2wX8;
-	Mon, 06 Jul 2026 19:32:39 +0000
+	id 1wgp3Z-0000000DRFU-0QgE;
+	Mon, 06 Jul 2026 19:32:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783366355;
-	bh=eHslvtqPnc4NHsClcTr1gZEz4RVgZKR3riEDM+wtDyI=;
+	s=mail; t=1783366359;
+	bh=P1Rwk9UWvgSIofmRs9yQrCuzC8JPRgfhrE0ymt+ECpY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dqOPz9W10UKm7NB1TWxSRm7+QkPYoJPakzCllbieHJS8Z/lkmKnwUxUFul1HurkRS
-	 4aRTy9+hK8I7+p9lnIFOGC5rLzzEIvkYvxX8l6xeQ05Jurlg3H7Yfv4MEBgCOsVEpe
-	 auXwMok840oRicHPvP5CM/tZUVYaqphvIA2qt3mx/MysYnCHOD2mBLC6bPMHjmptoA
-	 GzkWqr4qg/ai0fhBtoOGpS1zN3IjcQDcT70QVkkAYjc8cmSIQPXNylxu6e7CvybI/B
-	 nORmdZWc7PmckMDH2YbjsJoHrVr/hGMocwgLKFvtwBn0LCAOf+Dh6zom3O4ygfCpC5
-	 erI8/ik5Wp0/Q==
+	b=E3jTxVoos0nB58JnZlQwe07cHdcdq3wAum7eYnINR+RUNdADDIEQX+GhI5VCLBBHP
+	 oWRBOXmDyARMP4lC2C06TgssPIukuSYZih46C/tfQUyspwIWU0ShA3AZ9/FwPg99AK
+	 LvDwSBZuk/8XjLKOmN75phjJvqL5AVUcN00vVoUCoNcZuB8nDCyb8ejzJlOUh1PFZ7
+	 6IzZyQ2gEOFz7RSLFuSFSG+OxeH5H4egDukNrdabtZXbd1zZW4iiN+ISTZQMX3IeAm
+	 lgRSdW2gGVQsmaZlERPBEdDbNBE3vLqUqpyqhBlo+VHbLvfCuWnZ1oK53SjryM5ixc
+	 hakzcEJcexVvg==
 Received: from localhost (unknown [100.64.0.241])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id E7BFD17E0DE6;
-	Mon, 06 Jul 2026 21:32:34 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2EC7717E1006;
+	Mon, 06 Jul 2026 21:32:39 +0200 (CEST)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 06 Jul 2026 22:32:14 +0300
-Subject: [PATCH v2 02/13] drm/rockchip: vop2: Fix resource leak on
- vop2_enable() error path
+Date: Mon, 06 Jul 2026 22:32:20 +0300
+Subject: [PATCH v2 08/13] drm/rockchip: vop2: Consolidate HDMI PHY PLL
+ clock parent switch
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-dw-hdmi-qp-yuv-v2-2-b91beb33dedf@collabora.com>
+Message-Id: <20260706-dw-hdmi-qp-yuv-v2-8-b91beb33dedf@collabora.com>
 References: <20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com>
 In-Reply-To: <20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -69,11 +69,11 @@ To: Sandy Huang <hjc@rock-chips.com>,
 Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
  dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
+ linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_123237_903144_7B41D88B 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20260706_123241_322835_AA4400DE 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,114 +88,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vop2_enable() returns void, so callers cannot tell whether powering up
-the VOP2 succeeded.
+The DCLK parent switch logic for HDMI0 and HDMI1 PHY PLLs was
+duplicated, with each endpoint repeating the same clk_get_parent(),
+clk_set_parent() and error handling calls.
 
-Additionally, if rockchip_drm_dma_attach_device() fails, vop2_enable()
-returns without disabling the core clocks or dropping the runtime PM
-reference taken earlier, leaking both.
+Refactor this by first selecting the appropriate PHY PLL clock handle
+based on the active HDMI endpoint, then performing the parent switch in
+a single shared code path.
 
-Make vop2_enable() return int and unwind all resources on every failure
-path.  As disabling the core clocks is also needed in vop2_disable(),
-factor it out into a local helper used by both.
-
-Fixes: 604be85547ce ("drm/rockchip: Add VOP2 driver")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260623202043.8BFE21F000E9@smtp.kernel.org/
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 39 +++++++++++++++++++---------
- 1 file changed, 27 insertions(+), 12 deletions(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 36 +++++++++++-----------------
+ 1 file changed, 14 insertions(+), 22 deletions(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 4cce3e336f5b..e11dc8c7f78b 100644
+index 8e49997e8cac..718603e18da8 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -860,6 +860,13 @@ static int vop2_core_clks_prepare_enable(struct vop2 *vop2)
- 	return ret;
- }
+@@ -1953,42 +1953,34 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
+ 		unsigned int bpc = vcstate->output_mode == ROCKCHIP_OUT_MODE_YUV422 ?
+ 					8 : (vcstate->output_bpc ?: 8);
+ 		unsigned long max_dclk = DIV_ROUND_CLOSEST_ULL(VOP2_MAX_DCLK_RATE * 8, bpc);
++		struct clk *pll_hdmiphy = NULL;
  
-+static void vop2_core_clks_disable_unprepare(struct vop2 *vop2)
-+{
-+	clk_disable_unprepare(vop2->pclk);
-+	clk_disable_unprepare(vop2->aclk);
-+	clk_disable_unprepare(vop2->hclk);
-+}
+ 		if (clock <= max_dclk) {
+ 			drm_for_each_encoder_mask(encoder, crtc->dev, crtc_state->encoder_mask) {
+ 				struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
+ 
+ 				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI0) {
+-					if (!vop2->pll_hdmiphy0)
+-						break;
+-
+-					if (!vp->dclk_src)
+-						vp->dclk_src = clk_get_parent(vp->dclk);
+-
+-					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy0);
+-					if (ret < 0)
+-						drm_warn(vop2->drm,
+-							 "Could not switch to HDMI0 PHY PLL: %d\n",
+-							 ret);
++					pll_hdmiphy = vop2->pll_hdmiphy0;
+ 					break;
+ 				}
+ 
+ 				if (rkencoder->crtc_endpoint_id == ROCKCHIP_VOP2_EP_HDMI1) {
+-					if (!vop2->pll_hdmiphy1)
+-						break;
+-
+-					if (!vp->dclk_src)
+-						vp->dclk_src = clk_get_parent(vp->dclk);
+-
+-					ret = clk_set_parent(vp->dclk, vop2->pll_hdmiphy1);
+-					if (ret < 0)
+-						drm_warn(vop2->drm,
+-							 "Could not switch to HDMI1 PHY PLL: %d\n",
+-							 ret);
++					pll_hdmiphy = vop2->pll_hdmiphy1;
+ 					break;
+ 				}
+ 			}
+ 		}
 +
- static void rk3588_vop2_power_domain_enable_all(struct vop2 *vop2)
- {
- 	u32 pd;
-@@ -871,7 +878,7 @@ static void rk3588_vop2_power_domain_enable_all(struct vop2 *vop2)
- 	vop2_writel(vop2, RK3588_SYS_PD_CTRL, pd);
- }
- 
--static void vop2_enable(struct vop2 *vop2)
-+static int vop2_enable(struct vop2 *vop2)
- {
- 	int ret;
- 	u32 version;
-@@ -879,25 +886,24 @@ static void vop2_enable(struct vop2 *vop2)
- 	ret = pm_runtime_resume_and_get(vop2->dev);
- 	if (ret < 0) {
- 		drm_err(vop2->drm, "failed to get pm runtime: %d\n", ret);
--		return;
-+		return ret;
++		if (pll_hdmiphy) {
++			if (!vp->dclk_src)
++				vp->dclk_src = clk_get_parent(vp->dclk);
++
++			ret = clk_set_parent(vp->dclk, pll_hdmiphy);
++			if (ret < 0)
++				drm_warn(vop2->drm,
++					 "Failed to switch DCLK to HDMI PHY PLL: %d\n",
++					 ret);
++		}
  	}
  
- 	ret = vop2_core_clks_prepare_enable(vop2);
--	if (ret) {
--		pm_runtime_put_sync(vop2->dev);
--		return;
--	}
-+	if (ret)
-+		goto err_put_pm;
- 
- 	ret = rockchip_drm_dma_attach_device(vop2->drm, vop2->dev);
- 	if (ret) {
--		drm_err(vop2->drm, "failed to attach dma mapping, %d\n", ret);
--		return;
-+		drm_err(vop2->drm, "failed to attach dma mapping: %d\n", ret);
-+		goto err_disable_clks;
- 	}
- 
- 	version = vop2_readl(vop2, RK3568_VERSION_INFO);
- 	if (version != vop2->version) {
- 		drm_err(vop2->drm, "Hardware version(0x%08x) mismatch\n", version);
--		return;
-+		ret = -EINVAL;
-+		goto err_detach_dma;
- 	}
- 
- 	/*
-@@ -932,6 +938,17 @@ static void vop2_enable(struct vop2 *vop2)
- 		    VOP2_INT_BUS_ERRPR << 16 | VOP2_INT_BUS_ERRPR);
- 	vop2_writel(vop2, RK3568_SYS1_INT_EN,
- 		    VOP2_INT_BUS_ERRPR << 16 | VOP2_INT_BUS_ERRPR);
-+
-+	return 0;
-+
-+err_detach_dma:
-+	rockchip_drm_dma_detach_device(vop2->drm, vop2->dev);
-+err_disable_clks:
-+	vop2_core_clks_disable_unprepare(vop2);
-+err_put_pm:
-+	pm_runtime_put_sync(vop2->dev);
-+
-+	return ret;
- }
- 
- static void vop2_disable(struct vop2 *vop2)
-@@ -942,9 +959,7 @@ static void vop2_disable(struct vop2 *vop2)
- 
- 	regcache_drop_region(vop2->map, 0, vop2_regmap_config.max_register);
- 
--	clk_disable_unprepare(vop2->pclk);
--	clk_disable_unprepare(vop2->aclk);
--	clk_disable_unprepare(vop2->hclk);
-+	vop2_core_clks_disable_unprepare(vop2);
- }
- 
- static bool vop2_vp_dsp_lut_is_enabled(struct vop2_video_port *vp)
+ 	clk_set_rate(vp->dclk, clock);
 
 -- 
 2.54.0
