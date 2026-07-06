@@ -4,73 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD77C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:18:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BFDBC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 17:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6SzTceFp/6u/0U2ZsHukaDCb4DvB8gNfQxW2S2HmJSM=; b=cOTVzmB0gbducJ
-	vBtIUWYJujWuvfQlgtibb2oQNqyLKb1L7pCn2i8Zc7sltFT1IV4r5otqgizc9x4xsT36fZAmbDJXv
-	EkF9ODjNagt75NXZZsyIJ1zZy7nKqSaelm1sQ+A23NSNX0B1xl2bHUYRuOgXUBG5fDDKZd4KoS7Bq
-	33Yz17IcwDvLD/TljR8aziWDYG613xA1XsSMH9wb+bN7zEypwxFv55pw+oRv3tHqAv8Q4Xc6hJjPF
-	ya35KO1gxP2ms8bpJ9dewVE83VBTuHjEuLovxW5H1rTwRadcfeDFJzGLtpkgHUSRYgp+RuJyiEwCV
-	512B+krpDWuu5yH8XTGA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yJdgqDKy9noAujFzI15XGvq1vv/PVTlDEePaTlGp2bc=; b=uufQbEh+fR1Mga2cK+1RGFWUuW
+	DTfzcNObo8c23jLGBjQzV0qk3TBmqKaYPLi3/KVqKCBCub0voIWdnpY3WjtLTflvMy5kPf7EVmpYi
+	VPg+C3qVHhL11tfKwuNAWxc7aUwA4SmT9SDpXHGPZvxmUa6YLelDm1YcPgkY8LmcBFLR5iv6JS0+Z
+	xgceP+GoBl+EgKQJXdNHR/NkK2JVKIuv4M3116s5JmgShtedqfaCOWJNGuZ7BOCzdkc21LHBrrjKa
+	M6eZU4WAH+eKvq4hSm5Vv3ZDkg/ZSKwqNzmTtIEYbJ98OcDopFI8froLQBKiJ2b1+H0eC94jxuXUh
+	qcfg5JeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmxJ-0000000DBIl-0YIr;
-	Mon, 06 Jul 2026 17:18:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgmxI-0000000DBIX-2AwK
+	id 1wgn1D-0000000DBcE-2mbZ;
+	Mon, 06 Jul 2026 17:22:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgn1B-0000000DBbq-2Osl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:18:04 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id AA1F1600AE
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 17:18:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE021F00A3F
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Jul 2026 17:18:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783358282;
-	bh=6SzTceFp/6u/0U2ZsHukaDCb4DvB8gNfQxW2S2HmJSM=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=BwY1eDXK2casDflWj7FpxvSTaOUpF6I6RaUtfHX7uDXoOmvURB5vkHOFZ3pHN4mYY
-	 YSGGZqwOvbbnTMbL4JbqmeosKm3zElo1oh74xaK2cuIPRsJrRkelv0KgiuijDYQDgk
-	 jgkYTEOpsGsJKokmMJTN1q62s5tlSsBGpk+W8KAwQb+UN/LjcAfyhblYIeGfZWFvTR
-	 sbwG67ET6OUBfimy9x3NQAU/oXqkl5hFQGoxEbLS3JhRqqidEAQlkCbmy/TtOZqqjw
-	 mkqCCDLRDVkIqJHK62uiDjZ+hSojZjY67Rp5rHGYmscPI7iUW7H3YtnulR/weGeQvB
-	 rh6bbe2+N/ipg==
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-39b26e2ad5eso27852881fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:18:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AHgh+Rox+5QuNB+olAsCS9R0FMqPhJFYvFjbHcUC9XWKnPhohHlqL4/WuMDBpJGV+OkA4nDGunRAbZ0Yap+S75UdSR3n@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNdfsCCpzHqg4NiyKiWtDlz0Ylw0Jy8YXs17ep9l+SeOf5OSbJ
-	uFkHeUStmgrjXC7g2lqVY53kZk0yXXvTTv18Suyi08enaZ4M9fzv16bkLemSWQ4qAdHw5fejCJh
-	X90FDuZU7i9aspjCx77zm0Y0ytHgdcYs=
-X-Received: by 2002:a2e:a99d:0:b0:39a:fec6:efd0 with SMTP id
- 38308e7fff4ca-39c5ffae1cfmr4021431fa.23.1783358280803; Mon, 06 Jul 2026
- 10:18:00 -0700 (PDT)
+	Mon, 06 Jul 2026 17:22:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06E25202C;
+	Mon,  6 Jul 2026 10:21:58 -0700 (PDT)
+Received: from localhost (unknown [10.2.196.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E69B33F7B4;
+	Mon,  6 Jul 2026 10:22:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783358522; bh=nyXnpvP+SrFs+sXW8UI4Gim+ItFWKgXrvSGiRoFfJI8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XANEA5IPRVjLaDVcD1WSSxBvlGsiecrmqiQDqh+hiHHQjqy9QEZYkHMIgxKXYIeCV
+	 WgzbvUFNRxo9SaaZWIoVE26rJZzefTc7S1/q808i42nGkw9yM0+qsIqx0qQXDRJAMG
+	 NShlEomXFYzkpYk6u99FVSZsP2we0UH7ywNfwqhU=
+Date: Mon, 6 Jul 2026 18:21:59 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, suzuki.poulose@arm.com,
+	mike.leach@arm.com, james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com, jie.gan@oss.qualcomm.com
+Subject: Re: [PATCH v8 08/13] coresight: etm4x: fix inconsistencies with
+ sysfs configuration
+Message-ID: <20260706172159.GA1024232@e132581.arm.com>
+References: <20260629090007.1718746-1-yeoreum.yun@arm.com>
+ <20260629090007.1718746-9-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-References: <20260606205452.2386930-1-lukas.schmid@netcube.li> <178335762241.4010120.15331558144606875972.b4-ty@kernel.org>
-In-Reply-To: <178335762241.4010120.15331558144606875972.b4-ty@kernel.org>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Tue, 7 Jul 2026 01:17:45 +0800
-X-Gmail-Original-Message-ID: <CAGb2v66nsmz63tMUpkb_p6nXGCtvVSX4z8tJ0Ojg_6md0sY=KA@mail.gmail.com>
-X-Gm-Features: AVVi8Cfs5u3u3Le8rfmIs2akFxo6f5Cg5zKm8U8X3Ch8xkPrjuDD5gQk7w4gesM
-Message-ID: <CAGb2v66nsmz63tMUpkb_p6nXGCtvVSX4z8tJ0Ojg_6md0sY=KA@mail.gmail.com>
-Subject: Re: [PATCH v4 0/3] Add support for NetCube Systems OpenNMC (dobermann)
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Samuel Holland <samuel@sholland.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Maxime Ripard <mripard@kernel.org>, 
-	Lukas Schmid <lukas.schmid@netcube.li>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260629090007.1718746-9-yeoreum.yun@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_102205_659892_5FA5D25D 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,41 +69,71 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026 at 1:07=E2=80=AFAM Chen-Yu Tsai <wens@kernel.org> wrote=
-:
->
-> On Sat, 06 Jun 2026 22:54:40 +0200, Lukas Schmid wrote:
-> > This series adds support for the NetCube Systems OpenNMC.
-> >
-> > Sorry for the quick resend. This v4 includes the corrected Makefile
-> > target name.
-> >
-> > Changes in v4:
-> >  - fix the ARM Makefile target name for the new board
-> >
-> > [...]
->
-> Applied to sunxi/dt-for-7.3 in sunxi, thanks!
->
-> [1/3] dt-bindings: arm: sunxi: Add NetCube Systems OpenNMC (dobermann)
->       https://git.kernel.org/sunxi/linux/c/9995c8146bb9
-> [2/3] riscv: dts: allwinner: d1s-t113: Add uart4 pinctrl required by NetC=
-ube Systems OpenNMC
->       https://git.kernel.org/sunxi/linux/c/5b0fd777eb34
-> [3/3] ARM: dts: sunxi: add support for NetCube Systems OpenNMC (dobermann=
-)
->       https://git.kernel.org/sunxi/linux/c/9dc45b17fb85
+On Mon, Jun 29, 2026 at 10:00:01AM +0100, Yeoreum Yun wrote:
 
-Force pushed this one to change "sunxi" to "allwinner".
+[...]
 
->
-> Best regards,
-> --
-> Chen-Yu Tsai <wens@kernel.org>
->
->
+> @@ -619,27 +622,52 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>  static void etm4_enable_sysfs_smp_call(void *info)
+>  {
+>  	struct etm4_enable_arg *arg = info;
+> +	struct etmv4_drvdata *drvdata;
+>  	struct coresight_device *csdev;
+> +	unsigned long cfg_hash;
+> +	int preset;
+>  
+>  	if (WARN_ON(!arg))
+>  		return;
+>  
+> -	csdev = arg->drvdata->csdev;
+> +	drvdata = arg->drvdata;
+> +	csdev = drvdata->csdev;
+>  	if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
+>  		/* Someone is already using the tracer */
+>  		arg->rc = -EBUSY;
+>  		return;
+>  	}
+>  
+> -	arg->rc = etm4_enable_hw(arg->drvdata);
+> +	drvdata->active_config = arg->config;
+>  
+> -	/* The tracer didn't start */
+> +	/* enable any config activated by configfs */
+> +	cscfg_config_sysfs_get_active_cfg(&cfg_hash, &preset);
+> +	if (cfg_hash) {
+> +		arg->rc = cscfg_csdev_enable_active_config(csdev,
+> +							   cfg_hash,
+> +							   preset);
+> +		if (arg->rc)
+> +			goto err;
+> +	}
+
+
+I try best to not paste any non-sense AI reviews, record one from
+Sashiko [1]:
+
+ | If a user writes to a sysfs attribute like pe_sel_store(), it acquires
+ | drvdata->spinlock without disabling interrupts. If an IPI is then handled
+ | on the same CPU, etm4_enable_sysfs_smp_call() will call
+ | cscfg_csdev_enable_active_config() which attempts to acquire the exact
+ | same spinlock, hanging the CPU."
+
+The flow for acquiring drvdata->spinlock in SMP call is:
+
+  etm4_enable_sysfs_smp_call()
+    `> cscfg_csdev_enable_active_config()
+         `> cscfg_csdev_enable_config()
+              `> cscfg_prog_config()
+                   `> cscfg_set_on_enable()
+                        `> raw_spin_lock_irqsave(feat_csdev->drv_spinlock, flags);
+
+We might expect the complaint from LOCKDEP with this patch.
+
+To be clear, I am not object to this patch, just record in case we will
+handle it later.
+
+[1] https://sashiko.dev/#/patchset/20260629090007.1718746-1-yeoreum.yun%40arm.com
 
