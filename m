@@ -4,79 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F23E5C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404B4C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j1ASJD5fqsAwFFcUNYkquGQJiBfSwiDNs8HIU4aL3mY=; b=wjSrC9uj5W5ivu07bbcpNP9p80
-	AGmrbtMIeCfOmqowpOG1Ss+TcqL2XYW+FIJOPCQpxdsrA1lMmLaklJ+oc/+cgvBJTcDK4cOU4QRqs
-	1whY4Wk4Q8KtdHlNpBvI7SEsOC4iMRdzgD+scPbqDnvhdHALA0J3RMfrWGWyuFIBYCszr5iekYSiP
-	xexW3fqTiPgYao/XewRg+ZPQzshVeGMhK6r43w0QfA/uJj7XKtrXbOoBpnmS9JcHVbyhPmdWcstaw
-	1cV14GNvRF/4C1bDPRNpBZBr8632HHwZucS1yqcgThPPGRlsoL0H1/oOuq3xI9jhdhHlZoCvxmntK
-	fxW/m3rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0/x/qPU/Mc5BG2XPfLPZ5NC8qJYbU07GVymxY/B1eeU=; b=qBVqTfBfu8afeFjf0k2VRayvfV
+	TbZkstDEd7mbdR2lMlACg7IVSmQ3wTecmCbMGmtwAMqfK9uL6zqiplo5J5wW00I+2WdcMs1mdzERP
+	EQN3k93O4C3zaC7wYlc/kwVQnhnnXNkbyS3fkSZnSBI5d9cWts64YvZwzqzJFzDRnzUBiolJw/jre
+	5cClPnFtvyCHrq1+5PB5q/w0xn8++rHUmB8XmQG8DW/cf6EsxNIDYSeufYXJOlRzy7PuetOOH5IJK
+	vbWjfk8+zwITQ7fPOJElCNRijdjmc2KoU+sfBq7lfrbVFswyimNZp5sD54Xq+Ukai74Q0V/aYFTXI
+	hg6lCU0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkZ4-0000000Cmvh-2t8Y;
-	Mon, 06 Jul 2026 14:44:54 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wgkZ9-0000000CmxV-3J6B;
+	Mon, 06 Jul 2026 14:44:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkYy-0000000CmtF-0vhM
+	id 1wgkZ9-0000000Cmwt-1oDK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:44:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=j1ASJD5fqsAwFFcUNYkquGQJiBfSwiDNs8HIU4aL3mY=; b=qMKxiTzDxT45/y2B52wZlFx2pB
-	Ny1/wun9aae6xoqGdZy0DDB6cmfye4eAQu0zDMlYYJjuBTL+bSKWq00Bi7FlDmuuDlP3FehcG2O4J
-	64dupi/y9rRVQDFIo4lfiT583f46AWVv1eq3tPjRPOPRRLSCvj0i1x9d7mNG9JBQOIcr/j6qziypE
-	I6ZhXdyixzjUbu6QZAFR3tMY4jEZcSlVkuIaALUGdCOGJfzsWktaGcPDVHPIUm/CAiVu64nAHjI1R
-	E46n2GEeCYN0AA9VlcA3wSOPzAq9BodL1KBGTgo6qQxcMEHq5ZwoEbTRW+3UHhBbTaS8nrT9Lyz0O
-	uPHtVO0w==;
-Received: from sslproxy07.your-server.de ([78.47.199.104])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1wgkYu-000K6q-2c;
-	Mon, 06 Jul 2026 16:44:44 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy07.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <nora.schiffer@ew.tq-group.com>)
-	id 1wgkYu-0006Gb-1W;
-	Mon, 06 Jul 2026 16:44:44 +0200
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Mon, 06 Jul 2026 14:44:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id C3CB7600FC;
+	Mon,  6 Jul 2026 14:44:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 748561F00A3F;
+	Mon,  6 Jul 2026 14:44:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783349098;
+	bh=0/x/qPU/Mc5BG2XPfLPZ5NC8qJYbU07GVymxY/B1eeU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=TjMOwfDMZifMw3H2/8ppID+L8d/jyr9SeYD1M3fCMWNCqLc4SdT7FtiXFUC+MRf5Z
+	 nVVfCX7YGNBKvN8WwuubQqppAk5qoUeshcJXP0yZosi9Q78MXBtLv2zUnmyOHJOU9e
+	 6zClMZTdBiB/FsW3AcAptE5qUQIYha35SNzednw9dSfqygAiRDOmj9SNTzxgRdD4X5
+	 Ue49tvXg+5IZsw9dlB/871oEUsIsPjaAVqBbczl6tRGs+4mFhHW6ez1+Ank5rsbHLr
+	 /rObu0dZpclZ1eCHPSi9r5ebQtEM1DAP/xep9DsdB8qtE+I78yCJ7GhjKU0gyg5lGK
+	 Sk4axVoKxCFtA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wgkZ6-00000001zfe-2hmG;
+	Mon, 06 Jul 2026 14:44:56 +0000
+Date: Mon, 06 Jul 2026 15:44:56 +0100
+Message-ID: <86fr1wp47r.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	Alexander Feilke <Alexander.Feilke@ew.tq-group.com>,
-	Nora Schiffer <nora.schiffer@ew.tq-group.com>
-Subject: [PATCH v2 2/2] arm64: dts: ti: k3-am642-tqma64xxl-mbax4xxl: add icssg1 ti,pa-stats
-Date: Mon,  6 Jul 2026 16:43:59 +0200
-Message-ID: <a03189aa138f74955a03b9fe6018a17bf7e2ce8c.1783348781.git.nora.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <aaec2ddf7cecb58ca0af37d4f03afec571804757.1783348781.git.nora.schiffer@ew.tq-group.com>
-References: <aaec2ddf7cecb58ca0af37d4f03afec571804757.1783348781.git.nora.schiffer@ew.tq-group.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28052/Mon Jul  6 08:24:35 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_074448_370502_81450E14 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+	iommu@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v5 02/10] irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared granule size
+In-Reply-To: <yq5a7bn8i69y.fsf@kernel.org>
+References: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
+	<20260706060432.1375570-3-aneesh.kumar@kernel.org>
+	<86ik6sp7fc.wl-maz@kernel.org>
+	<yq5a7bn8i69y.fsf@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-coco@lists.linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, catalin.marinas@arm.com, jgg@ziepe.ca, m.szyprowski@samsung.com, robin.murphy@arm.com, steven.price@arm.com, suzuki.poulose@arm.com, tglx@kernel.org, will@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +94,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+On Mon, 06 Jul 2026 14:42:17 +0100,
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+> 
+> Marc Zyngier <maz@kernel.org> writes:
+> 
+> > On Mon, 06 Jul 2026 07:04:24 +0100,
+> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
+> >> 
+> >> ITS tables allocated by the coco guest are shared with the hypervisor.
+> >> These allocations must satisfy the host shared-buffer granule size so that
+> >> the full converted range is safe for host access.
+> >> 
+> >> Allocate ITS pages using a size rounded up to the shared granule size and
+> >> use the same allocation order when encrypting, decrypting and freeing the
+> >> memory. Also grow the ITT cache in shared-granule sized chunks instead of
+> >> assuming PAGE_SIZE is sufficient.
+> >> 
+> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> >> ---
+> >>  drivers/irqchip/irq-gic-v3-its.c | 17 +++++++++++------
+> >>  1 file changed, 11 insertions(+), 6 deletions(-)
+> >> 
+> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
+> >> index b57d81ad33a0..5d6d38aa0dae 100644
+> >> --- a/drivers/irqchip/irq-gic-v3-its.c
+> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
+> >> @@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
+> >>  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
+> >>  					 unsigned int order)
+> >>  {
+> >> +	unsigned int alloc_order;
+> >>  	struct page *page;
+> >>  	int ret = 0;
+> >>  
+> >> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
+> >> -
+> >> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+> >> +	page = alloc_pages_node(node, gfp | gfp_flags_quirk, alloc_order);
+> >>  	if (!page)
+> >>  		return NULL;
+> >>  
+> >>  	ret = set_memory_decrypted((unsigned long)page_address(page),
+> >> -				   1 << order);
+> >> +				   1 << alloc_order);
+> >>  	/*
+> >>  	 * If set_memory_decrypted() fails then we don't know what state the
+> >>  	 * page is in, so we can't free it. Instead we leak it.
+> >> @@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
+> >>  
+> >>  static void its_free_pages(void *addr, unsigned int order)
+> >>  {
+> >> +	int alloc_order;
+> >> +
+> >> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
+> >>  	/*
+> >>  	 * If the memory cannot be encrypted again then we must leak the pages.
+> >>  	 * set_memory_encrypted() will already have WARNed.
+> >>  	 */
+> >> -	if (set_memory_encrypted((unsigned long)addr, 1 << order))
+> >> +	if (set_memory_encrypted((unsigned long)addr, 1 << alloc_order))
+> >>  		return;
+> >> -	free_pages((unsigned long)addr, order);
+> >> +	free_pages((unsigned long)addr, alloc_order);
+> >
+> > The comments I had in [1] are still applicable.
+> >
+> > 	M.
+> >
+> > [1] https://lore.kernel.org/all/86zf2ozrb8.wl-maz@kernel.org/
+> >
+> 
+> I renamed it to alloc_order to make it clear that it refers to the
+> allocation order rather than the requested order. If you feel strongly
+> about not introducing another variable, I'll drop the new variable.
 
-Add missing ti,pa-stats syscon phandle. In addition to providing
-additional ethtool stats, this avoids a "icssg-prueth icssg1-eth:
-couldn't get ti,pa-stats syscon regmap" error message.
+I do. At the very least, to avoid you changing the type of the order
+in its_free_pages(). These things do matter.
 
-Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
-[Nora Schiffer: edited commit description]
-Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
----
+	M.
 
-v2: update commit message to correctly describe the error message this
-avoids.
-
- arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-index 46be6824dd163..b9e52d8bc8524 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-@@ -110,6 +110,7 @@ icssg1_eth: icssg1-eth {
- 		ti,mii-g-rt = <&icssg1_mii_g_rt>;
- 		ti,mii-rt = <&icssg1_mii_rt>;
- 		ti,iep = <&icssg1_iep0>,  <&icssg1_iep1>;
-+		ti,pa-stats = <&icssg1_pa_stats>;
- 
- 		ethernet-ports {
- 			#address-cells = <1>;
 -- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
-
+Without deviation from the norm, progress is not possible.
 
