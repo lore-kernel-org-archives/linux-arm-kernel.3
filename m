@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACDDDC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:53:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE0CEC44501
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmIW2Lo8Ag1p9dPld1JaBPWJ+Hy0kuL3TR8h9zOY+PI=; b=cDsEDpG/kw1OYwfhnDjIzFse7G
-	OEcO2kaaEvpAYdJz0Lr5uOiyanrqKdVQjeg10TZCbAIMUqLXbO7F94DRvGhS44nzioRKESfQ1+ZIB
-	WrXE9qu9pbTPTExcN0EQHK5UsMMKrbIRsDflTmo9c4ddTYowutVHOoOKYVjfrkzsR4IT67Ug4ooDP
-	Z4Bo8wZ7QGA7Ne4vQ3l/LAHg09p4ZHz6xXafeMy4sQG45qrkKYq1d+na+M8QAgjw0rxcRoulzNGwE
-	X6/DALt+CLpjCuPoWH3SePsKKYhJqc3M96fNSWOdtHWVXsTGA4sihWEtJ+KsNXQPbo5E9+hDIoqh7
-	Ht9MYnag==;
+	bh=FfuGLIdfn03lbG+RvT26C9rerJA1mIvU+6OF4zBBWgY=; b=NNpin5U2w8/rwwx2BI4xUE0FsR
+	fIftsaVHzk5/BIzZMK0Xpmw8RS5YY9gSsi0D2FgQRV9gnG9Uzd9fjI5sEqm8ziAYEjQQzTFGdCTAn
+	S0Q6y8CRcZs8Fft1yevzKHEtpV6ILdoug+Xqndjr6tEqGXE574qmvqndk7ynt+wrS/CHCcu1FPqk9
+	XO+FJCh/szR65wc4YSNP6ldeJBMH2ywFfgJEYvK6HimvOqSGAp1dKm7xtymNreuEEH3fOja1k9HBx
+	zEgIbke+gzwdNRUuOy2F7UFAWnblgv3pnj9Yq0rb/3F8aE85dBqeC3cCqrnR1biR1JW+cm79AV5fk
+	eha1/vKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4S-0000000BuQy-2XRF;
+	id 1wgf4S-0000000BuRK-30L7;
 	Mon, 06 Jul 2026 08:52:56 +0000
 Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgf4M-0000000BuLt-04mG
+	id 1wgf4N-0000000BuMI-0BRY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:52:51 +0000
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MJ01l2305858;
-	Mon, 6 Jul 2026 08:52:39 GMT
+	Mon, 06 Jul 2026 08:52:54 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIvY82428809;
+	Mon, 6 Jul 2026 08:52:40 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
 	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=gmIW2Lo8Ag1p9dPld
-	1JaBPWJ+Hy0kuL3TR8h9zOY+PI=; b=rcF93HKP2CIoa5yt6qTSAURM91wjHB9Ow
-	KdwxNj0wu0jnPCWT8jmH1+OFF2719Aw98WXyYl0EEDU+2UUnHtCyZGgGqd9LZZl8
-	dFyzuqJ7/ZedM4EZqeP7NAtS6R7fy5IOQrgrxYlPb59990IMpggSTxBFIw7Ms/pw
-	9AGY9DfskHYt2FnASUTmxB5DoRFalcVqhJ8kAbsblJn/FzopfR+cHSO3adBQV/5T
-	nTNgDBwDhctp3kLIEjAnth43HFRC8rAzgDlVdURcjRZUagdcSPJk5v108VqqP4Me
-	l86+L9fo7YfTLs6yR37tKoF47+sOvXaLLri/+8UrdbdQ1xD/+YSWg==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6sp3gk7b-1
+	:mime-version:references:subject:to; s=pp1; bh=FfuGLIdfn03lbG+Rv
+	T26C9rerJA1mIvU+6OF4zBBWgY=; b=OPhdossJEWsfQOdHiCuBLplQbdOABRp6+
+	nTQxbJlCFUzJ3U0OmyE8vlOWImSTRfn4PzFUUkmRGB2j5GIknZGHY04lyUNGIlan
+	t/wxgumHvAUO2uEvwnx4FKDv7sLxDP52vHqJ/zteP+8FsWiHZlq+Feur+i1I/Kzu
+	xlHpxSwa+vVWUSGuSYalS72XghQ2gIuY6y356t5Cd/ioIyBlR3MJvpSQwg4h7VJ6
+	LlLjjdFb97sTV1oZAXWXxTNcOeVYv/areDDssQ0Vbynba5+9Hhje2pYSkHYku3ue
+	vQrAU1Fo1s9X+79R4R5q3NEK79Q2ytOfJ9KLipkDlsbcdROUVNIBg==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6suqgfqb-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:38 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nfcd013189;
-	Mon, 6 Jul 2026 08:52:37 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4f7dgjvtw3-1
+	Mon, 06 Jul 2026 08:52:40 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nbau009549;
+	Mon, 6 Jul 2026 08:52:39 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7cgpw1b9-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 08:52:37 +0000 (GMT)
+	Mon, 06 Jul 2026 08:52:39 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qUhu51315136
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qW0L43647428
 	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 08:52:30 GMT
+	Mon, 6 Jul 2026 08:52:33 GMT
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 52AF020043;
-	Mon,  6 Jul 2026 08:52:30 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id D515120043;
+	Mon,  6 Jul 2026 08:52:32 +0000 (GMT)
 Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E077F2004D;
-	Mon,  6 Jul 2026 08:52:29 +0000 (GMT)
+	by IMSVA (Postfix) with ESMTP id 693DC2004D;
+	Mon,  6 Jul 2026 08:52:32 +0000 (GMT)
 Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
 	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  6 Jul 2026 08:52:29 +0000 (GMT)
+	Mon,  6 Jul 2026 08:52:32 +0000 (GMT)
 From: Steffen Eiden <seiden@linux.ibm.com>
 To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
         linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -88,44 +88,44 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
         Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
         Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
         Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH v4 01/27] VFIO: take reference to the KVM module
-Date: Mon,  6 Jul 2026 10:52:01 +0200
-Message-ID: <20260706085229.979525-2-seiden@linux.ibm.com>
+Subject: [PATCH v4 07/27] arm64: Prepare sharing arm64 headers with s390
+Date: Mon,  6 Jul 2026 10:52:07 +0200
+Message-ID: <20260706085229.979525-8-seiden@linux.ibm.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
 References: <20260706085229.979525-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-TM-AS-GCONF: 00
-X-Authority-Analysis: v=2.4 cv=KsJ9H2WN c=1 sm=1 tr=0 ts=6a4b6cd6 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX3Og40w3EXpew
+ wcHCKhylZ+HbJgFTxrPBmK8+eJo8DmhAJ0KcdZEC3eP07WxRAvm1jwFL6OCDehurTw+MQ6i42cb
+ blgI23C4Be44eAPofOAOXHAPWTRt9KI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfXyiOJyJbqFUU0
+ FZxjAGLu1FfOujYt+bI5NWtRkA8Yf3Xro0Wp8SMZB08KadEvTePxB/P5ntBaM9n6M0CuO5kgj9U
+ BJmhvCbIVdv9pCz+vAdKPCjgBjMZ2BmpAABOeBnnWI7Tn/CpeBujkLBpUlSO4GfUc58toFitlxJ
+ pQg6l5dQ9TP/28v4SNqRT85iHC0pihmaxZ4XYyJBj0jGZwB3SPHe+5YSaifGzq8GPJ5K2juMEfm
+ x42lArpL0emmCLc87iHQzp+qbNdMdGA12ekxsyzdbmvFMD/GPCYsmrOdDWZI3YnYsfVXvhK3XPI
+ Prl1Zc4H/PIWM9df0mYqK44vpsl43sb6dakBY5jwp2RYH7c3SC5h7IEpZ5RyUlvqT3vH5lQJVKd
+ 7eWhKb14Ld5caHl1RizIwM1GaBVGlKMLKzlIrzKW2OfHqdsE17yAkphisC/a7TLFCoe+gL/G8FO
+ FVW4noyKMnM6iRod3Pw==
+X-Proofpoint-GUID: zv96r9Xb8W1EPJhp4i2pkpwIrk1glks8
+X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a4b6cd8 cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
  a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=iQ6ETzBq9ecOQQE5vZCe:22 a=20KFwNOVAAAA:8 a=VnNF1IyMAAAA:8 a=r1p2_3pzAAAA:8
- a=d-V1UPfWWZlnQKifVG0A:9 a=r_pkcD-q9-ctt7trBg_g:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfX9b+V/vQxM3ug
- yZq/dYqEcW54DFpO9LkAyQOjqHr9C5fPPLgpQsU8KgZ1tJNe4RN6kko310Iwn5Dk0NibMrfckZq
- +s96xpGeUM8zOvko4OGvThXozGsGJxM=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfXxDxYJSNBcaMT
- H3AcgJisD7N2ZV1ETChlmZ5hRva8e7oViLYuTEZVKs5Ym5FX7DJucP3aM1nOFS7y4Rl6J3uRoCF
- vg91b73CcOpP1OHKppBsnOUXdh3plkQ6JbGebUskgnPVf1uSVCGKo6/z39ANNz+DIW/jmJFd/8N
- s191Xoda0ijk73e4AoyclR3aqRmSXW00PKbGSQnyLzsvA8J/tzDiMlDWoq8fSZCy2X4KSYLIkKc
- rMjbJp4QIBYwC7kmWgYcgN3ZXdBh+9JNNs3gQRIrQHNB7BIWMuCDxYDp8qgsKD/jc6zrz6aZmrf
- yotojyc+wG+NGmJRQbfjEATVAi3f9JxCkrtVChQoL4wTHHA0THrUXCy14E/iArO3ygb5Q242wyS
- wjsGBiW4F2y5sCUyXHk7+jlI4IEjiDlYC9F8lvqL4kEku3mXIhero2tMeLHSGgu70MRBwKIEbPQ
- JgV6RUtgBbr25j1Ouxw==
-X-Proofpoint-ORIG-GUID: GKcqpM7IKKFfKLjVx_hpnSB4EZgBbzJa
-X-Proofpoint-GUID: GKcqpM7IKKFfKLjVx_hpnSB4EZgBbzJa
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VnNF1IyMAAAA:8 a=7CQSdrXTAAAA:8
+ a=jW-2y7uZZx9RLxiv-xkA:9 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: zv96r9Xb8W1EPJhp4i2pkpwIrk1glks8
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 spamscore=0 adultscore=0 clxscore=1015
- suspectscore=0 lowpriorityscore=0 priorityscore=1501 bulkscore=0 phishscore=0
+ bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
+ malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_015250_081334_3E9A8619 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20260706_015251_126042_DF02ACB3 
+X-CRM114-Status: GOOD (  22.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,267 +140,536 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Paolo Bonzini <pbonzini@redhat.com>
+Prepare the sharing of arm64 headers with s390 by marking the shared
+regions or add a comment that the whole file is shared.
+The regions are marked with:
 
-VFIO is implicitly taking a reference to the KVM module between
-vfio_device_get_kvm_safe and vfio_device_put_kvm, thanks to
-symbol_get and symbol_put.
+ #define ARM64_S390_COMMON
 
-In preparation for removing symbol_get and symbol_put themselves
-from VFIO, actually store a pointer to the KVM module and use
-module_get()/module_put() to keep KVM alive.
+ /* insert shared definitions here */
 
-Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
-Reviewed-by: Steffen Eiden <seiden@linux.ibm.com>
-Acked-by: Alex Williamson <alex@shazbot.org>
+ #endif /* ARM64_S390_COMMON */
+
+The preprocessor symbol ARM64_S390_COMMON is always defined for arm64.
+Reduce the include scope where possible and beneficial for s390.
+No functional change.
+
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
 ---
- drivers/vfio/device_cdev.c |  2 +-
- drivers/vfio/group.c       |  5 +++--
- drivers/vfio/vfio.h        | 15 ++++++++++-----
- drivers/vfio/vfio_main.c   | 38 ++++++++++++++++++++++++--------------
- include/linux/vfio.h       |  3 ++-
- virt/kvm/vfio.c            |  4 ++--
- 6 files changed, 42 insertions(+), 25 deletions(-)
+ arch/arm64/Makefile                  |  2 ++
+ arch/arm64/include/asm/brk-imm.h     |  1 +
+ arch/arm64/include/asm/esr.h         |  5 +++--
+ arch/arm64/include/asm/kvm_arm.h     |  6 ++++--
+ arch/arm64/include/asm/kvm_emulate.h | 19 ++++++++++++++++++
+ arch/arm64/include/asm/kvm_host.h    | 28 +++++++++++++++++++++++++++
+ arch/arm64/include/asm/kvm_mmu.h     |  6 ++++++
+ arch/arm64/include/asm/ptrace.h      |  9 +++++++++
+ arch/arm64/include/asm/sysreg.h      | 29 +++++++++++++++++++++++++---
+ 9 files changed, 98 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/vfio/device_cdev.c b/drivers/vfio/device_cdev.c
-index 54abf312cf04..a729be99d06c 100644
---- a/drivers/vfio/device_cdev.c
-+++ b/drivers/vfio/device_cdev.c
-@@ -56,7 +56,7 @@ int vfio_device_fops_cdev_open(struct inode *inode, struct file *filep)
- static void vfio_df_get_kvm_safe(struct vfio_device_file *df)
+diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
+index 6b005c8fef70..1cd7cd94a855 100644
+--- a/arch/arm64/Makefile
++++ b/arch/arm64/Makefile
+@@ -43,7 +43,9 @@ CC_FLAGS_NO_FPU	:= -mgeneral-regs-only
+ KBUILD_CFLAGS	+= $(CC_FLAGS_NO_FPU) \
+ 		   $(compat_vdso) $(cc_has_k_constraint)
+ KBUILD_CFLAGS	+= $(call cc-disable-warning, psabi)
++KBUILD_CFLAGS	+= -DARM64_S390_COMMON
+ KBUILD_AFLAGS	+= $(compat_vdso)
++KBUILD_AFLAGS	+= -DARM64_S390_COMMON
+ 
+ ifeq ($(call rustc-min-version, 108500),y)
+ KBUILD_RUSTFLAGS += --target=aarch64-unknown-none-softfloat
+diff --git a/arch/arm64/include/asm/brk-imm.h b/arch/arm64/include/asm/brk-imm.h
+index beb42c62b6ac..dd2d153dc0d8 100644
+--- a/arch/arm64/include/asm/brk-imm.h
++++ b/arch/arm64/include/asm/brk-imm.h
+@@ -2,6 +2,7 @@
+ /*
+  * Copyright (C) 2012 ARM Ltd.
+  */
++/* Whole file is shared with s390 */
+ 
+ #ifndef __ASM_BRK_IMM_H
+ #define __ASM_BRK_IMM_H
+diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
+index 81c17320a588..e25b742b09ac 100644
+--- a/arch/arm64/include/asm/esr.h
++++ b/arch/arm64/include/asm/esr.h
+@@ -3,11 +3,12 @@
+  * Copyright (C) 2013 - ARM Ltd
+  * Author: Marc Zyngier <marc.zyngier@arm.com>
+  */
++/* Whole file is shared with s390 */
+ 
+ #ifndef __ASM_ESR_H
+ #define __ASM_ESR_H
+ 
+-#include <asm/memory.h>
++#include <asm/brk-imm.h>
+ #include <asm/sysreg.h>
+ 
+ #define ESR_ELx_EC_UNKNOWN	UL(0x00)
+@@ -435,7 +436,7 @@
+ #define ESR_ELx_IT_GCSPOPX		7
+ 
+ #ifndef __ASSEMBLER__
+-#include <asm/types.h>
++#include <linux/types.h>
+ 
+ static inline unsigned long esr_brk_comment(unsigned long esr)
  {
- 	spin_lock(&df->kvm_ref_lock);
--	vfio_device_get_kvm_safe(df->device, df->kvm);
-+	vfio_device_get_kvm_safe(df->device, df->kvm, df->kvm_module);
- 	spin_unlock(&df->kvm_ref_lock);
- }
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 3f9233b5a130..cc4175176f94 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -3,14 +3,16 @@
+  * Copyright (C) 2012,2013 - ARM Ltd
+  * Author: Marc Zyngier <marc.zyngier@arm.com>
+  */
++/* Whole file is shared with s390 */
  
-diff --git a/drivers/vfio/group.c b/drivers/vfio/group.c
-index b2299e5bc6df..fc24c0b2cc6f 100644
---- a/drivers/vfio/group.c
-+++ b/drivers/vfio/group.c
-@@ -163,7 +163,7 @@ static int vfio_group_ioctl_set_container(struct vfio_group *group,
- static void vfio_device_group_get_kvm_safe(struct vfio_device *device)
+ #ifndef __ARM64_KVM_ARM_H__
+ #define __ARM64_KVM_ARM_H__
+ 
++#include <linux/const.h>
++#include <linux/bits.h>
++#include <linux/types.h>
+ #include <asm/esr.h>
+-#include <asm/memory.h>
+ #include <asm/sysreg.h>
+-#include <asm/types.h>
+ 
+ /*
+  * Because I'm terribly lazy and that repainting the whole of the KVM
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index 5bf3d7e1d92c..a1c92d2436ae 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -44,13 +44,18 @@ enum exception_type {
+ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
+ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+ 
++#ifdef ARM64_S390_COMMON
+ void kvm_inject_undefined(struct kvm_vcpu *vcpu);
++#endif /* ARM64_S390_COMMON */
+ void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
++#ifdef ARM64_S390_COMMON
+ int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
++#endif /* ARM64_S390_COMMON */
+ int kvm_inject_dabt_excl_atomic(struct kvm_vcpu *vcpu, u64 addr);
+ void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
+ 
++#ifdef ARM64_S390_COMMON
+ static inline int kvm_inject_sea_dabt(struct kvm_vcpu *vcpu, u64 addr)
  {
- 	spin_lock(&device->group->kvm_ref_lock);
--	vfio_device_get_kvm_safe(device, device->group->kvm);
-+	vfio_device_get_kvm_safe(device, device->group->kvm, device->group->kvm_module);
- 	spin_unlock(&device->group->kvm_ref_lock);
+ 	return kvm_inject_sea(vcpu, false, addr);
+@@ -61,6 +66,8 @@ static inline int kvm_inject_sea_iabt(struct kvm_vcpu *vcpu, u64 addr)
+ 	return kvm_inject_sea(vcpu, true, addr);
  }
  
-@@ -860,10 +860,11 @@ bool vfio_group_enforced_coherent(struct vfio_group *group)
- 	return ret;
- }
- 
--void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
-+void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm, struct module *kvm_module)
++#endif /* ARM64_S390_COMMON */
++
+ static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
  {
- 	spin_lock(&group->kvm_ref_lock);
- 	group->kvm = kvm;
-+	group->kvm_module = kvm_module;
- 	spin_unlock(&group->kvm_ref_lock);
+ 	/*
+@@ -159,6 +166,7 @@ static inline void vcpu_set_thumb(struct kvm_vcpu *vcpu)
+ 	*vcpu_cpsr(vcpu) |= PSR_AA32_T_BIT;
  }
  
-diff --git a/drivers/vfio/vfio.h b/drivers/vfio/vfio.h
-index e4b72e79b7e3..8209da17246c 100644
---- a/drivers/vfio/vfio.h
-+++ b/drivers/vfio/vfio.h
-@@ -22,8 +22,9 @@ struct vfio_device_file {
++#ifdef ARM64_S390_COMMON
+ /*
+  * vcpu_get_reg and vcpu_set_reg should always be passed a register number
+  * coming from a read of ESR_EL2. Otherwise, it may give the wrong result on
+@@ -177,6 +185,8 @@ static __always_inline void vcpu_set_reg(struct kvm_vcpu *vcpu, u8 reg_num,
+ 		vcpu_gp_regs(vcpu)->regs[reg_num] = val;
+ }
  
- 	u8 access_granted;
- 	u32 devid; /* only valid when iommufd is valid */
--	spinlock_t kvm_ref_lock; /* protect kvm field */
-+	spinlock_t kvm_ref_lock; /* protect kvm and kvm_module fields */
- 	struct kvm *kvm;
-+	struct module *kvm_module;
- 	struct iommufd_ctx *iommufd; /* protected by struct vfio_device_set::lock */
++#endif /* ARM64_S390_COMMON */
++
+ static inline bool vcpu_is_el2_ctxt(const struct kvm_cpu_context *ctxt)
+ {
+ 	switch (ctxt->regs.pstate & (PSR_MODE32_BIT | PSR_MODE_MASK)) {
+@@ -360,6 +370,7 @@ static inline u64 kvm_vcpu_get_disr(const struct kvm_vcpu *vcpu)
+ 	return vcpu->arch.fault.disr_el1;
+ }
+ 
++#ifdef ARM64_S390_COMMON
+ static inline u32 kvm_vcpu_hvc_get_imm(const struct kvm_vcpu *vcpu)
+ {
+ 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_xVC_IMM_MASK;
+@@ -437,6 +448,8 @@ static __always_inline u8 kvm_vcpu_trap_get_fault(const struct kvm_vcpu *vcpu)
+ 	return kvm_vcpu_get_esr(vcpu) & ESR_ELx_FSC;
+ }
+ 
++#endif /* ARM64_S390_COMMON */
++
+ static inline
+ bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
+ {
+@@ -477,6 +490,7 @@ static __always_inline int kvm_vcpu_sys_get_rt(struct kvm_vcpu *vcpu)
+ 	return ESR_ELx_SYS64_ISS_RT(esr);
+ }
+ 
++#ifdef ARM64_S390_COMMON
+ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+ {
+ 	if (kvm_vcpu_abt_iss1tw(vcpu)) {
+@@ -501,6 +515,8 @@ static inline bool kvm_is_write_fault(struct kvm_vcpu *vcpu)
+ 	return kvm_vcpu_dabt_iswrite(vcpu);
+ }
+ 
++#endif /* ARM64_S390_COMMON */
++
+ static inline unsigned long kvm_vcpu_get_mpidr_aff(struct kvm_vcpu *vcpu)
+ {
+ 	return __vcpu_sys_reg(vcpu, MPIDR_EL1) & MPIDR_HWID_BITMASK;
+@@ -536,6 +552,7 @@ static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
+ 	return vcpu_read_sys_reg(vcpu, r) & bit;
+ }
+ 
++#ifdef ARM64_S390_COMMON
+ static inline unsigned long vcpu_data_guest_to_host(struct kvm_vcpu *vcpu,
+ 						    unsigned long data,
+ 						    unsigned int len)
+@@ -611,6 +628,8 @@ static __always_inline void kvm_incr_pc(struct kvm_vcpu *vcpu)
+ 		vcpu_set_flag((v), e);					\
+ 	} while (0)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ /*
+  * Returns a 'sanitised' view of CPTR_EL2, translating from nVHE to the VHE
+  * format if E2H isn't set.
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 245bda0fb571..ae9f76378218 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -41,6 +41,7 @@
+ 
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
+ 
++#ifdef ARM64_S390_COMMON
+ #define KVM_VCPU_MAX_FEATURES 9
+ #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
+ 
+@@ -58,6 +59,8 @@
+ #define KVM_REQ_MAP_L1_VNCR_EL2		KVM_ARCH_REQ(10)
+ #define KVM_REQ_VGIC_PROCESS_UPDATE	KVM_ARCH_REQ(11)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #define KVM_DIRTY_LOG_MANUAL_CAPS   (KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE | \
+ 				     KVM_DIRTY_LOG_INITIALLY_SET)
+ 
+@@ -340,6 +343,7 @@ struct kvm_arch {
+ 	/* Protects VM-scoped configuration data */
+ 	struct mutex config_lock;
+ 
++#ifdef ARM64_S390_COMMON
+ 	/*
+ 	 * If we encounter a data abort without valid instruction syndrome
+ 	 * information, report this to user space.  User space can (and
+@@ -369,6 +373,8 @@ struct kvm_arch {
+ #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+ 	/* Unhandled SEAs are taken to userspace */
+ #define KVM_ARCH_FLAG_EXIT_SEA				11
++
++#endif /* ARM64_S390_COMMON */
+ 	unsigned long flags;
+ 
+ 	/* VM-wide vCPU feature set */
+@@ -833,6 +839,8 @@ extern s64 kvm_nvhe_sym(hyp_physvirt_offset);
+ extern u64 kvm_nvhe_sym(hyp_cpu_logical_map)[NR_CPUS];
+ #define hyp_cpu_logical_map CHOOSE_NVHE_SYM(hyp_cpu_logical_map)
+ 
++#ifdef ARM64_S390_COMMON
++
+ struct vcpu_reset_state {
+ 	unsigned long	pc;
+ 	unsigned long	r0;
+@@ -840,6 +848,8 @@ struct vcpu_reset_state {
+ 	bool		reset;
  };
  
-@@ -89,6 +90,7 @@ struct vfio_group {
- 	enum vfio_group_type		type;
- 	struct mutex			group_lock;
- 	struct kvm			*kvm;
-+	struct module			*kvm_module;
- 	struct file			*opened_file;
- 	struct iommufd_ctx		*iommufd;
- 	spinlock_t			kvm_ref_lock;
-@@ -107,7 +109,7 @@ void vfio_device_group_unuse_iommu(struct vfio_device *device);
- void vfio_df_group_close(struct vfio_device_file *df);
- struct vfio_group *vfio_group_from_file(struct file *file);
- bool vfio_group_enforced_coherent(struct vfio_group *group);
--void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm);
-+void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm, struct module *kvm_module);
- bool vfio_device_has_container(struct vfio_device *device);
- int __init vfio_group_init(void);
- void vfio_group_cleanup(void);
-@@ -170,7 +172,8 @@ static inline bool vfio_group_enforced_coherent(struct vfio_group *group)
- 	return true;
- }
++#endif /* ARM64_S390_COMMON */
++
+ struct vncr_tlb;
  
--static inline void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm)
-+static inline void vfio_group_set_kvm(struct vfio_group *group, struct kvm *kvm,
-+				      struct module *kvm_module)
- {
- }
+ struct kvm_vcpu_arch {
+@@ -949,6 +959,7 @@ struct kvm_vcpu_arch {
+ 	pid_t pid;
+ };
  
-@@ -434,11 +437,13 @@ static inline void vfio_virqfd_exit(void)
++#ifdef ARM64_S390_COMMON
+ /*
+  * Each 'flag' is composed of a comma-separated triplet:
+  *
+@@ -982,6 +993,8 @@ struct kvm_vcpu_arch {
+ 		READ_ONCE(v->arch.flagset) & (m);		\
+ 	})
+ 
++#endif /* ARM64_S390_COMMON */
++
+ /*
+  * Note that the set/clear accessors must be preempt-safe in order to
+  * avoid nesting them with load/put which also manipulate flags...
+@@ -995,6 +1008,7 @@ struct kvm_vcpu_arch {
+ #define __vcpu_flags_preempt_enable()	preempt_enable()
  #endif
  
- #if IS_ENABLED(CONFIG_KVM)
--void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm);
-+void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm,
-+			      struct module *kvm_module);
- void vfio_device_put_kvm(struct vfio_device *device);
- #else
- static inline void vfio_device_get_kvm_safe(struct vfio_device *device,
--					    struct kvm *kvm)
-+					    struct kvm *kvm,
-+					    struct module *kvm_module)
- {
- }
++#ifdef ARM64_S390_COMMON
+ #define __vcpu_set_flag(v, flagset, f, m)			\
+ 	do {							\
+ 		typeof(v->arch.flagset) *fset;			\
+@@ -1079,6 +1093,8 @@ struct kvm_vcpu_arch {
+ #define EXCEPT_AA64_EL2_FIQ	__vcpu_except_flags(6)
+ #define EXCEPT_AA64_EL2_SERR	__vcpu_except_flags(7)
  
-diff --git a/drivers/vfio/vfio_main.c b/drivers/vfio/vfio_main.c
-index ed538aebb0b8..8289aca97b6b 100644
---- a/drivers/vfio/vfio_main.c
-+++ b/drivers/vfio/vfio_main.c
-@@ -448,7 +448,8 @@ void vfio_unregister_group_dev(struct vfio_device *device)
- EXPORT_SYMBOL_GPL(vfio_unregister_group_dev);
- 
- #if IS_ENABLED(CONFIG_KVM)
--void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
-+void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm,
-+			      struct module *kvm_module)
- {
- 	void (*pfn)(struct kvm *kvm);
- 	bool (*fn)(struct kvm *kvm);
-@@ -459,25 +460,31 @@ void vfio_device_get_kvm_safe(struct vfio_device *device, struct kvm *kvm)
- 	if (!kvm)
- 		return;
- 
-+	if (!try_module_get(kvm_module))
-+		return;
++#endif /* ARM64_S390_COMMON */
 +
- 	pfn = symbol_get(kvm_put_kvm);
- 	if (WARN_ON(!pfn))
--		return;
-+		goto out_put_mod;
+ /* Physical CPU not in supported_cpus */
+ #define ON_UNSUPPORTED_CPU	__vcpu_single_flag(sflags, BIT(0))
+ /* WFIT instruction trapped */
+@@ -1236,7 +1252,10 @@ struct kvm_vcpu_stat {
+ };
  
- 	fn = symbol_get(kvm_get_kvm_safe);
--	if (WARN_ON(!fn)) {
--		symbol_put(kvm_put_kvm);
--		return;
--	}
-+	if (WARN_ON(!fn))
-+		goto out_put_sym;
- 
- 	ret = fn(kvm);
- 	symbol_put(kvm_get_kvm_safe);
--	if (!ret) {
--		symbol_put(kvm_put_kvm);
--		return;
--	}
-+	if (!ret)
-+		goto out_put_sym;
- 
- 	device->put_kvm = pfn;
- 	device->kvm = kvm;
-+	device->kvm_module = kvm_module;
-+	return;
+ unsigned long kvm_arm_num_regs(struct kvm_vcpu *vcpu);
++#ifdef ARM64_S390_COMMON
+ int kvm_arm_copy_reg_indices(struct kvm_vcpu *vcpu, u64 __user *indices);
 +
-+out_put_sym:
-+	symbol_put(kvm_put_kvm);
-+out_put_mod:
-+	module_put(kvm_module);
- }
++#endif /* ARM64_S390_COMMON */
+ int kvm_arm_get_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
+ int kvm_arm_set_reg(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg);
  
- void vfio_device_put_kvm(struct vfio_device *device)
-@@ -496,6 +503,8 @@ void vfio_device_put_kvm(struct vfio_device *device)
+@@ -1321,6 +1340,7 @@ int __init populate_nv_trap_config(void);
  
- clear:
- 	device->kvm = NULL;
-+	module_put(device->kvm_module);
-+	device->kvm_module = NULL;
- }
- #endif
+ void kvm_calculate_traps(struct kvm_vcpu *vcpu);
  
-@@ -1520,7 +1529,7 @@ bool vfio_file_enforced_coherent(struct file *file)
- }
- EXPORT_SYMBOL_GPL(vfio_file_enforced_coherent);
++#ifdef ARM64_S390_COMMON
+ /* MMIO helpers */
+ void kvm_mmio_write_buf(void *buf, unsigned int len, unsigned long data);
+ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
+@@ -1328,6 +1348,8 @@ unsigned long kvm_mmio_read_buf(const void *buf, unsigned int len);
+ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu);
+ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa);
  
--static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
-+static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm, struct module *kvm_module)
- {
- 	struct vfio_device_file *df = file->private_data;
++#endif /* ARM64_S390_COMMON */
++
+ /*
+  * Returns true if a Performance Monitoring Interrupt (PMI), a.k.a. perf event,
+  * arrived in guest context.  For arm64, any event that arrives while a vCPU is
+@@ -1502,8 +1524,11 @@ struct kvm *kvm_arch_alloc_vm(void);
  
-@@ -1531,6 +1540,7 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
- 	 */
- 	spin_lock(&df->kvm_ref_lock);
- 	df->kvm = kvm;
-+	df->kvm_module = kvm_module;
- 	spin_unlock(&df->kvm_ref_lock);
- }
+ #define kvm_vm_is_protected(kvm)	(is_protected_kvm_enabled() && (kvm)->arch.pkvm.is_protected)
  
-@@ -1542,16 +1552,16 @@ static void vfio_device_file_set_kvm(struct file *file, struct kvm *kvm)
-  * When a VFIO device is first opened the KVM will be available in
-  * device->kvm if one was associated with the file.
++#ifdef ARM64_S390_COMMON
+ #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
+ 
+@@ -1528,8 +1553,11 @@ static inline bool __vcpu_has_feature(const struct kvm_arch *ka, int feature)
+ #define kvm_vcpu_has_feature(k, f)	__vcpu_has_feature(&(k)->arch, (f))
+ #define vcpu_has_feature(v, f)	__vcpu_has_feature(&(v)->kvm->arch, (f))
+ 
++#ifdef ARM64_S390_COMMON
+ #define kvm_vcpu_initialized(v) vcpu_get_flag(v, VCPU_INITIALIZED)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ int kvm_trng_call(struct kvm_vcpu *vcpu);
+ #ifdef CONFIG_KVM
+ extern phys_addr_t hyp_mem_base;
+diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+index 6eae7e7e2a68..b782cae771fe 100644
+--- a/arch/arm64/include/asm/kvm_mmu.h
++++ b/arch/arm64/include/asm/kvm_mmu.h
+@@ -142,12 +142,15 @@ static __always_inline unsigned long __kern_hyp_va(unsigned long v)
+ 
+ extern u32 __hyp_va_bits;
+ 
++#ifdef ARM64_S390_COMMON
+ /*
+  * We currently support using a VM-specified IPA size. For backward
+  * compatibility, the default IPA size is fixed to 40bits.
   */
--void vfio_file_set_kvm(struct file *file, struct kvm *kvm)
-+void vfio_file_set_kvm(struct file *file, struct kvm *kvm, struct module *kvm_module)
- {
- 	struct vfio_group *group;
+ #define KVM_PHYS_SHIFT	(40)
  
- 	group = vfio_group_from_file(file);
- 	if (group)
--		vfio_group_set_kvm(group, kvm);
-+		vfio_group_set_kvm(group, kvm, kvm_module);
++#endif /* ARM64_S390_COMMON */
++
+ #define kvm_phys_shift(mmu)		VTCR_EL2_IPA((mmu)->vtcr)
+ #define kvm_phys_size(mmu)		(_AC(1, ULL) << kvm_phys_shift(mmu))
+ #define kvm_phys_mask(mmu)		(kvm_phys_size(mmu) - _AC(1, ULL))
+@@ -178,9 +181,12 @@ void stage2_unmap_vm(struct kvm *kvm);
+ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long type);
+ void kvm_uninit_stage2_mmu(struct kvm *kvm);
+ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu);
++#ifdef ARM64_S390_COMMON
+ int kvm_phys_addr_ioremap(struct kvm *kvm, phys_addr_t guest_ipa,
+ 			  phys_addr_t pa, unsigned long size, bool writable);
  
- 	if (vfio_device_from_file(file))
--		vfio_device_file_set_kvm(file, kvm);
-+		vfio_device_file_set_kvm(file, kvm, kvm_module);
- }
- EXPORT_SYMBOL_GPL(vfio_file_set_kvm);
++#endif /* ARM64_S390_COMMON */
++
+ int kvm_handle_guest_sea(struct kvm_vcpu *vcpu);
+ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu);
  
-diff --git a/include/linux/vfio.h b/include/linux/vfio.h
-index 31b826efba00..5bfec0339804 100644
---- a/include/linux/vfio.h
-+++ b/include/linux/vfio.h
-@@ -55,6 +55,7 @@ struct vfio_device {
- 	unsigned int migration_flags;
- 	u8 precopy_info_v2;
- 	struct kvm *kvm;
-+	struct module *kvm_module;
+diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
+index 39582511ad72..6eb122eb5fa6 100644
+--- a/arch/arm64/include/asm/ptrace.h
++++ b/arch/arm64/include/asm/ptrace.h
+@@ -10,8 +10,13 @@
  
- 	/* Members below here are private, not for driver use */
- 	unsigned int index;
-@@ -377,7 +378,7 @@ static inline bool vfio_file_has_dev(struct file *file, struct vfio_device *devi
- #endif
- bool vfio_file_is_valid(struct file *file);
- bool vfio_file_enforced_coherent(struct file *file);
--void vfio_file_set_kvm(struct file *file, struct kvm *kvm);
-+void vfio_file_set_kvm(struct file *file, struct kvm *kvm, struct module *kvm_module);
+ #include <asm/cpufeature.h>
  
- #define VFIO_PIN_PAGES_MAX_ENTRIES	(PAGE_SIZE/sizeof(unsigned long))
++#ifdef ARM64_S390_COMMON
++#include <asm/sysreg.h>
++
+ #include <uapi/asm/ptrace.h>
  
-diff --git a/virt/kvm/vfio.c b/virt/kvm/vfio.c
-index 6cdc4e9a333a..c593f31136f9 100644
---- a/virt/kvm/vfio.c
-+++ b/virt/kvm/vfio.c
-@@ -37,13 +37,13 @@ struct kvm_vfio {
++#endif /* ARM64_S390_COMMON */
++
+ /* Current Exception Level values, as contained in CurrentEL */
+ #define CurrentEL_EL1		(1 << 2)
+ #define CurrentEL_EL2		(2 << 2)
+@@ -28,6 +33,8 @@
  
- static void kvm_vfio_file_set_kvm(struct file *file, struct kvm *kvm)
- {
--	void (*fn)(struct file *file, struct kvm *kvm);
-+	void (*fn)(struct file *file, struct kvm *kvm, struct module *kvm_module);
+ #define GIC_PRIO_PSR_I_SET	GICV3_PRIO_PSR_I_SET
  
- 	fn = symbol_get(vfio_file_set_kvm);
- 	if (!fn)
- 		return;
++#ifdef ARM64_S390_COMMON
++
+ /* Additional SPSR bits not exposed in the UABI */
+ #define PSR_MODE_THREAD_BIT	(1 << 0)
+ #define PSR_IL_BIT		(1 << 20)
+@@ -68,6 +75,8 @@
+ #define PSR_AA32_IT_MASK	0x0600fc00	/* If-Then execution state mask */
+ #define PSR_AA32_GE_MASK	0x000f0000
  
--	fn(file, kvm);
-+	fn(file, kvm, kvm ? THIS_MODULE : NULL);
++#endif /* ARM64_S390_COMMON */
++
+ #ifdef CONFIG_CPU_BIG_ENDIAN
+ #define PSR_AA32_ENDSTATE	PSR_AA32_E_BIT
+ #else
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index 4bfdac9401bd..58912a6b6fcd 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -9,13 +9,17 @@
+ #ifndef __ASM_SYSREG_H
+ #define __ASM_SYSREG_H
  
- 	symbol_put(vfio_file_set_kvm);
- }
++#ifdef ARM64_S390_COMMON
+ #include <linux/bits.h>
++#endif /* ARM64_S390_COMMON */
+ #include <linux/stringify.h>
+ #include <linux/kasan-tags.h>
+ #include <linux/kconfig.h>
+ 
+ #include <asm/gpr-num.h>
+ 
++#ifdef ARM64_S390_COMMON
++
+ /*
+  * ARMv8 ARM reserves the following encoding for system registers:
+  * (Ref: ARMv8 ARM, Section: "System instruction class encoding overview",
+@@ -50,6 +54,8 @@
+ #define sys_reg_CRm(id)	(((id) >> CRm_shift) & CRm_mask)
+ #define sys_reg_Op2(id)	(((id) >> Op2_shift) & Op2_mask)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #ifndef CONFIG_BROKEN_GAS_INST
+ 
+ #ifdef __ASSEMBLER__
+@@ -79,6 +85,8 @@
+ 
+ #endif	/* CONFIG_BROKEN_GAS_INST */
+ 
++#ifdef ARM64_S390_COMMON
++
+ /*
+  * Instructions for modifying PSTATE fields.
+  * As per Arm ARM for v8-A, Section "C.5.1.3 op0 == 0b00, architectural hints,
+@@ -91,8 +99,6 @@
+  */
+ #define pstate_field(op1, op2)		((op1) << Op1_shift | (op2) << Op2_shift)
+ #define PSTATE_Imm_shift		CRm_shift
+-#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
+-#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
+ 
+ #define PSTATE_PAN			pstate_field(0, 4)
+ #define PSTATE_UAO			pstate_field(0, 3)
+@@ -100,6 +106,11 @@
+ #define PSTATE_DIT			pstate_field(3, 2)
+ #define PSTATE_TCO			pstate_field(3, 4)
+ 
++#endif /* ARM64_S390_COMMON */
++
++#define ENCODE_PSTATE(x, r)		(0xd500401f | PSTATE_ ## r | ((!!x) << PSTATE_Imm_shift))
++#define SET_PSTATE(x, r)		__emit_inst(ENCODE_PSTATE(x, r))
++
+ #define SET_PSTATE_PAN(x)		SET_PSTATE((x), PAN)
+ #define SET_PSTATE_UAO(x)		SET_PSTATE((x), UAO)
+ #define SET_PSTATE_SSBS(x)		SET_PSTATE((x), SSBS)
+@@ -123,6 +134,8 @@
+ #define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
+ #define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
+ 
++#ifdef ARM64_S390_COMMON
++
+ /* Data cache zero operations */
+ #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
+ #define SYS_DC_IGSW			sys_insn(1, 0, 7, 6, 4)
+@@ -835,6 +848,8 @@
+ #define SCTLR_ELx_A	 (BIT(1))
+ #define SCTLR_ELx_M	 (BIT(0))
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #ifdef CONFIG_CPU_BIG_ENDIAN
+ #define ENDIAN_SET_EL2		SCTLR_ELx_EE
+ #else
+@@ -869,6 +884,8 @@
+ 	 SCTLR_EL1_LSMAOE | SCTLR_EL1_nTLSMD | SCTLR_EL1_EIS   | \
+ 	 SCTLR_EL1_TSCXT  | SCTLR_EL1_EOS)
+ 
++#ifdef ARM64_S390_COMMON
++
+ /* MAIR_ELx memory attributes (used by Linux) */
+ #define MAIR_ATTR_DEVICE_nGnRnE		UL(0x00)
+ #define MAIR_ATTR_DEVICE_nGnRE		UL(0x04)
+@@ -1105,6 +1122,8 @@
+ #define GICV5_GICR_CDNMIA_TYPE_MASK	GENMASK_ULL(31, 29)
+ #define GICV5_GICR_CDNMIA_ID_MASK	GENMASK_ULL(23, 0)
+ 
++#endif /* ARM64_S390_COMMON */
++
+ #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
+ #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+ 
+@@ -1254,6 +1273,8 @@
+ 	par;								\
+ })
+ 
++#ifdef ARM64_S390_COMMON
++
+ #define SYS_FIELD_VALUE(reg, field, val)	reg##_##field##_##val
+ 
+ #define SYS_FIELD_GET(reg, field, val)		\
+@@ -1266,6 +1287,8 @@
+ 		 FIELD_PREP(reg##_##field##_MASK,	\
+ 			    SYS_FIELD_VALUE(reg, field, val))
+ 
+-#endif
++#endif /* ARM64_S390_COMMON */
++
++#endif /* __ASSEMBLER__ */
+ 
+ #endif	/* __ASM_SYSREG_H */
 -- 
 2.53.0
 
