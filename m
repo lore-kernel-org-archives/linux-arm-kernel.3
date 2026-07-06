@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC8FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA50C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K+iH0oScX6vUoO3wK//wIGjcdPMvMKHF3g6QanG2LHo=; b=ryZhNckcE2DFSK3pf+XSPDgT2D
-	ryblMCYAjV2REsXnBDn/x1RhnGb8n+Rurypb7nJTfmS15c6N+Yurbyg2B/Un4Fcr8gjF9UJntMxqb
-	d0I81fTQNb+93x5FwMNw94kQuCVrp2hTCOh5ql8zYt8AwcXvISMO2t1XTMjJt17C7pGum9id82AV7
-	2nCaNL21NycN7HGRONHC8Kt6N4nFJs9CqQQx6zmoRoVGEG+gRg5rNHbgSJL7G8XglcFmxB+JCrF0k
-	5yzD+CbUBCxEvdWUSm8zapqxZMkDPrrtRa79Ajzg+3z6aYrPs+Z2oOheF9SvGHKC0juJwNKErZBdl
-	O6dDGxNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6UvsdoJ2FUgLr9sdil9O7uR5TP3u8LCrzHRnMzjqw2M=; b=W5lgxaG61/VWkrfq65YCDsHL4Y
+	t6QZcf93CeQX+WbR05PIoyTtvvqawBgdqhSgplvmx4yjAvEplud3GTlAUSINbdjOCpjO47zGWx/T1
+	fgdkAu1dJzkUC6bgqylJMi8iqwdIbzEMJybKt/MuTzOrKyjI6m8EDb0g48FoQdwTfGp4TyVubDFJC
+	JTcBD0cvZjhlICxOS9t4tahP/1Xy6ZVozFgBdIYfTjagzEiAZqHd8e6gWaZuaTTLqux9jepkQGDy3
+	2kfRF6KGsa5xaTOczxxywluQfpK+s/miV25rxP1zWuIP4eJCkbo2cnQ4SZOktfg2gWZYdmANPwkAH
+	3h0LObYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdFZ-0000000Bfea-2LIL;
-	Mon, 06 Jul 2026 06:56:17 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1wgdG0-0000000BfmS-0TiS;
+	Mon, 06 Jul 2026 06:56:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdFT-0000000BfdH-4AEp
+	id 1wgdFz-0000000Bfm2-0koQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 06:56:16 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-84347ad88edso3782337b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Jul 2026 23:56:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783320971; x=1783925771; darn=lists.infradead.org;
-        h=mime-version:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=K+iH0oScX6vUoO3wK//wIGjcdPMvMKHF3g6QanG2LHo=;
-        b=UMnIHIaw/j0yEqcU7m4EMrXhV3bmjGLtrAUtCpc3tAe79M7PgKt4zE1Al9T+kKh7Dl
-         j7i/JXpRsM5v4wbICl51VP9EWddk2+TW+jLQAWCULsItJP8K7y+CqjB1wIbi5XNmGWJg
-         DeRR0BmPtvLCmaNpjDQy0NEMIMov8OfQHpIFV3dA6hWIX9HCzCgqEieaCdZBvJ+QRNwu
-         PLtDBs57rxhUTyfGJcZjTc+Dn9M/VVyiqwLJ5kw2evlq3cQn5IPc7EzDfqZRM3JIz2xF
-         Qi/BRX4k/Y+kA8kYgHjVqMZ89Jakhr97GW685x9ixL2EIInqwVHMrf2atOsBK81jqco6
-         c4/A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783320971; x=1783925771;
-        h=mime-version:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=K+iH0oScX6vUoO3wK//wIGjcdPMvMKHF3g6QanG2LHo=;
-        b=JiNFPIO7YZjc5TkSKusUHyYguigYD6YACyWS3pWYZ74stSNKyd+VAz/xiq3QBaUPqV
-         xQNlt67P99VTcsnF69MXx7uIOIWVeAEXXhggqd9VN2etzDNIZsRBLXDeSPkFVKJhYc3d
-         S+qmyeWgNbJY+AlGEOSY5M3z8fYRbIBnExz3xbVcFKEqPeWI3bccUsFXLfXqngzcHC+M
-         neZW7pRpAy3rxFWOHvg3tQRuu8QsBPG67sZUEFtvEfa5hdXABCtbESNHI/ow06XkrQ/k
-         gFU2BSfJpsnIJ5Maz+8OlTiT157l+CCj44ayiK9Zbt6zWePuomUfQ4yHGVCYCPT4FITX
-         JY3Q==
-X-Forwarded-Encrypted: i=1; AHgh+RpOYz8rVq/w5l2c0h0kZQwmsgsSjKvhLxQ+tUwvVREJCk2GfYgdPNymfID3PQ4kr96iTF/68QWDzZGjfdXM1g5T@lists.infradead.org
-X-Gm-Message-State: AOJu0YyfptMS4ryj64AffpJ9GhNa0Kmj+5Q/JjPYVQvdfqsOFrxfavzH
-	lc0hRLoizYe1BoEtr5r882UH2wszgiGF8ucaIazw186SSV8hHJD6MDS8
-X-Gm-Gg: AfdE7clKOd/4V7XJ5PGKd/8wuJTLMuTmBdT6KrFptV/SRb1eJ2oxX671tR/pAOvDm1M
-	JYXvGeIAy/KfjC930gROjgd5Nkd1mWXPxVWqaWQXENStAEKz2PU5aag0eGG7oKVee/ZChxDIEyC
-	QrJPnCG0acJipPWAEhDEjD8wCoXYdCATitOj/hc3gzve7PH83lzjj9pEKMQQCZmxMxp2LJsdDlp
-	AddkXh/bfs1Ipj4DHF+d+2EnbKUerIWHjqTkPecAcRIgTCJWf6fm9KYtwqmmtZS+0YPcswtcoGI
-	RgKmhU7aR/+DCs+UpyeGhvGCA9NDNvenon71xpoP2CCdAyaNA8rPGM7x0A/WZ7pfTX0IlFx3Gkc
-	XzI/Cy5mkSmzqKV4owRuyJ6BedVmuKEUbu9A49WsuclFI0SFGwdKb8aAjqGMBYk69M3P/LaWvj4
-	NI3OK/bw==
-X-Received: by 2002:a05:6a00:4612:b0:847:84a2:cda7 with SMTP id d2e1a72fcca58-847f6d5a847mr9033848b3a.12.1783320970734;
-        Sun, 05 Jul 2026 23:56:10 -0700 (PDT)
-Received: from [127.0.1.1] ([47.253.114.73])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6d7a915sm3181753b3a.44.2026.07.05.23.56.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Jul 2026 23:56:10 -0700 (PDT)
-From: Wayen Yan <win847@gmail.com>
-To: netdev@vger.kernel.org
-Cc: lorenzo@kernel.org, horms@kernel.org, pabeni@redhat.com, kuba@kernel.org, edumazet@google.com, andrew+netdev@lunn.ch, angelogioacchino.delregno@collabora.com, matthias.bgg@gmail.com, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: [PATCH net] net: airoha: fix HTB class modification offload
-Date: Mon, 6 Jul 2026 14:18:58 +0800
-Message-ID: <178332096675.2250671.599544331813347302@gmail.com>
-Content-Type: text/plain; charset=utf-8
+	Mon, 06 Jul 2026 06:56:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 558B161832;
+	Mon,  6 Jul 2026 06:56:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA501F000E9;
+	Mon,  6 Jul 2026 06:56:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783321002;
+	bh=6UvsdoJ2FUgLr9sdil9O7uR5TP3u8LCrzHRnMzjqw2M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=iJ2qDUgjnu/4u0aM7/x9sq28AXbSlVKIzLzJbI+jchuUgJ88fCvmroQpMdrDZeq7j
+	 ODPItrIykgUXQqk4TIBlpM+17hvIxPvywC+ikLXeXC4OtLXpVGVqi9C2e7tThr+R50
+	 FZuctFGjAKgoaJJFz5jNpj0xbR0r3++3ljHxyFFHTfsetGx+zKilB2PKVLyZRV/Mch
+	 B3Uzl4PL25BaSMpKE+amwKND61FgbsOuuJ+ZpWZw7bnjS7r3jaqShbi2NaOxI7Fzj5
+	 zqT/tznJKsQku24GAjANskpz4Jex4Et8LwcOnL4rFMfBQLY0oGTrYJ8UPyg4b/cNC8
+	 uYNDx+Po2h7Vw==
+Date: Mon, 6 Jul 2026 08:56:37 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Dmitry Baryshkov <lumag@kernel.org>, 
+	Abhinav Kumar <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>, 
+	Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	freedreno@lists.freedesktop.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+Subject: Re: [PATCH 4/8] dt-bindings: arm-smmu: Document GPU SMMU for Eliza
+ SoC
+Message-ID: <20260706-judicious-tasteful-crane-5f7455@quoll>
+References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
+ <20260705-eliza-gpu-v1-4-c9f1354dbd29@oss.qualcomm.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_235612_032069_97103662 
-X-CRM114-Status: GOOD (  12.91  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260705-eliza-gpu-v1-4-c9f1354dbd29@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,93 +81,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HTB core does not populate parent_classid for TC_HTB_NODE_MODIFY.
-Airoha currently checks parent_classid against TC_HTB_CLASSID_ROOT
-in a helper shared by both TC_HTB_LEAF_ALLOC_QUEUE and
-TC_HTB_NODE_MODIFY. Since the modify path leaves parent_classid as
-zero, the check always fails and changing parameters of an already
-offloaded HTB class is rejected with -EINVAL.
+On Sun, Jul 05, 2026 at 01:44:19PM +0530, Akhil P Oommen wrote:
+> Add specific compatible strings to document the GPU SMMU present
+> in the Shikra SoC.
 
-Move the root-parent check into the allocation path and validate
-modify requests using the per-netdev QoS channel bitmap, consistent
-with the delete and query paths.
+s/Shikra/Eliza/
 
-Fixes: ef1ca9271313 ("net: airoha: Add sched HTB offload support")
-Signed-off-by: Wayen Yan <win847@gmail.com>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 32 +++++++++++++++++-------
- 1 file changed, 23 insertions(+), 9 deletions(-)
+> 
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 59001fd4b6f7..8e4e79c1e4c2 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2766,18 +2766,13 @@ static int airoha_qdma_set_tx_rate_limit(struct net_device *netdev,
- 	return 0;
- }
- 
--static int airoha_tc_htb_modify_queue(struct net_device *dev,
--				      struct tc_htb_qopt_offload *opt)
-+static int airoha_tc_htb_set_rate(struct net_device *dev,
-+				  struct tc_htb_qopt_offload *opt,
-+				  u32 channel)
- {
--	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
- 	u32 rate = div_u64(opt->rate, 1000) << 3; /* kbps */
- 	int err;
- 
--	if (opt->parent_classid != TC_HTB_CLASSID_ROOT) {
--		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
--		return -EINVAL;
--	}
--
- 	err = airoha_qdma_set_tx_rate_limit(dev, channel, rate, opt->quantum);
- 	if (err)
- 		NL_SET_ERR_MSG_MOD(opt->extack,
-@@ -2786,6 +2781,20 @@ static int airoha_tc_htb_modify_queue(struct net_device *dev,
- 	return err;
- }
- 
-+static int airoha_tc_htb_modify_queue(struct net_device *netdev,
-+				      struct tc_htb_qopt_offload *opt)
-+{
-+	u32 channel = TC_H_MIN(opt->classid) % AIROHA_NUM_QOS_CHANNELS;
-+	struct airoha_gdm_dev *dev = netdev_priv(netdev);
-+
-+	if (!test_bit(channel, dev->qos_sq_bmap)) {
-+		NL_SET_ERR_MSG_MOD(opt->extack, "invalid queue id");
-+		return -EINVAL;
-+	}
-+
-+	return airoha_tc_htb_set_rate(netdev, opt, channel);
-+}
-+
- static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
- 					  struct tc_htb_qopt_offload *opt)
- {
-@@ -2794,6 +2803,11 @@ static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
- 	struct airoha_gdm_dev *dev = netdev_priv(netdev);
- 	struct airoha_qdma *qdma = dev->qdma;
- 
-+	if (opt->parent_classid != TC_HTB_CLASSID_ROOT) {
-+		NL_SET_ERR_MSG_MOD(opt->extack, "invalid parent classid");
-+		return -EINVAL;
-+	}
-+
- 	/* Here we need to check the requested QDMA channel is not already
- 	 * in use by another net_device running on the same QDMA block.
- 	 */
-@@ -2803,7 +2817,7 @@ static int airoha_tc_htb_alloc_leaf_queue(struct net_device *netdev,
- 		return -EBUSY;
- 	}
- 
--	err = airoha_tc_htb_modify_queue(netdev, opt);
-+	err = airoha_tc_htb_set_rate(netdev, opt, channel);
- 	if (err)
- 		goto error;
- 
--- 
-2.51.0
+With above:
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Best regards,
+Krzysztof
 
 
