@@ -4,61 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CEDDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:16:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48E2C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NyB9aCHXC1YLIWVcaiWcQ7R8f4piKDYM1vagMqasKdU=; b=bqw+rR7x5nnnwH5f7DoXqRkkt/
-	jhbvQIyDqK9U5aviTLQkpfeo0zVE4K9xlnO950Wpj6YFhbrkV5kheVSGazWUNcOZCaz4TSgV559dF
-	5T8fBGNc/5i//D6S8sy3HQ82PeetcKQeLGPIANO8KDR3iPDDS9LZzMpb4j/dpcpuFE3th1cjyYjPQ
-	PFkcIMM1Kh1pcAoK7/uOo/Q8ra0R0KXDWSnLdnKHuo6jrAsJmMFmyM5qeZTD6Tg783FBoqT5menN5
-	wXxXaCHOmEiGo8cErlxyALp6BdPQZLiwUHJk2LyAocphD1MKi27C8tLajceCe+N81Kt0uRrlt+uPP
-	yROC6PEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C+/nylRkmFnwlWEjUGCWoM2czawsOZZdaU1lrtkld0A=; b=G2Ft3nq1LFNsdry6P3KgLsFQWO
+	lV+ZGXtJOcRKRR7LKbStn/oxLorbgMQfTo08lSQP4Gz87bJsIUdI2Z7TN/iE70AVvefYj2awMEuIE
+	1NQZLBgprmhTPb9r13lZ8CAeykdNrFyToTDo8BVT9tJmmvL+ui4gO36W7HOlS+SXetKG3ObbhnxR8
+	cQtoM+fLPLyi6a32W6IwfJcNfY3Mx2ssSaqmDNLhX2ocUoiFOxgbR4Tc2DqQYzpc6JC52orjweJTE
+	lyR09MEh0H1VDpct5KWUdvX67FM0auKxV5Dcz+QwqiOuhRsfJerynSPRi/Knsy3RjazQLwVBIDM2O
+	r7TJ2zWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggNc-0000000CAcI-0yc4;
+	id 1wggNf-0000000CAec-1uyP;
+	Mon, 06 Jul 2026 10:16:51 +0000
+Received: from relay.yourmailgateway.de ([188.68.61.103])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wggNZ-0000000CAZf-0usN;
 	Mon, 06 Jul 2026 10:16:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggNX-0000000CAZ7-2UeY
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:16:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C119E2454;
-	Mon,  6 Jul 2026 03:16:37 -0700 (PDT)
-Received: from localhost (unknown [10.2.196.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A544A3F85F;
-	Mon,  6 Jul 2026 03:16:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783333002; bh=qxuireiW5qKIf6Uiq+r7eLyBQv+2n9MoALxEyD38NAQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ka03qQ9fssFq//9ek6QkwhtFwQKGu0aNOpRQBqEQwN+TH0cvyIo86Gy5nCP7l27JJ
-	 2SXR3IHho8xhJKw+tqVKYSjDQZ5C8AfOBcgRmlrs0fNrgLggf2dvQYEQojCntGnfmO
-	 DqYf5JssOo66S7YBr92EBQzuK3fmL9vMTImf4DeM=
-Date: Mon, 6 Jul 2026 11:16:39 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] coresight: tnoc: Constify amba_id table
-Message-ID: <20260706101639.GB710301@e132581.arm.com>
-References: <20260705171934.116425-2-krzysztof.kozlowski@oss.qualcomm.com>
+Received: from mors-relay-8403.netcup.net (localhost [127.0.0.1])
+	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gv0dR0WZzz8CrY;
+	Mon,  6 Jul 2026 12:16:43 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
+	s=key2; t=1783333003;
+	bh=O3HDA58hVYQ2UIV9LDldz/TAOxq4sg0yXPvgUB7pTJ8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JuWnDMjmbm9uc6WBo/iJg/eYbpNm53vDepAtcb7TVBiWfW6CXnlFafaYeex8jucij
+	 JHMlVUdXMhBTcH0Z1z705kFAXBwAMbJ2OMjWp6BgaugBlnuYS5gpKWLjxrQJBjBP6i
+	 xFrVLD0rEi7Hm+3YNUwiJKt4+Z9X6xwQzaNrE89ugFGU1wF9bde/nMrTS4rZ51R8rq
+	 twolQswST4td/JkJe0gmULNKcGA5piU9jpMB+Uj4rpCr0iqcfbxCrSZUJfPw4ZeloZ
+	 WghDQyuTPsSaEHnuLKc3VwCR2dTg7VrzI5SfpSxtUn4FU0xQj8tRIe7sdOl4yiN35a
+	 ZAakz8Xyf2FiA==
+Received: from policy01-mors.netcup.net (unknown [46.38.225.35])
+	by mors-relay-8403.netcup.net (Postfix) with ESMTPS id 4gv0dQ6w3zz8BSm;
+	Mon,  6 Jul 2026 12:16:42 +0200 (CEST)
+X-Virus-Scanned: Debian amavisd-new at policy01-mors.netcup.net
+Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by policy01-mors.netcup.net (Postfix) with ESMTPS id 4gv0dN6MWtz8sbk;
+	Mon,  6 Jul 2026 12:16:40 +0200 (CEST)
+Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
+	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 1472B60438;
+	Mon,  6 Jul 2026 12:16:40 +0200 (CEST)
+Authentication-Results: mxe9fb;
+        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
+Received-SPF: pass (mxe9fb: connection is authenticated)
+Message-ID: <f0d99b1a-e383-4d14-adb1-4ccab46efddb@leemhuis.info>
+Date: Mon, 6 Jul 2026 12:16:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260705171934.116425-2-krzysztof.kozlowski@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/mediatek: mtk_dsi: enable hs clock during pre-enable
+To: Adam Thiede <me@adamthiede.com>, Gary Bisson <bisson.gary@gmail.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Linux kernel regressions list <regressions@lists.linux.dev>
+References: <20260120-mtkdsi-v1-1-b0f4094f3ac3@gmail.com>
+ <42607fa4-485d-4142-b31c-7bfac71118d2@adamthiede.com> <ajka2220depklK1_@owl5>
+ <bac79214-050d-448b-be63-0586d45c807d@adamthiede.com>
+From: Thorsten Leemhuis <regressions@leemhuis.info>
+Content-Language: de-DE, en-US
+X-Enigmail-Draft-Status: N11222
+Autocrypt: addr=linux@leemhuis.info; keydata=
+ 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 MEK4
+In-Reply-To: <bac79214-050d-448b-be63-0586d45c807d@adamthiede.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-PPP-Message-ID: <178333300057.643948.6218888156290066716@mxe9fb.netcup.net>
+X-NC-CID: CjcezfaIEXrSstuGOSqS1Cqzufs3YbLMXdijf71d3Ds3mx8zQQM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_031643_699930_14B3C36B 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_031646_795080_A49C8876 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,11 +139,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jul 05, 2026 at 07:19:35PM +0200, Krzysztof Kozlowski wrote:
-> Static 'struct amba_id' table is not modified so can be changed to const
-> for more safety.
+On 6/22/26 15:23, Adam Thiede wrote:
+> On 6/22/26 06:22, Gary Bisson wrote:
+>> On Thu, Jun 18, 2026 at 04:06:28PM -0500, Adam Thiede wrote:
+>>> On 1/20/26 05:36, Gary Bisson wrote:
+>>>> Some bridges, such as the TI SN65DSI83, require the HS clock to be
+>>>> running in order to lock its PLL during its own pre-enable function.
+>>>>
+>>>> Without this change, the bridge gives the following error:
+>>>> sn65dsi83 14-002c: failed to lock PLL, ret=-110
+>>>> sn65dsi83 14-002c: Unexpected link status 0x01
+>>>> sn65dsi83 14-002c: reset the pipe
+>>>> [...]
+>>>
+>>> This commit was part of 7.1 and caused a problem for me.
+>>> I'm running postmarketOS (basically Alpine Linux) on a Lenovo C330
+>>> chromebook with a Mediatek MT8173 processor.
+>>> The problem: when the display on my laptop powers off (via suspend or
+>>> idle,
+>>> like xset dpms off) the picture does not come back when the display
+>>> powers
+>>> back on (from resume). The display backlight comes on and brightness is
+>>> adjustable but there is no picture. The only fix is to reboot.
+>>>
+>>> Reverting this commit and applying it as a patch on top of 7.1
+>>> addresses the
+>>> issue for me.
+>>>
+>>> You can view the config I'm using here:
+>>> https://gitlab.postmarketos.org/postmarketOS/pmaports/-/
+>>> merge_requests/8819
+>>>
+>>> Is there any sort of testing or other debugging info I can provide to
+>>> help
+>>> address this issue?
+>>
+>> Thanks for reporting the issue, could you share some logs? Is the driver
+>> saying anything during resume? Also, what type of panel is used on that
+>> chromebook?
+>
+> The curious thing is that there are no real logs in dmesg or /var/log/
+> messages about this. This picture just fails to come back. If there are
+> some kernel params I can set to get deeper logging, that would help, but
+> I'm not aware of any.
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> I think the panel is a "BOE NV116WHM-T00" - I used this command to get
+> info: cat /sys/class/drm/card0-eDP-1/edid | edid-decode
+> 
+> Output: https://termbin.com/8nbd
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+This looked stalled. If I'm mistaken here, please let me known; but if
+no solution is in sight, should we maybe just revert the change until a
+proper was found?
+
+Ciao, Thorsten
+
 
