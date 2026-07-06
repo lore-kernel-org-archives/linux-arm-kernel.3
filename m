@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAB7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:37:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2789C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:37:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QUpg6nprLTQtDmr0JCbtYl25aUYHPLojLHdCAqa+ibw=; b=MGtTcJCogvSl06AtJyGlrOfMvo
-	NzGqTZH9yjbc4RjSqpmc2Xmjx4ufTaz38bqAVU4HyDmxAjLK+XoQBbgsqmnImQoqj55RYXtF0oSxK
-	aRRuDGZm5jePuB/FP9QX/inqQbON0I3T1MSOsqcUlhwvtD7AoDAVAJA2UafFFhhd0Ewo+HEgDBplQ
-	TN2V5TulK9EYX5RVmAvShXHmPiImek5DlrwjwJQPtOYYKeIMvna/VtPqrQndqZqSsdaZkBej6/A7C
-	7Qb4F2fEgieA+rSu2KP00C0DG2SxAd66eaavMFgRhsgv6vrH5eR8ydE2u3sXAspYAp0ymj0zf8UTl
-	s9SQI8cg==;
+	bh=8Bs1t6niDEghP4G580i18CcoVCJKxGhV6ocPTEQ3Ayk=; b=GzE+OODeRESDM2ciMgE7MsmkvC
+	NwG69DkbLl8w/bggbfoR5ZNL6X9ZOFyYZPISAtLYq0roC1PNPtiFwEFNWQlxyRUmQIQGF97yfuMAC
+	IlYwfFK/qu//JRaGVCJpAbHP9h1ctP0YlB6AMGOBfozi6GNpyH7hRQE31tP92f6WZ3sgfibWQDCfF
+	cM8NBJUv8YQChryB1ihlIvVOP68/bXsas7wpqj4MH+BywW2RKl8uJcwaP1CVsP4Vuj/o1OJA7ROPp
+	npSc/0WewWhdz0MAZ0z3FZf9LH8G6LIyJtNtzHNd2tTQOf2d71VngCdK122fvN1C/jFjI5qoKTkbD
+	3Hw/O3yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfjC-0000000C3C0-10LX;
+	id 1wgfjC-0000000C3D0-2m6Y;
 	Mon, 06 Jul 2026 09:35:02 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfj4-0000000C34x-3GSD
+	id 1wgfj6-0000000C35h-0Y6G
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:34:55 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-490cf322ed0so17439615e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:34:54 -0700 (PDT)
+	Mon, 06 Jul 2026 09:34:57 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-493b61b52b6so18840485e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:34:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783330493; x=1783935293; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783330494; x=1783935294; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QUpg6nprLTQtDmr0JCbtYl25aUYHPLojLHdCAqa+ibw=;
-        b=R1w2sW6wjuTHVqEe/MeB+8T/C/S9x3jq/xoPjCTE7ta9bkD6LMEUcURxCtDARuM4c/
-         3kTsDO3rSK304hIkmf8kDeixPGOC044pOmhC3idD52fnn0FVs9nsMizI2+CAdyL3NSJ9
-         XtsQsMMP68B49mEs/1K/UoMvFIFDYRa//YhvK+anBxunj/gm0YfvjJX6QfkpDSNx5TSJ
-         8/65HXvflLWyUkfHj9VV2R8UTBvaNZvyd6jcm/0xF389lONFGiuSUcz+eLps3cIx7RfJ
-         pNhicLakfBNj/3DhaNkVaFD6mnRdPVbpmbqDOgri2FkMYmpvUNr2hmg543mZJIkqYcCV
-         eksQ==
+         :message-id:reply-to:content-type;
+        bh=8Bs1t6niDEghP4G580i18CcoVCJKxGhV6ocPTEQ3Ayk=;
+        b=AMKvfFRCigmpcHSDn/AMkrzw9QCgha8R6GSxLyiQEzhklKQvkswmsVD2OWLo8B7DcL
+         8H/8zpiw/giys+LgNIIPIsQjO8zV/0LTbjGf6m/Q1efZvvH4AH4S7fYjpcqr2glI/Ev5
+         kBGd/OTGpSkxk6YBGlhB52/9j/UgxO29y8h5otwrAPAZkkHtWcR63LdClSH707o46zlH
+         fFc/2rC6xRus8BKOsOxvVDeDAv/sWmJOTaNAxVl0OwFAOSxMeXw2ztV+vBekcim/EBv+
+         3YDtndIz9RMAzS4EWQgZV+OE5KZwlRqec35vQ7lSKQZ4YfwHhR3gI7CCIe8tMGltQvuP
+         Ffew==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783330493; x=1783935293;
+        d=1e100.net; s=20251104; t=1783330494; x=1783935294;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QUpg6nprLTQtDmr0JCbtYl25aUYHPLojLHdCAqa+ibw=;
-        b=CvlxxSbp0GIllRXDLWIG7V3vbv7A0nv24RfpjQwm+WqTSlmsw8RSGD0TvdiZufnLl5
-         iVZAl8HUCeYd/K/gvvvNPcts1XRM+6EoLJle83UKRTbbjze5KJl4bTHdL6q6PnNiYlPm
-         I/iqbdNjOn1NTpMc6fYvo9WP0/+DXaSS3e8L3E7X1XbZx7Kf0ZPB6wS6ojQm9UlOuV/p
-         RbzpXImhzWwc6z45l0qyrRExiNuORlj44c3Nb2PRR1QgQUe3+GD/t6KIND4HIw3NwjE9
-         rWUGYYVPufI0MomT5b4BwGXjs6q6ve5qLzTdNcDrIQsi30I3ZsUORWrQQFOxDxStEZ9t
-         YrGg==
-X-Forwarded-Encrypted: i=1; AHgh+RoA0AWSe7HIx8YACwB8fF2PQG+TCavGFVS+n4a8Pm56suSnzz7reUxrAbBnwfCMO2Q55CSZ32hwRfyexl4ARjQB@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZTqsDWhHIPkOG80PezX40xIul5g/YITV9bP6P3HSgvYcfFOM9
-	1NP6x473XbTn9kqixEHCj5y1n1pIGJHzAdibA0+YQevtKoghWQD4EYXg
-X-Gm-Gg: AfdE7cmBLVn6QbTLiaHI/n36AIAYBzb9o7tg5YrS9bQbSM2mCFildLPVl9wGesQ9JWF
-	qz84xw4TCvIrg5p1xjQCOcrCIao5liDx41qg+XxVXQDHVRCmL/eTn6BXLXosnltcRCIMb1HlNcd
-	spMcL3Y7IR60LC7vRh8ObNle7RPT+G0x/EXDseqYgOT13Au4GXwyPL7jYMihxuYQUhx6alslrhs
-	qBcT9AbehWlT53vYwyPNTNLOLDhEf29ubb0GFcoJCiagphl2MzwYQxP665gl9KSio24x/15qmJ3
-	/za8crRXuvvSRS0S1B9M2K5q2kizpH2aVYr/1DW1Wt1P7JIuWAU/NlAVLiIP5DDEN7W967HEoLW
-	zhOijjwbaRdloSQs7NG3FsLjS1izbVX+dwKjEGaCB/FP77al9cNWffX4ZkK5zqO2jA0NQGxpBix
-	2xa9bOHXyO7n7vl2x5LN8JCSoBR2nfNtR+wMGH2Ih6K8ytwIcpNqfbr6FOGFhCANX02w1/YbHzU
-	juWcAKE8U3kLe2a0wueTmcvgA==
-X-Received: by 2002:a05:600c:8411:b0:493:a976:5c6e with SMTP id 5b1f17b1804b1-493d11def4cmr100457575e9.16.1783330492952;
-        Mon, 06 Jul 2026 02:34:52 -0700 (PDT)
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8Bs1t6niDEghP4G580i18CcoVCJKxGhV6ocPTEQ3Ayk=;
+        b=Z7tfs/jPxxuZNhWsylCb8PtQIaD8Gby2OX34r3RfsHP2hNa1sFL0thCu2OB8dtb9iu
+         PFzyXxq7hf5JgNlCDmQjJawxj+e176egaZ8fIGKNAnsW/K8l369IqEBc5QEWnf1PJjdr
+         uCJmPve/BC6To+fCn0BVQiMwTePw7ftEbZexy8q6a9V8nQdQ/rhINVzt/tZEjWGqMBTx
+         zJ2Htk432quAwUHyE2PU8BSb6V6qoitvpqXOp8WuLDUN+uB+fwrT2mDzguVwAWAmJlMY
+         w55sLRQ8bFR4M3kHkeHpURt/l+TZq1L/DBByK7Z48XwbdTOBDKKiDmsBa5w/nUrl8wy7
+         Hedw==
+X-Forwarded-Encrypted: i=1; AHgh+Rr0Rk6BJNQOAseSKMAxDsNAyJfN/0el6JWie+6HuIYyYsEdVSqLRcwrIKhk1Hx8Sv73VFw2VZxQxwFZpA3JX0vQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzK+J5QH9sJpSLumhCUg7wwes5CLOhxOyhkKTV+Ag3Z6Da0Mkz7
+	q1mLTir3Ma46BmPs9GCeM898SqS+nRFdFNspdGxCP7fEOdmM9rMe68tT
+X-Gm-Gg: AfdE7cl78BrM7SH//ufFJmPPfz9NInpgM+Jvzxyrj4hLPI12gtwWGFV/75aT+WOIKUN
+	D/wtVdnU4Bxp7dRVc/kXcMhzytZYwfbmnene9oy6/c9MAyhK0iTGmDs65Y6rGofco+Q+k3iHs9x
+	LJLB7K5GIkDcwwK48MAfzMoqVaI59ucw8ERbjVsV5QJjzZXwrpDD+8tbgynVjXpIVWp+cRMdm5F
+	786GWmMd9iS+O1cmlbltQs/3vrZ/j7EiAlSXkQyJeTPCKGS0+ssZxX3gg7IHSuHLS5EKG5YdNxH
+	8R4phnqydzcTQKgvg7sDvVbyJJ0UJpEV19aOTs2VAZ/R4Y7C3Ts+7nIUZ0bljbLdeptMsasdkvB
+	QB6ghiqfi5BoDk0aViUlJfbTRp4R7JAwIT+r119dm1h6yXqX/VGLtqShN0Zmkpwf6X94Rmy0wk8
+	rrqns2j2BjAtDkgvNABW5an9XIUq42lnfyQ+sjTqUUUR2zwi6dgLa68dyCO0WBBpBp4Savs+k84
+	HrqbvPdxMQr0sVMA2bepRm9Bw==
+X-Received: by 2002:a05:600c:35ce:b0:493:b877:fbc with SMTP id 5b1f17b1804b1-493d2396eccmr114312345e9.21.1783330494156;
+        Mon, 06 Jul 2026 02:34:54 -0700 (PDT)
 Received: from Lord-Beerus.station (net-93-144-65-248.cust.dsl.teletu.it. [93.144.65.248])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493c6375764sm314379715e9.5.2026.07.06.02.34.51
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493c6375764sm314379715e9.5.2026.07.06.02.34.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 02:34:52 -0700 (PDT)
+        Mon, 06 Jul 2026 02:34:53 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: linux-kernel@vger.kernel.org,
@@ -85,17 +85,17 @@ Cc: pierluigi.p@variscite.com,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>
-Subject: [PATCH v2 02/15] arm64: dts: freescale: imx8mn-var-som: move uSD support to carrier boards
-Date: Mon,  6 Jul 2026 11:34:32 +0200
-Message-ID: <40a2d0d32bf3447f833149eb4e71365c4515743c.1783330236.git.stefano.r@variscite.com>
+Subject: [PATCH v2 03/15] arm64: dts: freescale: imx8mn-var-som: Align fsl,pins tables
+Date: Mon,  6 Jul 2026 11:34:33 +0200
+Message-ID: <bebc3185b37c48d6a6a2cf3e09d02751c77a2cd5.1783330236.git.stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1783330236.git.stefano.r@variscite.com>
 References: <cover.1783330236.git.stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_023454_869827_B78FCCC1 
-X-CRM114-Status: GOOD (  14.75  )
+X-CRM114-CacheID: sfid-20260706_023456_225844_815D5366 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,249 +112,220 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefano Radaelli <stefano.r@variscite.com>
 
-The VAR-SOM-MX8MN module does not provide an onboard SD card slot.
-USDHC2 is routed to the SD card slot on the carrier boards.
+Reformat the fsl,pins tables in the i.MX8MN VAR-SOM device tree to use
+consistent column alignment across all pinctrl groups.
 
-Move the USDHC2 node and pinctrl configuration from the SOM device tree
-to imx8mn-var-som-symphony.dts and imx8mn-rve-gateway.dts, keeping the
-SOM dtsi limited to hardware present on the module itself.
+Align the entries to match the formatting already used in the
+pinctrl_fec1 group, which contains the longest pin definitions,
+for improved readability and consistency.
 
-Add the required off-on-delay-us property for the USDHC2 regulator on
-the Symphony carrier board.
+No functional changes intended.
 
 Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 ---
 v1->v2:
- - Update all the carrier boards and not only the symphony
+ - 
 
- .../boot/dts/freescale/imx8mn-rve-gateway.dts | 47 ++++++++++++++-
- .../dts/freescale/imx8mn-var-som-symphony.dts | 57 +++++++++++++++++++
- .../boot/dts/freescale/imx8mn-var-som.dtsi    | 56 ------------------
- 3 files changed, 102 insertions(+), 58 deletions(-)
+ .../boot/dts/freescale/imx8mn-var-som.dtsi    | 126 +++++++++---------
+ 1 file changed, 63 insertions(+), 63 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dts b/arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dts
-index ea1855171fb0..056ea2f9e963 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-rve-gateway.dts
-@@ -207,8 +207,16 @@ &usbotg1 {
- 
- /* SD interface on expansion connector. */
- &usdhc2 {
--	vmmc-supply = <&reg_3p3v>;
-+	assigned-clocks = <&clk IMX8MN_CLK_USDHC2>;
-+	assigned-clock-rates = <200000000>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
- 	cd-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
-+	bus-width = <4>;
-+	vmmc-supply = <&reg_3p3v>;
-+	status = "okay";
- };
- 
- &iomuxc {
-@@ -276,10 +284,45 @@ MX8MN_IOMUXC_SAI5_RXD0_GPIO3_IO21	0x00000156 /* B */
- 		>;
- 	};
- 
--	/* Override Card Detect function GPIO value (GPIO1_IO10) from SOM: */
- 	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
- 		fsl,pins = <
- 			MX8MN_IOMUXC_GPIO1_IO13_GPIO1_IO13	0x41
- 		>;
- 	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x190
-+			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d0
-+			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d0
-+			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d0
-+			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d0
-+			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d0
-+			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x194
-+			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d4
-+			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d4
-+			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d4
-+			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d4
-+			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d4
-+			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x196
-+			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d6
-+			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d6
-+			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d6
-+			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d6
-+			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d6
-+			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
-+		>;
-+	};
- };
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-index b07e71d3adee..7308613a48b2 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som-symphony.dts
-@@ -28,6 +28,7 @@ reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
- 		regulator-max-microvolt = <3300000>;
- 		gpio = <&gpio4 22 GPIO_ACTIVE_HIGH>;
- 		enable-active-high;
-+		off-on-delay-us = <20000>;
- 	};
- 
- 	gpio-keys {
-@@ -200,6 +201,20 @@ usb1_drd_sw: endpoint {
- 	};
- };
- 
-+/* SD */
-+&usdhc2 {
-+	assigned-clocks = <&clk IMX8MN_CLK_USDHC2>;
-+	assigned-clock-rates = <200000000>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	cd-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
-+	bus-width = <4>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	status = "okay";
-+};
-+
- &iomuxc {
- 	pinctrl_captouch: captouchgrp {
- 		fsl,pins = <
-@@ -252,4 +267,46 @@ MX8MN_IOMUXC_UART4_RXD_UART4_DCE_RX	0x140
- 			MX8MN_IOMUXC_UART4_TXD_UART4_DCE_TX	0x140
- 		>;
- 	};
-+
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_GPIO1_IO10_GPIO1_IO10	0x41
-+		>;
-+	};
-+
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x190
-+			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d0
-+			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d0
-+			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d0
-+			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d0
-+			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d0
-+			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x194
-+			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d4
-+			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d4
-+			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d4
-+			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d4
-+			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d4
-+			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
-+		>;
-+	};
-+
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x196
-+			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d6
-+			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d6
-+			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d6
-+			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d6
-+			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d6
-+			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
-+		>;
-+	};
- };
 diff --git a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-index 32f101ef2850..e1d2e2a72e1f 100644
+index e1d2e2a72e1f..71a2f0866822 100644
 --- a/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
 +++ b/arch/arm64/boot/dts/freescale/imx8mn-var-som.dtsi
-@@ -295,20 +295,6 @@ brcmf: wifi@1 {
- 	};
- };
+@@ -368,129 +368,129 @@ MX8MN_IOMUXC_GPIO1_IO09_GPIO1_IO9		0x120
  
--/* SD */
--&usdhc2 {
--	assigned-clocks = <&clk IMX8MN_CLK_USDHC2>;
--	assigned-clock-rates = <200000000>;
--	pinctrl-names = "default", "state_100mhz", "state_200mhz";
--	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
--	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
--	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
--	cd-gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
--	bus-width = <4>;
--	vmmc-supply = <&reg_usdhc2_vmmc>;
--	status = "okay";
--};
--
- /* eMMC */
- &usdhc3 {
- 	assigned-clocks = <&clk IMX8MN_CLK_USDHC3_ROOT>;
-@@ -454,48 +440,6 @@ MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3	0x1d6
+ 	pinctrl_i2c1: i2c1grp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_I2C1_SCL_I2C1_SCL		0x400001c3
+-			MX8MN_IOMUXC_I2C1_SDA_I2C1_SDA		0x400001c3
++			MX8MN_IOMUXC_I2C1_SCL_I2C1_SCL			0x400001c3
++			MX8MN_IOMUXC_I2C1_SDA_I2C1_SDA			0x400001c3
  		>;
  	};
  
--	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
--		fsl,pins = <
--			MX8MN_IOMUXC_GPIO1_IO10_GPIO1_IO10	0x41
--		>;
--	};
--
--	pinctrl_usdhc2: usdhc2grp {
--		fsl,pins = <
--			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x190
--			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d0
--			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d0
--			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d0
--			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d0
--			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d0
--			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
--		>;
--	};
--
--	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
--		fsl,pins = <
--			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x194
--			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d4
--			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d4
--			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d4
--			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d4
--			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d4
--			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
--		>;
--	};
--
--	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
--		fsl,pins = <
--			MX8MN_IOMUXC_SD2_CLK_USDHC2_CLK		0x196
--			MX8MN_IOMUXC_SD2_CMD_USDHC2_CMD		0x1d6
--			MX8MN_IOMUXC_SD2_DATA0_USDHC2_DATA0	0x1d6
--			MX8MN_IOMUXC_SD2_DATA1_USDHC2_DATA1	0x1d6
--			MX8MN_IOMUXC_SD2_DATA2_USDHC2_DATA2	0x1d6
--			MX8MN_IOMUXC_SD2_DATA3_USDHC2_DATA3	0x1d6
--			MX8MN_IOMUXC_GPIO1_IO04_USDHC2_VSELECT	0x1d0
--		>;
--	};
--
+ 	pinctrl_i2c3: i2c3grp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_I2C3_SCL_I2C3_SCL		0x400001c3
+-			MX8MN_IOMUXC_I2C3_SDA_I2C3_SDA		0x400001c3
++			MX8MN_IOMUXC_I2C3_SCL_I2C3_SCL			0x400001c3
++			MX8MN_IOMUXC_I2C3_SDA_I2C3_SDA			0x400001c3
+ 		>;
+ 	};
+ 
+ 	pinctrl_pmic: pmicirqgrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_SD1_DATA6_GPIO2_IO8	0x141
++			MX8MN_IOMUXC_SD1_DATA6_GPIO2_IO8		0x141
+ 		>;
+ 	};
+ 
+ 	pinctrl_reg_eth_phy: regethphygrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_SD1_DATA7_GPIO2_IO9	0x41
++			MX8MN_IOMUXC_SD1_DATA7_GPIO2_IO9		0x41
+ 		>;
+ 	};
+ 
+ 	pinctrl_restouch: restouchgrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_GPIO1_IO03_GPIO1_IO3	0x1c0
++			MX8MN_IOMUXC_GPIO1_IO03_GPIO1_IO3		0x1c0
+ 		>;
+ 	};
+ 
+ 	pinctrl_uart2: uart2grp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_SAI3_TXFS_UART2_DCE_RX	0x140
+-			MX8MN_IOMUXC_SAI3_TXC_UART2_DCE_TX	0x140
+-			MX8MN_IOMUXC_SAI3_RXC_UART2_DCE_CTS_B	0x140
+-			MX8MN_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B	0x140
++			MX8MN_IOMUXC_SAI3_TXFS_UART2_DCE_RX		0x140
++			MX8MN_IOMUXC_SAI3_TXC_UART2_DCE_TX		0x140
++			MX8MN_IOMUXC_SAI3_RXC_UART2_DCE_CTS_B		0x140
++			MX8MN_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B		0x140
+ 		>;
+ 	};
+ 
+ 	pinctrl_usdhc1: usdhc1grp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_SD1_CLK_USDHC1_CLK		0x190
+-			MX8MN_IOMUXC_SD1_CMD_USDHC1_CMD		0x1d0
+-			MX8MN_IOMUXC_SD1_DATA0_USDHC1_DATA0	0x1d0
+-			MX8MN_IOMUXC_SD1_DATA1_USDHC1_DATA1	0x1d0
+-			MX8MN_IOMUXC_SD1_DATA2_USDHC1_DATA2	0x1d0
+-			MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3	0x1d0
++			MX8MN_IOMUXC_SD1_CLK_USDHC1_CLK			0x190
++			MX8MN_IOMUXC_SD1_CMD_USDHC1_CMD			0x1d0
++			MX8MN_IOMUXC_SD1_DATA0_USDHC1_DATA0		0x1d0
++			MX8MN_IOMUXC_SD1_DATA1_USDHC1_DATA1		0x1d0
++			MX8MN_IOMUXC_SD1_DATA2_USDHC1_DATA2		0x1d0
++			MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3		0x1d0
+ 		>;
+ 	};
+ 
+ 	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_SD1_CLK_USDHC1_CLK		0x194
+-			MX8MN_IOMUXC_SD1_CMD_USDHC1_CMD		0x1d4
+-			MX8MN_IOMUXC_SD1_DATA0_USDHC1_DATA0	0x1d4
+-			MX8MN_IOMUXC_SD1_DATA1_USDHC1_DATA1	0x1d4
+-			MX8MN_IOMUXC_SD1_DATA2_USDHC1_DATA2	0x1d4
+-			MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3	0x1d4
++			MX8MN_IOMUXC_SD1_CLK_USDHC1_CLK			0x194
++			MX8MN_IOMUXC_SD1_CMD_USDHC1_CMD			0x1d4
++			MX8MN_IOMUXC_SD1_DATA0_USDHC1_DATA0		0x1d4
++			MX8MN_IOMUXC_SD1_DATA1_USDHC1_DATA1		0x1d4
++			MX8MN_IOMUXC_SD1_DATA2_USDHC1_DATA2		0x1d4
++			MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3		0x1d4
+ 		>;
+ 	};
+ 
+ 	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_SD1_CLK_USDHC1_CLK		0x196
+-			MX8MN_IOMUXC_SD1_CMD_USDHC1_CMD		0x1d6
+-			MX8MN_IOMUXC_SD1_DATA0_USDHC1_DATA0	0x1d6
+-			MX8MN_IOMUXC_SD1_DATA1_USDHC1_DATA1	0x1d6
+-			MX8MN_IOMUXC_SD1_DATA2_USDHC1_DATA2	0x1d6
+-			MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3	0x1d6
++			MX8MN_IOMUXC_SD1_CLK_USDHC1_CLK			0x196
++			MX8MN_IOMUXC_SD1_CMD_USDHC1_CMD			0x1d6
++			MX8MN_IOMUXC_SD1_DATA0_USDHC1_DATA0		0x1d6
++			MX8MN_IOMUXC_SD1_DATA1_USDHC1_DATA1		0x1d6
++			MX8MN_IOMUXC_SD1_DATA2_USDHC1_DATA2		0x1d6
++			MX8MN_IOMUXC_SD1_DATA3_USDHC1_DATA3		0x1d6
+ 		>;
+ 	};
+ 
  	pinctrl_usdhc3: usdhc3grp {
  		fsl,pins = <
- 			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK	0x190
+-			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK	0x190
+-			MX8MN_IOMUXC_NAND_WP_B_USDHC3_CMD	0x1d0
+-			MX8MN_IOMUXC_NAND_DATA04_USDHC3_DATA0	0x1d0
+-			MX8MN_IOMUXC_NAND_DATA05_USDHC3_DATA1	0x1d0
+-			MX8MN_IOMUXC_NAND_DATA06_USDHC3_DATA2	0x1d0
+-			MX8MN_IOMUXC_NAND_DATA07_USDHC3_DATA3	0x1d0
+-			MX8MN_IOMUXC_NAND_RE_B_USDHC3_DATA4	0x1d0
+-			MX8MN_IOMUXC_NAND_CE2_B_USDHC3_DATA5	0x1d0
+-			MX8MN_IOMUXC_NAND_CE3_B_USDHC3_DATA6	0x1d0
+-			MX8MN_IOMUXC_NAND_CLE_USDHC3_DATA7	0x1d0
+-			MX8MN_IOMUXC_NAND_CE1_B_USDHC3_STROBE	0x190
++			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK		0x190
++			MX8MN_IOMUXC_NAND_WP_B_USDHC3_CMD		0x1d0
++			MX8MN_IOMUXC_NAND_DATA04_USDHC3_DATA0		0x1d0
++			MX8MN_IOMUXC_NAND_DATA05_USDHC3_DATA1		0x1d0
++			MX8MN_IOMUXC_NAND_DATA06_USDHC3_DATA2		0x1d0
++			MX8MN_IOMUXC_NAND_DATA07_USDHC3_DATA3		0x1d0
++			MX8MN_IOMUXC_NAND_RE_B_USDHC3_DATA4		0x1d0
++			MX8MN_IOMUXC_NAND_CE2_B_USDHC3_DATA5		0x1d0
++			MX8MN_IOMUXC_NAND_CE3_B_USDHC3_DATA6		0x1d0
++			MX8MN_IOMUXC_NAND_CLE_USDHC3_DATA7		0x1d0
++			MX8MN_IOMUXC_NAND_CE1_B_USDHC3_STROBE		0x190
+ 		>;
+ 	};
+ 
+ 	pinctrl_usdhc3_100mhz: usdhc3-100mhzgrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK	0x194
+-			MX8MN_IOMUXC_NAND_WP_B_USDHC3_CMD	0x1d4
+-			MX8MN_IOMUXC_NAND_DATA04_USDHC3_DATA0	0x1d4
+-			MX8MN_IOMUXC_NAND_DATA05_USDHC3_DATA1	0x1d4
+-			MX8MN_IOMUXC_NAND_DATA06_USDHC3_DATA2	0x1d4
+-			MX8MN_IOMUXC_NAND_DATA07_USDHC3_DATA3	0x1d4
+-			MX8MN_IOMUXC_NAND_RE_B_USDHC3_DATA4	0x1d4
+-			MX8MN_IOMUXC_NAND_CE2_B_USDHC3_DATA5	0x1d4
+-			MX8MN_IOMUXC_NAND_CE3_B_USDHC3_DATA6	0x1d4
+-			MX8MN_IOMUXC_NAND_CLE_USDHC3_DATA7	0x1d4
+-			MX8MN_IOMUXC_NAND_CE1_B_USDHC3_STROBE	0x194
++			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK		0x194
++			MX8MN_IOMUXC_NAND_WP_B_USDHC3_CMD		0x1d4
++			MX8MN_IOMUXC_NAND_DATA04_USDHC3_DATA0		0x1d4
++			MX8MN_IOMUXC_NAND_DATA05_USDHC3_DATA1		0x1d4
++			MX8MN_IOMUXC_NAND_DATA06_USDHC3_DATA2		0x1d4
++			MX8MN_IOMUXC_NAND_DATA07_USDHC3_DATA3		0x1d4
++			MX8MN_IOMUXC_NAND_RE_B_USDHC3_DATA4		0x1d4
++			MX8MN_IOMUXC_NAND_CE2_B_USDHC3_DATA5		0x1d4
++			MX8MN_IOMUXC_NAND_CE3_B_USDHC3_DATA6		0x1d4
++			MX8MN_IOMUXC_NAND_CLE_USDHC3_DATA7		0x1d4
++			MX8MN_IOMUXC_NAND_CE1_B_USDHC3_STROBE		0x194
+ 		>;
+ 	};
+ 
+ 	pinctrl_usdhc3_200mhz: usdhc3-200mhzgrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK	0x196
+-			MX8MN_IOMUXC_NAND_WP_B_USDHC3_CMD	0x1d6
+-			MX8MN_IOMUXC_NAND_DATA04_USDHC3_DATA0	0x1d6
+-			MX8MN_IOMUXC_NAND_DATA05_USDHC3_DATA1	0x1d6
+-			MX8MN_IOMUXC_NAND_DATA06_USDHC3_DATA2	0x1d6
+-			MX8MN_IOMUXC_NAND_DATA07_USDHC3_DATA3	0x1d6
+-			MX8MN_IOMUXC_NAND_RE_B_USDHC3_DATA4	0x1d6
+-			MX8MN_IOMUXC_NAND_CE2_B_USDHC3_DATA5	0x1d6
+-			MX8MN_IOMUXC_NAND_CE3_B_USDHC3_DATA6	0x1d6
+-			MX8MN_IOMUXC_NAND_CLE_USDHC3_DATA7	0x1d6
+-			MX8MN_IOMUXC_NAND_CE1_B_USDHC3_STROBE	0x196
++			MX8MN_IOMUXC_NAND_WE_B_USDHC3_CLK		0x196
++			MX8MN_IOMUXC_NAND_WP_B_USDHC3_CMD		0x1d6
++			MX8MN_IOMUXC_NAND_DATA04_USDHC3_DATA0		0x1d6
++			MX8MN_IOMUXC_NAND_DATA05_USDHC3_DATA1		0x1d6
++			MX8MN_IOMUXC_NAND_DATA06_USDHC3_DATA2		0x1d6
++			MX8MN_IOMUXC_NAND_DATA07_USDHC3_DATA3		0x1d6
++			MX8MN_IOMUXC_NAND_RE_B_USDHC3_DATA4		0x1d6
++			MX8MN_IOMUXC_NAND_CE2_B_USDHC3_DATA5		0x1d6
++			MX8MN_IOMUXC_NAND_CE3_B_USDHC3_DATA6		0x1d6
++			MX8MN_IOMUXC_NAND_CLE_USDHC3_DATA7		0x1d6
++			MX8MN_IOMUXC_NAND_CE1_B_USDHC3_STROBE		0x196
+ 		>;
+ 	};
+ 
+ 	pinctrl_wdog: wdoggrp {
+ 		fsl,pins = <
+-			MX8MN_IOMUXC_GPIO1_IO02_WDOG1_WDOG_B	0x166
++			MX8MN_IOMUXC_GPIO1_IO02_WDOG1_WDOG_B		0x166
+ 		>;
+ 	};
+ };
 -- 
 2.47.3
 
