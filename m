@@ -4,70 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F300C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CD8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:35:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hRS5SFBTU6Qi819haKCrqH2cAVM4+2Tt7xhwcQ+yyIY=; b=mbzpnHiJR7CR3pPrX+xL8li48A
-	VdfXVmDcNPv/+GBOLsXUTivuTE/kAmNknhYaQlcKFkmPp0BAqACJpfKfv03Ce0VpmQjT1aLOmyAlm
-	o8lgMkpOOt6XcFxFks7yv74F88rFx7dBA572N9p8a4q2jfEttLWJkgWJrbADt8/mAUnMJwg/BJpjN
-	1L6w13n/IO3iN9dBhpqUzLE617hVX3phGRMHpFVOmlYogJCIJyifgtXWn4263Ha4zNvaVNw9L1rs0
-	BZUVPH/SCpx6k5o759yit8meaqCSndjmTUgSDQF8ikcPIabKKj/pZX5an7HvVefUEpT6KM7NlploB
-	xcou/2jw==;
+	bh=nz9V1Z40aZ9Pp49Pl4b5IYoI16Na9eREnr92Rd6P67k=; b=EuTm5nU+04FVM9C2d20SZdQ/tD
+	IuLpV181++BYJuSorLP+LdLgcBE7/oa1fK7zW8FeM+QYCTJeWO+tKEWdMDp45Y46xrwbYebt3lt4M
+	F9CscTINZxhFH9fJY+PuMV+WhjHYQXrR6PuBI0IxUNnX7YQRHkQAVwf3pLOyxZ9D+hkWN8OUOmwCA
+	IerKbPmV+qwNyY2EeGaCN7jAsP+Q7SOLT4aI/qLa638CjxzIiemZeXVQNle1exyMWJM67VFKZimIj
+	70uPJ+VaGzkOwr9hQU1INkPjC5NBxV7q717UcC+SrhkCGPd0ZxbJ8XDpRYjQ9DlkLqcP+T+Osotvn
+	bjxDfkNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglK7-0000000CtZQ-2f17;
-	Mon, 06 Jul 2026 15:33:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglK5-0000000CtYm-0EL8
+	id 1wglMJ-0000000CtyZ-0xUk;
+	Mon, 06 Jul 2026 15:35:47 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wglMH-0000000Ctwj-0nL6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 15:33:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 819BD236D;
-	Mon,  6 Jul 2026 08:33:21 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BA623F7B4;
-	Mon,  6 Jul 2026 08:33:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783352005; bh=maL0BNYhvr2QfHPnX5dCkuL2XYtxHjcR0qs6j+Dl0A8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YghzYDnFDXnaph394rzzwrEwATxrs/wW6+lZ2Qrw68ZBJdHA7p5IraQmQiErm0KDH
-	 WR67beGRF7VN0Lg+v0GzYKhxZ4/gj2B0d6cqHaWRU8vSRGpY5kt96r/NJLaB2vUvF5
-	 rCFzZnWkjrJXbJxKYirQoHPViCiP/w8JtQerwLqk=
-Date: Mon, 6 Jul 2026 16:33:17 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Tangnianyao <tangnianyao@huawei.com>
-Cc: Marc Zyngier <maz@kernel.org>, Wei-Lin Chang <weilin.chang@arm.com>,
-	oupton@kernel.org, joey.gouly@arm.com, seiden@linux.ibm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, "guoyang (C)" <guoyang2@huawei.com>,
-	"huanglingyan (A)" <huanglingyan2@huawei.com>,
-	"Wangzhou (B)" <wangzhou1@hisilicon.com>
-Subject: Re: Question about the "TLBs and I-cache are private to each vCPU"
- guarantee with VTTBR_EL2.CnP
-Message-ID: <akvKvePWiu4pB47Q@J2N7QTR9R3.cambridge.arm.com>
-References: <e85b957d-c8bc-aac0-b413-03441d05c3df@huawei.com>
- <xx4obnrmf6lp5dbyo2uwn4pglq7q5nw7ccoyude4zavrgejctg@ll25qpga7qef>
- <292b5734-9005-6db0-da08-3da04628e620@huawei.com>
- <86o6gkpokm.wl-maz@kernel.org>
- <21eb51aa-443c-4d08-b4dd-3f813bbc9880@huawei.com>
- <86jyr8pkw8.wl-maz@kernel.org>
- <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
+	Mon, 06 Jul 2026 15:35:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783352143;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nz9V1Z40aZ9Pp49Pl4b5IYoI16Na9eREnr92Rd6P67k=;
+	b=VDlxitduT2hpoPuDSXDMhTDQPkpLQ9il7p2jxYaSclKrruGjbCOmlXW+l6Srjt0JCi/c9t
+	Zv2S2DZldkDD2Gz4lNBWmFSGIuSNBqxszL76Hefi6e1PhVql7bdrMO89YtINs2QK6RztHM
+	kjiQrh8KVsy6ANrvn3QzIpqtR1aiECE=
+Received: from mail-yw1-f200.google.com (mail-yw1-f200.google.com
+ [209.85.128.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-649-qJ5gKWggOoaCswJfUKhI2w-1; Mon, 06 Jul 2026 11:35:42 -0400
+X-MC-Unique: qJ5gKWggOoaCswJfUKhI2w-1
+X-Mimecast-MFC-AGG-ID: qJ5gKWggOoaCswJfUKhI2w_1783352141
+Received: by mail-yw1-f200.google.com with SMTP id 00721157ae682-80e910ddbc6so91746027b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 08:35:41 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783352141; x=1783956941;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nz9V1Z40aZ9Pp49Pl4b5IYoI16Na9eREnr92Rd6P67k=;
+        b=BudaFBTBbgLCthmCmRVIj/iZuAiPE6sYDDFxc8Z8FuDlIFWh6ayChX/nbijNk7v+Ho
+         eOXUeADiDG6BMMtZHF9rNxknRlBie5So/rFfV7nmrzXu8AOkCIZHpzHEyFOq9G0J7qus
+         G1xdl67CBqqJGmLdEk9mLvczYDm5xlWzb4ADv2EjDvjW76SGQCHvJkxYJHRoby7Y6dqx
+         oCcNEIlBcKR6rQC3Z/ytBpA+MqIqchM8jZBE6lLMvWyZ5XX7ELax73J3XeAuNsPNgYm/
+         GpM6FFcHf6OiL50yTxvHurH9+9F170uxQJIFK7tqQHCJNkwTU74/5jlmHdlsF2krKPpI
+         wvYw==
+X-Forwarded-Encrypted: i=1; AHgh+RoNZr0/9oHd9zIvr49ohGdX8oR5YZSV1ESIzn+n9rOGuy2Z6NTdHTU1dE5/0hfbfpBfIqBLUDIeOaEDSLvwk0+K@lists.infradead.org
+X-Gm-Message-State: AOJu0YymZzsq80Gm3VA1vSrIK8srLopFS+MF+KQyV850N/sBkha24vh1
+	kmJ4H8zSvKRBNvxyzVn1G7iE2LH1+59T+JZBM5RqeLlV2AiMAhUuKu+rBVpxOcQ3Yz+oQtY4Pwp
+	PfO0nxIJASjAznl2zgDqncInFleIGwv3BZhUVStOFK8h6028OndqVmH+T1/wLOXj0p9Qbeb/LON
+	zf
+X-Gm-Gg: AfdE7clRvxVQlXd2OFkY2LkiuCmJgzrHwDb/1QLoFCveOo4zijewlj0SCr0fKe5h6ZC
+	YVxy3AqQ0gQvne83SEct+8bh5LDIykwv9JlLJr8j5FiV1kjy+gSXJsJUTKJdso4rKt0+T+tKW7v
+	+H7VODGurz01XQCDXHylq1kValTzDlkmNMbbrOjL0FkYGWIn3dsxsDaotqz0XMh434Yk6gTz5YK
+	g8uqQI2SXXUrLyn2AWbw/ok+bC0mOFO+boGRLwE7BGCDU2+RNoQUJ5AkNj6VwLjVLBg2TFVUh0K
+	76syzNKLbwujnsF9spa4dLlWNo1Yp8eU96U2NuHIbAAASdEktO4t3y+vFkPMXMG3AnxB82/3twC
+	A0YxxryoHspB7HhMvr2Q+bLzYKs7xT8kSsOv8TTeC/aomZw==
+X-Received: by 2002:a05:690c:3601:b0:80c:85e5:8759 with SMTP id 00721157ae682-81be38b8fe5mr5792587b3.66.1783352140784;
+        Mon, 06 Jul 2026 08:35:40 -0700 (PDT)
+X-Received: by 2002:a05:690c:3601:b0:80c:85e5:8759 with SMTP id 00721157ae682-81be38b8fe5mr5792387b3.66.1783352140419;
+        Mon, 06 Jul 2026 08:35:40 -0700 (PDT)
+Received: from redhat.com (c-73-183-53-213.hsd1.pa.comcast.net. [73.183.53.213])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8144783fa21sm58952937b3.2.2026.07.06.08.35.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 08:35:38 -0700 (PDT)
+Date: Mon, 6 Jul 2026 11:35:37 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: Pengpeng Hou <pengpeng@iscas.ac.cn>
+Cc: Yassine Oudjana <y.oudjana@protonmail.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-clk@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] clk: mediatek: mt6735-vdecsys: add missing
+ MODULE_DEVICE_TABLE()
+Message-ID: <akvLSe4WOXpxgbO3@redhat.com>
+References: <20260704124450.11035-1-pengpeng@iscas.ac.cn>
 MIME-Version: 1.0
+In-Reply-To: <20260704124450.11035-1-pengpeng@iscas.ac.cn>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: juHf9MR-tPnee0xy6h2sAHCX8-BmnhHCTgbq8N-kuls_1783352141
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5685cdb9-95d8-9ead-4d24-d6ad06dd9547@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_083329_234193_7B97DE04 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_083545_313260_5AA0EF1C 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +115,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 10:15:04PM +0800, Tangnianyao wrote:
-> Two SMT threads(PE0,PE1) on the same physical core share TLB.
-
-Critially those are *NOT* allowed to share entries allocated with
-CnP==0, and are only allowed to share entries where CnP was enabled at
-stage 1 (and stage 2 if applicable).
-
-Please see the ARM ARM:
-
-  https://developer.arm.com/documentation/ddi0487/mc/
-
-Specifically, section D8.12.3.4 "Common not private translations":
-
-  https://developer.arm.com/documentation/ddi0487/mc/-Part-D-The-AArch64-System-Level-Architecture/-Chapter-D8-The-AArch64-Virtual-Memory-System-Architecture/-D8-16-Translation-Lookaside-Buffers/-D8-16-3-Use-of-ASIDs-and-VMIDs-to-reduce-TLB-maintenance-requirements
-
-> VM0 has 2 vcpus, vcpu0 and vcpu1 that share all architectural context
-> except the address translation context.
+On Sat, Jul 04, 2026 at 08:44:50PM +0800, Pengpeng Hou wrote:
+> The driver has an OF match table wired to .of_match_table, but does
+> not export the table with MODULE_DEVICE_TABLE().
 > 
-> Vcpu0 may observe TLB entries that are supposed to be private to vcpu1
-> in the following case:
+> Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
+> information is generated for OF based module autoloading.
 > 
->     PE0(core0,smt0)         PE1(core0,smt1)
-> vcpu0 load           
-> vcpu0 va->pa0        
-> vcpu0 put            
->                                        vcpu1 load
->                                        vcpu1 flush local tlb
->                                        vcpu1 modify desc to va->pa1
-> vcpu0 load
-> vcpu0 hit *va->pa1*
+> This is a source-level fix.  It does not claim dynamic hardware
+> reproduction; the evidence is the driver-owned match table, its use by
+> the platform driver, and the missing module alias publication.
+> 
+> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
 
-How is CnP managed in this example?
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 
-If *either* of the vCPUs don't set TTBRn_EL1.CnP, that is not permitted
-to happen.
-
-If *both* of the vCPUs set TTBRn_EL1.CnP, then surely that is
-indistinguishable from physical CPUs:
-
-    PE0(core0,smt0)         PE1(core0,smt1)
-    cpu0 va->pa0        
-                            cpu1 flush local tlb
-                            cpu1 modify desc to va->pa1
-    cpu0 hit *va->pa1*
-
-Mark. 
 
