@@ -4,80 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F3C3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 403B0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=trWQgM2b/pmHXMfLQPuDpI6xP9R+E9nF5QwkDxcB2UU=; b=VS4a8JnuaVD/bir5IEa0zD4zWY
-	nRTyZ5AjHkmbfNlM69kvfhUTn3fttJM7owo0euOWNSpTuZZENtwfFwXLOHr7V30tAwFAp+IdeR2LG
-	RqUNb2xlIXH+TGOwfr5XGhMmhrBiRgQhZdHmnjZm7PduFbf46/mz5637CyBQs30lRzQth3/grn4Hy
-	RtsWuc0VDKIsF45K06xg2bCYWNsdb/WnFBxKKFThKbJ97bNUgmP3vnJ+xLr1gTi5xN/CkrTihMdwJ
-	LIhditWcC0wtbuhLAgrZeQxAeG0w5hBSgz5HviHHryoPMLyoSEwVJNmZoVhU3pDy8ULoUe6nA9Yzg
-	lFxNhAiw==;
+	bh=SsdGNSB4zy5M0ej3qNdxVPNJ5ocdqwgLpYFnxrwRiOA=; b=WNT5xYzCqAWu0kUtquRdYW+ey7
+	I6Q8z3ReNLbSyj5X6Ae8dcPGC+KZxn752STkDUZOU0ojjajdBt2+vUjzfL3f+NPOkarqky0LkKd4X
+	YF0D76xUJnLqW4o9VywGw3Cxz1UOaEgO5XHFnWTbsOEMLqL5wmoef+L75unFtvvsSrcu0aRZhYU2v
+	EDpexiUQVbtGFhvXvRj3Lnjw9gmzR/zOwEdLZcg/MbiCAJaUdOvnY7Aoa74drvS+zDF+F61iFDljF
+	PKYlbGtOsHPg2aU4cPFk71RjRAFWKAlWnIuDEp49B5RwXDY0yYC172y08F8eZph9UMfwphYIayKFg
+	gTujt8wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnX0-0000000DG7H-31z5;
-	Mon, 06 Jul 2026 17:54:58 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1wgnz7-0000000DKzW-01Lq;
+	Mon, 06 Jul 2026 18:24:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnWi-0000000DFg4-109o
+	id 1wgnz5-0000000DKzJ-2PlL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 17:54:41 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-493a6fe9ebdso17703135e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:54:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783360478; x=1783965278; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=trWQgM2b/pmHXMfLQPuDpI6xP9R+E9nF5QwkDxcB2UU=;
-        b=KGDpv7weq9T8g0+6MqvgX3QxR9EWqissRaX48gGl30cnaYek7mJgSADQ5DIRW35Jo4
-         JGizBgyRC93hLHTohX0FE+W4z4oguVCKz8CL3J0IZkFQ25B6+bA1dAmSDlWLiKeQfr6t
-         2wi+T9prsSAg0RPNKZ0PlhsUnstRG6Hs6t7znYijMcrxM2YAO0ujO7qPVBNRN9uXZdx3
-         k6w4sI4337BYUIYdMZf9Og+VYrQGuT9yMbJpE1bAv6daT491qfAU8AN5xqhIFxKWbPAq
-         +eej8yBJAFNV5oGnNVGTJ4NbgavJuu7EuS3wCab+N12YBAZxVKiuhAvzGc3li07XBEy4
-         dM5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783360478; x=1783965278;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=trWQgM2b/pmHXMfLQPuDpI6xP9R+E9nF5QwkDxcB2UU=;
-        b=tVLvAHmXvVg3vwCJvtrRyzcFPwPYoyE0OSTGaoouqb2/O/XhY1ewWO9yADJ3pWHdr4
-         p6YaDUiSxOn3WapjN4M7+DWW59fI813ibunNZ2DYh6xa1AZJAeP91asph2270geBNAqx
-         VL8o3z6CoGYnMauLE8s2+B45hmLC+srVCKrJdDPVO+Fvzu+mnYbiGOB5sbjhrszfVkVs
-         93Gv7FBEw/DNZV7QOKjX1aKB5+yyWyKxQ74Z+9aThD3Usq890EzHva/37PHF7H7+DHbl
-         1hCOUD2aq7Vup1W/Aj5TgcMG2pO7ZyfFg2lmuupV2vAl2sccqLzH2dTp0NFoChjKwmT5
-         Jg6Q==
-X-Gm-Message-State: AOJu0YxsQCbjvaDAeYDbyvi4vZIYycdxim+Lp1MHNqjWjfwCREi1NUwE
-	joS9ERcNp1Gbz45j6DjUgqD3Nc8k+hV1h2j1yEzlFSjYnrikWy0oWKfslodsbiApaOql3VNEk3I
-	rxMhNzwD28IK9m9/0v1Q7gg==
-X-Received: from wmge10.prod.google.com ([2002:a05:600c:13ca:b0:492:49e7:fff3])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a7b:c4d5:0:b0:493:c633:9cf1 with SMTP id 5b1f17b1804b1-493df062c26mr13727105e9.3.1783360477456;
- Mon, 06 Jul 2026 10:54:37 -0700 (PDT)
-Date: Mon,  6 Jul 2026 18:54:11 +0100
-In-Reply-To: <20260706175415.2604046-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20260706175415.2604046-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.55.0.rc2.803.g1fd1e6609c-goog
-Message-ID: <20260706175415.2604046-15-vdonnefort@google.com>
-Subject: [PATCH v2 14/18] KVM: arm64: Use noclear for PGD in __pkvm_init_vm
- error path
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, qperret@google.com, tabba@google.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_105440_289422_7B8482DB 
-X-CRM114-Status: UNSURE (   7.58  )
-X-CRM114-Notice: Please train this message.
+	Mon, 06 Jul 2026 18:23:59 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id DBF0E4117C;
+	Mon,  6 Jul 2026 18:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD941F000E9;
+	Mon,  6 Jul 2026 18:23:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783362238;
+	bh=SsdGNSB4zy5M0ej3qNdxVPNJ5ocdqwgLpYFnxrwRiOA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=kumziUdyrjugrxYZugzIjlWcmC9HIodhRMZrmVkXke0JQHc6DSSO6eYyMfq5CiKE9
+	 BBmRIfa50qID9aoZHs3mU54ICO17zjuZm2QSn0ZNhv4rX8myFYPfFwehkg2/YxyEUC
+	 y4cwrMjn5amJToz/JhoF1gAGvh0rSORDSCafQZ9sOrZp1XWo3//gU/Z6518bMMgfLc
+	 7l2YRvqGYxltd3+1No6PKk5KCn2uJuCQlWLTXTZfA9RdbAh6BN0zxHIPcPJ40mpgCH
+	 PwetxkjP2bXyTXfxGXDQZDob0kfbFiGrQCFG10MA64mdwp706YJKni8AECL7P7ZaQq
+	 f0FBu47IYqtTw==
+Date: Mon, 6 Jul 2026 11:23:57 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v8 5/7] KVM: arm64: PMU: Implement fixed-counters-only
+ emulation
+Message-ID: <akvyvclUQ2b2YHiU@kernel.org>
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <20260706-hybrid-v8-5-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260706-hybrid-v8-5-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,30 +81,160 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the error path of __pkvm_init_vm(), use unmap_donated_memory_noclear()
-instead of the clearing variant to release the donated stage-2 PGD back
-to the host.
+On Mon, Jul 06, 2026 at 07:03:28PM +0900, Akihiko Odaki wrote:
+> Add internal state for PMUv3 emulation without programmable event
+> counters. When fixed-counters-only mode is active, KVM reports no
+> programmable counters and hides PMCEID, avoiding event-counter state
+> whose behavior can depend on the selected hardware PMU.
+> 
+> The cycle counter still uses a host perf event. Unlike the normal PMU
+> path, fixed-counters-only mode may create that event from the hardware
+> PMU attached to the VCPU's current pCPU. If the VCPU later loads on a
+> pCPU that is not covered by the existing event's PMU, request a PMU
+> reload so the cycle counter can be recreated against the new pCPU's PMU.
+> Keep this affinity check limited to fixed-counters-only VMs; the normal
+> programmable-counter mode continues to use the VM-wide PMU and does not
+> need per-load reload decisions.
+> 
+> Add a separate internal flag for explicit userspace PMU selection. The
+> UAPI wiring added later will use it to keep explicit PMU selection and
+> fixed-counters-only mode mutually exclusive while still allowing
+> fixed-counters-only mode to replace the default PMU selected during
+> KVM_ARM_VCPU_INIT.
+> 
+> The UAPI wiring that sets the fixed-counters-only flag and records
+> explicit PMU selection is added later in the series.
+> 
+> Signed-off-by: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+> ---
+>  arch/arm64/include/asm/kvm_host.h |  4 ++++
+>  arch/arm64/kvm/arm.c              |  1 +
+>  arch/arm64/kvm/pmu-emul.c         | 43 +++++++++++++++++++++++++++++++++++++--
+>  include/kvm/arm_pmu.h             |  2 ++
+>  4 files changed, 48 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index 0c39d9db7d57..aa07b05b8231 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -353,6 +353,10 @@ struct kvm_arch {
+>  #define KVM_ARCH_FLAG_WRITABLE_IMP_ID_REGS		10
+>  	/* Unhandled SEAs are taken to userspace */
+>  #define KVM_ARCH_FLAG_EXIT_SEA				11
+> +	/* PMUv3 is emulated with an explicitly specified hardware PMU */
+> +#define KVM_ARCH_FLAG_PMU_V3_EXPLICIT			12
+> +	/* PMUv3 is emulated without progammable event counters */
+> +#define KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY	13
+>  	unsigned long flags;
+>  
+>  	/* VM-wide vCPU feature set */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 68767bb08285..1cc7754d5ace 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -687,6 +687,7 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
+>  	if (has_vhe())
+>  		kvm_vcpu_load_vhe(vcpu);
+>  	kvm_arch_vcpu_load_fp(vcpu);
+> +	kvm_vcpu_load_pmu(vcpu);
+>  	kvm_vcpu_pmu_restore_guest(vcpu);
+>  	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
+>  		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index e70628653e4b..40cad183376c 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -96,6 +96,11 @@ u64 kvm_pmu_evtyper_mask(struct kvm *kvm)
+>  	return mask;
+>  }
+>  
+> +static bool kvm_pmu_fixed_counters_only(struct kvm *kvm)
+> +{
+> +	return test_bit(KVM_ARCH_FLAG_PMU_V3_FIXED_COUNTERS_ONLY, &kvm->arch.flags);
+> +}
+> +
+>  /**
+>   * kvm_pmc_is_64bit - determine if counter is 64bit
+>   * @pmc: counter context
+> @@ -343,7 +348,11 @@ u64 kvm_pmu_implemented_counter_mask(struct kvm_vcpu *vcpu)
+>  
+>  static void kvm_pmc_enable_perf_event(struct kvm_pmc *pmc)
+>  {
+> -	if (!pmc->perf_event) {
+> +	struct kvm_vcpu *vcpu = kvm_pmc_to_vcpu(pmc);
+> +
+> +	if (!pmc->perf_event ||
+> +	    (kvm_pmu_fixed_counters_only(vcpu->kvm) &&
+> +	     !cpumask_test_cpu(vcpu->cpu, &to_arm_pmu(pmc->perf_event->pmu)->supported_cpus))) {
+>  		kvm_pmu_create_perf_event(pmc);
+>  		return;
+>  	}
+> @@ -720,6 +729,12 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+>  	int eventsel;
+>  	u64 evtreg;
+>  
+> +	if (kvm_pmu_fixed_counters_only(vcpu->kvm)) {
+> +		arm_pmu = kvm_pmu_probe_armpmu(vcpu->cpu);
+> +		if (WARN_ON_ONCE(!arm_pmu))
+> +			return;
+> +	}
+> +
+>  	evtreg = kvm_pmc_read_evtreg(pmc);
+>  
+>  	kvm_pmu_stop_counter(pmc);
+> @@ -748,7 +763,7 @@ static void kvm_pmu_create_perf_event(struct kvm_pmc *pmc)
+>  	 * Don't create an event if we're running on hardware that requires
+>  	 * PMUv3 event translation and we couldn't find a valid mapping.
+>  	 */
+> -	eventsel = kvm_map_pmu_event(vcpu->kvm->arch.arm_pmu, eventsel);
+> +	eventsel = kvm_map_pmu_event(arm_pmu, eventsel);
+>  	if (eventsel < 0)
+>  		return;
+>  
+> @@ -878,6 +893,9 @@ u64 kvm_pmu_get_pmceid(struct kvm_vcpu *vcpu, bool pmceid1)
+>  	u64 val, mask = 0;
+>  	int base, i, nr_events;
+>  
+> +	if (kvm_pmu_fixed_counters_only(vcpu->kvm))
+> +		return 0;
+> +
 
-This intends to eliminate the clearing variant of
-unmap_donated_memory(), as zeroing the PGD memory before returning it to
-the host is unnecessary in this failure path.
+Even if we advertise bits in PMCEID, does it matter? There's no PMC that
+the guest could use to count it.
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+I understand it isn't aesthetic but I really want to minimize the
+special-casing that has to be done for this feature.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index d9ab58226889..0c82f1ddb93d 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -861,7 +861,7 @@ int __pkvm_init_vm(struct kvm *host_kvm, unsigned long vm_hva,
- 	kvm_guest_destroy_stage2(hyp_vm);
- err_remove_mappings:
- 	unmap_donated_memory(hyp_vm, vm_size);
--	unmap_donated_memory(pgd, pgd_size);
-+	unmap_donated_memory_noclear(pgd, pgd_size);
- err_unpin_kvm:
- 	hyp_unpin_shared_mem(host_kvm, host_kvm + 1);
- 	return ret;
--- 
-2.55.0.rc2.803.g1fd1e6609c-goog
+> +void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu)
+> +{
+> +	/*
+> +	 * ARMV8_PMU_INSTR_IDX will need the same check once
+> +	 * FEAT_PMUv3_ICNTR is supported.
+> +	 */
+> +	struct kvm_pmc *pmc = kvm_vcpu_idx_to_pmc(vcpu, ARMV8_PMU_CYCLE_IDX);
+> +	struct arm_pmu *cpu_pmu;
+> +
+> +	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) ||
+> +	    !kvm_pmu_counter_is_enabled(pmc) || !pmc->perf_event)
+> +		return;
+> +
+> +	cpu_pmu = to_arm_pmu(pmc->perf_event->pmu);
+> +	if (!cpumask_test_cpu(vcpu->cpu, &cpu_pmu->supported_cpus))
+> +		kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
 
+Just detect the changing PMU implementation here, KVM_REQ_RELOAD_PMU
+will need to detect the PMCs that require an update anyway. Stash the
+last cpu in kvm_arch_vcpu_load() and pass it to this:
+
+void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
+{
+	if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu)
+		return;
+
+	if (kvm_pmu_probe_armpmu(vcpu->cpu) != kvm_pmu_probe_armpmu(last_cpu))
+		kvm_make_request(KVM_REQ_RELOAD_PMU);
+}
+
+Thanks,
+Oliver
 
