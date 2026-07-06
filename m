@@ -4,68 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BEB9C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:58:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA2AC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAhivCzCc5imdzAsAJR6CIv8LmWf45kJCVdZMw3xeVg=; b=UaX3FUn+h11wHgYQNu34EHhBM7
-	sMuRD3SF1q66cl+U2WrreVbjcaq5KpuPcrWLAeqPtRyEvzrzYps9OihOld31HugXn9thcuvWi9k9A
-	y8wGBaEwkdccFTAxI4Q0isMdqCTH5vmxUzdql6qyGX/KREM5de9s0t1kwY0QCge0QTlfQqCgl9xBK
-	OIFpt0LWQA4uR/bXmVerFFlT41PKyMK6tgItRCKn0spQtBbZQcEMK+Jipzwswx8WSVJuDRibUPIo0
-	028lgxfjDlVYuuRy3CR7V4ha+8oRucqPyE2W+LjNZ6MycNMAazlf1OwrTk6mNbB9pa+7CjKrgR9ax
-	Lbw0W60Q==;
+	bh=a+V2WChkzPs4dXc8Uc8ZEyB080XvXJjY5Yq3Wi3/R74=; b=Icf0/KB2BjDcHRsVCUuLIYAHkM
+	VaHzHXUX/rPe8YSNf1OT/u4O3VnZGr+sl6EEBZ9yxKTGd37Y7C8U1Yfd7N26Zk4R39el9DS1tOmXw
+	jAd4dS7B6gXqSjeBP7GWLYW922MfR6eMLvgZzYF4IQOh42jV9Pwh7wxmnfdUndMI85ivrPnMkUFsz
+	LIbpl8o8UDW2i1l+v3pGSefJwOzCb2uk+QyARafl5mKlYGex57Ig/3AuM+RzbF36Qs5A63mFy299t
+	6c8UIeLDYHdixkJsGsY4NRfUFinuoY5Q5R/32t0GgKCD64Y+LMDj/zgehtJ0RE36GHYOo83TPJclq
+	FABN4mxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgh2F-0000000CHrz-0bRG;
-	Mon, 06 Jul 2026 10:58:47 +0000
-Received: from mail.thorsis.com ([217.92.40.78])
+	id 1wgh6l-0000000CIQz-45X3;
+	Mon, 06 Jul 2026 11:03:27 +0000
+Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgh2B-0000000CHrB-0yI0
+	id 1wgh6g-0000000CIOp-3hbO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:58:45 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1B349148CF67;
-	Mon,  6 Jul 2026 12:58:38 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=thorsis.com; s=dkim;
-	t=1783335520; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=WAhivCzCc5imdzAsAJR6CIv8LmWf45kJCVdZMw3xeVg=;
-	b=Iy5YxAKwatmbE0VSdGw3rI0EtsFCJN+rdqhnBjbwinLR8bwcc8fnTBoisLY8SVhFC47ZNr
-	l6Pq4OHnpGCX02+D4Q/N9LBo2Xz/K337Rjcj+x5Ti+E+wnDbq2VX4aTawC6BXLa7/Ox3xN
-	PnN3zYCzmYQzR+p5br8wmNiv0+1HDtK5S5WpeTFSYDmkY9HXDFMC5cW5fBHgnt2CgIoNQk
-	HED0hk6ZwU3qkTgIUV+oK/PcZAWx61Zuz+n9Zsocff7IGV3f1tvfzE1WvzEr24DXKt/4oc
-	IaAFxblx6Rov+7c8eO0LRWVEPXyKiwjkXYqk6GBrtgQeGlVW4IWz02q0mJLWhg==
-Date: Mon, 6 Jul 2026 12:58:31 +0200
-From: Alexander Dahl <ada@thorsis.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] spi: atmel-quadspi: Simplify probe() with local
- 'dev' variable
-Message-ID: <20260706-plunder-fencing-b9ca15ef05ae@thorsis.com>
-Mail-Followup-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-	Mark Brown <broonie@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	linux-spi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-References: <20260705172737.120095-4-krzysztof.kozlowski@oss.qualcomm.com>
+	Mon, 06 Jul 2026 11:03:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SgaSTTkJv3pWtNwCVnP0ksLwFP5vPNsT5R0khUY51GqUUpCVehSNctlmLiOpzyrV9vjy0JSd2c8RsX1u2WZiCByGADiOm+ILIXEI2KzV1opGDUIVeMKKncbNXun5DzLtQQ+SEH18Sj9CcHq+17VcmmGr4MwLFmIdgJCw0AXMuQY3RwZz7bLNh80XYK5mCk6D40IexXwBe7KTaeldGkpooK4Kue7se7UeCza1uXY96TcCevqeKS9l/9HQJpAQZrUJM7ROZjwxQ6tCegSmZc4N3LjUtcUTGdzjq1wqjsIWMw43uT3zgIua+oLb/Eu343yPIBYCPzJmYCWmxncBiSsX9A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=a+V2WChkzPs4dXc8Uc8ZEyB080XvXJjY5Yq3Wi3/R74=;
+ b=ofUaScI2tLHD2YFCcEeFZjyvXwwHm1Nr7AhznGapTQZEw7JnwkZJuaM65heopEPsOhzecujjVi/IHpUkvCqY2gUvGn5Na8sVj9B7Kj0c8ypJ3xSUEQrjMfLEEp25LkHSejM9w3HKMsRncNEneK8V3mQrUT29Lv5M0uAskGMpod24J5B66srWeBO7eplyU4FYcm8wBO5mdGYTKRLrMW5/IP5gCW02D/ad8sOwbYFy6WqPY/rQGgDidN3MnBapeOF03QvWZ/xXduZL7xB3/H+aRlXHwu7IUn40Lhigy8y9i71LG+oiitEi7Rt3hSnSGI0WXK4idK+DUUNzVg1u18XSMg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gondor.apana.org.au smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=a+V2WChkzPs4dXc8Uc8ZEyB080XvXJjY5Yq3Wi3/R74=;
+ b=d4UEK97lixbjv9031Ls6DEsOqBOSxtAtAtKmw+BjsRY45VZPVgTOqOxYOBx9Q8wESOJpx+lhDJfB2+LMN82KPh5VJpcQ+9rwS/ojEk/oJMn+/NDvtR0EU9nlK6tthClHuUZIGjoTxpW0Y97H+FZh8vwLj0zhFUNI3bjXWNEd7Sg=
+Received: from BLAPR03CA0125.namprd03.prod.outlook.com (2603:10b6:208:32e::10)
+ by IA0PR12MB8225.namprd12.prod.outlook.com (2603:10b6:208:408::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Mon, 6 Jul
+ 2026 11:03:16 +0000
+Received: from MN1PEPF0000F0E5.namprd04.prod.outlook.com
+ (2603:10b6:208:32e:cafe::9c) by BLAPR03CA0125.outlook.office365.com
+ (2603:10b6:208:32e::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.159.19 via Frontend Transport; Mon, 6
+ Jul 2026 11:03:16 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ MN1PEPF0000F0E5.mail.protection.outlook.com (10.167.242.43) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Mon, 6 Jul 2026 11:03:15 +0000
+Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 6 Jul
+ 2026 06:03:15 -0500
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
+ (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.41; Mon, 6 Jul
+ 2026 06:03:15 -0500
+Received: from xhdharshj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.41 via Frontend
+ Transport; Mon, 6 Jul 2026 06:03:13 -0500
+From: Harsh Jain <h.jain@amd.com>
+To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
+	<linux-crypto@vger.kernel.org>, <sarat.chand.savitala@amd.com>,
+	<michal.simek@amd.com>, <linux-arm-kernel@lists.infradead.org>
+CC: Harsh Jain <h.jain@amd.com>
+Subject: [PATCH 1/3] firmware: xilinx: Rephrase documentation of aes API
+Date: Mon, 6 Jul 2026 16:32:52 +0530
+Message-ID: <20260706110254.2427551-2-h.jain@amd.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260706110254.2427551-1-h.jain@amd.com>
+References: <20260706110254.2427551-1-h.jain@amd.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260705172737.120095-4-krzysztof.kozlowski@oss.qualcomm.com>
-User-Agent: Mutt/2.2.13 (2024-03-09)
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E5:EE_|IA0PR12MB8225:EE_
+X-MS-Office365-Filtering-Correlation-Id: 56cb1085-5369-4ed9-2fed-08dedb4e2df4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|36860700016|82310400026|1800799024|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: VKx17OplpEs5jQ9uy8M9KYCrr4fCcW1fO26iRh1N+ufq4fqpn+iLj2G+JBMc+YH3MeMy17gbq4WZqy6IMk9iS+Z2Yq+6KC0I3qqfDLZJJXSDKeb8Clo7beQmVJCzwRBpGmj6Nq0LQsQ8xbSYnGG7LKNCN6T4+lu84cGYVHPYRmjHXzMsKRWJ0fq6GUB7JaoT3+i4gSiHJMfQTYVizaA6ViseAynfZWfJmbHrbyg/qSwx5z9Ud4H7i+73IFZruQhPqu9e55BcKw8gE6a5kgA6V2vdwLxoxmF5k1Cb1gl/uqBu9tgzgj96KnCeq3BleboqrMUBc0POhwMAhpNPInKmh5auhzHkJ3DvvSwEDI/4mBcs2J6LG395P0YEU1fDmwYUrRLsNzBRu3r8omQJ9/DfZNuoab28guD0aaNKfG8DHij5v1tb0esQwjpnLOuDMbyjpHlYbyTGxAe8EciwX9uGH0W9fDma0hVhx2PMqNTrWua7fxXPT6d6vkmv3VW0k6YXo9UQIEtySj+Y1NHS3I7douo9VAEl+SZB3I5Rn8mJn5rsAwrmsZ3U0wz91a0SI5MBs/yqownWe+Ma5Vzs7JCkxd9vaGYK62+zFqgIYI/gJRThHYdlHAGWzAhdZpMMQF7b+hY7POYGe931zGCoFLjBBO1Dwri+2i1rkyLhzTO+GB3EU4kwEtSoX7iK9IdkueQYbL9p3Lw7I3bkBGcbQxwhOA==
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(376014)(36860700016)(82310400026)(1800799024)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: XDGE97Bh+DGjB0v+jdNYjh4dFFQ2EgUOlkkx6Y3PeipHrEtzBqx73s4MyBgnYkq7LZCX2Lj+nCcu1qTVHC5qPY3KJwuGCjwWb0a/3tNwPbVVvo5Hi987X3v0WjQZf64RA1YvfFeYuxVkEqLGVg4RWEHZMzREyf16GZpDDHGCuZ/UX/Ga9NYxnzPiHhNLzzsamc14rx+lRQ+IS3BmMEgd59+RmK9iZoaEX/XJB60raLqp+l0cfqM5nG4d7e1QR3AjwahySACEMpev1K5KMSSIDdFG5GipGOK8Az4tPwNM4hqqEbcDJQ0kL+DICFw9UJNDOugmxpGtWMnbFr06j7IAKwGKo6j06d3m9GPGjnsakZhGnuSqDsIhvRfwqh7tv8zUjzNpAa4X581g44Ks0HR0tuz5ZJ8Yz2vQVP1LeT82+tD06NfkdyqOede5I0v0P2Ki
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 11:03:15.7663
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 56cb1085-5369-4ed9-2fed-08dedb4e2df4
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E5.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8225
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_035843_906250_8CCE89B5 
-X-CRM114-Status: GOOD (  21.53  )
+X-CRM114-CacheID: sfid-20260706_040322_921118_09F974A3 
+X-CRM114-Status: GOOD (  10.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,137 +125,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof,
+Update aes API documentation to remove "+reason" string
 
-I think you missed some.  At least the two outlined below, but maybe
-more which are not part of the lines covered by the patch?
+Signed-off-by: Harsh Jain <h.jain@amd.com>
+---
+ drivers/firmware/xilinx/zynqmp-crypto.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Am Sun, Jul 05, 2026 at 07:27:38PM +0200 schrieb Krzysztof Kozlowski:
-> Instead of multiple '&pdev->dev' dereferences, just use a local 'dev'
-> variable which makes multiple function calls shorter thus easier to
-> follow.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  drivers/spi/atmel-quadspi.c | 37 +++++++++++++++++++------------------
->  1 file changed, 19 insertions(+), 18 deletions(-)
-> 
-> diff --git a/drivers/spi/atmel-quadspi.c b/drivers/spi/atmel-quadspi.c
-> index aaf7f4c46b22..8d9c77f5de43 100644
-> --- a/drivers/spi/atmel-quadspi.c
-> +++ b/drivers/spi/atmel-quadspi.c
-> @@ -1347,20 +1347,21 @@ static const struct atmel_qspi_ops atmel_qspi_sama7g5_ops = {
->  
->  static int atmel_qspi_probe(struct platform_device *pdev)
->  {
-> +	struct device *dev = &pdev->dev;
->  	struct spi_controller *ctrl;
->  	struct atmel_qspi *aq;
->  	struct resource *res;
->  	int irq, err = 0;
->  
-> -	ctrl = devm_spi_alloc_host(&pdev->dev, sizeof(*aq));
-> +	ctrl = devm_spi_alloc_host(dev, sizeof(*aq));
->  	if (!ctrl)
->  		return -ENOMEM;
->  
->  	aq = spi_controller_get_devdata(ctrl);
->  
-> -	aq->caps = of_device_get_match_data(&pdev->dev);
-> +	aq->caps = of_device_get_match_data(dev);
->  	if (!aq->caps) {
-> -		dev_err(&pdev->dev, "Could not retrieve QSPI caps\n");
-> +		dev_err(dev, "Could not retrieve QSPI caps\n");
->  		return -EINVAL;
->  	}
->  
-> @@ -1387,31 +1388,31 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	/* Map the registers */
->  	aq->regs = devm_platform_ioremap_resource_byname(pdev, "qspi_base");
->  	if (IS_ERR(aq->regs))
-> -		return dev_err_probe(&pdev->dev, PTR_ERR(aq->regs),
-> +		return dev_err_probe(dev, PTR_ERR(aq->regs),
->  				     "missing registers\n");
->  
->  	/* Map the AHB memory */
->  	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "qspi_mmap");
-> -	aq->mem = devm_ioremap_resource(&pdev->dev, res);
-> +	aq->mem = devm_ioremap_resource(dev, res);
->  	if (IS_ERR(aq->mem))
-> -		return dev_err_probe(&pdev->dev, PTR_ERR(aq->mem),
-> +		return dev_err_probe(dev, PTR_ERR(aq->mem),
->  				     "missing AHB memory\n");
->  
->  	aq->mmap_size = resource_size(res);
->  	aq->mmap_phys_base = (dma_addr_t)res->start;
->  
->  	/* Get the peripheral clock */
-> -	aq->pclk = devm_clk_get_enabled(&pdev->dev, "pclk");
-> +	aq->pclk = devm_clk_get_enabled(dev, "pclk");
->  	if (IS_ERR(aq->pclk))
-> -		aq->pclk = devm_clk_get_enabled(&pdev->dev, NULL);
-> +		aq->pclk = devm_clk_get_enabled(dev, NULL);
->  
->  	if (IS_ERR(aq->pclk))
-> -		return dev_err_probe(&pdev->dev, PTR_ERR(aq->pclk),
-> +		return dev_err_probe(dev, PTR_ERR(aq->pclk),
->  				     "missing peripheral clock\n");
->  
->  	if (aq->caps->has_qspick) {
->  		/* Get the QSPI system clock */
-> -		aq->qspick = devm_clk_get_enabled(&pdev->dev, "qspick");
-> +		aq->qspick = devm_clk_get_enabled(dev, "qspick");
->  		if (IS_ERR(aq->qspick)) {
->  			dev_err(&pdev->dev, "missing system clock\n");
-
-Here.
-
->  			err = PTR_ERR(aq->qspick);
-> @@ -1420,7 +1421,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  
->  	} else if (aq->caps->has_gclk) {
->  		/* Get the QSPI generic clock */
-> -		aq->gclk = devm_clk_get(&pdev->dev, "gclk");
-> +		aq->gclk = devm_clk_get(dev, "gclk");
->  		if (IS_ERR(aq->gclk)) {
->  			dev_err(&pdev->dev, "missing Generic clock\n");
-
-Here.
-
->  			err = PTR_ERR(aq->gclk);
-> @@ -1439,15 +1440,15 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	if (irq < 0)
->  		return irq;
->  
-> -	err = devm_request_irq(&pdev->dev, irq, atmel_qspi_interrupt,
-> -			       0, dev_name(&pdev->dev), aq);
-> +	err = devm_request_irq(dev, irq, atmel_qspi_interrupt,
-> +			       0, dev_name(dev), aq);
->  	if (err)
->  		return err;
->  
-> -	pm_runtime_set_autosuspend_delay(&pdev->dev, 500);
-> -	pm_runtime_use_autosuspend(&pdev->dev);
-> -	devm_pm_runtime_set_active_enabled(&pdev->dev);
-> -	devm_pm_runtime_get_noresume(&pdev->dev);
-> +	pm_runtime_set_autosuspend_delay(dev, 500);
-> +	pm_runtime_use_autosuspend(dev);
-> +	devm_pm_runtime_set_active_enabled(dev);
-> +	devm_pm_runtime_get_noresume(dev);
->  
->  	err = atmel_qspi_init(aq);
->  	if (err)
-> @@ -1457,7 +1458,7 @@ static int atmel_qspi_probe(struct platform_device *pdev)
->  	if (err)
->  		return err;
->  
-> -	pm_runtime_put_autosuspend(&pdev->dev);
-> +	pm_runtime_put_autosuspend(dev);
->  
->  	return 0;
->  }
-
-Greets
-Alex
+diff --git a/drivers/firmware/xilinx/zynqmp-crypto.c b/drivers/firmware/xilinx/zynqmp-crypto.c
+index f06f1e2f67b8..9ffa14d83377 100644
+--- a/drivers/firmware/xilinx/zynqmp-crypto.c
++++ b/drivers/firmware/xilinx/zynqmp-crypto.c
+@@ -132,7 +132,7 @@ EXPORT_SYMBOL_GPL(versal_pm_aes_key_zero);
+  *
+  * This function provides support to init AES operation.
+  *
+- * Return: Returns status, either success or error+reason
++ * Return: Returns status, either success or error code.
+  */
+ int versal_pm_aes_op_init(const u64 hw_req)
+ {
+@@ -229,7 +229,7 @@ EXPORT_SYMBOL_GPL(versal_pm_aes_dec_final);
+  *
+  * This function initialise AES block.
+  *
+- * Return: Returns status, either success or error+reason
++ * Return: Returns status, either success or error code.
+  */
+ int versal_pm_aes_init(void)
+ {
+-- 
+2.34.1
 
 
