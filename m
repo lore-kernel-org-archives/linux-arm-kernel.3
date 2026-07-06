@@ -4,160 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 486EBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:32:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B944C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 08:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yBMVc7xwfp9NEqn2MR6jLvvNVPYQN2ceK1qG0SilURc=; b=npYZNVaRdYrXf5IrE+TkNweUnS
-	19mx4EnCLiLV4c3IE25qLZfzFmuLOdSS7+ibuAAFvZ8nauSrLRX+MRHomEyEQXVui/XCQDG7yCiFL
-	BYlyp8EFxhpzZwsFOEW/98vbBwgF99y+oR44CmkqaajoPVImi0jSoNBUuAJHqD0sY/2t9FvjgFZ9+
-	QjzcA7RMFU/buvjUU86yFTRAxeI3IgqkdH1FnLu7XyDA1clQkWUB3uSIjM7ZuOH3BhSJlLpYMz+G/
-	YszxNy3WSA1Jo+FZLZHpvjo9uA4e0/cOg2IejEBIaGlWyQwqznEcktCbXuxQiD07dtxYbwD+LurBQ
-	JP7sFRoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:Subject:References:Cc
+	:To:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j/AnyAcUhowlKtvWxukttUWQ+xGkaLupaEueWFpkn0o=; b=spO9PcvUwMWFh3vKeLNLZZh6WN
+	ACT/mht9CYyNSxXOfk6c8YJmC9O5PuGGqbvQCt7ghdXLUwGgR2fAeAtTy0q0RSwScI9Q9OuWEre0/
+	N93Hvrf5fRMoN18mXHClPLKNnFyz7gsnc2KcXEXoYxQ+yhMpW3ks2wB0FQJLex15m1p8W2ZYJtNXZ
+	gMSuSd/0a0Dq1tqVD3GpDdU9v96LgWuL4gIIcMIhQPTx2AwK6WWQjA8Ry5aBf0GOFWUSq3GYIOyy7
+	s77iOSvTcZ2CeAwIZCPB7TJQ5kQ13YzJl+817gqq9ZdWPYGmyhAcsE6COKaI3Vfjk+qeKq/6KR8/z
+	AldWXhgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgek8-0000000BpwC-32YN;
-	Mon, 06 Jul 2026 08:31:56 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wgelV-0000000BqFZ-42aR;
+	Mon, 06 Jul 2026 08:33:21 +0000
+Received: from mail-westeuropeazolkn19013081.outbound.protection.outlook.com ([52.103.33.81] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgek1-0000000BpuN-1sxu
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 08:31:51 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id A83BD75C7E;
-	Mon,  6 Jul 2026 08:31:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783326707; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yBMVc7xwfp9NEqn2MR6jLvvNVPYQN2ceK1qG0SilURc=;
-	b=Y8Pp2bIEJOvqFArQfafXNNlHCuvjUD4s8uc1Pe+piHq3MU/6m3LaJYAjbJ4DSxuo7jWfKt
-	xnVW4/1lnJHBdOeGtDl65a0iOL9LZ2POaTTegnFndfPqKdc4XS2ypOpCzbjtnGGFqoF5qu
-	5Ssr++QxgOKMtPzYPVpUU/3m6Euh4co=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783326707;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yBMVc7xwfp9NEqn2MR6jLvvNVPYQN2ceK1qG0SilURc=;
-	b=6u6uZVkls9RRmtQlb5EVzE7TvU+aIZ6nQTtEX+9yzBdSPezKwGMoFDSQxDmRFXEpyJcqTS
-	YjEW4ePKxA1MXiCQ==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783326707; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yBMVc7xwfp9NEqn2MR6jLvvNVPYQN2ceK1qG0SilURc=;
-	b=Y8Pp2bIEJOvqFArQfafXNNlHCuvjUD4s8uc1Pe+piHq3MU/6m3LaJYAjbJ4DSxuo7jWfKt
-	xnVW4/1lnJHBdOeGtDl65a0iOL9LZ2POaTTegnFndfPqKdc4XS2ypOpCzbjtnGGFqoF5qu
-	5Ssr++QxgOKMtPzYPVpUU/3m6Euh4co=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783326707;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=yBMVc7xwfp9NEqn2MR6jLvvNVPYQN2ceK1qG0SilURc=;
-	b=6u6uZVkls9RRmtQlb5EVzE7TvU+aIZ6nQTtEX+9yzBdSPezKwGMoFDSQxDmRFXEpyJcqTS
-	YjEW4ePKxA1MXiCQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 160F5779AA;
-	Mon,  6 Jul 2026 08:31:47 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 90i2A/NnS2rrMAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 06 Jul 2026 08:31:47 +0000
-Message-ID: <4e35e133-364a-4743-9ca0-f0799bdf28f8@suse.de>
-Date: Mon, 6 Jul 2026 10:31:46 +0200
-MIME-Version: 1.0
+	id 1wgelQ-0000000BqCu-1PX8;
+	Mon, 06 Jul 2026 08:33:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Sf3wMwLO9MYAHJW4o8QO9eLfcHvkWIH0tT3N8IWQ9Q3C5F9wFpmR1kKKhVCDYuIeaD/0oKepbK5GBX2siIDUcIsixdJPAzq/CIsWsEPQI8WuacFfldVODZgYf+4e1jEbrajFr6pq3v+V34N9UYut1dr1UmCHPJiL437namxg5bbGvbt7OLdluJcqQ6+UcU1k4E+Q8fbirwX5Pp0ABoL4+MsBKDFr9gPuzPoBnkRcfqen+A+V1tLH5aefQxEn2lrK98Y3H5gwr8beJY1NUXE1KN1lBhhomUiIf7zbOjkafeF2oaC8KsnL+gXqOrnvqg8AXpOcAl1OSFRyxnZ84rTPZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=j/AnyAcUhowlKtvWxukttUWQ+xGkaLupaEueWFpkn0o=;
+ b=bwZiNxTVupHlN51PJddgvCc8mWiWfarNDsk824+Ik4JuyzTZhdiIQDSyUqY6LNrxv1mceYKXi0YlVYrlLPdYBleNHDm6++Z9oQnrdZSIiXkArsmPEBpJNghcE+SIRUJXOXJZLt+gEgrsHpw7a7pmlbfilXsbCxzrPbMWFaiMwfAtu5eMX7FAsVnAsYddoVJp5fbtrhVXpw7hukgPoCOT0z7ZSzZN8zEKKX1ig1v37p9rfgNc1ZdjugnKI2Rdf4BZwweVc99urfIqfBHlE6bIbnKwEbOhq7fYPDmJpO1BFMlPQ+Dm7dqAjImqDh3XW9gPFInJBGdQzoc/XCE3ncxUog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=j/AnyAcUhowlKtvWxukttUWQ+xGkaLupaEueWFpkn0o=;
+ b=TxvNOlNgawrJ0YwU2UUypGcNi5i8Rtaeqnez6z9v5Km4NaZu78BDiSd5odzV/lp5kGlVaeVhTwuA2dZwNxifI/eLYFJx6rAMcSFq/3dffQ2P01guV40poLf8ORZMc5TEUELhSZLsDDOg9SCGILX++8vZ59FF8nRY1hlDhUrvJzBI2VMBzxbQ5jgtU9bTLtVYdpYEx/iHLjm07FZq1ob2Mxtyt0vf6byqCzxWb1J4WUdQvu1EyBzJCoBBEdjUGQR/hYFqWpG7Lmk3d+0/M87TCvQONcBaji8aGIx6M3slbXI14bebSTWhL0EXs+FouW5/k98HryQ83ZAgfdaDDeD37g==
+Received: from VI0P189MB3687.EURP189.PROD.OUTLOOK.COM (2603:10a6:800:2dc::14)
+ by AM4P189MB3485.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:6d0::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Mon, 6 Jul 2026
+ 08:33:11 +0000
+Received: from VI0P189MB3687.EURP189.PROD.OUTLOOK.COM
+ ([fe80::5271:c467:5d5f:ede6]) by VI0P189MB3687.EURP189.PROD.OUTLOOK.COM
+ ([fe80::5271:c467:5d5f:ede6%6]) with mapi id 15.21.0181.009; Mon, 6 Jul 2026
+ 08:33:11 +0000
+Message-ID: <VI0P189MB368755F862D5D09583250AA3E3F12@VI0P189MB3687.EURP189.PROD.OUTLOOK.COM>
+Date: Mon, 6 Jul 2026 10:33:09 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/9] drm/aspeed: replace struct drm_simple_display_pipe
- with regular atomic helpers
-To: Ze Huang <ze.huang@oss.qualcomm.com>,
- Alexey Brodkin <abrodkin@synopsys.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
- <20260705-drm-simple-kms-removal-v1-2-b4e1ca053623@oss.qualcomm.com>
+To: cristian.ciocaltea@collabora.com
+Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com,
+ andrzej.hajda@intel.com, andy.yan@rock-chips.com, daniels@collabora.com,
+ dave.stevenson@raspberrypi.com, diederik@cknow-tech.com,
+ dmitry.baryshkov@oss.qualcomm.com, dri-devel@lists.freedesktop.org,
+ heiko@sntech.de, hjc@rock-chips.com, jernej.skrabec@gmail.com,
+ jonas@kwiboo.se, kernel-list@raspberrypi.com, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, luca.ceresoli@bootlin.com,
+ maarten.lankhorst@linux.intel.com, maud_spierings@hotmail.com,
+ mcanal@igalia.com, mripard@kernel.org, neil.armstrong@linaro.org,
+ rfoss@kernel.org, simona@ffwll.ch, tzimmermann@suse.de
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+Subject: Re: [PATCH v8 00/39] Add HDMI 2.0 support to DW HDMI QP TX
 Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260705-drm-simple-kms-removal-v1-2-b4e1ca053623@oss.qualcomm.com>
+From: Maud Spierings <maud_spierings@hotmail.com>
+In-Reply-To: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,suse.de:mid,imap1.dmz-prg2.suse.org:helo,qualcomm.com:email]
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4PR10CA0023.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d8::15) To VI0P189MB3687.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:800:2dc::14)
+X-Microsoft-Original-Message-ID: <51ae8587-e735-406f-9394-8c45935c901d@hotmail.com>
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI0P189MB3687:EE_|AM4P189MB3485:EE_
+X-MS-Office365-Filtering-Correlation-Id: e964193b-f75b-4fdb-2520-08dedb3936a2
+X-MS-Exchange-SLBlob-MailProps: ymJijV9pwJmqIFlrpIev1LE8wkolwKKSEFejQRcvs6iXaFysy6S0YOjZWVy8cAf/kbuXkqwMryry8mHfieWh/dofBUJHiueID8E1gbwlap8zdqOULoHnA3sSVPcxxcSMUUx1xclpCAyN+KcIIAGpcmgRQe/fJKbr5MYLjNsps7fz/n8iOdsQKSg4tQoBE4axdrdtS+oi/oGtEofj88Aa2JpwZdtvqzWsSZriYm3m5pmsAqzgfajdCF+TNsZnBfHE5NAjA7jciMwzLy1414SC5LpDd9leJHFoqVI+t2Qj6OqSDxdfNtRaqNsFWIngJKtnIW1D6WdZIN32ps3nAKKEHawaVnOrdwe4SYIAuIUBiwBu67HV9Kgv0QPCKAj6uiNL2yfaLtQdo5KVRwlQtlXLHFPY2juXETzsb7U0bSOsKpsJ98DUHvp/w7wA1trMJhmwuOYm7TwizgexpQKeHfYkQQExXefVwBHDiKG9BwMSPJcRUh2k4cLrlgfvRhH8wx6AQoi0/bYZtqaO0DFDy/ahJhJalF03R+VYo8Ky3jZbzL9Pv1SyGYZF49bArRO9hOAt73FX30Lm1q3tMkg3EJ13Jr9qaFEFVILwC1UKT6CN9hEK8t3118R/GwK0mQlNWMyyEwY9Y4dcCnqSz9vA/nLwDdP0VC9fpzUPpyjHE1vwftUsXx9/ri4AJ/mEIaTZwNvb880EkvEo8IFYJ+VWtM5f/Ft8MMLKKpAIUX9sI9ZGSkhU28kmGEJshlOfGRJSnSqUXZpiZTiHkqpc13prAE1yDnscTq+2LMWbruSYmwdxTbNptnlypkahGZ2vAxYpnk5e
+X-Microsoft-Antispam: BCL:0;ARA:14566002|23021999003|5072599009|4140399003|15080799012|25010399006|24021099003|8060799015|19110799012|6090799003|440099028|4302099013|3412199025|41105399003|10035399007|52005399003|40105399003|1602099012|1710799026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YjBESitabTVhanlzZzZpYkpQdWxhTkJjREJ1YmdFSjdJVWFMSVFqaWwxT1Vm?=
+ =?utf-8?B?VFkxRXMybjdMZjFZdTdiYkFHeWVuV3hlenk5YlI5VHRJam93QmcrNGRzdU9v?=
+ =?utf-8?B?cEVTVFBnU05EQ2dLemdmakVQQWg4NVVpNlVST0ZTWkxxcTExd0JiOW4yT2JR?=
+ =?utf-8?B?bUdrb0ZpNXBJMFlnRVdrQTNWUTd3b0dUK1RsYitXN21LeitBV0xJN3JRODA3?=
+ =?utf-8?B?TFlESVJFb051NlhWNEJjYWRQU3hkcTFTZk1CaTZEVjZzaDRaV1ovWld1YzBY?=
+ =?utf-8?B?UmpXWDVTY3ZPWEVROFJuVDBhV1BqVlZUS2QrZEJ2c2NYbW9rbHN2MGJqSmUw?=
+ =?utf-8?B?RCt5VU9GdTQ4K29tb3V3WVlnWmZaN2ZDRXdiMHh6V1FrUDdaYm9KckliSEt5?=
+ =?utf-8?B?UVN2aHNxUzRYMTMxdllBYnBhSUQyTko3S0ZsSVhxUTBvT0VCTSs4R3I2ZVBC?=
+ =?utf-8?B?MUpJVjRaeXA4cUtTZVRmcEdoMWJRci9rYjcxelRaeWh1NENlc1dzcEhCRDdI?=
+ =?utf-8?B?Y3Y2dnlEN0xyMGE5QmYrd3F0YkplZng5bUx4RGF2UzZrbXZnd3JJQ3E3UDlN?=
+ =?utf-8?B?am1IWitqTjAwakxxV2JrRlJDMXNaZ3lrMEFLZUJuRjR5cXVVaWpzeVl4NmZX?=
+ =?utf-8?B?bWZWQWJqU1QrS2Q4WFJuV2RpaDZ5MVcxeGpKbHNSRVQwSlV2MTdvdWZJV3lW?=
+ =?utf-8?B?a25PUm5DOTU4OThNbEptMndZSXZUU3JEZDVuUVh0TVI5eWw5TEduMEZrQWVo?=
+ =?utf-8?B?OW5GYk1GNUl2RkRXZWlxL3pERVRkdmcwc2JpZzdLMnZ2bk5NWkxZUGx5aGIy?=
+ =?utf-8?B?czlERWw0L0FHRkNHbU5UemRMa0syWkRqN2ZBZ0F0ZXVBOW1Cb0FRREVXZVh3?=
+ =?utf-8?B?czVEb1p6eFA4OWsyN3JDNFh2dDhQSzk3N2VjYU9ONjY1NCtXYkhoc05PWnFs?=
+ =?utf-8?B?cVV2WTdLSlRmVGVIYy8vaW84OXltWjlPNlpiMk5OS0R3eWx2RFYzbExFeHBw?=
+ =?utf-8?B?dVZmN0twaE1iUkQ5MTZSTmZRRHBXY1M2N3ozNVJmZUtHS2hDUWkzdUxpTEhT?=
+ =?utf-8?B?ZS9XL0RJZnZUb2FOdmdhdUs3UGx4T21sMFpvNitTSmlybDhQVjl6ZmNRR0Z0?=
+ =?utf-8?B?cVdOWXVVQWhlNFF4L1pGRlM1L3RLZTlRUHdPUE5hcFVzQitvVTBWZkdqZ2NF?=
+ =?utf-8?B?em4wS2xhemZqZFhjS3hoM0VYT2piNTJ0ZUxiYzErL1B1VUZqUjZPZHpuQkMv?=
+ =?utf-8?B?M1Iyd25kUnJtR2NqNUM1YWxhK2ZmYUhETW13dDYvVTI4NDVicXYrdUp1WEF1?=
+ =?utf-8?B?eTFsbVkvY3E1S2RGYWNpWUt2YWVRWThadFpic3RhaVZ5YnRiSG5VNmsraXly?=
+ =?utf-8?B?MU9PNE9rbWk5T1hVQWRVbGJHdkR0MmZLRU9rcW1YWVlDSVNXa0pydDJuUjZW?=
+ =?utf-8?B?VXYwcGVqMWpJUWR3Rm1Tb2NBN0xyU1N0bjBNVXpzTUQ5VjRJNzl2UG9TK1I2?=
+ =?utf-8?Q?UhKSM5V7oy340K0RbC22g7PUn6w?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MGVoQkYxb3phdi9vdDFiaWdpeS9sZ2d6M2tyaS9nQ2IrWG94bEVuUlVUYUU3?=
+ =?utf-8?B?ZnNnSzJnT1Y2Y0Y5S3FHT1h0c2F6SjM2eWg3MEVMM3RUclN2NlFkeGQxeVcv?=
+ =?utf-8?B?MFcxd255bnZObGJGWkROeWFrSVg3aGVqZDI3TWVxSU1ldnVUYkJ4OVpKbTlO?=
+ =?utf-8?B?Q1U0SEw4djVHdEozVFdZLzQ1UVM3ZWFGL3VyVGVNUk9iei83dlFRMDhKRTl6?=
+ =?utf-8?B?dEs3dmJuRVNKOVRoV2FrM3MrbzhHVXFQUTFIYzhrWGhlMnpxNkNsWjVid21G?=
+ =?utf-8?B?TnNWZlNzMENYM2lBdjZhcTIrSmNmSFhVVWdIMlUyMlZQNjlpS1BCY21HWXNq?=
+ =?utf-8?B?L1pWVzNuVGVlYUgvNHlFbkwyR1pScUNaTjJKaGowWTVFSDIrcEltaFMwR0hB?=
+ =?utf-8?B?L2ZHNW1CTnRWZVNhb2ZsRVc2Mmo3bHg4L1dWY2VIUWFxVXZ0VzVLSFU3S3Ir?=
+ =?utf-8?B?dWRrbC9sQmJGeExzTmtlZkNHMmZtY0pSZmEzWUQ2Y2FuV0F5VmJhWml5OTda?=
+ =?utf-8?B?WnZYR3V0UGxaREx0MmZpTFlkbkZIYmdHMTMzWWNPTlFzWVY5SXg1T1g2TUMv?=
+ =?utf-8?B?aTRYQU83OG1URkhJM2I2ZUQ0cWxmVk56N2ZDSW1LTGhuRFE1amVkb2Zpc014?=
+ =?utf-8?B?cjB6VUN4SGlUdjNtN0NxUll2L1ZTY2pyTjhCNEpLa3pBK0pSYm5uV0llZ2JK?=
+ =?utf-8?B?WHFWL0s2Si9SVXRNSGdBMlN0ajBZcEJVWFJvQXlHL0NLbnJ5UWZtaFNvYnZk?=
+ =?utf-8?B?OVZ5SzhodkR6YWxCRWcwQjQya1BLemVtNy8wZ05EdzFHRDFMWFBHSkErQWhx?=
+ =?utf-8?B?eGhwUDFzMWxvSVRBYmg0S2pmOTI2a2duQTJmVEl6Z0NMSjhOd2REb0FrRkdL?=
+ =?utf-8?B?UWw5RlhVVi9PZk15UDlaYnliaVVERW9Zaktvd25FM2FoMTl3aUJSUTB2bHEy?=
+ =?utf-8?B?enVWNGRDNFVFL0lOTTBuUUg1dkR3eUpEbEdsdmlMZVo0OHB3cUZGNGZ1c29F?=
+ =?utf-8?B?OVN3bXVnU3oxZStSenNzZlllQ1NQbG1jYi9takN5Sjh3NWtnOXZYSHFISjNo?=
+ =?utf-8?B?VXBEZFZvaEVMc2Uwc09MWVRDZUt1dzQydStVV3ZMSGE1VE5TT2hLMFZLc0Fm?=
+ =?utf-8?B?N3BYZG1FN0JORk1pQUsrNEdVeTU4NUpRQm83K0kvWmpHbVZ3MGpTcmFDZlVP?=
+ =?utf-8?B?bm9yc3kwY1ZjbVQ3WUd3NE1WODNKanFJL0Z2Zi9tR0VPWll5NlJGN3YvMzZp?=
+ =?utf-8?B?amUwaWtNcUVNVzlGbWJobnRyV2FjdUZhVEVHMEhvaUs5OHNuSHVKcmtyQ3Vs?=
+ =?utf-8?B?MVpMcXZYOGhUZE9odCtseE56ZlVycm4yWWI4Z3hwZTYyK3p4TXpTR1NHZnN0?=
+ =?utf-8?B?MklKRmxqNjZESjhZZ0JyN29oUlM0cmNFdWZqRW9Lb2FTWXhBVHdYb2hyY1V5?=
+ =?utf-8?B?K2djMkxQT2xEQitFR0wwR0tvNFRpVDlnNW1NWEpOaVJXbnR5Q1gxVG5BK3Zo?=
+ =?utf-8?B?MUVVY0RiNldpS1VOR2JMNDh5VTFWNG1VMGkxa3BnWC9ZV3M5NTh1c0dIM0pt?=
+ =?utf-8?B?VldNUlFvOWZYN2kwLzBoZGxDY0swYTMwdjJLbEgzNlhUUlRNMjJQUGttWTNq?=
+ =?utf-8?B?b1ZWeHlvWGJ6aittMmtvZlAzQXNQTkRJbFB6VEUrSW1WUWRRQ3NrL0VPYkR1?=
+ =?utf-8?B?ejg3bDR3TjduaGpUQzVoTm9ETHdtdDArVjk1a0NTRkQzYU5BS3h4UUlRRFFI?=
+ =?utf-8?B?anNkV1dmd3dnNTR4Ky9KdDdSdVBXc0xGaFpBU3I4ZlNJbmx2T0ZCZ0VKbVR6?=
+ =?utf-8?B?QUJKUHI1YUJMYlM5eTk2eWVUSVVSSUFTWkJXWnVCSEFLd1dxd0F3QzNySFlw?=
+ =?utf-8?B?THVPQjFLc0w5b3M1VXlxd29wY2tEYjJaRUg5WjVnNStSbFUvbmd0elM0cjRj?=
+ =?utf-8?Q?t7o0bDk2tD1J2FijYoR59VJaM62uKyaY?=
+X-OriginatorOrg: sct-15-20-9412-4-msonline-outlook-b25a6.templateTenant
+X-MS-Exchange-CrossTenant-Network-Message-Id: e964193b-f75b-4fdb-2520-08dedb3936a2
+X-MS-Exchange-CrossTenant-AuthSource: VI0P189MB3687.EURP189.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 08:33:11.3285
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM4P189MB3485
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_013150_290765_6517962C 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20260706_013316_386497_380BD831 
+X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,345 +169,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+> Enable HDMI 2.0 display modes (e.g. 4K@60Hz) on the Synopsys DW HDMI QP
+> TX controller, as found in Rockchip RK3576 & RK3588 SoCs, by adding SCDC
+> management for high TMDS clock ratio and scrambling.
+> 
+> Since SCDC state is lost on sink disconnects, the bridge driver needs to
+> trigger a CRTC reset during connector detection.  To support this, the
+> series introduces the connector and bridge scrambling infrastructure
+> (patches 1-8), wires it up through the bridge connector layer with an
+> atomic-aware detect_ctx hook (patches 9-11), then implements the SCDC
+> scrambling feature in the DW HDMI QP bridge driver (patches 12-15).
+> 
+> Patches 16-18 are minor cleanups in the Rockchip platform driver.
+> Patches 19-23 improve HPD handling by deferring IRQ registration until
+> the connector is fully initialized, adding .enable_hpd()/.disable_hpd()
+> PHY ops, and restricting HPD events to the affected connector.
+> 
+> Patches 24-25 convert vc4 HDMI to the common SCDC scrambling helpers as
+> a proof of reuse, replacing the driver-local scrambling implementation.
+> 
+> Patches 26-30 add KUnit tests: connector scrambler validation, a new
+> 4K@60Hz 600MHz EDID, hdmi_state_helper scrambling tests, and EDID
+> conformity fixes for some of the existing test blobs.
+> 
+> This has been tested on the following boards:
+> 
+> * Radxa ROCK 5B (RK3588)
+> * Radxa ROCK 4D (RK3576)
+> * Raspberry Pi 5 Model B Rev 1.1 (BCM2712 D0)
+> 
+> Note that commit d87773de9efe1 ("clocksource/drivers/arm_arch_timer:
+> Default to EL2 virtual timer when running VHE"), introduced in v7.2-rc1,
+> causes Raspberry Pi 5 to hang during boot.  Reverting the commit
+> restores normal boot.  This issue has already been reported in [1];
+> alternatively, the workaround proposed in [2] can be applied.
+> 
+> Regards,
+> Cristian
+> 
+> [1] https://lore.kernel.org/all/ea15cce1-b393-43f6-8d58-3d6f90f0c0cd@samsung.com/
+> [2] https://lore.kernel.org/all/20260619204832.586079-1-dan@reactivated.net/
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 
-common points from my arcgpu review applied here as well. See below for 
-a new other things.
+Tested on an Orangepi 5+ board (rk3588), with a 4k60 tv and a 1440p100 
+monitor.
 
-Am 04.07.26 um 20:31 schrieb Ze Huang:
-> Replace simple display pipe with explicit plane, CRTC and encoder
-> objects. Move callbacks to plane and CRTC helpers, with vblank handling
-> through drm_crtc_funcs.
->
-> This removes intermediate simple-pipe layer and uses standard atomic
-> helper wiring.
->
-> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
-> ---
->   drivers/gpu/drm/aspeed/aspeed_gfx.h      |   5 +-
->   drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c | 156 +++++++++++++++++++++++--------
->   drivers/gpu/drm/aspeed/aspeed_gfx_drv.c  |   3 +-
->   3 files changed, 123 insertions(+), 41 deletions(-)
->
-> diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx.h b/drivers/gpu/drm/aspeed/aspeed_gfx.h
-> index 4e6a442c3886..a34811564c0d 100644
-> --- a/drivers/gpu/drm/aspeed/aspeed_gfx.h
-> +++ b/drivers/gpu/drm/aspeed/aspeed_gfx.h
-> @@ -2,7 +2,6 @@
->   /* Copyright 2018 IBM Corporation */
->   
->   #include <drm/drm_device.h>
-> -#include <drm/drm_simple_kms_helper.h>
->   
->   struct aspeed_gfx {
->   	struct drm_device		drm;
-> @@ -17,7 +16,9 @@ struct aspeed_gfx {
->   	u32				throd_val;
->   	u32				scan_line_max;
->   
-> -	struct drm_simple_display_pipe	pipe;
-> +	struct drm_plane		plane;
-> +	struct drm_crtc			crtc;
-> +	struct drm_encoder		encoder;
->   	struct drm_connector		connector;
->   };
->   #define to_aspeed_gfx(x) container_of(x, struct aspeed_gfx, drm)
-> diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c b/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c
-> index 7877a57b8e26..3294795c31c4 100644
-> --- a/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c
-> +++ b/drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c
-> @@ -5,6 +5,8 @@
->   #include <linux/reset.h>
->   #include <linux/regmap.h>
->   
-> +#include <drm/drm_atomic.h>
-> +#include <drm/drm_atomic_helper.h>
->   #include <drm/drm_device.h>
->   #include <drm/drm_fb_dma_helper.h>
->   #include <drm/drm_fourcc.h>
-> @@ -12,20 +14,13 @@
->   #include <drm/drm_gem_atomic_helper.h>
->   #include <drm/drm_gem_dma_helper.h>
->   #include <drm/drm_panel.h>
-> -#include <drm/drm_simple_kms_helper.h>
->   #include <drm/drm_vblank.h>
->   
->   #include "aspeed_gfx.h"
->   
-> -static struct aspeed_gfx *
-> -drm_pipe_to_aspeed_gfx(struct drm_simple_display_pipe *pipe)
-> -{
-> -	return container_of(pipe, struct aspeed_gfx, pipe);
-> -}
-> -
+To all applicable patches:
 
-Please create a new helper
+Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 
-   struct drm_aspeed_gfx *to_aspeed_gfx(drm_device *drm)
-
-that does the upcast.
-
->   static int aspeed_gfx_set_pixel_fmt(struct aspeed_gfx *priv, u32 *bpp)
->   {
-> -	struct drm_crtc *crtc = &priv->pipe.crtc;
-> +	struct drm_crtc *crtc = &priv->crtc;
->   	struct drm_device *drm = crtc->dev;
->   	const u32 format = crtc->primary->state->fb->format->format;
->   	u32 ctrl1;
-> @@ -79,7 +74,7 @@ static void aspeed_gfx_disable_controller(struct aspeed_gfx *priv)
->   
->   static void aspeed_gfx_crtc_mode_set_nofb(struct aspeed_gfx *priv)
->   {
-> -	struct drm_display_mode *m = &priv->pipe.crtc.state->adjusted_mode;
-> +	struct drm_display_mode *m = &priv->crtc.state->adjusted_mode;
->   	u32 ctrl1, d_offset, t_count, bpp;
->   	int err;
->   
-> @@ -139,33 +134,31 @@ static void aspeed_gfx_crtc_mode_set_nofb(struct aspeed_gfx *priv)
->   	writel(priv->throd_val, priv->base + CRT_THROD);
->   }
->   
-> -static void aspeed_gfx_pipe_enable(struct drm_simple_display_pipe *pipe,
-> -			      struct drm_crtc_state *crtc_state,
-> -			      struct drm_plane_state *plane_state)
-> +static void aspeed_gfx_crtc_helper_atomic_enable(struct drm_crtc *crtc,
-> +						 struct drm_atomic_commit *state)
-
-Please see my comment on arcgpu for the new naming of 'state'.
-
->   {
-> -	struct aspeed_gfx *priv = drm_pipe_to_aspeed_gfx(pipe);
-> -	struct drm_crtc *crtc = &pipe->crtc;
-> +	struct aspeed_gfx *priv = container_of(crtc, struct aspeed_gfx, crtc);
-
-Please use  your helper  to_aspeed_gfx(crtc->dev)  to do the upcast.  
-Here any in other places.
-
->   
->   	aspeed_gfx_crtc_mode_set_nofb(priv);
->   	aspeed_gfx_enable_controller(priv);
->   	drm_crtc_vblank_on(crtc);
->   }
->   
-> -static void aspeed_gfx_pipe_disable(struct drm_simple_display_pipe *pipe)
-> +static void aspeed_gfx_crtc_helper_atomic_disable(struct drm_crtc *crtc,
-> +						  struct drm_atomic_commit *state)
->   {
-> -	struct aspeed_gfx *priv = drm_pipe_to_aspeed_gfx(pipe);
-> -	struct drm_crtc *crtc = &pipe->crtc;
-> +	struct aspeed_gfx *priv = container_of(crtc, struct aspeed_gfx, crtc);
-
-Another upcast issue
-
->   
->   	drm_crtc_vblank_off(crtc);
->   	aspeed_gfx_disable_controller(priv);
->   }
->   
-> -static void aspeed_gfx_pipe_update(struct drm_simple_display_pipe *pipe,
-> -				   struct drm_plane_state *plane_state)
-> +static void aspeed_gfx_plane_helper_atomic_update(struct drm_plane *plane,
-> +						  struct drm_atomic_commit *state)
->   {
-> -	struct aspeed_gfx *priv = drm_pipe_to_aspeed_gfx(pipe);
-> -	struct drm_crtc *crtc = &pipe->crtc;
-> -	struct drm_framebuffer *fb = pipe->plane.state->fb;
-> +	struct aspeed_gfx *priv = container_of(plane, struct aspeed_gfx, plane);
-
-to_aspeed_gfx(plane->dev)
-
-> +	struct drm_crtc *crtc = &priv->crtc;
-> +	struct drm_framebuffer *fb = plane->state->fb;
->   	struct drm_pending_vblank_event *event;
->   	struct drm_gem_dma_object *gem;
->   
-> @@ -190,9 +183,9 @@ static void aspeed_gfx_pipe_update(struct drm_simple_display_pipe *pipe,
->   	writel(gem->dma_addr, priv->base + CRT_ADDR);
->   }
->   
-> -static int aspeed_gfx_enable_vblank(struct drm_simple_display_pipe *pipe)
-> +static int aspeed_gfx_crtc_enable_vblank(struct drm_crtc *crtc)
->   {
-> -	struct aspeed_gfx *priv = drm_pipe_to_aspeed_gfx(pipe);
-> +	struct aspeed_gfx *priv = container_of(crtc, struct aspeed_gfx, crtc);
->   	u32 reg = readl(priv->base + CRT_CTRL1);
->   
->   	/* Clear pending VBLANK IRQ */
-> @@ -204,9 +197,9 @@ static int aspeed_gfx_enable_vblank(struct drm_simple_display_pipe *pipe)
->   	return 0;
->   }
->   
-> -static void aspeed_gfx_disable_vblank(struct drm_simple_display_pipe *pipe)
-> +static void aspeed_gfx_crtc_disable_vblank(struct drm_crtc *crtc)
->   {
-> -	struct aspeed_gfx *priv = drm_pipe_to_aspeed_gfx(pipe);
-> +	struct aspeed_gfx *priv = container_of(crtc, struct aspeed_gfx, crtc);
->   	u32 reg = readl(priv->base + CRT_CTRL1);
->   
->   	reg &= ~CRT_CTRL_VERTICAL_INTR_EN;
-> @@ -216,12 +209,75 @@ static void aspeed_gfx_disable_vblank(struct drm_simple_display_pipe *pipe)
->   	writel(reg | CRT_CTRL_VERTICAL_INTR_STS, priv->base + CRT_CTRL1);
->   }
->   
-> -static const struct drm_simple_display_pipe_funcs aspeed_gfx_funcs = {
-> -	.enable		= aspeed_gfx_pipe_enable,
-> -	.disable	= aspeed_gfx_pipe_disable,
-> -	.update		= aspeed_gfx_pipe_update,
-> -	.enable_vblank	= aspeed_gfx_enable_vblank,
-> -	.disable_vblank	= aspeed_gfx_disable_vblank,
-> +static int aspeed_gfx_plane_helper_atomic_check(struct drm_plane *plane,
-> +						struct drm_atomic_commit *state)
-> +{
-> +	struct drm_plane_state *plane_state = drm_atomic_get_new_plane_state(state, plane);
-> +	struct drm_crtc *crtc = plane_state->crtc;
-> +	struct drm_crtc_state *crtc_state = NULL;
-> +	int ret;
-> +
-> +	if (crtc)
-> +		crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-> +
-> +	ret = drm_atomic_helper_check_plane_state(plane_state, crtc_state,
-> +						  DRM_PLANE_NO_SCALING,
-> +						  DRM_PLANE_NO_SCALING,
-> +						  false, false);
-> +	return ret;
-> +}
-
-Return directly.
-
-> +
-> +static const struct drm_plane_helper_funcs aspeed_gfx_plane_helper_funcs = {
-> +	.prepare_fb	= drm_gem_plane_helper_prepare_fb,
-> +	.atomic_check	= aspeed_gfx_plane_helper_atomic_check,
-> +	.atomic_update	= aspeed_gfx_plane_helper_atomic_update,
-> +};
-> +
-> +static const struct drm_plane_funcs aspeed_gfx_plane_funcs = {
-> +	.update_plane		= drm_atomic_helper_update_plane,
-> +	.disable_plane		= drm_atomic_helper_disable_plane,
-> +	.destroy		= drm_plane_cleanup,
-> +	.reset			= drm_atomic_helper_plane_reset,
-> +	.atomic_duplicate_state	= drm_atomic_helper_plane_duplicate_state,
-> +	.atomic_destroy_state	= drm_atomic_helper_plane_destroy_state,
-> +};
-> +
-> +static int aspeed_gfx_crtc_helper_atomic_check(struct drm_crtc *crtc,
-> +					       struct drm_atomic_commit *state)
-> +{
-> +	struct drm_crtc_state *crtc_state = drm_atomic_get_new_crtc_state(state, crtc);
-> +	int ret;
-> +
-> +	if (!crtc_state->enable)
-> +		goto out;
-> +
-> +	ret = drm_atomic_helper_check_crtc_primary_plane(crtc_state);
-> +	if (ret)
-> +		return ret;
-> +
-> +out:
-> +	return drm_atomic_add_affected_planes(state, crtc);
-> +}
-
-See arcpgu on a possible style improvement.
-
-Best regards
-Thomas
-
-> +
-> +static const struct drm_crtc_helper_funcs aspeed_gfx_crtc_helper_funcs = {
-> +	.atomic_check	= aspeed_gfx_crtc_helper_atomic_check,
-> +	.atomic_enable	= aspeed_gfx_crtc_helper_atomic_enable,
-> +	.atomic_disable	= aspeed_gfx_crtc_helper_atomic_disable,
-> +};
-> +
-> +static const struct drm_crtc_funcs aspeed_gfx_crtc_funcs = {
-> +	.reset			= drm_atomic_helper_crtc_reset,
-> +	.destroy		= drm_crtc_cleanup,
-> +	.set_config		= drm_atomic_helper_set_config,
-> +	.page_flip		= drm_atomic_helper_page_flip,
-> +	.atomic_duplicate_state	= drm_atomic_helper_crtc_duplicate_state,
-> +	.atomic_destroy_state	= drm_atomic_helper_crtc_destroy_state,
-> +	.enable_vblank		= aspeed_gfx_crtc_enable_vblank,
-> +	.disable_vblank		= aspeed_gfx_crtc_disable_vblank,
-> +};
-> +
-> +static const struct drm_encoder_funcs aspeed_gfx_encoder_funcs = {
-> +	.destroy = drm_encoder_cleanup,
->   };
->   
->   static const uint32_t aspeed_gfx_formats[] = {
-> @@ -232,10 +288,36 @@ static const uint32_t aspeed_gfx_formats[] = {
->   int aspeed_gfx_create_pipe(struct drm_device *drm)
->   {
->   	struct aspeed_gfx *priv = to_aspeed_gfx(drm);
-> +	struct drm_plane *plane = &priv->plane;
-> +	struct drm_crtc *crtc = &priv->crtc;
-> +	struct drm_encoder *encoder = &priv->encoder;
-> +	int ret;
-> +
-> +	ret = drm_universal_plane_init(drm, plane, 0,
-> +				       &aspeed_gfx_plane_funcs,
-> +				       aspeed_gfx_formats,
-> +				       ARRAY_SIZE(aspeed_gfx_formats),
-> +				       NULL,
-> +				       DRM_PLANE_TYPE_PRIMARY, NULL);
-> +	if (ret)
-> +		return ret;
-> +	drm_plane_helper_add(plane, &aspeed_gfx_plane_helper_funcs);
-> +
-> +	ret = drm_crtc_init_with_planes(drm, crtc, plane, NULL,
-> +					&aspeed_gfx_crtc_funcs, NULL);
-> +	if (ret)
-> +		return ret;
-> +	drm_crtc_helper_add(crtc, &aspeed_gfx_crtc_helper_funcs);
-> +
-> +	ret = drm_encoder_init(drm, encoder, &aspeed_gfx_encoder_funcs,
-> +			       DRM_MODE_ENCODER_NONE, NULL);
-> +	if (ret)
-> +		return ret;
-> +	encoder->possible_crtcs = drm_crtc_mask(crtc);
-> +
-> +	ret = drm_connector_attach_encoder(&priv->connector, encoder);
-> +	if (ret)
-> +		return ret;
->   
-> -	return drm_simple_display_pipe_init(drm, &priv->pipe, &aspeed_gfx_funcs,
-> -					    aspeed_gfx_formats,
-> -					    ARRAY_SIZE(aspeed_gfx_formats),
-> -					    NULL,
-> -					    &priv->connector);
-> +	return 0;
->   }
-> diff --git a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-> index 46094cca2974..b2d805f0c16d 100644
-> --- a/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-> +++ b/drivers/gpu/drm/aspeed/aspeed_gfx_drv.c
-> @@ -21,7 +21,6 @@
->   #include <drm/drm_gem_framebuffer_helper.h>
->   #include <drm/drm_module.h>
->   #include <drm/drm_probe_helper.h>
-> -#include <drm/drm_simple_kms_helper.h>
->   #include <drm/drm_vblank.h>
->   #include <drm/drm_drv.h>
->   
-> @@ -130,7 +129,7 @@ static irqreturn_t aspeed_gfx_irq_handler(int irq, void *data)
->   	reg = readl(priv->base + CRT_CTRL1);
->   
->   	if (reg & CRT_CTRL_VERTICAL_INTR_STS) {
-> -		drm_crtc_handle_vblank(&priv->pipe.crtc);
-> +		drm_crtc_handle_vblank(&priv->crtc);
->   		writel(reg, priv->base + priv->int_clr_reg);
->   		return IRQ_HANDLED;
->   	}
->
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
-
-
+Kind regards,
+Maud
 
