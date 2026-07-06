@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010A3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38026C44500
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aDo8MoMAOCaiYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=; b=fibKqG9DDt0AFeVSxE7Z0Cnj1q
-	hxQYKldYpPCVRSaSSfJ42N3z8CJgESJyFUzi9QcLwfpk3Yt+KqCn2fO5N5Jgo+YYjn4qt9/y04qNQ
-	8DnT++ZTOeL+x6qsWvP726NdrnInUU7BrAd1kglS1UUO+qFd/++3NmU503xWdF1fMXoPR8sx0BpxL
-	8BEKxcxM92M2F//7BzGD6jMKy1DSRNGcs2gfXXXQZ+UYosON6PQQrDUUbhWbqXmuZxaZntuhbyZRr
-	bf9/vNrkzoOzIg2mc1ebbIhYS7ggEkkg00q0EN8nW44I0dRBJ0YMZyvW5u4jWZqStxNX8/lsPYuyX
-	9XSYicNg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0FrDalQwcquWAJmomCrjMYRMMztrlBrdWqdDN1FmStg=; b=O9goURuR7Sp/jrnvdlmvwJCLrb
+	IMRcQeS5u3AVhZmcot5On6DQXkHD7UQFzL1U1ud6SDxcnCUZ8vPRgOSNEG9nHWSANQcRZtgjsBijo
+	Li+/+eVkOJqAEuKQEQEhlkjQ/M17GT7Nw2vepERrei3Y5HCYCe4miIkMUZpvX2MTvm6xkqXTGCd5G
+	HzcvDWTvHOEU8/JXAf3Cf3tUF2gdLMnue1piGb6Q+cSn0rilRepNFv83K/Eydh1gEVESKveN4LONR
+	Jku/LmVmE3ubXJlWL/F65A+IkUsbHxvzANA0yM6aGxDXTbf+rUndslWEluv28Jy+GEio1p5ho3m1c
+	xIrTUiOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggPO-0000000CB7U-1vIg;
+	id 1wggPO-0000000CB7H-1LRl;
 	Mon, 06 Jul 2026 10:18:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggPI-0000000CB4T-3t6u
+	id 1wggPG-0000000CB42-3tk9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:18:37 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666A3r1S122980
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 10:18:32 GMT
+	Mon, 06 Jul 2026 10:18:36 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6669pb9W237503
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 10:18:30 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=aDo8MoMAOCa
-	iYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=; b=XGMI8M3e4LdeqaHl9ceYdOhSket
-	+h0mjNB3HwKueGnasSlh3QfXzk9ZYYKlH4x2V2VsMlxMImqCSvbBmHF3FCDoFdWM
-	RItxRkWbERwmCVd+IYoGbWssvARDPpG6gKwFRhUNPfMFGDtIHG+jCVvGJbkhrS/G
-	N6oJekey7owg15tHsGqB3VNx0+1kv/JhbqdJ/FZKLepFbOmi8Ur4d5eFBZpPdjh2
-	xYwxwiPYeIdjJQBavV0LQRfHpeZFqzNOMfcAithZ2jzfKgEkJwqnn9qXh6lgNVLD
-	w7a4jJ2sYRA5pm8QyJrRjplZKMI6OYGIVBPYMghw8eKb/6UCRJVFRKAAiYA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a98g1yt-1
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=0FrDalQwcquWAJmomCrjMYRMMztrlBrdWqd
+	DN1FmStg=; b=QVAipDdgnOnegBEWVFPNGDU6Q7ta3zSKVdl6+vvkIxW9v7ejUjw
+	4vGz17FdRz7e8MpY19IaqMwtod9frSMn7IVhc/IsBBzrYFE/qAZO2ZilFcVEQ/Og
+	ARelPn+jVXykqf1f1yCRt+81jL2mH+EiLLRyHIR30bmTBsLX5yzBtlDmG5sAcBdP
+	r3g47USO1fNR5Gni708g19yOQ6UARkggFDfTmPGeLXNmZ6D/fVTId4qZvrzeAhOZ
+	yiGJhGB2jGSz8jaC5lzuEHN0XBko47rnZasEgCKh+ZFSOHnOZC+LWnO2AR6i4+Zz
+	LJ6QJIFOta4N/kWScA1p/7pDjM5ZoIxn0Ww==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8a3r03mq-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:18:32 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-92e82060977so296175885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 03:18:32 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 10:18:29 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-92ea24a2db9so184818385a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 03:18:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783333111; x=1783937911; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aDo8MoMAOCaiYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=;
-        b=RSqKaTpmeoybbtA42boj8BcIngjT2+0Eoe97drxXGIVU+05hVRqJU8q0+xAezN6dVN
-         HnCeZ3ELfHOohIZrvzsYLaUsiVdIxmrp7xi0QXcrB3xmIGVrUnidv/3aYEQEwUSq1tm0
-         NO8kA5DjmhC1UeFOs6wPdhUH1s+AiKI+mAYEQ+UakmmPBzrhd0rI6pHmRJwEqN5hWnfY
-         H9ZszlGXD/Ph+Ka9vuppkz7Weq1T5uKAwdUvspTXf/ONo8GxoI1hBaulztydQfFjuMbz
-         1gIM8gx+ODjiVFVvkiBj4O0PO729bY5NZcnt3qDOMUbV9b4Fy3DJ9Dv1mCdsFmrRsrom
-         NStw==
+        d=oss.qualcomm.com; s=google; t=1783333109; x=1783937909; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0FrDalQwcquWAJmomCrjMYRMMztrlBrdWqdDN1FmStg=;
+        b=Ef4YilSTVKYeouuKk3Gv4YGjxRPeEY4jjudmcIlK+p4sG0DQ26EBXGWyK7XTJHfMND
+         ow/MaZo36hWz69kPZnN2SujH/xr+3GR2o3oUwvpshhdRMpfOWud1AjxatYSLFlCzzMiI
+         b9soTm9syRUEb/VO3wwG16nYRi/iOH4UJ1xXKfNy1I5qsMvAnfuUoZGXLer5f2DldM4Z
+         R0JuqE4k4LXfbeMzQXPLMnnKe7CDIqooAgIaExxwrHq+AydK30sLwRIQiikPBrqMaBbs
+         GVfRl3PgYDMTGzrNNM12b1SLrWajAAQKpZRCuyPLPepbijY9nBfNF2SZwQ/mU3WURTvy
+         QhVQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783333111; x=1783937911;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=aDo8MoMAOCaiYkrWr41kzSL9v9KKD5C6ukY8ewA9HPY=;
-        b=sYHQHYPqFvT9TN+oe9mCkChavOFGSxUd8ppETn+RRfXIiIz6UAW306ufC907DRpQDB
-         0XSCFpnjXYg0uN1cmWix7bhLrXceiLodezu5i06Groig/KVWqXrB/vW/WY9XJuCSFsva
-         ylmjH4/gHsEdS/xQmcKgfj8L2TqXYdUklF6SQ3SgUcXxzQDeg8Mj4PmRPV5Qpphra6Tt
-         /Cwrzqwtq1fnIiD8po0WeY13oYhEEy+XSXvCcQVY0ARdc3CNzqCytIa3WYvNVMzsu+WK
-         Fmypf+lFJTuH5bSVdf1lHaqCzLaqC9YEXOGgj5msPwJrEzj1dn+Wikb7FhZ0T0xqYOOU
-         tZ7A==
-X-Forwarded-Encrypted: i=1; AHgh+RoVM82Ox5qUTj0kYCyXIkVGu2e/WJ9Wf6poCclbfsRpgQSbB4WCcP7z2MyxwMQs9k9N4lZFaTq5dVwZATq3wMa5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzZJwx4/uiYamejzqeEjhdIn8EnzsDYMwCIuCOG9JvMJJczHYq
-	oeT0hYGHuTIvlUQUCuxn/nvtE9a6hJM69weqmTvDln67jsnaKsIiPQGB4Ar768tDaL3H9wnvXum
-	MceK/KCEe60HS3L+CTQYp9gNacPTsPHPtath9JPbm0fEl5xbWu9QfVIlQPgvC7KzEBQf20bzGat
-	L1eA==
-X-Gm-Gg: AfdE7cl2VHYRh7H4KiTHm9pViiyPHqUbEtlWMTvYIrSuwauYj3ZKvgaO1pIHWmc0Sk5
-	upVGhpZpf4LBy16H6pUTfgUeQuloHS6rp8kHeaQpolzDXyO5aTlWjO4JsvvJD01Wbz1JXwqE7Ys
-	qUeweXbLzEzrDXdyU54dOo4T7ApmZK+93Ichr5vC7F75Ph1P0xaXQwhQpLdsUb7qMaRJ/Z7iLjh
-	pG5ZrNItX/RoCxhjxlFcVU4nQ6+kP/e0kSMzBgiD2/rSWQWQz3F5qKVEPOwVRdMBTWDPaFJcCUy
-	l6bCyOU+1iYUfLVUnaWoblWy4oegoJn/npu+DwjL6KlfUHr8709dk3kswXTGCsTZTo/+e/jdhrz
-	cfuyqg6R37tQ0OeL5ZDd8e6/EFPk=
-X-Received: by 2002:a05:620a:4515:b0:914:bfca:7d12 with SMTP id af79cd13be357-92e8b25e823mr1742914885a.5.1783333111410;
-        Mon, 06 Jul 2026 03:18:31 -0700 (PDT)
-X-Received: by 2002:a05:620a:4515:b0:914:bfca:7d12 with SMTP id af79cd13be357-92e8b25e823mr1742910985a.5.1783333110963;
-        Mon, 06 Jul 2026 03:18:30 -0700 (PDT)
+        d=1e100.net; s=20251104; t=1783333109; x=1783937909;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0FrDalQwcquWAJmomCrjMYRMMztrlBrdWqdDN1FmStg=;
+        b=RjpKK8ha7GyDNpJgYjO8Jr2RcfZTLXBAWcfDV4hanQQp6o+hV6W3euKIRMLVWNgOdW
+         s1JItLOzMrS0LlUWXfH41W360jFkwkCwN2mrwHN7084mUQwl3SmUii/p5oO7rA1cfQ99
+         L6zjSLw/T7Nyi9KMiTTqWbxknrLXfxeBQx2tu5NWg0qg/NLFaeV9nJkwkMrZSaWxZC/r
+         cNqVX25tcEDvorCn+MNmkJQAQCzm9uQ+WPf2cneRwlK2Nsyk2JzjmCLqO0LNBqUTAQwi
+         7QFwkXrgMXs+5vWaFYZiDZnGHGVWxjpdANnOjcxmUyaelaIhj4UCb+jqaEkrDR0XvyIB
+         Jh4A==
+X-Forwarded-Encrypted: i=1; AHgh+RrqJIL/058x2HwvvFoV2zsJ2ZV9oJb8lk3SZsXfWUqXAWrzTEaPdODMQd2hB4amT3U/aA6PcKHJBgF2vU76S3HP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb6GUrO+mNEz4T32Zox5vNemd8gX2tGk8qNoKW3nCV4D6v+yKH
+	MEeHp0w0SulDODMRF03M2Vx3Y8DRHg5JkkEOXm32BI53faCNjFMczjw21n5Hy0sOWci8MaeGiNh
+	emwnO8DHaiz/TaM8YzIwsMqQWVVVSaU+byuEPGnFCObepj5qwatAQU8Lbu45JcOKWfjClFHhdxM
+	SP+w==
+X-Gm-Gg: AfdE7clI9YrdAUSOPWB2usJSJwW/imJvPOHuuBSZMdXAp/hAux1Hj0rT/gB0FF92vWi
+	hf82yomVudwuIkB1chuKZiaYX+wju3Cy0yA1rkXfBqUm5UxhpFQWVuifBlu6VTvgu1qYtMOoduS
+	QQOA6xqlsx1HNH4PZTuUl43tpW4IFfzKtt/OMee/6JN5H7UIY1J4gamHuH0L9uzYCKOyY3bmxLV
+	2mPknOE+vaBVOgEcYbCK4vyr4NGfTRCV91wwkDBm4RI3PiTe56rthrLAhlQu5q7HBwd8RVAaogf
+	cwkndwJ4T8mdzWth2c3sueBDUptp6/hyfR0xs6DhRL9golGsDBYyCf73FwfKHf4MHlQe9NehD2O
+	LiIdGKjJu44fZyoGvsvthsAfHVhU=
+X-Received: by 2002:a05:620a:17a0:b0:92b:7420:bd5c with SMTP id af79cd13be357-92e9a34978amr1349009185a.5.1783333109266;
+        Mon, 06 Jul 2026 03:18:29 -0700 (PDT)
+X-Received: by 2002:a05:620a:17a0:b0:92b:7420:bd5c with SMTP id af79cd13be357-92e9a34978amr1349007085a.5.1783333108852;
+        Mon, 06 Jul 2026 03:18:28 -0700 (PDT)
 Received: from quoll ([178.197.223.174])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039bcdasm24350402f8f.21.2026.07.06.03.18.29
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-47aa039bcdasm24350402f8f.21.2026.07.06.03.18.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 03:18:30 -0700 (PDT)
+        Mon, 06 Jul 2026 03:18:28 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 To: Viresh Kumar <vireshk@kernel.org>, Rob Herring <robh@kernel.org>,
         Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -95,57 +94,55 @@ To: Viresh Kumar <vireshk@kernel.org>, Rob Herring <robh@kernel.org>,
         linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 2/2] ARM: dts: st: ste: Correct indentation
-Date: Mon,  6 Jul 2026 12:18:25 +0200
-Message-ID: <20260706101823.341230-4-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 1/2] ARM: dts: st: spear: Correct indentation
+Date: Mon,  6 Jul 2026 12:18:24 +0200
+Message-ID: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260706101823.341230-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4345; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=J8fceL42EKDgvezoHCZX2Tw8NeF3KSJd25+8oOQeLGI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqS4Dw2EQXufGRpxmk5Rid8ltVbS+lkrBjNViET
- 5KJPgUjwJ2JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCakuA8AAKCRDBN2bmhouD
- 12yzD/9SExFX4onHKFPfLA2LoB8/Wmf/a4TbrVGowWDUpYIEAW7kjaLY5UE5bwnLJ10Ts71c8Xt
- NhoixDDypxaKj9292THd1+wjz+ObgyF+v4sispqlf09zNod65LSjwtmyqeUHOQiqaEagEVcdKdq
- RFmbshpoNYzXAdykDP1ic999xNf4FSsBjhhftj43fIvcXOJpsJjXV02Zcrh3vMKOYbsicQqtPfm
- zV2wlQBoSQeOSyCEGYyrSi3ajC5k4OrSLm1MwCt9G0RdSf4jV43fEQFXCpjCx/leZlYbEjmXIq3
- rFDsxk87DZHu06J1KokFnhfE608C0/dYhtVU+4y8N4bD2B3diusPwoZlTP+GdWKuxs4jH05iI3V
- Jw+bQQT7DoWRaTqsGhqhCyyO8Mmq72iyIwXXr/PdSy47b8WxgemCN8N8lq6e0Dv/Ttecuq5Kl4+
- zS2XVQOt/i7K9nA7kbt4cSY5XSCoaIxwHlZziByCygpunhWczLXROG45OglIlu3ihl4Q6/hj6+y
- 5ZeGCTXJbGa+ydGZ/j6wLhErFaXKQ87Z1uISvqqxZPiPmt4MphL67A++UQDODn/ce2voCtSGJP2
- NqvtDdpXNKInXwlJ4DFd6Zzqci9Tfs/OC36P1C3rFzoculNd1+TeB9wLCgEvW5VhjOxCAf58vqi IHiBC3T5YlH31kA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1358; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=nff7ht1yXQQDMNVSlXjX5TIDnXVQzTUA7YgPGwIziis=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqS4DvDRsgTbbK816wZrc6DJ9az0YAYQwCYh5MQ
+ K8yDMBfIsaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCakuA7wAKCRDBN2bmhouD
+ 16wxD/wNLAnDh7ULEKoI6+hQ3BIQw34nWRVPCv/Uh3YRBQM7E9DAeheYRgAW6UfHMvhggU289H/
+ 4OyfK4/9ZteddRjb1KS9hGH1d5y3yPnd5H5yGz+OzxnMeW2m3LTBvfk4YeKzO0fY1R1krRx5lN+
+ gY1omWSpohSrIwRNvtxrnujAXgGENqPpXQ3sxqF+y0Lc+8wGVBpFtDsFxVcBd8nE9vf0yvm3DBn
+ iFqgxTQkPWObGZelOTCkqAUn/14d3Dn/F22SkONfnwQk+Uc5mNxfJokrIZKT/P3tTyu9Ef13orr
+ G4+k2vv8SyDUnoZRStdOyCSGHAvNxpKM7PUn1OupYPzVFecjm4YBk4gisqnjzpfharWQT8H+I2L
+ Sk+cJGVrDYf/8OVHYqfgSrNHcJpQPrPpRUalqN+AOaGEoUJLKHlGWe4YimYT4q+oYonaJqYN6iK
+ SnK/uWIPWbeE9hqrMGDG1mHJD8C2gYHvJAdGwNMusEh4rRAfXET08Axjo9LOKwuR939xFukA2NV
+ Uy+wLKmJ6SS3nkriHxkVHP8pIvrw8ybCW8Eg6O6MVCprQdkdZVBdw1WmY59UlTcWK9iwoZ9ZyaM
+ ZcE9/Eb3X086yMd6ByGJAavOqSn00qwoc3gMId/9xBO8DP4TGU9d1WYgv+G7RVe41MRlqbRayzK EOZtdWWNVELW9ig==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=SpigLvO0 c=1 sm=1 tr=0 ts=6a4b80f8 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX2UXI3KYPt/Tf
+ K58drFaHqwH2FEUo1IsdWihydMX8tBCvTgOsMusy6hD04nSkhc3ckYoNftk6gm0KcyqEYNg5lNF
+ QRyB7KvMEV9YfX3HPdMvfTYe73fx3hzQU6H3h6/zHI87McA5MGkNKdJTAy/SgwTVMORTB1oK5m/
+ Sbh8/l0deT+E422QtwTPWRIU3nL8VZ9U55mJ59UlAS2u/Tu0CFIoOBgpOeWM37rkdRHUTy0VO6E
+ XeVVCLdkP4dw/w8oHUoruHbfsDdxuMFdixTj6tcHrSIV5uYY1goIsbfTWz22VkjCpkcrGTENoTM
+ TmEzZkXqvMQVYr9FwP2dgP10CArIv1MoZevKNdywzVYdO8bKyK8gZjBWPM1D/DV4XiHXeSqleXc
+ jnpC5Ca3Xd/gvRbo8ZeH/9BFmorlewonjXaG2EURZhO+2UIJulm55GILw6ZIBgyutWyzAuBrm0e
+ FaXon0WmJg6J6mTyu8w==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX0V23dCAc2by5
+ FL8+18Jl5wwZD3lCXyR/+TsoNzA1DcdFznKU68+N+CqWFDCLWOwBLGNRLBYZ7/3jvbg0pzBS8cm
+ Cjb5QOnko/Xum/Om6WuxxmsnIluwwzc=
+X-Proofpoint-GUID: G8gXgkILfcB_Y2M_koOBSSgleLCKxqKk
+X-Proofpoint-ORIG-GUID: G8gXgkILfcB_Y2M_koOBSSgleLCKxqKk
+X-Authority-Analysis: v=2.4 cv=OKcXGyaB c=1 sm=1 tr=0 ts=6a4b80f5 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
  a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22 a=EUspDBNiAAAA:8
- a=muePWa0SRqB7cAwnof0A:9 a=bTQJ7kPSJx9SKPbeHEYW:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX1AU1nizoF65I
- nbUmDoHGGKyLB9b8LXhoHwoFStbK/IKhDZyZYAsOFF8UHdTvYXdV2ey15jwj1F/nEXBvQkySTPc
- xC1/0b6qtbmS1cDh2f+klFN/HLL0ztKAGxq2qeHSzkjJEie19SowRZUA1PKdLEuUnXhg2qi6Chv
- HjVupi5kFHqaZL4TtbEXDMxMUPSAzHVgfRnWUDCjjq4scBl9nRbLbMOW1jhA3ExVk1+DwhdWy/N
- oz8dHP1E8vQW46Z/grLM9kELC4x2sXfWaz2/OaXydrG9WPY0FB8VWkNRJdcWmuk/Rkbp1HPgluA
- PC5NsaXsDjvsTOHoSUYVIVb/4QVkoRuF+C27AuCPFFlpcS/EwnHhE/BdhqPhobDzxuiYwpR7yEC
- 36Hm6NUfUz2oeGAt0F0v6M6QnewzxiH/0dkBvxO8a2VQriYUIHTLgHtcFqFignbKir65jdnxlaY
- MWiutziFVkMuC+LMb5Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEwNCBTYWx0ZWRfX0BX22tIvKill
- eyj7xWMBG4nSWskc53noF61fJoDMVykTcH7QjKqQ8SJIPMOx0wTT51KMK/FWGikPMj3hrwqRSfI
- 45hn0LVlG+Vvts0yZXGfujtPD4XwsQs=
-X-Proofpoint-GUID: mAssbeiE71-pqdVoYObnZ0rw8pq_V1Du
-X-Proofpoint-ORIG-GUID: mAssbeiE71-pqdVoYObnZ0rw8pq_V1Du
+ a=u7WPNUs3qKkmUXheDGA7:22 a=3WHJM1ZQz_JShphwDgj5:22 a=EUspDBNiAAAA:8
+ a=52rqv5wQVAuTtBApVRAA:9 a=IoWCM6iH3mJn3m4BftBB:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
  definitions=2026-07-06_01,2026-07-03_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 priorityscore=1501 spamscore=0 clxscore=1015 phishscore=0
- bulkscore=0 adultscore=0 suspectscore=0 impostorscore=0 lowpriorityscore=0
+ lowpriorityscore=0 adultscore=0 malwarescore=0 clxscore=1015 suspectscore=0
+ spamscore=0 phishscore=0 priorityscore=1501 impostorscore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_031832_995579_59620D53 
-X-CRM114-Status: GOOD (  15.09  )
+X-CRM114-CacheID: sfid-20260706_031832_746931_ECF34BC0 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,106 +166,36 @@ Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Ongoing bigger work for all bindings and DTS with built-in checker (dt-check-style).
 ---
- arch/arm/boot/dts/st/ste-dbx5x0.dtsi              | 2 +-
- arch/arm/boot/dts/st/ste-href.dtsi                | 2 +-
- arch/arm/boot/dts/st/ste-snowball.dts             | 2 +-
- arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts | 2 +-
- arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts | 2 +-
- arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts   | 2 +-
- arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts | 2 +-
- 7 files changed, 7 insertions(+), 7 deletions(-)
+ arch/arm/boot/dts/st/spear1340-evb.dts | 2 +-
+ arch/arm/boot/dts/st/spear320.dtsi     | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-index 0f87abeddc33..25a20fafc6b9 100644
---- a/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-+++ b/arch/arm/boot/dts/st/ste-dbx5x0.dtsi
-@@ -1119,7 +1119,7 @@ msp2: msp@80117000 {
+diff --git a/arch/arm/boot/dts/st/spear1340-evb.dts b/arch/arm/boot/dts/st/spear1340-evb.dts
+index 9e7c356b1d9e..133015a5dd46 100644
+--- a/arch/arm/boot/dts/st/spear1340-evb.dts
++++ b/arch/arm/boot/dts/st/spear1340-evb.dts
+@@ -259,7 +259,7 @@ sound {
+ 			stream_name = "spdif-cap", "spdif-play", "i2s-play", "i2s-cap";
+ 			dai_name = "spdifin-pcm", "spdifout-pcm", "i2s0-pcm", "i2s1-pcm";
+ 			nr_controllers = <4>;
+-		        status = "okay";
++			status = "okay";
+ 		};
  
- 			dmas = <&dma 14 0 0x12>, /* Logical  - DevToMem - HighPrio */
- 			       <&dma 14 1 0x19>; /* Physical Chan 1 - MemToDev
--                                                    HighPrio - Fixed */
-+						    HighPrio - Fixed */
- 			dma-names = "rx", "tx";
+ 		spdif0: spdif-in@d0100000 {
+diff --git a/arch/arm/boot/dts/st/spear320.dtsi b/arch/arm/boot/dts/st/spear320.dtsi
+index 56f141297ea3..cbf494419f43 100644
+--- a/arch/arm/boot/dts/st/spear320.dtsi
++++ b/arch/arm/boot/dts/st/spear320.dtsi
+@@ -82,7 +82,7 @@ pwm: pwm@a8000000 {
+ 			reg = <0xa8000000 0x1000>;
+ 			#pwm-cells = <2>;
+ 			status = "disabled";
+-                };
++		};
  
- 			clocks = <&prcc_kclk 2 3>, <&prcc_pclk 2 5>;
-diff --git a/arch/arm/boot/dts/st/ste-href.dtsi b/arch/arm/boot/dts/st/ste-href.dtsi
-index fbf0309e108f..a85d87665610 100644
---- a/arch/arm/boot/dts/st/ste-href.dtsi
-+++ b/arch/arm/boot/dts/st/ste-href.dtsi
-@@ -207,7 +207,7 @@ mmc@80005000 {
- 		// On-board eMMC
- 		mmc@80114000 {
- 			arm,primecell-periphid = <0x10480180>;
--		        max-frequency = <100000000>;
-+			max-frequency = <100000000>;
- 			bus-width = <8>;
- 			cap-mmc-highspeed;
- 			non-removable;
-diff --git a/arch/arm/boot/dts/st/ste-snowball.dts b/arch/arm/boot/dts/st/ste-snowball.dts
-index 1322abfc7acf..14ed1079ff6c 100644
---- a/arch/arm/boot/dts/st/ste-snowball.dts
-+++ b/arch/arm/boot/dts/st/ste-snowball.dts
-@@ -295,7 +295,7 @@ mmc@80005000 {
- 		// On-board eMMC
- 		mmc@80114000 {
- 			arm,primecell-periphid = <0x10480180>;
--		        max-frequency = <100000000>;
-+			max-frequency = <100000000>;
- 			bus-width = <8>;
- 			cap-mmc-highspeed;
- 			no-sdio;
-diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts
-index ad9a20ccaaeb..0c3eef7a294a 100644
---- a/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts
-+++ b/arch/arm/boot/dts/st/ste-ux500-samsung-gavini.dts
-@@ -402,7 +402,7 @@ wifi@1 {
- 		/* eMMC */
- 		mmc@80005000 {
- 			arm,primecell-periphid = <0x10480180>;
--		        max-frequency = <50000000>;
-+			max-frequency = <50000000>;
- 			bus-width = <8>;
- 			non-removable;
- 			cap-mmc-highspeed;
-diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
-index 64562a3a262c..18fb7263058e 100644
---- a/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
-+++ b/arch/arm/boot/dts/st/ste-ux500-samsung-janice.dts
-@@ -452,7 +452,7 @@ wifi@1 {
- 		/* eMMC */
- 		mmc@80005000 {
- 			arm,primecell-periphid = <0x10480180>;
--		        max-frequency = <50000000>;
-+			max-frequency = <50000000>;
- 			bus-width = <8>;
- 			non-removable;
- 			cap-mmc-highspeed;
-diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts
-index cdb147dcc1db..c34d43a2b750 100644
---- a/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts
-+++ b/arch/arm/boot/dts/st/ste-ux500-samsung-kyle.dts
-@@ -274,7 +274,7 @@ wifi@1 {
- 		 */
- 		mmc@80005000 {
- 			arm,primecell-periphid = <0x10480180>;
--		        max-frequency = <100000000>;
-+			max-frequency = <100000000>;
- 			bus-width = <8>;
- 			non-removable;
- 			cap-mmc-highspeed;
-diff --git a/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts b/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts
-index 064d6fee8821..7bf4287f6e13 100644
---- a/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts
-+++ b/arch/arm/boot/dts/st/ste-ux500-samsung-skomer.dts
-@@ -253,7 +253,7 @@ wifi@1 {
- 		 */
- 		mmc@80005000 {
- 			arm,primecell-periphid = <0x10480180>;
--		        max-frequency = <100000000>;
-+			max-frequency = <100000000>;
- 			bus-width = <8>;
- 			non-removable;
- 			cap-mmc-highspeed;
+ 		apb {
+ 			#address-cells = <1>;
 -- 
 2.53.0
 
