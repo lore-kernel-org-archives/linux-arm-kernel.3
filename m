@@ -4,166 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 019F7C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4D7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXdWuYMihFfyM6n9U4ZrutHAClkmiLeG9CAjyKKoBTM=; b=FpyZHAeGYRX2d5ndOGbB77F1NJ
-	2pdZgom0IaWYlLjrZFm3CXh/vNCtR8K1cIW9arqMwDHInMXHLDstvO+xIwotzeVcMkiEwCkZqhXR0
-	cLiOKPfuDCB0YYnhb9D33yUNgFNkNlin1WzOlJm1DvxVGyAAdbKmcaUs6MhvBpHdwhAQ7ivA7Wk7Y
-	6YQ0NwDyPDmGhXG2KHhe3XtWFxVK0Mq0gjOEzLsgUkNtpiMT9PgsWmGs5DXwRoyn+aIXfnIUQftT7
-	t39A0oyvW7xIEuBKitzlXHAUO3++7/pklwO/blCwz8WYsjYBKRca07muhTK2KAb26y5IgNt3AzQL5
-	3RZ4cZzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EzXpYPV0PFB6TX9ZDcqY7ctXsxYzZyik5uIt1kgj5dk=; b=AXgvj4ZhNYoATXgj6d5czWaQfJ
+	CV8kpo7NbA2Te/z0NCmaQ9Di/rxE6PySa/8+McB7iWpbvsTWJJI9LSGxhcqUeFgHezRmZmni6crHw
+	qPjlg4zJ+DIz1CDSvUPQoaEZm0izjRuFyB/ZjojDkwZpNO3C0VQ9ucwBwTx02OowKHvHzGxIHpdvB
+	RBg10e4VknivnlafgovNF+D1PF9wQ4d7WKEIlF2VUxboKgSAmgakYDRpWAPzYi3+Dq3G6fj2NmX+K
+	VhyOwmeM37i+pl2N+2Fv1kSrHEt27LK5VB36F0ZtwZKS1IBPTkpkcjWRh485ggCCblmri8BQ9aeY+
+	+LwY1UKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfD9-0000000BxQ8-3371;
-	Mon, 06 Jul 2026 09:01:55 +0000
-Received: from mx0b-001ae601.pphosted.com ([67.231.152.168])
+	id 1wgfF2-0000000Bxhq-077Z;
+	Mon, 06 Jul 2026 09:03:52 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfD7-0000000BxPj-1OTT;
-	Mon, 06 Jul 2026 09:01:54 +0000
-Received: from pps.filterd (m0077474.ppops.net [127.0.0.1])
-	by mx0b-001ae601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6666TAOj1108462;
-	Mon, 6 Jul 2026 04:01:34 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cirrus.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=PODMain02222019; bh=yXdWuYMihFfyM6n9U4
-	ZrutHAClkmiLeG9CAjyKKoBTM=; b=blVBZCCdRpkqzGFictHe3cAZzlDaSJUG/g
-	eKD3BNBjaTgmg6+cWriispq8BkJcaCQsXU7xYkdrJT098KjPOiXy6JRJ1MDwviCT
-	pQ5Ow+pPtMl7vwsgZp7wQM6F2mt7UjyfR8VEixfyMMGWYdyU5PijfnI/iMijCwJw
-	07+tmfSkrrQjzmAFYf2wS/CTY/Vn6CuVBZ1+rQYeBjAMaF17ELYvfFva4C+qgDZG
-	OWrOHWC6zu0NZPix3MNghhQKXAH7Ssac7Urq9lgmWyfO0dHqI2vUOJnZIR1lhl9k
-	jzVwU+OorrmYPujKG0RbDA9Ds67DXAX7iTW6h1CjBG1G+kAFS0jw==
-Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11020126.outbound.protection.outlook.com [52.101.61.126])
-	by mx0b-001ae601.pphosted.com (PPS) with ESMTPS id 4f6xkjj34t-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 04:01:34 -0500 (CDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LQzjMS8y/hTCz0GjCmE/BtlOoSwvJ8oL8YxpgNfRgxMG+jChvd00/I9CRUcl7VzHAV+VMrjeNw/8KjnvUWF39ZVDh0wv4VSULgGZncywPzzrSWEoG+dC7/xWsvQJEstawjFKRjca4Bru28nPv7YI8sXql+TWJYvVNZnonjKEbZ6wLmTc2nmXr/2/6xfLnBoNCrIh8bENSw0DuN9gc2cfrvRXOlnhsNSrwejK//vEXfLlVYZfNZKpkgLMRpHrCsM6C7KZZcn1R3Juaut7mYxNOMpJrpxWlADVZ0lJi/Ay6Hp6PHT8SgEqX91ciDGgr3vvLCRivnlrq1yqpMAu5lqj+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yXdWuYMihFfyM6n9U4ZrutHAClkmiLeG9CAjyKKoBTM=;
- b=e4Pr5ukptq0sTI3AIYVJGU+wlzroJu2XUYb/LlGSX6KloZBiXKVvfxDL4NWcLv3U4Nj9wdwVHjd8R5VXQwja/syCOpVwA450fuqi5KjZwUAzVWfj1sf2DHw02Yzk/d9IVVHq9XewKCTTVp/1pT7/knQVFQa+CU/X/nGH9bs365H+CI665/LSGYhL9EoXElpRLrYXvKFs3+9pU+zirq+KhJImtOLx/6e5ZLpB+gnqhzbbLLE1aqBjppMmg/vk1JFFUfWFiv5gRunCbG75B7DZqfdpwpyfnlPc9oW687+PUVXW4MRD6BynkOrJgj1qY1Uqt8CCnxbZ1log2F/XgFtkOg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 84.19.233.75) smtp.rcpttodomain=alpha.franken.de
- smtp.mailfrom=opensource.cirrus.com; dmarc=fail (p=reject sp=reject pct=100)
- action=oreject header.from=opensource.cirrus.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=cirrus4.onmicrosoft.com; s=selector2-cirrus4-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yXdWuYMihFfyM6n9U4ZrutHAClkmiLeG9CAjyKKoBTM=;
- b=FhBHBkoofEHKXrRLF3tXzRjKuqv7+xEzdY/EKQJoPONbzBYUVnnhczc8NhP/7DUjfIb9XgQCokLp+v1bY6sS8P0OMNviv4q08W8Zi+q4V1Pn/Ef6NRb1OrsSbsJ8J/akNTgI5AVtoa0BhXgI0RsjF+fpd/ybGB3VlTbByKRoMa8=
-Received: from SJ0PR13CA0193.namprd13.prod.outlook.com (2603:10b6:a03:2c3::18)
- by SA0PR19MB4523.namprd19.prod.outlook.com (2603:10b6:806:ba::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
- 2026 09:01:31 +0000
-Received: from CO1PEPF00012E63.namprd05.prod.outlook.com
- (2603:10b6:a03:2c3:cafe::19) by SJ0PR13CA0193.outlook.office365.com
- (2603:10b6:a03:2c3::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Mon, 6
- Jul 2026 09:01:31 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 84.19.233.75)
- smtp.mailfrom=opensource.cirrus.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=oreject header.from=opensource.cirrus.com;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- opensource.cirrus.com discourages use of 84.19.233.75 as permitted sender)
-Received: from edirelay1.ad.cirrus.com (84.19.233.75) by
- CO1PEPF00012E63.mail.protection.outlook.com (10.167.249.72) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.6
- via Frontend Transport; Mon, 6 Jul 2026 09:01:29 +0000
-Received: from ediswmail9.ad.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by edirelay1.ad.cirrus.com (Postfix) with ESMTPS id B1201406541;
-	Mon,  6 Jul 2026 09:01:27 +0000 (UTC)
-Received: from opensource.cirrus.com (ediswmail9.ad.cirrus.com [198.61.86.93])
-	by ediswmail9.ad.cirrus.com (Postfix) with ESMTPSA id 9E024820244;
-	Mon,  6 Jul 2026 09:01:27 +0000 (UTC)
-Date: Mon, 6 Jul 2026 10:01:26 +0100
-From: Charles Keepax <ckeepax@opensource.cirrus.com>
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: linux-gpio@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>,
-        Bartosz Golaszewski <brgl@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Frank Li <Frank.Li@nxp.com>, Robert Jarzmik <robert.jarzmik@free.fr>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Greg Ungerer <gerg@linux-m68k.org>,
-        Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-        Hauke Mehrtens <hauke@hauke-m.de>,
-        =?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
-        Yoshinori Sato <ysato@users.sourceforge.jp>,
-        John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-        Linus Walleij <linusw@kernel.org>,
-        Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        Dominik Brodowski <linux@dominikbrodowski.net>,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, patches@opensource.cirrus.com,
-        linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-        linux-sh@vger.kernel.org, linux-input@vger.kernel.org,
-        linux-media@vger.kernel.org, netdev@vger.kernel.org,
-        linux-sunxi@lists.linux.dev, linux-phy@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 07/13] ASoC: replace linux/gpio.h inclusions
-Message-ID: <aktu5ldIypW8ldjW@opensource.cirrus.com>
-References: <20260629132633.1300009-1-arnd@kernel.org>
- <20260629132633.1300009-8-arnd@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260629132633.1300009-8-arnd@kernel.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF00012E63:EE_|SA0PR19MB4523:EE_
-X-MS-Office365-Filtering-Correlation-Id: 19450c50-74fd-49f4-b6a3-08dedb3d2b57
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700016|82310400026|7416014|376014|61400799027|23010399003|16102099003|18002099003|22082099003|4143699003|56012099006|11063799006|41080700001;
-X-Microsoft-Antispam-Message-Info: +QJ/HeqWI1Hsto+ZYw4jR1arr/TiIqFEB7FTWF1094fOwQYiYGco98DH+OSowWEZ21Y8vskq07KUu/3XFgy4KHPV+ucWiKdHu40LApHeD2+XHxSzPhIlLj5bL7a+RJZPi6amMenpUth2Fl4nCQc87Qlc4N25p4ygRpdHaNb9gR8vQQEUQER7x3eCRyEJz7ik12fd88YovOHakpqNFfbFI2SgxYdybWdstNgw+JwgdW22ePNx2p9OHjYHFwtcpau6Cm4kJwif2phF47IUQrIc9Vkl2urI20rYfDGoUjB5gvaV9+JvSJ1bgvbh/1deA9SYJ4cBiE2FpBk8T4YzPBXzNL284SUYWQYuLaY14MP9hZWvllpNc65AGzwfLRu63HkwFCQ5WfvcYOVTtw1hcIhtTnMYXSBIaJWN7M0pG2RPka7+3LcCXIPSH3QiEUsvywqj+xhrVJyTmxBEyLF8wSNgkaQIm2a5ENtGhHkVaneW9XkvfhLv7o3/Y3coFKuLxJo2tNYnUhIMU5hVf0Ia4pzXEmEj7Tl2nsmmavFouzemOSFT9B//2wtkhQ8TepBCauY4mc95lh6w/CZjWsQPmHT1INcYPRIVNYUDBdI5WSsysIB4YKe28GgCiVUn+HZP0Y2ejq+i7CuIA61Wh3mHB43fgmB9KEQPNkAdPctnMN7QB2Ju43NFFcGBXBG/v4Sf+8xadyI/jqKksjPX8gdskuaLgGA3/xeQYqRr9u09BhK5yVtsNpIILsHGsqFdUJp2U7rxOGm26O4jLJ+Q0JnMl9z2cQ==
-X-Forefront-Antispam-Report: CIP:84.19.233.75;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:edirelay1.ad.cirrus.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(7416014)(376014)(61400799027)(23010399003)(16102099003)(18002099003)(22082099003)(4143699003)(56012099006)(11063799006)(41080700001);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: NnpZXkxdGREsJOxqUZ63mDS+Qm6Kn1jV/RE9yURq8DnKdqCIjibyOs+ZXQh0l6o8As9sV5cEDUMJPZ6tTUjrwuO9/BB5l8gZZeNBvxhtPY+xHxd7axdIczwo5yiiXZr04gckBi/D/v6zDk3gn+q1qQFnDxNgydLMWdckLMSupDKsxGrGNmNJbY1PsMGx6a3s7khADCcUpx0X0nDXa5KDpK9Fx4PYLQDzAnLldgOGO+jPEyQ44KMJEyd2o737wcGcyCOlLxzg5wh/fiJAfKmhqkFtbfd1gNNtfQ3hz9NM6ePmkBkmr3K4mWU9ELDbmpa6nKMeXgM/VDa3rBHNQUTniLPaC3OmLQLtGN6y95I4oxhFh4rfqQIHdoyIzsU0sZbbm58bzSFy8ojC4OoXOPyEamPtUhm+tkmbmJm6OjKQlm20SCLFS8EheH8fC0xYjjVC
-X-Exchange-RoutingPolicyChecked: EKnGnIo/30ilIDjSohtKwuElnRdClZI5txSxfNe3fibvfHtpIDXjZ268YH84pDrA4TxEnp/JIU0+4y27NT/DVurNFr6Xo5lpUm46WQczJKDqjdwWLbjpMgze/JA38D5ewbZSgxcUzI/oDsjJSqBZ3kEjoCNe6lYwwSllt6YJafqnYewDkzO7IiOBBltdoGvMp6AtYlF/TC0x+iBFPGtitjTNRNZWQWRrXRMAq3H/a4+s/oGZH0/jmDoTHsJ34OsPWcmtVogqAwHspoiLg2y7QrqUYCx8eCPtjQE4mIcj0nG/JnrIyhLwZu8ZcNDEWTcnLOVER8a7qr+JG7ihdFcYtw==
-X-OriginatorOrg: opensource.cirrus.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 09:01:29.6835
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 19450c50-74fd-49f4-b6a3-08dedb3d2b57
-X-MS-Exchange-CrossTenant-Id: bec09025-e5bc-40d1-a355-8e955c307de8
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bec09025-e5bc-40d1-a355-8e955c307de8;Ip=[84.19.233.75];Helo=[edirelay1.ad.cirrus.com]
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-CO1PEPF00012E63.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR19MB4523
-X-Proofpoint-ORIG-GUID: Xr6Ce48YtsZvvi9-ArXAlnrZLSIFHCXn
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA5MCBTYWx0ZWRfXxewslzTEi6V7
- UnEUdN4Dh5Wuwsrz05hVAfKGSsHWptx/BnT3BrFxaGqhsMwKKb9BgpwXnSzj6OOc1JsGzly0XL5
- I5A/keuaM3TVnfl/gGKsRRTC9mHrRxk=
-X-Authority-Analysis: v=2.4 cv=YYiNIQRf c=1 sm=1 tr=0 ts=6a4b6eee cx=c_pps
- a=+K7kHGa/lm5mlhWRmKhmBg==:117 a=h1hSm8JtM9GN1ddwPAif2w==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=kj9zAlcOel0A:10 a=RAioF0-LDSMA:10 a=s63m1ICgrNkA:10 a=RWc_ulEos4gA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=iX4cTi3TZMoOKdANLEfx:22 a=KfkQE9S9VqCBgivYGm0O:22
- a=w1d2syhTAAAA:8 a=laggWU-tNtq9GTYVk9QA:9 a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA5MCBTYWx0ZWRfXzdGOTmleY1wa
- ImXEhP/xbR4J/lc6a3zmAr2okywqKonxJGGVXCMrr01xuuM+PpmcS4CHO0xW1LOA4B/PqF+PpuL
- 4leIFhrRAoBwvLb8G/1/EkJmXJ29P0vXSmRplPEp7LWVewVLKVgsxdwWS9zeZ9e2oY/rIjRGZD9
- k1UQb8Zr2S382lgOAZk/4F6VZSxwgMrk7tgGna9ABQ+LUHJ9S4BhdJMRdL8GQGclRexqv75ppOc
- FYwZuec3lhm/QQ5g7cp6Jn+Rp4JvxluU2P6RaG7gzo4V0xtE+mWW5pJJwJGkUJ0CBa/obbtoiBv
- 3/QsAFIIFTMAQh1X+6UldtwdHaHdZIDnAouuesZVn+vvyckmhG5+5MkMQuw/kk571BwaCFKaxzW
- NSp8Z11jVtJ1jUDwNKjt9ePalPBSi7wErIUvL6op9NCGxEGXw4/42ZTZ+d+Qtxed9A5VMRykOGr
- 81YM+LRRZ0joPN8gFkw==
-X-Proofpoint-GUID: Xr6Ce48YtsZvvi9-ArXAlnrZLSIFHCXn
-X-Proofpoint-Spam-Reason: safe
+	id 1wgfEy-0000000BxgO-0lbk
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 09:03:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 97C4BC8EC67;
+	Mon,  6 Jul 2026 09:03:58 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6142F601A2;
+	Mon,  6 Jul 2026 09:03:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 91CB311BB9D70;
+	Mon,  6 Jul 2026 11:03:41 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1783328624; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=EzXpYPV0PFB6TX9ZDcqY7ctXsxYzZyik5uIt1kgj5dk=;
+	b=WIuz54puOIXvKsy0eg8hrSFIjyHK/usc7xVOrM0SNdZJgw12G3lKlHqewYnbWQemzWZMkt
+	/II90sH6P0vbNirv6FCXYhRej6fzQU8Fc/UkcuengFjODFKvrQQZxobS8ssaQuzaKQ4zXa
+	JMxB0yGF8nyVXi5OBQS4EZUXkUIcuMfrMp08oeRMPF73D4WLEo+HBEinnD+Gq4Qf2szNi+
+	kR3dCEPtfXTAeXiuUh7UmXx99vauQZkyFHOgz0Qzo0vbNt0z3K3W7885eviRaI2SRAp9y0
+	uRX5EZxDHaOWHj5kh80o0rtJCECCug1X7xc239ItstJdjNdLjPkp+u0i2wOVQw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 06 Jul 2026 11:03:40 +0200
+Message-Id: <DJRD8IJUMKXJ.20CSZPRGGL3KE@bootlin.com>
+Cc: "Qiang Zhao" <qiang.zhao@nxp.com>, "Christophe Leroy (CS GROUP)"
+ <chleroy@kernel.org>, "Thomas Gleixner" <tglx@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Linus Walleij" <linusw@kernel.org>,
+ "Bartosz Golaszewski" <brgl@kernel.org>, "Madhavan Srinivasan"
+ <maddy@linux.ibm.com>, "Michael Ellerman" <mpe@ellerman.id.au>, "Nicholas
+ Piggin" <npiggin@gmail.com>, <linuxppc-dev@lists.ozlabs.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-gpio@vger.kernel.org>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 03/12] dt-bindings: soc: fsl: qe: Convert QE GPIO to DT
+ schema
+From: "Paul Louvel" <paul.louvel@bootlin.com>
+To: "Krzysztof Kozlowski" <krzk@kernel.org>, "Paul Louvel"
+ <paul.louvel@bootlin.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
+ <20260703-qe-pic-gpios-v1-3-6c3e706e27dc@bootlin.com>
+ <20260706-piquant-arboreal-panda-b810f2@quoll>
+In-Reply-To: <20260706-piquant-arboreal-panda-b810f2@quoll>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_020153_508277_26E98B2C 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_020348_411895_BDBC1AD6 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,20 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jun 29, 2026 at 03:26:27PM +0200, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> linux/gpio.h is going away,s o use linux/gpio/consumer.h instead.
-> 
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  sound/soc/codecs/cs42l84.c | 2 +-
->  sound/soc/codecs/cx2072x.c | 2 +-
+Hi Krzysztof,
 
-For the Cirrus bits:
+On Mon Jul 6, 2026 at 8:48 AM CEST, Krzysztof Kozlowski wrote:
+> On Fri, Jul 03, 2026 at 03:30:11PM +0200, Paul Louvel wrote:
+>> diff --git a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario=
+-bank.yaml b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-ba=
+nk.yaml
+>> new file mode 100644
+>> index 000000000000..1af99339ff40
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.y=
+aml
+>> @@ -0,0 +1,45 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/gpio/fsl,mpc8323-qe-pario-bank.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Freescale QUICC Engine Parallel I/O (QE PARIO) GPIO Bank
+>> +
+>> +maintainers:
+>> +  - Christophe Leroy <christophe.leroy@csgroup.eu>
+>> +
+>> +properties:
+>> +  compatible:
+>> +    oneOf:
+>> +      - items:
+>> +          - enum:
+>> +              - fsl,mpc8360-qe-pario-bank
+>> +              - fsl,mpc8569-qe-pario-bank
+>
+> None of these were in the old binding. You need to mention and
+> explain (WHY) the changes you are doing to the binding during the
+> conversion.
 
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
+Ok.
+
+>
+>> +          - const: fsl,mpc8323-qe-pario-bank
+>> +      - const: fsl,mpc8323-qe-pario-bank
+>
+> Best regards,
+> Krzysztof
 
 Thanks,
-Charles
+Paul.
+
+
+--=20
+Paul Louvel, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
 
