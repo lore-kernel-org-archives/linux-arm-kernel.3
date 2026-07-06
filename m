@@ -4,175 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A9CBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCD48C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZJTBwGjSNZDKHvbuJOa1scVEvsZc8DeSukn7IhD19hA=; b=u9rsUKiYC/DVMNLaBzMbY57Ih9
-	5r7YyW8NyokR7OQZN7tsnEJx21wvPG2byKs8LCc+S9/d3WGnCq8aTb/1MWrfD0CHq7piYvOHP5uvj
-	qO9CgdqZ/w3YI1hW3TqQjg7DREndiO7W0vEu84ACS8BtVDUsCoaS2fEmUcQ2J+4UnagVUlHAqdZkN
-	LuCxJ3IRmMweE/luq/j3luVQvijJsFADCtxEleUkz/1GhRPaMyWze7LPsUl594qOn1iMIWNXedJdn
-	rTtmUcarL9kuvZ9hV5hzv5GGEoB0tub5i6kLHkO3+fYmxnIM/K4DLbL7mRbeKD2o2ta6h+4C6IccU
-	MmI5RlGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2xXUF1+tANGO4rchO/7NUHjXRde5fmDVApNTawt8okA=; b=NmV8Br1svy2gzFQa3bUTa4gOnG
+	COEtzL5i52xKCnsrcJbWUo2pu8QZfvNKYEZVy8KkMMR4eLy3+yJHWheFNROYF/fxsmNf3uc5kO+Of
+	09ZMhXrGf5SMXfM3O/heR3cMz/XhJ0jh0x3S+l5OmBVLD0uQ8qLsZBI+HbviOvuwZDGkuLBgmueuA
+	3iozwiSVxdWcrQD3ZgycpLai8sbCxkMS/Atqkje7TKqAjOS5vqfX8jJAC7pRdmrtqKI5k7sc8nWhc
+	qK0RQBUsun15Yo+QzVuMMMe4YHzM5dTufe5dDy8cVJ1eroosLSYSKZF8814EHH6YKlqbhgd2vO/xg
+	S9qXNO7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghKH-0000000CLIc-00z0;
-	Mon, 06 Jul 2026 11:17:25 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1wghLM-0000000CLUu-0zbo;
+	Mon, 06 Jul 2026 11:18:32 +0000
+Received: from mail-norwayeastazon11013004.outbound.protection.outlook.com ([40.107.159.4] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghKE-0000000CLI6-3eiC
+	id 1wghLJ-0000000CLUG-215h
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:17:24 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6669IR2B4015302;
-	Mon, 6 Jul 2026 11:17:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=ZJTBwG
-	jSNZDKHvbuJOa1scVEvsZc8DeSukn7IhD19hA=; b=WLRDPsB7kST9YOfgb4OG/o
-	/idedUb65mvL/dYnwo6NeMtsL2tLXklY1qz6UtmEO+JojrFszgejDDVSdLREM1md
-	lx26nlSelJaVcNyeUzdro30GLR+DQDgGuNGTzYBCG3mfo4Vdbg6eDWjhhBZkX7bY
-	Z17GENWETp3naR6Ex0X9F0xD+dQJpOLBjbAUtiGM1o71QOLPE0DOYv4dQhAkhfsM
-	AIuuPfmj4ZINmJcIQD3pODFCl+dO6zzw0LxwZhBzsO/kI8rUbKS+qDBWhf9+P2Xm
-	KVVLRByjfKmWlKNeCR5IXejV13PSLDSMdMQ+AwMu5eKVyPYzCWNnZ8njW2VZPmWg
-	==
-Received: from ppma11.dal12v.mail.ibm.com (db.9e.1632.ip4.static.sl-reverse.com [50.22.158.219])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6suqh09d-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 11:17:12 +0000 (GMT)
-Received: from pps.filterd (ppma11.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma11.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 666AnZoZ011804;
-	Mon, 6 Jul 2026 11:17:11 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma11.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7f6xvygu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 06 Jul 2026 11:17:11 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 666BH4XH47382910
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 6 Jul 2026 11:17:04 GMT
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 043672004B;
-	Mon,  6 Jul 2026 11:17:04 +0000 (GMT)
-Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 44C3E20043;
-	Mon,  6 Jul 2026 11:17:03 +0000 (GMT)
-Received: from [9.87.152.232] (unknown [9.87.152.232])
-	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  6 Jul 2026 11:17:03 +0000 (GMT)
-Message-ID: <8239c9ba-154c-4e2d-b2fc-700ba12eb585@linux.ibm.com>
-Date: Mon, 6 Jul 2026 13:17:02 +0200
+	Mon, 06 Jul 2026 11:18:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y0BDwirRAMOB7Nk2IfAoA3bJjk89mT0dfiCcz9+rQB2PBlA9/NLmg+DPyVLehW0BJRNxcC60bIV6luaxJcxMJ/h5IWhy6zwGYN2XOIrzX8mavUnMsNUQCv9wKxd6BYfnoSAtally0Gh8yN+2JdEBKWYAiDyzOTJirECn30KkkB4uAZTZJLrfMyzxT1l7ALGbGlXgaWaoNTa9kX9re3aF/O/fIui4AUvedF0n4Y1SlqPzpwbemBC94VwKcWuZVXbi3Qic0ELzJHOV7gHZXJL0m7uGBKRLVYDMpwROFkwp/MEJG4/GZpUhnEhgl2D64nxTDpunBJ9+pCIVvtBjOV0QlA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2xXUF1+tANGO4rchO/7NUHjXRde5fmDVApNTawt8okA=;
+ b=W9q0NAs07FMogN7l9M77h86f05D436YD4sI9djoF3LlyyzXwi/YxQKLSD3ZaJIYylE77bgULN+EoEOl3y111uzzxejIEwCrp+rvewfp4O/D2mLrjOzhxEEEEb67CujlhC0O0ohL6Ya1OKOXytZ0agkxmjqnugYxqlUFUXlXQ8KJiJSKeH2OtKtqhWxEcnIxpRDH77RPpg+vX7AEVHDP6S/rxjxdiTWyDVng0uo1beQO2OxeFFrZq7NVyRB6eWKdhv20p2/lbH8KewdSDE4uswaizkrcjNZVKq3UW0RLO9vJzNSkRO0CIIXjwj8bJNCWjPVIgG0aSQMRtqbq86eTW3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2xXUF1+tANGO4rchO/7NUHjXRde5fmDVApNTawt8okA=;
+ b=W7HJPUdRsggvyASth6Blg7v1B6oX3UJaNsAZDhCDiljfDibQS6lM3IQpcld+2ehcWMKRJQ+khyC7+2mJgZtbeF854prlXUK8Z3rl0bBg33o348kudKzz1R5FsepfVECWxfYYYnOhih5T9MDzU580uPdJaRHPfBzi2wl9tR+lvjFbfz+vhMXObP0PTO7l/bKGAjBg4XSh9MI3PvKS4gjB4SnRLuWFZTz0G3iuECvLYMbP1VqZU+Kgsjm4OyZP1x9MXPn9O+C7ByiLdIKhsMIUqrb3M5zqR0uAQIyyaFDWPVjCrQ2b7O0xGBzvgwDFLcD0ig8UQ0zGZItVTv/S50K3eg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
+ by AM0PR04MB12076.eurprd04.prod.outlook.com (2603:10a6:20b:743::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Mon, 6 Jul 2026
+ 11:18:24 +0000
+Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
+ ([fe80::ac38:1699:6f18:c5d9%3]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
+ 11:18:24 +0000
+Date: Mon, 6 Jul 2026 19:21:53 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v2 04/15] arm64: dts: freescale: imx8mn-var-som: Update
+ FEC support with MaxLinear PHY
+Message-ID: <akuP0TkjaZVuHPb2@shlinux89>
+References: <cover.1783330236.git.stefano.r@variscite.com>
+ <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8fdacc1d5c213685db8552460d04c44e515e85ea.1783330236.git.stefano.r@variscite.com>
+X-ClientProxiedBy: SI2PR02CA0004.apcprd02.prod.outlook.com
+ (2603:1096:4:194::14) To AM8PR04MB7874.eurprd04.prod.outlook.com
+ (2603:10a6:20b:24d::9)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 19/27] s390: Introduce Start Arm Execution instruction
-To: Steffen Eiden <seiden@linux.ibm.com>, kvm@vger.kernel.org,
-        kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
-        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        David Hildenbrand <david@kernel.org>,
-        Friedrich Welter
- <fritz@linux.ibm.com>,
-        Gautam Gala <ggala@linux.ibm.com>,
-        Hariharan Mari <hari55@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Hendrik Brueckner <brueckner@linux.ibm.com>,
-        Ilya Leoshkevich <iii@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
-        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
-        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
-        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-        Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
-        Vasily Gorbik
- <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
-        Zenghui Yu <yuzenghui@huawei.com>
-References: <20260706085229.979525-1-seiden@linux.ibm.com>
- <20260706085229.979525-20-seiden@linux.ibm.com>
-Content-Language: en-US
-From: Janosch Frank <frankja@linux.ibm.com>
-Autocrypt: addr=frankja@linux.ibm.com; keydata=
- xsFNBFubpD4BEADX0uhkRhkj2AVn7kI4IuPY3A8xKat0ihuPDXbynUC77mNox7yvK3X5QBO6
- qLqYr+qrG3buymJJRD9xkp4mqgasHdB5WR9MhXWKH08EvtvAMkEJLnqxgbqf8td3pCQ2cEpv
- 15mH49iKSmlTcJ+PvJpGZcq/jE42u9/0YFHhozm8GfQdb9SOI/wBSsOqcXcLTUeAvbdqSBZe
- zuMRBivJQQI1esD9HuADmxdE7c4AeMlap9MvxvUtWk4ZJ/1Z3swMVCGzZb2Xg/9jZpLsyQzb
- lDbbTlEeyBACeED7DYLZI3d0SFKeJZ1SUyMmSOcr9zeSh4S4h4w8xgDDGmeDVygBQZa1HaoL
- Esb8Y4avOYIgYDhgkCh0nol7XQ5i/yKLtnNThubAcxNyryw1xSstnKlxPRoxtqTsxMAiSekk
- 0m3WJwvwd1s878HrQNK0orWd8BzzlSswzjNfQYLF466JOjHPWFOok9pzRs+ucrs6MUwDJj0S
- cITWU9Rxb04XyigY4XmZ8dywaxwi2ZVTEg+MD+sPmRrTw+5F+sU83cUstuymF3w1GmyofgsU
- Z+/ldjToHnq21MNa1wx0lCEipCCyE/8K9B9bg9pUwy5lfx7yORP3JuAUfCYb8DVSHWBPHKNj
- HTOLb2g2UT65AjZEQE95U2AY9iYm5usMqaWD39pAHfhC09/7NQARAQABzSVKYW5vc2NoIEZy
- YW5rIDxmcmFua2phQGxpbnV4LmlibS5jb20+wsF3BBMBCAAhBQJbm6Q+AhsjBQsJCAcCBhUI
- CQoLAgQWAgMBAh4BAheAAAoJEONU5rjiOLn4p9gQALjkdj5euJVI2nNT3/IAxAhQSmRhPEt0
- AmnCYnuTcHRWPujNr5kqgtyER9+EMQ0ZkX44JU2q7OWxTdSNSAN/5Z7qmOR9JySvDOf4d3mS
- bMB5zxL9d8SbnSs1uW96H9ZBTlTQnmLfsiM9TetAjSrR8nUmjGhe2YUhJLR1v1LguME+YseT
- eXnLzIzqqpu311/eYiiIGcmaOjPCE+vFjcXL5oLnGUE73qSYiujwhfPCCUK0850o1fUAYq5p
- CNBCoKT4OddZR+0itKc/cT6NwEDwdokeg0+rAhxb4Rv5oFO70lziBplEjOxu3dqgIKbHbjza
- EXTb+mr7VI9O4tTdqrwJo2q9zLqqOfDBi7NDvZFLzaCewhbdEpDYVu6/WxprAY94hY3F4trT
- rQMHJKQENtF6ZTQc9fcT5I3gAmP+OEvDE5hcTALpWm6Z6SzxO7gEYCnF+qGXqp8sJVrweMub
- UscyLqHoqdZC2UG4LQ1OJ97nzDpIRe0g6oJ9ZIYHKmfw5jjwH6rASTld5MFWajWdNsqK15k/
- RZnHAGICKVIBOBsq26m4EsBlfCdt3b/6emuBjUXR1pyjHMz2awWzCq6/6OWs5eANZ0sdosNq
- dq2v0ULYTazJz2rlCXV89qRa7ukkNwdBSZNEwsD4eEMicj1LSrqWDZMAALw50L4jxaMD7lPL
- jJbazsFNBFubpD4BEADAcUTRqXF/aY53OSH7IwIK9lFKxIm0IoFkOEh7LMfp7FGzaP7ANrZd
- cIzhZi38xyOkcaFY+npGEWvko7rlIAn0JpBO4x3hfhmhBD/WSY8LQIFQNNjEm3vzrMo7b9Jb
- JAqQxfbURY3Dql3GUzeWTG9uaJ00u+EEPlY8zcVShDltIl5PLih20e8xgTnNzx5c110lQSu0
- iZv2lAE6DM+2bJQTsMSYiwKlwTuv9LI9Chnoo6+tsN55NqyMxYqJgElk3VzlTXSr3+rtSCwf
- tq2cinETbzxc1XuhIX6pu/aCGnNfuEkM34b7G1D6CPzDMqokNFbyoO6DQ1+fW6c5gctXg/lZ
- 602iEl4C4rgcr3+EpfoPUWzKeM8JXv5Kpq4YDxhvbitr8Dm8gr38+UKFZKlWLlwhQ56r/zAU
- v6LIsm11GmFs2/cmgD1bqBTNHHcTWwWtRTLgmnqJbVisMJuYJt4KNPqphTWsPY8SEtbufIlY
- HXOJ2lqUzOReTrie2u0qcSvGAbSfec9apTFl2Xko/ddqPcZMpKhBiXmY8tJzSPk3+G4tqur4
- 6TYAm5ouitJsgAR61Cu7s+PNuq/pTLDhK+6/Njmc94NGBcRA4qTuysEGE79vYWP2oIAU4Fv6
- gqaWHZ4MEI2XTqH8wiwzPdCQPYsSE0fXWiYu7ObeErT6iLSTZGx4rQARAQABwsFfBBgBCAAJ
- BQJbm6Q+AhsMAAoJEONU5rjiOLn4DDEP/RuyckW65SZcPG4cMfNgWxZF8rVjeVl/9PBfy01K
- 8R0hajU40bWtXSMiby7j0/dMjz99jN6L+AJHJvrLz4qYRzn2Ys843W+RfXj62Zde4YNBE5SL
- jJweRCbMWKaJLj6499fctxTyeb9+AMLQS4yRSwHuAZLmAb5AyCW1gBcTWZb8ON5BmWnRqeGm
- IgC1EvCnHy++aBnHTn0m+zV89BhTLTUal35tcjUFwluBY39R2ux/HNlBO1GY3Z+WYXhBvq7q
- katThLjaQSmnOrMhzqYmdShP1leFTVbzXUUIYv/GbynO/YrL2gaQpaP1bEUEi8lUAfXJbEWG
- dnHFkciryi092E8/9j89DJg4mmZqOau7TtUxjRMlBcIliXkzSLUk+QvD4LK1kWievJse4mte
- FBdkWHfP4BH/+8DxapRcG1UAheSnSRQ5LiO50annOB7oXF+vgKIaie2TBfZxQNGAs3RQ+bga
- DchCqFm5adiSP5+OT4NjkKUeGpBe/aRyQSle/RropTgCi85pje/juYEn2P9UAgkfBJrOHvQ9
- Z+2Sva8FRd61NJLkCJ4LFumRn9wQlX2icFbi8UDV3do0hXJRRYTWCxrHscMhkrFWLhYiPF4i
- phX7UNdOWBQ90qpHyAxHmDazdo27gEjfvsgYMdveKknEOTEb5phwxWgg7BcIDoJf9UMC
-In-Reply-To: <20260706085229.979525-20-seiden@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDEwOSBTYWx0ZWRfX+xIhLAcxsHLZ
- f9Rbt2L9sMzlOlmiuaBV/trvtk8Anz1boO8La5Yq1tJHC7H3MZNacc8bOMQw6jP++eds89zWf1c
- MEgJALXgnggU4S1OJ4pEZm3L8/U61oY=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDEwOSBTYWx0ZWRfX9ItXXrPx0Eho
- MmApuRdym0zu+BWxo5RNN6GkY8w39oZAbnexTdQm5nGWemvBHbHTn5ImhU2uxdbIc640QO5JJ7S
- ORDTZyxBetxbGjI5rDL6iT/JkykMuxpAUtzyMnd7pNyRzmFGoqDM5vJRsSsndrF7X5NLKBKiF2n
- 9ULgONVX3kTRr7wZiasCa/Kj7lBgGRD5nW3HJ3wS9sk+nCETJqKjTUjcKtVn/3QfZXX8f7dNQXD
- tr3EIOr6166Qmd7FaYHAaPvo5kCZsgHHn/h1Sh/9EExEw8O2mn1dZBpAs+C+UUM3C6MbneotCpS
- Jirktf+vB3gWVsMQfPho5GS5qVJGDnzM183J3nrsSOJFbdLH0CcnnPZ6odYjkHAcCx618puJT56
- jDTuaCF8qHvJmkcrAS53tFsaf+Wcq9ul8sq7GFuiioaqIfaNg2+GetOhOi+oidUSzpRLpzoP+hC
- KlkAjUufKmO3Yyhl/Pg==
-X-Proofpoint-GUID: osnHUPaW3GcYLybZTEv5viafEL5-tZh3
-X-Authority-Analysis: v=2.4 cv=Oot/DS/t c=1 sm=1 tr=0 ts=6a4b8eb8 cx=c_pps
- a=aDMHemPKRhS1OARIsFnwRA==:117 a=aDMHemPKRhS1OARIsFnwRA==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=uAbxVGIbfxUO_5tXvNgY:22 a=yZFHy3xYVWHLONAxsiAA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: osnHUPaW3GcYLybZTEv5viafEL5-tZh3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
- definitions=2026-07-06_01,2026-07-03_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 phishscore=0
- malwarescore=0 suspectscore=0 spamscore=0 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060109
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AM0PR04MB12076:EE_
+X-MS-Office365-Filtering-Correlation-Id: 46958528-4f58-415e-63a6-08dedb504b60
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|376014|7416014|1800799024|366016|18002099003|56012099006|4143699003|11063799006|6133799003|22082099003;
+X-Microsoft-Antispam-Message-Info: GSPU5OlzRhlAOuPch0pePGR0ZV0DrPYUc17pLKegzy/44Brt0vD2SLg8P9yB3my4TXUSY+tzo7OuW7iOw9rC8ZHGX7e0kgMIT+DxaemjoXo8/wZLM4qnFuoew7XSklnIm31FENv1CkM03AXgVYwtWr9qAPhASuLAgxhEFPI02cfBdHcdadWcpp73Vd49s2pYIMCFYfiBEE5PX9g4MtBiaBcQ1p16lmSB1B35zPI5MARbvKn5QiVsxkH6GJaeM8+78eJU1uYt73Bvkta2MLGgJxS0O7niQsrsNm8krggJ7WVZphK7zN0NhTgmDkvNUn04uUBldZpTV6T1tlGtYgMV6/6+5A5eTJkfqVOVJ627UBXDEiS7ePPZwzTuheQJxPgbAqkaj08UeFnRTAqaYiaf9vg0JzPhUDp9Wt2z7D/WnSoHSPGpFhZR/gvigL0Zr8k0w6uscpWG8c1wkkNUh0jDWak4PkU6IZtRcKiAKTac6JC7sCOYsKzKk0Xa+8ZlZLwAqqkBq/pXEUUxPHq4x4bBXpzCKkhk/k06hUz6LgUPUkr8gpeHf3aNXJ+0+QKNryqNdb3lcLGE4/uopXs8mIFwjimbUu9skVbdVuqeXT5WsAJzWCes93UQzXN/wjBOQCMZi3ORZFvtbwcFTITdQ83JH+S9WOxvDg1Yz7xOY4JpECE=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(376014)(7416014)(1800799024)(366016)(18002099003)(56012099006)(4143699003)(11063799006)(6133799003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rA8SA5687kAlmbpE+SCZvLPgG5wGanRA/Vp0qKB81E2A/tRuokBEoGYCe5jn?=
+ =?us-ascii?Q?68qd5G4Dlln7TWRuMMZh02uuJmfGVkTZxFfQRbyZ55OtKa9r91MMCaor9YgN?=
+ =?us-ascii?Q?YJrZBLpKr1xid3Ix8TRwwIBcEOKPThWrbpQ2LJMGoin+I520h0r68uHg3spQ?=
+ =?us-ascii?Q?P6/6195gSGMyAoS/PAOyqufPuTuJgN4wqVdmxex6JtL5rpv6gLyHAafqC59l?=
+ =?us-ascii?Q?r/ftmEO/EhNPkiRWM1U00jjWPBydVX/kHrw4tXobuXZ5RHi6JhhnxV6jK+IK?=
+ =?us-ascii?Q?hroGgdat/n1nXvWO2QBnVeSBZG/7FFdEVS9GhNqFMwMmqgJwcjk77Z5yhAsi?=
+ =?us-ascii?Q?yfBg3mC396vP9aIt3h19taXV1MCfiaPjzbxjMIEtICG7/P7eHpphsc/gbSZH?=
+ =?us-ascii?Q?+tAve0H/tY0Uh4OXYpTqaOycvjz3QJ2BFCb8LPFmEmx5Kvf1O5RwhWbS2LRE?=
+ =?us-ascii?Q?fZx+tXQnZXR8WWgy9+5qnDFBVpENUeM1ldwNKzPucFUFJL9KTQbQT+jR84t/?=
+ =?us-ascii?Q?pkITX+ErIvA4QaWAd4E0U0DhlXz+pqp1lsqbzv6lgY2enncBLwMYwtqhb+7m?=
+ =?us-ascii?Q?kfxrHjQLDEipdJBvIA03Z9OXeO7fXV0V+lyXIvaCREPrxxbQQL5MSLyiu9gX?=
+ =?us-ascii?Q?Chu5kcA8aVwfBgXTPjf5KxDFcuHRQKg1DZFaN6gmwSDDhAdwMw1B1dnhcf6c?=
+ =?us-ascii?Q?aAQjiNJOJ/adaqtoZs8XZnQZyHnzhOJ/F7ztN05ankqPnSKLjUzMpPaaGxbX?=
+ =?us-ascii?Q?I9F5XYhoMVowSutsjnezFcYiIRk0iquhaY1sVeAZzLi+6J1D27r+it9+cZJr?=
+ =?us-ascii?Q?AZL2AEQeA9nJFVR1RLL7oTtoUUWDD/tyZDVFVtFUGhhpAPkhaTUO3JF6u5as?=
+ =?us-ascii?Q?KTZCAkU+jrHVEyzsQpq077w9RWqdRlTDd6OJKfZMN7944uL2JCqCO1nKLPqP?=
+ =?us-ascii?Q?Dk0436fH6HHlqwLNqHqb3g8acPsZH7kYXgOc+lJ72C4RUO5E+ue5a9IX4sG4?=
+ =?us-ascii?Q?tLpiszxpoJrtwRb1jrL4ahoZfF3Yi/LhEt+DbPB0Xf4uUD59QO9wd8tA0IZS?=
+ =?us-ascii?Q?cXYNOYVUcQ0hCLuZ159+I25F00m8/wfgVDHD7wgHrXuVbxB270ELdqGy5yJV?=
+ =?us-ascii?Q?mXDPw9dXNvuQPpvNHlLIwtcZY+e2eKy5ziEOJ3lcPEOf+babQkl1CKma8gu2?=
+ =?us-ascii?Q?R6QrcgFk9+ZKnUQpxAsyVFH45+MyE0+1Dt4RklAK5efwFfMbvnwo8VHwGxmM?=
+ =?us-ascii?Q?ymp3HT8vVBg1FFauDyLKgnhFbZTF6apLz0OE8VslAC4y35dkUvfsYfyO11Kb?=
+ =?us-ascii?Q?HKCEAHZkybI9rWymSlidObUif3gCVBHjyr/JHG4N6w6aH7/vnrhgmuLJAmTd?=
+ =?us-ascii?Q?AxMkRi9l0uQjGkYg4FTDnqQdg6mt7y3NBrSUcq4QycfE78Fy+d/OO/tG7RWU?=
+ =?us-ascii?Q?eDQ6pHaQy6rtb/8pD7+MMTJx3XL+WJLLXdoOwAOJHOwd5bkq1uUw/pOpb2h1?=
+ =?us-ascii?Q?Uz6TO5DHuAOug/Ubtsu/ZoL/iLTz3aFPpeENFA5+RUnCBaxzLOoHry8zyUJJ?=
+ =?us-ascii?Q?pnXLOqydztfymOvAqybpaQwsZT9bCFnHK3F9m/5LIRQzevAJ70L8kJrll3zo?=
+ =?us-ascii?Q?k7jbmixTaEJGhyLMQwnSPAzgaFLBQT5ETMAKkVnJsIUe/YRur6uHaFifyW9G?=
+ =?us-ascii?Q?jUTx+V++WED0b3FA6EOvQNU26QYM3LynUKDUI7LwEi5+p90mWpU6yvdlsCTC?=
+ =?us-ascii?Q?Onf90iGssm8w5HaySkTqyheAIpo8xe3kzdQvemfavsTE/kpEXrvC?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 46958528-4f58-415e-63a6-08dedb504b60
+X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 11:18:24.4340
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d6y6/BR37bdAz6n31Qn0xjqoHIRvoPFVqpPwXz0Xxl5NL6vwC/Wphyw0vRrtXOzhQv2c3CtPOF3zaFiZtsmqsWc2Mqtqyssg5FgTsWNI/6LRjqDxei6fLkXONYYPoKL8
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB12076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_041722_926619_42DDD053 
-X-CRM114-Status: GOOD (  25.57  )
+X-CRM114-CacheID: sfid-20260706_041829_524803_6C3F2D33 
+X-CRM114-Status: UNSURE (   9.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,140 +146,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 10:52, Steffen Eiden wrote:
-> The Start Arm Execution (SAE) instruction is the centerpiece for
-> executing arm64 (KVM) guests on s390. Its purpose is, similar to SIE, to
-> enable accelerated execution of arm64 virtual machines. SAE expects the
-> physical address of a control block as the only argument.
-> 
-> The host is responsible to save & restore
->   - GPRs 0-13
->   - access register 0-15
->   - breaking event register (BEAR)
->   - vector/floating point registers
-> between SAE executions to guarantee host consistency.
-> 
-> GPRs and BEAR are save and restores in the asm functions. The other
-> register are handled in within C code. Access registers are handled in a
-> later patch and SVEs will be handled when they are introduced in a
-> future series. Most arm64 registers are handled by a satellite block
-> called save_area. Some registers, frequently used by hypervisors, are
-> placed into the SAE control block itself.
-> 
-> Enlighten asm/kvm_host_types.h for the new header variant. The new
-> header is chosen instead of asm/kvm_host_s390_types.h if KVM_S390_ARM64
-> is defined.
-> 
+On Mon, Jul 06, 2026 at 11:34:34AM +0200, Stefano Radaelli wrote:
+>From: Stefano Radaelli <stefano.r@variscite.com>
+>
+>Update the FEC Ethernet controller on the i.MX8MN VAR-SOM to match the
+>latest SOM hardware revision using the integrated MaxLinear MXL86110 PHY.
+>
+>Add the PHY VDDIO supply regulator and adjust reset timings.
+>
+>The PHY LED signals originate on the SOM, but the actual LEDs are part
+>of the carrier implementation (RJ45 connector). Move the LED
+>configuration to the Symphony carrier device tree, matching the
+>evaluation board LED wiring.
+>
+>Wake-on-LAN via magic packet is not supported at the VAR-SOM level and
+>is therefore not enabled in the SOM device tree nor in the official
+>evaluation carrier board configuration (symphony).
+>Designs requiring WoL support may enable it in their own carrier-specific
+>device trees if properly integrated at the hardware level.
+>
+>Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
 
-[...]
-
-> +	u64	gpr[31];		/* 0x0300  */
-> +	u64	_03f8;			/* 0x03f8  */
-> +
-> +	union {
-> +		u64	icptd[8];		/* 0x0400 */
-> +		/* validity-interception reason; icptr 0x01 */
-> +#define SAE_VIR_UNKNOWN		0x00
-> +#define SAE_VIR_UNSUPP_FORMAT	0x01
-> +#define SAE_VIR_MSO_BOUNDS	0x02
-> +#define SAE_VIR_MSLA		0x03
-> +#define SAE_VIR_MGPAS		0x04
-> +#define SAE_VIR_INVAL_SYSREG	0x05
-> +#define SAE_VIR_HOST_CONTROL	0x06
-> +#define SAE_VIR_SCA		0x07
-> +#define SAE_VIR_MSO_ALIGN	0x08
-> +#define SAE_VIR_HLC		0x09
-> +#define SAE_VIR_IRPTC		0x0a
-
-Will these ever be used for something?
-
-
-
-> +		u16 vir;			/* 0x0400 */
-> +		/* host access interception details; icptr 0x02 */
-> +		struct {
-> +			u64		esr_elz;	/* 0x0400 */
-> +			u8		_0408[6];	/* 0x0408 */
-> +			u16		pic;		/* 0x040e */
-> +			union teid	teid;		/* 0x0410 */
-> +			gva_t		far_elz;	/* 0x0418 */
-> +			gva_t		vaddr;		/* 0x0420 */
-> +			u64		suppl;		/* 0x0428 */
-> +			u8		gltl;		/* 0x0430 */
-> +			u8		_0431[7];	/* 0x0431 */
-> +			u64		_0438;		/* 0x0438 */
-> +		} hai;
-> +		/* exception-interception details; icptr 0x03 */
-> +		struct {
-> +			u64	esr_elz;		/* 0x0400 */
-> +			u64	_0408[2];		/* 0x0408 */
-> +			gva_t	far_elz;		/* 0x0418 */
-> +		} trap;
-> +		/* timer-interception reason; icptr 0x04 */
-> +#define SAE_IR_TIMER_ID_VIRT		BIT(6)
-> +#define SAE_IR_TIMER_ID_PHYS		BIT(7)
-> +		u8	tir;			/* 0x0400 */
-> +	};
-> +	u64	_0440[376];			/* 0x0440 */
-> +} __packed __aligned(PAGE_SIZE);
-> +static_assert(sizeof(struct kvm_sae_block) == PAGE_SIZE);
-> +
-
-[...]
-
-> +#if IS_ENABLED(CONFIG_KVM_ARM64)
-> +/*
-> + * __sae64a calling convention:
-> + * %r2 pointer to sae control block physical address
-> + */
-> +SYM_FUNC_START(__sae64a)
-> +	stmg	%r6,%r14,__SF_GPRS(%r15)	# store kernel registers
-> +	STBEAR	__SF_SAE_BEAR(%r15)		# save breaking event address register
-> +	.insn	rre,0xb9a50000,%r2,0		# Start Arm Execution
-> +# Let the next instruction be NOP to avoid triggering a machine check
-> +# and handling it in a guest as result of the instruction execution.
-
-@Christian:
-I have the feeling things got lost in translation when this comment was 
-written.
-How would we trigger a MCHECK by having an instruction after SIE/SAE?
-AFAIU this allows us to have a label which we can check in the mcheck 
-handler to decide who triggered the mcheck.
-
-Without the label the comment and NOP are useless as far as I can see.
-So we need to decide if this still applies and then either remove it or 
-add sae handling to mcck_int_handler and maybe other mcheck functions.
-
-> +	nopr	7
-> +	LBEAR	__SF_SAE_BEAR(%r15)		# restore breaking event address register
-> +	lmg	%r6,%r14,__SF_GPRS(%r15)	# restore kernel registers
-> +	xgr	%r0,%r0				# clear guest registers to
-> +	xgr	%r1,%r1				# prevent speculative use
-> +	xgr	%r3,%r3
-> +	xgr	%r2,%r2
-> +	xgr	%r4,%r4
-> +	xgr	%r5,%r5
-> +	BR_EX	%r14
-> +SYM_FUNC_END(__sae64a)
-> +EXPORT_SYMBOL(__sae64a)
-> +#endif
-> +
->   /*
->    * SVC interrupt handler routine. System calls are synchronous events and
->    * are entered with interrupts disabled.
-> diff --git a/arch/s390/tools/opcodes.txt b/arch/s390/tools/opcodes.txt
-> index def2659f6602..0e4773c94af0 100644
-> --- a/arch/s390/tools/opcodes.txt
-> +++ b/arch/s390/tools/opcodes.txt
-> @@ -594,6 +594,9 @@ b9a0	clp	RRF_U0RR
->   b9a1	tpei	RRE_RR
->   b9a2	ptf	RRE_R0
->   b9a4	uvc	RRF_URR
-> +b9a5	sae	RRE_R0
-> +b9a6	lasrm	RRE_R0
-> +b9a7	stiasrm	RRE_R0
->   b9aa	lptea	RRF_RURR2
->   b9ab	essa	RRF_U0RR
->   b9ac	irbm	RRE_RR
-
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
