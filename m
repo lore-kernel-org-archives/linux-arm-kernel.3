@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33038C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75B19C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sPRyLhcRj7KGqhqd9AB0bxtCBFJVPPe3ymBf4hZOuAQ=; b=ULEc5B8y1+L3KQrw8SyYNRmp/m
-	BiVA7Ye9Pgkid7v4vaxxbzRe8Z5tVT2GYVby/amRTR2PpXc/aAY9CL4DwvJfHguygPBwMzv6vKoE3
-	gYdGB8lwga7a4ZHbNA2BZJJPA5WZ1IC/2FJikAX7hi7RJm9KSG7hQe6+BUfIdOBXG16k6wy3SDxNv
-	s+dgipBFc1ev+7vpj24ZUFOb8frvGMe+wKjZUapsG2CM2vbiSgYvQCdT4qFJMmdAlwx/BzW16a7SG
-	JYtjGhYfiFjIy+cpmMwdEbbbjSktPHTnhndl1K+A3d/eciU75N9i929SILI8FrRMb0NlAdOEdhAq1
-	g9AQLuzA==;
+	bh=GCm2NOc4vWw+31gj/Ag1rs2/KHxagKNe31eFduqcDX0=; b=mON3JUYDDzK/DxYKBJJCR71urZ
+	GjcFjKc/2M290XX6EsNQn1ayyQJgM5RGrn6qUIMUCh4ys/KfojxO4c7fymDuuTs+b3GH92+EnCz+a
+	T6kaSXKbePYLWhQdEj9CM6kEyxTaMx8TzGMDg3PqYr+Is9cW0lufgv8Gavsn8JygGjb0OAuHaEaVL
+	lrawqhypoIc4tCkclunebWHqyN4zCzlx3Eh5z2rhMsSJbPQ/UCZltn+OkcALjVxGrAYukGGcO/HcC
+	WlxHWBydnR45FyvQ5fU9ZstTz3+j4k+DXcq6TAZBRNVbm5svvlnq1K+UR3AT2Xm/Qw2/ZDV8lfGLY
+	rHam8YcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjar-0000000CdI0-3XtZ;
-	Mon, 06 Jul 2026 13:42:41 +0000
+	id 1wgjas-0000000CdIi-08dz;
+	Mon, 06 Jul 2026 13:42:42 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjan-0000000CdAi-08wN;
-	Mon, 06 Jul 2026 13:42:38 +0000
+	id 1wgjap-0000000CdDI-0XrX;
+	Mon, 06 Jul 2026 13:42:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783345355;
-	bh=y27/Sa9spU0AGHzflhICQCjvpf2vh/087yEx5P3Wedo=;
+	s=mail; t=1783345356;
+	bh=U44aJJ8b4BbdxcO2Vi5B2hjqvUSwUvpArxdIxZ0VMJA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=jBY4NUl766a7rlSWyI1/LKc3CddRN8mvke3TxkolKtBpLC5ZpH+KHq6dnk9Vm2hvf
-	 78iQ45utCm9rtnUUL4qbr8RxWojZzW+38a02zCPvwktWCkHyTOOGPLvAnSHvQG3zZL
-	 p/zvZkR44zwzhNd7fNBQz9fmv9CDoRLaUc4pgyzQ+ixugGKLf07eBvAMkq6Y8a9sy+
-	 +2nJnbuG5yFyV7vHq94QC/az2FBfX2I9D3yPTeOwXsTnRQEzhhArAzCQ9iKCBE1YvV
-	 efvFfRrXmC40JYfXLJGYKY30cHUJAc3db4YPZsrksNg3aGH6t11Pd5tX7+X95oBCHl
-	 iQTHjO3Q5mpWQ==
+	b=WYNpXFY/02XAa1AqZ6hQYizozKt15Ei/m141irZHQvlO6IXa2PNc0G9AD/1qqzTwt
+	 r0W6iv4WGiNPzqWOvkpXLDdKWfmJ34xzMCLfMzl3uabKvIwgN1M/HMc0IVAOxNuz4S
+	 LmfwSqt8tJJkFklx2z65KEtaUECd0WVb+o2dwQkUqztRxaELeEhCjxrtcP+3n3Rgho
+	 EPtaMVdfPeOLDv2MdwMmBogAvtMZvLn/PPmssYqarNFIAg9Twcmgdn2LZvan9NzBZB
+	 E+4Q1aybHQNCv+HkTnN7gX/+C5kLaF8aa6Yu1BcfbWARCRvbyyOLtNG3Dc5XHK2AXs
+	 DNE83NQS8Fc5g==
 Received: from [192.168.0.15] (unknown [100.64.0.170])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F6DB17E0EA6;
-	Mon, 06 Jul 2026 15:42:33 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 62CF817E0D33;
+	Mon, 06 Jul 2026 15:42:35 +0200 (CEST)
 From: Detlev Casanova <detlev.casanova@collabora.com>
-Date: Mon, 06 Jul 2026 09:42:21 -0400
-Subject: [PATCH v3 4/5] media: hantro: Add per-context fdinfo usage metrics
+Date: Mon, 06 Jul 2026 09:42:22 -0400
+Subject: [PATCH v3 5/5] media: rkvdec: Add per-context fdinfo usage metrics
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-v4l2-add-fdinfo-v3-4-d556568cf38e@collabora.com>
+Message-Id: <20260706-v4l2-add-fdinfo-v3-5-d556568cf38e@collabora.com>
 References: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
 In-Reply-To: <20260706-v4l2-add-fdinfo-v3-0-d556568cf38e@collabora.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -61,12 +61,11 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
 Cc: linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-rockchip@lists.infradead.org, kernel@collabora.com, 
  Detlev Casanova <detlev.casanova@collabora.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Christopher Healy <healych@amazon.com>
+ linux-arm-kernel@lists.infradead.org
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_064237_244682_5CF97DBA 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20260706_064239_354981_D9D20CE0 
+X-CRM114-Status: GOOD (  13.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,13 +80,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Christopher Healy <healych@amazon.com>
-
-Add VPU981 hardware utilization metrics to the Hantro VPU stateless
-codec driver, exposed via v4l2_metrics.
+Add hardware utilization tracking to the rkvdec stateless codec driver,
+exposed via v4l2_metrics.
 
 Update the v4l2_metrics instance each time a job completes with the
-time it took in ns and the nuber of cycles reported by the hardware.
+time it took in ns.
 
 This enables userspace monitoring tools to compute per-process decoder
 and encoder utilization. The current and max frequency keys report the
@@ -95,147 +92,86 @@ same value today since the driver lacks devfreq support, but will
 diverge once DVFS is added, allowing userspace to approximate true
 capacity utilization without any fdinfo code changes.
 
-Signed-off-by: Christopher Healy <healych@amazon.com>
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- drivers/media/platform/verisilicon/hantro.h           |  3 +++
- drivers/media/platform/verisilicon/hantro_drv.c       | 19 +++++++++++++++++++
- drivers/media/platform/verisilicon/hantro_hw.h        |  1 +
- .../media/platform/verisilicon/rockchip_vpu981_regs.h |  1 +
- drivers/media/platform/verisilicon/rockchip_vpu_hw.c  |  6 ++++++
- 5 files changed, 30 insertions(+)
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 19 +++++++++++++++++++
+ drivers/media/platform/rockchip/rkvdec/rkvdec.h |  1 +
+ 2 files changed, 20 insertions(+)
 
-diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-index 0353de154a1e..37fd13cc7afa 100644
---- a/drivers/media/platform/verisilicon/hantro.h
-+++ b/drivers/media/platform/verisilicon/hantro.h
-@@ -16,6 +16,7 @@
- #include <linux/videodev2.h>
- #include <linux/wait.h>
- #include <linux/clk.h>
-+#include <linux/ktime.h>
- #include <linux/reset.h>
- 
- #include <media/v4l2-ctrls.h>
-@@ -268,6 +269,8 @@ struct hantro_ctx {
- 	struct hantro_postproc_ctx postproc;
- 	bool need_postproc;
- 
-+	ktime_t start_time;
-+
- 	/* Specific for particular codec modes. */
- 	union {
- 		struct hantro_h264_dec_hw_ctx h264_dec;
-diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-index 2e81877f640f..332928801ff9 100644
---- a/drivers/media/platform/verisilicon/hantro_drv.c
-+++ b/drivers/media/platform/verisilicon/hantro_drv.c
-@@ -21,6 +21,7 @@
- #include <linux/videodev2.h>
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 1d1e9bfef8e9..0451d9582273 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -25,6 +25,7 @@
  #include <linux/workqueue.h>
  #include <media/v4l2-event.h>
-+#include <media/v4l2-metrics.h>
  #include <media/v4l2-mem2mem.h>
++#include <media/v4l2-metrics.h>
  #include <media/videobuf2-core.h>
  #include <media/videobuf2-vmalloc.h>
-@@ -90,6 +91,9 @@ static void hantro_job_finish(struct hantro_dev *vpu,
- 			      struct hantro_ctx *ctx,
- 			      enum vb2_buffer_state result)
+ 
+@@ -1094,6 +1095,9 @@ static void rkvdec_job_finish(struct rkvdec_ctx *ctx,
  {
+ 	struct rkvdec_dev *rkvdec = ctx->dev;
+ 
 +	v4l2_metrics_update_hw_time(&ctx->fh.metrics,
 +				   ktime_to_ns(ktime_sub(ktime_get(), ctx->start_time)));
 +
- 	pm_runtime_put_autosuspend(vpu->dev);
- 
- 	clk_bulk_disable(vpu->variant->num_clocks, vpu->clocks);
-@@ -186,6 +190,8 @@ static void device_run(void *priv)
- 
- 	v4l2_m2m_buf_copy_metadata(src, dst);
+ 	pm_runtime_put_autosuspend(rkvdec->dev);
+ 	rkvdec_job_finish_no_pm(ctx, result);
+ }
+@@ -1174,6 +1178,8 @@ static void rkvdec_device_run(void *priv)
+ 		return;
+ 	}
  
 +	ctx->start_time = ktime_get();
 +
- 	if (ctx->codec_ops->run(ctx))
- 		goto err_cancel_job;
+ 	ret = desc->ops->run(ctx);
+ 	if (ret)
+ 		rkvdec_job_finish(ctx, VB2_BUF_STATE_ERROR);
+@@ -1304,6 +1310,8 @@ static int rkvdec_open(struct file *filp)
  
-@@ -664,6 +670,9 @@ static int hantro_open(struct file *filp)
- 
- 	v4l2_fh_init(&ctx->fh, vdev);
  	v4l2_fh_add(&ctx->fh, filp);
-+	v4l2_metrics_set_driver_type(&ctx->fh.metrics,
-+				   ctx->is_encoder ? V4L2_DRIVER_TYPE_STATELESS_ENCODER
-+						   : V4L2_DRIVER_TYPE_STATELESS_DECODER);
  
- 	hantro_reset_fmts(ctx);
++	v4l2_metrics_set_driver_type(&ctx->fh.metrics, V4L2_DRIVER_TYPE_STATELESS_DECODER);
++
+ 	return 0;
  
-@@ -701,10 +710,20 @@ static int hantro_release(struct file *filp)
+ err_cleanup_m2m_ctx:
+@@ -1327,10 +1335,21 @@ static int rkvdec_release(struct file *filp)
  	return 0;
  }
  
-+static void hantro_show_fdinfo(struct seq_file *m, struct file *f)
++static void rkvdec_show_fdinfo(struct seq_file *m, struct file *file)
 +{
-+	struct hantro_ctx *ctx = file_to_ctx(f);
-+	struct hantro_dev *vpu = ctx->dev;
++	struct rkvdec_ctx *ctx = file_to_rkvdec_ctx(file);
++	struct rkvdec_dev *rkvdec = ctx->dev;
 +
 +	v4l2_metrics_show(&ctx->fh.metrics, m, 0);
-+	v4l2_metrics_show_clock(m, vpu->clocks[0].clk, 0);
++
++	v4l2_metrics_show_clock(m, rkvdec->axi_clk, 0);
 +}
 +
- static const struct v4l2_file_operations hantro_fops = {
+ static const struct v4l2_file_operations rkvdec_fops = {
  	.owner = THIS_MODULE,
- 	.open = hantro_open,
- 	.release = hantro_release,
-+	.show_fdinfo = hantro_show_fdinfo,
+ 	.open = rkvdec_open,
+ 	.release = rkvdec_release,
++	.show_fdinfo = rkvdec_show_fdinfo,
  	.poll = v4l2_m2m_fop_poll,
  	.unlocked_ioctl = video_ioctl2,
  	.mmap = v4l2_m2m_fop_mmap,
-diff --git a/drivers/media/platform/verisilicon/hantro_hw.h b/drivers/media/platform/verisilicon/hantro_hw.h
-index 13e573f1f19d..7259ea89adcc 100644
---- a/drivers/media/platform/verisilicon/hantro_hw.h
-+++ b/drivers/media/platform/verisilicon/hantro_hw.h
-@@ -28,6 +28,7 @@
- #define FMT_MIN_WIDTH		48
- #define FMT_MIN_HEIGHT		48
- #define FMT_HD_WIDTH		1280
-+
- #define FMT_HD_HEIGHT		720
- #define FMT_FHD_WIDTH		1920
- #define FMT_FHD_HEIGHT		1088
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h b/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-index e4008da64f19..5a1d1e1e941e 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_regs.h
-@@ -451,6 +451,7 @@
- #define av1_pp0_dup_ver			AV1_DEC_REG(394, 16, 0xff)
- #define av1_pp0_dup_hor			AV1_DEC_REG(394, 24, 0xff)
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+index a24be6638b6b..590e213bd800 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+@@ -157,6 +157,7 @@ struct rkvdec_ctx {
+ 	void *priv;
+ 	u8 has_sps_st_rps: 1;
+ 	u8 has_sps_lt_rps: 1;
++	ktime_t start_time;
+ };
  
-+#define AV1_CYCLE_COUNT                 (AV1_SWREG(63))
- #define AV1_TILE_OUT_LU			(AV1_SWREG(65))
- #define AV1_REFERENCE_Y(i)		(AV1_SWREG(67) + ((i) * 0x8))
- #define AV1_SEGMENTATION		(AV1_SWREG(81))
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-index 02673be9878e..fd3081242685 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu_hw.c
-@@ -423,13 +423,19 @@ static irqreturn_t rockchip_vpu2_vepu_irq(int irq, void *dev_id)
- static irqreturn_t rk3588_vpu981_irq(int irq, void *dev_id)
- {
- 	struct hantro_dev *vpu = dev_id;
-+	struct hantro_ctx *ctx =
-+		v4l2_m2m_get_curr_priv(vpu->m2m_dev);
- 	enum vb2_buffer_state state;
- 	u32 status;
-+	u32 cycles;
- 
- 	status = vdpu_read(vpu, AV1_REG_INTERRUPT);
- 	state = (status & AV1_REG_INTERRUPT_DEC_RDY_INT) ?
- 		VB2_BUF_STATE_DONE : VB2_BUF_STATE_ERROR;
- 
-+	cycles = vdpu_read(vpu, AV1_CYCLE_COUNT);
-+	v4l2_metrics_update_hw_cycles(&ctx->fh.metrics, cycles);
-+
- 	vdpu_write(vpu, 0, AV1_REG_INTERRUPT);
- 	vdpu_write(vpu, AV1_REG_CONFIG_DEC_CLK_GATE_E, AV1_REG_CONFIG);
- 
+ static inline struct rkvdec_ctx *file_to_rkvdec_ctx(struct file *filp)
 
 -- 
 2.54.0
