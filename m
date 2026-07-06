@@ -4,158 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502ECC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:08:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD98BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=; b=mfUrJK+ynnQkJUQtSmLxQmcIhM
-	JGlhTqatlb/SGCvnpcq3stpYXJ40zD2pTqsyF4YsNhrYW6Te6sYlaD+4N5ljqGYDFt+KLCXnwJUdE
-	je7BvWehApSGJN2FdFTOtRaeUZm0R/eO85bBlW8qGbQQp2uF4EKO8jM3UlMZFjATzDVyNFzMJrMKE
-	6hdQztNUWSaf8/NPWxF4RHb3p9ddcKQGcjp4UVoQcgbr11maULvgx00/6Hch9wOsRb9NnUo/fxdei
-	lZEHiM/6IoDlQLcm70N3iIsK2w6RTGSRcromjghaYhKhJGp6R7FroHbCOJnnHfv5HK+iVNSOds5me
-	Hph5RPCg==;
+	bh=SIs5mr1YlXuHrRAWD0Cvvhp1KPf82E28pNtyAHr0i7A=; b=jgF+hsmpKDNqISnoz2GDKyku77
+	8oQmU6Ny/9Bt1gca7glox1hMUOk4X7p85c6q+5MaS8KwaELBMTSTtqmBVsbSZpOmFINPvc7xpX1Yk
+	C1ghPwi6Lm9HgU/MxyTrSBHImdPjr8dDB8Dqgfx/5OOAdE5jaKR9C+s5WSZ4KIEyhbm/SZnRu5cCB
+	lq3j9QMGEb+qgWpWXFmmYWz437JcrZPP/lJLtyGSiQChOBLE/fJN9TOu8DJO7LjNQISCCIQ2nonaf
+	P+J6pHbs6tZLCj94OaJtGgOyLh3XVUsF6eXElbtC0bpOgmgiJhVNm5rlP1iuHA9ffOHhjqfotlhzg
+	BmwWwo4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghBJ-0000000CJTn-0nUu;
-	Mon, 06 Jul 2026 11:08:09 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1wghBX-0000000CJYn-1axr;
+	Mon, 06 Jul 2026 11:08:23 +0000
+Received: from mail-yx1-xb129.google.com ([2607:f8b0:4864:20::b129])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghBG-0000000CJT0-2vmd
+	id 1wghBU-0000000CJWp-2ryz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:08:07 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666AxDNN238262
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 11:08:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=; b=ENQWdUF6x1jx8yL0
-	TK34NknB8KymeARAmE8QPgyereYZDw3jnXe1q0/8g8VIFp52NHROi3RqaFudgQWB
-	5zhFcvneVdsjzC4lAtz+xN4hN8soi0D0zrkeozEht9CPW4BSfkXXGS/jD9U323y1
-	/ogrS24EEAoedojh9FLljIPmZiPkg3Je1RtIU/U/X9Y9YxRXjiwi5R8cE2hJs9XK
-	pm9NYzofTI9ptS+Zy118aqiLUxsiF0BAVbr5c+zxiNtevKsFrT9hHyGN7ggwLDOs
-	TYMKWyTD5JQoP8CysdFe+g8AbOM/w9G0UIwT4QyYEOOxbQ9xwEiHh/esOHlx+YT6
-	Ywkprw==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88t88my8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 11:08:06 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c298a1b20so6189111cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 04:08:05 -0700 (PDT)
+	Mon, 06 Jul 2026 11:08:22 +0000
+Received: by mail-yx1-xb129.google.com with SMTP id 956f58d0204a3-6675db463b9so840090d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 04:08:20 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783336099; cv=none;
+        d=google.com; s=arc-20260327;
+        b=pwwD3dtpZZ9JqrPOG8Hfto6SCTop7/xalQsUkXOdkPtWtf9r3et74HrFvbCkb+/ytw
+         u6IJlrJbaHibiNeoNbBeHBF0xbu4rvVnp6j7hgfdAey2xDoHiiVvTN0i4DzqYlbxRIRI
+         fdOitCHXBtGBpaabe7hb/072sz+uWh4TRO9QqLAPJEroEeHDLTABeXi+4TufYkyPMz4I
+         ciaDN8Aw1gSg1UfHxx2neJUIuS29PMnSYv86syCB0iGtFrS2HL1zAfScXZkSDhJS+cxY
+         kbwY/aJ3n/oXpQg8bh4yAmbSTUInRrg3BqAmOSVsXvQSD8pP+g/u+6c5AqNVeFJQQZqI
+         9aVQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=SIs5mr1YlXuHrRAWD0Cvvhp1KPf82E28pNtyAHr0i7A=;
+        fh=5AweH1O3cXFMmpuG6OZ9l1cxzopmUfmUDiFlKWPI5KE=;
+        b=BANyOFO69Z48xKAdwhJwlqt/5h3fGQmDmerqkAPuAmUk9Y5YXyVcx5/m8rtP6pFIr9
+         09SHISutvuLdGeurtcIkd8AhFilpK4Kj2OwIiF42W+kgA9/eTEONiWAEMhjIRUpocmKo
+         /N92VgPHWWxTbNXHmqMMe5Ii/3y/NbmITliqdYi//rJcImEJH582gMq49c9IYq2ehm26
+         cL6MrJCY5GpBaw5gqhUqOwwZZCZ0IE7dVdQr3TBK8O8oNThkMT+GsoYyczyJ1RpQCAPF
+         8DoV9tagw8Rk4vGlw/0BzU2SXPjl3xkg8Fz+jBacRTgSe2oHVonvtrfZPbKqlnolHrIu
+         yF7Q==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783336085; x=1783940885; darn=lists.infradead.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=;
-        b=UST/BkTvpkNQ100eXd2IKCUlJPvksE8QAuZdCYvNjqPEW++6Y5luN25ClEYIl7SAK3
-         KTzVooFaiQfUcYklt+2wQArE9XSgPxL4BiAhySgUkhbs4elJJPAmGzguf7b2o3AS8ygy
-         6J2NKrZDZr3Fc7BJovplBrs0W1leOFpwVb/nPfj8UqYnlDp/f5iqZujlb2iVhSe3SQsp
-         stUarKdqVuyBALkyL3p1P63d+mHQ7SNDmpWA7kuLrW8RRkda664vU28D4dmP6i3W4mXa
-         mhndIPL3cq+NCti8ThlayWZ2U2iIRQHcbDjYBSUYdWacWUhK1r++zMXVSUESEnJWFv/J
-         XjEg==
+        d=chromium.org; s=google; t=1783336099; x=1783940899; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=SIs5mr1YlXuHrRAWD0Cvvhp1KPf82E28pNtyAHr0i7A=;
+        b=diHDloUihjh1sy7/I7i+7UHTpVjqZHHw1aQK1qmTek3WLrvRe/Nm0jbnDfsg3Y3Hh+
+         7OVulum0g22WbNkd2Y1zC68nA8m4yEtJaHdfuC1CeSH+CN+ehCVXrgRR4iQIe0bbB+rc
+         qGQJAfVZ8ObzD9/a6jFPLI5280YCS8svXw728=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783336085; x=1783940885;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=;
-        b=YL6jkgXPbs+VhaRJtiuPwIp0FXXFMM1BwYYxTZ/PAs5lTMmUAFb16t96x30DROOVPF
-         KIVVfZ7LS7hvLQb1RRZa1eigdpKA1M1j3jmaN+EMyGDiniQovH8yD+5fku+VxLKQD3mJ
-         3I6TzPhfm26xLJR/f69JiKei04VYvhaqQsNEkKPEvNQ90Klxqy5U0ojtIFg/vPkONokn
-         q734RrGiYnIfy4U7ODmjA7KNQX/vMihULsbDTFghioiFKxEuAEYGawO6+vlWbtKHUc+U
-         OC0VVT4X7UX9T8UeXssHnPwWwTHrgoHDERR0FlrKw7TScT7IOtBUvT/4+ayHqzynLtSP
-         MOaw==
-X-Forwarded-Encrypted: i=1; AHgh+Rq9PcdD6cjgO7/EzjNKIdxDsY5YLwc40o1yiTjN5mYQgVhBWNMebrrctFwM4xUYaikkjXCDxfB7RUw8K69R47wT@lists.infradead.org
-X-Gm-Message-State: AOJu0YydHfD8oAFN921MBY7lSy7IbgNrAT5aLKweMG85QWhJbnjvfpv8
-	3tsIKbduBg8HPceTDwkHIp2iOz7vo994vzqTdwFoDYNqkDPaLHntK89WNW8SU/ub6Z/y1yJBsXJ
-	WR18nTkCAhUBcT+bYLgnRZxwfd8GDrcDVLYdxvHlnkxo1bE9a5mRWhqCe9ahu6W4nAUYILhwtff
-	vIAA==
-X-Gm-Gg: AfdE7cltYWQAed8NArs93vBvn9fzG7rNSbs0FobMyxX7X0jRyPB9LftX07aXWfuQ2F2
-	jXWw8TwxXjWOKgSfZRA4EWOmhlFFQDFDA6fr/puEJkNFYuGcr8ZyN+cHwWo0m6ScYV7d7BoIu4y
-	bmb63xM+S5Nz1ngcF/S3hs27z5pdfQd1qiJhsGkI5IkKH2MXRMzS9eSVCCJgYsBBIKuIVZcW66Q
-	+tVLJzEF7j6hK/6R2VyF5uiAqcfCFXyMLxi8k0NFixkoj+7dWFOxfd9Cso195mJzKQFzjdkqaXP
-	X0CMiBqMFl+qkLCE0ZT0nmDS4kC4t51PQRMhohXCFHYHkSczTWCkG6A6cFTvheY+B35YcL5eEp5
-	1lJJ+yqB5C3AzB+NWz2clqvYNRbbLoNznK90=
-X-Received: by 2002:ac8:5710:0:b0:51c:db4:3cb8 with SMTP id d75a77b69052e-51c4bed6cd2mr88275371cf.8.1783336085177;
-        Mon, 06 Jul 2026 04:08:05 -0700 (PDT)
-X-Received: by 2002:ac8:5710:0:b0:51c:db4:3cb8 with SMTP id d75a77b69052e-51c4bed6cd2mr88274771cf.8.1783336084718;
-        Mon, 06 Jul 2026 04:08:04 -0700 (PDT)
-Received: from [192.168.120.193] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b629a1c7sm723146366b.30.2026.07.06.04.08.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 04:08:03 -0700 (PDT)
-Message-ID: <5fcc0bc1-7f9e-4611-be77-42860e0f4c74@oss.qualcomm.com>
-Date: Mon, 6 Jul 2026 13:08:00 +0200
+        d=1e100.net; s=20251104; t=1783336099; x=1783940899;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SIs5mr1YlXuHrRAWD0Cvvhp1KPf82E28pNtyAHr0i7A=;
+        b=CjqqQwGK1UTIwrUi+pzFLngNHZDuors2aRqjWhHWM8ClFmJGYDMCJlv/O0NYSmZcdr
+         28eR2bQOtLtx/kCKjOmpsu7IsSboEkz0UZlDWK/vwXlBDcIrbMfp3IQ9bLhS3RO13XXo
+         XZq+TkIIi3wsqQma4GQc9AmqMlrtLDrZPZ/rKrxqIXlgNu/xBI2L5PR0dwPL6Sod63gD
+         uEseCM37e5kgf7jKj5VmUKCapGld6r+UR9xXjdgT5MsDeMozeJuHxQTeVzMvIL5djAOH
+         C8HNhG8acxo8pQt0RzfRDgP47LETGPIkMIIMXDyY2iZ2Wrd5T0+2ua34GHWMrQIN8icf
+         mqSQ==
+X-Forwarded-Encrypted: i=1; AHgh+Rrp8gh3Bhvc7YBNl62enZKMIll5RLah2rPUOiU6o/xcWUvsMQlmw4WHX/PGMs98mkA87xaVTzeDYussHVxwtuoG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNu0BeRAJIuOg0TpuP46IQybz8dXMsVIfrZkOV8U0hqwKestMF
+	OIu+FXiR/wNm07pcz/H0nHbXZRRF+OIl3XRLa5REek0zUgY8fE8EATamBQEDVT9A9r065WLFhY8
+	bFrUDG5soDZfjD74vm6cqGhtrWIUX0S4TV7hXxNjK
+X-Gm-Gg: AfdE7ckEWKqG+fJaLqQoO1kfMXoo+xsPGR0XefoQ+jaWnL73vYb8Gf/OjCSQxvyiheo
+	y1keenfqQb6smzcEdmUSPGFjhYwmviATTghicYE0W6Rn5OQe1aJm7UPEHzjeIR9ljR94Yav2NOQ
+	u0m3xJJt5JSRBhrt0LFylkgucVcvx65/sRXFm5mtQlHWwOK3WrOM9z9dMrPINs6/qnijkRc7muZ
+	6xYzkmADiEgjDvOKFzW41/jFt6T3D0mzM0AP7ca+QqFHnVA8OtDNTpv4HkQvkgYFcKyYm94mgsi
+	szv0gUqgoJKAuGZKsvdd6hcqbMY=
+X-Received: by 2002:a53:d016:0:b0:664:c436:e525 with SMTP id
+ 956f58d0204a3-6677fd49ec4mr103596d50.58.1783336099517; Mon, 06 Jul 2026
+ 04:08:19 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 6/8] arm64: dts: qcom: eliza: Add GPU SMMU node
-To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
-        Robin Murphy <robin.murphy@arm.com>,
-        "Joerg Roedel (AMD)" <joro@8bytes.org>
-Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
-References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
- <20260705-eliza-gpu-v1-6-c9f1354dbd29@oss.qualcomm.com>
- <10b0ad51-8766-449c-a51c-979364e6c781@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <10b0ad51-8766-449c-a51c-979364e6c781@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDExMyBTYWx0ZWRfX0HZc8ZnjB4Lv
- rkkYV9sF3sQzs+u+/f+OhyQbbq2nolMWklFvG7jmSDjY/P8z8xzNVNjJCQxEZMcSmyXIMXe9rtv
- YiMZJY5Uj2Es4G++5NKMjp7DRCfG0sY=
-X-Proofpoint-GUID: 8u6iM5ez3k8zuLFgMZV7r7MujISCjecI
-X-Authority-Analysis: v=2.4 cv=C6zZDwP+ c=1 sm=1 tr=0 ts=6a4b8c96 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
- a=EUspDBNiAAAA:8 a=rL6LpJHDE9oUo6aHBFIA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-ORIG-GUID: 8u6iM5ez3k8zuLFgMZV7r7MujISCjecI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDExMyBTYWx0ZWRfX1Z6toG8NOCxy
- WjgBknZe0MxvBoUi4GpgFa935LkyubFWWXBYPlKdapdB3MLiFQm3E5mAcDOXpZFXiwvmHeYGhKo
- pn+wXmabjIwBI6esUE0BXqZFi5q7OwboSZ+/F0PC/6ooKGw8GusTL5NdOZStOZ3T5GTtsnRcuUZ
- OVndhnnwPvxrDrDbyUcaiksmKf6y1PolVGB9qNBbLdzbjMt8ISY9d+LyTsFNDfw67v81o2iCEV+
- z4Qbnz/2ozcpDq2AYGHojs6rCB8fkGBoD12H8NRgcNz9KnIz2qS1J+4rmc65BcEXDiW0+ZHZ5MS
- ayBlnPjRtopuWp8GzRt4zkeGty38vrPkIkywXquk7GD0aCVk1m3/WcEBOiNESzS6lgceQ53jUiO
- flc90CvOle1gn8ULGRENa1XT3BRw73ZtLSgKflIJfLDE+gdmjIhrRQqrY9JjE7pa2GebEvQ8fu5
- vKuqZh1acInZNdhbPag==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607060113
+References: <20260703110317.1283411-1-wenst@chromium.org> <20260703110317.1283411-7-wenst@chromium.org>
+ <ake09vk4fEv1D9QC@ashevche-desk.local> <CAGXv+5GNucSXrhL=YxarSJHD2ezzYDK3EovFu-zy012KgZ+ZBg@mail.gmail.com>
+ <ake6FNy83LLtCs3b@ashevche-desk.local>
+In-Reply-To: <ake6FNy83LLtCs3b@ashevche-desk.local>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Mon, 6 Jul 2026 19:08:07 +0800
+X-Gm-Features: AVVi8CcaHXwr5vK-Mk50Hl5ytWXCTbNUaYqO2byI6p2Q5_6clKTL9yyyDNsH5MY
+Message-ID: <CAGXv+5EgpizA3Pc8ScNuChPhvFKWd5F6dxB-wT4-7EwabE-9dQ@mail.gmail.com>
+Subject: Re: [PATCH v3 06/13] usb: hub: Pass |struct usb_port*| to usb_port_is_power_on()
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Daniel Scally <djrscally@gmail.com>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Sakari Ailus <sakari.ailus@linux.intel.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-acpi@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, Manivannan Sadhasivam <mani@kernel.org>, 
+	Alan Stern <stern@rowland.harvard.edu>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_040806_744440_591ABAE7 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20260706_040820_733647_F647A456 
+X-CRM114-Status: GOOD (  26.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,48 +127,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 1:07 PM, Konrad Dybcio wrote:
-> On 7/5/26 10:14 AM, Akhil P Oommen wrote:
->> From: Abel Vesa <abel.vesa@oss.qualcomm.com>
->>
->> Add the nodes to describe the GPU SMMU.
->>
->> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
->> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->> ---
->>  arch/arm64/boot/dts/qcom/eliza.dtsi | 38 +++++++++++++++++++++++++++++++++++++
->>  1 file changed, 38 insertions(+)
->>
->> diff --git a/arch/arm64/boot/dts/qcom/eliza.dtsi b/arch/arm64/boot/dts/qcom/eliza.dtsi
->> index c5635f22e2a7..e5b8377e6c3a 100644
->> --- a/arch/arm64/boot/dts/qcom/eliza.dtsi
->> +++ b/arch/arm64/boot/dts/qcom/eliza.dtsi
->> @@ -2674,6 +2674,44 @@ mdss_dp0_out: endpoint {
->>  			};
->>  		};
->>  
->> +		adreno_smmu: iommu@3da0000 {
->> +			compatible = "qcom,eliza-smmu-500", "qcom,adreno-smmu",
->> +				     "qcom,smmu-500", "arm,mmu-500";
->> +			reg = <0x0 0x03da0000 0x0 0x40000>;
->> +			#iommu-cells = <2>;
->> +			#global-interrupts = <1>;
->> +			interrupts = <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
-> 
-> 674 is the correct globla
+On Fri, Jul 3, 2026 at 9:33=E2=80=AFPM Andy Shevchenko
+<andriy.shevchenko@linux.intel.com> wrote:
+>
+> On Fri, Jul 03, 2026 at 09:17:16PM +0800, Chen-Yu Tsai wrote:
+> > On Fri, Jul 3, 2026 at 9:11=E2=80=AFPM Andy Shevchenko
+> > <andriy.shevchenko@linux.intel.com> wrote:
+> > >
+> > > On Fri, Jul 03, 2026 at 07:03:07PM +0800, Chen-Yu Tsai wrote:
+> > > > usb_port_is_power_on() currently takes |struct usb_hub*|, but only =
+needs
+> > > > it to tell if the hub/port is SuperSpeed or not.
+> > > >
+> > > > In a subsequent change, usb_port_is_power_on() needs access to a pw=
+rseq
+> > > > state tracking field in |struct usb_port|. Either structure can be =
+used
+> > > > to identify whether a port/hub is SuperSpeed or not, as the field i=
+n
+> > > > |struct usb_port| is inherited from the hub:
+> > > >
+> > > >     port->is_superspeed =3D hub_is_superspeed(hub)
+> > > >
+> > > > Replace usb_port_is_power_on()'s |struct usb_hub*| parameter with
+> > > > |struct usb_port*| so a subsequent change can use it.
+> > >
+> > > At a brief look this will be the only function that takes usb_port
+> > > instead of usb_hub in the entire hub.h (I don't count container_of()
+> > > as a function). With that being said I would rather see it to be move=
+d
+> > > to port.c altogether (yes, it's more invasive change, but looks more
+> > > consistent).  I would even dare to move struct usb_port (and containe=
+r_of()
+> > > accompanied with that) and this function to port.h. This might requir=
+e
+> > > a separate patch, though.
+> >
+> > I agree with the reasoning, especially given the function name. However
+> > I wonder if it would cause problems given the linking order. I'll give
+> > it a try nevertheless and report back.
+>
+> Thanks!
+>
+> In case it won't fly (but I still think it's better to split), can you at=
+ least
+> group usb_port APIs and struct? Means moving the proto closer to that str=
+uct
+> usb_port followed by container_of().
 
-(modulo the issue i explained below)
+Looks like it works out fine. port.o is linked in after hub.o, so moving
+the function from the latter to the former doesn't cause issues. One might
+even say that it is the correct thing to do.
 
-[...]
+> > > Perhaps something like: 1) "move struct usb_port and associated APIs =
+to port.h";
+> > > 2) "...this patch...".
 
-> This list is not quite correct. It must be sorted by the context index,
-> to which a given interrupt corresponds to - the driver relies on that
-> to give you information about where a context fault happens
-> 
-> Moreover, I see that the interrupt sheet has the bug where some
-> interrupts are offset by 32 from the base vector, and others are offset
-> by 31 (i.e. the SPI number doesn't equal irq vector - 32) - please find
-> out which mapping is correct with the right folks
+There are still some left in hub.c:
 
-Konrad
+static void usb_lock_port(struct usb_port *port_dev)
+static void usb_unlock_port(struct usb_port *port_dev)
+static void port_over_current_notify(struct usb_port *port_dev)
+static void hub_usb3_port_prepare_disable(struct usb_hub *hub,
+                                          struct usb_port *port_dev)
+
+These are used only in hub.c and moving them probably makes things
+messier?
+
+OOTH, the following bits are in port.c but declared in hub.h:
+
+int usb_hub_create_port_device(struct usb_hub *hub,
+         int port1);
+void usb_hub_remove_port_device(struct usb_hub *hub,
+         int port1);
+
+Any preferences for these while we're reorganizing the code?
+
+
+ChenYu
 
