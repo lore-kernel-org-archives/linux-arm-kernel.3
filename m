@@ -4,134 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04373C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:15:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94E4AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:16:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sXbBXwxmh3YbbPmw00J1QBHDq3hLzx2rmUyHAEwerH0=; b=S9ATsDoF2X/EETR5VTj40dGgSW
-	7xItiE/xcv2hxOQZNdB5iS6ga2HRjgddd8ODIyRrLBLH/trsBdVp4aMLhl5m8E1VJ88Mz2eSyfKTF
-	qtd4h4xTmHWWKLLfHHf3uFETrwtdIIC9c+TYxJyXLSVzzskgP6Jx1a6u7FaHdel4Ifp7iICAObB6M
-	UYANht0Wyp5at3UpB7OySrbydcSFPaDq2D/BOIhmqshm+a4H9v0VN59nT2nr6Y6dLDQlAmQ30/d0A
-	c5xsuBe62HwtZmpTZKzmO9gojljba/XiDrgeeOjgswdqMZSnEsI3xL15IpBbcX1ZJ9Fh38vgCYxts
-	PL7hEX2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fV+rN5qAgssJrpJpXPReAQC5ummn8a0NrAGjnDwDD6I=; b=1emxwIX8kgg3oEvQOucOpD7AjB
+	9DU4Ne/+1oCITgKaeKGWryJq+6FBJwk/iXEnZ3HnVwqRB46HAqN76EBacQurdffoJ6cTBqyHOS0yN
+	lX+aMtKto1aSKO5QjFlPo+67k2Q+t1uXgqijoVrTquv4j/F1KSlifps9YSmbMUMSnx3vRyAKhRqOM
+	tv6S7zWnF7PEm7nC3FYmtb22bSGjcDQPspiMruidQSO6CTVb9NRJrZvs6S0WRC9vxHWE1B3UdJ4q0
+	sKUJ8YzQphaLSIEAis35D35EsQ63t1pDXbgqiNaaw7dhtBykziUHk87FnJ0TneFL/+zAy3f8XJPND
+	l3uoRA/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghIH-0000000CKu6-3Ezh;
-	Mon, 06 Jul 2026 11:15:21 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1wgf4p-0000000ButW-0fIs;
+	Mon, 06 Jul 2026 08:53:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghIF-0000000CKst-0s46
+	id 1wgf4X-0000000BuXO-2XRD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 06 Jul 2026 08:53:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=fV+rN5qAgssJrpJpXPReAQC5ummn8a0NrAGjnDwDD6I=; b=iLWY+eV21UVaT8TrEptzUOoQVn
+	vWm6ww4RvyNVtgZ7pksIdOrGTA25lBq2bLEkqkTaK7EJi5HctlMvQEvxCyGUg+AI2599KDE9dU7JH
+	ga/SVMeoX5AmD9/RTIoeGqWKQ2YYL6vpcwoNMRzDIlqcungbmA6QLMlog24VLkY0yOhbORR8brXSD
+	w/8b9unwP3jo+Y0ALl8a2/koPeZrCIzEbca+aiFS2zmM4VICkFt2Y1TTmn0hvpVz1qZVMu7cX32mM
+	IVUePgJlY5Junkq4RK0tLb/Aq4nj7+IZOVTtLbduN2MycnT3AHYZI6uPyhywIssV3VmhVkoTVgJku
+	U69q7F3Q==;
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wgf4U-00000006LH5-2ZLp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:15:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UHrhpFs4fNOUYdN/YuVzxHG+fHMskAtYwylqXS9DFSgB4OvoyAHu+NVUT99cQsD6jjt75M/RZlfmA5ba/lsfALkvEjdBaDFh6OOxMokZJ4Y1CLsttEeKP72efpmkAY7v6Kp2xImDY3j6nm47asS3MuE2UuqWTE88T8r2E6I9DbENMqhOxBK5DQuxa43ac09s9xLmWhxnVD8CCzCKYPCQEZ/mWWawV98xli7h3ZyTCVoBcMP0Lp4hkjJxiHkFZiOdMn+KXvAx4yl3MayzcqUBurVl7QmPuUQwRQtpjeVJZ4/9kE6Hp8yU6Ovg0qVDFuCIeNxXJ2qoY0KbFBabn5yDGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sXbBXwxmh3YbbPmw00J1QBHDq3hLzx2rmUyHAEwerH0=;
- b=XkoeBUbCITFmmm5t/4PPdn4YLBq6bmvgoqAQyP2Y1PlKeH5c/AL2zT7m6ybqlzu3jYTbdc9GW7A/Kwd5dhs8wYBksTJlr07SNSMwhzfdMhw/iPvuUUcAEEJYdbC0Y4/7rfFy2esFf5jvG6VLLgqbHykKi/vQcm9TRwXN9arD/ak+WBQ4mR8H+GyjGXIFlaWUWSMAGGXja0pjc8aOApVU7hUx0UcDt0dmac04wMmFhRhHlFrg1ctXqZCPJhBx2mpP/nHhCDO1kKlVg3C7DcMqWt3rHmL6J4/vX3/o9lPE+Fzfk/GxCK9/rB7cWFwswKxh9PMfTkJ7143z3X5VwhNvGA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sXbBXwxmh3YbbPmw00J1QBHDq3hLzx2rmUyHAEwerH0=;
- b=GUH6JiSdEFkTFLaf7rnby0Gqc4Ldy1WDt34l8Ph597WFaoewKjRfgC0qUpUE5+ZaTQZlhCrKGvRcomFC1VW7W+cy6nCsfjLL6cZqxMQcXxnJ24Hvqlmg4Mrih27WMDgr837hY//hLS+0QmLkXAQY+0fHe1LPCdMX7DDzVtwlI4u15QOZWBT6zApfm4MBoOjIvgOgPUBywiwNgi+Ps59wQo3PPuyNPob+PrwTG7xFvdre8kLvW0e7CXGI9s8hBMw5Lay+DsRfT+nIxVzIKlYTZlO7zRAZ2BrdpMc0RrMphHiE7B6ZEVWmjOrVMtYx1k0hZk9GPLNdHwCmHf4o+eFULQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com (2603:10a6:20b:24d::9)
- by AS8PR04MB8580.eurprd04.prod.outlook.com (2603:10a6:20b:427::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
- 2026 11:15:14 +0000
-Received: from AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9]) by AM8PR04MB7874.eurprd04.prod.outlook.com
- ([fe80::ac38:1699:6f18:c5d9%3]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
- 11:15:14 +0000
-Date: Mon, 6 Jul 2026 19:18:41 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	pierluigi.p@variscite.com,
-	Stefano Radaelli <stefano.r@variscite.com>,
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Subject: Re: [PATCH v2 02/15] arm64: dts: freescale: imx8mn-var-som: move uSD
- support to carrier boards
-Message-ID: <akuPEdODztRtdbIf@shlinux89>
-References: <cover.1783330236.git.stefano.r@variscite.com>
- <40a2d0d32bf3447f833149eb4e71365c4515743c.1783330236.git.stefano.r@variscite.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <40a2d0d32bf3447f833149eb4e71365c4515743c.1783330236.git.stefano.r@variscite.com>
-X-ClientProxiedBy: MA0PR01CA0046.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:81::16) To AM8PR04MB7874.eurprd04.prod.outlook.com
- (2603:10a6:20b:24d::9)
+	Mon, 06 Jul 2026 08:53:00 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 665MIQZs1515033;
+	Mon, 6 Jul 2026 08:52:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=fV+rN5qAgssJrpJpX
+	PReAQC5ummn8a0NrAGjnDwDD6I=; b=jvOZLDQFGxVLNOgQmfLtdMlIrjHP3TyPa
+	vX5HU8V+MWlVPz3ww4CpZR0idzxd6npo5ETSZql1MQP3MuyTMhvwL1JbSt9vhC1a
+	ROQi9XEgRpnzsOukVO5cmdpC/dL7R8zA6tGJMFbFWcOXEXKMlBDvbe6rDmpsXC1J
+	lp63Cym2u7BhtnHiKN4KVSeDO/c2YXxEdAIhi+fKXPh/2N3/JM5g77BDbrL/5cUs
+	Ulay4/QeuVTQd/fItAFx8Z4ZLcUjiWOO08xnSvF0sIn/ZMAuZRTgGVX6nkIIdivQ
+	cEy5gss+NJYjdCFbEl8vFDusJX3rlh04ksPWL5xBkHmbJqsUCoHoA==
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4f6rkdh6vp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 08:52:46 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.7/8.18.1.7) with ESMTP id 6668nbaw009549;
+	Mon, 6 Jul 2026 08:52:45 GMT
+Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4f7cgpw1bh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 06 Jul 2026 08:52:45 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6668qdcl45875578
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 6 Jul 2026 08:52:39 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id AB53A20043;
+	Mon,  6 Jul 2026 08:52:39 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 483E72004D;
+	Mon,  6 Jul 2026 08:52:39 +0000 (GMT)
+Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  6 Jul 2026 08:52:39 +0000 (GMT)
+From: Steffen Eiden <seiden@linux.ibm.com>
+To: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-s390@vger.kernel.org
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Grapentin <gra@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christian Borntraeger <borntraeger@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        David Hildenbrand <david@kernel.org>,
+        Friedrich Welter <fritz@linux.ibm.com>,
+        Gautam Gala <ggala@linux.ibm.com>,
+        Hariharan Mari <hari55@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Hendrik Brueckner <brueckner@linux.ibm.com>,
+        Ilya Leoshkevich <iii@linux.ibm.com>,
+        Janosch Frank <frankja@linux.ibm.com>, Joey Gouly <joey.gouly@arm.com>,
+        Marc Zyngier <maz@kernel.org>, Nico Boehr <nrb@linux.ibm.com>,
+        Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+        Oliver Upton <oupton@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Sven Schnelle <svens@linux.ibm.com>,
+        Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+        Vasily Gorbik <gor@linux.ibm.com>, Will Deacon <will@kernel.org>,
+        Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH v4 23/27] KVM: s390: arm64: Implement required functions
+Date: Mon,  6 Jul 2026 10:52:23 +0200
+Message-ID: <20260706085229.979525-24-seiden@linux.ibm.com>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260706085229.979525-1-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7874:EE_|AS8PR04MB8580:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1807db8f-0438-49cb-f714-08dedb4fd9f6
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|19092799006|366016|18002099003|22082099003|11063799006|4143699003|6133799003|56012099006;
-X-Microsoft-Antispam-Message-Info: 2S4Vw7f2sKPfRsbmu9ZzKhdbmbdz6r7lTnhsPXszGnIQj9F8fyFsPDVjx+a5yp/y21a5jtmtZJR5JZqtpkHCBCx8XaaCc/DWa/PIvg8MRrQowmy6Z4uuCNJlxGKnMXQV6zuggAtO1s/cDs+eO/t0Im59eoZyABUcY+hn5Pgdr4ZaY1vd7sj//GX5Kvw6kGSDVdcOusMJ9ZaUYHw3SWl3uXamqN/0NFp4n83LJ2/2SxUDdLa+VwqSmFtgoB1dJ7SuoPniOrtOAr4fBUWhW5fwSDcgD/ORXQv581wxAg0djg69AukshgWlpYRaSioi52DmRVvUI1z+BBdcYFutwobzf4w3AnxLDYe3UU4Gy8ePewnDi126iFqnrlR9NIeQ+1hJ9EY4rbtcPW4BktnIIsL7ko/Tke9lqis+XH98s8YxgPR9DpAUOyEaoYYolU72GRDYWdwGbN/r00GMhSvC5nk8g1yqcVcJFfmgBsAagqRYpasITYUwTWK7Hu87N1IU2zjiY+4sBUJSTOf/m/sApKa8x5557R/4HKM8cbgUngcEqhDwEBsIi3h4sk3jwDvJ3ZosoGDWNE9O3nGAnB/si8hMG2jh0s2jckS5qwKS5qjNZORKUCGcwarOi4EarijRtfje4m8cLe0eUQ1pE7buAgCJ5QoyrtEo7LrMqHH3uFeogLk=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7874.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(19092799006)(366016)(18002099003)(22082099003)(11063799006)(4143699003)(6133799003)(56012099006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gM8NkkThNFgcfSLoEPeFcTrH4sHJb0BUnWaYvubWRDe1/+HZnwU67MUNPZ3U?=
- =?us-ascii?Q?e5bp925mqFid8fdsbHj2CjiM3DUdulKHyBwlSrX0cqMYZZIFUZrrRi6oozN0?=
- =?us-ascii?Q?d1qykM25QwNJmw8lDZ4AHenxqEM7rZZTxiMLtCpM+5OoNK6ThQPm74rv7HMj?=
- =?us-ascii?Q?2YR8agILUB3QDdiJaHsL4lhj6M6q4WPFLw8v0j73nmYHHPMiE1yrUi4PG3qT?=
- =?us-ascii?Q?bOXgvjkeGI0+l+5FGqheHblcnOfi//RFjAezv/B+kuGk6HAHhVu21XIzPb2M?=
- =?us-ascii?Q?y0E0ioPQsVSBR5FVZLWQjFy3qn0QUnhVcZO+Kvg1deWPssgHdkyZPmqPC8TD?=
- =?us-ascii?Q?Qd1v6/RrfdaAUcu9zZDs6SnD9hvRsxrNAGYGQSuN9sdUU0MMnSdSmEUo7UqZ?=
- =?us-ascii?Q?kfqgqkrXF7V3rh6btvUOnOG+K2ev13+k1yJoDnP0aL1irBUpIZcDJkQbqg/u?=
- =?us-ascii?Q?YVufNUhh8DZ1uR5MFQR7dEv86Edre4EKgBLZ4vJ6OCAdc6AqM5TEqEb3prN1?=
- =?us-ascii?Q?07kS7PTNG43rEbaVc8pUE6BlroHpOQYL9xQrQ7/N/edBGZ53AlhhZ6JVs6xS?=
- =?us-ascii?Q?gHIoy8HrJLHRJDzkwPzOi9aUYRnxrKpBwukHD6zNnH4JK2aDPv4Zc21h/5Ru?=
- =?us-ascii?Q?H4iFHxi9otpcqAzamsT6leFk4C1H4TTdLDoML1+3AOoUs1zoutp8CoBfZKkd?=
- =?us-ascii?Q?3gexbjIAS+bt75jk/yHD5yDQaD/O1ihppqOZlJL8dra+c+xQvJEzUJaCYi+b?=
- =?us-ascii?Q?5ahDeBSW4J8vSJYCoS5JWieBafzMte6yivuc8U99JKcavbxaQUGUpNEPuXiY?=
- =?us-ascii?Q?TAJ6CxQ3RJUFqvOtOLlpUtmZO+dxVoMKdhD4CSMG3H3VlsalIh62mW3A7ckf?=
- =?us-ascii?Q?yFlB0t3eLC7kGFjtMZrP5Fi8pM0cvQ84SEKwzrarpC7W1xW94P+WOFFroe/c?=
- =?us-ascii?Q?2HMRA0AtFL6cSmsUQndY6ueryXjccGGoTDhTCgLEK0kfmkvb7wTL37sMktFn?=
- =?us-ascii?Q?Z7WXPUCquIkXa52uGNlQVzjmfWtlT2j/7rDVpesw/U9xGtHPmHq6LULWg73X?=
- =?us-ascii?Q?a0E7pGijCaXT1hz0lzeP5Jk8ys+rRx1ScBDAvyqx9Cm6yTQw53hvPQHFW7QN?=
- =?us-ascii?Q?5ryo072oveSvGiJr5wR7FRhZcE8OJrMX86uz2l4QNu8IDb9cuWXbYzb6jdIT?=
- =?us-ascii?Q?KNw9Lwz4XdOzg+ljfnC5yzDvxDwOrNHdKot9uJZXpF9D5L8Vt/aqHFeUb+pv?=
- =?us-ascii?Q?ne149H8zhZKm6bosbyC9XNt78VX9rTKxyCHHsmZ17aTlzHW45arzj/afV2fF?=
- =?us-ascii?Q?Icp6hvyg9TbUm8HCTnbZn7Rf3m8CtVTNwyOleAHHRUxwKtiBfQ/TYXvxTwpW?=
- =?us-ascii?Q?rydAnvlQbpV1E54cYw27PuhnlrXT5omGM62bAzT7r9tGVXwpZ9FzdSmmDXJI?=
- =?us-ascii?Q?OZkBlpNYfLcQ/GZBFbbDCI/yOBFilHNzuOh/M31lcscPWtNVDNMCmyksCTWN?=
- =?us-ascii?Q?NjSXGHtv3tLoO81ggthLn6YnDt1gKe+w52oq5Hy/92G3znAPsBPtKTRTmnaV?=
- =?us-ascii?Q?pij00Da8/61J3aXo5jDe+34MWAKmu3JUqDH+6/YzWiwKctFTVYF2X/DlhYkC?=
- =?us-ascii?Q?NEaFxxIcI5FyC++vGLVG0kj2QdKY7TFzj8MAqOa3eaws1sKWsKb9t04P3J9C?=
- =?us-ascii?Q?9hj9aD0IxQgM3ftuFLJP85lRkwkuoqJ4t9zp9FfnAxaEgjRmCuDBM/5AVTnJ?=
- =?us-ascii?Q?dmz6iDVI6qOy36A8Yku3yQJHp4zqNcbn24cEa7ib3lcwkhaunkMH?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1807db8f-0438-49cb-f714-08dedb4fd9f6
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7874.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 11:15:14.0318
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: o3QbTaSGPqjgl6b9Fec73EOsF4myHjVRGHaWXjXfU+Ow2pYe5mImxpbQ/ugtxeDvG9xbsVlEvFEsu6kykb6rRTZdncdfH7WROZakyWzLBr2JRASE+vnjN3g9ac3UuPwQ
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8580
+Content-Transfer-Encoding: 8bit
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=M7J97Sws c=1 sm=1 tr=0 ts=6a4b6cde cx=c_pps
+ a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
+ a=RAioF0-LDSMA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=FvtiEy3qvhp2I5fuxrcA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfXyUeL/phwyAug
+ IA5E3S+Aco5gnlKcXraccgQnIKoEvOHjAmKpK1hXO9GAxzrgJSm/EAkCuvNruaOVU+wzLxCpLEq
+ N3DZZtFMBXxPi+hLZSF8KVPd5imLktX1fRn8E0dxxGzhSUilte9XIxfx//tjM0571FHUGYTFj+p
+ 6xKp/uq0voMlJDMhXDoNwUiaIgBminYgWnuqOJFQxrMIORbQqVTDQJHrnNeSmcjSTNbsU4TlZE3
+ MiVQyNsAIlxkZlvZ6DgXzdV7vQiZ+pkwPrQTQUYjGeiNbsXMGxZWzb0eA0RO9AbkGjVXbOSObKq
+ Id4+amae4x9//YsTObBW7ICChVFeMamN7Evhj/tw6lAuIar00sSlQ890StaebDXkqvFMw5gbTFG
+ c5ysJ+gwrBd1ZOMC4DOgEkKM4fBkgsdzHtHU85ImdgAx1M6Q0q6Z5MWG7Ein8kyf9DWzH/IZNh+
+ tvheFvykL+ymPytpS6w==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDA4OCBTYWx0ZWRfXxhNKe4XDsbxD
+ XlMl8FvHOfYN0pxl8Eg1q/9S02+RLPmeQedOIDLGwgzYBAVstW/7F6uwRvMTdkwL0vWrxj6QZuT
+ mlNymKyS3IICWbSL09zobYfTk60SSqQ=
+X-Proofpoint-GUID: RR8JBAlZW905s5tcRtdx4zcSDBGMend5
+X-Proofpoint-ORIG-GUID: RR8JBAlZW905s5tcRtdx4zcSDBGMend5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-07-05_02,2026-07-03_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1015 adultscore=0
+ priorityscore=1501 bulkscore=0 spamscore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607060088
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_041519_251262_BCDFD02E 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_095258_983804_0EE79B5A 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,20 +154,326 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 11:34:32AM +0200, Stefano Radaelli wrote:
->From: Stefano Radaelli <stefano.r@variscite.com>
->
->The VAR-SOM-MX8MN module does not provide an onboard SD card slot.
->USDHC2 is routed to the SD card slot on the carrier boards.
->
->Move the USDHC2 node and pinctrl configuration from the SOM device tree
->to imx8mn-var-som-symphony.dts and imx8mn-rve-gateway.dts, keeping the
->SOM dtsi limited to hardware present on the module itself.
->
->Add the required off-on-delay-us property for the USDHC2 regulator on
->the Symphony carrier board.
->
->Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+Implement the mostly trivial functions that the shared arm64 (kvm)
+code & headers oblige s390 to implement.
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Implement a very basic smccc handler that (non-compliantly) is just able
+to stop a vcpu.
+
+Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+---
+ arch/s390/include/arm64/kvm_emulate.h | 135 ++++++++++++++++++++++++++
+ arch/s390/include/arm64/kvm_nested.h  |  11 +++
+ arch/s390/kvm/arm64/handle_exit.c     | 110 +++++++++++++++++++++
+ arch/s390/kvm/arm64/inject_fault.c    |  21 ++++
+ 4 files changed, 277 insertions(+)
+ create mode 100644 arch/s390/include/arm64/kvm_emulate.h
+ create mode 100644 arch/s390/include/arm64/kvm_nested.h
+ create mode 100644 arch/s390/kvm/arm64/handle_exit.c
+ create mode 100644 arch/s390/kvm/arm64/inject_fault.c
+
+diff --git a/arch/s390/include/arm64/kvm_emulate.h b/arch/s390/include/arm64/kvm_emulate.h
+new file mode 100644
+index 000000000000..6ad21398f86f
+--- /dev/null
++++ b/arch/s390/include/arm64/kvm_emulate.h
+@@ -0,0 +1,135 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef __S390_ARM64_KVM_EMULATE_H__
++#define __S390_ARM64_KVM_EMULATE_H__
++
++#include <asm/fault.h>
++#include <asm/ptrace.h>
++#include <linux/kvm_host.h>
++
++#include <arm64/kvm_arm.h>
++#include <arm64/sysreg.h>
++
++static __always_inline unsigned long *vcpu_pc(const struct kvm_vcpu *vcpu)
++{
++	return (unsigned long *)&vcpu->arch.sae_block.pc;
++}
++
++static __always_inline unsigned long *vcpu_cpsr(const struct kvm_vcpu *vcpu)
++{
++	return (unsigned long *)&vcpu->arch.sae_block.pstate;
++}
++
++static __always_inline unsigned long *vcpu_sp_el0(const struct kvm_vcpu *vcpu)
++{
++	return (unsigned long *)&vcpu->arch.sae_block.sp_el0;
++}
++
++static __always_inline bool vcpu_mode_is_32bit(const struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++static __always_inline u64 kvm_vcpu_get_esr(const struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.sae_block.hai.esr_elz;
++}
++
++static __always_inline unsigned long kvm_vcpu_get_hfar(const struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.sae_block.hai.far_elz;
++}
++
++static __always_inline phys_addr_t kvm_vcpu_get_fault_ipa(const struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.sae_block.hai.teid.addr * PAGE_SIZE;
++}
++
++static inline u16 kvm_vcpu_fault_pic(const struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.sae_block.hai.pic & PGM_INT_CODE_MASK;
++}
++
++static __always_inline
++bool kvm_vcpu_trap_is_permission_fault(const struct kvm_vcpu *vcpu)
++{
++	return kvm_vcpu_fault_pic(vcpu) == PGM_PROTECTION;
++}
++
++static __always_inline bool kvm_condition_valid(const struct kvm_vcpu *vcpu)
++{
++	return true;
++}
++
++static __always_inline bool vcpu_el1_is_32bit(struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++static inline void vcpu_reset_hcr(struct kvm_vcpu *vcpu)
++{
++	vcpu->arch.hcr_elz = HCR_E2H | HCR_RW | HCR_AMO | HCR_IMO | HCR_FMO |
++			     HCR_PTW;
++	/* traps */
++	vcpu->arch.hcr_elz |= HCR_TSC | HCR_TID1 | HCR_TID2 | HCR_TID3 |
++			      HCR_TID4 | HCR_TID5 | HCR_TIDCP;
++}
++
++static inline unsigned long vcpu_get_vsesr(struct kvm_vcpu *vcpu)
++{
++	WARN(true, "not implemented, just feat RAS");
++
++	return 0L;
++}
++
++static inline void vcpu_set_vsesr(struct kvm_vcpu *vcpu, u64 vsesr)
++{
++	WARN(true, "not implemented, just feat RAS");
++}
++
++static inline bool vcpu_el2_tge_is_set(const struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++static inline bool kvm_vcpu_is_be(struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++static inline int kvm_vcpu_abt_gltl(struct kvm_vcpu *vcpu)
++{
++	return vcpu->arch.sae_block.hai.gltl;
++}
++
++static inline bool is_hyp_ctxt(const struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++static inline bool is_nested_ctxt(struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++static inline bool vcpu_mode_priv(const struct kvm_vcpu *vcpu)
++{
++	u32 mode = *vcpu_cpsr(vcpu) & PSR_MODE_MASK;
++
++	return mode != PSR_MODE_EL0t;
++}
++
++#define SPSR_SS BIT(21)
++
++static inline void kvm_skip_instr(struct kvm_vcpu *vcpu)
++{
++	*vcpu_pc(vcpu) += 4;
++	*vcpu_cpsr(vcpu) &= ~PSR_BTYPE_MASK;
++
++	/* advance the singlestep state machine */
++	*vcpu_cpsr(vcpu) &= ~SPSR_SS;
++}
++
++#include <arm64/kvm_emulate-part.h>
++
++#endif /* __S390_ARM64_KVM_EMULATE_H__ */
+diff --git a/arch/s390/include/arm64/kvm_nested.h b/arch/s390/include/arm64/kvm_nested.h
+new file mode 100644
+index 000000000000..e950b1a10c41
+--- /dev/null
++++ b/arch/s390/include/arm64/kvm_nested.h
+@@ -0,0 +1,11 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++
++#ifndef ASM_KVM_NESTED_H
++#define ASM_KVM_NESTED_H
++
++static inline bool vcpu_has_nv(const struct kvm_vcpu *vcpu)
++{
++	return false;
++}
++
++#endif /* ASM_KVM_NESTED_H */
+diff --git a/arch/s390/kvm/arm64/handle_exit.c b/arch/s390/kvm/arm64/handle_exit.c
+new file mode 100644
+index 000000000000..a0ebe5ffa19a
+--- /dev/null
++++ b/arch/s390/kvm/arm64/handle_exit.c
+@@ -0,0 +1,110 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <linux/kvm_host.h>
++
++#include <arm64/esr.h>
++#include <arm64/kvm_emulate.h>
++
++typedef int (*exit_handle_fn)(struct kvm_vcpu *);
++exit_handle_fn arm_exit_handlers[ESR_ELx_EC_MAX + 1];
++
++#define __INCL_GEN_ARM_FILE
++#include "generated/handle_exit.inc"
++#undef __INCL_GEN_ARM_FILE
++
++#define PSCI_0_2_FN_SYSTEM_OFF		0x84000008
++#define PSCI_RET_NOT_SUPPORTED		-1
++#define PSCI_RET_INTERNAL_FAILURE	-6
++/*
++ * Temporary smc/hvc handler. Non-compliant implementation (features missing).
++ * Implements only system off so that test programs are able to end their execution
++ */
++static int kvm_smccc_call_handler(struct kvm_vcpu *vcpu)
++{
++	u32 func_id = vcpu_get_reg(vcpu, 0);
++	u64 val = PSCI_RET_NOT_SUPPORTED;
++	int ret = 1;
++
++	if (func_id == PSCI_0_2_FN_SYSTEM_OFF) {
++		spin_lock(&vcpu->arch.mp_state_lock);
++		WRITE_ONCE(vcpu->arch.mp_state.mp_state, KVM_MP_STATE_STOPPED);
++		spin_unlock(&vcpu->arch.mp_state_lock);
++		kvm_make_all_cpus_request(vcpu->kvm, KVM_REQ_SLEEP);
++		memset(&vcpu->run->system_event, 0,
++		       sizeof(vcpu->run->system_event));
++		vcpu->run->system_event.type = KVM_SYSTEM_EVENT_SHUTDOWN;
++		vcpu->run->system_event.ndata = 1;
++		vcpu->run->system_event.data[0] = 0;
++		vcpu->run->exit_reason = KVM_EXIT_SYSTEM_EVENT;
++		val = PSCI_RET_INTERNAL_FAILURE;
++		ret = 0;
++	}
++	vcpu_set_reg(vcpu, 0, val);
++
++	return ret;
++}
++
++static int handle_hvc(struct kvm_vcpu *vcpu)
++{
++	vcpu->stat.hvc_exit_stat++;
++	return kvm_smccc_call_handler(vcpu);
++}
++
++exit_handle_fn arm_exit_handlers[] = {
++	[0 ... ESR_ELx_EC_MAX]	= kvm_handle_unknown_ec,
++	[ESR_ELx_EC_HVC64]	= handle_hvc,
++};
++
++/* manually copied from arch/arm64/kernel/traps.c */
++static const char * const esr_class_str[] = {
++	[0 ... ESR_ELx_EC_MAX]		= "UNRECOGNIZED EC",
++	[ESR_ELx_EC_UNKNOWN]		= "Unknown/Uncategorized",
++	[ESR_ELx_EC_WFx]		= "WFI/WFE",
++	[ESR_ELx_EC_CP15_32]		= "CP15 MCR/MRC",
++	[ESR_ELx_EC_CP15_64]		= "CP15 MCRR/MRRC",
++	[ESR_ELx_EC_CP14_MR]		= "CP14 MCR/MRC",
++	[ESR_ELx_EC_CP14_LS]		= "CP14 LDC/STC",
++	[ESR_ELx_EC_FP_ASIMD]		= "ASIMD",
++	[ESR_ELx_EC_CP10_ID]		= "CP10 MRC/VMRS",
++	[ESR_ELx_EC_PAC]		= "PAC",
++	[ESR_ELx_EC_CP14_64]		= "CP14 MCRR/MRRC",
++	[ESR_ELx_EC_BTI]		= "BTI",
++	[ESR_ELx_EC_ILL]		= "PSTATE.IL",
++	[ESR_ELx_EC_SVC32]		= "SVC (AArch32)",
++	[ESR_ELx_EC_HVC32]		= "HVC (AArch32)",
++	[ESR_ELx_EC_SMC32]		= "SMC (AArch32)",
++	[ESR_ELx_EC_SVC64]		= "SVC (AArch64)",
++	[ESR_ELx_EC_HVC64]		= "HVC (AArch64)",
++	[ESR_ELx_EC_SMC64]		= "SMC (AArch64)",
++	[ESR_ELx_EC_SYS64]		= "MSR/MRS (AArch64)",
++	[ESR_ELx_EC_SVE]		= "SVE",
++	[ESR_ELx_EC_ERET]		= "ERET/ERETAA/ERETAB",
++	[ESR_ELx_EC_FPAC]		= "FPAC",
++	[ESR_ELx_EC_SME]		= "SME",
++	[ESR_ELx_EC_IMP_DEF]		= "EL3 IMP DEF",
++	[ESR_ELx_EC_IABT_LOW]		= "IABT (lower EL)",
++	[ESR_ELx_EC_IABT_CUR]		= "IABT (current EL)",
++	[ESR_ELx_EC_PC_ALIGN]		= "PC Alignment",
++	[ESR_ELx_EC_DABT_LOW]		= "DABT (lower EL)",
++	[ESR_ELx_EC_DABT_CUR]		= "DABT (current EL)",
++	[ESR_ELx_EC_SP_ALIGN]		= "SP Alignment",
++	[ESR_ELx_EC_MOPS]		= "MOPS",
++	[ESR_ELx_EC_FP_EXC32]		= "FP (AArch32)",
++	[ESR_ELx_EC_FP_EXC64]		= "FP (AArch64)",
++	[ESR_ELx_EC_GCS]		= "Guarded Control Stack",
++	[ESR_ELx_EC_SERROR]		= "SError",
++	[ESR_ELx_EC_BREAKPT_LOW]	= "Breakpoint (lower EL)",
++	[ESR_ELx_EC_BREAKPT_CUR]	= "Breakpoint (current EL)",
++	[ESR_ELx_EC_SOFTSTP_LOW]	= "Software Step (lower EL)",
++	[ESR_ELx_EC_SOFTSTP_CUR]	= "Software Step (current EL)",
++	[ESR_ELx_EC_WATCHPT_LOW]	= "Watchpoint (lower EL)",
++	[ESR_ELx_EC_WATCHPT_CUR]	= "Watchpoint (current EL)",
++	[ESR_ELx_EC_BKPT32]		= "BKPT (AArch32)",
++	[ESR_ELx_EC_VECTOR32]		= "Vector catch (AArch32)",
++	[ESR_ELx_EC_BRK64]		= "BRK (AArch64)",
++};
++
++const char *esr_get_class_string(unsigned long esr)
++{
++	return esr_class_str[ESR_ELx_EC(esr)];
++}
+diff --git a/arch/s390/kvm/arm64/inject_fault.c b/arch/s390/kvm/arm64/inject_fault.c
+new file mode 100644
+index 000000000000..425dbeaa421c
+--- /dev/null
++++ b/arch/s390/kvm/arm64/inject_fault.c
+@@ -0,0 +1,21 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <arm64/kvm_emulate.h>
++
++/**
++ * kvm_inject_undefined - inject an undefined instruction into the guest
++ * @vcpu: The vCPU in which to inject the exception
++ *
++ * It is assumed that this code is called from the VCPU thread and that the
++ * VCPU therefore is not currently executing guest code.
++ */
++void kvm_inject_undefined(struct kvm_vcpu *vcpu)
++{
++	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
++}
++
++int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
++{
++	/* Stub until s390 supports arm64 sysregs TODO sysregs*/
++	return 1;
++}
+-- 
+2.53.0
+
 
