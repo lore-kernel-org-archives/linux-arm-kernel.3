@@ -4,94 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14248C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:14:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC9AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OZJn90Px9hZJUz6AB3nf2Qs9xkQXJCI5324Fe6y0Nzs=; b=mTpDEzpMR6pv+PuLGZ+eD89u8d
-	VgLwV0Y1O8CLuZPo79BltXp8/wRYEdo9RsiKHhUAzyECNwyWDUlF05yOulPRvzpQU+K1dtONP3gE7
-	eQxIFbUMru8cZnId1UTiGxSxLSDm/zCHQphdBzjuxZ0zIM9Rh0cjKy3wEYwAgMyD55IgPwz2MmYBf
-	SzDwgSzY94ZhmAb5UK9TekJjO2Q9dVCwApyN2Z/IFkucRbjVkD6kD9SbRfmDYgKMi86ivg42A1a3U
-	6K9LZUES9+Xr54fYzb0/aj284+ZlfKLq0NOTXfdoy7tXLuwV+S0nD1fFXZvcUJDlT3Mu4nmcgEHSg
-	KpOf1WxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lr2T/VNgeTFspDjmoHod2aovQh7y4rJk7xKdeAYkRu0=; b=e2k5zyzAdZ4rmA
+	eMf/Z71wS/vfwlAB9bflf2I2hCZLgfNSYfSqNDHhUDJiQMqUwy+wf1nCGyhUulE7tjkHC1jHWpxf7
+	4DBNtb+4h0yNjO0QqEv0/VbWQ8xbRXHwTWcGGbGEvCakzL1tHdAUeLlikLgICLigobk3F7h4a3T07
+	My+igO1O75qsapeVFc/tEWsRjJsA3KrDsnSmsDze9zls0g7DC+2s/TQ8zuDxUGMjV41OTk6bNk6Si
+	OfdIyIMSQ9QT6mSnIoRO55jHK2dbGtHz2cWvL7DVl254zhzaH365F/f35LVc+A2Fwd0yjNk2WOj5o
+	hC5V/vH6cOD2WEDmuZdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfOr-0000000ByPR-2PkM;
-	Mon, 06 Jul 2026 09:14:01 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1wgfPp-0000000Bydq-06ou;
+	Mon, 06 Jul 2026 09:15:01 +0000
+Received: from mail-pf1-x444.google.com ([2607:f8b0:4864:20::444])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfOo-0000000ByNv-416l
+	id 1wgfPl-0000000BycD-3UPC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:14:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783329237;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OZJn90Px9hZJUz6AB3nf2Qs9xkQXJCI5324Fe6y0Nzs=;
-	b=SXvFd6aYUPDWXQ7GBnc+2TSEFS9PD6sfhwRh90s93PZmlylg6e9/tK5RqYle9WtBFt0fUn
-	rJKbsZ6z3PelmoQ0k+dlidKBpAI0/3SyzXItrAByrs/NONyGHM/euhxvijfA8X71gSDmYf
-	FmPDYEyiujuNPSvR3/b+VUKCROiZD3k=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-597-k0_NrMkTMqa0sm7gCWKE4w-1; Mon,
- 06 Jul 2026 05:13:51 -0400
-X-MC-Unique: k0_NrMkTMqa0sm7gCWKE4w-1
-X-Mimecast-MFC-AGG-ID: k0_NrMkTMqa0sm7gCWKE4w_1783329228
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D9A361955F05;
-	Mon,  6 Jul 2026 09:13:47 +0000 (UTC)
-Received: from gerbillo.redhat.com (unknown [10.44.32.156])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id EEED918005A2;
-	Mon,  6 Jul 2026 09:13:40 +0000 (UTC)
-From: Paolo Abeni <pabeni@redhat.com>
-To: parvathi@couthit.com
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	danishanwar@ti.com,
-	rogerq@kernel.org,
-	pmohan@couthit.com,
-	afd@ti.com,
-	basharath@couthit.com,
-	arnd@arndb.de,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com
-Subject: Re: [PATCH net-next v2 3/3] net: ti: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
-Date: Mon,  6 Jul 2026 11:13:38 +0200
-Message-ID: <20260706091338.134754-1-pabeni@redhat.com>
-In-Reply-To: <20260630124958.894360-4-parvathi@couthit.com>
-References: <20260630124958.894360-4-parvathi@couthit.com>
+	Mon, 06 Jul 2026 09:14:59 +0000
+Received: by mail-pf1-x444.google.com with SMTP id d2e1a72fcca58-8478cc93299so3054772b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:14:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783329296; x=1783934096; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lr2T/VNgeTFspDjmoHod2aovQh7y4rJk7xKdeAYkRu0=;
+        b=FgcmWG6XSaAhTOfdZ+NY9tg0E1pTOaYkrtHms40VSDCxUEvMi8lxEnKC6xhb4XX0dJ
+         D5t3RL/nFCY+6fZXn6jvzEEU4Xz2Kscx2wAs8/Vh0Vv+LYsZ8f40UbR8IN4JjJqSrMdJ
+         QCIqDlZJeJC2QtjvhczImzL2bTFqM6b3I9eoGb6Y4dodYqqzIzwy0N5LoBNsVeJ76V4Q
+         0d67xuoTtnhS7fFvrRMF2rL2sDsZOtiiR40886nazrcBHqRY2jnE1SJV88v7M3TqkhYc
+         N3nFPrT0yrwGW27RQfM9rze8vSv2ftZnIBjTJUg1YP4XFYum+yog+UCeROUt0drmGjBz
+         Bsgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783329296; x=1783934096;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lr2T/VNgeTFspDjmoHod2aovQh7y4rJk7xKdeAYkRu0=;
+        b=nJEaTacyBFwjNMMQsXLQTId3XOORZGU0w9gT7I3SO/cn53fBJYgTWVcYz5/arCq1IR
+         c5/rTRARkVANgNK2xIHPpb7Gx7906UDU56Ap9DkxIPJ334I0V4OXb9yblnlG6ZsuAWs1
+         zlzxzud4P8Y8x+Opt4LNW5HisnRUMGFIuVL8zKseR1AcnLtD5NxfHzVsN7t5xxKn71G2
+         aRwsXy2j5AwHBUFDWWW+bM5g3t68yr5N6ppk+wlO2/ezll0+hXWGlKAl/Le6R0B35g8N
+         avnBAxPx7u6VzhyblMXShiaqUwP0ky5Fx0aQG+fBAhO5L9J7pXixJAX7m08ZveUwVC6T
+         C9Eg==
+X-Forwarded-Encrypted: i=1; AHgh+Rq6kjDCA7xzbX8hCMag7b/Scls8vuumeKcowFB9TPyA62zwY5+tRG83Zn2gVs0ZlyLaOECrqiTlkHatg5Ugq06R@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKXujLwoXVr97+toOLDZK8bKEEik04Zk+kbT3/vDnpOmn4yHNd
+	aIUwBN6jD/2lgmNup4+RWLHP0vNDRJHUOaxpyzKuVWI9Ka0uEJ2SJSY683UP6Hv/Id8=
+X-Gm-Gg: AfdE7clbOVAkF/IaSSjM34nQ982/DkCB0paDmo+KcoWPC4KWOzzaYlJVrIEwpQdByjI
+	uwBoTVjkklUWBzmBKA0wLv3VFOpyNiFqbYjb3RsvzpvNWQJYnqQ3dp06ZUHocKurDKBrIK3PRb5
+	jRQpAH5p5P+2eWGkEmUm6pw0vjiI1x+wZrqv87FIvOGyH1RDxHUPmbvN63znZCr2Qjcu8G84AxR
+	qvxf5epQLD2ZIQSysrlrDvu7ehM4q0qshK39cV6TJhxH1MdH7HZp/UQlp/n6Wr68CGq25dWWqTN
+	ZXIWkWYV5I651f9IfQiA/nBtaXtZFhg/K4+uQ5fFVcErCG6sGc4O2UvivMWxhYxxCJzKlpP17SI
+	mKQSBnQwXPbUwPqF0SZ4ccQWZYUrT5eWsVV3W5aWSJgE9dO4ikLe/pDjgHJdPmH0gDwFjwUJtPj
+	5cZQ2qiEvtQknmDz9y3eEqPKZS
+X-Received: by 2002:a05:6a00:928f:b0:842:80c5:c420 with SMTP id d2e1a72fcca58-847f6ef68camr8193652b3a.40.1783329295132;
+        Mon, 06 Jul 2026 02:14:55 -0700 (PDT)
+Received: from [192.168.1.101] ([218.194.36.79])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-847f6db29d1sm3445963b3a.53.2026.07.06.02.14.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Jul 2026 02:14:54 -0700 (PDT)
+From: Yanan He <grumpycat921013@gmail.com>
+Subject: [PATCH v2 0/5] ARM: rockchip: rv1126: Add support for Alientek
+ ATK-DLRV1126
+Date: Mon, 06 Jul 2026 17:14:40 +0800
+Message-Id: <20260706-rv1126-alientek-dlrv1126-v2-0-ff3176ca362b@gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-X-Mimecast-MFC-PROC-ID: MWaBRix2mqoyR50DznL_hXgyOeltyrAxV7JNTsvgR4U_1783329228
-X-Mimecast-Originator: redhat.com
-Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHQUlJIzE
+ vPSU3UzU4B8JSMDIzMDM0ML3aIyQ0MjM93EnMzUvJLUbN2UHKhIiqVJYlJKcpqFqYWBElB7QVF
+ qWmYF2OjoWAi/uDQpKzW5BGSeUm0tAHxpGmR8AAAA
+X-Change-ID: 20260618-rv1126-alientek-dlrv1126-d94abdcf8580
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ David Wu <david.wu@rock-chips.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Frank <Frank.Sae@motor-comm.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ Yanan He <grumpycat921013@gmail.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783329286; l=2237;
+ i=grumpycat921013@gmail.com; s=20260618; h=from:subject:message-id;
+ bh=cLIYaTp8BMdNpvmeNN9IHEGffrelsNbt22peLlfH/xI=;
+ b=n9ZjERAhzjx2V7crs7HJzpo3tqAmQ8t8NqGgffNufU3uJAKs2gRa4YnXgybLrwGB6BscbMpTf
+ 6R7McTRg+88CmER536i37fi+k30MyFTlhzIpbLcmMPD4KH0VhdznWAN
+X-Developer-Key: i=grumpycat921013@gmail.com; a=ed25519;
+ pk=oWrY8KwXIunZWlYBV76NG2A3V4p1bJ+aD45Mr56ErTw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_021359_076837_42CB0003 
-X-CRM114-Status: GOOD (  20.50  )
+X-CRM114-CacheID: sfid-20260706_021457_869655_E0AC46C5 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,113 +120,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AI Reviewer <ai@example.com>
+The ATK-DLRV1126 board consists of a CLRV1126F core module and a
+DLRV1126 carrier board. The core module contains the Rockchip RV1126
+SoC, eMMC and RK809 PMIC. The carrier board provides Gigabit Ethernet,
+SD card, AP6212 WiFi and Bluetooth, PCF8563 RTC, ADC keys, GPIO LEDs and
+audio connectors.
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://sashiko.dev/
+This series adds the Alientek vendor prefix and board compatible, updates
+the Motorcomm PHY driver to consume an optional external PHY reference
+clock, adds missing RV1126 SoC description pieces, and finally adds the
+CLRV1126F core module and DLRV1126 carrier board device trees.
+
+The board was tested with Ethernet/NFS boot, eMMC, SD card, SDIO WiFi
+enumeration, Bluetooth LE scanning, RTC, ADC keys, GPIO LEDs and RK809
+audio card registration.
+
+Changes in v2:
+- Model CLK_GMAC_ETHERNET_OUT as an external PHY clock consumed by the
+  YT8531 PHY instead of keeping it alive from dwmac-rk.
+- Add optional clock enable support to the YT8531 path in the Motorcomm
+  PHY driver.
+- Use phy-mode = "rgmii-id" for the Alientek DLRV1126 GMAC.
+- Keep the PHY reference clock in the ethernet-phy node, following the
+  rk3588-tiger.dtsi pattern.
+
+Signed-off-by: Yanan He <grumpycat921013@gmail.com>
 ---
-net: ti: icssm-prueth: Support duplicate HW offload feature for HSR and PRP
+Yanan He (5):
+      dt-bindings: vendor-prefixes: add alientek
+      dt-bindings: arm: rockchip: Add Alientek DLRV1126
+      net: phy: motorcomm: Enable optional clock for YT8531
+      ARM: dts: rockchip: Add RV1126 I2C5
+      ARM: dts: rockchip: Add Alientek DLRV1126
 
-This commit introduces hardware duplicate offload for HSR and PRP modes. It
-implements a common shared queue between the two ports, writing frames once
-to OCMC RAM and relying on the firmware to replicate the transmission.
+ .../devicetree/bindings/arm/rockchip.yaml          |   7 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |   2 +
+ arch/arm/boot/dts/rockchip/Makefile                |   1 +
+ .../dts/rockchip/rv1126-alientek-clrv1126f.dtsi    | 277 +++++++++++++++++++++
+ .../boot/dts/rockchip/rv1126-alientek-dlrv1126.dts | 256 +++++++++++++++++++
+ arch/arm/boot/dts/rockchip/rv1126-pinctrl.dtsi     |  10 +
+ arch/arm/boot/dts/rockchip/rv1126.dtsi             |  15 ++
+ drivers/net/phy/motorcomm.c                        |   7 +
+ 8 files changed, 575 insertions(+)
+---
+base-commit: dc59e4fea9d83f03bad6bddf3fa2e52491777482
+change-id: 20260618-rv1126-alientek-dlrv1126-d94abdcf8580
 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> index 2ab78a98f8568..cbe666a212c3b 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> @@ -97,6 +125,17 @@ static void icssm_prueth_write_reg(struct prueth *prueth,
->  static enum pruss_mem pruss_mem_ids[] = { PRUSS_MEM_DRAM0, PRUSS_MEM_DRAM1,
->  					  PRUSS_MEM_SHRD_RAM2 };
->  
-> +struct prp_txopt_rct {
-> +	__be16 sequence_nr;
-> +	__be16 lan_id_and_lsdu_size;
-> +	__be16 prp_suffix;
-> +};
-
-[Severity: High]
-Does this structure definition need the __packed attribute?
-
-This struct consists of three 16-bit fields but lacks the __packed attribute,
-so it inherits a 2-byte alignment requirement.  Later in
-icssm_prueth_tx_enqueue, a pointer to this structure is derived directly
-from skb_tail_pointer.
-
-If an ethernet frame payload has an odd byte length, wouldn't casting and
-dereferencing this pointer cause an unaligned 16-bit memory access, resulting
-in hardware traps or panics on architectures that do not support it?
-
-[ ... ]
-> @@ -549,15 +588,24 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
-[ ... ]
-> +	other_emac = emac->prueth->emac[(emac->port_id == PRUETH_PORT_MII0) ?
-> +				PRUETH_PORT_MII1 - 1 : PRUETH_PORT_MII0 - 1];
-> +
-> +	if (prueth_is_lre(prueth) && (emac->link || other_emac->link))
-> +		link_up = true;
-
-[Severity: High]
-Could this logical OR cause the shared transmission queue to stall completely
-if only one of the slave links goes down?
-
-If one port loses its link, its emac->link is 0, but the other active port
-will still evaluate link_up as true. The active port would continue sending
-duplicate frames to the shared queue.
-
-[ ... ]
-> @@ -605,6 +659,29 @@ static int icssm_prueth_tx_enqueue(struct prueth_emac *emac,
-[ ... ]
-> +		if (free_blocks_other_port < free_blocks)
-> +			free_blocks = free_blocks_other_port;
-> +	}
-
-[Severity: High]
-Following up on the link_up logic above, since the available queue space is
-bounded by the slowest reader here, wouldn't the inactive port's read pointer
-remain frozen?
-
-This appears to exhaust the free_blocks pool, causing the active port to
-eventually spin and return -ENOBUFS permanently, defeating the redundancy.
-
-[ ... ]
-> +		} else {
-> +			/* Read PRP RCT to extract sequence number and LAN ID */
-> +			struct prp_txopt_rct *rct =
-> +				(struct prp_txopt_rct *)(skb_tail_pointer(skb) -
-> +							 ICSSM_LRE_TAG_SIZE);
-> +
-> +			if (rct->prp_suffix == htons(ETH_P_PRP)) {
-
-[Severity: High]
-Is it safe to directly dereference rct->prp_suffix here?
-
-As mentioned above regarding the struct definition, this might lead to an
-unaligned memory access on certain architectures. Perhaps using the
-get_unaligned_be16 helper would be safer here, or adding the __packed
-attribute to the structure definition.
-
-[ ... ]
-> @@ -1341,18 +1516,30 @@ static enum netdev_tx icssm_emac_ndo_start_xmit(struct sk_buff *skb,
-[ ... ]
-> +	raw_spin_lock(lock_queue);
-> +	ret = icssm_prueth_tx_enqueue(emac, skb, qid);
-> +	raw_spin_unlock(lock_queue);
-
-[Severity: High]
-Does this need to use the irqsave variant to protect against cross-device
-deadlocks with netpoll?
-
-The lre_host_queue_lock is shared between the two ports. If a hardirq
-preempts a CPU while it holds this lock during a transmission, and the
-interrupt handler invokes a printk that triggers netconsole over the second
-interface, netpoll might bypass the netif_tx_lock.
-
-When the second interface calls into ndo_start_xmit, it would attempt to
-acquire the exact same lre_host_queue_lock, causing it to spin forever on
-the same CPU.
--- 
-This is an AI-generated review.
+Best regards,
+--  
+Yanan He <grumpycat921013@gmail.com>
 
 
