@@ -4,73 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B4EDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:36:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6573AC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7A2rhBxioWj2PaxNXPn6yvk4GKrfsjbqJATcmAMau+c=; b=UT0GLWFbJy+PZdUQyKvC/mB4ef
-	GRoYxenDDzaHLwvpsGW1Ums3sLGkQFchZoTjul2kfM1F2BJZcrErsiZw9340kr1HrMTTmT7KtaAIT
-	Fjkn2mcAXEkugOR62KafJyCYT8h5ylYvbNlcxk4l7PElNh1ZKLbmFOftG2yZ7YmlwFOnOK1aD2lyY
-	c6bJhu1eCD5xAVNBIGwu/+7EGlQ7gsx9s10A79M5y8+h3brnmROBarfqSUcylU8s4lw4uSpIE025m
-	F0k1eDr6npcnxCl5xEzs0PaHEj4WD/YnyMUuyJopLdrJoB48PZqueCqagmnNsoQPgOv11NW4q03YK
-	HEQQyoyQ==;
+	bh=lby1ztOi/qAa/apjeKoqVuHvfk0wRBTPFZrUMpNmXek=; b=XnWsmQyb1reZi6SvFJ3O5Tn7Mn
+	uAPqwXCLRwKuqwY/47naXFZgsXEHbd1oBkU/2h5yxymXpSfGQXPgHACiK1zoDyXIgw9WJbUc6Y5rQ
+	BRbznXrvFU7UJjTOHgxQv+4/Yv0sqv7zjWNNg0z0xt2IGQDZdOkfRCN6PcRumNU1HrH4uQ3oVKpk6
+	pxzeJARKX8XwF3D+NTMTu3axXi8D58h6kmBMpDXSjDGenuzqVu8g5l0Tkgi20Rmrgm/Z8g4bSBCwc
+	Jeb4Amk8uxT6RylXdtYZjrW8OGibNTJ6JIlSd4HoP9ctX1mR+HRGlUGvJr6LigcxQ+eV/xMgWeyYh
+	YTyMpdAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgggz-0000000CEfw-28Hj;
-	Mon, 06 Jul 2026 10:36:49 +0000
-Received: from mout.web.de ([217.72.192.78])
+	id 1wgghQ-0000000CElc-33B8;
+	Mon, 06 Jul 2026 10:37:16 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgggx-0000000CEes-0nJA
+	id 1wgghO-0000000CEkg-3lIs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:36:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1783334190; x=1783938990; i=markus.elfring@web.de;
-	bh=7A2rhBxioWj2PaxNXPn6yvk4GKrfsjbqJATcmAMau+c=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=I3Ic6LmST5IsPfhd8N9VoE9j3n7JStUVsPGJThbl6jM6jV81YEicD18UOmGc2/eZ
-	 CbHlIlh2d74WIfog4heFyFbdGolZ1K1wjO6bjszl7rTc+U3BflkmwzjPl6SpnuHGm
-	 VVQl6jr5ZXy7NbltZwahqzyASObZarO9gMCmiPuxwCJ8ikCSa9OMRQrzobKTwD7sh
-	 5OlcKXi8RX7Q09GF+lVDJNIvJZd5slKDYPWMdhWQ1+kwsdJO7ADWwIestG8WtiR02
-	 eAavxzzSUTefKNB+pXr8o/moGmbhknsu4MO5oDXcXt+EhYxiMQfh7jMhIqX4HQD+u
-	 +9v51qUMPDQE+qMDrw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MUUAM-1wXzWY31Um-00Rnw1; Mon, 06
- Jul 2026 12:36:30 +0200
-Message-ID: <d2e5df25-c8b7-4ee6-8ebf-1725542baabd@web.de>
-Date: Mon, 6 Jul 2026 12:36:17 +0200
+	Mon, 06 Jul 2026 10:37:16 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id C8C577A0114;
+	Mon,  6 Jul 2026 06:37:11 -0400 (EDT)
+Received: from phl-imap-05 ([10.202.2.95])
+  by phl-compute-04.internal (MEProxy); Mon, 06 Jul 2026 06:37:12 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1783334231;
+	 x=1783420631; bh=lby1ztOi/qAa/apjeKoqVuHvfk0wRBTPFZrUMpNmXek=; b=
+	mIJVGuQE3k1LIii0AaCS0FzZA8Qtm+Fiq5t6dsJMfQnRgL4KCI8SpYWMPSatR8fC
+	mrXHI0WnK8Z7pCgvhdL7TqGFdkQXvHesqdOuDnNcWcmeul5yiTVZG1zztZs/QGHH
+	J6cHLyCvq5JSiapxeIwdNt0SPHCXgI2Nbk/+mJtofFeT5z8gVTVrbXc+7+kPboJX
+	Y8kc8V/b4VxlaRmnVjnrw4q86V5J8+mxBOgbHT5C70frMfgpl0OjnrkO5A5GVK6F
+	LvD0IsIxcgxHAOjdO1cGb1cVtJ4YTMned/IvkopdiveluGXMS5rsNAB4sIV7zDFA
+	EON1IOwwBPwliW8kn3GFgQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783334231; x=
+	1783420631; bh=lby1ztOi/qAa/apjeKoqVuHvfk0wRBTPFZrUMpNmXek=; b=g
+	w4gyxF4lHZj0S5OSL8icz86W0HKppRfXqCpEqbAvNGkHcECHriJgIoIK4FeV/Tst
+	qWkbuo3UfEga5tBmDD64Kq/KfShmSxkXQ5iVO+XWTU+UpMMUPEqy+Zh+Bu95Spn4
+	cPtEbgRN8imNRl30tYJkeKggcpSEFZ02fwD5VdUbK/ZUGEhVFlN1fCfJLwC6M+qx
+	3xV/VhLWNeBWwE6GA5na1lHfAcM6c2HGPgGb4QOEUHLPJZM0SX0Ec/GN/EURp9z1
+	iy81cl/oVyGZQLme9UA+KyIIeqJUkLQz3R2y/4ETHbX3i7g9gIAE4B5k7UxLc7RW
+	4RjNLYqpOIdeaDIscUAIw==
+X-ME-Sender: <xms:VoVLak_DVKd4xhCMl10kDYpM-PRvTtixVSncW4CewpxeUYNu5E5WBQ>
+    <xme:VoVLanj28tCo2bpaq5TYYXaSIRb98tW_N6zFBXvXVGBWOIkbeVG3IAO4tWucxrO_I
+    BQ0-Ynzuk4aj4qnDgspJfqvak8VqLq5q47o4bjllPCR-AbDfA7W2CE>
+X-ME-Proxy-Cause: dmFkZTER2afZxK3cV+HQuZCMwn9Ezs/DuZzyhM7c//iK6PkqobrlmFeUfO34U7/pbzR9Qe
+    ZeH0suv5wbE2ZK8fD6xAva3JDnpK10AQ+rSNYVJILSr9QOXwr6Q6/DEO4JGE/ysxiG0nQG
+    z4T//ej7K8TM1F5vktXLpKOZuSO1PA8EX4X9QPp9UXFQ56ZBUuBmsfAERuvJzgTGVG9ulg
+    Y1fgmJsKmd6jjzC3UkZKx7OA0f+1dCbIRVHj80snIFdG8cjf2SxSZi2hkjEKuBqsS463EF
+    6Q4x5ekF6NfnQ61egUGxmKj84+kQIcSygTLbkRJ293VQUlsl9iCQdjsqC5yztBMMWEWhSv
+    IVl3cRWIpV1AtKECHvFYewz5xSgUujsQB8nCfV05R0J0OpUfUP+F0xTgkG+KN0XDUvWFoZ
+    DXoUSo8HTDjUj8by8h5DM9fZ4Tf3ndRWJ3AfLIptG1XG6+N7KGEXsaNWN8d73LBene3ktF
+    lTxvD9BxsZvXgwKD6e+gSsBCOS+dhTTUyZTT6UMz5DbNi8T795esvoQY2vJOuWTJA3Ivrs
+    JSYWhrMJApoHNBUEmI30f5pmAB1Mkk6przZ5F+QskJPwZobb0y9/bvEcU3itCPOdIODIR+
+    56ulggozNdLGlh1RKxYtSEa/vbGM82/thEU3AgAsxuR5NrphskKqep4i6eng
+X-ME-Proxy: <xmx:VoVLahvkz3V_uxcnStQUenUJPNfkigJjoJSatasGmd0s0MivDoR_ig>
+    <xmx:VoVLatBBDNYWMhAqdK6empIOGyQiqsrIA8mMBw8wNqq9PRX1W3B1xQ>
+    <xmx:VoVLaoa6NrkoohQX0M9B2nGKehZ07GpofrAHLFi2Sr5_SpYvrBJiVw>
+    <xmx:VoVLaoWE9jy7ZoTccAFeK9uZnwgbZs8g-0KkZuzs1eW-BYfmbk1bkg>
+    <xmx:V4VLau0QCWaTe6hQP1tZ5vqGFGcI-qvImM1qJuSsabtvminLtDrc77aC>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 964451820082; Mon,  6 Jul 2026 06:37:10 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: [PATCH v2 0/2] soc: fsl: dpio: Use scope-based resource management in
- two functions
-To: linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
- Christophe Leroy <chleroy@kernel.org>, Roy Pledge <Roy.Pledge@nxp.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <690827f2-e746-4378-bb7c-9948cd69dc15@web.de>
- <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <d95d2f4c-f3cf-44eb-b61b-79ba7891674d@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:0OQRuWJtae2zVkW0PVzW+PKnWYTUxHEcU3fcy3wZIL0KDV9bffn
- ntMfzNgTSxTVCunDubUGx8lDXujsPdDx/5/UUTOmBy3+TWQZFqhlFmPyBiytPapVt4xjZIq
- tGYOczbzKGzzjFfx0fA3Usa/7wg7S37BXQzum5KfPk91xGt+xrok++tgnOL8L8g3i+MnNNW
- yHD4CNdtRXBk7ZZauGatQ==
-UI-OutboundReport: notjunk:1;M01:P0:34DiuDybPuE=;B3EPflfJsRK2XZm3i0fBtKWReUV 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
+X-ThreadId: A9WOz104Gfyk
+Date: Mon, 06 Jul 2026 12:36:50 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Dmitry Torokhov" <dmitry.torokhov@gmail.com>,
+ "Andrew Lunn" <andrew@lunn.ch>,
+ "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
+ "Gregory Clement" <gregory.clement@bootlin.com>
+Cc: "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <35e8b266-233e-4366-b853-76c77a58bccb@app.fastmail.com>
+In-Reply-To: <fc4f8eb9-7da0-4e65-b93f-e54f101de351@app.fastmail.com>
+References: <20260705-orion-mv78xx0-swnode-v1-0-07d95ef4f447@gmail.com>
+ <fc4f8eb9-7da0-4e65-b93f-e54f101de351@app.fastmail.com>
+Subject: Re: [PATCH 0/7] ARM: orion: convert legacy gpio-keys to software nodes
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_033647_592355_49342DA1 
-X-CRM114-Status: UNSURE (   4.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260706_033715_197024_9C61AD1E 
+X-CRM114-Status: GOOD (  14.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,25 +113,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Elfring <elfring@users.sourceforge.net>
-Date: Mon, 6 Jul 2026 11:42:10 +0200
+On Mon, Jul 6, 2026, at 08:50, Arnd Bergmann wrote:
+> On Mon, Jul 6, 2026, at 03:29, Dmitry Torokhov wrote:
+>> This patch series converts Marvell Orion and MV78xx0 board setup files
+>> from legacy platform data to software nodes with the eventual goal of
+>> dropping support for legacy gpio API and platform data from gpio-keys
+>> driver.
+>>
+>> The series registers static software nodes for Orion GPIO controllers
+>> during gpiochip registration in orion_gpio_init(), allowing board setups
+>> to reference GPIO controllers via PROPERTY_ENTRY_GPIO(). It then converts
+>> gpio-keys setups to software nodes across MV78xx0 and Orion5x boards
+>> (Buffalo WXL, DNS-323, MV2120, Net2Big, QNAP TS-209, and TS-409).
+>>
+>> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+>
+> Hi Dmitry,
+>
+> These all look good to me. Unless there is an objection from the
+> platform maintainers, I'd suggest you can send them directly to
+> soc@lists.linux.dev for inclusion in 7.3, or alternatively
+> keep them together with any other gpio-keys patches you have in
+> the input tree if that lets you finish off the platform_data
+> support in the driver more quickly.
 
-Some adjustment opportunities were picked up.
+I case this goes through the gpio or input tree:
 
-Markus Elfring (2):
-  Use scope-based resource management in dpaa2_io_store_create()
-  Use scope-based resource management in dpaa2_io_create()
-
-
-v2:
-Christophe Leroy requested to apply the attribute =E2=80=9C__free(kfree)=
-=E2=80=9D.
-
-
- drivers/soc/fsl/dpio/dpio-service.c | 37 ++++++++++-------------------
- 1 file changed, 12 insertions(+), 25 deletions(-)
-
-=2D-=20
-2.54.0
-
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
