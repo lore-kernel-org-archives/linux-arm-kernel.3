@@ -4,152 +4,200 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C219C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:32:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C2AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 18:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F2sllh4lJbEP3/nEKCxSWbGIu2PpVIeF6y7kzzDO0J4=; b=H7MM7jGtcGdORXr61GWbkIu6+v
-	Mc2IoCAzpaiLqwCJyeFWWOJnFcTeDHYFCVIwOAJNp7LjPw4WqWPVbo8tGuyr0SWpSXyOysnA2O1Up
-	nWMVrNknVAjlL0UP5Bti8LDMhHpqtSNJHzTkpRRCYj8Kicpd8bYGxLiqSFqfgiGQOGXLrippr5IM7
-	wINnicOspOIWkwyg1UeMqCtuOZPMTD4kVYHcnYknpvtVyckxnIMWLI5TUa9P+yT18Bu2FNAqQIevb
-	/4s936ZSywGijdi/IWhLVtMoHm1FZZN+k7GUFT1PKGVYE6tMplAdBrCchl/my3mtQimjkxwhqY8Xw
-	Pu46usUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IPzEzqc0eYkC+HoB8B+lDeJYTSumZwHIoNdNUvkS2Jk=; b=FXNOeBqLOw/afNvB4X+kudQXRF
+	5yBYfMDtWfbYAwxoU/KWLS17dTQGt6sjX/GJdPxPbwVlC4V5TQMVVodxZHgcgOhHuC/EonTgeALnU
+	2eoDfFVY5gNHrspZq5IIY0hYog5o8i70o2BAY6mZ7Cp+xtaJUz3seTYxaW917VThaVYADnZAVy6aa
+	1BgkMhcTAznJmR16G/iB2cUdzXHG3Jr/w8rq6bfS0GdJAQQsUdsgxBLn7syvrGvDIqeJjiPbeiefq
+	eFF82rzOqSDRLlH9fWkgHugjXyweycBncXR/osCBjqCimCbpkQcA+w+E1Ki7dstHvis5zl/da2Grd
+	B1foYRrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnff-0000000DI17-2k3k;
-	Mon, 06 Jul 2026 18:03:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1wgoKB-0000000DMfs-24Ag;
+	Mon, 06 Jul 2026 18:45:47 +0000
+Received: from mail-northcentralusazon11012016.outbound.protection.outlook.com ([40.107.200.16] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgnfb-0000000DHyi-0wAC
+	id 1wgoK8-0000000DMfH-159Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 18:03:54 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666FFBfr982547
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 18:03:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=F2sllh4lJbE
-	P3/nEKCxSWbGIu2PpVIeF6y7kzzDO0J4=; b=VKYMCFWeEgCeNmxSB33MvYU6UXv
-	St1vQcpCUmOH/CZqTGRdU+F/+XX5si2c4aJa9TxYIMlld1bZR3KSK56ZHF+SJXoD
-	kKZAgJCV8G2MxFYtgy6XxYhrmqmsoUuLbL4cMs4HigUOtpV+/OreafKwO5Ih92wf
-	46NlYHYLFwppFBLI4+vvqWPFn4hYpCiB2vfeSeyqqklbEy6kom2LPg+X1FCv9CKK
-	aHrnXz5ZVMwxzQNP9yZ0uzF0kBpkGib0zY8WqidtLVwJSJXI6f4zPnMz5t2Nwwjw
-	0yZ6rZd/PB555UpiBXd7dxmHepHaPDcHrOL+Opf6AVejDqU1kSUOtiJR/BQ==
-Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com [209.85.221.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f89qpjas7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 18:03:50 +0000 (GMT)
-Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5be258eaf60so2752557e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 11:03:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1783361030; x=1783965830; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F2sllh4lJbEP3/nEKCxSWbGIu2PpVIeF6y7kzzDO0J4=;
-        b=V5DlprA7zhmgIT+sU1yZ11f/4oYEWPW34c+5lyPU9Ek8VdE1D7hzxOqOUmgBcshwPN
-         D5ivba0/xPMICp1OArpI/5i2i55AMdEdfyuETwhlcU/uluI/MUfuJHmZ2Sn3V00EiK3V
-         TkAjbBqUX5bScqq/kqduFNfQl2ZQlr4gyxYi+T6P/Sy+q+/OcCkPjNxhUUtLox6xxC36
-         pmI5UV2OBozHUExhbv0wdxpStjXjlHu7eIF7R18A8jMM4y6jn158MC4hNJiyNYzYbRRq
-         dIDAI3nFdQm6/D+nY5S2/7apxj7MDSsijM92B7xEuf/s5CJVOyh/WVviGgA7+0vlj2iQ
-         DEtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783361030; x=1783965830;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=F2sllh4lJbEP3/nEKCxSWbGIu2PpVIeF6y7kzzDO0J4=;
-        b=pvYafzYP4OvaViRwA0ANiGIZ+tWVTpw1Oz6laUjy6IQnSpnxZZ0W22o6Oo/RQ5rBbc
-         p9ADUY8z7XdGHbhGsOXPAO3LLkqKt1+DWMoVa0O1RG87D/NIBkJB8ehrKM994s15+7nl
-         XFqgrzqUsoS+x6IX7zjj+P9q1qdHDSJ9eaRLQ0YIZQ4WYWbXfXRqNU3NVeS8w/9nK5cc
-         T4BSwCz+2NnHy7CNhBll3umtRLLOWoo1cP2sF9SmdvVdSjh/ocHmPBsqubCaf79CEyVQ
-         QPjDK84aSw4kPEVp43Wnjw11nXfyFwM6W2RmhPrn+yuyB1X7nhvlyBeZbDo3UtCeu6RJ
-         xRTg==
-X-Forwarded-Encrypted: i=1; AHgh+Rr5lrVxD3uD8+bygVLUsJwf2nvbRIj2oXU1HqD2JBgiQHc+FJF713+xyBpoKBz1EjRri4ZyibQO8bxWt4xCXMHR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2i85OQ3Xbr0W6d1BneYnqLy4gH/gRAmMcNMrJB0OI0ur67tmb
-	rB26Go4HeIztR5EfOFEFCpnkFJckNOyLQzC1muaKFjh1c9kJrXRgmcU4RfAJlsm/rFUaE7MxYH1
-	eTwsJk5JzHFiSNZ+grll4S6K13Ta00Fui6hfQgnPsA7YtNkfmrNhbc4Xnbrpj7NJhCZjEj0qFsK
-	jVPsDJh28yoA==
-X-Gm-Gg: AfdE7cn37TbkqY2wd2eEiFrxQ5YwJL4z+p4ZrXBEtyJVvPUYRfxGzCzHjKK0DflTnWc
-	GFwrv6IKbr5KuFP8XvGzcvzrjqf5DQ5c6IJfCnjUVJUbIpzm650s8mrd8ZUbL0GEsEFr5pzPi4g
-	/4U+7TQJNtMvylTJCQAiK8AdodIcJ0q/gbGfV/vI2TkRxg+WCe9uAzHioLHueHF0oxE0VcG8uFf
-	PwBxbnO1fnsdoB0pq23uj/kmugqDKcL8i1FsYP3tKfvngUEHQBNSZGByhbJIRAzzZXDkU4xW0Zt
-	wsEb3syXWBE+3ulpb7d9UtFWIDkf8uRoDJmqQ1FdJyVU9UXJSkiqwAZtfXpv7SK33Zrh8SlV3yk
-	AxYWcgK/rhpsTKi5MUOMZ5B1+NI0=
-X-Received: by 2002:a05:6122:c81:b0:5bd:881c:f68e with SMTP id 71dfb90a1353d-5be9085dd0cmr978768e0c.9.1783361029449;
-        Mon, 06 Jul 2026 11:03:49 -0700 (PDT)
-X-Received: by 2002:a05:6122:c81:b0:5bd:881c:f68e with SMTP id 71dfb90a1353d-5be9085dd0cmr978737e0c.9.1783361028866;
-        Mon, 06 Jul 2026 11:03:48 -0700 (PDT)
-Received: from quoll ([178.197.223.174])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e00b769asm1108555e9.14.2026.07.06.11.03.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 11:03:48 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Andrew Lunn <andrew@lunn.ch>,
-        Gregory Clement <gregory.clement@bootlin.com>,
-        Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH v2 2/3] ARM: dts: marvell: kirkwood: Correct indentation
-Date: Mon,  6 Jul 2026 20:03:35 +0200
-Message-ID: <20260706180333.648401-5-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20260706180333.648401-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260706180333.648401-4-krzysztof.kozlowski@oss.qualcomm.com>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3711; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=ZKpgfZBQLfz9wvo5mMdQIlagv8p64x3j95+GYzrm8Dw=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBqS+32VdOiKKUjdq7GpUdx7unld1+YxOx7cHIuh
- CB+2OFKC4WJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCakvt9gAKCRDBN2bmhouD
- 16tID/wND8S7RCU/r7YQ/z5fBLm9rk1UF0bDk/pV9C9wsHN+R6pXKvWBip1y/02bPDN1MfA05uu
- kRGSnkQuraivWeuA+wuEVp5J8b7nlyg+NVNpg8l6aSWch+VA0jUKmOooIcllt+sIDoM3E6OmCze
- efppVTFjCt+4OIyqC/ePeDYlwU8Zba+YPOB3eUJGPz841Ie8DSg7tNNY//AQ1P6sks617Q7GHuf
- KW+q3VvuN/SGUjeHGe33wiC3efu7Uv4lCrYl21PCPfIL4vb0RokSSKJhB9lkAH1teL9iNp+mskh
- yOo+iVBtzvpxb/WrHXMeuvBrmvJ9IDtUfPr/nnGfvGg586RWP+3/Gp9+TfH1N0PbdX8NZomz4IG
- vXU6Uhif9qWwlQbpyxKrDwCOQOJvusyFVkCxka/nuEf3Gz62np0hYpSmRfGsMZwHIJOk9G+XHQs
- RzHb8DViz5AMF06qpTaiF4bYpBISBx9iDIrqZZi6jlO+FrpuanmNEBq+dBnY3mD9G/h3GzLbKqf
- T5QvzI1ImDXmi4chdLEdD2dLxWmpOrOvXWb93jmYjKxrn4bGlWGXLVzgBp4obUkb+P9GcEhOy0S
- tLyx3q+fvJIM8OzfA3yYJ2uWhhAlRnFs/FsJydha6cxKH/rDuGYZX2NP2rDcLHEroK0syJcocCD 3iRxRsofaYHTGiQ==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+	Mon, 06 Jul 2026 18:45:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Fjf2/U6J7C0NBnGzmhx+QsF0OL2OrAqhjGJO+fkEmHP2VmhgnVd7FnEFDsgaybzl95myiS0S0eB8PtymVn13A4tG2rQls1VRW0XkdfQOuFD6jml6bxc6d+R6AmygKX70k9FsqWM2o7FTtz4QqfRfxFqvbaU9EHYL3nde471r3H5FQaugqWdL6+FxFoWJgXv9GQIXNmQCei15qLH0QATib5GLIa9hPugIUen6MXsGrCI/0y7t9YRFaHw04Cpc402HhTNbhMjtWraVBpA5tx0AhmNvJCpG9hb9YDCreVYGAiH743CwvtLg7phiLtHwYTYRjjAlKjJirvUzPRtJcnLYwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IPzEzqc0eYkC+HoB8B+lDeJYTSumZwHIoNdNUvkS2Jk=;
+ b=knU/R7WrJjrpJFwFsdNW8RfjxUaEIYCRHPBef09Z7ET7r2OO/FvlzQiMfhT4ImcB1ghLTONpgyusr+AyOPfiFqoe5Z1EIwzTUZzSZ9MU6LfS+xdMrE7HxA3YyhC8VyCrrAgwfwI85sLaO7K6TfUPzS3MjVhq7m6KfoxKV2B1gZTuQhZ6Pt2152J4aotRc1bR4cDKsymVecFlpvzbciClCT1Dzs6RfXnKHYCWpXv+cB/oj2RR/PdYIFXmA4zpls+cXTfn/JW+nzSmxsYFMTvH9rXI0MVl1PCyT+1jX7Uc8ApuV0ArWoFCZp8rteKfK8gWEKnmtnYQfigChMF2CibbNA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IPzEzqc0eYkC+HoB8B+lDeJYTSumZwHIoNdNUvkS2Jk=;
+ b=I6JOX2uX4oZpE/tzDLvagRhqUcnsHxvH7IXCv4sP/eaqpPNbkDtmya8geIs2TVwryY7Lbw08DMByNF9jVflhVX0UkrQKpdOf6sRqBK24IzCGTh0IivR0MLBCnSJbhLkAGv9q56plUO0MgWrcyCYw3jOohdwXfe1WGpYnXL0+LGk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SN7PR12MB8131.namprd12.prod.outlook.com (2603:10b6:806:32d::12)
+ by IA5PR12MB999299.namprd12.prod.outlook.com (2603:10b6:208:60b::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.11; Mon, 6 Jul
+ 2026 18:45:38 +0000
+Received: from SN7PR12MB8131.namprd12.prod.outlook.com
+ ([fe80::c2dd:62c5:67fe:aa46]) by SN7PR12MB8131.namprd12.prod.outlook.com
+ ([fe80::c2dd:62c5:67fe:aa46%4]) with mapi id 15.21.0181.009; Mon, 6 Jul 2026
+ 18:45:38 +0000
+Message-ID: <d7afa22d-5a41-491f-b945-289ab78080e7@amd.com>
+Date: Mon, 6 Jul 2026 13:45:33 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/20] dma-mapping: Use DMA_ATTR_CC_SHARED through
+ direct, pool and swiotlb paths
+To: Alexey Kardashevskiy <aik@amd.com>, Jason Gunthorpe <jgg@ziepe.ca>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-coco@lists.linux.dev, Robin Murphy <robin.murphy@arm.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Will Deacon <will@kernel.org>,
+ Marc Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>,
+ Suzuki K Poulose <Suzuki.Poulose@arm.com>, Jiri Pirko <jiri@resnulli.us>,
+ Mostafa Saleh <smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>,
+ Dan Williams <dan.j.williams@intel.com>, Xu Yilun
+ <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+ linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+References: <aigYbK12D8uKQvJF@arm.com> <20260609144746.GL2764304@ziepe.ca>
+ <2ecfa1a8-6202-4319-9692-a6ffeb5a3dbf@amd.com> <yq5aqzm4dz25.fsf@kernel.org>
+ <20260618153705.GH231643@ziepe.ca> <yq5ao6h6enhm.fsf@kernel.org>
+ <20260619122148.GL231643@ziepe.ca> <yq5aldcaejos.fsf@kernel.org>
+ <20260619140616.GB1068655@ziepe.ca> <yq5ao6gtoncp.fsf@kernel.org>
+ <20260630174216.GK7525@ziepe.ca>
+ <fd135adc-a8a4-48e5-b649-2a29789b22d8@amd.com>
+From: Tom Lendacky <thomas.lendacky@amd.com>
+Content-Language: en-US
+Autocrypt: addr=thomas.lendacky@amd.com; keydata=
+ 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
+ WiyqywZI5g==
+In-Reply-To: <fd135adc-a8a4-48e5-b649-2a29789b22d8@amd.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=c6qbhx9l c=1 sm=1 tr=0 ts=6a4bee06 cx=c_pps
- a=JIY1xp/sjQ9K5JH4t62bdg==:117 a=N6niishs+lR9UBL1FN3Qrw==:17
- a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22 a=EUspDBNiAAAA:8
- a=HDDCt-YyP8Bx8sG_SwoA:9 a=tNoRWFLymzeba-QzToBc:22
-X-Proofpoint-ORIG-GUID: 9ufh8QlQZ2Ma3JXu7zanrdOnN2DQH0Qf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDE4MiBTYWx0ZWRfX/Qe+MAcEGD0y
- EKq+pEq9WAeCv9ukR1wtDYu2HTN/YgEgPX0Ayv3peKEA4MS4hoWOELK+NKgvD85DWeKD7C6K+Dj
- FwmMLw4yaSPYqMTkgaEXeuvCqNmBVB4xN8auEQVZvHHuq/a2rNdEALgQuDRcG2EDIUD+eWvhfqn
- uzN/W6ChuYBHfX0fW+sps17J3Rm/HxCrOi1F4LVgdPtkvwFQ4fEPWViwbXeBYwQMAnECwdYuBTo
- ogETLHdtf8H+8Ys+NY9gNDBtD/Bs/m+/NhrqSsxDfNYg6qB05na6KpXuLSrIA+TQPd5sABNL5pI
- cAD1f2NzhX0x6i0w2fEUETEtq4IRkqmqMEnMHWsSjnLN6R1kcq5rFfwI8UA4ftBgx8mfTe/ajUk
- vvYLWPEdak753jmIWex0PPr4LFqeub1pyeBzFoP/b3QwMk0qFoKBwe57FID3aehSMzGB4FbNj8n
- NDgrttwbLj+vPJx4wOQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDE4MiBTYWx0ZWRfXwDTQGE9A8+G2
- PEDcTPJ+w5VWj4+Q10MLC3G2gAkxmzf+MDEZcBQEbv+wM09XSZOioH2dWnFm+ebrZ8lwAd6OQ9V
- V5EHZHfi2nOkwoMqNn2fb5Lp5z6rxio=
-X-Proofpoint-GUID: 9ufh8QlQZ2Ma3JXu7zanrdOnN2DQH0Qf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
- definitions=2026-07-06_02,2026-07-06_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 bulkscore=0 impostorscore=0 phishscore=0 adultscore=0
- lowpriorityscore=0 priorityscore=1501 clxscore=1015 spamscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
- definitions=main-2607060182
+X-ClientProxiedBy: CH0P221CA0020.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:610:11c::21) To SN7PR12MB8131.namprd12.prod.outlook.com
+ (2603:10b6:806:32d::12)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN7PR12MB8131:EE_|IA5PR12MB999299:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed3f8369-2519-49f7-82e8-08dedb8ec58b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|6133799003|22082099003|18002099003|11063799006|56012099006|4143699003;
+X-Microsoft-Antispam-Message-Info: b+7fmDVqiO28LpFUt3fXwZ2IQovJZ/XNDzKwHa8eTuzvUsIClg2usZgLSfX63Fyc7m9mMKazqMjD9t9FOogm0Ga+jcklxW6JcjHJ5bpjwshiejNkZ1d8+EZS4EAGLvNA3YsQ9ZncYeOumQP/0I0zB2aJoGtXFEefJf8TI+TB94Mr2GRn0X/A/ynbI5M0t6OhTZbqZpDQqvDJ/+C0ZRAVEan8Ywt44f4Ig0mkUAitUA6ZHxCqtU8Rsndja2zSE+r6/0nAp15EpFrbHw8j3tHAD7dCJBLAyrX625MvE4C38eWyO3VOw/D9fRP6o9UDYQfjQwdT9j3d3hruJxH6GLInJW0pb0mZQN8Sxx8TzTJgQ6ddnjjboHlyaVdsTLcS7xmvjBAUkGErM1is1rnTBPHJN+HXCpq6fyugd8pBP+G1hGR8SiAq5eGI7uTHKwIXyVSy75wZHYIMIsF5BQLNnPIUmvysURNx3hiJA9OEV4d/e8HX7c/wXEExDUCYEIX2E+6eyhXneN76ir+o0RtfLW8YccTqAJB4UJ8uzEz+ZNz9aGPNHo7xjiM2CecVWSH6ImfOsbCSptLwaqQa9sRwADudtvC9BrGr7HkppKuZB3ghIUQrKOdZ3HvT5qtBNqNhLnn5SDUcBYgk352KHP080bYFdx/v/HHvP2PffUSa9rcC2Cg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN7PR12MB8131.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(6133799003)(22082099003)(18002099003)(11063799006)(56012099006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N3NTazhyZGIrTkxMdFZKenRSNlQvc2JLVzdzeTlwaTk1ZzdKbkFwNndCb2xK?=
+ =?utf-8?B?VGR0cUtIZWFFMmE1ZzNwWkhscTJBbTc3MUwzZzM5aGlZL0IvOXE4dFUzeGFy?=
+ =?utf-8?B?NXVvZlZITGRoK1Qza2hPcjdEYVlaU21hZVpociszcm5FOWpjMVltTzFzeDFk?=
+ =?utf-8?B?Z3NtZzJTK3B4SFZrOFloOHVoWTZlSDFLeFFQZnJNRk82Umc1TEhDKy81Rncw?=
+ =?utf-8?B?Y0t0RVZxeDFxaXJ4M0FyQ0dEZm1hcHlZOEI4WkF3Z1Nsd3V2K0ZnWEFRT1Va?=
+ =?utf-8?B?YUc2eUExZDE2M0Uza0FPc3JDL1JWbnlXZ2FDVWlSbmEwNUtCaGlwT2FyTlFJ?=
+ =?utf-8?B?bkdlZmFpZEdMaDBkZENFb0h1eTgxVTl2Zzg0TG4rOWtVL3hUWnBENnBXZTVh?=
+ =?utf-8?B?SUlTeCtMR21ueXFQdUEyS0xaQ0xJZXo5S1NhNDlqZUk2VGNMRjhlTENxMlBq?=
+ =?utf-8?B?aWpSbnF0NkphdW92clBVclcwNHdKaTNmR05JQnVBeExKbks3aVFSYXJFWnNu?=
+ =?utf-8?B?RGx2bUJmVlUvY0Z6VFJzT1VzOUdocm13ZnFIVlM0MDdxblh2WVdPMXhnVGpM?=
+ =?utf-8?B?Zk5oTzlHRlBSWGZJRy9QYk54U0YwMjF2REVIM0JWNWsyNmRjd0FuVUVjSVRX?=
+ =?utf-8?B?dHd4RDREa0FMYTdqZk93eGNBdmdnQXREWmRMRjJPUjFnaTNxV1dvQWRhSVRF?=
+ =?utf-8?B?RGlmaU93dVdoWmdIaFRMRS9yWGZKQzUyQ296bzNJU3laRnM1eTRNcFc5Ulkv?=
+ =?utf-8?B?bjFuRGplSHRRcW9EenlDSGFFMHkxdnNYRi9uQ1NoOXBHa1NKb0hhMEdMSEsv?=
+ =?utf-8?B?S2g0cFdrSnJTWFRxNTl3RmZlbjJOWS9LRjhoWjNmVmQyUFNFYzNwbzNDcXpp?=
+ =?utf-8?B?eDhneHU4T3lwVWtocVlaRDJSN1ZsKys3RWdlaGJ3SWd2Yjh4cjVMSzlXQklV?=
+ =?utf-8?B?TDRCUWwwc3FQTVUvZ3E1eG8yRTI2MCtsL0pERzVXd3ZwcFR1bVFyeDNKYi9Q?=
+ =?utf-8?B?ZHlKbFNjeWszRkpBblM5OExwb20zWWJwVG16d2JUTzc2MXd6OXVjd21XcVVm?=
+ =?utf-8?B?Ny81SmZXZWFvelprU3NGc1BPQlIyMG91REpNMHc2V1hRM2dnR2dhY0pYMlFG?=
+ =?utf-8?B?ZnJvdGprM2V3K090MGRKd3JrUWNpWnd6MFBUdTB3WHlaWVJVb2trRTFTZE9H?=
+ =?utf-8?B?YUVhaWFEdWtYY3hTMmg2TjBKWnJNTU1hYVVPS3JIdnF6V0xjNitMOTdzZ21F?=
+ =?utf-8?B?aUxTT2twVUlUY1pVNjZSQkRkUVRQTTRkT1o1ck9NRVhsdnNmZDNkcHpTUEo3?=
+ =?utf-8?B?Mk40SnZGS2JLYm45S0lkYmdHZUVvN0ZkVHBKT1hWQ09kUG5hMjNnS2tzb2hx?=
+ =?utf-8?B?WkxGQ0ZaMmxsb2QxSHc5eHFGc2w5SFNsV0oyRi9xY29MSkg0a0llNmI0anJD?=
+ =?utf-8?B?aFlIb25zUm5mZDMyUzlmZjZvRm11SXE3RXhRV2dGaGp6UmIzZUYzRW5uaVhD?=
+ =?utf-8?B?dUVBS3daUi9qUXFFaE1rNE81Y052YnJtYXdvS3FUTXBZczBFZUZqZnNUTk9X?=
+ =?utf-8?B?cGtGSHlJNDBVOGV0QlBlWEJpN0JNUUFRSExvenkydW80RHRGVW5PYU82bkcy?=
+ =?utf-8?B?N3YzYzRFamprR0ZTdHhyL0pBSGRpYUhHa2U3NTZOZEhmSktLV1NabG9nRGJz?=
+ =?utf-8?B?THB0S2FSTDJFRE5hWlpBMzg4Q3lxWHc5U21aYmd2TVVIYTFNbHQxSm1tNFVk?=
+ =?utf-8?B?V2xiS2ZpcERzMXNuWWNXMElEc200OEtRaVNTc21pWkxGdlZVaENYRzFYV2xx?=
+ =?utf-8?B?M0NjLzZsU1F4L1ZaS2JVUU9qdy9jSDhWWUVoalBaTlpkL2VMWGJGWFpHYnE5?=
+ =?utf-8?B?aEhnaHpiVlVVQXZqZnBQY1k2djI2SXhCbkg2djd0Nm1EZEZLTVlKQVJCZjVU?=
+ =?utf-8?B?Z08xc3JZY2k5YjRMMFFqN0xUdmxjQWtyU0VsNm5MaU05QXNqb0QvRTJudlQ2?=
+ =?utf-8?B?VUNCWjQ2MzFRcHgycGNQU0tlTFNsUk94VzZDQy9hTGN2MXhoMHFteHJKTTB6?=
+ =?utf-8?B?cTJiNlN0dm1NbGVvVktZMlF3U3dURXN0RXREaGU0c3pDbTE0alJmS1VTSGpJ?=
+ =?utf-8?B?citsZGtCS0RtU3UybDIrdDNHdDZ4NHE0UUk5VlNSdUxyWkFCdGc0bmN2TkJ5?=
+ =?utf-8?B?MXZzVU1YK0phaHZDM28yUm1RUGFPb0J0QkkzRCtXTVd5bmxjU0RsYVVpYm8z?=
+ =?utf-8?B?SWlveUZ0SEpidGlFeHFCQTNkRXpldEZwOU1WUDZLQlRkVWJUeHNPVTNuR21Y?=
+ =?utf-8?Q?ro6e85vkXOfNz2C6ZD?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed3f8369-2519-49f7-82e8-08dedb8ec58b
+X-MS-Exchange-CrossTenant-AuthSource: SN7PR12MB8131.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 18:45:38.1637
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YPfh7CNLcVekbNIFLtkT+7NnqKeufVLg/+liN/XKorG8oJIBhzR2IxuubDtrQFVL5FwMSmQcMpRQbHDDvUugeQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA5PR12MB999299
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_110352_521272_319BF1CA 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20260706_114544_357451_1D65437F 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,109 +212,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Correct spaces or mix of tabs+spaces into proper tab-indented lines.
-No functional impact (same DTB).
+On 7/1/26 20:04, Alexey Kardashevskiy wrote:
+> On 1/7/26 03:42, Jason Gunthorpe wrote:
+>> On Mon, Jun 29, 2026 at 12:16:30PM +0530, Aneesh Kumar K.V wrote:
+>>>>> Thinking about this more, I guess we should mark the swiotlb as
+>>>>> cc_shared only with  CC_ATTR_GUEST_MEM_ENCRYPT instead of
+>>>>> CC_ATTR_MEM_ENCRYPT as we have below.
+>>>>
+>>>> The name cc_shared should be used for GUEST scenarios only.
+>>>>
+>>>> I guess there is some merit in keeping swiotlb using "decrypted" to
+>>>> mean it usinig pgprot_decrypted and set_memory_decyped() which AMD
+>>>> gives meaning to on both host and guest.
+>>>
+>>> Are you suggesting to change the struct io_tlb_mem::cc_shared back to
+>>> struct io_tlb_mem::unencrypted?.
+>>
+>> Yes
+>>
+>>>> IDK what AMD should do on the host by default. I guess it should setup
+>>>> a swiotlb pool of low dma addrs "unencrypted", but not "cc_shared"?
+>>>>
+>>>
+>>> If by low DMA address you mean using an address with the C-bit
+>>> cleared.
+>>
+>> Yes
+>>
+>>> The current code already does this and uses the swiotlb pool correctly
+>>> on SME.
+>>
+>> Well, through the force_dma_unencrypted() hack...
+>>
+>>> The challenge arises when we want to force SWIOTLB
+>>> bouncing even for devices that can handle encrypted DMA addresses (more
+>>> on that below). For such a config force_dma_uencrypted(dev) will return
+>>> false and swiotlb will be marked cc_shared/decrypted = true; This trip
+>>> the new check we added.
+>>
+>> Yes, because cc_shared (guest) and unencrypted (host) are very
+>> different things and we've mixed them:
+>>
+>>>     if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+>>
+>> I'm aruging force_dma_unencrypted should mean cc_shared and be
+>> guest_only, but the SME hack breaks this.
+>>
+>>> We can also do
+>>>
+>>>     if (cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)) {
+>>>         /* swiotlb pool is incorrect for this device */
+>>>         if (unlikely(mem->cc_shared != force_dma_unencrypted(dev)))
+>>>             return (phys_addr_t)DMA_MAPPING_ERROR;
+>>>
+>>>         /* Force attrs to match the kind of memory in the pool */
+>>>         if (mem->cc_shared)
+>>>             *attrs |= DMA_ATTR_CC_SHARED;
+>>>         else
+>>>             *attrs &= ~DMA_ATTR_CC_SHARED;
+>>>     } else {
+>>>         /*
+>>>          * Host memory encryption where device requires an
+>>>          * unencrypted dma_addr_t due to dma mask limit
+>>>               */
+>>>         if (force_dma_unencrypted(dev))
+>>>             *attrs |= DMA_ATTR_CC_SHARED;
+>>>         else
+>>>             *attrs &= ~DMA_ATTR_CC_SHARED;
+>>>     }
+>>
+>> If we do this I would like to split the force_dma_.. functions into
+>> guest and host, ie force_dma_cc_shared() and force_host_decrypted()
+> 
+> imho force_dma_unencrypted() should not look at the mask at all (the
+> mask should tell the DMA layer to use swiotlb, encrypted or not),
+> instead, when we set up swiotlb - we could make it unencrypted if
+> iommu=pt, otherwise encrypted (although this means IOMMU and defeats the
+> purpose of swiotlb). But at least this patchset has enough plumbing to
+> have swiotlb encrypted, right?
+> 
+>> To make it clear there are two very different things here.
+>>
+>>> Here I see value in having DMA_ATTR_UNENCRYPTED. The question is do we
+>>> need to split this into two flags and introduce the resulting code
+>>> duplication.
+>>
+>> The external flag name should be DMA_ATTR_CC_SHARED and only used on
+>> CC guest. Internally that turns into using set_memory_decrypted()
+>> which works on guest and host for AMD. I don't know how to make the
+>> host only case clearer and still keep the code efficient..
+>>
+>>>> The dma api has to detect, after the driver sets the dma limit, that
+>>>> none of system memory is usable when:
+>>>>   - The direct path is being used
+>>>>   - phys to dma for 0 is outside the dma limit
+>>>>
+>>>> Then it should assume the arch has setup a swiotlb pool for it to use
+>>>> to fix the high memory problem.
+>>>>
+>>>> Similar hackery would be needed in the dma alloc path to know that
+>>>> decrypted can be used to fix the high memory problem like for GUEST.
+>>>>
+>>>> I guess some 'dev_cannot_reach_memory(dev)' sort of test in a
+>>>> few key places? Setup with a static branch to be a nop on everything
+>>>> but AMD, compiled out on every other arch.
+>>>>
+>>>
+>>> If we are not able to reach the memory because of the memory encryption
+>>> bit, then isn't dev_cannot_reach_memory(dev) the same as
+>>> force_dma_unencrypted(dev)? If so, that is how it is already done.
+>>
+>> Sort of yes, but it is properly named to its purpose and not confused
+>> with what should be a guest-only function.
+>>
+>>> x86/dma: Disable forced SWIOTLB bouncing for SME IOMMU passthrough
+>>
+>> Maybe as a crutch to get this series merged..
+> feels okay but I do not really know the true meaning of "swiotlb=force"
+> so adding Tom to the thread. Thanks,
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+With swiotlb=force all DMA would be bounce buffered through SWIOTLB. My
+understanding (which could be completely wrong) for this setting is that
+it is used mainly to validate a driver implementation (race conditions
+between device memory access and driver memory access) and validate the
+SWIOTLB implementation itself. I'm not sure why you would want to run
+with swiotlb=force other than that.
 
----
+In that situation, with SME enabled on the host, the SWIOTLB must be
+mapped by the kernel without the encryption bit set and DMA addresses
+must be provided to devices without the encryption bit set. This is
+because if SWIOTLB is mapped encrypted, requiring the encryption bit be
+part of the DMA address, any device that cannot perform DMA at the
+address width where the encryption bit exists will fail to DMA properly.
 
-Ongoing bigger work for all bindings and DTS with built-in checker (dt-check-style).
+Thanks,
+Tom
 
-Changes in v2:
-1. One more fix in arch/arm/boot/dts/marvell/kirkwood-b3.dts
----
- arch/arm/boot/dts/marvell/kirkwood-b3.dts                     | 4 ++--
- .../arm/boot/dts/marvell/kirkwood-netgear_readynas_duo_v2.dts | 2 +-
- arch/arm/boot/dts/marvell/kirkwood-ns2-common.dtsi            | 2 +-
- arch/arm/boot/dts/marvell/kirkwood-openblocks_a6.dts          | 2 +-
- arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts          | 2 +-
- arch/arm/boot/dts/marvell/kirkwood-ts419.dtsi                 | 2 +-
- 6 files changed, 7 insertions(+), 7 deletions(-)
-
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-b3.dts b/arch/arm/boot/dts/marvell/kirkwood-b3.dts
-index 681343c1357a..9d5cc1689864 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-b3.dts
-+++ b/arch/arm/boot/dts/marvell/kirkwood-b3.dts
-@@ -94,10 +94,10 @@ i2c@11000 {
- 
- 		serial@12000 {
- 			/* Internal on test pins, 3.3v TTL
--		 	 * UART0_RX = Testpoint 65
-+			 * UART0_RX = Testpoint 65
- 			 * UART0_TX = Testpoint 66
- 			 * See the Excito Wiki for more details.
--		 	 */
-+			 */
- 			status = "okay";
- 		};
- 
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-netgear_readynas_duo_v2.dts b/arch/arm/boot/dts/marvell/kirkwood-netgear_readynas_duo_v2.dts
-index cb564c3bcdc4..a9adb777c7a0 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-netgear_readynas_duo_v2.dts
-+++ b/arch/arm/boot/dts/marvell/kirkwood-netgear_readynas_duo_v2.dts
-@@ -239,7 +239,7 @@ ethernet0-port@0 {
- };
- 
- &pciec {
--        status = "okay";
-+	status = "okay";
- };
- 
- &pcie0 {
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-ns2-common.dtsi b/arch/arm/boot/dts/marvell/kirkwood-ns2-common.dtsi
-index d6b615cf6390..121d84609f20 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-ns2-common.dtsi
-+++ b/arch/arm/boot/dts/marvell/kirkwood-ns2-common.dtsi
-@@ -83,7 +83,7 @@ &mdio {
- 	status = "okay";
- 
- 	ethphy0: ethernet-phy@X {
--                /* overwrite reg property in board file */
-+		/* overwrite reg property in board file */
- 	};
- };
- 
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-openblocks_a6.dts b/arch/arm/boot/dts/marvell/kirkwood-openblocks_a6.dts
-index 20c6290d2037..82ccc6feaf3c 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-openblocks_a6.dts
-+++ b/arch/arm/boot/dts/marvell/kirkwood-openblocks_a6.dts
-@@ -109,7 +109,7 @@ led-yellow {
- 			label = "obsa6:yellow:stat";
- 			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
- 		};
--        };
-+	};
- 
- 	gpio_keys {
- 		compatible = "gpio-keys";
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts b/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts
-index 2bc4b68bd723..ff08b01434bf 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts
-+++ b/arch/arm/boot/dts/marvell/kirkwood-openblocks_a7.dts
-@@ -130,7 +130,7 @@ led-yellow {
- 			label = "obsa7:yellow:stat";
- 			gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
- 		};
--        };
-+	};
- 
- 	gpio_keys {
- 		compatible = "gpio-keys";
-diff --git a/arch/arm/boot/dts/marvell/kirkwood-ts419.dtsi b/arch/arm/boot/dts/marvell/kirkwood-ts419.dtsi
-index f136059607b7..6c15e9257de3 100644
---- a/arch/arm/boot/dts/marvell/kirkwood-ts419.dtsi
-+++ b/arch/arm/boot/dts/marvell/kirkwood-ts419.dtsi
-@@ -57,7 +57,7 @@ &mdio {
- 
- 	ethphy1: ethernet-phy@1 {
- 		device_type = "ethernet-phy";
--                /* overwrite reg property in board file */
-+		/* overwrite reg property in board file */
- 	};
- };
- 
--- 
-2.53.0
+> 
+> 
 
 
