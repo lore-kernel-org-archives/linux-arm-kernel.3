@@ -4,106 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80589C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 502ECC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 11:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hwdEJkuxK+8pOC6TCcezbBHIneZ4lflSArjit6m0NnA=; b=hWfohSeG3tFq+94+A7WMJgtLRp
-	FFN5UK+h6sW/wKdoPiyIy+v1L1dgbY24iEBx8XzHqt5G3DECsKwyZ1U9Xd002htqii0IPghLH83PH
-	E0mkNWhAAzsfN7Aa2dFTOAwq4jzvQ8LYbj6DpFvgfd27rvL6ttRCTg8T+CsRTEu+4ojEyEWZQcme2
-	J4d5XRSYUjlRQkZ6eV8if/uj3F+f4lFqK4PZNX5aJjbrdoIR3dFrHkiIBbB1oCj/Nd+gszvS9bqza
-	RjBcqan2wS99dkce1+CpGFFXNWcBg6yHqzGpFEPmdle3yAhtVkLSIIb7jQ9elYlgFnAvqVCsKv7PF
-	lOKNg3jw==;
+	bh=M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=; b=mfUrJK+ynnQkJUQtSmLxQmcIhM
+	JGlhTqatlb/SGCvnpcq3stpYXJ40zD2pTqsyF4YsNhrYW6Te6sYlaD+4N5ljqGYDFt+KLCXnwJUdE
+	je7BvWehApSGJN2FdFTOtRaeUZm0R/eO85bBlW8qGbQQp2uF4EKO8jM3UlMZFjATzDVyNFzMJrMKE
+	6hdQztNUWSaf8/NPWxF4RHb3p9ddcKQGcjp4UVoQcgbr11maULvgx00/6Hch9wOsRb9NnUo/fxdei
+	lZEHiM/6IoDlQLcm70N3iIsK2w6RTGSRcromjghaYhKhJGp6R7FroHbCOJnnHfv5HK+iVNSOds5me
+	Hph5RPCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghAv-0000000CJLm-0DKq;
-	Mon, 06 Jul 2026 11:07:45 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1wghBJ-0000000CJTn-0nUu;
+	Mon, 06 Jul 2026 11:08:09 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wghAs-0000000CJKK-1PYD
+	id 1wghBG-0000000CJT0-2vmd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 11:07:43 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-493c2b3dc8bso19989195e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 04:07:41 -0700 (PDT)
+	Mon, 06 Jul 2026 11:08:07 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 666AxDNN238262
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Jul 2026 11:08:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=; b=ENQWdUF6x1jx8yL0
+	TK34NknB8KymeARAmE8QPgyereYZDw3jnXe1q0/8g8VIFp52NHROi3RqaFudgQWB
+	5zhFcvneVdsjzC4lAtz+xN4hN8soi0D0zrkeozEht9CPW4BSfkXXGS/jD9U323y1
+	/ogrS24EEAoedojh9FLljIPmZiPkg3Je1RtIU/U/X9Y9YxRXjiwi5R8cE2hJs9XK
+	pm9NYzofTI9ptS+Zy118aqiLUxsiF0BAVbr5c+zxiNtevKsFrT9hHyGN7ggwLDOs
+	TYMKWyTD5JQoP8CysdFe+g8AbOM/w9G0UIwT4QyYEOOxbQ9xwEiHh/esOHlx+YT6
+	Ywkprw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f88t88my8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 11:08:06 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-51c298a1b20so6189111cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 04:08:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783336060; x=1783940860; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hwdEJkuxK+8pOC6TCcezbBHIneZ4lflSArjit6m0NnA=;
-        b=hcQAGws2hndZj4mz5fQ4jl2Gms0xtBDs0QPN0Jd3cqmns0apmMbdapt6EooqMPv7JJ
-         NzVAh++PimTjj3+FNns1m5xoGU8BNvyyvBGF/KxlfQs4szs8p+MXMdQDRKStivw5L8o6
-         1n9cjtTdp9mE8LkRq85Xk6ykJEZitt4CdC7NttEm4EhRufko6/qMo0mcmJshH76FDEbX
-         VwnEssD+mMfQ+vFeYeFnSBRa7zpq+MVnSnan0agGqEWI8Ql8suEYPrbYU2Jcz2+i9ug8
-         btflA0JyVsbLlEiWgB3pVB/iEgRWZE9wCXehY+/4p/ZWul83kAntYn8NdE9db9MxnotK
-         SCnw==
+        d=oss.qualcomm.com; s=google; t=1783336085; x=1783940885; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=;
+        b=UST/BkTvpkNQ100eXd2IKCUlJPvksE8QAuZdCYvNjqPEW++6Y5luN25ClEYIl7SAK3
+         KTzVooFaiQfUcYklt+2wQArE9XSgPxL4BiAhySgUkhbs4elJJPAmGzguf7b2o3AS8ygy
+         6J2NKrZDZr3Fc7BJovplBrs0W1leOFpwVb/nPfj8UqYnlDp/f5iqZujlb2iVhSe3SQsp
+         stUarKdqVuyBALkyL3p1P63d+mHQ7SNDmpWA7kuLrW8RRkda664vU28D4dmP6i3W4mXa
+         mhndIPL3cq+NCti8ThlayWZ2U2iIRQHcbDjYBSUYdWacWUhK1r++zMXVSUESEnJWFv/J
+         XjEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783336060; x=1783940860;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hwdEJkuxK+8pOC6TCcezbBHIneZ4lflSArjit6m0NnA=;
-        b=inwYBzof9AEbB+tTD32s0cR/rREDG0N+jt7gk3KzfUtVNMOQjbsH9JAX5fp6XsJqHA
-         Z/IDFeWaXs0alFwLpnePcuR337gvScPzVswY268z8qUW3rgjQjCjnzzUoDAfvW4XaDpo
-         6r7KEfVv2jjJKRBIEFV01mZ2zsd5UCR2ldHqf97Q6QmgkI5SQ01Fwd7OKzCCTsebNKJC
-         M1yAcD2plETJFPgdUUOKbP0v2Z7GVZh131FWbZQ/NF5y0k4wkgFSubILquORGaumFu5V
-         yTezvyTeZx5Tc8veFZG8LuH6C2OFgSGEVE9QANQVY+HVf01pmkLgppEAL/d7SilxYBHo
-         nzaA==
-X-Forwarded-Encrypted: i=1; AHgh+RqXjViF8K7/LF0Goge/PvxtQucJBhSSCTBtFOZWSWEN0duHHWmJH/xFOTd97/ELqQSGlTss+PbRiFgv6ZoG0o52@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2s8s1vTXDuzY75DngCNC7V0zgBVlgb3AZKNg1MVIsYjTHeGGh
-	KNuPS9lZPdzW/lyWpRikDCewP53vXtnu1ui58S1Svk0i2AkbQ98/Vrc=
-X-Gm-Gg: AfdE7clpvM7rO4clXp/JaG5DfTFy4wh5OjPvev0+DQ3Jrd+cYyNcaplwZsAF4TJ6RUa
-	y53ruMi86DSDhLSTNRPlSGahOu3Haa3iWDmUr9sfEPYDwbl5+/O03yL+oRILAVfBN7e5l/x4d4q
-	VSXq9JYRiebz8vzVj1sBa9EbKqzKeNb9dEmw9AhqS0gCQ9jv8rTm8gTf6LfXRhjTFenW4vMtjeV
-	UsXFi/z2Sr7d0n0n1AVSKHEQjMHe3qo+bD72ZVeINQ2FstVlGWefd8XGjtE8GDQyaikfV9Gu0Jj
-	fN2zOWJyAsjFWxZONkgh1dwtQyrpxa2Z3qBbYtnu6LGRTnrsZQ0gKM+6IgXnSnBRZROq2ZZ/FgZ
-	C8gsepSasIvR7OrJFIwCRRRODcRExQeQrVQL+VLhS8DakbqKStMJBHFj2W+rKqER6VEyYNCJENQ
-	8S/+54yaZXQFbKKjjOitltIL8el/av1g7mtcsntimiIhbBB5drgid4eyxhBw4Fa1IuHnRoRg==
-X-Received: by 2002:a05:600c:c16f:b0:492:523f:a3df with SMTP id 5b1f17b1804b1-493d52ac417mr90419125e9.5.1783336060307;
-        Mon, 06 Jul 2026 04:07:40 -0700 (PDT)
-Received: from ?IPV6:2001:b07:2ec:601d:4b26:1672:75c7:805a? ([2001:b07:2ec:601d:4b26:1672:75c7:805a])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493cce12c40sm463102745e9.13.2026.07.06.04.07.38
+        d=1e100.net; s=20251104; t=1783336085; x=1783940885;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=M9+o4PUKMgHJp9AdorOs0p5SVquVy+abyY/nSxhj6Bs=;
+        b=YL6jkgXPbs+VhaRJtiuPwIp0FXXFMM1BwYYxTZ/PAs5lTMmUAFb16t96x30DROOVPF
+         KIVVfZ7LS7hvLQb1RRZa1eigdpKA1M1j3jmaN+EMyGDiniQovH8yD+5fku+VxLKQD3mJ
+         3I6TzPhfm26xLJR/f69JiKei04VYvhaqQsNEkKPEvNQ90Klxqy5U0ojtIFg/vPkONokn
+         q734RrGiYnIfy4U7ODmjA7KNQX/vMihULsbDTFghioiFKxEuAEYGawO6+vlWbtKHUc+U
+         OC0VVT4X7UX9T8UeXssHnPwWwTHrgoHDERR0FlrKw7TScT7IOtBUvT/4+ayHqzynLtSP
+         MOaw==
+X-Forwarded-Encrypted: i=1; AHgh+Rq9PcdD6cjgO7/EzjNKIdxDsY5YLwc40o1yiTjN5mYQgVhBWNMebrrctFwM4xUYaikkjXCDxfB7RUw8K69R47wT@lists.infradead.org
+X-Gm-Message-State: AOJu0YydHfD8oAFN921MBY7lSy7IbgNrAT5aLKweMG85QWhJbnjvfpv8
+	3tsIKbduBg8HPceTDwkHIp2iOz7vo994vzqTdwFoDYNqkDPaLHntK89WNW8SU/ub6Z/y1yJBsXJ
+	WR18nTkCAhUBcT+bYLgnRZxwfd8GDrcDVLYdxvHlnkxo1bE9a5mRWhqCe9ahu6W4nAUYILhwtff
+	vIAA==
+X-Gm-Gg: AfdE7cltYWQAed8NArs93vBvn9fzG7rNSbs0FobMyxX7X0jRyPB9LftX07aXWfuQ2F2
+	jXWw8TwxXjWOKgSfZRA4EWOmhlFFQDFDA6fr/puEJkNFYuGcr8ZyN+cHwWo0m6ScYV7d7BoIu4y
+	bmb63xM+S5Nz1ngcF/S3hs27z5pdfQd1qiJhsGkI5IkKH2MXRMzS9eSVCCJgYsBBIKuIVZcW66Q
+	+tVLJzEF7j6hK/6R2VyF5uiAqcfCFXyMLxi8k0NFixkoj+7dWFOxfd9Cso195mJzKQFzjdkqaXP
+	X0CMiBqMFl+qkLCE0ZT0nmDS4kC4t51PQRMhohXCFHYHkSczTWCkG6A6cFTvheY+B35YcL5eEp5
+	1lJJ+yqB5C3AzB+NWz2clqvYNRbbLoNznK90=
+X-Received: by 2002:ac8:5710:0:b0:51c:db4:3cb8 with SMTP id d75a77b69052e-51c4bed6cd2mr88275371cf.8.1783336085177;
+        Mon, 06 Jul 2026 04:08:05 -0700 (PDT)
+X-Received: by 2002:ac8:5710:0:b0:51c:db4:3cb8 with SMTP id d75a77b69052e-51c4bed6cd2mr88274771cf.8.1783336084718;
+        Mon, 06 Jul 2026 04:08:04 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c12b629a1c7sm723146366b.30.2026.07.06.04.08.00
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Jul 2026 04:07:39 -0700 (PDT)
-Message-ID: <64a919ab-8b36-45fe-8da8-5eaaf4d55359@gmail.com>
-Date: Mon, 6 Jul 2026 13:07:37 +0200
+        Mon, 06 Jul 2026 04:08:03 -0700 (PDT)
+Message-ID: <5fcc0bc1-7f9e-4611-be77-42860e0f4c74@oss.qualcomm.com>
+Date: Mon, 6 Jul 2026 13:08:00 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 10/13] drm/msm: initialize LPAC ring
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
- Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
- Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
- Akhil P Oommen <akhilpo@oss.qualcomm.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar
- <abhinav.kumar@linux.dev>, Jessica Zhang <jesszhan0024@gmail.com>,
- Marijn Suijten <marijn.suijten@somainline.org>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
- devicetree@vger.kernel.org
-References: <20260705-descriptive-name-lpac-upstream-v1-0-01d50c3e0c99@gmail.com>
- <20260705-descriptive-name-lpac-upstream-v1-10-01d50c3e0c99@gmail.com>
- <93b78299-866f-4a3c-9423-a990d9a7d4cd@oss.qualcomm.com>
+Subject: Re: [PATCH 6/8] arm64: dts: qcom: eliza: Add GPU SMMU node
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>,
+        "Joerg Roedel (AMD)" <joro@8bytes.org>
+Cc: Puranam V G Tejaswi <puranam.tejaswi@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev
+References: <20260705-eliza-gpu-v1-0-c9f1354dbd29@oss.qualcomm.com>
+ <20260705-eliza-gpu-v1-6-c9f1354dbd29@oss.qualcomm.com>
+ <10b0ad51-8766-449c-a51c-979364e6c781@oss.qualcomm.com>
 Content-Language: en-US
-From: Anna Maniscalco <anna.maniscalco2000@gmail.com>
-In-Reply-To: <93b78299-866f-4a3c-9423-a990d9a7d4cd@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <10b0ad51-8766-449c-a51c-979364e6c781@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA2MDExMyBTYWx0ZWRfX0HZc8ZnjB4Lv
+ rkkYV9sF3sQzs+u+/f+OhyQbbq2nolMWklFvG7jmSDjY/P8z8xzNVNjJCQxEZMcSmyXIMXe9rtv
+ YiMZJY5Uj2Es4G++5NKMjp7DRCfG0sY=
+X-Proofpoint-GUID: 8u6iM5ez3k8zuLFgMZV7r7MujISCjecI
+X-Authority-Analysis: v=2.4 cv=C6zZDwP+ c=1 sm=1 tr=0 ts=6a4b8c96 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=EUspDBNiAAAA:8 a=rL6LpJHDE9oUo6aHBFIA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-ORIG-GUID: 8u6iM5ez3k8zuLFgMZV7r7MujISCjecI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA2MDExMyBTYWx0ZWRfX1Z6toG8NOCxy
+ WjgBknZe0MxvBoUi4GpgFa935LkyubFWWXBYPlKdapdB3MLiFQm3E5mAcDOXpZFXiwvmHeYGhKo
+ pn+wXmabjIwBI6esUE0BXqZFi5q7OwboSZ+/F0PC/6ooKGw8GusTL5NdOZStOZ3T5GTtsnRcuUZ
+ OVndhnnwPvxrDrDbyUcaiksmKf6y1PolVGB9qNBbLdzbjMt8ISY9d+LyTsFNDfw67v81o2iCEV+
+ z4Qbnz/2ozcpDq2AYGHojs6rCB8fkGBoD12H8NRgcNz9KnIz2qS1J+4rmc65BcEXDiW0+ZHZ5MS
+ ayBlnPjRtopuWp8GzRt4zkeGty38vrPkIkywXquk7GD0aCVk1m3/WcEBOiNESzS6lgceQ53jUiO
+ flc90CvOle1gn8ULGRENa1XT3BRw73ZtLSgKflIJfLDE+gdmjIhrRQqrY9JjE7pa2GebEvQ8fu5
+ vKuqZh1acInZNdhbPag==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-06_01,2026-07-06_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 phishscore=0 clxscore=1015 spamscore=0 adultscore=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 suspectscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2606150000
+ definitions=main-2607060113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_040742_405053_A529A27B 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20260706_040806_744440_591ABAE7 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,40 +170,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/6/26 10:44 AM, Konrad Dybcio wrote:
-> On 7/5/26 9:13 PM, Anna Maniscalco wrote:
->> Program all the register needed to start up LPAC and send initialization
->> sequence.
+On 7/6/26 1:07 PM, Konrad Dybcio wrote:
+> On 7/5/26 10:14 AM, Akhil P Oommen wrote:
+>> From: Abel Vesa <abel.vesa@oss.qualcomm.com>
 >>
->> Additionally, now that the LPAC ring is live, make the code aware of it.
+>> Add the nodes to describe the GPU SMMU.
 >>
->> Signed-off-by: Anna Maniscalco <anna.maniscalco2000@gmail.com>
+>> Signed-off-by: Abel Vesa <abel.vesa@oss.qualcomm.com>
+>> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 >> ---
-> I believe some/all of these writes need to be guarded by if (has_lpac),
-> as many GPUs lack these registers and there may be side effects on
-> others
+>>  arch/arm64/boot/dts/qcom/eliza.dtsi | 38 +++++++++++++++++++++++++++++++++++++
+>>  1 file changed, 38 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/qcom/eliza.dtsi b/arch/arm64/boot/dts/qcom/eliza.dtsi
+>> index c5635f22e2a7..e5b8377e6c3a 100644
+>> --- a/arch/arm64/boot/dts/qcom/eliza.dtsi
+>> +++ b/arch/arm64/boot/dts/qcom/eliza.dtsi
+>> @@ -2674,6 +2674,44 @@ mdss_dp0_out: endpoint {
+>>  			};
+>>  		};
+>>  
+>> +		adreno_smmu: iommu@3da0000 {
+>> +			compatible = "qcom,eliza-smmu-500", "qcom,adreno-smmu",
+>> +				     "qcom,smmu-500", "arm,mmu-500";
+>> +			reg = <0x0 0x03da0000 0x0 0x40000>;
+>> +			#iommu-cells = <2>;
+>> +			#global-interrupts = <1>;
+>> +			interrupts = <GIC_SPI 673 IRQ_TYPE_LEVEL_HIGH>,
+> 
+> 674 is the correct globla
 
-That's correct yeah. I'm not sure what has_lpac should be though.
+(modulo the issue i explained below)
 
-Something we add to catalog? Or checking if it is a gen that has LPAC?
+[...]
 
->
->
-> [...]
->
->>   		a6xx_gpu->shadow = msm_gem_kernel_new(gpu->dev,
->> -						      sizeof(u32) * gpu->nr_rings,
->> +						      sizeof(u32) * (gpu->nr_rings + !!gpu->lpac_rb),
-> Should we rename nr_rings to something like nr_XXX_rings
-> where XXX is some uarch-generic (i.e. not SQE because we also
-> support pre-a6xx) name for the main number cruncher?
-Qualcom calls it GC so nr_gc_rings perhaps?
->
-> Konrad
+> This list is not quite correct. It must be sorted by the context index,
+> to which a given interrupt corresponds to - the driver relies on that
+> to give you information about where a context fault happens
+> 
+> Moreover, I see that the interrupt sheet has the bug where some
+> interrupts are offset by 32 from the base vector, and others are offset
+> by 31 (i.e. the SPI number doesn't equal irq vector - 32) - please find
+> out which mapping is correct with the right folks
 
-
-Best regards,
--- 
-Anna Maniscalco <anna.maniscalco2000@gmail.com>
-
+Konrad
 
