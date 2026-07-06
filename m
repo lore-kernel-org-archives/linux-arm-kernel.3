@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B46C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:17:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305C8C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 13:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IO/QubD4dgUuEh8uDMk9gwKSkQqs0JS7PLrZUPxwMTk=; b=fIB+zB39Edzx71Jq9y+nGhbc9Y
-	MMSt5i2h0qjQd1ghZqspb77wMnn/kaN0AjPKni36AVoHmjkZEcB9piwrtqwSN6atWQyePCFeWRS8t
-	pAvAyQk8RhxTuLV0dWUBNpel6qpBicLJxkV5l3wQjModENeWUcRoxfRhD447nf4LSKQxr+QnfkAiX
-	S+ApEidh77HCufODFP2v7gJpsHPQpFjmHjwXhBozvMF/S/kxEIy4ExE3jqDr9dsGwSqPLB6uqaeER
-	OmoWrW5sM1yPDos0qtZY6ZaoisJJJnRaNuReqY4AnAkGZPvX7JuRtwf+TiW12v45HSPHYQZz/i8UK
-	uQaTr1lQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o90i0cfZoLQRDEd07HRcrIoHeZh+FDlGHtKxB6iNI3Y=; b=MMGl3ZZYFy2Xwz9HK7d7gZu3RL
+	9YFTfdRp7U+68gvc0GqQDtSxVO4D89TLLojALLbYgZMX7458k76jSIIWAoE2YJk3ls0kXA2O1+e4A
+	nXqwUoKneQVE2vqreFCKhOOMag9EcW0vQePWq079kdGPb+970EHXXJCkIzxqkaPuxLl3zvoyABYIA
+	AxeOt8vkvFPycrUiPrABBAMQPdh/IbwLALpzWB4w7YmEV2FoGqErkM1abnLA9UczIaHQ1ZmOfmInW
+	9ZjCuNJtEE1k44gyQrtO4brmY+vmnMBgLEN27aUnXudieBn4lghDssB/If6LONawhJBApog8ReNHG
+	7hZVAMOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjBp-0000000CY99-4B6t;
-	Mon, 06 Jul 2026 13:16:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgjBn-0000000CY8R-2f2C
+	id 1wgjDe-0000000CYL2-1aUE;
+	Mon, 06 Jul 2026 13:18:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wgjDd-0000000CYKr-2gA5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 13:16:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0213128C7;
-	Mon,  6 Jul 2026 06:16:40 -0700 (PDT)
-Received: from [10.2.212.8] (e134344.arm.com [10.2.212.8])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E1E223F7B4;
-	Mon,  6 Jul 2026 06:16:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783343804; bh=mwN11MVLcsvBlXWF+rEa1fVZSi/RldKoZKTgPXtuR5Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Ct6L7tCXeBJgq6QVSdXCekpl52Qs9TtMSnHLuEzhNCU/M2zfF0d5pcsGqgH4fptJM
-	 4DvDaHSXWTiu0iU5EzxzO3rJ4Dg2b/mIKCYWawenWMpKUwqnEon7qsCB/GHb6B5yJw
-	 gP9TAnKzyg8Ili6nt8PWm08D4Eo/Q3tiDByn0K5g=
-Message-ID: <aaf16d0a-75a2-43e4-be15-9dda8cf0aee4@arm.com>
-Date: Mon, 6 Jul 2026 14:16:33 +0100
+	Mon, 06 Jul 2026 13:18:41 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0940E43587;
+	Mon,  6 Jul 2026 13:18:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 648E71F000E9;
+	Mon,  6 Jul 2026 13:18:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783343920;
+	bh=o90i0cfZoLQRDEd07HRcrIoHeZh+FDlGHtKxB6iNI3Y=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=OWbqZfzTjukjCzOtpI+vcCyyKg07CpN2ldAOpni3JjhkAkDxWhIsBCzUf286cmC9q
+	 yrE2uqIKA2KRLWx86P74/nxaNx/kFtX3BB3M23nsEVwTtEUirt6bvFBE70dUwfzoEM
+	 ny2qx0VQb+Z36+yFeQ3AmMS6XqBtpE/FPkbtN+rxNyJ7Kl0Dwysluo5K6ILluGm1nR
+	 m8ZcANJm4bSevE7vxYLN1zrEy/cRUeszik1g5Zky8oIU5XHxUs2NBeOpHJZkHx/FUf
+	 a4s1NienhNgGtHkksFdrnd8pXON5QdTn0GkaDA658UZak6YIkJXmtMr1cOZ7HnDCl1
+	 h1WeH/xT21RHA==
+Date: Mon, 6 Jul 2026 14:18:36 +0100
+From: Sudeep Holla <sudeep.holla@kernel.org>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>, Will Deacon <will@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Andre Przywara <andre.przywara@arm.com>
+Subject: Re: [PATCH v7 1/6] firmware: smccc: Add an Arm SMCCC bus
+Message-ID: <20260706-belligerent-excellent-saluki-a4e431@sudeepholla>
+References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
+ <20260611130429.295516-2-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
-User-Agent: Thunderbird Daily
-Subject: Re: [PATCH v4 2/5] arm_mpam: resctrl: Pre-allocate assignable
- monitors
-To: Fenghua Yu <fenghuay@nvidia.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- gshan@redhat.com, james.morse@arm.com, jic23@kernel.org, kobak@nvidia.com,
- lcherian@marvell.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, peternewman@google.com,
- punit.agrawal@oss.qualcomm.com, quic_jiles@quicinc.com,
- reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, zengheng4@huawei.com,
- x86@kernel.org
-References: <20260520212458.1797221-1-ben.horgan@arm.com>
- <20260520212458.1797221-3-ben.horgan@arm.com>
- <e8239a83-bdc7-4702-8f2d-8c639fcaea59@nvidia.com>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <e8239a83-bdc7-4702-8f2d-8c639fcaea59@nvidia.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_061647_765084_A3B9EC57 
-X-CRM114-Status: GOOD (  23.64  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260611130429.295516-2-aneesh.kumar@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,110 +79,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+On Thu, Jun 11, 2026 at 06:34:24PM +0530, Aneesh Kumar K.V (Arm) wrote:
+> SMCCC-discovered firmware services are currently represented by separate
+> platform devices, such as smccc_trng and arm-cca-dev. Those devices do not
+> represent independent DT/ACPI-described platform resources; they are
+> features of the SMCCC firmware interface.
+> 
+> Add an Arm SMCCC bus for services discovered through the SMCCC firmware
+> interface. The bus provides SMCCC device and driver registration helpers,
+> name-based matching, modalias generation, and a sysfs modalias attribute so
+> SMCCC service drivers can bind to discovered firmware services and autoload
+> as modules.
+> 
+> Follow-up changes can then register SMCCC firmware services as arm-smccc
+> devices instead of creating independent per-feature platform devices.
+> 
+> Based on arm_ffa code
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+>  drivers/firmware/smccc/Makefile   |   2 +-
+>  drivers/firmware/smccc/bus.c      | 164 ++++++++++++++++++++++++++++++
+>  include/linux/arm-smccc-bus.h     |  49 +++++++++
+>  include/linux/mod_devicetable.h   |  13 +++
+>  scripts/mod/devicetable-offsets.c |   3 +
+>  scripts/mod/file2alias.c          |   8 ++
+>  6 files changed, 238 insertions(+), 1 deletion(-)
+>  create mode 100644 drivers/firmware/smccc/bus.c
+>  create mode 100644 include/linux/arm-smccc-bus.h
+> 
+> diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
+> index 40d19144a860..68bbff1407b8 100644
+> --- a/drivers/firmware/smccc/Makefile
+> +++ b/drivers/firmware/smccc/Makefile
+> @@ -1,4 +1,4 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  #
+> -obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
+> +obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= bus.o smccc.o kvm_guest.o
+>  obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
+> diff --git a/drivers/firmware/smccc/bus.c b/drivers/firmware/smccc/bus.c
+> new file mode 100644
+> index 000000000000..fe7e893130ce
+> --- /dev/null
+> +++ b/drivers/firmware/smccc/bus.c
+> @@ -0,0 +1,164 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Copyright (C) 2026 Arm Limited
+> + */
+> +
+> +#include <linux/arm-smccc-bus.h>
+> +#include <linux/idr.h>
+> +#include <linux/slab.h>
+> +
+> +static DEFINE_IDA(arm_smccc_bus_id);
+> +
+> +static int arm_smccc_bus_match(struct device *dev,
+> +		const struct device_driver *drv)
+> +{
+> +	const struct arm_smccc_device_id *id_table;
+> +	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
+> +
+> +	id_table = to_arm_smccc_driver(drv)->id_table;
+> +	if (!id_table)
+> +		return 0;
+> +
 
-On 7/3/26 06:30, Fenghua Yu wrote:
-> Hi, Ben,
-> 
-> On 5/20/26 14:24, Ben Horgan wrote:
->> MPAM is able to emulate ABMC, i.e. mbm_event mode, by making memory
->> bandwidth monitors assignable. Rather than supporting the 'default'
->> mbm_assign_mode always use 'mbm_event' mode even if there are sufficient
->> memory bandwidth monitors. The per monitor event configuration is only
->> provided by resctrl when in 'mbm_event' mode and so only allowing
->> 'mbm_event' mode will make it easier to support per-monitor event
->> configuration for MPAM. For the moment, the only event supported is
->> mbm_total_event with no bandwidth type configuration. The
->> 'mbm_assign_mode'
->> file will still show 'default' when there is no support for memory
->> bandwidth monitoring.
->>
->> The monitors need to be allocated from the driver, and mapped to
->> whichever
->> control/monitor group resctrl wants to use them with.
->>
->> Add a second array to hold the monitor values indexed by resctrl's
->> cntr_id.
->>
->> When CDP is in use, two monitors are needed so the available number of
->> counters halves. Platforms with one monitor will have zero monitors when
->> CDP is in use.
->>
->> Co-developed-by: James Morse <james.morse@arm.com>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-> 
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
-> 
-> Please check the following nit.
-> 
->> ---
->> Changes since rfc v1:
->> abmc enabled even if enough counters
->> Helpers from dropped free running commits
->> carry on with zero counters if using cdp
->> set config bits
->> use kmalloc_objs
->> drop tags for rework
->> Configure mbm_cntr_configurable, mbm_cntr_assign_fixed
->>
->> Changes since rfc v2:
->> Don't set mon->assigned_counters to an error pointer
->> Fix mpam_resctrl_teardown_mon()
->> Remove free running check
->> Separate cleanup allocations, e.g. __free(), from the rest
->> Restrict scope on err in mpam_resctrl_monitor_init()
->>
->> Changes since v3:
->> Correct NULL check in mpam_resctrl_teardown_mon() (Shaopeng)
->> variable allocation ordering in mpam_resctrl_pick_domain_id() (Shaopeng)
->> Move mon.* assignments from mpam_resctrl_monitor_sync_abmc_vals()
->> to mpam_resctrl_monitor_init_abmc() counters (Sashiko)
->> use kvmalloc_obj() for allocations that may be big on some
->> platforms (Sashiko)
->> ---
->>   drivers/resctrl/mpam_internal.h |   6 +-
->>   drivers/resctrl/mpam_resctrl.c  | 139 +++++++++++++++++++++++++++++++-
->>   2 files changed, 141 insertions(+), 4 deletions(-)
->>
->> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/
->> mpam_internal.h
->> index 1914aefdcba9..7a166b395b5a 100644
->> --- a/drivers/resctrl/mpam_internal.h
->> +++ b/drivers/resctrl/mpam_internal.h
->> @@ -411,7 +411,11 @@ struct mpam_resctrl_res {
->>   struct mpam_resctrl_mon {
->>       struct mpam_class    *class;
->>   -    /* per-class data that resctrl needs will live here */
->> +    /* Array of allocated MBWU monitors, indexed by (closid, rmid). */
->> +    int            *mbwu_idx_to_mon;
->> +
->> +    /* Array of assigned MBWU monitors, indexed by idx argument. */
-> 
-> Nit:
-> 
-> "idx argument" is unclear and confusing. The idx is actually cntr_id
-> coming from resctrl.
-> 
-> Is it better s/index by idx argument/indexed by resctrl's cntr_id/?
-> 
-> You mentioned "indexed by resctrl's cntr_id" in the commit message
-> already. I think it's clearer than simple "idx argument".
+Any reason for not having this check when registering the driver also so
+that it becomes a must to register ? I remember vaguely adding this as fix to
+FF-A driver recently.
 
-Sure, updated.
+> +	while (id_table->name[0]) {
+> +		if (!strcmp(smccc_dev->name, id_table->name))
+> +			return 1;
+> +		id_table++;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int arm_smccc_bus_probe(struct device *dev)
+> +{
+> +	struct arm_smccc_driver *smccc_drv = to_arm_smccc_driver(dev->driver);
+> +
+> +	return smccc_drv->probe(to_arm_smccc_device(dev));
+> +}
+> +
+> +static void arm_smccc_bus_remove(struct device *dev)
+> +{
+> +	struct arm_smccc_driver *smcc_drv = to_arm_smccc_driver(dev->driver);
+> +
+> +	if (smcc_drv->remove)
+> +		smcc_drv->remove(to_arm_smccc_device(dev));
+> +}
+> +
+> +static int arm_smccc_bus_uevent(const struct device *dev,
+> +		struct kobj_uevent_env *env)
+> +{
+> +	const struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
+> +
+> +	return add_uevent_var(env, "MODALIAS=" ARM_SMCCC_MODULE_PREFIX "%s",
+> +			      smccc_dev->name);
+> +}
+> +
+> +static ssize_t modalias_show(struct device *dev,
+> +		struct device_attribute *attr, char *buf)
+> +{
+> +	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
+> +
+> +	return sysfs_emit(buf, ARM_SMCCC_MODULE_PREFIX "%s\n", smccc_dev->name);
+> +}
+> +static DEVICE_ATTR_RO(modalias);
+> +
+> +static struct attribute *arm_smccc_device_attrs[] = {
+> +	&dev_attr_modalias.attr,
+> +	NULL,
+> +};
+> +ATTRIBUTE_GROUPS(arm_smccc_device);
+> +
+> +const struct bus_type arm_smccc_bus_type = {
+> +	.name = "arm_smccc",
+> +	.match = arm_smccc_bus_match,
+> +	.probe = arm_smccc_bus_probe,
+> +	.remove = arm_smccc_bus_remove,
+> +	.uevent = arm_smccc_bus_uevent,
+> +	.dev_groups = arm_smccc_device_groups,
+> +};
+> +EXPORT_SYMBOL_GPL(arm_smccc_bus_type);
+> +
+> +int arm_smccc_driver_register(struct arm_smccc_driver *driver,
+> +		struct module *owner, const char *mod_name)
+> +{
+> +	if (!driver->probe)
+> +		return -EINVAL;
+> +
+> +	driver->driver.bus = &arm_smccc_bus_type;
+> +	driver->driver.name = driver->name;
+> +	driver->driver.owner = owner;
+> +	driver->driver.mod_name = mod_name;
+> +
+> +	return driver_register(&driver->driver);
+> +}
+> +EXPORT_SYMBOL_GPL(arm_smccc_driver_register);
+> +
+> +void arm_smccc_driver_unregister(struct arm_smccc_driver *driver)
+> +{
+> +	driver_unregister(&driver->driver);
+> +}
+> +EXPORT_SYMBOL_GPL(arm_smccc_driver_unregister);
+> +
+> +static void arm_smccc_release_device(struct device *dev)
+> +{
+> +	struct arm_smccc_device *smccc_dev = to_arm_smccc_device(dev);
+> +
+> +	ida_free(&arm_smccc_bus_id, smccc_dev->id);
+> +	kfree(smccc_dev);
+> +}
+> +
+> +struct arm_smccc_device *arm_smccc_device_register(const char *name)
+> +{
+> +	struct arm_smccc_device *smccc_dev;
+> +	int id, ret;
+> +
+> +	id = ida_alloc_min(&arm_smccc_bus_id, 1, GFP_KERNEL);
+> +	if (id < 0)
+> +		return ERR_PTR(id);
+> +
+> +	smccc_dev = kzalloc_obj(*smccc_dev);
+> +	if (!smccc_dev) {
+> +		ida_free(&arm_smccc_bus_id, id);
+> +		return ERR_PTR(-ENOMEM);
+> +	}
+> +
+> +	smccc_dev->id = id;
+> +	if (strscpy(smccc_dev->name, name) < 0) {
 
-Thanks,
+Since this is exported symbol and one can call arm_smccc_device_register(ptr)
+where ptr = NULL, won't it blow up then ? IIUC strscpy() handles NULL dst
+but doesn't check for NULL src.
 
-Ben
+> +		kfree(smccc_dev);
+> +		ida_free(&arm_smccc_bus_id, id);
+> +		return ERR_PTR(-EINVAL);
+> +	}
+> +	smccc_dev->dev.bus = &arm_smccc_bus_type;
+> +	smccc_dev->dev.release = arm_smccc_release_device;
+> +
+> +	ret = dev_set_name(&smccc_dev->dev, "%s-%d", smccc_dev->name, id);
+> +	if (ret) {
+> +		kfree(smccc_dev);
+> +		ida_free(&arm_smccc_bus_id, id);
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	ret = device_register(&smccc_dev->dev);
+> +	if (ret) {
+> +		put_device(&smccc_dev->dev);
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	return smccc_dev;
+> +}
+> +EXPORT_SYMBOL_GPL(arm_smccc_device_register);
+> +
+> +void arm_smccc_device_unregister(struct arm_smccc_device *smccc_dev)
+> +{
+> +	if (!smccc_dev)
+> +		return;
+> +
+> +	device_unregister(&smccc_dev->dev);
+> +}
+> +EXPORT_SYMBOL_GPL(arm_smccc_device_unregister);
+> +
+> +static int __init arm_smccc_bus_init(void)
+> +{
+> +	return bus_register(&arm_smccc_bus_type);
+> +}
+> +subsys_initcall(arm_smccc_bus_init);
+> +
+> diff --git a/include/linux/arm-smccc-bus.h b/include/linux/arm-smccc-bus.h
+> new file mode 100644
+> index 000000000000..188891441e57
+> --- /dev/null
+> +++ b/include/linux/arm-smccc-bus.h
+> @@ -0,0 +1,49 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only */
+> +/*
+> + * Copyright (C) 2026 Arm Limited
+> + */
+> +#ifndef __LINUX_ARM_SMCCC_BUS_H
+> +#define __LINUX_ARM_SMCCC_BUS_H
+> +
+> +#include <linux/device.h>
+> +#include <linux/mod_devicetable.h>
+> +#include <linux/module.h>
+> +
+> +struct arm_smccc_device {
+> +	int id;
+> +	char name[ARM_SMCCC_NAME_SIZE];
+> +	struct device dev;
+> +};
+> +
+> +#define to_arm_smccc_device(d) container_of(d, struct arm_smccc_device, dev)
+> +
+> +struct arm_smccc_driver {
+> +	const char *name;
+> +	int (*probe)(struct arm_smccc_device *sdev);
+> +	void (*remove)(struct arm_smccc_device *sdev);
+> +	const struct arm_smccc_device_id *id_table;
+> +
+> +	struct device_driver driver;
+> +};
+> +
+> +#define to_arm_smccc_driver(d) \
+> +	container_of_const(d, struct arm_smccc_driver, driver)
+> +
+> +int arm_smccc_driver_register(struct arm_smccc_driver *driver,
+> +		struct module *owner, const char *mod_name);
+> +void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
+> +struct arm_smccc_device *arm_smccc_device_register(const char *name);
+> +void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
+> +
 
+I may be overthinking but what will happen if HAVE_ARM_SMCCC_DISCOVERY=n
+and some driver is compiled using this header ? It should be fine if it
+fails to compile, just thinking out loud if we need to handle that are not.
+As long as all the drivers using these depends on HAVE_ARM_SMCCC_DISCOVERY
+it should be fine I think.
+
+> +#define arm_smccc_register(driver) \
+> +	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
+> +#define arm_smccc_unregister(driver) \
+> +	arm_smccc_driver_unregister(driver)
+> +
+> +#define module_arm_smccc_driver(__arm_smccc_driver) \
+> +	module_driver(__arm_smccc_driver, arm_smccc_register, \
+> +		      arm_smccc_unregister)
+> +
+> +extern const struct bus_type arm_smccc_bus_type;
+> +
+> +#endif /* __LINUX_ARM_SMCCC_BUS_H */
+> diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicetable.h
+> index 23ff24080dfd..c9cee8c5a0b2 100644
+> --- a/include/linux/mod_devicetable.h
+> +++ b/include/linux/mod_devicetable.h
+
+This file seems to be reworked recently, so you need to rebase it moving
+smccc specific changes to separate file I think.
+
+> @@ -876,6 +876,19 @@ struct auxiliary_device_id {
+>  	kernel_ulong_t driver_data;
+>  };
+>  
+> +#define ARM_SMCCC_NAME_SIZE 40
+> +#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
+> +
+> +/**
+> + * struct arm_smccc_device_id - Arm SMCCC bus device identifier
+> + * @name: SMCCC device name
+> + * @driver_data: driver data
+> + */
+> +struct arm_smccc_device_id {
+> +	char name[ARM_SMCCC_NAME_SIZE];
+> +	kernel_ulong_t driver_data;
+
+Can't find any users of the above driver_data ?
+Is it for future ? If so, can you add details on how it is supposed to be used
+if you don't want to drop it.
+
+> +};
+> +
+>  /* Surface System Aggregator Module */
+>  
+>  #define SSAM_MATCH_TARGET	0x1
+> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable-offsets.c
+> index b4178c42d08f..a485011ff137 100644
+> --- a/scripts/mod/devicetable-offsets.c
+> +++ b/scripts/mod/devicetable-offsets.c
+> @@ -254,6 +254,9 @@ int main(void)
+>  	DEVID(auxiliary_device_id);
+>  	DEVID_FIELD(auxiliary_device_id, name);
+>  
+> +	DEVID(arm_smccc_device_id);
+> +	DEVID_FIELD(arm_smccc_device_id, name);
+> +
+>  	DEVID(ssam_device_id);
+>  	DEVID_FIELD(ssam_device_id, match_flags);
+>  	DEVID_FIELD(ssam_device_id, domain);
+> diff --git a/scripts/mod/file2alias.c b/scripts/mod/file2alias.c
+> index 2ad87a74bb03..92d3917f27cc 100644
+> --- a/scripts/mod/file2alias.c
+> +++ b/scripts/mod/file2alias.c
+> @@ -1323,6 +1323,13 @@ static void do_auxiliary_entry(struct module *mod, void *symval)
+>  	module_alias_printf(mod, false, AUXILIARY_MODULE_PREFIX "%s", *name);
+>  }
+>  
+> +static void do_arm_smccc_entry(struct module *mod, void *symval)
+> +{
+> +	DEF_FIELD_ADDR(symval, arm_smccc_device_id, name);
+> +
+> +	module_alias_printf(mod, false, ARM_SMCCC_MODULE_PREFIX "%s", *name);
+> +}
+> +
+>  /*
+>   * Looks like: ssam:dNcNtNiNfN
+>   *
+> @@ -1493,6 +1500,7 @@ static const struct devtable devtable[] = {
+>  	{"mhi", SIZE_mhi_device_id, do_mhi_entry},
+>  	{"mhi_ep", SIZE_mhi_device_id, do_mhi_ep_entry},
+>  	{"auxiliary", SIZE_auxiliary_device_id, do_auxiliary_entry},
+> +	{"arm_smccc", SIZE_arm_smccc_device_id, do_arm_smccc_entry},
+>  	{"ssam", SIZE_ssam_device_id, do_ssam_entry},
+>  	{"dfl", SIZE_dfl_device_id, do_dfl_entry},
+>  	{"ishtp", SIZE_ishtp_device_id, do_ishtp_entry},
+> -- 
+> 2.43.0
 > 
->> +    int            *assigned_counters;
->>   };
->>  
-> [SNIP]
-> 
-> Thanks.
-> 
-> -Fenghua
 
+-- 
+Regards,
+Sudeep
 
