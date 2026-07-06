@@ -4,159 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1881C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 07:28:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5600BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 07:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=; b=DvYRxe7Xd1gd51qr+/LkmSxjsr
-	Ufid7z75N/adwHXb+bBcBalwk4oRJSVI+l9TA1wQMaGMhB18QXOzrBCkNyndnT4S33o2yTUacRyCz
-	HoEHKdP0xaCZ07/686Ksjrpclo5yYnApETz8zeB9hqCfvlgjyfVEFnScWWsRsxsyZ0xhVHjspMC9Q
-	gCH6yy1G7Jwlus6l2+xF8Hajpj468LmcxeS+YZBSy+/iuzDaFrQVFGPoeXy7+0jXWJ8YbLA3izRiW
-	30dnBhXlqrZcSL5z8op3DF84D4rIk/aEuqVn60GoVDouswwXYEIjK9hsrDOp8xy1/Nr6grJVIOpL5
-	7F4DUNkg==;
+	bh=nKzS4u+YMAULxq77QG+jAD+p3P+6bru/DOGdl2pXd3c=; b=yWN740VLI4hPZJxvE3mJOZRrjj
+	9ce1ETOFGCCdMQG8KGVQF1Sl09SDhPt6Qaxq1PN9i9ibwIHexSHrdC4EDmCocoIIEbz5bR9yee837
+	QHdriKmjU2sO5g9Lcvd2UWY1dWvLhJ10/QjZrxEz3MiY89ynwGlya1dMW4YLfL8TuGOAwLOWg7X9f
+	jHQcE5Qd/SVpLnOlTieURveyUoWkPYpbSsiBSyUDMoueQJQ4kTrJLGshGTNurfSQXT5DyoBrjHxT1
+	xZjkBN12DQeLt/Bs4xk8CIK/ceqoTadzLlBVGfQnMOSSoRto1CSpe14U1RLKiVlskhBVfkzGvMhmz
+	6g3JRUWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdkA-0000000BjVT-0c0k;
-	Mon, 06 Jul 2026 07:27:54 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1wgdlo-0000000Bjgk-20k8;
+	Mon, 06 Jul 2026 07:29:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgdk7-0000000BjUt-2iP1
+	id 1wgdln-0000000BjgK-0QCS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 07:27:53 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 3F04575D1A;
-	Mon,  6 Jul 2026 07:27:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783322868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
-	b=0wpOaniIIGdIp6z0GgnhUgcX7Ud0CNlgNZsCsQlsgePgV/syB4GI+NetQO74Bu88DWebkJ
-	JV4RcnUvOxIyYy8sZyMKhb2UP77fMvZEMirZrApFrnCjD5L+0SYMYo+ZFQQ5lID32YXDF1
-	lItEzeSK46VQqsmy5ExgcL0vPlIuQ7Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783322868;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
-	b=vRZoMy4mlXVDCDDzBHVKqK0jVdeF3GKGuTQBv6rpUASi6BEc+d8w4iSN5qdOKqb9Ez4Cpc
-	/dCOcX9RcSAElJAA==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1783322868; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
-	b=0wpOaniIIGdIp6z0GgnhUgcX7Ud0CNlgNZsCsQlsgePgV/syB4GI+NetQO74Bu88DWebkJ
-	JV4RcnUvOxIyYy8sZyMKhb2UP77fMvZEMirZrApFrnCjD5L+0SYMYo+ZFQQ5lID32YXDF1
-	lItEzeSK46VQqsmy5ExgcL0vPlIuQ7Y=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1783322868;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=+2Djb0q9WRkslYZbyJ71zpFQjsAPKkL2tq9BmdbU6nU=;
-	b=vRZoMy4mlXVDCDDzBHVKqK0jVdeF3GKGuTQBv6rpUASi6BEc+d8w4iSN5qdOKqb9Ez4Cpc
-	/dCOcX9RcSAElJAA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id A3D21779AA;
-	Mon,  6 Jul 2026 07:27:47 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id WgXvJfNYS2pBcQAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Mon, 06 Jul 2026 07:27:47 +0000
-Message-ID: <9612bb41-db52-4169-a7fa-e57268d69e24@suse.de>
-Date: Mon, 6 Jul 2026 09:27:47 +0200
+	Mon, 06 Jul 2026 07:29:35 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 394F3600BB;
+	Mon,  6 Jul 2026 07:29:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 810511F000E9;
+	Mon,  6 Jul 2026 07:29:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783322973;
+	bh=nKzS4u+YMAULxq77QG+jAD+p3P+6bru/DOGdl2pXd3c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=NVEWslUl0Zu3708doVCVsHGsSAvnFlr7Y9mhT+u+DPekJi1OIaVTL4mg5xsBvkpk4
+	 4TiwyvDhjMrZ1WZ1zqDX6ZySpImhYg+kXowq5kX+S5KuLp1SnyB6sZGCbQSmw0q78v
+	 1xbNm444HWiQmTjKVUsRnI7wOwGQdKoyHvNAjgx0FhgCJWS3Gd+O6Ly03O4ROBXHrG
+	 7IgAi8VN51DB3VfmWXazcktu1j6/7fZaxI1eG/AJsKU2p4pDvP9NaadITHcOgNfGZI
+	 YTKDUYaDJDC6c2mX0aE+z50g3ugtao+cEss+pdpngNMFcmOpHw7r5aVROYRbKZZ8tC
+	 2S/OJ2kf/+hOQ==
+Message-ID: <34946670-2a76-47fa-af82-3d70cdc9d8f0@kernel.org>
+Date: Mon, 6 Jul 2026 09:29:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/9] drm: replace simple display pipe users with atomic
- helpers
-To: Ze Huang <ze.huang@oss.qualcomm.com>,
- Alexey Brodkin <abrodkin@synopsys.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Frank Li <Frank.Li@nxp.com>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>,
- Hans de Goede <hansg@kernel.org>, Alex Lanzano <lanzano.alex@gmail.com>,
- Oleksandr Andrushchenko <oleksandr_andrushchenko@epam.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev, xen-devel@lists.xenproject.org
-References: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20260705-drm-simple-kms-removal-v1-0-b4e1ca053623@oss.qualcomm.com>
+Subject: Re: [PATCH 08/12] soc: fsl: qe: Convert to generic IRQ chip
+To: Paul Louvel <paul.louvel@bootlin.com>, Qiang Zhao <qiang.zhao@nxp.com>,
+ Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>
+Cc: linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
+ <20260703-qe-pic-gpios-v1-8-6c3e706e27dc@bootlin.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20260703-qe-pic-gpios-v1-8-6c3e706e27dc@bootlin.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-2.80 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.997];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FREEMAIL_TO(0.00)[oss.qualcomm.com,synopsys.com,linux.intel.com,kernel.org,gmail.com,ffwll.ch,jms.id.au,codeconstruct.com.au,nxp.com,pengutronix.de,epam.com];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[22];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TAGGED_RCPT(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,qualcomm.com:email,imap1.dmz-prg2.suse.org:helo]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_002751_986677_7CB1F4D1 
-X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,103 +78,272 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hi Paul,
 
-Am 04.07.26 um 20:31 schrieb Ze Huang:
-> struct drm_simple_display_pipe was meant to simplify simple DRM
-> drivers, but instead adds an extra wrapper around normal DRM atomic
-> helper setup. As noted in Documentation/gpu/todo.rst, remaining users
-> should be converted to regular atomic helpers and stop depending on the
-> simple-KMS interfaces.
->
-> This series converts the following drivers:
->
->    - arcpgu
->    - aspeed
->    - imx lcdc
->    - mcde
->    - pl111
->    - gm12u320
->    - repaper
->    - tve200
->    - xen frontend
->
-> Each patch replaces drm_simple_display_pipe_init() with explicit
-> primary plane, CRTC and encoder setup, and moves the old simple-pipe
-> callbacks into regular plane and CRTC helper callbacks named according
-> to local driver conventions.
->
-> The conversions preserve helper behavior that used to be implicit in
-> drm_simple_kms_helper.c, including plane-state validation, CRTC
-> primary-plane checks, affected-plane propagation, framebuffer prepare
-> handling, and existing event/vblank flow where applicable.
->
-> Result is less helper indirection and more explicit driver-side atomic
-> wiring, with no remaining simple-KMS dependency in these drivers.
->
-> These changes are build-tested only. No hardware testing has been
-> performed on the affected devices.
-
-Thanks a lot for the series. That's quite a nice cleanup.  Did you use 
-any AI to create these patches?
-
-Best regards
-Thomas
-
->
-> This series is based on drm-next-2026-06-27.
->
-> Thanks,
-> Ze Huang
->
-> Signed-off-by: Ze Huang <ze.huang@oss.qualcomm.com>
+Le 03/07/2026 à 15:30, Paul Louvel a écrit :
+> The generic IRQ chip framework is available to handle IRQ chips. Using
+> this framework for the QE interrupt controller allows to simplify the
+> driver. Indeed, the framework internally handles operations coded
+> directly in the driver.
+> 
+> Add a select dependency to GENERIC_IRQ_CHIP in the PPC platform Kconfig.
+> 
+> Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
 > ---
-> Ze Huang (9):
->        drm/arcpgu: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/aspeed: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/imx: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/mcde: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/pl111: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/gm12u320: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/repaper: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/tve200: replace struct drm_simple_display_pipe with regular atomic helpers
->        drm/xen: replace struct drm_simple_display_pipe with regular atomic helpers
->
->   drivers/gpu/drm/aspeed/aspeed_gfx.h      |   5 +-
->   drivers/gpu/drm/aspeed/aspeed_gfx_crtc.c | 156 ++++++++++++++++------
->   drivers/gpu/drm/aspeed/aspeed_gfx_drv.c  |   3 +-
->   drivers/gpu/drm/imx/lcdc/imx-lcdc.c      | 178 ++++++++++++++++++-------
->   drivers/gpu/drm/mcde/mcde_display.c      | 162 ++++++++++++++++------
->   drivers/gpu/drm/mcde/mcde_drm.h          |   6 +-
->   drivers/gpu/drm/mcde/mcde_drv.c          |   3 +-
->   drivers/gpu/drm/pl111/pl111_display.c    | 174 ++++++++++++++++++------
->   drivers/gpu/drm/pl111/pl111_drm.h        |   5 +-
->   drivers/gpu/drm/pl111/pl111_drv.c        |   3 +-
->   drivers/gpu/drm/tiny/arcpgu.c            | 165 ++++++++++++++++++-----
->   drivers/gpu/drm/tiny/gm12u320.c          | 128 ++++++++++++++----
->   drivers/gpu/drm/tiny/repaper.c           | 130 ++++++++++++++----
->   drivers/gpu/drm/tve200/tve200_display.c  | 221 +++++++++++++++++++++----------
->   drivers/gpu/drm/tve200/tve200_drm.h      |   6 +-
->   drivers/gpu/drm/tve200/tve200_drv.c      |  17 ++-
->   drivers/gpu/drm/xen/xen_drm_front.h      |   6 +-
->   drivers/gpu/drm/xen/xen_drm_front_kms.c  | 177 +++++++++++++++++++------
->   18 files changed, 1164 insertions(+), 381 deletions(-)
-> ---
-> base-commit: 3696d07837d1df13a5603d77f667685e7dfb3c53
-> change-id: 20260704-drm-simple-kms-removal-01a031c6a129
->
-> Best regards,
-> --
-> Ze Huang <ze.huang@oss.qualcomm.com>
->
+>   arch/powerpc/platforms/Kconfig   |   1 +
+>   drivers/soc/fsl/qe/qe_ports_ic.c | 103 ++++++++++++++++++++++++++-------------
+>   2 files changed, 70 insertions(+), 34 deletions(-)
+> 
+> diff --git a/arch/powerpc/platforms/Kconfig b/arch/powerpc/platforms/Kconfig
+> index c4e61843d9d9..b0b3a80f8cde 100644
+> --- a/arch/powerpc/platforms/Kconfig
+> +++ b/arch/powerpc/platforms/Kconfig
+> @@ -232,6 +232,7 @@ config QE_GPIO
+>   	bool "QE GPIO support"
+>   	depends on QUICC_ENGINE
+>   	select GPIOLIB
+> +	select GENERIC_IRQ_CHIP
+>   	help
+>   	  Say Y here if you're going to use hardware that connects to the
+>   	  QE GPIOs.
+> diff --git a/drivers/soc/fsl/qe/qe_ports_ic.c b/drivers/soc/fsl/qe/qe_ports_ic.c
+> index c8b73b0aa233..d022aa224f6d 100644
+> --- a/drivers/soc/fsl/qe/qe_ports_ic.c
+> +++ b/drivers/soc/fsl/qe/qe_ports_ic.c
+> @@ -20,63 +20,65 @@ struct qepic_data {
+>   	void __iomem *reg;
+>   	struct irq_domain *host;
+>   	int irq;
+> +	struct irq_chip_generic *gc;
+>   };
+>   
+>   static void qepic_mask(struct irq_data *d)
+>   {
+> -	struct qepic_data *data = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_type *ct = irq_data_get_chip_type(d);
+>   
+> -	clrbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
+> +	clrbits32(gc->reg_base + ct->regs.mask, d->mask);
 
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+Is there a real added value with this change ?
 
+Previously we had:
+
+00000000 <qepic_mask>:
+    0:	81 03 00 18 	lwz     r8,24(r3)
+    4:	81 28 00 00 	lwz     r9,0(r8)
+    8:	7c 00 04 ac 	hwsync
+    c:	81 29 00 10 	lwz     r9,16(r9)
+   10:	0c 09 00 00 	twi     0,r9,0
+   14:	4c 00 01 2c 	isync
+   18:	80 e3 00 08 	lwz     r7,8(r3)
+   1c:	3d 40 80 00 	lis     r10,-32768
+   20:	81 08 00 00 	lwz     r8,0(r8)
+   24:	7d 4a 3c 30 	srw     r10,r10,r7
+   28:	7d 29 50 78 	andc    r9,r9,r10
+   2c:	7c 00 04 ac 	hwsync
+   30:	91 28 00 10 	stw     r9,16(r8)
+   34:	4e 80 00 20 	blr
+
+Now we have:
+
+00000000 <qepic_mask>:
+    0:	80 e3 00 18 	lwz     r7,24(r3)
+    4:	81 03 00 10 	lwz     r8,16(r3)
+    8:	81 27 00 00 	lwz     r9,0(r7)
+    c:	81 48 00 94 	lwz     r10,148(r8)
+   10:	7d 29 52 14 	add     r9,r9,r10
+   14:	7c 00 04 ac 	hwsync
+   18:	81 49 00 00 	lwz     r10,0(r9)
+   1c:	0c 0a 00 00 	twi     0,r10,0
+   20:	4c 00 01 2c 	isync
+   24:	80 c3 00 00 	lwz     r6,0(r3)
+   28:	81 27 00 00 	lwz     r9,0(r7)
+   2c:	81 08 00 94 	lwz     r8,148(r8)
+   30:	7d 4a 30 78 	andc    r10,r10,r6
+   34:	7d 29 42 14 	add     r9,r9,r8
+   38:	7c 00 04 ac 	hwsync
+   3c:	91 49 00 00 	stw     r10,0(r9)
+   40:	4e 80 00 20 	blr
+
+We now have three more indirect loads (8x lwz instead of 5x), for 
+loading some value which is already known at compile time.
+
+
+>   }
+>   
+>   static void qepic_unmask(struct irq_data *d)
+>   {
+> -	struct qepic_data *data = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_type *ct = irq_data_get_chip_type(d);
+>   
+> -	setbits32(data->reg + CEPIMR, 1 << (31 - irqd_to_hwirq(d)));
+> +	setbits32(gc->reg_base + ct->regs.mask, d->mask);
+>   }
+>   
+>   static void qepic_end(struct irq_data *d)
+>   {
+> -	struct qepic_data *data = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_type *ct = irq_data_get_chip_type(d);
+>   
+> -	out_be32(data->reg + CEPIER, 1 << (31 - irqd_to_hwirq(d)));
+> +	out_be32(gc->reg_base + ct->regs.eoi, d->mask);
+> +}
+> +
+> +static void qepic_calc_mask(struct irq_data *d)
+> +{
+> +	d->mask = 1 << (31 - irqd_to_hwirq(d));
+>   }
+>   
+>   static int qepic_set_type(struct irq_data *d, unsigned int flow_type)
+>   {
+> -	struct qepic_data *data = irq_data_get_irq_chip_data(d);
+> -	unsigned int vec = (unsigned int)irqd_to_hwirq(d);
+> +	struct irq_chip_generic *gc = irq_data_get_irq_chip_data(d);
+> +	struct irq_chip_type *ct = irq_data_get_chip_type(d);
+>   
+>   	switch (flow_type & IRQ_TYPE_SENSE_MASK) {
+>   	case IRQ_TYPE_EDGE_FALLING:
+> -		setbits32(data->reg + CEPICR, 1 << (31 - vec));
+> +		setbits32(gc->reg_base + ct->regs.type, d->mask);
+>   		return 0;
+>   	case IRQ_TYPE_EDGE_BOTH:
+>   	case IRQ_TYPE_NONE:
+> -		clrbits32(data->reg + CEPICR, 1 << (31 - vec));
+> +		clrbits32(gc->reg_base + ct->regs.type, d->mask);
+>   		return 0;
+>   	}
+>   	return -EINVAL;
+>   }
+>   
+> -static struct irq_chip qepic = {
+> -	.name = "QEPIC",
+> -	.irq_mask = qepic_mask,
+> -	.irq_unmask = qepic_unmask,
+> -	.irq_eoi = qepic_end,
+> -	.irq_set_type = qepic_set_type,
+> -};
+> -
+>   static void qepic_cascade(struct irq_desc *desc)
+>   {
+>   	struct qepic_data *data = irq_desc_get_handler_data(desc);
+> +	struct irq_chip_type *ct = data->gc->chip_types;
+>   	struct irq_chip *chip = irq_desc_get_chip(desc);
+>   	unsigned long event, bit;
+>   
+>   	chained_irq_enter(chip, desc);
+>   
+> -	event = in_be32(data->reg + CEPIER);
+> +	event = in_be32(data->gc->reg_base + ct->regs.eoi);
+>   	if (!event) {
+>   		handle_bad_irq(desc);
+>   		goto out;
+> @@ -89,33 +91,64 @@ static void qepic_cascade(struct irq_desc *desc)
+>   	chained_irq_exit(chip, desc);
+>   }
+>   
+> -static int qepic_host_map(struct irq_domain *h, unsigned int virq, irq_hw_number_t hw)
+> +static int qepic_chip_init(struct irq_chip_generic *gc)
+>   {
+> -	irq_set_chip_data(virq, h->host_data);
+> -	irq_set_chip_and_handler(virq, &qepic, handle_fasteoi_irq);
+> +	struct irq_chip_type *ct = gc->chip_types;
+> +
+> +	ct->regs.mask = CEPIMR;
+> +	ct->chip.irq_mask = qepic_mask;
+> +	ct->chip.irq_unmask = qepic_unmask;
+> +	ct->regs.eoi = CEPIER;
+> +	ct->chip.irq_eoi = qepic_end;
+> +	ct->regs.type = CEPICR;
+> +	ct->chip.irq_set_type = qepic_set_type;
+> +	ct->chip.irq_calc_mask = qepic_calc_mask;
+
+Are ct->regs.mask, ct->regs.eoi and ct->regs.type used anywhere else 
+than locally in qepic_{mask/unmask/end/set_type} ?
+
+Christophe
+
+> +
+>   	return 0;
+>   }
+>   
+> -static const struct irq_domain_ops qepic_host_ops = {
+> -	.map = qepic_host_map,
+> -};
+> +static int qepic_domain_init(struct irq_domain *d)
+> +{
+> +	struct qepic_data *data = d->host_data;
+>   
+> -static void qepic_remove(void *res)
+> +	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
+> +
+> +	return 0;
+> +}
+> +
+> +static void qepic_domain_exit(struct irq_domain *d)
+>   {
+> -	struct qepic_data *data = res;
+> +	struct qepic_data *data = d->host_data;
+>   
+>   	irq_set_chained_handler_and_data(data->irq, NULL, NULL);
+> -	irq_domain_remove(data->host);
+>   }
+>   
+>   static int qepic_probe(struct platform_device *pdev)
+>   {
+> +	struct irq_domain_chip_generic_info dgc_info = {
+> +		.name		= "QEPIC",
+> +		.handler	= handle_fasteoi_irq,
+> +		.irqs_per_chip	= 32,
+> +		.num_ct		= 1,
+> +		.init		= qepic_chip_init,
+> +	};
+> +	struct irq_domain_info d_info = {
+> +		.fwnode		= of_fwnode_handle(pdev->dev.of_node),
+> +		.domain_flags	= IRQ_DOMAIN_FLAG_DESTROY_GC,
+> +		.size		= 32,
+> +		.hwirq_max	= 32,
+> +		.ops		= &irq_generic_chip_ops,
+> +		.dgc_info	= &dgc_info,
+> +		.init		= qepic_domain_init,
+> +		.exit		= qepic_domain_exit,
+> +	};
+>   	struct device *dev = &pdev->dev;
+>   	struct qepic_data *data;
+>   
+>   	data = devm_kzalloc(dev, sizeof(*data), GFP_KERNEL);
+>   	if (!data)
+>   		return -ENOMEM;
+> +	d_info.host_data = data;
+>   
+>   	data->reg = devm_platform_ioremap_resource(pdev, 0);
+>   	if (IS_ERR(data->reg))
+> @@ -125,14 +158,16 @@ static int qepic_probe(struct platform_device *pdev)
+>   	if (data->irq < 0)
+>   		return data->irq;
+>   
+> -	data->host = irq_domain_create_linear(dev_fwnode(dev), 32, &qepic_host_ops, data);
+> -	if (!data->host)
+> -		return -ENODEV;
+> +	data->host = devm_irq_domain_instantiate(dev, &d_info);
+> +	if (IS_ERR(data->host))
+> +		return PTR_ERR(data->host);
+>   
+> -	irq_set_chained_handler_and_data(data->irq, qepic_cascade, data);
+> -
+> -	return devm_add_action_or_reset(dev, qepic_remove, data);
+> +	data->gc = irq_get_domain_generic_chip(data->host, 0);
+> +	if (!data->gc)
+> +		return -ENODEV;
+> +	data->gc->reg_base = data->reg;
+>   
+> +	return 0;
+>   }
+>   
+>   static const struct of_device_id qepic_match[] = {
+> 
 
 
