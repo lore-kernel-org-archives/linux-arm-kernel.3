@@ -4,115 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E79C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 05:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BF4C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 05:57:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ssfL058koFxLPmF6fdACP+cHYck4AkFPClFGn8a8Guw=; b=vd30iafb9V7/1HMxJU1ngJavq5
-	EWKT5nKSsFZbummW6eqZBucHPmcvmCRvABBHVvJzgtrHK1Qf5Mgky8i2tRisybp13ExyhE8Kw5wY2
-	rOyimJbnBSOOwSpocm3vBd2OC+cO5RXZ4auNlF4N7BeNvAdIt0TfXCSyxVmRuCq0aGwFaPHYkCmuC
-	6SJWhL85aTjl20QEA4D+OBj+NgH0CVpEeT37MCUm2SoF1COw2Wzp8YRepjvBJ3plUfxVvu3y3y9+m
-	/hPhV+MY6MVjxDLib9FRnwsxolq0CKviEbmfrE53fydJHsUAxidkXc3NaA9HmKM33GqDPTxtHgEvb
-	Yw2S8mvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SMcr9aZxtwESDtUViXE52gMUWOmtkD5jpNJK77DhaV8=; b=km88lS0FDIRe+CuZ/neAH1ZyYN
+	WkIshnjwsiUVkKckHIYvKbJ57Zjebk9pw6SSsNxWW3zWDvps0Ew2Yg2fCL+KIVNH8/OLxLPBVmC0o
+	xqOtQMPZ6o0FFjXpt1bC8orC0e9s9Polzl2GJFnli7wuigJ4ezV0y6ep+VOJ2dVAiApgt6q4EeqEu
+	4cxb6S5X2I9/DgJrMQDyloOdS/NSL6T7QmItWYEmOh+N6MapNgJza8Suc1k9YzqH8PAHPnGCfvaq+
+	d6Tj1qvCW0YjtM5cZ5souZehtPIXSuzcNmPvDV6CPa6HFtZRERVXKrcfkG1W/lgpEjKVAQ3zmH9y6
+	LjUejEYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgc0x-0000000BXcf-21x9;
-	Mon, 06 Jul 2026 05:37:07 +0000
-Received: from mail-westus3azon11012038.outbound.protection.outlook.com ([40.107.209.38] helo=PH8PR06CU001.outbound.protection.outlook.com)
+	id 1wgcKE-0000000BYja-3TrJ;
+	Mon, 06 Jul 2026 05:57:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgc0r-0000000BXYt-2uOL
+	id 1wgcKD-0000000BYjF-0sdH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 05:37:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=cxTtPQAYNqu00F5P4caX6NSccMbdYKrPlUfATg6xoom59eIXavL33pVG6sVHsyZkr5mw3I7n0+d/zi114s01932Qocmn8Xv4OSd1AbwbCdxS39D1JVN7ye+vr6w2Oasq85z/ocr6tkkY181FFspSnDTaR6MnYnUKArhr9Vmo2sodYIe8wbbgzODBV563QT2KRuvyXKqLVOPYDyos7hYQaF7KBxg5N0550cZ5QApwVUEowecd5+jM6No5mv5qNITrxlwBGU5cO8yv+aCJ9a07icy7xEeQfQ0HvsHc5UEYqmeJTZJIeFWIIn1aeLOf2Aiu9wq6mzk3QUqHzd7bPBx1sg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ssfL058koFxLPmF6fdACP+cHYck4AkFPClFGn8a8Guw=;
- b=XnfQVgR4srlM4EAQS8XWhPR+KGcP2tluCUQtQ0wyOU6QsRhM+Z9CUxikHg4d8CmjG++8stTFrzcQlv03h4ZZxValQfjbntnxSTEFDwdW5hqB0bj1t8N/FWVgX6heRKi6kaotTeRk+StpkvO3ioj+8QGxY8LkWhDhgncAzCtva94JC6DPGp/FGDfmb5W51SfhnKxIZBIYLJaQly14+51YoICwz0S5oyUGQ2thk0R5Ka/Bkt8JPqrs35r4OdTzWjs/etM5pUWkxcBswHPTPeArznFCjgrKwU1qbSCfA61lO9kr+rq4cPQXlq9FW4cuXJ3g3NnKNC30MkD5feKcinwblQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ssfL058koFxLPmF6fdACP+cHYck4AkFPClFGn8a8Guw=;
- b=uS5KSTICORvJfQabuRMJVIS87+v+nYfi7kByOXBhVMCTw/MHS+ZL9FNBLZs/gOiOoNJmZttbKfXNSZZNrt8qtX5oNXKUgV/+V1apXHp7CDZ147QBwLqKWsSy5Jcnz6XVQtDmMfNjYJSmvnHLDu+T7Q/Ar9lwpJupoI8qH+x/dp42u83WvFPNP2+0scldHnBQ7YY4T4VcE27uJyk9cSe92MHc0N3a9tQP38Ai1CdZmB8/NMYeJ4DUVnfIN7BmSIuz1Ei372pwE8fClCNaBV7WkzG50iR7oYmXH82al35Ub0ijj8AzB9J9CbVH0/dCRlVnZ59jLMyZ3kQkUr8qbWVSLQ==
-Received: from DS1PR07CA0005.namprd07.prod.outlook.com (2603:10b6:8:456::9) by
- BY5PR12MB4082.namprd12.prod.outlook.com (2603:10b6:a03:212::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.12; Mon, 6 Jul
- 2026 05:36:56 +0000
-Received: from CY4PEPF0000EE3C.namprd03.prod.outlook.com
- (2603:10b6:8:456:cafe::13) by DS1PR07CA0005.outlook.office365.com
- (2603:10b6:8:456::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Mon, 6
- Jul 2026 05:36:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000EE3C.mail.protection.outlook.com (10.167.242.13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.181.6 via Frontend Transport; Mon, 6 Jul 2026 05:36:55 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 5 Jul
- 2026 22:36:37 -0700
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 5 Jul
- 2026 22:36:36 -0700
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Sun, 5 Jul 2026 22:36:36 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Will Deacon <will@kernel.org>, Jason Gunthorpe <jgg@nvidia.com>
-CC: Robin Murphy <robin.murphy@arm.com>, <joro@8bytes.org>, Kevin Tian
-	<kevin.tian@intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 3/3] iommu/arm-smmu-v3-iommufd: Require exactly one Stream ID for a vDEVICE
-Date: Sun, 5 Jul 2026 22:36:11 -0700
-Message-ID: <b15f2b73520f389f3f57881da2f040e7bdc18876.1783311134.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1783311134.git.nicolinc@nvidia.com>
-References: <cover.1783311134.git.nicolinc@nvidia.com>
+	Mon, 06 Jul 2026 05:57:01 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3106760018;
+	Mon,  6 Jul 2026 05:57:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9112D1F000E9;
+	Mon,  6 Jul 2026 05:56:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783317419;
+	bh=SMcr9aZxtwESDtUViXE52gMUWOmtkD5jpNJK77DhaV8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=MPkzDKVpN8sBgDcpB9hunesBHiu6H521lRekOJYQVioG1dHtlROKGJqQbNfwg+yuF
+	 RCuG1ZoBMmwHG9kfs4GALdwPvHeEYcjBVv348dc7ZLsNo9jZvLv3ZUtPE6nW3wlLyc
+	 eRVxH7Njgk1hDBBTX03psE3n+kA8niNzoMjuwsC20V1Wem0lOK5HrWa2s1w1q9y/80
+	 c7C6pt+9S7r5hiWszip/GYOxSl6UGViWlD5jZVs4BiYuf9VCVgdgvAzwbdsqerWU/O
+	 8rwDV6uH1cq+YWnqjY7y1MldUkrOWRcOVFQv2LOUtztTEJbpdBVCHWbAG8IYzET2A8
+	 f/a8G2vT8T/jw==
+Message-ID: <033ae2ef-e260-4e96-9986-ffd0db3e3caa@kernel.org>
+Date: Mon, 6 Jul 2026 07:56:53 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3C:EE_|BY5PR12MB4082:EE_
-X-MS-Office365-Filtering-Correlation-Id: c8bf372e-376d-4dfd-bebf-08dedb209766
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|1800799024|376014|11063799006|56012099006|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info: /S8czn5HyMKrWkcsv7Qjb/wkut87A5Ay9Q+LA9jAL63+jbcQV2JrmTKMR8tx8LMJcLcamj+LcXYU1p6Tc1tA2WuZHMhBFP1owKYwJajwlPAUWowjRip6p2L1nAM2Cuogfe3q/l3I1j29o/EBanNWRboh8xq/lcPulr9skO6qgq1j232Tc5TTWSbDoQjwYsCRT6UflDdz3lnbJOXGRMPMezFTAbEdYKFYe0oNRpCU++U+33CBh8AtdXXgEDiBkLMQwJA/54gVq978FfHQD4d953lyOyhQtt2mSH/uh/VwBbND8ZJDuD94MgqW6s2Ep6iUUGgB8tD30X1VjKWagNx4W+3YMrNzjv+JkyCaMmQSDDM+gxAsjD6iH8ZnBaFYC7yYFPDgrv+VXso9+WvNMv+WnUJQtggCTKo+56J9F8GvcerlHKcVTd+FzpmI9K5vvJEddzobsMjgtq9Jipwy+4b0nUtc0XCP5iMmvMMK7ICUOKYFH4jTxXw8KYq5mjnGgOBb9eCYxuBc0JwFHh+Pp2URxQjvIYI/w9TzegpvLH2B5/BP1ncLgfLfc8WoP1xcvQVADpSuYBjSstmyGv/ucMLUKE5/AMzoGbwji+STNmbvLbZU/NEE2fbLij2+upargQlAo7Ou2H7aZKR/K3Wgi43J325fse+GJwtsATFGZ3NvuoLGuNSrta6r/Bta+KxzbEsx0ylTMM8OhqPtqoAM0t9E3g==
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(1800799024)(376014)(11063799006)(56012099006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: i6SkR8SWQKvTVuB4fO4EHzyaCgyVsA8NQI4j1Xw7oNwspFXTBmd/webbwfyBdH2yBIy7fluare+n6tEbHLsUpVVLhhXUVjjq5xEcCVWNjc1zMNqHBH5EtylUDhGPzvZxKwkiLRx0RRUHkXcMrrlqfCIIrXamCsBzKalIdClWZmhDQouY+hi/iUNLmLtSeeCtgLeCc1BUcnOuICQVfnZnZV+2vc7RBJSL6LpRJzOm4N+w4Ps9wZOl0yKLeS1ksrlGCzC5QysI4ttZbRoI5Jl0fqSZUz8Zut28QNDkVTE7Dy4SIV0g3C5BKMdwy95hwgX/tJdjxIOHH4TBxrmuRKJPeTDRZyPl+O3uZrQo6CVpoMzMaLou0yG1iDM/iDKj3fSIczLOmEOzp0m75be5ud7CfQcHJDXiXVLN4aSRjyd4Z8GG8lyKPUJ+UAxQ9dDOGo8l
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 05:36:55.7629
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c8bf372e-376d-4dfd-bebf-08dedb209766
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3C.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4082
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260705_223701_733996_D0178D49 
-X-CRM114-Status: GOOD (  13.92  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: iio: adc: convert Xilinx XADC bindings to
+ YAML
+To: Mikhail Lukianchikov <avermoal@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
+ <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <d7607a98-f5e1-417f-ad64-d0029c9de662@kernel.org>
+ <20260705165620.9818-1-avermoal@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <20260705165620.9818-1-avermoal@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,57 +120,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_vsmmu_vsid_to_sid() maps a guest's vSID to a single physical Stream ID
-taken from master->streams[0], assuming a device has exactly one stream. A
-device with several streams gets only its first one mapped, so a guest vSID
-invalidation cannot reach the others' ATC and IOTLB entries; a device with
-none makes master->streams a ZERO_SIZE_PTR, read out of bounds.
+On 05/07/2026 18:56, Mikhail Lukianchikov wrote:
+>>> Convert the Xilinx XADC binding documentation from .txt to YAML format.
+>>> This conversion is part of the ongoing effort to migrate all DT bindings
+>>> to a machine-verifiable schema.
+>>
+>> Sorry, but what effort exactly? Where is this effort documented? Do you
+>> have a mentor if this is some sort of mentorship effort?
+>>
+>> And if this is ongoing effort then don't duplicate:
+>> https://lore.kernel.org/all/?q=dfn%3Axilinx-xadc.txt
+> 
+> Hello Krzyszof,
+> 
+> Thank you for feedback.
+> 
+> I'm the newbie at Linux kernel developers community,
+> and sorry for my mistakes in sending commits.
+> 
+> I'll answer your questions.
+> I am not part of any official mentorship program,
+> I just decided to try to contribute to the development of the Linux kernel.
+> Yes, it's a ongoing effort, and to be honest, this effort is the general
+> community initiative to convert all DT bindings from .txt to .yaml. I didn't know that work
+> on this file was already underway.
+Take a look at other commits to learn how the commit msg could be written.
 
-Add an arm_vsmmu_vdevice_init() op to reject the vDEVICE with -EOPNOTSUPP
-when master->num_streams is not one, rather than mapping it silently.
+In any case,
+1. Do not send duplicated versions of patches (you posted same twice).
+2. Check if that binding was converted already.
 
-Fixes: d68beb276ba26 ("iommu/arm-smmu-v3: Support IOMMU_HWPT_INVALIDATE using a VIOMMU object")
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c   | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index 1e9f7d2de3441..85ebfdb3d2a7a 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -297,6 +297,20 @@ static int arm_vsmmu_vsid_to_sid(struct arm_vsmmu *vsmmu, u32 vsid, u32 *sid)
- 	return ret;
- }
- 
-+static int arm_vsmmu_vdevice_init(struct iommufd_vdevice *vdev)
-+{
-+	struct device *dev = iommufd_vdevice_to_device(vdev);
-+	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+
-+	/*
-+	 * arm_vsmmu_vsid_to_sid() maps a vSID to master->streams[0] alone, so
-+	 * more streams would leave the rest stale and none reads out of bounds.
-+	 */
-+	if (master->num_streams != 1)
-+		return -EOPNOTSUPP;
-+	return 0;
-+}
-+
- /* This is basically iommu_viommu_arm_smmuv3_invalidate in u64 for conversion */
- struct arm_vsmmu_invalidation_cmd {
- 	union {
-@@ -403,6 +417,7 @@ int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
- static const struct iommufd_viommu_ops arm_vsmmu_ops = {
- 	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
- 	.cache_invalidate = arm_vsmmu_cache_invalidate,
-+	.vdevice_init = arm_vsmmu_vdevice_init,
- };
- 
- size_t arm_smmu_get_viommu_size(struct device *dev,
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
