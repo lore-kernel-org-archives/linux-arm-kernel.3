@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DE4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:33:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD303C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qaD3KpHXlXTlsicr8XbDQzikndK4UikxNXryf78w+g=; b=epQLICDoMqmKR2Mro+JdDSD/wr
-	V7/1dSqMHTU9jzAjDGguKDyI9WAh+GEDqlaTLRY4PGoBa/3m5ynNEkb/6iwQRsG7CaS9MZa2AFlSA
-	cDWOCnNXjvxmTy7kf5UZcWiksRiZhRpiSEmXKxfKtYG4jUORnSZ+BrTkA3Q90yrqiSgeHeA3h137s
-	qmHCfFoQhqF7kYJTSiI6SIYm8QkJBvlUNk4Vsn1cA0XmUjouv8eZU42sIHcrT0AvC+fhRTUCG3I1u
-	H/u8jkbwSlqFHgwaQaOjcyLlkdqF/WPygiA2wrGHH+gH53R3Uthd4YTyBKkl7zi9R2oYP2DETJG4F
-	kH4HaCrw==;
+	bh=rSh1ZBRvKf6dioysT8A/x6MNdQs15mKol/PsSCRG53E=; b=XsV2uXIe0LQ3JoLXjDog0cREhM
+	GFQ3v2AienkM6j6nGRCQ3eRNdDBJlYowON3rzUL6sqb1tz0v4e3k9UlfZes4xlnufN3vXVMpH4O4C
+	mQQMGFWyaf3U0V5EL6yMa6Uk3aYdC2QzEU0rOwdrt3hnm7oI11yAYXIyisN+2Z85d6Ikv5OHta5v/
+	9GILcdymseTKME0Gi38DJMCkZ6EyqDkl/FP7AgFKrPyj5u2F7UCsajwBgKaYegEe67X/Rjgus9jtz
+	yHmuEdBeLqzOZx7eEDUUfh1b9AvLaL2tpAeC1ochQO+5L3oTW1YrQybCGN0QkvDE7YFiugY+Nu66V
+	Hel298AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfh0-0000000C1yq-3Lck;
-	Mon, 06 Jul 2026 09:32:46 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1wgfhJ-0000000C296-3KdS;
+	Mon, 06 Jul 2026 09:33:05 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfgu-0000000C1s5-1xCK
+	id 1wgfgz-0000000C1wB-1FIh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:32:41 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-47db714766aso450067f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:32:40 -0700 (PDT)
+	Mon, 06 Jul 2026 09:32:48 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-493c733f15aso28559055e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 02:32:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1783330359; x=1783935159; darn=lists.infradead.org;
+        d=baylibre.com; s=google; t=1783330363; x=1783935163; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=8qaD3KpHXlXTlsicr8XbDQzikndK4UikxNXryf78w+g=;
-        b=MIn9hrioW0Zs43GkraUAVSYBzk7N4nZpb5XgiyduOBlXHm7lkv4VrOG78hb2mRmzFz
-         xEK2mNodKkQjzIV+ACxwdWgL93bMv8adidtf9HhWSiTZfNCnkCC3wa8myK8tQ/lBeiLn
-         8KiSfJbGOWEoQNBWpCU1/QAVYzfE8MoMksRHdYljBcmi+0IOxAACcNP0AH3S2uSfUzY0
-         op2nC0HghhTQBdyZznK20X8x13yk9v5sscJOwFtCcsT9/UK1drq73s2qFjDcbBiMa8bM
-         DUxnp770BRu3p+fZ1a4RFxAZyZBI32qLNb4if5OppbcWCPeea1pgCx1g0sAhbA784W5D
-         whiQ==
+        bh=rSh1ZBRvKf6dioysT8A/x6MNdQs15mKol/PsSCRG53E=;
+        b=RKp1owh2eDLIuuffnBIhk2XAywRYplfmc6/RV1Rm8JkjuVsdBzg4bQne01BcBiS1zG
+         DV24xbwRunHNVOhnxT1wZ6uzoRBrqDcKoRHcOtgi7XMkndSlqIwz9kEr3DNfBSLaf+6g
+         991tnxw3znrEXbj4NPP3JJJnG3G/ZHG1uFF56vrR6/5oIORAbpAjiI+Evlq0e0ZIAj3i
+         wna/PA41W/pxltHDUXjyLei+J1pgqebduUfFde8qBlkyl58AL1eVTx9V002LbK0EHooQ
+         Ncq+cAvU8+ju8WkA59phh/DtkTiiyugm7Gz54NQUWQcZ3O7vLIyJOH6BS80e4/W5FFQi
+         FWIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783330359; x=1783935159;
+        d=1e100.net; s=20251104; t=1783330363; x=1783935163;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=8qaD3KpHXlXTlsicr8XbDQzikndK4UikxNXryf78w+g=;
-        b=L1ef9kDixrWFi1xlXZMaKPmpFztMBMQwEp12P0m+LDIf/nlF3bBktWEfzyVVoYh7MQ
-         +7tcxIt8xZ2vEZYeleBIRnrFU8hFXT59EY68n99zGJkKMJkhC1MZqulu+rPpPGxEZbTf
-         ITdgMQ/YX59qrocjV6yImnk+O67UlodaqBJ4as6t4iVmG91fds84f2gnnPtvCTvVFqZH
-         GHm+Ekfg9o3iRUqd83meGiBkv8iR2Tl/g2gXHm4urghDl78pdMYtnmntaayx9NSdrhCN
-         4Fi1sVfwmqScan7NODPnDNGouAS3eIGSRIQWkqC7DXia8d/ErFuQzQdCdkeMM1v7QrSa
-         kBKw==
-X-Forwarded-Encrypted: i=1; AHgh+RoQXqN9XtR0Z0XRii5TWN4gt3zPzf3xxxE99SgcNadBJc7HKB9ZDHEjZMJ2c9sXc0P2BVXFJugAuqEA0fWNvcov@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCSx2YsHx/7CB2DN8A+L801dJ5IZTv/4Wl+cEi981wnJE7NCzh
-	kXAhJNADpqOCe1ZfhermOBWJ7X9K8xn8Xbef4bPCgU5eo2ARA5jemquLj6ne2Xwdq/I=
-X-Gm-Gg: AfdE7cmyCpz7F7do1OU+iA31jEsI8n1Nx4u0AP4JGx8WkVpF2B+0roSytVV9pAk5L5S
-	pdn7mRvYxGf49iRGWHdo5mF8mXLb/ButsdaQOfOueY4YiRhQfC4z6EZmEg7zQJnqFFZzXbgtjJk
-	/yugCPrXyJ7QH7ycjhfoXRzbavgXpkLkapN2e5J7Rmqai1W0VsQ3TQtnNLN5+HiXhgJ3JSSPzpk
-	Duk4AXoVKkoLSJHFkNzg/d46uXKdCHCeI9FjTpCquohGIV3UeL+pMF+DQrN7llsp01Kd185rFQK
-	V4Le3LwVPRsMEy4qpr1sZS6vXCJG85ouc8JZ83oQQsic0hLd7xTYdS3vm1qJK/ajDjl4hXGJBM9
-	ysYDPae3+ZaPgRXi/B0RFWo60jutnI1cvSuErGRKF1Ixlim7NMklyTB9KsJyPbPSpu8EeZEG8UX
-	GUkSCr7laPmqE=
-X-Received: by 2002:a05:6000:25e4:b0:473:41c6:f1b9 with SMTP id ffacd0b85a97d-47abad9f4e9mr10488782f8f.11.1783330358720;
-        Mon, 06 Jul 2026 02:32:38 -0700 (PDT)
+        bh=rSh1ZBRvKf6dioysT8A/x6MNdQs15mKol/PsSCRG53E=;
+        b=VKE6bgo7pl7WpkPUpoZJzzTFRFyjw9Z9wjHuIttlbueK1/K+ItY9W8rnQY6TLSaj7h
+         yEUUSeC4jaKWuZzLSkbh9eRY4pc7XqFwi+xSKqUkhHAzmJ179F3TMWni3I8X25ZPENi5
+         IKv3lIdd82/n0VndcpC2du2W8tLN+7uYcjInvrP5N+LHOWeAtBMPG3vK3TyO+vPhRp5y
+         EuEEjCFTnfZS0xt8spqJWQIBIHjQgVgPlx+teLOp2jFwmD9p8JadFeAEyicu6hB7oWwR
+         IkC1D0XzHPRuaLglAoteH8j9FISX/3TXY27rw8gLh3EK7Z70Wor0EZ0c+aFbW9+m9NRD
+         OkjQ==
+X-Forwarded-Encrypted: i=1; AHgh+RpOZiMHkUYc5cHR7gPfBBI+OG4ZrrMvJFmW6t5kayzG7Bzi5sVEtDeMs6ffju2/ko+nCWlrWVsTOdFGKUYdVz2X@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVGACOuU14j42MXOYKotQ+JL4Qmq19B7xw5/hjkaGAgisLXw++
+	4m+lfmo1/GQREHrmUaCW8VLbyFBfHOXVHlrXC2lM4qXi0F72qEfqoOsWyKdaI1GASmk=
+X-Gm-Gg: AfdE7ckK3hw7xQPmp+ebwi5vh8Wf9RtgS0zjyhk7tTEB89vkgvdYYDjlFpqINBW7eR3
+	GSIh0aawjrF0Y8dnABj7zcGbYSP/dJfLgb71nfzWO/I7bAxaaRF0z13qKb/NSNGC6w0YMSqF1yJ
+	5+37Xchyxm6PdanilotIxEG3UbEj4w/pBqnuorjhx8Zl1GTiyqi9etur0LWoIBRcb4hff/ehODc
+	CMkrPZRIXZ47e0vPOYOUtrVPyBzw6fSdJ5W+PvF+f8HsS4pYXxG6pwjCEY/T91mD/aHhsuopnAb
+	YIYUiYu414eg3QcuuVVQU+CKpjL0i2Qe4qRzCheqSv6+kEnqEBitEdTBxEd1AFINzTeI9D91g0F
+	raXCOs6zeW+9dA3y3LGLRGfnkMolbetDfX4XUyYB7GfU9XOBihIcW2lWRtp916akG3rewQ0O2VK
+	JED9jcMo+mWgA=
+X-Received: by 2002:a05:600c:3f0a:b0:492:4a50:41fe with SMTP id 5b1f17b1804b1-493d11f05a3mr108518285e9.22.1783330363453;
+        Mon, 06 Jul 2026 02:32:43 -0700 (PDT)
 Received: from localhost ([2a01:e0a:3c5:5fb1:1495:8c97:96f4:dff8])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47a9e4d6da9sm22724967f8f.12.2026.07.06.02.32.38
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-47aa0960634sm24496957f8f.26.2026.07.06.02.32.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 02:32:38 -0700 (PDT)
+        Mon, 06 Jul 2026 02:32:43 -0700 (PDT)
 From: Jerome Brunet <jbrunet@baylibre.com>
-Date: Mon, 06 Jul 2026 11:32:14 +0200
-Subject: [PATCH v4 6/9] clk: sunxi-ng: div: add read-only operation support
+Date: Mon, 06 Jul 2026 11:32:16 +0200
+Subject: [PATCH v4 8/9] clk: sunxi-ng: sun6i-rtc: split main oscillator div
+ and gate.
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-a733-rtc-v4-6-f330728db3d3@baylibre.com>
+Message-Id: <20260706-a733-rtc-v4-8-f330728db3d3@baylibre.com>
 References: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
 In-Reply-To: <20260706-a733-rtc-v4-0-f330728db3d3@baylibre.com>
 To: Junhui Liu <junhui.liu@pigmoral.tech>, 
@@ -91,25 +92,25 @@ Cc: linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
  Jerome Brunet <jbrunet@baylibre.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3945; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=YM5ShWAEXTvmgI5Fwj/9iD61+1bTWSy4EWyE1bdkdA4=;
- b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqS3Yl3dlm1jKmbVqsn7Rcc9HiTF6eoKTChjUWI
- t1qYB/aI5OJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakt2JQAKCRDm/A8cN/La
- hbzyD/9+ecBIMkVBHC9SbhtGLh+1Wq/re/x8RaQWpRit6MC1z/qa3av70z1wyB2NcUDQkRWHeBA
- SjFnA/G6Ba3ajJfE7fEzeqeoGCeApCTWt9js6jPSzMbQzQl8c2JBmRF1sRlxWzkTJl+L/Vp/yqb
- mWCp4QZAFRq7xxeBYzuAeGYj0mObaO57Th7VCqYlTxQFrBtDURG5eXacWE46CA7qC1QYl9oDb95
- gPPKegGUH40KsqiC7k+dQXklTL8bU61dR1CzYx4jzYIcQmTWCr2TCPy/sI1ft1uL1P0Du9TfXaf
- AxPDUv98UFuUcAJXZlive0q8HiYhwUe39R9DhriwKXzGTt19Axex6TRBEIh0v6FZ/VNjmZEJEKq
- 29p7D6jXKU06slB4XfVElIyW949dAdP5cNWjFtpdb6Y+HGh0EuxAIajiGTmcqgxCEt8SmHKk5DH
- rPSIQKzA3HZwk6oIJficJ/t7RwAUo7VE6zTFQ0BY/skXgzwin0D48AfyAeTIJtyzGLRDdFaR18K
- mQB1F47Ks5G89dWYJpsYOzcb6YYlCXKVN1BzsruSmYO0MIfFEt++ssSijsUzaUx3NPEZyR1JFYO
- szCS45D5E4IJuFEZuwlcWr4GUUJQmxp+WwUX9SJ9kCul0K0log1R1X8qH1FWizjlI5Ov9Pv2Fym
- 579DH1hjT/dZqKQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2479; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=mDE5aNV7J0YTDC++0PyqpQq+1LRXe/OEq5dNJJriQq0=;
+ b=owEBbQKS/ZANAwAKAeb8Dxw38tqFAcsmYgBqS3YmTWLBuAgutDebw3ejtGqAFUPS56EkSWc4A
+ wtGJpbqBNSJAjMEAAEKAB0WIQT04VmuGPP1bV8btxvm/A8cN/LahQUCakt2JgAKCRDm/A8cN/La
+ hVRZD/9c7MLYh8cPg12ioyQi+NhtPqzROV5AnuK4OgtAmpPfUuF85geQbj6t5HzciSP2Hh5Mc07
+ aeHHxl1ymAujhPPVz/w0sx4tnU+MQcTN0E/JoNe6YjsD4IXSKB2UYWaz2Mzj2rHOBpz8Jt9BdFc
+ UQ+FcbGsS1mwn9pQK5kgnb/qp6qptHo5Kz/Rih4Zsnx17p0P6tn0hMHPUa1KSiBattQ0RX+xAt2
+ IWtiahvXeBrLgJyzYxnMeK70V8BtmwhBIPs1dFcCzFka/fKigZrksQx8e7ZsF0AUqwkcbbSdIRT
+ ZCd3xtLzkBr1JoH/pO9xhIl3YI4eAPZVc/jnTc1DfSNmnrplpCz3KKensHb+1OJgpT9r0h84CTP
+ c+cJ1JLw3U1lLEzIaDO8qd6WKjb6zIHaifi0TOp+L/JZ+HHGvyCaSc5Dq2tD7PGFpfwEVAMH3xZ
+ tL8TXrkKZuCXaxuOJNB7N3lFLcqjU/0C+Xi7RdoDJZDZ8p4ARlcQYEC6p/16tVFuvRWgKI7cEIL
+ mwOOfAGoQLdeKsNPTFgA5qOjVVZNIn24USq7nNhqzvmSXlZvTBpSswK5YjYXGrCCO79jPg3hdwR
+ POG1wdQfq4QO6f7JNq1s/CJgCpm662359uW9sY5QIdpPDl+Uui0d9y7VRYZHOHWijGo6fR3pkgT
+ ySkhTV0XZ+V7+gQ==
 X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
  fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_023240_542918_455C0520 
-X-CRM114-Status: GOOD (  16.16  )
+X-CRM114-CacheID: sfid-20260706_023246_574106_7888C5A1 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,114 +125,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for sunxi-ng read-only dividers. This will be
-useful to the a733 oscillator detection logic.
+On the a733 the "osc24M-32k" clock has the same gate bits as the previously
+supported SoC but a different divider implementation.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+Instead of a fixed 750 divider, the divider is selected based on the
+rate of the oscillator. It can be seen as a simple read-only divider.
+
+To easily replace the divider part depending the SoC, split the divider
+and gate into two separate clock entities.
+
 Signed-off-by: Jerome Brunet <jbrunet@baylibre.com>
 ---
- drivers/clk/sunxi-ng/ccu_div.c | 42 ++++++++++++++++++++++++++++++++++++++++++
- drivers/clk/sunxi-ng/ccu_div.h |  1 +
- drivers/clk/sunxi-ng/ccu_mux.c |  2 +-
- drivers/clk/sunxi-ng/ccu_mux.h |  4 ++++
- 4 files changed, 48 insertions(+), 1 deletion(-)
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.c | 20 +++++++++++---------
+ drivers/clk/sunxi-ng/ccu-sun6i-rtc.h |  3 ++-
+ 2 files changed, 13 insertions(+), 10 deletions(-)
 
-diff --git a/drivers/clk/sunxi-ng/ccu_div.c b/drivers/clk/sunxi-ng/ccu_div.c
-index 62d680ccb524..d1c8c7baa12d 100644
---- a/drivers/clk/sunxi-ng/ccu_div.c
-+++ b/drivers/clk/sunxi-ng/ccu_div.c
-@@ -84,6 +84,36 @@ static int ccu_div_determine_rate(struct clk_hw *hw,
- 					     req, ccu_div_determine_rate_helper, cd);
- }
- 
-+static int ccu_rodiv_determine_rate(struct clk_hw *hw,
-+				    struct clk_rate_request *req)
-+{
-+	struct ccu_div *cd = hw_to_ccu_div(hw);
-+	unsigned long val;
-+	u32 reg;
-+	int ret;
-+
-+	reg = readl(cd->common.base + cd->common.reg);
-+	val = reg >> cd->div.shift;
-+	val &= (1 << cd->div.width) - 1;
-+
-+	req->rate = ccu_mux_helper_unapply_prediv(&cd->common, &cd->mux, -1,
-+						  req->rate);
-+
-+	if (cd->common.features & CCU_FEATURE_FIXED_POSTDIV)
-+		req->rate *= cd->fixed_post_div;
-+
-+	ret = divider_ro_determine_rate(hw, req, cd->div.table,
-+					cd->div.width, cd->div.flags, val);
-+
-+	if (cd->common.features & CCU_FEATURE_FIXED_POSTDIV)
-+		req->rate /= cd->fixed_post_div;
-+
-+	req->rate = ccu_mux_helper_apply_prediv(&cd->common, &cd->mux, -1,
-+						req->rate);
-+
-+	return ret;
-+}
-+
- static int ccu_div_set_rate(struct clk_hw *hw, unsigned long rate,
- 			   unsigned long parent_rate)
- {
-@@ -143,3 +173,15 @@ const struct clk_ops ccu_div_ops = {
- 	.set_rate	= ccu_div_set_rate,
+diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+index b24c8b196e66..25dd87e78eb7 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
++++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.c
+@@ -218,17 +218,18 @@ static const struct clk_parent_data osc24M[] = {
+ 	{ .fw_name = "hosc", .name = "osc24M" }
  };
- EXPORT_SYMBOL_NS_GPL(ccu_div_ops, "SUNXI_CCU");
-+
-+const struct clk_ops ccu_rodiv_ops = {
-+	.disable	= ccu_div_disable,
-+	.enable		= ccu_div_enable,
-+	.is_enabled	= ccu_div_is_enabled,
-+
-+	.get_parent	= ccu_div_get_parent,
-+
-+	.determine_rate	= ccu_rodiv_determine_rate,
-+	.recalc_rate	= ccu_div_recalc_rate,
-+};
-+EXPORT_SYMBOL_NS_GPL(ccu_rodiv_ops, "SUNXI_CCU");
-diff --git a/drivers/clk/sunxi-ng/ccu_div.h b/drivers/clk/sunxi-ng/ccu_div.h
-index be00b3277e97..a30a92780a05 100644
---- a/drivers/clk/sunxi-ng/ccu_div.h
-+++ b/drivers/clk/sunxi-ng/ccu_div.h
-@@ -300,5 +300,6 @@ static inline struct ccu_div *hw_to_ccu_div(struct clk_hw *hw)
- }
  
- extern const struct clk_ops ccu_div_ops;
-+extern const struct clk_ops ccu_rodiv_ops;
+-static struct ccu_gate osc24M_32k_clk = {
+-	.enable	= BIT(16),
+-	.common	= {
+-		.reg		= LOSC_OUT_GATING_REG,
+-		.prediv		= 750,
+-		.features	= CCU_FEATURE_ALL_PREDIV,
+-		.hw.init	= CLK_HW_INIT_PARENTS_DATA("osc24M-32k", osc24M,
+-							   &ccu_gate_ops, 0),
+-	},
++static struct clk_fixed_factor osc24M_32k_div_clk = {
++	.mult = 1,
++	.div = 750,
++	.hw.init = CLK_HW_INIT_PARENTS_DATA("osc24M-32k-div",
++					    osc24M,
++					    &clk_fixed_factor_ops,
++					    0),
+ };
  
- #endif /* _CCU_DIV_H_ */
-diff --git a/drivers/clk/sunxi-ng/ccu_mux.c b/drivers/clk/sunxi-ng/ccu_mux.c
-index 766f27cff748..775d396ccf31 100644
---- a/drivers/clk/sunxi-ng/ccu_mux.c
-+++ b/drivers/clk/sunxi-ng/ccu_mux.c
-@@ -68,7 +68,7 @@ unsigned long ccu_mux_helper_apply_prediv(struct ccu_common *common,
- }
- EXPORT_SYMBOL_NS_GPL(ccu_mux_helper_apply_prediv, "SUNXI_CCU");
++static SUNXI_CCU_GATE_HW(osc24M_32k_clk, "osc24M-32k", &osc24M_32k_div_clk.hw,
++			 LOSC_OUT_GATING_REG, BIT(16), 0);
++
+ static const struct clk_hw *rtc_32k_parents[] = {
+ 	&osc32k_clk.common.hw,
+ 	&osc24M_32k_clk.common.hw
+@@ -286,6 +287,7 @@ static struct clk_hw_onecell_data sun6i_rtc_ccu_hw_clks = {
+ 		[CLK_EXT_OSC32K_GATE]	= &ext_osc32k_gate_clk.common.hw,
+ 		[CLK_OSC24M_32K]	= &osc24M_32k_clk.common.hw,
+ 		[CLK_RTC_32K]		= &rtc_32k_clk.common.hw,
++		[CLK_OSC24M_32K_DIV]	= &osc24M_32k_div_clk.hw,
+ 	},
+ };
  
--static unsigned long ccu_mux_helper_unapply_prediv(struct ccu_common *common,
-+unsigned long ccu_mux_helper_unapply_prediv(struct ccu_common *common,
- 					    struct ccu_mux_internal *cm,
- 					    int parent_index,
- 					    unsigned long parent_rate)
-diff --git a/drivers/clk/sunxi-ng/ccu_mux.h b/drivers/clk/sunxi-ng/ccu_mux.h
-index c94a4bde5d01..272a2c36a8f2 100644
---- a/drivers/clk/sunxi-ng/ccu_mux.h
-+++ b/drivers/clk/sunxi-ng/ccu_mux.h
-@@ -134,6 +134,10 @@ unsigned long ccu_mux_helper_apply_prediv(struct ccu_common *common,
- 					  struct ccu_mux_internal *cm,
- 					  int parent_index,
- 					  unsigned long parent_rate);
-+unsigned long ccu_mux_helper_unapply_prediv(struct ccu_common *common,
-+					    struct ccu_mux_internal *cm,
-+					    int parent_index,
-+					    unsigned long parent_rate);
- int ccu_mux_helper_determine_rate(struct ccu_common *common,
- 				  struct ccu_mux_internal *cm,
- 				  struct clk_rate_request *req,
+diff --git a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
+index 9ae821fc2599..ab7b92b47f59 100644
+--- a/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
++++ b/drivers/clk/sunxi-ng/ccu-sun6i-rtc.h
+@@ -9,7 +9,8 @@
+ #define CLK_EXT_OSC32K_GATE	4
+ #define CLK_OSC24M_32K		5
+ #define CLK_RTC_32K		6
++#define CLK_OSC24M_32K_DIV	7
+ 
+-#define CLK_NUMBER		(CLK_RTC_32K + 1)
++#define CLK_NUMBER		(CLK_OSC24M_32K_DIV + 1)
+ 
+ #endif /* _CCU_SUN6I_RTC_H */
 
 -- 
 2.47.3
