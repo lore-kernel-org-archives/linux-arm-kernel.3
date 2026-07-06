@@ -4,83 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0CDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:27:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DF7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 15:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FSUFQZeQg2TGtjcSJ0ldrXi3zwErqPgrRk42nVLXNw=; b=D/2vSWggSJ0IHJEYP310LdmsVw
-	YrwPhuT2ya9656OLowp12mBZxQn6c2+ES7Ku7cfjAUiSZVWeT9+OZZUkc9XNVgI2bCVP2LKYMceWJ
-	z0Vz2K2VG5GizVWjpSAyTA1j/U0zRae46GvVoNwnEZEWFyrEt6sGd+8Ihxl+W9aqk9VDAXr/ulnh5
-	6IpW55KCjoi/+TfmyRmPwtGb1FRWLwrCVW8RRf8UfcBY+DHagfUatOM2dNQGRgh+4PEQdmv5Dm0zn
-	5ENV0S4/1AOI4CoMhQQ5CepuCSqzmh1h9FEFoVGVr4gNjPvVuPX9u1iOaXF2ADVEVbib3g0Y9st/N
-	NyAboftw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GKaRlSaPCMMykShtkS0LUKLERzI486dy1ONsqiQCpNg=; b=R+ozRLks7L4NFrzMMfKRZ8ZrYu
+	gerPl6jI0q1zAKjU3tFFWd/xnOCUR+WGfQvILxN4VZQfW+lTXlGgqgD/JKZo6Z7bsWwOOdPaO7M6T
+	kCRymeoPc4P+2Hd/Fc4RYIciMLgJ/Sn6lZRWXzzYAizoE3OWFI27PDQ2bBnHmmtyU0QJaXqhRQ3ZU
+	RkJMDthveyq2Ifjk8vJSuk1iSEIDihUHWhg1uFBYMFaxkVMH+rtwR3rWkqx2b+LX1DwF7gdsOUiZx
+	y/EQQp4VTLs7hw7MXE7YXBnDQqPadsgaIRo69fnp7vzTg7afMW0xi7wAE0pMpjzZA19xcAwiH9PKh
+	potP6ccg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglEL-0000000CsmB-2kiV;
-	Mon, 06 Jul 2026 15:27:33 +0000
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net ([162.243.164.118])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wglEH-0000000CskV-3Q5j;
-	Mon, 06 Jul 2026 15:27:32 +0000
-Received: from zju.edu.cn (unknown [10.97.40.56])
-	by mtasvr (Coremail) with SMTP id _____wDHoV5WyUtqX1wSAA--.41010S3;
-	Mon, 06 Jul 2026 23:27:19 +0800 (CST)
-Received: from smtpclient.apple (unknown [10.97.40.56])
-	by mail-app4 (Coremail) with SMTP id zi_KCgBXOzRVyUtqzJgdAg--.37327S2;
-	Mon, 06 Jul 2026 23:27:17 +0800 (CST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
-Subject: Re: [PATCH] media: rockchip: rga: quiesce IRQ before releasing m2m
- state
-From: Fan Wu <12321260@zju.edu.cn>
-In-Reply-To: <ba54b43f90b46960ce4e57f99ead11e4200d283d.camel@ndufresne.ca>
-Date: Mon, 6 Jul 2026 23:27:07 +0800
-Cc: Fan Wu <fanwu01@zju.edu.cn>,
- jacob-chen@iotwrt.com,
- ezequiel@vanguardiasur.com.ar,
- mchehab@kernel.org,
- heiko@sntech.de,
- linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <CB4C9604-8CCF-4A2E-B8B0-FC49AAFEA514@zju.edu.cn>
-References: <20260704022853.77291-1-fanwu01@zju.edu.cn>
- <ba54b43f90b46960ce4e57f99ead11e4200d283d.camel@ndufresne.ca>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-X-Mailer: Apple Mail (2.3774.600.62)
-X-CM-TRANSID: zi_KCgBXOzRVyUtqzJgdAg--.37327S2
-X-CM-SenderInfo: qrstjiaswqq6lmxovvfxof0/
-X-CM-DELIVERINFO: =?B?dqOMzwXKKxbFmtjJiESix3B1w3vZ3A9ovKVTomAyoQazvoRs/NHSP8GI2EvgeEEW7R
-	sfnXz+g1OQfMo27QHy5TwQyZyj5fn2rqIkMhUMM0kYWus3lLILucikqw2VGVgn3TCMm059
-	TPTTfv6HCtFDRH6LZYmp9E6mavGmQbzmcFsnzP86
-X-Coremail-Antispam: 1Uk129KBj93XoWxGw4kCr18tw15Xw4rKry5WrX_yoWrtry7pa
-	y5tayjkrWUGF4jqrnrXw47uFZ5Arnaya45Gr4Sg347Ar98Kr1kXryUCFy5ZFy3Zr97Aay2
-	vr4Yqas3ZF4YqFXCm3ZEXasCq-sJn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUPjb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AK
-	xVW0oVCq3wAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x082IY62kv0487Mc804V
-	CY07AIYIkI8VC2zVCFFI0UMc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AK
-	xVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48Icx
-	kI7VAKI48JM4x0Y48IcxkI7VAKI48G6xCjnVAKz4kxM4IIrI8v6xkF7I0E8cxan2IY04v7
-	MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr
-	0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0E
-	wIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJV
-	W8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAI
-	cVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxU7gAwDUUUU
+	id 1wglEh-0000000CssH-3Jng;
+	Mon, 06 Jul 2026 15:27:55 +0000
+Received: from mail-northeuropeazon11010050.outbound.protection.outlook.com ([52.101.84.50] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wglEe-0000000CsrQ-1FSG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 15:27:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=IvslZDDasIzDZ/8K2EwOXs2Nl5i/GhCHKNnG9eYKqHziAK6sh/cfN7n2e5QvNe0XqGzMYaQgU9peYAoePCIQYbtGjLT75syJOUkcRHZH2ZX6A9DQSiohKMmpZLA8OpedTPEq39EZ2mk6ioJl/uObUr+QJA4iUENeJdhNZ9Wyy1ku6ZkKKDwhGPmxVU5aLupDb8lTGPERyPxrGSj/rYdp+Je9LmHZkGtBahIY18JVYakeoqgLgUoeGBq4JZNIRm9/wQoTU8KmaHHnYL0XxpgWAfjGrrKMmHlJbNU5waDWvB+cUdpjYzUZqsWyk3a9Lklz/xCfpRiIjBR+zYeyjQiLsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GKaRlSaPCMMykShtkS0LUKLERzI486dy1ONsqiQCpNg=;
+ b=dLkX1ozj2naLZ52La2fXLkUKPXpcQLFydawOfF1x4jo6o7w84rKt2MR95DbpXvOLxSIGHZG+NSEuYaqWykTclu+VdHAbWaSWRTDJuBsvSb30dfHIrav4maWpswoQysNsDLoOT+jDKAqWWJA+Qj0y+gL3hQOSo22f0DKpA4PLjjfUGXpxrDkuKJAhWtBh+b4ijOlx4Y2FM1X1BQ5gmOKUpA9V9nbEHSXnLF9lDMrgeh2Baw++p5GlDxXgVlnOJB4p6d5Oe7cjM3bJq4IbSqBtms+rS4U3nDn2z/kq+1spx25cfdwMEIDD0FQG2llx3TlRCTa+HccZRv2YMEYukzPSVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GKaRlSaPCMMykShtkS0LUKLERzI486dy1ONsqiQCpNg=;
+ b=GxaL2gOSconzQJkztYZ6OdWieU6sLNnYm+WRhibeBa7zrvGZZ2ywuVASjhrQJF+FTGq41/jwDwVNNFFuU4rubjRqWh3wpjIVaVwqdt1TcInQfU9r8pCtPP73MvStrK3dsCVrxOc35NrfCE2AgcGy3oXmQhwl8OaoTsN4jy0AOVBGFjOsoLvCaAytXpQmbDVOA1VqTDLgJwP3z3m62KhUV4IplauuKSBtPy9+JL/gi4VnRGLpD6hGIrn0LvYixp1stLolemswRnR05UY+7xD/wP7VH1tLwx3xcc+kx55BJ/bi6csCE2obkaeGs/f6YNU4nnLSib6cGO1gdYtTJIYJ8A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by PR3PR04MB7483.eurprd04.prod.outlook.com (2603:10a6:102:86::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
+ 2026 15:27:47 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
+ 15:27:47 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Maud Spierings <maudspierings@gocontroll.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Ernest Van Hoecke <ernest.vanhoecke@toradex.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>
+Subject: Re: [PATCH v5 0/3] Add support for Variscite DART-MX8M-PLUS and Sonata board
+Date: Mon,  6 Jul 2026 11:27:37 -0400
+Message-ID: <178335164742.1364211.14423037178041926472.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1780998600.git.stefano.r@variscite.com>
+References: <cover.1780998600.git.stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PH7P220CA0144.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:327::6) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|PR3PR04MB7483:EE_
+X-MS-Office365-Filtering-Correlation-Id: 58807719-537e-4b30-29cc-08dedb73220f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|23010399003|1800799024|366016|376014|7416014|22082099003|18002099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: sQP4sD5QSORk4Xj3JQNIkB/LmY/u9PJVw0gvL55wy7uZRLExulKyUPXI16dbe82bOfCVLMBcFeyIRGcE5qTB9PoJIr2Nhsv3wd4bTUYXf9X0z9CTDS00gr8Gd5Tp9YRjRn0FWGGTsRjDiK9MlGI1JDGZbP1nt6T6wkPRgB88y6N4g+Ye5tvW2djuxt/Cd5fZc4RuGkESdyUw6E4Zl6bTh5HNj9/vDAHJGCdtomjPGX6ONSJ8bgQM660Zi0/oUQdYqMHRpBSnC8vUIpZsQodc3gRlTcFjHbxYCEqDMLUg+ylP+m4A41wrdXzNAjd2xb8PViv4Sf08jOYPECuXko/SnAw4FXrFlUsBp4t67/LNTo9/CmGzDwf0siYJ98eou1DopRE4h3q5B66h2XhlLbkXc45oc0TsaI/ZH+AUkNIPkeWsKFCCPsKCkTBk63s6R03V889uOshjKvXDjJIftlarC64VgBTeG5SCzDy9Cx8TLeGCsWp1v4AI7H96kdW06B+X4TyqmC3jLjl6Dd4vP0m5DJa8W4+uUThxO+1B2isWiEqxCV2/6BkVSFX7MDjvE0EkY1OiByaBUmJhBfRyw1/0m0XRxMvoRbcw3d3FFGOd22CGjpJnorauEUHoWxeWVGp+mBQp5qyB+91OPFO4Anb9HjT+dlMAAmI4F2865flD2cs=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(23010399003)(1800799024)(366016)(376014)(7416014)(22082099003)(18002099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c2s4bEwwK0VpYzkvZjdYQTYvTDlLdHVVazdubU13Sm96VjcwMVB0alZ2V3o2?=
+ =?utf-8?B?a29pY05QTU90VlBEbXpLQ2RSOXNOUHB2MHVGZksrWDNUSDFIMGNPZXBoNXFu?=
+ =?utf-8?B?ODdkcG01MzFpdlpvTG1IbVlsR3lXSGpkTjNqUCtuT0JpYUdvV1VpcGVzaVJZ?=
+ =?utf-8?B?YThhajk0K25SNk1sTGhXN1JnWVAvVW9CZmtEa2JJcDBHUytnVFNjcWVmZFFT?=
+ =?utf-8?B?ejJ3M0hYWHNST0dEYXlvbXlITVBnUlY0VVFUaHpzOXlYYm92ZDR6eWZyWFJp?=
+ =?utf-8?B?QzcxY2FFNDBCNDJISUwrNm9oU0RiNUd4RHlLcWtmVDE2NXk0WmcxMkRZaUNT?=
+ =?utf-8?B?eVlzOGN2NC9nb05UWEg5MjhsRmc1L0pwcG9GTG01Q1RJMTgwcFVKMEY3bFFr?=
+ =?utf-8?B?MTBldGRtNXZBejRxbjNidVpMMXNZMFRqOTVaaSsxbkNjSU1pa3dURTFoeWIv?=
+ =?utf-8?B?dWhycUZidDlJNzRrZWhSWityWjJJOFkrYVhUT251Uyt0cThLSzUyMWZHT2ZO?=
+ =?utf-8?B?Y3kvOEUxTXprWXIvYUlTYnpnRU1GdHpseGhIYjJTUWhMaEN3M2dwam9RYWxY?=
+ =?utf-8?B?Y3ExbXJqV2VpN3JNYnFXYk9tNTlvRzhvY3NidHdFMWNzZmhKREl4bzZNcGVu?=
+ =?utf-8?B?d2N2ZU5yVmJ5RmNnSkg2dVhrblJoTmNMbUFvSHJIRUFYa21SanlYdkhQVjZr?=
+ =?utf-8?B?NldxZlQ0Q3VYc3ZFQkFNcGg2VGpHSGdRYkNMYUNhTFBSUVNjS0E2dlZIL25F?=
+ =?utf-8?B?S3R6MW1iSDJ4czBqbFA1Q005U0c3NEJGYlRIZ3hsWlVBOEhuWHpSTGdhWkxr?=
+ =?utf-8?B?RjM3T2hUeUhKT1VwNGNMOTE1eDBuV3J4TlNMaHhmWHF1aS9NVFZZMzBiVGFp?=
+ =?utf-8?B?Ny9MUFZLU0k4MVdjZ3luWTV0SEo4SCs3QjhHTS80Sjk0b0ttYmtDVTJHb1JN?=
+ =?utf-8?B?QjhKNUZHbXVLbXN1M0k3dkNpVTZ6OWxtSWxwcjFVWnJwT1VvUmxwaDdpOC9Y?=
+ =?utf-8?B?TmVMK09kU0lrN2xaSzhoRHR0bjkxTXNXaXJvcVhKd1p6Mit1Tit1c3kweTdW?=
+ =?utf-8?B?WmNPRkZlcURia2hZVGQ5ajAwZ05TWHJZM003ZUVhZHBreHp0bFhkU1FMaWcx?=
+ =?utf-8?B?Zk9kQUlCSFo2UVVTTjArbC9HTlh5N3RzSzhIUzJuck9yanZDeFVHYTFlWG5w?=
+ =?utf-8?B?d1dZYnZaa2RBYXlQem9iTkZuMDNQbXRVTWVDVFdzWm1FbHg5U1pRMTdCQnhv?=
+ =?utf-8?B?TnBvbEtJcnBoMk9oZFYwZ2RLY3V4YlpmTTJNQ05MekI5WVFVODNGUGpaa0xT?=
+ =?utf-8?B?NUtXcnNqVUVGR1BXNVNQMDQvMEhaYlNPajJJV3VoMm9Ud3ZHMnFuamRqSlNI?=
+ =?utf-8?B?dUp1Z2U1UWF5S2Z2SlBUUzVwMFVKSzNrNnpzOHRzQ1VqM1d6TUNJb3JCMDFX?=
+ =?utf-8?B?TjFNMzlmTkxKZTdjRjJNdzZaUDl0WTNULzJ5U3AvNTg2TnNLdXNOdzd0TmQ3?=
+ =?utf-8?B?REJyd1pRYUZiVC9KbkV6WXQ1bmg5Nnl1bUtYczBxSkxkUDBocTBOK0FBa1pi?=
+ =?utf-8?B?ZExLbDNpRnA3eXg2UjZXNUhSUXVqcm5yS2hzVlFuUEh4VlRCVm1EUmx5Q0Fw?=
+ =?utf-8?B?YjhaSGVBRjU0T1hqK2tvMmJvZHRMeUJUT1lvb3dMSmtXNjhiTGgyckhkd3p3?=
+ =?utf-8?B?R2IraE1VRjZNRW1hcWcrelNVc2FuVEpsVlpyY2V2b2xpRml1TWxpcFpOV1lT?=
+ =?utf-8?B?MkRnMFpFblM5K1F1UC8raE5KbnY1L004U0Y2U1F3UFNkRm1ORVhHSzJaMGR4?=
+ =?utf-8?B?QVBrdmM3bUd3dTIrV3krTlo2STNvUUhCOVJPdzlOOUtKSjQrNFo5TjEwamhM?=
+ =?utf-8?B?U0dKb3Q1TTNxc2hCTDd5RHNSMkduOVBjNjdqbFpjN25VbTZUQ0FTTFUvUmJz?=
+ =?utf-8?B?SUhibWtSNzVOdjlMY0dPUzM1RDQra1BVL2JBVGdOODZZdVFhYU8xUVRtNWJh?=
+ =?utf-8?B?VTk5VFkyeVdMbE9wWHFxeHBXMmxsN1dZVWtxZ0RvY1REakEzMEVaT2JBaTRz?=
+ =?utf-8?B?MkVlNDdzUlIzcVpPTklmdXVhMklYUUpJcmVKWWxSdmNESTBOOHUvdEN0Zm16?=
+ =?utf-8?B?aHRNQUkweXNNTnBKQ3drT2szdkFBaTk3VEkvakh3UmUvZEJZV1Zaa0ZvSSsv?=
+ =?utf-8?B?ZVhxU1F2dWV6K0VDVmgveng0MjlRV2ZhSUR2SXBtMXNmOGVLOVVoc24wYktY?=
+ =?utf-8?B?VDhEME0xWDNxWmdJZlJRTHBVV0M4MGZEVDRZc1JOOEhjREhjNFg3REo3S2tM?=
+ =?utf-8?B?eDUzVDd4K2paTkE4bzRYSzc0Tzc1ZnBwLy81TzJCcFFRR3lTb2Q3UktJNTFj?=
+ =?utf-8?Q?ZFRnCw3jW7mt0n6Ar35/svVE+eVM1tmIa7N3m?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 58807719-537e-4b30-29cc-08dedb73220f
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 15:27:47.6287
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cl3WSG+yjiOQ9W5N1jS0AUpQbsp3HjrMqSyo9ybiC9I3I2UbzV6fzpinxkJL4yLjrytJ7X9duHmk2TSnQgHCpRhzYldqMrSDvC0ZZPYDYpCTtxxkWv4oIE676GDnGzvO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7483
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_082729_990380_674F0090 
-X-CRM114-Status: GOOD (  23.77  )
+X-CRM114-CacheID: sfid-20260706_082752_343455_B0E4B945 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,143 +167,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+From: Frank Li <Frank.Li@nxp.com>
 
-Thanks, that is a fair point that RGA is not a free-running IRQ source;
-the interrupt should only be raised for job completion.
 
-I looked again for the abort/drain path, though, and I could not find =
-one
-in the RGA teardown path. `v4l2_m2m_release()` only frees the m2m =
-device.
-RGA does not provide a `.job_abort` callback, and `rga_remove()` does =
-not
-reset the engine or disable the IRQ before releasing the m2m state. The
-driver also leaves the devm-managed IRQ installed until devres cleanup
-after remove returns.
+On Tue, 09 Jun 2026 11:51:17 +0200, Stefano Radaelli wrote:
+> This patch series adds support for the Variscite DART-MX8M-PLUS
+> system on module and the Sonata carrier board.
+> 
+> The series includes:
+> - SOM device tree with on-module peripherals
+> - Sonata carrier board device tree with board-specific features
+> 
+> [...]
 
-So unless I am missing another path, teardown does not actively abort an
-in-flight RGA job; it relies on there being no in-flight job by the time
-remove gets there. In the normal case that is probably true, since the
-hardware is not free-running and the submitted job has normally =
-completed
-already. The case I was trying to cover is the narrower one where
-unbind/remove races with a still-running job.
+Applied, thanks!
 
-That said, I agree the explicit irq field, `devm_free_irq()` and the =
-long
-comment may be too much for a defensive corner-case fix without a
-reproducer. I can drop this patch, or respin it as a smaller ordering
-cleanup if you think that is useful.
+[1/3] dt-bindings: arm: fsl: add Variscite DART-MX8M PLUS Boards
+      commit: 77c0d4cfd43353e8bdebc4eab8e579518e2dbf5f
+[2/3] arm64: dts: freescale: Add support for Variscite DART-MX8M-PLUS
+      commit: d08607aa231e026cd94b4c33077f8b8d28731952
+[3/3] arm64: dts: imx8mp-var-dart: Add support for Variscite Sonata board
+      commit: 41cd3d91ca8595f48cae5169ff8e4089c88670f2
 
-Thanks,
-Fan
-
-> On Jul 6, 2026, at 22:22, Nicolas Dufresne <nicolas@ndufresne.ca> =
-wrote:
->=20
-> Hi,
->=20
-> Le samedi 04 juillet 2026 =C3=A0 02:28 +0000, Fan Wu a =C3=A9crit :
->> rga_probe() requests the interrupt with devm_request_irq(), so devres
->> does not release the IRQ until after rga_remove() returns. =
-rga_remove()
->> currently releases rga->m2m_dev before that point.
->>=20
->> rga_isr() uses rga->m2m_dev through v4l2_m2m_job_finish(),
->> leaving a window where an interrupt can run after the m2m device has =
-been
->> released.
->=20
-> I have a doubt that this can really happen for this type of hardware. =
-Its not a
-> free-running HW that emits IRQ randomly, plus we have the abort =
-sequence that
-> ensure all jobs are completed before we pull it down.
->=20
->>=20
->> Unregister the video device first to stop new userspace submissions, =
-then
->> free the devm-managed IRQ explicitly before releasing the m2m device. =
-Move
->> the command buffer release after the IRQ teardown as well, so it is =
-not
->> released while a completion interrupt can still arrive.
->>=20
->> Store the IRQ number in struct rockchip_rga so rga_remove() can free =
-the
->> IRQ without looking it up again.
->>=20
->> Fixes: f7e7b48e6d79 ("[media] rockchip/rga: v4l2 m2m support")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Fan Wu <fanwu01@zju.edu.cn>
->>=20
->> ---
->> diff --git a/drivers/media/platform/rockchip/rga/rga.c =
-b/drivers/media/platform/rockchip/rga/rga.c
->> index 43f6a8d..118887a 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.c
->> +++ b/drivers/media/platform/rockchip/rga/rga.c
->> @@ -828,6 +828,8 @@ static int rga_probe(struct platform_device =
-*pdev)
->>   goto err_put_clk;
->>   }
->> =20
->> + rga->irq =3D irq;
->> +
->>   ret =3D devm_request_irq(rga->dev, irq, rga_isr, 0,
->>          dev_name(rga->dev), rga);
->>   if (ret < 0) {
->> @@ -919,13 +921,21 @@ static void rga_remove(struct platform_device =
-*pdev)
->>  {
->>   struct rockchip_rga *rga =3D platform_get_drvdata(pdev);
->> =20
->> - dma_free_attrs(rga->dev, RGA_CMDBUF_SIZE, rga->cmdbuf_virt,
->> -        rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
->> -
->>   v4l2_info(&rga->v4l2_dev, "Removing\n");
->> =20
->> - v4l2_m2m_release(rga->m2m_dev);
->>   video_unregister_device(rga->vfd);
->> +
->> + /*
->> + * The IRQ was requested with devm_request_irq() and is freed by =
-devm
->> + * only after this function returns. Free it explicitly here, after =
-the
->> + * video device is unregistered, but before v4l2_m2m_release() frees
->> + * rga->m2m_dev, which rga_isr() dereferences via =
-v4l2_m2m_job_finish().
->> + */
->> + devm_free_irq(rga->dev, rga->irq, rga);
->=20
-> I'm not saying we cannot do that, but its quite verbose for something =
-that
-> probably can't happen in practice.
->=20
-> Nicolas
->=20
->> +
->> + dma_free_attrs(rga->dev, RGA_CMDBUF_SIZE, rga->cmdbuf_virt,
->> +        rga->cmdbuf_phy, DMA_ATTR_WRITE_COMBINE);
->> + v4l2_m2m_release(rga->m2m_dev);
->>   v4l2_device_unregister(&rga->v4l2_dev);
->> =20
->>   pm_runtime_disable(rga->dev);
->> diff --git a/drivers/media/platform/rockchip/rga/rga.h =
-b/drivers/media/platform/rockchip/rga/rga.h
->> index 72a28b1..f76c45b 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.h
->> +++ b/drivers/media/platform/rockchip/rga/rga.h
->> @@ -81,6 +81,7 @@ struct rockchip_rga {
->>   struct device *dev;
->>   struct regmap *grf;
->>   void __iomem *regs;
->> + int irq;
->>   struct clk *sclk;
->>   struct clk *aclk;
->>   struct clk *hclk;
->>=20
-
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
