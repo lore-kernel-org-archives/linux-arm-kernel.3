@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2191C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BEBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FyC6uLd4SG/eFVU0+S/jOwpK4vgRdKg92Yml7ndQ0uQ=; b=f5C2/zpirCy03vS0tWMq9cIjL1
-	8ckrwavR4M/896oGtxlde1uuraO6RcEBB1NdPnnmwTK85emYLP0KvQrVGa7OcizBTbBndu86lUaUg
-	TRFl0R/nDqPfFzlR7T2/f+u4slKnCk/dvlkIa3Zt2mZ6B/ZVS9JH81L9hL0tuIbZFFqXh3D4gd5qx
-	4P94f741KVkbtzLF9BboaOgiCqEvvi1mPgBG/0FfEUJmJPD0MQvcX9qVUeGuGTaLiIWwYAfpnpuCV
-	/dfqwq6HiVCEUFPYAn8vcOoPB/hozJNMlJpYa/pVyZkrySysk+DiDPipdX1cgxt+TknpbtqCqadvU
-	bLOz3QmQ==;
+	bh=MBcKvaitl6TGKL/fg12umkfFHChEJFVRuFuHd7Ccm5Y=; b=kLT3Tla20ywqDsaXyLaX3RBxIZ
+	w8A+ywWfnRxAqR6S8n1RBnWL9Yprwdun6vBLlCl179zkesPqfN/QG75EJL8j/bWPGrJiK1vS4yiWX
+	CPsClSFXh/2o5Gf0og9ANIfYaauHR0E9mODUHmULlU01hm2wdteqfLQotFo5CCLyhV/+UGO6XEMpU
+	mK5xb5RHsI88nXAdsu364L8jkbXK9omiUO3pv/m3cl4xJ6m1XIaTDQHWfygmgUTqup0hFmx2TVlY4
+	GzpCi0EPZChK79NmaaoWfBW2pHIY2JjEcrCcp4ILOTcVovIjbk7SzWeDblzMq7eDrIZVhgli2cWW8
+	J8yhQqxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgd8B-0000000BegP-2qM1;
-	Mon, 06 Jul 2026 06:48:39 +0000
+	id 1wgd9q-0000000Beq5-3rOe;
+	Mon, 06 Jul 2026 06:50:22 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgd8A-0000000BegJ-2ByB
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 06:48:38 +0000
+	id 1wgd9p-0000000Bepo-1ANP;
+	Mon, 06 Jul 2026 06:50:21 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C116E61383;
-	Mon,  6 Jul 2026 06:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A5F31F000E9;
-	Mon,  6 Jul 2026 06:48:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B2E5661383;
+	Mon,  6 Jul 2026 06:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65E051F000E9;
+	Mon,  6 Jul 2026 06:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783320517;
-	bh=FyC6uLd4SG/eFVU0+S/jOwpK4vgRdKg92Yml7ndQ0uQ=;
+	s=k20260515; t=1783320620;
+	bh=MBcKvaitl6TGKL/fg12umkfFHChEJFVRuFuHd7Ccm5Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aNpwPhaQw9RIwCkkdYM+Niad6l8inxvBTg0uE6F6r3bChE4b981OUFGWu1hzEQi4D
-	 QtjyaZ0fsHh8nyTQd0PBJTpZa9R57N7+sV0jGHJTosRn+vuYgLLhF7jDDyCi5YrmYw
-	 QAwj9EupMCxF4iKQxwo4eEmOSHweRJkgbmt0XHpZB4UvlTEFv7WvJWRCP/WtV/s0gu
-	 m/5p0g9xtzBXKcpMnrMhT/IhJC4OOMgSSvBfdaNm6RDmZrZ/pnYyqTt2gY7+gRghSN
-	 Zgo+d6oli8+2zZuQsiQ1QZ9M87MezP1ngGMO1lGmTvuTM51nlx+IVB4UUwYIjCRwYR
-	 Fi0hf5vrgKTWw==
-Date: Mon, 6 Jul 2026 08:48:34 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Paul Louvel <paul.louvel@bootlin.com>
-Cc: Qiang Zhao <qiang.zhao@nxp.com>, 
-	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Thomas Gleixner <tglx@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, linuxppc-dev@lists.ozlabs.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 03/12] dt-bindings: soc: fsl: qe: Convert QE GPIO to DT
- schema
-Message-ID: <20260706-piquant-arboreal-panda-b810f2@quoll>
-References: <20260703-qe-pic-gpios-v1-0-6c3e706e27dc@bootlin.com>
- <20260703-qe-pic-gpios-v1-3-6c3e706e27dc@bootlin.com>
+	b=INOnzt4tSmE/dVljgT+XcA6lbhwyBP1xun90kstroUCflGF5BhkiCaHIWf90V0ERE
+	 SpgABeN5sE8ZVwDCvMJm3gjPYN3MPdRIoIgqJb+ilBy0sF2JSEuA4rbU37vte0NAJN
+	 XwzSKQ45QdF3c76tUCyK1IHxE0zv68FmmlGNsLUgztP4/hB5DQ/XYXKrRcVL9IrAr6
+	 alUNpCJLlLmaUIgteZZqUuglxVMFgTPtGU5Cj4G8ZvBRWIfSKwGkfet3o1YGpdEi/E
+	 HBnhLEhHiBok2FaYXLeI5PIQgKsF4UhsBGA44elzdUIpLH130SRvoJlaMsaacmtvL4
+	 /k6oj4VzzBeFg==
+Received: from johan by xi.lan with local (Exim 4.99.4)
+	(envelope-from <johan@kernel.org>)
+	id 1wgd9l-00000001d97-3Qv5;
+	Mon, 06 Jul 2026 08:50:17 +0200
+Date: Mon, 6 Jul 2026 08:50:17 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Guangshuo Li <lgs201920130244@gmail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+	Kees Cook <kees@kernel.org>, linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] media: platform: mtk-mdp3: Fix SCP device refcounting
+Message-ID: <aktQKf4QrsnUADdf@hovoldconsulting.com>
+References: <20260704173119.254975-1-lgs201920130244@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260703-qe-pic-gpios-v1-3-6c3e706e27dc@bootlin.com>
+In-Reply-To: <20260704173119.254975-1-lgs201920130244@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jul 03, 2026 at 03:30:11PM +0200, Paul Louvel wrote:
-> diff --git a/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> new file mode 100644
-> index 000000000000..1af99339ff40
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/fsl,mpc8323-qe-pario-bank.yaml
-> @@ -0,0 +1,45 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/fsl,mpc8323-qe-pario-bank.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale QUICC Engine Parallel I/O (QE PARIO) GPIO Bank
-> +
-> +maintainers:
-> +  - Christophe Leroy <christophe.leroy@csgroup.eu>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - fsl,mpc8360-qe-pario-bank
-> +              - fsl,mpc8569-qe-pario-bank
+On Sun, Jul 05, 2026 at 01:31:19AM +0800, Guangshuo Li wrote:
+> mdp_probe() first tries to get the SCP handle with scp_get(). When that
+> fails, it falls back to looking up the SCP platform device with
+> __get_pdev_by_id() and then reads its driver data.
+> 
+> The fallback lookup returns the platform device with a reference, just
+> like scp_get() does. However, the fallback path currently drops that
+> reference immediately after platform_get_drvdata(). The driver later
+> still calls scp_put(mdp->scp) unconditionally from the probe error path
+> and from mdp_video_device_release(), which drops the SCP device
+> reference again.
+> 
+> Keep the fallback reference until the existing scp_put() call, so that
+> the fallback path follows the same ownership rules as the scp_get()
+> path.
 
-None of these were in the old binding. You need to mention and
-explain (WHY) the changes you are doing to the binding during the
-conversion.
+Thanks for catching that.
+ 
+> Fixes: 8f6f3aa21517 ("media: platform: mtk-mdp3: fix device leaks at probe")
 
-> +          - const: fsl,mpc8323-qe-pario-bank
-> +      - const: fsl,mpc8323-qe-pario-bank
+This one should also go to stable:
 
-Best regards,
-Krzysztof
+Cc: stable@vger.kernel.org
 
+> Signed-off-by: Guangshuo Li <lgs201920130244@gmail.com>
+
+Reviewed-by: Johan Hovold <johan@kernel.org>
+
+Johan
 
