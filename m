@@ -4,94 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E202CC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:13:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB915C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 09:13:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v/vMmcC4kWrSghj9zOYbdr017eZqpNDv49JorGXwtkQ=; b=PbUxM/7JYFBd+xRvYyPVG4ztlS
-	8JlN7yImRaFUmhiqQvL+Y5S6k4lv6IHVmOR22GPMfvGGepHHQGKlYVa1Rp9IEjZfFGVS0I2h1DV8q
-	j0rHnGU9wZLFq7HuvJ/phWE0URkxA2G4wLoB5MbQjnKapbr1k2OrC1W/FSyKmwukHw1JbeVI1cQVx
-	6T7R4dsI5ZiNH/uNUDYAwHtNXm1Tfhs4+9FXZgKSCN7wx0NP5XjCigfYCDK0S5K8H/HGDlhym4YTF
-	ggJ3993j3xUb0mGnJ2fhQNSjpgSwUxzUqH7YjBQLyd9eQmGK0wb1bOXblLMYCMwZRm/3917yQAboe
-	PO2kAbUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dXi0LHZUp3ZGpgcRmVVGJbsOuYatwbyaUpu9C/eGDDE=; b=iaJ9zjO1mpS+ZjQPEMOPQjtMoT
+	BICX5YbEfJfvP9C0Wh9PmD4yTpq2BIlNDktlp29eDTmGi6PMxsV71sRt3IOjl7xW3YCJN0vTaD6wm
+	v0K+rMmC22sY5jl6D8GRzXYokKmCQRZIAJpEGXLHPOuoJceJyyDD0jbU0P6S7298T5w3aJBYHi+Tk
+	4ca8tQ+I16VTEdT0VxElDh5kBZ2lu380IcdxiFTm4XrUng/wbpQU/+dPeZtE6UIYz4gio3rjVquqk
+	QEE+IoP2OTSiWChg0MhIWv2NrgBqI31VxEnGx1OAPgSsvW4XPpKIgMv4gYLay6kmalJdiTuUDqv+u
+	uEQUngmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfOg-0000000ByJx-0w1q;
-	Mon, 06 Jul 2026 09:13:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1wgfOi-0000000ByLL-2vVq;
+	Mon, 06 Jul 2026 09:13:53 +0000
+Received: from mail-westeuropeazon11011049.outbound.protection.outlook.com ([52.101.70.49] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgfOc-0000000ByIh-2Y8T
+	id 1wgfOe-0000000ByIy-1OHF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 09:13:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1783329225;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=v/vMmcC4kWrSghj9zOYbdr017eZqpNDv49JorGXwtkQ=;
-	b=JZPs3RhTS/3UbKXTFWPGoR2J9lzVo7GJRKiHxAEIxC93eYuUlk5yHGoO6dkLD9rSQ1stMf
-	p+L7XWdooRiBTScROjOygufSKhIVcgdoj5z13oKtDRL84Ju0gzBXsbWwwLCIknSCio4hrO
-	n42m1oG/Pq0Ef5XrqomH1WzQoa7IVB4=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-414-7D3y0LjYNc-pGmC_Q9qfLw-1; Mon,
- 06 Jul 2026 05:13:41 -0400
-X-MC-Unique: 7D3y0LjYNc-pGmC_Q9qfLw-1
-X-Mimecast-MFC-AGG-ID: 7D3y0LjYNc-pGmC_Q9qfLw_1783329219
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 536F31800846;
-	Mon,  6 Jul 2026 09:13:38 +0000 (UTC)
-Received: from gerbillo.redhat.com (unknown [10.44.32.156])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 453EE300070A;
-	Mon,  6 Jul 2026 09:13:31 +0000 (UTC)
-From: Paolo Abeni <pabeni@redhat.com>
-To: parvathi@couthit.com
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	danishanwar@ti.com,
-	rogerq@kernel.org,
-	pmohan@couthit.com,
-	afd@ti.com,
-	basharath@couthit.com,
-	arnd@arndb.de,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
+	Mon, 06 Jul 2026 09:13:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Rd38WZZ78u1dyMUtFgmAscaJHWxUoArSIY2BnpmS8qQyj9421XGgO7Kdw5CvRB/rBH0gZ4rTvfb+v9C7HNeNGSrFwHnNmDiIY2eQTT8o6GK+hS5wyJRlOT/tuQs8Vu3cb7chiDIaYa5q5vsJpGOOZ3EjFzoPC9/6SikYrQPrvjRqXel/0OLbsdnTsO7kCq5PlpZvgSFtuvmCeOtaPCQYeEtv+d11cgupkyDHBHrWUS7ysDo/20itRJu9/durNDFAXHhsN+dw6dJu/MUJHFjppWKvAbNzd5xMPK43pY53P1XEjwmso7ZODTU0t6F01XpjKtpSuHEZT1UEMLOpJkSrCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dXi0LHZUp3ZGpgcRmVVGJbsOuYatwbyaUpu9C/eGDDE=;
+ b=GnfFdFNBkdkB5SOLLypIMDHkKcxrFmaHRJZ7RRtkR9JitqOEsvtnnn9HT+tH6K3jV8lwLX3Cnb2hfrFo+QBRuDg9/P/PQMy2zUQeNjT5wI16rhJk+bpORjVaLBvmVGQKgwA+yZDugojlh5T7lR1jnOo9QNPa9jWftQ3SCZPbDGmnnLtpci8uHBUYf4Jr10Bl5KImpu+/DbRdcTP2UskD7m9bY37rlxQNlUHksgzT6v2BW1F3K+LMHqutlqtofFejEiEuVmNyyNLqeeh+oxMfnVf4YkaJ9FdAII35mCDTXj1fYmaVZsqtz6yHNKssmoBlZ8e3ftpvxH7/ke59qCRRRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dXi0LHZUp3ZGpgcRmVVGJbsOuYatwbyaUpu9C/eGDDE=;
+ b=iQpwPPxNC6fDdUTkk8T4bp5KW6OH1zbL1OIU75Y7AOo+YmgjiwOFkVGC6X+zoGnsM6d9uENhQ/lYuChYdDJX5AOIGgixXUvlXMTaXH3tMfjWEfGlxOKeR0YUAoQ7149C7nwiXctvdb9rD0dbdTgp+KfQE6wKZcyXZYGtjhj2sGbFw1+0u/QGaQUi3fejUqAlIb10f0Q3iJryz/MrqJh9MRohW0lUOfGx8QO1vVafXJeObau0tkJM5RLFqJ42rYBQo3q0Ia9I9GCOPAs1znwtQ2LmPvpXa/xDLGUjUwj/OKSdiACozADTRHEgP1LNjxkQ4N47ofut8eCkYerfdAPdsA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+ by AM0PR04MB6852.eurprd04.prod.outlook.com (2603:10a6:208:18c::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
+ 2026 09:13:43 +0000
+Received: from PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d]) by PAXPR04MB8096.eurprd04.prod.outlook.com
+ ([fe80::68be:f721:5000:3f2d%5]) with mapi id 15.21.0181.012; Mon, 6 Jul 2026
+ 09:13:43 +0000
+From: hongxing.zhu@oss.nxp.com
+To: frank.li@nxp.com,
+	l.stach@pengutronix.de,
+	lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org,
+	robh@kernel.org,
+	bhelgaas@google.com,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	pratheesh@ti.com,
-	j-rameshbabu@ti.com,
-	vigneshr@ti.com,
-	praneeth@ti.com,
-	srk@ti.com,
-	rogerq@ti.com,
-	m-malladi@ti.com,
-	krishna@couthit.com,
-	mohan@couthit.com
-Subject: Re: [PATCH net-next v2 2/3] net: ti: icssm-prueth: Add priority based RX IRQ handlers
-Date: Mon,  6 Jul 2026 11:13:28 +0200
-Message-ID: <20260706091328.134740-1-pabeni@redhat.com>
-In-Reply-To: <20260630124958.894360-3-parvathi@couthit.com>
-References: <20260630124958.894360-3-parvathi@couthit.com>
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-X-Mimecast-MFC-PROC-ID: Jg4AkXFdcyJ7rqcD8TrTnaSyy5bLAbpI43IKuXdRNA0_1783329219
-X-Mimecast-Originator: redhat.com
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Zhu <hongxing.zhu@nxp.com>
+Subject: [PATCH v1] PCI: imx6: Add runtime PM support for i.MX95
+Date: Mon,  6 Jul 2026 17:16:39 +0800
+Message-Id: <20260706091639.3886856-1-hongxing.zhu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+Content-Type: text/plain
+X-ClientProxiedBy: SG2P153CA0031.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::18)
+ To PAXPR04MB8096.eurprd04.prod.outlook.com (2603:10a6:102:1c7::19)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8096:EE_|AM0PR04MB6852:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7bb26eb-9bcc-4c88-6f81-08dedb3edfe4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|23010399003|18002099003|56012099006|11063799006|921020;
+X-Microsoft-Antispam-Message-Info: vhaPduv7Wc7PkwwRqfOAXE08Pctno0sWaQk27eCACh/GUOFoPkbsJG3a/4Iu6xbvihbJd2sVquREks946VKWBhGTdr38dqvoS6cMDDen+kZRlu8MfXZgUf5UvREImmmCCepEMfUGx3gdkPkIIYTQeqV2mrRhXxKuJHk0Xwqd6/yFJ+thY/W5Tfht6ccI6Ue7kgpVG+vXa4HDIUthEKyBQs5Odj+5KRuIv6BR7SCxogQscyTqovXVoR06FtmN0JvpwBQjcHcBp3U0KDqOKcmbkpKIFBntgVd1ofQqsH0KO0u3RcH46MTRc1EiZ46fEiR1On204/EcTz+aUdUa/PaFsNXsleJpphWPFjPqRnnAtAQXOZnwV7kWjoiHtoyB/smxtIAsL4gtMHJKxakIG20paw99CtK6VDKA1Uvn1vugrcGYyOdJifr4xRsMSERivWsizdlAq3UY5/Iu+FGPVfkfDLQK0rApbEPBsF3oXaSWnWj59T3Vh3O0ZA+91XGHsKm6rwQJJHv58Yb1KZaCFsVL1Q6iNT08bQx1OMAuxQaWuPmOd+9HvqGVQbe0+/sR/gc7U0DiVdcAcPWDm43qF4rYkWQx3YPnCyzJaa+9iyP34KIQViQ/W45Xxdvy7mYxMwvbWr1Oo46LJ6A4gN9Rlnft2wjIj6Q/r4ibOW6COtCatbgKudmRykJ0RjhCCRoCCPkzSK0yqkAJNVAwM2xYm9tuUg==
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8096.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(23010399003)(18002099003)(56012099006)(11063799006)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?A/X1aKShcrZpdRgGL6V/yBH7lNBAxVVRLVrSooZ8RGEEtAPJtdd8hpsmgLXU?=
+ =?us-ascii?Q?5TDAg7WvZUF2PMIkbV1QYAIrq8FS4rcKHGRx3YfMfUHUAMN58ZBtqoZZzeYi?=
+ =?us-ascii?Q?JGzuqT9s62p01hXdBW09HAH+Pn4X8RfkpKWCt5j60AWGKH7S2+pLunvpzHvO?=
+ =?us-ascii?Q?zLfMT7uJ+krTmyBEgvFOAyXWOtKGatk2oLkVpPvLUKBi1c132kojZ/2iu5un?=
+ =?us-ascii?Q?vlHGqntrzGLPfABia3kLcqtv7bUJ4qSkYXnzg0699L60mRaNxmDc2DCWttqT?=
+ =?us-ascii?Q?lHZAGjGgjJMnK7QUbL+z5KDAOpVGRowUa1EoY3kIhI5oNgGmfToJmhYCi6q/?=
+ =?us-ascii?Q?Yubbaei2V58Tye80nMJ9UBmsSiFBsm/OpvardOGEO3dhS3MvNXXycN06/Unw?=
+ =?us-ascii?Q?8nn1+mRLp0fQ6kQxOv1oOhiy9ateHLNM1sx81ohBp9niChihzA5Qtojs+G8g?=
+ =?us-ascii?Q?jickhG2Es2JSOzv6sIkKN/bfMd38191P1zfuwD6qBgm74yGzeNbzCGf69pCL?=
+ =?us-ascii?Q?tjxvPl2eteeYlLEfalbLLEJguxDvDy1MfEPq9tRkNt9oE1wNYSwrNyQVxKoJ?=
+ =?us-ascii?Q?1Uv7mM8oRLZJqCGXCwxKT3e5grMNO2TYf9hYSWoWGiq11CHUyQVXSiIiAx5/?=
+ =?us-ascii?Q?6oE+H6ghlYBvLw6VoHHG8Ls6Fe3Op/XJCXWSt6qhwxIiTMvSuqWuzz04QLOo?=
+ =?us-ascii?Q?dhL/QBNH0yC3YHdBp0BE05xehPJKEkUtAgQUKSub3rHo07Yk0DAnKVgCfXzB?=
+ =?us-ascii?Q?tqmDitzIBb5pc/APabInMyhgCoczgZ6pW11+th5J4Hew2L3bUWw7W0xQc9CC?=
+ =?us-ascii?Q?DPvV3M2Fam2bAq46n3snYM6RI/5A6/Oz6zNnazQdGt5U6sbpXHtVmgfaRn0C?=
+ =?us-ascii?Q?ioJlu58Nl5XbO9lnBp6i0ZCH59EXRDLmMEHC7E8rb/25gzmaRbnwJ9TmIW5U?=
+ =?us-ascii?Q?K9J1UR050Jq5r69emBIxpmnw9L0LIPsyOhDk+UawVQLnbkadEbYpqpwPRpR2?=
+ =?us-ascii?Q?tBLuSHVjXYGjxuYqhbV3x42EpPqVqQ+5qaC04b4Gacymau55hiJXwJbWWB14?=
+ =?us-ascii?Q?/0tatFUjg0JAbH4WeQzjWbrf3TGVblnRTGUGnTmQGo2wqzXj7t97Y3R22Zh4?=
+ =?us-ascii?Q?IeLACITcrSBQgRlpGu1TjCRvgzLXicbiwvXVL0neCN9L0IYMdLBcgFDMP+6j?=
+ =?us-ascii?Q?WBX0v96rd5QAEI6TX3U/MjQA96waQ/BLzUnb/NyDMjybwawLKtvMPi0cvYaz?=
+ =?us-ascii?Q?+Ysu4+AYZbhoV8zMdhrPNIAkZ6MVpF0VvtZ/R0COeaEpHII5OpzrVoV+roPd?=
+ =?us-ascii?Q?9UUgjezdHr719180pwG2XFNAzNi06xq5xrQNZaSb1y0w7MAThtcz5RVh1L2n?=
+ =?us-ascii?Q?GqbdQRLf8gsWxgewcRB7+/A4MLXwTuXP3sD8Nhg7E/cXv1BEm2A/YqdHHEDy?=
+ =?us-ascii?Q?L4mxUHIBLOs106rQ8S1eNFNe36Clfui9+w7fUuXzXXxgTuLbkm9vCfz5EleY?=
+ =?us-ascii?Q?PaEZ67GPTXyuzaOG7veotia6fBKPN8crkeOz5Ya49gEZm64LQuZLJ0qW6Xox?=
+ =?us-ascii?Q?q7YI3NK9BDFX19BF7L8hYczIXcOMMiF9Q0wu0dsC35OrWmQNcIUlR3p0IGuu?=
+ =?us-ascii?Q?MN/veWBjhIpM1t9/aNDlkeBEfYKYiMKldcZei1P0ga6MoUkwDQv4VzdKSR0z?=
+ =?us-ascii?Q?2e2s5CI54vArQwEvxB71DMhM1q+8MYV1W2PW2B6geK9mJZVUDXOTz+bp2Mk3?=
+ =?us-ascii?Q?5SuWgFKpXwdXsqG0KyRzvVxBq7cbUzuTqwPYS8dJ8FHT7kZzXT/D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7bb26eb-9bcc-4c88-6f81-08dedb3edfe4
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8096.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 09:13:42.9272
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SxNsHBOwzq8Z36LXpPCRpUB60gaAkDh+38NSmWBkihva04jhitJ9rUJHRLFHTYnYvKnQ++kLBmapV/v6r48vU5DOamB07KZsn0xvnjGFwnq0K1+bPGrBSwjWWrsDfIgO
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6852
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_021346_762619_AFEDD34E 
-X-CRM114-Status: GOOD (  30.65  )
+X-CRM114-CacheID: sfid-20260706_021349_270590_B1A6B3D6 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,191 +145,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: AI Reviewer <ai@example.com>
+From: Richard Zhu <hongxing.zhu@nxp.com>
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
-Full review at: https://sashiko.dev/
+Enable runtime PM support for i.MX95 PCIe Root Complex to allow dynamic
+power management when the PCIe link is idle.
+
+The i.MX95 PCIe controller supports entering D3hot state when PCIe
+devices are not actively in use. This implementation uses
+pm_runtime_no_callbacks() to leverage the PCI core's generic runtime PM
+handling. The PCI core automatically manages D-state transitions based
+on the runtime PM state of connected endpoint devices.
+
+Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 ---
-net: ti: icssm-prueth: Add priority based RX IRQ handlers
+ drivers/pci/controller/dwc/pci-imx6.c | 20 +++++++++++++++++++-
+ 1 file changed, 19 insertions(+), 1 deletion(-)
 
-This patch adds support for priority based interrupt handling for the STP/
-RSTP Switch, HSR and PRP protocols along with extra logic to address first
-come first served to avoid port dominance. The driver will read the RX HW
-timestamp from the frame to achieve wire-arrival ordering.
-
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-[ ... ]
-> @@ -1188,26 +1188,26 @@ static int icssm_emac_ndo_stop(struct net_device *ndev)
->  	/* disable the mac port */
->  	icssm_prueth_port_enable(emac, false);
->  
-> +	netif_stop_queue(ndev);
-> +
->  	/* stop PHY */
->  	phy_stop(emac->phydev);
->  
-> -	napi_disable(&emac->napi);
->  	hrtimer_cancel(&emac->tx_hrtimer);
->  
-[ ... ]
->  	/* stop the PRU */
->  	if (!PRUETH_IS_EMAC(prueth))
->  		icssm_prueth_sw_shutdown_prus(emac, ndev);
->  
->  	if (prueth_is_lre(prueth))
->  		icssm_prueth_lre_cleanup(prueth);
-
-[Severity: High]
-This is a pre-existing issue, but is the LRE duplicate detection timer
-prematurely canceled when a single port goes down?
-
-In icssm_emac_ndo_stop, icssm_prueth_lre_cleanup is called unconditionally
-when any interface is brought down.
-
-If one port in the HSR/PRP bridge goes down while the other remains active,
-this cancels the shared tbl_check_timer, potentially causing duplicate
-frames to stop being detected and dropped by the hardware.
-
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
-> new file mode 100644
-> --- /dev/null
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_common.c
-> @@ -0,0 +1,286 @@
-[ ... ]
-> +static int icssm_prueth_common_emac_rx_packets(struct prueth_emac *emac,
-> +					       int quota, u8 qid1, u8 qid2)
-> +{
-[ ... ]
-> +		if ((*pkt_info_p).length < EMAC_MIN_PKTLEN) {
-> +			/* Undersized frame: firmware should have filtered
-> +			 * these before they reach the host queue. Advance
-> +			 * the read pointer to skip it.
-> +			 */
-> +			update_rd_ptr = *bd_wr_ptr_p;
-> +			ndevstats_p->rx_length_errors++;
-
-[Severity: High]
-This is a pre-existing issue, but does this error path flush the entire
-pending RX queue?
-
-When the driver detects an undersized or oversized packet, it attempts to
-skip it by updating the read pointer. However, setting update_rd_ptr to
-*bd_wr_ptr_p appears to assign the hardware's write pointer (the very end of
-the queue), rather than advancing by one descriptor.
-
-Could this discard all pending descriptors instead of just the malformed one?
-
-[Severity: High]
-Does this introduce a race condition on the network statistics?
-
-This patch introduces split NAPI polling with separate priority threads
-(napi_hpq and napi_lpq) that process the high and low priority queues across
-both physical ports. These NAPI instances can be scheduled on different CPUs
-concurrently.
-
-Both instances invoke icssm_prueth_common_emac_rx_packets, which updates raw
-unsigned long statistics like ndevstats_p->rx_length_errors (and 64-bit
-stats like emac->stats.rx_bytes in icssm_emac_rx_packet) using += without
-atomic instructions or locks.
-
-On 32-bit platforms, could this cause lost updates for concurrent writers, or
-torn reads when read by ndo_get_stats64?
-
-> +		} else if ((*pkt_info_p).length > EMAC_MAX_FRM_SUPPORT) {
-> +			/* Oversized frame: firmware should have filtered
-> +			 * these before they reach the host queue. Advance
-> +			 * the read pointer to skip it.
-> +			 */
-> +			update_rd_ptr = *bd_wr_ptr_p;
-> +			ndevstats_p->rx_length_errors++;
-> +		} else {
-> +			update_rd_ptr = *bd_rd_ptr_p;
-> +			ret = icssm_emac_rx_packet(emac_p, &update_rd_ptr,
-> +						   pkt_info_p, rxqueue_p);
-> +			if (ret)
-> +				return used;
-
-[Severity: High]
-This is a pre-existing issue, but does a memory allocation failure in this RX
-path cause a permanent RX queue stall?
-
-If icssm_emac_rx_packet fails to allocate an SKB, it returns -ENOMEM. The
-driver immediately aborts the NAPI polling loop without updating the hardware
-read pointer or consuming the packet.
-
-Because it returns used (which is less than budget), it triggers
-napi_complete_done() which re-enables the RX interrupt. Since the packet is
-still pending in the hardware queue, the interrupt fires again immediately in
-an infinite loop.
-
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth_lre.c
-> @@ -152,6 +152,14 @@ static void icssm_prueth_lre_protocol_init(struct prueth *prueth)
->  	       dram1 + ICSS_LRE_SUP_ADDR_LOW);
->  }
->  
-> +static void icssm_prueth_lre_config_packet_timestamping(struct prueth *prueth)
-> +{
-> +	void __iomem *sram = prueth->mem[PRUETH_MEM_SHARED_RAM].va;
-> +
-> +	writeb(1, sram + ICSS_LRE_PRIORITY_INTRS_STATUS_OFFSET);
-> +	writeb(1, sram + ICSS_LRE_TIMESTAMP_PKTS_STATUS_OFFSET);
-> +}
-> +
-[ ... ]
-> @@ -202,6 +210,11 @@ void icssm_prueth_lre_config(struct prueth *prueth)
->  	icssm_prueth_lre_init(prueth);
->  	icssm_prueth_lre_dbg_init(prueth);
->  	icssm_prueth_lre_protocol_init(prueth);
-> +	/* Enable per-packet timestamping so the driver can order
-> +	 * received frames by arrival time across the two slave ports.
-> +	 */
-> +	icssm_prueth_lre_config_packet_timestamping(prueth);
-> +
->  }
-
-[Severity: High]
-Does this fail to enable hardware timestamping in Switch mode?
-
-The patch introduces timestamp-based packet ordering for Switch, HSR, and PRP
-modes, requiring configuration via ICSS_LRE_PRIORITY_INTRS_STATUS_OFFSET and
-ICSS_LRE_TIMESTAMP_PKTS_STATUS_OFFSET.
-
-However, icssm_prueth_lre_config_packet_timestamping is only called from
-icssm_prueth_lre_config, which is gated by prueth_is_lre() (only true for HSR
-and PRP).
-
-In Switch mode, these registers appear to never be written, potentially
-leaving timestamps disabled in firmware and breaking the wire-arrival
-ordering logic.
-
-[Severity: High]
-This is a pre-existing issue, but are the dynamically allocated FDB learning
-work items tracked for cleanup?
-
-When learning a new source MAC address in icssm_prueth_sw_learn_fdb()
-(drivers/net/ethernet/ti/icssm/icssm_prueth_switch.c), the driver dynamically
-allocates a struct icssm_prueth_sw_fdb_work and queues it.
-
-If these are not tracked in a list, unloading the module could leave pending
-work items that execute unmapped memory, potentially causing a kernel panic.
-
-[Severity: High]
-This is a pre-existing issue, but can the unbounded GFP_ATOMIC allocations
-for FDB learning lead to memory exhaustion?
-
-Every received frame with an unlearned source MAC address triggers
-icssm_prueth_sw_learn_fdb(), which uses kzalloc_obj(..., GFP_ATOMIC) without
-rate limiting.
-
-A continuous flood of frames with randomized source MAC addresses could
-trigger thousands of allocations per second, potentially exhausting the
-kernel's atomic memory pools.
+diff --git a/drivers/pci/controller/dwc/pci-imx6.c b/drivers/pci/controller/dwc/pci-imx6.c
+index 023145b0dd2c7..3c13f9888ab9a 100644
+--- a/drivers/pci/controller/dwc/pci-imx6.c
++++ b/drivers/pci/controller/dwc/pci-imx6.c
+@@ -130,6 +130,7 @@ enum imx_pcie_variants {
+ #define IMX_PCIE_FLAG_SKIP_L23_READY		BIT(12)
+ /* Preserve MSI capability for platforms that require it */
+ #define IMX_PCIE_FLAG_KEEP_MSI_CAP		BIT(13)
++#define IMX_PCIE_FLAG_PM_RUNTIME		BIT(14)
+ 
+ #define imx_check_flag(pci, val)	(pci->drvdata->flags & val)
+ 
+@@ -1982,6 +1983,16 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 		 */
+ 		imx_pcie_add_lut_by_rid(imx_pcie, 0);
+ 	} else {
++		if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_PM_RUNTIME) {
++			pm_runtime_no_callbacks(dev);
++			devm_pm_runtime_enable(dev);
++			ret = pm_runtime_get_sync(dev);
++			if (ret < 0) {
++				pm_runtime_put_noidle(dev);
++				return ret;
++			}
++		}
++
+ 		/*
+ 		 * i.MX RC is powered off during suspend, force L2 entry to
+ 		 * ensure proper endpoint notification before power loss.
+@@ -1993,8 +2004,11 @@ static int imx_pcie_probe(struct platform_device *pdev)
+ 			pci->pp.keep_rp_msi_en = true;
+ 		pci->pp.use_atu_msg = true;
+ 		ret = dw_pcie_host_init(&pci->pp);
+-		if (ret < 0)
++		if (ret < 0) {
++			if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_PM_RUNTIME)
++				pm_runtime_put(dev);
+ 			return ret;
++		}
+ 
+ 		if (pci_msi_enabled()) {
+ 			u8 offset = dw_pcie_find_capability(pci, PCI_CAP_ID_MSI);
+@@ -2012,6 +2026,9 @@ static void imx_pcie_shutdown(struct platform_device *pdev)
+ {
+ 	struct imx_pcie *imx_pcie = platform_get_drvdata(pdev);
+ 
++	if (imx_pcie->drvdata->flags & IMX_PCIE_FLAG_PM_RUNTIME)
++		pm_runtime_disable(&pdev->dev);
++
+ 	/* bring down link, so bootloader gets clean state in case of reboot */
+ 	imx_pcie_assert_core_reset(imx_pcie);
+ 	imx_pcie_assert_perst(imx_pcie, true);
+@@ -2130,6 +2147,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+ 		.flags = IMX_PCIE_FLAG_HAS_SERDES |
+ 			 IMX_PCIE_FLAG_HAS_LUT |
+ 			 IMX_PCIE_FLAG_8GT_ECN_ERR051586 |
++			 IMX_PCIE_FLAG_PM_RUNTIME |
+ 			 IMX_PCIE_FLAG_SUPPORTS_SUSPEND,
+ 		.ltssm_off = IMX95_PE0_GEN_CTRL_3,
+ 		.ltssm_mask = IMX95_PCIE_LTSSM_EN,
 -- 
-This is an AI-generated review.
+2.34.1
 
 
