@@ -4,70 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D88D1C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2665C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4G2RsN8SH7uKD9+kRsew7gX7F/3GSrDbp0viWGKOoGo=; b=xcbQtUURb54qvefpF6hHZvgnfm
-	cHLj+Nb9Ms7MQx8m9tnj8fRVzv25dbzI0v5I2MsIRT2j11nNUYhN955dbhVXm8LQ4NfyXxUh1ZSR2
-	ydYugUH9faWwhfjJAjRLZ+dT4J9vbBXXRJu7x/M/jUPaZo+Hg0yNE2C3OMBfr9TBQe7OX5A6T3wKQ
-	7JDB5vNFfaUW/WG73tBs1aqVB1RtZk5fLUOJQO9QyYhkrANNbfpxvlmEI/Sq/rTQJQ2Qqqglh5451
-	MwkjmELZq2jcGjfoJMbLtWTbNIepOhW3KxX/rRvyQpBt85Nv92X3RmDF/i8ah57DTZI1B6rkzZrr5
-	Xtxw6A9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lntY/pJrqQPaP9IGXbX8ZI+Znoo4o9cuTdkwN5J+O5A=; b=t/7ztbIebWMNVEkBLMOVZjTvjM
+	D1Jon0jRkYU+05oQJNdFIOvGtplp8F/kFQb1gw/XytUHIQmk4xdCqeOKaATTIywxt2tqZ7wppLkw8
+	Ps0lqeH8+Y3kC00EkWTMghgh1THfR/K+RdLQRWgHDHBEbuQsxcxsCFEsR9hSFYXNEraoGjebrbDog
+	49EKKMglUWN1+AKI4rkWMwCp7Du9ygVOtUtbvQVuRZMMe+qgIpZoWbpG2JXUk0Ab2Gl5IpIKnBJB5
+	PjC6gOIyEqT9oY9bua/Cwv7LuijMB2ui5fN0QIioF5xo4eHMA0WrQHedBJekyZ/kk0ee5wjqOwX91
+	0LsNQFQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkPi-0000000ClQT-2D14;
-	Mon, 06 Jul 2026 14:35:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wgkQU-0000000ClZ3-2oPL;
+	Mon, 06 Jul 2026 14:36:02 +0000
+Received: from mail-francesouthazon11011004.outbound.protection.outlook.com ([40.107.130.4] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkPe-0000000ClPf-4A07
+	id 1wgkQS-0000000ClYT-36yq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:35:11 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id BBC1141746;
-	Mon,  6 Jul 2026 14:35:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA1E81F000E9;
-	Mon,  6 Jul 2026 14:35:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783348510;
-	bh=4G2RsN8SH7uKD9+kRsew7gX7F/3GSrDbp0viWGKOoGo=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=NEV/IGF9E0Nysa5xJZI+X+fl8hW0SLwcbZVNP39U+dkJN3/kW3wVKiCmP8kRbbYnp
-	 Et0ZYU50/OIMlbuzdKpUlmppp4MB7+MRxG7M05PwYx9JDcubJ120JAx1t1U1/svHcG
-	 Cheur8tqElCKJrNqEunSNIRSr5HFes3KX2RrYGtL9r0b8h9qP4nj/SffrxgDAvDNpj
-	 63GUzit7cIfc6eSKbrjDuqKIg/C2tu6QqzjmLIwDPACVecDJsZLBvPQc+9y6i4pip/
-	 xtY74+3xkqZaoR4jZVesh6clQjs+5MFNOLJWH1ukZ+JRZTxaNvdiyv/ll8XkkLBArS
-	 G8bxiCpUXuGag==
-X-Mailer: emacs 30.2 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Sudeep Holla <sudeep.holla@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
-	Andre Przywara <andre.przywara@arm.com>
-Subject: Re: [PATCH v7 1/6] firmware: smccc: Add an Arm SMCCC bus
-In-Reply-To: <20260706-belligerent-excellent-saluki-a4e431@sudeepholla>
-References: <20260611130429.295516-1-aneesh.kumar@kernel.org>
- <20260611130429.295516-2-aneesh.kumar@kernel.org>
- <20260706-belligerent-excellent-saluki-a4e431@sudeepholla>
-Date: Mon, 06 Jul 2026 20:05:00 +0530
-Message-ID: <yq5a4iici3u3.fsf@kernel.org>
+	Mon, 06 Jul 2026 14:36:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gN8e5h8deviUZZUUNWsvjgyv5QALV5/nWaXH4qJBOp+zIeqzuX0kFxnVENXuGJjkcVuBFLwjfcVmnguR7qVA1NPJeLdVK/3GVtpYm8TNI0J9E61pvXjt3AfDVch4GQKe2WfUwOHGjA28yEGCEJYgcSNDhXnarzBTC6ZRrByjpW6CUREBOxNG9mvzipIIahoYe9Ad/9gmwXd/7CAkaBmxJIjY1Fd581ERY5KmMs+Cwc6n3M31OD5wpMjXTsRmdMc+wclqbDJIk8RyISVAwRGE7CPr1RL2HCwQOop7ev3CCR6y/rVK5n7qzlJpc3IYh2wa0879VOJGo5z5k9ptiuAn+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lntY/pJrqQPaP9IGXbX8ZI+Znoo4o9cuTdkwN5J+O5A=;
+ b=qTKkBssKSchRpcsUdRJ1PzCP7X5FiCv/UonrhVha9kbA7RN56aVOIssKDInmf/ZO71QOj9p3kGpiO8ZvLMt8VgwwK7xzcdQb2OTtXwFt45thjjFzm+L2sLQmQ2W36i1W+WSwEgIq61wQivX6NY/P/5J1fRGZN4sJQJXtsVbGnQKoTn9B50LxE+ENfBkoGcg7+fIDKDsUX6dK9ci3KbUjPxqN54jyw1gSKXdLmgbJ3eMADuL2bmmUmX88HRdEoTQ2KQtbwLLavupaLPrPIB+Yi6kYvz1VyEVla0fq0dVULh1av3zv99IwQuKemiezQanbr3LYaclFJyqLGPhi+dXBuw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lntY/pJrqQPaP9IGXbX8ZI+Znoo4o9cuTdkwN5J+O5A=;
+ b=gZToxLvI20ygLJVRLB7Tlww31H7ZV7PheHg16aY9yXLW3hgjPImgtPSDKznazZXSjxTy7pN1fABL8nNzYBqnGtCiH1GMFDtDhGgAWujadfdUnQLUtkz0LbMSeMSo4+AOcjkquTGG15C+7LcZXA9Sxrf3DhhJlPMWv1Vybdy5cPO8BiTVWRkNUiO1oM2ZaTiuLT10pMC29stUp5FAZcwKrPKpjW+hY/ih06eZkQgID7xpgxEjgmiwhO02wbCytG4kB+c2WJ9aUAD8h68Eao3+XhlMGBVpsmjpziDz8vim1YFDdhKk+05w+wAZ0uayreb54VJjPrUOyiwLQgIcg8nhig==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com (2603:10a6:150:2cf::9)
+ by VI1PR04MB7056.eurprd04.prod.outlook.com (2603:10a6:800:12c::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
+ 2026 14:35:55 +0000
+Received: from GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c]) by GV2PR04MB11799.eurprd04.prod.outlook.com
+ ([fe80::2146:83a2:5329:b7c%6]) with mapi id 15.21.0159.007; Mon, 6 Jul 2026
+ 14:35:55 +0000
+From: Frank.Li@oss.nxp.com
+To: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: Frank Li <Frank.Li@nxp.com>,
+	pierluigi.p@variscite.com,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Herfurtner <alexander.h@variscite.com>
+Subject: Re: [PATCH v1 1/1] arm64: dts: imx95-var-dart: wm8904: Add INL1 as DMICDAT1
+Date: Mon,  6 Jul 2026 10:35:48 -0400
+Message-ID: <178334854343.1324163.15144188081827054303.b4-ty@b4>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260701155308.40612-1-stefano.r@variscite.com>
+References: <20260701155308.40612-1-stefano.r@variscite.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SA9PR11CA0020.namprd11.prod.outlook.com
+ (2603:10b6:806:6e::25) To GV2PR04MB11799.eurprd04.prod.outlook.com
+ (2603:10a6:150:2cf::9)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR04MB11799:EE_|VI1PR04MB7056:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8bf659fe-084e-4da5-d89d-08dedb6be32d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|1800799024|19092799006|366016|56012099006|11063799006|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: 0vE/ouMfj5JOZKvbp3LTzeLxiZaXOug17wodq0gBQKvb7iqTBJNTFYljHlSk4jJlVe9HVMPxIIoURnVpt+tDkoo86QInLqR0YyP2g7d+ZMCRwa535R45X2HIqvs52N55joA8ij3H8mEvwsAEJ2qwvR35GG1ovQjPGEsJ5Mio4nXM3PBQGzSwkNogly9q0G+j/OFA9iTDmJeVdVlmGRIrMT4bHcXYp9Y2BsIN7AhliU1E7ENuul/iLeP0LkD7wmECwEqKwKQaC815L8YzsnuAqW8uVcdpabk58GEcxfcph2/B0C1NpgEIEVeUeCKN72jsf/b2DZnCq7sCyFYyw6XTjQBUGOb6bKwSsGTgZVIBe5M2cwH2bUT03fxwkq7YlHBh+O9OqFdEgZYF98o6QqJ7fOfSKEM0SYE4sLmU2x6DE9M636AR/PvaJxcnxQw5hZFGBdFqWrasUW5HgkwIkTq5vQonmzcR1C7mUM1A8Cso/U9YZyyRyjqM0YwkJ7YMKIEIoNfUFTAgqjs5NlOY0DVOaZ5bnMmM/wwkjsoNI0cxph9Zs8Q8dvAMgiXqhJoZ0WEwBtKM0x6PdbFOE24r00ocna1LCQlWDFFW/I9xyzRONmEMvABUurT3TV5zKKkCzy41TUT2bpp0/1AkpEnyfaEC5okKbJAwPy2DzfCp2OTOpeM=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11799.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(1800799024)(19092799006)(366016)(56012099006)(11063799006)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cXdVN1k3ZWdsZEN0emdjcGsvL1NORGhHTGxxeHlUbGNseDVMOWtrU3RaQmxr?=
+ =?utf-8?B?TWxqaEVNODA4SXNKNTJ2RXR1K3h5dFAzTGlDb3J4cUxoN3RPVVM1YUdoVGRa?=
+ =?utf-8?B?WGRGZU51dkNlV3FiTzlaSWowaDFXVlpBMXZKNmVGd0NDK3phdFJSZ2tvc2Yr?=
+ =?utf-8?B?OHdKK2V1b1dPcHV1UDZWZlBjYmFSQWxRQ2JpZVRJdCtFSGk1VFpoV200ZzZ1?=
+ =?utf-8?B?a0JtazZIdHhTbElDT2VsTGhDM0kzZXNKQ3Eyd1dQM2VJT3ZKei9IYWxCUEk4?=
+ =?utf-8?B?UEo1RHhLQ2JPWnhrSnlVNUkzUTJjL09JeXVydWJuMGRpVE1td1gwVTdMYlRT?=
+ =?utf-8?B?U25Ba0FLbWxLVWlTU01CWEVUMWhXc1h0WXl0d0FoVklMUlIvZ0dWRWxVUDVQ?=
+ =?utf-8?B?eG1DZkFLYjFwWWFHSmlCamk4LzVraXh1VU1VWlVWcTIwRTk4SDVQSGdhNmhC?=
+ =?utf-8?B?WWNaNy9RWWlkU2Z1ZThiVFo2K3B1a3NUOTAySFBBZ25JVCtJZXRXY3ZLSTNF?=
+ =?utf-8?B?K1ZCa1kyUUlFUXM5UlBJeGl0NlFnbmNObWhaWU5pWDZSNHI2K09KK1B1M0Rp?=
+ =?utf-8?B?T0F0M09ud3lGa3o1UjgvOG1OSzJ4NDRxeEs0MHFvZWFCUng5bUszeFFoQ29U?=
+ =?utf-8?B?bzBaaGJIbnJ2eDAra1kwajVqRVo0MGRkVEp6bTVQdHUxWm4yeWxoQ1JKdkpS?=
+ =?utf-8?B?UlVhYjBMdTViVmtXUzdQSXVhM3BqUVVmN0xwZUZaaG90UFNhMUMrY2VkY2xW?=
+ =?utf-8?B?QkZtK2pxSk1ra2Y5THphdGVxdWdzdTdYdnhsdWVDb3JNc0NxNld4OTZDbEhh?=
+ =?utf-8?B?ZUx0Nm5kems0enFiMlQrV05wM3ZNMFNKZkUycE9paHo5TVBoOW5DQkcyT3Iy?=
+ =?utf-8?B?QXVtMU1ZNDM3UWxwWmcvQjRLOWJYc2ErNmozbnNxY25MMGppcm1CQmFBbXR0?=
+ =?utf-8?B?NUJGYWNPOGlEWkxpY2VCaFdRbUN6ZU9naS9KeEhtQTJ0MjIxbW1IZjR1S1Vu?=
+ =?utf-8?B?cVZhU0dIMDB4QzVPZTFCTUw3NmdndHMxWGQ3OHh1TUUyTDJBRHFVcjMvRGYr?=
+ =?utf-8?B?QXAvS285S0tnbWVKMUx2T2lQaW93VnY0UmpxT0tYYjgwbnd6Y28xMzZyZVJj?=
+ =?utf-8?B?VHk2NHNrRFpxSXMyY0RVZ1lGZG1QSUhocE1yaDdwY3dja0lsbFNick43WWNB?=
+ =?utf-8?B?enNaNE9MbVpSdGZDYUlWZ0ZRaHlnV3hjUHRkUjU2NHFJZ1JQWUJsZ2hIczN3?=
+ =?utf-8?B?N09tNHlmWGx3NGJZeW9tSHJJZnJ5M29nUFN5WHVNbE9BbWYyWmI3UW1lR1c5?=
+ =?utf-8?B?L3VLVHVZVmFmelU0TXAyQ2ZkSHBTUW9XYUo0UTdJa3lWdGR5N1FxS2RERU5x?=
+ =?utf-8?B?RkJVZzZHZDMzU1RpbEc1ZHhscHpsRUdHNGd0aVVYblRTR0xNRUlQUXdmU3Q1?=
+ =?utf-8?B?Y3RhY2FRWCs0TFd2RWZaSk00ZHF3a3ZaMjdIWThUSVE2V0V2blI4N1d3T1hn?=
+ =?utf-8?B?d1NVVW56cDByTjBNN1pXQkNTUm50dCtObE9wR09HaUZSdFRzYjNpeE8xUmMz?=
+ =?utf-8?B?ZVRXSE1iSEFqWWF4WUdqcEZCTmZuai9WMGMzODc0SlZ6bm5RdW5wRXYzRnlI?=
+ =?utf-8?B?Ty9rUTcvQXlqVE41WXBVdHo0eEthZzlFQktjazVIeFg2cDV4K3FJMFJSQS9Z?=
+ =?utf-8?B?T0hEOFdDYWZUWWtOTE5wUnNKZzd1ZmorQlRXWEhRekkyM0JyQXdxT0VhK0Ji?=
+ =?utf-8?B?TUZ0WHp5dmMvWW9mMHVleGY2KzJNRVBjOVBtRUVuRWozTjFSS0dZN09TekY5?=
+ =?utf-8?B?YllTb3NhdmFLZ3hvSWVCbENMVVF3bjJhcE5qS2syMTlBTXRmcVc4Z3ZOT0dL?=
+ =?utf-8?B?TUovT1J6TGNTZGdVVVpnZ29LWFNNVDJ5cmpIM3l4MzdOYXVoWnBTQU1GVXpn?=
+ =?utf-8?B?b1RmUXJGaVNVZWwxamRTWVNWSVlQTTNrYTFRYjRCOFEvMzFEUFpEQVVORWR0?=
+ =?utf-8?B?ZlVnNHFDTkZHbDZYNWtXU1FPTWttL3owc2RHT29RQy9sUHVYSUw5THdHU01S?=
+ =?utf-8?B?MnhaTm8yN2tiNlhvdEIwY3N3WSt6cVBjVU5Sa2NlV2U4OG9ObnFxWWpVbVR2?=
+ =?utf-8?B?M0xHaEdHeEY1QnhYQzZuOEEvVGRnRnUyd0JXMXFpa0ZHRE9FVG9JTnk0R2tI?=
+ =?utf-8?B?bDdVcFNubFFBL1RoTHdyaVg2OS9FeFpqRXI4N3Z0RVZ0dURXNzRCTFVUTmJG?=
+ =?utf-8?B?UDAvQnNsd01BUVUrQTQxTXpueHQwdkJPOWR3Sk1xUDI5aEtzUHVXZVBDNjhK?=
+ =?utf-8?B?d2F4YXRteTdjRkdqem83Z3I5TjB0NnJTME84QXZyUTI4OXdUVUtLKzd0M2pU?=
+ =?utf-8?Q?LmyGSXOQ+C8yv20u1hYmjkSHmYIQ0j6Uz1yOW?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8bf659fe-084e-4da5-d89d-08dedb6be32d
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11799.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 14:35:55.4989
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PvZCCgpTGvmaBxWTNrGTt+Go56ccIFESp+VhL5YZMo28GQpXkmQIs9oBgpUl1gj1K8ncb1Hs4YRyqBHnr4mWTVQc5KjE/yTRfAwpJngG9z1jsXJVMo9GsVuMhkvMhJgS
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7056
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_073600_790733_77BD38F1 
+X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,224 +160,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sudeep Holla <sudeep.holla@kernel.org> writes:
-
-> On Thu, Jun 11, 2026 at 06:34:24PM +0530, Aneesh Kumar K.V (Arm) wrote:
-
-...
-
->> +static int arm_smccc_bus_match(struct device *dev,
->> +		const struct device_driver *drv)
->> +{
->> +	const struct arm_smccc_device_id *id_table;
->> +	struct arm_smccc_device *smccc_dev =3D to_arm_smccc_device(dev);
->> +
->> +	id_table =3D to_arm_smccc_driver(drv)->id_table;
->> +	if (!id_table)
->> +		return 0;
->> +
->
-> Any reason for not having this check when registering the driver also so
-> that it becomes a must to register ? I remember vaguely adding this as fi=
-x to
-> FF-A driver recently.
->
-
-I will add
-
-int arm_smccc_driver_register(struct arm_smccc_driver *driver,
-		struct module *owner, const char *mod_name)
-{
-	if (!driver->probe || !driver->id_table)
-		return -EINVAL;
+From: Frank Li <Frank.Li@nxp.com>
 
 
->
->> +	while (id_table->name[0]) {
->> +		if (!strcmp(smccc_dev->name, id_table->name))
->> +			return 1;
->> +		id_table++;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
+On Wed, 01 Jul 2026 17:53:08 +0200, Stefano Radaelli wrote:
+> On the DART-MX95 platform, INL1/DMICDAT1 is used as the DMIC data line.
+> 
+> Add the wlf,in1l-as-dmicdat1 property to reflect this configuration.
+> This enables the internal MUX to switch between the ADC and DMIC as the
+> capture input.
+> 
+> 
+> [...]
 
-...
+Applied, thanks!
 
->> +struct arm_smccc_device *arm_smccc_device_register(const char *name)
->> +{
->> +	struct arm_smccc_device *smccc_dev;
->> +	int id, ret;
->> +
->> +	id =3D ida_alloc_min(&arm_smccc_bus_id, 1, GFP_KERNEL);
->> +	if (id < 0)
->> +		return ERR_PTR(id);
->> +
->> +	smccc_dev =3D kzalloc_obj(*smccc_dev);
->> +	if (!smccc_dev) {
->> +		ida_free(&arm_smccc_bus_id, id);
->> +		return ERR_PTR(-ENOMEM);
->> +	}
->> +
->> +	smccc_dev->id =3D id;
->> +	if (strscpy(smccc_dev->name, name) < 0) {
->
-> Since this is exported symbol and one can call arm_smccc_device_register(=
-ptr)
-> where ptr =3D NULL, won't it blow up then ? IIUC strscpy() handles NULL d=
-st
-> but doesn't check for NULL src.
->
+[1/1] arm64: dts: imx95-var-dart: wm8904: Add INL1 as DMICDAT1
+      commit: 68427905850302612bd68dcec7baf791ca6f8032
 
-Will add the NULL check.
-
->> +		kfree(smccc_dev);
->> +		ida_free(&arm_smccc_bus_id, id);
->> +		return ERR_PTR(-EINVAL);
->> +	}
->> +	smccc_dev->dev.bus =3D &arm_smccc_bus_type;
->> +	smccc_dev->dev.release =3D arm_smccc_release_device;
->> +
->> +	ret =3D dev_set_name(&smccc_dev->dev, "%s-%d", smccc_dev->name, id);
->> +	if (ret) {
->> +		kfree(smccc_dev);
->> +		ida_free(&arm_smccc_bus_id, id);
->> +		return ERR_PTR(ret);
->> +	}
->> +
->> +	ret =3D device_register(&smccc_dev->dev);
->> +	if (ret) {
->> +		put_device(&smccc_dev->dev);
->> +		return ERR_PTR(ret);
->> +	}
->> +
->> +	return smccc_dev;
->> +}
->> +EXPORT_SYMBOL_GPL(arm_smccc_device_register);
-
-...
-
->> +#define to_arm_smccc_driver(d) \
->> +	container_of_const(d, struct arm_smccc_driver, driver)
->> +
->> +int arm_smccc_driver_register(struct arm_smccc_driver *driver,
->> +		struct module *owner, const char *mod_name);
->> +void arm_smccc_driver_unregister(struct arm_smccc_driver *driver);
->> +struct arm_smccc_device *arm_smccc_device_register(const char *name);
->> +void arm_smccc_device_unregister(struct arm_smccc_device *smcc_dev);
->> +
->
-> I may be overthinking but what will happen if HAVE_ARM_SMCCC_DISCOVERY=3Dn
-> and some driver is compiled using this header ? It should be fine if it
-> fails to compile, just thinking out loud if we need to handle that are no=
-t.
-> As long as all the drivers using these depends on HAVE_ARM_SMCCC_DISCOVERY
-> it should be fine I think.
-
-This will result in a build failure. The driver should either select
-HAVE_ARM_SMCCC_DISCOVERY or depend on HAVE_ARM_SMCCC_DISCOVERY.
-
->
->> +#define arm_smccc_register(driver) \
->> +	arm_smccc_driver_register(driver, THIS_MODULE, KBUILD_MODNAME)
->> +#define arm_smccc_unregister(driver) \
->> +	arm_smccc_driver_unregister(driver)
->> +
->> +#define module_arm_smccc_driver(__arm_smccc_driver) \
->> +	module_driver(__arm_smccc_driver, arm_smccc_register, \
->> +		      arm_smccc_unregister)
->> +
->> +extern const struct bus_type arm_smccc_bus_type;
->> +
->> +#endif /* __LINUX_ARM_SMCCC_BUS_H */
->> diff --git a/include/linux/mod_devicetable.h b/include/linux/mod_devicet=
-able.h
->> index 23ff24080dfd..c9cee8c5a0b2 100644
->> --- a/include/linux/mod_devicetable.h
->> +++ b/include/linux/mod_devicetable.h
->
-> This file seems to be reworked recently, so you need to rebase it moving
-> smccc specific changes to separate file I think.
->
-
-Do we need to add a separate file? I was able to rebase the series on
-7.2-rc1
-
-modified   include/linux/mod_devicetable.h
-@@ -879,6 +879,19 @@ struct auxiliary_device_id {
- 	kernel_ulong_t driver_data;
- };
-=20
-+#define ARM_SMCCC_NAME_SIZE 40
-+#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
-+
-+/**
-+ * struct arm_smccc_device_id - Arm SMCCC bus device identifier
-+ * @name: SMCCC device name
-+ * @driver_data: driver data
-+ */
-+struct arm_smccc_device_id {
-+	char name[ARM_SMCCC_NAME_SIZE];
-+	kernel_ulong_t driver_data;
-+};
-+
- /* Surface System Aggregator Module */
-=20
- #define SSAM_MATCH_TARGET	0x1
-
-
->> @@ -876,6 +876,19 @@ struct auxiliary_device_id {
->>  	kernel_ulong_t driver_data;
->>  };
->>=20=20
->> +#define ARM_SMCCC_NAME_SIZE 40
->> +#define ARM_SMCCC_MODULE_PREFIX "arm_smccc:"
->> +
->> +/**
->> + * struct arm_smccc_device_id - Arm SMCCC bus device identifier
->> + * @name: SMCCC device name
->> + * @driver_data: driver data
->> + */
->> +struct arm_smccc_device_id {
->> +	char name[ARM_SMCCC_NAME_SIZE];
->> +	kernel_ulong_t driver_data;
->
-> Can't find any users of the above driver_data ?
-> Is it for future ? If so, can you add details on how it is supposed to be=
- used
-> if you don't want to drop it.
->
-
-That would depend on the driver, wouldn=E2=80=99t it? I was comparing this =
-with
-struct auxiliary_device_id, and very few drivers use driver_data;
-mei_gsc_probe() is one example.
-
-I am not sure there is a generic rule here. IIUC, it provides a place
-where a driver can add driver-specific data that can be used during the
-probe routine.
-
->> +};
->> +
->>  /* Surface System Aggregator Module */
->>=20=20
->>  #define SSAM_MATCH_TARGET	0x1
->> diff --git a/scripts/mod/devicetable-offsets.c b/scripts/mod/devicetable=
--offsets.c
->> index b4178c42d08f..a485011ff137 100644
->> --- a/scripts/mod/devicetable-offsets.c
->> +++ b/scripts/mod/devicetable-offsets.c
->> @@ -254,6 +254,9 @@ int main(void)
->>  	DEVID(auxiliary_device_id);
->>  	DEVID_FIELD(auxiliary_device_id, name);
->>=20=20
->> +	DEVID(arm_smccc_device_id);
->> +	DEVID_FIELD(arm_smccc_device_id, name);
->> +
->>  	DEVID(ssam_device_id);
->>  	DEVID_FIELD(ssam_device_id, match_flags);
->>  	DEVID_FIELD(ssam_device_id, domain);
-
--aneesh
+Best regards,
+-- 
+Frank Li <Frank.Li@nxp.com>
 
