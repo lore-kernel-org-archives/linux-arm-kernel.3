@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 404B4C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:45:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC43C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 14:45:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0/x/qPU/Mc5BG2XPfLPZ5NC8qJYbU07GVymxY/B1eeU=; b=qBVqTfBfu8afeFjf0k2VRayvfV
-	TbZkstDEd7mbdR2lMlACg7IVSmQ3wTecmCbMGmtwAMqfK9uL6zqiplo5J5wW00I+2WdcMs1mdzERP
-	EQN3k93O4C3zaC7wYlc/kwVQnhnnXNkbyS3fkSZnSBI5d9cWts64YvZwzqzJFzDRnzUBiolJw/jre
-	5cClPnFtvyCHrq1+5PB5q/w0xn8++rHUmB8XmQG8DW/cf6EsxNIDYSeufYXJOlRzy7PuetOOH5IJK
-	vbWjfk8+zwITQ7fPOJElCNRijdjmc2KoU+sfBq7lfrbVFswyimNZp5sD54Xq+Ukai74Q0V/aYFTXI
-	hg6lCU0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AsCqUSepLV1EVCdAVb1gjnK16IGOCWPNy8kXiha5vOI=; b=qBRdzZFWUf0sQPD0TsKqSDuRvG
+	6j7xiLLWbu7VORVfodyMRPeWcv9jP8jP9nZuFaQG26ycx5aars070O11dvYCfBTfLAiEdznRpSRki
+	K7kTSHhGnro5sLgvYGqzEQQkR21YRyHokMnKkzMh9eg2JF8J2Pr7yyIZqCLTv19waH4LTDvh4CP+V
+	o1o2gDhgZGceOUcWOtihLlKR77r0BLUgSwlWAhZ9upeR+R2ahv9wVIM75hMMy+USr3HZNBywRgc4N
+	AMINsDxQ3Vw8Nz7epwlXCYeGdjXxzcsMewqIP9ZbtcpoHObSN6fl5UCtm18wTU7XrKdAjhr0rrCGz
+	/QxTTRiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkZ9-0000000CmxV-3J6B;
-	Mon, 06 Jul 2026 14:44:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wgkZL-0000000Cn2n-427R;
+	Mon, 06 Jul 2026 14:45:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgkZ9-0000000Cmwt-1oDK
+	id 1wgkZK-0000000Cn1k-2qh2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 06 Jul 2026 14:45:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:To:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=AsCqUSepLV1EVCdAVb1gjnK16IGOCWPNy8kXiha5vOI=; b=gMJhOtqyYqMwz7E7eW5EreXKkt
+	AiJLr/YtSMcRdW7XcfEXgJHuWl66WV+ImpI9EeIDaKUWYFs4L2FgLMUuEtWCIdjVgGlIiToraxHtP
+	h2YIchuT9PNo5CPIFAGTlCLwusHoJHqA5v0p/rces7Go6U1UVv/syRZlY5eR9lMgkNF5lObgER0jo
+	vicrmt43nfPJB4hVUfs7n8TiZSvF6UgTpNm5ojRZ7Ivh5jsLF//k3n8Q14bxjd5WsSrttdkefVyKv
+	2f+Y7YpXPoCh2E1d1tLc3erqpSEAOxHPZBFMVIRMGRSwNN9HqFvnKsBreLmxdAtBS/f4TuIGI9cuO
+	AExqComQ==;
+Received: from mail-24416.protonmail.ch ([109.224.244.16])
+	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
+	id 1wgkZH-00000006fcn-3c4k
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 14:44:59 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C3CB7600FC;
-	Mon,  6 Jul 2026 14:44:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 748561F00A3F;
-	Mon,  6 Jul 2026 14:44:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783349098;
-	bh=0/x/qPU/Mc5BG2XPfLPZ5NC8qJYbU07GVymxY/B1eeU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=TjMOwfDMZifMw3H2/8ppID+L8d/jyr9SeYD1M3fCMWNCqLc4SdT7FtiXFUC+MRf5Z
-	 nVVfCX7YGNBKvN8WwuubQqppAk5qoUeshcJXP0yZosi9Q78MXBtLv2zUnmyOHJOU9e
-	 6zClMZTdBiB/FsW3AcAptE5qUQIYha35SNzednw9dSfqygAiRDOmj9SNTzxgRdD4X5
-	 Ue49tvXg+5IZsw9dlB/871oEUsIsPjaAVqBbczl6tRGs+4mFhHW6ez1+Ank5rsbHLr
-	 /rObu0dZpclZ1eCHPSi9r5ebQtEM1DAP/xep9DsdB8qtE+I78yCJ7GhjKU0gyg5lGK
-	 Sk4axVoKxCFtA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wgkZ6-00000001zfe-2hmG;
-	Mon, 06 Jul 2026 14:44:56 +0000
-Date: Mon, 06 Jul 2026 15:44:56 +0100
-Message-ID: <86fr1wp47r.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev,
-	kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Steven Price <steven.price@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Thomas Gleixner <tglx@kernel.org>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH v5 02/10] irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared granule size
-In-Reply-To: <yq5a7bn8i69y.fsf@kernel.org>
-References: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
-	<20260706060432.1375570-3-aneesh.kumar@kernel.org>
-	<86ik6sp7fc.wl-maz@kernel.org>
-	<yq5a7bn8i69y.fsf@kernel.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: aneesh.kumar@kernel.org, linux-coco@lists.linux.dev, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, catalin.marinas@arm.com, jgg@ziepe.ca, m.szyprowski@samsung.com, robin.murphy@arm.com, steven.price@arm.com, suzuki.poulose@arm.com, tglx@kernel.org, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 06 Jul 2026 14:45:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1783349097; x=1783608297;
+	bh=AsCqUSepLV1EVCdAVb1gjnK16IGOCWPNy8kXiha5vOI=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=VipuLJ4un5PyrPcU0KPcGiK0xJEfiUV3xhrpBqr6mg8Mps1BbtBjxAM5646uVOKIy
+	 SlksiiSCQ4zT91kZrt2NMczhh5luxT2AaTiVzcPgJFBMOQkWgrhjcTPhaVxRzqJAuX
+	 iF/4etLGMFunrq4FAQ5Dq13xGej6umdPTOu+JTsxCWybEDAk/+Vl+3gkCr/4gQtmqD
+	 MY4lCSXXMGSjQgsHN+hWWv1d7NbqwLMzz0bJw+JnB+eSGjRfgt1aCO0qX9GMDWITnT
+	 qC5d5gzcCEqZL+J3mqXcDsGcx2iqvZgwEMJiTm3gWploRJZijlDPERGrnjggRphVZS
+	 /tpVlyzwY0cLQ==
+Date: Mon, 06 Jul 2026 14:44:51 +0000
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Bjorn Andersson <andersson@kernel.org>, Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney@redhat.com>, Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Rob Clark <robin.clark@oss.qualcomm.com>, Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, "Joerg Roedel (AMD)" <joro@8bytes.org>, Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+From: Esteban Urrutia <esteuwu@proton.me>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org
+Subject: Re: [PATCH 7/8] phy: qcom: qmp-combo: Correct pre-emphasis table for QMP v4 DP PHYs
+Message-ID: <9a203e5e-5d16-400d-a507-8b68df8eb017@proton.me>
+In-Reply-To: <4635a665-f605-4647-810d-c9d83a271a86@oss.qualcomm.com>
+References: <20260622-sm8450-qol-v1-0-37e2ee8df9da@proton.me> <20260622-sm8450-qol-v1-7-37e2ee8df9da@proton.me> <4635a665-f605-4647-810d-c9d83a271a86@oss.qualcomm.com>
+Feedback-ID: 147889766:user:proton
+X-Pm-Message-ID: 4d9a7c56b233fd2d39549ef51db60aa12ffaa5e3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260706_154507_988636_BE9FBEEA 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,86 +85,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 14:42:17 +0100,
-Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
-> 
-> Marc Zyngier <maz@kernel.org> writes:
-> 
-> > On Mon, 06 Jul 2026 07:04:24 +0100,
-> > "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
-> >> 
-> >> ITS tables allocated by the coco guest are shared with the hypervisor.
-> >> These allocations must satisfy the host shared-buffer granule size so that
-> >> the full converted range is safe for host access.
-> >> 
-> >> Allocate ITS pages using a size rounded up to the shared granule size and
-> >> use the same allocation order when encrypting, decrypting and freeing the
-> >> memory. Also grow the ITT cache in shared-granule sized chunks instead of
-> >> assuming PAGE_SIZE is sufficient.
-> >> 
-> >> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
-> >> ---
-> >>  drivers/irqchip/irq-gic-v3-its.c | 17 +++++++++++------
-> >>  1 file changed, 11 insertions(+), 6 deletions(-)
-> >> 
-> >> diff --git a/drivers/irqchip/irq-gic-v3-its.c b/drivers/irqchip/irq-gic-v3-its.c
-> >> index b57d81ad33a0..5d6d38aa0dae 100644
-> >> --- a/drivers/irqchip/irq-gic-v3-its.c
-> >> +++ b/drivers/irqchip/irq-gic-v3-its.c
-> >> @@ -213,16 +213,17 @@ static gfp_t gfp_flags_quirk;
-> >>  static struct page *its_alloc_pages_node(int node, gfp_t gfp,
-> >>  					 unsigned int order)
-> >>  {
-> >> +	unsigned int alloc_order;
-> >>  	struct page *page;
-> >>  	int ret = 0;
-> >>  
-> >> -	page = alloc_pages_node(node, gfp | gfp_flags_quirk, order);
-> >> -
-> >> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
-> >> +	page = alloc_pages_node(node, gfp | gfp_flags_quirk, alloc_order);
-> >>  	if (!page)
-> >>  		return NULL;
-> >>  
-> >>  	ret = set_memory_decrypted((unsigned long)page_address(page),
-> >> -				   1 << order);
-> >> +				   1 << alloc_order);
-> >>  	/*
-> >>  	 * If set_memory_decrypted() fails then we don't know what state the
-> >>  	 * page is in, so we can't free it. Instead we leak it.
-> >> @@ -241,13 +242,16 @@ static struct page *its_alloc_pages(gfp_t gfp, unsigned int order)
-> >>  
-> >>  static void its_free_pages(void *addr, unsigned int order)
-> >>  {
-> >> +	int alloc_order;
-> >> +
-> >> +	alloc_order = get_order(mem_cc_align_to_shared_granule(PAGE_SIZE << order));
-> >>  	/*
-> >>  	 * If the memory cannot be encrypted again then we must leak the pages.
-> >>  	 * set_memory_encrypted() will already have WARNed.
-> >>  	 */
-> >> -	if (set_memory_encrypted((unsigned long)addr, 1 << order))
-> >> +	if (set_memory_encrypted((unsigned long)addr, 1 << alloc_order))
-> >>  		return;
-> >> -	free_pages((unsigned long)addr, order);
-> >> +	free_pages((unsigned long)addr, alloc_order);
-> >
-> > The comments I had in [1] are still applicable.
-> >
-> > 	M.
-> >
-> > [1] https://lore.kernel.org/all/86zf2ozrb8.wl-maz@kernel.org/
-> >
-> 
-> I renamed it to alloc_order to make it clear that it refers to the
-> allocation order rather than the requested order. If you feel strongly
-> about not introducing another variable, I'll drop the new variable.
+On 6/23/26 7:36 AM, Konrad Dybcio wrote:
+> It seems like 8350/8450 should be using what this driver calls
+> v5 tables, with this fixup:
+Any updates on this?
 
-I do. At the very least, to avoid you changing the type of the order
-in its_free_pages(). These things do matter.
+Regards,
+Esteban
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
