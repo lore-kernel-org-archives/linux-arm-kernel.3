@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DC83C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84A0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 19:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TIdPFLfoUcUCnENoXK/gvFF1N05GNKxFoVAx13JIKYM=; b=U7+zY9uEBlzL0LQwqF3+9ZU7xD
-	4m5D+pKV1kPDtWvz/0EA8iTjx6evNh3Alw/QUGyNtsWV9+dg+Qghm+K0GP6KDPIxvvspIaHxFswDJ
-	F4I8dSL0nSesPDPe6U2SeZLq5njphihW673hfkQvDtJa8dm4Ev6o8sbCsEj+nXNUOTfEQG3e4RSOY
-	JzYwkZmpWoQ5ytBMu7k7HBG9eolW01LGKc1+usVDbIZSQXBX71PZU0ZZy30WfNGaYkJerZxarr373
-	MlFUgWQi4ZC3xYqAh57v1Vbd9hufer9TuLhUnj/clARyfkEMEJRYDycr1LkwNOH7P6EJ5Q09PUEme
-	5dEepxOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Date:Content-Transfer-Encoding:Message-ID:Subject:Cc:To:From:In-Reply-To:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=+yaV2nYwgAaxNIV72gm61ALSOYBmm7bDIUElv0EL4As=; b=QuZL+5CUjxa6RWsAKVkF3sSYbU
+	0tmunJuUneZQG1XWe7aaOIhBU7ZM8oGXiLHdUnUHpQkIe0qtGnxyqEbHJ6qYvaUOHKpJ2nuLKL+DI
+	6Ua7b/h6ocbslceLMy00sCZk19bdKANoLRDxQhUmY4AR4I+nS6Wt88duLhaegNEuDayuVszO5tOXC
+	Q5b37K6qQUA86Ypr3t6oMdtIROFSbfsLZKSBrzBR+i5Q/98nJQEdpq1k/Q4xFLdP62GnhvpBTZgtc
+	mtYiy8JUyeQjGjuG0ErlhqMxEAnv4WR5Gikgbdh+hVCYKVgwB5KPV35xDh+EwvOvXEvux8q+KEpXz
+	iksXqYcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgp3f-0000000DRT8-2QyL;
-	Mon, 06 Jul 2026 19:32:47 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1wgp6V-0000000DSvf-3Cuf;
+	Mon, 06 Jul 2026 19:35:43 +0000
+Received: from a9-19.smtp-out.amazonses.com ([54.240.9.19])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgp3Z-0000000DRFb-0xTP;
-	Mon, 06 Jul 2026 19:32:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783366357;
-	bh=JqYfsTcQJK5d50xQj5r1zc9B+2HvIcRrTo4tBscS8cc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=RKcoSL3zySIuE5d3GBIc48yRO/qZO8ClRfBkRt5qDwzBW4UgggQT6kTmUCNwZGIMz
-	 4GniR0qeBMtdDjya539ER9+gWTLPs54oYfJ03i/QlYxswuUaBaDzMa9i2fSqBH39Cy
-	 HyTHrF88SZ800y1xl6frTgH7aAgM68kpLNKoDyB4yzaYgf6P4XMVuM04MFC+tcaqgj
-	 ABHpqjhfn54ToKXBLwMoo9w6v0oiU34ZRr8nrMMwCqvgpyQ4FqbQoCPJ/HuGPX3wtD
-	 zPmcGrp1mb48SbeSs/37aTDSzBKc1Gkq+Ma5LUXNLsyPbyoJ6Utudwh+Zmu772ukvI
-	 Trc3RFq852zrA==
-Received: from localhost (unknown [100.64.0.241])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id BBD0717E0713;
-	Mon, 06 Jul 2026 21:32:37 +0200 (CEST)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Mon, 06 Jul 2026 22:32:18 +0300
-Subject: [PATCH v2 06/13] drm/rockchip: vop2: Reset AXI and DCLK to improve
- robustness
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+	id 1wgp6S-0000000DSv4-3xjn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Jul 2026 19:35:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple; s=resend;
+	d=c127.dev; t=1783366537;
+	h=In-Reply-To:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type;
+	bh=+yaV2nYwgAaxNIV72gm61ALSOYBmm7bDIUElv0EL4As=;
+	b=hL0wCrsmMvM/WL3klErCI7+e6LOjEUUctPNEZaFkHnTRBojfAVNZrLQMzvq1Mwhm
+	bhJTmtTGMYZ2Xg5XTwzuLXCUW5jY4sg7JTmzPlFMqQCXd/x+lveUo+Es1081OR1wrBO
+	jB+MwlBXsKA/oYmVCdWHcps6XG4e8J/XFBk4hS8c=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1783366537;
+	h=In-Reply-To:From:To:Cc:Subject:Message-ID:Content-Transfer-Encoding:Date:MIME-Version:Content-Type:Feedback-ID;
+	bh=+yaV2nYwgAaxNIV72gm61ALSOYBmm7bDIUElv0EL4As=;
+	b=gVnWzwzwHjUX9eiYko7eUirjGQIErf3nRIOYjarUqELpOAatA3LR7ojnEBez5MT5
+	WdsfIlUvD2FVQALsgRhw605ngZ4vLE7iOdb6NclAoB7FqJb3wBBzk4i077i8kwn7tqy
+	G5igf6jTNVFWPmAQ5hRv3IfX+2Kpgnh+wSRtxd6s=
+In-Reply-To: <akuLzI9GVGn4eI1j@boxer>
+From: Johan Alvarado <contact@c127.dev>
+To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com, 
+	alexandre.torgue@foss.st.com, Jose.Abreu@synopsys.com, pavel@ucw.cz, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: raise TX completion interrupt at the
+ end of an xmit burst
+Message-ID: <0100019f38edce40-fcb1cb45-6136-4563-8289-df75ca13eaa1-000000@email.amazonses.com>
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-dw-hdmi-qp-yuv-v2-6-b91beb33dedf@collabora.com>
-References: <20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com>
-In-Reply-To: <20260706-dw-hdmi-qp-yuv-v2-0-b91beb33dedf@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, David Airlie <airlied@gmail.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: kernel@collabora.com, Andy Yan <andyshrk@163.com>, 
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.15.2
+Date: Mon, 6 Jul 2026 19:35:36 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Feedback-ID: :1.us-east-1.z4rHY0qbNtjoW80ZyzVy+DEul17RQEOMT7FC66S60ffkhLWkV35D8ZWXVyxJY1/89bAuLCem4GFJq1VXsxM0u6ZfZbvT1qSjDUeuZG9/Lxk1uINIqi7CenEa93u+fNllqnJMZ0quaBrclhnmtzdFllG4KHSjZOEcaGLa1BWoSpA=:1.us-east-1.epbACCJLarUaEI78XZoGREJ9LamRjxMH5pM2kZb64rA=:AmazonSES
+X-SES-Outgoing: 2026.07.06-54.240.9.19
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_123241_443523_DB415847 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20260706_123541_105676_FD8F9809 
+X-CRM114-Status: GOOD (  18.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,139 +75,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Assert the AXI reset in the CRTC disable path, and the VP DCLK reset in
-the enable path.
+On Mon, Jul 06, 2026 at 01:04:44PM +0200, Maciej Fijalkowski wrote:
+> Very messy thread. To reiterate - does tx coalescing do any good in this
+> driver?
 
-These resets are intended to leave the hardware in a clean state for the
-next use, helping recover from exceptions such as IOMMU page faults, as
-well as to prevent random display output glitches, such as a blank
-image, observed when switching modes that also change the color format,
-e.g. from RGB to YUV420 and vice versa.
+It does, but today only for traffic that queues deeply enough. Within an
+xmit_more batch the frame counter reduces the IC density to one descriptor
+per tx_coal_frames, and that keeps working with this patch applied: in the
+447 Mbit/s test from the changelog the NIC raised ~3.3k IRQs/s for ~40 kpps
+on the wire, i.e. roughly 12 packets per interrupt, because qdisc bulk
+dequeue, TSO and the intra-batch frame counter still coalesce. What was
+broken is only the case where a flow never accumulates tx_coal_frames
+in-flight frames; there the timer was the sole completion mechanism.
 
-For now this seems to affect only the RK3588, hence the resets are
-optional and will be provided in the device tree for this SoC only.
+> I did some digging and seems there was a rework of coalescing in 2018 and
+> then some more polishing happened in 2023 (net: stmmac: improve TX timer
+> arm logic).
 
-Co-developed-by: Andy Yan <andy.yan@rock-chips.com>
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 36 ++++++++++++++++++++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++++
- 2 files changed, 40 insertions(+)
+The 2023 change only avoids re-arming the timer while NAPI is already
+scheduled, which helps the loaded case. For a lightly queued flow NAPI is
+idle, so the timer still gets armed and the completion still waits out the
+full tx_coal_timer. That is the path this patch addresses.
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 0799eb0dd29f..036cdcc59e51 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -17,6 +17,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
-+#include <linux/reset.h>
- #include <linux/swab.h>
- 
- #include <drm/drm.h>
-@@ -867,6 +868,26 @@ static void vop2_core_clks_disable_unprepare(struct vop2 *vop2)
- 	clk_disable_unprepare(vop2->hclk);
- }
- 
-+static void vop2_reset_assert_deassert(struct vop2 *vop2, struct reset_control *rstc)
-+{
-+	int ret;
-+
-+	if (!rstc)
-+		return;
-+
-+	ret = reset_control_assert(rstc);
-+	if (ret < 0) {
-+		drm_warn(vop2->drm, "failed to assert reset: %d\n", ret);
-+		return;
-+	}
-+
-+	udelay(10);
-+
-+	ret = reset_control_deassert(rstc);
-+	if (ret < 0)
-+		drm_err(vop2->drm, "failed to deassert reset: %d\n", ret);
-+}
-+
- static void rk3588_vop2_power_domain_enable_all(struct vop2 *vop2)
- {
- 	u32 pd;
-@@ -953,6 +974,8 @@ static int vop2_enable(struct vop2 *vop2)
- 
- static void vop2_disable(struct vop2 *vop2)
- {
-+	vop2_reset_assert_deassert(vop2, vop2->axi_rst);
-+
- 	rockchip_drm_dma_detach_device(vop2->drm, vop2->dev);
- 
- 	pm_runtime_put_sync(vop2->dev);
-@@ -1970,6 +1993,8 @@ static void vop2_crtc_atomic_enable(struct drm_crtc *crtc,
- 
- 	vop2_crtc_atomic_try_set_gamma(vop2, vp, crtc, crtc_state);
- 
-+	vop2_reset_assert_deassert(vop2, vp->dclk_rst);
-+
- 	drm_crtc_vblank_on(crtc);
- 
- 	vp->enabled = true;
-@@ -2565,6 +2590,12 @@ static int vop2_create_crtcs(struct vop2 *vop2)
- 			return dev_err_probe(drm->dev, PTR_ERR(vp->dclk),
- 					     "failed to get %s\n", dclk_name);
- 
-+		vp->dclk_rst = devm_reset_control_get_optional_exclusive(vop2->dev,
-+									 dclk_name);
-+		if (IS_ERR(vp->dclk_rst))
-+			return dev_err_probe(drm->dev, PTR_ERR(vp->dclk_rst),
-+					     "failed to get %s reset\n", dclk_name);
-+
- 		np = of_graph_get_remote_node(dev->of_node, i, -1);
- 		if (!np) {
- 			drm_dbg(vop2->drm, "%s: No remote for vp%d\n", __func__, i);
-@@ -2924,6 +2955,11 @@ static int vop2_bind(struct device *dev, struct device *master, void *data)
- 		return dev_err_probe(drm->dev, PTR_ERR(vop2->pll_hdmiphy1),
- 				     "failed to get pll_hdmiphy1\n");
- 
-+	vop2->axi_rst = devm_reset_control_get_optional_exclusive(vop2->dev, "axi");
-+	if (IS_ERR(vop2->axi_rst))
-+		return dev_err_probe(drm->dev, PTR_ERR(vop2->axi_rst),
-+				     "failed to get axi reset\n");
-+
- 	vop2->irq = platform_get_irq(pdev, 0);
- 	if (vop2->irq < 0)
- 		return dev_err_probe(drm->dev, vop2->irq, "cannot find irq for vop2\n");
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-index b209b2d5b96d..1c2d7d97a6c2 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-@@ -165,6 +165,8 @@ enum vop2_win_regs {
- 	VOP2_WIN_MAX_REG,
- };
- 
-+struct reset_control;
-+
- struct vop2_regs_dump {
- 	const char *name;
- 	u32 base;
-@@ -238,6 +240,7 @@ struct vop2_video_port {
- 	struct vop2 *vop2;
- 	struct clk *dclk;
- 	struct clk *dclk_src;
-+	struct reset_control *dclk_rst;
- 	unsigned int id;
- 	const struct vop2_video_port_data *data;
- 
-@@ -335,6 +338,7 @@ struct vop2 {
- 	struct clk *pclk;
- 	struct clk *pll_hdmiphy0;
- 	struct clk *pll_hdmiphy1;
-+	struct reset_control *axi_rst;
- 
- 	/* optional internal rgb encoder */
- 	struct rockchip_rgb *rgb;
+> Wouldn't your change imply that tx coalescing could be dropped altogether?
+> I do agree that each single batch of tx descs should be signalled with ic
+> bit at the end.
 
--- 
-2.54.0
+I don't think it can be dropped, for one correctness reason and two
+practical ones.
 
+The correctness one: the frame counter enforces an upper bound of
+tx_coal_frames descriptors on the distance between IC bits in the TX ring.
+If coalescing were dropped and the IC bit only set on batch tails, that
+distance becomes unbounded, and a batch larger than the ring can fill it
+without a single IC descriptor: every frame queued had xmit_more set, and
+the tail frame that would have carried the IC bit is never queued because
+stmmac_xmit stops the queue first. The hardware drains the entire ring
+without raising a completion interrupt, and only the coalesce timer can
+restart the queue - reintroducing the same timer-bound stall this patch
+removes, now on the bulk path and once per ring drain. With the bound in
+place a full ring always contains at least dma_tx_size / tx_coal_frames
+completion points; even the minimum 64-descriptor ring (DMA_MIN_TX_SIZE)
+still holds two.
+
+The practical ones: the frame counter is what keeps IC density low inside
+large batches (one IC per 25 descriptors rather than a single one at the
+tail with nothing in between), and tx-frames / tx-usecs are user-visible
+ethtool knobs on this driver that users can rely on.
+
+Dropping the frame/timer machinery would also be a rework rather than a
+fix. If there is appetite for that I would rather keep this patch minimal
+for net and discuss a rework separately for net-next.
+
+Best regards,
+Johan
 
