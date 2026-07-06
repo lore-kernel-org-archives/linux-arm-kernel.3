@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFEBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:31:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52EECC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 10:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/ipqegKk/EDFfUXsHGBuepdJETo3GeI79VTrPNPXuo=; b=YymVhMcrOqJccMjHAmyr8oFBdi
-	4SUafzJeqMOW5ZUE62p5mwltJpeBbfYOG5rr2WV5GVelGXHb7zM2GbCx7y0hwiS0zDJimBfaWIdId
-	oy9kSAFVk4ZcfSHCsodaD7/IbJCmW/DjIh9xH5GNGrOYvSAPIiXWFCnDwZuDLpSqSEL7INpBb3jQ8
-	qZKVarJgB9MOreKicAIgAJbjaLgQcrm8SmiJ8IUJMn+c8y5EjUiDrAJhnYUsrfeAyH2jSD+oKrnRX
-	6hP+juv8CEXfRRd0jfXjFoQaATA0zZaa1Z7k0SCAqRGFlf1gTJOA+myZ5fwjBSPJrmoAZ24zjFpCC
-	Xg1UsXig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0SZDMdEL3wailr7iYPimEL4M/TZgd/cJ52z5FbRtbJM=; b=LFCYvvMSa7mDyjOgFHkGZ63djG
+	Ai5M5b3+VTcyKME4kqN7t6BmRGWAMxIwbv4/nup4bSKlPHcT6Sh9DfItZSQt6rYQ2LvGXT+31dole
+	riItadtLZ6m44rbCLpYuf7nsNxPNx/fUnkR/inc9paanK5u2dqmZWodzqK0vNp3u45N5XyxQyeI1T
+	3kwumldUga8VkAqXaYBPS7YfAX0Vx9s47sIE3vLG+aGycJevnVYmByeXHGlVvQmmQS/Z6ggZq6018
+	jvpkZHg/n34YD7ae7UJ4ZPQLx1bwPSxqFZas0d+teRI6iymGeJPP3mY30OQgGHzLyo/RzdYs2Q8wC
+	AeQTL9MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggc5-0000000CDzH-3qwV;
-	Mon, 06 Jul 2026 10:31:45 +0000
-Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
+	id 1wggfd-0000000CEVo-1IdT;
+	Mon, 06 Jul 2026 10:35:25 +0000
+Received: from mx1.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::107])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wggc0-0000000CDva-4BaC
+	id 1wggfX-0000000CEV7-1dbk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 10:31:42 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783333898;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e/ipqegKk/EDFfUXsHGBuepdJETo3GeI79VTrPNPXuo=;
-	b=Nmmu6IaOrdu6PBW/jnkewszoEC/rWSD1PRGq5VlcO3nSUoGX0RRL/cU+kCeymTymlnW5GX
-	NXTfN77zactK172DKBzUvh4R8VrNeKzrU0rx7uWb7avw40TYpRVgw7XUuZT64QgUvPUuZf
-	RtgdErx9A8biXmpazxNXQ0MRDAZdyGY=
-From: Fuad Tabba <fuad.tabba@linux.dev>
-To: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Vincent Donnefort <vdonnefort@google.com>,
-	Keir Fraser <keirf@google.com>,
-	Hyunwoo Kim <imv4bel@gmail.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	Mon, 06 Jul 2026 10:35:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id DD5C0201544;
+	Mon, 06 Jul 2026 12:35:14 +0200 (CEST)
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wggfS-000OQS-2e;
+	Mon, 06 Jul 2026 12:35:14 +0200
+Received: from pza by lupine with local (Exim 4.98.2)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1wggfS-00000000BL5-32JF;
+	Mon, 06 Jul 2026 12:35:14 +0200
+Message-ID: <4030fdf119191dfe38618b8057090c710a45880d.camel@pengutronix.de>
+Subject: Re: [PATCH v5 2/5] thermal/drivers/sun8i: replace
+ devm_reset_control_get to devm_reset_control_get_shared_deasserted
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Mikhail Kalashnikov <iuncuim@gmail.com>, Vasily Khoruzhick	
+ <anarsoul@gmail.com>, Yangtao Li <tiny.windzz@gmail.com>, "Rafael J .
+ Wysocki"	 <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@kernel.org>,
+ Zhang Rui	 <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Rob
+ Herring	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley	 <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>, Jernej
+ Skrabec	 <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/3] KVM: arm64: Drop redundant READ_ONCE() in pkvm_hyp_vm_is_created()
-Date: Mon,  6 Jul 2026 11:31:29 +0100
-Message-Id: <20260706103129.706974-4-fuad.tabba@linux.dev>
-In-Reply-To: <20260706103129.706974-1-fuad.tabba@linux.dev>
-References: <20260706103129.706974-1-fuad.tabba@linux.dev>
+Date: Mon, 06 Jul 2026 12:35:14 +0200
+In-Reply-To: <20260704171411.1413349-3-iuncuim@gmail.com>
+References: <20260704171411.1413349-1-iuncuim@gmail.com>
+	 <20260704171411.1413349-3-iuncuim@gmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_033141_185209_4C9CF467 
-X-CRM114-Status: GOOD (  10.17  )
+X-CRM114-CacheID: sfid-20260706_033522_312054_AD049532 
+X-CRM114-Status: GOOD (  16.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +80,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-is_created is written under config_lock. Every concurrent reader is
-serialised against that write: pkvm_create_hyp_vm() under config_lock,
-and the memslot path (kvm_arch_prepare_memory_region) via slots_lock,
-which the creation writer also holds. The teardown-path accesses have no
-concurrent writer. The read is therefore serialised, and the READ_ONCE()
-is unnecessary.
+On So, 2026-07-05 at 01:14 +0800, Mikhail Kalashnikov wrote:
+> The A523 processor has two temperature controllers, but they share a
+> common reset line. Make it shared with the shared variant of
+> devm_reset_control_get(), and also simplify the driver by switching to
+> devm_reset_control_get_shared_deasserted().
+>=20
+> Signed-off-by: Mikhail Kalashnikov <iuncuim@gmail.com>
+> Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+> ---
+>  drivers/thermal/sun8i_thermal.c | 16 +---------------
+>  1 file changed, 1 insertion(+), 15 deletions(-)
+>=20
+> diff --git a/drivers/thermal/sun8i_thermal.c b/drivers/thermal/sun8i_ther=
+mal.c
+> index 226747906..df0c26970 100644
+> --- a/drivers/thermal/sun8i_thermal.c
+> +++ b/drivers/thermal/sun8i_thermal.c
+> @@ -342,11 +342,6 @@ static int sun8i_ths_calibrate(struct ths_device *tm=
+dev)
+>  	return ret;
+>  }
+> =20
+> -static void sun8i_ths_reset_control_assert(void *data)
+> -{
+> -	reset_control_assert(data);
+> -}
+> -
+>  static struct regmap *sun8i_ths_get_sram_regmap(struct device_node *node=
+)
+>  {
+>  	struct platform_device *sram_pdev;
+> @@ -389,19 +384,10 @@ static int sun8i_ths_resource_init(struct ths_devic=
+e *tmdev)
+>  		return PTR_ERR(tmdev->regmap);
+> =20
+>  	if (tmdev->chip->has_bus_clk_reset) {
+> -		tmdev->reset =3D devm_reset_control_get(dev, NULL);
+> +		tmdev->reset =3D devm_reset_control_get_shared_deasserted(dev, NULL);
 
-Reviewed-by: Keir Fraser <keirf@google.com>
-Signed-off-by: Fuad Tabba <fuad.tabba@linux.dev>
----
- arch/arm64/kvm/pkvm.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Nothing wrong with your patch, but why is this stored on struct
+ths_device at all? It's never used. You could turn this into a local
+variable while you're at it. Either way,
 
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 67b90a58fbea2..008766273912e 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -185,7 +185,11 @@ static int __pkvm_create_hyp_vm(struct kvm *kvm)
- 
- bool pkvm_hyp_vm_is_created(struct kvm *kvm)
- {
--	return READ_ONCE(kvm->arch.pkvm.is_created);
-+	/*
-+	 * Serialised by config_lock/slots_lock, or by VM lifecycle at
-+	 * teardown, so a plain read suffices.
-+	 */
-+	return kvm->arch.pkvm.is_created;
- }
- 
- int pkvm_create_hyp_vm(struct kvm *kvm)
--- 
-2.39.5
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 
+
+regards
+Philipp
 
