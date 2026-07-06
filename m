@@ -4,108 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BF4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 05:57:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C5AEC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Jul 2026 06:05:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SMcr9aZxtwESDtUViXE52gMUWOmtkD5jpNJK77DhaV8=; b=km88lS0FDIRe+CuZ/neAH1ZyYN
-	WkIshnjwsiUVkKckHIYvKbJ57Zjebk9pw6SSsNxWW3zWDvps0Ew2Yg2fCL+KIVNH8/OLxLPBVmC0o
-	xqOtQMPZ6o0FFjXpt1bC8orC0e9s9Polzl2GJFnli7wuigJ4ezV0y6ep+VOJ2dVAiApgt6q4EeqEu
-	4cxb6S5X2I9/DgJrMQDyloOdS/NSL6T7QmItWYEmOh+N6MapNgJza8Suc1k9YzqH8PAHPnGCfvaq+
-	d6Tj1qvCW0YjtM5cZ5souZehtPIXSuzcNmPvDV6CPa6HFtZRERVXKrcfkG1W/lgpEjKVAQ3zmH9y6
-	LjUejEYA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=r3OLwCLzrdfNnIhPdS1rljkW4wI+QhRkJZeINfWIVlI=; b=EWDUijjeakCTzIBipdZ37Zk2N5
+	h+pqYqGSx2Ww01m2i8OTYbkP4O6d9bCQmnigRieQtsZDZ3lXcStNuZ3ykOIvWL3Suv9X+/QxBssPM
+	NQkFkiNfH9yNCzhT3mr5KyLKwn0vPuS8m1lz4ErZZUX630urLBuw9VsCtvaJXNvL0ZP5tLLAeCD0G
+	GQ16kPwJovyq8WjgcqtIrRBR9cUSoj9jO3AwgroBzsTeJYBnI3CtjOYbAkL3+2rwdXPZ6DcNsOAOE
+	BU0HNFTRpUid4bE6SufDxanA0mccCIAVa8XYEKlZMyN7Yv4VYV6sDhoYblaI51Lh9jRxDfkzoH2ji
+	sW+kU+YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcKE-0000000BYja-3TrJ;
-	Mon, 06 Jul 2026 05:57:02 +0000
+	id 1wgcRm-0000000BZ4Q-2Iq5;
+	Mon, 06 Jul 2026 06:04:50 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgcKD-0000000BYjF-0sdH
+	id 1wgcRk-0000000BZ4I-3g51
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Jul 2026 05:57:01 +0000
+	Mon, 06 Jul 2026 06:04:48 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3106760018;
-	Mon,  6 Jul 2026 05:57:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9112D1F000E9;
-	Mon,  6 Jul 2026 05:56:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D90CC60018;
+	Mon,  6 Jul 2026 06:04:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A39E91F000E9;
+	Mon,  6 Jul 2026 06:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783317419;
-	bh=SMcr9aZxtwESDtUViXE52gMUWOmtkD5jpNJK77DhaV8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=MPkzDKVpN8sBgDcpB9hunesBHiu6H521lRekOJYQVioG1dHtlROKGJqQbNfwg+yuF
-	 RCuG1ZoBMmwHG9kfs4GALdwPvHeEYcjBVv348dc7ZLsNo9jZvLv3ZUtPE6nW3wlLyc
-	 eRVxH7Njgk1hDBBTX03psE3n+kA8niNzoMjuwsC20V1Wem0lOK5HrWa2s1w1q9y/80
-	 c7C6pt+9S7r5hiWszip/GYOxSl6UGViWlD5jZVs4BiYuf9VCVgdgvAzwbdsqerWU/O
-	 8rwDV6uH1cq+YWnqjY7y1MldUkrOWRcOVFQv2LOUtztTEJbpdBVCHWbAG8IYzET2A8
-	 f/a8G2vT8T/jw==
-Message-ID: <033ae2ef-e260-4e96-9986-ffd0db3e3caa@kernel.org>
-Date: Mon, 6 Jul 2026 07:56:53 +0200
+	s=k20260515; t=1783317887;
+	bh=r3OLwCLzrdfNnIhPdS1rljkW4wI+QhRkJZeINfWIVlI=;
+	h=From:To:Cc:Subject:Date;
+	b=FPUBOXwcOcvi0mzuPTG5EqefR5H2RHu+VaPrcXVL7v7PGpNUZopqxrLYlwHZhgSd+
+	 iyfDYb5/hiKTlfstROFGvlKE2itlmXf9Ct/5abewCOh8/8Dd1pa6/SI1gNYsn3KP3g
+	 nmgaIZNW//jvhE6fweSYso9MSg1I6ORlrtNw8RTwMF10qkpNwJX3+dr1cQEnaDtJ5X
+	 iML/5REx2CCDfsVUQNAMCD2yXl3w5gxiAdd/EqSNskZFd0MKz3gEoiSGQQfBQgmUkd
+	 l7XIezjr1GxhW6VL3EPYy7iwctDa+ZoffmoLbqKc8Yk2JEw3Igb5hRlx5o1g/W8c1U
+	 REqsQXol5CUqA==
+From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+To: linux-coco@lists.linux.dev,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev
+Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Marc Zyngier <maz@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Will Deacon <will@kernel.org>
+Subject: [PATCH v5 00/10] coco: guest: Enforce host page-size alignment for shared buffers
+Date: Mon,  6 Jul 2026 11:34:22 +0530
+Message-ID: <20260706060432.1375570-1-aneesh.kumar@kernel.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: iio: adc: convert Xilinx XADC bindings to
- YAML
-To: Mikhail Lukianchikov <avermoal@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Jonathan Cameron <jic23@kernel.org>, David Lechner
- <dlechner@baylibre.com>, =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Michal Simek <michal.simek@amd.com>,
- linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <d7607a98-f5e1-417f-ad64-d0029c9de662@kernel.org>
- <20260705165620.9818-1-avermoal@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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
-In-Reply-To: <20260705165620.9818-1-avermoal@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,36 +78,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/07/2026 18:56, Mikhail Lukianchikov wrote:
->>> Convert the Xilinx XADC binding documentation from .txt to YAML format.
->>> This conversion is part of the ongoing effort to migrate all DT bindings
->>> to a machine-verifiable schema.
->>
->> Sorry, but what effort exactly? Where is this effort documented? Do you
->> have a mentor if this is some sort of mentorship effort?
->>
->> And if this is ongoing effort then don't duplicate:
->> https://lore.kernel.org/all/?q=dfn%3Axilinx-xadc.txt
-> 
-> Hello Krzyszof,
-> 
-> Thank you for feedback.
-> 
-> I'm the newbie at Linux kernel developers community,
-> and sorry for my mistakes in sending commits.
-> 
-> I'll answer your questions.
-> I am not part of any official mentorship program,
-> I just decided to try to contribute to the development of the Linux kernel.
-> Yes, it's a ongoing effort, and to be honest, this effort is the general
-> community initiative to convert all DT bindings from .txt to .yaml. I didn't know that work
-> on this file was already underway.
-Take a look at other commits to learn how the commit msg could be written.
+Hi,
 
-In any case,
-1. Do not send duplicated versions of patches (you posted same twice).
-2. Check if that binding was converted already.
+This series tightens the alignment requirements for buffers that are shared
+between confidential-computing guests and the host.
 
-Best regards,
-Krzysztof
+When a guest runs with private memory, buffers shared with the hypervisor
+are not only accessed by the guest. They are also accessed by the host
+kernel, and the host may manage the corresponding shared/private state at a
+granularity larger than the guest page size.
+
+This matters for CCA systems where the Realm stage-2 mappings managed by
+the RMM can still operate at 4K granularity, while the non-secure host may
+manage the IPA state change at a larger page size, for example 64K. In that
+case, allowing a guest to convert and share only a 4K subrange of a
+host-managed granule is unsafe.
+
+Architectures such as Arm can detect incorrect accesses to Realm physical
+address space PFNs through GPC faults. However, relying on that as the only
+line of defence is fragile and can still lead to kernel crashes. The risk
+is especially visible for shared buffers that are later mmapped into
+userspace, such as guest_memfd or dma-buf backed allocations. Once
+userspace can access the mapping, the kernel cannot guarantee that
+applications will only touch the intended 4K region rather than the whole
+host page mapped into their address space. Those userspace addresses may
+also be passed back into the kernel and accessed through the linear map,
+resulting in a GPC fault.
+
+To avoid this, shared buffers must satisfy two constraints:
+
+  - the address must be aligned to the CoCo shared-granule size
+  - the size must be a multiple of that granule size
+
+The series adds generic helpers for this:
+
+  - mem_cc_shared_granule_size()
+  - mem_cc_align_to_shared_granule()
+
+The generic implementation defaults to PAGE_SIZE. arm64 CCA overrides this
+by querying the host IPA state change granule size through RHI and exposing that
+value through the arm64 memory-encryption operations.
+
+The patche series update the main shared-buffer allocation paths that can
+be used by private-memory guests:
+
+  - arm64 set_memory_encrypted()/set_memory_decrypted() now reject unaligned
+    addresses or sizes.
+  - GIC ITS shared allocations are rounded to the shared granule size.
+  - dma-direct and atomic DMA pool allocations use aligned allocation and
+    conversion sizes.
+  - SWIOTLB pools, including dynamic pools, are allocated and converted at the
+    shared granule size.
+  - restricted-dma-pool regions are checked and rejected if firmware did not
+    provide a base and size aligned to the shared granule size.
+  - dma-buf system heap cc-shared allocations require aligned sizes and use at
+    least the required allocation order.
+
+Hyper-V users of set_memory_encrypted() and set_memory_decrypted() are not
+changed by this series. Those paths are not currently used by the arm64 CCA
+code path, and therefore are not part of the arm64 CCA IPA state change alignment
+problem addressed here.
+
+The series is based on:
+
+  - https://lore.kernel.org/all/20260701054926.825925-1-aneesh.kumar@kernel.org
+  - https://lore.kernel.org/all/20260611130429.295516-1-aneesh.kumar@kernel.org
+
+Changes from v4:
+https://lore.kernel.org/all/20260427063108.909019-1-aneesh.kumar@kernel.org
+Changes since v4:
+* Rename the helpers to use CoCo terminology
+  (mem_cc_shared_granule_size() / mem_cc_align_to_shared_granule() instead of
+  mem_decrypt_granule_size() / mem_decrypt_align()).
+* Use __DMA_ATTR_ALLOC_CC_SHARED to pass CoCo shared allocation requirements
+  down to CMA-based allocation helpers.
+* Add validation for restricted DMA pools to reject pools that are not aligned
+  to the shared granule size.
+* Add dma-buf system heap handling for cc-shared buffers.
+* Split the previous combined DMA/SWIOTLB/ITS change into smaller subsystem
+  patches covering ITS, DMA direct, SWIOTLB, restricted DMA pools, dma-buf
+  system heap, and arm64 Realm support.
+* Rework arm64 Realm support by moving Realm memory encryption ops into RSI
+  code and exposing the CCA shared granule size through arm64_mem_crypt_ops.
+
+Changes from v3:
+https://lore.kernel.org/all/20260309102625.2315725-1-aneesh.kumar@kernel.org
+* Fix build error reported by kernel test robot <lkp@intel.com>
+
+Changes from v2:
+https://lore.kernel.org/all/20251221160920.297689-1-aneesh.kumar@kernel.org
+* Rebase to latest kernel
+* Consider swiotlb always decrypted and don't align when allocating from swiotlb.
+
+Changes from v1:
+* Rename the helper to mem_encrypt_align
+* Improve the commit message
+* Handle DMA allocations from contiguous memory
+* Handle DMA allocations from the pool
+* swiotlb is still considered unencrypted. Support for an encrypted swiotlb pool
+  is left as TODO and is independent of this series.
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Steven Price <steven.price@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Thomas Gleixner <tglx@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+
+Aneesh Kumar K.V (Arm) (10):
+  mm/mem_encrypt: Add helpers for shared-buffer alignment
+  irqchip/gic-v3-its: Align shared ITS allocations to the CoCo shared
+    granule size
+  dma-mapping: Pass allocation attrs to contiguous allocation helpers
+  dma-direct: Align CoCo shared DMA allocations to the shared granule
+    size
+  swiotlb: Align shared IO TLB pools to the shared granule size
+  swiotlb: Reject misaligned restricted DMA pools for CoCo guests
+  dma-buf: system_heap: Enforce shared-granule alignment for cc-shared
+    buffers
+  arm64: realm: Move Realm memory encryption ops to RSI code
+  arm64: realm: Add RHI helper to query IPA state change alignment
+  arm64: realm: Expose the CCA shared granule size through mem_encrypt
+    ops
+
+ arch/arm64/include/asm/mem_encrypt.h |  5 +-
+ arch/arm64/include/asm/rsi_cmds.h    | 10 ++++
+ arch/arm64/kernel/rsi.c              | 90 ++++++++++++++++++++++++++++
+ arch/arm64/mm/mem_encrypt.c          | 32 ++++++++--
+ arch/arm64/mm/pageattr.c             | 38 +-----------
+ drivers/dma-buf/heaps/system_heap.c  | 50 +++++++++++++---
+ drivers/iommu/dma-iommu.c            |  2 +-
+ drivers/irqchip/irq-gic-v3-its.c     | 17 ++++--
+ include/linux/arm-smccc-rhi.h        | 25 ++++++++
+ include/linux/arm-smccc-rsi.h        |  7 +++
+ include/linux/dma-map-ops.h          |  5 +-
+ include/linux/mem_encrypt.h          | 14 +++++
+ kernel/dma/contiguous.c              | 13 +++-
+ kernel/dma/direct.c                  | 27 ++++++---
+ kernel/dma/ops_helpers.c             |  3 +-
+ kernel/dma/pool.c                    |  4 +-
+ kernel/dma/swiotlb.c                 | 36 ++++++++---
+ 17 files changed, 300 insertions(+), 78 deletions(-)
+ create mode 100644 include/linux/arm-smccc-rhi.h
+
+-- 
+2.43.0
+
 
