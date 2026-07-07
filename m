@@ -4,95 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDE7C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:03:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BD3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:07:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OASSxXJmGaDT/uwBYzqLU/UJt7dS4PW4F+eiwSUGvN0=; b=lvkAvN+O9JvANgaATRq2uaJWwE
-	ZQvKLu+1e3huzBfJMT4eYqtKhV+AtxL5cAO60f6PyzjcV1UCMk8iK4kWptX2iUw1LUaHeoqHexto8
-	369O03fK/Yl6ieU3955nmEt3ctAMPTo5y9/SFREUFTqRebljQw2xhX8k+dv+XU7eQC2LD7fwjcaHj
-	KVRm0PE2Q3gUH3MtLL3lc/cVK2EDYoJLw9GimF7CyrPZLbNVFI3pEvRJ7oe0R5btJCMySI4tLnG/C
-	3OuFvt5wlbz7mtobrKBn2cp0ArtpzMapI7ekKJoIYaDvPq1eSIb2elp/GoElE+qHSGSy7csrm6S5J
-	Gft96GTQ==;
+	bh=f52rDUqZefsEXjI3bNvaVSNEPf8n6Uz1WBU6oS8DTbc=; b=fEx5ZL+rHWKNUIH19LBjm6P1Tn
+	iCOO+Z+5i5kB5pUaiRRnWYyO0SM/xKO2Cyu8KNgumzR5ZIAwT8yhYU0RNSBVMF49GkBf4zpITlGSM
+	K4boMV6VwrZhYsX8gwUtdwedExYLXe+o0j+zThWwWjCh4WRQI8bcd25OjKOwTg6n32sP8VlH4ifCk
+	xXnP3++TVcFU421fbyUNX7Dnt/TMaTmyeJ6+DjgUDo8u3fAYLKYthUsOv31Te5q7PJUUVJSp2Xthg
+	1hkJprOlHN0XlGWbaZooqtwxQR8wVK5ADQlAkGsvouOP09eVhPg1jOe00sZaA8YoWoTmW5Ti/u4I2
+	ijyNSIdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2dl-0000000EhGG-3Zuy;
-	Tue, 07 Jul 2026 10:02:57 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2dh-0000000EhEe-3EJb
+	id 1wh2i8-0000000Ehai-1XnV;
+	Tue, 07 Jul 2026 10:07:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh2i5-0000000Eha5-2kIJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 10:02:56 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20260707100248euoutp02c128470cd60985157ba2f1951ac410ba~-_b0ZdUlR0057200572euoutp02G;
-	Tue,  7 Jul 2026 10:02:48 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20260707100248euoutp02c128470cd60985157ba2f1951ac410ba~-_b0ZdUlR0057200572euoutp02G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783418568;
-	bh=OASSxXJmGaDT/uwBYzqLU/UJt7dS4PW4F+eiwSUGvN0=;
-	h=Date:From:Subject:To:Cc:In-Reply-To:References:From;
-	b=RHCrShFX9Zi8e6102GUrdmlOX/rENJ+/+JuCky5tdn57zI6kqM/nq4spocntdRJKD
-	 cxPgadB2teIqAQFmTL+UKcTizeCAL0ubzPJa+xDu1F3MyMDbRsL1NOEyOPlSjJZo4G
-	 44B/fzM2C25EXEtbRRF8gVk2FDX0DehKHmBzMIF0=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20260707100247eucas1p1439bac88cad923ef2478e1b2f63f9adc~-_b0IsPTq2255222552eucas1p19;
-	Tue,  7 Jul 2026 10:02:47 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260707100245eusmtip202869722a30826a0db562dfb7a375b13~-_bx0DY2s0196401964eusmtip2h;
-	Tue,  7 Jul 2026 10:02:45 +0000 (GMT)
-Message-ID: <3f47aeab-33b1-4966-a5ce-5d6d5261e0e2@samsung.com>
-Date: Tue, 7 Jul 2026 12:02:44 +0200
+	Tue, 07 Jul 2026 10:07:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31D5C1691;
+	Tue,  7 Jul 2026 03:07:19 -0700 (PDT)
+Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F65D3F85F;
+	Tue,  7 Jul 2026 03:07:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1783418843; bh=efPPuJBmHOVIcmAa1CJwiO+3EKUgUA53PYhTK93MGSI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=rbe3MZI++urCP1OCSOL/NfQrdslSkTwiCgeA9Q9anpf+Ns2m6p4JqP36x4i8l1pF5
+	 fb29/Ly4R6dJr8KGLT6MsmCN2M8+HWcEEVpszo+08LPmaT06d5iDmLPqkaq/zbRL69
+	 uVvTAbUBciXqLYBrviuDehD4/e50rUuQUuj3aL1o=
+From: Leonardo Bras <leo.bras@arm.com>
+To: Tian Zheng <zhengtian10@huawei.com>
+Cc: Leonardo Bras <leo.bras@arm.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Marc Zyngier <maz@kernel.org>,
+	oupton@kernel.org,
+	catalin.marinas@arm.com,
+	corbet@lwn.net,
+	pbonzini@redhat.com,
+	will@kernel.org,
+	yuzenghui@huawei.com,
+	wangzhou1@hisilicon.com,
+	liuyonglong@huawei.com,
+	Jonathan.Cameron@huawei.com,
+	yezhenyu2@huawei.com,
+	linuxarm@huawei.com,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	skhan@linuxfoundation.org,
+	suzuki.poulose@arm.com
+Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
+Date: Tue,  7 Jul 2026 11:07:14 +0100
+Message-ID: <akzP0T_Qd9yuZsPI@LeoBrasDK>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <34447d66-8d53-4dc7-82fe-58057f2a5b57@huawei.com>
+References: <20260225040421.2683931-1-zhengtian10@huawei.com> <20260225040421.2683931-4-zhengtian10@huawei.com> <ahzUUDAMoHtDFJD3@inochi.infowork> <864ijmvdpy.wl-maz@kernel.org> <ah1KLrpYBXSMM91H@inochi.infowork> <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com> <aku1N23Szkta9uA6@LeoBrasDK> <34447d66-8d53-4dc7-82fe-58057f2a5b57@huawei.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-Subject: Re: [PATCH v3 06/11] mm/cma: Allow dynamically creating CMA areas
-To: Thierry Reding <thierry.reding@kernel.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Jonathan Hunter <jonathanh@nvidia.com>, Mikko
-	Perttunen <mperttunen@nvidia.com>, Yury Norov <yury.norov@gmail.com>, Rasmus
-	Villemoes <linux@rasmusvillemoes.dk>, Russell King <linux@armlinux.org.uk>,
-	Alexander Gordeev <agordeev@linux.ibm.com>, Gerald Schaefer
-	<gerald.schaefer@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily
-	Gorbik <gor@linux.ibm.com>, Christian Borntraeger
-	<borntraeger@linux.ibm.com>, Sven Schnelle <svens@linux.ibm.com>, Andrew
-	Morton <akpm@linux-foundation.org>, David Hildenbrand <david@kernel.org>,
-	Lorenzo Stoakes <ljs@kernel.org>, "Liam R. Howlett" <liam@infradead.org>,
-	Vlastimil Babka <vbabka@kernel.org>, Mike Rapoport <rppt@kernel.org>, Suren
-	Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, Robin
-	Murphy <robin.murphy@arm.com>, Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey
-	<Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, "T.J. Mercier"
-	<tjmercier@google.com>, =?UTF-8?Q?Christian_K=C3=B6nig?=
-	<christian.koenig@amd.com>, Steven Rostedt <rostedt@goodmis.org>, Masami
-	Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
-	<mathieu.desnoyers@efficios.com>, Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-mm@kvack.org, iommu@lists.linux.dev,
-	linaro-mm-sig@lists.linaro.org, linux-trace-kernel@vger.kernel.org
-Content-Language: en-US
-In-Reply-To: <20260701-tegra-vpr-v3-6-d80f7b871bb4@nvidia.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20260707100247eucas1p1439bac88cad923ef2478e1b2f63f9adc
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c
-X-EPHeader: CA
-X-CMS-RootMailID: 20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c
-References: <20260701-tegra-vpr-v3-0-d80f7b871bb4@nvidia.com>
-	<CGME20260701160902eucas1p1214af933ba0f54b85630a3a4e5a4689c@eucas1p1.samsung.com>
-	<20260701-tegra-vpr-v3-6-d80f7b871bb4@nvidia.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_030254_512742_FFAD8C98 
-X-CRM114-Status: GOOD (  39.84  )
+X-CRM114-CacheID: sfid-20260707_030725_797472_CF18DF68 
+X-CRM114-Status: GOOD (  53.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,389 +90,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01.07.2026 18:08, Thierry Reding wrote:
-> From: Thierry Reding <treding@nvidia.com>
->
-> There is no technical reason why there should be a limited number of CMA
-> regions, so extract some code into helpers and use them to create extra
-> functions (cma_create() and cma_free()) that allow creating and freeing,
-> respectively, CMA regions dynamically at runtime.
+On Tue, Jul 07, 2026 at 02:11:23PM +0800, Tian Zheng wrote:
+> 
+> On 7/6/2026 10:01 PM, Leonardo Bras wrote:
+> > On Fri, Jun 05, 2026 at 04:29:49PM +0800, Tian Zheng wrote:
+> > > On 6/1/2026 5:05 PM, Inochi Amaoto wrote:
+> > > > On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
+> > > > > On Mon, 01 Jun 2026 01:50:22 +0100,
+> > > > > Inochi Amaoto <inochiama@gmail.com> wrote:
+> > > > > > On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
+> > > > > > > From: eillon <yezhenyu2@huawei.com>
+> > > > > > > 
+> > > > > > > Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+> > > > > > > indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
+> > > > > > > to notify the user of the feature.
+> > > > > > > 
+> > > > > > > Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+> > > > > > > ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+> > > > > > > cannot be determined at KVM initialization, an IOCTL interface is
+> > > > > > > required.
+> > > > > > > 
+> > > > > > > Actually exposing the new capability to user space happens in a later
+> > > > > > > patch.
+> > > > > > > 
+> > > > > > > Signed-off-by: eillon <yezhenyu2@huawei.com>
+> > > > > > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> > > > > > > ---
+> > > > > > >    arch/arm64/include/asm/cpufeature.h |  5 +++++
+> > > > > > >    arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
+> > > > > > >    arch/arm64/tools/cpucaps            |  1 +
+> > > > > > >    include/uapi/linux/kvm.h            |  1 +
+> > > > > > >    tools/include/uapi/linux/kvm.h      |  1 +
+> > > > > > >    5 files changed, 20 insertions(+)
+> > > > > > > 
+> > > > > > > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> > > > > > > index 4de51f8d92cb..dcc2e2cad5ad 100644
+> > > > > > > --- a/arch/arm64/include/asm/cpufeature.h
+> > > > > > > +++ b/arch/arm64/include/asm/cpufeature.h
+> > > > > > > @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+> > > > > > >    	return cpus_have_final_cap(ARM64_HAFT);
+> > > > > > >    }
+> > > > > > > 
+> > > > > > > +static inline bool system_supports_hdbss(void)
+> > > > > > > +{
+> > > > > > > +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+> > > > > > > +}
+> > > > > > > +
+> > > > > > >    static __always_inline bool system_supports_mpam(void)
+> > > > > > >    {
+> > > > > > >    	return alternative_has_cap_unlikely(ARM64_MPAM);
+> > > > > > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> > > > > > > index c31f8e17732a..348b0afffc3e 100644
+> > > > > > > --- a/arch/arm64/kernel/cpufeature.c
+> > > > > > > +++ b/arch/arm64/kernel/cpufeature.c
+> > > > > > > @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+> > > > > > >    	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+> > > > > > >    }
+> > > > > > > 
+> > > > > > > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
+> > > > > > > +{
+> > > > > > > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
+> > > > > > > +}
+> > > > > > > +
+> > > > > > >    bool cpu_supports_bbml2_noabort(void)
+> > > > > > >    {
+> > > > > > >    	/*
+> > > > > > > @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+> > > > > > >    		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+> > > > > > >    	},
+> > > > > > >    #endif
+> > > > > > > +	{
+> > > > > > > +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+> > > > > > > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> > > > > > > +		.capability = ARM64_HAS_HDBSS,
+> > > > > > > +		.matches = has_vhe_hdbss,
+> > > > > > > +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+> > > > > > > +	},
+> > > > > > >    	{
+> > > > > > >    		.desc = "CRC32 instructions",
+> > > > > > >    		.capability = ARM64_HAS_CRC32,
+> > > > > > > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> > > > > > > index 7261553b644b..f6ece5b85532 100644
+> > > > > > > --- a/arch/arm64/tools/cpucaps
+> > > > > > > +++ b/arch/arm64/tools/cpucaps
+> > > > > > > @@ -68,6 +68,7 @@ HAS_VA52
+> > > > > > >    HAS_VIRT_HOST_EXTN
+> > > > > > >    HAS_WFXT
+> > > > > > >    HAS_XNX
+> > > > > > > +HAS_HDBSS
+> > > > > > >    HAFT
+> > > > > > >    HW_DBM
+> > > > > > >    KVM_HVHE
+> > > > > > > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+> > > > > > > index 65500f5db379..15ee42cdbd51 100644
+> > > > > > > --- a/include/uapi/linux/kvm.h
+> > > > > > > +++ b/include/uapi/linux/kvm.h
+> > > > > > > @@ -985,6 +985,7 @@ struct kvm_enable_cap {
+> > > > > > >    #define KVM_CAP_ARM_SEA_TO_USER 245
+> > > > > > >    #define KVM_CAP_S390_USER_OPEREXEC 246
+> > > > > > >    #define KVM_CAP_S390_KEYOP 247
+> > > > > > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+> > > > > > > 
+> > > > > > >    struct kvm_irq_routing_irqchip {
+> > > > > > >    	__u32 irqchip;
+> > > > > > > diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
+> > > > > > > index dddb781b0507..93e0a1e14dc7 100644
+> > > > > > > --- a/tools/include/uapi/linux/kvm.h
+> > > > > > > +++ b/tools/include/uapi/linux/kvm.h
+> > > > > > > @@ -974,6 +974,7 @@ struct kvm_enable_cap {
+> > > > > > >    #define KVM_CAP_GUEST_MEMFD_FLAGS 244
+> > > > > > >    #define KVM_CAP_ARM_SEA_TO_USER 245
+> > > > > > >    #define KVM_CAP_S390_USER_OPEREXEC 246
+> > > > > > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
+> > > > > > > 
+> > > > > > >    struct kvm_irq_routing_irqchip {
+> > > > > > >    	__u32 irqchip;
+> > > > > > > --
+> > > > > > > 2.33.0
+> > > > > > > 
+> > > > > > Instead of having these architecture specific capability, I wonder if
+> > > > > > we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
+> > > > > > other architecture supports similar things can reuse this capability,
+> > > > > What of the existing stuff doing the same thing? x86's PML, to start
+> > > > > with?
+> > > > > 
+> > > > In fact I think the HDBSS is the first one with non-fixed size.
+> > > > Although there is a in process RISC-V extension for it, there will
+> > > > be a long story to make it ratified.
+> > > > 
+> > > > > > For this generic thing I suggest, the getter returns the max support
+> > > > > > entry count (or the buffer size) it supports like the dirty ring
+> > > > > > capability. And the setter just let the architecture set the parameters
+> > > > > > based on the user request.
+> > > > > This looks wrong on a number of levels.
+> > > > > 
+> > > > > - If you want something generic, there is the existing dirty
+> > > > >     log/bitmap. How this stuff is populated is none of the user's
+> > > > >     business (trapping write accesses, dirty bit collection from the
+> > > > >     PTs, or HW-generated log), and we don't need an extra feature for
+> > > > >     it. Performance will obviously suck, but that's what you pay for
+> > > > >     something abstracted and cross-architecture.
+> > > > > 
+> > > > > - If you want something architecture specific, then it can't be
+> > > > >     generic, by definition. You get the raw speed and compatibility with
+> > > > >     other arch-specific extensions.
+> > > > > 
+> > > > OK, I agree, it is better to keep this thing arch-specific. Doing a
+> > > > generic thing does not benefit too much, I have made a mistake on
+> > > > it. Thanks for your kindly explanation.
+> > > 
+> > > Awesome. Thanks for the review.
+> > > 
+> > > I agree with Marc—keeping this ARM-specific is the right approach.
+> > > Also, in v4 we're removing the ioctl interface entirely. HDBSS will be
+> > > auto-enabled during migration setup and auto-disabled when migration
+> > > completes, so the capability naming issue becomes moot.
+> > > 
+> > > I plan to post v4 with the updated approach soon.
+> > Hi Tian,
+> > 
+> > Any updates in the v4?
+> > Please let me know if you want help in any kind, in regards to this
+> > patchset.
+> > 
+> > Thanks!
+> > Leo
+> Hi Leo,
+> 
+> Thanks for the follow-up. I've finished polishing v4 and am doing one last
+> internal review.
+> 
+> In this version, I've also aligned with the latest HACDBS v2 implementation
+> you shared—e.g.,
+> auto-inserting KVM_PGTABLE_S2_DBM into pgt->flags during
+> kvm_init_stage2_mmu.
+> 
+> One note: dirty ring mode is not yet supported in v4—the series currently
+> focuses on the
+> dirty bitmap mode. I'll explicitly call this out in the commit messages
+> (including that
+> KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE and related dirty ring components are
+> omitted) to avoid
+> any confusion during review.
+> 
+> I plan to send v4 out later this week.
+> 
+> Thanks,
+> Tian
 
+Hi Tian,
 
-Well, the technical reason for not creating cma regions dynamically at
-runtime is that on some architectures (like 32bit ARM) the early fixup
-for the region is needed to make it functional for DMA.
-
-
-I would add a comment about that in the cma_create() and ensure that its
-future callers explicitly depend on !ARM_32BIT.
-
-
-> The static array of CMA areas cannot be replaced by dynamically created
-> areas because for many of them, allocation must not fail and some cases
-> may need to initialize them before the slab allocator is even available.
-> To account for this, keep these "early" areas in a separate list and
-> track the dynamic areas in a separate list.
->
-> Signed-off-by: Thierry Reding <treding@nvidia.com>
-> ---
-> Changes in v3:
-> - rebase on top of recent linux-next, update kernel/dma/contiguous.c
-> - use kzalloc_obj() instead of kzalloc() with sizeof()
->
-> Changes in v2:
-> - rename fixed number of CMA areas to reflect their main use
-> - account for pages in dynamically allocated regions
-> ---
-> arch/arm/mm/dma-mapping.c | 2 +-
-> arch/s390/mm/init.c | 2 +-
-> include/linux/cma.h | 8 +-
-> kernel/dma/contiguous.c | 2 +-
-> mm/cma.c | 187 +++++++++++++++++++++++++++++++++++++---------
-> mm/cma.h | 5 +-
-> 6 files changed, 165 insertions(+), 41 deletions(-)
->
-> diff --git a/arch/arm/mm/dma-mapping.c b/arch/arm/mm/dma-mapping.c
-> index f9bc53b60f99..934952ab2102 100644
-> --- a/arch/arm/mm/dma-mapping.c
-> +++ b/arch/arm/mm/dma-mapping.c
-> @@ -254,7 +254,7 @@ struct dma_contig_early_reserve {
-> unsigned long size;
-> };
-> -static struct dma_contig_early_reserve dma_mmu_remap[MAX_CMA_AREAS] __initdata;
-> +static struct dma_contig_early_reserve dma_mmu_remap[MAX_EARLY_CMA_AREAS] __initdata;
-> static int dma_mmu_remap_num __initdata;
-> diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-> index f07168a0d3dd..f8f78f1434ea 100644
-> --- a/arch/s390/mm/init.c
-> +++ b/arch/s390/mm/init.c
-> @@ -241,7 +241,7 @@ static int s390_cma_mem_notifier(struct notifier_block *nb,
-> mem_data.start = arg->start_pfn << PAGE_SHIFT;
-> mem_data.end = mem_data.start + (arg->nr_pages << PAGE_SHIFT);
-> if (action == MEM_GOING_OFFLINE)
-> - rc = cma_for_each_area(s390_cma_check_range, &mem_data);
-> + rc = cma_for_each_early_area(s390_cma_check_range, &mem_data);
-> return notifier_from_errno(rc);
-> }
-> diff --git a/include/linux/cma.h b/include/linux/cma.h
-> index 8555d38a97b1..fb7a4923c3ba 100644
-> --- a/include/linux/cma.h
-> +++ b/include/linux/cma.h
-> @@ -7,7 +7,7 @@
-> #include <linux/numa.h>
-> #ifdef CONFIG_CMA_AREAS
-> -#define MAX_CMA_AREAS CONFIG_CMA_AREAS
-> +#define MAX_EARLY_CMA_AREAS CONFIG_CMA_AREAS
-> #endif
-> #define CMA_MAX_NAME 64
-> @@ -57,8 +57,14 @@ struct page *cma_alloc_frozen_compound(struct cma *cma, unsigned int order);
-> bool cma_release_frozen(struct cma *cma, const struct page *pages,
-> unsigned long count);
-> +extern int cma_for_each_early_area(int (*it)(struct cma *cma, void *data), void *data);
-> extern int cma_for_each_area(int (*it)(struct cma *cma, void *data), void *data);
-> extern bool cma_intersects(struct cma *cma, unsigned long start, unsigned long end);
-> extern void cma_reserve_pages_on_error(struct cma *cma);
-> +
-> +extern struct cma *cma_create(phys_addr_t base, phys_addr_t size,
-> + unsigned int order_per_bit, const char *name);
-> +extern void cma_free(struct cma *cma);
-> +
-> #endif
-> diff --git a/kernel/dma/contiguous.c b/kernel/dma/contiguous.c
-> index f754079a287d..7975551f69b3 100644
-> --- a/kernel/dma/contiguous.c
-> +++ b/kernel/dma/contiguous.c
-> @@ -52,7 +52,7 @@
-> #define CMA_SIZE_MBYTES 0
-> #endif
-> -static struct cma *dma_contiguous_areas[MAX_CMA_AREAS];
-> +static struct cma *dma_contiguous_areas[MAX_EARLY_CMA_AREAS];
-> static unsigned int dma_contiguous_areas_num;
-> static int dma_contiguous_insert_area(struct cma *cma)
-> diff --git a/mm/cma.c b/mm/cma.c
-> index a13ce4999b39..f989e2e98594 100644
-> --- a/mm/cma.c
-> +++ b/mm/cma.c
-> @@ -34,7 +34,12 @@
-> #include "internal.h"
-> #include "cma.h"
-> -struct cma cma_areas[MAX_CMA_AREAS];
-> +static DEFINE_MUTEX(cma_lock);
-> +
-> +struct cma cma_early_areas[MAX_EARLY_CMA_AREAS];
-> +unsigned int cma_early_area_count;
-> +
-> +static LIST_HEAD(cma_areas);
-> unsigned int cma_area_count;
-> phys_addr_t cma_get_base(const struct cma *cma)
-> @@ -198,7 +203,6 @@ static void __init cma_activate_area(struct cma *cma)
-> free_reserved_page(pfn_to_page(pfn));
-> }
-> }
-> - totalcma_pages -= cma->count;
-> cma->available_count = cma->count = 0;
-> pr_err("CMA area %s could not be activated\n", cma->name);
-> }
-> @@ -207,8 +211,8 @@ static int __init cma_init_reserved_areas(void)
-> {
-> int i;
-> - for (i = 0; i < cma_area_count; i++)
-> - cma_activate_area(&cma_areas[i]);
-> + for (i = 0; i < cma_early_area_count; i++)
-> + cma_activate_area(&cma_early_areas[i]);
-> return 0;
-> }
-> @@ -219,41 +223,77 @@ void __init cma_reserve_pages_on_error(struct cma *cma)
-> set_bit(CMA_RESERVE_PAGES_ON_ERROR, &cma->flags);
-> }
-> +static void __init cma_init_area(struct cma *cma, const char *name,
-> + phys_addr_t size, unsigned int order_per_bit)
-> +{
-> + if (name)
-> + strscpy(cma->name, name);
-> + else
-> + snprintf(cma->name, CMA_MAX_NAME, "cma%d\n", cma_area_count);
-> +
-> + cma->available_count = cma->count = size >> PAGE_SHIFT;
-> + cma->order_per_bit = order_per_bit;
-> +
-> + INIT_LIST_HEAD(&cma->node);
-> +}
-> +
-> static int __init cma_new_area(const char *name, phys_addr_t size,
-> unsigned int order_per_bit,
-> struct cma **res_cma)
-> {
-> struct cma *cma;
-> - if (cma_area_count == ARRAY_SIZE(cma_areas)) {
-> + if (cma_early_area_count == ARRAY_SIZE(cma_early_areas)) {
-> pr_err("Not enough slots for CMA reserved regions!\n");
-> return -ENOSPC;
-> }
-> + mutex_lock(&cma_lock);
-> +
-> /*
-> * Each reserved area must be initialised later, when more kernel
-> * subsystems (like slab allocator) are available.
-> */
-> - cma = &cma_areas[cma_area_count];
-> - cma_area_count++;
-> + cma = &cma_early_areas[cma_early_area_count];
-> + cma_early_area_count++;
-> - if (name)
-> - strscpy(cma->name, name);
-> - else
-> - snprintf(cma->name, CMA_MAX_NAME, "cma%d\n", cma_area_count);
-> + cma_init_area(cma, name, size, order_per_bit);
-> - cma->available_count = cma->count = size >> PAGE_SHIFT;
-> - cma->order_per_bit = order_per_bit;
-> - *res_cma = cma;
-> totalcma_pages += cma->count;
-> + *res_cma = cma;
-> +
-> + mutex_unlock(&cma_lock);
-> return 0;
-> }
-> static void __init cma_drop_area(struct cma *cma)
-> {
-> + mutex_lock(&cma_lock);
-> totalcma_pages -= cma->count;
-> - cma_area_count--;
-> + cma_early_area_count--;
-> + mutex_unlock(&cma_lock);
-> +}
-> +
-> +static int __init cma_check_memory(phys_addr_t base, phys_addr_t size)
-> +{
-> + if (!size || !memblock_is_region_reserved(base, size))
-> + return -EINVAL;
-> +
-> + /*
-> + * CMA uses CMA_MIN_ALIGNMENT_BYTES as alignment requirement which
-> + * needs pageblock_order to be initialized. Let's enforce it.
-> + */
-> + if (!pageblock_order) {
-> + pr_err("pageblock_order not yet initialized. Called during early boot?\n");
-> + return -EINVAL;
-> + }
-> +
-> + /* ensure minimal alignment required by mm core */
-> + if (!IS_ALIGNED(base | size, CMA_MIN_ALIGNMENT_BYTES))
-> + return -EINVAL;
-> +
-> + return 0;
-> }
-> /**
-> @@ -276,22 +316,9 @@ int __init cma_init_reserved_mem(phys_addr_t base, phys_addr_t size,
-> struct cma *cma;
-> int ret;
-> - /* Sanity checks */
-> - if (!size || !memblock_is_region_reserved(base, size))
-> - return -EINVAL;
-> -
-> - /*
-> - * CMA uses CMA_MIN_ALIGNMENT_BYTES as alignment requirement which
-> - * needs pageblock_order to be initialized. Let's enforce it.
-> - */
-> - if (!pageblock_order) {
-> - pr_err("pageblock_order not yet initialized. Called during early boot?\n");
-> - return -EINVAL;
-> - }
-> -
-> - /* ensure minimal alignment required by mm core */
-> - if (!IS_ALIGNED(base | size, CMA_MIN_ALIGNMENT_BYTES))
-> - return -EINVAL;
-> + ret = cma_check_memory(base, size);
-> + if (ret < 0)
-> + return ret;
-> ret = cma_new_area(name, size, order_per_bit, &cma);
-> if (ret != 0)
-> @@ -444,7 +471,7 @@ static int __init __cma_declare_contiguous_nid(phys_addr_t *basep,
-> pr_debug("%s(size %pa, base %pa, limit %pa alignment %pa)\n",
-> __func__, &size, &base, &limit, &alignment);
-> - if (cma_area_count == ARRAY_SIZE(cma_areas)) {
-> + if (cma_early_area_count == ARRAY_SIZE(cma_early_areas)) {
-> pr_err("Not enough slots for CMA reserved regions!\n");
-> return -ENOSPC;
-> }
-> @@ -1051,12 +1078,12 @@ bool cma_release_frozen(struct cma *cma, const struct page *pages,
-> return true;
-> }
-> -int cma_for_each_area(int (*it)(struct cma *cma, void *data), void *data)
-> +int cma_for_each_early_area(int (*it)(struct cma *cma, void *data), void *data)
-> {
-> int i;
-> - for (i = 0; i < cma_area_count; i++) {
-> - int ret = it(&cma_areas[i], data);
-> + for (i = 0; i < cma_early_area_count; i++) {
-> + int ret = it(&cma_early_areas[i], data);
-> if (ret)
-> return ret;
-> @@ -1065,6 +1092,25 @@ int cma_for_each_area(int (*it)(struct cma *cma, void *data), void *data)
-> return 0;
-> }
-> +int cma_for_each_area(int (*it)(struct cma *cma, void *data), void *data)
-> +{
-> + struct cma *cma;
-> +
-> + mutex_lock(&cma_lock);
-> +
-> + list_for_each_entry(cma, &cma_areas, node) {
-> + int ret = it(cma, data);
-> +
-> + if (ret) {
-> + mutex_unlock(&cma_lock);
-> + return ret;
-> + }
-> + }
-> +
-> + mutex_unlock(&cma_lock);
-> + return 0;
-> +}
-> +
-> bool cma_intersects(struct cma *cma, unsigned long start, unsigned long end)
-> {
-> int r;
-> @@ -1147,3 +1193,74 @@ void __init *cma_reserve_early(struct cma *cma, unsigned long size)
-> return ret;
-> }
-> +
-> +struct cma *__init cma_create(phys_addr_t base, phys_addr_t size,
-> + unsigned int order_per_bit, const char *name)
-> +{
-> + struct cma *cma;
-> + int ret;
-> +
-> + ret = cma_check_memory(base, size);
-> + if (ret < 0)
-> + return ERR_PTR(ret);
-> +
-> + cma = kzalloc_obj(*cma, GFP_KERNEL);
-> + if (!cma)
-> + return ERR_PTR(-ENOMEM);
-> +
-> + cma_init_area(cma, name, size, order_per_bit);
-> + cma->ranges[0].base_pfn = PFN_DOWN(base);
-> + cma->ranges[0].early_pfn = PFN_DOWN(base);
-> + cma->ranges[0].count = cma->count;
-> + cma->nranges = 1;
-> +
-> + cma_activate_area(cma);
-> +
-> + mutex_lock(&cma_lock);
-> + list_add_tail(&cma->node, &cma_areas);
-> + totalcma_pages += cma->count;
-> + cma_area_count++;
-> + mutex_unlock(&cma_lock);
-> +
-> + return cma;
-> +}
-> +
-> +void cma_free(struct cma *cma)
-> +{
-> + unsigned int i;
-> +
-> + /*
-> + * Safety check to prevent a CMA with active allocations from being
-> + * released.
-> + */
-> + for (i = 0; i < cma->nranges; i++) {
-> + unsigned long nbits = cma_bitmap_maxno(cma, &cma->ranges[i]);
-> +
-> + if (!bitmap_empty(cma->ranges[i].bitmap, nbits)) {
-> + WARN(1, "%s: range %u not empty\n", cma->name, i);
-> + return;
-> + }
-> + }
-> +
-> + /* free reserved pages and the bitmap */
-> + for (i = 0; i < cma->nranges; i++) {
-> + struct cma_memrange *cmr = &cma->ranges[i];
-> + unsigned long end_pfn, pfn;
-> +
-> + end_pfn = cmr->base_pfn + cmr->count;
-> + for (pfn = cmr->base_pfn; pfn < end_pfn; pfn++)
-> + free_reserved_page(pfn_to_page(pfn));
-> +
-> + bitmap_free(cmr->bitmap);
-> + }
-> +
-> + mutex_destroy(&cma->alloc_mutex);
-> +
-> + mutex_lock(&cma_lock);
-> + totalcma_pages -= cma->count;
-> + list_del(&cma->node);
-> + cma_area_count--;
-> + mutex_unlock(&cma_lock);
-> +
-> + kfree(cma);
-> +}
-> diff --git a/mm/cma.h b/mm/cma.h
-> index c70180c36559..ae4db9819e38 100644
-> --- a/mm/cma.h
-> +++ b/mm/cma.h
-> @@ -41,6 +41,7 @@ struct cma {
-> unsigned long available_count;
-> unsigned int order_per_bit; /* Order of pages represented by one bit */
-> spinlock_t lock;
-> + struct list_head node;
-> struct mutex alloc_mutex;
-> #ifdef CONFIG_CMA_DEBUGFS
-> struct hlist_head mem_head;
-> @@ -71,8 +72,8 @@ enum cma_flags {
-> CMA_ACTIVATED,
-> };
-> -extern struct cma cma_areas[MAX_CMA_AREAS];
-> -extern unsigned int cma_area_count;
-> +extern struct cma cma_early_areas[MAX_EARLY_CMA_AREAS];
-> +extern unsigned int cma_early_area_count;
-> static inline unsigned long cma_bitmap_maxno(struct cma *cma,
-> struct cma_memrange *cmr)
->
-Best regards
-
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Awesome! Thanks for letting me know!
+Leo
 
