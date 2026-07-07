@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A00C44503
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2F11C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D3Hdmnxss7OooEgBEaSE5nTSXMIcAOWWTRBg34hgO0Y=; b=xL7zt3zrTodTmSbrVY5+eVDym0
-	KVmyqqMpjykHj3u1nvh5j29eCqGsliLG7iFkVpuMBaKcbklp/j8+mKZ+ULiHczB184YuolbDpuil/
-	8Vs0pER7n4PtcahjxVmlF5t2pyZJFSvj+EiB0hH/CVfOZL2ino+7y/Gjpf0fkxBb6LeY2Hs75LjaA
-	vds13fBOazAmH4FlUVhkVvZ9ddM+noBHxS2pC9UoCK1y1iD10RHHx2+yHk6/WgE0buCQ3P86day+3
-	xCGYVJaxsDHil15WDPFLpXHXx7FicY3wsQ0FlepUbb4negBUYFCNRYQSd+o92LR9UfYOVzqJvdeVn
-	+NgOPL7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nYZ3r2oT5vRVa63+v+t17bQvSt6BIko2qLFnDicFIcE=; b=yhgnPCUF6BWdgk67JBHBv5cjqf
+	InTX0LbA3bJKZnCJm8gpuVVc8gTJxlJGsaY5ya/vcZlEjJoZdMWpFlf/7AeIUp8EjSYtUJXteWw4c
+	HWHIjWd1Q5vy4vcf1nU5en8tRKbO6hwV+nHcYXE/Fvnmdsf5PvjcLdpgnn9864QSSHJIZ5Zb7WZg3
+	GC+27xholbQHjPur6bA32VESGPkKklpd0kIcYabAXQxLvS1n5slMakGZLe0UucE/vEvmLuhXdMYaL
+	vJwoZYD8zoZ+6PAez64Nq7WmlsCwDRJXr758O/wp9Bu86T1MGTydzJ40qUnDaKYCwsdNGEe+Kp5Ua
+	QX1b5Rrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7rA-0000000FKtq-2MG1;
-	Tue, 07 Jul 2026 15:37:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wh7wk-0000000FLyD-1kow;
+	Tue, 07 Jul 2026 15:42:54 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7qw-0000000FKrR-0z7r
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:36:54 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8E37540B14;
-	Tue,  7 Jul 2026 15:36:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 61E2A1F000E9;
-	Tue,  7 Jul 2026 15:36:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783438613;
-	bh=D3Hdmnxss7OooEgBEaSE5nTSXMIcAOWWTRBg34hgO0Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=hCn30mtFhYuHNFmflRAj8e0RXUg7hftdiZ1o8Mm1go/UH+dJdJBodkFnxKdloC0OE
-	 So9Ac5qObrNlv4fVnj9kON4kDnG7uQ8LIe847OC8QYp3WF6dTE+pI9XrUh7zCsofkS
-	 REhK6j3D1uzmtnaK2F5/pkLzHhWOY42CP1Dd4Yy2UJV+0l73W1iR64BfaPa6Wbi8Ub
-	 DjE0pDbW5TFf5zShp2nTWaq+UJ2h9mJYXZXZc1KVAXypDLCzwYfWnIJTCyKe1uFt48
-	 5OvXbfaZE09kbe4ahUhkLAgy9F+xmn6bMs0CfLL+xx/5KTVH1fiQYU/el2jtg8hy65
-	 CgbU7o/kNV2Qg==
-Date: Tue, 7 Jul 2026 17:36:43 +0200
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: linux-pci@vger.kernel.org, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, Marc Zyngier <maz@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v3 1/5] PCI: dwc: Determine whether iMSI is used before
- calling .init
-Message-ID: <p4it4hcg24narbtjtoqdk6zg7wpfs5hc2mm77acyoi6hwfkh5u@5bqlwhylosmo>
-References: <20260701203918.63189-1-marek.vasut+renesas@mailbox.org>
- <20260701203918.63189-2-marek.vasut+renesas@mailbox.org>
- <4qyn4fljtb3cbzcmfpkdomkm7vqnwn2rfbtqng4iwmtvfd4bpj@t6kkw53erl7f>
- <8a921ce9-e339-445a-af05-d20f9f2df01e@mailbox.org>
+	id 1wh7wi-0000000FLwd-0awi;
+	Tue, 07 Jul 2026 15:42:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783438969;
+	bh=q69Efgu8X5NGbOCMTzwUNrYXN34SM6vI0sNv573sxkM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=qEr99uQGkcf3jMnENadozcdWbn/QYxn9I9gMh+n4RN2pEgM6gPMBFTSWJCTX1lPjD
+	 pHbLSezVjJ9i/7HuFrKbcVitlpR3K2NtMxrl5y4AlhQGeAPSGxbw/9rcwjxU8ml4dA
+	 PgqFfvz5iyIZBv/ouPOLZfcNu6MSZjrsJs3h4L6hfWItfLT4ziJhWFdrbQBNf/mhaL
+	 0FJ8Xy9gJQsHCovUT0vUD9y6R+ncnOI5YyVkVzpDn7FwYkVpvN1xfN5Ejq6QLjSIeo
+	 GXtYd1RV366To/3hy52H1GAsgGrxsHJdNoKmqCYcEJy3dqPEHZjylBRb50pYWimPfd
+	 49UBEPYIi5J6w==
+Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7BBFC17E013E;
+	Tue, 07 Jul 2026 17:42:48 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: chunfeng.yun@mediatek.com
+Cc: vkoul@kernel.org,
+	neil.armstrong@linaro.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chunkuang.hu@kernel.org,
+	p.zabel@pengutronix.de,
+	justin.yeh@mediatek.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	kernel@collabora.com
+Subject: [PATCH v3 00/12] PHY: MediaTek DP PHY refactor and MT8196 eDP
+Date: Tue,  7 Jul 2026 17:42:33 +0200
+Message-ID: <20260707154245.198361-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <8a921ce9-e339-445a-af05-d20f9f2df01e@mailbox.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_084252_341779_D4865A57 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +85,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 07:48:24PM +0200, Marek Vasut wrote:
-> On 7/6/26 6:43 PM, Manivannan Sadhasivam wrote:
-> > On Wed, Jul 01, 2026 at 10:37:44PM +0200, Marek Vasut wrote:
-> > > The R-Car Gen4 PCIe controller integration configures MSI registers
-> > > in the controller driver .init callback, because those registers
-> > > have to be configured while PERST signal is asserted, and the PERST
-> > > signal is asserted across the controller driver .init callback.
-> > > 
-> > > The registers have to be configured differently in case the iMSI is
-> > > or is not used. Assign pp->use_imsi_rx before the controller driver
-> > > .init callback is called, so the controller driver .init callback
-> > > implementation can use the pp->use_imsi_rx value.
-> > > 
-> > > Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> > 
-> > LGTM!
-> Thank you. Can I get AB/RB before sending V4 ?
+Changes in v3:
+ - Added missing bitfield.h, pm_runtime.h includes (Sashiko)
+ - Set calibration data before registering PHY (Sashiko)
+ - Enable PM Runtime before creating PHY device (Sashiko)
+ - Continue poweroff if some write fails, but still return failure
+   as that would be a partial poweroff anyway (Sashiko)
+ - Added zero driving params to fix default calibration data setting (Sashiko)
+ - Added NULL check on device_Get_match_data (Sashiko)
 
-Why? Since this series goes through PCI tree and all PCI patches are controller
-patches, I'm going to merge the series. So no need of the A-b/R-b tags.
+Changes in v2:
+ - Fixed register offsets for ANA phy in MT8196
+ - Set/clear FORCE_VOLT_SWING_EN bit when configuring and resetting
+   the voltage swing registers
+ - Fixed endianness issue in call to nvmem_read_u16 (Sashiko)
+ - Added early exit during lanes disablement if none are enabled to
+   avoid out-of-bounds bitwise shift (Sashiko)
+ - Removed useless call to pm_runtime_get_sync() in probe(), which
+   also fixes issues pointed out by Sashiko
+ - Fixed wrong dig vs ana register array usage in power_on/off (Sashiko)
 
-- Mani
+
+This series performs major refactoring on the MediaTek DisplayPort PHY
+driver, makes it probe with devicetree instead of getting registered
+by the mtk_dp DRM driver, adds power_on/off() callbacks, and honors
+the phy configure opts' set_lanes and set_voltages for, respectively,
+varying the number of lanes and setting the voltage pre-emphasis and
+swing on the PHY, for each lane.
+
+This driver now also properly gets the PHY (EYE) Calibration Data from
+NVMEM (eFuse array) if provided, instead of getting it (improperly)
+injected by the mtk_dp driver.
+
+Additionally, all of the driving parameters calculations and most of
+the other register definitions were refactored to greatly enhance the
+human readability of this code.
+
+As a last step, this also transfers the register offsets for both the
+digital and analog phy registers in arrays assigned to soc specific
+data, in an effort to both introduce support for new minor revisions
+of the MediaTek DisplayPort PHY and to have a clearer view of the
+register related differences between those (for example, it is easily
+understandable that the analog part remained exactly the same between
+MT8195 and MT8196, but the digital part gets a slight update).
+
+Speaking of which, as a last step, this also adds support for the
+MT8196 SoC (and its derivatives), which uses this PHY only for its
+Embedded DisplayPort (eDP) IP (spoiler: the DP one seems to be way
+too different and requiring an entirely new PHY driver).
+
+In this state, this driver can also easily support the MT8189 SoC
+with a few lines of code: even though I do have clean code to add
+support for this one, I was not (*yet*) able to test it on upstream
+based kernels, and for this reason I decided to leave that one out
+for now (but it's coming later for sure).
+
+NOTE!
+Despite all the apparently breaking changes in the refactoring, full
+compatibility with older MTK_DP driver and with old devicetrees was
+retained and carefully tested on multiple platforms!
+
+P.S.: I am aware of the BUILD_DRIVING_PARAM_0( 0, 2, 4, 7) checkpatch
+warning and I didn't fix it in bigger favor of human readability.
+
+AngeloGioacchino Del Regno (12):
+  dt-bindings: phy: Document MT8195 and MT8196 DisplayPort PHYs
+  phy: phy-mtk-dp: Rename regs to regmap in struct mtk_dp_phy
+  phy: phy-mtk-dp: Allow probing with devicetree match
+  phy: phy-mtk-dp: Migrate register offsets to SoC specific pdata
+  phy: phy-mtk-dp: Implement power_on and power_off PHY callbacks
+  phy: phy-mtk-dp: Support set_lanes in configure and properly cleanup
+  phy: phy-mtk-dp: Support setting volt swing and preemphasis values
+  phy: phy-mtk-dp: Add support for digital and analog calibration
+  phy: phy-mtk-dp: Rewrite and document default driving param macros
+  phy: phy-mtk-dp: Add bitrate register val definitions to SoC data
+  phy: phy-mtk-dp: Add PHYD Lane EN register mask to SoC data
+  phy: phy-mtk-dp: Add support for MT8196 eDP PHY
+
+ .../bindings/phy/mediatek,mt8195-dp-phy.yaml  |  77 ++
+ drivers/phy/mediatek/phy-mtk-dp.c             | 882 ++++++++++++++++--
+ 2 files changed, 862 insertions(+), 97 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/phy/mediatek,mt8195-dp-phy.yaml
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.54.0
+
 
