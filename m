@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B05CDC44500
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64BF8C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:02:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TE6fxPaU+LUiziMgyvgeiYBZXwhy0M3LvlV9yMFf+Sk=; b=lLAyxCg3C5uTHCZHc1fY4SZ18T
-	WxmRT6B0KS6V8Do486hStBM5+G2aSUZRx1wMdtoT4TQ52TYKNIUc6tfuiBL0fOQGndI+wJ5Al/1ZV
-	32pWFiH4PSlZDQw3Jt1hh+MSviSKx7EQTwhnipfwP69fs1PSMok3Na+q5UHkLyyM1GYp5qglWrHL2
-	OPpRj0KVIRZ+i2IlZChb7UalfRn7+7hkL94J2V7Xzh8wFDLEajRFvwRSCR/yWfDaTY61LHrvaZbhE
-	GcvzuqwZE4UscrZ2zjIZqOT9i8wHAclqI9j7iSo7IGqni6lSboiV6KHkffZVXQcJJndB95vcmXvwN
-	1uGYjPMg==;
+	bh=cGECx7XBlb4XEZT9olLrpyfAunE/XtJfgEve/LPx17Q=; b=rzSaZ8K1UokHcUA8FqyikusUWE
+	9vU9esArmisCvDDth4RDN/qCJcpsgW4iVHnVEAzJ/lQ+mW7FbrilU6BslVOrzNwKD1ibZk087+YFV
+	i/eXn6q4l91j72iOAQG7pqJ27sUKCiool4R5/zM6Jrf3DsDfczRGYTrNcU9vwGMjxBwfM79AQYQGX
+	CGlkZNd5jYvljdcGoYEbgmFl+ZTfDhcpkrtrj4tozI/Ub9uBjEH7yKoW7XI1PD26c2BoIrGGGp+Vs
+	LOxQDUfgvQzrtzdR/4tlZ4OPhz1VwmAEDM3SnSHt0tqMRP+GYyB/830+xw/+8hdD8fPsxHkLON3/8
+	gCZ8AY/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0ke-0000000EOnR-3tGc;
-	Tue, 07 Jul 2026 08:01:56 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1wh0kk-0000000EOqE-0UQk;
+	Tue, 07 Jul 2026 08:02:02 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0kc-0000000EOly-2kYZ
+	id 1wh0kd-0000000EOm3-1crN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:01:56 +0000
+	Tue, 07 Jul 2026 08:01:57 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 86350C8F1E9;
-	Tue,  7 Jul 2026 08:02:03 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id D50BE1A0EA9;
+	Tue,  7 Jul 2026 08:01:52 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1AAA2601A3;
-	Tue,  7 Jul 2026 08:01:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D43C711BC0D28;
-	Tue,  7 Jul 2026 10:01:46 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A836F601A3;
+	Tue,  7 Jul 2026 08:01:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 33BBD11BC0E80;
+	Tue,  7 Jul 2026 10:01:49 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1783411308; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1783411311; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=TE6fxPaU+LUiziMgyvgeiYBZXwhy0M3LvlV9yMFf+Sk=;
-	b=pcaf08cI7nznLNsSX28aAZQQcs88EfWnutmeDXwx8yQXBVI1E2Lb6GV/LEi6S+pmNkJpIN
-	M9cWkxp+S0Y+YEOYwqRnMiuXNQcwQJPf7e8yJviMFBqVWDhcq9MQlAFpB3eaRbVqEo+caF
-	JNRCA2uE2VO6yZ2BnKpCxrDsrr9vH0p50lmlXEQ11TXkS2kqIVUDV7KVWkB2TDaFF6K70O
-	wz4vzZPxS/sLE+tFtyRPS3VEMtWeKo1F+7Yrs/8md4ADsUGmfO40h/P3KhBafnwenP0bWB
-	wNqaPJS0px59REyLbwMtEOh3/7/o06RsuhGyCKOVlV0Qd6yavGqmiCLotGFbQQ==
+	bh=cGECx7XBlb4XEZT9olLrpyfAunE/XtJfgEve/LPx17Q=;
+	b=ywLK/iNsvkdbDu0574cpHq+8dDJaAFyTI17Q8/OXfgIcrZsXn8Upa8RB8BvzH+w3FeTUJU
+	xtnRbq6u3O1G6NnWEvPt2An+z9x2kzXGzRO9y52gVJgpOqI3mX1hLHqHBD2Jg9Oit3oxlx
+	lcxep2h6BQEYGx0wBEp6EUTe3o8lHaGgmUEREpybHxjJBwGHa+JaV4UdbEadOel5laV6Bv
+	yHH4NSo831IMCi4Q9AIjOhcqSLyCPHgIj8gb5/O/Dvw8tGbtdI1ATMTWmsqBfQqZUo8zds
+	swAInCShLeNF+fjielNCllrfw8GX6iy87FoPBSrJJ1TLIyp5y2gZG8SxEn/mVA==
 From: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
-Date: Tue, 07 Jul 2026 10:01:27 +0200
-Subject: [PATCH v7 1/5] dt-bindings: vendor-prefixes: Add AAEON vendor
- prefix
+Date: Tue, 07 Jul 2026 10:01:28 +0200
+Subject: [PATCH v7 2/5] dt-bindings: mfd: Add AAEON embedded controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-dev-b4-aaeon-mcu-driver-v7-1-ca6c59abd672@bootlin.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260707-dev-b4-aaeon-mcu-driver-v7-2-ca6c59abd672@bootlin.com>
 References: <20260707-dev-b4-aaeon-mcu-driver-v7-0-ca6c59abd672@bootlin.com>
 In-Reply-To: <20260707-dev-b4-aaeon-mcu-driver-v7-0-ca6c59abd672@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -69,13 +68,12 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  Miquel Raynal <miquel.raynal@bootlin.com>, 
  "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_010154_871738_57983045 
-X-CRM114-Status: UNSURE (   7.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260707_010155_706498_EE1165B7 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,28 +88,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the AAEON vendor prefix to support the AAEON SRG-IMX8P MCU driver
-devicetree bindings.
+Add device tree binding documentation for the AAEON embedded controller
+(MCU). This microcontroller is found on AAEON embedded boards, it is
+connected via I2C and provides GPIO control and a watchdog timer.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ .../bindings/mfd/aaeon,srg-imx8p-mcu.yaml          | 67 ++++++++++++++++++++++
+ MAINTAINERS                                        |  6 ++
+ 2 files changed, 73 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index c7591b2aec2a..0f84ee93b3a8 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -32,6 +32,8 @@ patternProperties:
-     description: 8devices, UAB
-   "^9tripod,.*":
-     description: Shenzhen 9Tripod Innovation and Development CO., LTD.
-+  "^aaeon,.*":
-+    description: AAEON
-   "^abb,.*":
-     description: ABB
-   "^abilis,.*":
+diff --git a/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml b/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+new file mode 100644
+index 000000000000..034fb7b42551
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
+@@ -0,0 +1,67 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/aaeon,srg-imx8p-mcu.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: AAEON Embedded Controller
++
++maintainers:
++  - Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++  - Thomas Perrot <thomas.perrot@bootlin.com>
++
++description:
++  AAEON embeds a microcontroller on Standard RISC Gateway with ARM i.MX8M Plus
++  Quad-Core boards providing GPIO control and watchdog timer.
++
++  This MCU is connected via I2C bus.
++
++  Its GPIO controller provides 7 GPOs and 12 GPIOs.
++
++  Its watchdog has a fixed maximum hardware heartbeat of 25 seconds and supports
++  a timeout of 240 seconds through automatic pinging.
++  The timeout is not programmable and cannot be changed via device tree properties.
++
++properties:
++  compatible:
++    const: aaeon,srg-imx8p-mcu
++
++  reg:
++    maxItems: 1
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 2
++
++  gpio-line-names:
++    minItems: 1
++    maxItems: 19
++
++required:
++  - compatible
++  - reg
++  - gpio-controller
++  - "#gpio-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    i2c {
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      embedded-controller@62 {
++        compatible = "aaeon,srg-imx8p-mcu";
++        reg = <0x62>;
++
++        gpio-controller;
++        #gpio-cells = <2>;
++        gpio-line-names = "gpo-1", "gpo-2", "gpo-3", "gpo-4",
++                          "gpo-5", "gpo-6", "gpo-7",
++                          "gpio-1", "gpio-2", "gpio-3", "gpio-4",
++                          "gpio-5", "gpio-6", "gpio-7", "gpio-8",
++                          "gpio-9", "gpio-10", "gpio-11", "gpio-12";
++      };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index c9e416ba74c6..ea9d55f76f35 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -186,6 +186,12 @@ W:	http://www.adaptec.com/
+ F:	Documentation/scsi/aacraid.rst
+ F:	drivers/scsi/aacraid/
+ 
++AAEON SRG-IMX8P CONTROLLER MFD DRIVER
++M:	Thomas Perrot <thomas.perrot@bootlin.com>
++R:	Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
++S:	Maintained
++F:	Documentation/devicetree/bindings/mfd/aaeon,srg-imx8p-mcu.yaml
++
+ AAEON UPBOARD FPGA MFD DRIVER
+ M:	Thomas Richard <thomas.richard@bootlin.com>
+ S:	Maintained
 
 -- 
 2.55.0
