@@ -4,92 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4FCFC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 07:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95BA7C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 07:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Td3DkUog3MMXb19T1n7bIJOaJA4tVZopsj9LWuTWV14=; b=dCmyWAig1GNkvUERVp/e9zilcM
-	GO+VzwRq3OyzGl7cK0f+YmdIGdJQE5MGlEV9Pah5UKSjJAvYpmBW0S/RP330GQud1aiQKlzcNEVO/
-	7Dd40jO9CA9obCDZkyaN6GRDQ9aZNx/3UKTZ9DrXoV3MHCLBPCDROX3iozjnAct0wPJDqLuKwivvH
-	bMhPtDb/6Ta/9DC8xIlWIMtAdDODW4NKiE3n3v5doNq1opSXVYpAjbyo00VMasVxpzi423/24uDch
-	3lsp0mEaZoFwVvyojb6Cz6nN07V4+TJMQliHXjrCXeBSTp2iJ6KCC64ixrExGtHUeewimxgayqHW+
-	pf/nnXBQ==;
+	bh=tpIOncymRCGSppNzLVX19mro9eWiUYLlNmVFoYEKqAI=; b=UY4/PSxb6J/oPULtfb2upXFT5m
+	PsDE47sNME75ltLmUFDyMKwRJ8QJp++fh+Z2zNeycnqLOSTv4GGKy1qV5ZzTNIWkaUtzJDNU5fE8S
+	sk6ltidPBKsGxbMT6Bo2yosa9y0B0JWIfMzlkoON4iAs0UA0einzJgm6GKarlRk5i6qgSIy0hQtDW
+	MO9imtB33jMGl9v1gcpVhwdAag8F/S0rRCoWFfQsIkJFC8WrEcCtEhzR9Yu32EfdlVLqImel+/Jm9
+	gAIjqtX99V2rIYRKY98qIbD0vZ+I9RaC6XEN3EdV7UFlgIRUGqSbigpj98SJIbbXCEBdZM4OEHYm9
+	5qSHrJrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0gd-0000000EOAn-42ZK;
-	Tue, 07 Jul 2026 07:57:47 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1wh0hm-0000000EONM-17UL;
+	Tue, 07 Jul 2026 07:58:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0ga-0000000EO9l-1Tlp;
-	Tue, 07 Jul 2026 07:57:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1783411064; x=1814947064;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=fhVsQgZpEtOHcCVdgw2Mnnouie2yBxLY+aHerA5Kjes=;
-  b=O5GV4/fvzLMBznVobh5pP55Ow98gdlvu9UGnUqdmCJpt8wB8bFN/8r3G
-   N3kuPwuRtnFapNYLkqyQmTi+EKvoGsLgL+GxeWzI+vf++CRg16oa2uQE/
-   g/6DYy1yV4ZPKoFVcXy410sFrlcha5VXKQD5WV8kPlVZ5wVjq3sEBvXyP
-   R5UhY5E7CUWvjcrh0U4paIbbukWeVCBfjzMzyjDWk83iYLyIiisAwYyD0
-   E7pqv+aDun/mhxYIjSNFAGBoH3eFYzjcGS80U8B9CT9z8/KJyb9LGq80a
-   A36VnyztyGG9fzO9qO1ieEdqyawroeA/BNkimewAic0Rg+NGujghrgp5c
-   A==;
-X-CSE-ConnectionGUID: MG4EQj8TR6yA9vTLJ5Wj8g==
-X-CSE-MsgGUID: 69cgNNUtQfSubTJw+baJGw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11839"; a="83028713"
-X-IronPort-AV: E=Sophos;i="6.25,153,1779174000"; 
-   d="scan'208";a="83028713"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jul 2026 00:57:31 -0700
-X-CSE-ConnectionGUID: Q3rftImfTt6V5zB4LeF28Q==
-X-CSE-MsgGUID: ovKA5NWqQHqtoOhU1y+fSQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.25,153,1779174000"; 
-   d="scan'208";a="292095574"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.244.178])
-  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Jul 2026 00:57:26 -0700
-Date: Tue, 7 Jul 2026 10:57:19 +0300
-From: "andriy.shevchenko@intel.com" <andriy.shevchenko@intel.com>
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: Yu-Chun Lin =?utf-8?B?W+ael+elkOWQm10=?= <eleanor.lin@realtek.com>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org" <linux-realtek-soc@lists.infradead.org>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	Stanley =?utf-8?B?Q2hhbmdb5piM6IKy5b63XQ==?= <stanley_chang@realtek.com>,
-	James Tai =?utf-8?B?W+aItOW/l+WzsF0=?= <james.tai@realtek.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"linusw@kernel.org" <linusw@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"afaerber@suse.com" <afaerber@suse.com>,
-	"mwalle@kernel.org" <mwalle@kernel.org>,
-	=?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?= <tychang@realtek.com>
-Subject: Re: (subset) [PATCH v4 0/4] gpio: realtek: Add support for Realtek
- DHC RTD1625
-Message-ID: <akyxXxtj8nyCs-yf@ashevche-desk.local>
-References: <20260622092335.1166876-1-eleanor.lin@realtek.com>
- <178246069898.6685.11577448681947659397.b4-ty@oss.qualcomm.com>
- <a00c475a6ce0469682305c4b4269b181@realtek.com>
- <CAMRc=Md-iOQ5qb5uPZcKJkpS8fmYscw8TRXqe7rRrJS7acE32w@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMRc=Md-iOQ5qb5uPZcKJkpS8fmYscw8TRXqe7rRrJS7acE32w@mail.gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_005745_245486_B9CCB169 
-X-CRM114-Status: GOOD (  17.35  )
+	id 1wh0hi-0000000EOMd-03PJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 07:58:56 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7C4B141513;
+	Tue,  7 Jul 2026 07:58:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B1E41F000E9;
+	Tue,  7 Jul 2026 07:58:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783411133;
+	bh=tpIOncymRCGSppNzLVX19mro9eWiUYLlNmVFoYEKqAI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=F9dO4cZwh1Vri6X2ijnhDlSIeGJOGovGYffqHyySj7nzYEr2MILNdMg3efat6xdz3
+	 5Ej2/E5dObGvSw3d/Q9kdz2yamr7Sbv1eGDcdL8t051hapZVIlF7hV3lHBJgYNjsvU
+	 i3vQfU/QdAaktekq4NtBAUy1WNHsXsEDzsLZWMAXA5pCsW8CQzVRDBe0meaHOC0w/l
+	 WgaxpM+DiBSUkS7ZKgTLHAiPmzDZVZ2qGD4lLNBmXFXz4s0OlYElT3DVdt8cEHq1be
+	 MUDdt1KW/xM50igh6KWtmse79REct2ygy6jJ15qjiFTUf6i3Y151sUTUxjqPrnthLo
+	 uytkDo8ScI+qg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wh0hf-00000002I1m-0pfp;
+	Tue, 07 Jul 2026 07:58:51 +0000
+Date: Tue, 07 Jul 2026 08:58:50 +0100
+Message-ID: <86bjcjp6x1.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	devel@daynix.com,
+	kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v8 0/7] KVM: arm64: PMU: Use multiple host PMUs
+In-Reply-To: <akvzxDwZbj_sZ4pI@kernel.org>
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+	<akvzxDwZbj_sZ4pI@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, odaki@rsg.ci.i.u-tokyo.ac.jp, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, kees@kernel.org, gustavoars@kernel.org, pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, skhan@linuxfoundation.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,42 +99,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 12:24:16AM -0700, Bartosz Golaszewski wrote:
-> On Tue, 7 Jul 2026 08:55:26 +0200, "Yu-Chun Lin [林祐君]"
-> <eleanor.lin@realtek.com> said:
-> >> On Mon, 22 Jun 2026 17:23:31 +0800, Yu-Chun Lin wrote:
-
-[...]
-
-> >> Applied, thanks!
-> >>
-> >> [1/4] dt-bindings: gpio: realtek: Add realtek,rtd1625-gpio
-> >>
-> >> https://git.kernel.org/brgl/c/8f32808e1530b2229e07695fb39c54fee910bd4a
-> >> [2/4] gpio: Replace "default y" with "default ARCH_REALTEK" in Kconfig
-> >>
-> >> https://git.kernel.org/brgl/c/b5d23fcdb12972c522e96f90ab48be8a0d971b0e
-> >> [3/4] gpio: realtek: Add driver for Realtek DHC RTD1625 SoC
-> >>
-> >> https://git.kernel.org/brgl/c/a57e27c43b0315ee86c6896510d69be5257e093e
-> >
-> > Thank you for applying the patches!
-> >
-> > I'm currently working on v6 of the patch series that incorporates Andy's
-> > gpio-regmap patches, and it should build on top of gpio/for-next. However,
-> > I have a conflict with the driver patch that was already applied.
-> >
-> > Could you please revert that commit from gpio/for-next?
+On Mon, 06 Jul 2026 19:28:20 +0100,
+Oliver Upton <oupton@kernel.org> wrote:
 > 
-> Can you just post the series as a follow-up? I try to avoid rebases unless
-> absolutely necessary.
+> On Mon, Jul 06, 2026 at 07:03:23PM +0900, Akihiko Odaki wrote:
+> > Akihiko Odaki (7):
+> >       KVM: arm64: Disallow vPMU when pPMUs do not cover all CPUs
+> >       KVM: arm64: PMU: Protect the list of PMUs with RCU
+> >       KVM: arm64: PMU: Pass the pPMU to kvm_map_pmu_event()
+> >       KVM: arm64: PMU: Pass the target CPU to kvm_pmu_probe_armpmu()
+> >       KVM: arm64: PMU: Implement fixed-counters-only emulation
+> >       KVM: arm64: PMU: Introduce FIXED_COUNTERS_ONLY
+> >       KVM: arm64: selftests: Test PMU_V3_FIXED_COUNTERS_ONLY
+> 
+> Thanks for respinning the series, I left some comments. I'd really like
+> to get this feature picked up, hope you have cycles to work on it soon.
+> 
+> FWIW, we're considering adding a new vCPU feature flag to deprecate all
+> the ugliness of the old PMUv3 UAPI. I'm tempted to say that the
+> FIXED_COUNTERS_ONLY feature is conditioned on the new feature flag...
 
-Would be just leading reverts in the series appropriate? Otherwise it will give
-a lot of additional work for peanuts.
+It'd be good to have a strawman proposal on the list if we are going
+to change add a new API, specially if this is likely to gate new code.
+
+Thanks,
+
+	M.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Without deviation from the norm, progress is not possible.
 
