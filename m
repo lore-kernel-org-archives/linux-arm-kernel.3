@@ -4,91 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1C5C44501
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:53:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 653EDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JYLHBFIYkSC00BT3OFNNZ7lMGwlI6NybvgfnsYZ8kCU=; b=hOU4GescQfia1BwUjK0ReVveZV
-	v2FQk1uKFVH6rOrbwmB+waVmOUvzTNVwW5qM1VUlweevrtq/8iVMRads8NuRfjAou3Sr/yxAenDQg
-	xMDdubVyISa/vvPyxKIDk1cbt3PMfOxdvdrA8v4mjJmZDdrjm7fza2XLRbJHQO56GL6HwX8yEaV1b
-	fygdF2E2rpUN/7xKDV3RXAOfkj5unU8hMLL19Emqxz4g/+BpMphreg9hLgAJhvxzKUxkZ9ut0TBIJ
-	bDmE8yKmIeAmhp+rL5nP3Vb6hNg1W7jOvVZOnmiPtpHPhNJ/nUydfB25mmt3/iprmwYR6euA0Cc6L
-	mH3sgr3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=m4yMg62YAe6Tk0Zq+iKrI/zpLYixVD/ZixnriSqWY5c=; b=LmZoOzsj5QZ/FCp5nJtOGVSgZQ
+	+SBFON97zOQE74NuMHzlVb7KYQOc7vTwiWwCyDCYllmO3zBVNTdjoixmdZEGAxRVQWTUoggE2jrNJ
+	UeAMcO/MHsvlIMXKYpWreZN5W0HCkD7cewmqj4bxajr8Eo5iJJmdE4mYvFgWEfZuIu04Lkvt1/3Ml
+	R84Ey0GlX4Q4lfDjz/Aquwo0ET6iYTR20hXtVaWbhsargZE//xfSaQVBJMOGZlbYrwZhAfsO8A9Z+
+	k24350iBdlQvalq6DR4Nzua6nI71MssdyN0wLUkbIgrN/44Nuy+C23YnSAMDcT0cH4FiAgNVtoVXx
+	bcS0MEjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh93F-0000000FV3S-0Aix;
-	Tue, 07 Jul 2026 16:53:42 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1wh8kt-0000000FTPE-1gGi;
+	Tue, 07 Jul 2026 16:34:43 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh93C-0000000FV33-2SIY
+	id 1wh8kn-0000000FTOh-3pOt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 16:53:40 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-490cf3000f0so41695195e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:53:37 -0700 (PDT)
+	Tue, 07 Jul 2026 16:34:42 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-698aa8d4dafso4410995a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:34:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783443216; x=1784048016; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JYLHBFIYkSC00BT3OFNNZ7lMGwlI6NybvgfnsYZ8kCU=;
-        b=m8lVdYD97iSLGYX3Xns5/TaxAzZYSlUrSZ9SEp55FcojRqZWw/hdnuCb8Hp2CPGhzA
-         ApVvVT7bbAIZx8Q8ukNEfgnqOaAtJWYU8Z+cFJBnMDvnCjYLdPvR+OLqIcAWLpMIMu/9
-         COEWAz56BalJHdQ7MlmK+ApmqqALqEdluQI0mEpSc8Q7pTy3LjTt5oWasPKHsaDPlTKk
-         tVK9eC8+9qVEyJddw67ETJsyK+Zdv90ZnnuDo1T0zMx4PZcK+icGeoroW42W04HMNTrZ
-         6FC9v8+e+z4Sxr0/olNomXEa4B3vVs1UMML+ks67tKtRctDVYLr3uRu/h/ezI0+6lLY1
-         0ZGg==
+        d=monstr-eu.20251104.gappssmtp.com; s=20251104; t=1783442074; x=1784046874; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=m4yMg62YAe6Tk0Zq+iKrI/zpLYixVD/ZixnriSqWY5c=;
+        b=UwsO5WY39Fb6oK/siXLl3ATbs0GcT56v3rhpQG6nWy9DnO4iAV7Rosbbx3/LpXvSdo
+         gYoxJE5DpIK8FOPS5OwlkZtWakZHpGPyoZzAMeTbUlv03Hq07WcXIGClxhMxEUtQ6ObL
+         Om+FS+9zNgU2+kGTDkSLvZT7CWIBMb9ZsE4JXAoIi/Z6ygT383c+s+7Wj8voSd/jmUFy
+         V/cVlkbm1UJOef+PKn8VdKhvOujD5yoq+gA5aI2iWPXb1Z/VX5+IdWT7PYpoe7igsVn3
+         feYIzQa8LK3n1xeYQhv4Z/SISdu1kq42mRL9tHAJfWqyS34qrtQjx8NZCuvoMlQAX+xQ
+         F0nQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783443216; x=1784048016;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JYLHBFIYkSC00BT3OFNNZ7lMGwlI6NybvgfnsYZ8kCU=;
-        b=Ci37qefypCn6HmX27Rt0fZ/sP0Z3hiA3/PqQ6OOsYkpouksMSoyJU05vDEks49RHFK
-         8b3AIZX9rt5z/f6QsWiM/9K++XyaV1TJPz+GX4izaCyYLqov04JdzWM3Wj3Gp7uJ/jXK
-         1v4oly1f2//yxY6WKeKv6SIxj+DBW/whMHNdu0i+54csgUIfZQGQX5jNo/vU5i/NFlF/
-         QUo+afM4hGcyY41VxZtBBYErz0IBXMZrHU/4NJNrLC0+21daZtN3i0Q00Bye9ikfkzWW
-         z3HL4vGFJDvPZkZaJJdNRDUvQgj/5QVaI0VYx/3pTIOeQIDIjiLUbmvCcNZsdGhv+N+5
-         FyXw==
-X-Forwarded-Encrypted: i=1; AHgh+RpHLlixXuLJmtz9h8SDHowS62nEgWUjNHYZCN8vpVoEv3MN+fkrGH89PbzCc9iO2MJcVusUgBbkZs9OZRg80/pE@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeJkfW3CUPGAK5wCha6G44GNHUOG01Rg/1u7v9ZIg7JkeDSMZS
-	IJ7GEfGfTHd7MYEG9uo0AcfCvV3xQZOaIPILHPJstkR8FQyyACJEDNREfeSdQ0kWjg==
-X-Gm-Gg: AfdE7ckTtRinKnJIFQD2E/pFnYFYEHRDenr4aA7DBhUEEdfiz9I3Aupw1+venBe8GWf
-	vFbM1YlobfclVYfLpyhFB1BK5nV7BeMH0r/DIKmDIk8VPnBI86aYtCAphwO1JgiPEiMTaeg8KTW
-	fx6LsfTc1H5hgTFqdJcCtu+FsogkHJme54retoHjAgntDE/g0aDHQO6TiP+lGAcmp0yTzZghuV7
-	LEeW1wePupUfsvrHaYXmTLAt4prYdocFd0DFOvd/aFQsZlMfx79YSb0J1xc7Tze4DnDh43dbW4s
-	QBDd6LoerqgYfqerNCQmnfrTd0YIZ50eMynmGbzP0uLSTC8jaxxvLA4KDUPvgzcOCEch4uqbYEl
-	YxtNSE2VYY6R/NDLInMG8aBYcm/vHRVxFUwD63yeYNeqs9kX/hQ7toa44spY5kFatjmkSz7W6i7
-	s6zsWoHvggIK+py+W22ocFlwj9fpXWjGj/yF0aAQ6gwvr2MsvWxnM=
-X-Received: by 2002:a05:600c:4e03:b0:493:cd3f:d097 with SMTP id 5b1f17b1804b1-493df06b123mr64535395e9.12.1783443215304;
-        Tue, 07 Jul 2026 09:53:35 -0700 (PDT)
-Received: from google.com (137.69.77.34.bc.googleusercontent.com. [34.77.69.137])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0ebf593sm72423765e9.0.2026.07.07.09.53.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 09:53:34 -0700 (PDT)
-Date: Tue, 7 Jul 2026 17:53:30 +0100
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Fuad Tabba <tabba@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, rostedt@goodmis.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kernel-team@android.com
-Subject: Re: [PATCH v1 1/4] KVM: arm64: Allow early calls to pKVM
- host_share/unshare_hyp
-Message-ID: <ak0vCmPyTlWIwFEI@google.com>
-References: <20260612142245.1015744-1-vdonnefort@google.com>
- <20260612142245.1015744-2-vdonnefort@google.com>
- <CA+EHjTwSU67aNdgWvgR3ZGSB07Hu7wt4rUBkVGhrhoHKa_S1vw@mail.gmail.com>
+        d=1e100.net; s=20251104; t=1783442074; x=1784046874;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=m4yMg62YAe6Tk0Zq+iKrI/zpLYixVD/ZixnriSqWY5c=;
+        b=NkBDrIDDRyR+B1p4xi2PIcr/g7A4YxJsKGHPP5xLIhf+THMrmwRA8hpxmlLHSWzd/9
+         fY9YaMZFyieOtVixg3odLZ3BvEuOlUpNwV0aDxZ1x1F3B+y8vnoxaOnJfTc93IZLkymH
+         wQjSB3XICWK+4EPrBPUb+H6crsUZfLHpYlcT9WdElWjxXhXvtwxe6IAUf0rrUzDP0hWZ
+         IlrLS06TenUOwheJgbq3eVOYKWSWDmLVYT4yzsL8bVMxiem1iHxX6y0S3ArHdpNmIM1i
+         ebDl/ISctEK3ZfcADxKiMuAH0uSklgkbUC8F4uh3xKmQZQN6X3oNqTpjIRcY5SG4lrIg
+         CVYg==
+X-Forwarded-Encrypted: i=1; AHgh+RqVoBaUllMhi/4KmapqiS9ytUS/Ax9JkT72JIxsG/bq0KDWehLGgMR9bOQJiwQWbcCmhNfkN93FHPB7K0Zxo5nb@lists.infradead.org
+X-Gm-Message-State: AOJu0YznIbfyCpXniB5TdIFoH1UDhlGMnHWm217/X6FLYLVonY+t0aOG
+	bTARxPJbTBdY3nDBcusoiaG05kfzmqgHt0PJuSO5LXjuVaYaAU78nsTwwo1DroEp3A==
+X-Gm-Gg: AfdE7cnuQkoao5b4vkS3J9wVgQSicYFQzRrU0E/dnP/Sj/AenyE7sME1ICTsC/UQV1B
+	qsfI3xR6Dg0Lv+6wcO0LeSQrn3SWsTQLcbJtXQE1ye3x9tdYHwEVwaBezqBokasjODsGRLjas5k
+	vDLy8n4xDZdybkKgZNHS/bg5BCQlOA9Q+p7chmVI39yF2NPPmzTGeefdmNvZPk/JnyWkPnDZurJ
+	IUpQ09cg3ex0D+cho04CpQAx8hM88rxEuF6jK5qSbMK0mIzOzUotN5wCCzu8hStT6hiHLweQTL2
+	oONtYK1Z0asePH4UH7gq1jt9yfqrQKYKOMluoyKkkT6LvSt+FDy2PklK5D/g/p599qqqk6JizOD
+	KLVmdC7dAnmoK8zX0AoBMTS+lisNIeQFxr6UUyDaA9gXrrEg6cELijiYRMka5gvqazhnTMoKFtx
+	tU2Hp1SMY3pYXFeRvWi5A2pq2VJjdO/9tFuv38MsH+G7Y4PQ==
+X-Received: by 2002:aa7:d58b:0:b0:697:d4ee:ab97 with SMTP id 4fb4d7f45d1cf-69a8566812cmr2367431a12.12.1783442074173;
+        Tue, 07 Jul 2026 09:34:34 -0700 (PDT)
+Received: from [10.254.183.223] ([149.199.62.131])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-69a19d78a08sm6832401a12.18.2026.07.07.09.34.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jul 2026 09:34:32 -0700 (PDT)
+Message-ID: <da06120d-0850-4e79-9e07-efe481c057ff@monstr.eu>
+Date: Tue, 7 Jul 2026 18:34:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+EHjTwSU67aNdgWvgR3ZGSB07Hu7wt4rUBkVGhrhoHKa_S1vw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/5] dt-bindings: clock: Move xlnx,zynqmp-clk to its
+ own schema
+To: Rob Herring <robh@kernel.org>, Michal Simek <michal.simek@amd.com>
+Cc: linux-kernel@vger.kernel.org, git@amd.com,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>, kishore Manne <nava.kishore.manne@amd.com>,
+ "moderated list:ARM/ZYNQ ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>
+References: <cover.1780499520.git.michal.simek@amd.com>
+ <23d848e29176706548612c4a0751481d46176f11.1780499520.git.michal.simek@amd.com>
+ <CAL_JsqLWwcRjzQs4DHV265w-ROzeW_OPVS0uP0Ew8p+-dYu+EA@mail.gmail.com>
+Content-Language: en-US
+From: Michal Simek <monstr@monstr.eu>
+In-Reply-To: <CAL_JsqLWwcRjzQs4DHV265w-ROzeW_OPVS0uP0Ew8p+-dYu+EA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_095338_640343_27907889 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20260707_093438_107058_D674E974 
+X-CRM114-Status: GOOD (  15.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,67 +111,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Jun 14, 2026 at 02:39:30PM +0100, Fuad Tabba wrote:
-> On Fri, 12 Jun 2026 at 15:22, Vincent Donnefort <vdonnefort@google.com> wrote:
-> >
-> > The hypervisor tracing for pKVM relies on the __pkvm_host_share_hyp and
-> > __pkvm_host_unshare_hyp HVCs. In order to start tracing as early as
-> > possible, allow those two HVCs before the host is deprivileged.
-> >
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> 
-> To my good friend Sashiko:
-> https://lore.kernel.org/all/20260529121755.2923500-1-tabba@google.com/
-> 
-> The hyp_trace_load() issue seems legit though.
 
-I've just posted lore.kernel.org/all/20260707165029.3410701-1-vdonnefort@google.com
+
+On 7/7/26 17:55, Rob Herring wrote:
+> On Wed, Jun 3, 2026 at 10:12 AM Michal Simek <michal.simek@amd.com> wrote:
+>>
+>> The ZynqMP clock controller binding shares only #clock-cells with the
+>> Versal bindings. Move it to a dedicated xlnx,zynqmp-clk.yaml schema.
+>> Also remove "(Optional clock)" from clock description because it is visible
+>> from schema itself.
+>>
+>> Suggested-by: Rob Herring <robh@kernel.org>
+>> Signed-off-by: Michal Simek <michal.simek@amd.com>
+>> ---
+>>
+>> Changes in v3:
+>> - Cover change in zynqmp-firmware.yaml
+>> - Move clock-cells to be the last in the example
+>> - Remove comment around (Optional clock) which is obvious from schema
+>>    itself
+>>
+>> Changes in v2:
+>> - New patch in series
+>> - Split zynqmp-clk from versal-clk
+>>
+>>   .../bindings/clock/xlnx,versal-clk.yaml       | 50 +-------------
+>>   .../bindings/clock/xlnx,zynqmp-clk.yaml       | 68 +++++++++++++++++++
+>>   .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |  7 +-
+>>   3 files changed, 76 insertions(+), 49 deletions(-)
+>>   create mode 100644 Documentation/devicetree/bindings/clock/xlnx,zynqmp-clk.yaml
 > 
-> As for this patch itself:
+> This is now causing warnings in linux-next:
 > 
-> Reviewed-by: Fuad Tabba <tabba@google.com>
-> Tested-by: Fuad Tabba <tabba@google.com>
-> 
-> Cheers,
-> /fuad
-> 
-> 
-> >
-> > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> > index 043495f7fc78..fb049c40d04f 100644
-> > --- a/arch/arm64/include/asm/kvm_asm.h
-> > +++ b/arch/arm64/include/asm/kvm_asm.h
-> > @@ -89,12 +89,12 @@ enum __kvm_host_smccc_func {
-> >         __KVM_HOST_SMCCC_FUNC___vgic_v3_restore_vmcr_aprs,
-> >         __KVM_HOST_SMCCC_FUNC___vgic_v5_save_apr,
-> >         __KVM_HOST_SMCCC_FUNC___vgic_v5_restore_vmcr_apr,
-> > +       __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
-> > +       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
-> >
-> >         MARKER(__KVM_HOST_SMCCC_FUNC_PKVM_ONLY),
-> >
-> >         /* Hypercalls that are available only when pKVM has finalised. */
-> > -       __KVM_HOST_SMCCC_FUNC___pkvm_host_share_hyp,
-> > -       __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_hyp,
-> >         __KVM_HOST_SMCCC_FUNC___pkvm_host_donate_guest,
-> >         __KVM_HOST_SMCCC_FUNC___pkvm_host_share_guest,
-> >         __KVM_HOST_SMCCC_FUNC___pkvm_host_unshare_guest,
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > index 06db299c37a8..f0c52667cf52 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > @@ -721,9 +721,9 @@ static const hcall_t host_hcall[] = {
-> >         HANDLE_FUNC(__vgic_v3_restore_vmcr_aprs),
-> >         HANDLE_FUNC(__vgic_v5_save_apr),
-> >         HANDLE_FUNC(__vgic_v5_restore_vmcr_apr),
-> > -
-> >         HANDLE_FUNC(__pkvm_host_share_hyp),
-> >         HANDLE_FUNC(__pkvm_host_unshare_hyp),
-> > +
-> >         HANDLE_FUNC(__pkvm_host_donate_guest),
-> >         HANDLE_FUNC(__pkvm_host_share_guest),
-> >         HANDLE_FUNC(__pkvm_host_unshare_guest),
-> > --
-> > 2.54.0.1136.gdb2ca164c4-goog
-> >
+> /builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,versal-clk.example.dtb:
+> zynqmp-firmware (xlnx,zynqmp-firmware):
+> clock-controller:clock-names:0: 'pss_ref_clk' was expected
+>          from schema $id:
+> http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> /builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,versal-clk.example.dtb:
+> zynqmp-firmware (xlnx,zynqmp-firmware):
+> clock-controller:clock-names:1: 'video_clk' was expected
+>          from schema $id:
+> http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> /builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,versal-clk.example.dtb:
+> zynqmp-firmware (xlnx,zynqmp-firmware): clock-controller:clock-names:
+> ['ref', 'pl_alt_ref'] is too short
+>          from schema $id:
+> http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> /builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,versal-clk.example.dtb:
+> zynqmp-firmware (xlnx,zynqmp-firmware): clock-controller:clocks:
+> [[4294967295], [4294967295]] is too short
+>          from schema $id:
+> http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+> /builds/robherring/linux-dt/Documentation/devicetree/bindings/clock/xlnx,versal-clk.example.dtb:
+> zynqmp-firmware (xlnx,zynqmp-firmware): clock-controller:compatible:0:
+> 'xlnx,zynqmp-clk' was expected
+>          from schema $id:
+> http://devicetree.org/schemas/firmware/xilinx/xlnx,zynqmp-firmware.yaml
+
+I will look at it. Thanks for reporting it.
+Michal
+
+
+-- 
+Michal Simek, Ing. (M.Eng), OpenPGP -> KeyID: FE3D1F91
+w: www.monstr.eu p: +42-0-721842854
+Maintainer of Linux kernel - Xilinx Microblaze
+Maintainer of Linux kernel - Xilinx Zynq ARM and ZynqMP/Versal ARM64 SoCs
+U-Boot custodian - Xilinx Microblaze/Zynq/ZynqMP/Versal/Versal NET SoCs
+TF-A maintainer - Xilinx ZynqMP/Versal/Versal NET SoCs
+
 
