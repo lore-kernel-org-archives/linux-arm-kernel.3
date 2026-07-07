@@ -4,95 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65E7EC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 20:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B5EAC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 21:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xfccldLVCxkbEtlVItFgKJxpZCQLxtTCzIH5oBIqVAM=; b=lpQLHctfF+UMXOSWXE7md6EBm0
-	Ctb5aoXjL1uTH0gxKet7NjUcwmQBFpduBQbk854/z+xHydiCJEm+VAm1QrK72TLcifhzq604YQHBm
-	0dEGFbgLd9ir18Rc23KM2/9zCgbNfagI4q4ECz8lQzstYdgi2Gf/7eRlzbaD8m4juXI52kpWqLAvH
-	FrN17wegEglzmkYa6ZqBlfo+hnaQtQqQmNewVMUqh3OrGyLcZDvrMVApI6cYb7q66Ki/sVTW4/mZe
-	TTI98yBo4wVTwWuS+TBAjFJkde28hJQ/uy4m2QY/p6WP36wp6ycNSHQ9b3G7dWE1Z21MHRn4ddD9O
-	FpdotsCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0nG7gmJkL0yGHZL8B0+yNNQi6iwQ51USIU/uuQVCr8E=; b=43AknGaxLm8bMHsx8walebgULY
+	cQ+3PC/xkgyhhqXzZwPBOPKibt5QenbI6WWunfBTBpHgbNzKDkeFxXJkG9YtyVgUJhCag5Sy6toi7
+	ARQ+S+3Grujh46nI9G+yV6ZUYlwVOVwhZYLRnrJkIKNTLoEArLj1BOwZrr45Ugk5DFLHAdFKNwJC5
+	CuiC02cYptSMH6t/h4DgvcmBqScnUWAGb3SEfbFvZolY6Cv12gLaE58frL9GbNbQ+7Ko+JiINojYl
+	hw9VnaE124JC+ygGhyLteEnv0xfYxzhlPHPs1T9NQ0xHJcAEF3C2XBpkZ53VwIwoc5USX5+az09nn
+	PKOGCr3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whCYh-0000000FsSM-0FF3;
-	Tue, 07 Jul 2026 20:38:23 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1whD1g-0000000Fts5-3lF2;
+	Tue, 07 Jul 2026 21:08:20 +0000
+Received: from mail-southcentralusazon11011030.outbound.protection.outlook.com ([40.93.194.30] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whCYe-0000000FsP0-36AD
+	id 1whD1d-0000000FtrM-2c22
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 20:38:22 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA512)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4gvtNB1gDqzKnYq;
-	Tue, 07 Jul 2026 22:38:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783456698;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xfccldLVCxkbEtlVItFgKJxpZCQLxtTCzIH5oBIqVAM=;
-	b=HciGiTdGX0B4YjvdZOHv6vtUEhYWXigGBFKcFX2uE8+b39utoCSA8Ct1P2KyRaIU05rSQq
-	9OfMIZjQptVYSf7HSEt56HlND0Mtc4eA75yMW99Rw65TucrfAiiIZLIvmHfET1MYlUUc0P
-	ps5+b5EYZvHZph8rNbE0kVjn8aMeYY4KYPrVKnoDbIUq6mzsYnl49shAxNPjuR6Pgh4pyM
-	x+yr1V0KmulirhafauMAaZAsnRanNjnkqn1ARvA8DOMCSMMhtFdeRnYJRAZ02yFFDblvTc
-	HE+UMp88BZ3L9PabznZCUMlB2KnmxKEGXONwmbhLlQ8ZfFP8IqWW7PuLWWxLRw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=P0opyTmz;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
-From: Marek Vasut <marek.vasut+renesas@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1783456696;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xfccldLVCxkbEtlVItFgKJxpZCQLxtTCzIH5oBIqVAM=;
-	b=P0opyTmz2tfP23EpSSkte30I85hZ6Fr3d3HZsnt6Y3CoVRaqcpxEc4pZm7Svzdljp/FLkX
-	mbOOKZF7MpRA1fTDONiCZF8K8qsxgLcmsnvLzepWJsKsOyAkmMDKUKRcpUGfHPe2HpPbyu
-	+FpMg+hAUObutRqu99moHH8mYf+BT8ZrOH/nRi7vDOMX14TuBCUBq6n3TKgk0z8L6feacK
-	zZsNlFt5xqISGIHiCzl1A2Pm16S9qDHKK2KaPxFapLsARBhsU0MFJrq+vDsJx5/eEi/DtK
-	hFgZeI7McPFMhrWYCXW6UTB4NqyZ9iLnTqZGrYyPpAC3rl55A6pO4v3IBzFbhQ==
-To: linux-pci@vger.kernel.org
-Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Marc Zyngier <maz@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH v4 5/5] arm64: dts: renesas: r8a779g0: Add GICv3 ITS and update PCIe nodes
-Date: Tue,  7 Jul 2026 22:35:43 +0200
-Message-ID: <20260707203743.88299-6-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20260707203743.88299-1-marek.vasut+renesas@mailbox.org>
-References: <20260707203743.88299-1-marek.vasut+renesas@mailbox.org>
+	Tue, 07 Jul 2026 21:08:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xj6nuNAEhrxBXzw9kgEgWOsdjTu5zJ8W2jSvX+wO7O2hUgtKDHUl+hEVnJrs0QurGKFgzzPu+PAH5FZ3zyKXmOGELYKhmQ83Jc+QFo/FZLYxn73WwTl1xE5NMLC+YTszxVQZYmYVUFwsytt1P0uOvAzsg5NCCnYTpqfrS2gIyORW0a8llRQyQX/+vPNv2SyCOD7KRQWZ4g8Hgb9dzHDH76n7uSnRCtSOAIyhB24dj9AUuxIOjMD6MGHDFfEpzp22ZBJJpzvak23RS1eHp7NOQUoQzw6lAZ2GLcBab+TVtf53V/o/eVHYqCOVGpZSRJi3xVcD0sJ1WHTInsBDF4tUOw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0nG7gmJkL0yGHZL8B0+yNNQi6iwQ51USIU/uuQVCr8E=;
+ b=Q1WeOcpzE55EqhI2TINqgRh1ibhmtE3vF4S0XgQVT/lYWnwfN3XAtf473XWU1s700x8PKxjgFFPcetwgGmV/q9k+GekI3Pu7KXhvXqTZjbfyp0YN0jC12Z/yWuiBLWsWzETnvGr6xO2+6iM6V2Pu0cvT3xFGs2BOlDMMZ9Aygl9jKsrYL4qvHyst5C5pYByqWX4Xp1Xm8G0/SCVRyyP+otlKp8jwtBsG6x15tQng8s8/0KXgL1PPdiaEfJ0GIbkdIU5D4G3/0mQGE7I67WtDKNnAVB+8hDZ/SWDyEUSbqV3anEeviWQFQcI+2CCLQ2cODPjq9fV1Gri9bjU+RMIuYg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0nG7gmJkL0yGHZL8B0+yNNQi6iwQ51USIU/uuQVCr8E=;
+ b=LOKINMY6LeWdDkAJWy7MQfGr/cQYC6aRStrLxt3IZ5GFPPPThBn0lTeRA9V+jM0jDxeyp7lMU9Y24bp5ISdb5zoYp2wPjaZsmtZBBGBeWZ0LtZfbLfTbNxz85K/16P4lpb+uYBJhc3+ifsP+X5gZCwQYpjVTzmxiVcTFDpmBZOa6OWdsePuTByNNdZlMqNjDhwIO3phqy512BooIOTYLiY4wFqr+mLUpkC0YBnKUgzuiObqlS73JKzkFAw3DO773KzSf7fFLY2qVTxf0zUXqjKV37On3kEnKo3s7M0ce6stWy2GdbJ3cR71jj7dQHCFJ5c688PGw+LaKQjQYXrup4Q==
+Received: from MW4PR04CA0120.namprd04.prod.outlook.com (2603:10b6:303:83::35)
+ by MW6PR12MB7070.namprd12.prod.outlook.com (2603:10b6:303:238::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Tue, 7 Jul 2026
+ 21:08:03 +0000
+Received: from CO1PEPF000066E7.namprd05.prod.outlook.com
+ (2603:10b6:303:83:cafe::20) by MW4PR04CA0120.outlook.office365.com
+ (2603:10b6:303:83::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Tue, 7
+ Jul 2026 21:08:03 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ CO1PEPF000066E7.mail.protection.outlook.com (10.167.249.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Tue, 7 Jul 2026 21:08:02 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Jul
+ 2026 14:07:44 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Tue, 7 Jul 2026 14:07:44 -0700
+Received: from Asurada-Nvidia (10.127.8.10) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 7 Jul 2026 14:07:43 -0700
+Date: Tue, 7 Jul 2026 14:07:42 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <iommu@lists.linux.dev>, "Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Jean-Philippe Brucker <jpb@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, Robin Murphy <robin.murphy@arm.com>,
+	Will Deacon <will@kernel.org>, David Matlack <dmatlack@google.com>, "Pasha
+ Tatashin" <pasha.tatashin@soleen.com>, <patches@lists.linux.dev>, "Pranjal
+ Shrivastava" <praan@google.com>, Samiullah Khawaja <skhawaja@google.com>,
+	Mostafa Saleh <smostafa@google.com>
+Subject: Re: [PATCH v2 3/8] iommu/arm-smmu-v3: Optimize range invalidation
+ for latency
+Message-ID: <ak1qniAsNGNu6ksR@Asurada-Nvidia>
+References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <3-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+ <akyqH7f5h42wru8a@nvidia.com>
+ <20260707191329.GC226829@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: c41e573af602e797cf2
-X-MBO-RS-META: ywcwk7y9uqr5xhh5osbrhnjh1p73wr5x
-X-Rspamd-Queue-Id: 4gvtNB1gDqzKnYq
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20260707191329.GC226829@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000066E7:EE_|MW6PR12MB7070:EE_
+X-MS-Office365-Filtering-Correlation-Id: af4042fd-7b8d-4c7c-d50e-08dedc6bd52c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|7416014|1800799024|4143699003|56012099006|11063799006|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info: 9J4lAj10c0RWOSvTu4GtaJ12chWeIPHTpcLuxTajdPWXCLMg7jV6QZZbNGIVui34WqXonfnluC+8EkkUshWdeIeUxrn4DCnAniU6aknxvgQKqE1C2PKy6TfnG+IT7OFTZLFEhFrYvGevGmzI2f9/k4ygqDuYZfH0hDd7pIsMt+RlqGNFBVuGVPah7+0RKnOYv6JM2902oA3bDoWEOv8ZPsDuqMsq3PkKGD8FcNDnDXsd1eEBaK+Vn7p9w1FAlN3dehHDCi3ol96Vor9il0dDPRI1JOdkdeLaoFx+a9U+SvJ6LYyw3c00Y/NLEyl2ixoS2vFoKdkU3LHUL5BCmQrCdyYjJdyaX+j6Jvr/IWtHoz1aIcENOhrRAgdT+j06Cryz807VdSmLdTGHNqMAcXX3dTFUxEpZ1qiO6oYBhd68DX9Lqn4q8WcJbu6+O1KCKYlHI2YLsy1ygNx5G7ziFJDItbNTWIA4wSJ+WLMLKrpJltulPqHuDpuAgiJXHZOZnHlYldy5KVEN9FvDsOZRpehlk76mIXyBFlQhWgItha20fY3bEodFRRC3pycd9mxgZ2VSgHz3qVunnlzn7qdGZyooCwuq1gykIvdXNY7KypzzMq0KcqMp9QAGrjkLk9enm+ZkJ7kCFrIb8PSVCh4KJTNh0uLZBaTB76FGjWwp0zUDaYpq3EOH8KL3DNsIVmp9/UOr
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(7416014)(1800799024)(4143699003)(56012099006)(11063799006)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: B1OZjVB9/xJtaDUqqdHbw81qyUwwMvrDVrs07ujm0IZmtBNYSGd+6CMjRV5+ytVxf3d+LTGqaUEy3mHjQYuvsqmqwjUHkgk98s9joEZ+sl+frrh2K3S9T8Xt+Eu+q+FZT+NJy8f6pNHaSlc4u7+h7TrZJ0NR4drqkiJrsCNVnF0zDHQv1WBwcbETEhXQmIOCq6QsJOkIVOUxP/KFx20cSY7h8baO8J5OhRCdDHCimsuvdEnxGb+10cRuzDMN9bVf5ZttIlIDiKAmPsUf/0HWDgn7O5DSQd1b6kY6IMMxKfweCwFvFCVCjPdX8M0BSP6gToUMmUX2UpPyEBPR9ygry5fxB+kOCMcTzDGfiVHtbcIQl0Hf+x3QvvrLPI5bi3IG81dD0mDm58jjSpEqRhmqFNSm0cPzmTSfvTl0HhSI+jPcXaNPWgUxh5dTCo3j6zha
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 21:08:02.8383
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: af4042fd-7b8d-4c7c-d50e-08dedc6bd52c
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000066E7.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB7070
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_133821_079340_E3A42EE5 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20260707_140817_680199_B28E7625 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,126 +135,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This SoC implements GIC600 with GICv3 ITS and PCIe host mode on this
-SoC can use it. Add GIC ITS node into GIC node, update interrupt-map
-and add msi-map into PCIe controller node.
+On Tue, Jul 07, 2026 at 04:13:29PM -0300, Jason Gunthorpe wrote:
+> On Tue, Jul 07, 2026 at 12:27:00AM -0700, Nicolin Chen wrote:
+> > On Mon, Jul 06, 2026 at 01:26:40PM -0300, Jason Gunthorpe wrote:
+> > > +	/*
+> > > +	 * There are at most 5 possible values for NUM based on SCALE. The
+> > 
+> > Mind elaborating the "at most 5 possible values for NUM"?
+> 
+> Oh, I guess it is at most 6 since it is +1
 
-The GIC ITS does have master interface to issue transactions to RAM.
-The interface does support cacheable transactions, however, it does
-not support shareable attribute, because the AXI port signals are tied
-to inactive in this implementation. Therefore, add "dma-noncoherent"
-DT property into the GIC ITS subnode.
+Yea, that's what I thought.
 
-The GIC redistributor does not have cacheable/shareable, therefore
-add "dma-noncoherent" DT property into the GIC node.
+log2(NUM + 1) could be 5, 4, 3, 2, 1, or 0. So, totally 6.
 
-Co-developed-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Signed-off-by: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
----
-NOTE: This would not be possible without prior work from Shimoda-san
-      https://lore.kernel.org/all/20240214052144.1966569-1-yoshihiro.shimoda.uh@renesas.com/
----
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-doc@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-pci@vger.kernel.org
-Cc: linux-renesas-soc@vger.kernel.org
----
-V2: No change
-V3: Add Co-developed-by to credit Shimoda-san
-V4: No change
----
- arch/arm64/boot/dts/renesas/r8a779g0.dtsi | 31 ++++++++++++++++-------
- 1 file changed, 22 insertions(+), 9 deletions(-)
+> How about:
+> 
+> 	/*
+> 	 * The spec defines the invalidated range as:
+> 	 *   Range = ((NUM+1) * 2^SCALE) * Translation_Granule_Size
+> 	 * NUM is 5 bits, so (NUM+1) covers 1..32 granules and SCALE scales
+> 	 * that by a power of two. We must pick NUM and SCALE so the range
+> 	 * covers num_tg granules, i.e. (NUM+1) * 2^SCALE >= num_tg with
+> 	 * NUM+1 <= 32. That constrains SCALE to:
+> 	 *    ceil(num_tg / 2^SCALE) <= 32
+> 	 *    SCALE >= ceil(log2(num_tg / 32))
+> 	 * Choosing the smallest such SCALE gives the finest granularity and
+> 	 * thus the tightest (least over-covering) range, and equivalently the
+> 	 * largest NUM.
+> 	 *
+> 	 * Unlike other IOMMUs the spec has no alignment requirement on the
+> 	 * address beyond alignment to tg (so long as TTL=0).
+> 	 */
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-index c25642a620db8..dba46499b5e9c 100644
---- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-@@ -809,6 +809,7 @@ pciec0: pcie@e65d0000 {
- 			resets = <&cpg 624>;
- 			reset-names = "pwr";
- 			max-link-speed = <4>;
-+			msi-parent = <&its>;
- 			num-lanes = <2>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -819,10 +820,10 @@ pciec0: pcie@e65d0000 {
- 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0 0 0 1 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 2 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 3 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 4 &gic GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 2 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 3 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 4 &gic 0 0 GIC_SPI 449 IRQ_TYPE_LEVEL_HIGH>;
- 			snps,enable-cdm-check;
- 			status = "disabled";
- 
-@@ -856,6 +857,7 @@ pciec1: pcie@e65d8000 {
- 			resets = <&cpg 625>;
- 			reset-names = "pwr";
- 			max-link-speed = <4>;
-+			msi-parent = <&its>;
- 			num-lanes = <2>;
- 			#address-cells = <3>;
- 			#size-cells = <2>;
-@@ -866,10 +868,10 @@ pciec1: pcie@e65d8000 {
- 			dma-ranges = <0x42000000 0 0x00000000 0 0x00000000 1 0x00000000>;
- 			#interrupt-cells = <1>;
- 			interrupt-map-mask = <0 0 0 7>;
--			interrupt-map = <0 0 0 1 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 2 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 3 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
--					<0 0 0 4 &gic GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-map = <0 0 0 1 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 2 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 3 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>,
-+					<0 0 0 4 &gic 0 0 GIC_SPI 456 IRQ_TYPE_LEVEL_HIGH>;
- 			snps,enable-cdm-check;
- 			status = "disabled";
- 
-@@ -2148,11 +2150,22 @@ ipmmu_mm: iommu@eefc0000 {
- 		gic: interrupt-controller@f1000000 {
- 			compatible = "arm,gic-v3";
- 			#interrupt-cells = <3>;
--			#address-cells = <0>;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
- 			interrupt-controller;
- 			reg = <0x0 0xf1000000 0 0x20000>,
- 			      <0x0 0xf1060000 0 0x110000>;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			dma-noncoherent;
-+
-+			ranges = <0x0 0x0 0x0 0xf1000000 0x0 0x200000>;
-+
-+			its: msi-controller@40000 {
-+				compatible = "arm,gic-v3-its";
-+				reg = <0x0 0x40000 0x0 0x20000>;
-+				dma-noncoherent;
-+				msi-controller;
-+			};
- 		};
- 
- 		gpu: gpu@fd000000 {
--- 
-2.53.0
+This reads good to me.
 
+With that,
+
+Reviewed-by: Nicolin Chen <nicolinc@nvidia.com>
 
