@@ -4,60 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B85FC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:55:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9102AC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:58:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6WX8OSMCUcv8pi5syb26caCWQC9+MZHtc8mcnjzN/Cg=; b=pwUCf3E74bQ+iKEXKi9qbYv7hP
-	bmYtWwPlDg41fKNTl6F0QaCeAHQRoOjdB+u44j/mVaAJP48kMw2cbo8d2VvoeqY6wuIoH0DR7X4QA
-	9s5X/Y+MrVvsZhXRQ+nZZiJgMm4Rgronz/7x/SsTgUAD8db+TTRAqOcPQsXbKapRrvlObLib5EW5s
-	8X8UY/chZXWA8UznYLXaLl5g3Kovdkkc41OmdCvjTYVusWRIABIE5yiY26ypeZ6UyDIqmDwbQCA3i
-	8b+4HLf23TK+yAfomst4/1tdHc0hoEBJK18kyDGc/bPwwgPicqGGA+vgDGq1pcj4U0alkpaz8skS1
-	wsoAOBUw==;
+	bh=CJcM49RM2FlBZTuuqbu3ibPxbKkT8R770pCrHBILAwQ=; b=cVJFE8bDZkJuCLymi9cRAnPs50
+	W8U3GAyKmuF6X6He+NnA8mRjgKwIr8Erah3JFBcBg+7rxpgAL55tAg3IDBrn6bo4aYHcm8c2ioNFP
+	zPioe4FvlvPTXDvsSNJ1DaFHy8DQmwbtYDuedug2vA0AUQ7gMeXNwTHKMcl1aCeGxEimKweDaYIZj
+	o5BNInebOvQl7tquzdxuczvISbD/irkc4v4iWa7GCw3AgcTrCowTqxU4iHpZ/bahTNmNekycFuPQD
+	XaTJzfxzljwksJuL4Ss+q1bci0CDaOEyyt6w+7R6pC+Ci9Z2sw39n47AmmGPdg+iamu52n61cPAlt
+	NVqVO+kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6Gn-0000000F687-36VV;
-	Tue, 07 Jul 2026 13:55:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6Gl-0000000F67l-0sYj
+	id 1wh6Jw-0000000F6QD-14vF;
+	Tue, 07 Jul 2026 13:58:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh6Jv-0000000F6Q6-2ajp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 13:55:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EC5311A2D;
-	Tue,  7 Jul 2026 06:55:19 -0700 (PDT)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.2.213.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CCEDD3F85F;
-	Tue,  7 Jul 2026 06:55:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783432524; bh=ICx3pfpfzRC6B2jMY/97ptCXRIXl9HJdina4SUTaGAk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r8of3wY/XjYZJZHOKfxPdd3GPh2MArwl/HPgItGmZ8ELFmveS/0aL84ZcirScE/6l
-	 zwmexmBW7XqSC+Sez/ExU6fNBrPDYNBHE1ssBv2Cfu2IogXLmnwYcbRJfOUZvv6EV4
-	 Bwi8/2tor3fuOswaAjOycwBcWS5Xg3XHxBI/7z38=
-Date: Tue, 7 Jul 2026 14:55:20 +0100
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Steffen Eiden <seiden@linux.ibm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 09/28] KVM: arm64: Relax CPTR_EL2 handling when
- FEAT_NV2p1 is present
-Message-ID: <20260707135520.GB922094@e124191.cambridge.arm.com>
-References: <20260702160248.1377250-1-maz@kernel.org>
- <20260702160248.1377250-10-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260702160248.1377250-10-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_065527_344520_86888B9B 
-X-CRM114-Status: GOOD (  21.72  )
+	Tue, 07 Jul 2026 13:58:43 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id B2865601DE;
+	Tue,  7 Jul 2026 13:58:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B861F000E9;
+	Tue,  7 Jul 2026 13:58:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783432722;
+	bh=CJcM49RM2FlBZTuuqbu3ibPxbKkT8R770pCrHBILAwQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=XVcT43nVa9ADCQj7yGrCAhL2dagLOQb2tTPXVoiGP6OCfLnIXHqI4t75wsxUuaYFV
+	 LQwxhgAymxZZLG1yjbzE8tpvbtLJxkaoetuqFb5ak/JGdiuLhZrPFGVz45TFHLEqC2
+	 esJWvK9f4YXU+3FKiIeaWCh5jS0AsbdRVG8mhFakl9Q/EeS3eriaQCawOFbZttOhE3
+	 U+3YcIit+kC6CvdwWj2gArxUnwHyolTyVX9vDZtbH96HzbPQ5/JnOTvzFmQ7tseRix
+	 oYqJnBwCfZkv0kP0Vqix1eS3U1aUOR2ZJs/g3PnzE/sTeem+kJVnXj1MnzPYEcL1yT
+	 s6+mhJLUq2BeQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wh6Js-00000002R7k-1z9a;
+	Tue, 07 Jul 2026 13:58:40 +0000
+Date: Tue, 07 Jul 2026 14:58:39 +0100
+Message-ID: <865x2qq4ts.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Yureka Lilian <yureka@cyberchaos.dev>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2ls?=
+ =?UTF-8?B?Y3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan Sadhasivam
+ <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
+ <bhelgaas@google.com>,	Sven Peter <sven@kernel.org>,	Janne Grunau
+ <j@jannau.net>,	Neal Gompa <neal@gompa.dev>,	Krzysztof Kozlowski
+ <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,
+	linux-pci@vger.kernel.org,	linux-kernel@vger.kernel.org,
+	asahi@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
+In-Reply-To: <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
+References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
+	<20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
+	<86a4s3p2vy.wl-maz@kernel.org>
+	<8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yureka@cyberchaos.dev, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, sven@kernel.org, j@jannau.net, neal@gompa.dev, krzk+dt@kernel.org, conor+dt@kernel.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,92 +90,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 05:02:29PM +0100, Marc Zyngier wrote:
-> With FEAT_NV2P1, it is no longer necessary to trap CPTR_EL2 accesses
-> via CPACR_EL1, as CPACR_EL1.TCPAC is guaranteed to be stateful.
+On Tue, 07 Jul 2026 13:04:21 +0100,
+Yureka Lilian <yureka@cyberchaos.dev> wrote:
 > 
-> Prevent such trapping and context switch CPACTR_EL1 in NV contexts
-> when NV2P1 is present.
+> On 7/7/26 11:25, Marc Zyngier wrote:
+> > On Mon, 06 Jul 2026 23:38:27 +0100,
+> > Yureka Lilian <yureka@cyberchaos.dev> wrote:
+> >> Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
+> >> provide standardized power management for PCI devices.
+> >> 
+> >> Notably, this allows enabling powering on the WiFi, SD card reader on
+> >> various Macs by means of the pwrctrl framework before probing the ports.
+> >> 
+> >> Previously, a custom solution for powering on the WiFi and SD card
+> >> reader was proposed[1], but we can now use the new pci-pwrctrl-generic
+> >> driver for this purpose.
+> >> 
+> >> Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
+> >> 
+> > nit: this paragraph and the accompanying link don't belong in the
+> > commit message and should be moved below the --- mark or even better,
+> > to the cover letter.
+> ack, will leave it out of the commit message of the individual commit in v2
+> >> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
+> >> ---
+> >>   drivers/pci/controller/Kconfig      |  1 +
+> >>   drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
+> >>   2 files changed, 17 insertions(+)
+> >> 
+> >> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
+> >> index 2247709ef6d6..af64630d28fa 100644
+> >> --- a/drivers/pci/controller/Kconfig
+> >> +++ b/drivers/pci/controller/Kconfig
+> >> @@ -46,6 +46,7 @@ config PCIE_APPLE
+> >>   	depends on OF
+> >>   	depends on PCI_MSI
+> >>   	select PCI_HOST_COMMON
+> >> +	select PCI_PWRCTRL_GENERIC
+> >>   	select IRQ_MSI_LIB
+> >>   	help
+> >>   	  Say Y here if you want to enable PCIe controller support on Apple
+> >> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
+> >> index c2cffc0659f4..db038a9d4831 100644
+> >> --- a/drivers/pci/controller/pcie-apple.c
+> >> +++ b/drivers/pci/controller/pcie-apple.c
+> >> @@ -30,6 +30,7 @@
+> >>   #include <linux/msi.h>
+> >>   #include <linux/of_irq.h>
+> >>   #include <linux/pci-ecam.h>
+> >> +#include <linux/pci-pwrctrl.h>
+> >>     #include "pci-host-common.h"
+> >>   @@ -825,6 +826,21 @@ static int apple_pcie_init(struct
+> >> pci_config_window *cfg)
+> >>   	if (WARN_ON(!pcie))
+> >>   		return -ENOENT;
+> >>   +	ret = pci_pwrctrl_create_devices(pcie->dev);
+> >> +	if (ret) {
+> >> +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
+> >> +		return ret;
+> >> +	}
+> >> +
+> >> +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
+> >> +	if (ret) {
+> >> +		if (ret != -EPROBE_DEFER) {
+> >> +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
+> >> +			pci_pwrctrl_destroy_devices(pcie->dev);
+> >> +		}
+> >> +		return ret;
+> >> +	}
+> >> +
+> > Why is this done globally while the whole driver works on a per-port
+> > basis, and that the proposed DT updates are also per port?
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> pci_pwrctrl_power_on_devices takes a struct device as parameter, but
+> pcie-apple does not allocate device structs for the individual ports.
+> This could be changed of course. But since pci_pwrctrl_* operate on
+> the subnodes recursively, it works just fine this way.
 
-Reviewed-by: Joey Gouly <joey.gouly@arm.com>
+Works fine is one thing. Being consistent with the way the rest of the
+driver works is another. pci_pwrctrl_create_device() and
+pci_pwrctrl_power_on_device() appear to do exactly what would be
+required for a single port. They just needs to be exported made
+global/exported.
 
-> ---
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 5 +++--
->  arch/arm64/kvm/hyp/vhe/switch.c         | 3 +++
->  arch/arm64/kvm/hyp/vhe/sysreg-sr.c      | 8 +++++---
->  arch/arm64/kvm/sys_regs.c               | 5 ++++-
->  4 files changed, 15 insertions(+), 6 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> index 8e5f492f39086..7b27296c94607 100644
-> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-> @@ -108,9 +108,10 @@ static inline void __activate_cptr_traps_vhe(struct kvm_vcpu *vcpu)
->  	 * The architecture is a bit crap (what a surprise): an EL2 guest
->  	 * writing to CPTR_EL2 via CPACR_EL1 can't set any of TCPAC or TTA,
->  	 * as they are RES0 in the guest's view. To work around it, trap the
-> -	 * sucker using the very same bit it can't set...
-> +	 * sucker using the very same bit it can't set. FEAT_NV2p1 fixes it.
->  	 */
-> -	if (vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
-> +	if (!cpus_have_final_cap(ARM64_HAS_NV2P1) &&
-> +	    vcpu_el2_e2h_is_set(vcpu) && is_hyp_ctxt(vcpu))
->  		val |= CPTR_EL2_TCPAC;
->  
->  	/*
-> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-> index 3b76e0468317b..361d3f8344dd8 100644
-> --- a/arch/arm64/kvm/hyp/vhe/switch.c
-> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
-> @@ -441,6 +441,9 @@ static bool kvm_hyp_handle_cpacr_el1(struct kvm_vcpu *vcpu, u64 *exit_code)
->  	u64 esr = kvm_vcpu_get_esr(vcpu);
->  	int rt;
->  
-> +	if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-> +		return false;
-> +
->  	if (!is_hyp_ctxt(vcpu) || esr_sys64_to_sysreg(esr) != SYS_CPACR_EL1)
->  		return false;
->  
-> diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> index be685b63e8cf2..6f0f046e4ca4e 100644
-> --- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> +++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
-> @@ -42,10 +42,12 @@ static void __sysreg_save_vel2_state(struct kvm_vcpu *vcpu)
->  		u64 val;
->  
->  		/*
-> -		 * We don't save CPTR_EL2, as accesses to CPACR_EL1
-> -		 * are always trapped, ensuring that the in-memory
-> -		 * copy is always up-to-date. A small blessing...
-> +		 * Without FEAT_NV2p1, we don't save CPTR_EL2, as accesses
-> +		 * to CPACR_EL1 are always trapped, ensuring that the
-> +		 * in-memory copy is always up-to-date. A small blessing...
->  		 */
-> +		if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-> +			__vcpu_assign_sys_reg(vcpu, CPTR_EL2, read_sysreg_el1(SYS_CPACR));
->  		__vcpu_assign_sys_reg(vcpu, SCTLR_EL2,	 read_sysreg_el1(SYS_SCTLR));
->  		__vcpu_assign_sys_reg(vcpu, TTBR0_EL2,	 read_sysreg_el1(SYS_TTBR0));
->  		__vcpu_assign_sys_reg(vcpu, TTBR1_EL2,	 read_sysreg_el1(SYS_TTBR1));
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 6b47d936efb32..1dfc1f88bec82 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -326,7 +326,10 @@ u64 vcpu_read_sys_reg(const struct kvm_vcpu *vcpu, enum vcpu_sysreg reg)
->  			val |= __vcpu_sys_reg(vcpu, reg) & ~CNTKCTL_VALID_BITS;
->  			return val;
->  		case CPTR_EL2:
-> -			return __vcpu_sys_reg(vcpu, reg);
-> +			if (cpus_have_final_cap(ARM64_HAS_NV2P1))
-> +				return read_sysreg_el1(SYS_CPACR);
-> +			else
-> +				return __vcpu_sys_reg(vcpu, reg);
->  		default:
->  			WARN_ON_ONCE(1);
->  		}
-> -- 
-> 2.47.3
-> 
+> Additionally, we would like to be sure all the endpoints can be powered
+> before we start initializing the individual ports. Otherwise we could
+> end up in a situation where some ports are initialized but others are
+> not when we realize some driver needed to power on the endpoints for
+> port n is not yet bound.
+
+How can a driver be bound to a device connected to a port if we
+haven't been through the initial link-up dance, which is what
+apple_pcie_setup_port() does? The power supplies are per-port for a
+reason.
+
+> There is no appropriate pci_pwrctrl API for checking for the
+> availability without changing the state, so this is an additional
+> reason to do it early.
+
+Availability of what? To be clear, I'm not suggesting delaying
+switching of the power. I'm merely suggesting managing it on a per
+port basis.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
