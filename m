@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68F76C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09757C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:25:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oKX7vhK3Qg0KTc+n/IWnFbUYvJzoTnDiZZHzdRCOUWw=; b=R6mzcp8ZAisI9vri1WJuKPFWyh
-	44Izg+Ul3QWVC0JB2+4SAWfs9xQHJgXio/Vi9vmKIFkaLnPjKfrbYylL7+D6CNq61d+ULYgy1KESr
-	KIjtB1g47anGVAtV3vYV7Q69n/Vm16eW+3jQXa8p/A7jC7GIttsbcdPIfcvOCVGePtueZMzjJ5QQe
-	qxGewqXW5lwsWfLGp5MoLwn3QXoe2WjuPP7zPlEvCfoMGIjPcJ767dg1wNFMA+hu8jQAk9Si1125N
-	hn6GXawae2fZiRcMwO/zlV7VaM2JZHc7sLSh/NjAn/X18qXg1NiE/Xa6JH46/FsrFHRICeC1D/mjn
-	VXDXkN+w==;
+	bh=2+T/Jggvqz6cZ+zi/SQhTFIKS0RfRSrRiwzkzIBLZwg=; b=ePDv829APNhcHKEe4FjNsXjYBZ
+	6/HRv6SFAmYRfAJewALH/g99dZ/MmYZTux1NFHYsiS2Q88Edai/yzUfa3oriQlAUCeig5e7h+sXCp
+	aiP1nQ03rWQaLLNH/4uCuh8RX5tSk9cXVLaw7mQPLkR2bmZYDd0H4H5ikV05cePj2wNqBuxAA6rlN
+	auxYiZhPrRkv1NX4eP6ZWnzb8ZAxEA8rptJ98vpe6sV6Ufw1Cxy4TLu43P0RSR4vPZPuj2KKLSHHH
+	KJBgfIDw7dVyDLh9kcP+m1JKBimNBR0pTWhUjSsJcpdTmmTN5dZhhtjQpjpeMGmoiUQxbpCw53kpd
+	USGxTXuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6fg-0000000FADz-3VlA;
-	Tue, 07 Jul 2026 14:21:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wh6jC-0000000FAob-1wFy;
+	Tue, 07 Jul 2026 14:24:50 +0000
+Received: from out-172.mta1.migadu.com ([95.215.58.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6fa-0000000FA7Y-3YjT;
-	Tue, 07 Jul 2026 14:21:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=oKX7vhK3Qg0KTc+n/IWnFbUYvJzoTnDiZZHzdRCOUWw=; b=MdrAYW7DAYoc6Z1oRftagw696c
-	4Vo/Ou8bHW09V5n+9E1oMrKu0upz7feb+E7LAzIPwyjbWoXPu8ZfcyEYmYMnaKzolo8k45c+hZwv0
-	ZsOqGNOI4uFnkWL2LuviGlWcQkZcEjzZjRPA/gUh7doh0genaODspXrJysEKGuUZjEPlxjW01ONNX
-	P4hhHlpG98ZDDyXUXlH/CImxVwrCCiALdxC9fjM/7Jc5SMTz0+QYIqLCpIVZTGMrn3dYP3WBz7pra
-	h54FAf400FjysZjIISG6x8PhxjcxKtxz0WABV2pptXRmLz6ZX3bP0Vtd2WMIHBgZHC9vqaAnBfXVm
-	D+mPk93A==;
-Received: from galois.linutronix.de ([193.142.43.55])
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wh6fX-00000007XgJ-0CCT;
-	Tue, 07 Jul 2026 14:21:05 +0000
-From: Gregor Herburger <gregor.herburger@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783434059;
+	id 1wh6j8-0000000FAnZ-2a6B
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 14:24:48 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783434272;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=oKX7vhK3Qg0KTc+n/IWnFbUYvJzoTnDiZZHzdRCOUWw=;
-	b=H6g70LzajeblzgHasww6tB3AzSxbYNpOR1kL2lS5VHM2atZA8dgclML/5+Vwj3DFGqjUuy
-	YL2s6VkjM5mMnJAtCLDjeqyiZV6V0wpURPOQgyKz4fYGFG6p3HdQZKRWdsKDmzb+yG2PN2
-	C7c9WXmkeeHzeYJdJxLzDS/J6GXHHooBnmH2bsFUhekuU6YZE9/ExQ4w9n2HZ7Md2OaJ4K
-	m95uA6LBkB7FQoPGY5egOIfObq3rG+AQt45t1P6XV5ry2ZnnFLeXOxiimoDLTOL/dtYE6+
-	61Z+4s3I4Yz3I6rg3GbiJ3rsx60x676nGB7kpM77V9EDt7awomFXWwAO92awhg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783434059;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=oKX7vhK3Qg0KTc+n/IWnFbUYvJzoTnDiZZHzdRCOUWw=;
-	b=sDbXcEhiNEClu0Y5steAhuBifVzFosIbVu3VIu6Kw0dCF1ECywWPlxt9sFHrYeK3zEJSxQ
-	XmWD3f8GqYdwKzDg==
-Date: Tue, 07 Jul 2026 16:20:54 +0200
-Subject: [PATCH v3 1/4] firmware: raspberrypi: reorder
- rpi_firmware_property_tag enum
+	bh=2+T/Jggvqz6cZ+zi/SQhTFIKS0RfRSrRiwzkzIBLZwg=;
+	b=DfqxHamDlz5qcPAWYuuHVuYkYYUJwZ96BSHL0ZJrhPEGwqr6ZvD6DuUNw8//aiTXYUKYbz
+	pXgnmUU6kS8cFmiu4vA/Z+2KN//6fnfdJH89gNnoiR4XFd72NE2dyRouZUlX3Id9Pi50JK
+	g0iQ4ZR4nlKToLXxtJXAO4ePYkZWsWY=
+From: Usama Arif <usama.arif@linux.dev>
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: Usama Arif <usama.arif@linux.dev>,
+	bpf@vger.kernel.org,
+	Puranjay Mohan <puranjay12@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Leo Yan <leo.yan@arm.com>,
+	Rob Herring <robh@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Shuah Khan <shuah@kernel.org>,
+	Breno Leitao <leitao@debian.org>,
+	Ravi Bangoria <ravi.bangoria@amd.com>,
+	Stephane Eranian <eranian@google.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@meta.com
+Subject: Re: [PATCH v5 2/4] perf/core: Clear the whole branch entry in perf_clear_branch_entry()
+Date: Tue,  7 Jul 2026 07:24:22 -0700
+Message-ID: <20260707142424.1687033-1-usama.arif@linux.dev>
+In-Reply-To: <20260616155716.2631508-3-puranjay@kernel.org>
+References: 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260707-rpi-tryboot-v3-1-fda82fe7ed76@linutronix.de>
-References: <20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de>
-In-Reply-To: <20260707-rpi-tryboot-v3-0-fda82fe7ed76@linutronix.de>
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Eric Anholt <eric@anholt.net>, 
- Stefan Wahren <wahrenst@gmx.net>
-Cc: linux-rpi-kernel@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, 
- Gregor Herburger <gregor.herburger@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1783434058; l=4658;
- i=gregor.herburger@linutronix.de; s=20260226; h=from:subject:message-id;
- bh=5gXb7Svmbzm19E+aV5DRmQMlrpXRccSgrIB48SHfJZM=;
- b=IJs7pcxmDkr4bpoHVtoUeKakWVMFqdvqbHJqDlo0ZPOOU2DWdKHt64o3Qno/eC0DWYiVN7YP+
- FNgtbCsLYmJBnISQyfpkaHnCoiVx/OGLQi8fwnWHbE5ANW/7694qYqe
-X-Developer-Key: i=gregor.herburger@linutronix.de; a=ed25519;
- pk=u72Lv7+/lS5CC1hmSrb17lv/6CK7HBh4Lvz77PHA5LM=
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_152104_256016_D7985D6C 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260707_072446_864070_1DAE2E6E 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,85 +98,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The enum was once ordered by tag values. The later added tags were added
-in a different order. Reorder the tags again.
+On Tue, 16 Jun 2026 08:57:07 -0700 Puranjay Mohan <puranjay@kernel.org> wrote:
 
-No functional change intended.
+> perf_clear_branch_entry_bitfields() resets the bitfields of struct
+> perf_branch_entry one at a time and deliberately leaves from/to alone,
+> since callers overwrite those immediately. The list of assignments has to
+> be kept in sync with the struct by hand, and it has already drifted:
+> new_type and priv were added to perf_branch_entry but never cleared here,
+> so stale values can leak into the records handed to userspace.
+> 
+> Clear the entry with a single struct assignment instead:
+> 
+> 	*br = (struct perf_branch_entry){ };
+> 
+> Every caller writes from/to right after the clear, so zeroing them as well
+> is harmless and the dead stores are elided on the x86 LBR read paths.
+> There is no longer anything to keep in sync when a field is added.
+> 
+> The helper no longer touches only the bitfields, so rename it to
+> perf_clear_branch_entry() and update the callers, fixing up the
+> br+nr/br+out spacing on the touched lines while at it.
+> 
+> Fixes: b190bc4ac9e6 ("perf: Extend branch type classification")
+> Fixes: 5402d25aa571 ("perf: Capture branch privilege information")
+> Suggested-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+> ---
+>  arch/x86/events/amd/brs.c   |  2 +-
+>  arch/x86/events/amd/lbr.c   |  2 +-
+>  arch/x86/events/intel/lbr.c |  6 +++---
+>  drivers/perf/arm_brbe.c     |  2 +-
+>  include/linux/perf_event.h  | 16 ++--------------
+>  5 files changed, 8 insertions(+), 20 deletions(-)
+> 
 
-Signed-off-by: Gregor Herburger <gregor.herburger@linutronix.de>
----
- include/soc/bcm2835/raspberrypi-firmware.h | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/include/soc/bcm2835/raspberrypi-firmware.h b/include/soc/bcm2835/raspberrypi-firmware.h
-index e1f87fbfe5542..66cc5a426c3c5 100644
---- a/include/soc/bcm2835/raspberrypi-firmware.h
-+++ b/include/soc/bcm2835/raspberrypi-firmware.h
-@@ -72,26 +72,26 @@ enum rpi_firmware_property_tag {
- 	RPI_FIRMWARE_GET_EDID_BLOCK =                         0x00030020,
- 	RPI_FIRMWARE_GET_CUSTOMER_OTP =                       0x00030021,
- 	RPI_FIRMWARE_GET_DOMAIN_STATE =                       0x00030030,
-+	RPI_FIRMWARE_GET_GPIO_STATE =                         0x00030041,
-+	RPI_FIRMWARE_GET_GPIO_CONFIG =                        0x00030043,
-+	RPI_FIRMWARE_GET_PERIPH_REG =                         0x00030045,
- 	RPI_FIRMWARE_GET_THROTTLED =                          0x00030046,
- 	RPI_FIRMWARE_GET_CLOCK_MEASURED =                     0x00030047,
- 	RPI_FIRMWARE_NOTIFY_REBOOT =                          0x00030048,
-+	RPI_FIRMWARE_GET_POE_HAT_VAL =                        0x00030049,
-+	RPI_FIRMWARE_SET_POE_HAT_VAL =                        0x00030050,
-+	RPI_FIRMWARE_NOTIFY_XHCI_RESET =                      0x00030058,
-+	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =                    0x00030066,
- 	RPI_FIRMWARE_SET_CLOCK_STATE =                        0x00038001,
- 	RPI_FIRMWARE_SET_CLOCK_RATE =                         0x00038002,
- 	RPI_FIRMWARE_SET_VOLTAGE =                            0x00038003,
- 	RPI_FIRMWARE_SET_TURBO =                              0x00038009,
- 	RPI_FIRMWARE_SET_CUSTOMER_OTP =                       0x00038021,
- 	RPI_FIRMWARE_SET_DOMAIN_STATE =                       0x00038030,
--	RPI_FIRMWARE_GET_GPIO_STATE =                         0x00030041,
- 	RPI_FIRMWARE_SET_GPIO_STATE =                         0x00038041,
- 	RPI_FIRMWARE_SET_SDHOST_CLOCK =                       0x00038042,
--	RPI_FIRMWARE_GET_GPIO_CONFIG =                        0x00030043,
- 	RPI_FIRMWARE_SET_GPIO_CONFIG =                        0x00038043,
--	RPI_FIRMWARE_GET_PERIPH_REG =                         0x00030045,
- 	RPI_FIRMWARE_SET_PERIPH_REG =                         0x00038045,
--	RPI_FIRMWARE_GET_POE_HAT_VAL =                        0x00030049,
--	RPI_FIRMWARE_SET_POE_HAT_VAL =                        0x00030050,
--	RPI_FIRMWARE_NOTIFY_XHCI_RESET =                      0x00030058,
--	RPI_FIRMWARE_NOTIFY_DISPLAY_DONE =                    0x00030066,
- 
- 	/* Dispmanx TAGS */
- 	RPI_FIRMWARE_FRAMEBUFFER_ALLOCATE =                   0x00040001,
-@@ -107,7 +107,6 @@ enum rpi_firmware_property_tag {
- 	RPI_FIRMWARE_FRAMEBUFFER_GET_PALETTE =                0x0004000b,
- 	RPI_FIRMWARE_FRAMEBUFFER_GET_TOUCHBUF =               0x0004000f,
- 	RPI_FIRMWARE_FRAMEBUFFER_GET_GPIOVIRTBUF =            0x00040010,
--	RPI_FIRMWARE_FRAMEBUFFER_RELEASE =                    0x00048001,
- 	RPI_FIRMWARE_FRAMEBUFFER_TEST_PHYSICAL_WIDTH_HEIGHT = 0x00044003,
- 	RPI_FIRMWARE_FRAMEBUFFER_TEST_VIRTUAL_WIDTH_HEIGHT =  0x00044004,
- 	RPI_FIRMWARE_FRAMEBUFFER_TEST_DEPTH =                 0x00044005,
-@@ -117,6 +116,7 @@ enum rpi_firmware_property_tag {
- 	RPI_FIRMWARE_FRAMEBUFFER_TEST_OVERSCAN =              0x0004400a,
- 	RPI_FIRMWARE_FRAMEBUFFER_TEST_PALETTE =               0x0004400b,
- 	RPI_FIRMWARE_FRAMEBUFFER_TEST_VSYNC =                 0x0004400e,
-+	RPI_FIRMWARE_FRAMEBUFFER_RELEASE =                    0x00048001,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_PHYSICAL_WIDTH_HEIGHT =  0x00048003,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_VIRTUAL_WIDTH_HEIGHT =   0x00048004,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_DEPTH =                  0x00048005,
-@@ -125,10 +125,10 @@ enum rpi_firmware_property_tag {
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_VIRTUAL_OFFSET =         0x00048009,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_OVERSCAN =               0x0004800a,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_PALETTE =                0x0004800b,
--	RPI_FIRMWARE_FRAMEBUFFER_SET_TOUCHBUF =               0x0004801f,
--	RPI_FIRMWARE_FRAMEBUFFER_SET_GPIOVIRTBUF =            0x00048020,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_VSYNC =                  0x0004800e,
- 	RPI_FIRMWARE_FRAMEBUFFER_SET_BACKLIGHT =              0x0004800f,
-+	RPI_FIRMWARE_FRAMEBUFFER_SET_TOUCHBUF =               0x0004801f,
-+	RPI_FIRMWARE_FRAMEBUFFER_SET_GPIOVIRTBUF =            0x00048020,
- 
- 	RPI_FIRMWARE_VCHIQ_INIT =                             0x00048010,
- 
-
--- 
-2.47.3
-
+Acked-by: Usama Arif <usama.arif@linux.dev> 
 
