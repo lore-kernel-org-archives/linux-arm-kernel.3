@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4D5C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 270B3C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIzicJtgYbCKzLvSO/GpRAV4BTLl8KZx9Q+QcO5m+HA=; b=p8z4TG899Rlk44ln1HcGlsIADw
-	LpHQ2r/mvdkrnujY+rtHDrpBUFKFUkGMFyr/Xyahn/iYGG9LYujRfI0C9jjFMvA2O4d35DGqQyRN9
-	8d3V1GVHkZQnl1dsjKBib7Euxwj6W+0bkMmXPtB+iu++9ut72W9XJIC1uIR7SwU6qGGgVOX4/oNzZ
-	XZdECmCVZc6BgukdyMaQtidE9Zkppi21FAk1bCdeQPC7BL0hPu+oSZSfsugheSTQ5frOYU/8cozqu
-	V2WhjdLPVWXF5I46J8J1xJs3OcOhhXEuhA0HlqBu+b/SonNKdRZibdsE8V8D5/oQy9DrrJ/KQDKZI
-	bqrqykEA==;
+	bh=NI+VUTouKYW89nB5Z+aD4pi6ZXy+jv5hw3Htg0xYNWI=; b=V6uSl30lS9W6Tc0vSZWMdNHAzm
+	6YM890scks1OHa5qvnfKecy+rJYDiHs5UPmhXtlKExItjOAd/6X3uIH3E+mf0yl5/vqe/XpS6ld3f
+	WpC1CQV3XVZTmPNw1wlmYccIoVUpKGA32xi37k2qrGwBJfPEv9OaE1bvS2Jpq2cCK5uR1FSKE40Yo
+	ya6/xgWHCP0Xt6+7mAPHD/tl3acVH3eCHbbXRGQZwa2K3oIUAO9loQpr8vN9idcnbQOV27cF1YbHs
+	YeqiVcFWLD/YaCVijJo6ZROPMpygm/ii3WuaKWy62TyJiyG12wgrag7PxnCLBXAM+R1wGmz0piSZ/
+	ebOGl/Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whAbv-0000000FeCS-3hxV;
-	Tue, 07 Jul 2026 18:33:35 +0000
-Received: from out-172.mta0.migadu.com ([91.218.175.172])
+	id 1whAsS-0000000Ff8B-33w0;
+	Tue, 07 Jul 2026 18:50:40 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whAbs-0000000FeBu-2fJU
+	id 1whAsQ-0000000Ff7g-1vHV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 18:33:34 +0000
-X-Forwarded-Encrypted: i=1; AHgh+RpFH39PoLc0norq3ms1akocI9ytizsOt41bMIhbmbyLnu3o2vv3O6WLyxjM0k1EOZmbc0pNCazAVLeGsxFoT10p@lists.infradead.org
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1783449207;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=KIzicJtgYbCKzLvSO/GpRAV4BTLl8KZx9Q+QcO5m+HA=;
-	b=vaf3UdlP+6QgKbWhk+atLlTtMQsebflxaJIHjGfER4dWCL3bYRDARlQ9lE1Iu2hcWbyiZq
-	RKcvEcUHJXh6nnnapgoKLOo/rVHpkWsz+kZGkMQ6yLtbXPODWac8WcJokPK6liIrflGQ+p
-	C4RwlguXklHI8FT/pQkn+otVMWWkhao=
-X-Gm-Message-State: AOJu0YzYEV81Lg0bOEqkYr5wHzkRcXHSUInZv8h4dNmHAlmSlc4f155K
-	ohO1Zhl4HFkB86MamAaxq8WlW+vAwJMfbMhpUWz4sGC3AggCdPxZ4cVsqAYqvvDSojMiiTyOpF9
-	AuvkJPClNh7p3VdxRRb/QLz3kKKhgZ4IwauOAqC94
-X-Received: by 2002:a05:622a:145:b0:517:5c70:46bd with SMTP id
- d75a77b69052e-51c8875e1e0mr402291cf.11.1783449201189; Tue, 07 Jul 2026
- 11:33:21 -0700 (PDT)
+	Tue, 07 Jul 2026 18:50:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=NI+VUTouKYW89nB5Z+aD4pi6ZXy+jv5hw3Htg0xYNWI=; b=ms5VMpjP84ODY07OzejZ0XnMpX
+	vXH83b9W0UFlLWSfBV3jFUnAbcxLrppZ9r5OR3w7XDOr85B5f0dC4sPAxeF8HOmKpcKnBTYU20rcs
+	hEI0LXDlvCRmKfyCQdXaCj6D4lVxfItz2GuexpGblbQ7pIJPEQatSY6zi1+0whijn3Nc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1whAs8-00BDDv-0d; Tue, 07 Jul 2026 20:50:20 +0200
+Date: Tue, 7 Jul 2026 20:50:20 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefan Agner <stefan@agner.ch>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, regressions@lists.linux.dev
+Subject: Re: [PATCH net] net: stmmac: resume PHY before reopening the
+ interface on MTU change
+Message-ID: <a6515f8c-1358-4e2a-a485-2a25a7dc6313@lunn.ch>
+References: <20260707162146.73823-1-stefan@agner.ch>
 MIME-Version: 1.0
-References: <20260707165029.3410701-1-vdonnefort@google.com>
-In-Reply-To: <20260707165029.3410701-1-vdonnefort@google.com>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Fuad Tabba <fuad.tabba@linux.dev>
-Date: Tue, 7 Jul 2026 19:32:44 +0100
-X-Gmail-Original-Message-ID: <CA+EHjTx7C7BEmyoZgx6-PWvfAHpP8AWMOefTdwOQjw8NrPhLNQ@mail.gmail.com>
-X-Gm-Features: AVVi8CdJn6U5iCpuDt2Eoj2HBtV5xWI7t-8BJNIztXKGfR-5BqWmyGW03nrfYJs
-Message-ID: <CA+EHjTx7C7BEmyoZgx6-PWvfAHpP8AWMOefTdwOQjw8NrPhLNQ@mail.gmail.com>
-Subject: Re: [PATCH] KVM: arm64: Fix potential leak in hyp_trace_buffer_alloc_bpages_backing
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kernel-team@android.com, Sashiko <sashiko-bot@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260707162146.73823-1-stefan@agner.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_113333_575965_AD988A5E 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20260707_115038_521855_2B64A6D7 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,59 +77,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vincent,
-
-On Tue, 7 Jul 2026 at 17:50, Vincent Donnefort <vdonnefort@google.com> wrote:
->
-> In the very unlikely event of a failure in __map_hyp, the allocated
-> backing pages are leaked in hyp_trace_buffer_alloc_bpages_backing(). Fix
-> this by freeing the pages on error.
->
-> Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
->
-> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-> index 2411b4c32932..5fbbfd40376f 100644
-> --- a/arch/arm64/kvm/hyp_trace.c
-> +++ b/arch/arm64/kvm/hyp_trace.c
-> @@ -160,6 +160,7 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
->         int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
->         size_t backing_size;
->         void *start;
-> +       int ret;
->
->         backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
->                                   num_possible_cpus());
-> @@ -171,7 +172,11 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
->         trace_buffer->desc->bpages_backing_start = (unsigned long)start;
->         trace_buffer->desc->bpages_backing_size = backing_size;
->
-> -       return __map_hyp(start, backing_size);
-> +       ret = __map_hyp(start, backing_size);
-> +       if (ret)
-> +               free_pages_exact(start, backing_size);
+On Tue, Jul 07, 2026 at 06:21:46PM +0200, Stefan Agner wrote:
+> Since the referenced commit, changing the MTU on a running interface no
+> longer disconnects and reconnects the PHY; __stmmac_release() merely
+> stops phylink, which also suspends the PHY (BMCR power-down) when WoL
+> is not enabled. __stmmac_open() then performs the DMA software reset in
+> stmmac_hw_setup() before phylink_start() resumes the PHY again.
+> 
+> IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
+> powered down, and stmmac requires a running receive clock for the DMA
+> software reset to complete (the phylink config sets mac_requires_rxc).
+> On such setups, e.g. the RK3566-based Home Assistant Green with an
+> RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
+> leaves the interface dead:
+> 
+>   rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
+>   rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
+>   rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
+>   rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
+> 
+> In the field this is triggered by NetworkManager applying an MTU while
+> activating the connection, breaking networking entirely.
+> 
+> Resume the PHY before reopening the interface, like stmmac_resume()
+> does, to ensure the receive clock is running for the DMA software
+> reset.
+> 
+> Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
+> Link: https://github.com/home-assistant/operating-system/issues/4858
+> Assisted-by: Claude:claude-fable-5
+> Tested-by: Stefan Agner <stefan@agner.ch>
+> Signed-off-by: Stefan Agner <stefan@agner.ch>
+> ---
+> Note: phylink_prepare_resume()'s kernel-doc says it is to be called
+> prior to phylink_resume(); here it is paired with phylink_start()
+> (called from __stmmac_open()) instead, which phylink_resume() itself
+> uses to restart the machinery. If preferred, I can extend the
+> kernel-doc or introduce a more generically named helper.
+> 
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 +++++++++
+>  1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -5884,6 +5884,15 @@
+>  
+>  		__stmmac_release(dev);
+>  
+> +		/* phylink_stop() in __stmmac_release() suspends the PHY.
+> +		 * IEEE 802.3 allows PHYs to stop their receive clock while
+> +		 * powered down, but the DMA software reset performed by
+> +		 * stmmac_hw_setup() requires a running receive clock.
+> +		 * Resume the PHY, as on system resume, to ensure its clocks
+> +		 * are running before reopening the interface.
+> +		 */
+> +		phylink_prepare_resume(priv->phylink);
 > +
-> +       return ret;
->  }
+>  		ret = __stmmac_open(dev, dma_conf);
+>  		if (ret) {
+>  			free_dma_desc_resources(priv, dma_conf);
 
-nit: would be a bit cleaner to do move the desc assignment to after
-the check. Also, I think sashiko found another real bug, don't think
-it's serious but worth fixing.
+I'm not convinced.
 
-That said...
+__stmmac_open() and __stmmac_release() should be opposites of each
+other. If __stmmac_release() stops the clock, __stmmac_open() should
+start the clock.
 
-Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
-Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
+	Andrew
 
-Cheers,
-/fuad
-
->
->  static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
->
-> base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
-> --
-> 2.55.0.rc2.803.g1fd1e6609c-goog
->
 
