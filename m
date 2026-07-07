@@ -4,81 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36EF8C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2112BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y/hv61aOydzHugwomfJNYebuZeFTkwhx/1G/+dLQAjA=; b=nFq9MFxAaQNJHTS8S/GB1e3w0q
-	mkN73B6z/8et3cE6FjQaFdmtk3N63FZCshTWtbM2Uqa3fWyhmF4o6nBI0FwO0/+TNJ37U8l4JdtbR
-	yAu8WdMyQpj2vabfLx4EKm1x5+KQp1NTnQoC5K8B6UrVQ5zN2OM24ozKFhtlMkwspCr9Ots8AzGfk
-	OnixAxoCjKjYWi8ere4KArPUpKU/vNxg4XqoiWFOoc+kXCpWryOzfhp7d/w6dVWwWJeAxpyvXYaea
-	K4RIxgys+UdTYciFGdjfvAV3UWxic67SVBTZqgQL1gq/UA0BW/QtSHOyDLF7OP3h2UddLcvKRCKEP
-	H0dy+Axg==;
+	bh=1pXyGCmuZ2dd2pCX0ADJkgnLvZuWQnMbV/mJUc5jL2g=; b=SXXc6OA7XsTHfivrFGFWACa/zl
+	b/M7PzfPP7ZnCbGcylU7T1Pk6Q31GidTTLkI4QtayVRnlgQ+UaKR/Tt1CUiNN7/MxpU7WgDrZGlSb
+	MeV2HBakUbMqUiZJjyG1eyYIb1ABS2gtCROxoDfYte6Eib4x+G34w+KS91DOGw0eyYNmmHufvD9q7
+	MaZMKMIiFPxC2nQcxbg3b0+GtjW5MQDuTXPnKFeTrwH5PDWDkdcQml1pe4gzzzNKUycHgzVlKEyv+
+	LRu9qUytqpRmiVxKPy3DrtqtcPaQc7nyc+rrtNa55OBcVWmO6YEyohndRbEVIwKtQNvIsvO7QEE25
+	chJlA/5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5Jd-0000000F0Pp-0ERu;
-	Tue, 07 Jul 2026 12:54:21 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1wh5Sx-0000000F13A-1Jfz;
+	Tue, 07 Jul 2026 13:03:59 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5JY-0000000F0Oi-3dCS;
-	Tue, 07 Jul 2026 12:54:18 +0000
-Date: Tue, 7 Jul 2026 14:54:11 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1783428852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y/hv61aOydzHugwomfJNYebuZeFTkwhx/1G/+dLQAjA=;
-	b=2Eu4Dk0v06ysm21QQr1mFBLNtn+bSKuW3OhImOytu9etUEFCC+cCkkaYxOXV39YPcf3o1t
-	Gx83fOV9JLHklzA3T3vX5Tzgqv6wI/f7kjK+NgPh2lzm2Xcv29gzFnB3OlfBmdIJGtB8od
-	DWxsVRx8gZbt5WCgqEfXzavgjgK+uqLLQ47Vhx63LmpTo5Zi6LxbJwtc1mh85+jo9yM3Zv
-	DjKWNn9OJf1y63RBb72Weuq2QGPIlTnQX9iiq6/NeTixmwvilbd1XrmcrQ2TYq2wLzX38J
-	LFJjbdtK0/h7qYyjmCbdlRdAI5ooVRt8bBs7XpzczHhrArizbVa5RG0cXrI1Sw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1783428852;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y/hv61aOydzHugwomfJNYebuZeFTkwhx/1G/+dLQAjA=;
-	b=WJ1gCCbNJ5O2SpMhyTBakk9vxkDQ3zD9r/Y9ROb779GAJXOW3JWWh29CrUsxt35SkmFFzU
-	AsI6rUH/kDVI7kAw==
-From: Benedikt Spranger <b.spranger@linutronix.de>
-To: Andrew Murray <amurray@thegoodpenguin.co.uk>
-Cc: Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Russell King <linux@armlinux.org.uk>, Florian
- Fainelli <florian.fainelli@broadcom.com>, Broadcom internal kernel review
- list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Petr Mladek <pmladek@suse.com>,
- Steven Rostedt <rostedt@goodmis.org>, John Ogness
- <john.ogness@linutronix.de>, Sergey Senozhatsky <senozhatsky@chromium.org>,
- Andrew Morton <akpm@linux-foundation.org>, Sebastian Andrzej Siewior
- <bigeasy@linutronix.de>, Clark Williams <clrkwllms@kernel.org>, Randy
- Dunlap <rdunlap@infradead.org>, Linus Torvalds
- <torvalds@linux-foundation.org>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v2 3/4] printk: nbcon: move printk_delay to console
- emiting code
-Message-ID: <20260707145411.53a10893@mitra>
-In-Reply-To: <CALqELGz-KSrGq5JYvLedZiO-p21pjpRKbceO+jiSfwZGyx+91Q@mail.gmail.com>
-References: <20260630-deprecate_boot_delay-v2-0-f9883d36aa4b@thegoodpenguin.co.uk>
-	<20260630-deprecate_boot_delay-v2-3-f9883d36aa4b@thegoodpenguin.co.uk>
-	<20260703165654.71be8707@mitra>
-	<CALqELGz-KSrGq5JYvLedZiO-p21pjpRKbceO+jiSfwZGyx+91Q@mail.gmail.com>
-Organization: Linutronix GmbH
+	id 1wh5St-0000000F11u-023U
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 13:03:58 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260707130350euoutp01816b7aba68f35cc361a12757e4960321~AA55SXF0N2589025890euoutp01R;
+	Tue,  7 Jul 2026 13:03:50 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260707130350euoutp01816b7aba68f35cc361a12757e4960321~AA55SXF0N2589025890euoutp01R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1783429431;
+	bh=1pXyGCmuZ2dd2pCX0ADJkgnLvZuWQnMbV/mJUc5jL2g=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=bIpgAugumnJ+vFbRlkBo8FzRtO/g5MYRDHE2BlHryQsTPFMC5fInDzKCOAgZ1npra
+	 WjvJ/rWNe/t/bQYYXvdlEuuxIM77d/dc9M35H15wIneXXtBw3nINopT0vdG4B55jJi
+	 2Rm+c3z4Adg15mIXdYkxRRDiDG8vmD3c75cZpyvY=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20260707130350eucas1p1721c804c0be9f8bcca8c74b90c602459~AA55DsDSM2891728917eucas1p1P;
+	Tue,  7 Jul 2026 13:03:50 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20260707130349eusmtip16fa04cbe7458b13574cd93f920780ed5~AA53jcBbZ1173511735eusmtip1K;
+	Tue,  7 Jul 2026 13:03:49 +0000 (GMT)
+Message-ID: <fc804746-4fb8-4ea9-997f-a4cae9ba8c14@samsung.com>
+Date: Tue, 7 Jul 2026 15:03:48 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v7 00/22] dma-mapping: Track shared DMA state through
+ direct, pool and swiotlb paths
+To: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-coco@lists.linux.dev
+Cc: Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>, Marc
+	Zyngier <maz@kernel.org>, Steven Price <steven.price@arm.com>, Suzuki K
+	Poulose <Suzuki.Poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>, Mostafa Saleh
+	<smostafa@google.com>, Petr Tesarik <ptesarik@suse.com>, Alexey
+	Kardashevskiy <aik@amd.com>, Dan Williams <dan.j.williams@intel.com>, Xu
+	Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org, Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, Alexander Gordeev
+	<agordeev@linux.ibm.com>, Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Sven Schnelle
+	<svens@linux.ibm.com>, x86@kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <yq5av7argr65.fsf@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20260707130350eucas1p1721c804c0be9f8bcca8c74b90c602459
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1
+X-EPHeader: CA
+X-CMS-RootMailID: 20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+	<CGME20260707080628eucas1p13fa8a57e60ef5dd3ec651e19e42af0a1@eucas1p1.samsung.com>
+	<yq5av7argr65.fsf@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_055417_208579_A941C778 
-X-CRM114-Status: GOOD (  34.78  )
+X-CRM114-CacheID: sfid-20260707_060355_605884_41ABE69D 
+X-CRM114-Status: GOOD (  20.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,90 +99,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Jul 2026 18:05:06 +0100
-Andrew Murray <amurray@thegoodpenguin.co.uk> wrote:
+On 07.07.2026 10:06, Aneesh Kumar K.V wrote:
+> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
+>
+>> This series tracks confidential-computing shared DMA state through the
+>> dma-direct, dma-pool, and swiotlb paths so that encrypted and decrypted
+>> DMA buffers are handled consistently.
+>>
+>> Today, the direct DMA path mostly relies on force_dma_unencrypted() for
+>> shared/decrypted buffer handling. This series consolidates the
+>> force_dma_unencrypted() checks in the top-level functions and ensures
+>> that the remaining DMA interfaces use DMA attributes to make the correct
+>> decisions.
+>>
+>> The series separates mapping and allocation state:
+>> - DMA_ATTR_CC_SHARED describes the DMA address attribute requested for a
+>>   mapping. It tells the DMA mapping path that the DMA address must target
+>>   shared/decrypted memory.
+>> - __DMA_ATTR_ALLOC_CC_SHARED is an internal DMA-mapping attribute used only
+>>   by allocation paths after the DMA core decides that the backing pages
+>>   must be allocated as shared/decrypted memory.
+>>
+>> The series:
+>> - moves swiotlb-backed allocations out of __dma_direct_alloc_pages(),
+>> - uses __DMA_ATTR_ALLOC_CC_SHARED through the dma-direct alloc/free paths
+>> - teaches the atomic DMA pools to track encrypted versus decrypted
+>>   state
+>> - tracks swiotlb pool encryption state and enforces strict pool
+>>   selection
+>> - centralizes encrypted/decrypted pgprot handling in dma_pgprot() using
+>>   DMA attributes
+>> - passes DMA attributes down to dma_capable() so capability checks can
+>>   validate whether the selected DMA address encoding matches
+>>   DMA_ATTR_CC_SHARED
+>> - makes dma_direct_map_phys() choose the DMA address encoding from
+>>   DMA_ATTR_CC_SHARED and fall back to swiotlb when a shared DMA request
+>>   cannot use the direct mapping, which lets arm64 and x86 CCA guests stop
+>>   relying on SWIOTLB_FORCE for DMA mappings
+>> - use the selected swiotlb pool state to derive the returned DMA
+>>   address
+>> - reports CC_ATTR_GUEST_MEM_ENCRYPT for arm64 Realms, powerpc secure
+>>   guests, and s390 protected virtualization guests.
+>>
+>> Dependency:
+>> This series depends on the pKVM changes posted at:
+>> https://lore.kernel.org/all/20260603110522.3331819-1-smostafa@google.com
+>>
+>> Please merge this series only after the pKVM changes above are merged.
+>> Otherwise pKVM will be broken.
+>>
+> A rebased tree on top of the dependent pKVM changes can be found at:
+> https://gitlab.arm.com/linux-arm/linux-cca/-/tree/scratch/pkvm/testing?ref_type=heads
+>
+> The patches had minor conflicts. I am not sure how we want to get this
+> merged.
+>
+> Should we ask the pKVM maintainers for a topic branch, and then I can
+> repost the updated series on top of that?
+I'm fine with merging on top of the topic branch and I assume that this
+patchset is mature enough to give it a try in linux-next, but first I
+would like to get a review or at least acks from others with good CC
+knowledge or experience.
 
-Hi Andrew,
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
-> On Fri, 3 Jul 2026 at 15:56, Benedikt Spranger
-> <b.spranger@linutronix.de> wrote:
-> > On Tue, 30 Jun 2026 17:35:59 +0100
-> > Andrew Murray <amurray@thegoodpenguin.co.uk> wrote:
-> > > The printk_delay and boot_delay features are helpful for debugging
-> > > as kernel output can be slowed down during boot allowing messages
-> > > to be seen before scrolling off the screen, or to correlate timing
-> > > between some physical event and console output.
-> > By now, it slows down the boot process, which is the handy part of
-> > that feature.
-> >
-> > > However, since the introduction of nbcon and the legacy printer
-> > > thread for PREEMPT_RT kernels, printk records are now emited to
-> > > the console asynchronously to the caller of printk. Thus, any
-> > > printk delay added by boot_delay/printk_delay continues to slow
-> > > down the calling process but may not have any impact to the rate
-> > > in which records are emited to the console.
-> > Using this feature to slow down the boot/suspend/resume process and
-> > implicit make printk() happen, is the usefull part of that feature.
-> > Imagine this sequence (which hit me on suspend/resume on i.MX after
-> > shutting down all secondary CPUs)
-> >
-> >   printk("A");
-> >   (do some stuff)
-> >   printk("B");
-> >   read from peripheral --> system got stuck here since peripheral
-> > was not clocked or powered or both any more.
-> >
-> > The delay (and later on a ugly patch to make printk() synchrounous)
-> > helped to locate where the failed access happend. JTAG did not help,
-> > since the CPU got stuck --> no JTAG communication to that CPU.
-> 
-> I understand the use-case, you sprinkle printk's so you can find the
-> point where a read to a register causes the CPU to stop. This requires
-> that the printk happens before the read, and the output from the
-> printk is printed before the read.
-Enabling existing debug features in the kernel was a good start.
-
-> > With your purposed change you *may* see "A", but never "B".
-> > Quite challenging... 
-> At present you may see 'A' and you may see 'B'.
-That's correct. 
-
-> Prior to the changes in this patchset, and assuming an nbcon console
-iMX swtched over to nbcon, so your assumption is correct.
-
-> (which may not be your usecase, but is perhaps representative of
-> future use-cases), then the printk delay will always happen within the
-> call to printk (and always before emitting).
-Which is quite good, but can be better. (See the missing sync feature
-mentioned in Johns reply)
-
-> However, depending on the context, that printk call may return (and
-> proceed to your CPU halting register read), before the message is
-> actually emitted to the console. I.e. it's a race.
-I am aware of that.
-
-> This series moves the delay to the emit side, as well as moving the
-> delay after the emit. Thus the calling code may make progress more
-> quickly, but depending on the context, it may also flush/emit before
-> returning from printk.
-Unfortunately it makes things worse.
-
-> In my view, with or without this series, there are no guarantees that
-> you will see 'A' and 'B'. And in any case, achieving the functionality
-> for debugging required you to modify the printk anyway.
-The "sync" feature is on the TODO list as John mentioned. 
-
-> > So please leave the delay on the calling side - it is helpfull
-> > there.
-> 
-> If you want to ensure printk is synchronous, perhaps you could call
-> nbcon_cpu_emergency_enter() prior to your printk, or perhaps there are
-> already printk wrappers that do somthing similar whilst debugging?
-As said I did an ugly hack and forced printk() to be synchronous.
-
-> Would that provide a more reliable way to guarantee output?
-It does.
-
-Regards
-    Benedikt Spranger
 
