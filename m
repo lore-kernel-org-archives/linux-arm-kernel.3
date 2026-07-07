@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365ABC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:04:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2C0BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VzanBIl/P1H1nynYPysN7FmIsOykUSWG68SMsrzYXo0=; b=XQuBNheGaqqagoCcLzU5NGVpum
-	V+cXEw1IYgrMaaxBOuUE5dCD4Zknim7gdkqwwPZK5O/WR6CwLQSLu9sYve62ht33HEjqNlUWHFN/p
-	gXQB26TPm0Z24EqDkrdWT/IMccQVo6IS7ZL0c2/+eKowwf7Crxu+bpB2LxILA/RUBU/UV3jpMArrt
-	lLo/UJezY/c3UcfAsnYOd5BVcGQAI9bzbjbVhKZ73V+nSjVU1aMe9FCFVb16kfYq41dm4ucJ0nleu
-	fD9AqiSgoLL6emXy096HY35MoJmcktjUOHjPZ58iNlA9Tnf9VP16rEoFK/tLjCwkXHDn1QcnjQwAK
-	mb49p5Lg==;
+	bh=Q5u+a7D+ayzU/IukGQqNNjlldkq3od3GzB6ae/tPk4w=; b=xU/gCnBwBZ3m6GMQvbv9tHX9O2
+	41nsrCkcg0XYFNiTbvzd04qNqQeQTc9qvqGw7CWunGGAp+FQ426Pyvy+lHL17XQkv+smYDbdb0x+2
+	osjL+Drcmsj7PG7/kK2oXZDcVq1bhYLSORjDoXQAIqntrwXW/Z3LOuluSonFLPHrx/P1+yLMPjGfS
+	vJE6Qk+C3yhzJxQyV5tWi5aGJ7hdkHVh6JOudGz4Xu9ohdMII1PHyEgzvnZY2YLIoF2Ll7/ZYYSLU
+	j3FYbdNifbvtEB0jY7sxhwYKvT2b6UV93D4Zj+Br8ZDBA4mFn/IAqKznyKaDhLHwIiXONjRI0FfDj
+	0f+AHV5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8HB-0000000FQAZ-19M0;
-	Tue, 07 Jul 2026 16:04:03 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wh8N3-0000000FQid-3COY;
+	Tue, 07 Jul 2026 16:10:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8H6-0000000FQ9q-1uY7;
-	Tue, 07 Jul 2026 16:03:56 +0000
+	id 1wh8N3-0000000FQiR-02wi;
+	Tue, 07 Jul 2026 16:10:05 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7204060018;
-	Tue,  7 Jul 2026 16:03:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08EC71F000E9;
-	Tue,  7 Jul 2026 16:03:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B06D60018;
+	Tue,  7 Jul 2026 16:10:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E151F000E9;
+	Tue,  7 Jul 2026 16:10:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783440235;
-	bh=VzanBIl/P1H1nynYPysN7FmIsOykUSWG68SMsrzYXo0=;
+	s=k20260515; t=1783440603;
+	bh=Q5u+a7D+ayzU/IukGQqNNjlldkq3od3GzB6ae/tPk4w=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=UFw4YemrE7yinlV44MlFnSxAJEvDkYWSz39aqURr3Pw93VpYqhat+Zr3Fpv/t1XRl
-	 Cnki21bX11ijKnpEjr180jxDHaGknJ/t5H2omZrMqA51fBpuI9h44YxYtYTbiGfcYP
-	 8r6+QswzKmaJ0KWKltlwKhpAJzsf/5lXVFSPNoQu/MLi8Fxwa4XbQNfz+4lLIu0vng
-	 HoilOj7ZAWXnH3xLtbDPE30xpbCXl8/4LmXkEDiyFlK5OzXXDi6RvB+PI8a0vdBckb
-	 KBBLdy0Pkj2F8Uzl5aweyNouhoO5IF8rHU0efLtDMSIQu7IkpTZHsW7uYoONDeYC0G
-	 y4QAJvEKVFz2A==
-Date: Tue, 7 Jul 2026 11:03:54 -0500
-From: Rob Herring <robh@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Hrushiraj Gandhi <hrushirajg23@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: add Vicharak Axon board
- support
-Message-ID: <20260707160354.GB3176120-robh@kernel.org>
-References: <20260608060940.52549-1-hrushirajg23@gmail.com>
- <178301901903.3838694.3276523670393868229.b4-ty@sntech.de>
+	b=UN7Mi0Fq/Yi7DzfCneASL6PehRygMQxJ3xpk3Ek2gkQW0e+Z1yBT1Gd0PLT4uoIUs
+	 dZ0pfYm0iiVRh+ZMsUsPHC+Yly+6VD3oeAReiQLNagVGn9p5eQbfsrNGzuW4CnayhP
+	 PPK5XUQCsYswCOceRR6LMy/3w3ibTYYkbWeLx6wQ+4iJP8lWMMO+GwH16xsAeunDAR
+	 3R/R0w9yZ1M91gjfgTtzhHnAXsKLudJxGTi4zF8+4azFfqushczmDDWAqrgbLr/kVB
+	 RmlVkmJ8Gd8mXXDoCXyZRnULvOFNE4HtZMSWfvhd4vRpX4QBoWpkZby2LQHMFE9xfM
+	 9ixfGG4QmrG9Q==
+Date: Tue, 7 Jul 2026 18:10:02 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+Message-ID: <20260707-illegal-tuna-of-force-1c06e3@houat>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-2-d79890d00b6a@collabora.com>
+ <i4tjtsf5rsckfcayo5nuhlger5wqxn3ujeaubm4g2fgrwvhzb2@hf4uhgq3ja5p>
+ <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="27ucv5zt2ny4lmlg"
 Content-Disposition: inline
-In-Reply-To: <178301901903.3838694.3276523670393868229.b4-ty@sntech.de>
+In-Reply-To: <ad75cf26-9437-47d0-864d-d71263401615@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,36 +82,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jul 02, 2026 at 09:04:55PM +0200, Heiko Stuebner wrote:
-> 
-> On Mon, 08 Jun 2026 11:39:38 +0530, Hrushiraj Gandhi wrote:
-> > This series adds initial device tree support for the Vicharak Axon
-> > single-board computer, which is based on the Rockchip RK3588 SoC.
-> > 
-> > The Vicharak Axon is a feature-rich SBC targeting developer and embedded
-> > use cases. It ships with:
-> > 
-> >   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
-> >   - RK806 PMIC providing all SoC power domains
-> >   - eMMC 5.1 (on-board) and microSD slot
-> >   - Gigabit Ethernet via RGMII (RTL8211F)
-> >   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
-> >   - PCIe 3.0 x4 and two PCIe 2.0 slots
-> >   - SATA 3.0
-> >   - USB 2.0 host ports (EHCI/OHCI)
-> >   - NXP PCA9554 I/O expander for status LEDs
-> >   - Haoyu HYM8563 RTC
-> > 
-> > [...]
-> 
-> Applied, thanks!
-> 
-> [1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
->       commit: e0008b108aaf8c5aa22930b2ceadf8f894562acb
-> [2/2] arm64: dts: rockchip: add Vicharak Axon board
->       commit: e08c3389c78dbefd31a57df8807cf57ef6f3c9b1
 
-Both have issues and should be dropped.
+--27ucv5zt2ny4lmlg
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 02/39] drm/connector: Add caps-based HDMI connector
+ init helper
+MIME-Version: 1.0
 
-Rob
+On Fri, Jul 03, 2026 at 10:31:55PM +0300, Cristian Ciocaltea wrote:
+> Hi Dmitry,
+>=20
+> Thanks for your quick review!
+>=20
+> On 7/3/26 5:05 PM, Dmitry Baryshkov wrote:
+> > On Thu, Jul 02, 2026 at 05:46:15PM +0300, Cristian Ciocaltea wrote:
+> >> In preparation for adding HDMI 2.x source capabilities, introduce stru=
+ct
+> >> drm_connector_hdmi_caps and a new drmm_connector_hdmi_init_with_caps()
+> >> helper.
+> >>
+> >> The existing drmm_connector_hdmi_init() helper currently takes
+> >> individual capability arguments such as supported_formats and max_bpc.
+> >> Adding more HDMI-specific arguments to that function would not scale
+> >> well, so move those values into a dedicated capabilities structure and
+> >> implement the existing helper as a wrapper around the new caps-based
+> >> interface.
+> >=20
+> > I think, it was an intention of Maxime: make sure that every driver is
+> > forced to provide some values here. With the struct-based init it is
+> > easy to overlook or to ommit a value.
+>=20
+> Agreed that the struct-based init loses the compile-time guarantee that e=
+very
+> argument is explicitly provided - that's a real downside. =20
+>=20
+> I'd argue it's recoverable, though: the init helper validates the mandato=
+ry
+> fields, so a driver that omits a required value gets rejected at init time
+> rather than silently misconfigured.  The "you must provide sane values" p=
+roperty
+> is expected to be preserved, just enforced at runtime instead of by the
+> compiler.=20
+
+Yeah, I don't think we can win with C here. Rust might, but we're
+probably a long way from that.
+
+> The main motivation for the struct is scalability/maintainability as we a=
+dd HDMI
+> 2.x capabilities: new fields go into the struct rather than growing the h=
+elper's
+> argument list, so existing callers don't need churny signature updates on=
+ every
+> extension.
+>=20
+> FWIW, in the previous revision we discussed addressing the concern with a
+> callback instead.  Sadly, I had to discard that approach, as it proved not
+> flexible enough, e.g. drm_bridge_connector_init() computes caps dynamical=
+ly, and
+> would have required either stateful callbacks, or storing redundant/tempo=
+rary
+> cap data in driver-private structures just to satisfy the callback.
+
+I just realized something reviewing your patch: we don't necessarily
+need an extra argument or a callback, we can just put these fields into
+drm_hdmi_connector_funcs directly, and then validate them in init.
+
+Maxime
+
+--27ucv5zt2ny4lmlg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCak0k1gAKCRAnX84Zoj2+
+due8AX0XXDyb8dUS4C5ZJ9bIc3vTW8oheRYR3cfa67hC4Uk3O3eEE85WAlMdVZCI
+eLU/TTkBfjc45nJFNa7QA9rRNN4TXSGeA/gFgRjwuvyZ7kaa+wjdc0ucP72zaBpk
+vOwNPyr2SQ==
+=Qd48
+-----END PGP SIGNATURE-----
+
+--27ucv5zt2ny4lmlg--
 
