@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4816DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:15:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AE15C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RTq4yOA49QhlXOXrp8xyGqUIQBxOwKD7PpLrzm2nnzA=; b=FURVYMl4sk1a1fIVm/+MEnlpDD
-	ppeI0mCxL0EdC/PufZQZgTW3zKmlkren1V1BxGdy/0OEacfhBarI9UoklgfCXhRPye/Mhf5XAX/uQ
-	D4QLAZe5FugMTmLW2cK3uNnu2ooTw7Bopx5YXv81375vH0so/MsYZ5+2VNajW7hJlMz72PA6MfdYp
-	2L184EFQHMxssM07oZb8FXaQk/Ydpx2BL2c2r2uPrGkcOvIDLPGpH0X9ukckdoi+i/ig9QCGrXLun
-	O0tSDKVKgk8o8Eb2XymSxIQ5J0CeLxVFgkJWfJWTWsEA1JfRYmsvchmiuQlrykHGOsinEmH5LJUcR
-	i8AD7ypg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uXqxsT2REYcN58ckChjdU8/v9QTtwid7lase85JBTGA=; b=jMqpGjhQLDy2c68+f20hk3UFG3
+	KGtVtDsXEwouqCz4trFrNIPv2Tbg98TpyTueTGwo20doASpD6+napKTCTA8ACqzXtMIohGQ+FS58U
+	qenUEYNXNZT23DF+jaSMj4pfwnMylo+eq0t8mleBCfHVdmMJs4dJ0mTtOF4nhv1r/og5QrOUwYIOr
+	BuHHobF5VOwjVKOo0IViEDmjR1YM5F5LrKdHLrBXeDwYGiup5e1X7KEHY+nsMr8FUhlFfRt+Gff1P
+	fdhimSxkh7qm3jxbuPZDquZdtBaCjJNH8nOmdxxk1Py51Wi6aoolCHnVuID7zxOprm58LcdZOL5rk
+	mVU6UgBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5e7-0000000F1x1-2LBp;
-	Tue, 07 Jul 2026 13:15:31 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1wh5g3-0000000F29O-3e1J;
+	Tue, 07 Jul 2026 13:17:31 +0000
+Received: from out-178.mta1.migadu.com ([2001:41d0:203:375::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh5e1-0000000F1vQ-2wmI
+	id 1wh5g0-0000000F28x-2iBw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 13:15:27 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=RTq4yOA49QhlXOXrp8xyGqUIQBxOwKD7PpLrzm2nnzA=;
-	b=dWFZRQA/SlDxm0OzZwPM5aA46486uARLH+zGJkfWCpwVsyF8r0gA5lZfgOPQl5oGLytPvW2y0
-	B5MOax3La2evsFXGJ44vJUj5867CG4GVv66bFjIpG150jHcE0eNS4PxH6M7xthz4NR7rJnHe0ky
-	6jLpuGpQLP2U800LAzB0rr0=
-Received: from mail.maildlp.com (unknown [172.19.163.127])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4gvhLN4KN4z1cyP2;
-	Tue,  7 Jul 2026 21:06:04 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id AC379402AB;
-	Tue,  7 Jul 2026 21:15:16 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 7 Jul 2026 21:15:15 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linux@armlinux.org.uk>
-CC: <akpm@linux-foundation.org>, <david@kernel.org>, <liam@infradead.org>,
-	<liaohua4@huawei.com>, <lilinjie8@huawei.com>, <linusw@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <ljs@kernel.org>, <mhocko@suse.com>, <rppt@kernel.org>,
-	<sunnanyong@huawei.com>, <surenb@google.com>, <vbabka@kernel.org>,
-	<xieyuanbin1@huawei.com>, <xiqi2@huawei.com>
-Subject: Re: [PATCH v3 1/2] ARM: mm: fix use-after-free in __do_user_fault() under CONFIG_DEBUG_USER
-Date: Tue, 7 Jul 2026 21:14:09 +0800
-Message-ID: <20260707131409.79043-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <akzpuerKqOY7qfFi@shell.armlinux.org.uk>
-References: <akzpuerKqOY7qfFi@shell.armlinux.org.uk>
+	Tue, 07 Jul 2026 13:17:30 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783430243;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=uXqxsT2REYcN58ckChjdU8/v9QTtwid7lase85JBTGA=;
+	b=uyVahiJwyDi3GxwsD9aKVkH9twZUpL0EMKPBoUMClVlHBHnGpBmgLuAjpqTC6M0xvYGh6V
+	8Cilb7uKUD0vtYJBXCMwEPpX0QkdZhChuJg/yt1Vq2Ev9f6qaV1RqTHZdCoUfEm0BqnNDR
+	BEHoqWn70c7b+Rc59aA+EPeXJU4SWQU=
+From: Usama Arif <usama.arif@linux.dev>
+To: Xueyuan Chen <xueyuan.chen21@gmail.com>
+Cc: Usama Arif <usama.arif@linux.dev>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	David Hildenbrand <david@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	x86@kernel.org,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Lance Yang <lance.yang@linux.dev>,
+	Jann Horn <jannh@google.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Mike Rapoport <rppt@kernel.org>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	Zi Yan <ziy@nvidia.com>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Nico Pache <npache@redhat.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Barry Song <baohua@kernel.org>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>
+Subject: Re: [RFC PATCH v3 1/3] mm: make persistent huge zero folio read-only
+Date: Tue,  7 Jul 2026 06:17:12 -0700
+Message-ID: <20260707131714.3266156-1-usama.arif@linux.dev>
+In-Reply-To: <20260706130440.9295-2-xueyuan.chen21@gmail.com>
+References: 
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_061526_216066_2EDA3F50 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20260707_061729_004331_88C85248 
+X-CRM114-Status: GOOD (  26.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +93,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Jul 2026 12:57:45 +0100, Russell King wrote:
-> No. This information is useful debug for kernel oops.
+On Mon,  6 Jul 2026 21:04:38 +0800 Xueyuan Chen <xueyuan.chen21@gmail.com> wrote:
 
-For kernel oops, I think it should be `!user_mode(regs)`, Qi Xi's reply:
+> From: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> 
+> The persistent huge zero folio is shared globally and should stay zero
+> after initialization. As Jann Horn pointed out[1], kernel bugs have ended
+> up writing to pages that were meant to be read-only, including in
+> security-sensitive cases. Making the persistent huge zero folio read-only
+> in the direct map turns such writes into faults instead of silent zero-page
+> corruption.
+> 
+> Add set_direct_map_ro_noflush() so mm code can make a direct-map range
+> read-only. Use an address-based signature to match ongoing direct-map
+> helper work[2], where existing page-based helpers may move the same way.
+> The helper is direct-map specific and does not flush TLBs. Architectures
+> without direct-map permission support keep existing behavior through the
+> generic stub.
+> 
+> Persistent huge zero folio setup happens during early boot, so no explicit
+> TLB flush is needed.
+> 
+> Inspired by Jann Horn's read-only zero page work[1] and follow-up
+> discussion[3] with Yang Shi.
+> 
+> [1] https://lore.kernel.org/linux-mm/20260508-ro-zeropage-v1-1-9808abc20b49@google.com/
+> [2] https://lore.kernel.org/linux-mm/0e5b23a6-4895-454a-9dfa-6dc21adc2991@kernel.org/
+> [3] https://lore.kernel.org/linux-mm/CAHbLzkrXXe7r3n3jXgDKtwZhRqj=jDx9E6dLOULohnhBguvi9A@mail.gmail.com/
+> 
+> Suggested-by: David Hildenbrand <david@kernel.org>
+> Co-developed-by: Lance Yang <lance.yang@linux.dev>
+> Signed-off-by: Lance Yang <lance.yang@linux.dev>
+> Signed-off-by: Xueyuan Chen <xueyuan.chen21@gmail.com>
+> ---
+>  include/linux/set_memory.h | 26 ++++++++++++++++++++++++++
+>  mm/huge_memory.c           |  9 ++++++++-
+>  2 files changed, 34 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/set_memory.h b/include/linux/set_memory.h
+> index 3030d9245f5a..a905074fb21d 100644
+> --- a/include/linux/set_memory.h
+> +++ b/include/linux/set_memory.h
+> @@ -40,6 +40,22 @@ static inline int set_direct_map_valid_noflush(struct page *page,
+>  	return 0;
+>  }
+>  
+> +/**
+> + * set_direct_map_ro_noflush - make direct-map mappings read-only
+> + * @addr: start address in the direct map
+> + * @nr_pages: number of pages starting at @addr
+> + *
+> + * Make the direct-map mappings for @nr_pages pages starting at @addr
+> + * read-only, without flushing TLBs.
+> + *
+> + * Return: 0 on success or when unsupported, negative error code on failure.
+> + */
+> +static inline int set_direct_map_ro_noflush(const void *addr,
+> +					    unsigned long nr_pages)
+> +{
+> +	return 0;
+> +}
+> +
+>  static inline bool kernel_page_present(struct page *page)
+>  {
+>  	return true;
+> @@ -56,6 +72,16 @@ static inline bool can_set_direct_map(void)
+>  }
+>  #define can_set_direct_map can_set_direct_map
+>  #endif
+> +
+> +#ifndef set_direct_map_ro_noflush
+> +static inline int set_direct_map_ro_noflush(const void *addr,
+> +					    unsigned long nr_pages)
+> +{
+> +	return 0;
+> +}
+> +
+> +#define set_direct_map_ro_noflush set_direct_map_ro_noflush
+> +#endif
+>  #endif /* CONFIG_ARCH_HAS_SET_DIRECT_MAP */
+>  
+>  #ifdef CONFIG_X86_64
+> diff --git a/mm/huge_memory.c b/mm/huge_memory.c
+> index bdd8635922f9..6633217b10dc 100644
+> --- a/mm/huge_memory.c
+> +++ b/mm/huge_memory.c
+> @@ -41,6 +41,7 @@
+>  #include <linux/pgalloc.h>
+>  #include <linux/pgalloc_tag.h>
+>  #include <linux/pagewalk.h>
+> +#include <linux/set_memory.h>
+>  
+>  #include <asm/tlb.h>
+>  #include "internal.h"
+> @@ -981,8 +982,14 @@ static int __init thp_shrinker_init(void)
+>  		 * that get_huge_zero_folio() will most likely not fail as
+>  		 * thp_shrinker_init() is invoked early on during boot.
+>  		 */
+> -		if (!get_huge_zero_folio())
+> +		if (!get_huge_zero_folio()) {
+>  			pr_warn("Allocating persistent huge zero folio failed\n");
+> +			return 0;
+> +		}
+> +
+> +		/* Set up during early boot; no explicit TLB flush is needed here. */
+> +		set_direct_map_ro_noflush(folio_address(huge_zero_folio),
+> +					  HPAGE_PMD_NR);
 
-On Tue, 7 Jul 2026 19:48:12 +0800, Qi Xi wrote:
-> For do_DataAbort() fallback:
->
->	if (user_mode(regs)) {
->		if (addr < TASK_SIZE) {
->			mmap_read_lock(current->mm);
->			show_pte(KERN_ALERT, current->mm, addr);
->			mmap_read_unlock(current->mm);
->		}
->	} else {
->		show_pte(KERN_ALERT, current->mm, addr);
->	}
+Hi,
 
-changes nothing to kernel oops. It only skip show_pte() for user-mode
-faults, and the fault addr is a kernel address, which means a user
-program is trying to access a kernel address.
-I think it is reasonable to skip show_pte() in this case?
+Can this really skip the TLB flush here?  This runs from a
+subsys_initcall, after smp_init() and after the folio was allocated and
+zeroed through the writable direct map.  The noflush helper updates the
+direct-map PTEs but does not invalidate stale writable kernel TLB entries.
+
+I think we need a TLB flush here?
+
+>  		return 0;
+>  	}
+>  
+> -- 
+> 2.49.0
+> 
+> 
 
