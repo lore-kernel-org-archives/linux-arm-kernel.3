@@ -4,71 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8DBC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA00C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:14:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Subject:To:MIME-Version:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aSekE6dvDeDQvelifwwcLmL8oUBRYHW/qRvmMWTd8K4=; b=pfSq71ttDfkLwRvx7Rb4BIkTao
-	mG9S25MteWv0grtQ1BvSpnmcmlSZFIZHrumKEX2gtAoyHqLR63VVEwdGq3FXQOZR6vYbVvVEUBBL+
-	YQgnasAU+wXRoic5I1vtOwSeT+/NppAetxCxoTgT74cyK++dEVXPhBGzPhRTD0FCI9HrbMwu6XlIN
-	1d75eFCsru3z93KzzQUqrPFjv8ZzxeSfCAjftAnqNVvYp8yXroFenn9TDvtQnbcSA0Bvu/3a5B9xO
-	193ATO13zT5Cw9B8oZ7uxqf1qA6/+538zTYkvFoeI5s/ckZmuwmAx9rgjAt7W2jY8yjfK+XGBXQpv
-	o2aGahtw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iXQR3WX2zxFM80tdflB+VVDwj3ay9NrpfosqulY53dE=; b=kNghSEViQgFn3z0Edki5BVgdkr
+	UwNZL8SIoCfiytvFAUEuU3CJwJg54UasjyFnDUNC6Ux1vvNCvv7ZIyfuD3ofVkJ9LDRi0RdNbH3X5
+	xX7Uo5KiaRiOPd72SkZFbsifrXo3ycQ7HKyOQhpKvrT8w7crneRqi74b2/M6mvSnFoZtzQJBMwhX9
+	M5RERY1m0+qgeBkpPsm2nyvd8f6s01vkLIoHOFtvSmZKt00H1WqbO4cCsiibuNjNV1QWZWlwg7TmC
+	IejVwlFeTUeqzcJ8A0P3SEHzYwNSbGH+5CKU6BXUUA+w95kUhz7obf3XiaUDDoNoX4aOAnCr+ogLH
+	EYXsxd9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1rw-0000000Eb31-0SWa;
-	Tue, 07 Jul 2026 09:13:32 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1wh1sv-0000000EbH4-3mWi;
+	Tue, 07 Jul 2026 09:14:33 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1rt-0000000Eb1v-3fhm
+	id 1wh1ss-0000000EbFs-3QHv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:13:31 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=aSekE6dvDeDQvelifwwcLmL8oUBRYHW/qRvmMWTd8K4=;
-	b=CetOCQdFLf5hS4eNAV/98ZiKXKBd981ByPNc+SE0+7EnCqcIoMxOCf+ylYODrZsr3R99Z1g4d
-	kElsizsa7U4jMmAbcNN0jgCHoSp5JaUzW2lxSxoqqXllw4GggXlO3G8Y/J0+lLYqQSoITA/WkYH
-	UqYQ3jb3MWaf7YU5KG4ex0g=
-Received: from mail.maildlp.com (unknown [172.19.162.223])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gvZzH2CTBzRhRF;
-	Tue,  7 Jul 2026 17:04:11 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6CCA440561;
-	Tue,  7 Jul 2026 17:13:23 +0800 (CST)
-Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 17:13:23 +0800
-Received: from [10.67.113.213] (10.67.113.213) by
- kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 17:13:22 +0800
-Message-ID: <6A4CC332.3000906@hisilicon.com>
-Date: Tue, 7 Jul 2026 17:13:22 +0800
-From: Wei Xu <xuwei5@hisilicon.com>
-User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
+	Tue, 07 Jul 2026 09:14:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:In-Reply-To:References;
+	bh=iXQR3WX2zxFM80tdflB+VVDwj3ay9NrpfosqulY53dE=; b=DEx43K7mtJIhw0SJncsQyWzbS1
+	WM+cn/hfQkcE6ZnemrccJ/O3H66dameP4KcVCNHefWHoILXqcRJeD34rR4jm6B9JXZT91qlZWEL6E
+	g0bsVKT/wny/pmIlht7BEQHJBGTIq1lRvAFXqoNJ+F8cjasZKQkaAHNNcTW9kjjjt1/vxnIADewJx
+	76nVVLJScnvnm5sRu1rC8GxCQtPPdXyPB1ooVnf7ZVeyi+6ydPou+5mjtkeIhblZs4kvgwpkQwTnJ
+	oGq6DkOanLY7gLoKTD+i6SdQuYvTtn90QLbT+YAO2VA08THtRv1Jw6tjaC6q1SPvKMvfAFRIaAF2A
+	G9WMeyrA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh1sq-000Jpv-1s;
+	Tue, 07 Jul 2026 11:14:28 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh1sp-000LtS-2R;
+	Tue, 07 Jul 2026 11:14:28 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: [PATCH 0/2] Support for TQMa91xx on MBa93xxCA
+Date: Tue,  7 Jul 2026 11:14:18 +0200
+Message-ID: <20260707091424.1702245-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
 MIME-Version: 1.0
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<xuwei5@hisilicon.com>
-Subject: Re: [PATCH] arm64: dts: hisilicon: Correct indentation
-References: <20260706093500.273922-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260706093500.273922-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Type: text/plain; charset="ISO-8859-1"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.113.213]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemq100003.china.huawei.com (7.202.195.72)
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_021330_090131_78C12D02 
-X-CRM114-Status: GOOD (  10.08  )
+X-CRM114-CacheID: sfid-20260707_021430_963801_87B096A5 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,47 +90,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi,
 
-On 2026/7/6 17:35, Krzysztof Kozlowski wrote:
-> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
-> No functional impact (same DTB).
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
->  arch/arm64/boot/dts/hisilicon/hip05.dtsi | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/hisilicon/hip05.dtsi b/arch/arm64/boot/dts/hisilicon/hip05.dtsi
-> index d0912ca5f237..2d376b3d30dd 100644
-> --- a/arch/arm64/boot/dts/hisilicon/hip05.dtsi
-> +++ b/arch/arm64/boot/dts/hisilicon/hip05.dtsi
-> @@ -236,13 +236,13 @@ cluster3_l2: l2-cache3 {
->  
->  	gic: interrupt-controller@8d000000 {
->  		compatible = "arm,gic-v3";
-> -                #interrupt-cells = <3>;
-> -                #address-cells = <2>;
-> -                #size-cells = <2>;
-> -                ranges;
-> -                interrupt-controller;
-> -                #redistributor-regions = <1>;
-> -                redistributor-stride = <0x0 0x30000>;
-> +		#interrupt-cells = <3>;
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		ranges;
-> +		interrupt-controller;
-> +		#redistributor-regions = <1>;
-> +		redistributor-stride = <0x0 0x30000>;
->  		reg = <0x0 0x8d000000 0 0x10000>,	/* GICD */
->  		      <0x0 0x8d100000 0 0x300000>,	/* GICR */
->  		      <0x0 0xfe000000 0 0x10000>,	/* GICC */
-> 
+this small series adds support for TQMa91xx, i.MX91 based module, on
+MBa93xxCA. It supports most interfaces similar to TQMa93xx, but LVDS is not
+supported at all. Wake-on-LAN works on both interfaces.
 
-Applied to the HiSilicon arm64 dt tree.
-Thanks!
+Best regards,
+Alexander
 
-Best Regards,
-Wei
+Markus Niebel (2):
+  dt-bindings: arm: add MBa93xxCA as mainboard for TQMa91xxCA and
+    TQMa91xxLA SOM
+  arm64: dts: add devicetree for TQMa91xx on MBa93xxCA
+
+ .../devicetree/bindings/arm/fsl.yaml          |   5 +
+ arch/arm64/boot/dts/freescale/Makefile        |   1 +
+ .../freescale/imx91-tqma9131-mba93xxca.dts    | 937 ++++++++++++++++++
+ 3 files changed, 943 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx91-tqma9131-mba93xxca.dts
+
+-- 
+2.54.0
+
 
