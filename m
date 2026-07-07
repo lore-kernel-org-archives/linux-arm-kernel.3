@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15314C43458
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD832C44500
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 03:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lQ2OUfXyXPiXVwMUZqWdZ7fztGiD1A5bWtr7SaHjq24=; b=pQXyas8gDIJ7f8ilFGkMFePqqS
-	GQoeSTo4GgXF3KOJwYHPxIz/3ozsA8vtRsWuSuEVlt+37K4/2F8oRw3GhvrJm7sj7QraXU+tY2nVY
-	PdLNfgx5jniw5YZIEIBA/BVAUALgLflWLXzttqiP18rk/fuXU49PmaF97VweV5l1A73Vy2MVIl7L1
-	TdwcZvKRuu6UkMMsq/QJ+qQiD4iorux0zfwH/IOQ3tU1pNY7oK+BkbrNoKZ0TPrMhPcRr+2Ap9pQH
-	mRNs7fonlp0/U6Q1U+3gW5P9ixLFcPzME3cKdI/mXejSB7kYWE+mygIOy4Sklpdt9yWcT2ff4tK1q
-	cJly/8Rw==;
+	bh=MMrqUfMvT5vpakCL5ikkaGZV0QE+15QhOUc7fLT1f/Q=; b=qKW32TOXs/lJDQyEqhoSNRYU1E
+	1hJmPQytNhzF12+mO3Ve538DnS9QWiOmXxaM7VHuyUhkMz+dC2zR2niYXrclnYIFw8OINdalM9ySi
+	8N0WCVSthWBBlCUeuh2GHcPT8EmcWADiyl3qlcBsQQ+tIOhosVQRuN6j02uY/o0K5j2vbZ/fd9P6Q
+	W+552wbslYXsGAY8V6xktle0Wva1Y9tnz3Dl1+cBYtkEQk9aVdiBlWxPbXwniu+AVsRgmTN8pOnVG
+	sGopIkpyj+Vj4lto9fBJOP9nukgzkirD+X+DoMbPNZYHpSHwaaf/6X7yvs0L0qKrF3fVGMrV4Lfmc
+	a/jK5mEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgwGH-0000000DzCH-0RK9;
+	id 1wgwGH-0000000DzCM-0qD8;
 	Tue, 07 Jul 2026 03:14:17 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgwGB-0000000Dz8H-00Sv
+	id 1wgwGC-0000000Dz95-1m29
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 03:14:12 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2cc7e86e7aeso22055015ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 20:14:10 -0700 (PDT)
+	Tue, 07 Jul 2026 03:14:13 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-845f2909cd4so2541632b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Jul 2026 20:14:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783394050; x=1783998850; darn=lists.infradead.org;
+        d=gmail.com; s=20251104; t=1783394051; x=1783998851; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lQ2OUfXyXPiXVwMUZqWdZ7fztGiD1A5bWtr7SaHjq24=;
-        b=BoS1G1d8Ftjl4Dibn78/8bqzBw0z9yTjnm9JHMX08DdkdUSNVcn8McfVToSRfzsJsX
-         UL6LAw0NGCF2+Z59QP391VUaEWvMMQPJbJ/w5kLIthc83oOJYertIrfrGD4LSkhyhghs
-         7vJWQPBNG4+/ZQjMZ5uMRKCVE+a+oN2/qCh5Fe1uwWxoyPN7xdBszsDFIRHwJh5nKbAn
-         Xdk8n72FiIh5+hI/CC4VR2sUgSLqG+5XSz4wSoTCNvla2fk4EKJdftVnTlXeUGo9dyOR
-         9ZwWZmPPXWzm8zqJhal2wMmM/v/Ak14ZknMw13M0xQVHiITCrEu7KaIUzcZZ+DCYbt4E
-         S8SA==
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MMrqUfMvT5vpakCL5ikkaGZV0QE+15QhOUc7fLT1f/Q=;
+        b=iecrzWkHhIp5pFCtyqw/UEZM88U7GH/Jy4C0OQoNEYJOirbIaeBUq3ztq8vOoiYG9z
+         biTeUTzw2a7qmsp5CdI45YVY7nxZmdgi6JAsxnVHKYDSZIF2HkXxotGVHDXjMU/8cFqt
+         7Sm4MLTcVyiAv+ePlIgI8tRf80kjZ51lB4PPX0D2RSuMQZ4lKgpQaRKWKxXnG4yyzed3
+         ThC7bezKXIYkZBLF6T+KH5//Mf+F0wgLkWMUZ1u46im12mR+WAUD/613HTRfRjdr9CRf
+         iHWKYp2m7wcU2jt+ZYdf7bosjlyi3eMARp0h6Q5fyekGrOkYQDEPic2a9YvlyIflaeiz
+         q+Jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783394050; x=1783998850;
+        d=1e100.net; s=20251104; t=1783394051; x=1783998851;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lQ2OUfXyXPiXVwMUZqWdZ7fztGiD1A5bWtr7SaHjq24=;
-        b=pD7yl/4n7SQ++WaD32Wesja+CjxM7ENulh3qy6ouw42Y5AsPCs1WUNn2UjFRwpuBf5
-         OdLi3Tco26m/MsUom5NZYM/+Kma+hf5iAwCYKaMHWfN1LWVlLHA0PiWLwSvV9Q3gmBs3
-         8N6qZhWYoMPacTeHT82Vf4TNDTe+M9D7em0m7z78UjBSCZY1uXYqTp+Pz5dhDFnqwFUq
-         H3cTfxqyC6Cj/03PMNibWlndMMNyaxpUUOJl5xEb5yrDAxT+imwzksgkgRjxzSLlvIZS
-         SUaYCp7RekY0pttrve7wG1sswvgW7CmNmj3kzO7/CdsbYRx+KX6ttmkuf1hRoTLPZwnO
-         zE3A==
-X-Gm-Message-State: AOJu0YwFj4MvqGnZ+BL5J7DY9jor8JWcoZViu8vlsN838Y9j6pSG5YeB
-	cb0RkNjeOV8sk1Jv21+CR2+tsSZenDJycy9wWQ2bEqhNA+G2H9S+DY1ZS/VE7g==
-X-Gm-Gg: AfdE7ckb5Wwhkg/h8N7i9R6Ye9kBV3URvF79Ia4ZWtT6gDNFUJyZUMwiq4ylWIV7qyk
-	eH9sF7BplBT9TktGre9Dz5xwQT/Tq44yUlt+IawYo7cLWptD2G/qqShqWuAPKJAJ+xdTiwGQn1d
-	cLXwmy6e4tkMTPpHmh2kteQndw5Q6YKdFqJS0f59zrjFemtwt4eDKhmhG7AxTTvlPM3JFdPZqqD
-	GnRCTdHPJm62QbJAcq9xvt1EJ6R7843d8OfQ0NOgaQidYSkEGmkViZ1ndgmToHed+QgiqfQlMRc
-	p6DpW1y6k+urOrdFVJCkGl7RvDnt4rDUPjGAGvQM8YGtxGSc+Q7mV4c/SwSRfBjKpeHq7SIj+NK
-	HRG/sRDcWseNfyoNJf6atYs0xKElXsizGeeib1Xfo+EZ6OQh8KkDYQM/bE6xAtRVnhdvgXMp8yz
-	m13Pezfzk6hK3LHVmsjcNMvCY9Y07WmwqNL2j9GOWPO38y4Mj7rxR2dGmPCMV+AGZ1jfm58VtWx
-	0mlMCAhB6u79s8=
-X-Received: by 2002:a05:6a20:5499:b0:3bf:9e25:1a18 with SMTP id adf61e73a8af0-3c08ef55ba0mr4090827637.52.1783394049834;
-        Mon, 06 Jul 2026 20:14:09 -0700 (PDT)
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MMrqUfMvT5vpakCL5ikkaGZV0QE+15QhOUc7fLT1f/Q=;
+        b=Eey/7WSFZcVB0KGcLu1hjZ06b/BYvX5kTIfXoyhGo59GeSxhXPhWlx/TEB9aRlkUsc
+         0bUFfLrqjDdJej5/p3cYAU3Ks+ia3fRGmb8VclWQJiO4KPVp4mi2SNfMiTAVNu7jodJS
+         8XT4acfNy3xT1+Ga7F2Snl2rkZpeq4o98O1Eh+1LWoz9iU6LwwepnA/n2KzAmS6Tfjcz
+         AqCcqy7LmyP9d0BCZcj3+2ibHjVSBOE/Wx3Aq+GiSagIxzrBcgTYG5rFk49vKCvj1GO/
+         Ds85u3e5MwWZXFduFNhpKTQZYvF4Bla83lHMguCWoJWvVyS9oSZgpCjFTy/090XZ6Nb3
+         KJuw==
+X-Gm-Message-State: AOJu0YzKjs0TFaGonRDAoDXyin9gpYpdoHDeWeEpnsMu493e0UILNayR
+	WKXSisJ3Ux8oJXWSAjO1XgO1ZG7TXhzhy47sII4Upa6PqGpbF/eGsV2PkKhDbQ==
+X-Gm-Gg: AfdE7cmY9Pm838eHXPCC4ZdU1nJqHKb3Ho5moQgODF9zAj8bld1Otz+QEIXf32fFYGr
+	CABOyllfygsvRLDUoM6VzmPUzC/UCMQUuIIZiH8YswvjE0Grw47WCKxND9rxkprlVJ2BaY1XImc
+	m+HBIWm7X45keHLbrGTqC/kyVa0heIUIDfxsZCgtLhO+EcLM4TWH7ekdZr/LFtxzclslLnx66m4
+	XGmEySgV37AhRVHLRz3lVKhSriVIdHhBTPYI2d9HMPpmRoK8QVlufxLwZQBxbIlFWCs8owVTxYy
+	BoZcZx46o8k9qbJs9W7Q4R43fNp89tvpJaFh5jvb4Ek8Fuhhi7r6jFgDXpMQb2HwUC9Simx5kfK
+	oWOKXHb6+heSHSP06kxiYmiJ7iRThaIdVm/wxX7YjcFiTq9vxC+A3zl5dRQmZUE5we5lijxGa1u
+	1HZp99/tgTiSgT3ZBWO2P7qJNV/slWu1g7XOPWM6hpVizNZoRNZmZMkYBDNsvbDu6Gcngwl6jnW
+	2NC
+X-Received: by 2002:a05:6a21:6b05:b0:38d:fad1:cf2a with SMTP id adf61e73a8af0-3c08ed0adfcmr3907819637.13.1783394051311;
+        Mon, 06 Jul 2026 20:14:11 -0700 (PDT)
 Received: from dtor-ws.sjc.corp.google.com ([2a00:79e0:2ebe:8:d89b:1fdd:a8f2:dbeb])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659666e7sm3339905c88.7.2026.07.06.20.14.08
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-13b659666e7sm3339905c88.7.2026.07.06.20.14.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Jul 2026 20:14:09 -0700 (PDT)
+        Mon, 06 Jul 2026 20:14:10 -0700 (PDT)
 From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Date: Mon, 06 Jul 2026 20:14:02 -0700
-Subject: [PATCH 3/4] ARM: sa1100: collie: convert gpio-keys to use software
+Date: Mon, 06 Jul 2026 20:14:03 -0700
+Subject: [PATCH 4/4] ARM: sa1100: h3xxx: convert gpio-keys to use software
  nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260706-sa1100-swnode-v1-3-332759bbd930@gmail.com>
+Message-Id: <20260706-sa1100-swnode-v1-4-332759bbd930@gmail.com>
 References: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
 In-Reply-To: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
 To: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>, 
@@ -87,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-gpio@vger.kernel.org
 X-Mailer: b4 0.16-dev-b242f
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_201411_055665_C6CD4C9B 
-X-CRM114-Status: GOOD (  17.88  )
+X-CRM114-CacheID: sfid-20260706_201412_516825_5F8FA37B 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,134 +103,128 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Convert the legacy gpio-keys platform device on the StrongARM SA-1100
-Collie (Sharp Zaurus SL-5500) board to use software nodes and device
-properties. This helps progress the removal of platform data support
-from the gpio-keys driver.
+HP iPAQ H3xxx series boards to use software nodes and device properties.
+This helps progress the removal of platform data support from the
+gpio-keys driver.
 
 Define static software nodes for the gpio-keys device and the power and
-sync button child nodes at file scope, referencing the SA-1100 GPIO
-controller node directly and specifying EV_PWR input type. In
-collie_init(), register the software node group and use
-platform_device_register_full() to register the gpio-keys device.
+action button child nodes at file scope, referencing the SA-1100 GPIO
+controller node directly. In h3xxx_mach_init(), register the software node
+group and use platform_device_register_full() to register the device.
 
 Assisted-by: Antigravity:gemini-3.5-flash
 Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
 ---
- arch/arm/mach-sa1100/collie.c | 74 +++++++++++++++++++++++++++----------------
- 1 file changed, 46 insertions(+), 28 deletions(-)
+ arch/arm/mach-sa1100/h3xxx.c | 69 +++++++++++++++++++++++++++-----------------
+ 1 file changed, 42 insertions(+), 27 deletions(-)
 
-diff --git a/arch/arm/mach-sa1100/collie.c b/arch/arm/mach-sa1100/collie.c
-index 466d755d5702..53df6eb9ce83 100644
---- a/arch/arm/mach-sa1100/collie.c
-+++ b/arch/arm/mach-sa1100/collie.c
-@@ -27,10 +27,11 @@
+diff --git a/arch/arm/mach-sa1100/h3xxx.c b/arch/arm/mach-sa1100/h3xxx.c
+index d685f03f51f3..13c0aa4c0bfa 100644
+--- a/arch/arm/mach-sa1100/h3xxx.c
++++ b/arch/arm/mach-sa1100/h3xxx.c
+@@ -8,9 +8,10 @@
+ 
+ #include <linux/kernel.h>
+ #include <linux/gpio/machine.h>
++#include <linux/gpio/property.h>
+ #include <linux/gpio.h>
+-#include <linux/gpio_keys.h>
+ #include <linux/input.h>
++#include <linux/property.h>
  #include <linux/mtd/mtd.h>
  #include <linux/mtd/partitions.h>
- #include <linux/timer.h>
--#include <linux/gpio_keys.h>
-+#include <linux/gpio/property.h>
- #include <linux/input.h>
- #include <linux/gpio.h>
- #include <linux/gpio/machine.h>
-+#include <linux/property.h>
- #include <linux/power/gpio-charger.h>
+ #include <linux/platform_data/gpio-htc-egpio.h>
+@@ -168,35 +169,48 @@ static struct platform_device h3xxx_egpio = {
+  * GPIO keys
+  */
  
- #include <video/sa1100fb.h>
-@@ -228,43 +229,57 @@ struct platform_device collie_locomo_device = {
- 	.resource	= locomo_resources,
+-static struct gpio_keys_button h3xxx_button_table[] = {
+-	{
+-		.code		= KEY_POWER,
+-		.gpio		= H3XXX_GPIO_PWR_BUTTON,
+-		.desc		= "Power Button",
+-		.active_low	= 1,
+-		.type		= EV_KEY,
+-		.wakeup		= 1,
+-	}, {
+-		.code		= KEY_ENTER,
+-		.gpio		= H3XXX_GPIO_ACTION_BUTTON,
+-		.active_low	= 1,
+-		.desc		= "Action button",
+-		.type		= EV_KEY,
+-		.wakeup		= 0,
+-	},
++static const struct software_node h3xxx_gpio_keys_node = {
++	.name = "h3xxx-gpio-keys",
  };
  
--static struct gpio_keys_button collie_gpio_keys[] = {
--	{
--		.type	= EV_PWR,
--		.code	= KEY_RESERVED,
--		.gpio	= COLLIE_GPIO_ON_KEY,
--		.desc	= "On key",
--		.wakeup	= 1,
--		.active_low = 1,
--	},
--	{
--		.type	= EV_PWR,
--		.code	= KEY_WAKEUP,
--		.gpio	= COLLIE_GPIO_WAKEUP,
--		.desc	= "Sync",
--		.wakeup = 1,
--		.active_low = 1,
--	},
-+static const struct software_node collie_gpio_keys_node = {
-+	.name = "collie-gpio-keys",
- };
- 
--static struct gpio_keys_platform_data collie_gpio_keys_data = {
--	.buttons	= collie_gpio_keys,
--	.nbuttons	= ARRAY_SIZE(collie_gpio_keys),
-+static const struct property_entry collie_on_key_props[] = {
-+	PROPERTY_ENTRY_U32("linux,code", KEY_RESERVED),
+-static struct gpio_keys_platform_data h3xxx_keys_data = {
+-	.buttons  = h3xxx_button_table,
+-	.nbuttons = ARRAY_SIZE(h3xxx_button_table),
++static const struct property_entry h3xxx_power_key_props[] = {
++	PROPERTY_ENTRY_U32("linux,code", KEY_POWER),
 +	PROPERTY_ENTRY_GPIO("gpios", &sa1100_gpiochip_node,
-+			    COLLIE_GPIO_ON_KEY, GPIO_ACTIVE_LOW),
-+	PROPERTY_ENTRY_STRING("label", "On key"),
-+	PROPERTY_ENTRY_U32("linux,input-type", EV_PWR),
++			    H3XXX_GPIO_PWR_BUTTON, GPIO_ACTIVE_LOW),
++	PROPERTY_ENTRY_STRING("label", "Power Button"),
 +	PROPERTY_ENTRY_BOOL("wakeup-source"),
 +	{ }
  };
  
--static struct platform_device collie_gpio_keys_device = {
+-static struct platform_device h3xxx_keys = {
 -	.name	= "gpio-keys",
 -	.id	= -1,
 -	.dev	= {
--		.platform_data = &collie_gpio_keys_data,
+-		.platform_data = &h3xxx_keys_data,
 -	},
-+static const struct software_node collie_on_key_node = {
-+	.parent = &collie_gpio_keys_node,
-+	.properties = collie_on_key_props,
++static const struct software_node h3xxx_power_key_node = {
++	.parent = &h3xxx_gpio_keys_node,
++	.properties = h3xxx_power_key_props,
 +};
 +
-+static const struct property_entry collie_wakeup_key_props[] = {
-+	PROPERTY_ENTRY_U32("linux,code", KEY_WAKEUP),
++static const struct property_entry h3xxx_action_key_props[] = {
++	PROPERTY_ENTRY_U32("linux,code", KEY_ENTER),
 +	PROPERTY_ENTRY_GPIO("gpios", &sa1100_gpiochip_node,
-+			    COLLIE_GPIO_WAKEUP, GPIO_ACTIVE_LOW),
-+	PROPERTY_ENTRY_STRING("label", "Sync"),
-+	PROPERTY_ENTRY_U32("linux,input-type", EV_PWR),
-+	PROPERTY_ENTRY_BOOL("wakeup-source"),
++			    H3XXX_GPIO_ACTION_BUTTON, GPIO_ACTIVE_LOW),
++	PROPERTY_ENTRY_STRING("label", "Action button"),
 +	{ }
 +};
 +
-+static const struct software_node collie_wakeup_key_node = {
-+	.parent = &collie_gpio_keys_node,
-+	.properties = collie_wakeup_key_props,
++static const struct software_node h3xxx_action_key_node = {
++	.parent = &h3xxx_gpio_keys_node,
++	.properties = h3xxx_action_key_props,
 +};
 +
-+static const struct software_node * const collie_gpio_keys_swnodes[] __initconst = {
-+	&collie_gpio_keys_node,
-+	&collie_on_key_node,
-+	&collie_wakeup_key_node,
++static const struct software_node * const h3xxx_gpio_keys_swnodes[] __initconst = {
++	&h3xxx_gpio_keys_node,
++	&h3xxx_power_key_node,
++	&h3xxx_action_key_node,
 +	NULL
 +};
 +
-+static const struct platform_device_info collie_gpio_keys_dev_info __initconst = {
++static const struct platform_device_info h3xxx_gpio_keys_dev_info __initconst = {
 +	.name = "gpio-keys",
 +	.id = PLATFORM_DEVID_NONE,
-+	.swnode = &collie_gpio_keys_node,
++	.swnode = &h3xxx_gpio_keys_node,
  };
  
- static struct platform_device *devices[] __initdata = {
- 	&collie_locomo_device,
- 	&colliescoop_device,
- 	&collie_power_device,
--	&collie_gpio_keys_device,
+ static struct resource h3xxx_micro_resources[] = {
+@@ -214,7 +228,6 @@ struct platform_device h3xxx_micro_asic = {
+ 
+ static struct platform_device *h3xxx_devices[] = {
+ 	&h3xxx_egpio,
+-	&h3xxx_keys,
+ 	&h3xxx_micro_asic,
  };
  
- static struct mtd_partition collie_partitions[] = {
-@@ -384,6 +399,9 @@ static void __init collie_init(void)
- 		printk(KERN_WARNING "collie: Unable to register LoCoMo device\n");
- 	}
+@@ -240,6 +253,8 @@ void __init h3xxx_mach_init(void)
+ 	sa1100_register_uart_fns(&h3xxx_port_fns);
+ 	sa11x0_register_mtd(&h3xxx_flash_data, &h3xxx_flash_resource, 1);
+ 	platform_add_devices(h3xxx_devices, ARRAY_SIZE(h3xxx_devices));
++	software_node_register_node_group(h3xxx_gpio_keys_swnodes);
++	platform_device_register_full(&h3xxx_gpio_keys_dev_info);
+ }
  
-+	software_node_register_node_group(collie_gpio_keys_swnodes);
-+	platform_device_register_full(&collie_gpio_keys_dev_info);
-+
- 	sa11x0_register_lcd(&collie_lcd_info);
- 	sa11x0_register_mtd(&collie_flash_data, collie_flash_resources,
- 			    ARRAY_SIZE(collie_flash_resources));
+ static struct map_desc h3600_io_desc[] __initdata = {
 
 -- 
 2.55.0.rc2.803.g1fd1e6609c-goog
