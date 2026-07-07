@@ -4,91 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD8A2C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCCA7C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 15:10:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7SSWQg6HrEbpp/1xgGT38ar/90z2MxrGW6oImpnAmb0=; b=bK5pM0QpCbna0gdzkz2Fcz0Mxm
-	av9nb4RBLgKt2Bw74XAcwex4OC+gbBiz2JSzxGP8+NLRLTSAZ6nJdq0hZrNm77Ggk1tXLcbfDLymL
-	+oysGeoC0eMj0dgFEXyazpVOFGcgwlbyGebh9gLap37cCcWXR2ebS5C5SRGoErG2oWNDL7pyMCelB
-	RAsxE3Yl3NVYYjANyofPFbg0nfHn4YTk4nHUd/j55IJXLVa20BCZw8PazCd7E1hU4TPBgPt6rBMr2
-	LlrYnXq3Qu/Ztca5EBpysbGRKybxI/ZvasUbyPA61H2oABkx/HtQrmd7DDWZTzvgZ31O2QTyWaXEY
-	d4QDpbWg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NjRJOOgfj4HWWKYEXcQ/AbYuFATzaVJOA8skt66XvW4=; b=Kz4r88zjJCMh/lZtvB5fSIlmT8
+	RNslLRPZAqx/rm2zKuHIQnHSLFOOfivawJ4KA1a01OVLTrZGL1Ysp23yjh6iu3skUGrE9UhrxTCTx
+	BA8tKRD0blp+yjMQy2FqY2OhDWHDe4lexEP7qT73W4f2JeVvvVeONnUi35EX7sEUyYmjvW0Xr1OBQ
+	WojCQDpuAVv+a0jzKdCOLuwjcsfd3+ahL3BLR0nJ5uhFCWXFlRTfOv+I9eBDtDS5fjYXkjzNvFicb
+	NOK8Effuq16se0CJx6xFY+LbiM7diig1BmBMN4NVb8N7L7u/o4I5cTaKeKXj43b9fXHFhtfoJtwHk
+	etIkEuzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7Ml-0000000FFHN-0PQL;
-	Tue, 07 Jul 2026 15:05:43 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1wh7RL-0000000FFhg-2bBC;
+	Tue, 07 Jul 2026 15:10:27 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh7Me-0000000FFED-24L6
+	id 1wh7RH-0000000FFhO-0l1B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 15:05:41 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-381891a9525so4046607a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 08:05:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20251104; t=1783436736; x=1784041536; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7SSWQg6HrEbpp/1xgGT38ar/90z2MxrGW6oImpnAmb0=;
-        b=pxV6ZV120m1PsMPpaxl1fWqKeJHZRu11CCJRfThXUFwuq5KSgTtjsI/R3n92/23eWz
-         iNAr6Ru4+oObseSJnHhu8l3aIrP5wx1H4E0PLgnBTyGHvp3lptTnIvZTRulGzd+lMmFN
-         SGuSC+OCaaxTenczr/xrkK0P3+46jru62E2ilT3sCP+4YBG8p+c3+OqN+n3OPKyZjrbv
-         rSRKvQ/1KjV3jcXl8YW6TYknbUeakY1+T06Jb7WHE0/luZxo+HnkneoexbBYviysiiMM
-         ir98g/8KzBYqmTDIaXLieHKRJWDvGOJCyrmBp2AMtLgyGGSi4w4B/SSSnNJBUPwcHU/n
-         3ArA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783436736; x=1784041536;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7SSWQg6HrEbpp/1xgGT38ar/90z2MxrGW6oImpnAmb0=;
-        b=mDKNLynOyfddiG5konxaiWnBDxfpcKU5pud28k1iqW7k6s7xabW78rJbgNO2cN80Ac
-         19two6fIdKiyZUwTaMnLu+j8PKMIpbe1J6Izbv/l9Hi+MM/6dabzmdHRAeQqv/MRPyZp
-         xgkCP5vqS8l4vVnCn+u/P1VFGvp3g6xh2SVan+R89oqjFFWY3KeM+L93JlDJYHcWrM4v
-         IHW55dLPhRevq2FimZhougkPhiOW8MHIcuzfdqhV0q/HdRMciXxdwbsFm5rzx9DOjtUT
-         DvHJMue3YlArIrlY4JiOfSoeCYADgPuFKKPCrHlG4IeSc6VkQeRf2z8rP5lVlokPYwoF
-         zgQg==
-X-Forwarded-Encrypted: i=1; AHgh+RoJdF637posARDOQNh7f0jUl3O3iElaOWVOSWSlRGPxeuD0LfvZDsZlTVZNzR8liZIKOAwJZpp8JUYutWG+PlL+@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuVDCKFKL6s/Hmf9kvl0Qqd0QDZePx3U6Nvv2HIb3e3ALlGqDA
-	LvASp6OM/85Uev1QY0+gf1CNU/1jspw8p+JB4w02GBEW4A8cUoCwOJoD
-X-Gm-Gg: AfdE7cn+9F+CIbZUVKF+MWnqDoTtYayD4Qe5j0MW0gyWx87864eNThW/OpeD+KxytzX
-	ZIh+kRnkbv3rKv9fJrI/FFl0J6HxSg5Nxd7qESpgOVMk4uAvpusfc06iryvfBD9N2Th6chXOPO8
-	xNxdSiua4vV/H1sTEuE+rWBoa8KC533Ze6zhAc/fPxsAbSN+xNR+Z5GEKv17lVO2G18W3o9On4n
-	+geJ2moABVbxxTPg7Df3BaszeNCUwFsZ8LLxtB+eGA98P2+j532RIeYIbN9ht6rcZCfco8hI9PO
-	64jJIMOerrN/h/OJOhOaXkTNrwNY5WlyYJGihy75ug76c4yqVuozLNaPLn4dWaemtUWxDTyl7sS
-	zKIs4YMbUzUb/Q85UukMtvbNzJwfV+yzlWidcuhTpvsLqcyZCqkCbfK4o3O5NS587cQ+O7KU/h0
-	YTKjug8ZHgrV+hcu/J08QmlGZoshxG/8xv
-X-Received: by 2002:a17:90b:4f48:b0:387:e0bb:57f6 with SMTP id 98e67ed59e1d1-387e0bb5c07mr2778290a91.39.1783436735574;
-        Tue, 07 Jul 2026 08:05:35 -0700 (PDT)
-Received: from haichao.tail057a43.ts.net ([2001:da8:e000:1206:239e:a31b:1d0d:374f])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-387d229a20csm1284197a91.16.2026.07.07.08.05.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 08:05:34 -0700 (PDT)
-From: Ruoyu Wang <ruoyuw560@gmail.com>
-To: chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
+	Tue, 07 Jul 2026 15:10:26 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 69576601EB;
+	Tue,  7 Jul 2026 15:10:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 386F51F00A3E;
+	Tue,  7 Jul 2026 15:10:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783437022;
+	bh=NjRJOOgfj4HWWKYEXcQ/AbYuFATzaVJOA8skt66XvW4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GRoRwRfklUgC9ESBNWdgu/CRujDUfLkO0C2oxJG6sbpYcVgcthL0RnGtNQadUPwhM
+	 rzwRLn6AHj4WRRtiUsA+qSkbMqqSuQvvDBNxsogzdpdZntRV2bB5QBvBb57gy/hxXF
+	 mx7hkTtUhnoBCi5vex/zl4zelm5pL4IFSpB/rOByMSQJwI6kpmvAbSVEx7ZHgz1Os6
+	 KmO4CAO8xKgDaOaNK05ZIE4eSxhKFAqk62s5RsnsrFc0LehgB6BF1Wfzuyj68QQHaY
+	 BSamnfjeUAbueswISwAg4qL+8/v4bBrqXpbeo/GDwzIQXcdItm+rpZL8w0835ZgVTI
+	 YpRfxyEM9+Y/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wh7RE-00000002SwD-12Vn;
+	Tue, 07 Jul 2026 15:10:20 +0000
+Date: Tue, 07 Jul 2026 16:10:19 +0100
+Message-ID: <8633xuq1ic.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steffen Eiden <seiden@linux.ibm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	Ruoyu Wang <ruoyuw560@gmail.com>
-Subject: [PATCH] drm/mediatek: Check CRTC state before freeing
-Date: Tue,  7 Jul 2026 23:05:28 +0800
-Message-ID: <20260707150528.2270739-1-ruoyuw560@gmail.com>
-X-Mailer: git-send-email 2.51.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_080539_663035_133D3500 
-X-CRM114-Status: GOOD (  13.69  )
+	linux-kernel@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Grapentin <gra@linux.ibm.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	David Hildenbrand <david@kernel.org>,
+	Friedrich Welter <fritz@linux.ibm.com>,
+	Gautam Gala <ggala@linux.ibm.com>,
+	Hariharan Mari <hari55@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Hendrik Brueckner <brueckner@linux.ibm.com>,
+	Ilya Leoshkevich <iii@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Nico Boehr <nrb@linux.ibm.com>,
+	Nina Schoetterl-Glausch <oss@nina.schoetterlglausch.eu>,
+	Oliver Upton <oupton@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Sven Schnelle <svens@linux.ibm.com>,
+	Ulrich Weigand <Ulrich.Weigand@de.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 24/27] KVM: s390: arm64: Implement vm/vcpu create destroy.
+In-Reply-To: <20260706085229.979525-25-seiden@linux.ibm.com>
+References: <20260706085229.979525-1-seiden@linux.ibm.com>
+	<20260706085229.979525-25-seiden@linux.ibm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seiden@linux.ibm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-s390@vger.kernel.org, agordeev@linux.ibm.com, gra@linux.ibm.com, arnd@arndb.de, catalin.marinas@arm.com, borntraeger@linux.ibm.com, imbrenda@linux.ibm.com, david@kernel.org, fritz@linux.ibm.com, ggala@linux.ibm.com, hari55@linux.ibm.com, hca@linux.ibm.com, brueckner@linux.ibm.com, iii@linux.ibm.com, frankja@linux.ibm.com, joey.gouly@arm.com, nrb@linux.ibm.com, oss@nina.schoetterlglausch.eu, oupton@kernel.org, pbonzini@redhat.com, suzuki.poulose@arm.com, svens@linux.ibm.com, Ulrich.Weigand@de.ibm.com, gor@linux.ibm.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,42 +109,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-mtk_crtc_reset() destroys the current CRTC state only when crtc->state
-is non-NULL, but it always converts crtc->state to struct mtk_crtc_state
-and passes the result to kfree().
+On Mon, 06 Jul 2026 09:52:24 +0100,
+Steffen Eiden <seiden@linux.ibm.com> wrote:
+> 
+> Implement init and destroy IOCTLS for vcpu and vm.
+> Implement arch vm IOCTL. Use s390 gmap.
+> 
+> Co-developed-by: Janosch Frank <frankja@linux.ibm.com>
+> Signed-off-by: Janosch Frank <frankja@linux.ibm.com>
+> Co-developed-by: Andreas Grapentin <gra@linux.ibm.com>
+> Signed-off-by: Andreas Grapentin <gra@linux.ibm.com>
+> Co-developed-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> Signed-off-by: Nina Schoetterl-Glausch <nsg@linux.ibm.com>
+> Signed-off-by: Steffen Eiden <seiden@linux.ibm.com>
+> ---
+>  arch/s390/kvm/arm64/arm.c       | 190 ++++++++++++++++++++++++++++++++
+>  arch/s390/kvm/arm64/arm.h       |  56 ++++++++++
+>  arch/s390/kvm/gmap/faultin.c    |   5 +
+>  arch/s390/kvm/gmap/gmap.c       |   4 +
+>  arch/s390/kvm/gmap/trace-gmap.h |  13 +++
+>  5 files changed, 268 insertions(+)
+> 
+> diff --git a/arch/s390/kvm/arm64/arm.c b/arch/s390/kvm/arm64/arm.c
+> index 19249ec5c539..3a4092698fae 100644
+> --- a/arch/s390/kvm/arm64/arm.c
+> +++ b/arch/s390/kvm/arm64/arm.c
+> @@ -8,6 +8,10 @@
+>  #include <linux/kvm_types.h>
+>  #include <linux/kvm_host.h>
+>  
+> +#include <arm64/kvm_mmu.h>
+> +
+> +#include <gmap.h>
+> +
+>  #include "arm.h"
+>  
+>  static unsigned long system_supported_vcpu_features(void);
+> @@ -31,6 +35,7 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  		break;
+>  	case KVM_CAP_IOEVENTFD:
+>  	case KVM_CAP_ARM_USER_IRQ:
+> +	case KVM_CAP_PRE_FAULT_MEMORY:
 
-When reset is called without an existing state, container_of(NULL, ...)
-does not produce NULL. Keep the mtk state free in the same crtc->state
-guard as the helper state destruction.
+arm64 *doesn't* support this yet. Please make sure you don't deviate
+from what arm64 currently supports.
 
-This issue was found by a static analysis checker and confirmed by
-manual source review.
+Thanks,
 
-Fixes: 2d267b81898e ("drm/mtk: Use __drm_atomic_helper_crtc_reset")
-Signed-off-by: Ruoyu Wang <ruoyuw560@gmail.com>
----
- drivers/gpu/drm/mediatek/mtk_crtc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+	M.
 
-diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
-index 8e552cdc3b53b..97e3ff412e6ee 100644
---- a/drivers/gpu/drm/mediatek/mtk_crtc.c
-+++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
-@@ -154,10 +154,10 @@ static void mtk_crtc_reset(struct drm_crtc *crtc)
- {
- 	struct mtk_crtc_state *state;
- 
--	if (crtc->state)
-+	if (crtc->state) {
- 		__drm_atomic_helper_crtc_destroy_state(crtc->state);
--
--	kfree(to_mtk_crtc_state(crtc->state));
-+		kfree(to_mtk_crtc_state(crtc->state));
-+	}
- 	crtc->state = NULL;
- 
- 	state = kzalloc_obj(*state);
 -- 
-2.51.0
-
+Without deviation from the norm, progress is not possible.
 
