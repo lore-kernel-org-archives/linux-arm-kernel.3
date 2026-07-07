@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AEEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:52:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53C88C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rw58FESB0zTLL3rOoRjWAP/vMtkBg8dNnr+WcNnHIeA=; b=WWKBGtTfWFKFR8FOPmGzw1LwEi
-	J83uyKffhhac5rkNBVL3dIXMTdaMgtzkQXqbc8VqJ+g7ICWpDUxLZHiJXChP1vInRZfdlNYfiEb4D
-	+GYC3r/9Jh2pnRqIIRK8qD5v5FNbNQtIpbx1XTkOpXaaSlcr4uRGQ0nEtTcgCJPREZQnXlsX8NwPN
-	mbnYDo3Iof6tOY08BEKL1v4J0+r+sIbDZEnqx9ZVwh2VikuZOZzvUIGSD/Rcg6eNfZFtv+DF6GsfW
-	4hhmmVySzOG1vxM8zOOYh8U6Uu16MlgINBahrHBzn/DMOCQPi/ZuHXhMZm2kyRrF+dBM4SVV/N9iM
-	UwHPkR7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v0mT1gYQutRbQjr/KeeBWDlUXYQvp5XqEtNxRNxpekI=; b=sl5Twn978En9Jwh4B5beid4JVV
+	eMQwstIIEads15kVoPhOJypia3jbqxDNyJB0FG7NrAjhraAV1pt2NkdI2BhKJnDXss0mb3f8MGkdG
+	S81gaQhzCPA3oL5JmSWkGDEjpAlCtspSQNLgxBkdT+PNgCQsR3J6ssC2UYojgDY3fgFsK6fx9BFuL
+	cMlhOoclC6Khw+g6HCjMdJ1P/dpwjg5vuknK5eV83D9ptnfSQ85AxzbjmxoP3vVDIURhbolOwhY+S
+	dEM1pBwr0u+bH/efxUu+IHL4lKtVlsIw/N6CnAKVrB6yvPY8S6D4UDENZ/Vip/KYAGeXDxdeu8AXm
+	s81qK5Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzf1-0000000EFrp-3GjO;
-	Tue, 07 Jul 2026 06:52:03 +0000
-Received: from www537.your-server.de ([188.40.3.216])
+	id 1wgzgh-0000000EGJd-0fCO;
+	Tue, 07 Jul 2026 06:53:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzev-0000000EFoY-1EHO
+	id 1wgzgf-0000000EGJ9-0IZu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 06:51:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=Rw58FESB0zTLL3rOoRjWAP/vMtkBg8dNnr+WcNnHIeA=; b=YtsADyMCArFP0XM91epgdxd5ZD
-	vonS0+Y87m7lZIW8ofv72uoT9/yV2oYfVhj9IbeC+Sq5cGRFX6vSgLGkSD76DZSRpITHo8KhsLliG
-	ygXv/tkh294ulo9zzRylh3EoV5xNaR4psoWYy6Q/G5NCpP4ju4djJkeJfp6DJjdVEiBTL9TRoZL18
-	00f+eD6YGEr38DXkwjOeJ8jAX9XX0D2VGd+TukQqZ5zdyLbhsbvJHIoMdGxR76nM4XsoY2QEnz3hN
-	HE/BawFHK29VPOHvqI4OK3sjTcJS9rS+b5/9LQg31wCUQYB+gK/vf4bWV5RNkn+GUnuNUeV3wiHZQ
-	v02tgRyw==;
-Received: from sslproxy01.your-server.de ([78.46.139.224])
-	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wgzet-000Lgl-0z;
-	Tue, 07 Jul 2026 08:51:55 +0200
-Received: from localhost ([127.0.0.1])
-	by sslproxy01.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wgzet-0005WX-0X;
-	Tue, 07 Jul 2026 08:51:55 +0200
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.Li@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH v4 3/3] arm64: dts: imx93-tqma9352-mba93xxla-mini: Add LVDS overlay
-Date: Tue,  7 Jul 2026 08:51:49 +0200
-Message-ID: <20260707065151.1079667-4-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20260707065151.1079667-1-alexander.stein@ew.tq-group.com>
-References: <20260707065151.1079667-1-alexander.stein@ew.tq-group.com>
+	Tue, 07 Jul 2026 06:53:45 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 38A19618A6;
+	Tue,  7 Jul 2026 06:53:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF7EE1F00A3A;
+	Tue,  7 Jul 2026 06:53:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783407223;
+	bh=v0mT1gYQutRbQjr/KeeBWDlUXYQvp5XqEtNxRNxpekI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BQuv3+yny3139qCwzgvCBjU5d1NWhDE3G7OLGFL+dceVhuD4j0RX3oThwQzUmNd21
+	 BUZdb8187uOzXqJh/MKgrOw/HfY/SmbI6oVh8B2yoMEG8pxaq+eb21DK9MFA/w68iC
+	 pmHLPDjtdIQAO67bYZ30nOkdZt+krW5PL2QIp4ziv7+NXZLfo9+sr2K48xTjNuRqcr
+	 pHuVM4XXOT82oBNvv9JVJzCGuLc9FzNTlBZXfPcHvQ337qsBD/yZ8EKhBzQwcG+2db
+	 Slbj3McbZtH9BbtVeVX5bV7yUShEoTLtTowJKVe2bxHflL0FtIuxgdSGISMeedkirj
+	 6HjsLM3s6ATNw==
+Date: Tue, 7 Jul 2026 08:53:40 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Frank.Li@oss.nxp.com
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Linus Walleij <linusw@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-stm32@st-md-mailman.stormreply.com>, 
+	"moderated list:ARM/STM32 ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, imx@lists.linux.dev, 
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v3 1/1] dt-bindings: mfd: st,stmpe: fix typo st,stmpe601
+ (should be st,stmpe610)
+Message-ID: <20260707-little-organic-horse-a0be9c@quoll>
+References: <20260706192932.1573584-1-Frank.Li@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Virus-Scanned: Clear (ClamAV 1.4.3/28052/Mon Jul  6 08:24:35 2026)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_235157_351343_73900D6D 
-X-CRM114-Status: GOOD (  11.20  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260706192932.1573584-1-Frank.Li@oss.nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,105 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
+On Mon, Jul 06, 2026 at 03:29:32PM -0400, Frank.Li@oss.nxp.com wrote:
+> From: Frank Li <Frank.Li@nxp.com>
+> 
+> The compatible string "st,stmpe601" is a typo and does not correspond to
+> any existing STMPE device in either the driver or DTS files. The correct
+> compatible string is "st,stmpe610".
+> 
+> Fix the typo to ensure proper schema matching and eliminate the
+> following CHECK_DTBS warning:
+>   imx53-m53evk.dtb: /soc/bus@60000000/i2c@63fc4000/touchscreen@41: failed to match any schema with compatible: ['st,stmpe610']
+> 
+> Fixes: e10038ce1ba9 ("dt-bindings: mfd: Convert STMPE to YAML schema")
+> Reviewed-by: Linus Walleij <linusw@kernel.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Add the overlay for the Tianma TM070JVHG33 LVDS display.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Signed-off-by: Martin Schmiedel <Martin.Schmiedel@tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  2 +
- .../imx93-tqma9352-mba93xxla-mini.dts         | 45 +++++++++++++++++++
- 2 files changed, 47 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index bd3d35ffde975..d387a4f5ed285 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -644,10 +644,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba91xxca-rgb-cdtech-dc44.dtb
- imx93-tqma9352-mba93xxca-lvds-tm070jvhg33-dtbs += imx93-tqma9352-mba93xxca.dtb imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtbo
- imx93-tqma9352-mba93xxla-lvds-tm070jvhg33-dtbs += imx93-tqma9352-mba93xxla.dtb imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtbo
- imx93-tqma9352-mba93xxla-mini-ezurio-wlan-dtbs += imx93-tqma9352-mba93xxla-mini.dtb imx93-tqma9352-mba93xxla-mini-ezurio-wlan.dtbo
-+imx93-tqma9352-mba93xxla-mini-lvds-tm070jvhg33-dtbs += imx93-tqma9352-mba93xxla-mini.dtb imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtbo
- 
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-ezurio-wlan.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla-mini-lvds-tm070jvhg33.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-dart-sonata.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93w-evk.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-index 4afd6b650d9d8..0d553a8da7135 100644
---- a/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-+++ b/arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-mini.dts
-@@ -58,6 +58,37 @@ aliases {
- 		spi5 = &lpspi6;
- 	};
- 
-+	backlight_lvds: backlight {
-+		compatible = "pwm-backlight";
-+		pwms = <&tpm5 0 5000000 0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_backlight>;
-+		brightness-levels = <0 4 8 16 32 64 128 255>;
-+		default-brightness-level = <7>;
-+		power-supply = <&reg_12v0>;
-+		enable-gpios = <&gpio2 5 GPIO_ACTIVE_HIGH>;
-+		status = "disabled";
-+	};
-+
-+	display: display {
-+		/*
-+		 * Display is not fixed, so compatible has to be added from
-+		 * DT overlay
-+		 */
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_display>;
-+		power-supply = <&reg_3v3>;
-+		enable-gpios = <&gpio2 7 GPIO_ACTIVE_HIGH>;
-+		backlight = <&backlight_lvds>;
-+		status = "disabled";
-+
-+		port {
-+			panel_in_lvds0: endpoint {
-+				remote-endpoint = <&ldb_lvds_ch0>;
-+			};
-+		};
-+	};
-+
- 	iio-hwmon {
- 		compatible = "iio-hwmon";
- 		io-channels = <&adc1 0>, <&adc1 1>, <&adc1 2>, <&adc1 3>;
-@@ -311,6 +342,10 @@ &lpuart8 {
- 	status = "okay";
- };
- 
-+&ldb_lvds_ch0 {
-+	remote-endpoint = <&panel_in_lvds0>;
-+};
-+
- &pcf85063 {
- 	/* RTC_EVENT# from SoM is connected on mainboard */
- 	pinctrl-names = "default";
-@@ -375,6 +410,16 @@ &usdhc3 {
- };
- 
- &iomuxc {
-+	pinctrl_backlight: backlightgrp {
-+		fsl,pins = /* HYS | PD | FSEL_2 | DSE X4 */
-+			   <MX93_PAD_GPIO_IO05__GPIO2_IO05			0x011e>;
-+	};
-+
-+	pinctrl_display: displaygrp {
-+		fsl,pins = /* HYS | PD | FSEL_2 | DSE X4 */
-+			   <MX93_PAD_GPIO_IO07__GPIO2_IO07			0x011e>;
-+	};
-+
- 	pinctrl_eqos: eqosgrp {
- 		fsl,pins = /* PD | FSEL_2 | DSE X4 */
- 			   <MX93_PAD_ENET1_MDC__ENET_QOS_MDC				0x51e>,
--- 
-2.54.0
+Best regards,
+Krzysztof
 
 
