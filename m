@@ -4,76 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07D4FC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:26:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2ADAC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8uyo2XhmUAHRevNoXiCaMuL1oCl90zKZlPv2wkcpU7o=; b=jsn2T3oWMpTDwWjNwvRVGzwSqO
-	jr/uVpPc7ZJnlfkcycMG8C7jkaE5zbJH4PSN2MmCwwfcoWSElDCI2a5HRQFawjNHTaVdjWGPUuVwJ
-	T3nXty3dTgQ2UGCiJlEr1j8wK8xYncJQcFr7D02Rj0XIxnMvWJ7i9r7rdKyQk/1VIsPxCOKvI8Fbq
-	EvNDH6WEW9OR5E84ucZuRFzeFbt4fgpZLeYOOPGHJr+3iknCp/6+Vea+K3BVttfzHu/7WMhXOXwZu
-	KA30kSDUo02yao24YTYk/xdPC5hBqScE1MDrRYp7gcYCV2L6MCPsMMYrdd6pjkotyJL98+pqXL1ri
-	zivpwP/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1ZshjWd0kJcUSqebGRSVm1D+j5Ff/mTaOm+FBxEe4Zc=; b=ZZJiKKvRi2nVjwZG+UPX68tMWM
+	61zB0V4jd6Wi/L9mQVVYTQR7fMUxMBVHw/MjbUoNNpNZkFqiYY9HvYsmxkdKhDkEdlTLeLP40Ilyl
+	SaRDHTbzDHwsViqx43bKIfHWmYjGP+i9rMsKIQ0OR5bOnmAz4FmWhlQ3DGJyAYRJaWh1MScdGLFsO
+	aTxGkqQ6c9ORHQC2OwiSufdZLxH4QXWoQ5P5dI3LIGTjofNNerqICyKFzf3Pn0nVQc5RPekIiSb6w
+	FMsc5EBYFW62Fzfj/xwymRlHqWT1OWqBpQaWYOQ9MqFIivXc4Jht9zIdKgV5RhKDTKFcQKSYO+lq9
+	DFNOzR2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh23y-0000000Ecl8-2dd0;
-	Tue, 07 Jul 2026 09:25:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1wh1sv-0000000EbHK-4BIU;
+	Tue, 07 Jul 2026 09:14:33 +0000
+Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh23x-0000000Ecky-1pEu
+	id 1wh1st-0000000EbFw-0HVp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:25:57 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id 953AF618B1;
-	Tue,  7 Jul 2026 09:25:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46DD81F00A3A;
-	Tue,  7 Jul 2026 09:25:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783416356;
-	bh=8uyo2XhmUAHRevNoXiCaMuL1oCl90zKZlPv2wkcpU7o=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=KnruRaKfHD+xT3Z4ZkAXPUYtv1S3SziqmpW11MvmgPrTZpKhaJ4eZBaCpwBva3NlE
-	 U56oUy52tboS0xyFp0xbs1VISvI8UKsGhcn/gFg918a866mC/j6Hnt+A6WkYs6nNWu
-	 zb5i2h4IFEvbs4gkpVB1aXWqAyIWT37DdANxvPtIkTmA3DhEcr844iujUcGgrBwCuz
-	 L1hIcxQ7ix5RzOIa/AXDe71lufSEIu2OKlMSjbGMJapa4lC/Y2LPCczTiyxDfTxR0l
-	 zSqmQ+5iIvVbO+clviVV+mv8bQ+OPJ5i3zmuSuXda0la8rc9hHEGEEIjjPVIF5oRX+
-	 DFUrHA8rGpsAg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1wh23u-00000002KZJ-0bdk;
-	Tue, 07 Jul 2026 09:25:54 +0000
-Date: Tue, 07 Jul 2026 10:25:53 +0100
-Message-ID: <86a4s3p2vy.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2ls?=
- =?UTF-8?B?Y3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan Sadhasivam
- <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
- <bhelgaas@google.com>,	Sven Peter <sven@kernel.org>,	Janne Grunau
- <j@jannau.net>,	Neal Gompa <neal@gompa.dev>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,
-	linux-pci@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
-In-Reply-To: <20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
-	<20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yureka@cyberchaos.dev, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, sven@kernel.org, j@jannau.net, neal@gompa.dev, krzk+dt@kernel.org, conor+dt@kernel.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 07 Jul 2026 09:14:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=1ZshjWd0kJcUSqebGRSVm1D+j5Ff/mTaOm+FBxEe4Zc=; b=XWWKKBJRidLO+EW2C/2X92Jg45
+	MVLI7h2eM+5uTQbkvICSGkdjnbzbT39TD5pZblYFCGnv/CGVRcQBmpORMxGnnZ4yHueLwKXCv7ZFD
+	CFzVL4R264jZ55v5ZLqfyTMKyLyqIM3B1Lcpde3FuW7Oz3sgltfFxHTDugJJoOTBnmH19pf+wOivR
+	WYzbYNRDs8enlQLGPg8BIWpsbyEN9GXXUF+CvZnXKffQsQr7mbtgUfmXw2nTqkaXOVkvjO91p5CQI
+	7cVFcZJlUfAWX2xQBZocKhqDm/G7MBAbkIjZmHCDMHfLsYjIaEFqDYrgqcGoTQPkd6szVB+pZOYXP
+	xCaawn8A==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh1sr-000Jpw-0R;
+	Tue, 07 Jul 2026 11:14:29 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <alexander.stein@ew.tq-group.com>)
+	id 1wh1sq-000LtS-0o;
+	Tue, 07 Jul 2026 11:14:28 +0200
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Frank Li <Frank.Li@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>
+Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 1/2] dt-bindings: arm: add MBa93xxCA as mainboard for TQMa91xxCA and TQMa91xxLA SOM
+Date: Tue,  7 Jul 2026 11:14:19 +0200
+Message-ID: <20260707091424.1702245-2-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260707091424.1702245-1-alexander.stein@ew.tq-group.com>
+References: <20260707091424.1702245-1-alexander.stein@ew.tq-group.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_021431_104298_09E4796D 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,83 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 23:38:27 +0100,
-Yureka Lilian <yureka@cyberchaos.dev> wrote:
-> 
-> Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
-> provide standardized power management for PCI devices.
-> 
-> Notably, this allows enabling powering on the WiFi, SD card reader on
-> various Macs by means of the pwrctrl framework before probing the ports.
-> 
-> Previously, a custom solution for powering on the WiFi and SD card
-> reader was proposed[1], but we can now use the new pci-pwrctrl-generic
-> driver for this purpose.
-> 
-> Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
->
+From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 
-nit: this paragraph and the accompanying link don't belong in the
-commit message and should be moved below the --- mark or even better,
-to the cover letter.
+TQMa93xxLA and TQMa93xxCA are two series of feature compatible SOM
+using NXP i.MX91 SOC in 11x11 mm package.
 
-> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> ---
->  drivers/pci/controller/Kconfig      |  1 +
->  drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
->  2 files changed, 17 insertions(+)
-> 
-> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-> index 2247709ef6d6..af64630d28fa 100644
-> --- a/drivers/pci/controller/Kconfig
-> +++ b/drivers/pci/controller/Kconfig
-> @@ -46,6 +46,7 @@ config PCIE_APPLE
->  	depends on OF
->  	depends on PCI_MSI
->  	select PCI_HOST_COMMON
-> +	select PCI_PWRCTRL_GENERIC
->  	select IRQ_MSI_LIB
->  	help
->  	  Say Y here if you want to enable PCIe controller support on Apple
-> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> index c2cffc0659f4..db038a9d4831 100644
-> --- a/drivers/pci/controller/pcie-apple.c
-> +++ b/drivers/pci/controller/pcie-apple.c
-> @@ -30,6 +30,7 @@
->  #include <linux/msi.h>
->  #include <linux/of_irq.h>
->  #include <linux/pci-ecam.h>
-> +#include <linux/pci-pwrctrl.h>
->  
->  #include "pci-host-common.h"
->  
-> @@ -825,6 +826,21 @@ static int apple_pcie_init(struct pci_config_window *cfg)
->  	if (WARN_ON(!pcie))
->  		return -ENOENT;
->  
-> +	ret = pci_pwrctrl_create_devices(pcie->dev);
-> +	if (ret) {
-> +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
-> +		return ret;
-> +	}
-> +
-> +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
-> +	if (ret) {
-> +		if (ret != -EPROBE_DEFER) {
-> +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
-> +			pci_pwrctrl_destroy_devices(pcie->dev);
-> +		}
-> +		return ret;
-> +	}
-> +
+MBa93xxCA is a starterkit base board usable for TQMa91xxCA and TQMa91xxLA
+soldered on an adapter board to demonstrate use cases without display but
+more interfaces.
 
-Why is this done globally while the whole driver works on a per-port
-basis, and that the proposed DT updates are also per port?
+Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Thanks,
-
-	M.
-
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 6237fb2ae50e6..aa5ef0299a8b3 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1603,9 +1603,14 @@ properties:
+           soldered on an adapter board or for the connector variant
+           MBa91xxLA mainboard is a single board computer using the solderable
+           SOM variant
++          MBa91xxCA mainboard can be used as starterkit for the SOM soldered
++          on an adapter board or for the connector variant to demonstrate parallel
++          display and majority of interfaces while MBa93xxCA starterkit mainboard
++          is focused on communication interfaces without display support.
+         items:
+           - enum:
+               - tq,imx91-tqma9131-mba91xxca # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM on MBa91xxCA
++              - tq,imx91-tqma9131-mba93xxca # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM on MBa93xxCA
+           - const: tq,imx91-tqma9131        # TQ-Systems GmbH i.MX91 TQMa91xxCA/LA SOM
+           - const: fsl,imx91
+ 
 -- 
-Without deviation from the norm, progress is not possible.
+2.54.0
+
 
