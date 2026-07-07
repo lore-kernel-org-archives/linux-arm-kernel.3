@@ -4,71 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BCDCC43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5CBCC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:35:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xaDuq1ZB1HflLrDzdt+OV6vrfoAZsFjA2zyfOAaYkgE=; b=QN99bjdhB09ysiNCQwcctXl+Pw
-	wuC0b2fSPlUJHT/FztI+w2rVGzDdSEkhvkr7QG82JXfmABvTq+1ZSKuBb9Ft6ms/LHgRdxpvwmgol
-	DelRt4TY2Mb7EUeFfaidkXXvKi3zRMld2Whq/wfqGi4PbCXpCA1q4rWybSDC1aCE1OvnrJ5281EIu
-	sz682E3SsiPnlbSfLJ4P8DM6Iru7Kl/6N6+H4Cw/13e/0CXExrvfK7sjRxGEEdjUz8sGi8XlIoEa5
-	C1/U8tbLBFBCVPl1f2UypveO1wq/UH25RlNS8duW+PRDnBt6oZtf4neT01XXJ1gUh6Qr7XSsVeCtt
-	9tw4vQVg==;
+	bh=hLXdUDx40KUl+OrKm3kL+rKhY0e13ruPLiiJQQF/qN4=; b=mczflxRzIEM8qPkaJ4UosXJjsX
+	xrdCRojpXuwsR7xQoE5gYwobhUtpfQv0ND+ZCA7kM37QDpbxwiMEQXKdw3Iu8C0OVlQ7JQH/5yoBC
+	a+VDQkEZV+lxEiSJmT5Sml9XRHmHUVcj0v/GwXpizQvcgnrHbJ71IA7HZAZ3YoOSRQYeRWCHJD0fJ
+	LcgOfHaQEJ7qXtYFYg6GxLQo1RD6yyS76w0M98825Fqmv78qXB7m4w6+QGvKN4Efl9sv+EznEUc70
+	fkltI52+eYzCsjUxLbm1VZ8Bbio194JvMx5ORuc2eRnGnLL+6V1l0+dCbqu/+/wVImS4gyK5p20+a
+	LiuPqdIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8cV-0000000FSie-3e2f;
-	Tue, 07 Jul 2026 16:26:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1wh8lw-0000000FTVT-2JHO;
+	Tue, 07 Jul 2026 16:35:48 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh8cT-0000000FShw-2s3o;
-	Tue, 07 Jul 2026 16:26:02 +0000
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5AA7540BBC;
-	Tue,  7 Jul 2026 16:26:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8B171F000E9;
-	Tue,  7 Jul 2026 16:26:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783441561;
-	bh=xaDuq1ZB1HflLrDzdt+OV6vrfoAZsFjA2zyfOAaYkgE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=CYyP7Mf4+GN9JppbBY9CLselE708FkBS7NaTpa1ICCH0kPty9sSTKl2ceN25EiSJB
-	 f+vwZpciH0whckwTcU4M8zGYtWzdOdGvzCBArGAagQ/3KeJmfZGopKUXTKUBF8e3OC
-	 srz0EXlTtlhOzcfztwb3jJ3XietlHsdhwt2UunmcVg+h7jdYqAzHu0JDcgj6Rk4aIL
-	 z7gMtD3mENFrZC7bTrMgsXJrbwZjJdTP3X+362B4RqKqXRhji9DdgZW2vmkKO0xp7J
-	 iAyQgBr9rX3CuDaVcNR5RqsYZZq6UVzRJtY5NXGrJKQg9YzfDPKaMuLIudP9umfRry
-	 KaRS7V12x2hrA==
-Date: Tue, 7 Jul 2026 18:25:58 +0200
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Felix Fietkau <nbd@nbd.name>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	Shuah Khan <shuah@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH nf-next v4 3/6] net: netfilter: Add IPv4 over IPv6 tunnel
- flowtable acceleration
-Message-ID: <ak0olot-8WTVrtGB@lore-desk>
-References: <20260703-b4-flowtable-sw-accel-ip6ip-v4-0-00398cd12382@kernel.org>
- <20260703-b4-flowtable-sw-accel-ip6ip-v4-3-00398cd12382@kernel.org>
+	id 1wh8ls-0000000FTUr-1qDb
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 16:35:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1783442142;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hLXdUDx40KUl+OrKm3kL+rKhY0e13ruPLiiJQQF/qN4=;
+	b=fImhzVtdPqhFP3nMAH4vDZMibOdL2KajLaWP639DtPDf6y7Gq1oRheG+g9RGyqvut+CsYq
+	5vITUtFWocoYOLm83B7htYjvBEWYHKffw6ftk3oDNx7NS3N7rusHbm3vDOIV3wTo34OVD2
+	hkib9NTMXxQQ4FxGZkwU8lywCHqSnn8=
+Received: from mail-vk1-f197.google.com (mail-vk1-f197.google.com
+ [209.85.221.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-614-CNPxbjJ9NEqmGjgV2VJRUA-1; Tue, 07 Jul 2026 12:35:40 -0400
+X-MC-Unique: CNPxbjJ9NEqmGjgV2VJRUA-1
+X-Mimecast-MFC-AGG-ID: CNPxbjJ9NEqmGjgV2VJRUA_1783442140
+Received: by mail-vk1-f197.google.com with SMTP id 71dfb90a1353d-5bdf87be987so715732e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 09:35:40 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783442140; x=1784046940;
+        h=user-agent:in-reply-to:content-disposition:content-type
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hLXdUDx40KUl+OrKm3kL+rKhY0e13ruPLiiJQQF/qN4=;
+        b=ovfEfj1BA35xIoQ/B1doN9/Nwy0TkJ/HKIC9VCUiKLyjS5gDq1b1MNUfkO3qYb5XBH
+         vOQHnqtsHjLBqa3OA0ty0UrLwELAuQLcTqBkaWOSHytfIyVX6vJS9ih1NWeWZ7TJCwpY
+         8NnJtcjI9GmjBRGkuwCIS8n3n/QabeJRC4SKDSmq0jRvmmqdyElXkzKWxwXgCZxrVPPl
+         XKahWskbgR23sbOmtUBcNKyG7Q0t09Azc60p2LnLgzgjneKpR/t7HQ+ceVdNw3Fs1D12
+         u7cfuPyA3mUQN4Oa8DIZbAWOEG93e4ExOAYbf6E8HFNYbkFPI0FlQhRPMCJWfxEYCBpN
+         xCWg==
+X-Forwarded-Encrypted: i=1; AHgh+RpZPl0cZi88jVFh2Fi+EfqcliCi+ZZFVvBXM8dupxEqE0yx2c9CctrP16NVqdimHtmDJrSeWyVWVV1gkKjiGnM5@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyn4p/qliYN7Jfa6ey35X86LC66p88PfYIFhW5eJKyn/jlMiEA7
+	ws0tCZ59wHATR0zj1HqxWssV4tzYYpXaMTmtShTmlwHv1+XVoLQ7x6J0VTFJ5tsIOte4Rd44V7q
+	w7S81Ofebqe/TcyM8UxOGHn1y8xlRX2fWVJo4zD++u+EbcRCswrHqbLyy49zpXhQlMkZSZ5qTY3
+	Pw
+X-Gm-Gg: AfdE7cnzI28iVwn9PpURUDMMLBatCBVl1oBbhm63DjDjwjdIyrz9+HwihfDw3CvWxub
+	lyPPLpcujj/2/pIVcQEbq+s8FcctFmhShJ7wb+M7E61sVojhAXHqts/qrmwIVs58ogCFtnCX5pe
+	fHlMVc3LbyJr4qnBK89kpca/9UPnqgBZX4J796qBfSyqaqinswUJfm6yV6tJsafYoGF/pffmRM1
+	xmcas7Pz3jbpm+99irvG2l1qwdzXmFa51cYLt6CQBulwYNlGJlwpyGXmrxhOmccmg4isKxwDk6O
+	MdInXGbPwNJdVZcpMmtCdExtEZ+EPlSQsID/XSg8KTufszl4dK5LqTKrzA062XfCqfs+6NmsKMR
+	7jqTMOs0F
+X-Received: by 2002:a05:6122:1c84:b0:5bd:b2d2:a1b9 with SMTP id 71dfb90a1353d-5be9076525emr3484141e0c.5.1783442139582;
+        Tue, 07 Jul 2026 09:35:39 -0700 (PDT)
+X-Received: by 2002:a05:6122:1c84:b0:5bd:b2d2:a1b9 with SMTP id 71dfb90a1353d-5be9076525emr3484104e0c.5.1783442138832;
+        Tue, 07 Jul 2026 09:35:38 -0700 (PDT)
+Received: from redhat.com ([2600:382:7726:2cb:ada8:1d9c:fd6a:977e])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-96983899f28sm7201271241.3.2026.07.07.09.35.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Jul 2026 09:35:38 -0700 (PDT)
+Date: Tue, 7 Jul 2026 12:35:34 -0400
+From: Brian Masney <bmasney@redhat.com>
+To: joakim.zhang@cixtech.com
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
+	cix-kernel-upstream@cixtech.com, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v8 2/4] clk: cix: add sky1 audss clock controller
+Message-ID: <ak0q1pWZREYsvJ4f@redhat.com>
+References: <20260630124413.1814379-1-joakim.zhang@cixtech.com>
+ <20260630124413.1814379-3-joakim.zhang@cixtech.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="KpcLrKuIJxPbhAqD"
+In-Reply-To: <20260630124413.1814379-3-joakim.zhang@cixtech.com>
+User-Agent: Mutt/2.3.2 (2026-04-26)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: xM9wJeNuruS7U-FN3sEZflr89Hb58Z9gDg5XUCoLtOw_1783442140
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20260703-b4-flowtable-sw-accel-ip6ip-v4-3-00398cd12382@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260707_093544_573655_CCC02B11 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,251 +113,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Joakim,
 
---KpcLrKuIJxPbhAqD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks for the patch.
 
-commenting on shashiko's report:
-https://sashiko.dev/#/patchset/20260703-b4-flowtable-sw-accel-ip6ip-v4-0-00=
-398cd12382%40kernel.org
+On Tue, Jun 30, 2026 at 08:44:11PM +0800, joakim.zhang@cixtech.com wrote:
+> From: Joakim Zhang <joakim.zhang@cixtech.com>
+> 
+> Add a platform driver for the Cix Sky1 AUDSS CRU. The driver maps
+> the CRU registers and registers mux, divider and gate clocks for
+> DSP, SRAM, HDA, DMAC, I2S, mailbox, watchdog and timer blocks.
+> 
+> Four SoC-level audio reference clocks are enabled as inputs to the
+> internal clock tree. The driver releases the AUDSS NOC reset, enables
+> runtime PM and instantiates the auxiliary reset device.
+> 
+> Signed-off-by: Joakim Zhang <joakim.zhang@cixtech.com>
 
-> Introduce sw flowtable acceleration for the TX/RX paths of
-> IPv4 over IPv6 tunnels, relying on the netfilter flowtable
-> infrastructure.
-> The feature can be tested with a forwarding scenario between two
-> NICs (eth0 and eth1), where an IPv4 over IPv6 tunnel is used to
-> reach a remote site via eth1 as the underlay device:
->=20
->     ETH0 -- TUN0 <=3D=3D> ETH1 -- [IP network] -- TUN1 (2001:db8:2::2)
->=20
-> [IP configuration]
->=20
-> 6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state U=
-P group default qlen 1000
->     link/ether 00:00:22:33:11:55 brd ff:ff:ff:ff:ff:ff
->     inet 192.168.0.2/24 scope global eth0
->        valid_lft forever preferred_lft forever
-> 7: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state U=
-P group default qlen 1000
->     link/ether 00:11:22:33:11:55 brd ff:ff:ff:ff:ff:ff
->     inet6 2001:db8:2::1/64 scope global nodad
->        valid_lft forever preferred_lft forever
-> 8: tun0@NONE: <POINTOPOINT,NOARP,UP,LOWER_UP> mtu 1480 qdisc noqueue stat=
-e UNKNOWN group default qlen 1000
->     link/tunnel6 2001:db8:2::1 peer 2001:db8:2::2 permaddr ce9c:2940:7dcc=
-::
->     inet 192.168.100.1/24 scope global tun0
->        valid_lft forever preferred_lft forever
->=20
-> $ ip route show
-> default via 192.168.100.2 dev tun0
-> 192.168.0.0/24 dev eth0 proto kernel scope link src 192.168.0.2
-> 192.168.100.0/24 dev tun0 proto kernel scope link src 192.168.100.1
->=20
+[snip]
 
-[...]
+> +static struct clk_hw *sky1_audss_clk_register(struct device *dev,
+> +					      const char *name,
+> +					      const char * const *parent_names,
+> +					      int num_parents,
+> +					      struct regmap *regmap,
+> +					      const u32 *mux_table,
+> +					      struct muxdiv_cfg *mux_cfg,
+> +					      struct muxdiv_cfg *div_cfg,
+> +					      struct gate_cfg *gate_cfg,
+> +					      unsigned long flags,
+> +					      spinlock_t *lock)
+> +{
+> +	const struct clk_ops *sky1_mux_ops = NULL;
+> +	const struct clk_ops *sky1_div_ops = NULL;
+> +	const struct clk_ops *sky1_gate_ops = NULL;
+> +	struct clk_hw *hw = ERR_PTR(-ENOMEM);
+> +	struct sky1_clk_divider *sky1_div = NULL;
+> +	struct sky1_clk_gate *sky1_gate = NULL;
+> +	struct sky1_clk_mux *sky1_mux = NULL;
 
->  	struct nf_flow_xmit xmit =3D {};
-> +	struct in6_addr *ip6_daddr;
->  	struct flow_offload *flow;
->  	struct neighbour *neigh;
->  	struct rtable *rt;
-> @@ -844,25 +872,41 @@ nf_flow_offload_ip_hook(void *priv, struct sk_buff =
-*skb,
->  	other_tuple =3D &flow->tuplehash[!dir].tuple;
->  	ip_daddr =3D other_tuple->src_v4.s_addr;
-> =20
-> -	if (nf_flow_tunnel_v4_push(state->net, skb, other_tuple, &ip_daddr) < 0)
-> +	if (nf_flow_tunnel_push(state->net, skb, other_tuple, &ip_daddr,
-> +				&ip6_daddr) < 0)
->  		return NF_DROP;
-> =20
->  	switch (tuplehash->tuple.xmit_type) {
-> -	case FLOW_OFFLOAD_XMIT_NEIGH:
-> -		rt =3D dst_rtable(tuplehash->tuple.dst_cache);
-> +	case FLOW_OFFLOAD_XMIT_NEIGH: {
-> +		struct dst_entry *dst;
+Reverse Christmas tree order please.
+
 > +
->  		xmit.outdev =3D dev_get_by_index_rcu(state->net, tuplehash->tuple.ifid=
-x);
->  		if (!xmit.outdev) {
->  			flow_offload_teardown(flow);
->  			return NF_DROP;
->  		}
-> -		neigh =3D ip_neigh_gw4(rt->dst.dev, rt_nexthop(rt, ip_daddr));
-> +		if (other_tuple->tun.encap_proto =3D=3D AF_INET6 ||
-> +		    ctx.tun.proto =3D=3D IPPROTO_IPV6) {
-> +			struct rt6_info *rt6;
+> +	if (mux_cfg->offset >= 0) {
+> +		sky1_mux = devm_kzalloc(dev, sizeof(*sky1_mux), GFP_KERNEL);
+> +		if (!sky1_mux)
+> +			return ERR_PTR(-ENOMEM);
 > +
-> +			rt6 =3D dst_rt6_info(tuplehash->tuple.dst_cache);
-> +			neigh =3D ip_neigh_gw6(rt6->dst.dev,
-> +					     rt6_nexthop(rt6, ip6_daddr));
-> +			dst =3D &rt6->dst;
-> +		} else {
-> +			rt =3D dst_rtable(tuplehash->tuple.dst_cache);
-> +			neigh =3D ip_neigh_gw4(rt->dst.dev,
-> +					     rt_nexthop(rt, ip_daddr));
-> +			dst =3D &rt->dst;
-> +		}
-
-- Does this logic correctly handle cross-family tunneling like an IPv6-in-I=
-Pv4
-  packet (SIT) being forwarded out via another IPv4 tunnel?
-  - SIT support is added by a following patch in the series.
-
->  		if (IS_ERR(neigh)) {
->  			flow_offload_teardown(flow);
->  			return NF_DROP;
->  		}
->  		xmit.dest =3D neigh->ha;
-> -		skb_dst_set_noref(skb, &rt->dst);
-> +		skb_dst_set_noref(skb, dst);
->  		break;
+> +		sky1_mux->mux.reg = NULL;
+> +		sky1_mux->mux.shift = mux_cfg->shift;
+> +		sky1_mux->mux.mask = BIT(mux_cfg->width) - 1;
+> +		sky1_mux->mux.flags = mux_cfg->flags;
+> +		sky1_mux->mux.table = mux_table;
+> +		sky1_mux->mux.lock = lock;
+> +		sky1_mux_ops = &sky1_audss_clk_mux_ops;
+> +		sky1_mux->regmap = regmap;
+> +		sky1_mux->offset = mux_cfg->offset;
 > +	}
->  	case FLOW_OFFLOAD_XMIT_DIRECT:
->  		xmit.outdev =3D dev_get_by_index_rcu(state->net, tuplehash->tuple.out.=
-ifidx);
->  		if (!xmit.outdev) {
-> @@ -1112,8 +1156,12 @@ nf_flow_offload_ipv6_lookup(struct nf_flowtable_ct=
-x *ctx,
->  	if (!nf_flow_skb_encap_protocol(ctx, skb, htons(ETH_P_IPV6)))
->  		return NULL;
-> =20
-> -	if (nf_flow_tuple_ipv6(ctx, skb, &tuple) < 0)
-> +	if (ctx->tun.proto =3D=3D IPPROTO_IPIP) {
-> +		if (nf_flow_tuple_ip(ctx, skb, &tuple) < 0)
-> +			return NULL;
-> +	} else if (nf_flow_tuple_ipv6(ctx, skb, &tuple) < 0) {
->  		return NULL;
-> +	}
-> =20
->  	return flow_offload_lookup(flow_table, &tuple);
->  }
-> @@ -1140,7 +1188,11 @@ nf_flow_offload_ipv6_hook(void *priv, struct sk_bu=
-ff *skb,
->  	if (tuplehash =3D=3D NULL)
->  		return NF_ACCEPT;
-> =20
-> -	ret =3D nf_flow_offload_ipv6_forward(&ctx, flow_table, tuplehash, skb);
-> +	if (ctx.tun.proto =3D=3D IPPROTO_IPIP)
-> +		ret =3D nf_flow_offload_forward(&ctx, flow_table, tuplehash, skb);
-> +	else
-> +		ret =3D nf_flow_offload_ipv6_forward(&ctx, flow_table, tuplehash,
-> +						   skb);
->  	if (ret < 0)
->  		return NF_DROP;
->  	else if (ret =3D=3D 0)
-> @@ -1164,21 +1216,38 @@ nf_flow_offload_ipv6_hook(void *priv, struct sk_b=
-uff *skb,
->  		return NF_DROP;
-> =20
->  	switch (tuplehash->tuple.xmit_type) {
-> -	case FLOW_OFFLOAD_XMIT_NEIGH:
-> -		rt =3D dst_rt6_info(tuplehash->tuple.dst_cache);
-> +	case FLOW_OFFLOAD_XMIT_NEIGH: {
-> +		struct dst_entry *dst;
 > +
->  		xmit.outdev =3D dev_get_by_index_rcu(state->net, tuplehash->tuple.ifid=
-x);
->  		if (!xmit.outdev) {
->  			flow_offload_teardown(flow);
->  			return NF_DROP;
->  		}
-> -		neigh =3D ip_neigh_gw6(rt->dst.dev, rt6_nexthop(rt, ip6_daddr));
-> +		if (other_tuple->tun.encap_proto =3D=3D AF_INET ||
-> +		    ctx.tun.proto =3D=3D IPPROTO_IPIP) {
-> +			__be32 ip_daddr =3D other_tuple->src_v4.s_addr;
-> +			struct rtable *rt4;
+> +	if (div_cfg->offset >= 0) {
+> +		sky1_div = devm_kzalloc(dev, sizeof(*sky1_div), GFP_KERNEL);
+> +		if (!sky1_div)
+> +			return ERR_PTR(-ENOMEM);
 > +
-> +			skb->protocol =3D htons(ETH_P_IP);
-> +			rt4 =3D dst_rtable(tuplehash->tuple.dst_cache);
-> +			neigh =3D ip_neigh_gw4(rt4->dst.dev,
-> +					     rt_nexthop(rt4, ip_daddr));
-> +			dst =3D &rt4->dst;
-
-- Can this branch incorrectly cast a struct rt6_info to a struct rtable
-  if an IPv4-in-IPv6 packet is forwarded to another IPv6 tunnel?
-  - Double tunnel encapsulation is not currently supported.
-
-Regards,
-Lorenzo
-
-> +		} else {
-> +			rt =3D dst_rt6_info(tuplehash->tuple.dst_cache);
-> +			neigh =3D ip_neigh_gw6(rt->dst.dev,
-> +					     rt6_nexthop(rt, ip6_daddr));
-> +			dst =3D &rt->dst;
-> +		}
->  		if (IS_ERR(neigh)) {
->  			flow_offload_teardown(flow);
->  			return NF_DROP;
->  		}
->  		xmit.dest =3D neigh->ha;
-> -		skb_dst_set_noref(skb, &rt->dst);
-> +		skb_dst_set_noref(skb, dst);
->  		break;
+> +		sky1_div->div.reg = NULL;
+> +		sky1_div->div.shift = div_cfg->shift;
+> +		sky1_div->div.width = div_cfg->width;
+> +		sky1_div->div.flags = div_cfg->flags | CLK_DIVIDER_POWER_OF_TWO;
+> +		sky1_div->div.lock = lock;
+> +		sky1_div_ops = &sky1_audss_clk_divider_ops;
+> +		sky1_div->regmap = regmap;
+> +		sky1_div->offset = div_cfg->offset;
 > +	}
->  	case FLOW_OFFLOAD_XMIT_DIRECT:
->  		xmit.outdev =3D dev_get_by_index_rcu(state->net, tuplehash->tuple.out.=
-ifidx);
->  		if (!xmit.outdev) {
-> diff --git a/net/netfilter/nf_flow_table_path.c b/net/netfilter/nf_flow_t=
-able_path.c
-> index caaf48c5fd2a..5e84b7f18a26 100644
-> --- a/net/netfilter/nf_flow_table_path.c
-> +++ b/net/netfilter/nf_flow_table_path.c
-> @@ -216,12 +216,13 @@ static int nft_flow_tunnel_update_route(const struc=
-t nft_pktinfo *pkt,
->  	struct dst_entry *tun_dst =3D NULL;
->  	struct flowi fl =3D {};
-> =20
-> -	switch (nft_pf(pkt)) {
-> +	switch (tun->encap_proto) {
->  	case NFPROTO_IPV4:
->  		fl.u.ip4.daddr =3D tun->dst_v4.s_addr;
->  		fl.u.ip4.saddr =3D tun->src_v4.s_addr;
->  		fl.u.ip4.flowi4_iif =3D nft_in(pkt)->ifindex;
-> -		fl.u.ip4.flowi4_dscp =3D ip4h_dscp(ip_hdr(pkt->skb));
-> +		if (nft_pf(pkt) =3D=3D NFPROTO_IPV4)
-> +			fl.u.ip4.flowi4_dscp =3D ip4h_dscp(ip_hdr(pkt->skb));
->  		fl.u.ip4.flowi4_mark =3D pkt->skb->mark;
->  		fl.u.ip4.flowi4_flags =3D FLOWI_FLAG_ANYSRC;
->  		break;
-> @@ -229,13 +230,14 @@ static int nft_flow_tunnel_update_route(const struc=
-t nft_pktinfo *pkt,
->  		fl.u.ip6.daddr =3D tun->dst_v6;
->  		fl.u.ip6.saddr =3D tun->src_v6;
->  		fl.u.ip6.flowi6_iif =3D nft_in(pkt)->ifindex;
-> -		fl.u.ip6.flowlabel =3D ip6_flowinfo(ipv6_hdr(pkt->skb));
-> +		if (nft_pf(pkt) =3D=3D NFPROTO_IPV6)
-> +			fl.u.ip6.flowlabel =3D ip6_flowinfo(ipv6_hdr(pkt->skb));
->  		fl.u.ip6.flowi6_mark =3D pkt->skb->mark;
->  		fl.u.ip6.flowi6_flags =3D FLOWI_FLAG_ANYSRC;
->  		break;
->  	}
-> =20
-> -	nf_route(nft_net(pkt), &tun_dst, &fl, false, nft_pf(pkt));
-> +	nf_route(nft_net(pkt), &tun_dst, &fl, false, tun->encap_proto);
->  	if (!tun_dst)
->  		return -ENOENT;
-> =20
->=20
-> --=20
-> 2.55.0
->=20
+> +
+> +	if (gate_cfg->offset >= 0) {
+> +		sky1_gate = devm_kzalloc(dev, sizeof(*sky1_gate), GFP_KERNEL);
+> +		if (!sky1_gate)
+> +			return ERR_PTR(-ENOMEM);
+> +
+> +		sky1_gate->gate.reg = NULL;
+> +		sky1_gate->gate.bit_idx = gate_cfg->shift;
+> +		sky1_gate->gate.flags = gate_cfg->flags;
+> +		sky1_gate->gate.lock = lock;
+> +		sky1_gate_ops = &sky1_audss_clk_gate_ops;
+> +		sky1_gate->regmap = regmap;
+> +		sky1_gate->offset = gate_cfg->offset;
+> +	}
+> +
+> +	hw = clk_hw_register_composite(dev, name, parent_names, num_parents,
+> +				       sky1_mux ? &sky1_mux->mux.hw : NULL, sky1_mux_ops,
+> +				       sky1_div ? &sky1_div->div.hw : NULL, sky1_div_ops,
+> +				       sky1_gate ? &sky1_gate->gate.hw : NULL, sky1_gate_ops,
+> +				       flags);
 
---KpcLrKuIJxPbhAqD
-Content-Type: application/pgp-signature; name=signature.asc
+Please use devm_clk_hw_register_composite_pdata() to make sure that
+everything is cleaned up in the expected order relative to the other
+devm_*() calls.
 
------BEGIN PGP SIGNATURE-----
+Please go through the Sashiko feedback at 
+https://sashiko.dev/#/message/20260630125936.E186A1F000E9%40smtp.kernel.org
+and I'll do do a thorough review on the next version.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCak0olgAKCRA6cBh0uS2t
-rI3NAQClQS3W+Ft7PA84x3n6YiTHeu7fpbuZ5bFy/w/e7uXuhgD/RyZixGGKm2Qr
-cNBbhlAS61B4HSxfpr27WoCCykRS+Ac=
-=gbZe
------END PGP SIGNATURE-----
+Brian
 
---KpcLrKuIJxPbhAqD--
 
