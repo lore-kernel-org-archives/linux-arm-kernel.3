@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D36C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E403C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaddtWQDY6zIQ+PjiWfekfIHU0HkpJQCsh2iwCLPLOk=; b=FlqW607gyqFJIFoouhHEc3ZJGt
-	5yuFCsWBcE6cnDmVwG36ff38u9qN7EBMtAETW2VP/oxM3B6CFQ7zG/6xs5lKSyq3PnQdCMoR6gaRD
-	gFwuNpvWGLEE8AnhuRG2TZck84RIWsfJvH97c+YZIaU/FJnFlIzpfx/lsJzvHhbYoZqPRG4z2dYTz
-	9aFIXmgWThwrTPN7HHvCrcIAVoLOlnrlSJMPen63CT7dntYB0WvtpOqcGQFK7ysaPb3BNziqMRtuQ
-	M2ikWXB9UIHOAWT3xT8ze7AcUU80QHssxxEhsaighEvrnXmEPU42pTW8RJOIoGehqE7hsCoVVGeBt
-	nBinJCNg==;
+	bh=F2nYKWWl6fKV1ODVGqLXuKiCYR5y2lxxAtCQSJik2Eo=; b=jSGhqYd8BXnSWJWcUNoBe/lpYd
+	siRImu/Lgyq6rQ1B8kw27J2o6usx4EVLeHYt7VKthWxqtK1F/uc+EvZdarDDNLjR8t+bWngYpSu7B
+	TBPSuNu+agd952GM2IPAfNm3lEhfRkdPu97quABky4BjCym0ZWljJEFdKY95khI6Uj+p8eD0ynF0J
+	+cgIw+26dKIl3eraiZOi7p4Su6lxNMS1C8teI/PM18+1yVXxQ/4z0hhRlNApGpdHt04YqDfrmVLGh
+	If6zRk8uBwS7Y0ZSP+5pDPZO0JNQnHMCQSDiVy/yXJjAsc2Lj5UiRRJw4B5LN7/nbfoOHviZ1OmQA
+	W5P5DveA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0wr-0000000EQyD-0g2L;
-	Tue, 07 Jul 2026 08:14:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh0ww-0000000ER1W-0qzp;
+	Tue, 07 Jul 2026 08:14:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0wp-0000000EQwf-2LS1
+	id 1wh0wu-0000000ER0e-3Qtr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:14:31 +0000
+	Tue, 07 Jul 2026 08:14:36 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id C5F51618A8;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6697C415DA;
+	Tue,  7 Jul 2026 08:14:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E8471F000E9;
 	Tue,  7 Jul 2026 08:14:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73CD71F00AC4;
-	Tue,  7 Jul 2026 08:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783412070;
-	bh=vaddtWQDY6zIQ+PjiWfekfIHU0HkpJQCsh2iwCLPLOk=;
+	s=k20260515; t=1783412076;
+	bh=F2nYKWWl6fKV1ODVGqLXuKiCYR5y2lxxAtCQSJik2Eo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=U93vTdiBEpiqNuyeOwKOSLd94ePT8Y3SKk6qxxftRfPy4qhwjnX5Jbz1HqChSim2k
-	 J5lkE47BYn5M2owiS/sDPTVUH35/vr5g/+fHcVCyD6FPb+ndxNq2jJW8iw5b3fwNer
-	 uNkDBve+uTRdMMp1WOEREsspDqFb9AUOec/SeYMWy+pM9e60K6VWfm466vysVt0Ibe
-	 vy2uWdGrox0P4dx3Zc10ZFms2KTTB2MJNsFOLYC0BcT/Udwlh0fkJZunAHs4Kj/9SA
-	 I9E4F0Tx0266f14nbTeFTIDMlLze7byvbR8fXesOYnLwuwvWyskOxrsavpcLZHbuaN
-	 NCqec8eGZX2wA==
+	b=FwAUVK8eI5RU2CyXqbP5uo8yjYfbIl0tA5619XMMtRD4i5WUqHWM/mWgYyKbxVXpc
+	 B4Afb7S4JENPuSzlqKIQfZkIQCkLm2B4+E51LlOS0MRAR6LmIbMQYtnzcEIjYPf0Lw
+	 f12lUgJq0TeY/BsHtN0WW3v/knlq3KYq8zeRi+jkwFHh/t7Gq4U5yfx4bp/rKyd+IK
+	 mq4jFEBU95r6mpWbATE5zY8FaYCDh9Hhc9Dzy7YY4zMNP3OVtH9CWmZti8kJTK6PVn
+	 vjLeU6t4Gt4PV4TQidlzqO+LYKLq2KMjHCfE3BJY+zFXYCudQv6n6qujBWYg4NmbBk
+	 IwcHbLWMyedhw==
 From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
 To: linux-coco@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -58,9 +58,9 @@ Cc: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>,
 	Steven Price <steven.price@arm.com>,
 	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
 	Andre Przywara <andre.przywara@arm.com>
-Subject: [PATCH v8 5/6] firmware: smccc: arm-cca-guest: Bind the TSM provider to an SMCCC device
-Date: Tue,  7 Jul 2026 13:43:49 +0530
-Message-ID: <20260707081351.1680209-6-aneesh.kumar@kernel.org>
+Subject: [PATCH v8 6/6] coco: guest: arm64: Replace dummy CCA device with sysfs ABI
+Date: Tue,  7 Jul 2026 13:43:50 +0530
+Message-ID: <20260707081351.1680209-7-aneesh.kumar@kernel.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
 References: <20260707081351.1680209-1-aneesh.kumar@kernel.org>
@@ -80,194 +80,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm CCA guest TSM provider currently binds through the arm-cca-dev
-platform device. Like arm-smccc-trng, this device is not an independent
-platform resource; it is a software representation of the RSI firmware
-service discovered through SMCCC.
+The SMCCC firmware driver now creates the arm-smccc platform device and
+instantiates the CCA RSI auxiliary devices once the RSI ABI is discovered.
+The arm64-specific arm-cca-dev platform device stub is therefore no longer
+needed.
 
-Move RSI discovery into the SMCCC firmware driver. When the SMCCC conduit
-is SMC and if RSI ABI version call is supported, create an arm-rsi-dev
-SMCCC device. Convert the Arm CCA guest TSM provider to an SMCCC driver so
-it binds to that discovered RSI service and keeps module autoloading
-through the SMCCC device id table.
+However, userspace has used the arm-cca-dev platform device to detect Arm
+CCA Realm guests [1]. Removing it without a replacement would break that
+detection and would also leave userspace depending on kernel device-model
+details.
 
-Keep the old arm-cca-dev platform-device registration for now. Userspace
-has used that device as a Realm-guest indicator, so removing it is left to
-a follow-up patch that adds a replacement sysfs ABI.
+Add /sys/firmware/cca/realm_guest as a stable, architecture-provided ABI
+for detecting whether the kernel is running as an Arm CCA Realm guest. The
+file returns 1 in Realm world and 0 otherwise, similar to the existing s390
+/sys/firmware/uv/prot_virt_guest interface for protected virtualization
+guests.
+
+Remove the dummy arm-cca-dev registration now that userspace has a
+dedicated CCA Realm guest indicator, and document the new ABI in
+Documentation/ABI/testing/sysfs-firmware-cca.
+
+[1] https://lore.kernel.org/all/4a7d84b2-2ec4-4773-a2d5-7b63d5c683cf@arm.com
 
 Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 ---
- arch/arm64/include/asm/rsi.h              |  2 -
- arch/arm64/kernel/rsi.c                   |  2 +-
- drivers/firmware/smccc/smccc.c            |  7 +++
- drivers/virt/coco/arm-cca-guest/Kconfig   |  1 +
- drivers/virt/coco/arm-cca-guest/arm-cca.c | 56 +++++++++++------------
- include/linux/arm-smccc-rsi.h             |  2 +
- 6 files changed, 39 insertions(+), 31 deletions(-)
+ Documentation/ABI/testing/sysfs-firmware-cca | 10 +++++
+ arch/arm64/kernel/rsi.c                      | 39 +++++++++++++++-----
+ 2 files changed, 39 insertions(+), 10 deletions(-)
+ create mode 100644 Documentation/ABI/testing/sysfs-firmware-cca
 
-diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-index 88b50d660e85..5f9c8623183d 100644
---- a/arch/arm64/include/asm/rsi.h
-+++ b/arch/arm64/include/asm/rsi.h
-@@ -10,8 +10,6 @@
- #include <linux/jump_label.h>
- #include <asm/rsi_cmds.h>
- 
--#define RSI_PDEV_NAME "arm-cca-dev"
--
- DECLARE_STATIC_KEY_FALSE(rsi_present);
- 
- void __init arm64_rsi_init(void);
+diff --git a/Documentation/ABI/testing/sysfs-firmware-cca b/Documentation/ABI/testing/sysfs-firmware-cca
+new file mode 100644
+index 000000000000..bf177d636b92
+--- /dev/null
++++ b/Documentation/ABI/testing/sysfs-firmware-cca
+@@ -0,0 +1,10 @@
++What:		/sys/firmware/cca/realm_guest
++Date:		May 2026
++Contact:	Linux ARM Kernel Mailing list <linux-arm-kernel@lists.infradead.org>
++Description:	Read-only. Indicates whether the kernel is running as an
++		Arm Confidential Compute Architecture (CCA) Realm guest.
++
++		The value is one of:
++
++		0: the kernel is not running as a Realm guest
++		1: the kernel is running as a Realm guest
 diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-index 92160f2e57ff..da440f71bb64 100644
+index da440f71bb64..a333029ddf08 100644
 --- a/arch/arm64/kernel/rsi.c
 +++ b/arch/arm64/kernel/rsi.c
-@@ -161,7 +161,7 @@ void __init arm64_rsi_init(void)
+@@ -9,6 +9,8 @@
+ #include <linux/swiotlb.h>
+ #include <linux/cc_platform.h>
+ #include <linux/platform_device.h>
++#include <linux/kobject.h>
++#include <linux/sysfs.h>
+ 
+ #include <asm/io.h>
+ #include <asm/mem_encrypt.h>
+@@ -16,6 +18,7 @@
+ #include <asm/rsi.h>
+ 
+ static struct realm_config config;
++static struct kobject *cca_kobj;
+ 
+ unsigned long prot_ns_shared;
+ EXPORT_SYMBOL(prot_ns_shared);
+@@ -160,17 +163,33 @@ void __init arm64_rsi_init(void)
+ 	static_branch_enable(&rsi_present);
  }
  
- static struct platform_device rsi_dev = {
--	.name = RSI_PDEV_NAME,
-+	.name = "arm-cca-dev",
- 	.id = PLATFORM_DEVID_NONE
- };
- 
-diff --git a/drivers/firmware/smccc/smccc.c b/drivers/firmware/smccc/smccc.c
-index 092bdbac26f2..537b4b22c395 100644
---- a/drivers/firmware/smccc/smccc.c
-+++ b/drivers/firmware/smccc/smccc.c
-@@ -10,6 +10,7 @@
- #include <linux/arm-smccc.h>
- #include <linux/kernel.h>
- #include <linux/arm-smccc-bus.h>
-+#include <linux/arm-smccc-rsi.h>
- 
- #include <asm/archrandom.h>
- 
-@@ -94,6 +95,12 @@ static const struct smccc_device_info smccc_devices[] __initconst = {
- 		.requires_smc   = false,
- 		.device_name    = "arm-smccc-trng",
- 	},
-+
-+	{
-+		.func_id        = SMC_RSI_ABI_VERSION,
-+		.requires_smc   = true,
-+		.device_name    = RSI_DEV_NAME,
-+	},
- };
- 
- static bool __init smccc_probe_smccc_device(const struct smccc_device_info *smccc_dev)
-diff --git a/drivers/virt/coco/arm-cca-guest/Kconfig b/drivers/virt/coco/arm-cca-guest/Kconfig
-index 3f0f013f03f1..ad7538750c5a 100644
---- a/drivers/virt/coco/arm-cca-guest/Kconfig
-+++ b/drivers/virt/coco/arm-cca-guest/Kconfig
-@@ -1,6 +1,7 @@
- config ARM_CCA_GUEST
- 	tristate "Arm CCA Guest driver"
- 	depends on ARM64
-+	depends on HAVE_ARM_SMCCC_DISCOVERY
- 	select TSM_REPORTS
- 	help
- 	  The driver provides userspace interface to request and
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
-index 0c9fb61a28f1..399915f1fb3e 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
-@@ -4,6 +4,7 @@
-  */
- 
- #include <linux/arm-smccc.h>
-+#include <linux/arm-smccc-bus.h>
- #include <linux/cc_platform.h>
- #include <linux/kernel.h>
- #include <linux/device-id/platform.h>
-@@ -189,16 +190,12 @@ static const struct tsm_report_ops arm_cca_tsm_report_ops = {
- 	.report_new = arm_cca_report_new,
- };
- 
--/**
-- * arm_cca_guest_init - Register with the Trusted Security Module (TSM)
-- * interface.
-- *
-- * Return:
-- * * %0        - Registered successfully with the TSM interface.
-- * * %-ENODEV  - The execution context is not an Arm Realm.
-- * * %-EBUSY   - Already registered.
-- */
--static int __init arm_cca_guest_init(void)
-+static void unregister_cca_tsm_report(void *data)
+-static struct platform_device rsi_dev = {
+-	.name = "arm-cca-dev",
+-	.id = PLATFORM_DEVID_NONE
++static ssize_t cca_is_realm_guest(struct kobject *kobj,
++		struct kobj_attribute *attr, char *buf)
 +{
-+	tsm_report_unregister(&arm_cca_tsm_report_ops);
++	return sysfs_emit(buf, "%d\n", is_realm_world());
 +}
 +
-+static int cca_tsm_probe(struct arm_smccc_device *sdev)
- {
- 	int ret;
- 
-@@ -206,30 +203,33 @@ static int __init arm_cca_guest_init(void)
- 		return -ENODEV;
- 
- 	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
--	if (ret < 0)
--		pr_err("Error %d registering with TSM\n", ret);
-+	if (ret < 0) {
-+		dev_err_probe(&sdev->dev, ret, "Error registering with TSM\n");
-+		return ret;
-+	}
- 
--	return ret;
--}
--module_init(arm_cca_guest_init);
-+	ret = devm_add_action_or_reset(&sdev->dev, unregister_cca_tsm_report,
-+				       NULL);
-+	if (ret < 0) {
-+		dev_err_probe(&sdev->dev, ret, "Error registering devm action\n");
-+		return ret;
-+	}
- 
--/**
-- * arm_cca_guest_exit - unregister with the Trusted Security Module (TSM)
-- * interface.
-- */
--static void __exit arm_cca_guest_exit(void)
--{
--	tsm_report_unregister(&arm_cca_tsm_report_ops);
-+	return 0;
- }
--module_exit(arm_cca_guest_exit);
- 
--/* modalias, so userspace can autoload this module when RSI is available */
--static const struct platform_device_id arm_cca_match[] __maybe_unused = {
--	{ RSI_PDEV_NAME, 0},
--	{ }
-+static const struct arm_smccc_device_id cca_tsm_id_table[] = {
-+	{ .name = RSI_DEV_NAME },
-+	{}
- };
-+MODULE_DEVICE_TABLE(arm_smccc, cca_tsm_id_table);
- 
--MODULE_DEVICE_TABLE(platform, arm_cca_match);
-+static struct arm_smccc_driver cca_tsm_driver = {
-+	.name = KBUILD_MODNAME,
-+	.probe = cca_tsm_probe,
-+	.id_table = cca_tsm_id_table,
-+};
-+module_arm_smccc_driver(cca_tsm_driver);
- MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
- MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
- MODULE_LICENSE("GPL");
-diff --git a/include/linux/arm-smccc-rsi.h b/include/linux/arm-smccc-rsi.h
-index fddb77986f70..ae663aa8fd7f 100644
---- a/include/linux/arm-smccc-rsi.h
-+++ b/include/linux/arm-smccc-rsi.h
-@@ -8,6 +8,8 @@
- 
- #include <linux/arm-smccc.h>
- 
-+#define RSI_DEV_NAME "arm-rsi-dev"
++static struct kobj_attribute cca_realm_guest =
++	__ATTR(realm_guest, 0444, cca_is_realm_guest, NULL);
 +
- /*
-  * This file describes the Realm Services Interface (RSI) Application Binary
-  * Interface (ABI) for SMC calls made from within the Realm to the RMM and
++static const struct attribute *cca_realm_attrs[] = {
++	&cca_realm_guest.attr,
++	NULL,
+ };
+ 
+-static int __init arm64_create_dummy_rsi_dev(void)
++static int __init realm_sysfs_init(void)
+ {
+-	if (is_realm_world() &&
+-	    platform_device_register(&rsi_dev))
+-		pr_err("failed to register rsi platform device\n");
+-	return 0;
+-}
++	int ret;
++
++	cca_kobj = kobject_create_and_add("cca", firmware_kobj);
++	if (!cca_kobj)
++		return -ENOMEM;
+ 
+-arch_initcall(arm64_create_dummy_rsi_dev)
++	ret = sysfs_create_files(cca_kobj, cca_realm_attrs);
++	if (!ret)
++		return 0;
++
++	kobject_put(cca_kobj);
++	return ret;
++}
++device_initcall(realm_sysfs_init);
 -- 
 2.43.0
 
