@@ -4,100 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DA4C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:15:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A67CDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ksJfUuprun+MhATLDi0LER8gCeLSodgatS7pFZp+C0k=; b=BV/o9RdBKIwN6dmOlwfieltoo3
-	w5LFLxO2pp/Kbn/amoPACjSNRacFGhLboz8elXfgyUu2w0gTb+kPMV9U64bFeCSGFr25RzSwU4AWf
-	HoXKfeo7hQeDIZsACaJZM1LSDmF23rM2gAXKTHxVOCcsNVRk7l3x4uTeYJRFqEM0RJId53P6iNqGv
-	FDg8vCMkH3EvpSpN1Bw1wCRdSdUcI4z6ZpeJVd1uuu8x/ftedfab9zVE2nOTIQb4qD8ZCDX4oyyQN
-	7Ib7zZgLLglS5fn+IBkGJKRjALzMhs+0E2BolWRvT4qmaDFN3WGZiMoEOLrMR93WROslwhWi8Kt/M
-	gr+2yCyw==;
+	bh=tPeZIWzjG13kPG0Y/Q0QqlrCLKyYK9fimfj5O11eX/g=; b=netY38vsQqZNNG6ekEHN07QJ0k
+	LMsYZJaKOp4HK6LLEpdK0o5EVkO39u9aNuqI/YEbsc+TF56K//01+/V8jSnS2GQDvTPW8Ks8Vi7pm
+	0yPY/pMG9SGHsmMmR1IQ2u5FP/nUYwrJrvh68lVpWn3BJIh+sc8wiG6OKcuvVVzFC+qnHtXfnw98S
+	3+grKWbkpkyfqehPzWdCmdu67bBBnIZjS9bGmZgZHvruZlloF5iWs7mapZcXK43gRFV8bAe5vfl8a
+	B98yhebtwYnHpMgLJyWy+u7z18NiZu6iK/KlzQ48zwS8hYQWBHa9o1ozwc9x6VA19losqWZ7LvdVw
+	ts8KLssA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0xZ-0000000ERNd-1QQy;
-	Tue, 07 Jul 2026 08:15:17 +0000
-Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
+	id 1wh13m-0000000ERxt-1MOf;
+	Tue, 07 Jul 2026 08:21:42 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh0xW-0000000ERLW-3hqY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 08:15:16 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id B41967A0144;
-	Tue,  7 Jul 2026 04:15:13 -0400 (EDT)
-Received: from phl-imap-05 ([10.202.2.95])
-  by phl-compute-04.internal (MEProxy); Tue, 07 Jul 2026 04:15:13 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1783412113;
-	 x=1783498513; bh=ksJfUuprun+MhATLDi0LER8gCeLSodgatS7pFZp+C0k=; b=
-	xpvw0O67yy5FBKU6rOXtWOrtWspRY7P6BVM/obWyN3sERt8ykH4V9veFkIVlYAVk
-	jyGIg2Z+FwpRv4MPZ/khFehaMiusfCX/sspcqbfqbyzrE3FLoNW8HIyhFfdVY38K
-	1/roiqwuVUPC7Z1gWOf0cOKayXhHG3p1SrRg7HQIj6fBucbqxvKoyedU5GMoWlPd
-	55aBTtQbVryQIAE4Esgzu39XNacL/L6oiNJ3PLLpYeWyesBBQLhLJBxtJZDXVK4h
-	ez1QYwJrbThAkL0AfaJBg/Ho0CbPvYyRFQDkUw3VobjngZVdPIEvHFZm6Rl6PSj/
-	nXjPLDNGfve1gOVvZwmPOQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1783412113; x=
-	1783498513; bh=ksJfUuprun+MhATLDi0LER8gCeLSodgatS7pFZp+C0k=; b=l
-	i3FHACEhOUORRioWZk0bAsZIUwd61EqaAwtJjl1nwJDlF9iqp5flel5T2flTDLkT
-	COa/wRbQSoNZze6DzitWefsIKUs+A640L5l/PNzeCB6gUxS/j1q/K9YN1wf6HyGd
-	aaAFCbo2aKWsfWHA2VTI62x7J5XzMo0z7UsfkALhy3k5lCW8itl6CKIBLycDnx5+
-	NWyhQ9FAjMo8huYc8+j0GzGO4Tws54MsBuwid1EqADHUR5eDEinTtTjfgmC8e/dm
-	ZvHCOibHm9hquHLsoqtMy1k8IBVT6kxKatFBpNyQnF4HSseghq+Fu1aELu6+DqVE
-	lEGe3YpnzMB9fXk4D5HZg==
-X-ME-Sender: <xms:kLVMat593qrpDI2j9Id5XiMvpmEv_vp_HFU52-1H1dRTI0m20fruew>
-    <xme:kLVMalvfBw4caDNKyoWxSmuo1VJJXV84rP-my4YdDpWoucr9sVJySpl7Lqw20LM_Z
-    7Au8B2IbThteDnXXzXW0KgAq2os6rO4EE9hXlhDIIuoElwho4ZdIA>
-X-ME-Proxy-Cause: dmFkZTGmDHHJeVxwC3PNVwH9WBFHWFauttB5daISxm+xlRx9GY+UQqKoNlbj9PfeQY+pGf
-    HP++0AgB3cUYgY75wzCwa2iZ6HNfDwO5g/XzBWjVGfOYqkiI5k9n2imT1G7LN2XJyFWLwn
-    voKiqNjUigloECOJAk/DYPtO2WxxGtuT8awPZCThuizoUwsp65wngOCKUdE0yXeNXRXQax
-    htuNPfLOQcPMLZ5Ib7Kp8h3RbTIPN8ng3Iz3BD04Yf4tjyzOSPXIDWgvi5k67dsWJkcbXr
-    KorK7n13sCthqzXSzVsBb0Ljjt7jaDJApmib+6v3kvStB8zBScrKyZL6RwBj4QlNr7ltG1
-    eDLhTKHl5xUUehs5lVlsNezLtupqtzL5Bgc/1ActDuIIbAhezWiO9cueth/u3jj6+uZUdP
-    Ja/GqS4GFOHFpsJZQF9BovNxDccSBxBCaTzcXs5qehbAYB4aD6qQuLilrDgpX2PhSjf61N
-    VRymSULBAxBbPMeBC4l9fOVv5kaRLfZ+ROLktLwpBYOVZ+LhRl5BKYp9R5ZgM9PU6cj/Bl
-    99yOczeWYSXyKvWxmW75IYsJRL/JKmA34ryZUjoiPXD5GbTWH7HPtpTRxHIuqM+pfVGLY0
-    7gQBH24P8t9ctcvzM7LH3VIkDF0kRWGLmtkL055FFL11UygUjaDkxSEpw1WA
-X-ME-Proxy: <xmx:kbVMahIROndA0W6gg4nPmlihoo8ISGUnMR2bd0M6zq4qQcsKbcAaxw>
-    <xmx:kbVMatkmSVmQOoCmFqH1T7AaAYuOVfA3W6P8bpEQ8zeds4_jrpG8uw>
-    <xmx:kbVMaqZ8H4SldcilE0xndpdvLO4FKPMp_gTpOPutNGb08i6CdoYJxw>
-    <xmx:kbVMap8dOeD0pDh6YMIEwZQSmUfRg6tpnQLQzU3P001qIIU7XcKS-w>
-    <xmx:kbVMarrASjHC69LJ0Y7c6fEUk-luVa3zeNjtLZKamQPDR28w3oqz-uQP>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E57831820082; Tue,  7 Jul 2026 04:15:12 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1wh13j-0000000ERvE-1Wer;
+	Tue, 07 Jul 2026 08:21:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1783412496;
+	bh=bH9Gs0qF0keeUPajExUcfUVpg+DQrsbg/viTr25L8LI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=FYuXXy8xaODgicQa0bDQdSq4Vr4LREoEZC1shF5oKZQIwiXMUo2DnIVMgsMwwtuqY
+	 snJt/6M96H690QoAhDNNXvSPBpz2eN7Pxj8Mm+DRXEn3/nwhbf+LaKdWLXqaThWzuv
+	 jPhgoE5e+ngG4g+MZLLXBiibQlJM5AJqWbUg0RaV9l6OsWCFHLFHttsuJU3pN2iCUy
+	 SQ+aHmWmWFH3hrXRaFkWJJXLjgvQ8d5cHCRiCU/ETbZ82XbeFVV4eJ9acF5MLd1DSx
+	 H4kgctMUI+TYWrMLJXo0yM30hP2JImZ+A99CQgRaT9qMCpw6+x2dnVXqGY78OQoc7S
+	 Pn6f6ZfmwK8+g==
+Received: from yukiji.home (unknown [100.64.0.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EFF9C17E0795;
+	Tue, 07 Jul 2026 10:21:34 +0200 (CEST)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Date: Tue, 07 Jul 2026 10:21:19 +0200
+Subject: [PATCH net-next 1/6] dt-bindings: net: mediatek-dwmac: add support
+ for MT8189 SoC
 MIME-Version: 1.0
-X-ThreadId: A29kydqouFdV
-Date: Tue, 07 Jul 2026 10:14:52 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Bartosz Golaszewski" <brgl@kernel.org>,
- "Dmitry Torokhov" <dmitry.torokhov@gmail.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- "open list:GPIO SUBSYSTEM" <linux-gpio@vger.kernel.org>,
- "Russell King" <linux@armlinux.org.uk>, "Linus Walleij" <linusw@kernel.org>,
- soc@lists.linux.dev
-Message-Id: <1cb45fa8-df33-4e6b-be0a-63abdaf9d0a8@app.fastmail.com>
-In-Reply-To: <CAMRc=MdfRs13TAqRqwff+=v3SrTXynyhCb75udG46hmwTRwuKw@mail.gmail.com>
-References: <20260706-sa1100-swnode-v1-0-332759bbd930@gmail.com>
- <CAMRc=MdfRs13TAqRqwff+=v3SrTXynyhCb75udG46hmwTRwuKw@mail.gmail.com>
-Subject: Re: [PATCH 0/4] ARM: sa1100: convert gpio-keys to software nodes
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20260707-dwmac-mediatek-mt8189-v1-1-17f345eaaca3@collabora.com>
+References: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
+In-Reply-To: <20260707-dwmac-mediatek-mt8189-v1-0-17f345eaaca3@collabora.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Biao Huang <biao.huang@mediatek.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: maxime.chevallier@bootlin.com, rmk+kernel@armlinux.org.uk, 
+ kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783412493; l=3289;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=bH9Gs0qF0keeUPajExUcfUVpg+DQrsbg/viTr25L8LI=;
+ b=gCeukStCgJ3WFlJpW6pSIe620a8nm6VrzleEOcXfvUlIOJwl6YLnEWPDvr7+fO9EMzCYz/QF7
+ STF4dpk3ltvBOAKfg+6sYokZWxenb11nexxLATn8UxgFzR+vNWEf9lQ
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_011515_245998_C4A38063 
-X-CRM114-Status: GOOD (  12.08  )
+X-CRM114-CacheID: sfid-20260707_012139_572614_F1C9E5DB 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,33 +96,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 7, 2026, at 10:08, Bartosz Golaszewski wrote:
-> On Tue, 7 Jul 2026 05:13:59 +0200, Dmitry Torokhov
-> <dmitry.torokhov@gmail.com> said:
->> This patch series converts StrongARM SA-1100 evaluation and handheld
->> boards (Assabet, Collie, and HP iPAQ H3xxx) from legacy platform data
->> (struct gpio_keys_platform_data) to static software nodes and device
->> properties.
->>
->> The first patch registers a shared software node for the SA-1100 SoC
->> GPIO controller in drivers/gpio/gpio-sa1100.c, attaching its firmware
->> node directly to the GPIO chip prior to registration. The subsequent
->> patches convert the board setup files to define static software nodes
->> referencing the SoC GPIO controller directly, allowing pin bindings to
->> be resolved via the attached firmware node without relying on name
->> matching.
->>
->> Signed-off-by: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Add new compatible string and clock definitions for the Ethernet MAC
+IP found in MT8189 SoC.
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+ .../devicetree/bindings/net/mediatek-dwmac.yaml    | 77 +++++++++++++++-------
+ 1 file changed, 54 insertions(+), 23 deletions(-)
 
-> Will this board not die?
+diff --git a/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml b/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
+index 3aab21b8e8de..000abec023b3 100644
+--- a/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/mediatek-dwmac.yaml
+@@ -20,13 +20,11 @@ select:
+         enum:
+           - mediatek,mt2712-gmac
+           - mediatek,mt8188-gmac
++          - mediatek,mt8189-gmac
+           - mediatek,mt8195-gmac
+   required:
+     - compatible
+ 
+-allOf:
+-  - $ref: snps,dwmac.yaml#
+-
+ properties:
+   compatible:
+     oneOf:
+@@ -36,6 +34,7 @@ properties:
+           - const: snps,dwmac-4.20a
+       - items:
+           - enum:
++              - mediatek,mt8189-gmac
+               - mediatek,mt8195-gmac
+           - const: snps,dwmac-5.10a
+       - items:
+@@ -44,26 +43,6 @@ properties:
+           - const: mediatek,mt8195-gmac
+           - const: snps,dwmac-5.10a
+ 
+-  clocks:
+-    minItems: 5
+-    items:
+-      - description: AXI clock
+-      - description: APB clock
+-      - description: MAC Main clock
+-      - description: PTP clock
+-      - description: RMII reference clock provided by MAC
+-      - description: MAC clock gate
+-
+-  clock-names:
+-    minItems: 5
+-    items:
+-      - const: axi
+-      - const: apb
+-      - const: mac_main
+-      - const: ptp_ref
+-      - const: rmii_internal
+-      - const: mac_cg
+-
+   interrupts:
+     maxItems: 1
+ 
+@@ -147,6 +126,58 @@ required:
+   - phy-mode
+   - mediatek,pericfg
+ 
++allOf:
++  - $ref: snps,dwmac.yaml#
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt2712-gmac
++              - mediatek,mt8188-gmac
++              - mediatek,mt8195-gmac
++    then:
++      properties:
++        clocks:
++          minItems: 5
++          items:
++            - description: AXI clock
++            - description: APB clock
++            - description: MAC Main clock
++            - description: PTP clock
++            - description: RMII reference clock provided by MAC
++            - description: MAC clock gate
++
++        clock-names:
++          minItems: 5
++          items:
++            - const: axi
++            - const: apb
++            - const: mac_main
++            - const: ptp_ref
++            - const: rmii_internal
++            - const: mac_cg
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - mediatek,mt8189-gmac
++    then:
++      properties:
++        clocks:
++          items:
++            - description: MAC Main clock
++            - description: PTP clock
++            - description: RMII reference clock provided by MAC
++
++        clock-names:
++          items:
++            - const: mac_main
++            - const: ptp_ref
++            - const: rmii_internal
++
+ unevaluatedProperties: false
+ 
+ examples:
 
-I have proposed removing almost all remaining non-DT board files
-including this one after the next LTS kernel, i.e. in the
-7.4 merge window, see
+-- 
+2.55.0
 
-https://lore.kernel.org/all/20260701212353.2196041-15-arnd@kernel.org/
-
-       Arnd
 
