@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89D3DC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:56:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35333C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 08:56:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=U7F17aj8Sa5BJFs3fVPcy2J4kSdJYymT/XgbT8NZ0cc=; b=4s/L3UIwlqBBMIu/TqmlYIYnA/
-	H79+bXAS9Cqps8hCPPTPhwY+s9eyEPv4uHeADbio1CzpSBME9NaM5j0GwWSy6EHK5GUq1lrAdgqtx
-	xXsg9s7JObwIi7hq8SpBFh8dG3p11P0sAFe3t5jbEXJgrq9S0CYwNqJEnpag2pBGDOb+dwWnCSO/j
-	m8aDmujuJY3wDmULEL4A0OgsY5v8l+3roTxbvb+w0cbbgvlESuxjZYTEVgLsZbjLX+xM7ItNceFZT
-	RVc6Javn5f/2JAL2Odu0XdlqJPG627MxmD/HFKQ4mXe8C4zTEdR/baIFPQAtMCdiGhMZ8OVyUdLMJ
-	dhDWBLZQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PED1sAAvc+eHIpy2VeGnVjN/Bq6VZc3mcXzSO1CICEs=; b=RXuEebQZSPNVi2dux1D87VuJ4X
+	Wc2dzxl1pirX9wa63lVs4FA4huvcfivvH2AMf/N0PDXbOiMrEOWKH4qsYc/AqcWpfsEBoHvg9NR91
+	+QjzI/INu4pwE4mufrFIJNiyXFVgFLbCryrkDt+yPiYYWLpOjp4IyKObKZyiyTVNP5mqgn184OOud
+	yJoa4JvVvjW31K24teQ9vfT3F/MPGozlblp5n30gAsGE05w260WT5vpiDXSL0uOR+8++QMouiT+gy
+	NHp6fofWxPkeTOvIcV8b/0SOmW/S50vPbWtSDT9ePJwsi2yt+VKMu4MAqY83iAZ64ekwdMlu2NUzw
+	mfQwl/Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1az-0000000EY8G-1sws;
+	id 1wh1az-0000000EY8Y-2J2z;
 	Tue, 07 Jul 2026 08:56:01 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1av-0000000EY6O-0jMB
+	id 1wh1av-0000000EY6T-1vEv
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 07 Jul 2026 08:55:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=U7F17aj8Sa5BJFs3fVPcy2J4kSdJYymT/XgbT8NZ0cc=; b=nhD7UhcretKxextf9sjVeaORgy
-	goWAXXXqyUP/MJ5sr/PYhgCcXrjDul7WxbYgd9cjQq97p5dNPqdfZUBHz0OM9+smxfYY+HpYgrpCU
-	YwnhGkUdM1kf7UdbkACw5F9A5M7fUPcHfLkQfD742t6OLLDcTVG/GszQSPvntha7JaAlZYdz1tOxn
-	lL+7j4JWJcHh1ibM79MP/0O4a0PSzNZgbG8V1VNIQCPDHY2r6CqQBubSg10xsVKXsoBlzUBFPFSo4
-	onUUwtMdl8yC3Nbr4ubbPU6QVdnegctL8S5oA3leQaxiWi6YPGHz5rWGaJcZnduArEPt91TA1kXFE
-	VjTjfavw==;
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=PED1sAAvc+eHIpy2VeGnVjN/Bq6VZc3mcXzSO1CICEs=; b=WR34kl40cowjq6IiGcUD86tPPa
+	ZVOoisFC9e2IIL35Cv8ZzZW31b26uaFeVaeCXPzLcwxKByDkAUYnNkDUlwoCRcIEXPq4XKvviq6Aw
+	TNsDl+fA9Ln2lVIBUhpnwemGBbHS8sLuVEYfEnAh/ystnCF/gJ2VO1aCHV8LjP3E5nr8E7n95JtpU
+	SDiquimTne/M9Hp4C6oisB4TA2pZSGeLuoK84ZGdtCVU1UJBsnt7GYUSrRTahr/dCxlH0iGee3vWF
+	BPtvt0nVwEE40GXFecWMhBQ7hjPHGOZ/56IV3nRRM8046GcZGubhiU3Eo5nYTB8VnvCKkbh4QN31W
+	mB/BB6Yg==;
 Received: from sslproxy03.your-server.de ([88.198.220.132])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh1as-000Gjp-1T;
-	Tue, 07 Jul 2026 10:55:54 +0200
+	id 1wh1at-000Gjv-15;
+	Tue, 07 Jul 2026 10:55:55 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh1ar-0007hK-1y;
-	Tue, 07 Jul 2026 10:55:54 +0200
+	id 1wh1as-0007hK-1e;
+	Tue, 07 Jul 2026 10:55:55 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,23 +58,25 @@ To: Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+Cc: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>,
 	linux@ew.tq-group.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] Small fixes for TQMa91xx
-Date: Tue,  7 Jul 2026 10:55:41 +0200
-Message-ID: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
+	linux-kernel@vger.kernel.org,
+	Alexander Stein <alexander.stein@ew.tq-group.com>
+Subject: [PATCH 2/2] arm64: dts: imx91-tqma9131: move ele-reserved memory into 512MB range
+Date: Tue,  7 Jul 2026 10:55:43 +0200
+Message-ID: <20260707085551.1683462-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
+References: <20260707085551.1683462-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_015557_322853_471B4AA3 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260707_015557_495279_8FE687D1 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,26 +91,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
 
-here are two small fixes for TQMa91xx.
-One adds the USB PHY settings similar to other TQ mainboards.
-The other one fixes the reserved memory for EdgeLock Enclave to be suitable
-for 512MiB variants as well.
+TQMa91 has a 512MiB RAM variant for which the edgelock memory location
+exceeds the valid memory area.
 
-Best regards,
-Alexander
+Signed-off-by: Alexander Feilke <Alexander.Feilke@ew.tq-group.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Alexander Feilke (1):
-  arm64: dts: imx91-tqma9131: move ele-reserved memory into 512MB range
-
-Markus Niebel (1):
-  arm64: dts: imx91-tqma9131-mba91xxca: USB phy adjustments
-
- arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts | 4 ++++
- arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi          | 4 ++--
- 2 files changed, 6 insertions(+), 2 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+index c99d7bc168483..a8c79731eace5 100644
+--- a/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi
+@@ -33,9 +33,9 @@ linux,cma {
+ 		};
+ 
+ 		/* EdgeLock secure enclave  */
+-		ele_reserved: ele-reserved@a4120000 {
++		ele_reserved: ele-reserved@94120000 {
+ 			compatible = "shared-dma-pool";
+-			reg = <0 0xa4120000 0 0x100000>;
++			reg = <0 0x94120000 0 0x100000>;
+ 			no-map;
+ 		};
+ 	};
 -- 
 2.54.0
 
