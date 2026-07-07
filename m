@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F327C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8DBC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Subject:To:MIME-Version:From:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SvRq5CdKRK+cXuPIl01vwgEHpAzifmdPRhufpqKIi68=; b=gybZAvot1j+ah38iPnqY600JcH
-	od6AShdE2MIkcrRKXuNGV4/nFYY+rDSVxDpROBwAxDA7v5I1v/hh6XG+V95CIz6ULwxMmcoWnPEzl
-	Z1czuJW72abCj8PWfvs5jXApBPYYi8ZuyKjAooYuIgC3SQ/MP+fQ/71jQXSEHbB+N5dWjyrbgzYwt
-	re3VCx8Wc0L6fDY3hwKA2p0cSZbHG2Qr5cReZEfmm4kOUOaEuHyyWsvKjt1zr5ZWfCLFozf/kR+c5
-	B6qGlskWRcYIz0ndJywOPnZSl77SWFWGqpS1dxdvOKywtCvTcelqJES73uDbIRINnF9mBXA/DLDou
-	DLcMAlRA==;
+	bh=aSekE6dvDeDQvelifwwcLmL8oUBRYHW/qRvmMWTd8K4=; b=pfSq71ttDfkLwRvx7Rb4BIkTao
+	mG9S25MteWv0grtQ1BvSpnmcmlSZFIZHrumKEX2gtAoyHqLR63VVEwdGq3FXQOZR6vYbVvVEUBBL+
+	YQgnasAU+wXRoic5I1vtOwSeT+/NppAetxCxoTgT74cyK++dEVXPhBGzPhRTD0FCI9HrbMwu6XlIN
+	1d75eFCsru3z93KzzQUqrPFjv8ZzxeSfCAjftAnqNVvYp8yXroFenn9TDvtQnbcSA0Bvu/3a5B9xO
+	193ATO13zT5Cw9B8oZ7uxqf1qA6/+538zTYkvFoeI5s/ckZmuwmAx9rgjAt7W2jY8yjfK+XGBXQpv
+	o2aGahtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1rY-0000000Eayv-4A5m;
-	Tue, 07 Jul 2026 09:13:08 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1wh1rw-0000000Eb31-0SWa;
+	Tue, 07 Jul 2026 09:13:32 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh1rT-0000000Eay2-2QWK
+	id 1wh1rt-0000000Eb1v-3fhm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:13:08 +0000
+	Tue, 07 Jul 2026 09:13:31 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=SvRq5CdKRK+cXuPIl01vwgEHpAzifmdPRhufpqKIi68=;
-	b=dCEr1IrECrVxXkkww71i9eXle7zGxMWVmIeugpng72TeD4oJpSaX53iRVOsawEEzVpdRNkpiB
-	EEjQkTHpJnuV3+PTt2SjX0qAcoYnZGLK6mZmpWcFVIdeP/EJBv+N6rm9S9zWHuIpsv4CZYQZM8c
-	rpLLp3fo/zqlgxG2d2uoQDo=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4gvZyg4qhZzcb3P;
-	Tue,  7 Jul 2026 17:03:39 +0800 (CST)
-Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id 082D240538;
-	Tue,  7 Jul 2026 17:12:41 +0800 (CST)
+	bh=aSekE6dvDeDQvelifwwcLmL8oUBRYHW/qRvmMWTd8K4=;
+	b=CetOCQdFLf5hS4eNAV/98ZiKXKBd981ByPNc+SE0+7EnCqcIoMxOCf+ylYODrZsr3R99Z1g4d
+	kElsizsa7U4jMmAbcNN0jgCHoSp5JaUzW2lxSxoqqXllw4GggXlO3G8Y/J0+lLYqQSoITA/WkYH
+	UqYQ3jb3MWaf7YU5KG4ex0g=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4gvZzH2CTBzRhRF;
+	Tue,  7 Jul 2026 17:04:11 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6CCA440561;
+	Tue,  7 Jul 2026 17:13:23 +0800 (CST)
 Received: from kwepemq100003.china.huawei.com (7.202.195.72) by
- dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 17:12:40 +0800
+ 15.2.1544.11; Tue, 7 Jul 2026 17:13:23 +0800
 Received: from [10.67.113.213] (10.67.113.213) by
  kwepemq100003.china.huawei.com (7.202.195.72) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 7 Jul 2026 17:12:40 +0800
-Message-ID: <6A4CC307.5000606@hisilicon.com>
-Date: Tue, 7 Jul 2026 17:12:39 +0800
+ 15.2.1544.11; Tue, 7 Jul 2026 17:13:22 +0800
+Message-ID: <6A4CC332.3000906@hisilicon.com>
+Date: Tue, 7 Jul 2026 17:13:22 +0800
 From: Wei Xu <xuwei5@hisilicon.com>
 User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; rv:24.0) Gecko/20100101 Thunderbird/24.2.0
 MIME-Version: 1.0
@@ -58,18 +58,17 @@ To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Rob Herring
 	<conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<xuwei5@hisilicon.com>
-Subject: Re: [PATCH] arm64: dts: hisilicon: hi3798cv200: Drop unused clock-names
- and reset-names
-References: <20260625091335.106951-2-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260625091335.106951-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH] arm64: dts: hisilicon: Correct indentation
+References: <20260706093500.273922-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260706093500.273922-2-krzysztof.kozlowski@oss.qualcomm.com>
 Content-Type: text/plain; charset="ISO-8859-1"
 Content-Transfer-Encoding: 7bit
 X-Originating-IP: [10.67.113.213]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemq100003.china.huawei.com (7.202.195.72)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_021304_281504_2173E8E5 
-X-CRM114-Status: GOOD (  12.04  )
+X-CRM114-CacheID: sfid-20260707_021330_090131_78C12D02 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof, 
+Hi Krzysztof,
 
-On 2026/6/25 17:13, Krzysztof Kozlowski wrote:
-> Neither Linux drivers nor DT bindings ever described or used clock-names
-> and reset-names for this SoC.  The binding allows clock-names only for
-> atmel,at91sam9g45-ehci and atmel,at91rm9200-ohci, but not for HiSilicon.
-> reset-names were never allowed.
-> 
-> Drop them from DTS to fix dtbs_check warnings:
-> 
->   hi3798cv200-poplar.dtb: usb@9880000 (generic-ohci): False schema does not allow ['bus', 'clk12', 'clk48']
->   hi3798cv200-poplar.dtb: usb@9880000 (generic-ohci): Unevaluated properties are not allowed ('reset-names' was unexpected)
+On 2026/7/6 17:35, Krzysztof Kozlowski wrote:
+> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
+> No functional impact (same DTB).
 > 
 > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 > ---
->  arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi | 4 ----
->  1 file changed, 4 deletions(-)
+>  arch/arm64/boot/dts/hisilicon/hip05.dtsi | 14 +++++++-------
+>  1 file changed, 7 insertions(+), 7 deletions(-)
 > 
-> diff --git a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-> index 2f4ad5da5e33..e5010c9d4c39 100644
-> --- a/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-> +++ b/arch/arm64/boot/dts/hisilicon/hi3798cv200.dtsi
-> @@ -633,9 +633,7 @@ ohci: usb@9880000 {
->  			clocks = <&crg HISTB_USB2_BUS_CLK>,
->  				 <&crg HISTB_USB2_12M_CLK>,
->  				 <&crg HISTB_USB2_48M_CLK>;
-> -			clock-names = "bus", "clk12", "clk48";
->  			resets = <&crg 0xb8 12>;
-> -			reset-names = "bus";
->  			phys = <&usb2_phy1_port0>;
->  			phy-names = "usb";
->  			status = "disabled";
-> @@ -648,11 +646,9 @@ ehci: usb@9890000 {
->  			clocks = <&crg HISTB_USB2_BUS_CLK>,
->  				 <&crg HISTB_USB2_PHY_CLK>,
->  				 <&crg HISTB_USB2_UTMI_CLK>;
-> -			clock-names = "bus", "phy", "utmi";
->  			resets = <&crg 0xb8 12>,
->  				 <&crg 0xb8 16>,
->  				 <&crg 0xb8 13>;
-> -			reset-names = "bus", "phy", "utmi";
->  			phys = <&usb2_phy1_port0>;
->  			phy-names = "usb";
->  			status = "disabled";
+> diff --git a/arch/arm64/boot/dts/hisilicon/hip05.dtsi b/arch/arm64/boot/dts/hisilicon/hip05.dtsi
+> index d0912ca5f237..2d376b3d30dd 100644
+> --- a/arch/arm64/boot/dts/hisilicon/hip05.dtsi
+> +++ b/arch/arm64/boot/dts/hisilicon/hip05.dtsi
+> @@ -236,13 +236,13 @@ cluster3_l2: l2-cache3 {
+>  
+>  	gic: interrupt-controller@8d000000 {
+>  		compatible = "arm,gic-v3";
+> -                #interrupt-cells = <3>;
+> -                #address-cells = <2>;
+> -                #size-cells = <2>;
+> -                ranges;
+> -                interrupt-controller;
+> -                #redistributor-regions = <1>;
+> -                redistributor-stride = <0x0 0x30000>;
+> +		#interrupt-cells = <3>;
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
+> +		interrupt-controller;
+> +		#redistributor-regions = <1>;
+> +		redistributor-stride = <0x0 0x30000>;
+>  		reg = <0x0 0x8d000000 0 0x10000>,	/* GICD */
+>  		      <0x0 0x8d100000 0 0x300000>,	/* GICR */
+>  		      <0x0 0xfe000000 0 0x10000>,	/* GICC */
 > 
-
 
 Applied to the HiSilicon arm64 dt tree.
 Thanks!
