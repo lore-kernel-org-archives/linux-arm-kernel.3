@@ -4,141 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB29C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF04FC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CuhfYWL8DbWro2skZTkGY+RO2wOhnypQ7XV8S1JQy4=; b=WeqRj6IcCYflM4eCS0cd0/VTDP
-	Jc9Z9OCQtM0FmmEansIlan4furCyZoyDkfDVn5reg392qSJXtuz0IrIUfTKxIUOjHlzU53QHn9sz3
-	0WANXNBTcLUnQr3yrTbivVt3QxDAYFpX9qfow6ITwFYT1bOeV2vA0NzVYsZ0XMrcdqped98r5COy4
-	TtKLnB5MjmZ0R3oHoRlAB3OI5Mx3JHKUDRvRDBpUPi4JixMXmvTA6JjD5piDzV0DjS4NiPmZAwzuz
-	wQLzrG/oZlhEyUvbb1OJnbM60hLtAeV6GSxI/TY7vEcGB+x6E4pdbXfVsneAgbfmZOnqnO3mYnO2U
-	hDBb0rWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mQON4yUhDZuxb8gaF10sc6vnH8fe+VK9AhY37O8cwS0=; b=KLX7duZUiUtgkccYi8dfCMEKVs
+	2uwyzAevXaTAteY8koXCsAWLCqS4sWr7AtSnUugRcDv1mXvcxQXSO2FgZwl/9KJAoiGkUYczKH9WD
+	kEv7Jmv3dDV8KH2Wdn+FtspNZb+tozC7NB78UuMGIybuXEH5IboxzdJH12F2ahEs0muiIOp6AzoSk
+	zhSCKnEfmNKDyk26oVQiFI92NOWvTnXlzgnZMA6j2JghL4hWHq75FQFm6JozvFsxWSNRJGgni+Nir
+	8zytwXY4zAIlLFwssf+yQT874YuiEaMkD9XZcvRH638PvKbdXhZFKbIKQwcRk1FNaj81MpMQ3E0Qa
+	yq6XoGlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3NU-0000000EnBe-0YHP;
-	Tue, 07 Jul 2026 10:50:12 +0000
-Received: from mail-westeuropeazon11013028.outbound.protection.outlook.com ([52.101.72.28] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1wh3VD-0000000Eno9-0yNj;
+	Tue, 07 Jul 2026 10:58:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh3NR-0000000EnBE-3AQm
+	id 1wh3VC-0000000Ennx-0XGX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 10:50:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KwKmHvhXGNFoo6+x13/t6awz0Gr4Aal3K4Shy71nWx/wNPU9Zw03SIZbUWAXIekRVv3ptacZY8YNxYMyUPTxAstol4BLuYVqH1g5l07hdCZRQBeYWhHEgVclzvKz17eOhqaSKA5sw04yh3fzAToysGCWzOjoYkaxGux2SzmqVUai/SCLUCMSax0g4V5qLxRe8yt0pufsMkEIFLBCJFDdA9pCgWc0jRWGUuMf8kx9JJ5uFvTrgDh4tvCuRpVz+JBdiczUPGRpbCbRBy5l/RF5BfaxFPzY8Klv75PmJ05gJSiSXXwSROMzmxxGM118Ze3tPd/Os8brsNzU7Jld9OapTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6CuhfYWL8DbWro2skZTkGY+RO2wOhnypQ7XV8S1JQy4=;
- b=IALqqctVo3MJnMLzvYCrItjTkJWBsIy76EtVlR0tq/9dOENGxZla8HjLhwlJExcWEWgisuQZWFcy9AI2A1TjAkczBFvTYG1vKqQIlQKm+GiJLOU+T1KOkzvBrmRZom8fCTvdNRPTNf2SW+tIFTF5gS9fmNFcMWRory3WEASP/gZV98X+Dx/sRxJk2WK2sZsMDl5iGhmhDRM+kTF3AGZG2KwdEovTzMkSoFyZOw51kkK1762M0GYqzrZ9uvMpB9CFe4LrvSsaDr23cleSTMm/Pbz7ry/zt+TUzhUQW+LH619glW0RGiU5aoKXSCAr0icDZS/g5gsq1CcZ6ah6e2cr8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6CuhfYWL8DbWro2skZTkGY+RO2wOhnypQ7XV8S1JQy4=;
- b=HU9NAPPbzmejRYD36S1ffmdJS2fc47anpNij13mw8gfdpLh2NRtcipmrzAIErK8PxFSKJtfs2wbBzGlN6gx3a3JUPp47btVb18v817g7/iYHvlGAXwI2d1MC4XrloEYft4onzAoyPWsO6jJ+BhENvean+RtIfXJ+STNvTN3DiShPV8v2+VuFzmARNYqIfDB0zp/Iwh5iAzLZ9dY5cWDWqjH4ssqMbX8iKkxg65r0PGZRT6nNaH+llCT3la1/s7Zhmr5pEOCsljkWdbgXotf39xDc02wuC0P15eL5RltavCCpUWsFPqpy5oItT4+4U3kLcbYsNwQWd6gNhxgdc6wAUA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com (2603:10a6:208:132::23)
- by GV2PR04MB11739.eurprd04.prod.outlook.com (2603:10a6:150:2fc::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Tue, 7 Jul 2026
- 10:50:03 +0000
-Received: from AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6]) by AM0PR04MB5858.eurprd04.prod.outlook.com
- ([fe80::bdf4:c9d1:4e3f:68c6%4]) with mapi id 15.21.0181.010; Tue, 7 Jul 2026
- 10:50:03 +0000
-Message-ID: <6cb13041-be94-44a8-b183-7512948cd4a2@oss.nxp.com>
-Date: Tue, 7 Jul 2026 13:50:00 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtc: s32g: add missing MODULE_DEVICE_TABLE()
-To: Pengpeng Hou <pengpeng@iscas.ac.cn>, Chester Lin
- <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20260704122003.70108-1-pengpeng@iscas.ac.cn>
-Content-Language: en-US
-From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-In-Reply-To: <20260704122003.70108-1-pengpeng@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P250CA0011.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:5df::13) To AM0PR04MB5858.eurprd04.prod.outlook.com
- (2603:10a6:208:132::23)
+	Tue, 07 Jul 2026 10:58:10 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by tor.source.kernel.org (Postfix) with ESMTP id 644FC618AC;
+	Tue,  7 Jul 2026 10:58:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17D591F000E9;
+	Tue,  7 Jul 2026 10:58:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783421889;
+	bh=mQON4yUhDZuxb8gaF10sc6vnH8fe+VK9AhY37O8cwS0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ZmoPaXEpEZQFiYzdoJqj/qbj+DnlI3yBM/H1LIY38fkCEIM4CcXvF3z2dam3dnUwa
+	 qKOtg54u7hnFUSzxPotBXi+S+MyolSbY8kNFLOVqzmsx5sOVjdgag7EeoZ8rf+kW5L
+	 bsR8Nz8iWCVdCckvF6WTJBvv/3exef9ZhZjXPrbix4/yeLiIJ9V/gRIfKrziOZhBHk
+	 tFZctlfL3mBUojs1cno1n8Q4qrmYIcTViuaZ6cY6NXUIA+aj3B7o/wZem3ep8e6u68
+	 kD2ds9xF3xjPHN9D/b1EUTNZScVRbjrm8L2WAgWoKAUmqSYXv762cRlXhCs4FV7HIz
+	 Z76Lv9I/uupmg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1wh3V8-00000002MtZ-2yTw;
+	Tue, 07 Jul 2026 10:58:06 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: catalin.marinas@arm.com,
+	oupton@kernel.org,
+	sudeep.holla@kernel.org,
+	will@kernel.org,
+	Sebastian Ene <sebastianene@google.com>
+Cc: jens.wiklander@linaro.org,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	android-kvm@google.com,
+	mrigendra.chaubey@gmail.com,
+	op-tee@lists.trustedfirmware.org,
+	perlarsen@google.com,
+	seiden@linux.ibm.com,
+	smostafa@google.com,
+	sumit.garg@kernel.org,
+	suzuki.poulose@arm.com,
+	vdonnefort@google.com,
+	yuzenghui@huawei.com
+Subject: Re: (subset) [PATCH v9 0/6] arm_ffa, KVM: Fix FF-A emad offset calculations
+Date: Tue,  7 Jul 2026 11:58:01 +0100
+Message-ID: <178342187223.1892339.1923162787460489447.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260702103848.1647249-1-sebastianene@google.com>
+References: <20260702103848.1647249-1-sebastianene@google.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM0PR04MB5858:EE_|GV2PR04MB11739:EE_
-X-MS-Office365-Filtering-Correlation-Id: fd4f563e-a4ca-4710-0801-08dedc158002
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|376014|11063799006|56012099006|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: Z2ZEaBrAHoo+BYkK8kgyIUHq9CcantEqxdyYl0WAXcj+tflOQEdphcKaf3f69wahzEXGVQlFewkMfBt8kZrmTRHCmHWXTt0cMDhYM3qZa5Y/lC6LpXILuwh4Uinj0dXZ9VCbrZDGpuV1nSmiTkwZtc09fCm4UqX6xc84So3wppIv/FlB73h8mViiviv1ySznXK07HNGLi7xGHzjyRVYjPV5hYVWgbyz+kBKtczZu0HcEgGKzsMWofG006bieqyd+kHPxJXDGkIYo+E9GJtvgmxzdREO/SDEywKJF+bAEcXLRZs7Vv12FKibv+C8NyL16LX5Qc2bCnFZwY3B515p5PebA1GZRb0elm3tkQRgFHrJ1m526bHrdrh21ZYaU8yYdptAuZLG7tgG1X+APxEuamjEiLS0SHph84x1KRs82pPXnlxGAylQXwGcdb5J+1xGKBqB1i+T3v0zM67ZCdNH2A/LtP0tB1MLsWVwBL2OcIKFqYBXxzdWq8rQTDPukb69kNJzRtSDN7rO4VxS416prflokee0m5KSy3ul/55pN9I3YW82kkAWdOJQNygRgUWeoE5+kMCnmvVKNSBFPHtndwCFo7n0+CD97xWhphuSSjD/5tmcIK0PqDGXP8GQ4gIEZnl/5IVBBuk42CEDAMFX6d/+FpltFWZTr1BcmWrGuD1k=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB5858.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(376014)(11063799006)(56012099006)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZXVZRHFKYXpEWUdsUFZxNFVFcEVNU0x4NlduZjRrMjlkSVFYWm1IWE1rSWRn?=
- =?utf-8?B?MUV3Z3FlbDdLSG55bWFNUys4cVphZWF4Qm5hTkNqdFdiVGJEQmhXeVU0MnZE?=
- =?utf-8?B?cVFrOUZ4d0RaUmUza3lHc2pTdEdodWhjNHA1N0Y1RFk0c1VhempDS0xCd1BG?=
- =?utf-8?B?ajZTMzhPM2pQZ2ZEYTVCZkdTb3p4UzVVaENBZ2NmcXg5RWY3S0JxMWtOWkNK?=
- =?utf-8?B?NEpKUUhKbVhxL1JvMXNIaW9TaGQ3aUdtSUJqRXRSZytWUFpkZ3NKYUZoZnhE?=
- =?utf-8?B?aVgzVFd4QnRrUjlmQzZ2TjBRbWtMeU05UjRTcWJadHVwa0lmeFkraDRkRGx5?=
- =?utf-8?B?dGNmaEREUXBhek90MExEeUU2QzBXODhFMzFDV2ZDbThxQWI0ZVdFSUZxRE8x?=
- =?utf-8?B?Q3g5OVBQdDBwZFdUdjV3VGpZN3BpVUZ0UmdZTjlXenFyTTZhZlJOR3FUZVZO?=
- =?utf-8?B?bm5zTEl4eXZ2SmJuOTlTMzFQV3RIZjNDUk0zaWp5V29JSytRTzZlTzhuc2N5?=
- =?utf-8?B?dG1xckp1UlFjcnRYZDJ5VnkxR1lHVHQvNEJKM1d5M2I4RlBXc1dnZm5SVkFG?=
- =?utf-8?B?d29OV1RWNWtoQ21Xc2ZLOHl1a2JlaTRMc3N1UE1HQWlaeEFuWm1Ya3JEdE56?=
- =?utf-8?B?ZnBjVGRKQzc0RHNvR0tXUWF2bEQzMlE4K3hCWDY4SUZKVjBsRTBGbzdtSVJs?=
- =?utf-8?B?V2J3dmVNaHZEbC9HMk9FL0hhbHdJL0NnbU0zeUdVWWhja0RtU0hraEpRRUtZ?=
- =?utf-8?B?VEVwYm9hQXkyaGRIaUNtYU1EOUV0WEdWVmRVeFlkaU1IQ1hVbG1ZbEJnTVg2?=
- =?utf-8?B?YUhTK2hRVlowdGNiMGZESW4wUHFQS2gvU1hKTVMwb2R1ZUQ0aERXUVBiNUI5?=
- =?utf-8?B?VE4wRGhibWtTWnhjcTMxd2htV0l4bzdwUnk5ejdvQ1hiMlFYUU5JUjh4aG1z?=
- =?utf-8?B?QXRoQUJTNXdMY2FHbWw2ZjVudG9pZDY1YkJYMVVpMWkwMlIzRS81NUlpVElt?=
- =?utf-8?B?UytWUHNUc1pPYmZtSzltVmRGWVJteUhSRzhYK1J0cUQ1OW5NbXFtd1hOd0Js?=
- =?utf-8?B?SmhMUzd2OWI3Rk1JZ0RXOEFIMCt4N251UGU1OVh3YTMyc2p4cjdUekVqN0tR?=
- =?utf-8?B?TU1JOXVpUGRWRjZpOURrSXJZSXFMN1NEY25RV0RueW4yalVUT0JIRHZBazVz?=
- =?utf-8?B?aVJQWVFmdzUwSFZSK0FrTEhxdEx5L1hab0Nkd2R6REZiRUpqYm12Z0pEWXdu?=
- =?utf-8?B?Ty9CVFUyUWFSemg1TmlCa084bjlLODBRVk1zNjRDWnJrWGQzM09WK3FTcjFT?=
- =?utf-8?B?SUpCaWlqMUd3cFgvZ0Q4TXJTVlptSnlIblJNamhGZ1E1RnNZaUFVbGZZcnpO?=
- =?utf-8?B?a3JxYWx1NEUvbjNuSkZxRmxOTDZ0Q3d1K0dIUDBKMHpjSFhaczNTRWJlNVpu?=
- =?utf-8?B?V0hOZW1uZEVpVVBkUmxWQXo0YzVMZFgwd1JabUlpdjc5Q0lPeGoyRHA4WXFJ?=
- =?utf-8?B?eTFZZURkTDhnWGxCNWpLUTQyVXZRbU9HR2QrYklOZTMrSGszYVVpcXJUcmFJ?=
- =?utf-8?B?eEZjT1FNMFIrc1hRRDB0a05DckFLblYwcUtYZXlGOWRDTlZFV1IyOXNuTTEx?=
- =?utf-8?B?cjdkanZwMGx6cVNFMXlFODJRMXpEQkkzN0VIcUVGemEyMnlSSGlJTmhJWDBw?=
- =?utf-8?B?b2JhWXFWU3ZJbnVydmo4VDJPYksrY2taWkFRV2tXVVc1MXhPSmpXNW1PSXBK?=
- =?utf-8?B?R2pvS2ZqVWxwVmt0SWRTZmQrRXBuQUJIYzhVZXV0WWpVUGxiSGpScUQ3V21z?=
- =?utf-8?B?WkZnd1ZxeUdvL010RGxnNkdFOHIvandMbzFYYnJJZGozdWdwTkxGUDBybEt6?=
- =?utf-8?B?ellZZVErbGFtVU5jeEsvMjYyU3VHcm9RK21lMmJLVm85WE5KVGQ5QWt4RUhR?=
- =?utf-8?B?OW1jRXAyTTdkck9Od2E3VDhodjdxUVZXVU5VSDc3THZ3SFJhRjViNjVsb3Zm?=
- =?utf-8?B?OWNTZHR3Zjlxd3dlYlJJeXVHMzdLbnd3KzNicEJFVkRCWTNSa1J5U2hMYTkr?=
- =?utf-8?B?Vkd4UXBGTk4yZkdCNXdXdWRxRGZjQW11aHZSNndXVUFLNlZnT3licHlSL29H?=
- =?utf-8?B?U0ErVDBOTW1kYy9pQWVmWkhOaFlGNVk2SzVtOE9iTU1ZMXdWVE1GQjI3bHhu?=
- =?utf-8?B?QnAzT2kyZ2h5anlITiswMGt5b2NocXhYSmVGTzR6NGI0SVBMV2FrTU5wOXlV?=
- =?utf-8?B?SkJDdGZRUzZVS1k3UUU3UDJmZjVrRVdjZ0hUTUd1QWhQeG9EUUsvZHd4Wmp4?=
- =?utf-8?B?TWQ0Sy9hL2FTKzl0QTlPQ2M2YjcwZFM5Ukt4UGloWFhqa1Vna1ZPUHBUQU4v?=
- =?utf-8?Q?AVDu2HAOUPfwGxDU=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fd4f563e-a4ca-4710-0801-08dedc158002
-X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB5858.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 10:50:03.5093
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Ojrlx4Yg3wdLpp4oynUqYjTdBp74pl8WiMVHYV2wzKoMMonQTRE0AZERmdPNSZqGkg+CC3YJNd4pxbY4+kzyj7AvIQC6udDbJ2AP3tlQKYo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11739
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_035009_805052_F796691C 
-X-CRM114-Status: GOOD (  16.51  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, oupton@kernel.org, sudeep.holla@kernel.org, will@kernel.org, sebastianene@google.com, jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, android-kvm@google.com, mrigendra.chaubey@gmail.com, op-tee@lists.trustedfirmware.org, perlarsen@google.com, seiden@linux.ibm.com, smostafa@google.com, sumit.garg@kernel.org, suzuki.poulose@arm.com, vdonnefort@google.com, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,36 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 7/4/2026 3:20 PM, Pengpeng Hou wrote:
-> The driver has an OF match table wired to .of_match_table, but does
-> not export the table with MODULE_DEVICE_TABLE().
+On Thu, 02 Jul 2026 10:38:37 +0000, Sebastian Ene wrote:
+> This series fixes the Endpoint Memory Access Descriptor (EMAD) offset
+> calculations and adds the necessary bounds checks for both the core
+> FF-A driver and the pKVM hypervisor.
 > 
-> Add the missing MODULE_DEVICE_TABLE(of, ...) entry so module alias
-> information is generated for OF based module autoloading.
+> Prior to FF-A version 1.1, the memory region header didn't specify an
+> explicit offset for the EMADs, leading to the assumption that they
+> immediately follow the header.
+> However, from v1.1 onwards, the specification dictates using the
+> ep_mem_offset` field to determine the start of the memory access
+> array.
 > 
-> This is a source-level fix.  It does not claim dynamic hardware
-> reproduction; the evidence is the driver-owned match table, its use by
-> the platform driver, and the missing module alias publication.
-> 
-> Signed-off-by: Pengpeng Hou <pengpeng@iscas.ac.cn>
+> [...]
 
-Reviewed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+Applied to fixes, thanks!
 
-> ---
->   drivers/rtc/rtc-s32g.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/rtc/rtc-s32g.c b/drivers/rtc/rtc-s32g.c
-> index 3a0818e972eb..86716192d10f 100644
-> --- a/drivers/rtc/rtc-s32g.c
-> +++ b/drivers/rtc/rtc-s32g.c
-> @@ -366,6 +366,7 @@ static const struct of_device_id rtc_dt_ids[] = {
->   	{ .compatible = "nxp,s32g2-rtc", .data = &rtc_s32g2_data },
->   	{ /* sentinel */ },
->   };
-> +MODULE_DEVICE_TABLE(of, rtc_dt_ids);
->   
->   static DEFINE_SIMPLE_DEV_PM_OPS(s32g_rtc_pm_ops,
->   			 s32g_rtc_suspend, s32g_rtc_resume);
+[3/6] KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
+      commit: 8c6db30d79528279abbeb416e4f533f1f91b8724
+[4/6] KVM: arm64: Validate the offset to the mem access descriptor
+      commit: a6b49d27c17909608d54523220bb6f3498d4a1df
+[5/6] KVM: arm64: Ensure FFA ranges are page aligned
+      commit: 6a7a181f6921db3d9aed1bba7e15547fefd7eedc
+[6/6] KVM: arm64: Zero out the stack initialized data in the FFA handler
+      commit: 2bd3c6c702f3a9e2bcb3b536b0fbbaa645005d71
+
+Cheers,
+
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
+
 
 
