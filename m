@@ -4,56 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B13C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B4D5C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9JLJ0FpKM3qj52tf+7FbBXdfMaILfM/b7TzkNMXuLMs=; b=A6r7mo2tut71q+hohFk1MNej3V
-	aY/0E5Gtw6iSwoxZV242WgLlX2m2N7fv3a0qOJ1LaUB3YfixFq85jWFb0uCnUo+8l3GAzrjZCliT5
-	Onokbf6tn50yluZG6mV5aDnNquIlPKACcc1W8vjOlGEyyCqljl4Q9ldKy5Eh9E/tJvrlUgAwNM+db
-	FfI0QwpXzWCyILvarFBE4nNGmIwfSdH9ecTRbq36rs8DMROCKXmNIOqSnPtadz2rdOqJP/Iit+HAW
-	kLRP4E68zdrb6U5r9MmHeaH/2QGWpapMSQg03jMxETT52khWQpLl6PziLJO2NPGH2yxVgrp8drdNI
-	Y7FexWBQ==;
+	bh=KIzicJtgYbCKzLvSO/GpRAV4BTLl8KZx9Q+QcO5m+HA=; b=p8z4TG899Rlk44ln1HcGlsIADw
+	LpHQ2r/mvdkrnujY+rtHDrpBUFKFUkGMFyr/Xyahn/iYGG9LYujRfI0C9jjFMvA2O4d35DGqQyRN9
+	8d3V1GVHkZQnl1dsjKBib7Euxwj6W+0bkMmXPtB+iu++9ut72W9XJIC1uIR7SwU6qGGgVOX4/oNzZ
+	XZdECmCVZc6BgukdyMaQtidE9Zkppi21FAk1bCdeQPC7BL0hPu+oSZSfsugheSTQ5frOYU/8cozqu
+	V2WhjdLPVWXF5I46J8J1xJs3OcOhhXEuhA0HlqBu+b/SonNKdRZibdsE8V8D5/oQy9DrrJ/KQDKZI
+	bqrqykEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whASa-0000000FdXa-3zWF;
-	Tue, 07 Jul 2026 18:23:56 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1whAbv-0000000FeCS-3hxV;
+	Tue, 07 Jul 2026 18:33:35 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1whASV-0000000FdWk-1bvn;
-	Tue, 07 Jul 2026 18:23:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=9JLJ0FpKM3qj52tf+7FbBXdfMaILfM/b7TzkNMXuLMs=; b=CGltUv6A8vNWyR6tnpsfe2ZOCQ
-	JsAUW8Wrl8Jf6IDsfJvhIElhExWMpJ/Z/8WxZq5M/BwokI+6YCXoLZnwQzy0tJIEMX5AVoFVcAWml
-	suUNS8GcSbCu+pd/KrNtbYBThifK89bbiGtIoSiKifux/D54RU999mk60Dh9Ujgv+gH6ZJQ7+STlE
-	4jXjFZT3GSEnJwLEtDjDrNGMdZBBjJpb/4NI6T3V4nz9WK16fMb0Ys3Dm/LnwElUMW09UZWl+teC6
-	U8S7EjJOwr0pjZHRAxncYs6FBeirD8AV7F6ABn6pXAEP1XuvC8EQ0pkRnjqgHn42p8hOBxaWNcVxE
-	SCcwBPiw==;
-From: Heiko Stuebner <heiko@sntech.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Hrushiraj Gandhi <hrushirajg23@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 0/2] arm64: dts: rockchip: add Vicharak Axon board support
-Date: Tue, 07 Jul 2026 20:23:47 +0200
-Message-ID: <14045151.uLZWGnKmhe@phil>
-In-Reply-To: <20260707160354.GB3176120-robh@kernel.org>
-References: <20260608060940.52549-1-hrushirajg23@gmail.com>
- <178301901903.3838694.3276523670393868229.b4-ty@sntech.de>
- <20260707160354.GB3176120-robh@kernel.org>
+	id 1whAbs-0000000FeBu-2fJU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 18:33:34 +0000
+X-Forwarded-Encrypted: i=1; AHgh+RpFH39PoLc0norq3ms1akocI9ytizsOt41bMIhbmbyLnu3o2vv3O6WLyxjM0k1EOZmbc0pNCazAVLeGsxFoT10p@lists.infradead.org
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1783449207;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=KIzicJtgYbCKzLvSO/GpRAV4BTLl8KZx9Q+QcO5m+HA=;
+	b=vaf3UdlP+6QgKbWhk+atLlTtMQsebflxaJIHjGfER4dWCL3bYRDARlQ9lE1Iu2hcWbyiZq
+	RKcvEcUHJXh6nnnapgoKLOo/rVHpkWsz+kZGkMQ6yLtbXPODWac8WcJokPK6liIrflGQ+p
+	C4RwlguXklHI8FT/pQkn+otVMWWkhao=
+X-Gm-Message-State: AOJu0YzYEV81Lg0bOEqkYr5wHzkRcXHSUInZv8h4dNmHAlmSlc4f155K
+	ohO1Zhl4HFkB86MamAaxq8WlW+vAwJMfbMhpUWz4sGC3AggCdPxZ4cVsqAYqvvDSojMiiTyOpF9
+	AuvkJPClNh7p3VdxRRb/QLz3kKKhgZ4IwauOAqC94
+X-Received: by 2002:a05:622a:145:b0:517:5c70:46bd with SMTP id
+ d75a77b69052e-51c8875e1e0mr402291cf.11.1783449201189; Tue, 07 Jul 2026
+ 11:33:21 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+References: <20260707165029.3410701-1-vdonnefort@google.com>
+In-Reply-To: <20260707165029.3410701-1-vdonnefort@google.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Fuad Tabba <fuad.tabba@linux.dev>
+Date: Tue, 7 Jul 2026 19:32:44 +0100
+X-Gmail-Original-Message-ID: <CA+EHjTx7C7BEmyoZgx6-PWvfAHpP8AWMOefTdwOQjw8NrPhLNQ@mail.gmail.com>
+X-Gm-Features: AVVi8CdJn6U5iCpuDt2Eoj2HBtV5xWI7t-8BJNIztXKGfR-5BqWmyGW03nrfYJs
+Message-ID: <CA+EHjTx7C7BEmyoZgx6-PWvfAHpP8AWMOefTdwOQjw8NrPhLNQ@mail.gmail.com>
+Subject: Re: [PATCH] KVM: arm64: Fix potential leak in hyp_trace_buffer_alloc_bpages_backing
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kernel-team@android.com, Sashiko <sashiko-bot@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_112352_026298_D848BD12 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20260707_113333_575965_AD988A5E 
+X-CRM114-Status: GOOD (  15.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,67 +77,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Dienstag, 7. Juli 2026, 18:03:54 Mitteleurop=C3=A4ische Sommerzeit schri=
-eb Rob Herring:
-> On Thu, Jul 02, 2026 at 09:04:55PM +0200, Heiko Stuebner wrote:
-> >=20
-> > On Mon, 08 Jun 2026 11:39:38 +0530, Hrushiraj Gandhi wrote:
-> > > This series adds initial device tree support for the Vicharak Axon
-> > > single-board computer, which is based on the Rockchip RK3588 SoC.
-> > >=20
-> > > The Vicharak Axon is a feature-rich SBC targeting developer and embed=
-ded
-> > > use cases. It ships with:
-> > >=20
-> > >   - Rockchip RK3588 (4x Cortex-A76 + 4x Cortex-A55)
-> > >   - RK806 PMIC providing all SoC power domains
-> > >   - eMMC 5.1 (on-board) and microSD slot
-> > >   - Gigabit Ethernet via RGMII (RTL8211F)
-> > >   - Dual HDMI 2.1 output and one HDMI 2.0 input (receiver)
-> > >   - PCIe 3.0 x4 and two PCIe 2.0 slots
-> > >   - SATA 3.0
-> > >   - USB 2.0 host ports (EHCI/OHCI)
-> > >   - NXP PCA9554 I/O expander for status LEDs
-> > >   - Haoyu HYM8563 RTC
-> > >=20
-> > > [...]
-> >=20
-> > Applied, thanks!
-> >=20
-> > [1/2] dt-bindings: arm: rockchip: add Vicharak Axon board
-> >       commit: e0008b108aaf8c5aa22930b2ceadf8f894562acb
-> > [2/2] arm64: dts: rockchip: add Vicharak Axon board
-> >       commit: e08c3389c78dbefd31a57df8807cf57ef6f3c9b1
->=20
-> Both have issues and should be dropped.
+Hi Vincent,
 
-I've dropped both the Axon as well as the Vaaman2 board from the
-same vendor now.
+On Tue, 7 Jul 2026 at 17:50, Vincent Donnefort <vdonnefort@google.com> wrote:
+>
+> In the very unlikely event of a failure in __map_hyp, the allocated
+> backing pages are leaked in hyp_trace_buffer_alloc_bpages_backing(). Fix
+> this by freeing the pages on error.
+>
+> Fixes: 3aed038aac8d ("KVM: arm64: Add trace remote for the nVHE/pKVM hyp")
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+>
+> diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
+> index 2411b4c32932..5fbbfd40376f 100644
+> --- a/arch/arm64/kvm/hyp_trace.c
+> +++ b/arch/arm64/kvm/hyp_trace.c
+> @@ -160,6 +160,7 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
+>         int nr_bpages = (PAGE_ALIGN(size) / PAGE_SIZE) + 1;
+>         size_t backing_size;
+>         void *start;
+> +       int ret;
+>
+>         backing_size = PAGE_ALIGN(sizeof(struct simple_buffer_page) * nr_bpages *
+>                                   num_possible_cpus());
+> @@ -171,7 +172,11 @@ static int hyp_trace_buffer_alloc_bpages_backing(struct hyp_trace_buffer *trace_
+>         trace_buffer->desc->bpages_backing_start = (unsigned long)start;
+>         trace_buffer->desc->bpages_backing_size = backing_size;
+>
+> -       return __map_hyp(start, backing_size);
+> +       ret = __map_hyp(start, backing_size);
+> +       if (ret)
+> +               free_pages_exact(start, backing_size);
+> +
+> +       return ret;
+>  }
 
-The whole thing is confusing.
+nit: would be a bit cleaner to do move the desc assignment to after
+the check. Also, I think sashiko found another real bug, don't think
+it's serious but worth fixing.
 
-I should've caught the pinctrl issue, and do remember running a dtbscheck
-on at least one Vcharak board - but that must have been the Vaaman2 board
-because there the pmic fullfills the binding (and general setup of other
-rk3588 boards).
+That said...
 
-The vendor-prefix is missing indeed. I found earlier versions of the
-version-avalanche had it, up until v6 [0] . Though I haven't figured out
-yet why it was lost.
+Reviewed-by: Fuad Tabba <fuad.tabba@linux.dev>
+Tested-by: Fuad Tabba < fuad.tabba@linux.dev>
 
-Hence I dropped both boards.
+Cheers,
+/fuad
 
-
-Hrushiraj: please start anew with both boards.
-
-But include all the tags you received in previous versions.
-
-
-Heiko
-
-
-[0] https://lore.kernel.org/linux-rockchip/20260601162143.170030-2-hrushira=
-jg23@gmail.com/
-
-
+>
+>  static void hyp_trace_buffer_free_bpages_backing(struct hyp_trace_buffer *trace_buffer)
+>
+> base-commit: 8cdeaa50eae8dad34885515f62559ee83e7e8dda
+> --
+> 2.55.0.rc2.803.g1fd1e6609c-goog
+>
 
