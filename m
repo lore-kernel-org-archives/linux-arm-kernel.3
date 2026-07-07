@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DF9C43602
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B188C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 16:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nn6bCErssLM58dCHEzsQ/5uzBTiqECPFsNpc2dMlLdg=; b=K6oRFKAyGzvM8idqzAtMHMDc4R
-	XO9vMu0MTEe7mEB+yuIli9q/PCKRthZMItBlRPWATpL+BsCzsjcERPhr+k28uqHZMj6Cyc6uW6O2E
-	nAnRv7FzeenhohcjkWHiFQcm5qJO/yS1yOx/cgGpvW1EpHSNxuQtRbMljtiVwt0/sYPFQEG9atfTx
-	huG4qWVr/+j2Z1lkUBof2w/vlNB0wfuG6wY57HBBRFmiV2LYw/4WVRU8xoH7Hj91eR+Je7V4EiMVL
-	voZkHN+xvlYZ+uhmgTblhSYKqDb5X8vypYVPp3GLNPWD5zE1iBZOJ6lqqCeBfm2sigjuwRSApOeil
-	42U1KcVA==;
+	bh=4Vcq1MkvzQbk9zfV5EhPNRi0N88gZnT6KsgF9u39VmY=; b=01jkCVbC1BdkR8IVZW6GogDa7U
+	IER1dvuStPV0PdfDTlw1sdBISSDQ9AKaQJmO/9j1Wo43uVlR5ydRY/8a+r/9Jki4ZAYwhBTrsKTw1
+	Y3on7DUz3KVH9kTL4/59hdtqEPFC+jsoLwfwgsAWpu4WFnnpT/u6AOmo5C+RWhwSm1TQ0rBl1fqvT
+	tRvMLwsQAVT34ttOtuLate9QagcZ8jMtKiUP5GedWiYfpbF1Od7HnoXOf3dvGOHz1lNoqnJRt4buB
+	F9lhmpMfG+PVehZq4QhmXiab7iic37LqRqxZ8SkgfhjC46X+7ZrZ1SlIaSI/SK5OVMWP01WH9J3LH
+	FaLUdFHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh98O-0000000FVaa-0WfG;
-	Tue, 07 Jul 2026 16:59:00 +0000
+	id 1wh98a-0000000FVcf-0xGh;
+	Tue, 07 Jul 2026 16:59:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh98K-0000000FVZt-0x8k
+	id 1wh98P-0000000FVaW-1Nge
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 16:58:58 +0000
+	Tue, 07 Jul 2026 16:59:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 38C881595;
-	Tue,  7 Jul 2026 09:58:49 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1B283F7B4;
-	Tue,  7 Jul 2026 09:58:51 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A719D1595;
+	Tue,  7 Jul 2026 09:58:54 -0700 (PDT)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABC683F7B4;
+	Tue,  7 Jul 2026 09:58:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783443533; bh=TOgYj5FZmDTqeFNBMSEMqRwvGMSyqgNulD31bewyFas=;
+	t=1783443539; bh=oftr5G3z6oBFV+GyZMslvtqhdQup3zVW7NYWudILDro=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qDnPSKMXMBWbehXuepC1F6L3ke/tSK7hxcPEZ0meUJ+6xmGFl3GZVE6mMMq+luYdD
-	 8zIH24dQZY+2siwB/tY4ZevQ0toknhOllwVTHcPsQp79/0JuqTZ8r78j+Ajrgg49RA
-	 UOKD6n4ng/Z9QFdYT6xQ274xgz5ql+ciUFeKFbKM=
-Date: Tue, 7 Jul 2026 17:58:49 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: pbonzini@redhat.com, kvm@vger.kernel.org, david.hildenbrand@arm.com,
-	maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	seiden@linux.ibm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	fuad.tabba@linux.dev, mark.rutland@arm.com
-Subject: Re: [RFC PATCH 0/3] KVM: Dirty page logging for guest_memfd-only
- memslots
-Message-ID: <ak0wSQ1133O7B96D@raptor>
-References: <20260702142912.6395-1-alexandru.elisei@arm.com>
- <akxOrMnlNga-vtQv@google.com>
+	b=J6v2nAcRCNpFw9tipYNPbCKnfR8iFde0+KzBbP0B3K2mz0ujgYDRy+VwFGktKRv2z
+	 X8AGtqBWVpyqZUf4u6DfAHxBW5lfZj+N0eRs5hl4SptX1ZSmjrqSPoGb2LgAo/aLPr
+	 cSJFc8xIxc30w+dQMcq1+PliaWcEFwqlAXdZ5TMU=
+Date: Tue, 7 Jul 2026 17:58:52 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-coco@lists.linux.dev,
+	Robin Murphy <robin.murphy@arm.com>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Steven Price <steven.price@arm.com>,
+	Suzuki K Poulose <Suzuki.Poulose@arm.com>,
+	Jiri Pirko <jiri@resnulli.us>, Jason Gunthorpe <jgg@ziepe.ca>,
+	Mostafa Saleh <smostafa@google.com>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Dan Williams <dan.j.williams@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>, linuxppc-dev@lists.ozlabs.org,
+	linux-s390@vger.kernel.org,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Sven Schnelle <svens@linux.ibm.com>, x86@kernel.org
+Subject: Re: [PATCH v7 08/22] coco: arm64: s390: powerpc: Mark secure guests
+ with CC_ATTR_GUEST_MEM_ENCRYPT
+Message-ID: <ak0wTKrjTDZ3COS3@arm.com>
+References: <20260701054926.825925-1-aneesh.kumar@kernel.org>
+ <20260701054926.825925-9-aneesh.kumar@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <akxOrMnlNga-vtQv@google.com>
+In-Reply-To: <20260701054926.825925-9-aneesh.kumar@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_095856_398810_A111D0F4 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20260707_095901_413162_46BC45AE 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,41 +93,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
-
-On Mon, Jul 06, 2026 at 05:56:12PM -0700, Sean Christopherson wrote:
-> On Thu, Jul 02, 2026, Alexandru Elisei wrote:
-> > The memory represented by guest_memfd-only memslots
-> > (kvm_memslot_is_gmem_only() is true) is shared with userspace, which can
-> > freely mmap it and access it. The only thing that is preventing dirty page
-> > logging for such memslots is that KVM doesn't allow slots backed by
-> > guest_memfd to have their flags changed; they can only be created and
-> > deleted.
+On Wed, Jul 01, 2026 at 11:19:12AM +0530, Aneesh Kumar K.V (Arm) wrote:
+> arm64 Realms, powerpc secure guests and s390 protected virtualization
+> guests currently report CC_ATTR_MEM_ENCRYPT, but not
+> CC_ATTR_GUEST_MEM_ENCRYPT.
 > 
-> Please (publicly) document *why*  you want to add dirty-logging support.  It's
-> all but impossible to review new uAPI without knowing the use case.
+> These environments are all secure guest configurations. Their
+> force_dma_unencrypted() implementations also treat the same secure guest
+> state as requiring unencrypted DMA. Report CC_ATTR_GUEST_MEM_ENCRYPT for
+> the same condition so generic confidential-computing code can distinguish
+> guest memory encryption from host memory encryption instead of relying only
+> on CC_ATTR_MEM_ENCRYPT.
+> 
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
 
-Of course, my mistake, I was so deep in this that I didn't realise that
-there might be different perspectives.
+For arm64:
 
-My thinking was that since guest_memfd created with GUEST_MEMFD_FLAG_MMAP +
-GUEST_MEMFD_FLAG_INIT_SHARED is extremely similar from a userspace point of
-view to using an anonymous file (created with memfd_create()), that
-supporting dirty page logging and migration would be a natural next step
-and would expand the usefulness of guest_memfd. It has nothing to do with
-confidential compute.
-
-As to why I'm working on it now, it's because of an arm64 feature that
-requires that memory remains mapped at stage 2, called Statistical
-Profiling Extension (SPE), similar to Intel's PEBS or AMD's IBS. Exposing
-the feature to a guest requires that memory remains mapped at stage 2
-outside of userspace explicitely unmapping it, and guest_memfd, with the
-patch to ignore the MMU notifiers [1], has this property.  I wanted to
-expand the functionality of guest_memfd to support migration of virtual
-machines when that arm64 feature is exposed to guests.
-
-[1] https://lore.kernel.org/kvmarm/20260625130902.258331-1-alexandru.elisei@arm.com/
-
-Thanks,
-Alex
+Acked-by: Catalin Marinas <catalin.marinas@arm.com>
 
