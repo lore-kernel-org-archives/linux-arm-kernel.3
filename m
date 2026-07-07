@@ -4,78 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61BD3C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:07:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 540F5C43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:12:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f52rDUqZefsEXjI3bNvaVSNEPf8n6Uz1WBU6oS8DTbc=; b=fEx5ZL+rHWKNUIH19LBjm6P1Tn
-	iCOO+Z+5i5kB5pUaiRRnWYyO0SM/xKO2Cyu8KNgumzR5ZIAwT8yhYU0RNSBVMF49GkBf4zpITlGSM
-	K4boMV6VwrZhYsX8gwUtdwedExYLXe+o0j+zThWwWjCh4WRQI8bcd25OjKOwTg6n32sP8VlH4ifCk
-	xXnP3++TVcFU421fbyUNX7Dnt/TMaTmyeJ6+DjgUDo8u3fAYLKYthUsOv31Te5q7PJUUVJSp2Xthg
-	1hkJprOlHN0XlGWbaZooqtwxQR8wVK5ADQlAkGsvouOP09eVhPg1jOe00sZaA8YoWoTmW5Ti/u4I2
-	ijyNSIdg==;
+	bh=ByMXdijkHl9hu7GM8jt2AMzJWtpO0+9CnetiEbvOVzc=; b=jdjarYpPx2CX0r9iQ2ncSNm/MU
+	+YnHdmiDbFvKGbl32MaouP727teZ8Ja6REQ4upf/9i6ZtqSeBnpzclwCc26TIgEJj5zHKgJRiKM6s
+	MvRXkFGqCkpiRw1aLA6IJ8POgLZVC+BNA4f3b3EkZ/pMc/BW1nHFlBHCmLsaTWpV7Ot7jm6QA8ILv
+	UezD4ZvSaZkkOFjQpiOK/nc1PvnthA9DwwaYIRjxDkDDPjOgOyPjNjsszlg78bD7yTO6M58z2qrPo
+	Bfsz9gVAWVYby0SuLNNDRHVJL8RNnjXNqKFWTG19XgTv5FxUUcE4is/Tqov55iKrds/pKvTXATPej
+	sErrjHNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2i8-0000000Ehai-1XnV;
-	Tue, 07 Jul 2026 10:07:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2i5-0000000Eha5-2kIJ
+	id 1wh2nN-0000000Ei2C-06zu;
+	Tue, 07 Jul 2026 10:12:53 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh2nK-0000000Ei1K-1d6f
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 10:07:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 31D5C1691;
-	Tue,  7 Jul 2026 03:07:19 -0700 (PDT)
-Received: from LeoBrasDK.cambridge.arm.com (LeoBrasDK.cambridge.arm.com [10.2.212.21])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5F65D3F85F;
-	Tue,  7 Jul 2026 03:07:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783418843; bh=efPPuJBmHOVIcmAa1CJwiO+3EKUgUA53PYhTK93MGSI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rbe3MZI++urCP1OCSOL/NfQrdslSkTwiCgeA9Q9anpf+Ns2m6p4JqP36x4i8l1pF5
-	 fb29/Ly4R6dJr8KGLT6MsmCN2M8+HWcEEVpszo+08LPmaT06d5iDmLPqkaq/zbRL69
-	 uVvTAbUBciXqLYBrviuDehD4/e50rUuQUuj3aL1o=
-From: Leonardo Bras <leo.bras@arm.com>
-To: Tian Zheng <zhengtian10@huawei.com>
-Cc: Leonardo Bras <leo.bras@arm.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Marc Zyngier <maz@kernel.org>,
-	oupton@kernel.org,
-	catalin.marinas@arm.com,
-	corbet@lwn.net,
-	pbonzini@redhat.com,
-	will@kernel.org,
-	yuzenghui@huawei.com,
-	wangzhou1@hisilicon.com,
-	liuyonglong@huawei.com,
-	Jonathan.Cameron@huawei.com,
-	yezhenyu2@huawei.com,
-	linuxarm@huawei.com,
-	joey.gouly@arm.com,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	skhan@linuxfoundation.org,
-	suzuki.poulose@arm.com
-Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
-Date: Tue,  7 Jul 2026 11:07:14 +0100
-Message-ID: <akzP0T_Qd9yuZsPI@LeoBrasDK>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <34447d66-8d53-4dc7-82fe-58057f2a5b57@huawei.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com> <20260225040421.2683931-4-zhengtian10@huawei.com> <ahzUUDAMoHtDFJD3@inochi.infowork> <864ijmvdpy.wl-maz@kernel.org> <ah1KLrpYBXSMM91H@inochi.infowork> <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com> <aku1N23Szkta9uA6@LeoBrasDK> <34447d66-8d53-4dc7-82fe-58057f2a5b57@huawei.com>
+	Tue, 07 Jul 2026 10:12:51 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6678DcdG3076592
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Jul 2026 10:12:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ByMXdijkHl9hu7GM8jt2AMzJWtpO0+9CnetiEbvOVzc=; b=VpA58R8JiSlVbUdY
+	S6MHesUXfkwIBo3HzMez6adaN2gWzDQNMFVx+ZUl6tnES3W6Tj7pt6rjlanvjnT2
+	o/GnGIDyN1LLdP8ZAQjUn5H9g+jqKQbT/8WiEiA5LlB8OHGlELSDOY7sXwVeBuxM
+	4EIFlwi4NOfosfmkcncRQYCNxqXSP+S3tGmodsagdfWod+a+tOVUPuh34/QB30AE
+	Svx22pQiSPcvtll2QpJgf6rGYIdQGtYXyJ1ve+H4FGtlD5ZTHp/zXAGmt8JO4v3a
+	sa++8xf7Ka1c5Cwq8TOl+nzZsUl2njze64TKgSiVxSwg5mWPewNTIrc0pgltRBFb
+	Q3pCtw==
+Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4f8vun0qe7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 10:12:49 +0000 (GMT)
+Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-51c069f73e4so12899001cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 03:12:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1783419169; x=1784023969; darn=lists.infradead.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ByMXdijkHl9hu7GM8jt2AMzJWtpO0+9CnetiEbvOVzc=;
+        b=Rj+BSGgg4wJZNL7fKgfTkbSA6ZTusjd1eqJEIiuKKBEASeypAwZbbncetWmdfXsmaf
+         qtt8Vbz/+WPcbMFfejokY9HTBbWYZEqrbEmAeScXlOyxS7NURqRQDq7aUD01qtbTv3BH
+         usoRC6lk2F6Yh8rY4eJ5zAV3qEUD9fxHosmceV7BJmBl6BxU6VSOyID3cU8CKP9pH92m
+         wgIEwOkXQ+LZ0o+o4dkJACsiRRO9UzOOaQIb0u64Aj6nHdbsJqavVrtBG/q4rg3WAOCb
+         tIDwZ9Fs7zv8byI09JZjThFDMlJn9gc/bhzhhSHPsLwq6v83wv4Mim50G1l9OGKlueqb
+         1BXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783419169; x=1784023969;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ByMXdijkHl9hu7GM8jt2AMzJWtpO0+9CnetiEbvOVzc=;
+        b=GPU9XBjHiTlDrqYALZISchg+xciKsS5+qermsp+MubuGjBIb2erfQmJxAevyJFLY0V
+         55lIaXhScRO6WPL0P1ohsx4gyvsK0C/6q+mNnJJ1SCMQbvtYM1hHk3ePybkvVJDJ7JJk
+         jMqkLqUP0ayz3ZeO5gCe2UeYwPXxLCh1kOmJVm7CEv7XrOgZxkaI6k/kne93GziwkupD
+         1Uy7xGNhFA7pWmgJaldGvJOreXxhKScvdJdVuCloet9ErsCwGpMEwAlBbtckZShe+N9P
+         fymwIw5OOSQI9ct5epTkOnjwqvm3IlMKVRmgW05k6iWyVtYbA8TnHW561tmORxBjGbyu
+         Vhrg==
+X-Forwarded-Encrypted: i=1; AHgh+RrQspVtYfte68e134AlhI0LQhagn3Jz3EahkQFbVzyaztvR1tVraGa7SGgVzcULRG9i0wWXhTAzlWc8EWv9uVpB@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMIG/be0pCcpKK3P1zc1w7KkfLWTx/GG3bPePob4pwu01X6HJ8
+	AtBbmTZuKTZh5d/P9YzEqfiC3kO0XoBbweoxumGuz1SmZycL/ISnXjMP6uZnU+qJj8Re6Mzzw+j
+	9Mc2pBLrobUrVjOkQNlGHuhb8t/MPtau8BIFWshRRc95yNoUlT66ozOT2sbW6pqrrwkrmUMuJZo
+	18bQ==
+X-Gm-Gg: AfdE7cm0zfoJNmLW4MilFi/9tjrCgQIIeAlPgxdePWgVVj1t3FjGoj2dxy2Lyx0tPN7
+	JyoJJ+Cw9TEqdcMZm0hOk7MAFMA22/qJvlvr2pWNs81n6Zw6jwUFUQ2r3sVfWq1LxnjbS7vLlNT
+	ehwx/gRStjWbPNk6bKO9oRDAEyIhiPScvtOrlKxLK4mv7fE+K0ELKdQLOHVgOUGC8ZftVU7goak
+	LVkamKlJpWjGboFOlvx1Qz4/iGlnrC+MCmQrCtLA+Sh370zihLwtcghI28hN8JE63NoCHRb086D
+	9+dEsF4Q+Xsp5bcjnBj2Mn2dREYMfy1yOef0moPY6424aG3J/BxWdoLouq+9x9PR6iQcN5McLvn
+	LJjIuLcOgeCtFBaFUAOc+PfG/hRkeTnvtkBA=
+X-Received: by 2002:ac8:5a0f:0:b0:517:57c1:bbdc with SMTP id d75a77b69052e-51c79ed34b8mr20269531cf.6.1783419168915;
+        Tue, 07 Jul 2026 03:12:48 -0700 (PDT)
+X-Received: by 2002:ac8:5a0f:0:b0:517:57c1:bbdc with SMTP id d75a77b69052e-51c79ed34b8mr20269231cf.6.1783419168432;
+        Tue, 07 Jul 2026 03:12:48 -0700 (PDT)
+Received: from [192.168.120.193] ([178.235.128.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c15ada057bfsm98437966b.43.2026.07.07.03.12.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Jul 2026 03:12:47 -0700 (PDT)
+Message-ID: <36f4507c-2524-4a9a-b38a-7d061d13cd4d@oss.qualcomm.com>
+Date: Tue, 7 Jul 2026 12:12:43 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/7] arm64: dts: qcom: Add GPU support for Kaanapali
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>, Will Deacon <will@kernel.org>,
+        Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov
+ <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jesszhan0024@gmail.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: Sean Paul <sean@poorly.run>, linux-arm-kernel@lists.infradead.org,
+        iommu@lists.linux.dev, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+References: <20260707-kaana-gpu-dt-v3-0-8dac9a60dd5c@oss.qualcomm.com>
+ <20260707-kaana-gpu-dt-v3-4-8dac9a60dd5c@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260707-kaana-gpu-dt-v3-4-8dac9a60dd5c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzA3MDA5OCBTYWx0ZWRfX6JVr5ZUoOF9u
+ oUiSo7QYaXYvyEzghuMNOoWR3AE6M+5AEfVWkplE+xKRJra8JTnYgcWdr/zvws6QYh3V8rUeEP2
+ uRMkOF4rZkCxCZi7ALPaX2n/j5Z6CHY=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzA3MDA5OCBTYWx0ZWRfX3VZm4pTNfcOz
+ 57PxlwV0BOMyBDk/yc/VKdTpzLfFm4bw9ADdVaMKvIcS5l03MXjTCntfExuRHOevF9dAHKtvqxK
+ fkYbvWtMzJpIKzyNRZpxA/xltQzF5eHPSq/5g/h2i2jbl/g9KKDDvBhtIOX9QbULFu4enJEQroI
+ JWIUMpQ7pcYSd1Q3Z9Fbh0ar0J9oGiA8HuvgHHXYWFlF+gHgBj8q2OSTYF5p5uZgzMkovkQsooU
+ 3XPdXF74KDE2PaSFn/VZ/l8BbKfIhi0YnO5VynVbmUfEhETy0i84KLSTRtriZ3BSJ3Njt8ROPcR
+ vAwjNMIdiquG9CNW4GRJ0xwvxDgzOXwwDwN8JPYcF9Dn7eKOYRvW/Op/LKoV0B1RsA8gI/UvgC8
+ ZjarqSd+mi/Wa/iPLp1/dE4YaEIvx5IcAvZkPpZQZosFD0am4eDlLtnkb3TdfuQ+KKRbWaEMiuV
+ Q5/Hd1molI2RhjoDpWw==
+X-Proofpoint-GUID: g5J3TJQefFK2V9SFC9Wl1sC0ogWp3-m_
+X-Authority-Analysis: v=2.4 cv=N+IZ0W9B c=1 sm=1 tr=0 ts=6a4cd121 cx=c_pps
+ a=WeENfcodrlLV9YRTxbY/uA==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
+ a=IkcTkHD0fZMA:10 a=RAioF0-LDSMA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_K5XuSEh1TEqbUxoQ0s3:22
+ a=EUspDBNiAAAA:8 a=z65YV3W3F_EkYOo9s_QA:9 a=QEXdDO2ut3YA:10
+ a=kacYvNCVWA4VmyqE58fU:22
+X-Proofpoint-ORIG-GUID: g5J3TJQefFK2V9SFC9Wl1sC0ogWp3-m_
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-07-07_02,2026-07-06_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 priorityscore=1501 clxscore=1015 adultscore=0
+ bulkscore=0 suspectscore=0 impostorscore=0 malwarescore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607070098
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_030725_797472_CF18DF68 
-X-CRM114-Status: GOOD (  53.11  )
+X-CRM114-CacheID: sfid-20260707_031250_524879_9BD6210A 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,196 +169,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jul 07, 2026 at 02:11:23PM +0800, Tian Zheng wrote:
+On 7/6/26 11:40 PM, Akhil P Oommen wrote:
+> Adreno 840 present in Kaanapali SoC is the second generation GPU in
+> A8x family. It is based on the new slice architecture with 3 slices,
+> higher GMEM/caches etc.
 > 
-> On 7/6/2026 10:01 PM, Leonardo Bras wrote:
-> > On Fri, Jun 05, 2026 at 04:29:49PM +0800, Tian Zheng wrote:
-> > > On 6/1/2026 5:05 PM, Inochi Amaoto wrote:
-> > > > On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
-> > > > > On Mon, 01 Jun 2026 01:50:22 +0100,
-> > > > > Inochi Amaoto <inochiama@gmail.com> wrote:
-> > > > > > On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
-> > > > > > > From: eillon <yezhenyu2@huawei.com>
-> > > > > > > 
-> > > > > > > Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
-> > > > > > > indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
-> > > > > > > to notify the user of the feature.
-> > > > > > > 
-> > > > > > > Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
-> > > > > > > ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
-> > > > > > > cannot be determined at KVM initialization, an IOCTL interface is
-> > > > > > > required.
-> > > > > > > 
-> > > > > > > Actually exposing the new capability to user space happens in a later
-> > > > > > > patch.
-> > > > > > > 
-> > > > > > > Signed-off-by: eillon <yezhenyu2@huawei.com>
-> > > > > > > Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
-> > > > > > > ---
-> > > > > > >    arch/arm64/include/asm/cpufeature.h |  5 +++++
-> > > > > > >    arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
-> > > > > > >    arch/arm64/tools/cpucaps            |  1 +
-> > > > > > >    include/uapi/linux/kvm.h            |  1 +
-> > > > > > >    tools/include/uapi/linux/kvm.h      |  1 +
-> > > > > > >    5 files changed, 20 insertions(+)
-> > > > > > > 
-> > > > > > > diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-> > > > > > > index 4de51f8d92cb..dcc2e2cad5ad 100644
-> > > > > > > --- a/arch/arm64/include/asm/cpufeature.h
-> > > > > > > +++ b/arch/arm64/include/asm/cpufeature.h
-> > > > > > > @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
-> > > > > > >    	return cpus_have_final_cap(ARM64_HAFT);
-> > > > > > >    }
-> > > > > > > 
-> > > > > > > +static inline bool system_supports_hdbss(void)
-> > > > > > > +{
-> > > > > > > +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
-> > > > > > > +}
-> > > > > > > +
-> > > > > > >    static __always_inline bool system_supports_mpam(void)
-> > > > > > >    {
-> > > > > > >    	return alternative_has_cap_unlikely(ARM64_MPAM);
-> > > > > > > diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-> > > > > > > index c31f8e17732a..348b0afffc3e 100644
-> > > > > > > --- a/arch/arm64/kernel/cpufeature.c
-> > > > > > > +++ b/arch/arm64/kernel/cpufeature.c
-> > > > > > > @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
-> > > > > > >    	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
-> > > > > > >    }
-> > > > > > > 
-> > > > > > > +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
-> > > > > > > +{
-> > > > > > > +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
-> > > > > > > +}
-> > > > > > > +
-> > > > > > >    bool cpu_supports_bbml2_noabort(void)
-> > > > > > >    {
-> > > > > > >    	/*
-> > > > > > > @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
-> > > > > > >    		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
-> > > > > > >    	},
-> > > > > > >    #endif
-> > > > > > > +	{
-> > > > > > > +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
-> > > > > > > +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-> > > > > > > +		.capability = ARM64_HAS_HDBSS,
-> > > > > > > +		.matches = has_vhe_hdbss,
-> > > > > > > +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
-> > > > > > > +	},
-> > > > > > >    	{
-> > > > > > >    		.desc = "CRC32 instructions",
-> > > > > > >    		.capability = ARM64_HAS_CRC32,
-> > > > > > > diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-> > > > > > > index 7261553b644b..f6ece5b85532 100644
-> > > > > > > --- a/arch/arm64/tools/cpucaps
-> > > > > > > +++ b/arch/arm64/tools/cpucaps
-> > > > > > > @@ -68,6 +68,7 @@ HAS_VA52
-> > > > > > >    HAS_VIRT_HOST_EXTN
-> > > > > > >    HAS_WFXT
-> > > > > > >    HAS_XNX
-> > > > > > > +HAS_HDBSS
-> > > > > > >    HAFT
-> > > > > > >    HW_DBM
-> > > > > > >    KVM_HVHE
-> > > > > > > diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> > > > > > > index 65500f5db379..15ee42cdbd51 100644
-> > > > > > > --- a/include/uapi/linux/kvm.h
-> > > > > > > +++ b/include/uapi/linux/kvm.h
-> > > > > > > @@ -985,6 +985,7 @@ struct kvm_enable_cap {
-> > > > > > >    #define KVM_CAP_ARM_SEA_TO_USER 245
-> > > > > > >    #define KVM_CAP_S390_USER_OPEREXEC 246
-> > > > > > >    #define KVM_CAP_S390_KEYOP 247
-> > > > > > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-> > > > > > > 
-> > > > > > >    struct kvm_irq_routing_irqchip {
-> > > > > > >    	__u32 irqchip;
-> > > > > > > diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
-> > > > > > > index dddb781b0507..93e0a1e14dc7 100644
-> > > > > > > --- a/tools/include/uapi/linux/kvm.h
-> > > > > > > +++ b/tools/include/uapi/linux/kvm.h
-> > > > > > > @@ -974,6 +974,7 @@ struct kvm_enable_cap {
-> > > > > > >    #define KVM_CAP_GUEST_MEMFD_FLAGS 244
-> > > > > > >    #define KVM_CAP_ARM_SEA_TO_USER 245
-> > > > > > >    #define KVM_CAP_S390_USER_OPEREXEC 246
-> > > > > > > +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
-> > > > > > > 
-> > > > > > >    struct kvm_irq_routing_irqchip {
-> > > > > > >    	__u32 irqchip;
-> > > > > > > --
-> > > > > > > 2.33.0
-> > > > > > > 
-> > > > > > Instead of having these architecture specific capability, I wonder if
-> > > > > > we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
-> > > > > > other architecture supports similar things can reuse this capability,
-> > > > > What of the existing stuff doing the same thing? x86's PML, to start
-> > > > > with?
-> > > > > 
-> > > > In fact I think the HDBSS is the first one with non-fixed size.
-> > > > Although there is a in process RISC-V extension for it, there will
-> > > > be a long story to make it ratified.
-> > > > 
-> > > > > > For this generic thing I suggest, the getter returns the max support
-> > > > > > entry count (or the buffer size) it supports like the dirty ring
-> > > > > > capability. And the setter just let the architecture set the parameters
-> > > > > > based on the user request.
-> > > > > This looks wrong on a number of levels.
-> > > > > 
-> > > > > - If you want something generic, there is the existing dirty
-> > > > >     log/bitmap. How this stuff is populated is none of the user's
-> > > > >     business (trapping write accesses, dirty bit collection from the
-> > > > >     PTs, or HW-generated log), and we don't need an extra feature for
-> > > > >     it. Performance will obviously suck, but that's what you pay for
-> > > > >     something abstracted and cross-architecture.
-> > > > > 
-> > > > > - If you want something architecture specific, then it can't be
-> > > > >     generic, by definition. You get the raw speed and compatibility with
-> > > > >     other arch-specific extensions.
-> > > > > 
-> > > > OK, I agree, it is better to keep this thing arch-specific. Doing a
-> > > > generic thing does not benefit too much, I have made a mistake on
-> > > > it. Thanks for your kindly explanation.
-> > > 
-> > > Awesome. Thanks for the review.
-> > > 
-> > > I agree with Marc—keeping this ARM-specific is the right approach.
-> > > Also, in v4 we're removing the ioctl interface entirely. HDBSS will be
-> > > auto-enabled during migration setup and auto-disabled when migration
-> > > completes, so the capability naming issue becomes moot.
-> > > 
-> > > I plan to post v4 with the updated approach soon.
-> > Hi Tian,
-> > 
-> > Any updates in the v4?
-> > Please let me know if you want help in any kind, in regards to this
-> > patchset.
-> > 
-> > Thanks!
-> > Leo
-> Hi Leo,
+> There is some re-arrangement in the reglist to properly cover maximum
+> register region. Other than this, the DT description is mostly similar
+> to the existing chipsets except the OPP tables.
 > 
-> Thanks for the follow-up. I've finished polishing v4 and am doing one last
-> internal review.
-> 
-> In this version, I've also aligned with the latest HACDBS v2 implementation
-> you shared—e.g.,
-> auto-inserting KVM_PGTABLE_S2_DBM into pgt->flags during
-> kvm_init_stage2_mmu.
-> 
-> One note: dirty ring mode is not yet supported in v4—the series currently
-> focuses on the
-> dirty bitmap mode. I'll explicitly call this out in the commit messages
-> (including that
-> KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE and related dirty ring components are
-> omitted) to avoid
-> any confusion during review.
-> 
-> I plan to send v4 out later this week.
-> 
-> Thanks,
-> Tian
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
 
-Hi Tian,
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-Awesome! Thanks for letting me know!
-Leo
+Konrad
 
