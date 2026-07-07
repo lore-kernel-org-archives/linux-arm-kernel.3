@@ -4,102 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 610FEC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A12BC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:57:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mt6rUjgJc+IuOzhtFCcGRB1t052B3wNDIX5do0o14+8=; b=AbQl0WC1VprcYt+MQDyGlqCTH6
-	wavv6yQqxkucwGDrbYnwee+I/GkEWD+qtQUrht3eFuZR7O5IsLji563eH5a2Ia9oL9jDovvkoWPTK
-	Pxs6sf6zSVxpKfRkV0CAjAc5ZOOIXhhFNtogEffzaN8OyadEm4EYAHM1rMUbKvrvT/IJreDSKytd0
-	qEImlbdaTz4faf8cAsLTJdh72UH1d7meV24+e2WRq+zSRnBy0iKJLVRRwHmF+2ohKvwrW/7VSH+mC
-	6+8YdBRs+AwMbSPGS2IDup3HBxapImK9S3Poa/rPrznFebIxX9NX2oYC2BoIxVUqrz3hGDrtWCYnA
-	+4FRyUHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2FtO6/auXQw6HdU9on7vE7e0AikChczY2s55ofOk02k=; b=K+Vyy783gHXhYq1Mazody/oF9d
+	ETxkf/AelG9WACY68CSN5Fy3MESpJ3YcpOWUaQEPq8yE+++ZQbl8iIGfOBSEvIAmiZq+1+jBtqzRB
+	qIlSq6hjs/Ev4kVjqKSrSsKyq29OOjPhTY7UGOZHd3hPzkCmmImpqcgi+UiAfTa7RiuzTMpFf6s5q
+	TL+L0EKGCk91ErmhzxLkrhhrzFtoUht7+lzjtc+ZGfxVFMDM4UjH3wJzAC+j4m6SIwKAbl/AK1WMk
+	orsEtiOEn/l5PwL9vjhaH3Eja2KgMsdkHgVjhKdukecdJs4n47YNyyHHjX8EEFfH3OdfRqp/Mlr0O
+	jetmX7Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzj5-0000000EGUl-25Bf;
-	Tue, 07 Jul 2026 06:56:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1wgzkW-0000000EGg3-48IQ;
+	Tue, 07 Jul 2026 06:57:45 +0000
+Received: from mail-westeuropeazon11013056.outbound.protection.outlook.com ([52.101.72.56] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgzj4-0000000EGUU-11rj;
-	Tue, 07 Jul 2026 06:56:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
-	:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=mt6rUjgJc+IuOzhtFCcGRB1t052B3wNDIX5do0o14+8=; b=i3FeNj1xXUMS/3g6KM1ksLw6MR
-	1Py9h8VdHu/0O3XrIHV2Gc3PD/0ct+s2a40zFmdg7+MQFwyEjMxRxpAbpMfWrZ1LN/iSUhkqQ/dru
-	lg75tQJE+467sM0Xo8nYTy3KA4Otq4hV1aGFA2+ZHfk66vEZziKOzyu7XfIWfFBhtKi1knqXmj0JM
-	V7S/gG53HR1gW6Co4wU9AshnoqfAZqC7M/akNfxKpvbpuVErNyO7XDmGhfi/wYhQpL2F+kim+avtm
-	anWjxMAL49ArmflPm3yoeQQpbM1S+soPdIvQOmn/dV3o2UBeBFacNAOjGeR67AlN79lUxAEFEDssa
-	Bh1kTTbg==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.99.2 #2 (Red Hat Linux))
-	id 1wgzj0-00000007BJt-0Fxl;
-	Tue, 07 Jul 2026 06:56:13 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6676tP2w9996839, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1783407325; bh=mt6rUjgJc+IuOzhtFCcGRB1t052B3wNDIX5do0o14+8=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=BT1muqJfV9uvba4UeuBvFhB489eDtIdc082idO4/M8yYIYlG05iWs0nKwyNt4ETiq
-	 oDY1NMvGa9VkFabtoEAsWKXnNhuG7AxF7aLL0ol/5JvrC3iDvK62XJ1l9Km5GvY1RV
-	 gnYzNbdM/Bn72XCVI643rwoFWtbzTsUH0V8NeRWC0DhbcWd46Yj/mqTqe76z4uFacu
-	 u/6I+RVYsp1qNn4817dJOhZY3cn8bs+3ujhc8QwZIOEx7Tvgm/8DGkd09DBipbvxzB
-	 GIUdCP3VQDNcKPAr6T/Bp3efE0IxJrEdw9y1Re00yyLcy1RQ04V4yCz1jzdA7tt4tY
-	 /gOU2olcAc4MA==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6676tP2w9996839
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 7 Jul 2026 14:55:25 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 7 Jul 2026 14:55:26 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([::1]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::e6fd:5a3f:8946:92c4%10]) with mapi id
- 15.02.2562.017; Tue, 7 Jul 2026 14:55:26 +0800
-From: =?utf-8?B?WXUtQ2h1biBMaW4gW+ael+elkOWQm10=?= <eleanor.lin@realtek.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-	"linusw@kernel.org" <linusw@kernel.org>, "brgl@kernel.org" <brgl@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
-	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"afaerber@suse.com" <afaerber@suse.com>, "mwalle@kernel.org"
-	<mwalle@kernel.org>, "andriy.shevchenko@intel.com"
-	<andriy.shevchenko@intel.com>, =?utf-8?B?VFlfQ2hhbmdb5by15a2Q6YC4XQ==?=
-	<tychang@realtek.com>
-CC: "linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"linux-realtek-soc@lists.infradead.org"
-	<linux-realtek-soc@lists.infradead.org>,
-	=?utf-8?B?Q1lfSHVhbmdb6buD6Ymm5pmPXQ==?= <cy.huang@realtek.com>,
-	=?utf-8?B?U3RhbmxleSBDaGFuZ1vmmIzogrLlvrdd?= <stanley_chang@realtek.com>,
-	=?utf-8?B?SmFtZXMgVGFpIFvmiLTlv5fls7Bd?= <james.tai@realtek.com>
-Subject: RE: (subset) [PATCH v4 0/4] gpio: realtek: Add support for Realtek
- DHC RTD1625
-Thread-Topic: (subset) [PATCH v4 0/4] gpio: realtek: Add support for Realtek
- DHC RTD1625
-Thread-Index: AQHdAijOhwVVCHLFCkaSAZ80GLo1NbZP+P+AgBG4dLA=
-Date: Tue, 7 Jul 2026 06:55:26 +0000
-Message-ID: <a00c475a6ce0469682305c4b4269b181@realtek.com>
-References: <20260622092335.1166876-1-eleanor.lin@realtek.com>
- <178246069898.6685.11577448681947659397.b4-ty@oss.qualcomm.com>
-In-Reply-To: <178246069898.6685.11577448681947659397.b4-ty@oss.qualcomm.com>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-x-originating-ip: [172.21.6.42]
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1wgzkV-0000000EGf6-0Y16
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Jul 2026 06:57:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ROW1niMxNtPpD3F2jJxbyQPs+Jk8AmfHPHH+2NWJ9LR8jThze8wYrwjhea1NKDlzXBJv//ui+Wie/VVjvU0h1yDnsZpW6lJH928/L5QeVJD1nD2ExcnF6ZMx7o1JX2c09Qz+PHW4jSmSl0SyIcgDS6zzmg+l/D6Z0FipQCs0V3k8ZTG33CqnzSgziFePbS/eIqWQL8N3Pk+7OSBlfk4gsKKwSSUeLyedGxA0mt5xSijjxwjtcjd/mIOLymY3HPWK1QJ5WJGanKeh8LUPqsc+QovzEA/lvoR/praVBUdO9SH5An6kS9mUoqpKKSoDQsc+I0i0yUzJ2jqZ6Bwj/ee12Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2FtO6/auXQw6HdU9on7vE7e0AikChczY2s55ofOk02k=;
+ b=wjO2lZ7iz50cn1olF5lLut8kX9pSYbSuD7wPan541qnRQBSMuT+7AAKHIPUewnzgkQDW4zWgtQ3F2BduFeYGDbVJtmEZzkzBqJ2mrhCK+QzFn3R3Z/Q08az1iuRH/vCCIyFbZ1ofJhojRcv5KXtAhiPF7t8ppa8A0LQM9qjzqJPl8MTwuCDOtuDdBNStMCJ2Q7SL3anu4tx/eAhzG3Dq4AZ7+x48i61denG52XUZPr19yxqEOTItl57XLmNYkDmxuoGgg2VasGzH2WQ3HCQOGWnDSl6QvkB7WRczy9+G0szseE7bkiPqqjVbgSQgQdAZZIvz7DndIk5jQuC+RwiPiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=2FtO6/auXQw6HdU9on7vE7e0AikChczY2s55ofOk02k=;
+ b=O/kP6LHyn7JUCWIhaxDfayCKj//o+AG/Dcm4ukoM8qba2RRRRZKXRxHk4gv2hn/eo9XgLKLvN5hV5LQA7B4+/3qn1FTcgtbLuN8NQ0FvQWnyySJIoj4vTJVvb/w2NnI7yjy5veEiAktGkLL2C6R4+KLdUsctJC/8Zm2skEfjqD/ZFhppQ/elkcDr1HhtmIWhXVic1aDILVm+Ibh6g49rT68svEcEPmwJ6OCp4McXKgv0LCodWwdJdsCuYPGtV3nlwNLTGUMg1n9OADVceW2C+ydJlLUERagCJaBiwvctjYnIfzBFz4tAqShcMunFVVW5ouyiRY8cz+c5AIV24iGfWg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20) by GVXPR04MB10945.eurprd04.prod.outlook.com
+ (2603:10a6:150:21e::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Tue, 7 Jul 2026
+ 06:57:33 +0000
+Received: from GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994]) by GVXPR04MB10021.eurprd04.prod.outlook.com
+ ([fe80::d247:853:3e16:1994%5]) with mapi id 15.21.0181.009; Tue, 7 Jul 2026
+ 06:57:31 +0000
+From: chancel.liu@oss.nxp.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	Frank.Li@nxp.com,
+	s.hauer@pengutronix.de
+Cc: kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-sound@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 0/6] Add audio support on i.MX91 9x9 QSB
+Date: Tue,  7 Jul 2026 15:57:19 +0900
+Message-ID: <20260707065725.312450-1-chancel.liu@oss.nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SE2P216CA0034.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:116::15) To GVXPR04MB10021.eurprd04.prod.outlook.com
+ (2603:10a6:150:112::20)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB10021:EE_|GVXPR04MB10945:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19534408-e4f6-4bca-681e-08dedbf50402
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|376014|1800799024|23010399003|11063799006|56012099006|18002099003;
+X-Microsoft-Antispam-Message-Info: wP7bTGFN5R3VVXeyLVGbJGGLUHXfKVzbClFdQR6t+aL27sLhfoCu3cbPJ/S+NFpviS6H6pGNX3q+LnoxA/luzsdrhH3CH9hNhNN4l+qTUbyukQTCujQ017nlS60s9gqjJBlHmHVchCf5+vdweloYPYyNA4GwQKFkmwBxLSHDrhwhYzPxyJC4LkxqlZ9xP7/taWEwAMXt3pM7OstaxhYVydg5RiOUrj4XtkY5XGS2FzA3+JxYb2CHXV07eyrZMX9PYcg2h6axZnRKzYu6S9VyajG3LcsMFbSgonlV5ubcwfpPHZeVf2Lf+q7ow1mnRFR43jlScanSPyYN2aZ+gijSEhx3pOWrS2uD7IGE+pe4dy7A9AqxGSC3y2CzLldByfZOTNGGmSOoSRzv/LhZwLz5oLj5EfqDPQlyR0mq3+ehInHftOc7Zw1yQLSf5vWmiqTNJUpEIUYyMmWErR6DwUc1lFVcyF7ZFvxg6TFviWCNmHe7l2I/M0yCn2YFPJ0vfFXK/EN34MFgqtly2vWsQ80HmJsyOybkEDUAl1AbAL5bDwZ7cWhCBzNBsoG3Lj1e9nDGY54TQk2vueO5+OFo+LTWeMHDYVGl6s8bITtgJz+7s3HB6bDK+tjeQodai7jaxGVpego+HqlhL3Y3uhDIFRIsRnsN35zfHwPWLTm828g1Puk=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB10021.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(376014)(1800799024)(23010399003)(11063799006)(56012099006)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?tceuszMsa5AsDoKezXKhqK2a2H66m2RA3DiNiAXPI9laznAPdqFw0ZPHCe1e?=
+ =?us-ascii?Q?yeD4Onz3u1RIagYwIv+LtguRvJlvq7hmGU+fA5OKFywSzUcOLjv76y8gFZXQ?=
+ =?us-ascii?Q?4osHOA5yClCufYhW2rgjiJfabTlZe9um5fOX62DXhCZJZRrc8k7G6ldu1mDT?=
+ =?us-ascii?Q?PNv2NrS/EzdAKc6Z/0yuKJB7y+mtNuwe++0gO/zSL3YWBDXA03awDipKCCDK?=
+ =?us-ascii?Q?9XN04cdzcTe1RiZPMfQIaNFA34wSF+nyykCSnmE59kMKbdWPXYTg2UgRYaNh?=
+ =?us-ascii?Q?nbqPBZTRQynqpTvyXJxDbIDfEnZSH87wSjvI+xsZmf2gkrZh/WppwHJa0LrZ?=
+ =?us-ascii?Q?H65kB7PDNPAUYGUgzWIssCjG08fqYjNvDpBrNNcD7sHl0qhgvBQNTIWl02wP?=
+ =?us-ascii?Q?LdB9vQ3FLc6hQKH+yJbJ5DOabJOdxv7OUjxOGPtM9lTNOJbdvFG0Du/wNNno?=
+ =?us-ascii?Q?we5V8GhGZikQtxHQuEH5kW7C0pDSnCMaUEE3AfwxlAzuCtdoFhvJwRuheF9+?=
+ =?us-ascii?Q?u1rSSEELIm4sJ1QAMt9fMd38s1I18/9ULlpu12oxi1WTJS2XyTxGRGSSsob0?=
+ =?us-ascii?Q?Gn2Kg5HKZrLq71JUPHb55b4RhlHzRjGBvZGLv9YJo6sizpelBdJNHggklUr3?=
+ =?us-ascii?Q?/ijU/TKEFVXEQdtA8VzsOKpYzBPDKCW3051o0Xy7nNYAeAPPQw9MIMAp+9V4?=
+ =?us-ascii?Q?VzQxUuPXpBlxMu5X7hf+7bMjHqeOSl9rfBvCUrnsXuLTdy2vSKscAeUxeEQS?=
+ =?us-ascii?Q?hsuCqagwhVSey6ommtkBN0FajaBzyncBL/NgWUuFuLikrw8jmzBrFqavOqkW?=
+ =?us-ascii?Q?w6D70iwS3vdW54WraIIeAvzs3EdLW+cdmbGhv/pVLzY4KwNtUk4l3ht8mrAq?=
+ =?us-ascii?Q?GnlIfdeIu8D7KZZgqQWYYyAZXzJJpzI1SgaJQ2A3pqH78F+adivvsSu1zBUY?=
+ =?us-ascii?Q?pKgQRRcqiJZ/qK1OHj+5zzeXecfEN6Yd1kegJXU2ES8wo25OQduL5F3CXCJt?=
+ =?us-ascii?Q?viuFHhQyKW8xfT+Cbo/u/g5oviJNZRcW+g6xpif29LrGPzvJUJDPdTJ3aRhE?=
+ =?us-ascii?Q?cb72OoWesbst5kfABQ8Moa24zQUv2xCoPII80Ht9V0SvoKX/v2R8ZGKG9Qd8?=
+ =?us-ascii?Q?2SHGXOSQ27c84uNzJ8ObwvJpmGYtK07pd7PMzAUvgBSJR+ufMNYLjc++ZpDq?=
+ =?us-ascii?Q?gZnHD4nVmrLeYpVIqbO4JEyjRfm9GVormKV1mRgxklh3F9psLGNV1IaxQqZg?=
+ =?us-ascii?Q?6E18pDp136h+i2NiA2F3RH+KBF90UQswuoBsqHwOa11+fnTX6hChu+SqcQyD?=
+ =?us-ascii?Q?fppzTWeLFYFVPpiN/LzsCybaEQ+sGGmqGOlVrCGpk4iQEXrAdZ/bZhD5d5iB?=
+ =?us-ascii?Q?RzdirkIa+QDqx95aW1hIVDLMxy++voWRAc/2O4mVgU+p5zNfBSyOxmC7LPPn?=
+ =?us-ascii?Q?JzkxA4H8IdRN883pNcpIoo8RDJOVIi0OO4vw+OK11quwNMj7J7Yg9JU9J6/1?=
+ =?us-ascii?Q?SMKaw6c6Ya9KHDmn3G4BMY4GdzFTLSd40XjIhZnCL9QD1JArVzZ8JSCPNbwd?=
+ =?us-ascii?Q?9dvoNz8TXLbXPEefr3de6jPXcbgc0poHl8eWaA/JaXxW5b1GEr7poMUvweNo?=
+ =?us-ascii?Q?B3TKh9sZqe5zZdO0Jpzf6e9Go8zSBPcROUUHn42f7mQI3oWuuHKXHbEZR5zB?=
+ =?us-ascii?Q?o5e502XenKiUhp8JCFtAVYnSCFkd2HJUXZzY4OeuYQEEG2BTRqC6GdPQ/QVm?=
+ =?us-ascii?Q?vgJRVyX5AFYr+sD94+tozngltJZCbCUh+sLmOW9tsKwj5HLgmFxL?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19534408-e4f6-4bca-681e-08dedbf50402
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB10021.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 06:57:31.7593
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: PrETziO49VYgXohiFcohUWtPtyrM41hVLkhuPsaN1TRT4661a4uSbGh5zkT/QszNcHXcy6E33iUhqblAGkytSIW5Yc7XVQ1+KF5xaOgEmV8hDaZDHWdez/HPBLzmEhHV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10945
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_075610_936632_BEBD3101 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20260706_235743_173799_66768D13 
+X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,28 +146,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgQmFydG9zeiwNCg0KPiBPbiBNb24sIDIyIEp1biAyMDI2IDE3OjIzOjMxICswODAwLCBZdS1D
-aHVuIExpbiB3cm90ZToNCj4gPiBUaGlzIHNlcmllcyBhZGRzIEdQSU8gc3VwcG9ydCBmb3IgdGhl
-IFJlYWx0ZWsgREhDIFJURDE2MjUgU29DLg0KPiA+DQo+ID4gVW5saWtlIHRoZSBleGlzdGluZyBk
-cml2ZXIgKGdwaW8tcnRkLmMpIHdoaWNoIHVzZXMgc2hhcmVkIGJhbmsNCj4gPiByZWdpc3RlcnMs
-IHRoZSBSVEQxNjI1IGZlYXR1cmVzIGEgcGVyLXBpbiByZWdpc3RlciBhcmNoaXRlY3R1cmUgd2hl
-cmUNCj4gPiBlYWNoIEdQSU8gbGluZSBpcyBtYW5hZ2VkIGJ5IGl0cyBvd24gZGVkaWNhdGVkIDMy
-LWJpdCBjb250cm9sDQo+ID4gcmVnaXN0ZXIuIFRoaXMgZGlzdGluY3QgaGFyZHdhcmUgZGVzaWdu
-IHJlcXVpcmVzIGEgbmV3LCBzZXBhcmF0ZSBkcml2ZXIuDQo+ID4NCj4gPiBbLi4uXQ0KPiANCj4g
-QXBwbGllZCwgdGhhbmtzIQ0KPiANCj4gWzEvNF0gZHQtYmluZGluZ3M6IGdwaW86IHJlYWx0ZWs6
-IEFkZCByZWFsdGVrLHJ0ZDE2MjUtZ3Bpbw0KPiANCj4gaHR0cHM6Ly9naXQua2VybmVsLm9yZy9i
-cmdsL2MvOGYzMjgwOGUxNTMwYjIyMjllMDc2OTVmYjM5YzU0ZmVlOTEwYmQ0YQ0KPiBbMi80XSBn
-cGlvOiBSZXBsYWNlICJkZWZhdWx0IHkiIHdpdGggImRlZmF1bHQgQVJDSF9SRUFMVEVLIiBpbiBL
-Y29uZmlnDQo+IA0KPiBodHRwczovL2dpdC5rZXJuZWwub3JnL2JyZ2wvYy9iNWQyM2ZjZGIxMjk3
-MmM1MjJlOTZmOTBhYjQ4YmU4YTBkOTcxYjBlDQo+IFszLzRdIGdwaW86IHJlYWx0ZWs6IEFkZCBk
-cml2ZXIgZm9yIFJlYWx0ZWsgREhDIFJURDE2MjUgU29DDQo+IA0KPiBodHRwczovL2dpdC5rZXJu
-ZWwub3JnL2JyZ2wvYy9hNTdlMjdjNDNiMDMxNWVlODZjNjg5NjUxMGQ2OWJlNTI1N2UwOTNlDQo+
-IA0KDQpUaGFuayB5b3UgZm9yIGFwcGx5aW5nIHRoZSBwYXRjaGVzIQ0KDQpJJ20gY3VycmVudGx5
-IHdvcmtpbmcgb24gdjYgb2YgdGhlIHBhdGNoIHNlcmllcyB0aGF0IGluY29ycG9yYXRlcyBBbmR5
-J3MNCmdwaW8tcmVnbWFwIHBhdGNoZXMsIGFuZCBpdCBzaG91bGQgYnVpbGQgb24gdG9wIG9mIGdw
-aW8vZm9yLW5leHQuIEhvd2V2ZXIsDQpJIGhhdmUgYSBjb25mbGljdCB3aXRoIHRoZSBkcml2ZXIg
-cGF0Y2ggdGhhdCB3YXMgYWxyZWFkeSBhcHBsaWVkLg0KDQpDb3VsZCB5b3UgcGxlYXNlIHJldmVy
-dCB0aGF0IGNvbW1pdCBmcm9tIGdwaW8vZm9yLW5leHQ/DQoNCkJlc3QgUmVnYXJkcywNCll1LUNo
-dW4NCg0KPiBCZXN0IHJlZ2FyZHMsDQo+IC0tDQo+IEJhcnRvc3ogR29sYXN6ZXdza2kgPGJhcnRv
-c3ouZ29sYXN6ZXdza2lAb3NzLnF1YWxjb21tLmNvbT4NCg==
+From: Chancel Liu <chancel.liu@nxp.com>
+
+The board routes audio related signals through on-board muxes controlled
+by a GPIO expander. Add the mux states required by SAI1 playback and PDM
+capture. Add support for WM8524 and PDM microphone sound cards in DT.
+
+Chancel Liu (6):
+  ASoC: dt-bindings: wlf,wm8524: Add audio-graph port support
+  ASoC: dt-bindings: fsl,micfil: Add audio-graph port support
+  ASoC: dt-bindings: dmic-codec: Add audio-graph port support
+  arm64: dts: imx91-9x9-qsb: Add audio-related board muxes
+  arm64: dts: imx91-9x9-qsb: Add WM8524 sound card support
+  arm64: dts: imx91-9x9-qsb: Add PDM microphone sound card support
+
+ .../devicetree/bindings/sound/dmic-codec.yaml |   4 +
+ .../devicetree/bindings/sound/fsl,micfil.yaml |   4 +
+ .../devicetree/bindings/sound/wlf,wm8524.yaml |   4 +
+ .../boot/dts/freescale/imx91-9x9-qsb.dts      | 160 ++++++++++++++++++
+ 4 files changed, 172 insertions(+)
+
+--
+2.50.1
+
 
