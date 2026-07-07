@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B515C43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 828FAC43602
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 12:31:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNIu1nT9O5TEzBCIb6SZPpMwQbKBprZzCJQi10hmSNQ=; b=DK7lP/BWCt656CDchqE2+j1Ipn
-	Uux6fuCNlpvsdsUAEE1EvtLcvUXZSM37ceNiQJkp+9mBFaFiBExXPa8X7SVWXVkUzHSTVaYxDjv3E
-	yglgPFTHDBubDDgaLRDD5hx1IOjbX6fINfBktsm2jHYqs2+Xxo5QoeGlatssZ7bXXtuyfBwWj+yFx
-	tl7emRYPwYm60g/0Erh3H3Bl8Rrp54cl+NUa0292m/u0VzEXNpRUhVHwv+RJe5TBo0rtAbFCp8MxB
-	FkGhLNs7URHgYGst0GUFt7ybqg1ukhSx3IQYhsTJapVbZRujALMG9IXxuB/Seqzl/ChKVq5H+5zV8
-	n7gcibtg==;
+	bh=wuj6q/qR8Vtu8XNH10SeX8kJHc/CvibnWDhOQpyb6fo=; b=2hr1ERTV88EEl/HN/sXOUf2lZZ
+	Z/V41Pco0eyqY5BUTdwWS0GaasQ+JW/MiLDDQvA5nBBxuDvxhMdlGnngB2R7TwnYxBJVUFTX/jWin
+	DzJCJWjE0EDYM6FXWTPpprR5f6KxdgdrSBgfLkvS/1iVOkZIe6c+ekj9x+tYYzcoU7InFdTPvpphQ
+	0RajQgr0jsRKwR5LSMrfFYxTdpPp9TRVtBEXAI2kfTT7wMsh42aI3Yw1O0gPYcyZ4zn9msS2n5Xxm
+	DoUou/pll1CiG25FVhbxyCpyZ9xFmJ1oilIdvlFv4D1d0tbdr4hKH3UgHufXNBRU1Kh6Y6nbap+bI
+	9UDsmrnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4rb-0000000Ex0Z-2qwY;
-	Tue, 07 Jul 2026 12:25:24 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1wh4wu-0000000ExX9-1po5;
+	Tue, 07 Jul 2026 12:30:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh4rW-0000000Ex0E-1hWT
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 12:25:19 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-493be0fbcc5so36795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Jul 2026 05:25:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20251104; t=1783427116; x=1784031916; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BNIu1nT9O5TEzBCIb6SZPpMwQbKBprZzCJQi10hmSNQ=;
-        b=hWbyiNPqzUxXDD5GfqbnPvFFBtyFVAkpzPlVm+CCjF4CAKhT84MSMIkrhIYHM3A45l
-         fZYAdD5asr7VHGv0ueutE/tXTPWdUTyYFlnrV5HaTn39IF/jaoTDLyHyu+bMt7weQ98p
-         JMRIPou9Z7bqYYvsK9CEqTB6EBa3IZEq/Yv7aRmppjYMmhjQIVK5X9n6VczDw9Xvb89I
-         xl+0Y2a9Vh0mS3SQN32L5RBNvKFnrivuWWS2mVt+bqAP9rtLiqGOf7Z9WEo6nzQZMdjU
-         KiP15kr7izMcMeMZMw4XzHBSx5iv4XPr0uEpdv8+FmePAfb5PwqcEvItUZQmDxbWAvgf
-         q42A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20251104; t=1783427116; x=1784031916;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BNIu1nT9O5TEzBCIb6SZPpMwQbKBprZzCJQi10hmSNQ=;
-        b=TMnvtnDqqNIEOUgQipen4rO9frGEZKV0R+ogzXCEtZTRkKfoeRUPQLIGpOY5Gd+3Jq
-         5xRp287xhG6/UU8ZXffHxC1exYNPBWq/xjz30EX+Q640yUEYlL85/+TyjSv/+5YM5hXq
-         RyYNwaPahs553FytGUpM70lCOnmgJSJWVC2W/Ht36rdGFvlKs70sH+BRhVW5y+59bIeF
-         moBG0A2S4wOQxmviNT5J9k3kOipEVXDtIoawvvLq2GZGuU4SAth65Ijqre//FS4UlCvQ
-         dJfb7rfffftkR94V5v1ddyveShdlUM/64QZIC12g0glGROOzBWrhMdmS8HVwVeRPkkeB
-         37nw==
-X-Forwarded-Encrypted: i=1; AHgh+RpbV+hZxNPMYfhxUu9OEQ3T7NAy+XABD5Hz4qQ8IZz712imt1Wxwz8AKduoWpNpJZiY2DTCV5TYSLBzvi7NrKdF@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIvJ6Zszh0wVOOb1Rbzm1JLC1br+OavRrz3rW7QuP3w+Oru9P1
-	UqmynihsZpg6jFvPncy1g0fxIl6iH5W9l8gtHysp6AsDRwxON6/cqSbYd51yzq2RgQ==
-X-Gm-Gg: AfdE7cmBuQbhc1mwRDqhMAQrZUidDD1d36E+CzIvw3X+AgoObu5bj6v3vX7/2Y67Tpm
-	QFbJl0ueMfS0iUenqoSdAlGvEf3EO2slTKBj8k+iNswpE65bNB19Q2hIdOr14uMlBOvMAWatTlq
-	laIxMI11vXnGpibdYiGcxV5oajJYTGR4Rta0MRre7EXHZALlx5NVilX1qJJsQZsvZrcPG6Oj8Hi
-	K20WdicK0pC1xaxmIJWut9KxAUoKKp0l5Dgi2b2RQxF4wsgyXKkPwqkKoAYfExAK0enpCkrKhQB
-	jflXmPTZt3opKm7Dz7cY7Ake4Eqi60zzxFgIXHY6d58ZD6px2SY7r1c01h7v05wGhDda/SD56cS
-	kTFgAoajwjfKc+uBmhirHGdZk7gqMYF8XRCPZcG7lz1b5umHsAJyf1VXXne2ScE1sc9HLqvAaTw
-	aewnoksx3IBfSq7uPUiy3YO3ifNdoidN+LWNc2pICQxByznRCaH7ALTYhZpso=
-X-Received: by 2002:a05:600c:1c0d:b0:492:203f:a378 with SMTP id 5b1f17b1804b1-493e121b8cdmr1231235e9.8.1783427116023;
-        Tue, 07 Jul 2026 05:25:16 -0700 (PDT)
-Received: from google.com (220.60.76.34.bc.googleusercontent.com. [34.76.60.220])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-493e0f3677asm48472185e9.4.2026.07.07.05.25.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Jul 2026 05:25:14 -0700 (PDT)
-Date: Tue, 7 Jul 2026 12:25:08 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: iommu@lists.linux.dev, "Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Jean-Philippe Brucker <jpb@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Robin Murphy <robin.murphy@arm.com>, Will Deacon <will@kernel.org>,
-	David Matlack <dmatlack@google.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	Pranjal Shrivastava <praan@google.com>,
-	Samiullah Khawaja <skhawaja@google.com>
-Subject: Re: [PATCH v2 0/8] Organize the SMMUv3 invalidation flow so iommupt
- can use it
-Message-ID: <akzwJFpHTsgMrOYI@google.com>
-References: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
+	id 1wh4wt-0000000ExWk-2O9W;
+	Tue, 07 Jul 2026 12:30:51 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id E9144416FD;
+	Tue,  7 Jul 2026 12:30:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BBFD1F000E9;
+	Tue,  7 Jul 2026 12:30:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783427450;
+	bh=wuj6q/qR8Vtu8XNH10SeX8kJHc/CvibnWDhOQpyb6fo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Mz07CscPi3n2etIOnR9W4lYqeVtJ3THn5tFlD/K24ioHk2HaIdHO7ZvKeB8zX26mZ
+	 Gis2d697HvCsp2capKLwsHTBGBavdmOhI4DPQcm5M0T/TvVOmGAclWec9BQTyhGX3M
+	 Qjqi20Eafd3aY1URV6BS8dgyX5hFZP8u+IgGOnBlwj7rJiVCwDy8ScWWbYwFcROBuv
+	 rXSrLjVtIb3roE/FMM41strF9A3o3Fg/oc9UnuJ+1FLuG2ueTXOpCpGinYl3yLZ7tf
+	 Jo3EuCilYnANfnanMdQ0M/IuSPPqLzhIc8sI8sjx3HxQzEPPgHawMRhlfWXFCzl38y
+	 1pniiVRkhak4A==
+Date: Tue, 7 Jul 2026 14:30:48 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Luca Ceresoli <luca.ceresoli@bootlin.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Daniel Stone <daniels@collabora.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	kernel@collabora.com, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+Message-ID: <20260707-tested-alpaca-of-patience-e38d7c@penduick>
+References: <20260702-dw-hdmi-qp-scramb-v8-0-d79890d00b6a@collabora.com>
+ <20260702-dw-hdmi-qp-scramb-v8-4-d79890d00b6a@collabora.com>
+ <tjsidlnvswo2rdhqa6jybxrnb47lxgmxdlfrfbasuh67wjbqoy@3a45n3zawvnf>
+ <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="33bj253ieh44czfg"
 Content-Disposition: inline
-In-Reply-To: <0-v2-43074a57a53a+fb95-smmu_tlbi_jgg@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_052518_523045_BF9B0591 
-X-CRM114-Status: GOOD (  37.24  )
+In-Reply-To: <17753a1c-824a-4835-ac2d-8b2796bba1eb@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,118 +82,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jul 06, 2026 at 01:26:37PM -0300, Jason Gunthorpe wrote:
-> [ This is part of the patch pile to move SMMUv3 over to the generic page
-> table, the precursor patches have been merged now:
-> 1) Organize the SMMUv3 invalidation flow so iommupt can use it
-> 2) Use the generic iommu page table for SMMUv3
-> 
-> The whole branch is here:
->    https://github.com/jgunthorpe/linux/commits/iommu_pt_arm64/
-> ]
-> 
-> iommupt has a design that focuses on building a single iommu_iotlb_gather
-> for arbitary batches of map/unmap operations. The gather uses the free
-> list and it captures invalidations of tables, leaves and supports mixed
-> levels.
-> 
-> The introduction of PT_FEAT_DETAILED_GATHER provides some additional
-> information that is useful for ARM: the damage bitmaps for the table and
-> level changes.
-> 
-> Prior to switching SMMUv3 over to use iommupt prepare for this by
-> reworking the internal invalidation to work on the same data format that
-> iommupt will produce. Bridge the invalidations generated by io-pgtable
-> into the new format. The conversion is simple enough, io-pgtable generates
-> invalidation operations that have only a single set bit in
-> table_levels_bitmap/leaf_levels_bitmap, so we can convert the io-pgtable
-> provided size into the proper level leaf or table bit.
-> 
-> When iommupt uses this mechanism it will fill in full bitmaps reflecting
-> the union of all invalidations contained in the gather, and this series
-> provides an implementation that can work this way.
-> 
-> Like the other drivers the general algorithm focuses on trying to issue a
-> single command per gather or at most 512 single invalidations. If that
-> isn't possible then it falls back to full invalidation. Since table and
-> leaf invalidation are combined together there is no waste of invaliding
-> tables prior to performing a full invalidation.
-> 
-> On its own this provides value as the invalidation has a number of
-> rough spots:
-> 
->  - Non-leaf invalidation actually expands into a TLBI for every
->    translation granule because the inner logic doesn't special case the
->    walk vs leaf condition. Now that a table_levels_bitmap is used to
->    describe the walk invalidation it properly generates a RIL with optimal
->    TTL or only one single invalidation.
-> 
->  - RIL doesn't calculate perfect hints for SVA because the SVA rules are
->    different from the io-pgtable-arm rules that the RIL algorithm works
->    with. SVA can now express the combined leaf and table invalidation that
->    the MM callback represents and get the right TTL, with an optimization
->    for the common 4k only scenario.
-> 
->  - RIL didn't generate a single invalidation like VT-d and AMD do,
->    instead it tries to generate an exact coverage with many
->    smaller invalidations. Switch it to match the other drivers single
->    range approach for performance and consistency. Since ARM has a much
->    more flexible range definition the over invalidation is far smaller
->    than other systems.
-> 
-> The approach is to introduce a new struct arm_smmu_tlbi which
-> describes the invalidation, pre-compute into the tlbi the single and
-> range commands from the start/last and bitmaps, and then apply the
-> correct pre-computed command to each of items in the invalidation
-> list.
-> 
-> The RIL and single calculations are revised to use the new bitmaps
-> and accurately generate TTL/stride/etc.
-> 
-> Some of this design is to support another series to remove the batch on
-> the stack. Now that we have the invalidation list and the tlbi it is
-> simple to just expand the invs list directly into commands instead of
-> using the temporary on-stack batch array. Eventually removing batch will
-> save ~1k of stack usage here.
-> 
-> v2:
->  - Rebase to v7.2-rc1
-> v1: https://lore.kernel.org/all/0-v1-5b1ac97a5403+6588f-smmu_tlbi_jgg@nvidia.com/
-> 
-> Jason Gunthorpe (8):
->   iommu/arm-smmu-v3: Pass the parameters for the invalidation in a
->     struct
->   iommu/arm-smmu-v3: Move pgsize out of arm_smmu_inv
->   iommu/arm-smmu-v3: Optimize range invalidation for latency
->   iommu/arm-smmu-v3: Keep track in the arm_smmu_invs if RIL is used
->   iommu/arm-smmu-v3: Precompute the invalidation commands
->   iommu/arm-smmu-v3: Populate the tlbi at the top of the call chain
->   iommu/arm-smmu-v3: Change how the tlbi describes the invalidation
->   iommu/arm-smmu-v3: Support the DS expansion of RIL's SCALE
 
-I quickly went through the series, and left few comments.
-As discussed before regarding the TLB invalidation logic sharing
-with pKVM [1], I still think after these changes both drivers can
-share some logic on the level arm_smmu_tlbi_calc_range() (+ tweaks).
-I am planning to post my series by this week, I will keep it based
-on upstream and I can rework my series later if this one gets merged
-first.
+--33bj253ieh44czfg
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v8 04/39] drm/connector: Add HDMI 2.0 scrambler
+ infrastructure
+MIME-Version: 1.0
 
-Thanks,
-Mostafa
+On Fri, Jul 03, 2026 at 11:54:33PM +0300, Cristian Ciocaltea wrote:
+>> >> -	if (caps->supported_hdmi_ver >=3D HDMI_VERSION_2_0)
+> >> +	if (caps->supported_hdmi_ver >=3D HDMI_VERSION_2_0) {
+> >> +		if (!hdmi_funcs->scrambler_enable ||
+> >> +		    !hdmi_funcs->scrambler_disable)
+> >> +			return -EINVAL;
+> >> +
+> >> +		connector->hdmi.scrambler_supported =3D true;
+> >>  		connector->hdmi.max_tmds_char_rate =3D HDMI_2_0_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> -	else if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_3)
+> >> +	} else if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_3) {
+> >>  		connector->hdmi.max_tmds_char_rate =3D HDMI_1_3_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> -	else if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_0)
+> >> +	} else if (caps->supported_hdmi_ver >=3D HDMI_VERSION_1_0) {
+> >>  		connector->hdmi.max_tmds_char_rate =3D HDMI_1_0_TMDS_CHAR_RATE_MAX_=
+HZ;
+> >> +	}
+> >> =20
+> >>  	if (caps->max_tmds_char_rate) {
+> >>  		if (caps->max_tmds_char_rate > connector->hdmi.max_tmds_char_rate)
+> >> +
+> >> +	/** @scdc_cb: Callback to be invoked as part of @scdc_work.
+> >> +	 *
+> >> +	 * Currently used to monitor sink-side scrambling status and retry
+> >> +	 * setup if the sink resets it.
+> >> +	 *
+> >> +	 * This is assigned by the framework when making use of
+> >> +	 * drm_connector_hdmi_enable_scrambling() helper.
+> >=20
+> > No such helper.=20
+>=20
+> Right, I'll drop the reference to the helper name, as that's added later =
+in the
+> series.
+>=20
+> > Also, please explain in the commit message, why do we
+> > need to keep it configurable. Why the default is not enough?
+>=20
+> We will need a separate callback to support HDMI 2.1, i.e. for link train=
+ing
+> management.  I=E2=80=99ll update the commit message accordingly.
 
-[1] https://lore.kernel.org/all/20260501111928.259252-5-smostafa@google.com/
+I think I'm equally confused as Dmitry here. If scdc_cb is only called
+if we're sending scrambled pixels but the monitor doesn't acknowledge it
+initially, then the only thing we need to do is "if the scrambler's
+enabled, call drm_scdc_set_scrambling()", then we don't need to set a
+callback. And even if we ever need to deal with HDMI link training, then
+we can still have the same function but with a couple of branches more.
 
-> 
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  32 +-
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  |  30 +-
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 439 ++++++++++++------
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  54 ++-
->  4 files changed, 382 insertions(+), 173 deletions(-)
-> 
-> 
-> base-commit: 4c73a6222c248384513c4f465e547df80b280a06
-> -- 
-> 2.43.0
-> 
+Maxime
+
+--33bj253ieh44czfg
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCakzxdwAKCRAnX84Zoj2+
+dkLVAYDSNsdoe2xL0wTBgSQsEHtvgGUzAd9WwUpIf8wZd2IR1reV3VwM2TxiAj9p
+6+5GT88BgIF1H1Gt9lywepKbAfBimGIA6pv7db3n49pZW3Z6eF96hs7hxRsDGWhZ
+EWGkVsYUsQ==
+=YXvO
+-----END PGP SIGNATURE-----
+
+--33bj253ieh44czfg--
 
