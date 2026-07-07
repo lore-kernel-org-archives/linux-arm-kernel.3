@@ -4,76 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9102AC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 13:58:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E2C0C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 14:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CJcM49RM2FlBZTuuqbu3ibPxbKkT8R770pCrHBILAwQ=; b=cVJFE8bDZkJuCLymi9cRAnPs50
-	W8U3GAyKmuF6X6He+NnA8mRjgKwIr8Erah3JFBcBg+7rxpgAL55tAg3IDBrn6bo4aYHcm8c2ioNFP
-	zPioe4FvlvPTXDvsSNJ1DaFHy8DQmwbtYDuedug2vA0AUQ7gMeXNwTHKMcl1aCeGxEimKweDaYIZj
-	o5BNInebOvQl7tquzdxuczvISbD/irkc4v4iWa7GCw3AgcTrCowTqxU4iHpZ/bahTNmNekycFuPQD
-	XaTJzfxzljwksJuL4Ss+q1bci0CDaOEyyt6w+7R6pC+Ci9Z2sw39n47AmmGPdg+iamu52n61cPAlt
-	NVqVO+kw==;
+	bh=tTRBXbvulB91ZVKgj2dOdSPkdCSn+3IeDxDA7Og0HyM=; b=EqRuvqnWT8HD7PoQvd+4prpWIg
+	ARa0uN7VnTbI+BHmW1FOmvX0Zi2ciFb5ZdZhA0+JxRnAskyYQD+ogJGvJ2bfjPtslPkhg1wusn6Tk
+	+mgXVq/jZv3fTV9WWj+HAVAzWKA0y2BijMbM941Jy5wTNrJoJ7Nyl1l8IySFREZ2AjlrXaXK0ndl2
+	Ia/cbaFpHwqsEyR9nI/UMoS2UYZsYdFGr16TXnxp24U07JQehJadmMkuHWGaWxzUYwEVpPSl+BBKu
+	Ns6yYhl33OrBW+7a1i7CFMk22xjTpArFdKK7Gag2A7kvFoms5htdTfJQ02Mv+JNcuquSb1bjaC3GJ
+	uicabEJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6Jw-0000000F6QD-14vF;
-	Tue, 07 Jul 2026 13:58:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1wh6OZ-0000000F6ji-0JXR;
+	Tue, 07 Jul 2026 14:03:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh6Jv-0000000F6Q6-2ajp
+	id 1wh6OX-0000000F6jQ-1Ufv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 13:58:43 +0000
+	Tue, 07 Jul 2026 14:03:29 +0000
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	by tor.source.kernel.org (Postfix) with ESMTP id B2865601DE;
-	Tue,  7 Jul 2026 13:58:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B861F000E9;
-	Tue,  7 Jul 2026 13:58:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E8C564008D;
+	Tue,  7 Jul 2026 14:03:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6BBE1F000E9;
+	Tue,  7 Jul 2026 14:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1783432722;
-	bh=CJcM49RM2FlBZTuuqbu3ibPxbKkT8R770pCrHBILAwQ=;
+	s=k20260515; t=1783433008;
+	bh=tTRBXbvulB91ZVKgj2dOdSPkdCSn+3IeDxDA7Og0HyM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=XVcT43nVa9ADCQj7yGrCAhL2dagLOQb2tTPXVoiGP6OCfLnIXHqI4t75wsxUuaYFV
-	 LQwxhgAymxZZLG1yjbzE8tpvbtLJxkaoetuqFb5ak/JGdiuLhZrPFGVz45TFHLEqC2
-	 esJWvK9f4YXU+3FKiIeaWCh5jS0AsbdRVG8mhFakl9Q/EeS3eriaQCawOFbZttOhE3
-	 U+3YcIit+kC6CvdwWj2gArxUnwHyolTyVX9vDZtbH96HzbPQ5/JnOTvzFmQ7tseRix
-	 oYqJnBwCfZkv0kP0Vqix1eS3U1aUOR2ZJs/g3PnzE/sTeem+kJVnXj1MnzPYEcL1yT
-	 s6+mhJLUq2BeQ==
+	b=l0bldvom+caLP5yxjwhpxc1Q9tIBSGgD9FBkTCNJMcAJevbO//baG8pQfZCeo+7xM
+	 ZzKsLwooUHUpSwFStTa0zagHbVsoWeYNiSJjNPTTLtQBbbYB1oVuUcef9VytYQc4ii
+	 YoFbLm2ydM+E3L9+ky0G6zDJKMzZYQzyxlXlsAZkc80t7zyILm1zvwFtgRBsnGmSXd
+	 YcVWyDWQtiT+ZHVsov1P5XcmnZPm5YLFLSRM0ijyiCdVJg5FmlBoiENQygRBq4aBr/
+	 Ec1PbTPQ66iu8T8D/FoLUhkwJzKksZPp9EDXAkrKQi/UIGzn5SveUeWf2H2Q/8xQ9e
+	 ug22o/sZcoERg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1wh6Js-00000002R7k-1z9a;
-	Tue, 07 Jul 2026 13:58:40 +0000
-Date: Tue, 07 Jul 2026 14:58:39 +0100
-Message-ID: <865x2qq4ts.wl-maz@kernel.org>
+	id 1wh6OU-00000002RFJ-3ZbS;
+	Tue, 07 Jul 2026 14:03:26 +0000
+Date: Tue, 07 Jul 2026 15:03:26 +0100
+Message-ID: <864iiaq4lt.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Yureka Lilian <yureka@cyberchaos.dev>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,	Krzysztof =?UTF-8?B?V2ls?=
- =?UTF-8?B?Y3p5xYRza2k=?= <kwilczynski@kernel.org>,	Manivannan Sadhasivam
- <mani@kernel.org>,	Rob Herring <robh@kernel.org>,	Bjorn Helgaas
- <bhelgaas@google.com>,	Sven Peter <sven@kernel.org>,	Janne Grunau
- <j@jannau.net>,	Neal Gompa <neal@gompa.dev>,	Krzysztof Kozlowski
- <krzk+dt@kernel.org>,	Conor Dooley <conor+dt@kernel.org>,
-	linux-pci@vger.kernel.org,	linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev,	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/2] PCI: apple: Integrate pwrctrl API
-In-Reply-To: <8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
-References: <20260707-apple-pcie-pwren-v1-0-5a281b182fe2@cyberchaos.dev>
-	<20260707-apple-pcie-pwren-v1-1-5a281b182fe2@cyberchaos.dev>
-	<86a4s3p2vy.wl-maz@kernel.org>
-	<8a80a170-a508-4a9e-8090-27cfcedb1cd4@cyberchaos.dev>
+To: Will Deacon <will@kernel.org>
+Cc: sudeep.holla@kernel.org,
+	catalin.marinas@arm.com,
+	oupton@kernel.org,
+	Sebastian Ene <sebastianene@google.com>,
+	jens.wiklander@linaro.org,
+	joey.gouly@arm.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	android-kvm@google.com,
+	mrigendra.chaubey@gmail.com,
+	op-tee@lists.trustedfirmware.org,
+	perlarsen@google.com,
+	seiden@linux.ibm.com,
+	smostafa@google.com,
+	sumit.garg@kernel.org,
+	suzuki.poulose@arm.com,
+	vdonnefort@google.com,
+	yuzenghui@huawei.com
+Subject: Re: (subset) [PATCH v9 0/6] arm_ffa, KVM: Fix FF-A emad offset calculations
+In-Reply-To: <akzpaD3VmMp8Dq4S@willie-the-truck>
+References: <20260702103848.1647249-1-sebastianene@google.com>
+	<178342187223.1892339.1923162787460489447.b4-ty@kernel.org>
+	<akzpaD3VmMp8Dq4S@willie-the-truck>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: yureka@cyberchaos.dev, lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org, robh@kernel.org, bhelgaas@google.com, sven@kernel.org, j@jannau.net, neal@gompa.dev, krzk+dt@kernel.org, conor+dt@kernel.org, linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
+X-SA-Exim-Rcpt-To: will@kernel.org, sudeep.holla@kernel.org, catalin.marinas@arm.com, oupton@kernel.org, sebastianene@google.com, jens.wiklander@linaro.org, joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, android-kvm@google.com, mrigendra.chaubey@gmail.com, op-tee@lists.trustedfirmware.org, perlarsen@google.com, seiden@linux.ibm.com, smostafa@google.com, sumit.garg@kernel.org, suzuki.poulose@arm.com, vdonnefort@google.com, yuzenghui@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -90,107 +99,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Jul 2026 13:04:21 +0100,
-Yureka Lilian <yureka@cyberchaos.dev> wrote:
+On Tue, 07 Jul 2026 12:56:24 +0100,
+Will Deacon <will@kernel.org> wrote:
 > 
-> On 7/7/26 11:25, Marc Zyngier wrote:
-> > On Mon, 06 Jul 2026 23:38:27 +0100,
-> > Yureka Lilian <yureka@cyberchaos.dev> wrote:
-> >> Integrate the PCI pwrctrl framework into the Apple PCIe host driver to
-> >> provide standardized power management for PCI devices.
-> >> 
-> >> Notably, this allows enabling powering on the WiFi, SD card reader on
-> >> various Macs by means of the pwrctrl framework before probing the ports.
-> >> 
-> >> Previously, a custom solution for powering on the WiFi and SD card
-> >> reader was proposed[1], but we can now use the new pci-pwrctrl-generic
-> >> driver for this purpose.
-> >> 
-> >> Link[1]: https://lore.kernel.org/lkml/20220502093832.32778-4-marcan@marcan.st/
-> >> 
-> > nit: this paragraph and the accompanying link don't belong in the
-> > commit message and should be moved below the --- mark or even better,
-> > to the cover letter.
-> ack, will leave it out of the commit message of the individual commit in v2
-> >> Signed-off-by: Yureka Lilian <yureka@cyberchaos.dev>
-> >> ---
-> >>   drivers/pci/controller/Kconfig      |  1 +
-> >>   drivers/pci/controller/pcie-apple.c | 16 ++++++++++++++++
-> >>   2 files changed, 17 insertions(+)
-> >> 
-> >> diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-> >> index 2247709ef6d6..af64630d28fa 100644
-> >> --- a/drivers/pci/controller/Kconfig
-> >> +++ b/drivers/pci/controller/Kconfig
-> >> @@ -46,6 +46,7 @@ config PCIE_APPLE
-> >>   	depends on OF
-> >>   	depends on PCI_MSI
-> >>   	select PCI_HOST_COMMON
-> >> +	select PCI_PWRCTRL_GENERIC
-> >>   	select IRQ_MSI_LIB
-> >>   	help
-> >>   	  Say Y here if you want to enable PCIe controller support on Apple
-> >> diff --git a/drivers/pci/controller/pcie-apple.c b/drivers/pci/controller/pcie-apple.c
-> >> index c2cffc0659f4..db038a9d4831 100644
-> >> --- a/drivers/pci/controller/pcie-apple.c
-> >> +++ b/drivers/pci/controller/pcie-apple.c
-> >> @@ -30,6 +30,7 @@
-> >>   #include <linux/msi.h>
-> >>   #include <linux/of_irq.h>
-> >>   #include <linux/pci-ecam.h>
-> >> +#include <linux/pci-pwrctrl.h>
-> >>     #include "pci-host-common.h"
-> >>   @@ -825,6 +826,21 @@ static int apple_pcie_init(struct
-> >> pci_config_window *cfg)
-> >>   	if (WARN_ON(!pcie))
-> >>   		return -ENOENT;
-> >>   +	ret = pci_pwrctrl_create_devices(pcie->dev);
-> >> +	if (ret) {
-> >> +		dev_err(pcie->dev, "Failed to create pwrctrl devices: %pe\n", ret);
-> >> +		return ret;
-> >> +	}
-> >> +
-> >> +	ret = pci_pwrctrl_power_on_devices(pcie->dev);
-> >> +	if (ret) {
-> >> +		if (ret != -EPROBE_DEFER) {
-> >> +			dev_err(pcie->dev, "Failed to power on devices: %pe\n", ret);
-> >> +			pci_pwrctrl_destroy_devices(pcie->dev);
-> >> +		}
-> >> +		return ret;
-> >> +	}
-> >> +
-> > Why is this done globally while the whole driver works on a per-port
-> > basis, and that the proposed DT updates are also per port?
+> On Tue, Jul 07, 2026 at 11:58:01AM +0100, Marc Zyngier wrote:
+> > On Thu, 02 Jul 2026 10:38:37 +0000, Sebastian Ene wrote:
+> > > This series fixes the Endpoint Memory Access Descriptor (EMAD) offset
+> > > calculations and adds the necessary bounds checks for both the core
+> > > FF-A driver and the pKVM hypervisor.
+> > > 
+> > > Prior to FF-A version 1.1, the memory region header didn't specify an
+> > > explicit offset for the EMADs, leading to the assumption that they
+> > > immediately follow the header.
+> > > However, from v1.1 onwards, the specification dictates using the
+> > > ep_mem_offset` field to determine the start of the memory access
+> > > array.
+> > > 
+> > > [...]
+> > 
+> > Applied to fixes, thanks!
+> > 
+> > [3/6] KVM: arm64: Fix bounds checking in do_ffa_mem_reclaim()
+> >       commit: 8c6db30d79528279abbeb416e4f533f1f91b8724
+> > [4/6] KVM: arm64: Validate the offset to the mem access descriptor
+> >       commit: a6b49d27c17909608d54523220bb6f3498d4a1df
+> > [5/6] KVM: arm64: Ensure FFA ranges are page aligned
+> >       commit: 6a7a181f6921db3d9aed1bba7e15547fefd7eedc
+> > [6/6] KVM: arm64: Zero out the stack initialized data in the FFA handler
+> >       commit: 2bd3c6c702f3a9e2bcb3b536b0fbbaa645005d71
 > 
-> pci_pwrctrl_power_on_devices takes a struct device as parameter, but
-> pcie-apple does not allocate device structs for the individual ports.
-> This could be changed of course. But since pci_pwrctrl_* operate on
-> the subnodes recursively, it works just fine this way.
+> Thanks, Marc!
+> 
+> I think Sudeep was also happy for the driver changes to go via the KVM
+> tree, unless you'd prefer not to pick them up [1].
 
-Works fine is one thing. Being consistent with the way the rest of the
-driver works is another. pci_pwrctrl_create_device() and
-pci_pwrctrl_power_on_device() appear to do exactly what would be
-required for a single port. They just needs to be exported made
-global/exported.
-
-> Additionally, we would like to be sure all the endpoints can be powered
-> before we start initializing the individual ports. Otherwise we could
-> end up in a situation where some ports are initialized but others are
-> not when we realize some driver needed to power on the endpoints for
-> port n is not yet bound.
-
-How can a driver be bound to a device connected to a port if we
-haven't been through the initial link-up dance, which is what
-apple_pcie_setup_port() does? The power supplies are per-port for a
-reason.
-
-> There is no appropriate pci_pwrctrl API for checking for the
-> availability without changing the state, so this is an additional
-> reason to do it early.
-
-Availability of what? To be clear, I'm not suggesting delaying
-switching of the power. I'm merely suggesting managing it on a per
-port basis.
+Ah, I missed that. Let me queue these suckers as well.
 
 Thanks,
 
