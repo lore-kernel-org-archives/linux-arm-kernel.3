@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11540C44502
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:46:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B017C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 18:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rm9MRGSl4GczQZf6rw7zLloar1+rboEsZM2ZEp7jaAk=; b=cu7xSz5A5UQJthVN30vGx5+G95
-	o6cAiD0VXvzyGaeZcX9Q01W3FF9N90YhGh0bJUaHagrPS6TjxRSfRoUXjMqi+FavBmQqqTEdfd4Cv
-	cN2+A3HMWa1HupXx1m7tj+VEvwndkp6Ra7UejgeAD+Ap7PzcZbzg4RyMVx670StfXNjmbB9cqDI+d
-	jHnl5DIJmghfYJqUNAu/X9EkWLYvV07EoIvcz09O/yPViPV3zAZ4NQ5sHOn57Rlalm+YLMcfAJ8gX
-	mJWQoVCGnU4l8BeNnd3OzZGv1vqEdzN3yDBb5hnbe7tdp1mNPloDKKy08jdy081ciykEysIRUF5Fc
-	B3d9RDKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FryudSw1T2aBIUC8yNaOKfA0SsyG7mefxgdiOUUg/jo=; b=xV4YDegUuHCiFHt5vn6/rfLbaw
+	nFshwSnetLSGGczPGzvPBK0KssGw0yjyvTGuOryQFQaTCK5dF6U3At6plQi9nW5g1s1wGmpg+oIxM
+	OF1vvpFC15EfhBOicVcrp9vPXXX6dpS1UUH+g0lZ5dJ7iTEcnjZ8bleadVK0GD0P4Vdk/HqZukRpM
+	kIgkU0XINsPBFcosrYxUzaBADyJKdpFDNDlz/qJbjZnlNgDcego5VWsbu4yb+leyCyhSx/limitQo
+	rSOlbWTGn7tZpSbk3l/6NrDC7nEXCsxxHzoYwanS/aDd3/kvBlCiVeUDdFoRU3MKSik2TeWY45PdN
+	mLJ/JBTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9rw-0000000Faba-2GaU;
-	Tue, 07 Jul 2026 17:46:04 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1whA81-0000000FbrM-0F53;
+	Tue, 07 Jul 2026 18:02:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9rq-0000000FaYg-3xpo
+	id 1whA7z-0000000FbrE-3cac
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 17:46:01 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20260707174557euoutp01af6860c7c5dbbd43a470027e8b881538~AEwNV0SJ00163301633euoutp015
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Jul 2026 17:45:57 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20260707174557euoutp01af6860c7c5dbbd43a470027e8b881538~AEwNV0SJ00163301633euoutp015
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1783446357;
-	bh=Rm9MRGSl4GczQZf6rw7zLloar1+rboEsZM2ZEp7jaAk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MQEN2kXJq8lzQPqaPbvmZBWkvIBAa9Jqf60VpiuIhk1mgwV9VaZsUqoU77z+//Wx9
-	 H/yhb1wNSBcUe+yNsRdl+30Y256Ig4TtZLXuJ4Y4hFR2Lcnyhdng2e5VR4H0G0Ljk/
-	 W4AL0CTrNYrIpgv9XLPPS2a9kogB56QNeyYALzYY=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20260707174556eucas1p2fd039c22df294462f75715f490d6559c~AEwM34DsU2928629286eucas1p29;
-	Tue,  7 Jul 2026 17:45:56 +0000 (GMT)
-Received: from AMDC4843.eu.corp.samsungelectronics.net (unknown
-	[106.120.77.61]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20260707174556eusmtip26f81bf233f44fb324944fb9100858ea6~AEwMN8hge2398923989eusmtip2Z;
-	Tue,  7 Jul 2026 17:45:56 +0000 (GMT)
-From: Jakub Raczynski <j.raczynski@samsung.com>
-To: netdev@vger.kernel.org
-Cc: k.tegowski@samsung.com, k.domagalski@samsung.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Jakub
-	Raczynski <j.raczynski@samsung.com>
-Subject: [PATCH net v3 2/2] net/stmmac: Fix free-after-use panic when
- interface goes does with XDP
-Date: Tue,  7 Jul 2026 19:45:51 +0200
-Message-Id: <20260707174551.1264558-3-j.raczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260707174551.1264558-1-j.raczynski@samsung.com>
+	Tue, 07 Jul 2026 18:02:40 +0000
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1D6734328E;
+	Tue,  7 Jul 2026 18:02:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B41221F000E9;
+	Tue,  7 Jul 2026 18:02:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1783447359;
+	bh=FryudSw1T2aBIUC8yNaOKfA0SsyG7mefxgdiOUUg/jo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=N+Vnbwoua/QGFqX1FJgxTZEeQArxQywA5ZLkb+cuyiLT1RyZBO8UKEnY1TN1bRU+y
+	 mmImothqrfHNURIQLWJ/FVvuF+nGkjn62x3ctvrxuKVMdasv+rz8+EhJWbyE9bVMAP
+	 XeXPvElu8iOFTsq5ShjS+JCrJ+t9w6iHaJZ2BvoL54Gs1evNMASXj19FeDmeueAseD
+	 M7yO3DIThFb6/MbvZUUbt+47vSyWcwfhLN5nmXrCiCUy18/Fgo7e71ItmXyNIni1sr
+	 e1Cudg/8AwbbkWQxfyGpEJeGE//8QxHgz5emwJUSZxpzTmnrZQg99BNpuQfCaJSKtR
+	 0RMZFg5mGzjig==
+Date: Tue, 7 Jul 2026 11:02:37 -0700
+From: Oliver Upton <oupton@kernel.org>
+To: Akihiko Odaki <odaki@rsg.ci.i.u-tokyo.ac.jp>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org,
+	devel@daynix.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v8 5/7] KVM: arm64: PMU: Implement fixed-counters-only
+ emulation
+Message-ID: <ak0_PSnxyAWm9_Fu@kernel.org>
+References: <20260706-hybrid-v8-0-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <20260706-hybrid-v8-5-de459617b59d@rsg.ci.i.u-tokyo.ac.jp>
+ <akvyvclUQ2b2YHiU@kernel.org>
+ <cb5d5f13-a1a9-47dd-a717-5533a8b32b20@rsg.ci.i.u-tokyo.ac.jp>
+ <5e66748a-bfda-41a9-8614-88cbf2fe1f09@rsg.ci.i.u-tokyo.ac.jp>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20260707174556eucas1p2fd039c22df294462f75715f490d6559c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20260707174556eucas1p2fd039c22df294462f75715f490d6559c
-X-EPHeader: CA
-X-CMS-RootMailID: 20260707174556eucas1p2fd039c22df294462f75715f490d6559c
-References: <20260707174551.1264558-1-j.raczynski@samsung.com>
-	<CGME20260707174556eucas1p2fd039c22df294462f75715f490d6559c@eucas1p2.samsung.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_104559_253804_FA094694 
-X-CRM114-Status: GOOD (  20.75  )
+In-Reply-To: <5e66748a-bfda-41a9-8614-88cbf2fe1f09@rsg.ci.i.u-tokyo.ac.jp>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,177 +85,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running XDP forwarding and interface gets shut down, kernel might panic
-or show SLUB "poison overwritten" errors due to a race condition between
-NAPI polling and resource freeing.
+On Tue, Jul 07, 2026 at 09:52:49PM +0900, Akihiko Odaki wrote:
+> On 2026/07/07 20:23, Akihiko Odaki wrote:
+> > On 2026/07/07 3:23, Oliver Upton wrote:
+> > > Just detect the changing PMU implementation here, KVM_REQ_RELOAD_PMU
+> > > will need to detect the PMCs that require an update anyway. Stash the
+> > > last cpu in kvm_arch_vcpu_load() and pass it to this:
+> > > 
+> > > void kvm_vcpu_load_pmu(struct kvm_vcpu *vcpu, int last_cpu)
+> > > {
+> > >     if (!kvm_pmu_fixed_counters_only(vcpu->kvm) || vcpu->cpu == last_cpu)
+> > >         return;
+> > > 
+> > >     if (kvm_pmu_probe_armpmu(vcpu->cpu) !=
+> > > kvm_pmu_probe_armpmu(last_cpu))
+> > >         kvm_make_request(KVM_REQ_RELOAD_PMU);
+> > > }
+> > 
+> > It is a nice way to simplify the code and to avoid hardcoding
+> > ARMV8_PMU_INSTR_IDX. I'll use the code for the next version.
+> 
+> I tried this but unfortunately it doesn't seem to work. kvm_arch_vcpu_put()
+> sets vcpu->cpu to -1 so we cannot simply read it to get the last cpu in
+> kvm_arch_vcpu_load().
 
-Observed error is one of following:
-- Poison overwrriten
-[ 1889.547746] eth1: Link is Down
-[ 1889.549940] =============================================================================
-[ 1889.549954] BUG kmalloc-4k (Tainted: G    B             ): Poison overwritten
-[ 1889.549959] -----------------------------------------------------------------------------
-[ 1889.549963] 0xffffff882dcc4d80-0xffffff882dcc4da7 @offset=19840. First byte 0x0 instead of 0x6b
-[ 1889.549969] Allocated in __alloc_dma_tx_desc_resources+0x60/0x10c [stmmac] age=169 cpu=7 pid=27759
-[ 1889.550020]  __kmem_cache_alloc_node+0x100/0x2e8
-[ 1889.550032]  __kmalloc+0x58/0x1a0
-[ 1889.550039]  __alloc_dma_tx_desc_resources+0x60/0x10c [stmmac]
-[ 1889.550052]  alloc_dma_desc_resources+0xec/0x164 [stmmac]
-[ 1889.550064]  stmmac_setup_dma_desc+0xec/0x1e4 [stmmac]
-[ 1889.550076]  stmmac_open+0x28/0x94 [stmmac]
-[...]
+Urgh, there's no reason for doing that any more. Let's fix it, I want a
+straightforward way to detect pCPU migrations. There may be other
+reasons for using it in the future.
 
-- Wrong memory address
-[ 1901.546692] Unable to handle kernel paging request at virtual address dead000000000122
-[...]
-[ 1902.964068] Call trace:
-[ 1902.967193]  free_to_partial_list+0x560/0x600
-[ 1902.972227]  __slab_free+0x1a8/0x420
-[ 1902.976480]  __kmem_cache_free+0x204/0x218
-[ 1902.981254]  kfree+0x6c/0x128
-[ 1902.984900]  kvfree+0x3c/0x4c
-[ 1902.988545]  page_pool_release+0x234/0x27c
-[ 1902.993320]  page_pool_destroy+0xcc/0x190
-[ 1902.998006]  __free_dma_rx_desc_resources+0x100/0x360 [stmmac]
-[ 1903.004516]  free_dma_desc_resources+0x8c/0xac [stmmac]
-[ 1903.010419]  stmmac_release+0x1c0/0x2b4 [stmmac]
-[...]
+Untested, but could you give this a whirl?
 
-Root cause is stmmac_release() stops DMA and frees TX/RX ring buffers and
-page pools while XDP could still be accessing these resources in the
-background, because napi_synchronize() from napi_disable() does not ensure
-XDP is done.
+From bb5af058030aada66f5c9eafa54db604979acf55 Mon Sep 17 00:00:00 2001
+From: Oliver Upton <oupton@kernel.org>
+Date: Tue, 7 Jul 2026 09:50:00 -0700
+Subject: [PATCH] KVM: arm64: Don't clear vcpu->cpu in kvm_arch_vcpu_put()
 
-This makes small window where IRQ is still possible after NAPI has finished.
-Problem is that stmmac_release() handles closing XDP in different order than
-stmmac_xdp_disable_pool(), which is not affected by this issue, where
-synchronize_rcu() is executed after napi_disable() and disable_rx/tx_queue().
+commit e9b152cb957c ("arm/arm64: kvm: Set vcpu->cpu to -1 on vcpu_put")
+reset vcpu->cpu in order for the VGIC to determine if there was any vCPU
+running at the time of access. The VGIC has gone through an entire
+rewrite since then, and with commit 7d450e282171 ("KVM: arm/arm64:
+vgic-new: Add userland access to VGIC dist registers") the user
+accessors just grab all vCPU mutexes instead.
 
-Fix this by following:
-- Set STMMAC_DOWN flag before stopping DMA to signal XDP to stop and discard
-- Call synchronize_rcu() after stopping DMA but before freeing resources to
-  ensure all ongoing NAPI operations complete, in similar order to
-  stmmac_xdp_disable_pool()
-- Clear STMMAC_DOWN flag in __stmmac_open() to restore normal operation.
-  This was only done for stmmac_reset_subtask() during abnormal operation,
-  which is not enough. This flag does not affect normal operation as it is
-  used only for XDP apps. Usage of such flags is far from optimal and would
-  be good to rewrite, but it would be quite an effort
+Drop this remaining vestige such that kvm_arch_vcpu_load() can properly
+detect a CPU migration. While at it, rework kvm_reset_vcpu() to do a
+much more pedantic check that the provided vCPU is actually what's
+running on the present CPU.
 
-Also replace stmmac_disable_all_queues() with __stmmac_disable_all_queues(),
-as it is barren after this change.
-
-Fixes: bba2556efad66 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Co-developed-by: Chang-Sub Lee <cs0617.lee@samsung.com>
-Signed-off-by: Chang-Sub Lee <cs0617.lee@samsung.com>
-Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
+Signed-off-by: Oliver Upton <oupton@kernel.org>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 28 ++++++++++++++-----
- 1 file changed, 21 insertions(+), 7 deletions(-)
+ arch/arm64/kvm/arm.c   |  1 -
+ arch/arm64/kvm/reset.c | 15 ++++++++++-----
+ 2 files changed, 10 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index b9ffff001baf..9d971ae35d48 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -262,7 +262,11 @@ static void stmmac_verify_args(void)
- 		pr_warn("stmmac: module parameter 'flow_ctrl' is obsolete - please remove from your module configuration\n");
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 50adfff75be8..735acc42b50b 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -749,7 +749,6 @@ void kvm_arch_vcpu_put(struct kvm_vcpu *vcpu)
+ 	kvm_arm_vmid_clear_active();
+ 
+ 	vcpu_clear_on_unsupported_cpu(vcpu);
+-	vcpu->cpu = -1;
  }
  
--static void __stmmac_disable_all_queues(struct stmmac_priv *priv)
-+/**
-+ * stmmac_disable_all_queues - Disable all queues
-+ * @priv: driver private structure
-+ */
-+static void stmmac_disable_all_queues(struct stmmac_priv *priv)
+ static void __kvm_arm_vcpu_power_off(struct kvm_vcpu *vcpu)
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index b963fd975aac..6aba085c0673 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -190,7 +190,8 @@ static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
  {
- 	u8 rx_queues_cnt = priv->plat->rx_queues_to_use;
- 	u8 tx_queues_cnt = priv->plat->tx_queues_to_use;
-@@ -286,16 +290,15 @@ static void __stmmac_disable_all_queues(struct stmmac_priv *priv)
+ 	struct vcpu_reset_state reset_state;
+-	bool loaded;
++	struct kvm_vcpu *running;
++	bool loaded = false;
+ 	u32 pstate;
+ 
+ 	spin_lock(&vcpu->arch.mp_state_lock);
+@@ -198,10 +199,15 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 	vcpu->arch.reset_state.reset = false;
+ 	spin_unlock(&vcpu->arch.mp_state_lock);
+ 
+-	preempt_disable();
+-	loaded = (vcpu->cpu != -1);
+-	if (loaded)
++	guard(preempt)();
++
++	if ((running = kvm_get_running_vcpu())) {
++		if (KVM_BUG_ON(running != vcpu, vcpu->kvm))
++			return;
++
++		loaded = true;
+ 		kvm_arch_vcpu_put(vcpu);
++	}
+ 
+ 	if (!kvm_arm_vcpu_sve_finalized(vcpu)) {
+ 		if (vcpu_has_feature(vcpu, KVM_ARM_VCPU_SVE))
+@@ -269,7 +275,6 @@ void kvm_reset_vcpu(struct kvm_vcpu *vcpu)
+ 
+ 	if (loaded)
+ 		kvm_arch_vcpu_load(vcpu, smp_processor_id());
+-	preempt_enable();
  }
  
- /**
-- * stmmac_disable_all_queues - Disable all queues
-+ * stmmac_drain_xdp - Cleanup for XDP apps
-  * @priv: driver private structure
-  */
--static void stmmac_disable_all_queues(struct stmmac_priv *priv)
-+static void stmmac_drain_xdp(struct stmmac_priv *priv)
- {
- 	u8 rx_queues_cnt = priv->plat->rx_queues_to_use;
- 	struct stmmac_rx_queue *rx_q;
- 	u8 queue;
- 
--	/* synchronize_rcu() needed for pending XDP buffers to drain */
- 	for (queue = 0; queue < rx_queues_cnt; queue++) {
- 		rx_q = &priv->dma_conf.rx_queue[queue];
- 		if (rx_q->xsk_pool) {
-@@ -303,8 +306,6 @@ static void stmmac_disable_all_queues(struct stmmac_priv *priv)
- 			break;
- 		}
- 	}
--
--	__stmmac_disable_all_queues(priv);
- }
- 
- /**
-@@ -4149,6 +4150,9 @@ static int __stmmac_open(struct net_device *dev,
- 
- 	stmmac_reset_queues_param(priv);
- 
-+	/* Clear DOWN flag when opening the interface */
-+	clear_bit(STMMAC_DOWN, &priv->state);
-+
- 	ret = stmmac_hw_setup(dev);
- 	if (ret < 0) {
- 		netdev_err(priv->dev, "%s: Hw setup failed\n", __func__);
-@@ -4243,6 +4247,9 @@ static void __stmmac_release(struct net_device *dev)
- 	/* Stop and disconnect the PHY */
- 	phylink_stop(priv->phylink);
- 
-+	/* Set DOWN flag to prevent XDP from processing new packets */
-+	set_bit(STMMAC_DOWN, &priv->state);
-+
- 	stmmac_disable_all_queues(priv);
- 
- 	for (chan = 0; chan < priv->plat->tx_queues_to_use; chan++)
-@@ -4256,6 +4263,8 @@ static void __stmmac_release(struct net_device *dev)
- 	/* Stop TX/RX DMA and clear the descriptors */
- 	stmmac_stop_all_dma(priv);
- 
-+	stmmac_drain_xdp(priv);
-+
- 	/* Release and free the Rx/Tx resources */
- 	free_dma_desc_resources(priv, &priv->dma_conf);
- 
-@@ -6412,7 +6421,7 @@ static int stmmac_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 	if (!tc_cls_can_offload_and_chain0(priv->dev, type_data))
- 		return ret;
- 
--	__stmmac_disable_all_queues(priv);
-+	stmmac_disable_all_queues(priv);
- 
- 	switch (type) {
- 	case TC_SETUP_CLSU32:
-@@ -7122,6 +7131,9 @@ void stmmac_xdp_release(struct net_device *dev)
- 	/* Stop TX/RX DMA channels */
- 	stmmac_stop_all_dma(priv);
- 
-+	/* Drain leftover XDP buffers */
-+	stmmac_drain_xdp(priv);
-+
- 	/* Release and free the Rx/Tx resources */
- 	free_dma_desc_resources(priv, &priv->dma_conf);
- 
-@@ -8208,6 +8220,8 @@ int stmmac_suspend(struct device *dev)
- 	/* Stop TX/RX DMA */
- 	stmmac_stop_all_dma(priv);
- 
-+	stmmac_drain_xdp(priv);
-+
- 	stmmac_legacy_serdes_power_down(priv);
- 
- 	/* Enable Power down mode by programming the PMT regs */
+ u32 kvm_get_pa_bits(struct kvm *kvm)
 -- 
-2.34.1
+2.47.3
 
 
