@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990DCC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:06:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806BDC43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 17:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HVWoVZb1H32IjvjrkxviIjF2cIh1I7I63VhHBiW5LZQ=; b=4Vqj1iJC8loKT8Sv6VpQkYrQBA
-	3qd8nSafAhigoXG4R6yD6ZLpbOm6UZxS+7Q5VnZrS9W4AkH20pltaiVJmvUY17as0KGnUdunew2Fw
-	P73+lbVNnCSYR7NM/n9kKZKDf25mirX++sPZBOocBAY/0QevKovIMjTT+ua3dbb++EboDfiPR61PR
-	m+XkAyJHE4RSy4h93jfWxCDMWHMJNn2Ro5eDHmYXCZgzIrGwCeyNNj6dgdULHUjXSAJmB8lu+gblC
-	sudCcAgNSkBxGQyi0FauZd4y7kJweo8oHTMitiko8FsQv9SmCD7Uy9M2DN1aWwhP4ZWwsE5bYcLD8
-	vQGYbEyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1lw1VBDE1/D2I6ja8qlx//S0jIyLgr96wpIl4MJHkxE=; b=GQMBJHaL47ahlQnkQ39IvVVWtX
+	4jIsq10ejdcd4JWAMMT2sUDb6x14kqi/G2poCQCsKw7DgShV0CguJyB4DkIYxTj94FYSBKjlINmFL
+	0c3vz0oEEyGkRiEzM17yyqEPvu1vhCwH5/XBk3P7s+huAHXvoFyOtZolT9krnNK8+cpI8ImPrwGJ/
+	UE9B8ZmWenxGrLK0kwvg12sUfskSXHYqUXzxvwjuv78XUqEcnM0UY7usG1I3dfG4SFbMuD5kKxSrU
+	NnQOoVycn+uySViLMzbYzQ9zpbfRVZB1Olv1XumbDjXgJdSccKW5hYDOVLPblGNXI8/66Vu0tkUFX
+	7TQDNXsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9FJ-0000000FWRA-0kjG;
-	Tue, 07 Jul 2026 17:06:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh9FE-0000000FWP7-3DmM
+	id 1wh8YY-0000000FRwE-2dpI;
+	Tue, 07 Jul 2026 16:21:58 +0000
+Received: from mail.kmu-office.ch ([2a02:418:6a02::a2])
+	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
+	id 1wh8YW-0000000FRvh-0LIh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 17:06:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 337B11596;
-	Tue,  7 Jul 2026 10:05:59 -0700 (PDT)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 553233F905;
-	Tue,  7 Jul 2026 10:06:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
-	t=1783443963; bh=ucV5WtJiMT7xqag1YtM9Bd4fTSEWyIp6jpJoT0dTmwQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=C84rZEsys4yeYqvAbSUL8fd3MIZ++2ZudFn/13049kZO1iLz1txJAkZpqDygBZPI3
-	 5WFYjDUMQrPm8BT8qassMRgYevdzAWWHSSnPodHK5sVn3o7R8vl0Cfe3UZzNjAbucM
-	 e8ou9pLR/cD7kNKXpca2UpMmfTAY+NzpSqdqD7R0=
-Date: Tue, 7 Jul 2026 18:05:57 +0100
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: David Hildenbrand <david.hildenbrand@arm.com>, pbonzini@redhat.com,
-	kvm@vger.kernel.org, maz@kernel.org, oupton@kernel.org,
-	joey.gouly@arm.com, seiden@linux.ibm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, fuad.tabba@linux.dev, mark.rutland@arm.com
-Subject: Re: [RFC PATCH 1/3] KVM: guest_memfd: Use memslot id to keep track
- of associated memslots
-Message-ID: <ak0x9VAWz823HnUk@raptor>
-References: <20260702142912.6395-1-alexandru.elisei@arm.com>
- <20260702142912.6395-2-alexandru.elisei@arm.com>
- <8a24f016-6f0f-4322-b646-d843f6fa481e@arm.com>
- <akuxjY-VRrmcybjZ@raptor>
- <akwiG_tDu5Eyyc0-@google.com>
+	Tue, 07 Jul 2026 16:21:58 +0000
+Received: from allenwind.lan (unknown [IPv6:2a02:169:3c38:10::3a0])
+	by mail.kmu-office.ch (Postfix) with ESMTPSA id 5A49C5CA16B;
+	Tue,  7 Jul 2026 18:21:50 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=agner.ch; s=dkim;
+	t=1783441310;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:
+	 content-transfer-encoding:content-transfer-encoding:in-reply-to:
+	 references; bh=1lw1VBDE1/D2I6ja8qlx//S0jIyLgr96wpIl4MJHkxE=;
+	b=OExklQX0Z1RbE+wjJPmTMPSVhBQoTHdvN82uETaE1DHuFypcgBk2aUoB16NyUEuQN0lUe4
+	0X/5M9sDKZj7IoVSnybczAGLz9yKrX1VHWAUjX1+XzzOmz6OPBeG2pUd6bb87VxYv6/OwM
+	AlvuAaXr2C2jIkXgK31f8EO6df7/474=
+From: Stefan Agner <stefan@agner.ch>
+To: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	regressions@lists.linux.dev,
+	Stefan Agner <stefan@agner.ch>
+Subject: [PATCH net] net: stmmac: resume PHY before reopening the interface on MTU change
+Date: Tue,  7 Jul 2026 18:21:46 +0200
+Message-ID: <20260707162146.73823-1-stefan@agner.ch>
+X-Mailer: git-send-email 2.55.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <akwiG_tDu5Eyyc0-@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_100604_913912_11663CE7 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20260707_092156_565654_95FFEA2D 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,76 +78,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sean,
+Since the referenced commit, changing the MTU on a running interface no
+longer disconnects and reconnects the PHY; __stmmac_release() merely
+stops phylink, which also suspends the PHY (BMCR power-down) when WoL
+is not enabled. __stmmac_open() then performs the DMA software reset in
+stmmac_hw_setup() before phylink_start() resumes the PHY again.
 
-On Mon, Jul 06, 2026 at 02:46:03PM -0700, Sean Christopherson wrote:
-> On Mon, Jul 06, 2026, Alexandru Elisei wrote:
-> > On Mon, Jul 06, 2026 at 09:14:59AM +0200, David Hildenbrand wrote:
-> > > > diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> > > > index db57c5766ab6..43ef8e908aaf 100644
-> > > > --- a/virt/kvm/guest_memfd.c
-> > > > +++ b/virt/kvm/guest_memfd.c
-> > > > @@ -25,6 +25,7 @@ struct gmem_file {
-> > > >  	struct kvm *kvm;
-> > > >  	struct xarray bindings;
-> > > >  	struct list_head entry;
-> > > > +	bool found_memslot;	/* Used for balancing invalidations when punching a hole */
-> > > 
-> > > Probabably best to document what it means, not only what it is used for (and
-> > > maybe document above the member if you end up with more text).
-> > 
-> > Sure, this is how I changed it:
-> > 
-> > diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> > index 210bdd76f0aa..3cee64047bce 100644
-> > --- a/virt/kvm/guest_memfd.c
-> > +++ b/virt/kvm/guest_memfd.c
-> > @@ -25,7 +25,13 @@ struct gmem_file {
-> >         struct kvm *kvm;
-> >         struct xarray bindings;
-> >         struct list_head entry;
-> > -       bool found_memslot;     /* Used for balancing invalidations when punching a hole */
-> > +       /*
-> > +        * Keeps track of whether memory has been unmapped during secondary MMU
-> > +        * invalidation, to keep the invalidate start and end calls balanced.
-> > +        *
-> > +        * Accessed while holding the inode->i_mapping lock in exclusive mode.
-> > +        */
-> > +       bool memslot_invalidated;
-> >  };
-> > 
-> > Hopefully the new name is better.
-> 
-> Why add a boolean?  It's not _needed_ to balance updates, or rather it shouldn't
-> be needed.  filemap_invalidate_lock() prevents modifying bindings while an
-> invalidation is in-progress.  It might be a performation optimization, but if so,
-> it's a premature one and belongs in a separate patch.
+IEEE 802.3 22.2.4.1.5 allows a PHY to stop its receive clock while
+powered down, and stmmac requires a running receive clock for the DMA
+software reset to complete (the phylink config sets mac_requires_rxc).
+On such setups, e.g. the RK3566-based Home Assistant Green with an
+RTL8211F-VD PHY in RGMII mode, any runtime MTU change now times out and
+leaves the interface dead:
 
-It's not about bindings being modified. This is the race I am trying to avoid:
+  rk_gmac-dwmac fe010000.ethernet end0: Failed to reset the dma
+  rk_gmac-dwmac fe010000.ethernet end0: stmmac_hw_setup: DMA engine initialization failed
+  rk_gmac-dwmac fe010000.ethernet end0: __stmmac_open: Hw setup failed
+  rk_gmac-dwmac fe010000.ethernet end0: failed reopening the interface after MTU change
 
-CPU0:							CPU1:
+In the field this is triggered by NetworkManager applying an MTU while
+activating the connection, breaking networking entirely.
 
-KVM_SET_USER_MEMORY_REGION(slot, memory_size=0)
-kvm_replace_memslot(kvm, slot, invalid_slot)
-kvm_swap_active_memslots(kvm)
-kvm_replace_memslot(kvm, invalid_slot, NULL)
-kvm_swap_active_memslots(kvm)
-							fallocate(guest_memfd, FALLOC_FL_PUNCH_HOLE)
-							  __kvm_gmem_invalidate_start()
-							    slot = id_to_memslot(__kvm_memslots(kvm, as_id), id);
-							    if (slot == NULL) {
-								    // Early exit, does not call kvm_mmu_invalidate_start(kvm)
-								    return;
-							    }
-							  __kvm_gmem_invalidate_end()
-							    // No corresponding kvm_mmu_invalidate_start(kvm) call
-							    kvm_mmu_invalidate_end(kvm)
-kvm_replace_memslot(kvm, invalid_slot, NULL);
-kvm_free_memslot(kvm, slot)
-  kvm_gmem_unbind(slot)
+Resume the PHY before reopening the interface, like stmmac_resume()
+does, to ensure the receive clock is running for the DMA software
+reset.
 
-Does that make sense?
+Fixes: db299a0c09e9 ("net: stmmac: move PHY handling out of __stmmac_open()/release()")
+Link: https://github.com/home-assistant/operating-system/issues/4858
+Assisted-by: Claude:claude-fable-5
+Tested-by: Stefan Agner <stefan@agner.ch>
+Signed-off-by: Stefan Agner <stefan@agner.ch>
+---
+Note: phylink_prepare_resume()'s kernel-doc says it is to be called
+prior to phylink_resume(); here it is paired with phylink_start()
+(called from __stmmac_open()) instead, which phylink_resume() itself
+uses to restart the machinery. If preferred, I can extend the
+kernel-doc or introduce a more generically named helper.
 
-Thanks,
-Alex
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5884,6 +5884,15 @@
+ 
+ 		__stmmac_release(dev);
+ 
++		/* phylink_stop() in __stmmac_release() suspends the PHY.
++		 * IEEE 802.3 allows PHYs to stop their receive clock while
++		 * powered down, but the DMA software reset performed by
++		 * stmmac_hw_setup() requires a running receive clock.
++		 * Resume the PHY, as on system resume, to ensure its clocks
++		 * are running before reopening the interface.
++		 */
++		phylink_prepare_resume(priv->phylink);
++
+ 		ret = __stmmac_open(dev, dma_conf);
+ 		if (ret) {
+ 			free_dma_desc_resources(priv, dma_conf);
+-- 
+2.49.0
 
