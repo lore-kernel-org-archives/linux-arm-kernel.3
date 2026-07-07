@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44FDAC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:24:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D912C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 10:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
 	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZP8ETfjiyBnWUOeiqFVwCnFxf+nDw3MprVmVEocPVxM=; b=MOHkGFxhw1rfNtIU7W7jAtXbXm
-	ZrvEYJJ8bn5h+oVXQbBdVMicBGXjx7/hn31FswRV33rlkdaLn+pgfrA0e6Mqdwx5cp6kpUkMl939c
-	MgXVfz+mDDejzilJbla0bdXMM0VAeAedM0Hdx/UeIJQZabnJui5MplG0ZbN7K4Hj3d0VS08zfeg6R
-	v/o4LIp8U1BXxM4gl1be9/y1fzwR+PQ0ZuHWtpU/Asy7NI7Sxp1cbqP39/VwoP4rE2nagnX+AcUJQ
-	Z3ryUTsmrtjkzUVMLyeM1OR2VAKKHS/19LvvnmKRZwNtOxhFBxu6HDP+NInB/xQqck8bOoydvK3+s
-	MOmk7wzg==;
+	bh=CIhvaFDHRZUMQzU+by3TWG3uThoFqmuSYCURX5WPCCE=; b=20+Rxt4JyL9rYT73TlvJcqjTyv
+	ApOlBsG+jLi2MY4n/s4EyC5FccaEU7iacK0WHjNMgXp1sBkO4LWHqV0mRP3CbceCk5TIOxhqqs4me
+	bQ2ni812LiotFswT/6FSBMge0F8nbCvTkhIX7NLon5aJPXHNkq0mEpAWizUMXaWlnDEyhXouG1wEF
+	fF+amkFAN2TjogO8+Shmenj1YVE7HtRyFd8Ed4Z8RBDa7L5vTailmUzCCNuJd5ryMX70uekY+1IiD
+	pFHDi2iDYXxV8g21mJWT4vCRBIU+MMpV02tRjUHHPPl//aXZYHyd9YzjoWUo7sZMDNyjnfDcHryA5
+	674soNQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2yP-0000000EjsA-0eHU;
-	Tue, 07 Jul 2026 10:24:17 +0000
+	id 1wh30x-0000000EkAG-2v2g;
+	Tue, 07 Jul 2026 10:26:55 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2yK-0000000EjrG-1yLJ;
-	Tue, 07 Jul 2026 10:24:15 +0000
+	id 1wh30u-0000000Ek9r-2DOk;
+	Tue, 07 Jul 2026 10:26:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1783419849;
-	bh=1CBp1pcRQFqqiy5vo8h36IT7EY9pjXp86xQb7agC5iI=;
+	s=mail; t=1783420010;
+	bh=iAcz364t3FoX2TCUAcAuduxKI3QdC831V2IbpTjpXDg=;
 	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=PVJvB9xQtg9wUisbqYB6TMp9JRgPSqMhgNjDveyK4rW6On5DN3GPDZmZpEFcr2+z2
-	 yf+kkFzB0GVRX+10OOPnKCU1WanvIjgYBvMOmoRmmZEXOMQzN89zvTaOxbDvAMYz6b
-	 xGHgPkcbVyPDIgUDD1Pg7Ie0fmEAyK0925iOU2tiGKxoSs2jguKNay3MG+Yv6S5Zn3
-	 ExbCM21zSPXCBCXl8M9PGXNGoT56dtm7/GVekX2xrvPA0Y/pwDUyn8uVrV6R9mNuEQ
-	 5CKaC6MhWONMRMmVYeQBrH20o+nIpmQngawWZ/yXOIAWyuVfifcUL+EyLKuVHj8pWU
-	 wtoJysc6QRZDg==
+	b=Dw5HJnB8WUMYkDGlVIpeW6r4tT5en5+h0xhLD3OlsNHH1qFImBajZ8yZWLLvCQ2BV
+	 jIZK2GEeruorK96gOit+0EJ6+6ScZ13z8LHTcmsQ5HkpqfMhPoNcYZZkOiPiTGtMcL
+	 mGxnvYNB4ZvODMuVTyjRiyNQkmcqKysn4zcjKC1PXys4BkoAZFrhFWoGjNzGjGP38P
+	 MJ50X787lPu3dA4TK5iDkm4CEbD3FuDyjq29pw7xQ81N2QSsolMvlnrXTCAspaATS7
+	 O0d5QilA3AjlsPs7Qw1n243gCBdvWRPEJ2a9TRVqHnS3rEroXjSwR3IdcmkjbCAKcE
+	 JDtbcPim8k0sg==
 Received: from IcarusMOD.eternityproject.eu (unknown [100.64.1.21])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 62B4717E0C88;
-	Tue, 07 Jul 2026 12:24:09 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EEB3817E0C88;
+	Tue, 07 Jul 2026 12:26:49 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -50,19 +50,18 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-mediatek@lists.infradead.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20260706093515.274013-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260706093515.274013-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] arm64: dts: mediatek: Correct indentation and
- whitespace
-Message-Id: <178341984935.173859.976823009521687721.b4-ty@b4>
-Date: Tue, 07 Jul 2026 12:24:09 +0200
+In-Reply-To: <20260706101850.341418-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20260706101850.341418-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH] ARM: dts: mediatek: mt8127: Correct indentation
+Message-Id: <178342000992.174135.12358017773363709915.b4-ty@b4>
+Date: Tue, 07 Jul 2026 12:26:49 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_032412_657374_DA24F85C 
-X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-CacheID: sfid-20260707_032653_659046_11DA960E 
+X-CRM114-Status: UNSURE (   5.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,14 +77,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 06 Jul 2026 11:35:16 +0200, Krzysztof Kozlowski wrote:
-> Correct spaces or mix of tabs+spaces into proper tab-indented lines and
-> remove other whitespace violations.  No functional impact (same DTB).
+On Mon, 06 Jul 2026 12:18:51 +0200, Krzysztof Kozlowski wrote:
+> Correct spaces or mix of tabs+spaces into proper tab-indented lines.
+> No functional impact (same DTB).
 
-Applied to v7.2-next/dts64, thanks!
+Applied to v7.2-next/dts32, thanks!
 
-[1/1] arm64: dts: mediatek: Correct indentation and whitespace
-      commit: 7f9fc91718bd7e69c3c82123f3c05748a3f2793d
+[1/1] ARM: dts: mediatek: mt8127: Correct indentation
+      commit: 1ff741220d7b11993569b5c3572e96722026bca4
 
 Cheers,
 Angelo
