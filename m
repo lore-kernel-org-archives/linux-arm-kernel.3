@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9DDC43458
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36231C43458
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 06:12:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+k4YLB2aPZHJzgI+LGSMyb/EUFeyoNW7T6bVJeLgOM=; b=z6xSz/UT2PqLOVYT9vvHoZ14H7
-	oWQi+vIy/JhUz938kpOCsuuiAx9h+4tOqE6AUw5l4Dwe+ToHrOy/S5x7xDSMFyHPtV4IYTvtm1IEn
-	JdlC3soR+tYr9qqWzb5MRMQQPMPDBUmiJA4d63zCnU6Y+WDQeSBX4oHOAuYFJ6Hb+KHiKopwDJ8VX
-	43TTL2eNtwKf7HYpSIsPsQ63bScnD5YrSdmHzTcTlNJkmAFiUZW7mnCWHiunrjzstJLaeVym98XXP
-	oQBrhJqDY94uDgXxZYQeOM+kyaSQKcmPOLGlnvyHQ99uVQFW8GjFumam49y9UFu3NP9C0T1XAPwLJ
-	5bqs55dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8lABHXo8BBOM5aWqkiTc7zgArVT0tZs9MCClqWqEhTY=; b=bmcvMm8gVsQ6bh7HTyl/+WIGGC
+	wMC/Lpy09CFo80oUjA34eHGbBhzXNM8wbyyEUYxW5cxu3Rqy7H0Cw1S1gadgWBgjtK28+/IvGD4xV
+	noQuplTjVfXb/x4SWSSD74QDfEAQJdBY/OFklGhFI9zI70iNaUe+GzQHNN+XVElmd6KXkJf+YNrfl
+	u5zNsAsfYLEEmwzFTn3PJFroDmLZngqoS6G3MomgPu24QfgcosHeTLdmjhk22F3nwYDzJPl/Rtfk7
+	kGJ16/v335x1pCaS1IqMEfvnVU3X3jTyvhd1+Yf23WcCWtRnvUPzWL75pT0NXe3dFuFrl2PJ5GoJx
+	kSBzr9KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgz1y-0000000EAx0-3fRS;
-	Tue, 07 Jul 2026 06:11:42 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
+	id 1wgz2f-0000000EB3P-03nc;
+	Tue, 07 Jul 2026 06:12:25 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=twmbx01.aspeedtech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wgz1v-0000000EAvf-169y
+	id 1wgz2c-0000000EB2V-0rks
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 06:11:42 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=s+k4YLB2aPZHJzgI+LGSMyb/EUFeyoNW7T6bVJeLgOM=;
-	b=FfcxKaHvWGpE+OeszGHja+ic7QDEU3LpDfI8ikmg81TzbLTp/Ge9Kto+SmX2wLWNOTVw5vhVk
-	xj0Gr7KTy1IWHVW8YTdBteMO/0D5pkTSi7AphDH7FeODvlY97lpG7evc2eD9LrUv3yrxhqCy50d
-	gpdkute1U/cEGKIYO34DQKY=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4gvVxx0cTJzpT0K;
-	Tue,  7 Jul 2026 14:02:45 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 4588F4056E;
-	Tue,  7 Jul 2026 14:11:23 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 7 Jul 2026 14:11:22 +0800
-Message-ID: <34447d66-8d53-4dc7-82fe-58057f2a5b57@huawei.com>
-Date: Tue, 7 Jul 2026 14:11:23 +0800
+	Tue, 07 Jul 2026 06:12:24 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 7 Jul
+ 2026 14:12:09 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 7 Jul 2026 14:12:09 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+Date: Tue, 7 Jul 2026 14:12:04 +0800
+Subject: [PATCH] dt-bindings: usb: Add Aspeed AST2700 DWC3 controller
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] KVM: arm64: Add support for FEAT_HDBSS
-To: Leonardo Bras <leo.bras@arm.com>
-CC: Inochi Amaoto <inochiama@gmail.com>, Marc Zyngier <maz@kernel.org>,
-	<oupton@kernel.org>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
-	<pbonzini@redhat.com>, <will@kernel.org>, <yuzenghui@huawei.com>,
-	<wangzhou1@hisilicon.com>, <liuyonglong@huawei.com>,
-	<Jonathan.Cameron@huawei.com>, <yezhenyu2@huawei.com>, <linuxarm@huawei.com>,
-	<joey.gouly@arm.com>, <kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <skhan@linuxfoundation.org>,
-	<suzuki.poulose@arm.com>
-References: <20260225040421.2683931-1-zhengtian10@huawei.com>
- <20260225040421.2683931-4-zhengtian10@huawei.com>
- <ahzUUDAMoHtDFJD3@inochi.infowork> <864ijmvdpy.wl-maz@kernel.org>
- <ah1KLrpYBXSMM91H@inochi.infowork>
- <22abfaf8-8636-4ed3-9a5c-fb4fdef1bc19@huawei.com>
- <aku1N23Szkta9uA6@LeoBrasDK>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <aku1N23Szkta9uA6@LeoBrasDK>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20260707-xhci-v1-1-b202b9b3274e@aspeedtech.com>
+X-B4-Tracking: v=1; b=H4sIALOYTGoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDMyMT3YqM5ExdQwvTtLQUy9Q0i6QUJaDSgqLUtMwKsDHRsbW1AJAmetl
+ WAAAA
+X-Change-ID: 20260624-xhci-185ffd9ef8bd
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
+	<andrew@codeconstruct.com.au>
+CC: <linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
+	<linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Ryan
+ Chen" <ryan_chen@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1783404729; l=3778;
+ i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
+ bh=zctmRnr5zZwaI8WX/0DJyaFrcv2r1wAp7MFjzRmind8=;
+ b=jyOU98vFE6v//IJl6fyetJll2J78DvchSa8IdXqv6tkADH9D65LrOq5YFfy5oPid1xwTHR8hs
+ U54y6Dkvi0qA1mObAuKzUYMZE2ttMMPyjkQ50h8NrFGh274Yy/GdWYf
+X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
+ pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260706_231139_659747_B7883966 
-X-CRM114-Status: GOOD (  25.86  )
+X-CRM114-CacheID: sfid-20260706_231222_256187_C6EAABA7 
+X-CRM114-Status: GOOD (  12.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,190 +78,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The Aspeed AST2700 SoC integrates the Synopsys DesignWare USB3 core with
+no vendor glue logic: it is functionally compatible with snps,dwc3, uses
+the standard DWC3 clocks, and the only SoC-specific part is a USB3 PHY
+that is handled by a separate driver.
 
-On 7/6/2026 10:01 PM, Leonardo Bras wrote:
-> On Fri, Jun 05, 2026 at 04:29:49PM +0800, Tian Zheng wrote:
->> On 6/1/2026 5:05 PM, Inochi Amaoto wrote:
->>> On Mon, Jun 01, 2026 at 09:58:49AM +0100, Marc Zyngier wrote:
->>>> On Mon, 01 Jun 2026 01:50:22 +0100,
->>>> Inochi Amaoto <inochiama@gmail.com> wrote:
->>>>> On Wed, Feb 25, 2026 at 12:04:19PM +0800, Tian Zheng wrote:
->>>>>> From: eillon <yezhenyu2@huawei.com>
->>>>>>
->>>>>> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
->>>>>> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100. A CPU capability is added
->>>>>> to notify the user of the feature.
->>>>>>
->>>>>> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
->>>>>> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
->>>>>> cannot be determined at KVM initialization, an IOCTL interface is
->>>>>> required.
->>>>>>
->>>>>> Actually exposing the new capability to user space happens in a later
->>>>>> patch.
->>>>>>
->>>>>> Signed-off-by: eillon <yezhenyu2@huawei.com>
->>>>>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>>>>> ---
->>>>>>    arch/arm64/include/asm/cpufeature.h |  5 +++++
->>>>>>    arch/arm64/kernel/cpufeature.c      | 12 ++++++++++++
->>>>>>    arch/arm64/tools/cpucaps            |  1 +
->>>>>>    include/uapi/linux/kvm.h            |  1 +
->>>>>>    tools/include/uapi/linux/kvm.h      |  1 +
->>>>>>    5 files changed, 20 insertions(+)
->>>>>>
->>>>>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->>>>>> index 4de51f8d92cb..dcc2e2cad5ad 100644
->>>>>> --- a/arch/arm64/include/asm/cpufeature.h
->>>>>> +++ b/arch/arm64/include/asm/cpufeature.h
->>>>>> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
->>>>>>    	return cpus_have_final_cap(ARM64_HAFT);
->>>>>>    }
->>>>>>
->>>>>> +static inline bool system_supports_hdbss(void)
->>>>>> +{
->>>>>> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
->>>>>> +}
->>>>>> +
->>>>>>    static __always_inline bool system_supports_mpam(void)
->>>>>>    {
->>>>>>    	return alternative_has_cap_unlikely(ARM64_MPAM);
->>>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>>>>> index c31f8e17732a..348b0afffc3e 100644
->>>>>> --- a/arch/arm64/kernel/cpufeature.c
->>>>>> +++ b/arch/arm64/kernel/cpufeature.c
->>>>>> @@ -2124,6 +2124,11 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
->>>>>>    	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
->>>>>>    }
->>>>>>
->>>>>> +static bool has_vhe_hdbss(const struct arm64_cpu_capabilities *entry, int cope)
->>>>>> +{
->>>>>> +	return is_kernel_in_hyp_mode() && has_cpuid_feature(entry, cope);
->>>>>> +}
->>>>>> +
->>>>>>    bool cpu_supports_bbml2_noabort(void)
->>>>>>    {
->>>>>>    	/*
->>>>>> @@ -2759,6 +2764,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->>>>>>    		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
->>>>>>    	},
->>>>>>    #endif
->>>>>> +	{
->>>>>> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
->>>>>> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
->>>>>> +		.capability = ARM64_HAS_HDBSS,
->>>>>> +		.matches = has_vhe_hdbss,
->>>>>> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
->>>>>> +	},
->>>>>>    	{
->>>>>>    		.desc = "CRC32 instructions",
->>>>>>    		.capability = ARM64_HAS_CRC32,
->>>>>> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
->>>>>> index 7261553b644b..f6ece5b85532 100644
->>>>>> --- a/arch/arm64/tools/cpucaps
->>>>>> +++ b/arch/arm64/tools/cpucaps
->>>>>> @@ -68,6 +68,7 @@ HAS_VA52
->>>>>>    HAS_VIRT_HOST_EXTN
->>>>>>    HAS_WFXT
->>>>>>    HAS_XNX
->>>>>> +HAS_HDBSS
->>>>>>    HAFT
->>>>>>    HW_DBM
->>>>>>    KVM_HVHE
->>>>>> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
->>>>>> index 65500f5db379..15ee42cdbd51 100644
->>>>>> --- a/include/uapi/linux/kvm.h
->>>>>> +++ b/include/uapi/linux/kvm.h
->>>>>> @@ -985,6 +985,7 @@ struct kvm_enable_cap {
->>>>>>    #define KVM_CAP_ARM_SEA_TO_USER 245
->>>>>>    #define KVM_CAP_S390_USER_OPEREXEC 246
->>>>>>    #define KVM_CAP_S390_KEYOP 247
->>>>>> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
->>>>>>
->>>>>>    struct kvm_irq_routing_irqchip {
->>>>>>    	__u32 irqchip;
->>>>>> diff --git a/tools/include/uapi/linux/kvm.h b/tools/include/uapi/linux/kvm.h
->>>>>> index dddb781b0507..93e0a1e14dc7 100644
->>>>>> --- a/tools/include/uapi/linux/kvm.h
->>>>>> +++ b/tools/include/uapi/linux/kvm.h
->>>>>> @@ -974,6 +974,7 @@ struct kvm_enable_cap {
->>>>>>    #define KVM_CAP_GUEST_MEMFD_FLAGS 244
->>>>>>    #define KVM_CAP_ARM_SEA_TO_USER 245
->>>>>>    #define KVM_CAP_S390_USER_OPEREXEC 246
->>>>>> +#define KVM_CAP_ARM_HW_DIRTY_STATE_TRACK 248
->>>>>>
->>>>>>    struct kvm_irq_routing_irqchip {
->>>>>>    	__u32 irqchip;
->>>>>> --
->>>>>> 2.33.0
->>>>>>
->>>>> Instead of having these architecture specific capability, I wonder if
->>>>> we can add a generic capability like "KVM_CAP_HW_DIRTY_STATE", so
->>>>> other architecture supports similar things can reuse this capability,
->>>> What of the existing stuff doing the same thing? x86's PML, to start
->>>> with?
->>>>
->>> In fact I think the HDBSS is the first one with non-fixed size.
->>> Although there is a in process RISC-V extension for it, there will
->>> be a long story to make it ratified.
->>>
->>>>> For this generic thing I suggest, the getter returns the max support
->>>>> entry count (or the buffer size) it supports like the dirty ring
->>>>> capability. And the setter just let the architecture set the parameters
->>>>> based on the user request.
->>>> This looks wrong on a number of levels.
->>>>
->>>> - If you want something generic, there is the existing dirty
->>>>     log/bitmap. How this stuff is populated is none of the user's
->>>>     business (trapping write accesses, dirty bit collection from the
->>>>     PTs, or HW-generated log), and we don't need an extra feature for
->>>>     it. Performance will obviously suck, but that's what you pay for
->>>>     something abstracted and cross-architecture.
->>>>
->>>> - If you want something architecture specific, then it can't be
->>>>     generic, by definition. You get the raw speed and compatibility with
->>>>     other arch-specific extensions.
->>>>
->>> OK, I agree, it is better to keep this thing arch-specific. Doing a
->>> generic thing does not benefit too much, I have made a mistake on
->>> it. Thanks for your kindly explanation.
->>
->> Awesome. Thanks for the review.
->>
->> I agree with Marc—keeping this ARM-specific is the right approach.
->> Also, in v4 we're removing the ioctl interface entirely. HDBSS will be
->> auto-enabled during migration setup and auto-disabled when migration
->> completes, so the capability naming issue becomes moot.
->>
->> I plan to post v4 with the updated approach soon.
-> Hi Tian,
->
-> Any updates in the v4?
-> Please let me know if you want help in any kind, in regards to this
-> patchset.
->
-> Thanks!
-> Leo
-Hi Leo,
+Add a dedicated binding document rather than adding the compatible and a
+conditional to snps,dwc3.yaml. This follows the established per-vendor DWC3
+convention (apple,dwc3.yaml, socionext,uniphier-dwc3.yaml, ...) and keeps
+the AST2700-specific constraints - notably the mandatory USB3 PHY - out of
+the generic schema.
 
-Thanks for the follow-up. I've finished polishing v4 and am doing one 
-last internal review.
+Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+---
+The common DWC3 node properties are inherited from snps,dwc3.yaml via the
+allOf $ref, so this schema only defines the additional AST2700-specific
+constraints (the compatible, a single interrupt and the USB3 PHY) and does
+not redefine the properties covered there. snps,dwc3.yaml is used rather
+than snps,dwc3-common.yaml because the controller uses the standard DWC3
+bus_early/ref/suspend clocks defined there.
 
-In this version, I've also aligned with the latest HACDBS v2 
-implementation you shared—e.g.,
-auto-inserting KVM_PGTABLE_S2_DBM into pgt->flags during 
-kvm_init_stage2_mmu.
+Because reg, clocks and clock-names are only defined indirectly through
+the $ref, they still appear in the required list, the same approach as
+apple,dwc3.yaml.
+---
+ .../devicetree/bindings/usb/aspeed,dwc3.yaml       | 81 ++++++++++++++++++++++
+ 1 file changed, 81 insertions(+)
 
-One note: dirty ring mode is not yet supported in v4—the series 
-currently focuses on the
-dirty bitmap mode. I'll explicitly call this out in the commit messages 
-(including that
-KVM_DIRTY_LOG_MANUAL_PROTECT_ENABLE and related dirty ring components 
-are omitted) to avoid
-any confusion during review.
+diff --git a/Documentation/devicetree/bindings/usb/aspeed,dwc3.yaml b/Documentation/devicetree/bindings/usb/aspeed,dwc3.yaml
+new file mode 100644
+index 000000000000..976f80b87e24
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/aspeed,dwc3.yaml
+@@ -0,0 +1,81 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/aspeed,dwc3.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Aspeed SuperSpeed DWC3 USB SoC controller
++
++maintainers:
++  - Ryan Chen <ryan_chen@aspeedtech.com>
++
++description:
++  The common content of the node is defined in snps,dwc3.yaml.
++
++select:
++  properties:
++    compatible:
++      contains:
++        const: aspeed,ast2700-xhci
++  required:
++    - compatible
++
++properties:
++  compatible:
++    items:
++      - const: aspeed,ast2700-xhci
++      - const: snps,dwc3
++
++  interrupts:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  phys:
++    maxItems: 1
++
++  phy-names:
++    const: usb3-phy
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - clocks
++  - clock-names
++  - resets
++  - phys
++  - phy-names
++
++allOf:
++  - $ref: snps,dwc3.yaml#
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/aspeed,ast2700-scu.h>
++    #include <dt-bindings/reset/aspeed,ast2700-scu.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    bus {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        usb@12030000 {
++            compatible = "aspeed,ast2700-xhci", "snps,dwc3";
++            reg = <0x0 0x12030000 0x0 0x10000>;
++            interrupts = <GIC_SPI 30 IRQ_TYPE_LEVEL_HIGH>;
++            clocks = <&syscon0 SCU0_CLK_GATE_PORTAUSB2CLK>,
++                     <&syscon0 SCU0_CLK_U2PHY_REFCLK>,
++                     <&syscon0 SCU0_CLK_U2PHY_CLK12M>;
++            clock-names = "bus_early", "ref", "suspend";
++            resets = <&syscon0 SCU0_RESET_PORTA_XHCI>;
++            pinctrl-names = "default";
++            pinctrl-0 = <&pinctrl_usb3axh_default &pinctrl_usb2axh_default>;
++            phys = <&uphy3a>;
++            phy-names = "usb3-phy";
++            dr_mode = "host";
++        };
++    };
 
-I plan to send v4 out later this week.
+---
+base-commit: be5c93fa674f0fc3c8f359c2143abce6bbb422e6
+change-id: 20260624-xhci-185ffd9ef8bd
 
-Thanks,
-Tian
+Best regards,
+-- 
+Ryan Chen <ryan_chen@aspeedtech.com>
+
 
