@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 111E0C44500
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BB11C44501
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Jul 2026 09:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mG6v8IjVpW52/CdQQXS0ybS6BSbhnajxLfKW5a9p17E=; b=mlGsfCer4l8fJtfGBWfkqJk43r
-	XszCPaGJJENCVfoLbpsTWfo/djSYP2mUUHZqmRIo3sodWIX10L5236DS/EmWGCk0P5BakC5cdcdYt
-	sz9TR25nhIZnyRu4tiagZ8U9M0shsHGiifSEtK4S0fI73iAGaqSbwHmm46wSe6xu/25siP7s7FBBy
-	zCgshaSBIIZMNQGAEDu6FOy7oeGg0huBpSd3OWWgAm3rM3j0c3IxQg3NSGFHR45W0otD+2dgeRGgU
-	IM5kHgbkeMviCX/YdQoqTu2jpAI5v6C7ohjcNmQG6oNkWJhDGX6Wd673bP3rn03/MKPjH/MWMK2bA
-	8ElnIEdQ==;
+	bh=NXFMyaJzObxWXMHjdTdAF/kliHOATYUJJo1yxPuPZVk=; b=N0bn26R7MZo8Z4oip0A5mQp3VM
+	Wfb3LYRYJOVzW7BoEi4C21FcIhxiGGi+dhp6Cj8eQ1IuBuEUGeCwCZDdhFZ4zcj+2YHYPFNMi/fJh
+	hIGpcZXnWL337esQKSotNqmFBXSJUXomDLPNf+k9r6qs4GTx0MWxPpLJWkUH6TrwlQ1IzU+3iQv8n
+	YBySRujIVdplh2lXvvEs0dxJM3l/q+7ods61oCu85VXrkI7GPwyIU18On5vyeY/CS63T+I+ueC5c8
+	vf9eVHJfsEA5sn0OpFkdW2lTBwBa0J3UcXEMJJ90TDbJhpeJRqekVeopbkmte4bseh4L1MGT9ihVh
+	lDdGrfPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2SM-0000000EfPR-0mnt;
-	Tue, 07 Jul 2026 09:51:10 +0000
+	id 1wh2SO-0000000EfRT-2wL2;
+	Tue, 07 Jul 2026 09:51:12 +0000
 Received: from www537.your-server.de ([188.40.3.216])
 	by bombadil.infradead.org with esmtps (Exim 4.99.1 #2 (Red Hat Linux))
-	id 1wh2SF-0000000EfK0-2RFp
+	id 1wh2SH-0000000EfKw-0f30
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Jul 2026 09:51:05 +0000
+	Tue, 07 Jul 2026 09:51:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=ew.tq-group.com; s=default2602; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=mG6v8IjVpW52/CdQQXS0ybS6BSbhnajxLfKW5a9p17E=; b=g5wwWCFx06Kl7esy7X3ys80ndy
-	Q9qiGiDH7rZRQi8IbBC/qWzNDIYEV6cUa8bZ2zsKoRPSHxg4zeO+MtqTB3ezYeLL9auBLoHdgndQx
-	mUmMiQKSI9Ur0qwrIxklGwo6pJFJoXp6VHxxiufBhAoQy5C+5WMWoKQcwFNfhvcBHvKDjzbJPrCi5
-	iAV28whcTfKiak+eEPDyoG0zmqvKdUuUSACiPv637eSumtfYjEEkH5qv3/LMXNuUMX/OKwXO2vgm0
-	uh3ZLMjGQhMdnf5LiHYYRoH4PSxLi8HIR7ITRgfvGAGWy+DDdaiuEba5KLcDkqLGpehIh++yDcYPD
-	8y2fxjFw==;
+	bh=NXFMyaJzObxWXMHjdTdAF/kliHOATYUJJo1yxPuPZVk=; b=WpyE2PyXZbFsv1NpbZYi8dyITq
+	ea+JCHanD8KWCQ18jG4Hlz1Zl3aRLosakVxidN3Iyych/ShVCuGJH5vMLVAZ4XWE13v22Jb2jSICe
+	GspaeEI6bqhGeVRfo4qvjPB2ryNLmiCIIywbpLB/5hlvuzsgbqjAxraJTPMJgnW6rJrYUUeUZj1ML
+	Sz9kZ2xR+A38spEN9pvtkhhM1E6fCblZmxwIdCM5R/5PnIiJxIsQ5pmboG+EVYZIPUeReAjLu9TMe
+	ALcHDNtxpXlRouCi2Y+cufdcmLN2Q3i7dRHfyBH2DR0X8lulpKnZ4CqMGHxpOEFtG+T83JVxk230e
+	lTAjHjkw==;
 Received: from sslproxy05.your-server.de ([78.46.172.2])
 	by www537.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96.2)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh2SD-000PVw-2y;
-	Tue, 07 Jul 2026 11:51:02 +0200
+	id 1wh2SF-000PWt-15;
+	Tue, 07 Jul 2026 11:51:03 +0200
 Received: from localhost ([127.0.0.1])
 	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <alexander.stein@ew.tq-group.com>)
-	id 1wh2SD-000Ck1-0u;
-	Tue, 07 Jul 2026 11:51:01 +0200
+	id 1wh2SE-000Ck1-2I;
+	Tue, 07 Jul 2026 11:51:03 +0200
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Frank Li <Frank.Li@nxp.com>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Nora Schiffer <nora.schiffer@ew.tq-group.com>,
-	linux@ew.tq-group.com,
+Cc: linux@ew.tq-group.com,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 3/8] arm64: dts: fsl-lx2160a-tqmlx2160a: add aliases for all 18 DPMAC instances
-Date: Tue,  7 Jul 2026 11:50:50 +0200
-Message-ID: <20260707095057.1745867-4-alexander.stein@ew.tq-group.com>
+	linux-kernel@vger.kernel.org,
+	Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Subject: [PATCH v2 7/8] arm64: dts: fsl-lx2160a-tqmlx2160a: Remove deprecated properties
+Date: Tue,  7 Jul 2026 11:50:54 +0200
+Message-ID: <20260707095057.1745867-8-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20260707095057.1745867-1-alexander.stein@ew.tq-group.com>
 References: <20260707095057.1745867-1-alexander.stein@ew.tq-group.com>
@@ -71,8 +71,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Virus-Scanned: Clear (ClamAV 1.4.3/28053/Tue Jul  7 08:24:37 2026)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.9.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260707_025103_619136_53E3CEFA 
-X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-CacheID: sfid-20260707_025105_202400_BC1A70C3 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,52 +88,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nora Schiffer <nora.schiffer@ew.tq-group.com>
+Setting #size-cells in MTD nodes itself is deprecated by mtd.yaml.
+Remove the deprecated properties. Fixes the warning:
+fsl-lx2160a-tqmlx2160a.dtsi:62.18-76.4: Warning
+ (avoid_unnecessary_addr_size): /soc/spi@20c0000/flash@0: unnecessary
+ #address-cells/#size-cells without "ranges", "dma-ranges" or child "reg"
+ or "ranges" property
 
-Each TQMX2160A comes with a block of 18 MAC addresses. Define aliases
-to allow firmware to statically assign these addresses to the Ethernet
-interfaces.
-
-In addition, udev can use these aliases for predicable interface names.
-
-Signed-off-by: Nora Schiffer <nora.schiffer@ew.tq-group.com>
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- .../dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi | 21 +++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi | 2 --
+ 1 file changed, 2 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi
-index 89a4765737b4f..5ca950ff908e7 100644
+index 5ca950ff908e7..d64879ee5e54a 100644
 --- a/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi
 +++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a-tqmlx2160a.dtsi
-@@ -8,6 +8,27 @@
- #include "fsl-lx2160a.dtsi"
- 
- / {
-+	aliases {
-+		ethernet0 = &dpmac1;
-+		ethernet1 = &dpmac2;
-+		ethernet2 = &dpmac3;
-+		ethernet3 = &dpmac4;
-+		ethernet4 = &dpmac5;
-+		ethernet5 = &dpmac6;
-+		ethernet6 = &dpmac7;
-+		ethernet7 = &dpmac8;
-+		ethernet8 = &dpmac9;
-+		ethernet9 = &dpmac10;
-+		ethernet10 = &dpmac11;
-+		ethernet11 = &dpmac12;
-+		ethernet12 = &dpmac13;
-+		ethernet13 = &dpmac14;
-+		ethernet14 = &dpmac15;
-+		ethernet15 = &dpmac16;
-+		ethernet16 = &dpmac17;
-+		ethernet17 = &dpmac18;
-+	};
-+
- 	reg_vcc3v3: regulator-vcc3v3 {
- 		compatible = "regulator-fixed";
- 		regulator-name = "VCC3V3";
+@@ -62,8 +62,6 @@ &fspi {
+ 	flash0: flash@0 {
+ 		compatible = "jedec,spi-nor";
+ 		reg = <0>;
+-		#address-cells = <1>;
+-		#size-cells = <1>;
+ 		spi-max-frequency = <10000000>;
+ 		spi-rx-bus-width = <1>;
+ 		spi-tx-bus-width = <1>;
 -- 
 2.54.0
 
